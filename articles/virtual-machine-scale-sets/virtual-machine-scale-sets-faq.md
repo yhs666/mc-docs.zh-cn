@@ -3,8 +3,8 @@ title: "Azure 虚拟机规模集常见问题解答 | Microsoft Docs"
 description: "获取有关虚拟机规模集常见问题的解答。"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/12/2017
-ms.date: 12/29/2017
+ms.date: 01/30/2018
 ms.author: v-junlch
 ms.custom: na
-ms.openlocfilehash: 253dc28dc1d4318aace077bb2b89b4b1c1523b36
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: c2c7a52966021f90f2d5ceda3813fd0e23070a0e
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虚拟机规模集常见问题解答
 
@@ -65,12 +65,6 @@ ms.lasthandoff: 01/04/2018
 可以在 VM 上创建自动缩放设置，以使用主机级指标或基于来宾 OS 的指标。
 
 关于受支持的指标列表，请参阅 [Azure Monitor 自动缩放常用指标](/monitoring-and-diagnostics/insights-autoscale-common-metrics)。 
-
-关于虚拟机规模集的完整示例，请参阅[使用虚拟机规模集的 Resource Manager 模板的高级自动缩放配置](/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets)。 
-
-此示例使用主机级 CPU 指标和消息计数指标。
-
-
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>如何对虚拟机规模集设置警报规则？
 
@@ -282,7 +276,7 @@ Update-AzureRmVmss -VirtualMachineScaleSet $vmss -ResourceGroup $rg -Name $vmssN
  
 ### <a name="what-happens-if-you-delete-a-certificate-from-the-key-vault"></a>从 Key Vault 中删除证书会发生什么情况？
 
-如果从 Key Vault 中删除机密，然后对所有 VM 运行 `stop deallocate`，则再次启动这些 VM 时，会发生失败。 失败发生的原因是 CRP 需要从密钥保管库检索机密，但它无法进行检索。 在这种情况下，可以从虚拟机规模集模型中删除证书。 
+如果从密钥保管库中删除机密，然后对所有 VM 运行 `stop deallocate`，则再次启动这些 VM 时，将发生失败。 失败发生的原因是 CRP 需要从密钥保管库检索机密，但它无法进行检索。 在这种情况下，可以从虚拟机规模集模型中删除证书。 
 
 CRP 组件不会持久保留客户机密。 如果对虚拟机规模集中的所有虚拟机运行 `stop deallocate`，会删除缓存。 在这种情况下，将从密钥保管库中检索机密。
 
@@ -367,28 +361,28 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
 
 可采用两种主要方法为规模集中的 VM 更改密码。
 
-1. 直接更改 VMSS 模型。 适用于计算 API 2017-12-01 和更高版本。
+- 直接更改虚拟机规模集模型。 适用于 Compute API 2017-12-01 及更高版本。
 
-直接在规模集模型中更新管理凭据（例如，使用 Azure 资源浏览器、PowerShell 或 CLI）。 在更新规模集后，所有新 VM 都将具有新凭据。 如果为现有 VM 重置了映像，则它们将仅具有新凭据。 
+    直接更新规模集模型中的管理员凭据（例如，使用 Azure 资源浏览器、PowerShell 或 CLI）。 规模集完成更新后，所有新的 VM 将获得全新凭据。 现有 VM 只有被重置映像时才获得新凭据。 
 
-2. 使用 VM 访问扩展重置密码。
+- 使用 VM 访问扩展重置密码。
 
-使用以下 PowerShell 示例：
+    使用以下 PowerShell 示例：
+    
+    ```powershell
+    $vmssName = "myvmss"
+    $vmssResourceGroup = "myvmssrg"
+    $publicConfig = @{"UserName" = "newuser"}
+    $privateConfig = @{"Password" = "********"}
+     
+    $extName = "VMAccessAgent"
+    $publisher = "Microsoft.Compute"
+    $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    ```
 
-```powershell
-$vmssName = "myvmss"
-$vmssResourceGroup = "myvmssrg"
-$publicConfig = @{"UserName" = "newuser"}
-$privateConfig = @{"Password" = "********"}
- 
-$extName = "VMAccessAgent"
-$publisher = "Microsoft.Compute"
-$vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-$vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
-```
- 
- 
+
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>如何将扩展添加到虚拟机规模集中的所有 VM？
 
 如果更新策略设置为**自动**，使用新扩展属性重新部署模板可更新所有 VM。
@@ -461,9 +455,9 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 若要执行在私有存储帐户中托管的自定义脚本，请通过存储帐户密钥和名称来设置受保护的设置。 有关详细信息，请参阅[适用于 Windows 的自定义脚本扩展](/virtual-machines/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings)。
 
 
-## <a name="networking"></a>联网
+## <a name="networking"></a>网络
  
-### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>是否可以将网络安全组 (NSG) 分配给一个规模集，以便应用于规模集中的所有 VM Nic？
+### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>是否可以将网络安全组 (NSG) 分配给规模集，以便将其应用于集中的所有 VM NIC？
 
 是的。 网络安全组可以直接应用于规模集，方法是在网络配置文件的 networkInterfaceConfigurations 部分引用该组。 示例：
 
@@ -519,7 +513,7 @@ IP 地址是从指定的子网中选择的。
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>如何将虚拟机规模集中第一个 VM 的 IP 地址添加到模板的输出中？
 
-若要将虚拟机规模集中第一个 VM 的 IP 地址添加到模板的输出中，请参阅 [ARM：获取 VMSS 的专用 IP](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips)。
+要将虚拟机规模集中第一个 VM 的 IP 地址添加到模板的输出中，请参阅 [Azure 资源管理器：获取虚拟机规模集的专用 IP](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips)。
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>能否将规模集与加速网络结合使用？
 
@@ -543,9 +537,9 @@ IP 地址是从指定的子网中选择的。
 }
 ```
 
-### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>如何才能配置规模集使用的 DNS 服务器？
+### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>如何配置规模集使用的 DNS 服务器？
 
-若要创建具有自定义 DNS 配置的 VM 规模集，请将 dnsSettings JSON 数据包添加到规模集的 networkInterfaceConfigurations 节。 示例：
+若要创建具有自定义 DNS 配置的虚拟机规模集，请将 dnsSettings JSON 数据包添加到规模集的 networkInterfaceConfigurations 部分中。 示例：
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -554,7 +548,7 @@ IP 地址是从指定的子网中选择的。
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>如何将规模集配置为向每个 VM 分配公共 IP 地址？
 
-若要创建向每个 VM 分配公共 IP 地址的 VM 规模集，请确保 Microsoft.Compute/virtualMAchineScaleSets 资源的 API 版本为 2017-03-30，并将 publicipaddressconfiguration JSON 数据包添加到规模集的 ipConfigurations 节。 示例：
+若要创建向每个 VM 分配公共 IP 地址的虚拟机规模集，请确保 Microsoft.Compute/virtualMAchineScaleSets 资源的 API 版本为 2017-03-30，并将 _publicipaddressconfiguration JSON_ 数据包添加到规模集的 ipConfigurations 部分中。 示例：
 
 ```json
     "publicipaddressconfiguration": {
@@ -575,7 +569,7 @@ IP 地址是从指定的子网中选择的。
 
 创建包含少于两个 VM 的虚拟机规模集的原因之一为需要使用虚拟机规模集的弹性属性。 例如，可以部署不包含任何 VM 的虚拟机规模集来定义基础结构，这样就无需支付 VM 运行费。 然后，在准备好部署 VM 后，将虚拟机规模集的“容量”提高到生产实例计数。
 
-可能创建包含少于两个 VM 的虚拟机规模集的另一个原因为，相比于使用离散 VM 的可用性集，不必担心可用性的问题。 此外，可以借助虚拟机规模集来使用可替代的无差别计算单元。 这种一致性是虚拟机规模集相比可用性集存在的一项重要优势。 许多无状态工作负载不跟踪单个单元。 如果工作负载下降，可以减少到一个计算单元，如果工作负载上升，可以增加到多个计算单元。
+创建包含少于两个 VM 的虚拟机规模集的另一个原因可能是，相比于使用离散 VM 的可用性集，不必担心可用性的问题。 此外，可以借助虚拟机规模集来使用可替代的无差别计算单元。 这种一致性是虚拟机规模集相比可用性集存在的一项重要优势。 许多无状态工作负载不跟踪单个单元。 如果工作负载下降，可以减少到一个计算单元，如果工作负载上升，可以增加到多个计算单元。
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>如何更改虚拟机规模集中的 VM 数目？
 
@@ -653,7 +647,7 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 ```
 可在 OMS 门户中查找所需的 workspaceId 和 workspaceKey。 在“概述”页面上，单击“设置”磁贴。 单击顶部的“相连的源”选项卡。
 
-注意：如果规模集“upgradePolicy”设置为“手动”，则需要通过对 VM 调用升级将扩展应用到集中的所有 VM。 在 CLI 中，这将为“az vmss update-instances”。
+注意：如果规模集 _upgradePolicy_ 设置为“手动”，则需要通过对 VM 调用升级将扩展应用到集中的所有 VM。 在 CLI 中，这将为“az vmss update-instances”。
 
 ## <a name="troubleshooting"></a>故障排除
 

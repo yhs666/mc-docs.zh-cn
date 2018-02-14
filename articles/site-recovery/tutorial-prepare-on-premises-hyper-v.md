@@ -9,11 +9,11 @@ origin.date: 12/31/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: ed88e13b783878481c2a6a80a7e7adf2250efcd5
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 9151eaf460cebddd4fab6bc38ca9c047bcfb4c22
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>准备本地 Hyper-V 服务器用于灾难恢复到 Azure
 
@@ -58,8 +58,9 @@ ms.lasthandoff: 01/19/2018
 
 为网络映射准备 VMM，如下所示：
 
-1. 确保有与 Hyper-V 主机所在的云相关联的 [VMM 逻辑网络](/system-center/vmm/network-logical)。
-2. 确保有链接到逻辑网络的[虚拟机网络](/system-center/vmm/network-virtual)。
+1. 确保有与 Hyper-V 主机所在的云相关联的 [VMM 逻辑网络](https://docs.microsoft.com/system-center/vmm/network-logical)。
+2. 确保有链接到逻辑网络的[虚拟机网络](https://docs.microsoft.com/system-center/vmm/network-virtual)。
+<!-- URL is Correct on [VM network](https://docs.microsoft.com/system-center/vmm/network-virtual) -->
 3. 在 VMM 中，将 VM 连接到 VM 网络。
 
 ## <a name="verify-internet-access"></a>验证 Internet 访问

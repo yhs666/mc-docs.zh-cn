@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 08/15/2017
 ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: b157bf62f6429dd05eb0ddc9ebe77bde563f0e65
-ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
+ms.openlocfilehash: 7dc990b5267f7fa12973548b103d6d502095571f
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 迁移到高级存储
 
@@ -241,6 +241,6 @@ Site Recovery 会创建类型与支持高级存储的 VM 相同或类似的 VM �
 [11]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-11.PNG
 [12]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-12.PNG
 [13]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-13.png
-[14]:../site-recovery/media/site-recovery-vmware-to-azure/v2a-architecture-henry.png
+<!-- Not Available on [14]:../site-recovery/media/site-recovery-vmware-to-azure/v2a-architecture-henry.png -->
 [15]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-14.png
 <!--Update_Description: wording update, update meta properties -->

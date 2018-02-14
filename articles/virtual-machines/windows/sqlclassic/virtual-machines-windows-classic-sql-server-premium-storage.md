@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 origin.date: 06/01/2017
 ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7c5ab2e696c8552ec4f7393d31404cbe0329f08f
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 9a875bfff2690d89596a1201a82b9229f1dd37d0
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>将 Azure 高级存储用于虚拟机上的 SQL Server
 ## <a name="overview"></a>概述
@@ -304,7 +304,7 @@ ms.lasthandoff: 12/15/2017
 >
 
 #### <a name="step-7--build-the-vm"></a>步骤 7：生成 VM
-在此你基于映像生成 VM 并附加两个高级存储 VHD：
+在此将基于映像生成 VM 并附加两个高级存储 VHD：
 
     $newimageName = "prem"+"dansoldonorsql2k14"
     #Set up Machine Specific Information
@@ -346,7 +346,7 @@ ms.lasthandoff: 12/15/2017
 * **迁移现有 SQL Server VM**。 这将需要使 SQL Server VM 脱机，并将其传输到新的云服务，包括将其所有附加 VHD 复制到高级存储帐户。 当 VM 联机时，应用程序会像以前一样引用服务器主机名。 请注意，现有磁盘的大小会影响性能特性。 例如，400 GB 磁盘将向上舍入到 P20。 如果确定自己不需要该磁盘性能，则可以将 VM 重新创建为 DS 系列 VM，并附加具有所需大小/性能指标的高级存储 VHD。 然后，可以分离并重新附加 SQL DB 文件。
 
 > [!NOTE]
-> 复制 VHD 磁盘时应注意大小，大小决定了这些磁盘将归入的高级存储磁盘类型，这可确定磁盘性能指标。 Azure 将向上舍入到最接近的磁盘大小，因此，如果有一个 400GB 磁盘，则此磁盘将向上舍入到 P20。 根据操作系统 VHD 的现有 IO 要求，可能不需要将此 VHD 迁移到高级存储帐户。
+> 复制 VHD 磁盘时应注意大小，大小决定了这些磁盘将归入的高级存储磁盘类型，这可确定磁盘性能指标。 Azure 将向上舍入到最接近的磁盘大小，因此，如果你有一个 400GB 磁盘，则此磁盘将向上舍入到 P20。 根据操作系统 VHD 的现有 IO 要求，可能不需要将此 VHD 迁移到高级存储帐户。
 >
 >
 
@@ -354,7 +354,7 @@ ms.lasthandoff: 12/15/2017
 
 ## <a name="existing-deployments-that-use-always-on-availability-groups"></a>使用 AlwaysOn 可用性组的现有部署
 > [!NOTE]
-> 对于现有部署，请首先参阅本主题的 [先决条件](#prerequisites-for-premium-storage) 部分。
+> 对于现有部署，请首先参阅本主题的[先决条件](#prerequisites-for-premium-storage)部分。
 >
 >
 
@@ -367,7 +367,7 @@ ms.lasthandoff: 12/15/2017
 在 Azure 中，只能将一个 IP 地址分配给 VM 上的 NIC，因此，为了实现与本地相同的抽象层，Azure 将利用分配给内部/外部负载均衡器 (ILB/ELB) 的 IP 地址。 在服务器间共享的 IP 资源会设置为与 ILB/ELB 相同的 IP。 此 IP 在 DNS 中发布，客户端流量通过 ILB/ELB 传递到主 SQL Server 副本。 ILB/ELB 知道哪个 SQL Server 是主服务器，因为它使用探测器来探测 AlwaysOn IP 资源。 在前面的示例中，它会探测 ELB/ILB 引用的终结点所在的每个节点，做出响应的则是主 SQL Server。
 
 > [!NOTE]
-> ILB 和 ELB 都分配给特定 Azure 云服务，因此 Azure 中的任何云迁移都很可能意味着负载均衡器 IP 会更改。
+> ILB 和 ELB 都分配给特定 Azure 云服务，因此 Azure 中的任何云迁移都很可能意味着负载均衡器 IP 将更改。
 >
 >
 
@@ -431,7 +431,7 @@ ms.lasthandoff: 12/15/2017
 另一种策略是在新的云服务中创建包含全新节点的新 AlwaysOn 群集，并重定向客户端以使用该群集。
 
 ##### <a name="points-of-downtime"></a>停机时间点
-将应用程序和用户转移到新的 AlwaysOn 侦听器时会出现停机。 停机时间取决于：
+将应用程序和用户转移到新的 Always On 侦听器时，会出现停机时间。 停机时间取决于：
 
 * 将最后一个事务日志备份还原到新服务器上的数据库时所用的时间。
 * 更新客户端应用程序以使用新的 AlwaysOn 侦听器所用的时间。
@@ -517,7 +517,7 @@ ms.lasthandoff: 12/15/2017
 
 ##### <a name="disadvantages"></a>缺点
 * 根据客户端对 SQL Server 的访问权限，当 SQL Server 在应用程序的备用 DC 中运行时，延迟时间可能会增加。
-* 将 VHD 复制到高级存储的时间可能会很长。 这可能会影响是否要在可用性组中保留节点的决策。 如果迁移期间需要运行日志密集型工作负荷，则请考虑这一点，因为主节点必须在其事务日志中保留未复制的事务。 因此，此日志可能会显著增长。
+* VHD 到高级存储的复制时间可能会很长。 这可能会影响是否要在可用性组中保留节点的决策。 如果迁移期间需要运行日志密集型工作负荷，则请考虑这一点，因为主节点必须在其事务日志中保留未复制的事务。 因此，此日志可能会显著增长。
 * 此方案会使用 Azure **Start-AzureStorageBlobCopy** commandlet，它是异步的。 完成后没有 SLA。 复制时间各不相同，这取决于在队列中等待的时间，还取决于要传输的数据量。 因此，在第 2 个数据中心中只有一个节点，应该采取缓解措施，以防实际复制时间长于测试。 这可以包括以下建议。
   * 在以商定的停机时间进行迁移之前，添加临时的第 2 个 SQL 节点以实现 HA。
   * 在 Azure 计划的维护时间之外运行迁移。
@@ -539,8 +539,9 @@ ms.lasthandoff: 12/15/2017
 * 测试故障转移。
 * 将 AFP 切换回 SQL1 和 SQL2
 
+<a name="appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage"><a/>
 ## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>附录：将多站点 Always On 群集迁移到高级存储
-本主题的剩余部分提供了将多站点 AlwaysOn 群集转换为高级存储的详细示例。 它还将侦听器从使用外部负载均衡器 (ELB) 转换为使用内部负载均衡器 (ILB)。
+本主题的剩余部分提供了将多站点 Always On 群集转换为高级存储的详细示例。 它还将侦听器从使用外部负载均衡器 (ELB) 转换为使用内部负载均衡器 (ILB)。
 
 ### <a name="environment"></a>环境
 * Windows 2k12/SQL 2k12
@@ -604,7 +605,7 @@ ms.lasthandoff: 12/15/2017
 将最大故障数更改为 6。
 
 #### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>步骤 3：为群集组添加 IP 地址资源 <Optional>
-如果群集组只有一个 IP 地址，且已根据云子网进行调整，请注意，如果你意外使云中在该网络上的所有群集节点脱机，则该群集 IP 资源和群集网络名称无法联机。 如果发生这种情况，则阻止对其他群集资源进行更新。
+如果群集组只有一个 IP 地址，且已根据云子网进行调整，请注意，如果意外使云中在该网络上的所有群集节点脱机，则该群集 IP 资源和群集网络名称将无法联机。 如果发生这种情况，则阻止对其他群集资源进行更新。
 
 #### <a name="step-4-dns-configuration"></a>步骤 4：DNS 配置
 能否实现平稳过渡取决于如何利用和更新 DNS。
@@ -636,9 +637,10 @@ ms.lasthandoff: 12/15/2017
     ##Set RegisterAllProvidersIP
     Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  1
 
-在后面的迁移步骤中，需要使用引用负载均衡器的已更新 IP 地址更新 AlwaysOn 侦听器，这涉及到 IP 地址资源的删除和添加。 更新 IP 之后，需要确保已在 DNS 区域中更新新的 IP 地址并且客户端将更新其本地 DNS 缓存。
+在后面的迁移步骤中，需要使用引用负载均衡器的已更新 IP 地址更新 AlwaysOn 侦听器，这涉及到 IP 地址资源的删除和添加。 更新 IP 之后，你需要确保已在 DNS 区域中更新新的 IP 地址并且客户端将更新其本地 DNS 缓存。
 
-如果客户端驻留在不同网络段，并引用不同的 DNS 服务器，则需要考虑迁移期间将发生哪些与 DNS 区域传送相关的事件，因为应用程序重新连接时间将至少受制于任何新侦听器 IP 地址的区域传送时间。 如果在此处受到时间约束，则应与 Windows 团队讨论并测试强制增量区域传送，同时还应将 DNS 主机记录设为较小的生存时间 (TTL)，以使客户端更新。 有关详细信息，请参阅[增量区域传送](https://technet.microsoft.com/library/cc958973.aspx)和 [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx)。
+如果客户端驻留在不同网络段，并引用不同的 DNS 服务器，则需要考虑在迁移期间将发生哪些与 DNS 区域传送相关的事件，因为应用程序重新连接时间将至少受到侦听器的任何新 IP 地址的区域传送时间的约束。 如果在此处受到时间约束，则应与 Windows 团队讨论并测试强制增量区域传送，同时还应将 DNS 主机记录设为较小的生存时间 (TTL)，以使客户端更新。 有关详细信息，请参阅[增量区域传送](https://technet.microsoft.com/library/cc958973.aspx)和 [Start-DnsServerZoneTransfer](https://docs.microsoft.com/zh-cn/powershell/module/dnsserver/Start-DnsServerZoneTransfer)。
+<!-- URL is CORRECT ON [Start-DnsServerZoneTransfer](https://docs.microsoft.com/zh-cn/powershell/module/dnsserver/Start-DnsServerZoneTransfer) -->
 
 与 Azure AlwaysOn 侦听器关联的 DNS 记录的 TTL 默认为 1200 秒。 如果在迁移期间受到时间约束，你可能希望减少此时间，以确保客户端使用侦听器更新后的 IP 地址更新其 DNS。 可以通过转储 VNN 的配置来查看并修改该配置：
 

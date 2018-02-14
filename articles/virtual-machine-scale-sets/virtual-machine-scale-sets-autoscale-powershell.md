@@ -3,8 +3,8 @@ title: "使用 Azure PowerShell 自动缩放虚拟机规模集 | Microsoft Docs"
 description: "如何使用 Azure PowerShell 为虚拟机规模集创建自动缩放规则"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: iainfoulds
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/19/2017
-ms.date: 12/06/2017
+ms.date: 01/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 88378c87a31517da120981d47885b9c6ca091069
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: 111eba340c71df7bba13ffb3a397b4829a0f569d
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>使用 Azure PowerShell 自动缩放虚拟机规模集
 创建规模集时，可定义想运行的 VM 实例数。 若应用程序需要更改，可自动增加或减少 VM 实例数。 通过自动缩放功能，可随客户需求的改变而进行调整，或在应用的整个生命周期内响应应用程序性能更改。
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/04/2018
 
 
 ## <a name="prerequisites"></a>先决条件
-需要现有虚拟机规模集，才能创建自动缩放规则。 可使用 [Azure 门户](virtual-machine-scale-sets-portal-create.md)、[Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell) 或 [Azure CLI 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli) 创建规模集。
+需要现有虚拟机规模集，才能创建自动缩放规则。 可使用 [Azure 门户](virtual-machine-scale-sets-create-portal.md)、[Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) 或 [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) 创建规模集。
 
 若要更轻松地创建自动缩放规则，请为规模集定义几个变量。 以下示例为 myResourceGroup 资源组和“中国北部”区域内名为 myScaleSet 的规模集定义变量。 使用 [Get-AzureRmSubscription](https://docs.microsoft.com/powershell/module/azurerm.profile/get-azurermsubscription) 获取订阅 ID。 如果帐户关联了多个订阅，则仅返回第一个订阅。 按照如下所示，调整名称和订阅 ID：
 
@@ -141,7 +141,9 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 
 
 ## <a name="next-steps"></a>后续步骤
-本文详细介绍了如何使用自动缩放规则来进行横向缩放，即增加或减少规模集中的 VM 实例数。 还可进行纵向缩放，即增大或减小 VM 实例的大小。
+本文详细介绍了如何使用自动缩放规则来进行横向缩放，即增加或减少规模集中的 VM 实例数。 
 
 有关如何管理 VM 实例的信息，请参阅[使用 Azure PowerShell 管理虚拟机规模集](virtual-machine-scale-sets-windows-manage.md)。
+
+<!-- Update_Description: wording update -->
 

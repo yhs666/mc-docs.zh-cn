@@ -16,11 +16,11 @@ ms.workload: data-management
 origin.date: 10/24/2016
 ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 3f73d27fbabbb58be1e92b39f20c97987ff85d89
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 46ebb788fde1008f7d5f0ef7530fc8e5aa9e698a
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>迁移要扩展的现有数据库
 使用 Azure SQL 数据库数据库工具（例如[弹性数据库客户端库](sql-database-elastic-database-client-library.md)）轻松管理现有的扩展共享数据库。 必须先转换现有数据库集，以使用[分片映射管理器](sql-database-elastic-scale-shard-map-management.md)。 
@@ -38,7 +38,7 @@ ms.lasthandoff: 07/14/2017
 有关 ShardMapManager 的详细信息，请参阅[分片映射管理](sql-database-elastic-scale-shard-map-management.md)。 有关弹性数据库工具的概述，请参阅[弹性数据库功能概述](sql-database-elastic-scale-introduction.md)。
 
 ## <a name="prepare-the-shard-map-manager-database"></a>准备分片映射管理器数据库
-分片映射管理器是一个特殊的数据库，其中包含用于管理已扩展数据库的数据。 可以使用现有数据库，或创建新的数据库。 请注意：用作分片映射管理器的数据库应该是与分片不同的数据库。 另请注意：PowerShell 脚本不会为你创建该数据库。 
+分片映射管理器是一个特殊的数据库，其中包含用于管理已扩展数据库的数据。 可以使用现有数据库，或创建新的数据库。 请注意：用作分片映射管理器的数据库应该是与分片不同的数据库。 另请注意：PowerShell 脚本不会创建该数据库。 
 
 ## <a name="step-1-create-a-shard-map-manager"></a>步骤 1：创建分片映射管理器
 
@@ -76,15 +76,15 @@ $ShardMapManager = Get-ShardMapManager -UserName '<user_name>'
 
 ![列表映射][1]
 
-多租户模型将数个租户分配给单一数据库（可以跨多个数据库分布租户组）。 如果希望每个租户具有较小的数据需求，请使用此模型。 在此模型中，我们使用“范围映射” 将一系列租户分配给数据库。 
+多租户模型将数个租户分配给单一数据库（可以跨多个数据库分布租户组）。 如果希望每个租户具有较小的数据需求，请使用此模型。 在此模型中，我们使用**范围映射**将一系列用户分配到数据库。 
 
 ![范围映射][2]
 
-或者你可以使用“列表映射”  实现多租户数据库模型，以将多个租户分配给单一数据库。 例如，DB1 用于存储租户 ID 1 和 5 的相关信息，而 DB2 用于存储租户 7 和租户 10 的数据。 
+或者可以使用“列表映射”  实现多租户数据库模型，以将多个租户分配给单一数据库。 例如，DB1 用于存储租户 ID 1 和 5 的相关信息，而 DB2 用于存储租户 7 和租户 10 的数据。 
 
 ![单一数据库上的多个租户][3] 
 
-**根据你具体的选择，选择以下选项之一：**
+**根据选择，选择以下选项之一：**
 
 ### <a name="option-1-create-a-shard-map-for-a-list-mapping"></a>选项 1：为列表映射创建分片映射
 使用 ShardMapManager 对象创建分片映射。 
@@ -138,7 +138,7 @@ Add-ListMapping
 -SqlDatabaseName '<shard_database_name>' 
 ```
 
-### <a name="option-2-map-the-data-for-a-range-mapping"></a>选项 2：为范围映射映射数据
+### <a name="option-2-map-the-data-for-a-range-mapping"></a>选项 2：映射范围映射的数据
 添加所有租户 ID 范围的范围映射 - 数据库关联：
 
 ```
@@ -175,8 +175,6 @@ GitHub 上也提供了这些工具： [Azure/elastic-db-tools](https://github.co
 使用拆分/合并工具在多租户模型与单租户模型之间来回移动数据。 请参阅[拆分合并工具](sql-database-elastic-scale-get-started.md)。
 
 ## <a name="additional-resources"></a>其他资源
-有关多租户软件即服务 (SaaS) 数据库应用程序的常见数据体系结构模式的信息，请参阅[包含 Azure SQL 数据库的多租户 SaaS 应用程序的设计模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
-
 如有问题，请在 [SQL 数据库论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=ssdsgetstarted)上联系我们。
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png

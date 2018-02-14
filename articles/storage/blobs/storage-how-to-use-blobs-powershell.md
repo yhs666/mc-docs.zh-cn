@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/14/2017
-ms.date: 10/16/2017
+ms.date: 1/29/2018
 ms.author: v-johch
-ms.openlocfilehash: 747749d0221f33712ee77934e46adcdb1c85b237
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: d13c8babcb0af1dcd20462129b8353c0e83e88a7
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="perform-azure-blob-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 执行 Azure Blob 存储操作
 
@@ -35,13 +35,13 @@ Azure Blob 存储是用于存储大量非结构化对象数据（例如文本或
 > * 查看和设置 Blob 的元数据和属性
 > * 使用共享访问签名管理安全性
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
+本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 `Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
 ## <a name="create-a-container"></a>创建容器
 
-始终将 blob 上传到容器中。 容器类似于计算机上的目录，允许在容器中组织成组的 Blob，就好比在计算机上的文件夹中组织文件。 存储帐户可以有任意数量的容器；它仅受到存储帐户中所占用空间的限制（最大 500TB）。 
+始终将 Blob 上传到容器中。 容器类似于计算机上的目录，允许在容器中组织成组的 Blob，就好比在计算机上的文件夹中组织文件。 存储帐户可以有任意数量的容器；它仅受到存储帐户中所占用空间的限制（最大 500TB）。 
 
 创建容器时，可以设置访问级别，这有助于定义谁可以访问该容器中的 Blob。 例如，它们可以是专用的（访问级别 = `Off`），这意味着如果没有共享访问签名或存储帐户的访问密钥，就无法访问它们。 如果你在创建容器时未指定访问级别，则默认为专用。
 
@@ -153,7 +153,7 @@ Get-AzureStorageBlob -Container $containerName -Context $ctx | select Name
 设置第二个存储帐户，检索上下文，在该存储帐户中设置容器并执行复制操作。 这部分的脚本与上述脚本几乎相同，只不过使用的第二个存储帐户而不是第一个。
 
 ```powershell
-#create new storage acount, get context 
+#create new storage account, get context 
 $storageAccount2Name = "blobstutorialtestcopy"
 $storageAccount2 = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccount2Name `

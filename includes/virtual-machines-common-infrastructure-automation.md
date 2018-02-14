@@ -4,7 +4,7 @@
 - 自动执行 VM 的配置
     - 工具包括 [Chef](#chef)。
     - 特定于 VM 自定义的工具包括适用于 Linux VM 的 [cloud-init](#cloud-init)、[PowerShell Desired State Configuration (DSC)](#powershell-dsc)，以及适用于所有 Azure VM 的 [Azure 自定义脚本扩展](#azure-custom-script-extension)。
-<!--Not Available [Ansible](#ansible), [Puppet](#puppet) -->
+<!--Not Available [Ansible](#ansible) [Puppet](#puppet) -->
 
 - 自动化基础结构管理
     - 工具包括用于自动完成自定义 VM 映像生成的 [Packer](#packer)，以及用于自动完成基础结构生成过程的 [Terraform](#terraform)。
@@ -88,8 +88,8 @@ Azure 自动化还提供 Desired State Configuration (DSC) 服务，用于针对
 了解如何：
 
 - [创建 PowerShell Runbook](../articles/automation/automation-first-runbook-textual-powershell.md)。
-- [使用混合 Runbook 辅助角色来管理本地资源](../articles/automation/automation-hybrid-runbook-worker.md)。
-- [使用 Azure 自动化 DSC](../articles/automation/automation-dsc-getting-started.md)。
+<!-- Not Avaiable on - [Use Hybrid Runbook Worker to manage on-prem resources](../articles/automation/automation-hybrid-runbook-worker.md) -->
+<!-- Not Available on - [Use Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md) -->
 
 ## <a name="visual-studio-team-services"></a>Visual Studio Team Services
 [Team Services](https://www.visualstudio.com/team-services/) 是一套工具，用于共享和跟踪代码、使用自动化生成，以及创建完整的持续集成和开发 (CI/CD) 管道。 Team Services 集成 Visual Studio 和其他编辑器，简化了使用过程。 Team Services 还可以创建和配置 Azure VM，然后向其部署代码。

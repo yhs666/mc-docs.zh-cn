@@ -17,11 +17,11 @@ origin.date: 06/23/2017
 ms.date: 07/24/2017
 ms.author: v-dazen
 ms.custom: 
-ms.openlocfilehash: 7fdae61ec1febee14eca62b7a247448855caa2bd
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: b85f79eb889de65f4ee655801a8b40c92f0ed46c
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>使用网络配置文件配置虚拟网络（经典）
 > [!IMPORTANT]
@@ -37,7 +37,8 @@ ms.lasthandoff: 07/28/2017
 
 ### <a name="powershell"></a>PowerShell
 
-1. [安装 Azure PowerShell 并登录到 Azure](https://docs.microsoft.com/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+1. [安装 Azure PowerShell 并登录到 Azure](https://docs.microsoft.com/zh-cn/powershell/azure/install-azurerm-ps?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+<!-- URL is Correct on https://docs.microsoft.com/zh-cn/powershell/azure/install-azurerm-ps?toc=%2fazure%2fvirtual-network%2ftoc.json-->
 2. 在以下命令中根据需要更改目录（并确保它存在）和文件名，然后运行该命令导出网络配置文件：
 
     ```powershell
@@ -63,7 +64,7 @@ ms.lasthandoff: 07/28/2017
 - 覆盖订阅的所有现有网络设置，因此，在修改时请格外小心。 例如，请参考以下示例网络配置文件。 假设原始文件包含两个 **VirtualNetworkSite** 实例，而我们已按示例中所示更改了此文件。 导入文件时，Azure 会删除我们在该文件中删除的 **VirtualNetworkSite** 的虚拟网络实例。 这种简化方案假设虚拟网络中没有任何资源，如果有，则无法删除虚拟网络，并且导入将会失败。
 
 > [!IMPORTANT]
-> Azure 会将部署有项目的子网视为“使用中” 。 当某个子网处于“使用中”状态时，不能对其进行修改。 在修改网络配置文件中的子网信息之前，请将已部署到子网的任何内容移到不会进行修改的其他子网。 有关详细信息，请参阅[将 VM 或角色实例移到其他子网](virtual-networks-move-vm-role-to-subnet.md)。
+> Azure 会将部署有项目的子网视为“**使用中**”。 当某个子网处于“使用中”状态时，不能对其进行修改。 在修改网络配置文件中的子网信息之前，请将已部署到子网的任何内容移到不会进行修改的其他子网。 有关详细信息，请参阅[将 VM 或角色实例移到其他子网](virtual-networks-move-vm-role-to-subnet.md)。
 
 ### <a name="example-xml-for-use-with-powershell"></a>用于 PowerShell 的示例 XML
 
@@ -125,7 +126,8 @@ ms.lasthandoff: 07/28/2017
 
 ### <a name="powershell"></a>PowerShell
 
-1. [安装 Azure PowerShell 并登录到 Azure](https://docs.microsoft.com/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+1. [安装 Azure PowerShell 并登录到 Azure](https://docs.microsoft.com/zh-cn/powershell/azure/install-azurerm-ps?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+<!-- URL is Correct on https://docs.microsoft.com/zh-cn/powershell/azure/install-azurerm-ps?toc=%2fazure%2fvirtual-network%2ftoc.json-->
 2. 在以下命令中根据需要更改目录和文件名，然后运行该命令导入网络配置文件：
 
     ```powershell

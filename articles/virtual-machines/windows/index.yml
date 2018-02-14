@@ -13,13 +13,13 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 12/18/2017
+  ms.date: 02/05/2018
   ms.author: v-yeche
-  ms.openlocfilehash: 9dc817dcf778082279dc0f4d1caef465d6854ef0
-  ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+  ms.openlocfilehash: 672a3bbd90fe4990401b2ccfd2ed7fdd9254ade1
+  ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/15/2017
+  ms.lasthandoff: 02/13/2018
 abstract:
   description: "Azure Windows 虚拟机使用 Windows Server 按需提供具有高可伸缩性且十分安全的虚拟化基础结构。 使用我们的快速入门、教程和示例了解如何创建、配置、管理和缩放 Windows VM。"
 sections:
@@ -65,7 +65,7 @@ sections:
     - html: "<a href=\"/virtual-machines/windows/tutorial-availability-sets\">创建高度可用的 VM</a>"
     - html: "<a href=\"/virtual-machines/windows/tutorial-create-vmss\">创建 VM 规模集</a>"
     - html: "<a href=\"/virtual-machines/windows/tutorial-load-balancer\">对 VM 进行负载均衡</a>"
-    - html: "<a href=\"/virtual-machines/windows/tutorial-virtual-network\">管理 VM 与虚拟网络</a>"
+    - html: "<a href=\"/virtual-machines/windows/tutorial-virtual-network\">使用虚拟网络管理 VM</a>"
     - html: "<a href=\"/virtual-machines/windows/tutorial-backup-vms\">备份 VM</a>"
     - html: "<a href=\"/virtual-machines/windows/tutorial-monitoring\">监视 VM</a>"
     - html: "<a href=\"/virtual-machines/windows/tutorial-azure-security\">管理 VM 上的安全性</a>"

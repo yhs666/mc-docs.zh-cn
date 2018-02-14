@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 10/16/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5e3dc0b1cb9225503620bf0d74315e33105f3c3a
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 49ab46242d5f699983623dfe808aa9575f7757f0
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>Site Recovery 中到 Azure 的测试故障转移
 
@@ -78,6 +78,7 @@ ms.lasthandoff: 01/19/2018
 
 在其他所有情况下，不需要执行中间步骤，因此故障转移花费的时间大大减少。
 
+<a name="creating-a-network-for-test-failover"></a>
 ## <a name="create-a-network-for-test-failover"></a>创建用于测试故障转移的网络
 
 对于测试故障转移，我们建议选择与每个 VM 的“计算和网络”设置中指定的生产恢复站点网络相互独立的网络。 默认情况下，创建 Azure 虚拟网络时，该网络独立于其他网络。 测试网络应模拟生产网络：

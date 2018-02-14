@@ -15,11 +15,11 @@ ms.topic: hero-article
 origin.date: 12/02/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: bd093e57c8021305b300c61ac29a48e17a759b61
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 1bcc16f66bc72be3c32a25dc96b8888abc91bc98
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery 部署规划器成本估算报表  
 
@@ -127,7 +127,8 @@ ms.lasthandoff: 12/29/2017
 
 **一年的 DR 演练次数**：一年中进行 DR 演练的次数， 默认为一年 4 次。 可以修改特定 VM 的持续时间或将新值应用到所有 VM，只需在顶部行中输入新值，然后单击“应用到所有项”按钮即可。 可以根据一年的 DR 演练次数和每次 DR 演练的持续时间来计算总 DR 演练成本。  
 
-**每次 DR 演练的持续时间(天)**：每次 DR 演练的持续时间。 默认情况下，根据[灾难恢复软件保障权益](https://www.azure.cn/en-inhttps://www.azure.cn/pricing/details/site-recovery/)的规定，每 90 天演练一次，每次演练的持续时间为 7 天。 可以修改特定 VM 的持续时间或将新值应用到所有 VM，只需在顶部行中输入新值，然后单击“应用到所有项”按钮即可。 可以根据一年的 DR 演练次数和每次 DR 演练的持续时间来计算总 DR 演练成本。
+**每次 DR 演练的持续时间(天)**：每次 DR 演练的持续时间。 默认情况下，根据[灾难恢复软件保障权益](https://www.azure.cn/pricing/details/site-recovery/)的规定，每 90 天演练一次，每次演练的持续时间为 7 天。 可以修改特定 VM 的持续时间或将新值应用到所有 VM，只需在顶部行中输入新值，然后单击“应用到所有项”按钮即可。 可以根据一年的 DR 演练次数和每次 DR 演练的持续时间来计算总 DR 演练成本。
+<!-- URL is Correct on https://www.azure.cn/pricing/details/site-recovery/ -->
 
 **OS 类型**：VM 的 OS 类型。 可以是 Windows 或 Linux。 如果 OS 类型为 Windows，则可将 Azure 混合使用权益应用到该 VM。 
 
@@ -143,24 +144,9 @@ ms.lasthandoff: 12/29/2017
 
 **ASR 许可证成本**：Azure Site Recovery 许可证成本。
 
-## <a name="supported-target-regions"></a>支持的目标区域
-Azure Site Recovery 部署规划器为以下 Azure 区域提供成本估算。 如果你的区域没有列在下面，可以使用下面定价最接近你的区域的任何区域。
+<!-- Not Available on ## Supported target regions -->
 
-chinaeast、chinaeast2、chinanorth、chinaeast、chinaeast、chinaeast、northeurope、chinanorth、chinaeast、chinaeast、japaneast、japanwest、australiaeast、australiasoutheast、brazilsouth、southindia、centralindia、westindia、canadacentral、canadaeast、chinanorth2、chinaeast、uksouth、ukwest、koreacentral、koreasouth 
-
-## <a name="supported-currencies"></a>支持的货币
-Azure Site Recovery 部署规划器可以使用以下任何货币生成成本报表。
-
-|货币|Name||货币|Name||货币|Name|
-|---|---|---|---|---|---|---|---|
-|ARS|阿根廷比索 ($)||AUD|澳大利亚元 ($)||BRL|巴西雷亚尔 (R$)|
-|CAD|加拿大元 ($)||CHF|瑞士法郎 (chf)||DKK|丹麦克朗 (kr)|
-|EUR|欧元 (€)||GBP|英镑 (£)||HKD|港元 (HK$)|
-|IDR|印度尼西亚卢比 (Rp)||INR|印度卢比 (₹)||JPY|日元 (¥)|
-|KRW|韩元 (₩)||MXN|墨西哥比索 (MX$)||MYR|马来西亚林吉特 (RM$)|
-|NOK|挪威克朗 (kr)||NZD|新西兰元 ($)||RUB|俄罗斯卢布 (руб)|
-|SAR|沙特里亚尔 (SR)||SEK|瑞典克朗 (kr)||TWD|台币 (NT$)|
-|TRY|土耳其里拉 (TL)||USD| 美元 ($)||ZAR|南非兰特 (R)|
+<!-- Not Available on ## Supported currencies -->
 
 ## <a name="next-steps"></a>后续步骤
 详细了解如何[使用 Azure Site Recovery 将 Hyper-V VM 转移到 Azure 进行保护](/site-recovery/tutorial-hyper-v-to-azure)。

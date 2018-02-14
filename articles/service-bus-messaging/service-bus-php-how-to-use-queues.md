@@ -14,18 +14,18 @@ ms.devlang: PHP
 ms.topic: article
 origin.date: 08/10/2017
 ms.author: v-yiso
-ms.date: 09/18/2017
-ms.openlocfilehash: b354106412c482f7e6b0179f429c3ce66d9716c9
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/05/2018
+ms.openlocfilehash: 6a18acc5a0e8e31b84dd8c9d7bd342d7f884e8d5
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-use-service-bus-queues"></a>如何使用服务总线队列
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-本指南说明如何使用服务总线队列。 示例采用 PHP 编写并使用 [Azure SDK for PHP](../php-download-sdk.md)。 涉及的任务包括**创建队列**、**发送和接收消息**以及**删除队列**。
+本指南说明如何使用服务总线队列。 示例是用 PHP 编写的并使用了 [Azure SDK for PHP](../php-download-sdk.md)。 涉及的任务包括**创建队列**、**发送和接收消息**以及**删除队列**。
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -38,13 +38,13 @@ ms.lasthandoff: 09/08/2017
 > 
 > 
 
-本指南会使用服务功能，这些功能可在 PHP 应用程序中本地调用，或通过在 Azure 的 Web 角色、辅助角色或网站中运行的代码调用。
+在本指南中，将使用服务功能，这些功能可在 PHP 应用程序中本地调用，或通过在 Azure 的 Web 角色、辅助角色或网站中运行的代码调用。
 
 ## <a name="get-the-azure-client-libraries"></a>获取 Azure 客户端库
 
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
-## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
+## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用应用程序
 
 若要使用服务总线队列 API，请执行以下操作：
 
@@ -75,7 +75,7 @@ Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAcce
 
 其中，Endpoint 的格式通常为 `[yourNamespace].servicebus.chinacloudapi.cn`。
 
-若要创建任何 Azure 服务客户端，必须使用 `ServicesBuilder` 类。 可执行以下操作：
+若要创建任何 Azure 服务客户端，必须使用 `ServicesBuilder` 类。 方法：
 
 * 将连接字符串直接传递给它。
 * 使用 CloudConfigurationManager (CCM) 检查多个外部源以获取连接字符串：
@@ -163,12 +163,12 @@ catch(ServiceException $e){
 
 发送到服务总线（以及从服务总线收到）的消息是 [BrokeredMessage][BrokeredMessage] 类的实例。 [BrokeredMessage][BrokeredMessage] 对象包含一组标准方法、用来保存特定于应用程序的自定义属性的属性，以及大量的任意应用程序数据。
 
-在标准层，服务总线队列支持的最大消息大小为 256 KB。 标头最大为 64 KB，其中包括标准和自定义应用程序属性。 一个队列中包含的消息数量不受限制，但消息的总大小受限制。 队列大小的上限为 5 GB。
+在标准层，服务总线队列支持的最大消息大小为 256 KB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列中包含的消息数量不受限制，但消息的总大小受限制。 队列大小的上限为 5 GB。
 
 ## <a name="receive-messages-from-a-queue"></a>从队列接收消息
 从队列接收消息的最佳方法是使用 `ServiceBusRestProxy->receiveQueueMessage` 方法。 可通过两种不同的模式接收消息：[ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) 和 [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock)。 **PeekLock** 是默认设置。
 
-使用 [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) 模式时，接收是一项单步操作，即当服务总线接收到队列中某条消息的读取请求时，它会将该消息标记为“已使用”并将其返回给应用程序。 [ReceiveAndDelete](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) 模式是最简单的模式，最适合在发生故障时应用程序允许不处理消息的情况。 为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线会将消息标记为“已使用”，因此当应用程序重启并重新开始使用消息时，它会遗漏在发生崩溃前使用的消息。
+使用 [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) 模式时，接收是一项单步操作，即当服务总线接收到队列中某条消息的读取请求时，它会将该消息标记为“已使用”并将其返回给应用程序。 [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) 模式是最简单的模式，最适合应用程序允许出现故障时不处理消息的方案。 为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线会将消息标记为“已使用”，因此当应用程序重启并重新开始使用消息时，它会遗漏在发生崩溃前使用的消息。
 
 在默认的 [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock) 模式下，接收消息会变成一个双阶段操作，这将能够支持不能允许丢失消息的应用程序。 当 Service Bus 收到请求时，它会找到要使用的下一个消息，将其锁定以防其他使用方接收它，并将该消息返回给应用程序。 应用程序完成消息处理（或可靠地存储消息以供日后处理）后，它会将收到的消息传递到 `ServiceBusRestProxy->deleteMessage`，从而完成接收过程的第二阶段。 当服务总线发现 `deleteMessage` 调用时，它会将消息标记为“已使用”并将其从队列中删除。
 
@@ -220,7 +220,7 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 如果在处理消息之后，发出 `deleteMessage` 请求之前，应用程序发生崩溃，则在应用程序重启时会将该消息重新传送给它。 此情况通常称作*至少处理一次*，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果某个场景不允许重复处理，则建议向应用程序添加其他逻辑来处理重复消息传送。 这通常可以通过使用消息的 `getMessageId` 方法来实现，消息在多次传送尝试中保持不变。
 
 ## <a name="next-steps"></a>后续步骤
-现在，已了解服务总线队列的基础知识，请参阅[队列、主题和订阅][Queues, topics, and subscriptions] 以获取更多信息。
+了解服务总线队列的基础知识后，请参阅[队列、主题和订阅][Queues, topics, and subscriptions]以获取更多信息。
 
 有关详细信息，另请访问 [PHP 开发人员中心](https://azure.microsoft.com/develop/php/)。
 

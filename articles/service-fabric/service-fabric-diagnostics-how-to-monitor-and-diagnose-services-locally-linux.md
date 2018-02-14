@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 08/09/2017
 ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1a1ec40bb4b3a4690bda7261702ed3b20f74c4c8
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 3baad2ea01025fef7d24252f70ac4316f15dc948
+ms.sourcegitcommit: 1fb5f5438975a4901c35b6b95cbb190a08570a9b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>在本地计算机开发安装过程中监视和诊断服务
 
@@ -65,7 +65,8 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 
 ## <a name="debugging-service-fabric-c-applications"></a>调试 Service Fabric C# 应用程序
 
-可以使用多个框架在 Linux 上跟踪 CoreCLR 应用程序。 有关详细信息，请参阅 [GitHub：日志记录](http:/github.com/aspnet/logging)。  由于 C# 开发者熟悉 EventSource，因此本文使用 EventSource 在 Linux 上跟踪 CoreCLR 示例。
+可以使用多个框架在 Linux 上跟踪 CoreCLR 应用程序。 有关详细信息，请参阅 [GitHub：日志记录](https://github.com/aspnet/logging)。  由于 C# 开发者熟悉 EventSource，因此本文使用 EventSource 在 Linux 上跟踪 CoreCLR 示例。
+<!-- URL is correct on https:// [GitHub: logging](https://github.com/aspnet/logging) -->
 
 第一步是添加 System.Diagnostics.Tracing，以便可以将日志写入内存、输出流或控制台文件。  要使用 EventSource 进行日志记录，请将以下项目添加到 project.json：
 

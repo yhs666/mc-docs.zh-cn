@@ -15,11 +15,11 @@ ms.workload: required
 origin.date: 09/20/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: f7b43cadf786f95862873f7fe788078790523841
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: c65d292304a58133ba4c0f9e26afd01182c440de
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="service-remoting-with-reliable-services"></a>通过 Reliable Services 进行服务远程处理
 对于不依赖于特定通信协议或堆栈的服务，如 WebAPI、Windows Communication Foundation (WCF) 或其他服务，Reliable Services 框架提供一种远程处理机制，以便快速而轻松地为这些服务设置远程过程调用。
@@ -88,7 +88,8 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory 生存期
 [ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) 是为不同远程接口创建代理实例的工厂。 如果使用 api `ServiceProxy.Create` 创建代理，则框架将创建 ServiceProxy 的单一实例。
-在需要替代 [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) 属性时，手动创建一个 ServiceProxyFactory 是有用的。
+在需要替代 [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) 属性时，手动创建一个 ServiceProxyFactory 是有用的。
+<!-- Should Be v1(v2).client.iserviceremotingclientfactory -->
 工厂创建是一项代价高昂的操作。 ServiceProxyFactory 维护通信客户端的内部缓存。
 最佳做法是尽可能久地缓存 ServiceProxyFactory。
 
@@ -148,7 +149,7 @@ Remoting V2 与 V1（上一个 Remoting 堆栈）不兼容，因此遵循以下�
   </Resources>
   ```
 
-2. 使用 [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet)。 使用的默认服务终结点资源名称为“ServiceEndpointV2”，必须在服务清单中定义该名称。
+2. 使用 [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet)。 使用的默认服务终结点资源名称为“ServiceEndpointV2”，必须在服务清单中定义该名称。
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()

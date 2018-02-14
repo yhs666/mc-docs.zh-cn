@@ -18,15 +18,16 @@ origin.date: 11/17/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
 ms.reviewer: barbkess
-ms.openlocfilehash: f1251ef71f42b239f376bda2cf3ee38c0cd94f44
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 18bb4f604c3a00b2bf53d4e49e4775f1b812ce3a
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>使用 PolyBase 将数据从 Azure Blob 存储加载到 Azure SQL 数据仓库
 
-PolyBase 是一种标准加载技术，用于将数据加载到 SQL 数据仓库。 在本教程中，使用 PolyBase 将出租车数据从 Azure Blob 存储加载到 Azure SQL 数据仓库。 本教程使用 [Azure 门户](https://portal.azure.cn)和 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) 执行以下操作： 
+PolyBase 是一种标准加载技术，用于将数据加载到 SQL 数据仓库。 在本教程中，使用 PolyBase 将出租车数据从 Azure Blob 存储加载到 Azure SQL 数据仓库。 本教程使用 [Azure 门户](https://portal.azure.cn)和 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 执行以下操作： 
+<!-- Not Available on http://XX.XX.filename.md -->
 
 > [!div class="checklist"]
 > * 在 Azure 门户中创建数据仓库
@@ -42,7 +43,8 @@ PolyBase 是一种标准加载技术，用于将数据加载到 SQL 数据仓库
 
 ## <a name="before-you-begin"></a>准备阶段
 
-开始本教程之前，请下载并安装最新版 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS)。
+开始本教程之前，请下载并安装最新版 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。
+<!-- Not Available on http://XX.XX.filename.md -->
 
 ## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -50,7 +52,7 @@ PolyBase 是一种标准加载技术，用于将数据加载到 SQL 数据仓库
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>创建空白 SQL 数据仓库
 
-创建 Azure SQL 数据仓库时，会使用定义好的一组[计算资源](performance-tiers.md)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 逻辑服务器](../sql-database/sql-database-features.md)中创建。 
+创建 Azure SQL 数据仓库时，会使用定义好的一组[计算资源](performance-tiers)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview)和 [Azure SQL 逻辑服务器](../sql-database/sql-database-features)中创建。 
 
 按照以下步骤创建空白 SQL 数据仓库。 
 
@@ -91,7 +93,8 @@ PolyBase 是一种标准加载技术，用于将数据加载到 SQL 数据仓库
     ![配置性能](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. 单击“应用” 。
-9. 在“SQL 数据仓库”页中，为空白数据库选择“排序规则”。 对于本教程，请使用默认值。 有关排序规则的详细信息，请参阅 [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations.md)（排序规则）
+9. 在“SQL 数据仓库”页中，为空白数据库选择“排序规则”。 对于本教程，请使用默认值。 有关排序规则的详细信息，请参阅 [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)（排序规则）
+<!-- URL is Correct remove .md postfix on https://docs.microsoft.com/sql/t-sql/statements/collations -->
 
 11. 完成 SQL 数据库表单后，即可单击“创建”对数据库进行预配。 预配需要数分钟。 
 
@@ -146,7 +149,8 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 ## <a name="connect-to-the-server-as-server-admin"></a>以服务器管理员的身份连接到服务器
 
-本部分使用 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) 来建立与 Azure SQL Server 的连接。
+本部分使用 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 来建立与 Azure SQL Server 的连接。
+<!-- Not Cantains .md postfix of https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms.md-->
 
 1. 打开 SQL Server Management Studio。
 
@@ -221,7 +225,8 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 ## <a name="create-external-tables-for-the-sample-data"></a>为示例数据创建外部表
 
-已准备好开始将数据加载到新的数据仓库。 本教程说明了如何使用 [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide.md) 从 Azure 存储 Blob 加载出租车数据。 若要了解如何将数据置于 Azure Blob 存储或如何将其直接从源加载到 SQL 数据仓库以供将来参考，请参阅[加载概述](sql-data-warehouse-overview-load.md)。
+已准备好开始将数据加载到新的数据仓库。 本教程说明了如何使用 [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 从 Azure 存储 Blob 加载出租车数据。 若要了解如何将数据置于 Azure Blob 存储或如何将其直接从源加载到 SQL 数据仓库以供将来参考，请参阅[加载概述](sql-data-warehouse-overview-load.md)。
+<!-- URL is Correct to remove .md postfix on [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) -->
 
 运行以下 SQL 脚本，指定有关想要加载的数据的信息。 此信息包括数据所在的位置、数据内容的格式以及数据的表定义。 
 
@@ -237,7 +242,8 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     CREATE MASTER KEY;
     ```
 
-4. 运行以下 [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql.md) 语句，定义 Azure Blob 的位置。 这是外部出租车数据的位置。  要运行追加到查询窗口的命令，请突出显示要运行的命令，然后单击“执行”。
+4. 运行以下 [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) 语句，定义 Azure Blob 的位置。 这是外部出租车数据的位置。  要运行追加到查询窗口的命令，请突出显示要运行的命令，然后单击“执行”。
+<!-- URL is correct on remove the .md postfix on (https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) -->
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -249,7 +255,8 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     ```
 <!-- Notice:  wasbs://2013@nytaxiblob.blob.core.windows.net/ is CORRECT source-->
     
-5. 运行以下 [CREATE EXTERNAL FILE FORMAT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql.md) T-SQL 语句，指定外部数据文件的格式设置特征和选项。 此语句指定外部数据存储为文本，且值由管道 ("|") 字符分隔。 使用 Gzip 压缩外部文件。 
+5. 运行以下 [CREATE EXTERNAL FILE FORMAT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql) T-SQL 语句，指定外部数据文件的格式设置特征和选项。 此语句指定外部数据存储为文本，且值由管道 ("|") 字符分隔。 使用 Gzip 压缩外部文件。 
+<!-- URL is Correct on remove .md postfix on (https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql) -->
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -274,7 +281,8 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     );
     ```
 
-6.  运行以下 [CREATE SCHEMA](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql.md) 语句，创建外部文件格式的架构。 该架构提供组织即将创建的外部表的方法。
+6.  运行以下 [CREATE SCHEMA](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql) 语句，创建外部文件格式的架构。 该架构提供组织即将创建的外部表的方法。
+<!-- URL is correct on remove .md postfix on (https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql) -->
 
     ```sql
     CREATE SCHEMA ext;
@@ -453,7 +461,8 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 本部分使用刚才定义的外部表将示例数据从 Azure 存储 Blob 加载到 SQL 数据仓库。  
 
-下面的脚本使用 [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL 语句将数据从 Azure 存储 Blob 加载到数据仓库中的新表。 CTAS 基于 select 语句的结果创建新表。 新表包含与 select 语句结果相同的列和数据类型。 当 select 语句从外部表进行选择时，SQL 数据仓库将数据导入数据仓库中的关系表。 
+下面的脚本使用 [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 语句将数据从 Azure 存储 Blob 加载到数据仓库中的新表。 CTAS 基于 select 语句的结果创建新表。 新表包含与 select 语句结果相同的列和数据类型。 当 select 语句从外部表进行选择时，SQL 数据仓库将数据导入数据仓库中的关系表。 
+<!-- URL is correct on remove the .md postfix on (https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) -->
 
 1. 运行以下脚本，将数据加载到数据仓库中的新表。
 

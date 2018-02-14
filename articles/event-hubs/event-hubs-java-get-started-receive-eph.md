@@ -15,15 +15,15 @@ ms.topic: article
 origin.date: 08/15/2017
 ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: d33a98bd3c8e1d538dd7e14b92fc535487636d7e
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 12130449838f26501c66ba71f8ecfa8e781cf1f2
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>使用 Java 从 Azure 事件中心接收事件
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 事件中心是一个高度可缩放的引入系统，每秒可引入数百万事件，从而使应用程序能够处理和分析连接的设备和应用程序所产生的海量数据。 数据采集到事件中心后，可以使用任何实时分析提供程序或存储群集来转换和存储数据。
 
 有关详细信息，请参阅 [事件中心概述][Event Hubs overview]。
@@ -243,7 +243,7 @@ ms.lasthandoff: 09/04/2017
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
 <!-- Images -->
-[11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
-[12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png
+<!-- Not Available on [11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png -->
+<!-- Not Available on [12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png -->
 
 <!--Update_Description: update meta properties, wording update, update reference link-->

@@ -17,11 +17,11 @@ origin.date: 05/10/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 84ee79930fc70949869d21811e4a2ea403d47eca
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 101ef26ea94e6434dda67a7d2b7508f3ba8a526a
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB：使用 .NET 连接到 MongoDB 应用
 
@@ -58,6 +58,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 3. 选择平台（*.NET 驱动程序*、*Node.js 驱动程序*、*MongoDB Shell*、*Java 驱动程序*、*Python 驱动程序*）。 如果未列出驱动程序或工具，别担心，我们持续记录了更多连接代码片段。 
 4. 将代码片段复制并粘贴到 MongoDB 应用后，即已准备就绪。
 
+<a name="SetupVS"></a>
 ## <a name="set-up-your-mongodb-app"></a>设置 MongoDB 应用
 
 可以参考[在 Azure 中创建连接到虚拟机上运行的 MongoDB 的 Web 应用](../app-service/app-service-web-tutorial-nodejs-mongodb-app.md)教程（需进行少量修改），快速设置一个连接到 MongoDB 帐户的 API 的 MongoDB 应用程序（在本地或发布到 Azure Web 应用）。  
@@ -216,7 +217,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，已完成以下内容：
+在本教程中已完成以下操作：
 
 > [!div class="checklist"]
 > * 创建 Azure Cosmos DB 帐户 

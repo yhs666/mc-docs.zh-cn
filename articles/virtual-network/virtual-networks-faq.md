@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 01/18/2017
 ms.date: 11/06/2017
 ms.author: v-yeche
-ms.openlocfilehash: f9439a9a652edcc3c3a6d68c5eeaddd15751dc82
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: 6cc656aae25e5c023a421cf8681bc52156ff32ff
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虚拟网络常见问题 (FAQ)
 
@@ -37,22 +37,22 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 ### <a name="how-do-i-know-if-i-need-a-vnet"></a>如何知道是否需要 VNet？
 [虚拟网络概述](virtual-networks-overview.md)一文提供了一份决策表，可帮助你确定最佳的网络设计选项。
 
-### <a name="how-do-i-get-started"></a>如何开始？
+### <a name="how-do-i-get-started"></a>如何入门？
 请访问[虚拟网络文档](/virtual-network/)帮助自己入门。 这些内容提供了所有 VNet 功能的概述和部署信息。
 
 ### <a name="can-i-use-vnets-without-cross-premises-connectivity"></a>没有跨界连接的情况下是否可以使用 VNet？
-可以。 可以在不使用混合连接的情况下使用 VNet。 如果想要在 Azure 中运行 Microsoft Windows Server Active Directory 域控制器和 SharePoint 场，此功能特别有用。
+是的。 可以在不使用混合连接的情况下使用 VNet。 如果想要在 Azure 中运行 Microsoft Windows Server Active Directory 域控制器和 SharePoint 场，此功能特别有用。
 
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>是否可以在 VNet 之间或者 VNet 与本地数据中心之间执行 WAN 优化？
 
-可以。 可以通过 Azure 应用商店部署许多供应商提供 [WAN 优化网络虚拟设备](https://azure.microsoft.com/marketplace/?term=wan+optimization) 。
+是的。 可以通过 Azure 应用商店部署许多供应商提供 [WAN 优化网络虚拟设备](https://azure.microsoft.com/marketplace/?term=wan+optimization) 。
 
 ## <a name="configuration"></a>配置
 
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>要使用哪些工具创建 VNet？
 可以使用以下工具创建或配置 VNet：
 
-* Azure 门户（用于经典 VNet 和 Resource Manager VNet）。
+* Azure 门户（用于经典 VNet 和资源管理器 VNet）。
 * 网络配置文件（netcfg - 仅用于经典 VNet）。 请参阅[使用网络配置文件配置 VNet](virtual-networks-using-network-configuration-file.md) 一文。
 * PowerShell（用于经典 VNet 和 Resource Manager VNet）。
 * Azure CLI（用于经典 VNet 和 Resource Manager VNet）。
@@ -61,13 +61,13 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 [RFC 1918](http://tools.ietf.org/html/rfc1918)中定义的任何 IP 地址范围。 例如 10.0.0.0/16。
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>我的 VNet 中是否可以有公共 IP 地址？
-可以。 有关公共 IP 地址范围的详细信息，请参阅[虚拟网络中的公共 IP 地址空间](virtual-networks-public-ip-within-vnet.md)一文。 无法从 Internet 直接访问公共 IP 地址。
+是的。 有关公共 IP 地址范围的详细信息，请参阅[虚拟网络中的公共 IP 地址空间](virtual-networks-public-ip-within-vnet.md)一文。 无法从 Internet 直接访问公共 IP 地址。
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>VNet 中的子网数量是否有限制？
 是的。 子网地址空间不能相互重叠。
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>使用这些子网中的 IP 地址是否有任何限制？
-可以。 Azure 会保留每个子网中的某些 IP 地址。 子网的第一个和最后一个 IP 地址仅为协议一致性而保留，其他 3 个地址用于 Azure 服务。
+是的。 Azure 会保留每个子网中的某些 IP 地址。 子网的第一个和最后一个 IP 地址仅为协议一致性而保留，其他 3 个地址用于 Azure 服务。
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>VNet 和子网的最小和最大容量是多少？
 支持的最小子网为 /29，最大为 /8（使用 CIDR 子网定义）。
@@ -94,7 +94,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 是的。 只要子网地址不属于 VNet 中另一个子网的一部分，就能随时会子网添加到 VNet 中。
 
 ### <a name="can-i-modify-the-size-of-my-subnet-after-i-create-it"></a>创建后是否可以修改子网的大小？
-可以。 如果子网中未部署任何 VM 或服务，可以添加、删除、扩展或收缩该子网。
+是的。 如果子网中未部署任何 VM 或服务，可以添加、删除、扩展或收缩该子网。
 
 ### <a name="can-i-modify-subnets-after-i-created-them"></a>创建子网后是否可以对其进行修改？
 是的。 可以添加、删除和修改 VNet 使用的 CIDR 块。
@@ -109,7 +109,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 否。 一个 VNet 限制为单个区域。
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>是否可以将 VNet 连接到 Azure 中的另一个 VNet？
-可以。 可使用以下方式将一个 VNet 连接到另一个 VNet：
+是的。 可使用以下方式将一个 VNet 连接到另一个 VNet：
 - Azure VPN 网关。 有关详细信息，请参阅[配置 VNet 到 VNet 连接](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)一文。 
 - VNet 对等互连。 有关详细信息，请参阅 [VNet 对等互连概述](virtual-network-peering-overview.md)一文。
 
@@ -148,7 +148,7 @@ Azure 提供的 DNS 是由 Microsoft 提供的多租户 DNS 服务。 Azure 在�
 * **公共：** 选择性地分配给附加到通过 Azure Resource Manager 部署模型部署的 VM 的 NIC。 可以使用静态或动态分配方法分配地址。 通过经典部署模型部署的所有 VM 和云服务角色实例位于分配有*动态*公共虚拟 IP (VIP) 地址的云服务中。 可以选择性地将某个公共*静态* IP 地址（称为[保留 IP 地址](virtual-networks-reserved-public-ip.md)）分配为 VIP。 可将公共 IP 地址分配给通过经典部署模型部署的单个 VM 或云服务角色实例。 这些地址称为[实例级公共 IP (ILPIP](virtual-networks-instance-level-public-ip.md) 地址，可动态分配。
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>是否可为以后创建的 VM 保留专用 IP 地址？
-不可以。 无法保留专用 IP 地址。 如果某个专用 IP 地址可用，它将由 DHCP 服务器分配给 VM 或角色实例。 该 VM 可能是要将专用 IP 地址分配到的 VM，也可能不是。 但是，可将已创建的 VM 的专用 IP 地址更改为任何可用的专用 IP 地址。
+否。 无法保留专用 IP 地址。 如果某个专用 IP 地址可用，它将由 DHCP 服务器分配给 VM 或角色实例。 该 VM 可能是要将专用 IP 地址分配到的 VM，也可能不是。 但是，可将已创建的 VM 的专用 IP 地址更改为任何可用的专用 IP 地址。
 
 ### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>VNet 中 VM 的专用 IP 地址是否会变化？
 视情况而定。 在停止（解除分配）或删除 VM 之前，该 VM 将保留使用动态专用 IP 地址。 只有在删除 VM 之后，才会从中释放静态专用 IP 地址。
@@ -160,7 +160,7 @@ Azure 提供的 DNS 是由 Microsoft 提供的多租户 DNS 服务。 Azure 在�
 无变化。 IP 地址（公共 VIP、公共和专用）将保留分配给该云服务部署槽或 VM。 仅当停止（解除分配）或删除 VM，或者删除云服务部署槽时，才会释放动态地址。 在 Azure 门户中单击 VM 对应的“停止”按钮会将其状态设置为“已停止(已解除分配)”。 在这种情况下，VM 将会丢失其 IP 地址。
 
 ### <a name="can-i-move-vms-from-one-subnet-to-another-subnet-in-a-vnet-without-re-deploying"></a>在无需重新部署的情况下，是否可以将 VM 从一个子网移动到 VNet 中的另一个子网？
-可以。 可在[如何将 VM 或角色实例移到其他子网](virtual-networks-move-vm-role-to-subnet.md)一文中找到详细信息。
+是的。 可在[如何将 VM 或角色实例移到其他子网](virtual-networks-move-vm-role-to-subnet.md)一文中找到详细信息。
 
 ### <a name="can-i-configure-a-static-mac-address-for-my-vm"></a>是否可以为我的 VM 配置静态 MAC 地址？
 否。 MAC 地址不能以静态方式配置。
@@ -169,7 +169,7 @@ Azure 提供的 DNS 是由 Microsoft 提供的多租户 DNS 服务。 Azure 在�
 是的，通过资源管理器和经典部署模型部署的 VM 在被删除之前，其 MAC 地址将保持不变。 以前，如果停止（解除分配）VM，将会释放 MAC 地址，但现在，即使 VM 处于解除分配状态，也会保留其 MAC 地址。
 
 ### <a name="can-i-connect-to-the-internet-from-a-vm-in-a-vnet"></a>是否可以通过 VNet 中的 VM 连接到 Internet？
-可以。 VNet 中部署的所有 VM 和云服务角色实例都可连接到 Internet。
+是的。 VNet 中部署的所有 VM 和云服务角色实例都可连接到 Internet。
 
 ## <a name="azure-services-that-connect-to-vnets"></a>连接到 VNet 的 Azure 服务
 
@@ -189,7 +189,7 @@ Azure 提供的 DNS 是由 Microsoft 提供的多租户 DNS 服务。 Azure 在�
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>是否可以将服务移入和移出 VNet？
 否。 不能将服务移入和移出 VNet。 必须删除并重新部署该服务，以将其移动到另一个 VNet 中。
 
-## <a name="security"></a>“安全”
+## <a name="security"></a>安全性
 
 ### <a name="what-is-the-security-model-for-vnets"></a>VNet 的安全模型是什么？
 VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间完全孤立。 VNet 是一条信任边界。
@@ -198,10 +198,10 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间完�
 可以。 可向 VNet 中的单个子网和/或附加到 VNet 的 NIC 应用[网络安全组](virtual-networks-nsg.md)。
 
 ### <a name="can-i-implement-a-firewall-between-vnet-connected-resources"></a>是否可在与 VNet 连接的资源之间实施防火墙？
-可以。 可以通过 Azure 应用商店部署许多供应商提供 [防火墙网络虚拟设备](https://azure.microsoft.com/marketplace/?term=firewall) 。
+是的。 可以通过 Azure 应用商店部署许多供应商提供 [防火墙网络虚拟设备](https://azure.microsoft.com/marketplace/?term=firewall) 。
 
-### <a name="is-there-information-available-about-securing-vnets"></a>是否有介绍如何保护 VNet 的信息？
-可以。 有关详细信息，请参阅 [Azure 网络安全概述](../security/security-network-overview.md)一文。
+### <a name="is-there-information-available-about-securing-vnets"></a>你们是否提供了有关保护 VNet 的信息？
+是的。 有关详细信息，请参阅 [Azure 网络安全概述](../security/security-network-overview.md)一文。
 
 ## <a name="apis-schemas-and-tools"></a>API、架构和工具
 
@@ -209,9 +209,10 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间完�
 是的。 可以在 [Azure Resource Manager](https://msdn.microsoft.com/library/mt163658.aspx) 和[经典（服务管理）](http://go.microsoft.com/fwlink/?LinkId=296833)部署模型中使用适用于 VNet 的 REST API。
 
 ### <a name="is-there-tooling-support-for-vnets"></a>是否有 VNet 的工具支持？
-可以。 详细了解以下操作：
+是的。 详细了解以下操作：
 - 使用 Azure 门户通过 [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) 和[经典](virtual-networks-create-vnet-classic-pportal.md)部署模型部署 VNet。
-- 使用 PowerShell 来管理通过 [Resource Manager](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network.md) 和[经典](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)部署模型部署的 VNet。
+- 使用 PowerShell 来管理通过 [Resource Manager](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.network/?view=azurermps-5.2.0) 和[经典](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)部署模型部署的 VNet。
+<!-- URL is Correct on [Resource Manager](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.network/?view=azurermps-5.2.0) -->
 - 使用 [Azure 命令行接口 (CLI)](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) 来管理通过这两种部署模型部署的 VNet。
 
 <!--Update_Description: wording update, update reference link-->

@@ -16,11 +16,11 @@ ms.custom: backup-restore
 origin.date: 10/23/2017
 ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 061a8843217ff23de2206ead5c7f74da2558c206
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 51d1b6350879c711ee66863669d7363431bab5c3
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="backup-and-restore-in-sql-data-warehouse"></a>SQL 数据仓库中的备份和还原
 本文介绍了在 SQL 数据仓库中进行备份的细节。 使用数据仓库备份，将数据库快照还原到主要区域，或将异地备份还原到异地配对区域。 
@@ -44,7 +44,8 @@ order by run_id desc
 SQL 数据仓库每天执行一次异地备份，将内容备份到配对的数据中心。 异地还原的 RPO 为 24 小时。 可将异地备份还原至异地配对区域中的服务器。 异地备份可确保用户能够在无法访问主要区域中的快照的情况下还原数据仓库。
 <!-- Not Available on (../best-practices-availability-paired-regions.md) -->
 
-默认情况下，异地备份处于启用状态。 如果数据仓库已进行弹性优化，则可按需[选择退出](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicyredirectedfrom=msdn)。 如果对计算性能层进行了优化，则无法选择退出异地备份。
+默认情况下，异地备份处于启用状态。 如果数据仓库已进行弹性优化，则可按需[选择退出](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy)。 如果对计算性能层进行了优化，则无法选择退出异地备份。
+<!-- Opt Out is Correct for https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy-->
 
 ## <a name="backup-costs"></a>备份成本
 Azure 帐单上将列出 Azure 高级存储的明细项目以及异地冗余存储的明细项目。 高级存储费用是指在主要区域中存储数据（包括快照）的总费用。  异地冗余费用是指存储异地备份的费用。  

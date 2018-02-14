@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 08/31/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: de3a6a9466639c5108e88c1801473002c63ad411
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 57eff34dd01538e37c948dde6b5dfe9673b52f47
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="networking-guidance-for-replicating-azure-virtual-machines"></a>有关复制 Azure 虚拟机的网络指南
 
@@ -71,7 +71,7 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
 
 如果使用任何基于 IP 的防火墙代理或 NSG 规则控制出站连接，则需要将以下 IP 范围列入允许列表，具体取决于虚拟机的源位置和目标位置：
 
-- 对应于源位置的所有 IP 范围。 （可以下载 [IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=41653)。）必须列入允许列表，才能从 VM 将数据写入到缓存存储帐户。
+- 对应于源位置的所有 IP 范围。 （可以下载 [IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=42064)。）必须列入允许列表，才能从 VM 将数据写入到缓存存储帐户。
 
 - 对应于 Office 365 [身份验证和标识 IP V4 终结点](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)的所有 IP 范围。
 
@@ -99,11 +99,7 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
 
 * 为对应于 Office 365 [身份验证和标识 IP V4 终结点](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)的所有 IP 范围创建规则。
 
-* 创建对应于目标位置的规则：
-
-   **位置** | **Site Recovery 服务 IP** |  **Site Recovery 监视 IP**
-    --- | --- | ---
-   中国北部 | 40.69.144.231 | 52.165.34.144
+<!-- Not Available * Create rules that correspond to the target location: -->
 
 ### <a name="nsg-rules-on-the-china-north-network-security-group"></a>中国北部网络安全组上的 NSG 规则
 
@@ -113,11 +109,7 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
 
 * 针对对应于 Office 365 [身份验证和标识 IP V4 终结点](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)的所有 IP 范围的规则。
 
-* 对应于源位置的规则：
-
-   **位置** | **Site Recovery 服务 IP** |  **Site Recovery 监视 IP**
-    --- | --- | ---
-   中国东部 | 13.82.88.226 | 104.45.147.24
+<!-- Not Available on * Rules that correspond to the source location: -->
 
 ## <a name="guidelines-for-existing-azure-to-on-premises-expressroutevpn-configuration"></a>现有 Azure 到本地 ExpressRoute/VPN 配置的相关准则
 
@@ -143,7 +135,8 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
   - 源虚拟网络和 ExpressRoute 线路。
   - 目标虚拟网络和 ExpressRoute 线路。
 
-- ExpressRoute 标准规定，可以在同一地缘政治区域创建线路。 若要在不同的地缘政治区域创建 ExpressRoute 线路，则需使用 Azure ExpressRoute 高级版，这会增加成本。 （如果已在使用 ExpressRoute 高级版，则不必支付额外费用。）有关更多详细信息，请参阅 [ExpressRoute 位置文档](../../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region)和 [ExpressRoute 定价](https://www.azure.cn/pricing/details/expressroute/)。
+- ExpressRoute 标准规定，可以在同一地缘政治区域创建线路。 若要在不同的地缘政治区域创建 ExpressRoute 线路，则需使用 Azure ExpressRoute 高级版，这会增加成本。 （如果已在使用 ExpressRoute 高级版，则不必支付额外费用。）有关更多详细信息，请参阅 [ExpressRoute 位置文档](../../expressroute/expressroute-locations.md)和 [ExpressRoute 定价](https://www.azure.cn/pricing/details/expressroute/)。
+<!-- Anchor not Exist on azure-regions-to-expressroute-locations-within-a-geopolitical-region -->
 
 - 建议在源区域和目标区域中使用不同的 IP 范围。 ExpressRoute 线路无法同时连接两个使用相同 IP 范围的 Azure 虚拟网络。
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: bc6483578bf300941c2f2aae4c834849ad50e4ff
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 9eae06f17e16dfbbb393a2cc67455587d50da3dc
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>创建虚拟网络对等互连 - 不同的部署模型，相同的订阅 
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/19/2018
 
 可以使用 [Azure 门户](#portal)、Azure [命令行接口](#cli) (CLI)、Azure [PowerShell](#powershell)、或 [Azure 资源管理器模板](#template)创建虚拟网络对等互连。 单击以前的任何工具链接即可直接转到使用所选工具创建虚拟网络对等互连的步骤。
 
-<a name="cli"></a>
+<a name="portal"></a>
 ## <a name="create-peering---azure-portal"></a>创建对等互连 - Azure 门户
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。 用于登录的帐户必须拥有创建虚拟网络对等互连的必要权限。 有关详细信息，请参阅本文的[权限](#permissions)部分。

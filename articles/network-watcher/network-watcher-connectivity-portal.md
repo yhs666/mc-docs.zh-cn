@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 origin.date: 08/03/2017
 ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: f1e34fbd3161f2d62d22f66d15253d574bda715a
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: d48a1a153872c4232e9b4791d5b55e7e8d1fe746
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>使用 Azure 门户通过 Azure 网络观察程序检查连接性
 
@@ -59,8 +59,7 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="next-steps"></a>后续步骤
 
-查看[创建警报触发的数据包捕获](network-watcher-alert-triggered-packet-capture.md)，了解如何利用虚拟机警报自动执行数据包捕获
-
+<!-- Not Available on  [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 访问[查看“IP 流验证”](network-watcher-check-ip-flow-verify-portal.md)，了解是否允许某些流量传入和传出 VM
 
 [1]: ./media/network-watcher-connectivity-portal/figure1.png

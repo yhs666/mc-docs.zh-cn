@@ -16,16 +16,16 @@ ms.custom: create
 origin.date: 10/31/2016
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: b6377b419de9295e6c33b7e9ad38a69c34c59378
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: 0c9443a0bf75e5f3ba401ba6e022d5796af68aa9
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-sql-data-warehouse-using-powershell"></a>使用 PowerShell 创建 SQL 数据仓库
 
 > [!div class="op_single_selector"]
-> * [Azure 门户](sql-data-warehouse-get-started-provision.md)
+<!-- Not Available on > * [Azure Portal](sql-data-warehouse-get-started-provision.md) -->
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 >
@@ -34,7 +34,7 @@ ms.lasthandoff: 07/05/2017
 本文说明如何使用 PowerShell 创建 SQL 数据仓库。
 
 ## <a name="prerequisites"></a>先决条件
-若要开始，您需要：
+要开始，需要：
 
 * **Azure 帐户**：访问 [Azure 试用版][Azure Trial]，以创建帐户。
 * **Azure SQL Server**：有关详细信息，请参阅[在 Azure 门户中创建 Azure SQL 数据库][Create an Azure SQL database in the Azure Portal]或[使用 PowerShell 创建 Azure SQL 数据库][Create an Azure SQL database with PowerShell]。
@@ -97,7 +97,7 @@ ms.lasthandoff: 07/05/2017
 [firewall rules]: ../sql-database-configure-firewall-settings.md
 
 [How to install and configure Azure PowerShell]: https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs
-[how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
+<!-- Not Available on [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md -->
 [Create an Azure SQL database in the Azure Portal]: ../sql-database/sql-database-get-started.md
 [Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-get-started-powershell.md
 [how to create a resource group]: ../azure-resource-manager/resource-group-template-deploy-portal.md#create-resource-group

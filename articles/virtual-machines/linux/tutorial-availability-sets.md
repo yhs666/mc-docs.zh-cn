@@ -17,11 +17,11 @@ origin.date: 10/05/2017
 ms.date: 10/30/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c662b314eef1acc03a0256427c8d9b8203c400a1
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 2c7049e0d40f5b48c856fa60d5cbd27bd513b36d
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-use-availability-sets"></a>如何使用可用性集
 
@@ -94,7 +94,8 @@ done
 
 ## <a name="check-for-available-vm-sizes"></a>检查可用的 VM 大小 
 
-稍后可向可用性集添加更多 VM，但需了解在硬件上可用的 VM 大小。  使用 [az vm availability-set list-sizes](https://docs.azure.cn/zh-cn/cli/availability-set?view=azure-cli-latest#list-sizes) 列出可用性集的硬件群集上所有可用的大小。
+稍后可向可用性集添加更多 VM，但需了解在硬件上可用的 VM 大小。  使用 [az vm availability-set list-sizes](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az_vm_availability_set_list_sizes) 列出可用性集的硬件群集上所有可用的大小。
+<!-- URL SHOULD BE https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az_vm_availability_set_list_sizes -->
 
 ```azurecli 
 az vm availability-set list-sizes \

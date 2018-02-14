@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 11/21/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: b192b705ec2a9369bb6bc2cbedc4a785241160cc
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 93b66a8da654b86a4ec20f8cdff2f0ee8f43aad8
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 到 Azure VM 复制问题故障排除
 
@@ -30,10 +30,11 @@ ms.lasthandoff: 01/19/2018
 
 错误代码 | **可能的原因** | 建议
 --- | --- | ---
-150097<br></br>消息：无法为虚拟机 VmName 启用复制。 | - 可能未启用订阅 ID，无法在目标区域位置中创建任何 VM。</br></br>- 可能未启用订阅 ID 或没有足够的配额，无法在目标区域位置中创建特定大小的 VM。</br></br>- 对于订阅 ID，在目标区域位置中找不到与源 VM NIC 计数 (2) 匹配的合适的目标 VM 大小。| 联系 [Azure 计费支持](/azure-supportability/resource-manager-core-quotas-request)，对订阅启用 VM 创建，以便在目标位置中创建所需大小的 VM。 启用后，重试失败的操作。
+150097<br></br>消息：无法为虚拟机 VmName 启用复制。 | - 可能未启用订阅 ID，无法在目标区域位置中创建任何 VM。</br></br>- 可能未启用订阅 ID 或没有足够的配额，无法在目标区域位置中创建特定大小的 VM。</br></br>- 对于订阅 ID，在目标区域位置中找不到与源 VM NIC 计数 (2) 匹配的合适的目标 VM 大小。| 联系 [Azure 计费支持](https://support.windowsazure.cn/support/support-azure)，对订阅启用 VM 创建，以便在目标位置中创建所需大小的 VM。 启用后，重试失败的操作。
 
 ### <a name="fix-the-problem"></a>解决问题
-可联系 [Azure 计费支持](/azure-supportability/resource-manager-core-quotas-request)启用订阅，以便在目标位置中创建所需大小的 VM。
+可联系 [Azure 计费支持](https://support.windowsazure.cn/support/support-azure)启用订阅，以便在目标位置中创建所需大小的 VM。
+<!-- SHOUD BE https://support.windowsazure.cn/support/support-azure FOR /azure-supportability/resource-manager-core-quotas-request -->
 
 如果目标位置存在容量约束，可禁用复制然后在订阅拥有充足配额的其他位置启用复制，以便创建所需大小的 VM.
 

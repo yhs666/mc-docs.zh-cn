@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 06/22/2017
 ms.date: 08/07/2017
 ms.author: v-yeche
-ms.openlocfilehash: 20e47c6469e82265eadca888585edf644f0f8653
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 3497219e6fb789d8c80246c41c4f48a2eeac0fec
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>使用自动缩放规则扩展可缩减 Service Fabric 群集
 虚拟机规模集是一种 Azure 计算资源，可用于将一组虚拟机作为一个集进行部署和管理。 在 Service Fabric 群集中定义的每个节点类型将设置为不同的虚拟机规模集。 然后，每个节点类型可以独立缩减或扩展、打开不同的端口集，并可以有不同的容量指标。 可在 [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) 文档中了解有关详细信息。 由于群集中的 Service Fabric 节点类型由后端的虚拟机规模集构成，因此需要为每个节点类型/虚拟机规模集设置自动缩放规则。
@@ -104,6 +104,6 @@ Service Fabric Explorer 中列出的节点是 Service Fabric 系统服务（特�
 
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
-[ClusterResources]: ./media/service-fabric-cluster-scale-up-down/ClusterResources.png
+<!-- Not Exist File [ClusterResources]: ./media/service-fabric-cluster-scale-up-down/ClusterResources.png -->
 
 <!--Update_Description: new articles on service fabric cluster manually scale -->

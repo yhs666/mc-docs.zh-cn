@@ -16,11 +16,11 @@ origin.date: 11/01/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: ed5dafb9954d2a7f2a39197ac1fd511128703168
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: ac4686f128c2e942b4d92321031039337c6b7ebe
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>对复制到 Azure 的 VMware VM 和物理服务器进行故障转移和故障回复
 
@@ -61,7 +61,8 @@ ms.lasthandoff: 12/01/2017
 
 2. “复制的项”窗格中具有 VM 信息、运行状况状态和最新可用恢复点的摘要。 单击“属性”，查看详细信息。
 
-3. 在“计算和网络”中，可修改 Azure 名称、资源组、目标大小、[可用性集](../virtual-machines/windows/tutorial-availability-sets.md)和[托管的磁盘设置](#managed-disk-considerations)
+3. 在“计算和网络”中，可修改 Azure 名称、资源组、目标大小、[可用性集](../virtual-machines/windows/tutorial-availability-sets.md)和托管的磁盘设置
+<!-- Anchor is NOT Exist on ](#managed-disk-considerations) -->
 
 4. 可查看和修改网络设置，包括在运行故障转移后 Azure VM 所在的网络/子网，以及将分配给它的 IP 地址。
 

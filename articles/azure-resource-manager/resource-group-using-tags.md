@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 11/01/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 82bcb29b06949c4deb73c23a5ccf8b42de6ab481
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: a3fc903638f776eb4295e9ece50e96958aa29d9d
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用标记整理 Azure 资源
 
@@ -140,20 +140,21 @@ Azure 门户和 PowerShell 均在后台使用[资源管理器 REST API](https://
 
 ## <a name="tags-and-billing"></a>标记和计费
 
-可使用标记对计费数据进行分组。 例如，如果针对不同组织运行多个虚拟机，可以使用标记根据成本中心对使用情况进行分组。 还可使用标记根据运行时环境（例如，在生产环境中运行的 VM 的计费使用情况）对成本进行分类。
+可使用标记对计费数据进行分组。 例如，如果要针对不同组织运行多个 VM，可以使用标记，对使用情况按成本中心进行分组。 还可使用标记根据运行时环境（例如，在生产环境中运行的 VM 的计费使用情况）对成本进行分类。
 
 可以检索有关使用情况逗号分隔值 (CSV) 文件的信息。 可以从 [Azure 帐户门户](https://account.windowsazure.cn/)下载使用情况文件。 有关 REST API 操作，请参阅 [Azure 计费 REST API 参考](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)。
 <!-- Not Available [Azure Resource Usage and RateCard APIs](../billing/billing-usage-rate-card-overview.md) -->
 <!-- Not Available [EA portal](https://ea.azure.com) -->
 <!-- Not Available [Gain insights into your Azure resource consumption](../billing/billing-usage-rate-card-overview.md) -->
 
-为支持标记和计费的服务下载使用情况 CSV 时，标记将显示在“标记”列中。 有关详细信息，请参阅[了解 Azure 帐单](../billing/billing-understand-your-bill.md)。
+为支持标记和计费的服务下载使用情况 CSV 时，标记将显示在“标记”列中。
+<!-- Not Available on [Understand your bill for Azure](../billing/billing-understand-your-bill.md) -->
 
 ![在计费中查看标记](./media/resource-group-using-tags/billing_csv.png)
 
 ## <a name="next-steps"></a>后续步骤
 
-<!-- Not Available on [What is Azure Policy?](../azure-policy/azure-policy-introduction.md). -->
+<!-- Not Available on [What is Azure Policy?](../azure-policy/azure-policy-introduction.md) -->
 * 有关部署资源时使用 Azure PowerShell 的说明，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](powershell-azure-resource-manager.md)。
 * 有关部署资源时使用 Azure CLI 的说明，请参阅[将适用于 Mac、Linux 和 Windows 的 Azure CLI 与 Azure 资源管理器配合使用](xplat-cli-azure-resource-manager.md)。
 * 有关使用门户的说明，请参阅[使用 Azure 门户管理 Azure 资源](resource-group-portal.md)。  

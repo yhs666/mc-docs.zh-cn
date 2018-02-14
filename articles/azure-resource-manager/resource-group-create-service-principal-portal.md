@@ -14,11 +14,11 @@ ms.workload: na
 origin.date: 11/16/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6bd3b0ccf2d840347622bd2c76e72513725f3664
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 488177bed87d3182832bb8827a1bd06f9ffda720
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体
 
@@ -192,7 +192,7 @@ ms.lasthandoff: 12/22/2017
 * [REST](https://docs.microsoft.com/rest/api/#create-the-request)
 * [.NET](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](https://docs.azure.cn/java/java-sdk-azure-authenticate)
-* [Node.js](/nodejs/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
+* [Node.js](https://docs.microsoft.com/javascript/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
 * [Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
 * [Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 

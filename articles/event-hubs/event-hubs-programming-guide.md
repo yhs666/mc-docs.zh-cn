@@ -15,11 +15,11 @@ ms.workload: tbd
 origin.date: 11/16/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: bb9d46ad94bed77f133aba820eab14cc90d12277
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 99d9190482fdc407fa0cf16f13ef883e008e5b1e
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="event-hubs-programming-guide"></a>事件中心编程指南
 
@@ -136,7 +136,7 @@ var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[
 事件中心针对事件使用提供两个主要模型：直接接收者和和较高级别的抽象，如 [EventProcessorHost][]。 直接接收者负责自行协调对*使用者组*中分区的访问。 使用者组是分区事件中心中的视图（状态、位置或偏移量）。
 
 ### <a name="direct-consumer"></a>直接使用者
-从分区读取数据的最直接方式是使用 [EventHubReceiver](https://docs.microsoft.com/dotnet/apie/microsoft.servicebus.messaging.eventhubreceiver) 类。 若要创建此类的实例，必须使用 [EventHubConsumerGroup](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup) 类的实例。 在以下示例中，在创建使用者组的接收者时，必须指定分区 ID：
+从分区读取数据的最直接方式是使用 [EventHubReceiver](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubreceiver) 类。 若要创建此类的实例，必须使用 [EventHubConsumerGroup](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup) 类的实例。 在以下示例中，在创建使用者组的接收者时，必须指定分区 ID：
 
 ```csharp
 EventHubConsumerGroup group = client.GetDefaultConsumerGroup();

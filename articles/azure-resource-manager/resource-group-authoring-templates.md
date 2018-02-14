@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 12/14/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5e6b477e4ed84798ea4ac0e6c072f1975715a7da
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 671d7d60bb7c2c7a7867d45e3195dea3ee20d39c
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 模板的结构和语法
 本文介绍 Azure 资源管理器模板的结构。 演示了模板的不同部分，以及可在相应部分使用的属性。 模板中包含可用于为部署构造值的 JSON 和表达式。 有关创建模板的分步教程，请参阅[创建第一个 Azure Resource Manager 模板](resource-manager-create-first-template.md)。
@@ -233,7 +233,7 @@ ms.lasthandoff: 12/22/2017
 * 模板表达式中不超过 24,576 个字符
 
 通过使用嵌套模板，可超出某些模板限制。 有关详细信息，请参阅[部署 Azure 资源时使用链接的模板](resource-group-linked-templates.md)。 若要减少参数、变量或输出的数量，可以将几个值合并为一个对象。 有关详细信息，请参阅[对象即参数](http://docs.microsoft.com/zh-cn/azure/architecture/building-blocks/extending-templates/objects-as-parameters)。
-<!-- [Objects as parameters](resource-manager-objects-as-parameters.md) redirect to /azure/architecture/building-blocks/extending-templates/objects-as-parameters -->
+<!-- Not Available on redirect to /azure/architecture/building-blocks/extending-templates/objects-as-parameters for [Objects as parameters](resource-manager-objects-as-parameters.md)  -->
 
 ## <a name="next-steps"></a>后续步骤
 * 若要查看许多不同类型的解决方案的完整模型，请参阅 [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/)（Azure 快速入门模板）。

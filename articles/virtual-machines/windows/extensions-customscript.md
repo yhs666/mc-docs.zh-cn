@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/16/2017
-ms.date: 01/08/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: b2e64db57614b077b273d35e978eb56857a642d7
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 081372e25da69f667dcff55a82e05d576f364ff3
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="custom-script-extension-for-windows"></a>适用于 Windows 的自定义脚本扩展
 
@@ -29,6 +29,11 @@ ms.lasthandoff: 01/05/2018
 本文档详细说明了如何通过 Azure PowerShell 模块和 Azure Resource Manager 模板使用自定义脚本扩展，同时详细说明了 Windows 系统上的故障排除步骤。
 
 ## <a name="prerequisites"></a>先决条件
+
+> [!NOTE]  
+> 不要在将同一 VM 作为参数的情况下使用自定义脚本扩展运行 Update-AzureRmVM，因为它将等待它本身响应。  
+>   
+> 
 
 ### <a name="operating-system"></a>操作系统
 

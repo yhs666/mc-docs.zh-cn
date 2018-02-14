@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 11/22/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: b0c5c7e1bd15b0cec17f9c8f16dddee8a163bd16
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 4ebe29ca9a2f5cf6df385cffbb8bb8402b39e4fd
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支持选项
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 12/29/2017
 [msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric
 [stackoverflow]: http://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
-[acom-docs]: ../service-fabric/index.yml
+<!-- Not Referenced on [acom-docs]: ../service-fabric/index.yml -->
 [sample-repos]: http://aka.ms/servicefabricsamples
 
 <!--Update_Description: update meta properties, wording update-->

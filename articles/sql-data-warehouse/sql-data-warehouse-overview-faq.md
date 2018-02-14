@@ -16,11 +16,11 @@ ms.custom: overview
 origin.date: 03/01/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: e6e1d2dc3be8b666d201cc66a30ca2868e14a74b
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: cda77931f5c99761d1f9e89b4779098ffc7cc6d7
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL 数据仓库常见问题解答
 
@@ -32,11 +32,11 @@ A. SQL DW 提供若干解决方案，用于保护数据（如 TDE）和审核。
 
 问： 从何处可以查明 SQL DW 符合哪些法律或业务标准？
 
-A. 请访问 [Microsoft 符合性]页面，查明产品（如 SOC 和 ISO）的各种符合性规定。 首先选择“符合性”标题，然后在页面右侧的“Microsoft 范围内云服务”部分展开 Azure，查看哪些服务是 Azure 符合性服务。
+A. 请访问 [Microsoft 符合性]页面，查明产品（如 SOC 和 ISO）的各种符合性规定。 首先选择“符合性”标题，并在页面右侧的“Microsoft 范围内云服务”部分展开 Azure，查看哪些服务是 Azure 符合性服务。
 
 问： 是否可以连接 PowerBI？
 
-A. 能！ 尽管 PowerBI 支持使用 SQL DW 进行直接查询，但不适合大量用户或实时数据。 若要将 PowerBI 用于生产用途，建议基于 Azure Analysis Services 或 Analysis Service IaaS 使用 PowerBI。 
+A. 能！ 尽管 PowerBI 支持使用 SQL DW 进行直接查询，但不适合大量用户或实时数据。 要将 PowerBI 用于生产用途，建议基于 Azure Analysis Services 或 Analysis Service IaaS 使用 PowerBI。 
 
 问： SQL 数据仓库容量限制有哪些？
 
@@ -107,7 +107,7 @@ A. 可在[连接字符串]页找到 DW 驱动程序支持
 [容量限制]: ./sql-data-warehouse-service-capacity-limits.md
 [数据类型]: ./sql-data-warehouse-tables-data-types.md
 [不支持的表功能]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
+<!-- Not Available on [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md -->
 [Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [数据库项目功能请求]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/en-us/library/azure/mt163685.aspx

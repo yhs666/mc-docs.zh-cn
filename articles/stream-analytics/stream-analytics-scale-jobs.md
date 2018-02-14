@@ -16,11 +16,11 @@ ms.workload: data-services
 origin.date: 06/22/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1c551fb914ed518e3a2ed99443026321fb90580c
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: d7239623063324630d23f92d880ea3cfa91cf864
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>扩展 Azure 流分析作业以增加吞吐量
 本文介绍如何优化流分析查询，增加流分析作业的吞吐量。 可以使用以下指南来扩展作业，以便处理较高负载并充分利用更多的系统资源（如更多带宽、更多 CPU 资源、更多内存）。
@@ -28,6 +28,7 @@ ms.lasthandoff: 01/25/2018
 -   [了解和调整流式处理单元](stream-analytics-streaming-unit-consumption.md)
 -   [创建可并行的作业](stream-analytics-parallelization.md)
 
+<a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>
 ## <a name="case-1---your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>案例 1 - 在各个输入分区中，查询本质上是完全可并行的
 如果在各个输入分区中，查询本质上是完全可并行的，则可以按照以下步骤操作：
 1.  通过使用 PARTITION BY 关键字来创作查询使之易并行。 请参阅[此页](stream-analytics-parallelization.md)易并行作业部分中的更多详细信息。

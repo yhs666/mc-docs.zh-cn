@@ -15,18 +15,18 @@ ms.topic: article
 origin.date: 11/03/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8bcf840d520c404b49264517eab8230186b4a06b
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 483cdfe4ef66c9237c4ecec40aae6ae999481a61
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-java"></a>如何通过 Java 使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>概述
-本指南将演示如何使用 Azure 表存储服务执行常见方案。 这些示例用 Java 编写并使用[用于 Java 的 Microsoft Azure 存储 SDK][Microsoft Azure Storage SDK for Java]。 涉及的方案包括创建、列出和删除表，以及在表中插入、查询、修改和删除实体。 有关表的详细信息，请参阅 [后续步骤](#Next-Steps) 部分。
+本指南将演示如何使用 Azure 表存储服务执行常见方案。 这些示例用 Java 编写并使用[用于 Java 的 Microsoft Azure 存储 SDK][Microsoft Azure Storage SDK for Java]。 涉及的方案包括创建、列出和删除表，以及在表中插入、查询、修改和删除实体。 有关表的详细信息，请参阅 [后续步骤](#next-steps) 部分。
 
 > [!NOTE]
 > SDK 提供给在 Android 设备上使用 Azure 存储的开发人员。 有关详细信息，请参阅[用于 Android 的 Microsoft Azure 存储 SDK][Microsoft Azure Storage SDK for Android]。
@@ -580,7 +580,7 @@ catch (Exception e)
 * [Azure Storage REST API（Azure 存储 REST API）][Azure Storage REST API]
 * [Azure 存储团队博客][Azure Storage Team Blog]
 
-有关详细信息，请访问[面向 Java 开发人员的 Azure](https://docs.azure.cn/java/azure)。
+有关详细信息，请访问[面向 Java 开发人员的 Azure](https://docs.azure.cn/java)。
 
 [Azure SDK for Java]: /develop/java/
 [Microsoft Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java

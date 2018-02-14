@@ -3,8 +3,8 @@ title: "对 SQL Server VM 进行自动修补 (Resource Manager) | Azure"
 description: "介绍 Azure 中运行的、使用 Resource Manager 的 SQL Server 虚拟机的自动修补功能。"
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 07/05/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: 16545a4198b30f51eb8ad602eb78a59b8db8bdc4
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+origin.date: 01/05/2018
+ms.date: 02/05/2018
+ms.author: v-yeche
+ms.openlocfilehash: 56dc0d2dd80dea11ce0b63d3a14ced41e2d5673a
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure 虚拟机中 SQL Server 的自动修补 (Resource Manager)
 > [!div class="op_single_selector"]
@@ -111,6 +111,9 @@ ms.lasthandoff: 08/18/2017
 
     Set-AzureRmVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
+> [!IMPORTANT]
+> 如果尚未安装该扩展，安装该扩展将会重新启动 SQL Server 服务。
+
 下表根据此示例描述了对目标 Azure VM 产生的实际效果：
 
 | 参数 | 效果 |
@@ -129,4 +132,4 @@ ms.lasthandoff: 08/18/2017
 
 有关在 Azure VM 中运行 SQL Server 的详细信息，请参阅 [Azure 虚拟机中的 SQL Server 概述](virtual-machines-windows-sql-server-iaas-overview.md)。
 
-<!--Update_Description: add sql server 2016-->
+<!--Update_Description: update meta properties, update link -->

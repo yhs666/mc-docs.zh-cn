@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/30/2017
-ms.date: 11/22/2017
+ms.date: 1/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9a01054ca89a5ef6ecbd3a1a55f3b3b973bcedbb
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 32fd54f58675f5d171b01130c3e6d42e6230ff9a
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>使用基于角色的访问控制提升作为租户管理员的访问权限
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/24/2017
 
 此功能非常重要，因为它允许租户管理员查看组织中存在的所有订阅。 它还允许自动化应用（如开票和审核）访问所有订阅，并针对计费或资产管理提供有关组织状态的准确观点。  
 
-## <a name="how-to-use-elevateaccess-to-give-tenant-access"></a>如何使用 elevateAccess 为租户提供访问权限
+## <a name="use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>通过 REST API 使用 elevateAccess 提供租户访问权限
 
 基本过程使用以下步骤：
 
@@ -113,6 +113,6 @@ ms.lasthandoff: 11/24/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解如何[使用 REST 管理基于角色的访问控制](role-based-access-control-manage-access-rest.md)
+- 了解有关[使用 REST 管理基于角色的访问控制](role-based-access-control-manage-access-rest.md)的详细信息
 
-<!--Update_Description: wording update -->
+- 在 Azure 门户中[管理访问权限分配](role-based-access-control-manage-assignments.md)

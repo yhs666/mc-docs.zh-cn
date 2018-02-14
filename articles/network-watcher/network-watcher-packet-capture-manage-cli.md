@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 43609d25f9e491e3f88a84c315a3ba3a3bb4a929
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 0ba911f6a4efa75a850400bff3adc59f312d707c
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-20"></a>通过 Azure CLI 2.0 使用 Azure 网络观察程序管理数据包捕获
 
@@ -70,7 +70,7 @@ az vm extension set --resource-group resourceGroupName --vm-name virtualMachineN
 对于 Linux 虚拟机：
 
 ```azurecli
-az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentLinux--version 1.4
+az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentLinux --version 1.4
 ````
 
 ### <a name="step-2"></a>步骤 2
@@ -276,7 +276,7 @@ https://{storageAccountName}.blob.core.chinacloudapi.cn/network-watcher-logs/sub
 
 ## <a name="next-steps"></a>后续步骤
 
-查看[创建警报触发的数据包捕获](network-watcher-alert-triggered-packet-capture.md)，了解如何利用虚拟机警报自动执行数据包捕获
+<!--Not Available [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 
 访问[查看“IP 流验证”](network-watcher-check-ip-flow-verify-portal.md)，了解是否允许某些流量传入和传出 VM
 

@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2877cac3eb6905a9b89e235e6b597ecd9bec88fa
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: a5ef3c3f7175d749c6d1c4da432a7d071c641e9d
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>使用 PowerShell 在多个 IP 配置上进行负载均衡
 
 > [!div class="op_single_selector"]
-> * [门户](load-balancer-multiple-ip.md)
+> * [Portal](load-balancer-multiple-ip.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
@@ -140,7 +140,7 @@ ms.lasthandoff: 11/15/2017
     ```
 
 13. 最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 
-<!--Not available [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).-->
+<!--Not available [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md) -->
 
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。

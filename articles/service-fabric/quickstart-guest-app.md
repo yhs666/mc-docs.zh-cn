@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 12/06/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 82f8b80b20802564d2cdf4b6c592d724628c3bd2
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 61377f61df0cad164faa73db69ed15d3bb81ac8b
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>在 Azure Service Fabric 上托管 Node.js 应用程序
 
@@ -143,7 +143,7 @@ Visual Studio 会创建应用程序项目和执行组件服务项目，并在解
 
 [new-project]: ./media/quickstart-guest-app/new-project.png
 [new-service]: ./media/quickstart-guest-app/template.png
-[solution-exp]: ./media/quickstart-guest-app/solution-explorer.png
+<!-- Not Available [solution-exp]: ./media/quickstart-guest-app/solution-explorer.png -->
 [publish]: ./media/quickstart-guest-app/publish.png
 [overview]: ./media/quickstart-guest-app/overview.png
 [custom-endpoint]: ./media/quickstart-guest-app/custom-endpoint.png

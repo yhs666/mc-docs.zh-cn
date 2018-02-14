@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 06/07/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: ce02edb2c759924184a69b37a043a30f6963a42a
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: ebe73c9fa0541e9be5bfc38f8ee042b6b2a01f07
+ms.sourcegitcommit: 1fb5f5438975a4901c35b6b95cbb190a08570a9b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>使用 Visual Studio 简化 Service Fabric 应用程序的编写和管理
 可以通过 Visual Studio 管理 Azure Service Fabric 应用程序和服务。 [设置开发环境](service-fabric-get-started.md)后，可以使用 Visual Studio 创建 Service Fabric 应用程序、添加服务，或在本地开发群集中打包、注册和部署应用程序。
@@ -46,7 +46,8 @@ Visual Studio 提供一个名为“应用程序调试模式”的属性，它控
 
 #### <a name="application-debug-modes"></a>应用程序调试模式
 
-1. **刷新应用程序**此模式能快速更改和调试代码并支持调试时编辑静态 Web 文件。 此模式只能在本地开发群集处于 [1 节点模式](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode)下时有效。
+1. **刷新应用程序**此模式能快速更改和调试代码并支持调试时编辑静态 Web 文件。 此模式只能在本地开发群集处于 [1 节点模式](../service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode)下时有效。
+<!-- URL should be Add . [1-Node mode](./service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode) -->
 2. **删除应用程序** 会在调试会话结束时删除应用程序。
 3. **自动升级**调试会话结束时，应用程序继续运行。 下一个调试会话将部署视为升级。 此升级过程会保留你在上一个调试会话中输入的任何数据。
 4. **保留应用程序**调试会话结束时，应用程序在群集中继续运行。 在下一个调试会话开始时将删除应用程序。

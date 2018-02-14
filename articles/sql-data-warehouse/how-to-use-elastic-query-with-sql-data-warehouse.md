@@ -16,11 +16,11 @@ ms.custom: integrate
 origin.date: 09/18/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6fe037ba7194938fcd7c42d85a899bfc9acacf03
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 97b035717dbb5b29d4588ce509dc2d987e0df614
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>如何结合使用弹性查询和 SQL 数据仓库
 
@@ -157,7 +157,7 @@ ms.lasthandoff: 01/11/2018
 
 <!--Article references-->
 
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
+<!-- Not Available on [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/ -->
 [Configure Elastic Query with SQL Data Warehouse]: ./tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
 [Feedback Page]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL Database elastic query overview]: ../sql-database/sql-database-elastic-query-overview.md

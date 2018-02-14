@@ -61,8 +61,6 @@
           href: automation-runbook-settings.md
         - name: 管理 Azure 自动化数据
           href: automation-managing-data.md
-        - name: 从 Log Analytics 警报调用 Azure 自动化 Runbook
-          href: automation-invoke-runbook-from-omsla-alert.md
         - name: 将 JSON 对象传递到 Azure 自动化 Runbook
           href: automation-pass-json-string.md
     - name: 管理资产

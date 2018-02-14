@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: aa5375c86c18f7462f195aafee745f170a7bf510
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 712e98f0acf9c2289fa66346c301433464a9c068
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>创建 Azure 网络观察程序实例
 
@@ -50,7 +50,7 @@ New-AzureRmNetworkWatcher -Name "NetworkWatcher_chinaeast" -ResourceGroupName "N
 
 ## <a name="create-a-network-watcher-with-the-rest-api"></a>使用 REST API 创建网络观察程序
 
-ARMclient 用于使用 PowerShell 调用 REST API。 按照 [Chocolatey 上的 ARMClient](https://chocolatey.org/packages/ARMClient) 在 chocolatey 上找到 ARMClient
+通过 PowerShell 调用 REST API 时，使用的是 ARMclient。 按照 [Chocolatey 上的 ARMClient](https://chocolatey.org/packages/ARMClient) 在 chocolatey 上找到 ARMClient
 
 ### <a name="log-in-with-armclient"></a>使用 ARMClient 登录
 
@@ -86,7 +86,7 @@ armclient put "https://management.chinacloudapi.cn/subscriptions/${subscriptionI
 * [NSG 流日志记录](network-watcher-nsg-flow-logging-overview.md)
 * [虚拟网络网关故障排除](network-watcher-troubleshoot-overview.md)
 
-创建网络观察程序实例后，可以按照[创建警报触发的数据包捕获](network-watcher-alert-triggered-packet-capture.md)一文配置包捕获
+<!--Not Available [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 
 [1]: ./media/network-watcher-create/figure1.png
 

@@ -3,7 +3,7 @@ title: "Azure API 管理中的用户配置文件模板 | Azure"
 description: "了解如何在 Azure API 管理中自定义开发人员门户中的用户配置文件页的内容。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 2e3b73ef-d223-44fe-9280-c3af3fd4a030
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 2609ffe0fd152330613b9fd2fe51cb0c2d5716a2
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 8876fb7ba3e28b1970dc6851aeb4c119992ccfce
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API 管理中的用户配置文件模板
-通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
+通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页面的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
   
- 本部分中的模板可用于自定义开发人员门户中的用户配置文件页的内容。  
+ 本部分中的模板可用于自定义开发人员门户中的用户配置文件页面的内容。  
   
 -   Profile[](#Profile)  
   
@@ -114,7 +114,7 @@ ms.lasthandoff: 09/08/2017
 |changePasswordUrl|字符串|相对 URL，用于更改当前用户的密码。|  
 |changeNameOrEmailUrl|字符串|相对 URL，用于更改当前用户的名称和电子邮件。|  
 |canChangePassword|布尔值|当前用户是否可更改其密码。|  
-|isSystemUser|布尔值|当前用户是否为某个内置[组](./api-management-key-concepts.md#groups)的成员。|  
+|isSystemUser|布尔值|当前用户是否为某个内置[组的成员](./api-management-key-concepts.md#groups)。|  
   
 ### <a name="sample-template-data"></a>示例模板数据  
   
@@ -477,7 +477,7 @@ ms.lasthandoff: 09/08/2017
 ```  
   
 ### <a name="controls"></a>控制  
- 此模板可使用以下[页面控件](./api-management-page-controls.md)。  
+ 此模板使用以下[页面控件](./api-management-page-controls.md)。  
   
 -   [app-actions](./api-management-page-controls.md#app-actions)  
   

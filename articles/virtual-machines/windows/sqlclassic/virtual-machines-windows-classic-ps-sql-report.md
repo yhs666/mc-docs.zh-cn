@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 origin.date: 01/11/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: e15aa5b34b77675d6b47e15cf318284011fcf7c5
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 0ac5c9d3a7bd474fe14f5e4918d22d03da5fcba0
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>使用 PowerShell 创建运行本机模式报表服务器的 Azure VM
 > [!IMPORTANT] 
@@ -485,7 +485,8 @@ ms.lasthandoff: 01/05/2018
 9. 该脚本当前是为 Reporting Services 配置的。 如果要为 Reporting Services 运行该脚本，请在 Get-WmiObject 语句上将命名空间的路径版本部分修改为“v11”。
 10. 运行该脚本。
 
-**验证**：若要验证基本报表服务器功能是否正常工作，请参阅本主题后面的 [验证配置](#verify-the-connection) 部分。 要验证证书绑定，请使用具有管理权限的身份打开命令提示符，并运行以下命令：
+**验证**：若要验证基本报表服务器功能是否正常工作，请参阅本主题后面的 [验证配置](#verify-the-configuration) 部分。 要验证证书绑定，请使用具有管理权限的身份打开命令提示符，并运行以下命令：
+<!-- URL is CORRECT ON [Verify the configuration](#verify-the-configuration) -->
 
     netsh http show sslcert
 

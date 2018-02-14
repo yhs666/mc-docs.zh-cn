@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 02/02/2017
 ms.date: 03/20/2017
 ms.author: v-dazen
-ms.openlocfilehash: 104760d18998485ae7203b650146584a8542982c
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 07b365bee225dd4adc86f1477cda648d9e1218a6
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>为 Azure 准备基于 CentOS 的虚拟机
 * [为 Azure 准备 CentOS 6.x 虚拟机](#centos-6x)
@@ -29,15 +29,16 @@ ms.lasthandoff: 06/23/2017
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="prerequisites"></a>先决条件
-本文假设已在虚拟硬盘中安装 CentOS（或类似的衍生产品）Linux 操作系统。 存在多个用于创建 .vhd 文件的工具，例如 Hyper-V 等虚拟化解决方案。 有关说明，请参阅 [安装 Hyper-V 角色和配置虚拟机](http://technet.microsoft.com/library/hh846766.aspx)。
+本文假设已在虚拟硬盘中安装 CentOS（或类似的衍生产品）Linux 操作系统。 可使用多种工具创建 .vhd 文件，如 Hyper-V 等虚拟化解决方案。 有关说明，请参阅 [安装 Hyper-V 角色和配置虚拟机](http://technet.microsoft.com/library/hh846766.aspx)。
 
 **CentOS 安装说明**
 
 * 另请参阅[常规 Linux 安装说明](create-upload-generic.md#general-linux-installation-notes)，获取更多有关如何为 Azure 准备 Linux 的提示。
 * Azure 不支持 VHDX 格式，仅支持 **固定大小的 VHD**。  可使用 Hyper-V 管理器或 convert-vhd cmdlet 将磁盘转换为 VHD 格式。 如果使用 VirtualBox，则意味着选择的是“固定大小”，而不是在创建磁盘时动态分配默认大小。
-* 在安装 Linux 系统时，*建议*使用标准分区而不是 LVM（通常是许多安装的默认值）。 这将避免 LVM 与克隆 VM 发生名称冲突，特别是在 OS 磁盘需要连接到另一台相同的 VM 进行故障排除的情况下。 [LVM](configure-lvm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 可以在数据磁盘上使用。
-* 需要装载 UDF 文件系统的内核支持。 在 Azure 上首次启动时，预配配置将通过附加到来宾的 UDF 格式媒体传递到 Linux VM。 Azure Linux 代理必须能够装载 UDF 文件系统才能读取其配置和预配 VM。
-* 低于 2.6.37 的 Linux 内核版本不支持具有更大 VM 大小的 Hyper-V 上的 NUMA。 此问题主要影响使用上游 Red Hat 2.6.32 内核的旧分发版，在 RHEL 6.6 (kernel-2.6.32-504) 中已解决。 运行版本低于 2.6.37 的自定义内核的系统，或者版本低于 2.6.32-504 的基于 RHEL 的内核必须在 grub.conf 中的内核命令行上设置启动参数 `numa=off`。 有关详细信息，请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
+* 在安装 Linux 系统时，*建议*使用标准分区而不是 LVM（通常是许多安装的默认值）。 这可以避免与克隆 VM 发生 LVM 名称冲突，尤其是在需要将 OS 磁盘连接到另一个同类 VM 进行故障排除时。 [LVM](configure-lvm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 可以在数据磁盘上使用。
+* 需要装载 UDF 文件系统的内核支持。 在 Azure 上首次启动时，预配配置会通过附加到来宾的 UDF 格式媒体传递到 Linux VM。 Azure Linux 代理必须能够装载 UDF 文件系统才能读取其配置和预配 VM。
+* 低于 2.6.37 的 Linux 内核版本不支持具有更大 VM 大小的 Hyper-V 上的 NUMA。 
+<!-- Not Available on  Red Hat 2.6.32 kernel, and was fixed in RHEL 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command-line in grub.conf. For more information see Red Hat [KB 436883](https://access.redhat.com/solutions/436883). -->
 * 不要在操作系统磁盘上配置交换分区。 可以配置 Linux 代理，以在临时资源磁盘上创建交换文件。  可以在下面的步骤中找到有关此内容的详细信息。
 * 所有 VHD 的大小必须是 1 MB 的倍数。
 
@@ -45,7 +46,7 @@ ms.lasthandoff: 06/23/2017
 
 1. 在 Hyper-V 管理器中，选择虚拟机。
 
-2. 单击“连接”  以打开该虚拟机的控制台窗口。
+2. 单击“连接”打开该虚拟机的控制台窗口。
 
 3. 在 CentOS 6 中，NetworkManager 可能会干扰 Azure Linux 代理。 请运行以下命令来卸载该包：
 
@@ -56,7 +57,7 @@ ms.lasthandoff: 06/23/2017
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-5. 创建或编辑文件 `/etc/sysconfig/network-scripts/ifcfg-eth0` 并添加以下文本：
+5. 创建或编辑 `/etc/sysconfig/network-scripts/ifcfg-eth0` 文件，添加以下文本：
 
         DEVICE=eth0
         ONBOOT=yes
@@ -71,7 +72,7 @@ ms.lasthandoff: 06/23/2017
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 
-7. 通过运行以下命令，确保网络服务将在引导时启动：
+7. 通过运行以下命令，确保网络服务在引导时启动：
 
         # sudo chkconfig network on
 
@@ -149,7 +150,7 @@ ms.lasthandoff: 06/23/2017
         # sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
         # sudo yum install microsoft-hyper-v
 
-    也可按照 [LIS 下载页](https://go.microsoft.com/fwlink/?linkid=403033) 上的手动安装说明进行操作，将 RPM 安装到 VM。
+    此外，可以按照 [LIS 下载页](https://go.microsoft.com/fwlink/?linkid=403033)上的手动安装说明操作将 RPM 安装到 VM 中。
 
 12. 安装 Azure Linux 代理和依赖项：
 
@@ -161,18 +162,20 @@ ms.lasthandoff: 06/23/2017
 
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
-    这还将确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。
+    这还可以确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。
 
     除此之外，建议 *删除* 以下参数：
 
         rhgb quiet crashkernel=auto
 
-    图形和静默引导不适用于要将所有日志发送到串行端口的云环境。  根据需要可以配置 `crashkernel` 选项，但请注意此参数会使虚拟机中的可用内存量减少 128MB 或更多，这在较小的虚拟机上可能会出现问题。
+    图形引导和无人参与引导不适用于云环境，在该环境中我们想要将所有日志都发送到串行端口。  根据需要可以配置 `crashkernel` 选项，但请注意此参数会使虚拟机中的可用内存量减少 128MB 或更多，这在较小的虚拟机上可能会出现问题。
 
     >[!Important]
-    CentOS 6.5 和更早版本还必须设置内核参数 `numa=off`。 请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
+    CentOS 6.5 和更早版本还必须设置内核参数 `numa=off`。
+    
+<!-- Not Available on See Red Hat [KB 436883](https://access.redhat.com/solutions/436883) -->
 
-14. 请确保已安装 SSH 服务器且已将其配置为在引导时启动。  这通常是默认设置。
+14. 请确保已安装 SSH 服务器且将其配置为在引导时启动。  这通常是默认设置。
 
 15. 不要在 OS 磁盘上创建交换空间。
 
@@ -190,13 +193,13 @@ ms.lasthandoff: 06/23/2017
         # export HISTSIZE=0
         # logout
 
-17. 在 Hyper-V 管理器中单击“操作”->“关闭”。 Linux VHD 现已准备好上传到 Azure。
+17. 在 Hyper-V 管理器中单击“操作”->“关闭”。 现在，准备将 Linux VHD 上传到 Azure。
 
 - - -
 ## <a name="centos-70"></a>CentOS 7.0+
 **CentOS 7（和类似衍生产品）中的更改**
 
-为 Azure 准备 CentOS 7 虚拟机与 CentOS 6 非常类似，但有几个值得注意的重要区别：
+为 Azure 准备 CentOS 7 虚拟机非常类似于 CentOS 6，但有几个值得注意的重要区别：
 
 * NetworkManager 包不再与 Azure Linux 代理冲突。 默认会安装此包，建议不要删除。
 * GRUB2 现在用作默认引导加载程序，因此编辑内核参数的过程已更改（见下文）。
@@ -213,7 +216,7 @@ ms.lasthandoff: 06/23/2017
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
 
-4. 创建或编辑文件 `/etc/sysconfig/network-scripts/ifcfg-eth0` 并添加以下文本：
+4. 创建或编辑 `/etc/sysconfig/network-scripts/ifcfg-eth0` 文件，添加以下文本：
 
         DEVICE=eth0
         ONBOOT=yes
@@ -281,15 +284,15 @@ ms.lasthandoff: 06/23/2017
 
     运行此命令后，可能需要重新启动。
 
-8. 在 grub 配置中修改内核引导行，以使其包含 Azure 的其他内核参数。 为此，请在文本编辑器中打开 `/etc/default/grub` 并编辑 `GRUB_CMDLINE_LINUX` 参数，例如：
+8. 在 grub 配置中修改内核引导行，使其包含 Azure 的其他内核参数。 为此，请在文本编辑器中打开 `/etc/default/grub` 并编辑 `GRUB_CMDLINE_LINUX` 参数，例如：
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-   这还将确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 此外还会关闭新的针对 NIC 的 CentOS 7 命名约定。 除此之外，建议 *删除* 以下参数：
+   这还可以确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 此外还会关闭新的针对 NIC 的 CentOS 7 命名约定。 除此之外，建议 *删除* 以下参数：
 
         rhgb quiet crashkernel=auto
 
-    图形和静默引导不适用于要将所有日志发送到串行端口的云环境。 根据需要可以配置 `crashkernel` 选项，但请注意此参数会使 VM 中的可用内存量减少 128 MB 或更多，这在较小的 VM 上可能会出现问题。
+    图形引导和无人参与引导不适用于云环境，在该环境中我们想要将所有日志都发送到串行端口。 根据需要可以配置 `crashkernel` 选项，但请注意此参数会使 VM 中的可用内存量减少 128 MB 或更多，这在较小的 VM 上可能会出现问题。
 
 9. 按照上面所示完成编辑 `/etc/default/grub` 后，运行以下命令以重新生成 grub 配置：
 

@@ -17,16 +17,16 @@ ms.custom: create
 origin.date: 10/31/2016
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 64ba2c3f727390aa32c3dfdacfe91fea7acc0741
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: b2c2492abc69be2100ce3b3da1451f5f423030d3
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>使用 Transact-SQL (TSQL) 创建 SQL 数据仓库数据库
 
 > [!div class="op_single_selector"]
-> * [Azure 门户](sql-data-warehouse-get-started-provision.md)
+<!-- Not Available on > * [Azure Portal](sql-data-warehouse-get-started-provision.md) -->
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 >
@@ -35,7 +35,7 @@ ms.lasthandoff: 07/05/2017
 本文说明如何使用 T-SQL 创建 SQL 数据仓库。
 
 ## <a name="prerequisites"></a>先决条件
-若要开始，您需要：
+要开始，需要：
 
 * **Azure 帐户**：访问 [Azure 试用版][Azure Trial]，以创建帐户。
 * **Azure SQL 服务器**：有关详细信息，请参阅[使用 Azure 门户创建 Azure SQL 数据库逻辑服务器][使用 Azure 门户创建 Azure SQL 数据库逻辑服务器]或[使用 PowerShell 创建 Azure SQL 数据库逻辑服务器][使用 PowerShell 创建 Azure SQL 数据库逻辑服务器]。
@@ -68,14 +68,14 @@ sqlcmd -S <Server Name>.database.chinacloudapi.cn -I -U <User> -P <Password> -Q 
 
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md
-[how to create a SQL Data Warehouse from the Azure portal]: sql-data-warehouse-get-started-provision.md
+<!-- Not Available on [how to create a SQL Data Warehouse from the Azure portal]: sql-data-warehouse-get-started-provision.md -->
 [Query Azure SQL Data Warehouse (Visual Studio)]: sql-data-warehouse-query-visual-studio.md
 [migrate]: sql-data-warehouse-overview-migrate.md
 [develop]: sql-data-warehouse-overview-develop.md
 [load]: sql-data-warehouse-overview-load.md
 [load sample data]: sql-data-warehouse-load-sample-databases.md
 [Create an Azure SQL database with the Azure Portal]: ../sql-database/sql-database-get-started.md
-[Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-create-and-configure-database-powershell
+<!-- Not Available on [Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-create-and-configure-database-powershell -->
 [how to create a resource group]: ../azure-resource-manager/resource-group-template-deploy-portal.md#create-resource-group
 [Installing Visual Studio and SSDT]: sql-data-warehouse-install-visual-studio.md
 [sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md

@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 11/12/2016
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 99f10325c370c53fffc4d0552836c05fbcdabe8b
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: d1110312c85fc67a40ff06ecbe92a251290cb3e6
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="building-scalable-cloud-databases"></a>构建可缩放的云数据库
 使用 Azure SQL 数据库的可缩放工具和功能，可以轻松扩大数据库。 特别是，可以使用 **弹性数据库客户端库** 来创建和管理扩大的数据库。 此功能可让你使用成百上千个 Azure SQL 数据库，轻松地开发分片应用程序。
@@ -37,7 +37,6 @@ ms.lasthandoff: 01/05/2018
 5. [数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)
 6. [多分片查询](sql-database-elastic-scale-multishard-querying.md)
 7. [使用弹性数据库工具添加分片](sql-database-elastic-scale-add-a-shard.md)
-8. [具有弹性数据库工具和行级安全性的多租户应用程序](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 9. [升级客户端库应用](sql-database-elastic-scale-upgrade-client-library.md) 
 10. [弹性查询概述](sql-database-elastic-query-overview.md)
 11. [弹性数据库工具术语表](sql-database-elastic-scale-glossary.md)

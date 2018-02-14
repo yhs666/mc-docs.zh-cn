@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/08/2017
-ms.date: 10/30/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d520d72f26c5d940f46915c40278ff6427538d42
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 089fa11adefa2de2e2a558b614206683b7a13d1f
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>如何监视和更新 Azure 中的 Linux 虚拟机
 
@@ -32,9 +32,10 @@ ms.lasthandoff: 10/27/2017
 > * 查看启动诊断
 > * 在 VM 上启用诊断扩展
 > * 基于诊断指标创建警报
-<!-- Not Available on metrics feature-->
+<!-- Not Available on View host metrics-->
+<!-- Not Available on View VM metrics-->
 <!-- Not Available on Manage package updates-->
-<!-- Not Available on advanced monitoring-->
+<!-- Not Available on Set up advanced monitoring-->
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -153,4 +154,4 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 > * 在 VM 上启用诊断扩展
 > * 基于诊断指标创建警报
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: update meta properties, wording update -->

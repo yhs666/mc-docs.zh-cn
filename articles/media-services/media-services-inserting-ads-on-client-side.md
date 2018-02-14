@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: v-johch
-ms.openlocfilehash: c3d443ea700b45d69e11ff7c4affec7f5fab08fb
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: e42efceb8f4c32d21a2cd58e43fbc4fb0c1d988c
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 #<a name="inserting-ads-on-the-client-side"></a>在客户端上插入广告
 
@@ -331,7 +331,8 @@ MAST 文件以“<MAST>”元素开头，该元素包含一个“<triggers>”�
 
 1. **type** – 指定条件、事件或属性的类型
 1. **name** – 要在评估过程中使用的属性或事件的名称
-1. **value** – 将针对其进行评估的属性的值
+1. 
+            **value** – 评估属性时针对的值
 1. operator - 要在评估期间使用的操作符：EQ（等于）、NEQ（不等于）、GTR（大于）、GEQ（大于或等于）、LT（小于）、LEQ（小于或等于）、MOD（取模）
 
 “<endConditions>”也包含 <condition> 元素。 当某个条件的评估结果为 true 时，重置触发器。<trigger> 元素也包含 <sources> 元素，后者包含一个或多个 <source> 元素。 <source> 元素定义广告响应的 URI 和广告响应的类型。 在此示例中为 VAST 响应给定了一个 URI。 
@@ -353,7 +354,7 @@ MAST 文件以“<MAST>”元素开头，该元素包含一个“<triggers>”�
 
 VPAID 是用于使可执行广告单元能够与视频播放器进行通信的 API。 这可实现高度交互的广告体验。 用户可以与广告交互；广告可以对查看者采取的操作做出响应。 例如，广告可能会显示允许用户查看详细信息或更长时间版广告的按钮。 视频播放器必须支持 VPAID API 且可执行广告必须实现该 API。 播放器从广告服务器请求广告时，服务器可能使用包含 VPAID 广告的 VAST 响应进行响应。
 
-必须于运行时环境（例如 Adobe Flash™ 或可以在 Web 浏览器中执行的 JavaScript）中执行的代码中创建可执行广告。 当广告服务器返回包含 VPAID 广告的 VAST 响应时，<MediaFile>元素中 apiFramework 属性的值必须为“VPAID”。 此属性指定所含广告为 VPAID 可执行广告。 类型属性必须设置为可执行文件（如“application/x-shockwave-flash”或“application/x-javascript”）的 MIME 类型。 以下 XML 代码片段演示包含 VPAID 可执行广告的 VAST 响应中的 <MediaFile> 元素。 
+在必须于运行时环境（例如 Adobe Flash™ 或可以在 Web 浏览器中执行的 JavaScript）中执行的代码中创建可执行广告。 当广告服务器返回包含 VPAID 广告的 VAST 响应时，<MediaFile>元素中 apiFramework 属性的值必须为“VPAID”。 此属性指定所含广告为 VPAID 可执行广告。 类型属性必须设置为可执行文件（如“application/x-shockwave-flash”或“application/x-javascript”）的 MIME 类型。 以下 XML 代码片段演示包含 VPAID 可执行广告的 VAST 响应中的 <MediaFile> 元素。 
 
 ```
 <MediaFiles>
@@ -386,7 +387,7 @@ Microsoft Media Platform：适用于 Windows 8 和 Windows Phone 8 的播放器�
 
 ###<a name="adpodpage-sample"></a>AdPodPage 示例
 
-此示例使用 AdSchedulerPlugin 来定义何时显示广告。 此示例中计划 5 秒后播放中置式广告。 广告 Pod（按顺序播放的一组广告）是在从广告服务器返回的 VAST 文件中指定的。 在 <RemoteAdSource> 元素中指定 VAST 文件的 URI。
+此示例使用 AdSchedulerPlugin 来定义何时显示广告。 在此示例中，安排于 5 秒后播放中置式广告。 广告 Pod（按顺序播放的一组广告）是在从广告服务器返回的 VAST 文件中指定的。 在 <RemoteAdSource> 元素中指定 VAST 文件的 URI。
 
 ```
 <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4">
@@ -479,7 +480,7 @@ Microsoft Media Platform：适用于 Windows 8 和 Windows Phone 8 的播放器�
 <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4"/>
 ```
 
-ProgrammaticAdPage.xaml.cs 文件创建 AdHandlerPlugin，添加 TimelineMarker 以指定何时显示广告，然后为 MarkerReached 事件添加处理程序，该程序加载指定指向 VAST 文件的 URI 的 RemoteAdSource，然后播放广告。
+ProgrammaticAdPage.xaml.cs 文件创建 AdHandlerPlugin，添加 TimelineMarker 以指定何时显示广告，并为 MarkerReached 事件添加处理程序，该程序加载指定指向 VAST 文件的 URI 的 RemoteAdSource，然后播放广告。
 
 ```
 public sealed partial class ProgrammaticAdPage : Microsoft.PlayerFramework.Samples.Common.LayoutAwarePage
@@ -599,8 +600,7 @@ public sealed partial class ProgrammaticAdPage : Microsoft.PlayerFramework.Sampl
 
 ##<a name="implementing-an-ios-video-player-with-ad-support"></a>实现带有广告支持的 iOS 视频播放器
 
-Microsoft Media Platform：适用于 iOS 的播放器框架包含示例应用程序集合，这些示例应用程序展示如何使用该框架实现视频播放器应用程序。 可以从 [Azure 媒体播放器框架](https://github.com/Azure/azure-media-player-framework)下载播放器框架和示例。 GitHub 页面具有指向 Wiki（含有关播放器框架的其他信息）的链接和播放器示例简介： [Azure 媒体播放器 Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework)。
-
+Microsoft Media Platform：适用于 iOS 的播放器框架包含示例应用程序集合，这些示例应用程序展示如何使用该框架实现视频播放器应用程序。 可以从 [Azure 媒体播放器框架](https://github.com/CloudMetal/azure-media-player-framework)下载播放器框架和示例。 
 ###<a name="scheduling-ads-with-vmap"></a>使用 VMAP 安排广告
 
 以下示例演示如何使用 VMAP 文件安排广告。
@@ -655,7 +655,7 @@ if (![framework scheduleClip:vastAdInfo1 atTime:adLinearTime forType:PlaylistEnt
 ```
 
    以下示例演示如何安排早期绑定 VAST 广告。
-//示例 4：安排前期绑定 VAST 广告 //满足后列条件时下载 VAST 文件： (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.chinacloudapi.cn/vast/PlayerTestVAST.xml"]]) { [self logFrameworkError]; } else { adLinearTime.startTime = 7; adLinearTime.duration = 0;
+//Example:4 Schedule an early binding VAST ad //Download the VAST file if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.chinacloudapi.cn/vast/PlayerTestVAST.xml"]]) { [self logFrameworkError]; } else { adLinearTime.startTime = 7; adLinearTime.duration = 0;
 
    ```
     // Create AdInfo instance

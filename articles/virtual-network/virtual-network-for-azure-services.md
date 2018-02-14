@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 11/06/2017
 ms.author: v-yeche
-ms.openlocfilehash: cba32f40aaf3e70b13e5080016cffef99b702e21
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: 35a33bb87b1ff68e0924b27daa82ee5225f015e3
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Azure 服务的虚拟网络集成
 
@@ -57,8 +57,8 @@ ms.lasthandoff: 11/02/2017
 - [API 管理](../api-management/api-management-using-with-vnet.md?toc=%2fvirtual-network%2ftoc.json)
 - [VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json)
 - [应用程序网关（内部）](../application-gateway/application-gateway-ilb-arm.md?toc=%2fvirtual-network%2ftoc.json)
-<!--Not Available - [Azure Container Service Engine](../container-service/container-service-intro.md?toc=%2fvirtual-network%2ftoc.json): The Azure Container Service creates a default virtual network. You can create a custom virtual network to use with the [Azure Container Service Engine](https://github.com/Azure/acs-engine/tree/master/examples/vnet).-->
-<!--Not Available - [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fvirtual-network%2ftoc.json): Virtual network (classic) only-->
+<!--Not Available - [Azure Container Service Engine](../container-service/container-service-intro.md?toc=%2fvirtual-network%2ftoc.json) -->
+<!--Not Available - [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fvirtual-network%2ftoc.json) -->
 - [Azure Batch](../batch/batch-api-basics.md?toc=%2fvirtual-network%2ftoc.json)：仅限虚拟网络（经典）
 - [云服务](https://msdn.microsoft.com/library/azure/jj156091)：仅限虚拟网络（经典）
 
@@ -68,9 +68,9 @@ ms.lasthandoff: 11/02/2017
 
 某些 Azure 服务无法部署在虚拟网络中。 可选择通过启用虚拟网络服务终结点，将某些服务资源的访问限制为仅特定虚拟网络子网。 详细了解[虚拟网络服务终结点](virtual-network-service-endpoints-overview.md)。
 
-目前，以下服务支持服务终结点： 
-- Azure 存储：[在虚拟网络中保护 Azure 存储帐户](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json)
-- Azure SQL 数据库：[在虚拟网络中保护 Azure SQL 数据库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)
+<!-- Not Available on Currently, service endpoints are supported for the following services: -->
+<!-- Not Available on - **Azure Storage**: [Securing Azure Storage accounts to Virtual Networks](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json) -->
+<!-- Not Available on - **Azure SQL Database**: [Securing Azure SQL Database to Virtual networks](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
 
 ## <a name="virtual-network-integration-across-multiple-azure-services"></a>跨多个 Azure 服务的虚拟网络集成
 

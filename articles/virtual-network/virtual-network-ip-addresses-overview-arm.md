@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 11/16/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 75c0d891f09bb36fe53054b035c58e78cf9df361
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: cf9884f4fe4e2aed3bc76ebfde5ca7531ff9e807
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 地址类型和分配方法
 
@@ -62,15 +62,17 @@ ms.lasthandoff: 01/25/2018
 - 使用静态或动态分配方法分配。
 - 分配到可以采用公共 IP 地址的任何 Azure 资源，例如网络接口、VPN 网关、应用程序网关和面向 Internet 的负载均衡器。
 - 可以分配到特定的区域。
-- 非区域冗余。 若要详细了解可用性区域，请参阅[可用性区域概述](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json)。
+- 非区域冗余。
+<!-- Not Available on [Availability zones overview](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
 
 #### <a name="standard"></a>标准
 
 标准 SKU 公共 IP 地址为：
 
 - 只能使用静态分配方法分配。
-- 分配到网络接口或面向 Internet 的标准负载均衡器。 有关 Azure 负载均衡器 SKU 的详细信息，请参阅 [Azure 负载均衡器标准 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json)。
-<!--Not Available - Zone redundant by default. Can be created zonal and guaranteed in a specific availability zone.  To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json). -->
+- 分配到网络接口或面向 Internet 的标准负载均衡器。
+<!--Not Available - [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
+<!--Not Available - Zone redundant by default. Can be created zonal and guaranteed in a specific availability zone.  To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
 
 > [!NOTE]
 > 将标准 SKU 公共 IP 地址分配到虚拟机的网络接口时，必须使用[网络安全组](security-overview.md#network-security-groups)显式允许预期流量。  创建并关联网络安全组且显式允许所需流量之后，才可与资源通信。

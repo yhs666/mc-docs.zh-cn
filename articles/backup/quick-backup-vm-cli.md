@@ -13,15 +13,15 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: storage-backup-recovery
-origin.date: 10/02/2017
-ms.date: 01/08/2018
+origin.date: 01/12/2018
+ms.date: 02/08/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 613d85c07d0ea8a339a9f35a6f577e9b4cf365d7
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: a725a3908efd38d9466ccc8f0c16988ecd2b8893
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>使用 CLI 在 Azure 中备份虚拟机
 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 可以通过定期创建备份来保护数据。 Azure 备份可创建恢复点，这些恢复点可存储在异地冗余的恢复保管库中。 本文详细介绍如何使用 Azure CLI 在 Azure 中备份虚拟机 (VM)。 也可以使用 [Azure PowerShell](quick-backup-vm-powershell.md) 或 [Azure 门户](quick-backup-vm-portal.md)执行这些步骤。
@@ -129,4 +129,4 @@ az group delete --name myResourceGroup
 > [!div class="nextstepaction"]
 > [备份多个 Azure VM](./tutorial-backup-vm-at-scale.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties-->

@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/14/2017
-ms.date: 01/08/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: cc858fa32f53ea5ddef93f4e1333a4808cb9e97e
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 8a9114d64713f4ab1d8b284c5e6f06c5225c8711
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Azure 元数据服务：适用于 Linux VM 的计划事件（预览）
 
@@ -185,7 +185,7 @@ import urllib2
 import socket
 import sys
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01"
 headers = "{Metadata:true}"
 this_host = socket.gethostname()
 
@@ -205,7 +205,7 @@ def handle_scheduled_events(data):
         resourcetype = evt['ResourceType']
         notbefore = evt['NotBefore'].replace(" ","_")
         if this_host in resources:
-            print "+ Scheduled Event. This host is scheduled for " + eventype + " not before " + notbefore
+            print "+ Scheduled Event. This host " + this_host + " is scheduled for " + eventtype + " not before " + notbefore
             # Add logic for handling events here
 
 def main():
@@ -221,4 +221,4 @@ if __name__ == '__main__':
 - 在 [Azure 实例元数据计划事件 Github 存储库](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)中查看预定事件代码示例。
 - 详细了解[实例元数据服务](instance-metadata-service.md)中提供的 API。
 - [Azure 中 Linux 虚拟机的计划内维护](planned-maintenance.md)。
-<!-- Update_Description: update meta properties, wording update， update link -->
+<!-- Update_Description: update meta properties, wording update -->

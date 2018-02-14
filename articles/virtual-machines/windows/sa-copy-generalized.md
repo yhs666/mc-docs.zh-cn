@@ -3,7 +3,7 @@ title: "在 Azure 中创建通用化 VM 的非托管映像 | Azure"
 description: "创建通用化 Windows VM 的非托管映像，用于在 Azure 中创建 VM 的多个副本。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: dcdffc16aaf406f1ab43fe53b198123bd1453d80
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 02/05/2018
+ms.author: v-yeche
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5358d0a3136bcde62e8ff957f9ed18a5102a71b1
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>如何从 Azure VM 创建非托管 VM 映像
 
@@ -32,9 +33,9 @@ ms.lasthandoff: 08/29/2017
 需要安装 Azure PowerShell 1.0.x 版或更新版本。 如果尚未安装 PowerShell，请参阅 [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)（如何安装和配置 Azure PowerShell）了解安装步骤。
 
 ## <a name="generalize-the-vm"></a>通用化 VM 
-本部分说明如何通用化可用作映像的 Windows 虚拟机。 通用化 VM 会删除所有个人帐户信息及其他某些数据，并准备好要用作映像的计算机。 有关 Sysprep 的详细信息，请参阅[如何使用 Sysprep：简介](http://technet.microsoft.com/library/bb457073.aspx)。
+本部分说明如何通用化可用作映像的 Windows 虚拟机。 通用化 VM 将删除所有个人帐户信息及其他某些数据，并准备好要用作映像的计算机。 有关 Sysprep 的详细信息，请参阅[如何使用 Sysprep：简介](http://technet.microsoft.com/library/bb457073.aspx)。
 
-确保 Sysprep 支持计算机上运行的服务器角色。 有关详细信息，请参阅 [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+确保 Sysprep 支持计算机上运行的服务器角色。 有关详细信息，请参阅 [Sysprep 对服务器角色的支持](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
 > 首次将 VHD 上传到 Azure 时，请确保先[准备好 VM](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，然后再运行 Sysprep。 
@@ -50,7 +51,7 @@ ms.lasthandoff: 08/29/2017
 5. 单击 **“确定”**。
 
     ![启动 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Sysprep 在完成运行后会关闭虚拟机。 
+6. 在 Sysprep 完成时，它会关闭虚拟机。 
 
 > [!IMPORTANT]
 > 将 VHD 上传到 Azure 或从 VM 创建映像完成之前不要重启 VM。 如果 VM 意外重启，请运行 Sysprep 将其再次通用化。
@@ -251,3 +252,4 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 
 ## <a name="next-steps"></a>后续步骤
 若要使用 Azure PowerShell 管理新虚拟机，请参阅[使用 Azure Resource Manager 与 PowerShell 来管理虚拟机](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+<!-- Update_Description: update meta properties -->

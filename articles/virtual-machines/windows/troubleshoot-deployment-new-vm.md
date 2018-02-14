@@ -12,16 +12,16 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30610a2c43d45f78dc283c81186cc62127c7046b
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: cbdd35045c5243e06e34454feaa9f0142e458f0b
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>排查在 Azure 中新建 Windows VM 时遇到的部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/15/2017
 
 **N<sup>1</sup>：**如果 OS 是通用的 Windows，但是以专用设置上传的，则会发生预配超时错误，并且 VM 会卡在 OOBE 屏幕上。
 
-**N<sup>2</sup>：**如果 OS 是专用的 Windows，但是以通用设置上传的，则会发生预配失败错误，并且 VM 会卡在 OOBE 屏幕上，因为新 VM 是以原始计算机名称、用户名和密码运行的。
+N2：如果 OS 是专用的 Windows，但是以通用设置上传的，则会发生预配失败错误，并且 VM 会卡在 OOBE 屏幕上，因为新 VM 是以原始计算机名称、**N<sup>2</sup>：**如果 OS 是专用的 Windows，但是以通用设置上载的，则会发生预配失败错误，并且 VM 会卡在 OOBE 屏幕上，因为新 VM 是以原始计算机名称、用户名和密码运行的。用户名和密码运行的。
 
 **解决方法**
 

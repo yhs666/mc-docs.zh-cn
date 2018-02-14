@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 09/28/2017
 ms.date: 10/23/2017
 ms.author: v-johch
-ms.openlocfilehash: 1b42377d34693a404fccb7230f6441e36ecacbdb
-ms.sourcegitcommit: fea4940a09cecbae36256410227e701e5f0aab6d
+ms.openlocfilehash: f170d25aa3a26a4b15359d4833b076d732a51e37
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="introduction-to-blob-storage"></a>Blob 存储简介
 
@@ -55,4 +55,5 @@ Blob 服务包含以下组件：
 
 * [创建存储帐户](../common/storage-create-storage-account.md?toc=%2fstorage%2fblobs%2ftoc.json)
 * [通过 .NET 开始使用 Blob 存储](storage-dotnet-how-to-use-blobs.md)
-<!--Update_Description:Page blobs max side update from 1TB to 8TB-->
+* [使用 .NET 的 Azure 存储示例](../common/storage-samples-dotnet.md)
+* [使用 Java 的 Azure 存储示例](../common/storage-samples-java.md)

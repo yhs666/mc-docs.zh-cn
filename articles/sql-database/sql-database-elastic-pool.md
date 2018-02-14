@@ -17,11 +17,11 @@ ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: a3d11242dbab38fd5e0157743bc601bec870d919
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: cd9bc83a5793dc411425a08b5cab6222c3c2a355
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>弹性池有助于管理和缩放多个 Azure SQL 数据库
 
@@ -38,7 +38,6 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 - 基于高峰使用情况和付款情况过度预配资源或
 - 采用低配节省成本，但这样会牺牲高峰期的性能和客户满意度。 
 
-弹性池通过确保数据库获取需要时所需的性能资源来解决这个问题。 它们在可预测的预算内提供简单的资源分配机制。 若要深入了解如何通过弹性池设计 SaaS 应用程序的模式，请参阅 [具有 Azure SQL 数据库的多租户 SaaS 应用程序的设计模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
@@ -370,6 +369,5 @@ SQL 数据库服务将评估使用量历史记录，并在比使用单一数据�
 ## <a name="next-steps"></a>后续步骤
 
 * 有关视频，请参阅[有关 Azure SQL 数据库弹性功能的 Microsoft 虚拟大学视频课程](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
-* 若要深入了解如何通过弹性池设计 SaaS 应用程序的模式，请参阅 [具有 Azure SQL 数据库的多租户 SaaS 应用程序的设计模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
 
 <!--Update_Description: update Global CLI 2.0 links to Mooncake CLI 2.0 links-->

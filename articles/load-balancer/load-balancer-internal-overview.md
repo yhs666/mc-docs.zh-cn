@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: e96e6891cacac5c9d783251d1429a56fdc918af6
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 060c8d42ebb6a05ff9fdd2e221ed014972a3a4c9
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="overview-of-azure-internal-load-balancer"></a>Azure 内部负载均衡器概述
 
@@ -29,7 +29,7 @@ Azure 内部负载均衡器 (ILB) 仅将流量定向到云服务内的资源，�
 
 ## <a name="why-you-might-need-an-internal-load-balancer"></a>需要内部负载均衡器的原因
 
-内部负载均衡器可在驻留于云服务或虚拟网络（具有区域性作用域）中的虚拟机 (VM) 之间进行负载均衡。 若要了解具有区域性作用域的虚拟网络，请参阅 Azure 博客中的[区域虚拟网络](https://azure.microsoft.com/blog2014/05/14/regional-virtual-networks/)。 为关联组配置的现有虚拟网络无法使用 ILB。
+内部负载均衡器可在驻留于云服务或虚拟网络（具有区域性作用域）中的虚拟机 (VM) 之间进行负载均衡。 若要了解具有区域性作用域的虚拟网络，请参阅 Azure 博客中的[区域虚拟网络](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。 为关联组配置的现有虚拟网络无法使用 ILB。
 
 ILB 允许进行以下类型的负载均衡：
 

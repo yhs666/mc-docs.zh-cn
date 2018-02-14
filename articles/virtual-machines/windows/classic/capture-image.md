@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 05/30/2017
 ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: cfb472f45e0510657b1c13c533b66cf6dfb21764
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 759b43b6ee50552dc0bfb7ea6c22fb8c56f1b1e7
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>捕获使用经典部署模型创建的 Azure Windows 虚拟机的映像。
 > [!IMPORTANT]
@@ -78,7 +78,7 @@ Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure �
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx
-[Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
+<!-- Not Available on [Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png -->
 [Enter Sysprep.exe options]: ./media/capture-image/SysprepGeneral.png
 [The virtual machine is stopped]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
 [Capture an image of the virtual machine]: ./media/capture-image/CaptureVM.png

@@ -17,11 +17,11 @@ origin.date: 03/14/2016
 ms.date: 12/26/2016
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 003bb6d1066f1139294775acdd628be90d9ba203
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: 2b4287c3e432d246c3554127bd9d79715b4022a4
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-network-security-groups-using-powershell"></a>使用 PowerShell 管理网络安全组
 
@@ -341,7 +341,7 @@ Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
 可将 NSG 关联到子网和 NIC。 还可取消 NSG 与任何相关联的资源之间的关联。
 
 ### <a name="associate-an-nsg-to-a-nic"></a>将 NSG 关联到 NIC
-若要将 **NSG-FrontEnd** NSG 关联到 **TestNICWeb1** NIC，请完成以下步骤：
+若要关联 **NSG-FrontEnd** NSG 与 **TestNICWeb1** NIC，请完成以下步骤：
 
 1. 运行以下命令，检索现有 NSG 并将其存储在变量中：
 
@@ -513,4 +513,4 @@ Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
    > 
 
 <!--Not Available ## Next steps-->
-<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.-->
+<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) -->

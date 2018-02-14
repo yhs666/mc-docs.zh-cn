@@ -9,18 +9,16 @@ editor: tysonn
 ms.assetid: 
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: python
 ms.topic: quickstart
-origin.date: 10/12/2017
-ms.date: 12/04/2017
+ms.date: 1/29/2018
 ms.author: v-nany
-ms.openlocfilehash: 30e647cb9b178949203661699a084d1787d14f53
-ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
+ms.openlocfilehash: 8cff4c035a402be70b7ec6ff324dd1daa3146443
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>使用 Python 将对象转移到 Azure Blob 存储或从 Azure Blob 存储转移对象
 本快速入门介绍如何使用 Python 上传、下载和列出 Azure Blob 存储的容器中的块 blob。 

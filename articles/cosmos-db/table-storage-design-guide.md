@@ -15,17 +15,18 @@ ms.workload: storage
 origin.date: 11/03/2017
 ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: ef6f13a92ea5f5293b6f640d78d453127b424e2f
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 855f6888546b212891aebad1a117793c02912346
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 存储表设计指南：设计可伸缩的高性能表
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 要设计可伸缩的高性能表，必须考虑许多因素（如性能、可伸缩性和成本）。 如果以前已为关系数据库设计过架构，这些注意事项对你来说会很熟悉，尽管 Azure 表服务存储模型与关系模型之间有一些相似之处，但也有许多重大差异。 这些差异通常会导致非常不同的设计，这些设计对于熟悉关系数据库的人来说可能看起来不直观或是错误的，但如果正在设计 Azure 表服务等 NoSQL 键/值存储，就会体会到这些设计是很合理的。 许多设计差异将反映这样一个事实：表服务旨在支持云级别应用程序，这些应用程序可包含数十亿个实体（相当于关系数据库术语中的行）的数据，或者用于必须支持非常高事务量的数据集：因此，你需要以不同方式考虑如何存储数据，并了解表服务的工作原理。 相对于使用关系数据库的解决方案而言，设计良好的 NoSQL 数据存储可以使解决方案更进一步的扩展（以更低的成本）。 本指南中介绍这些主题。  
 
+<a name="overview"></a>
 ## <a name="about-the-azure-table-service"></a>关于 Azure 表服务
 本部分重点介绍表服务的一些主要功能，这些功能尤其与设计性能和可伸缩性相关。 如果不熟悉 Azure 存储和表服务，请在阅读本文的其他部分之前，先阅读 [Azure 存储简介](../storage/common/storage-introduction.md)和[通过 .NET 实现 Azure 表存储入门](table-storage-how-to-use-dotnet.md)。 尽管本指南的重点是介绍表服务，但它也将包括 Azure 队列和 Blob 服务的一些讨论，并介绍如何在解决方案中将这些 Azure 队列和 Blob 服务与表服务一起使用。  
 

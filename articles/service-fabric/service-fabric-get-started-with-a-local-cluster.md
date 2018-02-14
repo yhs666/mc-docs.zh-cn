@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 11/03/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: a0cef5af47d1a4d2309f2ff3cf2291efd2461d66
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 6c6be28b1239ed5dc3e4c45fb9e80bb43d3c45ab
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>在本地群集上部署和升级应用程序入门
 Azure Service Fabric SDK 包含完整的本地开发环境，可让你快速地在本地群集上开始部署和管理应用程序。 本文介绍如何从 Windows PowerShell 创建本地群集、将现有应用程序部署到该群集，并将该应用程序升级到新版本。
@@ -115,7 +115,7 @@ Service Fabric SDK 包含一组丰富的框架以及用于创建应用程序的�
     ![在 PowerShell 中列出应用程序的服务][ps-getsfsvc]
 
     该应用程序由两个服务组成：Web 前端服务和可管理单词的有状态服务。
-3. 最后，查看 WordCountService 的分区列表：
+3. 最后，看看 WordCountService 的分区列表：
 
     ```powershell
     Get-ServiceFabricPartition 'fabric:/WordCount/WordCountService'
@@ -139,7 +139,7 @@ Service Fabric 在应用程序推出于群集时监视其运行状况，从而�
 
 新版应用程序现在只计算以元音开头的单词。 推出升级后，我们会看到应用程序的行为出现两项变化。 首先，计数增长的速率应该变慢，因为计算的单词比较少。 其次，由于第一个分区有两个元音（A 和 E），而其他每个分区只包含一个元音，因此第一个分区的计数最终会超出其他分区。
 
-1. [下载 WordCount v2 包](http://aka.ms/servicefabric-wordcountappv2)并将其保存到已下载的 v1 包的同一位置。
+1. [下载 WordCount v2 包](http://aka.ms/servicefabric-wordcountappv2) 到 v1 包下载到的位置。
 2. 返回 PowerShell 窗口并，使用 SDK 的升级命令在群集中注册新版本。 然后开始升级 fabric:/WordCount 应用程序。
 
     ```powershell
@@ -153,7 +153,7 @@ Service Fabric 在应用程序推出于群集时监视其运行状况，从而�
 
     ![Service Fabric Explorer 中的升级进度][sfx-upgradeprogress]
 
-    随着每个域不断升级，系统将执行运行状况检查，以确保应用程序行为正常。
+    随着每个域不断升级，系统执行运行状况检查，以确保应用程序行为正常。
 4. 如果重新运行对 fabric:/WordCount 应用程序中的服务集以前的查询，则会发现 WordCountService 的版本已更改，但 WordCountWebService 的版本维持不变：
 
     ```powershell
@@ -163,7 +163,7 @@ Service Fabric 在应用程序推出于群集时监视其运行状况，从而�
     ![升级后查询应用程序服务][ps-getsfsvc-postupgrade]
 
     此示例重点介绍了 Service Fabric 如何管理应用程序升级。 它只会影响已更改的服务集（或这些服务中的代码/配置包），使升级过程变得更快速且更可靠。
-5. 最后，返回浏览器来观察新应用程序版本的行为。 与预期一样，计数进行得更加缓慢，且第一个分区中最终有更多的卷。
+5. 最后，请返回到浏览器来观察新应用程序版本的行为。 与预期一样，计数进行得更加缓慢，且第一个分区中最终有更多的卷。
 
     ![在浏览器中查看应用程序的新版本][deployed-app-ui-v2]
 
@@ -179,7 +179,7 @@ Service Fabric 在应用程序推出于群集时监视其运行状况，从而�
     也可以在 Service Fabric Explorer 的“操作”  菜单或在左侧的应用程序列表视图的上下文菜单中删除应用程序。
 
     ![在 Service Fabric Explorer 中删除应用程序][sfe-delete-application]
-2. 从群集中删除应用程序后，注销 WordCount 应用程序类型的版本 1.0.0 和 2.0.0。 删除操作将从群集的映像存储中删除该应用程序包，包括其代码和配置。
+2. 从群集中删除应用程序后，注销 WordCount 应用程序类型的版本 1.0.0 和 2.0.0。 删除操作会从群集的映像存储区删除该应用程序包，包括其代码和配置。
 
     ```powershell
     Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 2.0.0
@@ -225,7 +225,7 @@ Service Fabric 在应用程序推出于群集时监视其运行状况，从而�
 <!-- Images -->
 
 [cluster-setup-success]: ./media/service-fabric-get-started-with-a-local-cluster/LocalClusterSetup.png
-[extracted-app-package]: ./media/service-fabric-get-started-with-a-local-cluster/ExtractedAppPackage.png
+<!-- File Not exist [extracted-app-package]: ./media/service-fabric-get-started-with-a-local-cluster/ExtractedAppPackage.png -->
 [deploy-app-to-local-cluster]: ./media/service-fabric-get-started-with-a-local-cluster/DeployAppToLocalCluster.png
 [deployed-app-ui]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI-v1.png
 [deployed-app-ui-v2]: ./media/service-fabric-get-started-with-a-local-cluster/DeployedAppUI-PostUpgrade.png

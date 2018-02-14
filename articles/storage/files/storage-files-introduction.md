@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 10/08/2017
-ms.date: 10/30/2017
+ms.date: 1/29/2018
 ms.author: v-johch
-ms.openlocfilehash: ecd4e34bab82abfb78cd1dcff72a06d15348c502
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 37364dc5d974f901ceb7484556b3e2d8bb078ce9
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="introduction-to-azure-files"></a>Azure 文件简介
 Azure 文件在云中提供可以通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)（也称为通用 Internet 文件系统，简称 CIFS）访问的完全托管文件共享。 Azure 文件共享可由云或者 Windows、Linux 和 macOS 的本地部署同时装载。 此外，可以使用 Azure 文件同步（预览版）将 Azure 文件共享缓存在 Windows  Server 上，以加快访问速度（与在数据使用位置进行访问的速度相当）。
@@ -40,12 +40,12 @@ Azure 文件共享可用于：
         分布式应用程序的常见模式是将配置文件置于某个中心位置，然后可以从许多应用程序实例访问这些文件。 应用程序实例可以通过文件 REST API 加载其配置，人类可以根据需要通过本地装载 SMB 共享来访问这些配置。
 
     * **诊断共享**：  
-        Azure 文件共享是云应用程序存储其写入日志、指标和故障转储的方便位置。 应用程序实例可以通过文件 REST API 写入日志，开发人员可以通过在其本地计算机上装载文件共享来访问这些日志。 这就带来了极大的灵活性，因为开发人员可以利用云开发，同时又不需要放弃他们所熟悉和喜爱的任何现有工具。
+        Azure 文件共享是云应用程序写入其日志、指标和故障转储的方便位置。 应用程序实例可以通过文件 REST API 写入日志，开发人员可以通过在其本地计算机上装载文件共享来访问这些日志。 这就带来了极大的灵活性，因为开发人员可以利用云开发，同时又不需要放弃他们所熟悉和喜爱的任何现有工具。
 
     * **开发/测试/调试**：  
         开发人员或管理员在云中的 VM 上工作时，通常需要一套工具或实用程序。 将此类实用程序和工具复制到每个 VM 可能非常耗时。 通过在 VM 上本地装载 Azure 文件共享，开发人员和管理员可以快速访问其工具和实用程序，而无需进行复制。
 
-## <a name="key-benefits"></a>主要优势
+## <a name="key-benefits"></a>主要优点
 * **共享访问**。 Azure 文件共享支持行业标准 SMB 协议，这意味着，可以无缝地将本地文件共享替换为 Azure 文件共享，不需担心应用程序兼容性。 对于需要可共享性的应用程序来说，能够跨多个计算机、应用程序/实例共享文件系统是使用 Azure 文件的一项明显优势。 
 * **完全托管**。 不需管理硬件或 OS 即可创建 Azure 文件共享。 这意味着，不需使用关键的安全升级程序来修补服务器 OS，也不需更换故障硬盘。
 * **脚本和工具**。 在管理 Azure 应用程序的过程中，可以使用 PowerShell cmdlet 和 Azure CLI 来创建、装载和管理 Azure 文件共享。可以使用 Azure 门户和 Azure 存储资源管理器来创建和管理 Azure 文件共享。 

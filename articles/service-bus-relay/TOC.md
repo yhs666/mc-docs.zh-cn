@@ -22,10 +22,10 @@
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
 
-# 引用
+# 参考
 ## .NET
-### [Microsoft.Azure.Relay](https://doc.microsoft.com/dotnet/api/microsoft.azure.relay)
-### [Microsoft.ServiceBus](https://doc.microsoft.com/dotnet/api/Microsoft.ServiceBus)
+### [Microsoft.Azure.Relay](https://docs.microsoft.com/dotnet/api/microsoft.azure.relay)
+### [Microsoft.ServiceBus](https://docs.microsoft.com/dotnet/api/Microsoft.ServiceBus)
 ## [异常](relay-exceptions.md)
 ## [端口设置](relay-port-settings.md)
 
@@ -33,6 +33,6 @@
 
 
 ## [博客](https://blogs.msdn.microsoft.com/servicebus/)
-## [定价](https://www.azure.cn/pricing/details/messaging/)
+## [价格](https://www.azure.cn/pricing/details/messaging/)
 ## [示例](https://github.com/azure/azure-relay/tree/master/samples)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

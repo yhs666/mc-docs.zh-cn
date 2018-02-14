@@ -14,21 +14,22 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 08/07/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 859c9e96d0522f93add1f1206c32ec27eba690c2
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 91c1de5a4a9dad53822d64f7459ebde29de1fc4c
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Azure 标准与高级托管磁盘存储的相互转换
 
 托管磁盘提供两种存储选项：[高级](premium-storage.md)（基于 SSD）和[标准](standard-storage.md)（基于 HDD）。 它允许基于性能需求在这两个选项之间轻松切换，并保障最短停机时间。 非托管磁盘不具备此功能。 但可以轻松[转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，以便在这两个选项之间轻松切换。
 
-本文介绍了如何使用 Azure PowerShell 实现标准与高级托管磁盘的相互转换。 如需进行安装或升级，请参阅[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps.md)。
+本文介绍了如何使用 Azure PowerShell 实现标准与高级托管磁盘的相互转换。 如需进行安装或升级，请参阅[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+<!-- URL is correct without .md postfix on https://docs.microsoft.com/powershell/azure/install-azurerm-ps -->
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 * 该转换需要重启 VM，因此请在预先存在的维护时段内计划磁盘存储迁移。 
 * 如果使用的是非托管磁盘，请先[转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，以便按照本文中的说明在两个存储选项之间切换。 
@@ -50,10 +51,11 @@ $storageType = 'PremiumLRS'
 # Premium capable size
 # Required only if converting storage from standard to premium
 $size = 'Standard_DS2_v2'
-$vm = Get-AzureRmVM -Name $vmName -resourceGroupName $rgName
 
 # Stop and deallocate the VM before changing the size
 Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+
+$vm = Get-AzureRmVM -Name $vmName -resourceGroupName $rgName
 
 # Change the VM size to a size that supports premium storage
 # Skip this step if converting storage from premium to standard
@@ -66,7 +68,7 @@ $vmDisks = Get-AzureRmDisk -ResourceGroupName $rgName
 # For disks that belong to the selected VM, convert to premium storage
 foreach ($disk in $vmDisks)
 {
-    if ($disk.OwnerId -eq $vm.Id)
+    if ($disk.ManagedBy -eq $vm.Id)
     {
         $diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType $storageType
         Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
@@ -94,10 +96,11 @@ $disk = Get-AzureRmDisk -DiskName $diskName -ResourceGroupName $rgName
 
 # Get the ARM resource to get name and resource group of the VM
 $vmResource = Get-AzureRmResource -ResourceId $disk.diskId
-$vm = Get-AzureRmVM $vmResource.ResourceGroupName -Name $vmResource.ResourceName 
 
 # Stop and deallocate the VM before changing the storage type
 Stop-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -Force
+
+$vm = Get-AzureRmVM $vmResource.ResourceGroupName -Name $vmResource.ResourceName 
 
 # Change the VM size to a size that supports premium storage
 # Skip this step if converting storage from premium to standard
@@ -115,4 +118,4 @@ Start-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ## <a name="next-steps"></a>后续步骤
 
 使用[快照](snapshot-copy-managed-disk.md)获取 VM 的只读副本。
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

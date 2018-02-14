@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 01/13/2017
 ms.date: 01/12/2018
 ms.author: v-nany
-ms.openlocfilehash: f7c664d8f3695a932256c0ac743c3bb821a1b536
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: ca483c2c9408fe22e03267bf73c284a603028265
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自动化中的连接资产
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/23/2018
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell Cmdlet
 
-下表中的 cmdlet 用于通过 Windows PowerShell 创建和管理自动化连接。 可在自动化 Runbook 和 DSC 配置中使用的 [Azure PowerShell 模块](/powershell/azure/overview)已随附了这些 cmdlet。
+下表中的 cmdlet 用于通过 Windows PowerShell 创建和管理自动化连接。 可在自动化 Runbook 和 DSC 配置中使用的 [Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/overview)已随附了这些 cmdlet。
 
 |Cmdlet|说明|
 |:---|:---|
@@ -78,7 +78,7 @@ ms.lasthandoff: 01/23/2018
 
 使用 Windows PowerShell 通过 [New-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet 创建新连接。 此 cmdlet 有一个名为 ConnectionFieldValues 的参数，预期为一个[哈希表](http://technet.microsoft.com/library/hh847780.aspx)，用于为连接类型定义的每个属性定义值。
 
-如果熟悉自动化的[运行方式帐户](automation-sec-configure-azure-runas-account.md)（可使用服务主体对 Runbook 进行身份验证），可以使用 PowerShell 脚本（在从门户创建运行方式帐户时作为替代方法提供）通过以下示例命令创建新的连接资产。  
+如果熟悉自动化的[运行方式帐户](automation-create-runas-account.md)（可使用服务主体对 Runbook 进行身份验证），可以使用 PowerShell 脚本（在从门户创建运行方式帐户时作为替代方法提供）通过以下示例命令创建新的连接资产。  
 
 ```powershell
 $ConnectionAssetName = "AzureRunAsConnection"

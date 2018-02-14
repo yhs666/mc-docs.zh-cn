@@ -13,11 +13,11 @@ origin.date: 10/23/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0b4c519a3be1039efb137f1509186f2f3153bc8b
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 9143de0d0cc2bd528e1052fbdc5db36d8e30590b
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>使用 Azure Site Recovery 保护文件服务器 
 
@@ -26,7 +26,8 @@ ms.lasthandoff: 12/29/2017
 本文介绍如何使用 Azure Site Recovery 保护文件服务器，以及适合各种环境的其他建议。     
 
 - [复制 Azure IaaS 文件服务器计算机](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines)
-- [使用 Azure Site Recovery 复制本地文件服务器](#replicate-an-onpremises-file-server-using-azure-site-recovery)
+- [使用 Azure Site Recovery 复制本地文件服务器](#replicate-an-on-premises-file-server-using-azure-site-recovery)
+<!-- Archor should be replicate-an-on-premises contain - -->
 
 ## <a name="file-server-architecture"></a>文件服务器体系结构
 开放分布式文件共享系统的目标是提供可让一组地理分散的用户进行协作的环境，使他们能够高效地处理文件，并保证实施他们的完整性要求。 支持大量并发用户和大量内容项的典型本地文件服务器生态系统使用分布式文件系统复制 (DFSR) 来计划复制和限制带宽。 DFSR 使用称为远程差分压缩 (RDC) 的压缩算法，该算法可用于通过带宽有限的网络有效更新文件。 DFSR 可以检测文件中数据的插入、删除和重新排列，因此在更新文件时，只会复制已更改的文件块。 此外还有文件服务器环境，其中会在非高峰时间创建每日备份，可迎合灾难恢复的需求，并且无需实施 DFSR。
@@ -57,9 +58,10 @@ ms.lasthandoff: 12/29/2017
 
 |环境  |建议  |考虑的要点 |
 |---------|---------|---------|
-|带有/不带 DFSR 的文件服务器环境|   [使用 Azure Site Recovery 进行复制](#replicate-an-onpremises-file-servers-using-azure-site-recovery)   |    Site Recovery 不支持共享磁盘群集和 NAS。 如果环境使用上述任何配置，请相应地使用其他任何方法。 <br> Azure Site Recovery 不支持 SMB 3.0，这意味着，仅当已在文件原始位置更新了对文件所做的更改时，复制的 VM 才会合并更改。
+|带有/不带 DFSR 的文件服务器环境|   [使用 Azure Site Recovery 进行复制](#replicate-an-on-premises-file-server-using-azure-site-recovery)   |    Site Recovery 不支持共享磁盘群集和 NAS。 如果环境使用上述任何配置，请相应地使用其他任何方法。 <br> Azure Site Recovery 不支持 SMB 3.0，这意味着，仅当已在文件原始位置更新了对文件所做的更改时，复制的 VM 才会合并更改。
 |带有 DFSR 的文件服务器环境     |  [将 DFSR 扩展到 Azure IaaS 虚拟机：](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |     DFSR 可在带宽严重不足的环境中正常工作，但是，此方法要求一直保持运行某个 Azure VM。 需要在规划中考虑该 VM 的成本。         |
 |Azure Iaas VM     |     [Azure 文件同步](#use-azure-file-sync-service-to-replicate-your-files)   |     在灾难恢复方案中，如果使用 Azure 文件同步，则在故障转移期间，需要采取手动操作来确保可在客户端计算机上以透明方式访问文件共享。 AFS 要求在客户端计算机上开放端口 445。     |
+<!-- URL should be replicate-an-on-premises-file-server  ON-PREMISES-FILE-SERVER  -->
 
 ### <a name="site-recovery-support"></a>Site Recovery 支持
 由于 Site Recovery 复制不区分应用程序，因此本文提供的建议应该也适用于以下方案：
@@ -86,6 +88,7 @@ ms.lasthandoff: 12/29/2017
 1. [使用 Azure 文件同步](#use-azure-file-sync-service-to-replicate-files-hosted-on-iaas-virtual-machine)
 2. [使用 Azure Site Recovery](#replicate-an-iaas-file-server-virtual-machine-using-azure-site-recovery)
 
+<a name="use-azure-file-sync-service-to-replicate-your-files"></a>
 ## <a name="use-azure-file-sync-service-to-replicate-files-hosted-on-iaas-virtual-machine"></a>使用 Azure 文件同步服务复制托管在 IaaS 虚拟机上的文件
 
 可以使用 **Azure 文件**来完全取代或补充传统的本地文件服务器或 NAS 设备。 此外，可以使用 Azure 文件同步将 Azure 文件共享复制到本地或云中的 Windows Server，在使用位置对数据进行高性能的分布式缓存。 以下步骤详细说明了其功能与传统文件服务器相同的 Azure VM 的灾难恢复建议：
@@ -102,6 +105,7 @@ ms.lasthandoff: 12/29/2017
 5.  现在，文件会在 Azure 文件共享和本地服务器中保持同步。
 6.  当本地环境中发生灾难时，可使用[恢复计划](site-recovery-create-recovery-plans.md)执行故障转移，并添加脚本来[装载 Azure 文件共享](/storage/files/storage-how-to-use-files-windows)和访问虚拟机中的共享。
 
+<a name="replicate-an-onpremises-file-server-using-azure-site-recovery"></a>
 ### <a name="replicate-an-iaas-file-server-virtual-machine-using-azure-site-recovery"></a>使用 Azure Site Recovery 复制 IaaS 文件服务器虚拟机
 
 如果本地客户端需要访问 IaaS 文件服务器虚拟机，也请执行前两个步骤，否则请转到步骤 3。

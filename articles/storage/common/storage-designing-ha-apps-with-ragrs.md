@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 12/11/2017
+origin.date: 1/22/2018
 ms.date: 01/01/2018
 ms.author: v-johch
-ms.openlocfilehash: 1a5c7a7d5e5a864940b2fa815f8810e24b0695f5
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 786521108ad05b1578968e05b5cd47eb28865885
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 设计高度可用的应用程序
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/29/2017
 
 Azure 存储为存储帐户中的数据冗余提供四个选项：
 
-– LRS（本地冗余存储）
+- LRS（本地冗余存储）
 - ZRS（区域冗余存储空间） 
 - GRS（异地冗余存储）
 - RA-GRS（读取访问异地冗余存储）。 

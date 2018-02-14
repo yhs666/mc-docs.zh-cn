@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 05/19/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: f24b728fa5962c2d42262fc020a67c23499d7edf
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: a8d4ae835903775204ef4319134a28c5f13142bd
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>上传通用化 VHD 并使用它在 Azure 中创建新 VM
 
@@ -28,11 +28,11 @@ ms.lasthandoff: 08/29/2017
 
 若要使用示例脚本，请参阅[将 VHD 上传到 Azure 并创建新的 VM 的示例脚本](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 - 将任何 VHD 上传到 Azure 之前，应该遵循[准备要上传到 Azure 的 Windows VHD 或 VHDX](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 - 开始迁移到[托管磁盘](managed-disks-overview.md)之前，请先查看[规划迁移到托管磁盘](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)。
-- 请确保有最新版本的 AzureRM.Compute PowerShell 模块。 运行以下命令来安装该模块。
+- 请确保具有最新版本的 AzureRM.Compute PowerShell 模块。 运行以下命令来安装该模块。
 
     ```powershell
     Install-Module AzureRM.Compute -RequiredVersion 2.6.0
@@ -59,7 +59,7 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
     ![启动 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. 在 Sysprep 完成时，它会关闭虚拟机。 不要重新启动 VM。
 
-## <a name="log-in-to-azure"></a>登录到 Azure
+## <a name="log-in-to-azure"></a>登录 Azure
 如果尚未安装 Azure PowerShell 1.4 版或更高版本，请阅读 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
 1. 打开 Azure PowerShell 并登录到 Azure 帐户。 此时会打开一个弹出窗口让输入 Azure 帐户凭据。
@@ -79,9 +79,9 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
     ```
 
 ## <a name="get-the-storage-account"></a>获取存储帐户
-需要在 Azure 中创建存储帐户来存储上传的 VM 映像。 可以使用现有存储帐户，也可以创建新存储帐户。 
+需要在 Azure 中创建一个存储帐户用于存储上传的 VM 映像。 可以使用现有存储帐户，也可以创建新存储帐户。 
 
-如果要使用 VHD 为 VM 创建托管磁盘，存储帐户位置必须与要创建 VM 的位置相同。
+如果将使用 VHD 为 VM 创建托管磁盘，存储帐户位置必须与要创建 VM 的位置相同。
 
 显示可用的存储帐户，请键入：
 
@@ -91,7 +91,7 @@ Get-AzureRmStorageAccount
 
 如果要使用现有存储帐户，请转到 [上传 VM 映像](#upload-the-vm-vhd-to-your-storage-account) 部分。
 
-若要创建存储帐户，请执行以下步骤：
+如果需要创建存储帐户，请执行以下步骤：
 
 1. 需要应在其中创建存储帐户的资源组的名称。 若要查找订阅中的所有资源组，请键入：
 
@@ -120,6 +120,7 @@ Get-AzureRmStorageAccount
    * **Standard_RAGRS** - 读取访问权限异地冗余存储。 
    * **Premium_LRS** - 高级本地冗余存储。 
 
+<a name="upload-the-vm-vhd-to-your-storage-account"></a>
 ## <a name="upload-the-vhd-to-your-storage-account"></a>将 VHD 上传到存储帐户
 
 使用 [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet 将 VHD 上传到存储帐户中的容器。 本示例将文件 *myVHD.vhd* 从 *"C:\Users\Public\Documents\Virtual hard disks\"* 上传到 *myResourceGroup* 资源组中名为 *mystorageaccount* 的存储帐户。 该文件将放入名为 *mycontainer* 的容器，新文件名为 *myUploadedVHD.vhd*。
@@ -164,7 +165,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
 
 使用通用 OS VHD 创建托管映像。 将值替换为自己的信息。
 
-1.  首先，设置公共参数：
+1.  首先，设置通用参数：
 
     ```powershell
     $vmName = "myVM"
@@ -253,7 +254,7 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 $cred = Get-Credential
 ```
 
-## <a name="add-the-vm-name-and-size-to-the-vm-configuration"></a>将 VM 的名称和大小添加到 VM 配置。
+## <a name="add-the-vm-name-and-size-to-the-vm-configuration"></a>向 VM 配置中添加 VM 的名称和大小。
 
 ```powershell
 $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize

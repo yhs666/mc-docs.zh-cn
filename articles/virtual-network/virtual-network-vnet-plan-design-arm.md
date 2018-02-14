@@ -15,15 +15,16 @@ ms.workload: infrastructure-services
 origin.date: 02/08/2016
 ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: d02efd635b99a7d3939dba5f4a9fdf11b0d97903
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: 098af755e9945aeb7f4afccdc23e84d5556860a2
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>规划和设计 Azure 虚拟网络
 创建要用于试验的 VNet 非常简单，但却可能是，你将在一段时间内部署多个 VNet 以支持组织的生产需要。 通过进行一些规划和设计，你将能够更有效地部署 VNet 和连接所需的资源。 如果你不熟悉 VNet，我们建议你先[了解 VNet](virtual-networks-overview.md) 以及[如何部署](virtual-networks-create-vnet-arm-pportal.md) VNet，然后再继续阅读本文。
 
+<a name="plan"></a>
 ## <a name="plan"></a>计划
 深入了解 Azure 订阅、区域和网络资源是取得成功的关键。 可以使用下面的注意事项列表作为起点。 了解这些注意事项后，你便可以定义网络设计要求了。
 
@@ -38,6 +39,7 @@ ms.lasthandoff: 11/28/2017
 * 可以使用 Azure 中提供的一种[连接选项](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)，将 VNet 连接到本地网络。
 * 不同的资源可以集中归入[资源组](../azure-resource-manager/resource-group-overview.md#resource-groups)，这样可便于将资源作为一个单元来管理。 资源组可以包含多个区域中的资源，只要资源属于同一订阅即可。
 
+<a name="define-requirements"></a>
 ### <a name="define-requirements"></a>定义要求
 使用下面的问题作为 Azure 网络设计的起点。    
 
@@ -98,7 +100,7 @@ VNet 包含以下属性。
 >
 
 ## <a name="design"></a>设计
-在能够回答[规划](#Plan)部分中的问题后，请查看以下内容，然后再定义 VNet。
+在能够回答[规划](#plan)部分中的问题后，请查看以下内容，然后再定义 VNet。
 
 ### <a name="number-of-subscriptions-and-vnets"></a>订阅和 VNet 的数量
 在以下情况下，你应考虑创建多个 VNet：
@@ -163,12 +165,12 @@ VNet 包含以下属性。
 * 每个应用程序应使用 5 个前端 Web 服务器、2 个应用程序服务器（如有必要）和 2 个数据库服务器。
 
 ### <a name="plan"></a>计划
-应通过回答[定义要求](#Define-requirements)部分中的问题（如下所示），开始你的设计规划。
+应通过回答[定义要求](#define-requirements)部分中的问题（如下所示），开始你的设计规划。
 
 1. 你将使用哪些 Azure 位置来托管 VNet？
 
     北美的 2 个位置和欧洲的 2 个位置。 你应基于现有本地数据中心的物理位置选择这些位置。 这样从物理位置连接到 Azure 将具有更好的延迟。
-2. 你是否需要在这些 Azure 位置之间提供通信？
+2. 是否需要在这些 Azure 位置之间提供通信？
 
     是的。 因为必须将数据库复制到所有位置。
 3. 你是否需要在 Azure VNet 和在本地数据中心之间提供通信？
@@ -184,7 +186,7 @@ VNet 包含以下属性。
     是的。 每个应用程序应彼此完全隔离，并且每个应用程序层也应隔离。
 6. 是否需要使用虚拟设备来控制通信流？
 
-    不可以。 可以使用虚拟设备更好地控制通信流，包括更多详细的数据平面日志记录。
+    否。 可以使用虚拟设备更好地控制通信流，包括更多详细的数据平面日志记录。
 7. 用户对于不同 Azure 资源是否需要不同权限集？
 
     是的。 网络团队需要完全控制虚拟网络设置，而开发人员则应仅能够将其 VM 部署到预先存在的子网。
@@ -209,7 +211,7 @@ VNet 包含以下属性。
 
 | **订阅** | **VNet** | **Azure 区域** | **地址空间** |
 | --- | --- | --- | --- |
-| BU1 |ProdBU1CN1 |华北 |172.16.0.0/16 |
+| BU1 |ProdBU1CN1 |中国北部 |172.16.0.0/16 |
 | BU1 |ProdBU1CE2 |华东 |172.17.0.0/16 |
 
 **子网和 NSG 的数量**

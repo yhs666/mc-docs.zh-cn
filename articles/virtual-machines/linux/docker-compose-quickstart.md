@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 09/26/2017
-ms.date: 10/30/2017
+origin.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: d4c9e0d66d136ced238d358239556983898143eb
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: bcd660d6d392016dd61748c64b46a3cd9e4eb2b3
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>使用 Docker 和 Compose 在 Azure 中定义和运行多容器应用程序入门
 借助 [Compose](http://github.com/docker/compose)，可以使用简单的文本文件定义由多个 Docker 容器组成的应用程序。 然后，使用单个命令启动应用程序，该命令会执行部署定义环境的所有操作。 作为示例，本文说明如何在 Ubuntu VM 上使用后端 MariaDB SQL 数据库快速设置 WordPress 博客。 也可以使用 Compose 设置更复杂的应用程序。
@@ -41,29 +41,14 @@ ms.lasthandoff: 10/27/2017
 az group create --name myResourceGroup --location chinaeast
 ```
 
-接下来，使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#create) 部署 VM，其中包含 [GitHub 中此 Azure Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)中的 Azure Docker VM 扩展。 为 newStorageAccountName、adminUsername、adminPassword 和 dnsNameForPublicIP 提供自己的唯一值：
+接下来，使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#create) 部署 VM，其中包含 [GitHub 中此 Azure Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)中的 Azure Docker VM 扩展。 出现提示时，为 newStorageAccountName、adminUsername、adminPassword 和 dnsNameForPublicIP 提供自己的唯一值：
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
-    "adminUsername": {"value": "azureuser"},
-    "adminPassword": {"value": "P@ssw0rd!"},
-    "dnsNameForPublicIP": {"value": "mypublicdns"}}' \
-  --template-file /path/to/azuredeploy.json
-
-It takes a few minutes for the deployment to finish. Once the deployment is finished, [move to next step](#verify-that-compose-is-installed) to SSH to your VM. 
-
-Optionally, to instead return control to the prompt and let the deployment continue in the background, add the `--no-wait` flag to the preceding command. This process allows you to perform other work in the CLI while the deployment continues for a few minutes. You can then view details about the Docker host status with [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show). The following example checks the status of the VM named *myDockerVM* (the default name from the template - don't change this name) in the resource group named *myResourceGroup*:
-
-```azurecli
-az vm show \
-    --resource-group myResourceGroup \
-    --name myDockerVM \
-    --query [provisioningState] \
-    --output tsv
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
-当此命令返回“已成功”时，表示部署完毕，可使用以下步骤通过 SSH 连接到 VM。
+需要几分钟才能完成部署。
 
 ## <a name="verify-that-compose-is-installed"></a>确认已安装 Compose
 若要查看 VM 的详细信息（包括 DNS 名称），请使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show)：
@@ -77,10 +62,10 @@ az vm show \
     --output tsv
 ```
 
-通过 SSH 连接到新的 Docker 主机。 提供自己的 DNS 名称，如下所示：
+通过 SSH 连接到新的 Docker 主机。 提供来自前面步骤的自己的用户名和 DNS 名称：
 
 ```bash
-ssh azureuser@mypublicdns.chinanorth.cloudapp.chinacloudapi.cn
+ssh azureuser@mypublicdns.chinaeast.cloudapp.chinacloudapi.cn
 ```
 
 若要确认 VM 上安装了 Compose，请运行以下命令：

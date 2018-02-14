@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6ad7acbcd0fea66af000f7b026f107cde22ce3f4
-ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
+ms.openlocfilehash: 39580b3855dbf0643d36a8fa5f30fb0d8589b60a
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>使用网络观察程序故障排除功能监视 VPN 网关
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 11/10/2017
 - 创建一个可以调用 `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet 来排查连接状态的 Runbook
 - 将计划链接到 Runbook
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在开始学习本方案之前，必须满足以下先决条件：
 
@@ -52,7 +52,9 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="create-the-runbook"></a>创建 Runbook
 
-配置示例的第一个步骤是创建 Runbook。 本示例使用运行方式帐户。 若要了解运行方式帐户，请访问[使用 Azure 运行方式帐户进行 Runbook 身份验证](../automation/automation-sec-configure-azure-runas-account.md)
+配置示例的第一个步骤是创建 Runbook。 本示例使用运行方式帐户。
+<!-- Not Available [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md) -->
+<!-- Redirect /automation/automation-sec-configure-azure-runas-account.md TO /automation -->
 
 ### <a name="step-1"></a>步骤 1
 
@@ -186,7 +188,7 @@ else
 
 ## <a name="next-steps"></a>后续步骤
 
-了解如何将网络观察程序故障排除功能与 Azure 自动化集成后，接下来请访问 [Create an alert triggered packet capture with Azure Network Watcher](network-watcher-alert-triggered-packet-capture.md)（使用 Azure 网络观察程序创建警报触发的数据包捕获），了解如何根据 VM 警报触发数据包捕获。
+<!--Not Available on [Create an alert triggered packet capture with Azure Network Watcher](network-watcher-alert-triggered-packet-capture.md) -->
 
 <!-- images -->
 [scenario]: ./media/network-watcher-monitor-with-azure-automation/scenario.png

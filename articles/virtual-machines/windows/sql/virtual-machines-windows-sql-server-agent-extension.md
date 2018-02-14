@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 12/12/2017
-ms.date: 01/08/2018
+origin.date: 01/05/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c7225bb1883519efec79d1dcb16fa6e6008a367
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 59f5f16343e237c729c3a667cbd6439bf7226325
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>使用 SQL Server 代理扩展 (Resource Manager) 在 Azure 虚拟机上自动完成管理任务
 > [!div class="op_single_selector"]
@@ -72,6 +71,9 @@ SQL Server IaaS 代理扩展支持以下管理任务：
 ```powershell
 Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "China East"
 ```
+
+> [!IMPORTANT]
+> 如果尚未安装该扩展，安装该扩展将会重新启动 SQL Server 服务。
 
 还可在仅有 OS 的 Windows Server 虚拟机上安装 SQL Server IaaS 代理扩展。 此操作仅适用于还在此计算机上手动安装了 SQL Server 的情况。 然后使用相同的 Set-AzureVMSqlServerExtension PowerShell cmdlet 手动安装扩展。
 

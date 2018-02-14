@@ -16,11 +16,11 @@ ms.workload: data-services
 origin.date: 12/11/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 25a6d6b89f1694c1c7e7dedcf056d68363a30dd6
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 8db1c4ef5eb555c46956449b80f2eaaebcd21fb8
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>数据连接：了解从事件到流分析的数据流输入
 与流分析作业的数据连接是数据源提供的事件流，这称为“输入”。 流分析与包括 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)、[Azure IoT 中心](https://www.azure.cn/home/features/iot-hub/)和 [Azure Blob 存储](https://www.azure.cn/home/features/storage/)在内的 Azure 数据流源具有一流的集成。 这些输入源可以来自与分析作业相同的 Azure 订阅，也可以来自其他订阅。
@@ -188,7 +188,7 @@ FROM Input
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
+<!-- Not Available on [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md -->
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md

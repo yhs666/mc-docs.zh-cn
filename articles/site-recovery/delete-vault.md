@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 07/04/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 66194ef5993dade60ca2485ebc0050a1839ff2d2
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 3144f6c80448bc81ef73e8125cb12b3bb6f7df26
+ms.sourcegitcommit: 1fb5f5438975a4901c35b6b95cbb190a08570a9b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="delete-a-site-recovery-vault"></a>删除 Site Recovery 保管库
 依赖项可能会阻止删除 Azure Site Recovery 保管库。 需要采取的措施因 Site Recovery 方案而异：VMware 到 Azure、Hyper-V（含和不含 System Center Virtual Machine Manager）到 Azure 和 Azure 备份。 若要删除用于 Azure 备份的保管库，请参阅[删除 Azure 备份保管库](../backup/backup-azure-delete-vault.md)。
@@ -53,7 +53,8 @@ ms.lasthandoff: 11/15/2017
 
 2. 依次转到保管库 ->“Site Recovery 基础结构”->“对于 Hyper-V 站点” -> “复制策略”，取消关联并删除所有复制策略
 
-3. 按照[取消注册 Hyper-V 主机](/site-recovery-manage-registration-and-protection.md##unregister-a-hyper-v-host-in-a-hyper-v-site)中的步骤操作，删除对 Hyper-V 服务器的引用。
+3. 按照[取消注册 Hyper-V 主机](./site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site)中的步骤操作，删除对 Hyper-V 服务器的引用。
+<!-- URL is correct with . [Unregister a Hyper-V host](./site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) -->
 
 4. 删除 Hyper-V 站点。
 

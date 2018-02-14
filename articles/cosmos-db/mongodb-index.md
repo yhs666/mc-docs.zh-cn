@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 12/12/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: a1633d98792ba2f39a3dea93221485753f7cf9b1
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 947be69d0ba1f79d91d4a6769ce866ce2d8240ab
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure Cosmos DB：MongoDB API 文档
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/22/2017
 ### <a name="create-a-web-app"></a>创建 Web 应用
 
 - 基于视频：[Node.js + Angular](tutorial-develop-mongodb-nodejs.md)
-- 基于视频：[Node.js + React](tutorial-develop-mongodb-react.md)
+<!-- Not Available on - Video based: [Node.js + React](tutorial-develop-mongodb-react.md)  -->
 
 ### <a name="migrate-mongodb-data"></a>迁移 MongoDB 数据
 

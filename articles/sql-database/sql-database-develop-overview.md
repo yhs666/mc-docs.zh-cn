@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 08/17/2016
 ms.date: 10/02/2017
 ms.author: v-johch
-ms.openlocfilehash: e7c673a99b9f23143adb1229a67770da78121493
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: a37754cb95fb5955276b7d716e49f0eb60e7b654
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="sql-database-application-development-overview"></a>SQL 数据库应用程序开发概述
 本文逐步讲解开发人员在编写代码以连接到 Azure SQL 数据库时应考虑的基本注意事项。
@@ -42,7 +42,7 @@ Azure SQL 数据库使用两种不同的机制管理可用于数据库的资源�
 
 * 详细信息：[Azure SQL 数据库资源限制](sql-database-service-tiers.md)。
 
-## <a name="security"></a>“安全”
+## <a name="security"></a>安全性
 Azure SQL 数据库提供用于在 SQL 数据库中限制访问、保护数据和监视活动的资源。
 
 * 详细信息：[保护 SQL 数据库](sql-database-security-overview.md)。
@@ -71,7 +71,6 @@ Azure SQL 数据库提供用于在 SQL 数据库中限制访问、保护数据�
 ## <a name="data-sharding-with-elastic-scale"></a>数据分片和弹性缩放
 弹性缩放简化了扩展（和缩减）过程。 
 
-* [包含 Azure SQL 数据库的多租户 SaaS 应用程序的设计模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
 * [数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)。
 * [Azure SQL 数据库 Elastic Scale 预览版入门](sql-database-elastic-scale-get-started.md)。
 

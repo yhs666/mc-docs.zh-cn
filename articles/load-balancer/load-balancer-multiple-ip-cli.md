@@ -127,7 +127,7 @@ ms.author: v-yeche
     ```
 
 13. 最后，必须将 DNS 资源记录配置为指向各自的负载均衡器的前端 IP 地址。 可以在 Azure DNS 中托管域。
-<!--Not available [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).-->
+<!--Not available [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md) -->
 
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。

@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 07/19/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6160807ffdbfd2d6785f8a31511ea2cd345c68b2
-ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
+ms.openlocfilehash: d6954364a37d2cbb14f3472f50e1c9fe718b95cc
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>将 Windows 容器中的 .NET 应用程序部署到 Azure Service Fabric
 
@@ -219,7 +219,7 @@ Edge 会在内部 NAT 网络上使用容器的 IP 地址（通常为 172.x.x.x�
 > * 容器化现有应用程序
 > * 设置与 Visual Studio 和 VSTS 的持续集成
 
-<!-- Not Available on In the next part of the tutorial, learn how to set up [monitoring for your container](service-fabric-tutorial-monitoring-wincontainers.md). -->
+<!-- Not Available on In the next part of the tutorial, learn how to set up [monitoring for your container](service-fabric-tutorial-monitoring-wincontainers.md)  -->
 
 <!--   NOTE SURE WHAT WE SHOULD DO YET HERE
 
@@ -236,8 +236,9 @@ Advance to the next tutorial to learn how to bind a custom SSL certificate to it
 -->
 
 [link-debug-container]: https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker
+<!-- the URL is correct https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker -->
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
-[link-container-quickstart]: /virtualization/windowscontainers/quick-start/quick-start-windows-10
+[link-container-quickstart]: https://docs.microsoft.com/zh-cn//virtualization/windowscontainers/quick-start/quick-start-windows-10
 [link-visualstudio-container-tools]: https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker
 [link-azure-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md

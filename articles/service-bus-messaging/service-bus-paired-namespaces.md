@@ -3,7 +3,7 @@ title: "服务总线配对命名空间 |Azure"
 description: "配对命名空间实现的详细信息和成本"
 services: service-bus
 documentationCenter: na
-authors: sethmanheim
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/30/2017
+origin.date: 12/21/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
-ms.openlocfilehash: 3019a93a14dd82d936f4c70814af2ce8ec69f19f
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 02/05/2018
+ms.openlocfilehash: 7e3cf00411f22d9437898917200b2b05515b8967
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>配对命名空间实现详细信息和成本影响
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 09/29/2017
 
 发送给主要队列失败时，发送方开始向随机选择的积压工作队列发送消息。 与此同时，启动 ping 任务。
 
-![配对命名空间][1]
+![成对命名空间][1]
 
 这个时候消息仍在辅助队列，尚未传递给主要队列。 一旦主要队列再次恢复正常，至少一个进程应运行管道。 管道会从所有不同的积压工作队列将消息传递到相应的目标实体（队列和主题）。
 
@@ -64,8 +64,8 @@ ms.lasthandoff: 09/29/2017
 | DefaultMessageTimeToLive |TimeSpan.MaxValue |
 | AutoDeleteOnIdle |TimeSpan.MaxValue |
 | LockDuration |1 分钟 |
-| EnableDeadLetteringOnMessageExpiration |true |
-| EnableBatchedOperations |true |
+| EnableDeadLetteringOnMessageExpiration |是 |
+| EnableBatchedOperations |是 |
 
 例如，为命名空间 **contoso** 创建的第一个积压工作队列名为 `contoso/x-servicebus-transfer/0`。
 

@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 08/15/2017
 ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: f3b4d031578fa4cb076d4d22520f6d7b7c91605a
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 056aa16da5025dad6f7e773d8d4b2ea68782e661
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="event-hubs-samples"></a>事件中心示例 
 
@@ -66,9 +66,9 @@ Azure 事件中心示例集演示了 [Azure 事件中心](/event-hubs/)内的主
 
 [提取 SQL 数据](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql)示例演示如何从 SQL 表中提取数据并将其推送到事件中心，以用作下游分析应用程序的输入。
 
-### <a name="pull-web-data-into-an-event-hub"></a>将 Web 数据提取到事件中心 
-
-[从 Web 导入数据](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb)示例演示如何从公共源（例如运输部的流量信息源）提取数据，并将其推送到事件中心。
+<!-- Not Available on ### <a name="pull-web-data-into-an-event-hub"></a>### Pull web data into an event hub  -->
+<!-- Not Available on Github.com event-hubs-dotnet-importfromweb -->
+<!-- Not Available [从 Web 导入数据](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) -->
 
 ## <a name="next-steps"></a>后续步骤
 

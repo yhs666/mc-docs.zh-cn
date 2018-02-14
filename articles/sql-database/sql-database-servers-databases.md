@@ -16,11 +16,11 @@ ms.workload: data-management
 origin.date: 10/11/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 548c113bfbde4eaf78b626be478e175ace1d2b80
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 9f8944360e98c9985051cb985f6808e123c68e46
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>创建并管理 Azure SQL 数据库服务器和数据库
 
@@ -33,7 +33,6 @@ Azure SQL 数据库可以是：
 - 具有其[自己的一组资源](sql-database-single-database-resources.md)的单一数据库
 - 共享一组资源的[弹性池](sql-database-elastic-pool.md)的一部分
 - [向外扩展的一组共享数据库](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling)的一部分，可以是单一数据库，也可以是入池数据库
-- 参与[多租户 SaaS 设计模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)的一组数据库的一部分，该模式中可以包含单一数据库或池中的数据库（或两者） 
 
 > [!TIP]
 > 如需有效的数据库名称，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。 

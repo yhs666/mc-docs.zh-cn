@@ -13,11 +13,11 @@ origin.date: 11/01/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a8536d284cac44d5cf7c01f53a616ac8a37e1c25
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 959d2feb2853f69c082de184a9ac106a78538d33
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>为 Azure VM 设置到辅助 Azure 区域的灾难恢复（预览版）
 
@@ -80,8 +80,8 @@ ms.lasthandoff: 12/29/2017
 
 当使用任何基于 IP 的防火墙、 代理或 NSG 规则来控制出站连接时，需要将以下 IP 地址范围列入白名单。 从以下链接下载范围列表：
 
-  - [Azure 数据中心 IP 范围](http://www.microsoft.com/download/details.aspx?id=42064)
-  - [德国的 Windows Azure 数据中心 IP 范围](http://www.microsoft.com/download/details.aspx?id=54770)
+<!-- Not Available on  - [Azure Datacenter IP Ranges](http://www.microsoft.com/download/details.aspx?id=42064) -->
+<!-- Not Available on  - [Windows Azure Datacenter IP Ranges in Germany](http://www.microsoft.com/download/details.aspx?id=54770) -->
   - [中国的 Windows Azure 数据中心 IP 范围](http://www.microsoft.com/download/details.aspx?id=42064)
   - [Office 365 URL 和 IP 地址范围](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery 服务终结点 IP 地址](https://aka.ms/site-recovery-public-ips)

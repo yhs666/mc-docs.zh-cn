@@ -1,27 +1,27 @@
 ---
 title: "Azure 快速入门 - 使用 PowerShell 备份 VM | Microsoft Docs"
 description: "了解如何使用 Azure PowerShell 备份虚拟机"
-services: virtual-machines-windows, azure-backup
+services: backup, virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: virtual-machines-windows, azure-backup
+ms.service: backup, virtual-machines-windows
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 09/18/2017
-ms.date: 01/08/2018
+origin.date: 01/12/2018
+ms.date: 02/08/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 8b8dfe099437ce9690feb885abb2b9f2fb373717
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 7eee8cdb8bc24be0733e5c68c39484a669677577
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中备份虚拟机
 Azure PowerShell 模块用于从命令行或脚本创建和管理 Azure 资源。 可以通过定期创建备份来保护数据。 Azure 备份可创建恢复点，这些恢复点可存储在异地冗余的恢复保管库中。 本文详细介绍如何使用 Azure PowerShell 模块备份虚拟机 (VM)。 也可以使用 [Azure CLI](quick-backup-vm-cli.md) 或 [Azure 门户](quick-backup-vm-portal.md)执行这些步骤。
@@ -45,7 +45,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
 ```
 
 
-## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
+## <a name="create-a-recovery-services-vaults"></a>创建恢复服务保管库
 恢复服务保管库是一个逻辑容器，用于存储每个受保护资源（例如 Azure VM）的备份数据。 运行受保护资源的备份作业时，该作业会在恢复服务保管库中创建一个恢复点。 然后，可以使用其中一个恢复点将数据还原到给定的时间点。
 
 使用 [New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) 创建恢复服务保管库。 指定与想要保护的 VM 相同的资源组和位置。 如果使用[示例脚本](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md)创建了 VM，则资源组名为 myResourceGroup，VM 名为 myVM，资源位于 chinanorth 位置。
@@ -137,7 +137,7 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 
 
 ## <a name="next-steps"></a>后续步骤
-在本快速入门中，我们创建了恢复服务保管库，在 VM 上启用了保护，并创建了初始恢复点。 若要详细了解 Azure 备份和恢复服务，请继续学习其他教程。
+本快速入门介绍了如何创建恢复服务保管库，如何在 VM 上启用保护，以及如何创建初始恢复点。 若要详细了解 Azure 备份和恢复服务，请继续学习其他教程。
 
 > [!div class="nextstepaction"]
 > [备份多个 Azure VM](./tutorial-backup-vm-at-scale.md)

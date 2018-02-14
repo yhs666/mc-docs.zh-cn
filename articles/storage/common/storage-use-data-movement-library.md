@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 09/27/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 7e643a631b3ad5f4e923799d6b19397b6477c785
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: d56c9b793b741d5d904ef765b731b5d3638eb90e
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="transfer-data-with-the-azure-storage-data-movement-library"></a>使用 Azure 存储数据移动库传输数据
 
@@ -50,7 +50,7 @@ Azure 存储数据移动库是一个高性能的跨平台开源库，用于上�
 ## <a name="setup"></a>设置  
 
 1. 访问 [.NET Core 安装指南](https://www.microsoft.com/net/core) 安装 .NET Core。 选择环境时，请选择命令行选项。 
-2. 通过命令行创建项目的目录。 导航到此目录，并键入 `dotnet new console -o <sample-project-name>` 创建 C# 控制台项目。
+2. 通过命令行创建项目的目录。 导航到此目录，然后键入 `dotnet new console -o <sample-project-name>` 创建 C# 控制台项目。
 3. 在 Visual Studio Code 中打开此目录。 通过在 Windows 中命令行上键入 `code .` 可快速完成此步骤。  
 4. 从 Visual Studio Code 应用商店安装 [C# 扩展](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。 重新启动 Visual Studio Code。 
 5. 此时，应会出现两条提示。 其中一条提示指出要“添加所需的资产用于生成和调试。 ” 请单击“是”。 另一条提示指出要还原未解析的依赖项。 请单击“还原”。
@@ -563,7 +563,7 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
 
 在本示例中，我们将 `TransferManager.CopyAsync` 中的布尔参数设置为 `false`，表示要执行同步复制。 这意味着，需要先将资源下载到本地计算机，并将其上传到 Azure Blob。 同步复制选项能够很好地确保复制操作以一致的速度进行。 相比之下，异步服务器复制的速度取决于服务器上的可用网络带宽，而这种带宽可能会有波动。 不过，同步复制可能会产生额外的数据传出费用，而异步复制则不会。 在与源存储帐户所在的同一区域的 Azure VM 中，建议使用同步复制，避免产生数据传出费用。
 
-## <a name="conclusion"></a>结束语
+## <a name="conclusion"></a>结论
 数据移动应用程序现已完成。 [GitHub 上提供了完整的代码示例](https://github.com/azure-samples/storage-dotnet-data-movement-library-app)。 
 
 ## <a name="next-steps"></a>后续步骤

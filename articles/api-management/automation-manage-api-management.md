@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2016
 ms.author: v-yiso
-ms.date: 10/09/2017
-ms.openlocfilehash: 34b9c1ab744e812e8712179b053d0beaf221ce8e
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.date: 02/26/2018
+ms.openlocfilehash: e015b9df284b4dd0b895df5d133f35e5b725dae1
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>使用 Azure 自动化管理 Azure API 管理
 本指南介绍 Azure 自动化服务，以及如何使用它来简化 Azure API 管理的管理。
@@ -37,4 +37,9 @@ Azure 自动化提供了具有高可靠性和高可用性的工作流执行引�
 以下是利用自动化使用 API 管理的一些示例：
 
 * [Azure API 管理 - 使用 PowerShell 进行备份和还原](https://blogs.msdn.microsoft.com/katriend/2015/10/02/azure-api-management-using-powershell-for-backup-and-restore/)
+
+## <a name="next-steps"></a>后续步骤
+在了解 Azure 自动化以及如何使用它来管理 Azure API Management 的基础知识后，请使用以下链接了解更多信息。
+
+* 请参阅 Azure 自动化[入门教程](../automation/automation-first-runbook-graphical.md)。
 

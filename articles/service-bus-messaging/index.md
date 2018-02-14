@@ -2,11 +2,22 @@
 layout: LandingPage
 title: "服务总线消息传送文档"
 description: "了解如何设置消息传送，用于连接跨本地和云环境的应用程序与服务。"
-ms.openlocfilehash: 732aaa47a7686f47c8698d6a33d702526113f17b
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+services: service-bus
+author: czeumault
+manager: carolz
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+origin.date: 03/14/2017
+ms.date: 02/05/2018
+ms.author: v-yiso
+ms.openlocfilehash: 15db9a8ef74b17879f17a5fab7fffb291f42fb4d
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="service-bus-messaging-documentation"></a>服务总线消息传送文档
 消息传送服务以中转或第三方通信机制的形式提供可靠的信息传递。
@@ -50,5 +61,4 @@ ms.lasthandoff: 07/14/2017
     </li>
 </ul>
 
----
-# <a name="to-be-submitted"></a>待提交。
+

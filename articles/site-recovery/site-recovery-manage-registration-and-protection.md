@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 10/03/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 856a1fc19ddf4d556edba9b2a29870cb4fb59c0d
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 865951433563ea2f2ce10b89d98094c1deb56d43
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="remove-servers-and-disable-protection"></a>删除服务器并禁用保护
 本文介绍了如何从恢复服务保管库中取消注册服务器，以及如何禁用对计算机的 Site Recovery 保护。
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/15/2017
 ## <a name="unregister-a-vmm-server"></a>取消注册 VMM 服务器
 
 1. 停止在要删除的 VMM 服务器上复制云中的虚拟机。
-2. 删除由需要删除的 VMM 服务器上的云使用的任何网络映射。 在“Site Recovery 基础结构” > “对于 System Center VMM” > “网络映射”中，右键单击网络映射 >“删除”。
+2. 删除由需要删除的 VMM 服务器上的云使用的任何网络映射。 在“Site Recovery 基础结构” > “对于 System Center VMM” > “网络映射”中，右键单击网络映射 > “删除”。
 3. 记下 VMM 服务器的 ID。
 4. 取消复制策略与要删除的 VMM 服务器上的云的关联。  在“Site Recovery 基础结构” > “对于 System Center VMM” >  “复制策略”中，右键单击关联的策略。 右键单击云 >“取消关联”。
 5. 删除 VMM 服务器或主动节点。 在“Site Recovery 基础结构” > “对于 System Center VMM” > “VMM 服务器”中，右键单击服务器 >“删除”。
@@ -164,6 +164,7 @@ ms.lasthandoff: 11/15/2017
         $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"
         $replicationService.RemoveReplicationRelationship($vm.__PATH)
 
+<a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-using-the-system-centet-vmm-to-azure-scenario"></a>
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario"></a>禁用对使用 System Center VMM 到 Azure 方案复制到 Azure 的 Hyper-V 虚拟机的保护
 
 1. 依次转到“受保护的项” > “复制的项”，右键单击计算机，再单击“禁用复制”。

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 08/29/2016
 ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0d851eb81b6287500ba87754b75dea27e459b60b
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 044663623db2f19b0dfa3a568957d268743b5375
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>从 Azure 命令行接口 (Azure CLI) 使用 Docker VM 扩展
 > [!IMPORTANT] 
@@ -163,19 +163,19 @@ azure vm docker create -e 22 -l "China North" <vm-cloudservice name> "b549f4301d
 * Azure Docker VM 扩展还支持 Docker Compose，它使用声明性 YAML 文件在任何环境中获取由开发人员建模的应用程序，并生成一致的部署。 请参阅[开始使用 Docker 和 Compose 在 Azure 虚拟机上定义和运行多容器应用程序]。  
 
 <!--Anchors-->
-[Subheading 1]:#subheading-1
-[Subheading 2]:#subheading-2
-[Subheading 3]:#subheading-3
+<!-- Not Availble on [Subheading 1]:#subheading-1 -->
+<!-- Not Availble on [Subheading 2]:#subheading-2 -->
+<!-- Not Availble on [Subheading 3]:#subheading-3 -->
 [Next steps]:#next-steps
 
-[How to use the Docker VM Extension with Azure]:#How-to-use-the-Docker-VM-Extension-with-Azure
-[Virtual Machine Extensions for Linux and Windows]:#Virtual-Machine-Extensions-For-Linux-and-Windows
-[Container and Container Management Resources for Azure]:#Container-and-Container-Management-Resources-for-Azure
+<!-- Not Availble on [How to use the Docker VM Extension with Azure]:#How-to-use-the-Docker-VM-Extension-with-Azure -->
+<!-- Not Availble on [Virtual Machine Extensions for Linux and Windows]:#Virtual-Machine-Extensions-For-Linux-and-Windows -->
+<!-- Not Availble on [Container and Container Management Resources for Azure]:#Container-and-Container-Management-Resources-for-Azure -->
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]:../../virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]:../../../app-service-web/web-sites-custom-domain-name.md
-[Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
+<!-- Not Availble on [Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md -->
 [如何在门户中使用 Docker VM 扩展]:https://www.azure.cn/documentation/articles/virtual-machines-docker-with-portal/
 
 [Docker 用户指南]:https://docs.docker.com/userguide/

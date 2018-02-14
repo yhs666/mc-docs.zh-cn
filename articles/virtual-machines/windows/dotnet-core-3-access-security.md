@@ -17,17 +17,17 @@ origin.date: 05/12/2017
 ms.date: 12/20/2016
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7f07ea2847a885939cec0d7c2b327d7204119ad
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 15424d48c63382450284f23b96691c3a4ab95636
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="access-and-security-in-azure-resource-manager-templates-for-windows-vms"></a>用于 Windows VM 的 Azure Resource Manager 模板中的访问权限和安全性
 
-可能需要通过 Internet 或与 Azure 建立的 VPN/Express Route 连接才能访问托管在 Azure 中的应用程序。 在音乐应用商店应用程序示例中，网站通过公共 IP 地址在 Internet 上提供访问。 建立访问方式后，应该保护对应用程序的连接，以及对虚拟机资源本身的访问。 这种访问安全性是通过网络安全组提供的。 
+可能需要通过 Internet 或与 Azure 建立的 VPN/Express Route 连接才能访问托管在 Azure 中的应用程。 在音乐应用商店应用程序示例中，网站通过公共 IP 地址在 Internet 上提供访问。 建立访问方式后，应该保护对应用程序的连接，以及对虚拟机资源本身的访问。 这种访问安全性是通过网络安全组提供的。 
 
-本文档详细说明如何在示例 Azure Resource Manager 模板中保护音乐应用商店应用程序。 所有依赖项和独特配置都已突出显示。 为了获得最佳体验，请将一个解决方案实例预先部署到 Azure 订阅，然后将它与 Azure Resource Manager 模板配合运行。 可以在 [Windows 上的音乐应用商店部署](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)中找到完整模板。
+本文档详细说明如何在示例 Azure Resource Manager 模板中保护音乐应用商店应用程序。 所有依赖项和独特配置都已突出显示。 为了获得最佳体验，请将一个解决方案实例预先部署到 Azure 订阅，并将它与 Azure Resource Manager 模板配合运行。 可以在 [Windows 上的音乐应用商店部署](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)中找到完整模板。
 
 ## <a name="public-ip-address"></a>公共 IP 地址
 若要提供对 Azure 资源的公共访问，可以使用公共 IP 地址。 可以使用静态或动态 IP 地址来配置公共 IP 地址。 如果使用动态地址，当虚拟机被停止和解除分配时，系统将删除该地址。 当计算机重新启动时，系统可能为它分配不同的公共 IP 地址。 若要防止 IP 地址更改，可以使用保留 IP 地址。 
@@ -139,7 +139,8 @@ Azure 门户中的网络安全组如下所示。 请注意，NSG 可与子网和
 
 ![网络安全组](./media/dotnet-core-3-access-security/nsg-win.png)
 
-有关网络安全组的深入信息，请参阅[什么是网络安全组](/virtual-networks/virtual-networks-nsg/)。
+有关网络安全组的深入信息，请参阅[什么是网络安全组](/virtual-network/virtual-networks-nsg/)。
+<!-- URL SHOULD BE /virtual-network/ WITHOUT s -->
 
 ## <a name="next-step"></a>后续步骤
 <hr>

@@ -17,11 +17,11 @@ origin.date: 09/15/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 471b81c2446a0c9060b843ea47c8bcda99eb62ab
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 7064b9ad602802934e893fd37653b9fce1c0cba5
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>创建 Service Fabric 的容器映像
 
@@ -94,7 +94,8 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>部署 Azure 容器注册表
 
-首先，运行 [az login](https://docs.azure.cn/zh-cn/cli/login?view=azure-cli-latest) 命令，登录 Azure 帐户。 
+首先，运行 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 命令，登录 Azure 帐户。 
+<!-- URL is correct https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login -->
 
 接下来，使用 [az account](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#set) 命令来选择订阅，创建 Azure 容器注册表。 
 

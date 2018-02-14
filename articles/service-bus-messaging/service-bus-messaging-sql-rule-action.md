@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/07/2017
-ms.date: 12/11/2017
+ms.date: 02/05/2018
 ms.author: v-yiso
-ms.openlocfilehash: d2792e042470d62dd4cb523851b4031cd92e1de7
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 1e462c038fd755fdc5678912c27c2cfcc79c5042
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction 语法
 
-SqlRuleAction 是 [SqlRuleAction](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) 类的实例，代表以基于 SQL 语言的语法编写的一组操作，该语法针对 [BrokeredMessage](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 执行。   
+SqlRuleAction 是 [SqlRuleAction](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) 类的实例，代表以基于 SQL 语言的语法编写的一组操作，该语法针对 [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 执行。   
 
 本文列出了有关 SQL 规则操作语法的详细信息。  
 
@@ -65,11 +65,11 @@ SqlRuleAction 是 [SqlRuleAction](https://doc.microsoft.com/dotnet/api/microsoft
 
 ## <a name="arguments"></a>参数  
 
--   `<scope>` 是一个可选字符串，指示 `<property_name>` 的范围。 有效值为 `sys` or `user`进行求值的基于 SQL 语言的筛选器表达式。 `sys` 值指示系统范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)的公共属性名称。 `user` 指示用户范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)字典的项。 `user` 范围是默认范围（如果 `<scope>` 未指定）。  
+-   `<scope>` 是一个可选字符串，指示 `<property_name>` 的范围。 有效值为 `sys` or `user`进行求值的基于 SQL 语言的筛选器表达式。 `sys` 值指示系统范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)的公共属性名称。 `user` 指示用户范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)字典的项。 `user` 范围是默认范围（如果 `<scope>` 未指定）。  
 
 ### <a name="remarks"></a>备注  
 
-访问不存在的系统属性的尝试是错误，访问不存在的用户属性的尝试不是错误。 相反，不存在的用户属性在内部作为未知值进行求值。 运算符求值期间会对未知值进行特殊处理。  
+访问不存在的系统属性的尝试是错误，访问不存在的用户属性的尝试不是错误。 相反，不存在的用户属性在内部作为未知值进行求值。 在运算符求值过程中，未知值的处理方式很特殊。  
 
 ## <a name="propertyname"></a>property_name  
 
@@ -98,7 +98,7 @@ SqlRuleAction 是 [SqlRuleAction](https://doc.microsoft.com/dotnet/api/microsoft
 
  `<regular_identifier>` 不能是保留关键字。  
 
- `<delimited_identifier>` 是用左/右方括号 ([]) 括起来的任何字符串。 右方括号以两个右方括号表示。 下面是 `<delimited_identifier>`的示例：  
+ `<delimited_identifier>` 是用左/右方括号 ([]) 括起来的任何字符串。 右方括号采用两个右方括号的形式。 下面是 `<delimited_identifier>`的示例：  
 
 ```  
 [Property With Space]  
@@ -136,7 +136,7 @@ SqlRuleAction 是 [SqlRuleAction](https://doc.microsoft.com/dotnet/api/microsoft
 
 ### <a name="remarks"></a>备注
 
- `<escape_char>` 必须是作为长度为 1 的字符串进行求值的表达式。 它用作 LIKE 运算符的转义符。  
+ `<escape_char>` 必须是作为长度为 1 的字符串进行求值的表达式。 作为转义符用于 LIKE 运算符。  
 
  例如，`property LIKE 'ABC\%' ESCAPE '\'` 匹配 `ABC%`，而不匹配以 `ABC` 开头的字符串。  
 
@@ -218,9 +218,9 @@ SqlRuleAction 是 [SqlRuleAction](https://doc.microsoft.com/dotnet/api/microsoft
 - 表达式类型和现有属性类型不同时，SET 会在可能的情况下执行隐式转换。
 - 如果引用不存在的系统属性，操作会失败。
 - 如果引用不存在的用户属性，操作不会失败。
-- 不存在的用户属性在内部的求值为“未知”，其遵循的语义与 [SQLFilter](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 相同（在对运算符求值时）。
+- 不存在的用户属性在内部的求值为“未知”，其遵循的语义与 [SQLFilter](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 相同（在对运算符求值时）。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [SQLRuleAction 类](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-- [SQLFilter 类](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLRuleAction 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [SQLFilter 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter)

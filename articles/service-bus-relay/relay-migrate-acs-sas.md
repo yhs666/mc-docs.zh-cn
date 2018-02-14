@@ -1,5 +1,5 @@
 ---
-title: "从 Azure Active Directory 访问控制服务迁移到共享访问签名授权 | Microsoft Docs"
+title: "从 Azure Active Directory 访问控制服务迁移到共享访问签名授权"
 description: "将应用程序从访问控制服务迁移到 SAS"
 services: service-bus-relay
 documentationcenter: 
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/07/2017
-ms.author: sethm
-ms.date: 10/16/2017
-ms.openlocfilehash: bf71df4073546757312a92ce6c605be83066d710
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+origin.date: 12/20/2017
+ms.author: v-yiso
+ms.date: 02/05/2018
+ms.openlocfilehash: f5fcae6f55e2fe110464aeab2c5fb86d2e68abe0
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>从 Azure Active Directory 访问控制服务迁移到共享访问签名授权
 
@@ -54,7 +54,7 @@ ACS 和中继通过签名密钥这一共用概念进行集成。 ACS 命名空�
 
 如果应用程序使用包含简单规则的自定义服务标识，那么在创建 ACS 服务标识以提供对特定中继的访问控制时，迁移非常简单。 SaaS 式解决方案通常会出现这种情况。在此类解决方案中，每个中继被用作与租户网站或分支机构的桥梁，并且会为特定网站创建服务标识。 在这种情况下，可以直接在中继上将各自的服务标识迁移到共享访问签名规则。 服务标识名称可能会变成 SAS 规则名称，服务标识密钥可能会变成 SAS 规则密钥。 然后，将 SAS 规则的权限配置为相当于实体的各自适用 ACS 规则。
 
-可以在与 ACS 联合的任何现有命名空间上就地额外配置新 SAS，随后使用 [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider)（而不是 [SharedSecretTokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider)）从 ACS 迁移。 命名空间不需要与 ACS 取消关联。
+可以在与 ACS 联合的任何现有命名空间上就地额外配置新 SAS，随后使用 [SharedAccessSignatureTokenProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider)（而不是 [SharedSecretTokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider)）从 ACS 迁移。 命名空间不需要与 ACS 取消关联。
 
 ### <a name="complex-rules"></a>复杂规则
 

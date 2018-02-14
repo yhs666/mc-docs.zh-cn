@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 10/10/2017
-ms.date: 01/08/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9dcd2e6ee6ec71838dd75ee092123eb3c494e8cf
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: d75e5fb0707a849717bc51d4351aa32969bf14f4
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -302,6 +302,7 @@ subnet/address | VM 的子网地址 | 2017-04-02
 subnet/prefix | 子网前缀，例如 24 | 2017-04-02 
 macAddress | VM mac 地址 | 2017-04-02 
 scheduledevents | 当前在公共预览版中提供。请参阅 [scheduledevents](scheduled-events.md) | 2017-03-01
+<!--ipv6 not available on Mooncake -->
 
 ## <a name="example-scenarios-for-usage"></a>用法的示例方案  
 
@@ -376,13 +377,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 语言 | 示例 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go Lang  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 Javascript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
 ## <a name="faq"></a>常见问题
 1. 我收到错误 `400 Bad Request, Required metadata header not specified`。 这是什么意思呢？
@@ -408,4 +412,4 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 
 - 详细了解由实例元数据服务提供的公共预览版 [scheduledevents](scheduled-events.md) API。
 
-<!--Update_Description: update meta properties， wording update -->
+<!--Update_Description: update meta properties， wording update, update link -->

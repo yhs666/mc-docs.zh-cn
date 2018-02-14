@@ -13,19 +13,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/15/2017
-ms.date: 01/08/2018
+origin.date: 01/05/2018
+ms.date: 02/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: c6f550484582be9af0a2f2e923bbd8fbc56293e5
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 10bb791ae5f32d28753358c59ff728bea21583fb
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>通过 Resource Manager 部署模型将 Windows Server 或客户端备份到 Azure
 本文介绍如何通过 Resource Manager 部署模型使用 Azure 备份将 Windows Server（或 Windows 客户端）文件和文件夹备份到 Azure。
-
-[!INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]
 
 ![备份过程的步骤](./media/backup-configure-vault/initial-backup-process.png)
 
@@ -263,4 +261,4 @@ Azure 备份代理提供了网络限制。 限制功能将控制数据传输期�
 - 备份文件和文件夹后，可以 [管理保管库和服务器](backup-azure-manage-windows-server.md)。
 - 如果需要还原备份，请参阅[将文件还原到 Windows 计算机](backup-azure-restore-windows-server.md)一文。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: remove include file: backup-deployment-models.md -->

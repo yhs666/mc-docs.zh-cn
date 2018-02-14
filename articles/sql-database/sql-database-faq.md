@@ -16,11 +16,11 @@ ms.workload: data-management
 origin.date: 02/07/2017
 ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: cff0758240253e20c17e2a8fb1a431d279d1f33d
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 89be9e8d5ea978732811bfbc4f9a046c365c5fd6
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="sql-database-faq"></a>SQL 数据库常见问题
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/14/2017
 SQL 数据库的最新版本为 V12。 版本 V11 已停用。
 
 ## <a name="what-is-the-sla-for-sql-database"></a>SQL 数据库的 SLA 是什么？
-我们保证至少在 99.99% 的时间内客户将能够在其单个或弹性“基本”、“标准”或“高级”版 Azure SQL 数据库与我们的 Internet 网关之间保持连接。 有关详细信息，请参阅 [SLA](https://www.azure.cn/support/legal/sla/)。
+我们保证至少在 99.99% 的时间内客户能够在其单个或弹性“基本”、“标准”或“高级”版 Azure SQL 数据库与我们的 Internet 网关之间保持连接。 有关详细信息，请参阅 [SLA](https://www.azure.cn/support/legal/sla/)。
 
 ## <a name="how-do-i-reset-the-password-for-the-server-admin"></a>如何重置服务器管理员的密码？
 在 [Azure 门户](https://portal.azure.cn)中，单击“SQL Server”，从列表中选择服务器，然后单击“重置密码”。
@@ -40,16 +40,16 @@ SQL 数据库的最新版本为 V12。 版本 V11 已停用。
 请参阅[如何：在 SQL 数据库上配置防火墙设置](sql-database-configure-firewall-settings.md)。
 
 ## <a name="how-does-the-usage-of-sql-database-show-up-on-my-bill"></a>SQL 数据库的使用情况如何体现在我的帐单上？
-SQL 数据库以可预测的每小时费率收费，同时根据服务层 + 单一数据库的性能级别或每一弹性池的 eDTU 数计费。 实际使用量是每小时按比例计算的，因此帐单可能会显示小时的小数部分。 例如，如果某个数据库在一个月内存在了 12 小时，则帐单将显示 0.5 天的使用量。 服务层 + 性能级别和每个池的 eDTU 数在帐单中进行了划分，以便查看单个月份中使用数据库的天数。
+SQL 数据库以可预测的每小时费率收费，同时根据服务层 + 单一数据库的性能级别或每一弹性池的 eDTU 数计费。 实际使用量是每小时按比例计算的，因此帐单可能会显示小时的小数部分。 例如，如果某个数据库在一个月内存在了 12 小时，则帐单会显示 0.5 天的使用量。 服务层 + 性能级别和每个池的 eDTU 数在帐单中进行了划分，以便查看单个月份中使用数据库的天数。
 
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>如果单一数据库活动的时间少于一小时，或使用更高服务层的时间少于一小时，会如何计费？
 需要支付使用最高服务层数据库存在的时数 + 在该小时适用的性能级别，无论使用方式或数据库的活动状态是否少于一小时。 例如，如果创建了单一数据库，并在五分钟后将其删除，则将按该数据库存在一小时收费。 
 
 示例
 
-* 如果你创建了一个基本数据库并立即将其升级为标准版 S1，则第一小时将按标准版 S1 费率收费。
-* 如果从晚上 10:00 开始将数据库从“基本”升级到“高级”， 并且在第二天凌晨 1:35 完成升级， 那么将会从凌晨 1:00 开始按高级版费率收费。 
-* 如果在上午 11:00 将数据库从“高级”降级到“基本”级别， 并且在下午 2:15 完成降级，则会针对数据库以高级版费率收取到下午 3:00，之后将以基本版费率收费。
+* 如果创建了一个基本数据库并立即将其升级为标准版 S1，则第一小时按标准版 S1 费率收费。
+* 如果从晚上 10:00 开始将数据库从“基本”升级到“高级”， 并且在第二天凌晨 1:35 完成升级， 那么会从凌晨 1:00 开始按高级版费率收费。 
+* 如果在上午 11:00 将数据库从“高级”降级到“基本”级别， 并且在下午 2:15 完成降级，则会针对数据库以高级版费率收取到下午 3:00，之后以基本版费率收费。
 
 ## <a name="how-does-elastic-pool-usage-show-up-on-my-bill-and-what-happens-when-i-change-edtus-per-pool"></a>弹性池的使用情况如何体现在我的帐单上，另外，更改每个池的 eDTU 会发生什么情况？
 在帐单上，弹性池收费显示为弹性 DTU (eDTU)，并在[定价页](https://www.azure.cn/pricing/details/sql-database/)上以每一池 eDTU 递增显示。 弹性池没有按照数据库收取的费用。 对于池存在的每个小时，都需要支付最高的 eDTU，无论使用量是多少，也不管池处于活动状态的时间是否少于一小时。 
@@ -57,8 +57,8 @@ SQL 数据库以可预测的每小时费率收费，同时根据服务层 + 单�
 示例
 
 * 如果在上午 11:18 以 200 eDTU 创建标准弹性池，同时将五个数据库添加到池，则从上午 11:00 开始以 200 eDTU 收取整小时的费用。 到当天剩余的时间。
-* 在第 2 天上午 5:05，数据库 1 开始使用 50 eDTU 并稳定持有一天。 数据库 2-5 在 0 和 80 eDTU 之间波动。 在当天，添加全天使用不同 eDTU 的其他五个数据库。 第 2 天将全天以 200 eDTU 计费。 
-* 在第 3 天的上午 5:00， 你添加了另外 15 个数据库。 数据库使用量全天增加，到下午 8:05 确定将池的 eDTU 从 200 增加为 400。 下午 8 点以前继续按 200 eDTU 收费，当天的其余 4 小时则按 400 eDTU 计费。 
+* 在第 2 天上午 5:05，数据库 1 开始使用 50 eDTU 并稳定持有一天。 数据库 2-5 在 0 和 80 eDTU 之间波动。 在当天，添加全天使用不同 eDTU 的其他五个数据库。 第 2 天全天以 200 eDTU 计费。 
+* 在第 3 天的上午 5:00， 添加了另外 15 个数据库。 数据库使用量全天增加，到下午 8:05 确定将池的 eDTU 从 200 增加为 400。 下午 8 点以前继续按 200 eDTU 收费，当天的其余 4 小时则按 400 eDTU 计费。 
 
 ## <a name="elastic-pool-billing-and-pricing-information"></a>弹性池计费和定价信息
 弹性池按以下特征计费：
@@ -74,10 +74,10 @@ SQL 数据库以可预测的每小时费率收费，同时根据服务层 + 单�
 若要了解 eDTU 和服务层，请参阅 [SQL 数据库选项和性能](sql-database-service-tiers.md)。
 
 ## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>帐单上如何体现弹性池中活动异地复制的使用？
-与单一数据库不同的是，对弹性数据库使用[活动异地复制](sql-database-geo-replication-overview.md)对计费没有直接的影响。  你只需支付对每个池（主池和辅助池）预配的 eDTU 费用
+与单一数据库不同的是，对弹性数据库使用[活动异地复制](sql-database-geo-replication-overview.md)对计费没有直接的影响。  只需支付对每个池（主池和辅助池）预配的 eDTU 费用
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>使用审核功能会对帐单产生什么影响？
-审核功能是 SQL 数据库服务的内置功能，无需另行付费，基本数据库、标准数据库、高级数据库和高级 RS 数据库均提供此功能。 但是，为了存储审核日志，审核功能将使用 Azure 存储帐户，而 Azure 存储中表和队列的费率根据审核日志的大小来应用。
+审核功能是 SQL 数据库服务的内置功能，无需另行付费，基本数据库、标准数据库、高级数据库和高级 RS 数据库均提供此功能。 但是，为了存储审核日志，审核功能会使用 Azure 存储帐户，而 Azure 存储中表和队列的费率根据审核日志的大小来应用。
 
 ## <a name="how-do-i-find-the-right-service-tier-and-performance-level-for-single-databases-and-elastic-pools"></a>如何找到单一数据库和弹性池的合适服务层和性能级别？
 有几种工具可供使用。 
@@ -95,8 +95,6 @@ SQL 数据库以可预测的每小时费率收费，同时根据服务层 + 单�
 ## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>更改单一数据库的服务层次或性能级别，或将数据库移入和移出弹性池需要多长时间？
 更改数据库的服务层和移入和移出池需要在平台上以后台操作的形式复制数据库。 更改服务层可能需要几分钟至几小时的时间，具体取决于数据库的大小。 这两种情况下，数据库在移动期间保持联机和可用。 有关更改单一数据库的详细信息，请参阅[更改数据库的服务层](sql-database-service-tiers.md)。 
 
-## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>何时应该使用单一数据库或弹性数据库？
-一般而言，弹性池针对典型的[软件即服务 (SaaS) 应用程序模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)而设计，该模式中每个客户或租户有一个数据库。 购买单独的数据库并超量设置以满足每个数据库的可变和峰值需求通常不够经济高效。 使用池可以管理池的整体性能，数据库将自动扩展和收缩。 如果 Azure 的智能引擎发现了担保数据库的使用模式，则建议使用池。 有关详细信息，请参阅[弹性池指南](sql-database-elastic-pool.md)。
 
 ## <a name="what-does-it-mean-to-have-up-to-200-of-your-maximum-provisioned-database-storage-for-backup-storage"></a>具有高达备份存储的最大已设置数据库存储两倍的容量是什么意思？
 备份存储是与用于[时间点还原](sql-database-recovery-using-backups.md#point-in-time-restore)和[异地还原](sql-database-recovery-using-backups.md#geo-restore)的自动数据库备份关联的存储。 Azure SQL 数据库提供了高达备份存储的最大已预配数据库存储两倍的容量，不需要支付额外的成本。 例如，如果拥有一个标准 DB 实例并且预配的 DB 大小为 250 GB，则会提供 500 GB 的备份存储并且不额外收费。 如果数据库超过提供的备份存储，则可以选择与 Azure 支持联系来缩短保留期，或针对按标准读取访问地域冗余存储 (RA-GRS) 费率计费的额外备份存储支付费用。 有关 RA-GRS 计费的更多信息，请参阅“存储定价详细信息”。
@@ -123,4 +121,4 @@ Azure SQL Web 和企业数据库现已停用。 基本、标准、高级、高�
 * 在 [Azure 门户](https://portal.azure.cn)中，单击“SQL 数据库”，从列表中选择数据库，然后单击“复制”。 有关详细信息，请参阅[复制 Azure SQL 数据库](sql-database-copy.md)。
 
 ## <a name="to-move-a-database-between-subscriptions"></a>在订阅之间移动数据库
-* 在 [Azure 门户](https://portal.azure.cn)中，单击“SQL Server”，然后从列表中选择托管数据库的服务器。 单击“**移动**”，然后选择要移动的资源以及要移动到其中的订阅。
+* 在 [Azure 门户](https://portal.azure.cn)中，单击“SQL Server”，然后从列表中选择托管数据库的服务器。 单击“**移动**”，并选择要移动的资源以及要移动到其中的订阅。

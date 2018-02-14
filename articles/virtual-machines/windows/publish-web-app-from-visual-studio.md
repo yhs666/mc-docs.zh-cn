@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 11/03/2017
 ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: d7a3e4a1ffdbcbe253eefb2369bf108bc671d361
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 0cd54f87e692863f31858a1c79dd2f7a6d34ee90
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>通过 Visual Studio 将 ASP.NET Web 应用发布到 Azure VM
 
@@ -116,8 +116,9 @@ ms.lasthandoff: 01/05/2018
 
 ### <a name="set-up-cicd-for-automated-deployment-to-azure-vm"></a>设置 CI/CD 以自动部署到 Azure VM
 
-若要使用 Visual Studio Team Service 设置持续交付管道，请参阅[部署到 Windows 虚拟机](/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups)。
+若要使用 Visual Studio Team Service 设置持续交付管道，请参阅[部署到 Windows 虚拟机](https://docs.microsoft.com/zh-cn/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups)。
 
+<!-- THE FOLLOWING ARCHOR IS NOT AVAILABLE -->
 [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png
 [VM Overview - DNS Configured]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSConfigured.png

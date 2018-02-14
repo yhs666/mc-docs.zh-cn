@@ -15,14 +15,14 @@ ms.workload: identity
 origin.date: 11/15/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: f5478728f66cc1ba3314dbba371f8a5d286cffb5
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: d36a5e63d56683538b17854154559005ca5b3012
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>使用 Resource Manager 身份验证 API 访问订阅
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 本文面向需要创建应用来管理客户 Azure 资源的软件开发人员，介绍如何使用 Azure 资源管理器 API 进行身份验证，并获取其他订阅中资源的访问权限。
 
 应用可通过多种方式访问 Resource Manager API：
@@ -86,7 +86,7 @@ Web 应用：
 结果包含 AppId，以应用程序的形式进行身份验证时需要此数据。
 
 ### <a name="optional-configuration---certificate-credential"></a>可选配置 - 证书凭据
-Azure AD 还支持应用程序的证书凭据：创建自签名证书、保留私钥，以及将公钥添加到 Azure AD 应用程序注册。 对于身份验证，应用程序会使用用户的私钥将小负载发送到签名的 Azure AD，Azure AD 使用注册的公钥来验证签名。
+Azure AD 还支持应用程序的证书凭据：创建自签名证书、保留私钥，以及将公钥添加到 Azure AD 应用程序注册。 对于身份验证，应用程序会使用你的私钥将小负载发送到签名的 Azure AD，然后 Azure AD 使用注册的公钥来验证签名。
 
 若要了解如何使用证书创建 AD 应用，请参阅[使用 Azure PowerShell 创建服务主体来访问资源](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority)或[使用 Azure CLI 创建服务主体来访问资源](resource-group-authenticate-service-principal-cli.md)。
 
@@ -149,9 +149,10 @@ Azure AD 对用户进行身份验证，并根据需要请求用户向应用授�
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-使用证书凭据时，请使用应用程序证书凭据的私钥来创建 JSON Web 令牌 (JWT) 并签名 (RSA SHA256)。 令牌的声明类型在 [JWT 令牌声明](../active-directory/develop/active-directory-protocols-oauth-code.md#jwt-token-claims)中显示。 若要为客户端断言 JWT 令牌签名，请参考 [Active Directory 身份验证库 (.NET) 代码](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs)。
+使用证书凭据时，请使用应用程序证书凭据的私钥来创建 JSON Web 令牌 (JWT) 并签名 (RSA SHA256)。 令牌的声明类型在 [JWT 令牌声明](../active-directory/develop/active-directory-protocols-oauth-code.md#jwt-token-claims)中显示。
+<!-- Not Available on [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) -->
 
-有关客户端身份验证的详细信息，请参阅 [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)（Open ID Connect 规范）。
+有关客户端身份验证的详细信息，请参阅 [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) （Open ID Connect 规范）。
 
 以下示例演示如何使用证书凭据来请求代码授予令牌：
 

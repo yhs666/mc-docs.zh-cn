@@ -6,20 +6,19 @@ documentationcenter:
 author: antonba
 manager: erikre
 editor: 
-ms.assetid: 64b58f7b-ca22-47dc-89c0-f6bb0af27a48
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/15/2016
+origin.date: 12/05/2017
 ms.author: v-yiso
-ms.date: 10/09/2017
-ms.openlocfilehash: 6456b6bf892cb3650d73b17ead2a6a619015846f
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.date: 02/26/2018
+ms.openlocfilehash: a953f80501690a5e89307450d5b77b0e7337a066
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何将 Azure API 管理与虚拟网络配合使用
 使用 Azure 虚拟网络 (VNET) 可将你的任何 Azure 资源置于可以控制其访问权限但无法通过 Internet 路由的网络中。 然后，可以使用各种 VPN 技术将这些网络连接到本地网络。 若要了解有关 Azure 虚拟网络的详细信息，请先了解以下信息：[Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
@@ -29,42 +28,52 @@ ms.lasthandoff: 09/22/2017
 > [!NOTE]
 > Azure API 管理同时支持经典 VNet 和 Azure 资源管理器 VNet。
 >
->
+
+## <a name="prerequisites"></a>先决条件
+
+若要执行本文中所述的步骤，必须具有：
+
++ 一个有效的 Azure 订阅。
+
+    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
++ 一个 APIM 实例。 有关详细信息，请参阅[创建 Azure API 管理实例](get-started-create-service-instance.md)。
++ 只有“高级”层和“开发人员”层中提供了 VNET 连接。 请按照[升级和缩放](upgrade-and-scale.md#upgrade-and-scale)主题中的说明切换到这些层之一。
 
 ## <a name="enable-vpn"></a>启用 VNET 连接
-> [!NOTE]
-> **高级**层和**开发人员**层中提供了 VNET 连接。 要在层之间切换，请在 Azure 门户中打开 API 管理服务，并打开“规模和定价”选项卡。在“定价层”部分下，选择“高级”层或“开发人员”层，并单击“保存”。
->
 
-要启用 VNET 连接，请在 Azure 门户中打开 API 管理服务，并打开“虚拟网络”页。
+### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>使用 Azure 门户启用 VNET 连接
 
-![API 管理的虚拟网络菜单][api-management-using-vnet-menu]
+1. 在 [Azure 门户](https://portal.azure.cn/)中导航到自己的 APIM 实例。
+2. 选择“虚拟网络”。
+3. 配置要在虚拟网络内部署的 API 管理实例。
 
-选择所需的访问类型：
+    ![API 管理的虚拟网络菜单][api-management-using-vnet-menu]
+    
+4. 选择所需的访问类型：
+    
+    * **外部**：可以通过外部负载均衡器从公共 Internet 访问 API 管理网关和开发人员门户。 网关可以访问虚拟网络中的资源。
+    
+    ![公共对等互连][api-management-vnet-public]
+    
+    * **内部**：只能通过内部负载均衡器从虚拟网络内部访问 API 管理网关和开发人员门户。 网关可以访问虚拟网络中的资源。
+    
+    ![专用对等互连][api-management-vnet-private]`
 
-* **外部**：可以通过外部负载均衡器从公共 Internet 访问 API 管理网关和开发人员门户。 网关可以访问虚拟网络中的资源。
+    此时会显示一个列表，其中包含预配了 API 管理服务的所有区域。 选择每个区域的 VNET 和子网。 该列表中填充了所配置区域中设置的 Azure 订阅中可用的经典虚拟网络和资源管理器虚拟网络。
+    
+    > [!NOTE]
+    > 上图中的**服务终结点**包括网关/代理、发布者门户、开发人员门户、GIT 和直接管理终结点。
+    > 上图中的**管理终结点**是托管在服务上用于通过 Azure 门户和 Powershell 管理配置的终结点。
+    > 另请注意：即使该图中显示各个终结点的 IP 地址，但 API 管理服务**仅**对其配置的主机名做出响应。
+    
+    > [!IMPORTANT]
+    > 将 Azure API 管理实例部署到 资源管理器 VNET 时，该服务必须位于一个除了 Azure API 管理实例之外不包含其他资源的专用子网中。 如果尝试将 Azure API 管理实例部署到包含其他资源的资源管理器 VNET 子网，则部署会失败。
+    >
 
-![公共对等互连][api-management-vnet-public]
+    ![选择 VPN][api-management-setup-vpn-select]
 
-* **内部**：只能通过内部负载均衡器从虚拟网络内部访问 API 管理网关和开发人员门户。 网关可以访问虚拟网络中的资源。
-
-![专用对等互连][api-management-vnet-private]
-
-此时会显示一个列表，其中包含预配了 API 管理服务的所有区域。 选择每个区域的 VNET 和子网。 该列表中填充了所配置区域中设置的 Azure 订阅中可用的经典虚拟网络和资源管理器虚拟网络。
-
-> [!NOTE]
-> 上图中的**服务终结点**包括网关/代理、发布者门户、开发人员门户、GIT 和直接管理终结点。
-> 上图中的**管理终结点**是托管在服务上用于通过 Azure 门户和 Powershell 管理配置的终结点。
-> 另请注意：即使该图中显示各个终结点的 IP 地址，但 API 管理服务**仅**对其配置的主机名做出响应。
-
-> [!IMPORTANT]
-> 将 Azure API 管理实例部署到 资源管理器 VNET 时，该服务必须位于一个除了 Azure API 管理实例之外不包含其他资源的专用子网中。 如果尝试将 Azure API 管理实例部署到包含其他资源的资源管理器 VNET 子网，则部署会失败。
->
->
-
-![选择 VPN][api-management-setup-vpn-select]
-
-单击屏幕顶部的“保存”。
+5. 单击屏幕顶部的“保存”。
 
 > [!NOTE]
 > 每次启用或禁用 VNET 时，API 管理实例的 VIP 地址都会更改。  
@@ -93,24 +102,26 @@ ms.lasthandoff: 09/22/2017
 * **自定义 DNS 服务器设置**：API 管理服务依赖于多项 Azure 服务。 当 API 管理托管在包含自定义 DNS 服务器的 VNET 中时，API 管理需要解析这些 Azure 服务的主机名。 请根据[此指南](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)进行自定义 DNS 设置。 有关参考信息，请参阅下面的端口表和其他网络要求。
 
 > [!IMPORTANT]
-> 如果对 VNET 使用自定义 DNS 服务器，建议在向 VNET 部署 API 管理服务**之前**设置 DNS 服务器。 否则，每次更改 DNS 服务器时都需要通过运行[应用网络配置操作](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementservice#ApiManagementService_ApplyNetworkConfigurationUpdates)更新 API 管理服务
+> 如果对 VNET 使用自定义 DNS 服务器，建议在向 VNET 部署 API 管理服务**之前**设置 DNS 服务器。 否则，每次更改 DNS 服务器时都需要通过运行[应用网络配置操作](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)更新 API 管理服务
 
 * **API 管理所需的端口**：可以使用[网络安全组][Network Security Group]控制部署了 API 管理的子网的入站和出站流量。 如果其中的任一端口不可用，API 管理可能无法正常工作且不可访问。 将 API 管理与 VNET 配合使用时，另一个常见的错误配置问题是阻止了这些端口中的一个或多个。
 
 在 VNET 中托管 API 管理服务实例时，将使用下表中的端口。
 
-| 源 / 目标端口 | 方向 | 传输协议 | 目的 | 源/目标 | 访问类型 |
+| 源 / 目标端口 | 方向 | 传输协议 | 源/目标 | 用途 ( * ) | 虚拟网络类型 |
 | --- | --- | --- | --- | --- | --- |
-| * / 80, 443 |入站 |TCP |客户端与 API 管理的通信 |INTERNET/VIRTUAL_NETWORK |外部 |
-| * / 3443 |入站 |TCP |Azure 门户和 Powershell 的管理终结点 |INTERNET/VIRTUAL_NETWORK |外部和内部 |
-| * / 80, 443 |出站 |TCP |与 Azure 存储和 Azure 服务总线的依赖关系 |VIRTUAL_NETWORK/INTERNET |外部和内部 |
-| * / 1433 |出站 |TCP |与 Azure SQL 的依赖关系 |VIRTUAL_NETWORK/INTERNET |外部和内部 |
-| * / 11000 - 11999 |出站 |TCP |与 Azure SQL V12 的依赖关系 |VIRTUAL_NETWORK/INTERNET |外部和内部 |
-| * / 14000 - 14999 |出站 |TCP |与 Azure SQL V12 的依赖关系 |VIRTUAL_NETWORK/INTERNET |外部和内部 |
-| * / 5671 |出站 |AMQP |事件中心策略日志和监视代理的依赖项 |VIRTUAL_NETWORK/INTERNET |外部和内部 |
-| * / 6381 - 6383 |入站和出站 |TCP |与 Redis 缓存的依赖关系 |VIRTUAL_NETWORK/VIRTUAL_NETWORK |外部和内部 |
-| * / 445 |出站 |TCP |与适用于 GIT 的 Azure 文件共享的依赖关系 |VIRTUAL_NETWORK/INTERNET |外部和内部 |
-| * / * | 入站 |TCP |Azure 基础结构负载均衡器 | AZURE_LOAD_BALANCER/VIRTUAL_NETWORK |外部和内部 |
+| * / 80, 443 |入站 |TCP |INTERNET/VIRTUAL_NETWORK|客户端与 API 管理的通信|外部 |
+| * / 3443 |入站 |TCP |INTERNET/VIRTUAL_NETWORK|Azure 门户和 Powershell 的管理终结点 |内部 |
+| * / 80, 443 |出站 |TCP |VIRTUAL_NETWORK/INTERNET|依赖于 Azure 存储、Azure 服务总线和 Azure Active Directory（如果适用）。|外部和内部 | 
+| * / 1433 |出站 |TCP |VIRTUAL_NETWORK/INTERNET|**访问 Azure SQL 终结点** |外部和内部 |
+| * / 5671, 5672 |出站 |TCP |VIRTUAL_NETWORK/INTERNET|事件中心策略日志和监视代理的依赖项 |外部和内部 |
+| * / 445 |出站 |TCP |VIRTUAL_NETWORK/INTERNET|与适用于 GIT 的 Azure 文件共享的依赖关系 |外部和内部 |
+| * / 25028 |出站 |TCP |VIRTUAL_NETWORK/INTERNET|连接到 SMTP 中继以发送电子邮件 |外部和内部 |
+| * / 6381 - 6383 |入站和出站 |TCP |VIRTUAL_NETWORK/VIRTUAL_NETWORK|访问 RoleInstance 之间的 Redis 缓存实例 |外部和内部 |
+| * / * | 入站 |TCP |AZURE_LOAD_BALANCER/VIRTUAL_NETWORK| Azure 基础结构负载均衡器 |外部和内部 |
+
+>[!IMPORTANT]
+> * “用途”为**粗体**的端口是成功部署 API 管理服务所必需的。 不过，阻止其他端口将导致使用和监视运行中服务的能力降级。
 
 * **SSL 功能**：若要启用 SSL 证书链构建和验证，API 管理服务需要使用与 ocsp.msocsp.com、mscrl.microsoft.com 和 crl.microsoft.com 之间的出站网络连接。如果上传到 API 管理的任何证书包含指向 CA 根的完整链，则此依赖项不是必需的。
 
@@ -124,25 +135,40 @@ ms.lasthandoff: 09/22/2017
  * 应用于包含 Azure API 管理的子网的 UDR 定义 0.0.0.0/0 以及 Internet 的下一个跃点类型。
  这些步骤的组合效应是子网级 UDR 将优先于 ExpressRoute 强制隧道，从而确保来自 Azure API 管理的出站 Internet 访问。
 
+**通过网络虚拟设备进行路由**：如果配置将 UDR 用于默认路由 (0.0.0.0/0) 以通过 Azure 中运行的网络虚拟设备来路由从 API 管理子网发往 Internet 的流量，则这些配置将阻止 API 管理和所需服务之间的完全通信。 不支持该配置。 
+
 >[!WARNING]  
 >**未正确从公共对等路径到专用对等路径交叉播发路由**的 ExpressRoute 配置不支持 Azure API 管理。 已配置公共对等互连的 ExpressRoute 配置将收到来自 Microsoft 的大量 Microsoft Azure IP 地址范围的路由播发。 如果这些地址范围在专用对等路径上未正确交叉播发，最后的结果是来自 Azure API 管理实例子网的所有出站网络数据包都不会正确地使用强制隧道发送到客户的本地网络基础结构。 此网络流会破坏 Azure API 管理。 此问题的解决方法是停止从公共对等路径到专用对等路径的交叉播发路由。
 
 
 ## <a name="troubleshooting"></a>故障排除
-对网络进行更改时，请参阅 [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus)，验证 API 管理服务是否尚未丧失对所依赖的任何关键资源的访问权限。 连接状态应每 15 分钟更新一次。
+* **初始安装**：如果在某个子网中初始部署 API 管理服务未成功，建议首先在同一子网中部署一个虚拟机。 接下来，在虚拟机中部署远程桌面，并验证是否存在与 Azure 订阅中的以下每个源的连接 
+    * Azure 存储 Blob
+    * Azure SQL 数据库
+
+ > [!IMPORTANT]
+ > 在验证连接后，在将 API 管理部署到子网中之前，请确保删除子网中部署的所有资源。
+
+* **增量更新**：对网络进行更改时，请参阅 [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus)，验证 API 管理服务是否尚未丧失对所依赖的任何关键资源的访问权限。 连接状态应每 15 分钟更新一次。
+
+* **资源导航链接**：部署到资源管理器样式的 vnet 子网中时，API 管理会通过创建一个资源导航链接来保留子网。 如果子网已包含来自其他提供程序的资源，则部署将**失败**。 类似地，将 API 管理服务移动到其他子网中或删除它时，将会删除该资源导航链接。 
+
+## <a name="routing"> </a> 路由
++ 负载均衡公共 IP 地址 (VIP) 也将保留，用于访问所有服务终结点。
++ 将使用子网 IP 范围中的一个 IP 地址 (DIP) 来访问 vnet 中的资源，并使用一个公共 IP 地址 (VIP) 来访问 vnet 外部的资源。
++ 可以在 Azure 门户中的“概述/概要”边栏选项卡上找到负载均衡公共 IP 地址。
 
 ## <a name="limitations"></a>限制
 * 包含 API 管理实例的子网不能包含任何其他 Azure 资源类型。
 * 子网和 API 管理服务必须在同一个订阅中。
 * 包含 API 管理实例的子网不能在订阅之间移动。
-* 使用内部虚拟网络时，只能使用一个来自 [RFC 1918](https://tools.ietf.org/html/rfc1918) 所述范围中的内部 IP 地址，不能提供公共 IP 地址。
-* 对于配置了内部虚拟网络的多区域 API 管理部署，用户需负责管理自己的负载均衡，因为 DNS 由他们拥有。
+* 对于在内部虚拟网络模式下配置的多区域 API 管理部署，用户负责管理多个区域之间的负载均衡，因为路由归他们拥有。
 
 
 ## <a name="related-content"> </a>相关内容
 * [使用 Vpn 网关将虚拟网络连接到后端](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [通过不同的部署模型连接虚拟网络](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
-* [如何使用 API 检查器跟踪 Azure API 管理中的调用](./api-management-howto-api-inspector.md)
+* [如何使用 API 检查器跟踪 Azure API 管理中的调用](api-management-howto-api-inspector.md)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png

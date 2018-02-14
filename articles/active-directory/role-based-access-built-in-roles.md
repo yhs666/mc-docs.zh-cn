@@ -17,11 +17,11 @@ ms.date: 07/28/2017
 ms.author: v-junlch
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fbdbc1e9f4bf70796d350fef1be418a7c80a3233
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: accfd564b7e4b9a6cfd9fa6788c5ef703de2672b
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>用于 Azure 基于角色的访问控制的内置角色
 Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和服务的内置角色。 不能修改内置角色的定义。 但是，可以创建 [Azure RBAC 中的自定义角色](role-based-access-control-custom-roles.md)，以满足组织的特定需要。
@@ -56,8 +56,10 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | [数据工厂参与者](#data-factory-contributor) |可创建和管理数据工厂，以及它们包含的子资源。 |
 | [DevTest 实验室用户](#devtest-labs-user) |可查看一切内容，并可连接、启动、重启和关闭虚拟机 |
 | [DNS 区域参与者](#dns-zone-contributor) |可以管理 DNS 区域和记录 |
-| [Azure Cosmos DB 帐户参与者](#documentdb-account-contributor) |可管理 Azure Cosmos DB 帐户 |
+| [DocumentDB 帐户参与者](#documentdb-account-contributor) |可管理 Azure Cosmos DB 帐户 |
 | [Intelligent Systems 帐户参与者](#intelligent-systems-account-contributor) |可管理 Intelligent Systems 帐户 |
+| 逻辑应用参与者 | 可以管理逻辑应用的所有方面，但不能创建新应用。 |
+| 逻辑应用运算符 |可以启动和停止在逻辑应用内定义的工作流。 |
 | [监视读取者](#monitoring-reader) |可以读取所有监视数据 |
 | [监视参与者](#monitoring-contributor) |可以读取监视数据和编辑监视设置 |
 | [网络参与者](#network-contributor) |可管理所有网络资源 |
@@ -186,13 +188,13 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | 创建和管理备份管理操作的结果 |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/* | 创建和管理备份策略 |
 | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | 创建和管理可以备份的项 |
-| Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | 创建和管理备份项 |
-| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | 创建和管理保存备份项的容器 |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | 创建和管理已备份的项 |
+| Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | 创建和管理包含备份项的容器 |
 | Microsoft.RecoveryServices/Vaults/certificates/* | 创建和管理与恢复服务保管库中的备份相关的证书 |
 | Microsoft.RecoveryServices/Vaults/extendedInformation/* | 创建和管理与保管库相关的扩展信息 |
 | Microsoft.RecoveryServices/Vaults/read | 读取恢复服务保管库 |
 | Microsoft.RecoveryServices/Vaults/refreshContainers/* | 管理用于获取新创建的容器的发现操作 |
-| Microsoft.RecoveryServices/Vaults/registeredIdentities/* | 创建和管理已注册标识 |
+| Microsoft.RecoveryServices/Vaults/registeredIdentities/* | 创建和管理已注册的标识 |
 | Microsoft.RecoveryServices/Vaults/usages/* | 创建和管理恢复服务保管库的使用情况 |
 | Microsoft.Resources/deployments/* | 创建和管理资源组部署 |
 | Microsoft.Resources/subscriptions/resourceGroups/read | 读取资源组 |
@@ -206,7 +208,7 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | --- | --- |
 | Microsoft.Network/virtualNetworks/read | 读取虚拟网络 |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | 读取备份管理操作的结果 |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | 在保护容器上读取操作结果 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | 读取对保护容器执行的操作结果 |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | 对备份项执行按需备份操作 |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | 读取对备份项执行的操作的结果 |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read | 读取对备份项执行的操作的状态 |
@@ -216,13 +218,13 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | 创建备份项 |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | 读取保存备份项的容器 |
 | Microsoft.RecoveryServices/Vaults/backupJobs/* | 创建和管理备份作业 |
-| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 将备份作业导出到 Excel |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 将备份作业导出到 excel |
 | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | 读取与备份管理相关的元数据 |
 | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | 创建和管理备份管理操作的结果 |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | 读取对备份策略执行的操作的结果 |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/read | 读取备份策略 |
-| Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | 创建和管理可以备份的项 |
-| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | 读取备份项 |
+| Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | 创建和管理可备份的项 |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | 读取已备份项 |
 | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | 读取保存备份项的备份容器 |
 | Microsoft.RecoveryServices/Vaults/extendedInformation/read | 读取与保管库相关的扩展信息 |
 | Microsoft.RecoveryServices/Vaults/extendedInformation/write | 写入与保管库相关的扩展信息 |
@@ -247,15 +249,15 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read  | 读取对备份项执行的操作的结果 |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationStatus/read  | 读取对备份项执行的操作的状态 |
 | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read  | 读取备份项 |
-| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read  | 读取保存备份项的容器 |
+| Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read  | 读取包含备份项的容器 |
 | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read  | 读取备份作业的结果 |
 | Microsoft.RecoveryServices/Vaults/backupJobs/read  | 读取备份作业 |
-| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 将备份作业导出到 Excel |
+| Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 将备份作业导出到 excel |
 | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read  | 读取与备份管理相关的元数据 |
 | Microsoft.RecoveryServices/Vaults/backupOperationResults/read  | 读取备份管理操作结果 |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read  | 读取对备份策略执行的操作的结果 |
 | Microsoft.RecoveryServices/Vaults/backupPolicies/read  | 读取备份策略 |
-| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read  |  读取备份项 |
+| Microsoft.RecoveryServices/Vaults/backupProtectedItems/read  |  读取已备份项 |
 | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read  | 读取保存备份项的备份容器 |
 | Microsoft.RecoveryServices/Vaults/extendedInformation/read  | 读取与保管库相关的扩展信息 |
 | Microsoft.RecoveryServices/Vaults/read  | 读取恢复服务保管库 |
@@ -414,7 +416,7 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Insights/AlertRules/* |读取/写入/删除警报规则。 |
 | Microsoft.Insights/components/* |读取/写入/删除 Application Insights 组件。 |
 | Microsoft.Insights/DiagnosticSettings/* |读取/写入/删除诊断设置。 |
-| Microsoft.Insights/eventtypes/* |列出订阅中的活动日志事件（管理事件）。 此权限适用于以编程方式和通过门户访问活动日志。 |
+| Microsoft.Insights/eventtypes/* |列出订阅中的活动日志事件（管理事件）。 此权限适用于对活动日志的编程和门户访问。 |
 | Microsoft.Insights/LogDefinitions/* |需要通过门户访问活动日志的用户必须拥有此权限。 列出活动日志中的日志类别。 |
 | Microsoft.Insights/MetricDefinitions/* |读取指标定义（资源的可用指标类型的列表）。 |
 | Microsoft.Insights/Metrics/* |读取资源的指标。 |
@@ -702,7 +704,7 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 
 | **操作** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |读取授权 |
+| Microsoft.Authorization/*/read |读取角色和角色分配 |
 | Microsoft.Insights/alertRules/* |创建和管理 Insights 警报规则 |
 | Microsoft.ResourceHealth/availabilityStatuses/read |读取资源的运行状况 |
 | Microsoft.Resources/deployments/* |创建和管理资源组部署 |

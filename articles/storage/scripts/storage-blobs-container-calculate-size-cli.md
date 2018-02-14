@@ -16,11 +16,11 @@ ms.topic: sample
 origin.date: 06/28/2017
 ms.date: 10/23/2017
 ms.author: v-johch
-ms.openlocfilehash: 63932b0c9eded7d1b897e65d9ca4abdc6f955cc9
-ms.sourcegitcommit: 10a649bfdf30765955ed964f7b5e05205bb9670a
+ms.openlocfilehash: 69f7906859b9d5e90784ef35b63b9c9022b85140
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>计算 Blob 存储容器的大小
 
@@ -29,6 +29,9 @@ ms.lasthandoff: 10/31/2017
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+> [!IMPORTANT]
+> 此 CLI 脚本提供容器的估计大小，不应用于计费计算。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -83,7 +86,7 @@ az group delete --name myResourceGroup
 
 此脚本使用以下命令来计算 Blob 存储容器的大小。 表中的每一项均链接到命令特定的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [az group create](https://docs.azure.cn/cli/group#create) | 创建用于存储所有资源的资源组。 |
 | [az storage blob upload](https://docs.azure.cn/cli/storage/account#create) | 将本地文件上传到 Azure Blob 存储容器。 |

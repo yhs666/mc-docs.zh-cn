@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 09/17/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 08b97f4dd9b149e05cad22901161a24d89061c7f
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 76ccedd6c3b8fed6fae34c46a5fcaa86c08595cf
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>对 Hyper-V VM 设置到辅助本地站点的灾难恢复
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程，需执行以下操作：
+完成本教程：
 
 - 查看[方案体系结构和组件](concepts-hyper-v-to-secondary-architecture.md)。
 - 查看所有组件的[支持要求](site-recovery-support-matrix-to-sec-site.md)。
@@ -55,10 +55,10 @@ ms.lasthandoff: 12/01/2017
 
 准备 VMM，如下所示：
 
-1. 确保源服务器和目标 VMM 服务器上具有 [VMM 逻辑网络](/system-center/vmm/network-logical)。
+1. 确保源服务器和目标 VMM 服务器上具有 [VMM 逻辑网络](https://docs.microsoft.com/system-center/vmm/network-logical)。
     - 源服务器上的逻辑网络应与 Hyper-V 主机所在的源云相关联。
     - 目标服务器上的逻辑网络应与目标云相关联。
-1. 确保源服务器和目标 VMM 服务器上具有 [VM 网络](/system-center/vmm/network-virtual)。 VM 网络应链接到每个位置中的逻辑网络。
+1. 确保源服务器和目标 VMM 服务器上具有 [VM 网络](https://docs.microsoft.com/system-center/vmm/network-virtual)。 VM 网络应链接到每个位置中的逻辑网络。
 2. 将源 Hyper-V 主机上的 VM 连接到源 VM 网络。 
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
@@ -93,7 +93,7 @@ ms.lasthandoff: 12/01/2017
 1. 在每个 VMM 服务器上运行提供程序安装文件。 如果 VMM 部署在群集中，请如下进行首次安装：
     -  在活动节点上安装提供程序，并完成安装以在保管库中注册 VMM 服务器。
     - 然后在其他节点上安装该提供程序。 所有群集节点应运行相同版本的提供程序。
-2. 安装程序将运行几项先决条件检查，并请求停止 VMM 服务的权限。 VMM 服务会在安装程序完成时自动重启。 如果在 VMM 群集上进行安装，系统会提示停止群集角色。
+2. 安装程序运行几项先决条件检查，并请求停止 VMM 服务的权限。 VMM 服务会在安装程序完成时自动重启。 如果在 VMM 群集上进行安装，系统会提示停止群集角色。
 3. 在“Microsoft 更新”中，可选择指定根据 Microsoft 更新策略安装提供程序更新。
 4. 在“安装”中接受或修改默认安装位置，然后单击“安装”。
 5. 安装完成后，单击“注册”，以便在保管库中注册服务器。
@@ -107,7 +107,7 @@ ms.lasthandoff: 12/01/2017
 8. 在“注册密钥”中，选择已下载并复制到 VMM 服务器的密钥。
 9. 此方案与加密设置无关。 
 10. 在“服务器名称”中，指定一个友好名称以在保管库中标识该 VMM 服务器。 在群集中，指定 VMM 群集角色名称。
-11. 在“同步云元数据”中，选择是否要同步 VMM 服务器上所有云的元数据。 此操作在每个服务器上只需执行一次。 如果不希望同步所有云，请不要选择此设置。 可在 VMM 控制台的云属性中单独同步每个云。
+11. 在“同步云元数据”中，选择是否要同步 VMM 服务器上所有云的元数据。 此操作在每台服务器上只需执行一次。 如果不希望同步所有云，请不要选择此设置。 可在 VMM 控制台的云属性中单独同步每个云。
 12. 单击“下一步”以完成此过程。 注册后，Site Recovery 将检索 VMM 服务器中的元数据。 服务器显示在保管库中的“服务器” > “VMM 服务器”中。
 13. 服务器出现在保管库后，请在“源” > “准备源”中选择 VMM 服务器，并选择 Hyper-V 主机所在的云。 。
 

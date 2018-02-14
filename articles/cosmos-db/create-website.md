@@ -16,11 +16,11 @@ origin.date: 12/08/2016
 ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: cb70bb3ddccd692e2c9bf221133dff9249ba17cd
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 7914901c2c2f4247decdd27ddfb2ffb99ea275a8
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板部署 Azure Cosmos DB 和 Azure 应用服务 Web 应用
 本教程说明如何使用 Azure Resource Manager 模板来部署和集成 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/)、[Azure 应用服务](/app-service-web/app-service-changes-existing-services)、Web 应用以及示例 Web 应用程序。
@@ -47,8 +47,8 @@ ms.lasthandoff: 01/17/2018
 ## <a id="CreateDB"></a>步骤 1：下载模板文件
 让我们从下载模板文件开始，我们会在本教程中使用这些文件。
 
-1. 将[创建 Azure Cosmos DB 帐户、Web 应用和部署演示应用程序示例](https://portalcontent.blob.core.chinacloudapi.cn/samples/DocDBWebsiteTodo.json)模板下载到本地文件夹（例如 C:\Azure Cosmos DBTemplates）。 此模板会部署 Azure Cosmos DB 帐户、应用服务 Web 应用和 Web 应用程序。  它还会自动配置 Web 应用程序，以连接到 Azure Cosmos DB 帐户。
-2. 将[创建 Azure Cosmos DB 帐户和 Web 应用示例](https://portalcontent.blob.core.chinacloudapi.cn/samples/DocDBWebSite.json)模板下载到本地文件夹（例如 C:\Azure Cosmos DBTemplates）。 此模板将部署 Azure Cosmos DB 帐户、应用服务 Web 应用，并修改站点的应用程序设置以便轻松地呈现 Azure Cosmos DB 连接信息，但不包含 Web 应用程序。  
+1. 将[创建 Azure Cosmos DB 帐户、Web 应用和部署演示应用程序示例](https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json)模板下载到本地文件夹（例如 C:\Azure Cosmos DBTemplates）。 此模板会部署 Azure Cosmos DB 帐户、应用服务 Web 应用和 Web 应用程序。  它还会自动配置 Web 应用程序，以连接到 Azure Cosmos DB 帐户。
+2. 将[创建 Azure Cosmos DB 帐户和 Web 应用示例](https://portalcontent.blob.core.windows.net/samples/DocDBWebSite.json)模板下载到本地文件夹（例如 C:\Azure Cosmos DBTemplates）。 此模板将部署 Azure Cosmos DB 帐户、应用服务 Web 应用，并修改站点的应用程序设置以便轻松地呈现 Azure Cosmos DB 连接信息，但不包含 Web 应用程序。  
 
 <a id="Build"></a>
 
@@ -124,7 +124,8 @@ ms.lasthandoff: 01/17/2018
 9. 注意出现的 Azure Cosmos DB 终结点和每个 Azure Cosmos DB 主密钥的应用程序设置。
 
     ![应用程序设置的屏幕截图](./media/create-website/TemplateDeployment10.png)  
-10. 继续随意浏览 Azure 门户，或按照其中一个 Azure Cosmos DB [示例](http://go.microsoft.com/fwlink/?LinkID=402386)来创建自己的 Azure Cosmos DB 应用程序。
+10. 继续随意浏览 Azure 门户，或按照其中一个 Azure Cosmos DB [示例](/cosmos-db/sql-api-dotnet-samples)来创建自己的 Azure Cosmos DB 应用程序。
+<!-- Redirect http://go.microsoft.com/fwlink/?LinkID=402386 TO /cosmos-db/sql-api-dotnet-samples -->
 
 <a name="NextSteps"></a>
 

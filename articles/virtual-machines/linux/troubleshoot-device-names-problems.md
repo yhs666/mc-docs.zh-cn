@@ -8,18 +8,18 @@ manager: digimobile
 editor: 
 tags: 
 ms.service: virtual-machines-linux
-ms.topic: troubleshooting
+ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8a3dc5d835a3831e34fad3b2ad60c511b3624f69
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: c5bd0613829f176eada23c0d1ea29b2792f16409
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>排查 Linux VM 设备名更改问题
 
@@ -150,7 +150,7 @@ Azure Linux 代理 Udev 规则在 /dev/disk/azure 路径下构造一组符号链
 有关详细信息，请参阅以下文章：
 
 - [Ubuntu：使用 UUID](https://help.ubuntu.com/community/UsingUUID)
-- [Red Hat：持久命名](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
+<!-- Not Avaiable on - [Red Hat: Persistent naming](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html) -->
 - [Linux：UUID 有什么作用](https://www.linux.com/news/what-uuids-can-do-you)
 - [Udev：新式 Linux 系统中的设备管理简介](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
 <!--Update_Description: update meta properties，-->

@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 12/15/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7e687dac52293b1e453f6f5472519082a140e712
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 149189eb1c059f6c9c239f5c87adb8ed2b018d7e
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>可以通过 Azure Site Recovery 保护哪些工作负荷？
 
@@ -31,7 +31,8 @@ ms.lasthandoff: 01/19/2018
 
 Site Recovery 就是能够帮助实现 BCDR 策略的一个 Azure 服务。 使用 Site Recovery，可将应用程序感知的复制部署到云或辅助站点中。 无论应用是基于 Windows 还是 Linux，是在物理服务器、VMware 还是 Hyper-V 上运行，都可以使用 Site Recovery 协调复制、执行灾难恢复测试，以及运行故障转移和故障回复。
 
-Site Recovery 集成 Microsoft 应用程序，其中包括 SharePoint、Exchange、Dynamics、SQL Server 和 Active Directory。 Microsoft 还与 Oracle、SAP 和 Red Hat 等领先供应商密切合作。 可以针对每个应用自定义复制解决方案。
+Site Recovery 集成 Microsoft 应用程序，其中包括 SharePoint、Exchange、Dynamics、SQL Server 和 Active Directory。
+<!-- Not Available on  Microsoft also works closely with leading vendors including Oracle, SAP, and Red Hat. You can customize replication solutions on an app-by-app basis. -->
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>为何使用 Site Recovery 复制应用程序？
 
@@ -134,7 +135,7 @@ Site Recovery 可按如下所示帮助保护 Exchange：
 * 使用 Site Recovery 将 SAP 部署迁移到 Azure，从而简化云迁移。
 * 通过创建一个按需生产克隆来测试 SAP 应用程序，简化 SAP 项目的升级、测试和原型制作。
 
-[详细了解](site-recovery-sap.md) 如何保护 SAP。
+<!-- Not Avaiable on [Learn more](site-recovery-sap.md) --> 
 
 ## <a name="protect-iis"></a>保护 IIS
 按如下所述使用 Site Recovery 来保护 IIS 部署：

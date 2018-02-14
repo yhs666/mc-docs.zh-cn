@@ -9,22 +9,22 @@ editor:
 tags: top-support-issue
 ms.assetid: 0756b52d-4f5a-4503-ae45-c00a6a2edcdf
 ms.service: virtual-machines-windows
-ms.topic: troubleshooting
+ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.workload: required
 origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ebcba51e5032dad1c41e04c80fc48bcb755e444
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: c5d5620ccdbfc8643d942c5090bdf8d2367cf386
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>排查在 Azure 中重新启动现有 Windows VM 或调整其大小时遇到的部署问题
-尝试启动已停止的 Azure 虚拟机 (VM)，或调整现有 Azure VM 的大小时，经常遇到的错误是分配失败。 当群集或区域没有可用的资源或无法支持所请求的 VM 大小时，就会发生此错误。
+尝试启动已停止的 Azure 虚拟机 (VM)，或调整现有 Azure VM 的大小时，经常遇到的错误是分配失败。 当群集或区域没有可用的资源或无法支持所请求的 VM 大小时，将发生此错误。
 
 [!INCLUDE [support-disclaimer](../../../includes/support-disclaimer.md)]
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 12/15/2017
 ### <a name="resolution"></a>解决方法
 * 停止可用性集中的所有 VM 并重新启动每个 VM。
 
-  1. 单击“资源组” >  *你的资源组*  > “资源” >  *你的可用性集*  > “虚拟机” >  *你的虚拟机*  > “停止”。
+  1. 单击“资源组” > *资源组* > “资源” > *可用性集* > “虚拟机” > *虚拟机* > “停止”。
   2. 所有 VM 停止后，选择每个已停止的 VM 并单击“启动”。
 * 稍后重试重新启动请求。
 
@@ -55,12 +55,12 @@ ms.lasthandoff: 12/15/2017
 必须在托管云服务的原始群集上尝试发出调整 VM 大小的请求。 但是，群集不支持请求的 VM 大小。
 
 ### <a name="resolution"></a>解决方法
-* 使用更小的 VM 大小来重试请求。
+* 以更小的 VM 大小重试请求。
 * 如果无法更改请求的 VM 大小：
 
   1. 停止可用性集中的所有 VM。
 
-     * 单击“资源组” >  *你的资源组*  > “资源” >  *你的可用性集*  > “虚拟机” >  *你的虚拟机*  > “停止”。
+     * 单击“资源组” > *资源组* > “资源” > *可用性集* > “虚拟机” > *虚拟机* > “停止”。
   2. 所有 VM 停止后，将所需的 VM 调整到更大的大小。
   3. 选择已调整大小的 VM，单击“启动”，然后启动每个已停止的 VM。
 

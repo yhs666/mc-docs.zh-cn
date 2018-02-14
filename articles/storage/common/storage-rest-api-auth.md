@@ -14,11 +14,11 @@ ms.topic: how-to
 origin.date: 11/27/2017
 ms.date: 01/01/2018
 ms.author: v-nany
-ms.openlocfilehash: 0df45459ae67704f65aedc0f39cabf6888754c2d
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: d13342555e79fe9ffe2e801b369e16de91e4ed17
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="using-the-azure-storage-rest-api"></a>使用 Azure 存储 REST API
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/29/2017
 
 * Azure 订阅。 如果没有 Azure 订阅，可以在开始前创建一个 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-* 通用存储帐户。 如果你没有任何存储帐户，可以使用 [Azure 门户](https://portal.azure.cn)、[PowerShell](../blobs/storage-quickstart-create-storage-account-powershell.md) 或 [Azure CLI](../blobs/storage-quickstart-create-storage-account-cli.md) 创建一个帐户。
+* 通用存储帐户。 如果还没有存储帐户，请参阅[创建存储帐户](storage-quickstart-create-account.md)。
 
 * 本文中将举例说明如何列出存储帐户中的容器。 若要查看输出，请在开始之前，将一些容器添加到存储帐户中的 blob 存储。
 

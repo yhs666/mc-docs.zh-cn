@@ -12,21 +12,21 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 56766025136afcc1c0cbe496edf9fea34a6ffb31
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: fcb8f5b287007e8c5abe42b35bd7ad72d755b146
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Windows 虚拟机部署问题
 
 若要排查 Azure 中虚拟机 (VM) 的部署问题，请查看[常见问题](#top-issues)了解常见故障和解决方法。
 
-如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)上的 Azure 专家。 或者，也可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。
+如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。
 
 ## <a name="top-issues"></a>常见问题
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
@@ -55,7 +55,27 @@ productPesIds="1234, 5678"
     - 将新 VM 添加到同一虚拟网络。
 
 <!--Not Available ## How can I use and deploy a windows client image into Azure?-->
-<!--Not Available ## How can I deploy a virtual machine using the Hybrid Use Benefit (HUB)?-->
+## <a name="how-can-i-deploy-a-virtual-machine-using-the-hybrid-use-benefit-hub"></a>如何使用混合使用权益 (HUB) 部署虚拟机？
+
+有多种不同方法可使用 Azure 混合使用权益部署 Windows 虚拟机。
+
+对于企业协议订阅：
+
+•   可从通过 Azure 混合使用权益预配的特定 Marketplace 映像中部署 VM。
+
+对于企业协议：
+
+•   可以上传自定义 VM，并使用 Resource Manager 模板或 Azure PowerShell 进行部署。
+
+有关详细信息，请参阅以下资源：
+
+ - [Azure 混合使用权益概述](https://www.azure.cn/pricing/hybrid-use-benefit/)
+
+ - [可下载的常见问题解答](http://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
+
+ - [适用于 Windows Server 和 Windows 客户端的 Azure 混合使用权益](hybrid-use-benefit-licensing.md)。
+
+ - [如何在 Azure 中使用混合使用权益](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
 <!--Not Available ## How do I activate my monthly credit for Visual studio Enterprise (BizSpark)-->
 <!--Not Available ## How to add Enterprise Dev/Test to my Enterprise Agreement (EA) to get access to Window client images?-->
 <!--Not Available ## My drivers are missing for my Windows N-Series VM-->
@@ -73,14 +93,14 @@ productPesIds="1234, 5678"
 
 ## <a name="the-listed-vm-size-is-not-supported-while-deploying-in-availability-set"></a>在可用性集中部署时，列出的 VM 大小不受支持。
 
-请选择可用性集的群集支持的大小。 建议在创建可用性集时选择所需的最大 VM 大小，并将它率先部署到可用性集。
+请选择可用性集的群集支持的大小。 建议在创建可用性集时，选择所需要的最大 VM 大小，并将其作为到可用性集的第一次部署。
 
-## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>能否将现有经典 VM 添加到可用性集？
+## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>是否可以将现有的经典 VM 添加到可用性集？
 
 是的。 可以将现有经典 VM 添加到新的或现有的可用性集。 有关详细信息，请参阅[将现有虚拟机添加到可用性集](classic/configure-availability.md#addmachine)。
 
 ## <a name="next-steps"></a>后续步骤
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)上的 Azure 专家。
 
-或者，也可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。
-<!--Update_Description: update meta properties-->
+或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择 **获取支持**。
+<!--Update_Description: add HUB question and answer -->

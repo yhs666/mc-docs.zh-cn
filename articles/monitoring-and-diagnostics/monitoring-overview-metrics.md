@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Azure 中的指标概述 | Microsoft Docs"
+title: "Microsoft Azure 中的指标概述"
 description: "Microsoft Azure 中的指标及其用法的概述"
 author: johnkemnetz
 manager: orenr
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 09/25/2017
 ms.date: 12/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: 72b5dbbac2daac7f3bf4fbf85e84287fad187081
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 08826454d6003b7c50063afe6df69934f63d915f
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="overview-of-metrics-in-azure"></a>Azure 中的指标概述
 本文介绍 Azure 中的指标及其优点，以及如何开始使用它们。  
@@ -117,6 +117,8 @@ Azure Monitor 预览版还提供全新的指标制图体验。 通过这种体�
 指标警报：然后这些警报可通过电子邮件或触发可用于运行任意自定义脚本的 webhook 通知用户。 还可以使用该 Webhook 来配置第三方产品集成。
 
  ![Azure 监视器中的指标和警报规则](./media/monitoring-overview-metrics/MetricsOverview4.png)
+
+准实时警报（预览）：这些警报能够监视资源的多个指标和阈值，然后通过[操作组](/monitoring-action-groups.md)通知用户。 有关详细信息，请参阅此处的[准实时指标警报](https://aka.ms/azuremonitor/near-real-time-alerts)。
 
 
 ### <a name="autoscale-your-azure-resources"></a>自动缩放 Azure 资源

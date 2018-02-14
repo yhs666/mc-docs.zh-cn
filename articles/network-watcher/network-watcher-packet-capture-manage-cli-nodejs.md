@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1a54507bb33c004680411b07bb54cc66951a968c
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 2331f04cdfd293110c1f522233b897434f1e465f
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-10"></a>通过 Azure CLI 1.0 使用 Azure 网络观察程序管理数据包捕获
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 11/14/2017
 - [**删除数据包捕获**](#delete-a-packet-capture)
 - [**下载数据包捕获**](#download-a-packet-capture)
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 本文假定你拥有以下资源：
 
@@ -217,8 +217,7 @@ https://{storageAccountName}.blob.core.chinacloudapi.cn/network-watcher-logs/sub
 ```
 
 ## <a name="next-steps"></a>后续步骤
-
-查看[创建警报触发的数据包捕获](network-watcher-alert-triggered-packet-capture.md)，了解如何利用虚拟机警报自动执行数据包捕获
+<!--Not Available [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 
 访问[查看“IP 流验证”](network-watcher-check-ip-flow-verify-portal.md)，了解是否允许某些流量传入和传出 VM
 

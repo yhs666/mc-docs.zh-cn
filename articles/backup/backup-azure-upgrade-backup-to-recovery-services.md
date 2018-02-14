@@ -1,5 +1,5 @@
 ---
-title: "将备份保管库升级到恢复服务保管库（预览）| Microsoft Docs"
+title: "将备份保管库升级到恢复服务保管库 | Microsoft Docs"
 description: "将 Azure 备份保管库升级到恢复服务保管库的说明和支持信息。"
 services: backup
 documentationcenter: dev-center-name
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 11/09/2017
-ms.date: 01/05/2018
+origin.date: 01/04/2018
+ms.date: 02/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 41088bc6c2186d6b830c4c470701c548af900046
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 8ff4a4d647c99016191a10a9e423bd1d92f5f8f0
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>将备份保管库升级到恢复服务保管库
 
@@ -115,7 +115,7 @@ PowerShell 脚本会提示输入凭据。 请输入凭据两次：一次是输�
 否。 升级期间和之后，正在进行的备份都会继续，而不会中断。
 
 **如果不尽快规划升级，保管库会发生什么情况？**</br>
-由于所有新功能仅适用于恢复服务保管库，我们强烈建议升级保管库。 Microsoft 最终会弃用经典管理门户。 自 2017 年 9 月 1 日起，Microsoft 会将备份保管库自动升级为恢复服务保管库。 2017 年 11 月 30 日后，将不再能够使用 PowerShell 创建备份保管库。 保管库可在其间任何时间自动升级。 Microsoft 建议尽快升级保管库。
+由于所有新功能仅适用于恢复服务保管库，我们强烈建议升级保管库。 自 2017 年 9 月 1 日起，Microsoft 会将备份保管库自动升级为恢复服务保管库。 2017 年 11 月 30 日后，将不再能够使用 PowerShell 创建备份保管库。 保管库可在其间任何时间自动升级。 Microsoft 建议尽快升级保管库。
 
 **对于现有的工具而言，此升级有何意义？**</br>
 将工具更新为资源管理器部署模型。 恢复服务保管库是为在资源管理器部署模型使用而创建的。 规划资源管理器部署模型以及记录保管库中的差异十分重要。 
@@ -128,9 +128,6 @@ PowerShell 脚本会提示输入凭据。 请输入凭据两次：一次是输�
 
 **是否可以验证订阅或资源，确定它们是否可升级？**</br>
 是的。 升级过程的第一个步骤是验证资源是否可升级。 如果先决条件验证失败，会收到消息，其中包含无法完成升级的所有原因。
-
-**应有哪些权限才能触发保管库升级？**</br>
-只有在通过 Azure 经典管理门户添加为订阅的共同管理员之后，才能执行保管库升级。 即使已在 Azure 门户中被列为所有者，仍需执行此操作。 尝试在 Azure 经典管理门户中添加订阅的共同管理员，确定你是否是订阅的共同管理员。 如果无法添加协同管理员，请联系订阅的服务管理员或协同管理员，他们可将你添加为协同管理员。
 
 **是否可以升级基于 CSP 的备份保管库？**</br>
 否。 目前无法升级基于 CSP 的备份保管库。 我们会在下一版本中添加对升级基于 CSP 的备份保管库的支持。

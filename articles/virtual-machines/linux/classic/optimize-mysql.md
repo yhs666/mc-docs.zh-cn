@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 05/31/2017
 ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6211d216e35c51b7e003c2bc0c9f42fa85bcefb8
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 457b2f43f69c267a2dc8215ed84d71a6fb7764f5
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>优化 Azure Linux VM 上的 MySQL 性能
 影响 Azure 上 MySQL 性能的因素有很多，主要体现在虚拟硬件选择和软件配置两个方面。 本文重点介绍如何通过存储、系统和数据库配置优化性能。
@@ -145,12 +145,11 @@ Linux 实现了四种类型的 I/O 计划算法：
     Found memtest86+ image: /memtest86+.bin
     done
 
-对于 Red Hat 系列分发版本，只需以下命令：
-
-    echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
+<!-- Not Available For the Red Hat distribution family, you need only the following command: -->
+<!-- echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local -->
 
 ## <a name="configure-system-file-operations-settings"></a>配置系统文件操作设置
-最佳做法之一是禁用文件系统上的 *atime* 日志记录功能。 Atime 指文件的最后一次访问时间。 无论何时访问文件，文件系统都会在日志中记录时间戳。 但是，很少使用此信息。 如果不需要，可以禁用它，这样将减少总体磁盘访问时间。  
+最佳做法之一是禁用文件系统上的 *atime* 日志记录功能。 Atime 指文件的最后一次访问时间。 无论何时访问文件，文件系统都会在日志中记录时间戳。 但是，很少使用此信息。 如果不需要，可以禁用它，这样可以减少总体磁盘访问时间。  
 
 若要禁用 atime 日志记录，需修改文件系统配置文件 /etc/ fstab 并添加“noatime”  选项。  
 
@@ -216,7 +215,7 @@ MySQL 是高并发数据库。 对于 Linux，默认的并发句柄数量是 102
 * max_connections：应用程序有时候无法正常关闭连接。 值越大，服务器就有越多时间回收空闲的连接。 最大连接数为 10,000，但建议的最大值为 5,000。
 * Innodb_file_per_table：此设置可允许或禁止 InnoDB 将表存储在单独的文件中。 启用该选项可确保有效地应用多项高级管理操作。 从性能角度来看，它可以提高表空间传输的速度和优化碎片管理性能。 此选项的推荐设置是“开启”。</br></br>
 从 MySQL 5.6 开始，默认设置为“开启”，因此不需要任何操作。 对于早期版本，默认设置为“关闭”。 应在加载数据之前更改此设置，因为只有新创建的表才会受影响。
-* innodb_flush_log_at_trx_commit：默认值为 1，范围设置为 0~2。 默认值是最适合独立 MySQL DB 的选项。 设置为 2 可确保最大程度的数据完整性，适用于 MySQL 群集中的主节点。 设置 0 允许数据丢失，这可能会影响可靠性（但在某些情况下能提供更好的性能），适用于 MySQL 群集中的从属节点。
+* innodb_flush_log_at_trx_commit：默认值为 1，范围设置为 0~2。 默认值是最适合独立 MySQL DB 的选项。 设置 2 支持最大程度的数据完整性，适用于 MySQL 群集中的主节点。 设置 0 允许数据丢失，这可能会影响可靠性（但在某些情况下能提供更好的性能），适用于 MySQL 群集中的从属节点。
 * Innodb_log_buffer_size：借助日志缓冲区，即使在事务提交之前未将日志刷新到磁盘，事务也可以运行。 但是，如果有大型的二进制对象或文本字段，将很快地耗尽缓存，并触发频繁的磁盘 I/O。 如果 Innodb_log_waits 状态变量不为 0，最好增加缓冲区大小。
 * query_cache_size：最好是从一开始就禁用。 将 query_cache_size 设置为 0（这是 MySQL 5.6 中的默认设置）并使用其他方法来提高查询速度。  
 

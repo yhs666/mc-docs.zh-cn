@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 origin.date: 03/14/2016
 ms.date: 12/26/2016
 ms.author: v-dazen
-ms.openlocfilehash: 7aa822ef8196051cd5d905279d1e2eafc0deeb21
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: becd7068273c2d67915758a543485731bfcbc346
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="manage-nsgs-using-the-portal"></a>使用门户管理 NSG
+# <a name="manage-nsgs-using-the-portal"></a>使用门户创建 NSG
 
 > [!div class="op_single_selector"]
-> * [门户](virtual-network-manage-nsg-arm-portal.md)
+> * [Portal](virtual-network-manage-nsg-arm-portal.md)
 > * [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 > * [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 >
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/02/2017
 若要向 **NSG-FrontEnd** NSG 添加规则，允许来自任何计算机的**入站**流量流入端口 **443**，请完成以下步骤：
 
 1. 在“网络安全组”边栏选项卡或上述“资源”边栏选项卡中，单击“NSG-FrontEnd”。
-2. 在“设置”选项卡中，单击“入站安全规则”。
+2. 在“**设置**”选项卡中，单击“**入站安全规则**”。
 3. 在“入站安全规则”边栏选项卡中，单击“添加”。 然后，在“添加入站安全规则”边栏选项卡中，填充如下所示的值，然后单击“确定”。
 
     ![Azure 门户 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure8.png)
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/02/2017
 要将上面创建的规则更改为仅允许来自 **Internet** 的入站流量，请完成以下步骤：
 
 1. 在“网络安全组”边栏选项卡或上述“资源”边栏选项卡中，单击“NSG-FrontEnd”。
-2. 在“设置”  选项卡中，单击上面创建的规则。
+2. 在“**设置**”选项卡中，单击上文创建的规则。
 3. 在“allow-https”边栏选项卡中，对“Source”属性进行如下更改，然后单击“保存”。
 
     ![Azure 门户 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure10.png)
@@ -128,7 +128,7 @@ ms.lasthandoff: 11/02/2017
 
 若要删除上面创建的规则，请完成以下步骤：
 
-1. 在“网络安全组”边栏选项卡或上述“资源”边栏选项卡中，单击“NSG-FrontEnd”。
+1. 在“**网络安全组**”边栏选项卡或上述“**资源**”边栏选项卡中，单击“**NSG-FrontEnd**”。
 2. 在“设置”  选项卡中，单击上面创建的规则。
 3. 在“allow-https”边栏选项卡中，单击“删除”和“是”。
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/02/2017
 
 ### <a name="dissociate-an-nsg-from-a-nic"></a>取消 NSG 与 NIC 之间的关联
 
-若要取消关联 **NSG-FrontEnd** NSG 与 **TestNICWeb1** NIC，请完成以下步骤：
+若要取消 **NSG-FrontEnd** NSG 与 **TestNICWeb1** NIC 之间的关联，请完成以下步骤：
 
 1. 在 Azure 门户中，单击“资源组” > “RG-NSG” > “**...**” > “TestNICWeb1”。
 
@@ -163,13 +163,13 @@ ms.lasthandoff: 11/02/2017
 
 若要取消关联 **NSG-FrontEnd** NSG 与 **FrontEnd** 子网，请完成以下步骤：
 
-1. 在 Azure 门户中，依次单击“资源组” > “RG-NSG” > “...” > “TestVNet”。
+1. 在 Azure 门户中，依次单击“**资源组**” > “**RG-NSG**” > “**...**” > “**TestVNet**”。
 
 2. 在“设置”边栏选项卡中，单击“子网” > “FrontEnd” > “网络安全组” > “无”。
 
     ![Azure 门户 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure14.png)
 
-3. 在“FrontEnd”边栏选项卡中，单击“保存”。
+3. 在“**FrontEnd**”边栏选项卡中，单击“**保存**”。
 
     ![Azure 门户 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure15.png)
 
@@ -199,4 +199,4 @@ ms.lasthandoff: 11/02/2017
     ![Azure 门户 - NSG](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
 
 <!--Not Available ## Next steps-->
-<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.-->
+<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) -->

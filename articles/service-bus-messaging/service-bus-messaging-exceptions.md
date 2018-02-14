@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: v-yiso
-origin.date: 12/11/2017
-ms.openlocfilehash: f5679c97b3af56895450e9c3f54295948277f470
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+origin.date: 02/05/2018
+ms.openlocfilehash: c46730b7358eecd0d246a5b2c8245a9ae36e4aa1
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="service-bus-messaging-exceptions"></a>服务总线消息传送异常
 
@@ -108,7 +108,7 @@ ConnectionsQuotaExceeded for namespace xxx.
 应检查 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/zh-cn/library/system.net.servicepointmanager.defaultconnectionlimit) 属性的值，因为达到此限制也会导致 [TimeoutException](https://msdn.microsoft.com/zh-cn/library/system.timeoutexception.aspx) 异常。
 
 ### <a name="queues-and-topics"></a>队列和主题
-对于队列和主题，超时在 [MessagingFactorySettings.OperationTimeout](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout) 属性中作为连接字符串的一部分指定，或通过 [ServiceBusConnectionStringBuilder](https://doc.microsoft.com/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder) 指定。 错误消息本身可能会有所不同，但它始终包含当前操作的指定超时值。 
+对于队列和主题，超时在 [MessagingFactorySettings.OperationTimeout](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout) 属性中作为连接字符串的一部分指定，或通过 [ServiceBusConnectionStringBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder) 指定。 错误消息本身可能会有所不同，但它始终包含当前操作的指定超时值。 
 
 
 

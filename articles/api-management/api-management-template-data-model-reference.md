@@ -1,9 +1,9 @@
 ---
-title: "Azure API 管理模板数据模型参考 | Azure"
+title: "Azure API 管理模板数据模型参考"
 description: "了解数据模型中常用项目的实体和类型表示形式，这些数据模型适用于 Azure API 管理中的开发人员门户模板。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: b0ad7e15-9519-4517-bb73-32e593ed6380
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 12/05/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 5bdad7b339434ad1eed24ad83233cd1d60069646
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 8f5a38751144bc1b97b91cb2d14fa119ec566c57
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API 管理模板数据模型参考
 本主题介绍数据模型中常用项目的实体和类型表示形式，这些数据模型适用于 Azure API 管理中的开发人员门户模板。  
@@ -31,7 +31,7 @@ ms.lasthandoff: 09/08/2017
 -   [应用程序](#Application)  
 -   [附件](#Attachment)  
 -   [代码示例](#Sample)  
--   Comment[](#Comment)  
+-   [评论](#Comment)  
 -   [筛选](#Filtering)  
 -   [标头](#Header)  
 -   [HTTP 请求](#HTTPRequest)  
@@ -58,7 +58,7 @@ ms.lasthandoff: 09/08/2017
 |--------------|----------|-----------------|  
 |id|字符串|资源标识符。 唯一标识当前 API 管理服务实例中的 API。 值是有效的相对 URL，采用 `apis/{id}` 格式，其中 `{id}` 是 API 标识符。 此属性为只读。|  
 |name|字符串|API 的名称。 不得为空。 最大长度为 100 个字符。|  
-|description|字符串|API 的说明。 不得为空。 可以包含 HTML 格式标记。 最大长度为 1000 个字符。|  
+|说明|字符串|API 的说明。 不得为空。 可以包含 HTML 格式标记。 最大长度为 1000 个字符。|  
 |serviceUrl|字符串|实现此 API 的后端服务的绝对 URL。|  
 |path|字符串|相对 URL，用于唯一标识此 API 及其在 API 管理服务实例中的所有资源路径。 可将其追加到在服务实例创建过程中指定的 API 终结点基 URL，构成此 API 的公共 URL。|  
 |protocols|数字数组|说明可在哪些协议上调用此 API 中的操作。 允许的值为 `1 - http` 和/或 `2 - https`。|  
@@ -72,7 +72,7 @@ ms.lasthandoff: 09/08/2017
 |--------------|----------|-----------------|  
 |id|字符串|资源标识符。 唯一标识当前 API 管理服务实例中的 API。 值是有效的相对 URL，采用 `apis/{id}` 格式，其中 `{id}` 是 API 标识符。 此属性为只读。|  
 |name|字符串|API 的名称。 不得为空。 最大长度为 100 个字符。|  
-|description|字符串|API 的说明。 不得为空。 可以包含 HTML 格式标记。 最大长度为 1000 个字符。|  
+|说明|字符串|API 的说明。 不得为空。 可以包含 HTML 格式标记。 最大长度为 1000 个字符。|  
   
 ##  <a name="Application"></a> 应用程序  
  `application` 实体具有以下属性。  
@@ -113,7 +113,7 @@ ms.lasthandoff: 09/08/2017
 |body|字符串|占位符，代表代码片段的代码示例部分。|  
 |method|字符串|此操作的 HTTP 方法。|  
 |scheme|字符串|用于操作请求的协议。|  
-|path|字符串|操作的路径。|  
+|路径|字符串|操作的路径。|  
 |查询|字符串|包含已定义参数的查询字符串示例。|  
 |host|字符串|API 管理服务网关（针对包含此操作的 API）的 URL。|  
 |headers|[标头](#Header)实体的集合。|此操作的标头。|  
@@ -159,7 +159,7 @@ ms.lasthandoff: 09/08/2017
 |属性|说明|类型|  
 |--------------|-----------------|----------|  
 |name|字符串|参数名称。|  
-|description|字符串|参数说明。|  
+|说明|字符串|参数说明。|  
 |value|字符串|标头值。|  
 |typeName|字符串|标头值的数据类型。|  
 |options|字符串|选项。|  
@@ -171,7 +171,7 @@ ms.lasthandoff: 09/08/2017
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
-|description|字符串|操作请求说明。|  
+|说明|字符串|操作请求说明。|  
 |headers|[标头](#Header)实体数组。|请求标头。|  
 |参数|[参数](#Parameter)数组|操作请求参数的集合。|  
 |representations|[表示形式](#Representation)数组|操作请求表示形式的集合。|  
@@ -182,7 +182,7 @@ ms.lasthandoff: 09/08/2017
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
 |statusCode|正整数|操作响应状态代码。|  
-|description|字符串|操作响应说明。|  
+|说明|字符串|操作响应说明。|  
 |representations|[表示形式](#Representation)数组|操作响应表示形式的集合。|  
   
 ##  <a name="Operation"></a> 操作  
@@ -192,7 +192,7 @@ ms.lasthandoff: 09/08/2017
 |--------------|----------|-----------------|  
 |id|字符串|资源标识符。 唯一标识当前 API 管理服务实例中的操作。 值是有效的相对 URL，采用 `apis/{aid}/operations/{id}` 格式，其中 `{aid}` 是 API 标识符，`{id}` 是操作标识符。 此属性为只读。|  
 |name|字符串|操作的名称。 不得为空。 最大长度为 100 个字符。|  
-|description|字符串|操作说明。 不得为空。 可以包含 HTML 格式标记。 最大长度为 1000 个字符。|  
+|说明|字符串|操作说明。 不得为空。 可以包含 HTML 格式标记。 最大长度为 1000 个字符。|  
 |scheme|字符串|说明可在哪些协议上调用此 API 中的操作。 允许的值为 `http`、`https` 或者 `http` 和 `https`。|  
 |uriTemplate|字符串|相对 URL 模板，标识此操作的目标资源。 可以包括参数。 示例： `customers/{cid}/orders/{oid}/?date={date}`|  
 |host|字符串|托管 API 的 API 管理网关 URL。|  
@@ -236,11 +236,11 @@ ms.lasthandoff: 09/08/2017
 |属性|说明|类型|  
 |--------------|-----------------|----------|  
 |name|字符串|参数名称。|  
-|description|字符串|参数说明。|  
+|说明|字符串|参数说明。|  
 |value|字符串|参数值。|  
 |options|字符串数组|为查询参数值定义的值。|  
 |必填|布尔值|指定参数是否为必需。|  
-|kind|number|此参数是路径参数 (1)，还是查询字符串参数 (2)。|  
+|kind|数字|此参数是路径参数 (1)，还是查询字符串参数 (2)。|  
 |typeName|字符串|参数类型。|  
   
 ##  <a name="Product"></a> 产品  
@@ -271,7 +271,7 @@ ms.lasthandoff: 09/08/2017
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
 |contentType|字符串|指定此表示形式的已注册内容类型或自定义内容类型，例如 `application/xml`。|  
-|sample|字符串|表示形式的示例。|  
+|示例|字符串|表示形式的示例。|  
   
 ##  <a name="Subscription"></a> 订阅  
  `subscription` 实体具有以下属性。  
@@ -333,7 +333,7 @@ ms.lasthandoff: 09/08/2017
 |DelegationEnabled|布尔值|是否已启用委派登录。|  
 |DelegationUrl|字符串|委派登录 URL（如果已启用）。|  
 |SsoSignUpUrl|字符串|用户的单一登录 URL（如果存在）。|  
-|AuxServiceUrl|字符串|如果当前用户为管理员，则此项为指向 Azure 经典门户中服务实例的链接。|  
+|AuxServiceUrl|字符串|如果当前用户为管理员，则此项为指向 Azure 门户中服务实例的链接。|  
 |提供程序|[提供程序](#Provider)实体的集合|此用户的身份验证提供程序。|  
 |UserRegistrationTerms|字符串|用户必须在登录之前同意的条款。|  
 |UserRegistrationTermsEnabled|布尔值|是否启用条款。|  

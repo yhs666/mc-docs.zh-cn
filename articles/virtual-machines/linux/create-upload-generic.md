@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 02/02/2017
 ms.date: 08/21/2017
 ms.author: v-dazen
-ms.openlocfilehash: fc829b774ccdd2327a0af51e20bff953c291d0ef
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: dd109e87a93509d44e50d6a480575a12778b2dfd
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>有关未认可发行版的信息
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,7 +37,7 @@ ms.lasthandoff: 08/18/2017
 * **[基于 CentOS 的发行版](create-upload-centos.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
+<!-- Not Avaialble on * **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**-->
 * **[SLES 和 openSUSE](suse-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
 
@@ -49,12 +49,14 @@ ms.lasthandoff: 08/18/2017
 * VHD 允许的最大大小为 1,023 GB。
 * 在安装 Linux 系统时，*建议*使用标准分区而不是 LVM（通常是许多安装的默认值）。 这可以避免与克隆 VM 发生 LVM 名称冲突，尤其是在需要将 OS 磁盘连接到另一个同类 VM 进行故障排除时。 [LVM](configure-lvm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 可以在数据磁盘上使用。
 * 需要装载 UDF 文件系统的内核支持。 在 Azure 上首次启动时，预配配置会通过附加到来宾的 UDF 格式媒体传递到 Linux VM。 Azure Linux 代理必须能够装载 UDF 文件系统才能读取其配置和预配 VM。
-* 低于 2.6.37 的 Linux 内核版本不支持具有更大 VM 大小的 Hyper-V 上的 NUMA。 此问题主要影响使用上游 Red Hat 2.6.32 内核的旧分发版，在 RHEL 6.6 (kernel-2.6.32-504) 中已解决。 运行版本低于 2.6.37 的自定义内核的系统，或者版本低于 2.6.32-504 的基于 RHEL 的内核必须在 grub.conf 中的内核命令行上设置启动参数 `numa=off`。 有关详细信息，请参阅 Red Hat [KB 436883](https://access.redhat.com/solutions/436883)。
+* 低于 2.6.37 的 Linux 内核版本不支持具有更大 VM 大小的 Hyper-V 上的 NUMA。 
+<!-- Not Available on This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in RHEL 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command-line in grub.conf. For more information see Red Hat [KB 436883](https://access.redhat.com/solutions/436883) -->
 * 不要在操作系统磁盘上配置交换分区。 可以配置 Linux 代理，以在临时资源磁盘上创建交换文件。  可以在下面的步骤中找到有关此内容的详细信息。
 * 所有 VHD 的大小必须是 1 MB 的倍数。
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>安装无 Hyper-V 的内核模块
-Azure 在 Hyper-V 虚拟机监控程序上运行，因此 Linux 需要安装某些内核模块才能在 Azure 中运行。 如果具有在 Hyper-V 外部创建的 VM，Linux 安装程序可能无法在初始 ramdisk（initrd 或 initramfs）中包含 Hyper-V 驱动程序，除非它检测到它正在运行 Hyper-V 环境。 使用不同虚拟化系统（即 Virtualbox、KVM 等）来准备 Linux 映像时，可能需要重新生成 initrd 以确保至少 `hv_vmbus` 和 `hv_storvsc` 内核模块可在初始 ramdisk 上使用。  至少在基于上游 Red Hat 发行版的系统上这是一个已知问题。
+Azure 在 Hyper-V 虚拟机监控程序上运行，因此 Linux 需要安装某些内核模块才能在 Azure 中运行。 如果具有在 Hyper-V 外部创建的虚拟机，Linux 安装程序可能无法在初始 ramdisk（initrd 或 initramfs）中包含 Hyper-V 驱动程序，除非它检测到它正在运行 Hyper-V 环境。 使用不同虚拟化系统（即 Virtualbox、KVM 等）来准备 Linux 映像时，可能需要重新生成 initrd 以确保至少 `hv_vmbus` 和 `hv_storvsc` 内核模块可在初始 ramdisk 上使用。
+<!-- Not Avaiable on This is a known issue at least on systems based on the upstream Red Hat distribution. -->
 
 重新生成 initrd 或 initramfs 映像的机制可能会因发行版而有所不同。 请查阅发行版文档或相应过程支持。  以下是使用 `mkinitrd` 实用程序如何重新生成 initrd 的示例：
 
@@ -83,7 +85,7 @@ Azure 上的 VHD 映像必须将虚拟大小调整为 1MB。  通常，应正确
 
        # qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
 
-2. 计算磁盘映像所需的大小，以确保将虚拟大小调整为 1MB。  可以使用以下 bash shell 脚本帮助解决此问题。  此脚本使用“`qemu-img info`”确定磁盘映像的虚拟大小，并将大小计算为下一个 1MB：
+2. 计算磁盘映像所需的大小，以确保虚拟大小已调整为 1MB。  可以使用以下 bash shell 脚本帮助解决此问题。  此脚本使用“`qemu-img info`”确定磁盘映像的虚拟大小，并将大小计算为下一个 1MB：
 
        rawdisk="MyLinuxVM.raw"
        vhddisk="MyLinuxVM.vhd"
@@ -110,9 +112,9 @@ Azure 上的 VHD 映像必须将虚拟大小调整为 1MB。  通常，应正确
 ## <a name="linux-kernel-requirements"></a>Linux 内核要求
 Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序会直接影响上游 Linux 内核。 包括最新 Linux 内核版本（即 3.x）在内的许多发行版已提供这些驱动程序，或以其他方式为其内核提供了这些驱动程序的向后移植版本。  这些驱动程序会不断地在上游内核中使用新的修补程序和功能进行更新，因此，如果可能，请运行[认可的发行版](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)以包含这些修补程序和更新。
 
-如果运行 Red Hat Enterprise Linux 版本 **6.0-6.3**的一种产品，则需要为 Hyper-V 安装最新的 LIS 驱动程序。 可 [在此处](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)找到这些驱动程序。 从 RHEL **6.4+**（和派生产品）开始，LIS 驱动程序已包含在内核中，因此，无需其他安装包即在 Azure 上运行这些系统。
+<!-- Not Avaiable on If you are running a variant of Red Hat Enterprise Linux versions **6.0-6.3**, then you will need to install the latest LIS drivers for Hyper-V. The drivers can be found [at this location](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). As of RHEL **6.4+** (and derivatives) the LIS drivers are already included with the kernel and so no additional installation packages are needed to run those systems on Azure. -->
 
-如果需要自定义内核，建议使用较新的内核版本（即 **3.8+**）。 对于这些发行版或维护自己内核的供应商，需要尽力定期将 LIS 驱动程序从上游内核向后移植到自定义内核。  即使已经运行相对较新的内核版本，也强烈建议跟踪 LIS 驱动程序中的任何上游修复，并根据需要向后移植这些修复。 LIS 驱动程序源文件的位置可在 Linux 内核源树的 [MAINTAINER](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) 文件中找到：
+如果需要自定义内核，建议使用较新的内核版本（即 **3.8+**）。 对于这些分发或维护自己的内核的供应商，将需要执行一些操作，以便定期将 LIS 驱动程序从上游内核向后移植到自定义内核。  即使已经运行相对较新的内核版本，也强烈建议跟踪 LIS 驱动程序中的任何上游修复，并根据需要向后移植这些修复。 LIS 驱动程序源文件的位置可在 Linux 内核源树的 [MAINTAINER](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) 文件中找到：
 
     F:    arch/x86/include/asm/mshyperv.h
     F:    arch/x86/include/uapi/asm/hyperv.h
@@ -126,7 +128,7 @@ Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序会直接影响上游
     F:    include/linux/hyperv.h
     F:    tools/hv/
 
-至少，已经知道缺少以下修补程序会在 Azure 上导致出现问题，因此必须在内核中包含这些修补程序。 对于所有发行版，此列表并不详尽或完整：
+至少，已经知道缺少以下修补程序会在 Azure 上导致出现问题，因此必须在内核中包含这些修补程序。 对于所有分发而言，此列表绝并非详尽或完整：
 
 * [ata_piix：默认情况下，将磁盘交由 Hyper-V 驱动程序处理](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
 * [storvsc：解释 RESET 路径中传输中数据包的帐户](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
@@ -141,7 +143,7 @@ Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序会直接影响上游
 
 * Linux 代理根据 Apache 2.0 许可证发布。 许多发行版已经为该代理提供 RPM 或 deb 包，因此在某些情况下可轻松安装和更新。
 * Azure Linux 代理需要 Python v2.6 以上版本。
-* 此外，该代理还需要 python-pyasn1 模块。 大多数发行版将此模块作为可安装的单独软件包提供。
+* 此外，该代理还需要 python-pyasn1 模块。 大多数分发提供此模块作为可以安装的单独包。
 * 在某些情况下，Azure Linux 代理可能与 NetworkManager 不兼容。 发行版提供的许多 RPM/Deb 包会将 NetworkManager 配置为与 waagent 包冲突，因此安装 Linux 代理包时会卸载 NetworkManager。
 
 ## <a name="general-linux-system-requirements"></a>一般 Linux 系统要求
@@ -156,7 +158,7 @@ Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序会直接影响上游
 
         rhgb quiet crashkernel=auto
 
-    图形引导和无人参与引导不适用于云环境，在该环境中我们想要将所有日志都发送到串行端口。 根据需要可以配置 `crashkernel` 选项，但请注意此参数会使虚拟机中的可用内存量减少 128MB 或更多，这在小型虚拟机上可能会出现问题。
+    图形引导和无人参与引导不适用于云环境，在该环境中我们想要将所有日志都发送到串行端口。 根据需要可以配置 `crashkernel` 选项，但请注意此参数会使 VM 中的可用内存量减少 128 MB 或更多，这在较小的 VM 上可能会出现问题。
 
 * 安装 Azure Linux 代理
 
@@ -166,7 +168,7 @@ Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序会直接影响上游
 
 * 不要在操作系统磁盘上创建交换空间
 
-    Azure Linux 代理可使用在 Azure 上预配后附加到虚拟机的本地资源磁盘自动配置交换空间。 请注意，本地资源磁盘是 *临时* 磁盘，并可能在取消设置虚拟机时被清空。 在安装 Azure Linux 代理（请参见前一步骤）后，相应地在 /etc/waagent.conf 中修改以下参数：
+    Azure Linux 代理可使用在 Azure 上预配后附加到虚拟机的本地资源磁盘自动配置交换空间。 请注意，本地资源磁盘是*临时*磁盘，并可能在取消预配 VM 时被清空。 在安装 Azure Linux 代理（请参见前一步骤）后，相应地在 /etc/waagent.conf 中修改以下参数：
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -174,7 +176,7 @@ Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序会直接影响上游
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-* 最后一步，运行以下命令取消设置虚拟机：
+* 最后一步，请运行以下命令以取消设置虚拟机：
 
         # sudo waagent -force -deprovision
         # export HISTSIZE=0

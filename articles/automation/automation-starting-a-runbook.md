@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 08/07/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 5d022bb775153a513133544e8f6adb7a16b78c3c
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 06de5f75c6da01f38148200a5cc55a7bc5391afc
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>在 Azure 自动化中启动 Runbook
 下表帮助你确定如何在 Azure 自动化中以最适合你方案的方法启动 Runbook。 本文包含有关使用 Azure 门户和 Windows PowerShell 启动 Runbook 的详细信息。 有关其他方法的详细信息会在其他文档中提供，可以通过以下链接来访问。
@@ -30,11 +30,10 @@ ms.lasthandoff: 01/12/2018
 | [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) |<li>使用 Windows PowerShell cmdlet 从命令行调用。<br> <li>可以使用多个步骤包含在自动化解决方案中。<br> <li>使用证书或 OAuth 用户主体/服务主体对请求进行身份验证。<br> <li>提供简单和复杂的参数值。<br> <li>跟踪作业状态。<br> <li>支持 PowerShell cmdlet 所需的客户端。 |
 | [Azure 自动化 API](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>最有弹性的方法，但也最复杂。<br> <li>从任何可发出 HTTP 请求的自定义代码调用。<br> <li>使用证书或 OAuth 用户主体/服务主体对请求进行身份验证。<br> <li>提供简单和复杂的参数值。<br> <li>跟踪作业状态。 |
 | [Webhook](automation-webhooks.md) |<li>从单个 HTTP 请求启动 Runbook。<br> <li>使用 URL 中的安全令牌进行身份验证。<br> <li>客户端无法覆盖创建 Webhook 时指定的参数值。 Runbook 可以定义填入了 HTTP 请求详细信息的单个参数。<br> <li>无法通过 Webhook URL 跟踪作业状态。 |
-| [响应 Azure 警报](../log-analytics/log-analytics-alerts.md) |<li>启动 Runbook 以响应 Azure 警报。<br> <li>为 Runbook 配置 webhook 并链接到警报。<br> <li>使用 URL 中的安全令牌进行身份验证。 |
 | [计划](automation-schedules.md) |<li>按每小时、每天、每周或每月计划自动启动 Runbook。<br> <li>通过 Azure 门户、PowerShell cmdlet 或 Azure API 来操作计划。<br> <li>提供与计划配置使用的参数值。 |
 | [从另一个 Runbook](automation-child-runbooks.md) |<li>将一个 Runbook 作为另一个 Runbook 中的活动使用。<br> <li>对多个 Runbook 使用的功能很有用。<br> <li>为子 Runbook 提供参数值，并使用父 Runbook 中的输出。 |
 
-下图演示了 Runbook 生命周期的详细分步过程。 它包括在 Azure 自动化中启动 Runbook 的不同方式、混合 Runbook 辅助角色执行 Azure 自动化 Runbook 所需的组件以及不同组件之间的交互方式。 若要了解如何在数据中心执行自动化 Runbook，请参阅[混合 Runbook 辅助角色](automation-hybrid-runbook-worker.md)
+下图演示了 Runbook 生命周期的详细分步过程。 它包括在 Azure 自动化中启动 Runbook 的不同方式、混合 Runbook 辅助角色执行 Azure 自动化 Runbook 所需的组件以及不同组件之间的交互方式。 
 
 ![Runbook 体系结构](media/automation-starting-runbook/runbooks-architecture.png)
 
@@ -182,7 +181,7 @@ jsmith
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* 本文中的 Runbook 体系结构提供了在本地和 Azure 中使用混合 Runbook 辅助角色管理资源的 Runbook 的高级概述。  若要了解如何在数据中心执行自动化 Runbook，请参阅[混合 Runbook 辅助角色](automation-hybrid-runbook-worker.md)。
-* 若要详细了解如何创建模块化 Runbook，以供其他 Runbook 用于特定或常用函数，请参阅[子 Runbook](automation-child-runbooks.md)。
+* 本文中的 Runbook 体系结构提供了在本地和 Azure 中使用混合 Runbook 辅助角色管理资源的 Runbook 的高级概述。  
+* 若要详细了解如何创建模块化 Runbook，供其他 Runbook 用于特定或常用函数，请参阅[子 Runbook](automation-child-runbooks.md)。
 
 <!--Update_Description: wording update-->

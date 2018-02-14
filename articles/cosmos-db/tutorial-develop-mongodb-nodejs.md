@@ -16,11 +16,11 @@ origin.date: 09/05/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7996e91b668e21bcca865bc21f42ef5e325e22f7
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 12a76e6f6dd31d07ba6988f1b316496040984a82
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db"></a>通过 Angular 和 Azure Cosmos DB 创建 MongoDB 应用 
 
@@ -39,7 +39,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 > * [使用 Mongoose 连接到 Azure Cosmos DB](tutorial-develop-mongodb-nodejs-part5.md)
 > * [向应用添加 Post、Put 和 Delete 函数](tutorial-develop-mongodb-nodejs-part6.md)
 
-<!-- Not Available on [React tutorial video series](tutorial-develop-mongodb-react.md). -->
+<!-- Not Available on [React tutorial video series](tutorial-develop-mongodb-react.md)  -->
 <!-- Not Avaialble on ## Video walkthrough -->
 
 ## <a name="finished-project"></a>完成的项目 

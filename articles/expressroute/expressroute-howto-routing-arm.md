@@ -1,6 +1,6 @@
 ---
 title: "如何为 ExpressRoute 线路配置路由（对等互连）：Resource Manager：PowerShell：Azure "
-description: "本文介绍创建和预配 ExpressRoute 线路的专用、公共对等互连的步骤。 本文还介绍了如何检查状态，以及如何更新或删除线路的对等互连。"
+description: "本文介绍创建和预配 ExpressRoute 线路的专用、公共对等互连的步骤。 本文还介绍如何检查状态，以及如何更新或删除线路的对等互连。"
 documentationcenter: na
 services: expressroute
 author: osamazia
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/11/2017
+origin.date: 01/03/2018
 ms.author: v-yiso
-ms.date: 11/13/2017
-ms.openlocfilehash: 156526dd2bda11fab0e206a63a4343339e809dab
-ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+ms.date: 02/05/2018
+ms.openlocfilehash: 7267f1502ffe0e728086245cf91c1b7c8cecee69
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>使用 PowerShell 创建和修改 ExpressRoute 线路的对等互连
 
@@ -88,16 +88,15 @@ ms.lasthandoff: 11/03/2017
   ```
 2. 创建 ExpressRoute 线路。
 
-  请按说明创建 [ExpressRoute 线路](expressroute-howto-circuit-arm.md) ，并由连接服务提供商进行预配。
+  请按说明创建 [ExpressRoute 线路](expressroute-howto-circuit-arm.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 专用对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不为你管理路由，请在创建线路后按照后续步骤继续配置。
 
-  如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 专用对等互连。 在此情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不为你管理路由，请在创建线路后按照后续步骤继续配置。
 3. 检查 ExpressRoute 线路以确保它已预配并已启用。 使用以下示例：
 
   ```powershell
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
-  响应类似于以下示例：
+  其响应类似于如下示例：
 
   ```
   Name                             : ExpressRouteARMCircuit
@@ -226,16 +225,15 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 2. 创建 ExpressRoute 线路。
 
-  请按说明创建 [ExpressRoute 线路](expressroute-howto-circuit-arm.md) ，并由连接服务提供商进行预配。
+  请按说明创建 [ExpressRoute 线路](expressroute-howto-circuit-arm.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 公共对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不为你管理路由，请在创建线路后按照后续步骤继续配置。
 
-  如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 专用对等互连。 在此情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不为你管理路由，请在创建线路后按照后续步骤继续配置。
 3. 检查 ExpressRoute 线路以确保它已预配并已启用。 使用以下示例：
 
   ```powershell
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
-  响应类似于以下示例：
+  其响应类似于如下示例：
 
     ```
     Name                             : ExpressRouteARMCircuit

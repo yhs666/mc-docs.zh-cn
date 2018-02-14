@@ -6,7 +6,6 @@
 
 # 入门
 ## [创建命名空间](service-bus-create-namespace-portal.md)
-### [队列、主题和订阅](service-bus-queues-topics-subscriptions.md)
 ## 使用队列
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -34,6 +33,7 @@
 
 ## 开发
 ### 消息处理
+#### [队列、主题和订阅](service-bus-queues-topics-subscriptions.md)
 #### [消息、有效负载和序列化](service-bus-messages-payloads.md)
 #### [消息传输、锁定和处置](message-transfers-locks-settlement.md)
 #### [消息序列化和时间戳](message-sequencing.md)
@@ -72,7 +72,7 @@
 #### [创建包含主题、订阅和规则的命名空间](service-bus-resource-manager-namespace-topic-with-rule.md)
 ### [使用 Azure PowerShell 预配实体](service-bus-manage-with-ps.md)
 
-# 引用
+# 参考
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus（.NET 标准）](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus)
@@ -87,8 +87,10 @@
 # 资源
 ## [博客](https://blogs.msdn.microsoft.com/servicebus/)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [价格](https://www.azure.cn/pricing/details/messaging/)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [定价详细信息](service-bus-pricing-billing.md)
-## [定价](https://www.azure.cn/pricing/details/messaging/)
+
 ## [示例](service-bus-samples.md)
 ## [服务总线资源管理器](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [服务更新](https://azure.microsoft.com/updates/?product=service-bus)

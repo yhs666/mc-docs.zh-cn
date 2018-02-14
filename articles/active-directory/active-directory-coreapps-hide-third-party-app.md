@@ -12,22 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/11/2017
-ms.date: 12/25/2017
+ms.date: 1/29/2018
 ms.author: v-nany
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 92894eb9d579124b480a68182e540a38f7967656
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: eda5bfb419c52c8144520ed62c1ac39ad39dfe7d
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>使应用程序不出现在用户在 Azure Active Directory 中的体验中
 
-如果有不希望显示在用户的访问面板或 Office 365 启动器上的应用程序，可使用一个选项隐藏此应用磁贴。 此选项仅适用于第三方应用程序（不是由 Microsoft 发布的应用）。 隐藏该应用后，用户仍对该应用具有权限，但不会看到该应用显示在其应用启动器上。 必须具有适当的权限才能管理企业应用，并且必须是目录的全局管理员。 
+如果有不希望显示在用户的访问面板或 Office 365 启动器上的应用程序，可使用隐藏此应用磁贴的选项。  以下两个选项可用于从用户的应用启动器中隐藏应用程序。
 
-## <a name="hiding-an-application-from-users-end-user-experiences"></a>使应用程序不出现在用户的最终用户体验中
-使用以下步骤在用户的访问面板和 Office 365 应用启动器中隐藏应用程序
+
 
 ### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>如何使第三方应用不显示在用户的访问面板和 O365 应用启动器上？
 

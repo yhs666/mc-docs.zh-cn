@@ -15,11 +15,11 @@ ms.custom: tables
 origin.date: 10/23/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4b7923244bc42a41936e9d6778bd16bc425b82cd
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 68f915c2706351511cbf7e4f5be067791dcb266b
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>有关在 Azure SQL 数据仓库中使用复制的表的设计指南
 本文提供了有关在 SQL 数据仓库架构中设计复制的表的建议。 可以使用这些建议通过减少数据移动和降低查询复杂性来提高查询性能。
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/11/2018
 
 下图显示了可在每个计算节点上访问的复制表。 在 SQL 数据仓库中，复制的表将完整复制到每个计算节点上的分发数据库。 
 
-![Replicated table](media/guidance-for-using-replicated-tables/replicated-table.png "Replicated table")  
+![复制表](media/guidance-for-using-replicated-tables/replicated-table.png)  
 
 复制的表比较适合星型架构中的小型维度表。 通常情况下，维度表的大小让存储并维护多个副本变得可行。 维度存储着不常更改的描述性数据，例如，客户名称和地址以及产品详细信息。 该数据的缓变本性使复制的表不会经历太多的重新生成。 
 

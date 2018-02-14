@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 05/10/2017
 ms.date: 09/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: d84dff9f59e52f393493db111c380d903a2effaa
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: b20da06d32686ac7824de37fa816dff012f9127c
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>创建、更改或删除虚拟网络
 
@@ -52,7 +52,8 @@ ms.lasthandoff: 11/28/2017
 2. 单击“新建” > “网络” > “虚拟网络”。
 3. 在“虚拟网络”边栏选项卡的“选择部署模型”框中，让“Resource Manager”处于选中状态，然后单击“创建”。
 4. 在“创建虚拟网络”边栏选项卡中，为以下设置输入或选择值，然后单击“创建”：
-    - 名称：该名称在选择用来在其中创建虚拟网络的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)中必须是唯一的。 虚拟网络创建后，无法更改名称。 可随着时间推移创建多个虚拟网络。 有关命名建议，请参阅 [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions)（命名约定）。 遵循命名约定可以更轻松地管理多个虚拟网络。
+    - 名称：该名称在选择用来在其中创建虚拟网络的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)中必须是唯一的。 虚拟网络创建后，无法更改名称。 可随着时间推移创建多个虚拟网络。 遵循命名约定可以更轻松地管理多个虚拟网络。
+    <!-- Not Available on [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions) -->
     - 地址空间：以 CIDR 表示法指定地址空间。 定义的地址空间可以是公共或专用 (RFC 1918) 地址。 无论是将地址空间定义为公用还是专用，地址空间都只能从虚拟网络内、从互联的虚拟网络以及从任何已连接到虚拟网络的本地网络进行访问。 无法添加以下的地址空间：
         - 224.0.0.0/4（多播）
         - 255.255.255.255/32（广播）
@@ -144,7 +145,7 @@ ms.lasthandoff: 11/28/2017
 
 |工具|命令|
 |---|---|
-|Azure CLI|仅限 Resource Manager|[az network vnet update](https://docs.azure.cn/zh-cn/cli/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#update)|
+|Azure CLI|仅限资源管理器|[az network vnet update](https://docs.azure.cn/zh-cn/cli/network/vnet?toc=%2fazure%2fvirtual-network%2ftoc.json?view=azure-cli-latest#update)|
 |PowerShell|[Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetwork?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="dns-servers"></a>添加、更改或删除 DNS 服务器
@@ -165,7 +166,7 @@ ms.lasthandoff: 11/28/2017
 6. 单击“保存” 。
 7. 重启已连接到虚拟网络的 VM，以便为其分配新的 DNS 服务器设置。 VM 在重启之前，将继续使用其当前 DNS 设置。
 
-**命令**
+命令
 
 |工具|命令|
 |---|---|

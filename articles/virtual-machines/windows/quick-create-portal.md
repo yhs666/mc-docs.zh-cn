@@ -14,20 +14,20 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 07/15/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 45fb6b98349136daf77c8941d3466c56bba09cda
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: f364ac063d5c36d7922e566ce5e9aa3a717dd085
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>使用 Azure 门户创建 Windows 虚拟机
 
 可以通过 Azure 门户创建 Azure 虚拟机。 此方法提供一个基于浏览器的用户界面，用于创建和配置虚拟机和所有相关的资源。 本快速入门介绍了如何创建虚拟机并在 VM 上安装 Webserver。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -37,9 +37,9 @@ ms.lasthandoff: 12/15/2017
 
 1. 单击 Azure 门户左上角的“新建”按钮。
 
-2. 选择“计算”，然后选择“Windows Server 2016 Datacenter”。 
+2. 选择“计算”，并选择“Windows Server 2016 Datacenter”。 
 
-3. 输入虚拟机信息。 在此处输入的用户名和密码用于登录到虚拟机。 完成后，单击“确定”。
+3. 输入虚拟机信息。 在此处输入的用户名和密码用于登录到虚拟机。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。 完成后，单击“确定”。
 
     ![在门户边栏选项卡中输入 VM 的基本信息](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
 
@@ -105,4 +105,4 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 > [!div class="nextstepaction"]
 > [Azure Windows 虚拟机教程](./tutorial-manage-vm.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

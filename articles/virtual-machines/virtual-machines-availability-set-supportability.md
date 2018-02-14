@@ -12,14 +12,14 @@ ms.workload: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 11/03/2017
-ms.date: 12/18/2017
+origin.date: 02/05/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: cc285e313c18ad1e27dd8fcd1441d46d0533d656
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 3c5fc478735ea696b79371f8f1d1cca5933ca87d
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>将 Azure VM 添加到现有可用性集的可支持性
 
@@ -27,6 +27,7 @@ ms.lasthandoff: 12/15/2017
 
 以下是混合不同类型的 VM 的可支持性矩阵：
 
+<!--PENDING FOR Dv3 GA ANOUNCEMENT -->
 系列和可用性集|第二个 VM|A|Av2|D|Dv2|Dv3|
 |---|---|---|---|---|---|---|
 |第一个 VM|||||||
@@ -35,6 +36,7 @@ ms.lasthandoff: 12/15/2017
 |D||OK|OK|OK|OK|OK|
 |Dv2||OK|OK|OK|OK|OK|
 |Dv3||OK|OK|OK|OK|OK|
+<!--PENDING FOR Dv3 GA ANOUNCEMENT -->
 
 所有其他系列都不能在同一可用性集中，因为它们需要特定的硬件。
 

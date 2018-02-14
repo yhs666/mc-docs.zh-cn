@@ -16,11 +16,11 @@ origin.date: 11/02/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 37829d13a0c04620ac49ef86bbebe7e2a11a3d67
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 791df60cb8c86ac24cdf853c09c9d1d87afa7a1b
+ms.sourcegitcommit: 1fb5f5438975a4901c35b6b95cbb190a08570a9b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>将 Service Fabric Windows 群集部署到 Azure 虚拟网络
 本教程是一个系列中的第一部分。 你将学习如何使用 PowerShell 将运行 Windows 的 Service Fabric 群集部署到现有 Azure 虚拟网络 (VNET) 及子网。 完成本教程后，云中会运行一个可在其中部署应用程序的群集。  若要使用 Azure CLI 创建 Linux 群集，请参阅[在 Azure 上创建安全的 Linux 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
@@ -101,7 +101,8 @@ New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile C:\winclustertutorial\network.json -TemplateParameterFile C:\winclustertutorial\network.parameters.json -Verbose
 ```
 
-<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
+<a name="createvaultandcert"></a>
+<a name="createvaultandcert_anchor"></a>
 ## <a name="deploy-the-service-fabric-cluster"></a>部署 Service Fabric 群集
 网络资源部署完成后，下一步是将 Service Fabric 群集部署到子网中的 VNET 以及为 Service Fabric 群集指定的 NSG。 将群集部署到现有 VNET 和子网（在本文前面已部署）需要资源管理器模板。  在本教程系列中，模板预配置为使用上一步中设置的 VNET、子网和 NSG 的名称。  
 

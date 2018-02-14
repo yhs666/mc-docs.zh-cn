@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 12/07/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: e91e22902e3ae04a7d8bcded24e5c3b76dd68ca6
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 386ff21af7d9fd73131a1d00446f1384bab42962
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 创建 Service Fabric 群集 
 > [!div class="op_single_selector"]
@@ -685,7 +685,8 @@ FabricClient 和 FabricGateway 执行相互身份验证。 使用 Azure AD 身�
 [active-directory-howto-tenant]: ../active-directory/develop/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
 [service-fabric-manage-application-in-visual-studio]: service-fabric-manage-application-in-visual-studio.md
-[sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.chinacloudapi.cn/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
+[sf-aad-ps-script-download]:https://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
+<!-- The URL is correct https://servicefabricsdkstorage.blob.core.windows.net -->
 [azure-quickstart-templates]: https://github.com/Azure/azure-quickstart-templates
 [service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure
 [resource-group-template-deploy]: ../azure-resource-manager/resource-group-template-deploy.md

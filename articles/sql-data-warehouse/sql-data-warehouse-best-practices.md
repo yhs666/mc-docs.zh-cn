@@ -16,11 +16,11 @@ ms.custom: performance
 origin.date: 12/06/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8a090ba3bc120a84cdbe847e095d25b102dca7f3
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 6093ca8c7a2c94531fa2dce09891d75de9ac1560
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库最佳实践
 本文包含一系列最佳实践，可确保用户从 Azure SQL 数据仓库获得最佳性能。  本文的有些概念很基本且很容易解释，而有些概念则相对高级，本文只对其进行大致介绍。  本文的目的是提供一些基本指导，让用户在生成数据仓库时更加关注那些重要的方面。  每部分都介绍一个概念，并提供哪里可以阅读深度介绍的详细文章。
@@ -137,8 +137,8 @@ SQL 数据仓库有多个 DMV 可用于监视查询执行。  以下监视相关
 [Temporary tables]: ./sql-data-warehouse-tables-temporary.md
 [Guide for using PolyBase]: ./guidance-for-loading-data.md
 [Load data]: ./design-elt-data-loading.md
-[Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
-[Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
+<!-- Not Available on [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md -->
+<!-- Not Available on [Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md -->
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
 [Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md

@@ -3,8 +3,8 @@
 
 | 属性 | 说明 | 示例值 |
 | --- | --- | --- |
-| subnets |应用 NSG 的子网 ID 的列表。 |/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd |
-| securityRules |构成 NSG 的安全规则的列表 |请参阅下面的[安全规则](#Security-rule) |
+| **subnets** |应用 NSG 的子网 ID 的列表。 |/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd |
+| securityRules |构成 NSG 的安全规则的列表 |请参阅下面的[安全规则](#security-rule) |
 | defaultSecurityRules |每个 NSG 中出现的默认安全规则的列表 |请参阅下面的[默认安全规则](#Default-security-rules) |
 
 * 安全规则 - 一个 NSG 可以有多个定义的安全规则。 每个规则可以允许或拒绝不同类型的流量。

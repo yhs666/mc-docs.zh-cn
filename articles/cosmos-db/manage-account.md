@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 11/28/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 85d01f781565069a074aaecb5db4dc78609a9bb8
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: c8f33fcb98d21f19f42528f81aa48e50cc6d7e2b
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>如何管理 Azure Cosmos DB 帐户
 了解如何在 Azure 门户中设置全局一致性、使用密钥，以及删除 Azure Cosmos DB 帐户。
@@ -106,7 +106,7 @@ ms.lasthandoff: 12/22/2017
 [5]: ./media/manage-account/documentdb_change_consistency-1.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[bcdr]: /best-practices-availability-paired-regions/
+<!-- Not Available on [bcdr]: /best-practices-availability-paired-regions/ -->
 [consistency]: consistency-levels.md
 [azureregions]: https://www.azure.cn/support/service-dashboard/#services
 [offers]: https://www.azure.cn/pricing/details/cosmos-db/

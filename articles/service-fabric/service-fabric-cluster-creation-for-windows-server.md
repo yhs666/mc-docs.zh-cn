@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 08/10/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4bb4c11e9332564270f03d71cc99440aa25add26
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 4111d7af60dc947b3f4958500feebc56cd40179b
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>创建在 Windows Server 上运行的独立群集
 可以使用 Azure Service Fabric 在运行 Windows Server 的任何虚拟机或计算机上创建 Service Fabric 群集。 这意味着，可以在包含一组相互连接的 Windows Server 计算机的任何环境（无论是本地环境还是任何云提供商所提供的环境）中部署和运行 Service Fabric 应用程序。 Service Fabric 提供了一个安装程序包，用于创建名为“Windows Server 独立包”的 Service Fabric 群集。
@@ -136,7 +136,8 @@ Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ## <a name="add-and-remove-nodes"></a>添加和删除节点
 当业务需要改变时，可以向独立 Service Fabric 群集添加或删除节点。 参阅[向 Service Fabric 独立群集添加或删节点](service-fabric-cluster-windows-server-add-remove-nodes.md)以了解详细步骤。
 
-<a id="removecluster" name="removecluster_anchor"></a>
+<a name="removecluster"></a>
+<a name="removecluster_anchor"></a>
 ## <a name="remove-a-cluster"></a>删除群集
 若要删除群集，请运行包文件夹中的 *RemoveServiceFabricCluster.ps1* Powershell 脚本，并传入 JSON 配置文件的路径。 可以选择性地指定删除日志的位置。
 
@@ -183,7 +184,8 @@ Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 
 若要禁用遥测，请将以下内容添加到群集配置中的*属性*：*enableTelemetry: false*。
 
-<a id="previewfeatures" name="previewfeatures_anchor"></a>
+<a name="previewfeatures"></a>
+<a name="previewfeatures_anchor"></a>
 
 ## <a name="preview-features-included-in-this-package"></a>此包中包括的预览功能
 无。

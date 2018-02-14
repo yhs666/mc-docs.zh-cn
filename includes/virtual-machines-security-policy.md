@@ -7,7 +7,7 @@
 <!--Not Available ## Azure Security Center-->
 
 
-## <a name="encryption"></a>加密
+## <a name="encryption"></a>Encryption
 
 为了增强 [Windows VM](../articles/virtual-machines/windows/encrypt-disks.md) 和 [Linux VM](../articles/virtual-machines/linux/encrypt-disks.md) 的安全性，可以加密 Azure 中的虚拟磁盘。 Windows VM 上的虚拟磁盘使用 Bitlocker 进行静态加密。 Linux VM 上的虚拟磁盘是使用 dm-crypt 静态加密的。 
 
@@ -30,7 +30,7 @@
 使用[基于角色的访问控制 (RBAC)](../articles/active-directory/role-based-access-control-what-is.md)，可以在团队中对职责进行分配，仅向 VM 上的用户授予执行作业所需的访问权限。 可以仅允许某些操作，而不是向 VM 上的每个人授予不受限制的权限。 可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/role) 或 [Azure PowerShell](../articles/active-directory/role-based-access-control-manage-access-powershell.md) 为 [Azure 门户](../articles/active-directory/role-based-access-control-configure.md)中的 VM 配置访问控制。
 
 ## <a name="next-steps"></a>后续步骤
-- 完成相关步骤，使用适用于 [Linux](../articles/virtual-machines/linux/tutorial-azure-security.md) 或 [Windows](../articles/virtual-machines/windows/tutorial-azure-security.md) 的 Azure 安全中心监视虚拟机的安全性。
+<!-- Not Avaiable on - Walk through the steps to monitor virtual machine security by using Azure Security Center for [Linux](../articles/virtual-machines/linux/tutorial-azure-security.md) or [Windows](../articles/virtual-machines/windows/tutorial-azure-security.md). -->
 
 <!--Update_Description: new articles on VM security policy -->
 <!--ms.date: 10/16/2017-->

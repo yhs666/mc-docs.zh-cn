@@ -11,15 +11,15 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0261dae372163184539c4cb96f814790295903a9
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 9e8b648a38244920f9881cac59f6d72dcada746b
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>排查 Azure Windows 虚拟机激活问题
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 12/15/2017
 >[!NOTE]
 >如果使用的是站点间 VPN 和强制隧道，请参阅[使用 Azure 自定义路由通过强制隧道启用 KMS 激活](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx)。 
 >
->如果使用的是 ExpressRoute 且已发布默认路由，请参阅 [Azure VM 可能无法通过 ExpressRoute 激活](http://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx)。
+>如果使用的是 ExpressRoute 且已发布默认路由，请参阅 [Azure VM 可能无法通过 ExpressRoute 激活](https://blogs.technet.microsoft.com/jpaztech/2016/05/16/azure-vm-may-fail-to-activate-over-expressroute/)。
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>第 1 步：配置相应的 KMS 客户端安装密钥（对于 Windows Server 2016 和 Windows Server 2012 R2）
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 12/15/2017
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>我从 Azure Marketplace 创建了 Windows Server 2016。 是否需要配置用于激活 Windows Server 2016 的 KMS 密钥？ 
 
-不可以。 Azure Marketplace 中的映像已配置了相应的 KMS 客户端安装密钥。 
+否。 Azure Marketplace 中的映像已配置了相应的 KMS 客户端安装密钥。 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>无论 VM 是否使用 Azure 混合使用权益 (HUB)，Windows 激活的工作方式是否都一样？ 
 
@@ -123,4 +123,4 @@ ms.lasthandoff: 12/15/2017
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
 如果仍需要帮助，可 [联系支持人员](https://www.azure.cn/support/support-azure/) 来快速解决问题。
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update link -->

@@ -15,11 +15,11 @@ origin.date: 12/13/2017
 ms.date: 01/17/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 551a6a43621b1c4751fb861bfc06ee7714e8a474
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 2a6cde27eb07a8a1a088e3e3fa4afae0097baba5
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure 自动化简介
 
@@ -45,7 +45,6 @@ Azure 自动化包含一组共享资源，方便用户大规模地完成环境�
 * **[证书](automation-certificates.md)** - 存储证书，使之在运行时可供用于身份验证，确保已部署资源的安全。
 * **[连接](automation-connections.md)** - 以名称/值对的形式存储信息。在连接资源中连接到系统时，需要使用其中包含的常用信息。 连接由模块作者定义，在运行时的 Runbook 和配置中使用。
 * **[计划](automation-schedules.md)** - 用在服务中，在预定义的时间触发自动化。
-* **[与源代码管理集成](automation-source-control-integration.md)** - 在可以将 Runbook 或配置签入到源代码管理系统中的情况下，以代码的形式提升配置。
 * **[PowerShell 模块](automation-integration-modules.md)** -  可以使用模块来管理 Azure 和其他系统。 请将其导入到适用于 Microsoft、第三方、社区或自定义 cmdlet 和 DSC 资源的自动化帐户中。
 
 ### <a name="windows-and-linux"></a>Windows 和 Linux

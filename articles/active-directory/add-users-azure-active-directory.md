@@ -11,25 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/07/2017
-ms.date: 1/1/2018
+origin.date: 01/08/2018
+ms.date: 1/29/2018
 ms.author: v-nany
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 21f8aa4840e13b98536dea9c5341cd18c1a9e945
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 9eaacce60240b0963d885a600ef7856c71095072
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>快速入门：将新用户添加到 Azure Active Directory
-此文章介绍了如何使用 Azure 门户或通过同步本地 Windows Server AD 用户帐户数据，在 Azure Active Directory (Azure AD) 中一次添加一个你组织中的新用户。 
+本文介绍如何使用 Azure 门户或通过同步本地 Windows Server AD 用户帐户数据，在组织的 Azure Active Directory (Azure AD) 租户中删除或添加组织中的用户。 
 
 ## <a name="add-cloud-based-users"></a>添加基于云的用户
 1. 使用目录全局管理员的帐户登录到 [Azure 门户](https://portal.azure.cn) 。
 2. 选择“Azure Active Directory”，然后选择“用户和组”。
 3. 在“用户和组”中，选择“所有用户”，然后选择“新建用户”。
-
+   ![选择“添加”命令](./media/add-users-azure-active-directory/add-user.png)
 4. 输入用户的详细信息，如**名称**和**用户名**。 用户名的域名部分必须是初始默认域名“[domain name].partner.onmschina.cn”或已验证的非联合[自定义域名](add-custom-domain.md)（例如“contoso.com”）。
 5. 复制或以其他方式记下生成的用户密码，以便在此过程完成后可以提供给用户。
 6. （可选）可以打开“个人资料”、“组”或“目录角色”并在其中填写用户信息。 有关用户和管理员角色的详细信息，请参阅[在 Azure AD 中分配管理员角色](active-directory-assign-admin-roles-azure-portal.md)。
@@ -44,8 +44,10 @@ ms.lasthandoff: 12/29/2017
 2. 选择“用户和组”。
 3. 在“用户和组”边栏选项卡中，从列表中选择要删除的用户。 
 4. 在所选用户的边栏选项卡中，选择“概述”，并在命令栏中选择“删除”。
+   ![选择“添加”命令](./media/add-users-azure-active-directory/delete-user.png)
 
 
 ### <a name="learn-more"></a>了解详细信息 
 * [在 Azure AD 中为用户分配角色](active-directory-users-assign-role-azure-portal.md)
+* [管理用户个人资料](active-directory-users-profile-azure-portal.md)
 

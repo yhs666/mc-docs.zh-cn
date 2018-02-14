@@ -3,8 +3,8 @@ title: "使用 Azure PowerShell 管理虚拟机规模集 | Microsoft Docs"
 description: "管理虚拟机规模集常用的 Azure PowerShell cmdlets，如管理如何启动和停止实例，或更改此规模集容量。"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: iainfoulds
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: d35fa77a-de96-4ccd-a332-eb181d1f4273
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/13/2017
-ms.date: 12/29/2017
+ms.date: 01/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 45217f0b857e86608c30e484fca17660da24843a
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: 9d115fe5c365286ec5fc9e3b816df78ce72cf722
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>使用 Azure PowerShell 管理虚拟机规模集
 在虚拟机规模集的整个生命周期内，可能需要运行一个或多个管理任务。 此外，可能还需要创建自动执行各种生命周期任务的脚本。 本文详细介绍了执行这些任务常用的一些 Azure PowerShell cmdlet。
 
-若要完成这些管理任务，需要最新的 Azure PowerShell 模块。 有关安装和使用最新版本的详细信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)。 如果需要创建虚拟机规模集，可以[在 Azure 门户中创建规模集](virtual-machine-scale-sets-portal-create.md)。
+若要完成这些管理任务，需要最新的 Azure PowerShell 模块。 有关安装和使用最新版本的详细信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)。 如果需要创建虚拟机规模集，可以[在 Azure 门户中创建规模集](virtual-machine-scale-sets-create-portal.md)。
 
 
 ## <a name="view-information-about-a-scale-set"></a>查看有关规模集的信息
@@ -112,4 +112,4 @@ Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScale
 ## <a name="next-steps"></a>后续步骤
 规模集的其他常见任务包括如何[部署应用程序](virtual-machine-scale-sets-deploy-app.md)和[升级 VM 实例](virtual-machine-scale-sets-upgrade-scale-set.md)。 也可使用 Azure PowerShell 来[配置自动缩放规则](virtual-machine-scale-sets-autoscale-overview.md)。
 
-<!--Update_Description: code update -->
+<!--Update_Description: wording update -->

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 09/19/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 67ccc924694566c8bb725cd09068a5bd1960ba3b
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 91a31c2dd3d439a4ebc110f0bdd335476fd1f5be
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="network-security"></a>网络安全性
 
@@ -166,7 +166,7 @@ ms.lasthandoff: 01/19/2018
 ## <a name="next-steps"></a>后续步骤
 
 * 完成[创建网络安全组](virtual-networks-create-nsg-arm-pportal.md)教程
-<!-- Not Available * Complete the [Create a network security group with application security groups](create-network-security-group-preview.md) tutorial-->
+<!-- Not Available * Complete the [Create a network security group with application security groups](create-network-security-group-preview.md) -->
 
 
 <!--Update_Description: wording update -->

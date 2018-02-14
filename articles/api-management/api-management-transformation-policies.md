@@ -6,20 +6,19 @@ documentationcenter:
 author: miaojiang
 manager: erikre
 editor: 
-ms.assetid: 7406a8ce-5f9c-4fae-9b0f-e574befb2ee9
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 11/27/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 2bce356b8832403175166063cd4221bde19543af
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: e5c80600434320feb845b0d4b19e1447c6d821fe
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="api-management-transformation-policies"></a>API 管理转换策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -71,13 +70,13 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |json-to-xml|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |apply|属性必须设置为以下值之一。<br /><br /> -   always - 始终应用转换。<br />-   content-type-json - 仅在响应的 Content-Type 标头指示存在 JSON 的情况下进行转换。|是|不适用|  
 |consider-accept-header|属性必须设置为以下值之一。<br /><br /> -   true - 如果在请求的 Accept 标头中请求了 JSON，则应用转换。<br />-   false - 始终应用转换。|否|true|  
@@ -114,13 +113,13 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |xml-to-json|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |kind|属性必须设置为以下值之一。<br /><br /> -   javascript-friendly - 转换后的 JSON 具有 JavaScript 开发人员熟知的形式。<br />-   direct - 转换后的 JSON 反映了原始 XML 文档的结构。|是|不适用|  
 |apply|属性必须设置为以下值之一。<br /><br /> -   always - 始终转换。<br />-   content-type-xml - 仅在响应的 Content-Type 标头指示存在 XML 的情况下进行转换。|是|不适用|  
@@ -150,13 +149,13 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |find-and-replace|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |from|要搜索的字符串。|是|不适用|  
 |to|替换字符串。 指定一个零长度的替换字符串，以便删除搜索字符串。|是|不适用|  
@@ -188,7 +187,7 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |redirect-content-urls|根元素。|是|  
   
@@ -252,13 +251,13 @@ ms.lasthandoff: 09/08/2017
 
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |set-backend-service|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |base-url|新的后端服务基 URL。|否|不适用|  
 |backend-id|要路由到的后端标识符。|否|不适用|  
@@ -266,6 +265,7 @@ ms.lasthandoff: 09/08/2017
 |sf-replica-type|只有在后端为 Service Fabric 服务且使用“backend-id”指定时才适用。 控制请求是否应转到分区的主要副本或次要副本。 |否|不适用|    
 |sf-resolve-condition|只有在后端为 Service Fabric 服务时才适用。 确定对 Service Fabric 后端的调用是否针对新解析重复进行的条件。|否|不适用|    
 |sf-service-instance-name|只有在后端为 Service Fabric 服务时才适用。 允许在运行时更改服务实例。 |否|不适用|    
+|sf-listener-name|只有在后端为 Service Fabric 服务且使用“backend-id”指定时才适用。 使用 Service Fabric Reliable Services 可在服务中创建多个侦听器。 当后端可靠服务具有多个侦听器时，此属性用于选择特定侦听器。 如果未指定此属性，API 管理将尝试使用没有名称的侦听器。 没有名称的侦听器对于只有一个侦听器的 Reliable Services 来说是非常典型的。 |否|不适用|  
 
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
@@ -387,15 +387,15 @@ ms.lasthandoff: 09/08/2017
 
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |set-body|根元素。 包含正文文本，或者包含会返回正文的表达式。|是|  
 
 ### <a name="properties"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
-|template|用于更改设置正文策略运行的模板模式。 目前唯一支持的值是：<br /><br />- liquid - 设置正文策略会使用 liquid 模板引擎 |否|liquid|  
+|template|用于更改设置正文策略运行的模板模式。 目前唯一支持的值是：<br /><br />- Liquid - 设置正文策略会使用 Liquid 模板引擎 |否|Liquid|  
 
 对于访问请求和响应信息，Liquid 模板可绑定到具有以下属性的上下文对象： <br />
 <pre>context.
@@ -482,14 +482,14 @@ OriginalUrl.
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |set-header|根元素。|是|  
 |value|指定要设置的标头的值。 如需多个标头使用同一名称，可添加更多的 `value` 元素。|是|  
   
 ### <a name="properties"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |exists-action|指定当标头已指定时要执行的操作。 此属性必须具有下列值之一。<br /><br /> -   override - 替换现有标头的值。<br />-   skip - 不替换现有标头值。<br />-   append - 将值追加到现有标头值。<br />-   delete - 从请求中删除标头。<br /><br /> 如果设置为 `override`，则登记多个同名的条目会导致根据所有条目（将多次列出）设置标头；结果中只会设置列出的值。|否|override|  
 |name|指定要设置的标头的名称。|是|不适用|  
@@ -542,14 +542,14 @@ OriginalUrl.
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |set-query-parameter|根元素。|是|  
 |value|指定要设置的查询参数的值。 如需多个查询参数使用同一名称，可添加更多的 `value` 元素。|是|  
   
 ### <a name="properties"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |exists-action|指定当查询参数已指定时要执行的操作。 此属性必须具有下列值之一。<br /><br /> -   override - 替换现有参数的值。<br />-   skip - 不替换现有查询参数值。<br />-   append - 将值追加到现有查询参数值。<br />-   delete - 从请求中删除查询参数。<br /><br /> 如果设置为 `override`，则登记多个同名的条目会导致根据所有条目（将多次列出）设置查询参数；结果中只会设置列出的值。|否|override|  
 |name|指定要设置的查询参数的名称。|是|不适用|  
@@ -621,19 +621,19 @@ OriginalUrl.
 
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |rewrite-uri|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必选|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|-------------|  
 |template|包含任何查询字符串参数的实际 Web 服务 URL。 使用表达式时，整个值必须是一个表达式。|是|不适用|  
 |copy-unmatched-params|指定是否将原始 URL 模板中不存在的传入请求中的查询参数添加到重新编写模板定义的 URL|否|true|  
   
 ### <a name="usage"></a>使用情况  
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
+ 此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
 -   **策略节：**入站  
   
@@ -690,7 +690,7 @@ OriginalUrl.
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |xsl-transform|根元素。|是|  
 |参数|用于定义在转换中使用的变量|否|  
@@ -704,4 +704,9 @@ OriginalUrl.
 -   **策略范围：**全局、产品、API、操作  
   
 ## <a name="next-steps"></a>后续步骤
-有关如何使用策略的详细信息，请参阅 [API 管理中的策略](./api-management-howto-policies.md)。  
+
+有关详细信息，请参阅以下主题：
+
++ [API 管理中的策略](api-management-howto-policies.md)
++ [策略参考](api-management-policy-reference.md)，获取策略语句及其设置的完整列表
++ [策略示例](policy-samples.md)   

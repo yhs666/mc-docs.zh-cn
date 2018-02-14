@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
 origin.date: 09/19/2017
-ms.date: 10/23/2017
+ms.date: 1/29/2018
 ms.author: v-johch
 ms.custom: mvc
-ms.openlocfilehash: 0afc492c8365d5a6ade20b8ed451f770bad39416
-ms.sourcegitcommit: cc3fd1a8a5cfd0220df0430d2504ec5214c6c19d
+ms.openlocfilehash: ae4a5de6faf5ebbb3773c90671db1b6905a4130f
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>使用 Azure 存储在云中上传图像数据
 
@@ -94,7 +94,7 @@ echo $blobStorageAccountKey
 
 [应用服务计划](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)指定托管应用的 Web 服务器场的位置、大小和功能。 
 
-使用 [az appservice plan create](https://docs.azure.cn/cli/appservice/plan#create) 命令创建应用服务计划。 
+使用 [az appservice plan create](https://docs.azure.cn/cli/appservice/plan#az_appservice_plan_create) 命令创建应用服务计划。 
 
 以下示例在免费定价层中创建名为 `myAppServicePlan` 的应用服务计划： 
 
@@ -104,7 +104,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## <a name="create-a-web-app"></a>创建 Web 应用 
 
-Web 应用为从 GitHub 示例存储库部署的示例应用代码提供承载空间。 使用 [az webapp create](https://docs.azure.cn/cli/webapp#create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 [Web 应用](../../app-service/app-service-web-overview.md)。  
+Web 应用为从 GitHub 示例存储库部署的示例应用代码提供承载空间。 使用 [az webapp create](/cli/webapp#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 [Web 应用](../../app-service/app-service-web-overview.md)。  
  
 在以下命令中，将 `<web_app>` 替换为唯一名称（有效字符是 `a-z`、`0-9` 和 `-`）。 如果 `<web_app>` 不是唯一名称，将收到错误消息：“具有给定名称 `<web_app>` 的网站已存在”。 Web 应用的默认 URL 为 `https://<web_app>.chinacloudsites.cn`。  
 
@@ -114,7 +114,7 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>从 GitHub 存储库部署示例应用 
 
-应用服务支持通过多种方式将内容部署到 Web 应用。 在本教程中，你会从公共 GitHub 示例存储库部署 Web 应用：[https://github.com/Azure-Samples/storage-blob-upload-from-webapp](https://github.com/Azure-Samples/storage-blob-upload-from-webapp)。 使用 [az webapp deployment source config](https://docs.azure.cn/cli/webapp/deployment/source#config) 命令配置 Web 应用的 GitHub 部署。 将 `<web_app>` 替换为在上一步中创建的 Web 应用的名称。
+应用服务支持通过多种方式将内容部署到 Web 应用。 在本教程中，将从[公共 GitHub 示例存储库](https://github.com/Azure-Samples/storage-blob-upload-from-webapp)部署 Web 应用。 使用 [az webapp deployment source config](/cli/webapp/deployment/source#az_webapp_deployment_source_config) 命令配置 Web 应用的 GitHub 部署。 将 `<web_app>` 替换为在上一步中创建的 Web 应用的名称。
 
 示例项目包含一个 [ASP.NET MVC](https://www.asp.net/mvc) 应用，它接受图像，将其保存到存储帐户，然后从缩略图容器显示图像。 Web 应用使用 Azure 存储客户端库中的 [Microsoft.WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet)、[Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) 和 [Microsoft.WindowsAzure.Storage.Auth](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) 命名空间与 Azure 存储进行交互。 
 
@@ -126,7 +126,7 @@ az webapp deployment source config --name <web_app> \
 
 ## <a name="configure-web-app-settings"></a>配置 Web 应用设置 
 
-示例 Web 应用使用 [Azure 存储客户端库](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)请求用于上传图像的访问令牌。 在 Web 应用的应用设置中设置存储 SDK 使用的存储帐户凭据。 使用 [az webapp config appsettings set](https://docs.azure.cn/cli/webapp/config/appsettings#set) 命令将应用设置添加到已部署的应用。 
+示例 Web 应用使用 [Azure 存储客户端库](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)请求用于上传图像的访问令牌。 在 Web 应用的应用设置中设置存储 SDK 使用的存储帐户凭据。 使用 [az webapp config appsettings set](/cli/webapp/config/appsettings#az_webapp_config_appsettings_set) 命令将应用设置添加到已部署的应用。 
 
 在下面的命令中，`<blob_storage_account>` 是 Blob 存储帐户的名称，`<blob_storage_key>` 是关联密钥。 将 `<web_app>` 替换为在上一步中创建的 Web 应用的名称。     
 
@@ -185,7 +185,7 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 
 ## <a name="verify-the-image-is-shown-in-the-storage-account"></a>验证图像是否显示在存储帐户中
 
-登录到 https://portal.azure.cn。 从左侧菜单中，选择“存储帐户”，然后选择你的存储帐户的名称。 在“概览”下，选择“images”容器。
+登录到 [Azure 门户](https://portal.azure.cn)。 从左侧菜单中，选择“存储帐户”，然后选择你的存储帐户的名称。 在“概览”下，选择“images”容器。
 
 验证图像是否显示在该容器中。
 
@@ -195,7 +195,7 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 
 为了测试缩略图查看，你会将图像上传到缩略图容器，以确保应用程序可以读取缩略图容器。
 
-登录到 https://portal.azure.cn。 从左侧菜单中，选择“存储帐户”，然后选择你的存储帐户的名称。 选择“Blob 服务”下的“容器”，然后选择“thumbs”容器。 选择“上传”以打开“上传 blob”窗格。
+登录到 [Azure 门户](https://portal.azure.cn)。 从左侧菜单中，选择“存储帐户”，然后选择你的存储帐户的名称。 选择“Blob 服务”下的“容器”，然后选择“thumbs”容器。 选择“上传”以打开“上传 blob”窗格。
 
 使用文件选取器选择文件，然后选择“上传”。
 

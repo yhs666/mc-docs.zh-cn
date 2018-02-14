@@ -3,7 +3,7 @@ title: "如何在 Azure API 管理策略中使用属性"
 description: "了解如何在 Azure API 管理策略中使用属性。"
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 6f39b00f-cf6e-4cef-9bf2-1f89202c0bc0
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2016
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 1cd1944ca360dce8636a85928b4277df3efe1c91
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: e90203ab5c44fe714e1c3951cd3255a5119847f3
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-use-properties-in-azure-api-management-policies"></a>如何在 Azure API 管理策略中使用属性
-API 管理策略是一项强大的系统功能，允许发布者通过配置更改 API 的行为。 策略是一组语句，在请求或响应 API 时按顺序执行。 可以使用文字文本值、策略表达式和属性构造策略语句。 
+API 管理策略是一项强大的系统功能，允许发布者通过配置更改 API 的行为。 策略是一组语句，在请求或 API 的响应时按顺序执行。 可以使用文字文本值、策略表达式和属性构造策略语句。 
 
 每个 API 管理服务实例都有一个属性集合，其中包含对服务实例来说属于全局性的键值对。 这些属性可以用来管理所有 API 配置和策略的常量字符串值。 每个属性都有以下特性。
 
-| 特性 | 类型 | 说明 |
+| 属性 | 类型 | 说明 |
 | --- | --- | --- |
-| 名称 |字符串 |属性的名称。 可以包含字母、数字、句点、短划线和下划线字符。 |
+| Name |字符串 |属性的名称。 可能包含字母、数字、句点、短划线和下划线字符。 |
 | 值 |字符串 |属性的值。 不能为空或只由空格组成。 |
 | 密钥 |布尔值 |确定值是否为密钥以及是否应加密。 |
 | 标记 |字符串数组 |可选标记，提供后可用来筛选属性列表。 |
@@ -37,9 +37,9 @@ API 管理策略是一项强大的系统功能，允许发布者通过配置更�
 
 ![属性][api-management-properties]
 
-属性值可以包含文本字符串和[策略表达式](https://msdn.microsoft.com/library/azure/dn910913.aspx)。 下表显示了前述三个示例属性及其特性。 `ExpressionProperty` 的值是一个策略表达式，它返回的字符串包含当前日期和时间。 属性 `ContosoHeaderValue` 被标记为密钥，因此未显示其值。
+属性值可以包含文本字符串和[策略表达式](https://msdn.microsoft.com/library/azure/dn910913.aspx)。 下表显示了前述三个示例属性及其特性。 `ExpressionProperty` 的值是一个策略表达式，它返回的字符串包含当前日期和时间。 属性 `ContosoHeaderValue` 被标记为密钥，因此不显示其值。
 
-| 名称 | 值 | 密钥 | 标记 |
+| Name | 值 | 密钥 | 标记 |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |False |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |

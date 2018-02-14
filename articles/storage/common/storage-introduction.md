@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/10/2017
-ms.date: 01/01/2018
+ms.date: 01/29/2018
 ms.author: v-nany
-ms.openlocfilehash: 60637dff16a7bb4fac63b007e0a3ffc9eefb6539
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 3b4ad72b381eb06dd94d6bddb8441322bb2446b6
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 存储简介
 
@@ -36,9 +36,7 @@ Azure 存储包含三项数据服务：Blob 存储、文件存储和队列存储
 * 将数据传入或传出存储
 * 许多可用的存储客户端库。
 
-若要快速启动并运行 Azure 存储，请查看以下快速入门教程：
-* [使用 PowerShell 创建存储帐户](storage-quickstart-create-storage-account-powershell.md)
-* [使用 CLI 创建存储帐户](storage-quickstart-create-storage-account-cli.md)
+若要启动并运行 Azure 存储，请参阅[创建存储帐户](storage-quickstart-create-account.md)。
 
 ## <a name="introducing-the-azure-storage-services"></a>Azure 存储服务简介
 
@@ -220,9 +218,7 @@ Azure 存储资源可以通过任何发出 HTTP/HTTPS 请求的语言来进行�
 * [详细了解文件存储](../storage-files-introduction.md)
 * [详细了解队列存储](../queues/storage-queues-introduction.md)
 
-若要快速启动并运行 Azure 存储，请查看以下快速入门教程：
-* [使用 PowerShell 创建存储帐户](storage-quickstart-create-storage-account-powershell.md)
-* [使用 CLI 创建存储帐户](storage-quickstart-create-storage-account-cli.md)
+若要启动并运行 Azure 存储，请参阅[创建存储帐户](storage-quickstart-create-account.md)。
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 

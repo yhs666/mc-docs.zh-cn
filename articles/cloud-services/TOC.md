@@ -38,6 +38,7 @@
 ### [连接到自定义域控制器](cloud-services-connect-to-custom-domain.md)
 
 ## 管理服务
+### [缓解推理执行](mitigate-se.md}
 ### [常见管理任务](cloud-services-how-to-manage-portal.md)
 ### [配置云服务](cloud-services-how-to-configure-portal.md)
 ### [使用 Azure 自动化管理云服务](automation-manage-cloud-services.md)

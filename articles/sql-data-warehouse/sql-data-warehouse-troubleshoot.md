@@ -16,11 +16,11 @@ ms.custom: manage
 origin.date: 03/30/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 76b661d1b765baa57272ebf8d0f499de06943b97
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 3bbed814383594150567eee7faf6dcb735e5f894
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>排查 Azure SQL 数据仓库问题
 本主题列出了客户较常见的一些故障排除问题。
@@ -33,6 +33,7 @@ ms.lasthandoff: 01/11/2018
 | CTAIP 错误 |当登录名已在 SQL Server master 数据库中创建，但未在 SQL 数据仓库数据库中时，可能会出现此错误。  如果遇到此错误，请参阅[安全性概述][Security overview] 一文。  本文介绍如何在 master 中创建登录名和用户，以及如何在 SQL 数据仓库数据库中创建用户。 |
 | 被防火墙阻止 |为了确保只有已知的 IP 地址可以访问数据库，Azure SQL 数据库受到服务器和数据库级别的防火墙保护。 默认情况下，防火墙是安全的，这意味着，需要显式启用单个 IP 地址或地址范围才能进行连接。  若要配置用于访问的防火墙，请遵循[设置说明][Provisioning instructions]中的[为客户端 IP 配置服务器防火墙访问][Configure server firewall access for your client IP]中的步骤。 |
 | 无法使用工具或驱动程序进行连接 |SQL 数据仓库建议使用 [SSMS][SSMS]、[用于 Visual Studio 的 SSDT][SSDT for Visual Studio] 或 [sqlcmd][sqlcmd] 来查询数据。 如需详细了解驱动程序以及如何连接到 SQL 数据仓库，请参阅 [Azure SQL 数据仓库驱动程序][Drivers for Azure SQL Data Warehouse]和[连接到 Azure SQL 数据仓库][Connect to Azure SQL Data Warehouse]这两篇文章。 |
+<!-- Not Available due to have not Sample DB in Portal on  [Provisioning instructions] [Configure server firewall access for your client IP] -->
 
 ## <a name="tools"></a>工具
 | 问题 | 解决方法 |
@@ -53,7 +54,7 @@ ms.lasthandoff: 01/11/2018
 ## <a name="system-management"></a>系统管理
 | 问题 | 解决方法 |
 |:--- |:--- |
-| 消息 40847：无法执行操作，因为服务器将超过 45000 这一允许的数据库事务单元配额。 |请减少要尝试创建的数据库的 [DWU][DWU]，或者[请求增加配额][请求增加配额]。 |
+| 消息 40847：无法执行操作，因为服务器将超过 45000 这一允许的数据库事务单元配额。 |请减少要尝试创建的数据库的 [DWU][DWU]，或者[请求增加配额][request a quota increase]。 |
 | 调查空间使用率 |请参阅 [表大小][Table sizes] ，了解系统的空间使用率。 |
 | 管理表的帮助 |有关管理表的帮助，请参阅[表概述][Overview]一文。  本文还包含指向更详细主题的链接，如[表数据类型][Data types]、[分布表][Distribute]、[为表编制索引][Index]、[将表分区][Partition]、[维护表统计信息][Statistics]和[临时表][Temporary]。 |
 |在 Azure 门户中，透明数据加密 (TDE) 进度栏不更新|可以通过 [powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption) 查看 TDE 的状态。|
@@ -89,10 +90,10 @@ ms.lasthandoff: 01/11/2018
 [SSDT for Visual Studio]: ./sql-data-warehouse-install-visual-studio.md
 [Drivers for Azure SQL Data Warehouse]: ./sql-data-warehouse-connection-strings.md
 [Connect to Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
-<!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md-->
+[Create support ticket]: https://support.windowsazure.cn/support/support-azure
 [Scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
 [DWU]: ./sql-data-warehouse-overview-what-is.md
-<!-- Not Available [request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change-->
+[request a quota increase]: https://support.windowsazure.cn/support/support-azure
 [Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
 [Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md

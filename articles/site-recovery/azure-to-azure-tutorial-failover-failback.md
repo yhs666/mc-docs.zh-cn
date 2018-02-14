@@ -13,15 +13,15 @@ origin.date: 11/01/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 11c5d122139e6db98c36592db8a4787cd0036114
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 72259c2a7e5d9957b4708df9fb414b7c615af6db
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>对 Azure 区域（预览）之间的 Azure VM 进行故障转移和故障回复
 
-[Azure Site Recovery](site-recovery-overview.md) 服务有助于实施灾难恢复策略，因为它可以管理和协调本地计算机和 Azure 虚拟机 (VM) 的复制、故障转移和故障回复。
+[Azure Site Recovery](site-recovery-overview.md) 服务可管理和协调本地计算机和 Azure 虚拟机 (VM) 的复制、故障转移和故障回复，进而有利于灾难恢复策略。
 
 本教程介绍如何将单个 Azure VM 故障转移到 Azure 次要区域。 故障转移后，可在主要区域可用时故障回复到主要区域。 本教程介绍如何执行下列操作：
 
@@ -36,6 +36,7 @@ ms.lasthandoff: 12/01/2017
 - 确保已完成[灾难恢复演练](azure-to-azure-tutorial-dr-drill.md)，检查所有内容是否都按预期工作。
 - 在运行测试故障转移之前，验证 VM 属性。 该 VM 必须符合 [Azure 要求](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
 
+<a name="run-a-failover"></a>
 ## <a name="run-a-failover-to-the-secondary-region"></a>运行到次要区域的故障转移
 
 1. 在“已复制项”中，选择要故障转移的 VM >“故障转移”

@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 10/15/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 15b1d0d251899298359789bfa2409f6b63da8b76
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 08ba3e687934454ea6b9399c9ddd7dc8df5e7343
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>升级 Windows Server 上的独立 Azure Service Fabric 群集 
 > [!div class="op_single_selector"]
@@ -42,6 +42,7 @@ ms.lasthandoff: 12/01/2017
 
 可以使用两个不同的工作流将群集升级至最新版本或受支持的 Service Fabric 版本。 其中一个工作流适用于已建立网络连接，可自动下载最新版本的群集。 另一个工作流适用于未建立网络连接，无法下载最新 Service Fabric 版本的群集。
 
+<a name="upgrade-the-cluster-configuration"></a>
 ### <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>升级已建立网络连接，可下载最新代码和配置的群集
 如果群集节点可以通过 Internet 连接到 [Microsoft 下载中心](http://download.microsoft.com)，则使用以下步骤将群集升级至支持的版本。
 

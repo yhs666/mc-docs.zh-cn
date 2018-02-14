@@ -3,7 +3,7 @@ title: "Azure API 管理模板资源 | Azure"
 description: "了解适用于 Azure API 管理中的开发人员门户模板的资源类型。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 51a1b4c6-a9fd-4524-9e0e-03a9800c3e94
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: a7be1fdf7f92441b410ac0d37f342c585f4c64bb
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 93fafad8cac64f6c8a71e12a714edb8c7d7dcf86
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API 管理模板资源
 Azure API 管理提供以下类型的资源，适用于开发人员门户模板。  
@@ -87,13 +87,13 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |PageTitleApis|API|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|应用程序预览版|  
 |WebApplicationsRequirementsHeader|要求|  
@@ -102,13 +102,13 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|是否确实要删除应用程序?|  
 |WebDevelopersAppNotPublished|未发布|  
 |WebDevelopersAppNotSubminted|未提交|  
 |WebDevelopersAppTableCategoryHeader|类别|  
-|WebDevelopersAppTableNameHeader|名称|  
+|WebDevelopersAppTableNameHeader|Name|  
 |WebDevelopersAppTableStateHeader|状态|  
 |WebDevelopersEditLink|编辑|  
 |WebDevelopersRegisterAppLink|注册应用程序|  
@@ -118,13 +118,13 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |WebApplicationsHeader|应用程序|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |NoItemsToDisplay|找不到结果。|  
 |GeneralExceptionMessage|出现问题。 可能存在临时故障或 Bug。 请重试。|  
@@ -135,7 +135,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |ButtonLabelCancel|取消|  
 |ButtonLabelSave|保存|  
@@ -159,7 +159,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
   
 ###  <a name="Documentation"></a> 文档  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|标头“{0}”无效|  
 |WebDocumentationInvalidRequestErrorMessage|请求 URL 无效|  
@@ -229,7 +229,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 |OAuth2ErrorDescription_ImplicitGrant_AuthorizationErrorResponse|可选。 提供附加信息的用户可读 ASCII 文本。|  
 |OAuth2ErrorDescription_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|可选。 提供附加信息的用户可读 ASCII 文本。|  
 |OAuth2ErrorUri_AuthorizationCodeGrant_AuthorizationErrorResponse|可选。 一个 URI，用于标识提供错误相关信息的用户可读网页。|  
-|OAuth2ErrorUri_AuthorizationCodeGrant_TokenErrorResponse|可选。 一个 URI，用于标识提供错误相关信息的用户可读网页。|  
+|OAuth2ErrorUri_AuthorizationCodeGrant_TokenErrorResponse|可选。 一个 URI，用于标识提供有关此错误的信息的用户可读网页。|  
 |OAuth2ErrorUri_ClientCredentialsGrant_TokenErrorResponse|可选。 一个 URI，用于标识提供错误相关信息的用户可读网页。|  
 |OAuth2ErrorUri_ImplicitGrant_AuthorizationErrorResponse|可选。 一个 URI，用于标识提供错误相关信息的用户可读网页。|  
 |OAuth2ErrorUri_ResourceOwnerPasswordCredentialsGrant_TokenErrorResponse|可选。 一个 URI，用于标识提供错误相关信息的用户可读网页。|  
@@ -307,7 +307,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |LinkLabelBack|返回|  
 |LinkLabelHomePage|主页|  
@@ -325,7 +325,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |WebIssuesIndexTitle|问题|  
 |WebIssuesNoActiveSubscriptions|没有活动的订阅。 需要先订阅产品，才能报告问题。|  
@@ -336,7 +336,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |LinkLabelHomePage|主页|  
 |LinkLabelSendUsEmail|给我们发送一封电子邮件|  
@@ -351,7 +351,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |WebProductsAgreement|订阅 {0} 产品即表明我同意`<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`。|  
 |WebProductsLegalTermsLink|使用条款|  
@@ -373,13 +373,13 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |PageTitleProducts|产品|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|此时管理员已禁用登录。|  
 |TextboxExternalIdentitiesSigninInvitation|或者，在登录时使用|  
@@ -387,7 +387,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |PrincipalNotFound|找不到主体或签名无效|  
 |ErrorSsoAuthenticationFailed|SSO 身份验证失败|  
@@ -483,7 +483,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|忘记密码了?|  
 |WebAuthenticationIfAdministrator|如果是管理员，则必须在`<a href="{0}"\>here</a\>`登录。|  
@@ -495,7 +495,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |PageTitleSignup|注册|  
 |WebAuthenticationAlreadyAMember|已经是成员?|  
@@ -505,7 +505,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|是否确实要取消此订阅?|  
 |SubscriptionRenewConfirmation|是否确实要续订此订阅?|  
@@ -517,7 +517,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 |ButtonLabelRenewSubscription|续订|  
 |WebDevelopersSubscriptionReqested|请求日期: {0}|  
 |WebDevelopersSubscriptionRequestedState|已请求|  
-|WebDevelopersSubscriptionTableNameHeader|名称|  
+|WebDevelopersSubscriptionTableNameHeader|Name|  
 |WebDevelopersSubscriptionTableStateHeader|状态|  
 |WebDevelopersUsageStatisticsLink|分析报告|  
 |WebDevelopersYourSubscriptions|订阅|  
@@ -528,7 +528,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |SectionHeadingCloseAccount|想要关闭帐户?|  
 |PageTitleDeveloperProfile|配置文件|  
@@ -539,14 +539,14 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|更新配置文件|  
 |PageTitleUpdateProfile|更新帐户信息|  
   
 ###  <a name="UserProfile"></a> UserProfile  
   
-|名称|文本|  
+|Name|文本|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|更改帐户信息|  
 |ButtonLabelChangePassword|更改密码|  
@@ -558,7 +558,7 @@ Azure API 管理提供以下类型的资源，适用于开发人员门户模板�
 |TextboxLabelOrganizationName|组织名称|  
 |SubscriptionStateActive|活动|  
 |SubscriptionStateCancelled|已取消|  
-|SubscriptionStateExpired|已过期|  
+|SubscriptionStateExpired|Expired|  
 |SubscriptionStateRejected|已拒绝|  
 |SubscriptionStateRequested|已请求|  
 |SubscriptionStateSuspended|已挂起|  

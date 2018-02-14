@@ -15,11 +15,11 @@ ms.topic: get-started-article
 origin.date: 08/28/2017
 ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 743087beb6c43e8b8418262a9bf672fc84bab1be
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 275f9967561d2f9684c30df7461379071e89a0e8
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>通过 Azure 门户启用事件中心捕获
 
@@ -57,7 +57,7 @@ Azure [事件中心捕获][capture-overview]用于自动将事件中心中的流
 ## <a name="next-steps"></a>后续步骤
 
 - 阅读[事件中心捕获概述][capture-overview]，详细了解事件中心捕获。
-<!--Not available - You can also configure Event Hubs Capture using Azure Resource Manager templates. For more information, see [Enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).-->
+<!--Not available - You can also configure Event Hubs Capture using Azure Resource Manager templates. For more information, see [Enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md) -->
 <!--Not available - [Get started with Azure Data Lake Store using the Azure portal](../data-lake-store/data-lake-store-get-started-portal.md)-->
 [capture-overview]: event-hubs-capture-overview.md
 

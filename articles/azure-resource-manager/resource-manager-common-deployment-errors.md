@@ -16,11 +16,11 @@ ms.workload: na
 origin.date: 12/20/2017
 ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: d91d4815a7fe96de10e7c8b911ab89f6bdab04ff
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: ba56582a6d4e244a5d091479cd52ab1346f0f57e
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>排查使用 Azure Resource Manager 时的常见 Azure 部署错误
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/23/2018
 | 错误代码 | 缓解措施 | 详细信息 |
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | 遵循存储帐户的命名限制。 | [解析存储帐户名称](resource-manager-storage-account-name-errors.md) |
-| AccountPropertyCannotBeSet | 查看可用的存储帐户属性。 | [storageAccounts](/templates/microsoft.storage/storageaccounts) |
+| AccountPropertyCannotBeSet | 查看可用的存储帐户属性。 | [storageAccounts](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | 群集或区域没有可用的资源或无法支持所请求的 VM 大小。 稍后重试请求，或者请求不同的 VM 大小。 | [Linux 预配和分配问题](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)和 [Windows 预配和分配问题](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | 等待并发操作完成。 | |
 | AuthorizationFailed | 帐户或服务主体没有完成部署所需的足够访问权限。 请检查帐户所属的角色，及其与部署范围相对应的访问权限。 | [Azure 基于角色的访问控制](../active-directory/role-based-access-control-configure.md) |
@@ -62,7 +62,7 @@ ms.lasthandoff: 01/23/2018
 | PrivateIPAddressInReservedRange | 指定的 IP 地址包括 Azure 所需的地址范围。 请更改 IP 地址，避免使用保留的范围。 | [IP 地址](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PrivateIPAddressNotInSubnet | 指定的 IP 地址位于子网范围之外。 请更改 IP 地址，使之位于子网范围之内。 | [IP 地址](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PropertyChangeNotAllowed | 已部署资源上的某些属性不能更改。 更新资源时，请仅更改允许的属性。 | [更新资源](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/update-resource) |
-| RequestDisallowedByPolicy | 订阅中的某个资源策略阻止你在部署期间尝试执行的操作。 请找出阻止该操作的策略。 如果可能，请修补部署，使之符合策略的限制。 | [解决策略问题](resource-manager-policy-requestdisallowedbypolicy-error.md) |
+| RequestDisallowedByPolicy | 订阅中的某个资源策略阻止你在部署期间尝试执行的操作。 请找出阻止该操作的策略。 如果可能，请修补部署，使之符合策略的限制。 |  |
 | ReservedResourceName | 提供不包含保留名称的资源名称。 | [保留的资源名称](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | 等待删除操作完成。 | |
 | ResourceGroupNotFound | 检查部署的目标资源组的名称。 它必须已存在于订阅中。 请检查订阅上下文。 | [Azure CLI](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az_account_set) [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext) |
@@ -73,7 +73,7 @@ ms.lasthandoff: 01/23/2018
 | StorageAccountAlreadyTaken | 为存储帐户提供唯一名称。 | [解析存储帐户名称](resource-manager-storage-account-name-errors.md) |
 | StorageAccountNotFound | 检查订阅、资源组以及尝试使用的存储帐户的名称。 | |
 | SubnetsNotInSameVnet | 一个虚拟机只能有一个虚拟网络。 部署多个 NIC 时，请确保其属于同一虚拟网络。 | [多个 NIC](../virtual-machines/windows/multiple-nics.md) |
-
+<!-- Not Available on RequestDisallowedByPolicy [Resolve policies](resource-manager-policy-requestdisallowedbypolicy-error.md) -->
 ## <a name="find-error-code"></a>查找错误代码
 
 当你在部署期间遇到错误时，资源管理器会返回错误代码。 可以通过门户、PowerShell 或 Azure CLI 查看错误消息。 外部错误消息对于故障排除而言可能过于泛泛。 请查找包含详细错误信息的内部消息。 有关详细信息，请参阅[确定错误代码](resource-manager-troubleshoot-tips.md#determine-error-code)。

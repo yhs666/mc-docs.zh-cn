@@ -16,11 +16,11 @@ ms.workload: na
 origin.date: 11/01/2017
 ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: e344e18dbfe1cd5d2903a5ae990932116396e63b
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 926c1b3dc650d793a19835c053afbcba3c589d41
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-analysis-services"></a>管理 Analysis Services
 在 Azure 中创建 Analysis Services 服务器后，可能会有一些需要立即执行或在稍后操作期间执行的管理任务。 例如，处理刷新数据、控制谁有权访问服务器上的模型，或者监视服务器的运行状况。 某些管理任务仅可在 Azure 门户中执行，而其他一些可在 SQL Server Management Studio (SSMS) 中执行，还有部分在两者中均可执行。
@@ -57,6 +57,7 @@ ms.lasthandoff: 12/08/2017
 
     ![在 SSMS 中连接](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
+<a name="server-administrators"></a>
 ## <a name="server-administrators-and-database-users"></a>服务器管理员和数据库用户
 Azure Analysis Services 中存在两种类型的用户，即服务器管理员和数据库用户。 这两种类型的用户必须存在于 Azure Active Directory 中，且必须由组织电子邮件地址或 UPN 指定。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。
 

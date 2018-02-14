@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: b62343c0bc0c5a2a82e9dca23bd3c9a1665b4da8
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 970ad5833cb94843d20413dd47addd250634c603
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>在门户中使用 Azure 网络观察程序管理数据包捕获
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/14/2017
 - [**删除数据包捕获**](#delete-a-packet-capture)
 - [**下载数据包捕获**](#download-a-packet-capture)
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 本文假设已准备好以下资源：
 
@@ -47,11 +47,12 @@ ms.lasthandoff: 11/14/2017
 - 已启用数据包捕获扩展的虚拟机。
 
 > [!IMPORTANT]
-> 数据包捕获需要虚拟机扩展 `AzureNetworkWatcherExtension`。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md)。
+> 数据包捕获需要虚拟机扩展 `AzureNetworkWatcherExtension`。
+<!-- Not Available [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md) -->
 
 ### <a name="packet-capture-agent-extension-through-the-portal"></a>通过门户安装数据包捕获代理扩展
 
-要通过门户安装数据包捕获 VM 代理，请导航到虚拟机，单击“扩展” > “添加”，然后搜索“适用于 Windows 的网络观察程序代理”
+要通过门户安装数据包捕获 VM 代理，请导航到你的虚拟机，单击“扩展” > “添加”，并搜索“适用于 Windows 的网络观察程序代理”
 
 ![代理视图][agent]
 
@@ -137,7 +138,7 @@ https://{storageAccountName}.blob.core.chinacloudapi.cn/network-watcher-logs/sub
 
 ## <a name="next-steps"></a>后续步骤
 
-查看[创建警报触发的数据包捕获](network-watcher-alert-triggered-packet-capture.md)，了解如何利用虚拟机警报自动执行数据包捕获
+<!--Not Available [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 
 访问[查看“IP 流验证”](network-watcher-check-ip-flow-verify-portal.md)，了解是否允许某些流量传入和传出 VM
 

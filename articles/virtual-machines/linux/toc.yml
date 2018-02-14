@@ -64,6 +64,9 @@
       items:
         - name: 常规用途
           href: sizes-general.md
+          items:
+            - name: B 系列可突增
+              href: b-series-burstable.md
         - name: 计算优化
           href: sizes-compute.md
         - name: 内存优化
@@ -163,10 +166,6 @@
           href: extensions-customscript.md
         - name: 使用远程桌面
           href: use-remote-desktop.md
-        - name: 更新和修补程序
-          items:
-            - name: Red Hat 更新基础结构
-              href: update-infrastructure-redhat.md
         - name: Azure VM 代理
           items:
             - name: 概述
@@ -175,6 +174,8 @@
               href: update-agent.md
         - name: 计划内维护
           href: maintenance-notifications.md
+        - name: 缓解推理执行
+          href: mitigate-se.md
         - name: 计划事件
           href: scheduled-events.md
         - name: 监视元数据
@@ -191,8 +192,6 @@
               href: create-upload-ubuntu.md
             - name: CentOS
               href: create-upload-centos.md
-            - name: Red Hat
-              href: redhat-create-upload-vhd.md
             - name: Debian
               href: debian-create-upload-vhd.md
             - name: SUSE

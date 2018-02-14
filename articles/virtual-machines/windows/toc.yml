@@ -58,6 +58,9 @@
       items:
         - name: 常规用途
           href: sizes-general.md
+          items:
+            - name: B 系列可突增
+              href: b-series-burstable.md
         - name: 计算优化
           href: sizes-compute.md
         - name: 内存优化

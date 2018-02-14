@@ -14,22 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/26/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1d415e36a5d5d27f16f3cab121abaf664ae93436
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 060f81d530403e8006b255aea5757186295fed8f
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="using-the-azure-custom-script-extension-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展
->[!NOTE]
-> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
-<!-- User Notification to update the endpoint-->
 
-自定义脚本扩展在 Azure 虚拟机上下载并执行脚本。 此扩展适用于部署后配置、软件安装或其他任何配置/管理任务。 可以从 Azure 存储或其他可访问的 Internet 位置下载脚本，或者将脚本提供给扩展运行时。 自定义脚本扩展与 Azure Resource Manager 模板集成，也可以使用 Azure CLI、PowerShell、Azure 门户或 Azure 虚拟机 REST API 来运行它。
+自定义脚本扩展在 Azure 虚拟机上下载并执行脚本。 此扩展适用于部署后配置、软件安装或其他任何配置/管理任务。 可以从 Azure 存储或其他可访问的 Internet 位置下载脚本，或者将脚本提供给扩展运行时。 自定义脚本扩展与 Azure Resource Manager 模板集成，也可以使用 Azure CLI、PowerShell、Azure 门户或 Azure 虚拟机 REST API 运行它。
 
-本文档详细说明如何从 Azure CLI 和 Azure Resource Manager 模板使用自定义脚本扩展，同时详细说明了 Linux 系统上的故障排除步骤。
+本文档详细说明如何从 Azure CLI 和 Azure 资源管理器模板使用自定义脚本扩展，同时详细说明了 Linux 系统上的故障排除步骤。
 
 ## <a name="extension-configuration"></a>扩展配置
 自定义脚本扩展配置指定脚本位置和要运行命令等设置。 此配置可以存储在配置文件中、在命令行中指定，或者在 Azure Resource Manager 模板中指定。 敏感数据可以存储在受保护的配置中，此配置经过加密，只能在虚拟机内部解密。 当执行命令包含机密（例如密码）时，受保护的配置相当有用。
@@ -84,7 +81,7 @@ az vm extension set '
   --vm-name exttest `
   --name customScript `
   --publisher Microsoft.Azure.Extensions `
-  --settings '{"fileUris": ["https://raw.githubusercontent.com/neilpeterson/test-extension/master/test.sh"],"commandToExecute": "./test.sh"}'
+  --settings '{"fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],"commandToExecute": "./config-music.sh"}'
 ```
 
 ### <a name="azure-cli-examples"></a>Azure CLI 示例
@@ -93,8 +90,8 @@ az vm extension set '
 
 ```json
 {
-  "fileUris": ["https://raw.githubusercontent.com/neilpeterson/test-extension/master/test.sh"],
-  "commandToExecute": "./test.sh"
+  "fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],
+  "commandToExecute": "./config-music.sh"
 }
 ```
 
@@ -206,7 +203,7 @@ az vm extension set --resource-group myResourceGroup --vm-name myVM --name custo
 }
 ```
 
-有关完整示例，请参阅“.Net Core 音乐应用商店演示”中的 [音乐应用商店演示](https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db)。
+有关完整示例，请参阅“.Net Core 音乐应用商店演示”中的 [音乐应用商店演示](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)。
 
 ## <a name="troubleshooting"></a>故障排除
 运行自定义脚本扩展时，会创建脚本，或将脚本下载到类似于以下示例的目录。 命令输出也会保存到此目录中的 `stdout` 和 `stderr` 文件中。

@@ -17,11 +17,11 @@ origin.date: 02/04/2016
 ms.date: 07/04/2016
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae289e2a7bab4310b8cd458ee27b36d84419e8fb
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.openlocfilehash: d6fd0cd22e96e0df8dd845872ab307458a2ad6be
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-network-security-groups-using-the-azure-portal"></a>使用 Azure 门户管理网络安全组
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/03/2017
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-以下示例 PowerShell 命令需要基于以上方案创建的简单环境。 要运行本文档中所显示的命令，请首先通过部署[此模板](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd)构建测试环境，单击“**部署至 Azure**”，根据需要替换默认参数值，然后按照门户中的说明进行操作。 下面的步骤使用 **RG-NSG** 作为模板部署到的资源组的名称。
+以下示例 PowerShell 命令需要基于以上方案创建的简单环境。 如果要运行本文档中所显示的命令，请首先通过部署[此模板](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd)构建测试环境，单击“**部署至 Azure**”，根据需要替换默认参数值，并按照门户中的说明进行操作。 下面的步骤使用 **RG-NSG** 作为模板部署到的资源组的名称。
 
 ## <a name="create-the-nsg-frontend-nsg"></a>创建 NSG-FrontEnd NSG
 若要如上述方案所示创建 **NSG-FrontEnd** NSG，请按照以下步骤进行操作。
@@ -54,7 +54,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="create-rules-in-an-existing-nsg"></a>在现有 NSG 中创建规则
 若要通过 Azure 门户在现有 NSG 中创建规则，请按照以下步骤进行操作。
 
-1. 单击“浏览” > “网络安全组”。
+1. 单击“**浏览**” > “**网络安全组**”。
 2. 在 NSG 列表中，单击“NSG-FrontEnd” > “入站安全规则”
 
     ![Azure 门户 - NSG-FrontEnd](./media/virtual-networks-create-nsg-arm-pportal/figure2.png)
@@ -94,4 +94,4 @@ ms.lasthandoff: 11/03/2017
 
 ## <a name="next-steps"></a>后续步骤
 * 了解如何[管理现有 NSG](virtual-network-manage-nsg-arm-portal.md)
-<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.-->
+<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) -->

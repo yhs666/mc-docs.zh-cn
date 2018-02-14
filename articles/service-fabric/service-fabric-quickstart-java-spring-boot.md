@@ -16,11 +16,11 @@ origin.date: 11/23/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4caf939211b36d32fd77dcb2b0c9d59a83eeba95
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 2f936bdcf5858dc034f63433d230324e1b0034df
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="deploy-a-spring-boot-application"></a>部署 Spring Boot 应用程序
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理微服务和容器。 
@@ -193,7 +193,7 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 > * 在不影响可用性的情况下执行服务故障转移
 
 * 详细了解如何[使用 Service Fabric 编程模型生成 Java 微服务](service-fabric-quickstart-java-reliable-services.md)
-* 了解如何[使用 Jenkins 设置连续集成和部署](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+<!-- Not Available on * Learn about [setting up your continuous integreation & deployment using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md) -->
 * 查看其他 [Java 示例](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!-- Update_Description: new articles on creating service fabric quickstart app with java spring boot -->

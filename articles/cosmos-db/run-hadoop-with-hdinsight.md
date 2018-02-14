@@ -16,11 +16,11 @@ origin.date: 06/08/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a9a04b41135c42a3b66eb769b6d9a2d7e35e0a5
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 02061cef8e5ff4712d1943f0bcd10d2c2ad61df8
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>使用 Azure Cosmos DB 和 HDInsight 运行 Apache Hive、Pig 或 Hadoop 作业
 本教程介绍了如何在 Azure HDInsight 上使用 Cosmos DB 的 Hadoop 连接器运行 [Apache Hive][apache-hive]、[Apache Pig][apache-pig] 和 [Apache Hadoop][apache-hadoop] MapReduce 作业。 Cosmos DB 的 Hadoop 连接器使 Cosmos DB 可以充当 Hive、Pig 以及 MapReduce 作业的源和接收器。 本教程将 Cosmos DB 用作 Hadoop 作业的数据源和目的地。
@@ -412,7 +412,7 @@ DNS 名称必须以字母数字字符开头和结尾，并且可以包含短划�
 [azure-portal]: https://portal.azure.cn/
 [azure-powershell-diagram]: ./media/run-hadoop-with-hdinsight/azurepowershell-diagram-med.png
 
-[hdinsight-samples]: http://portalcontent.blob.core.chinacloudapi.cn/samples/documentdb-hdinsight-samples.zip
+[hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [github]: https://github.com/Azure/azure-documentdb-hadoop
 [sql-api-java-application]: sql-api-java-application.md
 [import-data]: import-data.md

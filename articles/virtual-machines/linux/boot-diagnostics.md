@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 origin.date: 08/21/2017
-ms.date: 10/30/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: adc064472cc41140758007754534cfe144e96daa
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: b066dd1a1d9d8e712e63de62dc4182efeb7e4e91
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>如何使用启动诊断排查 Azure 中 Linux 虚拟机的故障
 

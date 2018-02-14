@@ -16,11 +16,11 @@ origin.date: 11/08/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c9c4d7d302be5499241016e899ae14779180a414
-ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
+ms.openlocfilehash: 4b558d96d957bdb2edb11e09ee5b74b3ca97ada8
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>使用 ASP.NET Core Web API 前端服务和有状态后端服务创建和部署应用程序
 本教程是一个系列中的第一部分。  其中介绍了如何使用 ASP.NET Core Web API 前端和有状态后端服务创建 Azure Service Fabric 应用程序以存储数据。 完成后，将生成一个投票应用程序，其中包含 ASP.NET Core Web 前端，用于将投票结果保存到群集的有状态后端服务中。 如果不想手动创建投票应用程序，可以[下载已完成应用程序的源代码](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)，跳到[大致了解投票示例应用程序](#walkthrough_anchor)。
@@ -455,8 +455,8 @@ namespace VotingData.Controllers
 
 在本教程中，我们将使用 [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md)。
 
-<a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
-
+<a name="updatevotecontroller"></a>
+<a name="updatevotecontroller_anchor"></a>
 ### <a name="update-the-votescontrollercs-file"></a>更新 VotesController.cs 文件
 在“VotingWeb”项目中，打开 Controllers/VotesController.cs 文件。  将 `VotesController` 类定义内容替换为以下内容，然后保存所做更改。
 
@@ -526,8 +526,8 @@ namespace VotingData.Controllers
         }
     }
 ```
-<a id="walkthrough" name="walkthrough_anchor"></a>
-
+<a name="walkthrough"></a>
+<a name="walkthrough_anchor"></a>
 ## <a name="walk-through-the-voting-sample-application"></a>大致了解投票示例应用程序
 投票应用程序由以下两个服务组成：
 - Web 前端服务 (VotingWeb) - ASP.NET Core Web 前端服务，可提供网页服务，并公开用于与后端服务进行通信的 Web API。

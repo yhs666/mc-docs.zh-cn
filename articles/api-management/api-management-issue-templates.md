@@ -1,9 +1,9 @@
 ---
-title: "Azure API 管理中的问题模板 | Azure"
+title: "Azure API 管理中的问题模板"
 description: "了解如何使用 Azure API 管理自定义开发人员门户中问题页面的内容。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 47da4bb2-426e-4e53-8fa7-214ee2e3ab37
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 2481ccff1dff2b2248507013e024217024a7bb6c
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 63d55c1cac6fb59817eb8312702d0a1e06c81eba
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Azure API 管理中的问题模板
 通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  

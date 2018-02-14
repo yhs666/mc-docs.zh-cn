@@ -16,17 +16,17 @@ ms.topic: article
 origin.date: 10/10/2016
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 79c5b823e281c4d2f16dcd4444933790b86e89a2
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: a9716d2f74e26e60b6e07fc3222cda1f98e0dc0a
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 上传自定义磁盘映像并从其创建 Linux VM
 本文说明如何使用 Resource Manager 部署模型将虚拟硬盘 (VHD) 上传到 Azure，并从此自定义映像创建 Linux VM。 此功能可让用户安装并配置 Linux 分发以满足用户的需求，并使用该 VHD 快速创建 Azure 虚拟机 (VM)。
 
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
-可使用以下 CLI 版本之一完成任务：
+可以使用以下 CLI 版本之一完成任务：
 
 - [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
 - [Azure CLI 2.0](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
@@ -42,13 +42,13 @@ azure config mode arm
 
 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 `myResourceGroup`、`mystorageaccount` 和 `myimages`。
 
-首先创建一个资源组。 以下示例在 `WestUs` 位置创建一个名为 `myResourceGroup` 的资源组：
+首先创建一个资源组。 以下示例在 `WestUs` 位置创建名为 `myResourceGroup` 的资源组：
 
 ```azurecli
 azure group create myResourceGroup --location "ChinaNorth"
 ```
 
-创建一个用于存放虚拟磁盘的存储帐户。 以下示例创建一个名为 `mystorageaccount`的存储帐户：
+创建一个用于存放虚拟磁盘的存储帐户。 以下示例创建名为 `mystorageaccount`的存储帐户：
 
 ```azurecli
 azure storage account create mystorageaccount --resource-group myResourceGroup \
@@ -68,14 +68,14 @@ azure storage container create --account-name mystorageaccount \
     --account-key key1 --container myimages
 ```
 
-最后，将 VHD 上传到创建的容器。 在 `/path/to/disk/mydisk.vhd`下指定 VHD 的本地路径：
+最后，将 VHD 上传到创建的容器。 在 `/path/to/disk/mydisk.vhd` 下指定 VHD 的本地路径：
 
 ```azurecli
 azure storage blob upload --blobtype page --account-name mystorageaccount \
     --account-key key1 --container myimages /path/to/disk/mydisk.vhd
 ```
 
-现在，可以[使用 Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd)从上传的虚拟磁盘创建 VM。 也可以使用 CLI 指定磁盘的 URI (`--image-urn`)。 以下示例使用前面上传的虚拟磁盘创建名为 `myVM` 的 VM：
+现在，可以[使用 Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd)从上传的虚拟磁盘创建 VM。 也可以使用 CLI 指定磁盘的 URI (`--image-urn`)。 以下示例使用前面上载的虚拟磁盘创建名为 `myVM` 的 VM：
 
 ```azurecli
 azure vm create myVM -l "ChinaNorth" --resource-group myResourceGroup \
@@ -116,7 +116,7 @@ Azure 支持各种 Linux 分发（请参阅[认可的分发](endorsed-distros.md
 * **[基于 CentOS 的分发版](create-upload-centos.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
+<!-- Not Avaiable on * **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)** -->
 * **[SLES 和 openSUSE](suse-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[其他 - 非认可分发](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -169,7 +169,7 @@ info:    storage account keys list command OK
 记下 `key1` ，因为你会在后续步骤中使用它与存储帐户进行交互。
 
 ## <a name="create-a-storage-container"></a>创建存储容器
-就像你创建各种目录以便通过逻辑方式整理本地文件系统一样，可以在存储帐户内创建容器来整理虚拟磁盘和映像。 一个存储帐户可以包含任意数目的容器。 
+在存储帐户内创建容器以整理虚拟磁盘和映像，其方式与创建各种目录以便通过逻辑方式整理本地文件系统相同。 一个存储帐户可以包含任意数目的容器。 
 
 以下示例创建一个名为 `myimages` 的容器，并指定了上一步骤中获取的访问密钥 (`key1`) ：
 

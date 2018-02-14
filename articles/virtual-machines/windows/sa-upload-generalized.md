@@ -3,7 +3,7 @@ title: "上传通用化 VHD 以在 Azure 中创建多个 VM | Azure"
 description: "将通用化 VHD 上传到 Azure 存储帐户，创建要用于资源管理器部署模型的 Windows VM。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 6eb5c44dd173ec3b23eb8ab0e6b5408b8da6801a
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 02/05/2018
+ms.author: v-yeche
+ROBOTS: NOINDEX
+ms.openlocfilehash: d3aceb4283132bbf4e10dad77ef6a737d1c82099
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>将通用化 VHD 上传到 Azure 以创建新 VM
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="prepare-the-vm"></a>准备 VM
 
-通用 VHD 已使用 Sysprep 删除了所有个人帐户信息。 如果想要使用 VHD 作为映像来创建新的 VM，应该：
+通用 VHD 已使用 Sysprep 删除了所有个人帐户信息。 如果打算使用 VHD 作为映像来创建新 VM，应该：
 
   * [准备好要上传到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md)。 
   * 使用 Sysprep 将虚拟机通用化
@@ -54,13 +55,14 @@ ms.lasthandoff: 08/29/2017
 5. 单击 **“确定”**。
 
     ![启动 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Sysprep 在完成运行后会关闭虚拟机。 
+6. 在 Sysprep 完成时，它会关闭虚拟机。 
 
 > [!IMPORTANT]
 > 将 VHD 上传到 Azure 或从 VM 创建映像完成之前不要重启 VM。 如果 VM 意外重启，请运行 Sysprep 将其再次通用化。
 > 
 > 
 
+<a name="upload-the-vm-vhd-to-your-storage-account"></a>
 ## <a name="upload-the-vhd"></a>上传 VHD
 
 将 VHD 上传到 Azure 存储帐户。
@@ -85,7 +87,7 @@ ms.lasthandoff: 08/29/2017
     ```
 
 ### <a name="get-the-storage-account"></a>获取存储帐户
-需要在 Azure 中创建存储帐户来存储上传的 VM 映像。 可以使用现有存储帐户，也可以创建新存储帐户。 
+需要在 Azure 中创建一个存储帐户用于存储上传的 VM 映像。 可以使用现有存储帐户，也可以创建新存储帐户。 
 
 显示可用的存储帐户，请键入：
 
@@ -95,7 +97,7 @@ Get-AzureRmStorageAccount
 
 如果要使用现有存储帐户，请转到 [上传 VM 映像](#upload-the-vm-vhd-to-your-storage-account) 部分。
 
-若要创建存储帐户，请执行以下步骤：
+如果需要创建存储帐户，请执行以下步骤：
 
 1. 需要应在其中创建存储帐户的资源组的名称。 若要查找订阅中的所有资源组，请键入：
 
@@ -282,3 +284,5 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 
 ## <a name="next-steps"></a>后续步骤
 若要使用 Azure PowerShell 管理新虚拟机，请参阅[使用 Azure Resource Manager 与 PowerShell 来管理虚拟机](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+
+<!-- Update_Description: update meta properties -->

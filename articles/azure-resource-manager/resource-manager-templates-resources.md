@@ -14,11 +14,11 @@ ms.workload: na
 origin.date: 12/13/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: a5b579fdd1beb3ff25f56629568064d668455f07
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: e0ba5d74acdacb6efd01f64c6997ea04bca523f8
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure 资源管理器模板的 Resources 节
 
@@ -342,7 +342,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
      有关连接到虚拟机的详细信息，请参阅：
 
-   * [在 Azure 中运行用于 N 层体系结构的 VM](../guidance/guidance-compute-n-tier-vm.md)
+<!-- Not Available on [Run VMs for an N-tier architecture in Azure](../guidance/guidance-compute-n-tier-vm.md) -->
    * [在 Azure Resource Manager 中设置对 VM 的 WinRM 访问](../virtual-machines/windows/winrm.md)
    * [使用 Azure 门户实现对 VM 的外部访问](../virtual-machines/windows/nsg-quickstart-portal.md)
    * [使用 PowerShell 实现对 VM 的外部访问](../virtual-machines/windows/nsg-quickstart-powershell.md)
@@ -393,6 +393,6 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 * 有关用户可以使用的来自模板中的函数的详细信息，请参阅 [Azure Resource Manager Template Functions](resource-group-template-functions.md)（Azure Resource Manager 模板函数）。
 * 要在部署期间合并多个模板，请参阅[将已链接的模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)。
 * 可能需要使用不同资源组中的资源。 使用跨多个资源组共享的存储帐户或虚拟网络时，此方案很常见。 有关详细信息，请参阅 [resourceId 函数](resource-group-template-functions-resource.md#resourceid)。
-* 有关资源名称限制的信息，请参阅 [Azure 资源的建议命名约定](../guidance/guidance-naming-conventions.md)。
+<!--Not Available on [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md) -->
 
 <!-- Update_Description: new articles on resource manager templates resources -->

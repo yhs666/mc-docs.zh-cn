@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 11/14/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: e249bb082cbc9ea80c3cb68e8b2cbb240c4985c1
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 22af291f77dd4e4351106099838c5b558053b9e8
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概述
 应用程序的基础结构通常由许多组件构成：可能有虚拟机、存储帐户和虚拟网络，或 Web 应用、数据库、数据库服务器和第三方服务。 这些组件不会以独立的实体出现，而是以单个实体的相关部件和依赖部件出现。 如果希望以组的方式部署、管理和监视这些这些组件， 那么，可以使用 Azure 资源管理器以组的方式处理解决方案中的资源。 可以通过一个协调的操作为解决方案部署、更新或删除所有资源。 可以使用一个模板来完成部署，该模板适用于不同的环境，例如测试、过渡和生产。 资源管理器提供安全、审核和标记功能，以帮助你在部署后管理资源。 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/24/2017
 如果不熟悉 Azure 资源管理器，则可能不熟悉某些术语。
 
 * **资源** - 可通过 Azure 获取的可管理项。 部分常见资源包括虚拟机、存储帐户、Web 应用、数据库和虚拟网络，但这只是其中一小部分。
-* **资源组** - 一个容器，用于保存 Azure 解决方案的相关资源。 资源组可以包含解决方案的所有资源，也可以只包含想要作为组来管理的资源。 根据对组织有利的原则，决定如何将资源分配到资源组。 请参阅 [资源组](#resource-groups)。
+* **资源组** - 一个容器，用于保存 Azure 解决方案的相关资源。 资源组可以包含解决方案的所有资源，也可以只包含以组的形式进行管理的资源。 根据对组织有利的原则，决定如何将资源分配到资源组。 请参阅 [资源组](#resource-groups)。
 * **资源提供程序** — 一种服务，提供可以通过 Resource Manager 进行部署和管理的资源。 每个资源提供程序提供用于处理所部署资源的操作。 部分常见资源提供程序包括 Microsoft.Compute（提供虚拟机资源）、Microsoft.Storage（提供存储帐户资源）和 Microsoft.Web（提供与 Web 应用相关的资源）。 请参阅 [资源提供程序](#resource-providers)。
 * **Resource Manager 模板** — 一个 JavaScript 对象表示法 (JSON) 文件，用于定义一个或多个要部署到资源组的资源。 它也会定义所部署资源之间的依赖关系。 使用模板能够以一致方式反复部署资源。 请参阅 [模板部署](#template-deployment)。
 * 
@@ -40,7 +40,7 @@ Resource Manager 提供多种优势：
 * 可以以组的形式部署、管理和监视解决方案的所有资源，而不是单独处理这些资源。
 * 可以在整个开发生命周期内重复部署解决方案，并确保以一致的状态部署资源。
 * 可以通过声明性模板而非脚本来管理基础结构。
-* 可以定义各资源之间的依赖关系，使其按正确的顺序进行部署。
+* 可以定义各资源之间的依赖关系，以便按正确的顺序进行部署。
 * 可以将访问控制应用到资源组中的所有服务，因为基于角色的访问控制 (RBAC) 已在本机集成到管理平台。
 * 可以将标记应用到资源，以逻辑方式组织订阅中的所有资源。
 * 可以通过查看一组共享相同标记的资源的成本来明确组织的帐单。  
@@ -87,11 +87,11 @@ Resource Manager 针对通过 Azure PowerShell、Azure CLI、Azure 门户、REST
 开始部署资源之前，应了解可用的资源提供程序。 了解资源提供程序和资源的名称可帮助定义想要部署到 Azure 的资源。 此外，还需要知道每种资源类型的有效位置和 API 版本。 有关详细信息，请参阅[资源提供程序和类型](resource-manager-supported-services.md)。
 
 ## <a name="template-deployment"></a> 模板部署
-使用 Resource Manager 可以创建一个模板（采用 JSON 格式），用于定义 Azure 解决方案的基础结构和配置。 使用模板可以在解决方案的整个生命周期内重复部署该解决方案，确保以一致的状态部署资源。 从门户创建解决方案时，该解决方案会自动包含部署模板。 无需从头开始创建模板，因为可以从解决方案的模板着手，并根据特定需求自定义该模板。 可以通过导出资源组的当前状态或查看特定部署所用的模板，来检索现有资源组的模板。 查看[导出的模板](resource-manager-export-template.md)是了解模板语法的有用方法。
+使用 Resource Manager 可以创建一个模板（采用 JSON 格式），用于定义 Azure 解决方案的基础结构和配置。 使用模板，可以在解决方案的整个生命周期内重复部署该解决方案，确保以一致的状态部署资源。 从门户创建解决方案时，该解决方案会自动包含部署模板。 无需从头开始创建模板，因为可以从解决方案的模板着手，并根据特定需求自定义该模板。 可以通过导出资源组的当前状态或查看特定部署所用的模板，来检索现有资源组的模板。 查看[导出的模板](resource-manager-export-template.md)是了解模板语法的有用方法。
 
-若要了解模板的格式及其构造方法，请参阅[创建第一个 Azure 资源管理器模板](resource-manager-create-first-template.md)。 若要查看资源类型的 JSON 语法，请参阅[定义 Azure 资源管理器模板中的资源](https://docs.microsoft.com/en-us/azure/templates/)。
+若要了解模板的格式及其构造方法，请参阅[创建第一个 Azure 资源管理器模板](resource-manager-create-first-template.md)。 若要查看资源类型的 JSON 语法，请参阅[定义 Azure Resource Manager 模板中的资源](https://docs.microsoft.com/en-us/azure/templates/)。
 
-Resource Manager 像处理其他任何请求一样处理模板（请参阅[一致的管理层](#consistent-management-layer)图像）。 它解析模板，并将其语法转换为相应资源提供程序的 REST API 操作。 例如，当 Resource Manager 收到具有以下资源定义的模板时：
+Resource Manager 像处理其他任何请求一样处理模板（请参阅[一致的管理层](#consistent-management-layer)图像）。 它会分析模板，并将其语法转换为相应资源提供程序所需的 REST API 操作。 例如，当 Resource Manager 收到具有以下资源定义的模板时：
 
 ```json
 "resources": [
@@ -110,7 +110,7 @@ Resource Manager 像处理其他任何请求一样处理模板（请参阅[一�
 ]
 ```
 
-它将定义转换为以下 REST API 操作，后者将发送到 Microsoft.Storage 资源提供程序：
+它会将该定义转换为以下 REST API 操作，然后，该操作将发送到 Microsoft.Storage 资源提供程序：
 
 ```HTTP
 PUT
@@ -135,19 +135,19 @@ REQUEST BODY
 
 ![嵌套层模板](./media/resource-group-overview/nested-tiers-template.png)
 
-要各层具有单独的生命周期，可将三个层部署到单独的资源组。 请注意，资源仍可链接到其他资源组中的资源。
+如果希望层具有不同的生命周期，可将这三个层部署到不同的资源组。 请注意，资源仍可链接到其他资源组中的资源。
 
 ![层模板](./media/resource-group-overview/tier-templates.png)
 
-有关设计模板的更多建议，请参阅 [设计 Azure Resource Manager 模板的最佳实践](best-practices-resource-manager-design-templates.md)。 有关嵌套模板的信息，请参阅[将链接的模板用于 Azure 资源管理器](resource-group-linked-templates.md)。
+有关设计模板的更多建议，请参阅 [设计 Azure Resource Manager 模板的最佳实践](best-practices-resource-manager-design-templates.md)。 有关嵌套模板的信息，请参阅[将链接模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)。
 
-Azure 资源管理器会分析依赖关系，以确保按正确的顺序创建资源。 如果一个资源依赖于另一个资源（例如虚拟机需要存储帐户才能访问磁盘）中的值，请设置依赖关系。 有关详细信息，请参阅[在 Azure Resource Manager 模板中定义依赖关系](resource-group-define-dependencies.md)。
+Azure Resource Manager 会分析依赖关系，以确保按正确的顺序创建资源。 如果一个资源依赖于另一个资源（例如虚拟机需要存储帐户才能访问磁盘）中的值，请设置依赖关系。 有关详细信息，请参阅[在 Azure Resource Manager 模板中定义依赖关系](resource-group-define-dependencies.md)。
 
-还可以使用模板对基础结构进行更新。 例如，可以将新的资源添加到应用程序，并为已部署的资源添加配置规则。 如果模板指定要创建资源，但该资源已存在，则 Azure 资源管理器将执行更新而不是创建新资产。 Azure 资源管理器会将现有资产更新到相同状态，就如同该资产是新建的一样。  
+还可以使用模板对基础结构进行更新。 例如，可以将新的资源添加到应用程序，并为已部署的资源添加配置规则。 如果模板指定要创建资源，但该资源已存在，则 Azure Resource Manager 会执行更新而不是创建新资产。 Azure Resource Manager 会将现有资产更新到相同状态，就如同该资产是新建的一样。  
 
 如果需要其他操作（例如，安装未包含在安装程序中的特定软件）时，Resource Manager 可提供所需的扩展。 如果已在使用配置管理服务（如 DSC、Chef 或 Puppet），则可以使用扩展来继续处理该服务。 有关虚拟机扩展的信息，请参阅[关于虚拟机扩展和功能](../virtual-machines/windows/extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
 
-最后，该模板将成为应用程序源代码的一部分。 可以将它签入源代码存储库，并随着应用程序的发展更新该模板。 可以通过 Visual Studio 编辑模板。
+最后，该模板成为应用程序源代码的一部分。 可以将它签入源代码存储库，并随着应用程序的发展更新该模板。 可以通过 Visual Studio 编辑模板。
 
 定义模板后，即可将资源部署到 Azure。 有关部署资源的命令，请参阅：
 
@@ -157,7 +157,7 @@ Azure 资源管理器会分析依赖关系，以确保按正确的顺序创建�
 * [使用 Resource Manager 模板和 Resource Manager REST API 部署资源](resource-group-template-deploy-rest.md)
 
 ## <a name="tags"></a>标记
-资源管理器提供了标记功能，可根据管理或计费要求为资源分类。 如果有一系列复杂的资源组和资源，并想要以最有利的方式可视化这些资产，则可以使用标记。 例如，可以标记组织中充当类似角色或者属于同一部门的资源。 如果不使用标记，组织中的用户可以创建多个资源，这可能会使将来的标识和管理变得十分困难。 例如，你可能想要删除某个特定项目的所有资源。 如果这些资源没有针对项目进行标记，则必须手动查找它们。 标记是降低不必要的订阅成本的重要方法。 
+资源管理器提供了标记功能，可根据管理或计费要求为资源分类。 如果有一系列复杂的资源组和资源，并想要以最有利的方式可视化这些资产，则可以使用标记。 例如，可以标记组织中充当类似角色或者属于同一部门的资源。 如果不使用标记，组织中的用户可以创建多个资源，这可能会使将来的标识和管理变得困难。 例如，你可能想要删除某个特定项目的所有资源。 如果这些资源没有针对项目进行标记，则必须手动查找它们。 标记是降低不必要的订阅成本的重要方法。 
 
 资源不需要驻留在同一个资源组中就能共享一个标记。 可以创建自己的标记分类，以确保组织中的所有用户使用公用的标记，避免用户无意中应用稍有不同的标记（如“dept”而不是“department”）。
 
@@ -200,10 +200,10 @@ az resource list --tag costCenter=Finance
 
 使用基于角色的访问控制时，必须了解两个主要概念：
 
-* 角色定义 - 说明一组权限，可用于许多分配。
+* 角色定义 - 描述一组权限，可以在多个分配中使用。
 * 角色分配 - 将具有某标识（用户或组）的定义与特定作用域（订阅、资源组或资源）相关联。 下级作用域将继承分配。
 
-可将用户添加到预定义的平台和特定于资源的角色。 例如，可以使用名为“读取者”的预定义角色来允许用户查看资源，但不允许更改资源。 为此，可将组织中需要此类访问权限的用户添加到“读者”角色，并将该角色应用到订阅、资源组或资源。
+可以将用户添加到预定义的平台和资源特定角色。 例如，可以使用名为“读取者”的预定义角色来允许用户查看资源，但不允许更改资源。 为此，可将组织中需要此类访问权限的用户添加到“读取者”角色，并将该角色应用到订阅、资源组或资源。
 
 Azure 提供以下四种平台角色：
 
@@ -272,7 +272,7 @@ Azure SDK 适用于多种语言和平台。 每种语言实现可通过其生态
 
 * [面向 .NET 开发人员的 Azure](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet)
 * [面向 Java 开发人员的 Azure](https://docs.azure.cn/java/)
-* [面向 Node.js 开发人员的 Azure](/nodejs/azure/)
+* [面向 Node.js 开发人员的 Azure](https://docs.microsoft.com/javascript/azure/)
 * [面向 Python 开发人员的 Azure](https://docs.microsoft.com/python/azure/)
 
 > [!NOTE]

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: cbd1df67cf4444105a5df1aaa4e802880fac3c55
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: fb33d56b7c2a21b603c10f75285f2d68268a4c9b
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Azure 网络观察程序中的可变数据包捕获简介
 
@@ -28,7 +28,8 @@ ms.lasthandoff: 11/14/2017
 数据包捕获是通过网络观察程序远程启动的虚拟机扩展。 此功能可减轻手动在所需虚拟机上运行数据包捕获的负担，从而可节省宝贵的时间。 可以通过门户、PowerShell、CLI 或 REST API 触发数据包捕获。 触发数据包捕获方式的一个示例是使用虚拟机警报。 为捕获会话提供了筛选器以确保捕获要监视的流量。 筛选器基于 5 元组（协议、本地 IP 地址、远程 IP 地址、本地端口和远程端口）信息。 捕获的数据存储在本地磁盘或存储 blob 中。 每个区域每个订阅限制为 10 个数据包捕获会话。 此限制仅适用于会话，不适用于本地 VM 或存储帐户中已保存的数据包捕获文件。
 
 > [!IMPORTANT]
-> 数据包捕获需要虚拟机扩展 `AzureNetworkWatcherExtension`。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md)。
+> 数据包捕获需要虚拟机扩展 `AzureNetworkWatcherExtension`。 
+<!-- Wait for [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md) -->
 
 要将捕获的信息减少到仅为所需的信息，可以将以下选项用于数据包捕获会话：
 
@@ -53,8 +54,7 @@ ms.lasthandoff: 11/14/2017
 ### <a name="next-steps"></a>后续步骤
 
 通过访问[在 Azure 门户中管理数据包捕获](network-watcher-packet-capture-manage-portal.md)，了解如何通过门户管理数据包捕获，或者通过访问[使用 PowerShell 管理数据包捕获](network-watcher-packet-capture-manage-powershell.md)，了解如何使用 PowerShell 管理数据包捕获。
-
-通过访问[创建警报触发的数据包捕获](network-watcher-alert-triggered-packet-capture.md)，了解如何基于虚拟机警报创建主动数据包捕获
+<!--Not Available on [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 
 <!--Image references-->
 [1]: ./media/network-watcher-packet-capture-overview/figure1.png

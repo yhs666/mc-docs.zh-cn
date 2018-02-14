@@ -17,11 +17,11 @@ origin.date: 07/14/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.custom: mvc
-ms.openlocfilehash: 03baed922b8c9c9d4fd43243c3a9c2c246d286b4
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 462a3de87738df01682fa510205e0b5f1750be19
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>在 Azure 中的 Windows 虚拟机上使用 SSL 证书保护 IIS Web 服务器
 若要保护 Web 服务器，可以使用安全套接字层 (SSL) 证书来加密 Web 流量。 这些 SSL 证书可存储在 Azure Key Vault 中，并可安全部署到 Azure 中的 Windows 虚拟机 (VM)。 本教程介绍如何执行下列操作：
@@ -32,7 +32,7 @@ ms.lasthandoff: 08/25/2017
 > * 创建 VM 并安装 IIS Web 服务器
 > * 将证书注入 VM 并使用 SSL 绑定配置 IIS
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
+本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 ` Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
 
 
 ## <a name="overview"></a>概述
@@ -207,7 +207,8 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 
 
 ### <a name="test-the-secure-web-app"></a>测试 Web 应用是否安全
-使用 [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress) 获取 VM 的公共 IP 地址。 以下示例获取前面创建的 `myPublicIP` 的 IP 地址：
+使用 [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.network/get-azurermpublicipaddress) 获取 VM 的公共 IP 地址。 以下示例获取前面创建的 `myPublicIP` 的 IP 地址：
+<!-- URL is CORRECT on https://docs.microsoft.com/zh-cn/powershell/module/azurerm.network/get-azurermpublicipaddress -->
 
 ```powershell
 Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIP" | select "IpAddress"

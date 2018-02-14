@@ -37,6 +37,8 @@
           href: monitoring-overview-autoscale.md
         - name: 活动日志
           href: monitoring-overview-activity-logs.md
+        - name: 操作组
+          href: monitoring-action-groups.md
         - name: 诊断日志
           href: monitoring-overview-of-diagnostic-logs.md
         - name: Azure 诊断扩展
@@ -82,6 +84,8 @@
           href: monitoring-enable-alerts-using-template.md
     - name: 使用自动缩放
       items:
+        - name: 了解自动缩放设置
+          href: monitoring-understanding-autoscale-settings.md
         - name: 最佳实践
           href: insights-autoscale-best-practices.md
         - name: 常见指标
@@ -150,7 +154,11 @@
           href: azure-diagnostics-troubleshooting.md
     - name: 在指标资源管理器中创建指标图表
       href: monitoring-metric-charts.md
-- name: 引用
+    - name: 向 Grafana 发送指标
+      href: monitor-send-to-grafana.md
+    - name: 将监视数据发送到事件中心
+      href: monitor-stream-monitoring-data-event-hubs.md
+- name: 参考
   items:
     - name: Azure CLI
       href: 'https://docs.azure.cn/zh-cn/cli/monitor?view=azure-cli-latest'

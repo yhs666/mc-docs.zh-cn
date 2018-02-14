@@ -16,11 +16,11 @@ ms.workload: na
 origin.date: 11/01/2017
 ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 557f0e663c33aa5bf54030f89daca800d3b44424
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 90d3f39b5de363071c79384ba5816159ee627369
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 教程
 
@@ -51,7 +51,8 @@ ms.lasthandoff: 12/08/2017
 ## <a name="prerequisites"></a>先决条件  
 要完成本教程，需要：  
 
--   要将模型部署到的 Azure Analysis Services 或 SQL Server 2017 Analysis Services 实例。 注册免费的 [Azure Analysis Services 试用版](https://www.azure.cn/home/features/analysis-services/)并[创建服务器](../analysis-services-create-server.md)。 或者，注册并下载 [SQL Server 2017 社区技术预览版](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp)。 
+-   要将模型部署到的 Azure Analysis Services 或 SQL Server 2017 Analysis Services 实例。 注册免费的 [Azure Analysis Services 试用版](https://www.azure.cn/home/features/analysis-services/)并[创建服务器](../analysis-services-create-server.md)。 
+<!-- Not Available on [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp) -->
 
 -   包含 [AdventureWorksDW2014 示例数据库](http://go.microsoft.com/fwlink/?LinkID=335807)的 SQL Server 数据仓库或 Azure SQL 数据仓库。 此示例数据库包含完成本教程所需的数据。 下载 [SQL Server 免费版](https://www.microsoft.com/sql-server/sql-server-downloads)。 或则，注册免费的 [Azure SQL 数据库试用版](https://www.azure.cn/home/features/sql-database/)。 
 

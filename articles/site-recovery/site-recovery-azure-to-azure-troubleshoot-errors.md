@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 11/21/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 186c4ed2d5d0c3e7e1a1946938cd835ff489513c
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 388c03619fd6e701c81a15407d57d2022af2746c
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 到 Azure VM 复制问题故障排除
 
@@ -30,10 +30,11 @@ ms.lasthandoff: 12/29/2017
 
 错误代码 | **可能的原因** | 建议
 --- | --- | ---
-150097<br></br>消息：无法为虚拟机 VmName 启用复制。 | - 可能未启用订阅 ID，无法在目标区域位置中创建任何 VM。</br></br>- 可能未启用订阅 ID 或没有足够的配额，无法在目标区域位置中创建特定大小的 VM。</br></br>- 对于订阅 ID，在目标区域位置中找不到与源 VM NIC 计数 (2) 匹配的合适的目标 VM 大小。| 联系 [Azure 计费支持](/azure-supportability/resource-manager-core-quotas-request)，对订阅启用 VM 创建，以便在目标位置中创建所需大小的 VM。 启用后，重试失败的操作。
+150097<br></br>消息：无法为虚拟机 VmName 启用复制。 | - 可能未启用订阅 ID，无法在目标区域位置中创建任何 VM。</br></br>- 可能未启用订阅 ID 或没有足够的配额，无法在目标区域位置中创建特定大小的 VM。</br></br>- 对于订阅 ID，在目标区域位置中找不到与源 VM NIC 计数 (2) 匹配的合适的目标 VM 大小。| 联系 [Azure 计费支持](https://support.windowsazure.cn/support/support-azure)，对订阅启用 VM 创建，以便在目标位置中创建所需大小的 VM。 启用后，重试失败的操作。
 
 ### <a name="fix-the-problem"></a>解决问题
-可联系 [Azure 计费支持](/azure-supportability/resource-manager-core-quotas-request)启用订阅，以便在目标位置中创建所需大小的 VM。
+可联系 [Azure 计费支持](https://support.windowsazure.cn/support/support-azure)启用订阅，以便在目标位置中创建所需大小的 VM。
+<!-- SHOUD BE https://support.windowsazure.cn/support/support-azure FOR /azure-supportability/resource-manager-core-quotas-request -->
 
 如果目标位置存在容量约束，可禁用复制然后在订阅拥有充足配额的其他位置启用复制，以便创建所需大小的 VM.
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 12/29/2017
 
 如果 VM 上不存在任何最新的受信任根证书，则“启用复制”作业可能会失败。 没有证书，VM 发出的 Site Recovery 服务调用的身份验证和授权会失败。 将显示失败的“启用复制”Site Recovery 作业的错误消息：
 
-错误代码 | 可能的原因 | 建议
+错误代码 | 可能的原因 | **建议**
 --- | --- | ---
 151066<br></br>消息：Site Recovery 配置失败。 | 计算机上不存在用于授权和身份验证的必需受信根证书。 | - 对于运行 Windows 操作系统的 VM，请确保计算机上存在受信任的根证书。 有关信息，请参阅[配置受信任根和不允许的证书](https://technet.microsoft.com/library/dn265983.aspx)。<br></br>- 对于运行 Linux 操作系统的 VM，请按照 Linux 操作系统版本分发商发布的受信任的根证书指南进行操作。
 

@@ -22,7 +22,7 @@
 <!-- Not Available on ### [2- Monitor your container](service-fabric-tutorial-monitoring-wincontainers.md)-->
 
 ## 创建 Linux 容器应用
-### [1- 创建容器映像](service-fabric-tutorial-create-container-images.md)
+<!--Not Available ### [1- Create container images](service-fabric-tutorial-create-container-images.md) -->
 ### [2 - 打包和部署容器](service-fabric-tutorial-package-containers.md)
 ### [3 - 故障转移和缩放](service-fabric-tutorial-containers-failover.md)
 
@@ -263,7 +263,7 @@
 
 ### 设置持续集成
 #### [使用 VSTS 设置持续集成](service-fabric-set-up-continuous-integration.md)
-#### [使用 Jenkins 部署 Linux 应用程序](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+<!-- Not Available on #### [Deploy your Linux applications using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md) -->
 
 ## 创建和管理群集
 ### Azure 上的群集
@@ -317,7 +317,8 @@
 ### [sfctl rpm](service-fabric-sfctl-rpm.md)
 ### [sfctl service](service-fabric-sfctl-service.md)
 ### [sfctl store](service-fabric-sfctl-store.md)
-## [Java API](https://docs.azure.cn/java/api/overview/azure/servicefabric)
+## [Java API](https://docs.azure.cn/java/api/overview/servicefabric)
+<!-- URL is correct on java/api/overview/  without azure/ -->
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](https://docs.microsoft.com/rest/api/servicefabric)
 ## [服务模型 XML 架构](service-fabric-service-model-schema.md)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/23/2017
 ms.author: v-johch
-ms.openlocfilehash: 4ef7d4648df675330fb83413483cc2e17e633ee0
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 3af9738b52f592f603ad656978f98d63eff60266
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>使用 Azure PowerShell 将对象转移到 Azure Blob 存储或从中转移对象
 

@@ -14,17 +14,18 @@ ms.workload: infrastructure-services
 origin.date: 07/25/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 410fee590ccf78f57505dc9dc1612f64a4440052
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 5378745412ca749a676c716f671b0d8ec01355e5
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="read-nsg-flow-logs"></a>读取 NSG 流日志
 
 了解如何使用 PowerShell 读取 NSG 流日志条目。
 
-NSG 流日志存储于[块 blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs) 中的存储帐户中。 块 blob 由一些更小的块组成。 每个日志是每个一小时生成的单独块 blob。 每隔一小时会生成新的日志，每隔几分钟会以包含最新数据的新条目来更新日志。 本文介绍如何读取部分流日志。
+NSG 流日志存储于[块 blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 中的存储帐户中。 块 blob 由一些更小的块组成。 每个日志是每个一小时生成的单独块 blob。 每隔一小时会生成新的日志，每隔几分钟会以包含最新数据的新条目来更新日志。 本文介绍如何读取部分流日志。
+<!-- Remove .md IN understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs-->
 
 ## <a name="scenario"></a>方案
 

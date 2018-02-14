@@ -1,10 +1,10 @@
 ---
-title: "引用 Azure 规模集模板中的自定义映像 | Azure"
-description: "如何将自定义映像添加到现有 Azure 虚拟机规模集模板"
+title: "在 Azure 规模集模板中引用自定义映像 | Microsoft Docs"
+description: "了解如何向现有 Azure 虚拟机规模集模板添加自定义映像"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,27 +14,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/10/2017
-ms.date: 06/20/2017
-ms.author: v-dazen
-ms.openlocfilehash: da58f665f63ccef96ab3c752c9c0f72e625117e9
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 01/31/2018
+ms.author: v-junlch
+ms.openlocfilehash: dc443392d7e36eda4eb92b176ece2ba942f2e539
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>将自定义映像添加到 Azure 规模集模板
+# <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>向 Azure 规模集模板添加自定义映像
 
 本文介绍了如何修改[最小可行规模集模板](./virtual-machine-scale-sets-mvss-start.md)，以便通过自定义映像进行部署。
 
 ## <a name="change-the-template-definition"></a>更改模板定义
 
-可以在[此处](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)查看最小可行规模集模板，在[此处](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json)查看用于通过自定义映像部署规模集的模板。 让我们逐一查看创建此模板 (`git diff minimum-viable-scale-set custom-image`) 时使用的差异内容：
+可在[此处](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)查看最小可行规模集模板，可在[此处](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json)查看用于从自定义映像部署规模集的模板。 让我们逐一查看创建此模板 (`git diff minimum-viable-scale-set custom-image`) 时使用的差异内容：
 
 ### <a name="creating-a-managed-disk-image"></a>创建托管磁盘映像
 
 如果已有自定义的托管磁盘映像（`Microsoft.Compute/images` 类型的资源），则可以跳过此部分。
 
-首先，添加 `sourceImageVhdUri` 参数，即 Azure 存储中通用 blob 的 URI，Azure 存储包含用于部署的自定义映像。
+首先添加 `sourceImageVhdUri` 参数，它是 Azure 存储中通用 Blob 的 URI，包含要从其部署的自定义映像。
+
 
 ```diff
      },
@@ -51,7 +52,7 @@ ms.lasthandoff: 06/23/2017
    "variables": {},
 ```
 
-接下来，添加 `Microsoft.Compute/images` 类型的资源，即托管磁盘映像，该映像基于位于 URI `sourceImageVhdUri` 中的通用 blob。 该映像必须与使用它的规模集位于同一区域。 在映像的属性中，指定 OS 类型，blob 的位置（通过 `sourceImageVhdUri` 参数）以及存储帐户类型：
+接下来，添加类型为 `Microsoft.Compute/images` 的资源，该资源是托管磁盘映像，基于 URI `sourceImageVhdUri` 处的通用 Blob。 该映像必须与使用它的规模集位于同一区域。 在映像属性中，指定操作系统类型、Blob 位置（通过 `sourceImageVhdUri` 参数）和存储帐户类型：
 
 ```diff
    "resources": [
@@ -78,7 +79,7 @@ ms.lasthandoff: 06/23/2017
 
 ```
 
-在规模集资源中，添加涉及自定义映像的 `dependsOn` 子句，确保先创建该映像，以便规模集尝试通过该映像进行部署：
+在规模集资源中，添加引用自定义映像的 `dependsOn` 子句，确保在规模集尝试从该映像部署之前创建映像：
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -95,7 +96,7 @@ ms.lasthandoff: 06/23/2017
 
 ### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>更改规模集属性，使用托管磁盘映像
 
-在规模集 `storageProfile` 的 `imageReference` 中，指定 `Microsoft.Compute/images` 资源的 `id`，而不是指定平台映像的发布者、优惠、SKU 以及版本：
+在规模集 `storageProfile` 的 `imageReference` 中，请勿指定平台映像的发布者、产品/服务、SKU 和版本，而是指定 `Microsoft.Compute/images` 资源的 `id`：
 
 ```diff
          "virtualMachineProfile": {
@@ -111,8 +112,11 @@ ms.lasthandoff: 06/23/2017
            "osProfile": {
 ```
 
-此示例使用 `resourceId` 函数获取用同一模板创建的映像的资源 ID。 如果已事先创建托管磁盘映像，应改为提供该映像的 ID。 此 ID 必须采用以下格式：`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`。
+本示例中，使用 `resourceId` 函数获取在同一模板中创建的映像的资源 ID。 如果事先创建了托管磁盘映像，应改为提供该映像的 ID。 此 ID 必须采用以下格式：`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`。
+
 
 ## <a name="next-steps"></a>后续步骤
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
+
+<!-- Update_Description: wording update -->

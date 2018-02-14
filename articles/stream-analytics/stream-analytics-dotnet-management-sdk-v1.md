@@ -16,11 +16,11 @@ ms.workload: data-services
 origin.date: 03/06/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9610af8af99916a0dcfdbdd1c0132be9adf181be
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: ca3442c82d03c9fcd134460535f7941bf52969f1
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="management-net-sdk-v1x-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK v1.x：使用用于 .NET 的 Azure 流分析 API 设置和运行分析作业
 了解如何通过 Management .NET SDK 使用用于 .NET 的流分析 API 设置和运行分析作业。 设置项目、创建输入和输出源、转换，以及开始和停止作业。 就分析作业来说，可以从 Blob 存储或事件中心流式传输数据。
@@ -333,9 +333,9 @@ resourceGroupName 变量的值应该与你在先决条件步骤中创建或选�
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
+<!-- Not Available on [5]: ./media/markdown-template-for-new-articles/octocats.png -->
+<!-- Not Available on [6]: ./media/markdown-template-for-new-articles/pretty49.png -->
+<!-- Not Available on [7]: ./media/markdown-template-for-new-articles/channel-9.png -->
 
 <!--Link references-->
 [azure.blob.storage]: /storage/
@@ -349,7 +349,7 @@ resourceGroupName 变量的值应该与你在先决条件步骤中创建或选�
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.developer.guide]: stream-analytics-developer-guide.md
+<!-- File Not Exist on[stream.analytics.developer.guide]: stream-analytics-developer-guide.md -->
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301

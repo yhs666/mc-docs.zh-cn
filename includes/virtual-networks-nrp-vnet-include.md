@@ -13,7 +13,7 @@ VNet 包含以下属性。
 | 属性 | 说明 | 示例值 |
 | --- | --- | --- |
 | addressSpace |在 CIDR 表示法中构成 VNet 的地址前缀集合 |192.168.0.0/16 |
-| subnets |构成 VNet 的子网集合 |请参阅下面的[子网](#Subnets)。 |
+| **subnets** |构成 VNet 的子网集合 |请参阅下面的[子网](#Subnets)。 |
 | ipAddress |分配给对象的 IP 地址。 这是只读属性。 |104.42.233.77 |
 
 ### <a name="subnets"></a>子网
@@ -24,7 +24,7 @@ VNet 包含以下属性。
 | 属性 | 说明 | 示例值 |
 | --- | --- | --- |
 | **addressPrefix** |在 CIDR 表示法中构成子网的单个地址前缀 |192.168.1.0/24 |
-| networkSecurityGroup |应用到子网的 NSG |请参阅 [NSG](#Network-Security-Group) |
+| **networkSecurityGroup** |应用到子网的 NSG |请参阅 [NSG](#Network-Security-Group) |
 | routeTable |应用到子网的路由表 |请参阅 [UDR](#Route-table) |
 | ipConfigurations |连接子网的 NIC 所用的 IP 配置对象集合 |请参阅 [UDR](#Route-table) |
 
@@ -74,5 +74,5 @@ JSON 格式的示例 VNet：
 
 ### <a name="additional-resources"></a>其他资源
 * 获取有关 [VNet](../articles/virtual-network/virtual-networks-overview.md) 的详细信息。
-* 阅读 VNet 的 [REST API 参考文档](https://msdn.microsoft.com/library/azure/mt163650.aspx)。
+<!-- URL not Avaialbe in Global * Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163650.aspx) for VNets. -->
 * 阅读子网的 [REST API 参考文档](https://msdn.microsoft.com/library/azure/mt163618.aspx)。

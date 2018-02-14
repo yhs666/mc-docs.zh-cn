@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1ce9e5537095eadbe2bf234c9a65ebdc431ac509
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: b320e15397bd7cce040db15bdc234a76893a599e
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>通过 VPN 网关诊断本地连接
 
@@ -33,7 +33,8 @@ ms.lasthandoff: 12/22/2017
 
 1. 虚拟网络网关 - Azure 上的 VPN 网关
 1. 本地网络网关 - Azure 云中的[本地 (FortiGate) VPN 网关](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway)表示形式
-1. 站点到站点连接（基于路由）- [VPN 网关与本地路由器之间的连接](/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
+1. 站点到站点连接（基于路由）- [VPN 网关与本地路由器之间的连接](/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+<!-- Not Available on vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection -->
 1. [配置 FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 有关站点到站点配置的详细分步指南，请访问：[使用 Azure 门户创建具有站点到站点连接的 VNet](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)。

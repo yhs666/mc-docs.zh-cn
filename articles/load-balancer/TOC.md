@@ -60,9 +60,9 @@
 ## [Azure CLI](https://docs.azure.cn/zh-cn/cli/network/lb?view=azure-cli-latest)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](https://docs.azure.cn/java/api/com.microsoft.azure.management.network)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
-## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
-## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations)
+<!-- Not Available ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html) -->
+<!-- Not Available ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers) -->
+<!-- Not Available ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations) -->
 ## [REST](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 # 相关内容

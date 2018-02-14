@@ -10,11 +10,11 @@ origin.date: 01/07/2018
 ms.date: 01/22/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 3c524e948fcee2d381ac793ad5f11e5dc1654846
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 518e641a63f7015d0a0979e7410e386d0bbcac4b
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>将本地计算机迁移到 Azure
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="run-a-test-migration"></a>运行测试迁移
 
-运行[“测试故障转移”](tutorial-dr-drill-azure.md)，确保一切如预期正常运行。
+运行[测试故障转移](tutorial-dr-drill-azure.md)，确保一切如预期正常运行。
 
 ## <a name="migrate-to-azure"></a>迁移到 Azure
 
@@ -117,6 +117,7 @@ ms.lasthandoff: 01/19/2018
 在本教程中，我们已将本地 VM 迁移到 Azure VM。 现在可为 Azure VM 配置灾难恢复。
 
 > [!div class="nextstepaction"]
-> 从本地站点迁移后为 Azure VM [设置灾难恢复](site-recovery-azure-to-azure-after-migration.md)。
+> 从本地站点迁移后为 Azure VM [设置灾难恢复](./azure-to-azure/site-recovery-azure-to-azure-after-migration.md)。
 
+<!-- URL is Correct on [Set up disaster recovery](./azure-to-azure/site-recovery-azure-to-azure-after-migration.md) -->
 <!-- Update_Description: update meta properties, update link -->

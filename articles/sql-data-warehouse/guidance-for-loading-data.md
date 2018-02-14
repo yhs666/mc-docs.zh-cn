@@ -16,11 +16,11 @@ ms.custom: performance
 origin.date: 12/13/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: f82b16d4355083c53e4b8ad4da9e017bb6e46d66
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 0c02dccc3cee922a1274183c6f3accb096a4646f
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="guidance-for-loading-data-into-azure-sql-data-warehouse"></a>关于如何将数据加载到 Azure SQL 数据仓库中的指南
 关于如何将数据加载到 Azure SQL 数据仓库中的建议以及与之相关的性能优化。 
@@ -95,7 +95,8 @@ PolyBase 无法加载数据大小超过一百万字节的行。 将数据置于 
 下面的建议适用于将行插入生产表中。
 
 ### <a name="batch-insert-statements"></a>批处理 INSERT 语句
-可以根据需要使用 [INSERT 语句](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql.md)（例如 `INSERT INTO MyLookup VALUES (1, 'Type 1')`）将数据一次性加载到小型表中，甚至可以定期重新加载某个查找。  单独插入的效率不如执行大容量加载的效率。 
+可以根据需要使用 [INSERT 语句](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql)（例如 `INSERT INTO MyLookup VALUES (1, 'Type 1')`）将数据一次性加载到小型表中，甚至可以定期重新加载某个查找。  单独插入的效率不如执行大容量加载的效率。 
+<!-- URL is not Correct on remove .md postfox on [INSERT statement](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) -->
 
 如果一天中有成千上万的单个插入，可将插入成批进行大容量加载。  制定将单个插入追加到某个文件的流程，然后创建另一流程来定期加载该文件。
 

@@ -12,42 +12,42 @@ ms.topic: article
 origin.date: 06/14/2017
 ms.author: v-junlch
 ms.date: 06/21/2017
-ms.openlocfilehash: df3ca83768e8b5dabe169d02f5e7a748da8ce673
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 0079d2b4bebb8fc560683f888a9738862f3034dc
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Azure Active Directory（公共预览版）中的声明映射
 
 
-此功能由租户管理员用来自定义以令牌形式针对其租户中的特定应用程序发出的声明。 声明映射策略可以用来：
+此功能由租户管理员用来自定义以令牌形式针对其租户中的特定应用程序发出的声明。 可以使用声明映射策略：
 
-- 选择要包括在令牌中的声明。
-- 创建尚未存在的声明类型。
+- 选择在令牌中包含的声明。
+- 创建尚不存在的声明类型。
 - 选择或更改在特定声明中发出的数据的源。
 
 >[!NOTE]
->此功能目前以公共预览版形式提供。 应准备好还原或删除所做的任何更改。 在公共预览版推出期间，可在任何 Azure Active Directory 订阅中使用此功能。 但是，在正式版推出后，某些功能可能需要使用 Azure Active Directory Premium 订阅。
+>此功能目前以公共预览版提供。 应准备好还原或删除所做的任何更改。 在公共预览版推出期间，可在任何 Azure Active Directory (Azure AD) 订阅中使用此功能。 但是，在正式版推出后，某些功能可能需要使用 Azure Active Directory Premium 订阅。
 
 ## <a name="claims-mapping-policy-type"></a>声明映射策略类型
-在 Azure AD 中，策略对象表示针对组织中的单个应用程序或所有应用程序强制实施的一组规则。 每种类型的策略都有一个唯一的结构，其中的一组属性将应用于它们所分配到的对象。
+在 Azure AD 中，**策略**对象表示针对组织中的单个应用程序或所有应用程序强制实施的一组规则。 每种类型的策略都有一个唯一的结构，其中的一组属性将应用于它们所分配到的对象。
 
-声明映射策略是一种类型的策略对象，用于修改以令牌形式发出的声明，此类令牌是针对特定应用程序颁发的。
+声明映射策略是某种类型的**策略**对象，它修改为特定应用程序颁发的令牌中发出的声明。
 
 ## <a name="claim-sets"></a>声明集
 存在特定的声明集，用于定义声明在令牌中的使用方式和时间。
 
-## <a name="core-claim-set"></a>核心声明集
-核心声明集中的声明将存在于每个令牌中，不管策略是什么。 这些声明也被视为受限声明，不能进行修改。
+### <a name="core-claim-set"></a>核心声明集
+核心声明集中的声明存在于每个令牌中（与策略无关）。 这些声明也被视为受到限制，无法修改。
 
-## <a name="basic-claim-set"></a>基本声明集
-基本声明集包括默认为令牌发出的声明（核心声明集除外）。 这些声明可以使用声明映射策略来省略或修改。
+### <a name="basic-claim-set"></a>基本声明集
+基本声明集包括默认情况下为令牌发出的声明（除了核心声明集之外）。 可以使用声明映射策略省略或修改这些声明。
 
-## <a name="restricted-claim-set"></a>受限声明集
-受限声明不能使用策略来修改。 数据源不能更改，而且在生成这些声明时不会应用转换。
+### <a name="restricted-claim-set"></a>受限制声明集
+受限制声明无法使用策略进行修改。 无法更改数据源，并且在生成这些声明时不应用任何转换。
 
-### <a name="table-1---jwt-restricted-claim-set"></a>表 1 - JWT 受限声明集
+#### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>表 1：JSON Web 令牌 (JWT) 受限制声明集
 |声明类型（名称）|
 | ----- |
 |_claim_names|
@@ -181,7 +181,7 @@ ms.lasthandoff: 06/23/2017
 |wids|
 |win_ver|
 
-### <a name="table-2---saml-restricted-claim-set"></a>表 2 - SAML 受限声明集
+#### <a name="table-2-security-assertion-markup-language-saml-restricted-claim-set"></a>表 2：安全断言标记语言 (SAML) 受限制声明集
 |声明类型 (URI)|
 | ----- |
 |http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
@@ -232,193 +232,190 @@ ms.lasthandoff: 06/23/2017
 |http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>声明映射策略属性
-声明映射策略的属性用于控制所发出的具体声明以及数据的来源。 如果没有设置任何策略，系统会颁发令牌，其中包含核心声明集、基本声明集以及应用程序已选择接收的任何可选声明。
+使用声明映射策略的属性可控制发出的声明以及数据的来源。 如果未设置任何策略，则系统会发出包含核心声明集、基本声明集以及应用程序选择接收的任何可选声明的令牌。
 
-### <a name="include-basic-claim-set"></a>包括基本声明集
+### <a name="include-basic-claim-set"></a>包含基本声明集
 
-属性概述
+**字符串：**IncludeBasicClaimSet
 
-String：IncludeBasicClaimSet
+**数据类型：**布尔值（True 或 False）
 
-Data Type：布尔（True 或 False）
+**摘要：**此属性确定是否在受此策略的令牌中包含基本声明集。 
 
-Summary：此属性决定了是否在受此策略影响的令牌中包括基本声明集。 
-
-- 如果设置为 True，则会在受策略影响的令牌中发出基本声明集中的所有声明。 
-- 如果设置为 False，则不会在令牌中包括基本声明集中的声明，除非在同一策略的声明架构属性中逐个添加这些声明。
+- 如果设置为 True，则在受此策略的令牌中发出基本声明集中的所有声明。 
+- 如果设置为 False，基本声明集中的声明不包含在令牌中，除非在相同策略的声明架构属性中单独添加它们。
 
 >[!NOTE] 
->核心声明集中的声明将存在于每个令牌中，不管将该属性设置为什么。 
+>核心声明集中的声明存在于每个令牌中（与此属性的设置无关）。 
 
 ### <a name="claims-schema"></a>声明架构
-属性概述
 
-String：ClaimsSchema
+**字符串：**ClaimsSchema
 
-Data Type：包含一个或多个声明架构条目的 JSON Blob（有关格式，请参阅“声明映射策略示例”部分）
+**数据类型：**具有一个或多个声明架构条目的 JSON blob
 
-Summary：此属性用于定义哪些声明将存在于受策略影响的令牌中，基本声明集（如果 IncludeBasicClaimSet 设置为 True）和核心声明集除外。
-对于在此属性中定义的每个声明架构条目，必须确定两方面的信息 - 数据来自何处（Value 或 Source/ID 对），以及数据将作为哪种声明发出 (Claim Type)。
+**摘要：**此属性定义除了基本声明集与核心声明集之外，在受此策略影响的令牌中存在的声明。
+对于此属性中定义的每个声明架构条目，都需要特定信息。 必须指定数据来源（**Value** 或 **Source/ID 对**）以及数据作为哪种声明发出（**声明类型**）。
 
 ### <a name="claim-schema-entry-elements"></a>声明架构条目元素
 
-Value：Value 元素将静态值定义为要在声明中发出的数据。
+**Value：**Value 元素将静态值定义为要在声明中发出的数据。
 
-Source/ID 对：Source 和 ID 元素定义声明中的数据源自何处。 
+**Source/ID 对：**Source 和 ID 元素定义声明中的数据的来源。 
 
-必须将 Source 元素设置为以下值之一： 
+Source 元素必须设置为以下值之一： 
 
 
-- "user"：声明中的数据是用户对象的属性 
-- "application"：声明中的数据是应用程序（客户端）服务主体的属性 
-- "resource"：声明中的数据是资源服务主体的属性
-- "audience"：声明中的数据是服务主体的属性，该主体是令牌的受众（客户端或资源服务主体）
-- "company"：声明中的数据是资源租户的公司对象的属性
-- "transformation"：声明中的数据来自声明转换，请参阅下面的“声明转换”部分。 
+- “user”：声明中的数据是用户对象的属性。 
+- “application”：声明中的数据是应用程序（客户端）服务主体的属性。 
+- “resource”：声明中的数据是资源服务主体的属性。
+- “audience”：声明中的数据是作为令牌受众的服务主体（客户端或资源服务主体）的属性。
+- “company”：声明中的数据是资源租户的公司对象的属性。
+- “transformation”：声明中的数据来自声明转换（请参阅本文后面的“声明转换”部分）。 
 
-如果源为 transformation，则还必须在此声明定义中包括 TransformationID 元素。
+如果 Source 是 transformation，则 **TransformationID** 元素也必须包含在此声明定义中。
 
-ID 元素标识源的哪个属性会提供声明的值。 下表列出了适用于 Source 的每个值的 ID 的值。
+ID 元素标识源中用于为声明提供值的属性。 下表列出对 Source 的每个值有效的 ID 值。
 
-### <a name="table-3---valid-id-values-per-source"></a>表 3 - 每个源的有效 ID 值
+#### <a name="table-3-valid-id-values-per-source"></a>表 3：每个 Source 的有效 ID 值
 |源|ID|说明|
 |-----|-----|-----|
-|用户|surname|家族名称|
-|用户|givenname|名|
-|用户|displayname|显示名称|
-|用户|objectid|ObjectID|
-|用户|mail|电子邮件地址|
-|用户|userprincipalname|用户主体名称|
-|用户|department|Department|
-|用户|onpremisessamaccountname|本地 Sam 帐户名称|
-|用户|netbiosname|NetBios 名称|
-|用户|dnsdomainname|DNS 域名|
-|用户|onpremisesecurityidentifier|本地安全标识符|
-|用户|companyname|组织名称|
-|用户|streetaddress|街道地址|
-|用户|postalcode|邮政编码|
-|用户|preferredlanguange|首选语言|
-|用户|onpremisesuserprincipalname|本地 UPN|
-|用户|mailNickname|邮件别名|
-|用户|extensionattribute1|扩展属性 1|
-|用户|extensionattribute2|扩展属性 2|
-|用户|extensionattribute3|扩展属性 3|
-|用户|extensionattribute4|扩展属性 4|
-|用户|extensionattribute5|扩展属性 5|
-|用户|extensionattribute6|扩展属性 6|
+|User|surname|家族名称|
+|User|givenname|名|
+|User|displayname|显示名称|
+|User|objectid|ObjectID|
+|User|mail|电子邮件地址|
+|User|userprincipalname|用户主体名称|
+|User|department|Department|
+|User|onpremisessamaccountname|本地 Sam 帐户名称|
+|User|netbiosname|NetBios 名称|
+|User|dnsdomainname|DNS 域名|
+|User|onpremisesecurityidentifier|本地安全标识符|
+|User|companyname|组织名称|
+|User|streetaddress|街道地址|
+|User|postalcode|邮政编码|
+|User|preferredlanguange|首选语言|
+|User|onpremisesuserprincipalname|本地 UPN|
+|User|mailnickname|邮件别名|
+|User|extensionattribute1|扩展属性 1|
+|User|extensionattribute2|扩展属性 2|
+|User|extensionattribute3|扩展属性 3|
+|User|extensionattribute4|扩展属性 4|
+|User|extensionattribute5|扩展属性 5|
+|User|extensionattribute6|扩展属性 6|
 |用户|extensionattribute7|扩展属性 7|
-|用户|extensionattribute8|扩展属性 8|
-|用户|extensionattribute9|扩展属性 9|
-|用户|extensionattribute10|扩展属性 10|
-|用户|extensionattribute11|扩展属性 11|
-|用户|extensionattribute12|扩展属性 12|
-|用户|extensionattribute13|扩展属性 13|
-|用户|extensionattribute14|扩展属性 14|
-|用户|extensionattribute15|扩展属性 15|
-|用户|othermail|其他邮件|
-|用户|country|国家/地区|
-|用户|city|城市|
-|用户|state|状态|
-|用户|jobtitle|职务|
-|用户|employeeid|员工 ID|
-|用户|facsimiletelephonenumber|传真电话号码|
+|User|extensionattribute8|扩展属性 8|
+|User|extensionattribute9|扩展属性 9|
+|User|extensionattribute10|扩展属性 10|
+|User|extensionattribute11|扩展属性 11|
+|User|extensionattribute12|扩展属性 12|
+|User|extensionattribute13|扩展属性 13|
+|User|extensionattribute14|扩展属性 14|
+|User|extensionattribute15|扩展属性 15|
+|User|othermail|其他邮件|
+|User|country|国家/地区|
+|User|city|城市|
+|User|state|状态|
+|User|jobtitle|职务|
+|User|employeeid|员工 ID|
+|User|facsimiletelephonenumber|传真电话号码|
 |application、resource、audience|displayname|显示名称|
 |application、resource、audience|objectid|ObjectID|
 |application、resource、audience|标记|服务主体标记|
 |公司|tenantcountry|租户的国家/地区|
 
-TransformationID：只有在 Source 元素设置为 "transformation" 的情况下，才必须提供 TransformationID 元素。
+**TransformationID：**仅当 Source 元素设置为“transformation”时，才必须提供 TransformationID 元素。
 
-- 此元素必须与 ClaimsTransformation 属性中转换条目的 ID 元素匹配，该属性定义此声明的数据的生成方式。
+- 此元素必须与 **ClaimsTransformation** 属性（定义如何生成此声明的数据）中的转换条目的 ID 元素匹配。
 
-Claim Type：JwtClaimType 和 SamlClaimType 元素定义此声明架构条目引用的具体声明。
+**声明类型：****JwtClaimType** 和 **SamlClaimType** 元素定义此声明架构条目引用的声明。
 
-- JwtClaimTypeshould 必须包含要在 JWT 中发出的声明的名称。
+- JwtClaimType 必须包含要在 JWT 中发出的声明的名称。
 - SamlClaimType 必须包含要在 SAML 令牌中发出的声明的 URI。
 
 >[!NOTE]
->受限声明集中的声明的 Name 和 URI 不能用于声明类型元素。 请参阅下面的“例外和限制”部分。
+>受限制声明集中的声明的名称和 URI 不能用于声明类型元素。 有关详细信息，请参阅本文后面的“例外和限制”部分。
 
 ### <a name="claims-transformation"></a>声明转换
-属性概述
 
-String：ClaimsTransformation
+**字符串：**ClaimsTransformation
 
-Data Type：包含一个或多个转换条目的 JSON Blob（有关格式，请参阅“声明映射策略示例”部分）
+**数据类型：**具有一个或多个转换条目的 JSON blob 
 
-Summary：此属性用于将常用转换应用到源数据，为“声明架构”中指定的声明生成输出数据。
-转换条目元素
+**摘要：**使用此属性可将常见转换应用于源数据，以便为声明架构中指定的声明生成输出数据。
 
-ID：ID 元素用于引用 TransformationID 中的此转换条目（声明架构条目）。 就此策略中的每个转换条目来说，该值必须唯一。
+**ID：**使用 ID 元素可在 TransformationID 声明架构条目中引用此转换条目。 对于此策略中的每个转换条目，此值必须是唯一的。
 
-TransformationMethod：TransformationMethod 元素标识在为声明生成数据时将执行的具体操作。
+**TransformationMethod：**TransformationMethod 元素标识为生成声明的数据而执行的操作。
 
-根据所选方法，预期将出现一组特定的输入和输出。 这些输入和输出是使用 InputClaims、InputParameters 和 OutputClaims 元素定义的。
+根据选择的方法，需要一组输入和输出。 这些内容使用 **InputClaims**、**InputParameters** 和**OutputClaims** 元素进行定义。
 
-### <a name="table-4---transformation-methods-and-expected-inputsoutputs"></a>表 4 - 转换方法和预期的输入/输出
-|TransformationMethod|预期的输入|预期的输出|说明|
+#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>表 4：转换方法以及预期输入和输出
+|TransformationMethod|预期输入|预期输出|说明|
 |-----|-----|-----|-----|
-|联接|string1、string2、分隔符|outputClaim|通过在输入字符串之间使用分隔符来联接输入字符串。 例如：string1 为“foo@bar.com”，sring2 为“sandbox”，分隔符为“.”时，将生成 outputClaim“foo@bar.com.sandbox”|
-|ExtractMailPrefix|mail|outputClaim|提取电子邮件地址的本地部分。 例如：mail 为“foo@bar.com”时，将会生成 outputClaim“foo”。如果不存在“@”符号，则会按原样返回原始输入字符串。|
+|联接|string1、string2、分隔符|outputClaim|联接输入字符串（之间使用分隔符）。 例如：string1：“foo@bar.com”、string2：“sandbox”、separator：“.”会生成 outputClaim：“foo@bar.com.sandbox”|
+|ExtractMailPrefix|mail|outputClaim|提取电子邮件地址的本地部分。 例如：mail：“foo@bar.com”会生成 outputClaim：“foo”。 如果 @ 符号不存在，则原样返回原始输入字符串。|
 
-InputClaims：可以使用 InputClaims 元素将数据从声明架构条目传递到转换。 此元素有两个属性：ClaimTypeReferenceId 和 TransformationClaimType。
+**InputClaims：**使用 InputClaims 元素可将数据从声明架构条目传递给转换。 它具有两个属性：**ClaimTypeReferenceId** 和 **TransformationClaimType**。
 
-- ClaimTypeReferenceId 可与声明架构条目的 ID 元素联接，以便查找相应的输入声明。 
-- TransformationClaimType 用于为此输入提供唯一名称。 此名称必须与转换方法的预期输入之一匹配。
+- **ClaimTypeReferenceId** 与声明架构条目的 ID 元素联接在一起可查找相应的输入声明。 
+- **TransformationClaimType** 用于向此输入提供唯一名称。 此名称必须与转换方法的预期输入之一匹配。
 
-InputParameters：InputParameters 元素用于向转换传递常量值。 它有两个属性：Value 和 ID。
-Value 是要传递的实际常量值。
-ID 用于为此输入提供唯一名称。 此名称必须与转换方法的预期输入之一匹配。
+**InputParameters：**使用 InputParameters 元素可将常数值传递给转换。 它具有两个属性：**Value** 和 **ID**。
 
-OutputClaims：OutputClaims 元素用于保存转换生成的数据并将其绑定到声明架构条目。 此元素有两个属性：ClaimTypeReferenceId 和 TransformationClaimType。
+- **Value** 是要传递的实际常数值。
+- **ID** 用于向此输入提供唯一名称。 此名称必须与转换方法的预期输入之一匹配。
 
-ClaimTypeReferenceId 可与声明架构条目的 ID 联接，以便查找相应的输出声明。 TransformationClaimType 用于为此输出提供唯一名称。 此名称必须与转换方法的预期输出之一匹配。
+**OutputClaims：**使用 OutputClaims 元素可保存转换生成的数据，并将它绑定到声明架构条目。 它具有两个属性：**ClaimTypeReferenceId** 和 **TransformationClaimType**。
+
+- **ClaimTypeReferenceId** 与声明架构条目的 ID 联接在一起可查找相应的输出声明。
+- **TransformationClaimType** 用于向此输出提供唯一名称。 此名称必须与转换方法的预期输出之一匹配。
 
 ### <a name="exceptions-and-restrictions"></a>例外和限制
 
-SAML NameID 和 UPN：可以从其获取 NameID 和 UPN 值来源的属性以及允许的声明转换是受限的。
+**SAML NameID 和 UPN：**NameID 和 UPN 值所源自的属性以及允许使用的声明转换会受到限制。
 
-### <a name="table-5---attributes-allowed-as-data-source-for-saml-nameid"></a>表 5 - 允许用作 SAML NameID 的数据源的属性
+#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>表 5：允许作为 SAML NameID 数据源的属性
 |源|ID|说明|
 |-----|-----|-----|
-|用户|mail|电子邮件地址|
-|用户|userprincipalname|用户主体名称|
-|用户|onpremisessamaccountname|本地 Sam 帐户名称|
-|用户|employeeid|员工 ID|
-|用户|extensionattribute1|扩展属性 1|
-|用户|extensionattribute2|扩展属性 2|
-|用户|extensionattribute3|扩展属性 3|
-|用户|extensionattribute4|扩展属性 4|
-|用户|extensionattribute5|扩展属性 5|
-|用户|extensionattribute6|扩展属性 6|
+|User|mail|电子邮件地址|
+|User|userprincipalname|用户主体名称|
+|User|onpremisessamaccountname|本地 Sam 帐户名称|
+|User|employeeid|员工 ID|
+|User|extensionattribute1|扩展属性 1|
+|User|extensionattribute2|扩展属性 2|
+|User|extensionattribute3|扩展属性 3|
+|User|extensionattribute4|扩展属性 4|
+|User|extensionattribute5|扩展属性 5|
+|User|extensionattribute6|扩展属性 6|
 |用户|extensionattribute7|扩展属性 7|
-|用户|extensionattribute8|扩展属性 8|
-|用户|extensionattribute9|扩展属性 9|
-|用户|extensionattribute10|扩展属性 10|
-|用户|extensionattribute11|扩展属性 11|
-|用户|extensionattribute12|扩展属性 12|
-|用户|extensionattribute13|扩展属性 13|
-|用户|extensionattribute14|扩展属性 14|
-|用户|extensionattribute15|扩展属性 15|
+|User|extensionattribute8|扩展属性 8|
+|User|extensionattribute9|扩展属性 9|
+|User|extensionattribute10|扩展属性 10|
+|User|extensionattribute11|扩展属性 11|
+|User|extensionattribute12|扩展属性 12|
+|User|extensionattribute13|扩展属性 13|
+|User|extensionattribute14|扩展属性 14|
+|User|extensionattribute15|扩展属性 15|
 
-### <a name="table-6---transformation-methods-allowed-for-saml-nameid"></a>表 6 - 允许用于 SAML NameID 的转换方法
+#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>表 6：允许用于 SAML NameID 的转换方法
 |TransformationMethod|限制|
 | ----- | ----- |
-|ExtractMailPrefix||无|
-|联接|要联接的后缀必须是资源租户的已验证域。|
+|ExtractMailPrefix|无|
+|Join|要联接的后缀必须是资源租户的已验证域。|
 
 ### <a name="custom-signing-key"></a>自定义签名密钥
-必须为服务主体对象分配自定义签名密钥，否则声明映射策略无法生效。 所有颁发的受此策略影响的令牌都会使用此密钥来签名。 必须对应用程序进行配置，使之接受使用此密钥签名的令牌。 这样可确保确认令牌已由声明映射策略的创建者修改， 并保护应用程序免受恶意执行组件创建的声明映射策略的危害。
+自定义签名密钥必须分配给服务主体对象，才能使声明映射策略生效。 颁发的所有受策略影响的令牌都使用此密钥进行签名。 应用程序必须配置为接受使用此密钥签名的令牌。 这样可确保确认令牌已由声明映射策略的创建者修改， 并保护应用程序免受恶意执行组件创建的声明映射策略的危害。
 
 ### <a name="cross-tenant-scenarios"></a>跨租户方案
-声明映射策略不适用于来宾用户。 如果来宾用户尝试使用分配给应用程序服务主体的声明映射策略来访问应用程序，则会颁发默认的令牌（策略将不起作用）。
+声明映射策略不适用于来宾用户。 如果来宾用户尝试访问向其服务主体分配了声明映射策略的应用程序，则会颁发默认令牌（策略不会生效）。
 
 ## <a name="claims-mapping-policy-assignment"></a>声明映射策略分配
 声明映射策略只能分配给服务主体对象。
 
-### <a name="example-claims-mapping-policies"></a>声明映射策略示例
+### <a name="example-claims-mapping-policies"></a>示例声明映射策略
 
-如果可以自定义在令牌中针对特定服务主体发出的声明，则可在 Azure AD 中实现许多方案。 本部分演示一些常见的方案，帮助你了解如何使用声明映射策略类型。
+在 Azure AD 中，在可以为特定服务主体自定义令牌中发出的声明时，可以实现许多方案。 在此部分中，我们会演练几个常见方案，它们可帮助你理解如何使用声明映射策略类型。
 
 #### <a name="prerequisites"></a>先决条件
 以下示例将创建、更新、链接和删除服务主体的策略。 如果不熟悉 Azure AD，建议你在使用这些示例之前，先了解如何获取 Azure AD 租户。 
@@ -426,84 +423,83 @@ SAML NameID 和 UPN：可以从其获取 NameID 和 UPN 值来源的属性以及
 若要开始，请执行以下步骤：
 
 
-1. 下载最新的 [Azure AD PowerShell 模块公共预览版](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.127)。
-2.  运行 Connect 命令，登录到 Azure AD 管理员帐户。 每次启动新会话都需要运行此命令。
+1. 首先请下载最新的 [Azure AD PowerShell 模块公共预览版](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.127)。
+2.  运行 Connect 命令登录到你的 Azure AD 管理员帐户。 每次启动新会话都需要运行此命令。
     
      ``` powershell
     Connect-AzureAD -Confirm
     
     ```
-3.  若要查看组织中创建的所有策略，请运行以下命令。 建议你在以下方案中，在大多数操作后运行此命令，确保按预期方式创建策略。
+3.  若要查看组织中创建的所有策略，请运行以下命令。 在以下方案中，建议在大多数操作之后运行此命令，以检查是否按预期创建策略。
    
     ``` powershell
-    Get-AzureADPolicy
+        Get-AzureADPolicy
     
     ```
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>示例：创建并分配策略，在颁发给服务主体的令牌中省略基本声明。
-在此示例中，你将创建一个策略，从颁发给链接的服务主体的令牌中删除基本声明集。
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>示例：创建并分配一个策略，以从颁发给服务主体的令牌中省略基本声明。
+在此示例中创建一个策略，它会从颁发给链接的服务主体的令牌中删除基本声明集。
 
 
-1. 创建声明映射策略。 此策略（将链接到特定的服务主体）从令牌中删除基本声明集。
+1. 创建声明映射策略。 此策略（链接到特定服务主体）会从令牌中删除基本声明集。
     1. 若要创建该策略，请运行以下命令： 
     
-        ``` powershell
-        New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims” -Type "ClaimsMappingPolicy"
-        ```
+     ``` powershell
+    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims” -Type "ClaimsMappingPolicy"
+    ```
     2. 若要查看新策略并获取其 ObjectId，请运行以下命令：
     
-        ``` powershell
-        Get-AzureADPolicy
-        ```
+     ``` powershell
+    Get-AzureADPolicy
+    ```
 2.  将策略分配到服务主体。 还需要获取服务主体的 ObjectId。 
     1.  若要查看组织的所有服务主体，可以查询 Microsoft Graph。 或者，在 Azure AD Graph Explorer 中登录到 Azure AD 帐户。
     2.  获取服务主体的 ObjectId 后，运行以下命令：  
      
-        ``` powershell
-        Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-        ```
-#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>示例：创建并分配一个策略，使之包含 EmployeeID 和 TenantCountry（充当颁发给服务主体的令牌中的声明）。
-在此示例中，你将创建一个策略，向颁发给链接的服务主体的令牌添加 EmployeeID 和 TenantCountry。 EmployeeID 将在 SAML 令牌和 JWT 中作为名称声明类型发出。 TenantCountry 将在 SAML 令牌和 JWT 中作为国家/地区声明类型发出。 在此示例中，我们还将选择继续在令牌中包括基本声明集。
+     ``` powershell
+    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+    ```
+#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>示例：创建并分配一个策略，以将 EmployeeID 和 TenantCountry 作为声明包含在颁发给服务主体的令牌中。
+在此示例中创建一个策略，它会向颁发给链接的服务主体的令牌添加 EmployeeID 和 TenantCountry。 EmployeeID 在 SAML 令牌和 JWT 中都作为名称声明类型发出。 TenantCountry 在 SAML 令牌和 JWT 中都作为国家/地区声明类型发出。 在此示例中，我们继续在令牌中包含基本声明集。
 
-1. 创建声明映射策略。 此策略（将链接到特定的服务主体）向令牌添加 EmployeeID 和 TenantCountry 声明。
+1. 创建声明映射策略。 此策略（链接到特定服务主体）向令牌添加 EmployeeID 和 TenantCountry 声明。
     1. 若要创建该策略，请运行以下命令：  
      
-        ``` powershell
-        New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":" tenantcountry ","SamlClaimType":" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country ","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample” -Type "ClaimsMappingPolicy"
-        ```
+     ``` powershell
+    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":" tenantcountry ","SamlClaimType":" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country ","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample” -Type "ClaimsMappingPolicy"
+    ```
     
     2. 若要查看新策略并获取其 ObjectId，请运行以下命令：
      
-        ``` powershell  
-        Get-AzureADPolicy
-        ```
+     ``` powershell  
+    Get-AzureADPolicy
+    ```
 2.  将策略分配到服务主体。 还需要获取服务主体的 ObjectId。 
     1.  若要查看组织的所有服务主体，可以查询 Microsoft Graph。 或者，在 Azure AD Graph Explorer 中登录到 Azure AD 帐户。
     2.  获取服务主体的 ObjectId 后，运行以下命令：  
      
-        ``` powershell
-        Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-        ```
-#### <a name="example-create-and-assign-a-policy-utilizing-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>示例：创建并分配策略，在颁发给服务主体的令牌中利用声明转换。
-在此示例中，你将创建一个策略，向颁发给链接的服务主体的 JWT 发出自定义声明“JoinedData”。 此声明将包含一个值，该值是通过将存储在用户对象上的 extensionattribute1 属性中的数据与“.sandbox”联接来创建的。 在此示例中，我们还将选择在令牌中排除基本声明集。
+     ``` powershell
+    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+    ```
+#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>示例：创建并分配一个策略，以在颁发给服务主体的令牌中使用声明转换。
+在此示例中创建一个策略，它会向颁发给链接的服务主体的 JWT 发出自定义声明“JoinedData”。 此声明包含通过将用户对象的 extensionattribute1 属性中存储的数据与“.sandbox”联接所创建的值。 在此示例中，我们在令牌中排除基本声明集。
 
 
-1. 创建声明映射策略。 此策略（将链接到特定的服务主体）向令牌添加 EmployeeID 和 TenantCountry 声明。
+1. 创建声明映射策略。 此策略（链接到特定服务主体）向令牌添加 EmployeeID 和 TenantCountry 声明。
     1. 若要创建该策略，请运行以下命令： 
      
-        ``` powershell
-        New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformation":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"Id":"string2","Value":"sandbox"},{"Id":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample” -Type "ClaimsMappingPolicy"
-        ```
+     ``` powershell
+    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
+    ```
     
     2. 若要查看新策略并获取其 ObjectId，请运行以下命令： 
      
-        ``` powershell
-        Get-AzureADPolicy
-        ```
+     ``` powershell
+    Get-AzureADPolicy
+    ```
 2.  将策略分配到服务主体。 还需要获取服务主体的 ObjectId。 
     1.  若要查看组织的所有服务主体，可以查询 Microsoft Graph。 或者，在 Azure AD Graph Explorer 中登录到 Azure AD 帐户。
     2.  获取服务主体的 ObjectId 后，运行以下命令： 
      
-        ``` powershell
-        Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-        ```
-
+     ``` powershell
+    Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+    ```

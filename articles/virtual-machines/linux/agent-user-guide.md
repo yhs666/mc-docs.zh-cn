@@ -17,11 +17,11 @@ origin.date: 10/17/2016
 ms.date: 01/08/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d8e013fb775ad8bafb35122f1a37e65f825643ac
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 2c715e806d4231c18ca6eda813b77689c4c2b946
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>了解和使用 Azure Linux 代理
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -81,7 +81,7 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 
 * CoreOS
 * CentOS 6.3+
-* Red Hat Enterprise Linux 6.7+
+<!-- Not Available * Red Hat Enterprise Linux 6.7+ -->
 * Debian 7.0+
 * Ubuntu 12.04+
 * openSUSE 12.3+

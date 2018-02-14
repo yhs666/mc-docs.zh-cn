@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/16/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 7dddf12dfba69b00a3f406581559af6a10b7a3f6
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 02/05/2018
+ms.openlocfilehash: e8d176f70f455f30a5d565edda5bf0179af817ed
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 语法
 
-SqlFilter 对象是 [SqlFilter 类](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter)的实例，代表基于 SQL 语言的筛选器表达式，该表达式针对 [BrokeredMessage](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 进行计算。 SqlFilter 支持 SQL-92 标准的子集。  
+SqlFilter 对象是 [SqlFilter 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter)的实例，代表基于 SQL 语言的筛选器表达式，该表达式针对 [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 进行计算。 SqlFilter 支持 SQL-92 标准的子集。  
   
  本主题列出有关 SqlFilter 语法的详细信息。  
   
@@ -60,11 +60,11 @@ SqlFilter 对象是 [SqlFilter 类](https://doc.microsoft.com/dotnet/api/microso
   
 ## <a name="arguments"></a>参数  
   
--   `<scope>` 是一个可选字符串，指示 `<property_name>` 的范围。 有效值为 `sys` or `user`进行求值的基于 SQL 语言的筛选器表达式。 `sys` 值指示系统范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)的公共属性名称。 `user` 指示用户范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)字典的项。 `user` 范围是默认范围（如果 `<scope>` 未指定）。  
+-   `<scope>` 是一个可选字符串，指示 `<property_name>` 的范围。 有效值为 `sys` or `user`进行求值的基于 SQL 语言的筛选器表达式。 `sys` 值指示系统范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)的公共属性名称。 `user` 指示用户范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)字典的项。 `user` 范围是默认范围（如果 `<scope>` 未指定）。  
   
 ## <a name="remarks"></a>备注
 
-访问不存在的系统属性的尝试是错误，访问不存在的用户属性的尝试不是错误。 相反，不存在的用户属性在内部作为未知值进行求值。 运算符求值期间会对未知值进行特殊处理。  
+访问不存在的系统属性的尝试是错误，访问不存在的用户属性的尝试不是错误。 相反，不存在的用户属性在内部作为未知值进行求值。 在运算符求值过程中，未知值的处理方式很特殊。  
   
 ## <a name="propertyname"></a>property_name  
   
@@ -80,7 +80,7 @@ SqlFilter 对象是 [SqlFilter 类](https://doc.microsoft.com/dotnet/api/microso
   
 ### <a name="arguments"></a>参数  
 
- `<regular_identifier>` 是一个字符串，由以下正则表达式表示：  
+ `<regular_identifier>` 是字符串，由以下正则表达式表示：  
   
 ```  
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
@@ -94,7 +94,7 @@ SqlFilter 对象是 [SqlFilter 类](https://doc.microsoft.com/dotnet/api/microso
   
 `<regular_identifier>` 不能是保留关键字。  
   
-`<delimited_identifier>` 是用左/右方括号 ([]) 括起来的任何字符串。 右方括号以两个右方括号表示。 下面是 `<delimited_identifier>`的示例：  
+`<delimited_identifier>` 是用左/右方括号 ([]) 括起来的任何字符串。 右方括号采用两个右方括号的形式。 下面是 `<delimited_identifier>`的示例：  
   
 ```  
 [Property With Space]  
@@ -132,7 +132,7 @@ SqlFilter 对象是 [SqlFilter 类](https://doc.microsoft.com/dotnet/api/microso
   
 ### <a name="remarks"></a>备注  
 
-`<escape_char>` 必须是作为长度为 1 的字符串进行求值的表达式。 它用作 LIKE 运算符的转义符。  
+`<escape_char>` 必须是作为长度为 1 的字符串进行求值的表达式。 作为转义符用于 LIKE 运算符。  
   
  例如，`property LIKE 'ABC\%' ESCAPE '\'` 匹配 `ABC%`，而不匹配以 `ABC` 开头的字符串。  
   
@@ -145,7 +145,7 @@ SqlFilter 对象是 [SqlFilter 类](https://doc.microsoft.com/dotnet/api/microso
   
 ### <a name="arguments"></a>参数  
   
--   `<integer_constant>` 是指不使用引号引起来且不包含小数点的数字字符串。 这些值以 `System.Int64` 形式存储在内部，并具有相同的范围。  
+-   `<integer_constant>` 是指不使用引号引起来且不包含小数点的数字字符串。 这些值作为 `System.Int64` 在内部存储，并具有相同的作用域。  
   
      下面是长常量的示例：  
   
@@ -154,7 +154,7 @@ SqlFilter 对象是 [SqlFilter 类](https://doc.microsoft.com/dotnet/api/microso
     2  
     ```  
   
--   `<decimal_constant>` 是一个数字字符串，不使用引号，但包含小数点。 这些值作为 `System.Double` 在内部存储，并具有相同的作用域/精度。  
+-   `<decimal_constant>` 是指不使用引号引起来但包含小数点的数字字符串。 这些值作为 `System.Double` 在内部存储，并具有相同的作用域/精度。  
   
      在未来版本中，此数字可能以其他数据类型存储，目的是支持确切的数字语义，因此不应依赖于 `<decimal_constant>` 的基础数据类型为 `System.Double` 这一事实。  
   
@@ -209,13 +209,13 @@ SqlFilter 对象是 [SqlFilter 类](https://doc.microsoft.com/dotnet/api/microso
   
 ## <a name="considerations"></a>注意事项
   
-请注意以下 [SqlFilter](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 语义：  
+请注意以下 [SqlFilter](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 语义：  
   
--   属性名称区分大小写。  
+-   属性名称不区分大小写。  
   
 -   运算符尽可能遵循 C# 隐式转换语义。  
   
--   系统属性是值在 [BrokeredMessage](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 实例中公开的公共属性。  
+-   系统属性是值在 [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 实例中公开的公共属性。  
   
     请注意以下 `IS [NOT] NULL` 语义：  
   
@@ -223,7 +223,7 @@ SqlFilter 对象是 [SqlFilter 类](https://doc.microsoft.com/dotnet/api/microso
   
 ### <a name="property-evaluation-semantics"></a>属性求值语义  
   
--   尝试对不存在的系统属性求值会引发 [FilterException](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.filterexception) 异常。  
+-   尝试对不存在的系统属性求值会引发 [FilterException](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.filterexception) 异常。  
   
 -   不存在的属性在进行内部求值时会被视为**未知**。  
   
@@ -237,11 +237,11 @@ SqlFilter 对象是 [SqlFilter 类](https://doc.microsoft.com/dotnet/api/microso
   
 -   如果操作数的左侧和/或右侧的求值结果为**未知**，则结果为**未知**。  
   
- `[NOT] LIKE` 中的未知求值：  
+ `[NOT] LIKE`中的未知求值：  
   
 -   如果任何操作数的求值结果为“未知”，则结果为“未知”。  
   
- `[NOT] IN` 中的未知求值：  
+ `[NOT] IN`中的未知求值：  
   
 -   如果左侧操作数的求值结果为“未知”，则结果为“未知”。  
   

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 04/14/2017
 ms.date: 01/11/2018
 ms.author: v-nany
-ms.openlocfilehash: a85b2eaa8fc06266a1189ed7eb6641b2e4342826
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 3feaa7d179d4271f481a7e7dc46fd74996f8e840
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure 自动化中的凭据资产
 自动化凭据资产包含 [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) 对象，该对象包含用户名和密码等安全凭据。 Runbook 和 DSC 配置可能会使用在身份验证时接受 PSCredential 对象的 cmdlet，也可能会提取 PSCredential 对象的用户名和密码，以便提供给需要进行身份验证的某些应用程序或服务。 在 Azure 自动化中安全地存储凭据的属性，并可以在 Runbook 或 DSC 配置中通过 [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) 活动访问这些属性。
@@ -105,7 +105,7 @@ ms.lasthandoff: 01/23/2018
 ![将凭据添加到画布](./media/automation-credentials/get-credential.png)
 
 ## <a name="using-a-powershell-credential-in-dsc"></a>在 DSC 中使用 PowerShell 凭据
-尽管 Azure 自动化中的 DSC 配置可以使用 **Get-AutomationPSCredential**引用凭据资产，但如果需要，也可以通过参数传入凭据资产。 有关详细信息，请参阅[在 Azure 自动化 DSC 中编译配置](automation-dsc-compile.md#credential-assets)。
+尽管 Azure 自动化中的 DSC 配置可以使用 **Get-AutomationPSCredential**引用凭据资产，但如果需要，也可以通过参数传入凭据资产。 
 
 ## <a name="using-credentials-in-python2"></a>在 Python2 中使用凭据
 以下示例演示了如何在 Python2 Runbook 中访问凭据。

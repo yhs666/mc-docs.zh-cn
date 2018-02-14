@@ -13,20 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2017
-ms.date: 10/30/2017
+ms.date: 1/29/2018
 ms.author: v-johch
-ms.openlocfilehash: de6c66d65ec8e612f2ba7e9900c86dc3d5dbd4ce
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: e8af87274c24fbcacf6639bdf61bc6848f7af691
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-files-with-linux"></a>通过 Linux 使用 Azure 文件
-[Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以使用 [Samba 项目](https://www.samba.org/)中的 [cifs-utils 包](https://wiki.samba.org/index.php/LinuxCIFS_utils)在 Linux 分发版中装载 Azure 文件共享。 本文介绍装载 Azure 文件共享的两种方法：使用 `mount` 命令按需装载，以及通过在 `/etc/fstab` 中创建一个条目在启动时装载。
+[Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以使用 [CIFS 内核客户端](https://wiki.samba.org/index.php/LinuxCIFS)在 Linux 分发版中装载 Azure 文件共享。 本文介绍装载 Azure 文件共享的两种方法：使用 `mount` 命令按需装载，以及通过在 `/etc/fstab` 中创建一个条目在启动时装载。
 
 > [!NOTE]  
 > 若要将 Azure 文件共享装载到其被托管时所在的 Azure 区域之外（例如本地或其他 Azure 区域），OS 必须支持 SMB 3.0 的加密功能。 4.11 内核中引入了适用于 Linux 的 SMB 3.0 加密功能。 使用此功能可从本地或不同 Azure 区域装载 Azure 文件共享。 发布时，此功能已向后移植到 Ubuntu 16.04 和更高版本。
-
 
 ## <a name="prerequisities-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>使用 Linux 和 cifs-utils 包装载 Azure 文件共享的先决条件
 * **选择已安装 cifs-utils 包的 Linux 分发版**：Azure 建议选择 Azure 映像库中的以下 Linux 分发版：
@@ -81,7 +80,7 @@ ms.lasthandoff: 10/23/2017
 3. **使用 mount 命令装载 Azure 文件共享**：记得将 `<storage-account-name>`、`<share-name>` 和 `<storage-account-key>` 替换为适当的信息。
 
     ```
-    sudo mount -t cifs //<storage-account-name>.file.core.chinacloudapi.cn/<share-name> ./mymountpoint -o vers=2.1,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
+    sudo mount -t cifs //<storage-account-name>.file.core.chinacloudapi.cn/<share-name> ./mymountpoint -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
 > [!Note]  
@@ -99,8 +98,11 @@ ms.lasthandoff: 10/23/2017
 3. **使用以下命令将以下代码行追加到 `/etc/fstab`**：记得将 `<storage-account-name>`、`<share-name>` 和 `<storage-account-key>` 替换为适当的信息。
 
     ```
-    sudo bash -c 'echo "//<storage-account-name>.file.core.chinacloudapi.cn/<share-name> /mymountpoint cifs vers=2.1,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<storage-account-name>.file.core.chinacloudapi.cn/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
+
+> [!Note]  
+> 请确保在 `/etc/fstab` 条目中添加 `nofail` 选项，否则 VM 可能会在启动过程中挂起，以防在装载 Azure 文件共享时出现配置错误或其他错误。
 
 > [!Note]  
 > 编辑 `/etc/fstab` 后，可以使用 `sudo mount -a` 装载 Azure 文件共享，而无需重启。

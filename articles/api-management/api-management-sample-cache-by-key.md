@@ -3,7 +3,7 @@ title: "Azure API 管理中的自定义缓存"
 description: "了解如何在 Azure API 管理中根据键来缓存项"
 services: api-management
 documentationcenter: 
-author: darrelmiller
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 772bc8dd-5cda-41c4-95bf-b9f6f052bc85
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/15/2016
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 295c56dc63cdafcf0095bb2399463f0c69ccef21
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: c24cffccc809f469f6318dc88adcca0e2d2514a9
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Azure API 管理中的自定义缓存
-Azure API 管理服务使用资源 URL 作为键，提供对 [HTTP 响应缓存](./api-management-howto-cache.md)的内置支持。 可以使用 `vary-by` 属性根据请求标头修改键。 这种做法适合用于缓存整个 HTTP 响应（也称为“表示形式”），但有时也适合用于只缓存一部分表示形式。 使用新的 [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) 和 [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) 策略可以存储和检索策略定义中的任意数据。 此功能使得以前推出的 [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) 策略更有价值，因为现在可以缓存来自外部服务的响应。
+Azure API 管理服务使用资源 URL 作为键，提供对 [HTTP 响应缓存](./api-management-howto-cache.md)的内置支持。 可以使用 `vary-by` 属性根据请求标头修改键。 这种做法适合用于缓存整个 HTTP 响应（也称为“表示形式”），但有时也适合用于只缓存一部分表示形式。 使用新的 [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) 和 [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) 策略可以存储和检索策略定义中的任意数据。 此功能使得以前推出的 [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) 策略更有作用，因为现在可以缓存来自外部服务的响应。
 
 ## <a name="architecture"></a>体系结构
-API 管理服务使用基于租户的共享数据缓存，因此，在纵向扩展到多个单位后，仍可以访问相同的缓存数据。 但是，使用多区域部署时，每个区域内有独立的缓存。 出于这种原因，不得将缓存视为数据存储，因为数据存储是某些信息片段的唯一来源。 如果这样做，后来又决定利用多区域部署，则具有移动工作人员的客户可能会失去对该缓存数据的访问权限。
+API 管理服务使用基于租户的共享数据缓存，因此，在增加到多个单位后，仍可以访问相同的缓存数据。 但是，使用多区域部署时，每个区域内有独立的缓存。 出于这种原因，不得将缓存视为数据存储，因为数据存储是某些信息片段的唯一来源。 如果这样做，后来又决定利用多区域部署，则具有移动工作人员的客户可能会失去对该缓存数据的访问权限。
 
 ## <a name="fragment-caching"></a>分段缓存
 在某些情况下，返回的响应中包含的某些数据部分不但非常重要，而且还保留一段合理的时间。 航空公司构建的、提供航班预订、航班状态等信息的服务就是一个示例。如果用户是航空公司积分计划的会员，则他们也会获得其当前状态和累积里程的相关信息。 这些用户的相关信息可能存储在不同的系统中，但也可能需要包含在与航班状态和预订相关的返回响应中。 可以使用名为“分段缓存”的过程实现此目的。 可以从源服务器返回主要表示形式，使用某种令牌来指明要将用户相关的信息插入到何处。 

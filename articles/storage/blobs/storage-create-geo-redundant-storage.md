@@ -15,11 +15,11 @@ origin.date: 11/15/2017
 ms.date: 01/01/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 21109d1ddf78e55249e780f0d2cc2c9b01271a42
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 4bcab5694e58a886f29c2e65fa401bc45f3de132
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>使应用程序数据在 Azure 存储中高度可用
 
@@ -110,11 +110,11 @@ setx storageconnectionstring "<yourconnectionstring>"
 
 ![正在运行的控制台应用](media/storage-create-geo-redundant-storage/figure3.png)
 
-在示例代码中，`Program.cs` 文件中的 `RunCircuitBreakerAsync` 任务用于通过 [DownloadToFileAsync](https://msdn.microsoft.com/en-us/library/azure/dn451809(v=azure.10).aspx) 方法下载存储帐户中的图像。 在下载之前，会定义 [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet)。 操作上下文定义事件处理程序，此类程序在下载成功完成时或者下载失败并重试时触发。
+在示例代码中，`Program.cs` 文件中的 `RunCircuitBreakerAsync` 任务用于通过 [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) 方法下载存储帐户中的图像。 在下载之前，会定义 [OperationContext](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet)。 操作上下文定义事件处理程序，此类程序在下载成功完成时或者下载失败并重试时触发。
 
 ### <a name="retry-event-handler"></a>Retry 事件处理程序
 
-当图像下载失败并设置为重试时，会调用 `OperationContextRetrying` 事件处理程序。 如果达到重试的最大次数（在应用程序中定义），请求的 [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) 会更改为 `SecondaryOnly`。 此设置强制应用程序从辅助终结点尝试下载该图像。 此配置可减少请求图像所花的时间，因为不会无限重试主终结点。
+当映像下载失败并设置为重试时，将调用 `OperationContextRetrying` 事件处理程序。 如果达到应用程序中定义的重试次数上限，请求的 [LocationMode](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) 变为 `SecondaryOnly`。 此设置强制应用程序从辅助终结点尝试下载该图像。 此配置可减少请求图像所花的时间，因为不会无限重试主终结点。
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)

@@ -3,10 +3,10 @@ title: "使用 Azure 备份服务器将工作负荷备份到 Azure | Microsoft D
 description: "使用 Azure 备份服务器保护工作负荷或将其备份到 Azure 门户。"
 services: backup
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: PVRK
+manager: shivamg
 editor: 
-keywords: "Azure 备份服务器; 保护工作负荷; 备份工作负荷"
+keywords: "Azure 备份服务器；保护工作负荷；备份工作负荷"
 ms.assetid: e7fb1907-9dc1-4ca1-8c61-50423d86540c
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/20/2017
-ms.date: 09/04/2017
+ms.date: 02/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 38949687b0ace830111d8fa6eb08a1cec0690ad4
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 3f952f72f4d6bcbf9d7f512fff5be6d698892415
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>准备使用 Azure 备份服务器来备份工作负荷
 > [!div class="op_single_selector"]
@@ -58,6 +58,7 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
 
 | 操作系统 | 平台 | SKU |
 |:--- | --- |:--- |
+| Windows Server 2016 和最新的 SP |64 位 |Standard、Datacenter、Essentials (MABS v2 onwards) |
 | Windows Server 2012 R2 和最新的 SP |64 位 |Standard、Datacenter、Foundation |
 | Windows Server 2012 和最新的 SP |64 位 |Datacenter、Foundation、Standard |
 | Windows Storage Server 2012 R2 和最新的 SP |64 位 |Standard、Workgroup |
@@ -81,7 +82,7 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
 若要创建恢复服务保管库，请执行以下操作：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 在“中心”菜单中，单击“浏览”，然后在资源列表中，键入“恢复服务”。 开始键入时，会根据输入筛选该列表。 单击“恢复服务保管库”。
+2. 在“中心”菜单中，单击“**浏览**”，并在资源列表中，键入“**恢复服务**”。 开始键入时，会根据输入筛选该列表。 单击“**恢复服务保管库**”。
 
     ![创建恢复服务保管库步骤 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
 
@@ -97,7 +98,7 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
 5. 单击“订阅”查看可用订阅列表。 如果不确定要使用哪个订阅，请使用默认的（或建议的）订阅。 仅当组织帐户与多个 Azure 订阅关联时，才会有多个选项。
 6. 单击“资源组”查看可用资源组列表，或单击“新建”创建新的资源组。 有关资源组的完整信息，请参阅 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)
 7. 单击“位置”，为保管库选择地理区域  。
-8. 单击“创建” 。 创建恢复服务保管库可能需要一段时间。 可以在门户右上区域监视状态通知。
+8. 单击“创建”。 创建恢复服务保管库可能需要一段时间。 可以在门户右上区域监视状态通知。
    创建保管库后，它会在门户中打开。
 
 ### <a name="set-storage-replication"></a>设置存储复制
@@ -122,7 +123,7 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
 
      ![创建恢复服务保管库步骤 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
-     此时显示恢复服务保管库列表。
+     此时会显示恢复服务保管库列表。
    - 在恢复服务保管库列表中选择一个保管库。
 
      此时会打开选定的保管库仪表板。
@@ -187,7 +188,7 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
 
     ![Azure 备份服务器 - SQL 检查](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    如果发生故障并且系统建议重启计算机，请按说明操作，然后单击“再次检查”。
+    如果发生故障并且系统建议重新启动计算机，请按说明操作，并单击“**再次检查**”。
 
    > [!NOTE]
    > Azure 备份服务器不能与远程 SQL Server 实例配合使用。 Azure 备份服务器使用的实例需在本地。
@@ -244,7 +245,7 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 | 已连接 |已过期 |已停止 |已停止 |允许 |允许 |
 | 已连接 |已取消预配 |已停止 |已停止 |已停止且已删除 Azure 恢复点 |已停止 |
 | 连接断开超过 15 天 |活动 |已停止 |已停止 |允许 |允许 |
-| 连接断开超过 15 天 |已过期 |已停止 |已停止 |允许 |允许 |
+| 连接断开超过 15 天 |Expired |已停止 |已停止 |允许 |允许 |
 | 连接断开超过 15 天 |已取消预配 |已停止 |已停止 |已停止且已删除 Azure 恢复点 |已停止 |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>连接断开后进行恢复
@@ -261,7 +262,7 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 ### <a name="handling-subscription-states"></a>处理订阅状态
 可以将 Azure 订阅从“已过期”或“已取消预配”状态更改为“活动”状态。 但是，当状态不是“*活动*”时，此操作对产品的行为会造成某些影响：
 
-- “已取消预配”的订阅在取消预配的这段期间将失去功能。 切换为“活动”后，将恢复产品的备份/还原功能。 此外，只要以够长的保留期来保存本地磁盘上的备份数据，则还可以检索这些数据。 但是，一旦订阅进入“*已取消预配*”状态，Azure 中的备份数据便会丢失且不可检索。
+- “已取消预配”的订阅在取消预配的这段期间将失去功能。 切换为“*活动*”后，将恢复产品的备份/还原功能。 此外，只要以够长的保留期来保存本地磁盘上的备份数据，则还可以检索这些数据。 但是，一旦订阅进入“*已取消预配*”状态，Azure 中的备份数据便会丢失且不可检索。
 - “*已过期*”的订阅只会在恢复“*活动*”状态之前失去功能。 在订阅处于“*已过期*”期间计划的任何备份都不会运行。
 
 ## <a name="troubleshooting"></a>故障排除

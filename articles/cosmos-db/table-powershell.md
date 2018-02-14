@@ -15,11 +15,11 @@ ms.topic: how-to
 origin.date: 11/15/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 68c9e82542f1e9df32cd3e0821c7f07d74e27004
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 57f54830e53d5ffaeeaa2d194a8e5591e2c8854a
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>使用 Azure PowerShell 执行 Azure Cosmos DB 表 API 操作 
 
@@ -48,7 +48,8 @@ ms.lasthandoff: 11/24/2017
 Install-Module AzureRmStorageTable
 ```
 
-然后在本地安装 Azure Cosmos DB 程序集，以使用这些 PowerShell cmdlet。 有关如何执行该操作的说明，请参阅 [Cosmos DB 表的 Azure RM 存储表 PowerShell 模块](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/)。
+然后在本地安装 Azure Cosmos DB 程序集，以使用这些 PowerShell cmdlet。
+<!-- URL is not Correct on [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/) -->
 
 若要尝试以下练习，需要一个 Azure Cosmos DB 数据库帐户。 如果还没有帐户，请使用 [Azure 门户](https://portal.azure.cn)新建一个 Azure Cosmos DB 帐户。 有关新建数据库帐户的帮助，请参阅 [Azure Cosmos DB：创建数据库帐户](create-table-dotnet.md#create-a-database-account)。
 
@@ -91,7 +92,7 @@ $storageTable = Get-AzureStorageTableTable `
 
 ## <a name="delete-a-table"></a>删除表 
 
-PowerShell 不支持从 Azure Cosmos DB 删除表。 若要删除表，请转到 [Azure 门户](https://azure.portal.com)，找到你正在使用的 Azure Cosmos DB 帐户，然后查找并删除表。 
+PowerShell 不支持从 Azure Cosmos DB 删除表。 若要删除表，请转到 [Azure 门户](https://portal.azure.cn)，找到你正在使用的 Azure Cosmos DB 帐户，然后查找并删除表。 
 
 ## <a name="clean-up-resources"></a>清理资源
 

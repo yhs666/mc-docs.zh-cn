@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 10/10/2017
-ms.date: 10/30/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: b96c6d842a008740629b082a5fac32adadc62e46
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: ee624ae7279733d53dd2be3971db9a39f24c8f43
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -36,7 +36,7 @@ Azure 的实例元数据服务是一个 REST 终结点，所有创建的 IaaS VM
 
 区域                                        | 可用性？                                 | 支持的版本
 -----------------------------------------------|-----------------------------------------------|-----------------
-[全球所有公开上市的 Azure 区域](https://azure.microsoft.com/regions/)     | 正式版   | 2017-04-02, 2017-08-01
+[全球所有公开上市的 Azure 区域](https://www.azure.cn/support/service-dashboard/)     | 正式版   | 2017-04-02, 2017-08-01
 [Azure 政府](https://azure.microsoft.com/overview/clouds/government/)              | 正式版 | 2017-04-02
 [Azure 中国](https://www.azure.cn/)                                                           | 正式版 | 2017-04-02
 [Azure 德国](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式版 | 2017-04-02
@@ -116,7 +116,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 **响应**
 
 > [!NOTE] 
-> 此响应是 JSON 字符串。 以下响应示例以美观的形式输出以提高可读性。
+> 此响应是 JSON 字符串。 以下示例响应显示清晰，可供阅读。
 
 ```
 {
@@ -163,7 +163,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 **响应**
 
 > [!NOTE] 
-> 此响应是 JSON 字符串。 以下响应示例以美观的形式输出以提高可读性。
+> 此响应是 JSON 字符串。 以下示例响应显示清晰，可供阅读。
 
 ```
 {
@@ -230,7 +230,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 **响应**
 
 > [!NOTE] 
-> 此响应是 JSON 字符串。 以下响应示例以美观的形式输出以提高可读性。
+> 响应为 JSON 字符串。 以下响应示例以美观的形式输出以提高可读性。
 
 ```
 {
@@ -290,7 +290,7 @@ sku | VM 映像的特定 SKU | 2017-04-02
 osType | Linux 或 Windows | 2017-04-02
 platformUpdateDomain |  正在运行 VM 的[更新域](manage-availability.md) | 2017-04-02
 platformFaultDomain | 正在运行 VM 的[容错域](manage-availability.md) | 2017-04-02
-vmId | VM 的[唯一标识符](https://www.azure.cn/blogaccessing-and-using-azure-vm-unique-id/) | 2017-04-02
+vmId | VM 的[唯一标识符](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
 vmSize | [VM 大小](sizes.md) | 2017-04-02
 subscriptionId | 虚拟机的 Azure 订阅 | 2017-08-01
 标记 | 虚拟机的[标记](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
@@ -377,13 +377,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 语言 | 示例 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go Lang  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
-JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+Javascript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
 ## <a name="faq"></a>常见问题
 1. 我收到错误 `400 Bad Request, Required metadata header not specified`。 这是什么意思呢？
@@ -408,4 +411,4 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解由实例元数据服务提供的公共预览版 [scheduledevents](scheduled-events.md) API。
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

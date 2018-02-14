@@ -16,11 +16,11 @@ ms.workload: data-services
 origin.date: 04/20/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: e40c21bf945c321a2e41e98e849e1e68ec5f13a9
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 434592eae8242b4dc67a8f421f8c692622e8657f
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="understand-and-adjust-streaming-units"></a>了解和调整流式处理单元
 
@@ -28,7 +28,8 @@ Azure 流分析将运行作业的性能“权重”聚合到流式处理单位�
 
 为了实现低延迟流式处理，Azure 流分析作业将执行内存中的所有处理。 内存不足时，流式处理作业会失败。 因此，对于生产作业，请务必监视流式处理作业的资源使用情况，并确保分配有足够的资源来保持作业的全天候运行。
 
-指标是一个范围从 0% 到 100% 的百分数。 对于占用最小内存的流式处理作业，SU 利用率指标通常介于 10% 到 20%。 最好保持低于 80% 的指标，以应对偶发的峰值。  可以在指标上设置一个警报（请参阅[此处设置指标警报](/monitoring-and-diagnostics/insights-alerts-portal)）。
+指标是一个范围从 0% 到 100% 的百分数。 对于占用最小内存的流式处理作业，SU 利用率指标通常介于 10% 到 20%。 最好保持低于 80% 的指标，以应对偶发的峰值。 
+<!-- Not Available on  [here to set up metric alerts](/monitoring-and-diagnostics/insights-alerts-portal) -->
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>配置流分析流式处理单元 (SU)
 1. 登录到 [Azure 门户](http://portal.azure.cn/)

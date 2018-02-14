@@ -15,21 +15,22 @@ ms.workload: backup-recovery
 origin.date: 06/29/2017
 ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 46cc5ad7257839374c47cd8fed23ad865964b88f
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 0c2f4ae29892fd1c203cbc3b17203cb825ddea5b
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-a-scale-out-process-server"></a>管理横向扩展进程服务器
 
 横向扩展进程服务器充当 Site Recovery 服务与本地基础结构之间的数据传输的协调器。 本文介绍如何设置、配置和管理横向扩展进程服务器。
 
+<a name="size-recommendations-for-the-process-server"></a>
 ## <a name="prerequisites"></a>先决条件
-以下是设置横向扩展进程服务器所需的推荐硬件、软件和网络配置。
+以下是建议的设置横向扩展进程服务器所需的硬件、软件和网络配置。
 
 > [!NOTE]
-> [容量规划](site-recovery-capacity-planner.md)是一个重要的步骤，用于确保使用符合负载要求的配置部署横向扩展进程服务器。 阅读有关 [横向扩展进程服务器的缩放特征](#sizing-requirements-for-a-configuration-server)的详细信息。
+> [容量规划](site-recovery-capacity-planner.md)是一个重要的步骤，用于确保使用符合负载要求的配置部署横向扩展进程服务器。 请阅读有关[横向扩展进程服务器的扩展特征](#sizing-requirements-for-a-configuration-server)的更多信息。
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -37,7 +38,7 @@ ms.lasthandoff: 09/08/2017
 1. 登录到 Azure 门户并浏览到恢复服务保管库。
 2. 浏览到“Site Recovery 基础结构” > “配置服务器”（在“针对 VMware 和物理计算机”下面）。
 3. 选择配置服务器以向下钻取到此配置服务器的详细信息页。
-4. 单击“+ 进程服务器”按钮  。
+4. 单击“+ 进程服务器”按钮。
 5. 在“添加进程服务器”页上，从“选择要部署进程服务器的位置”下拉列表中选择“在本地部署横向扩展进程服务器”。
 
   ![“添加服务器”页](./media/site-recovery-vmware-to-azure-manage-scaleout-process-server/add-process-server.png)
@@ -89,7 +90,7 @@ ProxySettingsFilePath 参数使用某个文件作为输入。 创建使用以下
   net stop obengine
   net start obengine
   ```
-4. 接下来，浏览到目录 **%PROGRAMDATA%\ASR\Agent** 并运行以下命令
+4. 接下来浏览到的目录 **%PROGRAMDATA%\ASR\Agent** 并运行以下命令
   ```
   cmd
   cdpcli.exe --registermt
@@ -122,7 +123,7 @@ net start obengine
 1. 请确保：
   - 在 Azure 门户中，配置服务器的连接状态显示为“已连接” 
   - 进程服务器仍能够与配置服务器通信。
-2. 以管理员身份登录到进程服务器
+2. 以管理员身份登录进程服务器
 3. 打开“控制面板”>“程序”>“卸载程序”
 4. 按照以下指定的顺序卸载程序：
   * Azure Site Recovery 配置服务器/进程服务器
@@ -132,12 +133,13 @@ net start obengine
 进程服务器的删除反映在 Azure 门户中最长需要 15 分钟。
 
   > [!NOTE]
-  如果进程服务器无法与配置服务器通信（门户中的连接状态为“已断开连接”），则需要按照以下步骤从配置服务器中清除它。
+  如果进程服务器无法与配置服务器通信（门户中的连接状态为“已断开”），则需要按照以下步骤从配置服务器中清除它。
 
-## <a name="unregistering-a-disconnected-scale-out-process-server-from-a-configuration-server"></a>从配置服务器中注销已断开连接的横向扩展进程服务器
+## <a name="unregistering-a-disconnected-scale-out-process-server-from-a-configuration-server"></a>从配置服务器中撤消注册已断开连接的横向扩展进程服务器
 
 [!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 
+<a name="sizing-requirements-for-a-configuration-server"></a>
 ## <a name="sizing-requirements-for-a-scale-out-process-server"></a>横向扩展进程服务器大小要求
 
 | **额外的进程服务器** | **缓存磁盘大小** | **数据更改率** | **受保护的计算机** |

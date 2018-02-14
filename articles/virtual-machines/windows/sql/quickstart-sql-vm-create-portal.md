@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 origin.date: 12/12/2017
 ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 717a0dba6c179ae8a42a44188096bc31e6c4329e
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 58260d6353e11c2b7c75cead56e73a4f8022f0e6
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>在 Azure 门户中创建 SQL Server 2017 Windows 虚拟机
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 01/05/2018
 
 1. 单击“查看所有”查看所有可用的计算机大小。
 
-1. 对于本快速入门，请选择“D2S_V3”。 门户中会显示计算机的每月连续使用估算费用（不包括 SQL Server 许可费用）。 请注意，Developer Edition 不会收取额外的 SQL Server 许可费用。 有关更具体的定价信息，请参阅[定价页](https://www\.azure\.cn/pricing/details/virtual-machines/)。
+1. 对于本快速入门，请选择“D2S_V3”。 门户中会显示计算机的每月连续使用估算费用（不包括 SQL Server 许可费用）。 请注意，Developer Edition 不会收取额外的 SQL Server 许可费用。 有关更具体的定价信息，请参阅[定价页](https://www.azure.cn/pricing/details/virtual-machines/)。
 
    > [!TIP]
    > 在测试时，**D2S_V3** 计算机大小可以节省资金。 但是，对于生产工作负荷，请参阅 [Azure 虚拟机中 SQL Server 的性能最佳做法](virtual-machines-windows-sql-performance.md)中建议的计算机大小和配置。

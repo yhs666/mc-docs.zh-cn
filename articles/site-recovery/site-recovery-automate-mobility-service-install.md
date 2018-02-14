@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 11/22/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1f21f34994cbbb2bc6e31ffd2f14d84db6a04c86
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 63f27d201546ecd8ea31b9cad846f1c80aa77789
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>使用 Azure Automation DSC 部署移动服务以复制 VM
 在 Operations Management Suite 中，我们提供了一个可在业务连续性计划中使用的综合性备份和灾难恢复解决方案。
@@ -59,8 +59,9 @@ ms.lasthandoff: 12/29/2017
 * 在计算机上安装 Windows Management Framework (WMF) 5.0，需要启用以获取保护（Automation DSC 的要求）
 
     > [!NOTE]
-    > 如需将 DSC 用于安装了 WMF 4.0 的 Windows 计算机上，请参阅[在断开连接的环境中使用 DSC](## Use DSC in disconnected environments) 部分。
+    > 如需将 DSC 用于安装了 WMF 4.0 的 Windows 计算机上，请参阅[在断开连接的环境中使用 DSC](#use-dsc-in-disconnected-environments) 部分。
 
+<!-- Archor is Correct on [Use DSC in disconnected environments](#use-dsc-in-disconnected-environments) -->
 移动服务可通过命令行安装，接受多个参数。 因此，在从安装中提取二进制文件后，需要保留这些文件，并将其存储在能够使用 DSC 配置进行检索的某个位置。
 
 ## <a name="step-1-extract-binaries"></a>步骤 1：提取二进制文件
@@ -348,7 +349,6 @@ Get-DscConfigurationStatus
 
 管理服务器检测到成功部署后，即可使用 Site Recovery 配置保护措施并允许在计算机上进行复制。
 
-<a name="Use DSC in disconnected environments"></a>
 ## <a name="use-dsc-in-disconnected-environments"></a>在断开连接的环境中使用 DSC
 即使计算机未连接到 Internet，也可通过 DSC 在需要保护的工作负荷上部署和配置移动服务。
 

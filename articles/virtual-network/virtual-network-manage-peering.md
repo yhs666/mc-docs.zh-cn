@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: dc7f76973a1a75970731bed27743eb06bfc73ad1
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 27a6119b8cc79ab81fc071d777c8bacb817eb7f8
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>创建、更改或删除虚拟网络对等互连
 
@@ -45,6 +45,7 @@ ms.lasthandoff: 01/19/2018
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 <a name="create"></a>
+<a name="create-peering"></a>
 ## <a name="create-a-peering"></a>创建对等互连
 
 >[!NOTE]
@@ -68,7 +69,7 @@ ms.lasthandoff: 01/19/2018
 
     除了将流量转发到本地网络之外，VPN 网关还可以在与该网关所在的虚拟网络对等互连的虚拟网络之间转发网络流量，各个虚拟网络不需要都彼此对等互连。 想要在中心（请参阅针对“允许转发的流量”描述的中心和辐射示例）虚拟网络中使用 VPN 网关在未彼此对等互连的辐射虚拟网络之间路由流量时，这非常有用。 了解有关[虚拟网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json#s2smulti)的详细信息。 此方案要求实现用户定义的路由来将虚拟网络网关指定为下一跃点类型。 了解[用户定义的路由](virtual-networks-udr-overview.md#user-defined)。 只能将 VPN 网关指定为用户定义的路由中的下一跃点类型，不能将 ExpressRoute 网关指定为用户定义的路由中的下一跃点类型。
 
-        You cannot enable this option if you're peering a virtual network (Resource Manager) with a virtual network (classic). Though the traffic flows between the two virtual networks, the virtual network (classic) traffic cannot flow through a network gateway attached to the virtual network (Resource Manager). 
+    如果要将 Resource Manager 虚拟网络与经典虚拟网络对等互连，则无法启用此选项。 虽然流量在这两个虚拟网络之间流动，但经典虚拟网络的流量无法流经附加到 Resource Manager 虚拟网络的网关。 
 
     - 使用远程网关：选中此框即可让来自此虚拟网络的流量流经附加到要与之对等互连的虚拟网络的虚拟网关。 例如，要与之对等互连的虚拟网络附加了一个 VPN 网关，因此可与本地网络通信。  选中此框即可让来自此虚拟网络的流量流经附加到已对等互连的虚拟网络的 VPN 网关。 如果选中此框，已对等互连的虚拟网络必须附加有虚拟网关，并且必须已选中“允许网关传输”复选框。 如果保留此框的未选中状态（默认），则来自已对等互连的虚拟网络的流量仍可流动到此虚拟网络，但无法流经附加到此虚拟网络的虚拟网关。 
 此虚拟网络只有一个对等互连可以启用此设置。

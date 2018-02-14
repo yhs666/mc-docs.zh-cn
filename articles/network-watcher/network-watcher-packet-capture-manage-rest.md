@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 687744209d984a3812ded649fb8441d96a7539b9
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 8e6cbd551583142ce5822114a43b0d3ed259b11b
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>通过 Azure REST API 使用 Azure 网络观察程序管理数据包捕获
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/14/2017
 
 使用网络观察程序数据包捕获，可以创建捕获会话以跟踪进出虚拟机的流量。 为捕获会话提供了筛选器以确保仅捕获所需的流量。 数据包捕获有助于以主动和被动方式诊断网络异常。 其他用途包括收集网络统计信息，获得网络入侵信息，调试客户端与服务器之间的通信，等等。 由于能够远程触发数据包捕获，此功能可减轻手动运行数据包捕获的负担，并可在所需计算机上运行，从而可节省宝贵的时间。
 
-本文介绍目前适用于数据包捕获的不同管理任务。
+本文将引导完成当前可用于数据包捕获的不同管理任务。
 
 - [**获取数据包捕获**](#get-a-packet-capture)
 - [**列出所有数据包捕获**](#list-all-packet-captures)
@@ -41,13 +41,14 @@ ms.lasthandoff: 11/14/2017
 - [**停止数据包捕获**](#stop-packet-capture)
 - [**删除数据包捕获**](#delete-packet-capture)
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 本方案通过调用网络观察程序 Rest API 来运行“IP 流验证”。 通过 PowerShell 调用 REST API 时，使用的是 ARMclient。 根据 [Chocolatey 上的 ARMClient](https://chocolatey.org/packages/ARMClient) 中所述在 chocolatey 上找到 ARMClient
 
 本方案假设已根据[创建网络观察程序](network-watcher-create.md)中的步骤创建了网络观察程序。
 
-> 数据包捕获需要虚拟机扩展 `AzureNetworkWatcherExtension`。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md)。
+> 数据包捕获需要虚拟机扩展 `AzureNetworkWatcherExtension`。 
+<!-- Wait for [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md) -->
 
 ## <a name="log-in-with-armclient"></a>使用 ARMClient 登录
 
@@ -300,8 +301,8 @@ armclient delete "https://management.chinacloudapi.cn/subscriptions/${subscripti
 
 ## <a name="next-steps"></a>后续步骤
 
-有关从 Azure 存储帐户下载文件的说明，请参阅[通过 .NET 使用 Azure Blob 存储入门](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 可以使用的另一个工具是存储资源管理器。 有关存储资源管理器的详细信息可以在此链接中找到：[存储资源管理器](http://storageexplorer.com/)
+有关从 Azure 存储帐户下载文件的说明，请参阅[通过 .NET 开始使用 Azure Blob 存储](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 可以使用的另一个工具是存储资源管理器。 有关存储资源管理器的详细信息可以在此链接中找到：[存储资源管理器](http://storageexplorer.com/)
 
-查看[创建警报触发的数据包捕获](network-watcher-alert-triggered-packet-capture.md)，了解如何利用虚拟机警报自动执行数据包捕获
+<!--Not Available on [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 
 <!--Update_Description: new articles on network watcher packet capture manage rest -->

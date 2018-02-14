@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 origin.date: 06/19/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: d4522972c61a8edc97a8be953c4d5505f566e84e
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 0e724e7874eeea01efeb923927cae928015a9ffe
+ms.sourcegitcommit: 1fb5f5438975a4901c35b6b95cbb190a08570a9b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-10"></a>使用 Azure 网络观察程序 Azure CLI 1.0 对虚拟网络网关和连接进行故障排除
 
 > [!div class="op_single_selector"]
-> - [门户](network-watcher-troubleshoot-manage-portal.md)
+> - [Portal](network-watcher-troubleshoot-manage-portal.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
@@ -34,11 +34,12 @@ ms.lasthandoff: 11/14/2017
 
 本文使用适用于 Windows、Mac 和 Linux 的跨平台 Azure CLI 1.0。 
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 此方案假定已按照[创建网络观察程序](network-watcher-create.md)中的步骤创建网络观察程序。
 
-有关支持的网关类型列表，请访问[支持的网关类型](/network-watcher-troubleshoot-overview.md#supported-gateway-types)。
+有关支持的网关类型列表，请访问[支持的网关类型](./network-watcher-troubleshoot-overview.md#supported-gateway-types)。
+<!-- URL is should be add . [Supported Gateway types](./network-watcher-troubleshoot-overview.md#supported-gateway-types) -->
 
 ## <a name="overview"></a>概述
 

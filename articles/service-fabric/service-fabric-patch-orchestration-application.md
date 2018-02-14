@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 05/09/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4313b33b529547b2f78fe1920863bb5eaa48ef8a
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: f2cbe4f88ff0996efa42a3ebf1be472c5c1422f2
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>在 Service Fabric 群集中修补 Windows 操作系统
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 12/01/2017
     }
     ```
 
-2. 现在，通过在 `fabricSettings` 节后面添加以下 `addonFeatures` 节来启用修复管理器服务，如下所示：
+2. 现在，通过在 `fabricSettings` 节后面添加以下 `addonFeatures` 节来启用“修复管理器”服务，如下所示：
 
     ```json
     "fabricSettings": [
@@ -123,7 +123,7 @@ ms.lasthandoff: 12/01/2017
     ],
     ```
 
-3. 通过这些更改更新群集清单后，使用已更新的群集清单[创建新群集](/service-fabric/service-fabric-cluster-creation-for-windows-server)或[升级群集配置](/service-fabric/service-fabric-cluster-upgrade-windows-server#Upgrade-the-cluster-configuration)。 群集使用已更新的群集清单运行后，就可以看到修复管理器系统服务在群集中运行，该服务在 Service Fabric Explorer 中的系统服务部分下被称为 `fabric:/System/RepairManagerService`。
+3. 通过这些更改更新群集清单后，使用已更新的群集清单[创建新群集](/service-fabric/service-fabric-cluster-creation-for-windows-server)或[升级群集配置](/service-fabric/service-fabric-cluster-upgrade-windows-server#upgrade-the-cluster-configuration)。 群集使用已更新的群集清单运行后，就可以看到修复管理器系统服务在群集中运行，该服务在 Service Fabric Explorer 中的系统服务部分下被称为 `fabric:/System/RepairManagerService`。
 
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>在所有节点上禁用自动 Windows 更新
 
@@ -247,6 +247,7 @@ RebootRequired | true - 需要重新启动<br> true - 不需要重新启动 | �
 修补业务流程应用日志是作为 Service Fabric 运行日志的一部分进行收集的。
 
 在想要通过所选的诊断工具/管道捕获日志的情况下使用。 修补业务流程应用程序使用以下固定的提供程序 ID 通过 [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1) 记录事件
+<!-- URL is correct for https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1 -->
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9

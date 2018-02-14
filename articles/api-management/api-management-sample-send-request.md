@@ -3,7 +3,7 @@ title: "使用 API 管理服务生成 HTTP 请求"
 description: "了解如何使用 API 管理中的请求和响应策略从 API 调用外部服务"
 services: api-management
 documentationcenter: 
-author: darrelmiller
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/15/2016
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 57097999ae3a726494ccdfd4e489c368d300aad1
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 2222e50e2a3f409a40e1f3910a37a91ae8e8cd91
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>通过 Azure API 管理服务使用外部服务
 Azure API 管理服务中的策略可以单纯根据传入的请求、传出的响应以及基本配置信息执行多种不同的有用工作。 但是，如果能够与 API 管理策略中的外部服务进行交互，则可以使更多的想法成为可能。
@@ -68,7 +68,7 @@ Slack 具有入站 Web Hook 的概念。 配置入站 Web Hook 时，Slack 将�
 `send-request` 策略能够使用外部服务来执行复杂的处理函数，并将数据返回到 API 管理服务，此服务可用于进一步处理策略。
 
 ### <a name="authorizing-reference-tokens"></a>授权引用令牌
-API 管理的主要功能是保护后端资源。 如果 API 使用的授权服务器可以像 Azure Active Directory 一样在其 OAuth2 流程中创建 [JWT 令牌](http://jwt.io/)，则可以使用 `validate-jwt` 策略来验证令牌的有效性。 但是，某些授权服务器创建所谓的[引用令牌](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/)，这些令牌无法在不对授权服务器进行回调的情况下进行验证。
+API 管理的主要功能是保护后端资源。 如果 API 使用的授权服务器可以像 [Azure Active Directory](../active-directory/active-directory-aadconnect.md) 一样创建 [JWT 令牌](http://jwt.io/)作为其 OAuth2 流程的一部分，则可以使用 `validate-jwt` 策略来验证令牌的有效性。 但是，某些授权服务器创建所谓的[引用令牌](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/)，这些令牌无法在不对授权服务器进行回调的情况下进行验证。
 
 ### <a name="standardized-introspection"></a>标准化自检
 过去一直没有标准化的方式可使用授权服务器来验证引用令牌。 但是，IETF 最近发布的提议标准 [RFC 7662](https://tools.ietf.org/html/rfc7662) 定义了资源服务器如何验证令牌的有效性。

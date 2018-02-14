@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2017
-ms.date: 01/08/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 08b6a1e6aac66b983af7993c5c22ec0f3b7bce77
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 60df2d6c84257dd22c3ada68b2681c3c4921f04e
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>在 Azure 中使用 Terraform 创建完整的 Linux 虚拟机基础结构
 
@@ -128,7 +128,7 @@ resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
 ```
 
 ## <a name="create-virtual-network-interface-card"></a>创建虚拟网络接口卡
-虚拟网络接口卡 (NIC) 将 VM 连接到规定的虚拟网络、公共 IP 地址和网络安全组。 Ansible 操作手册的以下部分创建名为 "myNIC"并连接到已创建的虚拟网络资源的虚拟 NIC：
+虚拟网络接口卡 (NIC) 将 VM 连接到规定的虚拟网络、公共 IP 地址和网络安全组。 Terraform 模板的以下部分创建名为“myNIC”的虚拟 NIC，并连接到已创建的虚拟网络资源：
 
 ```tf
 resource "azurerm_network_interface" "myterraformnic" {
@@ -464,4 +464,4 @@ ssh azureuser@<publicIps>
 ## <a name="next-steps"></a>后续步骤
 现已使用 Terraform 在 Azure 中创建了基本基础结构。 有关更复杂的方案（包括使用负载均衡器和虚拟机规模集的示例），请参阅众多的[适用于 Azure 的 Terraform 示例](https://github.com/hashicorp/terraform/tree/master/examples)。 有关受支持 Azure 提供程序的最新列表，请参阅 [Terraform 文档](https://www.terraform.io/docs/providers/azurerm/index.html)。
 
-<!--Update_Description: update meta properties， wording update -->
+<!--Update_Description: update meta properties -->

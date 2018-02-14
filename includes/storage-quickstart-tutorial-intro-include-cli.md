@@ -1,6 +1,6 @@
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 命令创建 Azure 资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。
+使用 [az group create](https://docs.azure.cn/cli/group#az_group_create) 命令创建 Azure 资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
 ```cli
 az group create \
@@ -10,7 +10,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
 
-使用 [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) 命令创建通用标准存储帐户。 通用的标准存储帐户可用于以下四种服务：blob、文件、表和队列。 
+使用 [az storage account create](https://docs.azure.cn/cli/storage/account#create) 命令创建常规用途存储帐户。 常规用途的存储帐户可用于以下四种服务：Blob、文件、表和队列。 
 
 ```cli
 az storage account create \
@@ -25,7 +25,7 @@ az storage account create \
 
 Azure CLI 需要存储帐户凭据才能执行本教程的大部分命令。 提供凭据的选项有多种，其中最简单方法之一是设置 `AZURE_STORAGE_ACCOUNT` 和 `AZURE_STORAGE_ACCESS_KEY` 环境变量。
 
-首先，使用 [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list) 命令显示存储帐户密钥：
+首先，使用 [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#list) 命令显示存储帐户密钥：
 
 ```
 az storage account keys list \

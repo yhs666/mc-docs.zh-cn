@@ -2,11 +2,22 @@
 layout: LandingPage
 title: "服务总线中继文档"
 description: "了解 Azure 中继服务在混合云与本地环境中的工作方式，获取完整的操作指南、教程、视频、API 参考和其他信息。"
-ms.openlocfilehash: 765dca71cb5d35ba3296b50926be71d7fd54bfce
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+services: service-bus
+author: czeumault
+manager: carolz
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+orgin.date: 03/14/2017
+ms.date: 02/05/2018
+ms.author: v-yiso
+ms.openlocfilehash: 4b114ab9f72c98ca8f173e7576de159f9f3a9836
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="service-bus-relay-documentation"></a>服务总线中继文档
 了解 Azure 中继服务如何在无需打开防火墙连接或者对企业网络基础结构进行全面改造的情况下，为企业网络和公有云中的本地环境与云环境之间的混合应用程序提供辅助。
@@ -24,24 +35,6 @@ ms.lasthandoff: 06/21/2017
                     </div>
                     <div class="cardText">
                         <h3>了解服务总线中继</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=service-bus-relay">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure 服务总线中继视频库</h3>
                     </div>
                 </div>
             </div>

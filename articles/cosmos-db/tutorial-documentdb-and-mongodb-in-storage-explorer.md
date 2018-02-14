@@ -18,11 +18,11 @@ ms.topic: tutorial
 origin.date: 09/19/2017
 ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: 95acce7be27f848a6762c67b9acb18432cbd3e1e
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 8b0ddeb6ef22572914984ef7cadfe322d0d47805
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>在 Azure 存储资源管理器（预览版）中管理 Azure Cosmos DB
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 01/23/2018
 
     ![通过连接字符串连接到 Azure Cosmos DB](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. 为帐户类型选择相应“默认体验”（“DocumentDB”），粘贴“连接字符串”，然后单击“确定”以连接 Azure Cosmos DB 帐户。 有关检索连接字符串的信息，请参阅[获取连接字符串](/cosmos-db/manage-account#get-the--connection-string)。
+2. 为帐户类型选择相应“默认体验”（“DocumentDB”），粘贴“连接字符串”，然后单击“确定”以连接 Azure Cosmos DB 帐户。 有关检索连接字符串的信息，请参阅[获取连接字符串](/cosmos-db/manage-account#get-the-connection-string)。
 
     ![连接字符串](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 

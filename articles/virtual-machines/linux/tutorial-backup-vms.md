@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 07/27/2017
-ms.date: 10/16/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c793e37baea18fd2334b2645754979a88c3e38c3
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 2d335823a58cecd9988f9f82b81eca5415b35090
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>在 Azure 中备份 Linux 虚拟机
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/13/2017
 
 ## <a name="backup-overview"></a>备份概述
 
-当 Azure 备份服务启动备份时，将触发备份扩展来创建时间点快照。 Azure 备份服务在 Linux 中使用 _VMSnapshotLinux_ 扩展。 该扩展是在首次 VM 备份（如果 VM 正在运行）期间安装的。 如果 VM 未运行，备份服务将创建基础存储的快照（因为在 VM 停止时不会发生任何应用程序写入）。
+当 Azure 备份服务启动备份时，将触发备份扩展来创建时间点快照。 Azure 备份服务在 Linux 中使用 _VMSnapshotLinux_ 扩展。 该扩展是在首次 VM 备份（如果 VM 正在运行）期间安装的。 如果 VM 未运行，备份服务会创建基础存储的快照（因为在 VM 停止时不会发生任何应用程序写入）。
 
 默认情况下，Azure 备份为 Linux VM 创建文件系统一致备份，但可以[使用前脚本和后脚本框架将其配置为创建应用程序一致备份](/backup/backup-azure-linux-app-consistent)。 Azure 备份服务创建快照后，数据将传输到保管库。 为最大限度地提高效率，服务仅标识和传输自上次备份以后已更改的数据块。
 
@@ -158,7 +158,7 @@ ms.lasthandoff: 10/13/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，已学习了如何执行以下操作：
+在本教程中，你已学习了如何执行以下操作：
 
 > [!div class="checklist"]
 > * 创建 VM 的备份
@@ -170,4 +170,4 @@ ms.lasthandoff: 10/13/2017
 > [!div class="nextstepaction"]
 > [监视虚拟机](tutorial-monitoring.md)
 
-<!--Update_Description: new articles on backup vms tutorial in linux -->
+<!--Update_Description: wording update -->

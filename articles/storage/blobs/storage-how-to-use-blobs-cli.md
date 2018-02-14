@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 06/15/2017
-ms.date: 10/16/2017
+ms.date: 1/29/2018
 ms.author: v-johch
-ms.openlocfilehash: 342e0c55c0b52d005162bccf8d9ce67bbab9acd1
-ms.sourcegitcommit: 10a649bfdf30765955ed964f7b5e05205bb9670a
+ms.openlocfilehash: d116af1b0c69ebe0315a2dee7e94c70b2e06b6cd
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>通过 Azure CLI 对 Blob 存储执行操作
 
@@ -162,6 +162,18 @@ az storage blob copy start \
 az storage blob delete \
     --container-name mystoragecontainer \
     --name blobName
+```
+
+## <a name="set-the-content-type"></a>设置内容类型
+
+内容类型（也称为 MIME 类型）标识 Blob 中数据的格式。 浏览器和其他软件使用内容类型来确定如何处理数据。 下面的示例将内容类型设置为 `image/png`。
+
+```azurecli-interactive
+# Set the content type
+az storage blob update
+    --container-name mystoragecontainer 
+    --name blobName 
+    --content-type image/png
 ```
 
 ## <a name="display-and-modify-blob-properties-and-metadata"></a>显示和修改 blob 属性和元数据

@@ -11,11 +11,11 @@ ms.topic: quickstart
 origin.date: 12/07/2017
 ms.date: 01/01/2018
 ms.author: v-nany
-ms.openlocfilehash: 3e8f93142daadca69fb90c283687f0fd8b37843d
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: b11e17940d643a29680a358c8ccdbe848fef643f
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-ruby"></a>使用 Ruby 将对象转移到 Azure Blob 存储或从 Azure Blob 存储转移对象
 本快速入门介绍如何使用 Ruby 上传、下载和列出 Azure Blob 存储的容器中的块 Blob。 
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/29/2017
 
 若要完成本快速入门教程，需先执行以下操作： 
 * 安装 [Ruby](https://www.ruby-lang.org/en/downloads/)
-* 使用 rubygem 包安装[用于 Ruby 的 Azure 存储库](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage)。 
+* 使用 rubygem 包安装[用于 Ruby 的 Azure 存储库](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage)。 
 
 ```
 gem install azure-storage

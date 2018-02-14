@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 08/09/2017
 ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: f19b98f8f7032152335792505611d5b842ba1303
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 8d4299d3a0590f2c9188ba0f528666bee18b7b77
+ms.sourcegitcommit: 1fb5f5438975a4901c35b6b95cbb190a08570a9b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="using-the-xplat-cli-to-interact-with-a-service-fabric-cluster"></a>使用 XPlat CLI 与 Service Fabric 群集交互
 
@@ -101,7 +101,7 @@ azure servicefabric cluster connect --connection-endpoint http://ip:19080 --clie
  azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
 ```
 
-如果有多个 CA，请使用逗号作为分隔符。
+如果有多个 CA，则使用逗号作为分隔符。
 
 如果证书中的公用名与连接终结点不匹配，则可以使用参数 `--strict-ssl-false` 跳过验证，如下面的命令中所示：
 
@@ -172,7 +172,8 @@ openssl pkcs12 -export -out certificate.pfx -inkey mycert.pem -in mycert.pem -ce
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
-有关详细信息，请参阅 [OpenSSL 文档](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html)。
+有关详细信息，请参阅 [OpenSSL 文档](https://www.openssl.org/docs/man1.0.2/apps/pkcs12.html)。
+<!-- URL is correct on man1.0.2 -->
 
 <a id="troubleshooting"></a>
 

@@ -15,11 +15,11 @@ ms.topic: hero-article
 origin.date: 12/02/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1a38c76571dcf6640daf5328dee5a13c40971cf4
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 01ecb1dd32526c870a57dbe2cd2cea1add16a0be
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器
 本文为适用于 Hyper-V 到 Azure 生产部署的 Azure Site Recovery 部署规划器用户指南。
@@ -90,13 +90,12 @@ Azure Site Recovery 部署规划器是一个命令行工具，适用于 Hyper-V 
 |---|---|
 |获取 VM 列表、分析和吞吐量测量 |<ul><li>操作系统：Microsoft Windows Server 2016 或 Microsoft Windows Server 2012 R2 </li><li>计算机配置：8 个 vCPU，16 GB RAM，300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>可在此服务器中通过 Internet 访问 Azure</li><li>Azure 存储帐户</li><li>服务器上的管理员访问权限</li><li>至少 100 GB 的可用磁盘空间（假定有 1000 个 VM，每个平均包含 3 个磁盘，分析时间为 30 天）</li><li>必须将从其运行 Azure Site Recovery 部署规划器工具的 VM 添加到包含所有 Hyper-V 服务器的 TrustedHosts 列表。</li><li>所有 Hyper-V 服务器的需要进行分析的 VM 都必须添加到 TrustedHosts 列表，其中包含从其运行此工具的客户端 VM。 [详细了解如何将服务器添加到 TrustedHosts 列表中](#steps-to-add-servers-into-trustedhosts-list)。 </li><li> 应从客户端上的 PowerShell 或命令行控制台使用管理特权运行此工具</ul></ul>|
 | 报告生成 | 装有 Microsoft Excel 2013 或更高版本的 Windows 电脑或 Windows Server |
-| 用户权限 | 在“获取 VM 列表”和“分析”操作过程中用于访问 Hyper-V 群集/Hyper-V 主机的管理员帐户。<br>所有需要进行分析的主机都应有一个使用相同凭据（即用户名和密码）的域管理员帐户
- |
+| 用户权限 | 在“获取 VM 列表”和“分析”操作过程中用于访问 Hyper-V 群集/Hyper-V 主机的管理员帐户。<br>所有需要进行分析的主机都应有一个使用相同凭据（即用户名和密码）的域管理员帐户|
 
 ## <a name="steps-to-add-servers-into-trustedhosts-list"></a>将服务器添加到 TrustedHosts 列表中的步骤
 1.  要从其部署此工具的 VM 应该让需要分析的所有主机都位于其 TrustedHosts 列表中。 若要将客户端添加到 Trustedhosts 列表中，请在 VM 上通过提升的 PowerShell 运行以下命令。 VM 可以是 Windows Server 2012 R2 或 Windows Server 2016。 
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+        set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
 
 2.  每个需要分析的 Hyper-V 主机都应：
 

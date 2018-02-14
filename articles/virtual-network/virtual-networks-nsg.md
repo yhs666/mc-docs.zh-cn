@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/11/2016
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: f09a64eb807f666374a87ae07d5a67ec2a8de743
-ms.sourcegitcommit: 60515556f984495cfe545778b2aac1310f7babee
+ms.openlocfilehash: 46480f9ca63e63c9c6c1b554c98d95debf968da0
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>使用网络安全组筛选网络流量
 
@@ -260,7 +260,7 @@ NSG 包含两组规则：入站规则和出站规则。 在每组中，规则的
 ## <a name="next-steps"></a>后续步骤
 * [部署 NSG (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md)。
 * [部署 NSG（经典）](virtual-networks-create-nsg-classic-ps.md)。
-<!--Not Available * [Manage NSG logs](virtual-network-nsg-manage-log.md).-->
+<!--Not Available * [Manage NSG logs](virtual-network-nsg-manage-log.md) -->
 * [对 NSG 进行故障排除](virtual-network-nsg-troubleshoot-portal.md)
 
 <!--Update_Description: update meta properties, wording update, update link-->

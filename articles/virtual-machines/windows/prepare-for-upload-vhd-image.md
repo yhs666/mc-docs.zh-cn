@@ -16,11 +16,11 @@ ms.topic: troubleshooting
 origin.date: 11/03/2017
 ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: c1ef567a0e65d21bbd188f8a4cb3367290c92531
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 3b711af1ca23875ae55ff0f3c4efefe752092dd4
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>准备好要上传到 Azure 的 Windows VHD 或 VHDX
 在将 Windows 虚拟机 (VM) 从本地上传到 Azure 之前，必须准备好虚拟硬盘（VHD 或 VHDX）。 Azure 仅支持采用 VHD 文件格式且具有固定大小磁盘的第 1 代 VM。 VHD 允许的最大大小为 1,023 GB。 可以将第 1 代 VM 从 VHDX 文件系统转换成 VHD 文件系统，以及从动态扩展磁盘转换成固定大小磁盘， 但无法更改 VM 的代次。 有关详细信息，请参阅 [Should I create a generation 1 or 2 VM in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)（应该在 Hyper-V 中创建第 1 代还是第 2 代 VM？）。
@@ -67,7 +67,8 @@ Convert-VHD -Path c:\test\MY-VM.vhdx -DestinationPath c:\test\MY-NEW-VM.vhd -VHD
 1. 删除路由表中的所有静态持久性路由：
 
    * 若要查看路由表，请在命令提示符处运行 `route print`。
-   * 请查看**持久性路由**部分。 如果有持久性路由，请使用 [route delete](https://technet.microsoft.com/library/cc739598.apx) 将它删除。
+   * 请查看 **持久性路由** 部分。 如果有持久性路由，请使用 route delete 将它删除。
+<!-- Not Available on [route delete](https://technet.microsoft.com/library/cc739598.apx) -->
 2. 删除 WinHTTP 代理：
 
     ```PowerShell
@@ -352,7 +353,7 @@ Set-Service -Name RemoteRegistry -StartupType Auto
 |                         | win32k.sys        | 6.1.7601.23807 - KB4022719         | 6.2.9200.22168 - KB4022718                  | 6.3.9600.18698 - KB4022726           | 10.0.14393.594 - KB4022715           | -                          |
 |                         | rdpdd.dll         | 6.1.7601.23403 - KB3125574         | -                                           | -                                    | -                                    | -                          |
 |                         | rdpwd.sys         | 6.1.7601.23403 - KB3125574         | -                                           | -                                    | -                                    | -                          |
-| “安全”                | 由于 WannaCrypt | KB4012212                          | KB4012213                                   | KB4012213                            | KB4012606                            | KB4012606                  |
+| 安全性                | 由于 WannaCrypt | KB4012212                          | KB4012213                                   | KB4012213                            | KB4012606                            | KB4012606                  |
 |                         |                   |                                    | KB4012216                                   |                                      | KB4013198                            | KB4013198                  |
 |                         |                   | KB4012215                          | KB4012214                                   | KB4012216                            | KB4013429                            | KB4013429                  |
 |                         |                   |                                    | KB4012217                                   |                                      | KB4013429                            | KB4013429                  |

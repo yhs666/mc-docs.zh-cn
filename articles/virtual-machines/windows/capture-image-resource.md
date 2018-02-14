@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/09/2017
-ms.date: 01/08/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2ba2cc10f2be42e5600175a4e1aca557a8192e10
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 69888332da408402d2c4ed2438da3d8bbc508792
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中创建通用 VM 的托管映像
 
@@ -120,9 +120,9 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 2. 获取 VM。
 
-    ```azurepowershell-interactive
-    $vm = Get-AzureRmVm -Name myVM -ResourceGroupName $rgName
-    ```
+   ```azurepowershell-interactive
+   $vm = Get-AzureRmVm -Name $vmName -ResourceGroupName $rgName
+   ```
 
 3. 获取托管磁盘的 ID。
 
@@ -208,4 +208,4 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 ## <a name="next-steps"></a>后续步骤
 - 现在，可以[从通用托管映像创建 VM](create-vm-generalized-managed.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-<!--Update_Description: wording update -->
+<!--Update_Description: update cmdlet -->

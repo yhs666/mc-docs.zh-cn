@@ -3,8 +3,8 @@ title: "使用 Azure CLI 2.0 自管理虚拟机规模集 | Microsoft Docs"
 description: "管理虚拟机规模集常用的 Azure CLI 2.0 命令，如管理如何启动和停止实例，或更改此规模集容量。"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: iainfoulds
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/19/2017
-ms.date: 12/29/2017
+ms.date: 01/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 622a302b73a6665cce6ef68070c36e41e19d6baa
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: c72401b489004cf20ea9a50242398509b33a7936
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 管理虚拟机规模集
 在虚拟机规模集的整个生命周期内，可能需要运行一个或多个管理任务。 此外，可能还需要创建自动执行各种生命周期任务的脚本。 本文详细介绍了执行这些任务常用的一些 Azure CLI 2.0 命令。
 
-若要完成这些管理任务，需要 Azure CLI 2.0 的最新版本。 有关安装和使用最新版本的详细信息，请参阅 [Azure CLI 2.0 安装](/cli/install-azure-cli)。 如果需要创建虚拟机规模集，可以[在 Azure 门户中创建规模集](virtual-machine-scale-sets-portal-create.md)。
+若要完成这些管理任务，需要 Azure CLI 2.0 的最新版本。 有关安装和使用最新版本的详细信息，请参阅 [Azure CLI 2.0 安装](/cli/install-azure-cli)。 如果需要创建虚拟机规模集，可以[在 Azure 门户中创建规模集](virtual-machine-scale-sets-create-portal.md)。
 
 
 ## <a name="view-information-about-a-scale-set"></a>查看有关规模集的信息
@@ -128,7 +128,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 
 
 ## <a name="remove-vms-from-a-scale-set"></a>删除规模集中的 VM
-要在规模集中删除一个或多个 VM，请使用 [az vmss delete-instances](/cli/vmss#delete-instances)。 通过 `--instance-ids`` 参数，可指定要删除的一个或多个 VM。 若指定实例 ID 的 *，规模集中所有 VM 都将删除。 要删除多个 VM，请用空格分隔每个实例 ID。
+要在规模集中删除一个或多个 VM，请使用 [az vmss delete-instances](/cli/vmss#delete-instances)。 通过 `--instance-ids` 参数，可指定要删除的一个或多个 VM。 若指定实例 ID 的 *，规模集中所有 VM 都将删除。 要删除多个 VM，请用空格分隔每个实例 ID。
 
 以下示例将删除 myScaleSet 规模集和 myResourceGroup 资源组中的实例“0”。 请按照如下所示，提供值：
 

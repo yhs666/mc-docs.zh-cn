@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 04/15/2015
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: 23778e347713ecb2bd676eb050da98457e8e4820
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: f5697e5458a7b48d3d703e3f4cfdcad47406332c
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB (MySQL) 群集：Azure 教程
 > [!IMPORTANT]
@@ -88,13 +88,13 @@ ms.lasthandoff: 11/09/2017
     c. 创建装入点目录。
 
               mkdir /mnt/data
-    d. 检索新创建的 RAID 设备的 UUID。
+    d.单击“验证存储凭据”以验证存储帐户。 检索新创建的 RAID 设备的 UUID。
 
               blkid | grep /dev/md0
     e. 编辑 /etc/fstab。
 
               vi /etc/fstab
-    f. 添加设备，以便在重新启动时自动装载，并将 UUID 替换为前面从 **blkid** 命令获取的值。
+    f.单击“保存”以保存设置。 添加设备，以便在重新启动时自动装载，并将 UUID 替换为前面从 **blkid** 命令获取的值。
 
               UUID=<UUID FROM PREVIOUS>   /mnt/data ext4   defaults,noatime   1 2
     g. 装载新分区。
@@ -154,7 +154,7 @@ ms.lasthandoff: 11/09/2017
            GRANT ALL PRIVILEGES ON *.* TO 'cluster'@'%' IDENTIFIED BY 'p@ssw0rd' WITH GRANT OPTION; FLUSH PRIVILEGES;
            exit
 
-   d. 停止 MySQL。
+   d.单击“验证存储凭据”以验证存储帐户。 停止 MySQL。
 
             service mysql stop
 7. 创建配置占位符。
@@ -273,13 +273,13 @@ ms.lasthandoff: 11/09/2017
 3. 需要获取三个 VM 各自的内部 IP 地址，才能执行下一步：
 
     ![获取 IP 地址](./media/mariadb-mysql-cluster/IP.png)
-4. 使用 SSH 登录到三个 VM，编辑每个 VM 上的配置文件。
+4. 使用 SSH 登录到这三个 VM，并编辑每个 VM 的配置文件。
 
         sudo vi /etc/my.cnf.d/server.cnf
 
     通过删除行首的 **#** 取消注释 **`wsrep_cluster_name`** 和 **`wsrep_cluster_address`**。
     此外，将 **`wsrep_node_address`** 中的 **`<ServerIP>`** 和 **`wsrep_node_name`** 中的 **`<NodeName>`** 分别替换为 VM 的 IP 地址和名称，然后同样取消注释这些行。
-5. 启动 MariaDB1 上的群集，并允许其在启动时运行。
+5. 启动 MariaDB1 上的群集，并让其在启动时运行。
 
         sudo service mysql bootstrap
         chkconfig mysql on
@@ -291,7 +291,7 @@ ms.lasthandoff: 11/09/2017
 ## <a name="load-balance-the-cluster"></a>对群集进行负载均衡
 在创建群集 VM 时，已将其添加到了名为 clusteravset 的可用性集中，确保其放置在不同的容错和更新域上，且 Azure 不会同时在所有虚拟机上执行维护。 此配置符合 Azure 服务级别协议 (SLA) 将支持的要求。
 
-现在，使用 Azure 负载均衡器均衡三个节点之间的请求。
+现在，使用 Azure 负载均衡器在 3 个节点之间均衡请求。
 
 通过 Azure CLI 在计算机上运行以下命令。
 
@@ -341,7 +341,7 @@ CLI 将负载均衡器探测间隔设置为 15 秒，这可能有点太长。 �
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>后续步骤
-在本文中，在运行 CentOS 7 的 Azure 虚拟机上创建了包含三个节点的 MariaDB + Galera 高度可用群集。 VM 通过 Azure 负载均衡器实现负载均衡。
+在本文中，在运行 CentOS 7 的 Azure 虚拟机上创建了三节点型 MariaDB + Galera 高可用性群集。 VM 通过 Azure 负载均衡器实现负载均衡。
 
 你可能希望了解[在 Linux 上对 MySQL 进行群集的其他方式](mysql-cluster.md)并探究如何[优化和测试 Azure Linux VM 上的 MySQL 性能](optimize-mysql.md)。
 

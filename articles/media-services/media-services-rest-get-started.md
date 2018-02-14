@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/07/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: c0bfbdaf2e5c64e8dd69e14e4665b7260c6f0134
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: e96a34ad1bb1005a8a48c9443160fd270b79edfd
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>开始使用 REST 传送点播内容
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -54,7 +54,7 @@ ms.lasthandoff: 01/05/2018
 >[!NOTE]
 >不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，请使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[本文](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
-若要深入了解本文中使用的 AMS REST 实体，请参阅 [Azure 媒体服务 REST API 参考](https://docs.microsoft.com/rest/api/media/services/azure-media-services-rest-api-reference)。 也可参阅 [Azure 媒体服务概念](media-services-concepts.md)。
+若要深入了解本文中使用的 AMS REST 实体，请参阅 [Azure 媒体服务 REST API 参考](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)。 也可参阅 [Azure 媒体服务概念](media-services-concepts.md)。
 
 >[!NOTE]
 >访问媒体服务中的实体时，必须在 HTTP 请求中设置特定标头字段和值。 有关详细信息，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。

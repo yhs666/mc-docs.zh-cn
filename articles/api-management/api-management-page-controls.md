@@ -1,25 +1,24 @@
 ---
-title: "Azure API 管理页面控件 | Azure"
+title: "Azure API 管理页面控件"
 description: "了解适用于 Azure API 管理中的开发人员门户模板的页面控件。"
 services: api-management
 documentationcenter: 
-author: miaojiang
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 03e0ac8d-64ff-4e9a-b029-d7be14fb31e3
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 11/20/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 6b17220208e4d936b3c714b9d074b3a83d31ae07
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 1226fb7a586d94e3fac69f6d986d72b0b8515e3a
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API 管理页面控件
 Azure API 管理提供以下控件，适用于开发人员门户模板。  
@@ -63,14 +62,14 @@ Azure API 管理提供以下控件，适用于开发人员门户模板。
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
 ```  
   
-### <a name="parameters"></a>Parameters  
+### <a name="parameters"></a>parameters  
   
 |参数|说明|  
 |---------------|-----------------|  
 |appId|应用程序的 ID。|  
   
 ### <a name="developer-portal-templates"></a>开发人员门户模板  
- `app-actions` 控件可用于以下开发人员门户模板。  
+ `app-actions` 控件可用于以下开发人员门户模板：  
   
 -   [应用程序](./api-management-user-profile-templates.md#Applications)  
   
@@ -85,11 +84,11 @@ Azure API 管理提供以下控件，适用于开发人员门户模板。
 <basic-SignIn></basic-SignIn>  
 ```  
   
-### <a name="parameters"></a>Parameters  
+### <a name="parameters"></a>parameters  
  无。  
   
 ### <a name="developer-portal-templates"></a>开发人员门户模板  
- `basic-signin` 控件可用于以下开发人员门户模板。  
+ `basic-signin` 控件可用于以下开发人员门户模板：  
   
 -   [登录](./api-management-page-templates.md#SignIn)  
   
@@ -104,11 +103,11 @@ Azure API 管理提供以下控件，适用于开发人员门户模板。
 <paging-control></paging-control>  
 ```  
   
-### <a name="parameters"></a>Parameters  
+### <a name="parameters"></a>parameters  
  无。  
   
 ### <a name="developer-portal-templates"></a>开发人员门户模板  
- `paging-control` 控件可用于以下开发人员门户模板。  
+ `paging-control` 控件可用于以下开发人员门户模板：  
   
 -   [API 列表](./api-management-api-templates.md#APIList)  
   
@@ -127,11 +126,11 @@ Azure API 管理提供以下控件，适用于开发人员门户模板。
 <providers></providers>  
 ```  
   
-### <a name="parameters"></a>Parameters  
+### <a name="parameters"></a>parameters  
  无。  
   
 ### <a name="developer-portal-templates"></a>开发人员门户模板  
- `providers` 控件可用于以下开发人员门户模板。  
+ `providers` 控件可用于以下开发人员门户模板：  
   
 -   [登录](./api-management-page-templates.md#SignIn)  
   
@@ -146,11 +145,11 @@ Azure API 管理提供以下控件，适用于开发人员门户模板。
 <search-control></search-control>  
 ```  
   
-### <a name="parameters"></a>Parameters  
+### <a name="parameters"></a>parameters  
  无。  
   
 ### <a name="developer-portal-templates"></a>开发人员门户模板  
- `search-control` 控件可用于以下开发人员门户模板。  
+ `search-control` 控件可用于以下开发人员门户模板：  
   
 -   [API 列表](./api-management-api-templates.md#APIList)  
   
@@ -167,11 +166,11 @@ Azure API 管理提供以下控件，适用于开发人员门户模板。
 <sign-up></sign-up>  
 ```  
   
-### <a name="parameters"></a>Parameters  
+### <a name="parameters"></a>parameters  
  无。  
   
 ### <a name="developer-portal-templates"></a>开发人员门户模板  
- `sign-up` 控件可用于以下开发人员门户模板。  
+ `sign-up` 控件可用于以下开发人员门户模板：  
   
 -   [注册](./api-management-page-templates.md#SignUp)  
   
@@ -186,11 +185,11 @@ Azure API 管理提供以下控件，适用于开发人员门户模板。
 <subscribe-button></subscribe-button>  
 ```  
   
-### <a name="parameters"></a>Parameters  
+### <a name="parameters"></a>parameters  
  无。  
   
 ### <a name="developer-portal-templates"></a>开发人员门户模板  
- `subscribe-button` 控件可用于以下开发人员门户模板。  
+ `subscribe-button` 控件可用于以下开发人员门户模板：  
   
 -   [产品](./api-management-product-templates.md#Product)  
   
@@ -207,7 +206,7 @@ Azure API 管理提供以下控件，适用于开发人员门户模板。
   
 ```  
   
-### <a name="parameters"></a>Parameters  
+### <a name="parameters"></a>parameters  
   
 |参数|说明|  
 |---------------|-----------------|  
@@ -215,7 +214,7 @@ Azure API 管理提供以下控件，适用于开发人员门户模板。
 |cancelUrl|订阅取消 URL。|  
   
 ### <a name="developer-portal-templates"></a>开发人员门户模板  
- `subscription-cancel` 控件可用于以下开发人员门户模板。  
+ `subscription-cancel` 控件可用于以下开发人员门户模板：  
   
 -   [产品](./api-management-product-templates.md#Product)
 

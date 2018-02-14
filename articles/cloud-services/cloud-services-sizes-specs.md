@@ -12,25 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 01/12/2017
+origin.date: 07/18/2017
 ms.author: v-yiso
-ms.date: 07/31/2017
-ms.openlocfilehash: 42ce886d3b24d9e520e921f6763a99d3d9f68fdd
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.date: 02/26/2018
+ms.openlocfilehash: ba9f33b1649a94ec31b095c02100ce93da1a19d3
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="sizes-for-cloud-services"></a>云服务的大小
 
 本主题介绍云服务角色实例（Web 角色和辅助角色）的可用大小和选项。 此外，还提供了在计划使用这些资源时要考虑的部署注意事项。 每个大小都具有会放入[服务定义文件](./cloud-services-model-and-package.md#csdef)中的 ID。 [云服务定价](https://www.azure.cn/pricing/details/cloud-services/)页提供每种大小的价格。
 
+> [!NOTE]
+> 若要查看相关的 Azure 限制，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)
+>
+>
+
 ## <a name="sizes-for-web-and-worker-role-instances"></a>Web 角色实例和辅助角色实例的大小
 Azure 上有多个标准大小可供选择。 其中某些大小的注意事项包括：
 
-* D 系列的 VM 旨在运行需要更高计算能力和临时磁盘性能的应用程序。 D 系列 VM 为临时磁盘提供更快的处理器、更高的内存内核比和固态驱动器 (SSD)。 有关详细信息，请参阅 Azure 博客[新的 D 系列虚拟机大小](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)上的公告。
+* D 系列 VM 旨在运行需要更高计算能力和临时磁盘性能的应用程序。 D 系列 VM 为临时磁盘提供更快的处理器、更高的内存内核比和固态驱动器 (SSD)。 有关详细信息，请参阅 Azure 博客[新的 D 系列虚拟机大小](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)上的公告。
 * Dv2 系列是原 D 系列的后续系列，其特点是 CPU 功能更强大。 Dv2 系列 CPU 比 D 系列 CPU 快大约 35%。 该系列基于最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器，通过 Intel Turbo Boost Technology 2.0 可以达到 3.1 GHz。 Dv2 系列的内存和磁盘配置与 D 系列相同。
-* G 系列的 VM 可提供最大的内存，并在配备 Intel Xeon E5 V3 系列处理器的主机上运行。
 * A 系列 VM 可以部署在各种不同的硬件类型和处理器上。 根据硬件限制大小，为运行中的实例提供一致的处理器性能，而不考虑硬件部署的位置。 若要判断此大小部署所在的物理硬件，请从虚拟机中查询虚拟硬件。
 * A0 大小在物理硬件上过度订阅。 仅针对此特定大小，其他客户部署可能影响正在运行的工作负荷的性能。 以下概述的相对性能为预期的基准，受限于近似变化性的 15%。
 
@@ -57,13 +61,10 @@ Azure 上有多个标准大小可供选择。 其中某些大小的注意事项�
 | [特小型](#a-series) |50 |
 | [Small-ExtraLarge](#a-series) |100 |
 | [A5-7](#a-series) |100 |
-| [Standard_A1-8v2](#av2-series) |100 |
-| [Standard_A2m-8mv2](#av2-series) |100 |
 | [A8-A11](#a-series) |225* |
-| [D1-14](#d-series) |160 |
-| [D1-15v2](#dv2-series) |210 - 250* |
-| [G1-5](#g-series) |180 - 240* |
-| [H](#h-series) |290 - 300* |
+| [A v2](#av2-series) |100 |
+| [D](#d-series) |160 |
+| [D v2](#dv2-series) |160 - 190* |
 
 ACU 标有 *使用 Intel® Turbo 技术来增加 CPU 频率，并提升性能。  提升量可能因 VM 大小、工作负荷和同一主机上运行的其他工作负荷而有所不同。
 
@@ -73,12 +74,12 @@ ACU 标有 *使用 Intel® Turbo 技术来增加 CPU 频率，并提升性能。
 * 存储容量的单位为 GiB 或 1024^3 字节。 比较以 GB（1000^3 字节）为单位的磁盘和以 GiB（1024^3 字节）为单位的磁盘时，请记住以 GiB 为单位的容量数显得更小。 例如，1023 GiB = 1098.4 GB
 * 磁盘吞吐量的单位为每秒输入/输出操作数 (IOPS) 和 MBps，其中 MBps = 10^6 字节/秒。
 * 数据磁盘可以在缓存或非缓存模式下运行。 对于缓存数据磁盘操作，主机缓存模式设置为 **ReadOnly** 或 **ReadWrite**。  对于非缓存数据磁盘操作，主机缓存模式设置为 **None**。
-* 最大网络带宽是每个 VM 类型分配并分配的最大聚合带宽。 最大带宽提供选择正确 VM 类型的指导原则，以确保有适当的网络容量可用。 在低、中、高和极高之间切换时，吞吐量将随之增加。 实际的网络性能将取决于许多因素，包括网络和应用程序负载，以及应用程序的网络设置。
+* 最大网络带宽是每个 VM 类型分配并分配的最大聚合带宽。 最大带宽提供选择正确 VM 类型的指导原则，以确保有适当的网络容量可用。 在低、中、高和极高之间切换时，吞吐量将随之增加。 实际的网络性能取决于许多因素，包括网络和应用程序负载，以及应用程序的网络设置。
 
 ## <a name="a-series"></a>A 系列
 | 大小            | CPU 核心数 | 内存：GiB  | 本地 HDD：GiB       | 最大网卡数/网络带宽等级 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| 特小型      | 1         | 0.768        | 20                   | 1/低 |
+| 特小型      | 1         | 0.768        | 20 个                   | 1/低 |
 | 小型           | 1         | 1.75         | 225                  | 1/中 |
 | 中型          | 2         | 3.5 GB       | 490                  | 1/中 |
 | 大型           | 4         | 7            | 1000                 | 2/高 |
@@ -92,11 +93,11 @@ ACU 标有 *使用 Intel® Turbo 技术来增加 CPU 频率，并提升性能。
 
 | 大小            | CPU 核心数 | 内存：GiB  | 本地 SSD：GiB       | 最大网卡数/网络带宽等级 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| Standard_A1_v2  | 1         | 2            | 10                   | 1/中                 |
-| Standard_A2_v2  | 2         | 4            | 20                   | 2/中                 |
+| Standard_A1_v2  | 1         | 2            | 10 个                   | 1/中                 |
+| Standard_A2_v2  | 2         | 4            | 20 个                   | 2/中                 |
 | Standard_A4_v2  | 4         | 8            | 40                   | 4/高                     |
 | Standard_A8_v2  | 8         | 16           | 80                   | 8/高                     |
-| Standard_A2m_v2 | 2         | 16           | 20                   | 2/中                 |
+| Standard_A2m_v2 | 2         | 16           | 20 个                   | 2/中                 |
 | Standard_A4m_v2 | 4         | 32           | 40                   | 4/高                     |
 | Standard_A8m_v2 | 8         | 64           | 80                   | 8/高                     |
 
@@ -124,7 +125,7 @@ ACU 标有 *使用 Intel® Turbo 技术来增加 CPU 频率，并提升性能。
 | Standard_D12_v2 | 4         | 28           | 200                  | 4/高 |
 | Standard_D13_v2 | 8         | 56           | 400                  | 8/高 |
 | Standard_D14_v2 | 16        | 112          | 800                  | 8/极高 |
-| Standard_D15_v2 | 20        | 140          | 1,000                | 8/极高 |
+| Standard_D15_v2 | 20 个        | 140          | 1,000                | 8/极高 |
 
 
 
@@ -150,10 +151,12 @@ ACU 标有 *使用 Intel® Turbo 技术来增加 CPU 频率，并提升性能。
 >
 
 ## <a name="get-a-list-of-sizes"></a>获取大小列表
-可以使用 PowerShell 或 REST API 获取大小列表。 [此处](https://msdn.microsoft.com/library/azure/dn469422.aspx)介绍了 REST API。 以下代码是一个 PowerShell 命令，用于列出当前可用于云服务的所有大小。
+可以使用 PowerShell 或 REST API 获取大小列表。 [此处](https://msdn.microsoft.com/library/azure/dn469422.aspx)介绍了 REST API。 以下代码是一个 PowerShell 命令，用于列出可用于云服务的所有大小。 
 
 ```powershell
-Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize
+Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel
 ```
 
-<!--Update_Description: update wording-->
+## <a name="next-steps"></a>后续步骤
+* 了解 [Azure 订阅和服务的限制、配额和约束](../azure-subscription-service-limits.md)。
+* 针对 HPC 工作负荷，了解关于[高性能计算 VM 大小](../virtual-machines/windows/sizes-hpc.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)的详细信息。

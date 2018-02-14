@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 09/08/2017
 ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 204eb61b885928895a026a1910617400e639f671
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: d910cb00b06e0f9d628050fa5c5967532a0bccd3
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 模板和 Azure 门户部署资源
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 09/22/2017
 
     ![选择存储帐户](./media/resource-group-template-deploy-portal/add-storage-account.png)
 
-7. 编辑器会自动为资源类型添加 JSON。 请注意，它包含用于定义存储帐户类型的参数。 选择“保存”。
+7. 编辑器会自动为资源类型添加 JSON。 请注意，它包含用于定义存储帐户类型的参数。 选择“其他安全性验证” 。
 
     ![显示模板](./media/resource-group-template-deploy-portal/show-json.png)
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 09/22/2017
 ## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>从保存到帐户中的模板部署资源
 
 该门户允许用户将模板保存到 Azure 帐户，以便以后重新部署它。
-<!-- Not Available  [Get started with private templates on the Azure portal](../marketplace-consumer/mytemplates-getstarted.md).-->
+<!-- Not Available  [Get started with private templates on the Azure portal](../marketplace-consumer/mytemplates-getstarted.md) -->
 
 1. 若要查找已保存模板，请选择“更多服务”。
 

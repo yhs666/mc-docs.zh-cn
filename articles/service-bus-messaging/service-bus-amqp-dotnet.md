@@ -3,7 +3,7 @@ title: "服务总线与 .NET 和 AMQP 1.0 | Azure"
 description: "使用 AMQP 通过 .NET 使用 Azure 服务总线"
 services: service-bus
 documentationCenter: na
-authors: sethmanheim
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/28/2017
+origin.date: 12/21/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
-ms.openlocfilehash: 75ef74a698a14ac44bcc9b6c31ef2b7c814379cc
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 02/05/2018
+ms.openlocfilehash: e2423077c7a0db320645b204697d9b59e8d955cd
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="using-service-bus-from-net-with-amqp-10"></a>使用 AMQP 1.0 通过 .NET 使用服务总线
+# <a name="use-service-bus-from-net-with-amqp-10"></a>使用 AMQP 1.0 通过 .NET 使用服务总线
 
-## <a name="downloading-the-service-bus-sdk"></a>下载服务总线 SDK
-AMQP 1.0 支持在服务总线 SDK 2.1 版或更高版本中提供。 为确保使用最新版本，可以从 [NuGet][NuGet]下载服务总线安装包。
+AMQP 1.0 支持在服务总线包 2.1 版或更高版本中提供。 为确保使用最新版本，可以从 [NuGet][NuGet]下载服务总线安装包。
 
-## <a name="configuring-net-applications-to-use-amqp-10"></a>将 .NET 应用程序配置为使用 AMQP 1.0
+## <a name="configure-net-applications-to-use-amqp-10"></a>将 .NET 应用程序配置为使用 AMQP 1.0
+
 默认情况下，Service Bus .NET 客户端库使用基于 SOAP 的专用协议与 Service Bus 服务通信。 若要使用 AMQP 1.0 而非默认协议，需要对服务总线连接字符串进行显式配置，如下一部分所述。 除了此更改之外，在使用 AMQP 1.0 时应用程序代码基本保持不变。
 
 在当前版本中，有一些在使用 AMQP 时不受支持的 API 功能。 这些不受支持的功能会在后面的[不支持的功能、限制和行为差异](#unsupported-features-restrictions-and-behavioral-differences)部分中列出。 在使用 AMQP 时，一些高级配置设置还具有不同的含义。
@@ -72,7 +72,7 @@ AMQP 1.0 支持在服务总线 SDK 2.1 版或更高版本中提供。 为确保�
 | int |int |AMQP 值 |
 | long |long |AMQP 值 |
 | float |float |AMQP 值 |
-| double |double |AMQP 值 |
+| Double |Double |AMQP 值 |
 | decimal |decimal128 |AMQP 值 |
 | char |char |AMQP 值 |
 | DateTime |timestamp |AMQP 值 |
@@ -81,14 +81,14 @@ AMQP 1.0 支持在服务总线 SDK 2.1 版或更高版本中提供。 为确保�
 | 字符串 |字符串 |AMQP 值 |
 | System.Collections.IList |list |AMQP 值：集合中包含的项只能是此表中定义的类型。 |
 | System.Array |数组 |AMQP 值：集合中包含的项只能是此表中定义的类型。 |
-| System.Collections.IDictionary |映射 |AMQP 值：集合中包含的项只能是此表中所定义的类型。注意：仅支持字符串键。 |
+| System.Collections.IDictionary |map |AMQP 值：集合中包含的项只能是此表中所定义的类型。注意：仅支持字符串键。 |
 | Uri |描述型 string（请参阅下表） |AMQP 值 |
 | DateTimeOffset |描述型 long（请参阅下表） |AMQP 值 |
 | TimeSpan |描述型 long（请参阅下文） |AMQP 值 |
 | Stream |binary |AMQP 数据（可能有多个）。 数据部分包含从流对象读取的原始字节。 |
 | 其他对象 |binary |AMQP 数据（可能有多个）。 包含使用 DataContractSerializer 或应用程序提供的序列化程序的对象的已序列化二进制值。 |
 
-| .NET 类型 | 映射的 AMQP 描述类型 | 说明 |
+| .NET 类型 | 映射的 AMQP 描述类型 | 注释 |
 | --- | --- | --- |
 | Uri |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
@@ -108,7 +108,7 @@ AMQP 1.0 支持在服务总线 SDK 2.1 版或更高版本中提供。 为确保�
 - `MessageReceiver.Receive(TimeSpan.Zero)` 是以 `MessageReceiver.Receive(TimeSpan.FromSeconds(10))` 的形式实现的。
 - 通过锁定令牌完成消息只能由最初收到消息的消息接收方完成。
 
-## <a name="controlling-amqp-protocol-settings"></a>控制 AMQP 协议设置
+## <a name="control-amqp-protocol-settings"></a>控制 AMQP 协议设置
 [.NET API](https://docs.microsoft.com/dotnet/api/) 公开了几项设置以控制 AMQP 协议的行为：
 
 * [MessageReceiver.PrefetchCount](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)：控制应用于链接的初始信用额度。 默认值为 0。
@@ -122,7 +122,6 @@ AMQP 1.0 支持在服务总线 SDK 2.1 版或更高版本中提供。 为确保�
 
 - [服务总线 AMQP 概述]
 - [AMQP 1.0 协议指南]
-- [适用于 Windows Server 的服务总线中的 AMQP]
 
 [Create a Service Bus namespace using the Azure portal]: ./service-bus-create-namespace-portal.md
 [DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
@@ -133,4 +132,4 @@ AMQP 1.0 支持在服务总线 SDK 2.1 版或更高版本中提供。 为确保�
 [Azure portal]: https://portal.azure.cn
 [服务总线 AMQP 概述]: ./service-bus-amqp-overview.md
 [AMQP 1.0 协议指南]: ./service-bus-amqp-protocol-guide.md
-[适用于 Windows Server 的服务总线中的 AMQP]: https://msdn.microsoft.com/zh-cn/library/dn574799.aspx
+

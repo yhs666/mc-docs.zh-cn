@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 11/22/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: e92fbdd266c26a3a496c8a8adcb0101aa408c520
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: b90f43e2f5735193b1601f14d00d02b5afb17ae4
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server 的 Azure 混合权益
 对于有软件保障的客户，Windows Server 的 Azure 混合权益可让你使用本地 Windows Server 许可证，并以较低成本在 Azure 中运行 Windows 虚拟机。 可以使用 Windows Server 的 Azure 混合权益在 Azure 支持的任何平台（Windows Server 映像或 Windows 自定义映像）上部署新虚拟机。 本文介绍如何使用 Windows Server 的 Azure 混合权益部署新的 VM 的步骤，以及如何更新现有正在运行的 VM 的步骤。 有关 Windows Server 的 Azure 混合权益许可和成本节约方面的更多信息，请参阅[“Windows Server 的 Azure 混合权益许可”页](https://www.azure.cn/pricing/hybrid-use-benefit/)。
@@ -86,6 +86,7 @@ Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
 > 如果在“配置”下看不到“Azure 混合权益”切换选项，这是因为选定 VM 类型（例如，通过自定义映像生成的 VM，或通过包含 SQL Server 或 Azure Marketplace 第三方软件等额外付费软件的映像生成的 VM）尚不支持这种转换。
 >
 
+<a name="upload-a-windows-vhd"></a>
 ## <a name="upload-a-windows-server-vhd"></a>上传 Windows Server VHD
 若要在 Azure 中部署 Windows Server VM，首先需要创建包含基础 Windows 版本的 VHD。 必须先通过 Sysprep 妥善准备此 VHD，才能将其上传到 Azure。 可以[阅读有关 VHD 要求和 Sysprep 进程](upload-generalized-managed.md)以及[针对服务器角色的 Sysprep 支持](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)的详细信息。 在运行 Sysprep 之前备份 VM。 
 
@@ -103,6 +104,7 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 
 还可以阅读有关[将 VHD 上传到 Azure 的过程](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account)的详细信息
 
+<a name="deploy-a-vm-via-resource-manager"></a>
 ## <a name="deploy-a-vm-via-resource-manager-template"></a>通过 Resource Manager 模板部署 VM
 在资源管理器模板中，必须指定附加参数 `licenseType`。 可以阅读有关[创作 Azure Resource Manager 模板](../../resource-group-authoring-templates.md)的详细信息。 将 VHD 上传到 Azure 之后，请编辑 Resource Manager 模板以将许可证类型包含为计算提供程序的一部分，并照常部署模板：
 
@@ -113,7 +115,7 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
         "vmSize": "[variables('vmSize')]"
    }
 ```
-
+<a name="detailed-powershell-deployment-walkthrough"></a>
 ## <a name="deploy-a-vm-via-powershell-quickstart"></a>通过 PowerShell 快速入门部署 VM
 通过 PowerShell 部署 Windows Server VM 时，可以使用附加参数 `-LicenseType`。 将 VHD 上传到 Azure 之后，可以使用 `New-AzureRmVM` 创建 VM 并指定许可类型，如下所示：
 
@@ -190,7 +192,7 @@ foreach ($vm in $vms) {"VM Name: " + $vm.Name, "   Azure Hybrid Benefit for Wind
 
 详细了解 [Windows Server 的 Azure 混合权益和 Azure Site Recovery 让应用迁移到 Azure 更具成本效益](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
 
-详细了解[如何使用多租户托管权限在 Azure 上部署 Windows 10](/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
+<!-- Not Available on [Windows 10 on Azure with Multitenant Hosting Right](/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) -->
 
 <!-- Not Available on Read more about [Frequently asked questions](https://www.azure.cn/pricing/hybrid-use-benefit/faq/)-->
 <!-- Update_Description: new articles on hybrid user benefit licensing -->

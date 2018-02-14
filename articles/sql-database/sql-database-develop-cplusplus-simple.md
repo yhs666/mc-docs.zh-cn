@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 03/06/2017
 ms.date: 09/18/2017
 ms.author: v-johch
-ms.openlocfilehash: eb57167b7912ad9bb985282195a1c4635ccfa718
-ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
+ms.openlocfilehash: f59559e4eec3a685b40db575a61109e82298dadf
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>使用 C 和 C++ 连接到 SQL 数据库
 本文面向尝试连接到 Azure SQL DB 的 C 和 C++ 开发人员， 它分为多个部分，方便大家选择最感兴趣的部分进行查看。 
@@ -137,6 +137,5 @@ apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
 * [ODBC API 参考](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## <a name="additional-resources"></a>其他资源
-* [包含 Azure SQL 数据库的多租户 SaaS 应用程序的设计模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * 浏览所有 [SQL 数据库的功能](https://www.azure.cn/home/features/sql-database/)。
 <!--Update_Description: update metadata-->

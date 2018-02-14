@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 11/08/2017
 ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1621357d00ac2338e21459ff5be2bd454f7632e2
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 92e1dd017f0f8458dd98c7517ac483fe162f1d05
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -38,6 +38,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 ## <a name="networking"></a>网络
 <a id="direct-connection"></a>
+<a name="connection-protocol"></a>
 
 1. **连接策略：使用直接连接模式**
 

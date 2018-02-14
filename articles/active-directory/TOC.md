@@ -38,11 +38,10 @@
 
 
 ## 管理密码
-### [更新自己的密码](./active-directory-passwords-update-your-own-password.md)
-### [了解策略和限制](./active-directory-passwords-policy.md)
-### 重置密码
-
-### [设置过期策略](./active-directory-passwords-set-expiration-policy.md)
+#### [重置或更改密码](active-directory-passwords-update-your-own-password.md)
+#### [密码最佳做法](active-directory-secure-passwords.md)
+### IT 管理员：重置密码
+#### [Azure 门户](active-directory-users-reset-password-azure-portal.md)
 
 
 ## 管理设备
@@ -118,7 +117,8 @@
 ### [PoC 演练手册：构建基块](active-directory-playbook-building-blocks.md)
 
 # 参考
-## [PowerShell cmdlet](http://docs.microsoft.com/powershell/azure/overview )
+## [代码示例](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Azure PowerShell cmdlet](http://docs.microsoft.com/powershell/azure/overview )
 ## [Java API 参考](/java/api)
 ## [.NET API](http://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [服务限制和局限性](active-directory-service-limits-restrictions.md)

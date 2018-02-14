@@ -16,11 +16,11 @@ ms.custom: migrate
 origin.date: 06/23/2017
 ms.date: 07/24/2017
 ms.author: v-yeche
-ms.openlocfilehash: a1896f861a7161f78501cb6b13a63b195cca5fff
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: b37b538760839a41dbb4af3f050024cd492f1938
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>将 SQL 代码迁移到 SQL 数据仓库
 本文介绍了将代码从其他数据库迁移到 SQL 数据仓库时可能需要做出的代码更改。 某些 SQL 数据仓库功能设计为以分布方式运行，因此可以大幅改善性能。 但是，为了保持性能和缩放性，某些功能还无法使用。
@@ -55,6 +55,7 @@ ms.lasthandoff: 07/26/2017
 
 幸好可以解决其中的大多数限制。 上面提到的相关开发文章已提供了说明。
 
+<a name="Common-table-expressions"></a>
 ## <a name="supported-cte-features"></a>支持的 CTE 功能
 SQL 数据仓库支持部分通用表表达式 (CTE)。  目前支持以下 CTE 功能：
 

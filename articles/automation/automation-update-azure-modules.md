@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 06/13/2017
 ms.date: 01/15/2018
 ms.author: v-nany
-ms.openlocfilehash: 83074474389708bbdb8e0dea25e7dafdeb6bf68f
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 341ece4935f94769e4570329b4a9e5f5e5b90d40
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>如何在 Azure 自动化中更新 Azure PowerShell 模块
 
@@ -55,4 +55,3 @@ ms.lasthandoff: 01/12/2018
 
 * 要详细了解集成模块以及如何创建自定义模块以进一步会自动化与其他系统、服务或解决方案集成，请参阅[集成模块](automation-integration-modules.md)。
 
-* 考虑使用 [GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md) 或 [Visual Studio Team Services](automation-scenario-source-control-integration-with-vsts.md) 进行源控件集成，以集中管理和控制自动化 runbook 和配置组合的发布。  

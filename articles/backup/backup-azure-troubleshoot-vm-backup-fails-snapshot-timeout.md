@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 09/08/2017
-ms.date: 01/05/2018
+origin.date: 01/09/2018
+ms.date: 02/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: d79da2ff749ef0e9c054a4ba7bb5efd8583c8e38
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: c82cde2c557b79da736c47b83b7ec2cbbecf859b
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Azure 备份故障排除：代理和/或扩展的问题
 
@@ -29,7 +29,14 @@ ms.lasthandoff: 01/11/2018
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM 代理无法与 Azure 备份进行通信
+
+> [!NOTE]
+> 如果 Azure Linux VM 备份在 2018 年 1 月 4 日当天或之后发生故障并出现此错误，请在受影响的 VM 上运行以下命令，重试备份
+>
+> `sudo rm -f /var/lib/waagent/*.[0-9]*.xml`
+
 注册和计划 Azure 备份服务的 VM 后，备份将通过与 VM 代理进行通信获取时间点快照，从而启动作业。 以下任何条件都可能阻止快照的触发，这反过来会导致备份失败。 请依序执行以下故障排除步骤，然后重试操作。
+
 ##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>原因 1：[VM 不具备 Internet 访问权限](#the-vm-has-no-internet-access)
 ##### <a name="cause-2-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>原因 2：[代理安装在 VM 中，但无响应（针对 Windows VM）](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>原因 3：[VM 中安装的代理已过时（针对 Linux VM）](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
@@ -67,6 +74,7 @@ ms.lasthandoff: 01/11/2018
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>原因 3：[VM 中安装的代理已过时（针对 Linux VM）](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>原因 4：[无法检索快照状态或无法拍摄快照](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>原因 5：[备份扩展无法更新或加载](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lockbackup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>原因 6：[备份服务因资源组锁定而无权删除旧的还原点](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>不支持指定的磁盘配置
 
@@ -101,7 +109,7 @@ VM 无法根据部署要求访问 Internet，或者现有的限制阻止其访�
 1. 如果指定了网络限制（例如网络安全组），请部署 HTTP 代理服务器来路由流量。
 2. 要允许从 HTTP 代理服务器访问 Internet，如果有网络安全组，请向其添加规则。
 
-若要了解如何设置 HTTP 代理进行 VM 备份，请参阅[进行备份 Azure 虚拟机所需的环境准备](backup-azure-arm-vms-prepare.md#network-connectivity)。
+若要了解如何设置 HTTP 代理进行 VM 备份，请参阅[进行备份 Azure 虚拟机所需的环境准备](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
 
 如果使用托管磁盘，可能需要在防火墙上打开另一个端口 (8443)。
 
@@ -131,10 +139,10 @@ VM 代理可能已损坏或服务可能已停止。 重新安装 VM 代理能够
 
 2. 运行以下命令，确保 Azure 代理可在 VM 上运行： `ps -e`
 
-    如果该进程未运行，请使用以下命令进行重启：
+   如果该进程未运行，请使用以下命令进行重启：
 
-    - 对于 Ubuntu： `service walinuxagent start`
-    - 对于其他分发版： `service waagent start`
+   - 对于 Ubuntu： `service walinuxagent start`
+   - 对于其他分发版： `service waagent start`
 
 3. [配置自动重新启动代理](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash)。
 4. 运行新的测试备份。 如果错误仍然存在，请从客户的 VM 收集以下日志：
@@ -186,5 +194,50 @@ VM 备份依赖于向基础存储帐户发出快照命令。 备份失败的原�
 
 此过程会导致在下一次备份期间重新安装扩展。
 
+### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Azure 经典 VM 可能需要执行其他步骤才能完成注册
+应注册 Azure 经典 VM 中的代理，才能与备份服务建立连接并开始备份
 
-<!--Update_Description: wording update -->
+#### <a name="solution"></a>解决方案
+
+安装 VM 来宾代理后，启动 Azure PowerShell <br>
+1. 使用以下命令登录到 Azure 帐户 <br>
+       `Login-AzureAsAccount -EnvironmentName AzureChinaCloud`<br>
+2. 使用以下命令验证 VM 的 ProvisionGuestAgent 属性是否设置为 True <br>
+        `$vm = Get-AzureVM -ServiceName <cloud service name> -Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent`<br>
+3. 如果该属性设置为 FALSE，请执行以下命令将其设置为 TRUE<br>
+        `$vm = Get-AzureVM -ServiceName <cloud service name> -Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent = $true`<br>
+4. 然后运行以下命令更新 VM <br>
+        `Update-AzureVM -Name <VM name> -VM $vm.VM -ServiceName <cloud service name>` <br>
+5. 尝试初始化备份。 <br>
+
+### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>备份服务因资源组锁定而无权删除旧的还原点
+此问题特定于托管 VM：当用户锁定资源组后，备份服务无法删除较早的还原点。 由于这一原因，新备份将开始失败，因为从后端施加了最多 18 个还原点的限制。
+
+#### <a name="solution"></a>解决方案
+
+若要解决此问题，请使用以下步骤删除还原点集合： <br>
+ 
+1. 删除 VM 所在的资源组锁定 
+     
+2. 使用 Chocolatey 安装 ARMClient <br>
+   https://github.com/projectkudu/ARMClient
+     
+3. 登录到 ARMClient <br>
+    `.\armclient.exe login`
+         
+4. 获取与 VM 对应的还原点集合 <br>
+    `.\armclient.exe get https://management.chinacloudapi.cn/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+
+    示例： `.\armclient.exe get https://management.chinacloudapi.cn/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+             
+5. 删除还原点集合 <br>
+    `.\armclient.exe delete https://management.chinacloudapi.cn/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+ 
+6. 下一个计划备份将自动创建还原点集合和新的还原点 
+ 
+7. 如果再次锁定资源组，将重新出现此问题，因为存在最多 18 个还原点的限制，一旦超出此限制，备份便开始失败 
+
+
+<!-- Update_Description: wording update -->

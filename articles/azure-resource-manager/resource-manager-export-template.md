@@ -15,13 +15,13 @@ ms.topic: article
 origin.date: 07/06/2017
 ms.date: 09/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 737e84f262c7643d1f2d8ff80c13c4a7c35f3993
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 26fe1fe18c6f4313af2af22b71ad08c469145384
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>从现有资源导出 Azure Resource Manager 模板
+# <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>从现有资源导出 Azure 资源管理器模板
 本文介绍如何从订阅中的现有资源导出 Resource Manager 模板。 可以使用该生成的模板更好地了解模板语法。
 
 可以通过两种方式来导出模板：
@@ -49,7 +49,7 @@ ms.lasthandoff: 09/22/2017
 
       ![提供 Web 和 SQL 值](./media/resource-manager-export-template/provide-web-values.png)
 
-部署可能需要几分钟时间。 部署完成后，订阅将包含解决方案。
+部署可能需要一分钟的时间。 部署完成后，订阅将包含解决方案。
 
 ## <a name="view-template-from-deployment-history"></a>在部署历史记录中查看模板
 1. 转到新资源组的资源组边栏选项卡。 可以看到，该边栏选项卡列出了上次部署的结果。 选择此链接。
@@ -102,7 +102,7 @@ ms.lasthandoff: 09/22/2017
 
     ![添加到库](./media/resource-manager-export-template/add-to-library.png)
 
-    将模板添加到库时，请为模板提供名称和说明。 Then, select <bpt id="p1">**</bpt>Save<ept id="p1">**</ept>.
+    将模板添加到库时，请为模板提供名称和说明，然后选择“保存”。 Then, select <bpt id="p1">**</bpt>Save<ept id="p1">**</ept>.
 
     ![设置模板值](./media/resource-manager-export-template/save-library-template.png)
 4. 要查看库中保存的模板，请选择“更多服务”，并键入“模板”以筛选结果，并选择“模板”。
@@ -115,7 +115,7 @@ ms.lasthandoff: 09/22/2017
 ## <a name="customize-the-template"></a>自定义模板
 若要为每个部署创建相同的 Web 应用和 SQL 数据库，则导出的模板可满足要求。 但是，Resource Manager 提供相关选项，因此使用它可以更灵活地部署模板。 本文介绍如何针对数据库管理员名称和密码来添加参数。 可以通过这个相同的方法，提高模板中其他值的灵活性。
 
-1. 若要自定义模板，请选择“编辑”。
+1. 若要自定义模板，请选择“编辑” 。
 
     ![显示模板](./media/resource-manager-export-template/select-edit.png)
 2. 选择模板。
@@ -162,7 +162,7 @@ ms.lasthandoff: 09/22/2017
 9. 提供参数值，并选择要将资源部署到其中的资源组。
 
 ## <a name="fix-export-issues"></a>修复导出问题
-并非所有资源类型都支持导出模板功能。 要解决此问题，请手动将缺少的资源添加回模板。 错误消息包含无法导出的资源类型。 请在[模板引用](/templates/)中查找该资源类型。 例如，若要手动添加虚拟网关，请参阅 [Microsoft.Network/virtualNetworkGateways 模板引用](/templates/microsoft.network/virtualnetworkgateways)。
+并非所有资源类型都支持导出模板功能。 要解决此问题，请手动将缺少的资源添加回模板。 错误消息包含无法导出的资源类型。 请在[模板引用](https://docs.microsoft.com/zh-cn/azure/templates/)中查找该资源类型。 例如，若要手动添加虚拟网关，请参阅 [Microsoft.Network/virtualNetworkGateways 模板引用](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/virtualnetworkgateways)。
 
 > [!NOTE]
 > 仅当从资源组而不是从部署历史记录中导出时，才会遇到导出问题。 如果上一个部署能够准确地代表资源组的当前状态，则应从部署历史记录而非资源组中导出模板。 只有在已对资源组进行更改且该更改未在单个模板中定义的情况下，才应从资源组导出。

@@ -17,11 +17,11 @@ origin.date: 08/03/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: devcenter
-ms.openlocfilehash: f1bb6db3ba4e53c6203617c661f03ff54d80cea5
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 798161850b7798e2eafb3fd8f953df1a53bbfc12
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC 教程：开发采用 Azure Cosmos DB 的 Web 应用程序
 > [!div class="op_single_selector"]
@@ -549,7 +549,7 @@ ms.lasthandoff: 12/22/2017
 
 若要向应用程序添加其他功能，请查看 [Azure Cosmos DB .NET 库](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)中提供的 API，并欢迎在 [GitHub][GitHub] 上的 Azure Cosmos DB .NET 库中补充内容。 
 
-[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
+<!-- Not Available on [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError -->
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254

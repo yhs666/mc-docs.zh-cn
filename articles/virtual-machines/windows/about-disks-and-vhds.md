@@ -1,25 +1,21 @@
 ---
 title: "关于 Azure Windows VM 的非托管（页 blob）和托管磁盘存储 | Azure"
 description: "了解有关 Azure 中的 Windows 虚拟机的非托管（页 blob）和托管磁盘存储的基础知识。"
-services: storage
-documentationcenter: 
+services: virtual-machines
 author: rockboyfor
 manager: digimobile
-editor: tysonn
-ms.assetid: 0142c64d-5e8c-4d62-aa6f-06d6261f485a
-ms.service: storage
+ms.service: virtual-machines
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: windows
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 907010a88c1cca71031477802898fcc7bcd7ea7c
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 05fe8a79c8e1db43bfadaebc1dd07f3d8c78aae6
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>关于 Azure Windows VM 的磁盘存储
 就像其他任何计算机一样，Azure 中的虚拟机将磁盘用作存储操作系统、应用程序和数据的位置。 所有 Azure 虚拟机都至少有两个磁盘，即 Windows 操作系统磁盘和临时磁盘。 操作系统磁盘基于映像创建，操作系统磁盘和该映像都存储在 Azure 存储帐户中的虚拟硬盘 (VHD) 内。 虚拟机还可以有一个或多个数据磁盘，而这些磁盘也存储为 VHD。 
@@ -49,9 +45,9 @@ ms.lasthandoff: 12/15/2017
 > 有关虚拟机容量的详细信息，请参阅 [Windows 虚拟机的大小](sizes.md)。
 > 
 
-当你基于映像创建虚拟机时，Azure 会创建操作系统磁盘。 如果使用包含数据磁盘的映像，则 Azure 还会在创建虚拟机时创建数据磁盘。 ）否则，需要在创建虚拟机后添加数据磁盘。
+当你基于映像创建虚拟机时，Azure 会创建操作系统磁盘。 如果使用包含数据磁盘的映像，则 Azure 还会在创建虚拟机时创建数据磁盘。 否则，需要在创建虚拟机后添加数据磁盘。
 
-随时可以将数据磁盘添加到虚拟机，只需将该磁盘**附加** 到虚拟机即可。 可以使用已上传或复制到存储帐户的 VHD，也可以让 Azure 创建 VHD。 附加数据磁盘会将 VHD 文件与 VM 关联，方法是在 VHD 上放置“租约”，因此在仍附加 VHD 时无法从存储中删除它。
+随时可以将数据磁盘添加到虚拟机，只需将该磁盘**附加** 到虚拟机即可。 可以使用已上传或复制到存储帐户的 VHD，也可以使用 Azure 为你创建的空 VHD。 附加数据磁盘会将 VHD 文件与 VM 关联，方法是在 VHD 上放置“租约”，因此在仍附加 VHD 时无法从存储中删除它。
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
 
@@ -65,7 +61,7 @@ ms.lasthandoff: 12/15/2017
 fsutil behavior query DisableDeleteNotify
 ```
 
-如果该命令返回 0，则表示正确启用了 TRIM。 如果返回 1，请运行以下命令启用 TRIM：
+如果该命令返回 0，则表示正确启用了 TRIM。 如果该命令返回 1，则运行以下命令以启用 TRIM：
 
 ```
 fsutil behavior set DisableDeleteNotify 0
@@ -80,4 +76,4 @@ fsutil behavior set DisableDeleteNotify 0
 * [附加磁盘](attach-disk-portal.md)可为 VM 添加额外的存储。
 * [创建快照](snapshot-copy-managed-disk.md)。
 * [转换为托管磁盘](convert-unmanaged-to-managed-disks.md)。
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties, wording update -->

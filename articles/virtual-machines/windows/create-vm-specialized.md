@@ -13,36 +13,52 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 06/29/2017
-ms.date: 10/30/2017
+origin.date: 01/09/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 68ead0406fa3db8ff173d2c4505dd44736d8fed5
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 90e93fcb86578f620be140c9e07733527f5cce3e
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="create-a-windows-vm-from-a-specialized-disk"></a>从专用磁盘创建 Windows VM
+# <a name="create-a-windows-vm-from-a-specialized-disk-using-powershell"></a>使用 PowerShell 从专用磁盘创建 Windows VM
 
-通过使用 Powershell 将专用托管磁盘附加为 OS 磁盘来创建新 VM。 专用磁盘是保留原始 VM 中的用户帐户、应用程序和其他状态数据的现有 VM 中虚拟硬盘 (VHD) 的副本。 
+通过将专用托管磁盘附加为 OS 磁盘来创建新 VM。 专用磁盘是保留原始 VM 中的用户帐户、应用程序和其他状态数据的现有 VM 中虚拟硬盘 (VHD) 的副本。 
 
 使用专用 VHD 创建新 VM 时，新 VM 将保留原始 VM 的计算机名。 还会保留其他计算机特定信息，在某些情况下，这种重复信息可能会导致问题。 请注意，在复制 VM 时，应用程序依赖哪些类型的计算机特定信息。
 
-可以使用两个选项：
-* [上传 VHD](#option-1-upload-a-specialized-vhd)
-* [复制现有的 Azure VM](#option-2-copy-an-existing-azure-vm)
+有几种选项：
+* [使用现有托管磁盘](#option-1-use-an-existing-disk)。 如果你有一个未正常工作的 VM，这很有用。 可以删除该 VM，并重用托管磁盘创建新 VM。 
+* [上传 VHD](#option-2-upload-a-specialized-vhd) 
+* [使用快照复制现有 Azure VM](#option-3-copy-an-existing-azure-vm)
+
+还可以使用 Azure 门户[从专用 VHD 创建新 VM](create-vm-specialized-portal.md)。
 
 本主题演示如何使用托管磁盘。 如果有需要使用存储帐户的旧版部署，请参阅[从存储帐户中的专用 VHD 创建 VM](sa-create-vm-specialized.md)
 
-## <a name="before-you-begin"></a>开始之前
-如果使用 PowerShell，请确保使用的是最新版本的 AzureRM.Compute PowerShell 模块。 
+## <a name="before-you-begin"></a>准备阶段
+如果使用 PowerShell，请确保使用最新版本的 AzureRM.Compute PowerShell 模块。 
 
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
 有关详细信息，请参阅 [Azure PowerShell 版本控制](https://docs.microsoft.com/powershell/azure/overview)。
 
-## <a name="option-1-upload-a-specialized-vhd"></a>选项 1：上传专用 VHD
+## <a name="option-1-use-an-existing-disk"></a>选项 1：使用现有磁盘
+
+如果你的 VM 已删除，并想要重用 OS 磁盘创建新 VM，请使用 [Get-AzureRmDisk](https://docs.microsoft.com/powershell/get-azurermdisk)。
+
+```powershell
+$resourceGroupName = 'myResourceGroup'
+$osDiskName = 'myOsDisk'
+$osDisk = Get-AzureRmDisk `
+-ResourceGroupName $resourceGroupName `
+-DiskName $osDiskName
+```
+现在可以将此磁盘作为 OS 磁盘附加到[新 VM](#create-the-new-vm)。
+
+## <a name="option-2-upload-a-specialized-vhd"></a>选项 2：上传专用 VHD
 
 可从使用本地虚拟化工具（如 Hyper-V）创建的专用 VM 或从另一个云导出的 VM 上传 VHD。
 
@@ -51,7 +67,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
   * [准备好要上传到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 **不要**使用 Sysprep 通用化 VM。
   * 删除 VM 上安装的所有来宾虚拟化工具和代理（例如 VMware 工具）。
-  * 确保 VM 配置为通过 DHCP 来提取其 IP 地址和 DNS 设置。 这确保服务器在启动时在 VNet 中获取 IP 地址。 
+  * 确保 VM 配置为通过 DHCP 提取 IP 地址和 DNS 设置。 这确保服务器在启动时在 VNet 中获取 IP 地址。 
 
 ### <a name="get-the-storage-account"></a>获取存储帐户
 需要 Azure 中的存储帐户来存储上传的 VHD。 可以使用现有存储帐户，也可以创建新存储帐户。 
@@ -75,14 +91,20 @@ Get-AzureRmStorageAccount
     若要在*中国北部*区域中创建名为 *myResourceGroup* 的资源组，请键入：
 
     ```powershell
-    New-AzureRmResourceGroup -Name myResourceGroup -Location "China North"
+    New-AzureRmResourceGroup `
+       -Name myResourceGroup `
+       -Location "China North"
     ```
 
 2. 使用 [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet 在此资源组中创建名为 *mystorageaccount* 的存储帐户：
 
     ```powershell
-    New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "China North" `
-        -SkuName "Standard_LRS" -Kind "Storage"
+    New-AzureRmStorageAccount `
+       -ResourceGroupName myResourceGroup `
+       -Name mystorageaccount `
+       -Location "China North" `
+       -SkuName "Standard_LRS" `
+       -Kind "Storage"
     ```
 
 ### <a name="upload-the-vhd-to-your-storage-account"></a>将 VHD 上传到存储帐户 
@@ -91,8 +113,9 @@ Get-AzureRmStorageAccount
 ```powershell
 $resourceGroupName = "myResourceGroup"
 $urlOfUploadedVhd = "https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $resourceGroupName -Destination $urlOfUploadedVhd `
-    -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
+Add-AzureRmVhd -ResourceGroupName $resourceGroupName `
+   -Destination $urlOfUploadedVhd `
+   -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
 
 如果成功，会显示类似于下面的响应：
@@ -119,7 +142,8 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
+New-AzureRmResourceGroup -Location $location `
+   -Name $destinationResourceGroup
 ```
 
 从上传的 VHD 创建新 OS 磁盘。 
@@ -128,12 +152,13 @@ New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
 $sourceUri = (https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vhd)
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import `
+    (New-AzureRmDiskConfig -AccountType StandardLRS  `
+    -Location $location -CreateOption Import `
     -SourceUri $sourceUri) `
     -ResourceGroupName $destinationResourceGroup
 ```
 
-## <a name="option-2-copy-an-existing-azure-vm"></a>选项 2：复制现有 Azure VM
+## <a name="option-3-copy-an-existing-azure-vm"></a>选项 3：复制现有 Azure VM
 
 通过拍摄 VM 快照来创建使用托管磁盘的 VM 副本，并使用该快照创建一个新的托管磁盘和一个新 VM。
 
@@ -153,24 +178,33 @@ $snapshotName = 'mySnapshot'
 获取 VM 对象。
 
 ```powershell
-$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $resourceGroupName
+$vm = Get-AzureRmVM -Name $vmName `
+   -ResourceGroupName $resourceGroupName
 ```
 获取 OS 磁盘名称。
 
  ```powershell
-$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $vm.StorageProfile.OsDisk.Name
+$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName `
+   -DiskName $vm.StorageProfile.OsDisk.Name
 ```
 
 创建快照配置。 
 
  ```powershell
-$snapshotConfig =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -OsType Windows -CreateOption Copy -Location $location 
+$snapshotConfig =  New-AzureRmSnapshotConfig `
+   -SourceUri $disk.Id `
+   -OsType Windows `
+   -CreateOption Copy `
+   -Location $location 
 ```
 
-创建快照。
+拍摄快照。
 
 ```powershell
-$snapShot = New-AzureRmSnapshot -Snapshot $snapshotConfig -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName
+$snapShot = New-AzureRmSnapshot `
+   -Snapshot $snapshotConfig `
+   -SnapshotName $snapshotName `
+   -ResourceGroupName $resourceGroupName
 ```
 
 如果计划使用快照创建需要高性能的 VM，请结合使用 `-AccountType Premium_LRS` 参数和 New-AzureRmSnapshot 命令。 该参数创建快照，使其作为高级托管磁盘进行存储。 高级托管磁盘比标准托管磁盘开销大。 因此使用该参数前，请确保确实需要高级托管磁盘。
@@ -183,7 +217,8 @@ $snapShot = New-AzureRmSnapshot -Snapshot $snapshotConfig -SnapshotName $snapsho
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
+New-AzureRmResourceGroup -Location $location `
+   -Name $destinationResourceGroup
 ```
 
 设置 OS 磁盘名称。 
@@ -213,15 +248,20 @@ $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
 
 ```powershell
 $subnetName = 'mySubNet'
-$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+   -Name $subnetName `
+   -AddressPrefix 10.0.0.0/24
 ```
 
 创建 vNet。 本示例将虚拟网络名称设置为 **myVnetName**，将位置设置为“中国北部”，将虚拟网络的地址前缀设置为 **10.0.0.0/16**。 
 
 ```powershell
 $vnetName = "myVnetName"
-$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $destinationResourceGroup -Location $location `
-    -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
+$vnet = New-AzureRmVirtualNetwork `
+   -Name $vnetName -ResourceGroupName $destinationResourceGroup `
+   -Location $location `
+   -AddressPrefix 10.0.0.0/16 `
+   -Subnet $singleSubnet
 ```    
 
 ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>创建网络安全组和 RDP 规则
@@ -236,8 +276,10 @@ $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Al
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $destinationResourceGroup -Location $location `
-    -Name $nsgName -SecurityRules $rdpRule
+$nsg = New-AzureRmNetworkSecurityGroup `
+   -ResourceGroupName $destinationResourceGroup `
+   -Location $location `
+   -Name $nsgName -SecurityRules $rdpRule
 
 ```
 
@@ -250,7 +292,9 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $destinationResourceGr
 
 ```powershell
 $ipName = "myIP"
-$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $destinationResourceGroup -Location $location `
+$pip = New-AzureRmPublicIpAddress `
+   -Name $ipName -ResourceGroupName $destinationResourceGroup `
+   -Location $location `
    -AllocationMethod Dynamic
 ```       
 
@@ -258,8 +302,11 @@ $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $destinationR
 
 ```powershell
 $nicName = "myNicName"
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $destinationResourceGroup `
-    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+$nic = New-AzureRmNetworkInterface -Name $nicName `
+   -ResourceGroupName $destinationResourceGroup `
+   -Location $location -SubnetId $vnet.Subnets[0].Id `
+   -PublicIpAddressId $pip.Id `
+   -NetworkSecurityGroupId $nsg.Id
 ```
 
 ### <a name="set-the-vm-name-and-size"></a>设置 VM 名称和大小
@@ -279,7 +326,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 ### <a name="add-the-os-disk"></a>添加 OS 磁盘 
 
-使用 [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk) 将 OS 磁盘添加到配置。 此示例将磁盘大小设置为 *128 GB* 并附加托管磁盘作为 *Windows* OS 磁盘。
+使用 [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk) 向配置添加 OS 磁盘。 此示例将磁盘大小设置为 *128 GB* 并附加托管磁盘作为 *Windows* OS 磁盘。
 
 ```powershell
 $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
@@ -314,4 +361,4 @@ $vmList.Name
 ## <a name="next-steps"></a>后续步骤
 若要登录到新虚拟机，请在[门户](https://portal.azure.cn)中浏览到该 VM，单击“连接”，然后打开远程桌面 RDP 文件。 使用原始虚拟机的帐户凭据登录到新虚拟机。 有关详细信息，请参阅 [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md)（如何连接并登录到运行 Windows 的 Azure 虚拟机）。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

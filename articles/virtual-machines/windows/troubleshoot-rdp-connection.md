@@ -13,20 +13,20 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 103b4880305e2ab38b16b91bbfbfb4160ddffe5d
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 60685a81e06d2a891475a575626f51f83005f5f1
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>排查 Azure 虚拟机的远程桌面连接问题
 与基于 Windows 的 Azure 虚拟机 (VM) 的远程桌面协议 (RDP) 连接可能会因各种原因而失败，使用户无法访问 VM。 问题可能出在 VM 上的远程桌面服务、网络连接或主计算机上的远程桌面客户端。 本文介绍解决 RDP 连接问题的一些最常见方法。 
 
-如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)上的 Azure 专家。 或者，也可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。
+如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。
 
 <a id="quickfixrdp"></a>
 
@@ -56,13 +56,13 @@ ms.lasthandoff: 12/15/2017
 还可以查找有关针对使用 [经典部署模型](#troubleshoot-vms-created-using-the-classic-deployment-model)创建的 VM 进行故障排除的步骤。
 
 <a id="fix-common-remote-desktop-errors"></a>
-
+<a name="using-the-azure-portal"></a>
 ## <a name="troubleshoot-using-the-azure-portal"></a>使用 Azure 门户进行故障排除
 在执行每个故障排除步骤之后，请尝试再次连接到 VM。 如果仍然无法连接，请尝试下一步。
 
 1. **重置 RDP 连接**。 当“远程连接”已禁用或 Windows 防火墙规则阻止 RDP 时，此故障排除步骤可重置 RDP 配置。
 
-    在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。  单击“重置密码”按钮。 将“模式”设置为“仅重置配置”，然后单击“更新”按钮：
+    在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。 单击“重置密码”按钮。 将“模式”设置为“仅重置配置”，然后单击“更新”按钮：
 
     ![在 Azure 门户中重置 RDP 配置](./media/troubleshoot-rdp-connection/reset-rdp.png)
 2. **验证网络安全组规则**。 可以查看生效的安全组规则，确保入站“允许”NSG 规则存在并已针对 RDP 端口（默认为 3389）设置优先级。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow)。
@@ -74,12 +74,12 @@ ms.lasthandoff: 12/15/2017
 4. **重置 VM 的 NIC**。 有关详细信息，请参阅[如何重置 Azure Windows VM 的 NIC](reset-network-interface.md)。
 <!-- Not Availble **Check the VM Resource Health**.  -->
 
-5. **重置用户凭据**。 不确定或忘记凭据时，此故障排除步骤将重置本地管理员帐户的密码。
+5. **重置用户凭据**。 不确定或者忘了凭据时，可以使用此故障排除步骤重置本地管理员帐户的密码。
 
-    在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。  单击“重置密码”按钮。 确保“模式”已设置为“重置密码”，然后输入用户名和新密码。 Finally, click the <bpt id="p1">**</bpt>Update<ept id="p1">**</ept> button:
+    在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。 单击“重置密码”按钮。 确保“模式”已设置为“重置密码”，然后输入用户名和新密码。 Finally, click the <bpt id="p1">**</bpt>Update<ept id="p1">**</ept> button:
 
     ![在 Azure 门户中重置用户凭据](./media/troubleshoot-rdp-connection/reset-password.png)
-6. **重新启动 VM**。 此故障排除步骤可以解决 VM 本身存在的任何基本问题。
+6. **重新启动 VM**。 此故障排除步骤可以更正 VM 本身具有的任何基础问题。
 
     在 Azure 门户中选择 VM，并单击“概述”选项卡。
 
@@ -94,6 +94,7 @@ ms.lasthandoff: 12/15/2017
 
 如果仍遇到 RDP 问题，可以[开具支持请求](https://www.azure.cn/support/contact/)或阅读[更详细的 RDP 故障排除概念和步骤](detailed-troubleshoot-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
+<a name="using-azure-powershell"></a>
 ## <a name="troubleshoot-using-azure-powershell"></a>使用 Azure PowerShell 进行故障排除
 如果尚未执行该操作，请[安装并配置最新的 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
@@ -104,7 +105,7 @@ ms.lasthandoff: 12/15/2017
 
 在执行每个故障排除步骤之后，请尝试再次连接到 VM。 如果仍然无法连接，请尝试下一步。
 
-1. **重置 RDP 连接**。 当“远程连接”已禁用或 Windows 防火墙规则阻止 RDP 时，此故障排除步骤可重置 RDP 配置。
+1. **重置 RDP 连接**。 例如，如果远程连接已禁用或 Windows 防火墙规则正在阻止 RDP，此故障排除步骤可重置 RDP 配置。
 
     以下示例将在 `ChinaNorth` 位置和名为 `myResourceGroup` 资源组中重置名为 `myVM` 的 VM 上的 RDP 连接：
 
@@ -112,9 +113,9 @@ ms.lasthandoff: 12/15/2017
     Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location Westus -Name "myVMAccessExtension"
     ```
-2. **验证网络安全组规则**。 此故障排除步骤验证网络安全组中是否存在允许 RDP 流量的规则。 RDP 的默认端口为 TCP 端口 3389。 创建 VM 时，可能不会自动创建允许 RDP 流量的规则。
+2. **验证网络安全组规则**。 此故障排除步骤验证网络安全组中是否存在允许 RDP 流量的规则。 RDP 的默认端口为 TCP 端口 3389。 允许 RDP 通信的规则可能无法在创建 VM 时自动创建。
 
-    首先，将网络安全组的所有配置数据都指定给 `$rules` 变量。 以下示例将在名为 `myResourceGroup` 的资源组中获取关于名为 `myNetworkSecurityGroup` 的网络安全组的信息：
+    首先，将网络安全组的所有配置数据分配到 `$rules` 变量。 以下示例将在名为 `myResourceGroup` 的资源组中获取关于名为 `myNetworkSecurityGroup` 的网络安全组的信息：
 
     ```powershell
     $rules = Get-AzureRmNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
@@ -127,7 +128,7 @@ ms.lasthandoff: 12/15/2017
     $rules.SecurityRules
     ```
 
-    以下示例显示了一个允许 RDP 流量的有效安全规则。 可以看到 `Protocol`、`DestinationPortRange`、`Access` 和 `Direction` 已正确配置：
+    以下示例显示允许 RDP 通信的有效安全规则。 可以看到 `Protocol`、`DestinationPortRange`、`Access` 和 `Direction` 已正确配置：
 
     ```powershell
     Name                     : default-allow-rdp
@@ -169,7 +170,7 @@ ms.lasthandoff: 12/15/2017
     ```powershell
     Restart-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
     ```
-5. **重新部署 VM**。 此故障排除步骤将 VM 重新部署到 Azure 内的另一台主机，以更正任何基础平台或网络问题。
+5. **重新部署 VM**。 此故障排除步骤可将 VM 重新部署到 Azure 中的另一台主机，从而解决平台或网络的任何基本问题。
 
     以下示例重新部署 `ChinaNorth` 位置和 `myResourceGroup` 资源组中名为 `myVM` 的 VM：
 
@@ -199,17 +200,17 @@ ms.lasthandoff: 12/15/2017
 3. **检查 VM 启动诊断**。 此故障排除步骤检查 VM 控制台日志，确定 VM 是否报告了问题。 并非所有 VM 都已启用启动诊断，因此，此故障排除步骤可能是可选的。
 
     本文未介绍具体的故障排除步骤，而是指出会影响 RDP 连接的更广泛问题。 有关查看控制台日志和 VM 屏幕截图的详细信息，请参阅 [Boot Diagnostics for VMs](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)（VM 的启动诊断）。
-4. **检查 VM 资源运行状况**。 此故障排除步骤验证 Azure 平台上是否未出现任何可能影响 VM 连接的已知问题。
+4. **检查 VM 资源运行状况**。 此故障排除步骤验证 Azure 平台不存在可能影响 VM 连接性的已知问题。
 
     在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。  单击“资源运行状况”按钮。 A healthy VM reports as being <bpt id="p1">**</bpt>Available<ept id="p1">**</ept>:
 
     ![在 Azure 门户中查看 VM 资源运行状况](./media/troubleshoot-rdp-connection/classic-check-resource-health.png)
-5. **重置用户凭据**。 不确定或忘记凭据时，此故障排除步骤将重置所指定本地管理员帐户的密码。
+5. **重置用户凭据**。 不确定或者忘了凭据时，可以使用此故障排除步骤重置指定的本地管理员帐户的密码。
 
     在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。  单击“重置密码”按钮。 输入用户名和新密码。 最后，单击“保存”按钮： 
 
     ![在 Azure 门户中重置用户凭据](./media/troubleshoot-rdp-connection/classic-reset-password.png)
-6. **重新启动 VM**。 此故障排除步骤可以解决 VM 本身存在的任何基本问题。
+6. **重新启动 VM**。 此故障排除步骤可以更正 VM 本身具有的任何基础问题。
 
     在 Azure 门户中选择 VM，并单击“概述”选项卡。
 
@@ -217,7 +218,7 @@ ms.lasthandoff: 12/15/2017
 
 如果仍遇到 RDP 问题，可以[开具支持请求](https://www.azure.cn/support/contact/)或阅读[更详细的 RDP 故障排除概念和步骤](detailed-troubleshoot-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-## <a name="troubleshoot-specific-rdp-errors"></a>排查特定的 RDP 错误
+## <a name="troubleshoot-specific-rdp-errors"></a>解决特定 RDP 错误
 尝试通过 RDP 连接到 VM 时，可能会遇到特定的错误消息。 以下是最常见的错误消息：
 
 * [由于没有可用于提供许可证的远程桌面授权服务器，远程会话已断开连接](troubleshoot-specific-rdp-errors.md#rdplicense)。
@@ -230,4 +231,4 @@ ms.lasthandoff: 12/15/2017
 如果未发生上述任何错误但仍无法通过远程桌面连接到 VM，请阅读详细的[远程桌面故障排除指南](detailed-troubleshoot-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 有关用于访问 VM 上运行的应用程序的故障排除步骤，请参阅[对在 Azure VM 上运行的应用程序的访问进行故障排除](../linux/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 * 如果在 Azure 中使用 Secure Shell (SSH) 连接到 Linux VM 时遇到问题，请参阅[对 Azure 中到 Linux VM 的 SSH 连接进行故障排除](../linux/troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

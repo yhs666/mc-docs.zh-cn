@@ -18,11 +18,11 @@ origin.date: 02/02/2017
 ms.date: 10/30/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d0f1133f43c57c073531579f2f522cc56a0779b
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 1250a6a0270d99b3c5e0c385c12d08fb516ad2fe
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>将磁盘添加到 Linux VM
 本文介绍了如何将持久性磁盘附加到 VM 以便持久保存数据 - 即使 VM 由于维护或调整大小而重新预配。 
@@ -33,7 +33,8 @@ ms.lasthandoff: 10/27/2017
 Azure 托管磁盘通过管理与 VM 磁盘关联的存储帐户简化了 Azure VM 的磁盘管理。 你只需指定所需的类型（“高级”或“标准”）和磁盘大小，Azure 将创建和管理磁盘。 有关详细信息，请参阅[托管磁盘概述](managed-disks-overview.md)。
 
 ### <a name="attach-a-new-disk-to-a-vm"></a>将新磁盘附加到 VM
-如果只需要 VM 上的新磁盘，请使用 [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az_vm_disk_attach) 命令以及 `--new` 参数。 如果 VM 位于某个可用性区域中，则会自动在与 VM 相同的区域中创建磁盘。 有关详细信息，请参阅[可用性区域概述](../../availability-zones/az-overview.md)。 以下示例创建一个名为 *myDataDisk* 且大小为 *50* GB 的磁盘：
+如果只需要 VM 上的新磁盘，请使用 [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az_vm_disk_attach) 命令以及 `--new` 参数。 如果 VM 位于某个可用性区域中，则会自动在与 VM 相同的区域中创建磁盘。 以下示例创建一个名为 *myDataDisk* 且大小为 *50* GB 的磁盘：
+<!-- Not Available on [Overview of Availability Zones](../../availability-zones/az-overview.md) -->
 
 ```azurecli
 az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
@@ -215,7 +216,7 @@ sudo -i blkid
 ```
 
 > [!NOTE]
-> 错误地编辑 **/etc/fstab** 文件可能会导致系统无法引导。 如果没有把握，请参考分发的文档来获取有关如何正确编辑该文件的信息。 另外，建议在编辑之前创建 /etc/fstab 文件的备份。
+> 错误地编辑 **/etc/fstab** 文件可能会导致系统无法引导。 如果没有把握，请参考分发的文档来获取有关如何正确编辑该文件的信息。 另外，建议在编辑前备份 /etc/fstab 文件。
 
 接下来，在文本编辑器中打开 */etc/fstab* 文件，如下所示：
 

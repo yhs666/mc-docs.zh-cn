@@ -8,11 +8,11 @@ ms.topic: article
 origin.date: 12/31/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 822fe01aeba798f876e6a5df64b0eba37d0916e3
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 18448681791eb86836b87a62de9d4e36ec5747c8
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>用于 Hyper-V 到 Azure 的复制的支持矩阵
 
@@ -116,6 +116,7 @@ RA-GRS | 是 | 是
 导入/导出服务 | 否 | 否
 VNET 服务终结点（Azure 存储防火墙和 VNET），目的是缓存用于复制数据的存储帐户 | 否 | 否
 
+<a name="failed-over-azure-vm-requirements"></a>
 ## <a name="azure-compute-features"></a>Azure 计算功能
 
 **功能** | **Hyper-V（有 VMM）** | **不包含 VMM 的 Hyper-V**

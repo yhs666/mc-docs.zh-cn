@@ -15,11 +15,11 @@ ms.topic: get-started-article
 origin.date: 08/31/2017
 ms.date: 01/15/2018
 ms.author: v-nany
-ms.openlocfilehash: 8738f5f923d9876364f62323740bd41011d198b0
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 0924c025947c7ba44c6a262473035bef947b035c
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="getting-started-with-azure-automation"></a>Azure 自动化入门
 
@@ -34,7 +34,6 @@ Azure 自动化是软件即服务 (SaaS) 型应用程序，提供可缩放且可
 
 Azure 中运行的 Runbook 在自动化沙盒中执行，这些沙盒托管在 Azure 平台即服务 (PaaS) 型虚拟机中。  自动化沙盒针对 Runbook 执行的所有方面（模块、存储、内存、网络通信、作业流等）提供租户隔离。此角色由服务管理，不可从 Azure 或 Azure 自动化帐户访问，因此，无法控制它。         
 
-若要在本地数据中心或其他云服务中自动部署和管理资源，可在创建自动化帐户后，指定一台或多台计算机运行[混合 Runbook 辅助角色 (HRW)](automation-hybrid-runbook-worker.md)。  每个 HRW 都需要 Microsoft 管理代理，同时需要连接到 Log Analytics 工作区以及一个自动化帐户。  Log Analytics 用于启动安装、维护 Microsoft 管理代理，以及监视 HRW 的功能。  Runbook 及其运行指令的传送由 Azure 自动化来执行。
 
 可以部署多个 HRW，以便为 Runbook 提供高可用性、对 Runbook 作业进行负载均衡，以及在某些情况下将其专用于特定的工作负荷或环境。  HRW 上的 Microsoft Monitoring Agent 通过 TCP 端口 443 启动与自动化服务的通信，没有入站防火墙要求。  在环境中的 HRW 上运行 Runbook 以后，如果希望 Runbook 针对该环境中的其他计算机或服务执行管理任务，则 Runbook 可能需访问其他端口。  
 

@@ -17,11 +17,11 @@ origin.date: 02/02/2016
 ms.date: 01/22/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9203225f84bcbf56ef0d382f3a6c6d9522f4aa6a
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 1c58071041ce7e2e0d44ea87c3836b24cf910916
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建具有多个 NIC 的 VM（经典）
 
@@ -51,7 +51,8 @@ ms.lasthandoff: 01/19/2018
 ### <a name="step-1---start-your-script"></a>步骤 1 - 启动脚本
 可在 [此处](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh)下载所用的完整 bash 脚本。 完成以下步骤，更改脚本，以便用于具体环境：
 
-1. 根据在上述 [先决条件](#Prerequisites)中部署的现有资源组，更改以下变量的值。
+1. 根据在上述 [先决条件](#prerequisites)中部署的现有资源组，更改以下变量的值。
+<!-- Archor is Correct on #prerequisites -->
 
     ```azurecli
     location="chinaeast"

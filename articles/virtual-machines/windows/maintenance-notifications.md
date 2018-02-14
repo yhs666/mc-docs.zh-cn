@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2017
-ms.date: 01/08/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2f16f9f38b80282af1bc907597ee0fbb4f7ef54f
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 7e6beec2de95a6e29a01ef38566790290a8d6b6f
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>处理 Windows 虚拟机的计划内维护通知
 
@@ -52,9 +52,7 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 
 使用**可用性集**进行部署时，不建议进行自助维护，因为这些可用性集是高度可用的设置，在任何给定的时间都只会影响一个更新域。 
     - 让 Azure 来触发维护，但需要知道的是，受影响的更新域不一定是按顺序的，并且在两个更新域之间存在 30 分钟的暂停。
-    - 如果担心暂时性丢失部分容量（1/更新域计数），可以在维护期间分配更多的实例，这样即可轻松地进行弥补。 
-
-以下情况**请勿**使用自助维护： 
+    - 如果担心暂时性丢失部分容量（1/更新域计数），可以在维护期间分配更多的实例，这样即可轻松地进行弥补。以下情况请勿使用自助维护： 
     - 如果频繁关闭 VM，不管是使用手动方式、使用开发测试实验室、使用自动关闭还是按计划来完成，都可能会还原维护状态，从而导致停机时间延长。
     - VM 的生存期短，已确定在维护结束之前就会被删除。 
     - 工作负荷的状态为“大”，存储在本地（临时）磁盘中，需要在更新后进行维护。 
@@ -87,8 +85,8 @@ Get-AzureRmVM -ResourceGroupName rgName -Name vmName -Status
 | IsCustomerInitiatedMaintenanceAllowed | 指示此时是否可以在 VM 上启动维护 ||
 | PreMaintenanceWindowStartTime         | 可以在 VM 上启动维护的自助式维护时段的起点 ||
 | PreMaintenanceWindowEndTime           | 可以在 VM 上启动维护的自助式维护时段的终点 ||
-| MaintenanceWindowStartTime            | 可以在 VM 上启动维护的计划内维护时段的起点 ||
-| MaintenanceWindowEndTime              | 可以在 VM 上启动维护的计划内维护时段的终点 ||
+| MaintenanceWindowStartTime            | Azure 在 VM 上启动维护的计划内维护时段的起点 ||
+| MaintenanceWindowEndTime              | Azure 在 VM 上启动维护的计划内维护时段的终点 ||
 | LastOperationResultCode               | 上次尝试在 VM 上启动维护的结果 ||
 
 还可以通过使用 [Get-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) 并不指定 VM 来获取资源组中所有 VM 的维护状态。
@@ -175,7 +173,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **问：重新启动虚拟机需要多长时间？**
 
-**答：**根据 VM 的大小，重新启动最多可能需要几分钟时间。 请注意，如果使用云服务（Web/辅助角色）、虚拟机规模集或可用性集，则每组 VM (UD) 之间有 30 分钟的可用时间。 
+**答：**根据 VM 的大小，在自助维护时段内，重启最多可能需要几分钟时间。 当 Azure 在计划性维护时段内启动重启时，重启通常需要 25 分钟。 请注意，如果使用云服务（Web/辅助角色）、虚拟机规模集或可用性集，则在计划性维护时段内每组 VM (UD) 之间有 30 分钟的可用时间。 
 
 **问：使用云服务（Web/辅助角色）、Service Fabric 和虚拟机规模集时的体验如何？**
 
@@ -209,3 +207,4 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 了解如何使用[计划事件](scheduled-events.md)从 VM 内注册维护事件。
 
 <!--Update_Description: update meta properties, wording update -->
+<!--There are no update except on Link 175  -->

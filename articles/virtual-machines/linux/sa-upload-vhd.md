@@ -16,14 +16,14 @@ ms.topic: article
 origin.date: 07/10/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 9487103c856779c232842f4f79036225102321ea
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 93f5ddd679b9456dfe5318f6ff91a54f4a064ed5
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 上传自定义磁盘并从其创建 Linux VM
-本文说明如何使用 Azure CLI 2.0 将虚拟硬盘 (VHD) 上传到 Azure 存储帐户，并从此自定义磁盘创建 Linux VM。 还可以使用 [Azure CLI 1.0](upload-vhd-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。 此功能可让用户安装并配置 Linux 分发以满足用户的需求，并使用该 VHD 快速创建 Azure 虚拟机 (VM)。
+本文说明如何使用 Azure CLI 2.0 将虚拟硬盘 (VHD) 上传到 Azure 存储帐户，并从此自定义磁盘创建 Linux VM。 也可以使用 [Azure CLI 1.0](upload-vhd-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。 此功能可让用户安装并配置 Linux 分发以满足用户的需求，并使用该 VHD 快速创建 Azure 虚拟机 (VM)。
 
 本主题使用存储帐户保存最终 VHD，但也可以使用[托管磁盘](upload-vhd.md)执行这些步骤。 
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/09/2017
 
 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 `myResourceGroup`、`mystorageaccount` 和 `mydisks`。
 
-首先，使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 创建资源组。 以下示例在 `WestUs` 位置创建名为 `myResourceGroup` 的资源组：
+首先，使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 创建资源组。 以下示例在 `WestUs` 位置创建一个名为 `myResourceGroup` 的资源组：
 
 ```azurecli
 az group create --name myResourceGroup --location chinanorth
@@ -62,7 +62,7 @@ az storage container create --account-name mystorageaccount \
     --account-key key1 --name mydisks
 ```
 
-最后，使用 [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#upload) 将 VHD 上传到创建的容器。 在 `/path/to/disk/mydisk.vhd`下指定 VHD 的本地路径：
+最后，使用 [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#upload) 将 VHD 上传到创建的容器。 在 `/path/to/disk/mydisk.vhd` 下指定 VHD 的本地路径：
 
 ```azurecli
 az storage blob upload --account-name mystorageaccount \
@@ -110,7 +110,7 @@ Azure 支持各种 Linux 分发（请参阅[认可的分发](endorsed-distros.md
 * **[基于 CentOS 的分发版](create-upload-centos.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
+<!-- Not Avaiable on * **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)** -->
 * **[SLES 和 openSUSE](suse-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[其他 - 非认可分发](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)**
@@ -125,7 +125,7 @@ Azure 支持各种 Linux 分发（请参阅[认可的分发](endorsed-distros.md
 ## <a name="create-a-resource-group"></a>创建资源组
 资源组以逻辑方式将所有 Azure 资源（例如虚拟网络和存储）聚集在一起，以支持虚拟机。 有关资源组的详细信息，请参阅[资源组概述](../../azure-resource-manager/resource-group-overview.md)。 在上传自定义磁盘和创建 VM 之前，首先需要使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#createe) 创建一个资源组。
 
-以下示例在 `chinanorth` 位置创建名为 `myResourceGroup` 的资源组：
+以下示例在 `chinanorth` 位置创建一个名为 `myResourceGroup` 的资源组：
 
 ```azurecli
 az group create --name myResourceGroup --location chinanorth
@@ -135,7 +135,7 @@ az group create --name myResourceGroup --location chinanorth
 
 可以使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#create)为自定义磁盘和 VM 创建存储帐户。 从自定义磁盘创建的、使用非托管磁盘的所有 VM 都必须位于该磁盘所在的同一存储帐户中。 
 
-以下示例在前面创建的资源组中创建一个名为 `mystorageaccount` 的存储帐户：
+以下示例在前面创建的资源组中创建名为 `mystorageaccount` 的存储帐户：
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location chinanorth \

@@ -16,11 +16,11 @@ ms.workload: data-services
 origin.date: 03/28/2017
 ms.date: 11/06/2017
 ms.author: v-yeche
-ms.openlocfilehash: a7d5da9b8970fad0f9135360310926e0b5bd6ff5
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: f946ffe6f25be4b65251fcf6333902c614bc637d
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>流分析输出：存储、分析选项
 创作流分析作业时，需考虑如何使用生成的数据。 如何查看流分析作业的结果？流分析作业的结果存储在何处？
@@ -192,7 +192,7 @@ Blob 存储提供了一种经济高效且可缩放的解决方案，用于在云
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
+<!-- URL is not Correct on [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md -->
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md

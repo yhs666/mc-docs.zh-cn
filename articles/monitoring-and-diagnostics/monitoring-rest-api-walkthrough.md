@@ -1,5 +1,5 @@
 ---
-title: "Azure 监视 REST API 演练 | Azure"
+title: "Azure 监视 REST API 演练"
 description: "如何对请求进行身份验证，以及如何使用 Azure Monitor REST API 检索可用的指标定义和指标值。"
 author: mcollier
 manager: 
@@ -11,15 +11,19 @@ ms.service: monitoring-and-diagnostics
 ms.workload: 
 ms.tgt_pltfrm: 
 ms.devlang: 
+ms.search.region: 
+ms.search.scope: 
+ms.search.validFrom: 
+ms.dyn365.ops.version: 
 ms.topic: article
 origin.date: 09/18/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: e8023ebc85fc162d2db52b03de6fc42ee3c50578
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 02/26/2018
+ms.openlocfilehash: 5949c367693160573ad2248e23766ddecd7a9f66
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure 监视 REST API 演练
 本文说明如何执行身份验证，使代码能够遵循 [Microsoft Azure Monitor REST API 参考](https://msdn.microsoft.com/library/azure/dn931943.aspx)。         
@@ -36,7 +40,6 @@ ms.lasthandoff: 12/01/2017
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
 $resourceGroupName = "{resource-group-name}"
-$location = "chinaeast"
 
 # Authenticate to a specific Azure subscription.
 Login-AzureRmAccount -SubscriptionId $subscriptionId
@@ -91,7 +94,7 @@ $authHeader = @{
 
 ## <a name="retrieve-metric-definitions-multi-dimensional-api"></a>检索指标定义（多维 API）
 
-使用[Azure 监视器指标定义 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions)访问服务可用的指标列表。
+使用[Azure 监视器指标定义 REST API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)访问服务可用的指标列表。
 
 **方法**：GET
 

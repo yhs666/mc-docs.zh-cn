@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/25/2016
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 337dfa6bf63370a2879998118a86c42ecebc32d8
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: ca4706a8150a7b40a7bcf786f656eb405ef39e37
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的 C++ 控制台 应用程序教程
 > [!div class="op_single_selector"]
@@ -48,8 +48,8 @@ ms.lasthandoff: 12/22/2017
 * 删除文档
 * 删除 C++ Azure Cosmos DB 数据库
 
-没有时间？ 不必担心！ 可在 [GitHub](https://github.com/stalker314314/sql-apiCpp)上获取完整的解决方案。 有关快速说明，请参阅 [Get the complete solution](#GetSolution) （获取完整解决方案）。
-
+没有时间？ 不必担心！ 可在 [GitHub](https://github.com/stalker314314/DocumentDBCpp)上获取完整的解决方案。 有关快速说明，请参阅 [Get the complete solution](#GetSolution) （获取完整解决方案）。
+<!-- Should Be https://github.com/stalker314314/DocumentDBCpp for https://github.com/stalker314314/sql-apiCpp-->
 现在，让我们开始吧！
 
 ## <a name="prerequisites-for-the-c-tutorial"></a>C++ 教程的先决条件

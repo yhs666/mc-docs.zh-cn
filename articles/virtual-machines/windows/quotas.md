@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 12/05/2016
-ms.date: 01/08/2018
+origin.date: 02/05/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6e56bee060733a7ad9186e2041cc88ae2fe7b850
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: a8850c318c8945a242491189868d84ee562e474a
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>虚拟机 vCPU 配额
 
@@ -80,10 +80,10 @@ Premium Storage Managed Disks                1 10000 Count
 ## <a name="reserved-vm-instances"></a>保留 VM 实例
 保留 VM 实例对应于单个订阅，会给 vCPU 配额造成新的影响。 这些值描述订阅中必须可以部署的规定大小的实例数。 它们在配额系统中用作占位符，确保保留该配额，以便能够在订阅中部署保留的实例。 例如，如果特定订阅包含 10 个 Standard_D1 保留实例，则 Standard_D1 保留实例的用量限制将是 10。 这样，Azure 便可以确保“区域 vCPU 总数”配额中始终至少有 10 个 vCPU 可用于 Standard_D1 实例，并且“标准 D 系列 vCPU”配额中至少有 10 个 vCPU 可用于 Standard_D1 实例。
 
-如果需要提高配额才能购买单一订阅 RI，可以[请求提高订阅的配额](/azure-supportability/resource-manager-core-quotas-request)。
+如果需要提高配额才能购买单一订阅 RI，可以[请求提高订阅的配额](https://www.azure.cn/support/support-ticket-form)。
 
 ## <a name="next-steps"></a>后续步骤
 
 有关计费和配额的详细信息，请参阅 [Azure 订阅和服务限制、配额与约束](/azure-subscription-service-limits?toc=/azure/billing/TOC.json)。
 <!--Update_Description: new article on quotas in Windows VM-->
-<!--ms.date: 01/08/2018, update the output screen -->
+<!--ms.date: 02/05/2018, update the output screen -->

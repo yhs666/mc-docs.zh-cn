@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 053d8cb0d17f9e5c15e55ad19cd234c2db85894a
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 31744d39e89c629f0d04a33bc2ff56655c5f7d39
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>针对网络安全组进行流日志记录简介
 
@@ -103,8 +103,7 @@ https://{storageAccountName}.blob.core.chinacloudapi.cn/insights-logs-networksec
 ## <a name="next-steps"></a>后续步骤
 
 访问[启用流日志记录](network-watcher-nsg-flow-logging-portal.md)，了解如何启用流日志。
-
-访问[网络安全组 (NSG) 的日志分析](../virtual-network/virtual-network-nsg-manage-log.md)，了解 NSG 日志记录。
+<!-- Not Available on [Log analytics for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md) -->
 
 访问[使用“IP 流验证”验证流量](network-watcher-check-ip-flow-verify-portal.md)，了解是允许还是拒绝流
 

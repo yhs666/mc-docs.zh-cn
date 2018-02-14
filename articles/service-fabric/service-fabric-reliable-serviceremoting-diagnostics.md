@@ -15,17 +15,17 @@ ms.workload: NA
 origin.date: 06/29/2017
 ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 57694cdf43a6d13948f07e157a3c8dacfb7a3bc1
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 045faf40abec6c215d3bbe5374e09316259f32a7
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Reliable Service Remoting 的诊断和性能监视
 Reliable ServiceRemoting 运行时会发出[性能计数器](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)。 这些有助于深入了解 ServiceRemoting 的运行状况以及进行故障排除和性能监视。
 
 ## <a name="performance-counters"></a>性能计数器
-Reliable ServiceRemoting 运行时定义了以下性能计数器类别：
+Reliable ServiceRemoting 运行时定义以下性能计数器类别：
 
 | 类别 | 说明 |
 | --- | --- |
@@ -44,7 +44,7 @@ Reliable ServiceRemoting 运行时定义了以下性能计数器类别：
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* 是与性能计数器实例关联的 Service Fabric 分区 ID 的字符串表示形式。 分区 ID 是 GUID，并且其字符串表示形式通过使用格式说明符“D”的 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 方法生成。
+*ServiceFabricPartitionID* 是与性能计数器实例相关联的 Service Fabric 分区 ID 的字符串表示。 分区 ID 是 GUID，并且其字符串表示形式通过使用格式说明符“D”的 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 方法生成。
 
 ServiceReplicaOrInstanceId 是与性能计数器实例相关联的 Service Fabric 副本/实例 ID 的字符串表示形式。
 
@@ -99,7 +99,7 @@ Reliable Service 运行时发布与执行服务方法相关的下列性能计数
 | Service Fabric 服务 |序列化响应的平均毫秒数 |将响应发送到客户端之前，在服务中序列化服务响应消息所用的时间（以毫秒为单位） |
 
 ## <a name="next-steps"></a>后续步骤
-* [代码示例](https://github.com/Azure/servicefabric-samples)
+<!-- URL not exist * [Sample code](https://github.com/Azure/servicefabric-samples) -->
 * [PerfView 中的 EventSource 提供程序](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
 
 <!--Update_Description: new articles of reliable diagnosyics in service fabric -->

@@ -4,7 +4,7 @@ description: "使用自助密码重置功能重新获取工作用户帐户或学
 services: active-directory
 keywords: 
 documentationcenter: 
-author: alexchen2016
+author: yunan2016
 manager: digimobile
 ms.reviewer: gahug
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
@@ -13,91 +13,98 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/13/2017
-ms.date: 11/22/2017
-ms.author: v-junlch
+origin.date: 01/11/2018
+ms.date: 1/29/2018
+ms.author: v-nanyu
 ms.custom: end-user
-ms.openlocfilehash: a6fd5499be6784caa48e89a7d11d134462204ebe
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 7adb440e3a541026d4e76f34d1ebd46f4394b600
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="help-i-forgot-my-password"></a>帮帮我，我忘记了密码
+# <a name="reset-your-work-or-school-password"></a>重置工作或学校密码
 
-如果是属于以下情形，则我们可以提供帮助
+如果忘记了密码、从来没有从公司支持人员处收到过密码、帐户被锁定，或者需要更改密码，我们可以为你提供帮助。 如果知道密码并且只需更改密码，请继续查看[更改我的密码](#change-my-password)部分。
 
-- 不确定如何访问帐户，也不记得密码
-- 没有指定密码，管理员你将引导到这里
+## <a name="reset-or-unlock-my-password-for-a-work-or-school-account"></a>重置或解锁工作或学校帐户的密码
 
-## <a name="unlock-my-account"></a>解锁我的帐户
+你可能会出于以下原因之一无法访问你的 Azure Active Directory (Azure AD) 帐户：
 
-如果在这里是要解锁自己的帐户，请执行下面的步骤。 在下面的步骤 6 看到“选择新密码”时，即可解锁或更改密码，用户的帐户就解锁了。
+* 密码不起作用需要重置。
+* 知道密码但帐户被锁定，需要解锁帐户。
 
-## 重置密码 <a name="how-to-reset-your-password"></a>
+使用以下步骤访问 Azure AD 自助服务密码重置 (SSPR) 并取回你的帐户。
 
-若要重新登录帐户，请执行以下步骤。
+1. 在任何工作或学校“登录”页上，选择“无法访问帐户?”链接，然后选择“工作或学校帐户”，或直接转到[密码重置页面](https://passwordreset.activedirectory.windowsazure.cn/)。
 
-1. 在任何工作或学校登录页中，单击“无法访问用户的帐户?”链接，并单击“工作或学校帐户”，或者直接转到[密码重置页](https://passwordreset.microsoftonline.com/)
+    ![无法访问帐户？][Login]
 
-    ![无法访问帐户?][Login]
+2. 输入工作或学校用户 ID，通过输入在屏幕上看到的字符证明自己不是机器人，然后选择“下一步”。
 
-2. 输入工作或学校**用户 ID** 并证明用户不是机器人，方法是通过 CAPTCHA 质询，并输入显示的文本，并单击“下一步”。
+   > [!NOTE]
+   > 如果 IT 人员尚未启用此功能，则会显示“联系管理员”链接，可以要求 IT 人员通过其电子邮件或 Web 门户提供帮助。
+   >
+   > 如果需要解锁帐户，此时应选择“我知道密码，但是仍然无法登录”选项。
+   >
 
-    > [!NOTE]
-    > 如果管理员尚未启用此功能，此时会显示“联系管理员”链接，这样便可以要求管理员通过电子邮件或他们自己的 Web 门户提供帮助。
-    >
+3. 根据 IT 人员配置 SSPR 的方式，会出现以下一个或多个身份验证方法。 你或者 IT 人员已按照[注册自助服务密码重置](active-directory-passwords-reset-register.md)一文中的步骤填充了其中一些信息。
 
-    ![你是谁？][Who]
+   * **向我的备用电子邮件发送电子邮件**
+   * **向我的手机发送短信**
+   * **拨打我的手机电话**
+   * **拨打我的办公电话**
+   * **回答我的安全提问**
 
-3. 根据管理员的配置方式，会出现以下一个或多个选项
-    - 
-            **向我的备用电子邮件发送电子邮件** - 将包含 6 位数代码的电子邮件发送到备用电子邮件或身份验证电子邮件（由你选择）。
-    - 
-            **向我的移动电话发送短信** - 将包含 6 位数代码的短信发送到移动电话或身份验证电子电话（由你选择）。
-    - 
-            **拨打我的移动电话** - 拨打移动电话或身份验证电话（由你选择）。 按 # 键确认呼叫。
-    - 
-            **拨打我的办公电话** - 拨打办公电话。 按 # 键确认呼叫。
-    - **回答我的安全问题** - 显示预先注册的要回答的安全问题。
+   选择一个选项，提供正确的响应，然后选择“下一步”。
 
-    请参阅下图中的**向我的备用电子邮件发送电子邮件**示例：
+   ![验证身份验证数据][Verification]
 
-    ![你是谁？][email] 
-
-    单击“电子邮件”。 请输入收到的验证码。 单击“下一步”。
-
-    ![你是谁？][email2] 
-
-4. 管理员可能要求完成其他验证步骤，可能必须再次重复步骤 3，选择不同的选项
-5. 在“选择新密码”页上，输入符合组织要求的新密码，对密码进行确认，并单击“完成”
-
-    ![请更改密码。][Change]
-
-6. 看到“密码已重置”后，即可使用新密码登录。
+4. IT 人员可能需要你进行更多验证，可能必须使用其他选择重复步骤 3 的操作。
+5. 在“选择新密码”页上，输入新密码并确认，然后选择“完成”。 你的工作或学校密码可能有需要你遵循的某些要求。 建议密码采用 8-16 位字符，并且包含大小写字母、数字和特殊字符。
+6. 看到“密码已重置”消息后，即可使用新密码登录。
 
     ![密码已重置][Complete]
 
-使用此方法解锁或重置密码以后，会收到一封确认此过程已完成的电子邮件，该邮件来自“Microsoft 在此代表组织”之类的帐户。 如果收到这样的电子邮件，且未使用自助密码重置重新获取帐户访问权限，请与管理员联系。
+现在应该能够访问你的帐户了。 如果无法访问你的帐户，应联系组织的 IT 人员，寻求进一步的帮助。
+
+你可能会收到一封来自“Microsoft 代表\<组织>”之类帐户的确认电子邮件。 如果收到这样的电子邮件，但并未使用自助服务密码重置重新获取帐户访问权限，请与组织 IT 人员联系。
 
 ## <a name="change-my-password"></a>更改我的密码
 
-如果已经知道自己的密码，需要对其进行更改，则可尝试下述步骤
+如果已经知道自己的密码，需要对其进行更改，请使用以下步骤。
 
 ### <a name="change-your-password-from-the-office-365-portal"></a>从 Office 365 门户更改密码
 
-1. 单击右上角的个人资料，并单击“查看帐户”
-2. **安全和隐私**
-3. **密码**
-4. 输入旧密码，设置并确认新密码
-5. **提交**
+如果通常使用 Office 门户来访问应用程序，则请使用此方法：
 
-### <a name="change-your-password-from-the-azure-access-panel"></a>从 Azure 访问面板更改密码
+1. 使用现有密码登录到 [Office 365 帐户](https://portal.partner.microsoftonline.cn)。
+2. 选择右上角的个人资料，然后选择“查看帐户”。
+3. 选择“安全和隐私” > “密码”。
+4. 输入旧密码，设置并确认新密码，然后选择“提交”。
 
-1. 使用现有密码登录到 [Azure 访问门户](https://manage.windowsazure.cn/)
-2. 单击右上角的帐户名，并单击“更改密码”
-3. 输入旧密码，设置并确认新密码
-4. **提交**
+
+
+## <a name="reset-password-at-sign-in"></a>登录时重置密码
+
+如果管理员已启用该功能，Windows 10 Fall Creators Update 登录屏幕上现在会出现“重置密码”链接。
+
+![登录屏幕][LoginScreen]
+
+选择“重置密码”链接会在登录屏幕上打开 SSPR 体验，以便可以重置密码，而无需登录访问普通的基于 Web 的体验。
+
+1. 确认用户 ID，然后选择“下一步”。
+2. 选择并确认用于验证的联系方式。 IT 人员可能需要你进行更多验证，可能必须使用其他选择重复此步骤的操作。
+
+   ![联系方式][ContactMethod]
+
+3. 在“创建新密码”页上，输入新密码并确认，然后选择“下一步”。 建议密码采用 8-16 位字符，并且包含大小写字母、数字和特殊字符。
+
+   ![重置密码][ResetPassword]
+
+4. 出现“密码已重置”消息时，请选择“完成”。
+
+现在应该能够访问你的帐户了。 如果无法访问，请联系组织的 IT 人员，以获得进一步帮助。
 
 ## <a name="common-problems-and-their-solutions"></a>常见问题及其解决方法
 
@@ -105,22 +112,20 @@ ms.lasthandoff: 11/24/2017
 
 | 错误案例| 看到什么错误？| 解决方案 |
 | --- | --- | --- |
-| 在输入我的用户 ID 后，出现了“请联系管理员”页面 | 请与管理员联系 <br> <br> 我们检测到你的用户帐户密码不受 Microsoft 管理。 因此，我们无法自动重置密码。<br> <br> 你需要与 IT 人员联系以获得任何进一步帮助。 | 你之所以看到此消息，是因为 IT 人员在你的本地环境中管理你的密码，而不允许你从“无法访问帐户链接”重置密码。<br> <br> 若要重置密码，请直接向 IT 人员寻求帮助，使其了解你想要重置密码，从而为你启用此功能。|
-| 在输入我的用户 ID 后，出现“你的帐户未针对密码重置进行启用”错误 | 未针对密码重置启用帐户 <br> <br> 很抱歉， IT 人员尚未将你的帐户设置为可使用此服务。 <br> <br> 如果你愿意，我们可以联系你所在组织的管理员为你重置密码。 | 之所以出现此消息，是因为 IT 人员未为你的组织启用从“无法访问帐户”链接重置密码的功能，或未授权你使用该功能。<br> <br> 若要重置密码，请单击“联系管理员”链接向公司 IT 人员发送电子邮件，使其了解你想要重置密码，从而为你启用此功能。 |
-| 在输入我的用户 ID 后，出现了“我们无法验证你的帐户”错误 | 我们无法验证你的帐户 <br> <br> 如果你愿意，我们可以联系你所在组织的管理员为你重置密码。 | 之所以出现此消息，是因为已经为你启用了密码重置，但你并未注册使用此服务。 若要注册密码重置，请在重新获取帐户访问权限后转到 https://login.partner.microsoftonline.cn。<br> <br> 若要重置密码，请单击“联系管理员”链接，向公司 IT 人员发送电子邮件。 |
-
+| 尝试更改我的密码时看到错误。 | 很遗憾，你的密码包含单词、短语或模式，这些使你的密码容易被猜出。 请使用其他密码重试。 | 请选择更难猜的密码。 |
+| 在输入我的用户 ID 后，出现了“请联系管理员”页面 | 请与管理员联系。 <br> <br> 我们检测到你的用户帐户密码不受 Microsoft 管理。 因此，我们无法自动重置密码。 <br> <br> 需要与 IT 人员联系以获得进一步帮助。 | 出现此消息是因为 IT 人员在你的本地环境中管理你的密码。 因此，你无法使用“无法访问帐户”链接重置你的密码。 <br> <br> 若要重置密码，请直接联系 IT 人员获取帮助，并告知想要重置密码，以便他们能够为你启用此功能。|
+| 在输入我的用户 ID 后，出现“你的帐户未针对密码重置进行启用”错误 | 帐户未启用密码重置。 <br> <br> 很抱歉，IT 人员尚未将你的帐户设置为可使用此服务。 <br> <br> 如果你愿意，我们可以联系你所在组织的管理员为你重置密码。 | 之所以看到此消息，是因为 IT 人员未对组织启用从“无法访问帐户”链接重置密码的功能，或未授权你使用该功能。 <br> <br> 若要重置密码，请选择“联系管理员”链接，向公司 IT 人员发送电子邮件并告知想要重置密码，以便他们能够为你启用此功能。 |
+| 在输入我的用户 ID 后，出现了“我们无法验你的证帐户”错误 | 我们无法验证帐户。 <br> <br> 如果你愿意，我们可以联系你所在组织的管理员为你重置密码。 | 之所以看到此消息，是因为已经启用了密码重置，但你并未注册使用此服务。 若要注册密码重置，请在重新获取帐户访问权限后转到 http://aka.ms/ssprsetup。 <br> <br> 若要重置密码，请选择“联系管理员”链接以向公司 IT 人员发送电子邮件。 |
 
 ## <a name="next-steps"></a>后续步骤
 
 - [密码重置注册页](https://login.partner.microsoftonline.cn)
 - [密码重置门户](https://passwordreset.microsoftonline.com/)
 
-[Login]: ./media/active-directory-passwords-update-your-own-password/reset-1-login.png
-[Who]:./media/active-directory-passwords-update-your-own-password/who-login.png
-[email]: ./media/active-directory-passwords-update-your-own-password/email-login.png
-[email2]: ./media/active-directory-passwords-update-your-own-password/email2-login.png
-[Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png
-[Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png
-[Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png
-
-<!--Update_Description: update meta properties-->   
+[Login]: ./media/active-directory-passwords-update-your-own-password/reset-1-login.png "登录页无法访问你的帐户？"
+[Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "验证身份验证数据"
+[Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "更改密码"
+[Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "密码已重置"
+[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Windows 10 Fall Creators Update 登录屏幕中的“重置密码”链接"
+[ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "验证身份验证数据"
+[ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "更改密码"

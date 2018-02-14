@@ -17,11 +17,11 @@ origin.date: 02/21/2017
 ms.date: 12/11/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ac3cced27ca7284581466b7d129643d79342884
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: d16984436b85ac9406e7c679d258737c1f19ec58
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli"></a>使用 Azure CLI 管理网络安全组
 
@@ -81,6 +81,7 @@ az network nsg list -g RG-NSG -o table
 > 还可以使用 [az network nsg rule list](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#list) 仅列出 NSG 中的自定义规则。
 >
 
+<a name="view-nsgs-associations"></a>
 ## <a name="view-nsg-associations"></a>查看 NSG 关联项
 
 若要查看与 **NSG-FrontEnd** NSG 关联的资源，请运行 `az network nsg show` 命令： 
@@ -186,7 +187,7 @@ az network nsg rule update \
 ```
 
 ## <a name="delete-a-rule"></a>删除规则
-若要删除上面创建的规则，请运行以下命令：
+要删除上面创建的规则，请运行以下命令：
 
 ```azurecli
 az network nsg rule delete \
@@ -335,15 +336,15 @@ az network vnet subnet update \
 ## <a name="delete-an-nsg"></a>删除 NSG
 仅当 NSG 不与任何资源关联时，才能删除 NSG。 若要删除 NSG，请完成以下步骤：
 
-1. 若要查看与 NSG 关联的资源，请运行 `azure network nsg show` ，如 [查看 NSG 关联项](#View-NSGs-associations)中所示。
-2. 如果 NSG 关联到任意 NIC，请为每个 NIC 运行 `azure network nic set` ，如 [取消 NSG 与 NIC 之间的关联](#Dissociate-an-NSG-from-a-NIC) 中所示。 
-3. 如果 NSG 关联到任意子网，请为每个子网运行 `azure network vnet subnet set` ，如 [取消 NSG 与子网之间的关联](#Dissociate-an-NSG-from-a-subnet) 中所示。
+1. 若要查看与 NSG 关联的资源，请运行 `azure network nsg show` ，如 [查看 NSG 关联项](#view-nsgs-associations)中所示。
+2. 如果 NSG 关联到任意 NIC，请为每个 NIC 运行 `azure network nic set` ，如 [取消 NSG 与 NIC 之间的关联](#dissociate-an-nsg-from-a-nic) 中所示。 
+3. 如果 NSG 关联到任意子网，请为每个子网运行 `azure network vnet subnet set` ，如 [取消 NSG 与子网之间的关联](#dissociate-an-nsg-from-a-subnet) 中所示。
 4. 若要删除 NSG，请运行以下命令：
 
     ```azurecli
     az network nsg delete --resource-group RG-NSG --name NSG-FrontEnd
     ```
 <!--Not Available ## Next steps-->
-<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.-->
+<!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) -->
 
 <!-- Update_Description: update meta properties, update link, wording update -->

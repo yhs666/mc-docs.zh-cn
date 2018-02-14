@@ -17,11 +17,11 @@ origin.date: 10/17/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3956f92c381b6503f943fc32ebf396e039cf2a56
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 579b2b9a7533c1a12f2911f8ece3e8a8b4f16ac2
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>构建使用 Azure Cosmos DB 的 Python Flask Web 应用程序
 > [!div class="op_single_selector"]
@@ -363,7 +363,7 @@ def vote():
 6. 按 Shift+F5 停止调试该项目。
 
 ## <a name="step-5-deploy-the-web-application-to-azure"></a>步骤 5：将 Web 应用程序部署到 Azure
-创建可在本地针对 Azure Cosmos DB 正常工作的完整应用程序后，我们要创建一个 web.config 文件，将服务器上的文件更新为与本地环境匹配，然后在 Azure 中查看已完成的应用。 此过程只能在 Visual Studio 2017 中执行。 如果使用其他 Visual Studio 版本，请参阅[发布到 Azure 应用服务](https://docs.microsoft.com/visualstudio/python/publishing-to-azure.md)。
+创建可在本地针对 Azure Cosmos DB 正常工作的完整应用程序后，我们要创建一个 web.config 文件，将服务器上的文件更新为与本地环境匹配，然后在 Azure 中查看已完成的应用。 此过程只能在 Visual Studio 2017 中执行。 如果使用其他 Visual Studio 版本，请参阅[发布到 Azure 应用服务](https://docs.microsoft.com/zh-cn/visualstudio/python/publishing-to-azure)。
 
 1. 在 Visual Studio 的“解决方案资源管理器”中，右键单击项目，并选择“添加”>“新建项...”。在显示的对话框中，选择“Azure web.config (Fast CGI)”模板，再选择“确定”。 随后会在项目根目录中创建一个 `web.config` 文件。 
 
@@ -401,7 +401,8 @@ def vote():
 
 10. 在“选择扩展”页上，向下滚动到最近的 Python 2.7 安装并选择 x86 或 x64 位选项，然后单击“确定”接受法律条款。  
 
-11. 使用 Kudu 控制台（可通过 `https://<your app service name>.scm.chinacloudsites.cn/DebugConsole` 访问）安装应用的 `requirements.txt` 文件中所列的包。 为此，请在 Kudu 诊断控制台中导航到 Python 文件夹 `D:\home\Python27`，并根据 [Kudu 控制台](/visual-studio/python/managing-python-on-azure-app-service.md#azure-app-service-kudu-console)部分中所述运行以下命令：
+11. 使用 Kudu 控制台（可通过 `https://<your app service name>.scm.chinacloudsites.cn/DebugConsole` 访问）安装应用的 `requirements.txt` 文件中所列的包。 为此，请在 Kudu 诊断控制台中导航到 Python 文件夹 `D:\home\Python27`，并根据 [Kudu 控制台](https://docs.microsoft.com/zh-cn/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console)部分中所述运行以下命令：
+<!-- URL is correct on [Kudu console](https://docs.microsoft.com/zh-cn/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console) -->
 
     ```
     D:\home\Python27>python -m pip install --upgrade -r /home/site/wwwroot/requirements.txt

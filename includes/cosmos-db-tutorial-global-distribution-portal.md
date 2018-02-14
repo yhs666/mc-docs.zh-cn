@@ -21,7 +21,7 @@ Azure Cosmos DB 在全球范围的所有 [Azure 区域][azureregions]中推出�
 
 若要向最终用户提供低延迟，建议在与应用程序用户所在位置对应的区域中同时部署应用程序和添加 Azure Cosmos DB。
 
-若要实现 BCDR，建议按照[业务连续性和灾难恢复 (BCDR)：Azure 配对区域][bcdr]一文中所述，根据区域对添加区域。
+<!-- Not Available on [Business continuity and disaster recovery (BCDR): Azure Paired Regions][bcdr] -->
 
 <!--
 
@@ -37,6 +37,7 @@ While all regions associated with your Cosmos DB database account can serve read
     ![Change the write region by selecting a new region in list under Azure Cosmos DB Account > Replicate data globally > Manual Failover][3]
 
 --->
+<!-- Not Available on ## Select the write region -->
 
 <!--Image references-->
 [1]: ./media/cosmos-db-tutorial-global-distribution-portal/azure-cosmos-db-add-region.png
@@ -44,9 +45,9 @@ While all regions associated with your Cosmos DB database account can serve read
 [3]: ./media/cosmos-db-tutorial-global-distribution-portal/azure-cosmos-db-manual-failover-2.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[bcdr]: /best-practices-availability-paired-regions/
+<!-- Not Available on [bcdr]: /best-practices-availability-paired-regions/ -->
 [consistency]: ../articles/cosmos-db/consistency-levels.md
-[azureregions]: https://www.azure.cn/support/service-dashboard/#services
+[azureregions]: https://www.azure.cn/support/service-dashboard/
 [offers]: https://www.azure.cn/pricing/details/cosmos-db/
 
 <!--Update_Description: wording update-->

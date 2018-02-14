@@ -14,20 +14,20 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/13/2017
-ms.date: 12/18/2017
+ms.date: 01/29/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 36c1609d37198eadeb0bb9c45b50e95f3883ec00
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: c6ea1a81b51ffd46dbd13b947d26030de8c07eaf
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>使用 PowerShell 创建 Linux 虚拟机
 
 Azure PowerShell 模块用于从 PowerShell 命令行或脚本创建和管理 Azure 资源。 本快速入门详细介绍了如何使用 Azure PowerShell 模块部署运行 Ubuntu 服务器的虚拟机。 服务器部署以后，将创建 SSH 连接，并且安装 NGINX webserver。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 本快速入门需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
@@ -148,7 +148,7 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-## <a name="view-the-ngix-welcome-page"></a>查看 NGIX 欢迎页
+## <a name="view-the-nginx-welcome-page"></a>查看 NGINX 欢迎页
 
 NGINX 已安装，并且现在已从 Internet 打开 VM 上的端口 80 - 可以使用所选的 Web 浏览器查看默认的 NGINX 欢迎页。 请务必使用前面记录的公共 IP 地址访问默认页面。 
 
@@ -169,4 +169,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 > [!div class="nextstepaction"]
 > [Azure Linux 虚拟机教程](./tutorial-manage-vm.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

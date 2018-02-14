@@ -1,9 +1,9 @@
 ---
-title: "如何在 Azure API 管理中将事件记录到 Azure 事件中心 | Azure"
+title: "如何在 Azure API 管理中将事件记录到 Azure 事件中心"
 description: "了解如何在 Azure API 管理中将事件记录到 Azure 事件中心。"
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 88f6507d-7460-4eb2-bffd-76025b73f8c4
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2016
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 28d146551b358d1ab472667df7c698245c2e8874
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 628509c24668bcfa3d92945b940e51831804b796
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>如何在 Azure API 管理中将事件记录到 Azure 事件中心
 事件中心是一个高度可缩放的引入服务，每秒可以引入数百万的事件，使用户能够处理和分析连接设备和应用程序生成的海量数据。 事件中心充当事件管道的“前门”，将数据收集到事件中心后，可以使用任何实时分析提供程序或批处理/存储适配器来转换和存储这些数据。 事件中心可将事件流的生成与这些事件的使用分离开来，因此，事件使用者可以根据自己的计划访问事件。
@@ -69,7 +69,7 @@ ms.lasthandoff: 09/08/2017
 
 ```json
 {
-  "type" : "AzureEventHub",
+  "loggertype" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
     "name" : "Name of the Event Hub from the Azure Classic Portal",
@@ -78,7 +78,7 @@ ms.lasthandoff: 09/08/2017
 }
 ```
 
-* `type` 必须设置为 `AzureEventHub`。
+* `loggertype` 必须设置为 `AzureEventHub`。
 * `description` 提供记录器的可选说明，并且可在需要时为零长度字符串。
 * `credentials` 包含 Azure 事件中心的 `name` 和 `connectionString`。
 

@@ -3,7 +3,7 @@ title: "从 Azure 中的专用磁盘创建 VM | Azure"
 description: "通过在 Resource Manager 部署模型中附加专用非托管磁盘创建新 VM。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-resource-manager
@@ -14,24 +14,25 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: c5958ab8e18dc80456e9bdb155e4e5fd287f8e41
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 02/05/2018
+ms.author: v-yeche
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3fb8437b13e0baa32327efb45e6f56f09fcc42ed
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>从存储帐户中的专用 VHD 创建 VM
 
-通过使用 Powershell 将专用非托管磁盘附加为 OS 磁盘来创建新 VM。 专用磁盘是保留原始 VM 中用户帐户、应用程序和其他状态数据的现有 VM 中 VHD 的副本。 
+通过使用 Powershell 将专用非托管磁盘附加为 OS 磁盘来创建新 VM。 专用磁盘是保留原始 VM 中的用户帐户、应用程序和其他状态数据的现有 VM 中 VHD 的副本。 
 
 可以使用两个选项：
-* [上传 VHD](create-vm-specialized.md#option-1-upload-a-specialized-vhd)
-* [复制现有 Azure VM 的 VHD](create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
+* [上传 VHD](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
+* [复制现有 Azure VM 的 VHD](sa-create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
 
-## <a name="before-you-begin"></a>开始之前
-如果使用 PowerShell，请确保使用的是最新版本的 AzureRM.Compute PowerShell 模块。 运行以下命令来安装该模块。
+## <a name="before-you-begin"></a>准备阶段
+如果使用 PowerShell，请确保使用的是最新版本的 AzureRM.Compute PowerShell 模块。 运行以下命令进行安装。
 
 ```powershell
 Install-Module AzureRM.Compute 
@@ -50,7 +51,7 @@ Install-Module AzureRM.Compute
   * 确保 VM 配置为通过 DHCP 来提取其 IP 地址和 DNS 设置。 这确保服务器在启动时在 VNet 中获取 IP 地址。 
 
 ### <a name="get-the-storage-account"></a>获取存储帐户
-需要在 Azure 中创建存储帐户来存储上传的 VM 映像。 可以使用现有存储帐户，也可以创建新存储帐户。 
+需要在 Azure 中创建一个存储帐户用于存储上传的 VM 映像。 可以使用现有存储帐户，也可以创建新存储帐户。 
 
 显示可用的存储帐户，请键入：
 
@@ -60,7 +61,7 @@ Get-AzureRmStorageAccount
 
 如果要使用现有存储帐户，请转到 [上传 VM 映像](#upload-the-vm-vhd-to-your-storage-account) 部分。
 
-若要创建存储帐户，请执行以下步骤：
+如果需要创建存储帐户，请执行以下步骤：
 
 1. 需要应在其中创建存储帐户的资源组的名称。 若要查找订阅中的所有资源组，请键入：
 
@@ -81,6 +82,7 @@ Get-AzureRmStorageAccount
         -SkuName "Standard_LRS" -Kind "Storage"
     ```
 
+<a name="upload-the-vm-vhd-to-your-storage-account"></a>
 ### <a name="upload-the-vhd-to-your-storage-account"></a>将 VHD 上传到存储帐户
 使用 [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd) cmdlet 将映像上传到存储帐户中的容器。 本示例将文件 **myVHD.vhd** 从 `"C:\Users\Public\Documents\Virtual hard disks\"` 上传到 **myResourceGroup** 资源组中名为 **mystorageaccount** 的存储帐户。 该文件将放入名为 **mycontainer** 的容器，新文件名为 **myUploadedVHD.vhd**。
 
@@ -105,13 +107,13 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myUploadedVHD.vhd
 ```
 
-完成执行此命令可能需要一段时间，具体取决于网络连接速度和 VHD 文件的大小。
+根据网络连接速度和 VHD 文件的大小，此命令可能需要一段时间才能完成。
 
 ## <a name="option-2-copy-the-vhd-from-an-existing-azure-vm"></a>选项 2：复制现有 Azure VM 的 VHD
 
 可将 VHD 复制到另一个存储帐户，以便在创建新的重复 VM 时使用。
 
-### <a name="before-you-begin"></a>开始之前
+### <a name="before-you-begin"></a>准备阶段
 请确保：
 
 * 获取有关**源和目标存储帐户**的信息。 对于源 VM，需要具有存储帐户和容器名称。 通常，容器名称为 **vhds**。 还需要获取目标存储帐户。 如果尚未拥有存储帐户，可以使用门户（“更多服务”>“存储帐户”>“添加”）或使用 [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet 创建一个存储帐户。 
@@ -314,3 +316,5 @@ $vmList.Name
 
 ## <a name="next-steps"></a>后续步骤
 若要登录到新虚拟机，请在[门户](https://portal.azure.cn)中浏览到该 VM，单击“连接”，然后打开远程桌面 RDP 文件。 使用原始虚拟机的帐户凭据登录到新虚拟机。 有关详细信息，请参阅 [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md)（如何连接并登录到运行 Windows 的 Azure 虚拟机）。
+
+<!-- Update_Description: update meta properties, update link -->

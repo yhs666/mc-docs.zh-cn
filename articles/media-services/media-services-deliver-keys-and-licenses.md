@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/10/2017
 ms.date: 1/22/2018
 ms.author: v-johch
-ms.openlocfilehash: fc45fbb8e65e59a6f8a93c22d47d068e70471882
-ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
+ms.openlocfilehash: 25b0ae47878b38f3dc5f1db6a1c04fa4d29f80a2
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>使用 Azure 媒体服务传送 DRM 许可证或 AES 密钥
 Azure 媒体服务可引入、编码、添加内容保护，以及流式传输内容。  一些客户希望将媒体服务仅用于传送许可证和/或密钥，以及通过使用其本地服务器进行编码、加密和流式处理。 本文说明如何使用媒体服务来传送 PlayReady 许可证，但使用本地服务器来完成其余部分。 
@@ -306,7 +306,6 @@ namespace DeliverDRMLicenses
 
 
 ## <a name="see-also"></a>另请参阅
-[使用 PlayReady 动态通用加密](media-services-protect-with-drm.md)
 
-[使用 AES-128 动态加密和密钥传送服务](media-services-protect-with-aes128.md)
+* [使用 AES-128 动态加密和密钥传递服务](media-services-protect-with-aes128.md)
 <!--Update_Description:update code to use AAD token instead of ACS-->

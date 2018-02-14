@@ -17,11 +17,11 @@ origin.date: 10/24/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 92c797b7a3adbb4cdab8dbdb3ffbbce35d2feebc
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 30419fe34a251d20e8b770ba73625cd6add2c343
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="install-a-sql92iis92net-stack-in-azure"></a>在 Azure 中安装 SQL&#92;IIS&#92;.NET 堆栈
 
@@ -99,7 +99,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location chinaeast -VM $vmConfig
 ```
 
-使用 [Set-AzureRmVMSqlServerExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) 将 [SQL Server 扩展](https://docs.microsoft.com/sql/virtual-machines-windows-sql-server-agent-extension.md)添加到 SQL VM。
+使用 [Set-AzureRmVMSqlServerExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) 将 [SQL Server 扩展](./sql/virtual-machines-windows-sql-server-agent-extension.md)添加到 SQL VM。
 
 ```azurepowershell-interactive
 Set-AzureRmVMSqlServerExtension -ResourceGroupName $resourceGroup -VMName mySQLVM -name "SQLExtension"

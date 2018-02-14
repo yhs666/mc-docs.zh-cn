@@ -12,16 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 10/11/2017
+origin.date: 1/29/2018
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: fc9adc40492c01ff8eef9304f802b2989ce6f6cb
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 6d4057f28ba11bcf9434874e1f1b37a637b9c5ed
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="about-azure-storage-accounts"></a>关于 Azure 存储帐户
+
 [!INCLUDE [storage-selector-portal-create-storage-account](../../../includes/storage-selector-portal-create-storage-account.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -32,6 +33,7 @@ Azure 存储帐户提供唯一的命名空间来存储和访问 Azure 存储数�
 [!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ## <a name="storage-account-billing"></a>存储帐户计费
+
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]

@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 10/06/2017
 ms.date: 10/23/2017
 ms.author: v-yeche
-ms.openlocfilehash: 551c0fe6b856e0878969715b800431e01f0660ac
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 7670e3f73cfbdc87dd69bd7c974d264da54c1ebf
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-resources-with-azure-powershell-and-resource-manager"></a>使用 Azure PowerShell 和 Resource Manager 管理资源
 
@@ -77,7 +77,7 @@ CurrentStorageAccount :
 Get-AzureRmSubscription
 ```
 
-它将返回已启用和已禁用的订阅。
+它返回已启用和已禁用的订阅。
 
 ```powershell
 SubscriptionName : Example Subscription One
@@ -104,7 +104,7 @@ Set-AzureRmContext -SubscriptionName "Example Subscription Two"
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-必须先创建将包含资源的资源组，才能向订阅部署任何资源。
+将任何资源部署到订阅之前，必须先创建要包含资源的资源组。
 
 若要创建资源组，请使用 **New-AzureRmResourceGroup** cmdlet。 该命令使用 **Name** 参数指定资源组的名称，并使用 **Location** 参数指定其位置。
 
@@ -140,7 +140,7 @@ Get-AzureRmResourceGroup
 
 但是，通过 cmdlet 添加资源可能导致将来出现混乱，因为新的资源不存在于 Resource Manager 模板中。 Azure 建议在 Resource Manager 模板中定义 Azure 解决方案的基础结构。 通过模板，可以可靠地重复部署解决方案。 本文使用 PowerShell cmdlet 创建存储帐户，但稍后从资源组生成模板。
 
-以下 cmdlet 可创建存储帐户。 请勿使用示例所示的名称，而是为存储帐户提供唯一名称。 此名称必须为 3 到 24 个字符，只能使用数字和小写字母。 如果使用示例所示名称，将收到错误，因为该名称被使用。
+以下 cmdlet 可创建存储帐户。 请勿使用示例所示的名称，而是为存储帐户提供唯一名称。 此名称必须为 3 到 24 个字符，只能使用数字和小写字母。 如果使用示例所示名称，将收到错误，因为该名称已被使用。
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName TestRG1 -AccountName mystoragename -Type "Standard_LRS" -Location "China East"
@@ -249,13 +249,13 @@ Remove-AzureRmResourceLock -LockName LockStorage -ResourceName mystoragename -Re
 
 以下主题演示如何使用 Azure 自动化、Resource Manager 和 PowerShell 来有效执行管理任务：
 
-<!-- Not Available - For information about creating a runbook, see [My first PowerShell runbook](../automation/automation-first-runbook-textual-powershell.md). -->
+<!-- Not Available - For information about creating a runbook, see [My first PowerShell runbook](../automation/automation-first-runbook-textual-powershell.md) -->
 - 有关使用脚本库的信息，请参阅 [Azure 自动化的 Runbook 和模块库](../automation/automation-runbook-gallery.md)。
-<!-- Not Available - For runbooks that start and stop virtual machines, see [Azure Automation scenario: Using JSON-formatted tags to create a schedule for Azure VM startup and shutdown](../automation/automation-scenario-start-stop-vm-wjson-tags.md). -->
-<!-- Not Available - For runbooks that start and stop virtual machines off-hours, see [Start/Stop VMs during off-hours solution in Automation](../automation/automation-solution-vm-management.md). -->
+<!-- Not Available - For runbooks that start and stop virtual machines, see [Azure Automation scenario: Using JSON-formatted tags to create a schedule for Azure VM startup and shutdown](../automation/automation-scenario-start-stop-vm-wjson-tags.md) -->
+<!-- Not Available - For runbooks that start and stop virtual machines off-hours, see [Start/Stop VMs during off-hours solution in Automation](../automation/automation-solution-vm-management.md) -->
 
 ## <a name="next-steps"></a>后续步骤
-* 若要了解如何创建 Resource Manager 模板，请参阅[创作 Azure Resource Manager 模板](resource-group-authoring-templates.md)。
+* 若要了解如何创建资源管理器模板，请参阅[创作 Azure 资源管理器模板](resource-group-authoring-templates.md)。
 * 若要了解如何部署模板，请参阅[使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
 * 可以将现有资源移动到新的资源组。 有关示例，请参阅[将资源移动到新的资源组或订阅中](resource-group-move-resources.md)。
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
