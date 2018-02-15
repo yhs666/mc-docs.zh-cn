@@ -1,31 +1,30 @@
 ---
-title: "如何在 Azure API 管理中管理用户帐户 | Azure"
+title: "如何在 Azure API 管理中管理用户帐户"
 description: "了解如何在 Azure API 管理中创建或邀请用户"
 services: api-management
 documentationcenter: 
-author: steved0x
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 078abfa5-1e4f-4c9d-b9c7-a172bd19c1a2
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/15/2016
+origin.date: 10/30/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 70df15ab4585b08b46cc559f062e3d2fc1868344
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 87d4556d9821dd6b73ed4810de92fe636d7904df
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>如何在 Azure API 管理中管理用户帐户
 在 API 管理中，开发人员是使用 API 管理公开的 API 的用户。 本指南演示如何创建和邀请开发人员使用通过 API 管理实例向其提供的 API 和产品。 有关以编程方式管理用户帐户的信息，请参阅 [API 管理 REST](https://msdn.microsoft.com/library/azure/dn776326.aspx)参考中的[用户实体](https://msdn.microsoft.com/library/azure/dn776330.aspx)文档。
 
 ## <a name="create-developer"> </a>创建新开发人员
-若要创建新开发人员，请在 Azure 门户中单击 API 管理服务的“发布者门户”。 这会转到 API 管理发布者门户。 如果尚未创建 API 管理服务实例，请参阅 [Azure API 管理入门][Get started with Azure API Management]教程中的[创建 API 管理服务实例][Create an API Management service instance]。
+若要创建新开发人员，请在 Azure 门户中单击 API 管理服务的“发布者门户”。 这会转到 API 管理发布者门户。 如果尚未创建 API 管理服务实例，请参阅[创建 API 管理服务实例][Create an API Management service instance]。
 
 ![发布者门户][api-management-management-console]
 
@@ -77,9 +76,9 @@ ms.lasthandoff: 09/08/2017
 若要以编程方式处理用户帐户，请参阅 [API 管理 REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) 参考中的[用户实体](https://msdn.microsoft.com/library/azure/dn776330.aspx)文档。 要将用户帐户密码重置为特定值，可使用[更新用户](https://msdn.microsoft.com/library/azure/dn776330.aspx#UpdateUser)操作并指定所需密码。
 
 ## <a name="pending-verification"></a>未完成的验证
-![未完成的验证][api-management-pending-verification]
+![待处理的验证][api-management-pending-verification]
 
-## <a name="next-steps"> </a>后续步骤
+## <a name="next-steps"></a>后续步骤
 创建开发人员帐户后，可以将其与角色相关联，并为其订阅产品和 API。 有关详细信息，请参阅[如何创建和使用组][How to create and use groups]。
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png
@@ -101,6 +100,6 @@ ms.lasthandoff: 09/08/2017
 [How to create and use groups]: ./api-management-howto-create-groups.md
 [How to associate groups with developers]: ./api-management-howto-create-groups.md#associate-group-developer
 
-[Get started with Azure API Management]: ./api-management-get-started.md
-[Create an API Management service instance]: ./api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: get-started-create-service-instance.md
+[Create an API Management service instance]: get-started-create-service-instance.md
 [Configure email templates]: ./api-management-howto-configure-notifications.md#email-templates

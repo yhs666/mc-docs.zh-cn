@@ -16,15 +16,15 @@ ms.custom: reference
 origin.date: 03/30/2017
 ms.date: 05/08/2017
 ms.author: v-yeche
-ms.openlocfilehash: eac7ba6b3e9f706eb4d0814adb29c82b9c92295c
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 6c45feca0e975641927c50659982481fc7b34e3f
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>有关 Azure SQL 数据仓库服务的所有主题
 
-本主题列出的每个主题都可以直接应用于 Azure **SQL 数据仓库** 服务。 您可以使用 **Ctrl+F**来搜索此网页的关键字，以便查找当前感兴趣的主题。
+本主题列出的每个主题都可以直接应用于 Azure **SQL 数据仓库** 服务。 可以使用 **Ctrl+F** 来搜索此网页的关键字，以便查找当前感兴趣的主题。
 
 ## <a name="new"></a>新建
 | &nbsp; | 标题 | 说明 |
@@ -37,7 +37,7 @@ ms.lasthandoff: 06/23/2017
 | &nbsp; | 文章 | 更新的文本、代码片段 | 更新时间 |
 | ---:|:--- |:--- |:--- |
 | 2 |[将数据从 Azure Blob 存储载入 SQL 数据仓库 (PolyBase)](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) |/- 若要跟踪字节和文件 SELECT  r.command,  s.request_id,  r.status,  count(distinct input_name) as nbr_files,  sum(s.bytes_processed)/1024/1024 as gb_processed FROM  sys.dm_pdw_exec_requests r  inner join sys.dm_pdw_dms_external_work s  on r.request_id = s.request_id WHERE  r. label  = 'CTAS : Load  cso . DimProduct  '  OR r. label  = 'CTAS : Load  cso . FactOnlineSales  ' GROUP BY  r.command,  s.request_id,  r.status ORDER BY  nbr_files desc,  gb_processed desc; |2016-09-07 |
-| 3 |[SQL 数据仓库还原](sql-data-warehouse-restore-database-overview.md) |** 可否还原已暂停的数据仓库？** 若要还原已暂停的数据仓库，首先需要将其重新联机。 数据仓库重新联机后，有 7 天的恢复点可供选择。 ** 还原到异地冗余区域** 如果使用异地冗余存储，则可将数据仓库还原到另一地理区域的配对数据中心。 从上次的每日备份还原数据仓库。 ** 还原时间线** 可以将数据库还原到过去 7 天的任何还原点。 快照 4 到 8 小时启动一次，可供使用 7 天。 快照超过 7 天将过期，其还原点不再可用。 ** 还原成本** 已还原的数据仓库的存储费用按 Azure 高级存储费率计算。 如果暂停还原的数据仓库，则存储费用按 Azure 高级存储费率计算。 暂停的优点是不会产生费用 |2016-09-29 |
+| 3 |[SQL 数据仓库还原](sql-data-warehouse-restore-database-overview.md) |** 可否还原已暂停的数据仓库？** 要还原已暂停的数据仓库，首先需要将其重新联机。 数据仓库重新联机后，有 7 天的恢复点可供选择。 ** 还原到异地冗余区域** 如果使用异地冗余存储，则可将数据仓库还原到另一地理区域的配对数据中心。 从上次的每日备份还原数据仓库。 ** 还原时间线** 可以将数据库还原到过去 7 天的任何还原点。 快照 4 到 8 小时启动一次，可供使用 7 天。 快照超过 7 天即过期，其还原点不再可用。 ** 还原成本** 已还原的数据仓库的存储费用按 Azure 高级存储费率计算。 如果暂停还原的数据仓库，则存储费用按 Azure 高级存储费率计算。 暂停的优点是不会产生费用 |2016-09-29 |
 
 ## <a name="get-started"></a>入门
 | &nbsp; | 标题 | 说明 |
@@ -48,10 +48,10 @@ ms.lasthandoff: 06/23/2017
 | 7 |[连接到 Azure SQL 数据仓库](sql-data-warehouse-connect-overview.md) |如何查找连接到 Azure SQL 数据仓库所需的服务器名称和连接字符串 |
 | 8 |[查询 Azure SQL 数据仓库 (sqlcmd)](sql-data-warehouse-get-started-connect-sqlcmd.md) |使用 sqlcmd 命令行实用工具查询 Azure SQL 数据仓库。 |
 | 9 |[使用 Transact-SQL (TSQL) 创建 SQL 数据仓库数据库](sql-data-warehouse-get-started-create-database-tsql.md) |了解如何使用 TSQL 创建 Azure SQL 数据仓库 |
-| 10 |[在 SQL 数据仓库中使用 PolyBase 加载数据](sql-data-warehouse-get-started-load-with-polybase.md) |了解什么是 PolyBase，以及如何将其用于数据仓库方案。 |
-| 11 |[创建 Azure SQL 数据仓库](sql-data-warehouse-get-started-provision.md) |了解如何在 Azure 门户中创建 Azure SQL 数据仓库 |
-| 12 |[使用 PowerShell 创建 SQL 数据仓库](sql-data-warehouse-get-started-provision-powershell.md) |使用 PowerShell 创建 SQL 数据仓库 |
-| 13 |[查询 Azure SQL 数据仓库 (Visual Studio)](sql-data-warehouse-query-visual-studio.md) |使用 Visual Studio 查询 SQL 数据仓库。 |
+| 10 个 |[在 SQL 数据仓库中使用 PolyBase 加载数据](sql-data-warehouse-get-started-load-with-polybase.md) |了解什么是 PolyBase，以及如何将其用于数据仓库方案。 |
+<!-- 第 53 行  不可用 | 11 |[创建 Azure SQL 数据仓库](sql-data-warehouse-get-started-provision.md) |了解如何在 Azure 门户中创建 Azure SQL 数据仓库 |-->
+| 11 |[使用 PowerShell 创建 SQL 数据仓库](sql-data-warehouse-get-started-provision-powershell.md) |使用 PowerShell 创建 SQL 数据仓库 |
+| 12 |[查询 Azure SQL 数据仓库 (Visual Studio)](sql-data-warehouse-query-visual-studio.md) |使用 Visual Studio 查询 SQL 数据仓库。 |
 
 ## <a name="develop"></a>开发
 | &nbsp; | 标题 | 说明 |
@@ -62,7 +62,7 @@ ms.lasthandoff: 06/23/2017
 | 17 |[SQL 数据仓库中的动态 SQL](sql-data-warehouse-develop-dynamic-sql.md) |有关在开发解决方案时使用 Azure SQL 数据仓库中的动态 SQL 的技巧。 |
 | 18 |[SQL 数据仓库中的 Group By 选项](sql-data-warehouse-develop-group-by-options.md) |有关在开发解决方案时实现 Azure SQL 数据仓库中的 Group By 选项的技巧。 |
 | 19 |[在 SQL 数据仓库中使用标签检测查询](sql-data-warehouse-develop-label.md) |有关在开发解决方案时于 Azure SQL 数据仓库中使用标签检测查询的技巧。 |
-| 20 |[SQL 数据仓库中的循环](sql-data-warehouse-develop-loops.md) |有关在开发解决方案时使用 Azure SQL 数据仓库中的 Transact-SQL 循环和替换游标的技巧。 |
+| 20 个 |[SQL 数据仓库中的循环](sql-data-warehouse-develop-loops.md) |有关在开发解决方案时使用 Azure SQL 数据仓库中的 Transact-SQL 循环和替换游标的技巧。 |
 | 21 |[SQL 数据仓库中的存储过程](sql-data-warehouse-develop-stored-procedures.md) |有关在开发解决方案时实现 Azure SQL 数据仓库中的存储过程的技巧。 |
 | 22 |[SQL 数据仓库中的事务](sql-data-warehouse-develop-transactions.md) |有关在开发解决方案时实现 Azure SQL 数据仓库中的事务的技巧。 |
 | 23 |[SQL 数据仓库中用户定义的架构](sql-data-warehouse-develop-user-defined-schemas.md) |有关在开发解决方案时使用 Azure SQL 数据仓库中的 Transact-SQL 架构的技巧。 |
@@ -108,7 +108,7 @@ ms.lasthandoff: 06/23/2017
 | ---:|:--- |:--- |
 | 48 |[将数据从 Azure Blob 存储载入 SQL 数据仓库 (PolyBase)](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) |了解如何使用 PolyBase 将数据从 Azure Blob 存储载入 SQL 数据仓库。 将公共数据中的一些表载入 Contoso 零售数据仓库架构。 |
 | 49 |[将数据从 SQL Server 载入 Azure SQL 数据仓库 (AZCopy)](sql-data-warehouse-load-from-sql-server-with-azcopy.md) |使用 bcp 将数据从 SQL Server 导出到平面文件，使用 AZCopy 将数据导入 Azure Blob 存储，使用 PolyBase 将数据引入 Azure SQL 数据仓库。 |
-| 50 |[将数据从 SQL Server 载入 Azure SQL 数据仓库（平面文件）](sql-data-warehouse-load-from-sql-server-with-bcp.md) |对于少量的数据，可以使用 bcp 将数据从 SQL Server 导出到平面文件，然后将数据直接导入 Azure SQL 数据仓库。 |
+| 50 |[将数据从 SQL Server 载入 Azure SQL 数据仓库（平面文件）](sql-data-warehouse-load-from-sql-server-with-bcp.md) |对于少量的数据，可以使用 bcp 将数据从 SQL Server 导出到平面文件，并将数据直接导入 Azure SQL 数据仓库。 |
 | 51 |[将数据从 SQL Server 载入 Azure SQL 数据仓库 (SSIS)](sql-data-warehouse-load-from-sql-server-with-integration-services.md) |演示如何创建 SQL Server Integration Services (SSIS) 包，以便将数据从各种数据源移动到 SQL 数据仓库。 |
 | 52 |[在 SQL 数据仓库中使用 PolyBase 加载数据](sql-data-warehouse-load-from-sql-server-with-polybase.md) |使用 bcp 将数据从 SQL Server 导出到平面文件，使用 AZCopy 将数据导入 Azure Blob 存储，使用 PolyBase 将数据引入 Azure SQL 数据仓库。 |
 | 53 |[在 SQL 数据仓库中使用 PolyBase 的指南](sql-data-warehouse-load-polybase-guide.md) |有关在 SQL 数据仓库方案中使用 PolyBase 的指导原则和建议。 |
@@ -125,7 +125,7 @@ ms.lasthandoff: 06/23/2017
 | 60 |[将架构迁移到 SQL 数据仓库](sql-data-warehouse-migrate-schema.md) |有关在开发解决方案时将架构迁移到 Azure SQL 数据仓库的技巧。 |
 | 61 |[将解决方案迁移到 SQL 数据仓库](sql-data-warehouse-overview-migrate.md) |有关将解决方案转移到 Azure SQL 数据仓库平台的迁移指南。 |
 
-## <a name="reference"></a>引用
+## <a name="reference"></a>参考
 | &nbsp; | 标题 | 说明 |
 | ---:|:--- |:--- |
 | 62 |[SQL 数据仓库参考主题](sql-data-warehouse-overview-reference.md) |SQL 数据仓库的参考内容链接。 |
@@ -134,7 +134,7 @@ ms.lasthandoff: 06/23/2017
 | 65 |[Transact-SQL 主题](sql-data-warehouse-reference-tsql-statements.md) |SQL 数据仓库使用的 Transact-SQL 主题参考内容的链接。 |
 | 66 |[系统视图](sql-data-warehouse-reference-tsql-system-views.md) |SQL 数据仓库的系统视图内容链接。 |
 
-## <a name="security"></a>“安全”
+## <a name="security"></a>安全性
 | &nbsp; | 标题 | 说明 |
 | ---:|:--- |:--- |
 | 67 |[SQL 数据仓库中的透明数据加密 (TDE) 入门](sql-data-warehouse-encryption-tde.md) |SQL 数据仓库中的透明数据加密 (TDE) |

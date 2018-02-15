@@ -1,5 +1,5 @@
 ---
-title: "使用 Resource Manager 模板自动启用诊断设置 | Microsoft Docs"
+title: "使用资源管理器模板自动启用诊断设置"
 description: "了解如何使用 Resource Manager 模板创建诊断设置，以便将诊断日志流式传输到事件中心，或者将其存储在存储帐户中。"
 author: johnkemnetz
 manager: orenr
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 8/30/2017
-ms.date: 12/11/2017
+origin.date: 12/22/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 618500d91f0c0e6c0750e79e34d9062354d51392
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 0871cc8fdfdf4ce6d3a77bca0ac5f8fcb928ce1a
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>在创建资源时使用 Resource Manager 模板自动启用诊断设置
 本文介绍如何使用 [Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)在创建资源时配置资源的诊断设置。 这样可以让用户在创建资源时自动将诊断日志和指标流式传输到事件中心、将其存档在存储帐户中，或者发送到 Log Analytics。
@@ -41,19 +41,31 @@ ms.lasthandoff: 12/01/2017
 ## <a name="non-compute-resource-template"></a>非计算资源模板
 对于非计算资源，需要做两件事：
 
-1. 根据存储帐户名称和服务总线规则 ID 和/或 OMS Log Analytics 工作区 ID 向参数 blob 添加参数（允许在存储帐户中存档诊断日志、将日志流式传输到事件中心和/或将日志发送到 Log Analytics）。
+1. 根据存储帐户名称、事件中心授权规则 ID 和/或 OMS Log Analytics 工作区 ID 向参数 blob 添加参数（允许在存储帐户中存档诊断日志、将日志流式传输到事件中心和/或将日志发送到 Log Analytics）。
    
     ```json
+    "settingName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the setting."
+      }
+    },
     "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
       }
     },
-    "serviceBusRuleId": {
+    "eventHubAuthorizationRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Resource ID of the Service Bus Rule for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
+      }
+    },
+    "eventHubName": {
+      "type": "string",
+      "metadata": {
+        "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
       }
     },
     "workspaceId":{
@@ -63,7 +75,7 @@ ms.lasthandoff: 12/01/2017
       }
     }
     ```
-2. 在资源数组（包含需启用诊断日志的资源）中，添加类型为 `[resource namespace]/providers/diagnosticSettings` 的资源。
+2. 在资源数组（包含需启用诊断日志的资源）中，添加类型为 `[resource namespace]/providers/diagnosticSettings`的资源。
    
     ```json
     "resources": [
@@ -73,10 +85,12 @@ ms.lasthandoff: 12/01/2017
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
-        "apiVersion": "2015-07-01",
+        "apiVersion": "2017-05-01-preview",
         "properties": {
+          "name": "[parameters('settingName')]",
           "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-          "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
+          "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+          "eventHubName": "[parameters('eventHubName')]",
           "workspaceId": "[parameters('workspaceId')]",
           "logs": [ 
             {
@@ -90,7 +104,7 @@ ms.lasthandoff: 12/01/2017
           ],
           "metrics": [
             {
-              "timeGrain": "PT1M",
+              "category": "AllMetrics",
               "enabled": true,
               "retentionPolicy": {
                 "enabled": false,
@@ -103,8 +117,7 @@ ms.lasthandoff: 12/01/2017
     ]
     ```
 
-诊断设置的属性 blob 遵循[此文所述的格式](https://msdn.microsoft.com/library/azure/dn931931.aspx)。 添加 `metrics` 属性还可将资源指标发送到这些相同输出，前提是[该资源支持 Azure Monitor 指标](monitoring-supported-metrics.md)。
-
+诊断设置的属性 blob 遵循[此文所述的格式](https://docs.microsoft.com/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate)。 添加 `metrics` 属性还可将资源指标发送到这些相同输出，前提是[该资源支持 Azure Monitor 指标](monitoring-supported-metrics.md)。
 
 ## <a name="compute-resource-template"></a>计算资源模板
 若要允许对计算资源（例如虚拟机或 Service Fabric 群集）进行诊断，需执行以下操作：

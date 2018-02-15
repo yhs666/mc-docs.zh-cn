@@ -17,11 +17,11 @@ origin.date: 11/15/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ea9d8581ab1db54976084a37be712962c8517758
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 7b1471039c15a73e4d23ba79522eb6071d300bdb
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB：数据迁移工具
 
@@ -107,8 +107,8 @@ ms.lasthandoff: 12/22/2017
     #Import a single JSON file and partition the data across 4 collections
     dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionThroughput:2500
 
-<a name="MongoDB">
-## <a name="aimport-from-mongodb"></a></a>从 MongoDB 中导入
+<a name="MongoDB"></a>
+## <a name="import-from-mongodb"></a>从 MongoDB 导入
 
 > [!IMPORTANT]
 > 如果要导入到 MongoDB 支持的 Azure Cosmos DB 帐户，请按照这些[说明](mongodb-migrate.md)操作。
@@ -277,7 +277,7 @@ Amazon DynamoDB 连接字符串的格式为：
 
     dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.chinacloudapi.cn:443/importcontainer/.*" /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:doctest
 
-<a name="DocumentDBSource"></a>
+<a name="SQLSource"></a>
 ## <a name="import-from-a-documentdb-api-collection"></a>从 Cosmos DB API 集合导入
 使用 Azure Cosmos DB 源导入程序选项，可以从一个或多个 Azure Cosmos DB 集合中导入数据，还可选择性地使用查询来筛选文档。  
 
@@ -354,7 +354,7 @@ HBase Stargate 连接字符串的格式为︰
 
     dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:hbaseimport
 
-<a name="DocumentDBBulkTarget"></a>
+<a name="SQLBulkImport"></a>
 ## <a name="import-to-the-sql-api-bulk-import"></a>导入到 SQL API（批量导入）
 借助 Azure Cosmos DB 批量导入程序，可以使用 Azure Cosmos DB 存储的过程从所有可用的源选项导入，以提高效率。 该工具支持导入到一个单分区 Azure Cosmos DB 集合，并支持分片导入，通过这种方法可跨多个单分区 Azure Cosmos DB 集合对数据进行分区。 有关数据分区的详细信息，请参阅 [ Azure Cosmos DB 中的分区和扩展](partition-data.md)。 该工具将在目标集合中创建、执行然后删除存储过程。  
 

@@ -16,11 +16,11 @@ ms.custom: manage
 origin.date: 10/31/2016
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5c2a25a92e16c04f16ab3263e8e483030b0a6060
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 3ef04e745fccf30461c9d62234d3b8f1f2145d50
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>在 Azure SQL 数据仓库中管理数据库
 SQL 数据仓库自动执行管理数据库的许多方面的操作。 例如，如果要缩放性能，用户只需调整相应级别的计算资源并为这些资源付费，即可让 SQL 数据仓库执行向外扩展和缩减的所有工作。
@@ -44,7 +44,7 @@ SQL 数据仓库自动执行管理数据库的许多方面的操作。 例如，
 
             [Azure 门户][Azure portal] 是一个基于 Web 的门户，可以从中创建、更新和删除数据库以及监视数据库资源。 如果刚开始使用 Azure、管理少量的数据仓库数据库或需要快速执行某些操作，该工具是理想之选。
 
-若要开始使用 Azure 门户，请参阅[创建 SQL 数据仓库（Azure 门户）][Create a SQL Data Warehouse (Azure portal)]。
+若要开始使用 Azure 门户，请参阅[创建 SQL 数据仓库（Azure 门户）][创建 SQL 数据仓库（Azure 门户）]。
 
 ### <a name="sql-server-data-tools-in-visual-studio"></a>Visual Studio 中的 SQL Server Data Tools
 使用 Visual Studio 中的 [SQL Server Data Tools][SQL Server Data Tools] (SSDT)，可连接到数据库并对其进行管理和开发。 如果是熟悉 Visual Studio 或其他集成开发环境 (IDE) 的应用程序开发人员，请尝试使用 Visual Studio 中的 SSDT。
@@ -95,9 +95,9 @@ DMV 是管理 SQL 数据仓库的必备工具。 在门户中显示的所有信�
 <!--Image references-->
 
 <!--Article references-->
-[Create a SQL Data Warehouse (Azure Portal)]: sql-data-warehouse-get-started-provision.md
+<!-- Not Available on [Create a SQL Data Warehouse (Azure Portal)]: sql-data-warehouse-get-started-provision.md -->
 [Create a database (PowerShell)]: sql-data-warehouse-get-started-provision-powershell.md
-[connection]: sql-data-warehouse-develop-connections.md
+<!-- Not Available on [connection]: sql-data-warehouse-develop-connections.md -->
 [Query Azure SQL Data Warehouse with Visual Studio]: sql-data-warehouse-query-visual-studio.md
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md

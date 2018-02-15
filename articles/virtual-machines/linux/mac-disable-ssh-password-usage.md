@@ -16,14 +16,14 @@ ms.topic: article
 origin.date: 08/26/2016
 ms.date: 12/20/2016
 ms.author: v-dazen
-ms.openlocfilehash: 33d2de6edf44cbab0fa40e1d97daccdb62b9d4cb
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: d50f3203a9825b5c9e87f5bcdbae8c350ec5e3c9
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="disable-ssh-passwords-on-your-linux-vm-by-configuring-sshd"></a>通过配置 SSHD 禁用 Linux VM 上的 SSH 密码
-本文重点介绍如何锁定 Linux VM 的登录安全性。  对外开放 SSH 端口 22 后，bot 将开始通过猜测密码来尝试登录。  在本中，我们将禁用通过 SSH 的密码登录。  通过完全去除使用密码的能力，我们可以避免 Linux VM 遭受这种暴力密码破解攻击。  这种做法还有额外的优点，那就是可以将 Linux SSHD 配置为只允许通过 SSH 公钥和私钥登录，而这是目前最安全的 Linux 登录方式。  由于可能的私钥组合千变万化，若要在这种情况下猜测，即使使用 bot 来尝试暴力破解 SSH 密钥也无济于事。
+本文重点介绍如何锁定 Linux VM 的登录安全性。  对外开放 SSH 端口 22 后，bot 将开始通过猜测密码来尝试登录。  在本中，我们禁用通过 SSH 的密码登录。  通过完全去除使用密码的能力，我们可以避免 Linux VM 遭受这种暴力密码破解攻击。  这种做法还有额外的优点，那就是可以将 Linux SSHD 配置为只允许通过 SSH 公钥和私钥登录，而这是目前最安全的 Linux 登录方式。  由于可能的私钥组合千变万化，若要在这种情况下猜测，即使使用 bot 来尝试暴力破解 SSH 密钥也无济于事。
 
 ## <a name="goals"></a>目标
 * 将 SSHD 为配置禁止：
@@ -35,7 +35,7 @@ ms.lasthandoff: 06/23/2017
 * 在保持登录的情况下重新启动 SSHD
 * 测试新的 SSHD 配置
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 [SSH 定义](https://en.wikipedia.org/wiki/Secure_Shell)
 
 SSHD 是在 Linux VM 上运行的 SSH 服务器。  SSH 是从 MacBook 或 Linux 工作站上的 shell 运行的客户端。  SSH 也是用于保护和加密工作站与 Linux VM 的通信的协议。
@@ -82,7 +82,8 @@ ChallengeResponseAuthentication no
 sudo service ssh restart
 ```
 
-在基于 Red Hat 的发行版上：
+在基于 CentOS 的发行版上：
+<!-- Not Avaiable on Red Hat, change to CentOS -->
 
 ```bash
 sudo service sshd restart
@@ -141,4 +142,4 @@ sudo service ssh restart
 sudo service sshd restart
 ```
 
-VM 上的密码现已禁用，可以防止有人尝试进行避免暴力破解密码登录。  由于只允许 SSH 密钥，你可以使用更快速、更安全的方式登录。
+VM 上的密码现已禁用，可以防止有人尝试进行避免暴力破解密码登录。  由于只允许 SSH 密钥，可以使用更快速、更安全的方式登录。

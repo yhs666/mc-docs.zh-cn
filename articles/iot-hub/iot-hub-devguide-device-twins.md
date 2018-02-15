@@ -1,5 +1,5 @@
 ---
-title: "了解 Azure IoT 中心设备孪生 | Azure"
+title: "了解 Azure IoT 中心设备孪生"
 description: "开发人员指南 - 使用设备孪生在 IoT 中心与设备之间同步状态和配置数据"
 services: iot-hub
 documentationcenter: .net
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/19/2017
-ms.date: 12/18/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: b08cd9c5f584a1cb78d868ac9bbe1207ab502fed
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: f853660cc2df2cf0dd574965bb89c0359cd18579
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解并在 IoT 中心内使用设备孪生
 
@@ -51,52 +51,55 @@ ms.lasthandoff: 12/08/2017
 * **标记**。 解决方案后端可从中读取和写入数据的 JSON 文档的某个部分。 标记对设备应用不可见。
 * **所需的属性**。 与报告的属性结合使用，同步设备配置或状态。 解决方案后端可设置所需的属性，并且设备应用可进行读取。 此外，当所需的属性发生更改时，设备应用可收到通知。
 * **报告的属性**。 与所需的属性结合使用，同步设备配置或状态。 设备应用可设置报告的属性，并且解决方案后端可进行读取和查询。
-
-此外，设备孪生 JSON 文档的根包含[设备标识注册表][lnk-identity]中存储的相应设备标识的只读属性。
+* **设备标识属性**。 设备孪生 JSON 文档的根包含[标识注册表][lnk-identity]中存储的相应设备标识的只读属性。
 
 ![][img-twin]
 
 以下示例显示了一个设备孪生 JSON 文档：
 
-```
-    {
-        "deviceId": "devA",
-        "generationId": "123",
-        "status": "enabled",
-        "statusReason": "provisioned",
-        "connectionState": "connected",
-        "connectionStateUpdatedTime": "2015-02-28T16:24:48.789Z",
-        "lastActivityTime": "2015-02-30T16:24:48.789Z",
-
-        "tags": {
-            "$etag": "123",
-            "deploymentLocation": {
-                "building": "43",
-                "floor": "1"
-            }
-        },
-        "properties": {
-            "desired": {
-                "telemetryConfig": {
-                    "sendFrequency": "5m"
-                },
-                "$metadata" : {...},
-                "$version": 1
-            },
-            "reported": {
-                "telemetryConfig": {
-                    "sendFrequency": "5m",
-                    "status": "success"
+        {
+            "deviceId": "devA",
+            "etag": "AAAAAAAAAAc=", 
+            "status": "enabled",
+            "statusReason": "provisioned",
+            "statusUpdateTime": "0001-01-01T00:00:00",
+            "connectionState": "connected",
+            "lastActivityTime": "2015-02-30T16:24:48.789Z",
+            "cloudToDeviceMessageCount": 0, 
+            "authenticationType": "sas",
+            "x509Thumbprint": {     
+                "primaryThumbprint": null, 
+                "secondaryThumbprint": null 
+            }, 
+            "version": 2, 
+            "tags": {
+                "$etag": "123",
+                "deploymentLocation": {
+                    "building": "43",
+                    "floor": "1"
                 }
-                "batteryLevel": 55,
-                "$metadata" : {...},
-                "$version": 4
+            },
+            "properties": {
+                "desired": {
+                    "telemetryConfig": {
+                        "sendFrequency": "5m"
+                    },
+                    "$metadata" : {...},
+                    "$version": 1
+                },
+                "reported": {
+                    "telemetryConfig": {
+                        "sendFrequency": "5m",
+                        "status": "success"
+                    }
+                    "batteryLevel": 55,
+                    "$metadata" : {...},
+                    "$version": 4
+                }
             }
         }
-    }
-```
 
-根对象中包含系统属性，以及 `tags`、`reported` 和 `desired` 属性的容器对象。 `properties` 容器包含一些只读元素（`$metadata`、`$etag` 和 `$version`），[设备孪生元数据][lnk-twin-metadata]和[乐观并发][lnk-concurrency]部分描述了这些元素。
+根对象中包含设备标识属性，以及 `tags`、`reported` 和 `desired` 属性的容器对象。 `properties` 容器包含一些只读元素（`$metadata`、`$etag` 和 `$version`），[设备孪生元数据][lnk-twin-metadata]和[乐观并发][lnk-concurrency]部分描述了这些元素。
 
 ### <a name="reported-property-example"></a>报告属性示例
 在上面的示例中，设备孪生包含设备应用报告的 `batteryLevel` 属性。 使用此属性可以根据上次报告的电池电量水平查询和操作设备。 其他示例包括让设备应用报告设备功能或连接选项。
@@ -166,7 +169,7 @@ ms.lasthandoff: 12/08/2017
 
     - 属性
 
-    | 名称 | 值 |
+    | Name | 值 |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  发送通知的时间 |
@@ -250,7 +253,7 @@ ms.lasthandoff: 12/08/2017
 * 所有字符串的值的长度最多为 4 KB。
 
 ## <a name="device-twin-size"></a>设备孪生的大小
-IoT 中心对 `tags`、`properties/desired` 和 `properties/reported`（不包括只读元素）的总值强制实施 8KB 大小限制。
+IoT 中心对 `tags`、`properties/desired` 和 `properties/reported`（不包括只读元素）的各个总值强制实施 8KB 大小限制。
 该大小的计算考虑到了所有字符，但不包括 UNICODE 控制字符（段 C0 和 C1），以及出现在字符串常量外部的空格。
 IoT 中心拒绝将这些文档的大小增加到超出限制的所有操作，在这种情况下还会返回错误。
 
@@ -303,7 +306,7 @@ IoT 中心保留设备孪生所需属性和报告属性中每个 JSON 对象的�
     }
 ```
 
-将在每个级别（而不仅仅是 JSON 结构的叶级别）保留此信息，以便保留删除了对象键的更新。
+会在每个级别（而不仅仅是 JSON 结构的叶级别）保留此信息，以便保留删除了对象键的更新。
 
 ## <a name="optimistic-concurrency"></a>乐观并发
 标记、所需的属性和报告的属性都支持乐观并发。

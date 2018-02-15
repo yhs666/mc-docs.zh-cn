@@ -16,31 +16,32 @@ ms.workload: iaas-sql-server
 origin.date: 12/14/2017
 ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 791c021c8e4de8929c95652339d1ea3b5469be62
-ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
+ms.openlocfilehash: 22762efe22f635342b0c0b65e2e6c4ae3a12188c
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-windows-azure-virtual-machines"></a>Windows Azure 虚拟机上的 SQL Server 常见问题
 
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
-> * [Linux](../../linux/sql/sql-server-linux-faq.md)
+<!-- Not Available on > * [Linux](../../linux/sql/sql-server-linux-faq.md) -->
 
 本文提供有关[在 Windows Azure 虚拟机上运行 SQL Server](https://www.azure.cn/home/features/virtual-machines/#virtual-machine-SQLserver) 时出现的一些最常见问题的解答。
 
 > [!NOTE]
-> 本文重点阐述在 Windows VM 上运行 SQL Server 的特定问题。 如果在 Linux VM 上运行 SQL Server，请参阅 [Linux 常见问题](../../linux/sql/sql-server-linux-faq.md)。
+> 本文重点阐述在 Windows VM 上运行 SQL Server 的特定问题。 
 
+<!-- Not Avaiable on  [Linux FAQ](../../linux/sql/sql-server-linux-faq.md) -->
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
 ## <a name="images"></a>映像
 
 1. **有哪些 SQL Server 虚拟机库映像可用？**
 
-   Azure 为所有 Windows 和 Linux 版本中的所有受支持 SQL Server 主要发行版维护虚拟机映像。 有关更多详细信息，请参阅 [Windows VM 映像](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)和 [Linux VM 映像](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create)的完整列表。
-
+   Azure 为所有 Windows 和 Linux 版本中的所有受支持 SQL Server 主要发行版维护虚拟机映像。 有关更多详细信息，请参阅 [Windows VM 映像](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)的完整列表。
+<!-- Not Avaiable on [Linux VM images](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create) -->
 1. **现有的 SQL Server 虚拟机库映像是否会更新？**
 
    每隔两个月，都会使用最新的 Windows 和 Linux 更新对虚拟机库中的 SQL Server 映像进行更新。 对于 Windows 映像，这包括 Windows 更新中标记为重要的任何更新，以及重要的 SQL Server 安全更新和 Service Pack。 对于 Linux 映像，这包括最新的系统更新。 Linux 和 Windows 的 SQL Server 累积更新以不同的方式进行处理。 对于 Linux，SQL Server 累积更新也包含在刷新中。 但目前，Windows VM 不会连同 SQL Server 或 Windows Server 累积更新一起更新。
@@ -130,8 +131,8 @@ ms.lasthandoff: 01/19/2018
 **Linux VM**：
 
 * [Linux VM 上的 SQL Server 概述](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
-* [设置 SQL Server Linux VM](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
-* [常见问题 (Linux)](../../linux/sql/sql-server-linux-faq.md)
+<!-- Not Avaiable on * [Provision a SQL Server Linux VM](../../linux/sql/provision-sql-server-linux-virtual-machine.md) -->
+<!-- Not Avaiable on * [FAQ (Linux)](../../linux/sql/sql-server-linux-faq.md) -->
 * [“Linux 上的 SQL Server”文档](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 
 <!--Update_Description: wording update， add images FAQ content -->

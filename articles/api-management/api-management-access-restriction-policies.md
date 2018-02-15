@@ -1,5 +1,5 @@
 ---
-title: "Azure API 管理访问限制策略 | Azure"
+title: "Azure API 管理访问限制策略"
 description: "了解可在 Azure API 管理中使用的访问限制策略。"
 services: api-management
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 09f87cec7dfb84e9bbc8d4c87c0cc750f1d95e60
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 00a6f2e48a0d80e15f1ecfdb6327a2ed620a89d8
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理访问限制策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -62,14 +62,14 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |check-header|根元素。|是|  
-|value|允许的 HTTP 标头值。 指定了多个值元素时，如果任何一个值匹配，则检查将被视为成功。|否|  
+|value|允许的 HTTP 标头值。 指定了多个值元素时，如果任何一个值匹配，则可认为检查成功。|否|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |failed-check-error-message|在标头不存在或其值无效的情况下，需要在 HTTP 响应正文中返回的错误消息。 此消息必须对任何特殊字符正确地进行转义。|是|不适用|  
 |failed-check-httpcode|在标头不存在或其值无效时需返回的 HTTP 状态代码。|是|不适用|  
@@ -117,29 +117,29 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |set-limit|根元素。|是|  
-|api|添加一个或多个此类元素，对产品中的 API 施加调用速率限制。 产品和 API 的调用速率限制是各自独立应用的。|否|  
-|operation|添加一个或多个此类元素，对 API 中的操作施加调用速率限制。 产品、API 和操作的调用速率限制是各自独立应用的。|否|  
+|api|添加一个或多个此类元素，对产品中的 API 施加调用速率限制。 产品和 API 的调用速率限制是分别应用的。|否|  
+|operation|添加一个或多个此类元素，对 API 中的操作施加调用速率限制。 产品、API 和操作的调用速率限制是分别应用的。|否|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |name|要对其应用速率限制的 API 的名称。|是|不适用|  
 |calls|在 `renewal-period` 所指定的时间间隔内允许的最大总调用数。|是|不适用|  
 |renewal-period|在重置配额之前等待的时间长度，以秒为单位。|是|不适用|  
   
 ### <a name="usage"></a>使用情况  
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
+ 此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站  
+-   **策略段：**入站  
   
 -   **策略范围：**产品  
   
 ##  <a name="LimitCallRateByKey"></a>按密钥限制调用速率  
- `rate-limit-by-key` 策略可以对调用速率进行限制，使每个指定时段的调用不超出指定的数目，避免单个密钥的 API 使用量暴增。 密钥的值可以是任意字符串，通常使用策略表达式来提供密钥。 可以添加可选增量条件，指定在判断请求数是否达到限制时应计入哪些请求。 触发此策略时，调用方会收到 `429 Too Many Requests` 响应状态代码。  
+ `rate-limit-by-key` 策略可以对调用速率进行限制，使每个指定时段的调用不超出指定的数目，避免单个密钥的 API 使用量暴增。 密钥的值可以是任意字符串，通常使用策略表达式来提供密钥。 可以添加可选增量条件，指定在判断请求数是否达到限制时应计入哪些请求。 触发此策略时，调用方会收到`429 Too Many Requests`响应状态代码。  
   
  有关此策略的详细信息和示例，请参阅[使用 Azure API 管理进行高级请求限制](./api-management-sample-flexible-throttling.md)。  
   
@@ -157,7 +157,7 @@ ms.lasthandoff: 09/08/2017
 ```  
   
 ### <a name="example"></a>示例  
- 在下面的示例中，速率限制与调用方 IP 地址相匹配。  
+ 在下面的示例中，可通过调用方 IP 地址对速率限制进行键控。  
   
 ```xml  
 <policies>  
@@ -176,13 +176,13 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |set-limit|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |calls|在 `renewal-period` 所指定的时间间隔内允许的最大总调用数。|是|不适用|  
 |counter-key|用于速率限制策略的密钥。|是|不适用|  
@@ -190,7 +190,7 @@ ms.lasthandoff: 09/08/2017
 |renewal-period|在重置配额之前等待的时间长度，以秒为单位。|是|不适用|  
   
 ### <a name="usage"></a>使用情况  
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
+ 此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
 -   **策略节：**入站  
   
@@ -219,7 +219,7 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |ip-filter|根元素。|是|  
 |address|指定要对其进行筛选的单个 IP 地址。|至少一个 `address` 或 `address-range` 元素是必需的。|  
@@ -227,13 +227,13 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |address-range from="address" to="address"|允许或拒绝其访问的某个 IP 地址范围。|使用 `address-range` 元素时必需。|不适用|  
 |ip-filter action="allow &#124; forbid"|指定是否应允许指定的 IP 地址和范围执行调用。|是|不适用|  
   
 ### <a name="usage"></a>使用情况  
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
+ 此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
 -   **策略节：**入站  
   
@@ -273,15 +273,15 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |quota|根元素。|是|  
-|api|添加一个或多个此类元素，对产品中的 API 设置配额。 产品和 API 的配额是各自独立应用的。|否|  
-|operation|添加一个或多个此类元素，对 API 中的操作设置配额。 产品、API 和操作的配额是各自独立应用的。|否|  
+|api|添加一个或多个此类元素，对产品中的 API 设置配额。 产品和 API 的配额是分别应用的。|否|  
+|operation|添加一个或多个此类元素，对 API 中的操作设置配额。 产品、API 和操作的配额是分别应用的。|否|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |name|要向其应用配额的 API 或操作的名称。|是|不适用|  
 |bandwidth|在 `renewal-period` 所指定的时间间隔内允许的最大总字节数（千字节）。|必须指定 `calls` 和/或 `bandwidth`。|不适用|  
@@ -289,9 +289,9 @@ ms.lasthandoff: 09/08/2017
 |renewal-period|在重置配额之前等待的时间长度，以秒为单位。|是|不适用|  
   
 ### <a name="usage"></a>使用情况  
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
+ 此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站  
+-   **策略段：**入站  
   
 -   **策略范围：**产品  
   
@@ -317,7 +317,7 @@ ms.lasthandoff: 09/08/2017
 ```  
   
 ### <a name="example"></a>示例  
- 在下面的示例中，配额与调用方 IP 地址相匹配。  
+ 在下面的示例中，可通过调用方 IP 地址对配额进行键控。  
   
 ```xml  
 <policies>  
@@ -335,13 +335,13 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |quota|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |bandwidth|在 `renewal-period` 所指定的时间间隔内允许的最大总字节数（千字节）。|必须指定 `calls` 和/或 `bandwidth`。|不适用|  
 |calls|在 `renewal-period` 所指定的时间间隔内允许的最大总调用数。|必须指定 `calls` 和/或 `bandwidth`。|不适用|  
@@ -350,7 +350,7 @@ ms.lasthandoff: 09/08/2017
 |renewal-period|在重置配额之前等待的时间长度，以秒为单位。|是|不适用|  
   
 ### <a name="usage"></a>使用情况  
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
+ 此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
 -   **策略节：**入站  
   
@@ -387,7 +387,7 @@ ms.lasthandoff: 09/08/2017
     <!-- if there are multiple possible issuers, then add additional issuer elements -->  
   </issuers>  
   <required-claims>  
-    <claim name="name of the claim as it appears in the token" match="all|any">  
+    <claim name="name of the claim as it appears in the token" match="all|any" separator="separator character in a multi-valued claim">
       <value>claim value as it is expected to appear in the token</value>  
       <!-- if there is more than one allowed values, then add additional value elements -->  
     </claim>  
@@ -493,38 +493,44 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必选|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |validate-jwt|根元素。|是|  
 |audiences|包含一系列可接受且可存在于令牌上的受众声明。 如果存在多个受众值，则会对每个值进行尝试，直到所有值都试完（这种情况表明验证失败），或者直到有一个值成功。 必须指定至少一个受众。|否|  
 |issuer-signing-keys|一系列 Base64 编码的安全密钥，用于验证签名的令牌。 如果存在多个安全密钥，则会对每个密钥进行尝试，直到所有密钥都试完（这种情况表明验证失败），或者直到有一个密钥成功（对令牌滚动更新十分有用）。 密钥元素有一个可选的 `id` 属性，用于与 `kid` 声明进行比较。|否|  
-|issuers|一系列可接受的、已颁发了令牌的主体。 如果存在多个颁发者值，则会对每个值进行尝试，直到所有值都试完（这种情况表明验证失败），或者直到有一个值成功。|否|  
+|issuers|一系列可接受的、已颁发了令牌的主体。 如果存在多个颁发者值，则会对每个值进行尝试，直到有一个值成功（如果所有值都试完却没有一个成功，则表明验证失败）。|否|  
 |openid-config|一个元素，用于指定兼容的 Open ID 配置终结点，以便从该终结点获取签名密钥和颁发者。|否|  
 |required-claims|包含一系列应存在于令牌上的声明，否则令牌会被视为无效。 将 `match` 属性设置为 `all` 时，策略中的每个声明值都必须存在于令牌中才会使验证成功。 将 `match` 属性设置为 `any` 时，至少一个声明必须存在于令牌中才会使验证成功。|否|  
 |zumo-master-key|Azure 移动服务颁发的令牌的主密钥|否|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
-|clock-skew|时间跨度。 在令牌的到期声明存在于令牌中且早于当前日期/时间的情况下，提供某个较小的余量。|否|0 秒|  
+|clock-skew|时间跨度。 在令牌的到期声明存在于令牌中且早于当前日期/时间的情况下，提供一些小的余量。|否|0 秒|  
 |failed-validation-error-message|JWT 未通过验证时会在 HTTP 响应正文中返回的错误消息。 此消息必须对任何特殊字符正确地进行转义。|否|默认错误消息取决于验证问题，例如“JWT 不存在”。|  
 |failed-validation-httpcode|JWT 未通过验证时会返回的 HTTP 状态代码。|否|401|  
 |header-name|包含令牌的 HTTP 标头的名称。|必须指定 `header-name` 或 `query-paremeter-name`，但不能将二者都指定。|不适用|  
 |id|使用 `key` 元素的 `id` 属性可以指定一个字符串，该字符串将与令牌中的 `kid` 声明（如果存在）进行比较，以便找出进行签名验证时需要使用的适当密钥。|否|不适用|  
-|match|`claim` 元素的 `match` 属性用于指定：是否策略中的每个声明值都必须存在于令牌中才会使验证成功。 可能的值包括：<br /><br /> -                          `all` - 策略中的每个声明值都必须存在于令牌中才会使验证成功。<br /><br /> -                          `any` - 至少一个声明值必须存在于令牌中才会使验证成功。|否|all|  
-|query-paremeter-name|包含令牌的查询参数的名称。|必须指定 `header-name` 或 `query-paremeter-name`，但不能将二者都指定。|不适用|  
-|require-expiration-time|布尔值。 指定令牌中是否需要到期声明。|否|true|
+|match|`claim` 元素的 `match` 属性用于指定：是否策略中的每个声明值都必须存在于令牌中验证才会成功。 可能的值包括：<br /><br /> -                          `all` - 策略中的每个声明值都必须存在于令牌中才会使验证成功。<br /><br /> -                          `any` - 至少一个声明值必须存在于令牌中才会使验证成功。|否|all|  
+|query-paremeter-name|包含令牌的查询参数的名称。|必须指定 `header-name` 或 `query-paremeter-name`，但不能二者都指定。|不适用|  
+|require-expiration-time|布尔值。 指定令牌中是否需要到期声明。|否|是|
 |require-scheme|令牌方案的名称，例如“Bearer”。 设置了此属性时，策略将确保 Authorization 标头值中存在指定的方案。|否|不适用|
-|require-signed-tokens|布尔值。 指定令牌是否需要签名。|否|true|  
-|url|Open ID 配置终结点 URL，从中可以获取 Open ID 配置元数据。 对于 Azure Active Directory，请使用以下 URL：`https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration`，将其中的 {tenant-name} 替换为你的目录租户名称，例如 `contoso.onmicrosoft.com`。|是|不适用|  
+|require-signed-tokens|布尔值。 指定令牌是否需要签名。|否|是|  
+|分隔符|字符串。 指定要用于从多值声明中提取一组值的分隔符（例如 ","）。|否|不适用| 
+|url|Open ID 配置终结点 URL，可以从其获取 Open ID 配置元数据。 对于 Azure Active Directory，请使用以下 URL：`https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration`，代之以目录租户名称，例如 `contoso.onmicrosoft.com`。|是|不适用|  
   
 ### <a name="usage"></a>使用情况  
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
+ 此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
 -   **策略节：**入站  
-  
 -   **策略范围：**全局、产品、API、操作  
   
 ## <a name="next-steps"></a>后续步骤
-有关如何使用策略的详细信息，请参阅 [API 管理中的策略](./api-management-howto-policies.md)。  
+
+有关如何使用策略的详细信息，请参阅：
+
++ [API 管理中的策略](api-management-howto-policies.md)
++ [转换 API](transform-api.md)
++ [策略参考](api-management-policy-reference.md)，获取策略语句及其设置的完整列表
++ [策略示例](policy-samples.md)   

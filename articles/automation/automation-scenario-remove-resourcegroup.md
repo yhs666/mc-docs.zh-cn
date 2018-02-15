@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 09/26/2016
 ms.date: 01/22/2018
 ms.author: v-nany
-ms.openlocfilehash: c940d51d41e7afc68ae81e937a9f0ff584dd77cc
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 43df856b77217ed4745c5062c1ead4471e620720
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Azure 自动化方案 - 自动删除资源组
 许多客户会创建多个资源组。 有些资源组专门用于管理生产应用程序，还有一些资源组可能用于开发、测试和过渡环境。 自动部署这些资源是一回事，但按一下鼠标就能取消配置资源组则是另一回事。 使用 Azure 自动化可以简化这种常见的管理任务。 如果使用的 Azure 订阅由于会员优惠制度（例如 MSDN 或 Microsoft Partner Network Cloud Essentials 计划）而实施支出限制，则使用自动化就很有帮助。
@@ -54,7 +54,7 @@ $null = Add-AzureRmAccount `
 
 ## <a name="install-and-configure-this-scenario"></a>安装和配置此方案
 ### <a name="prerequisites"></a>先决条件
-此 Runbook 使用 [Azure 运行方式帐户](automation-sec-configure-azure-runas-account.md)进行身份验证。    
+此 Runbook 使用 Azure 运行方式帐户进行身份验证。    
 
 ### <a name="install-and-publish-the-runbooks"></a>安装和发布 Runbook
 下载 Runbook 后，可以使用[导入 Runbook 过程](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation)中的过程导入它。 在成功将该 Runbook 导入自动化帐户后，请发布该 Runbook。

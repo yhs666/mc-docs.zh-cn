@@ -18,11 +18,11 @@ origin.date: 12/08/2016
 ms.date: 05/22/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c6c8e337039712bf1dc9d55c2f5e047fe9684fa4
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: 4ee1cb187de82f282f9ccf0ee6e0053099567253
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="using-sap-on-azure-windows-virtual-machines-vms"></a>使用 Azure Windows 虚拟机 (VM) 上的 SAP
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -268,7 +268,7 @@ ms.lasthandoff: 11/28/2017
 [virtual-machines-linux-configure-raid]:../linux/configure-raid.md
 [virtual-machines-linux-classic-create-upload-vhd-step-1]:../virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded
 [virtual-machines-linux-create-upload-vhd-suse]:../linux/suse-create-upload-vhd.md
-[virtual-machines-linux-redhat-create-upload-vhd]:../linux/redhat-create-upload-vhd.md
+<!-- Not Avaiable on [virtual-machines-linux-redhat-create-upload-vhd]:../linux/redhat-create-upload-vhd.md -->
 [virtual-machines-linux-how-to-attach-disk]:../linux/add-disk.md
 [virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
 [virtual-machines-linux-tutorial]:../linux/quick-create-cli.md
@@ -303,30 +303,31 @@ ms.lasthandoff: 11/28/2017
 [xplat-cli]:../../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../../xplat-cli-azure-resource-manager.md
 
-通过选择 Azure 作为符合 SAP 需求的云合作伙伴，可以在可缩放、兼容且经企业证明的平台上可靠地运行任务关键 SAP 工作负荷。  可利用 Azure 的可伸缩性、灵活性和低成本特性。 随着 Microsoft 和 SAP 扩大合作伙伴关系，可以在 Azure 的各个开发/测试和生产方案中运行 SAP 应用程序，并能获得完全支持。 从 SAP NetWeaver 到 SAP S4/HANA，Linux 到 Windows，SAP HANA 到 SQL，我们都能满足需求。 
+通过选择 Azure 作为符合 SAP 需求的云合作伙伴，可以在可缩放、兼容且经企业证明的平台上可靠地运行任务关键 SAP 工作负荷。  可利用 Azure 的可伸缩性、灵活性和低成本特性。 由于 Microsoft 和 SAP 之间扩大了合作伙伴关系，因此，可以在 Azure 的各个开发/测试和生产方案中运行 SAP 应用程序 - 并且获得完全的支持。 从 SAP NetWeaver 到 SAP S4/HANA，Linux 到 Windows，SAP HANA 到 SQL，我们都能满足需求。 
 
 借助 Azure 虚拟机服务和 Azure 上的 SAP HANA 大型实例，Microsoft 提供全面的基础结构即服务 (IaaS) 平台。 因为 Azure 支持范围广泛的 SAP 解决方案，此“入门文档”充当当前 SAP 文档集的目录。 随着文档库添加更多标题，可在此处看到添加的标题。 
 
 ## <a name="sap-hana-certifications-on-azure"></a>Azure 上的 SAP HANA 认证
-| SAP 产品 | 支持的操作系统 | Azure 产品/服务 |
+| SAP 产品 | 支持的操作系统 | Azure 产品 |
 | --- | --- | --- |
-| SAP HANA Developer Edition（包括由 SQLODBC、Windows 专用版 ODBO、ODBC、JDBC 驱动程序、HANA Studio 和 HANA 数据库组成的 HANA 客户端软件） |Red Hat Enterprise Linux、SUSE Linux Enterprise |A7、A8 |
-| MHANA One |Red Hat Enterprise Linux、SUSE Linux Enterprise |DS14_v2（正式版） |
-| SAP S/4HANA |Red Hat Enterprise Linux、SUSE Linux Enterprise |GS5（受控可用性）、Azure 上的 SAP HANA（大型实例） |
-| Suite on HANA (OLTP) |Red Hat Enterprise Linux、SUSE Linux Enterprise |Azure 上的 SAP HANA（大型实例） |
-| HANA Enterprise for BW (OLAP) |Red Hat Enterprise Linux、SUSE Linux Enterprise |适用于 Azure 上 SAP HANA 单节点部署的 GS5（大型实例） |
-| SAP BW/4HANA |Red Hat Enterprise Linux、SUSE Linux Enterprise |适用于 Azure 上 SAP HANA 单节点部署的 GS5（大型实例） |
+| SAP HANA Developer Edition（包括由 SQLODBC、Windows 专用版 ODBO、ODBC、JDBC 驱动程序、HANA Studio 和 HANA 数据库组成的 HANA 客户端软件） |SUSE Linux Enterprise |A7、A8 |
+| MHANA One | SUSE Linux Enterprise |DS14_v2（即将推出正式版） |
+| SAP S/4HANA | SUSE Linux Enterprise |GS5（受控可用性）、Azure 上的 SAP HANA（大型实例） |
+| Suite on HANA (OLTP) | SUSE Linux Enterprise |Azure 上的 SAP HANA（大型实例） |
+| HANA Enterprise for BW (OLAP) | SUSE Linux Enterprise |适用于 Azure 上 SAP HANA 单节点部署的 GS5（大型实例） |
+| SAP BW/4HANA | SUSE Linux Enterprise |适用于 Azure 上 SAP HANA 单节点部署的 GS5（大型实例） |
+<!-- Remove the invalid version of Red Hat Enterprise Linux -->
 
 ## <a name="sap-netweaver-certifications"></a>SAP NetWeaver 认证
 在 Microsoft 和 SAP 的全面支持下，Azure 已针对以下 SAP 产品进行认证。
 
 | SAP 产品 | 来宾 OS | RDBMS | 虚拟机类型 |
 | --- | --- | --- | --- |
-| SAP 业务套件软件 |Windows、SUSE Linux Enterprise、Red Hat Enterprise Linux |SQL Server、Oracle（仅限 Windows）、DB2、SAP ASE |A5 至 A11、D11 至 D14、DS11 至 DS14、GS1 至 GS5 |
-| 多合一 SAP 业务软件 |Windows、SUSE Linux Enterprise、Red Hat Enterprise Linux |SQL Server、Oracle（仅限 Windows）、DB2、SAP ASE |A5 至 A11、D11 至 D14、DS11 至 DS14、GS1 至 GS5 |
+| SAP 业务套件软件 |Windows、SUSE Linux Enterprise|SQL Server、Oracle（仅限 Windows）、DB2、SAP ASE |A5 至 A11、D11 至 D14、DS11 至 DS14、GS1 至 GS5 |
+| 多合一 SAP 业务软件 |Windows、SUSE Linux Enterprise |SQL Server、Oracle（仅限 Windows）、DB2、SAP ASE |A5 至 A11、D11 至 D14、DS11 至 DS14、GS1 至 GS5 |
 | SAP BusinessObjects BI |Windows |不适用 |A5 至 A11、D11 至 D14、DS11 至 DS14、GS1 至 GS5 |
-| SAP NetWeaver |Windows、SUSE Linux Enterprise、Red Hat Enterprise Linux |SQL Server、Oracle（仅限 Windows）、DB2、SAP ASE |A5 至 A11、D11 至 D14、DS11 至 DS14、GS1 至 GS5 |
-
+| SAP NetWeaver |Windows、SUSE Linux Enterprise |SQL Server、Oracle（仅限 Windows）、DB2、SAP ASE |A5 至 A11、D11 至 D14、DS11 至 DS14、GS1 至 GS5 |
+<!-- Remove the invalid version of Red Hat Enterprise Linux -->
 ## <a name="getting-started-with-sap-hana-on-azure"></a>在 Azure 上开始使用 SAP HANA
 标题：在 Azure VM 上手动安装 SAP HANA 的快速入门指南
 

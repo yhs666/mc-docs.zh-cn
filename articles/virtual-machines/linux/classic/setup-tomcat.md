@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 12/15/2015
 ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: b37836c3b8d8814c3c71a3ffb44644899201c4eb
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 3ff85cfd69fe9a22b7637d43ca24ad9993558e68
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>使用 Azure 在 Linux 虚拟机上设置 Tomcat7
 Apache Tomcat（简称 Tomcat，以前也称为 Jakarta Tomcat）是由 Apache Software Foundation (ASF) 开发的一个开源 Web 服务器和 servlet 容器。 Tomcat 实现了 Sun Microsystems 提出的 Java Servlet 和 JavaServer Pages (JSP) 规范。 Tomcat 提供用于运行 Java 代码的纯 Java HTTP Web 服务器环境。 在最简单的配置中，Tomcat 在单个操作系统进程中运行。 此进程运行 Java 虚拟机 (JVM)。 浏览器向 Tomcat 发出的每个 HTTP 请求在 Tomcat 进程中作为单独线程进行处理。  
@@ -85,7 +85,7 @@ TCP 端口 8080 是 Tomcat 用来侦听的默认端口号。 如果使用 Azure 
    ![虚拟机目录的屏幕截图][5]
 2. 要将终结点添加到虚拟机，单击“终结点”  框。
    ![显示“终结点”框的屏幕截图][6]
-3. 单击 **“添加”**。  
+3. 单击“添加” 。  
 
    1. 对于终结点，请在“终结点”中输入终结点的名称，然后在“公用端口”中输入 80。  
 
@@ -128,7 +128,7 @@ TCP 端口 8080 是 Tomcat 用来侦听的默认端口号。 如果使用 Azure 
 在此阶段，我们安装 Java 运行时环境、Tomcat7 和其他 Tomcat7 组件。  
 
 ### <a name="java-runtime-environment"></a>Java 运行时环境
-Tomcat 用 Java 编写。 有两种类型的 Java 开发工具包 (JDK)：OpenJDK 和 Oracle JDK。 可以选择所需的工具包。  
+Tomcat 是用 Java 编写的。 有两种类型的 Java 开发工具包 (JDK)：OpenJDK 和 Oracle JDK。 可以选择所需的工具包。  
 
 > [!NOTE]
 > 这两个 JDK 对于 Java API 中的类，几乎包含相同的代码，但用于虚拟机的代码不同。 OpenJDK 倾向于使用开放库，而 Oracle JDK 倾向于使用封闭库。 Oracle JDK 包含更多类并且修复了一些 bug，比 OpenJDK 更稳定。
@@ -234,7 +234,7 @@ Tomcat 用 Java 编写。 有两种类型的 Java 开发工具包 (JDK)：OpenJD
 ![Tomcat Web 应用程序管理器的屏幕截图][18]
 
 ## <a name="common-issues"></a>常见问题
-### <a name="cant-access-the-virtual-machine-with-tomcat-and-moodle-from-the-internet"></a>无法使用 Tomcat 和 Moodle 通过 Internet 访问虚拟机
+### <a name="cant-access-the-virtual-machine-with-tomcat-and-moodle-from-the-internet"></a>无法通过 Internet 使用 Tomcat 和 Moodle 访问虚拟机
 #### <a name="symptom"></a>症状  
   Tomcat 正在运行，但使用浏览器看不到 Tomcat 默认页。
 #### <a name="possible-root-cause"></a>可能的根本原因   
@@ -243,15 +243,16 @@ Tomcat 用 Java 编写。 有两种类型的 Java 开发工具包 (JDK)：OpenJD
 
      检查公用端口和专用端口终结点设置，确保专用端口与 Tomcat 侦听端口相同。 有关如何为虚拟机配置终结点的说明，请参阅本文的“阶段 1：创建映像”部分。  
 
-     若要确定 Tomcat 侦听端口，请打开 /etc/httpd/conf/httpd.conf（Red Hat 发行版）或 /etc/tomcat7/server.xml（Debian 发行版）。 默认情况下，Tomcat 侦听端口为 8080。 下面是一个示例：  
+     若要确定 Tomcat 侦听端口，请打开 /etc/httpd/conf/httpd.conf（CentOS 发行版）或 /etc/tomcat7/server.xml（Debian 发行版）。 默认情况下，Tomcat 侦听端口为 8080。 以下是示例：  
+<!-- Change Red Hat to CentOS -->
 
         <Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"   URIEncoding="UTF-8"            redirectPort="8443" />  
 
-     如果要使用 Debian 或 Ubuntu 等虚拟机并且要更改 Tomcat 侦听的默认端口（例如 8081），则还应为操作系统打开该端口。 首先打开配置文件：  
+     If you are using a virtual machine like Debian or Ubuntu and you want to change the default port of Tomcat Listen (for example 8081), you should also open the port for the operating system. First, open the profile:  
 
         sudo vi /etc/default/tomcat7  
 
-     然后，取消注释最后一行并将“no”更改为“yes”。  
+     Then uncomment the last line and change "no" to "yes".  
 
         AUTHBIND=yes
   2. 防火墙已禁用 Tomcat 的侦听端口。
@@ -294,9 +295,9 @@ Tomcat 用 Java 编写。 有两种类型的 Java 开发工具包 (JDK)：OpenJD
 
      sudo chown azureuser -R /var/lib/tomcat7/webapps
 
-也使用 -R 选项对目录内的所有文件应用权限。  
+也可以使用 -R 选项将权限应用到目录中的所有文件。  
 
-此命令也适用于目录。 -R 选项可更改目录内的所有文件和目录的权限。 下面是一个示例：  
+此命令也适用于目录。 -R 选项可更改目录内的所有文件和目录的权限。 以下是示例：  
 
      sudo chown -R username:group directory  
 

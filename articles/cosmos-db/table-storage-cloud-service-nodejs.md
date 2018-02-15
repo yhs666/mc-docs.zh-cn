@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 11/03/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6db4b47c7d7050518100a78d2835f82916866845
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 3a62780b471b627162f08ac607d06f729a0a16a9
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Azure 表存储：Node.js Web 应用程序
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -29,7 +29,8 @@ ms.lasthandoff: 11/24/2017
 
 任务项存储在 Azure 存储中。 Azure 存储提供了具有容错能力且可用性非常好的非结构化数据存储。 Azure 存储包含一些可用来存储和访问数据的数据结构。 可以通过用于 Node.js 的 Azure SDK 中包含的 API 或通过 REST API 来使用存储服务。 有关详细信息，请参阅 [在 Azure 中存储和访问数据]。
 
-本教程假定已完成 [Node.js Web 应用程序]和[使用 Express 的 Node.js][使用 Express 生成 Node.js Web 应用程序] 教程。
+本教程假定你已完成 Node.js Web 应用程序和[使用 Express 的 Node.js][使用 Express 生成 Node.js Web 应用程序] 教程。
+<!-- URL is NOT correct on [Node.js Web Application] -->
 
 其中包含以下信息：
 
@@ -391,8 +392,8 @@ PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -lo
 ## <a name="stopping-and-deleting-your-application"></a>停止并删除应用程序
 在部署应用程序后，可能希望禁用它，以避免在试用期内产生费用，或者生成和部署其他应用程序。
 
-Azure 按使用的服务器小时数对 Web 角色实例进行计费。
-应用程序部署之后就会开始使用服务器时间，即使相关实例并未运行且处于停止状态也是如此。
+Azure 将按使用的服务器小时数对 Web 角色实例计费。
+应用程序部署后即开始使用服务器时间，即使相关实例未运行并处于停止状态。
 
 以下步骤演示了如何停止和删除应用程序。
 
@@ -414,8 +415,9 @@ Azure 按使用的服务器小时数对 Web 角色实例进行计费。
 
    删除服务可能需要花费几分钟时间。 删除服务后，会收到一条指示服务已被删除的消息。
 
-[使用 Express 生成 Node.js Web 应用程序]: /develop/nodejs/tutorials/web-app-with-express/
+[使用 Express 生成 Node.js Web 应用程序]: https://docs.azure.cn/cloud-services/cloud-services-nodejs-develop-deploy-express-app
+<!-- Direct http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/ TO /cloud-services/cloud-services-nodejs-develop-deploy-express-app -->
 [在 Azure 中存储和访问数据]: http://msdn.microsoft.com/library/azure/gg433040.aspx
-[Node.js Web 应用程序]: http://azure.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
+<!-- URL is NOT correct [Node.js Web Application]: http://azure.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app -->
 
 <!--Update_Description: update meta properties, update link-->

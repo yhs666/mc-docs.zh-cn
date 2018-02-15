@@ -1,5 +1,5 @@
 ---
-title: "针对 Azure 指标警报配置 webhook | Azure"
+title: "针对 Azure 指标警报配置 Webhook"
 description: "将 Azure 警报重新路由到其他非 Azure 系统。"
 author: johnkemnetz
 manager: carmonm
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/03/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 4109f1b4f765e3d2f082962d6ec5cdf49e0e5fbd
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 02/26/2018
+ms.openlocfilehash: 262bb962f7f2b9e7cf9f8923022e50b8e5d5c315
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>针对 Azure 度量值警报配置 webhook
 
@@ -75,14 +75,14 @@ POST 操作对于所有基于度量值的警报包含以下 JSON 有效负载和
 ```
 
 
-| 字段 | 必需 | 一组固定的值 | 说明 |
+| 字段 | 必需 | 一组固定的值 | 注释 |
 |:--- |:--- |:--- |:--- |
-| status |Y |“Activated”, “Resolved” |以设置的条件为基础的警报的状态。 |
+| 状态 |Y |“Activated”, “Resolved” |以设置的条件为基础的警报的状态。 |
 | 上下文 |Y | |警报上下文。 |
 | timestamp |Y | |触发警报的时间。 |
 | id |Y | |每个警报规则都具有一个唯一的 ID。 |
 | name |Y | |警报名称。 |
-| description |Y | |警报的说明。 |
+| 说明 |Y | |警报的说明。 |
 | conditionType |Y |“Metric”, “Event” |支持两种类型的警报。 一种基于度量值条件，另一种基于活动日志中的事件。 使用此值可检查警报是基于度量值还是基于事件。 |
 | 条件 |Y | |根据 conditionType 要检查的特定字段。 |
 | metricName |用于指标警报 | |定义规则监视对象的指标的名称。 |
@@ -96,10 +96,10 @@ POST 操作对于所有基于度量值的警报包含以下 JSON 有效负载和
 | resourceGroupName |Y | |受影响资源的资源组的名称。 |
 | resourceName |Y | |受影响资源的资源名称。 |
 | resourceType |Y | |受影响资源的资源类型。 |
-| resourceId |Y | |受影响资源的资源 ID。 |
+| ResourceId |Y | |受影响资源的资源 ID。 |
 | resourceRegion |Y | |受影响资源的区域或位置。 |
 | portalLink |Y | |指向门户资源摘要页的直接链接。 |
-| 属性 |N |可选 |一组包含事件详细信息的 `<Key, Value>` 对（即 `Dictionary<String, String>`）。 properties 字段是可选的。 在自定义 UI 或基于逻辑应用的工作流中，用户可以输入键/值，该键/值可通过有效负载传递。 将自定义属性传递回 webhook 的替代方法是通过 webhook URI 本身（作为查询参数） |
+| properties |N |可选 |一组包含事件详细信息的 `<Key, Value>` 对（即 `Dictionary<String, String>`）。 properties 字段是可选的。 在自定义 UI 或基于逻辑应用的工作流中，用户可以输入键/值，该键/值可通过有效负载传递。 将自定义属性传递回 webhook 的替代方法是通过 webhook URI 本身（作为查询参数） |
 
 > [!NOTE]
 > 仅可以使用 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx) 设置属性字段。
@@ -107,5 +107,4 @@ POST 操作对于所有基于度量值的警报包含以下 JSON 有效负载和
 >
 
 ## <a name="next-steps"></a>后续步骤
-- 请在[将 Azure 警报与 PagerDuty](http://go.microsoft.com/fwlink/?LinkId=627080) 集成视频中了解有关 Azure 警报和 webhook 的详细信息
 - [Execute Azure Automation scripts (Runbooks) on Azure alerts](http://go.microsoft.com/fwlink/?LinkId=627081)（对 Azure 警报执行 Azure 自动化脚本 (Runbook)）

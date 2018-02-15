@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 12/12/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 790f6655e0349f2843d2226db4e623d1595ad72c
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 5311505cb038893038490306e9db44ca8044d896
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-virtual-network"></a>Azure 虚拟网络
 
@@ -37,15 +37,17 @@ Azure 资源可以通过 Azure 虚拟网络服务与虚拟网络中的其他资�
 - **[流量筛选：](#filtering)**可按源 IP 地址和端口、目标 IP 地址和端口以及协议对传入和传出虚拟网络中的资源的网络流量进行筛选。
 - **[路由：](#routing)**可选择通过配置自己的路由或通过网关传播 BGP 路由来替代 Azure 默认路由。
 
-<a name = "isolation"></a>
+<a name="isolation"></a>
 ## <a name="network-isolation-and-segmentation"></a>网络隔离和细分
 
-可在每个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和 Azure [区域](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#region)中实现多个虚拟网络。 每个虚拟网络与其他虚拟网络相互隔离。 可以对每个虚拟网络执行以下操作：
+可在每个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和 Azure [区域](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json)中实现多个虚拟网络。 每个虚拟网络与其他虚拟网络相互隔离。 可以对每个虚拟网络执行以下操作：
 - 使用公共和专用 (RFC 1918) 地址指定自定义专用 IP 地址空间。 Azure 从分配的地址空间中向虚拟网络中的资源分配一个专用 IP 地址。
+<!-- Not Available on #region -->
 - 将虚拟网络细分为一个或多个子网，并向每个子网分配一部分虚拟网络地址空间。
 - 使用 Azure 提供的名称解析或指定自己的 DNS 服务器以供虚拟网络中的资源使用。 若要详细了解虚拟网络中的名称解析，请参阅[虚拟网络中的资源的名称解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)一文。
 
-<a name = "internet"></a>
+
+<a name="internet"></a>
 ## <a name="internet-communication"></a>Internet 通信
 虚拟网络中的所有资源都可以与 Internet 进行出站通信。 默认情况下，资源的专用 IP 地址是源网络地址 (SNAT)，该地址已转换为 Azure 基础结构选择的公共 IP 地址。 若要了解出站网络连接的详细信息，请阅读[了解 Azure 中的出站连接](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address)一文。 若要阻止出站 Internet 连接，可以自定义路由或筛选流量。
 
@@ -60,8 +62,8 @@ Azure 资源可以通过 Azure 虚拟网络服务与虚拟网络中的其他资�
 
 无法将某些资源部署到虚拟网络，但可将资源通信限制在虚拟网络中。 若要详细了解如何限制对资源的访问，请参阅[虚拟网络服务终结点](virtual-network-service-endpoints-overview.md)。 
 
-<a name="connect-vnets">
-## <a name="aconnect-virtual-networks"></a></a>连接虚拟网络
+<a name="connect-vnets"></a>
+## <a name="connect-virtual-networks"></a>连接虚拟网络
 
 可以互相连接虚拟网络，使虚拟网络中的资源能够通过虚拟网络对等互连相互进行通信。 不同虚拟网络中的资源之间的带宽和延迟与同一虚拟网络中的资源之间的带宽和延迟相同。 若要了解对等互连的详细信息，请阅读[虚拟网络对等互连](virtual-network-peering-overview.md)一文。
 

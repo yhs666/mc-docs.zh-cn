@@ -1,9 +1,9 @@
 ---
-title: "Azure API 管理常见问题解答 | Azure"
-description: "了解 Azure API 管理中的常见问题解答、模式和最佳做法。"
+title: "Azure API 管理常见问题解答"
+description: "了解 Azure API 管理中的常见问题解答 (FAQ)、模式和最佳做法。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
+origin.date: 11/19/2017
 ms.author: v-yiso
-ms.date: 10/09/2017
-ms.openlocfilehash: c9ebf14a1afb17be9d1476a47d3fc397e71a044a
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.date: 02/26/2018
+ms.openlocfilehash: 8cc27db03e1dd0b5b51e590ce6ee3f6fe564aa67
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常见问题解答
 了解有关 Azure API 管理的常见问题解答、模式和最佳做法。
@@ -27,9 +27,8 @@ ms.lasthandoff: 09/22/2017
 ## <a name="contact-us"></a>联系我们
 * [如何向 Microsoft Azure API 管理团队提问？](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
-
 ## <a name="frequently-asked-questions"></a>常见问题
-* [功能处于预览中意味着什么？](#what-does-it-mean-when-a-feature-is-in-preview)
+* [功能处于预览状态意味着什么？](#what-does-it-mean-when-a-feature-is-in-preview)
 * [如何确保 API 管理网关和后端服务之间的连接安全？](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
 * [如何将 API 管理服务实例复制到新实例？](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
 * [是否可以编程方式管理 API 管理实例？](#can-i-manage-my-api-management-instance-programmatically)
@@ -61,15 +60,15 @@ ms.lasthandoff: 09/22/2017
 当功能处于预览状态时，这意味着我们正在积极寻求关于功能效果如何的反馈。 处于预览状态的功能具备完整功能，但我们可能为了响应客户反馈而进行重大更改。 建议不要在生产环境中依赖处于预览状态的功能。 如果有任何关于预览功能的反馈，请通过[如何向 Microsoft Azure API 管理团队提问？](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)中的联系选项之一告知我们。
 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>如何确保 API 管理网关和后端服务之间的连接安全？
-有多个选项可确保 API 管理网关和后端服务之间的连接安全。 可以：
+有多个选项可确保 API 管理网关和后端服务之间的连接安全。 方法：
 
-* 使用 HTTP 基本身份验证。 有关详细信息，请参阅[配置 API 设置](./api-management-howto-create-apis.md#configure-api-settings)。
+* 使用 HTTP 基本身份验证。 有关详细信息，请参阅[导入并发布第一个 API](import-and-publish.md)。
 * 使用[如何使用 Azure API 管理中的客户端证书身份验证确保后端服务安全](./api-management-howto-mutual-certificates.md)中所述的 SSL 相互身份验证。
 * 在后端服务上使用 IP 允许列表。 如果有标准或高级层 API 管理实例，则网关的 IP 地址保持不变。 可设置允许列表以允许此 IP 地址。 可在 Azure 门户中的仪表板上获取 API 管理实例的 IP 地址。
 * 将 API 管理实例连接到 Azure 虚拟网络。
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>如何将 API 管理服务实例复制到新实例？
-如果要将 API 管理实例复制到新实例，则有多个选项。 可以：
+如果要将 API 管理实例复制到新实例，则有多个选项可用。 方法：
 
 * 使用 API 管理中的备份和还原功能。 有关详细信息，请参阅[如何使用 Azure API 管理中的服务备份和还原实现灾难恢复](./api-management-howto-disaster-recovery-backup-restore.md)。
 * 使用 [API 管理 REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx) 创建自己的备份和还原功能。 使用 REST API 保存和还原所需服务实例中的实体。
@@ -103,11 +102,11 @@ ms.lasthandoff: 09/22/2017
 有几种选项可用于在 API 管理中使用 API 版本控制：
 
 * 在 API 管理中，可将 API 配置为表示不同版本。 例如，可具有两个不同的 API，MyAPIv1 和 MyAPIv2。 开发人员可选择其要使用的版本。
-* 还可使用不包含版本段的服务 URL 配置 API，例如 https://my.api。 然后，在每个操作的[重写 URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) 模板上配置版本段。 例如，可使操作带有名为 /resource 的 [URL 模板](./api-management-howto-add-operations.md#url-template)和名为 /v1/Resource 的[重写 URL](./api-management-howto-add-operations.md#rewrite-url-template) 模板。 可为每个操作单独更改版本段值。
+* 还可使用不包含版本段的服务 URL 配置 API，例如 https://my.api。 然后，在每个操作的[重写 URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) 模板上配置版本段。 
 * 如果希望在 API 的服务 URL 中保留“默认”版本段，请在选定操作上设置使用[设置后端服务](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService)策略的策略以更改后端请求路径。
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>如何在单个 API 中设置多个环境？
-若要在单个 API 中设置多个环境（例如，一个测试环境和一个生产环境），则有两个选项。 可以：
+若要在单个 API 中设置多个环境（例如，一个测试环境和一个生产环境），则有两个选项。 方法：
 
 * 在同一租户上托管不同的 API。
 * 在不同租户上托管相同的 API。
@@ -134,7 +133,7 @@ ms.lasthandoff: 09/22/2017
 ### <a name="what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations"></a>向多个地理位置进行部署时，API 管理使用何种路由方法？
 向多个地理位置进行部署时，API 管理使用[性能流量路由方法](../traffic-manager/traffic-manager-routing-methods.md#priority)。 传入流量将路由到最近的 API 网关。 如果一个区域处于脱机状态，则传入流量会自动路由到下一个最近的网关。 在[流量管理器路由方法](../traffic-manager/traffic-manager-routing-methods.md)中了解有关路由方法的详细信息。
 
-### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>是否可以使用 Azure Resource Manager 模板创建 API 管理服务实例？
+### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>是否可以使用 Azure 资源管理器模板创建 API 管理服务实例？
 是的。 请参阅 [Azure API 管理服务](http://aka.ms/apimtemplate)快速入门模板。
 
 ### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>是否可以为后端使用自签名 SSL 证书？

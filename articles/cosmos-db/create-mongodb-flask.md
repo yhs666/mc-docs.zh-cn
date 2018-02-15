@@ -16,11 +16,11 @@ ms.topic: quickstart
 origin.date: 10/02/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: eaa3f258ee62c2a14a2f3d47a6a1dc1d0f9b999f
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 2875136af1e36f95388a178ac9b736737065903b
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB：借助 MongoDB API 构建 Flask 应用
 
@@ -41,7 +41,8 @@ Azure Cosmos DB 是 Azure 的多区域分布式多模型数据库服务。 可�
     1. 选择扩展。
     2. 通过在命令面板 `Ctrl+Shift+P` 中键入 `ext install` 来安装扩展。
 
-    本文档中的示例使用 Don Jayamanne 的常用、全功能型 [Python 扩展](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python)。
+    本文档中的示例使用 Don Jayamanne 的常用全功能型 Python 扩展。
+<!-- Not Available on [Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) -->
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
@@ -130,8 +131,8 @@ Azure Cosmos DB 是 Azure 的多区域分布式多模型数据库服务。 可�
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-然后需要将 MONGOURL、MONGO_PASSWORD 和 MONGO_USERNAME 添加到应用程序设置中。 可参阅此[教程](/app-service-web/web-sites-configure#application-settings)了解有关 Azure Web 应用中应用程序设置的详细信息。
-
+然后需要将 MONGOURL、MONGO_PASSWORD 和 MONGO_USERNAME 添加到应用程序设置中。 可参阅此[教程](/app-service/web-sites-configure#application-settings)了解有关 Azure Web 应用中应用程序设置的详细信息。
+<!-- Redirect /app-service-web/web-sites-configure TO /app-service/web-sites-configure -->
 <!-- Not Available on <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank"> -->
 
 > [!NOTE]

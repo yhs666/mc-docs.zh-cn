@@ -1,9 +1,9 @@
 ---
-title: "使用 Git 配置 Azure API 管理服务 | Azure"
+title: "使用 Git 配置 API 管理服务"
 description: "了解如何使用 Git 保存和配置 API 管理服务。"
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: mattfarm
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: d74d4a84d490bb151385d9919089d5dc0b228fd0
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 052e5856dd03fb6c6b2a6454a17d126376b267ca
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 保存和配置 API 管理服务
 > 
@@ -89,7 +89,7 @@ ms.lasthandoff: 09/08/2017
 
 ![生成密码][api-management-generate-password]
 
-若要生成密码，请先确保“到期”设置为所需的到期日期和时间，然后单击“生成令牌”。
+要生成密码，先确保“到期”设置为所需的到期日期和时间，并单击“生成令牌”。
 
 ![密码][api-management-password]
 
@@ -285,7 +285,7 @@ git push
   * [服务部署 PowerShell cmdlet 参考](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [服务管理 PowerShell cmdlet 参考](https://msdn.microsoft.com/library/azure/mt613507.aspx)
 * 在发布者门户中管理服务实例
-  * [管理第一个 API](./api-management-get-started.md)
+  * [管理第一个 API](import-and-publish.md)
 * 使用 REST API 管理服务实例
   * [API 管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

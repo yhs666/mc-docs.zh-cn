@@ -1,5 +1,5 @@
 ---
-title: "如何在包含应用程序网关的虚拟网络中使用 Azure API 管理 | Azure"
+title: "如何在包含应用程序网关的虚拟网络中使用 Azure API 管理"
 description: "了解如何在使用应用程序网关 (WAF) 作为前端的内部虚拟网络中设置和配置 Azure API 管理"
 services: api-management
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/16/2017
+origin.date: 09/19/2017
 ms.author: sasolank
-ms.date: 
-ms.openlocfilehash: 58d10002cc04bc3701eae5e98e1422dc62c58d83
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.date: 02/29/2018
+ms.openlocfilehash: 78499ec40f783b2026d66677e962cde93c9de206
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>在包含应用程序网关的内部 VNET 中集成 API 管理 
 
@@ -33,7 +33,17 @@ ms.lasthandoff: 09/22/2017
 * 使用单个 API 管理资源，并向外部使用者提供在 API 管理中定义的一部分 API。
 * 提供配套的方式让客户启用和禁用通过公共 Internet 对 API 管理的访问。 
 
-##<a name="scenario"></a>方案
+## <a name="prerequisites"></a>先决条件
+
+若要执行本文中所述的步骤，必须具有：
+
++ 一个有效的 Azure 订阅。
+
+    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
++ 一个 APIM 实例。 有关详细信息，请参阅[创建 Azure API 管理实例](get-started-create-service-instance.md)。
+
+##<a name="scenario"> </a> 方案
 本文介绍如何对内部和外部使用者使用单个 API 管理服务，并使其充当本地和云 API 的单一前端。 另外，还介绍了如何使用应用程序网关中提供的 PathBasedRouting 功能，仅公开一部分 API（在示例中以绿色突出显示）供外部使用。
 
 在第一个设置示例中，只能从虚拟网络内部管理所有 API。 内部使用者（以橙色突出显示）可以访问所有内部和外部 API。 流量永远不会外发到 Internet，并且可以通过 Express Route 线路提供较高的性能。
@@ -49,9 +59,9 @@ ms.lasthandoff: 09/22/2017
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>在 API 管理与应用程序网关之间创建集成需要做好哪些准备？
 
 * **后端服务器池：**API 管理服务的内部虚拟 IP 地址。
-* **后端服务器池设置：** 每个池都有一些设置，例如端口、协议和基于 Cookie 的关联性。 这些设置将应用到池中的所有服务器。
+* **后端服务器池设置：** 每个池都有一些设置，例如端口、协议和基于 cookie 的关联性。 这些设置将应用到池中的所有服务器。
 * **前端端口：**此端口是应用程序网关上打开的公共端口。 抵达此端口的流量将重定向到后端服务器之一。
-* **侦听器：** 侦听器具有前端端口、协议（Http 或 Https，这些值区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。
+* **侦听器：**侦听器具有前端端口、协议（Http 或 Https，这些值区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。
 * **规则：**规则将侦听器绑定到后端服务器池。
 * **自定义运行状况探测：**默认情况下，应用程序网关使用基于 IP 地址的探测来判断 BackendAddressPool 中的哪些服务器处于活动状态。 API 管理服务只响应包含正确主机标头的请求，因此默认的探测会失败。 需要定义一个自定义运行状况探测，帮助应用程序网关确定服务处于活动状态，应该转发该请求。
 * **自定义域证书：**若要从 Internet 访问 API 管理，需要创建从服务主机名到应用程序网关前端 DNS 名称的 CNAME 映射。 这可以确保发送到应用程序网关，并转发到 API 管理的主机名标头和证书是 APIM 可以识别为有效的对象。
@@ -95,7 +105,7 @@ Get-AzureRmSubscription -Subscriptionid "GUID of subscription" | Select-AzureRmS
 ```powershell
 New-AzureRmResourceGroup -Name "apim-appGw-RG" -Location "China East"
 ```
-Azure Resource Manager 要求所有资源组指定一个位置。 此位置将用作该资源组中的资源的默认位置。 请确保用于创建应用程序网关的所有命令都使用相同的资源组。
+Azure Resource Manager 要求所有资源组指定一个位置。 此位置用作该资源组中的资源的默认位置。 请确保用于创建应用程序网关的所有命令都使用相同的资源组。
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>为应用程序网关创建虚拟网络和子网
 
@@ -338,7 +348,7 @@ $appgw = New-AzureRmApplicationGateway -Name $applicationGatewayName -ResourceGr
 Get-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -Name "publicIP01"
 ```
 
-##<a name="summary"></a>摘要
+##<a name="summary"> </a> 摘要
 VNET 中配置的 Azure API 管理为配置的所有 API 提供单个网关接口，无论这些 API 是托管在本地还是云中。 将应用程序网关与 API 管理集成可以灵活地、有选择性地允许从 Internet 上访问特定 API，以及向 API 管理实例提供 Web 应用程序防火墙作为前端。
 
 ##<a name="next-steps"></a>后续步骤

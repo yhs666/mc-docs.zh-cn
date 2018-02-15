@@ -14,22 +14,24 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 11/08/2017
-ms.date: 01/08/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: ece4ed177205e27369edd7fe2b21f62dff14a286
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 8fe19514015c8cc70eed4c4e02a7b40aa0e52d00
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虚拟机的大小
 本文介绍可用于运行 Linux 应用和工作负荷的 Azure 虚拟机的可用大小与选项。 此外，还提供在计划使用这些资源时要考虑的部署注意事项。 本文也适用于 [Windows 虚拟机](../windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
+<!--PENDING FOR B-SERIES, Dv3, Ev3 GA ANOUNCEMENT -->
 | 类型                     | 大小           |    说明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [常规用途](sizes-general.md)          | DSv2, Dv2, DS, D, Av2, A0-7,  | CPU 与内存之比平衡。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 |
+| [常规用途](sizes-general.md)          | B、Dsv3、Dv3、DSv2、Dv2、DS、D、Av2、A0-7  | CPU 与内存之比平衡。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 |
 <!--Not Available B(Preview), Dsv3,Dv3-->
-| [计算优化](sizes-compute.md)        | Fs、F             | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        | | [内存优化](sizes-memory.md)         | DSv2、DS、Dv2、D   | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
+| [计算优化](sizes-compute.md)        | Fs、F             | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        | | [内存优化](sizes-memory.md)         | Esv3、Ev3、DSv2、DS、Dv2、D   | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
+<!--PENDING FOR B-SERIES, Dv3, Ev3 GA ANOUNCEMENT -->
 <!--Not Available Esv3, Ev3, M, GS, G -->
 <!--Not Available Ls-->
 <!--Not Available NV, NC-->
@@ -65,3 +67,4 @@ ms.lasthandoff: 01/05/2018
 <!--Not Available- [High performance compute](sizes-hpc.md)-->
 
 <!--Update_Description: update meta properties, wording update, update link-->
+<!--PENDING FOR B-SERIES, Ev3, Dv3 GA ANOUNCEMENT -->

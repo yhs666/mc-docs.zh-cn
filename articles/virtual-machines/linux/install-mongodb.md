@@ -15,11 +15,11 @@ ms.workload: infrastructure
 origin.date: 12/15/2017
 ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: ab2b73ecc93fcc8b551d0f683f5dd0435a825af1
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: e24b6b97f0ebd5f0f25c432223c31678d5e3ccce
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>如何在 Linux VM 上安装和配置 MongoDB
 [MongoDB](http://www.mongodb.org) 是一个流行的开源、高性能 NoSQL 数据库。 本文介绍如何使用 Azure CLI 2.0 在 Linux VM 上安装和配置 MongoDB。 也可以使用 [Azure CLI 1.0](install-mongodb-nodejs.md) 执行这些步骤。 文中提供了一些示例，详细说明如何执行以下操作：
@@ -29,7 +29,8 @@ ms.lasthandoff: 01/05/2018
 * [使用 Resource Manager 模板创建包含副本集的复杂 MongoDB 分片群集](#create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template)
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>在 VM 上手动安装和配置 MongoDB
-MongoDB 为 Red Hat/CentOS、SUSE、Ubuntu 和 Debian 等 Linux 分发版[提供了安装说明](https://docs.mongodb.com/manual/administration/install-on-linux/)。 以下示例创建 *CentOS* VM。 若要创建此环境，需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录到 Azure 帐户。
+MongoDB 为 CentOS、SUSE、Ubuntu 和 Debian 等 Linux 发行版[提供安装说明](https://docs.mongodb.com/manual/administration/install-on-linux/)。 以下示例创建 *CentOS* VM。 若要创建此环境，需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录到 Azure 帐户。
+<!-- Not Avaiable on Red Hat -->
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

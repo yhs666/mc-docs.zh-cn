@@ -16,11 +16,11 @@ ms.workload: infrastructure
 origin.date: 12/14/2017
 ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: 413f4972e4452bfb9c34fe2366cff41d86fb9ca4
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: eca15f0b285dfc3a7c8e6ad9eb959c98f82fbf7d
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>如何加密 Linux VM 上的虚拟磁盘
 为了增强虚拟机 (VM) 的安全性以及符合性，可以加密虚拟磁盘和 VM 本身。 VM 是使用 Azure 密钥保管库中受保护的加密密钥加密的。 可以控制这些加密密钥，以及审核对它们的使用。 本文介绍如何使用 Azure CLI 2.0 加密 Linux VM 上的虚拟磁盘。 也可以使用 [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
@@ -144,7 +144,8 @@ Linux VM 上的虚拟磁盘是使用 [dm-crypt](https://wikipedia.org/wiki/Dm-cr
 ## <a name="requirements-and-limitations"></a>要求和限制
 磁盘加密支持的方案和要求
 
-* 以下 Linux 服务器 SKU - Ubuntu、CentOS、SUSE、SUSE Linux Enterprise Server (SLES) 和 Red Hat Enterprise Linux。
+* 以下 Linux 服务器 SKU - Ubuntu、CentOS、SUSE、SUSE Linux Enterprise Server (SLES)。
+<!-- Not Avaiable on  Red Hat Enterprise Linux -->
 * 所有资源（例如密钥保管库、存储帐户和 VM）必须在同一个 Azure 区域和订阅中。
 * 标准 A、D 和 DS 系列 VM。
 * 在已加密的 Linux VM 上更新加密密钥。

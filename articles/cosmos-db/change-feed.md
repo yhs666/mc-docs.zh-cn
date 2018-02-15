@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 10/30/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: e3ce1f9528e174b63e36aa78507b302f96a868c6
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: e7264b97462eb3d7146f3b82995ba6a475af0da1
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的更改源支持
 
@@ -69,11 +69,12 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
 例如，可以使用更改源有效地执行以下任务：
 
 * 使用 Azure Cosmos DB 中存储的数据更新缓存、搜索索引或数据仓库。
-* 实现应用程序级别的数据分层和存档，即，将“热数据”存储在 Azure Cosmos DB 中，将“冷数据”搁置在 [Azure Blob 存储](../storage/common/storage-introduction.md)或 [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) 中。
+* 实现应用程序级别的数据分层和存档，即，将“热数据”存储在 Azure Cosmos DB 中，将“冷数据”搁置在 [Azure Blob 存储](../storage/common/storage-introduction.md)中。 <!-- Not Available on [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) -->
 * 使用 [Apache Hadoop](run-hadoop-with-hdinsight.md) 实现数据批量分析。
 * 在不造成任何停机的情况下迁移到使用不同分区方案的另一个 Azure Cosmos DB 帐户。
 * 使用 Azure Cosmos DB [在 Azure 上实现 lambda 管道](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/)。 Azure Cosmos DB 提供了一种可缩放的数据库解决方案，该解决方案可处理引入和查询，实现 TCO 较低的 lambda 体系结构。 
-* 接收和存储设备、传感器、基础结构和应用程序发出的事件数据，并使用 [Azure 流分析](../stream-analytics/stream-analytics-documentdb-output.md)、[Apache Storm](../hdinsight/storm/apache-storm-overview.md) 或 [Apache Spark](../hdinsight/spark/apache-spark-overview.md) 实时处理这些事件。 
+* 接收和存储设备、传感器、基础结构和应用程序发出的事件数据，并使用 [Apache Storm](../hdinsight/storm/apache-storm-overview.md) 或 [Apache Spark](../hdinsight/spark/apache-spark-overview.md) 实时处理这些事件。 
+<!-- Not Available on [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md) -->
 
 下图显示了 lambda 管道如何使用更改源支持，这些管道使用 Azure Cosmos DB 进行引入和查询： 
 

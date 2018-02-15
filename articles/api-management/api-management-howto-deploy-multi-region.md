@@ -1,25 +1,24 @@
 ---
-title: "将 Azure API 管理服务部署到多个 Azure 区域 | Azure"
+title: "将 Azure API 管理服务部署到多个 Azure 区域"
 description: "了解如何将 Azure API 管理服务实例部署到多个 Azure 区域。"
 services: api-management
 documentationcenter: 
-author: steved0x
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 47389ad6-f865-4706-833f-846115e22e4d
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
+origin.date: 10/30/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: fd5ce9c1d49fac3ca152886ce108eb37fc930e27
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 8713d4e49db234eb0443a5bd1c1a8a5ad0849ebe
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>如何将 Azure API 管理服务实例部署到多个 Azure 区域
 API 管理支持多区域部署，该部署可使 API 发布者在任意数量的所需 Azure 区域中分配单个 API 管理服务。 这有助于减少地理上分散的 API 使用者所感知的请求延迟，并且还改善其中一个区域处于离线状态时的服务可用性。 
@@ -33,7 +32,7 @@ API 管理支持多区域部署，该部署可使 API 发布者在任意数量�
 
 ## <a name="add-region"> </a>将 API 管理服务实例部署到新区域
 > [!NOTE]
-> 如果尚未创建 API 管理服务实例，请参阅 [Azure API 管理入门][Get started with Azure API Management]教程中的[创建 API 管理服务实例][Create an API Management service instance]。
+> 如果尚未创建 API 管理服务实例，请参阅[创建 API 管理服务实例][Create an API Management service instance]。
 > 
 > 
 
@@ -71,8 +70,8 @@ API 管理支持多区域部署，该部署可使 API 发布者在任意数量�
 [api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
 [api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 
-[Create an API Management service instance]: ./api-management-get-started.md#create-service-instance
-[Get started with Azure API Management]: ./api-management-get-started.md
+[Create an API Management service instance]: get-started-create-service-instance.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 
 [Deploy an API Management service instance to a new region]: #add-region
 [Delete an API Management service instance from a region]: #remove-region

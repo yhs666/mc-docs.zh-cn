@@ -16,11 +16,11 @@ ms.workload: na
 origin.date: 12/08/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: a021462a2bbd3901b4a5ac7bac76e823f8b3f943
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: d9a37f4e75be4da59816b87a2a0277284ab94f90
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -56,12 +56,7 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 
 纵向扩展、纵向缩减或暂停服务器。 使用 Azure 门户，或者通过 PowerShell 进行完全且即时的控制。 仅为所用的部分付费。 若要详细了解不同的计划和层并使用定价计算器来确定适合自己的计划，请参阅 [Azure Analysis Services 定价](https://www.azure.cn/pricing/details/analysis-services/)。
 
-### <a name="scale-out-resources-for-fast-query-responses"></a>进行快速查询响应的横向扩展资源
-
-启用 Azure Analysis Services 横向扩展后，客户端查询就会分布在查询池中的多个查询副本中。 查询副本已同步表格模型的副本。 可以通过分散查询工作负荷，缩短查询工作负荷高峰期间的响应时间。 可以将模型处理操作与查询池分开，确保客户端查询不受处理操作的负面影响。 创建查询池时，最多可以有七个其他的查询副本（总共为八个，包括你自己的服务器在内）。 
-
-可以根据需要横向扩展查询副本，就像更改层一样。 通过门户或 REST API 配置横向扩展。 若要了解详细信息，请参阅 [Azure Analysis Services 横向扩展](analysis-services-scale-out.md)。
-
+<!-- Not Available on ### Scale-out resources for fast query responses -->
 ## <a name="keep-your-data-close"></a>将数据置于较近的位置
 可在以下 [Azure 区域](https://www.azure.cn/support/service-dashboard/)创建 Azure Analysis Services 服务器：
 | 中国 |
@@ -109,8 +104,9 @@ Azure Analysis Services 防火墙阻止所有客户端连接，规则中指定�
 #### <a name="on-premises-data-sources"></a>本地数据源
 通过安装和配置[本地数据网关](analysis-services-gateway.md)，实现对组织内本地驻留数据的安全访问。 网关提供在直接查询和内存模式下的数据访问。 当 Azure Analysis Services 模型连接到本地数据源时，将创建查询以及本地数据源的加密凭据。 网关云服务分析该查询，并将请求推送到 Azure 服务总线。 本地网关会针对挂起的请求轮询 Azure 服务总线。 然后，网关会获取查询，对凭据进行解密，并连接到数据源开始执行。 随后，结果会从数据源返回到网关，并返回到 Azure Analysis Services 数据库。
 
-Azure Analysis Services 受 [Microsoft 联机服务条款](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)和 [Microsoft 联机服务隐私声明](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx)约束。
-有关 Azure 安全性的详细信息，请参阅 [Microsoft 信任中心](https://www.microsoft.com/trustcenter/Security/AzureSecurity)。
+Azure Analysis Services 受 [Microsoft Online Services 条款](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)约束。
+<!-- Not Available on Global [Microsoft Online Services Privacy Statement](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx) -->
+<!-- Not Available on Global [Microsoft Trust Center](https://www.microsoft.com/trustcenter/Security/AzureSecurity) -->
 
 ## <a name="supports-the-latest-client-tools"></a>支持最新的客户端工具
 ![数据可视化](./media/analysis-services-overview/aas-overview-clients.png)

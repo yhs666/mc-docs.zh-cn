@@ -3,8 +3,8 @@ title: "升级 Azure 虚拟机规模集 | Microsoft Docs"
 description: "升级 Azure 虚拟机规模集"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 12/29/2017
+ms.date: 01/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: 07e656c50a62c1b8e776b37a220cb5480149a231
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: 12e69efaeadd4df96a1f913d708924f4d75dba20
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>升级虚拟机规模集
 本文介绍了如何在不停机的情况下为 Azure 虚拟机规模集推出 OS 更新。 在此上下文中，OS 更新涉及到更改 OS 的版本或 SKU，或者更改自定义映像的 URI。 在不停机的情况下更新意味着一次只更新一台虚拟机或分组更新（如一次更新一个容错域），而不是一次更新所有虚拟机。 这样做能使没有进行升级的虚拟机继续运行。
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/04/2018
 - 更改使用 Azure 托管磁盘创建的规模集的映像引用。
 - 从虚拟机内部修补 OS（这样的示例包括安装安全修补程序以及运行 Windows 更新）。 尽管此方案是受支持的，但在本文中不予讨论。
 
-此处不讨论部署为 [Azure Service Fabric](/service-fabric/) 群集的一部分的虚拟机规模集。 有关修补 Service Fabric 的详细信息，请参阅[在 Service Fabric 群集中修补 Windows OS](/service-fabric/service-fabric-patch-orchestration-application)。
+此处不讨论部署为 [Azure Service Fabric](/service-fabric/) 群集的一部分的虚拟机规模集。 有关修补 Service Fabric 的详细信息，请参阅[在 Service Fabric 群集中修补 Windows OS](/service-fabric/service-fabric-patch-orchestration-application)
 
 更改平台映像的 OS 版本/SKU 或自定义映像的 URI 的基本顺序，如下所示：
 
@@ -65,7 +65,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
 ```
 
-如果要更新自定义映像的 URI，而不是更改平台映像版本，请将 "set the new version" 一行替换为将要更新源映像 URI 的命令。 例如，如果创建规模集时没有使用 Azure 托管磁盘，更新将如下所示：
+如果要更新自定义映像的 URI，而不是更改平台映像版本，请将“set the new version”一行替换为用于更新源映像 URI 的命令。 例如，如果创建规模集时没有使用 Azure 托管磁盘，更新将如下所示：
 
 ```powershell
 # set the new version in the model data
@@ -101,4 +101,4 @@ $vmss.virtualMachineProfile.storageProfile.imageReference.id = $newImageReferenc
 ![显示正在进行更新的 Vmsseditor](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
 
 
-<!--Update_Description: link update -->
+<!-- Update_Description: wording update -->

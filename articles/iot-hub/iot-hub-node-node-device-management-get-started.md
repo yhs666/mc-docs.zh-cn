@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 中心设备管理入门 (Node) | Azure"
+title: "Azure IoT 中心设备管理入门 (Node)"
 description: "如何使用 IoT 中心设备管理进行远程设备重启。 使用 Azure IoT SDK for Node.js 实现包含直接方法的模拟设备应用和调用直接方法的服务应用。"
 services: iot-hub
 documentationcenter: .net
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/25/2017
-ms.date: 11/20/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 288476fd872197c9fbab9faca36b099bff7dec29
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.openlocfilehash: 915850259bb4a095974b1d160e753f2251befcc5
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="get-started-with-device-management-node"></a>设备管理入门 (Node)
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 11/09/2017
 
         // Respond the cloud app for the direct method
         response.send(200, 'Reboot started', function(err) {
-            if (!err) {
+            if (err) {
                 console.error('An error occured when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');
@@ -219,7 +219,7 @@ ms.lasthandoff: 11/09/2017
 ## <a name="run-the-apps"></a>运行应用
 现在，已准备就绪，可以运行应用。
 
-1. 在 **manageddevice** 文件夹的命令提示符处，运行以下命令进行直接重启方法的侦听。
+1. 在 **manageddevice** 文件夹的命令提示符处，运行以下命令以开始侦听重新启动直接方法。
 
     ```
     node dmpatterns_getstarted_device.js
@@ -229,7 +229,7 @@ ms.lasthandoff: 11/09/2017
     ```
     node dmpatterns_getstarted_service.js
     ```
-3. 可以在控制台中看到设备对直接方法的响应。
+3. 可在控制台查看对直接方法的设备响应。
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 

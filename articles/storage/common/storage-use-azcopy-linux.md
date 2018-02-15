@@ -15,14 +15,15 @@ ms.topic: article
 origin.date: 12/11/2017
 ms.date: 01/01/2018
 ms.author: v-nany
-ms.openlocfilehash: dd27a349017e7043957ebdc9bcea58b17b620642
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: bb146e897b8cd5f6ff82298036e97b99614a3c1f
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 Linux 上的 AzCopy 传输数据
-Linux 上的 AzCopy 是一个命令行实用程序，专用于使用具有优化性能的简单命令将数据复制到 Azure Blob 和文件存储以及从这些位置复制数据。 也可在存储帐户中将数据从一个对象复制到另一个对象，或者在存储帐户之间复制。
+
+AzCopy 是一个命令行实用程序，专用于使用旨在实现最佳性能的简单命令将数据复制到 Microsoft Azure Blob、文件和表存储以及从这些位置复制数据。 可在文件系统和存储帐户之间或在存储帐户之间复制数据。  
 
 有两个版本的 AzCopy 可下载。 Linux 上的 AzCopy 使用 .NET Core Framework 构建而成，以提供 POSIX 样式的命令行选项的 Linux 平台为目标。 [Windows 上的 AzCopy](../storage-use-azcopy.md) 使用 .NET Framework 构建而成，提供 Windows 样式的命令行选项。 本文介绍 Linux 上的 AzCopy。
 
@@ -206,7 +207,7 @@ azcopy \
 
 如果指定的虚拟目录不存在，AzCopy 将上传文件以在其 blob 名称中包括虚拟目录（例如，上述示例中的 `vd/abc.txt`）。
 
-### <a name="upload-all-files"></a>上传全部文件
+### <a name="upload-all-files"></a>上传所有文件
 
 ```azcopy
 azcopy \

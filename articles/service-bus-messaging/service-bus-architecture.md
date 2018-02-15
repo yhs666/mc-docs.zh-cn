@@ -1,9 +1,9 @@
 ---
-title: "服务总线体系结构 | Azure"
-description: "介绍 Azure 服务总线的消息和中继处理体系结构。"
+title: "Azure 服务总线消息处理体系结构概述"
+description: "介绍 Azure 服务总线的消息处理体系结构。"
 services: service-bus
 documentationCenter: na
-authors: sethmanheim
+author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: baf94c2d-0e58-4d5d-a588-767f996ccf7f
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/23/2017
+origin.date: 12/21/2017
 ms.author: v-yiso
-ms.openlocfilehash: 4664e5f20668d985e70e3a41008fc4a6b047c14f
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 02/05/2018
+ms.openlocfilehash: 595b085c684a01fcc536ad4cd06e605e525ec5d5
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="service-bus-architecture"></a>服务总线体系结构
 
@@ -52,4 +53,4 @@ ms.lasthandoff: 09/29/2017
 
 - [服务总线消息传送概述](./service-bus-messaging-overview.md)
 - [服务总线基础知识](./service-bus-fundamentals-hybrid-solutions.md)
-- [使用服务总线队列的队列消息解决方案](./service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+* [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)

@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 11/02/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: 698af0221260844c53c4c875c6101e2a3e04ca85
-ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
+ms.openlocfilehash: 58ce524774b2b6ffdb5a993dc937d066cabb1ca5
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>使用 Windows Azure 诊断聚合和集合事件
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/19/2018
 
 当你运行 Azure Service Fabric 群集时，最好是从一个中心位置的所有节点中收集日志。 将日志放在中心位置可帮助分析和排查群集中的问题，或该群集中运行的应用程序与服务的问题。
 
-上传和收集日志的方式之一是使用可将日志上传到 Azure 存储、也能选择发送日志到 Azure Application Insights 或 Azure 事件中心的 Windows Azure 诊断 (WAD) 扩展。 也可以使用外部进程读取存储中的事件，并将它们放在分析平台产品中。
+上传和收集日志的方式之一是使用可将日志上传到 Azure 存储并能选择发送日志到 Azure 事件中心的 Windows Azure 诊断 (WAD) 扩展。 也可以使用外部进程读取存储中的事件，并将它们放在分析平台产品中。
 <!-- Not Available [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) -->
 
 ## <a name="prerequisites"></a>先决条件
@@ -256,17 +256,16 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="collect-performance-counters"></a>收集性能计数器
 
-若要从群集中收集性能指标，请将性能计数器添加到群集的资源管理器模板中的“WadCfg > DiagnosticMonitorConfiguration”。 有关修改 `WadCfg` 以收集特定性能计数器的步骤，请参阅[通过 WAD 监控性能](service-fabric-diagnostics-perf-wad.md)。 对于我们建议收集的性能计数器列表，请参阅 [Service Fabric 性能计数器](service-fabric-diagnostics-event-generation-perf.md)。
-
-如果使用 Application Insights 接收器（如下面部分所述）并想要这些指标显示在 Application Insights 中，则确保将接收器名称添加到“sinks”部分中，如上所示。 这将自动向你的 Application Insights 资源发送单独配置的性能计数器。
-
+若要从群集中收集性能指标，请将性能计数器添加到群集的资源管理器模板中的“WadCfg > DiagnosticMonitorConfiguration”。 对于我们建议收集的性能计数器列表，请参阅 [Service Fabric 性能计数器](service-fabric-diagnostics-event-generation-perf.md)。
+<!-- Wait for [Performance monitoring with WAD](service-fabric-diagnostics-perf-wad.md) -->
+<!-- Not Available on If you are using an Application Insights sink, as described in the section below, and want these metrics to show up in Application Insights, then make sure to add the sink name in the "sinks" section as shown above. This will automatically send the performance counters that are individually configured to your Application Insights resource. -->
 <!-- Not Available on ## Send logs to Application Insights -->
 
 
 ## <a name="next-steps"></a>后续步骤
 
 正确配置 Azure 诊断后，将看到来自 ETW 和 EventSource 日志的存储表中的数据。 如果选择使用 OMS、Kibana 或其他不在 Resource Manager 模板中直接配置的任何数据分析和可视化平台，请确保设置所选平台以读入这些存储表中的数据。
-<!-- Not Available on  [Event and log analysis through OMS](service-fabric-diagnostics-event-analysis-oms.md).-->
+<!-- Not Available on [Event and log analysis through OMS](service-fabric-diagnostics-event-analysis-oms.md) -->
 <!-- Not Available on [appropriate article](service-fabric-diagnostics-event-analysis-appinsights.md) -->
 
 >[!NOTE]

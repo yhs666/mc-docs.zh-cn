@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 02/01/2016
 ms.date: 03/28/2016
 ms.author: v-dazen
-ms.openlocfilehash: 81a5d9e4da0a809fef2a5ff1d9912d1b5e345e1f
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 73fcb2c05b1c59ba15de9214300635111fda7635
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-install-mysql-on-azure"></a>如何在 Azure 上安装 MySQL
 本文介绍如何在运行 Linux 的 Azure 虚拟机上安装和配置 MySQL。
@@ -83,7 +83,8 @@ ms.lasthandoff: 06/21/2017
 
              #[root@mysqlnode ~]# service mysql restart
 
-### <a name="how-to-install-mysql-on-red-hat-os-family-like-centos-oracle-linux"></a>如何在 Red Hat OS 系列（例如 CentOS、Oracle Linux）上安装 MySQL
+### <a name="how-to-install-mysql-on-centos"></a>如何在 CentOS 上安装 MySQL
+<!-- Not Avaiable on Red Hat OS 系列（例如 CentOS、Oracle Linux） -->
 此处会将 Linux VM 与 CentOS 或 Oracle Linux 一起使用。
 
 * 步骤 1：添加 MySQL Yum 存储库   切换到 `root` 用户：

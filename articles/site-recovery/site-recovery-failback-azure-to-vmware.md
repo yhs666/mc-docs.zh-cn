@@ -15,21 +15,21 @@ ms.workload: storage-backup-recovery
 origin.date: 03/27/2017
 ms.date: 09/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 24519fc6130a1558f0a5424244b5b46c8452cd4d
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: ee8accf86dda5dd0b34a8c6391e7896b118cc60c
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>将 VMware 虚拟机和物理服务器故障回复到本地站点
 
 本文介绍如何将 Azure 虚拟机从 Azure 故障回复到本地站点。 根据此[参考](site-recovery-how-to-reprotect.md)文档重新保护计算机后，可以故障回复 VMware 虚拟机或 Windows/Linux 物理服务器时，请按照此处的说明进行故障回复。
 
 >[!NOTE]
->如果使用的是经典 Azure 门户，请参阅[此文](site-recovery-failback-azure-to-vmware-classic.md)提到的说明了解增强的“VMware 到 Azure”体系结构，并参阅[此文](site-recovery-failback-azure-to-vmware-classic-legacy.md)了解旧体系结构
+>如果使用的是经典 Azure 门户，请参阅[此处](site-recovery-failback-azure-to-vmware-classic.md)提到的说明了解增强的“VMware 到 Azure”体系结构，并参阅[此处](site-recovery-failback-azure-to-vmware-classic-legacy.md)了解旧体系结构
 
 ## <a name="overview"></a>概述
-本部分中的图片显示了这种情况下的故障回复体系结构。
+本节中图片显示了这种情况下的故障回复体系结构。
 
 如果进程服务器位于本地，且使用的是 Azure ExpressRoute 连接，请使用以下体系结构：
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 09/08/2017
 
     ![在“添加进程服务器”对话框中输入信息](./media/site-recovery-failback-azure-to-vmware-classic/psinputsadd.png)
 
-8. 单击 **“确定”**。 此操作会触发一个作业，该作业在进程服务器安装期间创建一个资源管理器部署类型虚拟机。 要将服务器注册到配置服务器，请按照[通过 Azure Site Recovery 将 VMware 虚拟机和物理服务器复制到 Azure](site-recovery-vmware-to-azure-classic.md) 中的步骤在 VM 中运行安装程序。 还会触发一个用于部署进程服务器的作业。
+8. 单击 **“确定”**。 此操作会触发一个作业，该作业在进程服务器安装期间创建一个 Resource Manager 部署类型虚拟机。 要将服务器注册到配置服务器，请按照[通过 Azure Site Recovery 将 VMware 虚拟机和物理服务器复制到 Azure](site-recovery-vmware-to-azure-classic.md) 中的步骤在 VM 中运行安装程序。 还会触发一个用于部署进程服务器的作业。
 
   进程服务器会列出在“配置服务器” > “关联服务器” > “进程服务器”选项卡上。
 
@@ -171,9 +171,11 @@ ms.lasthandoff: 09/08/2017
    * \# wget [http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm)
    * \# wget [http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm](http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm)
    * \# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm
-   * \# wget [http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm](http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_65.rpm)
+   * \# wget [http://mirror.centos.org/centos/6/os/x86_64/Packages/xfsprogs-3.1.1-20.el6.x86_64.rpm](http://mirror.centos.org/centos/6/os/x86_64/Packages/xfsprogs-3.1.1-20.el6.x86_64.rpm)
    * \# rpm -ivh xfsprogs-3.1.1-16.el6.x86_64.rpm
    * \# yum install device-mapper-multipath（在主目标服务器上启用多路径包时需要此包）
+<!-- Line: 171 SHOULD BE http://mirror.centos.org/centos/6/os/x86_64/Packages/xfsprogs-3.1.1-20.el6.x86_64.rpm -->
+<!-- http://mirror.centos.org/ site has deprecated the 6.1 - 6.6 and update the download directory as /6/ -->
 
 #### <a name="apply-custom-changes"></a>应用自定义更改
 在完成安装后步骤并安装程序包以后，请执行下述操作以应用自定义更改：
@@ -198,7 +200,7 @@ ms.lasthandoff: 09/08/2017
   * Windows 的默认保留卷是 R 卷。
   * Linux 的默认保留卷是 /mnt/retention。
 
-6. 会自动选择故障回复策略。
+6. 将自动选择故障回复策略。
 7. 单击“确定”开始重新保护以后，作业就会开始将 VM 从 Azure 复制到本地站点。 可以在“作业”选项卡上跟踪进度。
 
 如果要恢复到备用位置，则请选择针对主目标服务器配置的保留驱动器和数据存储。 故障回复到本地站点时，故障回复保护计划中的 VMware VM 会使用与主目标服务器相同的数据存储。 如果要将副本 Azure VM 恢复到相同的本地 VM，则本地 VM 所在的数据存储应与主目标服务器的相同。 如果没有本地 VM，则会在重新保护期间创建一个新的本地 VM。
@@ -230,10 +232,10 @@ ms.lasthandoff: 09/08/2017
 
 ### <a name="resolve-common-failback-issues"></a>解决常见故障回复问题
 * 如果执行只读的用户 vCenter 发现并保护虚拟机，操作将成功且故障转移可正常工作。 在重新保护期间，故障转移将失败，因为无法发现数据存储。 症状是重新保护期间不会列出数据存储。 若要解决此问题，可以使用具有适当权限的帐户更新 vCenter 凭据并重试该作业。 有关详细信息，请参阅[通过 Azure Site Recovery 将 VMware 虚拟机和物理服务器复制到 Azure](site-recovery-vmware-to-azure-classic.md)
-* 在故障回复 Linux VM 并在本地运行它时，可以看到网络管理器程序包已从该计算机卸载。 之所以发生此卸载，是因为在 Azure 中恢复 VM 时网络管理器程序包被删除。
+* 在故障回复 Linux VM 并在本地运行它时，会看到网络管理器程序包已从该计算机卸载。 之所以发生此卸载，是因为在 Azure 中恢复 VM 时网络管理器程序包被删除。
 * 当 VM 以静态 IP 地址配置且故障转移到 Azure 时，会通过 DHCP 获取 IP 地址。 当故障转移回本地时，该 VM 会继续使用 DHCP 获取 IP 地址。 如果需要，请手动登录到计算机并将 IP 地址重新设置为静态地址。
 * 如果使用 ESXi 5.5 免费版或 vSphere 6 虚拟机监控程序免费版，则故障转移会成功，但故障回复不会成功。 若要启用故障回复，请升级到以上任一程序的评估许可证。
-* 如果无法从进程服务器联系配置服务器，请通过在端口 443 上对配置服务器计算机执行 Telnet 来检查到配置服务器的连接。 还可以尝试从进程服务器计算机对配置服务器执行 ping 命令。 当进程服务器已连接到配置服务器时，它还应当具有检测信号。
+* 如果无法从进程服务器联系配置服务器，请通过在端口 443 上对配置服务器计算机执行 Telnet 来检查到配置服务器的连接。 还可以尝试从进程服务器计算机对配置服务器执行 ping 命令。 连接到配置服务器后，进程服务器也应会发出检测信号。
 * 如果尝试故障回复到备用 vCenter，请确保已发现新 vCenter，同时已发现主目标服务器。 一种典型的症状是，“重新保护”对话框中显示数据存储不可访问/不可见。
 * 作为本地物理计算机保护的 WS2008R2SP1 计算机无法从 Azure 故障回复到本地。
 

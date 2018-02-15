@@ -1,9 +1,9 @@
 ---
-title: "Azure API 管理策略表达式 | Azure"
+title: "Azure API 管理策略表达式"
 description: "了解 Azure API 管理中的策略表达式。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: ea160028-fc04-4782-aa26-4b8329df3448
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 25bab7d9797562b242bc3adf9f997207aab8f89f
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.date: 02/26/2018
+ms.openlocfilehash: f4a1cba6c72dab631f20c9c971b1cc9f73e4e313
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="api-management-policy-expressions"></a>API 管理策略表达式
 策略表达式语法为 C# 6.0 版。 每个表达式都可以访问隐式提供的[上下文](./api-management-policy-expressions.md#ContextVariables)变量以及允许的 .NET Framework 类型[子集](./api-management-policy-expressions.md#CLRTypes)。  
@@ -58,10 +58,10 @@ ms.lasthandoff: 09/22/2017
 ```  
   
 ##  <a name="PolicyExpressionsUsage"></a> 用法  
- 在任何 API 管理[策略](./api-management-policies.md)中，表达式都可以用作属性值或文本值，除非策略引用另行指定。  
+ 在任何 API 管理[策略](api-management-policies.md)中，表达式都可用作属性值或文本值（除非策略引用另行指定）。  
   
 > [!IMPORTANT]
->  请注意，在使用策略表达式对策略进行定义时，只能对策略表达式进行有限的验证。 由于表达式是在运行时的入站或出站管道中通过网关执行的，因此只要策略表达式生成了运行时异常，就会在 API 调用中出现运行时错误。  
+>  使用策略表达式定义策略时，只能对策略表达式进行有限的验证。 在运行时，表达式由网关执行，策略表达式生成的任何异常将导致运行时错误。  
   
 ##  <a name="CLRTypes"></a> 策略表达式中允许的 .NET Framework 类型  
  下表列出了策略表达式中允许的 .NET Framework 类型及其成员。  
@@ -130,7 +130,7 @@ ms.lasthandoff: 09/22/2017
 |System.Text.RegularExpressions.Group|Captures、Success|  
 |System.Text.RegularExpressions.GroupCollection|Count、Item|  
 |System.Text.RegularExpressions.Match|Empty、Groups、Result|  
-|System.Text.RegularExpressions.Regex|.ctor、IsMatch、Match、Matches、Replace|  
+|System.Text.RegularExpressions.Regex|(Constructor)、IsMatch、Match、Matches、Replace|  
 |System.Text.RegularExpressions.RegexOptions|Compiled、IgnoreCase、IgnorePatternWhitespace、Multiline、None、RightToLeft、Singleline|  
 |System.TimeSpan|全部|  
 |System.Tuple|全部|  
@@ -158,37 +158,49 @@ ms.lasthandoff: 09/22/2017
 |System.Xml.XmlNodeType|全部|  
   
 ##  <a name="ContextVariables"></a> 上下文变量  
- 在每个策略[表达式](./api-management-policy-expressions.md#Syntax)中均可隐式使用名为 `context` 的变量。 其成员提供与 `\request` 相关的信息。 所有 `context` 成员均为只读的。  
+ 在每个策略[表达式](api-management-policy-expressions.md#Syntax)中均可隐式使用名为 `context` 的变量。 其成员提供与 `\request` 相关的信息。 所有 `context` 成员均为只读的。  
   
 |上下文变量|允许的方法、属性和参数值|  
 |----------------------|-------------------------------------------------------|  
-|上下文|Api: IApi<br /><br /> 部署<br /><br /> LastError<br /><br /> 操作<br /><br /> 产品<br /><br /> 请求<br /><br /> RequestId: Guid<br /><br /> 响应<br /><br /> 订阅<br /><br /> Tracing：布尔值<br /><br /> 用户<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message：string)|  
-|context.Api|Id：string<br /><br /> Name：string<br /><br /> Path：string<br /><br /> ServiceUrl：IUrl|  
-|context.Deployment|Region：string<br /><br /> ServiceName：string|  
-|context.LastError|Source：string<br /><br /> Reason：string<br /><br /> Message：string<br /><br /> Scope：string<br /><br /> Section：string<br /><br /> Path：string<br /><br /> PolicyId：string<br /><br /> 有关 context.LastError 的详细信息，请参阅[错误处理](./api-management-error-handling-policies.md)。|  
-|context.Operation|Id：string<br /><br /> Method：string<br /><br /> Name：string<br /><br /> UrlTemplate：string|  
+|上下文|Api: IApi<br /><br /> 部署<br /><br /> LastError<br /><br /> 操作<br /><br /> 产品<br /><br /> 请求<br /><br /> RequestId: Guid<br /><br /> 响应<br /><br /> 订阅<br /><br /> Tracing：布尔值<br /><br /> User<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message：string)|  
+|context.Api|Id：string<br /><br /> IsRevisionCurrent: bool<br /><br />  Name：string<br /><br /> Path：string<br /><br /> Revision: string<br /><br /> ServiceUrl：IUrl<br /><br /> Version: string |  
+|context.Deployment|Region：string<br /><br /> ServiceName：string<br /><br /> Certificates: IReadOnlyDictionary<string, X509Certificate2>|  
+|context.LastError|Source：string<br /><br /> Reason：string<br /><br /> Message：string<br /><br /> Scope：string<br /><br /> Section：string<br /><br /> Path：string<br /><br /> PolicyId：string<br /><br /> 有关 context.LastError 的详细信息，请参阅[错误处理](api-management-error-handling-policies.md)。|  
+|context.Operation|Id：string<br /><br /> Method: 字符串<br /><br /> Name：string<br /><br /> UrlTemplate：string|  
 |context.Product|Apis：IEnumerable<IApi\><br /><br /> ApprovalRequired：bool<br /><br /> Groups：IEnumerable<IGroup\><br /><br /> Id：string<br /><br /> Name：string<br /><br /> State：enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit：int?<br /><br /> SubscriptionRequired：bool|  
-|context.Request|Body：IMessageBody<br /><br /> Certificate：System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Headers：IReadOnlyDictionary<string, string[]><br /><br /> IpAddress：string<br /><br /> MatchedParameters：IReadOnlyDictionary<string, string><br /><br /> Method：string<br /><br /> OriginalUrl：IUrl<br /><br /> Url：IUrl|  
+|context.Request|Body: IMessageBody<br /><br /> Certificate：System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> Headers：IReadOnlyDictionary<string, string[]><br /><br /> IpAddress：string<br /><br /> MatchedParameters：IReadOnlyDictionary<string, string><br /><br /> Method：string<br /><br /> OriginalUrl：IUrl<br /><br /> Url：IUrl|  
 |string context.Request.Headers.GetValueOrDefault(headerName：string, defaultValue：string)|headerName：string<br /><br /> defaultValue：string<br /><br /> 如果找不到标头，则返回逗号分隔的请求标头值或 `defaultValue`。|  
 |context.Response|Body：IMessageBody<br /><br /> Headers：IReadOnlyDictionary<string, string[]><br /><br /> StatusCode：int<br /><br /> StatusReason：string|  
-|string context.Response.Headers.GetValueOrDefault(headerName：string, defaultValue：string)|headerName：string<br /><br /> defaultValue：string<br /><br /> 如果找不到标头，则返回逗号分隔的响应标头值或 `defaultValue`。|  
+|string context.Response.Headers.GetValueOrDefault(headerName：string, defaultValue：string)|headerName: 字符串<br /><br /> defaultValue：string<br /><br /> 如果找不到标头，则返回逗号分隔的响应标头值或 `defaultValue`。|  
 |context.Subscription|CreatedTime：DateTime<br /><br /> EndDate：DateTime?<br /><br /> Id：string<br /><br /> Key：string<br /><br /> Name：string<br /><br /> PrimaryKey：string<br /><br /> SecondaryKey：string<br /><br /> StartDate：DateTime?|  
 |context.User|Email：string<br /><br /> FirstName：string<br /><br /> Groups：IEnumerable<IGroup\><br /><br /> Id：string<br /><br /> Identities：IEnumerable<IUserIdentity\><br /><br /> LastName：string<br /><br /> Note：string<br /><br /> RegistrationDate：DateTime|  
 |IApi|Id：string<br /><br /> Name：string<br /><br /> Path：string<br /><br /> Protocols：IEnumerable<string\><br /><br /> ServiceUrl：IUrl<br /><br /> SubscriptionKeyParameterNames：ISubscriptionKeyParameterNames|  
-|IGroup|Id：string<br /><br /> Name：string|  
-|IMessageBody|As<T\>(preserveContent：bool = false)：其中 T 为：string、JObject、JToken、JArray、XNode、XElement、XDocument<br /><br /> `context.Request.Body.As<T>` 和 `context.Response.Body.As<T>` 方法用于以指定的类型 `T` 读取请求和响应消息正文。 该方法默认使用原始消息正文流，并在返回后将其呈现为不可用。 要通过让该方法在正文流的副本上执行操作而避免这种情况，请将 `preserveContent` 参数设置为 `true`。 请转到[此处](./api-management-transformation-policies.md#SetBody)查看示例。|  
+|IGroup|Id：string<br /><br /> Name: 字符串|  
+|IMessageBody|As<T\>(preserveContent：bool = false)：其中 T 为：string、JObject、JToken、JArray、XNode、XElement、XDocument<br /><br /> `context.Request.Body.As<T>` 和 `context.Response.Body.As<T>` 方法用于以指定的类型 `T` 读取请求和响应消息正文。 该方法默认使用原始消息正文流，并在返回后将其呈现为不可用。 要通过让该方法在正文流的副本上执行操作而避免这种情况，请将 `preserveContent` 参数设置为 `true`。 请转到[此处](api-management-transformation-policies.md#SetBody)查看示例。|  
 |IUrl|Host：string<br /><br /> Path：string<br /><br /> Port：int<br /><br /> Query：IReadOnlyDictionary<string, string[]><br /><br /> QueryString：string<br /><br /> Scheme：string|  
 |IUserIdentity|Id：string<br /><br /> Provider：string|  
 |ISubscriptionKeyParameterNames|Header：string<br /><br /> Query：string|  
 |string IUrl.Query.GetValueOrDefault(queryParameterName：string, defaultValue：string)|queryParameterName：string<br /><br /> defaultValue：string<br /><br /> 如果找不到参数，则会返回逗号分隔的查询参数值或 `defaultValue`。|  
 |T context.Variables.GetValueOrDefault<T\>(variableName：string, defaultValue：T)|variableName：string<br /><br /> defaultValue：T<br /><br /> 如果找不到变量，则会返回强制转换为 `T` 或 `defaultValue` 类型的变量值。<br /><br /> 如果指定的类型与已返回变量的实际类型不符，此方法会引发异常。|  
 |BasicAuthCredentials AsBasic(input：this string)|input：string<br /><br /> 如果输入参数包含有效的 HTTP Basic Authentication 授权请求标头值，此方法会返回类型为 `BasicAuthCredentials` 的对象；否则，此方法会返回 null。|  
-|bool TryParseBasic(input：this string, result：out BasicAuthCredentials)|input：string<br /><br /> result：out BasicAuthCredentials<br /><br /> 如果输入参数包含有效的 HTTP Basic Authentication 授权请求标头值，此方法会返回 `true` 且结果参数会包含类型为 `BasicAuthCredentials` 的值；否则，此方法会返回 `false`。|  
+|bool TryParseBasic(input：this string, result：out BasicAuthCredentials)|input：string<br /><br /> result：out BasicAuthCredentials<br /><br /> 如果输入参数包含请求标头中的有效 HTTP Basic Authentication 授权值，此方法会返回 `true` 且结果参数会包含类型为 `BasicAuthCredentials` 的值；否则，此方法会返回 `false`。|  
 |BasicAuthCredentials|Password：string<br /><br /> UserId：string|  
 |Jwt AsJwt(input：this string)|input：string<br /><br /> 如果输入参数包含有效的 JWT 令牌值，此方法会返回类型为 `Jwt` 的对象；否则，此方法会返回 `null`。|  
 |bool TryParseJwt(input：this string, result：out Jwt)|input：string<br /><br /> result：out Jwt<br /><br /> 如果输入参数包含有效的 JWT 令牌值，此方法会返回 `true` 且结果参数包含类型为 `Jwt` 的值；否则，此方法会返回 `false`。|  
 |Jwt|Algorithm：string<br /><br /> Audience：IEnumerable<string\><br /><br /> Claims：IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime：DateTime?<br /><br /> Id：string<br /><br /> Issuer：string<br /><br /> NotBefore：DateTime?<br /><br /> Subject：string<br /><br /> Type：string|  
 |string Jwt.Claims.GetValueOrDefault(claimName：string, defaultValue：string)|claimName：string<br /><br /> defaultValue：string<br /><br /> 如果找不到标头，则返回逗号分隔的声明值或 `defaultValue`。|
+|byte[] Encrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - 要加密的明文<br /><br />alg - 对称加密算法的名称<br /><br />key - 加密密钥<br /><br />iv - 初始化矢量<br /><br />返回已加密的明文。|
+|byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - 要加密的明文<br /><br />alg - 加密算法<br /><br />返回已加密的明文。|
+|byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - 要加密的明文<br /><br />alg - 加密算法<br /><br />key - 加密密钥<br /><br />iv - 初始化矢量<br /><br />返回已加密的明文。|
+|byte[] Decrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - 要解密的密文<br /><br />alg - 对称加密算法的名称<br /><br />key - 加密密钥<br /><br />iv - 初始化矢量<br /><br />返回明文。|
+|byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - 要解密的密文<br /><br />alg - 加密算法<br /><br />返回明文。|
+|byte[] Decrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - input - 要解密的密文<br /><br />alg - 加密算法<br /><br />key - 加密密钥<br /><br />iv - 初始化矢量<br /><br />返回明文。|
 
 ## <a name="next-steps"></a>后续步骤
-有关如何使用策略的详细信息，请参阅 [API 管理中的策略](./api-management-howto-policies.md)。  
+
+有关如何使用策略的详细信息，请参阅：
+
++ [API 管理中的策略](api-management-howto-policies.md)
++ [转换 API](transform-api.md)
++ [策略参考](api-management-policy-reference.md)，获取策略语句及其设置的完整列表
++ [策略示例](policy-samples.md)   

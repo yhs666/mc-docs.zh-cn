@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 02/01/2016
 ms.date: 03/28/2016
 ms.author: v-dazen
-ms.openlocfilehash: f90f210f9258b6c97dcd9a0ab77d4feb0579115e
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: cd42b221b66e0e26f18b208a0b273d50a57529b0
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>在 Azure 上安装和配置 PostgreSQL
 PostgreSQL 是一种类似于 Oracle 和 DB2 的高级开放源代码数据库。 它包含许多企业级功能，比如完整的 ACID 合规性、可靠的事务处理和多版本并发控制。 它还支持 ANSI SQL 和 SQL/MED（包括 Oracle、MySQL、MongoDB 等等的外来数据包装器）等标准。 它具有高度的可扩展性，支持超过 12 种程序语言，并支持 GIN 和 GiST 索引、空间数据，以及面向 JSON 或基于键值的应用程序的多款类似于 NoSQL 的功能。
@@ -44,7 +44,8 @@ PostgreSQL 是一种类似于 Oracle 和 DB2 的高级开放源代码数据库�
         # sudo su -
 2. 某些发行版具有在安装 PostgreSQL 之前必须安装的依赖项。 查看此列表中的发行版并运行相应的命令：
 
-   * 基于 Red Hat 的 Linux：
+   * 基于 CentOS 的 Linux：
+<!-- Change Red Hat to CentOS -->
 
            # yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
    * 基于 Debian 的 Linux：

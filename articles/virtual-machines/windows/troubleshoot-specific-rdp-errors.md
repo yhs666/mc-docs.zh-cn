@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: fd0f4b37bb9ccb27fb805bf01f65d06988eb357b
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 32d1372f66600934eae6d1ba7ee146166ee5c3dc
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>排查发送到 Azure 中 Windows VM 的特定 RDP 错误消息
 使用远程桌面连接到 Azure 中的 Windows 虚拟机 (VM) 时，可能会收到特定错误消息。 本文详细介绍遇到的一些更常见的错误消息，以及解决这些错误消息的故障排除步骤。 如果在使用 RDP 连接到 VM 时出现问题，但没有收到特定错误消息，请参阅[远程桌面故障排除指南](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -57,12 +57,12 @@ ms.lasthandoff: 12/15/2017
 * 如果使用组织的 Intranet，请确保计算机可以访问代理服务器，并可以向其发送 HTTPS 流量。
 * 如果使用本地存储的 RDP 文件，请尝试使用门户生成的 RDP 文件。 此步骤可确保使用虚拟机或云服务的正确 DNS 名称和 VM 的终结点端口。 以下是门户生成的 RDP 文件示例：
 
-        full address:s:tailspin-azdatatier.chinacloudapp.cn:55919
+        full address:s:tailspin-azdatatier.cloudapp.chinacloudapi.cn:55919
         prompt for credentials:i:1
 
 此 RDP 文件的地址部分包含：
 
-* 包含 VM 的云服务的完全限定域名（在本例中为“tailspin-azdatatier.chinacloudapp.cn”）。
+* 包含 VM 的云服务的完全限定域名（在本例中为“tailspin-azdatatier.cloudapp.chinacloudapi.cn”）。
 * 远程桌面流量终结点的外部 TCP 端口 (55919)。
 
 <a id="rdpauth"></a>
@@ -110,4 +110,4 @@ ms.lasthandoff: 12/15/2017
 
 * 有关排查访问 VM 上运行的应用程序时遇到的问题的步骤，请参阅 [Troubleshoot access to an application running on an Azure VM](../linux/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（排查访问 Azure VM 上运行的应用程序时遇到的问题）。
 * 如果在 Azure 中使用 Secure Shell (SSH) 连接到 Linux VM 时遇到问题，请参阅[对 Azure 中到 Linux VM 的 SSH 连接进行故障排除](../linux/troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

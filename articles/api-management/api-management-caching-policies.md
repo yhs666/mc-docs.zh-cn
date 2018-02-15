@@ -1,9 +1,9 @@
 ---
-title: "Azure API 管理缓存策略 | Azure"
+title: "Azure API 管理缓存策略"
 description: "了解可在 Azure API 管理中使用的缓存策略。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 11/27/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 210a03843988cf9f92e3b60d101d16e439e189b3
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 7d76d8c8e7a2c22fb6922696299c31b7a6ba2524
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="api-management-caching-policies"></a>API 管理缓存策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -34,11 +34,11 @@ ms.lasthandoff: 09/08/2017
   
 -   值缓存策略  
   
-    -   [从缓存中获取值](#GetFromCacheByKey) - 按密钥检索缓存项。  
+    -   [从缓存中获取值](#GetFromCacheByKey) - 根据密钥检索缓存的项。  
   
     -   [在缓存中存储值](#StoreToCacheByKey) - 按密钥在缓存中存储项。  
   
-    -   [从缓存中删除值](#RemoveCacheByKey) - 按密钥在缓存中删除项。  
+    -   [从缓存中删除值](#RemoveCacheByKey) - 根据密钥在缓存中删除项。  
   
 ##  <a name="GetFromCache"></a> 从缓存中获取  
  使用 `cache-lookup` 策略执行缓存查找，并返回有效的缓存响应（如果有）。 当响应内容在某个时间段内保持静态时，即可应用该策略。 响应缓存可以降低后端 Web 服务器需要满足的带宽和处理能力要求，并可以减小 API 使用者能够察觉到的延迟。  
@@ -55,7 +55,7 @@ ms.lasthandoff: 09/08/2017
   <vary-by-header>Accept-Charset</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Authorization</vary-by-header>  
-  <!-- should be present when allow-authorized-response-caching is "true"-->  
+  <!-- should be present when allow-private-response-caching is "true"-->  
   <vary-by-header>header name</vary-by-header>  
   <!-- optional, can repeated several times -->  
   <vary-by-query-parameter>parameter name</vary-by-query-parameter>  
@@ -106,7 +106,7 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |cache-lookup|根元素。|是|  
 |vary-by-header|开始按指定标头（例如 Accept、Accept-Charset、Accept-Encoding、Accept-Language、Authorization、Expect、From、Host、If-Match）的值缓存响应。|否|  
@@ -114,19 +114,18 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |allow-private-response-caching|设置为 `true` 即可缓存包含 Authorization 标头的请求。|否|false|  
 |downstream-caching-type|此属性必须设置为以下值之一。<br /><br /> -   none - 不允许下游缓存。<br />-   private - 允许下游专用缓存。<br />-   public - 允许专用和共享下游缓存。|否|无|  
-|must-revalidate|启用下游缓存时，此属性会启用或关闭网关响应中的 `must-revalidate` 缓存控制指令。|否|true|  
-|vary-by-developer|设置为 `true` 即可按开发人员密钥缓存响应。|否|false|  
-|vary-by-developer-groups|设置为 `true` 即可按用户角色缓存响应。|否|false|  
+|must-revalidate|启用下游缓存时，此属性会启用或关闭网关响应中的 `must-revalidate` 缓存控制指令。|否|是|  
+|vary-by-developer|设置为 `true` 即可按开发人员密钥缓存响应。|是||  
+|vary-by-developer-groups|设置为 `true` 即可按用户角色缓存响应。|是||  
   
 ### <a name="usage"></a>使用情况  
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
+ 此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
 -   **策略节：**入站  
-  
 -   **策略范围：**API、操作、产品  
   
 ##  <a name="StoreToCache"></a> 存储到缓存  
@@ -185,20 +184,20 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |cache-store|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |duration|缓存条目的生存时间，以秒为单位指定。|是|不适用|  
   
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**出站  
+-   **策略段：**出站  
   
 -   **策略范围：**API、操作、产品  
   
@@ -228,15 +227,15 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |cache-lookup-value|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
-|default-value|在缓存密钥查找未命中的情况下，会分配给变量的值。 如果未指定此属性，则会分配 `null`。|否|`null`|  
+|default-value|在缓存密钥查找未命中的情况下，会分配给变量的值。 如果未指定此属性，则会分 `null`。|否|`null`|  
 |key|要在查找中使用的缓存密钥值。|是|不适用|  
 |variable-name|在查找成功的情况下，会向其分配查找值的[上下文变量](./api-management-policy-expressions.md#ContextVariables)的名称。 如果查找未命中，则会为此变量分配 `default-value` 属性的值或 `null`（如果省略了 `default-value` 属性）。|是|不适用|  
   
@@ -271,13 +270,13 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |cache-store-value|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |duration|会根据提供的期间值（以秒为单位指定）将值缓存一段时间。|是|不适用|  
 |key|缓存密钥，会在其下存储值。|是|不适用|  
@@ -311,13 +310,13 @@ ms.lasthandoff: 09/08/2017
   
 #### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |cache-remove-value|根元素。|是|  
   
 #### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |key|以前所缓存的值（将从缓存中删除）的密钥。|是|不适用|  
   
@@ -330,4 +329,10 @@ ms.lasthandoff: 09/08/2017
   
 
 ## <a name="next-steps"></a>后续步骤
-有关如何使用策略的详细信息，请参阅 [API 管理中的策略](./api-management-howto-policies.md)。  
+
+有关如何使用策略的详细信息，请参阅：
+
++ [API 管理中的策略](api-management-howto-policies.md)
++ [转换 API](transform-api.md)
++ [策略参考](api-management-policy-reference.md)，获取策略语句及其设置的完整列表
++ [策略示例](policy-samples.md)   

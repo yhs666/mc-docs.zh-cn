@@ -49,9 +49,10 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
     * [存储 REST API](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)（版本 2014-02-14 或更高）
     * [服务管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)（版本 2014-10-01 或更高；适用于 Azure 经典部署）
     * [Azure 存储资源提供程序 REST API](https://docs.microsoft.com/rest/api/storagerp)（适用于 Azure Resource Manager 部署）
-    * [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs.md)（版本 0.8.10 或更高）
+    * [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)（版本 0.8.10 或更高）
+<!-- URL is not contains the .md postfix in https://docs.microsoft.com/powershell/azureps-cmdlets-docs-->
 
-    若要了解高级存储帐户的限制，请参阅[高级存储的可伸缩性和性能目标](#premium-storage-scalability-and-performance-targets)。
+    To learn about premium storage account limits, see [Premium Storage scalability and performance targets](#premium-storage-scalability-and-performance-targets).
 
 * **高级本地冗余存储**
 
@@ -59,10 +60,11 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
     Azure 使用存储帐户作为非托管磁盘的容器。 如果使用非托管磁盘创建 Azure DS、DSv2 或 Fs 系列 VM 并选择高级存储帐户，操作系统和数据磁盘会存储在该存储帐户中。
 <!-- Not Available on GS Series -->
-
-## <a name="supported-vms"></a>支持的 VM
-高级存储支持 DS 系列、DSv2 系列和 Fs 系列 VM。 可将标准和高级存储磁盘用于这些 VM 类型。 不能在不兼容高级存储的 VM 系列中使用高级存储磁盘。
-<!-- Not Available on GS Series LS Series and B-series -->
+<a name="premium-storage-supported-vms"></a>
+## 支持的 VM <!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
+高级存储支持 DS 系列、DSv2 系列、Fs 系列和 B 系列 VM。 可将标准和高级存储磁盘用于这些 VM 类型。 不能在不兼容高级存储的 VM 系列中使用高级存储磁盘。
+<!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
+<!-- Not Available on GS Series LS Series -->
 
 有关 Azure 中适用于 Windows 的 VM 类型和大小的信息，请参阅 [Windows VM 大小](../articles/virtual-machines/windows/sizes.md)。 有关 Azure 中适用于 Linux 的 VM 类型和大小的信息，请参阅 [Linux VM 大小](../articles/virtual-machines/linux/sizes.md)。
 
@@ -110,6 +112,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
     有关高级存储磁盘及其 IOPS 和吞吐量限制的详细信息，请参阅下一部分中的表格。
 
+<a name="premium-storage-scalability-and-performance-targets"></a>
 ## <a name="scalability-and-performance-targets"></a>可伸缩性和性能目标
 本部分说明在使用高级存储时要考虑的可伸缩性和性能目标。
 
@@ -306,7 +309,8 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="blog-posts"></a>博客文章
 * [Azure Premium Storage generally available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)（Azure 高级存储已正式推出）
-<!-- Not Available on * [Announcing the GS-series: Adding Premium Storage support to the largest VMs in the public cloud](https://azure.microsoft.com/blogazure-has-the-most-powerful-vms-in-the-public-cloud/) -->
+<!-- Not Available on * [Announcing the GS-series: Adding Premium Storage support to the largest VMs in the public cloud](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/) -->
 
 <!--Update_Description: wording update-->
-<!--ms.date: 01/29/2018-->
+<!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
+<!--ms.date: 02/05/2018-->

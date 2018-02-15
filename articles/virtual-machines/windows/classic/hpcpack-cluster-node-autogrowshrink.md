@@ -15,16 +15,16 @@ ms.workload: big-compute
 origin.date: 12/08/2016
 ms.date: 12/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1093037f72432a93795f6d67a6bd39382f15528a
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 08b3d7898410d99609c9ad5ab8c9953f8c60373f
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>在 Azure 中根据群集工作负荷自动扩展和收缩 HPC Pack 群集资源
 如果在 HPC Pack 群集中部署 Azure“突发”节点，或者在 Azure VM 中创建 HPC Pack 群集，可能需要借助某种方法根据群集上的工作负荷自动扩展或收缩群集资源（例如节点或核心）。 以这种方法缩放群集资源可以更有效地使用 Azure 资源并控制其成本。
 
-本文介绍 HPC Pack 提供的、用于自动缩放计算资源的两种方法：
+<a name="autogrowshrink-parameters"></a> 本文介绍 HPC Pack 提供的用于自动缩放计算资源的两种方法：
 
 * HPC Pack 群集属性 **AutoGrowShrink**
 
@@ -145,7 +145,7 @@ Set-HpcClusterProperty -ExcludeNodeGroups <group1,group2,group3>
 * **ParamSweepTasksPerCore** - 用于扩展一个核心的参数扫描任务数目。 默认为每个任务扩展一个核心。
 
   > [!NOTE]
-  > HPC Pack QFE KB3134307 将 **ParamSweepTasksPerCore** 更改为 **TasksPerResourceUnit**。 它基于作业资源类型，可以是节点、套接字或核心。
+  > HPC Pack QFE KB3134307 将 **ParamSweepTasksPerCore** 更改为 **TasksPerResourceUnit**。 它基于作业资源类型，并且可以是节点、套接字或核心。
   >
   >
 * **GrowThreshold** - 用于触发自动扩展的排队任务的阈值。 默认值为 1，这意味着，如果有 1 个或多个任务处于排队状态，自动扩展节点。
@@ -172,7 +172,7 @@ Set-HpcClusterProperty -ExcludeNodeGroups <group1,group2,group3>
   >
 
 ### <a name="mpi-example"></a>MPI 示例
-默认情况下，HPC Pack 针对 MPI 作业额外扩展 1% 的节点（**ExtraNodesGrowRatio** 设置为 1）。 原因是 MPI 可能需要多个节点，且只有在准备好所有节点时才能运行该作业。 当 Azure 启动节点时，一个节点偶尔可能需要比其他节点更多的时间才能启动，使得其他节点在等待该节点就绪前空闲。 通过额外扩展节点，HPC Pack 可减少此资源等待时间，并可能会节省成本。 若要增加 MPI 作业的附加节点百分比（例如，增加到 10%），请运行类似于下面的命令
+默认情况下，HPC Pack 针对 MPI 作业额外扩展 1% 的节点（**ExtraNodesGrowRatio** 设置为 1）。 原因是 MPI 可能需要多个节点，且只有在准备好所有节点时才能运行该作业。 当 Azure 启动节点时，一个节点偶尔可能需要比其他节点更多的时间才能启动，使得其他节点在等待该节点就绪前空闲。 通过扩展附加节点，HPC Pack 可减少此资源等待时间，并可能会节省成本。 若要增加 MPI 作业的附加节点百分比（例如，增加到 10%），请运行类似于下面的命令
 
     Set-HpcClusterProperty -ExtraNodesGrowRatio 10
 
@@ -214,7 +214,7 @@ AzureAutoGrowShrink.ps1 [-NodeTemplates <String[]>] [-JobTemplates <String[]>] [
 
 AzureAutoGrowShrink.ps1 -UseLastConfigurations [-ArgFile <String>] [-LogFilePrefix <String>] [<CommonParameters>]
 ```
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 * **NodeTemplates** - 节点模板名称，可定义节点增加和减少的范围。 如果未指定（默认值是 @()），则当 **NodeType** 的值为 AzureNodes 时，**AzureNodes** 节点组中的所有节点都在范围内，当 **NodeType** 的值为 ComputeNodes 时，**ComputeNodes** 节点组中的所有节点都在范围内。
 * **JobTemplates** - 作业模板的名称，可定义节点增加的范围。
 * **NodeType** - 增加和减少的节点类型。 支持的值是：

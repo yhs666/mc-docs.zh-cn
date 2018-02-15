@@ -14,14 +14,14 @@ ms.workload: infrastructure
 origin.date: 02/16/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 3e3608db95ee8d132fd7d38710ca0246d3e74964
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: de4669b8a1c63098067d6ba62d1b5824440c2b3c
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>通过使用 Azure CLI 2.0 将 OS 磁盘附加到恢复 VM 来对 Linux VM 进行故障排除
-如果 Linux 虚拟机 (VM) 遇到启动或磁盘错误，则可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是 `/etc/fstab` 中存在无效条目，使 VM 无法成功启动。 本文详细介绍如何使用 Azure CLI 2.0 将虚拟硬盘连接到另一个 Linux VM，以修复任何错误，并重新创建原始 VM。 还可以使用 [Azure CLI 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
+如果 Linux 虚拟机 (VM) 遇到启动或磁盘错误，则可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是 `/etc/fstab` 中存在无效条目，使 VM 无法成功启动。 本文详细介绍如何使用 Azure CLI 2.0 将虚拟硬盘连接到另一个 Linux VM，以修复任何错误，并重新创建原始 VM。 也可以使用 [Azure CLI 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
 
 ## <a name="recovery-process-overview"></a>恢复过程概述
 故障排除过程如下：
@@ -75,7 +75,7 @@ az vm delete --resource-group myResourceGroup --name myVM
 等到 VM 已完成删除，再将虚拟硬盘附加到另一个 VM。 虚拟硬盘上将其与 VM 关联的租约需要释放，才能将虚拟硬盘附加到另一个 VM。
 
 ## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>将现有虚拟硬盘附加到另一个 VM
-在后续几个步骤中，将使用另一个 VM 进行故障排除。 将现有虚拟硬盘附加到此故障排除 VM，以浏览和编辑磁盘的内容。 例如，此过程允许用户更正任何配置错误或者查看其他应用程序或系统日志文件。 选择或创建另一个 VM 以用于故障排除。
+在后续几个步骤中，使用另一个 VM 进行故障排除。 将现有虚拟硬盘附加到此故障排除 VM，以浏览和编辑磁盘的内容。 例如，此过程允许用户更正任何配置错误或者查看其他应用程序或系统日志文件。 选择或创建另一个 VM 以用于故障排除。
 
 使用 [az vm unmanaged-disk attach](https://docs.azure.cn/zh-cn/cli/vm/unmanaged-disk?view=azure-cli-latest#attach)附加现有的虚拟硬盘。 附加现有的虚拟硬盘时，请指定在前面的 `az vm show` 命令中获取的磁盘 URI。 以下示例将现有的虚拟硬盘附加到名为 `myResourceGroup` 的资源组中名为 `myVMRecovery` 的故障排除 VM：
 
@@ -87,7 +87,8 @@ az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecov
 ## <a name="mount-the-attached-data-disk"></a>装载附加的数据磁盘
 
 > [!NOTE]
-> 以下示例详细说明了在 Ubuntu VM 上需要执行的步骤。 如果使用不同的 Linux 分发版（如 Red Hat Enterprise Linux 或 SUSE），日志文件位置和 `mount` 命令可能稍有不同。 请参阅具体分发版的文档，了解命令中有哪些相应的变化。
+> 以下示例详细说明了在 Ubuntu VM 上需要执行的步骤。 如果使用不同的 Linux 发行版（如 CentOS 或 SUSE），日志文件位置和 `mount` 命令可能会稍有不同。 请参阅具体分发版的文档，了解命令中有哪些相应的变化。
+<!-- Change Red Hat to CentOS -->
 
 1. 使用相应的凭据通过 SSH 连接到故障排除 VM。 如果此磁盘是附加到故障排除 VM 的第一个数据磁盘，则此磁盘可能已连接到 `/dev/sdc`。 使用 `dmseg` 查看附加的磁盘：
 
@@ -161,7 +162,7 @@ az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecov
 
 - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
 
-该模板使用从前面的命令获得的 VHD URI 部署 VM。 使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#create)部署模板。 提供原始 VHD 的 URI，并指定 OS 类型、VM 大小和 VM 名称，如下所示：
+该模板使用从前面的命令获得的 VHD URI 部署 VM。 使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#create)部署模板。 将 URI 提供给原始 VHD，然后指定 OS 类型、VM 大小、VM 名称，如下所示：
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeployment \

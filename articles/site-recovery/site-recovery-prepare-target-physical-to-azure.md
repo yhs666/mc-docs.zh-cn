@@ -15,11 +15,11 @@ ms.workload: backup-recovery
 origin.date: 11/23/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: d24ee2cf325429b513818958ca27d5552c5d60f0
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 0186e66e84d000c0f8cc85cb43e50eab80f47a29
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="prepare-target-vmware-to-azure"></a>准备目标（VMware 到 Azure）
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/29/2017
 ## <a name="prerequisites"></a>先决条件
 
 本文假设：
-- 已创建恢复服务保管库来保护物理服务器。 可通过 [Azure 门户](http://portal.azure.cn "Azure 门户")创建恢复服务保管库。
+- 已创建恢复服务保管库来保护物理服务器。 可通过 [Azure 门户](http://portal.azure.cn)创建恢复服务保管库。
 - 已[设置本地环境](./site-recovery-set-up-physical-to-azure.md)，用于将物理服务器复制到 Azure。
 
 ## <a name="prepare-target"></a>准备目标

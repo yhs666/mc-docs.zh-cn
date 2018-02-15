@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 07/11/2017
 ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4fda79df23294fc0425a26e00089263df240bae7
-ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
+ms.openlocfilehash: 2d0b344e2c70425ffa2db8e9b11e60d5d795c8cb
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Azure 网络监视概述
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="network-watcher"></a>网络观察程序
 
-网络观察程序是一个区域性的服务，可用于在网络级别监视和诊断 Azure 内部以及传入和传出 Azure 的流量的状态。 借助网络观察程序随附的网络诊断和可视化工具，可以了解、诊断和洞察 Azure 中的网络。
+网络观察程序是一个区域性服务，可用于在网络方案级别监视和诊断 Azure 内部以及传入和传出 Azure 的流量的状态。 借助网络观察程序随附的网络诊断和可视化工具，可以了解、诊断和洞察 Azure 中的网络。
 
 网络观察程序目前提供以下功能：
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 11/10/2017
 |Microsoft.Compute/virtualMachineScaleSets/ |写入|
 |Microsoft.Network/networkWatchers/packetCaptures/ |读取|
 |Microsoft.Network/networkWatchers/packetCaptures/| 写入|
-|Microsoft.Network/networkWatchers/packetCaptures/| 删除|
+|Microsoft.Network/networkWatchers/packetCaptures/| Delete|
 |Microsoft.Network/networkWatchers/ |写入 |
 |Microsoft.Network/networkWatchers/| 读取 |
 |Microsoft.Insights/alertRules/ |*|
@@ -97,9 +97,11 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="diagnostic-logs"></a>诊断日志
 
-定期和自发性事件由网络资源创建，记录在存储帐户中并发送到事件中心或 Log Analytics。 这些日志提供资源运行状况的见解。 可在 Power BI 和 Log Analytics 等工具中查看这些日志。 若要了解如何查看诊断日志，请访问 [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)。
+定期和自发性事件由网络资源创建，记录在存储帐户中并发送到事件中心或 Log Analytics。 这些日志提供资源运行状况的见解。 可在 Power BI 和 Log Analytics 等工具中查看这些日志。
+<!-- Not Available on [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) -->
 
-诊断日志适用于[负载均衡器](../load-balancer/load-balancer-monitor-log.md)、[网络安全组](../virtual-network/virtual-network-nsg-manage-log.md)、路由和[应用程序网关](../application-gateway/application-gateway-diagnostics.md)。
+诊断日志适用于[负载均衡器](../load-balancer/load-balancer-monitor-log.md)、路由和[应用程序网关](../application-gateway/application-gateway-diagnostics.md)。
+<!-- Not Available on [Network Security Groups](../virtual-network/virtual-network-nsg-manage-log.md) -->
 
 网络观察程序提供诊断日志视图。 此视图包含所有支持诊断日志记录的网络资源。 从此视图中，可以快速方便地启用和禁用网络资源。
 
@@ -107,25 +109,25 @@ ms.lasthandoff: 11/10/2017
 
 ### <a name="troubleshooting"></a>故障排除
 
-现已针对网络资源提供了故障排除边栏选项卡，这是门户中的一个体验，可以诊断与单个资源相关的常见问题。 此体验适用于以下网络资源 - ExpressRoute、VPN 网关、应用程序网关、网络安全日志、路由、DNS、负载均衡器和流量管理器。 若要详细了解资源级故障排除，请访问 [Diagnose and resolve issues with Azure Troubleshooting](https://azure.microsoft.com/blogazure-troubleshoot-diagonse-resolve-issues/)（使用 Azure 故障排除诊断和解决问题）
+现已针对网络资源提供了故障排除边栏选项卡，这是门户中的一个体验，可以诊断与单个资源相关的常见问题。 此体验适用于以下网络资源 - ExpressRoute、VPN 网关、应用程序网关、网络安全日志、路由、DNS、负载均衡器和流量管理器。 若要详细了解资源级故障排除，请访问 [Diagnose and resolve issues with Azure Troubleshooting](https://azure.microsoft.com/blog/azure-troubleshoot-diagonse-resolve-issues/)（使用 Azure 故障排除诊断和解决问题）
 
 ![故障排除信息][TS]
 
 ### <a name="resource-health"></a>资源运行状况
 
-将定期提供网络资源的运行状况。 此类资源包括 VPN 网关和 VPN 隧道。 可在 Azure 门户中访问资源运行状况。 若要详细了解资源运行状况，请访问 [Resource Health Overview](../resource-health/resource-health-overview.md)（资源运行状况概述）
+将定期提供网络资源的运行状况。 此类资源包括 VPN 网关和 VPN 隧道。 可在 Azure 门户中访问资源运行状况。 若要详细了解资源运行状况，请访问 [Resource Health Overview](../service-health/resource-health-overview.md)（资源运行状况概述）
+<!-- Redirect (../resource-health/resource-health-overview.md) To (../service-health/resource-health-overview.md) -->
 
 ## <a name="next-steps"></a>后续步骤
 
 了解网络观察程序后，可以继续学习以下知识：
 
 访问 [Variable packet capture in the Azure portal](network-watcher-packet-capture-manage-portal.md)（Azure 门户中的可变数据包捕获），在 VM 上执行数据包捕获
-
-使用[警报触发的数据包捕获](network-watcher-alert-triggered-packet-capture.md)执行主动监视和诊断。
+<!--Not Available on [alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 
 在开源工具中[使用 Wireshark 分析数据包捕获](network-watcher-deep-packet-inspection.md)来检测安全漏洞。
 
-了解 Azure 的一些其他关键[网络功能](../networking/networking-overview.md)。
+<!-- Not Available on[networking capabilities](../networking/networking-overview.md) -->
 
 <!--Image references-->
 [TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png

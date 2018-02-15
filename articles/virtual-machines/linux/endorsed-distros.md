@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 11/21/2017
 ms.date: 01/08/2018
 ms.author: v-yeche
-ms.openlocfilehash: e45f2eb49d2c5f9f3a0f192c5a959f6b6bd1bf5f
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: c17647afbb1b66b60cdb5193b557705245451aa9
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="linux-on-distributions-endorsed-by-azure"></a>Azure 认可的 Linux 发行版
 合作伙伴会在 Azure 应用商店中提供 Linux 映像。 我们与各大 Linux 社区合作以便在认可的发行版列表中添加更多成员。 同时，对于应用商店中未提供的发行版，始终可以遵循[创建并上传包含 Linux 操作系统的虚拟硬盘](classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)自备 Linux 发行版。
@@ -28,8 +28,8 @@ ms.lasthandoff: 01/05/2018
 ## <a name="supported-distributions-and-versions"></a>支持的发行版和版本
 下表列出了 Azure 支持的 Linux 分发和版本。 有关 Azure 中支持 Linux 和开源代码技术的更多详细信息，请参阅 [Azure 中对 Linux 映像的支持](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)。
 
-Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序是 Microsoft 直接为上游 Linux 内核提供的内核模块。  默认情况下，某些 LIS 驱动程序已内置在发行版的内核中。 [适用于 Hyper-V 的 Linux Integration Services 版本 4.1](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) 中提供了基于 Red Hat Enterprise (RHEL)/CentOS 的旧式发行版供单独下载。 有关 LIS 驱动程序的详细信息，请参阅 [Linux 内核要求](create-upload-generic.md#linux-kernel-requirements)。
-
+Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序是 Microsoft 直接为上游 Linux 内核提供的内核模块。  默认情况下，某些 LIS 驱动程序已内置在发行版的内核中。 [适用于 Hyper-V 的 Linux Integration Services 版本 4.1](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) 中提供了基于 CentOS 的旧式发行版供单独下载。 有关 LIS 驱动程序的详细信息，请参阅 [Linux 内核要求](create-upload-generic.md#linux-kernel-requirements)。
+<!-- Not Avaiable on Red Hat Enterprise (RHEL) -->
 Azure Linux 代理已预装在 Azure 应用商店映像中，通常可从发行版的包存储库中获得。 源代码可在 [GitHub](https://github.com/azure/walinuxagent)上找到。
 
 | 分发 | 版本 | 驱动程序 | Agent |

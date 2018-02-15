@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 11/15/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 13babbf9a7841fce54a50d9e52038631e375a7c9
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 289b44d9dbf2dc0aca95d63456d088e9494727bb
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>使用 PowerShell 和 Azure Resource Manager 将 VMM 云中的 Hyper-V 虚拟机复制到 Azure
 > [!div class="op_single_selector"]
@@ -283,8 +283,8 @@ Azure Site Recovery 可在许多部署方案中安排虚拟机的复制、故障
         $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 
         $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -AzureVMNetworkId <string>  
-
-## <a name=monitor></a> 监视活动
+<a name="monitor"></a>
+## <a name="monitor-activity"></a>监视活动
 使用以下命令来监视活动。 请注意，必须在执行不同的作业之前等待处理完成。
 
     Do

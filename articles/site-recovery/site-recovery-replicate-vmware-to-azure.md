@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 09/29/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: d585ee15e0e60cebab30f3f543782067af98134a
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 76ef711c68a1796928049500248834656a5542dc
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="replicate-applications-running-on-vmware-virtual-machines-to-azure"></a>将在 VMware 虚拟机上运行的应用程序复制到 Azure
 
@@ -60,9 +60,10 @@ ms.lasthandoff: 12/01/2017
     >   * 可以选择高级或标准存储帐户。 如果选择高级帐户，则需要为正在进行的复制日志指定其他标准存储帐户。 这些帐户必须位于与恢复服务保管库相同的区域中。
     >   * 如果要使用不同的存储帐户，可以[创建一个](../storage/common/storage-create-storage-account.md)。 若要使用资源管理器创建存储帐户，请单击“新建”。 如果要使用经典模型创建存储帐户，请在 Azure 门户中执行该操作。
 
-8. 选择 Azure VM 在故障转移后启动时所要连接的 Azure 网络和子网。 该网络必须位于与恢复服务保管库相同的区域中。 选择“立即为选定的计算机配置”，将网络设置应用到选择保护的所有计算机。  选择“稍后配置”以选择每个计算机的 Azure 网络。 如果没有网络，需要[创建一个](#set-up-an-azure-network)。 若要使用资源管理器创建网络，请单击“新建”。 如果要使用经典模型创建网络，请[在 Azure 门户中](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)执行该操作。 选择适用的子网，然后单击“确定”。
+8. 选择 Azure VM 在故障转移后启动时所要连接的 Azure 网络和子网。 该网络必须位于与恢复服务保管库相同的区域中。 选择“立即为选定的计算机配置”，将网络设置应用到选择保护的所有计算机。  选择“稍后配置”以选择每个计算机的 Azure 网络。 如果没有网络，需创建一个。 若要使用资源管理器创建网络，请单击“新建”。 如果要使用经典模型创建网络，请[在 Azure 门户中](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)执行该操作。 选择适用的子网，然后单击“确定”。
+<!-- Anchor not Exist on [创建一个](#set-up-an-azure-network) -->
 
-    ![启用复制目标设置](./media/site-recovery-vmware-to-azure/enable-rep3.png)
+    ![Enable replication target setting](./media/site-recovery-vmware-to-azure/enable-rep3.png)
 9. 在“虚拟机” > “选择虚拟机”中，选择要复制的每个虚拟机。 只能选择可以启用复制的计算机。 。
 
     ![启用复制 选择虚拟机](./media/site-recovery-vmware-to-azure/enable-replication5.png)

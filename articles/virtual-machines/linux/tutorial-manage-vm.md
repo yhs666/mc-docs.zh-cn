@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 05/02/2017
-ms.date: 10/16/2017
+origin.date: 02/05/2018
+ms.date: 02/05/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2da6b2541de80296bfe166fabbfaf636a1b8f9e6
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: cce625f18315c98a9f43b06c3a98a9737c59d3bb
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>使用 Azure CLI 创建和管理 Linux VM
 
@@ -150,12 +150,14 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 下表将大小分类成了多个用例。  
 
+<!--PENDING FOR Dv3,Ev3 GA ANOUNCEMENT -->
 | 类型                     | 大小           |    说明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [常规用途](sizes-general.md)         |DSv2、Dv2、DS、D、Av2、A0-7| CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
+| [常规用途](sizes-general.md)         |Dsv3、Dv3、DSv2、Dv2、DS、D、Av2、A0-7| CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
 | [计算优化](sizes-compute.md)   | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
-| [内存优化](../virtual-machines-windows-sizes-memory.md)    | DSv2、DS、Dv2、D   | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
-<!-- Not Available Dsv3, Ls, G, NV, H series-->
+| [内存优化](../virtual-machines-windows-sizes-memory.md)    | Esv3、Ev3、DSv2、DS、Dv2、D   | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
+<!--PENDING FOR Dv3,Ev3 GA ANOUNCEMENT -->
+<!-- Not Available Ls, G, NV, H series-->
 
 ### <a name="find-available-vm-sizes"></a>查找可用的 VM 大小
 
@@ -322,3 +324,4 @@ az group delete --name myResourceGroupVM --no-wait --yes
 > [创建和管理 VM 磁盘](./tutorial-manage-disks.md)
 
 <!--Update_Description: update meta properties, wording update-->
+<!--PENDING FOR Ev3, Dv3 GA ANOUNCEMENT -->

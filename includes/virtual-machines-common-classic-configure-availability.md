@@ -1,4 +1,4 @@
-可用性集可帮助虚拟机在停机期间（例如维护期间）保持可用。 在可用性集中放置两个或更多个类似配置的虚拟机，将可针对虚拟机运行的应用程序或服务创建保持其可用性所需的冗余。 有关工作原理的详细信息，请参阅[管理虚拟机的可用性][Manage the availability of virtual machines]。
+可用性集可帮助虚拟机在停机期间（例如维护期间）保持可用。 在可用性集中放置两个或更多个类似配置的虚拟机，即可针对虚拟机运行的应用程序或服务创建保持其可用性所需的冗余。 有关工作原理的详细信息，请参阅[管理虚拟机的可用性][Manage the availability of virtual machines]。
 
 同时使用可用性集和负载均衡终结点是帮助确保应用程序一直可用并有效运行的最佳实践。 有关负载均衡终结点的详细信息，请参阅 [Azure 基础结构服务的负载均衡][Load balancing for Azure infrastructure services]。
 
@@ -12,7 +12,7 @@
 > 
 > 
 
-## <a id="createset"> </a>选项 1：同时创建虚拟机和可用性集
+## <a id="createset"></a>选项 1：同时创建虚拟机和可用性集
 可以使用 Azure 门户或 Azure PowerShell 命令来执行此操作。
 
 若要使用 Azure 门户：
@@ -35,8 +35,8 @@
 
 若要使用 Azure PowerShell 命令创建 Azure 虚拟机并将它添加到新的或现有的可用性集，请参阅[使用 Azure PowerShell 创建和预配置基于 Windows 的虚拟机](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a id="addmachine"> </a>选项 2：将现有虚拟机添加到可用性集
-在 Azure 门户中，可以将现有经典虚拟机添加到现有可用性集，或为现有经典虚拟机创建新的可用性集。 （请记住，同一可用性集中的虚拟机必须属于同一云服务。）） 步骤几乎完全相同。 使用 Azure PowerShell 时，可以将虚拟机添加到现有可用性集。
+## <a id="addmachine"></a>选项 2：将现有虚拟机添加到可用性集
+在 Azure 门户中，可以将现有经典虚拟机添加到现有可用性集，或为现有经典虚拟机创建新的可用性集。 （请记住，同一可用性集中的虚拟机必须属于同一云服务。）步骤几乎完全相同。 使用 Azure PowerShell 时，可以将虚拟机添加到现有可用性集。
 
 1. 如果尚未登录 [Azure 门户](https://portal.azure.cn)，请先登录。
 2. 在“中心”菜单中，单击“虚拟机(经典)”。

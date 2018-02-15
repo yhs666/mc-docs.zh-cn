@@ -1,25 +1,24 @@
 ---
-title: "Azure API 管理高级策略 | Azure"
+title: "Azure API 管理高级策略"
 description: "了解可在 Azure API 管理中使用的高级策略。"
 services: api-management
 documentationcenter: 
 author: vladvino
 manager: erikre
 editor: 
-ms.assetid: 8a13348b-7856-428f-8e35-9e4273d94323
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 17224f3348f69ccc7623669ff6c08d13850abf25
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.date: 02/26/2018
+ms.openlocfilehash: 7ef0d427433d906981e9527846d766143fec9ae8
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="api-management-advanced-policies"></a>API 管理高级策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -136,7 +135,7 @@ ms.lasthandoff: 09/22/2017
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必选|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |choose|根元素。|是|  
 |when|条件，用于 `choose` 策略的 `if` 或 `ifelse` 部分。 如果 `choose` 策略包含多个 `when` 节，则按顺序对其求值。 一旦 when 元素的 `condition` 的求值结果为 `true`，不再对 `when` 条件求值。|是|  
@@ -144,7 +143,7 @@ ms.lasthandoff: 09/22/2017
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必选|  
+|属性|说明|必须|  
 |---------------|-----------------|--------------|  
 |condition="布尔表达式 &#124; 布尔常量"|对包含 `when` 的策略语句求值时需求值的布尔表达式或常量。|是|  
   
@@ -248,15 +247,15 @@ ms.lasthandoff: 09/22/2017
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必选|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |forward-request|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必选|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|-------------|  
-|timeout="整数"|以秒为单位的超时间隔，此时间过后对后端服务的调用会失败。|否|无超时|  
+|timeout="整数"|以秒为单位的超时间隔，此时间过后对后端服务的调用会失败。|否|300 秒|  
 |follow-redirects="true &#124; false"|指定是由网关执行从后端服务的重定向，还是将重定向返回到调用方。|否|false|  
   
 ### <a name="usage"></a>使用情况  
@@ -267,26 +266,26 @@ ms.lasthandoff: 09/22/2017
 -   **策略范围：**所有范围  
   
 ##  <a name="LimitConcurrency"></a> 限制并发  
- `limit-concurrency` 策略阻止括住的策略在给定时间执行超过指定数量的请求。 超过阈值时，会向队列中添加新的请求，直到达到最大队列长度。 队列排满后，新请求将立即失败。
+ `limit-concurrency` 策略阻止括住的策略在给定时间执行超过指定数量的请求。 超过该数量后，新请求将立即失败并显示“429 请求过多”状态代码。
   
 ###  <a name="LimitConcurrencyStatement"></a> 策略语句  
   
 ```xml  
-<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+<limit-concurrency key="expression" max-count="number">
         <!— nested policy statements -->  
 </limit-concurrency>
 ``` 
 
 ### <a name="examples"></a>示例  
   
-####  <a name="ChooseExample"></a> 示例  
+#### <a name="example"></a>示例  
  下例演示了如何基于上下文变量的值限制转发到后端的请求数。
  
 ```xml  
 <policies>
   <inbound>…</inbound>
   <backend>
-    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
     <limit-concurrency/>
   </backend>
@@ -296,20 +295,18 @@ ms.lasthandoff: 09/22/2017
 
 ### <a name="elements"></a>元素  
   
-|元素|说明|必选|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|    
 |limit-concurrency|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必选|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|--------------|  
 |key|一个字符串。 允许使用表达式。 指定并发作用域。 可以由多个策略共享。|是|不适用|  
 |max-count|一个整数。 指定允许输入策略的最大请求数。|是|不适用|  
-|timeout|一个整数。 允许使用表达式。 指定在失败并出现“429 请求数过多”消息之前请求进入作用域应等待的秒数|否|Infinity|  
-|max-queue-length|一个整数。 允许使用表达式。 指定最大队列长度。 队列已满时，尝试进入此策略的传入请求将被立即终止，并出现“429 请求数过多”消息。|否|Infinity|  
   
-###  <a name="ChooseUsage"></a> 用法  
+### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[范围](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)中使用。  
   
 -   **策略节：**入站、出站、后端、错误时  
@@ -348,13 +345,13 @@ ms.lasthandoff: 09/22/2017
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必选|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |log-to-eventhub|根元素。 此元素的值是要记录到事件中心的字符串。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必选|  
+|属性|说明|必须|  
 |---------------|-----------------|--------------|  
 |logger-id|注册到 API 管理服务的记录器的 ID。|是|  
 |partition-id|指定在其中发送消息的分区的索引。|可选。 如果使用 `partition-key`，则不能使用此属性。|  
@@ -391,13 +388,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必选|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |mock-response|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必选|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|--------------|  
 |status-code|指定响应状态代码并用于选择相应的示例或架构。|否|200|  
 |content-type|指定 `Content-Type` 响应标头值，并用于选择相应的示例或架构。|否|无|  
@@ -447,16 +444,16 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必选|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |retry|根元素。 可能包含任何可充当其子元素的其他策略。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必选|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|-------------|  
 |条件|一个布尔文本或[表达式](./api-management-policy-expressions.md)，指定是应停止重试 (`false`) 还是应继续重试 (`true`)。|是|不适用|  
-|count|一个正数，指定进行尝试时的最大重试次数。|是|不适用|  
+|计数|一个正数，指定进行尝试时的最大重试次数。|是|不适用|  
 |interval|一个以秒为单位的正数，指定两次重试之间的等待时间。|是|不适用|  
 |max-interval|一个以秒为单位的正数，指定两次重试之间的最长等待时间， 用于实现指数重试算法。|否|不适用|  
 |delta|一个以秒为单位的正数，指定等待时间间隔增量， 用于实现线性和指数重试算法。|否|不适用|  
@@ -502,7 +499,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必选|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |return-response|根元素。|是|  
 |set-header|[set-header](./api-management-transformation-policies.md#SetHTTPheader) 策略语句。|否|  
@@ -511,7 +508,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必选|  
+|属性|说明|必须|  
 |---------------|-----------------|--------------|  
 |response-variable-name|上下文变量的名称，该变量引用自特定的策略（例如上游 [send-request](./api-management-advanced-policies.md#SendRequest) 策略）且包含 `Response` 对象|可选。|  
   
@@ -568,7 +565,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必选|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |send-one-way-request|根元素。|是|  
 |url|请求的 URL。|如果 mode=copy，则为否；否则为是。|  
@@ -578,7 +575,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必选|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|-------------|  
 |mode="string"|确定请求是新请求还是当前请求的副本。 在出站模式下，mode=copy 不会初始化请求正文。|否|新建|  
 |name|指定要设置的标头的名称。|是|不适用|  
@@ -647,7 +644,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必选|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |send-request|根元素。|是|  
 |url|请求的 URL。|如果 mode=copy，则为否；否则为是。|  
@@ -657,7 +654,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必选|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|-------------|  
 |mode="string"|确定请求是新请求还是当前请求的副本。 在出站模式下，mode=copy 不会初始化请求正文。|否|新建|  
 |response-variable-name="string"|如果不存在，则使用 `context.Response`。|否|不适用|  
@@ -693,13 +690,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必选|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |proxy|Root 元素|是|  
 
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必选|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|-------------|  
 |url="string"|http://host:port 形式的代理 URL。|是|不适用|  
 |username="string"|要用于向代理进行身份验证的用户名。|否|不适用|  
@@ -753,7 +750,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必选|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |set-method|根元素。 此元素的值指定 HTTP 方法。|是|  
   
@@ -793,13 +790,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必选|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |set-status|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必选|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|-------------|  
 |code="整数"|要返回的 HTTP 状态代码。|是|不适用|  
 |reason="字符串"|说明返回状态代码的原因。|是|不适用|  
@@ -829,13 +826,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必选|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |set-variable|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必选|  
+|属性|说明|必须|  
 |---------------|-----------------|--------------|  
 |name|变量的名称。|是|  
 |value|变量的值， 可以是表达式或文本值。|是|  
@@ -927,13 +924,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必选|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |trace|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必选|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|-------------|  
 |源|对跟踪查看器有意义的字符串文本，指定消息的源。|是|不适用|  
   
@@ -994,13 +991,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>元素  
   
-|元素|说明|必选|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |wait|根元素。 可能只包含 `send-request`、`cache-lookup-value`、`choose` 策略作为子元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|属性|说明|必选|默认|  
+|属性|说明|必须|默认|  
 |---------------|-----------------|--------------|-------------|  
 |for|确定 `wait` 策略是等待所有直接子策略完成，还是只等待其中之一完成。 允许值包括：<br /><br /> -   `all` - 等待所有直接子策略完成<br />-   any - 等待任一直接子策略完成。 第一个直接子策略完成后，`wait` 策略即告完成，同时会终止执行任何其他直接子策略。|否|本应返回的所有记录的总数，|  
   
@@ -1013,5 +1010,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ## <a name="next-steps"></a>后续步骤
 有关如何使用策略的详细信息，请参阅：
--   [API 管理中的策略](./api-management-howto-policies.md) 
--   [策略表达式](./api-management-policy-expressions.md)
++ [API 管理中的策略](api-management-howto-policies.md) 
++ [策略表达式](api-management-policy-expressions.md)
++ [策略参考](api-management-policy-reference.md)，获取策略语句及其设置的完整列表
++ [策略示例](policy-samples.md)   

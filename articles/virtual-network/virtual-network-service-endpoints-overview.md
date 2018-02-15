@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/15/2017
-ms.date: 12/11/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
 ms.custom: 
-ms.openlocfilehash: e81002822294d2a6e9b6ee143397ffbc86a840cf
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: ac0c2d2e986ea2660d12399cfdb3248b056a78d9
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>虚拟网络服务终结点（预览）
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/08/2017
 
 >[!NOTE]
 > 在预览期，该功能的可用性和可靠性级别可能与正式版不同。
-<!-- Not Available on  [Azure Supplemental Terms of Use for Azure Previews](https://www.azure.cn/support/legal/preview-supplemental-terms/). -->
+<!-- Not Available on  [Azure Supplemental Terms of Use for Azure Previews](https://www.azure.cn/support/legal/preview-supplemental-terms/) -->
 
 ## <a name="key-benefits"></a>主要优点
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 12/08/2017
 
   默认情况下，无法从本地网络访问在虚拟网络中保护的 Azure 服务资源。 若要允许来自本地的流量，还必须允许来自本地或 ExpressRoute 的公共（通常为 NAT）IP 地址。 可通过 Azure 服务资源的 IP 防火墙配置添加这些 IP 地址。
 
-  ExpressRoute：如果从本地使用 [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fvirtual-network%2ftoc.json)，则对于公共对等互连，每条 ExpressRoute 线路会使用两个 NAT IP 地址。当流量进入 Azure 网络主干时，会向 Azure 服务流量应用这些地址。 若要允许访问服务资源，必须在资源 IP 防火墙设置中允许这两个公共 IP 地址。 若要查找 ExpressRoute 线路 IP 地址，请通过 Azure 门户[开具 ExpressRoute 支持票证](https://www.azure.cn/support/support-ticket-form)。
+  ExpressRoute：如果是在本地使用 [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fvirtual-network%2ftoc.json)，则在进行公共对等互连或 Azure 对等互连时，需标识所用的 NAT IP 地址。 进行公共对等互连时，每条 ExpressRoute 线路默认情况下会使用两个 NAT IP 地址。当流量进入 Azure 网络主干时，会向 Azure 服务流量应用这些地址。 进行 Azure 对等互连时，所用 NAT IP 地址由客户或服务提供商提供。 若要允许访问服务资源，必须在资源 IP 防火墙设置中允许这些公共 IP 地址。 若要查找公共对等互连 ExpressRoute 线路 IP 地址，请通过 Azure 门户[开具 ExpressRoute 支持票证](https://www.azure.cn/support/support-ticket-form)。 
 <!-- Not Available on [NAT for ExpressRoute public peering.](../expressroute/expressroute-nat.md?toc=%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering) -->
 
 ![在虚拟网络中保护 Azure 服务](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
@@ -72,7 +72,7 @@ ms.lasthandoff: 12/08/2017
 - 服务终结点在虚拟网络中的子网上配置。 终结点可以处理该子网中运行的任何类型的计算实例。
 - 对于子网中的某个特定服务，只能启用一个服务终结点。 可以针对子网中的所有受支持 Azure 服务（例如 Azure 存储或 Azure SQL 数据库）配置多个服务终结点。
 - 虚拟网络应与 Azure 服务资源位于同一区域。 如果使用 GRS 和 RA-GRS Azure 存储帐户，则主帐户必须与虚拟网络位于同一区域。
-- 配置了终结点的虚拟网络可与 Azure 服务资源位于相同或不同的订阅中。 有关设置终结点和保护 Azure 服务时所需的权限的详细信息，请参阅[预配](#Provisioning)。
+- 配置了终结点的虚拟网络可与 Azure 服务资源位于相同或不同的订阅中。 有关设置终结点和保护 Azure 服务时所需的权限的详细信息，请参阅[预配](#provisioning)。
 - 对于受支持的服务，可以使用服务终结点在虚拟网络中保护新的或现有的资源。
 
 ### <a name="considerations"></a>注意事项
@@ -129,4 +129,4 @@ ms.lasthandoff: 12/08/2017
 - 了解[虚拟网络中的 Azure 服务集成](virtual-network-for-azure-services.md)
 - 快速入门：[Azure 资源管理器模板](https://www.azure.cn/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)，用于在 VNet 的子网上设置服务终结点，并保护访问该子网的 Azure 存储帐户。
 
-<!-- Update_Description: new articles on virtual network service endpoints overview -->
+<!-- Update_Description: wording update -->

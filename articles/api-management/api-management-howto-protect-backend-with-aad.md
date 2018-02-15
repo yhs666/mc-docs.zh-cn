@@ -1,25 +1,24 @@
 ---
-title: "使用 Azure Active Directory 和 API 管理保护 Web API 后端 | Azure"
+title: "使用 Azure Active Directory 和 API 管理保护 Web API 后端"
 description: "了解如何使用 Azure Active Directory 和 API 管理保护 Web API 后端。"
 services: api-management
 documentationcenter: 
-author: steved0x
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: f856ff03-64a1-4548-9ec4-c0ec4cc1600f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
+origin.date: 10/30/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 6888206b197679a7d33aa06c83c802cf26a346b0
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 5401704c7667cf09e30dfe6b9d6cfdbdd6b3bc74
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>如何使用 Azure Active Directory 和 API 管理保护 Web API 后端
 
@@ -61,7 +60,7 @@ ms.lasthandoff: 09/08/2017
 
 ![配置][api-management-configure-web-app]
 
-此示例中指定了一个新的名为“APIMAADDemo”的“应用服务计划”。
+此示例中指定了一个新的“应用服务计划”**APIMAADDemo**。
 
 单击“确定”配置 Web 应用和创建项目。
 
@@ -163,7 +162,7 @@ public class CalcController : ApiController
 
 ![应用程序][api-management-aad-backend-app]
 
-单击应用程序的名称，配置所需权限。 导航到“配置”选项卡，向下滚动到“对其他应用程序的权限”部分。 单击 Windows Azure Active Directory 旁边的“应用程序权限”下拉列表，选中“读取目录数据”框，并单击“保存”。
+单击要配置的应用程序的名称和所需权限。 导航到“配置”选项卡，向下滚动到“对其他应用程序的权限”部分。 单击 Windows Azure Active Directory 旁边的“应用程序权限”下拉列表，选中“读取目录数据”框，并单击“保存”。
 
 ![添加权限][api-management-aad-add-permissions]
 
@@ -357,7 +356,7 @@ public class CalcController : ApiController
 
 ![试用][api-management-dev-portal-try-it]
 
-单击“发送”并记下响应状态“401 未授权”。
+单击“发送”并记下“401 未授权”的响应状态。
 
 ![发送][api-management-dev-portal-send-401]
 
@@ -376,7 +375,7 @@ public class CalcController : ApiController
 
 选择“Web 应用程序和/或 Web API”，输入一个名称，并单击下一步箭头。 此示例中使用“APIMDeveloperPortal”。
 
-![新应用程序][api-management-aad-new-application-devportal-1]
+![新建应用程序][api-management-aad-new-application-devportal-1]
 
 对于“登录 URL”，请输入 API 管理服务的 URL，并追加 `/signin`。 此示例使用 `https://contoso5.portal.azure-api.net/signin`。
 
@@ -429,7 +428,7 @@ public class CalcController : ApiController
 
 ![客户端 ID][api-management-aad-client-id]
 
-单击“保存”保存配置并显示密钥。 
+单击“保存”以保存配置并显示密钥。 
 
 > [!IMPORTANT]
 > 记下此密钥。 关闭 Azure Active Directory 配置窗口后，无法再次显示密钥。
@@ -548,5 +547,5 @@ public class CalcController : ApiController
 [api-management-client-credentials]: ./media/api-management-howto-protect-backend-with-aad/api-management-client-credentials.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-aad-application-menu.png
 
-[Create an API Management service instance]: ./api-management-get-started.md#create-service-instance
-[Manage your first API]: ./api-management-get-started.md
+[Create an API Management service instance]: get-started-create-service-instance.md
+[Manage your first API]: import-and-publish.md

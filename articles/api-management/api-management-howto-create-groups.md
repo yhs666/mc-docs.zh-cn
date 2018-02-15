@@ -1,25 +1,24 @@
 ---
-title: "了解如何使用 Azure API 管理中的组管理开发人员帐户 | Azure"
+title: "使用 Azure API 管理中的组管理开发人员帐户"
 description: "了解如何使用 Azure API 管理中的组管理开发人员帐户"
 services: api-management
 documentationcenter: 
-author: steved0x
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 33660b45-442f-44be-9a4a-1899d7f699b0
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
+origin.date: 10/30/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 94c2c9930ff36e5eae98dff01c38a444656843a5
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 2c6de8bc8705d09c1eae40341d01bcbbcfd9e9dd
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>如何创建和使用组来管理 Azure API 管理中的开发人员帐户
 在 API 管理中，使用组来管理产品对开发人员的可见性。 产品首次对组可见，然后这些组中的开发人员才能查看和订阅与组关联的产品。 
@@ -28,14 +27,14 @@ API 管理具有下列不可变的系统组。
 
 * **管理员** - Azure 订阅管理员是此组的成员。 管理员管理 API 管理服务实例、创建开发人员使用的 API、操作和产品。
 * **开发人员** - 已经过身份验证的开发人员门户用户属于此组。 开发人员是使用 API 构建应用程序的客户。 开发人员有权访问开发人员门户，并构建调用 API 操作的应用程序。
-* **来宾** - 未经身份验证的开发人员门户用户，如访问此组中 API 管理实例的开发人员门户的潜在客户。 他们可以被授予某些只读访问权限，如能够查看 API，但不能调用它们。
+* **来宾** - 未经身份验证的开发人员门户用户属于此组，例如，访问某个 API 管理实例的开发人员门户的潜在客户。 他们可以被授予某些只读访问权限，如能够查看 API，但不能调用它们。
 
 除了这些系统组外，管理员还可以创建自定义组或[利用关联 Azure Active Directory 租户中的外部组][leverage external groups in associated Azure Active Directory tenants]。 自定义组和外部组可与系统组一起使用，为开发人员提供可见性并可以访问 API 产品。 例如，可以为隶属于一个特定合作伙伴组织的开发人员创建一个自定义组并仅允许他们从包含相关 API 的产品中访问 API。 用户可以是多个组的成员。
 
 本指南演示 API 管理实例的管理员如何添加新组并将它们关联到产品和开发人员。
 
 > [!NOTE]
-> 除了在发布者门户中创建和管理组外，还可使用 API 管理 REST API [组](https://msdn.microsoft.com/library/azure/dn776329.aspx)实体创建和管理组。
+> 除了在发布者门户中创建和管理组，还可使用 API 管理 REST API [组](https://msdn.microsoft.com/library/azure/dn776329.aspx)实体创建和管理组。
 > 
 > 
 
@@ -44,7 +43,7 @@ API 管理具有下列不可变的系统组。
 
 ![发布者门户][api-management-management-console]
 
-> 如果尚未创建 API 管理服务实例，请参阅 [Azure API 管理入门][Get started with Azure API Management]教程中的[创建 API 管理服务实例][Create an API Management service instance]。
+> 如果尚未创建 API 管理服务实例，请参阅[创建 API 管理服务实例][Create an API Management service instance]。
 > 
 > 
 
@@ -89,9 +88,9 @@ API 管理具有下列不可变的系统组。
 
 ![开发人员][api-management-add-group-to-developer-saved]
 
-开发人员和组之间添加关联后，便可以在“用户”选项卡中查看它。
+一旦开发人员和组之间添加关联，可以在“用户”选项卡中查看它。
 
-## <a name="next-steps"> </a>后续步骤
+## <a name="next-steps"></a>后续步骤
 * 将开发人员添加到组后，这些开发人员便可以查看和订阅与该组关联的产品。 有关详细信息，请参阅[如何在 Azure API 管理中创建和发布产品][How create and publish a product in Azure API Management]，
 * 除了在发布者门户中创建和管理组外，还可使用 API 管理 REST API [组](https://msdn.microsoft.com/library/azure/dn776329.aspx)实体创建和管理组。
 
@@ -113,6 +112,6 @@ API 管理具有下列不可变的系统组。
 
 [How create and publish a product in Azure API Management]: ./api-management-howto-add-products.md
 
-[Get started with Azure API Management]: ./api-management-get-started.md
-[Create an API Management service instance]: ./api-management-get-started.md#create-service-instance
-[leverage external groups in associated Azure Active Directory tenants]: ./api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
+[Get started with Azure API Management]: get-started-create-service-instance.md
+[Create an API Management service instance]: get-started-create-service-instance.md
+[leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group

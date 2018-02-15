@@ -1,5 +1,5 @@
 ---
-title: "IoT DevKit 到云 - 将 IoT DevKit AZ3166 连接到 Azure IoT 中心 | Microsoft Docs"
+title: "IoT DevKit 到云 - 将 IoT DevKit AZ3166 连接到 Azure IoT 中心"
 description: "在本教程中了解如何设置 IoT DevKit AZ3166 并将其连接到 Azure IoT 中心，使其能够将数据发送到 Azure 云平台。"
 services: iot-hub
 documentationcenter: 
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/20/2017
 ms.author: v-yiso
-ms.date: 01/15/2018
-ms.openlocfilehash: 23fb5320fa33020c0e6c1a84a8e49595f960643e
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.date: 02/26/2018
+ms.openlocfilehash: e25172f3927509dc94dd77eace64d429d1bc3548
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>将 IoT DevKit AZ3166 连接到云中的 Azure IoT 中心
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/05/2018
 ## <a name="what-you-do"></a>准备工作
 将 [DevKit](https://microsoft.github.io/azure-iot-developer-kit/) 连接到创建的 Azure IoT 中心，从传感器收集温度和湿度数据，并将数据发送到 IoT 中心。
 
-还没有 DevKit？ [获取一个](https://aka.ms/iot-devkit-purchase)。
+还没有 DevKit？ 试用 [DevKit 模拟器](https://azure-samples.github.io/iot-devkit-web-simulator/)或[获取一个](https://aka.ms/iot-devkit-purchase)。
 
 ## <a name="what-you-learn"></a>学习内容
 
@@ -107,8 +107,7 @@ DevKit 上运行的默认应用会检查固件的最新版本，并显示某些�
 >
 >
 
-
-如果需要升级固件，屏幕将显示当前和最新的固件版本。 请按照[升级固件](https://microsoft.github.io/azure-iot-developer-kit/docs/upgrading/)指南进行升级。
+如果需要升级固件，屏幕将显示当前和最新的固件版本。 请按照[升级固件](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/)指南进行升级。
 
 ![显示当前和最新的固件版本](./media/iot-hub-arduino-devkit-az3166-get-started/getting-started/firmware.jpg)
 
@@ -309,5 +308,6 @@ DevKit 将重新启动并开始运行代码。
 若要继续了解 Azure IoT 中心入门知识并浏览其他 IoT 方案，请参阅：
 
 - [使用 iothub-explorer 管理云设备消息传送](./iot-hub-explorer-cloud-device-messaging.md)
+- [将 IoT 中心消息保存到 Azure 数据存储](./iot-hub-store-data-in-azure-table-storage.md)
 - [使用 Web 应用可视化 Azure IoT 中心的实时传感器数据](./iot-hub-live-data-visualization-in-web-apps.md)
 - [使用 iothub-explorer 进行设备管理](./iot-hub-device-management-iothub-explorer.md)

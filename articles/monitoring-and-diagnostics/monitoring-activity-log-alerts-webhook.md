@@ -1,5 +1,5 @@
 ---
-title: "了解活动日志警报中使用的 webhook 架构 | Microsoft 文档"
+title: "了解活动日志警报中使用的 Webhook 架构"
 description: "了解有关活动日志警报激活时发布到 webhook URL 的 JSON 架构。"
 author: johnkemnetz
 services: monitoring-and-diagnostics
@@ -11,19 +11,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/31/2017
-ms.date: 12/11/2017
+ms.date: 02/26/218
 ms.author: v-yiso
-ms.openlocfilehash: 92a4fa4a04cce2fb18b00f6cdc2664ca64313023
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: cd74bb3b760300c07478922ae27af6edc04bbf19
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 活动日志警报的 Webhook
 作为操作组定义的一部分，可以配置 webhook 终结点以接收活动日志警报通知。 通过 webhook 可以将这些通知路由到其他系统，以便进行后续处理或自定义操作。 本文介绍针对 webhook 发出的 HTTP POST 的有效负载的大致形式。
 
 有关活动日志警报的详细信息，请参阅如何[创建 Azure 活动日志警报](monitoring-activity-log-alerts.md)。
 
+有关操作组的信息，请参阅如何[创建操作组](monitoring-action-groups.md)。
 
 ## <a name="authenticate-the-webhook"></a>对 webhook 进行身份验证
 Webhook 可以选择使用基于令牌的授权进行身份验证。 保存的 webhook URI 具有令牌 ID，例如，`https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`。
@@ -133,18 +134,18 @@ Webhook 可以选择使用基于令牌的授权进行身份验证。 保存的 w
 
 | 元素名称 | 说明 |
 | --- | --- |
-| status |用于度量值警报。 对于活动日志警报，始终设置为“已激活”。 |
+| 状态 |用于度量值警报。 对于活动日志警报，始终设置为“已激活”。 |
 | 上下文 |事件的上下文。 |
 | resourceProviderName |受影响资源的资源提供程序。 |
 | conditionType |始终为“事件”。 |
-| 名称 |警报规则的名称。 |
+| name |警报规则的名称。 |
 | id |警报的资源 ID。 |
-| description |创建警报时设置警报说明。 |
+| 说明 |创建警报时设置警报说明。 |
 | subscriptionId |Azure 订阅 ID。 |
 | timestamp |处理请求的 Azure 服务生成事件的时间。 |
-| resourceId |受影响资源的资源 ID。 |
+| ResourceId |受影响资源的资源 ID。 |
 | resourceGroupName |受影响资源的资源组的名称。 |
-| 属性 |一组包含事件详细信息的 `<Key, Value>` 对（即 `Dictionary<String, String>`）。 |
+| properties |一组包含事件详细信息的 `<Key, Value>` 对（即 `Dictionary<String, String>`）。 |
 | event |包含有关事件的元数据的元素。 |
 | authorization |事件的基于角色的访问控制属性。 这些属性通常包括“action”、“role”和“scope”。 |
 | category |事件的类别。 支持的值包括“Administrative”、“Alert”、“Security”、“ServiceHealth”和“Recommendation”。 |
@@ -154,11 +155,11 @@ Webhook 可以选择使用基于令牌的授权进行身份验证。 保存的 w
 | eventDataId |事件的唯一标识符。 |
 | eventSource |生成事件的 Azure 服务或基础结构的名称。 |
 | httpRequest |请求通常包括“clientRequestId”、“clientIpAddress”和“HTTP method”（例如 PUT）。 |
-| 级别 |以下值之一：“Critical”、“Error”、“Warning”、“Informational”和“Verbose”。 |
+| 级别 |以下值之一：“Critical”、“Error”、“Warning”和“Informational”。 |
 | operationId |通常是在与单个操作对应的事件之间共享的 GUID。 |
 | operationName |操作的名称。 |
-| 属性 |事件的属性。 |
-| status |字符串。 操作的状态。 常见值包括“Started”、“In Progress”、“Succeeded”、“Failed”、“Active”和“Resolved”。 |
+| properties |事件的属性。 |
+| 状态 |字符串。 操作的状态。 常见值包括“Started”、“In Progress”、“Succeeded”、“Failed”、“Active”和“Resolved”。 |
 | subStatus |通常包含对应 REST 调用的 HTTP 状态代码。 它还可能包含描述子状态的其他字符串。 常见子状态值包括 OK（HTTP 状态代码：200）、Created（HTTP 状态代码：201）、Accepted（HTTP 状态代码：202）、No Content（HTTP 状态代码：204）、Bad Request（HTTP 状态代码：400）、Not Found（HTTP 状态代码：404）、Conflict（HTTP 状态代码：409）、Internal Server Error（HTTP 状态代码：500）、Service Unavailable（HTTP 状态代码：503）和 Gateway Timeout（HTTP 状态代码：504）。 |
 
 ## <a name="next-steps"></a>后续步骤

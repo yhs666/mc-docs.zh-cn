@@ -15,14 +15,14 @@ ms.topic: article
 origin.date: 05/14/2017
 ms.date: 10/16/2017
 ms.author: v-johch
-ms.openlocfilehash: f14b25572d4a7efed482884bd44b2e1bf1ad2ff5
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: 2cf9c11ee34bba819c54d65ea5ba88f2efc9b6d0
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>使用 Windows 上的 AzCopy 传输数据
-AzCopy 是一个命令行实用工具，专用于将数据复制到 Azure Blob、文件和表存储以及从这些位置复制数据。 可在存储帐户中将数据从一个对象复制到另一个对象，或者在存储帐户之间复制。
+AzCopy 是一个命令行实用程序，专用于使用旨在实现最佳性能的简单命令将数据复制到 Microsoft Azure Blob、文件和表存储以及从这些位置复制数据。 可在文件系统和存储帐户之间或在存储帐户之间复制数据。  
 
 有两个版本的 AzCopy 可下载。 Windows 上的 AzCopy 使用 .NET Framework 构建而成，提供 Windows 样式的命令行选项。 [Linux 上的 AzCopy](storage-use-azcopy-linux.md) 使用 .NET Core Framework 构建而成，以提供 POSIX 样式的命令行选项的 Linux 平台为目标。 本文介绍 Windows 上的 AzCopy。
 
@@ -415,7 +415,7 @@ AzCopy /Source:https://myaccount.table.core.chinacloudapi.cn/myTable/ /Dest:C:\m
 
 当用户指定了选项 `/PKRS` 时，AzCopy 会启动并发操作来导出实体。 每个操作导出一个分区键范围。
 
-请注意，并发操作的数量还受选项 `/NC`的控制。 当复制表实体时，AzCopy 使用核心处理器的数量作为 `/NC` 的默认值，即使未指定 `/NC` 也是如此。 当用户指定了选项 `/PKRS` 时，AzCopy 将使用以下两个值中的较小者（分区键范围和隐式或显式指定的并发操作数量）来确定要启动的并发操作的数量。 有关详细信息，请在命令行中键入 `AzCopy /?:NC` 。
+请注意，并发操作的数量还受选项 `/NC`的控制。 当复制表实体时，AzCopy 使用核心处理器的数量作为 `/NC` 的默认值，即使未指定 `/NC` 也是如此。 当用户指定了选项 `/PKRS`时，AzCopy 使用以下两个值中的较小者（分区键范围和隐式或显式指定的并发操作数量）来确定要启动的并发操作的数量。 有关详细信息，请在命令行中键入 `AzCopy /?:NC` 。
 
 ### <a name="export-a-table-to-blob-storage"></a>将表导出到 Blob 存储
 
@@ -673,7 +673,7 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 ### <a name="sourcekeystorage-key"></a>/SourceKey:"storage-key"
 指定源资源的存储帐户密钥。
 
-**适用对象：** Blob、文件、表
+**适用对象：**Blob、文件、表
 
 ### <a name="sourcesassas-token"></a>/SourceSAS:"sas-token"
 指定对源具有“读取”和“列出”权限的共享访问签名（如果适用）。 请将 SAS 用双引号括起来，因为它可能包含特殊的命令行字符。
@@ -691,9 +691,9 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 **适用对象：** Blob、文件
 
 ### <a name="blobtypeblock--page--append"></a>/BlobType:"block" | "page" | "append"
-指定目标 Blob 是块 Blob、页 Blob 还是追加 Blob。 仅在要上传 Blob 时，此选项才适用。 否则会发生错误。 如果目标是一个 Blob 并且未指定此选项，则默认情况下 AzCopy 将创建块 Blob。
+指定目标 Blob 是块 Blob、页 Blob 还是追加 Blob。 仅在要上传 Blob 时，此选项才适用。 否则会发生错误。 如果目标是一个 Blob 并且未指定此选项，则默认情况下 AzCopy 会创建块 Blob。
 
-**适用对象：** Blob
+**适用对象：**Blob
 
 ### <a name="checkmd5"></a>/CheckMD5
 计算已下载的数据的 MD5 哈希，并验证存储在 blob 或文件的 Content-MD5 属性中的 MD5 哈希是否与计算得到的哈希匹配。 默认情况下，MD5 检查处于关闭状态，因此，必须指定此选项以在下载数据时执行 MD5 检查。
@@ -767,7 +767,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 ### <a name="mt"></a>/MT
 将下载的文件的上次修改时间设置为与源 blob 或文件的上次修改时间相同。
 
-**适用对象：** Blob、文件
+**适用对象：**Blob、文件
 
 ### <a name="xn"></a>/XN
 
@@ -801,7 +801,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 * O 表示脱机文件
 * I 表示未编制索引的文件
 
-**适用对象：** Blob、文件
+**适用对象：**Blob、文件
 
 ### <a name="xarashcnetoi"></a>/XA:[RASHCNETOI]
 排除设置了任何指定属性的文件。
@@ -842,7 +842,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 ### <a name="sourcetypeblob--table"></a>/SourceType:"Blob" | "Table"
 指定 `source` 资源是本地开发环境中可用的一个 Blob，在存储模拟器中运行。
 
-**适用对象：** Blob、表
+**适用对象：**Blob、表
 
 ### <a name="desttypeblob--table"></a>/DestType:"Blob" | "Table"
 指定 `destination` 资源是本地开发环境中可用的一个 Blob，在存储模拟器中运行。
@@ -862,7 +862,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 
   [bb, last-partition-key]
 
-**适用对象：** 表
+**适用对象：**表
 
 ### <a name="splitsizefile-size"></a>/SplitSize:"file-size"
 指定已导出文件的拆分大小（单位为 MB），允许的最小值为 32。
@@ -880,7 +880,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 * InsertOrMerge - 合并现有实体，或者插入新实体（如果它不存在于表中）。
 * InsertOrReplace - 替换现有实体，或者插入新实体（如果它不存在于表中）。
 
-**适用对象：** 表
+**适用对象：**表
 
 ### <a name="manifestmanifest-file"></a>/Manifest:"manifest-file"
 指定表导出和导入操作的清单文件。
@@ -926,7 +926,7 @@ AzCopy 默认情况下使用服务器端的异步复制。 指定此选项以执
 如果在复制 blob 或文件时无法阻止其他应用程序向其进行写入，请记住，在作业完成时，复制的资源可能不再与源资源完全相同。
 
 ### <a name="run-one-azcopy-instance-on-one-machine"></a>在一台计算机上运行一个 AzCopy 实例。
-AzCopy 旨在最大程度上利用计算机资源来加快数据传输，如果需要更多的并发操作，我们建议在一台计算机上只运行一个 AzCopy 实例并指定选项 `/NC` 。 有关详细信息，请在命令行中键入 `AzCopy /?:NC` 。
+AzCopy 旨在最大程度上利用计算机资源来加快数据传输，如果需要更多的并发操作，我们建议在一台计算机上只运行一个 AzCopy 实例并指定选项 `/NC` 。 有关详细信息，请在命令行中键入 `AzCopy /?:NC`。
 
 ### <a name="enable-fips-compliant-md5-algorithms-for-azcopy-when-you-use-fips-compliant-algorithms-for-encryption-hashing-and-signing"></a>当进行“使用适用于加密、哈希和签名的 FIPS 兼容算法”时，请启用适用于 AzCopy、与 FIPS 兼容的 MD5 算法。
 默认情况下，在复制对象时，如有需要 AzCopy 启动 FIPS 兼容的 MD5 设置的某些安全需求时，AzCopy 则会使用 .NET MD5 实现来计算 MD5。

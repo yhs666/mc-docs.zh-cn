@@ -1,25 +1,24 @@
 ---
-title: "Azure API 管理策略 | Azure"
+title: "Azure API 管理策略"
 description: "了解可在 Azure API 管理中使用的策略。"
 services: api-management
 documentationcenter: 
-author: miaojiang
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 1cc460cb-8e67-41aa-bc76-bbafc1892798
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 11/19/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: eda10487160c822d7c8446b9893de896cd3e1bd0
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 2159b3564f5fcc24f76119d797342345258e7084
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="api-management-policies"></a>API 管理策略
 本部分提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](./api-management-howto-policies.md)。  
@@ -36,13 +35,13 @@ ms.lasthandoff: 09/08/2017
   
     -   [按订阅限制调用速率](./api-management-access-restriction-policies.md#LimitCallRate) - 根据订阅限制调用速率，避免 API 使用量暴增。  
   
-    -   [按密钥限制调用率](./api-management-access-restriction-policies.md#LimitCallRateByKey) - 根据密钥限制调用率以避免 API 使用量暴增。  
+    -   [按密钥限制调用速率](./api-management-access-restriction-policies.md#LimitCallRateByKey) - 根据密钥限制调用速率，避免 API 使用量暴增。  
   
     -   [限制调用方 IP](./api-management-access-restriction-policies.md#RestrictCallerIPs) - 筛选（允许/拒绝）来自特定 IP 地址和/或地址范围的调用。  
   
     -   [按订阅设置使用量配额](./api-management-access-restriction-policies.md#SetUsageQuota) - 允许根据订阅强制实施可续订或有生存期的调用量和/或带宽配额。  
   
-    -   [按密钥设置使用量配额](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) - 允许根据密钥强制实施可续订或有生存期的调用量和/或带宽配额。  
+    -   [按密钥设置使用量配额](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) - 允许根据密钥强制消耗可续订或有生存期的调用量和/或带宽配额。  
   
     -   [验证 JWT](./api-management-access-restriction-policies.md#ValidateJWT) - 强制从指定 HTTP 标头或指定查询参数提取的 JWT 必须存在且有效。  
   
@@ -74,7 +73,7 @@ ms.lasthandoff: 09/08/2017
   
 -   [身份验证策略](./api-management-authentication-policies.md#AuthenticationPolicies)  
   
-    -   [使用基本方法进行身份验证](./api-management-authentication-policies.md#Basic) - 使用基本身份验证方法向后端服务进行身份验证。  
+    -   [使用基本方法进行身份验证](./api-management-authentication-policies.md#Basic) - 使用基本身份验证方法对后端服务进行身份验证。  
   
     -   [使用客户端证书进行身份验证](./api-management-authentication-policies.md#ClientCertificate) - 使用客户端证书向后端服务进行身份验证。  
   
@@ -96,7 +95,7 @@ ms.lasthandoff: 09/08/2017
   
     -   [CORS](./api-management-cross-domain-policies.md#CORS) - 向操作或 API 添加跨源资源共享 (CORS) 支持，允许从基于浏览器的客户端进行跨域调用。  
   
-    -   [JSONP](./api-management-cross-domain-policies.md#JSONP) - 向操作或 API 添加填充型 JSON (JSONP) 支持，以便从基于 JavaScript 浏览器的客户端执行跨域调用。  
+    -   [JSONP](./api-management-cross-domain-policies.md#JSONP) - 向操作或 API 添加填充型 JSON (JSONP) 支持，允许从基于 JavaScript 浏览器的客户端进行跨域调用。  
   
 -   [转换策略](./api-management-transformation-policies.md#TransformationPolicies)  
   
@@ -116,9 +115,14 @@ ms.lasthandoff: 09/08/2017
   
     -   [设置查询字符串参数](./api-management-transformation-policies.md#SetQueryStringParameter) - 添加、删除请求查询字符串参数或替换其值。  
   
-    -   [重写 URI](./api-management-transformation-policies.md#RewriteURL) - 将请求 URL 从其公用格式转换为 Web 服务所需的格式。  
+    -   [重写 URL](./api-management-transformation-policies.md#RewriteURL) - 将请求 URL 从其公用格式转换为 Web 服务所需的格式。  
   
     -   [使用 XSLT 转换 XML](./api-management-transformation-policies.md#XSLTransform) - 在请求或响应正文中的 XML 应用 XSL 转换。  
   
 ## <a name="next-steps"></a>后续步骤
-有关如何使用策略的详细信息，请参阅 [API 管理中的策略](./api-management-howto-policies.md)。  
+有关如何使用策略的详细信息，请参阅：
+
++ [API 管理中的策略](api-management-howto-policies.md)
++ [转换 API](transform-api.md)
++ [策略参考](api-management-policy-reference.md)，获取策略语句及其设置的完整列表
++ [策略示例](policy-samples.md)   

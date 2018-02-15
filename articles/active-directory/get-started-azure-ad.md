@@ -7,7 +7,7 @@ manager: digimobile
 ms.author: v-nany
 ms.reviewer: jsnow
 origin.date: 11/14/2017
-ms.date: 1/1/2018
+ms.date: 1/29/2018
 ms.topic: article
 ms.prod: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: 939cad25053ed1145aeb5fb751e2efa6dbddfac6
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: f81664b8c84be6e319eadf55a02b0ec04f85fbca
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Azure AD 入门
 现代的标识管理需要一贯的可伸缩性和可靠性，确保只向经过身份验证的用户提供应用程序和服务。 为了充分支持用户对标识管理的需求，IT 部门需要通过某种方式提供对已批准的公用软件即服务 (SaaS) 应用的访问，托管内部业务线应用，甚至还需要通过某些方式来增强本地应用的开发与使用。 满足所有这些要求需要一种基于云的标识管理解决方案。      
@@ -60,4 +60,5 @@ Azure Active Directory (Azure AD) 是 Microsoft 提供的多租户、基于云�
 
 
 ## <a name="next-steps"></a>后续步骤
-[Azure Active Directory 产品页](https://www.azure.cn/home/features/identity/)
+[Azure Active Directory 服务页](https://www.azure.cn/home/features/identity/)
+[Azure Active Directory 定价信息页](https://www.azure.cn/pricing/details/identity/)

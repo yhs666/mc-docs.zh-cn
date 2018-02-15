@@ -16,11 +16,11 @@ ms.workload: big-data
 origin.date: 08/08/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: e96c8bc920eaa4379c1ff015000843a57eb069bf
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 066ebf42ea6f03ac77d3e58047965b314078b642
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>常用流分析使用模式的查询示例
 ## <a name="introduction"></a>简介
@@ -502,7 +502,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
         input TIMESTAMP BY t
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 
-**说明**：此查询每隔 5 秒生成一个事件，并输出上次收到的最后一个事件。 [跳跃窗口](https://msdn.microsoft.com/library/dn835041.aspx "跳跃窗口 - Azure 流分析")持续时间确定查询将查找最新事件的时间（在本例中为 300 秒）。
+**说明**：此查询每隔 5 秒生成一个事件，并输出上次收到的最后一个事件。 [跳跃窗口](https://msdn.microsoft.com/library/dn835041.aspx)持续时间决定了查询在查找最新事件时会回溯多久（在本例中为 300 秒）。
 
 ## <a name="get-help"></a>获取帮助
 若需进一步的帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。

@@ -1,9 +1,9 @@
 ---
-title: "使用 Azure API 管理中的备份和还原实现灾难恢复 | Azure"
+title: "使用 Azure API 管理中的备份和还原实现灾难恢复"
 description: "了解如何在 Azure API 管理中使用备份和还原执行灾难恢复。"
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 6f10be3c-f796-4a6c-bacd-7931b6aa82af
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: b7a7710be3cf08a25b378eb5fa44f65a7c29f882
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 71ab9ac113c5d8203e56556018292dee69f7145c
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何使用 Azure API 管理中的服务备份和还原实现灾难恢复
 通过 Azure API 管理选择发布和管理 API，即可充分利用了许多容错和基础结构功能，否则必须设计、实现和管理这些功能。 Azure 平台通过花费少量成本消除大量潜在故障。
@@ -50,9 +50,7 @@ ms.lasthandoff: 09/08/2017
 第一步是创建 Azure Active Directory 应用程序。 使用包含 API 管理服务实例的订阅登录 [Azure 经典管理门户](http://manage.windowsazure.cn/)并导航到默认 Azure Active Directory 的“应用程序”选项卡。
 
 > [!NOTE]
-> 如果 Azure Active Directory 默认目录对帐户不可见，请联系 Azure 订阅的管理员以向帐户授予所需权限。 若要了解如何查找默认目录，请参阅[在 Azure Active Directory 中创建用于 Windows VM 的工作或学校标识](../virtual-machines/windows/create-aad-work-id.md)中的“在 Azure 经典门户中查找默认目录”。
->
->
+> 如果 Azure Active Directory 默认目录对帐户不可见，请联系 Azure 订阅的管理员以向帐户授予所需权限。
 
 ![创建 Azure Active Directory 应用程序][api-management-add-aad-application]
 
@@ -82,7 +80,7 @@ namespace GetTokenResourceManagerRequests
     {
         static void Main(string[] args)
         {
-            var authenticationContext = new AuthenticationContext("https://login.chinacloudapi.cn/{tenant id}");
+            var authenticationContext = new AuthenticationContext("https://login.microsoftonline.com/{tenant id}");
             var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
 
             if (result == null) {
@@ -185,7 +183,7 @@ request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 > [!IMPORTANT]
 > 要还原到的服务的 **SKU** 必须与正在还原的已备份服务的 SKU **匹配**。
 >
-> 还原操作正在进行时对服务配置（例如 API、策略、开发人员门户外观）所作的**更改****可以被覆盖**。
+> 还原操作正在进行时对服务配置（例如 API、策略、开发人员门户外观）所作的**更改****可以覆盖**。
 >
 >
 

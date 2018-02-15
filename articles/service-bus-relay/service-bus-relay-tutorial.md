@@ -1,5 +1,5 @@
 ---
-title: "Azure 服务总线 WCF 中继教程 | Microsoft Docs"
+title: "Azure 服务总线 WCF 中继教程"
 description: "使用 WCF 中继构建客户端和服务应用程序。"
 services: service-bus-relay
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/02/2017
 ms.author: v-yiso
-ms.date: 12/04/2017
-ms.openlocfilehash: 43135586f4f7a7063ad68745bc02dcadeffc21fa
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.date: 02/05/2018
+ms.openlocfilehash: 6cb9f719f2343f2e4c21a60a8131e68aad0a1c3a
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure WCF 中继教程
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/24/2017
 
 通过此教程，可以了解创建 WCF 中继客户端和服务应用程序所需的步骤。 正如原始的 WCF，服务是公开一个或多个终结点的构造，其中每个终结点都公开一个或多个服务操作。 服务的终结点用于指定可在其中找到服务的地址、包含客户端必须与服务进行通信的信息的绑定，以及定义服务向其客户端提供的功能的协定。 WCF 和 WCF 中继之间的主要区别在于：终结点在云中公开，而不是在本地计算机中公开。
 
-完成本教程中的一系列主题后，你会有一项正在运行的服务和可以调用服务操作的客户端。 第一个主题描述了如何设置帐户。 后续步骤描述了如何定义使用协定的服务、如何实现服务，以及如何使用代码配置该服务。 这些主题还描述了如何托管和运行该服务。 创建的服务是自托管的，并且客户端和服务在同一台计算机上运行。 可以通过使用代码或配置文件配置服务。
+完成本教程中的一系列主题后，将具有一项正在运行的服务和可以调用服务操作的客户端。 第一个主题描述了如何设置帐户。 后续步骤描述了如何定义使用协定的服务、如何实现服务，以及如何使用代码配置该服务。 这些主题还描述了如何托管和运行该服务。 创建的服务是自托管的，并且客户端和服务在同一台计算机上运行。 可以通过使用代码或配置文件配置服务。
 
 最后三个步骤介绍如何创建客户端应用程序、如何配置客户端应用程序，以及如何创建和使用可以访问主机功能的客户端。
 
@@ -36,14 +36,14 @@ ms.lasthandoff: 11/24/2017
 要完成本教程，需要以下各项：
 
 * [Microsoft Visual Studio 2015 或更高版本](http://visualstudio.com)。 本教程使用 Visual Studio 2017。
-* 有效的 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
+* 有效的 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="create-a-service-namespace"></a>创建服务命名空间
 
 第一步是创建命名空间并获取[共享访问签名 (SAS)](../service-bus-messaging/service-bus-sas.md) 密钥。 命名空间为每个通过中继服务公开的应用程序提供应用程序边界。 创建服务命名空间时，系统自动生成 SAS 密钥。 服务命名空间与 SAS 密钥的组合为 Azure 提供了用于验证应用程序访问权限的凭据。 请按照[此处的说明](./relay-create-namespace-portal.md)创建中继命名空间。
 
 ## <a name="define-a-wcf-service-contract"></a>定义 WCF 服务协定
-此服务协定指定服务支持的操作（方法或函数的 Web 服务术语）。 约定通过定义 C++、C# 或 Visual Basic 接口来创建。 接口中的每个方法都对应一个特定的服务操作。 必须将 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 属性应用于每个接口，并且必须将 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 属性应用于每个操作。 如果具有 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 属性的接口中的方法没有 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 属性，则该方法是不公开的。 该过程后面的示例中提供了这些任务的代码。 有关协定和服务的更多讨论，请参阅 WCF 文档中的[设计和实现服务](https://msdn.microsoft.com/library/ms729746.aspx)。
+此服务协定指定服务支持的操作（方法或函数的 Web 服务术语）。 约定通过定义 C++、C# 或 Visual Basic 接口来创建。 接口中的每个方法都对应一个特定的服务操作。 必须将 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 属性应用于每个接口，并且必须将 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 属性应用于每个操作。 如果具有 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 属性的接口中的方法没有 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 属性，则该方法是不公开的。 该过程后面的示例中提供了这些任务的代码。 有关协定和服务的更多讨论，请参阅 WCF 文档中的 [设计和实现服务](https://msdn.microsoft.com/library/ms729746.aspx) 。
 
 ### <a name="create-a-relay-contract-with-an-interface"></a>使用接口创建中继协定
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 11/24/2017
     public interface IEchoChannel : IEchoContract, IClientChannel { }
     ```
 
-    通道是主机和客户端用来互相传递信息的 WCF 对象。 随后，你针对通道编写代码，以在两个应用程序之间回显信息。
+    通道是主机和客户端用来互相传递信息的 WCF 对象。 随后，将针对通道编写代码，以在两个应用程序之间回显信息。
 10. 在“生成”菜单中，单击“生成解决方案”或按 **Ctrl+Shift+B** 以确认到目前为止操作的准确性。
 
 ### <a name="example"></a>示例
@@ -159,7 +159,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ### <a name="define-the-configuration-for-the-service-host"></a>定义服务主机的配置
 1. 配置文件非常类似于 WCF 配置文件。 该配置文件包括服务名称、终结点（即，Azure 中继公开的、让客户端和主机相互通信的位置）和绑定（用于通信的协议类型）。 此处的主要差别在于，配置的服务终结点是指 [NetTcpRelayBinding](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.nettcprelaybinding) 绑定，它不是 .NET Framework 的一部分。 [NetTcpRelayBinding](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.nettcprelaybinding) 是由服务定义的绑定之一。
-2. 在 **解决方案资源管理器**中，双击 App.config 文件以在 Visual Studio 编辑器中将其打开。
+2. 在**解决方案资源管理器**中，双击 App.config 文件以在 Visual Studio 编辑器中将其打开。
 3. 在 `<appSettings>` 元素中，将占位符替换为服务命名空间的名称以及在先前步骤中复制的 SAS 密钥。
 4. 在 `<system.serviceModel>` 标记中，添加 `<services>` 元素。 可以在单个配置文件中定义多个中继应用程序。 但是，本教程只定义一个。
 
@@ -239,7 +239,7 @@ namespace Microsoft.ServiceBus.Samples
     ```
 
     随后将使用 SAS 密钥来访问你的项目。 命名空间作为参数传递给 `CreateServiceUri` 以创建服务 URI。
-2. 使用 [TransportClientEndpointBehavior](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.transportclientendpointbehavior) 对象声明使用 SAS 密钥作为凭据类型。 在最后一步中添加的代码后直接添加以下代码。
+2. 使用 [TransportClientEndpointBehavior](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.transportclientendpointbehavior) 对象声明使用 SAS 密钥作为凭据类型。 在最后一步中添加的代码后直接添加以下代码。
 
     ```csharp
     TransportClientEndpointBehavior sasCredential = new TransportClientEndpointBehavior();
@@ -676,7 +676,7 @@ namespace Microsoft.ServiceBus.Samples
     ![][6]
 6. 单击“确定”关闭“属性”对话框。
 7. 按 **F5** 运行这两个项目。
-8. 此时会打开两个控制台窗口并提示你输入命名空间名称。 必须先运行服务，因此在“EchoService”控制台窗口中输入命名空间，然后按“Enter”。
+8. 此时会打开两个控制台窗口并提示输入命名空间名称。 必须先运行服务，因此在“EchoService”控制台窗口中输入命名空间，然后按“Enter”。
 9. 接下来，会提示你提供 SAS 密钥。 输入 SAS 密钥并按“ENTER”。
 
     以下是来自控制台窗口的示例输出。 请注意，此处提供的值仅限于示例目的。
@@ -691,7 +691,7 @@ namespace Microsoft.ServiceBus.Samples
 
     `Enter text to echo (or [Enter] to exit):`
 
-    输入将发送到服务应用程序的某些文本，并按“Enter”。 此文本通过 Echo 服务操作发送到服务并显示在服务控制台窗口中，如下面的示例输出所示。
+    输入要发送到服务应用程序的某些文本，并按“Enter”。 此文本通过 Echo 服务操作发送到服务并显示在服务控制台窗口中，如下面的示例输出所示。
 
     `Echoing: My sample text`
 

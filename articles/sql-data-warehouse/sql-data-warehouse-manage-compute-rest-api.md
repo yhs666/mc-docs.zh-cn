@@ -16,17 +16,17 @@ ms.custom: manage
 origin.date: 07/25/2017
 ms.date: 09/18/2017
 ms.author: v-yeche
-ms.openlocfilehash: 4a7a84ed38589992f335e75ee001861b413f1338
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: b554d1aec6cf8bed9a7974c95b037556ebfbad20
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-rest"></a>管理 Azure SQL 数据仓库中的计算能力 (REST)
 
 > [!div class="op_single_selector"]
 > * [概述](sql-data-warehouse-manage-compute-overview.md)
-> * [门户](sql-data-warehouse-manage-compute-portal.md)
+> * [Portal](sql-data-warehouse-manage-compute-portal.md)
 > * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 > * [REST](sql-data-warehouse-manage-compute-rest-api.md)
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
@@ -57,7 +57,8 @@ Content-Type: application/json; charset=UTF-8
 ## <a name="pause-compute"></a>暂停计算
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
-若要暂停数据库，请使用[暂停数据库][Pause Database] REST API。 以下示例暂停 Server01 服务器上托管的 Database02 数据库。 该服务器位于名为 ResourceGroup1 的 Azure 资源组中。
+若要暂停数据库，请使用暂停数据库 REST API。 以下示例暂停 Server01 服务器上托管的 Database02 数据库。 该服务器位于名为 ResourceGroup1 的 Azure 资源组中。
+<!-- Not Available on [暂停数据库][Pause Database] -->
 
 ```
 POST https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/pause?api-version=2014-04-01-preview HTTP/1.1
@@ -92,7 +93,7 @@ GET https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resource
 [Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
-[Pause Database]: https://msdn.microsoft.com/library/azure/mt718817.aspx
+<!-- Not Available on [Pause Database]: https://msdn.microsoft.com/library/azure/mt718817.aspx -->
 [Resume Database]: https://msdn.microsoft.com/library/azure/mt718820.aspx
 [Create or Update Database]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 

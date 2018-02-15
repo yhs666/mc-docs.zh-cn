@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 10/19/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5931d4c1d5e3c87f9103fc49d5a2930beab6ace2
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 07db9fdb8b829ec11361106446dc5df21382d750
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site-using-powershell-resource-manager"></a>使用 PowerShell (Resource Manager) 将 VMM 云中的 Hyper-V 虚拟机复制到辅助 VMM 站点
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/01/2017
 | **先决条件** | **详细信息** |
 | --- | --- |
 | **VMM** |建议在主站点和辅助站点中各部署一个 VMM 服务器。<br/><br/> 也可以在单个 VMM 服务器上的云之间复制。 为此，至少需要在 VMM 服务器上配置两个云。<br/><br/> VMM 服务器应当至少运行具有最新更新的 System Center 2012 SP1。<br/><br/> 每个 VMM 服务器上必须配置了一个或多个云，所有云中必须设置了 Hyper-V 容量配置文件。 <br/><br/>云必须包含一个或多个 VMM 主机组。 VMM 服务器应具有 Internet 访问权限。 |
-| **Hyper-V** |Hyper-V 服务器必须至少运行具有 Hyper-V 角色且安装了最新更新的 Windows Server 2012。<br/><br/> Hyper-V 服务器应包含一个或多个 VM。<br/><br/>  Hyper-V 主机服务器应位于主要和辅助 VMM 云中的主机组内。<br/><br/> 如果在 Windows Server 2012 R2 上的群集中运行 Hyper-V，应安装[更新 2961977](https://support.microsoft.com/kb/2961977)<br/><br/> 如果在 Windows Server 2012 上的群集中运行 Hyper-V，请注意，如果使用基于静态 IP 地址的群集，将不会自动创建群集中转站。 需要手动配置群集代理。 [详细了解](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx)。 |
+| **Hyper-V** |Hyper-V 服务器必须至少运行具有 Hyper-V 角色且安装了最新更新的 Windows Server 2012。<br/><br/> Hyper-V 服务器应包含一个或多个 VM。<br/><br/>  Hyper-V 主机服务器应位于主要和辅助 VMM 云中的主机组内。<br/><br/> 如果在 Windows Server 2012 R2 上的群集中运行 Hyper-V，应安装[更新 2961977](https://support.microsoft.com/kb/2961977)<br/><br/> 如果在 Windows Server 2012 上的群集中运行 Hyper-V，请注意，如果使用基于静态 IP 地址的群集，将不会自动创建群集中转站。 需要手动配置群集代理。 [了解详细信息](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx)。 |
 | **提供程序** |在站点恢复部署期间，需要在 VMM 服务器上安装 Azure Site Recovery 提供程序。 提供程序通过 HTTPS 443 与站点恢复通信，以协调复制。 数据复制是通过 LAN 或 VPN 连接在主要和辅助 Hyper-V 服务器之间发生的。<br/><br/> 在 VMM 服务器上运行的提供程序需有权访问以下 URL：*.hypervrecoverymanager.windowsazure.cn、*.accesscontrol.chinacloudapi.cn、*.backup.windowsazure.cn、*.blob.core.chinacloudapi.cn 和 *.store.core.chinacloudapi.cn。<br/><br/> 此外，还要允许从 VMM 服务器到 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)的防火墙通信，并允许 HTTPS (443) 协议。 |
 
 ### <a name="network-mapping-prerequisites"></a>网络映射先决条件
@@ -269,7 +269,8 @@ ms.lasthandoff: 12/01/2017
 
         $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
-## <a name=monitor></a> 监视活动
+<a name="monitor"></a>
+## <<a name="monitor-activity"></a> 监视活动
 使用以下命令来监视活动。 请注意，必须在执行不同的作业之前等待处理完成。
 
     Do

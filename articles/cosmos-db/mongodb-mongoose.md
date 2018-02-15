@@ -15,11 +15,11 @@ ms.topic: tutorial
 origin.date: 01/08/2018
 ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: b798c8fd2248b3b2f8bde8e99beb116cd29ed688
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: ce31229acaa6385e0bc82163fd02afd791219095
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB：将 Mongoose 框架与 Azure Cosmos DB 配合使用
 
@@ -67,6 +67,9 @@ Azure Cosmos DB 由 21Vianet 提供，是全球分布的多模型数据库服务
     ```
 
 1. 将 Cosmos DB 连接字符串和 Cosmos DB 名称添加到 ```.env``` 文件。
+    
+    > [!Note]
+    > 请转换连接字符串中所有非法的非转义字符，例如，将 = 转换为 %3D。 否则，在打开某个连接时会遇到错误，例如，<错误: 密码包含非法的非转义字符>。
 
     ```JavaScript
     COSMOSDB_CONNSTR={Your MongoDB Connection String Here}

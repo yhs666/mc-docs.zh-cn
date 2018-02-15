@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/27/2017
-ms.date: 01/08/2018
+origin.date: 12/20/2017
+ms.date: 02/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3be4948e3ecde3a0bc28f276c0e66e939f4f6ea1
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 3202f781646c7fbc51b9dc2cfec2cfef8a44676c
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>从 Azure 虚拟机备份恢复文件
 
@@ -66,45 +66,15 @@ Azure 备份提供从 Azure VM 备份（也称还原点）还原 [Azure 虚拟�
     如果在访问受限的计算机上运行该脚本，请确保能够访问：
 
     - download.microsoft.com
-    - 用于 Azure VM 备份的 Azure 终结点
+    - [用于 Azure VM 备份的 Azure 终结点](backup-azure-arm-vms-prepare.md#establish-network-connectivity)
     - 出站端口 3260
 
-   在 Linux 上，该脚本需要“open-iscsi”和“lshw”组件才能连接到恢复点。 如果这些组件不存在于运行脚本的计算机上，该脚本会请求权限以安装组件。 请同意安装必需组件。  
-         
-   可以在具有与备份 VM 相同（或兼容）操作系统的任何计算机上运行该脚本。 有关兼容的操作系统，请参阅[兼容的 OS 表](backup-azure-restore-files-from-vm.md#compatible-os)。 如果受保护的 Azure 虚拟机使用 Windows 存储空间（适用于 Azure VM）或 LVM/RAID 阵列（适用于 Linux VM），则不能在同一虚拟机上运行该可执行文件或脚本。 而应在具有兼容操作系统的任何其他计算机上运行该可执行文件或脚本。
+    在 Linux 上，该脚本需要“open-iscsi”和“lshw”组件才能连接到恢复点。 如果这些组件不存在于运行脚本的计算机上，该脚本会请求权限以安装组件。 请同意安装必需组件。
+    
+    需要访问 download.microsoft.com 才能下载在运行脚本的计算机与恢复点中的数据之间构建安全通道所使用的组件。         
 
-### <a name="compatible-os"></a>兼容的 OS
-
-#### <a name="for-windows"></a>对于 Windows
-
-下表显示了服务器与计算机操作系统之间的兼容性。 恢复文件时，不能将文件还原到更旧或更新的操作系统版本。 例如，不能将文件从 Windows Server 2016 VM 还原到 Windows Server 2012 或 Windows 8 计算机。 可将 VM 中的文件还原到相同的服务器操作系统，或还原到兼容的客户端操作系统。   
-
-|服务器 OS | 兼容的客户端 OS  |
-| --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8.1 |
-| Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | Windows 7   |
-
-#### <a name="for-linux"></a>对于 Linux
-
-在 Linux 中，用于还原文件的计算机的 OS 必须支持受保护虚拟机的文件系统。 选择用于运行脚本的计算机时，请确保计算机具有兼容的 OS，并使用下表中认定的版本之一：
-
-|Linux OS | 版本  |
-| --------------- | ---- |
-| Ubuntu | 12.04 及更高版本 |
-| CentOS | 6.5 及更高版本  |
-| RHEL | 6.7 及更高版本 |
-| Debian | 7 及更高版本 |
-| Oracle Linux | 6.4 及更高版本 |
-
-该脚本还需要 Python 和 bash 组件才能执行并安全地连接到恢复点。
-
-|组件 | 版本  |
-| --------------- | ---- |
-| bash | 4 及更高版本 |
-| Python | 2.6.6 及更高版本  |
-
+    可以在具有与备份 VM 相同（或兼容）操作系统的任何计算机上运行该脚本。 有关兼容的操作系统，请参阅[兼容的 OS 表](backup-azure-restore-files-from-vm.md#system-requirements)。 如果受保护的 Azure 虚拟机使用 Windows 存储空间（适用于 Azure VM）或 LVM/RAID 阵列（适用于 Linux VM），则不能在同一虚拟机上运行该可执行文件或脚本。 而应在具有兼容操作系统的任何其他计算机上运行该可执行文件或脚本。
+ 
 
 ### <a name="identifying-volumes"></a>标识卷
 
@@ -194,6 +164,41 @@ $ mount [RAID Disk Path] [/mountpath]
 
 如果 RAID 磁盘中配置了另一 LVM，请使用前述 LVM 分区相关过程，但使用卷名称代替 RAID 磁盘名称
 
+## <a name="system-requirements"></a>系统要求
+
+### <a name="for-windows"></a>对于 Windows
+
+下表显示了服务器与计算机操作系统之间的兼容性。 恢复文件时，不能将文件还原到更旧或更新的操作系统版本。 例如，不能将文件从 Windows Server 2016 VM 还原到 Windows Server 2012 或 Windows 8 计算机。 可将 VM 中的文件还原到相同的服务器操作系统，或还原到兼容的客户端操作系统。   
+
+|服务器 OS | 兼容的客户端 OS  |
+| --------------- | ---- |
+| Windows Server 2016    | Windows 10 |
+| Windows Server 2012 R2 | Windows 8.1 |
+| Windows Server 2012    | Windows 8  |
+| Windows Server 2008 R2 | Windows 7   |
+
+### <a name="for-linux"></a>对于 Linux
+
+在 Linux 中，用于还原文件的计算机的 OS 必须支持受保护虚拟机的文件系统。 选择用于运行脚本的计算机时，请确保计算机具有兼容的 OS，并使用下表中认定的版本之一：
+
+|Linux OS | 版本  |
+| --------------- | ---- |
+| Ubuntu | 12.04 及更高版本 |
+| CentOS | 6.5 及更高版本  |
+| RHEL | 6.7 及更高版本 |
+| Debian | 7 及更高版本 |
+| Oracle Linux | 6.4 及更高版本 |
+| SLES | 12 及更高版本 |
+| openSUSE | 42.2 及更高版本 |
+
+该脚本还需要 Python 和 bash 组件才能执行并安全地连接到恢复点。
+
+|组件 | 版本  |
+| --------------- | ---- |
+| bash | 4 及更高版本 |
+| Python | 2.6.6 及更高版本  |
+| TLS | 应支持 1.2  |
+
 ## <a name="troubleshooting"></a>故障排除
 
 如果从虚拟机恢复文件时遇到问题，请查看下表了解更多信息。
@@ -208,3 +213,4 @@ $ mount [RAID Disk Path] [/mountpath]
 | Linux 特定：无法查看所需的卷 | 运行脚本的计算机的 OS 可能无法识别受保护 VM 的基础文件系统 | 检查恢复点是崩溃一致还是文件一致。 如果文件一致，请在 OS 可识别受保护 VM 的文件系统的另一台计算机上运行该脚本 |
 | Windows 特定：无法查看所需的卷 | 磁盘可能已附加，但未配置卷 | 从磁盘管理屏幕中，识别与恢复点相关的其他磁盘。 如果这些磁盘有任何一个处于脱机状态，请尝试通过右键单击该磁盘并单击“联机”来使其联机|
 
+<!-- Update_Description: wording update -->

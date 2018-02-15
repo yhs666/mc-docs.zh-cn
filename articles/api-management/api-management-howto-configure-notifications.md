@@ -1,25 +1,24 @@
 ---
-title: "在 Azure API 管理中配置通知和电子邮件模板 | Azure"
+title: "在 Azure API 管理中配置通知和电子邮件模板"
 description: "了解如何在 Azure API 管理中配置通知和电子邮件模板。"
 services: api-management
 documentationcenter: 
-author: steved0x
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: ee25f26d-4752-433b-af9c-3817db38aed5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
+origin.date: 10/30/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: d21116b6224265cf8cc2b8b0d0b83eb3e11a7d06
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: dddce5c252868fd24ed10a869e41e2a5e67e8d0f
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>如何在 Azure API 管理中配置通知和电子邮件模板
 API 管理提供的功能为特定事件配置通知，以及配置用于与 API 管理实例的管理员及开发人员通信的电子邮件模板。 本主题演示如何为可用事件配置通知，并提供配置用于这些事件的电子邮件模板的概述。
@@ -30,7 +29,7 @@ API 管理提供的功能为特定事件配置通知，以及配置用于与 API
 ![发布者门户][api-management-management-console]
 
 > [!NOTE] 
-> 如果尚未创建 API 管理服务实例，请参阅 [Azure API 管理入门][Get started with Azure API Management]教程中的[创建 API 管理服务实例][Create an API Management service instance]。
+> 如果尚未创建 API 管理服务实例，请参阅[创建 API 管理服务实例][Create an API Management service instance]。
 
 单击左侧“API 管理”菜单中的“通知”查看可用通知。
 
@@ -118,5 +117,5 @@ API 管理提供了在管理和使用服务的过程中发送的电子邮件的�
 [How to create and use groups]: ./api-management-howto-create-groups.md
 [How to associate groups with developers]: ./api-management-howto-create-groups.md#associate-group-developer
 
-[Get started with Azure API Management]: ./api-management-get-started.md
-[Create an API Management service instance]: ./api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: get-started-create-service-instance.md
+[Create an API Management service instance]: get-started-create-service-instance.md

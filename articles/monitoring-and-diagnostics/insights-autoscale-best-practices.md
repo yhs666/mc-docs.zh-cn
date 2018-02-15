@@ -1,5 +1,5 @@
 ---
-title: "自动缩放的最佳做法 | Microsoft Docs"
+title: "自动缩放最佳做法"
 description: "Azure 中适用于 Web 应用、虚拟机规模集和云服务的自动缩放模式"
 author: anirudhcavale
 manager: orenr
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/07/2017
-ms.date: 12/11/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 10b407654fddc48ed7db165fa2489ddbfc0a43f1
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 3247e2e2a09ce6cb606a4b49b3791274284f22f2
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="best-practices-for-autoscale"></a>自动缩放最佳实践
 本文介绍在 Azure 中自动缩放的最佳做法。 Azure 监视器自动缩放仅适用于[虚拟机规模集](/virtual-machine-scale-sets/)、[云服务](/cloud-services/)和[应用服务 - Web 应用](/app-service/web/)。 其他 Azure 服务使用不同的缩放方法。
@@ -31,8 +31,8 @@ ms.lasthandoff: 12/29/2017
   自动缩放设置具有最大、最小和默认实例值。
 * 自动缩放作业始终读取要作为缩放依据的关联指标，检查它是否超过针对扩大或缩小配置的阈值。 可以在 [Azure 监视器自动缩放常用指标](insights-autoscale-common-metrics.md)查看可以作为自动缩放依据的指标列表。
 * 所有阈值都在实例级别进行计算。 例如，“如果实例计数为 2，则在平均 CPU > 80% 时按 1 个实例进行扩大”表示在所有实例间的平均 CPU 大于 80% 时进行扩大。
-* 始终可以通过电子邮件收到故障通知。 具体而言，目标资源的所有者、参与者和读者可收到电子邮件。 当自动缩放从故障中恢复并开始正常工作时，用户也始终会收到 *恢复* 电子邮件。
-* 可以选择加入以通过电子邮件和 webhook 接收成功缩放操作通知。
+* 所有自动缩放失败都会记录到活动日志中。 然后可以配置[活动日志警报](./monitoring-activity-log-alerts.md)，以便在自动缩放失败时通过电子邮件、短信、Webhook 等获得通知。
+* 同样，所有成功的缩放操作也会发布到活动日志中。 然后可以配置活动日志警报，以便在自动缩放操作成功时通过电子邮件、短信、Webhook 等获得通知。 还可以配置电子邮件或 Webhook 通知，以通过自动缩放设置上的通知选项卡获取有关成功缩放操作的通知。
 
 ## <a name="autoscale-best-practices"></a>自动缩放最佳做法
 使用自动缩放时，可使用以下最佳做法。
@@ -150,6 +150,8 @@ ms.lasthandoff: 12/29/2017
 * 指标再次可用（恢复）于进行缩放决策。
 
 还可以使用活动日志警报监视自动缩放引擎的运行状况。 下面举例说明如何[创建活动日志警报以监视订阅上的所有自动缩放引擎操作](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)或[创建活动日志警报以监视订阅上所有失败的自动缩放缩小/扩大操作](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)。
+
+除了使用活动日志警报以外，还可以配置电子邮件或 Webhook 通知，以通过自动缩放设置上的通知选项卡获取有关成功缩放操作的通知。
 
 ## <a name="next-steps"></a>后续步骤
 - [创建活动日志警报以监视订阅上的所有自动缩放引擎操作。](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

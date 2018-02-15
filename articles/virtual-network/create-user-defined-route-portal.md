@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 10/16/2017
 ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 19ca2744ed9f29703269a60fabcf7cef74c44fec
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 99c633fc4c32f20ff8ceb2d3f1c64fc7c936b053
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>创建用户定义的路由 - Azure 门户
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 12/08/2017
 
         |设置|值|
         |-----|-----|
-        |名称|外围网络|
+        |Name|外围网络|
         |地址范围（CIDR 块）|10.0.2.0/24|
 
 6. 创建网络虚拟设备虚拟机：
@@ -64,7 +64,7 @@ ms.lasthandoff: 12/08/2017
 
         |设置|值|
         |---|---|
-        |名称|myVm-Nva|
+        |Name|myVm-Nva|
         |用户名|azureuser|
         |密码和确认密码|输入所选密码|
         |订阅|选择订阅|
@@ -83,7 +83,7 @@ ms.lasthandoff: 12/08/2017
     - 在门户顶部的“搜索资源”框中输入 myVm-Nva。
     - 单击出现在搜索结果中的“myVm-Nva”。
     - 在左侧“设置”下单击“网络”。
-    - 在“myVm-Nva - 网络接口”下单击网络接口名称。 名称是 myvm-nvaX，其中 X 是门户分配的数字。
+    - 在“myVm-Nva - 网络接口”下单击网络接口名称。 名称为 **myvm-nva***X*，其中 *X* 是门户分配的数字。
     - 在网络接口的“设置”下，单击“IP 配置”，如下图所示：
 
         ![网络接口设置](./media/create-user-defined-route/network-interface-settings.png)
@@ -103,7 +103,7 @@ ms.lasthandoff: 12/08/2017
 
         |设置|值|
         |---|---|
-        |名称|myRouteTable-Public|
+        |Name|myRouteTable-Public|
         |订阅|选择订阅|
         |资源组|选择“使用现有资源组”，然后单击“myResourceGroup”|
         |位置|中国东部|
@@ -297,7 +297,8 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
 
-本教程需要包含两个子网的现有虚拟网络。 在随后出现的框中单击“试用”按钮，快速创建虚拟网络。 单击“试用”按钮，打开 [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fvirtual-network%2ftoc.json)。 尽管 Cloud Shell 运行 PowerShell 或 Bash shell，但在本节中，Bash shell 用于创建虚拟网络。 Bash shell 已安装 Azure 命令行接口。 如果 Cloud Shell 出现提示，请使用 [Azure 帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录到 Azure。 如果没有 Azure 帐户，可以注册 [试用版](https://www.azure.cn/pricing/1rmb-trial-full)。 若要创建本教程中使用的虚拟网络，请在以下框中单击“复制”按钮，然后将该脚本粘贴到 Azure Cloud Shell：
+本教程需要包含两个子网的现有虚拟网络。 
+<!-- Not Avaiable on Cloud Shell option -->
 
 ```azurecli
 #!/bin/bash

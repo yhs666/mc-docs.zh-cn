@@ -1,6 +1,6 @@
 ---
-title: "Azure 中继异常及其解决方法 | Azure"
-description: "获取一个列表，其中包含 Azure 中继异常以及解决这些异常应采取的建议操作。"
+title: "Azure 中继异常及其解决方法"
+description: "Azure 中继异常以及解决这些异常应采取的建议操作的列表。"
 services: service-bus-relay
 documentationcenter: na
 author: Derek1101
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/23/2017
+origin.date: 12/20/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
-ms.openlocfilehash: a7dcdf3d872b09f6e272625e37c09e8258b3995c
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 02/05/2018
+ms.openlocfilehash: 8da8afccf8f57dda5488ebf491f575b40952b1d1
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-relay-exceptions"></a>Azure 中继异常
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 09/29/2017
 *   **设置/配置错误**：[System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx)。 
 
     **常规操作**：检查配置。 必要时更改配置。
-*   **暂时性异常**：[Microsoft.ServiceBus.Messaging.MessagingException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingexception)、[Microsoft.ServiceBus.Messaging.ServerBusyException](https://doc.microsoft.com/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)、[Microsoft.ServiceBus.Messaging.MessagingCommunicationException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)。
+*   **暂时性异常**：[Microsoft.ServiceBus.Messaging.MessagingException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingexception)、[Microsoft.ServiceBus.Messaging.ServerBusyException](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)、[Microsoft.ServiceBus.Messaging.MessagingCommunicationException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)。
     **常规操作**：重试操作或通知用户。
 *   **其他异常**：[System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx)、[System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)。 
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 09/29/2017
 
 ## <a name="quotaexceededexception"></a>QuotaExceededException
 
-[QuotaExceededException](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) 指示已超出某个特定实体的配额。
+[QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) 指示已超出某个特定实体的配额。
 
 对于中继，此异常包含 [System.ServiceModel.QuotaExceededException](https://msdn.microsoft.com/library/system.servicemodel.quotaexceededexception.aspx)，指示已超过此终结点的最大侦听器数目。 这会以异常消息的 **MaximumListenersPerEndpoint** 值表示。
 

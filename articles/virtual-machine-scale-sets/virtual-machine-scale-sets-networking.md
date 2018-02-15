@@ -1,10 +1,10 @@
 ---
-title: "Azure 虚拟机规模集的网络 | Azure"
+title: "Azure 虚拟机规模集的网络 | Microsoft Docs"
 description: "Azure 虚拟机规模集的配置网络属性。"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: hayley244
-manager: digimobile
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,19 +14,38 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 00afe97ae7b90695d6b72404e7835011a433ca66
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.date: 01/31/2018
+ms.author: v-junlch
+ms.openlocfilehash: 0825ec5d8ba1b61dfe602dabad1939debb235d80
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 虚拟机规模集的网络
 
 通过门户部署 Azure 虚拟机规模集时，某些网络属性（例如带入站 NAT 规则的 Azure 负载均衡器）是默认设置的。 本文介绍如何使用部分较高级的可以对规模集配置的网络功能。
 
-可以使用 Azure Resource Manager 模板配置本文介绍的所有功能。 此外，还为选定功能提供了 Azure CLI 示例。 请使用 2017 年 7 月或更晚的 CLI 版本。 很快会添加更多的 CLI 和 PowerShell 示例。
+可以使用 Azure Resource Manager 模板配置本文介绍的所有功能。 此外，还为选定功能提供了 Azure CLI 和 PowerShell 示例。 使用 CLI 2.10 和 PowerShell 4.2.0 或更高版本。
+
+## <a name="accelerated-networking"></a>加速网络
+Azure 加速网络可以实现对虚拟机的单根 I/O 虚拟化 (SR-IOV)，从而提升网络性能。 若要详细了解如何使用加速网络，请查看适用于 [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) 或 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) 虚拟机的加速网络。 若要对规模集使用加速网络，请在规模集的 networkInterfaceConfigurations 设置中将 enableAcceleratedNetworking 设置为 true。 例如：
+```json
+"networkProfile": {
+    "networkInterfaceConfigurations": [
+    {
+      "name": "niconfig1",
+      "properties": {
+        "primary": true,
+        "enableAcceleratedNetworking" : true,
+        "ipConfigurations": [
+          ...
+        ]
+      }
+    }
+   ]
+}
+```
 
 ## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>创建引用现有 Azure 负载均衡器的规模集
 使用 Azure 门户创建规模集后，就大多数配置选项来说，都会创建新的负载均衡器。 如果创建需引用现有负载均衡器的规模集，可以使用 CLI。 以下示例脚本先创建负载均衡器，然后创建规模集来引用该均衡器：
@@ -89,7 +108,7 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 
 单个虚拟机 DNS 名称的输出将采用以下形式： 
 ```
-<vmname><vmindex>.<specifiedVmssDomainNameLabel>
+<vm><vmindex>.<specifiedVmssDomainNameLabel>
 ```
 
 ## <a name="public-ipv4-per-virtual-machine"></a>每个虚拟机的公共 IPv4
@@ -125,54 +144,10 @@ PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleS
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
-使用 [Azure 资源浏览器](https://resources.azure.com)或者 Azure REST API **2017-03-30** 或更高版本查询分配到规模集虚拟机的公共 IP 地址。
-
-若要使用资源浏览器查看规模集的公共 IP 地址，请找到规模集下的 publicipaddresses 节。 例如：https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
-
-```
-GET https://management.chinacloudapi.cn/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30
-```
-
-示例输出：
-```json
-{
-  "value": [
-    {
-      "name": "pub1",
-      "id": "/subscriptions/your-subscription-id/resourceGroups/your-rg/providers/Microsoft.Compute/virtualMachineScaleSets/pipvmss/virtualMachines/0/networkInterfaces/pipvmssnic/ipConfigurations/yourvmssipconfig/publicIPAddresses/pub1",
-      "etag": "W/\"a64060d5-4dea-4379-a11d-b23cd49a3c8d\"",
-      "properties": {
-        "provisioningState": "Succeeded",
-        "resourceGuid": "ee8cb20f-af8e-4cd6-892f-441ae2bf701f",
-        "ipAddress": "13.84.190.11",
-        "publicIPAddressVersion": "IPv4",
-        "publicIPAllocationMethod": "Dynamic",
-        "idleTimeoutInMinutes": 15,
-        "ipConfiguration": {
-          "id": "/subscriptions/your-subscription-id/resourceGroups/your-rg/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmss/virtualMachines/0/networkInterfaces/yourvmssnic/ipConfigurations/yourvmssipconfig"
-        }
-      }
-    },
-    {
-      "name": "pub1",
-      "id": "/subscriptions/your-subscription-id/resourceGroups/your-rg/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmss/virtualMachines/3/networkInterfaces/yourvmssnic/ipConfigurations/yourvmssipconfig/publicIPAddresses/pub1",
-      "etag": "W/\"5f6ff30c-a24c-4818-883c-61ebd5f9eee8\"",
-      "properties": {
-        "provisioningState": "Succeeded",
-        "resourceGuid": "036ce266-403f-41bd-8578-d446d7397c2f",
-        "ipAddress": "13.84.159.176",
-        "publicIPAddressVersion": "IPv4",
-        "publicIPAllocationMethod": "Dynamic",
-        "idleTimeoutInMinutes": 15,
-        "ipConfiguration": {
-          "id": "/subscriptions/your-subscription-id/resourceGroups/your-rg/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmss/virtualMachines/3/networkInterfaces/yourvmssnic/ipConfigurations/yourvmssipconfig"
-        }
-      }
-    }
-```
+使用 **2017-03-30** 版或更高版 Azure REST API 查询分配到规模集虚拟机的公共 IP 地址。
 
 ## <a name="multiple-ip-addresses-per-nic"></a>每个 NIC 多个 IP 地址
-在规模集中，附加到 VM 的每个 NIC 可以有一个或多个关联的 IP 配置。 每个配置分配有一个专用 IP 地址。 每个配置还可以有一个关联的公共 IP 地址资源。 
+在规模集中，附加到 VM 的每个 NIC 可以有一个或多个关联的 IP 配置。 每个配置分配有一个专用 IP 地址。 每个配置还可以有一个关联的公共 IP 地址资源。 若要了解可以为一个 NIC 分配多少个 IP 地址，以及可以在一个 Azure 订阅中使用多少个公共 IP 地址，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
 ## <a name="multiple-nics-per-virtual-machine"></a>每个虚拟机多个 NIC
 每个虚拟机最多可以有 8 个 NIC，具体取决于虚拟机大小。 若要了解每个虚拟机的最大 NIC 数，请参阅 [VM 大小](../virtual-machines/windows/sizes.md)一文。 以下示例为规模集网络配置文件，显示每个虚拟机有多个 NIC 条目和多个公共 IP：
@@ -288,5 +263,6 @@ GET https://management.chinacloudapi.cn/subscriptions/{your sub ID}/resourceGrou
 ```
 
 ## <a name="next-steps"></a>后续步骤
-有关 Azure 虚拟网络的详细信息，请参阅[此文档](../virtual-network/virtual-networks-overview.md)。
-<!--Update_Description: update list & query scale set public IP addresses sample code-->
+有关 Azure 虚拟网络的详细信息，请参阅 [Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
+
+<!-- Update_Description: wording update -->

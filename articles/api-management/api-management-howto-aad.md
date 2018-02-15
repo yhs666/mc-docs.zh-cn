@@ -1,25 +1,24 @@
 ---
-title: "使用 Azure Active Directory 向开发人员帐户授权 - Azure API 管理 | Azure"
+title: "使用 Azure Active Directory 向开发人员帐户授权"
 description: "了解如何在 API 管理中使用 Azure Active Directory 向用户授权。"
 services: api-management
 documentationcenter: API Management
-author: steved0x
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 33a69a83-94f2-4e4e-9cef-f2a5af3c9732
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
+origin.date: 10/30/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: eee48f5aea945c73d50dd680359eae8f5bf2f048
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.date: 02/26/2018
+ms.openlocfilehash: ca47ae9a45cfa97fc2269c66457124fe65fc2102
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 > [!WARNING]
 > 仅在“开发人员”和“高级”层提供 Azure Active Directory 集成。
@@ -96,7 +95,7 @@ ms.lasthandoff: 09/22/2017
 
 切换回 Azure Active Directory 配置，并单击“密钥”部分中的“选择持续时间”下拉列表并指定间隔。 在此示例中使用“1 年”。
 
-![密钥][api-management-aad-key-before-save]
+![键][api-management-aad-key-before-save]
 
 单击“保存”保存配置并显示密钥。 将该密钥复制到剪贴板。
 
@@ -228,10 +227,10 @@ ms.lasthandoff: 09/22/2017
 [Monitoring and analytics]: ./api-management-monitoring.md
 [Add APIs to a product]: ./api-management-howto-add-products.md#add-apis
 [Publish a product]: ./api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: ./api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: ./api-management-policy-reference.md
 [Caching policies]: ./api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: ./api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet

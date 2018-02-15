@@ -1,9 +1,9 @@
 ---
-title: "Azure API 管理身份验证策略 | Azure"
+title: "Azure API 管理身份验证策略"
 description: "了解可在 Azure API 管理中使用的身份验证策略。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 11/27/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: dbe5a82b45e955a7b4d794dcd4583d12afa360c1
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: e11c1cdd3c24d57f2791f6622ce3715a7cb74ec4
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="api-management-authentication-policies"></a>API 管理身份验证策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -47,21 +47,21 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |authentication-basic|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |username|指定基本凭据的用户名。|是|不适用|  
 |password|指定基本凭据的密码。|是|不适用|  
   
 ### <a name="usage"></a>使用情况  
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
+ 此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站  
+-   **策略段：**inbound  
   
 -   **策略范围：**API  
   
@@ -82,23 +82,28 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |authentication-certificate|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|客户端证书的指纹。|是|不适用|  
   
 ### <a name="usage"></a>使用情况  
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
+ 此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站  
+-   **策略段：**inbound  
   
 -   **策略范围：**API  
   
 
 ## <a name="next-steps"></a>后续步骤
-有关如何使用策略的详细信息，请参阅 [API 管理中的策略](./api-management-howto-policies.md)。  
+有关如何使用策略的详细信息，请参阅：
+
++ [API 管理中的策略](api-management-howto-policies.md)
++ [转换 API](transform-api.md)
++ [策略参考](api-management-policy-reference.md)，获取策略语句及其设置的完整列表
++ [策略示例](policy-samples.md)   

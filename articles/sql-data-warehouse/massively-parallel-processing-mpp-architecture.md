@@ -15,11 +15,11 @@ ms.custom: architecture
 origin.date: 11/15/2017
 ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 5a31f107150f1cf989e11c802ddbb44da9e5b3ca
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: af8d699ac41614feaab7287cc3adec77fd0e73c7
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL 数据仓库 - 大规模并行处理 (MPP) 体系结构
 了解 Azure SQL 数据仓库如何将大规模并行处理 (MPP) 与 Azure 存储结合，实现高性能和可伸缩性。 
@@ -69,8 +69,8 @@ SQL 数据仓库使用 Azure 存储保护用户数据。  由于数据通过 Azu
 
 下图说明了如何将完整的非分布式表存储为哈希分布表。 
 
-![分布式表](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "分布式表")  
-
+![分布式表](media/sql-data-warehouse-distributed-data/hash-distributed-table.png)
+ 
 * 一个行属于一个分布区。  
 * 通过确定性哈希算法将一个行分配到一个分布区。  
 * 不同大小的表显示，每个分布区的表行的数目各不相同。
@@ -89,10 +89,10 @@ SQL 数据仓库使用 Azure 存储保护用户数据。  由于数据通过 Azu
 
 下图显示了一个复制表。 在 SQL 数据仓库中，会在每个计算节点的第一个分布区上缓存复制表。  
 
-![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
+![复制表](media/sql-data-warehouse-distributed-data/replicated-table.png) 
 
 ## <a name="next-steps"></a>后续步骤
-对 SQL 数据仓库有了初步的认识后，请继续学习如何快速[创建 SQL 数据仓库][create a SQL Data Warehouse]和[加载示例数据][load sample data]。 如果用户不熟悉 Azure，可在遇到新术语时查看 [Azure 术语表][Azure glossary] 。 或者，查看一下以下一些其他 SQL 数据仓库资源。  
+对 SQL 数据仓库有了初步的认识后，请学习如何快速创建 SQL 数据仓库和[加载示例数据][load sample data]。 如果用户不熟悉 Azure，可在遇到新术语时查看 [Azure 术语表][Azure glossary] 。 或者，查看一下以下一些其他 SQL 数据仓库资源。  
 
 <!-- Not Available * [Customer success stories] -->
 <!-- Not Available * [Blogs]-->
@@ -110,9 +110,10 @@ SQL 数据仓库使用 Azure 存储保护用户数据。  由于数据通过 Azu
 <!--Article references-->
 <!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md-->
 [load sample data]: ./sql-data-warehouse-load-sample-databases.md
-[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+<!-- Not Avaialble on [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md -->
+<!-- Not contains Sample choice in selectbox so that we can not following the process -->
 [Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+<!-- Not Avaialble on [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md -->
 [Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
 [Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md

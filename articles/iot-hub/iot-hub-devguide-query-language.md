@@ -1,5 +1,5 @@
 ---
-title: "了解 IoT 中心查询语言 | Azure"
+title: "了解 Azure IoT 中心查询语言"
 description: "开发人员指南 - 介绍类似 SQL 的 IoT 中心查询语言，该语言用于在 IoT 中心检索设备孪生和作业的相关信息。"
 services: iot-hub
 documentationcenter: .net
@@ -12,16 +12,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/24/17
+origin.date: 10/24/2017
 ms.author: v-yiso
-ms.date: 12/18/2017
-ms.openlocfilehash: dd034bfe10890e944cf5419fb617e86941a43c12
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.date: 02/26/2018
+ms.openlocfilehash: 9e7760a3f0148989bd2a77c4c936d54f6ede3912
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="reference---iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>参考 - 用于设备孪生、作业和消息路由的 IoT 中心查询语言
+# <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>用于设备孪生、作业和消息路由的 IoT 中心查询语言
 
 IoT 中心提供类似于 SQL 的强大语言，用于检索有关[设备孪生][lnk-twins]和[作业][lnk-jobs]以及[消息路由][lnk-devguide-messaging-routes]的信息。 本文内容：
 
@@ -36,6 +36,17 @@ IoT 中心提供类似于 SQL 的强大语言，用于检索有关[设备孪生]
 {
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00",    
+    "connectionState": "Disconnected",    
+    "lastActivityTime": "0001-01-01T00:00:00",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",    
+    "x509Thumbprint": {    
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "version": 2,
     "tags": {
         "location": {
             "region": "CN",
@@ -140,6 +151,12 @@ GROUP BY properties.reported.telemetryConfig.status
 ]
 ```
 
+投影查询允许开发人员仅返回他们所关注的属性。 例如，若要检索所有已断开连接设备的上次活动时间，请使用以下查询：
+
+```sql
+SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+```
+
 ### <a name="c-example"></a>C# 示例
 查询功能由 [C# 服务 SDK][lnk-hub-sdks] 在 **RegistryManager** 类中公开。
 下面是一个简单的查询示例：
@@ -156,8 +173,8 @@ while (query.HasMoreResults)
 }
 ```
 
-请注意如何使用页面大小（最大 1000）实例化 **query** 对象，并通过调用 **GetNextAsTwinAsync** 方法多次来检索多个页面。
-请注意，查询对象会公开多个 **Next\***，具体取决于查询所需的反序列化选项（如设备孪生或作业对象）或者使用投影时要用的普通 JSON。
+请注意如何使用页面大小（最大 100）实例化 **query** 对象，并通过多次调用 **GetNextAsTwinAsync** 方法来检索多个页面。
+请注意，查询对象会公开多个 **Next***，具体取决于查询所需的反序列化选项（如设备孪生或作业对象）或者使用投影时要用的普通 JSON。
 
 ### <a name="nodejs-example"></a>Node.js 示例
 查询功能由 [适用于 Node.js 的 Azure IoT 服务 SDK][lnk-hub-sdks] 在 **Registry** 对象中公开。
@@ -182,12 +199,12 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-请注意如何使用页面大小（最大 1000）实例化 **query** 对象，并通过调用 **nextAsTwin** 方法多次来检索多个页面。
-请注意，查询对象会公开多个 **next\***，具体取决于查询所需的反序列化选项（如设备孪生或作业对象）或者使用投影时要用的普通 JSON。
+请注意如何使用页面大小（最大 100）实例化 **query** 对象，并通过多次调用 **nextAsTwin** 方法来检索多个页面。
+请注意，查询对象会公开多个 **next***，具体取决于查询所需的反序列化选项（如设备孪生或作业对象）或者使用投影时要用的普通 JSON。
 
 ### <a name="limitations"></a>限制
 > [!IMPORTANT]
-> 关于设备孪生中的最新值，查询结果可能有几分钟的延迟。 如果按 ID 查询单个设备孪生，将始终优先使用检索设备孪生 API，它始终包含最新值并具有较高的限制。
+> 关于设备孪生中的最新值，查询结果可能有几分钟的延迟。 如果按 ID 查询单个设备孪生，则始终优先使用检索设备孪生 API，它始终包含最新值并具有较高的限制。
 >
 >
 
@@ -270,7 +287,7 @@ WHERE devices.jobs.jobId = 'myJobId'
 
 可通过[设备到云的路由][lnk-devguide-messaging-routes]配置 IoT 中心，根据按各消息计算的表达式将设备到云的消息分派给不同的终结点。
 
-在克隆和作业查询中，路由 [条件][lnk-query-expressions] 使用相同的 IoT 中心查询语言作为条件。 根据消息标头和正文评估路由条件。 路由查询表达式可能只涉及到消息标头、消息正文，或者同时涉及到消息标头和消息正文。 为了对消息进行路由，IoT 中心为标头和消息正文采用了特定的架构。 以下各节介绍了 IoT 中心正确进行路由所需满足的要求。
+在克隆和作业查询中，路由[条件][lnk-query-expressions]使用相同的 IoT 中心查询语言作为条件。 根据消息标头和正文评估路由条件。 路由查询表达式可能只涉及到消息标头、消息正文，或者同时涉及到消息标头和消息正文。 为了对消息进行路由，IoT 中心为标头和消息正文采用了特定的架构。 以下各节介绍了 IoT 中心正确进行路由所需满足的要求。
 
 ### <a name="routing-on-message-headers"></a>根据消息标头路由
 

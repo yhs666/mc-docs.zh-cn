@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure 中的监视 | Azure"
-description: "用于监视 Microsoft Azure 中任何组件的选项。"
+title: "Microsoft Azure 中的监视"
+description: "用于监视 Azure 中任何组件的选项。"
 author: rboucher
 manager: carmonm
 editor: 
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 10/04/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: cc156b4bc1fc807afb2624b0e9c958a4ff73a53d
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 02/26/2018
+ms.openlocfilehash: e15039caaa17aa2aafc6eb0dcd0adcaa6a308d7e
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="overview-of-monitoring-in-microsoft-azure"></a>Microsoft Azure 中的监视概述
 本文提供对 Microsoft Azure 进行整体监视时所涉及到的工具和服务的概述。 本文适用于：
@@ -31,18 +31,18 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="why-use-azures-monitoring-services"></a>为何使用 Azure 的监视服务？
 
-云应用中的性能问题可能会影响业务。 使用多个互连的组件和频繁发布版本时，性能随时可能会下降。 开发一款应用后，你的用户通常会发现其中的问题，而你在测试时却找不到这样的问题。 你应该立即知道这些问题，并使用工具来诊断和解决问题。 此外，应用程序中的问题通常是运行这些应用程序的底层基础结构造成的，因此，获得应用程序和基础结构的整体视图是监视 Azure 环境的关键所在。 Microsoft Azure 提供一系列的工具用于识别和解决此类问题。
+云应用中的性能问题可能会影响业务。 使用多个互连的组件和频繁发布版本时，性能随时可能会下降。 开发一款应用后，你的用户通常会发现其中的问题，而你在测试时却找不到这样的问题。 你应该立即知道这些问题，并使用工具来诊断和解决问题。 此外，应用程序中的问题可能是运行这些应用程序的底层基础结构造成的，因此，获得应用程序和基础结构的整体视图是监视 Azure 环境的关键所在。 Microsoft Azure 提供一系列的工具用于识别和解决此类问题。
 
 ## <a name="how-do-i-monitor-my-azure-environment"></a>如何监视 Azure 环境？
 
-可以使用以下工具来监视 Azure 环境：
+可通过多种工具来监视 Azure 环境，包括 Azure 上运行的应用程序代码，以及承载应用程序的基础结构，等等。 这些工具配合工作，提供全面的云监视，包括：
 
 -   **Azure Monitor** - 以整合式管道形式运行的 Azure 服务，可处理 Azure 服务中的所有监视数据。 在此工具中可以访问性能指标，以及用于描述 Azure 基础结构和所用的任何 Azure 服务的运行情况的事件。 Azure Monitor 是 Azure 环境的监视数据管道，可将该数据直接提供到 Log Analytics 以及第三方工具，可在这些工具中洞察该数据，并将其与本地或其他云资源中的数据合并。
 
 ## <a name="accessing-monitoring-in-the-azure-portal"></a>在 Azure 门户中访问监视功能
 所有 Azure 监视服务目前在单个 UI 窗格中提供。 有关如何访问此区域的详细信息，请参阅 [Azure Monitor 入门](monitoring-get-started.md)。 
 
-还可以访问特定资源的监视功能，只需突出显示这些资源，然后向下钻取到其监视选项即可。 
+还可访问特定的 Azure 资源的监视功能，只需突出显示这些资源，并向下钻取到其监视选项即可。 
 
 
 ## <a name="next-steps"></a>后续步骤

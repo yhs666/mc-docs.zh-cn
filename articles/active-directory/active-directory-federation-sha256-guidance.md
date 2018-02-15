@@ -16,18 +16,21 @@ ms.topic: article
 origin.date: 10/31/2016
 ms.author: v-junlch
 ms.date: 12/09/2016
-ms.openlocfilehash: 933445fa5dc1ce75a1717de0e46a01001d97139a
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 4b502fb2d3a35d595b772ab55614550125d33279
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="change-signature-hash-algorithm-for-office-365-replying-party-trust"></a>更改 Office 365 信赖方信任的签名哈希算法
+# <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>更改 Office 365 信赖方信任的签名哈希算法
 ## <a name="overview"></a>概述
-Azure Active Directory 联合身份验证服务 (AD FS) 将在 Azure Active Directory 中签名其令牌，确保这些令牌不会遭到篡改。 这种签名可以基于 SHA1 或 SHA256。 Azure Active Directory 现在支持使用 SHA256 算法签名的令牌，我们建议将令牌签名算法设置为 SHA256 以获得最高安全级别。 本指南介绍将令牌签名算法设置为更安全的 SHA256 级别所要执行的步骤。
+Active Directory 联合身份验证服务 (AD FS) 将在 Azure Active Directory 中完成令牌签名，确保这些令牌不会遭到篡改。 这种签名可以基于 SHA1 或 SHA256。 Azure Active Directory 现在支持使用 SHA256 算法签名的令牌，我们建议将令牌签名算法设置为 SHA256 以获得最高安全级别。 本指南介绍将令牌签名算法设置为更安全的 SHA256 级别所要执行的步骤。
+
+>[!NOTE]
+>Azure 建议使用 SHA256 作为令牌签名算法，因为它比 SHA1 更安全，但 SHA1 仍受支持。
 
 ## <a name="change-the-token-signing-algorithm"></a>更改令牌签名算法
-使用下面两个过程之一设置签名算法后，AD FS 将使用 SHA256 为 Office 365 信赖方信任令牌签名。 你无需进行任何额外的配置更改，并且这种更改不影响你访问 Office 365 或其他 Azure AD 应用程序的能力。
+使用下面两个过程之一设置签名算法后，AD FS 使用 SHA256 为 Office 365 信赖方信任令牌签名。 无需进行任何额外的配置更改，并且这种更改不影响你访问 Office 365 或其他 Azure AD 应用程序的能力。
 
 ### <a name="ad-fs-management-console"></a>AD FS 管理控制台
 1. 在 AD FS 主服务器上打开 AD FS 管理控制台。
@@ -41,7 +44,7 @@ Azure Active Directory 联合身份验证服务 (AD FS) 将在 Azure Active Dire
 ### <a name="ad-fs-powershell-cmdlets"></a>AD FS PowerShell cmdlet
 1. 在任何 AD FS 服务器上，以管理员权限打开 PowerShell。
 2. 使用 **Set-AdfsRelyingPartyTrust** cmdlet 设置安全哈希算法。
-
+   
    <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
 
 ## <a name="also-read"></a>另请参阅

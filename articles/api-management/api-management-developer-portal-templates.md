@@ -1,9 +1,9 @@
 ---
-title: "使用模板自定义 API 管理开发人员门户 -Azure | Azure"
+title: "使用模板自定义 API 管理开发人员门户"
 description: "了解如何使用模板自定义 Azure API 管理开发人员门户。"
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: a195675b-f7d0-4fc9-90bf-860e6f17ccf7
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 7386fc03acdcc85cde5366e149ec6b2665e99cbd
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: ed59fec4d53981cfa53269cab631827a924f6be2
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>如何使用模板自定义 Azure API 管理开发人员门户
 
@@ -133,11 +133,11 @@ ms.lasthandoff: 09/08/2017
 ```
 
 ## <a name="to-save-a-template"></a>保存模板
-若要保存模板，请在模板编辑器中单击“保存”。
+若要模板，请在模板编辑器中单击“保存”。
 
 ![保存模板][api-management-save-template]
 
-已保存的更改在发布之前不会在开发人员门户中生效。
+已保存的更改在开发人员门户中不生效，直到它们发布。
 
 ## <a name="to-publish-a-template"></a>发布模板
 已保存的模板可单独发布，也可全部一起发布。 若要发布个别模板，请在模板编辑器中单击“发布”。
@@ -163,7 +163,7 @@ ms.lasthandoff: 09/08/2017
 
 ![还原模板][api-management-revert-template]
 
-单击“是”进行确认。
+单击“是”确认。
 
 ![确认][api-management-revert-template-confirm]
 
@@ -176,7 +176,7 @@ ms.lasthandoff: 09/08/2017
 
 ![还原模板][api-management-reset-template]
 
-单击“是”进行确认。
+单击“是”确认。
 
 ![确认][api-management-reset-template-confirm]
 

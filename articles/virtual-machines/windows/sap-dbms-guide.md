@@ -18,11 +18,11 @@ origin.date: 11/08/2016
 ms.date: 05/22/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a8123641e6c7dae317b6cee639ab83310bc6951
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: 42989d0aab117a755cab5eb5a8c940550bc9ed35
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="sap-netweaver-on-azure-windows-virtual-machines-vms---dbms-deployment-guide"></a>Azure Windows 虚拟机 (VM) 上的 SAP NetWeaver - DBMS 部署指南
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -159,6 +159,7 @@ ms.lasthandoff: 11/28/2017
 [getting-started-deployment]:sap-get-started.md#6aadadd2-76b5-46d8-8713-e8d63630e955
 [getting-started-planning]:sap-get-started.md#3da0389e-708b-4e82-b2a2-e92f132df89c
 
+<!-- Not available on the following URL for virtual-machines-windows-classic-sap-get-started.md -->
 [getting-started-windows-classic]:../virtual-machines-windows-classic-sap-get-started.md
 [getting-started-windows-classic-dbms]:../virtual-machines-windows-classic-sap-get-started.md#c5b77a14-f6b4-44e9-acab-4d28ff72a930
 [getting-started-windows-classic-deployment]:../virtual-machines-windows-classic-sap-get-started.md#f84ea6ce-bbb4-41f7-9965-34d31b0098ea
@@ -267,7 +268,7 @@ ms.lasthandoff: 11/28/2017
 [virtual-machines-linux-configure-raid]:../linux/configure-raid.md
 [virtual-machines-linux-classic-create-upload-vhd-step-1]:../virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded
 [virtual-machines-linux-create-upload-vhd-suse]:../linux/suse-create-upload-vhd.md
-[virtual-machines-linux-redhat-create-upload-vhd]:../linux/redhat-create-upload-vhd.md
+<!-- Not Avaiable on [virtual-machines-linux-redhat-create-upload-vhd]:../linux/redhat-create-upload-vhd.md -->
 [virtual-machines-linux-how-to-attach-disk]:../linux/add-disk.md
 [virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
 [virtual-machines-linux-tutorial]:../linux/quick-create-cli.md
@@ -350,7 +351,7 @@ ms.lasthandoff: 11/28/2017
 | [2233094] |DB6：Azure 上使用 IBM DB2 for Linux、UNIX 和 Windows 的 SAP 应用程序 — 附加信息 |
 | [2243692] |Azure (IaaS) VM 上的 Linux：SAP 许可证问题 |
 | [1984787] |SUSE LINUX Enterprise Server 12：安装说明 |
-| [2002167] |Red Hat Enterprise Linux 7.x：安装和升级 |
+<!-- 在 | [2002167] 上不可用 |Red Hat Enterprise Linux 7.x：安装和升级 | -->
 
 另请阅读 [SCN Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) ，其中包含适用于 Linux 的所有 SAP 说明。
 
@@ -507,7 +508,7 @@ Azure 存储帐户不只是一种管理构造，还是一个具有各种限制�
 
 与本地 SAN 设备一样，共享需要一些监视，以便最终能够检测到 Azure 存储帐户上的瓶颈。 适用于 SAP 的 Azure 监视扩展和 Azure 门户等工具可用于检测可能提供次优 IO 性能的忙碌 Azure 存储帐户。  如果检测到这种情况，建议将忙碌的 VM 移到另一个 Azure 存储帐户。 有关如何激活 SAP 主机监视功能的详细信息，请参阅 [部署指南][deployment-guide] 。
 
-可以在此处找到另一篇概述 Azure 标准存储和 Azure 标准存储帐户最佳做法的文章：<https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx>
+可以在此处找到另一篇概述 Azure 标准存储和 Azure 标准存储帐户最佳实践的文章：<https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx>
 
 #### <a name="moving-deployed-dbms-vms-from-azure-standard-storage-to-azure-premium-storage"></a>将部署的 DBMS VM 从 Azure 标准存储移到 Azure 高级存储
 我们遇到过很多这样的案例：客户想要将部署的 VM 从 Azure 标准存储移到 Azure 高级存储。 在不实际移动数据的情况下，根本无法完成此操作。 但可以使用多种方法实现此目的：
@@ -531,7 +532,7 @@ Azure 提供多种用于部署 VM 和相关磁盘的方法。 因此，请务必
 对于 SAP 应用程序所使用的数据库内容，可以通过 SAP 安装生成全新的内容，也可以通过将 VHD 与 DBMS 数据库备份搭配使用，或利用 DBMS 的功能直接备份到 Azure 存储，来将内容导入 Azure。 在此情况下，用户也可以在本地准备好包含 DBMS 数据和日志文件的 VHD，并将它们作为磁盘导入 Azure。 但是，将从本地加载的 DBMS 数据传输到 Azure 的操作会在需要在本地准备的 VHD 磁盘上执行。
 
 #### <a name="moving-a-vm-from-on-premises-to-azure-with-a-non-generalized-disk"></a>使用非通用化磁盘将 VM 从本地移至 Azure
-打算将某个特定 SAP 系统从本地移至 Azure（即时转移）。 通过将包含 OS、SAP 二进制文件和最终 DBMS 二进制文件的 VHD，以及包含 DBMS 数据和日志文件的 VHD 上传到 Azure，可以实现此目的。 与上面的方案 2 相反，需要将 Azure VM 中的主机名、SAP SID 和 SAP 用户帐户保留为与本地环境中的配置相同。 因此，不需要通用化映像。 此情况主要适用于跨界方案，在这类方案中，SAP 布局的一部分在本地运行，其余部分则在 Azure 上运行。
+打算将某个特定 SAP 系统从本地移至 Azure（即时转移）。 通过将包含 OS、SAP 二进制文件和最终 DBMS 二进制文件的 VHD，以及包含 DBMS 数据和日志文件的 VHD 上传到 Azure，可以实现此目的。 与上面的方案 2 相反，需要将 Azure VM 中的主机名、SAP SID 和 SAP 用户帐户保留为与本地环境中的配置相同。 因此，不需要将映像通用化。 此情况主要适用于跨界方案，在这类方案中，SAP 布局的一部分在本地运行，其余部分则在 Azure 上运行。
 
 ## <a name="871dfc27-e509-4222-9370-ab1de77021c3"></a>Azure VM 的高可用性和灾难恢复
 Azure 提供以下高可用性 (HA) 和灾难恢复 (DR) 功能，这些功能适用于进行 SAP 和 DBMS 部署时所用的各种组件
@@ -858,7 +859,7 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 #### <a name="impact-of-database-compression"></a>数据库压缩的影响
 在 I/O 带宽可能变成限制因素的配置中，每个减少 IOPS 的度量值都可能有助于分散可以在 Azure 等 IaaS 方案中运行的工作负荷。 因此，强烈建议确保先使用 SAP ASE 压缩，此后再将现有 SAP 数据库上传到 Azure。
 
-之所以建议先执行压缩，再上载到 Azure（如果尚未这样做），原因有以下几点：
+之所以建议先执行压缩，再上传到 Azure（如果尚未这样做），原因有以下几点：
 
 * 减少要上传到 Azure 的数据量
 * 假设可以在本地使用功能更强大的硬件（具有更多 CPU、更高 I/O 带宽或更少 I/O 延迟），则执行压缩的持续时间较短
@@ -926,7 +927,7 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 * [1956005]
 
 #### <a name="backuprecovery-considerations-for-sap-ase"></a>SAP ASE 的备份/恢复注意事项
-将 SAP ASE 部署到 Azure 时，必须检查备份方法。 即使系统不是生产系统，也必须定期备份 SAP ASE 托管的 SAP 数据库。 由于 Azure 存储会保留三个映像，因此，在补救存储崩溃方面，备份现在已变得不太重要。 维护适当备份和还原计划的主要原因是，可以通过提供时间点恢复功能来补救逻辑/人为错误。 因此，其目标是使用备份将数据库还原回到某个时间点，或者通过复制现有数据库，在 Azure 中使用备份来植入另一个系统。 例如，可以通过还原备份，从 2 层 SAP 配置转移到同一个系统的 3 层系统设置。
+将 SAP ASE 部署到 Azure 时，必须检查你的备份方法。 即使系统不是生产系统，也必须定期备份 SAP ASE 托管的 SAP 数据库。 由于 Azure 存储会保留三个映像，因此，在补救存储崩溃方面，备份现在已变得不太重要。 维护适当备份和还原计划的主要原因是，可以通过提供时间点恢复功能来补救逻辑/人为错误。 因此，其目标是使用备份将数据库还原回到某个时间点，或者通过复制现有数据库，在 Azure 中使用备份来植入另一个系统。 例如，可以通过还原备份，从 2 层 SAP 配置转移到同一个系统的 3 层系统设置。
 
 在 Azure 中备份和还原数据库的方式与在本地一样。 请参阅 SAP 说明：
 
@@ -1009,7 +1010,7 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 #### <a name="impact-of-database-compression"></a>数据库压缩的影响
 在 I/O 带宽可能变成限制因素的配置中，每个减少 IOPS 的度量值都可能有助于分散可以在 Azure 等 IaaS 方案中运行的工作负荷。 因此，强烈建议确保先使用 SAP ASE 压缩，此后再将现有 SAP 数据库上传到 Azure。
 
-之所以建议先执行压缩，再上载到 Azure（如果尚未这样做），原因有以下几点：
+之所以建议先执行压缩，再上传到 Azure（如果尚未这样做），原因有以下几点：
 
 * 减少要上传到 Azure 的数据量
 * 假设可以在本地使用功能更强大的硬件（具有更多 CPU、更高 I/O 带宽或更少 I/O 延迟），则执行压缩的持续时间较短
@@ -1077,7 +1078,7 @@ SAP 目前支持 SAP ASE 版本 16.0，可与 SAP Business Suite 产品搭配使
 * [1956005]
 
 #### <a name="backuprecovery-considerations-for-sap-ase"></a>SAP ASE 的备份/恢复注意事项
-将 SAP ASE 部署到 Azure 时，必须检查备份方法。 即使系统不是生产系统，也必须定期备份 SAP ASE 托管的 SAP 数据库。 由于 Azure 存储会保留三个映像，因此，在补救存储崩溃方面，备份现在已变得不太重要。 维护适当备份和还原计划的主要原因是，可以通过提供时间点恢复功能来补救逻辑/人为错误。 因此，其目标是使用备份将数据库还原回到某个时间点，或者通过复制现有数据库，在 Azure 中使用备份来植入另一个系统。 例如，可以通过还原备份，从 2 层 SAP 配置转移到同一个系统的 3 层系统设置。
+将 SAP ASE 部署到 Azure 时，必须检查你的备份方法。 即使系统不是生产系统，也必须定期备份 SAP ASE 托管的 SAP 数据库。 由于 Azure 存储会保留三个映像，因此，在补救存储崩溃方面，备份现在已变得不太重要。 维护适当备份和还原计划的主要原因是，可以通过提供时间点恢复功能来补救逻辑/人为错误。 因此，其目标是使用备份将数据库还原回到某个时间点，或者通过复制现有数据库，在 Azure 中使用备份来植入另一个系统。 例如，可以通过还原备份，从 2 层 SAP 配置转移到同一个系统的 3 层系统设置。
 
 在 Azure 中备份和还原数据库的方式与在本地一样。 请参阅 SAP 说明：
 
@@ -1182,7 +1183,7 @@ SAP 目前支持 SAP MaxDB 版本 7.9，该版本可以与 Azure 中基于 SAP N
 * 将 SAP MaxDB 数据卷（即文件）的 IO 路径与日志卷（即文件）的 IO 路径隔开。 这表示 SAP MaxDB 数据卷（即文件）必须安装在一个逻辑驱动器上，而 SAP MaxDB 日志卷（即文件）必须安装在另一个逻辑驱动器上。
 * 根据 [VM 的缓存][dbms-guide-2.1]一章中所述，为每个 Azure Blob 设置适当的文件缓存，具体取决于是将其用于 SAP MaxDB 数据卷还是日志卷（即文件），以及是使用 Azure 标准存储还是 Azure 高级存储。
 * 只要每个磁盘当前的 IOPS 配额能满足需求，就可以将所有数据卷存储在装载的单个 Azure VHD 上，同时将所有数据库日志卷存储在装载的另一个 Azure VHD 上。
-* 如果需要更多 IOPS 和/或空间，我们强烈建议使用 Microsoft Windows 存储池（仅适用于 Microsoft Windows Server 2012 和更高版本）或适用于 Microsoft Windows 2008 R2 的 Microsoft Windows 带区，基于已装载的多个 VHD 磁盘来创建一个大型逻辑设备。 另请参阅本文档的 [软件 RAID][dbms-guide-2.2] 一章。 这种方法可以简化磁盘空间的管理开销，避免跨已装载的多个 VHD 手动分布文件。
+* 如果需要更多 IOPS 和/或空间，强烈建议使用 Microsoft Windows 存储池（仅适用于 Microsoft Windows Server 2012 和更高版本）或适用于 Microsoft Windows 2008 R2 的 Microsoft Windows 带区，基于已装载的多个 VHD 磁盘来创建一个大型逻辑设备。 另请参阅本文档的 [软件 RAID][dbms-guide-2.2] 一章。 这种方法可以简化磁盘空间的管理开销，避免跨已装载的多个 VHD 手动分布文件。
 * 若要满足最高的 IOPS 需求，可以使用 DS 系列和 GS 系列 VM 上提供的 Azure 高级存储。
 
 ![适用于 SAP MaxDB DBMS 的 Azure IaaS VM 的参考配置][dbms-guide-figure-600]

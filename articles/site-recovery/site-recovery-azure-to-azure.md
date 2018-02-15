@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/10/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: c417b81e54d050133ed95de9ffebc89f27ddcef0
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: f6eca6276e83201487c768480a4bafd92d016261
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="replicate-azure-vms-between-regions-with-azure-site-recovery"></a>使用 Azure Site Recovery 在区域间复制 Azure VM
 
@@ -47,7 +47,8 @@ ms.lasthandoff: 09/28/2017
 Site Recovery 提供了一种简单方法，以在区域间复制 Azure VM：
 
 - 自动部署。 与主动-主动复制模型不同，次要区域中不需要昂贵且复杂的基础结构。 在启用复制时，Site Recovery 会根据源区域设置自动在目标区域中创建所需的资源。
-- 控制区域。 利用 Site Recovery，可在大洲内任意区域之间进行复制。 将此与读取访问异地冗余存储比较，后者仅在标准[配对区域](/best-practices-availability-paired-regions)间异步复制。 读取访问异地冗余存储提供对目标区域中数据的只读访问权限。
+- 控制区域。 利用 Site Recovery，可在大洲内任意区域之间进行复制。 将此与读取访问异地冗余存储比较，后者仅在标准配对区域间异步复制。 读取访问异地冗余存储提供对目标区域中数据的只读访问权限。
+<!-- Not Available on [paired regions](/best-practices-availability-paired-regions) -->
 - 自动复制。 Site Recovery 提供自动连续复制。 通过一次单击便可触发故障转移和故障回复。
 - RTO 和 RPO。 Site Recovery 利用连接区域的 Azure 网络基础结构，保持非常低的 RTO 和 RPO。
 - **测试**。 在需要的时候，可以运行按需测试故障转移进行灾难恢复演练，而不影响生产工作负荷或正在进行的复制。
@@ -133,7 +134,7 @@ Site Recovery 提供了一种简单方法，以在区域间复制 Azure VM：
 
 5. 故障转移完成后，副本 Azure 计算机会显示在 Azure 门户 >“虚拟机”中。 请确保 VM 的大小适当、已连接到相应的网络，并且正在运行。
 
-6. 若要删除在测试故障转移期间创建的 VM，请单击复制项或恢复计划上的“清理测试故障转移”。 在“说明”中，记录并保存与测试性故障转移相关联的任何观测结果。 
+6. 若要删除在测试故障转移期间创建的 VM，请单击复制项或恢复计划上的“清理测试故障转移”。 在“说明”中，记录并保存与测试故障转移相关联的任何观测结果。 
 
 [详细了解](site-recovery-test-failover-to-azure.md)测试故障转移。
 

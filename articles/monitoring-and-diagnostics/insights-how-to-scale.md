@@ -1,5 +1,5 @@
 ---
-title: "通过 Azure 门户手动或自动缩放实例计数 | Azure"
+title: "通过 Azure 门户手动或自动缩放实例计数"
 description: "了解如何在 Azure 中缩放服务。"
 author: anirudhcavale
 manager: orenr
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2017
 ms.author: v-yiso
-ms.date: 01/08/2018
-ms.openlocfilehash: 9329cc447e97893e4c1d5e669224bbd65eca2f98
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.date: 02/26/2018
+ms.openlocfilehash: 62022944791ccc253b03d7a34aa8e973b0b457bb
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>手动或自动缩放实例计数
 
@@ -143,4 +143,5 @@ ms.lasthandoff: 12/29/2017
 ## <a name="next-steps"></a>后续步骤
 * [监视服务指标](./insights-how-to-customize-monitoring.md)，确保服务可用且响应迅速。
 * [启用监视和诊断](./insights-how-to-use-diagnostics.md)收集服务的详细高频指标。
+* 每当操作事件发生或指标超过阈值时[接收警报通知](insights-receive-alert-notifications.md)。
 * [查看事件和活动日志](./insights-debugging-with-events.md)，可了解服务中发生的所有事件。

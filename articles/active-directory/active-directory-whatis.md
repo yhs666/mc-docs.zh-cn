@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 07/28/2017
+ms.date: 1/29/2018
 ms.custom: it-pro
-ms.openlocfilehash: 44e1ac879ca73e5ab45a927b848abaa39fa9db64
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 2a0e06d6c2d07cad404bd6698fe64167bbf12931
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="what-is-azure-active-directory"></a>什么是 Azure Active Directory？
-Azure Active Directory (Azure AD) 是 Microsoft 提供的基于多租户云的目录和标识管理服务。
+Azure Active Directory (Azure AD) 是 Microsoft 提供的多租户、基于云的目录和标识管理服务。 Azure AD 将核心目录服务、高级标识监管和应用程序访问管理相结合。 Azure AD 还提供功能丰富、基于标准的平台，该平台支持开发人员根据集中的策略和规则为应用程序提供访问控制。 
 
 对于 IT 管理员而言，Azure AD 提供经济实惠、易于使用的解决方案，使员工和业务合作伙伴能够使用单一登录 (SSO) 功能来访问数千种云 SaaS 应用程序，例如 Office365、Salesforce.com、DropBox 和 Concur。
 
@@ -31,7 +31,7 @@ Azure Active Directory (Azure AD) 是 Microsoft 提供的基于多租户云的�
 
 Azure AD 还包含整套标识管理功能，例如多重身份验证、设备注册、自助密码管理、自助组管理、特权帐户管理、基于角色的访问控制、应用程序使用情况监视、多样化审核以及安全监视和警报。 这些功能可以帮助保护基于云的应用程序的安全，简化 IT 流程，削减成本，以及确保实现公司的合规目标。
 
-此外，只需[单击四下](./connect/active-directory-aadconnect-get-started-express.md)，Azure AD 就能与现有的 Windows Server Active Directory 集成，使组织能够运用现有的本地标识投资来管理对基于云的 SaaS 应用程序的访问。
+此外，只需[单击四下](./connect/active-directory-aadconnect-get-started-express.md)，Azure AD 就能与现有的 Windows Server Active Directory 集成，使组织能够运用现有的本地标识管理系统投资来管理对基于云的 SaaS 应用程序的访问。
 
 如果是 Office365、Azure 或 Dynamics CRM Online 的客户，可能不知道自己已在使用 Azure AD。 每个 Office365、Azure 和 Dynamics CRM 租户实际上都已经是 Azure AD 租户。 每当有需要时，就可以开始使用该租户来为 Azure AD 集成的其他数千种云应用程序管理访问权限！
 

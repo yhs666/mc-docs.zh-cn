@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure 资源管理器模板创建服务总线命名空间 | Microsoft Docs"
-description: "使用 Azure 资源管理器模板创建服务总线命名空间"
+title: "使用 Azure 资源管理器模板创建服务总线消息命名空间"
+description: "使用 Azure 资源管理器模板创建服务总线消息命名空间"
 services: service-bus
 documentationCenter: .net
 author: sethmanheim
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 08/07/2017
+origin.date: 12/21/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 488abdff32e9f5f6cefbb4f6e96afc09f861e25e
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 02/05/2018
+ms.openlocfilehash: 2cc0bd1fec26c0228217d4ab3f9d68ed36216bfc
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建服务总线命名空间
 
@@ -30,14 +30,14 @@ ms.lasthandoff: 12/01/2017
 有关完整的模板，请参阅 GitHub 上的[服务总线命名空间模板][Service Bus namespace template]。
 
 >[!NOTE]
-> 以下 Azure 资源管理器模板可供下载和部署。 
+> 以下 Azure Resource Manager 模板可供下载和部署。 
 > 
 > * [创建包含队列的服务总线命名空间](service-bus-resource-manager-namespace-queue.md)
 > * [创建包含主题和订阅的服务总线命名空间](service-bus-resource-manager-namespace-topic.md)
 > * [创建包含队列和授权规则的服务总线命名空间](service-bus-resource-manager-namespace-auth-rule.md)
 > * [创建包含主题、订阅和规则的服务总线命名空间](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> 若要检查最新模板，请访问 [Azure 快速启动模板][Azure Quickstart Templates]库并搜索服务总线。
+> 若要检查最新模板，请访问 [Azure 快速启动模板][Azure Quickstart Templates] 库并搜索服务总线。
 > 
 > 
 
@@ -49,8 +49,8 @@ ms.lasthandoff: 12/01/2017
 
 [![部署到 Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
-## <a name="parameters"></a>Parameters
-使用 Azure Resource Manager，可以定义在部署模板时想要指定的值的参数。 该模板具有一个名为 `Parameters` 的部分，其中包含所有参数值。 应该为随着要部署的项目或要部署到的环境而变化的值定义参数。 不要为永远保持不变的值定义参数。 每个参数值可在模板中用来定义所部署的资源。
+## <a name="parameters"></a>parameters
+使用 Azure 资源管理器，可以定义在部署模板时想要指定的值的参数。 该模板具有一个名为 `Parameters` 的部分，其中包含所有参数值。 应该为随着要部署的项目或要部署到的环境而变化的值定义参数。 不要为永远保持不变的值定义参数。 每个参数值可在模板中用来定义所部署的资源。
 
 此模板定义以下参数：
 

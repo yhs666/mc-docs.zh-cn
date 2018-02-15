@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 09/12/2016
 ms.date: 01/09/2017
 ms.author: v-dazen
-ms.openlocfilehash: 4b957ae072793058fc06a9575e8d21755b47baf3
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: e80967699e3d71ecf05cd229dc0b0a8bf2386ba5
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>在 Azure 自动化中测试 Runbook
 测试 Runbook 时，将执行[草稿版](automation-creating-importing-runbook.md#publishing-a-runbook)，并会完成其执行的任何操作。 不会创建作业历史记录，但会在“测试输出”窗格中显示[“输出”](automation-runbook-output-and-messages.md#output-stream)与[“警告和错误”](automation-runbook-output-and-messages.md#message-streams)流。 仅当 [$VerbosePreference 变量](automation-runbook-output-and-messages.md#preference-variables)设置为 Continue 时，才会在“输出”窗格中显示发送到[详细流](automation-runbook-output-and-messages.md#message-streams)的消息。
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/23/2018
 1. 在[文本编辑器](automation-edit-textual-runbook.md)或[图形编辑器](automation-graphical-authoring-intro.md)中打开 Runbook 的草稿版本。
 2. 单击“测试”按钮，打开“测试”边栏选项卡。
 3. 如果 Runbook 有参数，参数会在左窗格中列出，可以在其中提供用于测试的值。
-4. 如果要在[混合 Runbook 辅助角色](automation-hybrid-runbook-worker.md)上运行测试，则将“运行设置”更改为“混合辅助角色”并选择目标组的名称。  否则，保留默认值 **Azure**，以在云中运行测试。
+4. 如果要在混合 Runbook 辅助角色上运行测试，则将“运行设置”更改为“混合辅助角色”并选择目标组的名称。  **Azure** ，以在云中运行测试。
 5. 单击“开始”按钮以开始测试。
 6. 如果 Runbook 是 [PowerShell 工作流](automation-runbook-types.md#powershell-workflow-runbooks) Runbook 或[图形](automation-runbook-types.md#graphical-runbooks) Runbook，则在使用“输出”窗格下方的按钮对它进行测试时，可以停止或暂停它。 暂停 Runbook 时，该 Runbook 会完成它在被暂停之前正在进行的活动。 暂停 Runbook 后，可以将它停止或重启。
 7. 在输出窗格中检查 Runbook 的输出。

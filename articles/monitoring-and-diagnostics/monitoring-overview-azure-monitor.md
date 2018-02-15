@@ -1,5 +1,5 @@
 ---
-title: "Azure Monitor 概述 | Azure"
+title: "Azure Monitor 概述"
 description: "Azure Monitor 收集在警报、webhook、自动缩放和自动化中使用的统计信息。 本文还列出了其他 Microsoft 监视选项。"
 author: rboucher
 manager: carmonm
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/23/2017
 ms.author: v-yiso
-ms.date: 01/08/2018
-ms.openlocfilehash: 30c1dba4bc375106fbbeb9c81b6c78757d1d7a2f
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.date: 02/26/2018
+ms.openlocfilehash: 5370d292a16ac9736933ef1a61fc3988086533b5
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="overview-of-azure-monitor"></a>Azure Monitor 概述
 本文概述了 Azure 中的 Azure Monitor 服务。 它讨论了 Azure Monitor 可以执行的工作并指出了可以在哪里找到有关如何使用 Azure Monitor 的其他信息。  
@@ -43,7 +43,7 @@ Azure Monitor 的登录页有助于用户：
 
 打开页面时，可在有权读取的订阅之间进行选择。 对于所选订阅，可看到：
 
-- 已触发的警报和警报源 - 此表显示摘要计数、警报源以及所选时间段触发的警报次数。 它同时适用于指标警报和活动日志警报。
+- 已触发的警报和警报源 - 此表显示摘要计数、警报源以及所选时间段触发的警报次数。 它同时适用于指标警报和活动日志警报。 *<编辑：还针对所有警报（事件、指标和日志）显示了具有统一体验的警报（预览）>*
 - 活动日志错误 - 如果任何 Azure 资源日志事件具有严重错误级别，可查看高级计数并单击进入活动日志页来调查每个事件。
 
 
@@ -136,7 +136,10 @@ Azure Monitor 的登录页有助于用户：
 
 
 ### <a name="automate"></a>自动化
-可以使用监视数据触发警报或甚至整个过程。 示例包括：
+> [!NOTE]
+> 随着 Azure 上的警报功能的不断发展，现在用于发出警报的统一体验即将发布预览版。 有关 [Azure 警报（预览）](monitoring-overview-unified-alerts.md)的更多详细信息
+
+在标准 Azure 警报中，可以使用监视数据触发警报或甚至整个过程。 示例包括：
 
 * 使用数据根据应用程序负载自动缩放计算实例数。
 * 当某个指标超出预定阈值时发送电子邮件。

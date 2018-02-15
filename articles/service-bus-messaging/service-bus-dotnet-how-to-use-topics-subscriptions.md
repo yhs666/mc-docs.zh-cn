@@ -1,25 +1,25 @@
 ---
-title: "Azure 服务总线主题和订阅入门 | Microsoft Docs"
+title: "Azure 服务总线主题和订阅入门"
 description: "编写一个 C# .NET Core 控制台应用程序，以便使用服务总线消息传递主题和订阅。"
-services: service-bus-messaging
+services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 
-ms.service: service-bus-messaging
+ms.service: service-bus
 ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 origin.date: 12/06/2017
 ms.author: v-yiso
-ms.date: 01/08/2018
-ms.openlocfilehash: e4a4cfca0d097df863acc8deda9904a5356b99c6
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.date: 02/05/2018
+ms.openlocfilehash: 160f54db6a391a5ad0f5e5b696af1f93276a8e49
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="get-started-with-service-bus-topics"></a>服务总线主题入门
 
@@ -377,7 +377,7 @@ ms.lasthandoff: 12/29/2017
 
             static void RegisterOnMessageHandlerAndReceiveMessages()
             {
-                // Configure the message hnadler options in terms of exception handling, number of concurrent messages to deliver, etc.
+                // Configure the message handler options in terms of exception handling, number of concurrent messages to deliver, etc.
                 var messageHandlerOptions = new MessageHandlerOptions(ExceptionReceivedHandler)
                 {
                     // Maximum number of concurrent calls to the callback ProcessMessagesAsync(), set to 1 for simplicity.
@@ -416,7 +416,7 @@ ms.lasthandoff: 12/29/2017
                 Console.WriteLine($"- Entity Path: {context.EntityPath}");
                 Console.WriteLine($"- Executing Action: {context.Action}");
                 return Task.CompletedTask;
-            }S
+            }
         }
     }
     ```

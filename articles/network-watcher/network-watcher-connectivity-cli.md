@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 origin.date: 07/11/2017
 ms.date: 11/13/2017
 ms.author: v-yeche
-ms.openlocfilehash: 856f698588432665b55c9e4deecff6498770d6f2
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 3fd4deb3e3f8ce0c0edf5389c683935ffa7e1801
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>使用 Azure CLI 2.0 通过 Azure 网络观察程序检查连接性
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/19/2018
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 > [!IMPORTANT]
-> 连接监视需要虚拟机扩展 `AzureNetworkWatcherExtension`。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md)。
+> 连接监视需要虚拟机扩展 `AzureNetworkWatcherExtension`。 有关在 Windows VM 上安装扩展的信息，请访问“适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展”；有关 Linux VM 的信息，请访问“适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展”。
 
 ## <a name="register-the-preview-capability"></a>注册预览版功能 
 
@@ -305,7 +305,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ## <a name="next-steps"></a>后续步骤
 
-查看[创建警报触发的数据包捕获](network-watcher-alert-triggered-packet-capture.md)，了解如何利用虚拟机警报自动执行数据包捕获
+<!-- Not Available on  [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 
 访问[查看“IP 流验证”](network-watcher-check-ip-flow-verify-portal.md)，了解是否允许某些流量传入和传出 VM
 

@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 10/30/2017
 ms.date: 12/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7f66f7bc5f2b20216211809180f4f60d60212bbf
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 91fbf0c965e48be12f2db6c60a4f2fdfcfaf7711
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>通过 Azure Site Recovery，针对 VMware 复制规划容量和缩放
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 12/01/2017
 
 ### <a name="influence-network-bandwidth-for-a-vm"></a>影响 VM 的网络带宽
 
-1. 在 VM 的注册表中导航到 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsofte Azure Backup\Replication**。
+1. 在 VM 的注册表中导航到 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**。
    * 若要影响复制磁盘上的带宽流量，请修改 **UploadThreadsPerVM** 的值，或者创建该项（如果不存在）。
    * 若要影响用于从 Azure 故障回复流量的带宽，请修改 **DownloadThreadsPerVM** 的值。
 2. 默认值为 4。 在“过度预配型”网络中，这些注册表项需要更改，不能使用默认值。 最大值为 32。 监视流量以优化值。
@@ -121,10 +121,11 @@ ms.lasthandoff: 12/01/2017
 
     ![“进程服务器”对话框的屏幕截图](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 3. 下载并运行 Site Recovery 统一安装程序文件来安装进程服务器。 这还会将其注册到保管库中。
-4. 在“开始之前”中选择“添加额外的进程服务器以扩大部署”。
-5. 完成向导，完成方式与[安装](#step-2-set-up-the-source-environment)配置服务器时采用的方式相同。
+4. 在“准备阶段”中选择“添加额外的进程服务器以扩大部署”。
+5. 完成向导，完成方式与安装配置服务器时采用的方式相同。
+<!-- Anrch not Exist on [set up]()#step-2-set-up-the-source-environment -->
 
-    ![Azure Site Recovery 统一安装程序向导的屏幕截图](./media/site-recovery-vmware-to-azure/add-ps1.png)
+    ![Screenshot of Azure Site Recovery Unified Setup wizard](./media/site-recovery-vmware-to-azure/add-ps1.png)
 6. 在“配置服务器详细信息”中，指定配置服务器的 IP 地址和密码。 若要获取密码，请在配置服务器上运行 **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe -n**。
 
     ![“配置服务器详细信息”页的屏幕截图](./media/site-recovery-vmware-to-azure/add-ps2.png)

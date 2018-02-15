@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 11/23/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: ecda8288dc7657cd2589c31a1f2a326c76867b61
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 7c0fa2146d5ddddec7ee2388eb7af08ac1509cc3
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>设置源环境（VMware 到 Azure）
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/29/2017
 ## <a name="prerequisites"></a>先决条件
 
 本文假设已创建：
-- [Azure 门户](http://portal.azure.cn "Azure 门户")中的恢复服务保管库。
+- [Azure 门户](http://portal.azure.cn)中的恢复服务保管库。
 - VMware vCenter 中可用于[自动发现](./site-recovery-vmware-to-azure.md)的专用帐户。
 - 用于安装配置服务器的虚拟机。
 

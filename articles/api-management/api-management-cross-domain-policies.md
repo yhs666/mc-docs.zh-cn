@@ -1,9 +1,9 @@
 ---
-title: "Azure API 管理跨域策略 | Azure"
+title: "Azure API 管理跨域策略"
 description: "了解可在 Azure API 管理中使用的跨域策略。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
+origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 9cc13fd6f5090bd03ca3f78c2a83d3394af7c5c4
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 507cdeeb965f95e54e5fddd2e249113b328d491e
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="api-management-cross-domain-policies"></a>API 管理跨域策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -56,12 +56,12 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |cross-domain|根元素。 子元素必须符合 [Adobe 跨域策略文件规范](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)。|是|  
   
 ### <a name="usage"></a>使用情况  
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
+ 此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
 -   **策略节：**入站  
   
@@ -92,7 +92,7 @@ ms.lasthandoff: 09/08/2017
 ```  
   
 ### <a name="example"></a>示例  
- 此示例演示如何支持预检请求，例如那些使用自定义标头或 GET 和 POST 之外的方法的预检请求。 若要支持自定义标头和其他 HTTP 谓词，请使用 `allowed-methods` 和 `allowed-headers` 部分，如以下示例所示。  
+ 此示例演示如何支持预检请求，例如那些具有自定义标头或 GET 和 POST 之外的方法的预检请求。 若要支持自定义标头和其他 HTTP 谓词，请使用 `allowed-methods` 和 `allowed-headers` 部分，如以下示例所示。  
   
 ```xml  
 <cors allow-credentials="true">  
@@ -126,28 +126,28 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |cors|根元素。|是|不适用|  
-|allowed-origins|包含的 `origin` 元素说明了跨域请求的允许来源。 `allowed-origins` 可以包含单个 `origin` 元素，该元素指定 `*` 以允许任何源，也可以包含一个或多个内含 URI 的 `origin` 元素。|是|不适用|  
+|allowed-origins|包含的 `origin` 元素说明了跨域请求的允许来源。 `allowed-origins` 可能包含单个 `origin` 元素，该元素指定允许任何源的 `*`，或者包含一个或多个内含 URI 的 `origin` 元素。|是|不适用|  
 |origin|值可以是 `*` 以允许所有源，也可以是指定单个源的 URI。 URI 必须包括方案、主机和端口。|是|如果 URI 中省略了端口，则端口 80 用于 HTTP，端口 443 用于 HTTPS。|  
 |allowed-methods|如果允许 GET 或 POST 之外的方法，则此元素是必需的。 包含 `method` 元素，用于指定支持的 HTTP 谓词。|否|如果此部分不存在，则支持 GET 和 POST。|  
-|方法|指定 HTTP 谓词。|如果 `allowed-methods` 部分存在，则至少一个 `method` 元素是必需的。|不适用|  
+|方法|指定 HTTP 谓词。|如果 `allowed-methods` 部分存在，则至少一个 `method` 元素是必需。|不适用|  
 |allowed-headers|此元素包含 `header` 元素，用于指定可以包括在请求中的标头的名称。|否|不适用|  
 |expose-headers|此元素包含 `header` 元素，用于指定可以通过客户端访问的标头的名称。|否|不适用|  
-|标头的值开始缓存响应|指定标头名称。|如果此部分存在，则 `allowed-headers` 或 `expose-headers` 中至少有一个 `header` 元素是必需的。|不适用|  
+|标头的值开始缓存响应|指定标头名称。|如果节存在，则 `allowed-headers` 或 `expose-headers` 中至少一个 `header` 元素是必需。|不适用|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |allow-credentials|预检响应中的 `Access-Control-Allow-Credentials` 标头将设置为此属性的值，并且会影响客户端在跨域请求中提交凭据的功能。|否|false|  
 |preflight-result-max-age|预检响应中的 `Access-Control-Max-Age` 标头将设置为此属性的值，并且会影响用户代理缓存预检响应的功能。|否|0|  
   
 ### <a name="usage"></a>使用情况  
- 此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
+ 此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站  
+-   **策略段：**入站  
   
 -   **策略范围：**API、操作  
   
@@ -172,13 +172,13 @@ ms.lasthandoff: 09/08/2017
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必选|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |jsonp|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必选|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |callback-parameter-name|以函数所在的完全限定域名为前缀的跨域 JavaScript 函数调用。|是|不适用|  
   
@@ -190,4 +190,10 @@ ms.lasthandoff: 09/08/2017
 -   **策略范围：**全局、产品、API、操作  
   
 ## <a name="next-steps"></a>后续步骤
-有关如何使用策略的详细信息，请参阅 [API 管理中的策略](./api-management-howto-policies.md)。  
+
+有关如何使用策略的详细信息，请参阅：
+
++ [API 管理中的策略](api-management-howto-policies.md)
++ [转换 API](transform-api.md)
++ [策略参考](api-management-policy-reference.md)，获取策略语句及其设置的完整列表
++ [策略示例](policy-samples.md)   

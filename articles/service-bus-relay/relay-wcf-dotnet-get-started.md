@@ -1,5 +1,5 @@
 ---
-title: ".NET 中的 Azure Relay WCF 中继入门 | Azure"
+title: ".NET 中的 Azure Relay WCF 中继入门"
 description: "了解如何使用 Azure Relay WCF 中继连接两个托管于不同位置的应用程序。"
 services: service-bus-relay
 documentationcenter: .net
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/16/2017
+origin.date: 12/20/2017
 ms.author: v-yiso
-ms.openlocfilehash: 5a1da4adce64ced5eb805bf022651f3d23c20abf
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 02/05/2018
+ms.openlocfilehash: 90e96f58bc390347f8eef67f0a7917fdfce6dd19
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>如何将 Azure Relay WCF 中继与 .NET 配合使用
 本文介绍如何使用 Azure 中继服务。 相关示例用 C# 编写并使用服务总线程序集中包含的 Windows Communication Foundation (WCF) API 及扩展。 有关 Azure 中继的详细信息，请参阅 [Azure 中继概述](relay-what-is-it.md)。

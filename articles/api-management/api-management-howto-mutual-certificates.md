@@ -1,25 +1,24 @@
 ---
-title: "使用客户端证书身份验证确保后端服务安全 - Azure API 管理 | Azure"
+title: "使用客户端证书身份验证确保后端服务安全 - Azure API 管理"
 description: "了解如何使用 Azure API 管理中的客户端证书身份验证确保后端服务安全。"
 services: api-management
 documentationcenter: 
-author: steved0x
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 43453331-39b2-4672-80b8-0a87e4fde3c6
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
+origin.date: 10/30/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 8dc00483195e19ce3bdc43280f7f0a7893359f05
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 02/26/2018
+ms.openlocfilehash: 6e48d6ef8bbb108d0156b777cbf3119603782e90
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>如何使用 Azure API 管理中的客户端证书身份验证确保后端服务安全
 API 管理提供的功能可确保使用客户端证书安全地访问 API 的后端服务。 本指南介绍如何在 API 发布者门户中管理证书，以及如何将 API 配置为使用证书访问其后端服务。
@@ -30,11 +29,11 @@ API 管理提供的功能可确保使用客户端证书安全地访问 API 的�
 本指南介绍如何将 API 管理服务实例配置为使用客户端证书身份验证访问 API 的后端服务。 执行本主题中的步骤之前，用户应将后端服务配置为进行客户端证书身份验证（[要在 Azure 网站中配置证书身份验证，请参阅此文][to configure certificate authentication in Azure WebSites refer to this article]），并能够访问证书及证书的密码，以便在 API 管理发布者门户中执行上传操作。
 
 ## <a name="step1"> </a>上传客户端证书
-若要开始，请单击 Azure 门户中 API 管理服务的“发布者门户”。 这会转到 API 管理发布者门户。
+若要开始，请单击 API 管理服务的 Azure 门户中的“发布者门户”。 这会转到 API 管理发布者门户。
 
 ![API 发布者门户][api-management-management-console]
 
-> 如果尚未创建 API 管理服务实例，请参阅 [Azure API 管理入门][Get started with Azure API Management]教程中的[创建 API 管理服务实例][Create an API Management service instance]。
+> 如果尚未创建 API 管理服务实例，请参阅[创建 API 管理服务实例][Create an API Management service instance]。
 > 
 > 
 
@@ -64,7 +63,7 @@ API 管理提供的功能可确保使用客户端证书安全地访问 API 的�
 
 证书在上传后显示在“客户端证书”选项卡中。如果有多个证书，请记下其使用者或指纹的最后四个字符。在将 API 配置为使用证书时，这些信息用于选择证书，详见下面的[将 API 配置为使用客户端证书进行网关身份验证][Configure an API to use a client certificate for gateway authentication]部分。
 
-> 若要在使用某个证书（例如自签名证书）时关闭证书链验证，请执行此常见问题解答[项](./api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)中所述的步骤。
+> 若要在使用某个证书（例如自签名证书）时关闭证书链验证，请执行此常见问题解答[项](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)中所述的步骤。
 > 
 > 
 
@@ -108,6 +107,14 @@ API 管理提供的功能可确保使用客户端证书安全地访问 API 的�
 
 ![证书策略][api-management-certificate-policy]
 
+## <a name="self-signed-certificates"></a>自签名证书
+
+如果使用自签名证书，将需要禁用证书链验证使 API 管理能够与后端系统进行通信，否则，它将返回 500 错误代码。 若要配置此项，可以使用 [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend)（适用于新后端）或 [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend)（适用于现有后端）PowerShell cmdlet 并将 `-SkipCertificateChainValidation` 参数设置为 `True`。
+
+```
+$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+```
 
 [api-management-management-console]: ./media/api-management-howto-mutual-certificates/api-management-management-console.png
 [api-management-security-client-certificates]: ./media/api-management-howto-mutual-certificates/api-management-security-client-certificates.png
@@ -130,14 +137,14 @@ API 管理提供的功能可确保使用客户端证书安全地访问 API 的�
 [Monitoring and analytics]: ../api-management-monitoring.md
 [Add APIs to a product]: ./api-management-howto-add-products.md#add-apis
 [Publish a product]: ./api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: ./api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: ./api-management-policy-reference.md
 [Caching policies]: ./api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: ./api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[to configure certificate authentication in Azure WebSites refer to this article]: ../app-service-web/app-service-web-configure-tls-mutual-auth.md
+[to configure certificate authentication in Azure WebSites refer to this article]: ../app-service/app-service-web-configure-tls-mutual-auth.md
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
