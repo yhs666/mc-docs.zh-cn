@@ -1,14 +1,15 @@
 ---
 layout: HubPage
-hide_bc: True
+hide_bc: 
 title: "Azure 文档"
 description: "了解如何使用 Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。"
-featureFlags: clicktale
-ms.openlocfilehash: afc9fb394bf82d54e2a755464acb1f93a529dcdd
-ms.sourcegitcommit: dd2f175fb148a16f317a882401f4771d7171bbfd
+featureFlags:
+- clicktale
+ms.openlocfilehash: 283e23b67daa37211ed877611f4b63f50c005258
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -102,7 +103,7 @@ ms.lasthandoff: 01/09/2018
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>管理资源</h3>
+                                                <h3>保护和管理资源</h3>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/monitoring-and-diagnostics/">Azure Monitor</a></li>
                                                     <li><a class="barLink" href="/backup/">Azure 备份</a></li>
@@ -122,7 +123,7 @@ ms.lasthandoff: 01/09/2018
                                                 <table cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top-color:transparent!important;padding-left:0;">
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" target="_blank" href="https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet">
+                                                        <a class="barLink" href="/dotnet/">
                                                             <img src="media/index/logo_NET.svg" alt=""> .NET</a>
                                                     </li>
                                                     <li>
@@ -190,7 +191,7 @@ ms.lasthandoff: 01/09/2018
                                                 <h3>命令行工具</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="https://docs.azure.cn/cli/overview?view=azure-cli-latest">
+                                                        <a class="barLink" href="https://docs.azure.cn/cli/overview">
                                                             <img src="media/index/azure_dev-7.svg" alt=""> Azure CLI </a>
                                                     </li>
                                                     <li>
@@ -715,7 +716,7 @@ ms.lasthandoff: 01/09/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Linux 虚拟机</h3>
-                                                    <p>为 Ubuntu、Red Hat 等预配虚拟机</p>
+                                                    <p>预配 Ubuntu、CentOS 等系统的虚拟机</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2109,13 +2110,13 @@ ms.lasthandoff: 01/09/2018
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-install">获取用于 .NET 的 Azure 库</a>
+                                                    <a href="/dotnet/dotnet-sdk-azure-install">获取用于 .NET 的 Azure 库</a>
                                                 </h3>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/azure">入门</a>
+                                                    <a href="/dotnet/">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="https://docs.microsoft.com/dotnet/api/overview/azure/?view=azure-dotnet">API 参考</a>
+                                                    <a href="/dotnet/api/overview/">API 参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2359,7 +2360,7 @@ Azure CLI </h3>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure 应用程序体系结构指南</h3>
-                                                    <p>在云中成功操作需掌握的基础知识。 云或 Azure 的新手可以从此处着手。</p>
+                                                    <p>在云中成功操作需掌握的基础知识。 云或 Azure 新手可以从此处着手。</p>
                                                 </div>
                                             </div>
                                         </div>

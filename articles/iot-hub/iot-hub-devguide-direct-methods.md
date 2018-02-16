@@ -1,5 +1,5 @@
 ---
-title: "了解 Azure IoT 中心直接方法 | Azure"
+title: "了解 Azure IoT 中心直接方法"
 description: "开发人员指南 - 使用直接方法从服务应用调用设备上的代码。"
 services: iot-hub
 documentationcenter: .net
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/19/2017
-ms.date: 12/18/2017
+ms.custom: H1Hack27Feb2017
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: f1855b4565d73379dea33e0f648728cb407707d0
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 692ebaa4c470bca0b7ab377ead62fe88af1de470
+ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>了解和调用 IoT 中心的直接方法
 借助 IoT 中心，用户可以从云中对设备调用直接方法。 直接方法表示与设备进行的请求-答复式交互，类似于会立即成功或失败（在用户指定的超时时间后）的 HTTP 调用。 此方法适用于即时操作过程取决于设备能否响应的情况，例如，如果设备脱机，则向设备发送短信以唤醒设备（短信的开销比方法调用更大）。
@@ -33,7 +34,7 @@ ms.lasthandoff: 12/08/2017
 如果在使用所需属性、直接方法或云到设备消息方面有任何疑问，请参阅 [云到设备通信指南][lnk-c2d-guidance] 。
 
 ## <a name="method-lifecycle"></a>方法生命周期
-直接方法在设备上实现，可能需要在方法有效负载中进行 0 次或 0 次以上的输入才能正确地实例化。 可以通过面向服务的 URI (`{iot hub}/twins/{device id}/methods/`) 调用直接方法。 设备通过特定于设备的 MQTT 主题 (`$iothub/methods/POST/{method name}/`) 接收直接方法。 将来可能会支持在更多的设备端网络协议上使用直接方法。
+直接方法在设备上实现，可能需要在方法有效负载中进行 0 次或 0 次以上的输入才能正确地实例化。 可以通过面向服务的 URI (`{iot hub}/twins/{device id}/methods/`) 调用直接方法。 设备通过特定于设备的 MQTT 主题 (`$iothub/methods/POST/{method name}/`) 或通过 AMQP 链接（`IoThub-methodname` 和 `IoThub-status` 应用程序属性）接收直接方法。 
 
 > [!NOTE]
 > 调用设备上的直接方法时，属性名称和值只能包含 US ASCII 可打印字母数字，但下列组中的任一项除外：``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``。
@@ -85,7 +86,8 @@ ms.lasthandoff: 12/08/2017
    `status` 和 `body` 均由设备提供，用于响应，其中包含设备自身的状态代码和/或描述。
 
 ## <a name="handle-a-direct-method-on-a-device"></a>处理针对设备的直接方法
-### <a name="method-invocation"></a>方法调用
+### <a name="mqtt"></a>MQTT
+#### <a name="method-invocation"></a>方法调用
 设备通过 MQTT 主题接收直接方法请求： `$iothub/methods/POST/{method name}/?$rid={request id}`
 
 设备接收的正文采用以下格式：
@@ -99,13 +101,30 @@ ms.lasthandoff: 12/08/2017
 
 方法请求为 QoS 0。
 
-### <a name="response"></a>响应
+#### <a name="response"></a>响应
 设备将响应发送到 `$iothub/methods/res/{status}/?$rid={request id}`，其中：
 
 * `status` 属性是设备提供的方法执行状态。
 * `$rid` 属性是从 IoT 中心接收的方法调用中的请求 ID。
 
 正文由设备设置，可以是任何状态。
+
+### <a name="amqp"></a>AMQP
+#### <a name="method-invocation"></a>方法调用
+设备通过在地址 `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound` 上创建一个接收链接以接收直接方法请求
+
+AMQP 消息会到达表示方法请求的接收链接。 它包含以下内容：
+* 相关 ID 属性，其中包含一个应与相应的方法响应被传回的请求 ID
+* 名为 `IoThub-methodname` 的一个应用程序属性，其中包含调用的方法名称
+* AMQP 消息正文，其中包含作为 JSON 的方法有效负载
+
+#### <a name="response"></a>响应
+设备会创建一个发送链接以在 `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound` 地址上返回方法响应
+
+方法的响应在发送链接上返回，并已按以下内容结构化：
+* 相关 ID 属性，其中包含在方法的请求消息中传递的请求 ID
+* 名为 `IoThub-status` 的一个应用程序属性，其中包含用户提供的方法状态
+* AMQP 消息正文，其中包含作为 JSON 的方法响应
 
 ## <a name="additional-reference-material"></a>其他参考资料
 IoT 中心开发人员指南中的其他参考主题包括：
@@ -114,12 +133,12 @@ IoT 中心开发人员指南中的其他参考主题包括：
 * [限制和配额][lnk-quotas]，说明了适用于 IoT 中心服务的配额，以及使用服务时预期会碰到的限制行为。
 * [Azure IoT 设备和服务 SDK][lnk-sdks]，列出了在开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
 * [用于设备孪生、作业和消息路由的 IoT 中心查询语言][lnk-query]一文介绍了可用于从 IoT 中心检索设备孪生和作业相关信息的 IoT 中心查询语言。
-* [IoT 中心 MQTT 支持][lnk-devguide-mqtt] 提供有关 IoT 中心对 MQTT 协议的支持的详细信息。
+* [IoT 中心 MQTT 支持][lnk-devguide-mqtt]提供有关 IoT 中心对 MQTT 协议的支持的详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 了解如何使用直接方法后，可根据兴趣参阅以下 IoT 中心开发人员指南文章：
 
-* [Schedule jobs on multiple devices（在多台设备上计划作业）][lnk-devguide-jobs]
+* [在多台设备上计划作业][lnk-devguide-jobs]
 
 若要尝试本文中介绍的一些概念，可以根据兴趣学习以下 IoT 中心教程：
 
