@@ -13,18 +13,16 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2b76a2c6780f0641072b5ba1a74caa96a147956a
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 1585401d42b5a78b6313e9328880b1fd55699e02
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="lesson-6-create-measures"></a>第 6 课：创建度量值
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-measures"></a>创建度量值
 
 在本课中，将创建要在模型中包括的度量值。 类似于创建的计算列，度量是使用 DAX 公式创建的计算。 但与计算列不同，度量值基于用户所选筛选器进行计算。 例如，添加到数据透视表中“行标签”字段的特定一列或切片器。 然后，所应用的度量值会计算筛选器中每个单元格的值。 度量值是强大而灵活的计算，在几乎所有表格模型中都希望包括这类计算来对数值数据执行动态计算。 若要了解详细信息，请参阅[度量值](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular)。
 
@@ -91,7 +89,7 @@ ms.lasthandoff: 12/08/2017
 
     |列|度量值名称|自动求和 (∑)|公式|  
     |----------------|----------|-----------------|-----------|  
-    |SalesOrderLineNumber|InternetOrderLinesCount|计数|=COUNTA([SalesOrderLineNumber])|  
+    |SalesOrderLineNumber|InternetOrderLinesCount|Count|=COUNTA([SalesOrderLineNumber])|  
     |OrderQuantity|InternetTotalUnits|Sum|=SUM([OrderQuantity])|  
     |DiscountAmount|InternetTotalDiscountAmount|Sum|=SUM([DiscountAmount])|  
     |TotalProductCost|InternetTotalProductCost|Sum|=SUM([TotalProductCost])|  
@@ -131,4 +129,4 @@ ms.lasthandoff: 12/08/2017
 ## <a name="whats-next"></a>后续步骤
 [第 7 课：创建关键绩效指标](../tutorials/aas-lesson-7-create-key-performance-indicators.md)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

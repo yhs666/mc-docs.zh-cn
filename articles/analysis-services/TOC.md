@@ -1,5 +1,5 @@
 # 概述
-## [什么是 Azure Analysis Services？](analysis-services-overview.md)
+## [了解 Analysis Services](analysis-services-overview.md)
 ## [支持的数据源](analysis-services-datasource.md)
 ## [身份验证和用户权限](analysis-services-manage-users.md)
 ## [连接到本地数据源](analysis-services-gateway.md)
@@ -13,33 +13,37 @@
 ## [在 Azure 门户（预览）中创建模型](analysis-services-create-model-portal.md)
 
 # 操作说明 
-## [管理服务器](analysis-services-manage.md)
-## [管理数据库用户](analysis-services-database-users.md)
-## [管理服务器管理员](analysis-services-server-admins.md)
-## [监视服务器指标](analysis-services-monitor.md)
 ## [安装并配置本地数据网关](analysis-services-gateway-install.md)
-## [获取客户端库](analysis-services-data-providers.md)
 ## [备份和还原](analysis-services-backup.md)
-<!--Not Available ## [Configure scale-out](analysis-services-scale-out.md)-->
-## [配置服务器名称别名](analysis-services-server-alias.md)
-## [使用 Excel 进行连接](analysis-services-connect-excel.md)
-## [使用 Power BI 进行连接](analysis-services-connect-pbi.md)
-## [创建 .odc 文件](analysis-services-odc.md)
+<!--Not Available ## [Refresh with REST API](analysis-services-async-refresh.md) -->
+<!--Not Available ## [Configure scale-out](analysis-services-scale-out.md) -->
+## 服务器管理
+### [配置服务器名称别名](analysis-services-server-alias.md)
+### [管理服务器](analysis-services-manage.md)
+### [管理数据库用户](analysis-services-database-users.md)
+### [管理服务器管理员](analysis-services-server-admins.md)
+### [监视服务器指标](analysis-services-monitor.md)
+<!--Not Available ### [Setup diagnostic logging](analysis-services-logging.md) -->
+## 连接
+### [获取客户端库](analysis-services-data-providers.md)
+### [使用 Excel 进行连接](analysis-services-connect-excel.md)
+### [使用 Power BI 进行连接](analysis-services-connect-pbi.md)
+### [创建 .odc 文件](analysis-services-odc.md)
 ## 教程
-### [Adventure Works 教程](tutorials/aas-adventure-works-tutorial.md)
-### [第 1 课：创建新的表格模型项目](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
-### [第 2 课：获取数据](tutorials/aas-lesson-2-get-data.md)
-### [第 3 课：标记为日期表](tutorials/aas-lesson-3-mark-as-date-table.md) 
-### [第 4 课：创建关系](tutorials/aas-lesson-4-create-relationships.md) 
-### [第 5 课：创建计算列](tutorials/aas-lesson-5-create-calculated-columns.md)
-### [第 6 课：创建度量](tutorials/aas-lesson-6-create-measures.md)  
-### [第 7 课：创建关键绩效指标](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
-### [第 8 课：创建透视](tutorials/aas-lesson-8-create-perspectives.md) 
-### [第 9 课：创建层次结构](tutorials/aas-lesson-9-create-hierarchies.md) 
-### [第 10 课：创建分区](tutorials/aas-lesson-10-create-partitions.md) 
-### [第 11 课：创建角色](tutorials/aas-lesson-11-create-roles.md)
-### [第 12 课：在 Excel 中分析](tutorials/aas-lesson-12-analyze-in-excel.md)
-### [第 13 课：部署](tutorials/aas-lesson-13-deploy.md)
+### [数据建模 - Adventure Works 教程](tutorials/aas-adventure-works-tutorial.md)
+### [1 - 创建表格模型项目](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
+### [2 - 获取数据](tutorials/aas-lesson-2-get-data.md)
+### [3 - 标记为日期表](tutorials/aas-lesson-3-mark-as-date-table.md) 
+### [4 - 创建关系](tutorials/aas-lesson-4-create-relationships.md) 
+### [5 - 创建计算列](tutorials/aas-lesson-5-create-calculated-columns.md)
+### [6 - 创建度量值](tutorials/aas-lesson-6-create-measures.md)  
+### [7 - 创建关键绩效指标](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
+### [8 - 创建透视](tutorials/aas-lesson-8-create-perspectives.md) 
+### [9 - 创建层次结构](tutorials/aas-lesson-9-create-hierarchies.md) 
+### [10 - 创建分区](tutorials/aas-lesson-10-create-partitions.md) 
+### [11 - 创建角色](tutorials/aas-lesson-11-create-roles.md)
+### [12 - 在 Excel 中分析](tutorials/aas-lesson-12-analyze-in-excel.md)
+### [13 - 部署](tutorials/aas-lesson-13-deploy.md)
 ### [补充课程 - 详细信息行](tutorials/aas-supplemental-lesson-detail-rows.md)
 ### [补充课程 - 动态安全性](tutorials/aas-supplemental-lesson-dynamic-security.md)
 ### [补充课程 - 不规则层次结构](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
@@ -62,4 +66,4 @@
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 <!-- Not Availabel ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)-->
 <!-- Not Availabel ## [Videos](https://www.azure.cn/video-center/&sort=newest)-->
-<!--ms.date: 12/25/2017 -->
+<!--ms.date: 02/26/2018 -->

@@ -1,7 +1,7 @@
 # 概述
 
 ## [关于 SQL 数据仓库](sql-data-warehouse-overview-what-is.md)
-
+## [备忘单](cheat-sheet.md)
 <!-- Not Available # Quickstarts-->
 
 <!-- Not Available ## [Create and connect - portal](create-data-warehouse-portal.md)-->
@@ -31,7 +31,7 @@
 
 ## 加载和移动数据
 ### [概述](design-elt-data-loading.md)
-### [指南](guidance-for-loading-data.md)
+### [最佳实践](guidance-for-loading-data.md)
 
 ## 集成
 ### [概述](sql-data-warehouse-overview-integrate.md)
@@ -85,12 +85,11 @@
 ### [威胁检测](sql-data-warehouse-security-threat-detection.md)
 
 ## 加载和移动数据
-### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Contoso 公共数据](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 <!-- Not Available ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)-->
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 <!-- Not Available ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)-->
-### [从 Blob 存储使用 PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [从 SQL Server 使用 PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [AzCopy](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 ### [RedGate](sql-data-warehouse-load-with-redgate.md)
 ### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
@@ -131,4 +130,4 @@
 <!-- Not Available ### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)-->
 <!-- Not Available ### [Data integration](sql-data-warehouse-partner-data-integration.md)-->
 <!-- Not Available ### [Data management](sql-data-warehouse-partner-data-management.md) -->
-<!-- ms.date: 01/15/2018 -->
+<!-- ms.date: 02/26/2018 -->

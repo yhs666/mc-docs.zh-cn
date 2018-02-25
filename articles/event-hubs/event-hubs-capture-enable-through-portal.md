@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/28/2017
-ms.date: 09/25/2017
+origin.date: 12/19/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 275f9967561d2f9684c30df7461379071e89a0e8
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 74c64504a828008370f9519f1a0767df244daebc
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>通过 Azure 门户启用事件中心捕获
 
@@ -42,7 +42,7 @@ Azure [事件中心捕获][capture-overview]用于自动将事件中心中的流
 <!-- Not Available ## Capture data to an Azure Data Lake Store account-->
 ## <a name="add-or-configure-capture-on-an-existing-event-hub"></a>在现有的事件中心添加或配置捕获
 
-可以在事件中心命名空间中的现有事件中心配置捕获。 若要对现有的事件中心启用“捕获”功能，或者要更改“捕获”设置，请单击命名空间以加载“概要”屏幕，然后单击要启用或更改“捕获”设置的事件中心。 最后，单击已打开页面的“属性”部分，然后编辑“捕获”设置，如下图所示：
+可以在事件中心命名空间中的现有事件中心配置捕获。 若要对现有的事件中心启用“捕获”功能，或者要更改“捕获”设置，请单击命名空间以加载概览屏幕，然后单击要启用或更改“捕获”设置的事件中心。 最后，单击已打开页面左侧的“捕获”选项，然后编辑设置，如以下各图所示：
 
 ### <a name="azure-blob-storage"></a>Azure Blob 存储
 

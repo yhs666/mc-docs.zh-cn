@@ -1,5 +1,5 @@
 ---
-title: "调试 Azure HDInsight 中运行的 Apache Spark 作业 | Azure"
+title: "调试 Azure HDInsight 中运行的 Apache Spark 作业"
 description: "使用 YARN UI、Spark UI 和 Spark History Server 来跟踪和调试 Azure HDInsight 中的 Spark 群集上运行的作业"
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/21/2017
-ms.date: 12/25/2017
+origin.date: 12/20/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 951dcef1d541ba8c78fdd2dc55875df26266009a
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 774e67c61ef6e36f0d0cb9e9d6d5faff627bdb5a
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>调试 Azure HDInsight 中运行的 Apache Spark 作业
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 12/15/2017
     ![启动 Spark History Server](./media/apache-spark-job-debugging/launch-spark-history-server.png)
    
    > [!TIP]
-   > 或者，也可以从 Ambari UI 启动 Spark History Server UI。 若要启动 Ambari UI，请在群集边栏选项卡中单击“群集仪表板”，然后单击“HDInsight 群集仪表板”。 在 Ambari UI 中，依次单击“Spark”、“快速链接”和“Spark History Server UI”。
+   > 或者，也可以从 Ambari UI 启动 Spark History Server UI。 要启动 Ambari UI，请在群集边栏选项卡中单击“群集仪表板”，并单击“HDInsight 群集仪表板”。 在 Ambari UI 中，依次单击“Spark”、“快速链接”和“Spark History Server UI”。
    > 
    > 
 2. 随后会看到已列出所有已完成的应用程序。 单击应用程序 ID 可深入到该应用程序以获取更多信息。

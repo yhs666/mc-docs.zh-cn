@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/07/2017
-ms.date: 01/01/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 386ff21af7d9fd73131a1d00446f1384bab42962
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: f2e6e01a205372708092240dd541d3432ccb7970
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 创建 Service Fabric 群集 
 > [!div class="op_single_selector"]
@@ -704,4 +704,4 @@ FabricClient 和 FabricGateway 执行相互身份验证。 使用 Azure AD 身�
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
 
-<!--Update_Description: add content of Cluster and server certificate , wording update-->
+<!--Update_Description: update meta properties, wording update -->

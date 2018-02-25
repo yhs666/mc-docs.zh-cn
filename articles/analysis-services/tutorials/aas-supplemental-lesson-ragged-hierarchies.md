@@ -13,18 +13,16 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 10/16/2017
-ms.date: 12/11/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 37dfe7429ae5b23505c0cd157be028e4e11a336a
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: d1e9982c2efa7b47e424b48f0ecf09b955e1b47f
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>补充课程 - 不规则层次结构
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 在本补充课程中，将解决对在不同级别包含空白值（成员）的层次结构进行透视时的一个常见问题。 例如，某个组织的高级经理同时具有部门经理和非经理作为直接下属。 或者，地理区域层次结构包含国家/地区-区域-城市，其中，某些城市没有父代“州”或“省”，例如“华盛顿特区”、“梵蒂冈城”。 当某个层次结构具有空白成员时，它通常降低到不同的（或不规则的）级别。
 
@@ -53,7 +51,7 @@ ms.lasthandoff: 12/08/2017
 
     | 表 1           | 列       | 筛选器方向   | 表 2     | 列      | 活动 |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
-    | FactResellerSales | OrderDateKey | 默认            | DimDate     | 日期        | 是    |
+    | FactResellerSales | OrderDateKey | 默认            | DimDate     | Date        | 是    |
     | FactResellerSales | DueDate      | 默认            | DimDate     | 日期        | 否     |
     | FactResellerSales | ShipDateKey  | 默认            | DimDate     | 日期        | 否     |
     | FactResellerSales | ProductKey   | 默认            | DimProduct  | ProductKey  | 是    |
@@ -131,4 +129,4 @@ ms.lasthandoff: 12/08/2017
 [补充课程 - 动态安全性](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [补充课程 - 详细信息行](../tutorials/aas-supplemental-lesson-detail-rows.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 07/11/2017
 ms.date: 1/1/2018
 ms.author: v-nany
-ms.openlocfilehash: 3393abf46e64eea13e1c2515b1801214948c54ac
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 72ff01326c4c615a818ee642c7dc923ab44ba7c5
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>如何为给定 API 选择权限
 
@@ -35,4 +35,4 @@ ms.lasthandoff: 12/29/2017
 -   将特定于要使用的身份验证协议的终结点与应用程序 ID 结合使用，生成特定于应用程序的身份验证请求。
 
 ## <a name="next-steps"></a>后续步骤
-[Azure Active Directory 开发人员指南](active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)
+[Azure Active Directory 开发人员指南](./develop/active-directory-developers-guide#authentication-and-authorization-protocols)

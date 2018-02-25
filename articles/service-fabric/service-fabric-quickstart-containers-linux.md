@@ -2,25 +2,25 @@
 title: "在 Linux 上创建 Azure Service Fabric 容器应用程序 | Azure"
 description: "在 Azure Service Fabric 上创建第一个 Linux 容器应用程序。  生成包含应用程序的 Docker 映像，将该映像推送到容器注册表，并生成并部署 Service Fabric 容器应用程序。"
 services: service-fabric
-documentationcenter: .net
+documentationcenter: linux
 author: rockboyfor
 manager: digimobile
 editor: 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: dotNet
+ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/05/2017
-ms.date: 01/01/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7b50c0f60be6b550dab569cc3b58d66832e8bc46
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 59deb94949ea3fb870cda29f84b712b66654b79e
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>在 Azure 上部署 Azure Service Fabric Linux 容器应用程序
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。 
@@ -67,7 +67,7 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 > Web 前端服务配置为侦听端口 80 上是否有传入流量。 请确保此端口在群集中处于打开状态。 如果使用的是合作群集，此端口已处于打开状态。
 >
 
-### <a name="deploy-the-application-manifests"></a>部署应用程序清单 
+### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>安装 Service Fabric 命令行界面，然后连接到群集
 在 CLI 环境中安装 [Service Fabric CLI (sfctl)](service-fabric-cli.md)
 
 ```azurecli
@@ -80,10 +80,20 @@ export PATH=$PATH:~/.local/bin
 sfctl cluster select --endpoint http://linh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080
 ```
 
+### <a name="deploy-the-service-fabric-application"></a>部署 Service Fabric 应用程序 
+Service Fabric 容器应用程序可以使用所述的 Service Fabric 应用程序包或 Docker Compose 进行部署。 
+
+#### <a name="deploy-using-service-fabric-application-package"></a>使用 Service Fabric 应用程序包进行部署
 使用提供的安装脚本将投票应用程序定义复制到群集，注册应用程序类型，并创建应用程序的实例。
 
 ```azurecli
 ./install.sh
+```
+
+#### <a name="deploy-the-application-using-docker-compose"></a>使用 Docker Compose 部署应用程序
+使用 Docker Compose 和以下命令在 Service Fabric 群集上部署和安装应用程序。
+```azurecli
+sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
 ```
 
 打开浏览器并导航到 Service Fabric Explorer，其网址为 http://\<Azure Service Fabric 群集 URL>:19080/Explorer - 例如 `http://linh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080/Explorer`。 展开“应用程序”节点，可以看到投票应用程序类型的条目以及创建的实例。
@@ -151,4 +161,4 @@ Service Fabric 可确保在发生故障时，将容器实例自动转移到群�
 [containersquickstartscale]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscale.png
 [containersquickstartscaledone]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscaledone.png
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

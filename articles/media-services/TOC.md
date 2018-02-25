@@ -191,7 +191,7 @@
 # 参考
 ## [Azure PowerShell（资源管理器）](https://docs.microsoft.com/powershell/module/azurerm.media)
 ## [Azure PowerShell（服务管理）](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)
-## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [.NET](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](https://docs.microsoft.com/rest/api/media/mediaservice)  
 
 # 资源

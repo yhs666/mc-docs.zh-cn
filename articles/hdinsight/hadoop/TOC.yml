@@ -1,5 +1,5 @@
 - name: Azure HDInsight 文档
-  href: /azure/hdinsight
+  href: /hdinsight
 - name: HDInsight 上的 Hadoop
   items:
     - name: 概述
@@ -86,10 +86,16 @@
           href: submit-apache-hadoop-jobs-programmatically.md
     - name: 开发
       items:
+        - name: 运行自定义 MapReduce 程序
+          href: apache-hadoop-run-custom-programs.md
         - name: '开发 C# 流式处理 MapReduce 程序'
           href: apache-hadoop-dotnet-csharp-mapreduce-streaming.md
         - name: 开发 Java MapReduce 程序
           href: apache-hadoop-develop-deploy-java-mapreduce-linux.md
+        - name: 使用 Apache Hive 作为提取、转换和加载 (ETL) 工具
+          href: apache-hadoop-using-apache-hive-as-an-etl-tool.md
+        - name: 大规模提取、转换和加载
+          href: apache-hadoop-etl-at-scale.md
         - name: 使用空边缘节点
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
@@ -121,6 +127,9 @@
       items:
         - name: 使用 Power Query 进行分析
           href: apache-hadoop-connect-excel-power-query.md
+        - name: 将 Power BI 连接到交互式查询
+          href: ../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+          maintainContext: true
         - name: 将 Power BI 连接到 Hadoop
           href: apache-hadoop-connect-hive-power-bi.md
         - name: 将 Excel 连接到 Hadoop
@@ -142,6 +151,8 @@
         - name: 分析 Application Insights 遥测日志
           href: ../spark/apache-spark-analyze-application-insight-logs.md
           maintainContext: true
+        - name: 适用于 HDInsight 的高级分析
+          href: apache-hadoop-deep-dive-advanced-analytics.md
     - name: 扩展群集
       items:
         - name: 使用 Bootstrap 自定义群集
@@ -242,9 +253,15 @@
           href: ../hdinsight-hadoop-manage-ambari.md
           maintainContext: true
           items:
+            - name: 使用 Ambari Web UI 优化群集
+              href: ../hdinsight-changing-configs-via-ambari.md
+              maintainContext: true
             - name: 使用 Ambari REST API
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: 管理 HDInsight 群集的日志
+          href: ../hdinsight-log-management.md
+          maintainContext: true
         - name: 添加存储帐户
           href: ../hdinsight-hadoop-add-storage.md
           maintainContext: true
@@ -290,6 +307,9 @@
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
+        - name: 排查 HDInsight 群集速度慢或故障问题
+          href: ../hdinsight-troubleshoot-failed-cluster.md
+          maintainContext: true
         - name: HDFS 故障排除
           href: ../hdinsight-troubleshoot-hdfs.md
           maintainContext: true
@@ -343,17 +363,17 @@
     - name: 代码示例
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
     - name: Azure PowerShell
-      href: 'https://azure.microsoft.com/en-us/powershell/module/azurerm.hdinsight'
+      href: 'https://docs.microsoft.com/en-us/powershell/module/azurerm.hdinsight'
     - name: .NET (Hadoop)
-      href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet'
+      href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet'
     - name: .NET (HBase)
       href: 'https://www.nuget.org/packages/Microsoft.HBase.Client/'
     - name: .NET (Avro)
       href: 'https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library'
     - name: REST
-      href: 'https://azure.microsoft.com/en-us/rest/api/hdinsight/'
+      href: 'https://docs.microsoft.com/en-us/rest/api/hdinsight/'
     - name: REST (Spark)
-      href: 'https://azure.microsoft.com/en-us/rest/api/hdinsightspark/'
+      href: 'https://docs.microsoft.com/en-us/rest/api/hdinsightspark/'
 - name: 相关内容
   items:
     - name: Windows 群集
@@ -390,9 +410,6 @@
           maintainContext: true
         - name: 访问 YARN 应用程序日志
           href: ../hdinsight-hadoop-access-yarn-app-logs.md
-          maintainContext: true
-        - name: 使用 Apache Phoenix 和 SQuirrel
-          href: ../hdinsight-hbase-phoenix-squirrel.md
           maintainContext: true
         - name: 使用 Mahout 生成电影推荐
           href: ../hdinsight-mahout.md

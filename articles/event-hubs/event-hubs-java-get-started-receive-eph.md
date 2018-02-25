@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 09/04/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 12130449838f26501c66ba71f8ecfa8e781cf1f2
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 480e90a26e59fe26439bcbe58c3c2e00892874f6
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>使用 Java 从 Azure 事件中心接收事件
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 02/13/2018
 若要完成本教程，需要具备以下先决条件：
 
 * Java 开发环境。 对于本教程，我们采用 [Eclipse](https://www.eclipse.org/)。
-* 有效的 Azure 帐户。 <br/>如果没有帐户，只需花费几分钟就能创建一个免费帐户。 有关详细信息，请参阅 <a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank">Azure 试用版</a>。
+* 有效的 Azure 帐户。 <br/>如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 <a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank">Azure 试用版</a>。
 
 ## <a name="receive-messages-with-eventprocessorhost-in-java"></a>使用 Java 中的 EventProcessorHost 接收消息
 
@@ -246,4 +246,4 @@ ms.lasthandoff: 02/13/2018
 <!-- Not Available on [11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png -->
 <!-- Not Available on [12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png -->
 
-<!--Update_Description: update meta properties, wording update, update reference link-->
+<!--Update_Description: update meta properties, wording update -->

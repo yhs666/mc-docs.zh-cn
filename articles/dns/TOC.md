@@ -48,7 +48,7 @@
 
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.dns)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network/dns)
-## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.dns.models)
+## [.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.dns)
 ## [Node.js](https://docs.microsoft.comhttp://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0)

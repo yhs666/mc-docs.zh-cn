@@ -13,13 +13,13 @@ ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 12/04/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: b7620add89c8298af88b788a75d533b921d4a02c
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: e0f61776d54f294cedc552832c885f15f0359467
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>使用 Apache Storm 从事件中心接收事件
 
@@ -29,11 +29,11 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="create-project-and-add-code"></a>创建项目并添加代码
 
-本教程使用安装的 [HDInsight Storm][HDInsight Storm]，其中随附了现成可用的事件中心 Spout。
+本教程使用安装的 [HDInsight Storm][HDInsight Storm] ，其中随附了现成可用的事件中心 Spout。
 
 1. 请按照 [HDInsight Storm - 入门](../hdinsight/storm/apache-storm-overview.md)过程创建新 HDInsight 群集，并通过远程桌面连接该群集。
 2. 将 `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 文件复制到本地开发环境。 其中包含 events-storm-spout。
-3. 使用以下命令将程序包安装到本地 Maven 存储中。 这样，在后面的步骤中，便可以在 Storm 项目中将它添加为引用。
+3. 使用以下命令将程序包安装到本地 Maven 存储中。 这样，在后面的步骤中，您便可以在 Storm 项目中将它添加为引用。
 
     ```shell
     mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
@@ -131,7 +131,7 @@ ms.lasthandoff: 12/01/2017
     }
     ```
 
-    此 Storm 螺栓记录接收到的事件的内容。 在存储服务中，它可以轻松扩展为存储元组。 [HDInsight 传感器分析教程]同样使用这种方法将数据存储到 HBase 中。
+    此 Storm 螺栓记录接收到的事件的内容。 在存储服务中，它可以轻松扩展为存储元组。 [使用事件中心的 HDInsight Storm 示例]使用此同一方法将数据存储到 Azure 存储和 Power BI。
 11. 使用以下代码创建一个名为 **LogTopology** 的类：
 
     ```java
@@ -248,10 +248,10 @@ ms.lasthandoff: 12/01/2017
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[HDInsight 传感器分析教程]:../hdinsight/storm/apache-storm-sensor-data-analysis.md
+[使用事件中心的 HDInsight Storm 示例]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
 
 <!-- Images -->
 
 [12]: ./media/event-hubs-get-started-receive-storm/create-storm1.png
 
-<!-- Update_Description: new articles on receive event hub with java strom application -->
+<!-- Update_Description: update meta properties, wording update  -->

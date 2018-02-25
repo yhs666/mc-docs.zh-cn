@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 12/11/2017
 ms.date: 01/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 35b1629a668d5689c9632313d890d1990c7e69f4
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 167c417aaecd91b49ebcbc1f4f4b8aef58ac1b1f
+ms.sourcegitcommit: 2c6591b24e8ccb1c1b9a56738049b99f5785b833
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将进行扩展和更新，以涵盖更多平台。
@@ -114,6 +114,9 @@ ms.lasthandoff: 01/25/2018
 
 #### <a name="application-gateway-limits"></a>应用程序网关限制
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
+
+#### <a name="network-watcher-limits"></a>网络观察程序限制
+[!INCLUDE [network-watcher-limits](../includes/network-watcher-limits.md)]
 
 #### <a name="traffic-manager-limits"></a>流量管理器限制
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]

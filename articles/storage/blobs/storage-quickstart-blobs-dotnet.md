@@ -14,11 +14,11 @@ ms.topic: quickstart
 origin.date: 12/04/2017
 ms.date: 01/01/2018
 ms.author: v-nany
-ms.openlocfilehash: 1b0bec26eb8ad92b999fcf150fb1732bd0a1b658
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 5a4c5fe0142b042f78c1de4366f403529082a1af
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>使用 .NET 将对象转移到 Azure Blob 存储或从 Azure Blob 存储转移对象
 
@@ -98,20 +98,20 @@ Press the 'Enter' key while in the console to delete the sample files, example c
 
 首先创建对用于访问和管理 Blob 存储的对象的引用。 这些对象互为基础，每个对象被列表中的下一个对象使用。
 
-* 创建指向存储帐户的 [CloudStorageAccount](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?view=azure-dotnet) 对象的实例。
+* 创建指向存储帐户的 [CloudStorageAccount](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?view=azure-dotnet) 对象的实例。
 
-* 创建 [CloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?view=azure-dotnet) 对象的实例，该对象指向存储帐户中的 Blob 服务。
+* 创建 [CloudBlobClient](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?view=azure-dotnet) 对象的实例，该对象指向存储帐户中的 Blob 服务。
 
-* 创建 [CloudBlobContainer](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet) 对象的实例，该对象代表所访问的容器。 容器用于组织 blob，就像使用计算机上的文件夹组织文件一样。
+* 创建 [CloudBlobContainer](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet) 对象的实例，该对象代表所访问的容器。 容器用于组织 blob，就像使用计算机上的文件夹组织文件一样。
 
-有了 [CloudBlobContainer](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet) 后，就可以创建 [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet) 对象（该对象指向你感兴趣的特定 blob）的实例，然后执行上传、下载、复制等操作。
+有了 [CloudBlobContainer](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet) 后，就可以创建 [CloudBlockBlob](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet) 对象（该对象指向你感兴趣的特定 blob）的实例，然后执行上传、下载、复制等操作。
 
 > [!IMPORTANT]
 > 容器名称必须为小写。 有关容器名称和 blob 名称的详细信息，请参阅[命名和引用容器、Blob 和元数据](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。
 
 在本部分中，将创建对象的实例、创建新容器，并对容器设置权限，使 blob 公开，只需 URL 即可对其进行访问。 容器名称为 quickstartblobs。
 
-此示例使用 [CreateIfNotExists](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createifnotexists?view=azure-dotnet)，因为我们想要每次运行示例时都创建新容器。 在整个应用程序中使用相同容器的生产环境中，建议仅调用 **CreateIfNotExists** 一次， 或提前创建容器，这样就无需在代码中创建它。
+此示例使用 [CreateIfNotExists](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createifnotexists?view=azure-dotnet)，因为我们想要每次运行示例时都创建新容器。 在整个应用程序中使用相同容器的生产环境中，建议仅调用 **CreateIfNotExists** 一次， 或提前创建容器，这样就无需在代码中创建它。
 
 ```csharp
 // Load the connection string for use with the application. The storage connection string is stored
@@ -147,7 +147,7 @@ await cloudBlobContainer.SetPermissionsAsync(permissions);
 
 Blob 存储支持块 blob、追加 blob 和页 blob。 块 blob 最常用，此快速入门中也使用块 blob。
 
-为了将文件上传到 blob，需获取对目标容器中 blob 的引用。 有了 blob 引用后，可以通过使用 [CloudBlockBlob.UploadFromFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync) 将数据上传其中。 此操作会创建 blob（若尚不存在），或者覆盖它（若已存在）。
+为了将文件上传到 blob，需获取对目标容器中 blob 的引用。 有了 blob 引用后，可以通过使用 [CloudBlockBlob.UploadFromFileAsync](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync) 将数据上传其中。 此操作会创建 blob（若尚不存在），或者覆盖它（若已存在）。
 
 示例代码创建一个用于上传和下载的本地文件，存储作为 fileAndPath 上传的文件和 localFileName 中的 blob 名称。 以下示例将文件上传到名为“quickstartblobs”的容器。
 
@@ -174,7 +174,7 @@ Blob 存储支持多种上传方法。 例如，如果有内存流，可以使�
 
 ### <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-可以使用 [CloudBlobContainer.ListBlobsSegmentedAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync) 获取容器中的文件列表。 下面的代码检索 blob 列表，然后循环访问它们，显示找到的 blob 的 URI。 可以从命令窗口中复制 URI，然后将其粘贴到浏览器以查看文件。
+可以使用 [CloudBlobContainer.ListBlobsSegmentedAsync](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync) 获取容器中的文件列表。 下面的代码检索 blob 列表，然后循环访问它们，显示找到的 blob 的 URI。 可以从命令窗口中复制 URI，然后将其粘贴到浏览器以查看文件。
 
 如果容器中有 5000 个以下的 blob，调用一次 ListBlobsSegmentedAsync 可检索出所有 blob 名称。 如果容器中的 blob 超过 5000 个，服务会分批检索列表，每组 5000 个 blob，直到检索出所有 blob 名称。 因此，第一次调用此 API 时，它将返回第一组 5,000 个blob 名称和一个继续令牌。 第二次调用时，提供令牌，服务会检索下一组 blob 名称，以此类推，直到继续令牌为 null（表示已检索出所有 blob 名称）。
 
@@ -196,7 +196,7 @@ do
 
 ### <a name="download-blobs"></a>下载 Blob
 
-使用 [CloudBlob.DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync) 将 blob 下载到本地磁盘。
+使用 [CloudBlob.DownloadToFileAsync](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync) 将 blob 下载到本地磁盘。
 
 以下代码下载上一部分上传的 blob，对 blob 名称添加“_DOWNLOADED”后缀，以便可以在本地磁盘上看到两个文件。 
 
@@ -212,7 +212,7 @@ await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);
 
 ### <a name="clean-up-resources"></a>清理资源
 
-如果不再需要此本快速入门中上传的 blob，可使用 [CloudBlobContainer.DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync) 删除整个容器。 还可以删除创建的文件（如果不需要）。
+如果不再需要此本快速入门中上传的 blob，可使用 [CloudBlobContainer.DeleteAsync](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync) 删除整个容器。 还可以删除创建的文件（如果不需要）。
 
 ```csharp
 Console.WriteLine("Press the 'Enter' key to delete the sample files, example container, and exit the application.");

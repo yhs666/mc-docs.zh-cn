@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/30/2017
-ms.date: 09/25/2017
+origin.date: 12/20/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 44915569534cf9f7b53861493597f4c3f1facc29
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 17d3eb8f59277588e14e36ac16f88eb7a9ee4681
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>事件中心身份验证和安全模型概述
 
@@ -91,7 +91,7 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 
 ### <a name="sending-data"></a>发送数据
 
-创建令牌后，将为每个客户端设置其自身唯一的令牌。
+创建令牌后，会为每个客户端设置其自身唯一的令牌。
 
 当客户端向事件中心发送数据时，客户端会使用令牌标记其发送请求。 为了防止攻击者窃听和盗取令牌，客户端与事件中心之间的通信必须通过加密通道进行。
 
@@ -119,4 +119,4 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 [使用事件中心的示例应用程序]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [共享访问签名概述]: ../service-bus-messaging/service-bus-sas.md
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

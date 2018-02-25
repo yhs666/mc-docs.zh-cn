@@ -13,18 +13,16 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: e772f7fa70a4c6206ed684909d70d4ab9cecaf2e
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: f6f3e527cd99a4318b0fc69b94dd127a53509887
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="lesson-5-create-calculated-columns"></a>第 5 课：创建计算列
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-calculated-columns"></a>创建计算列
 
 在本课中，将通过添加计算列在模型中创建数据。 可以在使用“获取数据”时（通过使用查询编辑器）或稍后在模型设计器中（按照本教程中介绍的步骤）创建计算列（作为自定义列）。 若要了解详细信息，请参阅[计算列](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns)。
 
@@ -135,4 +133,4 @@ ProductCategoryName 计算列用于在 DimProduct 表中创建层次结构，该
 ## <a name="whats-next"></a>后续步骤
 [第 6 课：创建度量值](../tutorials/aas-lesson-6-create-measures.md)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

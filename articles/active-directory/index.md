@@ -13,11 +13,11 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: b9e3171810ec73096380e51fcc090f58f01e008b
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 4be3931c923288f9c3713f7aa2cf5dd4780cafea
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 文档
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 11/24/2017
         </a>
     </li>
     <li>
-        <a href="/active-directory/active-directory-howto-tenant">
+        <a href="/active-directory/develop/active-directory-howto-tenant">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

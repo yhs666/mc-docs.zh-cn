@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/02/2017
-ms.date: 12/04/2017
+origin.date: 01/10/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1c63fb2265a0e80a5ff2056ae8fed413b70ec238
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 308fdfd1ee21c5947760d2567ec8e6cbaa2aadff
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>了解 ImageStoreConnectionString 设置
 
@@ -36,6 +36,7 @@ Service Fabric 一开始被许多不同的团队用作 Microsoft 内部消耗平
 2. 文件系统：“file:[file system path]”
 
 3. Azure 存储："xstore:DefaultEndpointsProtocol=https;AccountName=[...];AccountKey=[...];Container=[...];EndpointSuffix=core.cloudapp.chinacloudapi.cn"
+<!-- Add the EndpointSuffix in configuration of EndpointSuffix=core.cloudapp.chinacloudapi.cn -->
 
 在生产中使用的提供程序类型为映像存储区服务，它是可通过 Service Fabric Explorer 查看的有状态持久化系统服务。 
 
@@ -45,7 +46,7 @@ Service Fabric 一开始被许多不同的团队用作 Microsoft 内部消耗平
 
 在开发过程中，本地单机群集使用文件系统提供程序，而不使用映像存储区服务，目的在于让群集的 bootstrap 操作速度略微提升。 差异通常较小，但在开发期间，它对大多数人员而言是有用的优化。 尽管可部署其他存储提供程序类型的本地单机群集，但通常没有理由这么做，因为无论使用哪种提供程序，开发/测试工作流都保持不变。 除这种用法外，文件系统和 Azure 存储提供程序仅为提供旧版支持而存在。
 
-因此，虽然 ImageStoreConnectionString 是可配置的，但用户通常只使用默认设置。 通过 Visual Studio 发布到 Azure 时，该参数会相应地自动设置。 对于在 Azure 中托管的群集的编程部署，连接字符串始终是“fabric:ImageStore”。 有疑问时，始终可通过 [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest)、[.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) 或 [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest) 检索群集清单验证其值。 同样，本地测试和生产群集应始终配置为使用映像存储区服务提供程序。
+因此，虽然 ImageStoreConnectionString 是可配置的，但用户通常只使用默认设置。 通过 Visual Studio 发布到 Azure 时，该参数会相应地自动设置。 对于在 Azure 中托管的群集的编程部署，连接字符串始终是“fabric:ImageStore”。 即使有疑问时，也始终可通过 [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest)、[.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) 或 [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest) 检索群集清单来验证其值。 同样，本地测试和生产群集应始终配置为使用映像存储区服务提供程序。
 
 ### <a name="next-steps"></a>后续步骤
 [使用 PowerShell 部署和删除应用程序][10]

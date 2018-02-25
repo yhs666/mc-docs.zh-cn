@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/05/2017
-ms.date: 11/20/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: d8fe8700a8588fbe1be329135d93256122ac9191
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: a85ffa1b552e6315b69db5c0022676f12f1f82f8
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>事件中心捕获演练：Python
 
@@ -117,7 +117,8 @@ ms.lasthandoff: 11/15/2017
       block_blob_service = BlockBlobService(account_name=accountName, account_key=key)
       generator = block_blob_service.list_blobs(container)
       for blob in generator:
-          if blob.properties.content_length != 0:
+          #content_length == 508 is an empty file, so only process content_length > 508 i.e. skip  empty files
+          if blob.properties.content_length > 508:
               print('Downloaded a non empty blob: ' + blob.name)
               cleanName = string.replace(blob.name, '/', '_')
               block_blob_service.get_blob_to_path(container, blob.name, cleanName)
@@ -157,7 +158,7 @@ ms.lasthandoff: 11/15/2017
    python capturereader.py
    ```
 
-   此捕获处理器使用本地目录下载存储帐户/容器中的所有 blob。 它将处理任何不为空的内容，并将结果以 .csv 文件的形式写入到本地目录。
+   此捕获处理器使用本地目录下载存储帐户/容器中的所有 blob。 它将处理任何不为空的内容，并将结果以 .csv 文件形式写入到本地目录。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -174,4 +175,4 @@ ms.lasthandoff: 11/15/2017
 [Visual Studio Code]: https://code.visualstudio.com/
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 
-<!--Update_Description: update meta properties, update reference link, wording update -->
+<!--Update_Description: update meta properties, wording update -->

@@ -1,5 +1,5 @@
 ---
-title: "在 Azure 虚拟网络中设置 HBase 群集复制 | Microsoft Docs"
+title: "在 Azure 虚拟网络中设置 HBase 群集复制"
 description: "了解如何设置从一个 HDInsight 版本到另一个版本的 HBase 复制，以实现负载均衡、高可用性、在不造成停机的情况下进行迁移和更新，以及灾难恢复。"
 services: hdinsight,virtual-network
 documentationcenter: 
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/09/2017
-ms.date: 11/28/2017
+origin.date: 01/03/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 49f4757ca7c511366e39a9f89d42498915e70f63
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 6f3521628471411ae81a363ad0ee6f6ef82e785b
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>在 Azure 虚拟网络中设置 HBase 群集复制
 
@@ -183,7 +183,7 @@ HBase 复制使用 ZooKeeper VM 的 IP 地址。 必须为目标 HBase ZooKeeper
 
 必需参数：
 
-|名称|说明|
+|Name|说明|
 |----|-----------|
 |-s、--src-cluster | 指定源 HBase 群集的 DNS 名称。 例如：-s hbsrccluster、--src-cluster=hbsrccluster |
 |-d、--dst-cluster | 指定目标（副本）HBase 群集的 DNS 名称。 例如：-s dsthbcluster、--src-cluster=dsthbcluster |
@@ -192,7 +192,7 @@ HBase 复制使用 ZooKeeper VM 的 IP 地址。 必须为目标 HBase ZooKeeper
 
 可选参数：
 
-|名称|说明|
+|Name|说明|
 |----|-----------|
 |-su、--src-ambari-user | 指定源 HBase 群集的 Ambari 管理员用户名。 默认值为 **admin**。 |
 |-du、--dst-ambari-user | 指定目标 HBase 群集的 Ambari 管理员用户名。 默认值为 **admin**。 |
@@ -283,4 +283,4 @@ HBase 复制使用 ZooKeeper VM 的 IP 地址。 必须为目标 HBase ZooKeeper
 * [HDInsight 中的 Apache HBase 入门](./apache-hbase-tutorial-get-started-linux.md)
 * [HDInsight HBase 概述](./apache-hbase-overview.md)
 * [在 Azure 虚拟网络中创建 HBase 群集](./apache-hbase-provision-vnet.md)
-* [使用 HDInsight (Hadoop) 中的 Storm 和 HBase 分析传感器数据](../storm/apache-storm-sensor-data-analysis.md)
+

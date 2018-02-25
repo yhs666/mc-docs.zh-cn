@@ -13,11 +13,11 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 12/18/2017
 ms.author: v-nany
-ms.openlocfilehash: 440d26a2ed10285a753547b2ab1c12bf61b605df
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: 5e2da39a71dfb5581582960d40745b7feb0d2081
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="dns-documentation"></a>DNS 文档
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 12/15/2017
 
 ---
 
-<h2>引用</h2>
+<h2>参考</h2>
 <ul class="panelContent cardsW">
 <li>
     <div class="cardSize">
@@ -121,7 +121,7 @@ ms.lasthandoff: 12/15/2017
             <div class="card">
                 <div class="cardText">
                     <h3>语言</h3>
-                    <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.dns.models">.NET</a></p>
+                    <p><a href="https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.dns.models">.NET</a></p>
                     <p><a href="https://docs.microsoft.com/java/api/com.microsoft.azure.management.dns">Java</a></p>
                     <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/">Node.js</a></p>
                     <p><a href="http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0">Ruby</a></p>

@@ -303,7 +303,7 @@
     - name: Azure CLI 2.0
       href: 'https://docs.azure.cn/cli/sql'
     - name: .NET
-      href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.management.sql.models'
+      href: 'https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.sql.models'
     - name: Java
       href: 'https://docs.azure.cn/java/api/com.microsoft.azure.management.sql'
     - name: Node.js

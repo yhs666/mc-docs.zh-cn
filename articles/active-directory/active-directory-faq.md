@@ -15,11 +15,11 @@ ms.topic: get-started-article
 origin.date: 12/14/2017
 ms.date: 1/1/2018
 ms.author: v-nany
-ms.openlocfilehash: 9f65a22d862b8e6f49b0453a3438f95474521cc0
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 73351353173043ce53c620153210bf3bbb010d85
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
@@ -119,7 +119,7 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 对于 Azure AD 帐户，管理员可以使用以下选项之一重置密码：
 
 - [在 Azure 门户中重置帐户](active-directory-users-reset-password-azure-portal.md)
-- [使用 PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
+- [使用 PowerShell](https://docs.microsoft.com/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
 - - -

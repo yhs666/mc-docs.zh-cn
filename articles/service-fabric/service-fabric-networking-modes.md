@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/09/2017
-ms.date: 01/01/2018
+origin.date: 01/05/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 083e58bda95d14501628fac8aea388e6345fb216
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: f78fb06886acff0eb42d37d78faab9fb26069152
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器网络模式
 
@@ -221,6 +221,16 @@ ms.lasthandoff: 12/29/2017
     >[!NOTE]
     >Linux 群集上不支持混合不同服务的网络模式。 
     >
+
+5. 选择“打开”模式时，服务清单中的**终结点**定义应显式指向终结点所对应的代码包，即使服务包中只有一个代码包，也是如此。 
+
+   ```xml
+   <Resources>
+     <Endpoints>
+       <Endpoint Name="ServiceEndpoint" Protocol="http" Port="80" CodePackageRef="Code"/>
+     </Endpoints>
+   </Resources>
+   ```
 
 ## <a name="next-steps"></a>后续步骤
 * [了解 Service Fabric 应用程序模型](service-fabric-application-model.md)

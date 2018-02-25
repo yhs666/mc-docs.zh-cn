@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 01/02/2018
 ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6e2846c3fb2026419f70d222db8252064f332262
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 0ee6723f109cf67c04a4e5f12b4194b3ee51b808
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/23/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -40,9 +40,10 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     客户端连接到 Azure Cosmos DB 的方式对性能有重大影响（尤其在观察到的客户端延迟方面）。 有一个密钥配置设置可用于配置客户端 [ConnectionPolicy](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy) - [ConnectionMode](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_mode)。  有两种可用 ConnectionMode：
 
-   1. [网关（默认值）](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_mode.gateway)
-   2. [DirectHttps](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_mode.directhttps)
-
+    1. [网关（默认值）](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_mode)
+    2. [DirectHttps](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_mode)
+    <!-- URL is valid on ._connection_mode without gateay and directhttps -->
+    
     网关模式受所有 SDK 平台的支持并已配置为默认设置。  如果应用程序在有严格防火墙限制的企业网络中运行，则网关是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次在 Azure Cosmos DB 中读取或写入数据时，网关模式都涉及到额外的网络跃点。 因此，DirectHttps 模式因为网络跃点较少，可以提供更好的性能。 
 
     Java SDK 使用 HTTPS 作为传输协议。 HTTPS 使用 SSL 进行初始身份验证和加密通信。 使用 Java SDK 时，只需打开 HTTPS 端口 443。 
@@ -81,7 +82,8 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
    <a id="max-connection"></a>
 3. **使用网关模式时，增加每个主机的 MaxPoolSize**
 
-    使用网关模式时，Azure Cosmos DB 请求是通过 HTTPS/REST 发出的，并受制于每个主机名或 IP 地址的默认连接限制。 可能需要将 MaxPoolSize 设置为较大的值 (200-1000)，以便客户端库能够同时利用多个连接来访问 Azure Cosmos DB。 在 Java SDK 中，[ConnectionPolicy.getMaxPoolSize](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) 的默认值为 100。 使用 [setMaxPoolSize]( https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) 可更改该值。
+    使用网关模式时，Azure Cosmos DB 请求是通过 HTTPS/REST 发出的，并受制于每个主机名或 IP 地址的默认连接限制。 可能需要将 MaxPoolSize 设置为较大的值 (200-1000)，以便客户端库能够同时利用多个连接来访问 Azure Cosmos DB。 在 Java SDK 中，[ConnectionPolicy.getMaxPoolSize](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy) 的默认值为 100。 使用 [setMaxPoolSize]( https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) 可更改该值。
+<!-- URL is valid on ._connection_mode without gsetmaxpoolsize -->
 
 4. **优化分区集合的并行查询。**
 

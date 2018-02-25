@@ -15,11 +15,11 @@ ms.topic: get-started-article
 origin.date: 11/10/2017
 ms.date: 01/29/2018
 ms.author: v-nany
-ms.openlocfilehash: 3b4ad72b381eb06dd94d6bddb8441322bb2446b6
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: c1b1db2d8c45ed1e5b51cfb570f48839c6f644db
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 存储简介
 
@@ -202,7 +202,7 @@ Azure 存储资源可以通过任何发出 HTTP/HTTPS 请求的语言来进行�
 
 ### <a name="azure-storage-data-services"></a>Azure 存储数据服务
 * [存储服务 REST API](https://docs.microsoft.com/rest/api/storageservices/)
-* [适用于 .NET 的存储客户端库](https://docs.microsoft.com/dotnet/api/?view=azurestorage-8.1.1)
+* [适用于 .NET 的存储客户端库](https://docs.azure.cn/zh-cn/dotnet/api/overview/storage)
 * [适用于 C++ 的存储客户端库](https://github.com/Azure/azure-storage-cpp)
 * [适用于 Java/Android 的存储空间客户端库](/develop/java/)
 * [适用于 Node.js 的存储空间客户端库](http://dl.windowsazure.com/nodestoragedocs/index.html)
@@ -226,7 +226,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 
 ### Azure Storage data services
 * [Storage Services REST API](https://docs.microsoft.com/rest/api/storageservices/)
-* [Storage Client Library for .NET](https://docs.microsoft.com/dotnet/api/?view=azurestorage-8.1.1)
+* [Storage Client Library for .NET](https://docs.azure.cn/zh-cn/dotnet/api/overview/storage)
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
 * [Storage Client Library for Java/Android](/develop/java/)
 * [Storage Client Library for Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
@@ -237,7 +237,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 
 ### Azure Storage management services
 * [Storage Resource Provider REST API Reference](https://docs.microsoft.com/rest/api/storagerp/)
-* [Storage Resource Provider Client Library for .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.storage)
+* [Storage Resource Provider Client Library for .NET](https://docs.azure.cn/dotnet/api/microsoft.azure.management.storage)
 * [Storage Resource Provider Cmdlets for PowerShell 1.0](https://docs.microsoft.com/powershell/module/azure.storage)
 * [Storage Service Management REST API (Classic)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 

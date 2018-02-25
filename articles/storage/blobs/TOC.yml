@@ -292,11 +292,11 @@
     - name: .NET
       items:
         - name: Blob、队列、表和文件
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client?view=azure-dotnet'
+          href: 'https://docs.azure.cn/zh-cn/dotnet/api/overview/storage/client'
         - name: 数据移动
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement?view=azure-dotnet'
+          href: 'https://docs.azure.cn/zh-cn/dotnet/api/microsoft.windowsazure.storage.datamovement?view=azure-dotnet'
         - name: Resource Manager
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management?view=azure-dotnet'
+          href: 'https://docs.azure.cn/zh-cn/dotnet/api/overview/storage/management'
     - name: Java
       items:
         - name: Blob、队列、表和文件

@@ -13,18 +13,16 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7f1566d8b9cd96b28d4fe068347e9d64ff09e545
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: b791a1329539b127c32bc7262813b297194ad5f1
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="lesson-3-mark-as-date-table"></a>第 3 课：标记为日期表
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="mark-as-date-table"></a>标记为日期表
 
 在“第 2 课：获取数据”中，已导入了一个名为 DimDate 的维度表。 虽然此表在模型中名为 DimDate，但它也可称为“日期表”，因为其中包含日期和时间数据。  
 
@@ -58,4 +56,4 @@ ms.lasthandoff: 12/08/2017
 ## <a name="whats-next"></a>后续步骤
 [第 4 课：创建关系](../tutorials/aas-lesson-4-create-relationships.md)。
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

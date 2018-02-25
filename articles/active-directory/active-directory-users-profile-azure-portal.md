@@ -16,14 +16,14 @@ origin.date: 10/10/2017
 ms.date: 1/1/2018
 ms.author: v-nany
 ms.reviewer: jeffsta
-ms.openlocfilehash: 5fb082174ba1295dcecaf56805f263564d49524b
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 0605f7fcd9677c119398d68096f824c6aa482be2
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>在 Azure Active Directory 中添加或更改用户的个人资料信息
-本文介绍如何在 Azure Active Directory (Azure AD) 中添加用户个人资料信息（例如，个人资料图片或电话和电子邮件身份验证信息）。 有关添加组织中的新用户的信息，请参阅[将新用户添加到 Azure Active Directory](active-directory-users-create-azure-portal.md)。
+本文介绍如何在 Azure Active Directory (Azure AD) 中添加用户个人资料信息（例如，个人资料图片或电话和电子邮件身份验证信息）。 
 
 ## <a name="to-change-profile-information"></a>更改个人资料信息
 1. 使用目录全局管理员的帐户登录到 [Azure 门户](https://portal.azure.cn) 。

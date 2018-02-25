@@ -13,18 +13,16 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4c5e6cd3bca7bf2ea8626c2e6b923fbe4be30e51
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: ea47fbe9a68503666038067b3df371e93e2f9bbd
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="lesson-13-deploy"></a>第 13 课：部署
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="deploy"></a>部署
 
 本课介绍如何配置部署属性；指定要部署到的 Azure Analysis Services 服务器，以及模型的名称。 然后，将模型部署到该实例。 在部署模型后，用户可以使用报告客户端应用程序连接到该模型。 有关详细信息，请参阅[部署到 Azure Analysis Services](/analysis-services/analysis-services-deploy)。  
 
@@ -69,7 +67,7 @@ ms.lasthandoff: 12/08/2017
 
 3. 当部署成功完成时，继续操作并单击“关闭”。  
 
-## <a name="conclusion"></a>结束语  
+## <a name="conclusion"></a>结论  
 祝贺！ 已完成了第一个 Analysis Services 表格模型的创作和部署。 本教程已指导完成了创建表格模型时的最常见任务。 现在，“Adventure Works Internet 销售”模型已部署，可以使用 SQL Server Management Studio 管理该模型，创建处理脚本和备份计划。 用户现在也可以使用报告客户端应用程序（例如 Microsoft Excel 或 Power BI）连接到该模型。  
 
 ![aas-lesson13-ssms](../tutorials/media/aas-lesson13-ssms.png)
@@ -80,4 +78,4 @@ ms.lasthandoff: 12/08/2017
 [补充课程 - 详细信息行](../tutorials/aas-supplemental-lesson-detail-rows.md)   
 [补充课程 - 不规则层次结构](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

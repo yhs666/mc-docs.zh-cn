@@ -16,11 +16,11 @@ origin.date: 08/25/2017
 ms.date: 09/20/2017
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: a9e0ca0ee64e24dff7c619742ffaeb1160c0d168
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: e3d0383cc0cf9e799338d67f2cb0a7a4b3e8829e
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 身份验证库
 通过 Azure Active Directory Authentication Library (ADAL)，应用程序开发者可以让用户通过云或本地 Active Directory (AD) 的身份验证，并获取令牌来保护 API 调用。 ADAL 通过以下功能使开发者更轻松地进行身份验证：

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/18/2017
-ms.date: 11/13/2017
+origin.date: 12/11/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1f154bb05f56b47ab77038fb053c823f06f8e253
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 9915030212609def58b83f27fbc3718ba471d611
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="view-service-fabric-health-reports"></a>查看 Service Fabric 运行状况报告
 Azure Service Fabric 引入了一种具有运行状况实体的[运行状况模型](service-fabric-health-introduction.md)，系统组件和监视器可以在其上报告它们监视的本地状况。 [运行状况存储](service-fabric-health-introduction.md#health-store)聚合所有运行状况数据以确定实体是否正常运行。
@@ -66,11 +66,11 @@ Service Fabric 提供多种方式来获取实体聚合运行状况：
 Service Fabric 为每个支持的[实体类型](service-fabric-health-introduction.md#health-entities-and-hierarchy)提供运行状况查询。 可以通过 API（使用 [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet) 上的方法）、PowerShell cmdlet 和 REST 访问它们。 这些查询返回有关实体的完整运行状况信息：聚合运行状况、实体运行状况事件、子运行状况（在适用时）、不正常评估（实体不正常时）以及子集运行状况统计信息（在适用时）。
 
 > [!NOTE]
-> 填满运行状况存储时，将返回运行状况实体。 实体必须处于活动状态（未删除），并且具有系统报告。 层次结构链上其父实体还必须有系统报告。 如果不满足以上任何条件，则运行状况查询返回 [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) 为 `FabricHealthEntityNotFound`（显示未返回实体的原因）的 [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception)。
+> 填满运行状况存储时，返回运行状况实体。 实体必须处于活动状态（未删除），并且具有系统报告。 层次结构链上其父实体还必须有系统报告。 如果不满足以上任何条件，则运行状况查询返回 [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) 为 `FabricHealthEntityNotFound`（显示未返回实体的原因）的 [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception)。
 >
 >
 
-运行状况查询必须传递取决于实体类型的实体标识符。 这些查询接受可选的运行状况策略参数。 如果未指定运行状况策略，则使用来自群集或应用程序清单的[运行状况策略](service-fabric-health-introduction.md#health-policies)进行评估。 如果清单不包含运行状况策略的定义，则使用默认运行状况策略进行评估。 默认运行状况策略不容忍任何失败。 这些查询还接受筛选器，以仅返回与指定筛选器有关的部分子项或事件。 另一个筛选器允许排除子级统计信息。
+运行状况查询必须传递实体标识符，具体取决于实体类型。 这些查询接受可选的运行状况策略参数。 如果未指定运行状况策略，则使用来自群集或应用程序清单的[运行状况策略](service-fabric-health-introduction.md#health-policies)进行评估。 如果清单不包含运行状况策略的定义，则使用默认运行状况策略进行评估。 默认运行状况策略不容忍任何失败。 这些查询还接受筛选器，以仅返回与指定筛选器有关的部分子项或事件。 另一个筛选器允许排除子级统计信息。
 
 > [!NOTE]
 > 在服务器端应用输出筛选器，因此减小了消息回复大小。 我们建议使用输出筛选器限制返回的数据，而不是在客户端上应用筛选器。
@@ -103,7 +103,7 @@ Service Fabric 为每个支持的[实体类型](service-fabric-health-introducti
 ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync();
 ```
 
-以下代码使用针对节点和应用程序的自定义运行状况策略和筛选器获取群集运行状况。 它指定运行状况统计信息包括 fabric:/System 统计信息。 它将创建包含输入信息的 [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription)。
+以下代码使用针对节点和应用程序的自定义群集运行状况策略和筛选器获取群集运行状况。 它指定运行状况统计信息包括 fabric:/System 统计信息。 它会创建包含输入信息的 [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription)。
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -784,7 +784,7 @@ HealthEvents               :
 * 仅返回状态为错误的应用程序，并且针对这些应用程序，包含所有状态为警告或错误的服务。 针对返回的服务，包含所有分区。
 * 仅返回四个应用程序的运行状况，由其名称指定。
 * 仅返回所需应用程序类型的应用程序运行状况。
-* 返回某个节点上所有已部署实体。 返回所有应用程序，指定节点上所有已部署的应用程序，以及该节点上所有已部署的服务包。
+* 返回某个节点上所有已部署实体。 返回所有应用程序、指定节点上所有已部署应用程序，以及该节点上所有已部署服务包。
 * 返回所有状态为错误的副本。 返回所有应用程序、服务、分区，以及仅返回状态为错误的副本。
 * 返回所有应用程序。 针对指定服务，包含所有分区。
 
@@ -1004,11 +1004,11 @@ ApplicationHealthStateChunks :
 常规查询返回指定类型的 Service Fabric 实体的列表。 这些查询通过 API（通过 **FabricClient.QueryManager** 上的方法）、PowerShell cmdlet 和 REST 来公开。 这些查询聚合了来自多个组件的子查询。 其中一个组件是[运行状况存储](service-fabric-health-introduction.md#health-store)，该组件填充每个查询结果的聚合运行状况。  
 
 > [!NOTE]
-> 常规查询返回实体的聚合运行状况状态，不包含丰富的运行状况数据。 如果一个实体不正常，可以通过运行状况查询来跟进，获得所有运行状况信息，包括事件、子项运行状况状态和不正常评估。
+> 常规查询返回实体的聚合运行状况状态，不包含丰富的运行状况数据。 如果一个实体不正常，可以通过运行状况查询跟进，以获得所有运行状况信息，包括事件、子项运行状况状态和不正常评估。
 >
 >
 
-如果常规查询返回实体的未知运行状况状态，则可能表示运行状况存储中不存在有关该实体的完整数据。 此外，也有可能对运行状况存储的子查询未成功（例如，发生通信错误，或运行状况存储已受限制）。 通过对实体进行运行状况查询跟进。 如果子查询发生暂时性错误，例如网络问题，此跟进查询可能成功。 它还可以从运行状况存储提供关于为何实体未公开的详细信息。
+如果常规查询返回实体的未知运行状况状态，则可能表示运行状况存储中不存在有关该实体的完整数据。 此外，也有可能对运行状况存储的子查询未成功（例如，发生通信错误，或运行状况存储已受限制）。 通过对实体进行运行状况查询进行跟进。 如果子查询发生暂时性错误，例如网络问题，此跟进查询可能成功。 它还可以从运行状况存储提供关于为何实体未公开的详细信息。
 
 包含实体的 **HealthState** 的查询为：
 
@@ -1083,7 +1083,7 @@ HealthState            : Error
 ```
 
 ## <a name="cluster-and-application-upgrades"></a>群集和应用程序升级
-在群集与应用程序的受监视升级期间，Service Fabric 会检查运行状况，以确保一切都能维持在运行状况良好的状态。 如果实体通过使用已设置的运行状况策略评估为状况不良，升级过程将应用升级特定的策略来确定后续措施。 升级可能会暂停，以允许用户交互（例如修复错误条件或更改策略），或是它自动回滚到以前的正常版本。
+在群集与应用程序的受监视升级期间，Service Fabric 将检查运行状况，以确保一切都能维持在运行状况良好的状态。 如果实体通过使用已设置的运行状况策略评估为状况不良，升级过程将应用升级特定的策略来确定后续措施。 升级可能会暂停，以允许用户交互（例如修复错误条件或更改策略），或是它自动回滚到以前的正常版本。
 
 在*群集*升级期间，可以获取群集升级状态。 升级状态包括状况不正常的评估，指向群集中状况不正常的项目。 如果升级因运行状况问题而回滚，则升级状态将记住最后的不正常原因。 此信息可帮助管理员调查升级回滚或停止后发生的问题。
 
@@ -1213,7 +1213,7 @@ HealthEvents          :
 ```
 
 > [!NOTE]
-> 不正常评估会显示实体评估为当前健康状况的第一个原因。 可能有其他多个事件触发此状态，但是评估中不会反映这些事件。 若要获取更多信息，请向下钻取到运行状况实体，找出群集中的所有不正常报告。
+> 不正常评估会显示实体评估为当前运行状况状态的第一个原因。 可能有其他多个事件触发此状态，但是评估中不会反映这些事件。 若要获取更多信息，请向下钻取到运行状况实体，找出群集中的所有不正常报告。
 >
 >
 

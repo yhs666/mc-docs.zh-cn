@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/15/2017
-ms.date: 01/01/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7064b9ad602802934e893fd37653b9fce1c0cba5
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 83acc6e0fb3fcb329fc9c8e350751a2d995d1a4b
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>创建 Service Fabric 的容器映像
 
@@ -59,7 +59,7 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-“container-tutorial”目录包含一个名为“azure-vote”的文件夹。 “azure-vote”文件夹包含前端源代码和 Dockerfile，可用于生成前端。 “container-tutoria”目录还包含“redis”目录，其中包含 Dockerfile，可用于生成 redis 映像。 这些目录包含本组教程所需的资产。 
+该解决方案包含两个文件夹和一个 docker-compse.yml 文件。 “azure-vote”文件夹包含 Python 前端服务以及用于生成映像的 Dockerfile。 “Voting”目录包含部署到群集的 Service Fabric 应用程序包。 这些目录包含本教程所需的资产。  
 
 ## <a name="create-container-images"></a>创建容器映像
 
@@ -69,35 +69,30 @@ cd service-fabric-containers/Linux/container-tutorial/
 docker build -t azure-vote-front .
 ```
 
-在“redis”目录中，运行以下命令，生成 redis 后端的映像。 下面的命令使用目录中的 Dockerfile 生成映像。 
-
-```bash
-docker build -t azure-vote-back .
-```
-
-完成后，使用 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 命令查看创建的映像。
+此命令可能需要一些时间，因为需要从 Docker 中心拉取所有必需的依赖项。 完成后，使用 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 命令查看创建的映像。
 
 ```bash
 docker images
 ```
 
-请注意，已下载或创建四个映像。 *azure-vote-front* 映像包含应用程序。 它派生自 Docker 中心的 python 映像。 Redis 映像是从 Docker 中心下载的。
+请注意，已下载或创建两个映像。 *azure-vote-front* 映像包含应用程序。 它派生自 Docker 中心的 python 映像。
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back              latest              bf9a858a9269        3 seconds ago        107MB
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-redis                        latest              9813a7e8fcc0        2 days ago           107MB
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 
 ```
 
 ## <a name="deploy-azure-container-registry"></a>部署 Azure 容器注册表
 
-首先，运行 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 命令，登录 Azure 帐户。 
-<!-- URL is correct https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login -->
+首先，运行 **az login** 命令，登录 Azure 帐户。 
 
-接下来，使用 [az account](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#set) 命令来选择订阅，创建 Azure 容器注册表。 
+```bash
+az login
+```
+
+接下来，使用 **az account** 命令来选择订阅，创建 Azure 容器注册表。 必须输入你的 Azure 订阅的订阅 ID 来代替 <subscription_id>。 
 
 ```bash
 az account set --subscription <subscription_id>
@@ -105,23 +100,23 @@ az account set --subscription <subscription_id>
 
 在部署 Azure 容器注册表时，首先需要一个资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 命令创建资源组。 本示例在 *chinanorth* 区域中创建名为 *myResourceGroup* 的资源组。 请选择附近区域中的资源组。 
+使用 **az group create** 命令创建资源组。 本示例在 *chinanorth* 区域中创建名为 *myResourceGroup* 的资源组。
 
 ```bash
-az group create --name myResourceGroup --location chinanorth
+az group create --name <myResourceGroup> --location chinanorth
 ```
 
-使用 [az acr create](https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#create) 命令创建 Azure 容器注册表。 容器注册表的名称必须唯一。
+使用 **az acr create** 命令创建 Azure 容器注册表。 将 \<acrName> 替换为要在订阅下创建的容器注册表的名称。 此名称必须为字母数字且唯一。 
 
 ```bash
-az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
+az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
-在本教程的其余部分，使用“acrname”作为所选容器注册表名称的占位符。
+在本教程的余下部分，将使用“acrName”作为所选容器注册表名称的占位符。 请记下此值。 
 
 ## <a name="log-in-to-your-container-registry"></a>登录容器注册表
 
-先登录 ACR 实例，再向其推送映像。 使用 [az acr login](https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az_acr_login) 命令完成此操作。 请提供创建容器注册表时所使用的唯一名称。
+先登录 ACR 实例，再向其推送映像。 使用 **az acr login** 命令完成此操作。 请提供创建容器注册表时所使用的唯一名称。
 
 ```bash
 az acr login --name <acrName>
@@ -143,9 +138,7 @@ docker images
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-azure-vote-back              latest              bf9a858a9269        3 seconds ago        107MB
 azure-vote-front             latest              052c549a75bf        About a minute ago   708MB
-redis                        latest              9813a7e8fcc0        2 days ago           107MB
 tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago           707MB
 ```
 
@@ -155,16 +148,18 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 az acr show --name <acrName> --query loginServer --output table
 ```
 
+这将输出包含以下结果的表。 在将 **azure-vote-front** 映像推送到下一步中的容器注册表之前，此结果将用于标记该映像。
+
+```bash
+Result
+------------------
+<acrName>.azurecr.io
+```
+
 现在，使用容器注册表的 loginServer 标记 azure-vote-front 映像。 另外，将 `:v1` 添加至映像名称的末端。 此标记代表映像版本。
 
 ```bash
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
-```
-
-接下来，使用容器注册表的 loginServer 标记 azure-vote-back 映像。 另外，将 `:v1` 添加至映像名称的末端。 此标记代表映像版本。
-
-```bash
-docker tag azure-vote-back <acrLoginServer>/azure-vote-back:v1
+docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 标记后即可运行“docker images”验证操作。
@@ -173,11 +168,8 @@ docker tag azure-vote-back <acrLoginServer>/azure-vote-back:v1
 
 ```bash
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-back                        latest              bf9a858a9269        22 minutes ago      107MB
-<acrName>.azurecr.io/azure-vote-back    v1                  bf9a858a9269        22 minutes ago      107MB
 azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
-<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf        23 minutes ago      708MB
-redis                                  latest              9813a7e8fcc0        2 days ago          107MB
+<acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
 tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5 days ago          707MB
 
 ```
@@ -189,15 +181,7 @@ tiangolo/uwsgi-nginx-flask             python3.6           590e17342131        5
 使用以下示例，将 ACR loginServer 名称替换为环境中的 loginServer。
 
 ```bash
-docker push <acrLoginServer>/azure-vote-front:v1
-```
-
-将 azure-vote-back 映像推送到注册表。 
-
-使用以下示例，将 ACR loginServer 名称替换为环境中的 loginServer。
-
-```bash
-docker push <acrLoginServer>/azure-vote-back:v1
+docker push <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
 docker push 命令需要几分钟才能完成。
@@ -215,7 +199,6 @@ az acr repository list --name <acrName> --output table
 ```bash
 Result
 ----------------
-azure-vote-back
 azure-vote-front
 ```
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: v-johch
-ms.openlocfilehash: e42efceb8f4c32d21a2cd58e43fbc4fb0c1d988c
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 741cb1c523a9c0a48aed79fe7d90f8277133fd26
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 #<a name="inserting-ads-on-the-client-side"></a>在客户端上插入广告
 
@@ -27,23 +27,25 @@ ms.lasthandoff: 02/13/2018
 
 >[!NOTE]
 > Azure Media Player 目前不支持广告。
+> 
+> 
 
 ##<a id="insert_ads_into_media"></a>向媒体中插入广告
 
 Azure 媒体服务通过“Windows 媒体平台：播放器框架”提供广告插入支持。 附带广告支持的播放器框架在 Windows 8、Silverlight、Windows Phone 8 和 iOS 设备上均可用。 每个播放器框架均包含显示如何实现播放器应用程序的示例代码。可插入 media:list 中的广告有三种。
 
-- **线性** - 暂停主视频的全帧广告。
-- **非线性** - 播放主视频时显示的叠加式广告，通常为放置在播放器内的一个徽标或其他静态图像。
-- **伴随** - 在播放器之外显示的广告。
+* **线性** - 暂停主视频的全帧广告。
+* **非线性** - 播放主视频时显示的叠加式广告，通常为放置在播放器内的一个徽标或其他静态图像。
+* **伴随** - 在播放器之外显示的广告。
 
 广告可置于主视频时间线中的任何一个时间点。 必须告知播放器何时播放广告以及播放哪些广告。 完成该操作需使用一组标准的基于 XML 的文件：视频广告服务模板 (VAST)、数字视频多广告播放列表 (VMAP)、媒体抽象排序模板 (MAST) 和数字视频播放器广告接口定义 (VPAID)。 VAST 文件用于指定要显示哪些广告。 VMAP 文件用于指定何时播放各种广告并且包含 VAST XML。 MAST 文件是对包含 VAST XML 的广告进行排序的另一种方法。 VPAID 文件用于定义视频播放器与广告或广告服务器之间的接口。
 
 每个播放器框架的工作方式不同，且都将涵盖各自的主题。 本主题将介绍用来插入广告的基本机制。视频播放器应用程序从广告服务器请求广告。 广告服务器可以通过多种方式进行响应：
 
-- 返回一个 VAST 文件
-- 返回一个 VMAP 文件 （使用嵌入的 VAST）
-- 返回一个 MAST 文件 （使用嵌入的 VAST）
-- 返回一个含有 VPAID 广告的 VAST 文件
+* 返回一个 VAST 文件
+* 返回一个 VMAP 文件 （使用嵌入的 VAST）
+* 返回一个 MAST 文件 （使用嵌入的 VAST）
+* 返回一个含有 VPAID 广告的 VAST 文件
 
 ###<a name="using-a-video-ad-service-template-vast-file"></a>使用视频广告服务模板 (VAST) 文件
 
@@ -93,7 +95,7 @@ VAST 文件指定要显示的广告。 以下 XML 是线性广告 VAST 文件的
 </VAST>
 ```
 
-通过“<Linear>”元素描述线性广告。 它指定广告的持续时间、曲目事件、点击行为、点击跟踪和许多“<MediaFile>”元素。 在“<TrackingEvents>”元素内指定跟踪事件，并允许广告服务器跟踪在观看广告时发生的各种事件。 在这种情况下可跟踪开始、中点、完成和展开事件。 广告播放时发生开始事件。 已观看至少 50% 的广告时间时发生中点事件。 广告结束时发生完成事件。 用户将视频播放器展开为全屏时发生展开事件。 “点击”是由“<VideoClicks>”元素内的“<ClickThrough>”元素指定的，并指定用户点击广告时要显示的资源的 URI。 “点击跟踪”是在“<ClickTracking>” 元素中指定，也在“<VideoClicks>”元素内指定，指定用户点击广告时要请求的播放器的跟踪资源。“<MediaFile>”元素指定有关广告特定编码的信息。 如果存在多个“<MediaFile>”元素，则视频播放器可以选择适用于该平台的最佳编码。 
+通过 <**Linear**> 元素描述线性广告。 它指定广告的持续时间、跟踪事件、点击行为、点击跟踪和许多 **MediaFile** 元素。 在 <**TrackingEvents**> 元素内指定跟踪事件，并允许广告服务器跟踪在观看广告时发生的各种事件。 在这种情况下可跟踪开始、中点、完成和展开事件。 广告播放时发生开始事件。 已观看至少 50% 的广告时间时发生中点事件。 广告结束时发生完成事件。 用户将视频播放器展开为全屏时发生展开事件。 “点击”是使用 <**ClickThrough**> 元素在 <**VideoClicks**> 元素内指定的，指定用户点击广告时要显示的资源的 URI。 “点击跟踪”是在 <**ClickTracking**> 元素中，也在 <**VideoClicks**> 元素中指定的，指定用户点击广告时要请求的播放器的跟踪资源。<**MediaFile**> 元素指定有关广告特定编码的信息。 如果存在多个 <**MediaFile**> 元素，则视频播放器可以选择适用于该平台的最佳编码。 
 
 可以按指定顺序显示线性广告。 若要执行此操作，请向 VAST 文件添加其他 <Ad> 元素，并使用序列属性指定顺序。 以下示例对此进行了说明：
 
@@ -142,7 +144,7 @@ VAST 文件指定要显示的广告。 以下 XML 是线性广告 VAST 文件的
 </VAST>
 ```
 
-非线性广告也是在<Creative>元素中指定的。 以下示例演示了描述非线性广告的<Creative>元素。
+非线性广告也是在<Creative>元素中指定的。 以下示例演示描述非线性广告的 <Creative> 元素。
 
 ```
 <Creative id="video" sequence="1" AdID="">
@@ -159,15 +161,15 @@ VAST 文件指定要显示的广告。 以下 XML 是线性广告 VAST 文件的
 </Creative>
 ```
 
-“<NonLinearAds>”元素可以包含一个或多个“<NonLinear>”元素，其中每一个均可描述一个非线性广告。 “<NonLinear>”元素指定非线性广告的资源。 资源可以是“<StaticResouce>” 、“<IFrameResource>”或“<HTMLResouce>”。“<StaticResource>” 描述非 HTML 资源，并定义指定资源显示方式的 creativeType 属性：
+<**NonLinearAds**> 元素可以包含一个或多个 <**NonLinear**> 元素，其中每一个均可描述一个非线性广告。 <**NonLinear**> 元素指定非线性广告的资源。 资源可以是 <**StaticResouce**>、<**IFrameResource**> 或 <**HTMLResouce**>。 <**StaticResource**> 描述非 HTML 资源，并定义指定资源显示方式的 creativeType 属性：
 
-Image/gif、image/jpeg、image/png - 资源显示在 HTML **<img>** 标记中。
+Image/gif、image/jpeg、image/png - 资源显示在 HTML <**img**> 标记中。
 
-应用程序/x-javascript - 资源显示在 HTML <脚本> 标记中。
+Application/x-javascript - 资源显示在 HTML <**脚本**> 标记中。
 
 Application/x-shockwave-flash – 资源显示在 Flash Player 中。
 
-“<IFrameResource>”描述可以在 IFrame 中显示的 HTML 资源。 “<HTMLResource>”描述可以插入到网页的一段 HTML 代码。 “<TrackingEvents>”指定跟踪事件以及事件发生时请求的 URI。 在此示例中，跟踪了 acceptInvitation 事件和折叠事件。 有关“<NonLinearAds>”元素及其子元素的详细信息，请参阅 IAB.NET/VAST。 请注意，**<TrackingEvents>** 元素位于 <NonLinearAds> 元素内，而不是 **<NonLinear>** 元素内。
+**IFrameResource** 描述可以在 IFrame 中显示的 HTML 资源。 **HTMLResource** 描述可以插入网页的一段 HTML 代码。 **TrackingEvents** 指定跟踪事件以及事件发生时请求的 URI。 在此示例中，跟踪了 acceptInvitation 事件和折叠事件。 有关 **NonLinearAds** 元素及其子元素的详细信息，请参阅 IAB.NET/VAST。 请注意，**TrackingEvents** 元素位于**NonLinearAds** 元素而非 **NonLinear** 元素内。
 
 在 <CompanionAds> 元素内定义伴随广告。 <CompanionAds> 元素可以包含一个或多个 <Companion> 元素。 每个 <Companion> 元素均描述一个伴随广告，并且可以包含以与非线性广告相同的方式定义的 <StaticResource>、<IFrameResource> 或 <HTMLResource>。 VAST 文件可以包含多个伴随广告，播放器应用程序可以选择最适合显示的广告。 有关 VAST 的详细信息，请参阅 [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)。
 
@@ -227,29 +229,29 @@ VMAP 文件支持指定发生广告中断的时间、每次中断的时长、中
 VMAP 文件以 <VMAP> 元素开头，该元素包含一个或多个 <AdBreak> 元素，每一个均定义一个广告中断。 每一个广告中断均指定一个中断类型、中断 ID 和时间偏移量。 BreakType 属性指定可在中断期间播放的广告类型：线性广告、非线性广告或显示广告。 显示广告映射到 VAST 伴随广告。 可以在逗号（不含空格）分隔的列表中指定多个广告类型。 BreakID 是广告的可选标识符。 TimeOffset 指定显示广告的时间。 可以通过以下方式之一进行指定：
 
 1. 时间 - 采用 hh:mm:ss 或 hh:mm:ss.mmm 格式，其中 .mmm 为毫秒。 此属性的值指定从视频时间线开始到广告中断开始的一段时间。
-1. 百分比 - 采用 n% 格式，其中 n 为播放广告前要播放的视频时间线所占的百分比
-1. 开始/结束 - 指定应在播放视频之前或之后显示广告
-1. 位置 - 指定广告中断的计时未知时（例如，实时流式处理过程中）的广告中断顺序。 采用 #n 格式指定每次广告中断的顺序，其中 n 为整数 1 或更大整数。 1 表示应在第一个机会时播放广告，2 表示应在第二个机会时播放广告，以此类推。
+2. 百分比 - 采用 n% 格式，其中 n 为播放广告前要播放的视频时间线所占的百分比
+3. 开始/结束 - 指定应在播放视频之前或之后显示广告
+4. 位置 - 指定广告中断的计时未知时（例如，实时流式处理过程中）的广告中断顺序。 采用 #n 格式指定每次广告中断的顺序，其中 n 为整数 1 或更大整数。 1 表示应在第一个机会时播放广告，2 表示应在第二个机会时播放广告，以此类推。
 
 <AdBreak> 元素中可以有一个 <AdSource> 元素。 <AdSource> 元素包含以下属性：
 
 1. Id - 指定广告源的标识符
-1. allowMultipleAds – 一个布尔值，指定是否可以在广告中断期间显示多个广告
-1. followRedirects – 一个可选布尔值，指定视频播放器是否应遵循广告响应中的重定向
+2. allowMultipleAds – 一个布尔值，指定是否可以在广告中断期间显示多个广告
+3. followRedirects – 一个可选布尔值，指定视频播放器是否应遵循广告响应中的重定向
 
 <AdSource> 元素为播放器提供内联的广告响应或对广告响应的引用。 它可包含以下元素之一：
 
-- <VASTAdData> 表示 VMAP 文件中嵌入了一个 VAST 广告响应
-- <AdTagURI> 引用另一个系统中的广告响应的 URI
-- <CustomAdData> 表示非 VAST 响应的任意字符串
+* <VASTAdData> 表示 VMAP 文件中嵌入了一个 VAST 广告响应
+* <AdTagURI> 引用另一个系统中的广告响应的 URI
+* <CustomAdData> 表示非 VAST 响应的任意字符串
 
 在此示例中，线内广告响应是由包含 VAST 广告响应的 <VASTAdData> 元素指定的。 有关其他元素的详细信息，请参阅 [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap)。
 
 <AdBreak> 元素还可以包含一个 <TrackingEvents> 元素。 <TrackingEvents> 元素允许跟踪广告中断的开始或结束时间，或广告中断期间是否发生了错误。 <TrackingEvents> 元素包含一个或多个 <Tracking> 元素，其中每一个均指定一个跟踪事件和一个跟踪 URI。 可能的跟踪事件是：
 
 1. breakStart - 跟踪广告中断的开始
-1. breakEnd - 跟踪广告中断的完成
-1. error - 跟踪广告中断期间发生的错误
+2. breakEnd - 跟踪广告中断的完成
+3. error - 跟踪广告中断期间发生的错误
 
 以下示例演示指定跟踪事件的 VMAP 文件
 
@@ -325,17 +327,18 @@ MAST 文件允许指定定义何时显示广告的触发器。 以下是一个�
 </MAST>
 ```
 
-MAST 文件以“<MAST>”元素开头，该元素包含一个“<triggers>”元素。 <triggers> 元素包含一个或多个定义应何时播放广告的“<trigger>”元素。 
 
-“<trigger>”元素包含一个“<startConditions>”元素，后者指定应开始播放广告的时间。 **<startConditions>** 元素包含一个或多个 <condition> 元素。 每个 <condition> 评估结果为 true 时，将启动或撤销一个触发器，具体取决于 <condition> 是否分别包含在 **<startConditions**> 或 **<endConditions>** 元素中。 有多个 <condition> 元素时，将它们视为隐式 OR，任何评估结果为 true 的条件均将导致触发器启动。 <condition> 元素可以嵌套。 预设了子 <condition> 元素时，将它们视为隐式 AND；若要启动触发器，则所有条件的评估结果必须为 true。 <condition> 元素包含定义条件的以下属性： 
+MAST 文件以 **MAST** 元素开头，该元素包含一个 **triggers** 元素。 <triggers> 元素包含一个或多个定义应何时播放广告的 **trigger** 元素。 
+
+**trigger** 元素包含一个 **startConditions** 元素，后者指定应开始播放广告的时间。 **startConditions** 元素包含一个或多个 <condition> 元素。 每个 <condition> 评估结果为 true 时，将启动或撤销一个触发器，具体取决于 <condition> 是否分别包含在 **startConditions** 或 **endConditions** 元素中。 有多个 <condition> 元素时，将它们视为隐式 OR，任何评估结果为 true 的条件均将导致触发器启动。 <condition> 元素可以嵌套。 预设了子 <condition> 元素时，将它们视为隐式 AND；若要启动触发器，则所有条件的评估结果必须为 true。 <condition> 元素包含定义条件的以下属性： 
 
 1. **type** – 指定条件、事件或属性的类型
-1. **name** – 要在评估过程中使用的属性或事件的名称
-1. 
+2. **name** – 要在评估过程中使用的属性或事件的名称
+3. 
             **value** – 评估属性时针对的值
-1. operator - 要在评估期间使用的操作符：EQ（等于）、NEQ（不等于）、GTR（大于）、GEQ（大于或等于）、LT（小于）、LEQ（小于或等于）、MOD（取模）
+4. **operator** - 要在评估期间使用的操作符：EQ（等于）、NEQ（不等于）、GTR（大于）、GEQ（大于或等于）、LT（小于）、LEQ（小于或等于）、MOD（取模）
 
-“<endConditions>”也包含 <condition> 元素。 当某个条件的评估结果为 true 时，重置触发器。<trigger> 元素也包含 <sources> 元素，后者包含一个或多个 <source> 元素。 <source> 元素定义广告响应的 URI 和广告响应的类型。 在此示例中为 VAST 响应给定了一个 URI。 
+**endConditions** 也包含 <condition> 元素。 当某个条件的评估结果为 true 时，重置触发器。<trigger> 元素也包含 <sources> 元素，后者包含一个或多个 <source> 元素。 <source> 元素定义广告响应的 URI 和广告响应的类型。 在此示例中为 VAST 响应给定了一个 URI。 
 
 ```
 <trigger id="postroll" description="postroll"  >
@@ -373,15 +376,15 @@ Microsoft Media Platform：适用于 Windows 8 和 Windows Phone 8 的播放器�
 
 打开 Microsoft.PlayerFramework.Xaml.Samples 解决方案时，可看到项目中的多个文件夹。 Advertising 文件夹包含与创建具有广告支持的视频播放器相关的示例代码。 Advertising 文件夹中有多个 XAML/cs 文件，每一个均显示如何以不同的方式插入广告。 以下列表描述了每个文件：
 
-- AdPodPage.xaml 演示如何显示广告荚。
-- AdSchedulingPage.xaml 演示如何安排广告。
-- FreeWheelPage.xaml 演示如何使用 FreeWheel 插件来安排广告。
-- MastPage.xaml 演示如何使用 MAST 文件来安排广告。
-- ProgrammaticAdPage.xaml 演示如何以编程方式将广告安排到视频中。
-- ScheduleClipPage.xaml 演示如何在无 VAST 文件的情况下安排广告。
-- VastLinearCompanionPage.xaml 演示如何插入线性广告和伴随广告。
-- VastNonLinearPage.xaml 演示如何插入非线性广告。
-- VmapPage.xaml 演示如何使用 VMAP 文件来指定广告。
+* AdPodPage.xaml 演示如何显示广告荚。
+* AdSchedulingPage.xaml 演示如何安排广告。
+* FreeWheelPage.xaml 演示如何使用 FreeWheel 插件来安排广告。
+* MastPage.xaml 演示如何使用 MAST 文件来安排广告。
+* ProgrammaticAdPage.xaml 演示如何以编程方式将广告安排到视频中。
+* ScheduleClipPage.xaml 演示如何在无 VAST 文件的情况下安排广告。
+* VastLinearCompanionPage.xaml 演示如何插入线性广告和伴随广告。
+* VastNonLinearPage.xaml 演示如何插入非线性广告。
+* VmapPage.xaml 演示如何使用 VMAP 文件来指定广告。
 
 每一个示例均使用由播放器框架定义的 MediaPlayer 类。 大多数示例都使用为不同广告响应格式添加支持的插件。 ProgrammaticAdPage 示例以编程方式与 MediaPlayer 实例交互。
 

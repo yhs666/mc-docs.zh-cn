@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/15/2017
-ms.date: 09/04/2017
+origin.date: 12/19/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 056aa16da5025dad6f7e773d8d4b2ea68782e661
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: d4163bdb7e046cf7edf62c95b3f8c12a6f767900
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="event-hubs-samples"></a>事件中心示例 
 
@@ -30,7 +30,7 @@ Azure 事件中心示例集演示了 [Azure 事件中心](/event-hubs/)内的主
 - [MSDN 开发人员代码示例](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
 - [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-若要深入了解 .NET Framework 的不同版本，请参阅 [框架和目标](https://docs.microsoft.com/dotnet/articles/standard/frameworks)。
+有关 .NET Framework 的不同版本的详细信息，请参阅[框架和目标](https://docs.microsoft.com/dotnet/articles/standard/frameworks)。
 
 后续会添加更多示例，因此请时常回访本网站获取更新。
 
@@ -66,7 +66,7 @@ Azure 事件中心示例集演示了 [Azure 事件中心](/event-hubs/)内的主
 
 [提取 SQL 数据](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql)示例演示如何从 SQL 表中提取数据并将其推送到事件中心，以用作下游分析应用程序的输入。
 
-<!-- Not Available on ### <a name="pull-web-data-into-an-event-hub"></a>### Pull web data into an event hub  -->
+<!-- Not Available on ### <a name="pull-web-data-into-an-event-hub"></a> Pull web data into an event hub  -->
 <!-- Not Available on Github.com event-hubs-dotnet-importfromweb -->
 <!-- Not Available [从 Web 导入数据](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) -->
 

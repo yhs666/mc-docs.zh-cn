@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/02/2017
-ms.date: 12/04/2017
+origin.date: 01/02/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ed297dc1c1ec63a560bd00dc4621dcdda815f974
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 07c627b65014c615eeba3dfcacceedd51e018e88
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>在 Azure 中创建 .NET Service Fabric 应用程序
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。 
@@ -40,7 +40,7 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 > * 执行应用程序滚动升级
 
 ## <a name="prerequisites"></a>先决条件
-完成本快速入门教程：
+若要完成本快速入门教程，需先执行以下操作：
 1. [安装 Visual Studio 2017](https://www.visualstudio.com/)，其中包含 Azure 开发以及 ASP.NET 和 Web 开发工作负荷。
 2. [安装 Git](https://git-scm.com/)
 3. [安装 Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
@@ -93,7 +93,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 若要查看代码，请完成以下步骤：
 1. 打开 /VotingWeb/Controllers/VotesController.cs 文件，并在 Web API 的 Put 方法（第 47 行）中设置一个断点。你可以在 Visual Studio 的解决方案资源管理器中搜索此文件。
 
-2. 打开 /VotingData/ControllersVoteDataController.cs 文件，并在此 Web API 的 Put 方法（第 50 行）中设置一个断点。
+2. 打开 **/VotingData/Controllers/VoteDataController.cs** 文件，并在此 Web API 的 Put 方法（第 50 行）中设置一个断点。
 
 3. 返回到浏览器，再单击投票选项或添加新的投票选项。 点击 Web 前端 API 控制器中的第一个断点。
     - 此时，浏览器中的 JavaScript 将请求发送到前端服务中的 Web API 控制器。
@@ -165,7 +165,7 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 若要升级应用程序，请执行以下操作：
 
 1. 在 Visual Studio 中打开 /VotingWeb/Views/Home/Index.cshtml 文件。
-2. 通过添加 <h2> 或更新相应文本更改页标题。 例如，将标题更改为“Service Fabric 投票示例 v2”。
+2. 通过添加或更新文本，对页面中的标题进行更改。 例如，将标题更改为“Service Fabric 投票示例 v2”。
 3. 保存文件。
 4. 在解决方案资源管理器中，右键单击“投票”，再选择“发布”。 此时，“发布”对话框显示。
 5. 单击“清单版本”按钮，更改服务和应用程序的版本。
@@ -199,4 +199,4 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 > [!div class="nextstepaction"]
 > [Service Fabric 上的 .NET 应用程序](service-fabric-tutorial-create-dotnet-app.md)
 
-<!--Update_Description: update meta properties, update link, remove party cluster content -->
+<!--Update_Description: update meta properties, update link -->

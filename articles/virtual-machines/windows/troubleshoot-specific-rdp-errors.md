@@ -17,11 +17,11 @@ ms.topic: article
 origin.date: 11/03/2017
 ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 32d1372f66600934eae6d1ba7ee146166ee5c3dc
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: aa0f8e49f8e09dddf4947a93e35f468eb6f3e38f
+ms.sourcegitcommit: 2c6591b24e8ccb1c1b9a56738049b99f5785b833
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>排查发送到 Azure 中 Windows VM 的特定 RDP 错误消息
 使用远程桌面连接到 Azure 中的 Windows 虚拟机 (VM) 时，可能会收到特定错误消息。 本文详细介绍遇到的一些更常见的错误消息，以及解决这些错误消息的故障排除步骤。 如果在使用 RDP 连接到 VM 时出现问题，但没有收到特定错误消息，请参阅[远程桌面故障排除指南](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -57,12 +57,14 @@ ms.lasthandoff: 02/13/2018
 * 如果使用组织的 Intranet，请确保计算机可以访问代理服务器，并可以向其发送 HTTPS 流量。
 * 如果使用本地存储的 RDP 文件，请尝试使用门户生成的 RDP 文件。 此步骤可确保使用虚拟机或云服务的正确 DNS 名称和 VM 的终结点端口。 以下是门户生成的 RDP 文件示例：
 
-        full address:s:tailspin-azdatatier.cloudapp.chinacloudapi.cn:55919
+        full address:s:tailspin-azdatatier.chinacloudapp.cn:55919
         prompt for credentials:i:1
+<!-- DNS cloudapp.net SHOULD BE chinacloudapp.cn -->
 
 此 RDP 文件的地址部分包含：
 
-* 包含 VM 的云服务的完全限定域名（在本例中为“tailspin-azdatatier.cloudapp.chinacloudapi.cn”）。
+* 包含 VM 的云服务的完全限定域名（在本例中为“tailspin-azdatatier.chinacloudapp.cn”）。
+<!-- DNS cloudapp.net SHOULD BE chinacloudapp.cn -->
 * 远程桌面流量终结点的外部 TCP 端口 (55919)。
 
 <a id="rdpauth"></a>

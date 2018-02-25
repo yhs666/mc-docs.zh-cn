@@ -14,13 +14,13 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 11/03/2017
-  ms.date: 01/01/2018
+  ms.date: 02/26/2018
   ms.author: v-yeche
-  ms.openlocfilehash: 847c758ce32ea776f8176162393e79ba13d813dd
-  ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+  ms.openlocfilehash: b04b41fd6f954836b3186e27c2c9de2a87c6552f
+  ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/29/2017
+  ms.lasthandoff: 02/23/2018
 abstract:
   description: "Azure Service Fabric 是一种分布式系统平台，可借助它轻松打包、部署和管理可缩放且可靠的微服务和容器。 开发人员和管理员不仅可以避免复杂的基础结构问题，而且可以专注于实现可缩放、可靠且可管理的要求苛刻的任务关键型工作负荷。 参考我们的快速入门、教程和示例了解如何使用 Azure Service Fabric。"
 sections:

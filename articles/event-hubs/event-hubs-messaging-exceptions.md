@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/15/2017
-ms.date: 11/20/2017
+origin.date: 12/19/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 904407479aea42716d611c1c3e5bf070e693b2e7
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 85c7320d897dd685d596606dd71857429efe88bd
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="event-hubs-messaging-exceptions"></a>事件中心消息传送异常
-本文列出 Azure 服务总线消息传送 API 生成的一些异常，其中包括事件中心。 这些参考信息可随时更改，请不时返回查看更新内容。
+
+本文列出 Azure 服务总线消息传送 API 库生成的一些异常，其中包括事件中心 API。 此参考信息随时更改，请不时返回查看更新内容。
 
 ## <a name="exception-categories"></a>异常类别
+
 事件中心 API 会生成以下类别的异常，以及在尝试修复这些异常时可以采取的相关操作。
 
 1. 用户编码错误：[System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)、[System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx)、[System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx)、[System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)。 常规操作：继续之前尝试修复代码。
@@ -69,7 +71,7 @@ ms.lasthandoff: 11/15/2017
 此错误有两个常见的原因：配置不正确或暂时性服务错误。
 
 1. **配置不正确** ：运行条件下的操作超时值可能太小。 客户端 SDK 的操作超时默认值为 60 秒。 请查看代码是否将该值设置得过小。 请注意，网络和 CPU 使用率的状况会影响完成特定操作所用的时间，因此，操作超时不应设置为非常小的值。
-2. **暂时性服务错误** ：有时，事件中心服务在处理请求时会遇到延迟，例如，高流量时段。 在这种情况下，可以在延迟后重试操作，直到操作成功为止。 如果多次尝试同一操作后仍然失败，请访问 [Azure 服务状态站点](https://www.azure.cn/support/service-dashboard/)，看是否有任何已知的服务中断。
+2. **暂时性服务错误** ：有时，事件中心服务在处理请求时会遇到延迟，例如，高流量时段。 在这种情况下，可以在延迟后重试操作，直到操作成功为止。 如果多次尝试同一操作后仍然失败，请访问 [Azure 服务状态站点](https://www.azure.cn/support/service-dashboard/) ，看是否有任何已知的服务中断。
 
 ## <a name="serverbusyexception"></a>ServerBusyException
 
@@ -79,13 +81,13 @@ ms.lasthandoff: 11/15/2017
 
 导致此错误发生的原因可能是以下之一：
 
-1. 未在事件中心的所有分区上均匀分发负载，并且一个分区达到了本地吞吐量单位限制。
+1. 负载未均匀分布在事件中心的所有分区上，并且一个分区达到了本地吞吐量单位限制。
 
     解决方法：修改分区分配策略，或尝试 [EventHubClient.Send(eventDataWithOutPartitionKey)](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) 可能会有所帮助。
 
-2. 事件中心命名空间没有足够的吞吐量单位（可以在 [Azure 门户](https://portal.azure.cn)中查看事件中心命名空间边栏选项卡上的“指标”边栏选项卡来确认）。 请注意，门户显示聚合（1 分钟）的信息，但吞吐量是实时测量的 - 因此吞吐量只是一个估计值。
+2. 事件中心命名空间没有足够的吞吐量单位（可以在 [Azure 门户](https://portal.azure.cn)中检查事件中心命名空间窗口中的“指标”屏幕来确认）。 请注意，门户显示聚合（1 分钟）的信息，但吞吐量是实时测量的 - 因此吞吐量只是一个估计值。
 
-    解决方法：增加命名空间上的吞吐量单位可能会有所帮助。 可在门户上“事件中心命名空间”边栏选项卡的“缩放”  边栏选项卡中执行此操作。
+    解决方法：增加命名空间上的吞吐量单位可能会有所帮助。 可在门户上的事件中心命名空间屏幕的“缩放”窗口中执行此操作。
 
 ### <a name="error-code-50001"></a>错误代码 50001
 

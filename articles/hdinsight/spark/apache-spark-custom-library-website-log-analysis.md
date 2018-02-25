@@ -3,7 +3,7 @@ title: "使用 Spark 中的 Python 库分析网站日志 - Azure | Azure"
 description: "此笔记本演示如何结合使用自定义库和 Azure HDInsight 上的 Spark 来分析日志数据。"
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
-ms.date: 12/25/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5a64612224914e00bc8345c7a194466d34538aea
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 47ee9a75bd4c0bb9587818f3ae45d2e4efb0452d
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>将自定义 Python 库与 HDInsight 上的 Spark 群集配合使用来分析网站日志
 
@@ -43,13 +43,13 @@ ms.lasthandoff: 12/15/2017
 ## <a name="save-raw-data-as-an-rdd"></a>将原始数据另存为 RDD
 在本部分中，将使用与 HDInsight 中的 Apache Spark 群集关联的 [Jupyter](https://jupyter.org) 笔记本来运行用于处理原始示例数据并将其保存为 Hive 表的作业。 示例数据是所有群集在默认情况下均会提供的 .csv 文件 (hvac.csv)。
 
-将数据保存为 Hive 表之后，下一部分我们将使用 Power BI 和 Tableau 等 BI 工具来连接该 Hive 表。
+将数据保存为 Hive 表后，下一节将使用 Power BI 和 Tableau 等 BI 工具连接 Hive 表。
 
 1. 在 [Azure 门户](https://portal.azure.cn/)上的启动板中，单击 Spark 群集的磁贴（如果已将它固定到启动板）。 也可以单击“全部浏览” > “HDInsight 群集”导航到群集。   
 2. 在 Spark 群集边栏选项卡中单击“群集仪表板”，然后单击“Jupyter Notebook”。 出现提示时，请输入群集的管理员凭据。
 
    > [!NOTE]
-   > 也可以在浏览器中打开以下 URL 访问群集的 Jupyter 笔记本。 将 **CLUSTERNAME** 替换为群集的名称：
+   > 也可以在浏览器中打开以下 URL 来访问群集的 Jupyter 笔记本。 将 **CLUSTERNAME** 替换为群集的名称：
    >
    > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
    >
@@ -89,7 +89,7 @@ ms.lasthandoff: 12/15/2017
 ## <a name="analyze-log-data-using-a-custom-python-library"></a>使用自定义 Python 库分析日志数据
 1. 在上面的输出中，前几行包括标头信息，其余的每一行均与此标头中描述的架构相匹配。 分析此类日志可能很复杂。 因此，可使用自定义 Python 库 (**iislogparser.py**)，它能使分析这类日志变得容易得多。 默认情况下，此库包含在 **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**处 HDInsight 上的 Spark 群集中。
 
-    但是，此库不在 `PYTHONPATH` 中，因此不能通过 `import iislogparser` 等导入语句来使用它。 要使用此库，必须将其分发给所有辅助角色节点。 运行以下代码片段。
+    但是，此库不在 `PYTHONPATH` 中，因此不能通过 `import iislogparser` 等导入语句来使用它。 要使用此库，必须将其分发给所有辅助角色节点。 运行以下代码段。
 
         sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
@@ -182,9 +182,9 @@ ms.lasthandoff: 12/15/2017
        %%sql -o averagetime
        SELECT * FROM AverageTime
 
-   后接 `-o averagetime` 的 `%%sql` magic 可确保查询输出本地保存在 Jupyter 服务器上（通常在群集的头节点）。 输出作为 [Pandas](http://pandas.pydata.org/) 数据帧进行保存，指定名称为 **averagetime**。
+   后接 `-o averagetime` 的 `%%sql` magic 可确保查询输出本地保存在 Jupyter 服务器上（通常在群集的头结点）。 输出作为 [Pandas](http://pandas.pydata.org/) 数据帧进行保存，指定名称为 **averagetime**。
 
-   应该看到如下输出：
+   应该会显示如下输出：
 
    ![SQL 查询输出](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "SQL 查询输出")
 
@@ -202,7 +202,7 @@ ms.lasthandoff: 12/15/2017
    应该看到如下输出：
 
    ![Matplotlib 输出](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Matplotlib 输出")
-8. 完成运行应用程序之后，应该要关闭笔记本以释放资源。 为此，请在 Notebook 的“文件”菜单中，单击“关闭并停止”。 这将会关闭 notebook。
+8. 完成运行应用程序之后，应该要关闭笔记本以释放资源。 为此，请在笔记本的“文件”菜单中，单击“关闭并停止”。 这将会关闭 notebook。
 
 ## <a name="seealso"></a>另请参阅
 * [概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)

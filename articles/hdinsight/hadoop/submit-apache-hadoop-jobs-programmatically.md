@@ -1,5 +1,5 @@
 ---
-title: "在 HDInsight 中提交 Hadoop 作业 | Azure"
+title: "在 HDInsight 中提交 Hadoop 作业"
 description: "了解如何在 Azure HDInsight 中提交 Hadoop 作业。"
 editor: cgronlun
 manager: jhubbard
@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/06/2017
-ms.date: 12/18/2017
+origin.date: 12/20/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: f25352a10daa308a8043712b65277f58fb6a8493
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 69d1a19a6d6345b597325b4ce682e19a7f2f61c4
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中提交 Hadoop 作业
 

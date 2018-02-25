@@ -13,13 +13,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
 origin.date: 11/10/2017
-ms.date: 01/15/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 98031e45095f7d77b2101c416f7d895ee68d5d76
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 760e1f8df5077bd0c65d813f4dd266e07a76eaaf
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Azure SQL 数据仓库性能层（预览）
 SQL 数据仓库提供两个已针对分析工作负荷进行优化的性能层。 本文介绍性能层的概念，以帮助选择最适合工作负荷的性能层。 
@@ -162,12 +162,12 @@ SQL 数据仓库在单个数据仓库中提供行业领先的并发性。 为了
 | DW400         | 16                         |  16                         | 1       |  4       |  8      |  16      |
 | DW500         | 20 个                         |  20 个                         | 1       |  4       |  8      |  16      |
 | DW600         | 24                         |  24                         | 1       |  4       |  8      |  16      |
-| DW1000        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW1200        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW1500        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW2000        | 32                         |  48                         | 1       | 16       | 32      |  64      |
-| DW3000        | 32                         |  64                         | 1       | 16       | 32      |  64      |
-| DW6000        | 32                         | 128                         | 1       | 32       | 64      | 128      |
+| DW1000        | 32                         |  40                         | 1       |  8       | 16      |  32      |
+| DW1200        | 32                         |  48                         | 1       |  8       | 16      |  32      |
+| DW1500        | 32                         |  60                         | 1       |  8       | 16      |  32      |
+| DW2000        | 32                         |  80                         | 1       | 16       | 32      |  64      |
+| DW3000        | 32                         | 120                         | 1       | 16       | 32      |  64      |
+| DW6000        | 32                         | 240                         | 1       | 32       | 64      | 128      |
 
 **静态资源类**下表显示了每个[静态资源类](resource-classes-for-workload-management.md)的最大并发查询数和并发槽位数。  这些数字适用于“弹性优化”性能层。
 

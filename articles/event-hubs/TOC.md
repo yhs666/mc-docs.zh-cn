@@ -22,6 +22,8 @@
 
 # 如何
 ## 规划和设计
+<!-- Not Available ### [Managed Service Identity (preview)](event-hubs-managed-service-identity.md) -->
+<!-- Not Available ### [Role-Based Access Control (preview)](event-hubs-role-based-access-control.md) -->
 <!-- Not Available ### [Geo-disaster recovery and Geo-replication](event-hubs-geo-dr.md) -->
 ### [事件中心专用](event-hubs-dedicated-overview.md)
 ### [身份验证和安全模型概述](event-hubs-authentication-and-security-model-overview.md)
@@ -43,7 +45,7 @@
 ### [使用事件中心流式传输 Azure 诊断数据](event-hubs-streaming-azure-diags-data.md)
 ### [使用 Resource Manager 模板创建和部署事件中心](event-hubs-resource-manager-namespace-event-hub.md)
 
-# 引用
+# 参考
 ## Java
 ### [com.microsoft.azure.eventhubs](https://docs.azure.cn/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](https://docs.azure.cn/java/api/com.microsoft.azure.eventprocessorhost)
@@ -67,4 +69,4 @@
 <!-- Not Available ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub) -->
 
 <!--Update_Description: update link-->
-<!--ms.date: 11/04/2017 -->
+<!--ms.date: 02/26/2018 -->

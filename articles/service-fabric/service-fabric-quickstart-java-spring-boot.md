@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/23/2017
-ms.date: 01/01/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2f936bdcf5858dc034f63433d230324e1b0034df
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 34722d4eb83ad72a720a0d5f42d47530a956b60d
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-a-spring-boot-application"></a>部署 Spring Boot 应用程序
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理微服务和容器。 
@@ -52,7 +52,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 ```
 
 ## <a name="package-the-spring-boot-application"></a>打包 Spring Boot 应用程序 
-1. 在刚刚克隆的 `gs-spring-boot` 目录中运行 `yo azuresfguest` 命令。 
+1. 在克隆的 `gs-spring-boot` 目录中运行 `yo azuresfguest` 命令。 
 
 2. 每次出现提示时，请输入以下详细信息。 
 
@@ -138,7 +138,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 现在可以访问已部署到 Service Fabric 群集的 Spring Boot 应用程序。  
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>在群集中缩放应用程序和服务
-可跨群集缩放服务来适应服务负载的变化。 可以通过更改群集中运行的实例数量来缩放服务。 存在多种服务缩放方式，可使用 Service Fabric CLI (sfctl) 脚本/命令。 在此示例中，我们使用的是 Service Fabric Explorer。
+可跨群集缩放服务来适应服务负载的变化。 可以通过更改群集中运行的实例数量来缩放服务。 存在多种服务缩放方式，可使用 Service Fabric CLI (sfctl) 脚本/命令。 在此示例中，使用了 Service Fabric Explorer。
 
 Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过浏览器进行访问，访问方法是转到群集 HTTP 管理端口 19080（例如，`http://localhost:19080`）。
 
@@ -167,18 +167,18 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 
     ![Service Fabric Explorer 缩放服务完成](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
-    现在可以看到，该服务有三个实例，在树视图中可以看到实例在哪些节点上运行。
+    此服务有三个实例。树状视图显示实例在哪些节点上运行。
 
-通过这一简单的管理任务，我们增加了前端服务用来处理用户负载的资源数量。 有必要了解的是，服务无需有多个实例，便能可靠运行。 如果服务出现故障，Service Fabric 可确保在群集中运行新的服务实例。
+通过这一简单的管理任务，增加了前端服务用来处理用户负载的资源数量。 有必要了解的是，服务无需有多个实例，便能可靠运行。 如果服务出现故障，Service Fabric 可确保在群集中运行新的服务实例。
 
-## <a name="failover-services-in-a-cluster"></a>故障转移群集中的服务 
-为了演示服务故障转移，我们可以使用 Service Fabric Explorer 来模拟节点重启。 请确保只有 1 个服务实例在运行。 
+## <a name="fail-over-services-in-a-cluster"></a>故障转移群集中的服务 
+为了演示服务故障转移，可以使用 Service Fabric Explorer 来模拟节点重启。 请确保只有一个服务实例在运行。 
 
 1. 在群集中打开 Service Fabric Explorer - 例如 `http://localhost:19080`。
 2. 单击运行服务实例的节点旁边的省略号（三个点），并重启节点。 
 
     ![Service Fabric Explorer - 重启节点](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
-3. 服务实例现已转移到另一个节点，且应用程序并未关闭。 
+3. 服务实例已转移到另一个节点，且应用程序并未关闭。 
 
     ![Service Fabric Explorer - 重启节点成功](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
 
@@ -196,4 +196,4 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 <!-- Not Available on * Learn about [setting up your continuous integreation & deployment using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md) -->
 * 查看其他 [Java 示例](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
-<!-- Update_Description: new articles on creating service fabric quickstart app with java spring boot -->
+<!-- Update_Description: wording update -->

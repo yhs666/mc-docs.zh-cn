@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/29/2017
-ms.date: 11/13/2017
+origin.date: 01/10/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1467a338efef0cdfffc4a456df73865938ea1b2d
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 0b315364f101d8525c12eaa44d8b718e63a60e4b
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="connect-to-a-secure-cluster"></a>连接到安全群集
 
@@ -129,7 +129,7 @@ Service Fabric SDK 为群集管理提供 [FabricClient](https://docs.microsoft.c
 若要连接到远程不安全群集，请创建一个 FabricClient 实例并提供群集地址：
 
 ```csharp
-FabricClient fabricClient = new FabricClient("clustername.chinanorth.chinacloudapp.cn:19000");
+FabricClient fabricClient = new FabricClient("clustername.chinanorth.cloudapp.chinacloudapi.cn:19000");
 ```
 
 对于在群集内运行的代码（例如，在可靠服务中），请创建 FabricClient  ，无需指定群集地址。 FabricClient 连接到代码当前正在运行的节点上的本地管理网关，从而避免额外的网络跃点。
@@ -329,11 +329,11 @@ Azure 门户的群集基本信息窗格中也提供了完整 URL。
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-系统自动提示选择客户端证书。
+系统会自动提示用户选择客户端证书。
 
 <a id="connectsecureclustersetupclientcert"></a>
 ## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>在远程计算机上设置客户端证书
-至少应有两个证书用于保护群集，一个用于保护群集和服务器证书，另一个用于保护客户端访问。  建议还使用其他辅助证书和客户端访问证书。  若要使用证书安全性来保护客户端与群集节点之间的通信，首先需要获取和安装客户端证书。 证书可以安装到本地计算机或当前用户的个人（我的）存储。  还需要服务器证书的指纹，以便客户端可以对群集进行身份验证。
+至少应有两个证书用于保护群集，一个用于保护群集和服务器证书，另一个用于保护客户端访问。  建议还使用其他辅助证书和客户端访问证书。  若要使用证书安全性来保护客户端与与群集节点之间的通信，必须先获取并安装客户端证书。 证书可以安装到本地计算机或当前用户的个人（我的）存储。  还需要服务器证书的指纹，以便客户端可以对群集进行身份验证。
 
 运行以下 PowerShell cmdlet，在访问群集的计算机上设置客户端证书。
 

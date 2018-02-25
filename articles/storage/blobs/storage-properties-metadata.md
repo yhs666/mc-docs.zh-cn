@@ -15,17 +15,17 @@ ms.topic: article
 origin.date: 05/15/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 294e3f7168de388e5ea6d0616189cf40841d01c7
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 95e5b0b367fc7df203053d37b81523c310b8b814
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>设置和检索属性与元数据
 
 除 Azure 存储中的对象包含的数据外，它们还支持系统属性和用户定义的元数据。 本文介绍如何使用[用于 .NET 的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)管理系统属性和用户定义元数据。
 
-* 系统属性：系统属性存在于每个存储资源上。 其中一些属性是可以读取或设置的，而另一些属性是只读的。 事实上，有些系统属性与某些标准 HTTP 标头对应。 Azure 存储客户端库会维护这些内容。
+* 系统属性：系统属性存在于每个存储资源上。 其中一些属性是可以读取或设置的，而另一些属性是只读的。 事实上，有些系统属性与某些标准 HTTP 标头对应。 Azure 存储客户端库将维护这些内容。
 
 * 用户定义的元数据：用户定义的元数据是在给定资源上以名称/值对的形式指定的元数据。 可以使用元数据存储存储资源的其他值。 这些其他元数据值仅用于自己的目的，并不会影响资源的行为方式。
 
@@ -107,7 +107,7 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* [用于 .NET 的 Azure 存储客户端库参考](https://docs.microsoft.com/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
+* [用于 .NET 的 Azure 存储客户端库参考](https://docs.azure.cn/zh-cn/dotnet/api/overview/storage)
 * [用于 .NET NuGet 包的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)
 
 <!--Update_Description: update code to use async await pattern-->

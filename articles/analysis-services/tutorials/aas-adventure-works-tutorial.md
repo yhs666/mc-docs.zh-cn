@@ -13,28 +13,26 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 90d3f39b5de363071c79384ba5816159ee627369
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 1b3713bde8fd7703e769ea6f36917f7df07ec3ea
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 教程
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+本教程提供的课程介绍了如何将 Visual Studio 与 [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) 配合使用，在 1400 兼容级别创建和部署表格模型。  
 
-本教程提供的课程介绍如何使用 [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) 在 1400 兼容级别创建和部署表格模型。  
-
-如果不熟悉 Analysis Services 和表格建模，则完成本教程是了解如何创建和部署基本表格模型的最快方法。 在满足所有先决条件后，需花费两到三个小时来完成本教程。  
+如果不熟悉 Analysis Services 和表格建模，则完成本教程是了解如何使用 Visual Studio 创建和部署基本表格模型的最快方法。 在满足所有先决条件后，需花费两到三个小时来完成本教程。  
 
 ## <a name="what-you-learn"></a>学习内容   
 
--   如何在 SSDT 中在 **1400 兼容级别**创建新的表格模型项目。
+-   如何在 Visual Studio 中使用 SSDT 在 **1400 兼容级别**创建新的表格模型项目。
 
--   如何将数据从关系型数据库导入到表格模型项目中。  
+-   如何将数据从关系数据库导入到表格模型项目工作区数据库中。  
 
 -   如何创建和管理模型中的表之间的关系。  
 
@@ -51,14 +49,13 @@ ms.lasthandoff: 02/13/2018
 ## <a name="prerequisites"></a>先决条件  
 要完成本教程，需要：  
 
--   要将模型部署到的 Azure Analysis Services 或 SQL Server 2017 Analysis Services 实例。 注册免费的 [Azure Analysis Services 试用版](https://www.azure.cn/home/features/analysis-services/)并[创建服务器](../analysis-services-create-server.md)。 
-<!-- Not Available on [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp) -->
+-   Azure Analysis Services 服务器。 注册免费的 [Azure Analysis Services 试用版](https://www.azure.cn/home/features/analysis-services/)并[创建服务器](../analysis-services-create-server.md)。 
 
--   包含 [AdventureWorksDW2014 示例数据库](http://go.microsoft.com/fwlink/?LinkID=335807)的 SQL Server 数据仓库或 Azure SQL 数据仓库。 此示例数据库包含完成本教程所需的数据。 下载 [SQL Server 免费版](https://www.microsoft.com/sql-server/sql-server-downloads)。 或则，注册免费的 [Azure SQL 数据库试用版](https://www.azure.cn/home/features/sql-database/)。 
+-   包含**示例 AdventureWorksDW 数据库**的 [Azure SQL 数据仓库](../../sql-data-warehouse/create-data-warehouse-portal.md)，或者包含 [Adventure Works 示例数据库](http://go.microsoft.com/fwlink/?LinkID=335807)的 SQL Server 数据仓库。
 
-    **重要说明：**如果在本地 SQL Server 上安装示例数据库，并且将模型部署到 Azure Analysis Services 服务器，则需要[本地数据网关](../analysis-services-gateway.md)。
+    **重要说明：**如果在本地 SQL Server 数据仓库上安装示例数据库，并且将模型部署到 Azure Analysis Services 服务器，则需要[本地数据网关](../analysis-services-gateway.md)。
 
--   最新版本的 [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)。
+-   最新版本的用于 Visual Studio 的 [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)。
 
 -   最新版本的 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)。    
 
@@ -104,4 +101,4 @@ ms.lasthandoff: 02/13/2018
 ## <a name="next-steps"></a>后续步骤  
 若要开始，请参阅[第 1 课：创建新的表格模型项目](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update, update link -->

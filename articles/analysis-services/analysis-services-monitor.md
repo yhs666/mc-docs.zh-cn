@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 09/14/2017
-ms.date: 12/11/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9a207ff4f757a6dde4e41badbcdf12ed64d0c099
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: a43e39c916b255ddb08fbc8f0c1e2e8cd63be1c7
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="monitor-server-metrics"></a>监视服务器指标
 
@@ -38,6 +38,7 @@ Analysis Services 提供相关指标，可帮助监视服务器的性能和运�
 
     ![“监视”图表](./media/analysis-services-monitor/aas-monitor-chart.png)
 
+<a id="#server-metrics"></a>
 ## <a name="server-metrics"></a>服务器指标
 使用此表来确定哪些指标最适合监视方案。 在同一图表上只能显示同一单位的指标。
 
@@ -92,4 +93,4 @@ Analysis Services 提供相关指标，可帮助监视服务器的性能和运�
 [Azure 中的指标](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
 [Azure Monitor REST API 中的指标](https://msdn.microsoft.com/library/azure/dn931930.aspx)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update, update link -->

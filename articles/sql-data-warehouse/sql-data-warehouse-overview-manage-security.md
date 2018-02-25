@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: security
-origin.date: 10/31/2016
-ms.date: 01/15/2018
+origin.date: 12/14/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2dfb995ac6182d38b9a4317adfba99cf56d63a0a
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 43ca7f642ab2ab3e2383653a9a7a1df4f14ac218
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>保护 SQL 数据仓库中的数据库
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/11/2018
 ## <a name="connection-security"></a>连接安全性
 连接安全性是指如何使用防火墙规则和连接加密来限制和保护数据库连接。
 
-服务器和数据库使用防火墙规则来拒绝源自未明确列入允许列表的 IP 地址的连接企图。 若要从应用程序或客户端计算机的公共 IP 地址进行连接，必须先使用 Azure 门户、REST API 或 PowerShell 创建服务器级防火墙规则。 作为最佳实践，应该尽量通过服务器防火墙来限制允许的 IP 地址范围。  要从本地计算机访问 Azure SQL 数据仓库，请确保网络和本地计算机上的防火墙允许在 TCP 端口 1433 上的传出通信。  有关详细信息，请参阅 [Azure SQL 数据库防火墙][Azure SQL Database firewall]、[sp_set_firewall_rule][sp_set_firewall_rule] 和 [sp_set_database_firewall_rule][sp_set_database_firewall_rule]。
+服务器和数据库使用防火墙规则来拒绝源自未明确列入允许列表的 IP 地址的连接企图。 若要从应用程序或客户端计算机的公共 IP 地址进行连接，必须先使用 Azure 门户、REST API 或 PowerShell 创建服务器级防火墙规则。 作为最佳实践，应该尽量通过服务器防火墙来限制允许的 IP 地址范围。  要从本地计算机访问 Azure SQL 数据仓库，请确保网络和本地计算机上的防火墙允许在 TCP 端口 1433 上的传出通信。  有关详细信息，请参阅 [Azure SQL 数据库防火墙][Azure SQL Database firewall]、[sp_set_firewall_rule][sp_set_firewall_rule]。
 
 默认加密到 SQL 数据仓库的连接。  通过修改连接设置来禁用加密的操作会被忽略。
 
@@ -74,11 +74,17 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 用于连接的服务器管理员帐户是 db_owner 的成员，该帐户有权在数据库中执行任何操作。 请保存此帐户，以便部署架构升级并执行其他管理操作。 权限受到更多限制的“ApplicationUser”帐户可让用户使用应用程序所需的最低权限从应用程序连接到数据库。
 
-有许多方式可以进一步限制用户通过 Azure SQL 数据库可以执行的操作：
+有许多方式可以进一步限制用户通过 Azure SQL 数据仓库可以执行的操作：
 
-* 通过细化[权限][Permissions]可控制能对数据库中单个列、表、视图、过程和其他对象执行的操作。 使用细化的权限可以进行最精细的控制，可以根据用户需要授予其最低权限。 细化权限系统有点复杂，需要进行一定程度的学习才能有效使用。
+* 通过细化[权限][Permissions]，可控制能对数据库中单个列、表、架构、视图、过程和其他对象执行的操作。 使用细化的权限可以进行最精细的控制，可以根据用户需要授予其最低权限。 细化权限系统有点复杂，需要进行一定程度的学习才能有效使用。
 * 除 db_datareader 和 db_datawriter 以外的[数据库角色][Database roles]可用于创建权限较大的应用程序用户帐户或权限较小的管理帐户。 内置的固定的数据库角色可以方便地用来授予权限，但可能会导致所授权限超出需要的情况。
 * [存储过程][Stored procedures] 可用于限制可对数据库执行的操作。
+
+下面是授予对用户定义的架构的读取访问权限的示例。
+```sql
+--CREATE SCHEMA Test
+GRANT SELECT ON SCHEMA::Test to ApplicationUser
+```
 
 从 Azure 门户或使用 Azure 资源管理器 API 管理数据库和逻辑服务器的操作会根据门户用户帐户的角色分配进行控制。 有关此主题的详细信息，请参阅 [Azure 门户中基于角色的访问控制][Role-based access control in Azure Portal]。
 

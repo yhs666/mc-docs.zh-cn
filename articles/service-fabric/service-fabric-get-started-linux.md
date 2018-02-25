@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 09/19/2017
-ms.date: 01/01/2018
+origin.date: 01/05/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 83b5dc82d36815bca58d5fc0577e6af209dcaf2f
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 28c7609e82995de290cd22b7763a1473cd5044f6
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境
 > [!div class="op_single_selector"]
@@ -122,11 +122,14 @@ sudo apt-get install servicefabricsdkcommon
 
     ![Linux 上的 Service Fabric Explorer][sfx-linux]
 
-现在，可以根据来宾容器或来宾可执行文件，部署预先构建的 Service Fabric 应用程序包或新包。 若要使用 Java 或 .NET Core SDK 构建新服务，请遵循后续部分中的可选设置步骤操作。
+     现在，可以根据来宾容器或来宾可执行文件，部署预先构建的 Service Fabric 应用程序包或新包。 若要使用 Java 或 .NET Core SDK 构建新服务，请遵循后续部分中的可选设置步骤操作。
 
-> [!NOTE]
-> Linux 不支持独立的群集。
->
+    > [!NOTE]
+    > Linux 不支持独立的群集。
+    >
+
+    > [!TIP]
+    如果有可用的 SSD 磁盘，建议配合使用 `--clusterdataroot` 与 devclustersetup.sh 来传递 SSD 文件夹路径，以实现优异的性能。
 
 ## <a name="set-up-the-service-fabric-cli"></a>设置 Service Fabric CLI
 
@@ -236,4 +239,4 @@ sudo apt-get install -f
 [sf-eclipse-plugin]: ./media/service-fabric-get-started-linux/service-fabric-eclipse-plugin.png
 [sfx-linux]: ./media/service-fabric-get-started-linux/sfx-linux.png
 
-<!--Update_Description: update meta properties, wording udpate, update link -->
+<!--Update_Description: update meta properties, wording udpate  -->

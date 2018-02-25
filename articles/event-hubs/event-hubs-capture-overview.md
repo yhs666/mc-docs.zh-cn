@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/21/2017
-ms.date: 09/25/2017
+origin.date: 12/19/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: dcabbf5431b05cc61d51bf1a6f783fb5a993bbba
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 251379d7c4a1c9ac66995efae344eec2e80506fb
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-event-hubs-capture"></a>Azure 事件中心捕获
 
@@ -42,7 +42,13 @@ ms.lasthandoff: 09/22/2017
 使用事件中心捕获，用户可以设置用于控制捕获的窗口。 此窗口使用最小大小并具有使用“第一个获胜”策略的时间配置，这意味着遇到的第一个触发器将触发捕获操作。 如果使用 15 分钟，100 MB 的捕获窗口，且发送速度为每秒 1 MB，则大小窗口将在时间窗口之前触发。 每个分区独立捕获，并在捕获时写入已完成的块 blob，在遇到捕获间隔时针对时间进行命名。 存储命名约定如下所示：
 
 ```
-[namespace]/[event hub]/[partition]/[YYYY]/[MM]/[DD]/[HH]/[mm]/[ss]
+{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
+```
+
+请注意，日期值填充为零；示例文件名可能是：
+
+```
+https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
 
 ### <a name="scaling-to-throughput-units"></a>缩放到吞吐量单位
@@ -69,7 +75,7 @@ ms.lasthandoff: 09/22/2017
 浏览 Avro 文件的简单方法是使用 Apache 中的 [Avro 工具][Avro Tools] jar。 下载此 jar 后，运行以下命令即可查看特定 Avro 文件的架构：
 
 ```
-java -jar avro-tools-1.8.2.jar getschema \<name of capture file\>
+java -jar avro-tools-1.8.2.jar getschema <name of capture file>
 ```
 
 此命令返回

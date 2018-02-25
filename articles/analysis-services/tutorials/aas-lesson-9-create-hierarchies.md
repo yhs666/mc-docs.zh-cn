@@ -13,18 +13,16 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 01656e5338791349058b831cfc7901a44a124e5f
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 071153a66d9e253af0ede078a14eacfbfc05f14f
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="lesson-9-create-hierarchies"></a>第 9 课：创建层次结构
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-hierarchies"></a>创建层次结构
 
 在本课中，将创建层次结构。 层次结构是一组组的列，按级别排列。 例如，“地理区域”层次结构可包含“国家/地区”、“省/市/自治区”、“县”和“城市”子级别。 层次结构在报告客户端应用程序字段列表中可以与其他列分开显示，这使得客户端用户更容易在其中导航以及将其包括在报表中。 若要了解详细信息，请参阅[层次结构](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular)
 
@@ -84,4 +82,4 @@ ms.lasthandoff: 12/08/2017
  ## <a name="whats-next"></a>后续步骤
 [第 10 课：创建分区](../tutorials/aas-lesson-10-create-partitions.md)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

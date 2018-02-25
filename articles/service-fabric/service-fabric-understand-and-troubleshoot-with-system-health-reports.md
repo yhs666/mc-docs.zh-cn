@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/18/2017
-ms.date: 12/04/2017
+origin.date: 12/11/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: d8dd24cc44b54a64ef332be3864c3aec9554b49a
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 694fc5038a96ae9df40e8733103c99fc198d3f0d
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>使用系统运行状况报告进行故障排除
 Azure Service Fabric 组件提供有关现成群集中所有实体的系统运行状况报告。 [运行状况存储](service-fabric-health-introduction.md#health-store)根据系统报告来创建和删除实体。 它还将这些实体组织为层次结构以捕获实体交互。
@@ -697,7 +697,7 @@ HealthEvents          :
 ```
 
 ## <a name="deployedapplication-system-health-reports"></a>DeployedApplication 系统运行状况报告
-**System.Hosting** 是已部署实体上的主管组件。
+**System.Hosting** 是已部署实体的主管组件。
 
 ### <a name="activation"></a>激活
 应用程序在节点上成功激活时，System.Hosting 报告正常。 否则报告错误。
@@ -738,7 +738,7 @@ HealthEvents                       :
 如果应用程序包下载失败，System.Hosting 会报告错误。
 
 * **SourceId**：System.Hosting
-* **属性**：Download:RolloutVersion。
+* **属性**：下载：RolloutVersion.
 * **后续步骤**：调查在节点上下载失败的原因。
 
 ## <a name="deployedservicepackage-system-health-reports"></a>DeployedServicePackage 系统运行状况报告
@@ -815,7 +815,7 @@ HealthEvents               :
 如果服务包下载失败，System.Hosting 报告错误。
 
 * **SourceId**：System.Hosting
-* **属性**：Download:RolloutVersion。
+* **属性**：下载：RolloutVersion.
 * **后续步骤**：调查在节点上下载失败的原因。
 
 ### <a name="upgrade-validation"></a>升级验证
@@ -841,5 +841,5 @@ HealthEvents               :
 
 [Service Fabric 应用程序升级](service-fabric-application-upgrade.md)
 
-<!--Update_Description: add rebulid content, wording update -->
+<!--Update_Description: wording update -->
 

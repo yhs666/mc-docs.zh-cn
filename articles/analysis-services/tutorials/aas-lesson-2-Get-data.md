@@ -13,25 +13,23 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9b9af263a9f3a299693dc61d2c44baf073d6f5e4
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 64803712cf6cf89111a483f48a7fd619647c2f9d
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="lesson-2-get-data"></a>第 2 课：获取数据
+# <a name="get-data"></a>获取数据
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-在本课中，可以使用 SSDT 中的“获取数据”功能来连接到 AdventureWorksDW2014 示例数据库，选择数据，预览并筛选，并将数据导入到模型工作区。  
+在本课中，可以使用 SSDT 中的“获取数据”功能来连接到 Adventure Works 示例数据库，选择数据，预览并筛选，然后将数据导入到模型工作区。  
 
 使用“获取数据”，可以从各种源导入数据：Azure SQL 数据库、Oracle、Sybase、OData Feed、Teradata，文件和其他源。 还可以使用 Power Query M 公式表达式查询数据。
 
 > [!NOTE]
-> 本教程中的任务和映像演示了如何连接到本地服务器上的 AdventureWorksDW2014 数据库。 某些情况下，Azure 上的 AdventureWorksDW2014 数据库可能有所不同。
+> 本教程中的任务和映像演示了如何连接到本地服务器上的 AdventureWorksDW2014 数据库。 某些情况下，Azure 上的 Adventure Works 数据库可能有所不同。
 
 本课预计完成时间：**10 分钟**  
 
@@ -147,7 +145,7 @@ AdventureWorksDW2014 示例数据库中的表具有不需要包括在模型中�
 
     ![aas-lesson2-success](../tutorials/media/aas-lesson2-success.png) 
 
-2.  单击“关闭” 。  
+2.  单击“**关闭**”。  
 
 ## <a name="save-your-model-project"></a>保存模型项目  
 频繁保存模型项目非常重要。  
@@ -159,4 +157,4 @@ AdventureWorksDW2014 示例数据库中的表具有不需要包括在模型中�
 ## <a name="whats-next"></a>后续步骤
 [第 3 课：标记为日期表](../tutorials/aas-lesson-3-mark-as-date-table.md)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

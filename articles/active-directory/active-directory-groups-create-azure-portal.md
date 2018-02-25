@@ -16,11 +16,11 @@ origin.date: 08/04/2017
 ms.date: 12/25/2017
 ms.author: v-nany
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e8b4348f77235c9946f58101af6b0733f819db4
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: dcab210814b6fc6c617385b50ddb4a33b1a34eb5
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>在 Azure Active Directory 中创建组并添加成员
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/22/2017
 
    ![选择“添加”命令](./media/active-directory-groups-create-azure-portal/add-group-command.png)
 5. 在“组”边栏选项卡中，为组添加名称和描述。
-6. 要选择要添加到组的成员，请在“成员身份类型”框中选择“已分配”，并选择“成员”。 有关如何动态管理组的成员身份的详细信息，请参阅[使用属性创建组成员身份的高级规则](active-directory-groups-dynamic-membership-azure-portal.md)。
+6. 要选择要添加到组的成员，请在“成员身份类型”框中选择“已分配”，并选择“成员”。 
 
    ![选择要添加的成员](./media/active-directory-groups-create-azure-portal/select-members.png)
 7. 在“成员”边栏选项卡中，选择一个或多个要添加到组的用户或设备，然后选择边栏选项卡底部的“选择”按钮以将它们添加到组。 “用户”框会通过将输入内容与用户或设备名称的任何部分进行匹配来筛选显示内容。 该框中不允许使用任何通配符。

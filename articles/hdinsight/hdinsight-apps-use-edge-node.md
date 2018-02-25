@@ -1,5 +1,5 @@
 ---
-title: "在 HDInsight 中的 Hadoop 群集上使用空边缘节点 - Azure | Azure"
+title: "在 HDInsight 中的 Hadoop 群集上使用空边缘节点"
 description: "如何将空边缘节点添加到可用作客户端的 HDInsight 群集，然后测试/托管 HDInsight 应用程序。"
 services: hdinsight
 editor: cgronlun
@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/15/2017
-ms.date: 01/15/2018
+origin.date: 01/11/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: bb826206768c27bd8a800f25fbfcf4c3293d7687
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 21d07d07224a7f7ac0b270d5cd745540a6c76e15
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>在 HDInsight 中的 Hadoop 群集上使用空边缘节点
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 01/12/2018
 创建边缘节点后，可以使用 SSH 连接到该节点，运行客户端工具访问 HDInsight 中的 Hadoop 群集。
 
 > [!WARNING] 
-> 在 HDInsight 中使用空边缘节点的功能目前处于预览状态。 安装在空边缘节点上的自定义组件将从 Azure 得到商业上合理的支持。 这或许可解决遇到的问题。 或者也可参考社区资源，获取更多帮助。 以下是一些可获得社区帮助的最活跃站点：
+> 安装在空边缘节点上的自定义组件将从 Azure 得到商业上合理的支持。 这或许可解决遇到的问题。 或者也可参考社区资源，获取更多帮助。 以下是一些可获得社区帮助的最活跃站点：
 >
 > * [面向 HDInsight 的 MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)
 >
