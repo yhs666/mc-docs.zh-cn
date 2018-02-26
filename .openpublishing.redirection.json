@@ -5979,6 +5979,141 @@
     "source_path": "articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis-auto.md",
     "redirect_url": "/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis-auto",
     "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-migrate-azure-to-azure.md",
+        "redirect_url": "tutorial-migrate-azure-to-azure",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-sample-databases.md",
+        "redirect_url": "/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/stream-analytics/stream-analytics-operation-logs.md",
+        "redirect_url": "/stream-analytics/stream-analytics-job-diagnostic-logs",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/stream-analytics/stream-analytics-run-a-job.md",
+        "redirect_url": "/stream-analytics/stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/stream-analytics/stream-analytics-write-queries.md",
+        "redirect_url": "/stream-analytics/stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices#create-an-azure-stream-analytics-query",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/about-images.md",
+        "redirect_url": "/virtual-machines/windows/cli-ps-findimage",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/agents-and-extensions.md",
+        "redirect_url": "/virtual-machines/windows/extensions-features",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/attach-disk.md",
+        "redirect_url": "/virtual-machines/windows/attach-managed-disk-portal",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/capture-image.md",
+        "redirect_url": "/virtual-machines/windows/capture-image-resource",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/configure-availability.md",
+        "redirect_url": "/virtual-machines/windows/manage-availability",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/connect-logon.md",
+        "redirect_url": "/virtual-machines/windows/connect-logon",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/connect-vms.md",
+        "redirect_url": "/virtual-machines/windows/connect-logon",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/createportal.md",
+        "redirect_url": "/virtual-machines/windows/quick-create-portal",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/create-powershell.md",
+        "redirect_url": "/virtual-machines/windows/quick-create-powershell",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/createupload-vhd.md",
+        "redirect_url": "/virtual-machines/windows/upload-generalized-managed",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/detach-disk.md",
+        "redirect_url": "/virtual-machines/windows/detach-disk",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/faq.md",
+        "redirect_url": "/virtual-machines/windows/faq",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/inject-custom-data.md",
+        "redirect_url": "/virtual-machines/windows/tutorial-automate-vm-deployment",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/install-mongodb.md",
+        "redirect_url": "/virtual-machines/windows/install-mongodb",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/manage-psh.md",
+        "redirect_url": "/virtual-machines/windows/ps-common-ref",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/manage-visual-studio.md",
+        "redirect_url": "/virtual-machines/windows/csharp",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/planned-maintenance-schedule.md",
+        "redirect_url": "/virtual-machines/windows/maintenance-and-updates",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/sap-get-started.md",
+        "redirect_url": "/virtual-machines/workloads/sap/get-started",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/tutorial.md",
+        "redirect_url": "/virtual-machines/windows/quick-create-portal",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/web-app-visual-studio.md",
+        "redirect_url": "/app-service/",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md",
+        "redirect_url": "/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-create-vm-accelerated-networking.md",
+        "redirect_url": "/virtual-network/create-vm-accelerated-networking-cli",
+        "redirect_document_id": "false"
     }
   ]
 }
