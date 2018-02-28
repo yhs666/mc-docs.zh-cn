@@ -1,5 +1,5 @@
 ---
-title: "使用 Ambari Web UI 监视和管理 Azure HDInsight |Azure"
+title: "使用 Ambari Web UI 监视和管理 Azure HDInsight"
 description: "了解如何使用 Ambari 监视和管理基于 Linux 的 HDInsight 群集。 本文档介绍如何使用 HDInsight 群集附带的 Ambari Web UI。"
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/11/2017
-ms.date: 12/25/2017
+origin.date: 01/04/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2d601c2220230bf6cc50d9b459fd5f95321ae0d6
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: b8c8e1789b7dbc9a4fd36fbd7e945bdbbc276993
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>使用 Ambari Web UI 管理 HDInsight 群集
 
@@ -33,12 +33,12 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 
 ## <a id="whatis"></a>什么是 Ambari？
 
-[Apache Ambari](http://ambari.apache.org) 通过提供易于使用的 Web UI 简化了 Hadoop 管理。 可以使用 Ambari 来创建、管理和监视 Hadoop 群集。 开发人员可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)在其应用程序中集成这些功能。
+[Apache Ambari](http://ambari.apache.org) 通过提供易于使用的 Web UI 简化了 Hadoop 管理。 可以使用 Ambari 来管理和监视 Hadoop 群集。 开发人员可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)在其应用程序中集成这些功能。
 
 默认已对使用 Linux 操作系统的 HDInsight 群集提供了 Ambari Web UI。
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 
+> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 
 
 ## <a name="connectivity"></a>连接
 
@@ -201,7 +201,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 ![服务操作](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
 > [!WARNING]
-> 虽然“添加服务”列于该菜单中，但不应使用它来向 HDInsight 群集添加服务。 应在群集预配过程中使用脚本操作添加新服务。 有关使用脚本操作的详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
+> 虽然“添加服务”列于该菜单中，但不应使用它来向 HDInsight 群集添加服务。 群集设置期间应使用脚本操作添加新服务。 有关使用脚本操作的详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 虽然“操作”按钮可以重启所有服务，但你要启动、停止或重启的通常是某个特定服务。 使用以下步骤来对单个服务执行操作：
 

@@ -1,5 +1,5 @@
 ---
-title: "通过 Azure HDInsight (Hadoop) 运行 Apache Sqoop 作业 | Azure"
+title: "通过 Azure HDInsight (Hadoop) 运行 Apache Sqoop 作业"
 description: "了解如何从工作站使用 Azure PowerShell 在 Hadoop 群集和 Azure SQL 数据库之间运行 Sqoop 导入和导出。"
 editor: cgronlun
 manager: jhubbard
@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 12/18/2017
+origin.date: 01/03/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9eede4fc6771631ef2461fcef22985abc55a82fd
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: e568a239ec2a46a5b4dba5e87c1cce1b69f22321
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>将 Sqoop 与 HDInsight 中的 Hadoop 配合使用
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -32,13 +32,13 @@ ms.lasthandoff: 12/08/2017
 
 虽然选择 Hadoop 处理日志和文件等非结构化和半结构化的数据是理所当然的事，但可能还需要处理存储在关系数据库中的结构化数据。
 
-[Sqoop][sqoop-user-guide-1.4.4] 是一种用于在 Hadoop 群集和关系数据库之间传输数据的工具。 可以使用此工具将数据从关系数据库管理系统 (RDBMS)（如 SQL Server、MySQL 或 Oracle）导入到 Hadoop 分布式文件系统 (HDFS)，在 Hadoop 中使用 MapReduce 或 Hive 转换数据，然后将数据导回 RDBMS。 在本教程中，SQL Server 数据库将用于关系数据库。
+[Sqoop][sqoop-user-guide-1.4.4] 是一种专用于在 Hadoop 群集和关系数据库之间传输数据的工具。 可以使用此工具将数据从关系数据库管理系统 (RDBMS)（如 SQL Server、MySQL 或 Oracle）导入到 Hadoop 分布式文件系统 (HDFS)，在 Hadoop 中使用 MapReduce 或 Hive 转换数据，然后将数据导回 RDBMS。 在本教程中，SQL Server 数据库将用于关系数据库。
 
-有关 HDInsight 群集上支持的 Sqoop 版本，请参阅 [HDInsight 提供的群集版本有哪些新功能？][hdinsight-versions]
+有关 HDInsight 群集上支持的 Sqoop 版本，请参阅 [HDInsight 提供的群集版本有哪些新增功能？][hdinsight-versions]
 
 ## <a name="understand-the-scenario"></a>了解方案
 
-HDInsight 群集附带了某些示例数据。 可使用以下两个示例：
+HDInsight 群集带有某些示例数据。 可使用以下两个示例：
 
 * 位于 */example/data/sample.log*的 log4j 日志文件。 以下日志会从该文件中提取出来：
 
@@ -58,14 +58,14 @@ HDInsight 群集附带了某些示例数据。 可使用以下两个示例：
   | devicemodel |字符串 |
   | state |字符串 |
   | country |字符串 |
-  | querydwelltime |double |
+  | querydwelltime |Double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
 
 本教程中使用这两个数据集测试 Sqoop 导入和导出。
 
 ## <a name="create-cluster-and-sql-database"></a>创建群集和 SQL 数据库
-本部分演示如何使用 Azure 门户和 Azure Resource Manager 模板创建群集、SQL 数据库和 SQL 数据库架构，以便运行教程。 可以在 [Azure 快速入门模板](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)中找到模板。 Resource Manager 模板调用 bacpac 包，将表架构部署到 SQL 数据库。  Bacpac 包位于公共 Blob 容器 https://hditutorialdata.blob.core.chinacloudapi.cn/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac 中。 如果想要私有容器用于 bacpac 文件，请使用模板中的以下值：
+本部分演示如何使用 Azure 门户和 Azure Resource Manager 模板创建群集、SQL 数据库和 SQL 数据库架构，以便运行教程。 可以在 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)中找到此模板。 Resource Manager 模板调用 bacpac 包，将表架构部署到 SQL 数据库。  Bacpac 包位于公共 Blob 容器 https://hditutorialdata.blob.core.chinacloudapi.cn/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac 中。 如果想要私有容器用于 bacpac 文件，请使用模板中的以下值：
    
 ```json
 "storageKeyType": "Primary",
@@ -97,7 +97,7 @@ HDInsight 群集附带了某些示例数据。 可使用以下两个示例：
      
         以下值在变量部分中硬编码：
         
-        |名称|值|
+        |Name|值|
         |----|-----|
         | 默认存储帐户名 | &lt;CluterName>store |
         | Azure SQL 数据库服务器名称 | &lt;ClusterName>dbserver |
@@ -108,10 +108,10 @@ HDInsight 群集附带了某些示例数据。 可使用以下两个示例：
 
 如果选择使用现有的 Azure SQL 数据库或 Microsoft SQL Server
 
-* **Azure SQL 数据库**：必须为 Azure SQL 数据库服务器配置防火墙规则，允许从工作站进行访问。 有关创建 Azure SQL 数据库和配置防火墙的说明，请参阅使用 [Azure SQL 数据库入门][sqldatabase-get-started]。 
+* **Azure SQL 数据库**：必须为 Azure SQL 数据库服务器配置防火墙规则，允许从工作站进行访问。 有关创建 Azure SQL 数据库和配置防火墙的说明，请参阅 [Azure SQL 数据库入门][sqldatabase-get-started]。 
 
   > [!NOTE]
-  > 默认情况下，可以从 Azure HDInsight 这样的 Azure 服务连接 Azure SQL 数据库。 如果禁用了此防火墙设置，则必须从 Azure 门户启用它。 有关创建 Azure SQL 数据库和配置防火墙规则的说明，请参阅[创建和配置 SQL 数据库][sqldatabase-create-configue]。
+  > 默认情况下，可以从 Azure HDInsight 这样的 Azure 服务连接 Azure SQL 数据库。 如果禁用了此防火墙设置，则必须从 Azure 门户启用它。 有关创建 Azure SQL 数据库和配置防火墙规则的说明，请参阅 [创建和配置 SQL 数据库][sqldatabase-create-configue]。
   > 
   > 
 * **SQL Server**：如果 HDInsight 群集与 SQL Server 位于 Azure 中的同一虚拟网络，可以使用本文中的步骤对 SQL Server 数据库执行数据导入和导出操作。
@@ -172,7 +172,7 @@ HDInsight 可以使用各种方法运行 Sqoop 作业。 使用下表来确定�
 * [将数据上传到 HDInsight][hdinsight-upload-data]：了解将数据上传到 HDInsight/Azure Blob 存储的其他方法。
 
 ## <a name="appendix-a---a-powershell-sample"></a>附录 A - PowerShell 示例
-PowerShell 示例将执行以下步骤：
+PowerShell 示例执行以下步骤：
 
 1. 连接到 Azure。
 2. 创建 Azure 资源组。 有关详细信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](../../azure-resource-manager/powershell-azure-resource-manager.md)
@@ -224,14 +224,14 @@ PowerShell 示例将执行以下步骤：
    > 除了连接字符串信息，此部分中的步骤还应适用于 Azure SQL 数据库或 SQL Server。 这些步骤已经过以下配置测试：
    > 
    > * **Azure 虚拟网络点到站点配置**：虚拟网络已将 HDInsight 群集连接到专用数据中心的 SQL Server。 有关详细信息，请参阅[在管理门户中配置点到站点 VPN](../../vpn-gateway/vpn-gateway-point-to-site-create.md)。
-   > * **Azure HDInsight 3.1**：有关在虚拟网络上创建群集的信息，请参阅[使用自定义选项在 HDInsight 中创建 Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)。
+   > * **Azure HDInsight**：有关在虚拟网络上创建群集的信息，请参阅[使用自定义选项在 HDInsight 中创建 Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)。
    > * **SQL Server 2014**：已配置为允许身份验证和运行 VPN 客户端配置包，可以安全地连接到虚拟网络。
    > 
    > 
 7. 将 Hive 表导出到 Azure SQL 数据库。
 8. 将 mobiledata 表导入 HDInsight 群集。
 
-    若要检查修改后的数据文件，可以使用 Azure 门户、Azure 存储资源管理器工具或 Azure PowerShell。  [HDInsight 入门][hdinsight-get-started]中有一个关于使用 Azure PowerShell 下载文件并显示文件内容的代码示例。
+    若要检查修改后的数据文件，可以使用 Azure 门户、Azure 存储资源管理器工具或 Azure PowerShell。  [HDInsight 入门][hdinsight-get-started] 中有一个关于使用 Azure PowerShell 下载文件并显示文件内容的代码示例。
 
 ### <a name="the-powershell-sample"></a>PowerShell 示例
 
@@ -629,6 +629,7 @@ $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
         -DisplayOutputType StandardOutput
 
     #endregion
+```
 
 [azure-management-portal]: https://portal.azure.cn/
 

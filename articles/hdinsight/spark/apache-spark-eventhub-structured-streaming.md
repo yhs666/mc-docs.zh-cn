@@ -1,10 +1,10 @@
 ---
-title: "在 Azure HDInsight 中将 Apache Spark 结构化流与事件中心配合使用 | Microsoft Docs"
+title: "在 Azure HDInsight 中将 Apache Spark 结构化流与事件中心配合使用"
 description: "构建一个 Apache Spark 流式处理示例，用于演示如何向 Azure 事件中心发送数据流，然后使用 scala 应用程序在 HDInsight Spark 群集中接收这些事件。"
 keywords: "apache spark 流式处理,spark 流式处理,spark 示例,apache spark 流式处理示例,事件中心 azure 示例,spark 示例"
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
-ms.date: 12/25/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 57568f4f62880f6a64f3dfaff0e53eb374f7055e
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: dc31d86e43fc0d096397f1d61164328a6a642523
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="apache-spark-structured-streaming-on-hdinsight-to-process-events-from-event-hubs"></a>使用 HDInsight 中的 Apache Spark 结构化流处理事件中心的事件
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/15/2017
 
 * Azure 事件中心命名空间。 有关详细信息，请参阅[创建 Azure 事件中心命名空间](apache-spark-eventhub-streaming.md#create-an-azure-event-hub)。
 
-* Oracle Java 开发工具包。 可以从 [此处](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)安装它。
+* Oracle Java 开发工具包。 可从[此处](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)进行安装。
 
 * Apache Maven。 可以从[此处](https://maven.apache.org/download.cgi)下载它。 [此处](https://maven.apache.org/install.html)提供了有关安装 Maven 的说明。
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 12/15/2017
 
 5. 生成的应用程序需要 Spark 流事件中心包。 若要运行 Spark Shell 以便自动从 [Maven 中心](https://search.maven.org)检索此依赖项，请务必按如下所示提供 packages 开关和 Maven 坐标：
 
-        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.0"
+        spark-shell --packages "com.microsoft.azure:spark-streaming-eventhubs_2.11:2.1.5"
 
 6. Spark Shell 完成加载后，应会看到：
 
@@ -93,10 +93,10 @@ ms.lasthandoff: 12/15/2017
             ____              __
             / __/__  ___ _____/ /__
             _\ \/ _ \/ _ `/ __/  '_/
-        /___/ .__/\_,_/_/ /_/\_\   version 2.1.0.2.6.0.10-29
+        /___/ .__/\_,_/_/ /_/\_\   version 2.1.1.2.6.2.3-1
             /_/
                 
-        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_131)
+        Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_151)
         Type in expressions to have them evaluated.
         Type :help for more information.
 
@@ -114,8 +114,12 @@ ms.lasthandoff: 12/15/2017
             "eventhubs.progressTrackingDir" -> "/eventhubs/progress",
             "eventhubs.sql.containsProperties" -> "true"
             )
+            
+8. 如果查看以下格式的与事件中心兼容的终结点，则显示 `iothub-xxxxxxxxxx` 的部分是与事件中心兼容的命名空间名称并且可用于 `eventhubs.namespace`。 字段 `SharedAccessKeyName` 可用于 `eventhubs.policyname`，而 `SharedAccessKey` 可用于 `eventhubs.policykey`： 
 
-8. 将修改后的代码片段粘贴到等待中的 scala> 提示符，然后按回车键。 应看到如下输出：
+        Endpoint=sb://iothub-xxxxxxxxxx.servicebus.chinacloudapi.cn/;SharedAccessKeyName=xxxxx;SharedAccessKey=xxxxxxxxxx 
+
+9. 将修改后的代码片段粘贴到等待中的 scala> 提示符，然后按回车键。 应看到如下输出：
 
         scala> val eventhubParameters = Map[String, String] (
             |       "eventhubs.policyname" -> "RootManageSharedAccessKey",

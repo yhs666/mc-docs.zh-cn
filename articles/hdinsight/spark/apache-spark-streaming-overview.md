@@ -1,5 +1,5 @@
 ---
-title: "Azure HDInsight 中的 Spark 流式处理是什么 | Microsoft Docs"
+title: "Azure HDInsight 中的 Spark 流式处理是什么"
 description: "如何在 HDInsight Spark 群集上使用 Spark 流式处理应用程序。"
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/08/2017
-ms.date: 12/25/2017
+origin.date: 01/09/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: f5bf1ec9252057ab3364ab4b38addd7ea8c2ef25
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 40f0f181fab18f8733f0346a01544fc1c238c2f4
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="overview-of-spark-streaming"></a>Spark 流式处理概述
 
@@ -141,7 +141,7 @@ Spark 流式处理应用程序是一个长时间运行的应用程序，从引�
 
 | value | time |
 | --- | --- |
-|10 | 1497314465256 |
+|10 个 | 1497314465256 |
 |11 | 1497314470272 |
 |12 | 1497314475289 |
 |13 | 1497314480310 |
@@ -195,7 +195,7 @@ Spark 流式处理应用程序是一个长时间运行的应用程序，从引�
 | 7 | 1497316324260
 | 8 | 1497316329278
 | 9 | 1497316334293
-| 10 | 1497316339314
+| 10 个 | 1497316339314
 | 11 | 1497316344339
 | 12 | 1497316349361
 

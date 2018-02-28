@@ -1,5 +1,5 @@
 ---
-title: "使用 bootstrap 自定义 HDInsight 群集 - Azure | Azure"
+title: "使用 bootstrap 自定义 HDInsight 群集"
 description: "了解如何使用 Bootstrap 自定义 HDInsight 群集。"
 services: hdinsight
 documentationcenter: 
@@ -14,20 +14,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/21/2017
-ms.date: 12/25/2017
+origin.date: 01/03/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 78075a9446093d09e52f07292056e7466b065f31
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 058ebf9477137572c6140f68bbd17698dfce9b17
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>使用 Bootstrap 自定义 HDInsight 群集
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-有时，可能需要配置配置文件，包括：
+有时，用户可能需要配置配置文件，包括：
 
 * clusterIdentity.xml
 * core-site.xml
@@ -79,27 +79,28 @@ $hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
         -ClusterSizeInNodes $clusterSizeInNodes `
         -ClusterType Hadoop `
         -OSType Linux `
-        -Version "3.5" `
+        -Version "3.6" `
         -HttpCredential $httpCredential `
         -Config $config 
+```
 
-A complete working PowerShell script can be found in [Appendix](#appendix-powershell-sample).
+可在[附录](#appendix-powershell-sample)中找到完整的有效 PowerShell 脚本。
 
-**To verify the change:**
+**若要验证更改，请执行以下操作：**
 
-1. Sign on to the [Azure portal](https://portal.azure.cn).
-2. From the left menu, click **HDInsight clusters**. If you don't see it, click **More services** first.
-3. Click the cluster you just created using the PowerShell script.
-4. Click **Dashboard** from the top of the blade to open the Ambari UI.
-5. Click **Hive** from the left menu.
-6. Click **HiveServer2** from **Summary**.
-7. Click the **Configs** tab.
-8. Click **Hive** from the left menu.
-9. Click the **Advanced** tab.
-10. Scroll down and then expand **Advanced hive-site**.
-11. Look for **hive.metastore.client.socket.timeout** in the section.
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
+2. 在左侧菜单中，单击“HDInsight 群集” 。 如果看不到该项，请先单击“更多服务”  。
+3. 单击刚刚使用 PowerShell 脚本创建的群集。
+4. 单击边栏选项卡顶部的“仪表板”  打开 Ambari UI。
+5. 在左侧菜单中，单击“Hive”。
+6. 在“摘要”中单击“HiveServer2”。
+7. 单击“配置”选项卡。
+8. 在左侧菜单中，单击“Hive”。
+9. 单击“高级”选项卡  。
+10. 向下滚动，并展开“高级 hive 站点” 。
+11. 在此部分中查找 **hive.metastore.client.socket.timeout** 。
 
-Some more samples on customizing other configuration files:
+下面是有关自定义其他配置文件的更多示例：
 
 ```xml
 # hdfs-site.xml configuration
@@ -250,7 +251,7 @@ New-AzureRmHDInsightCluster `
     -ClusterSizeInNodes 1 `
     -ClusterType Hadoop `
     -OSType Linux `
-    -Version "3.5" `
+    -Version "3.6" `
     -HttpCredential $httpCredential `
     -SshCredential $sshCredential `
     -Config $config

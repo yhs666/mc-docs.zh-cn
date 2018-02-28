@@ -1,5 +1,5 @@
 ---
-title: "在 Azure HDInsight 中使用交互式 Spark Shell | Microsoft Docs"
+title: "在 Azure HDInsight 中使用交互式 Spark Shell"
 description: "交互式 Spark Shell 提供了一个读取执行打印进程，用于一次运行一个 Spark 命令并查看结果。"
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/01/2017
-ms.date: 12/25/2017
+origin.date: 01/09/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4e8038a2403c2b541e9b0cc573e06fec12658b93
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 4c28fe619f9877e339a1a0d8722099c6ee55178b
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="run-spark-from-the-spark-shell"></a>从 Spark Shell 运行 Spark
 
@@ -67,7 +67,7 @@ Spark 为 Scala (spark-shell)、Python (pyspark) 和 R (sparkR) 提供 shell。 
 
 Spark Shell 命令（`spark-shell`、`pyspark` 或 `sparkR`）支持多个命令行参数。 若要查看参数的完整列表，请使用开关 `--help` 启动 Spark Shell。 请注意，上述某些参数可能仅适用于 Spark Shell 包装的 `spark-submit`。
 
-| 开关 | description | 示例 |
+| 开关 | 说明 | 示例 |
 | --- | --- | --- |
 | --master MASTER_URL | 指定主 URL。 在 HDInsight 中，此值始终为 `yarn`。 | `--master yarn`|
 | --jars JAR_LIST | 要包括在驱动程序和执行程序类路径中的本地 jar 的逗号分隔列表。 在 HDInsight 中，此列表包含 Azure 存储或 Data Lake Store 的默认文件系统路径。 | `--jars /path/to/examples.jar` |

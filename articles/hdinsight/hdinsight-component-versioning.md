@@ -1,5 +1,5 @@
 ---
-title: "Hadoop 组件和版本 - Azure HDInsight | Azure"
+title: "Hadoop 组件和版本"
 description: "了解 HDInsight 中的 Hadoop 组件和版本，以及 Hortonworks 数据平台的此云分发版中可用的服务级别。"
 keywords: "hadoop 版本,hadoop 生态系统组件,hadoop 组件,如何检查 hadoop 版本"
 services: hdinsight
@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/13/2017
-ms.date: 01/15/2018
+origin.date: 01/09/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1918636422889a0911ac023a35976fe8985c6a9b
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: efa0c8c2d5e53471a429d9604d250328728b1cb4
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight 提供了哪些 Hadoop 组件和版本？
 
@@ -77,25 +77,78 @@ Azure HDInsight 支持多个可随时部署的 Hadoop 群集版本。 每个版�
 请参阅 [HDInsight 发行说明](hdinsight-release-notes.md)，了解 HDInsight 最新版本的更多发行说明。
 
 ## <a name="supported-hdinsight-versions"></a>支持的 HDInsight 版本
-下表列出了 Azure 门户上当前可用的 HDInsight 版本。 其中列出了与每个 HDInsight 版本对应的 HDP 版本以及产品发行日期。 还提供了支持到期日期和停用日期（如果已知这些日期）。
+下表列出了 HDInsight 版本。 其中列出了与每个 HDInsight 版本对应的 HDP 版本以及产品发行日期。 还提供了支持到期日期和停用日期（如果已知这些日期）。
+
+### <a name="available-versions"></a>可用版本
+
+下表列出了 Azure 门户以及其他部署方法（比如 PowerShell 和 .NET SDK）中可用的 HDInsight 版本。
+
+| HDInsight 版本 | HDP 版本 | VM OS | 发行日期 | 支持到期日期 | 停用日期 | 高可用性 |  在 Azure 门户上的可用性 | 
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |2017 年 4 月 4 日 | | |是 |是 |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |2016 年 9 月 30 日 |2017 年 9 月 5 日 |2018 年 5 月 31 日 |是 |是 |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2015 年 12 月 2 日 |2016 年 6 月 27 日 |2018 年 7 月 31 日 |是 |否 |
 
 > [!NOTE]
 > 在对某个版本的支持到期后，不能通过 Microsoft Azure 门户获得该版本。 但是，可继续使用 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 命令中的 `Version` 参数和 .NET SDK 获取群集版本，直到版本停用的那天为止。
 > 
+### <a name="retired-versions"></a>已停用的版本
+
+下表列出了 Azure 门户中**不**可用的 HDInsight 版本。
+
+| HDInsight 版本 | HDP 版本 | VM OS | 发行日期 | 支持到期日期 | 停用日期 | 高可用性 |  在 Azure 门户上的可用性 | 
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |2016 年 3 月 29 日 |2016 年 12 月 29 日 |2018 年 1 月 9 日 |是 |否 |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2015 年 12 月 2 日 |2016 年 6 月 27 日 |2017 年 7 月 31 日 |是 |否 |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS 或 Windows Server 2012 R2 |2015 年 2 月 18 日 |2016 年 3 月 1 日 |2017 年 4 月 1 日 |是 |否 |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |2014 年 6 月 24 日 |2015 年 5 月 18 日 |2016 年 6 月 30 日 |是 |否 |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |2014 年 2 月 11 日 |2014 年 9 月 17 日 |2015 年 6 月 30 日 |是 |否 |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |2013 年 10 月 28 日 |2014 年 5 月 12 日 |2015 年 5 月 31 日 |是 |否 |
+| HDInsight 1.6 |HDP 1.1 | |2013 年 10 月 28 日 |2014 年 4 月 26 日 |2015 年 5 月 31 日 |否 |否 |
+
+> [!NOTE]
 > 对于 HDInsight 2.1 和更高版本，默认情况下会集部署具有两个头节点的高度可用群集。 它们不适用于 HDInsight 1.6 版本的群集。
 
-| HDInsight 版本 | HDP 版本 | VM OS | 高可用性 | 发行日期 | 在 Azure 门户上的可用性 | 支持到期日期 | 停用日期 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16 |是 |2017 年 4 月 4 日 |是 | | |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16 |是 |2016 年 9 月 30 日 |是 |2017 年 9 月 5 日 |2018 年 5 月 31 日 |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |是 |2016 年 3 月 29 日 |是 |2016 年 12 月 29 日 |2018 年 1 月 9 日 |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |是 |2015 年 12 月 2 日 |是 |2016 年 6 月 27 日 |2018 年 7 月 31 日 |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |是 |2015 年 12 月 2 日 |是 |2016 年 6 月 27 日 |2017 年 7 月 31 日 |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS 或 Windows Server 2012 R2 |是 |2015 年 2 月 18 日 |否 |2016 年 3 月 1 日 |2017 年 4 月 1 日 |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |是 |2014 年 6 月 24 日 |否 |2015 年 5 月 18 日 |2016 年 6 月 30 日 |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |是 |2014 年 2 月 11 日 |否 |2014 年 9 月 17 日 |2015 年 6 月 30 日 |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |是 |2013 年 10 月 28 日 |否 |2014 年 5 月 12 日 |2015 年 5 月 31 日 |
-| HDInsight 1.6 |HDP 1.1 | |否 |2013 年 10 月 28 日 |否 |2014 年 4 月 26 日 |2015 年 5 月 31 日 |
+## <a name="enterprise-security-package-for-hdinsight"></a>适用于 HDInsight 的 Enterprise Security 包
+
+Azure HDInsight 是一种可选包，可在 HDInsight 群集上作为创建群集工作流的一部分添加。 Enterprise Security 包支持：
+
+- 与 Active Directory 集成进行身份验证。
+
+    在过去，只能创建包含本地管理员用户和本地 SSH 用户的 HDInsight 群集。 本地管理员用户可以访问所有文件、文件夹、表和列。  如果使用 Enterprise Security 包，可通过将 HDInsight 群集与你自己的 Active Directory（包括本地 Active Directory、Azure Active Directory 域服务或 IaaS 虚拟机上的 Active Directory）集成，来启用基于角色的访问控制。 群集上的域管理员可以授权用户使用他们自己的公司（域）用户名和密码来访问群集。 
+
+    有关详细信息，请参阅：
+
+    - [已加入域的 HDInsight 群集的 Hadoop 安全性简介](./domain-joined/apache-domain-joined-introduction.md)
+    - [在 HDInsight 中计划 Azure 已加入域的 Hadoop 群集](./domain-joined/apache-domain-joined-architecture.md)
+    - [配置已加入域的沙盒环境](./domain-joined/apache-domain-joined-configure.md)
+    - [使用 Azure Active Directory 域服务配置已加入域的 HDInsight 群集](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
+
+- 数据授权
+
+    - 与 Apache Ranger 集成以对 Hive、Spark SQL 和 Yarn 队列授权。
+    - 可以对文件和文件夹设置访问控制。
+
+    有关详细信息，请参阅：
+
+    - [在已加入域的 HDInsight 中配置 Hive 策略](./domain-joined/apache-domain-joined-run-hive.md)
+
+- 查看审核日志以监视访问和配置的策略。 
+
+### <a name="supported-cluster-types"></a>支持的群集类型
+
+目前只有以下群集类型支持 Enterprise Security 包：
+
+- Hadoop（仅限 HDInsight 3.6）
+- Spark
+- 交互式查询
+
+### <a name="support-for-azure-data-lake-store"></a>支持 Azure Data Lake Store
+
+Enterprise Security 包支持使用 Azure Data Lake Store 作为主存储和附加存储。
+
+### <a name="pricing-and-sla"></a>定价和 SLA
+有关 Enterprise Security 包的定价和 SLA 的信息，请参阅 [HDInsight 定价](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
 ## <a name="hdinsight-windows-retirement"></a>HDInsight Windows 停用
 Azure HDInsight 版本 3.3 是适用于 Windows 的最后一个 HDInsight 版本。 Windows 上的 HDInsight 的停用日期是 2018 年 7 月 31 日。 如果在 Windows 上具有 HDInsight 3.3 或更低版本的群集，则必须在 2018 年 7 月 31 日之前迁移到 Linux 上的 HDInsight（HDInsight 版本 3.5 或更高版本）。 迁移到 Linux OS 后，仍然能够创建 HDInsight 群集或调整其大小。 对 Windows 上的 HDInsight 版本 3.3 的支持已于 2016 年 6 月 27 日到期。
@@ -105,7 +158,7 @@ Azure HDInsight 版本 3.3 是适用于 Windows 的最后一个 HDInsight 版本
 ## <a name="faqs"></a>常见问题
 
 ### <a name="what-is-the-timeline-for-retiring-hdinsight-on-windows"></a>停用 Windows 上的 HDInsight 的日程表是怎样的？
-Windows 上的 HDInsight 的停用日期是 2018 年 7 月 31 日。 如果针对你的区域计划的停用日期不同，则你会单独收到通知。 
+Windows 上的 HDInsight 的停用日期是 2018 年 7 月 31 日。 如果针对你的区域计划的停用日期不同，你会单独收到通知。 
 
 ### <a name="what-is-the-impact-of-retiring-hdinsight-on-windows-for-existing-customers"></a>停用 Windows 上的 HDInsight 对现有客户有何影响？
 在 Windows 上的 HDInsight 停用后，将无法创建新的 HDInsight Windows 群集，也无法调整现有 HDInsight Windows 群集的大小。 对 HDInsight 版本 3.3 的支持已于 2016 年 6 月 27 日到期。 因此，不会再为 HDInsight 3.3 或更低版本提供支持或 bug 修复。 HDInsight 的将来版本仅在 Linux OS 上可用。 Windows 上的 HDInsight 将不会有任何将来版本。
@@ -133,7 +186,7 @@ HDInsight Windows 群集将按现样运行，但是你将无法创建新的 HDIn
 
 ### <a name="what-are-the-customer-advantages-associated-with-the-move-to-only-using-hdinsight-on-linux"></a>迁移后仅使用 Linux 上的 HDInsight 对客户有什么好处？
 * 可以通过 HDInsight 服务加快开源大数据技术的上市时间
-* 由大型社区和生态系统提供支持
+* 获得大型社区和生态系统的支持
 * 能够利用 Hadoop 和其他大数据技术的开源社区练习主动开发
 
 ### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-what-is-available-in-hdinsight-on-windows"></a>Linux 上的 HDInsight 是否比 Windows 上的 HDInsight 提供了更多的功能？

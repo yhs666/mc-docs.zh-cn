@@ -1,5 +1,5 @@
 ---
-title: "在 Azure HDInsight 中使用 Power BI 直观显示大数据 | Microsoft Docs"
+title: "在 Azure HDInsight 中使用 Power BI 直观显示大数据"
 description: "了解如何使用 Microsoft Power BI 直观显示 Azure HDInsight 已处理的 Hive 数据。"
 keywords: "hdinsight,hadoop,hive,交互式查询,交互式 hive,LLAP,odbc"
 services: hdinsight
@@ -14,22 +14,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/26/2017
-ms.date: 12/18/2017
+origin.date: 01/03/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 414d4cf82c9feda9c78a72a1bdf92e3b6c3684e3
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 0cb6184a04a50e2c713f7c542d7b7a0ff878fcac
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="visualize-hive-data-with-microsoft-power-bi-in-azure-hdinsight"></a>在 Azure HDInsight 中使用 Microsoft Power BI 直观显示 Hive 数据
+# <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>在 Azure HDInsight 中通过 Microsoft Power BI 使用 ODBC 直观显示 Hive 数据
 
-了解如何将 Microsoft Power BI 连接到 Azure HDInsight 并直观显示 Hive 数据。 目前，Power BI 仅支持通过 ODBC 连接到 HDInsight。 在本教程中，从 hivesampletable Hive 表将数据加载到 Power BI 中。 Hive 表包含一些移动电话使用情况数据。 然后在世界地图上绘制使用情况数据：
+了解如何使用 ODBC 将 Microsoft Power BI 连接到 Azure HDInsight 并直观显示 Hive 数据。 在本教程中，从 hivesampletable Hive 表将数据加载到 Power BI 中。 Hive 表包含一些移动电话使用情况数据。 然后在世界地图上绘制使用情况数据：
 
 ![HDInsight Power BI 地图报表](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 
-这些信息也适用于新的[交互式查询](../interactive-query/apache-interactive-query-get-started.md)群集类型。
+这些信息也适用于新的[交互式查询](../interactive-query/apache-interactive-query-get-started.md)群集类型。 有关如何使用直接查询连接到 HDInsight 交互式查询的信息，请参阅[在 Azure HDInsight 中通过 Microsoft Power BI 使用直接查询可视化交互式查询 Hive 数据](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)。
 
 ## <a name="prerequisites"></a>先决条件
 在开始阅读本文前，必须具备以下项：
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/08/2017
 4. 在“从 ODBC”窗格中，选择在上一部分中创建的数据源名称，然后单击“确定”。
 5. 在“导航器”窗格中，依次展开“ODBC”->“ HIVE”->“默认”，选择 **hivesampletable**，然后单击“加载”。
 
-## <a name="visualize-date"></a>直观显示日期
+## <a name="visualize-data"></a>可视化数据
 
 从上一过程继续进行。
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 12/08/2017
 3. 展开地图。
 
 ## <a name="next-steps"></a>后续步骤
-本文介绍了如何使用 Power BI 直观显示 HDInsight 中的数据。  若要了解更多信息，请参阅下列文章：
+本文介绍了如何使用 Power BI 直观显示 HDInsight 中的数据。  要了解更多信息，请参阅下列文章：
 
 * [在 Azure HDInsight 中使用 Zeppelin 运行 Hive 查询](./../hdinsight-connect-hive-zeppelin.md)。
 * [使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 HDInsight](./apache-hadoop-connect-excel-hive-odbc-driver.md)。

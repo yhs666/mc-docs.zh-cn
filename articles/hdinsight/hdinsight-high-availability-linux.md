@@ -1,5 +1,5 @@
 ---
-title: "Hadoop 的高可用性 - Azure HDInsight | Azure"
+title: "Hadoop 的高可用性 - Azure HDInsight"
 description: "了解 HDInsight 群集如何使用附加的头节点提高可靠性和可用性。 了解这种方式对 Ambari 和 Hive 等 Hadoop 服务造成怎样的影响，以及如何使用 SSH 分别连接到每个头节点。"
 services: hdinsight
 editor: cgronlun
@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 10/19/2017
-ms.date: 12/25/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 82f7ca0e5ef15d9f1b6b0ac609f8d8198a4b5435
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 63a662528b0e258f870de2e14200714e71c5441b
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight 中 Hadoop 群集的可用性和可靠性
 
@@ -33,7 +33,7 @@ Hadoop 通过将服务和数据复制到群集中的多个节点来实现高可�
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="availability-and-reliability-of-nodes"></a>节点的可用性和可靠性
 
@@ -103,7 +103,7 @@ HDInsight 群集中的节点具有内部 IP 地址和 FQDN，这些只能从群�
 
 * **SSH**：使用 SSH 连接到头节点后，可以从头节点使用 SSH 连接到群集中的其他节点。 有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)文档。
 
-* **SSH 隧道**：如果需要访问托管在某个节点上的 Web 服务，并且该服务不在 Internet 上公开，则必须使用 SSH 隧道。 有关详细信息，请参阅[将 SSH 隧道与 HDInsight 配合使用](hdinsight-linux-ambari-ssh-tunnel.md)文档。
+* **SSH 隧道**：如果需要访问托管在某个节点上的 Web 服务，并且该服务不在 Internet 上公开，则必须使用 SSH 隧道。 有关详细信息，请参阅 [将 SSH 隧道与 HDInsight 配合使用](hdinsight-linux-ambari-ssh-tunnel.md)文档。
 
 * **Azure 虚拟网络**：如果 HDInsight 群集是 Azure 虚拟网络的一部分，则同一虚拟网络中的任何资源都可以直接访问该群集中的所有节点。 有关详细信息，请参阅[使用 Azure 虚拟网络扩展 HDInsight](hdinsight-extend-hadoop-virtual-network.md) 文档。
 
@@ -115,7 +115,7 @@ HDInsight 群集中的节点具有内部 IP 地址和 FQDN，这些只能从群�
 
 Ambari Web UI 在 https://CLUSTERNAME.azurehdinsight.cn 上显示。 将 **CLUSTERNAME** 替换为群集名称。 如果出现提示，请输入群集的 HTTP 用户凭据。 默认 HTTP 用户名为 **admin**，密码是创建群集时输入的密码。
 
-出现 Ambari 页面时，该页的左侧将列出已安装的服务。
+出现 Ambari 页面时，该页的左侧列出已安装的服务。
 
 ![已安装的服务](./media/hdinsight-high-availability-linux/services.png)
 
@@ -140,7 +140,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 
 * 将 **PASSWORD** 替换为 HTTP 用户 (admin) 帐户密码。
-* 将 **CLUSTERNAME** 替换为群集的名称。
+* 将 CLUSTERNAME 替换为群集的名称。
 * 将 **SERVICENAME** 替换为要检查其状态的服务的名称。
 
 例如，若要检查名为 **mycluster** 的群集上的、密码为 **password** 的 **HDFS** 服务的状态，可使用以下命令：

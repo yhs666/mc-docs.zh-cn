@@ -1,5 +1,5 @@
 ---
-title: "Azure HDInsight 中的 Hadoop 和 Hive 入门 | Azure"
+title: "Azure HDInsight 中的 Hadoop 和 Hive 入门"
 description: "了解如何创建 HDInsight 群集，以及如何使用 Hive 查询数据。"
 keywords: "hadoop 入门,hadoop linux,hadoop 快速入门,hive 入门,hive 快速入门"
 services: hdinsight
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/23/2017
-ms.date: 01/15/2018
+origin.date: 12/20/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6c97c663fc957ac0541efef098bfc9fc2e83fd36
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 6b1cc53913212c57e0652c53cd074be668a5046c
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Hadoop 教程：开始使用 HDInsight 中的 Hadoop
 

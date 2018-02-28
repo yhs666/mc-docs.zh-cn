@@ -13,11 +13,11 @@ ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: bdc5be875cea3f347e0d26f987b6a051349d7298
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 9b4e81379fdede1542bee882b71f3bf05527491a
+ms.sourcegitcommit: 2c6591b24e8ccb1c1b9a56738049b99f5785b833
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>在 Azure 门户中预配 Linux SQL Server 虚拟机
 
@@ -165,18 +165,25 @@ ssh azureadmin@40.55.55.555
 
 1. 单击“确定”保存 VM 的规则。
 
-### <a name="open-the-firewall-on-rhel"></a>打开 RHEL 上的防火墙
+### <a name="open-the-firewall-on-ubuntu"></a>打开 Ubuntu 上的防火墙
+<!-- Replace RHEL to Ubuntu -->
 
-本教程介绍了如何创建 Red Hat Enterprise Linux (RHEL) VM。 若要远程连接到 RHEL VM，则还需在 Linux 防火墙上打开端口 1433。
+本教程介绍如何创建 Ubuntu VM。 若要远程连接到 Ubuntu VM，则还需在 Linux 防火墙上打开端口 1433。
+<!-- Replace RHEL to Ubuntu -->
 
-1. [连接](#connect)到 RHEL VM。
+1. [连接](#connect)到 Ubuntu VM。
+<!-- Replace RHEL to Ubuntu -->
 
 1. 在 BASH shell 中运行以下命令：
 
-   ```bash
-   sudo firewall-cmd --zone=public --add-port=1433/tcp --permanent
-   sudo firewall-cmd --reload
-   ```
+    ```bash
+    sudo ufw enable
+    sudo ufw allow 1433
+    sudo ufw reload
+    sudo ufw status
+    ```
+<!-- Replace the RHEL to Ubuntu -->
+
 
 ## <a name="next-steps"></a>后续步骤
 
