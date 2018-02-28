@@ -16,22 +16,22 @@ ms.topic: article
 origin.date: 11/28/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 7e7b92bb5a559954808d9e35b2a1ec7793349018
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: b9b865994d35d11d7c7fa9b1503180d900625e9c
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="multi-shard-querying"></a>多分片查询
 ## <a name="overview"></a>概述
 可以使用[弹性数据库工具](sql-database-elastic-scale-introduction.md)创建分片数据库解决方案。 多分片查询用于诸如数据收集/报告等需要跨多个分片运行查询的任务。 （相比之下，[数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)会在单个分片上执行所有操作。） 
 
-1. 使用 **TryGetRangeShardMap**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap)、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)）、**TryGetListShardMap**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap)、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx)）或 **GetShardMap**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap)、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx)）方法获取 **RangeShardMap**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map)、[.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)）或 **ListShardMap**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map)、[.NET](https://msdn.microsoft.com/library/azure/dn807370.aspx)）。 请参阅**[构造 ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager)**和**[获取 RangeShardMap 或 ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap)**。
-2. 创建 **MultiShardConnection**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_connection)、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx)）对象。
-3. 创建 **MultiShardStatement 或 MultiShardCommand**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement)、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.aspx)）。 
-4. 设置 T-SQL 命令的 **CommandText 属性**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement)、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)）。
-5. 通过调用 **ExecuteQueryAsync 或 ExecuteReader**（[Java]()、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)）方法执行该命令。
-6. 使用 **MultiShardResultSet 或 MultiShardDataReader**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_result_set)、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)）类查看结果。 
+1. 使用 **TryGetRangeShardMap**（Java、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)）、**TryGetListShardMap**（Java、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx)）或 **GetShardMap**（Java、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx)）方法获取 **RangeShardMap**（Java、[.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)）或 **ListShardMap**（Java、[.NET](https://msdn.microsoft.com/library/azure/dn807370.aspx)）。 请参阅**[构造 ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager)**和**[获取 RangeShardMap 或 ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap)**。
+2. 创建 **MultiShardConnection**（Java、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx)）对象。
+3. 创建 **MultiShardStatement 或 MultiShardCommand**（Java、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.aspx)）。 
+4. 设置 T-SQL 命令的 **CommandText 属性**（Java、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)）。
+5. 通过调用 **ExecuteQueryAsync 或 ExecuteReader**（Java、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)）方法执行该命令。
+6. 使用 **MultiShardResultSet 或 MultiShardDataReader**（Java、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)）类查看结果。 
 
 ## <a name="example"></a>示例
 以下代码使用给定的 **ShardMap** （名为 *myShardMap*）演示多分片查询的用法。 

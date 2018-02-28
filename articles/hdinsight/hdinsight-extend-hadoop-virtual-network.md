@@ -1,5 +1,5 @@
 ---
-title: "使用虚拟网络扩展 HDInsight - Azure | Azure"
+title: "使用虚拟网络扩展 HDInsight"
 description: "了解如何使用 Azure 虚拟网络将 HDInsight 连接到其他云资源或数据中心内的资源"
 services: hdinsight
 documentationcenter: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/01/2017
-ms.date: 12/25/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 63e967e5a3fc8d18b07a4bc61720b849495bc64c
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 9d8b9372f910c6d0a87b8520abb47409b32106b7
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 Azure HDInsight
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 12/15/2017
 > [!NOTE]
 > 无法将现有 HDInsight 群集添加到虚拟网络中。
 
-1. 对虚拟网络使用经典模式还是资源管理器部署模式？
+1. 是否对虚拟网络使用经典或 Resource Manager 部署模型？
 
     HDInsight 3.4 及更高版本需要 Resource Manager 虚拟网络。 早期版本的 HDInsight 要求使用经典虚拟网络。
 
@@ -287,7 +287,7 @@ HDInsight 在多个端口上公开服务。 使用虚拟设备防火墙时，必
     | &nbsp; | 加拿大中部 | 52.228.37.66</br>52.228.45.222 | 443 | 入站 |
     | 中国 | 中国北部 | 42.159.96.170</br>139.217.2.219 | 443 | 入站 |
     | &nbsp; | 中国东部 | 42.159.198.178</br>42.159.234.157 | 443 | 入站 |
-    | 欧洲 | 欧洲北部 | 52.164.210.96</br>13.74.153.132 | 443 | 入站 |
+    | 欧洲 | 北欧 | 52.164.210.96</br>13.74.153.132 | 443 | 入站 |
     | &nbsp; | 西欧| 52.166.243.90</br>52.174.36.244 | 443 | 入站 |
     | 德国 | 德国中部 | 51.4.146.68</br>51.4.146.80 | 443 | 入站 |
     | &nbsp; | 德国东北部 | 51.5.150.132</br>51.5.144.101 | 443 | 入站 |
@@ -384,7 +384,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 301 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "hdirule2" `
+        -Name "hdirule3" `
         -Description "HDI health and management 168.61.49.99" `
         -Protocol "*" `
         -SourcePortRange "*" `
@@ -395,7 +395,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 302 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "hdirule2" `
+        -Name "hdirule4" `
         -Description "HDI health and management 23.99.5.239" `
         -Protocol "*" `
         -SourcePortRange "*" `
@@ -406,7 +406,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 303 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "hdirule2" `
+        -Name "hdirule5" `
         -Description "HDI health and management 168.61.48.131" `
         -Protocol "*" `
         -SourcePortRange "*" `
@@ -417,7 +417,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 304 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "hdirule2" `
+        -Name "hdirule6" `
         -Description "HDI health and management 138.91.141.162" `
         -Protocol "*" `
         -SourcePortRange "*" `
@@ -427,17 +427,6 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Access Allow `
         -Priority 305 `
         -Direction Inbound `
-    | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "blockeverything" `
-        -Description "Block everything else" `
-        -Protocol "*" `
-        -SourcePortRange "*" `
-        -DestinationPortRange "*" `
-        -SourceAddressPrefix "Internet" `
-        -DestinationAddressPrefix "VirtualNetwork" `
-        -Access Deny `
-        -Priority 500 `
-        -Direction Inbound
 # Set the changes to the security group
 Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
 # Apply the NSG to the subnet
@@ -472,7 +461,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 2. 使用以下命令将规则添加新的网络安全组，这些规则允许从 Azure HDInsight 运行状况和管理服务通过端口 443 发起的入站通信。 将 **RESOURCEGROUPNAME** 替换为包含 Azure 虚拟网络的资源组的名称。
 
     > [!IMPORTANT]
-    > 更改此示例中使用的 IP 地址，使之与要使用的 Azure 区域匹配。 有关此方面的信息，可参阅 [HDInsight 与网络安全组和用户定义路由](#hdinsight-ip)部分。
+    > 更改此示例中使用的 IP 地址，使之与要使用的 Azure 区域匹配。 可以在[使用网络安全组和用户定义的路由的 HDInsight](#hdinsight-ip) 一节找到此信息。
 
     ```azurecli
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
@@ -481,7 +470,6 @@ Set-AzureRmVirtualNetworkSubnetConfig `
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 305 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n block --protocol "*" --source-port-range "*" --destination-port-range "*" --source-address-prefix "Internet" --destination-address-prefix "VirtualNetwork" --access "Deny" --priority 500 --direction "Inbound"
     ```
 
 3. 若要检索此网络安全组的唯一标识符，请使用以下命令：
@@ -590,7 +578,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 
     * 将值 `192.168.0.1` 替换为本地 DNS 服务器的 IP 地址。 此项将所有其他的 DNS 请求路由到本地 DNS 服务器。
 
-3. 若要使用此配置，请重启 Bind。 例如，`sudo service bind9 restart`。
+3. 若要使用配置，请重新启动 Bind。 例如，`sudo service bind9 restart`。
 
 4. 向本地 DNS 服务器添加条件转发器。 配置条件转发器，将对步骤 1 中 DNS 后者的请求发送到自定义 DNS 服务器。
 
@@ -601,7 +589,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 
 ### <a name="name-resolution-between-two-connected-virtual-networks"></a>在两个连接的虚拟网络之间进行名称解析
 
-此示例作出以下假设：
+本示例做出如下假设：
 
 * 你有两个使用 VPN 网关或对等互连进行连接的 Azure 虚拟网络。
 

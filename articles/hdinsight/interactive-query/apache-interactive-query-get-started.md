@@ -1,5 +1,5 @@
 ---
-title: "通过 Azure HDInsight 使用交互式查询 | Microsoft Docs"
+title: "将交互式查询与 Azure HDInsight 配合使用"
 description: "了解如何通过 HDInsight 使用交互式查询 (Hive LLAP)。"
 keywords: 
 services: hdinsight
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/27/2017
-ms.date: 01/15/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 348d3c862681190bae5d31c1c7aef69c1563a6d2
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 098edc427512cf9a2c69e47d86aa324abf6278f0
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>将交互式查询与 HDInsight 配合使用
 交互式查询（也称为 Hive LLAP 或 [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)）是一种 Azure HDInsight [群集类型](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。 交互式查询支持内存中缓存，可提高 Hive 查询速度和交互性。
@@ -44,7 +44,7 @@ ms.lasthandoff: 01/12/2018
 
 * 使用 Power BI
 
-    请参阅[在 Azure HDInsight 中使用 Power BI 直观显示大数据](../hadoop/apache-hadoop-connect-hive-power-bi.md)。
+    请参阅[在 Azure HDInsight 中使用 Power BI 直观显示交互式查询 Hive 数据](./apache-hadoop-connect-hive-power-bi-directquery.md)以及[在 Azure HDInsight 中使用 Power BI 直观显示大数据](../hadoop/apache-hadoop-connect-hive-power-bi.md)。
 
 * 使用 Zeppelin
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 01/12/2018
 
 若要查找 Java Database Connectivity (JDBC) 连接字符串：
 
-1. 使用以下 URL 登录到 Ambari：https://\<cluster name\>.AzureHDInsight.net。
+1. 使用以下 URL 登录到 Ambari：https://\<群集名称\>.AzureHDInsight.cn。
 2. 在左侧菜单中，选择“Hive”。
 3. 若要复制 URL，请选择剪贴板图标：
    

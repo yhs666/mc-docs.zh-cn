@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/12/2017
-ms.date: 01/01/2018
+origin.date: 01/04/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 08b692a61f18401854576be05d31b95a9a9b0d36
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 4856cf3b08ef7616a1df9230d5884ef2173b13c3
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 群集容量规划注意事项
 对于任何生产部署，容量规划都是一个重要的步骤。 下面是在规划过程中必须注意的一些事项。
@@ -69,7 +69,8 @@ ms.lasthandoff: 12/29/2017
 
 此权限表示为以下值：
 
-* 黄金 - 每个 UD 可持续暂停基础结构作业 2 小时。 仅可在 D15_V2、G5 等完整节点 VM sku 上启用“黄金”耐久性。
+* 黄金 - 每个 UD 可持续暂停基础结构作业 2 小时。 仅可在 DS15_v2、D15_v2 等完整节点 VM sku 上启用“黄金”持续性（一般情况下，http://aka.ms/vmspecs 中列出的、注释中标记为“实例独立于专供单个客户使用的硬件”的所有大小 VM 都是完整节点 VM）
+<!-- Not Avaible on L series, GS series, G series -->
 * 白银 - 可以为每个 UD 持续暂停基础结构作业 10 分钟，并且可在所有单核及多核的标准 VM 上使用。
 * Bronze - 无权限。 这是默认值。 仅将此持续性级别用于只运行无状态工作负载的节点类型。 
 

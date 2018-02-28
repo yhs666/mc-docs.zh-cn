@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 01/08/2018
 ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: e45c3ca2fbc4ec7d5448e94d872afb87e1f3fc1c
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 3a5885826ddab7212d283cd7d2ccc8a6851f2fc4
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/23/2018
 ---
 <!-- Notice in meta : 全球 to 多个区域 -->
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>使用 Spark 到 Azure Cosmos DB 的连接器加速实时大数据分析
@@ -256,8 +256,9 @@ df.show()
 若要大致了解查询性能的差异，请参阅[查询测试运行 wiki 文章](https://github.com/Azure/azure-cosmosdb-spark/wiki/Query-Test-Runs)。
 
 ## <a name="distributed-aggregation-example"></a>分布式聚合示例
-本部分举例说明了如何结合使用 Apache Spark 和 Azure Cosmos DB 来执行分布式聚合与分析。 Azure Cosmos DB 已经支持聚合，[使用 Azure Cosmos DB 在全球范围内聚合](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)博客中对此进行了讨论。 下面是可以通过 Apache Spark 将其提升到下一级别的方式。
+本部分举例说明了如何结合使用 Apache Spark 和 Azure Cosmos DB 来执行分布式聚合与分析。 Azure Cosmos DB 已经支持聚合，[Multiple-region scale aggregates with Azure Cosmos DB](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)（使用 Azure Cosmos DB 在多区域范围内聚合）博客中对此进行了讨论。 下面是可以通过 Apache Spark 将其提升到下一级别的方式。
 <!-- Notice: 全球 to 多个区域 -->
+<!-- Notice: Planet to Multiple-region -->
 
 请注意，这些聚合与 [Spark 到 Azure Cosmos DB 的连接器 Notebook](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Spark-to-CosmosDB_Connector.ipynb) 相关。
 

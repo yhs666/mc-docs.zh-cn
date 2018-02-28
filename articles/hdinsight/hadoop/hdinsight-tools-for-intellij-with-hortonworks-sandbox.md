@@ -1,5 +1,5 @@
 ---
-title: "将用于 IntelliJ 的 Azure 工具包与 Hortonworks 沙盒配合使用 | Azure"
+title: "将用于 IntelliJ 的 Azure 工具包与 Hortonworks 沙盒配合使用"
 description: "了解如何将用于 IntelliJ 的 Azure 工具包中的 HDInsight 工具与 Hortonworks 沙盒配合使用。"
 keywords: "hadoop 工具,hive 查询,intellij,hortonworks 沙盒,用于 intellij 的 azure 工具包"
 services: HDInsight
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 09/06/2017
-ms.date: 12/18/2017
+origin.date: 12/20/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: df09342db4392a2d39ec011437438a9920ac0bb5
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 5c7576a1e97dda70de70513d2dd7dc5a4d09a89e
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>将用于 IntelliJ 的 HDInsight 工具与 Hortonworks 沙盒配合使用
 

@@ -1,5 +1,5 @@
 ---
-title: "在 HDInsight 中将 Hadoop Sqoop 与 Curl 配合使用 - Azure | Azure"
+title: "在 HDInsight 中将 Hadoop Sqoop 与 Curl 配合使用"
 description: "了解如何使用 Curl 向 HDInsight 远程提交 Sqoop 作业。"
 services: hdinsight
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 09/22/2017
-ms.date: 12/18/2017
+origin.date: 01/03/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: b50cf355292c81210474859b93e4b26b287bace6
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 689e5474a00caaa86038c0d512a445b918e6f228
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>使用 Curl 在 HDInsight 中的 Hadoop 上运行 Sqoop 作业
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/08/2017
 1. 在命令行中，使用以下命令验证你是否可以连接到 HDInsight 群集。
 
     ```bash   
-    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/status
     ```
 
     应会收到类似于下面的响应：

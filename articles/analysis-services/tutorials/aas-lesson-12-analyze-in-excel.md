@@ -13,22 +13,20 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: d03acec29cb5805f1bf9d8bfd7a97fdea59991d7
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 285be47fe2ff9ce5d63ae3dfca770b4565bf297f
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="lesson-12-analyze-in-excel"></a>第 12 课：在 Excel 中分析
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="analyze-in-excel"></a>在 Excel 中分析
 
 本课中，将使用“在 Excel 中分析”功能打开 Microsoft Excel，自动创建到模型工作区的连接，并自动向工作表添加数据透视表。 “在 Excel 中分析”功能提供一种快速简单的方法在部署模型之前测试模型的功效。 本课中不执行任何数据分析。 本课的目的是让模型创作者熟悉可用于测试模型设计的工具。   
 
-若要完成本课，必须将 Excel 安装在 SSDT 所在的同一计算机上。
+若要完成本课，必须将 Excel 安装在 Visual Studio 所在的计算机上。
 
 本课预计完成时间：**5 分钟**  
 
@@ -80,4 +78,4 @@ ms.lasthandoff: 12/08/2017
 ## <a name="whats-next"></a>后续步骤
 转到下一课：[第 13 课：部署](../tutorials/aas-lesson-13-deploy.md)。
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

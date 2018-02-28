@@ -1,5 +1,5 @@
 ---
-title: "HDInsight 上的 HBase 入门示例 - Azure | Azure"
+title: "HDInsight 上的 HBase 入门示例"
 description: "按照此 Apache HBase 示例，开始在 HDInsight 上使用 Hadoop。 从 HBase shell 创建表，并使用 Hive 查询这些表。"
 keywords: "hbasecommand,hbase 示例"
 services: hdinsight
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/03/2017
-ms.date: 01/15/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 80164293c69496d1405397d103ec5580e0cf9434
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 519377d6c6634f2bd5394da493e5bc0d49a1e3e7
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight 中的 Apache HBase 入门示例
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/12/2018
 ## <a name="create-hbase-cluster"></a>创建 HBase 群集
 以下过程使用 Azure 资源管理器模板创建 HBase 群集以及相关的默认 Azure 存储帐户。 若要了解该过程与其他群集创建方法中使用的参数，请参阅 [在 HDInsight 中创建基于 Linux 的 Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)。
 
-1. 单击下面的图像可在 Azure 门户中打开模板。 模板位于公共 blob 容器中。 
+1. 单击下面的图像可在 Azure 门户中打开模板。 该模板位于 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/)中。
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 

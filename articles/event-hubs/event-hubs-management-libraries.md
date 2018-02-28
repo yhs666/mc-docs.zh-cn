@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 08/15/2017
-ms.date: 09/04/2017
+origin.date: 12/19/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: e39941887d03e66665b6ca4a118334478b84d7e6
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: a44f0feec05ffc3fa38daf4ab868f92fa4882351
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="event-hubs-management-libraries"></a>事件中心管理库
 
-事件中心管理库可以动态设置事件中心命名空间和实体。 这样可以实现复杂的部署和消息传递方案，以便能够以编程方式确定要设置的实体。 这些库目前可用于 .NET。
+事件中心管理库可以动态设置事件中心命名空间和实体。 这种动态性可以实现复杂的部署和消息传送方案，以便能够以编程方式确定要预配的实体。 这些库目前可用于 .NET。
 
 ## <a name="supported-functionality"></a>受支持的功能
 
@@ -55,8 +55,7 @@ ms.lasthandoff: 09/04/2017
     );
     ```
 
-2. 创建 `EventHubManagementClient` 对象。
-
+1. 创建 `EventHubManagementClient` 对象。
     ```csharp
     var creds = new TokenCredentials(token);
     var ehClient = new EventHubManagementClient(creds)
@@ -65,8 +64,7 @@ ms.lasthandoff: 09/04/2017
     };
     ```
 
-3. 将 `CreateOrUpdate` 参数设置为指定值。
-
+1. 将 `CreateOrUpdate` 参数设置为指定值。
     ```csharp
     var ehParams = new EventHubCreateOrUpdateParameters()
     {
@@ -74,8 +72,7 @@ ms.lasthandoff: 09/04/2017
     };
     ```
 
-4. 执行调用。
-
+1. 执行调用。
     ```csharp
     await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
     ```

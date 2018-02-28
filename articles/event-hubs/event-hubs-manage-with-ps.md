@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/15/2017
-ms.date: 09/04/2017
+origin.date: 12/19/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 63fdbc97d3ecde9486e92ac92ee4220535356631
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 6b4ef9f7e6f6a0ca0fec60beb5070441ac8ab558
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>使用 PowerShell 管理事件中心资源
 
@@ -31,7 +31,7 @@ Azure PowerShell 是一个脚本编写环境，可用于控制和自动执行 Az
 
 在开始之前，需要具备以下项：
 
-* Azure 订阅。 有关获取订阅的详细信息，请参阅[购买选项][purchase options]、[成员优惠][member offers]或[免费帐户][free account]。
+* Azure 订阅。 有关如何获取订阅的详细信息，请参阅[购买选项][purchase options]、[成员优惠][member offers]或[试用帐户][trial account]。
 * 配备 Azure PowerShell 的计算机。 有关说明，请参阅 [Azure PowerShell cmdlet 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
 * 大致了解 PowerShell 脚本、NuGet 包和 .NET Framework。
 
@@ -157,7 +157,7 @@ Remove-AzureRmEventHubNamespace -ResourceGroupName $ResGrpName -NamespaceName $N
 - 有关[事件中心 .NET 管理库](event-hubs-management-libraries.md)的信息。
 
 [purchase options]: https://www.azure.cn/pricing/overview/
-[member offers]: https://www.azure.cn/pricing/member-offers/
-[free account]: https://www.azure.cn/pricing/1rmb-trial/
+[member offers]: https://www.azure.cn/support/legal/offer-rate-plans/
+[trial account]: https://www.azure.cn/pricing/1rmb-trial/
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

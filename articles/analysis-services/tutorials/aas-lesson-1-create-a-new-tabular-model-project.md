@@ -13,20 +13,18 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 315042493cdc93057ec0647981c22b560200024c
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: bca65af56f03f1e67327ce0c753dd276705ce30c
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="lesson-1-create-a-tabular-model-project"></a>第 1 课：创建表格模型项目
+# <a name="create-a-tabular-model-project"></a>创建表格模型项目
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-本课程使用 SQL Server Data Tools (SSDT) 创建 1400 兼容级别的新表格模型项目。 创建新项目后，可以开始添加数据和创作模型。 本课程还提供 SSDT 中表格模型创作环境的简介。  
+本课程介绍如何将 Visual Studio 与 SQL Server Data Tools (SSDT) 配合使用，以便创建 1400 兼容级别的新表格模型项目。 创建新项目后，可以开始添加数据和创作模型。 本课程还提供 Visual Studio 中表格模型创作环境的简介。  
 
 本课预计完成时间：**10 分钟**  
 
@@ -37,7 +35,7 @@ ms.lasthandoff: 12/08/2017
 
 #### <a name="to-create-a-new-tabular-model-project"></a>创建新的表格模型项目  
 
-1.  在 SSDT 的“文件”菜单中，单击“新建” > “项目”。  
+1.  在 Visual Studio 的“文件”菜单中，单击“新建” > “项目”。  
 
 2.  在“新建项目”对话框中，展开“已安装” > “商业智能” > “Analysis Services”，并单击“Analysis Services 表格项目”。  
 
@@ -49,7 +47,7 @@ ms.lasthandoff: 12/08/2017
 
 5.  在“表格模型设计器”对话框中，选择“集成的工作区”。  
 
-    在创作模型期间，工作区托管与项目同名的表格模型数据库。 集成的工作区表示 SSDT 使用内置实例，因此不需要仅仅出于模型创作目的单独安装一个 Analysis Services 服务器实例。
+    在创作模型期间，工作区托管与项目同名的表格模型数据库。 集成的工作区表示 Visual Studio 使用内置实例，因此不需要仅仅出于模型创作目的单独安装一个 Analysis Services 服务器实例。
 
 6.  在“兼容性级别”中，选择“SQL Server 2017/Azure Analysis Services (1400)”。   
 
@@ -58,9 +56,9 @@ ms.lasthandoff: 12/08/2017
     如果“兼容性级别”列表框中未显示“SQL Server 2017/Azure Analysis Services (1400)”，则表示使用的不是最新版本的 SQL Server Data Tools。 若要获取最新版本，请参阅[安装 SQL Server Data tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)。  
 
 ## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>了解 SSDT 表格模型创作环境  
-创建新的表格模型项目后，让我们花点时间了解 SSDT 中的表格模型创作环境。  
+创建新的表格模型项目后，让我们花点时间了解 Visual Studio 中的表格模型创作环境。  
 
-创建项目后，它会在 SSDT 中打开。 右侧的“表格模型资源管理器”显示了模型中对象的树状视图。 由于尚未导入数据，因此文件夹是空的。 可以右键单击某个对象文件夹来执行操作，就像使用菜单栏一样。 在学习本教程的过程中，将使用“表格模型资源管理器”来浏览模型项目中的不同对象。
+创建项目后，它会在 Visual Studio 中打开。 右侧的“表格模型资源管理器”显示了模型中对象的树状视图。 由于尚未导入数据，因此文件夹是空的。 可以右键单击某个对象文件夹来执行操作，就像使用菜单栏一样。 在学习本教程的过程中，将使用“表格模型资源管理器”来浏览模型项目中的不同对象。
 
 ![aas-lesson1-tme](../tutorials/media/aas-lesson1-tme.png)
 
@@ -83,4 +81,4 @@ ms.lasthandoff: 12/08/2017
 ## <a name="whats-next"></a>后续步骤
 [第 2 课：获取数据](../tutorials/aas-lesson-2-get-data.md)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

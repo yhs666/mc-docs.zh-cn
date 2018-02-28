@@ -1,5 +1,5 @@
 ---
-title: "什么是 Azure Analysis Services | Azure"
+title: "Azure Analysis Services 概述 | Azure"
 description: "Azure 中的 Analysis Services 简介。"
 services: analysis-services
 documentationcenter: 
@@ -13,16 +13,16 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 12/08/2017
-ms.date: 12/25/2017
+origin.date: 01/04/2017
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: d9a37f4e75be4da59816b87a2a0277284ab94f90
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 114d8515656e8c4f96ead24ea0f9f56c5ad97f9d
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
+# <a name="azure-analysis-services-overview"></a>Azure Analysis Services 概述
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services 在云中提供企业级数据建模。 它是完全托管的平台即服务 (PaaS)，与 Azure 数据平台服务集成。 
@@ -63,6 +63,7 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 |--------------|
 | 中国北部 |
 <!-- Not Available on China East for Azure Analysis Services -->
+
 将会不断添加新区域，因此此列表可能并不完整。 通过 Azure 门户或 Azure 资源管理器模板创建服务器时，需选择位置。 若要获得最佳性能，请选择最接近最大用户群的位置。 请在多个区域的冗余服务器上部署模型，确保[高可用性](analysis-services-bcdr.md)。
 
 ## <a name="migrate-your-existing-tabular-models"></a>迁移现有的表格模型
@@ -122,7 +123,7 @@ Azure Analysis Services 的设置和管理非常简单。 可以在这里找到�
 
 <!-- Not Available ### Videos -->
 #### <a name="blogs"></a>博客
-信息会不断更新。 可以随时在 [Analysis Services 团队博客](https://www.azure.cn/blog/tags/Azure%20分析服务)上获取最新信息。
+信息会不断更新。 在 [Azure 博客](https://www.azure.cn/blog/tags/Azure%20分析服务)上可以随时获取最新信息。
 
 <!-- Not Available #### Community -->
 <!-- Not Available ## Feedback -->
@@ -130,4 +131,4 @@ Azure Analysis Services 的设置和管理非常简单。 可以在这里找到�
 ## <a name="next-steps"></a>后续步骤
 现在已详细了解了 Azure Analysis Services，可以开始使用了。 了解如何在 Azure 中[创建服务器](analysis-services-create-server.md)。 服务器就绪以后，请逐步学习 [Adventure Works 教程](tutorials/aas-adventure-works-tutorial.md)，了解如何创建完全正常运行的表格模型并将其部署到服务器。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

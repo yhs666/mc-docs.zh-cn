@@ -13,18 +13,16 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7972c79a50b10e667de106b85f5d2890c71e5b76
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: e5f44124fc3ece4896ac247bcce010fa31bdf475
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="lesson-4-create-relationships"></a>第 4 课：创建关系
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-relationships"></a>创建关系
 
 本课程介绍如何验证导入数据时自动创建的关系，以及在不同的表之间添加新关系。 关系是两个表之间的连接，规定如何关联这些表中的数据。 例如，在 DimProduct 表与 DimProductSubcategory 表之间，基于每种产品属于某个子类别这一事实建立了关系。 若要了解详细信息，请参阅[关系](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular)。
 
@@ -105,4 +103,4 @@ ms.lasthandoff: 12/08/2017
 ## <a name="whats-next"></a>后续步骤
 [第 5 课：创建计算列](../tutorials/aas-lesson-5-create-calculated-columns.md)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

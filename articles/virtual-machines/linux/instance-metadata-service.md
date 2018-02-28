@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 10/10/2017
 ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: d75e5fb0707a849717bc51d4351aa32969bf14f4
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 4ffb34865fa473c0a2d0cdcdd60c1e465a7969ff
+ms.sourcegitcommit: 2c6591b24e8ccb1c1b9a56738049b99f5785b833
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -37,10 +37,10 @@ Azure 的实例元数据服务是一个 REST 终结点，所有创建的 IaaS VM
 区域                                        | 可用性？                                 | 支持的版本
 -----------------------------------------------|-----------------------------------------------|-----------------
 [全球所有公开上市的 Azure 区域](https://azure.microsoft.com/regions/)     | 正式版   | 2017-04-02, 2017-08-01 
-[Azure 政府](https://azure.microsoft.com/overview/clouds/government/)              | 正式版 | 2017-04-02 
+[Azure 美国政府版](https://azure.microsoft.com/overview/clouds/government/)              | 正式版 | 2017-04-02 
 [Azure 中国](https://www.azure.cn/)                                                           | 正式版 | 2017-04-02
 [Azure 德国](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式版 | 2017-04-02
-
+<!-- Notice : [Azure Government] to [Azure US Government] -->
 当有服务更新和/或有可用的新支持版本时，此表将更新
 
 若要试用实例元数据服务，请在上述区域中从 [Azure 资源管理器](https://docs.microsoft.com/rest/api/resources/)或 [Azure 门户](http://portal.azure.cn)创建一个 VM，并按照以下示例操作。

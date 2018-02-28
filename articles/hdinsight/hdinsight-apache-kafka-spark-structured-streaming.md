@@ -1,5 +1,5 @@
 ---
-title: "Apache Spark 结构化流式处理与 Kafka - Azure HDInsight | Microsoft Docs"
+title: "Apache Spark 结构化流式处理与 Kafka"
 description: "了解如何使用 Apache Spark 流式处理 (DStream) 将数据传入或传出 Apache Kafka。 本示例使用 Spark on HDInsight 中的 Jupyter notebook 流式传输数据。"
 services: hdinsight
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/07/2017
-ms.date: 12/25/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 90a6dfa964ba93bbd8bed6c75eef9b3d313642c4
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: d30e7cde164a415fb07c898d8f9246dbddbe6737
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>将 Spark 结构化流式处理与 Kafka on HDInsight 配合使用
 
@@ -30,7 +30,7 @@ Spark 结构化流式处理是建立在 Spark SQL 上的流处理引擎。 这�
 > [!IMPORTANT]
 > 此示例使用了 Spark 2.1 on HDInsight 3.6。 结构化流式处理在 Spark 2.1 上被视作“alpha”。
 >
-> 本文档中的步骤创建了一个包含 Spark on HDInsight 和 Kafka on HDInsight 群集的 Azure 资源组。 这些群集都位于一个 Azure 虚拟网络中，这样 Spark 群集便可与 Kafka 群集直接通信。
+> 本文档中的步骤创建一个 Azure 资源组，其中同时包含 HDInsight 上的 Spark 和 HDInsight 上的 Kafka 群集。 这些群集都位于一个 Azure 虚拟网络中，这样 Spark 群集便可与 Kafka 群集直接通信。
 >
 > 完成本文档中的步骤后，请记得删除这些群集，避免支付额外费用。
 
@@ -66,7 +66,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
    
     * **资源组**：创建一个组或选择现有组。 此组包含 HDInsight 群集。
 
-    * **位置**：选择在地理上邻近的位置。
+    * 位置：选择在地理上邻近的位置。
 
     * **基群集名称**：此值用作 Spark 和 Kafka 群集的基名称。 例如，输入 **hdi** 创建名为 spark-hdi__ 的 Spark 群集和名为 **kafka-hdi** 的 Kafka 群集。
 
@@ -76,7 +76,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
     * **SSH 用户名**：要为 Spark 和 Kafka 群集创建的 SSH 用户。
 
-    * **SSH 密码**：Spark 和 Kafka 群集的 SSH 用户密码。
+    * **SSH 密码**：Spark 和 Kafka 群集的 SSH 用户的密码。
 
 3. 阅读“条款和条件”，并选择“我同意上述条款和条件”。
 
@@ -128,7 +128,7 @@ curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUST
 
 使用下列步骤，将项目中的 Notebook 上传到 Spark on HDInsight 群集：
 
-1. 在 Web 浏览器中，连接到 Spark 群集上的 Jupyter Notebook。 在下列 URL 中，将 `CLUSTERNAME` 替换为 Kafka 群集名：
+1. 在 Web 浏览器中，连接到 Spark 群集上的 Jupyter Notebook。 在下列 URL 中，将 `CLUSTERNAME` 替换为你的 __Spark__ 群集名：
 
         https://CLUSTERNAME.azurehdinsight.cn/jupyter
 
@@ -136,7 +136,7 @@ curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUST
 
 2. 在页面右上角，使用“上传”按钮将“Stream-Tweets-To_Kafka.ipynb”文件上传到群集。 选择“打开”开始上传。
 
-    ![使用“上传”按钮来选择并上传笔记本](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-button.png)
+    ![使用“上传”按钮选择并上传 Notebook](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-button.png)
 
     ![选择 KafkaStreaming.ipynb 文件](./media/hdinsight-apache-kafka-spark-structured-streaming/select-notebook.png)
 

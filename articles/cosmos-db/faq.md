@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 01/02/2018
 ms.date: 01/29/2018
 ms.author: v-yeche
-ms.openlocfilehash: 09ce758ac13ff702981b68cc74a90143335db088
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 57be619e9b9c879d00ecbd6d32ac3659ef7e904d
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 <!-- meta.description: GLOBALLY to multiple-region -->
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常见问题解答
@@ -94,8 +94,9 @@ Azure Cosmos DB 有一个不受架构影响的索引编制引擎，能够自动�
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>可以将 PreferredLocations 设置为哪些区域？ 
 可以将 PreferredLocations 值设置为提供 Cosmos DB 的任何 Azure 区域。 有关可用区域的列表，请参阅 [Azure 区域](https://www.azure.cn/support/service-dashboard/)。
 
-### <a name="is-there-anything-i-should-be-aware-of-when-distributing-data-across-the-world-via-the-azure-datacenters"></a>通过 Azure 数据中心在全球分配数据时需要注意什么？ 
+### <a name="is-there-anything-i-should-be-aware-of-when-distributing-data-across-the-multiple-region-via-the-azure-datacenters"></a>通过 Azure 数据中心在多个区域分配数据时需要注意什么？ 
 Azure Cosmos DB 存在于所有 Azure 区域，详见 [Azure 区域](https://www.azure.cn/support/service-dashboard/)页。 由于 Azure Cosmos DB 是核心服务，每个新数据中心都部署了它。 
+<!-- Notice: WORLD to multiple-region(多个区域分配) -->
 
 设置区域时，请记住，Azure Cosmos DB 遵从主权和政府云的要求。 也就是说，如果你在某个主权区域创建了一个帐户，则不能将数据从该主权区域复制到外部区域。 同样，你不能将数据从外部帐户复制到其他主权位置。 
 

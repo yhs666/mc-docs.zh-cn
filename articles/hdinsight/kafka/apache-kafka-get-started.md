@@ -1,5 +1,5 @@
 ---
-title: "Apache Kafka 入门 - Azure HDInsight | Azure"
+title: "Apache Kafka 入门 - Azure HDInsight"
 description: "了解如何在 Azure HDInsight 上创建 Apache Kafka 群集。 了解如何创建主题、订阅服务器和使用者。"
 services: hdinsight
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/07/2017
-ms.date: 01/15/2018
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: f4b2aeee33258a9d6442faa2255921a2ff39637e
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: bafe963d42160670c8fcf7d3e6e7193d672739fa
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>Apache Kafka on HDInsight 入门
 
@@ -184,7 +184,7 @@ Kafka 将*记录*存储在主题中。 记录由*生成者*生成，由*使用�
 2. 使用 Kafka 随附的脚本从主题中读取记录：
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --zookeeper $KAFKAZKHOSTS --topic test --from-beginning
     ```
 
     此命令从主题中检索并显示记录。 使用 `--from-beginning` 告知使用者要从流的开头开始读取，以便检索所有记录。

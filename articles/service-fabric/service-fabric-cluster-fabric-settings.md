@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/15/2017
-ms.date: 01/01/2018
+origin.date: 01/09/2018
+ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 04bcf7f1038ac37fed2556a16fd5b2da880e2d8a
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 0be46fe6900d3df25bbfd8c7bf032957db3016f4
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自定义 Service Fabric 群集设置和结构升级策略
 本文档说明如何为 Service Fabric 群集自定义各种结构设置和结构升级策略。 可以通过 [Azure 门户](https://portal.azure.cn)或使用 Azure 资源管理器模板完成自定义。
@@ -537,31 +537,31 @@ PropertyGroup|X509NameMap，默认值为 None|动态| |
 | StartClusterConfigurationUpgrade |string，默认值为“Admin” |动态| 在分区上引入 StartClusterConfigurationUpgrade。 |
 | GetUpgradesPendingApproval |string，默认值为“Admin” |动态| 在分区上引入 GetUpgradesPendingApproval。 |
 | StartApprovedUpgrades |string，默认值为“Admin” |动态| 在分区上引入 StartApprovedUpgrades。 |
-| Ping |string，默认值为“Admin\|\|User" |动态| 用于客户 ping 的安全配置。 |
-| 查询 |string，默认值为“Admin\|\|User" |动态| 用于查询的安全配置。 |
-| NameExists |string，默认值为“Admin\|\|User" | 动态|用于检查是否存在命名 URI 的安全配置。 |
-| EnumerateSubnames |string，默认值为“Admin\|\|User" |动态| 用于枚举命名 URI 的安全配置。 |
-| EnumerateProperties |string，默认值为“Admin\|\|User" | 动态|用于枚举 Naming 属性的安全配置。 |
-| PropertyReadBatch |string，默认值为“Admin\|\|User" |动态| 用于 Naming 属性读取操作的安全配置。 |
-| GetServiceDescription |string，默认值为“Admin\|\|User" |动态| 用于长时间轮询服务通知和读取服务说明的安全配置。 |
-| ResolveService |string，默认值为“Admin\|\|User" |动态| 用于基于投诉解析服务的安全配置。 |
-| ResolveNameOwner |string，默认值为“Admin\|\|User" | 动态|用于解析命名 URI 所有者的安全配置。 |
-| ResolvePartition |string，默认值为“Admin\|\|User" | 动态|用于解析系统服务的安全配置。 |
-| ServiceNotifications |string，默认值为“Admin\|\|User" |动态| 用于基于事件的服务通知的安全配置。 |
-| PrefixResolveService |string，默认值为“Admin\|\|User" |动态| 用于基于投诉解析服务前缀的安全配置。 |
-| GetUpgradeStatus |string，默认值为“Admin\|\|User" |动态| 用于轮询应用程序升级状态的安全配置。 |
-| GetFabricUpgradeStatus |string，默认值为“Admin\|\|User" |动态| 用于轮询群集升级状态的安全配置。 |
-| InvokeInfrastructureQuery |string，默认值为“Admin\|\|User" | 动态|用于查询基础结构任务的安全配置。 |
-| 列出 |string，默认值为“Admin\|\|User" | 动态|用于映像存储客户端文件列表操作的安全配置。 |
-| ResetPartitionLoad |string，默认值为“Admin\|\|User" |动态| 用于重置 failoverUnit 负载的安全配置。 |
-| ToggleVerboseServicePlacementHealthReporting | string，默认值为“Admin\|\|User" |动态| 用于切换详细 ServicePlacement HealthReporting 的安全配置。 |
-| GetPartitionDataLossProgress | string，默认值为“Admin\|\|User" | 动态|提取调用数据丢失 API 调用的进度。 |
-| GetPartitionQuorumLossProgress | string，默认值为“Admin\|\|User" |动态| 提取调用仲裁丢失 API 调用的进度。 |
-| GetPartitionRestartProgress | string，默认值为“Admin\|\|User" |动态| 提取重启分区 API 调用的进度。 |
-| GetChaosReport | string，默认值为“Admin\|\|User" |动态| 提取给定时间范围内的混沌状态。 |
-| GetNodeTransitionProgress | string，默认值为“Admin\|\|User" |动态| 用于获取节点转换命令进度的安全配置。 |
-| GetClusterConfigurationUpgradeStatus | string，默认值为“Admin\|\|User" |动态| 在分区上引入 GetClusterConfigurationUpgradeStatus。 |
-| GetClusterConfiguration | string，默认值为“Admin\|\|User" | 动态|在分区上引入 GetClusterConfiguration。 |
+| Ping |string，默认值为“Admin\|\|User” |动态| 用于客户 ping 的安全配置。 |
+| 查询 |string，默认值为“Admin\|\|User” |动态| 用于查询的安全配置。 |
+| NameExists |string，默认值为“Admin\|\|User” | 动态|用于检查是否存在命名 URI 的安全配置。 |
+| EnumerateSubnames |string，默认值为“Admin\|\|User” |动态| 用于枚举命名 URI 的安全配置。 |
+| EnumerateProperties |string，默认值为“Admin\|\|User” | 动态|用于枚举 Naming 属性的安全配置。 |
+| PropertyReadBatch |string，默认值为“Admin\|\|User” |动态| 用于 Naming 属性读取操作的安全配置。 |
+| GetServiceDescription |string，默认值为“Admin\|\|User” |动态| 用于长时间轮询服务通知和读取服务说明的安全配置。 |
+| ResolveService |string，默认值为“Admin\|\|User” |动态| 用于基于投诉解析服务的安全配置。 |
+| ResolveNameOwner |string，默认值为“Admin\|\|User” | 动态|用于解析命名 URI 所有者的安全配置。 |
+| ResolvePartition |string，默认值为“Admin\|\|User” | 动态|用于解析系统服务的安全配置。 |
+| ServiceNotifications |string，默认值为“Admin\|\|User” |动态| 用于基于事件的服务通知的安全配置。 |
+| PrefixResolveService |string，默认值为“Admin\|\|User” |动态| 用于基于投诉解析服务前缀的安全配置。 |
+| GetUpgradeStatus |string，默认值为“Admin\|\|User” |动态| 用于轮询应用程序升级状态的安全配置。 |
+| GetFabricUpgradeStatus |string，默认值为“Admin\|\|User” |动态| 用于轮询群集升级状态的安全配置。 |
+| InvokeInfrastructureQuery |string，默认值为“Admin\|\|User” | 动态|用于查询基础结构任务的安全配置。 |
+| 列出 |string，默认值为“Admin\|\|User” | 动态|用于映像存储客户端文件列表操作的安全配置。 |
+| ResetPartitionLoad |string，默认值为“Admin\|\|User” |动态| 用于重置 failoverUnit 负载的安全配置。 |
+| ToggleVerboseServicePlacementHealthReporting | string，默认值为“Admin\|\|User” |动态| 用于切换详细 ServicePlacement HealthReporting 的安全配置。 |
+| GetPartitionDataLossProgress | string，默认值为“Admin\|\|User” | 动态|提取调用数据丢失 API 调用的进度。 |
+| GetPartitionQuorumLossProgress | string，默认值为“Admin\|\|User” |动态| 提取调用仲裁丢失 API 调用的进度。 |
+| GetPartitionRestartProgress | string，默认值为“Admin\|\|User” |动态| 提取重启分区 API 调用的进度。 |
+| GetChaosReport | string，默认值为“Admin\|\|User” |动态| 提取给定时间范围内的混沌状态。 |
+| GetNodeTransitionProgress | string，默认值为“Admin\|\|User” |动态| 用于获取节点转换命令进度的安全配置。 |
+| GetClusterConfigurationUpgradeStatus | string，默认值为“Admin\|\|User” |动态| 在分区上引入 GetClusterConfigurationUpgradeStatus。 |
+| GetClusterConfiguration | string，默认值为“Admin\|\|User” | 动态|在分区上引入 GetClusterConfiguration。 |
 |CreateComposeDeployment|string，默认值为 L"Admin"| 动态|创建由组合文件说明的组合部署 |
 |DeleteComposeDeployment|string，默认值为 L"Admin"| 动态|删除组合部署 |
 |UpgradeComposeDeployment|string，默认值为 L"Admin"| 动态|升级组合部署 |
@@ -754,8 +754,8 @@ PropertyGroup|X509NameMap，默认值为 None|动态| |
 |MaxPrimaryReplicationQueueMemorySize|uint，默认值为 0|静态|这是主复制队列的最大值（以字节为单位）。|
 |MaxSecondaryReplicationQueueSize|uint，默认值为 2048|静态|这是辅助复制队列中可以存在的最大操作数量。 请注意，它必须是 2 的幂。|
 |MaxSecondaryReplicationQueueMemorySize|uint，默认值为 0|静态|这是辅助复制队列的最大值（以字节为单位）。|
-|QueueHealthMonitoringInterval|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(30)|静态|指定以秒为单位的时间跨度。 此值确定复制器用于监视复制操作队列中任何警告/错误运行状况事件的时间段。 如果值为 "0"，则禁用运行状况监视。 |
-|QueueHealthWarningAtUsagePercent|uint，默认值为 80|静态|此值确定复制队列使用率（以百分比表示），超过该值后我们会报告高队列使用率警告。 QueueHealthMonitoringInterval 的宽限期间隔后，进行此操作。 如果宽限期时间间隔内队列使用率低于此百分比，则不报告警告。|
+|QueueHealthMonitoringInterval|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(30)|静态|指定以秒为单位的时间跨度。 此值确定复制器用于监视复制操作队列中任何警告/错误运行状况事件的时间段。 如果值为 "0"，则禁用运行状况监视 |
+|QueueHealthWarningAtUsagePercent|uint，默认值为 80|静态|此值确定复制队列使用率（以百分比表示），超过该值后我们会报告高队列使用率警告。 QueueHealthMonitoringInterval 的宽限期间隔后，进行此操作。 如果宽限期时间间隔内队列使用率低于此百分比|
 |RetryInterval|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(5)|静态|指定以秒为单位的时间跨度。 丢失或拒绝操作时，此计时器确定复制器重试发送该操作的频率。|
 
 ### <a name="section-name-transport"></a>节名称：Transport

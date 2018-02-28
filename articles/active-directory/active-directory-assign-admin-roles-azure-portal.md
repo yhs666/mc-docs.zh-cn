@@ -17,11 +17,11 @@ ms.date: 1/1/2017
 ms.author: v-nany
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 8c6c47b97c9f4dd531240c9e7b282366dab6d6e6
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 88be9d91b9ad6d711aa47134636b5986d71be22a
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中分配管理员角色
 
@@ -39,11 +39,11 @@ ms.lasthandoff: 12/22/2017
 
 * **设备管理员**：具有此角色的用户将成为已加入 Azure Active Directory 的所有 Windows 10 设备上的本地计算机管理员。 他们无权管理 Azure Active Directory 中的设备对象。
 
-* **目录读取者**：这是一个遗留的角色，分配给不支持[同意框架](active-directory-integrating-applications.md)的应用程序。 不应将它分配给任何用户。
+* **目录读取者**：这是一个遗留的角色，分配给不支持同意框架的应用程序。 不应将它分配给任何用户。
 
 * **目录同步帐户**：请勿使用。 此角色自动分配给 Azure AD Connect 服务，不可用于其他任何用途。
 
-* **目录写入者**：这是一个遗留的角色，分配给不支持[同意框架](active-directory-integrating-applications.md)的应用程序。 不应将它分配给任何用户。
+* **目录写入者**：这是一个遗留的角色，分配给不支持同意框架的应用程序。 不应将它分配给任何用户。
 
 * **Exchange 服务管理员**：具有此角色的用户在 Microsoft Exchange Online（如果存在此服务）中拥有全局权限。 有关详细信息，请参阅 [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)（关于 Office 365 管理员角色）。
 

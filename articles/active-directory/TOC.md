@@ -10,7 +10,6 @@
 # 入门
 ## [Azure AD 入门](get-started-azure-ad.md)
 ## [添加自定义域名](add-custom-domain.md)
-## [配置公司品牌](customize-branding.md)
 ## [将用户添加到 Azure AD](add-users-azure-active-directory.md)
 
 
@@ -26,7 +25,7 @@
 ### [共享帐户](active-directory-sharing-accounts.md)
 ### [将用户分配到管理员角色](active-directory-users-assign-role-azure-portal.md)
 
-## [管理组和成员](active-directory-manage-groups.md)
+## 管理组和成员
 ### 管理组
 #### [Azure 门户](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)

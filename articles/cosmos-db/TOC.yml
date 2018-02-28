@@ -67,7 +67,7 @@
           href: tutorial-query-mongodb.md
         - name: 表
           href: tutorial-query-table.md
-    - name: 4 - 全球分布
+    - name: 4 - 多区域分布
       items:
         - name: SQL
           href: tutorial-global-distribution-sql-api.md
@@ -89,7 +89,7 @@
       href: powershell-samples.md
 - name: 概念
   items:
-    - name: 全球分布
+    - name: 多区域分布
       href: distribute-data-globally.md
     - name: 分区
       href: partition-data.md

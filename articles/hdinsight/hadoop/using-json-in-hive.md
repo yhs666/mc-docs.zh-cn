@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure HDInsight 中的 Apache Hive 分析和处理 JSON 文档 | Microsoft Docs"
+title: "使用 Azure HDInsight 中的 Apache Hive 分析和处理 JSON 文档"
 description: "了解如何使用 JSON 文档，以及如何使用 Azure HDInsight 中的 Apache Hive 来分析这些文档"
 services: hdinsight
 documentationcenter: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 09/06/2017
-ms.date: 12/18/2017
+origin.date: 12/20/2017
+ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 167861af853c80c33a968944b303ce84e181ceed
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: c1a1f3144ce9d2f6181f612f1467f255abc03fee
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>使用 Azure HDInsight 中的 Apache Hive 分析和处理 JSON 文档
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 12/08/2017
         ]
     }
 
-可以在 wasb://processjson@hditutorialdata.blob.core.chinacloudapi.cn/上找到该文件。 有关如何将 Azure Blob 存储与 HDInsight 配合使用的详细信息，请参阅[将 HDFS 兼容的 Azure Blob 存储与 HDInsight 中的 Hadoop 配合使用](../shdinsight-hadoop-use-blob-storage.md)。 可以将该文件复制到群集的默认容器。
+可以在 wasb://processjson@hditutorialdata.blob.core.chinacloudapi.cn/上找到该文件。 有关如何将 Azure Blob 存储与 HDInsight 配合使用的详细信息，请参阅[将 HDFS 兼容的 Azure Blob 存储与 HDInsight 中的 Hadoop 配合使用](../hdinsight-hadoop-use-blob-storage.md)。 可以将该文件复制到群集的默认容器。
 
 在本教程中，将使用 Hive 控制台。 有关如何打开 Hive 控制台的说明，请参阅[通过远程桌面将 Hive 与 Hadoop on HDInsight 配合使用](apache-hadoop-use-hive-remote-desktop.md)。
 

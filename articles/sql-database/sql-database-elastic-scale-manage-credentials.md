@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 11/29/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 6e87616f66a184aee2ff1833131c3be723871129
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 5814c674721f4e4e66d07daaf3af65910f11b2a5
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>用于访问弹性数据库客户端库的凭据
 [弹性数据库客户端库](sql-database-elastic-database-client-library.md)使用三种不同的凭据来访问[分片映射管理器](sql-database-elastic-scale-shard-map-management.md)。 使用凭据时，应根据需要尽可能采用最低访问级别。
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/05/2018
 另请参阅[管理 Azure SQL 数据库的数据库和登录名](sql-database-manage-logins.md)。 
 
 ## <a name="about-management-credentials"></a>关于管理凭据
-使用管理凭据可以针对操作分片映射的应用程序创建 **ShardMapManager**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager)、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)）对象。 （有关示例，请参阅[使用弹性数据库工具添加分片](sql-database-elastic-scale-add-a-shard.md)和[数据相关路由](sql-database-elastic-scale-data-dependent-routing.md)）。 弹性缩放客户端库的用户创建 SQL 用户和 SQL 登录名，并确保授予每个 SQL 用户/登录名对全局分片映射数据库以及所有分片数据库的读/写权限。 对分片映射执行更改时，可使用这些凭据维护全局分片映射和本地分片映射。 例如，使用管理凭据创建分片映射管理器对象（使用 **GetSqlShardMapManager**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager)、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)））： 
+使用管理凭据可以针对操作分片映射的应用程序创建 **ShardMapManager**（Java、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)）对象。 （有关示例，请参阅[使用弹性数据库工具添加分片](sql-database-elastic-scale-add-a-shard.md)和[数据相关路由](sql-database-elastic-scale-data-dependent-routing.md)）。 弹性缩放客户端库的用户创建 SQL 用户和 SQL 登录名，并确保授予每个 SQL 用户/登录名对全局分片映射数据库以及所有分片数据库的读/写权限。 对分片映射执行更改时，可使用这些凭据维护全局分片映射和本地分片映射。 例如，使用管理凭据创建分片映射管理器对象（使用 **GetSqlShardMapManager**（Java、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)））： 
 
 ```
 // Obtain a shard map manager. 
@@ -58,7 +58,7 @@ ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(s
 记下 smmReadOnlyConnectionString 的使用，以代表非管理员用户反映用于此访问的其他凭据的使用：这些凭据不应在全局分片映射上提供写入权限。 
 
 ## <a name="connection-credentials"></a>连接凭据
-使用 **OpenConnectionForKey**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapper._list_shard_mapper.openconnectionforkey)、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)）方法访问与某个分片键相关联的分片时，还需使用其他凭据。 这些凭据需要提供对驻留在该分片上的本地分片映射表的只读访问权限。 若要对分片上数据相关的路由执行连接验证，则需要此凭据。 此代码片段允许在使用数据相关路由的情况下进行数据访问： 
+使用 **OpenConnectionForKey**（Java、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)）方法访问与某个分片键相关联的分片时，还需使用其他凭据。 这些凭据需要提供对驻留在该分片上的本地分片映射表的只读访问权限。 若要对分片上数据相关的路由执行连接验证，则需要此凭据。 此代码片段允许在使用数据相关路由的情况下进行数据访问： 
 
 ```csharp
 using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate)) 

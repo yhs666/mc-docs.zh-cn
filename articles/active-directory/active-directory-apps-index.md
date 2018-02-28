@@ -15,11 +15,11 @@ origin.date: 10/21/2017
 ms.date: 11/22/2017
 ms.author: v-junlch
 ms.reviewer: asteen
-ms.openlocfilehash: 1f3b50a5bc0092bda0994f537e38d2457cab8312
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 7dcca820e5f64ce49cfc4631452cbaa7f0e09bad
+ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>有关 Azure Active Directory 中应用程序管理的文章索引
 本页提供了一份完整列表，列出编写的 Azure Active Directory (Azure AD) 中各种应用程序相关功能的所有文章。
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/23/2018
 |:---:| --- |
 | 介绍 Azure AD 解决的应用程序管理问题	 |[使用 Azure Active Directory (AD) 管理应用程序](active-directory-enable-sso-scenario.md) |
 | Azure AD 中与启用单一登录、定义有权访问应用的人员，以及用户如何启动应用相关的各种功能概述 |[Azure Active Directory 中的应用程序访问和单一登录](active-directory-appssoaccess-whatis.md) |
-| 探讨将应用程序集成到 Azure AD 时所涉及的不同步骤 |[将 Azure Active Directory 与应用程序集成](./active-directory-integrating-applications-getting-started.md)<br /><br />[启用对 SaaS 应用的单一登录](./active-directory-sso-integrate-saas-apps.md)<br /><br />[管理对应用的访问](./active-directory-managing-access-to-apps.md) |
+| 探讨将应用程序集成到 Azure AD 时所涉及的不同步骤 |[将 Azure Active Directory 与应用程序集成](./active-directory-integrating-applications-getting-started.md)<br /><br />启用对 SaaS 应用的单一登录<br /><br />[管理对应用的访问](./active-directory-managing-access-to-apps.md) |
 | 如何在 Azure AD 中表示应用的技术说明 |[如何以及为何将应用程序添加到 Azure AD](./develop/active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>疑难解答文章

@@ -1,5 +1,5 @@
 ---
-title: "Azure HDInsight 工具 -将 Visual Studio Code 用于 Hive、LLAP 或 pySpark | Microsoft Docs"
+title: "Azure HDInsight 工具 -将 Visual Studio Code 用于 Hive、LLAP 或 pySpark"
 description: "了解如何使用用于 Visual Studio Code 的 Azure HDInsight 工具来创建、提交查询和脚本。"
 Keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 10/27/2017
-ms.date: 12/25/2017
-ms.author: jejiang
-ms.openlocfilehash: 39841ce10e67ea8b4b5790369dce3be0bcc93676
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.date: 02/26/2018
+ms.author: v-yiso
+ms.openlocfilehash: 78de116ede0782b972ed75707c6c0aa50c5d1bf3
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用用于 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -285,6 +285,8 @@ ms.lasthandoff: 12/15/2017
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [在 Azure HDInsight 中使用 Microsoft Power BI 可视化 Hive 数据](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [在 Azure HDInsight 中使用 Power BI 直观显示交互式查询 Hive 数据](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)。
+* [为 Visual Studio Code 设置 PySpark 交互式环境](set-up-pyspark-interactive-environment.md)
 * [在 Azure HDInsight 中使用 Zeppelin 运行 Hive 查询](./hdinsight-connect-hive-zeppelin.md)
 
 ### <a name="scenarios"></a>方案
