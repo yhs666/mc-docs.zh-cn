@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/27/2017
-ms.date: 12/11/2017
+origin.date: 01/25/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3791ec7021559b89596fe356d756aba407edb377
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 2523b9d9a09051c29db994b8254d2ca9575bb09e
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="message-transfers-locks-and-settlement"></a>消息传输、锁定和处置
 
@@ -65,7 +65,7 @@ for (int i = 0; i < 100; i++)
 await Task.WhenAll(tasks.ToArray());
 ```
 
-请务必注意，所有异步编程模型都使用某种形式的基于内存的隐藏工作队列来保存挂起的操作。 当 [SendAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) 或 **Send** (Java) 返回时，发送任务会在该工作队列中进行排队，但协议操作只会在轮到任务运行之后开始。 对于倾向于推送消息突发并且需要考虑可靠性的代码，应注意不要同时“发送”太多消息，因为所有发送的消息在实际置于线路上之前都会占用内存。
+请务必注意，所有异步编程模型都使用某种形式的基于内存的隐藏工作队列来保存挂起的操作。 当 [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) 或 **Send** (Java) 返回时，发送任务会在该工作队列中进行排队，但协议操作只会在轮到任务运行之后开始。 对于倾向于推送消息突发并且需要考虑可靠性的代码，应注意不要同时“发送”太多消息，因为所有发送的消息在实际置于线路上之前都会占用内存。
 
 如以下 C# 代码片段中所示，信号灯是可在需要时启用这类应用程序级别限制的同步对象。 信号灯的这种用法允许同时最多发送 10 个消息。 10 个可用信号灯锁中的一个会在发送之前采用，然后在发送完成时释放。 循环的第 11 次执行会等待以前发送中的至少一个发送完成，然后使其锁可用：
 
@@ -98,21 +98,21 @@ for (int i = 0; i < 100; i++)
 
 对于接收操作，服务总线 API 客户端启用两种不同的显式模式：接收并删除和扫视锁定。
 
-[接收并删除](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.receivemode)模式告知代理将它发送到接收客户端的所有消息都在发送时视为已处置。 这意味着在代理将消息置于线路上之后，它会立即被视为已使用。 如果消息传输失败，则消息会丢失。
+[接收并删除](/dotnet/api/microsoft.servicebus.messaging.receivemode)模式告知代理将它发送到接收客户端的所有消息都在发送时视为已处置。 这意味着在代理将消息置于线路上之后，它会立即被视为已使用。 如果消息传输失败，则消息会丢失。
 
 此模式的优点是接收方无需对消息执行进一步操作，也不会由于等待处置结果而减慢速度。 如果各个消息中包含的数据具有较低值并且/或者只在很短时间内才有意义，则此模式是合理选择。
 
-[扫视锁定](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.receivemode)模式告知代理接收客户端希望显式处置收到的消息。 消息可供接收方进行处理，同时在服务中保持在排他锁下，以便其他竞争接收方无法看到它。 该锁的持续时间最初在队列或订阅级别进行定义，可以由拥有该锁的客户端通过 [RenewLock](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) 操作进行延长。
+[扫视锁定](/dotnet/api/microsoft.servicebus.messaging.receivemode)模式告知代理接收客户端希望显式处置收到的消息。 消息可供接收方进行处理，同时在服务中保持在排他锁下，以便其他竞争接收方无法看到它。 该锁的持续时间最初在队列或订阅级别进行定义，可以由拥有该锁的客户端通过 [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) 操作进行延长。
 
 锁定消息时，从相同队列或订阅进行接收的其他客户端可以接受锁并检索不处于活动锁下的下一个可用消息。 显式释放消息上的锁或是锁过期时，消息会弹回到检索顺序前列或附近，以便重新传递。
 
-当接收方重复释放消息或是使锁结束定义的次数 ([maxDeliveryCount](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount#Microsoft_ServiceBus_Messaging_QueueDescription_MaxDeliveryCount)) 时，消息会自动从队列或订阅中删除并放入关联死信队列中。
+当接收方重复释放消息或是使锁结束定义的次数 ([maxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount#Microsoft_ServiceBus_Messaging_QueueDescription_MaxDeliveryCount)) 时，消息会自动从队列或订阅中删除并放入关联死信队列中。
 
-当接收客户端在 API 级别调用 [Complete](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.complete#Microsoft_ServiceBus_Messaging_QueueClient_Complete_System_Guid_) 时，会使用肯定确认启动收到的消息的处置。 这会向代理指出消息已成功处理，并且消息会从队列或订阅中删除。 代理会使用指示是否可以执行处置的回复来回复接收者的处置意向。
+当接收客户端在 API 级别调用 [Complete](/dotnet/api/microsoft.servicebus.messaging.queueclient.complete#Microsoft_ServiceBus_Messaging_QueueClient_Complete_System_Guid_) 时，会使用肯定确认启动收到的消息的处置。 这会向代理指出消息已成功处理，并且消息会从队列或订阅中删除。 代理会使用指示是否可以执行处置的回复来回复接收者的处置意向。
 
-如果接收客户端未能处理消息，但是希望重新传递消息，则可以通过调用 [Abandon](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.abandon) 来显式要求立即释放并解锁消息，也可以不执行任何操作，让锁结束。
+如果接收客户端未能处理消息，但是希望重新传递消息，则可以通过调用 [Abandon](/dotnet/api/microsoft.servicebus.messaging.queueclient.abandon) 来显式要求立即释放并解锁消息，也可以不执行任何操作，让锁结束。
 
-如果接收客户端未能处理消息并且知道重新传递消息并重试操作将不起作用，则可以拒绝消息，这会通过调用 [DeadLetter](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.deadletter) 将它移动到死信队列中，从而还允许设置自定义属性（包括可以对来自死信队列的消息检索的原因代码）。
+如果接收客户端未能处理消息并且知道重新传递消息并重试操作将不起作用，则可以拒绝消息，这会通过调用 [DeadLetter](/dotnet/api/microsoft.servicebus.messaging.queueclient.deadletter) 将它移动到死信队列中，从而还允许设置自定义属性（包括可以对来自死信队列的消息检索的原因代码）。
 
 处置的一种特殊情况是延迟，这会在单独文章中进行讨论。
 

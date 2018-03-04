@@ -1,10 +1,10 @@
 ---
-title: "如何管理 Azure Redis 缓存 | Azure"
+title: "如何管理 Azure Redis 缓存 | Microsoft Docs"
 description: "了解如何执行管理任务，如重新启动 Azure Redis 缓存和为 Azure Redis 缓存计划更新"
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
 ms.service: cache
@@ -13,21 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 origin.date: 07/05/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 2945e2b0f9abaafc7d9040382d0772ac1213e757
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 03/01/2018
+ms.author: v-junlch
+ms.openlocfilehash: b3dc67cf47ab961b788df578ec3ff00459d58653
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>如何管理 Azure Redis 缓存
-本主题介绍如何为 Azure Redis 缓存实例执行管理任务，如[重新启动](#reboot)和[计划更新](#schedule-updates)。
-
-> [!IMPORTANT]
-> 本文中所述的设置和功能仅适用于高级层缓存。
-> 
-> 
+本主题介绍如何为 Azure Redis 缓存实例执行管理任务，如[重启](#reboot)和[计划更新](#schedule-updates)。
 
 ## <a name="reboot"></a>重新启动
 可通过“重新启动”边栏选项卡重新启动缓存的一个或多个节点。 如果有缓存节点发生故障，此重新启动功能可用于测试应用程序的复原能力。
@@ -42,32 +37,32 @@ ms.lasthandoff: 07/28/2017
 
 ![重新启动](./media/cache-administration/redis-cache-reboot-cluster.png)
 
-若要重新启动缓存的一个或多个节点，请选择所需节点，然后单击“重新启动”。 如果高级缓存启用了群集功能，请选择要重新启动的所需分片，然后单击“重新启动”。 几分钟后，所选节点将重新启动，再过几分钟后，又会回到联机状态。
+要重新启动缓存的一个或多个节点，请选择所需节点，并单击“重新启动”。 如果高级缓存启用了群集功能，请选择要重新启动的所需分片，然后单击“重新启动”。 几分钟后，所选节点将重新启动，再过几分钟后，又会回到联机状态。
 
 对客户端应用程序的影响因用户重新启动的节点而有所不同。
 
-* **主** - 重新启动主节点时，Azure Redis 缓存将故障转移到副本节点，并将其提升为主节点。 在此故障转移期间，可能会有一个较短的时间间隔无法连接到缓存。
-* **从属** - 重新启动从属节点时，通常不会影响缓存客户端。
-* **主和从属** - 同时重新启动这两个缓存节点时，缓存中的所有数据将丢失，并且无法连接到缓存，直到主节点重新联机。 如果已配置[数据持久性](cache-how-to-premium-persistence.md)，则在缓存重新联机时会还原最新备份，但在最新备份后发生的所有缓存写入都将丢失。
-* **已启用群集的高级缓存的节点** - 重新启动已启用群集的高级缓存的一个或多个节点时，所选节点的行为与重新启动非群集缓存的相应节点时相同。
+- **主** - 重新启动主节点时，Azure Redis 缓存将故障转移到副本节点，并将其提升为主节点。 在此故障转移期间，可能会有一个较短的时间间隔无法连接到缓存。
+- **从属** - 重新启动从属节点时，通常不会影响缓存客户端。
+- **主和从属** - 同时重新启动这两个缓存节点时，缓存中的所有数据将丢失，并且无法连接到缓存，直到主节点重新联机。 如果已配置[数据持久性](cache-how-to-premium-persistence.md)，则在缓存重新联机时会还原最新备份，但在最新备份后发生的所有缓存写入都将丢失。
+- **已启用群集的高级缓存的节点** - 重新启动已启用群集的高级缓存的一个或多个节点时，所选节点的行为与重新启动非群集缓存的对应节点时相同。
 
 > [!IMPORTANT]
-> 重新启动仅适用于高级层缓存。
+> 现在所有定价层都可以重新启动。
 > 
 > 
 
 ## <a name="reboot-faq"></a>重新启动常见问题解答
-* [测试我的应用程序时，应重新启动哪个节点？](#which-node-should-i-reboot-to-test-my-application)
-* [能否通过重新启动缓存来清除客户端连接？](#can-i-reboot-the-cache-to-clear-client-connections)
-* [如果我执行重新启动，是否会丢失缓存中的数据？](#will-i-lose-data-from-my-cache-if-i-do-a-reboot)
-* [能否使用 PowerShell、CLI 或其他管理工具重新启动缓存？](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
-* [哪些定价层可以使用重新启动功能？](#what-pricing-tiers-can-use-the-reboot-functionality)
+- [测试我的应用程序时，应重新启动哪个节点？](#which-node-should-i-reboot-to-test-my-application)
+- [能否通过重新启动缓存来清除客户端连接？](#can-i-reboot-the-cache-to-clear-client-connections)
+- [如果我执行重新启动，是否会丢失缓存中的数据？](#will-i-lose-data-from-my-cache-if-i-do-a-reboot)
+- [能否使用 PowerShell、CLI 或其他管理工具重新启动缓存？](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
+- [哪些定价层可以使用重新启动功能？](#what-pricing-tiers-can-use-the-reboot-functionality)
 
 ### <a name="which-node-should-i-reboot-to-test-my-application"></a>测试应用程序时应重新启动哪个节点？
 若要针对缓存的主节点故障测试应用程序的复原能力，请重新启动 **主** 节点。 若要针对辅助节点的故障测试应用程序的复原能力，请重新启动 **从属** 节点。 若要针对缓存的总故障测试应用程序的复原能力，请同时重新启动这 **两个** 节点。
 
 ### <a name="can-i-reboot-the-cache-to-clear-client-connections"></a>能否通过重新启动缓存来清除客户端连接？
-能，如果重新启动缓存，将清除所有客户端连接。 当所有客户端连接均已用完（由于客户端应用程序中的逻辑错误或 Bug）时，重新启动很有用。 每个定价层对于不同大小都有不同的[客户端连接数限制](cache-configure.md#default-redis-server-configuration)，达到这些限制后，将不再接受客户端连接。 通过重新启动缓存可以清除所有客户端连接。
+能，如果重新启动缓存，则会清除所有客户端连接。 当所有客户端连接均已用完（由于客户端应用程序中的逻辑错误或 Bug）时，重新启动很有用。 每个定价层对于不同大小都有不同的[客户端连接数限制](cache-configure.md#default-redis-server-configuration)，达到这些限制后，将不再接受客户端连接。 通过重新启动缓存可以清除所有客户端连接。
 
 > [!IMPORTANT]
 > 如果通过重新启动缓存来清除客户端连接，则一旦 Redis 节点重回联机状态，StackExchange.Redis 就会自动重新连接。 如果未解决这一基本问题，客户端连接会继续用完。
@@ -83,7 +78,7 @@ ms.lasthandoff: 07/28/2017
 能，有关 PowerShell 说明，请参阅[重新启动 Redis 缓存](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache)。
 
 ### <a name="what-pricing-tiers-can-use-the-reboot-functionality"></a>哪些定价层可以使用重新启动功能？
-重新启动仅在高级定价层中可用。
+所有定价层都可以重新启动。
 
 ## <a name="schedule-updates"></a>计划更新
 使用“计划更新”边栏选项卡可为高级层缓存指定维护时段。 指定维护时段后，会在此时段内进行任何 Redis 服务器更新。 
@@ -95,7 +90,7 @@ ms.lasthandoff: 07/28/2017
 
 ![计划更新](./media/cache-administration/redis-schedule-updates.png)
 
-若要指定维护时段，请勾选合适的日期，然后指定每天的维护时段开始时间，最后再单击“确定”。 请注意，维护时段使用 UTC 时间。 
+要指定维护时段，请勾选合适的日期，并指定每天的维护时段开始时间，最后再单击“确定”。 请注意，维护时段使用 UTC 时间。 
 
 > [!NOTE]
 > 更新的默认维护时段为五小时。 此值不可以在 Azure 门户中配置，但可以在 PowerShell 中使用 [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) cmdlet 的 `MaintenanceWindow` 参数进行配置。 有关详细信息，请参阅 [能否使用 PowerShell、CLI 或其他管理工具管理计划的更新？](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
@@ -103,10 +98,10 @@ ms.lasthandoff: 07/28/2017
 > 
 
 ## <a name="schedule-updates-faq"></a>计划更新常见问题解答
-* [如果我不使用计划更新功能，何时进行更新？](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
-* [在计划的维护时段进行哪种类型的更新？](#what-type-of-updates-are-made-during-the-scheduled-maintenance-window)
-* [能否使用 PowerShell、CLI 或其他管理工具管理计划的更新？](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
-* [哪些定价层可以使用计划更新功能？](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
+- [如果我不使用计划更新功能，何时进行更新？](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
+- [在计划的维护时段进行哪种类型的更新？](#what-type-of-updates-are-made-during-the-scheduled-maintenance-window)
+- [能否使用 PowerShell、CLI 或其他管理工具管理计划的更新？](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
+- [哪些定价层可以使用计划更新功能？](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
 
 ### <a name="when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature"></a>如果不使用计划更新功能，何时进行更新？
 如果未指定维护时段，可以随时进行更新。
@@ -114,18 +109,18 @@ ms.lasthandoff: 07/28/2017
 ### <a name="what-type-of-updates-are-made-during-the-scheduled-maintenance-window"></a>在计划性维护时段进行哪种类型的更新？
 仅在计划的维护时段进行 Redis 服务器更新。 维护时段不适用于 Azure 更新或 VM 操作系统更新。
 
-### <a name="can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools"></a>能否使用 PowerShell、CLI 或其他管理工具管理计划的更新？
+### <a name="can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools"></a>有关详细信息，请参阅能否使用 PowerShell、CLI 或其他管理工具管理计划的更新？
 可以使用以下 PowerShell cmdlet 管理计划的更新：
 
-* [Get-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/module/azurerm.rediscache/get-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry)
-* [Remove-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/module/azurerm.rediscache/remove-azurermrediscachepatchschedule)
+- [Get-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/module/azurerm.rediscache/get-azurermrediscachepatchschedule)
+- [New-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscachepatchschedule)
+- [New-AzureRmRedisCacheScheduleEntry](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry)
+- [Remove-AzureRmRedisCachePatchSchedule](https://docs.microsoft.com/powershell/module/azurerm.rediscache/remove-azurermrediscachepatchschedule)
 
 ### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>哪些定价层可以使用计划更新功能？
 **计划更新** 功能仅在高级定价层中可用。
 
 ## <a name="next-steps"></a>后续步骤
-* 了解更多 [Azure Redis 缓存高级层](cache-premium-tier-intro.md)功能。
+- 了解更多 [Azure Redis 缓存高级层](cache-premium-tier-intro.md)功能。
 
 <!--Update_Description: wording update-->

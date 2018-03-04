@@ -1,10 +1,10 @@
 ---
-title: "如何将 Azure Redis 缓存与 Python 配合使用 | Azure"
+title: "如何将 Azure Redis 缓存与 Python 配合使用 | Microsoft Docs"
 description: "开始将 Azure Redis 缓存与 Python 配合使用"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: v-lincan
 ms.assetid: f186202c-fdad-4398-af8c-aee91ec96ba3
 ms.service: cache
@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 origin.date: 02/10/2017
-ms.date: 03/28/2017
-ms.author: v-dazen
-ms.openlocfilehash: 7d8262f7b86484475801f5048bfbd7fa11547faf
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 02/28/2018
+ms.author: v-junlch
+ms.openlocfilehash: 09251a86119d7ad4ba3d1e3ae0dd74b244d7a380
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-use-azure-redis-cache-with-python"></a>如何将 Azure Redis 缓存与 Python 配合使用
 > [!div class="op_single_selector"]
@@ -63,3 +63,5 @@ ms.lasthandoff: 06/21/2017
 <!--Image references-->
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png
 [2]: ./media/cache-python-get-started/redis-cache-cache-create.png
+
+<!--Update_Description: update metedata properties -->

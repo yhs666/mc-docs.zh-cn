@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/29/2017
-ms.date: 12/04/2017
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 76ef711c68a1796928049500248834656a5542dc
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 48adec79993ca23341ab384edfbad412cc4af2dc
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="replicate-applications-running-on-vmware-virtual-machines-to-azure"></a>将在 VMware 虚拟机上运行的应用程序复制到 Azure
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 02/13/2018
 * 虚拟机上的环境更改（例如 VMware 工具安装）可能需要 15 分钟或更长时间才能在门户中更新。
 * 可以在“配置服务器”页上 vCenter 服务器/vSphere 主机的“上次联系时间”字段中检查上次发现 VMware VM 的时间。
 * 要添加用于复制的计算机而不想要等待执行计划的发现，请突出显示配置服务器（不要单击它），并单击“刷新”按钮。
-* 启用复制时，如果计算机已做好准备，进程服务器自动在其上安装移动服务。
+* 启用复制时，如果虚拟机已准备就绪，进程服务器会自动在其上安装移动服务。
 
 ### <a name="enable-replication-as-follows"></a>请按如下所述启用复制
 
@@ -124,6 +124,8 @@ Microsoft 软件保障客户可以使用 Azure 混合使用权益来节省迁移
 - 保存复制的计算机的设置。
 
 <!-- Not Available on [Azure Hybrid Use Benefit](https://aka.ms/azure-hybrid-use-benefit-pricing). -->
+<!-- Redirect https://aka.ms/azure-hybrid-use-benefit-pricing TO https://azure.microsoft.com/en-us/pricing/hybrid-benefit/ -->
+
 ## <a name="common-issues"></a>常见问题
 
 * 每个磁盘的大小应小于 1 TB。

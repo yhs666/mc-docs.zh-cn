@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 中创建 Python Web 应用 | Microsoft Docs"
-description: "数分钟内在 Azure 应用服务 Web 应用中部署首个 Python Hello World。"
+title: "在 Azure 中创建 Python Web 应用"
+description: "数分钟内在 Azure App Service Web 应用中部署首个 Python Hello World。"
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 10/26/2017
-ms.date: 12/04/2017
+ms.date: 03/12/2018
 ms.author: v-yiso
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fdf0842a06b4586791817657bed5327b0d79130e
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 8958c28b1354b58d81aaa4c550092de82850b6fa
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-a-python-web-app-in-azure"></a>在 Azure 中创建 Python Web 应用
 
@@ -28,15 +28,16 @@ ms.lasthandoff: 11/24/2017
 
 ![在 Azure 中运行的示例应用](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-可以在 Mac、Windows 或 Linux 计算机上执行以下步骤。 安装先决条件后，大约需要五分钟完成这些步骤。
+可以使用 Mac、Windows 或 Linux 计算机执行本教程中的步骤。 安装先决条件后，大约需要五分钟完成这些步骤。
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>先决条件
 
 完成本教程：
 
 1. [安装 Git](https://git-scm.com/)
 1. [安装 Python](https://www.python.org/downloads/)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>下载示例
 
@@ -91,6 +92,7 @@ python main.py
 ```bash
 http://<app name>.chinacloudsites.cn
 ```
+新 Web 应用应该如下所示：
 
 ![空 Web 应用页](media/app-service-web-get-started-python/app-service-web-service-created.png)
 
@@ -181,7 +183,7 @@ git push azure master
 
 随后会显示 Web 应用的概述页。 在此处可以执行基本的管理任务，例如浏览、停止、启动、重启和删除。 
 
-![Azure 门户中的“应用服务”边栏选项卡](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
+![Azure 门户中的“应用服务”页](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
 左侧菜单提供用于配置应用的不同页面。 
 

@@ -1,5 +1,5 @@
 ---
-title: "增加 Azure 中的应用 | Azure"
+title: "增加 Azure 中的应用"
 description: "了解如何增加 Azure 应用服务中的应用以增加容量和功能。"
 services: app-service
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/05/2016
-ms.date: 10/30/2017
+ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1505bb26e45005f0b2cf970bbeaef2dfec28f187
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: c2f97a85ee41e794f49ba797e63b740478b7b21f
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="scale-up-an-app-in-azure"></a>增加 Azure 中的应用
 本文介绍如何在 Azure 应用服务中缩放应用。 缩放的工作流有两种：向上缩放和向外缩放；本文介绍向上缩放工作流。
@@ -71,15 +71,13 @@ ms.lasthandoff: 11/28/2017
 
     ![增加 Azure 应用使用的 Azure 存储帐户](./media/web-sites-scale/ScaleStorage.png)
 
+<a name="OtherFeatures"></a>
 <a name="devfeatures"></a>
 
 ## <a name="compare-pricing-tiers"></a>比较定价层
 有关详细信息（例如每个定价层的 VM 大小），请参阅[应用服务定价详细信息](https://www.azure.cn/pricing/details/web-sites/)。
 
-<a name="OtherFeatures"></a>
-
-## <a name="learn-about-other-features"></a>了解其他功能
-* 有关应用服务计划中的所有其余功能的详细信息，包括定价和所有用户（包括开发人员）感兴趣的功能，请参阅[应用服务定价详细信息](https://www.azure.cn/pricing/details/app-service/)。
+有关服务限制、配额和约束的表以及每个层级所支持的功能，请参阅[应用服务限制](../azure-subscription-service-limits.md#app-service-limits)。
 
 <a name="Next Steps"></a>
 
@@ -96,6 +94,7 @@ ms.lasthandoff: 11/28/2017
 
     [Azure 的虚拟机和云服务大小][vmsizes]
 
+* 有关 Azure 应用服务最佳实践（包括构建可缩放、有弹性的体系结构）的信息，请参阅 [Best Practices: Azure 应用服务 Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)（最佳实践：Azure 应用服务 Web 应用）。
 
 <!-- LINKS -->
 [vmsizes]:https://www.azure.cn/pricing/details/app-service/

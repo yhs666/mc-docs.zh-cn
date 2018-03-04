@@ -2,7 +2,7 @@
 ## [什么是中继？](relay-what-is-it.md)
 ## [常见问题](relay-faq.md)
 
-# 入门
+# 快速入门
 ## [创建命名空间](relay-create-namespace-portal.md)
 ## [创建本地/云混合应用程序](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## 混合连接
@@ -21,6 +21,8 @@
 ### [可用 API](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
+## 管理
+### [使用 Azure 监视来监视 Azure 中继](relay-metrics-azure-monitor.md)
 
 # 参考
 ## .NET
@@ -34,5 +36,6 @@
 
 ## [博客](https://blogs.msdn.microsoft.com/servicebus/)
 ## [价格](https://www.azure.cn/pricing/details/messaging/)
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [示例](https://github.com/azure/azure-relay/tree/master/samples)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

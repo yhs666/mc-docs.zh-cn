@@ -6,7 +6,7 @@
 ## <a name="find-the-disk"></a>找到磁盘
 在从 VM 中分离磁盘之前，需要先确定 LUN 号（要分离的磁盘的标识符）。 为此，请执行以下步骤：
 
-1. 打开 Azure CLI 并[连接到 Azure 订阅](../articles/xplat-cli-connect.md)。 确保是在 Azure 服务管理模式 (`azure config mode asm`) 下。
+1. 打开 Azure CLI 并[连接到 Azure 订阅](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-lastest)。 确保是在 Azure 服务管理模式 (`azure config mode asm`) 下。
 2. 找出哪些磁盘已附加到 VM。 以下示例列出了名为 `myVM`的 VM 的磁盘：
 
     ```azurecli
@@ -29,10 +29,9 @@
 3. 请注意你想要分离的磁盘的 LUN 或 **逻辑单元号**。
 
 ## <a name="remove-operating-system-references-to-the-disk"></a>删除对该磁盘的操作系统引用
-从 Linux 来宾分离磁盘之前，应确保磁盘上的所有分区都未在使用。 确保操作系统不会在重启后尝试重新安装它们。 这些步骤将撤消在[附加](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)磁盘时有可能创建的配置。
+从 Linux 来宾分离磁盘之前，应确保磁盘上的所有分区都未在使用。 确保操作系统不会在重启后尝试重新安装它们。 这些步骤将撤消在[附加](../articles/virtual-machines/linux/classic/attach-disk-classic.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)磁盘时有可能创建的配置。
 
-1. 使用 `lsscsi` 命令找到磁盘标识符。 `lsscsi` 的安装可以通过 `yum install lsscsi`（在基于 CentOS 的发行版上）或 `apt-get install lsscsi`（在基于 Debian 的发行版上）来进行。 可以使用 LUN 号找到要寻找的磁盘标识符。 每一行的元组中的最后一个数字就是 LUN。 在下面的示例中，LUN 0 从 `lsscsi`映射到 */dev/sdc*
-<!-- Change Red Hat to CentOS -->
+1. 使用 `lsscsi` 命令找到磁盘标识符。 可以通过 `yum install lsscsi`（在基于 Red Hat 的分发上）或 `apt-get install lsscsi`（在基于 Debian 的分发上）安装 `lsscsi`。 可以使用 LUN 号找到要寻找的磁盘标识符。 每一行的元组中的最后一个数字就是 LUN。 在下面的示例中，LUN 0 从 `lsscsi`映射到 */dev/sdc*
 
     ```bash
     [1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0

@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/17/2017
-ms.date: 02/08/2018
+origin.date: 01/21/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7fe0a00001bc21c9b9dedcbfddf9000aa323681f
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: f7fae43a70d732d07551bc11b38cf120690302bd
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虚拟机备份疑难解答
 可参考下表中所列的信息，排查使用 Azure 备份时遇到的错误。
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/13/2018
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>错误：不支持指定的磁盘配置
 
 > [!NOTE]
-> 我们提供了专用预览版以支持带有 >1TB 非托管磁盘的 VM 的备份。 有关详细信息，请参阅[支持大型磁盘 VM 备份的专用预览版](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> 我们提供了个人预览版以支持带有 >1TB 磁盘的 VM 的备份。 有关详细信息，请参阅[支持大型磁盘 VM 备份的专用预览版](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -171,4 +171,4 @@ VM 备份依赖于向底层存储发出快照命令。 如果无法访问存储�
 >
 >
 
-<!-- Update_Description: link update -->
+<!--Update_Description: wording update -->

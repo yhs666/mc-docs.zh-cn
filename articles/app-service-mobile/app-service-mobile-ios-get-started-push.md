@@ -13,13 +13,13 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 origin.date: 10/10/2016
-ms.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: d83af05894c2cffb36985a963e19acc81c5cacd9
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.openlocfilehash: 9a6eded7fd8d51a14f4d837f242701aaa9b60d09
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>将推送通知添加到 iOS 应用
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/22/2018
 ## <a name="overview"></a>概述
 本教程介绍如何向 [iOS 快速入门] 项目添加推送通知，以便每次插入一条记录时，向设备发送一条推送通知。
 
-如果不使用下载的快速入门服务器项目，则需要推送通知扩展包。 有关详细信息，请参阅[使用适用于 Azure 移动应用的 .NET 后端服务器 SDK](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
+如果不使用下载的快速入门服务器项目，则需要推送通知扩展包。 有关详细信息，请参阅[使用适用于 Azure 移动应用的 .NET 后端服务器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) 指南。
 
 [iOS 模拟器不支持推送通知](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html)。 用户需要 iOS 物理设备和 [Apple 开发人员计划成员身份](https://developer.apple.com/programs/ios/)。
 

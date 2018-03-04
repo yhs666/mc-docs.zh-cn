@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/31/2017
-ms.date: 11/20/2017
+origin.date: 12/23/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 682a04b973987dcbabd55c1580e403585488ff90
-ms.sourcegitcommit: 563429f24ba6765d103d6de068c1f64e267c3b37
+ms.openlocfilehash: a9e4c6da70e5ed05023d2ab9e77844c3bfbdb38c
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 复制多层 SharePoint 应用程序以实现灾难恢复
 
@@ -64,6 +64,7 @@ Microsoft SharePoint 是一个功能强大的应用程序，可帮助小组或�
 **Hyper-V** | 是 | 是
 **VMware** | 是 | 是
 **物理服务器** | 是 | 是
+**Azure** | 不可用 | 是
 
 ### <a name="sharepoint-versions"></a>SharePoint 版本
 支持以下 SharePoint Server 版本。
@@ -105,7 +106,7 @@ Microsoft SharePoint 是一个功能强大的应用程序，可帮助小组或�
 
 用于面向 Internet 的站点，请在 Azure 订阅中[创建“优先级”类型的流量管理器配置文件](../traffic-manager/traffic-manager-create-profile.md)。 然后按以下方式配置 DNS 和流量管理器配置文件。
 
-| **Where** | **源** | **目标**|
+| **Where** | Source | **目标**|
 | --- | --- | --- |
 | 公共 DNS | SharePoint 站点的公共 DNS <br/><br/> 例如：sharepoint.contoso.com | 流量管理器 <br/><br/> contososharepoint.trafficmanager.cn |
 | 本地 DNS | sharepointonprem.contoso.com | 本地场中的公共 IP |
@@ -202,4 +203,4 @@ Microsoft SharePoint 是一个功能强大的应用程序，可帮助小组或�
 ## <a name="next-steps"></a>后续步骤
 详细了解如何使用 Site Recovery [复制其他应用程序](site-recovery-workload.md)。
 
-<!-- Update_Description: new articles on site recovery sharepoint -->
+<!-- Update_Description: update meta properties, wording update -->

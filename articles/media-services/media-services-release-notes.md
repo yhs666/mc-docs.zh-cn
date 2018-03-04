@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 10/18/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: b2a0b609ca33f5b7f964e01847cb2cd48a325cba
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 2f485bbcd498b4ec9a7a913b7364e7ba05ad7557
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒体服务发行说明
 这些 Azure 媒体服务发行说明汇总了与以前版本相比的变更之处和已知的问题。
@@ -337,6 +337,8 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 * 实时流式处理预览版。 有关详细信息，请参阅[使用媒体服务实时传送视频流](media-services-manage-channels-overview.md)。
 * 密钥传递服务。 有关详细信息，请参阅[使用 AES-128 动态加密和密钥传递服务](media-services-protect-with-aes128.md)。
 * AES 动态加密。 有关详细信息，请参阅[使用 AES-128 动态加密和密钥传递服务](media-services-protect-with-aes128.md)。
+* PlayReady 许可证传递服务。 
+* PlayReady 动态加密。 
 * 媒体服务 PlayReady 许可证模板。 有关详细信息，请参阅[媒体服务 PlayReady 许可证模板概述]。
 * 流式处理存储加密资产。 有关详细信息，请参阅[流式处理存储加密内容](media-services-dotnet-configure-asset-delivery-policy.md)。
 

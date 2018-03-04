@@ -17,11 +17,11 @@ ms.topic: article
 origin.date: 03/06/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: a1c70475af5681fa55c459ba296ee81b4cd93887
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 1dd1e288d3442ae42f0f379f7b2efb31e393234f
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>始终加密：保护 SQL 数据库中的敏感数据并将加密密钥存储在 Azure 密钥保管库中
 
@@ -49,56 +49,44 @@ ms.lasthandoff: 01/12/2018
 * [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)，版本 1.0 或更高版本。 键入 **(Get-Module azure -ListAvailable).Version** 可查看所运行的 PowerShell 版本。
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>使客户端应用程序可以访问 SQL 数据库服务
-首先必须通过设置所需的身份验证并获取在下面的代码中对应用程序进行身份验证所需的 *ClientId* 和 *Secret*，使客户端应用程序可以访问 SQL 数据库服务。
+首先必须通过设置 Azure Active Directory (AAD) 应用程序并复制对应用程序进行身份验证所需的应用程序 ID 和密钥，使客户端应用程序可以访问 SQL 数据库服务。
 
-1. 打开 [Azure 门户](https://portal.azure.cn)。
-2. 选择“Active Directory”，然后单击应用程序将使用的 Active Directory。
-3. 单击“应用程序”，并单击“添加”。
-4. 键入应用程序的名称（例如：*myClientApp*），选择“WEB 应用程序”，并单击箭头以继续。
-5. 对于“登录 URL”和“应用 ID URI”，可以键入一个有效 URL（例如：*http://myClientApp*），并继续。
-6. 单击“配置”。
-7. 复制“客户端 ID”。 （稍后在代码中需要此值。）
-8. 在“密钥”部分中，从“选择持续时间”下拉列表选择“1 年”。 （在步骤 13 中保存后将复制该密钥。）
-9. 向下滚动并单击“添加应用程序”。
-10. 保留“显示”设置为“Microsoft 应用”，并选择“Microsoft Azure 服务管理 API”。 单击复选标记以继续。
-11. 从“委派权限”下拉列表选择“访问 Azure 服务管理...”。
-12. 单击“保存”。
-13. 在保存完成后，将密钥值复制到“密钥”部分。 （稍后在代码中需要此值。）
+若要获取应用程序 ID 和*密钥*，请按照[创建可访问资源的 Azure Active Directory 应用程序和服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)中的步骤进行操作。
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>创建密钥保管库以存储密钥
-现在客户端应用已配置并且你获得了客户端 ID，便可以创建密钥保管库并配置其访问策略以允许你和应用程序访问保管库的密码（始终加密密钥）。 *create*、*get*、*list*、*sign*、*verify*、*wrapKey* 和 *unwrapKey* 权限是用于创建新的列主密钥以及通过 SQL Server Management Studio 设置加密所必需的。
+至此，已配置客户端应用并且已拥有应用程序 ID，接下来，可以创建密钥保管库并配置其访问策略，以便你和你的应用程序可以访问保管库的机密（Always Encrypted 密钥）。 *create*、*get*、*list*、*sign*、*verify*、*wrapKey* 和 *unwrapKey* 权限是用于创建新的列主密钥以及通过 SQL Server Management Studio 设置加密所必需的。
 
 通过运行以下脚本，可以快速创建密钥保管库。 有关这些 cmdlet 的详细说明以及有关创建和配置密钥保管库的详细信息，请参阅 [Azure 密钥保管库入门](../key-vault/key-vault-get-started.md)。
 
-```
-$subscriptionName = '<your Azure subscription name>'
-$userPrincipalName = '<username@domain.com>'
-$clientId = '<client ID that you copied in step 7 above>'
-$resourceGroupName = '<resource group name>'
-$location = '<datacenter location>'
-$vaultName = 'AeKeyVault'
+    $subscriptionName = '<your Azure subscription name>'
+    $userPrincipalName = '<username@domain.com>'
+    $applicationId = '<application ID from your AAD application>'
+    $resourceGroupName = '<resource group name>'
+    $location = '<datacenter location>'
+    $vaultName = 'AeKeyVault'
 
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-$subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).Id
-Set-AzureRmContext -SubscriptionId $subscriptionId
 
-New-AzureRmResourceGroup -Name $resourceGroupName –Location $location
-New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
+    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).Id
+    Set-AzureRmContext -SubscriptionId $subscriptionId
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
-Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $clientId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
-```
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
+
+    Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
+    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+
 
 
 
 ## <a name="create-a-blank-sql-database"></a>创建空的 SQL 数据库
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 转到“新建” > “数据 + 存储” > “SQL 数据库”。
-3. 在新服务器或现有服务器上创建名为 **Clinic** 的**空**数据库。 若要深入了解如何在 Azure 门户中创建数据库，请参阅[第一个 Azure SQL 数据库](sql-database-get-started-portal.md)。
+2. 转到“创建资源” > “数据库” > “SQL 数据库”。
+3. 在新服务器或现有服务器上创建名为 **Clinic** 的**空**数据库。 若要深入了解如何在 Azure 门户中创建数据库，请参阅[ SQL 数据库](sql-database-get-started-portal.md)。
    
     ![创建空数据库](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 
-在本教程中稍后需要连接字符串，因此在创建数据库后，浏览到新的 Clinic 数据库并复制连接字符串。 可以在任何时候获取连接字符串，但在 Azure 门户中很容易对其进行复制。
+在本教程中稍后需要连接字符串，因此在创建数据库后，浏览到新的 Clinic 数据库并复制连接字符串。 可以在任何时候获取连接字符串，但很容易将其复制到 Azure 门户。
 
 1. 转到“SQL 数据库” > “Clinic” > “显示数据库连接字符串”。
 2. 复制 **ADO.NET** 的连接字符串。
@@ -122,21 +110,20 @@ Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $reso
 2. 右键单击“Clinic”数据库，并单击“新建查询”。
 3. 将以下 Transact-SQL (T-SQL) 粘贴到新查询窗口中，然后“执行”它。
 
-    ```
-    CREATE TABLE [dbo].[Patients](
-     [PatientId] [int] IDENTITY(1,1), 
-     [SSN] [char](11) NOT NULL,
-     [FirstName] [nvarchar](50) NULL,
-     [LastName] [nvarchar](50) NULL, 
-     [MiddleName] [nvarchar](50) NULL,
-     [StreetAddress] [nvarchar](50) NULL,
-     [City] [nvarchar](50) NULL,
-     [ZipCode] [char](5) NULL,
-     [State] [char](2) NULL,
-     [BirthDate] [date] NOT NULL
-     PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
-     GO
-    ```
+        CREATE TABLE [dbo].[Patients](
+         [PatientId] [int] IDENTITY(1,1),
+         [SSN] [char](11) NOT NULL,
+         [FirstName] [nvarchar](50) NULL,
+         [LastName] [nvarchar](50) NULL,
+         [MiddleName] [nvarchar](50) NULL,
+         [StreetAddress] [nvarchar](50) NULL,
+         [City] [nvarchar](50) NULL,
+         [ZipCode] [char](5) NULL,
+         [State] [char](2) NULL,
+         [BirthDate] [date] NOT NULL
+         PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
+         GO
+
 
 ## <a name="encrypt-columns-configure-always-encrypted"></a>加密列（配置始终加密）
 SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加密列即可轻松地配置始终加密。
@@ -199,10 +186,10 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
 
 在包管理器控制台中运行以下 2 行代码。
 
-```
-Install-Package Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider
-Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-```
+    Install-Package Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider
+    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+
+
 
 ## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>修改连接字符串以启用始终加密
 本节介绍如何在数据库连接字符串中启用始终加密。
@@ -214,43 +201,40 @@ Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ### <a name="enable-always-encrypted-in-the-connection-string"></a>在连接字符串中启用始终加密
 将以下关键字添加到连接字符串中。
 
-```
-Column Encryption Setting=Enabled
-```
+    Column Encryption Setting=Enabled
+
 
 ### <a name="enable-always-encrypted-with-sqlconnectionstringbuilder"></a>通过 SqlConnectionStringBuilder 启用始终加密
 以下代码显示了如何通过将 [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) 设置为[启用](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx)来启用“始终加密”。
 
-```
-// Instantiate a SqlConnectionStringBuilder.
-SqlConnectionStringBuilder connStringBuilder = 
-   new SqlConnectionStringBuilder("replace with your connection string");
+    // Instantiate a SqlConnectionStringBuilder.
+    SqlConnectionStringBuilder connStringBuilder =
+       new SqlConnectionStringBuilder("replace with your connection string");
 
-// Enable Always Encrypted.
-connStringBuilder.ColumnEncryptionSetting = 
-   SqlConnectionColumnEncryptionSetting.Enabled;
-```
+    // Enable Always Encrypted.
+    connStringBuilder.ColumnEncryptionSetting =
+       SqlConnectionColumnEncryptionSetting.Enabled;
 
 ## <a name="register-the-azure-key-vault-provider"></a>注册 Azure 密钥保管库提供程序
 下面的代码演示如何使用 ADO.NET 驱动程序注册 Azure 密钥保管库提供程序。
 
-```
-private static ClientCredential _clientCredential;
+    private static ClientCredential _clientCredential;
 
-static void InitializeAzureKeyVaultProvider()
-{
-   _clientCredential = new ClientCredential(clientId, clientSecret);
+    static void InitializeAzureKeyVaultProvider()
+    {
+       _clientCredential = new ClientCredential(applicationId, clientKey);
 
-   SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
-      new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
+       SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
+          new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
 
-   Dictionary<string, SqlColumnEncryptionKeyStoreProvider> providers =
-      new Dictionary<string, SqlColumnEncryptionKeyStoreProvider>();
+       Dictionary<string, SqlColumnEncryptionKeyStoreProvider> providers =
+          new Dictionary<string, SqlColumnEncryptionKeyStoreProvider>();
 
-   providers.Add(SqlColumnEncryptionAzureKeyVaultProvider.ProviderName, azureKeyVaultProvider);
-   SqlConnection.RegisterColumnEncryptionKeyStoreProviders(providers);
-}
-```
+       providers.Add(SqlColumnEncryptionAzureKeyVaultProvider.ProviderName, azureKeyVaultProvider);
+       SqlConnection.RegisterColumnEncryptionKeyStoreProviders(providers);
+    }
+
+
 
 ## <a name="always-encrypted-sample-console-application"></a>始终加密示例控制台应用程序
 此示例演示了如何执行以下操作：
@@ -264,335 +248,346 @@ static void InitializeAzureKeyVaultProvider()
 
 运行该应用以在操作中查看始终加密。
 
-```
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using System.Data.SqlClient;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Data;
+    using System.Data.SqlClient;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider;
 
-namespace AlwaysEncryptedConsoleAKVApp
-{
-class Program
-{
-    // Update this line with your Clinic database connection string from the Azure Portal.
-    static string connectionString = @"<connection string from the portal>";
-    static string clientId = @"<client id from step 7 above>";
-    static string clientSecret = "<key from step 13 above>";
-
-    static void Main(string[] args)
+    namespace AlwaysEncryptedConsoleAKVApp
     {
-        InitializeAzureKeyVaultProvider();
-
-        Console.WriteLine("Signed in as: " + _clientCredential.ClientId);
-
-        Console.WriteLine("Original connection string copied from the Azure portal:");
-        Console.WriteLine(connectionString);
-
-        // Create a SqlConnectionStringBuilder.
-        SqlConnectionStringBuilder connStringBuilder =
-            new SqlConnectionStringBuilder(connectionString);
-
-        // Enable Always Encrypted for the connection.
-        // This is the only change specific to Always Encrypted 
-        connStringBuilder.ColumnEncryptionSetting =
-            SqlConnectionColumnEncryptionSetting.Enabled;
-
-        Console.WriteLine(Environment.NewLine + "Updated connection string with Always Encrypted enabled:");
-        Console.WriteLine(connStringBuilder.ConnectionString);
-
-        // Update the connection string with a password supplied at runtime.
-        Console.WriteLine(Environment.NewLine + "Enter server password:");
-        connStringBuilder.Password = Console.ReadLine();
-
-        // Assign the updated connection string to our global variable.
-        connectionString = connStringBuilder.ConnectionString;
-
-        // Delete all records to restart this demo app.
-        ResetPatientsTable();
-
-        // Add sample data to the Patients table.
-        Console.Write(Environment.NewLine + "Adding sample patient data to the database...");
-
-        InsertPatient(new Patient()
-        {
-            SSN = "999-99-0001",
-            FirstName = "Orlando",
-            LastName = "Gee",
-            BirthDate = DateTime.Parse("01/04/1964")
-        });
-        InsertPatient(new Patient()
-        {
-            SSN = "999-99-0002",
-            FirstName = "Keith",
-            LastName = "Harris",
-            BirthDate = DateTime.Parse("06/20/1977")
-        });
-        InsertPatient(new Patient()
-        {
-            SSN = "999-99-0003",
-            FirstName = "Donna",
-            LastName = "Carreras",
-            BirthDate = DateTime.Parse("02/09/1973")
-        });
-        InsertPatient(new Patient()
-        {
-            SSN = "999-99-0004",
-            FirstName = "Janet",
-            LastName = "Gates",
-            BirthDate = DateTime.Parse("08/31/1985")
-        });
-        InsertPatient(new Patient()
-        {
-            SSN = "999-99-0005",
-            FirstName = "Lucy",
-            LastName = "Harrington",
-            BirthDate = DateTime.Parse("05/06/1993")
-        });
-
-        // Fetch and display all patients.
-        Console.WriteLine(Environment.NewLine + "All the records currently in the Patients table:");
-
-        foreach (Patient patient in SelectAllPatients())
-        {
-            Console.WriteLine(patient.FirstName + " " + patient.LastName + "\tSSN: " + patient.SSN + "\tBirthdate: " + patient.BirthDate);
-        }
-
-        // Get patients by SSN.
-        Console.WriteLine(Environment.NewLine + "Now lets locate records by searching the encrypted SSN column.");
-
-        string ssn;
-
-        // This very simple validation only checks that the user entered 11 characters.
-        // In production be sure to check all user input and use the best validation for your specific application.
-        do
-        {
-            Console.WriteLine("Please enter a valid SSN (ex. 999-99-0003):");
-            ssn = Console.ReadLine();
-        } while (ssn.Length != 11);
-
-        // The example allows duplicate SSN entries so we will return all records
-        // that match the provided value and store the results in selectedPatients.
-        Patient selectedPatient = SelectPatientBySSN(ssn);
-
-        // Check if any records were returned and display our query results.
-        if (selectedPatient != null)
-        {
-            Console.WriteLine("Patient found with SSN = " + ssn);
-            Console.WriteLine(selectedPatient.FirstName + " " + selectedPatient.LastName + "\tSSN: "
-                + selectedPatient.SSN + "\tBirthdate: " + selectedPatient.BirthDate);
-        }
-        else
-        {
-            Console.WriteLine("No patients found with SSN = " + ssn);
-        }
-
-        Console.WriteLine("Press Enter to exit...");
-        Console.ReadLine();
-    }
-
-    private static ClientCredential _clientCredential;
-
-    static void InitializeAzureKeyVaultProvider()
+    class Program
     {
+        // Update this line with your Clinic database connection string from the Azure portal.
+        static string connectionString = @"<connection string from the portal>";
+        static string applicationId = @"<application ID from your AAD application>";
+        static string clientKey = "<key from your AAD application>";
 
-        _clientCredential = new ClientCredential(clientId, clientSecret);
 
-        SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
-          new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
-
-        Dictionary<string, SqlColumnEncryptionKeyStoreProvider> providers =
-          new Dictionary<string, SqlColumnEncryptionKeyStoreProvider>();
-
-        providers.Add(SqlColumnEncryptionAzureKeyVaultProvider.ProviderName, azureKeyVaultProvider);
-        SqlConnection.RegisterColumnEncryptionKeyStoreProviders(providers);
-    }
-
-    public async static Task<string> GetToken(string authority, string resource, string scope)
-    {
-        var authContext = new AuthenticationContext(authority);
-        AuthenticationResult result = await authContext.AcquireTokenAsync(resource, _clientCredential);
-
-        if (result == null)
-            throw new InvalidOperationException("Failed to obtain the access token");
-        return result.AccessToken;
-    }
-
-    static int InsertPatient(Patient newPatient)
-    {
-        int returnValue = 0;
-
-        string sqlCmdText = @"INSERT INTO [dbo].[Patients] ([SSN], [FirstName], [LastName], [BirthDate])
- VALUES (@SSN, @FirstName, @LastName, @BirthDate);";
-
-        SqlCommand sqlCmd = new SqlCommand(sqlCmdText);
-
-        SqlParameter paramSSN = new SqlParameter(@"@SSN", newPatient.SSN);
-        paramSSN.DbType = DbType.AnsiStringFixedLength;
-        paramSSN.Direction = ParameterDirection.Input;
-        paramSSN.Size = 11;
-
-        SqlParameter paramFirstName = new SqlParameter(@"@FirstName", newPatient.FirstName);
-        paramFirstName.DbType = DbType.String;
-        paramFirstName.Direction = ParameterDirection.Input;
-
-        SqlParameter paramLastName = new SqlParameter(@"@LastName", newPatient.LastName);
-        paramLastName.DbType = DbType.String;
-        paramLastName.Direction = ParameterDirection.Input;
-
-        SqlParameter paramBirthDate = new SqlParameter(@"@BirthDate", newPatient.BirthDate);
-        paramBirthDate.SqlDbType = SqlDbType.Date;
-        paramBirthDate.Direction = ParameterDirection.Input;
-
-        sqlCmd.Parameters.Add(paramSSN);
-        sqlCmd.Parameters.Add(paramFirstName);
-        sqlCmd.Parameters.Add(paramLastName);
-        sqlCmd.Parameters.Add(paramBirthDate);
-
-        using (sqlCmd.Connection = new SqlConnection(connectionString))
+        static void Main(string[] args)
         {
-            try
+            InitializeAzureKeyVaultProvider();
+
+            Console.WriteLine("Signed in as: " + _clientCredential.ClientId);
+
+            Console.WriteLine("Original connection string copied from the Azure portal:");
+            Console.WriteLine(connectionString);
+
+            // Create a SqlConnectionStringBuilder.
+            SqlConnectionStringBuilder connStringBuilder =
+                new SqlConnectionStringBuilder(connectionString);
+
+            // Enable Always Encrypted for the connection.
+            // This is the only change specific to Always Encrypted
+            connStringBuilder.ColumnEncryptionSetting =
+                SqlConnectionColumnEncryptionSetting.Enabled;
+
+            Console.WriteLine(Environment.NewLine + "Updated connection string with Always Encrypted enabled:");
+            Console.WriteLine(connStringBuilder.ConnectionString);
+
+            // Update the connection string with a password supplied at runtime.
+            Console.WriteLine(Environment.NewLine + "Enter server password:");
+            connStringBuilder.Password = Console.ReadLine();
+
+
+            // Assign the updated connection string to our global variable.
+            connectionString = connStringBuilder.ConnectionString;
+
+
+            // Delete all records to restart this demo app.
+            ResetPatientsTable();
+
+            // Add sample data to the Patients table.
+            Console.Write(Environment.NewLine + "Adding sample patient data to the database...");
+
+            InsertPatient(new Patient()
             {
-                sqlCmd.Connection.Open();
-                sqlCmd.ExecuteNonQuery();
+                SSN = "999-99-0001",
+                FirstName = "Orlando",
+                LastName = "Gee",
+                BirthDate = DateTime.Parse("01/04/1964")
+            });
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0002",
+                FirstName = "Keith",
+                LastName = "Harris",
+                BirthDate = DateTime.Parse("06/20/1977")
+            });
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0003",
+                FirstName = "Donna",
+                LastName = "Carreras",
+                BirthDate = DateTime.Parse("02/09/1973")
+            });
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0004",
+                FirstName = "Janet",
+                LastName = "Gates",
+                BirthDate = DateTime.Parse("08/31/1985")
+            });
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0005",
+                FirstName = "Lucy",
+                LastName = "Harrington",
+                BirthDate = DateTime.Parse("05/06/1993")
+            });
+
+
+            // Fetch and display all patients.
+            Console.WriteLine(Environment.NewLine + "All the records currently in the Patients table:");
+
+            foreach (Patient patient in SelectAllPatients())
+            {
+                Console.WriteLine(patient.FirstName + " " + patient.LastName + "\tSSN: " + patient.SSN + "\tBirthdate: " + patient.BirthDate);
             }
-            catch (Exception ex)
+
+            // Get patients by SSN.
+            Console.WriteLine(Environment.NewLine + "Now lets locate records by searching the encrypted SSN column.");
+
+            string ssn;
+
+            // This very simple validation only checks that the user entered 11 characters.
+            // In production be sure to check all user input and use the best validation for your specific application.
+            do
             {
-                returnValue = 1;
-                Console.WriteLine("The following error was encountered: ");
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(Environment.NewLine + "Press Enter key to exit");
-                Console.ReadLine();
-                Environment.Exit(0);
+                Console.WriteLine("Please enter a valid SSN (ex. 999-99-0003):");
+                ssn = Console.ReadLine();
+            } while (ssn.Length != 11);
+
+            // The example allows duplicate SSN entries so we will return all records
+            // that match the provided value and store the results in selectedPatients.
+            Patient selectedPatient = SelectPatientBySSN(ssn);
+
+            // Check if any records were returned and display our query results.
+            if (selectedPatient != null)
+            {
+                Console.WriteLine("Patient found with SSN = " + ssn);
+                Console.WriteLine(selectedPatient.FirstName + " " + selectedPatient.LastName + "\tSSN: "
+                    + selectedPatient.SSN + "\tBirthdate: " + selectedPatient.BirthDate);
             }
-        }
-        return returnValue;
-    }
-
-    static List<Patient> SelectAllPatients()
-    {
-        List<Patient> patients = new List<Patient>();
-
-        SqlCommand sqlCmd = new SqlCommand(
-          "SELECT [SSN], [FirstName], [LastName], [BirthDate] FROM [dbo].[Patients]",
-            new SqlConnection(connectionString));
-
-        using (sqlCmd.Connection = new SqlConnection(connectionString))
-
-        using (sqlCmd.Connection = new SqlConnection(connectionString))
-        {
-            try
+            else
             {
-                sqlCmd.Connection.Open();
-                SqlDataReader reader = sqlCmd.ExecuteReader();
+                Console.WriteLine("No patients found with SSN = " + ssn);
+            }
 
-                if (reader.HasRows)
+            Console.WriteLine("Press Enter to exit...");
+            Console.ReadLine();
+        }
+
+
+        private static ClientCredential _clientCredential;
+
+        static void InitializeAzureKeyVaultProvider()
+        {
+
+            _clientCredential = new ClientCredential(applicationId, clientKey);
+
+            SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
+              new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
+
+            Dictionary<string, SqlColumnEncryptionKeyStoreProvider> providers =
+              new Dictionary<string, SqlColumnEncryptionKeyStoreProvider>();
+
+            providers.Add(SqlColumnEncryptionAzureKeyVaultProvider.ProviderName, azureKeyVaultProvider);
+            SqlConnection.RegisterColumnEncryptionKeyStoreProviders(providers);
+        }
+
+        public async static Task<string> GetToken(string authority, string resource, string scope)
+        {
+            var authContext = new AuthenticationContext(authority);
+            AuthenticationResult result = await authContext.AcquireTokenAsync(resource, _clientCredential);
+
+            if (result == null)
+                throw new InvalidOperationException("Failed to obtain the access token");
+            return result.AccessToken;
+        }
+
+        static int InsertPatient(Patient newPatient)
+        {
+            int returnValue = 0;
+
+            string sqlCmdText = @"INSERT INTO [dbo].[Patients] ([SSN], [FirstName], [LastName], [BirthDate])
+     VALUES (@SSN, @FirstName, @LastName, @BirthDate);";
+
+            SqlCommand sqlCmd = new SqlCommand(sqlCmdText);
+
+
+            SqlParameter paramSSN = new SqlParameter(@"@SSN", newPatient.SSN);
+            paramSSN.DbType = DbType.AnsiStringFixedLength;
+            paramSSN.Direction = ParameterDirection.Input;
+            paramSSN.Size = 11;
+
+            SqlParameter paramFirstName = new SqlParameter(@"@FirstName", newPatient.FirstName);
+            paramFirstName.DbType = DbType.String;
+            paramFirstName.Direction = ParameterDirection.Input;
+
+            SqlParameter paramLastName = new SqlParameter(@"@LastName", newPatient.LastName);
+            paramLastName.DbType = DbType.String;
+            paramLastName.Direction = ParameterDirection.Input;
+
+            SqlParameter paramBirthDate = new SqlParameter(@"@BirthDate", newPatient.BirthDate);
+            paramBirthDate.SqlDbType = SqlDbType.Date;
+            paramBirthDate.Direction = ParameterDirection.Input;
+
+            sqlCmd.Parameters.Add(paramSSN);
+            sqlCmd.Parameters.Add(paramFirstName);
+            sqlCmd.Parameters.Add(paramLastName);
+            sqlCmd.Parameters.Add(paramBirthDate);
+
+            using (sqlCmd.Connection = new SqlConnection(connectionString))
+            {
+                try
                 {
-                    while (reader.Read())
+                    sqlCmd.Connection.Open();
+                    sqlCmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    returnValue = 1;
+                    Console.WriteLine("The following error was encountered: ");
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine(Environment.NewLine + "Press Enter key to exit");
+                    Console.ReadLine();
+                    Environment.Exit(0);
+                }
+            }
+            return returnValue;
+        }
+
+
+        static List<Patient> SelectAllPatients()
+        {
+            List<Patient> patients = new List<Patient>();
+
+
+            SqlCommand sqlCmd = new SqlCommand(
+              "SELECT [SSN], [FirstName], [LastName], [BirthDate] FROM [dbo].[Patients]",
+                new SqlConnection(connectionString));
+
+
+            using (sqlCmd.Connection = new SqlConnection(connectionString))
+
+            using (sqlCmd.Connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    sqlCmd.Connection.Open();
+                    SqlDataReader reader = sqlCmd.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        patients.Add(new Patient()
+                        while (reader.Read())
                         {
-                            SSN = reader[0].ToString(),
-                            FirstName = reader[1].ToString(),
-                            LastName = reader["LastName"].ToString(),
-                            BirthDate = (DateTime)reader["BirthDate"]
-                        });
+                            patients.Add(new Patient()
+                            {
+                                SSN = reader[0].ToString(),
+                                FirstName = reader[1].ToString(),
+                                LastName = reader["LastName"].ToString(),
+                                BirthDate = (DateTime)reader["BirthDate"]
+                            });
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    throw;
+                }
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
+
+            return patients;
         }
 
-        return patients;
-    }
 
-    static Patient SelectPatientBySSN(string ssn)
-    {
-        Patient patient = new Patient();
-
-        SqlCommand sqlCmd = new SqlCommand(
-            "SELECT [SSN], [FirstName], [LastName], [BirthDate] FROM [dbo].[Patients] WHERE [SSN]=@SSN",
-            new SqlConnection(connectionString));
-
-        SqlParameter paramSSN = new SqlParameter(@"@SSN", ssn);
-        paramSSN.DbType = DbType.AnsiStringFixedLength;
-        paramSSN.Direction = ParameterDirection.Input;
-        paramSSN.Size = 11;
-
-        sqlCmd.Parameters.Add(paramSSN);
-
-        using (sqlCmd.Connection = new SqlConnection(connectionString))
+        static Patient SelectPatientBySSN(string ssn)
         {
-            try
-            {
-                sqlCmd.Connection.Open();
-                SqlDataReader reader = sqlCmd.ExecuteReader();
+            Patient patient = new Patient();
 
-                if (reader.HasRows)
+            SqlCommand sqlCmd = new SqlCommand(
+                "SELECT [SSN], [FirstName], [LastName], [BirthDate] FROM [dbo].[Patients] WHERE [SSN]=@SSN",
+                new SqlConnection(connectionString));
+
+            SqlParameter paramSSN = new SqlParameter(@"@SSN", ssn);
+            paramSSN.DbType = DbType.AnsiStringFixedLength;
+            paramSSN.Direction = ParameterDirection.Input;
+            paramSSN.Size = 11;
+
+            sqlCmd.Parameters.Add(paramSSN);
+
+
+            using (sqlCmd.Connection = new SqlConnection(connectionString))
+            {
+                try
                 {
-                    while (reader.Read())
+                    sqlCmd.Connection.Open();
+                    SqlDataReader reader = sqlCmd.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        patient = new Patient()
+                        while (reader.Read())
                         {
-                            SSN = reader[0].ToString(),
-                            FirstName = reader[1].ToString(),
-                            LastName = reader["LastName"].ToString(),
-                            BirthDate = (DateTime)reader["BirthDate"]
-                        };
+                            patient = new Patient()
+                            {
+                                SSN = reader[0].ToString(),
+                                FirstName = reader[1].ToString(),
+                                LastName = reader["LastName"].ToString(),
+                                BirthDate = (DateTime)reader["BirthDate"]
+                            };
+                        }
+                    }
+                    else
+                    {
+                        patient = null;
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    patient = null;
+                    throw;
                 }
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            return patient;
         }
-        return patient;
-    }
 
-    // This method simply deletes all records in the Patients table to reset our demo.
-    static int ResetPatientsTable()
-    {
-        int returnValue = 0;
 
-        SqlCommand sqlCmd = new SqlCommand("DELETE FROM Patients");
-        using (sqlCmd.Connection = new SqlConnection(connectionString))
+        // This method simply deletes all records in the Patients table to reset our demo.
+        static int ResetPatientsTable()
         {
-            try
-            {
-                sqlCmd.Connection.Open();
-                sqlCmd.ExecuteNonQuery();
+            int returnValue = 0;
 
-            }
-            catch (Exception ex)
+            SqlCommand sqlCmd = new SqlCommand("DELETE FROM Patients");
+            using (sqlCmd.Connection = new SqlConnection(connectionString))
             {
-                returnValue = 1;
+                try
+                {
+                    sqlCmd.Connection.Open();
+                    sqlCmd.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    returnValue = 1;
+                }
             }
+            return returnValue;
         }
-        return returnValue;
     }
-}
 
-class Patient
-{
-    public string SSN { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public DateTime BirthDate { get; set; }
-}
-}
-```
+    class Patient
+    {
+        public string SSN { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime BirthDate { get; set; }
+    }
+    }
+
 
 
 ## <a name="verify-that-the-data-is-encrypted"></a>确保数据已加密
@@ -600,9 +595,7 @@ class Patient
 
 针对 Clinic 数据库运行以下查询。
 
-```
-SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
-```
+    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 可以看到，加密的列不包含任何明文数据。
 
@@ -616,11 +609,9 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
    
     ![新建控制台应用程序](./media/sql-database-always-encrypted-azure-key-vault/ssms-connection-parameter.png)
 4. 针对 Clinic 数据库运行以下查询。
-
-    ```
-    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
-    ```
-
+   
+        SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+   
      现在，可以看到已加密列中的明文数据。
 
     ![新建控制台应用程序](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)

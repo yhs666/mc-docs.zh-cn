@@ -8,18 +8,18 @@ manager: digimobile
 editor: tysonn
 ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 11/27/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: b8a5093ca17519a9cdbc9e6c5345ad87d26dfd8e
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 2ce2112d6873adbfac987f9579aa80ccbff02cf2
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>如何通过 Node.js 使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/24/2017
 
 本主题中的代码示例假定用户已拥有 Node.js 应用程序。 有关如何在 Azure 中创建 Node.js 应用程序的信息，请参阅以下任何主题：
 
-* [在 Azure App Service 中创建 Node.js Web 应用](../app-service/app-service-web-get-started-nodejs.md)
+* [在 Azure 应用服务中创建 Node.js Web 应用](../app-service/app-service-web-get-started-nodejs.md)
 * [构建 Node.js 应用程序并将其部署到 Azure 云服务](../cloud-services/cloud-services-nodejs-develop-deploy-app.md)（使用 Windows PowerShell）
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -107,7 +107,7 @@ var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var tableSvc = azure.createTableService().withFilter(retryOperations);
 ```
 
-## <a name="add-an-entity-to-a-table"></a>向表中添加条目
+## <a name="add-an-entity-to-a-table"></a>将实体添加到表
 若要添加实体，首先创建定义实体属性的对象。 所有实体都必须都包含 PartitionKey 和 RowKey，它们是实体的唯一标识符。
 
 * **PartitionKey** - 确定实体存储在其中的分区
@@ -256,7 +256,7 @@ tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, res
 
 此操作完成后， `result` 包含该实体。
 
-## <a name="query-a-set-of-entities"></a>查询实体集
+## <a name="query-a-set-of-entities"></a>查询一组条目
 若要查询表，请使用 **TableQuery** 对象生成一个使用以下子句的查询：
 
 * **select** - 要从查询返回的字段
@@ -452,4 +452,4 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 * [Node.js 开发人员中心](/develop/nodejs/)
 * [创建 Node.js 应用程序并将其部署到 Azure 网站](../app-service/app-service-web-get-started-nodejs.md)
 
-<!--Update_Description: update meta properties，update link, wording update -->
+<!--Update_Description: update meta properties -->

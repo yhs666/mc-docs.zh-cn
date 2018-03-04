@@ -15,20 +15,20 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 7/31/2017
-ms.date: 12/11/2017
+ms.date: 2/28/2018
 ms.author: v-nany
 ms.reviewer: douglasl
-ms.openlocfilehash: 0c4bcd0d40078c850ef2bd815174fd534b452b54
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: 24e4adc3b3fcc2d4753df3194bbf0accb32ac563
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>使用 PowerShell 在 SQL 数据库和 SQL Server 本地数据库之间进行同步
 
 此 PowerShell 示例将数据同步配置为在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步。 
 
-本示例需要 Azure PowerShell 模块 4.2 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)。
+本示例需要 Azure PowerShell 模块 4.2 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
  
 运行 `Login-AzureRmAccount`，创建与 Azure 的连接。
 
@@ -372,7 +372,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 
 此脚本使用以下命令。 表中的每条命令链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzureRmSqlSyncAgent](https://docs.microsoft.com/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgent) |  新建同步代理 |
 | [New-AzureRmSqlSyncAgentKey](https://docs.microsoft.com/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgentKey) |  生成与同步代理关联的代理密钥 |

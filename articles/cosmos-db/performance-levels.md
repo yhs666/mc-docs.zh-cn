@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 12/25/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4481d8b24fb8111720bd5faef6f09796309afb6b
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 3433c146649e931fa9f81fbc1ba141b0855b690a
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>停用 S1、S2 和 S3 性能级别
 
@@ -145,7 +145,7 @@ S1、S2 和 S3 性能级别无法提供标准 Azure Cosmos DB 产品提供的灵
 
 以下代码片段可将集合吞吐量更改为每秒 5,000 个请求单位：
 
-```C#
+```csharp
     //Fetch the resource to be updated
     Offer offer = client.CreateOfferQuery()
                       .Where(r => r.ResourceLink == collection.SelfLink)    

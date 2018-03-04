@@ -1,5 +1,5 @@
 ---
-title: "为 Azure 应用服务中的 Web 应用设置过渡环境 | Azure"
+title: "为 Azure 应用服务中的 Web 应用设置过渡环境"
 description: "了解如何对 Azure 应用服务中的 Web 应用使用分阶段发布。"
 services: app-service
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/16/2016
-ms.date: 10/30/2017
+ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: f818bf1962856a2cdeb07b00d0e0ca82bd4b8865
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 23d6d69faf17e33a85e9678ec8e2fe912e9fef73
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>设置 Azure 应用服务中的过渡环境
 <a name="Overview"></a>
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/20/2017
     创建多个插槽后，可以从生产槽以外的槽克隆配置：
 
     ![配置源][MultipleConfigurationSources]
-4. 在应用的资源边栏选项卡中，单击“部署槽”，并单击部署槽打开该槽的资源边栏选项卡，它包含一组度量值和配置（类似任何其他应用）。 槽的名称出现在边栏选项卡顶部，提醒你正在查看部署槽。
+4. 在应用的资源边栏选项卡中，单击“部署槽”，并单击部署槽打开该槽的资源边栏选项卡，它包含一组度量值和配置（类似任何其他应用）。 槽的名称将出现在边栏选项卡顶部，提醒你正在查看部署槽。
 
     ![部署槽标题][StagingTitle]
 5. 单击此槽边栏选项卡中的应用 URL。 请注意，部署槽有其自己的主机名，同时它也是动态应用。 若要限制对部署槽的公共访问权限，请参阅 [应用服务 Web 应用 – 阻止对非生产部署槽的 Web 访问](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)。
@@ -247,7 +247,8 @@ Azure CLI 提供了适用于 Azure 的跨平台命令，包括对管理应用服
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 > [!NOTE] 
-> 若要了解部署槽的 [Azure CLI 2.0](https://github.com/Azure/azure-cli) 命令，请参阅 [az appservice web 部署槽](https://docs.microsoft.com/cli/azure/webapp/deployment/slot)。
+> 有关用于部署槽的 [Azure CLI 2.0](https://github.com/Azure/azure-cli) 命令，请参阅 [az webapp deployment slot](https://docs.azure.cn/zh-cn/cli/webapp/deployment/slot?view=azure-cli-latest
+)。
 
 - - -
 ### <a name="azure-site-list"></a>azure site list

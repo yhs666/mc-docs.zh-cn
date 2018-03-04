@@ -16,11 +16,11 @@ ms.custom: loading
 origin.date: 10/31/2016
 ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0e43db397960e6c5c2aaa62ba87b6738b059770d
-ms.sourcegitcommit: 3996e0f27bae21fc48f6ebfab423e9b29f9d9bf4
+ms.openlocfilehash: 7df420ff72e5e00901b4853a273b8ac2a3faa9c2
+ms.sourcegitcommit: b2ece7a9542b90975f154d29b1127c10a3cdb22d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a>将数据从 Azure Blob 存储加载到 SQL 数据仓库 (PolyBase)
 > [!div class="op_single_selector"]
@@ -40,7 +40,8 @@ ms.lasthandoff: 12/21/2017
 3. 完成加载后执行优化。
 
 ## <a name="before-you-begin"></a>准备阶段
-若要运行本教程，需要一个已包含 SQL 数据仓库数据库的 Azure 帐户。 如果没有此帐户，请参阅 [Create a SQL Data Warehouse][Create a SQL Data Warehouse]（创建 SQL 数据仓库）。
+若要运行本教程，需要一个已包含 SQL 数据仓库数据库的 Azure 帐户。 
+<!-- Not Avaiable on If you don't already have this, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse] -->
 
 ## <a name="1-configure-the-data-source"></a>1.配置数据源
 PolyBase 使用 T-SQL 外部对象来定义外部数据的位置和属性。 外部对象定义存储在 SQL 数据仓库中。 数据本身存储在外部。
@@ -358,7 +359,8 @@ GROUP BY p.[BrandName]
 <!--Image references-->
 
 <!--Article references-->
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+<!-- Not Avaiable on [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md -->
+<!-- Need to append when sample SQL Server has been implement in Mooncake-->
 [Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [manage columnstore indexes]: sql-data-warehouse-tables-index.md

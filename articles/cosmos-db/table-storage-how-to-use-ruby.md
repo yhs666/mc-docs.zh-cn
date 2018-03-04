@@ -8,18 +8,18 @@ manager: digimobile
 editor: 
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 11/27/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 66afefea13da9161dc60e7f67bc80c72a81d95a6
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 3f603a3511130ddafdeb7f875ee9b0d9b1d100de
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-use-azure-table-storage-with-ruby"></a>如何配合使用 Ruby 和 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/24/2017
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>创建 Ruby 应用程序
-有关如何创建 Ruby 应用程序的说明，请参阅 [Azure VM 上的 Ruby on Rails Web 应用程序](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)。
+有关如何创建 Ruby 应用程序的说明，请参阅 [Azure VM 上的 Ruby on Rails Web 应用程序](../virtual-machines/linux/classic/ruby-rails-web-app.md)。
 
 ## <a name="configure-your-application-to-access-storage"></a>配置应用程序以访问存储
 要使用 Azure 存储，需下载和使用 Ruby Azure 包，其中包括与存储 REST 服务通信的一组方便的库。
@@ -57,6 +57,7 @@ Azure.config.storage_account_name = "<your azure storage account>"
 Azure.config.storage_access_key = "<your azure storage access key>"
 Azure.config.storage_endpoint_suffix = "core.chinacloudapi.cn"
 ```
+<!-- Add Azure.config.strage_endpoint_suffix configuration -->
 
 从 Azure 门户中的经典或 Resource Manager 存储帐户中获取这些值：
 
@@ -79,7 +80,7 @@ end
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>向表中添加条目
-若要添加条目，应首先创建定义条目属性的哈希对象。 请注意，必须为每个实体指定 PartitionKey 和 RowKey。 这些值是条目的唯一标识符，查询它们比查询其他属性快很多。 Azure 存储使用 **PartitionKey** 将表的实体自动分发到多个存储节点。 具有相同 **PartitionKey** 的条目存储在同一个节点上。 **RowKey** 是条目在其所属分区内的唯一 ID。
+若要添加条目，应首先创建定义条目属性的哈希对象。 请注意，必须为每个实体指定 PartitionKey 和 RowKey。 这些值是实体的唯一标识符，并且查询它们比查询其他属性快很多。 Azure 存储使用 **PartitionKey** 将表的实体自动分发到多个存储节点。 具有相同 **PartitionKey** 的条目存储在同一个节点上。 **RowKey** 是条目在其所属分区内的唯一 ID。
 
 ```ruby
 entity = { "content" => "test entity",
@@ -118,7 +119,7 @@ end
 results = azure_table_service.execute_batch(batch)
 ```
 
-## <a name="query-for-an-entity"></a>查询实体
+## <a name="query-for-an-entity"></a>查询条目
 若要查询表中的实体，请使用 **get\_entity()** 方法并传递表名称、**PartitionKey** 和 **RowKey**。
 
 ```ruby
@@ -126,7 +127,7 @@ result = azure_table_service.get_entity("testtable", "test-partition-key",
     "1")
 ```
 
-## <a name="query-a-set-of-entities"></a>查询实体集
+## <a name="query-a-set-of-entities"></a>查询一组条目
 若要查询表中的一组实体，请创建查询哈希对象并使用 **query\_entities()** 方法。 以下示例演示如何获取具有相同 **PartitionKey** 的所有实体：
 
 ```ruby
@@ -139,7 +140,7 @@ result, token = azure_table_service.query_entities("testtable", query)
 >
 >
 
-## <a name="query-a-subset-of-entity-properties"></a>查询条目属性的子集
+## <a name="query-a-subset-of-entity-properties"></a>查询一部分实体属性
 对表的查询可以只检索条目的几个属性。 这种技术称为“投影”，可减少带宽并提高查询性能，尤其适用于大型条目。 请使用 select 子句并传递希望显示给客户端的属性的名称。
 
 ```ruby
@@ -148,8 +149,8 @@ query = { :filter => "PartitionKey eq 'test-partition-key'",
 result, token = azure_table_service.query_entities("testtable", query)
 ```
 
-## <a name="delete-an-entity"></a>删除实体
-若要删除实体，请使用 **delete\_entity()** 方法。 需要传入包含该实体的表的名称、实体的 PartitionKey 和 RowKey。
+## <a name="delete-an-entity"></a>删除条目
+若要删除实体，请使用 **delete\_entity()** 方法。 需要传入包含该条目的表的名称、条目的 PartitionKey 和 RowKey。
 
 ```ruby
 azure_table_service.delete_entity("testtable", "test-partition-key", "1")
@@ -165,6 +166,6 @@ azure_table_service.delete_table("testtable")
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
-* [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) 存储库
+* [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 存储库
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

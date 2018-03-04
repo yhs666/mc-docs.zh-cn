@@ -15,20 +15,20 @@ ms.workload: infrastructure-services
 origin.date: 08/07/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 06de5f75c6da01f38148200a5cc55a7bc5391afc
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 865f62da56e8b53fa875de48ffa091f14d718821
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>在 Azure 自动化中启动 Runbook
-下表帮助你确定如何在 Azure 自动化中以最适合你方案的方法启动 Runbook。 本文包含有关使用 Azure 门户和 Windows PowerShell 启动 Runbook 的详细信息。 有关其他方法的详细信息会在其他文档中提供，可以通过以下链接来访问。
+下表将帮助你确定如何在 Azure 自动化中以最适合你方案的方法启动 Runbook。 本文包含有关使用 Azure 门户和 Windows PowerShell 启动 Runbook 的详细信息。 有关其他方法的详细信息会在其他文档中提供，可以通过以下链接来访问。
 
 | **方法** | **特征** |
 | --- | --- |
-| [Azure Portal](#starting-a-runbook-with-the-azure-portal) |<li>使用交互式用户界面的最简单方法。<br> <li>用于提供简单参数值的窗体。<br> <li>轻松跟踪作业状态。<br> <li>使用 Azure 登录对访问进行身份验证。 |
+| [Azure 门户](#starting-a-runbook-with-the-azure-portal) |<li>使用交互式用户界面的最简单方法。<br> <li>用于提供简单参数值的窗体。<br> <li>轻松跟踪作业状态。<br> <li>使用 Azure 登录对访问进行身份验证。 |
 | [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) |<li>使用 Windows PowerShell cmdlet 从命令行调用。<br> <li>可以使用多个步骤包含在自动化解决方案中。<br> <li>使用证书或 OAuth 用户主体/服务主体对请求进行身份验证。<br> <li>提供简单和复杂的参数值。<br> <li>跟踪作业状态。<br> <li>支持 PowerShell cmdlet 所需的客户端。 |
-| [Azure 自动化 API](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>最有弹性的方法，但也最复杂。<br> <li>从任何可发出 HTTP 请求的自定义代码调用。<br> <li>使用证书或 OAuth 用户主体/服务主体对请求进行身份验证。<br> <li>提供简单和复杂的参数值。<br> <li>跟踪作业状态。 |
+| [Azure 自动化 API](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>最有弹性的方法，但也最复杂。<br> <li>从任何可发出 HTTP 请求的自定义代码调用。<br> <li>使用证书或 OAuth 用户主体/服务主体对请求进行身份验证。<br> <li>提供简单和复杂的参数值。 *如果你正在调用 Python runbook 使用 API 时，必须序列化 JSON 有效负载。*<br> <li>跟踪作业状态。 |
 | [Webhook](automation-webhooks.md) |<li>从单个 HTTP 请求启动 Runbook。<br> <li>使用 URL 中的安全令牌进行身份验证。<br> <li>客户端无法覆盖创建 Webhook 时指定的参数值。 Runbook 可以定义填入了 HTTP 请求详细信息的单个参数。<br> <li>无法通过 Webhook URL 跟踪作业状态。 |
 | [计划](automation-schedules.md) |<li>按每小时、每天、每周或每月计划自动启动 Runbook。<br> <li>通过 Azure 门户、PowerShell cmdlet 或 Azure API 来操作计划。<br> <li>提供与计划配置使用的参数值。 |
 | [从另一个 Runbook](automation-child-runbooks.md) |<li>将一个 Runbook 作为另一个 Runbook 中的活动使用。<br> <li>对多个 Runbook 使用的功能很有用。<br> <li>为子 Runbook 提供参数值，并使用父 Runbook 中的输出。 |
@@ -40,9 +40,9 @@ ms.lasthandoff: 02/13/2018
 ## <a name="starting-a-runbook-with-the-azure-portal"></a>使用 Azure 门户启动 Runbook
 1. 在 Azure 门户中，选择“自动化”，并单击自动化帐户的名称。
 2. 在“中心”菜单中选择“Runbook”。
-3. 在“Runbook”边栏选项卡上，选择 Runbook 并单击“启动”。
-4. 如果 Runbook 包含参数，则系统会提示在文本框中提供每个参数的值。 请参阅下面的 [Runbook 参数](#Runbook-parameters)，获取有关参数的更多详细信息。
-5. 在“作业”边栏选项卡上，可以查看 runbook 作业的状态。
+3. 在“Runbook”页上，选择 Runbook 并单击“启动”。
+4. 如果 Runbook 包含参数，则系统会提示在文本框中提供每个参数的值。 请参阅下面的 [Runbook 参数](#Runbook-parameters) ，以获取有关参数的更多详细信息。
+5. 在“作业”页上，可以查看 runbook 作业的状态。
 
 ## <a name="starting-a-runbook-with-windows-powershell"></a>使用 Windows PowerShell 启动 Runbook
 可以在 Windows PowerShell 中使用 [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) 启动 Runbook。 以下示例代码启动名为 Test-Runbook 的 Runbook。
@@ -70,7 +70,7 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput �AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup �Stream Output
 ```
 
-如果 Runbook 需要参数，则必须以[哈希表](http://technet.microsoft.com/library/hh847780.aspx)的形式提供参数，其中，哈希表的密钥与参数名称匹配，值为参数值。 以下示例演示如何启动包含两个名称分别为 FirstName 和 LastName 的字符串参数、一个名为 RepeatCount 的整数和一个名为 Show 的布尔参数的 Runbook。 有关参数的其他信息，请参阅下面的 [Runbook 参数](#Runbook-parameters) 。
+如果 Runbook 需要参数，则必须以[哈希表](http://technet.microsoft.com/library/hh847780.aspx)的形式提供参数，其中，哈希表的密钥与参数名称匹配，值为参数值。 以下示例演示如何启动包含两个名称分别为 FirstName 和 LastName 的字符串参数、一个名为 RepeatCount 的整数和一个名为 Show 的布尔参数的 Runbook。 有关参数的其他信息，请参阅下面的 [Runbook 参数](#Runbook-parameters)。
 
 ```
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
@@ -109,7 +109,7 @@ Workflow Test-Parameters
 {FirstName:'Joe',LastName:'Smith',RepeatCount:'2',Show:'True'}
 ```
 
-这会导致生成以下输出。
+这会导致生成以下输出：
 
 ```
 Joe
@@ -119,7 +119,7 @@ Smith
 ```
 
 ### <a name="arrays"></a>数组
-如果参数是数组（如 [array] 或 [string[]]），则可以使用以下 JSON 格式向它发送值列表：[Value1,Value2,Value3]。 这些值必须使用简单类型。
+如果参数是数组（如 [array] 或 [string[]]），则可以使用以下 JSON 格式向它发送值列表：*[Value1,Value2,Value3]*。 这些值必须使用简单类型。
 
 请考虑以下接受名为 *user*的参数的测试 Runbook。
 
@@ -144,7 +144,7 @@ Workflow Test-Parameters
 ["Joe","Smith",2,true]
 ```
 
-这会导致生成以下输出。
+这会导致生成以下输出：
 
 ```
 Joe

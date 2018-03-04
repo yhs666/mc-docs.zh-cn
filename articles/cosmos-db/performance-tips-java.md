@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/02/2018
-ms.date: 01/29/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0ee6723f109cf67c04a4e5f12b4194b3ee51b808
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: b3b891e7387963e162312be3ca3cb6fbc21980b3
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -34,7 +34,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 如果有“如何改善数据库性能？”的疑问， 请考虑以下选项：
 
 ## <a name="networking"></a>网络
-<a id="direct-connection"></a>
+<a name="direct-connection"></a>
 
 1. **连接模式：使用 DirectHttps**
 
@@ -64,7 +64,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     ![Azure Cosmos DB 连接策略演示](./media/performance-tips-java/connection-policy.png)
 
-   <a id="same-region"></a>
+   <a name="same-region"></a>
 2. **将客户端并置在同一 Azure 区域中以提高性能**
 
     如果可能，请将任何调用 Azure Cosmos DB 的应用程序放在与 Azure Cosmos DB 数据库所在的相同区域中。 通过大致的比较发现，在同一区域中对 Azure Cosmos DB 的调用可在 1-2 毫秒内完成，而美国西海岸和美国东海岸之间的延迟则大于 50 毫秒。 根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://www.azure.cn/support/service-dashboard/#services)（Azure 区域）。
@@ -79,7 +79,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     每个 [DocumentClient](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client) 实例都是线程安全的，在直接模式下运行时可执行高效的连接管理和地址缓存。 若要通过 DocumentClient 获得高效的连接管理和更好的性能，建议在应用程序生存期内对每个 AppDomain 使用单个 DocumentClient 实例。
 
-   <a id="max-connection"></a>
+   <a name="max-connection"></a>
 3. **使用网关模式时，增加每个主机的 MaxPoolSize**
 
     使用网关模式时，Azure Cosmos DB 请求是通过 HTTPS/REST 发出的，并受制于每个主机名或 IP 地址的默认连接限制。 可能需要将 MaxPoolSize 设置为较大的值 (200-1000)，以便客户端库能够同时利用多个连接来访问 Azure Cosmos DB。 在 Java SDK 中，[ConnectionPolicy.getMaxPoolSize](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy) 的默认值为 100。 使用 [setMaxPoolSize]( https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) 可更改该值。
@@ -108,7 +108,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     使用基于名称的寻址，其中的链接格式为 `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`，而不是使用格式为 `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` 的 SelfLinks (_self)（旨在避免检索用于构造链接的所有资源的 ResourceId）。 此外，由于会重新创建这些资源（名称可能相同），因此，缓存这些资源的用处不大。
 
-   <a id="tune-page-size"></a>
+   <a name="tune-page-size"></a>
 8. **调整查询/读取源的页面大小以获得更好的性能**
 
     使用读取源功能（例如 [readDocuments]( https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.readdocuments#com_microsoft_azure_documentdb__document_client_readDocuments_String_FeedOptions_c)）执行批量文档读取时，或发出 SQL 查询时，如果结果集太大，则以分段方式返回结果。 默认情况下，以包括 100 个项的块或 1 MB 大小的块返回结果（以先达到的限制为准）。
@@ -136,7 +136,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     有关索引的详细信息，请参阅 [Azure Cosmos DB 索引策略](indexing-policies.md)。
 
 ## <a name="throughput"></a>吞吐量
-<a id="measure-rus"></a>
+<a name="measure-rus"></a>
 
 1. **测量和优化较低的每秒请求单位使用量**
 
@@ -155,7 +155,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     ```             
 
     在此标头中返回的请求费用是预配吞吐量的一小部分。 例如，如果预配了 2000 RU/s，上述查询返回 1000 个 1KB 文档，则操作成本为 1000。 因此在一秒内，服务器在限制后续请求之前，只接受两个此类请求。 有关详细信息，请参阅[请求单位](request-units.md)和[请求单位计算器](https://www.documentdb.com/capacityplanner)。
-<a id="429"></a>
+<a name="429"></a>
 2. **处理速率限制/请求速率太大**
 
     客户端尝试超过帐户保留的吞吐量时，服务器的性能不会降低，并且不会使用超过保留级别的吞吐量容量。 服务器将抢先结束 RequestRateTooLarge（HTTP 状态代码 429）的请求并返回 [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) 标头，该标头指示重新尝试请求前用户必须等待的时间量（以毫秒为单位）。
@@ -175,5 +175,4 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 ## <a name="next-steps"></a>后续步骤
 若要深入了解如何设计应用程序以实现缩放和高性能，请参阅 [Azure Cosmos DB 中的分区和缩放](partition-data.md)。
-<!-- Update_Description: new articles of pergormance tips with javs. -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties, wording update, update link -->

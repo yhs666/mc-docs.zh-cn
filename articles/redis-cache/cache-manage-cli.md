@@ -3,8 +3,8 @@ title: "使用 Azure CLI 管理 Azure Redis 缓存 | Microsoft 文档"
 description: "了解如何在任何平台上安装 Azure CLI、如何使用它连接到 Azure 帐户，以及如何从 Azure CLI 创建和管理 Redis 缓存。"
 services: redis-cache
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 12/29/2017
+ms.date: 02/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: 06f3ce06d61befb999404a5e50f3c40777c79324
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: 5871f189eb3397a0015e6b5fe58c0ab12e911239
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>如何使用 Azure 命令行界面 (Azure CLI) 创建和管理 Azure Redis 缓存
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Azure CLI 是从任何平台管理 Azure 基础结构的好办法。 本文演�
 
 * 必须具有 Azure 帐户。 如果没有帐户，只需几分钟就能创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 * [安装 Azure CLI](../cli-install-nodejs.md)。
-* 将 Azure CLI 安装与个人 Azure 帐户或者工作或学校 Azure 帐户关联，然后使用 `azure login -e AzureChinaCloud` 命令从 Azure CLI 登录。 若要了解差别并进行选择，请参阅[从 Azure 命令行界面 (Azure CLI) 连接到 Azure 订阅](../xplat-cli-connect.md)。
+* 将 Azure CLI 安装与个人 Azure 帐户或者工作或学校 Azure 帐户关联，然后使用 `azure login -e AzureChinaCloud` 命令从 Azure CLI 登录。 若要了解差别并进行选择，请参阅[从 Azure 命令行界面 (Azure CLI) 连接到 Azure 订阅](/cli/authenticate-azure-cli)。
 * 在运行以下任何命令之前，通过运行 `azure config mode arm` 命令将 Azure CLI 切换到 Resource Manager 模式下。 有关更多详细信息，请参阅[使用 Azure CLI 管理 Azure 资源和资源组](../azure-resource-manager/xplat-cli-azure-resource-manager.md)。
 
 ## <a name="redis-cache-properties"></a>Redis 缓存属性
@@ -273,4 +273,4 @@ Azure CLI 是从任何平台管理 Azure 基础结构的好办法。 本文演�
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-<!--Update_Description: update metedata properties -->
+<!--Update_Description: link update -->

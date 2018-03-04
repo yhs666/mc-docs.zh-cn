@@ -17,11 +17,11 @@ ms.author: v-johch
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: cd9bc83a5793dc411425a08b5cab6222c3c2a355
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: e06f3f3c9a6169e095fe825a0a5522b1b3c4be22
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>弹性池有助于管理和缩放多个 Azure SQL 数据库
 
@@ -50,7 +50,7 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 
 池很适合具有特定使用模式的大量数据库。 对于给定的数据库，此模式的特征是低平均使用量与相对不频繁的使用高峰。
 
-可以加入池的数据库越多，就可以节省更多的成本。 具体取决于应用程序使用模式，可能会看到与使用两个 S3 数据库相同的成本节约。  
+可以加入池的数据库越多，就可以节省更多的成本。 具体取决于应用程序使用模式，可能会看到与使用两个 S3 数据库相同的成本节约。 
 
 以下各部分有助于了解如何评估特定的数据库集合是否会因使用池而受益。 这些示例使用标准池，但同样的原理也适用于基本和高级池。
 
@@ -74,11 +74,11 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 
 由于以下原因，此示例很理想：
 
-* 每一数据库之间的高峰使用量和平均使用量有相当大的差异。  
+* 每一数据库之间的高峰使用量和平均使用量有相当大的差异。 
 * 每个数据库的高峰使用量在不同时间点发生。
 * eDTU 在多个数据库之间共享。
 
-池的价格取决于池的 eDTU。 尽管池的 eDTU 单位价格比单一数据库的 DTU 单位价格多 1.5 倍，但 **池 eDTU 可由多个数据库共享，因而所需的 eDTU 总数更少**。 定价方面和 eDTU 共享的这些差异是池可以提供成本节省可能性的基础。  
+池的价格取决于池的 eDTU。 尽管池的 eDTU 单位价格比单一数据库的 DTU 单位价格多 1.5 倍，但 **池 eDTU 可由多个数据库共享，因而所需的 eDTU 总数更少**。 定价方面和 eDTU 共享的这些差异是池可以提供成本节省可能性的基础。 
 
 以下数据库计数和数据库使用率相关规则的经验法则可帮助确保池提供相比于使用单一数据库的性能级别降低的成本。
 
@@ -147,7 +147,7 @@ SQL数据库自动评估现有 SQL 数据库服务器中数据库的历史资源
 
 > [!NOTE]
 > 可以在服务器上创建多个池，但不能将数据库从不同的服务器添加到同一个池中。
->  
+> 
 
 该池的定价层决定了池中弹性数据库的可用功能、eDTU 数目上限 (eDTU MAX)，以及每个数据库的可用存储 (GB)。 有关详细信息，请参阅[弹性池的资源限制](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)。
 
@@ -161,11 +161,11 @@ SQL数据库自动评估现有 SQL 数据库服务器中数据库的历史资源
 
 SQL 数据库服务将评估使用量历史记录，并在比使用单一数据库更符合成本效益时，建议使用一个或多个池。 每项建议是使用最适合该池的服务器数据库的唯一子集配置的。
 
-![建议的池](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
+![建议的池](./media/sql-database-elastic-pool-create-portal/recommended-pool.png) 
 
 池建议包括：
 
-- 池的定价层（基本、标准、高级或高级 RS）
+- 池的定价层（基本、标准或高级）
 - 合适的“池 eDTU”（也称为每个池的“eDTU 最大值”）
 - 每个数据库的“eDTU 最大值”和“eDTU 最小值”
 - 池的建议数据库列表
@@ -186,9 +186,9 @@ SQL 数据库服务将评估使用量历史记录，并在比使用单一数据�
 
 下图显示一个示例弹性池。 视图包括：
 
-*  监视弹性池以及池中包含的数据库的资源使用率的图表。
-*  用于对弹性池进行更改的“配置池”  按钮。
-*  用于创建数据库并将其添加到当前弹性池的“创建数据库”按钮。
+* 监视弹性池以及池中包含的数据库的资源使用率的图表。
+* 用于对弹性池进行更改的“配置池”  按钮。
+* 用于创建数据库并将其添加到当前弹性池的“创建数据库”按钮。
 
 ![池视图](./media/sql-database-elastic-pool-manage-portal/basic.png)
 
@@ -240,6 +240,7 @@ SQL 数据库服务将评估使用量历史记录，并在比使用单一数据�
 
 ![搜索要监视的数据库](./media/sql-database-elastic-pool-manage-portal/select-dbs.png)
 
+
 ### <a name="add-an-alert-to-an-elastic-pool-resource"></a>向弹性池资源添加警报
 
 可以向弹性池添加规则，以便在弹性池达到设置的利用率阈值时，向人员发送电子邮件或是向 URL 终结点发送警报字符串。
@@ -250,7 +251,7 @@ SQL 数据库服务将评估使用量历史记录，并在比使用单一数据�
 2. 键入可标识发送给你和收件人的警报的“名称”和“说明”。
 3. 从列表中选择要发送相关警报的“指标”  。
 
-    图表会动态显示该指标的资源利用率，以帮助选择阈值。
+   图表会动态显示该指标的资源利用率，以帮助选择阈值。
 
 4. 选择“条件”（大于、小于等）和“阈值”。
 5. 选择触发警报前必须满足指标规则的时间**段**。
@@ -262,7 +263,7 @@ SQL 数据库服务将评估使用量历史记录，并在比使用单一数据�
 
 可以对现有池添加或删除数据库。 数据库可以位于其他池中。 但是，只能添加位于相同逻辑服务器上的数据库。
 
-![单击“配置池”](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
+ ![单击“配置池”](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
 
 ![单击“添加到池”](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
 

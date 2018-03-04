@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/07/2017
-ms.date: 11/06/2017
+ms.date: 2/28/2018
 ms.author: v-johch
-ms.openlocfilehash: 0503d355958c6d269f5df96a0b9acb76fe3655ee
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: e76af3a58eafad0c210d719c734bfd660472f37d
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 数据库审核入门
 Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储帐户中的审核日志。 审核还可：
@@ -34,14 +34,17 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 可使用 SQL 数据库审核来：
 
 
-* **保留**选定事件的审核痕迹。 可以定义要审核的数据库操作的类别。
+* **保留** 选定事件的审核痕迹。 可以定义要审核的数据库操作的类别。
 * **报告** 数据库活动。 可以使用预配置的报告和仪表板快速开始使用活动和事件报告。
 * **分析** 报告。 可以查找可疑事件、异常活动和趋势。
 
-可按[为数据库设置审核](#subheading-2)部分中所述，为不同类型的事件类别配置审核。
+可为不同类型的事件类别配置审核，如 [为数据库设置审核](#subheading-2) 部分中所述。
 
-审核日志会写入 Azure 订阅中的 Azure Blob 存储。
-
+> [!IMPORTANT]
+> 审核日志会写入 Azure 订阅的 Azure Blob 存储中的追加 Blob。
+>
+> * 追加 Blob 目前不支持高级存储。
+> * 目前不支持 VNet 中的存储。
 
 ## <a id="subheading-8"></a>定义服务器级和数据库级审核策略
 
@@ -53,12 +56,13 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 
 * 除在服务器上启用 blob 审核外，在数据库上启用 blob 审核也不会替代或更改服务器 blob 审核的任何设置。 这两种审核会并存。 换言之，会并行对数据库执行两次审核；一次按服务器策略审核，一次按数据库策略审核。
 
-    > [!NOTE]
-    > 应避免同时启用服务器 Blob 审核和数据库 Blob 审核，除非：
+   > [!NOTE]
+   > 除非有以下需要，否则应该避免同时启用服务器 Blob 审核和数据库 Blob 审核：
     > * 需要对特定数据库使用不同的存储帐户或保留期。
     > * 对于与服务器上其他数据库不同的特定数据库，应审核事件类型或类别。 例如，可能拥有仅需要针对特定数据库进行审核的表插入。
-   > 
+   >
    > 否则，建议仅启用服务器级 blob 审核，并对所有数据库禁用数据库级审核。
+
 
 ## <a id="subheading-2"></a>为数据库设置审核
 以下部分介绍如何使用 Azure 门户配置审核。
@@ -76,11 +80,11 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 
     ![导航窗格][3]
 5. 若要打开“审核日志存储”边栏选项卡，请选择“存储详细信息”。 依次选择要用于保存日志的 Azure 存储帐户以及保持期。 将删除旧日志。 。
-   >[!TIP] 
-   >若要充分利用审核报告模板，请为所有审核的数据库使用相同的存储帐户。 
+   >[!TIP]
+   >若要充分利用审核报告模板，请为所有审核的数据库使用相同的存储帐户。
 
     <a id="storage-screenshot"></a> ![导航窗格][4]
-6. 若要自定义已审核的事件，可通过 PowerShell 或 REST API 执行此操作。 
+6. 若要自定义已审核的事件，可通过 PowerShell 或 REST API 执行此操作。
 7. 配置审核设置后，可打开新威胁检测功能，并配置电子邮件用于接收安全警报。 使用威胁检测时，会接收针对异常数据库活动（可能表示潜在的安全威胁）发出的前瞻性警报。 有关详细信息，请参阅[威胁检测入门](sql-database-threat-detection-get-started.md)。
 8. 单击“保存” 。
 
@@ -106,11 +110,12 @@ Blob 审核日志以 blob 文件集合的形式保存在名为 **sqldbauditlogs*
     - 可单击“审核记录”边栏选项卡顶部的“筛选”，查看特定的日期。
     - 可在服务器策略审核或数据库策略审核创建的审核记录之间切换。
 
-    ![导航窗格][8]
+       ![导航窗格][8]
 
 * 使用系统函数 **sys.fn_get_audit_file** (T-SQL) 以表格格式返回审核日志数据。 有关使用此函数的详细信息，请参阅 [sys.fn_get_audit_file 文档](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql)。
 
-* 使用 SQL Server Management Studio 中的“合并审核文件”选项（从 SSMS 17 开始）：  
+
+* 使用 SQL Server Management Studio 中的“合并审核文件”选项（从 SSMS 17 开始）：
     1. 在 SSMS 菜单中，选择“文件” > “打开” > “合并审核文件”。
 
         ![导航窗格][9]
@@ -120,7 +125,7 @@ Blob 审核日志以 blob 文件集合的形式保存在名为 **sqldbauditlogs*
 
     4. 合并的文件会在 SSMS 中打开，可在其中进行查看和分析，以及将其作为 XEL 或 CSV 文件导出或导出到表中。
 
-* 使用创建的[同步应用程序](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)。 该应用程序在 Azure 中运行，并利用 Operations Management Suite (OMS) Log Analytics 公共 API 将 SQL 审核日志推送到 OMS 中。 同步应用程序通过 OMS Log Analytics 仪表板将 SQL 审核日志推送到 OMS Log Analytics 中以供使用。 
+* 使用创建的[同步应用程序](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)。 该应用程序在 Azure 中运行，并利用 Operations Management Suite (OMS) Log Analytics 公共 API 将 SQL 审核日志推送到 OMS 中。 同步应用程序通过 OMS Log Analytics 仪表板将 SQL 审核日志推送到 OMS Log Analytics 中以供使用。
 
 * 使用 Power BI。 可在 Power BI 中查看和分析审核日志数据。 详细了解 [Power BI 及如何访问可下载的模板](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/)。
 
@@ -161,7 +166,7 @@ Blob 审核日志以 blob 文件集合的形式保存在名为 **sqldbauditlogs*
 1. 打开“存储详细信息”边栏选项卡。 在“存储访问密钥”框中，选择“辅助”并单击“确定”。 然后单击“审核配置”边栏选项卡顶部的“保存”。
 
     ![导航窗格][5]
-2. 转到“存储配置”边栏选项卡，并重新生成主访问密钥。
+2. 转到“存储配置”边栏选项卡，重新生成主访问密钥。
 
     ![导航窗格][6]
 3. 返回“审核配置”边栏选项卡，将“存储访问密钥”从“辅助”切换为“主要”，然后单击“确定”。 然后单击“审核配置”边栏选项卡顶部的“保存”。
@@ -174,8 +179,6 @@ Blob 审核日志以 blob 文件集合的形式保存在名为 **sqldbauditlogs*
 
    * [Get-AzureRMSqlDatabaseAuditing][101]
    * [Get-AzureRMSqlServerAuditing][102]
-   * [Remove-AzureRMSqlDatabaseAuditing][103]
-   * [Remove-AzureRMSqlServerAuditing][104]
    * [Set-AzureRMSqlDatabaseAuditing][105]
    * [Set-AzureRMSqlServerAuditing][106]
 
@@ -198,7 +201,7 @@ Blob 审核日志以 blob 文件集合的形式保存在名为 **sqldbauditlogs*
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
 [Automation (PowerShell / REST API)]: #subheading-7
-[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)  
+[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

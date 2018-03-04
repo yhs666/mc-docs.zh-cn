@@ -15,19 +15,22 @@ ms.topic: get-started-article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: c8ff4cf30b50a8c996ab2a37ec07c46170c0e591
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 3d7aaa0fd2ee4d06edd2ff2229ce03c4a6a9ce17
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>如何使用 Azure 媒体服务执行实时流式处理以通过 .NET 创建多比特率流
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 > * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
->[!NOTE]
+> 
+> [!NOTE]
 > 若要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。 
+> 
+> 
 
 ## <a name="overview"></a>概述
 本教程介绍了创建**通道**的步骤，该通道接收单比特率实时流，并将其编码为多比特率流。
@@ -37,8 +40,10 @@ ms.lasthandoff: 12/22/2017
 ## <a name="common-live-streaming-scenario"></a>常见的实时流方案
 以下步骤介绍创建常见的实时流式处理应用程序时涉及的任务。
 
->[!NOTE]
-> 目前，实时事件的最大建议持续时间为 8 小时。 如果需要运行一个需要更长时间的通道，请通过 Azure.cn 联系 amslived。
+> [!NOTE]
+> 目前，实时事件的最大建议持续时间为 8 小时。
+> 
+> 
 
 1. 将视频摄像机连接到计算机。 启动并配置可以通过以下协议之一输出单比特率流的本地实时编码器：RTMP、平滑流式处理或 RTP (MPEG-TS)。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](http://go.microsoft.com/fwlink/?LinkId=532824)。
 
@@ -93,7 +98,7 @@ ms.lasthandoff: 12/22/2017
 * 可以发送单比特率实时流的摄像头和编码器。
 
 ## <a name="considerations"></a>注意事项
-* 目前，实时事件的最大建议持续时间为 8 小时。 如果需要运行一个需要更长时间的通道，请通过 Azure.cn 联系 amslived。
+* 目前，实时事件的最大建议持续时间为 8 小时。 
 * 不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[本文](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
 ## <a name="download-sample"></a>下载示例

@@ -18,10 +18,10 @@ ms.date: 11/13/2017
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 7f78dc91cde94c364c638299d75960f0d263c721
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/26/2018
 ---
 # <a name="demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>使用 Service Fabric 演示容器服务的故障转移和缩放
 

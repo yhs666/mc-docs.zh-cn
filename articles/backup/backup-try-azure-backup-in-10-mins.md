@@ -3,8 +3,8 @@ title: "将 Windows 文件和文件夹备份到 Azure (Resource Manager) | Micro
 description: "了解如何在 Resource Manager 部署中将 Windows 文件和文件夹备份到 Azure。"
 services: backup
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor: 
 keywords: "如何备份; 备份文件和文件夹"
 ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 08/15/2017
-ms.date: 09/04/2017
+ms.date: 02/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 04ce6d66b4ed282bd6aa93b1d84acda7942a63a1
-ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
+ms.openlocfilehash: cf1374195a0c429634c562b19eb33f7711175279
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>初步了解：在 Resource Manager 部署中备份文件和文件夹
 本文介绍如何通过 Resource Manager 部署将 Windows Server（或 Windows 计算机）文件和文件夹备份到 Azure。 本教程旨在引导完成基本操作。 如果想要开始使用 Azure 备份，本文的内容非常合适。
@@ -30,10 +30,10 @@ ms.lasthandoff: 09/19/2017
 如果没有 Azure 订阅，可以先创建一个 [试用帐户](https://www.azure.cn/pricing/1rmb-trial/) ，这样就可以访问任何 Azure 服务。
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
-若要备份文件和文件夹，需在要存储数据的区域内创建恢复服务保管库。 还需确定存储复制方式。
+若要备份文件和文件夹，需在要存储数据的区域内创建恢复服务保管库。 还需要确定复制存储的方式。
 
 ### <a name="to-create-a-recovery-services-vault"></a>创建恢复服务保管库
-1. 如果尚未登录 [Azure 门户](https://portal.azure.cn/)，请使用 Azure 订阅登录。
+1. 若尚未登录 [Azure 门户](https://portal.azure.cn/) ，请使用 Azure 订阅登录。
 2. 在“中心”菜单中，单击“更多服务”，并在资源列表中，键入“恢复服务”并单击“恢复服务保管库”。
 
     ![创建恢复服务保管库步骤 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
@@ -57,11 +57,11 @@ ms.lasthandoff: 09/19/2017
     或
     - 选择“使用现有项”，并单击下拉菜单查看可用资源组列表  。
 
-  有关资源组的完整信息，请参阅 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)。
+  有关资源组的完整信息，请参阅 [Azure 资源管理器概述](../azure-resource-manager/resource-group-overview.md)。
 
 7. 单击“位置”，为保管库选择地理区域  。 此选项决定了备份数据要发送到的地理区域。
 
-8. 在恢复服务保管库边栏选项卡的底部，单击“创建”。
+8. 在“恢复服务保管库”边栏选项卡的底部，单击“创建” 。
 
     创建恢复服务保管库可能需要数分钟。 可以在门户右上区域监视状态通知。 创建保管库后，它会显示在“恢复服务保管库”的列表中。 如果在几分钟后看不到保管库，请单击“刷新” 。
 
@@ -145,7 +145,7 @@ ms.lasthandoff: 09/19/2017
 
 1. 在 Downloads 文件夹（或其他保存位置）中找到并双击 **MARSagentinstaller.exe**。
 
-    安装程序会在提取、安装和注册恢复服务代理时提供一系列的消息。
+    安装程序会在提取、安装和注册恢复服务代理时提供一系列消息。
 
     ![运行恢复服务代理安装程序凭据](./media/backup-try-azure-backup-in-10-mins/mars-installer-registration.png)
 
@@ -167,9 +167,11 @@ ms.lasthandoff: 09/19/2017
 ## <a name="network-and-connectivity-requirements"></a>网络和连接要求
 
 如果计算机/代理具有有限的 Internet 访问，请确保计算机/代理上的防火墙设置配置为允许以下 URL： <br>
-    1. *.Microsoft.com
-    2. *.WindowsAzure.cn
-    3. *.microsoftonline.cn
+    1. www.msftncsi.com
+    2. *.Microsoft.com
+    3. *.WindowsAzure.cn
+    4. *.microsoftonline.cn
+    5. *.chinacloudapi.cn
 
 ## <a name="back-up-your-files-and-folders"></a>备份文件和文件夹
 初始备份包括两个关键任务：
@@ -189,7 +191,7 @@ ms.lasthandoff: 09/19/2017
 3. 在计划备份向导的“开始使用”页上，单击“**下一步**”。
 4. 在“选择要备份的项”页上，单击“**添加项**”。
 5. 选择要备份的文件和文件夹，并单击“**确定**”。
-6. 单击“资源组名称” 的 Azure 数据工厂。
+6. 单击“下一步”。
 7. 在“**指定备份计划**”页上指定**备份计划**，并单击“**下一步**”。
 
     可以计划每日（频率为一天最多三次）或每周备份。

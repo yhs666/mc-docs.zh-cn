@@ -16,13 +16,13 @@ ms.topic: article
 origin.date: 12/01/2017
 ms.date: 1/22/2018
 ms.author: v-nany
-ms.openlocfilehash: b165b660e8e84e44e0cac1b894d68e04cefaa8ef
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: d3f11df7bcb486a66e91b026352602eacf6f20b9
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="offline-fairplay-streaming"></a>脱机 FairPlay Streaming
+# <a name="offline-fairplay-streaming-for-ios"></a>适用于 iOS 的脱机 FairPlay Streaming 
 Microsoft Azure 媒体服务提供一套设计良好的[内容保护服务](https://docs.azure.cn/media-services/media-services-content-protection-overview)，包括：
 - Microsoft PlayReady
 - Apple FairPlay

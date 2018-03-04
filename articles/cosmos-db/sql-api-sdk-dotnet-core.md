@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 11/17/2017
-ms.date: 12/25/2017
+origin.date: 02/21/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 832c8b6c39b854f1992b8bc3f365c33c102be8c8
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 69b338aa4672a3d13081bcf4b2a0a1f6e1cc636b
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB .NET Core SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/22/2017
 
 <tr><td>**SDK 下载**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
 
-<tr><td>**API 文档**</td><td>[ 参考文档](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
+<tr><td>**API 文档**</td><td>[ 参考文档](https://docs.azure.cn/zh-cn/dotnet/api/overview/cosmosdb?view=azure-dotnet)</td></tr>
 
 <tr><td>**示例**</td><td>[.NET代码示例](sql-api-dotnet-samples.md)</td></tr>
 
@@ -59,4 +59,4 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
-<!-- Update_Description: new articles on SQL api sdk dotnet core -->
+<!-- Update_Description: update meta properties, update link -->

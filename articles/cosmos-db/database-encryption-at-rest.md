@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 07/17/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: c7f70197f9c78efa93a6b73c8b06cf61f866ba2c
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: c572fe6853b18aa7674f22462563ff240bd78a4e
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure Cosmos DB 数据库静态加密
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/07/2017
 
 作为一种 PaaS 服务，Cosmos DB 非常易于使用。 由于 Cosmos DB 中存储的所有用户数据都会进行静态加密和传输中加密，因此你无需采取任何措施。 实现这一理念的另一方式是默认“开启”静态加密。 没有任何控件可以关闭或打开它。 我们在提供此功能的同时也会遵守[可用性和性能 SLA](https://www.azure.cn/support/sla/cosmos-db)。
 
-## <a name="implement-encryption-at-rest"></a>实现静态加密
+## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>实现针对 Azure Cosmos DB 的静态加密
 
 静态加密是使用许多安全技术实现的，其中包括安全的密钥存储系统、加密的网络以及加密 API。 对数据进行解密和处理的系统必须与管理密钥的系统通信。 下图展示了加密数据的存储和密钥的管理是如何隔离的。 
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 07/07/2017
 ### <a name="q-how-often-are-encryption-keys-rotated"></a>问：隔多久轮换一次加密密钥？
 答：Microsoft 针对加密密钥轮换提供一组内部指导原则，Cosmos DB 必须遵守这些指导原则。 未发布具体的指导原则。 Microsoft 发布了[安全开发生命周期 (SDL)](https://www.microsoft.com/sdl/default.aspx)，可以将其视为内部指导原则的一部分，其中提供的最佳做法对开发人员很有用。
 
-### <a name="q-can-i-use-my-own-encryption-keys"></a>问：可以使用自己的加密密钥吗？
+### <a name="q-can-i-use-my-own-encryption-keys"></a>问：我可以使用自己的加密密钥吗？
 答：Cosmos DB 是一项 PaaS 服务，我们一直在努力使该服务易于使用。 我们注意到此问题经常被作为一个与满足符合性要求（例如 PCI-DSS）相关的代理问题问起。 在构建此功能时，我们一直与符合性审核机构合作，确保使用 Cosmos DB 的客户满足相关要求，不需要客户自己管理密钥。
 因此，我们当前没有向用户提供自行管理密钥的选项。
 
@@ -68,4 +68,6 @@ ms.lasthandoff: 07/07/2017
 ## <a name="next-steps"></a>后续步骤
 
 有关 Cosmos DB 安全性和最新改进的概述，请参阅 [Azure Cosmos DB 数据库安全性](database-security.md)。
-有关 Microsoft 认证的详细信息，请参阅 [Azure 信任中心](https://www.azure.cn/support/trust-center/)。
+有关 Microsoft 认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/)。
+
+<!-- Update_Description: update meta properties, wording update, update link -->

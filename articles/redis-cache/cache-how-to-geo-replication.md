@@ -13,13 +13,13 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 09/15/2017
-ms.date: 10/09/2017
+ms.date: 03/01/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3eaa1baee8ed21b607a18c7187166163731832e9
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: c3ee5cb8d144525d3d72b4b64fef629eb0783a39
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>如何为 Azure Redis 缓存配置异地复制功能
 
@@ -169,7 +169,7 @@ ms.lasthandoff: 10/13/2017
 
 ### 应为辅助链接缓存选择哪个区域？ <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>
 
-一般而言，建议将缓存保存在应用程序所在的相同 Azure 区域，便于应用程序访问。 如果应用程序有主区域和备用区域，那么主缓存和辅助缓存应保存在这些相同区域中。 有关配对区域的详细信息，请参阅[最佳做法 - Azure 配对区域](../best-practices-availability-paired-regions.md)。
+一般而言，建议将缓存保存在应用程序所在的相同 Azure 区域，便于应用程序访问。 如果应用程序有主区域和备用区域，那么主缓存和辅助缓存应保存在这些相同区域中。 
 
 ### 辅助链接缓存如何进行故障转移？ <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>
 
@@ -182,4 +182,4 @@ ms.lasthandoff: 10/13/2017
 
 了解有关 [Azure Redis 缓存高级层](cache-premium-tier-intro.md)的更多信息。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: link update-->

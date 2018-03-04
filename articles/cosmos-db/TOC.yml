@@ -87,6 +87,8 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+    - name: Azure Resource Manager 模板
+      href: 'https://github.com/Azure/azure-quickstart-templates/?term=cosmos+db&pageNumber=1'
 - name: 概念
   items:
     - name: 多区域分布
@@ -177,6 +179,8 @@
               items:
                 - name: .NET 示例
                   href: sql-api-dotnet-samples.md
+                - name: Java 示例
+                  href: sql-api-java-samples.md
                 - name: Node.js 示例
                   href: sql-api-nodejs-samples.md
                 - name: Python 示例
@@ -196,7 +200,7 @@
           items:
             - name: 连接到 MongoDB 帐户
               href: connect-mongodb-account.md
-            - name: 使用 MongoChef
+            - name: 使用 Studio 3T
               href: mongodb-mongochef.md
             - name: 使用 Robomongo
               href: mongodb-robomongo.md
@@ -280,8 +284,10 @@
           href: monitor-accounts.md
         - name: 管理密钥和一致性
           href: manage-account.md
+        - name: 访问控制
+          href: access-control.md
         - name: Azure 存储资源管理器
-          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
+          href: storage-explorer.md
         - name: 安全性
           items:
             - name: 静态加密
@@ -292,14 +298,12 @@
               href: secure-access-to-data.md
     - name: 集成
       items:
+        - name: 通过 HDInsight 实现 lambda 体系结构
+          href: lambda-architecture.md
         - name: 连接到 Spark
           href: spark-connector.md
         - name: 使用 Azure 应用服务部署网站
           href: create-website.md
-        - name: 使用 Hadoop 分析数据
-          href: run-hadoop-with-hdinsight.md
-        - name: 使用 Azure 流分析分析实时数据
-          href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
         - name: 实时处理传感器数据
           href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
         - name: 使用 Power BI 直观显示数据

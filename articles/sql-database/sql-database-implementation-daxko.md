@@ -16,11 +16,11 @@ ms.workload: Inactive
 origin.date: 01/10/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: e06a7d797af8cfb0d56ff276adfd681d98d323b2
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: b6d06187577d67e2083e60cdbe3009af81d307a0
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI 使用 Azure 来加速其开发周期和增强其客户服务与性能
 ![Daxko/CSI 徽标](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -68,7 +68,7 @@ Azure 的多个功能已帮助 CSI Software 从基础结构和运营为焦点，
 CSI Software 目前为客户提供大约 550 个数据库。 在使用弹性池之前，很难在一个分层结构内管理这么多数据库。 运营经理必须根据客户的高峰需求分配性能层，造成了严重的 IT 资源开销。 通过弹性池，经理可以根据情况为租户分配高级或标准池，并根据大小和需求移动客户。 客户几乎立即可以感受到弹性池的作用；在使用弹性池之前，客户在高峰使用期间遇到了超时和其他问题，但使用弹性池之后，客户可以根据需要体验活动喷发情况，并继续使用 SpectrumNG 而不会出现任何问题。
 
 ## <a name="azure-active-geo-replication-accelerates-reporting"></a>Azure 活动异地复制加速报告
-有多个 CSI Software 客户还利用了 Azure 活动异地复制。 使用活动异地复制时，可在相同或不同的数据中心区域中最多配置 4 个可读的辅助数据库。 CSI Software 以两种方式使用活动异地复制：首先，在数据中心中断服务或在无法连接到主数据库时可以使用辅助数据库；其次，辅助数据库是读取的，并且可用于卸载只读工作负荷，例如报告作业。 某些 CSI Software 客户使用这种优点来加速报告工作流。
+有多个 CSI Software 客户还利用了 Azure 活动异地复制。 使用活动异地复制时，可在相同或不同的数据中心区域中最多配置 4 个可读的辅助数据库。 CSI Software 以两种方式使用活动异地复制：首先，在数据中心中断服务或在无法连接到主数据库时可以使用辅助数据库；其次，辅助数据库是可读取的，并且可用于卸载只读工作负荷，例如报告作业。 某些 CSI Software 客户使用这种优点来加速报告工作流。
 
 ## <a name="csi-software-application-logic-and-architecture"></a>CSI Software 应用程序逻辑与体系结构
 SpectrumNG 使用 Web 角色。 由于应用程序是多租户的，因此使用了 WCF 服务处理来自客户的初始连接请求。 Molina 指出，“请求可识别每个客户，这让我们能够构建出一个可连到其数据库的连接字符串，执行所需的任何操作。”

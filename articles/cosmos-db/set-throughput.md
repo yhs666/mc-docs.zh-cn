@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/02/2018
-ms.date: 01/29/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2aea47e13d529f014da698f21559d253d845518e
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: b5be510febd3642c277c98252f1cea9f341f3fb5
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>设置 Azure Cosmos DB 容器的吞吐量
 
@@ -50,17 +50,17 @@ ms.lasthandoff: 01/23/2018
 ## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>使用 Azure 门户设置吞吐量
 
 1. 在新窗口中，打开 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧栏中单击“Azure Cosmos DB”，或者单击底部的“更多服务”，滚动到“数据库”，并单击“Azure Cosmos DB”。
+2. 在左侧栏中单击“Azure Cosmos DB”，或者单击底部的“所有服务”，滚动到“数据库”，并单击“Azure Cosmos DB”。
 3. 选择 Cosmos DB 帐户。
 4. 在新窗口中，单击导航菜单中的“数据资源管理器”。
 5. 在新窗口中展开数据库和容器，然后单击“设置和缩放”。
 6. 在新窗口中的“吞吐量”框内键入新吞吐量值，然后单击“保存”。
 
-<a id="set-throughput-sdk"></a>
+<a name="set-throughput-sdk"></a>
 
 ## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>使用用于 .NET 的 SQL API 设置吞吐量
 
-```C#
+```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -74,7 +74,7 @@ offer = new OfferV2(offer, 12000);
 await client.ReplaceOfferAsync(offer);
 ```
 
-<a id="set-throughput-java"></a>
+<a name="set-throughput-java"></a>
 
 ## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>使用 SQL API for Java 设置吞吐量
 
@@ -110,4 +110,4 @@ client.replaceOffer(offer);
 
 若要了解有关使用 Cosmos DB 进行预配和多区域扩展的详细信息，请参阅[使用 Cosmos DB 进行分区和缩放](partition-data.md)。
 <!-- Notice: 全球 to 多个区域 -->
-<!-- Update_Description: udpate meta properties, wording update, add the content of Set the throughtput by using SQL API for java  -->
+<!-- Update_Description: udpate meta properties, wording update -->

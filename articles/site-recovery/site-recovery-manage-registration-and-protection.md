@@ -2,26 +2,21 @@
 title: "删除服务器并禁用保护 | Azure"
 description: "本文介绍如何从 Site Recovery 保管库中注销服务器，以及如何禁用虚拟机和物理服务器的保护。"
 services: site-recovery
-documentationcenter: 
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: ef1f31d5-285b-4a0f-89b5-0123cd422d80
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-origin.date: 10/03/2017
-ms.date: 11/20/2017
+origin.date: 02/07/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 865951433563ea2f2ce10b89d98094c1deb56d43
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: b682276452ba7b402e1aa435f17c13126352396c
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="remove-servers-and-disable-protection"></a>删除服务器并禁用保护
+
 本文介绍了如何从恢复服务保管库中取消注册服务器，以及如何禁用对计算机的 Site Recovery 保护。
 
 ## <a name="unregister-a--configuration-server"></a>取消注册配置服务器

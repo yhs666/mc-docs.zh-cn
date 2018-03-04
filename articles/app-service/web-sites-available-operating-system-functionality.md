@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/01/2016
-ms.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5dd5cc79ebd108994144852f8f64ce6b94f03914
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.openlocfilehash: fd6aadcde060ac87d12d5e37675e84c70c5e8f45
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure 应用服务上的操作系统功能
 本文介绍了可供在 [Azure 应用服务](app-service-web-overview.md)上运行的所有应用使用的常见基准操作系统功能。 这些功能包括文件、网络和注册表访问以及诊断日志和事件。 
@@ -50,7 +50,7 @@ ms.lasthandoff: 01/22/2018
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>本地驱动器
-就其核心而言，应用服务是在 Azure PaaS（平台即服务）基础结构的基础上运行的服务。 因此，“附加到”虚拟机的本地驱动器是可用于在 Azure 中运行的任何辅助角色的相同驱动器类型。 这包括操作系统驱动器（D:\ 驱动器）、包含应用服务专用（客户不可访问）的 Azure 程序包 cspkg 文件的应用程序驱动器，以及其大小因 VM 大小而异的“user”驱动器（C:\ 驱动器）。
+就其核心而言，应用服务是在 Azure PaaS（平台即服务）基础结构的基础上运行的服务。 因此，“附加到”虚拟机的本地驱动器是可用于在 Azure 中运行的任何辅助角色的相同驱动器类型。 这包括操作系统驱动器（D:\ 驱动器）、包含应用服务专用（客户不可访问）的 Azure 程序包 cspkg 文件的应用程序驱动器，以及其大小因 VM 大小而异的“user”驱动器（C:\ 驱动器）。 随着应用程序增长，请务必监视磁盘利用率。 如果达到了磁盘配额，可能会对应用程序产生负面影响。
 
 <a id="NetworkDrives"></a>
 

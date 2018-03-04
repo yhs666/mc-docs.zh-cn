@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/05/2017
+origin.date: 01/23/2018
 ms.author: v-yiso
-ms.date: 11/06/2017
-ms.openlocfilehash: 12ea92dccdbf35283f9e953af95d23f00871a221
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.date: 03/12/2018
+ms.openlocfilehash: 9b3f9b231d5c957ac23b7a4b073d6b6b8e86ea76
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-relay-port-settings"></a>Azure 中继端口设置
 
@@ -32,22 +32,22 @@ ms.lasthandoff: 10/30/2017
   
 |绑定|传输安全|端口|  
 |-------------|------------------------|----------|  
-|[BasicHttpRelayBinding 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.basichttprelaybinding)（客户端）|是|HTTPS| 
+|[BasicHttpRelayBinding 类](/dotnet/api/microsoft.servicebus.basichttprelaybinding)（客户端）|是|HTTPS| 
 | |" |否|HTTP|  
-|[BasicHttpRelayBinding 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.basichttprelaybinding)（服务）|任一个|9351/HTTP|  
-|[NetEventRelayBinding 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.neteventrelaybinding)（客户端）|是|9351/HTTPS|  
+|[BasicHttpRelayBinding 类](/dotnet/api/microsoft.servicebus.basichttprelaybinding)（服务）|任一个|9351/HTTP|  
+|[NetEventRelayBinding 类](/dotnet/api/microsoft.servicebus.neteventrelaybinding)（客户端）|是|9351/HTTPS|  
 ||" |否|9350/HTTP|  
-|[NetEventRelayBinding 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.neteventrelaybinding)（服务）|任一个|9351/HTTP|  
-|[NetTcpRelayBinding 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.nettcprelaybinding)（客户端/服务）|任一个|5671/9352/HTTP（9352/9353，如果使用混合）|  
-|[NetOnewayRelayBinding 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.netonewayrelaybinding)（客户端）|是|9351/HTTPS|  
+|[NetEventRelayBinding 类](/dotnet/api/microsoft.servicebus.neteventrelaybinding)（服务）|任一个|9351/HTTP|  
+|[NetTcpRelayBinding 类](/dotnet/api/microsoft.servicebus.nettcprelaybinding)（客户端/服务）|任一个|5671/9352/HTTP（9352/9353，如果使用混合）|  
+|[NetOnewayRelayBinding 类](/dotnet/api/microsoft.servicebus.netonewayrelaybinding)（客户端）|是|9351/HTTPS|  
 ||" |否|9350/HTTP|  
-|[NetOnewayRelayBinding 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.netonewayrelaybinding)（服务）|任一个|9351/HTTP|  
-|[WebHttpRelayBinding 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.webhttprelaybinding)（客户端）|是|HTTPS|  
+|[NetOnewayRelayBinding 类](/dotnet/api/microsoft.servicebus.netonewayrelaybinding)（服务）|任一个|9351/HTTP|  
+|[WebHttpRelayBinding 类](/dotnet/api/microsoft.servicebus.webhttprelaybinding)（客户端）|是|HTTPS|  
 ||" |否|HTTP|  
-|[WebHttpRelayBinding 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.webhttprelaybinding)（服务）|任一个|9351/HTTP|  
-|[WS2007HttpRelayBinding 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.ws2007httprelaybinding)（客户端）|是|HTTPS|  
+|[WebHttpRelayBinding 类](/dotnet/api/microsoft.servicebus.webhttprelaybinding)（服务）|任一个|9351/HTTP|  
+|[WS2007HttpRelayBinding 类](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding)（客户端）|是|HTTPS|  
 ||" |否|HTTP|  
-|[WS2007HttpRelayBinding 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.ws2007httprelaybinding)（服务）|任一个|9351/HTTP|
+|[WS2007HttpRelayBinding 类](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding)（服务）|任一个|9351/HTTP|
 
 ## <a name="next-steps"></a>后续步骤
 若要了解有关 Azure 中继的详细信息，请访问以下链接：

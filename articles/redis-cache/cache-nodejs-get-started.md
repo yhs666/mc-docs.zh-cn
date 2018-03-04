@@ -1,10 +1,10 @@
 ---
-title: "如何将 Azure Redis 缓存与 Node.js 配合使用 | Azure"
+title: "如何将 Azure Redis 缓存与 Node.js 配合使用 | Microsoft Docs"
 description: "开始将 Azure Redis 缓存与 Node.js 和 node_redis 配合使用。"
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: v-lincan
 ms.assetid: 06fddc95-8029-4a8d-83f5-ebd5016891d9
 ms.service: cache
@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 origin.date: 02/10/2017
-ms.date: 03/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 22b2d22574e91ed9240932a3a25f0a1e6e4b07cd
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 02/28/2018
+ms.author: v-junlch
+ms.openlocfilehash: 216084fb1bc1ee8b37c80ff37fbff90dd4f9f5ce
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-use-azure-redis-cache-with-nodejs"></a>如何将 Azure Redis 缓存与 Node.js 配合使用
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.lasthandoff: 06/21/2017
 
 Azure Redis 缓存允许访问 Microsoft 管理的安全、专用的 Redis 缓存。 可从 Azure 内部的任何应用程序访问缓存。
 
-本主题说明如何将 Azure Redis 缓存与 Node.js 配合使用。 有关将 Azure Redis 缓存与 Node.js 配合使用的另一个示例，请参阅 [在 Azure 网站中使用 Socket.IO 生成 Node.js 聊天应用程序](../app-service-web/web-sites-nodejs-chat-app-socketio.md)。
+本主题说明如何将 Azure Redis 缓存与 Node.js 配合使用。 
 
 ## <a name="prerequisites"></a>先决条件
 安装 [node_redis](https://github.com/mranney/node_redis)：
@@ -59,12 +59,12 @@ Azure Redis 缓存允许访问 Microsoft 管理的安全、专用的 Redis 缓�
     var client = redis.createClient(6380,'<name>.redis.cache.chinacloudapi.cn', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.chinacloudapi.cn'}});
 
 > [!NOTE]
-> 为新的 Azure Redis 缓存实例禁用了非 SSL 端口。 如果使用其他不支持 SSL 的客户端，请参阅[如何启用非 SSL 端口](cache-configure.md#access-ports)。
+> 已为新的 Azure Redis 缓存实例禁用了非 SSL 端口。 如果使用其他不支持 SSL 的客户端，请参阅[如何启用非 SSL 端口](cache-configure.md#access-ports)。
 > 
 > 
 
 ## <a name="add-something-to-the-cache-and-retrieve-it"></a>在缓存中添加一些内容并检索此内容
-以下示例显示了如何连接到 Azure Redis 缓存实例，以及如何在缓存中存储并检索项目。 有关将 Redis 与 [node_redis](https://github.com/mranney/node_redis) 客户端一起使用的更多示例，请参阅 [http://redis.js.org/](http://redis.js.org/)。
+下面的示例展示了如何连接到 Azure Redis 缓存实例，以及如何在缓存中存储和检索项目。 有关将 Redis 与 [node_redis](https://github.com/mranney/node_redis) 客户端一起使用的更多示例，请参阅 [http://redis.js.org/](http://redis.js.org/)。
 
      var redis = require("redis");
 
@@ -84,6 +84,9 @@ Azure Redis 缓存允许访问 Microsoft 管理的安全、专用的 Redis 缓�
     OK
     value
 
+
 ## <a name="next-steps"></a>后续步骤
-* [启用缓存诊断](cache-how-to-monitor.md#enable-cache-diagnostics)，以便可以[监视](cache-how-to-monitor.md)缓存的运行状况。
-* 阅读官方 [Redis 文档](http://redis.io/documentation)。
+- [启用缓存诊断](cache-how-to-monitor.md#enable-cache-diagnostics)，以便可以[监视](cache-how-to-monitor.md)缓存的运行状况。
+- 阅读官方 [Redis 文档](http://redis.io/documentation)。
+
+<!--Update_Description: wording update -->

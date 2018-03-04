@@ -3,8 +3,8 @@ title: "使用 Redis 缓存预配 Web 应用"
 description: "使用 Azure Resource Manager 模板部署包含 Redis 缓存的 Web 应用。"
 services: app-service
 documentationcenter: 
-author: steved0x
-manager: erickson-doug
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 6e99c71f-ef8e-4570-a307-e4c059e60c35
 ms.service: app-service
@@ -13,33 +13,30 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/06/2017
-ms.date: 03/01/2017
-ms.author: v-dazen
-ms.openlocfilehash: e5b2c0cc72a19c845ed9f6760fa57a5abccdeefa
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 02/28/2018
+ms.author: v-junlch
+ms.openlocfilehash: 00d38d0943bb55cd90979c948bc20e679ebb7aac
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-a-web-app-plus-redis-cache-using-a-template"></a>使用模板创建 Web 应用和 Redis 缓存
-在本主题中，你将学习如何创建用于部署 Azure Web 应用和 Redis 缓存的 Azure Resource Manager 模板。 你将了解如何定义要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求。
+本主题介绍如何创建用于部署 Azure Web 应用和 Redis 缓存的 Azure Resource Manager 模板。 了解如何定义要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求。
 
-有关创建模板的详细信息，请参阅[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)。
+有关创建模板的详细信息，请参阅[创作 Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)。
 
 有关完整的模板，请参阅 [包含 Redis 缓存的 Web 应用模板](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json)。
 
-## <a name="what-you-will-deploy"></a>将部署的内容
+## <a name="what-you-will-deploy"></a>要部署的内容
 在此模板中，你将部署：
 
-* Azure Web 应用
-* Azure Redis 缓存。
+- Azure Web 应用
+- Azure Redis 缓存。
 
 若要自动运行部署，请单击以下按钮：
 
 [![“部署到 Azure”](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-with-redis-cache%2Fazuredeploy.json)
-
->[!NOTE]
-> 必须修改从 GitHub 存储库“azure-quickstart-templates”部署的模板，以适应 Azure 中国云环境。 例如，替换某些终结点 -- 将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”。
 
 ## <a name="parameters-to-specify"></a>要指定的参数
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
@@ -55,13 +52,14 @@ ms.lasthandoff: 06/21/2017
       "cacheName": "[concat('cache', uniqueString(resourceGroup().id))]"
     },
 
+
 ## <a name="resources-to-deploy"></a>要部署的资源
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 ### <a name="redis-cache"></a>Redis 缓存
 创建用于 Web 应用的 Azure Redis 缓存。 缓存的名称在 **cacheName** 变量中指定。
 
-该模板将在资源组所在的同一位置中创建缓存。
+该模板在资源组所在的同一位置中创建缓存。
 
     {
       "name": "[variables('cacheName')]",
@@ -80,6 +78,7 @@ ms.lasthandoff: 06/21/2017
         }
       }
     }
+
 
 ### <a name="web-app"></a>Web 应用
 使用 **webSiteName** 变量中指定的名称创建 Web 应用。
@@ -127,3 +126,5 @@ ms.lasthandoff: 06/21/2017
 
 ### <a name="azure-cli"></a>Azure CLI
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
+
+<!--Update_Description: wording update -->

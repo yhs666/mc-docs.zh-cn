@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 02/09/2017
-ms.date: 11/06/2017
+origin.date: 02/12/2018
+ms.date: 02/28/2018
 ms.author: v-johch
-ms.openlocfilehash: cbae4d1ab16b445a2db41cb4406eede547111a08
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 329fca04df9f0d3128235ec5677fd99f66acf949
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>在 Azure SQL 数据库中优化性能
 
@@ -31,11 +31,11 @@ Azure SQL 数据库提供[建议](sql-database-advisor.md)，可用于提高数�
 2. 优化应用程序，应用某些可以提高性能的最佳做法。 
 3. 通过更改索引和查询来优化数据库，以便更有效地处理数据。
 
-这是一些手动方法，因为需要确定所要选择的[服务层](sql-database-service-tiers.md)，或者需要重写应用程序或数据库代码并重新部署更改。
+这些都是手动方法，因为需要决定选择或需要哪些[服务层](sql-database-service-tiers.md)，以便重写应用程序或数据库代码，并部署所做的更改。
 
 ## <a name="increasing-performance-tier-of-your-database"></a>提高数据库的性能层
 
-Azure SQL 数据库提供四个[服务层](sql-database-service-tiers.md)供选择：“基本”、“标准”、“高级”和“高级 RS”（性能以数据库吞吐量单位 ([DTU](sql-database-what-is-a-dtu.md)) 进行衡量）。 每个服务层可严格隔离 SQL 数据库可以使用的资源，并保证相应服务级别的可预测性能。 本文指导用户为其应用程序选择服务层， 并讨论如何通过多种方式调整应用程序，以便充分利用 Azure SQL 数据库。
+Azure SQL 数据库提供以下三个[服务层](sql-database-service-tiers.md)可供选择：基本、标准和高级（通过数据库吞吐量单位 ([DTU](sql-database-what-is-a-dtu.md)) 衡量性能）。 每个服务层可严格隔离 SQL 数据库可以使用的资源，并保证相应服务级别的可预测性能。 本文指导用户为其应用程序选择服务层， 并讨论如何通过多种方式调整应用程序，以便充分利用 Azure SQL 数据库。
 
 > [!NOTE]
 > 本文侧重于 Azure SQL 数据库中单一数据库的性能指南。 有关弹性池的性能指南，请参阅[弹性池的价格和性能注意事项](sql-database-elastic-pool-guidance.md)。 但请注意，可以将本文的许多优化建议应用到弹性池中的数据库，获得类似的性能优势。
@@ -49,10 +49,9 @@ Azure SQL 数据库提供四个[服务层](sql-database-service-tiers.md)供选�
 * **高级**：高级服务层针对每个高级数据库提供每秒的可预测性能。 选择高级服务层时，可以根据该数据库的峰值负载调整数据库应用程序的大小。 此计划会消除因性能变动而导致小型查询在完成易受延迟影响的操作时所花时间超出预期的情况。 此模型可大大简化需要明确表明最大资源需求、性能变动或查询延迟的应用程序的开发和产品验证环节。 大多数高级服务层用例具有下述一项或多项特征：
   * **高峰值负载**。 需要大量 CPU、内存或输入/输出 (I/O) 才能完成其操作的应用程序，都需要专用、高性能级别。 例如，已知较长时间使用多个 CPU 内核的数据库操作非常适合高级服务层。
   * **并发请求数较多**。 某些数据库应用程序为许多并发请求提供服务（例如，为流量较高的网站提供服务）。 基本和标准服务层会限制每个数据库的并发请求数。 需要更多连接的应用程序需要选择相应的预留大小以处理最大数量的所需请求。
-  * **延迟较低**。 某些应用程序需要确保在最短时间内从数据库获得响应。 如果在更大范围的客户操作期间调用了特定存储过程，则有 99% 的时间可能需要在 20 毫秒内从该调用返回响应。 此类型的应用程序受益于高级服务层，以确保提供所需的计算能力。
-* **高级 RS**：高级 RS 层专为不需要最高可用性保证的 IO 密集型工作负荷设计。 示例包括测试高性能工作负荷或数据库不是记录系统的分析工作负荷。
+  * **延迟较低**。 某些应用程序需要确保在最短时间内从数据库获得响应。 如果在更大范围的客户操作期间调用了特定存储过程，则有 99% 的时间可能需要在 20 毫秒内从该调用返回响应。 此类应用程序可充分利用高级服务层，确保提供所需计算能力。
 
-SQL 数据库所需的服务级别取决于每个资源维度的峰值负载要求。 某些应用程序对于某种资源仅少量使用，但对于其他资源需要大量使用。
+SQL 数据库的所需服务级别取决于每个资源维度的峰值负载要求。 某些应用程序对于某种资源仅少量使用，但对于其他资源需要大量使用。
 
 ### <a name="service-tier-capabilities-and-limits"></a>服务层功能和限制
 

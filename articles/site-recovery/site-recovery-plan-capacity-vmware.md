@@ -2,24 +2,18 @@
 title: "规划容量和缩放以便使用 Azure Site Recovery 将 VMware 复制到 Azure | Azure"
 description: "请阅读本文了解如何规划容量和缩放，以便使用 Azure Site Recovery 将 VMware VM 复制到 Azure"
 services: site-recovery
-documentationcenter: 
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-origin.date: 10/30/2017
-ms.date: 12/04/2017
+origin.date: 02/07/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 91fbf0c965e48be12f2db6c60a4f2fdfcfaf7711
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 2a50708bc8dc4631acadb56a58a81e82475e8282
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>通过 Azure Site Recovery，针对 VMware 复制规划容量和缩放
 
@@ -27,7 +21,7 @@ ms.lasthandoff: 02/13/2018
 
 ## <a name="how-do-i-start-capacity-planning"></a>如何开始容量规划？
 
-为 VMware 复制运行 [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc) 以收集有关复制环境的信息。 [详细了解](site-recovery-deployment-planner.md)此工具。 需要收集有关兼容的和不兼容 VM、每个 VM 的磁盘以及每个磁盘数据变化的信息。 该工具还介绍了成功复制和测试故障转移所需的网络带宽要求，以及所需的 Azure 基础结构。
+为 VMware 复制运行 [Azure Site Recovery Deployment Planner](/site-recovery/site-recovery-deployment-planner) 以收集有关复制环境的信息。 [详细了解](site-recovery-deployment-planner.md)此工具。 需要收集有关兼容的和不兼容 VM、每个 VM 的磁盘以及每个磁盘数据变化的信息。 该工具还介绍了成功复制和测试故障转移所需的网络带宽要求，以及所需的 Azure 基础结构。
 
 ## <a name="capacity-considerations"></a>容量注意事项
 
@@ -143,4 +137,4 @@ ms.lasthandoff: 02/13/2018
 
 下载并运行 [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update -->

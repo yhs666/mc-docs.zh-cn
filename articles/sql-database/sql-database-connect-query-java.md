@@ -16,11 +16,11 @@ ms.topic: quickstart
 origin.date: 07/11/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: ccfb0682d9ab44c64012647c9d13adc268d9e1a6
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 0b659819d603e020a78aa74de21f2c0e16d322b7
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>使用 Java 查询 Azure SQL 数据库
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 01/05/2018
    <dependency>
        <groupId>com.microsoft.sqlserver</groupId>
        <artifactId>mssql-jdbc</artifactId>
-       <version>6.2.1.jre8</version>
+       <version>6.2.2.jre8</version>
    </dependency>
    ```
 

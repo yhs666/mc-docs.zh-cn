@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 01/08/2018
-ms.date: 01/29/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: ce31229acaa6385e0bc82163fd02afd791219095
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: a4988e3d943c546b465c6dbe44142f06bb82b2ca
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB：将 Mongoose 框架与 Azure Cosmos DB 配合使用
 
@@ -185,7 +185,7 @@ Mongoose 还存在称作[鉴别器](http://mongoosejs.com/docs/discriminators.ht
 
 1. 现在，请转到 Azure 门户，可以看到 Azure Cosmos DB 中创建了两个集合。
 
-    ![Node.js 教程 - Azure 门户的屏幕截图，其中显示 Azure Cosmos DB 帐户，并突出显示了集合名称 - Node 数据库][alldata]
+    ![Node.js 教程 - Azure 门户的屏幕截图，其中显示 Azure Cosmos DB 帐户，并突出显示了多个集合名称 - Node 数据库][mutiple-coll]
 
 1. 最后，我们从 Azure Cosmos DB 读取数据。 由于我们使用的是默认 Mongoose 操作模型，读取操作与 Mongoose 的其他读取操作相同。
 
@@ -290,7 +290,7 @@ Mongoose 还存在称作[鉴别器](http://mongoosejs.com/docs/discriminators.ht
 
 1. 现在，如果返回到 Azure 门户，可以看到只有一个名为 ```alldata``` 的集合，其中包含“Family”和“VacationDestinations”数据。
 
-    ![Node.js 教程 - Azure 门户的屏幕截图，其中显示 Azure Cosmos DB 帐户，并突出显示了集合名称 - Node 数据库][mutiple-coll]
+    ![Node.js 教程 - Azure 门户的屏幕截图，其中显示 Azure Cosmos DB 帐户，并突出显示了集合名称 - Node 数据库][alldata]
 
 1. 另请注意，每个对象有另一个名为 ```__type``` 的属性，可帮助区分两个不同的对象模型。
 
@@ -314,4 +314,4 @@ Mongoose 还存在称作[鉴别器](http://mongoosejs.com/docs/discriminators.ht
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
 [mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
-<!-- Update_Description: new articles on mongodb mongoose sample -->
+<!-- Update_Description: update meta properties, wording update, update link -->

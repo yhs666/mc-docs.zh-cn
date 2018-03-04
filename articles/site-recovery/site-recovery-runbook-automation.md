@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
 origin.date: 11/28/2017
-ms.date: 01/01/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: f48fe99c545c4a85be619fcd483857ff72ef7ce1
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: a31702ecb323f3d890d73c5ec569768f06daebba
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>将 Azure 自动化 Runbook 添加到恢复计划
 本文将介绍 Azure Site Recovery 如何与 Azure 自动化集成，以便扩展恢复计划。 恢复计划可以安排恢复受 Site Recovery 保护的 VM。 恢复计划支持复制到辅助云和复制到 Azure。 恢复计划还有助于实现恢复的**一致准确性**、**可重复性**和**自动化**。 如果从 VM 故障转移到 Azure，与 Azure 自动化集成可以扩展恢复计划。 可用于执行 Runbook，从而提供功能强大的自动化任务。
 
-如果刚开始接触 Azure 自动化，可以[注册](https://www.azure.cn/home/features/automation/)和[下载示例脚本](../automation/automation-runbook-gallery.md)。 有关详细信息，以及若要了解如何使用[恢复计划](https://azure.microsoft.com/blog/?p=166264)来安排恢复到 Azure，请参阅 [Azure Site Recovery](https://www.azure.cn/home/features/site-recovery/)。
+如果刚开始接触 Azure 自动化，可以[注册](https://www.azure.cn/home/features/automation/)和[下载示例脚本](../automation/automation-runbook-gallery.md)。 有关详细信息，以及若要了解如何使用[恢复计划](./site-recovery-create-recovery-plans.md)来安排恢复到 Azure，请参阅 [Azure Site Recovery](https://www.azure.cn/home/features/site-recovery/)。
 
 本文介绍如何将 Azure 自动化 Runbook 集成到恢复计划中。 我们使用示例，自动执行以前需要手动干预的基本任务。 本文还将介绍如何将多步骤恢复过程转换为一键式恢复操作。
 
@@ -197,7 +197,7 @@ workflow AddPublicIPAndNSG {
 1. 在 PowerShell 中，登录 Azure 订阅：
 
     ```
-    Login-AzureRMAccount -EnvironmentName AzureChinaCloud
+    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
     $sub = Get-AzureRmSubscription -Name <SubscriptionName>
     $sub | Select-AzureRmSubscription
     ```
@@ -252,8 +252,10 @@ workflow AddPublicIPAndNSG {
 <!-- Not Available on Channel9 VIDEO -->
 
 ## <a name="additional-resources"></a>其他资源
-<!-- Not Available automation-sec-configure-azure-runas-account.md -->
+* [Azure 自动化服务运行方式帐户](../automation/automation-create-runas-account.md)
 * [Azure 自动化概述](https://docs.azure.cn/zh-cn/automation/)
 * [Azure 自动化示例脚本](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure 自动化示例脚本")
 
+## <a name="next-steps"></a>后续步骤
+[详细了解](site-recovery-failover.md)如何运行故障转移。
 <!--Update_Description: update meta properties, wording update-->

@@ -15,11 +15,11 @@ ms.topic: hero-article
 origin.date: 12/04/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2aed100ce533b1e4c00dd19b1fd57b53cd575b7f
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: ce63cec60f829546276c6ccea92cc70f456cfaa1
+ms.sourcegitcommit: b2ece7a9542b90975f154d29b1127c10a3cdb22d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery 部署规划器报表
 生成的 Microsoft Excel 报表包含以下工作表：
@@ -134,7 +134,9 @@ VMware 到 Azure 报表的建议表根据选定的所需 RPO 提供以下详细�
 
 可以通过此摘要了解在使用 Azure Site Recovery 将所有兼容的 VM 转移到 Azure 进行保护时，需要支付的存储、计算、网络和许可证成本。 计算成本时，只针对兼容的 VM，不针对所有受分析的 VM。  
 
-可以按月或按年查看成本。 详细了解[支持的目标区域](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions)和[支持的货币](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies)。
+可以按月或按年查看成本。
+<!-- Not Avaiable on [supported target regions](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) -->
+<!-- Not Avaiable on [supported currencies](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies) -->
 
 **按组件成本**：总 DR 成本分为四个部分：计算成本、存储成本、网络成本和 Azure Site Recovery 许可证成本。 成本计算基于在复制时和 DR 演练时上述四个部分（计算、存储（高级和标准）、在本地站点和 Azure 之间配置的 ExpressRoute/VPN，以及 Azure Site Recovery 许可证）所对应的使用量。
 

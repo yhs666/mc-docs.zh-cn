@@ -1,5 +1,5 @@
 ---
-title: "Azure 中继身份验证和授权 | Azure"
+title: "Azure 中继身份验证和授权"
 description: "Azure 中继中的共享访问签名 (SAS) 身份验证概述"
 services: service-bus-relay
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/05/2017
+origin.date: 01/23/2018
 ms.author: v-yiso
-ms.date: 11/06/2017
-ms.openlocfilehash: 9fcfe1a861b732b1404f0991382dcf0cab84d30f
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.date: 03/12/2018
+ms.openlocfilehash: e93b0e69418beaa41388b6c444209bd5b0d489aa
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Azure 中继身份验证和授权
 
@@ -32,18 +32,18 @@ ms.lasthandoff: 10/30/2017
 
 ![][0]
 
-若要使用 SAS，可在由以下项构成的中继命名空间上配置 [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 对象：
+若要使用 SAS，可在由以下项构成的中继命名空间上配置 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 对象：
 
 * 标识此规则的 KeyName。
 * *PrimaryKey* ，是用于对 SAS 令牌进行签名/验证的加密密钥。
 * *SecondaryKey* ，是用于对 SAS 令牌进行签名/验证的加密密钥。
 * Rights，表示授予的侦听、发送或管理权限的集合。
 
-在命名空间级别配置的授权规则，可以向具有使用相应密钥签名的令牌的客户端授予命名空间中所有中继连接的访问权限。 在中继命名空间上最多可配置 12 个此类授权规则。 默认情况下，首次预配时，为每个命名空间配置具有所有权限的 [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 。
+在命名空间级别配置的授权规则，可以向具有使用相应密钥签名的令牌的客户端授予命名空间中所有中继连接的访问权限。 在中继命名空间上最多可配置 12 个此类授权规则。 默认情况下，首次预配时，为每个命名空间配置具有所有权限的 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 。
 
-若要访问某个实体，客户端需要使用特定 [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 生成的 SAS 令牌。 SAS 令牌是通过使用资源字符串的 HMAC-SHA256 生成的，该字符串由要授予对其访问权限的资源 URI 和授权规则相关加密密钥的过期时间组成。
+若要访问某个实体，客户端需要使用特定 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 生成的 SAS 令牌。 SAS 令牌是通过使用资源字符串的 HMAC-SHA256 生成的，该字符串由要授予对其访问权限的资源 URI 和授权规则相关加密密钥的过期时间组成。
 
-Azure.NET SDK 2.0 版和更高版本中包含 Azure 中继的 SAS 身份验证支持。 SAS 支持 [SharedAccessAuthorizationRule](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)。 允许将连接字符串作为参数的所有 API 都支持 SAS 连接字符串。
+Azure.NET SDK 2.0 版和更高版本中包含 Azure 中继的 SAS 身份验证支持。 SAS 支持 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)。 允许将连接字符串作为参数的所有 API 都支持 SAS 连接字符串。
 
 ## <a name="next-steps"></a>后续步骤
 - 有关 SAS 的详细信息，请继续阅读[使用共享访问签名进行服务总线身份验证](../service-bus-messaging/service-bus-sas.md)。

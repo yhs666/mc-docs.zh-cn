@@ -3,24 +3,24 @@ title: "导入 BACPAC 文件以创建 Azure SQL 数据库 | Azure"
 description: "通过导入 BACPAC 文件创建一个新的 Azure SQL 数据库。"
 services: sql-database
 documentationcenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: 
 ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
-origin.date: 06/26/2017
-ms.date: 10/02/2017
-ms.author: v-johch
+origin.date: 01/29/2018
+ms.date: 02/28/2018
+ms.author: v-nany
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 6b75150d1361c971145a52e6c8b98cf23f2a01f3
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 9feeba734f363d5fa2577737071e58c10a2c8eab
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>将 BACPAC 文件导入到新的 Azure SQL 数据库
 
@@ -28,10 +28,6 @@ ms.lasthandoff: 09/28/2017
 
 > [!IMPORTANT] 
 > 将数据库迁移到 Azure SQL 数据库后，可以选择在数据库当前的兼容性级别（对于 AdventureWorks2008R2 数据库为级别 100）或更高的级别运行数据库。 有关在特定兼容级别操作数据库的影响和选项的详细信息，请参阅 [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level)（更改数据库兼容级别）。 有关与兼容级别相关的其他数据库级别设置的信息，另请参阅 [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql)（更改数据库范围的配置）。   >
-
-> [!NOTE]
-> 要将 BACPAC 导入到新的数据库，首先必须创建一个 Azure SQL 数据库逻辑服务器。 有关演示如何使用 SQLPackage 将 SQL Server 数据库迁移到 Azure SQL 数据库的教程，请参阅[迁移 SQL Server 数据库](sql-database-migrate-your-sql-server-database.md)
->
 
 ## <a name="import-from-a-bacpac-file-using-azure-portal"></a>使用 Azure 门户从 BACPAC 文件导入
 
@@ -46,7 +42,7 @@ ms.lasthandoff: 09/28/2017
 ### <a name="monitor-the-progress-of-an-import-operation"></a>监视导入操作的进度
 
 若要监视导入操作的进度，请打开数据库要导入到其中的逻辑服务器的相应页面。 向下滚动到“操作”，并单击“导入/导出”历史记录。
-
+   
    ![导入](./media/sql-database-import/import-history.png)![导入状态](./media/sql-database-import/import-status.png)
 
 若要验证数据库在服务器上是否处于活动状态，请单击“SQL 数据库”并验证新数据库是否“联机”。

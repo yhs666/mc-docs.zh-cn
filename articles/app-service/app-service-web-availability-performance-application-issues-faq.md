@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 11/03/2017
 ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9b6c6bf1cd25267a97de5c9d18e5a5683a210aaf
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.openlocfilehash: 46c1bebd617088bf2841712884499d9b3c3ce78c
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的应用程序性能常见问题解答
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 01/22/2018
 2. 选择“应用程序设置”。
 3. 对于“始终打开”，选择“打开”。
 
-## <a name="how-do-i-turned-on-failed-request-tracing"></a>如何打开失败的请求跟踪？
+## <a name="how-do-i-turn-on-failed-request-tracing"></a>如何打开失败请求跟踪？
 
 若要打开失败的请求跟踪，请执行以下操作：
 

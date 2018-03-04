@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 11/27/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: fd18dcb181bf72c633239176a37e0d78ef557640
-ms.sourcegitcommit: a4ef22d361b2b930db6ed52cc0c22abc781ab7cb
+ms.openlocfilehash: 6c1f9a13470a4c27a1f9d724aa6e70961ec17823
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB API 对 MongoDB 功能和语法的支持
 
@@ -237,6 +237,34 @@ $regex | ``` { "Volcano Name": { $regex: "^Rain"} } ```|  | -
 需要包括“$”或“|”时，最好是创建两个（或两个以上）正则表达式查询。 例如，如果原始查询为 ```find({x:{$regex: /^abc$/})```，则必须将其修改为 ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```。
 第一部分会使用索引将搜索限制为以 ^abc 开头的那些文档，第二部分会匹配确切的条目。 条运算符“|”充当“or”函数 - 查询 ```find({x:{$regex: /^abc|^def/})``` 会匹配其字段“x”的值以“abc”或“def”开头的文档。 若要利用该索引，建议将该查询拆分成两个不同的查询，再通过 $or 运算符联接到一起：```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```。
 
+### <a name="update-operators"></a>更新运算符
+
+#### <a name="field-update-operators"></a>字段更新运算符
+- $inc
+- $mul
+- $rename
+- $setOnInsert
+- $set
+- $unset
+- $min
+- $max
+- $currentDate
+
+#### <a name="array-update-operators"></a>数组更新运算符
+- $addToSet
+- $pop
+- $pullAll
+- $pull（注意：不支持带条件的 $pull）
+- $pushAll
+- $push
+- $each
+- $slice
+- $sort
+- $position
+
+#### <a name="bitwise-update-operator"></a>位更新运算符
+- $bit
+
 ### <a name="geospatial-operators"></a>地理空间运算符
 
 运算符 | 示例 
@@ -301,5 +329,4 @@ Azure Cosmos DB 支持服务器端自动分片。 Azure Cosmos DB 不支持手�
 - 了解如何配合 MongoDB 数据库 API 来[使用 Robo 3T](mongodb-robomongo.md)。
 - 浏览具有 MongoDB 协议支持的 Azure Cosmos DB [示例](mongodb-samples.md)。
 
-<!-- Update_Description: update meta properties -->
-<!-- ONLY UPDATE META, NO NEED TO OVERWRITE TO ZH-CN LIVE BRANCH -->
+<!-- Update_Description: update meta properties, add content of Update operators section -->

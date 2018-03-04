@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/18/2017
+origin.date: 02/01/2018
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 8c1370c36aa138703949c95cbb8731e3a9922a54
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 03/12/2018
+ms.openlocfilehash: 99c9d27c09122f7289ee5b98a58ed0bff03b9473
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="service-bus-quotas"></a>服务总线配额
-
-本部分列出了 Microsoft Azure 服务总线消息传送的基本配额和限制阈值。
+本部分列出了 Azure 服务总线消息传送的基本配额和限制阈值。
 
 ## <a name="messaging-quotas"></a>消息传送配额
 

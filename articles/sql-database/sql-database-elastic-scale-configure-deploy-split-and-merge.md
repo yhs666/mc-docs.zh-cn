@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 10/24/2016
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: b610948c26a9fc0955366aea1448984f965e2e98
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 502c694994d9e9114b1aef3ea35772c5a2d30636
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>部署拆分/合并服务
 可使用拆分/合并工具在分片数据库之间移动数据。 请参阅[在扩展云数据库之间移动数据](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -38,10 +38,10 @@ ms.lasthandoff: 01/12/2018
 ## <a name="prerequisites"></a>先决条件
 1. 创建要用作拆分/合并状态数据库的 Azure SQL DB 数据库。 转到 [Azure 门户](https://portal.azure.cn)。 新建 **SQL 数据库**。 为数据库指定一个名称，并新建管理员和密码。 确保记录该名称和密码以供日后使用。
 2. 确保 Azure SQL DB 服务器允许 Azure 服务与其连接。 在门户上的“防火墙设置”中，确保“允许访问 Azure 服务”设置设为“打开”。 单击“保存”图标。
-
+   
    ![允许的服务][1]
-3. 创建用于诊断输出的 Azure 存储帐户。 转到 Azure 门户。 在左侧栏中，依次单击“新建”、“数据 + 存储”、“存储”。
-4. 创建将包含拆分/合并服务的 Azure 云服务。  转到 Azure 门户。 在左侧栏中，依次单击“新建”、“计算”、“云服务”和“创建”。 
+3. 创建用于诊断输出的 Azure 存储帐户。 转到 Azure 门户。 在左侧栏中，依次单击“创建资源”、“数据 + 存储”、“存储”。
+4. 创建包含拆分/合并服务的 Azure 云服务。  转到 Azure 门户。 在左侧栏中，依次单击“创建资源”、“计算”、“云服务”和“创建”。 
 
 ## <a name="configure-your-split-merge-service"></a>配置拆分/合并服务
 ### <a name="split-merge-service-configuration"></a>拆分/合并服务配置

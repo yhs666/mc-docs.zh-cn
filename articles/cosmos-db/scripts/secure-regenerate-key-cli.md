@@ -15,26 +15,25 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/02/2017
-ms.date: 09/25/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: b09f0bcd009f889ce75a7f799213f77e29b761c4
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: ae7e5de33c849658acc5abf0f608c4c32198125b
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-the-azure-cli"></a>使用 Azure CLI 重新生成 Azure Cosmos DB 帐户密钥
 
 此示例可使用 Azure CLI 重新生成任何类型的 Azure Cosmos DB 帐户密钥。 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-<!-- Not Available [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 本主题需要运行 Azure CLI 版本 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
 ## <a name="sample-script"></a>示例脚本
 
-```azurecli
+```azurecli-interactive
 #!/bin/bash
 
 # Set variables for the new account, database, and collection
@@ -83,14 +82,14 @@ az group delete --name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/cli/azure/group?view=azure-cli-latest#create) | 创建用于存储所有资源的资源组。 |
-| [az cosmosdb create](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) | 更新 Azure Cosmos DB 帐户。 |
-| [az cosmosdb regenerate-key](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_regenerate_key) | 重新生成 Azure Cosmos DB 帐户密钥。 |
-| [az group delete](https://docs.azure.cn/cli/azure/group?view=azure-cli-latest#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) | 更新 Azure Cosmos DB 帐户。 |
+| [az cosmosdb regenerate-key](https://docs.azure.cn/zh-cn/cli/cosmosdb/regenerate-key?view=azure-cli-latest) | 重新生成 Azure Cosmos DB 帐户密钥。 |
+| [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest)。
 
 有关其他 Azure Cosmos DB CLI 脚本示例，请参见 [Azure Cosmos DB CLI 文档](../cli-samples.md)。
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 10/30/2017
-ms.date: 12/04/2017
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: fb32f476b342fa307f79cbe104ab24a69b26d1ed
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 4772069519cbb640f5fa980ad6cf2f46d650704a
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>使用 Azure Site Recovery 复制到辅助站点时的支持矩阵
 
@@ -46,6 +46,9 @@ ms.lasthandoff: 12/01/2017
 **VMware/物理服务器** | Hyper-V（有 VMM）
 --- | ---
 64 位 Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、带 SP1（或更高版本）的 Windows Server 2008 R2<br/><br/> Centos 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2 <br/><br/>  SUSE Linux Enterprise Server 11 SP3、11 SP4  | [Hyper-V 支持](https://technet.microsoft.com/library/mt126277.aspx)的所有来宾操作系统
+<!-- Not Available on Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4<br/><br/> -->
+<!-- Not Available on Oracle Enterprise Linux 6.4, 6.5 <br/><br/> -->
+
 
 ## <a name="linux-machine-storage"></a>Linux 计算机存储
 
@@ -92,7 +95,7 @@ SAN (ISCSI) | 是 | 是
 
 ### <a name="guest-or-physical-server-storage"></a>来宾或物理服务器存储
 
-**配置** | **VMware/物理服务器** | Hyper-V（有 VMM）
+**配置** | **VMware/物理服务器** | **Hyper-V（包含 VMM）**
 --- | --- | ---
 VMDK | 是 | 不适用
 VHD/VHDX | 不适用 | 是（最多 16 个磁盘）

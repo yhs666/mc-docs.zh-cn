@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 09/29/2017
 ms.date: 01/15/2018
 ms.author: v-nany
-ms.openlocfilehash: 8df270f42b602e4fd3cc0dba1572b82c4ecc7015
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 405428d7bf5a8cf8a516f8b398e3826ce247a408
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>在 Azure 自动化中计划 Runbook
 要将 Azure 自动化中的 Runbook 计划为在指定的时间启动，可以将它链接到一个或多个计划。 可以在 Azure 门户中为 runbook 配置计划，使其运行一次或者每小时或每日定期运行。 还可以将它们计划为每周、每月、每周的特定几天或每月的特定几天或每月的特定一天运行。  可将一个 Runbook 链接到多个计划，一个计划可以链接多个 Runbook。
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/23/2018
 | [New-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationschedule) |创建新计划。 |
 | [Remove-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationschedule) |删除计划。 |
 | [Set-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationschedule) |设置现有计划的属性。 |
-| [Get-AzureRmAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationscheduledrunbook) |检索计划 Runbook。 |
+| [Get-AzureRmAutomationScheduledRunbook](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/get-azurermautomationscheduledrunbook) |检索计划 Runbook。 |
 | [Register-AzureRmAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |将 Runbook 与计划相关联。 |
 | [Unregister-AzureRmAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |将 Runbook 与计划取消关联。 |
 | **Azure 服务管理 cmdlet** | |

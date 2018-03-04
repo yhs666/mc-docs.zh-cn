@@ -15,11 +15,11 @@ ms.topic: hero-article
 origin.date: 11/02/2017
 ms.author: v-yiso
 ms.date: 12/04/2017
-ms.openlocfilehash: 8d71726cb974dd43f0b787addc61177c58a7ff69
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: e3def4fcb26089df71276c6c9feecf93e4a44785
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>使用 Azure WCF 中继创建 .NET 本地/云混合应用程序
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 11/24/2017
 
 ## <a name="create-an-on-premises-server"></a>创建本地服务器
 
-首先，构建 (mock) 本地产品目录系统。 这非常简单；可以认为，此系统代表一个实际存在的本地产品目录系统，其中包含我们将尝试集成的完整服务图面。
+首先，构建 (mock) 本地产品目录系统。 这个过程非常简单；可以认为此系统代表一个实际存在的本地产品目录系统，其中包含我们将尝试集成的完整服务图面。
 
 此项目是一个 Visual Studio 控制台应用程序，它使用 [Azure 服务总线 NuGet 包](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 来包含服务总线库和配置设置。
 
@@ -75,7 +75,7 @@ ms.lasthandoff: 11/24/2017
 4. 单击“确定”创建“ProductsServer”项目。
 5. 如果已为 Visual Studio 安装 NuGet 包管理器，请跳到下一步骤。 否则，请访问 [NuGet][NuGet]，然后单击[安装 NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)。 按照提示操作以安装 NuGet 包管理器，然后重启 Visual Studio。
 6. 在解决方案资源管理器中，右键单击“ProductsServer”项目，然后单击“管理 NuGet 程序包”。
-7. 单击“浏览”选项卡，并搜索 `Microsoft Azure Service Bus`。 选择“WindowsAzure.ServiceBus”包。
+7. 单击“浏览”选项卡，然后搜索“WindowsAzure.ServiceBus”。 选择“WindowsAzure.ServiceBus”包。
 8. 单击“安装” 并接受使用条款。
 
    ![][13]
@@ -211,7 +211,7 @@ ms.lasthandoff: 11/24/2017
 
 ## <a name="create-an-aspnet-application"></a>创建 ASP.NET 应用程序
 
-在本部分中，需要生成一个简单的 ASP.NET 应用程序，以便显示你的产品服务中检索到的数据。
+在本部分中，会生成一个简单的 ASP.NET 应用程序，以便显示产品服务中检索到的数据。
 
 ### <a name="create-the-project"></a>创建项目
 
@@ -230,7 +230,7 @@ ms.lasthandoff: 11/24/2017
     ![][18]
 
 7. 回到“新建 ASP.NET Web 应用程序”对话框，单击“确定”创建 MVC 应用。
-8. 现在必须配置新 Web 应用的 Azure 资源。 按照[本文的“发布到 Azure”部分](../app-service/app-service-web-get-started-dotnet.md#publish-to-azure)中的步骤操作。 然后，返回到本教程并继续执行下一步。
+8. 现在必须配置新 Web 应用的 Azure 资源。 按照[本文的“发布到 Azure”部分](../app-service/app-service-web-get-started-dotnet-framework.md#publish-to-azure)中的步骤操作。 然后，返回到本教程并继续执行下一步。
 10. 在解决方案资源管理器中，右键单击“模型”，然后依次单击“添加”和“类”。 在“名称”框中，键入名称 **Product.cs**。 。
 
     ![][17]
@@ -389,7 +389,7 @@ ms.lasthandoff: 11/24/2017
 14. 单击你正在使用的 Visual Studio 版本的“安装 SDK”in the **属性页** ”。
 
 ## <a name="run-the-project-locally"></a>在本地运行项目
-若要在本地测试应用程序，请在 Visual Studio 中按 **F5**。 本地服务器 (**ProductsServer**) 应该会先启动，然后 **ProductsPortal** 应用程序应该会在浏览器窗口中启动。 这次，你会看到产品库存列出了从产品服务本地系统中检索到的数据。
+若要在本地测试应用程序，请在 Visual Studio 中按 **F5**。 本地服务器 (**ProductsServer**) 应该会先启动，然后 **ProductsPortal** 应用程序应该会在浏览器窗口中启动。 这次，会看到产品库存列出了从产品服务本地系统中检索到的数据。
 
 ![][10]
 

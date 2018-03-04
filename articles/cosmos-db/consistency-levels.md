@@ -13,15 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/15/2017
-ms.date: 11/27/2017
+origin.date: 02/12/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22d99e6c318a0f97bb95226fa3c0dce74dd4cce7
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 6cc5f21bf2b09811d654cf8670b0506972975212
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的可优化数据一致性级别
 Azure Cosmos DB 是从无到有开发出来的，其设计考虑到了每个数据模型的全局分发。 它旨在提供可预测的低延迟保证以及多个完善定义的宽松一致性模型。 目前，Azure Cosmos DB 提供五种一致性级别：非常一致性、有限过期一致性、会话一致性、一致前缀一致性和最终一致性。 有限过期、会话、一致性前缀和最终级别称为“宽松一致性模型”，因为它们提供的一致性比非常一致性更差，后者是可用的最高一致性模型。 
@@ -59,7 +59,7 @@ Azure Cosmos 数据库提供 99.99% 的全面 [SLA](https://www.azure.cn/support
 一致性的粒度归并为单个用户请求。 写入请求可能对应于插入、替换、插入更新或删除事务。 与写入操作一样，读取/查询事务也归并为单个用户请求。 用户可能需要在跨越多个分区的大型结果集中分页，但每个读取事务归并为单个页面，并从单个分区内部进行。
 
 ## <a name="consistency-levels"></a>一致性级别
-可以配置数据库帐户的默认一致性级别，以应用于 Cosmos DB 帐户下的所有集合（和数据库）。 所有针对用户定义的资源发出的读取和查询，默认都会使用数据库帐户上指定的默认一致性级别。 可以使用每个受支持的 API 放宽特定读取/查询请求的一致性级别。 如本部分所述，Azure Cosmos DB 复制协议支持五种类型的一致性级别，这些级别可在特定的一致性保证与性能之间提供明确的折衷。
+可以配置数据库帐户的默认一致性级别，以应用于 Cosmos DB 帐户下的所有集合（和数据库）。 所有针对用户定义的资源发出的读取和查询，默认都会使用数据库帐户上指定的默认一致性级别。 可以放松在每个支持的 API 中使用的特定读取/查询请求的一致性级别。 如本部分所述，Azure Cosmos DB 复制协议支持五种类型的一致性级别，这些级别可在特定的一致性保证与性能之间提供明确的折衷。
 
 **非常一致性**： 
 
@@ -85,19 +85,19 @@ Azure Cosmos 数据库提供 99.99% 的全面 [SLA](https://www.azure.cn/support
 * 配置了会话一致性的 Azure Cosmos DB 帐户可将任意数量的 Azure 区域与其 Azure Cosmos DB 帐户相关联。 
 * 具有会话一致性级别的读取操作的开销（从消耗的 RU 来讲）小于非常一致性和有限过期一致性，但大于最终一致性。
 
-<a id="consistent-prefix"></a>
+<a name="consistent-prefix"></a>
 **一致前缀**： 
 
 * 一致前缀保证在没有再收到任何写入的情况下，组中的副本最终只剩一个。 
 * 一致前缀保证读取操作永远不会看到无序写入。 如果按 `A, B, C` 顺序执行写入，则客户端会看到 `A`、`A,B` 或 `A,B,C`，但不会看到 `A,C` 或 `B,A,C` 这样的混乱顺序。
-* 配置了“一致前缀”一致性的 Azure Cosmos DB 帐户可将任意数量的 Azure 区域与其 Azure Cosmos DB 帐户相关联。 
+* 配置了一致前缀的 Azure Cosmos DB 帐户可将任意数量的 Azure 区域与其 Azure Cosmos DB 帐户相关联。 
 
 **最终一致性**： 
 
 * 最终一致性保证在没有再收到任何写入的情况下，组中的副本最终只剩一个。 
 * 最终一致性是最弱的一致性形式，客户端可能会获取比之前看到的值还要旧的值。
 * 最终一致性提供最差的读取一致性，但是读取和写入的延迟均为最低。
-* 配置了“最终”一致性的 Azure Cosmos DB 帐户可将任意数量的 Azure 区域与其 Azure Cosmos DB 帐户相关联。 
+* 配置了最终一致性的 Azure Cosmos DB 帐户可将任意数量的 Azure 区域与其 Azure Cosmos DB 帐户相关联。 
 * 具有最终一致性级别的读取操作的开销（从消耗的 RU 来讲）在所有 Azure Cosmos DB 一致性级别中是最低的。
 
 ## <a name="configuring-the-default-consistency-level"></a>配置默认的一致性级别
@@ -109,7 +109,7 @@ Azure Cosmos 数据库提供 99.99% 的全面 [SLA](https://www.azure.cn/support
     ![屏幕截图：突出显示“设置”图标和默认一致性条目](./media/consistency-levels/database-consistency-level-1.png)
 
 ## <a name="consistency-levels-for-queries"></a>查询的一致性级别
-默认情况下，对于用户定义的资源，查询的一致性级别与读取的一致性级别相同。 默认情况下，每次在 Cosmos DB 容器中插入、替换或删除项时，都会同步更新索引。 这个行为让查询能够使用与时点读取相同的一致性级别。 虽然 Azure Cosmos DB 针对写入进行了优化，且支持写入，以及同步索引维护和提供一致的查询服务，但仍也可以配置某些集合，使其索引延迟更新。 延迟索引编制可大大提高写入性能，非常适合工作负荷主要具有大量读取操作的批量引入方案。  
+默认情况下，对于用户定义的资源，查询的一致性级别与读取的一致性级别相同。 默认情况下，每次在 Cosmos DB 容器中插入、替换或删除项时，都会同步更新索引。 这个行为让查询能够使用与点读取相同的一致性级别。 虽然 Azure Cosmos DB 针对写入进行了优化，且支持写入，以及同步索引维护和提供一致的查询服务，但仍也可以配置某些集合，使其索引延迟更新。 延迟索引编制可大大提高写入性能，非常适合工作负荷主要具有大量读取操作的批量引入方案。  
 
 | 索引模式 | 读取 | 查询 |
 | --- | --- | --- |
@@ -118,6 +118,10 @@ Azure Cosmos 数据库提供 99.99% 的全面 [SLA](https://www.azure.cn/support
 | 无 |从非常、有限过期、会话、一致前缀或最终一致性级别中选择 |不适用 |
 
 与读取请求一样，可在每个 API 中降低特定查询请求的一致性级别。
+
+## <a name="consistency-levels-for-the-mongodb-api"></a>MongoDB API 的一致性级别
+
+Azure Cosmos DB 当前实现了 MongoDB 3.4 版，其中具有两个一致性设置：强一致性和最终一致性。 由于 Azure Cosmos DB 是多 api，因此一致性设置在帐户级别适用，并由每个 API 控制一致性的实施。  在 MongoDB 3.6 以前，没有会话一致性的概念，因此如果将 MongoDB API 帐户设置为使用会话一致性，则使用 MongoDB API 时，该一致性会降级为最终一致性。 如果需要向某个 MongoDB API 帐户提供“读取自己的写入”保证，该帐户的默认一致性级别应设置为“强”或“有限过期”。
 
 ## <a name="next-steps"></a>后续步骤
 如果想详细了解一致性级别和权衡方案，建议参阅下列资源：
@@ -131,7 +135,7 @@ Azure Cosmos 数据库提供 99.99% 的全面 [SLA](https://www.azure.cn/support
   [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * Peter Bailis、Shivaram Venkataraman、Michael J. Franklin、Joseph M. Hellerstein、Ion Stoica。 实用部分法定人数的概率有限过期性 (PBS)。   
   [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
-* Werner Vogels。 Eventual Consistent - Revisited（最终一致 - 重新访问）。    
+* Werner Vogels。 最终一致性 - 再探。    
   [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 * Moni Naor 和 Avishai Wool 共同撰写的“仲裁系统的负载、容量和可用性”，1998 年 4 月发表在 SIAM 计算期刊 v.27 n.2 上，请参阅其中的第 423-447 页。
   [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)

@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 中创建 ASP.NET Web 应用 | Azure"
-description: "了解如何通过部署默认的 ASP.NET Web 应用，在 Azure 应用服务中运行 Web 应用。"
+title: "在 Azure 中创建 ASP.NET Core Web 应用"
+description: "了解如何通过部署默认的 ASP.NET Core Web 应用，在 Azure 应用服务中运行 Web 应用。"
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -12,24 +12,26 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 06/14/2017
-ms.date: 01/02/2018
+origin.date: 02/05/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 8f865da7062bbd309365f9214b96c2f04b088045
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.openlocfilehash: ee327f60edabf34c93d5658506c6281b91655be5
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="create-an-aspnet-web-app-in-azure"></a>在 Azure 中创建 ASP.NET Web 应用
+# <a name="create-an-aspnet-core-web-app-in-azure"></a>在 Azure 中创建 ASP.NET Core Web 应用
 
-[Azure Web 应用](./app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将第一个 ASP.NET Web 应用部署到 Azure Web 应用中。 完成后，便拥有了一个资源组，该资源组包含一个应用服务计划和一个具有已部署的 Web 应用程序的 Azure Web 应用。
 
 > [!NOTE]
-> 如果想要了解如何生成和部署 ASP.NET Framework Web 应用，请参阅[此文](app-service-web-get-started-dotnet-framework.md)。 
+> 若要查找 ASP.NET Framework 应用的步骤，请参阅[在 Azure 中创建 ASP.NET Framework Web 应用](app-service-web-get-started-dotnet-framework.md)。 
 >
 
+[Azure Web 应用](app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将第一个 ASP.NET Core Web 应用部署到 Azure Web 应用中。 完成后，便拥有了一个资源组，该资源组包含一个应用服务计划和一个具有已部署的 Web 应用程序的 Azure Web 应用。
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 ## <a name="prerequisites"></a>先决条件
 
 完成本教程：
@@ -40,8 +42,6 @@ ms.lasthandoff: 12/25/2017
 
     ![ASP.NET 和 Web 开发以及 Azure 开发（在 Web 和云下）](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 [!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 ## <a name="create-an-aspnet-core-web-app"></a>创建一个 ASP.NET Core Web 应用
@@ -50,8 +50,8 @@ ms.lasthandoff: 12/25/2017
 
 在“新建项目”对话框中，选择“Visual C#”>“Web”>“ASP.NET Core Web 应用程序”。
 
-将应用程序命名为 _myFirstAzureWebApp_，然后选择“确定”。
-
+将应用程序命名为 _myFirstAzureWebApp_，选择“新建 Git 存储库”，然后选择“确定”。
+   
 ![“新建项目”对话框](./media/app-service-web-get-started-dotnet/new-project.png)
 
 可将任何类型的 ASP.NET Core Web 应用部署到 Azure。 在本快速入门教程中，请选择“Web 应用程序”模板，并确保将身份验证设置为“无身份验证”。
@@ -60,7 +60,7 @@ ms.lasthandoff: 12/25/2017
 
 ![“新建 ASP.NET 项目”对话框](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
 
-创建 ASP.NET Core 项目后，将显示 ASP.NET Core 欢迎页上，其中提供了大量资源的链接来帮助用户入门。 
+创建 ASP.NET Core 项目后，将显示 ASP.NET Core 欢迎页，其中提供了大量有助于入门的资源链接。 
 
 ![欢迎页](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
 
@@ -68,68 +68,80 @@ ms.lasthandoff: 12/25/2017
 
 ![在本地运行应用](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
 
-## <a name="publish-to-azure"></a>发布到 Azure
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
-在“解决方案资源管理器”中右键单击“myFirstAzureWebApp”项目，然后选择“发布”。
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
 
-![从解决方案资源管理器发布](./media/app-service-web-get-started-dotnet/right-click-publish.png)
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
 
-确保已选择“Microsoft Azure 应用服务”，然后选择“发布”。
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
-![从项目概述页发布](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
+![空 Web 应用页](media/app-service-web-get-started-html/app-service-web-service-created.png)
 
-此时将打开“创建应用服务”对话框，用于创建在 Azure 中运行 ASP.NET Core Web 应用所需的所有 Azure 资源。
+## <a name="push-to-azure-from-visual-studio"></a>从 Visual Studio 推送到 Azure
 
-## <a name="sign-in-to-azure"></a>登录 Azure
+回到 Visual Studio，在“视图”菜单中单击“团队资源管理器”。 此时会显示**团队资源管理器**。
 
-在“创建应用服务”对话框中，选择“添加帐户”，然后登录到你的 Azure 订阅。 如果已登录，请从下拉列表中选择包含所需订阅的帐户。
+在“主页”视图中，单击“设置” > “存储库设置”。
 
-> [!NOTE]
-> 如果已经登录，请先不要选择“创建”。
->
->
+![团队资源管理器主页视图](./media/app-service-web-get-started-dotnet/team-explorer.png)
 
-![登录 Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
+在“存储库设置”的“远程”部分，选择“添加”。 此时会显示“添加远程”对话框。
 
-## <a name="create-a-resource-group"></a>创建资源组
+将“名称”字段设置为“Azure”，然后将“提取”字段设置为通过[创建 Web 应用](#create-a-web-app)保存的 URL。 单击“保存” 。
 
-[!INCLUDE [resource group intro text](../../includes/resource-group.md)]
+![团队资源管理器主页视图](./media/app-service-web-get-started-dotnet/team-explorer-set-remote.png)
 
-在“资源组”旁边，选择“新建”。
+此设置相当于 Git 命令 `git remote add Azure <URL>`。
 
-将资源组命名为 **myResourceGroup**，然后选择“确定”。
+单击顶部的“主页”按钮。
 
-## <a name="create-an-app-service-plan"></a>创建应用服务计划
+选择“设置” > “全局设置”。 确认已设置名称和电子邮件地址。 必要时选择“更新”。
 
-[!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
+Visual Studio 已在创建项目时将所有文件提交到 Git 存储库中。 你现在需要做的是将文件推送到 Azure。
 
-在“应用服务计划”旁边，选择“新建”。 
+单击顶部的“主页”按钮。 选择“同步” > “操作” > “打开命令提示符”。 
 
-在“配置应用服务计划”对话框中，使用位于屏幕截图后的表中的设置。
+在命令窗口中输入以下命令，并在系统提示时输入部署密码：
 
-![创建应用服务计划](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+```
+git push Azure master
+```
 
-| 设置 | 建议的值 | 说明 |
-|-|-|-|
-|应用服务计划| myAppServicePlan | 应用服务计划的名称。 |
-| 位置 | 中国北部 | 托管 Web 应用的数据中心。 |
-| 大小 | 免费 | [定价层](https://www.azure.cn/pricing/details/app-service/)确定托管功能。 |
+此命令可能需要花费几分钟时间运行。 运行时，该命令会显示类似于以下示例的信息：
 
-选择“确定” 。
+```
+Counting objects: 4, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 349 bytes | 349.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id '9e20345e9c'.
+remote: Generating deployment script.
+remote: Project file path: .\myFirstAzureWebApp\myFirstAzureWebApp.csproj
+remote: Solution file path: .\myFirstAzureWebApp.sln
+remote: Generated deployment script files
+remote: Running deployment command...
+remote: Handling ASP.NET Core Web Application deployment.
+remote:   Restoring packages for D:\home\site\repository\myFirstAzureWebApp\myFirstAzureWebApp.csproj...
+remote:   Restoring packages for D:\home\site\repository\myFirstAzureWebApp\myFirstAzureWebApp.csproj...
+...
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+ * [new branch]      master -> master
+```
 
-## <a name="create-and-publish-the-web-app"></a>创建并发布 Web 应用
+## <a name="browse-to-the-app"></a>浏览到应用
 
-在“Web 应用名称”中，键入唯一的应用名称（有效字符为 `a-z`、`0-9` 和 `-`），或接受自动生成的唯一名称。 Web 应用的 URL 为 `http://<app_name>.chinacloudsites.cn`，其中 `<app_name>` 是 Web 应用名称。
+在浏览器中导航到 Azure Web 应用 URL：`http://<app_name>.azurewebsites.net`。
 
-选择“创建”开始创建 Azure 资源。
-
-![配置 Web 应用名称](./media/app-service-web-get-started-dotnet/web-app-name.png)
-
-向导完成后，它会将 ASP.NET Core Web 应用发布到 Azure，然后在默认浏览器中启动该应用。
+该页作为 Azure 应用服务 Web 应用运行。
 
 ![已在 Azure 中发布的 ASP.NET Web 应用](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
-
-将[创建和发布步骤](#create-and-publish-the-web-app)中指定的 Web 应用名称用作 `http://<app_name>.chinacloudsites.cn` 格式的 URL 前缀。
 
 恭喜，ASP.NET Core Web 应用已在 Azure 应用服务中实时运行！
 
@@ -146,11 +158,15 @@ ms.lasthandoff: 12/25/2017
 </div>
 ```
 
-若要重新部署到 Azure，请在“解决方案资源管理器”中右键单击“myFirstAzureWebApp”项目，然后选择“发布”。
+在“解决方案资源管理器”中右键单击“Pages/Index.cshtml”，然后单击“提交”。 针对所做的更改输入提交消息，然后单击“全部提交”。
 
-在发布页中选择“发布”。
+返回到命令提示符窗口，将代码更改推送到 Azure。
 
-发布完成后，Visual Studio 将启动浏览器并转到 Web 应用的 URL。
+```bash
+git push Azure master
+```
+
+部署完成后，再次导航到 `http://<app_name>.azurewebsites.cn`。
 
 ![已在 Azure 中更新的 ASP.NET Web 应用](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
 
@@ -164,7 +180,7 @@ ms.lasthandoff: 12/25/2017
 
 随后会显示 Web 应用的概述页。 在此处可以执行基本的管理任务，例如浏览、停止、启动、重启和删除。 
 
-![Azure 门户中的“应用服务”边栏选项卡](./media/app-service-web-get-started-dotnet/web-app-blade.png)
+![Azure 门户中的“应用服务”页](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
 左侧菜单提供用于配置应用的不同页面。 
 
@@ -173,6 +189,4 @@ ms.lasthandoff: 12/25/2017
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [将 ASP.NET 与 SQL 数据库配合使用](app-service-web-tutorial-dotnet-sqldatabase.md)
-
-<!--Update_Description: wording update-->
+> [将 ASP.NET Core 与 SQL 数据库配合使用](app-service-web-tutorial-dotnetcore-sqldb.md)

@@ -16,11 +16,11 @@ ms.workload: NA
 origin.date: 10/11/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 991d0304518576aec430747f8b8c922ad29cd4ce
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 84ca9213500e29d886391e7ce38f3c5d748c40e1
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>概述：故障转移组和活动异地复制
 使用活动异地复制可在相同或不同数据中心位置（区域）中最多配置四个可读的辅助数据库。 在数据中心发生服务中断或无法连接到主数据库时，可以使用辅助数据库进行查询和故障转移。 故障转移必须由用户通过应用程序手动启动。 故障转移后，新的主数据库具有不同的连接终结点。 

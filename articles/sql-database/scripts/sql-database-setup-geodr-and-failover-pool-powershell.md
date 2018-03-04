@@ -17,11 +17,11 @@ ms.workload: database
 origin.date: 07/25/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 8b33d40e1e6089d3437aa331beaa6e087d14fa3f
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: 93a489656a40b5f0761b48be704693ec02695bd6
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-azure-sql-database"></a>使用 PowerShell 为入池 Azure SQL 数据库配置活动异地复制
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/31/2017
 ## <a name="sample-scripts"></a>示例脚本
 
 ```powershell
-# Login-AzureRmAccount
+# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 # Set the resource group name and location for your serverw
 $primaryresourcegroupname = "myPrimaryResourceGroup-$(Get-Random)"
 $secondaryresourcegroupname = "mySecondaryResourceGroup-$(Get-Random)"
@@ -142,7 +142,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver) | 创建用于托管数据库或弹性池的逻辑服务器。 |

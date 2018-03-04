@@ -9,3 +9,5 @@ az group create --name myResourceGroup --location chinanorth
 ```
 
 通常在附近的区域中创建资源组和资源。 
+
+此命令完成后，JSON 输出会显示资源组属性。

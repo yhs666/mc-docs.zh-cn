@@ -3,8 +3,8 @@ title: "如何将 Azure Redis 缓存与 Java 配合使用 | Microsoft Docs"
 description: "开始将 Azure Redis 缓存与 Java 配合使用"
 services: redis-cache
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 29275a5e-2e39-4ef2-804f-7ecc5161eab9
 ms.service: cache
@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 origin.date: 08/31/2017
-ms.date: 10/09/2017
+ms.date: 02/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6fdf514189ba928e475f9966aebcf3d2d905bcc1
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 1ff2ac4e025c1e5858784ab65d855f02e418cbb9
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-use-azure-redis-cache-with-java"></a>如何将 Azure Redis 缓存与 Java 配合使用
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Azure Redis 缓存可让你访问 Azure.cn 管理的专用 Redis 缓存。 可�
     shardInfo.setPassword("<key>"); /* Use your access key. */
 
 > [!NOTE]
-> 为新的 Azure Redis 缓存实例禁用了非 SSL 端口。 如果使用其他不支持 SSL 的客户端，请参阅[如何启用非 SSL 端口](cache-configure.md#access-ports)。
+> 已为新的 Azure Redis 缓存实例禁用了非 SSL 端口。 如果使用其他不支持 SSL 的客户端，请参阅[如何启用非 SSL 端口](cache-configure.md#access-ports)。
 > 
 > 
 
@@ -80,8 +80,10 @@ Azure Redis 缓存可让你访问 Azure.cn 管理的专用 Redis 缓存。 可�
       }
     }
 
-## <a name="next-steps"></a>后续步骤
-* [启用缓存诊断](/redis-cache/cache-how-to-monitor#enable-cache-diagnostics)，以便可以[监视](/redis-cache/cache-how-to-monitor)缓存的运行状况。
-* 阅读官方 [Redis 文档](http://redis.io/documentation)。
 
-<!--Update_Description: update meta properties -->  
+## <a name="next-steps"></a>后续步骤
+- [启用缓存诊断](/redis-cache/cache-how-to-monitor#EnableDiagnostics)，以便可以[监视](/redis-cache/cache-how-to-monitor)缓存的运行状况。
+- 阅读官方 [Redis 文档](http://redis.io/documentation)。
+- 了解[如何配置 Spring Initializr 应用，以使用 Redis 缓存](cache-java-spring-boot-initializer-with-redis-cache.md)。
+
+<!--Update_Description: wording update -->

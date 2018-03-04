@@ -1,10 +1,10 @@
 ---
-title: "使用 Azure Resource Manager 预配 Redis 缓存 | Azure"
-description: "使用 Azure Resource Manager 模板部署 Azure Redis 缓存。"
+title: "使用 Azure 资源管理器预配 Redis 缓存 | Microsoft 文档"
+description: "使用 Azure 资源管理器模板部署 Azure Redis 缓存。"
 services: app-service
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 03/28/2017
-ms.author: v-dazen
-ms.openlocfilehash: db431357afdd98b86777caf059b4cb296069958a
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 02/28/2018
+ms.author: v-junlch
+ms.openlocfilehash: e0edde466ef5859fcea235ab0893aa71b728e5f5
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>使用模板创建 Redis 缓存
 在本主题中，将学习如何创建用于部署 Azure Redis 缓存的 Azure Resource Manager 模板。 该缓存可以用于现有存储帐户以保存诊断数据。 还将了解如何定义要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求。
@@ -33,27 +33,24 @@ ms.lasthandoff: 06/23/2017
 > [!NOTE]
 > 适用于新[高级层](cache-premium-tier-intro.md)的 Resource Manager 模板现已推出。 
 > 
-> * [创建具有群集功能的高级 Redis 缓存](https://github.com/Azure/azure-quickstart-templates/tree/master/201-redis-premium-cluster-diagnostics/)
-> * [创建具有数据持久性的高级 Redis 缓存](https://github.com/Azure/azure-quickstart-templates/tree/master/201-redis-premium-persistence/)
-> * [创建具有 VNet 和可选群集功能的高级 Redis 缓存](https://github.com/Azure/azure-quickstart-templates/tree/master/201-redis-premium-vnet-cluster-diagnostics/)
+> * [创建具有群集功能的高级 Redis 缓存](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
+> * [创建具有数据持久性的高级 Redis 缓存](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
+> * [创建具有 VNet 和可选群集功能的高级 Redis 缓存](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
 > 
-> 若要检查最新模板，请参阅 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)并搜索 `Redis Cache`。
+> 若要检查最新模板，请参阅 [Azure 快速入门模板](https://azure.microsoft.com/documentation/templates/)并搜索 `Redis Cache`。
 > 
 > 
 
-## <a name="what-you-will-deploy"></a>将部署的内容
+## <a name="what-you-will-deploy"></a>要部署的内容
 在此模板中，将部署 Azure Redis 缓存，以便使用现有存储帐户保存诊断数据。
 
 若要自动运行部署，请单击以下按钮：
 
 [![“部署到 Azure”](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
->[!NOTE]
-> 必须修改从 GitHub 存储库“azure-quickstart-templates”部署的模板，以适应 Azure 中国云环境。 例如，替换某些终结点 -- 将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”。
-
-## <a name="parameters"></a>Parameters
+## <a name="parameters"></a>parameters
 使用 Azure Resource Manager，可以定义在部署模板时想要指定的值的参数。 该模板具有一个名为 Parameters 的部分，其中包含所有参数值。
-你应该为随着要部署的项目或要部署到的环境而变化的值定义参数。 不要为永远保持不变的值定义参数。 每个参数值可在模板中用来定义所部署的资源。 
+应该为随着要部署的项目或要部署到的环境而变化的值定义参数。 不要为永远保持不变的值定义参数。 每个参数值可在模板中用来定义所部署的资源。 
 
 [!INCLUDE [app-service-web-deploy-redis-parameters](../../includes/cache-deploy-parameters.md)]
 
@@ -124,11 +121,16 @@ Redis 缓存的位置。 为获得最佳性能，请使用要与缓存配合使�
       ]
     }
 
+
+
 ## <a name="commands-to-run-deployment"></a>运行部署的命令
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
-    New-AzureRmResourceGroupDeployment -TemplateFile path/to/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
+    New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
 
 ### <a name="azure-cli"></a>Azure CLI
-    azure group deployment create --template-file path/to/azuredeploy.json -g ExampleDeployGroup
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
+
+
+<!--Update_Description: wording update -->

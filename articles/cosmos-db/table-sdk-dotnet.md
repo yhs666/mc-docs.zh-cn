@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 12/12/2017
-ms.date: 12/25/2017
+origin.date: 02/21/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3851f6e8176acc6e3fc81de911876011dac04afd
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 927ce2ec2c2c8d1e21f86acd2fbe5664615980c3
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB 表 .NET API：下载和发行说明
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.lasthandoff: 01/17/2018
 |**API 文档**|[ 参考文档](https://aka.ms/acdbtableapiref)|
 |快速入门|[Azure Cosmos DB：使用表 API 生成 .NET 应用程序](create-table-dotnet.md)|
 |**教程**|[Azure Cosmos DB：在 .NET 中使用表 API 进行开发](tutorial-develop-table-dotnet.md)|
-|**当前受支持的框架**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
+|**当前受支持的框架**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
 > 如果已在预览期间创建表 API 帐户，请[新建表 API 帐户](create-table-dotnet.md#create-a-database-account)，这样才能使用正式版表 API SDK。

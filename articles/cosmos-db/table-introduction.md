@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/20/2017
-ms.date: 12/25/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: f2ad346d435895bd6ac81f01c8ef5fc6cfae35c6
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 416fd1cd811e4a3d9d40686c1f0a289343408a37
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 表 API 简介
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/17/2018
 * 保证高可用性。
 * [自动编制辅助索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)。
 
-为 Azure 表存储编写的应用程序无需更改代码便可使用表 API 迁移到 Azure Cosmos DB，并可充分利用高级功能。 表 API 有一个适用于 .NET 的客户端 SDK。
+为 Azure 表存储编写的应用程序无需更改代码便可使用表 API 迁移到 Azure Cosmos DB，并可充分利用高级功能。 表 API 包含可用于 .NET、Java、Python 和 Node.js 的客户端 SDK。
 
 <!-- Not Available > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]-->
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 01/17/2018
 * [使用表 API 生成 .NET 应用程序](create-table-dotnet.md)
 * [在 .NET 中使用表 API 进行开发](tutorial-develop-table-dotnet.md)
 * [使用表 API 查询表数据](tutorial-query-table.md)
-* [了解如何使用表 API 设置 Azure Cosmos DB 全球分布](tutorial-global-distribution-table.md)
+* [了解如何使用表 API 设置 Azure Cosmos DB 全局分发](tutorial-global-distribution-table.md)
 * [Azure Cosmos DB 表 .NET API](table-sdk-dotnet.md)
 * [Azure Cosmos DB 表 Java API](table-sdk-java.md)
 * [Azure Cosmos DB 表 Node.js API](table-sdk-nodejs.md)

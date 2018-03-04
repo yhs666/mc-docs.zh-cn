@@ -1,5 +1,5 @@
 1. 在新浏览器窗口中，登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 单击“新建” > “数据库” > “Azure Cosmos DB”。
+2. 单击“创建资源” > “数据库” > “Azure Cosmos DB”。
 
    ![Azure 门户“数据库”窗格](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
@@ -18,7 +18,7 @@
 
     Then click **Create**.
 
-    ![The new account blade for Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![The new account page for Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
 4. 创建帐户需要几分钟时间。 在创建帐户过程中，门户会在右侧显示“部署 Azure Cosmos DB”磁贴，可能需要向右滚动仪表板才能看到此磁贴。 另外，还会在屏幕顶部附近显示进度条。 你可以查看任一区域来了解进度。 
 
@@ -26,4 +26,4 @@
 
     创建帐户后，会显示“祝贺你!已创建 Azure Cosmos DB 帐户”页。
 <!--Update_Description: wording update-->
-<!--ms.date: 12/25/2017-->
+<!--ms.date: 03/05/2018-->

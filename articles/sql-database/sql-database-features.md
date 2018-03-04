@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 10/25/2017
-ms.date: 12/11/2017
+origin.date: 02/08/2018
+ms.date: 02/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 7c17f5d4d715535eac39c1c382630f11f7939ee6
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 7a725e5d4139c5eb569060765f7b883555eb3e4a
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="azure-sql-database-features"></a>Azure SQL 数据库功能
+# <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比较：Azure SQL 数据库与 SQL Server 
 
 Azure SQL 数据库与 SQL Server 共享通用基本代码，并在数据库级别支持大多数相同功能。 Azure SQL 数据库和 SQL Server 之间的主要功能差异存在于实例级别。 
 
@@ -30,6 +30,7 @@ Azure SQL 数据库与 SQL Server 共享通用基本代码，并在数据库级�
 ## <a name="sql-server-and-sql-database-feature-support"></a>SQL Server 和 SQL 数据库功能支持
 
 下面的表列出了 SQL Server 的主要功能，并说明了每个特定的功能是否受支持，同时提供了一个更详细介绍该功能的链接。 若要了解在迁移现有数据库解决方案时需考虑哪些 Transact-SQL 差异，请参阅[解决迁移到 SQL 数据库的过程中的 Transact-SQL 差异](sql-database-transact-sql-information.md)。
+
 
 | SQL Server 功能 | **在 Azure SQL 数据库中受支持** | 
 | --- | --- |  

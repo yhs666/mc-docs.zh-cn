@@ -79,11 +79,19 @@
               href: backup-mabs-system-state-and-bmr.md
         - name: 从 Azure 备份服务器恢复数据
           href: backup-azure-alternate-dpm-server.md
+    - name: Azure 文件共享
+      items:
+        - name: 备份 Azure 文件共享
+          href: backup-azure-files.md
+        - name: 备份 Azure 文件共享常见问题解答
+          href: backup-azure-files-faq.md
+        - name: 排查 Azure 文件共享备份问题
+          href: troubleshoot-azure-files.md
     - name: Azure VM
       items:
         - name: 准备 VM
           items:
-            - name: 准备资源管理器部署的虚拟机
+            - name: 准备资源管理器部署的 VM
               href: backup-azure-arm-vms-prepare.md
             - name: Linux VM 的应用程序一致性备份
               href: backup-azure-linux-app-consistent.md
@@ -93,23 +101,25 @@
               href: backup-azure-vms-introduction.md
         - name: 备份 VM
           items:
-            - name: 将 Azure 虚拟机备份到恢复服务保管库
+            - name: 将 Azure VM 备份到恢复服务保管库
               href: backup-azure-arm-vms.md
-            - name: 备份加密的虚拟机
+            - name: 备份加密 VM
               href: backup-azure-vms-encryption.md
+            - name: 在创建 VM 期间启用 VM 备份
+              href: backup-during-vm-creation.md
         - name: 管理和监视 VM
           items:
             - name: 在 Azure 门户中管理 Azure VM 备份
               href: backup-azure-manage-vms.md
-            - name: 在 Azure 门户中监视 Azure VM 备份警报
+            - name: 监视 Azure VM 备份警报
               href: backup-azure-monitor-vms.md
         - name: 从 VM 还原数据
           items:
             - name: 从 Azure VM 备份恢复文件
               href: backup-azure-restore-files-from-vm.md
-            - name: 在 Azure 门户中还原资源管理器部署的 VM
+            - name: 在 Azure 门户中还原 VM
               href: backup-azure-arm-restore-vms.md
-            - name: 还原加密的虚拟机
+            - name: 还原加密 VM
               href: backup-azure-vms-encryption.md
             - name: 还原已加密 VM 的 Key Vault 密钥和机密
               href: backup-azure-restore-key-secret.md
@@ -125,7 +135,7 @@
       items:
         - name: 在 Azure 门户中准备 DPM 工作负荷
           href: backup-azure-dpm-introduction.md
-        - name: 使用 System Center DPM 备份 Exchange 服务器
+        - name: 使用 DPM 备份 Exchange 服务器
           href: backup-azure-backup-exchange-server.md
         - name: 将数据恢复到备用 DPM 服务器
           href: backup-azure-alternate-dpm-server.md
@@ -141,22 +151,16 @@
           href: backup-dpm-automation.md
         - name: Azure 门户中的 Windows Server
           href: backup-client-automation.md
-    - name: Azure SQL 数据库
-      items:
-        - name: 配置长期备份保留
-          href: ../sql-database/sql-database-configure-long-term-retention.md
-        - name: 查看恢复服务保管库中的备份
-          href: ../sql-database/sql-database-view-backups-in-vault.md
-        - name: 从长期备份保留存储中还原
-          href: ../sql-database/sql-database-restore-from-long-term-retention.md
-        - name: 删除长期 Azure SQL 备份
-          href: ../sql-database/sql-database-long-term-retention-delete.md
     - name: Windows Server
       items:
         - name: 备份 Windows Server 文件和文件夹
           href: backup-configure-vault.md
+        - name: 备份 Windows Server 系统状态
+          href: backup-azure-system-state.md
         - name: 将文件从 Azure 恢复到 Windows Server
           href: backup-azure-restore-windows-server.md
+        - name: 还原 Windows Server 系统状态
+          href: backup-azure-restore-system-state.md
         - name: 监视和管理恢复服务保管库
           href: backup-azure-manage-windows-server.md
     - name: 恢复服务保管库
@@ -177,6 +181,8 @@
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: 对 Azure 备份服务器进行故障排除
           href: backup-azure-mabs-troubleshoot.md
+        - name: 排查 System Center Data Protection Manager 问题
+          href: backup-azure-scdpm-troubleshooting.md
         - name: 对 Azure 备份代理进行故障排除
           href: backup-azure-mars-troubleshoot.md
 - name: 参考
@@ -184,7 +190,7 @@
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup'
     - name: .NET
-      href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.management.recoveryservices.backup'
+      href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
 - name: 资源
   items:
     - name: MSDN 论坛

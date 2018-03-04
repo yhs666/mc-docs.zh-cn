@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-origin.date: 12/14/2017
-ms.date: 01/08/2018
+origin.date: 02/12/2018
+ms.date: 02/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 9bf7c32d28fa0767173b576a0fae9dd08540f01d
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 41c66173c8fe1fc71aaf4f3873514505e2c039e5
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>管理 Azure SQL 数据库中单一数据库的资源
 
@@ -36,7 +36,9 @@ ms.lasthandoff: 01/05/2018
 
 ![配置服务层和性能级别](./media/sql-database-single-database-resources/change-service-tier.png)
 
+单击“概述”以监视和/或取消正在进行的操作。
 
+![取消操作](./media/sql-database-single-database-resources/cancel-operation.png)
 ## <a name="manage-single-database-resources-using-powershell"></a>使用 PowerShell 管理单一数据库资源
 
 若要使用 PowerShell 设置或更改 Azure SQL 数据库服务层、性能级别和存储量，请使用以下 PowerShell cmdlet。 如果需要安装或升级 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 

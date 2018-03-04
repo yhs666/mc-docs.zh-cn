@@ -2,25 +2,18 @@
 title: "关于 Azure Site Recovery？ | Azure"
 description: "简要介绍 Azure Site Recovery 服务并概述讲解部署方案。"
 services: site-recovery
-documentationcenter: 
 author: rockboyfor
-manager: digimobile
-editor: 
-ms.assetid: e9b97b00-0c92-4970-ae92-5166a4d43b68
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 origin.date: 01/07/2018
-ms.date: 01/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 521208bbc350665a25b84440b84f9acbae82d0b2
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 75fef5f427b5b911a8c2743c6f610490b5ad9204
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="about-site-recovery"></a>关于 Site Recovery
 

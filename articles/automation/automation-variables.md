@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 01/15/2018
 ms.author: v-nany
-ms.openlocfilehash: 605902d2c7729c2dd44c6e880b40ca529631d13f
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 9694065369a7da7bde973837febdb5856eaf7d42
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure 自动化中的变量资产
 
@@ -52,9 +52,8 @@ ms.lasthandoff: 01/23/2018
 * Boolean
 * Null
 
-## <a name="scripting-the-creation-and-management-of-variables"></a>编写用于创建和管理变量的脚本
-
-下表中的 cmdlet 用于通过 Windows PowerShell 创建和管理自动化变量。 可在自动化 Runbook 和 DSC 配置中使用的 [Azure PowerShell 模块](../powershell-install-configure.md)已随附了这些 cmdlet。
+## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell cmdlet
+对于 AzureRM，下表中的 cmdlet 用于通过 Windows PowerShell 创建和管理自动化凭据资产。  可在自动化 Runbook 和 DSC 配置中使用的 [AzureRM.Automation 模块](https://docs.microsoft.com/powershell/azure/overview)已随附了这些 cmdlet。
 
 |Cmdlet|说明|
 |:---|:---|
@@ -63,9 +62,10 @@ ms.lasthandoff: 01/23/2018
 |[Remove-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt619354.aspx)|删除现有变量。|
 |[Set-AzureRmAutomationVariable](https://msdn.microsoft.com/library/mt603601.aspx)|设置现有变量的值。|
 
-下表中的工作流活动用于在 Runbook 中访问自动化变量。 它们仅可在 Runbook 或 DSC 配置中使用，而不作为 Azure PowerShell 模块的一部分提供。
+## <a name="activities"></a>活动
+下表中的活动用于在 Runbook 和 DSC 配置中访问凭据。
 
-|工作流活动|说明|
+| 活动 | 说明 |
 |:---|:---|
 |Get-AutomationVariable|检索现有变量的值。|
 |Set-AutomationVariable|设置现有变量的值。|

@@ -1,5 +1,5 @@
 1. 在新浏览器窗口中，登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 在左菜单中，依次单击“新建”、“数据库”，然后在“Azure Cosmos DB”下单击“创建”。 
+2. 在左菜单中，依次单击“创建资源”、“数据库”，然后在“Azure Cosmos DB”下单击“创建”。 
 
    ![Azure 门户的屏幕截图，其中突出显示了“更多服务”和“Azure Cosmos DB”](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png)
 
@@ -15,7 +15,7 @@
     启用异地冗余| 留空 | 这将在第二个（配对）区域中创建数据库的复制版本。 将此项留空。  
     固定到仪表板 | 选择 | 选中此框，以便将新的数据库帐户添加到门户仪表板以便于访问。
 
-    然后单击“创建” 。  
+    然后单击“创建”。  
 
     ![“新 Azure Cosmos DB”边栏选项卡的屏幕截图](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-2.png)
 
@@ -25,4 +25,4 @@
 
     创建帐户后，会显示“祝贺你!已创建 Azure Cosmos DB 帐户”页。
 <!--Update_Description: wording update-->
-<!--ms.date: 11/27/2017-->
+<!--ms.date: 03/05/2018-->

@@ -17,17 +17,19 @@ ms.workload: database
 origin.date: 06/23/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 17d42b9c9e2fd53204e106fa7599cec3ede37b42
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: 41a6b317b64d96be9323c9e3e1c07c6aeae7e01b
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-cli-to-scale-a-sql-elastic-pool-in-azure-sql-database"></a>使用 CLI 在 Azure SQL 数据库中缩放 SQL 弹性池
 
-此 Azure CLI 脚本示例创建 SQL 弹性池，移动入池数据库，并更改弹性池性能级别。 
+以下 Azure CLI 脚本示例创建 SQL 弹性池，移动共用数据库，并更改弹性池性能级别。 
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] 本主题需要运行 Azure CLI 版本 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( https://docs.azure.cn/cli/install-azure-cli)。 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( https://docs.azure.cn/cli/install-azure-cli)。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -94,7 +96,7 @@ az group delete --name myResourceGroup
 
 此脚本使用以下命令创建资源组、逻辑服务器、SQL 数据库和防火墙规则。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [az group create](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
 | [az sql server create](https://docs.azure.cn/cli/sql/server#az_sql_server_create) | 创建用于托管 SQL 数据库的逻辑服务器。 |

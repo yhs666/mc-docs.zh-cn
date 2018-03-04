@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/28/2017
-ms.date: 12/25/2017
+origin.date: 02/21/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: 147bf3f930b48d75be93981fde296bb4c77c79cb
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: b5306da264ca0825ecd2b468bfe7b4062b578eeb
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -53,10 +53,15 @@ Azure 门户会公开大部分的群集属性。 使用 Azure 资源管理器模
     * 从“订阅”下拉列表中选择要用于此群集的 Azure 订阅。
 
     * 单击“群集类型”，然后选择要创建的群集类型（Hadoop、Spark 等）。 对于“操作系统”，请单击“Linux”并选择版本。 如果不知道要选择哪个版本，请使用默认版本。 有关详细信息，请参阅 [HDInsight 群集版本](hdinsight-component-versioning.md)。
-             > [!IMPORTANT]
-             > HDInsight clusters come in a variety of types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. 
-             > 
-             > 
+
+        对于 Hadoop、Spark 和 Interactive Query 群集类型，也可以选择安装“企业安全数据包”。 企业安全数据包启用安全功能，例如 Azure Active Directory 集成和适用于群集的 Apache Ranger。 有关详细信息，请参阅 [Azure HDInsight 中的企业安全数据包](./domain-joined/apache-domain-joined-introduction.md)。
+
+        ![启用企业安全数据包](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-enable-enterprise-security-package.png "Enable Enterprise Security Package")
+     
+        > [!IMPORTANT]
+        > HDInsight 群集有各种类型，分别与针对其优化群集的工作负荷或技术相对应。 不支持在一个群集上创建合并了多个类型（如 Storm 和 HBase）的群集。 
+        > 
+        > 
         
     * 对于“群集登录用户名”和“群集登录密码”，请分别为管理员用户提供用户名和密码。
 
@@ -166,5 +171,4 @@ Azure 门户会公开大部分的群集属性。 使用 Azure 资源管理器模
 * [使用 Livy 在 Spark 群集中远程运行作业](spark/apache-spark-livy-rest-interface.md)
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](spark/apache-spark-use-bi-tools.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](spark/apache-spark-eventhub-streaming.md)
 

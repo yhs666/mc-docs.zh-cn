@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 12/04/2017
-ms.date: 01/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7110ce7d2a949250d8edbc4fb1e06d1a19408a18
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 058d68a4b1631343f26b379bd67be2700fdad0c7
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>运行适用于 VMware 到 Azure 部署的 Azure Site Recovery 部署规划器
 本文为适用于 VMware 到 Azure 生产部署的 Azure Site Recovery Deployment Planner 用户指南。
@@ -85,7 +85,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Password | （可选）用于连接到 vCenter 服务器/vSphere ESXi 主机的密码。 如果现在不指定密码，则在执行命令时，系统会提示指定密码。|
 |-Port|（可选）用于连接到 vCenter/ESXi 主机的端口号。 默认端口为 443。|
 |-Protocol| （可选）用于连接到 vCenter 的指定协议，即“http”或“https”。 默认协议为 https。|
-| -StorageAccountName | （可选）存储帐户名称，用于确定在将数据从本地复制到 Azure 时可实现的吞吐量。 该工具会将测试数据上传到此存储帐户来计算吞吐量。|
+| -StorageAccountName | （可选）存储帐户名称，用于确定在将数据从本地复制到 Azure 时可实现的吞吐量。 该工具会将测试数据上传到此存储帐户来计算吞吐量。 存储帐户必须是常规用途 v1 或 storageV2（常规用途 v2）|
 | -StorageAccountKey | （可选）用于访问存储帐户的存储帐户密钥。 转到 Azure 门户 >“存储帐户”> <*存储帐户名称*> >“设置”>“访问密钥”> 密钥 1。 |
 | -Environment | （可选）这是目标 Azure 存储帐户环境。 这可以是以下三个值之一：AzureChinaCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureChinaCloud。 当目标 Azure 区域为 Azure 美国政府版或 Azure 中国云时，请使用此参数。 |
 
@@ -165,9 +165,12 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 | -GrowthFactor | （可选）增长系数，以百分比表示。 默认值为 30%。 |
 | -UseManagedDisks | （可选）UseManagedDisks - 是/否。 默认值为“是”。 计算可放置到单个存储帐户中的虚拟机数量时要考虑到：对虚拟机进行的故障转移/测试性故障转移是在托管磁盘而不是非托管磁盘上完成的。 |
 |-SubscriptionId |（可选）订阅 GUID。 可以根据订阅、与订阅相关联的产品/服务、特定的目标 Azure 区域和指定的货币，按照最新的价格使用此参数生成成本估算报表。|
-|-TargetRegion|（可选）充当复制目标的 Azure 区域。 由于 Azure 的成本因区域而异，因此可使用此参数来生成特定目标 Azure 区域的报表。<br>默认值为 ChinaNorth2 或上次使用的目标区域。<br>请参阅[支持的目标区域](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions)的列表。|
+|-TargetRegion|（可选）充当复制目标的 Azure 区域。 由于 Azure 的成本因区域而异，因此可使用此参数来生成特定目标 Azure 区域的报表。|
 |-OfferId|（可选）与给定订阅关联的产品/服务。 默认值为 MS-AZR-0003P（即用即付）。|
-|-Currency|（可选）在生成的报表中显示的成本所采用的货币。 默认为美元 ($) 或上次使用的货币。<br>请参阅[支持的货币](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies)的列表。|
+|-Currency|（可选）在生成的报表中显示的成本所采用的货币。|
+<!-- Not Avaiable on [supported target regions](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) -->
+<!-- Not Avaiable on Refer to the list of [supported currencies](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies) -->
+
 
 默认情况下，此工具配置为在分析后为最多 1000 个 VM 生成报告。 若要更改限制，可以更改 *ASRDeploymentPlanner.exe.config* 文件中的 MaxVMsSupported 项值。
 ```
@@ -207,10 +210,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory "E:\vCenter1_ProfiledData" -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt"  -DesiredRPO 5
 ```
 
-#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>示例 7：使用印度卢比和特定的产品/服务 ID，生成一个针对“印度南部”Azure区域的报表
-```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Directory "E:\vCenter1_ProfiledData" -VMListFile "E:\vCenter1_ProfiledData\ProfileVMList1.txt"  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
-```
+<!-- Not Avaiable on #### Example 7: Generate a report for South India Azure region with Indian Rupee and specific offer ID -->
 
 ## <a name="percentile-value-used-for-the-calculation"></a>用于计算的百分位值
 
@@ -262,7 +262,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 | -Operation | GetThroughput |
 |-Virtualization|指定虚拟化类型（VMware 或 Hyper-V）。|
 | -Directory | （可选）UNC 或本地目录路径，其中存储了分析数据（在分析期间生成的文件）。 需要使用此数据来生成报告。 如果未指定目录名称，则使用“ProfiledData”目录。 |
-| -StorageAccountName | 存储帐户名称，用于确定在将数据从本地复制到 Azure 时消耗的带宽。 该工具会将测试数据上传到此存储帐户来确定消耗的带宽。 |
+| -StorageAccountName | 存储帐户名称，用于确定在将数据从本地复制到 Azure 时消耗的带宽。 该工具会将测试数据上传到此存储帐户来确定消耗的带宽。 存储帐户必须是常规用途 v1 或 storageV2（常规用途 v2）。|
 | -StorageAccountKey | 用于访问存储帐户的存储帐户密钥。 转到 Azure 门户 >“存储帐户”> <存储帐户名称> >“设置”>“访问密钥”> 密钥 1（或经典存储帐户的主访问密钥）。 |
 | -VMListFile | 一个文件，其中包含一系列可以通过分析来计算所消耗带宽的 VM。 文件路径可以是绝对或相对路径。 此文件应该每行包含一个 VM 名称/IP 地址。 此文件中指定的 VM 名称应与 vCenter 服务器/vSphere ESXi 主机上的 VM 名称相同。<br>例如，VMList.txt 文件包含以下 VM：<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
 | -Environment | （可选）这是目标 Azure 存储帐户环境。 这可以是以下三个值之一：AzureChinaCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureChinaCloud。 当目标 Azure 区域为 Azure 美国政府版或 Azure 中国云时，请使用此参数。 |
@@ -292,4 +292,4 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 ## <a name="next-steps"></a>后续步骤
 * [分析生成的报表](site-recovery-vmware-deployment-planner-analyze-report.md)。
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update -->

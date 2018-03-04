@@ -1,6 +1,6 @@
 ---
 title: "使用 Azure 门户分析媒体 | Microsoft Docs"
-description: "本主题讨论如何使用 Azure 门户通过媒体分析媒体处理器 (MP) 处理媒体。"
+description: "本主题讨论如何通过 Azure 门户使用媒体分析媒体处理器 (MP) 处理媒体。"
 services: media-services
 documentationcenter: 
 author: hayley244
@@ -15,15 +15,15 @@ ms.topic: article
 origin.date: 08/07/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 4e19cf47dadfb303292dd82d7a66e1f12960f02e
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+ms.openlocfilehash: 6d5b17198ed35fea3e94155f88183ed2552ab917
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>使用 Azure 门户分析媒体
 > [!NOTE]
-> 要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
+> 若要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
 > 
 > 
 
@@ -42,11 +42,11 @@ Azure 媒体服务分析是一系列语音和影像组件（具企业规模、�
     ![分析视频](./media/media-services-portal-analyze/media-services-portal-analyze002.png)
 4. 在“使用媒体分析处理媒体资产”窗口中，选择处理器。 
    
-    本文的其余部分说明为何以及如何使用每个处理器。 
+    本文的其余部分介绍每种处理器的功能和使用方式。 
 5. 按“创建”  启动作业。
 
 ## <a name="azure-media-indexer"></a>Azure Media Indexer
-**Azure Media Indexer** 媒体处理器 (MP) 让用户能够使媒体文件和内容可供搜索，以及生成隐藏式字幕轨道。 本部分提供有关可以为此 MP 指定的选项的详细信息。
+**Azure Media Indexer** 媒体处理器 (MP) 让用户能够使媒体文件和内容可供搜索，以及生成隐藏式字幕轨道。 本部分提供有关可为此 MP 指定的选项的一些详细信息。
 
 ![分析视频](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
@@ -69,13 +69,13 @@ Azure 媒体服务分析是一系列语音和影像组件（具企业规模、�
 如果想要生成关键字 XML 文件，请选择此选项。 此文件包含从语音内容中提取的关键字，以及频率和偏移量信息。
 
 ### <a name="job-name"></a>作业名称
-可以识别该作业的友好名称。 [此](media-services-portal-check-job-progress.md)文介绍如何监视作业进度。 
+可以识别该作业的友好名称。 [此](media-services-portal-check-job-progress.md)文章介绍了如何监视作业的进度。 
 
 ### <a name="output-file"></a>输出文件
 可以识别输出内容的友好名称。 
 
 ## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Azure Media Hyperlapse 是 MP，可以使用第一人称视角或运动相机内容创建流畅缩时视频。  有关详细信息，请参阅[此](media-services-hyperlapse-content.md)主题。 本部分提供有关可以为此 MP 指定的选项的详细信息。
+Azure Media Hyperlapse 是 MP，可以使用第一人称视角或运动相机内容创建流畅缩时视频。  有关详细信息，请参阅[此](media-services-hyperlapse-content.md)主题。 本部分提供有关可为此 MP 指定的选项的一些详细信息。
 
 ![分析视频](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
@@ -83,7 +83,7 @@ Azure Media Hyperlapse 是 MP，可以使用第一人称视角或运动相机内
 指定输入视频的加速倍数。 输出是输入视频经过稳定和缩时转译的结果。
 
 ### <a name="job-name"></a>作业名称
-可以识别该作业的友好名称。 [此](media-services-portal-check-job-progress.md)文介绍如何监视作业进度。 
+可以识别该作业的友好名称。 [此](media-services-portal-check-job-progress.md)文章介绍了如何监视作业的进度。 
 
 ### <a name="output-file"></a>输出文件
 可以识别输出内容的友好名称。 
@@ -113,13 +113,13 @@ Azure Media Hyperlapse 是 MP，可以使用第一人称视角或运动相机内
 * 聚合情感检测
 
 ### <a name="job-name"></a>作业名称
-可以识别该作业的友好名称。 [此](media-services-portal-check-job-progress.md)文介绍如何监视作业进度。 
+可以识别该作业的友好名称。 [此](media-services-portal-check-job-progress.md)文章介绍了如何监视作业的进度。 
 
 ### <a name="output-file"></a>输出文件
 可以识别输出内容的友好名称。 
 
-## <a name="azure-media-motion-detector"></a>Azure 媒体动作检测器
-借助“Azure Media Motion Detector”媒体处理器 (MP)，用户可在冗长且平淡的视频中有效识别出感兴趣的部分。 可以对静态相机数据片段使用动作检测，以识别视频中有动作的部分。 它会生成 JSON 文件，其中包含带时间戳的元数据，以及发生事件的边界区域。
+## <a name="azure-media-motion-detector"></a>Azure Media Motion Detector
+借助 **Azure Media Motion Detector** 媒体处理器 (MP)，用户可在冗长且平淡的视频中有效识别出感兴趣的部分。 可以对静态相机数据片段使用动作检测，以识别视频中有动作的部分。 它会生成 JSON 文件，其中包含带时间戳的元数据，以及发生事件的边界区域。
 
 此技术面向安全视频提要，它可以将动作分类为相关事件和误报（例如阴影或光源变化）。 这样，便可以在无需查看无止境的不相关事件的情况下，从相机输出生成安全警报，并从长时间的监控视频中提取感兴趣的片段。
 
@@ -131,7 +131,7 @@ Azure Media Hyperlapse 是 MP，可以使用第一人称视角或运动相机内
 ![分析视频](./media/media-services-portal-analyze/media-services-portal-analyze008.png)
 
 ### <a name="job-name"></a>作业名称
-可以识别该作业的友好名称。 [此](media-services-portal-check-job-progress.md)文介绍如何监视作业进度。 
+可以识别该作业的友好名称。 [此](media-services-portal-check-job-progress.md)文章介绍了如何监视作业的进度。 
 
 ### <a name="output-file"></a>输出文件
 可以识别输出内容的友好名称。 

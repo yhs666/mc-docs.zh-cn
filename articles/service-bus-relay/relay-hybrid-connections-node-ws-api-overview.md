@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/05/2017
+origin.date: 01/23/2018
 ms.author: v-yiso
-ms.date: 11/06/2017
-ms.openlocfilehash: 8ad7c9a36daa66edff052b40bd70ab573fc6d6b2
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.date: 03/12/2018
+ms.openlocfilehash: be022705d603ab67431fa428afadf58a514063f9
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="relay-hybrid-connections-node-api-overview"></a>中继混合连接节点 API 概述
+# <a name="relay-hybrid-connections-node-api-overview"></a>中继混合连接 Node API 概述
 
 ## <a name="overview"></a>概述
 
@@ -129,7 +129,7 @@ var wss = new server(
 
 #### <a name="events"></a>事件
 
-`RelayedServer` 实例会发出三个事件，以便能够处理传入的请求、建立连接，以及检测错误条件。 订阅 `connect` 事件后才能处理消息。 
+`RelayedServer` 实例将发出三个事件，使你能够处理传入的请求、建立连接，以及检测错误条件。 订阅 `connect` 事件后才能处理消息。 
 
 ##### <a name="headers"></a>headers
 ``` JavaScript 

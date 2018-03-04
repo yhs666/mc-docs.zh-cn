@@ -16,13 +16,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 12/14/2017
-ms.date: 02/26/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: b855dd56ac3c7dc5cba2c8b10d36df116ada8e37
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: e542e311b6f35febc0b79a00aedb0b529390f53a
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>使用 Hadoop、Spark、Kafka 等等在 HDInsight 中设置群集
 
@@ -88,6 +88,15 @@ Azure HDInsight 目前提供以下群集类型，每种类型都具有一组用�
 ### <a name="hdinsight-version"></a>HDInsight 版本
 选择此群集的 HDInsight 版本。 有关详细信息，请参阅[支持的 HDInsight 版本](hdinsight-component-versioning.md#supported-hdinsight-versions)。
 
+### <a name="enterprise-security-package"></a>企业安全数据包
+
+对于 Hadoop、Spark 和交互式查询群集类型，可选择启用“企业安全数据包”。 启用此数据包，可通过使用 Apache Ranger 并与 Azure Active Direcotry 集成来实现更安全的群集设置。 有关详细信息，请参阅 [Azure HDInsight 中的企业安全数据包](./domain-joined/apache-domain-joined-introduction.md)。
+
+![hdinsight 创建选项 选择企业安全数据包](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
+
+有关如何创建已加入域的 HDInsight 群集的详细信息，请参阅[创建已加入域的 HDInsight 沙盒环境](./domain-joined/apache-domain-joined-configure.md)。
+
+
 ## <a name="cluster-login-and-ssh-user-name"></a>群集登录名和 SSH 用户名
 使用 HDInsight 群集时，可以在群集创建期间配置两个用户帐户：
 
@@ -115,6 +124,8 @@ Hadoop 的本地安装对群集上的存储使用 Hadoop 分布式文件系统 (
 
 ### <a name="optional-metastores"></a>可选元存储
 可创建可选的 Hive 或 Oozie 元存储。 但是，并非所有群集类型都支持元存储，并且 Azure SQL 数据仓库与元存储不兼容。 
+
+有关详细信息，请参阅[在 Azure HDInsight 中使用外部元数据存储](./hdinsight-use-external-metadata-stores.md)。
 
 > [!IMPORTANT]
 > 创建自定义元存储时，请不要在数据库名称中使用破折号、连字符或空格。 否则可能导致群集创建过程失败。

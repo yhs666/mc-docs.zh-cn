@@ -1,27 +1,27 @@
 ---
 title: "Azure 快速入门 - 使用 Azure CLI 备份 VM | Microsoft Docs"
 description: "了解如何使用 Azure CLI 备份虚拟机"
-services: backup, virtual-machines-linux
+services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: backup, virtual-machines-linux
+ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: storage-backup-recovery
-origin.date: 01/12/2018
-ms.date: 02/08/2018
+origin.date: 02/14/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: a725a3908efd38d9466ccc8f0c16988ecd2b8893
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: a04ed4e6d7f13058416d4b5564f40bd96c1e3cef
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>使用 CLI 在 Azure 中备份虚拟机
 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 可以通过定期创建备份来保护数据。 Azure 备份可创建恢复点，这些恢复点可存储在异地冗余的恢复保管库中。 本文详细介绍如何使用 Azure CLI 在 Azure 中备份虚拟机 (VM)。 也可以使用 [Azure PowerShell](quick-backup-vm-powershell.md) 或 [Azure 门户](quick-backup-vm-portal.md)执行这些步骤。

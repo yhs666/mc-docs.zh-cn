@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 09/26/2016
 ms.date: 01/22/2018
 ms.author: v-nany
-ms.openlocfilehash: 43df856b77217ed4745c5062c1ead4471e620720
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 846da8674c6cb44d441d86d6ea7bf6e120c81fa5
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Azure 自动化方案 - 自动删除资源组
 许多客户会创建多个资源组。 有些资源组专门用于管理生产应用程序，还有一些资源组可能用于开发、测试和过渡环境。 自动部署这些资源是一回事，但按一下鼠标就能取消配置资源组则是另一回事。 使用 Azure 自动化可以简化这种常见的管理任务。 如果使用的 Azure 订阅由于会员优惠制度（例如 MSDN 或 Microsoft Partner Network Cloud Essentials 计划）而实施支出限制，则使用自动化就很有帮助。
@@ -60,21 +60,21 @@ $null = Add-AzureRmAccount `
 下载 Runbook 后，可以使用[导入 Runbook 过程](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation)中的过程导入它。 在成功将该 Runbook 导入自动化帐户后，请发布该 Runbook。
 
 ## <a name="using-the-runbook"></a>使用 Runbook
-以下步骤将引导你执行此 Runbook，帮助你熟悉其工作原理。 在本示例中，我们只测试 Runbook，而不实际删除资源组。  
+以下步骤将引导执行此 Runbook，帮助你熟悉其工作原理。 在本示例中，我们将测试 Runbook，而不实际删除资源组。  
 
 1. 在 Azure 门户中打开自动化帐户，并单击“Runbook”。
 2. 选择 **Remove-ResourceGroup** Runbook，并单击“启动”。
-3. 启动 Runbook 时，“启动 Runbook”边栏选项卡会打开，可在其中配置参数。 输入订阅中可用于测试并且意外删除后不会造成任何损害的资源组的名称。<br> ![Remove-ResouceGroup 参数](./media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
+3. 启动 Runbook 时，“启动 Runbook”页会打开，可在其中配置参数。 输入订阅中可用于测试并且意外删除后不会造成任何损害的资源组的名称。
 
    > [!NOTE]
-   > 确保 **Previewmode** 设置为 **true**，以免删除选定的资源组。  **请注意**，此 Runbook 不会删除运行此 Runbook 的自动化帐户所在的资源组。  
+   > 确保 **Previewmode** 设置为 **true**，以免删除选定的资源组。 此 Runbook 不会删除运行此 Runbook 的自动化帐户所在的资源组。  
    >
    >
-4. 配置所有参数值后，单击“确定”，此 Runbook 会排入队列等待执行。  
+1. 配置所有参数值后，单击“确定”，此 Runbook 会排入队列等待执行。  
 
-若要在 Azure 门户中查看 **Remove-ResourceGroup** Runbook 作业的详细信息，请在 Runbook 中选择“作业”。 作业摘要显示输入参数和输出流，此外，还显示有关作业的一般信息以及发生的任何异常。<br> ![Remove-ResourceGroup Runbook 作业状态](./media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png)。
+若要在 Azure 门户中查看 **Remove-ResourceGroup** Runbook 作业的详细信息，请在“资源”下的 Runbook 中选择“作业”。 选择想要查看的作业。 作业摘要显示输入参数和输出流，此外，还显示有关作业的一般信息以及发生的任何异常。<br> ![Remove-ResourceGroup Runbook 作业状态](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png)。
 
-“作业摘要”包括来自输出、警告和错误流的消息。 选择“输出”可查看 Runbook 执行的详细结果。<br> ![Remove-ResourceGroup Runbook 输出结果](./media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
+“作业摘要”包括来自输出、警告和错误流的消息。 选择“输出”可查看 Runbook 执行的详细结果。<br> ![Remove-ResourceGroup Runbook 输出结果](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
 
 ## <a name="next-steps"></a>后续步骤
 * 若要开始创建自己的 Runbook，请参阅 [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)（在 Azure 自动化中创建或导入 Runbook）。

@@ -8,18 +8,18 @@ manager: digimobile
 editor: tysonn
 ms.assetid: f191f308-e4b2-4de9-85cb-551b82b1ea7c
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 11/27/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8d90ab1ae943109a897c6cebf96b93a90fda52fb
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 916a398b2272882d2800e4af5a3a80b2ffc70a6b
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-use-azure-table-storage-with-c"></a>如何配合使用 C++ 和 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -106,7 +106,7 @@ azure::storage::cloud_table table = table_client.get_table_reference(U("people")
 table.create_if_not_exists();  
 ```
 
-## <a name="add-an-entity-to-a-table"></a>向表中添加条目
+## <a name="add-an-entity-to-a-table"></a>将实体添加到表
 若要将实体添加到表，请创建一个新的 **table_entity** 对象并将其传递到 **table_operation::insert_entity**。 以下代码使用客户的名字作为行键，并使用姓氏作为分区键。 条目的分区键和行键共同唯一地标识表中的条目。 查询分区键相同的条目的速度快于查询分区键不同的条目的速度，但使用不同的分区键可实现更高的并行操作可伸缩性。 有关详细信息，请参阅 [Azure 存储性能和可伸缩性核对清单](../storage/common/storage-performance-checklist.md)。
 
 下面的代码创建一个 **table_entity** 新实例，其中包含要进行存储的部分客户数据。 接下来，该代码调用 **table_operation::insert_entity** 来创建一个 **table_operation** 对象，以便将实体插入表中，并将新的表实体与之关联。 最后，该代码调用 **cloud_table** 对象的 execute 方法。 并且新的 **table_operation** 向表服务发送请求，以此将新的客户实体插入“people”表中。  
@@ -196,7 +196,7 @@ std::vector<azure::storage::table_result> results = table.execute_batch(batch_op
 * 单次批处理操作中的所有条目都必须具有相同的分区键。  
 * 批处理操作的数据负载限制为 4MB。  
 
-## <a name="retrieve-all-entities-in-a-partition"></a>检索分区中的所有实体
+## <a name="retrieve-all-entities-in-a-partition"></a>检索分区中的所有条目
 若要查询表以获取分区中的所有实体，请使用 **table_query** 对象。 以下代码示例指定了一个筛选器，以筛选分区键为“Smith”的实体。 此示例会将查询结果中每个实体的字段输出到控制台。  
 
 ```cpp
@@ -232,7 +232,7 @@ for (; it != end_of_results; ++it)
 此示例中的查询将检索出与筛选条件匹配的所有条目。 如果有大型表并需要经常下载表条目，建议改为将数据存储在 Azure 存储 Blob 中。
 
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>检索分区中的一部分条目
-如果不想查询分区中的所有条目，则可以通过结合使用分区键筛选器与行键筛选器来指定一个范围。 以下代码示例使用两个筛选器来获取分区“Smith”中的、行键（名字）以字母“E”前面的字母开头的所有实体，并输出查询结果。  
+如果不想查询分区中的所有条目，则可以通过结合使用分区键筛选器与行键筛选器来指定一个范围。 以下代码示例使用两个筛选器来获取分区“Smith”中的、行键（名字）以字母“E”前面的字母开头的所有条目，并输出查询结果。  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -268,7 +268,7 @@ for (; it != end_of_results; ++it)
 }  
 ```
 
-## <a name="retrieve-a-single-entity"></a>检索单个条目
+## <a name="retrieve-a-single-entity"></a>检索单个实体
 可以编写查询以检索单个特定实体。 以下代码使用 **table_operation::retrieve_entity** 来指定客户“Jeff Smith”。 此方法只返回一个实体，而不是一个集合，并且返回的值在 **table_result** 中。 在查询中指定分区键和行键是从表服务中检索单个实体的最快方法。  
 
 ```cpp
@@ -294,7 +294,7 @@ std::wcout << U("PartitionKey: ") << entity.partition_key() << U(", RowKey: ") <
 ```
 
 ## <a name="replace-an-entity"></a>替换条目
-要替换条目，请从表服务中检索它，修改条目对象，然后将更改保存回表服务。 以下代码更改现有客户的电话号码和电子邮件地址。 此代码不是调用 **table_operation::insert_entity**，而是使用 **table_operation::replace_entity**。 这会导致在服务器上完全替换该实体，除非服务器上的该实体自检索到它以后发生更改，在此情况下，该操作将失败。 操作失败将防止应用程序无意中覆盖应用程序的其他组件在检索与更新之间所做的更改。 正确处理此失败的方法是再次检索实体，进行更改（如果仍有效），并执行另一个 **table_operation::replace_entity** 操作。 下一节将演示如何重写此行为。  
+要替换条目，请从表服务中检索它，修改条目对象，然后将更改保存回表服务。 以下代码更改现有客户的电话号码和电子邮件地址。 此代码不是调用 **table_operation::insert_entity**，而是使用 **table_operation::replace_entity**。 这会导致在服务器上完全替换该实体，除非服务器上的该实体自检索到它以后发生更改，在此情况下，该操作将失败。 操作失败将防止你的应用程序无意中覆盖应用程序的其他组件在检索与更新之间所做的更改。 正确处理此失败的方法是再次检索实体，进行更改（如果仍有效），并执行另一个 **table_operation::replace_entity** 操作。 下一节将演示如何重写此行为。  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -400,7 +400,7 @@ for (; it != end_of_results; ++it)
 > 
 > 
 
-## <a name="delete-an-entity"></a>删除实体
+## <a name="delete-an-entity"></a>删除条目
 可以在检索到实体后轻松将其删除。 检索到实体后，对要删除的实体调用 **table_operation::delete_entity**。 然后调用 **cloud_table.execute** 方法。 以下代码检索并删除分区键为“Smith”、行键为“Jeff”的实体。  
 
 ```cpp
@@ -458,4 +458,5 @@ azure::storage::table_result delete_result = table.execute(delete_operation);
 * [适用于 C++ 的存储客户端库参考](http://azure.github.io/azure-storage-cpp)
 * [Azure 存储文档](/storage/)
 
-<!-- Update_Description: update meta properties, update link -->
+<!--The parent file of includes file of storage-table-concepts-include.md-->
+<!--ms.date:03/05/2018-->

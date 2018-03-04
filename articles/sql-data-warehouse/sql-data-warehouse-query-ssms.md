@@ -16,11 +16,11 @@ ms.custom: connect
 origin.date: 10/31/2016
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1b934fe7ddbe46f8780e237102ef51d731cb3753
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: 7f5fb8e85690b990e1802cd496888fadbfb206b7
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>使用 SQL Server Management Studio (SSMS) 连接到 SQL 数据仓库
 > [!div class="op_single_selector"]
@@ -32,12 +32,13 @@ ms.lasthandoff: 07/05/2017
 <!-- Not Available [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) -->
 <!-- Not Available [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md) -->
 
-使用 SQL Server Management Studio (SSMS) 可连接并查询 Azure SQL 数据仓库。 
+使用 SQL Server Management Studio (SSMS) 来连接并查询 Azure SQL 数据仓库。 
 
 ## <a name="prerequisites"></a>先决条件
-要使用本教程，你需要：
+要使用本教程，需要：
 
-* 现有 SQL 数据仓库。 若要创建这样一个数据仓库，请参阅 [创建 SQL 数据仓库][Create a SQL Data Warehouse]。
+* 现有 SQL 数据仓库。
+<!-- Not Available on  To create one, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse] -->
 * 安装了 SQL Server Management Studio (SSMS)。 [安装 SSMS][Install SSMS] 。
 * 完全限定的 SQL Server 名称。 若要查找此名称，请参阅 [连接到 SQL 数据仓库][Connect to SQL Data Warehouse]。
 
@@ -53,15 +54,15 @@ ms.lasthandoff: 07/05/2017
    * **服务器名称**。 输入前面标识的 **服务器名称** 。
    * **身份验证**。 选择“SQL Server 身份验证”或“Active Directory 集成身份验证”。
    * “用户名”和“密码”。 如果上面选择了 SQL Server 身份验证，请输入用户名和密码。
-   * 单击“连接”。
-4. 若要浏览，请展开你的 Azure SQL 服务器。 你可以查看与服务器关联的数据库。 展开 AdventureWorksDW 以查看示例数据库中的表。
+   * 单击“连接” 。
+4. 要浏览，请展开 Azure SQL 服务器。 可以查看与服务器关联的数据库。 展开 AdventureWorksDW 以查看示例数据库中的表。
 
     ![浏览 AdventureWorksDW][3]
 
 ## <a name="2-run-a-sample-query"></a>2.运行示例查询
-现在，你已建立了与数据库的连接，接下来让我们编写查询。
+现在，已建立了与数据库的连接，接下来让我们编写查询。
 
-1. 在 SQL Server 对象资源管理器中右键单击你的数据库。
+1. 在 SQL Server 对象资源管理器中右键单击数据库。
 2. 选择“新建查询”。 此时将打开一个新的查询窗口。
 
     ![新建查询][4]

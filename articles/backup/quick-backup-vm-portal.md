@@ -1,27 +1,27 @@
 ---
 title: "Azure 快速入门 - 使用 Azure 门户备份 VM | Microsoft Docs"
 description: "了解如何使用 Azure 门户备份虚拟机"
-services: backup, virtual-machines-windows
+services: backup
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: jeconnoc
+author: saurabhsensharma
+manager: shivamg
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: backup, virtual-machines-windows
+ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 01/12/2018
-ms.date: 02/08/2018
+origin.date: 02/14/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 0c07208427cb36b2bff253f2e4e72a4cc0b40bfa
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: e035b75fba785a179d05f109efd4748fa75d4bef
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>在 Azure 中备份虚拟机
 可以通过 Azure 门户创建 Azure 备份。 此方法提供基于浏览器的用户界面用于创建和配置 Azure 备份及所有相关的资源。 可以通过定期创建备份来保护数据。 Azure 备份可创建恢复点，这些恢复点可存储在异地冗余的恢复保管库中。 本文详细介绍如何使用 Azure 门户备份虚拟机 (VM)。 
@@ -101,4 +101,4 @@ VM 的“备份”窗口中显示了备份的状态，以及已完成的还原�
 > [!div class="nextstepaction"]
 > [备份多个 Azure VM](./tutorial-backup-vm-at-scale.md)
 
-<!-- Update_Description: wording update -->
+<!--Update_Description: update metedata properties -->

@@ -16,11 +16,11 @@ ms.workload: data-services
 origin.date: 06/19/2017
 ms.date: 01/08/2018
 ms.author: v-johch
-ms.openlocfilehash: 69ec0f49531fd1d3cfa4d604f5a789a76e9f4c40
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 2879ee058781ff6945fb5ddc2a805733d60ebce5
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="sql-database-threat-detection"></a>SQL 数据库威胁检测
 
@@ -64,7 +64,7 @@ SQL 威胁检测提供新的安全层，在发生异常活动时会提供安全�
 
 ## <a name="next-steps"></a>后续步骤
 
-* 有关威胁检测的详细信息，请访问 [Azure 博客](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
+* 有关威胁检测的详细信息，请访问 [Azure 博客](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * 了解有关 [Azure SQL 数据库审核](sql-database-auditing.md)的详细信息
 * 有关定价的更多详细信息，请参阅 [SQL 数据库定价页面](https://www.azure.cn/pricing/details/sql-database/)  
 * 有关 PowerShell 脚本示例，请参阅[使用 PowerShell 配置审核和威胁检测](scripts/sql-database-auditing-and-threat-detection-powershell.md)

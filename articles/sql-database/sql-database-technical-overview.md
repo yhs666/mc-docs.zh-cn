@@ -15,17 +15,19 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: data-management
 origin.date: 09/20/2017
-ms.date: 01/08/2018
+ms.date: 2/28/2018
 ms.author: v-johch
-ms.openlocfilehash: d51c18500e66f8a794677456b203e718e86f2f32
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 0b818a7cf3c211f8bc637d171f438bb0934a5f84
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什么是 Azure SQL 数据库服务？ 
 
-SQL 数据库是 Azure 中通用的关系型数据库服务，支持关系数据、JSON、空间和 XML 等结构。 它提供[动态可缩放性能](sql-database-service-tiers.md)，并提供[列存储索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)（用于极端分析和报告）和[内存中 OLTP](sql-database-in-memory.md)（用于极端事务处理）等选项。 Microsoft 可无缝处理 SQL 代码库的所有修补和更新，并避开底层基础结构的所有管理。 SQL 数据库在多个服务级别提供可预测的、动态可缩放的性能，主要表现在：无停机时间、内置智能优化、全局可伸缩性和可用性，以及高级安全选项 - 一切几乎不用人工管理。 凭借这些功能，客户可将注意力集中在如何快速进行应用开发、加快推向市场，而无需将宝贵的时间和资源投入在管理虚拟机和基础结构上。
+SQL 数据库是 Azure 中通用的关系型数据库服务，支持关系数据、JSON、空间和 XML 等结构。 它提供[动态可缩放性能](sql-database-service-tiers.md)，并提供[列存储索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)（用于极端分析和报告）和[内存中 OLTP](sql-database-in-memory.md)（用于极端事务处理）等选项。 Microsoft 可无缝处理 SQL 代码库的所有修补和更新，并避开底层基础结构的所有管理。 SQL 数据库与 [Microsoft SQL Server 数据库引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation)共享其代码库。 利用 Microsoft 的云优先策略，首先将 SQL Server 的最新功能发布到 SQL 数据库，然后再发布到 SQL Server 本身。 此方法可为你提供 SQL Server 的最新功能，这些新功能已经过数百万个数据库的测试且无任何修补或升级开销。 有关公布的新功能信息，请参阅：
+> [!IMPORTANT]
+> 若要了解 SQL 数据库和 SQL Server 的功能差异，请参阅 [SQL 功能](sql-database-features.md)。 SQL 数据库在多个服务级别提供可预测的、动态可缩放的性能，主要表现在：无停机时间、内置智能优化、全局可伸缩性和可用性，以及高级安全选项 - 一切几乎不用人工管理。 凭借这些功能，客户可将注意力集中在如何快速进行应用开发、加快推向市场，而无需将宝贵的时间和资源投入在管理虚拟机和基础结构上。
 
 > [!NOTE]
 > 有关 Azure 平台安全性的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/)。
@@ -37,7 +39,7 @@ SQL 数据库是 Azure 中通用的关系型数据库服务，支持关系数据
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>无需停机即可调整性能和规模
 
-SQL 数据库提供四个服务层，支持轻型到重型数据库工作负荷：基本、标准、高级和高级 RS。 可以在小型单一数据库中构建第一个应用，每个月只需花费少量资金。然后可以根据解决方案的需要，随时手动或以编程方式更改服务层。 可在不给应用或客户造成停机的情况下调整性能。 动态可伸缩性可让数据库以透明方式响应快速变化的资源要求，使用户只需为用到的资源付费。
+SQL 数据库提供三个服务层，支持轻型到重型数据库工作负荷：基本、标准、高级。 可以在小型单一数据库中构建第一个应用，每个月只需花费少量资金。然后可以根据解决方案的需要，随时手动或以编程方式更改服务层。 可在不给应用或客户造成停机的情况下调整性能。 动态可伸缩性可让数据库以透明方式响应快速变化的资源要求，使用户只需为用到的资源付费。
 
    ![缩放](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 

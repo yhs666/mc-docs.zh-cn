@@ -15,19 +15,19 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 06/23/2017
-ms.date: 10/02/2017
+ms.date: 2/28/2018
 ms.author: v-johch
-ms.openlocfilehash: 91e845ec521958c5d3fcf347f9d610725cd4ab76
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: b6f4181b2ea836db41bbfc5ae2778bf407063e87
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-database-from-backups"></a>使用 PowerShell 从备份还原 Azure SQL 数据库
 
-此 PowerShell 脚本示例从异地冗余备份还原 Azure SQL 数据库，根据最新备份还原已删除的 Azure SQL 数据库，并将 Azure SQL 数据库还原到特定的时间点。  
+以下 PowerShell 脚本示例通过异地冗余备份还原 Azure SQL 数据库，将已删除的 Azure SQL 数据库还原为其最新备份，并将 Azure SQL 数据库还原到特定的时间点。  
 
-在运行此脚本前，请确保已使用 `Add-AzureRmAccount -EnviroumentName AzureChina` cmdlet 创建与 Azure 的连接。
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -132,7 +132,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 | [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver) | 创建用于托管数据库或弹性池的逻辑服务器。 | 
 | [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) | 在逻辑服务器中创建数据库作为单一数据库或入池数据库。 |

@@ -5,14 +5,14 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 08/01/2018
-ms.date: 01/22/2018
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5065da5032fb398f171edf918565d7a8297c8a90
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 9330d535ca3997244da79d4cc932c5f2171c6b3d
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>对复制到 Azure 的物理服务器进行故障转移和故障回复
 
@@ -118,5 +118,4 @@ ms.lasthandoff: 01/19/2018
 2. 选择用于将复制数据发送到 Azure 的进程服务器，然后单击“确定”。
 
 重新保护完成后，该 VM 将复制回 Azure，此时可按需运行故障转移。
-<!-- Update_Description: new articles on physical to azure failover and failback -->
-<!-- ms.date: 01/19/2018 -->
+<!-- Update_Description: update meta propeties -->

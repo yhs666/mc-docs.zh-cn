@@ -1,5 +1,5 @@
 ## <a name="create-a-ruby-application"></a>创建 Ruby 应用程序
-有关说明，请参阅[在 Azure 上创建 Ruby 应用程序](../articles/virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)。
+有关说明，请参阅[在 Azure 上创建 Ruby 应用程序](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md)。
 
 ## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
 若要使用服务总线，请下载并使用 Azure Ruby 包，其中包括一组便于与存储 REST 服务进行通信的库。
@@ -9,7 +9,7 @@
 2. 在命令窗口中键入“gem install azure”以安装 gem 和依赖项。
 
 ### <a name="import-the-package"></a>导入包
-使用常用的文本编辑器将以下内容添加到你要在其中使用存储的 Ruby 文件的顶部：
+使用常用的文本编辑器将以下内容添加到要在其中使用存储的 Ruby 文件的顶部：
 
 ```ruby
 require "azure"

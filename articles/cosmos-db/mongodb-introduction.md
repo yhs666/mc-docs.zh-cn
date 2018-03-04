@@ -13,18 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/08/2017
-ms.date: 12/25/2017
+origin.date: 02/12/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 76938c2f58f5ab96883c6dba047d3cdf482dd923
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 24eaecf6fdf9ddbf3c02d79ba26d48671700ecc2
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB: API for MongoDB 简介
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 针对任务关键型应用程序提供的多区域分布式多模型数据库服务。 Azure Cosmos DB 在全球范围内提供[统包式全球分布](distribute-data-globally.md)、[吞吐量和存储的弹性扩展](partition-data.md)、99% 的情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](consistency-levels.md)以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档、键/值和列式数据模型。 
+[Azure Cosmos DB](../cosmos-db/introduction.md) 是 21Vianet 针对任务关键型应用程序提供的多区域分布式多模型数据库服务。 Azure Cosmos DB 在全球范围内提供[统包全局分发](distribute-data-globally.md)、[吞吐量和存储的弹性扩展](partition-data.md)、99% 的情况下低至个位数的毫秒级延迟以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档、键/值和列式数据模型。 
 <!-- Notice: 全球 to 各个区域 -->
 <!--Not Available on Graph -->
 
@@ -40,11 +40,19 @@ ms.lasthandoff: 01/17/2018
 
 **可弹性缩放的吞吐量和存储：**轻松增大或减小 MongoDB 数据库规模来满足应用程序需求。 数据存储在固态硬盘 (SSD) 上，以实现可预测的低延迟。 Azure Cosmos DB 支持几乎可以扩展到无限存储大小和预配吞吐量的 MongoDB 集合。 随着应用程序规模的增长，可以弹性无缝地扩展 Azure Cosmos DB 且其性能可以预测。 
 
-**多区域复制：**Azure Cosmos DB 以透明方式将数据复制到与 MongoDB 帐户关联的所有区域，使用户能够开发那些对多区域数据访问有要求的应用程序，与此同时还在一致性、可用性和性能方面做出权衡，所有这些都有相应的保证。 Azure Cosmos DB 提供具有多宿主 API 的透明区域故障转移，还可以弹性缩放多区域吞吐量和存储。 在[全球分布数据](distribute-data-globally.md)中了解详细信息。
+**多区域复制：**Azure Cosmos DB 以透明方式将数据复制到与 MongoDB 帐户关联的所有区域，使用户能够开发那些对多区域数据访问有要求的应用程序，与此同时还在一致性、可用性和性能方面做出权衡，所有这些都有相应的保证。 Azure Cosmos DB 提供具有多宿主 API 的透明区域故障转移，还可以弹性缩放多区域吞吐量和存储。 在[全局分发数据](distribute-data-globally.md)中了解详细信息。
 
 **没有服务器管理**：无需管理和缩放 MongoDB 数据库。 Azure Cosmos DB 是完全托管的服务，这意味着无需自己管理任何基础结构或虚拟机。 Azure Cosmos DB 在 30 多个 [Azure 区域](https://www.azure.cn/support/service-dashboard/)中可用。
 
-可调整的一致性级别：从五个妥善定义的一致性级别中选择，实现一致性与性能之间的最佳平衡。 对于查询和读取操作，Azure Cosmos DB 提供五种不同的一致性级别：强一致性、有限过时一致性、会话一致性、前缀一致性和最终一致性。 通过这些细化的定义完好的一致性级别，可以在一致性、可用性和延迟之间实现合理的平衡。 有关详细信息，请参阅[使用一致性级别最大化可用性和性能](consistency-levels.md)。
+**可调整的一致性级别：**Azure Cosmos DB 当前实现了 MongoDB 3.4 版，其中具有两个一致性设置：强一致性和最终一致性。 由于 Azure Cosmos DB 是多 api，因此一致性设置在帐户级别适用，并由每个 API 控制一致性的实施。 在 MongoDB 3.6 以前，没有会话一致性的概念，因此如果将 MongoDB API 帐户设置为使用会话一致性，则使用 MongoDB API 时，该一致性会降级为最终一致性。 如果需要向某个 MongoDB API 帐户提供“读取自己的写入”保证，该帐户的默认一致性级别应设置为“强”或“有限过期”。 有关详细信息，请参阅[使用一致性级别最大化可用性和性能](consistency-levels.md)。
+
+| Azure Cosmos DB 的默认一致性级别 |   Mongo API (3.4) |
+|---|---|
+|最终| 最终 |
+|一致前缀| 具有一致顺序的最终 |
+|会话| 具有一致顺序的最终 |
+|有限过期| 强 |
+| 强 | 强 |
 
 **自动编制索引：**默认情况下，Azure Cosmos DB 自动为 MongoDB 数据库文档中的所有属性编制索引，无需任何架构或创建二级索引。 此外，唯一索引功能可以针对已在 Azure Cosmos DB 中自动编制索引的所有文档字段启用唯一性约束。
 
@@ -65,10 +73,10 @@ ms.lasthandoff: 01/17/2018
 有关 Azure Cosmos DB 的 MongoDB API 的信息已集成到整个 Azure Cosmos DB 文档中，但可以通过以下指南来入门：
 
 * 若要了解如何获取帐户连接字符串信息，请参阅[连接到 MongoDB 帐户](connect-mongodb-account.md)教程。
-* 要了解如何在 MongoChef 中创建 Azure Cosmos DB 数据库和 MongoDB 应用之间的连接，请参阅[将 MongoChef 与 Azure Cosmos DB 配合使用](mongodb-mongochef.md)教程。
+* 要了解如何在 Studio 3T 中创建 Azure Cosmos DB 数据库和 MongoDB 应用之间的连接，请参阅[将 Studio 3T (MongoChef) 与 Azure Cosmos DB 配合使用](mongodb-mongochef.md)教程。
 * 按照[将数据迁移到具有 MongoDB 协议支持的 Azure Cosmos DB](mongodb-migrate.md) 教程将数据导入到 API for MongoDB 数据库。
 * 使用 [Robomongo](mongodb-robomongo.md) 连接到 MongoDB 的 API 帐户。
 * 了解操作将多少 RU 用于 [GetLastRequestStatistics 命令和 Azure 门户指标](request-units.md#GetLastRequestStatistics)。
-* 了解如何[配置全球分布式应用的读取首选项](../cosmos-db/tutorial-global-distribution-mongodb.md)。
+* 了解如何[配置全局分布的应用的读取首选项](../cosmos-db/tutorial-global-distribution-mongodb.md)。
 
 <!--Update_Description: update meta properties, update link, wording update-->

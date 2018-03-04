@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/12/2017
-ms.date: 12/25/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 947be69d0ba1f79d91d4a6769ce866ce2d8240ab
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: aa2af75c32859266ba65dd33ef373df282820953
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure Cosmos DB：MongoDB API 文档
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 02/13/2018
 
 ## <a name="developers-guide"></a>开发人员指南
 
-- [使用 MongoChef](mongodb-mongochef.md)
+- [使用 Studio 3T (MongoChef)](mongodb-mongochef.md)
 - [使用 Robomongo](mongodb-robomongo.md)
 
-<!-- Update_Description: update link  -->
+<!-- Update_Description: wording update -->

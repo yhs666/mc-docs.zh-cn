@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-origin.date: 06/29/2017
-ms.date: 09/11/2017
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0c2f4ae29892fd1c203cbc3b17203cb825ddea5b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: a1e8967c2e0aeeaf142e92a2c32cbd27fbb5a0e9
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-a-scale-out-process-server"></a>管理横向扩展进程服务器
 
@@ -148,4 +148,4 @@ net start obengine
 |8 个 vCPU（2 个插槽 * 4 个核心 @ 2.5 GHz），12 GB 内存 |600 GB |250 GB 到 1 TB |复制 85-150 台计算机。 |
 |12 个 vCPU（2 个插槽 * 6 个核心 @ 2.5 GHz），24 GB 内存 |1 TB |1 TB 到 2 TB |复制 150-225 台计算机。 |
 
-<!--Update_Description: new articles on vmware to azure manage scale out process server in site recovery -->
+<!--Update_Description: update meta properties, wording update -->

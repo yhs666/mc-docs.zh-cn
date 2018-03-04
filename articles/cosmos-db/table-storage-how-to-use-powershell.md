@@ -1,25 +1,25 @@
 ---
 title: "使用 PowerShell 执行 Azure 表存储操作 | Azure"
 description: "使用 PowerShell 执行 Azure 表存储操作"
-services: storage
+services: cosmos-db
 documentationcenter: storage
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 ms.assetid: 
-ms.service: storage
-ms.workload: storage
+ms.service: cosmos-db
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to
+ms.topic: article
 origin.date: 11/02/2017
-ms.date: 11/27/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5b04954bc32c3b9826e924d795f7383d88703597
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 984c28517bc8a07ac23d687c734d5e9f4b90ca4f
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 执行 Azure 表存储操作 
 
@@ -158,4 +158,4 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
 
-<!-- Update_Description: new articles on cosmos db table storage how to use powershell -->
+<!-- Update_Description: update meta properties -->

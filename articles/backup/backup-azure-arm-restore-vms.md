@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/04/2017
-ms.date: 01/05/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7ac2468809246e42c0fe0ce06445f32ce3302892
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: cf2503e030c9cf3bd45c6ad726556faca595a685
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>使用 Azure 门户还原虚拟机
 可以通过按定义的间隔创建数据快照来保护数据。 这些快照称为恢复点，存储在恢复服务保管库中。 当需要修复或重新生成虚拟机 (VM) 时，可以从保存的任何恢复点还原 VM。 还原恢复点时，可以：
@@ -105,7 +105,7 @@ ms.lasthandoff: 01/11/2018
 
    - 还原磁盘
 
-门户为已还原的 VM 提供“快速创建”选项。 如果想要自定义在创建新 VM 过程中创建的资源的 VM 配置或名称，请使用 PowerShell 或门户还原已备份的磁盘。 使用 PowerShell 命令将其附加到所选 VM 配置。 或者可以使用附带了已还原磁盘的模板来自定义已还原的 VM。 有关如何还原具有多个 NIC 或采用负载均衡器的 VM 的详细信息，请参阅[还原采用特殊网络配置的 VM](#restore-a vm-with-special-network-configurations)。 如果 Windows VM 使用 HUB 许可，请还原磁盘并使用本文中所指定的 PowerShell/模板来创建 VM。 确保在创建 VM 时将“许可证类型”指定为“Windows_Server”以利用还原的 VM 上的 HUB 优势。 
+门户为已还原的 VM 提供“快速创建”选项。 如果想要自定义在创建新 VM 过程中创建的资源的 VM 配置或名称，请使用 PowerShell 或门户还原已备份的磁盘。 使用 PowerShell 命令将其附加到所选 VM 配置。 或者可以使用附带了已还原磁盘的模板来自定义已还原的 VM。 有关如何还原具有多个 NIC 或采用负载均衡器的 VM 的详细信息，请参阅[还原采用特殊网络配置的 VM](#restore-vms-with-special-network-configurations)。 如果 Windows VM 使用 [HUB 许可](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，请还原磁盘并使用本文中所指定的 PowerShell/模板来创建 VM。 确保在创建 VM 时将“许可证类型”指定为“Windows_Server”以利用还原的 VM 上的 HUB 优势。 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>从还原点创建新的 VM
 1. 如果尚未执行此操作，请[选择一个还原点](#restore-a vm-with-special-network-configurations)，然后开始从还原点创建新的 VM。 选择还原点后，请在“还原配置”边栏选项卡中，输入或选择以下每个字段的值：
@@ -197,7 +197,7 @@ ms.lasthandoff: 01/11/2018
    ![提交模板部署](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>还原后的步骤
-- 如果使用基于 cloud-init 的 Linux 分发（如 Ubuntu），出于安全原因，还原后将阻止密码。 请在还原的 VM 上使用 VMAccess 扩展 [重置密码](../virtual-machines/linux/classic/reset-access.md)。 建议在这些分发上使用 SSH 密钥以避免还原后重置密码。
+- 如果使用基于 cloud-init 的 Linux 分发（如 Ubuntu），出于安全原因，还原后将阻止密码。 请在还原的 VM 上使用 VMAccess 扩展 [重置密码](../virtual-machines/linux/reset-password.md)。 建议在这些分发上使用 SSH 密钥以避免还原后重置密码。
 - 会安装存在于备份配置期间的扩展，但不会启用这些扩展。 如果出现问题，请重新安装这些扩展。 
 - 如果备份的 VM 具有静态 IP，则在还原后，已还原的 VM 将具有动态 IP 以避免在创建还原的 VM 时发生冲突。 详细了解如何[向还原的 VM 添加静态 IP](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)。
 - 还原的 VM 不会设置可用性值。 使用已还原的磁盘从 PowerShell 或模板创建 VM 时，建议使用还原磁盘选项[添加可用性集](../virtual-machines/windows/tutorial-availability-sets.md)。 
@@ -251,4 +251,4 @@ ms.lasthandoff: 01/11/2018
 - [排查错误](backup-azure-vms-troubleshoot.md#restore)
 - [管理虚拟机](backup-azure-manage-vms.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: link update-->

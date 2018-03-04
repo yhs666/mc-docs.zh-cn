@@ -12,14 +12,14 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/16/2017
-ms.date: 12/04/2017
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: a14af7f3dcfec07622cd4d9fc99e42fc411824d0
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 0e6416af32cdd6500d28fa81a228ac05bff2a272
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>使用基于角色的访问控制管理 Azure Site Recovery
 
@@ -31,7 +31,7 @@ Azure Site Recovery 提供了 3 个用于控制 Site Recovery 管理操作的内
 * [Site Recovery 操作员](../active-directory/role-based-access-built-in-roles.md#site-recovery-operator) - 此角色有权执行和管理故障转移和故障回复操作。 拥有此角色的用户无法启用或禁用复制、无法创建或删除保管库，也无法注册新的基础结构或向其他用户分配访问权限。 此角色最适合分配给灾难恢复操作员，这样他们就可以在实际或模拟灾难情形（如 DR 钻取）下，遵循应用程序所有者或 IT 管理员的指示，对虚拟机或应用程序进行故障转移。 灾难解决后，DR 操作员可以重新保护和故障回复虚拟机。
 * [Site Recovery 读者](../active-directory/role-based-access-built-in-roles.md#site-recovery-reader) - 此角色有权查看所有 Site Recovery 管理操作。 此角色最适合分配给 IT 监视主管，这样他们就可以在需要时监视当前保护状态并创建支持票证。
 
-若要定义自己的角色以便实现进一步控制，请参阅如何在 Azure 中[生成自定义角色](../active-directory/role-based-access-control-custom-roles.md)。
+若要定义自己的角色以便实现进一步控制，请参阅如何[在 Azure 中生成自定义角色](../active-directory/role-based-access-control-custom-roles.md)。
 
 ## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>为新虚拟机启用复制时所需的权限
 使用 Azure Site Recovery 将新虚拟机复制到 Azure 时，会验证相关用户的访问级别，确保用户具有使用提供给 Site Recovery 的 Azure 资源所需的权限。
@@ -67,7 +67,7 @@ Azure Site Recovery 提供了 3 个用于控制 Site Recovery 管理操作的内
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | 经典 | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| 存储 | Resource Manager | Microsoft.Storage/storageAccounts/read |
+| 存储 | 资源管理器 | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | 经典 | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
@@ -84,4 +84,4 @@ Azure Site Recovery 提供了 3 个用于控制 Site Recovery 管理操作的内
   * [REST API](../active-directory/role-based-access-control-manage-access-rest.md)
 * [基于角色的访问控制故障排除](../active-directory/role-based-access-control-troubleshooting.md)：获取解决常见问题的建议。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties -->

@@ -33,6 +33,14 @@
           href: automation-runbook-types.md
         - name: 创建和导入 Runbook
           href: automation-creating-importing-runbook.md
+        - name: 创建图形 Runbook
+          href: automation-first-runbook-graphical.md
+        - name: 创建 PowerShell Runbook
+          href: automation-first-runbook-textual-powershell.md
+        - name: 创建 PowerShell 工作流 Runbook
+          href: automation-first-runbook-textual.md
+        - name: 创建 Python Runbook
+          href: automation-first-runbook-textual-python2.md
         - name: 编辑文本 Runbook
           href: automation-edit-textual-runbook.md
         - name: 编辑图形 Runbook
@@ -77,6 +85,8 @@
           href: automation-schedules.md
         - name: 变量
           href: automation-variables.md
+        - name: 更新 Azure PowerShell 模块
+          href: automation-update-azure-modules.md
     - name: 方案
       items:
         - name: Runbook 库

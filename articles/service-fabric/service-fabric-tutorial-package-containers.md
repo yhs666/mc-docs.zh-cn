@@ -18,10 +18,10 @@ ms.date: 02/26/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 65368b5e594d2f29c0eed0ec376deb6d19ea9f69
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 02/26/2018
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>打包容器并将其部署为 Service Fabric 应用程序
 

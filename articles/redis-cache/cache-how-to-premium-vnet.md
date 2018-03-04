@@ -3,8 +3,8 @@ title: "为高级 Azure Redis 缓存配置虚拟网络 | Microsoft 文档"
 description: "了解如何为高级层 Azure Redis 缓存实例创建和管理虚拟网络支持"
 services: redis-cache
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 05/15/2017
-ms.date: 09/14/2017
+ms.date: 02/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9fc8c0d02a2d7025f8270f1363cd690d4d17755e
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: bc7825cc49abfc8e923c1809936a20a9a8768e61
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>如何为高级 Azure Redis 缓存配置虚拟网络支持
 Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚拟网络支持等高级层功能），使缓存大小和功能的选择更加灵活。 VNet 是云中的专用网络。 为 Azure Redis 缓存实例配置了 VNet 后，该实例不可公开寻址，而只能从 VNet 中的虚拟机和应用程序进行访问。 本文说明如何为高级 Azure Redis 缓存实例配置虚拟网络支持。
@@ -32,14 +32,14 @@ Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚�
 有关其他高级缓存功能的信息，请参阅 [Azure Redis 缓存高级层简介](cache-premium-tier-intro.md)。
 
 ## <a name="why-vnet"></a>为何使用 VNet？
-[Azure 虚拟网络 (VNet)](/virtual-network/) 部署为 Azure Redis 缓存提供增强的安全性和隔离性，并提供子网、访问控制策略，以及用于进一步限制访问的其他功能。
+[Azure 虚拟网络 (VNet)](https://www.azure.cn/home/features/virtual-network/) 部署为 Azure Redis 缓存提供增强的安全性和隔离性，并提供子网、访问控制策略，以及用于进一步限制访问的其他功能。
 
 ## <a name="virtual-network-support"></a>虚拟网络支持
 在创建缓存期间，可在“新建 Redis 缓存”边栏选项卡中配置虚拟网络 (VNet) 支持。 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-选择高级定价层后，可以通过选择与缓存相同的订阅和位置中的 VNet，来配置 Redis VNet 集成。 若要使用新 VNet，请先创建 VNet，方法是遵循[使用 Azure 门户创建虚拟网络](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)或[使用 Azure 门户创建虚拟网络（经典）](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)中的步骤，然后返回“新建 Redis 缓存”边栏选项卡来创建和配置高级缓存。
+选择高级定价层后，可以通过选择与缓存相同的订阅和位置的 VNet 来配置 Redis VNet 集成。 若要使用新 VNet，请先创建 VNet，方法是遵循[使用 Azure 门户创建虚拟网络](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)或[使用 Azure 门户创建虚拟网络（经典）](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)中的步骤，然后返回“新建 Redis 缓存”边栏选项卡来创建和配置高级缓存。
 
 如果要为新缓存配置 VNet，请单击“新建 Redis 缓存”边栏选项卡上的“虚拟网络”，并从下拉列表中选择所需的 VNet。
 
@@ -48,20 +48,20 @@ Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚�
 从“子网”下拉列表中选择所需的子网，并指定所需的“静态 IP 地址”。 如果使用经典 VNet，则“静态 IP 地址”字段是可选的；如果未指定任何地址，将从选定的子网中选择一个。
 
 > [!IMPORTANT]
-> 将 Azure Redis 缓存部署到Resource Manager VNet 时，缓存必须位于专用子网中，其中只能包含 Azure Redis 缓存实例，而不能包含其他任何资源。 如果尝试将 Azure Redis 缓存部署到包含其他资源的 Resource Manager VNet 子网，则部署会失败。
+> 将 Azure Redis 缓存部署到 Resource Manager VNet 时，缓存必须位于专用子网中，其中只能包含 Azure Redis 缓存实例，而不能包含其他任何资源。 如果尝试将 Azure Redis 缓存部署到包含其他资源的 Resource Manager VNet 子网，则部署会失败。
 > 
 > 
 
 ![虚拟网络][redis-cache-vnet-ip]
 
 > [!IMPORTANT]
-> Azure 会保留每个子网中的某些 IP 地址，但是这些地址不能使用。 子网的第一个和最后一个 IP 地址仅为协议一致性而保留，其他三个地址用于 Azure 服务。 有关详细信息，请参阅[使用这些子网中的 IP 地址是否有任何限制？](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+> Azure 会保留每个子网中的某些 IP 地址，不可以使用这些地址。 子网的第一个和最后一个 IP 地址仅为协议一致性而保留，其他三个地址用于 Azure 服务。 有关详细信息，请参阅[使用这些子网中的 IP 地址是否有任何限制？](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 > 
 > 除了 Azure VNET 基础结构使用的 IP 地址以外，子网中的每个 Redis 实例为每个分片使用两个 IP 地址，为负载均衡器使用一个额外的 IP 地址。 非群集缓存被视为包含一个分片。
 > 
 > 
 
-创建缓存之后，可以在“设置”中单击“虚拟网络”，查看 VNet 的配置。
+创建缓存之后，可以在“资源菜单”中单击“虚拟网络”，查看 VNet 的配置。
 
 ![虚拟网络][redis-cache-vnet-info]
 
@@ -106,7 +106,7 @@ Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚�
 出站端口有七个要求。
 
 - 如果需要，与 Internet 的所有出站连接都可以通过客户端的本地审核设备建立。
-- 3 个端口将流量路由到服务 Azure 存储和 Azure DNS 的 Azure 终结点。
+- 其中三个端口将流量路由到为 Azure 存储和 Azure DNS 提供服务的 Azure 终结点。
 - 剩余端口范围，这些端口用于内部 Redis 子网通信。 内部 Redis 子网通信不需要子网 NSG 规则。
 
 | 端口 | 方向 | 传输协议 | 目的 | 本地 IP | 远程 IP |
@@ -118,6 +118,7 @@ Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚�
 | 20226 |出站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
 | 13000-13999 |出站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
 | 15000-15999 |出站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
+| 6379-6380 |出站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
 
 
 ### <a name="inbound-port-requirements"></a>入站端口要求
@@ -126,7 +127,7 @@ Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚�
 
 | 端口 | 方向 | 传输协议 | 目的 | 本地 IP | 远程 IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379、6380 |入站 |TCP |与 Redis 的客户端通信、Azure 负载均衡 | （Redis 子网） |虚拟网络、Azure 负载均衡器 |
+| 6379、6380 |入站 |TCP |与 Redis 的客户端通信、Azure 负载均衡 | （Redis 子网） | （Redis 子网）、虚拟网络、Azure 负载均衡器 |
 | 8443 |入站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
 | 8500 |入站 |TCP/UDP |Azure 负载均衡 | （Redis 子网） |Azure 负载均衡器 |
 | 10221-10231 |入站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网）、Azure 负载均衡器 |
@@ -147,7 +148,7 @@ Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚�
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>如何验证缓存是否在 VNET 中正常工作？
 
 >[!IMPORTANT]
->连接到 VNET 中托管的 Azure Redis 缓存实例时，缓存客户端（包括所有测试应用程序或诊断 ping 工具）必须在同一 VNET 中。
+>连接到 VNET 中托管的 Azure Redis 缓存实例时，缓存客户端必须位于同一 VNET 中或已启用 VNET 对等互连的 VNET 中。 这包括任何测试应用程序或诊断 ping 工具。 无论客户端应用程序在哪里托管，都必须配置网络安全组，以便允许客户端的网络流量到达 Redis 实例。
 >
 >
 
@@ -183,18 +184,18 @@ Azure 会保留每个子网中的某些 IP 地址，但是这些地址不能使�
 - Redis 控制台 - 由于 Redis 控制台在本地浏览器中运行（这在 VNET 的外部），因此它无法连接到缓存。
 
 ## <a name="use-expressroute-with-azure-redis-cache"></a>将 ExpressRoute 用于 Azure Redis 缓存
-客户可以将 [Azure ExpressRoute](/expressroute/) 线路连接到虚拟网络基础结构，从而将其本地网络扩展到 Azure。 
+客户可以将 [Azure ExpressRoute](https://www.azure.cn/home/features/expressroute/) 线路连接到虚拟网络基础结构，从而将其本地网络扩展到 Azure。 
 
 默认情况下，新创建的 ExpressRoute 线路不会在 VNET 上执行强制隧道（默认路由播发，0.0.0.0/0）。 因此，允许出站 Internet 连接直接来自 VNET，而且客户端应用程序能够连接到其他 Azure 终结点（包括 Azure Redis 缓存）。
 
-但是，常见的客户配置是使用强制隧道（播发默认路由），以强制出站 Internet 流量改为流向本地。 如果出站流量在本地遭到阻止，此流量将断开与 Azure Redis 缓存的连接，这样 Azure Redis 缓存实例将无法与其依赖项通信。
+但是，常见的客户配置是使用强制隧道（播发默认路由），以强制出站 Internet 流量改为流向本地。 如果出站流量随后在本地被阻止，则流量流会断开与 Azure Redis 缓存的连接，导致 Azure Redis 缓存实例无法与其依赖项通信。
 
 解决方法是在包含 Azure Redis 缓存的子网上定义一个或多个用户定义的路由 (UDR)。 UDR 定义了要遵循的子网特定路由，而不是默认路由。
 
 如果可能，建议使用以下配置：
 
 - ExpressRoute 配置播发 0.0.0.0/0 并默认使用强制隧道将所有输出流量发送到本地。
-- 已应用到包含 Azure Redis 缓存的子网的 UDR 使用公共 Internet 的 TCP/IP 流量工作路由来定义 0.0.0.0/0；例如，通过将下一个跃点类型设置为“Internet”。
+- 应用到包含 Azure Redis 缓存的子网的 UDR 使用发往公共 Internet 的 TCP/IP 流量的工作路由（例如，通过将下一跃点类型设置为“Internet”）定义 0.0.0.0/0。
 
 这些步骤的组合效应是子网级 UDR 将优先于 ExpressRoute 强制隧道，从而确保来自 Azure Redis 缓存的出站 Internet 访问。
 
@@ -225,4 +226,4 @@ Azure 会保留每个子网中的某些 IP 地址，但是这些地址不能使�
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update -->

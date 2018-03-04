@@ -1,5 +1,5 @@
 ---
-title: "在 Azure 应用服务 Web 应用中配置 PHP | Azure"
+title: "在 Azure 应用服务 Web 应用中配置 PHP"
 description: "了解如何在 Azure 应用服务中为 Web 应用配置默认 PHP 安装或添加自定义 PHP 安装。"
 services: app-service
 documentationcenter: php
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 10/30/2017
+ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: 71d5a11884cbff2aa9b591a6ac38635ada24d01d
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: cef248b0a275ca5ab6ba67638388fc88b4938c9e
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>在 Azure 应用服务 Web 应用中配置 PHP
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 本指南演示如何执行以下操作：在 [Azure 应用服务](app-service-web-overview.md) 中配置 Web 应用的内置 PHP 运行时，提供自定义 PHP 运行时，并启用扩展。 若要使用应用服务，请注册 [试用版]。 要充分利用本指南，应先在应用服务中创建一个 PHP Web 应用。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="how-to-change-the-built-in-php-version"></a>如何：更改内置 PHP 版本
-默认情况下，将安装 PHP 5.5 并且在创建应用服务 Web 应用时立即可用。 查看可用发行版、其默认配置以及已启用的扩展的最佳方式是部署一个调用 [phpinfo()] 函数的脚本。
+默认情况下，将安装 PHP 5.6 并且在创建应用服务 Web 应用时立即可用。 查看可用发行版、其默认配置以及已启用的扩展的最佳方式是部署一个调用 [phpinfo()] 函数的脚本。
 
 PHP 5.6 和 PHP 7.0 也可用，但它们在默认情况下不启用。 若要更新 PHP 版本，请使用下列方法之一：
 
@@ -47,10 +47,11 @@ PHP 5.6 和 PHP 7.0 也可用，但它们在默认情况下不启用。 若要�
 1. 打开 Azure PowerShell 并登录到帐户：
 
         PS C:\> Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    
 2. 设置 Web 应用的 PHP 版本。
 
         PS C:\> Set-AzureWebsite -PhpVersion {5.5 | 5.6 | 7.0} -Name {app-name}
-3. 现已设置 PHP 版本。 可以确认以下设置：
+3. 现已设置 PHP 版本。 可以确认这些设置：
 
         PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
@@ -160,7 +161,7 @@ PHP 5.6 和 PHP 7.0 也可用，但它们在默认情况下不启用。 若要�
 <a name="composer" />
 
 ## <a name="how-to-enable-composer-automation-in-azure"></a>如何：在 Azure 中启用编辑器自动化
-默认情况下，应用服务与 composer.json（如果 PHP 项目中有）不相关。 如果使用 [Git 部署](app-service-deploy-local-git.md)，则可以通过在 `git push` 期间启用编辑器扩展来启用 composer.json 处理。
+默认情况下，如果 PHP 项目中有 composer.json，则应用服务与其不相关。 如果使用 [Git 部署](app-service-deploy-local-git.md)，则可以通过在 `git push` 期间启用编辑器扩展来启用 composer.json 处理。
 
 > [!NOTE]
 > 可以 [在这里为应用服务中的一流编辑器支持投票](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip)！

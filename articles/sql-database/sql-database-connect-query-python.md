@@ -16,15 +16,15 @@ ms.topic: quickstart
 origin.date: 08/09/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 0af43138282a980fd5be27757c05fb7b9658f560
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 1dc6a2cdb868aa0fa348bb770144be41509eb9f7
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>使用 Python 查询 Azure SQL 数据库
 
- 本快速入门演示了如何使用 [Python](https://python.org) 连接到 Azure SQL 数据库，然后使用 Transact-SQL 语句查询数据。
+ 本快速入门演示了如何使用 [Python](https://python.org) 连接到 Azure SQL 数据库，然后使用 Transact-SQL 语句查询数据。 如需进一步的 SDK 详细信息，请签出[参考](https://docs.microsoft.com/python/api/overview/azure/sql)文档、pyodbc [示例](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)以及 [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) GitHub 存储库。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -49,28 +49,30 @@ ms.lasthandoff: 01/05/2018
 1. 在常用的文本编辑器中，创建一个新文件 **sqltest.py**。  
 
 2. 将内容替换为以下代码，为服务器、数据库、用户和密码添加相应的值。
-    ```Python
-    import pyodbc
-    server = 'your_server.database.chinacloudapi.cn'
-    database = 'your_database'
-    username = 'your_username'
-    password = 'your_password'
-    driver= '{ODBC Driver 13 for SQL Server}'
-    cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
-    cursor = cnxn.cursor()
-    cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
+
+```Python
+import pyodbc
+server = 'your_server.database.chinacloudapi.cn'
+database = 'your_database'
+username = 'your_username'
+password = 'your_password'
+driver= '{ODBC Driver 13 for SQL Server}'
+cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
+cursor = cnxn.cursor()
+cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
+row = cursor.fetchone()
+while row:
+    print (str(row[0]) + " " + str(row[1]))
     row = cursor.fetchone()
-    while row:
-        print (str(row[0]) + " " + str(row[1]))
-        row = cursor.fetchone()
-    ```
+```
 
 ## <a name="run-the-code"></a>运行代码
 
 1. 在命令提示符下运行以下命令：
-    ```Python
-    python sqltest.py
-    ```
+
+   ```Python
+   python sqltest.py
+   ```
 
 2. 验证是否已返回前 20 行，然后关闭应用程序窗口。
 

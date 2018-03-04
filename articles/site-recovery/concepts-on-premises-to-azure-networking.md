@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 11/14/2017
-ms.date: 12/04/2017
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 19ea97f762fa67145b34078b873957e6c8c4d193
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: a2ee905d7a495ce6cd4d355fd94a011d02069747
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>设置在故障转移到 Azure 后要连接的 IP 地址
 
@@ -34,10 +34,10 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="connecting-to-replica-vms"></a>连接到副本 VM
 
-规划复制和故障转移策略时的关键问题之一是，如何在运行故障转移后连接到 Azure VM。 在设计副本 Azure VM 的网络策略时，有以下几个选择：
+规划复制和故障转移策略时的关键问题之一是，如何在运行故障转移后连接到 Azure VM。 设计有关副本 Azure VM 的网络策略时，可以选择使用下列两种方法：
 
 - **使用不同的 IP 地址**：可以为复制的 Azure VM 网络选择使用不同的 IP 地址范围。 在此方案中，VM 会在故障转移后获取新的 IP 地址，并且需要进行 DNS 更新。
-- **保留相同的 IP 地址**：你可能想要在故障转移后为 Azure 网络使用与本地主站点相同的 IP 地址范围。 保留相同的 IP 地址，通过减少故障转移后网络相关问题来简化恢复过程。 不过，复制到 Azure 时，需要在运行故障转移后在路由中更新 IP 地址的新位置。 
+- **保留相同的 IP 地址**：你可能想要在故障转移后为 Azure 网络使用与本地主站点相同的 IP 地址范围。 保留相同的 IP 地址，可以减少运行故障转移后出现的网络相关问题，从而简化恢复过程。 不过，复制到 Azure 时，需要在运行故障转移后在路由中更新 IP 地址的新位置。 
 
 ## <a name="retaining-ip-addresses"></a>保留 IP 地址
 

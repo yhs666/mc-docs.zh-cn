@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 10/30/2017
-ms.date: 01/22/2018
+origin.date: 02/06/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 448ab38ba1672ffbe54ea34ebbe6f92dd292aefa
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: d3e2b2201792ec51f5b970bb6c396eb46e531993
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>从本地复制到 Azure 时的 Azure Site Recovery 支持矩阵
 
@@ -66,7 +66,8 @@ ms.lasthandoff: 01/19/2018
  **VMware/物理服务器** | Hyper-V（有/无 VMM） |
 --- | --- |
 64 位 Windows Server 2016（服务器核心，带桌面体验的服务器）\*、Windows Server 2012 R2、Windows Server 2012、带 SP1（或更高版本）的 Windows Server 2008 R2<br/><br/> CentOS：5.2 到 5.11、6.1 到 6.9、7.0 到 7.4 <br/><br/>Ubuntu 14.04 LTS 服务器[（支持的内核版本）](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS 服务器[（支持的内核版本）](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/> SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>（不支持复制计算机从 SLES 11 SP3 升级到 SLES 11 SP4。 如果已将复制计算机从 SLES 11SP3 升级到 SLES 11 SP4，则需要禁用复制，并在升级后再次对计算机启用保护。） | [Azure 支持的](https://technet.microsoft.com/library/cc794868.aspx)
-<!-- Not Available on Red Hat Enterprise, Oracle -->
+<!-- Not Available on Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4<br/><br/> -->
+<!-- Not Available on Oracle Enterprise Linux 6.4, 6.5 <br/><br/> -->
 
 >[!NOTE]
 >
@@ -161,7 +162,7 @@ SAN (ISCSI) | 是 | 是
 VMDK | 是 | 不适用
 VHD/VHDX | 不适用 | 是
 第 2 代 VM | 不适用 | 是
-EFI/UEFI| 否 | 是
+EFI/UEFI| 只有 Windows Server 2012 及更高版本的 VMware 虚拟机可迁移到 Azure。 </br></br> ** 请参阅表末尾的说明。  | 是
 共享群集磁盘 | 否 | 否
 加密磁盘 | 否 | 否
 NFS | 否 | 不适用
@@ -175,6 +176,13 @@ RDM | 是<br/><br/> 在物理服务器上不适用 | 不适用
 热添加/移除磁盘 | 否 | 否
 排除磁盘 | 是 | 是
 多路径 (MPIO) | 不适用 | 是
+
+> [!NOTE]
+> ** 运行 Windows Server 2012 或更高版本的 UEFI 引导 VMware 虚拟机可迁移到 Azure。 存在以下限制。
+> - 仅迁移到 Azure。 不支持故障回复到本地 VMware 站点。
+> - 服务器的 OS 磁盘支持的分区不能超过 4 个。
+> - 需要 Azure Site Recovery 移动服务 9.13 版或更高版本。
+> - 不适用于物理服务器。
 
 **Azure 存储** | **VMware/物理服务器** | **Hyper-V（具有/不具有 Virtual Machine Manager）**
 --- | --- | ---

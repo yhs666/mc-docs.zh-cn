@@ -13,19 +13,19 @@ ms.custom: mvc,develop databases
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
-origin.date: 08/25/2017
-ms.date: 11/06/2017
+ms.workload: Active
+origin.date: 01/29/2018
+ms.date: 02/28/2018
 ms.author: v-johch
-ms.openlocfilehash: f4dfe18ef4b91e88812b1dd4f0eecc2b5ff54d75
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: fad30c9a4efbdfa22511ae89832449f0045f17b9
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="design-your-first-azure-sql-database"></a>设计第一个 Azure SQL 数据库
 
-Azure SQL 数据库是 Microsoft 云（“Azure”）中的关系数据库即服务 (DBaaS)。 本教程介绍如何使用 Azure 门户和 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) 执行以下操作： 
+Azure SQL 数据库与 Microsoft 云 (Azure) 中的数据库即服务 (DBaaS) 相关。 本教程介绍如何使用 Azure 门户和 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) 执行以下操作： 
 
 > [!div class="checklist"]
 > * 在 Azure 门户中创建数据库
@@ -54,11 +54,11 @@ Azure SQL 数据库是 Microsoft 云（“Azure”）中的关系数据库即服
 
 按照以下步骤创建空的 SQL 数据库。 
 
-1. 单击 Azure 门户左上角的“新建”按钮。
+1. 在 Azure 门户的左上角单击“创建资源”。
 
 2. 从“新建”页中选择“数据库”，然后从“新建”页的“SQL 数据库”中选择“创建”。
 
-    ![创建空数据库](./media/sql-database-design-first-database/create-empty-database.png)
+   ![创建空数据库](./media/sql-database-design-first-database/create-empty-database.png)
 
 3. 如上图所示，在“SQL 数据库”窗体中填写以下信息：   
 
@@ -74,19 +74,19 @@ Azure SQL 数据库是 Microsoft 云（“Azure”）中的关系数据库即服
    | 设置       | 建议的值 | 说明 | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 | 
-   | 服务器管理员登录名 | 任何有效的名称 | 如需有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。|
+   | 服务器管理员登录名 | 任何有效的名称 | 有关有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。|
    | **密码** | 任何有效的密码 | 密码必须至少有八个字符，且必须包含以下类别中的三个类别的字符：大写字符、小写字符、数字以及非字母数字字符。 |
    | **位置** | 任何有效的位置 | 中国东部和中国北部 |
 
-    ![创建数据库 - 服务器](./media/sql-database-design-first-database/create-database-server.png)
-    
+   ![创建数据库 - 服务器](./media/sql-database-design-first-database/create-database-server.png)
+
 5. 单击“选择”。
 
 6. 单击“定价层”，指定服务层、DTU 数和存储量。 浏览相关选项，了解适用于每个服务层的 DTU 数和存储量。 
 
 7. 对于本教程，请选择“标准”服务层，然后使用滑块选择“100 DTU (S3)”和“400”GB 存储。
 
-    ![创建数据库 - s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
+   ![创建数据库 - s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
 8. 若要使用“附加存储”选项，请接受预览版条款。 
 
@@ -116,17 +116,17 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
 2. 在后续的快速入门中，请复制此完全限定的服务器名称，将其用于连接到服务器及其数据库。 
 
-    ![服务器名称](./media/sql-database-get-started-portal/server-name.png) 
+   ![服务器名称](./media/sql-database-get-started-portal/server-name.png) 
 
 3. 单击工具栏上的“设置服务器防火墙”。 此时会打开 SQL 数据库服务器的“防火墙设置”页。 
 
-    ![服务器防火墙规则](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+   ![服务器防火墙规则](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 4. 在工具栏上单击“添加客户端 IP”，将当前的 IP 地址添加到新的防火墙规则。 防火墙规则可以针对单个 IP 地址或一系列 IP 地址打开端口 1433。
 
 5. 单击“保存” 。 此时会针对当前的 IP 地址创建服务器级防火墙规则，在逻辑服务器上打开 端口 1433。
 
-6. 单击“确定”，并关闭“防火墙设置”页。
+6. 单击“确定”，然后关闭“防火墙设置”页。
 
 现在可以使用之前创建的服务器管理员帐户通过 SQL Server Management Studio 或其他所选工具从此 IP 地址连接到 SQL 数据库服务器及其数据库。
 
@@ -165,7 +165,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
    ![连接到服务器上的 DB](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. 单击“连接”。 此时会在 SSMS 中打开“对象资源管理器”窗口。 
+4. 单击“连接” 。 此时会在 SSMS 中打开“对象资源管理器”窗口。 
 
 5. 在对象资源管理器中展开“数据库”，然后展开 **mySampleDatabase**，查看示例数据库中的对象。
 
@@ -202,18 +202,18 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
    LastName   NVARCHAR(128) NOT NULL,
    DateOfBirth   DATE NOT NULL
    )
-
+   
    -- Create Student table
-
+ 
    CREATE TABLE Student
    (
    StudentId INT IDENTITY PRIMARY KEY,
    PersonId  INT REFERENCES Person (PersonId),
    Email   NVARCHAR(256)
    )
-
+   
    -- Create Course table
-
+ 
    CREATE TABLE Course
    (
    CourseId  INT IDENTITY PRIMARY KEY,
@@ -222,7 +222,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
    ) 
 
    -- Create Credit table
-
+ 
    CREATE TABLE Credit
    (
    StudentId   INT REFERENCES Student (StudentId),
@@ -256,7 +256,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 3. 打开命令提示符窗口并导航到 SampleTableData 文件夹。
 
 4. 执行以下命令，将示例数据插入表，使用环境值替换 **ServerName**、**DatabaseName**、**UserName** 和 **Password** 的值。
-
+  
    ```bcp
    bcp Course in SampleCourseData -S <ServerName>.database.chinacloudapi.cn -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
    bcp Person in SamplePersonData -S <ServerName>.database.chinacloudapi.cn -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
@@ -305,7 +305,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>将数据库还原到以前的时间点
 
-假设意外删除了某个表。 这是不能轻易还原的内容。 借助 Azure SQL 数据库，可返回到最近 35 天内的任意时间点并将此时间点还原到新的数据库。 可以通过此数据库恢复已删除的数据。 以下步骤将示例数据库还原到添加这些表之前的时间点。
+假设你意外删除了某个表。 这是不能轻易还原的内容。 借助 Azure SQL 数据库，可返回到最近 35 天内的任意时间点并将此时间点还原到新的数据库。 可以通过此数据库恢复已删除的数据。 以下步骤将示例数据库还原到添加这些表之前的时间点。
 
 1. 在数据库的“SQL 数据库”页上，单击工具栏上的“还原”。 此时会打开“还原”页。
 

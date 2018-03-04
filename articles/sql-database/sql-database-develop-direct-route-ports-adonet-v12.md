@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 08/17/2016
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 558d51da7785a5324f247e214df9682e781bce70
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: de7ee1b345089ae8a8064f96ae2c633abd7ab0d4
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>用于 ADO.NET 4.5 的非 1433 端口
 本主题介绍使用 ADO.NET 4.5 或更高版本的客户端的 Azure SQL 数据库连接行为。 
@@ -36,12 +36,12 @@ ms.lasthandoff: 10/31/2017
 端口 1433 是托管 SQL 数据库客户端应用程序的台式计算机上唯一必须打开的端口。
 
 #### <a name="inside-client-runs-on-azure"></a>*内部：* 客户端在 Azure 上运行
-如果客户端在 Azure 云边界内部运行，则它使用我们所谓的*直接路由*来与 SQL 数据库服务器交互。 建立连接后，客户端与数据库之间的进一步交互不涉及到任何中间件代理。
+如果客户端在 Azure 云边界内部运行，则它使用我们所谓的*直接路由*来与 SQL 数据库服务器交互。 建立连接后，客户端与数据库之间的进一步交互不涉及到任何 Azure SQL 数据库网关。
 
 顺序如下：
 
 1. ADO.NET 4.5（或更高版本）发起与 Azure 云的简短交互，并接收动态识别的端口号。
-
+   
    * 动态识别的端口号范围为 11000-11999 或 14000-14999。
 2. 然后，ADO.NET 不通过任何中间件直接连接到 SQL 数据库服务器。
 3. 查询直接发送到数据库，结果直接返回到客户端。
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/31/2017
 
 * 具体而言，范围中的端口必须没有其他任何出站阻塞器。
 * 在 Azure VM 上， **高级安全 Windows 防火墙** 控制端口设置。
-
+  
   * 可以使用[防火墙的用户界面](http://msdn.microsoft.com/library/cc646023.aspx)为指定 **TCP** 协议以及语法类似于 **11000-11999** 的端口范围添加规则。
 
 ## <a name="version-clarifications"></a>版本澄清
@@ -63,9 +63,10 @@ ms.lasthandoff: 10/31/2017
 ## <a name="related-links"></a>相关链接
 * ADO.NET 4.6 已于 2015 年 7 月 20 日发布。 可以在 [此处](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx)访问 .NET 团队的博客通告。
 * ADO.NET 4.5 已于 2012 年 8 月 15 日发布。 可以在 [此处](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx)访问 .NET 团队的博客通告。
-
+  
   * 可以在 [此处](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx)访问有关 ADO.NET 4.5.1 的博客文章。
 * [TDS 协议版本列表](http://www.freetds.org/userguide/tdshistory.htm)
 * [SQL 数据库开发概述](sql-database-develop-overview.md)
 * [Azure SQL 数据库防火墙](sql-database-firewall-configure.md)
 * [如何：在 SQL 数据库上配置防火墙设置](sql-database-configure-firewall-settings.md)
+

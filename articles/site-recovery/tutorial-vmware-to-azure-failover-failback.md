@@ -2,25 +2,19 @@
 title: "使用 Site Recovery 对复制到 Azure 的 VMware VM 和物理服务器进行故障转移和故障回复 | Azure"
 description: "了解如何使用 Azure Site Recovery 将 VMware VM 和物理服务器故障转移到 Azure 以及如何故障回复到本地站点"
 services: site-recovery
-documentationcenter: 
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-origin.date: 11/01/2017
-ms.date: 12/04/2017
+ms.topic: tutorial
+origin.date: 02/07/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: ac4686f128c2e942b4d92321031039337c6b7ebe
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 7a614b68c66e7e5e215c8cfae8daa671d8738f22
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>对复制到 Azure 的 VMware VM 和物理服务器进行故障转移和故障回复
 
@@ -155,4 +149,4 @@ ms.lasthandoff: 02/13/2018
 
 重新保护完成后，该 VM 将复制回 Azure，此时可按需运行故障转移。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->
