@@ -5,16 +5,16 @@ services: backup
 keywords: "虚拟机备份; 虚拟机备份; 备份 vm; 备份 vm; 备份 Azure vm; 备份和灾难恢复"
 author: markgalioto
 ms.author: v-junlch
-origin.date: 09/16/2017
-ms.date: 01/08/2018
+origin.date: 02/14/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 9f0399699c388e7d18a3666952a9daf032915e03
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 2bfd9a9243a76a151278ea4e476703283eddf9d2
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>使用 Azure 门户备份多个虚拟机
 

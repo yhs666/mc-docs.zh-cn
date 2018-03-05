@@ -3,18 +3,17 @@ title: "使用 Azure Site Recovery 将本地计算机迁移到 Azure | Azure"
 description: "本文将介绍如何使用 Azure Site Recovery 将本地计算机迁移到 Azure。"
 services: site-recovery
 author: rockboyfor
-manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 01/07/2018
-ms.date: 01/22/2018
+origin.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 518e641a63f7015d0a0979e7410e386d0bbcac4b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 5f9d170b3d0ae4caabc910eb1cc3d96d52ee93cc
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>将本地计算机迁移到 Azure
 
@@ -44,7 +43,7 @@ ms.lasthandoff: 02/13/2018
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 
 1. 登录到 [Azure 门户](https://portal.azure.cn) > **恢复服务**。
-2. 单击“新建” > “监视和管理” > “备份和 Site Recovery”。
+2. 单击“创建资源” > “监视和管理” > “备份和站点恢复”。
 3. 在“名称”中，指定友好名称 **ContosoVMVault**。 如果有多个订阅，请选择合适的一个。
 4. 创建资源组 **ContosoRG**。
 5. 指定 Azure 区域。 若要查看受支持的区域，请参阅 [Azure Site Recovery 定价详细信息](https://www.azure.cn/pricing/details/site-recovery/)中的“地域可用性”。
@@ -68,7 +67,7 @@ ms.lasthandoff: 02/13/2018
 
 - [设置](tutorial-vmware-to-azure.md#set-up-the-source-environment) VMware VM 的源环境。
 - [设置](tutorial-physical-to-azure.md#set-up-the-source-environment)物理服务器的源环境。
-- [设置](tutorial-hyper-v-to-azure.md#set-up-the-source-environment) Hyper-V VM 的源环境。
+- [设置](hyper-v-azure-tutorial.md#set-up-the-source-environment) Hyper-V VM 的源环境。
 
 ## <a name="set-up-the-target-environment"></a>设置目标环境
 
@@ -82,13 +81,13 @@ ms.lasthandoff: 02/13/2018
 
 - 为 VMware VM [设置复制策略](tutorial-vmware-to-azure.md#create-a-replication-policy)。
 - 为物理服务器[设置复制策略](tutorial-physical-to-azure.md#create-a-replication-policy)。
-- 为 Hyper-V VM [设置复制策略](tutorial-hyper-v-to-azure.md#set-up-a-replication-policy)。
+- 为 Hyper-V VM [设置复制策略](hyper-v-azure-tutorial.md#set-up-a-replication-policy)。
 
 ## <a name="enable-replication"></a>启用复制
 
 - 为 VMware VM [启用复制](tutorial-vmware-to-azure.md#enable-replication)。
 - 为物理服务器[启用复制](tutorial-physical-to-azure.md#enable-replication)。
-- 为 Hyper-V VM [启用复制](tutorial-hyper-v-to-azure.md#enable-replication)。
+- 为 Hyper-V VM [启用复制](hyper-v-azure-tutorial.md#enable-replication)。
 
 ## <a name="run-a-test-migration"></a>运行测试迁移
 
@@ -117,7 +116,6 @@ ms.lasthandoff: 02/13/2018
 在本教程中，我们已将本地 VM 迁移到 Azure VM。 现在可为 Azure VM 配置灾难恢复。
 
 > [!div class="nextstepaction"]
-> 从本地站点迁移后为 Azure VM [设置灾难恢复](./azure-to-azure/site-recovery-azure-to-azure-after-migration.md)。
+> 从本地站点迁移后为 Azure VM [设置灾难恢复](site-recovery-azure-to-azure-after-migration.md)。
 
-<!-- URL is Correct on [Set up disaster recovery](./azure-to-azure/site-recovery-azure-to-azure-after-migration.md) -->
 <!-- Update_Description: update meta properties, update link -->

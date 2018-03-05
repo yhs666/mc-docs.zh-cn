@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 01/05/2018
-ms.date: 02/08/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb545d446581430e14648181536587e9e320328c
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 14e5eea8d0299ba3be24e559442b01f84c2d16c9
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>将 Azure 虚拟机备份到恢复服务保管库
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 02/13/2018
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 在“中心”菜单上，单击“更多服务”，并在“筛选器”对话框中键入“虚拟机”。 键入时，系统会筛选出资源列表。 看到虚拟机时，请选择它。
 
-    ![在“中心”菜单上，单击“更多服务”以打开文本对话框，并键入虚拟机](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
+  ![演示如何从“所有服务”导航到虚拟机的屏幕截图](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
 
     将显示订阅中的虚拟机 (VM) 列表。
 
@@ -313,9 +313,9 @@ ms.lasthandoff: 02/13/2018
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>在虚拟机中安装 VM 代理
-此信息是根据需要提供的。 Azure VM 代理必须安装在 Azure 虚拟机上，备份扩展才能运行。 但是，如果 VM 创建自 Azure 资源库，则 VM 代理已存在于虚拟机上。 从本地数据中心迁移的 VM 上未安装 VM 代理。 在这种情况下，需要安装 VM 代理。 如果在备份 Azure VM 时遇到问题，请先检查是否已在虚拟机上正确安装 Azure VM 代理（请参阅下表）。 如果要创建自定义 VM，[请先确保已选中“安装 VM 代理”复选框](../virtual-machines/windows/classic/agents-and-extensions.md)，再预配虚拟机。
+此信息是根据需要提供的。 Azure VM 代理必须安装在 Azure 虚拟机上，备份扩展才能运行。 但是，如果 VM 创建自 Azure 资源库，则 VM 代理已存在于虚拟机上。 从本地数据中心迁移的 VM 上未安装 VM 代理。 在这种情况下，需要安装 VM 代理。 如果在备份 Azure VM 时遇到问题，请先检查是否已在虚拟机上正确安装 Azure VM 代理（请参阅下表）。 如果要创建自定义 VM，请先安装 VM 代理，然后再预配虚拟机。
 
-了解 [VM 代理](/virtual-machines/windows/extensions-features)以及[如何安装它](../virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
+了解 [VM 代理](/virtual-machines/windows/extensions-features)及其[安装方法](../virtual-machines/windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
 下表提供了适用于 Windows 和 Linux VM 的 VM 代理的其他信息。
 

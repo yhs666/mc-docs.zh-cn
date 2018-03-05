@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 12/14/2016
 ms.date: 01/25/2017
 ms.author: v-dazen
-ms.openlocfilehash: c39abe840d92808fa5b51a7b94f1ba8e628d61b4
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: ec713246ed05621af77c85096258f08b92d4bcf6
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure 自动化的 Runbook 和模块库
 无需在 Azure 自动化中创建自己的 Runbook 和模块，即可访问 Microsoft 和社区构建的各种方案。  可以在不加以修改的情况下直接使用这些方案，或者使用它们作为起点并根据具体的要求进行编辑。
@@ -38,11 +38,8 @@ ms.lasthandoff: 01/23/2018
 
 ### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>使用 Azure 门户从 Runbook 库导入 Runbook
 1. 在 Azure 门户中，打开自动化帐户。
-2. 单击“Runbook”  磁贴打开 Runbook 列表。
-3. 单击“浏览库”按钮。
-   
-    ![“浏览库”按钮](media/automation-runbook-gallery/browse-gallery-button.png)
-4. 找到所需的库项，选择它以查看其详细信息。
+2. 在“流程自动化”下，单击“Runbook 库”
+3. 找到所需的库项，选择它以查看其详细信息。 在左侧可以输入发布者和类型的其他搜索参数。
    
     ![浏览库](media/automation-runbook-gallery/browse-gallery.png)
 5. 单击“查看源项目”以在 [TechNet 脚本中心](http://gallery.technet.microsoft.com/)查看该项。
@@ -95,20 +92,13 @@ PowerShell 模块包含可以在 Runbook 中使用的 cmdlet，并可以在 [Pow
    
     ![PowerShell 模块详细信息](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
 7. 要直接将模块安装到 Azure 自动化中，请单击“导入”按钮。
-   
-    ![“导入模块”按钮](media/automation-runbook-gallery/module-import-button.png)
 8. 在“导入”页中单击“导入”按钮时，会看到将要导入的模块名称。 如果安装了所有依赖项，“确定”按钮将处于活动状态。 如果缺少依赖项，则需要在导入此模块前导入这些依赖项。
-9. 单击“确定”导入模块。 Azure 自动化将模块导入帐户时，它提取有关该模块和 cmdlet 的元数据。
-   
-    ![“导入模块”页](media/automation-runbook-gallery/module-import-blade.png)
-   
-    这可能需要几分钟才能完成，因为需要提取每个活动。
+9. 在“导入”页上，单击“确定”导入模块。 Azure 自动化将模块导入帐户时，它提取有关该模块和 cmdlet 的元数据。 这可能需要几分钟才能完成，因为需要提取每个活动。
 10. 将收到正在部署该模块的初始通知；完成此过程后，还会收到另一通知。
 11. 导入模块后，会看到可用的活动，并可以在 Runbook 和 Desired State Configuration 中使用其资源。
 
-## <a name="requesting-a-runbook-or-module"></a>请求 Runbook 或模块
-如果编写 Runbook 的过程中需要帮助，或对 PowerShell 存有疑问，请将问题发布到我们的 [论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureautomation%2Cazureautomation)。
 
 ## <a name="next-steps"></a>后续步骤
 * 若要开始使用 Runbook，请参阅[在 Azure 自动化中创建或导入 Runbook](automation-creating-importing-runbook.md)
-* [了解 PowerShell 工作流](automation-powershell-workflow.md)
+* 若要了解 Runbook 的 PowerShell 和 PowerShell 工作流之间的差异，请参阅[了解 PowerShell 工作流](automation-powershell-workflow.md)
+

@@ -1,27 +1,27 @@
 ---
 title: "使用 Azure 备份还原 VM 磁盘 | Microsoft 文档"
 description: "了解如何在 Azure 中使用备份和恢复服务还原磁盘并创建恢复的 VM。"
-services: backup, virtual-machines
+services: backup
 documentationcenter: virtual-machines
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: backup, virtual-machines
+ms.service: backup
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 09/28/2017
-ms.date: 10/31/2017
+origin.date: 02/14/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 2e4418b5fb70141e469efe8c9a98afcd47ef4a04
-ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+ms.openlocfilehash: 60b2073364a60ca2fbe231a32384b12015f95c81
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>在 Azure 中还原磁盘并创建恢复的 VM
 Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复保管库中。 从恢复点还原时，可以还原整个 VM，也可以还原单个文件。 本文将介绍如何还原完整的 VM。 本教程介绍如何执行下列操作：
@@ -35,7 +35,7 @@ Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复�
 
 
 ## <a name="prerequisites"></a>先决条件
-本教程需要使用 Azure 备份所保护的 Linux VM。 为了模拟 VM 意外删除和恢复过程，请通过磁盘创建恢复点的 VM。如需受 Azure 备份保护的 Linux VM，请参阅[在 Azure 中使用 CLI 备份虚拟机](quick-backup-vm-cli.md)。
+本教程需要使用 Azure 备份所保护的 Linux VM。 若要模拟意外的 VM 删除和恢复过程，请从恢复点中的磁盘创建 VM。 如果需要使用 Azure 备份所保护的 Linux VM，请参阅[在 Azure 中使用 CLI 备份虚拟机](quick-backup-vm-cli.md)。
 
 
 ## <a name="backup-overview"></a>备份概述
@@ -49,7 +49,7 @@ Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复�
 ## <a name="list-available-recovery-points"></a>列出可用的恢复点
 若要还原磁盘，请选择恢复点作为恢复数据的源。 由于默认策略每天创建一个恢复点并保留 30 天，因此，可以保留一组恢复点，以便可以选择一个特定的时点用于恢复。 
 
-若要查看可用恢复点的列表，请使用 az backup recoverypoint list[](/cli/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list) 命令。 将使用恢复点名称恢复磁盘。 在本教程中，我们希望最近的恢复点可用。 `--query [0].name` 参数可选择最近的恢复点名称，如下所示：
+若要查看可用恢复点的列表，请使用 [az backup recoverypoint list](/cli/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list) 命令。 将使用恢复点名称恢复磁盘。 在本教程中，我们希望最近的恢复点可用。 `--query [0].name` 参数可选择最近的恢复点名称，如下所示：
 
 ```azurecli
 az backup recoverypoint list \
@@ -74,7 +74,7 @@ az backup recoverypoint list \
         --sku Standard_LRS
     ```
 
-2. 使用 az backup restore restore-disks[](/cli/backup/restore?view=azure-cli-latest#az_backup_restore_restore_disks) 从你的恢复点还原磁盘。 将 mystorageaccount 替换为你在前一个命令中创建的存储帐户的名称。 将 myRecoveryPointName 替换为你在前面的 az backup recoverypoint list[](/cli/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list) 命令输出中获得的恢复点名称：
+2. 使用 [az backup restore restore-disks](/cli/backup/restore?view=azure-cli-latest#az_backup_restore_restore_disks) 从你的恢复点还原磁盘。 将 mystorageaccount 替换为你在前一个命令中创建的存储帐户的名称。 将 myRecoveryPointName 替换为你在前面的 [az backup recoverypoint list](/cli/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list) 命令输出中获得的恢复点名称：
 
     ```azurecli
     az backup restore restore-disks \
@@ -88,7 +88,7 @@ az backup recoverypoint list \
 
 
 ## <a name="monitor-the-restore-job"></a>监视还原作业
-若要监视还原作业的状态，请使用 az backup job list[](/cli/backup/job?view=azure-cli-latest#az_backup_job_list)：
+若要监视还原作业的状态，请使用 [az backup job list](/cli/backup/job?view=azure-cli-latest#az_backup_job_list)：
 
 ```azurecli 
 az backup job list \
@@ -182,3 +182,4 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
 > [将文件还原到 Azure 中的虚拟机](tutorial-restore-files.md)
 
 
+<!--Update_Description: update metedata properties -->

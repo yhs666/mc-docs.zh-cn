@@ -1,27 +1,27 @@
 ---
 title: "将 Windows Server 备份到 Azure | Microsoft Docs"
 description: "本教程详细介绍了如何将本地 Windows Server 备份到恢复服务保管库。"
-services: back up
+services: backup
 documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
 editor: 
 keywords: "windows server 备份; 备份 windows server; 备份和灾难恢复"
 ms.assetid: 
-ms.service: back up
-ms.workload: storage-back up-recovery
+ms.service: backup
+ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 09/23/2017
-ms.date: 01/08/2018
+origin.date: 02/14/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 596968331584d945a71d3eecf22d0c78a4654a28
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: ec7e26e1e7ff34c46f7f92f0f8fbad8b8fec7bb5
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="back-up-windows-server-to-azure"></a>将 Windows Server 备份到 Azure
 
@@ -160,4 +160,4 @@ Azure 恢复服务 (MARS) 代理在 Windows Server 和恢复服务保管库之�
 > [将文件从 Azure 还原到 Windows Server](./tutorial-backup-restore-files-windows-server.md) 
 
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update metedata properties -->

@@ -15,20 +15,20 @@ ms.topic: get-started-article
 origin.date: 09/03/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: da2b5c19b2832ee07b72edc60acbac6001e372e7
-ms.sourcegitcommit: 3ae59c8ad1942d5b91bfdc8c38c168dbbfc36914
+ms.openlocfilehash: 7f3ac82b2805131f329881088869409146af261f
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>利用 Azure 门户创建 Azure 媒体服务帐户
 > [!div class="op_single_selector"]
-> * [门户](media-services-portal-create-account.md)
-> * [PowerShell](media-services-manage-with-powershell.md)
+> * [Portal](media-services-portal-create-account.md)
+> * [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.media)
 > * [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
 > 
 > [!NOTE]
-> 要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
+> 若要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
 > 
 > 
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 09/19/2017
 
 * 一个媒体服务帐户。 可使用你的帐户访问 Azure 中可用的一组基于云的媒体服务。 媒体服务帐户不会存储实际媒体内容。 而是存储有关你帐户中的媒体内容和媒体处理作业的元数据。 创建该帐户时，需要选择一个可用的媒体服务区域。 所选的区域是存储你帐户的元数据记录的数据中心。
 
-* 一个 Azure 存储帐户。 存储帐户必须位于媒体服务帐户所在的地理区域内。 创建媒体服务帐户时，可以选择位于同一区域内的现有存储帐户，也可以在同一区域内创建新的存储帐户。 如果删除媒体服务帐户，相关存储帐户中的 Blob 不会被删除。
+* Azure 存储帐户。 存储帐户必须位于媒体服务帐户所在的地理区域内。 创建媒体服务帐户时，可以选择位于同一区域内的现有存储帐户，也可以在同一区域内创建新的存储帐户。 如果删除媒体服务帐户，相关存储帐户中的 Blob 不会被删除。
 
   > [!NOTE]
   > 媒体服务将主存储帐户限制为拥有表、队列的**常规用途存储**帐户。 有关存储类型的详细信息，请参阅[关于 Azure 存储帐户](/storage/common/storage-create-storage-account)。
@@ -64,7 +64,7 @@ ms.lasthandoff: 09/19/2017
    2. 在“订阅”中，在有权访问的不同 Azure 订阅中进行选择。
    3. 在“资源组”中，选择新的或现有的资源。  资源组是共享生命周期、权限和策略的资源的集合。 在[此处](../azure-resource-manager/resource-group-overview.md#resource-groups)了解更多信息。
    4. 在“位置”中，选择用于存储媒体服务帐户的媒体和元数据记录的地理区域。 此区域用于处理和流式传输媒体。 下拉列表中仅显示可用的媒体服务区域。 
-   5. 在“存储帐户”中，选择一个存储帐户以便为媒体服务帐户中的媒体内容提供 Blob 存储。 可选择媒体服务帐户所在的地理区域内的现有存储帐户，也可创建存储帐户。 在同一区域内会创建一个新的存储帐户。 适用于存储帐户名的规则对媒体服务帐户同样适用。
+   5. 在“存储帐户”中，选择一个存储帐户以便为媒体服务帐户中的媒体内容提供 Blob 存储。 可选择媒体服务帐户所在的地理区域内的现有存储帐户，也可创建存储帐户。 将在同一区域内创建一个新的存储帐户。 适用于存储帐户名的规则对媒体服务帐户同样适用。
 
        单击[此处](../storage/common/storage-introduction.md)了解有关存储的详细信息。
    6. 选择“固定到仪表板”以查看帐户部署进度。
@@ -73,7 +73,7 @@ ms.lasthandoff: 09/19/2017
     成功创建帐户后，会加载概述页。 在流式处理终结点表中，帐户包含一个处于“已停止”状态的默认流式处理终结点。 
 
     >[!NOTE]
-    >创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。 
+    >创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。  若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
 
 ## <a name="to-manage-your-ams-account"></a>管理 AMS 帐户
 

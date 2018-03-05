@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 09/20/2017
-ms.date: 01/08/2018
+origin.date: 02/14/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 3d7b7965db6c6cc4168972adac91c4ec8fcec19e
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: aae669a59b0b8791bd764b36bd4596b765807202
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>将文件从 Azure 恢复到 Windows Server
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 01/11/2018
 
     ![等待中的备份](./media/tutorial-backup-restore-files-windows-server/unmount-and-confirm.png)
 
-4.  单击“是”，确认要卸载该卷。
+4. 单击“是”，确认要卸载该卷。
 
     卸载快照后，代理控制台的“作业”窗格中将显示“作业已完成”。
 

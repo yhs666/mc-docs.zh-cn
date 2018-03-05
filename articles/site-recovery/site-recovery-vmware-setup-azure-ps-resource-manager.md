@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 11/23/2017
-ms.date: 01/01/2018
+origin.date: 12/19/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1645d78f5e0ba26edbdfdbbb310c1578605f5a0e
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 164507de264cd0f210b4c40965c7abd6e9d406e4
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>管理在 Azure (Resource Manager) 中运行的进程服务器
 > [!div class="op_single_selector"]
@@ -79,4 +79,4 @@ ms.lasthandoff: 12/29/2017
 ## <a name="unregistering-the-process-server-running-in-azure-from-a-configuration-server-running-on-premises"></a>将进程服务器（在 Azure 中运行）从配置服务器（在本地运行）中注销
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
-<!-- Update_Description: update link -->
+<!-- Update_Description: update meta properties, update link -->

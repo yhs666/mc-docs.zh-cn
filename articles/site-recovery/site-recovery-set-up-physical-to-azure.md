@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 11/23/2017
-ms.date: 01/01/2018
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: f3facff640250de9d057123a4d7301f08318c7c1
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: b01824bdaa69cb94c3f6c652e7efe86ec3d8832f
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>设置源环境（物理服务器到 Azure）
 > [!div class="op_single_selector"]
@@ -83,3 +83,4 @@ ms.lasthandoff: 02/13/2018
 
 <!--Not Available the parent file of includes file of site-recovery-configuration-and-scaleout-process-server-requirements.md-->
 <!--ms.date:01/01/2018-->
+<!-- Update_Description: update meta properties -->

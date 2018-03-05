@@ -1,4 +1,4 @@
-使用 [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) 命令创建应用服务计划。
+使用 [az appservice plan create](https://docs.azure.cn/zh-cn/cli/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) 命令创建应用服务计划。
 
 [!INCLUDE [app-service-plan](app-service-plan.md)]
 

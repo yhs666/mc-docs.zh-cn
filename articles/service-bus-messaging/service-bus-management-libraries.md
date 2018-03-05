@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 10/18/2017
-ms.date: 12/11/2017
+origin.date: 02/05/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3fe55029d5c290966ba4938aa6cb9cc51c865703
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 7a979e1be590ea0acec9a7a820977ef776ecb00e
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="service-bus-management-libraries"></a>服务总线管理库
 
@@ -27,14 +27,14 @@ Azure 服务总线管理库可以动态预配服务总线命名空间和实体�
 
 ## <a name="supported-functionality"></a>受支持的功能
 
-* 创建、更新、删除命名空间
+* 命名空间创建、更新、删除
 * 创建、更新、删除队列
 * 创建、更新、删除主题
 * 创建、更新、删除订阅
 
 ## <a name="prerequisites"></a>先决条件
 
-若要开始使用服务总线管理库，必须使用 Azure Active Directory (AAD) 服务进行身份验证。 AAD 要求身份验证为服务主体，且该主体提供对 Azure 资源的访问权限。 有关创建服务主体的信息，请参阅以下文章之一：  
+若要开始使用服务总线管理库，必须使用 Azure Active Directory (Azure AD) 服务进行身份验证。 Azure AD 要求身份验证为服务主体，并且该主体提供对 Azure 资源的访问权限。 有关创建服务主体的信息，请参阅以下文章之一：  
 
 * [使用 Azure 门户创建可访问资源的 Active Directory 应用程序和服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 * [使用 Azure PowerShell 创建服务主体来访问资源](../azure-resource-manager/resource-group-authenticate-service-principal.md)
@@ -46,7 +46,7 @@ Azure 服务总线管理库可以动态预配服务总线命名空间和实体�
 
 所有服务总线资源的操纵模式都遵循常用协议：
 
-1. 使用 **Microsoft.IdentityModel.Clients.ActiveDirectory** 库从 Azure Active Directory 获取令牌。
+1. 使用 **Microsoft.IdentityModel.Clients.ActiveDirectory** 库从 Azure AD 获取令牌：
     ```csharp
     var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
 
@@ -81,4 +81,4 @@ Azure 服务总线管理库可以动态预配服务总线命名空间和实体�
 
 ## <a name="next-steps"></a>后续步骤
 * [.NET 管理示例](https://github.com/Azure-Samples/service-bus-dotnet-management/)
-* [Microsoft.Azure.Management.ServiceBus API 参考](https://docs.microsoft.com/en-us/dotnet/api/Microsoft.Azure.Management.ServiceBus)
+* [Microsoft.Azure.Management.ServiceBus API 参考](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

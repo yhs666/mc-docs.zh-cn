@@ -1,5 +1,5 @@
 ---
-title: "在 Azure 中创建 PHP Web 应用 | Azure"
+title: "在 Azure 中创建 PHP Web 应用"
 description: "数分钟内在 Azure 应用服务 Web 应用中部署首个 PHP Hello World。"
 services: app-service\web
 documentationcenter: 
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 12/13/2017
-ms.date: 01/02/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: f63a05fe6c98fddd20faa62716f6918b0ff6136f
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.openlocfilehash: 00ca0ac0bafb006d5de4bb615862e99ce95c9d7f
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-a-php-web-app-in-azure"></a>在 Azure 中创建 PHP Web 应用
 
@@ -30,13 +30,13 @@ ms.lasthandoff: 12/25/2017
 
 可以在 Mac、Windows 或 Linux 计算机上执行此处的步骤。 安装先决条件后，大约需要五分钟完成这些步骤。
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>先决条件
 
 若要完成本快速入门教程，需先执行以下操作：
 
 * <a href="https://php.net" target="_blank">安装 PHP</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample-locally"></a>将示例下载到本地
 

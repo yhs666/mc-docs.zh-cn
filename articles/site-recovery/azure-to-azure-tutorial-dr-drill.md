@@ -5,19 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 11/01/2017
-ms.date: 12/04/2017
+ms.topic: tutorial
+origin.date: 02/07/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 780b8b32f3f64f54c70dc9bc45889cb3ca13742e
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 167808c03731848eeb955856736d45ba7ad2a666
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>针对 Azure 次要区域的 Azure VM 运行灾难恢复演练（预览）
 

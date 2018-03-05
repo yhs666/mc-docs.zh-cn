@@ -2,25 +2,19 @@
 title: "准备用于将 VMware VM 灾难恢复到 Azure 的本地 VMware 服务器 | Azure"
 description: "了解如何准备本地 VMware 服务器使用 Azure Site Recovery 服务灾难恢复到 Azure。"
 services: site-recovery
-documentationcenter: 
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 90a4582c-6436-4a54-a8f8-1fee806b8af7
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 11/01/2017
-ms.date: 12/04/2017
+ms.topic: tutorial
+origin.date: 02/07/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: e656c161d1fda51fca78957ea180ac9961f94535
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 99f5b3f6b73e3e9f3e1d83ba33765ea6584d09a8
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>准备本地 VMware 服务器用于灾难恢复到 Azure
 
@@ -51,7 +45,7 @@ Site Recovery 需要访问 VMware 服务器，才能够：
 
 ### <a name="vmware-account-permissions"></a>VMware 帐户权限
 
-**任务** | **角色/权限** | **详细信息**
+**Task** | **角色/权限** | **详细信息**
 --- | --- | ---
 **VM 发现** | 至少一个只读用户<br/><br/> 数据中心对象 –> 传播到子对象，角色=只读 | 在数据中心级别分配的对数据中心内所有对象具有访问权限的用户。<br/><br/> 若要限制访问权限，请在选中“传播到子对象”的情况下将“无访问权”角色分配给子对象（vSphere 主机、数据存储、VM 和网络）。
 **完全复制、故障转移、故障回复** |  创建一个拥有所需权限的角色 (Azure_Site_Recovery)，然后将该角色分配到 VMware 用户或组<br/><br/> 数据中心对象 –> 传播到子对象，角色=Azure_Site_Recovery<br/><br/> 数据存储 -> 分配空间、浏览数据存储、低级别文件操作、删除文件、更新虚拟机文件<br/><br/> 网络 -> 网络分配<br/><br/> 资源 -> 将 VM 分配到资源池、迁移关闭的 VM、迁移打开的 VM<br/><br/> 任务 -> 创建任务、更新任务<br/><br/> 虚拟机 -> 配置<br/><br/> 虚拟机 -> 交互 -> 回答问题、设备连接、配置 CD 媒体、配置软盘媒体、关闭电源、打开电源、安装 VMware 工具<br/><br/> 虚拟机 -> 清单 -> 创建、注册、取消注册<br/><br/> 虚拟机 -> 预配 -> 允许虚拟机下载、允许虚拟机文件上传<br/><br/> 虚拟机 -> 快照 -> 删除快照 | 在数据中心级别分配的对数据中心内所有对象具有访问权限的用户。<br/><br/> 若要限制访问权限，请在选中“传播到子对象”的情况下将“无访问权”角色分配给子对象（vSphere 主机、数据存储、VM 和网络）。
@@ -110,11 +104,11 @@ VM 还必须运行受支持的操作系统。 有关受支持版本的完整列�
 1. 在本地计算机上故障转移之前，请确保安全外壳服务设置为在系统启动时自动启动。 确保防火墙规则允许 SSH 连接。
 
 2. 在 Azure VM 上执行故障转移后，允许已故障转移的 VM 及其所连接 Azure 子网上的网络安全组规则与 SSH 端口建立传入连接。
-   为 VM [添加公共 IP 地址](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine)。 可选中“启动诊断”查看 VM 的屏幕截图。
+   为 VM [添加公共 IP 地址](site-recovery-monitoring-and-troubleshooting.md)。 可选中“启动诊断”查看 VM 的屏幕截图。
 
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
 > [针对 VMware VM 设置到 Azure 的灾难恢复](tutorial-vmware-to-azure.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update link -->

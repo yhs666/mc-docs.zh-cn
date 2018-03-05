@@ -5,19 +5,19 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
+ms.topic: quickstart
+origin.date: 02/07/2018
+ms.date: 03/05/2018
+ms.author: v-yeche
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 12/08/2017
-ms.date: 01/01/2018
-ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 85c1f98d755750bb6967f9e0d1c8635efb86846e
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 5f18fcb9a529f99550a9a9b72b748b85fa3c70fd
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>将 Azure VM 复制到另一个 Azure 区域（预览）
 

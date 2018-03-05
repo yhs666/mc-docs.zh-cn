@@ -17,13 +17,13 @@ ms.workload: database
 origin.date: 06/23/2017
 ms.date: 10/02/2017
 ms.author: v-johch
-ms.openlocfilehash: a2277461445af6726d6fd82cfbc799a680604bb6
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 47a732b695ef98c6cf54586847c55a0fab3c0799
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="use-powershell-to-import-a-pacpac-file-into-an-azure-sql-database"></a>使用 PowerShell 将 PACPAC 文件导入 Azure SQL 数据库
+# <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>使用 PowerShell 将 BACPAC 文件导入 Azure SQL 数据库
 
 以下 PowerShell 脚本示例将数据库从 BACPAC 文件导入 Azure SQL 数据库。  
 
@@ -134,7 +134,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver) | 创建用于托管 SQL 数据库的逻辑服务器。 |

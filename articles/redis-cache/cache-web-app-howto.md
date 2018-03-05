@@ -3,8 +3,8 @@ title: "如何使用 Redis 缓存创建 Web 应用 | Microsoft Docs"
 description: "了解如何使用 Redis 缓存创建 Web 应用"
 services: redis-cache
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 05/09/2017
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0197bce8163006558cea2fed4f97145f89e08e8b
-ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
+ms.openlocfilehash: c5a45c57e694a08b630caea59783f880853b2746
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>如何使用 Redis 缓存创建 Web 应用
 > [!div class="op_single_selector"]
@@ -38,20 +38,20 @@ ms.lasthandoff: 12/12/2017
 - 如何在 Visual Studio 中创建 ASP.NET MVC 5 Web 应用程序。
 - 如何使用实体框架从数据库访问数据。
 - 如何使用 Azure Redis 缓存来存储和检索数据，以便改进数据吞吐量并降低数据库负载。
-- 如何使用 Redis 排序集来检索排名前 5 的团队。
+- 如何使用 Redis 排序的集来检索排名前五的团队。
 - 如何使用 Resource Manager 模板为应用程序设置 Azure 资源。
 - 如何使用 Visual Studio 将应用程序发布到 Azure。
 
 ## <a name="prerequisites"></a>先决条件
-若要完成本教程，必须具备以下先决条件。
+若要完成本教程，必须具备以下先决条件：
 
 - [Azure 帐户](#azure-account)
 - [带有用于 .NET 的 Azure SDK 的 Visual Studio 2017](#visual-studio-2017-with-the-azure-sdk-for-net)
 
 ### <a name="azure-account"></a>Azure 帐户
-完成本教程需要有一个 Azure 帐户。 可以：
+完成本教程需要有一个 Azure 帐户。 方法：
 
-* [建立 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=redis_cache_hero)。 获取可用来尝试付费版 Azure 服务的信用额度。 即使在信用额度用完之后，也可以保留帐户并使用免费的 Azure 服务和功能。
+- [建立 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=redis_cache_hero)。 获取可用来尝试付费版 Azure 服务的信用额度。 即使在信用额度用完之后，也可以保留帐户并使用免费的 Azure 服务和功能。
 
 ### <a name="visual-studio-2017-with-the-azure-sdk-for-net"></a>带有用于 .NET 的 Azure SDK 的 Visual Studio 2017
 本教程专为配合使用 Visual Studio 2017 和[用于 .NET 的 Azure SDK](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes#azuretools) 编写。 Azure SDK 2.9.5 随附在 Visual Studio 安装程序中。
@@ -75,7 +75,7 @@ ms.lasthandoff: 12/12/2017
 4. 单击“确定”以创建该项目  。
 
 ## <a name="create-the-aspnet-mvc-application"></a>创建 ASP.NET MVC 应用程序
-本教程的此部分创建可以从数据库读取和显示团队统计信息的基本应用程序。
+在本教程的此部分，请创建可以从数据库读取和显示团队统计信息的基本应用程序。
 
 - [添加实体框架 NuGet 包](#add-the-entity-framework-nuget-package)
 - [添加模型](#add-the-model)
@@ -84,8 +84,8 @@ ms.lasthandoff: 12/12/2017
 
 ### <a name="add-the-entity-framework-nuget-package"></a>添加实体框架 NuGet 包
 
-1. 在“工具”菜单中依次单击“NuGet 包管理器”和“包管理器控制台”。
-2. 在“包管理器控制台”窗口中，运行以下命令。
+1. 在 Visual Studio 中，单击“工具”>“NuGet 包管理器”>“包管理器控制台”。
+2. 在“包管理器控制台”窗口中，运行以下命令：
     
     ```
     Install-Package EntityFramework
@@ -100,18 +100,19 @@ ms.lasthandoff: 12/12/2017
 2. 输入 `Team` 作为类名，并单击“添加”。
    
     ![添加模型类][cache-model-add-class-dialog]
-3. 将 `Team.cs` 文件顶部的 `using` 语句替换为以下 `using` 语句。
+3. 将 `Team.cs` 文件顶部的 `using` 语句替换为以下 `using` 语句：
 
-    ```c#
+    ```csharp
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.SqlServer;
     ```
 
+
 1. 将 `Team` 类的定义替换为以下代码片段，其中包含更新的 `Team` 类定义以及某些其他实体框架帮助器类。 有关本教程中使用的实体框架 Code First 方法的详细信息，请参阅 [对新数据库使用 Code First](https://msdn.microsoft.com/data/jj193542)。
 
-    ```c#
+    ```csharp
     public class Team
     {
         public int ID { get; set; }
@@ -119,12 +120,12 @@ ms.lasthandoff: 12/12/2017
         public int Wins { get; set; }
         public int Losses { get; set; }
         public int Ties { get; set; }
-
+    
         static public void PlayGames(IEnumerable<Team> teams)
         {
             // Simple random generation of statistics.
             Random r = new Random();
-
+    
             foreach (var t in teams)
             {
                 t.Wins = r.Next(33);
@@ -133,17 +134,17 @@ ms.lasthandoff: 12/12/2017
             }
         }
     }
-
+    
     public class TeamContext : DbContext
     {
         public TeamContext()
             : base("TeamContext")
         {
         }
-
+    
         public DbSet<Team> Teams { get; set; }
     }
-
+    
     public class TeamInitializer : CreateDatabaseIfNotExists<TeamContext>
     {
         protected override void Seed(TeamContext context)
@@ -163,14 +164,14 @@ ms.lasthandoff: 12/12/2017
                 new Team{Name="Graphic Design Institute"},
                 new Team{Name="Nod Publishers"}
             };
-
+    
             Team.PlayGames(teams);
-
+    
             teams.ForEach(t => context.Teams.Add(t));
             context.SaveChanges();
         }
     }
-
+    
     public class TeamConfiguration : DbConfiguration
     {
         public TeamConfiguration()
@@ -180,18 +181,19 @@ ms.lasthandoff: 12/12/2017
     }
     ```
 
-1. 在“解决方案资源管理器”中，双击“web.config”将其打开。
 
+1. 在“解决方案资源管理器”中，双击“web.config”将其打开。
+   
     ![Web.config][cache-web-config]
-2. 添加下面的 `connectionStrings` 节。 连接字符串的名称必须与实体框架数据库上下文类（即 `TeamContext`）的名称相匹配。
+2. 将下面的 `connectionStrings` 节添加到 `configuration` 节中： 连接字符串的名称必须与实体框架数据库上下文类（即 `TeamContext`）的名称相匹配。
 
     ```xml
     <connectionStrings>
-        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
 
-    可以将新的 `connectionStrings` 节添加到 `configSections` 后面，如以下示例所示。
+    以下示例显示新的 `connectionStrings` 节跟随 `configSections` 一起位于 `configuration` 节中：
 
     ```xml
     <configuration>
@@ -222,25 +224,27 @@ ms.lasthandoff: 12/12/2017
 5. 在“解决方案资源管理器”中展开“Global.asax”，然后双击“Global.asax.cs”将其打开。
    
     ![Global.asax.cs][cache-global-asax]
-6. 将以下两个 `using` 语句添加到文件顶部的其他 `using` 语句下方。
+6. 将以下两个 `using` 语句添加到文件顶部的其他 `using` 语句下方：
 
-    ```c#
+    ```csharp
     using System.Data.Entity;
     using ContosoTeamStats.Models;
     ```
 
-1. 在 `Application_Start` 方法的末尾添加以下代码行。
 
-    ```c#
+1. 在 `Application_Start` 方法的末尾添加以下代码行：
+
+    ```csharp
     Database.SetInitializer<TeamContext>(new TeamInitializer());
     ```
 
+
 1. 在“解决方案资源管理器”中展开 `App_Start`，并双击 `RouteConfig.cs`。
-
+   
     ![RouteConfig.cs][cache-RouteConfig-cs]
-2. 将以下代码的 `RegisterRoutes` 方法中的 `controller = "Home"` 替换为 `controller = "Teams"`，如以下示例所示。
+2. 将以下代码的 `RegisterRoutes` 方法中的 `controller = "Home"` 替换为 `controller = "Teams"`，如以下示例所示：
 
-    ```c#
+    ```csharp
     routes.MapRoute(
         name: "Default",
         url: "{controller}/{action}/{id}",
@@ -248,11 +252,12 @@ ms.lasthandoff: 12/12/2017
     );
     ```
 
+
 ### <a name="configure-the-views"></a>配置视图
 1. 在“解决方案资源管理器”中，先展开 **Views** 文件夹，再展开 **Shared** 文件夹，并双击 **_Layout.cshtml**。 
-
+   
     ![_Layout.cshtml][cache-layout-cshtml]
-2. 更改 `title` 元素的内容，将 `My ASP.NET Application` 替换为 `Contoso Team Stats`，如以下示例所示。
+2. 更改 `title` 元素的内容，将 `My ASP.NET Application` 替换为 `Contoso Team Stats`，如以下示例所示：
 
     ```html
     <title>@ViewBag.Title - Contoso Team Stats</title>
@@ -270,7 +275,7 @@ ms.lasthandoff: 12/12/2017
 ![入门应用程序][cache-starter-application]
 
 ## <a name="configure-the-application-to-use-redis-cache"></a>配置应用程序以使用 Redis 缓存
-在本教程的此部分，需要对示例应用程序进行配置，以便使用 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 缓存客户端通过 Azure Redis 缓存实例来存储和检索 Contoso 团队统计信息。
+在本教程的此部分，请对示例应用程序进行配置，以便使用 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 缓存客户端通过 Azure Redis 缓存实例来存储和检索 Contoso 团队统计信息。
 
 - [配置应用程序以使用 StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
 - [更新 TeamsController 类，以便从缓存或数据库返回结果](#update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database)
@@ -278,34 +283,34 @@ ms.lasthandoff: 12/12/2017
 - [更新用于缓存的“团队索引”视图](#update-the-teams-index-view-to-work-with-the-cache)
 
 ### <a name="configure-the-application-to-use-stackexchangeredis"></a>配置应用程序以使用 StackExchange.Redis
-1. 若要在 Visual Studio 中使用 StackExchange.Redis NuGet 包配置客户端应用程序，请在“工具”菜单中依次单击“NuGet 程序包管理器”、“程序包管理器控制台”。
-2. 从 `Package Manager Console` 窗口运行以下命令。
-
+1. 若要在 Visual Studio 中使用 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) NuGet 包配置客户端应用程序，请单击“工具”>“NuGet 包管理器”>“包管理器控制台”。
+2. 从 `Package Manager Console` 窗口运行以下命令：
+    
     ```
     Install-Package StackExchange.Redis
     ```
-
+   
     NuGet 程序包会给客户端应用程序下载并添加所需的程序集引用，以访问带 StackExchange.Redis 缓存客户端的 Azure Redis 缓存。 如果更愿使用强命名版本的 `StackExchange.Redis` 客户端库，请安装 `StackExchange.Redis.StrongName` 包。
 3. 在“解决方案资源管理器”中，展开“Controllers”文件夹，然后双击“TeamsController.cs”将其打开。
-
+   
     ![团队控制器][cache-teamscontroller]
-4. 将以下两个 `using` 语句添加到 **TeamsController.cs**。
+4. 将以下两个 `using` 语句添加到 **TeamsController.cs**：
 
-    ```c#   
+    ```csharp   
     using System.Configuration;
     using StackExchange.Redis;
     ```
 
-5. 将以下两个属性添加到 `TeamsController` 类。
+5. 将以下两个属性添加到 `TeamsController` 类：
 
-    ```c#   
+    ```csharp   
     // Redis Connection string info
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
         string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
         return ConnectionMultiplexer.Connect(cacheConnection);
     });
-
+    
     public static ConnectionMultiplexer Connection
     {
         get
@@ -316,23 +321,25 @@ ms.lasthandoff: 12/12/2017
     ```
 
 6. 在计算机中创建一个名为 `WebAppPlusCacheAppSecrets.config` 的文件，将其置于不会使用示例应用程序的源代码对其进行检查的位置（如果决定在某个位置对其进行检查）。 在此示例中，`AppSettingsSecrets.config` 文件位于 `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`。
-
-    编辑 `WebAppPlusCacheAppSecrets.config` 文件，添加以下内容。 如果在本地运行该应用程序，则可利用此信息连接到 Azure Redis 缓存实例。 在本教程中，随后将设置 Azure Redis 缓存实例并更新缓存名称和密码。 如果不打算在本地运行示例应用程序，则可跳过此文件的创建步骤以及后续的文件引用步骤，因为部署到 Azure 时，应用程序会从 Web 应用的应用设置而非从此文件中检索缓存连接信息。 由于 `WebAppPlusCacheAppSecrets.config` 不与应用程序一起部署到 Azure，因此除非要在本地运行应用程序，否则不需要它。
+   
+    编辑 `WebAppPlusCacheAppSecrets.config` 文件，添加以下内容：
 
     ```xml
     <appSettings>
-      <add key="CacheConnection" value="MyCache.redis.cache.chinacloudapi.cn,abortConnect=false,ssl=true,password=..."/>
+      <add key="CacheConnection" value="YourCacheName.redis.cache.chinacloudapi.cn,abortConnect=false,ssl=true,password=YourAccessKey"/>
     </appSettings>
     ```
 
-1. 在“解决方案资源管理器”中，双击“web.config”将其打开。
+    如果在本地运行该应用程序，则可利用此信息连接到 Azure Redis 缓存实例。 在本教程中，随后将设置 Azure Redis 缓存实例并更新缓存名称和密码。 如果不打算在本地运行示例应用程序，则可跳过此文件的创建步骤以及后续的文件引用步骤，因为部署到 Azure 时，应用程序会从 Web 应用的应用设置而非从此文件中检索缓存连接信息。 由于 `WebAppPlusCacheAppSecrets.config` 不与应用程序一起部署到 Azure，因此除非要在本地运行应用程序，否则不需要它。
 
+1. 在“解决方案资源管理器”中，双击“web.config”将其打开。
+   
     ![Web.config][cache-web-config]
 2. 将以下 `file` 属性添加到 `appSettings` 元素。 如果使用了其他文件名或位置，请使用这些值来替换示例中显示的值。
    
    - 之前： `<appSettings>`
    - 之后： ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
-     
+  
    ASP.NET 运行时合并了外部文件的内容以及 `<appSettings>` 元素中的标记。 如果找不到指定的文件，运行时将忽略文件属性。 应用程序的源代码中将不包括机密（连接到缓存的连接字符串）。 将 Web 应用部署到 Azure 时，不会部署 `WebAppPlusCacheAppSecrests.config` 文件（正是需要的）。 可以通过多种方式在 Azure 中指定这些机密，而在本教程中，在后续的教程步骤中[预配 Azure 资源](#provision-the-azure-resources)时，系统会为你自动配置这些机密。 有关如何在 Azure 中处理密钥的详细信息，请参阅[将密码和其他敏感数据部署到 ASP.NET 和 Azure 应用服务的最佳做法](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)。
 
 ### <a name="update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database"></a>更新 TeamsController 类，以便从缓存或数据库返回结果
@@ -343,16 +350,16 @@ ms.lasthandoff: 12/12/2017
 > 
 > 
 
-1. 将以下 `using` 语句添加到 `TeamsController.cs` 文件顶部，与其他 `using` 语句放置在一起。
+1. 将以下 `using` 语句添加到 `TeamsController.cs` 文件顶部，与其他 `using` 语句放置在一起：
 
-    ```c#   
+    ```csharp   
     using System.Diagnostics;
     using Newtonsoft.Json;
     ```
 
-2. 将当前的 `public ActionResult Index()` 方法实现替换为以下实现。
+2. 将当前的 `public ActionResult Index()` 方法实现替换为以下实现：
 
-    ```c#
+    ```csharp
     // GET: Teams
     public ActionResult Index(string actionType, string resultType)
     {
@@ -406,11 +413,12 @@ ms.lasthandoff: 12/12/2017
     }
     ```
 
-1. 将以下三种方法添加到 `TeamsController` 类，以便实现在以前的代码片段中添加的 switch 语句中的 `playGames`、`clearCache` 和 `rebuildDB` 操作类型。
 
+1. 将以下三种方法添加到 `TeamsController` 类，以便实现在以前的代码片段中添加的 switch 语句中的 `playGames`、`clearCache` 和 `rebuildDB` 操作类型。
+   
     `PlayGames` 方法可以通过对赛季进行模拟来更新团队统计信息，将结果保存到数据库，然后从缓存中清除现已过时的数据。
 
-    ```c#
+    ```csharp
     void PlayGames()
     {
         ViewBag.msg += "Updating team statistics. ";
@@ -429,7 +437,7 @@ ms.lasthandoff: 12/12/2017
 
     `RebuildDB` 方法使用默认的团队集来重新初始化数据库，为其生成统计信息，并从缓存中清除现已过时的数据。
 
-    ```c#
+    ```csharp
     void RebuildDB()
     {
         ViewBag.msg += "Rebuilding DB. ";
@@ -444,7 +452,7 @@ ms.lasthandoff: 12/12/2017
 
     `ClearCachedTeams` 方法从缓存中删除任何已缓存的团队统计信息。
 
-    ```c#
+    ```csharp
     void ClearCachedTeams()
     {
         IDatabase cache = Connection.GetDatabase();
@@ -454,11 +462,12 @@ ms.lasthandoff: 12/12/2017
     } 
     ```
 
+
 1. 将以下四种方法添加到 `TeamsController` 类，以便通过不同的方式从缓存和数据库检索团队统计信息。 这些方法均会返回 `List<Team>` ，并通过视图将其显示出来。
    
     `GetFromDB` 方法从数据库读取团队统计信息。
    
-    ```c#
+    ```csharp
     List<Team> GetFromDB()
     {
         ViewBag.msg += "Results read from DB. ";
@@ -472,7 +481,7 @@ ms.lasthandoff: 12/12/2017
 
     `GetFromList` 方法以序列化 `List<Team>` 的形式从缓存读取团队统计信息。 如果缓存未命中，则会从数据库读取团队统计信息，并将该信息存储在缓存中留待下次使用。 在此示例中，我们通过 JSON.NET 序列化来序列化进出缓存的 .NET 对象。 有关详细信息，请参阅 [如何处理 Azure Redis 缓存中的 .NET 对象](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)。
 
-    ```c#
+    ```csharp
     List<Team> GetFromList()
     {
         List<Team> teams = null;
@@ -500,7 +509,7 @@ ms.lasthandoff: 12/12/2017
 
     `GetFromSortedSet` 方法从缓存的排序集读取团队统计信息。 如果缓存未命中，则会从数据库读取团队统计信息，并将该信息以排序集的形式存储在缓存中。
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSet()
     {
         List<Team> teams = null;
@@ -537,7 +546,7 @@ ms.lasthandoff: 12/12/2017
 
     `GetFromSortedSetTop5` 方法从缓存的排序集中读取排名前 5 的团队。 该方法首先会检查缓存中是否存在 `teamsSortedSet` 键。 如果该键不存在，则会调用 `GetFromSortedSet` 方法以读取团队统计信息并将其存储在缓存中。 接下来会对缓存的排序集进行查询，以便返回排名前 5 的团队。
 
-    ```c#
+    ```csharp
     List<Team> GetFromSortedSetTop5()
     {
         List<Team> teams = null;
@@ -568,9 +577,9 @@ ms.lasthandoff: 12/12/2017
 ### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a>更新用于缓存的 Create、Edit 和 Delete 方法
 作为此示例一部分生成的基架代码包括用于添加、编辑和删除团队的方法。 只要添加、编辑或删除了团队，缓存中的数据就变成了过时的数据。 在本部分，需要修改这三种清除缓存团队的方法，避免出现缓存与数据库不同步的情况。
 
-1. 浏览到 `TeamsController` 类中的 `Create(Team team)` 方法。 添加对 `ClearCachedTeams` 方法的调用，如以下示例所示。
+1. 浏览到 `TeamsController` 类中的 `Create(Team team)` 方法。 添加对 `ClearCachedTeams` 方法的调用，如以下示例所示：
 
-    ```c#
+    ```csharp
     // POST: Teams/Create
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -592,9 +601,10 @@ ms.lasthandoff: 12/12/2017
     }
     ```
 
-1. 浏览到 `TeamsController` 类中的 `Edit(Team team)` 方法。 添加对 `ClearCachedTeams` 方法的调用，如以下示例所示。
 
-    ```c#
+1. 浏览到 `TeamsController` 类中的 `Edit(Team team)` 方法。 添加对 `ClearCachedTeams` 方法的调用，如以下示例所示：
+
+    ```csharp
     // POST: Teams/Edit/5
     // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
     // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -615,9 +625,10 @@ ms.lasthandoff: 12/12/2017
     }
     ```
 
-1. 浏览到 `TeamsController` 类中的 `DeleteConfirmed(int id)` 方法。 添加对 `ClearCachedTeams` 方法的调用，如以下示例所示。
 
-    ```c#
+1. 浏览到 `TeamsController` 类中的 `DeleteConfirmed(int id)` 方法。 添加对 `ClearCachedTeams` 方法的调用，如以下示例所示：
+
+    ```csharp
     // POST: Teams/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
@@ -633,14 +644,15 @@ ms.lasthandoff: 12/12/2017
     }
     ```
 
+
 ### <a name="update-the-teams-index-view-to-work-with-the-cache"></a>更新用于缓存的“团队索引”视图
 1. 在“解决方案资源管理器”中，先展开 **Views** 文件夹，再展开 **Teams** 文件夹，然后双击“Index.cshtml”。
-
+   
     ![Index.cshtml][cache-views-teams-index-cshtml]
-2. 在该文件顶部附近查找以下段落元素。
-
+2. 在该文件顶部附近查找以下段落元素：
+   
     ![操作表][cache-teams-index-table]
-
+   
     这是创建新团队的链接。 将段落元素替换为下表内容。 该表的操作链接可用于创建新的团队、举行新赛季的比赛、清除缓存、以多种格式从缓存中检索团队、从数据库检索团队，以及使用最新的示例数据重新构建数据库。
 
     ```html
@@ -674,25 +686,26 @@ ms.lasthandoff: 12/12/2017
     </table>
     ```
 
-1. 滚动到 **Index.cshtml** 文件底部，并添加下面的 `tr` 元素，使之成为文件中最后一个表的最后一行。
 
+1. 滚动到 **Index.cshtml** 文件底部，并添加下面的 `tr` 元素，使之成为文件中最后一个表的最后一行：
+   
     ```html
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
     ```
-
+   
     此行返回值 `ViewBag.Msg`，其中包含有关当前操作的状态报告。 单击上一步中的任何操作链接即可设置 `ViewBag.Msg`。   
-
+   
     ![状态消息][cache-status-message]
 2. 按“F6”  生成项目。
 
 ## <a name="provision-the-azure-resources"></a>预配 Azure 资源
-若要在 Azure 中托管应用程序，必须先设置应用程序所需的 Azure 服务。 本教程中的示例应用程序使用以下 Azure 服务。
+若要在 Azure 中托管应用程序，必须先设置应用程序所需的 Azure 服务。 本教程中的示例应用程序使用以下 Azure 服务：
 
 - Azure Redis 缓存
 - 应用服务 Web 应用
 - SQL 数据库
 
-要将这些服务部署到新建的或现有资源组，请单击下面的“ **部署到 Azure** ”按钮。
+若要将这些服务部署到新建的或现有的资源组，请单击下面的“部署到 Azure”按钮：
 
 [![“部署到 Azure”][deploybutton]](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-redis-cache-sql-database%2Fazuredeploy.json)
 
@@ -705,7 +718,7 @@ ms.lasthandoff: 12/12/2017
 
 单击“部署到 Azure”按钮，会转到 Azure 门户并开始创建模板所述的资源。
 
-![部署到 Azure][cache-deploy-to-azure-step-1]
+![“部署到 Azure”][cache-deploy-to-azure-step-1]
 
 1. 在“自定义部署”  部分中，选择要使用的 Azure 订阅，并选择现有资源组或创建新资源组，并指定资源组的位置。
 2. 在“设备”部分，指定“管理员登录名”（不使用“admin”）、“管理员登录密码”和“数据库名称”。 为免费应用服务托管计划配置其他参数，为 SQL 数据库和 Azure Redis 缓存配置较低的成本选项，其中无免费层。
@@ -721,7 +734,7 @@ ms.lasthandoff: 12/12/2017
 
 可以在“ **Microsoft.Template** ”边栏选项卡上查看部署状态。
 
-![部署到 Azure][cache-deploy-to-azure-step-3]
+![“部署到 Azure”][cache-deploy-to-azure-step-3]
 
 预配完成后，即可将应用程序从 Visual Studio 发布到 Azure。
 
@@ -742,11 +755,11 @@ ms.lasthandoff: 12/12/2017
 3. 选择在创建 Azure 资源时使用的订阅，展开包含资源的资源组，并选择所需的 Web 应用。 如果使用的是“部署到 Azure”按钮，则 Web 应用名称会以 **webSite** 开头，后跟某些其他字符。
    
     ![选择 Web 应用][cache-select-web-app]
-4. 单击“确定”开始发布过程。 几分钟后，发布过程完成，运行的示例应用程序会启动浏览器。 如果在验证或发布时出现 DNS 错误，而应用程序的 Azure 资源的预配过程才刚刚完成，则请稍等片刻，并重试。
+4. 单击“确定”开始发布过程。 几分钟后，发布过程完成，运行的示例应用程序会启动浏览器。 如果在验证或发布时出现 DNS 错误，而应用程序的 Azure 资源的设置过程才刚刚完成，则请稍等片刻，并重试。
    
     ![添加的缓存][cache-added-to-application]
 
-下表描述了示例应用程序中的每个操作链接。
+下表描述了示例应用程序中的每个操作链接：
 
 | 操作 | 说明 |
 | --- | --- |
@@ -770,7 +783,7 @@ ms.lasthandoff: 12/12/2017
 3. 单击资源组右侧的“...”  。
 4. 单击“删除” 。
    
-    ![删除][cache-delete-resource-group]
+    ![Delete][cache-delete-resource-group]
 5. 键入资源组的名称，并单击“删除” 。
    
     ![确认删除][cache-delete-confirm]
@@ -792,11 +805,11 @@ ms.lasthandoff: 12/12/2017
 选择或创建要使用的缓存后，在 Azure 门户中浏览到该缓存，然后检索缓存的[主机名](cache-configure.md#properties)和[访问密钥](cache-configure.md#access-keys)。 有关说明，请参阅 [配置 Redis 缓存设置](cache-configure.md#configure-redis-cache-settings)。
 
 1. 使用所选编辑器打开在本教程的[配置应用程序以使用 Redis 缓存](#configure-the-application-to-use-redis-cache)步骤中创建的 `WebAppPlusCacheAppSecrets.config` 文件。
-2. 编辑 `value` 属性，将 `MyCache.redis.cache.chinacloudapi.cn` 替换为缓存的[主机名](cache-configure.md#properties)，并指定缓存的[主密钥或辅助密钥](cache-configure.md#access-keys)作为密码。
+2. 编辑 `value` 属性，将 `YourCacheName.redis.cache.chinacloudapi.cn` 替换为缓存的[主机名](cache-configure.md#properties)，并将 `YourAccessKey` 替换为缓存的[主密钥或辅助密钥](cache-configure.md#access-keys)作为密码。
 
     ```xml
     <appSettings>
-      <add key="CacheConnection" value="MyCache.redis.cache.chinacloudapi.cn,abortConnect=false,ssl=true,password=..."/>
+      <add key="CacheConnection" value="YourCacheName.redis.cache.chinacloudapi.cn,abortConnect=false,ssl=true,password=YourAccessKey"/>
     </appSettings>
     ```
 

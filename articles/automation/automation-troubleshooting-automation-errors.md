@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 origin.date: 09/22/2017
 ms.date: 01/22/2018
 ms.author: v-nany
-ms.openlocfilehash: 1598dd649fe02e22160752d519b57152fe71c00c
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 35008c405d4cc05583af43ae6a419579fef9ff8d
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Azure 自动化中的常见问题解答 
 本文介绍如何排除 Azure 自动化中遇到的常见错误，并提供可能的解决方案建议。
@@ -142,7 +142,8 @@ ms.lasthandoff: 01/23/2018
 * 确保任何引用的 .dll 都存在于模块文件夹中。
 
 ## <a name="next-steps"></a>后续步骤
-如果执行了上述故障排除步骤但仍找不到答案，则可查看下面的其他支持选项。
+
+如果执行了上述疑难解答步骤但仍找不到答案，则可查看下面的其他支持选项：
 
 * 从 Azure 专家那里获取帮助。 向 [MSDN Azure 或 CSDN Azure](https://www.azure.cn/support/forums/) 提交问题。
 * 提出 Azure 支持事件。 转到 [Azure 支持站点](https://www.azure.cn/support/contact/)，单击“技术和帐单支持”下的“获取支持”。

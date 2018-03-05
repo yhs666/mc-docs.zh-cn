@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/26/2017
 ms.author: v-yiso
-ms.date: 01/08/2018
-ms.openlocfilehash: 4e2085728a1bfb0b57cea47107c9794410b2ed57
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.date: 03/12/2018
+ms.openlocfilehash: e393600027ba8345a32d59b690b47e32a2e33848
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="verifying-expressroute-connectivity"></a>验证 ExpressRoute 连接
 ExpressRoute 可以通过经连接提供商加速的专用连接将本地网络扩展到 Microsoft 云中，涉及以下三个不同的网络区域：
@@ -97,7 +97,7 @@ ExpressRoute 可以通过经连接提供商加速的专用连接将本地网络�
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->可以通过 Azure 门户获取资源组名称。 请参阅本文档的上一小节，另请注意，资源组名称已在示例屏幕截图中列出。
+>可通过 Azure 获取资源组名称。 请参阅本文档的上一小节，另请注意，资源组名称已在示例屏幕截图中列出。
 >
 >
 
@@ -230,13 +230,15 @@ ProvisioningState          : Succeeded
 
 若要获取 Azure 公共对等互连配置详细信息，请使用以下命令：
 
-```
-$ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
-```
+    $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 
+若要获取 Microsoft 对等互连配置详细信息，请使用以下命令：
 
-如果未配置对等互连，则会出现错误消息。 当所述对等互连（本示例中为 Azure 公共对等互连）未在线路中配置时，示例的响应如下：
+    $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+
+如果未配置对等互连，则会出现错误信息。 当所述对等互连（本示例中为 Azure 公共对等互连）未在线路中配置时，示例的响应如下：
 
 ```
 Get-AzureRmExpressRouteCircuitPeeringConfig : Sequence contains no matching element

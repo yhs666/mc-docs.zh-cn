@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 02/08/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: d504bbc512e707abcf24e265c6b029d13ad7941d
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 86e379358e72c2652956632ff3a415b5815e7e7c
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>有关 Azure VM 备份服务的问题
 本文提供常见问题的解答，有助于快速了解 Azure VM 备份组件。 某些答案提供内含全面信息的文章的链接。 还可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
@@ -69,6 +69,13 @@ ms.lasthandoff: 02/13/2018
   
 ### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>将磁盘升级到托管磁盘后，是否可以使用非托管磁盘 VM 的备份进行还原？
 是，可以使用将磁盘从非托管迁移到托管之前创建的备份。 默认情况下，还原 VM 作业会使用非托管磁盘创建 VM。 可以使用还原磁盘功能还原磁盘，并使用它们在托管磁盘上创建 VM。 
+
+### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>在为 VM 完成从非托管磁盘到托管磁盘的转换之前执行的将 VM 还原到还原点的过程是怎么样的？
+在此方案中，默认情况下，还原 VM 作业会使用非托管磁盘创建 VM。 若要使用托管磁盘创建 VM，请执行以下操作：
+1. [还原到非托管磁盘](tutorial-restore-disk.md#restore-a-vm-disk)
+2. [将还原的磁盘转换为托管磁盘](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
+3. [使用托管磁盘创建 VM](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
+有关 Powershell cmdlet，请参阅[此处](backup-azure-vms-automation.md#restore-an-azure-vm)。
 
 ## <a name="manage-vm-backups"></a>管理 VM 备份
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>在 VM 上更改备份策略时，会发生什么情况？

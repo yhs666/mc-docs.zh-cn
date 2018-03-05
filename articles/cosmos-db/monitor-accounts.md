@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2017
-ms.date: 12/25/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9eba1199c58f7d29ced842ce7754081e9c2db80a
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 0d0fab65f9bbfec7a651b5ceadfcca788149da0a
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-azure-cosmos-db"></a>监视 Azure Cosmos DB
 可以在 [Azure 门户](https://portal.azure.cn/)中监视 Azure Cosmos DB 帐户。 对于每个 Azure Cosmos DB 帐户，一整套指标可用于监视吞吐量、存储、可用性、延迟和一致性。
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/22/2017
 可在“帐户”页、新的“指标”页或 Azure Monitor.中查看指标。
 
 ## <a name="view-performance-metrics-on-the-metrics-page"></a>在“指标”页上查看性能指标
-1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“更多服务”，滚动到“数据库”，单击“Azure Cosmos DB”，并单击要查看其性能指标的 Azure Cosmos DB 帐户的名称。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“所有服务”，滚动到“数据库”，单击“Azure Cosmos DB”，然后单击要查看其性能指标的 Azure Cosmos DB 帐户的名称。
 2. 新页加载时，在资源菜单的“监视”下，单击“指标”。
 3. “指标”页打开时，从“集合”下拉列表中选择要查看的集合。
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/22/2017
 
 <!--Not Available ## View performance metrics by using Azure Monitoring-->
 ## <a name="view-performance-metrics-on-the-account-page"></a>在“帐户”页上查看性能指标
-1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“更多服务”，滚动到“数据库”，单击“Azure Cosmos DB”，并单击要查看其性能指标的 Azure Cosmos DB 帐户的名称。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“所有服务”，滚动到“数据库”，单击“Azure Cosmos DB”，然后单击要查看其性能指标的 Azure Cosmos DB 帐户的名称。
 2. 默认情况下，“监视”可重用功能区  显示以下磁贴：
 
    * 当天的请求总数。
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/22/2017
 4. “指标”页显示有关请求总数的详细信息。 
 
 ## <a name="set-up-alerts-in-the-portal"></a>在门户中设置警报
-1. 在 [Azure 门户](https://portal.azure.cn/)中，依次单击“更多服务”、“Azure Cosmos DB”，并单击要设置性能指标警报的 Azure Cosmos DB 帐户的名称。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，依次单击“所有服务”、“Azure Cosmos DB”，并单击要设置性能指标警报的 Azure Cosmos DB 帐户的名称。
 2. 在资源菜单中，单击“警报规则”打开“警报规则”页。  
    ![所选的警报规则部件的屏幕截图](./media/monitor-accounts/madocdb10.5.png)
 3. 在“警报规则”页中，单击“添加警报”。  

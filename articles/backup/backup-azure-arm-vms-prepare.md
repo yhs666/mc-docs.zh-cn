@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/03/2017
-ms.date: 02/07/2018
+origin.date: 01/21/2017
+ms.date: 02/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 73ca7b88fb3d190cbd17941b1e59ff473bab0fb4
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 60a6fdf1f60762f2c810d7adae1a52b2b2fb8320
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>准备环境以备份 Resource Manager 部署的虚拟机
 
@@ -55,7 +55,7 @@ Azure 备份服务提供两种类型的保管库用于保护 VM：备份保管�
 - 不支持备份数据磁盘大小超过 1,023 GB 的虚拟机。
 
   > [!NOTE]
-  > 我们提供了专用预览版用于支持带有 1-TB（或更大）非托管磁盘的 VM 的备份。 有关详细信息，请参阅[支持大型磁盘 VM 备份的专用预览版](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)。
+  > 我们提供了个人预览版以支持带有 > 1TB 磁盘的 VM 的备份。 有关详细信息，请参阅[支持大型磁盘 VM 备份的专用预览版](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)。
   >
 
 - 不支持备份使用保留 IP 地址且未定义终结点的虚拟机。
@@ -64,7 +64,7 @@ Azure 备份服务提供两种类型的保管库用于保护 VM：备份保管�
 - 备份数据不包括连接到 VM 的网络挂载驱动器。
 - 不支持在还原过程中替换现有虚拟机。 如果在 VM 存在时尝试还原 VM，还原操作会失败。
 - 不支持跨区域备份和还原。
-- 当前不支持备份和还原列入存储 ACL 中的 VM。 如果已启用“在 VNET 中存储”功能，仅允许从特定 VNET/子网和/或 IP 地址访问存储帐户，则不支持 VM 备份。
+- 当前不支持在应用了网络规则的存储帐户中备份和还原使用非托管磁盘的虚拟机。 配置备份时，请确保存储帐户的“防火墙和虚拟网络”设置允许从“所有网络”进行访问。
 - 可以在 Azure 的所有公共区域中备份虚拟机。 （请参阅支持区域的[清单](https://azure.microsoft.com/regions/#services)。）在创建保管库期间，如果要寻找的区域目前不受支持，则不会在下拉列表中显示它。
 - 仅支持通过 PowerShell 还原属于多 DC 配置的域控制器 (DC) VM。 有关详细信息，请参阅[还原多 DC 域控制器](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)。
 - 仅支持通过 PowerShell 还原采用以下特殊网络配置的虚拟机。 还原操作完成后，在 UI 中通过还原工作流创建的 VM 将不采用这些网络配置。 若要了解详细信息，请参阅[还原采用特殊网络配置的 VM](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)。
@@ -182,7 +182,7 @@ Azure 备份服务提供两种类型的保管库用于保护 VM：备份保管�
 如果注册虚拟机出现问题，请参阅以下信息，了解安装 VM 代理的方法和网络连接的相关信息。 如果要保护在 Azure 中创建的虚拟机，则可能不需要以下信息。 但是，如果已将虚拟机迁移到 Azure，请确保已正确安装 VM 代理，并且虚拟机可与虚拟网络通信。
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>在虚拟机上安装 VM 代理
-要正常运行备份扩展，必须在 Azure 虚拟机上安装 Azure [VM 代理](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux)。 如果 VM 是从 Azure Marketplace 创建的，则虚拟机上已安装 VM 代理。 
+要正常运行备份扩展，必须在 Azure 虚拟机上安装 Azure [VM 代理](../virtual-machines/windows/agent-user-guide.md)。 如果 VM 是从 Azure Marketplace 创建的，则虚拟机上已安装 VM 代理。 
 
 以下信息适用于不是使用从 Azure Marketplace 创建的 VM 的情况。 例如，你从本地数据中心迁移了某个 VM。 在这种情况下，需要安装 VM 代理才能保护该虚拟机。
 
@@ -220,7 +220,7 @@ Azure 备份服务提供两种类型的保管库用于保护 VM：备份保管�
 ![具有区域存储标记的 NSG](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> 存储标记仅在特定区域中可用，并且处于预览状态。 有关区域列表，请参阅[存储的服务标记](../virtual-network/security-overview.md#service-tags)。
+> 存储服务标记仅在特定区域中可用，并且处于预览状态。 有关区域列表，请参阅[存储的服务标记](../virtual-network/security-overview.md#service-tags)。
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>使用 HTTP 代理进行 VM 备份
 备份 VM 时，VM 上的备份扩展会使用 HTTPS API 将快照管理命令发送到 Azure 存储。 将通过 HTTP 代理路由备份扩展流量，因为它是为了访问公共 Internet 而配置的唯一组件。

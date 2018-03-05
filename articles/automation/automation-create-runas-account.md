@@ -15,11 +15,11 @@ ms.topic: get-started-article
 origin.date: 10/27/2017
 ms.date: 01/11/2018
 ms.author: v-nany
-ms.openlocfilehash: e7d5aaaf03a56fe2fa0e891a2ad4c4e45e6c4d63
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 0cf5a1ebf729bd7cba83d9090387688b49b1dec3
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>使用运行方式帐户更新自动化帐户身份验证 
 在以下情况下，可以通过 Azure 门户或使用 PowerShell 更新现有自动化帐户：
@@ -50,7 +50,7 @@ ms.lasthandoff: 02/13/2018
 
 若要获取脚本的必需参数 SubscriptionID、ResourceGroup 和 AutomationAccountName 的值，请执行以下操作：
 
-1. 在 Azure 门户中，单击左下角的“更多服务”。 在资源列表中，键入“自动化”。 开始键入时，会根据输入筛选该列表。 选择“自动化帐户”。
+1. 在 Azure 门户中，单击“所有服务”。 在资源列表中，键入“自动化”。 开始键入时，会根据输入筛选该列表。 选择“自动化帐户”。
 2. 在“自动化帐户”页中选择自动化帐户，然后在“帐户设置”下选择“属性”。  
 3. 记下“属性”页中的值。<br><br> ![自动化帐户的“属性”边栏选项卡](./media/automation-create-runas-account/automation-account-properties.png)  
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 02/13/2018
 在本部分，请执行以下步骤，在 Azure 门户中更新 Azure 自动化帐户。  可以单独创建运行方式帐户和经典运行方式帐户。 如果不需管理经典资源，可以只创建 Azure 运行方式帐户。  
 
 1. 以订阅管理员角色成员和订阅共同管理员的帐户登录 Azure 门户。
-2. 在 Azure 门户中，单击左下角的“更多服务”。 在资源列表中，键入“自动化”。 开始键入时，会根据输入筛选该列表。 选择“自动化帐户”。
+2. 在 Azure 门户中，单击“所有服务”。 在资源列表中，键入“自动化”。 开始键入时，会根据输入筛选该列表。 选择“自动化帐户”。
 3. 在“自动化帐户”页的自动化帐户列表中选择自动化帐户。
 4. 在左侧窗格的“帐户设置”部分下，选择“运行方式帐户”。  
 5. 根据所需帐户，选择“Azure 运行方式帐户”或“Azure 经典运行方式帐户”。  选择后，便会出现“添加 Azure 运行方式帐户”或“添加 Azure 经典运行方式帐户”页。查看概述信息后，单击“创建”，继续创建运行方式帐户。  

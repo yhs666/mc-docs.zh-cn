@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/03/2017
-ms.date: 10/30/2017
+ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2a0173055ed71025adec513616ce01df27be93bd
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: d42a8707afe801b9a730dd8556fa86bd050b5df9
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>排查 Azure 应用服务中 Web 应用性能缓慢的问题
 本文帮助排查 [Azure 应用服务](./app-service-changes-existing-services.md)中 Web 应用性能缓慢的问题。
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/20/2017
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1.观察和监视应用程序行为
 #### <a name="track-service-health"></a>跟踪服务运行状况
-每次发生服务中断或性能下降时 Azure 会进行宣传。 可以在 [Azure 门户](https://portal.azure.cn/)中跟踪服务的运行状况。
+每次发生服务中断或性能下降时 Azure 会进行宣传。 可以在 [Azure 门户](https://portal.azure.cn/)中跟踪服务的运行状况。 有关详细信息，请参阅[跟踪服务的运行状况](../monitoring-and-diagnostics/insights-service-health.md)。
 
 #### <a name="monitor-your-web-app"></a>监视 Web 应用
 此选项可让你找出应用程序是否存在任何问题。 在 Web 应用的边栏选项卡中，单击“请求和错误”磁贴。 “指标”边栏选项卡显示所有可以添加的指标。
@@ -76,7 +76,7 @@ ms.lasthandoff: 10/20/2017
 
 终结点监视可从测试 Web URL 的响应时间和运行时间的分布式地理位置配置 Web 测试。 该测试可对 Web URL 执行 HTTP GET 操作，以从每个位置确定响应时间和运行时间。 每个已配置位置每 5 分钟运行一次测试。
 
-将使用 HTTP 响应代码监视运行时间，并且以毫秒为单位计算响应时间。 如果 HTTP 响应代码大于或等于 400 或响应时间超过 30 秒，则监视测试失败。 如果从所有指定的位置监视测试均成功，则终结点被视为可用。
+使用 HTTP 响应代码监视运行时间，并且以毫秒为单位计算响应时间。 如果 HTTP 响应代码大于或等于 400 或响应时间超过 30 秒，则监视测试失败。 如果从所有指定的位置监视测试均成功，则终结点被视为可用。
 
 有关详细信息，请参阅[在 Azure 应用服务中监视应用](web-sites-monitor.md)
 
@@ -85,7 +85,11 @@ ms.lasthandoff: 10/20/2017
 #### <a name="application-performance-monitoring-using-extensions"></a>使用扩展的应用程序性能监视
 还可以使用站点扩展监视应用程序的性能。
 
-每个应用服务 Web 应用都提供了一个可扩展的管理终结点，通过此终结点可使用一组作为站点扩展部署的功能强大的工具。 这些工具涵盖从源代码编辑器（例如 [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx) ）到用于已连接资源（例如连接到 Web 应用的 MySQL 数据库）的管理工具。
+每个应用服务 Web 应用都提供了一个可扩展的管理终结点，通过此终结点可使用一组作为站点扩展部署的功能强大的工具。 扩展包括： 
+
+- 源代码编辑器，如 [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx)。 
+- 连接的资源（如连接到 Web 应用的 MySQL 数据库）的管理工具。
+
 
 <a name="collect" />
 
@@ -102,6 +106,8 @@ Web 应用环境为 Web 服务器和 Web 应用中的日志记录信息提供了
 #### <a name="enable-application-diagnostics"></a>启用应用程序诊断
 可通过多种选项收集 Web 应用中的应用程序性能数据、从 Visual Studio 中实时分析应用程序，或修改应用程序代码以记录更多信息和跟踪。 可以基于针对应用程序的访问权限和通过监视工具观察到的内容选择相关选项。
 
+##### <a name="set-up-diagnostic-traces-manually"></a>手动设置诊断跟踪
+如果有权访问 Web 应用程序源代码，使用应用程序诊断可以捕获 Web 应用程序生成的信息。 ASP.NET 应用程序可使用 `System.Diagnostics.Trace` 类将信息记录到应用程序诊断日志。 但是需要更改代码并重新部署应用程序。 如果应用在测试环境中运行，则推荐使用此方法。
 有关如何在应用程序中配置日志记录的详细说明，请参阅[在 Azure 应用服务中启用 Web 应用的诊断日志记录](web-sites-enable-diagnostic-log.md)。
 
 #### <a name="use-the-azure-app-service-support-portal"></a>使用 Azure 应用服务支持门户
@@ -152,11 +158,11 @@ Kudu 的另一项有用功能是，如果应用程序引发第一次异常，可
 #### <a name="use-autoheal"></a>使用 AutoHeal
 AutoHeal 会根据所选设置（例如配置更改、请求、基于内存的限制或执行请求所需的时间）回收应用的工作进程。 在大多数情况下，回收进程是在出现问题后进行恢复的最快方式。 尽管始终都可从 Azure 门户中直接重启 Web 应用，但 AutoHeal 可以自动执行此操作。 只需在 Web 应用的根 web.config 中添加一些触发器即可。 即使应用程序并非 .Net 应用程序，这些设置的工作方式也仍然相同。
 
-有关详细信息，请参阅[自动修复 Azure 网站](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)。
+有关详细信息，请参阅 [自动修复 Azure 网站](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)。
 
 #### <a name="restart-the-web-app"></a>重新启动 Web 应用
 重启通常是在发生一次性问题后进行恢复的最简单方式。 [Azure 门户](https://portal.azure.cn/)上的 Web 应用边栏选项卡中提供了用于停止或重启应用的选项。
 
  ![重新启动 Web 应用以解决性能问题](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-还可以使用 Azure Powershell 管理 Web 应用。 有关详细信息，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](../powershell-azure-resource-manager.md)。
+还可以使用 Azure Powershell 管理 Web 应用。 有关详细信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](../powershell-azure-resource-manager.md)。

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2017
 ms.author: v-johch
-ms.openlocfilehash: 8c8af2c9367809dd171075574093af265c7a0c6e
-ms.sourcegitcommit: fa39082d1965334652ec1d063818f9f7a0017c2d
+ms.openlocfilehash: 68ba48f1a48581cedb8660112c49173e40829bb9
+ms.sourcegitcommit: b2ece7a9542b90975f154d29b1127c10a3cdb22d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="replicate-vmware-virtual-machines-to-azure-with--site-recovery"></a>通过 Site Recovery 将 VMware 虚拟机复制到 Azure
 >[!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 09/04/2017
 
 ## <a name="deployment-steps"></a>部署步骤
 
-需执行的操作如下：
+下面是需要执行的操作：
 
 1. 验证先决条件和限制。
 2. 设置 Azure 网络和存储帐户。
@@ -46,12 +46,13 @@ ms.lasthandoff: 09/04/2017
 
 **支持要求** | **详细信息**
 --- | ---
-**Azure** | 了解 [Azure 要求](./site-recovery-prereq.md#azure-requirements)
+**Azure** | 了解 [Azure 要求](./site-recovery-prereq.md)
 **本地配置服务器** | 需要运行 Windows Server 2012 R2 或更高版本的 VMware VM。 将在 Site Recovery 部署过程中设置此服务器。<br/><br/> 默认情况下，进程服务器和主目标服务器也安装在此 VM 上。 进行扩展时，可能需要使用单独的进程服务器，且该服务器的要求与配置服务器相同。
 **本地 VMware 服务器** | 一台或多台 VMware vSphere 服务器，运行带有最新更新的 6.0、5.5 或 5.1。 服务器应位于配置服务器（或单独的进程服务器）所在的同一网络。<br/><br/> 建议使用一台 vCenter 服务器（运行带有最新更新的 6.0 或 5.5）来管理主机。 部署版本 6.0 时，只有 5.5 版中提供的功能才受支持。
 **本地 VM** | 想要复制的虚拟机应正在运行[受支持的操作系统](./site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)，并且符合 [Azure 先决条件](./site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。 VM 应该运行 VMware 工具。
 **URL** | 配置服务器需要以下 URL 的访问权限：<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]<br/><br/> 如果设置了基于 IP 地址的防火墙规则，请确保这些规则允许与 Azure 通信。<br/></br> 允许 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=41653)和 HTTPS (443) 端口。<br/></br> 允许订阅的 Azure 区域的 IP 地址范围以及美国西部的 IP 地址范围（用于访问控制和标识管理）。<br/><br/> 允许该用于下载 MySQL 的 URL：http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi。
 **移动服务** | 已安装在每个复制的 VM 上。
+<!-- Not Exists on Archor on [Azure requirements](./site-recovery-prereq.md#azure-requirements) -->
 
 ## <a name="limitations"></a>限制
 
@@ -65,7 +66,7 @@ ms.lasthandoff: 09/04/2017
 ## <a name="set-up-azure"></a>设置 Azure
 
 1. [设置 Azure 网络](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)。
-    - 在故障转移后创建 Azure VM 时，Azure VM 置于此网络中。
+    - 在故障转移后创建 Azure VM 时，Azure VM 将置于此网络中。
     - 可以在 [Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) 中设置网络，也可以在经典模式下设置网络。
 
 2. 设置用于所复制数据的 [Azure 存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
@@ -86,7 +87,7 @@ ms.lasthandoff: 09/04/2017
             **为自动发现准备一个帐户**：Site Recovery 进程服务器自动发现 VM。 为此，Site Recovery 需要凭据，以便访问 vCenter 服务器和 vSphere ESXi 主机。
 
     1. 若要使用专用帐户，请创建一个角色（在 vCenter 级别，具有这些[权限](#vmware-account-permissions)）。 为其指定一个名称，例如 Azure_Site_Recovery。
-    2. 然后在 vSphere 主机或 vCenter 服务器上创建一个用户，并向其分配该角色。 在 Site Recovery 部署过程中指定此用户帐户。
+    2. 然后在 vSphere 主机或 vCenter 服务器上创建一个用户，并向用户分配该角色。 在 Site Recovery 部署过程中指定此用户帐户。
 
 - **准备一个用于推送移动服务的帐户**：如果要将移动服务推送到 VM，则需要一个可由进程服务器用来访问 VM 的帐户。 该帐户仅用于推送安装。 可以使用域或本地帐户：
 
@@ -174,7 +175,7 @@ Site Recovery 使用指定的设置连接到 VMware 服务器并发现 VM。
 
 1. 若要创建新的复制策略，请单击“Site Recovery 基础结构” > “复制策略” > “+复制策略”。
 2. 在“创建复制策略”中指定策略名称。
-3. 在“RPO 阈值”中：指定 RPO 限制。 此值指定创建数据恢复点的频率。 如果连续复制超出此限制，则会生成警报。
+3. 在“RPO 阈值”中：指定 RPO 限制。 此值指定创建数据恢复点的频率。 如果连续复制超出此限制，将生成警报。
 4. 在“恢复点保留期”中，针对每个恢复点指定保留期窗口的长度（以小时为单位）。 可将复制的虚拟机恢复到窗口中的任何点。 复制到高级存储的计算机最多支持 24 小时的保留期，复制到标准存储的计算机最多支持 72 小时的保留期。
 5. 在“应用一致性快照频率”中，指定创建包含应用程序一致性快照的恢复点的频率（以分钟为单位）。 单击“确定”创建该策略。
 
@@ -217,7 +218,7 @@ Site Recovery 使用指定的设置连接到 VMware 服务器并发现 VM。
 2. 在“源”中选择配置服务器。
 3. 在“计算机类型”中，选择“虚拟机”。
 4. 在“vCenter/vSphere 虚拟机监控程序”中，选择管理 vSphere 主机的 vCenter 服务器，或选择该主机。
-5. 选择进程服务器。 如果未创建任何额外的进程服务器，该进程服务器将是配置服务器。 。
+5. 选择进程服务器。 如果尚未创建任何额外的进程服务器，该进程服务器将是配置服务器。 。
 
     ![启用复制](./media/site-recovery-vmware-to-azure/enable-replication2.png)
 
@@ -238,7 +239,7 @@ Site Recovery 使用指定的设置连接到 VMware 服务器并发现 VM。
 11. 在“复制设置” > “配置复制设置”中，检查是否选择了正确的复制策略。 如果修改策略，更改将应用到复制计算机和新计算机。
 12. 如果要将计算机集合到复制组，请启用“多 VM 一致性”并指定组的名称。 。 请注意：
 
-    * 复制组中的计算机将一起复制，并在故障转移时获得崩溃一致且应用一致的共享恢复点。
+    * 复制组中的计算机将一起复制，并在故障转移时具有在崩溃时保持一致且应用保持一致的共享恢复点。
     * 我们建议将 VM 和物理服务器集合在一起，使其镜像工作负荷。 启用多 VM 一致性可能会影响工作负荷性能，因此，仅当计算机运行相同的工作负荷并且需要一致性时，才应使用该设置。
 
     ![启用复制](./media/site-recovery-vmware-to-azure/enable-replication7.png)
@@ -258,7 +259,7 @@ Site Recovery 使用指定的设置连接到 VMware 服务器并发现 VM。
    - 可以设置目标 IP 地址。
 
     - 如果未提供地址，故障转移的计算机使用 DHCP。
-    - 如果设置了无法用于故障转移的地址，故障转移不会正常工作。
+    - 如果设置了在故障转移时不可用的地址，故障转移将不会正常工作。
     - 如果地址可用于测试故障转移网络，则同一个目标 IP 地址可用于测试故障转移。
 
    - 网络适配器数目根据为目标虚拟机指定的大小来确定：
@@ -288,7 +289,7 @@ Site Recovery 使用指定的设置连接到 VMware 服务器并发现 VM。
 
 1. 如果[已准备好故障转移后的连接](./site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)，则应能够连接到 Azure VM。
 
-1. 完成后，在恢复计划上单击“清理测试故障转移”。 在“说明”中，记录并保存与测试故障转移相关联的任何观测结果。 这将删除在执行测试故障转移期间创建的 VM。
+1. 完成后，在恢复计划上单击“清理测试故障转移”。 在“说明”中，记录并保存与测试性故障转移相关联的任何观测结果。 这将删除在执行测试故障转移期间创建的 VM。
 
 [深入了解]((site-recovery-test-failover-to-azure.md) 了解测试故障转移。
 
@@ -304,7 +305,7 @@ Site Recovery 需要 VMware 的访问权限，以便进程服务器可以自动�
 --- | --- | --- | ---
 **进程服务器自动发现 VMware VM** | 至少需要一个只读用户 | 数据中心对象 –> 传播到子对象、角色=只读 | 在数据中心级别分配的对数据中心内所有对象具有访问权限的用户。<br/><br/> 若要限制访问权限，请在选中“传播到子对象”的情况下将“无访问权”角色分配给子对象（vSphere 主机、数据存储、VM 和网络）。
 **故障转移** | 至少需要一个只读用户 | 数据中心对象 –> 传播到子对象、角色=只读 | 在数据中心级别分配的对数据中心内所有对象具有访问权限的用户。<br/><br/> 若要限制访问权限，请在选中“传播到子对象”的情况下将“无访问权”角色分配给子对象（vSphere 主机、数据存储、VM 和网络）。<br/><br/> 用于迁移，但不用于完全复制、故障转移和故障回复。
-**故障转移和故障回复** | 建议创建一个拥有所需权限的角色 (Azure_Site_Recovery)，然后将它分配到 VMware 用户或组 | 数据中心对象 –> 传播到子对象，角色=Azure_Site_Recovery<br/><br/> 数据存储 -> 分配空间、浏览数据存储、低级别文件操作、删除文件、更新虚拟机文件<br/><br/> 网络 -> 网络分配<br/><br/> 资源 -> 将 VM 分配到资源池、迁移已关机的 VM、迁移已开机的 VM<br/><br/> 任务 -> 创建任务、更新任务<br/><br/> 虚拟机 -> 配置<br/><br/> 虚拟机 -> 交互 -> 回答问题、设备连接、配置 CD 媒体、配置软盘媒体、关闭电源、打开电源、安装 VMware 工具<br/><br/> 虚拟机 -> 清单 -> 创建、注册、取消注册<br/><br/> 虚拟机 -> 预配 -> 允许虚拟机下载、允许虚拟机文件上传<br/><br/> 虚拟机 -> 快照 -> 删除快照 | 在数据中心级别分配的对数据中心内所有对象具有访问权限的用户。<br/><br/> 若要限制访问权限，请在选中“传播到子对象”的情况下将“无访问权”角色分配给子对象（vSphere 主机、数据存储、VM 和网络）。
+**故障转移和故障回复** | 建议创建一个拥有所需权限的角色 (Azure_Site_Recovery)，然后将它分配到 VMware 用户或组 | 数据中心对象 –> 传播到子对象，角色=Azure_Site_Recovery<br/><br/> 数据存储 -> 分配空间、浏览数据存储、低级别文件操作、删除文件、更新虚拟机文件<br/><br/> 网络 -> 网络分配<br/><br/> 资源 -> 将 VM 分配到资源池、迁移关闭的 VM、迁移打开的 VM<br/><br/> 任务 -> 创建任务、更新任务<br/><br/> 虚拟机 -> 配置<br/><br/> 虚拟机 -> 交互 -> 回答问题、设备连接、配置 CD 媒体、配置软盘媒体、关闭电源、打开电源、安装 VMware 工具<br/><br/> 虚拟机 -> 清单 -> 创建、注册、取消注册<br/><br/> 虚拟机 -> 预配 -> 允许虚拟机下载、允许虚拟机文件上传<br/><br/> 虚拟机 -> 快照 -> 删除快照 | 在数据中心级别分配的对数据中心内所有对象具有访问权限的用户。<br/><br/> 若要限制访问权限，请在选中“传播到子对象”的情况下将“无访问权”角色分配给子对象（vSphere 主机、数据存储、VM 和网络）。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -8,18 +8,18 @@ manager: digimobile
 editor: tysonn
 ms.assetid: e90959a2-4cb2-4b19-9bfb-aede15b18b1c
 ms.service: cosmos-db
-ms.workload: storage
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 11/27/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3a62780b471b627162f08ac607d06f729a0a16a9
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 62855c5c15d4eeda81b945de610fcb393f3bfb43
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Azure 表存储：Node.js Web 应用程序
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -382,7 +382,7 @@ PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -lo
   WARNING: 2:22:48 PM - Created Deployment ID: b7134ab29b1249ff84ada2bd157f296a.
   WARNING: 2:22:48 PM - Initializing...
   WARNING: 2:22:49 PM - Instance WebRole1_IN_0 of role WebRole1 is ready.
-  WARNING: 2:22:50 PM - Created Website URL: http://tasklist.chinacloudapp.cn/.
+  WARNING: 2:22:50 PM - Created Website URL: http://tasklist.cloudapp.chinacloudapi.cn/.
 ```
 
 由于在前面的 cmdlet 中指定了 **-launch** 选项，因此在发布完成后，浏览器会打开并显示正在 Azure 中运行的应用程序。
