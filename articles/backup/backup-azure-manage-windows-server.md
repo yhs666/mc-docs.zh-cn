@@ -1,10 +1,10 @@
 ---
 title: "管理 Azure 恢复服务保管库和服务器 | Microsoft Docs"
-description: "使用本教程来了解如何管理 Azure 恢复服务保管库和服务器。"
+description: "使用本文管理 Azure 恢复服务保管库和服务器。"
 services: backup
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 editor: tysonn
 ms.assetid: 4eea984b-7ed6-4600-ac60-99d2e9cb6d8a
 ms.service: backup
@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/10/2017
-ms.date: 11/27/2017
+origin.date: 02/23/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: b4bd9f058dd416a3f09b00e3bf7cd7b095dc6d10
-ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
+ms.openlocfilehash: 3501e13efc880d646cfb9ec883bc676dcac7badc
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>监视和管理适用于 Windows 计算机的 Azure 恢复服务保管库和服务器
 
@@ -32,14 +32,12 @@ ms.lasthandoff: 11/29/2017
 
 恢复服务保管库仪表板显示恢复服务保管库的详细信息或属性。
 
-1. 使用 Azure 订阅登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 在“中心”菜单上，单击“更多服务”。
-
-    ![打开恢复服务保管库列表步骤 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
+1. 使用 Azure 订阅登录到 [Azure 门户](https://portal.azure.cn/) 。
+2. 单击“更多服务”。 
 
 3. 如果要打开恢复服务保管库。 在对话框中，开始键入“恢复服务”。 开始键入时，会根据输入筛选该列表。 单击“恢复服务保管库”，显示订阅中恢复服务保管库的列表。
 
-    ![创建恢复服务保管库步骤 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
+     ![打开恢复服务保管库列表步骤 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
     此时会打开恢复服务保管库列表。
 
@@ -57,7 +55,7 @@ ms.lasthandoff: 11/29/2017
 
 - 备份警报详细信息
 - 文件和文件夹，以及在云中受保护的 Azure 虚拟机
-- 在 Azure 中消耗的存储空间总量
+- 在 Azure 中消耗的存储总量
 - 备份作业状态
 
 ![备份仪表板任务](./media/backup-azure-manage-windows-server/dashboard-tiles.png)
@@ -75,9 +73,9 @@ ms.lasthandoff: 11/29/2017
 ## <a name="alerts-for-backups-using-azure-backup-agent"></a>使用 Azure 备份代理进行备份的警报：
 | 警报级别 | 发送的警报 |
 | --- | --- |
-| 关键 |备份失败、恢复失败 |
-| 警告 |备份已完成，但出现警告（由于损坏问题，有不到 100 个文件尚未备份，且成功了备份 1,000,000 多个文件） |
-| 信息性 |无 |
+| 关键 | 适用于备份失败、恢复失败和延迟删除（即，当有人通过删除数据停止保护时） |
+| 警告 | 适用于备份已完成，但出现警告（由于损坏问题，有不到 100 个文件尚未备份，且成功备份了 1,000,000 多个文件） |
+| 信息性 | 目前，信息性警报不可用于 Azure 备份代理 |
 
 ## <a name="manage-backup-alerts"></a>管理备份警报
 单击“备份警报”磁贴即可打开“备份警报”菜单对警报进行管理。
@@ -204,7 +202,7 @@ ms.lasthandoff: 11/29/2017
 2. 在计划备份向导中，将“更改备份项或时间”选项保留选中状态，然后单击“下一步”。
 
     ![计划 Windows Server 备份](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
-3. 如果要添加或更改项，请在“**选择要备份的项**”屏幕中单击“**添加项**”。
+3. 若要添加或更改项，请在“选择要备份的项”屏幕中单击“添加项”。
 
     还可以在向导的此页中设置“排除设置”。 若要排除文件或文件类型，请阅读有关添加[排除设置](#manage-exclusion-settings)的过程。
 4. 选择要备份的文件和文件夹，并单击“**确定**”。
@@ -220,10 +218,10 @@ ms.lasthandoff: 11/29/2017
    > [此文](backup-azure-backup-cloud-as-tape.md)中详细介绍了如何指定备份计划。
    >
 
-6. 选择备份副本的“**保留策略**”，并单击“**下一步**”。
+6. 选择备份副本的“保留策略”，然后单击“下一步”。
 
     ![Windows Server 备份项](./media/backup-azure-manage-windows-server/select-retention-policy-modify.png)
-7. 在“**确认**”屏幕上复查信息，并单击“**完成**”。
+7. 在“确认”屏幕上复查信息，然后单击“完成”。
 8. 向导完成创建“备份计划”后，请单击“关闭”。
 
     修改保护设置后，可以通过转到“作业”选项卡并确认更改已反映在备份作业中，确认可正确触发备份。
@@ -234,7 +232,7 @@ Azure 备份代理提供的“限制”选项卡可让你控制在数据传输�
 
 若要启用限制，请执行以下操作：
 
-1. 在“**备份代理**”中，单击“**更改属性**”。
+1. 在“备份代理”中，单击“更改属性”。
 2. 在**“限制”选项卡上，选择“为备份操作启用 Internet 带宽使用限制”。
 
     ![网络限制](./media/backup-azure-manage-windows-server/throttling-dialog.png)
@@ -274,7 +272,7 @@ Azure 备份代理提供的“限制”选项卡可让你控制在数据传输�
     要添加其他扩展名，请单击“**添加排除项**”，并输入另一个文件类型扩展名（添加 .jpeg 扩展名）。
 
     ![计划 Windows Server 备份](./media/backup-azure-manage-windows-server/exclude-jpg.png)
-8. 添加所有扩展名之后，请单击“**确定**”。
+8. 添加所有扩展名之后，请单击“确定”。
 9. 单击“**下一步**”继续运行计划备份向导，出现“**确认**”页时，请单击“**完成**”。
 
     ![计划 Windows Server 备份](./media/backup-azure-manage-windows-server/finish-exclusions.png)

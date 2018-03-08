@@ -1,5 +1,5 @@
 ---
-title: "部署远程监视解决方案 - Azure | Microsoft Docs"
+title: "部署远程监视解决方案"
 description: "本教程演示如何从 azureiotsuite.cn 预配远程监视预配置解决方案。"
 services: 
 suite: iot-suite
@@ -7,17 +7,17 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-origin.date: 12/12/2017
-ms.date: 01/08/2018
+origin.date: 02/22/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 9bc8b081dd6e02d3f4ec4e608e225e1265a47d53
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 2538f2089c6689e977a96c2977937d96e202825e
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>部署远程监视预配置解决方案
 

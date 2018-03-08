@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: article
 origin.date: 08/14/2017
-ms.date: 12/25/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 402b8509139a8c732824fd65944ecbc9dce2d5e2
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: ffeb0592cee8070db5c6352f5a53ff9482dc0a28
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Node.js 教程：在 Azure Cosmos DB 中使用 SQL API 创建 Node.js 控制台应用程序
 > [!div class="op_single_selector"]
@@ -69,7 +69,8 @@ ms.lasthandoff: 12/22/2017
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupNode"></a>步骤 2：安装 Node.js 应用程序
+<a name="SetupNode"></a>
+## <a name="step-2-set-up-your-nodejs-application"></a>步骤 2：安装 Node.js 应用程序
 1. 打开偏好的终端。
 2. 找到想要在其中保存 Node.js 应用程序的文件夹或目录。
 3. 使用以下命令创建两个空的 JavaScript 文件：
@@ -84,7 +85,8 @@ ms.lasthandoff: 12/22/2017
 
 很好！ 既然已完成安装设置，让我们开始编写一些代码。
 
-## <a id="Config"></a>步骤 3：设置应用的配置
+<a name="Config"></a>
+## <a name="step-3-set-your-apps-configurations"></a>步骤 3：设置应用的配置
 在喜爱的文本编辑器中打开 ```config.js``` 。
 
 然后，复制并粘贴以下代码片段，并将属性 ```config.endpoint``` 和 ```config.primaryKey``` 设置为 Azure Cosmos DB 终结点 URI 和主密钥。 这两项配置都可以在 [Azure 门户](https://portal.azure.cn)中找到。
@@ -180,7 +182,8 @@ ms.lasthandoff: 12/22/2017
     // ADD THIS PART TO YOUR CODE
     module.exports = config;
 
-## <a id="Connect"></a> 步骤 4：连接到 Azure Cosmos DB 帐户
+<a name="Connect"></a>
+## <a name="step-4-connect-to-an-azure-cosmos-db-account"></a>步骤 4：连接到 Azure Cosmos DB 帐户
 在文本编辑器中打开空的 ```app.js``` 文件。 复制并粘贴以下代码，以导入 ```documentdb``` 模块和新建的 ```config``` 模块。
 
     // ADD THIS PART TO YOUR CODE
@@ -264,7 +267,8 @@ ms.lasthandoff: 12/22/2017
 
 祝贺！ 已成功创建了 Azure Cosmos DB 数据库。
 
-## <a id="CreateColl"></a>步骤 6：创建集合
+<a name="CreateColl"></a>
+## <a name="step-6-create-a-collection"></a>步骤 6：创建集合
 > [!WARNING]
 > createCollection 将创建新的集合，它牵涉定价。 有关详细信息，请访问 [定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
 > 
@@ -318,7 +322,8 @@ ms.lasthandoff: 12/22/2017
 
 祝贺！ 已成功创建 Azure Cosmos DB 集合。
 
-## <a id="CreateDoc"></a>步骤 7：创建文档
+<a name="CreateDoc"></a>
+## <a name="step-7-create-a-document"></a>步骤 7：创建文档
 可以使用 **DocumentClient** 类的 [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函数创建[文档](sql-api-resources.md#documents)。 文档为用户定义的（任意）JSON 内容。 现在，可以将文档插入 Azure Cosmos DB 中。
 
 将 **getFamilyDocument** 函数复制并粘贴到 **getCollection** 函数下面，创建包含 ```config``` 对象中保存的 JSON 数据的文档。 同样，我们将首先检查以确保不存在具有相同 ID 的文档。
@@ -336,7 +341,7 @@ ms.lasthandoff: 12/22/2017
         console.log(`Getting document:\n${document.id}\n`);
 
         return new Promise((resolve, reject) => {
-            client.readDocument(documentUrl, { partitionKey: document.district }, (err, result) => {
+            client.readDocument(documentUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
                         client.createDocument(collectionUrl, document, (err, created) => {
@@ -372,7 +377,8 @@ ms.lasthandoff: 12/22/2017
 
 ![Node.js 教程 - 说明帐户、数据库、集合和文档间层次关系的关系图 - 节点数据库](./media/sql-api-nodejs-get-started/node-js-tutorial-cosmos-db-account.png)
 
-## <a id="Query"></a>步骤 8：查询 Azure Cosmos DB 资源
+<a name="Query"></a>
+## <a name="step-8-query-azure-cosmos-db-resources"></a>步骤 8：查询 Azure Cosmos DB 资源
 Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行[各种查询](sql-api-sql-query.md)。 下面的示例代码演示了一个针对集合中文档运行的查询。
 
 将 **queryCollection** 函数复制并粘贴到 app.js 文件中的 **getFamilyDocument** 函数下面。 Azure Cosmos DB 支持类似 SQL 的查询，如下所示。 有关构建复杂查询的详细信息，请参阅 [Query Playground](https://www.documentdb.com/sql/demo)（查询演练）和[查询文档](sql-api-sql-query.md)。
@@ -428,7 +434,8 @@ Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行[各种查
 
 祝贺！ 已成功查询了 Azure Cosmos DB 文档。
 
-## <a id="ReplaceDocument"></a>步骤 9：替换文档
+<a name="ReplaceDocument"></a>
+## <a name="step-9-replace-a-document"></a>步骤 9：替换文档
 Azure Cosmos DB 支持替换 JSON 文档。
 
 将 **replaceFamilyDocument** 函数复制并粘贴到 app.js 文件中的 **queryCollection** 函数下面。
@@ -475,7 +482,8 @@ Azure Cosmos DB 支持替换 JSON 文档。
 
 祝贺！ 已成功替换了 Azure Cosmos DB 文档。
 
-## <a id="DeleteDocument"></a>步骤 10：删除文档
+<a name="DeleteDocument"></a>
+## <a name="step-10-delete-a-document"></a>步骤 10：删除文档
 Azure Cosmos DB 支持删除 JSON 文档。
 
 将 **deleteFamilyDocument** 函数复制并粘贴到 **replaceFamilyDocument** 函数下面。
@@ -519,7 +527,8 @@ Azure Cosmos DB 支持删除 JSON 文档。
 
 祝贺！ 已成功删除了 Azure Cosmos DB 文档。
 
-## <a id="DeleteDatabase"></a>步骤 11：删除 Node 数据库
+<a name="DeleteDatabase"></a>
+## <a name="step-11-delete-the-node-database"></a>步骤 11：删除 Node 数据库
 删除已创建的数据库会删除该数据库及其所有子资源（集合、文档等）。
 
 将 **cleanup** 函数复制并粘贴到 **deleteFamilyDocument** 函数下面，删除数据库和所有子资源。
@@ -554,7 +563,8 @@ Azure Cosmos DB 支持删除 JSON 文档。
     .then(() => { exit(`Completed successfully`); })
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
-## <a id="Run"></a>步骤 12：运行整个 Node.js 应用程序！
+<a name="Run"></a>
+## <a name="step-12-run-your-nodejs-application-all-together"></a>步骤 12：运行整个 Node.js 应用程序！
 总体而言，调用函数的顺序应如下所示：
 
     getDatabase()
@@ -605,7 +615,8 @@ Azure Cosmos DB 支持删除 JSON 文档。
 
 祝贺！ 已完成 Node.js 教程，并成功创建了第一个 Azure Cosmos DB 控制台应用程序！
 
-## <a id="GetSolution"></a>获取完整的 Node.js 教程解决方案
+<a name="GetSolution"></a>
+## <a name="get-the-complete-nodejs-tutorial-solution"></a>获取完整的 Node.js 教程解决方案
 如果没有时间完成本教程中的步骤，或者只需下载代码，则可从 [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started) 获取。
 
 若要生成包含本文所有示例的 GetStarted 解决方案，需要以下内容：
@@ -630,4 +641,4 @@ Azure Cosmos DB 支持删除 JSON 文档。
 
 [create-account]: create-sql-api-dotnet.md#create-account
 [keys]: media/sql-api-nodejs-get-started/node-js-tutorial-keys.png
-<!-- Update_Description: new articles on SQL api nodejs started -->
+<!-- Update_Description: update meta properties, wording update -->

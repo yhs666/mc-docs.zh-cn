@@ -1,5 +1,5 @@
 ---
-title: "Azure 中继 API 概述 | Azure"
+title: "Azure 中继 API 概述"
 description: "可用的 Azure 中继 API 概述"
 services: event-hubs
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/05/2017
+origin.date: 01/23/2018
 ms.author: v-yiso
-ms.date: 11/06/2017
-ms.openlocfilehash: 2faa4df602bc36fb93908b39175d8acff61af0c7
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.date: 03/12/2018
+ms.openlocfilehash: c889a2e6e48d07d168c4f1a3a321a613dcbdf82c
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="available-relay-apis"></a>可用的中继 API
 
@@ -35,10 +35,11 @@ ms.lasthandoff: 10/30/2017
 | .NET framework | WCF 中继 | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | 不适用 |
 | 节点 | 混合连接 | [`hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[`hyco-websocket`](https://www.npmjs.com/package/hyco-websocket) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
-### <a name="additional-information"></a> 其他信息
+### <a name="additional-information"></a>其他信息
 
 #### <a name="net"></a>.NET
-.NET 生态系统具有多个运行时，因此事件中心有多个 .NET 库。 可以使用 .NET Core 或 .NET Framework 运行 .NET Standard 库，但 .NET Framework 库只能在 .NET Framework 环境中运行。 有关 .NET Frameworks 的详细信息，请参阅 [framework 版本](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions)。
+
+.NET 生态系统具有多个运行时，因此事件中心有多个 .NET 库。 可以使用 .NET Core 或 .NET Framework 运行 .NET Standard 库，但 .NET Framework 库只能在 .NET Framework 环境中运行。 有关 .NET Frameworks 的详细信息，请参阅 [framework 版本](/dotnet/articles/standard/frameworks#framework-versions)。
 
 ## <a name="next-steps"></a>后续步骤
 若要了解有关 Azure 中继的详细信息，请访问以下链接：

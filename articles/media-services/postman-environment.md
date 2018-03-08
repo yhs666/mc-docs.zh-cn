@@ -2,7 +2,7 @@
 title: 导入 Postman 环境，以便进行 Azure 媒体服务 REST 调用 description: 本主题提供了 Postman 环境的定义，以便用于 Azure 媒体服务 REST 调用。
 services: media-services documentationcenter: '' author: yunan2016 manager: digimobile editor: ''
 
-ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: article origin.date: 01/04/2017 ms.date: 01/22/2018 ms.author: v-nany
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: article origin.date: 01/04/2018 ms.date: 02/27/2018 ms.author: v-nany
 
 ---
 
@@ -86,4 +86,3 @@ ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na m
   "_postman_exported_using": "Postman/5.5.0"
 }
 ```
-

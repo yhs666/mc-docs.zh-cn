@@ -1,5 +1,5 @@
 ---
-title: "在 Azure 应用服务中监视应用 | Azure"
+title: "在 Azure 应用服务中监视应用"
 description: "了解如何使用 Azure 门户在 Azure 应用服务中监视应用。"
 services: app-service
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
-ms.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: c924a883198b95ff032f472d46e77d8038da71ce
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.openlocfilehash: e82bea13a651b5928d1502f8520f04d83480d3be
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>如何：在 Azure 应用服务中监视 Web 应用
 [应用服务](app-service-web-overview.md)在 [Azure 门户](https://portal.azure.cn)中提供了内置监视功能。

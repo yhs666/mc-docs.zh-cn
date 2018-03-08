@@ -1,5 +1,5 @@
 ---
-title: "Azure 中的 SQLRuleAction 语法参考 | Microsoft Docs"
+title: "Azure 中的 SQLRuleAction 语法参考"
 description: "有关 SQLRuleAction 语法的详细信息。"
 services: service-bus-messaging
 documentationcenter: na
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/07/2017
-ms.date: 02/05/2018
+origin.date: 02/05/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1e462c038fd755fdc5678912c27c2cfcc79c5042
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 106c0ba33108a2418a23218b79449578d5c368da
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction 语法
 
-SqlRuleAction 是 [SqlRuleAction](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) 类的实例，代表以基于 SQL 语言的语法编写的一组操作，该语法针对 [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 执行。   
-
+SqlRuleAction 是 [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) 类的实例，代表以基于 SQL 语言的语法编写的一组操作，该语法针对 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 执行。   
+  
 本文列出了有关 SQL 规则操作语法的详细信息。  
 
 ```  
@@ -64,9 +64,9 @@ SqlRuleAction 是 [SqlRuleAction](https://docs.microsoft.com/dotnet/api/microsof
 ``` 
 
 ## <a name="arguments"></a>参数  
-
--   `<scope>` 是一个可选字符串，指示 `<property_name>` 的范围。 有效值为 `sys` or `user`进行求值的基于 SQL 语言的筛选器表达式。 `sys` 值指示系统范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)的公共属性名称。 `user` 指示用户范围，其中 `<property_name>` 是 [BrokeredMessage 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)字典的项。 `user` 范围是默认范围（如果 `<scope>` 未指定）。  
-
+  
+-   `<scope>` 是一个可选字符串，指示 `<property_name>` 的范围。 有效值为 `sys` or `user`进行求值的基于 SQL 语言的筛选器表达式。 `sys` 值指示系统范围，其中 `<property_name>` 是 [BrokeredMessage 类](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)的公共属性名称。 `user` 指示用户范围，其中 `<property_name>` 是 [BrokeredMessage 类](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)字典的项。 `user` 范围是默认范围（如果 `<scope>` 未指定）。  
+  
 ### <a name="remarks"></a>备注  
 
 访问不存在的系统属性的尝试是错误，访问不存在的用户属性的尝试不是错误。 相反，不存在的用户属性在内部作为未知值进行求值。 在运算符求值过程中，未知值的处理方式很特殊。  
@@ -218,9 +218,9 @@ SqlRuleAction 是 [SqlRuleAction](https://docs.microsoft.com/dotnet/api/microsof
 - 表达式类型和现有属性类型不同时，SET 会在可能的情况下执行隐式转换。
 - 如果引用不存在的系统属性，操作会失败。
 - 如果引用不存在的用户属性，操作不会失败。
-- 不存在的用户属性在内部的求值为“未知”，其遵循的语义与 [SQLFilter](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 相同（在对运算符求值时）。
+- 不存在的用户属性在内部的求值为“未知”，其遵循的语义与 [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 相同（在对运算符求值时）。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [SQLRuleAction 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-- [SQLFilter 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLRuleAction 类](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [SQLFilter 类](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)

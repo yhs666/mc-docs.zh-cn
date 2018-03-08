@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/20/2017
-ms.date: 12/11/2017
+ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: da49c136ce310569fc7935192bfdac7d9b5d8977
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 9fa480ecaffd113f3e26cd15e356013cd41534be
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>创建和修改 ExpressRoute 线路
 
@@ -31,10 +31,10 @@ ms.lasthandoff: 12/01/2017
 > * [PowerShell（经典）](expressroute-howto-circuit-classic.md)
 >
 
-本文介绍如何使用 Azure 门户和 Azure 资源管理器部署模型创建 Azure ExpressRoute 线路。 以下步骤还说明如何查看线路状态，以及如何更新、删除和取消预配线路。
+本文介绍如何使用 Azure 门户和 Azure Resource Manager 部署模型创建 Azure ExpressRoute 线路。 以下步骤还说明如何查看线路状态，以及如何更新、删除和取消预配线路。
 
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 - 在开始配置之前，请查看[先决条件](./expressroute-prerequisites.md)和[工作流](./expressroute-workflows.md)。
 - 确保有权访问 [Azure 门户](https://portal.azure.cn)。
@@ -52,10 +52,10 @@ ms.lasthandoff: 12/01/2017
 > 
 > 
 
-1. 可以通过选择创建新资源的选项来创建 ExpressRoute 线路。 单击“新建” > “网络” > “ExpressRoute”，如下图所示：
+1. 可以通过选择创建新资源的选项来创建 ExpressRoute 线路。 单击“创建资源” > “网络” > “ExpressRoute”，如下图所示：
 
     ![创建 ExpressRoute 线路](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
-2. 单击“ExpressRoute”即可看到“创建 ExpressRoute 线路”页。 在此页中填充值时，请务必指定正确的 SKU 层和数据计量方式。
+2. 单击“ExpressRoute”即可看到“创建 ExpressRoute 线路”页。 在此页上填写相应值时，请务必指定正确的 SKU 层和数据计量计费模型（“无限制”或“按流量计费”）。
 
   ![配置 SKU 层和数据计量](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 12/01/2017
 提供商状态：正在预配<BR>
 线路状态：已启用
 
-只有 ExpressRoute 线路处于以下状态时，才能使用它。
+ExpressRoute 线路必须处于以下状态时才能使用：
 
 提供商状态：已预配<BR>
 线路状态：已启用
@@ -136,7 +136,7 @@ ms.lasthandoff: 12/01/2017
 > [!IMPORTANT]
 > 如果现有端口上的容量不足，可能需要重新创建 ExpressRoute 线路。 如果该位置没有额外的可用容量，则不能升级线路。
 >
-> 但是，无法在不中断的情况下降低 ExpressRoute 线路的带宽。 带宽降级需要取消对 ExpressRoute 线路的预配，并重新预配新的 ExpressRoute 线路。
+> 尽管你可无缝升级带宽，但是无法在不中断的情况下降低 ExpressRoute 线路的带宽。 带宽降级需要取消对 ExpressRoute 线路的预配，并重新预配新的 ExpressRoute 线路。
 > 
 > 如果要使用的资源超出了标准线路所允许的范围，可能无法禁用 Premium 加载项。
 > 

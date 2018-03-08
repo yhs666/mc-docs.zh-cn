@@ -1,5 +1,5 @@
 ---
-title: "在远程监视解决方案中排查设备问题 - Azure | Microsoft Docs"
+title: "在远程监视解决方案中排查设备问题"
 description: "本教程介绍如何在远程监视解决方案中排查和修正设备问题。"
 services: 
 suite: iot-suite
@@ -7,17 +7,17 @@ author: dominicbetts
 manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
-origin.date: 12/12/2017
-ms.date: 01/08/2018
+origin.date: 02/22/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: b3223ee01381c7c504d7442d0de6eef9c4e241e4
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 77433be9c4aa9a1c4495b51480fae8c8da21d0de
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>排查和修正设备问题
 
@@ -59,6 +59,8 @@ Contoso 正在现场测试某个新的**原型**设备。 在测试期间，Cont
 
 ![确认警报](./media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
+确认警报时，发生项的状态更改为“已确认”。
+
 在列表中，可以看到负责触发温度警报的**原型**设备：
 
 ![导致生成警报的设备列表](./media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
@@ -85,7 +87,7 @@ Contoso 正在现场测试某个新的**原型**设备。 在测试期间，Cont
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程已介绍以下操作：
+本教程介绍如何执行下列操作：
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

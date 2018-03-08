@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/19/2017
-ms.date: 01/29/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7da6ea83f999eb994e3b5617d25a6af7eeb9fe2e
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 139d1bddb71697fa06167de0989c92791eb2d5b6
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>将 MongoDB 应用程序连接到 Azure Cosmos DB
 了解如何使用 MongoDB 连接字符串，将 MongoDB 应用连接到 Azure Cosmos DB 帐户。 然后，可使用 Azure Cosmos DB 数据库作为 MongoDB 应用的数据存储。 
@@ -35,7 +35,8 @@ ms.lasthandoff: 01/23/2018
 - 一个 Azure 帐户。 如果没有 Azure 帐户，请立即创建一个 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 - 一个 Azure Cosmos DB 帐户。 有关说明，请参阅[使用 .NET 和 Azure 门户生成 MongoDB API Web 应用](create-mongodb-dotnet.md)。
 
-## <a id="QuickstartConnection"></a>使用快速启动方法获取 MongoDB 连接字符串
+<a name="QuickstartConnection"></a>
+## <a name="get-the-mongodb-connection-string-by-using-the-quick-start"></a>使用快速启动方法获取 MongoDB 连接字符串
 1. 在 Internet 浏览器中，登录 [Azure 门户](https://portal.azure.cn)。
 2. 在“Azure Cosmos DB”边栏选项卡中，选择适用于 MongoDB 帐户的 API。 
 3. 在“帐户”边栏选项卡左侧窗格中，单击“快速启动”。 
@@ -44,7 +45,8 @@ ms.lasthandoff: 01/23/2018
 
     ![“快速启动”边栏选项卡](./media/connect-mongodb-account/QuickStartBlade.png)
 
-## <a id="GetCustomConnection"></a> 获取要自定义的 MongoDB 连接字符串
+<a name="GetCustomConnection"></a>
+## <a name="get-the-mongodb-connection-string-to-customize"></a>获取要自定义的 MongoDB 连接字符串
 1. 在 Internet 浏览器中，登录 [Azure 门户](https://portal.azure.cn)。
 2. 在“Azure Cosmos DB”边栏选项卡中，选择适用于 MongoDB 帐户的 API。 
 3. 在“帐户”边栏选项卡的左侧窗格中，单击“连接字符串”。 
@@ -76,7 +78,7 @@ Azure Cosmos DB 支持标准 MongoDB 连接字符串 URI 格式，但要满足�
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.cn:10255/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>后续步骤
-* 了解如何配合[使用 MongoChef](mongodb-mongochef.md) 与 Azure Cosmos DB API for MongoDB 帐户。
+* 了解如何配合[使用 Studio 3T (MongoChef)](mongodb-mongochef.md) 与 Azure Cosmos DB API for MongoDB 帐户。
 * 查看[示例](mongodb-samples.md)，了解 Azure Cosmos DB API for MongoDB。
 
 <!--Update_Description: update meta properties, wording update-->

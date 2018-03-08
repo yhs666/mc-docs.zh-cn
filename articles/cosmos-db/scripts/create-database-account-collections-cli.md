@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 脚本 - 创建 Azure Cosmos DB DocumentDB API 帐户、数据库和集合 | Azure"
-description: "Azure CLI 脚本示例 - 创建 Azure Cosmos DB DocumentDB API 帐户、数据库和集合"
+title: "Azure CLI 脚本 - 创建 Azure Cosmos DB SQL API 帐户、数据库和集合 | Azure"
+description: "Azure CLI 脚本示例 - 创建 Azure Cosmos DB SQL API 帐户、数据库和集合"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: rockboyfor
@@ -15,36 +15,33 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/06/2017
-ms.date: 08/07/2017
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0e369e90df33c4b6c6fd6f194d3beea01ce8d886
-ms.sourcegitcommit: ac68295ed08ebd9bde695e474056496e0a2911e3
+ms.openlocfilehash: 95698c16cb029e7b21997fa6b6abf463b919e893
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="azure-cosmos-db-create-an-documentdb-api-account-using-cli"></a>Azure Cosmos DB：使用 CLI 创建 DocumentDB API 帐户
+# <a name="azure-cosmos-db-create-an-sql-api-account-using-cli"></a>Azure Cosmos DB：使用 CLI 创建 SQL API 帐户
 
-此示例 CLI 脚本创建了 Azure Cosmos DB DocumentDB API 帐户、数据库和集合。  
+此示例 CLI 脚本创建了一个 Azure Cosmos DB SQL API 帐户、数据库和集合。  
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-<!-- Not Available [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-本主题需要运行 Azure CLI 版本 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+本主题需要运行 Azure CLI 版本 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
 ## <a name="sample-script"></a>示例脚本
 
 ```azurecli-interactive
 #!/bin/bash
 
-# Set variables for the new account, database, collection and url 
-# It is mandatory to set url parameter when try to create the database and collection in Azure China. 
+# Set variables for the new account, database, and collection
 resourceGroupName='myResourceGroup'
-location='chinaeast'
+location='chinanorth'
 name='docdb-test'
 databaseName='docdb-test-database'
 collectionName='docdb-test-collection'
-url='https://'${databaseName}'-'${location}'.documents.azure.cn:443/'
 
 # Create a resource group
 az group create \
@@ -63,16 +60,14 @@ az cosmosdb create \
 az cosmosdb database create \
     --name $name \
     --db-name $databaseName \
-    --resource-group $resourceGroupName \
-    --url-connection $url
+    --resource-group $resourceGroupName
 
 # Create a collection
 az cosmosdb collection create \
     --collection-name $collectionName \
     --name $name \
     --db-name $databaseName \
-    --resource-group $resourceGroupName \
-    --url-connection $url
+    --resource-group $resourceGroupName
 
 ```
 
@@ -80,7 +75,7 @@ az cosmosdb collection create \
 
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 
@@ -88,15 +83,15 @@ az group delete --name myResourceGroup
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
-| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#create) | 创建 Azure Cosmos DB 帐户。 |
-| [az group delete](https://docs.microsoft.com/cli/azure/resource#delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) | 创建 Azure Cosmos DB 帐户。 |
+| [az group delete](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az_resource_delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest)。
 
 有关其他 Azure Cosmos DB CLI 脚本示例，请参见 [Azure Cosmos DB CLI 文档](../cli-samples.md)。
 

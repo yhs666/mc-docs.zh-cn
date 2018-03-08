@@ -1,23 +1,23 @@
 ---
-title: "部署 Java 远程监视解决方案 - Azure | Microsoft Docs"
-description: "本教程演示如何使用 CLI 预配远程监视预配置解决方案 Java 微服务。"
+title: "部署 Java 远程监视解决方案"
+description: "本教程演示如何使用 CLI 预配远程监视预配置解决方案。"
 services: 
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
-origin.date: 12/12/2017
-ms.date: 01/08/2018
+origin.date: 01/29/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 8ac2594220864345beff6a96d1f3082fd05b8409
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 307be26dc7b731dfe26ae0d91278a3df6aa62b3a
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution-using-the-cli"></a>使用 CLI 部署远程监视预配置解决方案
 
@@ -55,8 +55,10 @@ pcs login
 
 | 选项 | 值 | 说明 |
 | ------ | ------ | ----------- |
-| SKU    | `basic`, `standard` | 基本部署适用于测试和演示，它将所有微服务部署到一个虚拟机上。 标准部署适用于生产，它将微服务部署到多个虚拟机上。 |
+| SKU    | `basic`、`standard`、`local` | 基本部署适用于测试和演示，它将所有微服务部署到一个虚拟机上。 标准部署适用于生产，它将微服务部署到多个虚拟机上。 本地部署通过配置 Docker 容器在本地计算机中运行微服务，并在云中使用 Azure 服务（如存储和 Cosmos DB）。 |
 | 运行时 | `dotnet`, `java` | 选择微服务的语言实现。 |
+
+要了解如何使用本地部署，请参阅 [Running the remote monitoring solution locally](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables)（在本地运行远程监视解决方案）。
 
 ## <a name="deploy-the-preconfigured-solution"></a>部署预配置解决方案
 

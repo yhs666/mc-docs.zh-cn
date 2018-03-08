@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-origin.date: 05/24/2017
-ms.date: 07/17/2017
+origin.date: 01/16/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6d4caa101dcfa190cc359169a5184ad2b1a84944
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 5ccc4e7e9011e725c37e2dc99653d9c71d149770
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具和 ODBC 驱动程序连接到 Azure Cosmos DB
 
@@ -35,13 +35,16 @@ Azure Cosmos DB 是一种无架构数据库，它允许应用程序即时迭代�
 
 现在，让我们学习 ODBC 驱动程序的入门知识。
 
-## <a id="install"></a>第 1 步：安装 Azure Cosmos DB ODBC 驱动程序
+<a name="install"></a>
+## <a name="step-1-install-the-azure-cosmos-db-odbc-driver"></a>步骤 1：安装 Azure Cosmos DB ODBC 驱动程序
 
 1. 下载适用于环境的驱动程序：
 
-    * [Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64)（适用于 64 位 Windows）
-    * [Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64)（适用于 32 位或 64 位 Windows）
-    * [Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32)（适用于 32 位 Windows）
+    | 安装程序 | 支持的操作系统| 
+    |---|---| 
+    |[Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/documentdb-odbc-64x64)（适用于 64 位 Windows）| 64 位的 Windows 8.1 或更高版本、Windows 8、Windows 7、Windows Server 2012 R2、Windows Server 2012 和 Windows Server 2008 R2。| 
+    |[Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/documentdb-odbc-32x64)（适用于 32 位或 64 位 Windows）| 64 位的 Windows 8.1 或更高版本、Windows 8、Windows 7、Windows XP、Windows Vista、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 和 Windows Server 2003。| 
+    |[Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/documentdb-odbc-32x32)（适用于 32 位 Windows）|32 位的 Windows 8.1 或更高版本、Windows 8、Windows 7、Windows XP 和 Windows Vista。|
 
     在本地运行 msi 文件，启动 **Azure Cosmos DB ODBC 驱动程序安装向导**。 
 2. 使用默认输入完成安装向导，安装 ODBC 驱动程序。
@@ -50,7 +53,8 @@ Azure Cosmos DB 是一种无架构数据库，它允许应用程序即时迭代�
 
     ![Azure Cosmos DB ODBC 数据源管理器](./media/odbc-driver/odbc-driver.png)
 
-## <a id="connect"></a>第 2 步：连接到 Azure Cosmos DB 数据库
+<a name="connect"></a>
+## <a name="step-2-connect-to-your-azure-cosmos-db-database"></a>步骤 2：连接到 Azure Cosmos DB 数据库
 
 1. [安装 Azure Cosmos DB ODBC 驱动程序](#install)后，在“ODBC 数据源管理器”窗口中单击“添加”。 可以创建一个用户 DSN 或系统 DSN。 在本示例中，我们创建一个用户 DSN。
 2. 在“创建新数据源”窗口中选择“Azure Cosmos DB ODBC 驱动程序”，然后单击“完成”。
@@ -59,9 +63,9 @@ Azure Cosmos DB 是一种无架构数据库，它允许应用程序即时迭代�
     ![“Azure Cosmos DB ODBC 驱动程序 DSN 设置”窗口](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **数据源名称**：ODBC DSN 的友好名称。 此名称对于 Azure Cosmos DB 帐户是唯一的，因此，如果有多个帐户，请适当地为数据源命名。
     - **说明**：数据源的简短说明。
-    - 主机：Azure Cosmos DB 帐户的 URI。 可通过 Azure 门户中的“Azure Cosmos DB 密钥”边栏选项卡检索此信息，如以下屏幕截图所示。 
-    - **访问密钥**：从 Azure 门户中的“Azure Cosmos DB 密钥”边栏选项卡获取的主要或辅助读写/只读密钥，如以下屏幕截图所示。 如果 DSN 用于只读数据的处理和报告，我们建议使用只读密钥。
-    ![“Azure Cosmos DB 密钥”边栏选项卡](./media/odbc-driver/odbc-driver-keys.png)
+    - 主机：Azure Cosmos DB 帐户的 URI。 可在 Azure 门户的“Azure Cosmos DB 密钥”页中检索此信息，如以下屏幕截图所示。 
+    - **访问密钥**：从 Azure 门户中“Azure Cosmos DB 密钥”页获取的主要或辅助读写或只读密钥，如以下屏幕截图所示。 如果 DSN 用于只读数据的处理和报告，我们建议使用只读密钥。
+    ![“Azure Cosmos DB 密钥”页](./media/odbc-driver/odbc-driver-keys.png)
     - **加密以下对象的访问密钥**：根据此计算机的用户选择最合适的选项。 
 4. 单击“测试”按钮，确保可以连接到 Azure Cosmos DB 帐户。 
 5. 单击“高级选项”  并设置以下值：
@@ -76,7 +80,8 @@ Azure Cosmos DB 是一种无架构数据库，它允许应用程序即时迭代�
 
     ![“用户 DSN”选项卡上的新 Azure Cosmos DB ODBC DSN](./media/odbc-driver/odbc-driver-user-dsn.png)
 
-## <a id="#collection-mapping"></a>步骤 3：使用集合映射方法创建架构定义
+<a name="#collection-mapping"></a>
+## <a name="step-3-create-a-schema-definition-using-the-collection-mapping-method"></a>步骤 3：使用集合映射方法创建架构定义
 
 可以使用两种类型的采样方法：**集合映射**或**表分隔符**。 采样会话可以利用这两种采样方法，但每个集合只能使用特定的采样方法。 以下步骤使用集合映射方法为一个或多个集合中的数据创建架构。 此采样方法会检索集合页面中的数据，确定数据的结构。 它会将集合转置到 ODBC 端的某个表。 如果集合中的数据是同构的，此采样方法十分快速高效。 如果集合包含异构类型的数据，我们建议使用[表分隔符映射方法](#table-mapping)，因为这是确定集合中数据结构的更可靠采样方法。 
 
@@ -95,7 +100,8 @@ Azure Cosmos DB 是一种无架构数据库，它允许应用程序即时迭代�
     以后如果想要配合 DSN 使用此架构，请打开“Azure Cosmos DB ODBC 驱动程序 DSN 设置”窗口（通过“ODBC 数据源管理器”），单击“高级选项”，并在“架构文件”框中导航到保存的架构。 将架构文件保存到现有 DSN 会将 DSN 连接范围修改为架构定义的数据和结构。
 
 <a name="schema-editor"></a>
-## <a id="table-mapping"></a>步骤 4：使用表分隔符映射方法创建架构定义
+<a name="table-mapping">
+## <a name="astep-4-create-a-schema-definition-using-the-table-delimiters-mapping-method"></a></a>步骤 4：使用表分隔符映射方法创建架构定义
 
 可以使用两种类型的采样方法：**集合映射**或**表分隔符**。 采样会话可以利用这两种采样方法，但每个集合只能使用特定的采样方法。 
 
@@ -150,4 +156,5 @@ Azure Cosmos DB 是一种无架构数据库，它允许应用程序即时迭代�
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解有关 Azure Cosmos DB 的详细信息，请参阅[什么是 Azure Cosmos DB？](introduction.md)。
+若要了解有关 Azure Cosmos DB 的详细信息，请参阅[欢迎使用 Azure Cosmos DB](introduction.md)。
+<!-- Update_Description: update meta properties, wording update -->

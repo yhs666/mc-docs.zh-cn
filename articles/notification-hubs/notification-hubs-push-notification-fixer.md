@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/22/2017
 ms.date: 01/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 379e3eed963ee5cc62a237c3acf1f483274293ca
-ms.sourcegitcommit: c0a9889921cd1ee52d58255a5a2db5e7930c4a4b
+ms.openlocfilehash: 26c77f7bcf603929d72cc6ce84d2245d82c6a442
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="diagnose-dropped-notifications-in-notification-hubs"></a>诊断通知中心的已删除通知
 
@@ -29,9 +29,9 @@ Azure 通知中心客户提出的最常见问题之一是如何排查以下问�
 
 ![通知中心体系结构][0]
 
-在典型的发送通知流中，消息从*应用程序后端*发送到通知中心。 通知中心对所有注册进行一些处理。 处理时会考虑配置的标记和标记表达式，以确定“目标”。 目标是指需要接收推送通知的所有注册。 这些注册可以横跨各种受支持的平台：iOS、Google、Windows、Windows Phone、Kindle 和 Baidu for China Android。
+在典型的发送通知流中，消息从*应用程序后端*发送到通知中心。 通知中心对所有注册进行一些处理。 处理时会考虑配置的标记和标记表达式，以确定“目标”。 目标是指需要接收推送通知的所有注册。 这些注册可以横跨各种受支持的平台：iOS、Windows、Windows Phone、Kindle 和 Baidu for China Android。
 
-确定目标之后，通知中心将通知推送到设备平台的*推送通知服务*。 示例包括适用于 Apple 的 Apple Push Notification 服务 (APNs) 和适用于 Google 的 Firebase Cloud Messaging (FCM)。 通知中心推送跨多批注册拆分的通知。 通知中心基于你在 Azure 门户的“配置通知中心”下设置的凭据，向各自的推送通知服务验证身份。 然后，推送通知服务将通知转发到各自的*客户端设备*。 
+确定目标之后，通知中心将通知推送到设备平台的*推送通知服务*。 示例包括适用于 Apple 的 Apple Push Notification 服务 (APNs)。 通知中心推送跨多批注册拆分的通知。 通知中心基于你在 Azure 门户的“配置通知中心”下设置的凭据，向各自的推送通知服务验证身份。 然后，推送通知服务将通知转发到各自的*客户端设备*。 
 
 请注意，通知传递的最后一步在平台推送通知服务与设备之间进行。 推送通知过程中四个主要组件（客户端、应用程序后端、通知中心和平台推送通知服务）的任意一个都有可能导致通知被删除。 有关通知中心体系结构的详细信息，请参阅[通知中心概述]。
 
@@ -40,7 +40,7 @@ Azure 通知中心客户提出的最常见问题之一是如何排查以下问�
 下一节将着眼于各种可能删除通知的场景，从常见类型到更加稀有的类型一应俱全。
 
 ## <a name="notification-hubs-misconfiguration"></a>通知中心配置错误
-若要成功将通知发送到各自的推送通知服务，通知中心需要在开发人员的应用程序环境中对自身进行身份验证。 为此，开发人员可在各自的平台（Google、Apple、Windows 等）中创建开发人员帐户。 然后，开发人员向从中获取凭据的平台注册自己的应用程序。 
+若要成功将通知发送到各自的推送通知服务，通知中心需要在开发人员的应用程序环境中对自身进行身份验证。 为此，开发人员可在各自的平台（Apple、Windows 等）中创建开发人员帐户。 然后，开发人员向从中获取凭据的平台注册自己的应用程序。 
 
 你必须将平台凭据添加到 Azure 门户中。 如果设备未收到任何通知，第一步应该确保在通知中心配置正确的凭据。 凭据必须与在平台特定开发人员帐户下创建的应用程序相匹配。 
 
@@ -100,7 +100,7 @@ Azure 通知中心客户提出的最常见问题之一是如何排查以下问�
 
 如果推送通知服务尝试传递通知，但设备处于脱机状态，则推送通知服务会短暂存储通知。 等设备可用时再将通知传递到设备。 
 
-对于每个应用，仅存储一个最新通知。 如果在设备处于脱机状态时发送了多个通知，则每个新通知将导致前一个通知被放弃。 只保留最新通知的行为在 APNs 中被称为*合并通知*，在 FCM（它使用折叠密钥）中被称为*折叠通知*。 如果设备长时间处于脱机状态，则放弃为它存储的所有通知。 有关详细信息，请参阅 [APNs overview]（APN 概述）和 [About FCM messages]（关于 FCM 消息）。
+对于每个应用，仅存储一个最新通知。 如果在设备处于脱机状态时发送了多个通知，则每个新通知将导致前一个通知被放弃。 只保留最新通知的行为在 APNs 中称为“合并通知”。 如果设备长时间处于脱机状态，则放弃为它存储的所有通知。 有关详细信息，请参阅 [APNs 概述]。
 
 在 Azure 通知中心，可以使用泛型 SendNotification API 通过 HTTP 标头来传递合并密钥。 例如，对于 .NET SDK，你会使用 **SendNotificationAsync**。 SendNotification API 还会将按原样传递的 HTTP 标头传递到各自的推送通知服务。 
 
@@ -256,8 +256,7 @@ Azure 通知中心客户提出的最常见问题之一是如何排查以下问�
 [通知中心概述]: notification-hubs-push-notification-overview.md
 [Azure 通知中心入门]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [模板]: https://msdn.microsoft.com/library/dn530748.aspx 
-[APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html（APNs 概述）
-[About FCM messages]: https://firebase.google.com/docs/cloud-messaging/concept-options（关于 FCM 消息）
+[APNs 概述]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html（APNs 概述）
 [Export and modify registrations in bulk]: http://msdn.microsoft.com/library/dn790624.aspx
 [服务总线资源管理器]: https://msdn.microsoft.com/library/dn530751.aspx#sb_explorer
 [服务总线资源管理器代码]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a

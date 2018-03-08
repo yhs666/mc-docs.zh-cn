@@ -1,5 +1,5 @@
 ---
-title: "Azure 服务总线暂停消息实体 | Microsoft Docs"
+title: "Azure 服务总线暂停消息实体"
 description: "暂停和重新激活 Azure 服务总线消息实体。"
 services: service-bus
 documentationcenter: 
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/03/2017
-ms.date: 11/13/2017
+origin.date: 01/26/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: eb4eb363c772eaf8056055ceaa030163035d4979
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.openlocfilehash: a014dc2080d6e9650abba9ae6122ed6ca6cb69aa
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>暂停（禁用）和重新激活消息实体
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/03/2017
 
 ![][1]
 
-门户只容许完全禁用队列。 也可以单独禁用发送和接收操作，方法是在 .NET Framework SDK 中使用服务总线 [NamespaceManager](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.namespacemanager) API，或通过 Azure CLI 或 Azure PowerShell 使用 Azure 资源管理器模板。
+门户只容许完全禁用队列。 也可以单独禁用发送和接收操作，方法是在 .NET Framework SDK 中使用服务总线 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API，或通过 Azure CLI 或 Azure PowerShell 使用 Azure 资源管理器模板。
 
 ## <a name="suspension-states"></a>暂停状态
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/03/2017
 
 对于订阅和主题，只能设置“Active”和“Disabled”。
 
-[EntityStatus](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.entitystatus) 枚举还定义了一组只能由系统设置的过渡状态。 下面的示例展示了用于禁用队列的 PowerShell 命令。 重新激活命令等同于以下示例，只需将 `Status` 设置为“Active”即可。
+[EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) 枚举还定义了一组只能由系统设置的过渡状态。 下面的示例展示了用于禁用队列的 PowerShell 命令。 重新激活命令等同于以下示例，只需将 `Status` 设置为“Active”即可。
 
 ```powershell
 $q = Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue

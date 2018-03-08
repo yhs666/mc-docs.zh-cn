@@ -1,5 +1,5 @@
 ---
-title: "远程监视解决方案中的高级监视 - Azure | Microsoft Docs"
+title: "远程监视解决方案中的高级监视"
 description: "本教程介绍如何使用远程监视解决方案仪表板监视设备。"
 services: 
 suite: iot-suite
@@ -7,17 +7,17 @@ author: dominicbetts
 manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
-origin.date: 12/12/2017
-ms.date: 01/08/2018
+origin.date: 02/22/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 825e8e27de65bad91bd1dfef6d897b02b134d6bf
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 8c30bc0fb6818b329061544fc75b171fad4faf02
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>使用远程监视解决方案执行高级监视
 

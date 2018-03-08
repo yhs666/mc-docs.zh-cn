@@ -1,5 +1,5 @@
 ---
-title: "远程监视解决方案中的设备管理 - Azure | Microsoft Docs"
+title: "远程监视解决方案中的设备管理"
 description: "本教程介绍如何管理与远程监视解决方案连接的设备。"
 services: 
 suite: iot-suite
@@ -7,17 +7,17 @@ author: dominicbetts
 manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
-origin.date: 12/12/2017
-ms.date: 01/08/2018
+origin.date: 02/22/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 30e6dc61c3b1d71eb9435ad1c4ec3f27f46b6274
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: ab99c2cb279e88a1c48a75ac1626e8c62e3fc362
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>管理和配置设备
 
@@ -43,11 +43,11 @@ Contoso 订购了新的机器，以扩建其某处生产场地来提高产量。
 
 ## <a name="add-a-simulated-device"></a>添加模拟设备
 
-在解决方案中导航到“设备”页，然后选择“新建设备”。 在“新建设备”面板中，选择“模拟”：
+在解决方案中导航到“设备”页，然后选择“+ 新建设备”。 在“新建设备”面板中，选择“模拟”：
 
-![预配模拟设备](./media/iot-suite-remote-monitoring-manage/devicesprovision.png)
+![预配模拟设备](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-将要预配的设备数保留设置为 **1**。 选择“发生故障的引擎”作为“设备模型”，并选择“应用”以创建模拟设备：
+将要预配的设备数保留设置为 **1**。 选择“故障引擎”设备模型，并选择“应用”以创建模拟设备：
 
 ![预配模拟引擎设备](./media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 

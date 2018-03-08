@@ -1,5 +1,5 @@
 ---
-title: "自定义远程监视解决方案 - Azure | Microsoft Docs"
+title: "自定义远程监视解决方案"
 description: "本文提供有关如何访问远程监视预配置解决方案的源代码的信息。"
 services: 
 suite: iot-suite
@@ -7,17 +7,17 @@ author: dominicbetts
 manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
-origin.date: 11/10/2017
-ms.date: 12/04/2017
+origin.date: 01/17/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 3034594bbf5bc0e3aa1d3b3aa5727cf401eb44c4
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 929b10bad22a5e8f9b5aabfda8b5ac48038bea8e
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="customize-the-remote-monitoring-preconfigured-solution"></a>自定义远程监视预配置解决方案
 
