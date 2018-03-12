@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 08/30/2017
 ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 39a2e6f407c0bb373a3020dedf4468826d5ed209
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: a3cdbb8e4d26641232e5febb49e9b4f61483be40
+ms.sourcegitcommit: b2ece7a9542b90975f154d29b1127c10a3cdb22d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 网络模式
 可将 Azure Service Fabric 群集与其他 Azure 网络功能集成。 本文说明如何创建使用以下功能的群集：
@@ -75,10 +75,11 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Service Fabric 模板
 
-本文中的示例使用 Service Fabric template.json。 在创建群集之前，可以使用标准门户向导下载该模板。 也可以使用[模板库](https://azure.microsoft.com/documentation/templates/?term=service+fabric)中的模板之一，例如[五节点 Service Fabric 群集](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)。
+本文中的示例使用 Service Fabric template.json。 在创建群集之前，可以使用标准门户向导下载该模板。 也可以使用[模板库](https://azure.microsoft.com/documentation/templates/?term=service+fabric)中的模板之一，例如[五节点 Service Fabric 群集](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure)。
+<!-- URL is correct on [five-node Service Fabric cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure) -->
 
 <a id="existingvnet"></a>
-## <a name="existing-virtual-network-or-subnet"></a>现有虚拟网络或子网
+## 现有虚拟网络或子网
 
 1. 将子网参数更改为现有子网的名称，并添加两个新参数以引用现有的虚拟网络：
 
