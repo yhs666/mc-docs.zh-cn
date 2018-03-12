@@ -2,8 +2,8 @@
 title: "Azure 云服务和 ASP.NET 入门 | Azure"
 description: "了解如何使用 ASP.NET MVC 和 Azure 创建多层应用程序。 该应用程序运行在云服务中，带有 web 角色和辅助角色。 它使用实体框架、SQL 数据库和 Azure 存储队列和 Blob。"
 services: cloud-services, storage
-documentationCenter: .net
-authors: Thraka
+documentationcenter: .net
+author: Thraka
 manager: timlt
 editor: 
 ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 05/15/2017
-ms.date: 12/11/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 95a1d361c31b266d20e785e25798effde5e77ceb
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 5a999840d6cabeeb532459baf1c3ace9b92aaee5
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure 云服务和 ASP.NET 入门
 
@@ -30,8 +30,7 @@ ms.lasthandoff: 12/01/2017
 本教程介绍如何在本地生成并运行应用程序、如何将其部署到 Azure 并在云中运行，以及如何从头构建。 用户可以从头构建并进行测试，之后根据用户的喜好部署步骤。
 
 ## <a name="contoso-ads-application"></a>Contoso 广告应用程序
-
-该应用程序是广告公告板。 用户通过输入文本和上传图像创建一个广告。 它们可以通过缩略图查看一个广告列表，当用户选择广告以查看详细信息时，它们可以查看完整尺寸的图像。
+该应用程序是广告公告板。 用户通过输入文本和上载图像创建一个广告。 用户可以通过缩略图查看广告列表，并在选择一个广告以查看其详细信息时，查看完整尺寸的图像。
 
 ![广告列表](./media/cloud-services-dotnet-get-started/list.png)
 
@@ -135,7 +134,7 @@ ms.lasthandoff: 12/01/2017
 Azure 云服务是该应用程序将运行的环境。
 
 1. 在浏览器中，打开 [Azure 门户](https://portal.azure.cn)。
-2. 单击“新建”>“计算”>“云服务”。
+2. 单击“创建资源”>“计算”>“云服务”。
 
 3. 在 DNS 名称输入框中，输入云服务的 URL 前缀。
 
@@ -145,7 +144,7 @@ Azure 云服务是该应用程序将运行的环境。
 5. 选择要在其中部署该应用程序的区域。
 
     此字段指定你的云服务将托管在哪个数据中心。 对于生产应用程序，可以选择离客户最近的区域。 对于本教程，选择最近的区域。
-5. 单击“创建” 。
+5. 单击“创建”。
 
     在下图中，使用 URL csvccontosoads.chinacloudapp.cn 创建一个云服务。
 
@@ -153,9 +152,9 @@ Azure 云服务是该应用程序将运行的环境。
 
 ### <a name="create-an-azure-sql-database"></a>创建 Azure SQL 数据库
 
-在云中运行应用程序时，它将使用基于云的数据库。
+在云中运行应用程序时，它会使用基于云的数据库。
 
-1. 在 [Azure 门户](https://portal.azure.cn)中，单击“新建”>“数据库”>“SQL 数据库”。
+1. 在 [Azure 门户](https://portal.azure.cn)中，单击“创建资源”>“数据库”>“SQL 数据库”。
 2. 在“数据库名称”框中，输入 *contosoads*。
 3. 在“资源组”中，单击“使用现有资源组”，然后选择用于云服务的资源组。
 4. 在下图中，单击“服务器 - 配置所需设置”和“新建服务器”。
@@ -175,7 +174,7 @@ Azure 云服务是该应用程序将运行的环境。
 9. 针对新服务器单击“选择”。
 
     ![新建 SQL 数据库服务器](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. 单击“创建” 。
+10. 单击“创建”。
 
 ### <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 
@@ -183,7 +182,7 @@ Azure 存储帐户提供在云中存储队列和 Blob 数据的资源。
 
 在实际应用程序中，通常会为记录数据的应用程序数据创建单独的帐户，并且为生产数据的测试数据创建单独帐户。 本教程中只使用一个帐户。
 
-1. 在 [Azure 门户](https://portal.azure.cn)中，单击“新建”>“存储” >“存储帐户 - Blob、文件、表、队列”。
+1. 在 [Azure 门户](https://portal.azure.cn)中，单击“创建资源”>“存储”>“存储帐户 - Blob、文件、表、队列”。
 2. 在“名称”框中，输入 URL 前缀。
 
     此前缀加上在框下看到的文本将是存储帐户的唯一 URL。 如果其他人已使用输入的前缀，则必须选择不同的前缀。
@@ -199,7 +198,7 @@ Azure 存储帐户提供在云中存储队列和 Blob 数据的资源。
     当云服务和存储帐户位于不同的数据中心（不同区域）时，延迟将增加，并且需要为数据中心外的带宽付费。 数据中心内的带宽是免费的。
 
     Azure 地缘组实际上是一种机制，目的是最小化数据中心内不同资源之间的距离，这样可以降低延迟。 本教程不使用地缘组。 有关详细信息，请参阅 [如何在 Azure 中创建地缘组](http://msdn.microsoft.com/library/jj156209.aspx)。
-7. 单击“创建” 。
+7. 单击“创建”。
 
     ![新的存储帐户](./media/cloud-services-dotnet-get-started/newstorage.png)
 
@@ -394,7 +393,7 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 
 10. 将项目命名为 *ContosoAdsCommon*，并单击“确定”。
 
-    需要从 Web 和辅助角色项目引用实体框架上下文和数据模型。 作为一种替代方法，可以在 Web 角色项目中定义与 EF 相关的类，并从辅助角色项目中引用该项目。 但是，之后你的辅助角色项目将引用它不需要的 Web 程序集。
+    需要从 web 和辅助角色项目引用实体框架上下文和数据模型。 作为一种替代方法，可以在 Web 角色项目中定义与 EF 相关的类，并从辅助角色项目中引用该项目。 但是，之后你的辅助角色项目将引用它不需要的 Web 程序集。
 
 ### <a name="update-and-add-nuget-packages"></a>更新和添加 NuGet 包
 
@@ -478,7 +477,7 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 
 3. 在 ContosoAdsWorker 项目中，从下载的项目添加 *WorkerRole.cs* 。
 
-现在，可以按照前面教程中的说明生成并运行该应用程序，并且该应用程序将使用本地数据库和存储仿真程序资源。
+现在，可以按照前面教程中的说明生成并运行该应用程序，并且该应用程序会使用本地数据库和存储仿真程序资源。
 
 以下部分介绍与使用 Azure 环境、Blob 和队列相关的代码。 本教程未说明如何使用基架创建 MVC 控制器和视图，如何编写适用于 SQL Server 数据库的实体框架代码，或者在 ASP.NET 4.5 中的异步编程基础知识。 有关这些主题的信息，请参阅以下资源：
 
@@ -533,7 +532,7 @@ public class Ad
 
 ### <a name="contosoadscommon---contosoadscontextcs"></a>ContosoAdsCommon - ContosoAdsContext.cs
 
-ContosoAdsContext 类指定 DbSet 集合中使用的 Ad 类，实体框架将存储在 SQL 数据库中。
+ContosoAdsContext 类指定 DbSet 集合中使用的 Ad 类，实体框架存储在 SQL 数据库中。
 
 ```csharp
 public class ContosoAdsContext : DbContext

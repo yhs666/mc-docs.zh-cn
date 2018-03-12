@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 5aa86363568ce75dcd4fb6c9f0522db830b5e93d
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 03/19/2018
+ms.openlocfilehash: 0964651498c5030d4e8b023ddfd550918c5db0a9
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>如何创建和部署云服务
 Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和*自定义创建*。
@@ -45,7 +45,7 @@ Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和
 
 可以通过[此处](./cloud-services-model-and-package.md)了解有关这些内容以及如何创建包的详细信息。
 
-## <a name="prepare-your-app"></a>准备应用
+## <a name="prepare-your-app"></a>准备应用程序
 部署云服务之前，必须根据应用程序代码创建云服务包 (.cspkg)，并创建云服务配置文件 (.cscfg)。 Azure SDK 提供了用于准备这些必需的部署文件的工具。 可以从 [Azure 下载](https://www.azure.cn/downloads/)页安装 SDK，并使用要用于开发应用程序代码的语言。
 
 导出服务包之前，三种云服务功能需要特殊的配置：
@@ -58,7 +58,7 @@ Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和
 
 要使用 Web 角色或辅助角色创建云服务，必须[创建服务包](./cloud-services-model-and-package.md#servicepackagecspkg)。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 - 如果尚未安装 Azure SDK，请单击“安装 Azure SDK”打开 [Azure 下载页](https://www.azure.cn/downloads/)，然后下载要用于开发代码的相应语言的 SDK。 （也可以稍后执行此操作。）
 
@@ -67,27 +67,26 @@ Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和
 ## <a name="create-and-deploy"></a>创建和部署
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 单击“新建”>“计算”，然后向下滚动到“云服务”并单击它。
+2. 单击“创建资源”>“计算”，向下滚动到“云服务”并单击它。
 
-    ![发布云服务](./media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-
-3. 在新的“云服务”边栏选项卡中，输入“DNS 名称”的值。
+    ![发布云服务](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+3. 在新的“云服务”窗格中，输入“DNS 名称”的值。
 4. 创建一个新“资源组”  或选择一个现有的资源组。
 5. 选择“位置” 。
-6. 单击“包” 。 此时会打开“上传包”  边栏选项卡。 填写必填字段。 如果任何角色包含单个实例，请确保选中“**即使一个或多个角色包含单个实例也进行部署**”。
+6. 单击“包” 。 这将打开“上载包”窗格。 填写必填字段。 如果任何角色包含单个实例，请确保选中“**即使一个或多个角色包含单个实例也进行部署**”。
 7. 请确保选中“开始部署”  。
-8. 单击“确定”，此时会关闭“上传包”边栏选项卡。
+8. 单击“确定”，这将关闭“上载包”窗格。
 9. 如果不添加任何证书，请单击“创建”。
 
-    ![发布云服务](./media/cloud-services-how-to-create-deploy-portal/select-package.png)
+    ![发布云服务](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
 ## <a name="upload-a-certificate"></a>上传证书
 
 如果部署包已[配置为使用证书](./cloud-services-configure-ssl-certificate-portal.md#modify)，现在就可以上传证书。
 
-1. 选择“证书”，并在“添加证书”边栏选项卡中，选择 SSL 证书 .pfx 文件，然后提供证书的“密码”，
-2. 单击“附加证书”，然后单击“添加证书”边栏选项卡上的“确定”。
-3. 单击“云服务”边栏选项卡上的“创建”。 当部署达到“就绪”状态时，可以继续执行后续步骤。
+1. 选择“证书”，并在“添加证书”窗格中，选择 SSL 证书 .pfx 文件，并提供证书的**密码**，
+2. 单击“附加证书”，然后在“添加证书”窗格上单击“确定”。
+3. 在“云服务”窗格上单击“创建”。 当部署达到“就绪”状态时，可以继续执行后续步骤。
 
     ![发布云服务](./media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 

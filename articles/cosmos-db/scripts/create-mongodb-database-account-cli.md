@@ -17,11 +17,11 @@ ms.workload: database
 origin.date: 06/02/2017
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 415e72ced342d0f7fcabf9b8e380c58a4d51a503
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: ce94628ff0531ac3822149be7715b15ea0ed71e9
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-cosmos-db-create-an-mongodb-api-account-using-the-azure-cli"></a>Azure Cosmos DB：使用 Azure CLI 创建 MongoDB API 帐户
 
@@ -52,7 +52,7 @@ az group create \
 az cosmosdb create \
     --name $name \
     --kind MongoDB \
-    --locations "China North"=0 "China East"=1 \
+    --locations chinanorth=0 chinaeast=1 \
     --resource-group $resourceGroupName \
     --max-interval 10 \
     --max-staleness-prefix 200
@@ -70,6 +70,9 @@ az cosmosdb collection create \
     --db-name $databaseName \
     --resource-group $resourceGroupName
 ```
+<!-- location ADVISE TO chinanorth -->
+<!-- location MUST be the style of --locations chinanorth=0 chinaeast=1 -->
+<!-- OR it will popup the index out of range error-->
 
 ## <a name="clean-up-deployment"></a>清理部署
 

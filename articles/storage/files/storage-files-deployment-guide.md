@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 10/08/2017
 ms.date: 10/23/2017
 ms.author: v-johch
-ms.openlocfilehash: 69b74cbea7b07fa242c408f6445bf6e0cf237ea8
-ms.sourcegitcommit: fea4940a09cecbae36256410227e701e5f0aab6d
+ms.openlocfilehash: a02de57793e4ec177cb16e35150e28865139c28d
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-deploy-azure-files"></a>如何部署 Azure 文件
 [Azure 文件](storage-files-introduction.md)在云中提供完全托管的文件共享，这些共享项可通过行业标准 SMB 协议进行访问。 本文介绍如何在组织内实际部署 Azure 文件。
@@ -143,7 +143,7 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 
 ```PowerShell
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
-for item in "${dur[@]}"
+for item in "${computer[@]}"
 do
     ssh $item "sudo bash -c 'echo \"//<storage-account-name>.file.core.chinacloudapi.cn/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino\" >> /etc/fstab'", "sudo mount -a"
 done

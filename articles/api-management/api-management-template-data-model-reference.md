@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/05/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: 8f5a38751144bc1b97b91cb2d14fa119ec566c57
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 03/19/2018
+ms.openlocfilehash: b004ca96c8277a05c39bbf4752842ff4c1311725
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API 管理模板数据模型参考
 本主题介绍数据模型中常用项目的实体和类型表示形式，这些数据模型适用于 Azure API 管理中的开发人员门户模板。  
@@ -52,7 +52,7 @@ ms.lasthandoff: 02/13/2018
 -   [用户注册](#UserSignUp)  
   
 ##  <a name="API"></a> API  
- `API` 实体具有以下属性。  
+ `API` 实体具有以下属性：  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
@@ -66,7 +66,7 @@ ms.lasthandoff: 02/13/2018
 |subscriptionKeyParameterNames|object|可选属性，可用于指定包含订阅密钥的查询参数和/或标头参数的自定义名称。 如果存在此属性，则其必须包含以下两个属性中的至少一个。<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
 ##  <a name="APISummary"></a> API 摘要  
- `API summary` 实体具有以下属性。  
+ `API summary` 实体具有以下属性：  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
@@ -75,7 +75,7 @@ ms.lasthandoff: 02/13/2018
 |说明|字符串|API 的说明。 不得为空。 可以包含 HTML 格式标记。 最大长度为 1000 个字符。|  
   
 ##  <a name="Application"></a> 应用程序  
- `application` 实体具有以下属性。  
+ `application` 实体具有以下属性：  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
@@ -93,7 +93,7 @@ ms.lasthandoff: 02/13/2018
 |图标|[附件](#Attachment)|应用程序的图标。|  
   
 ##  <a name="Attachment"></a> 附件  
- `attachment` 实体具有以下属性。  
+ `attachment` 实体具有以下属性：  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
@@ -120,7 +120,7 @@ ms.lasthandoff: 02/13/2018
 |参数|[参数](#Parameter)实体的集合。|为此操作定义的参数。|  
   
 ##  <a name="Comment"></a> 注释  
- `API` 实体具有以下属性。  
+ `API` 实体具有以下属性：  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
@@ -146,7 +146,7 @@ ms.lasthandoff: 02/13/2018
 |服务|[API](#API) 实体的集合。|报告此问题的用户所订阅的 API。|  
   
 ##  <a name="Filtering"></a> 筛选  
- `filtering` 实体具有以下属性。  
+ `filtering` 实体具有以下属性：  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
@@ -186,7 +186,7 @@ ms.lasthandoff: 02/13/2018
 |representations|[表示形式](#Representation)数组|操作响应表示形式的集合。|  
   
 ##  <a name="Operation"></a> 操作  
- `operation` 实体具有以下属性。  
+ `operation` 实体具有以下属性：  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
@@ -201,7 +201,7 @@ ms.lasthandoff: 02/13/2018
 |responses|[HTTP 响应](#HTTPResponse)数组|操作 [HTTP 响应](#HTTPResponse)实体数组。|  
   
 ##  <a name="Menu"></a> 操作菜单  
- `operation menu` 实体具有以下属性。  
+ `operation menu` 实体具有以下属性：  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
@@ -211,7 +211,7 @@ ms.lasthandoff: 02/13/2018
 |MenuItems|[操作菜单项](#MenuItem)实体的集合。|当前 API 的操作。|  
   
 ##  <a name="MenuItem"></a> 操作菜单项  
- `operation menu item` 实体具有以下属性。  
+ `operation menu item` 实体具有以下属性：  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
@@ -220,7 +220,7 @@ ms.lasthandoff: 02/13/2018
 |HttpMethod|字符串|此操作的 Http 方法。|  
   
 ##  <a name="Paging"></a> 分页  
- `paging` 实体具有以下属性。  
+ `paging` 实体具有以下属性：  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
@@ -244,7 +244,7 @@ ms.lasthandoff: 02/13/2018
 |typeName|字符串|参数类型。|  
   
 ##  <a name="Product"></a> 产品  
- `product` 实体具有以下属性。  
+ `product` 实体具有以下属性：  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
@@ -254,10 +254,10 @@ ms.lasthandoff: 02/13/2018
 |术语|字符串|产品使用条款。 当开发人员尝试订阅此产品时，系统会显示这些条款，开发人员需接受这些条款才能完成订阅过程。|  
 |ProductState|number|指定产品是否已发布。 开发人员可以在开发人员门户中发现已发布的产品。 尚未发布的产品只对管理员可见。<br /><br /> 允许用于产品状态的值包括：<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
 |AllowMultipleSubscriptions|布尔值|指定用户是否可以同时拥有此产品的多个订阅。|  
-|MultipleSubscriptionsCount|number|当前用户订阅此产品时的订阅数目。|  
+|MultipleSubscriptionsCount|number|允许用户同时拥有此产品订阅的最大数。|  
   
 ##  <a name="Provider"></a> 提供程序  
- `provider` 实体具有以下属性。  
+ `provider` 实体具有以下属性：  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
@@ -271,10 +271,10 @@ ms.lasthandoff: 02/13/2018
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
 |contentType|字符串|指定此表示形式的已注册内容类型或自定义内容类型，例如 `application/xml`。|  
-|示例|字符串|表示形式的示例。|  
+|sample|字符串|表示形式的示例。|  
   
 ##  <a name="Subscription"></a> 订阅  
- `subscription` 实体具有以下属性。  
+ `subscription` 实体具有以下属性：  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
@@ -300,7 +300,7 @@ ms.lasthandoff: 02/13/2018
 |RenewUrl|字符串|用于续订订阅的相对 URL。|  
   
 ##  <a name="SubscriptionSummary"></a> 订阅摘要  
- `subscription summary` 实体具有以下属性。  
+ `subscription summary` 实体具有以下属性：  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
@@ -308,7 +308,7 @@ ms.lasthandoff: 02/13/2018
 |DisplayName|字符串|订阅的显示名称|  
   
 ##  <a name="UserAccountInfo"></a> 用户帐户信息  
- `user account info` 实体具有以下属性。  
+ `user account info` 实体具有以下属性：  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
@@ -321,7 +321,7 @@ ms.lasthandoff: 02/13/2018
 |IsBasicAccount|布尔值|如果此帐户使用电子邮件和密码注册，则为 true；如果此帐户使用提供程序注册，则为 false。|  
   
 ##  <a name="UseSignIn"></a> 用户登录  
- `user sign in` 实体具有以下属性。  
+ `user sign in` 实体具有以下属性：  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/13/2018
 |UserRegistrationTermsEnabled|布尔值|是否启用条款。|  
   
 ##  <a name="UserSignUp"></a> 用户注册  
- `user sign up` 实体具有以下属性。  
+ `user sign up` 实体具有以下属性：  
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  

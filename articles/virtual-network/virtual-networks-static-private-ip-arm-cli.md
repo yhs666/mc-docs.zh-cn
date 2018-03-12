@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/16/2017
-ms.date: 12/11/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 633e3128ebce041a5af81d90874525c488d2417f
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: ac8983ce2a34781b9d6a4fd9afe0a52f64d96f6f
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>使用 Azure CLI 为虚拟机配置专用 IP 地址
 
@@ -42,11 +42,11 @@ ms.lasthandoff: 12/08/2017
 
 若要在名为 *TestVNet* 的 VNet 的 *FrontEnd* 子网中使用静态专用 IP *192.168.1.101* 创建名为 *DNS01* 的 VM，请完成以下步骤：
 
-1. 如果尚未这样做，请安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录 Azure 帐户。 
+1. 如果尚未这样做，请安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录 Azure 帐户。 
 
     [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-2. 通过 [azure network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#create) 命令为该 VM 创建公共 IP。 在输出后显示的列表说明了所用的参数。
+2. 通过 [azure network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az_network_public_ip_create) 命令为该 VM 创建公共 IP。 在输出后显示的列表说明了所使用的参数。
 
     > [!NOTE]
     > 根据环境，可能需在该步骤及后续步骤中使用不同的参数值。
@@ -79,7 +79,7 @@ ms.lasthandoff: 12/08/2017
    * 
             `--location`：在其中创建公共 IP 的 Azure 区域。
 
-3. 运行 [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#create) 命令，创建具有静态专用 IP 的 NIC。 在输出后显示的列表说明了所用的参数。 
+3. 运行 [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az_network_nic_create) 命令，创建具有静态专用 IP 的 NIC。 在输出后显示的列表说明了所用的参数。 
 
     ```azurecli
     az network nic create \
@@ -131,7 +131,7 @@ ms.lasthandoff: 12/08/2017
     * `--vnet-name`：要在其中创建 NIC 的 VNet 的名称。
     * `--subnet`：要在其中创建 NIC 的子网的名称。
 
-4. 运行 [azure vm create](https://docs.azure.cn/zh-cn/cli/vm/nic?view=azure-cli-latest#create) 命令，以使用前面创建的公共 IP 和 NIC 创建 VM。 在输出后显示的列表说明了所使用的参数。
+4. 运行 [azure vm create](https://docs.azure.cn/zh-cn/cli/vm/nic?view=azure-cli-latest#az_vm_nic_create) 命令，以使用前面创建的公共 IP 和 NIC 创建 VM。 在输出后显示的列表说明了所使用的参数。
 
     ```azurecli
     az vm create \
@@ -159,7 +159,7 @@ ms.lasthandoff: 12/08/2017
     }
     ```
 
-   基本 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 参数之外的参数。
+   基本 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 参数之外的参数。
 
    * `--nics`：VM 附加到的 NIC 的名称。
 
@@ -277,4 +277,4 @@ rivateIpAllocationMethod,PublicAddress:publicIpAddress}'
 * 了解[实例层级公共 IP (ILPIP) 地址](virtual-networks-instance-level-public-ip.md)。
 * 查阅[保留 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

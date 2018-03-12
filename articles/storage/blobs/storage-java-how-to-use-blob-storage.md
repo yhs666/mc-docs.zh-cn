@@ -2,24 +2,18 @@
 title: "如何通过 Java 使用 Azure Blob 存储（对象存储）| Azure"
 description: "使用 Azure Blob 存储（对象存储）将非结构化数据存储在云中。"
 services: storage
-documentationcenter: java
 author: forester123
 manager: digimobile
-editor: tysonn
-ms.assetid: 2e223b38-92de-4c2f-9254-346374545d32
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: java
 ms.topic: article
 origin.date: 12/08/2016
 ms.date: 10/23/2017
 ms.author: v-johch
-ms.openlocfilehash: b926bfc1ad1a82eefa368347f1affffc8c4668aa
-ms.sourcegitcommit: fea4940a09cecbae36256410227e701e5f0aab6d
+ms.openlocfilehash: 71a731455f30d04df43c287eb2e2e6fd4b751344
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-use-blob-storage-from-java"></a>如何通过 Java 使用 Blob 存储
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -32,7 +26,7 @@ Azure Blob 存储是一种将非结构化数据作为对象/Blob 存储在云中
 本文介绍如何使用 Azure Blob 存储执行常见任务。 这些示例用 Java 编写并使用 [Azure Storage SDK for Java][Azure Storage SDK for Java]。 涉及的任务包括上传、列出、下载和删除 Blob。 有关 Blob 的详细信息，请参阅[后续步骤](#Next-Steps)部分。
 
 > [!NOTE]
-> SDK 提供给在 Android 设备上使用 Azure 存储的开发人员。 有关详细信息，请参阅[用于 Android 的 Azure 存储 SDK][Azure Storage SDK for Android]。
+> SDK 提供给在 Android 设备上使用 Azure 存储的开发人员。 有关详细信息，请参阅 [Azure Storage SDK for Android][Azure Storage SDK for Android]。
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -41,7 +35,7 @@ Azure Blob 存储是一种将非结构化数据作为对象/Blob 存储在云中
 ## <a name="create-a-java-application"></a>创建 Java 应用程序
 本文涉及使用存储功能，这些功能可在本地 Java 应用程序中运行，或在 Azure 的 Web 角色或辅助角色中通过运行的代码来运行。
 
-为此，需要安装 Java 开发工具包 (JDK)，并在 Azure 订阅中创建一个 Azure 存储帐户。 完成此操作后，需要验证开发系统是否满足最低要求和 GitHub 上的 [Azure Storage SDK for Java][Azure Storage SDK for Java] 存储库中列出的依赖项。 如果系统满足这些要求，可以按照说明下载和安装系统中该存储库的 Azure Storage Libraries for Java。 完成这些任务后，便能够创建一个 Java 应用程序，以便使用本文中的示例。
+为此，需要安装 Java 开发工具包 (JDK)，并在 Azure 订阅中创建一个 Azure 存储帐户。 完成此操作后，需要验证开发系统满足最低要求和 GitHub 上的 [Azure Storage SDK for Java][Azure Storage SDK for Java] 存储库中列出的依赖项。 如果系统满足这些要求，可以按照说明下载和安装系统中该存储库的 Azure Storage Libraries for Java。 完成这些任务后，便能够创建一个 Java 应用程序，以便使用本文中的示例。
 
 ## <a name="configure-your-application-to-access-blob-storage"></a>配置应用程序以访问 Blob 存储
 将下列导入语句添加到要在其中使用 Azure 存储 API 以访问 Blob 的 Java 文件的顶部：

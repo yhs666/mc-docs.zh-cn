@@ -3,7 +3,7 @@ title: "Azure API 管理访问限制策略"
 description: "了解可在 Azure API 管理中使用的访问限制策略。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
 ms.date: 02/26/2018
-ms.openlocfilehash: 00a6f2e48a0d80e15f1ecfdb6327a2ed620a89d8
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: a766f5245eb3efeadf3b67885a83b3f94fb2aba8
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理访问限制策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -360,7 +360,7 @@ ms.lasthandoff: 02/13/2018
  `validate-jwt` 策略强制从指定 HTTP 标头或指定查询参数提取的 JWT 必须存在且有效。  
   
 > [!IMPORTANT]
->  `validate-jwt` 策略要求 `exp` 注册的声明包括在 JWT 令牌中，除非 `require-expiration-time` 属性已指定并设置为 `false`。  
+>  `validate-jwt` 策略要求 `exp` 注册声明包括在 JWT 令牌中，除非 `require-expiration-time` 属性已指定并设置为 `false`。  
 > `validate-jwt` 策略支持 HS256 和 RS256 签名算法。 对于 HS256，必须采用内联方式在策略中以 base64 编码形式提供密钥。 对于 RS256，必须通过 Open ID 配置终结点提供密钥。  
   
 ### <a name="policy-statement"></a>策略语句  
@@ -507,10 +507,10 @@ ms.lasthandoff: 02/13/2018
   
 |Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
-|clock-skew|时间跨度。 在令牌的到期声明存在于令牌中且早于当前日期/时间的情况下，提供一些小的余量。|否|0 秒|  
+|clock-skew|时间跨度。 用于指定令牌颁发者的系统时钟与 API 管理实例之间的最大预期时间差。|否|0 秒|  
 |failed-validation-error-message|JWT 未通过验证时会在 HTTP 响应正文中返回的错误消息。 此消息必须对任何特殊字符正确地进行转义。|否|默认错误消息取决于验证问题，例如“JWT 不存在”。|  
 |failed-validation-httpcode|JWT 未通过验证时会返回的 HTTP 状态代码。|否|401|  
-|header-name|包含令牌的 HTTP 标头的名称。|必须指定 `header-name` 或 `query-paremeter-name`，但不能将二者都指定。|不适用|  
+|header-name|包含令牌的 HTTP 标头的名称。|必须指定 `header-name` 或 `query-parameter-name`，但不能将二者都指定。|不适用|  
 |id|使用 `key` 元素的 `id` 属性可以指定一个字符串，该字符串将与令牌中的 `kid` 声明（如果存在）进行比较，以便找出进行签名验证时需要使用的适当密钥。|否|不适用|  
 |match|`claim` 元素的 `match` 属性用于指定：是否策略中的每个声明值都必须存在于令牌中验证才会成功。 可能的值包括：<br /><br /> -                          `all` - 策略中的每个声明值都必须存在于令牌中才会使验证成功。<br /><br /> -                          `any` - 至少一个声明值必须存在于令牌中才会使验证成功。|否|all|  
 |query-paremeter-name|包含令牌的查询参数的名称。|必须指定 `header-name` 或 `query-paremeter-name`，但不能二者都指定。|不适用|  
@@ -518,7 +518,7 @@ ms.lasthandoff: 02/13/2018
 |require-scheme|令牌方案的名称，例如“Bearer”。 设置了此属性时，策略将确保 Authorization 标头值中存在指定的方案。|否|不适用|
 |require-signed-tokens|布尔值。 指定令牌是否需要签名。|否|是|  
 |分隔符|字符串。 指定要用于从多值声明中提取一组值的分隔符（例如 ","）。|否|不适用| 
-|url|Open ID 配置终结点 URL，可以从其获取 Open ID 配置元数据。 对于 Azure Active Directory，请使用以下 URL：`https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration`，代之以目录租户名称，例如 `contoso.onmicrosoft.com`。|是|不适用|  
+|url|Open ID 配置终结点 URL，从中可以获取 Open ID 配置元数据。 响应应符合以下 URL 中定义的规范：`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`。  对于 Azure Active Directory，请使用以下 URL：`https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration`，将其中的 {tenant-name} 替换为你的目录租户名称，例如 `contoso.onmicrosoft.com`。|是|不适用|  
   
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  

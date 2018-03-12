@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 10/30/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: 8713d4e49db234eb0443a5bd1c1a8a5ad0849ebe
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 03/19/2018
+ms.openlocfilehash: 7a4c5bbfe7ac09f4ab7aa58bc46386b32a6008d3
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>如何将 Azure API 管理服务实例部署到多个 Azure 区域
 API 管理支持多区域部署，该部署可使 API 发布者在任意数量的所需 Azure 区域中分配单个 API 管理服务。 这有助于减少地理上分散的 API 使用者所感知的请求延迟，并且还改善其中一个区域处于离线状态时的服务可用性。 
@@ -53,13 +53,12 @@ API 管理支持多区域部署，该部署可使 API 发布者在任意数量�
 重复此过程，直到配置所有位置，并单击工具栏中的“保存”，启动部署过程。
 
 ## <a name="remove-region"> </a>从位置中删除 API 管理服务实例
+
 在 Azure 门户中，导航到 API 管理服务实例的“规模和定价”页。 
 
 ![“缩放”选项卡][api-management-scale-service]
 
 对于要删除的位置，请使用表右端的 **...** 按钮打开上下文菜单。 选择“删除”选项。
-
-![删除区域][api-management-remove-region]
 
 确认删除，并单击“保存”应用所做的更改。
 

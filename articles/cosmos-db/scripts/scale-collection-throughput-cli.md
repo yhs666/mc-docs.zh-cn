@@ -17,11 +17,11 @@ ms.workload: database
 origin.date: 06/02/2017
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 902539280b895e71107853eb5eb144cbb4440661
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 227908b1d7d98c132a91dff2fe497e087b08a92d
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>使用 Azure CLI 缩放 Azure Cosmos DB 容器吞吐量
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/02/2018
 
 # Set variables for the new account, database, and collection
 resourceGroupName='myResourceGroup'
-location='chinaeast'
+location='chinanorth'
 name='docdb-test'
 databaseName='docdb-test-database'
 collectionName='docdb-test-collection'
@@ -54,7 +54,7 @@ az group create \
 az cosmosdb create \
     --name $name \
     --kind GlobalDocumentDB \
-    --locations "China East"=0 "China North"=1 \
+    --locations chinanorth=0 chinaeast=1 \
     --resource-group $resourceGroupName \
     --max-interval 10 \
     --max-staleness-prefix 200 
@@ -82,6 +82,9 @@ az cosmosdb collection update \
     --throughput $newThroughput
 
 ```
+<!-- location ADVISE TO chinanorth -->
+<!-- location MUST be the style of --locations chinanorth=0 chinaeast=1 -->
+<!-- OR it will popup the index out of range error-->
 
 ## <a name="clean-up-deployment"></a>清理部署
 

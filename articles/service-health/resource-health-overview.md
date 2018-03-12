@@ -1,5 +1,5 @@
 ---
-title: "Azure 资源运行状况概述 | Microsoft 文档"
+title: "Azure 资源运行状况概述"
 description: "Azure 资源运行状况概述"
 services: Resource health
 documentationcenter: 
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 origin.date: 07/01/2017
 ms.author: v-yiso
-ms.date: 11/13/2017
-ms.openlocfilehash: 675337f52ca1603268d5e295be85ac05f1258c92
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.date: 03/19/2018
+ms.openlocfilehash: d0c0b4bbeca3c33de2680b1ac429474ef9e1d5d7
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-resource-health-overview"></a>Azure 资源运行状况概述
  
 资源运行状况在 Azure 问题影响资源时帮助你进行诊断并获得支持。 它通知你有关资源的当前和过去运行状况的信息，并帮助你缓解问题。 在需要有关 Azure 服务问题的帮助时，资源运行状况将提供技术支持。
 
-[Azure 状态](https://status.azure.com)告知影响大量 Azure 客户的服务问题，而资源运行状况可提供资源运行状况的个性化仪表板。 资源运行状况显示过去由于 Azure 服务问题导致的资源不可用的所有时间。 这使你了解是否违反 SLA 变得简单。 
+[Azure 状态](https://status.azure.com)告知影响大量 Azure 客户的服务问题，而资源运行状况可提供资源运行状况的个性化仪表板。 资源运行状况显示过去由于 Azure 服务问题导致的资源不可用的所有时间，这使得你可以轻松了解是否违反了某个 SLA。 
 
 ## <a name="what-is-considered-a-resource-and-how-does-resource-health-decides-if-a-resource-is-healthy-or-not"></a>什么是资源？资源运行状况如何决定资源是否正常运行？
-资源是由 Azure 服务通过 Azure 资源管理器提供的资源类型的实例，例如虚拟机、Web 应用或 SQL 数据库。
+资源是 Azure 服务中的一个特定实例，例如：虚拟机、Web 应用或 SQL 数据库。
 
 资源运行状况依赖于各种 Azure 服务发出的信号来评估资源是否正常运行。 如果资源运行不正常，资源运行状况将分析其他信息以确定问题根源。 它还识别 Microsoft 采取的用于解决此问题的操作或可以采取的用于解决问题原因的操作。 
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/03/2017
 资源的运行状况为以下状态之一：
 
 ### <a name="available"></a>可用
-服务未检测到任何影响资源运行状况的事件。 如果过去 24 小时内资源从计划外停机时间恢复，会看到**最近恢复**通知。
+服务未检测到任何影响资源运行状况的事件。 如果过去 24 小时内资源在计划外停机后进行了恢复，则会看到**最近恢复**通知。
 
 ![资源运行状况 - 虚拟机可用](./media/resource-health-overview/Available.png)
 
@@ -46,14 +46,14 @@ ms.lasthandoff: 11/03/2017
 服务检测到影响资源运行状况的正在运行的平台或非平台事件。
 
 #### <a name="platform-events"></a>平台事件
-这些事件由 Azure 基础结构的多个组件触发，包括计划内维护等计划的操作，还包括计划外主机重启等意外事件。
+这些事件是由 Azure 基础结构的多个组件触发的。 它们包括计划的操作（例如计划内维护）和意外的事件（例如计划外的主机重启）。
 
-资源运行状况提供关于事件、恢复过程的其他详细信息，借助资源运行状况，即使没有可用的 Microsoft 支持协议，也能联系支持人员。
+资源运行状况提供了有关事件和恢复过程的更多详细信息。 还可以通过它联系支持人员，即使你没有有效的 Microsoft 支持协议。
 
 ![资源运行状况 - 由于平台事件，虚拟机不可用](./media/resource-health-overview/Unavailable.png)
 
 #### <a name="non-platform-events"></a>非平台事件
-这些事件由用户采取的一些操作触发，例如停止虚拟机或达到 Redis 缓存的最大连接数。
+这些事件是由用户采取的操作触发的。 例如：停止虚拟机或达到 Redis 缓存的最大连接数。
 
 ![资源运行状况 - 由于非平台事件，虚拟机不可用](./media/resource-health-overview/Unavailable_NonPlatform.png)
 
@@ -64,13 +64,19 @@ ms.lasthandoff: 11/03/2017
 
 ![资源运行状况 - 虚拟机未知](./media/resource-health-overview/Unknown.png)
 
+### <a name="degraded"></a>已降级
+此运行状况状态指示，检测到资源的性能降低，但资源仍可供使用。
+对于何时将资源指定为已降级，不同的资源具有自己的标准。
+
+![资源运行状况 - 虚拟机已降级](./media/resource-health-overview/degraded.png)
+
 ## <a name="report-an-incorrect-status"></a>报告不正确的状态
-任何时候，如果认为当前运行状况状态不正确，均可以通过单击“报告不正确的运行状况状态”告知我们。 如果受到 Azure 问题影响，建议通过“资源运行状况”边栏选项卡联系支持人员。 
+任何时候，如果认为当前运行状况状态不正确，均可以通过单击“报告不正确的运行状况状态”告知我们。 如果受到某个 Azure 问题影响，建议通过“资源运行状况”来联系支持人员。 
 
 ![资源运行状况 - 报告不正确状态](./media/resource-health-overview/incorrect-status.png)
 
 ## <a name="historical-information"></a>历史信息
-可以通过单击“资源运行状况”边栏选项卡中的“查看历史记录”访问最多 14 天的运行状况历史数据。 
+可以通过单击“资源运行状况”中的“查看历史记录”访问最多 14 天的运行状况历史记录。 
 
 ![资源运行状况 - 报表历史记录](./media/resource-health-overview/history-blade.png)
 
@@ -80,11 +86,11 @@ ms.lasthandoff: 11/03/2017
 2.  导航到资源。
 3.  在位于左侧的资源菜单中，单击“资源运行状况”。
 
-![通过资源边栏选项卡打开资源运行状况](./media/resource-health-overview/from-resource-blade.png)
+![通过资源视图打开资源运行状况](./media/resource-health-overview/from-resource-blade.png)
 
-此外，还可以通过单击“更多服务”，并在筛选器文本框中键入**资源运行状况**来打开“帮助和支持”边栏选项卡，访问资源运行状况。 最后单击[“资源运行状况”](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth)。
+此外，还可以通过单击“所有服务”，并在筛选器文本框中键入**资源运行状况**来打开“帮助和支持”边栏选项卡，访问资源运行状况。 最后单击[“资源运行状况”](https://ms.portal.azure.cn/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth)。
 
-![通过“更多服务”打开资源运行状况](./media/resource-health-overview/FromOtherServices.png)
+![通过“所有服务”打开资源运行状况](./media/resource-health-overview/FromOtherServices.png)
 
 ## <a name="next-steps"></a>后续步骤
 

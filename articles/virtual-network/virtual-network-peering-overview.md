@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 01/22/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: c47198a1fd72437eb783557277fe979892c2faa2
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: c7ededb8b3dc3a936dea0455db0d1c672e640a2d
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="virtual-network-peering"></a>虚拟网络对等互连
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 01/19/2018
 
 若要确认虚拟网络对等互连，可以[检查有效路由](virtual-network-routes-troubleshoot-portal.md)，看虚拟网络的任何子网中是否存在网络接口。 如果虚拟网络对等互连存在，则虚拟网络中的所有子网都会有下一跃点类型为“VNet 对等互连”的路由，这适用于每个对等互连的虚拟网络中的每个地址空间。
 
-<!--Not Available [connectivity check](../network-watcher/network-watcher-connectivity-portal.md). -->
+还可以使用网络观察程序的[连接性检查](../network-watcher/network-watcher-connectivity-portal.md)来排查与对等互连虚拟网络中某个虚拟机之间的连接问题。 可以通过连接性检查来确定流量如何从源虚拟机的网络接口路由到目标虚拟机的网络接口。
 
 ## <a name="limits"></a>限制
 

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 373ebe27651000004622a5a779085b2229e6ab58
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 57a1c2d987f06610748189910b8646e4c978991e
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>为云服务配置多个 VIP
 
@@ -112,7 +112,7 @@ ExtensionData   :
 * **Vip2** 和 **Vip3** 未使用，因为它们没有任何 IP 地址。 仅当已将某个终结点关联到 VIP 时，才会使用相应的 VIP。
 
 > [!NOTE]
-> 订阅将只收取额外的 VIP 费用（在 VIP 与终结点关联后收取）。 有关定价的详细信息，请参阅 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)。
+> 你的订阅将只收取额外的 VIP 费用（在 VIP 与终结点关联后收取）。 有关定价的详细信息，请参阅 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)。
 
 ## <a name="how-to-associate-a-vip-to-an-endpoint"></a>如何将 VIP 关联到终结点
 
@@ -176,8 +176,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName myService -LBSetName myLBSet -Virtual
 ```
 
 ## <a name="next-steps"></a>后续步骤
-
-[用于 Azure 负载均衡器的 Log Analytics](load-balancer-monitor-log.md)
+<!-- Not Avaible on [Log analytics for Azure Load Balance](load-balancer-monitor-log.md) -->
 
 [面向 Internet 的负载均衡器概述](load-balancer-internet-overview.md)
 

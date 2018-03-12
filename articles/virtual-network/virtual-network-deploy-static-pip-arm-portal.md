@@ -3,8 +3,8 @@ title: "创建具有静态公共 IP 地址的 VM - Azure 门户 | Azure"
 description: "了解如何使用 Azure 门户创建具有静态公共 IP 地址的 VM。"
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: e9546bcc-f300-428f-b94a-056c5bd29035
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/04/2016
-ms.date: 12/26/2016
-ms.author: v-dazen
+ms.date: 03/12/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04cd29f422fe091741ed46dfb53162d9c2d80991
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 44532bf78a2f4296427060d314440607371e5301
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>使用 Azure 门户创建具有静态公共 IP 地址的 VM
 
@@ -43,25 +43,27 @@ ms.lasthandoff: 06/23/2017
 
 若要在 Azure 门户中创建具有静态公共 IP 地址的 VM，请完成以下步骤：
 
-1. 从浏览器导航到 [Azure 门户](https://portal.azure.cn)，并在必要时使用 Azure 帐户登录。
-2. 在门户左上角，单击“新建”>>“计算”>“Windows Server 2012 R2 Datacenter”。
+1. 从浏览器导航到 [Azure 门户](https://portal.azure.cn)，并在必要时用 Azure 帐户登录。
+2. 在门户左上角，单击“创建资源”>>“计算”>“Windows Server 2012 R2 Datacenter”。
 3. 在“选择部署模型”列表中，选择“Resource Manager”，然后单击“创建”。
-4. 在“基本信息”边栏选项卡中，输入如下所示的 VM 信息，然后单击“确定”。
+4. 在“基本信息”窗格中，输入如下所示的 VM 信息，然后单击“确定”。
 
     ![Azure 门户 - 基本信息](./media/virtual-network-deploy-static-pip-arm-portal/figure1.png)
-5. 在“选择大小”边栏选项卡中，单击“A1 标准”（如下所示），然后单击“选择”。
+5. 在“选择大小”窗格中，单击“A1 标准”（如下所示），然后单击“选择”。
 
     ![Azure 门户 - 选择大小](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
-6. 在“设置”边栏选项卡中，单击“公共 IP 地址”，然后在“创建公共 IP 地址”边栏选项卡的“分配”下，单击“静态”，如下所示。 然后，单击“确定” 。
+6. 在“设置”窗格中，单击“公共 IP 地址”，然后，在“创建公共 IP 地址”窗格中的“分配”下，单击“静态”，如下所示。 然后，单击“确定”。
 
     ![Azure 门户 - 创建公共 IP 地址](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
-7. 在“**设置**”边栏选项卡中，单击“**确定**”。
-8. 查看“摘要”边栏选项卡（如下所示），然后单击“确定”。
+7. 在“设置”窗格中，单击“确定”。
+8. 查看“摘要”窗格（如下所示），然后单击“确定”。
 
     ![Azure 门户 - 创建公共 IP 地址](./media/virtual-network-deploy-static-pip-arm-portal/figure4.png)
 9. 请注意仪表板中的新磁贴。
 
     ![Azure 门户 - 创建公共 IP 地址](./media/virtual-network-deploy-static-pip-arm-portal/figure5.png)
-10. 创建 VM 后，“设置”  边栏选项卡会如下所示
+10. 创建 VM 后，“设置”窗格将显示如下：
 
     ![Azure 门户 - 创建公共 IP 地址](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
+
+<!-- Update_Description: update meta properties, wording update -->

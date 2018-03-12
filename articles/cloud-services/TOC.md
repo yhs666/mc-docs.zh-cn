@@ -38,12 +38,12 @@
 ### [连接到自定义域控制器](cloud-services-connect-to-custom-domain.md)
 
 ## 管理服务
-### [缓解推理执行](mitigate-se.md}
 ### [常见管理任务](cloud-services-how-to-manage-portal.md)
 ### [配置云服务](cloud-services-how-to-configure-portal.md)
 ### [使用 Azure 自动化管理云服务](automation-manage-cloud-services.md)
 ### [配置自动缩放](cloud-services-how-to-scale-portal.md)
 ### [使用 Python 管理 Azure 资源](cloud-services-python-how-to-use-service-management.md)
+### [防御推理执行](mitigate-se.md)
 
 ### [来宾 OS 修补程序](cloud-services-guestos-msrc-releases.md)
 ### 来宾 OS 停用
@@ -58,19 +58,18 @@
 
 ## 监视
 ### [监视云服务](cloud-services-how-to-monitor.md)
+### [使用性能计数器](diagnostics-performance-counters.md)
 ### [测试性能](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [使用 Visual Studio 探查器测试](cloud-services-performance-testing-visual-studio-profiler.md)
 ### 启用诊断
 #### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [在 Azure 诊断中使用性能计数器](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [在 Azure 存储中存储和查看诊断数据](cloud-services-dotnet-diagnostics-storage.md)
 ### [使用诊断跟踪云服务](cloud-services-dotnet-diagnostics-trace-flow.md)
 
 ## 故障排除
 ### 调试 
-#### [使用持续传送实现远程调试](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [适用于云服务的选项](../vs-azure-tools-debugging-cloud-services-overview.md)
 #### [使用 Visual Studio 调用本地云服务](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
 ### [云服务分配失败](cloud-services-allocation-failures.md)

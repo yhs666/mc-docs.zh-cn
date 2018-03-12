@@ -3,7 +3,7 @@ title: "了解 Azure IoT 中心设备到云的消息 | Azure"
 description: "开发人员指南 - 如何在 IoT 中心使用设备到云的消息传送。 包含有关发送遥测数据和非遥测数据，以及使用路由传送消息的信息。"
 services: iot-hub
 documentationcenter: .net
-author: Derek1101
+author: dominicbetts
 manager: timlt
 editor: 
 ms.service: iot-hub
@@ -11,20 +11,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/19/2017
+origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 11/20/2017
-ms.openlocfilehash: 77dc863c98ede3b6c82ad20389be97de7bbb5f7f
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.date: 03/19/2018
+ms.openlocfilehash: 2945ccdd8250f1c92d4773f5dac9998e595ea504
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>将设备到云的消息发送到 IoT 中心
 
 若要将时序遥测数据和警报从设备发送到解决方案后端，可将设备到云的消息从设备发送到 IoT 中心。 有关 IoT 中心支持的其他设备到云的选项的介绍，请参阅[设备到云的通信指南][lnk-d2c-guidance]。
 
-通过面向设备的终结点 (**/devices/{deviceId}/messages/events**) 发送从设备到云的消息。 路由规则随后将消息路由到 IoT 中心内面向服务的终结点之一。 路由规则使用流经中心的设备到云消息的标头和正文来确定将消息路由到的位置。 默认情况下，消息将路由到与[事件中心][lnk-event-hubs]兼容的内置面向服务的终结点 (**messages/events**) 中。 因此，可以在解决方案后端使用标准[事件中心集成和 SDK][lnk-compatible-endpoint] 接收设备到云的消息。
+通过面向设备的终结点 (**/devices/{deviceId}/messages/events**) 发送从设备到云的消息。 路由规则随后将消息路由到 IoT 中心内面向服务的终结点之一。 路由规则使用设备到云消息的标头和正文来确定将消息路由到的位置。 默认情况下，消息将路由到与[事件中心][lnk-event-hubs]兼容的面向服务的内置终结点 (**messages/events**) 中。 因此，可以在解决方案后端使用标准[事件中心集成和 SDK][lnk-compatible-endpoint] 接收设备到云的消息。
 
 IoT 中心使用流式消息传递模式实现设备到云的消息传递。 与[事件中心][lnk-event-hubs]*事件*和[服务总线][lnk-servicebus]*消息*相比，IoT 中心的设备到云消息更类似前者，类似之处在于有大量事件通过可供多个读取器读取的服务。
 
@@ -37,11 +37,11 @@ IoT 中心使用流式消息传递模式实现设备到云的消息传递。 与
 * IoT 中心支持数百万个同时连接的设备（请参阅[配额和限制][lnk-quotas]）。
 * IoT 中心不允许任意分区。 设备到云的消息根据其源于的 **deviceId**进行分区。
 
-有关 IoT 中心与事件中心服务之间的差异的详细信息，请参阅 [Azure IoT 中心与 Azure 事件中心的比较][lnk-comparison]。
+有关 IoT 中心和事件中心差异的详细信息，请参阅 [Azure IoT 中心与 Azure 事件中心的比较][lnk-comparison]。
 
 ## <a name="send-non-telemetry-traffic"></a>发送非遥测流量
 
-通常，除了遥测数据点之外，设备还会发送需要在解决方案后端单独执行和处理的消息与请求。 例如，关键警报必须在后端触发特定操作。 可轻松编写[路由规则][lnk-devguide-custom]，根据消息中的标头或消息正文中的值，将这些类型的消息发送到专用于其处理的终结点。
+通常，除了遥测数据以外，设备还会发送消息和需要在解决方案后端中单独执行和处理的请求。 例如，关键警报必须在后端触发特定操作。 可以编写[路由规则][lnk-devguide-custom]，根据消息的标头或消息正文中的值，将这些类型的消息发送到专用于处理这些消息的终结点。
 
 有关此类消息的最佳处理方式的详细信息，请参阅 [教程：如何处理 IoT 中心设备到云的消息][lnk-d2c-tutorial] 教程。
 
@@ -85,7 +85,7 @@ IoT 中心使用流式消息传递模式实现设备到云的消息传递。 与
 [lnk-get-started]: ./iot-hub-get-started.md
 
 [lnk-event-hubs]: /event-hubs/
-[lnk-servicebus]: /service-bus/
+[lnk-servicebus]: /service-bus-messaging/
 [lnk-quotas]: ./iot-hub-devguide-quotas-throttling.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 [lnk-compatible-endpoint]: ./iot-hub-devguide-messages-read-builtin.md

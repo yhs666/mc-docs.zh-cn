@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
 origin.date: 11/16/2017
-ms.date: 01/01/2018
+ms.date: 3/5/2018
 ms.author: v-nany
-ms.openlocfilehash: 65780b2d7ed061a9c41db64be8f667ef510e99e1
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: dd8bcaf7257117dda700be70efc158bfec75e136
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>有关 Azure 存储迁移的常见问题
 
@@ -295,4 +295,6 @@ AzCopy 安装在什么位置？
 
 如果你只想下载数据而不需要使用存储资源管理器或类似的应用程序，则可以使用 SAS 令牌。 有关详细信息，请参阅[使用共享访问签名](storage-dotnet-shared-access-signature-part-1.md)。
 
+**如何将 Blob 从一个存储帐户复制到另一个存储帐户？**
 
+ 可以使用我们的 [Blob 迁移脚本](../scripts/storage-common-transfer-between-storage-accounts.md)。

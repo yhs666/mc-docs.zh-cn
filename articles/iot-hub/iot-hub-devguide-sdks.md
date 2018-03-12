@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/15/2017
+origin.date: 01/29/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 10/16/2017
-ms.openlocfilehash: 07ae296fcdac953a1851903cc3cc7eb8c9e8a608
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 03/19/2018
+ms.openlocfilehash: 91b5e3f946edaf6d05fd0d789cea7409cc926481
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="understand-and-use-azure-iot-sdks"></a>了解和使用 Azure IoT SDK
 

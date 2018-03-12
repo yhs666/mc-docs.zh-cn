@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/09/2017
-ms.date: 11/20/2017
+origin.date: 01/29/2018
+ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9ba7224a80668c51f149b1656384297f0eaa8142
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.openlocfilehash: fb68a29598ab268ff5c5e837d15d15b5cc1c0109
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="device-to-cloud-communications-guidance"></a>从设备到云通信指南
 将信息从设备应用发送到解决方案后端时，IoT 中心会公开三个选项：
@@ -38,7 +38,7 @@ ms.lasthandoff: 11/09/2017
 | 频率 | 高。 有关详细信息，请参阅 [IoT 中心限制][lnk-quotas]。 | 中。 有关详细信息，请参阅 [IoT 中心限制][lnk-quotas]。 | 低。 有关详细信息，请参阅 [IoT 中心限制][lnk-quotas]。 |
 | 协议 | 在所有协议上可用。 | 使用 MQTT 或 AMQP 时可用。 | 在使用任何协议时可用，但设备上必须具备 HTTPS。 |
 
-可能出现的情况是，应用程序既要求将信息以遥测时间系列或警报方式发送，又要求以设备孪生方式提供。 在这种情况下，可以选择以下选项之一：
+应用程序可能需要同时将信息作为遥测时序或警报发送，并且使其在设备孪生中可用。 在这种情况下，可以选择以下选项之一：
 
 * 设备应用发送一条设备到云消息并报告属性更改。
 * 解决方案后端在收到消息时可将信息存储在设备孪生的标记中。

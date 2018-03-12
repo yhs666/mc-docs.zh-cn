@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/23/2016
-ms.date: 01/15/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 46202e782035ea17fa87c5c72f3cc940071f4bb5
-ms.sourcegitcommit: 60515556f984495cfe545778b2aac1310f7babee
+ms.openlocfilehash: 2c15531f4c4522b77925ef66769e694ccc4c5451
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>使用 Azure 门户排查路由问题
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ ms.lasthandoff: 01/12/2018
 若要查看应用到 VM 的聚合路由，请完成以下步骤：
 
 1. 登录到位于 https://portal.azure.cn 的 Azure 门户。 你的帐户必须有权对网络接口执行 *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* 操作。 若要了解如何向帐户分配操作，请参阅[创建用于 Azure 基于角色的访问控制的自定义角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fvirtual-network%2ftoc.json#actions)。
-2. 单击“更多服务”，然后在显示的列表中单击“虚拟机”。
+2. 单击“所有服务”，然后在显示的列表中单击“虚拟机”。
 3. 在显示的列表中选择要进行故障排除的 VM，随后会显示一个包含选项的 VM 边栏选项卡。
 4. 单击“诊断和解决问题”，然后选择一个常见问题。 本示例选择了“无法连接到 Windows VM”。
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 01/12/2018
 如果网络流量流受到特定网络接口 (NIC) 的影响，可以直接查看 NIC 上有效路由的完整列表。 若要查看应用到 NIC 的聚合路由，请完成以下步骤：
 
 1. 登录到位于 https://portal.azure.cn 的 Azure 门户。
-2. 单击“更多服务”，然后单击“网络接口”
+2. 单击“所有服务”，然后单击“网络接口”
 3. 在列表中搜索 NIC 的名称，或者从显示的列表中选择 NIC。 本示例选择了 **VM1-NIC1** 。
 4. 在“网络接口”边栏选项卡中选择“有效路由”，如下图所示：
 
@@ -118,7 +118,7 @@ ms.lasthandoff: 01/12/2018
 若要查看路由表的聚合路由，请完成以下步骤：
 
 1. 登录到位于 https://portal.azure.cn 的 Azure 门户。
-2. 单击“更多服务”，然后单击“路由表”
+2. 单击“所有服务”，然后单击“路由表”
 3. 在列表中搜索想要查看其聚合路由的路由表，并将它选中。 本示例选择了 **UDRouteTable** 。 此时显示选定路由表的边栏选项卡，如下图所示：
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image9.png)
@@ -152,4 +152,4 @@ ms.lasthandoff: 01/12/2018
   * 如果是新建立的对等互连链接，请等待几秒钟并重试。 有时需要花费较长的时间才能将路由传播到子网中的所有网络接口。
   * 网络安全组 (NSG) 规则可能会影响流量流。 有关详细信息，请参阅[网络安全组故障排除](virtual-network-nsg-troubleshoot-portal.md)一文。
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

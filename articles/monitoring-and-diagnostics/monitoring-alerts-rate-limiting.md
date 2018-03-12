@@ -1,7 +1,7 @@
 ---
 title: "短信、电子邮件、Azure 应用推送通知和 Webhook 的速率限制"
 description: "了解 Azure 如何限制操作组中可能的短信、电子邮件、Azure 应用推送通知或 webhook 通知数。"
-author: dukek
+author: dkamstra
 manager: chrad
 editor: 
 services: monitoring-and-diagnostics
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/8/2017
-ms.date: 02/26/2018
+origin.date: 02/16/2018
+ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: fdb37fbf08e409e60d5a921da053c49258e85d0b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 197393c549641a2f74f0ad4d128051b20dcd6883
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="rate-limiting-for-sms-messages-emails-azure-app-push-notifications-and-webhook-posts"></a>短信、电子邮件、Azure 应用推送通知和 webhook 帖子的速率限制
 速率限制是在发送给特定电话号码、电子邮件地址或设备的通知太多时发生的通知挂起。 通过速率限制，确保警报处于管理且可操作状态。
@@ -27,9 +27,9 @@ ms.lasthandoff: 02/13/2018
 速率限制阈值为：
 
  - **SMS**：每 5 分钟最多 1 条短信。
- - 电子邮件：每小时 100 个消息。
- - **Azure 应用推送通知**：未针对推送通知设置速率限制。
- - **Webhook**：未针对 Webhook 设置速率限制。
+ - **电子邮件**：一小时内最多 100 个电子邮件。
+ 
+ 其他操作没有速率限制。
 
 ## <a name="rate-limit-rules"></a>速率限制规则
 - 特定电话号码或电子邮件在收到超过阈值所允许消息数时会进行速率限制。

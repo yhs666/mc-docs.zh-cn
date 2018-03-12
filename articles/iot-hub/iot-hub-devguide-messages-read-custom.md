@@ -3,7 +3,7 @@ title: "了解 Azure IoT 中心自定义终结点 | Azure"
 description: "开发人员指南 - 使用路由规则将设备到云的消息路由到自定义终结点。"
 services: iot-hub
 documentationcenter: .net
-author: Derek1101
+author: dominicbetts
 manager: timlt
 editor: 
 ms.service: iot-hub
@@ -11,24 +11,24 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/29/2017
+origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 12/18/2017
-ms.openlocfilehash: dc62ac8df566849ccc2a40e0ad737934af5b2540
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.date: 03/19/2018
+ms.openlocfilehash: 69e3a186bbc2ed983bb29fb546cf2232f16991fe
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>对设备到云的消息使用消息路由和自定义终结点
 
-IoT 中心允许基于消息属性将[设备到云的消息][lnk-device-to-cloud]路由到面向 IoT 中心服务的终结点。 使用路由规则可将消息灵活发送到所需目标位置，无需借助其他服务来处理消息，也无需编写其他代码。 配置的每个路由规则都具有以下属性：
+IoT 中心允许基于消息属性将[设备到云的消息][lnk-device-to-cloud]路由到面向 IoT 中心服务的终结点。 使用路由规则可将消息灵活发送到所需目标位置，无需借助其他服务或自定义代码。 配置的每个路由规则都具有以下属性：
 
 | 属性      | 说明 |
 | ------------- | ----------- |
-| **Name**      | 用于标识规则的唯一名称。 |
+| **名称**      | 用于标识规则的唯一名称。 |
 | **源**    | 要处理的数据流的来源。 例如，设备遥测。 |
-| **条件** | 路由规则的查询表达式，针对消息的标头和正文运行，用于确定它是否与终结点匹配。 有关构造路由条件的详细信息，请参阅 [参考 - 设备孪生和作业的查询语言][lnk-devguide-query-language]。 |
+| **条件** | 路由规则的查询表达式，针对消息的标头和正文运行，确定消息是否与终结点匹配。 有关构造路由条件的详细信息，请参阅 [参考 - 设备孪生和作业的查询语言][lnk-devguide-query-language]。 |
 | **终结点**  | IoT 中心将匹配条件的消息发送到的终结点的名称。 终结点应与 IoT 中心位于同一区域，否则跨区域写入将产生费用。 |
 
 一条消息可能与多个路由规则的条件匹配，在这种情况下，IoT 中心会将该消息传递到与每个匹配规则关联的终结点。 IoT 中心还会自动删除重复的消息传递，因此如果消息与具有相同目标的多个规则匹配，则仅会将其写入该目标位置一次。

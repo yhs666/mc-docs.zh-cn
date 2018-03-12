@@ -3,8 +3,8 @@ title: "在 Azure 中创建网络安全组（经典）- PowerShell | Azure"
 description: "了解如何使用 PowerShell 在经典模式下创建和部署 NSG"
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 86810b0d-0240-46a2-8548-fca22daa56f3
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 01/05/2017
-ms.author: v-dazen
-ms.openlocfilehash: 6129ff8c8fc0e6156550835a674f0487eb5fe17c
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 03/12/2018
+ms.author: v-yeche
+ms.openlocfilehash: e75612f25d14e569e2826d544f1e732f962f18f4
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-create-nsgs-classic-in-powershell"></a>如何在 PowerShell 中创建 NSG（经典）
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
@@ -38,7 +38,7 @@ ms.lasthandoff: 06/21/2017
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>如何为前端子网创建 NSG
 若要基于上述方案创建名为 **NSG-FrontEnd** 的 NSG，请执行下面的步骤：
 
-1. 如果你从未使用过 Azure PowerShell，请参阅 [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) （如何安装和配置 Azure PowerShell），并始终按照说明进行操作，以登录到 Azure 并选择你的订阅。
+1. 如果从未使用过 Azure PowerShell，请参阅 [How to Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)（如何安装和配置 Azure PowerShell），并始终按照说明进行操作，以登录到 Azure 并选择订阅。
 2. 创建名为 **NSG-FrontEnd**的网络安全组。
 
         New-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" -Location chinanorth `
@@ -206,3 +206,4 @@ ms.lasthandoff: 06/21/2017
                    ALLOW INTERNET       65001     Allow    *               *             INTERNET         *              *       
                    OUTBOUND                                                                                                      
                    DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *
+<!-- Update_Description: update meta properties, wording update -->

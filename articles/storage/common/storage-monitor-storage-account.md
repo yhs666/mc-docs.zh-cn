@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 03/14/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: ec95de8d87396a44b2112ef0668f65ebf7f3ce4c
-ms.sourcegitcommit: 9f926683e9ccb9adab4816ae004bda0f386e3507
+ms.openlocfilehash: 1eeb39ed65df2176ffff365c772097cce15e7ffd
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>监视 Azure 门户中的存储帐户
 
@@ -30,7 +30,6 @@ ms.lasthandoff: 12/26/2017
 >
 > Azure 文件目前支持存储分析指标，但尚不支持日志记录。
 >
-> 使用区域冗余存储空间 (ZRS) 复制类型的存储帐户目前不支持指标或日志记录功能。
 > 
 > 有关使用存储分析及其他工具来识别、诊断和排查 Azure 存储相关问题的深入指导，请参阅[监视、诊断和排查 Azure 存储问题](../storage-monitoring-diagnosing-troubleshooting.md)。
 >
@@ -145,7 +144,7 @@ ms.lasthandoff: 12/26/2017
 1. 在菜单边栏选项卡的“监视”部分选择“诊断”。
 
     ![Azure 门户中“监视”下面的诊断菜单项。](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
-
+    
 1. 确保“状态”设置为“打开”，选择要为其启用日志记录的服务。
 
     ![在 Azure 门户中配置日志记录。](./media/storage-monitor-storage-account/stg-enable-logging-01.png)

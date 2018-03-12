@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/15/2016
+origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: 628509c24668bcfa3d92945b940e51831804b796
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 03/19/2018
+ms.openlocfilehash: 57639172371c8a285883ccb75e95687e49c20707
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>如何在 Azure API 管理中将事件记录到 Azure 事件中心
 事件中心是一个高度可缩放的引入服务，每秒可以引入数百万的事件，使用户能够处理和分析连接设备和应用程序生成的海量数据。 事件中心充当事件管道的“前门”，将数据收集到事件中心后，可以使用任何实时分析提供程序或批处理/存储适配器来转换和存储这些数据。 事件中心可将事件流的生成与这些事件的使用分离开来，因此，事件使用者可以根据自己的计划访问事件。
@@ -27,25 +27,8 @@ ms.lasthandoff: 02/13/2018
 本文介绍如何使用 Azure 事件中心记录 API 管理事件。
 
 ## <a name="create-an-azure-event-hub"></a>创建 Azure 事件中心
-若要创建新事件中心，请登录到 [Azure 经典管理门户](https://manage.windowsazure.cn)并依次单击“新建”->“应用服务”->“服务总线”->“事件中心”->“快速创建”。 输入事件中心名称、区域，选择订阅，并选择命名空间。 如果之前未创建命名空间，可通过在“命名空间”文本框中键入名称来创建命名空间。 配置所有属性后，单击“创建新事件中心”创建事件中心。
 
-![创建事件中心][create-event-hub]
-
-接下来，导航到新事件中心的“配置”选项卡，并创建两个**共享访问策略**。 将第一个命名为“Sending”，并为其提供 **Send** 权限。
-
-![Sending 策略][sending-policy]
-
-将第二个命名为“Receiving”，并为其提供 **Listen** 权限，然后单击“保存”。
-
-![Receiving 策略][receiving-policy]
-
-每个共享访问策略都允许应用程序与事件中心之间发送和接收事件。 若要访问这些策略的连接字符串，请导航到事件中心的“仪表板”选项卡并单击“连接信息”。
-
-![连接字符串][event-hub-dashboard]
-
-**Sending** 连接字符串在记录事件时使用，**Receiving** 连接字符串在从事件中心下载事件时使用。
-
-![连接字符串][event-hub-connection-string]
+有关如何创建事件中心以及获取将事件发送到事件中心和从事件中心接收事件所需的连接字符串的详细步骤，请参阅[使用 Azure 门户创建事件中心命名空间和事件中心](../event-hubs/event-hubs-create.md)。
 
 ## <a name="create-an-api-management-logger"></a>创建 API 管理记录器
 现在有了事件中心，下一步是在 API 管理服务中配置[记录器](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)，以便它可以将事件记录到事件中心。
@@ -92,17 +75,15 @@ ms.lasthandoff: 02/13/2018
 ## <a name="configure-log-to-eventhubs-policies"></a>配置 log-to-eventhubs 策略
 在 API 管理中配置记录器后，可配置 log-to-eventhubs 策略以记录所需事件。 log-to-eventhubs 策略可在入站策略部分或出站策略部分中使用。
 
-要配置策略，请登录到 [Azure 门户](https://portal.azure.cn)，导航到 API 管理服务，并单击“发布者门户”访问发布者门户。
-
-![发布者门户][publisher-portal]
-
-单击左侧 API 管理菜单中的“策略”，选择所需的产品和 API，并单击“添加策略”。 在此示例中，我们向 **Unlimited** 产品中的 **Echo API** 添加策略。
-
-![添加策略][add-policy]
-
-将光标放在 `inbound` 策略部分中，并单击“Log to EventHub”策略插入 `log-to-eventhub` 策略声明模板。
-
-![策略编辑器][event-hub-policy]
+1. 浏览到自己的 APIM 实例。
+2. 选择“API”选项卡。
+3. 选择要将策略添加到的 API。 在此示例中，我们向 **Unlimited** 产品中的 **Echo API** 添加策略。
+4. 选择“所有操作”。
+5. 选择屏幕顶部的“设计”选项卡。
+6. 在“入站或出站处理”窗口中，单击三角形（铅笔旁边）。
+7. 选择“代码编辑器”。 有关详细信息，请参阅[如何设置或编辑策略](set-edit-policies.md)。
+8. 将光标放在 `inbound` 或 `outbound` 策略部分中。
+9. 在右侧窗口中，选择“高级策略” > “记录到 EventHub”。 这会插入 `log-to-eventhub` 策略语句模板。
 
 ```xml
 <log-to-eventhub logger-id ='logger-id'>

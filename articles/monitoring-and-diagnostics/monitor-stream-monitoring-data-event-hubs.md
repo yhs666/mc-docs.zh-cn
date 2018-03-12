@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4a27884bfb1a2306857e46ace00be357db83b217
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: eb4dd702a0a29037e08312004a791d2425645d77
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>将 Azure 监视数据流式传输到事件中心以便外部工具使用
 
@@ -38,7 +38,7 @@ Azure Monitor 提供了获取 Azure 环境中所有监视数据访问权限的�
 ## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>如何将 Azure 平台监视数据设置为流式传输到事件中心？
 
 Azure 平台监视数据来自两个主要源：
-1. [Azure 活动日志](./monitoring-overview-activity-logs.md)，其中包含来自资源管理器的创建、更新和删除操作；Azure 服务运行状况中可能影响订阅中资源的更改；[资源运行状况](../service-health/resource-health-overview.md)状态转换；以及若干其他类型的订阅级别事件。 [本文详细介绍了 Azure 活动日志中显示的所有事件类别](./monitoring-activity-log-schema.md)。
+1. [Azure 活动日志](./monitoring-overview-activity-logs.md)，其中包含来自资源管理器的创建、更新和删除操作；[Azure 服务运行状况](../service-health/service-health-overview.md)中可能影响订阅中资源的更改；[资源运行状况](../service-health/resource-health-overview.md)状态转换；以及若干其他类型的订阅级别事件。 [本文详细介绍了 Azure 活动日志中显示的所有事件类别](./monitoring-activity-log-schema.md)。
 2. [Azure Active Directory 报告](../active-directory/active-directory-reporting-azure-portal.md)，其中包含特定租户中的登录活动历史记录和更改审核日志。 尚不可将 Azure Active Directory 数据流式传输到事件中心。
 
 ### <a name="stream-azure-activity-log-data-into-an-event-hub"></a>将 Azure 活动日志数据流式传输到事件中心
@@ -82,7 +82,9 @@ Azure 资源将发出两种类型的监视数据：
 通过 Azure Monitor 将监视数据路由到事件中心，可与合作伙伴 SIEM 和监视工具轻松集成。 大多数工具需要事件中心连接字符串和对 Azure 订阅的某些权限，才能从事件中心读取数据。 下面是与 Azure Monitor 集成的工具的不完整列表：
 
 * **IBM QRadar** -Microsoft Azure DSM 和 Microsoft Azure 事件中心协议均可从 [IBM 支持网站](http://www.ibm.com/support)下载。 可以[在此处了解 Azure 集成](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)。
-* **Splunk** - [适用于 Splunk 的 Azure Monitor 加载项](https://splunkbase.splunk.com/app/3534/) 可在 Splunkbase 中找到，它是一个开源项目。 [文档见此处](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk)。
+* **Splunk** - 有两种方法，具体取决于 Splunk 设置：
+    1. [适用于 Splunk 的 Azure Monitor 加载项](https://splunkbase.splunk.com/app/3534/)可在 Splunkbase 中找到，它是一个开源项目。 [文档见此处](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk)。
+    2. 如果无法在 Splunk 实例中安装加载项（例如， 如果使用代理或在 Splunk Cloud 上运行），可以使用[此函数（由事件中心中的新消息触发）](https://github.com/sebastus/AzureFunctionForSplunkVS)将这些事件转发到 Splunk HTTP 事件收集器。
 * **SumoLogic** - 将 SumoLogic 设置为使用来自事件中心的数据的说明[见此处](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 
 ## <a name="next-steps"></a>后续步骤

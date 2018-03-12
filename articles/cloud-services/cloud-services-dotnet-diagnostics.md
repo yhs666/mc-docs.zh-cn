@@ -2,9 +2,9 @@
 title: "如何将 Azure 诊断 (.NET) 用于云服务 | Azure"
 description: "使用 Azure 诊断从 Azure 云服务收集数据，以用于调试、衡量性能、监视和流量分析等目的。"
 services: cloud-services
-documentationCenter: .net
-authors: rboucher
-manager: jwhit
+documentationcenter: .net
+author: thraka
+manager: timlt
 editor: 
 ms.assetid: 89623a0e-4e78-4b67-a446-7d19a35a44be
 ms.service: cloud-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 05/22/2017
-ms.date: 07/17/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: f9242d299f41cd4c9b2096f9d06fcb73b7cf70ef
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 0a26010a9664abb256b2cf35ceb660f53480182c
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>在 Azure 云服务中启用 Azure 诊断
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/14/2017
 本演练介绍如何实现使用 .NET EventSource 类发出遥测数据的 Azure 辅助角色。 Azure Diagnostics 用于收集遥测数据，并将其存储在一个 Azure 存储帐户中。 创建辅助角色时，Visual Studio 将在适用于 .NET 2.4 和更低版本的 Azure SDK 中，自动启用 Diagnostics 1.0 作为解决方案的一部分。 以下说明介绍了创建辅助角色、从解决方案禁用 Diagnostics 1.0，以及在辅助角色中部署 Diagnostics 1.2 或 1.3 的过程。
 
 ### <a name="prerequisites"></a>先决条件
-本文假定你具有 Azure 订阅，并要将 Visual Studio 与 Azure SDK 配合使用。 如果你没有 Azure 订阅，你可以注册 [免费试用版][Free Trial]。 请确保[安装并配置 Azure PowerShell 0.8.7 版或更高版本][Install and configure Azure PowerShell version 0.8.7 or later]。
+本文假定你具有 Azure 订阅，并要将 Visual Studio 与 Azure SDK 配合使用。 如果没有 Azure 订阅，可以注册 [免费试用版][Free Trial]。 请确保[安装并配置 Azure PowerShell 0.8.7 版或更高版本][Install and configure Azure PowerShell version 0.8.7 or later]。
 
 ### <a name="step-1-create-a-worker-role"></a>步骤 1：创建辅助角色
 1. 启动 **Visual Studio**。
@@ -127,7 +127,7 @@ public class WorkerRole : RoleEntryPoint
 
 [!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
 1. 通过选择解决方案资源管理器中的 WadExample 项目，然后在“生成”菜单中选择“发布”，在 Visual Studio 中将辅助角色部署到 Azure。
-2. 选择你的订阅。
+2. 选择订阅。
 3. 在“Azure 发布设置”对话框中，选择“新建...”。
 4. 在“创建云服务和存储帐户”对话框中输入一个“名称”（例如“WadExample”），然后选择区域或地缘组。
 5. 将“环境”设置为“暂存”。
@@ -143,7 +143,7 @@ public class WorkerRole : RoleEntryPoint
 2. 通过右键单击 WorkerRole1 项目并选择“添加” -> “新建项...”，将 XML 文件添加到 WorkerRole1 项目中 -> “Visual C# 项” -> “数据” -> “XML 文件”。 将该文件命名为“WadExample.xml”。
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
-3. 将 WadConfig.xsd 与配置文件相关联。 确保 WadExample.xml 编辑器窗口是活动的窗口。 按 **F4** 打开“属性”窗口。 在“属性”窗口中单击“架构”属性。 在“架构”属性中 单击“...”。 在“架构”属性中单击“...”  。 单击“确定” 。
+3. 将 WadConfig.xsd 与配置文件相关联。 确保 WadExample.xml 编辑器窗口是活动的窗口。 按 **F4** 打开“属性”窗口。 在“属性”窗口中单击“架构”属性。 在“架构”属性中 单击“...”。 在“架构”属性中单击“...”  。 单击 **“确定”**。
 
 4. 将 WadExample.xml 配置文件的内容替换为以下 XML 并保存该文件。 此配置文件定义两个要收集的性能计数器：一个对应于 CPU 使用率，另一个对应于内存使用率。 配置将定义对应于 SampleEventSourceWriter 类中方法的四个事件。
 
@@ -198,6 +198,7 @@ public class WorkerRole : RoleEntryPoint
 如果遇到问题，请参阅 [Azure 诊断疑难解答](../azure-diagnostics-troubleshooting.md)，获取有关常见问题的帮助。
 
 ## <a name="next-steps"></a>后续步骤
+若要更改你收集的数据、排查问题或者了解有关诊断的一般信息，请参阅[有关 Azure 虚拟机的诊断文章列表](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics)。
 
 [EventSource Class]: http://msdn.microsoft.com/zh-cn/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

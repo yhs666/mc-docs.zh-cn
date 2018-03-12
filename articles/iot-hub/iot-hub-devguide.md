@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/13/2017
-ms.date: 12/18/2017
+origin.date: 01/29/2018
+ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7479092d0921a534d28c9d25cd793e0994412511
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 672205485ff6c7754bf6c6940caca03b7955aaeb
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IoT 中心开发人员指南
 Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备和单个解决方案后端之间实现安全可靠的双向通信。
@@ -42,10 +42,10 @@ Azure IoT 中心提供：
   * [从 IoT 中心发送云到设备的消息][devguide-messages-c2d]。
   * [创建和读取 IoT 中心消息][devguide-format]。
 * [从设备上传文件][devguide-upload] 介绍如何从设备上传文件。 此文章还介绍了上传过程可发送的通知等主题。
-* [管理 IoT 中心中的设备标识][devguide-identities] 介绍了每个 IoT 中心的标识注册表存储哪些信息，并介绍了如何访问和修改此信息。
+* [管理 IoT 中心的设备标识][devguide-identities]介绍各 IoT 中心的标识注册表存储的信息。 本文还介绍了如何对访问和修改这些信息。
 * [控制对 IoT 中心的访问][devguide-security] 说明用于向设备和云组件授予 IoT 中心功能访问权限的安全模型。 此文章包括有关使用令牌和 X.509 证书的信息，以及可以授予的权限的详细信息。
-* [使用设备孪生同步状态和配置][devguide-device-twins] 介绍了 *设备孪生* 的概念及其公开的功能（如使用设备孪生同步设备）。 此文章包括有关设备孪生中存储的数据的信息。
-* [在设备上调用直接方法][devguide-directmethods] 说明直接方法的生命周期，介绍有关如何从后端应用调用设备方法以及在设备上处理直接方法的信息。
+* [使用设备孪生来同步状态和配置][devguide-device-twins]介绍设备孪生概念。 本文还介绍了设备孪生具备的功能，例如使用设备孪生来同步设备。 此文章包括有关设备孪生中存储的数据的信息。
+* [在设备上调用直接方法][devguide-directmethods]介绍直接方法的生命周期。 本文介绍如何通过后端应用在设备上调用方法，以及如何在设备上处理直接方法。
 * [在多台设备上计划作业][devguide-jobs] 介绍如何在多台设备上计划作业。 此文章介绍了如何提交作业，这些作业在执行直接方法和利用设备孪生更新设备时执行任务。 它还介绍如何查询作业的状态。
 * [参考 - 选择通信协议][devguide-protocol]介绍 IoT 中心支持用于设备通信的通信协议，并列出了应打开的端口。
 * [参考 - IoT 中心终结点][devguide-endpoints] 说明了每个 IoT 中心针对运行时和管理操作公开的各种终结点。 此文还介绍了如何在 IoT 中心创建附加终结点，以及如何在非标准方案中使用现场网关实现到 IoT 中心终结点的连接。

@@ -13,18 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/03/2017
-ms.date: 02/26/2018
+ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 114e70ae9f6e57b112f7db1830defdf2f3679e02
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 7519651c9ca0ce30b641755439344a2d2405cdad
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-activity-log-alerts"></a>创建活动日志警报
 
 ## <a name="overview"></a>概述
 活动日志警报是新发生的活动日志事件与警报中指定的条件匹配时激活的警报。 它们是 Azure 资源，因此，可通过使用 Azure 资源管理器模板进行创建。 此外，还可以在 Azure 门户中创建、更新或删除它们。 本文介绍活动日志警报背后的概念。 然后演示如何使用 Azure 门户设置有关活动日志事件的警报。
+
+> [!NOTE]
+>  [警报(预览)](monitoring-overview-unified-alerts.md) 目前在创建和管理活动日志方面提供增强的体验。  [了解详细信息](monitoring-activity-log-alerts-new-experience.md)。
+>
+>
 
 通常，你会在以下情况下创建活动日志警报以接收通知：
 
@@ -45,7 +50,7 @@ ms.lasthandoff: 02/13/2018
 - 事件发起者：也称为“调用方”。 电子邮件地址或执行操作的用户的 Azure Active Directory 标识符。
 
 >[!NOTE]
->必须在警报中至少指定上述两项条件之一，其中一项是类别。 不能创建每次在活动日志中创建事件时激活的警报。
+> 当类别是“管理”时，必须在警报中至少指定上述条件之一。 不能创建每次在活动日志中创建事件时激活的警报。
 >
 >
 

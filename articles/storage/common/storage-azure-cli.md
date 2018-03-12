@@ -1,6 +1,6 @@
 ---
 title: "将 Azure CLI 2.0 用于 Azure 存储 | Azure"
-description: "了解如何将 Azure 命令行接口 (Azure CLI) 2.0 用于 Azure 存储，以便创建和管理存储帐户并处理 Azure blob 和文件。 Azure CLI 2.0 是用 Python 编写的跨平台工具。"
+description: "了解如何将 Azure 命令行接口 (Azure CLI) 2.0 用于 Azure 存储，以便创建和管理存储帐户并处理 Azure blob 和文件。 Azure CLI 2.0 是使用 Python 编写的跨平台工具。"
 services: storage
 documentationcenter: na
 author: forester123
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/02/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 277c31ea714d1ba2e5764c13022d525c19efbaf4
-ms.sourcegitcommit: 10a649bfdf30765955ed964f7b5e05205bb9670a
+ms.openlocfilehash: 45d75aa3974e9391591dcabc86936b7c0fda77dd
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>将 Azure CLI 2.0 用于 Azure 存储
 
@@ -99,11 +99,11 @@ Subgroups:
 * 交互式登录：`az login`
 * 使用用户名和密码登录：`az login -u johndoe@contoso.com -p VerySecret`
   * 这不能用于 Microsoft 帐户或使用多重身份验证的帐户。
-* 使用服务主体登录：`az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.partner.onmschina.cn`
+* **使用服务主体登录**：`az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.partner.onmschina.cn`
 
 ## <a name="azure-cli-20-sample-script"></a>Azure CLI 2.0 示例脚本
 
-接下来，我们将使用一个小型 shell 脚本，该脚本会发出一些基本的 Azure CLI 2.0 命令与 Azure 存储资源进行交互。 该脚本首先在存储帐户中创建新容器，然后将现有文件（作为 Blob）上传到该容器。 然后，列出容器中的所有 Blob，最后，将文件下载到指定的本地计算机上的目标。
+接下来，我们将使用一个小型 shell 脚本，该脚本会发出一些基本的 Azure CLI 2.0 命令与 Azure 存储资源进行交互。 该脚本首先在存储帐户中创建新容器，再将现有文件（作为 Blob）上传到该容器。 然后，列出容器中的所有 Blob，最后，将文件下载到指定的本地计算机上的目标。
 
 ```bash
 #!/bin/bash
@@ -145,7 +145,7 @@ echo "Done"
    * \<file_to_upload\>：本地计算机上小文件的路径，例如：“~/images/HelloWorld.png”。
    * \<destination_file\>：目标文件路径，如“~/downloadedImage.png”。
 
-3. 更新所需的变量后，保存脚本并退出编辑器。 后续步骤假定已将脚本命名为 **my_storage_sample.sh**。
+3. 更新了必要的变量后，保存脚本并退出编辑器。 后续步骤假定已将脚本命名为 my_storage_sample.sh。
 
 4. 如有必要，将脚本标记为可执行文件：`chmod +x my_storage_sample.sh`
 
@@ -178,7 +178,7 @@ Done
 ## <a name="manage-storage-accounts"></a>管理存储帐户
 
 ### <a name="create-a-new-storage-account"></a>新建存储帐户
-若要使用 Azure 存储，需创建一个存储帐户。 可以在将计算机配置为[连接到订阅](#connect-to-your-azure-subscription)之后，创建新的 Azure 存储帐户。
+若要使用 Azure 存储，需创建一个存储帐户。 可以在将计算机配置为[连接到订阅](#connect-to-your-azure-subscription)之后创建新的 Azure 存储帐户。
 
 ```azurecli
 az storage account create \
@@ -197,6 +197,7 @@ az storage account create \
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
+
 
 ### <a name="set-default-azure-storage-account-environment-variables"></a>设置默认的 Azure 存储帐户环境变量
 可以在 Azure 订阅中设置多个存储帐户。 若要选择其中一个帐户用于所有后续存储命令，可以设置这些环境变量：
@@ -268,7 +269,7 @@ az storage blob download \
 
 ### <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-使用 [az storage blob list](https://docs.azure.cn/cli/storage/blob#list) 命令列出容器中的 blob。
+使用 [az storage blob list](https://docs.azure.cn/cli/storage/blob#az_storage_blob_list) 命令列出容器中的 blob。
 
 ```azurecli
 az storage blob list \
@@ -364,7 +365,7 @@ az storage file list --share-name myshare --path myDir/mySubDir/MySubDir2 --outp
 ```
 
 ### <a name="copy-files"></a>复制文件      
-可以将一个文件复制到另一个文件，将一个文件复制到一个 Blob，或将一个 Blob 复制到一个文件。 例如，要将文件复制到不同共享中的目录，请执行以下操作：        
+可将一个文件复制到另一个文件，将一个文件复制到一个 Blob，或将一个 Blob 复制到一个文件。 例如，要将文件复制到不同共享中的目录，请执行以下操作：        
 
 ```azurecli
 az storage file copy start \

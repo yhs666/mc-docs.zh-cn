@@ -3,7 +3,7 @@ title: "了解 Azure IoT 中心云到设备的消息传送 | Azure"
 description: "开发人员指南 - 如何在 IoT 中心使用云到设备的消息传送。 包含有关消息生命周期和配置选项的信息。"
 services: iot-hub
 documentationcenter: .net
-author: Derek1101
+author: dominicbetts
 manager: timlt
 editor: 
 ms.service: iot-hub
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/06/2017
 ms.author: v-yiso
-ms.date: 11/20/2017
-ms.openlocfilehash: c9cf68f2739bb28c2a78e0d5be37950150453e17
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.date: 03/19/2018
+ms.openlocfilehash: 1e18acbba8081d34d1b53bef85d12fe770dea081
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>从 IoT 中心发送云到设备的消息
 
@@ -28,11 +28,11 @@ ms.lasthandoff: 11/09/2017
 
 要将每个从云到设备的消息都设为以单个设备为目标，请通过 IoT 中心将 to 属性设置为 /devices/{deviceId}/messages/devicebound。
 
-每个设备队列最多可以保留 50 条云到设备的消息。 尝试将更多消息传送到同一设备将导致错误。
+每个设备队列最多可以保留 50 条云到设备的消息。 尝试将更多消息传送到同一设备会导致错误。
 
 ## <a name="the-cloud-to-device-message-lifecycle"></a>云到设备的消息生命周期
 
-为了保证至少一次消息传递，IoT 中心将云到设备的消息保留在每个设备队列中。 设备必须显式确认*完成*，IoT 中心才会从队列中将其删除。 这种方法可以保证连接失败和设备故障时能够复原。
+为了保证至少一次消息传递，IoT 中心将云到设备的消息保留在每个设备队列中。 设备必须显式确认*完成* ，IoT 中心才会从队列中将其删除。 这种方法可以保证连接失败和设备故障时能够复原。
 
 下图显示了 IoT 中心内云到设备消息的生命周期状态图。
 
@@ -42,7 +42,8 @@ IoT 中心服务向设备发送消息时，该服务会将消息状态设置为�
 
 设备还可以选择：
 
-* *拒绝*消息，这会使 IoT 中心将此消息设置为**死信**状态。 通过 MQTT 协议进行连接的设备无法拒绝云到设备的消息。
+* 
+            *拒绝*消息，这会使 IoT 中心将此消息设置为**死信**状态。 通过 MQTT 协议进行连接的设备无法拒绝云到设备的消息。
 * *放弃*消息，这会使 IoT 中心将消息放回队列，并将状态设置为**已排队**。 通过 MQTT 协议连接的设备无法放弃云到设备消息。
 
 线程可能无法处理消息，且不通知 IoT 中心。 在此情况下，在*可见性(或锁定)超时*时间之后，消息将从**不可见**状态自动转换回**已排队**状态。 此超时的默认值为一分钟。
@@ -98,7 +99,7 @@ IoT 中心服务向设备发送消息时，该服务会将消息状态设置为�
 | OriginalMessageId  | 与此反馈信息相关的从云到设备的消息的 MessageId。 |
 | StatusCode         | 必需的字符串。 在 IoT 中心生成的反馈消息中使用。 <br/> “Success” <br/> “Expired” <br/> “DeliveryCountExceeded” <br/> “Rejected” <br/> “Purged” |
 | 说明        | **StatusCode**的字符串值。 |
-| deviceId           | 与此反馈信息相关的从云到设备的消息的目标设备的 DeviceId。 |
+| DeviceId           | 与此反馈信息相关的从云到设备的消息的目标设备的 DeviceId。 |
 | DeviceGenerationId | 与此反馈信息相关的从云到设备的消息的目标设备的 DeviceGenerationId。 |
 
 服务必须指定从云到设备的消息的 **MessageId**，才能将其反馈与原始消息相关联。

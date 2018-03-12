@@ -17,11 +17,11 @@ ms.workload: database
 origin.date: 06/02/2017
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 15c707cd512fcaac6e3378366ac0a1ea30cf924f
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 446a1e3f4411cca4ed3a0049b15fd887a4de4048
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="get-account-keys-for-azure-cosmos-db-using-the-azure-cli"></a>使用 Azure CLI 获取 Azure Cosmos DB 的帐户密钥
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/02/2018
 
 # Set variables for the new account, database, and collection
 resourceGroupName='myResourceGroup'
-location='chinaeast'
+location='chinanorth'
 name='docdb-test'
 
 # Create a resource group
@@ -50,7 +50,7 @@ az group create \
 az cosmosdb create \
     --name $name \
     --kind GlobalDocumentDB \
-    --locations "China East"=0 "China North"=1 \
+    --locations chinanorth=0 chinaeast=1 \
     --resource-group $resourceGroupName \
     --max-interval 10 \
     --max-staleness-prefix 200
@@ -60,6 +60,9 @@ az cosmosdb list-keys \
     --name $name \
     --resource-group $resourceGroupName 
 ```
+<!-- location ADVISE TO chinanorth -->
+<!-- location MUST be the style of --locations chinanorth=0 chinaeast=1 -->
+<!-- OR it will popup the index out of range error-->
 
 ## <a name="clean-up-deployment"></a>清理部署
 

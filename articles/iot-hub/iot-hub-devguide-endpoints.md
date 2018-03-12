@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/19/2017
+origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 11/20/2017
-ms.openlocfilehash: 5a32a42f15a3e89eead4c06b5c234648892c7889
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.date: 03/19/2018
+ms.openlocfilehash: 53e2717e4975520025877ce00382cbd6d042a324
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>参考 - IoT 中心终结点
 ## <a name="iot-hub-names"></a>IoT 中心名称
@@ -32,7 +32,7 @@ Azure IoT 中心属于多租户服务，向各种执行组件公开功能。 下
 
 以下列表对这些终结点进行了说明：
 
-* **资源提供程序**。 IoT 中心资源提供程序公开一个 [Azure 资源管理器][lnk-arm]接口。 此接口使 Azure 订阅所有者可以创建和删除 IoT 中心以及更新 IoT 中心属性。 IoT 中心属性可管理[中心级别的安全策略][lnk-accesscontrol]，相对于设备级别的访问控制和云到设备及设备到云消息传送的功能选项。 IoT 中心资源提供程序还可让用户 [导出设备标识][lnk-importexport]。
+* **资源提供程序**。 IoT 中心资源提供程序公开一个 [Azure 资源管理器][lnk-arm]接口。 此接口使 Azure 订阅所有者可以创建和删除 IoT 中心以及更新 IoT 中心属性。 IoT 中心属性可管理 [中心级别的安全策略][lnk-accesscontrol]，相对于设备级别的访问控制和云到设备及设备到云消息传送的功能选项。 IoT 中心资源提供程序还可让用户 [导出设备标识][lnk-importexport]。
 * **设备标识管理**。 每个 IoT 中心公开一组用于管理设备标识的 HTTPS REST 终结点（创建、检索、更新和删除）。 [设备标识][lnk-device-identities]用于设备身份验证和访问控制。
 * **设备孪生管理**。 每个 IoT 中心都会公开一组面向服务的 HTTPS REST 终结点，用于查询和更新[设备孪生][lnk-twins]（更新标记和属性）。
 * **作业管理**。 每个 IoT 中心都会公开一组面向服务的 HTTPS REST 终结点，用于查询和管理[作业][lnk-jobs]。
@@ -76,7 +76,12 @@ IoT 中心需要这些服务终结点的写入权限，以便使用消息路由�
 
 ### <a name="when-using-azure-storage-containers"></a>如果使用 Azure 存储容器
 
-IoT 中心仅支持将数据以 [Apache Avro](http://avro.apache.org/) 格式作为 blob 写入 Azure 存储容器。 IoT 中心将在其达到特定大小或经过一定的时间之后（以先发生者为准），会对消息进行批处理，并将数据写入 blob。 如果没有要写入的数据，IoT 中心不会写入一个空 blob。
+IoT 中心仅支持将数据以 [Apache Avro](http://avro.apache.org/) 格式作为 blob 写入 Azure 存储容器。 出现下列情况时，IoT 中心将对消息进行批处理，并将数据写入 blob：
+
+* 批达到特定大小。
+* 或者已经过了一段时间。
+
+如果没有要写入的数据，IoT 中心将写入一个空 blob。
 
 IoT 中心默认为以下文件命名约定：
 
@@ -94,12 +99,12 @@ IoT 中心默认为以下文件命名约定：
 
 在 IoT 解决方案中， *现场网关* 位于设备和 IoT 中心终结点之间。 它通常位于靠近设备的位置。 设备使用设备支持的协议，直接与现场网关通信。 现场网关使用 IoT 中心支持的协议连接到 IoT 中心终结点。 现场网关可能是专用硬件设备或运行自定义网关软件的低功率计算机。
 
-可使用 [Azure IoT Edge][lnk-iot-edge]实现现场网关。 IoT Edge 提供一些功能，例如从多台设备向同一 IoT 中心连接多路复用通信。
+可使用 [Azure IoT Edge][lnk-iot-edge] 实现现场网关。 IoT Edge 提供一些功能，例如从多台设备向同一 IoT 中心连接多路复用通信。
 
 ## <a name="next-steps"></a>后续步骤
 此 IoT 中心开发人员指南中的其他参考主题包括：
 
-* [用于设备孪生、作业和消息路由的 IoT 中心查询语言][lnk-devguide-query]
+* [设备孪生、作业和消息路由的 IoT 中心查询语言][lnk-devguide-query]
 * [配额和限制][lnk-devguide-quotas]
 * [IoT 中心 MQTT 支持][lnk-devguide-mqtt]
 

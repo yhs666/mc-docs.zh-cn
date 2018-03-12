@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/24/2017
-ms.date: 01/22/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: b691fe3d1f2ee230a76676f3cb55efa6585dcf31
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: eaddf3e0077166a85e42d3be572c88e00cb5d101
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>为 Azure 网络接口添加、更改或删除 IP 地址
 
@@ -37,12 +37,15 @@ ms.lasthandoff: 01/19/2018
 - 使用 Azure 帐户登录到 Azure [门户](https://portal.azure.cn)、Azure 命令行接口 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用 PowerShell 命令来完成本文中的任务，请[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure PowerShell cmdlet。 若要获取 PowerShell 命令的帮助和示例，请键入 `get-help <command> -full`。
 - 如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，请[安装和配置 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest)。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。 
+<!-- Not Avaiable on Azure Cloud Shell -->
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 <a name="create-ip-config"></a>
 ## <a name="add-ip-addresses"></a>添加 IP 地址
+
 可将所需的任意数量的[专用](#private)和[公共](#public) [IPv4](#ipv4) 地址添加到网络接口，只要不超过 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文中列出的限制即可。
+<!-- Not Avaiable on IPV6 -->
 
 1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到 [Azure 门户](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
 2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。 在搜索结果中出现“网络接口”  时，单击该接口。
@@ -63,7 +66,7 @@ ms.lasthandoff: 01/19/2018
 
 |工具|命令|
 |---|---|
-|CLI|[az network nic ip-config create](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#create)|
+|CLI|[az network nic ip-config create](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_nic_ip_config_create)|
 |PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fvirtual-network%2ftoc.json)|
 
 <a name="change-ip-config"></a>
@@ -85,7 +88,7 @@ ms.lasthandoff: 01/19/2018
 
 |工具|命令|
 |---|---|
-|CLI|[az network nic ip-config update](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#update)|
+|CLI|[az network nic ip-config update](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_nic_ip_config_update)|
 |PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fvirtual-network%2ftoc.json)|
 
 <a name="delete-ip-config"></a>
@@ -104,7 +107,7 @@ ms.lasthandoff: 01/19/2018
 
 |工具|命令|
 |---|---|
-|CLI|[az network nic ip-config delete](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#delete)|
+|CLI|[az network nic ip-config delete](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_nic_ip_config_delete)|
 |PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fvirtual-network%2ftoc.json)|
 
 ## <a name="ip-configurations"></a>IP 配置
@@ -138,6 +141,7 @@ ms.lasthandoff: 01/19/2018
 ### <a name="private"></a>专用
 
 通过专用 [IPv4](#ipv4) 地址，虚拟机能够与虚拟网络或所连接的网络中的其他资源进行通信。
+<!-- Not Avaiable on IPV6 -->
 
 默认情况下，Azure DHCP 服务器将 Azure 网络接口的[主要 IP 配置](#primary)的专用 IPv4 地址分配给虚拟机操作系统内的网络接口。 除非必要，永远不应当在虚拟机操作系统中手动设置网络接口的 IP 地址。 
 
@@ -209,5 +213,6 @@ ms.lasthandoff: 01/19/2018
 |---|---|
 |创建具有多个 NIC 的 VM|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)、[PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)|
 |创建具有多个 IPv4 地址的单 NIC VM|[CLI](virtual-network-multiple-ip-addresses-cli.md)、[PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
+<!-- Not Avaiable on IPV6 -->
 
 <!--Update_Description: wording update, update link, wording update -->

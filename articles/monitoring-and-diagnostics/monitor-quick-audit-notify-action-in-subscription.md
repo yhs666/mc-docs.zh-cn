@@ -8,14 +8,14 @@ documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: quickstart
 origin.date: 09/25/2017
-ms.date: 12/11/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: d1132877e8eac4750b802b2c23996cd627b01887
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: abea5b836bf2f7d8308ff34538d7a5521637afed
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>审核和接收关于 Azure 订阅中重要操作的通知
 
@@ -29,7 +29,7 @@ Azure 活动日志提供 Azure 中订阅级别事件的历史记录。 它提供
 
 ## <a name="create-a-network-security-group"></a>创建网络安全组
 
-1. 单击 Azure 门户左上角的“新建”按钮。
+1. 单击 Azure 门户左上角的“创建资源”按钮。
 
 2. 选择“网络”、“网络安全组”。
 

@@ -14,25 +14,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 12/11/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c971b033bc8df184c15da747c6e4d278ec5e71e
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: e8282f4dd802c86b0a7d1ba3bfa9f31e09f31eaf
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>使用 Azure CLI 创建虚拟网络
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure 建议通过 Resource Manager 部署模型创建资源。 若要深入了解这两个模型之间的差异，请阅读[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md)一文。
+Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure 建议通过 Resource Manager 部署模型创建资源。 若要详细了解这两个模型之间的差异，请阅读[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md)一文。
 
 此外，也可以使用其他工具通过资源管理器创建虚拟网络，或者从以下列表中选择一个不同的选项，通过经典部署模型创建虚拟网络：
 
 > [!div class="op_single_selector"]
-> * [门户](virtual-networks-create-vnet-arm-pportal.md)
+> * [Portal](virtual-networks-create-vnet-arm-pportal.md)
 > * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 > * [CLI](virtual-networks-create-vnet-arm-cli.md)
 > * [模板](virtual-networks-create-vnet-arm-template-click.md)
@@ -46,11 +46,11 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure �
 
 若要使用 Azure CLI 创建虚拟网络，请完成以下步骤：
 
-1. 安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录 Azure 帐户。
+1. 安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录 Azure 帐户。
 
     [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-2. 使用具有 `--name` 和 `--location` 参数的 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 命令创建 VNet 的资源组：
+2. 使用具有 `--name` 和 `--location` 参数的 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 命令创建 VNet 的资源组：
 
     ```azurecli
     az group create --name TestRG --location chinaeast

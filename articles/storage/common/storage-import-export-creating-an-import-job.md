@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 5f6b64f4eca8a7347be4f0b15e2987509e658638
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: af778cd31595dfe0c2ab072690cc5ef1f77a1631
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>为 Azure 导入/导出服务创建导入作业
 
@@ -63,19 +63,18 @@ ms.lasthandoff: 08/25/2017
 
 ## <a name="obtaining-your-shipping-location"></a>获取寄送位置
 
-在创建导入作业之前，需要通过调用 [列出位置](https://docs.microsoft.com/rest/api/storageimportexport/listlocations) 操作获取寄送位置名称和地址。 
-            `List Locations` 返回位置及其邮寄地址的列表。 可以从返回的列表中选择一个位置，并将硬盘驱动器寄送到该地址。 也可以使用“ `Get Location` ”操作直接获取特定位置的寄送地址。
+在创建导入作业之前，需要通过调用 [列出位置](https://docs.microsoft.com/en-us/rest/api/storageimportexport/locations/list) 操作获取寄送位置名称和地址。 `List Locations` 返回位置及其邮寄地址的列表。 可以从返回的列表中选择一个位置，然后将硬盘驱动器寄送到该地址。 也可以使用“ `Get Location` ”操作直接获取特定位置的寄送地址。
 
  遵循以下步骤获取寄送位置：
 
 -   指定存储帐户位置的名称。 可在 Azure 门户中存储帐户的“仪表板”上的“位置”字段下找到该值，或者使用服务管理 API 操作[获取存储帐户属性](https://docs.microsoft.com/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties)来查询该值。
 
--   通过调用“ `Get Location` ”操作来检索可用于处理此存储帐户的位置。
+-   通过调用“`Get Location`”操作来检索可用于处理此存储帐户的位置。
 
 -   如果位置的 `AlternateLocations` 属性包含位置本身，则可以使用此位置。 否则，请使用某个备用位置再次调用“ `Get Location` ”操作。 原始位置可能会出于维护目的而暂时关闭。
 
 ## <a name="creating-the-import-job"></a>创建导入作业
-若要创建导入作业，请调用 [放置作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) 操作。 需要提供以下信息：
+若要创建导入作业，请调用[放置作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate)操作。 需要提供以下信息：
 
 -   作业的名称。
 
@@ -104,7 +103,7 @@ ms.lasthandoff: 08/25/2017
 >  必须通过支持的、可提供包裹跟踪号的承运人寄送驱动器。
 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>使用寄送信息更新导入作业
-获取跟踪号后，请调用 [更新作业属性](https://docs.microsoft.com/en-us/api/storageimportexport/jobs#Jobs_Update) 操作更新承运人名称、作业跟踪号以及运送回邮的承运人帐号。 可以选择性地指定驱动器数量和寄送日期。
+获取跟踪号后，请调用[更新作业属性](https://docs.microsoft.com/en-us/rest/api/storageimportexport/jobs/update)操作更新承运人名称、作业跟踪号以及运送回邮的承运人帐号。 可以选择性地指定驱动器数量和寄送日期。
 
 ## <a name="next-steps"></a>后续步骤
 

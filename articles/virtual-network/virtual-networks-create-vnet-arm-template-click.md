@@ -3,8 +3,8 @@ title: "创建虚拟网络 | Azure Resource Manager 模板 | Azure"
 description: "了解如何使用 Azure Resource Manager 模板创建虚拟网络。"
 services: virtual-network
 documentationcenter: 
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 69530861-2f97-4a6e-b336-a7baf2690044
@@ -14,50 +14,50 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 03/28/2017
-ms.author: v-dazen
+ms.date: 03/12/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9034c09a0a3d4f355394b67a11869d0e2e41f9a2
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 74c56a38e28f0e349de3645775703f4b30aa2a64
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建虚拟网络
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure 建议通过 Resource Manager 部署模型创建资源。 若要深入了解这两个模型之间的差异，请阅读[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md)一文。
+Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure 建议通过 Resource Manager 部署模型创建资源。 若要详细了解这两个模型之间的差异，请阅读[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md)一文。
 
 本文介绍如何使用 Azure Resource Manager 模板通过 Resource Manager 部署模型创建 VNet。 还可以使用其他工具通过 Resource Manager 创建 VNet，或通过从以下列表中选择不同的选项使用经典部署模型创建 VNet：
 
 > [!div class="op_single_selector"]
->- [门户](virtual-networks-create-vnet-arm-pportal.md)
->- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
->- [CLI](virtual-networks-create-vnet-arm-cli.md)
->- [模板](virtual-networks-create-vnet-arm-template-click.md)
->- [门户（经典）](virtual-networks-create-vnet-classic-pportal.md)
->- [PowerShell（经典）](virtual-networks-create-vnet-classic-netcfg-ps.md)
->- [CLI（经典）](virtual-networks-create-vnet-classic-cli.md)
+- [Portal](virtual-networks-create-vnet-arm-pportal.md)
+- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+- [CLI](virtual-networks-create-vnet-arm-cli.md)
+- [模板](virtual-networks-create-vnet-arm-template-click.md)
+- [门户（经典）](virtual-networks-create-vnet-classic-pportal.md)
+- [PowerShell（经典）](virtual-networks-create-vnet-classic-netcfg-ps.md)
+- [CLI（经典）](virtual-networks-create-vnet-classic-cli.md)
 
-可了解如何从 GitHub 下载并修改现有 ARM 模板，以及如何通过 GitHub、PowerShell 和 Azure CLI 部署该模板。
+了解如何通过 GitHub 下载 Azure 资源管理器模板和修改现有模板，以及如何通过 GitHub、PowerShell 和 Azure CLI 部署模板。
 
-如果直接从 GitHub 部署 ARM 模板，而不进行任何更改，请跳到 [从 GitHub 部署模板](#deploy-the-arm-template-by-using-click-to-deploy)。
+如果只需直接通过 GitHub 部署 Azure 资源管理器模板而不做任何更改，请跳到[通过 GitHub 部署模板](#deploy-the-arm-template-by-using-click-to-deploy)。
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-## <a name="download-and-understand-the-azure-resource-manager-template"></a>下载 Azure Resource Manager 模板并对其进行了解
-可以从 GitHub 下载用于创建 VNet 和两个子网的现有模板，进行任何所需的更改，然后重用该模板。 若要执行此操作，请完成以下步骤：
+## <a name="download-and-understand-the-azure-resource-manager-template"></a>下载并了解 Azure Resource Manager 模板
+可以从 GitHub 下载用于创建 VNet 和两个子网的现有模板，进行任何所需的更改，并重用该模板。 若要执行此操作，请完成以下步骤：
 
 1. 导航到 [示例模板页](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)。
-2. 单击 **azuredeploy.json**，然后单击 **RAW**。
-3. 将该文件保存到你计算机上的本地文件夹。
+2. 单击 **azuredeploy.json**，并单击 **RAW**。
+3. 将该文件保存到计算机上的本地文件夹。
 4. 如果熟悉模板，请跳到步骤 7。
-5. 打开刚保存的文件，并查看 **parameters** 下第 5 行中的内容。 ARM 模板参数提供了在部署过程中可以填充的值的占位符。
+5. 打开所保存的文件，查看第 5 行“参数”下的内容。 Azure Resource Manager 模板参数提供了在部署过程中可以填充的值的占位符。
 
    | 参数 | 说明 |
    | --- | --- |
-   | **位置** |要在其中创建 VNet 的 Azure 区域 |
+   | **位置** |创建 VNet 的 Azure 区域 |
    | **vnetName** |新 VNet 的名称 |
    | **addressPrefix** |VNet 的地址空间，采用 CIDR 格式 |
    | **subnet1Name** |第一个 VNet 的名称 |
@@ -72,11 +72,11 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure �
 6. 查看 **resources** 下的内容，并注意以下项：
 
    * **type**。 模板创建的资源的类型。 在此实例中为 **Microsoft.Network/virtualNetworks**，表示 VNet。
-   * **name**。 资源的名称。 请注意使用 **[parameters('vnetName')]**，这意味着在部署过程中将以用户输入或参数文件的形式提供该名称。
+   * **name**。 资源的名称。 请记下 [parameters('vnetName')] 的使用情况，该项表示用户提供作为输入的名称或部署期间的参数文件。
    * **properties**。 资源的属性列表。 此模板在 VNet 创建期间使用地址空间和子网属性。
 7. 导航回 [示例模板页](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)。
 8. 单击“azuredeploy-paremeters.json”，然后单击“RAW”。
-9. 将该文件保存到你计算机上的本地文件夹。
+9. 将该文件保存到计算机上的本地文件夹。
 10. 打开刚保存的文件并编辑参数的值。 使用以下值来部署方案中所述的 VNet：
 
     ```json
@@ -208,12 +208,15 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure �
 
 ## <a name="deploy-the-template-using-click-to-deploy"></a>通过单击部署方式部署模板
 
-可重用上传到由 Microsoft 维护并对社区开放的 GitHub 存储库的预定义 Azure Resource Manager 模板。 这些模板可直接从 GitHub 部署，也可下载并修改以满足你的需要。 若要部署创建包含两个子网的 VNet 的模板，请完成以下步骤：
+可重用上传到由 Microsoft 维护并对社区开放的 GitHub 存储库的预定义 Azure Resource Manager 模板。 这些模板可直接从 GitHub 部署，也可下载并修改以满足需要。 若要部署创建包含两个子网的 VNet 的模板，请完成以下步骤：
 
-3. 单击 **“部署到 Azure”**。 如有必要，输入你的 Azure 登录凭据。 
+1. 从浏览器导航到 [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)。
+2. 向下滚动模板列表，并单击“101-vnet-two-subnets”。 选中 **README.md** 文件，如下所示。
 
-    [![deploybutton.png](./media/virtual-networks-create-vnet-arm-template-click-include/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vnet-two-subnets%2Fazuredeploy.json)
-4. 在“参数”边栏选项卡中，输入要用于创建新 VNet 的值，然后单击“确定”。 下图显示此方案的值：
+    ![github 中的 READEME.md 文件](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
+
+3. 单击 **“部署到 Azure”**。 如有必要，输入 Azure 登录凭据。 
+4. 在“参数”边栏选项卡中，输入要用于创建新 VNet 的值，然后单击“确定”。 下图显示了方案的值：
 
     ![ARM 模板参数](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
 
@@ -223,12 +226,12 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure �
 
 6. 如有必要，更改 VNet 的“订阅”和“位置”设置。
 7. 如果不想看到该 VNet 作为“启动板”中的磁贴，请禁用“固定到启动板”。
-8. 单击“法律条款”，阅读条款，然后单击“购买”表示同意条款。 
+8. 单击“法律条款”，阅读条款，然后单击“购买”以表示同意。 
 9. 单击“创建”以创建该 VNet  。
 
     ![在门户中提交部署磁贴](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-10. 部署完成后，在 Azure 门户中单击“更多服务”，在出现的筛选器框中键入“虚拟网络”，然后单击“虚拟网络”查看“虚拟网络”边栏选项卡。 在边栏选项卡中，单击“TestVNet” 。 在“TestVNet”边栏选项卡中，单击“子网”查看创建的子网，如下图中所示：
+10. 部署完成后，即可在 Azure 门户中单击“所有服务”，在显示的筛选框中键入“虚拟网络”，然后单击虚拟网络以查看虚拟网络边栏选项卡。 在边栏选项卡中，单击“TestVNet” 。 在“TestVNet”边栏选项卡中，单击“子网”查看创建的子网，如下图中所示：
 
      ![在门户中创建 VNet](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 
@@ -239,3 +242,5 @@ Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure �
 - 阅读文章[创建 Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) 或[创建 Linux VM](../virtual-machines/linux/quick-create-portal.md)，将虚拟机 (VM) 连接到虚拟网络。 可选择将 VM 连接到现有 VNet 和子网，而不按文章中的步骤创建 VNet 和子网。
 - 阅读[连接 VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) 一文，将一个虚拟网络连接到其他虚拟网络。
 - 使用站点到站点虚拟专用网络 (VPN) 或 ExpressRoute 线路，将虚拟网络连接到本地网络。 阅读文章[使用站点到站点 VPN 将 VNet 连接到本地网络](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)和[将 VNet 链接到 ExpressRoute 线路](../expressroute/expressroute-howto-linkvnet-arm.md)，了解相关操作方法。
+
+<!-- Update_Description: update meta properties, wording update -->

@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/23/2016
-ms.date: 01/15/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 85fffcd635c3502809b3815d49935c4ceef57d79
-ms.sourcegitcommit: 60515556f984495cfe545778b2aac1310f7babee
+ms.openlocfilehash: 035cced6db2635ae7e560945a2a02a92b7e363cb
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>使用 Azure 门户排查网络安全组问题
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ ms.lasthandoff: 01/12/2018
 可以从 VM 本身查看 NIC 上的完整有效安全规则列表。 如果有相应的权限，也可以从有效规则的边栏选项卡添加、修改和删除 NIC 与子网的 NSG 规则。
 
 1. 在 https://portal.azure.cn 上使用 Azure 帐户登录到 Azure 门户。 你的帐户必须有权对网络接口执行 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 操作。 若要了解如何向帐户分配操作，请参阅[创建用于 Azure 基于角色的访问控制的自定义角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fvirtual-network%2ftoc.json#actions)。
-2. 单击“更多服务”，然后在显示的列表中单击“虚拟机”。
+2. 单击“所有服务”，然后在显示的列表中单击“虚拟机”。
 3. 在显示的列表中选择要进行故障排除的 VM，随后会显示一个包含选项的 VM 边栏选项卡。
 4. 单击“诊断和解决问题”，然后选择一个常见问题。 本示例选择了“无法连接到 Windows VM”。 
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 01/12/2018
 如果特定的 NIC 影响了 VM 流量流，可以完成以下步骤，从网络接口上下文查看 NIC 的完整有效规则列表：
 
 1. 登录到位于 https://portal.azure.cn 的 Azure 门户。
-2. 单击“更多服务”，然后在显示的列表中单击“网络接口”。
+2. 单击“所有服务”，并在显示的列表中单击“网络接口”。
 3. 选择一个网络接口。 在下图中，已选择名为 *VM1-NIC1* 的 NIC。
 
     ![](./media/virtual-network-nsg-troubleshoot-portal/image5.png)
@@ -115,7 +115,7 @@ ms.lasthandoff: 01/12/2018
 修改 NSG 规则时，可以查看在特定 VM 上添加规则产生的影响。 可以查看应用了给定 NSG 的所有 NIC 的完整有效安全规则列表，而无需从给定 NSG 的边栏选项卡切换上下文。 若要排查 NSG 中有效规则的问题，请完成以下步骤：
 
 1. 登录到位于 https://portal.azure.cn 的 Azure 门户。
-2. 单击“更多服务”，然后在显示的列表中单击“网络安全组”。
+2. 单击“所有服务”，并在显示的列表中单击“网络安全组”。
 3. 选择一个 NSG。 在下图中，已选择名为 VM1-nsg 的 NSG。
 
     ![](./media/virtual-network-nsg-troubleshoot-portal/image6.png)
@@ -151,4 +151,4 @@ ms.lasthandoff: 01/12/2018
 * 如果已创建对等互连的 VNet，则默认情况下，VIRTUAL_NETWORK 标记会自动扩展，包含对等互连的 VNet 的前缀。 可以在 **ExpandedAddressPrefix** 列表中查看这些前缀，排查与 VNet 对等互连相关的任何问题。 
 * 仅当有 NSG 与 VM 的 NIC 和/或子网关联时，才会显示有效安全规则。 
 * 如果没有任何 NSG 与 NIC 或子网关联，并且向 VM 分配了公共 IP 地址，则会打开所有端口以便进行入站和出站访问。 如果 VM 使用公共 IP 地址，我们强烈建议对 NIC 或子网应用 NSG。
-<!-- Update_Description: update meta properties, wording update, update link  -->
+<!-- Update_Description: update meta properties, wording update, update link -->

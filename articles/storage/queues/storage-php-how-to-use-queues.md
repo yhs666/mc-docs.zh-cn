@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/08/2016
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: ad1f7cc9b31d14dfdbd0e3d592025676b5d62f68
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: cbe4375d233188f7a870af6e0c3bd8c1255d89f0
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>如何通过 PHP 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -34,12 +34,29 @@ ms.lasthandoff: 10/23/2017
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>创建 PHP 应用程序
-创建用于访问 Azure 队列存储的 PHP 应用程序的唯一要求是从代码中引用[适用于 PHP 的 Azure 存储客户端库][download]中的类。 可使用任何开发工具（包括“记事本”）创建应用程序。
+创建用于访问 Azure 队列存储的 PHP 应用程序的唯一要求是从代码中引用[适用于 PHP 的 Azure 存储客户端库][download]中的类。 可以使用任何开发工具（包括“记事本”）创建应用程序。
 
 在本指南中，将使用队列存储服务功能，这些功能可在 PHP 应用程序中本地调用，或通过在 Azure 的 Web 角色、辅助角色或网站中运行的代码调用。
 
 ## <a name="get-the-azure-client-libraries"></a>获取 Azure 客户端库
-[!INCLUDE [get-client-libraries](../../../includes/get-client-libraries.md)]
+### <a name="install-via-composer"></a>通过 Composer 安装
+1. 在项目的根目录中创建一个名为 **composer.json** 的文件并向其添加以下代码：
+   
+    ```json
+    {
+      "require": {
+        "microsoft/azure-storage-queue": "*"
+      }
+    }
+    ```
+2. 将 [composer.phar][composer-phar] 下载到项目根目录中。
+3. 打开命令提示符并在项目根目录中执行以下命令
+   
+    ```
+    php composer.phar install
+    ```
+
+或者转到 GitHub 上的 [Azure 存储 PHP 客户端库][download]，然后克隆源代码。
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>配置应用程序以访问队列存储
 若要使用 Azure 队列存储 API，需执行以下操作：
@@ -47,12 +64,11 @@ ms.lasthandoff: 10/23/2017
 1. 使用 [require_once] 语句引用 autoloader 文件。
 2. 引用可使用的所有类。
 
-下面的示例演示了如何包括 autoloader 文件并引用 **ServicesBuilder** 类。
+以下示例演示如何添加 autoloader 文件和引用 QueueRestProxy 类。
 
 ```php
 require_once 'vendor/autoload.php';
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
 ```
 
 以下示例中，`require_once` 语句将始终显示，但只会引用执行该示例所需的类。
@@ -72,7 +88,7 @@ DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[your
 UseDevelopmentStorage=true
 ```
 
-若要创建任何 Azure 服务客户端，需要使用 **ServicesBuilder** 类。 可使用以下方法之一：
+若要创建 Azure 队列服务客户端，则需要使用 QueueRestProxy 类。 可使用以下方法之一：
 
 * 将连接字符串直接传递给它。
 * 在 Web 应用中使用环境变量来存储连接字符串。 要配置连接字符串，请参阅 [Azure Web 应用配置设置](../../app-service/web-sites-configure.md)文档。
@@ -81,10 +97,10 @@ UseDevelopmentStorage=true
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>;EndpointSuffix=core.chinacloudapi.cn";
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 ```
 
 ## <a name="create-a-queue"></a>创建队列
@@ -93,14 +109,14 @@ QueueRestProxy 对象允许使用 createQueue 方法创建队列。 创建队列
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateQueueOptions;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>;EndpointSuffix=core.chinacloudapi.cn";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 // OPTIONAL: Set queue metadata.
 $createQueueOptions = new CreateQueueOptions();
@@ -109,7 +125,7 @@ $createQueueOptions->addMetaData("key2", "value2");
 
 try    {
     // Create queue.
-    $queueRestProxy->createQueue("myqueue", $createQueueOptions);
+    $queueClient->createQueue("myqueue", $createQueueOptions);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -123,27 +139,28 @@ catch(ServiceException $e){
 
 > [!NOTE]
 > 不应依赖元数据密钥区分大小写的性质。 以小写形式从服务中读取所有密钥。
+> 
+> 
 
 ## <a name="add-a-message-to-a-queue"></a>向队列添加消息
-
 若要将消息添加到队列，请使用 QueueRestProxy->createMessage。 此方法接受队列名称、消息文本和消息选项（这些都是可选的）。
 
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\CreateMessageOptions;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>;EndpointSuffix=core.chinacloudapi.cn";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 try    {
     // Create message.
     $builder = new ServicesBuilder();
-    $queueRestProxy->createMessage("myqueue", "Hello World!");
+    $queueClient->createMessage("myqueue", "Hello World!");
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -161,21 +178,21 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\PeekMessagesOptions;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>;EndpointSuffix=core.chinacloudapi.cn";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 // OPTIONAL: Set peek message options.
 $message_options = new PeekMessagesOptions();
 $message_options->setNumberOfMessages(1); // Default value is 1.
 
 try    {
-    $peekMessagesResult = $queueRestProxy->peekMessages("myqueue", $message_options);
+    $peekMessagesResult = $queueClient->peekMessages("myqueue", $message_options);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -209,16 +226,16 @@ else{
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>;EndpointSuffix=core.chinacloudapi.cn";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 // Get message.
-$listMessagesResult = $queueRestProxy->listMessages("myqueue");
+$listMessagesResult = $queueClient->listMessages("myqueue");
 $messages = $listMessagesResult->getQueueMessages();
 $message = $messages[0];
 
@@ -232,7 +249,7 @@ $popReceipt = $message->getPopReceipt();
 
 try    {
     // Delete message.
-    $queueRestProxy->deleteMessage("myqueue", $messageId, $popReceipt);
+    $queueClient->deleteMessage("myqueue", $messageId, $popReceipt);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -245,21 +262,21 @@ catch(ServiceException $e){
 ```
 
 ## <a name="change-the-contents-of-a-queued-message"></a>更改已排队消息的内容
-可以调用 QueueRestProxy->updateMessage 来更改队列中已就位消息的内容。 如果消息表示工作任务，可使用此功能来更新该工作任务的状态。 以下代码使用新内容更新队列消息，并将可见性超时设置为再延长 60 秒。 这会保存与消息关联的工作的状态，并额外为客户端提供一分钟的时间来继续处理消息。 可使用此方法跟踪队列消息上的多步骤工作流，即使处理步骤因硬件或软件故障而失败，也无需从头开始操作。 通常也会保留重试计数，当消息重试次数超过 n 时再删除该消息。 这可避免每次处理某条消息时都触发应用程序错误。
+可以调用 QueueRestProxy->updateMessage 来更改队列中已就位消息的内容。 如果消息表示工作任务，可使用此功能来更新该工作任务的状态。 以下代码使用新内容更新队列消息，并将可见性超时设置为再延长 60 秒。 这会保存与消息关联的工作的状态，并额外为客户端提供一分钟的时间来继续处理消息。 可使用此方法跟踪队列消息上的多步骤工作流，即使处理步骤因硬件或软件故障而失败，也无需从头开始操作。 通常同时保留重试计数，当消息重试次数超过 *n* 时再删除该消息。 这可避免每次处理某条消息时都触发应用程序错误。
 
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>;EndpointSuffix=core.chinacloudapi.cn";
 
 // Get message.
-$listMessagesResult = $queueRestProxy->listMessages("myqueue");
+$listMessagesResult = $queueClient->listMessages("myqueue");
 $messages = $listMessagesResult->getQueueMessages();
 $message = $messages[0];
 
@@ -273,7 +290,7 @@ $popReceipt = $message->getPopReceipt();
 
 try    {
     // Update message.
-    $queueRestProxy->updateMessage("myqueue",
+    $queueClient->updateMessage("myqueue",
                                 $messageId,
                                 $popReceipt,
                                 $new_message_text,
@@ -295,14 +312,14 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Queue\Models\ListMessagesOptions;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>;EndpointSuffix=core.chinacloudapi.cn";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 // Set list message options.
 $message_options = new ListMessagesOptions();
@@ -311,7 +328,7 @@ $message_options->setNumberOfMessages(16);
 
 // Get messages.
 try{
-    $listMessagesResult = $queueRestProxy->listMessages("myqueue",
+    $listMessagesResult = $queueClient->listMessages("myqueue",
                                                      $message_options);
     $messages = $listMessagesResult->getQueueMessages();
 
@@ -326,7 +343,7 @@ try{
         $popReceipt = $message->getPopReceipt();
 
         // Delete message.
-        $queueRestProxy->deleteMessage("myqueue", $messageId, $popReceipt);
+        $queueClient->deleteMessage("myqueue", $messageId, $popReceipt);
     }
 }
 catch(ServiceException $e){
@@ -345,17 +362,17 @@ catch(ServiceException $e){
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>;EndpointSuffix=core.chinacloudapi.cn";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 try    {
     // Get queue metadata.
-    $queue_metadata = $queueRestProxy->getQueueMetadata("myqueue");
+    $queue_metadata = $queueClient->getQueueMetadata("myqueue");
     $approx_msg_count = $queue_metadata->getApproximateMessageCount();
 }
 catch(ServiceException $e){
@@ -376,17 +393,17 @@ echo $approx_msg_count;
 ```php
 require_once 'vendor/autoload.php';
 
-use MicrosoftAzure\Storage\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Queue\QueueRestProxy;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 $connectionString = "DefaultEndpointsProtocol=http;AccountName=<accountNameHere>;AccountKey=<accountKeyHere>;EndpointSuffix=core.chinacloudapi.cn";
 
 // Create queue REST proxy.
-$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
+$queueClient = QueueRestProxy::createQueueService($connectionString);
 
 try    {
     // Delete queue.
-    $queueRestProxy->deleteQueue("myqueue");
+    $queueClient->deleteQueue("myqueue");
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -409,5 +426,5 @@ catch(ServiceException $e){
 [download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.cn
-
+[composer-phar]: http://getcomposer.org/composer.phar
 <!--Update_Description:update code namespace from "WindowsAzure" to "MicrosoftAzure"-->

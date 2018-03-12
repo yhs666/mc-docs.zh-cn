@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/25/2017
+origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 01/15/2018
-ms.openlocfilehash: 4771eb5d36ea023a28d045b7aa0b849081dbaedd
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.date: 03/19/2018
+ms.openlocfilehash: 7735aaa38a3d998aa5560abe9c0d8e396c433af3
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>创建和读取 IoT 中心消息
 

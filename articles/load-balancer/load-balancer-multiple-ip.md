@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: d821698d4c99e9788df5311b3677849ca30ee62b
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 62e1da90930771b00adbefb5afb58651ace976ef
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>使用 Azure 门户对多个 IP 配置进行负载均衡
 
 > [!div class="op_single_selector"]
-> * [门户](load-balancer-multiple-ip.md)
+> * [Portal](load-balancer-multiple-ip.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
@@ -197,6 +197,6 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。
-- 若要了解如何使用不同类型的日志对负载均衡器进行管理和故障排除，请参阅 [Azure 负载均衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md)。
+<!-- Not Avaible [Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) -->
 
 <!-- Update_Description: update meta properties, wording update -->

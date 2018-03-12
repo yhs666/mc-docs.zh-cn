@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 02/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: f8f1b6d87661c8744df81128750572a598ba8370
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 4d8e93c2791b0b320857f1393e368cc1f3584c21
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>了解 Azure 中的出站连接
 
@@ -43,7 +43,10 @@ Azure 提供三种不同的方法来实现出站连接。 每种方法都有自�
 
 SNAT 端口是可能会被耗尽的有限资源。 因此了解它们的使用方式很重要。 每个到单个目标 IP 的流使用一个 SNAT 端口。 对于到相同的目标 IP 地址和端口的多个流，每个流使用一个 SNAT 端口。 这可以确保源自相同的公共 IP 地址，并到相同的目标 IP 地址和端口的流的唯一性。 每个流均流到不同目标 IP 地址和端口的多个流共用一个 SNAT 端口。 目标 IP 地址和端口使流具有唯一性。
 
-可使用[用于负载均衡器的 Log Analytics](load-balancer-monitor-log.md) 和[要监视 SNAT 端口耗尽消息的警报事件日志](load-balancer-monitor-log.md#alert-event-log)来监视出站连接的健康状况。 如果 SNAT 端口资源已经耗尽，那么在现有流释放 SNAT 端口之前出站流会失败。 负载均衡器对于回收 SNAT 端口使用 4 分钟的空闲超时时间。  查看后文的[具有实例级公共 IP 地址的 VM（有或没有负载均衡器）](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer)和[管理 SNAT 耗尽的情况](#snatexhaust)部分。
+<!-- Not Available on [Log Analytics for Load Balancer](load-balancer-monitor-log.md) -->
+<!-- Not Available on [Alert event logs to monitor for SNAT port exhaustion messages](load-balancer-monitor-log.md#alert-event-log) -->
+
+ 如果 SNAT 端口资源已经耗尽，那么在现有流释放 SNAT 端口之前出站流会失败。 负载均衡器对于回收 SNAT 端口使用 4 分钟的空闲超时时间。  查看后文的[具有实例级公共 IP 地址的 VM（有或没有负载均衡器）](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer)和[管理 SNAT 耗尽的情况](#snatexhaust)部分。
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>负载均衡的 VM（无实例级公共 IP 地址）
 
@@ -53,7 +56,10 @@ SNAT 端口是可能会被耗尽的有限资源。 因此了解它们的使用�
 
 SNAT 端口是可能会被耗尽的有限资源。 因此了解它们的使用方式很重要。 每个到单个目标 IP 地址的流和端口使用一个 SNAT 端口。 对于到相同的目标 IP 地址和端口的多个流，每个流使用一个 SNAT 端口。 这可以确保源自相同的公共 IP 地址，并到相同的目标 IP 地址和端口的流的唯一性。 每个流均流到不同目标 IP 地址和端口的多个流共用一个 SNAT 端口。 目标 IP 地址和端口使流具有唯一性。
 
-可使用[用于负载均衡器的 Log Analytics](load-balancer-monitor-log.md) 和[要监视 SNAT 端口耗尽消息的警报事件日志](load-balancer-monitor-log.md#alert-event-log)来监视出站连接的健康状况。 如果 SNAT 端口资源已经耗尽，那么在现有流释放 SNAT 端口之前出站流会失败。 负载均衡器对于回收 SNAT 端口使用 4 分钟的空闲超时时间。  查看下一个部分以及[管理 SNAT 耗尽的情况](#snatexhaust)。
+<!-- Not Available on [Log Analytics for Load Balancer](load-balancer-monitor-log.md) -->
+<!-- Not Available on [Alert event logs to monitor for SNAT port exhaustion messages](load-balancer-monitor-log.md#alert-event-log) -->
+
+如果 SNAT 端口资源已经耗尽，那么在现有流释放 SNAT 端口之前出站流会失败。 负载均衡器对于回收 SNAT 端口使用 4 分钟的空闲超时时间。  查看下一个部分以及[管理 SNAT 耗尽的情况](#snatexhaust)。
 
 ## <a name="vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer"></a>具有实例级公共 IP 地址的 VM（有或没有负载均衡器）
 

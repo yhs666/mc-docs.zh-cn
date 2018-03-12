@@ -12,24 +12,24 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/15/2017
-ms.date: 02/26/2018
+origin.date: 02/07/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: 
-ms.openlocfilehash: ac0c2d2e986ea2660d12399cfdb3248b056a78d9
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 3f0764bd277b6c712bc34d88afbb3efb07eee3fc
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="virtual-network-service-endpoints-preview"></a>虚拟网络服务终结点（预览）
+# <a name="virtual-network-service-endpoints"></a>虚拟网络服务终结点
 
 虚拟网络 (VNet) 服务终结点可通过直接连接将 VNet 的虚拟网络专用地址空间和标识扩展到 Azure 服务。 使用终结点可以保护关键的 Azure 服务资源，只允许在客户自己的虚拟网络中对其进行访问。 从 VNet 发往 Azure 服务的流量始终保留在 Azure 主干网络中。
 
-此功能以预览版形式针对以下 Azure 服务和区域提供：
+此功能针对以下 Azure 服务和区域提供：
 
-- **Azure 存储**：Azure 公有云中的所有区域。
-- **Azure SQL**：Azure 公有云中的所有区域。
+- **Azure 存储**：已正式发布。 Azure 公有云和 Azure 政府中的所有区域。
+- **Azure SQL 数据库**：在所有 Azure 区域正式发布。 
 
 有关预览版的最新通知，请查看 [Azure 虚拟网络更新](https://www.azure.cn/what-is-new/)页。
 
@@ -70,9 +70,9 @@ ms.lasthandoff: 02/13/2018
 ### <a name="configuration"></a>配置
 
 - 服务终结点在虚拟网络中的子网上配置。 终结点可以处理该子网中运行的任何类型的计算实例。
-- 对于子网中的某个特定服务，只能启用一个服务终结点。 可以针对子网中的所有受支持 Azure 服务（例如 Azure 存储或 Azure SQL 数据库）配置多个服务终结点。
+- 可以针对子网中的所有受支持 Azure 服务（例如 Azure 存储或 Azure SQL 数据库）配置多个服务终结点。
 - 虚拟网络应与 Azure 服务资源位于同一区域。 如果使用 GRS 和 RA-GRS Azure 存储帐户，则主帐户必须与虚拟网络位于同一区域。
-- 配置了终结点的虚拟网络可与 Azure 服务资源位于相同或不同的订阅中。 有关设置终结点和保护 Azure 服务时所需的权限的详细信息，请参阅[预配](#provisioning)。
+- 配置了终结点的虚拟网络可与 Azure 服务资源位于相同或不同的订阅中。 有关设置终结点和保护 Azure 服务时所需的权限的详细信息，请参阅[预配](#Provisioning)。
 - 对于受支持的服务，可以使用服务终结点在虚拟网络中保护新的或现有的资源。
 
 ### <a name="considerations"></a>注意事项
@@ -84,7 +84,6 @@ ms.lasthandoff: 02/13/2018
 - 使用服务终结点的网络安全组 (NSG)：
   - 默认情况下，NSG 允许出站 Internet 流量，因此，也允许来自 VNet 的流量发往 Azure 服务。 使用服务终结点时，处理方式仍旧如此。 
   - 如果想要拒绝所有出站 Internet 流量并只允许发往特定 Azure 服务的流量，可以在 NSG 中使用“Azure 服务标记”。 可以在 NSG 规则中将受支持的 Azure 服务指定为目标，每个标记下面的 IP 地址的维护由 Azure 提供。 有关详细信息，请参阅 [NSG 的 Azure 服务标记](/virtual-network/security-overview#service-tags)。 
-<!-- Redirect Link https://aka.ms/servicetags TO /virtual-network/security-overview#service-tags -->
 
 ### <a name="scenarios"></a>方案
 
@@ -111,7 +110,7 @@ ms.lasthandoff: 02/13/2018
 
 详细了解[内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json)以及将特定的权限分配到[自定义角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 
-虚拟网络和 Azure 服务资源可以位于相同或不同的订阅中。 如果虚拟网络和 Azure 服务资源位于不同的订阅中，在预览期，资源必须在相同的 Active Directory (AD) 租户下。 
+虚拟网络和 Azure 服务资源可以位于相同或不同的订阅中。 如果虚拟网络和 Azure 服务资源位于不同的订阅中，资源必须在相同的 Active Directory (AD) 租户下。 
 
 ## <a name="pricing-and-limits"></a>定价和限制
 
@@ -127,6 +126,5 @@ ms.lasthandoff: 02/13/2018
 - 了解如何[在虚拟网络中保护 Azure 存储帐户](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json)
 - 了解如何[在虚拟网络中保护 Azure SQL 数据库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)
 - 了解[虚拟网络中的 Azure 服务集成](virtual-network-for-azure-services.md)
-- 快速入门：[Azure 资源管理器模板](https://www.azure.cn/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)，用于在 VNet 的子网上设置服务终结点，并保护访问该子网的 Azure 存储帐户。
-
-<!-- Update_Description: wording update -->
+-  快速入门：[Azure 资源管理器模板](https://www.azure.cn/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)，用于在 VNet 的子网上设置服务终结点，并保护访问该子网的 Azure 存储帐户。
+<!-- Update_Description: update meta properties, update link, wording update -->

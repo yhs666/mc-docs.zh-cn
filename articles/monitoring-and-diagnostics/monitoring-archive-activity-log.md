@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/09/2016
 ms.author: v-yiso
 ms.date: 12/11/2017
-ms.openlocfilehash: 99974debf643339071c62eff26521e95e7e44e23
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: eb370fbcd83ecc502394f58a37b78a8f34150367
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>存档 Azure 活动日志
 本文介绍如何使用 Azure 门户、PowerShell Cmdlet 或跨平台 CLI 将 [Azure 活动日志](./monitoring-overview-activity-logs.md)存档到存储帐户中。 此选项适用于对保留时长超过 90 天的活动日志进行审核、静态分析或备份（对保留策略具备完全控制权限）。 如果只需将事件保留 90 天或更短的时间，则不需设置到存储帐户的存档，因为在不启用存档的情况下，活动日志事件保留在 Azure 平台中的时间是 90 天。
@@ -31,15 +31,15 @@ ms.lasthandoff: 12/01/2017
 若要使用下述任意方法存档活动日志，可为订阅设置 **日志配置文件** 。 日志配置文件定义已存储或流式传输的事件的类型，以及输出 - 存储帐户和/或事件中心。 它还定义存储在存储帐户中的事件的保留策略（需保留的天数）。 如果将保留策略设置为零，事件将无限期存储。 如果不想让事件无限期存储，可将保留策略设置为 1 到 2147483647 之间的任何值。 保留策略按天应用，因此在一天结束时 (UTC)，将会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。 [可在此处了解日志配置文件的详细信息](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)。 
 
 ## <a name="archive-the-activity-log-using-the-portal"></a>使用门户存档活动日志
-1. 在门户中，单击左侧导航中的“活动日志”链接。 如果看不到活动日志的链接，请先单击“更多服务”链接。
-
-    ![导航到“活动日志”边栏选项卡](./media/monitoring-archive-activity-log/act-log-portal-navigate.png)
+1. 在门户中，单击左侧导航中的“活动日志”链接。 如果看不到活动日志的链接，请先单击“所有服务”链接。
+   
+    ![导航到“活动日志”边栏选项卡](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
 2. 在边栏选项卡顶部单击“导出”。
-
-    ![单击“导出”按钮](./media/monitoring-archive-activity-log/act-log-portal-export-button.png)
+   
+    ![单击“导出”按钮](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
 3. 在显示的边栏选项卡中，选中与“导出到存储帐户”相对应的框，然后选择存储帐户。
-
-    ![设置存储帐户](./media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
+   
+    ![设置存储帐户](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
 4. 使用滑块或文本框，定义活动日志事件在存储帐户中的保留天数。 要让数据无限期保留在存储帐户中，可将此数值设置为零。
 5. 单击“保存” 。
 
@@ -48,10 +48,10 @@ ms.lasthandoff: 12/01/2017
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus -RetentionInDays 180 -Categories Write,Delete,Action
 ```
 
-| 属性         | 必选 | 说明                                                                                                                                                                                                                                                                                       |
+| 属性         | 必须 | 说明                                                                                                                                                                                                                                                                                       |
 | --- | --- | --- |
 | StorageAccountId | 否       | 应该将活动日志保存到其中的存储帐户的资源 ID。                                                                                                                                                                                                                        |
-| 位置        | 是      | 要为其收集活动日志事件的逗号分隔区域的列表。 [访问此页](https://azure.microsoft.com/en-us/regions)或使用 [Azure 管理 REST API](https://msdn.microsoft.com/zh-cn/library/azure/gg441293.aspx) 即可查看所有区域的列表。 |
+| 位置        | 是      | 要为其收集活动日志事件的逗号分隔区域的列表。 使用 [Azure 管理 REST API](https://msdn.microsoft.com/zh-cn/library/azure/gg441293.aspx) 即可查看所有区域的列表。 |
 | RetentionInDays  | 是      | 事件的保留天数，介于 1 到 2147483647 之间。 值为零时，将无限期（永久）存储日志。                                                                                                                                                                                             |
 | Categories       | 是      | 应收集的事件类别的逗号分隔列表。 可能值包括：Write、Delete 和 Action。                                                                                                                                                                                 |
 ## <a name="archive-the-activity-log-via-cli"></a>通过 CLI 存档活动日志
@@ -59,9 +59,9 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --locations chinaeast,chinanorth --retentionInDays 180 –categories Write,Delete,Action
 ```
 
-| 属性        | 必选 | 说明                                                                                                                                                                                                                                                                                       |
+| 属性        | 必须 | 说明                                                                                                                                                                                                                                                                                       |
 | --- | --- | --- |
-| 名称            | 是      | 日志配置文件的名称。                                                                                                                                                                                                                                                                         |
+| name            | 是      | 日志配置文件的名称。                                                                                                                                                                                                                                                                         |
 | storageId       | 否       | 应该将活动日志保存到其中的存储帐户的资源 ID。                                                                                                                                                                                                                        |
 | 位置       | 是      | 要为其收集活动日志事件的逗号分隔区域的列表。 使用 [Azure 管理 REST API](https://msdn.microsoft.com/zh-cn/library/azure/gg441293.aspx) 即可查看所有区域的列表。 |
 | RetentionInDays | 是      | 事件的保留天数，介于 1 到 2147483647 之间。 值为零时，将无限期（永久）存储日志。                                                                                                                                                                                             |
@@ -155,7 +155,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | authorization   | 包含事件的 RBAC 属性的 Blob。 通常包括“action”、“role”和“scope”属性。            |
 | 级别           | 事件的级别。 以下值之一：“Critical”、“Error”、“Warning”、“Informational”和“Verbose” |
 | location        | 位置所在的区域（或全局）。                                                             |
-| 属性      | `<Key, Value>` 对集合（即字典），描述事件的详细信息。                             |
+| properties      | `<Key, Value>` 对集合（即字典），描述事件的详细信息。                             |
 
 > [!NOTE]
 > 这些属性的属性和使用情况各不相同，具体取决于资源。

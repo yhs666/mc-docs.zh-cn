@@ -6,11 +6,11 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 ## Connection string
 -->
 
-### <a name="obtain-the-connection-string-from-the-azure-portal"></a>从 Azure 门户获取连接字符串
 
+### <a name="obtain-the-connection-string-from-the-azure-portal"></a>从 Azure 门户获取连接字符串
 使用 [Azure 预览门户](https://manage.windowsazure.cn/)获取客户端程序与 Azure SQL 数据库进行交互所需的连接字符串： 
 
-1. 选择“浏览所有” > “SQL 数据库”。
+1. 选择“所有服务” > “SQL 数据库”。
 
 2. 在“SQL 数据库”边栏选项卡左上角附近的筛选器文本框中输入数据库的名称。
 
@@ -18,22 +18,21 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 
 4. 在数据库的边栏选项卡显示以后，为了观看方便，选择**最小化**按钮以折叠用于浏览和数据库筛选的边栏选项卡。 
    
-    ![用于隔离数据库的筛选器][ 10-FilterDatabase]
 5. 在数据库边栏选项卡上，选择“显示数据库连接字符串”。
 
 6. 如果想要使用 ADO.NET 连接库，可复制带有 ADO 标签的字符串。 
-
+   
     ![复制数据库的 ADO 连接字符串][20-CopyAdoConnectionString]
-
 7. 通过这种或那种格式，将连接字符串信息粘贴到客户端程序代码中。
 
 有关详细信息，请参阅：<br/>[连接字符串和配置文件](http://msdn.microsoft.com/zh-cn/library/ms254494.aspx)。
 
 <!-- Image references. -->
 
-[10-FilterDatabase]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-a.png
+
 
 [20-CopyAdoConnectionString]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-b.png
+
 
 <!--
 These three includes/ files are a sequenced set, but you can pick and choose:

@@ -8,7 +8,7 @@
 
 按照以下步骤创建空的 SQL 数据库。 
 
-1. 单击 Azure 门户左上角的“新建”按钮。
+1. 在 Azure 门户的左上角单击“创建资源”。
 
 2. 从“新建”页中选择“数据库”，然后从“新建”页的“SQL 数据库”中选择“创建”。
 
@@ -90,9 +90,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 在 Azure 门户中获取 Azure SQL 数据库服务器的完全限定服务器名称。 请使用 SQL Server Management Studio 通过完全限定的服务器名称连接到服务器。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-
 2. 从左侧菜单中选择“SQL 数据库”，并单击“SQL 数据库”页上的数据库。 
-
 3. 在数据库的“Azure 门户”页的“概要”窗格中，找到并复制“服务器名称”。
 
    ![连接信息](../articles/sql-database/media/sql-database-get-started-portal/server-name.png)

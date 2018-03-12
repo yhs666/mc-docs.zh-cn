@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/22/2017
+origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 12/18/2017
-ms.openlocfilehash: 40df0bbf7c1720ba8438b4ff3bde58a2e56a8879
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.date: 03/19/2018
+ms.openlocfilehash: cb767fd7c67a0ef6a2037a2d21e44c13cd92afcc
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-iot-hub-get-started-tutorials"></a>Azure IoT 中心入门教程
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="what-the-tutorials-cover"></a>教程涵盖内容
 
-这些教程介绍 Azure IoT 中心和设备 SDK。 这些教程介绍用于演示 IoT 中心功能的常见 IoT 方案。 这些教程还说明了如何将 IoT 中心与其他 Azure 服务和工具结合在一起，以构建更强大的 IoT 解决方案。 在这些教程中，可以选择是使用模拟 IoT 设备还是使用真实 IoT 设备。 此外，还可以了解如何使用网关使设备能够连接到 IoT 中心。
+这些教程介绍 Azure IoT 中心和设备 SDK。 这些教程介绍用于演示 IoT 中心功能的常见 IoT 方案。 这些教程还说明了如何将 IoT 中心与其他 Azure 服务和工具结合在一起，构建更强大的 IoT 解决方案。 在这些教程中，可以选择是使用模拟 IoT 设备还是使用真实 IoT 设备。 此外，还可以了解如何使用网关使设备能够连接到 IoT 中心。
 
 ## <a name="set-up-your-device"></a>设置设备
 

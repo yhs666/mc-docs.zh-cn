@@ -1,10 +1,10 @@
 ---
 title: "使用 iothub-explorer 进行 Azure IoT 设备管理 | Azure"
-description: "使用 iothub-explorer CLI 工具进行 Azure IoT 中心设备管理，该特点是使用直接方法并提供孪生所需的属性管理选项。"
+description: "使用 iothub-explorer CLI 工具进行 Azure IoT 中心设备管理，该特点是使用直接方法并提供孪生的所需属性管理选项。"
 services: iot-hub
 documentationcenter: 
 author: shizn
-manager: timtl
+manager: timlt
 tags: 
 keywords: "azure iot 设备管理, azure iot 中心设备管理, 设备管理 iot, iot 中心设备管理"
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/12/2017
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: b7c08d27148f6c049f824eddb167ad625f9699c4
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 03/19/2018
+ms.openlocfilehash: 7e89f289fdb9a47235bc92dd5a2fc5722ea9135e
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>使用 iothub-explorer 进行 Azure IoT 中心设备管理
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/04/2017
 [iothub-explorer](https://github.com/azure/iothub-explorer) 是一种在主机上运行的 CLI 工具，用于管理 IoT 中心注册表中的设备标识。 它附带了可用于执行各种任务的管理选项。
 
 | 管理选项          | 任务                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | 直接方法             | 让设备执行操作，如开始或停止发送消息或重新启动设备。                                        |
 | 孪生所需属性    | 让设备进入特定状态，例如将 LED 设置为绿色，或将遥测发送间隔设置为 30 分钟。         |
 | 孪生报告属性   | 获取报告的设备状态。 例如，设备报告 LED 现在正在闪烁。                                    |
@@ -83,7 +83,7 @@ iothub-explorer device-method <your device Id> start
 iothub-explorer device-method <your device Id> stop
 ```
 
-## <a name="use-iothub-explorer-with-twins-desired-properties"></a>结合使用 iothub-explorer 和孪生所需的属性
+## <a name="use-iothub-explorer-with-twins-desired-properties"></a>结合使用 iothub-explorer 和孪生的所需属性
 
 通过运行以下命令将所需属性间隔设置为 3000：
 

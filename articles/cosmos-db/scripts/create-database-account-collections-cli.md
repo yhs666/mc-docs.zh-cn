@@ -17,11 +17,11 @@ ms.workload: database
 origin.date: 06/06/2017
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 95698c16cb029e7b21997fa6b6abf463b919e893
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: dddca6d30b50a43b6bad5899d620f3dfa59ab4f3
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-cosmos-db-create-an-sql-api-account-using-cli"></a>Azure Cosmos DB：使用 CLI 创建 SQL API 帐户
 
@@ -70,6 +70,7 @@ az cosmosdb collection create \
     --resource-group $resourceGroupName
 
 ```
+<!-- location ADVISE TO chinanorth -->
 
 ## <a name="clean-up-deployment"></a>清理部署
 

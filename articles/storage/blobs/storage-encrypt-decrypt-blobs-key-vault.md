@@ -1,25 +1,19 @@
 ---
 title: "教程：在 Azure 存储中使用 Azure 密钥保管库加密和解密 Blob | Azure"
-description: "如何将 Azure 存储的客户端加密与 Azure Key Vault 配合使用，以便加密和解密 Blob。"
+description: "如何将 Microsoft Azure 存储的客户端加密与 Azure Key Vault 配合使用，以便加密和解密 Blob。"
 services: storage
-documentationcenter: 
-author: adhurwit
-manager: jasonsav
-editor: tysonn
-ms.assetid: 027e8631-c1bf-48c1-9d9b-f6843e88b583
+author: yunan2016
+manager: digimobile
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
 origin.date: 01/23/2017
 ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 5d8d12c346708f9369aa5f2468ca48229fe98165
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.author: v-nany
+ms.openlocfilehash: daa0b038abd118711ad01f0c563a68180c080893
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-azure-storage-using-azure-key-vault"></a>教程：在 Azure 存储中使用 Azure Key Vault 加密和解密 blob
 ## <a name="introduction"></a>简介
@@ -87,7 +81,7 @@ Install-Package Microsoft.Azure.KeyVault.Extensions
 </appSettings>
 ```
 
-添加以下 `using` 语句并确保将对 System.Configuration 的引用添加到项目中。
+添加以下 `using` 指令并确保将对 System.Configuration 的引用添加到项目中。
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -96,7 +90,7 @@ using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.Azure.KeyVault;
-using System.Threading;     
+using System.Threading;        
 using System.IO;
 ```
 
@@ -145,6 +139,8 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 > 密钥保管库客户端与 REST API 进行交互，并了解密钥保管库中包含的两种模型的 JSON Web 密钥和密码。
 > 
 > 密钥保管库扩展似乎是专门为 Azure 存储中的客户端加密所创建的类。 根据密钥解析程序的概念，它们包含密钥 (IKey) 和类的接口。 需要了解两种 IKey 实现：RSAKey 和 SymmetricKey。 现在它们碰巧与 Key Vault 中包含的内容保持一致，但此时它们是独立的类（因此，Key Vault 客户端检索到的密钥与秘密检索未实现 IKey）。
+> 
+> 
 
 ## <a name="encrypt-blob-and-upload"></a>加密 blob 和上传
 添加以下代码以加密 Blob 并将其上传到 Azure 存储帐户。 使用的 **ResolveKeyAsync** 方法会返回 IKey。
@@ -167,9 +163,10 @@ using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
 
-
 > [!NOTE]
 > 如果查看 BlobEncryptionPolicy 构造函数，会看到它可以接受密钥和/或解析程序。 请注意，现在无法将解析程序用于加密，因为它当前不支持默认密钥。
+> 
+> 
 
 ## <a name="decrypt-blob-and-download"></a>解密 Blob 并下载
 当使用解析程序类有意义时，实际上就是解密。 用于加密的密钥的 ID 与其元数据中的 Blob 相关联，因此没有理由检索该密钥，请记住密钥与 Blob 之间的关联关系。 只需确保该密钥保留在密钥保管库中。   
@@ -190,6 +187,8 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 
 > [!NOTE]
 > 可以通过几个其他类型的解析程序来简化密钥管理，其中包括：AggregateKeyResolver 和 CachingKeyResolver。
+> 
+> 
 
 ## <a name="use-key-vault-secrets"></a>使用密钥保管库密码
 将密码用于客户端加密的方式是通过 SymmetricKey 类，因为密码实际上是一种对称密钥。 但是，如上所述，密钥保管库中的密码不会完全映射到 SymmetricKey。 这里要注意几个问题：
@@ -203,8 +202,8 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 
 ```csharp
 // Here we are making a 128-bit key so we have 16 characters.
-// The characters are in the ASCII range of UTF8 so they are
-// each 1 byte. 16 x 8 = 128.
+//     The characters are in the ASCII range of UTF8 so they are
+//    each 1 byte. 16 x 8 = 128.
 $key = "qwertyuiopasdfgh"
 $b = [System.Text.Encoding]::UTF8.GetBytes($key)
 $enc = [System.Convert]::ToBase64String($b)

@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/19/2017
-ms.date: 01/22/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 91a31c2dd3d439a4ebc110f0bdd335476fd1f5be
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: e0dd0e489f8c7c2b1978fe8b1f39b4d561e472df
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="network-security"></a>网络安全性
 
@@ -117,12 +117,12 @@ ms.lasthandoff: 02/13/2018
 
  服务标记表示一组 IP 地址前缀，帮助最大程度地降低安全规则创建过程的复杂性。 无法创建自己的服务标记，也无法指定要将哪些 IP 地址包含在标记中。 Microsoft 会管理服务标记包含的地址前缀，并会在地址发生更改时自动更新服务标记。 创建安全规则时，可以使用服务标记代替特定的 IP 地址。 可在安全规则定义中使用以下服务标记。 服务标记的名称根据 [Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)的不同而略有不同。
 
-* **VirtualNetwork**（*资源管理器）（如果是经典部署模型，则为 **VIRTUAL_NETWORK**）：此标记包括虚拟网络地址空间（为虚拟网络定义的所有 CIDR 范围）、所有连接的本地地址空间，以及[对等互连](virtual-network-peering-overview.md)的虚拟网络，或已连接到[虚拟网络网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json)的虚拟网络。
+* **VirtualNetwork**（资源管理器）（如果是经典部署模型，则为 **VIRTUAL_NETWORK**）：此标记包括虚拟网络地址空间（为虚拟网络定义的所有 CIDR 范围）、所有连接的本地地址空间，以及[对等互连](virtual-network-peering-overview.md)的虚拟网络，或已连接到[虚拟网络网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json)的虚拟网络。
 * **AzureLoadBalancer** (Resource Manager)（如果是经典部署模型，则为 **AZURE_LOADBALANCER**）：此标记表示 Azure 的基础结构负载均衡器。 此标记将转换为 [Azure 数据中心 IP 地址](https://www.microsoft.com/download/details.aspx?id=42064)，Azure 的运行状况探测源于该 IP。 如果不使用 Azure 负载均衡器，则可替代此规则。
 * **Internet**（资源管理器）（如果是经典部署模型，则为 **INTERNET**）：此标记表示虚拟网络外部的 IP 地址空间，可以通过公共 Internet 进行访问。 地址范围包括 [Azure 拥有的公共 IP 地址空间](https://www.microsoft.com/download/details.aspx?id=42064)。
-* **AzureTrafficManager**（仅限资源管理器）：此标记表示 Azure 流量管理器服务的 IP 地址空间。 此标记在预览版中可用。 预览版功能的可用性和可靠性级别与正式版不同。
-* **Storage**（仅限资源管理器）：此标记表示 Azure 存储服务的 IP 地址空间。 如果指定 *Storage* 作为值，则会允许或拒绝发往存储的流量。 如果只想允许对某个特定[区域](https://www.azure.cn/regions)中的存储进行访问，可以指定该区域。 例如，如果希望只允许访问中国东部区域中的 Azure 存储，可以指定 *Storage.ChinaEast* 作为服务标记。 标记表示服务而不是服务的特定实例。 例如，标记可表示 Azure 存储服务，但不能表示特定的 Azure 存储帐户。 此标记在预览版中可用。 预览版功能的可用性和可靠性级别与正式版不同。
-* **Sql**（仅限资源管理器）：此标记表示 Azure SQL 数据库和 Azure SQL 数据仓库服务的地址前缀。 如果指定 *Sql* 作为值，则会允许或拒绝发往 Sql 的流量。 如果只想允许对某个特定[区域](https://www.azure.cn/regions)中的 Sql 进行访问，可以指定该区域。 例如，如果希望只允许访问中国东部区域中的 Azure SQL 数据库，可以指定 *Sql.ChinaEast* 作为服务标记。 标记表示服务而不是服务的特定实例。 例如，标记可表示 Azure SQL 数据库服务，但不能表示特定的 SQL 数据库或服务器。 此标记在预览版中可用。 预览版功能的可用性和可靠性级别与正式版不同。
+* **AzureTrafficManager**（仅限资源管理器）：此标记表示 Azure 流量管理器探测 IP 的 IP 地址空间。 有关流量管理器探测 IP 的详细信息，请参阅 [Azure 流量管理器常见问题解答](/traffic-manager/traffic-manager-faqs)。
+* **Storage**（仅限资源管理器）：此标记表示 Azure 存储服务的 IP 地址空间。 如果指定 *Storage* 作为值，则会允许或拒绝发往存储的流量。 如果只想允许对某个特定[区域](https://www.azure.cn/regions)中的存储进行访问，可以指定该区域。 例如，如果希望只允许访问中国东部区域中的 Azure 存储，可以指定 *Storage.ChinaEast* 作为服务标记。 标记表示服务而不是服务的特定实例。 例如，标记可表示 Azure 存储服务，但不能表示特定的 Azure 存储帐户。
+* **Sql**（仅限资源管理器）：此标记表示 Azure SQL 数据库和 Azure SQL 数据仓库服务的地址前缀。 如果指定 *Sql* 作为值，则会允许或拒绝发往 Sql 的流量。 如果只想允许对某个特定[区域](https://www.azure.cn/regions)中的 Sql 进行访问，可以指定该区域。 例如，如果希望只允许访问中国东部区域中的 Azure SQL 数据库，可以指定 *Sql.ChinaEast* 作为服务标记。 标记表示服务而不是服务的特定实例。 例如，标记可表示 Azure SQL 数据库服务，但不能表示特定的 SQL 数据库或服务器。
 
 > [!NOTE]
 > 如果为某个服务（例如 Azure 存储或 Azure SQL 数据库）实现了[虚拟网络服务终结点](virtual-network-service-endpoints-overview.md)，Azure 会将路由添加到该服务的虚拟网络子网。 路由中的地址前缀与相应服务标记的地址前缀或 CIDR 范围相同。
@@ -169,4 +169,4 @@ ms.lasthandoff: 02/13/2018
 <!-- Not Available * Complete the [Create a network security group with application security groups](create-network-security-group-preview.md) -->
 
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update -->

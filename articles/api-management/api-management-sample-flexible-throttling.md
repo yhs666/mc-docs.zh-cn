@@ -3,7 +3,7 @@ title: "使用 Azure API 管理进行高级请求限制"
 description: "了解如何使用 Azure API 管理创建并应用灵活的配额和速率限制策略。"
 services: api-management
 documentationcenter: 
-author: darrelmiller
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: fc813a65-7793-4c17-8bb9-e387838193ae
@@ -12,20 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/15/2016
+origin.date: 02/03/2018
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 862f5e34c0f8b10a3c5637360da37f7d9be2b05e
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 03/19/2018
+ms.openlocfilehash: ae0730dca9f5dbfa67365110c5da17010be22e81
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>使用 Azure API 管理进行高级请求限制
 限制传入请求是 Azure API 管理的重要功能。 通过控制请求的速率或传输的请求/数据总量，API 管理让 API 提供程序能够保护其 API 不被滥用，为不同的 API 产品层创造价值。
 
 ## <a name="product-based-throttling"></a>基于产品的限制
-到目前为止，速率限制功能局限于特定产品订阅的限定范围（本质上是一个密钥），在 API 管理发布者门户中定义。 API 提供程序可以使用它将限制应用到注册使用其 API 的开发人员，但是，举例而言，它无法帮助限制 API 的单个最终用户。 想让开发人员的应用程序的单个用户使用整个配额，并让开发人员的其他客户无法使用应用程序，是有可能的。 此外，生成大量请求的多个客户可能限制临时用户的访问权限。
+到目前为止，速率限制功能局限于特定产品订阅的限定范围（实质上是一个密钥），在 Azure 门户中定义。 API 提供程序可以使用它将限制应用到注册使用其 API 的开发人员，但是，举例而言，它无法帮助限制 API 的单个最终用户。 想让开发人员的应用程序的单个用户使用整个配额，并让开发人员的其他客户无法使用应用程序，是有可能的。 此外，生成大量请求的多个客户可能限制临时用户的访问权限。
 
 ## <a name="custom-key-based-throttling"></a>基于自定义密钥的限制
 新的[基于密钥的速率限制](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey)和[基于密钥的配额](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey)策略提供灵活得多的流量控制解决方案。 使用这些新策略可以定义表达式，识别用于跟踪流量使用的密钥。 最好是举一个例子来演示其工作原理。 
@@ -69,7 +69,7 @@ ms.lasthandoff: 09/08/2017
           counter-key="@(request.Headers.GetValueOrDefault("Rate-Key",""))"/>
 ```
 
-这样，开发人员的客户端应用程序便可以选择如何创建速率限制密钥。 加上一些奇思妙想，客户端开发人员可以通过将密钥集分配给用户和轮流使用密钥，创建自己的速率层。
+这样，开发人员的客户端应用程序便可以选择如何创建速率限制密钥。 加上一些奇思妙想，客户端开发人员可以通过分配密钥集给用户和轮流使用密钥，创建自己的速率层。
 
 ## <a name="summary"></a>摘要
 Azure API 管理提供速率和配额限制，不但能保护 API 服务，而且能为 API 服务增加价值。 使用新的限制策略与自定义范围规则，可以更精细地控制这些策略，让客户构建更好的应用程序。 本文中的示例演示如何使用这些新策略，使用客户端 IP 地址、用户标识和客户端生成的值来创建速率限制密钥。 但是，消息中还有许多其他部分可供使用，例如用户代理、URL 路径段和消息大小。

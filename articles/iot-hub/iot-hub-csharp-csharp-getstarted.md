@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/08/2017
-ms.date: 11/20/2017
+origin.date: 01/29/2018
+ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 73e4c7c9ec54198ad52339cfc7f7db258c6b8960
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: fd009effa1b873e1b4b17eb10e5cc01b3c7e5ec1
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>使用 .NET 将设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -30,9 +30,9 @@ ms.lasthandoff: 01/05/2018
 * **ReadDeviceToCloudMessages**，显示设备应用发送的遥测数据。
 * **SimulatedDevice**，它使用前面创建的设备标识连接到 IoT 中心，并使用 MQTT 协议每秒发送一次遥测消息。
 
-可以下载或克隆 Visual Studio 解决方案，其中包含 GitHub 提供的三个应用。
+按照本教程中的步骤从头创建示例应用。 也可从 Github [下载](https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app/archive/master.zip)或克隆完成的 Visual Studio 解决方案：
 
-```bash
+```cmd/sh
 git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app.git
 ```
 

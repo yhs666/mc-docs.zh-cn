@@ -24,15 +24,14 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
 
-使用 [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 创建具有 LRS 复制的标准常规用途存储帐户，然后检索定义要使用的存储帐户的存储帐户上下文。 对存储帐户执行操作时，引用上下文而不是重复提供凭据。 本示例创建一个名为 mystorageaccount 的存储帐户，其中启用了本地冗余存储和 blob 加密。
+使用 [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 创建具有 LRS 复制的标准常规用途存储帐户，然后检索定义要使用的存储帐户的存储帐户上下文。 对存储帐户执行操作时，引用上下文而不是重复提供凭据。 本示例创建一个名为 mystorageaccount 的存储帐户，默认启用了本地冗余存储 (LRS) 和 Blob 加密。
 
 ```powershell
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "mystorageaccount" `
   -Location $location `
   -SkuName Standard_LRS `
-  -Kind Storage `
-  -EnableEncryptionService Blob
+  -Kind Storage
 
 $ctx = $storageAccount.Context
 ```

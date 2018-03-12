@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/25/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
-ms.openlocfilehash: 293436bf9a77a5be9ac2c415bcff1351adff91af
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.date: 03/19/2018
+ms.openlocfilehash: 20952464cda024d7577193a37f3b7a51510a9115
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>适用于 C 的 Azure IoT 设备 SDK
 
@@ -46,7 +46,7 @@ SDK 已在许多平台上进行了测试（有关详细信息，请参阅 [Azure
   * [Azure uAMQP](https://github.com/Azure/azure-uamqp-c) 库，此库是针对资源约束设备的 AMQP 客户端实现的优化。
   * [Azure uMQTT](https://github.com/Azure/azure-umqtt-c) 库，它是实现 MQTT 协议并针对资源约束设备进行了优化的通用型库。
 
-查看示例代码可以更方便地了解这些库的用法。 以下部分将演练 SDK 中包含的几个示例应用程序。 此演练应可让你轻松了解 SDK 体系结构层的各种功能以及 API 工作原理的简介。
+查看示例代码可以更方便地了解这些库的用法。 以下部分演练 SDK 中包含的几个示例应用程序。 此演练应可让你轻松了解 SDK 体系结构层的各种功能以及 API 工作原理的简介。
 
 ## <a name="before-you-run-the-samples"></a>运行示例之前
 
@@ -69,9 +69,9 @@ SDK 已在许多平台上进行了测试（有关详细信息，请参阅 [Azure
 有几个开源工具可帮助管理 IoT 中心。
 
 * 一个是称为[设备资源管理器](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)的 Windows 应用程序。
-* 另一个是称为 [iothub-explorer](https://github.com/azure/iothub-explorer) 的跨平台 node.js CLI 工具。
+* 跨平台 Python CLI 工具调用[适用于 Azure CLI 2.0 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)。
 
-本教程使用图形*设备资源管理器*工具。 如果偏好 CLI 工具，也可以使用 *iothub-explorer* 工具。
+本教程使用图形*设备资源管理器*工具。 如果偏好 CLI 工具，也可以使用适用于 Azure CLI 2.0 的 IoT 扩展工具。
 
 设备资源管理器工具使用 Azure IoT 服务库在 IoT 中心执行各种功能（包括添加设备）。 若使用设备资源管理器工具添加设备，会获得设备的连接字符串。 需要此连接字符串才能运行示例应用程序。
 
@@ -79,7 +79,7 @@ SDK 已在许多平台上进行了测试（有关详细信息，请参阅 [Azure
 
 若要安装设备资源管理器工具，请参阅[如何对 IoT 中心设备使用设备资源管理器](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)。
 
-运行该程序时，将看到以下界面：
+运行该程序时，可以看到以下界面：
 
   ![](./media/iot-hub-device-sdk-c-intro/03-DeviceExplorer.PNG)
 
@@ -95,7 +95,7 @@ SDK 已在许多平台上进行了测试（有关详细信息，请参阅 [Azure
 
   ![](./media/iot-hub-device-sdk-c-intro/05-CreateDevice.PNG)
 
-创建设备后，“设备”列表会更新，其中包含所有已注册的设备（包括刚刚创建的设备）。 如果在新设备上单击右键，将看到此菜单：
+创建设备后，“设备”列表会更新，其中包含所有已注册的设备（包括刚刚创建的设备）。 如果在新设备上单击右键，会看到此菜单：
 
   ![](./media/iot-hub-device-sdk-c-intro/06-RightClickDevice.PNG)
 
@@ -315,7 +315,7 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
 
 此调用释放 **IoTHubClient\_CreateFromConnectionString** 函数以前分配的资源。
 
-可以看到，使用 **IoTHubClient** 库可以轻松发送和接收消息。 该库将处理与 IoT 中心通信的详细信息，包括要使用哪个协议（从开发人员的立场来看，这是一个简单的配置选项）。
+可以看到，使用 **IoTHubClient** 库可以轻松发送和接收消息。 该库处理与 IoT 中心通信的详细信息，包括要使用哪个协议（从开发人员的视角来看，这是一个简单的配置选项）。
 
 在如何对设备发送到 IoT 中心的数据进行序列化方面，**IoTHubClient** 库也可提供精确的控制。 在某些情况下，这种控制级别是一项优点，但在其他情况下，这可能不是你想要看到的实现细节。 如果是这样，可以考虑使用下一部分中介绍的**序列化程序**库。
 
@@ -546,7 +546,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 请注意，函数的名称与模型中的操作名称匹配，而函数的参数与为该操作指定的参数匹配。 第一个参数始终是必需的，包含指向模型实例的指针。
 
-当设备收到与此签名匹配的消息时，将调用相应的函数。 因此，除了必须包含 **IoTHubMessage** 中的样板代码以外，接收消息所涉及的操作只是为模型中定义的每个操作定义一个简单的函数。
+当设备收到与此签名匹配的消息时，会调用相应的函数。 因此，除了必须包含 **IoTHubMessage** 中的样板代码以外，接收消息所涉及的操作只是为模型中定义的每个操作定义一个简单的函数。
 
 ### <a name="uninitialize-the-library"></a>取消初始化库
 

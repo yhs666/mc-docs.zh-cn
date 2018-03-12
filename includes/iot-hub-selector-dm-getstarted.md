@@ -11,9 +11,9 @@
 
 * 处理从 IoT 中心发送的方法请求。
 * 在设备上启动相应的设备特定操作。
-* 通过向 IoT 中心 *报告的属性*，提供状态更新。
+* 通过向 IoT 中心*报告的属性*，提供状态更新。
 
-可以使用云中的后端应用运行设备克隆查询，以报告设备管理操作的进度。
+可以使用云中的后端应用运行设备孪生查询，以报告设备管理操作的进度。
 
 [lnk-devtwin]: ../articles/iot-hub/iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md

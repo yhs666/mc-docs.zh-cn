@@ -52,8 +52,6 @@
           href: ../common/storage-configure-connection-string.md?toc=%2fstorage%2fqueues%2ftoc.json
         - name: 使用存储模拟器
           href: ../common/storage-use-emulator.md?toc=%2fstorage%2fqueues%2ftoc.json
-        - name: 使用 Azure 存储 REST API
-          href: ../common/storage-rest-api-auth.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: 管理
       items:
         - name: PowerShell
@@ -121,7 +119,7 @@
     - name: PHP
       href: 'http://azure.github.io/azure-storage-php/'
     - name: Python
-      href: 'https://azure-storage.readthedocs.io/en/latest/index.html'
+      href: 'http://azure.github.io/azure-storage-python/'
     - name: C++
       href: 'http://azure.github.io/azure-storage-cpp'
     - name: iOS
@@ -154,6 +152,8 @@
           href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fstorage%2fqueues%2ftoc.json
         - name: 排查存储资源管理器问题
           href: ../common/storage-explorer-troubleshooting.md?toc=%2fstorage%2fqueues%2ftoc.json
+        - name: 存储资源管理器可访问性
+          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: NuGet 包
       items:
         - name: 适用于 .NET 的 Azure 存储客户端库

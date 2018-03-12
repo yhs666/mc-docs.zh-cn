@@ -16,11 +16,11 @@ ms.topic: sample
 origin.date: 06/22/2017
 ms.date: 10/23/2017
 ms.author: v-johch
-ms.openlocfilehash: 614b89d8257eaad366d61d8f90784c2627db6b8b
-ms.sourcegitcommit: 10a649bfdf30765955ed964f7b5e05205bb9670a
+ms.openlocfilehash: 321c1e0f8cc013580a5215274c8342e7e4cbd864
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>根据容器名称前缀删除容器
 
@@ -71,13 +71,13 @@ az group delete --name myResourceGroup
 
 此脚本使用以下命令根据容器名称前缀删除容器。 表中的每一项均链接到命令特定的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/cli/group#create) | 创建用于存储所有资源的资源组。 |
-| [az storage account create](https://docs.azure.cn/cli/storage/account#create) | 在指定资源组中创建 Azure 存储帐户。 |
-| [az storage container create](https://docs.azure.cn/cli/storage/container#create) | 在 Azure Blob 存储中创建容器。 |
-| [az storage container list](https://docs.azure.cn/cli/storage/container#list) | 列出 Azure 存储帐户中的容器。 |
-| [az storage container delete](https://docs.azure.cn/cli/storage/container#delete) | 删除 Azure 存储帐户中的容器。 |
+| [az group create](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [az storage account create](https://docs.azure.cn/cli/storage/account#az_storage_account_create) | 在指定资源组中创建 Azure 存储帐户。 |
+| [az storage container create](https://docs.azure.cn/cli/storage/container#az_storage_container_create) | 在 Azure Blob 存储中创建容器。 |
+| [az storage container list](https://docs.azure.cn/cli/storage/container#az_storage_container_list) | 列出 Azure 存储帐户中的容器。 |
+| [az storage container delete](https://docs.azure.cn/cli/storage/container#az_storage_container_delete) | 删除 Azure 存储帐户中的容器。 |
 
 ## <a name="next-steps"></a>后续步骤
 

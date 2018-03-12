@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 831a2ca036ca40873aefa63165967392b711dabb
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 07e4ffa3c051afbb1af3c67dcf19b0b278076cf0
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="understand-load-balancer-probes"></a>了解负载均衡器探测
 
@@ -94,8 +94,8 @@ TCP 自定义探测通过使用定义的端口执行三方握手来初始化连�
 > [!NOTE]
 > 如果角色实例的运行状况有波动，负载均衡器会等待更长时间，然后将角色实例恢复正常状态。 这段额外的等待时间可保护用户和基础结构，是在策略中有意指定的。
 
-## <a name="use-log-analytics-for-a-load-balancer"></a>使用适用于负载均衡器的 Log Analytics
+<!-- Not Avaible ## Use log analytics for a load balancer -->
 
-可以使用 [Log Analytics](load-balancer-monitor-log.md) 来检查负载均衡器探测运行状况和探测计数。 可以配合 Power BI 或 Azure Operation Insights 使用日志记录，以提供有关负载均衡器运行状况的统计信息。
+<!-- Not Avaible [log analytics](load-balancer-monitor-log.md) -->
 
 <!-- Update_Description: update meta properties, wording update -->

@@ -3,7 +3,7 @@ title: "使用 Azure 存储在云中上传图像数据 | Microsoft Docs"
 description: "将 Azure blob 存储与 Web 应用结合使用来存储应用数据"
 services: storage
 documentationcenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: 
 ms.service: storage
@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-origin.date: 09/19/2017
-ms.date: 1/29/2018
-ms.author: v-johch
+origin.date: 02/20/2018
+ms.date: 03/05/2018
+ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 3b25ff09f732f839d81183ee77c8dc17794cbdda
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: a4eea16c372671575751c49856422be086f69b08
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>使用 Azure 存储在云中上传图像数据
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/23/2018
 
 ## <a name="create-a-resource-group"></a>创建资源组 
 
-使用 [az group create](https://docs.azure.cn/cli/group#create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
+使用 [az group create](https://docs.azure.cn/cli/group#az_group_create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
  
 以下示例创建名为 `myResourceGroup` 的资源组。
  
@@ -51,7 +51,7 @@ az group create --name myResourceGroup --location chinanorth
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
  
-此示例将图像上传到 Azure 存储帐户中的 blob 容器。 存储帐户提供唯一的命名空间来存储和访问 Azure 存储数据对象。 使用 [az storage account create](https://docs.azure.cn/cli/storage/account#create) 命令在创建的资源组中创建存储帐户。 
+此示例将图像上传到 Azure 存储帐户中的 blob 容器。 存储帐户提供唯一的命名空间来存储和访问 Azure 存储数据对象。 使用 [az storage account create](https://docs.azure.cn/cli/storage/account#az_storage_account_create) 命令在创建的资源组中创建存储帐户。 
 
 > [!IMPORTANT] 
 > 在本教程的第 2 部分中，你会对 blob 存储使用事件订阅。 当前仅对美国中西部和美国西部 2 的 Blob 存储帐户支持事件订阅。 由于存在此限制，因此必须创建由示例应用用于存储图像和缩略图的 Blob 存储帐户。   
@@ -68,9 +68,9 @@ az storage account create --name <blob_storage_account> \
  
 应用使用 Blob 存储帐户中的两个容器。 这些容器类似于文件夹，用于存储 blob。 images 容器是应用在其中上传完整分辨率图像的位置。 
 
-使用 [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#list) 命令获取存储帐户密钥。 然后使用此密钥通过 [az storage container create](https://docs.azure.cn/cli/storage/container#create) 命令创建两个容器。  
+使用 [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#az_storage_account_keys_list) 命令获取存储帐户密钥。 然后使用此密钥通过 [az storage container create](https://docs.azure.cn/cli/storage/container#az_storage_container_create) 命令创建两个容器。  
  
-在此例中，`<blob_storage_account>` 是你创建的 Blob 存储帐户的名称。 images 容器公共访问权限设置为 `off`，thumbs 容器公共访问权限设置为 `container`。 `container` 公共访问权限设置使访问网页的人员可以查看缩略图。
+在此例中，`<blob_storage_account>` 是你创建的 Blob 存储帐户的名称。 images 容器公共访问权限设置为 `off`，thumbnails 容器公共访问权限设置为 `container`。 `container` 公共访问权限设置使访问网页的人员可以查看缩略图。
  
 ```azurecli 
 blobStorageAccount=<blob_storage_account>
@@ -81,7 +81,7 @@ blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 az storage container create -n images --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access off 
 
-az storage container create -n thumbs --account-name $blobStorageAccount \
+az storage container create -n thumbnails --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access container
 
 echo "Make a note of your blob storage account key..." 
@@ -134,7 +134,7 @@ az webapp deployment source config --name <web_app> \
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
 --settings AzureStorageConfig__AccountName=<blob_storage_account> \
 AzureStorageConfig__ImageContainer=images  \
-AzureStorageConfig__ThumbnailContainer=thumbs \
+AzureStorageConfig__ThumbnailContainer=thumbnails \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
 ``` 
 
@@ -195,15 +195,15 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 
 为了测试缩略图查看，你会将图像上传到缩略图容器，以确保应用程序可以读取缩略图容器。
 
-登录到 [Azure 门户](https://portal.azure.cn)。 从左侧菜单中，选择“存储帐户”，然后选择你的存储帐户的名称。 选择“Blob 服务”下的“容器”，然后选择“thumbs”容器。 选择“上传”以打开“上传 blob”窗格。
+登录到 [Azure 门户](https://portal.azure.cn)。 从左侧菜单中，选择“存储帐户”，然后选择你的存储帐户的名称。 选择“Blob 服务”下的“容器”，然后选择“thumbnails”容器。 选择“上传”以打开“上传 blob”窗格。
 
 使用文件选取器选择文件，然后选择“上传”。
 
-导航回到应用，以验证上传到 **thumbs** 容器的图像是否可见。
+导航回到应用，以验证上传到 **thumbnails** 容器的图像是否可见。
 
 ![图像容器视图](media/storage-upload-process-images/figure2.png)
 
-在 Azure 门户中的 **thumbs** 容器中，选择上传的图像，然后选择“删除”以删除图像。 在本系列的第二部分中，你会自动创建缩略图图像，因此无需此测试图像。
+在 Azure 门户中的 **thumbnails** 容器中，选择上传的图像，然后选择“删除”以删除图像。 在本系列的第二部分中，你会自动创建缩略图图像，因此无需此测试图像。
 ## <a name="next-steps"></a>后续步骤
 
 在本系列的第一部分中，你了解了如何配置与存储交互的 Web 应用，例如如何：

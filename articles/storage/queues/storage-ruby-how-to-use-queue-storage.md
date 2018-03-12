@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/08/2016
 ms.date: 10/16/2017
 ms.author: v-johch
-ms.openlocfilehash: aec25d14ee24c55a7ec73ea4798e7dbcdcccfd12
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: 47f5990e39f40b2f3f91e6c07493d99493a7241e
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>如何通过 Ruby 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/09/2017
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>创建 Ruby 应用程序
-创建 Ruby 应用程序。 有关说明，请参阅 [Azure VM 上的 Ruby on Rails Web 应用程序](../../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)。
+创建 Ruby 应用程序。 有关说明，请参阅[使用 Linux 应用服务创建 Ruby 应用](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby)。
 
 ## <a name="configure-your-application-to-access-storage"></a>配置应用程序以访问存储
 要使用 Azure 存储，需下载和使用 Ruby Azure 包，其中包括与存储 REST 服务进行通信的一组方便的库。
@@ -114,7 +114,7 @@ azure_queue_service.delete_message("test-queue",
 ```
 
 ## <a name="how-to-change-the-contents-of-a-queued-message"></a>如何：更改已排队消息的内容
-可更改队列中现有消息的内容。 以下代码使用 **update_message()** 方法来更新消息。 该方法返回一个元组，其中包含队列消息的 POP 接收方，以及一个 UTC 日期时间值，表示队列中显示消息的时间。
+可以更改队列中现有消息的内容。 以下代码使用 **update_message()** 方法来更新消息。 该方法返回一个元组，其中包含队列消息的 POP 接收方，以及一个 UTC 日期时间值，表示队列中显示消息的时间。
 
 ```ruby
 message = azure_queue_service.list_messages("test-queue", 30)

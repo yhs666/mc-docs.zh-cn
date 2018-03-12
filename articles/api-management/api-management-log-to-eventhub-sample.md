@@ -12,17 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 01/23/2017
+origin.date: 01/23/2018
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: e4c550434ddd829f7b1f70fec97e3d281abe7bc4
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 03/19/2018
+ms.openlocfilehash: d82938bf9cf239ad00e63d523242440e56396df4
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>使用 Azure API 管理、事件中心和 Runscope 监视 API
-[API 管理服务](api-management-key-concepts.md)提供许多功能来增强发送到 HTTP API 的 HTTP 请求的处理。 但是，请求和响应都是暂时性存在的。 在请求发出后，将通过 API 管理服务流送到后端 API。 API 将处理该请求，然后将响应返回给 API 使用者。 API 管理服务保留要在发布者门户仪表板中显示的 API 一些重要统计信息，但除此之外不显示详细信息。
+[API 管理服务](api-management-key-concepts.md)提供许多功能来增强发送到 HTTP API 的 HTTP 请求的处理。 但是，请求和响应都是暂时性存在的。 在请求发出后，将通过 API 管理服务流送到后端 API。 API 将处理该请求，然后将响应返回给 API 使用者。 API 管理服务保留要在 Azure 门户仪表板中显示的有关 API 的一些重要统计信息，但除此之外不显示详细信息。
 
 在 API 管理服务中使用 log-to-eventhub 策略，可将请求和响应的详细信息发送到 [Azure 事件中心](../event-hubs/event-hubs-what-is-event-hubs.md)。 想要从发送到 API 的 HTTP 消息生成事件的原因包罗万象。 示例包括更新审核线索、使用情况分析、异常警报和第三方集成。   
 
@@ -167,7 +167,7 @@ HTTP 标头可以转换为采用简单键/值对格式的消息格式。 我们�
 ### <a name="ieventprocessor"></a>IEventProcessor
 使用 `EventProcessorHost` 时的核心概念是创建包含 `ProcessEventAsync` 方法的 `IEventProcessor` 接口的实现。 该方法的基本构成如下所示：
 
-```c#
+```csharp
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
 {
 
@@ -194,7 +194,7 @@ EventData 对象的列表将传递到此方法，我们需要迭代该列表。 
 ### <a name="httpmessage"></a>HttpMessage
 `HttpMessage` 实例包含三个数据片段：
 
-```c#
+```csharp
 public class HttpMessage
 {
    public Guid MessageId { get; set; }
@@ -217,7 +217,7 @@ public class HttpMessage
 
 `IHttpMessageProcessor` 实现如下所示：
 
-```c#
+```csharp
 public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 {
    private HttpClient _HttpClient;

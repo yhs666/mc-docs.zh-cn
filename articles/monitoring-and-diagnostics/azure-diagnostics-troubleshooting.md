@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 12/11/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0885c6494d72ff139e49f3a1586b1d99406cda71
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 849f10ba278982d9aced829ba4132453fc6bda25
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 诊断故障排除
 本文介绍有关使用 Azure 诊断的故障排除信息。 有关 Azure 诊断的详细信息，请参阅 [Azure 诊断概述](azure-diagnostics.md)。
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/01/2017
 | 项目 | 路径 |
 | --- | --- |
 | **Azure 诊断配置文件** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
-| **日志文件** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Logs\ |
+| **日志文件** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
 | **诊断数据的本地存储** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
 | **监视代理配置文件** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
 | **状态文件** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
@@ -155,7 +155,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 ## <a name="diagnostics-data-tables-not-found"></a>找不到诊断数据表
 Azure 存储中保存 ETW 事件的表是使用以下代码命名的：
 
-```C#
+```csharp
         if (String.IsNullOrEmpty(eventDestination)) {
             if (e == "DefaultEvents")
                 tableName = "WADDefault" + MD5(provider);
@@ -166,7 +166,7 @@ Azure 存储中保存 ETW 事件的表是使用以下代码命名的：
             tableName = "WAD" + eventDestination;
 ```
 
-下面是一个示例：
+以下是示例：
 
 ```XML
         <EtwEventSourceProviderConfiguration provider="prov1">
@@ -240,7 +240,7 @@ Azure 存储中保存 ETW 事件的表是使用以下代码命名的：
 | -10 |Diagnostics 插件退出并返回未处理的异常。 |
 | -11 |来宾代理程序无法创建负责启动和监视监视代理的进程。<p><p>解决方案：验证是否有足够的系统资源用于启动新进程。<p> |
 | -101 |调用诊断插件时参数无效。<p><p>仅当在 VM 上不正确地手动调用了来宾代理插件启动器时，才会发生此内部错误。 |
-| -102 |插件进程将无法初始化自身。<p><p>解决方案：验证是否有足够的系统资源用于启动新进程。 |
+| -102 |插件进程无法初始化自身。<p><p>解决方案：验证是否有足够的系统资源用于启动新进程。 |
 | -103 |插件进程无法初始化自身。 具体而言，它无法创建记录器对象。<p><p>解决方案：验证是否有足够的系统资源用于启动新进程。 |
 | -104 |无法加载来宾代理提供的 rcf 文件。<p><p>仅当在 VM 上不正确地手动调用了来宾代理插件启动器时，才会发生此内部错误。 |
 | -105 |诊断插件无法打开诊断配置文件。<p><p>此内部错误应仅当在 VM 上不正确地手动调用了诊断插件时才会发生。 |

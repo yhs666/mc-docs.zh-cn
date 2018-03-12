@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 11/20/2017
-ms.openlocfilehash: dd556dc2045cd3b4b12dba031d54519eeef2b3e0
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.date: 03/19/2018
+ms.openlocfilehash: b1f4882267344f24bf2b2f99b426eaa9b9eb14c3
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>计划和广播作业 (.NET/Node.js)
 
@@ -81,6 +81,7 @@ ms.lasthandoff: 12/08/2017
 1. 如果默认语句中不存在下面的 `using` 语句，请添加该语句。
 
     ```csharp
+    using System.Threading;
     using System.Threading.Tasks;
     ```
 

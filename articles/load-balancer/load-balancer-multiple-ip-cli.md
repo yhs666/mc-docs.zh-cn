@@ -131,6 +131,6 @@ ms.author: v-yeche
 
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。
-- 若要了解如何在 Azure 中使用不同类型的日志对负载均衡器进行管理和故障排除，请参阅 [Azure 负载均衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md)。
+<!-- Not Avaible on  [Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) -->
 
 <!--Update_Description: update link, wording update -->

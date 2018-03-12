@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/21/2017
-ms.date: 12/11/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d16984436b85ac9406e7c679d258737c1f19ec58
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 7caf3becd64e51e5733cf9115411ac8566d45144
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli"></a>使用 Azure CLI 管理网络安全组
 
@@ -36,12 +36,12 @@ ms.lasthandoff: 02/13/2018
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## <a name="prerequisite"></a>先决条件
-如果尚未这样做，请安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录 Azure 帐户。 
+如果尚未这样做，请安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录 Azure 帐户。 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="view-existing-nsgs"></a>查看现有 NSG
-若要查看特定资源组中的 NSG 的列表，请使用 `-o table` 输出格式运行 [az network nsg list](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#list) 命令：
+若要查看特定资源组中的 NSG 的列表，请使用 `-o table` 输出格式运行 [az network nsg list](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az_network_nsg_list) 命令：
 
 ```azurecli
 az network nsg list -g RG-NSG -o table
@@ -55,7 +55,7 @@ az network nsg list -g RG-NSG -o table
     chinaeast   NSG-FrontEnd  Succeeded            RG-NSG           <guid>
 
 ## <a name="list-all-rules-for-an-nsg"></a>列出 NSG 的所有规则
-若要查看名为 **NSG-FrontEnd** 的 NSG 规则，请使用 [JMESPATH 查询筛选器](https://docs.azure.cn/zh-cn/cli/query-az-cli2?view=azure-cli-latest)和 `-o table` 输出格式运行 [az network nsg show](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#show) 命令：
+若要查看名为 **NSG-FrontEnd** 的 NSG 规则，请使用 [JMESPATH 查询筛选器](https://docs.azure.cn/zh-cn/cli/query-az-cli2?view=azure-cli-latest)和 `-o table` 输出格式运行 [az network nsg show](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az_network_nsg_show) 命令：
 
 ```azurecli
     az network nsg show \
@@ -78,7 +78,7 @@ az network nsg list -g RG-NSG -o table
     rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
     web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 > [!NOTE]
-> 还可以使用 [az network nsg rule list](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#list) 仅列出 NSG 中的自定义规则。
+> 还可以使用 [az network nsg rule list](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az_network_nsg_rule_list) 仅列出 NSG 中的自定义规则。
 >
 
 <a name="view-nsgs-associations"></a>
@@ -155,7 +155,7 @@ az network nsg rule create  \
 ```
 
 ## <a name="change-a-rule"></a>更改规则
-若要将前面创建的规则更改为仅允许来自 **Internet** 的入站流量，请运行 [az network nsg rule update](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#update) 命令：
+若要将前面创建的规则更改为仅允许来自 **Internet** 的入站流量，请运行 [az network nsg rule update](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az_network_nsg_rule_update) 命令：
 
 ```azurecli
 az network nsg rule update \
@@ -197,7 +197,7 @@ az network nsg rule delete \
 ```
 
 ## <a name="associate-an-nsg-to-a-nic"></a>将 NSG 关联到 NIC
-若要将 **NSG-FrontEnd** NSG 关联到 **TestNICWeb1** NIC，请使用 [az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#update) 命令：
+若要将 **NSG-FrontEnd** NSG 关联到 **TestNICWeb1** NIC，请使用 [az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az_network_nic_update) 命令：
 
 ```azurecli
 az network nic update \
@@ -281,7 +281,7 @@ az network nic update \
 
 ## <a name="dissociate-an-nsg-from-a-nic"></a>取消 NSG 与 NIC 之间的关联
 
-若要从 **TestNICWeb1** NIC 取消关联 **NSG-FrontEnd** NSG，请再次运行 [az network nsg rule update](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#update) 命令，但将 `--network-security-group` 参数替换为一个空字符串 (`""`)。
+若要从 **TestNICWeb1** NIC 取消关联 **NSG-FrontEnd** NSG，请再次运行 [az network nsg rule update](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az_network_nsg_rule_update) 命令，但将 `--network-security-group` 参数替换为一个空字符串 (`""`)。
 
 ```azurecli
 az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-security-group ""
@@ -290,7 +290,7 @@ az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-secur
 在输出中， `networkSecurityGroup` 项设置为 null。
 
 ## <a name="dissociate-an-nsg-from-a-subnet"></a>取消 NSG 与子网之间的关联
-若要从 **FrontEnd** 子网取消关联 **NSG-FrontEnd** NSG，请再次运行 [az network nsg rule update](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#update) 命令，但将 `--network-security-group` 参数替换为一个空字符串 (`""`)。
+若要从 **FrontEnd** 子网取消关联 **NSG-FrontEnd** NSG，请再次运行 [az network nsg rule update](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az_network_nsg_rule_update) 命令，但将 `--network-security-group` 参数替换为一个空字符串 (`""`)。
 
 ```azurecli
 az network vnet subnet update \
@@ -336,9 +336,9 @@ az network vnet subnet update \
 ## <a name="delete-an-nsg"></a>删除 NSG
 仅当 NSG 不与任何资源关联时，才能删除 NSG。 若要删除 NSG，请完成以下步骤：
 
-1. 若要查看与 NSG 关联的资源，请运行 `azure network nsg show` ，如 [查看 NSG 关联项](#view-nsgs-associations)中所示。
-2. 如果 NSG 关联到任意 NIC，请为每个 NIC 运行 `azure network nic set` ，如 [取消 NSG 与 NIC 之间的关联](#dissociate-an-nsg-from-a-nic) 中所示。 
-3. 如果 NSG 关联到任意子网，请为每个子网运行 `azure network vnet subnet set` ，如 [取消 NSG 与子网之间的关联](#dissociate-an-nsg-from-a-subnet) 中所示。
+1. 若要查看与 NSG 关联的资源，请运行 `azure network nsg show` ，如 [查看 NSG 关联项](#View-NSGs-associations)中所示。
+2. 如果 NSG 关联到任意 NIC，请为每个 NIC 运行 `azure network nic set` ，如 [取消 NSG 与 NIC 之间的关联](#Dissociate-an-NSG-from-a-NIC) 中所示。 
+3. 如果 NSG 关联到任意子网，请为每个子网运行 `azure network vnet subnet set` ，如 [取消 NSG 与子网之间的关联](#Dissociate-an-NSG-from-a-subnet) 中所示。
 4. 若要删除 NSG，请运行以下命令：
 
     ```azurecli

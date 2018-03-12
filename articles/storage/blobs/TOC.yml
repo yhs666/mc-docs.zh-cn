@@ -36,9 +36,9 @@
           href: storage-upload-process-images.md
     - name: 云存储中针对高可用性的设计
       items:
-        - name: 使你的应用程序具有高可用性
+        - name: 1 - 使应用程序具有高可用性
           href: storage-create-geo-redundant-storage.md
-        - name: 模拟 RA-GRS 存储故障
+        - name: 2 - 模拟 RA-GRS 存储故障
           href: storage-simulate-failure-ragrs-account-app.md
     - name: 使用 AzCopy 将本地数据迁移到云
       href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fstorage%2fblobs%2ftoc.json
@@ -52,10 +52,6 @@
       href: storage-samples-blobs-powershell.md
     - name: Azure CLI
       href: storage-samples-blobs-cli.md
-    - name: .NET
-      href: ../common/storage-samples-dotnet.md?toc=%2fstorage%2fblobs%2ftoc.json
-    - name: Java
-      href: ../common/storage-samples-java.md?toc=%2fstorage%2fblobs%2ftoc.json
 - name: 概念
   items:
     - name: 规划和设计
@@ -74,6 +70,8 @@
           href: ../common/storage-disaster-recovery-guidance.md?toc=%2fstorage%2fblobs%2ftoc.json
         - name: 向/从存储移动数据
           href: ../common/storage-moving-data.md?toc=%2fstorage%2fblobs%2ftoc.json
+        - name: 页 Blob 功能
+          href: storage-blob-pageblob-overview.md
         - name: 高级存储
           items:
             - name: Linux
@@ -160,8 +158,6 @@
           href: storage-how-to-use-blobs-powershell.md
         - name: Azure CLI 2.0
           href: storage-how-to-use-blobs-cli.md
-        - name: REST
-          href: ../common/storage-rest-api-auth.md?toc=%2fstorage%2fblobs%2ftoc.json
     - name: 管理
       items:
         - name: 将 PowerShell 用于 Azure 存储
@@ -310,7 +306,7 @@
     - name: PHP
       href: 'http://azure.github.io/azure-storage-php/'
     - name: Python
-      href: 'https://azure-storage.readthedocs.io/en/latest/index.html'
+      href: 'http://azure.github.io/azure-storage-python/'
     - name: C++
       href: 'http://azure.github.io/azure-storage-cpp'
     - name: iOS
@@ -343,6 +339,8 @@
           href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fstorage%2fblobs%2ftoc.json
         - name: 排查存储资源管理器问题
           href: ../common/storage-explorer-troubleshooting.md?toc=%2fstorage%2fblobs%2ftoc.json
+        - name: 存储资源管理器可访问性
+          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fstorage%2fblobs%2ftoc.json
     - name: NuGet 包
       items:
         - name: 适用于 .NET 的 Azure 存储客户端库

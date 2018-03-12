@@ -34,11 +34,11 @@
 ### [Power BI 中的数据可视化](iot-hub-live-data-visualization-in-power-bi.md)
 ### [使用 Web 应用进行数据可视化](iot-hub-live-data-visualization-in-web-apps.md)
 ### [使用 iothub-explorer 进行设备管理](iot-hub-device-management-iothub-explorer.md)
-
+### [使用适用于 Azure CLI 2.0 的 IoT 扩展进行设备管理](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 
 # 操作指南
 ## 计划
-### [IoT 中心与事件中心的比较](iot-hub-compare-event-hubs.md)
+### [比较 IoT 中心与事件中心](iot-hub-compare-event-hubs.md)
 ### [缩放解决方案](iot-hub-scaling.md)
 ### [高可用性和灾难恢复](iot-hub-ha-dr.md)
 ### [支持其他协议](iot-hub-protocol-gateway.md)
@@ -73,43 +73,54 @@
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
+#### [Python](iot-hub-python-python-process-d2c.md)
 ### 发送“云到设备”消息
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
+#### [Python](iot-hub-python-python-c2d.md)
 ### 从设备上传文件
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
 #### [Node.js](iot-hub-node-node-file-upload.md)
+#### [Python](iot-hub-python-python-file-upload.md)
 ### 设备孪生入门
 #### [Node.js 后端/Node.js 设备](iot-hub-node-node-twin-getstarted.md)
 #### [.NET 后端/Node.js 设备](iot-hub-csharp-node-twin-getstarted.md)
 #### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Java 后端/Java 设备](iot-hub-java-java-twin-getstarted.md)
+#### [Python 后端/Python 设备](iot-hub-python-twin-getstarted.md)
 ### 使用直接方法
 #### [Node.js 后端/Node.js 设备](iot-hub-node-node-direct-methods.md)
 #### [.NET 后端/Node.js 设备](iot-hub-csharp-node-direct-methods.md)
 #### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-direct-methods.md)
 #### [Java 后端/Java 设备](iot-hub-java-java-direct-methods.md)
+#### [Python 后端/Python 设备](iot-hub-python-python-direct-methods.md)
 ### 设备管理入门
 #### [Node.js 后端/Node.js 设备](iot-hub-node-node-device-management-get-started.md)
 #### [.NET 后端/Node.js 设备](iot-hub-csharp-node-device-management-get-started.md)
 #### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Java 后端/Java 设备](iot-hub-java-java-device-management-getstarted.md)
+#### [Python 后端/Python 设备](iot-hub-python-python-device-management-get-started.md)
 ### 如何使用孪生属性
 #### [Node.js 后端/Node.js 设备](iot-hub-node-node-twin-how-to-configure.md)
 #### [.NET 后端/Node.js 设备](iot-hub-csharp-node-twin-how-to-configure.md)
 #### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Java 后端/Java 设备](iot-hub-java-java-twin-how-to-configure.md)
+#### [Python 后端/Python 设备](iot-hub-python-python-twin-how-to-configure.md)
 ### 使用设备作业更新设备固件
 #### [Node 后端/Node 设备](iot-hub-node-node-firmware-update.md)
 #### [.NET 后端/Node.js 设备](iot-hub-csharp-node-firmware-update.md)
 #### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-firmware-update.md)
 #### [Java 后端/Java 设备](iot-hub-java-java-firmware-update.md)
+#### [Python 后端/Python 设备](iot-hub-python-python-firmware-update.md)
 ### 计划和广播作业
 #### [Node.js 后端/Node.js 设备](iot-hub-node-node-schedule-jobs.md)
 #### [.NET 后端/Node.js 设备](iot-hub-csharp-node-schedule-jobs.md)
-#### [Java](iot-hub-java-java-schedule-jobs.md)
+#### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-schedule-jobs.md)
+#### [Java 后端/Java 设备](iot-hub-java-java-schedule-jobs.md)
+#### [Python 后端/Python 设备](iot-hub-python-python-schedule-jobs.md)
+
 ## 管理
 ### 创建 IoT 中心 
 #### [使用 Azure 门户](iot-hub-create-through-portal.md)
@@ -137,10 +148,10 @@
 #### [X.509 CA 证书安全性入门](iot-hub-security-x509-get-started.md)
 ##### [创建证书 - PowerShell](iot-hub-security-x509-create-certificates.md)
 
-# 引用
+# 参考
 ## [Azure CLI](https://docs.azure.cn/zh-cn/cli/iot?view=azure-cli-latest)
-## [.NET（服务）](https://doc.microsoft.com/dotnet/api/microsoft.azure.devices)
-## [.NET（设备）](https://doc.microsoft.com/dotnet/api/microsoft.azure.devices.client)
+## [.NET（服务）](/dotnet/api/microsoft.azure.devices)
+## [.NET（设备）](/dotnet/api/microsoft.azure.devices.client)
 ## [Java（服务）](https://docs.azure.cn/zh-cn/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java（设备）](https://docs.azure.cn/zh-cn/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Node.js（设备）](https://docs.microsoft.com/en-us/javascript/api/azure-iot-device/)
@@ -155,9 +166,9 @@
 
 # 相关内容
 ## [Azure IoT 套件](/iot-suite/)
+
 ## [Azure 事件中心](/event-hubs/)
 ## [流分析](/stream-analytics/)
-
 
 # 资源
 ## [Azure IoT Developer Center](https://docs.azure.cn/develop/iot/)
@@ -166,7 +177,7 @@
 ## [iothub-explorer 工具](https://github.com/Azure/iothub-explorer)
 
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
-## [定价](https://www.azure.cn/pricing/details/iot-hub/)
+## [价格](https://www.azure.cn/pricing/details/iot-hub/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [服务更新](https://azure.microsoft.com/updates/?product=iot-hub)
 <!--Update_Description:update link references-->

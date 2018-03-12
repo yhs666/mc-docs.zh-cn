@@ -17,11 +17,11 @@ ms.workload: database
 origin.date: 06/02/2017
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 039ec2c6fc8a75610a65c6c8649c84756f1b1c93
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: a2fe78c5000c97c37877357d512f92de25b69170
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>使用 Azure CLI 创建故障转移策略以实现高可用性
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/02/2018
 
 # Set variables for the new account, database, and collection
 resourceGroupName='myResourceGroup'
-location='chinaeast'
+location='chinanorth'
 name='docdb-test'
 databaseName='docdb-test-database'
 collectionName='docdb-test-collection'
@@ -60,8 +60,12 @@ az cosmosdb create \
 az cosmosdb update \
     --name $name \
     --resource-group $resourceGroupName \
-    --locations "China East"=0 "China North"=1
+    --locations chinanorth=0 chinaeast=1
 ```
+<!-- location ADVISE TO chinanorth -->
+<!-- location MUST be the style of --locations chinanorth=0 chinaeast=1 -->
+<!-- OR it will popup the index out of range error-->
+
 
 ## <a name="clean-up-deployment"></a>清理部署
 

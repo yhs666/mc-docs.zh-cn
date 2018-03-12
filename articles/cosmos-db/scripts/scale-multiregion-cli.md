@@ -17,11 +17,11 @@ ms.workload: database
 origin.date: 06/02/2017
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: a47daf4cea6785225313875a9330799d0cf15865
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: eea3fa3ae02c2e531b3abf501760d1847b7e62f4
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli"></a>使用 Azure CLI 将 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 03/02/2018
 
 # Set variables for the new account, database, and collection
 resourceGroupName='myResourceGroup'
-location='chinaeast'
+location='chinanorth'
 name='docdb-test'
 
 # Create a resource group
@@ -58,15 +58,19 @@ az cosmosdb create \
 az cosmosdb update \
     --name $name \
     --resource-group $resourceGroupName \
-    --locations "China East"=0 "China North"=1
+    --locations chinanorth=0 chinaeast=1
 
 # Modify regional failover priorities
 az cosmosdb update \
     --name $name \
     --resource-group $resourceGroupName \
-    --locations "China East"=1 "China North"=0
+    --locations chinanorth=1 chinaeast=0
 
 ```
+<!-- location ADVISE TO chinanorth -->
+<!-- location MUST be the style of --locations chinanorth=0 chinaeast=1 -->
+<!-- OR it will popup the index out of range error-->
+
 
 ## <a name="clean-up-deployment"></a>清理部署
 

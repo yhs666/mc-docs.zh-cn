@@ -1,5 +1,5 @@
 ---
-title: "Azure 诊断日志概述 | Microsoft Docs"
+title: "Azure 诊断日志概述"
 description: "了解什么是 Azure 诊断日志，以及如何使用该诊断日志了解发生在 Azure 资源内的事件。"
 author: johnkemnetz
 manager: orenr
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/21/2017
-ms.date: 12/11/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 395e9345720ca8d45c3d32c800e09f716b67a2ca
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 8afc4ee6782a364cba25bce54927acb3e1675d57
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>从 Azure 资源收集和使用日志数据
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/01/2017
 * 将资源诊断日志和指标发送到何处：存储帐户、事件中心和/或 OMS Log Analytics。
 * 发送哪些日志类别，是否也会发送指标数据。
 * 应该将每个日志类别在存储帐户中保留多长时间
-    - 保留期为零天表示日志将永久保留。 如果不需永久保留，则可将该值设置为 1 到 2147483647 之间的任意天数。
+    - 保留期为 0 天意味着永久保留日志。 如果不需永久保留，则可将该值设置为 1 到 2147483647 之间的任意天数。
     - 如果设置了保留策略，但禁止将日志存储在存储帐户中（例如，如果仅选择事件中心或 OMS 选项），则保留策略无效。
     - 保留策略按天应用，因此在一天结束时 (UTC)，将会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。
 
@@ -127,7 +127,7 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resour
 (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 ```
 
-可以组合这些参数以启用多个输出选项。
+可以结合这些参数启用多个输出选项。
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-cli"></a>通过 CLI 启用资源诊断日志的集合
 若要通过 Azure CLI 启用资源诊断日志的集合，请使用以下命令：
@@ -154,7 +154,7 @@ azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serv
 azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
 ```
 
-可以组合这些参数以启用多个输出选项。
+可以结合这些参数启用多个输出选项。
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-rest-api"></a>通过 REST API 启用资源诊断日志的集合
 若要使用 Azure Monitor REST API 更改诊断设置，请参阅[此文档](https://msdn.microsoft.com/library/azure/dn931931.aspx)。
@@ -164,7 +164,7 @@ azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource 
 
 ![门户中的“诊断日志”边栏选项卡](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-nav.png)
 
-可能需要单击“更多服务”才能找到“监视”部分。
+可能需要单击“所有服务”才能找到“监视”部分。
 
 在此处可以查看和筛选所有支持诊断设置的资源，确定它们是否启用了诊断。 还可以向下钻取，以查看是否在某个资源上指定了多个设置，并检查这些数据流向哪个存储帐户、事件中心命名空间和/或 Log Analytics 工作区。
 

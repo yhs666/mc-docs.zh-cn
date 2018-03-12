@@ -1,6 +1,6 @@
 ---
-title: "Azure 监视器 PowerShell 快速入门示例。 | Microsoft 文档"
-description: "使用 PowerShell 访问 Azure 监视器功能，如自动缩放、警报、webhook 和搜索活动日志。"
+title: "Azure Monitor PowerShell 快速入门示例。"
+description: "使用 PowerShell 访问 Azure Monitor 功能，例如自动缩放、警报、webhook 和搜索活动日志。"
 author: rboucher
 manager: carmonm
 editor: 
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/17/2017
+origin.date: 02/14/2018
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 4bdfdc8114e71dabe566a6a8fbb50bf611b2a6d1
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 03/19/2018
+ms.openlocfilehash: 5e02286128cfaebceccdb679cc490efd61cdb5c9
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell 快速启动示例
-本文说明可帮助访问 Azure Monitor 功能的示例 PowerShell 命令。 通过 Azure Monitor 可自动缩放云服务、虚拟机和 Web 应用。 还可发送警报通知或根据配置的遥测数据的值调用 Web URL。
+本文说明可帮助访问 Azure Monitor 功能的示例 PowerShell 命令。
 
 > [!NOTE]
 > “Azure Insights”在 2016 年 9 月 25 日后称为 Azure Monitor。 但是，命名空间及以下命令仍包含“insights”一词。
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/01/2017
 如果尚未安装，请在计算机上安装要运行的 PowerShell。 有关详细信息，请参阅[如何安装和配置 PowerShell](../powershell-install-configure.md)。
 
 ## <a name="examples-in-this-article"></a>本文中的示例
-本文中的示例演示如何使用 Azure Monitor cmdlet。 还可以在 [Azure Monitor (Insights) Cmdlet](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx) 上查看 Azure Monitor PowerShell cmdlet 的完整列表。
+本文中的示例演示了如何使用 Azure 监视器 cmdlet。 还可以在 [Azure Monitor (Insights) Cmdlet](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx) 上查看 Azure Monitor PowerShell cmdlet 的完整列表。
 
 ## <a name="sign-in-and-use-subscriptions"></a>登录并使用订阅
 首先，登录 Azure 订阅。
@@ -48,7 +48,7 @@ Login-AzureRmAccount
 Get-AzureRmSubscription
 ```
 
-要将工作上下文更改为其他订阅，请使用以下命令。
+若要将工作环境更改为另一订阅，请使用以下命令：
 
 ```PowerShell
 Set-AzureRmContext -SubscriptionId <subscriptionid>
@@ -148,7 +148,7 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 
 | 参数 | value |
 | --- | --- |
-| 名称 |simpletestdiskwrite |
+| Name |simpletestdiskwrite |
 | 此警报规则的位置 |中国东部 |
 | resourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
@@ -200,6 +200,22 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 ```
 
 `Get-AzureRmMetricDefinition` 的可用选项的完整列表位于 [Get MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx)中。
+
+## <a name="create-and-manage-activity-log-alerts"></a>创建和管理活动日志警报
+可以使用 `Set-AzureRmActivityLogAlert` cmdlet 来设置活动日志警报。 活动日志警报会要求你首先将条件定义为条件字典，然后创建使用这些条件的警报。
+
+```PowerShell
+
+$condition1 = New-AzureRmActivityLogAlertCondition -Field 'category' -Equals 'Administrative'
+$condition2 = New-AzureRmActivityLogAlertCondition -Field 'operationName' -Equals 'Microsoft.Compute/virtualMachines/write'
+$additionalWebhookProperties = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
+$additionalWebhookProperties.Add('customProperty', 'someValue')
+$actionGrp1 = New-AzureRmActionGroup -ActionGroupId 'actiongr1' -WebhookProperties $dict
+Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGroupName 'myResourceGroup' -Scope '/' -Action $actionGrp1 -Condition $condition1, $condition2
+
+```
+
+其他 Webhook 属性都是可选的。 可以使用 `Get-AzureRmActivityLogAlert` 返回活动日志警报的内容。
 
 ## <a name="create-and-manage-autoscale-settings"></a>创建和管理自动缩放设置
 资源（例如 Web 应用、VM、云服务或虚拟机规模集）只能有一种为其配置的自动缩放设置。
@@ -318,3 +334,46 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 ```PowerShell
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
+
+## <a name="configure-diagnostics-logs"></a>配置诊断日志
+许多 Azure 服务提供额外的日志和遥测，可执行以下一项或多项操作： 
+ - 配置为将数据存储在 Azure 存储帐户中
+ - 发送到事件中心
+
+只能在资源级别执行该操作。 存储帐户或事件中心应与配置诊断设置的目标资源处于相同的区域中。
+
+### <a name="get-diagnostic-setting"></a>获取诊断设置
+```PowerShell
+Get-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp
+```
+
+禁用诊断设置
+
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp -StorageAccountId /subscriptions/s1/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount -Enable $false
+```
+
+启用没有保留期的诊断设置
+
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp -StorageAccountId /subscriptions/s1/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount -Enable $true
+```
+
+启用有保留期的诊断设置
+
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp -StorageAccountId /subscriptions/s1/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount -Enable $true -RetentionEnabled $true -RetentionInDays 90
+```
+
+为特定日志类别启用有保留期的诊断设置
+
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
+```
+
+启用事件中心的诊断设置
+
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Enable $true
+```
+

@@ -2,24 +2,18 @@
 title: "启用对 Azure Blob 存储中容器和 blob 的公共读取访问 | Azure"
 description: "了解如何使容器和 blob 可供匿名访问，以及如何对其进行程序式访问。"
 services: storage
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: tysonn
-ms.assetid: a2cffee6-3224-4f2a-8183-66ca23b2d2d7
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 04/26/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 20eb98f096efc851c3d076d6bbaab40e59cfe998
-ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
+ms.openlocfilehash: 0f1d166735f0f46c58cb6541641e849fea576fc3
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>管理对容器和 Blob 的匿名读取访问
 可以启用对 Azure Blob 存储中的容器及其 Blob 的匿名公共读取访问。 这样做可以授予对这些资源的只读访问权限，无需共享帐户密钥，也无需共享访问签名 (SAS)。

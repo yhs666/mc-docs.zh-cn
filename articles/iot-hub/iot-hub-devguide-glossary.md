@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/08/2017
+origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 01/15/2018
-ms.openlocfilehash: 10d8bb9923f41f0e117ced3583f0e04f37635517
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.date: 03/19/2018
+ms.openlocfilehash: 44e32b726c195f9e67e0e3930f9903110e493f64
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
 本文列出了一些在 IoT 中心文章中使用的常用术语。
@@ -50,7 +50,7 @@ ms.lasthandoff: 01/05/2018
 可以使用 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 将解决方案中的资源作为一个组进行处理。 可以通过一个协调操作为解决方案部署、更新或删除资源。
 
 ## <a name="azure-service-bus"></a>Azure 服务总线
-通过[服务总线](../service-bus-messaging/index.md)，可在云端使用企业消息传递进行通信，也可采用中继进行通信，帮助将本地解决方案与云端连接。 某些 IoT 中心教程使用服务总线[队列](../service-bus-messaging/service-bus-messaging-overview.md)。
+通过[服务总线](/service-bus-messaging/)，可在云端使用企业消息传递进行通信，也可采用中继进行通信，帮助将本地解决方案与云端连接。 某些 IoT 中心教程使用服务总线[队列](../service-bus-messaging/service-bus-messaging-overview.md)。
 
 ## <a name="azure-storage"></a>Azure 存储
 [Azure 存储](../storage/common/storage-introduction.md)是一种云存储解决方案。 它包含可用于存储非结构化的对象数据的 Blob 存储服务。 某些 IoT 中心教程使用 blob 存储。
@@ -179,8 +179,8 @@ IoT 中心是一项完全托管的 Azure 服务，可在数百万个设备和一
 ## <a name="iot-suite"></a>IoT 套件
 Azure IoT 套件将多个 Azure 服务和预配置解决方案打包在一起。 有了这些预配置解决方案，用户就可以快速启动常见 IoT 方案的端到端实现。 有关详细信息，请参阅 [什么是 Azure IoT 套件？](../iot-suite/iot-suite-overview.md)
 
-## <a name="iothub-explorer"></a>iothub-explorer
-[iothub-explorer](https://github.com/azure/iothub-explorer) 是跨平台的命令行工具。 使用该工具可以管理 [标识注册表](#identity-registry)中的设备、向设备发送消息和文件和接收来自设备的消息和文件，以及监视 IoT 中心的操作。
+## <a name="the-iot-extension-for-azure-cli-20"></a>适用于 Azure CLI 2.0 的 IoT 扩展
+[适用于 Azure CLI 2.0 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)是一个跨平台的命令行工具。 使用该工具可以管理 [标识注册表](#identity-registry)中的设备、向设备发送消息和文件和接收来自设备的消息和文件，以及监视 IoT 中心的操作。
 
 ## <a name="job"></a>作业
 解决方案后端可以使用[作业](./iot-hub-devguide-jobs.md)来计划和跟踪在 IoT 中心注册的一组设备上的活动。 活动包括更新设备孪生[所需的属性](#desired-properties)、更新设备孪生[标记](#tags)，以及调用[直接方法](#direct-method)。 [IoT 中心](#iot-hub)还使用作业从[标识注册表](#identity-registry)进行[导入和导出](./iot-hub-devguide-identity-registry.md#import-and-export-device-identities)。

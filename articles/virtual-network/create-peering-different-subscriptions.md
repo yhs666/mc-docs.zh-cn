@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 01/22/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 685e8e1a391b2f207080d24c7aa3bc9781ab3f17
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 6a393a738ce357c1641cb98c7c2ff5ca69c4085c
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>创建虚拟网络对等互连 - 资源管理器，不同的订阅 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 01/19/2018
 
 以下脚本：
 
-- 需要 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+- 需要 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest)。
 - 可以在 Bash shell 中使用。 有关在 Windows 客户端上运行 Azure CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../virtual-machines/windows/cli-options.md?toc=%2fvirtual-network%2ftoc.json)。 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
@@ -340,13 +340,12 @@ ms.lasthandoff: 01/19/2018
 <!-- PENDING ## <a name="register"></a>Register for the global virtual network peering preview -->
 ## <a name="register"></a>注册全局虚拟网络对等互连（预览版）
 
-在不同区域的虚拟网络之间建立对等互连的功能目前处于预览版状态。 此功能可在有限的几个区域（最初为美国中西部、加拿大中部和美国西部 2）使用。 与在同一区域的虚拟网络之间创建对等互连相比，于不同区域的虚拟网络之间创建的对等互连在可用性和可靠性方面可能无法比肩。 有关此功能可用性和状态方面的最新通知，请参阅 [Azure 虚拟网络更新](https://www.azure.cn/what-is-new/)页。
-
-若要跨区域在虚拟网络之间建立对等互连，必须先通过使用 Azure PowerShell 或 Azure CLI 完成以下步骤（在要对其建立对等互连的每个虚拟网络所在的订阅中执行）来注册预览版：
+在同一区域中的虚拟网络之间建立对等互连的功能已推出正式版。 在不同区域的虚拟网络之间建立对等互连目前处于预览版状态。 若要跨区域在虚拟网络之间建立对等互连，必须先通过使用 Azure PowerShell 或 Azure CLI 完成以下步骤（在要对其建立对等互连的每个虚拟网络所在的订阅中执行）来注册预览版：
+<!-- Not Avaiable on [Virtual network updates](https://www.azure.cn/updates/?product=virtual-network) -->
 
 ### <a name="powershell"></a>PowerShell
 
-1. 安装最新版本的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果不熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+1. 安装最新版本的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模块。 如果不熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json)。
 2. 使用 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 命令启动 PowerShell 会话并登录到 Azure。
 3. 通过输入以下命令，注册要对其建立对等互连的每个虚拟网络所在订阅的预览版：
 
@@ -370,7 +369,7 @@ ms.lasthandoff: 01/19/2018
 
 ### <a name="azure-cli"></a>Azure CLI
 
-1. [安装并配置 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?toc=%2Fazure%2Fvirtual-network%2Ftoc.json)。
+1. [安装并配置 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2Fvirtual-network%2Ftoc.json?view=azure-cli-latest)。
 2. 输入 `az --version` 命令，确保使用的是版本 2.0.18 或更高版本的 Azure CLI。 如果不是，请安装最新版本。
 3. 使用 `az login` 命令登录到 Azure。
 4. 输入以下命令，针对预览版进行注册：
@@ -393,6 +392,6 @@ ms.lasthandoff: 01/19/2018
 
 - 在针对生产用途创建虚拟网络对等互连之前，请充分熟悉重要的[虚拟网络对等互连约束和行为](virtual-network-manage-peering.md#requirements-and-constraints)。
 - 了解所有的[虚拟网络对等互连设置](virtual-network-manage-peering.md#create-a-peering)。
-- 了解如何使用虚拟网络对等互连[创建中心辐射型网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)。
+- 了解如何使用虚拟网络对等互连[创建中心辐射型网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering)。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta propeties, wording update, update link -->

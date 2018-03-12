@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/02/2017
-ms.date: 12/04/2017
+ms.date: 3/5/2018
 ms.author: v-nany
-ms.openlocfilehash: e46d5761555b9a33491614d475b9e06e45a6bc29
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: d552c630bd445e1fe71dda9c09e5afa9b556825d
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>对 Azure 存储 使用 Azure PowerShell
 
@@ -134,7 +134,7 @@ SKU 名称指示用于存储帐户的复制类型，如 LRS（本地冗余存储
 
 * 分配给存储帐户的标记。 标记通常用于分类资源以进行计费。
 
-* SKU 是存储帐户的复制设置，例如 LRS（对于本地冗余存储）。 例如，可能会从标准\_LRS 更改为标准\_GRS 或标准\_RAGRS。 请注意，无法将标准 ZRS 或高级 LRS 更改为其他 SKU，反之亦然。 
+* SKU 是存储帐户的复制设置，例如 LRS（对于本地冗余存储）。 例如，可能会从标准\_LRS 更改为标准\_GRS 或标准\_RAGRS。 请注意，无法将 Standard\_ZRS 或 Premium\_LRS 更改为其他 SKU，反之亦然。
 
 * Blob 存储帐户的访问层。 将访问层的值设置为“热”或“冷”，并允许用户通过选择符合存储帐户使用方式的访问层来最大限度地降低成本。 有关详细信息，请参阅[热、冷存储层和存档存储层](../blobs/storage-blob-storage-tiers.md)。
 
@@ -216,7 +216,7 @@ Azure Cosmos DB 表 API 提供了用于表存储的高级功能，如统包全�
 * 有关详细信息，请参阅 [Azure Cosmos DB 表 API](../../cosmos-db/table-introduction.md) 
 * 若要了解如何使用 PowerShell 执行 Azure Cosmos DB 表 API 操作，请参阅[使用 PowerShell 执行 Azure Cosmos DB 表 API 操作](../../cosmos-db/table-powershell.md)。
 
-## <a name="azures-independently-deployed-clouds"></a>Azure 的独立部署云
+## <a name="independent-cloud-deployments-of-azure"></a>Azure 的独立云部署
 
 大多数人为其全球 Azure 部署使用了 Azure 公有云。 但出于主权等方面的原因，还存在一些独立的 Microsoft Azure 部署。 这些独立部署称为“环境”。 可用环境如下：
 

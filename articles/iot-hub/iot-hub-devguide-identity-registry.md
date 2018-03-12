@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/19/2017
+origin.date: 01/29/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 12/18/2017
-ms.openlocfilehash: 0356cae1e001e4d823d89e3b13166eb845942eb7
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.date: 03/19/2018
+ms.openlocfilehash: 38bdb16265f1e12939f95ebc3042b6d620f9d8b0
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>了解 IoT 中心的标识注册表
 
@@ -78,9 +78,10 @@ IoT 解决方案通常具有不同的解决方案特定存储，其中包含应�
 * 出于任何原因认为设备遭到入侵或未经授权。
 
 ## <a name="import-and-export-device-identities"></a>导入和导出设备标识
+
 可以使用 [IoT 中心资源提供程序终结点][lnk-endpoints]上的异步操作，从 IoT 中心的标识注册表批量导出设备标识。 导出是长时间运行的作业，它使用客户提供的 blob 容器来保存从标识注册表读取的设备标识数据。
 
-可以使用 [IoT 中心资源提供程序终结点][lnk-endpoints]上的异步操作，将设备标识批量导入 IoT 中心的标识注册表。 导入是长时间运行的作业，它使用客户提供的 Blob 容器中的数据，将设备标识数据写入标识注册表。
+可以使用 [IoT 中心资源提供程序终结点][lnk-endpoints]上的异步操作，向 IoT 中心的标识注册表批量导入设备标识。 导入是长时间运行的作业，它使用客户提供的 blob 容器中的数据，将设备标识数据写入标识注册表。
 
 有关导入和导出 API 的详细信息，请参阅 [IoT 中心资源提供程序 REST API][lnk-resource-provider-apis]。 若要了解有关如何运行导入和导出作业的详细信息，请参阅 [Bulk management of IoT Hub device identities][lnk-bulk-identity]（批量管理 IoT 中心的设备标识）。
 
@@ -96,9 +97,9 @@ IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和�
 
 如果 IoT 解决方案需要知道设备是否已连接，则应实现*检测信号模式*。
 
-在检测信号模式下，设备每隔固定时间至少发送一次设备到云的消息（例如，每小时至少一次）。 因此，即使设备没有任何要发送的数据，仍会发送空的设备到云的消息（通常具有可供识别为检测信号的属性）。 在服务端上，该解决方案利用每台设备收到的最后一个检测信号来维护映射。 如果解决方案未在预计时间内从设备收到检测信号消息，则它假定设备存在问题。
+在检测信号模式下，设备每隔固定时间至少发送一次设备到云的消息（例如，每小时至少一次）。 因此，即使设备没有任何要发送的数据，仍会发送空的设备到云的消息（通常具有可供识别为检测信号的属性）。 在服务端，该解决方案维护着与每个设备收到的最后一个检测信号的映射。 如果解决方案未在预计时间内从设备收到检测信号消息，则它假定设备存在问题。
 
-更复杂的实现可包含来自[操作监视][lnk-devguide-opmon]的信息，以便识别尝试连接或通信但失败的设备。 实施检测信号模式时，请务必查看 [IoT 中心配额与限制][lnk-quotas]。
+更复杂的实现可包含来自 [操作监视][lnk-devguide-opmon] 的信息，以便识别尝试连接或通信但失败的设备。 实施检测信号模式时，请务必查看 [IoT 中心配额与限制][lnk-quotas]。
 
 > [!NOTE]
 > 如果 IoT 解决方案只使用连接状态来决定是否发送云到设备的消息，并且没有把消息广播到大量设备，则考虑使用更简单的较短到期时间模式。 此模式达到的效果与使用检测信号模式维护设备连接状态注册表达到的效果一样，而且更加有效。 如果请求消息确认，则 IoT 中心可以通知你哪些设备可以接收消息以及哪些设备不能接收。
@@ -109,7 +110,7 @@ IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和�
 
 属性：消息系统属性以 `'$'` 符号为前缀。
 
-| 名称 | 值 |
+| Name | 值 |
 | --- | --- |
 $content-type | application/json |
 $iothub-enqueuedtime |  发送通知的时间 |
@@ -171,9 +172,9 @@ IoT 中心开发人员指南中的其他参考主题包括：
 
 * [IoT 中心终结点][lnk-endpoints]，介绍了每个 IoT 中心针对运行时和管理操作公开的各种终结点。
 * [限制和配额][lnk-quotas]介绍了适用于 IoT 中心服务的配额和限制行为。
-* [Azure IoT 设备和服务 SDK][lnk-sdks] 列出了开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
+* [Azure IoT 设备和服务 SDK][lnk-sdks]，列出了在开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
 * [IoT 中心查询语言][lnk-query]介绍了可用来从 IoT 中心检索设备克隆和作业相关信息的查询语言。
-* [IoT 中心 MQTT 支持][lnk-devguide-mqtt]提供有关 IoT 中心对 MQTT 协议的支持的详细信息。
+* [IoT 中心 MQTT 支持][lnk-devguide-mqtt] 提供有关 IoT 中心对 MQTT 协议的支持的详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -182,9 +183,9 @@ IoT 中心开发人员指南中的其他参考主题包括：
 * [控制 IoT 中心的访问权限][lnk-devguide-security]
 * [使用设备孪生同步状态和配置][lnk-devguide-device-twins]
 * [在设备上调用直接方法][lnk-devguide-directmethods]
-* [Schedule jobs on multiple devices（在多台设备上计划作业）][lnk-devguide-jobs]
+* [在多台设备上计划作业][lnk-devguide-jobs]
 
-若要尝试本文中介绍的一些概念，可以根据兴趣学习以下 IoT 中心教程：
+要尝试本文中介绍的一些概念，请参阅以下 IoT 中心教程：
 
 * [Azure IoT 中心入门][lnk-getstarted-tutorial]
 

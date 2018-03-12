@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/14/2017
+origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 10/16/2017
-ms.openlocfilehash: 8660ae6fb33e3f130c6671425627ce09a25ba6d4
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 03/19/2018
+ms.openlocfilehash: 8674017f2132c4b8f444c594a4397f23b1637b19
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>使用 IoT 中心进行设备到云和云到设备的消息传送
 

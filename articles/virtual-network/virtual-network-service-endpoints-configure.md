@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/15/2017
-ms.date: 02/26/2018
+origin.date: 01/31/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: 
-ms.openlocfilehash: b8b5cbb0fd5693c3c62b2559efb1615a599f24fe
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 187a75ef572494537c1f553fdec4213c9443cf0e
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>配置虚拟网络服务终结点
 
@@ -63,8 +63,8 @@ ms.lasthandoff: 02/13/2018
 
 1. 打开 [Azure 门户](https://portal.azure.cn/)。
 使用 Azure 帐户登录到 Azure。 如果没有 Azure 帐户，可以注册试用版。 该帐户必须拥有创建虚拟网络和服务终结点的必要[权限](#provisioning)。
-2. 单击“+新建”>“网络”>“虚拟网络”>“+添加”。
-3. 在“创建虚拟网络”中输入以下值，单击“创建”：
+2. 单击“创建资源” > “网络” > “虚拟网络” > “+添加”。
+3. 在“创建虚拟网络”中输入以下值，然后单击“创建”：
 
 设置 | 值
 ------- | -----
@@ -76,7 +76,7 @@ Name    | myVnet
 位置|任何受支持的区域，例如“澳大利亚东部”
 订阅|选择订阅。
 __ServiceEndpoints__|Enabled
-__服务__ | 选择一个或所有可用服务。 在预览期，受支持的服务包括：__“Microsoft.Storage”、“Microsoft.Sql”__。
+__服务__ | 选择一个或所有可用服务。 支持的服务：__“Microsoft.Storage”、“Microsoft.Sql”__。
 
 选择终结点的服务：![选择服务终结点服务](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png)
 
@@ -230,7 +230,7 @@ Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRm
 ## <a name="azure-cli"></a>Azure CLI
 
 设置先决条件：
-- 使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。 有关登录的详细信息，请参阅 [Azure CLI 2.0 入门](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest)。
+- 使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。 有关登录的详细信息，请参阅 [Azure CLI 2.0 入门](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest)。
  - 该帐户必须拥有创建虚拟网络和服务终结点的必要[权限](#provisioning)。
 
  有关针对虚拟网络的完整命令列表，请参阅 [Azure CLI 虚拟网络命令](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest)
@@ -387,7 +387,7 @@ az network vnet subnet update -g myRG -n mySubnet --vnet-name myVNet --service-e
 
 详细了解[内置角色](/active-directory/role-based-access-built-in-roles)以及将特定的权限分配到[自定义角色](/active-directory/role-based-access-control-custom-roles)。
 
-VNet 和 Azure 服务资源可以位于相同或不同的订阅中。 如果两者位于不同的订阅中，在预览期，资源应在相同的 Active Directory (AD) 租户下。
+VNet 和 Azure 服务资源可以位于相同或不同的订阅中。 如果两者位于不同的订阅中，资源应在相同的 Active Directory (AD) 租户下。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -397,4 +397,4 @@ VNet 和 Azure 服务资源可以位于相同或不同的订阅中。 如果两�
 
 [在虚拟网络中保护 Azure SQL](/sql-database/sql-database-vnet-service-endpoint-rule-overview)
 
-<!-- Update_Description: new articles on virtual network endpoints configure -->
+<!-- Update_Description: update meta properties, update link -->

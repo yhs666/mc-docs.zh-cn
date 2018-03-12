@@ -1,9 +1,25 @@
 ---
-title: 使用资源管理器模板创建活动日志警报 description: 创建 Azure 资源时收到通知。
-author: anirudhcavale manager: orenr editor: '' services: monitoring-and-diagnostics documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: ms.service: monitoring-and-diagnostics ms.workload: na ms.tgt_pltfrm: na ms.devlang: na ms.topic: article origin.date: 07/06/2017 ms.date��02/26/2018 ms.author: v-yiso
-
+title: "使用资源管理器模板创建活动日志警报"
+description: "创建 Azure 资源时收到通知。"
+author: anirudhcavale
+manager: orenr
+editor: 
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+ms.assetid: 
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 07/06/2017
+ms.date: 02/26/2018
+ms.author: v-yiso
+ms.openlocfilehash: 524f0abb873623fb1c95b4469b0bee52dbaa9371
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>使用资源管理器模板创建活动日志警报
 本文说明如何使用 [Azure 资源管理器模板](/azure-resource-manager/resource-group-authoring-templates)配置活动日志警报。 使用模板，可以轻松设置在自动执行的部署过程中基于特定活动日志事件条件激活的多个警报。
@@ -84,6 +100,11 @@ ms.assetid: ms.service: monitoring-and-diagnostics ms.workload: na ms.tgt_pltfrm
 ```
 
 有关活动日志警报模板的一些示例，请访问我们的 [Azure 快速入门库](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights)。
+
+> [!NOTE]
+> 还可以在“监视器”> [警报(预览)](monitoring-overview-unified-alerts.md) 中使用增强型用户体验创建活动日志警报规则。 有关如何创建这些警报规则的详细信息，请参阅[此文](monitoring-activity-log-alerts-new-experience.md)。
+>
+>
 
 ## <a name="next-steps"></a>后续步骤
 - 详细了解[警报](monitoring-overview-alerts.md)。

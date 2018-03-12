@@ -2,24 +2,18 @@
 title: "通过 .NET 开始使用 Azure Blob 存储（对象存储）| Azure"
 description: "使用 Azure Blob 存储（对象存储）将非结构化数据存储在云中。"
 services: storage
-documentationcenter: .net
 author: forester123
 manager: digimobile
-editor: tysonn
-ms.assetid: d18a8fc8-97cb-4d37-a408-a6f8107ea8b3
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 03/27/2017
 ms.date: 10/23/2017
 ms.author: v-johch
-ms.openlocfilehash: 0f585aa8b15e6b29a23e3262b5e109cf4b890a3c
-ms.sourcegitcommit: fea4940a09cecbae36256410227e701e5f0aab6d
+ms.openlocfilehash: cbf4adca300d4bcac68175ecfe423dca2e856dd2
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="get-started-with-azure-blob-storage-using-net"></a>通过 .NET 开始使用 Azure Blob 存储
 

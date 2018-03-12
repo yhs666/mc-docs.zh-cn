@@ -15,11 +15,11 @@ ms.topic: tutorial
 origin.date: 11/15/2017
 ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 417de5764a9304c20954f5add0ac0e420e6704cd
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: a4b458ee54817d5cbfc12459ed2ea09bb58420cf
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="import-and-publish-your-first-api"></a>导入和发布第一个 API 
 
@@ -73,9 +73,7 @@ ms.lasthandoff: 02/13/2018
     ![测试 API](./media/api-management-get-started/test-api.png)
     
 3. 单击“GetSpeakers”。
-
-    该页显示查询参数的字段，但在此示例中，我们并没有这些字段。 此外，还会显示标头的字段。 其中一个标头是“Ocp-Apim-Subscription-Key”，适用于和此 API 关联的产品订阅密钥。 如果创建了 APIM 实例，那么你已是管理员，因此会自动填充该密钥。 
-    
+    该页显示查询参数的字段，但在此示例中，我们并没有这些字段。 此外，还会显示标头的字段。 其中一个标头是“Ocp-Apim-Subscription-Key”，适用于和此 API 关联的产品订阅密钥。 将自动填充该密钥。
 4. 按“发送”。
 
     后端以“200 正常”和某些数据做出响应。

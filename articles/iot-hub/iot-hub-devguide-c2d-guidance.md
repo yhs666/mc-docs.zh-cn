@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/09/2017
-ms.date: 11/20/2017
+origin.date: 01/29/2018
+ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 919394d872d19ee5d6ce98c941fc8fdddab082d2
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.openlocfilehash: d1ff8852cf1c9306e7f93ebfb847c4590c73ff96
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="cloud-to-device-communications-guidance"></a>从云到设备通信指南
 IoT 中心提供三个选项，允许设备应用向后端应用公开功能：

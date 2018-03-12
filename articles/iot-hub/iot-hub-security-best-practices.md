@@ -1,9 +1,9 @@
 ---
 title: "Azure IoT 安全最佳实践 | Azure"
-description: "用于保护 IoT 基础结构的 IoT 安全最佳实践。 包含适用于解决方案开发人员、解决方案部署人员和解决方案操作员的建议"
+description: "用于保护 IoT 基础结构的 IoT 安全最佳实践。 包含适用于解决方案开发人员、解决方案部署人员和解决方案操作员的建议。"
 services: iot-hub
 documentationcenter: 
-author: YuriDio
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: 84f9ce2b-e8b5-4239-b262-13d0637efc2b
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/03/2017
+origin.date: 01/17/2018
 ms.author: v-yiso
-ms.date: 12/18/2017
-ms.openlocfilehash: 6e6742f4c55bad6e6d97a6d78120e100f4b3ab7b
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.date: 03/19/2018
+ms.openlocfilehash: 6a35534506769796ab21a12ff970415725eaf5fa
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/12/2018
 ---
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 

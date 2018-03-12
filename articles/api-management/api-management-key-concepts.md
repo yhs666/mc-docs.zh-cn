@@ -12,29 +12,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 11/15/2017
-ms.date: 02/26/2018
+ms.date: 03/19/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 346ea16466ad653cdb4862bd7b0b7d896879553b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 34021e872c17d6d9d4cfd760263fd7c7005b7f20
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="what-is-api-management"></a>什么是 API 管理？
 
 API 管理 (APIM) 可帮助组织将 API 发布给外部、合作伙伴和内部开发人员，以充分发挥其数据和服务的潜力。 所有企业都想要作为数字平台扩大其运营、创建新渠道、查找新客户和深化与现有的契合。 API 管理通过开发人员参与、商业洞察力、分析、安全性和保护提供了核心竞争力以确保成功的 API 程序。 可以使用 Azure API 管理处理任何后端，并基于它发布正式的 API 程序。
 
+观看以下视频，概要了解 Azure API 管理，并学习如何使用 API 管理将更多功能添加到 API，包括访问控制、速率限制、监视、事件日志记录和响应缓存，将工作量降至最低。
 
-若要使用 API 管理，管理员需要创建 API。 每个 API 包括一个或多个操作，可以将每个 API 添加到一个或多个产品。 要使用 API，开发人员需要订阅包含该 API 的产品，然后它们可以根据任何可能生效的使用策略调用该 API 的操作。
 
-本主题概述了 API 管理关键概念。
-
-> [!NOTE]
-> 有关详细信息，请参阅 PDF 版的[基于云的 API 管理：利用 API 的强大功能](http://j.mp/ms-apim-whitepaper)白皮书。 此关于 API 管理的简介白皮书由 CITO Research 编撰，包括以下内容： 
-> 
-
-本主题概述了涉及 APIM 的常用方案，  并简单介绍了 APIM 系统的主要组件， 然后较详细地介绍了每个组件。
+本文概述了涉及 APIM 的常用方案，  并简单介绍了 APIM 系统的主要组件， 然后较详细地介绍了每个组件。
 
 ## <a name="overview"></a>概述
 
@@ -54,7 +48,7 @@ API 管理 (APIM) 可帮助组织将 API 发布给外部、合作伙伴和内部
   * 无需修改代码即可随时转换 API。
   * 在设置的位置缓存后端响应。
   * 记录调用元数据以用于分析。
-* **发布者门户**是一个管理界面，可以在其中设置 API 程序。 使用它可执行以下操作：
+* **Azure 门户**是一个管理界面，可以在其中设置 API 程序。 使用它可执行以下操作：
   
   * 定义或导入 API 架构。
   * 将 API 打包到产品中。
@@ -97,19 +91,19 @@ API 是 API 管理服务实例的基础。 每个 API 表示一组可供开发�
 * **开发人员** - 已经过身份验证的开发人员门户用户属于此组。 开发人员是使用 API 构建应用程序的客户。 开发人员有权访问开发人员门户，并构建调用 API 操作的应用程序。
 * **来宾** - 未经身份验证的开发人员门户用户属于此组，例如，访问某个 API 管理实例的开发人员门户的潜在客户。 它们可以被授予某些只读访问权限，例如能够查看 API，但不能调用它们。
 
-除了这些系统组，管理员还可以创建自定义组或[利用关联 Azure Active Directory 租户中的外部组](./api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group)。 可以将自定义组和外部组与系统组一起使用，来允许开发人员查看和访问 API 产品。 例如，可以为隶属于一个特定合作伙伴组织的开发人员创建一个自定义组并仅允许他们从包含相关 API 的产品中访问 API。 一个用户可以是多个组的成员。
+除了这些系统组，管理员还可以创建自定义组或[利用关联 Azure Active Directory 租户中的外部组](api-management-howto-aad.md)。 可以将自定义组和外部组与系统组一起使用，来允许开发人员查看和访问 API 产品。 例如，可以为隶属于一个特定合作伙伴组织的开发人员创建一个自定义组并仅允许他们从包含相关 API 的产品中访问 API。 一个用户可以是多个组的成员。
 
 有关详细信息，请参阅[如何创建和使用组][How to create and use groups]。
 
 ## <a name="developers"> </a> 开发人员
 开发人员表示 API 管理服务实例中的用户帐户。 可以让管理员创建或邀请开发人员加入，也可以让开发人员从[开发人员门户][Developer portal]注册。 每个开发人员是一个或多个组的成员，并且可以订阅向这些组授予了可见性的产品。
 
-开发人员订阅某个产品时，会向他们授予该产品的主密钥和辅助密钥。 在调用产品的 API 时，将使用此密钥。
+当开发人员订阅某个产品时，会向其授予该产品的主密钥和辅助密钥。 在调用产品的 API 时，将使用此密钥。
 
 有关详细信息，请参阅[如何创建或邀请开发人员][How to create or invite developers]和[如何将组与开发人员关联][How to associate groups with developers]。
 
 ## <a name="policies"> </a> 策略
-策略是 API 管理的一项强大功能，允许发布者通过配置更改 API 的行为。 策略是一组语句，在请求或响应 API 时按顺序执行。 流行的语句包含 XML 格式转换为 JSON 和调用速率限制，以限制从开发人员传入的呼叫数，还有许多其他策略可用。
+策略是 API 管理的一项强大功能，允许 Azure 门户通过配置更改 API 的行为。 策略是一组语句，在请求或响应 API 时按顺序执行。 流行的语句包含 XML 格式转换为 JSON 和调用速率限制，以限制从开发人员传入的呼叫数，还有许多其他策略可用。
 
 在任何 API 管理策略中，策略表达式都可以用作属性值或文本值，除非策略另行指定。 某些策略（如[控制流](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose)和[设置变量](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable)策略）基于策略表达式。 有关详细信息，请参阅[高级策略](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies)和[策略表达式](https://msdn.microsoft.com/library/azure/dn910913.aspx)。
 

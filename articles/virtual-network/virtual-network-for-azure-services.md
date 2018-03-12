@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/06/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 35a33bb87b1ff68e0924b27daa82ee5225f015e3
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: ef23c3fdb447117565cbc8b449bfb1a9502c78cd
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Azure 服务的虚拟网络集成
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/13/2018
 - [应用程序网关（内部）](../application-gateway/application-gateway-ilb-arm.md?toc=%2fvirtual-network%2ftoc.json)
 <!--Not Available - [Azure Container Service Engine](../container-service/container-service-intro.md?toc=%2fvirtual-network%2ftoc.json) -->
 <!--Not Available - [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fvirtual-network%2ftoc.json) -->
-- [Azure Batch](../batch/batch-api-basics.md?toc=%2fvirtual-network%2ftoc.json)：仅限虚拟网络（经典）
+- [Azure Batch](../batch/batch-api-basics.md?toc=%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
 - [云服务](https://msdn.microsoft.com/library/azure/jj156091)：仅限虚拟网络（经典）
 
 可部署[内部 Azure 负载均衡器](../load-balancer/load-balancer-internal-overview.md?toc=%2fvirtual-network%2ftoc.json)，实现前面列出的多种资源的负载均衡。 在某些情况下，服务在创建资源时自动创建和部署负载均衡器。
@@ -75,3 +75,5 @@ ms.lasthandoff: 02/13/2018
 ## <a name="virtual-network-integration-across-multiple-azure-services"></a>跨多个 Azure 服务的虚拟网络集成
 
 可在虚拟网络的子网中部署 Azure 服务，并保护该子网的关键服务资源。 例如，可将 HDInsight 部署到虚拟网络中，并保护该 HDInsight 子网的存储帐户。
+
+<!-- Update_Description: update meta properties, wording update -->

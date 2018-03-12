@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 origin.date: 05/18/2017
 ms.date: 12/18/2017
 ms.author: v-nany
-ms.openlocfilehash: 090c62ff60f96e1049821aabdddc45c3ae34d845
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: 980a1a5bcd09de1393cd6c8f7778bbddd9606a02
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>如何在 Azure 门户中管理 DNS 区域
 
 > [!div class="op_single_selector"]
-> * [门户](dns-operations-dnszones-portal.md)
+> * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
 > * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/15/2017
 ## <a name="create-a-dns-zone"></a>创建 DNS 区域
 
 1. 登录到 Azure 门户
-2. 在“中心”菜单上，单击“新建”>“网络”，并单击“DNS 区域”以打开“创建 DNS 区域”边栏选项卡。
+2. 在“中心”菜单上，单击“创建资源”>“网络”，然后单击“DNS 区域”以打开“创建 DNS 区域”边栏选项卡。
 
     ![DNS 区域](./media/dns-operations-dnszones-portal/openzone650.png)
 
@@ -41,8 +41,8 @@ ms.lasthandoff: 12/15/2017
 
    | **设置** | **值** | **详细信息** |
    |---|---|---|
-   |**Name**|contoso.com|DNS 区域的名称|
-   |**订阅**|[订阅]|选择要在其中创建 DNS 区域的订阅。|
+   |**名称**|contoso.com|DNS 区域的名称|
+   |**订阅**|[你的订阅]|选择要在其中创建 DNS 区域的订阅。|
    |**资源组**|**新建：**contosoDNSRG|创建资源组。 资源组名称在所选订阅中必须唯一。 若要详细了解资源组，请阅读 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 概述文章。|
    |**位置**|中国东部||
 

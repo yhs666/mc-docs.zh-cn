@@ -1,32 +1,28 @@
 ---
-title: "Azure 快速入门 - 使用 Azure CLI 将对象转移到 Azure Blob 存储或从 Azure Blob 存储转移对象 | Microsoft Docs"
-description: "快速了解如何使用 Azure CLI 将对象转移到 Azure Blob 存储或从 Azure Blob 存储转移对象"
+title: "Azure 快速入门 - 使用 Azure CLI 在 Azure 存储中上传、下载和列出 Blob | Microsoft Docs"
+description: "在本快速入门中，请使用 Azure CLI 来创建存储帐户和容器。 然后，使用该 CLI 将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。"
 services: storage
-documentationcenter: na
-author: forester123
+author: yunan2016
 manager: digimobile
-editor: tysonn
-ms.assetid: 
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-origin.date: 07/19/2017
-ms.date: 10/23/2017
-ms.author: v-johch
-ms.openlocfilehash: 2fc1ecbedb860bc786c2571506a22e5837c20a78
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+origin.date: 02/22/2018
+ms.date: 03/05/2018
+ms.author: v-nany
+ms.openlocfilehash: aaf7aead535f3b1d3f06f113efb5db16f85c4a20
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>使用 Azure CLI 将对象转移到 Azure Blob 存储或从 Azure Blob 存储转移对象
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>快速入门：使用 Azure CLI 上传、下载和列出 Blob
 
-Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 此快速入门详细介绍了如何使用 Azure CLI 将数据上传和下载到 Azure Blob 存储或从 Azure Blob 存储上传和下载数据。
+Azure CLI 是 Azure 的命令行体验，用于管理 Azure 资源。 可以在浏览器中将它与 Azure Cloud Shell 配合使用。 也可将它安装在 macOS、Linux 或 Windows 上，然后从命令行运行它。 本快速入门介绍了如何使用 Azure CLI 通过 Azure Blob 存储来上传和下载数据。
 
 如果没有 Azure 订阅，可以在开始前创建一个 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 如果选择在本地安装并使用 CLI，此快速入门教程要求运行 Azure CLI 2.0.4 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli)。
 
@@ -36,7 +32,7 @@ Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 此快速�
 
 始终将 Blob 上传到容器中。 可以整理 Blob 组，就像在计算机的文件夹中整理文件一样。
 
-可以使用 [az storage container create](https://docs.azure.cn/cli/storage/container#create) 命令创建用于存储 blob 的容器。
+可以使用 [az storage container create](https://docs.azure.cn/cli/storage/container#az_storage_container_create) 命令创建用于存储 blob 的容器。
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -49,7 +45,7 @@ Blob 存储支持块 blob、追加 blob 和页 blob。 存储在 Blob 存储中�
 首先，创建要上传到 Blob 的文件。
 如果使用 Azure Cloud Shell，请使用以下方法来创建 `vi helloworld` 文件：当文件打开时，按“插入”，键入“Hello world”，然后按 **Esc** 并输入 `:x`，再按 **Enter**。
 
-此示例使用 [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#upload) 命令将 Blob 上传到在上一个步骤中创建的容器中。
+此示例使用 [az storage blob upload](https://docs.azure.cn/cli/storage/blob#az_storage_blob_upload) 命令将 Blob 上传到在上一个步骤中创建的容器中。
 
 ```azurecli-interactive
 az storage blob upload \
@@ -69,11 +65,11 @@ az storage blob upload \
 
 此操作将创建 Blob（如果该 Blob 尚不存在），或者覆盖 Blob（如果该 Blob 已存在）。 上传尽可能多的文件，然后继续操作。
 
-若要同时上传多个文件，则可使用 [az storage blob upload-batch](https://docs.microsoft.com/cli/azure/storage/blob#upload-batch) 命令。
+若要同时上传多个文件，则可使用 [az storage blob upload-batch](https://docs.azure.cn/cli/storage/blob#az_storage_blob_upload_batch) 命令。
 
 ## <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-使用 [az storage blob list](https://docs.azure.cn/cli/storage/blob#list) 命令列出容器中的 blob。
+使用 [az storage blob list](https://docs.azure.cn/cli/storage/blob#az_storage_blob_list) 命令列出容器中的 blob。
 
 ```azurecli-interactive
 az storage blob list \
@@ -83,7 +79,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>下载 Blob
 
-使用 [az storage blob download](https://docs.azure.cn/cli/storage/blob#download) 命令下载之前上传的 blob。
+使用 [az storage blob download](https://docs.azure.cn/cli/storage/blob#az_storage_blob_download) 命令下载之前上传的 Blob。
 
 ```azurecli-interactive
 az storage blob download \
@@ -108,7 +104,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要你的资源组中的任何一个资源（包括使用本教程创建的存储帐户），可使用 [az group delete](https://docs.azure.cn/cli/group#delete) 命令删除该资源组。
+如果不再需要你的资源组中的任何一个资源（包括使用本教程创建的存储帐户），可使用 [az group delete](https://docs.azure.cn/cli/group#az_group_delete) 命令删除该资源组。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

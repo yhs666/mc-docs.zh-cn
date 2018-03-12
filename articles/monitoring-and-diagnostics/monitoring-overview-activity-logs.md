@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 10/17/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: c0a90379f4d811f685c8afe38328b5731ef98dfc
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 03/19/2018
+ms.openlocfilehash: 688c733e7321fa7e17cd28c1349bdcca5d1d2d4c
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活动日志监视订阅活动
 **Azure 活动日志**是一种方便用户深入了解 Azure 中发生的订阅级别事件的订阅日志。 这包括从 Azure 资源管理器操作数据到服务运行状况事件更新的一系列数据。 活动日志之前称为“审核日志”或“操作日志”，因为“管理”类别报告订阅的控制面事件。 通过活动日志，可确定订阅中资源上进行的任何写入操作 (PUT, POST, DELETE) 的“什么操作、谁操作和操作时间”等信息。 还可以了解该操作和其他相关属性的状态。 活动日志未包括读取 (GET) 操作或针对使用经典/“RDFE”模型的资源的操作。
@@ -30,11 +30,16 @@ ms.lasthandoff: 02/13/2018
 
 活动日志不同于[诊断日志](monitoring-overview-of-diagnostic-logs.md)。 活动日志提供有关从外部（“控制面”）对资源所执行操作的数据。 诊断日志由资源发出，并提供有关该资源（“数据面”）的操作信息。
 
-可通过 Azure 门户、CLI、PowerShell cmdlet 和 Azure Monitor REST API 从活动日志检索事件。
 
 
 > [!WARNING]
 > Azure 活动日志主要适用于 Azure Resource Manager 中发生的活动。 它不跟踪使用经典/RDFE 模型的资源。 某些经典资源类型在 Azure Resource Manager 中具有代理资源提供程序（例如 Microsoft.ClassicCompute）。 如果使用这些代理资源提供程序通过 Azure Resource Manager 与经典资源类型交互，相关操作出现在活动日志中。 如果在 Azure 资源管理器代理外部与经典资源类型进行交互，则操作只会记录在操作日志中。 可以在门户的一个单独部分中浏览操作日志。
+>
+>
+可通过 Azure 门户、CLI、PowerShell cmdlet 和 Azure Monitor REST API 从活动日志检索事件。
+
+> [!NOTE]
+>  [警报(预览)](monitoring-overview-unified-alerts.md)目前在创建和管理活动日志警报规则方面提供增强的体验。  [了解详细信息](monitoring-activity-log-alerts-new-experience.md)。
 >
 >
 ## <a name="categories-in-the-activity-log"></a>活动日志中的类别
@@ -63,9 +68,9 @@ ms.lasthandoff: 02/13/2018
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>在 Azure 门户中查询活动日志
 在 Azure 门户中，可在多个位置查看活动日志：
-* 活动日志边栏选项卡，可通过在左侧导航窗格中的“更多服务”下搜索活动日志进行访问。
-* “监视”边栏选项卡，默认情况下在左侧导航窗格中显示。 活动日志是 Azure Monitor 边栏选项卡的一部分。
-* 任何资源的**资源边栏选项卡**，例如虚拟机的配置边栏选项卡。 活动日志是大多数这些资源边栏选项卡的一部分，单击它可自动筛选出与特定资源相关的事件。
+* 可通过在左侧导航窗格中的“所有服务”下搜索活动日志进行访问的“活动日志”。
+* 默认情况下在左侧导航窗格中显示的“监视”。 活动日志是 Azure Monitor 的一部分。
+* 任何资源的资源边栏选项卡，例如虚拟机的“配置”边栏选项卡。 活动日志是大多数这些资源边栏选项卡的一部分，单击它可自动筛选出与特定资源相关的事件。
 
 在 Azure 门户中，可通过以下字段筛选活动日志：
 * 时间跨度 - 事件的开始时间和结束时间。
@@ -87,9 +92,9 @@ ms.lasthandoff: 02/13/2018
 **日志配置文件** 控制如何导出活动日志。 可以使用日志配置文件配置：
 
 * 应将活动日志发送到何处：存储帐户或事件中心
-* 应发送哪些事件类别（写入、删除、操作）。 日志配置文件中“类别”的含义与活动日志事件中不同。在日志配置文件中，“类别”表示操作类型（写入、删除、操作）。在活动日志事件中，“类别”属性表示事件的来源或类型（例如，管理、服务运行状况、警报，等等）*。
-* 应该导出哪些区域（位置）
-* 活动日志应在存储帐户中保留多长时间。
+* 应发送哪些事件类别（写入、删除、操作）。 日志配置文件中“类别”的含义与活动日志事件中不同。在日志配置文件中，“类别”表示操作类型（写入、删除、操作）。在活动日志事件中，“类别”属性表示事件的来源或类型（例如，管理、服务运行状况、警报，等等）。*
+* 应该导出哪些区域（位置）。 确保包含“全局”，因为活动日志中的事件多为全局事件。
+* 活动日志应当在存储帐户中保留多长时间。
     - 保留期为零天表示日志将永久保留。 如果不需永久保留，则可将该值设置为 1 到 2147483647 之间的任意天数。
     - 如果设置了保留策略，但禁止将日志存储在存储帐户中（例如，如果仅选择事件中心或 OMS 选项），则保留策略无效。
     - 保留策略按天应用，因此在一天结束时 (UTC)，将会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。
@@ -101,7 +106,7 @@ ms.lasthandoff: 02/13/2018
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>通过 Azure 门户配置日志配置文件
 可以在 Azure 门户中使用“导出”选项将活动日志流式传输到事件中心，或者将其存储在存储帐户中。
 
-1. 使用门户左侧的菜单导航到“活动日志”边栏选项卡。
+1. 使用门户左侧的菜单导航到“活动日志”。
 
     ![在门户中导航到“活动日志”](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. 单击边栏选项卡顶部的“导出”按钮。

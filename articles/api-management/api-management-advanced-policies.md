@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
 ms.date: 02/26/2018
-ms.openlocfilehash: 7ef0d427433d906981e9527846d766143fec9ae8
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 6edae3e8234021240641193f75419419b523435c
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="api-management-advanced-policies"></a>API 管理高级策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -107,7 +107,7 @@ ms.lasthandoff: 02/13/2018
     <outbound>  
         <base />  
         <choose>  
-            <when condition="@(context.GetValueOrDefault<bool>("isMobile"))">  
+            <when condition="@(context.Variables.GetValueOrDefault<bool>("isMobile"))">  
                 <xml-to-json kind="direct" apply="always" consider-accept-header="false"/>  
             </when>  
         </choose>  
@@ -629,7 +629,7 @@ status code and media type. If no example or schema found, the content is empty.
         <!-- Check active property in response -->  
         <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">  
             <!-- Return 401 Unauthorized with http-problem payload -->  
-            <return-response response-variable-name="existing response variable">  
+            <return-response>  
                 <set-status code="401" reason="Unauthorized" />  
                 <set-header name="WWW-Authenticate" exists-action="override">  
                     <value>Bearer error="invalid_token"</value>  

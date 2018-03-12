@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2017
-ms.date: 10/30/2017
+ms.date: 3/5/2018
 ms.author: v-johch
-ms.openlocfilehash: a62d668fca2f60592702d44927a8c56123fb9099
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 926d1e6ca2e9df034a2aff2ccd2f6508f1e75f85
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>在 Windows 中排查 Azure 文件问题
 
@@ -52,7 +52,7 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 
 如果端口 445 到 Azure 文件数据中心的出站通信受阻，可能会发生系统错误 53 或 67。 如需大致了解允许或禁止从端口 445 进行访问的 ISP，请访问 [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx)。
 
-若要了解是否由此造成“系统错误 53”，可使用 Portqry 查询 TCP:445 终结点。 如果 TCP:445 终结点显示为“已筛选”，则表示 TCP端口受阻。 示例查询如下：
+若要了解是否由此造成“系统错误 53”，可使用 Portqry 查询 TCP:445 终结点。 如果 TCP:445 终结点显示为“已筛选”，则 TCP 端口被阻止。 示例查询如下：
 
   `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.chinacloudapi.cn -p TCP -e 445`
 
@@ -126,7 +126,7 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 
 ### <a name="cause"></a>原因
 
-默认情况下，Windows 文件资源管理器不以管理员身份运行。 如果通过管理性命令提示符运行 net use，则可以管理员身份映射网络驱动器。 由于映射的驱动器以用户为中心，如果在其他用户帐户上安装了这些驱动器，则登录的用户帐户不会显示它们。
+默认情况下，Windows 文件资源管理器不以管理员身份运行。 如果通过管理性命令提示符运行 net use，则可以管理员身份映射网络驱动器。 由于映射的驱动器以用户为中心，如果不同用户帐户下已装载这些驱动器，则已登录的用户帐户将不显示它们。
 
 ### <a name="solution"></a>解决方案
 通过非管理员命令行中装载共享。 或者，可按照[此 TechNet 主题](https://technet.microsoft.com/library/ee844140.aspx)配置 **EnableLinkedConnections** 注册表值。
@@ -163,8 +163,14 @@ net use 命令将正斜杠 (/) 解释为命令行选项。 如果用户帐户名
 
 请使用以下解决方案之一：
 
-- 使用应用程序所在的同一用户帐户装载驱动器。 可以使用 PsExec 之类的工具。
+-   使用应用程序所在的同一用户帐户装载驱动器。 可以使用 PsExec 之类的工具。
 - 传递 net use 命令的用户名和密码参数中的存储帐户名和密钥。
+- 使用 cmdkey 命令将凭据添加到凭据管理器中。 从命令行在服务帐户上下文中通过交互式登录或使用运行方式执行此操作。
+  
+  `cmdkey /add:<storage-account-name>.file.core.chinacloudapi.cn /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
+- 不使用映射驱动器号直接映射共享。 某些应用程序可能无法正确地重新连接到驱动器号，因此使用完整的 UNC 路径可能会更可靠。 
+
+  `net use * \\storage-account-name.file.core.chinacloudapi.cn\share`
 
 按这些说明操作以后，可能会在为系统/网络服务帐户运行 net use 时出现以下错误消息：“发生系统错误 1312。 指定的登录会话不存在。 可能已终止该会话。” 若发生此情况，请确保传递到 net use 的用户名包括域信息（例如“[storage account name].file.core.chinacloudapi.cn”）。
 

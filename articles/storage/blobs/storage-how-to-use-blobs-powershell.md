@@ -2,24 +2,18 @@
 title: "使用 PowerShell 对 Azure Blob 存储（对象存储）执行操作 | Microsoft Docs"
 description: "教程 - 使用 PowerShell 对 Azure Blob 存储（对象存储）执行操作"
 services: storage
-documentationcenter: storage
 author: forester123
 manager: digimobile
-editor: tysonn
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 09/14/2017
 ms.date: 1/29/2018
 ms.author: v-johch
-ms.openlocfilehash: d13c8babcb0af1dcd20462129b8353c0e83e88a7
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 11d3bf3d98b4970ad9d42890602d14b67f140a34
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="perform-azure-blob-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 执行 Azure Blob 存储操作
 

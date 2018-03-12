@@ -1,15 +1,12 @@
-<!--ms.date: 08/28/2017-->
 有两种类型的存储帐户：
 
 ### <a name="general-purpose-storage-accounts"></a>通用存储帐户
-
 通用存储帐户有权使用单个帐户访问诸如表、队列、文件、Blob 和 Azure 虚拟机磁盘等 Azure 存储服务。 此类型存储帐户具有两个性能层：
 
 * 标准存储性能层，允许存储表、队列、文件、Blob 和 Azure 虚拟机磁盘。
-* 高级存储性能层，当前仅支持 Azure 虚拟机磁盘。 有关高级存储的详细概述，请参阅 [高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../articles/storage/common/storage-premium-storage.md) 。
+* 高级存储性能层，当前仅支持 Azure 虚拟机磁盘。 有关高级存储的详细概述，请参阅 [高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../articles/virtual-machines/windows/premium-storage.md) 。
 
 ### <a name="blob-storage-accounts"></a>Blob 存储帐户
-
 Blob 存储帐户是将非结构化数据作为 Blob（对象）存储在 Azure 存储的专用存储帐户。 Blob 存储帐户类似于现有通用存储帐户，并且具有现在使用的所有卓越的耐用性、可用性、伸缩性和性能功能，包括用于块 blob 和追加 blob 的 100% API 一致性。 对于仅需要块 blob 或追加 blob 存储的应用程序，我们建议使用 Blob 存储帐户。
 
 > [!NOTE]
@@ -23,7 +20,7 @@ Blob 存储帐户公开 **访问层** 属性，该属性可在帐户创建过程
 * 
             **冷** 访问层，表示不会经常访问存储帐户中的对象。 该访问层允许以较低数据存储成本存储数据。
 
-如果数据的使用模式有所更改，也可以随时在这些访问层之间切换。 更改访问层可能会产生额外费用。 有关更多详细信息，请参阅 [Blob 存储帐户的定价和计费](../articles/storage/blobs/storage-blob-storage-tiers.md#pricing-and-billing) 。
+如果数据的使用模式有所更改，也可以随时在这些访问层之间切换。 更改访问层可能会产生额外费用。 有关更多详细信息，请参阅 [Blob 存储帐户的定价和计费](../articles/storage/common/storage-account-options.md#pricing-and-billing) 。
 
 有关 Blob 存储帐户的更多详细信息，请参阅 [Azure Blob 存储：冷层和热层](../articles/storage/blobs/storage-blob-storage-tiers.md)。
 

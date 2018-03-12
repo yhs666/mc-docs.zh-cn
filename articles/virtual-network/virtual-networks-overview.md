@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/12/2017
-ms.date: 01/22/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5311505cb038893038490306e9db44ca8044d896
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 4a622922d2e81879b63622fa5bffc3619c7e4267
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-virtual-network"></a>Azure 虚拟网络
 
@@ -40,7 +40,7 @@ Azure 资源可以通过 Azure 虚拟网络服务与虚拟网络中的其他资�
 <a name="isolation"></a>
 ## <a name="network-isolation-and-segmentation"></a>网络隔离和细分
 
-可在每个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和 Azure [区域](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json)中实现多个虚拟网络。 每个虚拟网络与其他虚拟网络相互隔离。 可以对每个虚拟网络执行以下操作：
+可在每个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和 Azure [区域](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#region)中实现多个虚拟网络。 每个虚拟网络与其他虚拟网络相互隔离。 可以对每个虚拟网络执行以下操作：
 - 使用公共和专用 (RFC 1918) 地址指定自定义专用 IP 地址空间。 Azure 从分配的地址空间中向虚拟网络中的资源分配一个专用 IP 地址。
 <!-- Not Available on #region -->
 - 将虚拟网络细分为一个或多个子网，并向每个子网分配一部分虚拟网络地址空间。
@@ -49,7 +49,7 @@ Azure 资源可以通过 Azure 虚拟网络服务与虚拟网络中的其他资�
 
 <a name="internet"></a>
 ## <a name="internet-communication"></a>Internet 通信
-虚拟网络中的所有资源都可以与 Internet 进行出站通信。 默认情况下，资源的专用 IP 地址是源网络地址 (SNAT)，该地址已转换为 Azure 基础结构选择的公共 IP 地址。 若要了解出站网络连接的详细信息，请阅读[了解 Azure 中的出站连接](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address)一文。 若要阻止出站 Internet 连接，可以自定义路由或筛选流量。
+虚拟网络中的所有资源都可以与 Internet 进行出站通信。 默认情况下，资源的专用 IP 地址是源网络地址 (SNAT)，该地址已转换为 Azure 基础结构选择的公共 IP 地址。 若要了解出站网络连接的详细信息，请阅读[了解 Azure 中的出站连接](..\load-balancer\load-balancer-outbound-connections.md)一文。 若要阻止出站 Internet 连接，可以自定义路由或筛选流量。
 
 若要从 Internet 入站通信到 Azure 资源或出站通信到不具 SNAT 的 Internet，则必须向资源分配一个公共 IP 地址。 若要详细了解公共 IP 地址，请阅读 [公共 IP 地址](virtual-network-public-ip-address.md)一文。
 
@@ -79,7 +79,7 @@ Azure 资源可以通过 Azure 虚拟网络服务与虚拟网络中的其他资�
 ## <a name="filtering"></a>筛选网络流量
 可使用以下两个选项中任意一个或同时使用这两个方案筛选子网之间的网络流量：
 - **网络安全组：**每个网络安全组可包含多个入站和出站安全规则，通过这些规则可按源和目标 IP 地址、端口和协议筛选流量。 可以将网络安全组应用到虚拟机的每个网络接口。 此外，还可以将网络安全组应用到网络接口或其他 Azure 资源所在的子网。 若要深入了解网络安全组，请参阅[网络安全组](security-overview.md#network-security-groups)。
-- **虚拟网络设备：**虚拟网络设备是运行软件的虚拟机，软件可执行网络功能，例如防火墙。 可在 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances) 中查看可用的网络虚拟设备列表。 网络虚拟设备也可用于提供 WAN 优化和其他网络流量功能。 网络虚拟设备通常与用户定义路由或 BGP 路由配合使用。 还可以使用网络虚拟设备来筛选虚拟网络之间的流量。
+- **虚拟网络设备：**虚拟网络设备是运行软件的虚拟机，软件可执行网络功能，例如防火墙。 可在 [Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/apps/category/networking?page=1&subcategories=appliances) 中查看可用的网络虚拟设备列表。 网络虚拟设备也可用于提供 WAN 优化和其他网络流量功能。 网络虚拟设备通常与用户定义路由或 BGP 路由配合使用。 还可以使用网络虚拟设备来筛选虚拟网络之间的流量。
 
 ## <a name="routing"></a>路由网络流量
 
@@ -97,7 +97,7 @@ Azure 资源可以通过 Azure 虚拟网络服务与虚拟网络中的其他资�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 完成[创建首个虚拟网络](virtual-network-get-started-vnet-subnet.md)中的步骤，创建自己的首个虚拟网络，并将几个虚拟机部署到此网络。
+- 完成[创建首个虚拟网络](quick-create-portal.md)中的步骤，创建自己的首个虚拟网络，并将几个虚拟机部署到此网络。
 - 完成[配置点到站点连接](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)中的步骤，为虚拟网络创建一个点到站点连接。
 <!-- Not Available [network capabilities](../networking/networking-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
 

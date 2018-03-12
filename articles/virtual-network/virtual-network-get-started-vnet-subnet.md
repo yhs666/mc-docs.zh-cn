@@ -14,15 +14,15 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/27/2016
-ms.date: 09/04/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9b7adb3d663ea3a957a52c4159cfbdcbf9e18c4e
-ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
+ms.openlocfilehash: 976a0d7134f82586ac357090d63d2925acac7c48
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="create-your-first-virtual-network"></a>创建首个虚拟网络
+# <a name="create-your-first-virtual-network"></a>创建自己的首个虚拟网络
 
 了解如何创建包含两个子网的虚拟网络 (VNet)、如何创建两个虚拟机 (VM)，以及如何将每个 VM 连接到其中一个子网，如下图所示：
 
@@ -35,24 +35,20 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 可�
 3. [连接到 VM 和从 VM 连接](#connect-to-from-vms)
 4. [删除所有资源](#delete-resources)。 对于该练习中创建的某些资源，其预配时会产生费用。 为尽量削减费用，完成练习后，请务必完成本节中的步骤以删除创建的资源。
 
-在完成本节中的步骤后，可以基本了解如何使用 VNet。 提供后续步骤，便于详细了解如何更深层次地使用 VNet。
+在完成本节中的步骤后，可以基本了解如何使用 VNet。 提供后续步骤是为了让用户在更深的层次详细了解如何使用 VNet。
 
 ## <a name="create-vnet"></a>创建包含两个子网的虚拟网络
 
-若要创建包含两个子网的虚拟网络，请完成以下步骤。 通常使用不同子网控制各子网间的通信流量。
+若要创建包含两个子网的虚拟网络，请完成以下步骤。 通常使用不同的子网来控制子网之间的流量。
 
 1. 登录到 [Azure 门户](<https://portal.azure.cn>)。 如果还没有帐户，可注册 [1 个月期限的试用版](https://www.azure.cn/pricing/1rmb-trial)。 
-2. 在门户的“收藏夹”窗格中，单击“新建”。
-3. 在“新建”边栏选项卡中，单击“网络”。 在“网络”边栏选项卡中，单击“虚拟网络”，如下图所示：
-
-    ![虚拟网络关系图](./media/virtual-network-get-started-vnet-subnet/virtual-network.png)
-
+2. 单击“创建资源” > “网络” > “虚拟网络”。
 4.  在“虚拟网络”边栏选项卡中，选择“Resource Manager”作为部署模型，然后单击“创建”。
 5.  在显示的“创建虚拟网络”边栏选项卡中，输入以下值，然后单击“创建”：
 
     |**设置**|**值**|**详细信息**|
     |---|---|---|
-    |**Name**|*MyVNet*|名称在资源组中必须唯一。|
+    |**名称**|*MyVNet*|名称在资源组中必须唯一。|
     |**地址空间**|*10.0.0.0/16*|可通过 CIDR 注释指定任意地址空间。|
     |**子网名称**|*前端*|子网名称在虚拟网络中必须唯一。|
     |**子网地址范围**|*10.0.0.0/24*| 指定的范围必须位于为该虚拟网络定义的地址空间内。|
@@ -72,7 +68,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 可�
 
     |**设置**|**值**|**详细信息**|
     |---|---|---|
-    |**Name**|*后端*|名称在虚拟网络中必须唯一。|
+    |**名称**|*后端*|名称在虚拟网络中必须唯一。|
     |**地址范围**|*10.0.1.0/24*|指定的范围必须位于为该虚拟网络定义的地址空间内。|
     |**网络安全组**和**路由表**|*无*（默认值）|本文下文中介绍了网络安全组 (NSG)。 若要详细了解用户定义的路由，请阅读[用户定义的路由](virtual-networks-udr-overview.md)一文。|
 
@@ -86,15 +82,15 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 
 若要创建 Web 服务器 VM，请完成以下步骤：
 
-1. 在 Azure 门户的“收藏夹”窗格中，依次单击“新建”、“计算”和“Windows Server 2016 Datacenter”。
-2. 在“Windows Server 2016 Datacenter”边栏选项卡中，单击“创建”。
+1. 在 [Azure 门户](https://portal.azure.cn)中，单击“创建资源” > “计算” > “Windows Server 2016 Datacenter”。
+2. 单击“创建”。
 3. 在显示的“基本信息”边栏选项卡中，输入或选择以下值，然后单击“确定”：
 
     |**设置**| **值**|**详细信息**|
     |---|---|---|
-    |**Name**|*MyWebServer*|此 VM 用作 Internet 资源连接到的 Web 服务器。|
+    |**名称**|*MyWebServer*|此 VM 用作 Internet 资源连接到的 Web 服务器。|
     |**VM 磁盘类型**|*SSD*|
-    |**用户名**|*由用户决定*|
+    |**用户名**|*由用户选择*|
     |**密码和确认密码**|*由用户决定*|
     | **订阅**|*<Your subscription>*|该订阅必须等同于在本文 [创建包含两个子网的虚拟网络](#create-vnet) 部分的步骤 5 中所选的订阅。 VM 所连接到的 VNet 必须与该 VM 位于同一订阅中。|
     |**资源组**|**使用现有项:** 选择 *MyRG*|虽然使用的资源组与 VNet 所用的相同，但资源无需位于同一资源组中。|
@@ -120,30 +116,30 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 
 若要创建数据库服务器 VM，请完成以下步骤：
 
-1.  在“收藏夹”窗格中，依次单击“新建”、“计算”和“Windows Server 2016 Datacenter”。
-2.  在“Windows Server 2016 Datacenter”边栏选项卡中，单击“创建”。
+1.  在 [Azure 门户](https://portal.azure.cn)中，单击“创建资源” > “计算” > “Windows Server 2016 Datacenter”。
+2.  单击“创建”。
 3.  在“基本信息”边栏选项卡中，输入或选择以下值，然后单击“确定”：
 
     |**设置**|**值**|**详细信息**|
     |---|---|---|
-    |**Name**|*MyDBServer*|此 VM 充当 Web 服务器连接到，但 Internet 无法连接到的数据库服务器。|
+    |**名称**|*MyDBServer*|此 VM 充当 Web 服务器连接到，但 Internet 无法连接到的数据库服务器。|
     |**VM 磁盘类型**|*SSD*||
-    |**用户名**|由用户决定||
+    |**用户名**|由用户选择||
     |**密码和确认密码**|由用户决定||
     |**订阅**|<Your subscription>|该订阅必须等同于在本文 [创建包含两个子网的虚拟网络](#create-vnet) 部分的步骤 5 中所选的订阅。|
     |**资源组**|**使用现有项:** 选择 *MyRG*|虽然使用的资源组与 VNet 所用的相同，但资源无需位于同一资源组中。|
     |**位置**|*华北*|该位置必须等同于在本文 [创建包含两个子网的虚拟网络](#create-vnet) 部分的步骤 5 中指定的位置。|
 
 4.  在“选择大小”边栏选项卡中单击“DS1_V2 标准”，然后单击“选择”。
-5.  在“设置”边栏选项卡中，输入或选择以下值，然后单击“确定”：
+5.  在“设置”边栏选项卡中，输入或选择以下值，并单击“确定”：
 
     |**设置**|**值**|**详细信息**|
     |----|----|---|
     |**存储：使用托管磁盘**|*是*||
     |**虚拟网络**|选择“MyVNet” |可选择要创建的 VM 所在的同一位置下的任意 VNet。|
-    |**子网**|选择“后端”，方法是：单击“子网”框，然后从“选择子网”边栏选项卡选择“后端”|可选择 VNet 中的任意子网。|
+    |**子网**|选择“后端”，方法是：单击“子网”框，然后从“选择子网”边栏选项卡选择“后端”|可以选择 VNet 中存在的任何子网。|
     |**公共 IP 地址**|无 - 单击默认地址，然后从“选择公共 IP 地址”边栏选项卡单击“无”|若没有公共 IP 地址，就只能通过连接到同一 VNet 的其他 VM 连接到此 VM。 不能直接从 Internet 连接到该 VM。|
-    |**网络安全组(防火墙)**|接受默认值| 与为 MyWebServer VM 创建的默认 NSG 一样，此 NSG 也具有相同的默认入站规则。 可以为数据库服务器添加其他针对 TCP/1433 (MS SQL) 的入站规则。 没有出站流量规则，因为默认允许所有出站流量。 可添加/删除规则，根据策略控制流量。|
+    |**网络安全组(防火墙)**|接受默认值| 与为 MyWebServer VM 创建的默认 NSG 一样，此 NSG 也有相同的默认入站规则。 可以为数据库服务器添加其他针对 TCP/1433 (MS SQL) 的入站规则。 没有出站流量规则，因为默认允许所有出站流量。 可添加/删除规则，根据策略控制流量。|
     |**其他所有值**|接受默认值||
 
 6.  在“摘要”边栏选项卡中查看设置，然后单击“确定”创建 VM。 VM 创建后，门户仪表板上显示“状态”磁贴。 创建操作可能耗时几分钟。 无需等待创建完成。 在 VM 创建期间，可继续执行下一步。
@@ -152,14 +148,14 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 
 虽然用户创建了一个 VNet 和两个 VM，但 Azure 门户为用户在 MyRG 资源组中创建了数个其他的资源。 请完成以下步骤，查看 MyRG 资源组的内容：
 
-1. 在“收藏夹”窗格中，单击“更多服务”。
-2. 在“更多服务”窗格中，在包含单词“筛选”的框中键入“资源组”。 若在筛选后的列表中显示，则单击“资源组”  。
+1. 在 [Azure 门户](https://portal.azure.cn)中，单击“所有服务”。
+2. 在包含单词“筛选”的框中键入“资源组”。 若在筛选后的列表中显示，则单击“资源组”  。
 3. 在“资源组”窗格中，单击“MyRG”资源组。 如果订阅中有很多现有的资源组，则可在包含文本“按名称筛选…”的框中键入“MyRG”， 以快速访问 MyRG 资源组。
 4.  在“MyRG”  边栏选项卡中，会看到资源组包含 12 个资源，如下图所示：
 
     ![资源组内容](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-若要详细了解 VM、磁盘和存储帐户，请阅读[虚拟机](../virtual-machines/windows/overview.md?toc=%2fvirtual-network%2ftoc.json)、[磁盘](../virtual-machines/windows/about-disks-and-vhds.md?toc=%2fvirtual-network%2ftoc.json)和[存储帐户](../storage/common/storage-introduction.md?toc=%2fvirtual-network%2ftoc.json)这三篇概述文章。 可看到门户代为创建的两个默认 NSG。 还可以看到门户创建了两个网络接口 (NIC) 资源。 其中一个 NIC 允许 VM 通过 VNet 连接到其他资源。 若要详细了解 NIC，请阅读 [NIC](virtual-network-network-interface.md) 一文。 门户还创建了一个公共 IP 地址资源。 公共 IP 地址是针对公共 IP 地址资源的一种设置。 若要详细了解公共 IP 地址，请阅读 [IP 地址](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)一文。
+若要详细了解 VM、磁盘和存储帐户，请阅读[虚拟机](../virtual-machines/windows/overview.md?toc=%2fvirtual-network%2ftoc.json)、[磁盘](../virtual-machines/windows/about-disks-and-vhds.md?toc=%2fvirtual-network%2ftoc.json)和[存储帐户](../storage/common/storage-introduction.md?toc=%2fvirtual-network%2ftoc.json)这三篇概述文章。 可看到门户代为创建的两个默认 NSG。 还可以看到门户创建了两个网络接口 (NIC) 资源。 VM 可以使用 NIC 通过 VNet 连接到其他资源。 若要详细了解 NIC，请阅读 [NIC](virtual-network-network-interface.md) 一文。 门户还创建了一个公共 IP 地址资源。 公共 IP 地址是针对公共 IP 地址资源的一种设置。 若要详细了解公共 IP 地址，请阅读 [IP 地址](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)一文。
 
 ## <a name="connect-to-from-vms"></a>连接到 VM
 
@@ -193,7 +189,7 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 
 1. 如果尚未打开指向 MyWebServerVM 的远程连接，请完成本文 [从 Internet 连接到 Web 服务器 VM](#connect-from-internet) 部分中的步骤，建立到 VM 的远程连接。
 2. 在 Windows 桌面上，打开“Internet Explorer”。 在“设置 Internet Explorer 11”对话框中，单击“不使用推荐设置”，然后单击“确定”。 建议接受生产服务器的推荐设置。
-3. 在 Internet Explorer 地址栏中，输入“bing.com” [](http:www.bing.com)。如果出现一个 Internet Explorer 对话框，则请单击“添加”，然后单击“受信任的站点”对话框中的“添加”，再单击“关闭”。 任何其他 Internet Explorer 对话框均重复此过程。
+3. 在 Internet Explorer 地址栏中，输入[bing.com](http:www.bing.com)。如果出现一个 Internet Explorer 对话框，则请单击“添加”，然后单击“受信任的站点”对话框中的“添加”，再单击“关闭”。 任何其他 Internet Explorer 对话框均重复此过程。
 4. 在必应搜索页面中，输入“whatsmyipaddress” ，并单击“放大镜”按钮。 在创建 VM 时，必应会返回分配到门户创建的公共 IP 地址资源的公共 IP 地址。 如果检查“MyWebServer-ip”  资源的设置，可看到分配给公共 IP 地址资源的 IP 地址，如下图所示。 但分配到 VM 的 IP 地址不同。
 
     ![连接到 Web 服务器 VM](./media/virtual-network-get-started-vnet-subnet/webserver-pip.png)
@@ -229,11 +225,11 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 
 1. 如果尚未打开从 MyWebServer VM 到 MyDBServer VM 的远程连接，请完成本文 [从 Web 服务器 VM 连接到 数据库服务器 VM](#webserver-to-dbserver) 部分中的步骤。
 2. 在 Windows 桌面的 MyDBServer VM 上，打开 Internet Explorer 并响应对话框，如本文 [从 Web 服务器 VM 连接到 Internet](#connect-to-internet) 部分的步骤 2 和 3 中所述。
-3. 在地址栏中输入“bing.com” [](http:www.bing.com)。
+3. 在地址栏中输入[bing.com](http:www.bing.com) 。
 4. 在出现的 Internet Explorer 对话框中单击“添加”，然后再在“受信任的站点”对话框中单击“添加”和“关闭”。 在显示的所有其他对话框中完成这些步骤。
 5. 在必应搜索页面中，输入“whatsmyipaddress” ，并单击“放大镜”按钮。 必应返回当前由 Azure 基础结构分配给 VM 的公共 IP 地址。 6. 关闭从 MyWebServer VM 到 MyDBServer VM 的远程桌面连接，然后关闭到 MyWebServer VM 的远程连接。
 
-允许指向 Internet 的出站连接，因为默认允许所有出站流量，即使公共 IP 地址资源未分配到 MyDBServer VM 也是如此。 默认情况下，无论 VM 是否分配有公共 IP 地址资源，所有 VM 均可出站连接到 Internet。 但是，无法从 Internet 连接到公共 IP 地址，正如可为分配有公共 IP 地址资源的 MyWebServer VM 建立连接一样。
+之所以允许到 Internet 的出站连接，是因为所有出站流量都是默认允许的，即使未向 MyDBServer VM 分配公共 IP 地址资源。 默认情况下，无论 VM 是否分配有公共 IP 地址资源，所有 VM 均可出站连接到 Internet。 但是，无法从 Internet 连接到公共 IP 地址，正如可为分配有公共 IP 地址资源的 MyWebServer VM 建立连接一样。
 
 ## <a name="delete-resources"></a>删除所有资源
 
@@ -253,4 +249,4 @@ VNet 和子网创建完毕后，即可创建 VM。 虽然两个 VM 可运行 Azu
 - [网络安全组](virtual-networks-nsg.md)
 - [虚拟机](../virtual-machines/windows/overview.md?toc=%2fvirtual-network%2ftoc.json)
 
-<!--Update_Description: update reference link-->
+<!--Update_Description: wording update, update reference link-->

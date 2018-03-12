@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 12/18/2017
 ms.date: 01/01/2018
 ms.author: v-nany
-ms.openlocfilehash: 96fbc07dcb11931ca05c0b152f7304f6b5adc6ec
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 387ec6839f80f4628a5e8a5c25f9cc49f671fc99
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>通过 Azure 门户开始使用 Azure DNS
 
@@ -35,8 +35,8 @@ DNS 区域用来托管某个特定域的 DNS 记录。 若要开始在 Azure DNS
 
 ## <a name="create-a-dns-zone"></a>创建 DNS 区域
 
-1. 登录到 Azure 门户
-2. 在“中心”菜单上，单击“新建”>“网络”，然后单击“DNS 区域”以打开“创建 DNS 区域”页。
+1. 登录到 Azure 门户。
+2. 在“中心”菜单上，单击“创建资源”>“网络”，然后单击“DNS 区域”以打开“创建 DNS 区域”页。
 
     ![DNS 区域](./media/dns-getstarted-portal/openzone650.png)
 

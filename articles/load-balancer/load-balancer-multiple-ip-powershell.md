@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: a5ef3c3f7175d749c6d1c4da432a7d071c641e9d
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 90da0ffd05cb36bda7c0144e1ae1e755a7efce98
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>使用 PowerShell 在多个 IP 配置上进行负载均衡
 
@@ -144,6 +144,6 @@ ms.lasthandoff: 02/13/2018
 
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。
-- 若要了解如何在 Azure 中使用不同类型的日志对负载均衡器进行管理和故障排除，请参阅 [Azure 负载均衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md)。
+<!-- Not Avaible [Log analytics for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) -->
 
 <!--Update_Description: update meta properties, wording update -->

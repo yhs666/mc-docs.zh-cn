@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/17/2017
-ms.date: 12/11/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e8e16dc6bf7dff3a4870daa019b554df7bd76f11
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 3a346adeab7e088d85e38790b2ce315f165a48d0
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-cli"></a>使用 Azure CLI 创建网络安全组
 
@@ -39,9 +39,9 @@ ms.lasthandoff: 12/08/2017
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. 如果尚未这样做，请安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录 Azure 帐户。 
+1. 如果尚未这样做，请安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录 Azure 帐户。 
 
-2. 运行 [az network nsg create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#create) 命令创建 NSG。 
+2. 运行 [az network nsg create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az_network_nsg_create) 命令创建 NSG。 
 
     ```azurecli
     az network nsg create \
@@ -77,7 +77,7 @@ ms.lasthandoff: 12/08/2017
         Allow     Allow outbound traffic from all VMs to Internet         *                Outbound          65001
         Deny      Deny all outbound traffic                               *                Outbound          65500
 
-3. 使用 [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#create) 命令创建允许从 Internet 访问端口 3389 (RDP) 的规则。
+3. 使用 [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az_network_nsg_rule_create) 命令创建允许从 Internet 访问端口 3389 (RDP) 的规则。
 
     > [!NOTE]
     > 根据要使用的 shell，可能需要修改参数中的 `*` 字符以免在执行前展开参数。
@@ -170,7 +170,7 @@ ms.lasthandoff: 12/08/2017
     }
     ```
 
-5. 使用 [az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#update) 命令将 NSG 绑定到 **FrontEnd** 子网。
+5. 使用 [az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update) 命令将 NSG 绑定到 **FrontEnd** 子网。
 
     ```azurecli
     az network vnet subnet update \
@@ -354,4 +354,4 @@ ms.lasthandoff: 12/08/2017
     }
     ```
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties, update link, wording update -->

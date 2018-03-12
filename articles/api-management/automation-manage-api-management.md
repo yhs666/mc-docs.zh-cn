@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/15/2016
+origin.date: 02/13/2018
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: e015b9df284b4dd0b895df5d133f35e5b725dae1
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 03/19/2018
+ms.openlocfilehash: 96a5bbeff115a9dae477a1dd71900d03997bf858
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>使用 Azure 自动化管理 Azure API 管理
 本指南介绍 Azure 自动化服务，以及如何使用它来简化 Azure API 管理的管理。
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/13/2018
 ## <a name="what-is-azure-automation"></a>什么是 Azure 自动化？
 [Azure 自动化](/automation/)是用于通过流程自动化简化云管理的一项 Azure 服务。 使用 Azure 自动化可以自动完成那些人工操作、重复、长时间运行且易出错的任务，从而改善组织的可靠性、效率和价值生成时间。
 
-Azure 自动化提供了具有高可靠性和高可用性的工作流执行引擎，该引擎可以根据需求进行扩展。 在 Azure 自动化中，流程可以手动、通过第三方系统或按计划的间隔启动，使任务能够完全根据需求进行。
+Azure 自动化提供了具有高可靠性和高可用性的工作流执行引擎，该引擎可以根据需求进行缩放。 在 Azure 自动化中，流程可以手动、通过第三方系统或按计划的间隔启动，使任务能够完全根据需求进行。
 
 通过将云管理任务改为由 Azure 自动化自动运行，可以降低运营开销，解放 IT 和开发运营人员，让他们将精力集中在增加企业价值的工作上。
 

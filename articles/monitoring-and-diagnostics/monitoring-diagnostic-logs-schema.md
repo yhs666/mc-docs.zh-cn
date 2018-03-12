@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/04/2017
-ms.date: 02/26/2018
+origin.date: 01/24/2018
+ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 61f18596d01b10d7c2c03422c50ad53291dbeb13
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 07ed337ed9a1b7a0dec63996d0fa76b9afe5162f
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 诊断日志支持的服务、架构和类别
 
@@ -54,7 +54,6 @@ ms.lasthandoff: 02/13/2018
 ## <a name="supported-log-categories-per-resource-type"></a>每种资源类型支持的日志类别
 |资源类型|类别|类别显示名称|
 |---|---|---|
-|microsoft.aadiam/tenants|登录|登录|
 |Microsoft.AnalysisServices/servers|引擎|引擎|
 |Microsoft.AnalysisServices/servers|服务|服务|
 |Microsoft.ApiManagement/service|GatewayLogs|与 ApiManagement 网关相关的日志|
@@ -62,14 +61,8 @@ ms.lasthandoff: 02/13/2018
 |Microsoft.Automation/automationAccounts|JobStreams|作业流|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Dsc 节点状态|
 |Microsoft.Batch/batchAccounts|ServiceLog|服务日志|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|获取终结点的指标，例如带宽、流出量等。|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
-|Microsoft.DataFactory/factories|ActivityRuns|管道活动运行日志|
-|Microsoft.DataFactory/factories|PipelineRuns|管道运行日志|
-|Microsoft.DataFactory/factories|TriggerRuns|触发器运行日志|
-|Microsoft.DataLakeAnalytics/accounts|审核|审核日志|
-|Microsoft.DataLakeAnalytics/accounts|请求|请求日志|
-|Microsoft.DataLakeStore/accounts|审核|审核日志|
-|Microsoft.DataLakeStore/accounts|请求|请求日志|
 |Microsoft.Devices/IotHubs|连接|连接|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|设备遥测|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D 命令|
@@ -89,8 +82,6 @@ ms.lasthandoff: 02/13/2018
 |Microsoft.EventHub/namespaces|OperationalLogs|运行日志|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|自动缩放日志|
 |Microsoft.KeyVault/vaults|AuditEvent|审核日志|
-|Microsoft.Logic/workflows|WorkflowRuntime|工作流运行时诊断事件|
-|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|集成帐户跟踪事件|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|网络安全组事件|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|网络安全组规则计数器|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|网络安全组规则流事件|
@@ -112,6 +103,8 @@ ms.lasthandoff: 02/13/2018
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery 复制项|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Azure Site Recovery 复制统计信息|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery 恢复点|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Azure Site Recovery 复制数据上传速度|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery 受保护的磁盘数据改动|
 |Microsoft.Search/searchServices|OperationLogs|操作日志|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|操作日志|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|查询存储运行时统计信息|
@@ -121,6 +114,7 @@ ms.lasthandoff: 02/13/2018
 |Microsoft.Sql/servers/databases|超时|超时|
 |Microsoft.Sql/servers/databases|块|块|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|审核|审核日志|
 |Microsoft.StreamAnalytics/streamingjobs|执行|执行|
 |Microsoft.StreamAnalytics/streamingjobs|创作|创作|
 

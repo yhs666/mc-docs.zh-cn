@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 01/09/2017
 ms.author: v-yiso
 ms.date: 02/26/2018
-ms.openlocfilehash: ed59fec4d53981cfa53269cab631827a924f6be2
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 7c60765d4951c0bc82bc34631db1924ed117484a
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>如何使用模板自定义 Azure API 管理开发人员门户
 
@@ -32,13 +32,7 @@ ms.lasthandoff: 02/13/2018
 模板用于自定义系统生成的开发人员门户页的内容（例如，API 文档、产品、用户身份验证等）。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和一组提供的本地化字符串资源、图标和页面控件，可根据需要非常灵活地配置页面内容。
 
 ## <a name="developer-portal-templates-overview"></a>开发人员门户模板概述
-在以管理员身份登录时，可从“开发人员门户”编辑模板。 若要访问它，请先打开 Azure 门户，再单击 API 管理实例的服务工具栏中的“发布者门户”。
-
-![发布者门户][api-management-management-console]
-
-然后单击右上角的“开发人员门户”。 
-
-![开发人员门户菜单][api-management-developer-portal-menu]
+在以管理员身份登录时，可从“开发人员门户”编辑模板。 若要访问它，请先打开 Azure 门户，再单击 API 管理实例的服务工具栏中的“开发人员门户”。
 
 若要访问开发人员门户模板，请单击左侧的自定义图标显示自定义菜单，并单击“模板”。
 
@@ -104,7 +98,7 @@ ms.lasthandoff: 02/13/2018
 }
 ```
 
-**产品列表**模板中的标记处理数据以显示所需的输出，方法是循环访问产品集合以显示信息和指向每个单独产品的链接。 请注意标记中的 `<search-control>` 和 `<page-control>` 元素。 这些元素控制页面上的搜索和分页控件的显示。 `ProductsStrings|PageTitleProducts` 是一个本地化的字符串引用，包含页面的 `h2` 标题文本。 有关可在开发人员门户模板中使用的字符串资源、页面控件和图标的列表，请参阅 [API 管理开发人员门户模板参考](./api-management-developer-portal-templates-reference.md)。
+**产品列表**模板中的标记处理数据以显示所需的输出，方法是循环访问产品集合以显示信息和指向每个单独产品的链接。 请注意标记中的 `<search-control>` 和 `<page-control>` 元素。 这些元素控制页面上的搜索和分页控件的显示。 `ProductsStrings|PageTitleProducts` 是一个本地化的字符串引用，包含页面的 `h2` 标题文本。 有关可在开发人员门户模板中使用的字符串资源、页面控件和图标的列表，请参阅 [API 管理开发人员门户模板参考](api-management-developer-portal-templates-reference.md)。
 
 ```html
 <search-control></search-control>

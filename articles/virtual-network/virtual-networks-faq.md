@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/18/2017
-ms.date: 11/06/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6cc656aae25e5c023a421cf8681bc52156ff32ff
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 5c4f0b42ab98a8fe0f0aa95f6162b56502ca0ea8
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虚拟网络常见问题 (FAQ)
 
@@ -45,7 +45,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>是否可以在 VNet 之间或者 VNet 与本地数据中心之间执行 WAN 优化？
 
-是的。 可以通过 Azure 应用商店部署许多供应商提供 [WAN 优化网络虚拟设备](https://azure.microsoft.com/marketplace/?term=wan+optimization) 。
+是的。 可以通过 Azure 应用商店部署许多供应商提供 [WAN 优化网络虚拟设备](https://market.azure.cn/zh-cn/marketplace/?term=wan+optimization) 。
 
 ## <a name="configuration"></a>配置
 
@@ -64,7 +64,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 是的。 有关公共 IP 地址范围的详细信息，请参阅[虚拟网络中的公共 IP 地址空间](virtual-networks-public-ip-within-vnet.md)一文。 无法从 Internet 直接访问公共 IP 地址。
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>VNet 中的子网数量是否有限制？
-是的。 子网地址空间不能相互重叠。
+是的。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文。 子网地址空间不能相互重叠。
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>使用这些子网中的 IP 地址是否有任何限制？
 是的。 Azure 会保留每个子网中的某些 IP 地址。 子网的第一个和最后一个 IP 地址仅为协议一致性而保留，其他 3 个地址用于 Azure 服务。
@@ -82,7 +82,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 否。 我们不支持多播或广播。
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>在 VNet 中可以使用哪些协议？
-可以在 VNet 中使用 TCP、UDP 和 ICMP TCP/IP 协议。 VNet 中会阻止多播、广播、在 IP 里面封装 IP 的数据包以及通用路由封装 (GRE) 数据包。 
+可以在 VNet 中使用 TCP、UDP 和 ICMP TCP/IP 协议。 VNet 内支持单播放，但通过单播（源端口 UDP/68/目标端口 UDP/67）的动态主机配置协议 (DCHP) 除外。 VNet 中会阻止多播、广播、在 IP 里面封装 IP 的数据包以及通用路由封装 (GRE) 数据包。 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>是否可以在 VNet 中 ping 默认路由器？
 否。
@@ -120,6 +120,9 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 
 ### <a name="can-i-specify-dns-servers-for-a-vnet"></a>是否可以为 VNet 指定 DNS 服务器？
 是的。 可以在 VNet 设置中指定 DNS 服务器 IP 地址。 这将作为 VNet 中所有 VM 的默认 DNS 服务器进行应用。
+
+### <a name="how-many-dns-servers-can-i-specify"></a>可以指定多少 DNS 服务器？
+有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文。
 
 ### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network"></a>创建网络后是否可以修改 DNS 服务器？
 是的。 可以随时更改 VNet 的 DNS 服务器列表。 如果更改 DNS 服务器列表，则需要重新启动 VNet 中的每个 VM，以使其拾取新的 DNS 服务器。
@@ -176,8 +179,8 @@ Azure 提供的 DNS 是由 Microsoft 提供的多租户 DNS 服务。 Azure 在�
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>是否可以在 VNet 中使用 Azure 应用服务 Web 应用？
 是的。 可以使用 ASE（应用服务环境）在 VNet 中部署 Web 应用。 如果为 VNet 配置了点到站点连接，Web 应用可以安全地连接和访问 Azure VNet 中的资源。 有关详细信息，请参阅以下文章：
 
-* [将应用与 Azure 虚拟网络进行集成](../app-service-web/web-sites-integrate-with-vnet.md)
-* [将 VNet 集成和混合连接用于 Web 应用](../app-service-web/web-sites-integrate-with-vnet.md)
+* [将应用与 Azure 虚拟网络进行集成](../app-service/web-sites-integrate-with-vnet.md)
+* [将 VNet 集成和混合连接用于 Web 应用](../app-service/web-sites-integrate-with-vnet.md)
 <!-- Not Avaialble hybrid-connections-and-app-service-environments-->
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>是否可以在 VNet 中部署云服务与 Web 和辅助角色 (PaaS)？
@@ -198,7 +201,7 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间完�
 可以。 可向 VNet 中的单个子网和/或附加到 VNet 的 NIC 应用[网络安全组](virtual-networks-nsg.md)。
 
 ### <a name="can-i-implement-a-firewall-between-vnet-connected-resources"></a>是否可在与 VNet 连接的资源之间实施防火墙？
-是的。 可以通过 Azure 应用商店部署许多供应商提供 [防火墙网络虚拟设备](https://azure.microsoft.com/marketplace/?term=firewall) 。
+是的。 可以通过 Azure 应用商店部署许多供应商提供 [防火墙网络虚拟设备](https://market.azure.cn/zh-cn/marketplace/?term=firewall) 。
 
 ### <a name="is-there-information-available-about-securing-vnets"></a>你们是否提供了有关保护 VNet 的信息？
 是的。 有关详细信息，请参阅 [Azure 网络安全概述](../security/security-network-overview.md)一文。
@@ -211,8 +214,7 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间完�
 ### <a name="is-there-tooling-support-for-vnets"></a>是否有 VNet 的工具支持？
 是的。 详细了解以下操作：
 - 使用 Azure 门户通过 [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) 和[经典](virtual-networks-create-vnet-classic-pportal.md)部署模型部署 VNet。
-- 使用 PowerShell 来管理通过 [Resource Manager](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.network/?view=azurermps-5.2.0) 和[经典](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)部署模型部署的 VNet。
-<!-- URL is Correct on [Resource Manager](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.network/?view=azurermps-5.2.0) -->
+- 使用 PowerShell 来管理通过 [Resource Manager](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network) 和[经典](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)部署模型部署的 VNet。
 - 使用 [Azure 命令行接口 (CLI)](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) 来管理通过这两种部署模型部署的 VNet。
 
 <!--Update_Description: wording update, update reference link-->

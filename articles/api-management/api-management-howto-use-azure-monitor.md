@@ -13,13 +13,13 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 11/19/2017
-ms.date: 02/26/2018
+ms.date: 03/19/2018
 ms.author: apimpm
-ms.openlocfilehash: ec4b33d6c7876222b4b8b43f4b7d46ff8de043fc
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 8ca4a753c17e71ec7fab08a64c9f09aa2bc9edcb
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="monitor-published-apis"></a>监视已发布的 API
 
@@ -44,13 +44,14 @@ Azure Monitor 作为一项 Azure 服务，提供单一资源来监视所有 Azur
 活动日志提供针对 API 管理服务执行的操作的详细信息。 通过活动日志，可确定对 API 管理服务执行的任何写入操作 (PUT、POST、DELETE) 的“操作内容、操作人员和操作时间”。 
 
 > [!NOTE]
-> 活动日志不包括读取 (GET) 操作，或者通过经典发布者门户或使用原始管理 API 执行的操作。
+> 活动日志不包括读取 (GET) 操作或者通过 Azure 门户或原始管理 API 执行的操作。
 
 可在 API 管理服务中访问活动日志，或在 Azure Monitor 中访问所有 Azure 资源的日志。 
 
 查看活动日志：
 
-1. 在“API 管理”实例中单击“活动日志”。
+1. 选择 APIM 服务实例。
+2. 单击“活动日志”。
 
 ## <a name="view-diagnostic-logs"></a>查看诊断日志
 
@@ -58,7 +59,8 @@ Azure Monitor 作为一项 Azure 服务，提供单一资源来监视所有 Azur
 
 访问诊断日志：
 
-1. 在“API 管理”实例中单击“诊断日志”。
+1. 选择 APIM 服务实例。
+2. 单击“诊断日志”。
 
 ## <a name="view-metrics-of-your-apis"></a>查看 API 的指标
 
