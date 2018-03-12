@@ -3,8 +3,8 @@ title: "Microsoft Authenticator 应用手机版 | Microsoft 文档"
 description: "了解如何升级到最新版本的 Azure Authenticator。"
 services: multi-factor-authentication
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: barlanmsft
+manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/17/2017
-ms.date: 11/29/2017
+ms.date: 03/05/2018
 ms.author: v-junlch
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
-ms.openlocfilehash: 20ed75e6b97a3be7b24d471279f9a84c0184e01c
-ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
+ms.openlocfilehash: cd8ecd93c98b923690bae1812cea58af96ab5754
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft 验证器应用入门
 Microsoft Authenticator 应用在工作或学校帐户（例如，bsimon@contoso.com）或 Microsoft 帐户（例如，bsimon@outlook.com）中提供了附加安全级别。
@@ -43,7 +43,7 @@ Microsoft Authenticator 应用不能单独发挥作用。 需要将每个帐户�
 还可以将 Microsoft Authenticator 与非 Microsoft 帐户一起使用。 它们可能不将此功能称为双重验证，但你应该能在安全性或登录设置下找到此功能。
 
 ## <a name="install-the-app"></a>安装应用
-Microsoft Authenticator 应用可用于 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073)。
+Microsoft 验证器应用适用于 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)。
 
 ## <a name="add-accounts-to-the-app"></a>将帐户添加到应用
 对于要添加到 Microsoft Authenticator 应用的每个帐户，使用以下过程之一：

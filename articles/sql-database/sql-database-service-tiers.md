@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-origin.date: 08/20/2017
-ms.date: 11/06/2017
+origin.date: 02/26/2018
+ms.date: 02/28/2018
 ms.author: v-johch
-ms.openlocfilehash: a7905bc0995bb14c9da1edae7d27497da09f7b68
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: 11452ab2aa2c85c8251a5432bcecb998ff3912f3
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="what-are-azure-sql-database-service-tiers"></a>什么是 Azure SQL 数据库服务层
+# <a name="what-are-azure-sql-database-service-tiers"></a>什么是 Azure SQL 数据库服务层？
 
-[Azure SQL 数据库](sql-database-technical-overview.md)可同时向[单一数据库](sql-database-single-database-resources.md)和[弹性池](sql-database-elastic-pool.md)提供基本、标准、高级和高级 RS 服务层。 服务层的区别主要在于性能级别、存储大小选择和价格。  所有服务层都能够灵活变动性能级别和存储大小。  单一数据库和弹性池根据服务层、性能级别和存储大小按小时计费。   
+[Azure SQL 数据库](sql-database-technical-overview.md)可同时向[单一数据库](sql-database-single-database-resources.md)和[弹性池](sql-database-elastic-pool.md)提供“基本”、“标准”和“高级”服务层。 服务层的区别主要在于性能级别、存储大小选择和价格。  所有服务层都能够灵活变动性能级别和存储大小。  单一数据库和弹性池根据服务层、性能级别和存储大小按小时计费。   
 
 ## <a name="choosing-a-service-tier"></a>选择服务层
 
 选择服务层首要考虑的是业务连续性、存储和性能需求。
-| | **基本** | **标准** |**高级** |**高级 RS** |
+| | **基本** | **标准** |**高级**  |
 | :-- | --: |--:| --:| --:| 
-|目标工作负荷|开发和生产|开发和生产|开发和生产|对因服务故障而造成的数据丢失，工作负荷的容错时间可达 5 分钟|
+|目标工作负荷|开发和生产|开发和生产|开发和生产||
 |运行时间 SLA|99.99%|99.99%|99.99%|在预览版中不适用|
-|备份保留|7 天|35 天|35 天|35 天|
-|CPU|低|低、中、高|中、高|中型|
-|IO 吞吐量|低  | 中型 | 数量级高于标准版|与高级版相同|
-|IO 延迟|高于高级版|高于高级版|低于基本版和标准版|与高级版相同|
-|列存储索引和内存中 OLTP|不适用|不适用|支持|支持|
+|备份保留|7 天|35 天|35 天|
+|CPU|低|低、中、高|中、高|
+|IO 吞吐量（近似） |每个 DTU 2.5 IOPS  | 每个 DTU 2.5 IOPS | 每个 DTU 48 IOPS|
+|IO 延迟（近似）|5 毫秒（读取），10 毫秒（写入）|5 毫秒（读取），10 毫秒（写入）|2 毫秒（读取/写入）|
+|列存储索引和内存中 OLTP|不适用|不适用|支持|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>性能级别和存储大小限制
@@ -47,21 +47,21 @@ ms.lasthandoff: 11/28/2017
 
 ### <a name="single-databases"></a>单一数据库
 
-|  | **基本** | **标准** | **高级** | **高级 RS**|
+|  | **基本** | **标准** | **高级** | 
 | :-- | --: | --: | --: | --: |
-| 最大存储大小* | 2 GB | 1 TB | 4 TB  | 1 TB  |
-| 最大 DTU | 5 | 3000 | 4000 | 1000 |
+| 最大存储大小* | 2 GB | 1 TB | 4 TB  | 
+| 最大 DTU | 5 | 3000 | 4000 | |
 ||||||
 
 ### <a name="elastic-pools"></a>弹性池
 
-| | **基本** | **标准** | **高级** | **高级 RS**|
+| | **基本** | **标准** | **高级** | 
 | :-- | --: | --: | --: | --: |
-| 每个数据库的最大存储大小*  | 2 GB | 1 TB | 1 TB | 1 TB |
-| 每个池的最大存储大小* | 156 GB | 4 TB | 4 TB | 1 TB |
-| 每个数据库的最大 eDTU 数 | 5 | 3000 | 4000 | 1000 |
-| 每个池的最大 eDTU 数 | 1600 | 3000 | 4000 | 1000 |
-| 每个池的数据库数目上限 | 500  | 500 | 100 | 100 |
+| 每个数据库的最大存储大小*  | 2 GB | 1 TB | 1 TB | 
+| 每个池的最大存储大小* | 156 GB | 4 TB | 4 TB | 
+| 每个数据库的最大 eDTU 数 | 5 | 3000 | 4000 | 
+| 每个池的最大 eDTU 数 | 1600 | 3000 | 4000 | 
+| 每个池的数据库数目上限 | 500  | 500 | 100 | 
 ||||||
 
 

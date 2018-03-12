@@ -2,24 +2,18 @@
 title: "使用 Azure Site Recovery 针对物理本地服务器设置到 Azure 的灾难恢复 | Azure"
 description: "了解如何使用 Azure Site Recovery 服务针对本地 Windows 和 Linux 服务器设置到 Azure 的灾难恢复。"
 services: site-recovery
-documentationcenter: 
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 805f6946-c6da-491f-980e-bf724bebdf0b
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 09/13/2017
-ms.date: 12/04/2017
+origin.date: 02/26/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 76b0362dfa52943761041ce4267c7ab460b5f4b3
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 26b75c69acb35f818c68008c4c5d7a0c8ae9148e
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>针对本地物理服务器设置到 Azure 的灾难恢复
 
@@ -36,13 +30,16 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程，需执行以下操作：
+完成本教程：
 
 - 请确保了解[方案体系结构和组件](concepts-physical-to-azure-architecture.md)。
 - 查看所有组件的[支持要求](site-recovery-support-matrix-to-azure.md)。
 - 请确保想要复制的服务器符合 [Azure VM 要求](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
 - 准备 Azure。 需要 Azure 订阅、Azure 虚拟网络和存储帐户。
 - 准备一个帐户用于在要复制的每个服务器上自动安装移动服务。
+
+> [!NOTE]
+> 在开始之前，请注意，故障转移到 Azure 后，物理服务器将不能故障回复到本地物理计算机。 只能故障回复到 VMware VM。 
 
 ### <a name="set-up-an-azure-account"></a>设置 Azure 帐户
 
@@ -61,9 +58,9 @@ ms.lasthandoff: 12/01/2017
 
 ### <a name="set-up-an-azure-network"></a>设置 Azure 网络
 
-设置 [Azure 网络](../virtual-network/virtual-network-get-started-vnet-subnet.md)。
+设置 [Azure 网络](../virtual-network/quick-create-portal.md)。
 
-- 在故障转移后创建 Azure VM 时，Azure VM 将置于此网络中。
+- 故障转移后创建 Azure VM 时，Azure VM 将置于此网络中。
 - 该网络应位于恢复服务保管库所在的区域
 
 ## <a name="set-up-an-azure-storage-account"></a>设置 Azure 存储帐户
@@ -171,6 +168,5 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-[运行灾难恢复演练](tutorial-dr-drill-azure.md)
-
+[运行灾难恢复演练](tutorial-dr-drill-azure.md)。
 <!-- Update_Description: update meta properties, update link -->

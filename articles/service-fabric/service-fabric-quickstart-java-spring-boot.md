@@ -1,6 +1,6 @@
 ---
 title: "将 Spring Boot 应用程序部署到 Azure Service Fabric | Azure"
-description: "使用 Spring Boot 入门教程为 Azure Service Fabric 部署 Spring Boot 应用程序。"
+description: "在本快速入门中，请使用 Spring Boot 示例应用程序为 Azure Service Fabric 部署 Spring Boot 应用程序。"
 services: service-fabric
 documentationcenter: java
 author: rockboyfor
@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/23/2017
-ms.date: 02/26/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 34722d4eb83ad72a720a0d5f42d47530a956b60d
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: f5c66b7490a8d7c77ed0635ec6948c7b03a3065f
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="deploy-a-spring-boot-application"></a>部署 Spring Boot 应用程序
+# <a name="quickstart-deploy-a-java-spring-boot-application-to-azure"></a>快速入门：将 Java Spring Boot 应用程序部署到 Azure
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理微服务和容器。 
 
 本快速入门演示如何将 Spring Boot 应用程序部署到 Service Fabric。 本快速入门使用 Spring 网站中的[入门](https://spring.io/guides/gs/spring-boot/)示例。 本快速入门逐步讲解如何使用熟悉的命令行工具，将 Spring Boot 示例部署为 Service Fabric 应用程序。 完成后，Spring Boot 入门示例将在 Service Fabric 上正常运行。 
@@ -196,4 +196,4 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 <!-- Not Available on * Learn about [setting up your continuous integreation & deployment using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md) -->
 * 查看其他 [Java 示例](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update -->

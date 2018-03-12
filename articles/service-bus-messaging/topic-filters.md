@@ -1,5 +1,5 @@
 ---
-title: "Azure 服务总线主题筛选器 | Microsoft Docs"
+title: "Azure 服务总线主题筛选器"
 description: "筛选 Azure 服务总线主题"
 services: service-bus
 documentationcenter: 
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/02/2017
-ms.date: 11/13/2017
+origin.date: 01/26/2018
+ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: fb83e4891395ea28cfa8a904679cdd3ef11ea08c
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.openlocfilehash: 55d80a0e0e598248315bfb5758301b8902af4a60
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="topic-filters-and-actions"></a>主题筛选器和操作
 

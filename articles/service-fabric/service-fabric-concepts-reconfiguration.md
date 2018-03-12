@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/23/2017
-ms.date: 11/13/2017
+origin.date: 01/10/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: efdbd8f92c0f6f51a25c8759212552e3891c8d3f
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 8ed512937088a65e5c3b4de0696d63c3df7b642c
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Azure Service Fabric 中的重新配置
 *配置*定义为有状态服务的分区的副本及其角色。
@@ -64,4 +64,4 @@ ms.lasthandoff: 11/09/2017
 - [系统运行状况报告](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [副本和实例](service-fabric-concepts-replica-lifecycle.md)
 
-<!--Update_Description: new articles on service fabric concepts reconfiguration -->
+<!--Update_Description: update meta properties -->

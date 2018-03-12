@@ -9,17 +9,17 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 09/22/2017
-ms.date: 01/01/2018
+origin.date: 12/22/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2302e78db0c16c860897e95bb39c5b7c4af3540b
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 7bdda348e459457423be5464f5cef528282e8e4b
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 管理属于服务分区的副本。
@@ -49,7 +49,7 @@ ms.lasthandoff: 12/29/2017
 | --node-name    [必需]| 节点的名称。|
 | --partition-id [必需]| 分区的标识。|
 | --replica-id   [必需]| 副本的标识符。|
-| --timeout -t          | 服务器超时，以秒为单位。  默认值：60。|
+| --timeout -t          | 服务器超时，以秒为单位。 默认值：60。|
 
 ### <a name="global-arguments"></a>全局参数
 
@@ -57,14 +57,14 @@ ms.lasthandoff: 12/29/2017
 | --- | --- |
 | --debug               | 提高日志记录详细程度，以显示所有调试日志。|
 | --help -h             | 显示此帮助消息并退出。|
-| --output -o           | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
+| --output -o           | 输出格式。 允许的值：json、jsonc、table、tsv。 默认值：json。|
 | --query               | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
 | --verbose             | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-replica-health"></a>sfctl replica health
 获取 Service Fabric 有状态服务副本或无状态服务实例的运行状况。
 
-获取 Service Fabric 副本的运行状况。 使用 EventsHealthStateFilter 可以根据运行状态筛选针对副本报告的运行状况事件的集合。 上获取。
+获取 Service Fabric 副本的运行状况。 使用 EventsHealthStateFilter 可以根据运行状态筛选针对副本报告的运行状况事件的集合。
 
 ### <a name="arguments"></a>参数
 
@@ -72,8 +72,8 @@ ms.lasthandoff: 12/29/2017
 | --- | --- |
 | --partition-id    [必需]| 分区的标识。|
 | --replica-id      [必需]| 副本的标识符。|
-| --events-health-state-filter| 用于根据运行状态筛选返回的 HealthEvent 对象集合。 此参数的可能值包括以下运行状态之一的整数值。 仅返回与筛选器匹配的事件。 所有事件用于评估聚合运行状态。 如果未指定，则返回所有项。 状态值为基于标志的枚举，因此该值可是使用按位“OR”运算符获取的值的组合。 例如，如果提供的值为 6，则返回 HealthState 值为 OK (2) 和 Warning (4) 的所有事件。 - Default - 默认值。 匹配任何 HealthState。 值为 0。 - None - 不与任何 HealthState 值匹配的筛选器。 未返回有关给定状态集合的结果时使用。 值为 1。 - Ok - 与 HealthState 值为 OK 的输入匹配的筛选器。 值为 2。 - Warning - 与 HealthState 值为 Warning 的输入匹配的筛选器。 值为 4。 - Error - 与 HealthState 值为 Error 的输入匹配的筛选器。 值为 8。 - All - 与具有任意 HealthState 值的输入匹配的筛选器。 值为 65535。|
-| --timeout -t             | 服务器超时，以秒为单位。  默认值：60。|
+| --events-health-state-filter| 用于根据运行状况筛选返回的 HealthEvent 对象集合。 此参数的可能值包括以下运行状态之一的整数值。 仅返回与筛选器匹配的事件。 所有事件用于评估聚合运行状态。 如果未指定，则返回所有项。 状态值为基于标志的枚举，因此该值可是使用按位“OR”运算符获取的值的组合。 例如，如果提供的值为 6，则返回 HealthState 值为 OK (2) 和 Warning (4) 的所有事件。 - Default - 默认值。 匹配任何 HealthState。 值为 0。 - None - 不与任何 HealthState 值匹配的筛选器。 未返回有关给定状态集合的结果时使用。 值为 1。 - Ok - 与 HealthState 值为 OK 的输入匹配的筛选器。 值为 2。 - Warning - 与 HealthState 值为 Warning 的输入匹配的筛选器。 值为 4。 - Error - 与 HealthState 值为 Error 的输入匹配的筛选器。 值为 8。 - All - 与具有任意 HealthState 值的输入匹配的筛选器。 值为 65535。|
+| --timeout -t             | 服务器超时，以秒为单位。 默认值：60。|
 
 ### <a name="global-arguments"></a>全局参数
 
@@ -81,14 +81,14 @@ ms.lasthandoff: 12/29/2017
 | --- | --- |
 | --debug                  | 提高日志记录详细程度，以显示所有调试日志。|
 | --help -h                | 显示此帮助消息并退出。|
-| --output -o              | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
-| --query                  | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
+| --output -o              | 输出格式。 允许的值：json、jsonc、table、tsv。 默认值：json。|
+| --query                  | JMESPath 查询字符串。 有关详细信息，请参阅 http://jmespath.org/。|
 | --verbose                | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
 获取有关 Service Fabric 分区的副本的信息。
 
-响应包括 ID、 角色、 状态、 运行状况、 节点名称、 运行时间、 和副本有关其他详细信息。
+响应包括 ID、角色、状态、运行状况、节点名称、运行时间和有关副本的其他详细信息。
 
 ### <a name="arguments"></a>参数
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 12/29/2017
 | --partition-id [必需]| 分区的标识。|
 | --replica-id   [必需]| 副本的标识符。|
 | --continuation-token  | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则继续标记不包含值。 不应将此参数的值进行 URL 编码。|
-| --timeout -t          | 服务器超时，以秒为单位。  默认值：60。|
+| --timeout -t          | 服务器超时，以秒为单位。 默认值：60。|
 
 ### <a name="global-arguments"></a>全局参数
 
@@ -105,8 +105,8 @@ ms.lasthandoff: 12/29/2017
 | --- | --- |
 | --debug               | 提高日志记录详细程度，以显示所有调试日志。|
 | --help -h             | 显示此帮助消息并退出。|
-| --output -o           | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
-| --query               | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
+| --output -o           | 输出格式。 允许的值：json、jsonc、table、tsv。 默认值：json。|
+| --query               | JMESPath 查询字符串。 有关详细信息，请参阅 http://jmespath.org/。|
 | --verbose             | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-replica-list"></a>sfctl replica list
@@ -121,7 +121,7 @@ GetReplicas 终结点返回有关指定分区的副本的信息。
 | --- | --- |
 | --partition-id [必需]| 分区的标识。|
 | --continuation-token  | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则继续标记不包含值。 不应将此参数的值进行 URL 编码。|
-| --timeout -t          | 服务器超时，以秒为单位。  默认值：60。|
+| --timeout -t          | 服务器超时，以秒为单位。 默认值：60。|
 
 ### <a name="global-arguments"></a>全局参数
 
@@ -129,7 +129,7 @@ GetReplicas 终结点返回有关指定分区的副本的信息。
 | --- | --- |
 | --debug               | 提高日志记录详细程度，以显示所有调试日志。|
 | --help -h             | 显示此帮助消息并退出。|
-| --output -o           | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
+| --output -o           | 输出格式。 允许的值：json、jsonc、table、tsv。 默认值：json。|
 | --query               | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
 | --verbose             | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
@@ -145,8 +145,8 @@ GetReplicas 终结点返回有关指定分区的副本的信息。
 | --node-name    [必需]| 节点的名称。|
 | --partition-id [必需]| 分区的标识。|
 | --replica-id   [必需]| 副本的标识符。|
-| --force-remove        | 强制删除 Service Fabric 应用程序或服务，跳过正常关闭序列。 若因服务代码中问题而无法正常关闭副本，导致应用程序或服务删除超时，可使用此参数强制删除该应用程序或服务。|
-| --timeout -t          | 服务器超时，以秒为单位。  默认值：60。|
+| --force-remove        | 强制删除 Service Fabric 应用程序或服务，跳过正常关闭序列。 若因服务代码中的问题而无法正常关闭副本，导致应用程序或服务删除超时，可使用此参数强制删除该应用程序或服务。|
+| --timeout -t          | 服务器超时，以秒为单位。 默认值：60。|
 
 ### <a name="global-arguments"></a>全局参数
 
@@ -154,7 +154,7 @@ GetReplicas 终结点返回有关指定分区的副本的信息。
 | --- | --- |
 | --debug               | 提高日志记录详细程度，以显示所有调试日志。|
 | --help -h             | 显示此帮助消息并退出。|
-| --output -o           | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
+| --output -o           | 输出格式。 允许的值：json、jsonc、table、tsv。 默认值：json。|
 | --query               | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
 | --verbose             | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
@@ -170,7 +170,7 @@ GetReplicas 终结点返回有关指定分区的副本的信息。
 | --node-name    [必需]| 节点的名称。|
 | --partition-id [必需]| 分区的标识。|
 | --replica-id   [必需]| 副本的标识符。|
-| --timeout -t          | 服务器超时，以秒为单位。  默认值：60。|
+| --timeout -t          | 服务器超时，以秒为单位。 默认值：60。|
 
 ### <a name="global-arguments"></a>全局参数
 
@@ -178,7 +178,7 @@ GetReplicas 终结点返回有关指定分区的副本的信息。
 | --- | --- |
 | --debug               | 提高日志记录详细程度，以显示所有调试日志。|
 | --help -h             | 显示此帮助消息并退出。|
-| --output -o           | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
+| --output -o           | 输出格式。 允许的值：json、jsonc、table、tsv。 默认值：json。|
 | --query               | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
 | --verbose             | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
@@ -186,4 +186,4 @@ GetReplicas 终结点返回有关指定分区的副本的信息。
 - [安装](service-fabric-cli.md) Service Fabric CLI。
 - 了解如何通过[示例脚本](/service-fabric/scripts/sfctl-upgrade-application)使用 Service Fabric CLI。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta propertis, wording update -->

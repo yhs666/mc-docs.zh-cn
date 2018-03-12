@@ -12,15 +12,15 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 09/29/2017
-ms.date: 11/13/2017
+origin.date: 01/18/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ffb7b2629af4c63466964efc8f25afef6f0faee8
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 9f45122f82e148cb6acdd2ef9f97380b0096ebd7
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="upgrade-a-service-fabric-application"></a>升级 Service Fabric 应用程序
 
@@ -130,7 +130,7 @@ else
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [Get-ServiceFabricApplication](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) | 获取 Service Fabric 群集中的所有应用程序或特定应用程序。  |
 | [Get-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps) | 获取 Service Fabric 应用程序的升级状态。 |
@@ -147,4 +147,4 @@ else
 
 可以在 [Azure PowerShell 示例](../service-fabric-powershell-samples.md)中找到 Azure Service Fabric 的其他 Powershell 示例。
 
-<!--Update_Description: add new cmdlet of Removing the application package to free system resources.  -->
+<!--Update_Description: update meta properties  -->

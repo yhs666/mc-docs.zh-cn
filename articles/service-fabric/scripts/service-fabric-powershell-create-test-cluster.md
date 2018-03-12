@@ -12,15 +12,15 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 12/12/2017
-ms.date: 01/01/2018
+origin.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f169ddd16a48f1859cf01c8cb69ec2fa6b56c367
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 7ac3f9a5670e4764be7dab129cd0142311d417bc
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-three-node-test-service-fabric-cluster"></a>创建一个三节点的测试 Service Fabric 群集
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/29/2017
 
 该命令创建一个自签名证书，并将其上传到在与群集相同的资源组中创建的新 key vault 中。 该证书也会复制到本地目录。  设置 *-OS* 参数可选择群集节点上运行的 Windows 或 Linux 的版本。  根据需要自定义参数。
 
-必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud -EnvironmentName AzureChinaCloud` 创建与 Azure 的连接。 
+必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 创建与 Azure 的连接。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -85,4 +85,4 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure PowerShell 示例](../service-fabric-powershell-samples.md)中找到 Azure Service Fabric 的其他 Azure Powershell 示例。
-<!-- Update_Description: new articles on creating service fabric test cluster with powershell -->
+<!-- Update_Description: update meta properties, wording update -->

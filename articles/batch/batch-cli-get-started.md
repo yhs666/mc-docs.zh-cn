@@ -3,8 +3,8 @@ title: "Azure Batch CLI 入门 | Microsoft Docs"
 description: "Azure CLI 中用于管理 Azure Batch 服务资源的 Batch 命令简介"
 services: batch
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 origin.date: 09/28/2017
-ms.date: 11/02/2017
+ms.date: 03/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1be6e00f638a47b239559b8fe165bddf7bbd5433
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.openlocfilehash: 039a56fa5e0e3311ef114ac3072b453fc7c903da
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 资源
 
@@ -70,7 +70,7 @@ Microsoft 建议使用最新版的 Azure CLI，即 2.0 版。 有关 2.0 版的�
 1. [以交互方式登录](/cli/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in)。 从命令行自行运行 Azure CLI 命令时，请以交互方式登录。
 2. [使用服务主体登录](/cli/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal)。 从脚本或应用程序运行 Azure CLI 命令时，请使用服务主体登录。
 
-本文的目的是介绍如何以交互方式登录到 Azure。 在命令行中键入 [az login](/cli/#login)：
+本文的目的是介绍如何以交互方式登录到 Azure。 在命令行中键入 [az login](/cli/#az_login)：
 
 ```azurecli
 # Log in to Azure China and authenticate interactively.
@@ -98,7 +98,7 @@ az login
 
     Azure AD 的优势是提供基于角色的访问控制 (RBAC)。 使用 RBAC 时，用户的访问权限取决于分配给他们的角色，而不是是否拥有帐户密钥。 可以管理 RBAC 角色而不是帐户密钥，让 Azure AD 负责访问权限和身份验证。  
 
-        To log in to your Batch account using Azure AD, call the [az batch account login](/cli/batch/account#az_batch_account_login) command: 
+     若要使用 Azure AD 登录到 Batch 帐户，请调用 [az batch account login](/cli/batch/account#az_batch_account_login) 命令： 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -120,18 +120,11 @@ az login
 
 ## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>使用 Azure Batch CLI 模板和文件传输（预览版）
 
-可以在不编写代码的情况下，使用 Azure CLI 来运行端到端的 Batch 作业。 Batch 模板文件支持使用 Azure CLI 创建池、作业和任务。 也可使用 Azure CLI 将作业输入文件上传到与 Batch 帐户关联的 Azure 存储帐户，以及从中下载作业输出文件。 有关详细信息，请参阅[使用 Azure Batch CLI 模板和文件传输（预览版）](batch-cli-templates.md)。
+可以在不编写代码的情况下，使用 Azure CLI 来运行端到端的 Batch 作业。 Batch 模板文件支持使用 Azure CLI 创建池、作业和任务。 也可使用 Azure CLI 将作业输入文件上传到与 Batch 帐户关联的 Azure 存储帐户，以及从中下载作业输出文件。 有关详细信息，请参阅[使用 Azure Batch CLI 模板和文件传输（预览）](batch-cli-templates.md)。
 
-## <a name="sample-shell-scripts"></a>示例 shell 脚本
+## <a name="script-examples"></a>脚本示例
 
-下表中列出的示例脚本演示如何将 Azure CLI 命令与 Batch 服务和 Batch Management 服务配合使用，以便完成常规任务。 这些示例脚本涵盖可以在用于 Batch 的 Azure CLI 中使用的许多命令。 
-
-| 脚本 | 说明 |
-|---|---|
-| [创建批处理帐户](./scripts/batch-cli-sample-create-account.md) | 创建 Batch 帐户并将其与存储帐户相关联。 |
-| [添加应用程序](./scripts/batch-cli-sample-add-application.md) | 添加应用程序，并上传打包的二进制文件。|
-| [管理批处理池](./scripts/batch-cli-sample-manage-pool.md) | 演示如何创建、管理池并调整其大小。 |
-| [使用批处理运行作业和任务](./scripts/batch-cli-sample-run-job.md) | 演示如何运行作业和添加任务。 |
+请参阅 [CLI 脚本示例](cli-samples.md)，了解用于完成常规任务的 Batch。 这些示例涵盖在用于 Batch 的 Azure CLI 中提供的许多命令，这些命令用于创建和管理帐户、池、作业和任务。 
 
 ## <a name="json-files-for-resource-creation"></a>用于创建资源的 JSON 文件
 

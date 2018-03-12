@@ -9,17 +9,17 @@ editor:
 ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/28/2017
-ms.date: 01/15/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: cd3b8e0f9ac374f88bf249ef7fecfa29787e08f9
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 4df6e5d376acc692284718ff7d366aae0aa55765
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>使用 .NET Standard 中的事件处理程序主机接收消息入门
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 01/11/2018
 ## <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户  
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。  
-2. 在门户的左侧导航窗格中，依次单击“新建”、“存储”和“存储帐户”。  
+2. 在门户的左侧导航窗格中，依次单击“创建资源”、“存储”、“存储帐户”。  
 3. 完成存储帐户窗口中的字段，并单击“创建”。
 
     ![创建存储帐户][1]
@@ -133,7 +133,7 @@ ms.lasthandoff: 01/11/2018
     private const string StorageAccountKey = "{Storage account key}";
 
     private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
-    ```
+    ```   
 
 3. 将名为 `MainAsync` 的新方法添加到 `Program` 类，如下所示：
 
@@ -225,4 +225,4 @@ ms.lasthandoff: 01/11/2018
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
 [2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcore.png
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

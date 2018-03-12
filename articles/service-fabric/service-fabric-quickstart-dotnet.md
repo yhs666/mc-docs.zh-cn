@@ -1,6 +1,6 @@
 ---
 title: "在 Azure 中创建 .NET Service Fabric 应用程序 | Azure"
-description: "使用 Service Fabric 快速入门示例创建适用于 Azure 的 .NET 应用程序。"
+description: "在本快速入门中，请使用 Service Fabric Reliable Services 示例应用程序创建用于 Azure 的 .NET 应用程序。"
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/02/2018
-ms.date: 02/26/2018
+origin.date: 01/25/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 07c627b65014c615eeba3dfcacceedd51e018e88
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: a97d0944e4e2e1cef5f5d4e2cff3e7310b440117
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="create-a-net-service-fabric-application-in-azure"></a>在 Azure 中创建 .NET Service Fabric 应用程序
+# <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>快速入门：在 Azure 中创建 .NET Service Fabric 应用程序
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。 
 
 此快速入门展示了如何将首个 .NET 应用程序部署到 Service Fabric。 完成后，将生成一个投票应用程序，其中包含 ASP.NET Core Web 前端，用于将投票结果保存到群集的有状态后端服务中。
@@ -48,6 +48,10 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
     ```
+
+>[!NOTE]
+> 本快速入门中示例应用程序使用的功能在 Windows 7 中不提供。
+>
 
 ## <a name="download-the-sample"></a>下载示例
 在命令窗口中，运行以下命令，将示例应用程序存储库克隆到本地计算机。
@@ -125,25 +129,28 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 1. 在解决方案资源管理器中，右键单击“投票”，再选择“发布”。 此时，“发布”对话框显示。
 
-    ![“发布”对话框](./media/service-fabric-quickstart-dotnet/publish-app.png)
+2. 将 Party 群集页面中的“连接终结点”复制到“连接终结点”字段。 例如，`zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19000`。
+<!-- Not Available on  Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in a previous step. -->
 
-2. 将 Party 群集页面中的“连接终结点”复制到“连接终结点”字段，然后单击“发布”。 例如，`winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19000`。
+    ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-    群集中的每个应用程序都必须具有唯一名称。 如果存在名称冲突，请重命名 Visual Studio 项目并重新部署。
+    Each application in the cluster must have a unique name. If there is a name conflict, rename the Visual Studio project and deploy again.
     <!-- Not Available on Party cluster -->
+3. 单击“发布”。
 
-3. 打开浏览器，键入群集地址（后跟“:8080”），转到群集中的应用程序，例如，`http://winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:8080`。 此时，应该能够看到应用程序在 Azure 群集中运行。
+4. 打开浏览器，键入群集地址（后跟“:8080”），转到群集中的应用程序，例如，`http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:8080`。 此时，应该能够看到应用程序在 Azure 群集中运行。
 
 ![应用程序前端](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>在群集中缩放应用程序和服务
 可以跨群集轻松缩放 Service Fabric 服务，以便适应服务负载变化。 可以通过更改群集中运行的实例数量来缩放服务。 服务缩放方式有多种，可以使用 PowerShell 或 Service Fabric CLI (sfctl) 脚本/命令。 在此示例中，使用 Service Fabric Explorer。
 
-Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过浏览器进行访问，访问方法是转到群集 HTTP 管理端口 19080（例如，`http://winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080`）。
+Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过浏览器进行访问，访问方法是转到群集 HTTP 管理端口 19080（例如，`http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19080`）。 
 
+<!-- Not Available on Certificate -->
 若要缩放 Web 前端服务，请按照以下步骤操作：
 
-1. 在群集中打开 Service Fabric Explorer（例如，`http://winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080`）。
+1. 在群集中打开 Service Fabric Explorer（例如，`http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19080`）。
 2. 单击树视图中 fabric:/Voting/VotingWeb 节点旁边的省略号（三个点），再选择“缩放服务”。
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
@@ -175,7 +182,7 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 7. 在“发布 Service Fabric 应用程序”对话框中，选中“升级应用程序”复选框，再单击“发布”。
 
     ![“发布”对话框中的升级设置](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
-8. 打开浏览器，并转到端口 19080 上的群集地址（例如，`http://winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080`）。
+8. 打开浏览器，并转到端口 19080 上的群集地址（例如，`http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19080`）。
 9. 单击树视图中的“应用程序”节点，再单击右侧窗格中的“进行中的升级”。 可以了解如何通过群集中的升级域滚动升级，同时确保在继续执行下一步之前每个域都能够正常运行。 在验证域运行状况后，进度栏中的升级域将显示为绿色。
     ![Service Fabric Explorer 中的升级视图](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
@@ -199,4 +206,4 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 > [!div class="nextstepaction"]
 > [Service Fabric 上的 .NET 应用程序](service-fabric-tutorial-create-dotnet-app.md)
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, wording update, update link -->

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 12/07/2017
-ms.date: 01/01/2018
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: ec422722858b0bf9482fc415ab9f20c832f074e4
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 85749f34a09ae101e754f18092c1d8d6cdfc4b19
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="model-an-application-in-service-fabric"></a>在 Service Fabric 中对应用程序建模
 本文概述 Azure Service Fabric 应用程序模型以及如何通过清单文件定义应用程序和服务。
@@ -58,4 +58,4 @@ ms.lasthandoff: 12/29/2017
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
-<!--Update_Description: update meta properties, remove the content of Describe a service, update link -->
+<!--Update_Description: update meta properties -->

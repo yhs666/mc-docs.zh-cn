@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/01/2017
-ms.date: 12/04/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 33c2796d4dc14664cd2c3bede84b5bbed1d1bd39
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 8786f6a84a696d20e4b427b5c65e9be4b997f016
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services 入门
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/01/2017
 > 
 > 
 
-Azure Service Fabric 应用程序包含一个或多个运行代码的服务。 本指南说明如何使用 [Reliable Services](service-fabric-reliable-services-introduction.md) 同时创建无状态与有状态的 Service Fabric 应用程序。  此微软虚拟学院视频还说明如何创建无状态可靠服务： <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
+Azure Service Fabric 应用程序包含运行代码的一个或多个服务。 本指南说明如何使用 [Reliable Services](service-fabric-reliable-services-introduction.md) 同时创建无状态与有状态的 Service Fabric 应用程序。  此微软虚拟学院视频还说明如何创建无状态可靠服务： <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
 <img src="./media/service-fabric-reliable-services-quick-start/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
@@ -189,7 +189,7 @@ var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<str
 可靠状态管理器管理可靠集合。 在服务中，可随时随地向可靠状态管理器按名称请求可靠集合。 可靠状态管理器可确保能取回引用。 不建议将对可靠集合实例的引用存储在类成员变量或属性中。 请特别小心，确保在服务生命周期中始终将引用设置为某个实例。 可靠状态管理器会代为处理此工作，且已针对重复访问对其进行优化。
 
 ### <a name="transactional-and-asynchronous-operations"></a>事务和异步操作
-```C#
+```csharp
 using (ITransaction tx = this.StateManager.CreateTransaction())
 {
     var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
@@ -205,7 +205,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 可靠集合操作是 *事务性的*，因此可以跨多个可靠集合和操作保持状态的一致。 例如，可以在单个事务中，将工作项从 Reliable Queue 取消排队、对其执行操作并将结果保存在 Reliable Dictionary 中。 事务被视为基本操作，它可以保证整个操作要么成功，要么回滚。 如果将项取消排队之后、保存结果之前发生错误，则会回滚整个事务，并将该项保留在队列中待处理。
 
 ## <a name="run-the-application"></a>运行应用程序
-现在，我们返回到 *HelloWorld* 应用程序。 现在，可以生成并部署服务。 按 **F5** 即可生成应用程序并部署到本地群集。
+现在，我们返回到 *HelloWorld* 应用程序。 现可生成并部署服务。 按 **F5** 即可生成应用程序并部署到本地群集。
 
 服务开始运行之后，可以在“**诊断事件**”窗口中查看生成的 Windows 事件跟踪 (ETW) 事件。 请注意，应用程序中会同时显示无状态服务和有状态服务的事件。 可以通过单击“**暂停**”按钮来暂停流。 然后，可以通过展开该消息来检查消息的详细信息。
 
@@ -229,4 +229,4 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 [Reliable Services 的开发人员参考](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update， update meta properties -->

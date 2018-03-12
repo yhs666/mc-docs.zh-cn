@@ -3,8 +3,8 @@ title: "如何监视 Azure Redis 缓存 | Microsoft Docs"
 description: "了解如何监视 Azure Redis 缓存实例的运行状况和性能"
 services: redis-cache
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
 ms.service: cache
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 09/14/2017
+ms.date: 03/01/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6b838a7e1a1e1b9a92e1e93678377c34157426f8
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: 9bbc624fefd3d2be6fa7496796d584d64fb13655
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>如何监视 Azure Redis 缓存
-Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用于监视缓存实例的几个选项。 可以查看度量值、将度量值图表固定到启动面板、自定义监视图表的日期和时间范围、在图表中添加和删除度量值，以及设置符合特定条件时发出的警报。 借助这些工具，可以监视 Azure Redis 缓存实例的运行状况，以及管理缓存应用程序。
+Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用于监视缓存实例的几个选项。 可以查看度量值、将度量值图表固定到启动板、自定义监视图表的日期和时间范围、在图表中添加和删除度量值，以及设置符合特定条件时发出的警报。 借助这些工具，可以监视 Azure Redis 缓存实例的运行状况，以及管理缓存应用程序。
 
-将使用 Redis [INFO](http://redis.io/commands/info) 命令每隔大约一分钟收集 Azure Redis 缓存实例的指标两次，并自动将其存储 30 天（请参阅[导出缓存指标](#export-cache-metrics)来配置不同的保留策略），以便将其显示在指标图表中，或者由警报规则评估。 有关用于每个缓存度量值的不同 INFO 值的详细信息，请参阅 [可用度量值和报告间隔](#available-metrics-and-reporting-intervals)。
+每分钟使用 Redis [INFO](http://redis.io/commands/info) 命令收集约两次 Azure Redis 缓存实例的指标，然后将其自动存储 30 天（请参阅[导出缓存指标](#export-cache-metrics)以配置不同保留期策略），以便这些指标可以显示在指标图表中并由预警规则进行评估。 有关用于每个缓存度量值的不同 INFO 值的详细信息，请参阅 [可用度量值和报告间隔](#available-metrics-and-reporting-intervals)。
 
 <a name="view-cache-metrics"></a>
 
@@ -51,19 +51,21 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 
 “定价层”显示缓存定价层，并可用于将缓存[缩放](cache-how-to-scale.md)到不同的定价层。
 
-## <a name="view-metrics-with-azure-monitor"></a>使用 Azure Monitor 查看指标
-若要使用 Azure Monitor 查看 Redis 指标和创建自定义图表，请在“设置”中单击“Redis 指标”，然后使用所需的指标、报告间隔、图表类型等设置来自定义图表。
+## <a name="view-metrics-with-azure-monitor"></a>通过 Azure Monitor 查看指标
+若要使用 Azure Monitor 查看 Redis 指标和创建自定义图表，从“资源菜单”单击“指标”，并使用所需的指标、报告间隔、图表类型等对图表进行自定义。
 
 ![Redis 指标](./media/cache-how-to-monitor/redis-cache-monitor.png)
+
+有关使用 Azure Monitor 处理指标的详细信息，请参阅 [Azure 中的指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>导出缓存指标
-默认情况下，Azure Monitor 中的缓存指标将[存储 30 天](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive)，过后被删除。 
+默认情况下，Azure Monitor 中的缓存指标将被[存储 30 天](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive)，然后将被删除。 若要延长缓存指标的保存时间，使其超过 30 天，可以为缓存指标[指定存储帐户](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)，并指定“保留期（天）”策略。 
 
-若要配置缓存指标的存储帐户，请执行以下操作：
+若要配置缓存指标的存储帐户：
 
-1. 在“Redis 缓存”边栏选项卡上的“监视”中单击“诊断”。
+1. 从“Redis 缓存”边栏选项卡中的“资源菜单”单击“诊断”。
 2. 单击“打开”。
 3. 选中“存档到存储帐户”。
 4. 选择要在其中存储缓存指标的存储帐户。
@@ -71,6 +73,13 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 6. 单击“保存” 。
 
 ![Redis 诊断](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
+
+>[!NOTE]
+>除了将缓存指标存档至存储区外，还可以[将其流式传输到事件中心或将其发送到 Log Analytics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics)。
+>
+>
+
+若要访问指标，可按前文所述在 Azure 门户中查看它们，还可以使用 [Azure Monitor 指标 REST API](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api) 对其进行访问。
 
 > [!NOTE]
 > 如果更改存储帐户，以前配置的存储帐户中的数据仍可供下载，但并不会显示在 Azure 门户中。  
@@ -93,7 +102,7 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 | 缓存未命中数 |在指定的报告间隔期间，失败的键查找次数。 此值映射到 Redis INFO 命令输出中的 `keyspace_misses` 。 缓存未命中并不一定意味着缓存出现了问题。 例如，在使用缓存端编程模式时，应用程序会首先查找缓存中的项。 如果该项不存在（缓存未命中），则将从数据库中检索该项并将其添加到下一次缓存中。 对于缓存端编程模式，缓存未命中是正常行为。 如果缓存未命中数大于预期值，请检查从缓存中填充并读取的应用程序逻辑。 如果由于内存压力而导致项目从缓存中逐出，则可能存在一些缓存未命中的情况，但指标 `Used Memory` 或 `Evicted Keys` 可以更好的监视内存压力。 |
 | 连接的客户端数 |指定的报告间隔期间，客间户端与缓存的连接数。 此值映射到 Redis INFO 命令输出中的 `connected_clients` 。 一旦达到了[连接限制](cache-configure.md#default-redis-server-configuration)，则对缓存的后续连接尝试将失败。 注意，即使没有任何活动的客户端应用程序，由于内部进程和连接，仍可能存在一些连接的客户端的实例。 |
 | 逐出的密钥数 |由于 `maxmemory` 限制，指定的报告间隔期间从缓存中逐出的项目数。 此值映射到 Redis INFO 命令输出中的 `evicted_keys` 。 |
-| 过期的密钥数 |指定的报告间隔期间，缓存中过期的项目数。 此值映射到 Redis INFO 命令输出中的 `expired_keys` 。 |
+| 过期的密钥数 |指定的报告间隔期间，缓存中过期的项目数。 此值映射到 Redis INFO 命令输出中的 `expired_keys`。 |
 | 总密钥数  | 在上一个报告时段缓存中的最大密钥数。 此值映射到 Redis INFO 命令输出中的 `keyspace`。 由于基础指标系统存在限制，对于已启用群集的缓存，“总密钥数”将返回在上一个报告时段内密钥数最多的分片的最大密钥数。  |
 | 获取数 |指定的报告间隔期间，缓存中的获取操作数。 此值是以下 Redis INFO 所有命令中的值的总和：`cmdstat_get`、`cmdstat_hget`、`cmdstat_hgetall`、`cmdstat_hmget`、`cmdstat_mget`、`cmdstat_getbit` 和 `cmdstat_getrange`，并且等效于报告间隔期间缓存命中和未命中数的总和。 |
 | Redis 服务器负载 |Redis 服务器忙于处理消息并且非空闲等待消息的周期百分比。 如果此计数器达到 100，则意味着 Redis 服务器已达到性能上限并且 CPU 无法更快地工作。 如果看到高 Redis 服务器负载，则会在客户端看到超时异常。 在这种情况下，应该考虑将数据扩大或分区到多个缓存。 |
@@ -105,6 +114,17 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 | 缓存读取量 |指定报告间隔期间，从缓存中读取的数据量，以每秒兆字节数（MB/秒）为单位。 此值来源于支持虚拟机的网络接口卡，该虚拟机托管缓存，但并不特定于 Redis。 **此值对应于该缓存使用的网络带宽。如果要针对服务器端网络带宽限制设置警报，则可使用此 `Cache Read` 计数器来创建警报。请参阅[此表](cache-faq.md#cache-performance)，了解各种缓存定价层和大小所遵循的带宽限制。** |
 | 缓存写入量 |指定报告间隔期间，写入缓存中的数据量，以每秒兆字节数（MB/秒）为单位。 此值来源于支持虚拟机的网络接口卡，该虚拟机托管缓存，但并不特定于 Redis。 此值对应于从客户端发送到缓存的数据的网络带宽。 |
 
+<a name="operations-and-alerts"></a>
+## <a name="alerts"></a>警报
+可配置为基于指标和活动日志接收警报。 通过 Azure Monitor 可配置警报，使警报触发时执行以下操作：
+
+- 发送电子邮件通知
+- 调用 Webhook
+- 调用 Azure 逻辑应用
+
+若要配置缓存的预警规则，从“资源菜单”单击“预警规则”。
+
+![监视](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
 ## <a name="activity-logs"></a>活动日志
 活动日志提供针对 Azure Redis 缓存实例执行的操作的详细信息。 活动日志以前称为“审核日志”或“操作日志”。 通过活动日志，可确定对 Azure Redis 缓存实例执行的任何写入操作（PUT、POST、DELETE）的“操作内容、操作人员和操作时间”。 
@@ -114,7 +134,9 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 >
 >
 
-若要查看缓存的活动日志，请在“概述”中单击“活动日志”。
+若要查看缓存的活动日志，从“资源菜单”单击“活动日志”。
+
+有关活动日志的详细信息，请参阅 [Azure 活动日志概述](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。
 
 <!--Update_Description: wording update-->
 

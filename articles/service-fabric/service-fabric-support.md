@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 11/22/2017
-ms.date: 01/01/2018
+origin.date: 01/26/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4ebe29ca9a2f5cf6df385cffbb8bb8402b39e4fd
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 7cee96add0aa336350dfa424fa9fec19b1545952
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支持选项
 
@@ -37,6 +37,7 @@ ms.lasthandoff: 02/13/2018
 - [Microsoft 顶级支持](https://support.microsoft.com/premier)。
 
 <a name="getlivesitesupportonprem"></a>
+
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>报告生产问题，或者请求独立 Service Fabric 群集的付费支持
 
 若要报告部署在本地或其他云上的 Service Fabric 群集的问题，请通过 [Azure 支持门户](https://www.azure.cn/support/support-ticket-form)开具专业支持票证。
@@ -57,7 +58,6 @@ ms.lasthandoff: 02/13/2018
 [StackOverflow 上的 Service Fabric 标记][stackoverflow]和 [MSDN 上的 Service Fabric 论坛][msdn-forum]最适合提问有关平台工作方式以及如何通过该平台完成某些任务的问题。
 
 ### <a name="azure-feedback-forum"></a>Azure 反馈论坛
-
 [有关 Service Fabric 的 Azure 反馈论坛][uservoice-forum]最适合用户提交关于产品的大型功能创意，我们可以看到，大多数常见的请求都属于我们的中长期规划。 我们鼓励你在社区内争取大家对你的建议的支持。
 
 <a name="releasesuport"></a>
@@ -80,7 +80,8 @@ ms.lasthandoff: 02/13/2018
 | 5.5.* | 5.4.164.* |低于或等于版本 2.5 |2017 年 8 月 10 日    |
 | 5.6.* | 5.4.164.* |低于或等于版本 2.6 |2017 年 10 月 13 日   |
 | 5.7.* | 5.4.164.* |低于或等于版本 2.7 |2017 年 12 月 15 日  |
-| 6.0.* | 5.6.205.* |版本 2.8 或更低版本 |当前版本，因此无结束日期 |
+| 6.0.* | 5.6.205.* |版本 2.8 或更低版本 |2018 年 3 月 30 日     | 
+| 6.1.* | 5.7.221.* |版本 3.0 或更低版本 |当前版本，因此无结束日期 |
 
 <a name="previewversion"></a>
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 预览版本 - 不支持在生产环境中使用。
@@ -94,7 +95,7 @@ ms.lasthandoff: 02/13/2018
 - [在单独的 Windows Server 群集上升级 Service Fabric 版本](service-fabric-cluster-upgrade-windows-server.md)
 
 <!--references-->
-[msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric
+[msdn-forum]: https://www.azure.cn/support/forums/
 [stackoverflow]: http://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
 <!-- Not Referenced on [acom-docs]: ../service-fabric/index.yml -->

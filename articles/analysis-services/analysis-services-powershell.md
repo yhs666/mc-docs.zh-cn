@@ -12,14 +12,14 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 02/14/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 24468b37c7bf97f1ff78b9298e19599d8f5888ad
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 851cc382658e203a3e28cc02f359fb92fe28a02a
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>使用 PowerShell 管理 Azure Analysis Services
 

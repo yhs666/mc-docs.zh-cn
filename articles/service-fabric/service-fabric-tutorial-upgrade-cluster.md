@@ -1,6 +1,6 @@
 ---
 title: "升级 Azure Service Fabric 运行时 | Azure"
-description: "了解如何使用 PowerShell 升级 Azure 托管的 Service Fabric 群集的运行时。"
+description: "本教程介绍如何使用 PowerShell 升级 Azure 托管的 Service Fabric 群集的运行时。"
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/28/2017
-ms.date: 01/01/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 5a5de3ebf86cfb259e24d3c267e2695c09840efd
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 59dcc014f1b48a56b78bf7dd6ef5027bed6380f8
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>升级 Service Fabric 群集的运行时
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>教程：升级 Service Fabric 群集的运行时
 
 本教程是系列教程的第 3 部分，介绍如何升级 Azure Service Fabric 群集上的 Service Fabric 运行时。 本教程部分是针对 Azure 上运行的 Service Fabric 群集编写的，不适用于独立 Service Fabric 群集。
 
@@ -203,5 +203,4 @@ sfctl cluster upgrade-status
 接下来，转到以下教程了解如何使用 Service Fabric 群集部署 API 管理。
 > [!div class="nextstepaction"]
 > [部署 API 管理与 Service Fabric](service-fabric-tutorial-deploy-api-management.md)
-<!-- Update_Description: new articles on service fabric tutorial upgrade cluster -->
-<!-- ms.date: 01/01/2018 -->
+<!-- Update_Description: update meta properties, wording update -->

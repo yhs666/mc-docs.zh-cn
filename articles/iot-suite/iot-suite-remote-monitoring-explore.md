@@ -1,5 +1,5 @@
 ---
-title: "远程监视解决方案入门 - Azure | Microsoft Docs"
+title: "远程监视解决方案入门"
 description: "本教程使用模拟方案来介绍远程监视预配置解决方案。 这些方案是首次部署远程监视预配置解决方案时创建的。"
 services: 
 suite: iot-suite
@@ -7,17 +7,17 @@ author: dominicbetts
 manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
-origin.date: 12/12/2017
-ms.date: 01/08/2018
+origin.date: 02/22/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 689a86eaf351e5443bbbf1a3e329d983345128ec
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: c90e3a26fe653bb5d49c61f13681440cabae0ca8
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>探索远程监控预配置解决方案的功能
 
@@ -32,6 +32,7 @@ ms.lasthandoff: 12/29/2017
 > * 响应警报
 > * 更新设备中的固件
 > * 组织资产
+> * 停止和启动模拟设备
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -110,7 +111,7 @@ Contoso 的操作员知道哪些阈值确定了设备是否正常工作。 例�
 
     ![“维护”页显示已触发的警报列表](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. 列表中的第一条警报是最近发出的警报。 单击“冷却器压力”警报可查看关联的设备和遥测数据。 遥测数据显示了冷却器的压力峰值：
+1. 列表中的第一条警报是最近发出的警报。 单击“冷却器压力过高”警报可查看关联的设备和遥测数据。 遥测数据显示了冷却器的压力峰值：
 
     ![“维护”页显示所选警报的遥测数据](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
@@ -155,12 +156,12 @@ Contoso 正在现场测试某个新型设备。 在测试周期中，需确保�
 
     ![在“设备”页上选择设备](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. 单击“计划”按钮，选择“固件更新”。 输入“作业名称”和“固件 URI”的值。 选择“应用”，将作业计划为立即运行：
+1. 单击“计划”按钮，选择“固件更新”。 输入“作业名称”、“固件版本”和“固件 URI”的值。 选择“应用”，将作业计划为立即运行：
 
     ![在设备上计划固件更新](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > 在模拟设备中，可以使用所需的任何 URL 作为“固件 URI”值。 模拟设备不会访问该 URL。
+    > 在模拟设备中，可以使用所需的任何 URL 作为“固件 URI”值，并可使用所需的任何值作为“固件版本”。 模拟设备不会访问该 URL。
 
 1. 记下该作业影响的设备数，并选择“应用”：
 
@@ -227,6 +228,16 @@ Contoso 设立了两个不同的团队来从事现场服务活动：
 
 现在，Contoso 操作员可以根据操作团队查询设备，而无需在设备上更改任何设置。
 
+## <a name="stop-simulated-devices"></a>停止模拟设备
+
+可以使用设置菜单停止模拟设备。 这有助于减少测试和浏览解决方案的开销。 若要启动或停止模拟设备，请执行以下操作：
+
+1. 选择“设置”图标。
+
+1. 然后将“正在运行”切换到打开或关闭：
+
+    ![“设置”菜单](media/iot-suite-remote-monitoring-explore/settings.png)
+
 ## <a name="next-steps"></a>后续步骤
 
 本教程已介绍了如何执行以下操作：
@@ -236,6 +247,7 @@ Contoso 设立了两个不同的团队来从事现场服务活动：
 > * 响应警报
 > * 更新设备中的固件
 > * 组织资产
+> * 停止和启动模拟设备
 
 了解远程监视解决方案后，我们建议接下来继续了解远程监视解决方案的高级功能：
 

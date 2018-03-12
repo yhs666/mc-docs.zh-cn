@@ -12,14 +12,14 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 09/19/2017
-ms.date: 11/13/2017
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 01c624847b06206ce66da8b7827f1f7ce9644019
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 596edd9ed8cebf31ed0b6770a175634d4ba91593
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>创建第一个 Azure Service Fabric 应用程序
 > [!div class="op_single_selector"]
@@ -41,10 +41,12 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
 
 1. 在计算机上安装 nodejs 和 NPM
 
-    ```bash
-    sudo apt-get install npm
-    sudo apt install nodejs-legacy
-    ```
+   Ubuntu
+   ```bash
+   sudo apt-get install npm
+   sudo apt install nodejs-legacy
+   ```
+<!-- Not Avaiable on Red Hat Enterprise Linux 7.4 (Service Fabric preview support) -->
 2. 通过 NPM 在计算机上安装 [Yeoman](http://yeoman.io/) 模板生成器
 
     ```bash
@@ -61,7 +63,7 @@ Service Fabric 应用程序可以包含一个或多个服务，每个服务都�
 
 1. 在终端中，键入以下命令开始构建基架： `yo azuresfcsharp`
 2. 为应用程序命名。
-3. 选择第一个服务的类型并为其命名。 对于本教程，我们会选择“Reliable Actor 服务”。
+3. 选择第一个服务的类型并将其命名。 对于本教程，我们会选择“Reliable Actor 服务”。
 
     ![适用于 C# 的 Service Fabric Yeoman 生成器][sf-yeoman]
 
@@ -103,7 +105,7 @@ cd myapp
 ## <a name="start-the-test-client-and-perform-a-failover"></a>启动测试客户端并执行故障转移
 执行组件项目没有任何属于自己的项。 它们需要其他服务或客户端发送消息给它们。 执行组件模板包含简单的测试脚本，可用于与执行组件服务交互。
 
-1. 使用监视实用工具运行脚本，查看执行组件服务的输出。
+1. 使用监视实用程序运行该脚本来查看 actor 服务的输出。
 
     ```bash
     cd myactorsvcTestClient
@@ -112,18 +114,13 @@ cd myapp
 2. 在 Service Fabric Explorer 中，找到托管执行组件服务主副本的节点。 在以下屏幕截图中，该节点是节点 3。
 
     ![在 Service Fabric Explorer 中查找主副本][sfx-primary]
-3. 单击上一步找到的节点，并在“操作”菜单中选择“停用(重启)”。 此操作在本地群集中重新启动一个节点，从而强制故障转移到在另一个节点上运行的一个辅助副本。 执行此操作时，请注意测试客户端的输出，可以看到，尽管是故障转移，计数器仍继续递增。
+3. 单击上一步找到的节点，并在“操作”菜单中选择“停用(重启)”。 此操作在本地群集中重新启动一个节点，从而强制故障转移到在另一个节点上运行的一个辅助副本。 在执行此操作时，请注意来自测试客户端的输出，并注意虽然发生故障转移，但是计数器仍将继续递增。
 
 ## <a name="adding-more-services-to-an-existing-application"></a>将更多服务添加到现有应用程序
 
 要将另一个服务添加到使用 `yo` 创建的应用程序，请执行以下步骤：
 1. 将目录更改为现有应用程序的根目录。  例如 `cd ~/YeomanSamples/MyApplication`（如果 `MyApplication` 是 Yeoman 创建的应用程序）。
 2. 运行 `yo azuresfcsharp:AddService`
-
-## <a name="migrating-from-projectjson-to-csproj"></a>从 project.json 迁移到 .csproj
-1. 在项目根目录中运行“dotnet migrate”可将所有 project.json 迁移到 csproj 格式。
-2. 将项目引用相应地更新到项目文件的 csproj 文件中。
-3. 将项目文件名更新到 build.sh 格式的 csproj 文件。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -135,4 +132,4 @@ cd myapp
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-csharp/sfx-primary.png
 
-<!--Update_Description: update meta properties, update reference link, wording update -->
+<!--Update_Description: update meta properties, update link, wording update -->

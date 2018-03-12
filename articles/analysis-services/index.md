@@ -10,14 +10,14 @@ ms.service: analysis-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-origin.date: 01/23/2017
-ms.date: 09/25/2017
+origin.date: 02/14/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: d3e925290fdf8132a32f9c1bc9e36323a0803b1c
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: b9efc4df7398e0e966d9005f82a7123a979130cc
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="analysis-services-documentation"></a>Analysis Services 文档
 
@@ -63,3 +63,4 @@ ms.lasthandoff: 09/22/2017
     </li>    
 </ul>
 
+<!--ms.date: 03/14/2018 -->

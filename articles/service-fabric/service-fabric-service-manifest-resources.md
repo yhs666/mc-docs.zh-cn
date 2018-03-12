@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/05/2018
-ms.date: 02/26/2018
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3a5cd1518ec8cda89f3958b8479032b2fef79070
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 3829497b7311cda5ee0f35844541e8811d14a0ac
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>在服务清单中指定资源
 ## <a name="overview"></a>概述
@@ -212,4 +212,4 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 假设指定了错误值。 例如，对于“端口”，指定了字符串值“Foo”而不是 int。New-ServiceFabricApplication 命令将失败并返回错误：“ResourceOverrides”节中名为“ServiceEndpoint1”的替代参数的属性“Port1”无效。 指定的值为“Foo”，而要求的值为“int”。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update -->

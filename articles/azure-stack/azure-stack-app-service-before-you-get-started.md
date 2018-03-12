@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 01/29/2018
 ms.date: 03/01/2018
 ms.author: v-junlch
-ms.openlocfilehash: a1f3b0aa958b19442e85e43a5183aff958cb0a54
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: f32b2e4501e8cbc145313c808acbd4e1d172562d
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>在 Azure Stack 上开始使用应用服务之前
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
@@ -269,7 +269,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 3. [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
 4. 运行 **Create-AADIdentityApp.ps1** 脚本。 根据提示输入部署 Azure Stack 时使用的 Azure AD 租户 ID。 例如，输入 **myazurestack.partner.onmschina.cn**。
 5. 在“凭据”窗口中，输入 Azure AD 服务管理帐户和密码。 选择“确定” 。
-6. 输入[前面创建的证书](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)的证书文件路径和证书密码。 默认情况下值，为此步骤创建的证书是 **sso.appservice.local.azurestack.external.pfx**。
+6. 输入[前面创建的证书](/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)的证书文件路径和证书密码。 默认情况下值，为此步骤创建的证书是 **sso.appservice.local.azurestack.external.pfx**。
 7. 此脚本在租户 Azure AD 实例中创建新的应用程序。 请记下 PowerShell 输出中返回的应用程序 ID。 安装期间需要此信息。
 8. 打开新的浏览器窗口，以 Azure Active Directory 服务管理员的身份登录到 [Azure 门户](https://portal.azure.cn)。
 9. 打开 Azure AD 资源提供程序。
@@ -301,11 +301,11 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 执行以下步骤：
 
 1. 以 azurestack\AzureStackAdmin 身份打开 PowerShell 实例。
-2. 转到在[先决条件步骤](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts)中下载并提取的脚本所在的位置。
+2. 转到在[先决条件步骤](/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts)中下载并提取的脚本所在的位置。
 3. [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
 4.  运行 **Create-ADFSIdentityApp.ps1** 脚本。
 5.  在“凭据”窗口中，输入 AD FS 云管理帐户和密码。 选择“确定” 。
-6.  提供[前面创建的证书](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)的证书文件路径和证书密码。 默认情况下值，为此步骤创建的证书是 **sso.appservice.local.azurestack.external.pfx**。
+6.  提供[前面创建的证书](/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)的证书文件路径和证书密码。 默认情况下值，为此步骤创建的证书是 **sso.appservice.local.azurestack.external.pfx**。
 
 | Create-ADFSIdentityApp.ps1 参数 | 必需还是可选 | 默认值 | 说明 |
 | --- | --- | --- | --- |

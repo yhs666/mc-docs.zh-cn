@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 10/09/2017
-ms.date: 12/11/2017
+origin.date: 02/14/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 00040612890db631398010216a7486c93889f538
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: ef2bed3903f86a2048b92cabd1ee5adb3ab770e2
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="authentication-and-user-permissions"></a>身份验证和用户权限
 Azure Analysis Services 使用 Azure Active Directory (Azure AD) 进行标识管理和用户身份验证。 在相同订阅中，创建、管理或连接到 Azure Analysis Services 服务器的任何用户均需具备 [Azure AD 租户](../active-directory/active-directory-administer.md)中的有效用户标识。

@@ -2,19 +2,19 @@
 title: "Azure 密钥保管库开发人员指南"
 description: "开发人员可以使用 Azure 密钥保管库来管理 Azure 环境中的加密密钥。"
 services: key-vault
-author: alexchen2016
-manager: digimobile
+author: lleonard-msft
+manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 origin.date: 10/12/2017
-ms.date: 12/22/2017
+ms.date: 03/04/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6bc7cfd13eab6b07678ae4849e160489fd753323
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 7f759679bb8374b79ad94aa5934d1176b51941cc
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 密钥保管库开发人员指南
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/22/2017
 >[!NOTE]
 >在 Azure Key Vault 的此更新版中，只有**存储帐户密钥**功能以预览版提供。
 
-此预览版包含通过 [.NET/C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault/)、[REST](https://docs.microsoft.com/rest/api/keyvault/) 和 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) 接口提供的新存储帐户密钥功能。 
+此预览版包含通过 [.NET/C#](/dotnet/api/microsoft.azure.keyvault/)、[REST](https://docs.microsoft.com/rest/api/keyvault/) 和 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) 接口提供的新存储帐户密钥功能。 
 
 有关新存储帐户密钥功能的详细信息，请参阅 [Azure Key Vault 存储帐户密钥概述](key-vault-ovw-storage-keys.md)。
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 12/22/2017
 
 #### <a name="net"></a>.NET
 
-[.NET API refence for Key Vault](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault)（适用于 Key Vault 的 .NET API 参考） 
+[.NET API refence for Key Vault](/dotnet/api/microsoft.azure.keyvault)（适用于 Key Vault 的 .NET API 参考） 
 
 有关 .NET SDK 2.x 版的详细信息，请参阅[发行说明](key-vault-dotnet2api-release-notes.md)。
 
@@ -145,6 +145,6 @@ ms.lasthandoff: 12/22/2017
 - [Azure Key Vault 核心库](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core)提供 IKey 和 IKeyResolver 接口，用于通过标识符查找密钥，以及使用密钥执行操作。
 - [Azure 密钥保管库扩展](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) 为 Azure 密钥保管库提供了扩展功能。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->
 
 

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/09/2017
-ms.date: 01/01/2018
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3b038ee4c9e8e8f65fd7a0e690a81a8c057e8446
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 2e859a49dc6addab1b81340fe88b61862e262b81
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>使用 PowerShell 升级 Service Fabric 应用程序
 > [!div class="op_single_selector"]
@@ -145,4 +145,4 @@ Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects
 
 参考[对应用程序升级进行故障排除](service-fabric-application-upgrade-troubleshooting.md)中的步骤来解决应用程序升级时的常见问题。
 
-<!--Update_Description: update link, wording update -->
+<!--Update_Description: update meta properties, wording update -->

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/03/2017
-ms.date: 11/13/2017
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: abdb8356139717598b0c241bd19f0e3371d7e403
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: d277d1ae02c378da7330232a08168c8440415ce8
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-application-upgrades"></a>应用程序升级故障排除
 本文介绍一些围绕升级 Azure Service Fabric 应用程序的常见问题以及这些问题的解决方法。
@@ -225,4 +225,4 @@ Service Fabric 将所有百分比转换为实际实体（如副本、分区和�
 
 参考[高级主题](service-fabric-application-upgrade-advanced.md)，了解如何在升级应用程序时使用高级功能。
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

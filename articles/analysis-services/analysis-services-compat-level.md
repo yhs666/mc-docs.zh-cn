@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 02/14/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: fd9f3f9fa652404ce0e54cf182d207cf071507f9
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 6f17a7666da910def51296f9bf7c2702498e9c92
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Analysis Services 表格模型的兼容性级别
 

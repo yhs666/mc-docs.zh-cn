@@ -3,8 +3,8 @@ title: "在 Azure 门户中创建批处理帐户 | Microsoft Docs"
 description: "了解如何在 Azure 门户中创建 Azure Batch 帐户，以便在云中运行大规模并行工作负荷"
 services: batch
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/14/2017
-ms.date: 12/01/2017
+ms.date: 03/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66e5851df60f8bd261c475ce22c9727d747ffb8c
-ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
+ms.openlocfilehash: e35526a36abc8f6c8bb635f79fc085189e8a77f1
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 门户创建 Batch 帐户
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/07/2017
 > 创建 Batch 帐户时，通常应选择默认的“Batch 服务”模式。使用此模式时，池在 Azure 托管的订阅中以幕后方式分配。 在备用的“用户订阅”模式（对于大多数方案不再推荐使用）下，会在创建池时直接在订阅中创建 Batch VM 和其他资源。 若要在用户订阅模式下创建 Batch 帐户，还需将订阅注册到 Azure Batch 中，并将该帐户与 Azure Key Vault 相关联。
 
 1. 登录到 [Azure 门户][azure_portal]。
-2. 单击“新建”，搜索 Marketplace 中是否有“Batch 服务”。
+2. 单击“创建资源”，搜索 Marketplace 中是否有“Batch 服务”。
 
     ![应用商店中的批处理][marketplace_portal]
 3. 选择“Batch 服务”，单击“创建”，然后输入“新建 Batch 帐户”设置。 查看以下详细信息。
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/07/2017
 
     c. **资源组**：为新批处理帐户选择现有的资源组，或选择创建一个新组。
 
-    d.单击“下一步”。 **位置**：要在其中创建批处理帐户的 Azure 区域。 只有订阅和资源组支持的区域显示为选项。
+    d.单击“验证存储凭据”以验证存储帐户。 **位置**：要在其中创建批处理帐户的 Azure 区域。 只有订阅和资源组支持的区域显示为选项。
 
     e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 **存储帐户**（可选）：与批处理帐户关联的通用 Azure 存储帐户。 建议大多数批处理帐户采用此设置。 如需详细信息，请参阅本文后面的[关联的 Azure 存储帐户](#linked-azure-storage-account)。
 

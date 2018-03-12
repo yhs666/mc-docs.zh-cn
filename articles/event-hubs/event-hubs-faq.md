@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/05/2017
-ms.date: 11/20/2017
+origin.date: 01/30/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: eb2b50a907f601c7416ced525b6c994bc1bba60a
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 52403b60b143c42dbfd4eb995b08dbd1d8c97e14
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中心常见问题
 
@@ -69,7 +69,8 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 ## <a name="best-practices"></a>最佳实践
 
 ### <a name="how-many-partitions-do-i-need"></a>需要多少分区？
-请记住，事件中心的分区数在设置后无法修改。 鉴于这一点，请务必在开始之前考虑需要多少分区。 
+
+请注意，事件中心的分区数在设置后无法修改。 鉴于这一点，请务必在开始之前考虑需要多少分区。 
 
 事件中心设计用于允许每个用户组使用单个分区读取器。 在大多数用例中，四个分区的默认设置就足够了。 如果希望扩展事件处理，则可以考虑添加其他分区。 对分区没有特定的吞吐量限制，但是命名空间中的聚合吞吐量受吞吐量单位数限制。 增加命名空间中吞吐量单位的数量时，可能需要添加额外分区来允许并发读取器实现其自身的最大吞吐量。
 

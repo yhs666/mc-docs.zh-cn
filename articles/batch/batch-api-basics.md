@@ -3,8 +3,8 @@ title: "面向开发人员的 Azure Batch 概述 | Microsoft 文档"
 description: "从开发的角度了解 Batch 服务的功能及其 API。"
 services: batch
 documentationcenter: .net
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 origin.date: 11/16/2017
-ms.date: 01/08/2018
+ms.date: 03/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f58966f4cb3bcd2545bbdce0ae2493cc9beaccd4
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 9f2b0bbabd0df5e4b6f16df18d47201440fb3915
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 开发大规模并行计算解决方案
 
@@ -135,7 +135,7 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
     [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md)（Azure 来宾 OS 版本和 SDK 兼容性对照表）中列出了适用于云服务配置池的操作系统。 创建包含云服务节点的池时，需要指定节点大小及其 OS 系列。 将云服务部署到 Azure 的速度比部署运行 Windows 的虚拟机更快。 如果需要 Windows 计算节点池，可能会发现云服务具有部署时间上的性能优势。
 
     - *OS 系列* 还确定了要与操作系统一起安装哪些版本的 .NET。
-    - 与云服务中的辅助角色一样，可以指定 *OS 版本*（有关辅助角色的详细信息，请参阅 [Cloud Services overview](../cloud-services/cloud-services-choose-me.md)（云服务概述）中的 [Tell me about cloud services](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services)（介绍云服务）部分）。
+    - 与云服务中的辅助角色一样，可以指定 *OS 版本*（有关辅助角色的详细信息，请参阅[云服务概述](../cloud-services/cloud-services-choose-me.md)）。
     - 与辅助角色一样，对于 *OS 版本*，建议指定 `*`，使节点可自动升级，而无需采取措施来适应新的版本。 选择特定 OS 版本的主要用例是在允许更新版本之前执行向后兼容测试，以确保保持应用程序兼容性。 验证后，便可以更新池的 *OS 版本* 并安装新的操作系统映像 – 所有正在运行的任务会中断并重新排队。
 
 创建池时，需要选择适当的 **nodeAgentSkuId**，具体取决于 VHD 基本映像的 OS。 可通过调用[列出支持的节点代理 SKU](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus) 操作获得可用节点代理 SKU ID 到其 OS 映像引用的映射。
@@ -480,6 +480,8 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 >
 >
 
+如需限制或禁用通过 RDP 或 SSH 访问计算节点的功能，请参阅[在 Azure Batch 池中配置或禁用到计算节点的远程访问](pool-endpoint-configuration.md)。
+
 ### <a name="troubleshooting-problematic-compute-nodes"></a>对有问题的计算节点进行故障排除
 在部分任务失败的情况下，Batch 客户端应用程序或服务可以检查失败任务的元数据来找出行为异常的节点。 池中的每个节点都有一个唯一 ID，运行任务的节点包含在任务元数据中。 识别出“有问题的节点”后，可对其执行多种操作：
 
@@ -510,7 +512,7 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
-[azure_storage]: /storage/
+[azure_storage]: https://www.azure.cn/home/features/storage/
 [batch_forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch
 [cloud_service_sizes]: ../cloud-services/cloud-services-sizes-specs.md
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx

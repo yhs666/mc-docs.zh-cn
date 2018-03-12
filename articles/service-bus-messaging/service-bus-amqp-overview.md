@@ -1,32 +1,33 @@
 ---
-title: "服务总线 AMQP 概述 | Azure"
+title: "Azure 服务总线中 AMQP 1.0 的概述"
 description: "了解如何在 Azure 中使用高级消息队列协议 (AMQP) 1.0。"
 services: service-bus
 documentationCenter: .net
 authors: sethmanheim
 manager: timlt
 editor: 
+ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 10/06/2017
+origin.date: 01/30/2018
 ms.author: v-yiso
-ms.date: 11/13/2017
-ms.openlocfilehash: aec318f35be3d4e633860b0f4b723e5358e3f28a
-ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+ms.date: 03/12/2018
+ms.openlocfilehash: c3ef1d37a176faab47bcb6961d6fb9673d45fc77
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="amqp-10-support-in-service-bus"></a>服务总线的 AMQP 1.0 支持
 
-Azure 服务总线云服务和本地 [Windows Server 服务总线（服务总线 1.1）](https://msdn.microsoft.com/zh-cn/library/dn282144.aspx)均支持高级消息队列协议 (AMQP) 1.0。 AMQP 让你能够使用开放标准协议构建跨平台的混合应用程序。 可以借助使用不同语言和框架构建的且运行在不同操作系统上的组件来构建应用程序。 所有这些组件均可连接到服务总线，并且能够高效且完全无损地无缝交换结构化业务消息。
+Azure 服务总线云服务和本地 [Windows Server 服务总线（服务总线 1.1）](https://msdn.microsoft.com/zh-cn/library/dn282144.aspx)均支持高级消息队列协议 (AMQP) 1.0。 通过 AMQP 可使用开放标准协议构建跨平台的混合应用程序。 可以借助使用不同语言和框架构建的且运行在不同操作系统上的组件来构建应用程序。 所有这些组件均可连接到服务总线，并且能够高效且完全无损地无缝交换结构化业务消息。
 
 ## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>简介：什么是 AMQP 1.0，为何它很重要？
 
-通常，面向消息的中间件产品始终使用专用协议来支持客户端应用程序和代理之间的通信。 这意味着，在选择特定供应商的消息传递代理后，必须使用该供应商的库将客户端应用程序连接到该代理。 这将导致在一定程度上依赖于该供应商，因为将应用程序传送到其他产品需要对所有已连接应用程序进行代码改写。 
+通常，面向消息的中间件产品始终使用专用协议来支持客户端应用程序和代理之间的通信。 这意味着，在您选择特定供应商的消息传递代理后，您必须使用该供应商的库将您的客户端应用程序连接到该代理。 这将导致在一定程度上依赖于该供应商，因为将应用程序传送到其他产品需要对所有已连接应用程序进行代码改写。 
 
 此外，连接来自不同供应商的消息传递代理比较棘手。 这通常需要通过应用程序级桥接来将消息从一个系统移到另一个系统，并在其专用消息格式之间进行转换。 这是一个常见的要求；例如，在必须向较旧的独立系统提供新的统一接口时，或者在合并后集成 IT 系统时。
 
@@ -78,7 +79,7 @@ Azure 服务总线中对 AMQP 1.0 的支持意味着现在可以通过一系列�
 
 | 语言 | 库 |
 | --- | --- |
-| Java |Apache Qpid Java 消息服务 (JMS) 客户端<br/>IIT 软件 SwiftMQ Java 客户端 |
+| Java |Apache Qpid Java 消息服务 (JMS) 客户端<br/>软件 SwiftMQ IIT Java 客户端 |
 | C |Apache Qpid Proton-C |
 | PHP |Apache Qpid Proton-PHP |
 | Python |Apache Qpid Proton-Python |

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 09/01/2017
-ms.date: 01/31/2018
+ms.date: 03/05/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c15903fb351c27b2ce867424c7aaac32a3c8a0ec
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 903acb425dd0722272a75cb69b992367ec27fd56
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>什么是 Azure 中的虚拟机规模集？
 虚拟机规模集是一种 Azure 计算资源，可用于部署和管理一组相同的 VM。 规模集中的所有 VM 采用相同的配置，支持真正的自动缩放 - 无需对 VM 进行预配。 这样就可以更方便地构建面向大型计算、大型数据、容器化工作负荷的大规模服务。
@@ -93,7 +93,7 @@ Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -Virt
 - **使用“jumpbox”连接到 VM**：如果在同一个虚拟网络中创建一个规模集和一个独立 VM，则该独立 VM 和规模集 VM 能够使用其由虚拟网络或子网定义的内部 IP 地址彼此连接。 如果创建一个公共 IP 地址并将其分配给独立 VM，可以使用 RDP 或 SSH 连接到该独立 VM。 然后，可从该虚拟机连接到规模集实例。 此时你可能会发现，与使用其默认配置中的公共 IP 地址的简单独立 VM 相比，简单的规模集本质上更安全。
   
    例如，[此模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox)使用一个独立的 VM 部署简单的规模集。 
-- **负载均衡到规模集实例**：如果想要使用轮循机制方法向 VM 的计算群集交付工作，可以使用第 4 层负载均衡规则对 Azure 负载均衡器进行相应的配置。 可以定义探测，通过使用指定的协议、间隔和请求路径对端口执行 ping 操作来验证应用程序是否正在运行。 [Azure 应用程序网关](/application-gateway/)也支持规模集，以及第 7 层和更复杂的负载均衡方案。
+- **负载均衡到规模集实例**：如果想要使用轮循机制方法向 VM 的计算群集交付工作，可以使用第 4 层负载均衡规则对 Azure 负载均衡器进行相应的配置。 可以定义探测，通过使用指定的协议、间隔和请求路径对端口执行 ping 操作来验证应用程序是否正在运行。 [Azure 应用程序网关](https://www.azure.cn/home/features/application-gateway/)也支持规模集，以及第 7 层和更复杂的负载均衡方案。
   
    [此示例](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl)创建运行 Apache Web 服务器的规模集，并使用负载均衡器来均衡每个 VM 接收的负载。 （查看 Microsoft.Network/loadBalancers 资源类型以及 virtualMachineScaleSet 中的 networkProfile 和 extensionProfile。）
 
@@ -101,7 +101,7 @@ Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -Virt
 
 - **在 PaaS 群集管理器中将规模集部署为计算群集**：规模集有时描述为下一代辅助角色。 这是有效的描述，但也可能导致将规模集功能与 Azure 云服务功能混淆。 在某种意义上，规模集提供真正的辅助角色或辅助角色资源。 规模集是通用计算资源，独立于平台/运行时、可自定义且可集成到 Azure Resource Manager IaaS 中。
   
-   云服务辅助角色虽然在平台/运行时支持方面受到限制（仅限 Windows 平台映像）， 但它也包括多项服务，如 VIP 交换，可配置的升级设置，以及特定于运行时/应用部署的设置。 这些服务*尚未*在规模集中提供，或者由 Azure Service Fabric 等其他更高级别 PaaS 服务提供。 可以将规模集视为支持 PaaS 的基础结构。 PaaS 解决方案（例如 [Service Fabric](/service-fabric/)）基于该基础结构。
+   云服务辅助角色虽然在平台/运行时支持方面受到限制（仅限 Windows 平台映像）， 但它也包括多项服务，如 VIP 交换，可配置的升级设置，以及特定于运行时/应用部署的设置。 这些服务*尚未*在规模集中提供，或者由 Azure Service Fabric 等其他更高级别 PaaS 服务提供。 可以将规模集视为支持 PaaS 的基础结构。 PaaS 解决方案（例如 [Service Fabric](https://www.azure.cn/home/features/service-fabric/)）基于该基础结构。
   
 
 ## <a name="scale-set-performance-and-scale-guidance"></a>规模集性能和缩放指南
@@ -151,4 +151,4 @@ Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -Virt
 
 可在 [Azure 虚拟机规模集常见问题](virtual-machine-scale-sets-faq.md)中找到有关规模集的更多常见问题解答。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: link update-->

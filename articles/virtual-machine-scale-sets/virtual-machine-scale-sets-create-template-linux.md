@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 12/19/2017
-ms.date: 01/29/2018
+ms.date: 03/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: d161590cc17ec4b7341110fb86d759c7cb5d7efe
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: d8b5bc7fd7336522c7db51adeff15384c9347bb1
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>使用 Azure 模板创建 Linux 虚拟机规模集
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则，以便根据资源使用情况（如 CPU 使用率、内存需求或网络流量）进行自动缩放。 在此入门文章中，可以使用 Azure 资源管理器模板创建 Linux 虚拟机规模集。 也可使用 [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md)、[Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) 或 [Azure 门户](virtual-machine-scale-sets-create-portal.md)创建规模集。
@@ -134,11 +134,11 @@ Azure 资源管理器模板允许部署成组的相关资源。 模板以 JavaSc
 
 [![将模板部署到 Azure](./media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-也可使用 Azure CLI 2.0 通过 [az group deployment create](/cli/group/deployment#create) 命令安装基于 Linux 的 Python HTTP 服务器，如下所示：
+也可使用 Azure CLI 2.0 通过 [az group deployment create](/cli/group/deployment#az_group_deployment_create) 命令安装基于 Linux 的 Python HTTP 服务器，如下所示：
 
 ```azurecli
 # Create a resource group
-az group create --name myResourceGroup --location chinanorth
+az group create --name myResourceGroup --location ChinaNorth
 
 # Deploy template into resource group
 az group deployment create \
@@ -150,7 +150,7 @@ az group deployment create \
 
 
 ## <a name="test-your-sample-application"></a>测试示例应用程序
-若要查看运行中的应用，请使用 [az network public-ip list](/cli/network/public-ip#show) 命令获取负载均衡器的公共 IP 地址，如下所示：
+若要查看运行中的应用，请使用 [az network public-ip list](/cli/network/public-ip#az_network_public_ip_show) 命令获取负载均衡器的公共 IP 地址，如下所示：
 
 ```azurecli
 az network public-ip list \
@@ -164,7 +164,7 @@ az network public-ip list \
 
 
 ## <a name="clean-up-resources"></a>清理资源
-如果不再需要资源组、规模集和所有相关的资源，可以使用 [az group delete](/cli/group#delete) 命令将其删除，如下所示：
+如果不再需要资源组、规模集和所有相关的资源，可以使用 [az group delete](/cli/group#az_group_delete) 命令将其删除，如下所示：
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -176,3 +176,5 @@ az group delete --name myResourceGroup
 
 - [在虚拟机规模集上部署应用程序](virtual-machine-scale-sets-deploy-app.md)
 - 通过 [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md) 或 [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md) 自动进行缩放
+
+<!--Update_Description: link update -->

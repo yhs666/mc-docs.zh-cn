@@ -1,5 +1,5 @@
 ---
-title: "Azure IoT 套件预配置解决方案概述 | Microsoft Azure"
+title: "Azure IoT 套件预配置解决方案概述"
 description: "描述 Azure IoT 套件预配置解决方案和体系结构，以及指向其他资源的链接。"
 services: 
 suite: iot-suite
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/10/2017
+origin.date: 01/17/2018
 ms.author: v-yiso
-ms.date: 12/04/2017
-ms.openlocfilehash: 4eb45c3167765f6f60f50446288265975830e8f0
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.date: 03/12/2018
+ms.openlocfilehash: b08455d86b683a103e406c2fa3dc6c54d19d90f5
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Azure IoT 套件是什么？
 

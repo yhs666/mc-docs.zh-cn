@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/16/2017
-ms.date: 01/30/2018
+ms.date: 03/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7213713977a41283dfffd27b9512cfbae0acc45b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: b5b70dde0094f4a6785556326cc9fc152f13dbc0
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建虚拟机规模集
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则，以便根据资源使用情况（如 CPU 使用率、内存需求或网络流量）进行自动缩放。 在此入门文章中，可以使用 Azure 资源管理器模板创建虚拟机规模集。 也可使用 [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md)、[Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) 或 [Azure 门户](virtual-machine-scale-sets-create-portal.md)创建规模集。
@@ -176,7 +176,7 @@ az group deployment create \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/azuredeploy.json
 ```
 
-若要查看运行中的应用，请使用 [az network public-ip list](/cli/network/public-ip#show) 命令获取负载均衡器的公共 IP 地址，如下所示：
+若要查看运行中的应用，请使用 [az network public-ip list](/cli/network/public-ip#az_network_public_ip_show) 命令获取负载均衡器的公共 IP 地址，如下所示：
 
 ```azurecli
 az network public-ip list \
@@ -214,10 +214,10 @@ Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 
 
 ## <a name="clean-up-resources"></a>清理资源
-如果不再需要资源组、规模集和所有相关的资源，可以使用 [az group delete](/cli/group#delete) 命令将其删除，如下所示：
+如果不再需要资源组、规模集和所有相关的资源，可以使用 [az group delete](/cli/group#az_group_delete) 命令将其删除，如下所示：
 
 ```azurecli 
 az group delete --name myResourceGroup
 ```
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

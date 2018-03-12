@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/02/2018
-ms.date: 01/29/2018
+origin.date: 01/12/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 57be619e9b9c879d00ecbd6d32ac3659ef7e904d
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 1c344112f6fed20b3039c7d6a6b0c55af582bf94
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 <!-- meta.description: GLOBALLY to multiple-region -->
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常见问题解答
@@ -28,11 +28,11 @@ ms.lasthandoff: 02/23/2018
 ### <a name="what-is-azure-cosmos-db"></a>什么是 Azure Cosmos DB？
 
 Azure Cosmos DB 是多区域复制的多模型数据库服务，可针对无架构数据提供丰富的查询，帮助提供可靠的可配置性能，并支持快速开发。 这一切都通过一个托管平台来实现，而该平台有 Azure 强大的功能与影响力作为后盾。 
-<!-- GLOBALLY to multiple-region -->
+<!-- Notice: GLOBALLY to multiple-region -->
 
 如果 Web、移动、游戏和 IoT 应用程序的关键要求是可预测的吞吐量、高可用性、低延迟和无架构数据模型，那么，Azure Cosmos DB 无疑是最合适的解决方案。 它提供了架构灵活性和丰富的索引，并且对集成的 JavaScript 提供了多文档事务性支持。 
 
-有关部署和使用此服务的更多数据库问题、解答及说明，请参阅 [Azure Cosmos DB 文档页面]((https://docs.azure.cn/cosmos-db/)。
+有关部署和使用此服务的更多数据库问题、解答及说明，请参阅 [Azure Cosmos DB 文档页](/cosmos-db/)。
 
 ### <a name="what-happened-to-the-documentdb-api"></a>DocumentDB API 有哪些变化？
 
@@ -80,8 +80,16 @@ Azure Cosmos DB 有一个不受架构影响的索引编制引擎，能够自动�
 也可以使用 [Azure Cosmos DB 模拟器](local-emulator.md)在本地免费开发和测试应用程序，无需创建 Azure 订阅。 如果对应用程序在 Azure Cosmos DB 模拟器中的工作情况感到满意，则可以切换到在云中使用 Azure Cosmos DB 帐户。
 
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>如何获取 Azure Cosmos DB 的更多帮助？
-如需任何帮助，请在 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) 或 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上联系我们，或者通过向 [Azure 支持部门](https://www.azure.cn/support/contact/)发送邮件安排与 Azure Cosmos DB 工程团队进行一对一交谈。 
 
+若要询问技术问题，可以在下述两个问答论坛之一发帖：
+* [MSDN 论坛](https://www.azure.cn/support/forums/)
+* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)。 Stack Overflow 适合编程问题。 请确保提问[切中主题](https://stackoverflow.com/help/on-topic)并[尽可能提供较多的详细信息，使问题清楚明了，便于回答](https://stackoverflow.com/help/how-to-ask)。 
+
+若要请求新功能，请在 [Uservoice](https://www.azure.cn/support/support-azure/) 上提交新的请求。
+若要修复帐户问题，请在 Azure 门户中提交[支持请求](https://www.azure.cn/support/support-azure/)。
+<!-- Not Avaiable on newsupportrequest in (https://www.azure.cn/support/support-azure/newsupportrequest) -->
+
+其他问题可以通过 [Azure 支持](https://www.azure.cn/support/forums/)提交给支持团队；不过，该论坛不是技术支持论坛。 
 <!-- Not Avaialble ## Try Azure Cosmos DB subscriptions-->
 ## <a name="set-up-azure-cosmos-db"></a>设置 Azure Cosmos DB
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>如何注册 Azure Cosmos DB？
@@ -224,9 +232,9 @@ Azure Cosmos DB 实施严格的安全要求和标准。 Azure Cosmos DB 帐户�
 ### <a name="how-do-i-provide-feedback-about-the-sdk-or-bugs"></a>如何提供有关 SDK 或 Bug 的反馈？
 可通过以下途径提供反馈：
 
-* [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
-* [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDocumentDB)
-* [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-cosmosdb)
+* [Uservoice](https://www.azure.cn/support/support-azure/)
+* [MSDN 论坛](https://www.azure.cn/support/contact/)
+<!-- Not Avaialble on * [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb) -->
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>连接到表 API 需要使用哪个连接字符串？
 连接字符串为：
@@ -304,6 +312,7 @@ Azure 表存储默认在区域中提供“强”一致性，在辅助位置提�
 
 ### <a name="when-global-distribution-is-enabled-how-long-does-it-take-to-replicate-the-data"></a>启用全局分发后，需要花费多长时间复制数据？
 Azure Cosmos DB 会在本地区域持续提交数据，然后在几毫秒内将数据立即推送到其他区域。 这种形式的复制只取决于数据中心的往返时间 (RTT)。 若要详细了解 Azure Cosmos DB 的全局分发功能，请参阅 [Azure Cosmos DB：Azure 上的多区域分布式数据库服务](distribute-data-globally.md)。
+<!-- Notice: 全球 to 多个区域 -->
 
 ### <a name="can-the-read-request-consistency-level-be-changed"></a>是否可以更改读取请求一致性级别？
 使用 Azure Cosmos DB 时，可以在容器级别（在表上）设置一致性级别。 使用 .NET SDK，可以通过在 app.config 文件中提供 TableConsistencyLevel 键值来更改级别。 可能的值：Strong、Bounded Staleness、Session、ConsistentPrefix、Eventual。 有关详细信息，请参阅 [Azure Cosmos DB 中可以优化的数据一致性级别](consistency-levels.md)。 关键是，在设置请求一致性级别时，不能超出表的设置。 例如，不能将表的一致性级别设置为“Eventual”，将请求一致性级别设置为“Strong”。 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
 origin.date: 12/14/2017
-ms.date: 01/15/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: cd83f2c81a485ee410992beb65d1598511536f16
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 495b747d1a39ec1574f81d17679abaaa8719f58c
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>连接到 Azure SQL 数据仓库
 本文介绍首次连接到 SQL 数据仓库的操作方法。
@@ -44,12 +44,12 @@ Azure SQL 数据仓库支持 [ADO.NET][ADO.NET]、[ODBC][ODBC]、[PHP][PHP] 和 
 > 
 
 ### <a name="adonet-connection-string-example"></a>ADO.NET 连接字符串示例
-```C#
+```csharp
 Server=tcp:{your_server}.database.chinacloudapi.cn,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
 ### <a name="odbc-connection-string-example"></a>ODBC 连接字符串示例
-```C#
+```csharp
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.chinacloudapi.cn,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 

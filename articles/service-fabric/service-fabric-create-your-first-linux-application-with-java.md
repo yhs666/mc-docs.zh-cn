@@ -12,14 +12,14 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 09/20/2017
-ms.date: 11/13/2017
+origin.date: 01/27/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 97bf8d15fe8a184a19b9385b28f2caccdc51c80a
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: a466ebf838bec427bd49281d922d841fdb024e54
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>在 Linux 上创建第一个 Java Service Fabric Reliable Actors 应用程序
 > [!div class="op_single_selector"]
@@ -32,24 +32,12 @@ ms.lasthandoff: 11/09/2017
 借助本快速入门，只需几分钟即可在 Linux 开发环境中创建第一个 Azure Service Fabric Java 应用程序。  完成后，即拥有一个在本地开发群集上运行的简单 Java 单一服务应用程序。  
 
 ## <a name="prerequisites"></a>先决条件
-开始之前，请安装 Service Fabric SDK、Service Fabric CLI，并在 [Linux 开发环境](service-fabric-get-started-linux.md)中设置开发群集。 如果使用 Mac OS X，则可[使用 Vagrant 在虚拟机中设置 Linux 开发环境](service-fabric-get-started-mac.md)。
+开始之前，请安装 Service Fabric SDK、Service Fabric CLI、Yeoman，设置 Java 开发环境，并在 [Linux 开发环境](service-fabric-get-started-linux.md)中设置开发群集。 如果使用 Mac OS X，则可[使用 Docker 在 Mac 上设置开发环境](service-fabric-get-started-mac.md)。
 
 另请安装 [Service Fabric CLI](service-fabric-cli.md)。
 
 ### <a name="install-and-set-up-the-generators-for-java"></a>为 Java 安装和设置生成器
-Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模板生成器从终端创建 Service Fabric Java 应用程序。 请执行以下步骤，确保已经有可以在计算机上运行的适用于 Java 的 Service Fabric yeoman 模板生成器。
-1. 在计算机上安装 nodejs 和 NPM
-
-  ```bash
-  sudo apt-get install npm
-  sudo apt install nodejs-legacy
-  ```
-2. 通过 NPM 在计算机上安装 [Yeoman](http://yeoman.io/) 模板生成器
-
-  ```bash
-  sudo npm install -g yo
-  ```
-3. 通过 NPM 安装 Service Fabric Yeoman Java 应用程序生成器
+Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模板生成器从终端创建 Service Fabric Java 应用程序。  如果尚未安装 Yeoman，请参阅 [Service Fabric 入门（使用 Linux）](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)，获取有关如何设置 Yeoman 的说明。 运行以下命令，安装用于 Java 的 Service Fabric Yeoman 模板生成器。
 
   ```bash
   sudo npm install -g generator-azuresfjava
@@ -76,8 +64,8 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
 Service Fabric 应用程序包含一个或多个服务，每个服务都在提供应用程序功能时具有特定角色。 有了在上一部分安装的生成器，就可以轻松地创建第一个服务，并在以后添加更多服务。  此外，还可使用适用于 Eclipse 的插件创建、生成和部署 Service Fabric Java 应用程序。 请参阅[使用 Eclipse 创建和部署第一个 Java 应用程序](service-fabric-get-started-eclipse.md)。 对于本快速入门，使用 Yeoman 创建具有单项服务的应用程序，该服务用于存储和获取获取计数器值。
 
 1. 在终端中，键入 ``yo azuresfjava``。
-2. 为应用程序命名。
-3. 选择第一个服务的类型并为其命名。 对于本教程，请选择“Reliable Actor 服务”。 有关其他服务类型的详细信息，请参阅 [Service Fabric 编程模型概述](service-fabric-choose-framework.md)。
+2. 命名应用程序。
+3. 选择第一个服务的类型并将其命名。 对于本教程，请选择“Reliable Actor 服务”。 有关其他服务类型的详细信息，请参阅 [Service Fabric 编程模型概述](service-fabric-choose-framework.md)。
    ![适用于 Java 的 Service Fabric Yeoman 生成器][sf-yeoman]
 
 如果将应用程序命名为“HelloWorldActorApplication”，将执行组件命名为“HelloWorldActor”，则会创建以下基架：
@@ -146,9 +134,14 @@ public interface HelloWorldActor extends Actor {
 ```java
 @ActorServiceAttribute(name = "HelloWorldActor.HelloWorldActorService")
 @StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-public class HelloWorldActorImpl extends ReliableActor implements HelloWorldActor {
-    Logger logger = Logger.getLogger(this.getClass().getName());
+public class HelloWorldActorImpl extends FabricActor implements HelloWorldActor {
+    private Logger logger = Logger.getLogger(this.getClass().getName());
 
+    public HelloWorldActorImpl(FabricActorService actorService, ActorId actorId){
+        super(actorService, actorId);
+    }
+
+    @Override
     protected CompletableFuture<?> onActivateAsync() {
         logger.log(Level.INFO, "onActivateAsync");
 
@@ -177,15 +170,16 @@ public class HelloWorldActorImpl extends ReliableActor implements HelloWorldActo
 ```java
 public class HelloWorldActorHost {
 
-    public static void main(String[] args) throws Exception {
+private static final Logger logger = Logger.getLogger(HelloWorldActorHost.class.getName());
+
+public static void main(String[] args) throws Exception {
 
         try {
-            ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new ActorServiceImpl(context, actorType, ()-> new HelloWorldActorImpl()), Duration.ofSeconds(10));
 
+            ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new FabricActorService(context, actorType, (a,b)-> new HelloWorldActorImpl(a,b)), Duration.ofSeconds(10));
             Thread.sleep(Long.MAX_VALUE);
-
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Exception occured", e);
             throw e;
         }
     }
@@ -194,24 +188,19 @@ public class HelloWorldActorHost {
 
 ## <a name="build-the-application"></a>构建应用程序
 Service Fabric Yeoman 模板包含 [Gradle](https://gradle.org/) 的生成脚本，可用于从终端生成应用程序。
-Service Fabric Java 依赖项从 Maven 提取。 若要生成和使用 Service Fabric Java 应用程序，需确保已安装 JDK 和 Gradle。 如果尚未安装，可运行以下命令来安装 JDK (openjdk-8-jdk) 和 Gradle：
-
-  ```bash
-  sudo apt-get install openjdk-8-jdk-headless
-  sudo apt-get install gradle
-  ```
+Service Fabric Java 依赖项从 Maven 提取。 若要生成和使用 Service Fabric Java 应用程序，需确保已安装 JDK 和 Gradle。 如果尚未安装，请参阅 [Service Fabric 入门（使用 Linux）](service-fabric-get-started-linux.md#set-up-java-development)，获取有关如何安装 JDK 和 Gradle 的说明。
 
 若要生成并打包应用程序，请运行以下命令：
 
   ```bash
-  cd myapp
+  cd HelloWorldActorApplication
   gradle
   ```
 
 ## <a name="deploy-the-application"></a>部署应用程序
 生成应用程序后，可以将其部署到本地群集。
 
-1. 连接到本地 Service Fabric 群集。
+1. 连接到本地 Service Fabric 群集（该群集必须[已设置且正在运行](service-fabric-get-started-linux.md#set-up-a-local-cluster)）。
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
@@ -236,7 +225,7 @@ Service Fabric Java 依赖项从 Maven 提取。 若要生成和使用 Service F
 1. 使用监视实用工具运行脚本，查看执行组件服务的输出。  测试脚本对角色调用 `setCountAsync()` 方法来递增计数器，对角色调用 `getCountAsync()` 方法来获取新的计数器值，并向控制台显示该值。
 
     ```bash
-    cd myactorsvcTestClient
+    cd HelloWorldActorTestClient
     watch -n 1 ./testclient.sh
     ```
 
@@ -343,9 +332,6 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
   }
   ```
 
-## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>迁移要与 Maven 配合使用的旧式 Service Fabric Java 应用程序
-我们最近已将 Service Fabric Java 库从 Service Fabric Java SDK 移至 Maven 存储库。 虽然使用 Yeoman 或 Eclipse 生成的新应用程序会生成最近更新的项目（会兼容 Maven），但你可以对现有的 Service Fabric 无状态或执行组件 Java 应用程序（此前使用 Service Fabric Java SDK）进行更新，使之能够使用 Maven 提供的 Service Fabric Java 依赖项。 请按[此处](service-fabric-migrate-old-javaapp-to-use-maven.md)提及的步骤操作，确保旧版应用程序兼容 Maven。
-
 ## <a name="next-steps"></a>后续步骤
 
 * [使用 Eclipse 在 Linux 上创建第一个 Service Fabric Java 应用程序](service-fabric-get-started-eclipse.md)
@@ -359,4 +345,4 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
 [sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png
 
-<!--Update_Description: update meta properties, add new version and feature on Service Fabric Java libraries on Maven ->
+<!--Update_Description: update meta properties, wording update, update cmdlet ->

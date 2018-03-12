@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 09/14/2017
 ms.date: 01/15/2018
 ms.author: v-nany
-ms.openlocfilehash: ec25b7ae427eac9bf0c99c7abb9e776656760c5b
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 6a09861dff61cd30fd55598a109a0bb691ebfabf
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure 自动化中的证书资产
 
@@ -29,9 +29,8 @@ ms.lasthandoff: 01/12/2018
 > Azure 自动化中的安全资产包括凭据、证书、连接和加密的变量。 这些资产已使用针对每个自动化帐户生成的唯一密钥加密并存储在 Azure 自动化中。 此密钥由主证书加密，并存储在 Azure 自动化中。 在存储安全资产之前，会先使用主证书来解密自动化帐户的密钥，并使用该密钥来加密资产。
 > 
 
-## <a name="windows-powershell-cmdlets"></a>Windows PowerShell Cmdlet
-
-下表中的 cmdlet 用于通过 Windows PowerShell 创建和管理自动化证书资产。 可在自动化 Runbook 中使用的 [Azure PowerShell 模块](../powershell-install-configure.md)已随附了这些 cmdlet。
+## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell cmdlet
+对于 AzureRM，下表中的 cmdlet 用于通过 Windows PowerShell 创建和管理自动化凭据资产。  可在自动化 Runbook 中使用的 [AzureRM.Automation 模块](https://docs.microsoft.com/powershell/azure/overview)已随附了这些 cmdlet。
 
 |Cmdlet|说明|
 |:---|:---|
@@ -41,6 +40,15 @@ ms.lasthandoff: 01/12/2018
 |[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|设置现有证书的属性，包括上传证书文件和设置 .pfx 的密码。|
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|为指定的云服务上传服务证书。|
 
+## <a name="activities"></a>活动
+下表中的活动用于在 Runbook 中访问证书。
+
+| 活动 | 说明 |
+|:---|:---|
+|Get-AutomationCertificate|在 Runbook 中获取要使用的证书。 返回一个 [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate2.aspx) 对象。|
+
+> [!NOTE] 
+> 应避免在 Runbook 或 DSC 配置中的 **Get-AutomationCertificate** 的 -Name 参数中使用变量，因为这可能会使设计时发现 Runbook 或 DSC 配置与自动化变量之间的依赖关系变得复杂化。
 
 ## <a name="python2-functions"></a>Python2 函数
 

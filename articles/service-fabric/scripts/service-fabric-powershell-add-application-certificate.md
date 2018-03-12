@@ -12,15 +12,15 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 09/29/2017
-ms.date: 11/13/2017
+origin.date: 01/18/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a434a6469dbbbceba82a13a2d6774b66705f48c3
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 6ac21ff48512bb9bea5ead82f34a0f335675a2f7
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>将应用程序证书添加到 Service Fabric 群集
 
@@ -53,7 +53,7 @@ Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Na
 
 此脚本使用以下命令：表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [Add-AzureRmServiceFabricApplicationCertificate](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) | 将新的应用程序证书添加到构成群集的虚拟机规模集。  |
 

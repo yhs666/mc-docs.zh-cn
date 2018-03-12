@@ -19,11 +19,11 @@ ms.author: v-nany
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 7741a82d7deed7aedc750af8c9d016e25f67bdf9
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 88fabb718d19e51e5cd2bbb38a419b29eebdef8f
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>云中的新 DBA  – 管理 Azure SQL 数据库中的数据库
 
@@ -167,7 +167,7 @@ SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#
 - [工作流](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL 数据库是否符合任何规章要求，这对我组织的合规性有什么帮助？
-SQL 数据库符合一系列合规要求。 若要查看符合的最新一组合规要求，请访问 [Microsoft 信任中心](https://www.microsoft.com/trustcenter/compliance/complianceofferings)，并向下钻取对你的组织而言至关重要的合规性，以了解 SQL 数据库是否包含在合规的 Azure 服务中。 需要注意的是，尽管 SQL 数据库可能被认证为合规服务，它有助于确保组织服务的合规性，但不会自动保证这一点。
+SQL 数据库符合一系列合规要求。 若要查看符合的最新一组合规要求，请访问 [Azure 信任中心](https://www.trustcenter.cn)，并向下钻取对你的组织而言至关重要的合规性，以了解 SQL 数据库是否包含在合规的 Azure 服务中。 需要注意的是，尽管 SQL 数据库可能被认证为合规服务，它有助于确保组织服务的合规性，但不会自动保证这一点。
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>迁移后的智能数据库监视和维护
 

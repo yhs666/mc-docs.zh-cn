@@ -13,14 +13,14 @@ ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/20/2017
-ms.date: 01/01/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 368ae271efcf5dcd7a4bec1cc498577b94599640
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: b2652fb28cb2607dc353c724f1925becbee23935
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric 概述
 Azure Service Fabric 是一款分布式系统平台，可方便用户轻松打包、部署和管理可缩放的可靠微服务和容器。 Service Fabric 还解决了开发和管理云本机应用程序面临的重大难题。 开发人员和管理员不仅可以避免复杂的基础结构问题，而且可以专注于实现可缩放、可靠且可管理的要求苛刻的任务关键型工作负荷。 Service Fabric 代表了下一代平台，用于生成和管理在容器中运行的企业级单层云规模应用程序。
@@ -47,7 +47,7 @@ Service Fabric 可以在所有环境中运行。 可在许多环境（包括在 
 
 ![Service Fabric 平台][Image1]
 
-对于 Windows 开发，Service Fabric .NET SDK 与 Visual Studio 和 Powershell 集成。 请参阅[在 Windows 上准备开发环境](/service-fabric/service-fabric-get-started.md)。 对于 Linux 开发，Service Fabric Java SDK 与 Eclipse 集成，Yeoman 用于为 Java、.NET Core 和容器应用程序生成模板。 请参阅[在 Linux 上准备开发环境](/service-fabric/service-fabric-get-started.md)
+对于 Windows 开发，Service Fabric .NET SDK 与 Visual Studio 和 Powershell 集成。 请参阅[在 Windows 上准备开发环境](service-fabric-get-started.md)。 对于 Linux 开发，Service Fabric Java SDK 与 Eclipse 集成，Yeoman 用于为 Java、.NET Core 和容器应用程序生成模板。 请参阅[在 Linux 上准备开发环境](service-fabric-get-started.md)
 
 有关创建群集的详细信息，请阅读[在 Windows Server 或 Linux 上创建群集](service-fabric-deploy-anywhere.md)；有关创建 Azure 群集的详细信息，请阅读[通过 Azure 门户创建群集](service-fabric-cluster-creation-via-portal.md)。
 
@@ -93,4 +93,4 @@ Service Fabric 与 [Visual Studio Team Services](https://www.visualstudio.com/te
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update link -->

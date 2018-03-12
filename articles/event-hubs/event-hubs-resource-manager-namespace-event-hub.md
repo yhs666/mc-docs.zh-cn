@@ -12,20 +12,20 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 10/09/2017
-ms.date: 11/20/2017
+origin.date: 01/30/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 97389cbd0d5a6fc9a56dd5b5fa893905afb6900a
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: b708525f546552bc97da4846f00ea75ecfd8775c
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建包含事件中心和使用者组的事件中心命名空间
 
-本文介绍如何使用 Azure Resource Manager 模板创建包含一个事件中心和一个使用者组的事件中心类型的命名空间。 本文介绍如何定义要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求
+本文介绍如何使用 Azure 资源管理器模板创建包含一个事件中心和一个使用者组的[事件中心](event-hubs-what-is-event-hubs.md)类型命名空间。 本文介绍如何定义要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求。
 
-有关创建模板的详细信息，请参阅 [创作 Azure Resource Manager 模板][Authoring Azure Resource Manager templates]。
+有关创建模板的信息，请参阅[创作 Azure 资源管理器模板][Authoring Azure Resource Manager templates]。
 
 有关完整的模板，请参阅 GitHub 上的[事件中心和使用者组模板][Event Hub and consumer group template]。
 
@@ -38,13 +38,11 @@ ms.lasthandoff: 11/15/2017
 
 使用此模板，将部署包含事件中心和使用者组的事件中心命名空间。
 
-[事件中心](event-hubs-what-is-event-hubs.md)是一种事件处理服务，用于向 Azure 提供大规模的事件与遥测数据入口，并且具有较低的延迟和较高的可靠性。
-
 若要自动运行部署，请单击以下按钮：
 
 [![部署到 Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
-## <a name="parameters"></a>Parameters
+## <a name="parameters"></a>parameters
 
 使用 Azure Resource Manager，可以定义在部署模板时想要指定的值的参数。 该模板具有一个名为 `Parameters` 的部分，其中包含所有参数值。 应为随着要部署的项目或要部署到的环境而变化的值定义参数。 不要为永远保持不变的值定义参数。 模板中的每个参数值定义所部署的资源。
 
@@ -92,7 +90,7 @@ ms.lasthandoff: 11/15/2017
 
 ## <a name="resources-to-deploy"></a>要部署的资源
 
-创建包含一个事件中心和一个使用者组的 **EventHubs** 类型的命名空间。
+创建包含事件中心和使用者组的类型为 **EventHubs** 的命名空间：
 
 ```json
 "resources":[  
@@ -154,6 +152,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>后续步骤
+
 访问以下链接可以了解有关事件中心的详细信息：
 
 * [事件中心概述](event-hubs-what-is-event-hubs.md)

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 10/10/2017
-ms.date: 12/11/2017
+origin.date: 02/14/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: c4ba443e818ca1f018f4d21bce7d182d461e0436
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: bd7513d4551abeeb58f09fe68cedb88ec9a3ec9b
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services 示例
 使用以下示例资源可帮助了解 Analysis Services 并针对环境对其进行测试。

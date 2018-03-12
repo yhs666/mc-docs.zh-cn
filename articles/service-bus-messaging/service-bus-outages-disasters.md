@@ -1,5 +1,5 @@
 ---
-title: "使 Azure 服务总线应用程序免受服务中断和灾难影响 | Azure"
+title: "使 Azure 服务总线应用程序免受服务中断和灾难影响"
 description: "保护应用程序免受潜在服务总线故障影响的技术。"
 services: service-bus
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/06/2017
+origin.date: 01/30/2018
 ms.author: v-yiso
-ms.date: 11/13/2017
-ms.openlocfilehash: 62f551819a884b9de401ca3e4cbfaa34964b04a4
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.date: 03/12/2018
+ms.openlocfilehash: 9cf57e7cb6c7f7b05162ba5122a28512dab0d682
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>使应用程序免受服务总线中断和灾难影响的最佳实践
 任务关键型应用程序必须连续运行，即使是在计划外中断或灾难发生时。 本主题介绍可用于保护服务总线应用程序免受潜在的服务中断和灾难影响的技术。
@@ -31,12 +31,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="current-architecture"></a>当前体系结构
 服务总线使用多个消息存储空间来存储发送到队列或主题的消息。 将未分区的队列或主题分配到一个消息存储空间。 如果此消息存储空间不可用，则针对该队列或主题的所有操作都会失败。
 
-所有服务总线消息传送实体（队列、主题、中继）都位于隶属于数据中心的同一服务命名空间中。 服务总线不允许对数据进行自动异地复制，也不允许一个命名空间跨多个数据中心。
-
-## <a name="protecting-against-acs-outages"></a>针对 ACS 中断进行保护
-如果使用 ACS 凭据，则当 ACS 凭据不可用时，客户端无法再获取令牌。 ACS 出现故障时具有令牌的客户端可以在令牌到期前继续使用服务总线。 默认令牌生存期为 3 小时。
-
-若要针对 ACS 中断进行保护，请使用共享访问签名 (SAS) 令牌。 在这种情况下，客户端使用密钥对自创令牌进行签名，从而与服务总线直接进行身份验证。 不再需要调用 ACS。 有关 SAS 令牌的详细信息，请参阅[服务总线身份验证][Service Bus authentication]。
+所有服务总线消息传送实体（队列、主题、中继）都位于隶属于数据中心的同一服务命名空间中。 当前，[服务总线支持命名空间级别的异地灾难恢复和异地复制](service-bus-geo-dr.md)。
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>保护队列和主题免受消息存储空间故障的影响
 将未分区的队列或主题分配到一个消息存储空间。 如果此消息存储空间不可用，则针对该队列或主题的所有操作都会失败。 另一方面，分区的队列包括多个片段。 每个片段存储在不同的消息存储空间中。 当向分区的队列或主题发送消息时，服务总线会将该消息分配到其中一个片段。 如果相应的消息存储空间不可用，则服务总线会将消息写入另一片段（如有可能）。 有关分区实体的详细信息，请参阅 [分区消息传送实体][Partitioned messaging entities]。
@@ -93,8 +88,8 @@ ms.lasthandoff: 11/03/2017
   [Service Bus Authentication]: ./service-bus-authentication-and-authorization.md
   [Partitioned messaging entities]: ./service-bus-partitioning.md
   [Asynchronous messaging patterns and high availability]: ./service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
-  [BrokeredMessage.MessageId]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
-  [BrokeredMessage.Label]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label
+[BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
+[BrokeredMessage.Label]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label
 [Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
   [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
   [Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md

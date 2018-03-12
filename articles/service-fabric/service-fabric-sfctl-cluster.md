@@ -9,17 +9,17 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 09/22/2017
-ms.date: 12/04/2017
+origin.date: 02/22/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 777163328d9862e43a357516acd067371b82d6c7
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 6cafcfef4a6bb28d2192677f7faa8eae43b1fb90
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 选择、管理和操作 Service Fabric 群集。
@@ -69,7 +69,7 @@ ms.lasthandoff: 12/01/2017
 | --help -h                      | 显示此帮助消息并退出。|
 | --output -o                    | 输出格式。  允许的值：json、jsonc、table、tsv。 默认值：json。|
 | --query                        | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
-| --verbose                      | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。|
+| --verbose                      | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-cluster-manifest"></a>sfctl cluster manifest
 获取 Service Fabric 群集清单。
@@ -90,7 +90,7 @@ ms.lasthandoff: 12/01/2017
 | --help -h| 显示此帮助消息并退出。|
 | --output -o | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
 | --query  | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
-| --verbose| 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。|
+| --verbose| 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-cluster-provision"></a>sfctl cluster provision
 预配 Service Fabric 群集的代码包或配置包。
@@ -112,7 +112,7 @@ ms.lasthandoff: 12/01/2017
 | --help -h  | 显示此帮助消息并退出。|
 | --output -o| 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
 | --query | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
-| --verbose  | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。|
+| --verbose  | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
 连接到 Service Fabric 群集终结点。
@@ -139,12 +139,12 @@ ms.lasthandoff: 12/01/2017
 | --help -h         | 显示此帮助消息并退出。|
 | --output -o       | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
 | --query           | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
-| --verbose         | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。|
+| --verbose         | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-cluster-unprovision"></a>sfctl cluster unprovision
 取消预配 Service Fabric 群集的代码包或配置包。
 
-取消预配 Service Fabric 群集的代码包或配置包。
+取消预配 Service Fabric 群集的代码包或配置包。 支持分别取消预配代码和配置。
 
 ### <a name="arguments"></a>参数
 |参数|说明|
@@ -160,7 +160,7 @@ ms.lasthandoff: 12/01/2017
 | --help -h       | 显示此帮助消息并退出。|
 | --output -o     | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
 | --query         | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
-| --verbose       | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。|
+| --verbose       | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-cluster-upgrade"></a>sfctl cluster upgrade
 开始升级 Service Fabric 群集的代码或配置版本。
@@ -203,4 +203,4 @@ ms.lasthandoff: 12/01/2017
 - [安装](service-fabric-cli.md) Service Fabric CLI。
 - 了解如何通过[示例脚本](/service-fabric/scripts/sfctl-upgrade-application)使用 Service Fabric CLI。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update -->

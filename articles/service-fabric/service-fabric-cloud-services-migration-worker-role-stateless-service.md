@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/02/2017
-ms.date: 12/04/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: be56a7e72b8a95cb93ab676529cdb3790fbf559b
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 4eb9f9c95cab3fdb8955112dd4b9e336b979832c
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>将 Web 角色和辅助角色转换为 Service Fabric 无状态服务的指南
 本文说明如何将云服务的 Web 角色和辅助角色迁移到 Service Fabric 无状态服务。 对于整体体系结构大致保持相同的应用程序来说，这是从云服务迁移到 Service Fabric 的最简单路径。
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/01/2017
 | 为客户端请求打开侦听器 |不适用 |<ul><li> 适用于无状态服务的 `CreateServiceInstanceListener()`</li><li>适用于有状态服务的 `CreateServiceReplicaListener()`</li></ul> |
 
 ### <a name="worker-role"></a>辅助角色
-```C#
+```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
 
@@ -82,7 +82,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="service-fabric-stateless-service"></a>Service Fabric 无状态服务
-```C#
+```csharp
 
 using System.Collections.Generic;
 using System.Threading;
@@ -137,9 +137,9 @@ Service Fabric 为侦听客户端请求的服务提供可选的通信设置入�
 
 ### <a name="accessing-configuration"></a>访问配置
 #### <a name="cloud-services"></a>云服务
-可通过 `RoleEnvironment` 访问 ServiceConfiguration.*.cscfg 中的配置设置。 这些设置可全局提供给同一云服务部署中的所有角色实例。
+可通过 `RoleEnvironment` 访问 ServiceConfiguration.*.cscfg 中的配置设置。 这些设置可全局提供给同一云服务部署中的所有角色实例使用。
 
-```C#
+```csharp
 
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
@@ -150,7 +150,7 @@ string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
 通过服务的 `CodePackageActivationContext`可在每个服务实例中访问配置设置。
 
-```C#
+```csharp
 
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
@@ -171,7 +171,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 #### <a name="cloud-services"></a>云服务
 当环境中发生更改（例如配置更改）时，使用 `RoleEnvironment.Changed` 事件来通知所有角色实例。 通过此事件可以使用配置更新，无需回收角色实例或重新启动辅助角色进程。
 
-```C#
+```csharp
 
 RoleEnvironment.Changed += RoleEnvironmentChanged;
 
@@ -192,7 +192,7 @@ foreach (var settingChange in settingChanges)
 
 通过这些事件可以使用服务包中的更改，无需重新启动服务实例。
 
-```C#
+```csharp
 
 this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
@@ -262,4 +262,4 @@ Service Fabric 中的启动入口点是在 ServiceManifest.xml 中针对每个�
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

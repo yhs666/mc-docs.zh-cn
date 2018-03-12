@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/05/2017
-ms.date: 11/20/2017
+origin.date: 01/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 265d1dd0b3143f46cfe39ff81f8aadef9eed9b21
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 2745d35054167df642f47d8e9fc2704593327221
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>自动增加 Azure 事件中心吞吐量单位
 
-Azure 事件中心是高度可缩放的数据流式处理平台。 因此，事件中心客户通常会在加入该服务后提高自己的使用量。 要提高使用量需要增加预先确定的吞吐量单位，从而扩展事件中心和处理更大的传输速率。 事件中心的自动膨胀功能可自动增加吞吐量单位数，以便满足使用量需求。 增加吞吐量单位数可防止出现限制情况，在这些情况下：
+Azure 事件中心是高度可缩放的数据流式处理平台。 因此，开始使用该服务后事件中心使用量通常会增加。 这样的使用量需要增加预先确定的吞吐量单位，从而扩展事件中心和处理更大的传输速率。 事件中心的自动膨胀功能可自动增加吞吐量单位数，以便满足使用量需求。 增加吞吐量单位数可防止出现限制情况，在这些情况下：
 
 * 数据入口速率超过设置的吞吐量单位数。
 * 数据出口请求速率超过设置的吞吐量单位数。
@@ -38,20 +38,20 @@ Azure 事件中心是高度可缩放的数据流式处理平台。 因此，事�
 
 ## <a name="enable-auto-inflate-on-a-namespace"></a>在命名空间上启用自动膨胀
 
-可使用下列方法之一在命名空间上启用或禁用自动膨胀：
+可使用下列方法之一在事件中心命名空间上启用或禁用自动膨胀：
 
 1. [Azure 门户](https://portal.azure.cn)。
 2. Azure 资源管理器模板。
 
 ### <a name="enable-auto-inflate-through-the-portal"></a>通过门户启用自动膨胀
 
-创建事件中心命名空间时，可在命名空间上启用自动膨胀功能：
+创建事件中心命名空间时，可启用自动膨胀功能：
 
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
-启用此选项后，可从少量吞吐量单位开始并随所需使用量的增长而增加。 膨胀的上限不会影响定价，定价取决于每小时使用的吞吐量单位数。
+启用此选项后，可从少量吞吐量单位开始并随所需使用量的增长而增加。 膨胀的上限不会立即影响定价，定价取决于每小时使用的吞吐量单位数。
 
-还可以使用门户中“设置”边栏选项卡上的“缩放”选项启用自动膨胀：
+还可以使用门户中“设置”窗格上的“缩放”选项启用自动膨胀：
 
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
 
@@ -107,6 +107,4 @@ Azure 事件中心是高度可缩放的数据流式处理平台。 因此，事�
 访问以下链接可以了解有关事件中心的详细信息：
 
 * [事件中心概述](event-hubs-what-is-event-hubs.md)
-* [创建事件中心](event-hubs-create.md)
-
-<!--Update_Description: new articles on event hubs auto inflate -->
+<!--Update_Description: update meta properties, wording update -->

@@ -1,6 +1,6 @@
 ---
-title: "监视资源管理器部署的虚拟机备份 | Microsoft Docs"
-description: "监视资源管理器部署的虚拟机备份生成的事件和警报。 基于警报发送电子邮件。"
+title: "监视 Azure 虚拟机的备份警报 | Microsoft Docs"
+description: "监视 Azure 虚拟机备份作业的事件和警报。 基于警报发送电子邮件。"
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/21/2016
-ms.date: 01/05/2018
+origin.date: 02/23/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: c29c46934f975e0a20164e36d41431b16f3214db
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 61cf5b1120c55f0ccac7efeb7a399d9c930bae77
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>监视 Azure 虚拟机备份的警报
 警报是服务发出的响应，指出已达到或超过了某个事件阈值。 了解问题何时开始出现可能是控制业务成本的关键所在。 警报通常不会按计划发生，因此在警报发生后尽快知晓会很有用。 例如，当备份或还原作业失败时，在失败后的 5 分钟内发生警报。 在保管库仪表板中，“备份警报”磁贴显示了“关键”和“警告”级别的事件。 在“备份警报”设置中，可以查看所有事件。 但是，如果在处理某个单独的问题时发生警报，该怎么办呢？ 如果不知道警报何时发生，则无法确定相关的问题只是一个小小的麻烦，还是会导致数据透露。 为了确保适当的人员能够意识到发生了警报（何时发生警报），可以将服务配置为通过电子邮件发送警报通知。 有关设置电子邮件通知的详细信息，请参阅 [Configure notifications](backup-azure-monitor-vms.md#configure-notifications)（配置通知）。
@@ -71,9 +71,9 @@ ms.lasthandoff: 01/11/2018
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Azure IaaS VM 备份有哪些警报类型？
    | 警报级别 | 发送的警报 |
    | --- | --- |
-   | 关键 |备份失败、恢复失败 |
-   | 警告 |无 |
-   | 信息性 |无 |
+   | 关键 | 适用于备份失败、恢复失败 |
+   | 警告 | 适用于备份作业已成功但出现警告（例如：创建快照时某些写入程序失败） |
+   | 信息性 | 目前，信息性警报不可用于 Azure VM 备份 |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>是否存在即使配置了通知，也不发送电子邮件的情况？
 有些情况下，即使通知已正确配置，也不发送警报。 在以下情况下，不会发送电子邮件通知以避免警报噪音：

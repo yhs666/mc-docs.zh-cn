@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/09/2017
-ms.date: 09/11/2017
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8cc43a284a033d2bb2ccd8e27aacc29f578d8d81
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 6d317debdd176af1b0713bfa1face5ed253afe3e
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="reliable-services-overview"></a>Reliable Services 概述
 Azure Service Fabric 可简化无状态和有状态 Reliable Services 的编写与管理。 本主题的内容：
@@ -44,7 +44,7 @@ Reliable Services 可提供简单且功能强大的顶级编程模型，以便�
   * ...以及访问其他许多功能，所有这些操作都可通过使用多种编程语言编写的一流编程模型执行。
 * 类似于用户所习惯编程模型的简单模型，用于运行自己的代码。 代码具有定义完善的入口点和易于管理的生命周期。
 * 可插式通信模型。 使用选择的传输方式，如包含 [Web API](service-fabric-reliable-services-communication-webapi.md) 的 HTTP、WebSockets、自定义 TCP 协议，等等。 Reliable Services 提供一些极佳的自带选项供选用，但也可以提供自己的选项。
-* 对于有状态服务，Reliable Services 编程模型允许使用 [Reliable Collections](service-fabric-reliable-services-reliable-collections.md) 直接在服务内以一致、可靠的方式存储状态。 Reliable Collections 是一组简单的高度可用、可靠集合类，用过 C# 集合的用户都对它很熟悉。 按照惯例，服务需借助外部系统来进行可靠的状态管理。 利用 Reliable Collections，可将状态存储在计算旁边，获得高可用性外部存储一样的高可用性和可靠性。 此模型还能改善延迟问题，因为可将运行此模型所需的计算资源与状态放置在一起。
+* 对于有状态服务，Reliable Services 编程模型允许使用 [Reliable Collections](service-fabric-reliable-services-reliable-collections.md) 直接在服务内以一致、可靠的方式存储状态。 Reliable Collections 是一组简单的高度可用、可靠集合类，用过 C# 集合的用户都对它很熟悉。 一直以来，服务需借助外部系统来进行可靠的状态管理。 利用 Reliable Collections，可将状态存储在计算旁边，获得高可用性外部存储一样的高可用性和可靠性。 此模型还能改善延迟问题，因为可将运行此模型所需的计算资源与状态放置在一起。
 
 <!-- Not Available Watch this Microsoft Virtual Academy video for an overview of Reliable services -->
 
@@ -89,7 +89,7 @@ Service Fabric 中常见的无状态服务使用示例是作为前端，它公�
 > Linux（适用于 C# 或 Java）不提供对有状态 Reliable Services 的支持。
 >
 
-假设我们要编写一个服务来处理映像。 为此，该服务将提取一个映像，并针对该映像执行一系列转换。 此服务会返回一个可公开 API（如 `ConvertImage(Image i, IList<Conversion> conversions)`）的通信侦听器（假设为 Web API）。 在收到请求时，服务将请求存储在 `IReliableQueue` 中，并将某个 ID 返回给客户端，使它能够跟踪该请求。
+假设我们要编写一个服务来处理映像。 为此，该服务将提取一个映像，然后针对该映像执行一系列转换。 此服务会返回一个可公开 API（如 `ConvertImage(Image i, IList<Conversion> conversions)`）的通信侦听器（假设为 Web API）。 在收到请求时，服务将请求存储在 `IReliableQueue` 中，并将某个 ID 返回给客户端，使它能够跟踪该请求。
 
 在此服务中，`RunAsync()` 可能更复杂。 服务在其 `RunAsync()` 内部使用一个循环从 `IReliableQueue` 中提取请求并执行请求的转换。 结果存储在 `IReliableDictionary` 中，以便当客户端返回时可以获取其转换后的映像。 为了确保即使发生故障映像也不丢失，此 Reliable Services 将从队列提取数据、执行转换，并将整个结果存储在事务中。 在此情况下，仅当转换完成时，才会从队列中删除消息并将结果存储在结果字典中。 或者，服务可从队列中提取映像，并立即将其存储在远程存储中。 这可以减少服务必须管理的状态数量，但会增大复杂性，因为服务必须保留必要的元数据来管理远程存储。 不管使用哪种方法，如果某个环节在中途失败，请求将保留在队列中等待处理。
 

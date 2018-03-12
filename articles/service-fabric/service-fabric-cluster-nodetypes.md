@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/05/2017
-ms.date: 10/02/2017
+origin.date: 02/05/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: adbef23934717e62a2328fcc369c4aed82f0e70b
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 61b1c979283d7935a51d0dd105c61cd263a837f9
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 节点类型与虚拟机规模集
 虚拟机规模集是一种 Azure 计算资源。 可使用规模集以集的形式部署和管理虚拟机集合。 为在 Azure Service Fabric 群集中定义的每个节点类型设置独立规模集。 可独立增加或减少每个节点类型、打开不同的端口集，并使用不同的容量指标。
@@ -151,4 +151,4 @@ ms.lasthandoff: 09/28/2017
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
 
-<!--Update_Description: update meta properties, wording update, add feature on Change the RDP user name and password for nodes-->
+<!--Update_Description: update meta properties, wording update -->

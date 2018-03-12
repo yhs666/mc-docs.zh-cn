@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 10/30/2017
-ms.date: 12/11/2017
+origin.date: 02/02/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 849d0344d4ce9ffe4d77679994f8682edc620d60
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: a7682b2492b6deae7d74e773347650e6bac1d002
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>使用 Azure 本地数据网关连接到本地数据源
 本地数据网关的作用好似一架桥，提供本地数据源与云中的 Azure Analysis Services 服务器之间的安全数据传输。 除了在同一区域中使用多个 Azure Analysis Services 服务器，最新版本的网关也适用于 Azure 逻辑应用、Power BI、Power Apps 和 Microsoft Flow。 可将同一区域中的多个服务与单个网关相关联。 
@@ -29,11 +29,11 @@ ms.lasthandoff: 12/08/2017
 
 - **下载并运行安装程序** - 此步骤在组织中的计算机上安装网关服务。 还在[租户的](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD 中使用帐户登录到 Azure。 不支持 Azure B2B（来宾）帐户。
 
-- **注册网关** - 在此步骤中指定网关的名称和恢复密钥，选择区域，并将网关注册到网关云服务。 网关资源**必须在 Analysis Services 服务器所在的同一区域中注册**。 
+- **注册网关** - 在这一步中，指定网关的名称和恢复密钥，然后选择区域，在网关云服务中注册你的网关。 网关资源可以注册在任何区域中，但我们建议处于与 Analysis Services 服务器位于同一区域。 
 
 - **在 Azure 中创建网关资源** - 此步骤在 Azure 订阅中创建网关资源。
 
-- **将服务器连接到网关资源** - 在订阅中创建网关资源后，可以开始将服务器连接到该资源。 可以将多个服务器和其他资源连接到它，前提是它们在该区域中。
+- **将服务器连接到网关资源** - 在订阅中创建网关资源后，可以开始将服务器连接到该资源。 可以将多个服务器和其他资源连接到它。
 
 若要立即开始，请参阅[安装并配置本地数据网关](analysis-services-gateway-install.md)。
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 12/08/2017
 
 查询和数据流：
 
-1. 查询是通过使用本地数据源的加密凭据进行创建的。 查询随后会发送到队列让网关处理。
+1. 查询是云服务使用本地数据源的加密凭据创建的。 查询随后会发送到队列让网关处理。
 2. 网关云服务分析该查询，并将请求推送到 [Azure 服务总线](/service-bus/)。
 3. 本地数据网关会针对挂起的请求轮询 Azure 服务总线。
 4. 网关获取查询，对凭据进行解密，并使用这些凭据连接到数据源。
@@ -134,7 +134,7 @@ ms.lasthandoff: 12/08/2017
 **答**：否。 该 Windows 服务必须具有有效的 Windows 帐户。 默认情况下，服务使用服务 SID“NT SERVICE\PBIEgwService”来运行。
 
 **问**：如何接管网关？ <br/>
-**答**：若要接管网关（方法是在“控制面板”>“程序”中运行“设置/更改”），你需要成为 Azure 中网关资源的所有者并且需要拥有恢复密钥。 可在访问控制中配置网管资源所有者。
+**答**：要接管网关（通过在“控制面板”>“程序”中运行“安装程序”/“更改”），你需要成为 Azure 中网关资源的所有者并且需要拥有恢复密钥。 可在访问控制中配置网管资源所有者。
 
 <a name="high-availability"></a>
 ### <a name="high-availability-and-disaster-recovery"></a>高可用性和灾难恢复
@@ -148,7 +148,7 @@ ms.lasthandoff: 12/08/2017
 ## <a name="troubleshooting"></a>故障排除
 
 **Q**：尝试在 Azure 中创建网关资源时，为什么在网关实例列表中看不到我的网关？ <br/>
-**答**：有两种可能的原因。 第一种可能性是已在当前或某个其他订阅中为该网关创建了资源。 若要消除该可能性，请从门户枚举“本地数据网关”类型的资源。 枚举所有资源时，请确保选择所有订阅。 请注意，创建资源后，该网关将不会出现在“创建网关资源”门户体验的网关实例列表中。 第二种可能性是安装了该网关的用户的 Azure AD 标识与登录到 Azure 门户的用户不同。 若要解决此问题，请使用与安装了网关的用户相同的帐户登录到门户。
+**答**：有两种可能的原因。 第一种可能性是已在当前或某个其他订阅中为该网关创建了资源。 若要消除该可能性，请从门户枚举“本地数据网关”类型的资源。 枚举所有资源时，请确保选择所有订阅。 创建资源后，该网关将不会出现在“创建网关资源”门户体验的网关实例列表中。 第二种可能性是安装该网关的用户的 Azure AD 标识与登录到 Azure 门户的用户不同。 若要解决此问题，请使用安装该网关的用户帐户登录到门户。
 
 **问**：如何查看正在发送到本地数据源的查询？ <br/>
 **答**：可以启用查询跟踪（包括已发送的查询）。 请记得在完成故障排除后将查询跟踪改回原始值。 一直保持启用查询跟踪会创建大量的日志。
@@ -204,4 +204,4 @@ ms.lasthandoff: 12/08/2017
 * [管理 Analysis Services](analysis-services-manage.md)
 * [从 Azure Analysis Services 获取数据](analysis-services-connect.md)
 
-<!--Update_Description: update meta properties, add new question about how do I takeover a gateway. -->
+<!--Update_Description: update meta properties, wording update -->

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/11/2017
-ms.date: 02/26/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 694fc5038a96ae9df40e8733103c99fc198d3f0d
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: b1ccc2c551eae654cd71fe521367b6718cbca05b
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>使用系统运行状况报告进行故障排除
 Azure Service Fabric 组件提供有关现成群集中所有实体的系统运行状况报告。 [运行状况存储](service-fabric-health-introduction.md#health-store)根据系统报告来创建和删除实体。 它还将这些实体组织为层次结构以捕获实体交互。
@@ -70,7 +70,7 @@ Azure Service Fabric 组件提供有关现成群集中所有实体的系统运�
 * 后续步骤：调查节点之间的网络连接，以及在运行状况报告的说明中列出的任何特定节点的状态。
 
 ## <a name="node-system-health-reports"></a>节点系统运行状况报告
-**System.FM**表示故障转移管理器 (Failover Manager) 服务，是管理群集节点信息的主管服务。 每个节点应该都有一个来自 System.FM 的报告，显示其状态。 节点实体随节点状态一起删除。 有关详细信息，请参阅 [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync)。
+**System.FM**表示故障转移管理器 (Failover Manager) 服务，是管理群集节点信息的主管服务。 每个节点应该都有一个来自 System.FM 的报告，显示其状态。 节点实体随节点状态一起删除。 有关详细信息，请参阅 [RemoveNodeStateAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync?view=azure-dotnet)。
 
 ### <a name="node-updown"></a>节点开启/节点关闭
 节点加入环时，System.FM 报告为正常（节点已启动且正在运行）。 节点离开环时，则报告错误（节点已关闭进行升级，或只是发生故障）。 运行状况存储生成的运行状况层次结构对与 System.FM 节点报告相关的已部署实体起作用。 它将节点视为所有已部署实体的虚拟父项。 如果 System.FM 报告节点已启动并且其实例与实体关联的实例相同，则可以通过查询公开该节点上已部署的实体。 如果 System.FM 报告节点停止运行或重启（作为新实例），运行状况存储会自动清理只能位于停止运行的节点或节点的上一实例上的已部署实体。
@@ -629,6 +629,20 @@ HealthEvents          :
 
 - **IReplicator.BuildReplica (<Remote ReplicaId>)**：此警告指明生成过程有问题。 有关详细信息，请参阅[副本生命周期](service-fabric-concepts-replica-lifecycle.md)。 这可能是由于复制器地址配置错误所致。 有关详细信息，请参阅[配置有状态可靠服务](service-fabric-reliable-services-configuration.md)和[在服务清单中指定资源](service-fabric-service-manifest-resources.md)。 也可能是远程节点有问题。
 
+### <a name="replicator-system-health-reports"></a>复制器系统运行状况报告
+**复制队列已满：**如果复制队列已满，则 
+System.Replicator 报告警告。 在主要副本上，由于一个或多个次要副本确认操作的速度较慢，复制队列通常会达到已满状态。 辅助副本上服务应用操作的速度较慢时，通常会发生这种情况。 队列不再满时，警告会被清除。
+
+* **SourceId**：System.Replicator
+* **属性**：PrimaryReplicationQueueStatus 或 SecondaryReplicationQueueStatus（视副本角色而定）。
+* **后续步骤**：如果报告位于主要副本上，请检查群集中节点间的连接。 如果所有连接都正常，则可能至少有一个慢速次要副本在应用操作时具有高磁盘延迟。 如果报告位于次要副本上，请首先检查节点上的磁盘使用情况和性能，然后检查慢速节点到主要副本之间的传出连接。
+
+**RemoteReplicatorConnectionS状态：**当辅助（远程）复制器的连接不正常时，主要副本上的
+**System.Replicator** 会报告警告。 报告的信息中会显示远程复制器的地址，这样可以更方便地检测是否传入了错误的配置，或者复制器之间是否存在网络问题。
+
+* **SourceId**：System.Replicator
+* **属性**：**RemoteReplicatorConnectionStatus**
+* **下一步**：请检查错误消息，确保正确配置远程复制器地址（例如，如果使用“localhost”侦听地址打开了远程复制器，则它不可从外部访问）。 如果地址看上去正确，请检查主节点和远程地址间的连接，以找出任何潜在的网络问题。
 ### <a name="replication-queue-full"></a>复制队列已满
 如果复制队列已满，则 **System.Replicator** 报告警告。 在主要副本上，由于一个或多个次要副本确认操作的速度较慢，复制队列通常会达到已满状态。 辅助副本上服务应用操作的速度较慢时，通常会发生这种情况。 队列不再满时，警告会被清除。
 
@@ -636,7 +650,7 @@ HealthEvents          :
 * **属性**：PrimaryReplicationQueueStatus 或 SecondaryReplicationQueueStatus（视副本角色而定）。
 
 ### <a name="slow-naming-operations"></a>命名操作速度慢
-如果命名操作耗时超过可接受范围，System.NamingService 会报告主要副本的运行状况。 [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) 或 [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync) 都是命名操作的示例。 在 FabricClient 下可找到更多方法，例如，可在[服务管理方法](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient)或[属性管理方法](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient)下找到更多方法。
+如果命名操作耗时超过可接受范围，System.NamingService 会报告主要副本的运行状况。 [CreateServiceAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet) 或 [DeleteServiceAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync?view=azure-dotnet) 都是命名操作的示例。 在 FabricClient 下可找到更多方法，例如，可在[服务管理方法](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.servicemanagementclient?view=azure-dotnet)或[属性管理方法](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.propertymanagementclient?view=azure-dotnet)下找到更多方法。
 
 > [!NOTE]
 > 命名服务将服务名称解析到群集中的某个位置，并允许用户管理服务名称和属性。 它是 Service Fabric 分区持久化服务。 其中一个分区代表“颁发机构所有者”，内含与所有 Service Fabric 名称和服务相关的元数据。 Service Fabric 名称映射到不同的分区，这些分区称为“名称所有者”分区，因此服务是可扩展的。 有关详细信息，请参阅[命名服务](service-fabric-architecture.md)。
@@ -841,5 +855,5 @@ HealthEvents               :
 
 [Service Fabric 应用程序升级](service-fabric-application-upgrade.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, update link, wording update -->
 

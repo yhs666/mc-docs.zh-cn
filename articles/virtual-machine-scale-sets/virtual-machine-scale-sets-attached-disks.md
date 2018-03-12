@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 04/25/2017
-ms.date: 01/29/2018
+ms.date: 03/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: fb908927d70fa09ebb3d5761a43b2911e534a57b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: b35622237af42e6b50cb916897c0853574fa768c
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure 虚拟机规模集和附加数据磁盘
 Azure [虚拟机规模集](/virtual-machine-scale-sets/)现在支持对虚拟机附加数据磁盘。 对于使用 Azure 托管磁盘创建的规模集，可以在存储配置文件中定义数据磁盘。 以前，适用于规模集中 VM 的唯一直接附加存储选项是 OS 驱动器和临时驱动器。
@@ -29,14 +29,14 @@ Azure [虚拟机规模集](/virtual-machine-scale-sets/)现在支持对虚拟机
 >  创建具有已定义附加数据磁盘的规模集时，仍然需要从 VM 中装载和格式化这些磁盘才能使用它们（就像独立 Azure VM 一样）。 若要完成此过程，可使用自定义脚本扩展来调用标准脚本，将 VM 中的所有数据磁盘分区和格式化，这是一种很方便的方法。
 
 ## <a name="create-a-scale-set-with-attached-data-disks"></a>创建具有附加数据磁盘的规模集
-若要创建包含附加磁盘的规模集，一种简单的方式是使用 [az vmss create](/cli/vmss#create) 命令。 以下示例创建一个 Azure 资源组，以及一个包含 10 个 Ubuntu VM 的虚拟机规模集，每个 VM 有 2 个附加数据磁盘，分别为 50 GB 和 100 GB。
+若要创建包含附加磁盘的规模集，一种简单的方式是使用 [az vmss create](/cli/vmss#az_vmss_create) 命令。 以下示例创建一个 Azure 资源组，以及一个包含 10 个 Ubuntu VM 的虚拟机规模集，每个 VM 有 2 个附加数据磁盘，分别为 50 GB 和 100 GB。
 
 ```bash
 az group create -l chinanorth -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-[az vmss create](/cli/vmss#create) 命令会对某些配置值进行默认设置（如果用户未指定这些值）。 若要查看可以重写的可用选项，请尝试：
+[az vmss create](/cli/vmss#az_vmss_create) 命令会对某些配置值进行默认设置（如果用户未指定这些值）。 若要查看可以重写的可用选项，请尝试：
 
 ```bash
 az vmss create --help
@@ -62,6 +62,59 @@ az vmss create --help
 ```
 
 可以在此处看到完整的具有已定义附加磁盘的规模集模板，该模板已准备就绪可进行部署： [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data)。
+
+## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>使用附加的数据磁盘创建 Service Fabric 群集
+在 Azure 中运行的 [Service Fabric](/service-fabric) 群集中的每个[节点类型](../service-fabric/service-fabric-cluster-nodetypes.md)都受虚拟机规模集的支持。  可以使用 Azure 资源管理器模板将数据磁盘附加到组成 Service Fabric 群集的规模集。 可以使用[现有模板](https://github.com/Azure-Samples/service-fabric-cluster-templates)作为起点。 在模板中包括 _Microsoft.Compute/virtualMachineScaleSets_ 资源的 _storageProfile_ 中的 _dataDisks_ 节，然后部署模板。 以下示例附加一个 128 GB 的数据磁盘：
+
+```json
+"dataDisks": [
+    {
+    "diskSizeGB": 128,
+    "lun": 0,
+    "createOption": "Empty"
+    }
+]
+```
+
+可以在部署群集时自动对数据磁盘执行分区、格式化和装载操作。  向规模集的 _virtualMachineProfile_ 的 _extensionProfile_ 添加自定义脚本扩展。
+
+若要自动准备 Windows 群集中的数据磁盘，请添加以下代码：
+
+```json
+{
+    "name": "customScript",    
+    "properties": {    
+        "publisher": "Microsoft.Compute",    
+        "type": "CustomScriptExtension",    
+        "typeHandlerVersion": "1.8",    
+        "autoUpgradeMinorVersion": true,    
+        "settings": {    
+        "fileUris": [
+            "https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.ps1"
+        ],
+        "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File prepare_vm_disks.ps1"
+        }
+    }
+}
+```
+若要自动准备 Linux 群集中的数据磁盘，请添加以下代码：
+```json
+{
+    "name": "lapextension",
+    "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+        "fileUris": [
+            "https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"
+        ],
+        "commandToExecute": "bash prepare_vm_disks.sh"
+        }
+    }
+}
+```
 
 ## <a name="adding-a-data-disk-to-an-existing-scale-set"></a>将数据磁盘添加到现有规模集
 > [!NOTE]
@@ -117,8 +170,8 @@ Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScale
 ## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>将预先填充的数据磁盘添加到现有规模集 
 > 根据设计，在向现有的规模集模型添加磁盘时，创建的磁盘始终为空。 此方案还包括规模集创建的新实例。 之所以出现这样的行为，是因为规模集定义有一个空的数据磁盘。 若要为现有的规模集模型创建预先填充的数据驱动器，可以从后续的两个选项中随意选择一个：
 
-* 通过运行自定义脚本，将数据从实例 0 VM 复制到其他 VM 中的数据磁盘。
-* 使用 OS 磁盘和数据磁盘（以及必需的数据）创建一个托管映像，然后使用该映像创建新的规模集。 这样一来，每个新创建的 VM 都有一个数据磁盘，该磁盘是在规模集的定义中规定的。 由于该定义引用带数据磁盘的映像，且该磁盘包含自定义数据，因此规模集中每个虚拟机都带有这些更改。
+- 通过运行自定义脚本，将数据从实例 0 VM 复制到其他 VM 中的数据磁盘。
+- 使用 OS 磁盘和数据磁盘（以及必需的数据）创建一个托管映像，然后使用该映像创建新的规模集。 这样一来，每个新创建的 VM 都有一个数据磁盘，该磁盘是在规模集的定义中规定的。 由于该定义引用带数据磁盘的映像，且该磁盘包含自定义数据，因此规模集中每个虚拟机都带有这些更改。
 
 > 若要创建自定义映像，可参阅以下方法：[在 Azure 中创建通用 VM 的托管映像](/virtual-machines/windows/capture-image-resource/) 
 

@@ -12,15 +12,15 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 09/29/2017
-ms.date: 11/13/2017
+origin.date: 01/19/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1f989ad6a71aff5d81276de9711160639e90715a
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: d94bd1b840a35b110e8ce63f39fe408915cce5ac
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-service-fabric-cluster"></a>创建 Service Fabric 群集
 
@@ -76,7 +76,7 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzureRmServiceFabricCluster](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | 新建 Service Fabric 群集。 |
 

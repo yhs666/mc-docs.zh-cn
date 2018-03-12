@@ -1,5 +1,5 @@
 ---
-title: "在远程监视解决方案中检测设备问题 - Azure | Microsoft Docs"
+title: "在远程监视解决方案中检测设备问题"
 description: "本教程介绍如何使用规则和操作在远程监视解决方案中自动检测基于阈值的设备问题。"
 services: 
 suite: iot-suite
@@ -7,17 +7,17 @@ author: dominicbetts
 manager: timlt
 ms.author: v-yiso
 ms.service: iot-suite
-origin.date: 12/12/2017
-ms.date: 01/08/2018
+origin.date: 02/22/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 5c6a1bd8b9316115d77024c637b678af130d4233
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: bee3530bcd8f9315ac6d2467fbbfdad79ea7b5a5
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>使用基于阈值的规则检测问题
 

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 01/04/2017
-ms.date: 02/26/2018
+origin.date: 02/14/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 114d8515656e8c4f96ead24ea0f9f56c5ad97f9d
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: b4ae8cf7d308589b775f240de8e895b8816d464d
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-analysis-services-overview"></a>Azure Analysis Services 概述
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/15/2017
-ms.date: 01/16/2018
+ms.date: 03/05/2018
 ms.author: v-junlch
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: f100085160a3f7319f4a734400e7ea667cd3bfc2
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: b5edba0197da3934f821ad3d64329d92286aebff
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Azure 多重身份验证有什么用途？
 假设 IT 部门的某位同事或老板向用户发送了一封电子邮件，指出他们已对用户帐户添加了附加安全验证。  那么，这是什么意思呢？
@@ -46,6 +46,8 @@ ms.lasthandoff: 01/17/2018
 | [设置体验](multi-factor-authentication-end-user-first-time.md) |介绍第一次设置多重身份验证的过程。 |
 | [登录体验](multi-factor-authentication-end-user-signin.md) |说明使用各种方法（例如电话或应用）登录时可以预期的情况。 |
 | [更改设置](multi-factor-authentication-end-user-manage-settings.md) |说明如何更改设置，例如电话号码或首选注册方法。 |
-| [使用移动应用](microsoft-authenticator-app-how-to.md) |Microsoft Authenticator 应用可用于 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073)。 |
+| [使用移动应用](microsoft-authenticator-app-how-to.md) |Microsoft 验证器应用适用于 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)。 |
 
 <!-- Update_Description: wording update -->
+
+<!--Update_Description: wording update -->

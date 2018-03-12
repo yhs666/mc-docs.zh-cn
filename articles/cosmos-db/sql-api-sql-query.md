@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/25/2017
-ms.date: 01/29/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9e3a6077bb9668da0b862930bb8caf70586fa098
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: ab27de820aa2c9e9ab63c5a0c9be8b3ea2c886b2
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 查询
 
@@ -40,7 +40,8 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 SQL API 帐户中
 
 然后，返回到本文中，我们将从 SQL 查询教程开始，指导完成一些简单的 JSON 文档和 SQL 命令。
 
-## <a id="GettingStarted"></a>Cosmos DB 中的 SQL 命令入门
+<a name="GettingStarted"></a>
+## <a name="getting-started-with-sql-commands-in-cosmos-db"></a>Cosmos DB 中的 SQL 命令入门
 为了解 Cosmos DB SQL 在工作时的情况，让我们以一些简单的 JSON 文档开始，并对它完成一些简单的查询。 考虑以下两个关于两个家庭的 JSON 文档。 使用 Cosmos DB 时不需要显式创建任何架构或辅助索引。 只需将 JSON 文档插入 Cosmos DB 集合中并随后进行查询。 这里，我们有一个包含 Andersen 家庭、父母、子女（以及他们的宠物）、地址和注册信息的简单 JSON 文档。 该文档拥有字符串、数字、布尔、数组和嵌套属性。 
 
 **文档**  
@@ -169,7 +170,8 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 SQL API 帐户中
 * Cosmos DB 仅支持严格的 JSON 文档。 这意味着类型系统和表达式仅限于处理 JSON 类型。 有关更多详细信息，请参阅 [JSON 规范](http://www.json.org/)。  
 * Cosmos DB 集合是 JSON 文档的一个无架构容器。 集合中，文档内和跨文档的数据实体的关系是按包含关系隐式捕获的，而不是按主键和外键关系。 考虑到稍后会在本文中讨论文档内联接，因此这是一个值得注意的重要方面。
 
-## <a id="Indexing"></a> Cosmos DB 索引
+<a name="Indexing"></a>
+## <a name="cosmos-db-indexing"></a>Cosmos DB 索引
 了解 SQL 语法之前，有必要先了解 Azure Cosmos DB 中的索引设计。 
 
 数据库索引的目的是在提供良好的吞吐量和低延迟的同时，以最小的资源消耗（如 CPU 和输入/输出）提供各种形式的查询。 通常，为查询数据库选择正确的索引需要大量的计划和试验。 此方法对数据不符合严格的架构并且快速发展的无架构数据库来说是一个挑战。 
@@ -184,7 +186,8 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 SQL API 帐户中
 
 有关演示如何为集合配置索引策略的示例，请参阅 MSDN 上的 [Azure Cosmos DB 示例](https://github.com/Azure/azure-documentdb-net)。 现在，让我们开始详细了解 Azure Cosmos DB SQL 语法。
 
-## <a id="Basics"></a>Azure Cosmos DB SQL 查询基础知识
+<a name="Basics"></a>
+## <a name="basics-of-an-azure-cosmos-db-sql-query"></a>Azure Cosmos DB SQL 查询基础知识
 每个查询按 ANSI-SQL 标准由 SELECT 子句和可选的 FROM 和 WHERE 子句组成。 通常，对于每个查询，已枚举 FROM 子句中的源。 然后将 WHERE 子句中的筛选器应用到源以检索 JSON 文档的子集。 最后，使用 SELECT 子句以投影选择列表中请求的 JSON 值。
 
     SELECT <select_list> 
@@ -192,7 +195,8 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 SQL API 帐户中
     [WHERE <filter_condition>]
     [ORDER BY <sort_specification]    
 
-## <a id="FromClause"></a>FROM 子句
+<a name="FromClause"></a>
+## <a name="from-clause"></a>FROM 子句
 `FROM <from_specification>` 子句是可选的，除非稍后在查询中对源进行筛选或投影。 此子句的目的在于指定必须对其执行查询的数据源。 通常情况下，整个集合作为源，但可以将集合的子集指定为源。 
 
 一个类似 `SELECT * FROM Families` 的查询指示整个家庭集合是要枚举的源。 特殊标识符 ROOT 可以用来表示集合，而不使用集合名称来表示。 以下列表包含每个查询需要强制执行的规则：
@@ -254,7 +258,8 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 SQL API 帐户中
       "NY"
     ]
 
-## <a id="WhereClause"></a>WHERE 子句
+<a name="WhereClause"></a>
+## <a name="where-clause"></a>WHERE 子句
 WHERE 子句（**`WHERE <filter_condition>`**）可选。 它指定由源提供的 JSON 文档必须满足的条件，以便作为结果的一部分包含在内。 任何 JSON 文档必须将指定的条件评估为“true”以作为结果。 WHERE 子句由索引层使用，以确定可以作为结果的一部分的源文档的绝对最小子集。 
 
 以下查询请求包含值为 `AndersenFamily`的名称属性的文档。 任何其他不具有名称属性或值与 `AndersenFamily` 不匹配的文档则被排除在外。 
@@ -580,14 +585,16 @@ IN 关键字可用于检查指定的值是否与列表中的任意值匹配。 �
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-### <a id="EscapingReservedKeywords"></a>带引号的属性访问器
+<a name="EscapingReservedKeywords"></a>
+### <a name="quoted-property-accessor"></a>带引号的属性访问器
 也可以使用带引号的属性运算符 `[]` 访问属性。 例如，由于再也无法解析标识符“Families”，因此 `SELECT c.grade` and `SELECT c["grade"]` 是等效的。 此语法在需要转义包含空格和特殊字符的属性或正好将相同的名称作为 SQL 关键字或保留字共享的属性时很有用。
 
     SELECT f["lastName"]
     FROM Families f
     WHERE f["id"] = "AndersenFamily"
 
-## <a id="SelectClause"></a>SELECT 子句
+<a name="SelectClause"></a>
+## <a name="select-clause"></a>SELECT 子句
 SELECT 子句 (**`SELECT <select_list>`**) 是强制性的，用于指定要从查询中检索的值，就如在 ANSI-SQL 中一样。 将在源文档顶端上筛选出来的子集传递给投影阶段，在其中检索指定的 JSON 值并为每个传递给它的输出构造新的 JSON 对象。 
 
 下面的示例演示了典型的 SELECT 查询。 
@@ -756,7 +763,8 @@ SQL API 的另一个重要功能是数组/对象创建。 请注意，在上一�
       }
     ]
 
-### <a id="ValueKeyword"></a>VALUE 关键字
+<a name="ValueKeyword"></a>
+### <a name="value-keyword"></a>VALUE 关键字
 **VALUE** 关键字提供一种返回 JSON 值的方法。 例如，下面所示的查询返回标量 `"Hello World"`，而不是 `{$1: "Hello World"}`。
 
 **查询**
@@ -834,7 +842,8 @@ SQL API 的另一个重要功能是数组/对象创建。 请注意，在上一�
         "isRegistered": true
     }]
 
-### <a id="TopKeyword"></a>TOP 运算符
+<a name="TopKeyword"></a>
+### <a name="top-operator"></a>TOP 运算符
 TOP 关键字可用于限制来自查询中的值的数量。 当 TOP 与 ORDER BY 子句配合使用时，结果集被限制为有序值的前 N 个数；否则，它会返回未定义排序的结果中的前 N 数。 在 SELECT 语句中，最佳做法是始终使用带有 TOP 子句的 ORDER BY 子句。 这是可预测指示受 TOP 影响的行的唯一方法。 
 
 **查询**
@@ -864,7 +873,8 @@ TOP 关键字可用于限制来自查询中的值的数量。 当 TOP 与 ORDER 
 
 可将 TOP 与常量值（如以上所示）或使用参数化查询的变量值配合使用。 有关更多详细信息，请参阅下面的参数化查询。
 
-### <a id="Aggregates"></a>聚合函数
+<a name="Aggregates"></a>
+### <a name="aggregate-functions"></a>聚合函数
 也可在 `SELECT` 子句中执行聚合操作。 聚合函数对一组值进行计算，返回单个值。 例如，以下查询返回集合中系列文档的计数。
 
 **查询**
@@ -914,13 +924,14 @@ TOP 关键字可用于限制来自查询中的值的数量。 当 TOP 与 ORDER 
 也可基于数组迭代的结果进行聚合。 有关详细信息，请参阅[查询中的数组迭代](#Iteration)。
 
 > [!NOTE]
-> 请注意，使用 Azure 门户的查询浏览器时，聚合查询可能会通过查询页返回部分聚合的结果。 SDK 跨所有页面生成单个累计值。 
+> 请注意，使用 Azure 门户的数据资源管理器时，聚合查询可能会通过查询页返回部分聚合的结果。 SDK 跨所有页面生成单个累计值。 
 > 
 > 若要使用代码执行聚合查询，用户需要 .NET SDK 1.12.0、.NET Core SDK 1.1.0，或者 Java SDK 1.9.5 或更高版本。    
 >
 
-## <a id="OrderByClause"></a>ORDER BY 子句
-如同在 ANSI-SQL 中一样，在查询时可以包含可选的 Order By 子句。 该子句可以包括可选的 ASC/DESC 参数以指定检索结果必须遵守的顺序。
+<a name="OrderByClause"></a>
+## <a name="order-by-clause"></a>ORDER BY 子句
+与在 ANSI-SQL 中一样，查询时可以包含可选的 Order By 子句。 该子句可以包括可选的 ASC/DESC 参数以指定检索结果必须遵守的顺序。
 
 例如，下面是按居住城市的名称检索家庭的查询。
 
@@ -964,9 +975,11 @@ TOP 关键字可用于限制来自查询中的值的数量。 当 TOP 与 ORDER 
       }
     ]
 
-## <a id="Advanced"></a>高级数据库概念和 SQL 查询
+<a name="Advanced"></a>
+## <a name="advanced-database-concepts-and-sql-queries"></a>高级数据库概念和 SQL 查询
 
-### <a id="Iteration"></a>迭代
+<a name="Iteration"></a>
+### <a name="iteration"></a>迭代
 在 SQL API 中通过 **IN** 关键字添加了一个新构造，以为遍历 JSON 数组提供支持。 FROM 源为迭代提供支持。 让我们从下面的示例开始：
 
 **查询**
@@ -1060,7 +1073,7 @@ TOP 关键字可用于限制来自查询中的值的数量。 当 TOP 与 ORDER 
       }
     ]
 
-### <a id="Joins"></a>联接
+### <a name="Joins"></a>联接
 在关系型数据库中，跨表联接的要求是非常重要的。 设计规范化的架构是一项逻辑要求。 与此相反，SQL API 处理无架构文档的非规范化数据模型。 这在逻辑上等效于“自联接”。
 
 语言支持的语法为 <from_source1> JOIN <from_source2> JOIN ...JOIN <from_sourceN>。 总体而言，此语法返回一组 **N** 元组（带有 **N** 个值的元组）。 每个元组拥有通过对它们相应的集遍历所有集合别名所产生的值。 换言之，这是加入联接的集的完整叉积。
@@ -1202,13 +1215,15 @@ JOIN 真正实用的地方通过以其他方式难以投影的形式基于叉积
       }
     ]
 
-## <a id="JavaScriptIntegration"></a>JavaScript 集成
+<a name="JavaScriptIntegration"></a>
+## <a name="javascript-integration"></a>JavaScript 集成
 Azure Cosmos DB 根据存储过程和触发器，为对集合直接执行基于 JavaScript 的应用程序逻辑提供编程模型。 这允许以下两种情况：
 
 * 借助直接在数据库引擎内深度集成 JavaScript 运行时，能够对集合中的文档执行高性能事务性 CRUD 操作和查询。 
 * 控制流、变量范围和分配的自然建模和将异常处理基元与数据库事务集成。 有关 Azure Cosmos DB 对 JavaScript 集成的支持的更多详细信息，请参阅“JavaScript 服务器端可编程性”文档。
 
-### <a id="UserDefinedFunctions"></a>用户定义的函数 (UDF)
+<a name="UserDefinedFunctions"></a>
+### <a name="user-defined-functions-udfs"></a>用户定义的函数 (UDF)
 除了本文中已定义的类型外，SQL API 也对用户定义的函数 (UDF) 提供支持。 具体而言，支持标量 UDF，开发人员可在其中传入零个或许多参数并返回单个参数结果。 检查每个参数是否是合法的 JSON 值。  
 
 扩展 SQL 语法以支持使用这些用户定义的函数的自定义应用程序逻辑。 可使用 SQL API 注册 UDF，并作为 SQL 查询的一部分引用这些函数。 事实上，UDF 经过精心设计，可由查询调用。 作为此选择的必然结果，UDF 不能访问其他 JavaScript 类型（存储过程和触发器）所拥有的上下文对象。 由于查询以只读方式执行，因此它们可以在主要或次要副本上运行。 因此，UDF 设计为在次要副本上运行，这与其他 JavaScript 类型不同。
@@ -1354,7 +1369,8 @@ Cosmos DB 支持使用带有常用的 @ 表示法的参数进行查询。 参数
 
 参数值可以为任何有效的 JSON（字符串、数字、布尔、null，甚至是数组或嵌套的 JSON）。 此外，由于 Cosmos DB 是无架构的，因此未针对任何类型对参数进行验证。
 
-## <a id="BuiltinFunctions"></a>内置函数
+<a name="BuiltinFunctions"></a>
+## <a name="built-in-functions"></a>内置函数
 Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可以在查询（如用户定义的函数 (UDF)）中使用。
 
 | 函数组          | 操作                                                                                                                                          |
@@ -1376,7 +1392,7 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 | CEILING (num_expr) | 返回大于或等于指定数值表达式的最小整数值。 |
 | FLOOR (num_expr) | 返回小于或等于指定数值表达式的最大整数。 |
 | EXP (num_expr) | 返回指定数值表达式的指数。 |
-| LOG (num_expr [,base]) | 返回指定数值表达式的自然对数，或使用指定底数的对数 |
+| LOG (num_expr [,base])) | 返回指定数值表达式的自然对数，或使用指定底数的对数 |
 | LOG10 (num_expr) | 返回指定数值表达式以 10 为底的对数值。 |
 | ROUND (num_expr) | 返回一个数值，四舍五入到最接近的整数值。 |
 | TRUNC (num_expr) | 返回一个数值，截断到最接近的整数值。 |
@@ -1633,7 +1649,8 @@ Cosmos DB 支持以下用于查询地理空间的开放地理空间信息联盟 
 
 有关 Cosmos DB 中地理支持的更多详细信息，请参阅[在 Azure Cosmos DB 中使用地理数据](geospatial.md)。 这会完成空间函数和 Cosmos DB 的 SQL 语法。 现在，让我们来看看 LINQ 查询的工作方式，以及它如何与我们目前为止所看到的语法进行交互。
 
-## <a id="Linq"></a>LINQ to SQL API
+<a name="Linq"></a>
+## <a name="linq-to-sql-api"></a>LINQ to SQL API
 LINQ 是一个 .NET 编程模型，它将计算表示为对对象流的查询。 Cosmos DB 提供一个客户端库，通过促进 JSON 与 .NET 对象之间的转换，以及从 LINQ 查询的子集到 Cosmos DB 查询的映射，来与 LINQ 进行交互。 
 
 下面的图片显示了支持使用 Cosmos DB 的 LINQ 查询的体系结构。  使用 Cosmos DB 客户端，开发人员可以创建直接查询 Cosmos DB 查询提供程序的 **IQueryable** 对象，该提供程序随后会将 LINQ 查询转换为 Cosmos DB 查询。 随后会将该查询传递到 Cosmos DB 服务器以检索一组 JSON 格式的结果。 在客户端上，返回的结果会反序列化为 .NET 对象的流。
@@ -1739,7 +1756,8 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
      new Parent { familyName = "Smith", givenName = "Joe" }; new { first = 1, second = 2 }; //an anonymous type with two fields              
      new int[] { 3, child.grade, 5 };
 
-### <a id="SupportedLinqOperators"></a>支持的 LINQ 运算符列表
+<a name="SupportedLinqOperators"></a>
+### <a name="list-of-supported-linq-operators"></a>支持的 LINQ 运算符列表
 以下是 SQL .NET SDK 中包含的 LINQ 提供程序支持的 LINQ 运算符列表。
 
 * **Select**：投影转换为 SQL SELECT（包括对象构造）
@@ -1922,12 +1940,14 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
     JOIN c IN f.children
     WHERE c.familyName = f.parents[0].familyName
 
-## <a id="ExecutingSqlQueries"></a>执行 SQL 查询
+<a name="ExecutingSqlQueries"></a>
+## <a name="executing-sql-queries"></a>执行 SQL 查询
 Cosmos DB 通过一个 REST API 来公开资源，任何可以发出 HTTP/HTTPS 请求的语言都可以调用该 REST API。 此外，Cosmos DB 还提供多种常用语言（如 .NET、Node.js、JavaScript 和 Python）的编程库。 REST API 和各种库均支持通过 SQL 进行查询。 除了 SQL 之外，.NET SDK 还支持 LINQ 查询。
 
 以下示例演示了如何对 Cosmos DB 数据库帐户创建和提交该查询。
 
-### <a id="RestAPI"></a>REST API
+<a name="RestAPI"></a>
+### <a name="rest-api"></a>REST API
 Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 可以使用 Azure 订阅预配数据库帐户。 Cosmos DB 资源模型由数据库帐户下的一组资源组成，可使用一个稳定的逻辑 URI 对每个资源进行寻址。 本文档中将一组资源称为一个源。 数据库帐户由一组数据库组成，每个数据库包含多个集合，而每个集合又包含文档、UDF 和其他资源类型。
 
 这些资源的基本交互模型借助采用其标准解释的 HTTP 谓词 GET、PUT、POST 和 DELETE。 POST 谓词用于创建新资源、执行存储过程或发出 Cosmos DB 查询。 查询始终为只读操作，且无任何副作用。
@@ -2058,7 +2078,8 @@ Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 可以使用 Azure
 
 可通过将 `x-ms-documentdb-populatequerymetrics` 标头设置为 `True` 获取有关查询执行的详细指标。 有关详细信息，请参阅 [Azure Cosmos DB 的 SQL 查询指标](sql-api-sql-query-metrics.md)。
 
-### <a id="DotNetSdk"></a>C# (.NET) SDK
+<a name="DotNetSdk"></a>
+### <a name="c-net-sdk"></a>C# (.NET) SDK
 .NET SDK 支持 LINQ 和 SQL 查询。 以下示例演示了如何执行本文档之前介绍的简单筛选查询。
 
     foreach (var family in client.CreateDocumentQuery(collectionLink, 
@@ -2145,7 +2166,8 @@ Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 可以使用 Azure
 
 有关包含查询的更多示例，请参阅 [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-documentdb-net)。 
 
-### <a id="JavaScriptServerSideApi"></a>JavaScript 服务器端 API
+<a name="JavaScriptServerSideApi"></a>
+### <a name="javascript-server-side-api"></a>JavaScript 服务器端 API
 Cosmos DB 使用存储过程和触发器，为对集合直接执行基于 JavaScript 的应用程序逻辑提供编程模型。 集合级别上注册的 JavaScript 逻辑稍后可以对针对给定集合的文档的操作发出数据库操作。 这些操作包装在环境 ACID 事务中。
 
 以下示例演示了如何在 JavaScript 服务器 API 中使用 queryDocuments 来从存储过程和触发器内部进行查询。
@@ -2180,7 +2202,7 @@ Cosmos DB 使用存储过程和触发器，为对集合直接执行基于 JavaSc
             });
     }
 
-## <a id="References"></a>参考
+## <a name="References"></a>参考
 1. [Azure Cosmos DB 简介][introduction]
 2. [Azure Cosmos DB SQL 规范](/cosmos-db/sql-api-sql-query-reference)
 <!-- http://go.microsoft.com/fwlink/p/?LinkID=510612 Redirect to cosmos-db/sql-api-sql-query-reference-->
@@ -2199,4 +2221,4 @@ Cosmos DB 使用存储过程和触发器，为对集合直接执行基于 JavaSc
 [1]: ./media/sql-api-sql-query/sql-query1.png
 [introduction]: introduction.md
 [consistency-levels]: consistency-levels.md
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

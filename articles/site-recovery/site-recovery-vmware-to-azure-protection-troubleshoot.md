@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 11/21/2017
-ms.date: 01/01/2018
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 47a68b94dac0a04eb79c091f08ac9080b53ecef7
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 88f549668932430202f7eb74666cf0fa89fb4c03
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-on-premises-vmwarephysical-server-replication-issues"></a>排除本地 VMware/物理服务器复制问题
 使用 Azure Site Recovery 保护 VMware 虚拟机或物理服务器时，可能会收到特定错误消息。 本文详细介绍了一些遇到的更常见错误消息以及解决错误的故障排除步骤。
@@ -60,7 +60,7 @@ ms.lasthandoff: 12/29/2017
      * Azure Recovery Services Agent
      * Azure Site Recovery Service
      * tmansvc
-
+     *
 （重新）启动所有未运行的服务，然后检查问题是否仍然存在。
 
 * **检查进程服务器是否能通过端口 443 连接到 Azure 公共 IP 地址**
@@ -115,5 +115,5 @@ ms.lasthandoff: 12/29/2017
 * **检查进程服务器上的限制带宽是否不受约束**：增加带宽，然后检查问题是否仍然存在。
 
 ##<a name="next-steps"></a>后续步骤
-<!-- Not Available on  [ASR forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr). -->
+如果需要更多帮助，请将查询发布到 [Azure Site Recovery 论坛](https://www.azure.cn/support/forums/)，我们的社区非常活跃，其中一位工程师会向你提供帮助。
 <!--Update_Description: update meta properties, wording update -->

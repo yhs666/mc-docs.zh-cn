@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/09/2018
-ms.date: 02/26/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0be46fe6900d3df25bbfd8c7bf032957db3016f4
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: e145aeb0b88c68be0dcca439e7dd2356253f71f2
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自定义 Service Fabric 群集设置和结构升级策略
 本文档说明如何为 Service Fabric 群集自定义各种结构设置和结构升级策略。 可以通过 [Azure 门户](https://portal.azure.cn)或使用 Azure 资源管理器模板完成自定义。
@@ -464,17 +464,32 @@ ms.lasthandoff: 02/23/2018
 ### <a name="section-name-securityclientx509names"></a>节名称：Security/ClientX509Names
 | **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap，默认值为 None|动态| |
+|PropertyGroup|X509NameMap，默认值为 None|动态| |
 
 ### <a name="section-name-securityclusterx509names"></a>节名称：Security/ClusterX509Names
 | **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap，默认值为 None|动态| |
+|PropertyGroup|X509NameMap，默认值为 None|动态| |
 
 ### <a name="section-name-securityserverx509names"></a>节名称：Security/ServerX509Names
 | **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
-PropertyGroup|X509NameMap，默认值为 None|动态| |
+|PropertyGroup|X509NameMap，默认值为 None|动态| |
+
+### <a name="section-name-securityclientcertificateissuerstores"></a>节名称：Security/ClientCertificateIssuerStores
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap，默认值为 None |动态|客户端证书的 X509 颁发者证书存储；名称 = clientIssuerCN；值 = 逗号分隔的存储列表 |
+
+### <a name="section-name-securityclustercertificateissuerstores"></a>节名称：Security/ClusterCertificateIssuerStores
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap，默认值为 None |动态|群集证书的 X509 颁发者证书存储；名称 = clusterIssuerCN；值 = 逗号分隔的存储列表 |
+
+### <a name="section-name-securityservercertificateissuerstores"></a>节名称：Security/ServerCertificateIssuerStores
+| **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
+| --- | --- | --- | --- |
+|PropertyGroup|IssuerStoreKeyValueMap，默认值为 None |动态|服务器证书的 X509 颁发者证书存储；名称 = serverIssuerCN；值 = 逗号分隔的存储列表 |
 
 ### <a name="section-name-securityclientaccess"></a>节名称：Security/ClientAccess
 | **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
@@ -668,6 +683,7 @@ PropertyGroup|X509NameMap，默认值为 None|动态| |
 |RunAsPolicyEnabled| bool，默认值为 FALSE|静态| 允许以运行结构进程的用户以外的本地用户身份运行代码包。 为启用此策略，必须以 SYSTEM 或具有 SeAssignPrimaryTokenPrivilege 的用户的身份运行 Fabric。 |
 |ServiceFactoryRegistrationTimeout| TimeSpan，默认值为 Common::TimeSpan::FromSeconds(120)|动态|指定以秒为单位的时间跨度。 同步 Register(Stateless/Stateful)ServiceFactory 调用的超时时间 |
 |ServiceTypeDisableGraceInterval|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(30)|动态|指定以秒为单位的时间跨度。 时间间隔，超过该时间间隔后禁用服务类型 |
+|EnableDockerHealthCheckIntegration|bool，默认值为 TRUE|静态|实现 docker HEALTHCHECK 事件与 Service Fabric 系统运行状况报告的集成 |
 
 ### <a name="section-name-federation"></a>节名称：Federation
 | **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
@@ -702,8 +718,6 @@ PropertyGroup|X509NameMap，默认值为 None|动态| |
 |MaxDataMigrationTimeout |以秒为单位的时间，默认值为 600 |动态|指定以秒为单位的时间跨度。 发生结构升级后，数据迁移恢复操作的最大超时时间。 |
 |MaxOperationRetryDelay |以秒为单位的时间，默认值为 5|动态| 指定以秒为单位的时间跨度。 遇到故障时，内部重试的最大延迟时间。 |
 |ReplicaSetCheckTimeoutRollbackOverride |以秒为单位的时间，默认值为 1200 |动态| 指定以秒为单位的时间跨度。 如果 ReplicaSetCheckTimeout 设置为 DWORD 的最大值，则出于回滚目的，会用此配置的值对其进行重写。 永远不会重写用于前滚的值。 |
-|ImageBuilderJobQueueThrottle |Int，默认值为 10 |动态|映像生成器代理作业队列对应用程序请求的线程计数限制。 |
-|MaxExponentialOperationRetryDelay|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(30)|动态|指定以秒为单位的时间跨度。 反复遇到故障时，内部重试的最大指数延迟时间 |
 
 ### <a name="section-name-defragmentationemptynodedistributionpolicy"></a>节名称：DefragmentationEmptyNodeDistributionPolicy
 | **参数** | **允许的值** |**升级策略**| **指导或简短说明** |

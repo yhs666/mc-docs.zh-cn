@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 09/20/2017
-ms.date: 01/01/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: c65d292304a58133ba4c0f9e26afd01182c440de
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: e0b3687b147d959bafadbf51253416ece5e0c0f8
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-remoting-with-reliable-services"></a>通过 Reliable Services 进行服务远程处理
 对于不依赖于特定通信协议或堆栈的服务，如 WebAPI、Windows Communication Foundation (WCF) 或其他服务，Reliable Services 框架提供一种远程处理机制，以便快速而轻松地为这些服务设置远程过程调用。
@@ -60,8 +60,7 @@ class MyService : StatelessService, IMyService
 
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
-        return new[] { new ServiceInstanceListener(context => 
-            this.CreateServiceRemotingListener(context)) };
+        return new[] { new ServiceInstanceListener(context => this.CreateServiceRemotingListener(context)) };
     }
 }
 ```
@@ -87,19 +86,19 @@ string message = await helloWorldClient.HelloWorldAsync();
 由于 ServiceProxy 创建是轻量型操作，因此用户可根据需求随意创建，数目不限。 如有需要，用户可重复使用服务代理实例。 如果远程过程调用引发了异常，用户仍可以重复使用相同的代理实例。 每个 ServiceProxy 都包含用于通过线路发送消息的通信客户端。 进行远程调用时，我们会在内部检查通信客户端是否有效。 基于该结果，我们将重新创建通信客户端（如果需要）。 因此在发生异常的情况下，用户无需重新创建 `ServiceProxy`，因为已通过透明方式完成。
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory 生存期
-[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) 是为不同远程接口创建代理实例的工厂。 如果使用 api `ServiceProxy.Create` 创建代理，则框架将创建 ServiceProxy 的单一实例。
-在需要替代 [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) 属性时，手动创建一个 ServiceProxyFactory 是有用的。
-<!-- Should Be v1(v2).client.iserviceremotingclientfactory -->
+[ServiceProxyFactory](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory?view=azure-dotnet) 是为不同远程接口创建代理实例的工厂。 如果使用 api `ServiceProxy.Create` 创建代理，则框架将创建 ServiceProxy 的单一实例。
+在需要替代 [IServiceRemotingClientFactory](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.services.remoting.V1.client.iserviceremotingclientfactory?view=azure-dotnet) 属性时，手动创建一个 ServiceProxyFactory 是有用的。
+<!-- Should Be v1.client.iserviceremotingclientfactory, V2 is in later content -->
 工厂创建是一项代价高昂的操作。 ServiceProxyFactory 维护通信客户端的内部缓存。
 最佳做法是尽可能久地缓存 ServiceProxyFactory。
 
 ## <a name="remoting-exception-handling"></a>远程异常处理
-服务 API 引发的所有远程异常都将作为 AggregateException 发送回客户端。 RemoteExceptions 应该是 DataContract 可序列化的；如果不是，则代理 API 会引发 [ServiceException](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.serviceexception)，且包含序列化错误。
+服务 API 引发的所有远程异常都将作为 AggregateException 发送回客户端。 RemoteExceptions 应该是 DataContract 可序列化的；如果不是，则代理 API 会引发 [ServiceException](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.services.communication.serviceexception?view=azure-dotnet)，且包含序列化错误。
 
 ServiceProxy 对为其创建的服务分区，处理所有故障转移异常。 如果存在故障转移异常（非暂时异常），它将重新解析终结点，并通过正确的终结点重试调用。 故障转移异常的重试次数无限。
 如果发生暂时性异常，代理会重试调用。
 
-默认重试参数由 [OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) 提供。
+默认重试参数由 [OperationRetrySettings](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings?view=azure-dotnet) 提供。
 用户可以通过将 OperationRetrySettings 对象传递给 ServiceProxyFactory 构造函数配置这些值。
 ## <a name="how-to-use-remoting-v2-stack"></a>如何使用 Remoting V2 堆栈
 借助 2.8 NuGet Remoting 包，可以通过相应的选项来使用 Remoting V2 堆栈。 Remoting V2 堆栈具有更高的性能，提供自定义可序列化对象等功能和更多的可插入 API。
@@ -149,7 +148,7 @@ Remoting V2 与 V1（上一个 Remoting 堆栈）不兼容，因此遵循以下�
   </Resources>
   ```
 
-2. 使用 [Remoting V2Listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet)。 使用的默认服务终结点资源名称为“ServiceEndpointV2”，必须在服务清单中定义该名称。
+2. 使用 [Remoting V2Listener](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet)。 使用的默认服务终结点资源名称为“ServiceEndpointV2”，必须在服务清单中定义该名称。
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -165,7 +164,7 @@ Remoting V2 与 V1（上一个 Remoting 堆栈）不兼容，因此遵循以下�
     }
   ```
 
-3. 使用 V2 [客户端工厂](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet)。
+3. 使用 V2 [客户端工厂](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet)。
   ```csharp
   var proxyFactory = new ServiceProxyFactory((c) =>
           {
@@ -395,4 +394,4 @@ Remoting V2 与 V1（上一个 Remoting 堆栈）不兼容，因此遵循以下�
 * [通过 Reliable Services 进行 WCF 通信](service-fabric-reliable-services-communication-wcf.md)
 * [确保 Reliable Services 的通信安全](service-fabric-reliable-services-secure-communication.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update -->

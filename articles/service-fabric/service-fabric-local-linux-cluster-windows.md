@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/20/2017
-ms.date: 01/01/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 201ed535187919308cc9f3fb6e26e0e32a5e79f8
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 8c95892196f3f004a324aa7d38a475685275045d
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>设置 Windows 开发人员计算机上的 Linux Service Fabric 群集
 
@@ -30,7 +30,6 @@ ms.lasthandoff: 12/29/2017
 
 * 至少 4 GB RAM
 * 最新版的 [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
-* 访问 Service Fabric 单机 Docker 容器[映像](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/)
 
 >[!TIP]
 > * 可以按照官方 Docker [文档](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions)中提及的步骤，在 Windows 上安装 Docker。 
@@ -42,7 +41,7 @@ ms.lasthandoff: 12/29/2017
 1. 从 Docker 中心存储库拉取映像：
 
     ```powershell
-    docker pull servicefabricoss/service-fabric-onebox
+    docker pull microsoft/service-fabric-onebox
     ```
 
 2. 使用以下内容更新主机上的 Docker 守护程序配置并重启 Docker 守护程序： 
@@ -58,11 +57,11 @@ ms.lasthandoff: 12/29/2017
 3. 启动带映像的 Service Fabric 单机容器实例：
 
     ```powershell
-    docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
     ```
     >[!TIP]
     > * 可通过指定容器实例的名称，以更具可读性的方式对其进行处理。 
-    > * 如果应用程序正在侦听特定端口，则必须使用附加 -p 标记指定它。 例如，如果应用程序正在侦听端口 8080，则运行 docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox
+    > * 如果应用程序正在侦听特定端口，则必须使用附加 -p 标记指定它。 例如，如果应用程序正在侦听端口 8080，则运行 docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox
 
 4. 以交互式 ssh 模式登录到 Docker 容器：
 
@@ -90,4 +89,4 @@ ms.lasthandoff: 12/29/2017
 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]:./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
-<!-- Update_Description: new articles of service fabric local linux cluster in windows server. -->
+<!-- Update_Description: update meta properties, update cmdlet -->

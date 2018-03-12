@@ -11,19 +11,19 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 10/10/2017
-ms.date: 11/20/2017
+ms.topic: article
+origin.date: 02/01/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 49b0dd02bf40d473243c848cd844500f3d934380
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 15064fd6cbcbd665ffe0dd110dc8b39cbcf8ebce
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>使用 .NET Framework 将事件发送到 Azure 事件中心
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 
 事件中心是一个服务，可用于处理来自连接设备和应用程序的大量事件数据（遥测）。 将数据采集到事件中心后，可以使用任何实时分析提供程序或存储群集来转换和存储数据。 这种大规模事件收集和处理功能是现代应用程序体系结构（包括物联网 (IoT)）的重要组件。
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/15/2017
 若要完成本教程，需要满足以下先决条件：
 
 * [Microsoft Visual Studio 2015 或更高版本](http://visualstudio.com)。 本教程中的屏幕截图使用 Visual Studio 2017。
-* 有效的 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个试用帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
+* 有效的 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个试用帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>创建事件中心命名空间和事件中心
 
@@ -106,7 +106,7 @@ ms.lasthandoff: 11/15/2017
 现在已生成了一个可以创建事件中心以及发送数据的有效应用程序，接下来请继续学习以下方案：
 
 * [使用事件处理程序主机接收事件](event-hubs-dotnet-framework-getstarted-receive-eph.md)
-* [事件处理程序主机参考](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+* [事件处理程序主机参考](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost?view=azure-dotnet)
 * [事件中心概述](event-hubs-what-is-event-hubs.md)
 
 <!-- Images. -->
@@ -115,4 +115,4 @@ ms.lasthandoff: 11/15/2017
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

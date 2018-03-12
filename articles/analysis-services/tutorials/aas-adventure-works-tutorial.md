@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+origin.date: 02/10/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1b3713bde8fd7703e769ea6f36917f7df07ec3ea
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: f7db5556c582bb2931abdcccaa97a17e996fbc14
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 教程
 
@@ -44,14 +44,14 @@ ms.lasthandoff: 02/23/2018
 
 -   如何通过创建包含用户成员的角色来保护模型对象和数据的安全。  
 
--   如何将表格模型部署到 **Azure Analysis Services** 服务器或本地 SQL Server 2017 Analysis Services 服务器。  
+-   如何使用 SSDT 将表格模型部署到 **Azure Analysis Services** 服务器或 **SQL Server 2017 Analysis Services** 服务器。  
 
 ## <a name="prerequisites"></a>先决条件  
 要完成本教程，需要：  
 
 -   Azure Analysis Services 服务器。 注册免费的 [Azure Analysis Services 试用版](https://www.azure.cn/home/features/analysis-services/)并[创建服务器](../analysis-services-create-server.md)。 
 
--   包含**示例 AdventureWorksDW 数据库**的 [Azure SQL 数据仓库](../../sql-data-warehouse/create-data-warehouse-portal.md)，或者包含 [Adventure Works 示例数据库](http://go.microsoft.com/fwlink/?LinkID=335807)的 SQL Server 数据仓库。
+-   包含**示例 AdventureWorksDW 数据库**的 [Azure SQL 数据仓库](../../sql-data-warehouse/create-data-warehouse-portal.md)，或者包含 [Adventure Works 示例数据库](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks)的 SQL Server 数据仓库。
 
     **重要说明：**如果在本地 SQL Server 数据仓库上安装示例数据库，并且将模型部署到 Azure Analysis Services 服务器，则需要[本地数据网关](../analysis-services-gateway.md)。
 

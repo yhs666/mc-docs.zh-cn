@@ -2,16 +2,16 @@
 ms.assetid: 
 title: "Azure Key Vault 限制指南 | Microsoft Docs"
 ms.service: key-vault
-author: alexchen2016
+author: lleonard-msft
 ms.author: v-junlch
-manager: digimobile
+manager: mbaldwin
 origin.date: 06/21/2017
-ms.date: 08/02/2017
-ms.openlocfilehash: a699771e96eb3c436ec1af28a44a47adebbee78e
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.date: 03/04/2018
+ms.openlocfilehash: 8bbb6ded7267718976c7f5e02e4ccbbdb45a20c4
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 限制指南
 
@@ -48,3 +48,8 @@ Key Vault 中的服务限制用于防止资源滥用，确保所有 Key Vault �
 
 此时，应不会收到 HTTP 429 响应代码。
 
+## <a name="see-also"></a>另请参阅
+
+若要深入了解 Microsoft 云中的限制，请参阅[限制模式](https://docs.microsoft.com/azure/architecture/patterns/throttling)。
+
+<!--Update_Description: wording update -->

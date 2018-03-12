@@ -13,24 +13,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 02/14/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: fe8d6b20a9e301f11ad7a420d60a9f06a781d41b
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: e96ab42a195a4f1fc18418b50fb0b3a062a4c5fc
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>在 Azure 门户中创建 Azure Analysis Services 服务器
 本文介绍如何在 Azure 订阅中创建 Analysis Services 服务器资源。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 若要完成本快速入门，需要以下项：
 
 * **Azure 订阅**：访问 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial-full)以创建帐户。
 * **Azure Active Directory**：订阅必须与 Azure Active Directory 租户相关联。 并且，需要使用该 Azure Active Directory 中的一个帐户登录 Azure。 不支持 Microsoft 帐户。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。
-* **资源组**：使用已有资源组，或[创建新组](../azure-resource-manager/resource-group-overview.md)。
+* **资源组**：使用已有资源组，或[创建新资源组](../azure-resource-manager/resource-group-overview.md)。
 
 > [!NOTE]
 > 创建服务器可能会产生新的计费服务。 若要了解详细信息，请参阅 [Analysis Services 定价](https://www.azure.cn/pricing/details/analysis-services/)。
@@ -49,9 +49,9 @@ ms.lasthandoff: 12/08/2017
    * **资源组**：这些容器旨在帮助管理 Azure 资源的集合。 若要了解详细信息，请参阅[资源组](../azure-resource-manager/resource-group-overview.md)。
    * **位置**：此 Azure 数据中心位置托管该服务器。 选择最接近最大用户群的位置。
    * **定价层**：选择定价层。 最多支持 400 GB 的表格模型。 若要了解详细信息，请参阅 [Azure Analysis Services 定价](https://www.azure.cn/pricing/details/analysis-services/)。
-4. 单击“创建” 。
+4. 单击“创建”。
 
-创建通常不超过一分钟，一般几秒钟便可完成。 如果选择“添加到门户”，请导航到门户查看新服务器。 或者，请导航到“更多服务” > “Analysis Services”，查看服务器是否就绪。
+创建通常不超过一分钟，一般几秒钟便可完成。 如果选择“添加到门户”，请导航到门户查看新服务器。 或者，导航到“所有服务” > “Analysis Services”，查看服务器是否就绪。
 
  ![仪表板](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 

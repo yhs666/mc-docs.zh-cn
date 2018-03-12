@@ -12,14 +12,14 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 02/14/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: e1ed3eadf963f7f7c968617506da79e90c7f6aa2
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: f2b6733c10589fa7ebf63e125e6f32162f0e2257
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="analysis-services-high-availability"></a>Analysis Services 高可用性
 本文说明如何确保 Azure Analysis Services 服务器的高可用性。 
@@ -29,12 +29,14 @@ ms.lasthandoff: 12/08/2017
 
 * 将模型部署到其他区域中的冗余服务器。 此方法要求在主服务器和冗余服务器中并行处理数据，以确保所有服务器同步。
 
-* 从主服务器备份数据库，并在冗余服务器上还原。 例如，可以每夜自动备份到 Azure 存储，并还原到其他区域中的其他冗余服务器。 
+* 从主服务器[备份](analysis-services-backup.md)数据库，并在冗余服务器上还原。 例如，可以每夜自动备份到 Azure 存储，并还原到其他区域中的其他冗余服务器。 
 
 在上述任一情况下，如果主服务器发生服务中断，都必须更改报表客户端中的连接字符串，以连接到不同区域数据中心中的服务器。 此更改应视为最后手段，仅在发生灾难性区域数据中心服务中断时适用。 很可能在更新所有客户端上的连接之前，托管主服务器的数据中心服务中断会恢复到联机状态。 
 
+为避免必须更改报告客户端上的连接字符串，可以为主服务器创建一个服务器[别名](analysis-services-server-alias.md)。 如果主服务器出现故障，你可以更改别名以指向另一个区域中的冗余服务器。 可以通过在主服务器上编写终结点运行状况检查代码来自动更改指向服务器名称的别名。 如果运行状况检查失败，则同一终结点可以定向到另一个区域中的冗余服务器。 
+
 ## <a name="related-information"></a>相关信息
 [备份和还原](analysis-services-backup.md)   
-[管理 Azure Analysis Services](analysis-services-manage.md)
-
-<!--Update_Description: update meta properties -->
+[管理 Azure Analysis Services](analysis-services-manage.md)   
+[别名服务器名称](analysis-services-server-alias.md)
+<!--Update_Description: update meta properties, update link -->

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 01/10/2018
-ms.date: 02/26/2018
+origin.date: 02/10/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: d28fc4bacfb6c089d77e002bb93db251af167855
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 17aa5e0b88faf4f3aec420469aea080cf4b9a893
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-with-power-bi"></a>使用 Power BI 进行连接
 
@@ -40,7 +40,9 @@ ms.lasthandoff: 02/23/2018
 
 3. 在“数据库”中，如果知道要连接到的表格模型数据库或透视的名称，请将其粘贴在此处。 如果不知道，可以将此字段留空，并在稍后选择数据库或透视。
 
-4. 保留默认的“实时连接”选项，并按“连接”。 目前不支持导入源。
+4. 选择连接选项，然后按“连接”。 
+
+    同时支持“实时连接”和“导入”选项。 但是，我们建议你使用实时连接，因为导入模式确实存在一些限制；最重要的是，导入过程中可能会影响服务器性能。 此外，如果要在 Power BI 服务中刷新模型，仅当选择“实时连接”时，“允许从 Power BI 访问”设置才适用。
 
 5. 如果出现提示，请输入登录凭据。 
 

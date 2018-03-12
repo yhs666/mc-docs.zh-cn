@@ -2,9 +2,17 @@
 
 ## [关于 SQL 数据仓库](sql-data-warehouse-overview-what-is.md)
 ## [备忘单](cheat-sheet.md)
-<!-- Not Available # Quickstarts-->
 
-<!-- Not Available ## [Create and connect - portal](create-data-warehouse-portal.md)-->
+# 快速入门
+
+## [创建并连接 - 门户](create-data-warehouse-portal.md)
+## 暂停和恢复计算
+### [Portal](pause-and-resume-compute-portal.md)
+### [PowerShell](pause-and-resume-compute-powershell.md)
+## 缩放计算
+### [Portal](quickstart-scale-compute-portal.md)
+### [PowerShell](quickstart-scale-compute-powershell.md)
+### [T-SQL](quickstart-scale-compute-tsql.md)
 
 # 教程
 ## [1 - 从 blob 加载数据](load-data-from-azure-blob-storage-using-polybase.md)
@@ -14,6 +22,7 @@
 ### [MPP 体系结构](massively-parallel-processing-mpp-architecture.md)
 ### [性能层](performance-tiers.md)
 ### [数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [横向扩展、暂停、恢复](sql-data-warehouse-manage-compute-overview.md)
 ### [数据仓库备份](sql-data-warehouse-backups.md)
 ### [审核](sql-data-warehouse-auditing-overview.md)
 ### [容量限制](sql-data-warehouse-service-capacity-limits.md)
@@ -38,7 +47,7 @@
 ### [SQL 数据库弹性查询](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 ## 监视和优化
-### [指南](resource-classes-for-workload-management.md)
+### [工作负荷管理](resource-classes-for-workload-management.md)
 ### [列存储压缩](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [监视](sql-data-warehouse-manage-monitor.md)
 ### [故障排除](sql-data-warehouse-troubleshoot.md)
@@ -102,10 +111,7 @@
 ## 监视和优化
 ### [分析工作负荷](analyze-your-workload.md)
 
-## 向外扩展
-<!-- Not Available ### [Manage compute - portal](sql-data-warehouse-manage-compute-portal.md) -->
-### [管理计算 - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-### [管理计算 - REST API](sql-data-warehouse-manage-compute-rest-api.md)
+<!-- Not Avaialble ## Scale out -->
 <!-- Not Available ### [Automate compute levels](manage-compute-with-azure-functions.md)-->
 
 # 参考
@@ -116,6 +122,7 @@
 ### [SQL DW 语句](sql-data-warehouse-reference-tsql-statements.md)
 ## [系统视图](sql-data-warehouse-reference-tsql-system-views.md)
 ## [PowerShell cmdlet](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 
 # 资源
 
@@ -124,9 +131,9 @@
 ## [功能请求](https://www.azure.cn/support/forums/)
 ## [服务更新](https://www.azure.cn/what-is-new/)
 <!-- Not Available  ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/) -->
-<!-- Not Available  ## [Support](sql-data-warehouse-get-started-create-support-ticket.md) -->
+## [支持](https://support.windowsazure.cn/support/support-azure)
 <!-- Not Available  ## [Videos](https://www.azure.cn/documentation/videos/index/?services=sql-data-warehouse) -->
-
+<!-- ms.date: 03/12/2018 -->
 <!-- Not Available ### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)-->
 <!-- Not Available ### [Data integration](sql-data-warehouse-partner-data-integration.md)-->
 <!-- Not Available ### [Data management](sql-data-warehouse-partner-data-management.md) -->

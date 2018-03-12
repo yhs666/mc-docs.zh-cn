@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/09/2017
-ms.date: 10/02/2017
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: ded4dcb2b64b0ed1df5bed9b5cad15da1135fe91
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: a5b584d565f47ad4fcb0a55d81b83c363a004b90
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="application-upgrade-parameters"></a>应用程序升级参数
 本文介绍 Azure Service Fabric 应用程序升级期间应用的各种参数。 参数包括应用程序的名称和版本。 它们可用于控制升级期间应用的超时和运行状况检查，还可指定在升级失败时必须应用的策略。
@@ -49,11 +49,11 @@ ms.lasthandoff: 09/28/2017
 | 参数 | 说明 |
 | --- | --- |
 | ConsiderWarningAsError |默认值为 False。 在升级期间评估应用程序的运行状况时，将应用程序的警告运行状况事件视为错误。 默认情况下，Service Fabric 不会将警告运行状况事件评估为失败（错误），因此即使存在警告事件，升级也可以继续。 |
-| MaxPercentUnhealthyDeployedApplications |建议的默认值为 0。 指定在将应用程序视为不正常和升级失败之前，可以不正常的最大已部署应用程序数（请参阅[运行状况部分](service-fabric-health-introduction.md)）。 此参数在节点上定义应用程序运行状况，可帮助检查升级过程中的问题。 通常，应用程序的副本会与另一个节点负载均衡，使应用程序看上去运行正常，从而使升级继续。 通过指定严格的 MaxPercentUnhealthyDeployedApplications 运行状况，Service Fabric 可以快速检测应用程序包的问题，并帮助在升级过程中即时报告错误。 |
+| MaxPercentUnhealthyDeployedApplications |建议的默认值为 0。 指定在将应用程序视为不正常和升级失败之前，可以不正常的最大已部署应用程序数（请参阅[运行状况部分](service-fabric-health-introduction.md)）。 此参数在节点上定义应用程序运行状况，可帮助检查升级过程中的问题。 通常，应用程序的副本会与另一个节点负载均衡，使应用程序看上去运行正常，从而使升级继续。 通过指定严格的 MaxPercentUnhealthyDeployedApplications 运行状况，Service Fabric 可以快速检测应用程序包的问题，并帮助产生一种采用快速失败机制的升级。 |
 | MaxPercentUnhealthyServices |建议的默认值为 0。 指定在将应用程序视为不正常和升级失败之前，应用程序实例中可以不正常的最大服务数。 |
 | MaxPercentUnhealthyPartitionsPerService |建议的默认值为 0。 指定在将服务视为不正常之前，服务中可以不正常的最大分区数。 |
 | MaxPercentUnhealthyReplicasPerPartition |建议的默认值为 0。 指定在将分区视为不正常之前，分区中可以不正常的最大副本数。 |
-| UpgradeReplicaSetCheckTimeout |**无状态服务**- 在单个升级域内，Service Fabric 尝试确保服务的其他实例可用。 如果有多个目标实例，则 Service Fabric 等待多个实例可用，直到达到最大超时值。 此超时是使用 UpgradeReplicaSetCheckTimeout 属性指定的。 如果超时到期，Service Fabric 将继续进行升级，而无论服务实例数是多少。 如果只有一个目标实例，则 Service Fabric 不会等待，而是会立即继续进行升级。 **有状态服务** - 在单个升级域内，Service Fabric 尝试确保副本集具有仲裁。 Service Fabric 将等待一个仲裁可用，直到达到最大超时值（由 UpgradeReplicaSetCheckTimeout 属性指定）。 如果超时到期，Service Fabric 会继续进行升级，而无论是否具有仲裁。 前滚时，此设置设置为 never（无限）；回滚时，设置为 900 秒。 |
+| UpgradeReplicaSetCheckTimeout |<p>**无状态服务**- 在单个升级域内，Service Fabric 尝试确保服务的其他实例可用。 如果有多个目标实例，则 Service Fabric 等待多个实例可用，直到达到最大超时值。 此超时是使用 UpgradeReplicaSetCheckTimeout 属性指定的。 如果超时到期，Service Fabric 将继续进行升级，而无论服务实例数是多少。 如果只有一个目标实例，则 Service Fabric 不会等待，而是会立即继续进行升级。</p><p>**有状态服务** - 在单个升级域内，Service Fabric 尝试确保副本集具有仲裁。 Service Fabric 将等待一个仲裁可用，直到达到最大超时值（由 UpgradeReplicaSetCheckTimeout 属性指定）。 如果超时到期，Service Fabric 会继续进行升级，而无论是否具有仲裁。 前滚时，此设置设置为 never（无限）；回退时，设置为 1200 秒。</p> |
 | ForceRestart |如果更新配置或数据包而不更新服务代码，则仅当 ForceRestart 属性设置为 true 时，服务才会重新启动。 更新完成后，Service Fabric 通知服务新的配置包或数据包可用。 该服务负责应用所做的更改。 如有必要，该服务可进行重启。 |
 
 <br>
@@ -75,4 +75,4 @@ MaxPercentUnhealthyServices、MaxPercentUnhealthyPartitionsPerService 和 MaxPer
 
 参考[对应用程序升级进行故障排除](service-fabric-application-upgrade-troubleshooting.md)中的步骤来解决应用程序升级时的常见问题。
 
-<!--Update_Description: update reference link-->
+<!--Update_Description: update meta properties, wording update -->

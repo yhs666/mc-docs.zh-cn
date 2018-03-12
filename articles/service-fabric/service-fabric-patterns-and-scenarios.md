@@ -12,21 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/04/2017
-ms.date: 12/04/2017
+origin.date: 01/19/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 10008fc17c76f6e3de9283f69e6d374a961b0378
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: a970d5ddd3c4c413789a53cd777dd36a7ef788e4
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Service Fabric 模式和方案
 如果你正在考虑使用 Azure Service Fabric 构建大规模的微服务，则可以向设计和构建此平台即服务 (PaaS) 的专家咨询。 从构建合适的体系结构开始，并了解如何优化应用程序的资源。 [Service Fabric Patterns and Practices](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) （Service Fabric 模式和实践）课程回答了实际客户最常询问的有关 Service Fabric 应用场景和应用领域的问题。
 
 了解如何使用最佳做法和经验证的可重复使用的模式在 Service Fabric 上设计、开发和操作微服务。 了解 Service Fabric 的基本知识，并深入探讨相关主题，包括群集优化和安全性、迁移旧的应用、大规模的 IoT、托管游戏引擎等等。 了解各种工作负荷的持续交付，甚至获取有关 Linux 支持和容器的详细信息。 
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 探索最佳实践，并了解为何选择平台即服务 (PaaS)，而不选择基础结构即服务 (IaaS)。 获取以下经过验证的应用程序设计原则的详细信息。
 
 <table><tr><th>视频</th><th>PowerPoint 幻灯片</th></tr>
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/01/2017
 </table>
 
 ## <a name="cluster-planning-and-management"></a>群集规划和管理
-了解容量规划、群集优化和群集安全性，从中认识 Azure Service Fabric。
+在此 Azure Service Fabric 概览中了解容量规划、群集优化和群集安全。
 
 <table><tr><th>视频</th><th>PowerPoint 幻灯片</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=cyDYZcSGD_2805167344">
@@ -63,7 +63,7 @@ ms.lasthandoff: 12/01/2017
 </table>
 
 ## <a name="gaming"></a>游戏
-了解基于轮次的游戏、交互式游戏和托管现有的游戏引擎。
+了解回合制游戏、交互式游戏和托管现有游戏引擎。
 
 <table><tr><th>视频</th><th>PowerPoint 幻灯片</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=6wECzeSGD_3805167344">
@@ -72,7 +72,7 @@ ms.lasthandoff: 12/01/2017
 </table>
 
 ## <a name="continuous-delivery"></a>持续交付
-探讨一些概念，包括使用 Visual Studio Team Services 的持续集成/持续交付、生成/打包/发布工作流、多环境安装和服务包/共享。
+探索概念，包括 Visual Studio Team Services、生成/打包/发布工作流、多环境设置和服务包/共享的持续集成/交付。
 
 <table><tr><th>视频</th><th>PowerPoint 幻灯片</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=78h5ofSGD_305167344">
@@ -101,4 +101,4 @@ ms.lasthandoff: 12/01/2017
 ## <a name="next-steps"></a>后续步骤
 现在，你已了解 Service Fabric 模式和方案，请详细了解如何[创建和管理群集](service-fabric-deploy-anywhere.md)、[将云服务应用迁移到 Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)、[设置持续交付](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)以及[部署容器](service-fabric-containers-overview.md)。
 
-<!--Update_Description: update link -->
+<!--Update_Description: update meta properties -->

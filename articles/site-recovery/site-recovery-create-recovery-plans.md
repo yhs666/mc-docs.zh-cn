@@ -1,6 +1,6 @@
 ---
-title: "在 Azure Site Recovery 中创建用于故障转移和恢复的恢复计划 | Azure"
-description: "介绍如何在 Azure Site Recovery 中创建和自定义用于故障转移以及恢复 VM 与物理服务器的恢复计划"
+title: "在 Azure Site Recovery 中创建并自定义恢复计划进行故障转移和恢复 | Azure"
+description: "了解如何在 Azure Site Recovery 中创建和自定义恢复计划。 本文介绍如何故障转移和恢复 VM 及物理服务器。"
 services: site-recovery
 documentationcenter: 
 author: rockboyfor
@@ -12,97 +12,139 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 09/25/2017
-ms.date: 12/04/2017
+origin.date: 01/26/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: f73a0afcff5930b325dd6dfe59625c585064e824
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 0bbd1389b3f5bb112a6dee6f71cd0881283a60ea
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="create-recovery-plans"></a>创建恢复计划
+# <a name="create-a-recovery-plan-by-using-site-recovery"></a>使用 Site Recovery 创建恢复计划
 
-本文提供有关在 [Azure Site Recovery](site-recovery-overview.md) 中创建和自定义恢复计划的信息。
-<!-- Not Available on [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr) -->
+本文介绍如何在 [Azure Site Recovery](site-recovery-overview.md) 中创建和自定义恢复计划。
 
- 创建恢复计划以执行以下操作：
+创建恢复计划可完成以下操作：
 
-* 定义要一起故障转移再同时启动的计算机组。
-* 将计算机一起分组到恢复计划组中，为计算机之间的依赖关系建模。 例如，要故障转移并启动特定的应用程序，可将该应用程序的所有 VM 分组到同一个恢复计划组中。
+* 定义要一起进行故障转移再同时启动的计算机组。
+* 通过将计算机一起分组到恢复计划组中，为计算机之间的依赖关系建模。 例如，要故障转移并启动特定应用程序，请将该应用程序的所有 VM 包括到同一个恢复计划组中。
 * 运行故障转移。 可以对恢复计划运行测试、计划或非计划的故障转移。
+
+## <a name="why-use-a-recovery-plan"></a>使用恢复计划的原因
+
+恢复计划有助于通过创建可管理的小型独立单元，准备系统恢复进程。 这些单元通常表示环境中的应用程序。 恢复计划可帮助定义启动 VM 的顺序。 还可使用恢复计划在恢复过程中自动完成常见任务。
+
+> [!TIP]
+> 检查是否已为云迁移或灾难恢复做好准备的一种方法是确保每个应用程序都是恢复计划的一部分。 此外，确保针对恢复到 Azure 对每个恢复计划进行了测试。 做了此种准备后，便可放心地将完整的数据中心迁移或故障转移到 Azure。
+
+恢复计划具有三个重要价值主张：
+
+* 对应用程序进行建模以捕获依赖关系。
+* 自动执行大多数的恢复任务来减少 RTO。
+* 测试故障转移以防范灾难。
+
+### <a name="model-an-application-to-capture-dependencies"></a>对应用程序进行建模以捕获依赖关系
+
+恢复计划是一组虚拟机，通常包含一起故障转移的应用程序。 使用恢复计划构造，可以增强恢复计划组以捕获应用程序特定的属性。 
+
+在本文中，使用了典型的三层应用程序，该应用程序可能具有 SQL 后端、中间件和 Web 前端。 可以自定义恢复计划，帮助确保故障转移后虚拟机按正确的顺序启动。 SQL 后端应首先启动，随后应启动中间件，Web 前端应最后启动。 此顺序可确保应用程序一直工作到最后一个虚拟机启动。 
+
+例如，当中间件启动时，它尝试连接到 SQL 层。 恢复计划可确保 SQL 层已在运行。 前端服务器最后启动还可帮助确保在所有组件已启动运行并且应用程序已准备好接受请求之前，最终用户不会连接到应用程序 URL。 若要生成这些依赖关系，请自定义恢复计划来添加组，然后选择虚拟机。 要在组之间移动虚拟机，请更改虚拟机的组。
+
+![Site Recovery 中示例恢复计划的屏幕截图](./media/site-recovery-create-recovery-plans/rp.png)
+
+完成自定义后，便可直观显示恢复的确切步骤。 以下是在恢复计划故障转移期间的步骤执行顺序：
+
+1. 关闭步骤尝试在本地关闭虚拟机。 （测试故障转移除外，在此期间主站点需要继续运行。）
+2. 关闭步骤尝试并行触发恢复计划中所有虚拟机的故障转移。 故障转移步骤使用复制的数据准备虚拟机磁盘。
+3. 启动组按其顺序执行，并在每个组中启动虚拟机。 首先执行组 1，然后执行组 2，最后执行组 3。 如果任何组中有多个虚拟机（例如，负载均衡的 Web 前端），则并行启动所有虚拟机。
+
+> [!TIP]
+> 跨越各组进行排序，可确保各个应用程序层之间的依赖关系得到尊重。 并且适当情况下进行并行处理来改进应用程序恢复的 RTO。
+
+   > [!NOTE]
+   > 属于单个组的计算机将并行进行故障转移。 而属于不同组的计算机按照组的顺序进行故障转移。 组 1 的所有计算机故障转移并启动后，组 2 的计算机才能开始故障转移。
+
+### <a name="automate-most-recovery-tasks-to-reduce-rto"></a>自动执行大多数的恢复任务来减少 RTO
+
+恢复大型应用程序可能是一项复杂的任务。 在混沌的时候记住太多的手动步骤是很困难的，而且极易出错。 可能有人无法意识到应用程序的复杂性，但仍需要触发故障转移。 
+
+可使用恢复计划自动完成执行每个步骤所需的操作。 可通过使用 Azure 自动化 runbook 来设置所需操作。 通过 runbook，可以自动执行常见的恢复任务，比如下面的示例中的任务。 对于无法自动执行的任务，可将手动操作插入恢复计划。
+
+* **故障转移后 Azure 虚拟机上的任务**：通常需要这些任务才能连接到虚拟机。 示例:
+    * 故障转移后在虚拟机上创建公共 IP 地址。
+    * 将网络安全组分配到故障转移后的虚拟机上的 NIC。
+    * 将负载均衡器添加到可用性集。
+* **故障转移后虚拟机内部的任务**：这些任务重新配置应用程序，让应用程序在新的环境中继续正常运行。 示例:
+    * 修改虚拟机内部的数据库连接字符串。
+    * 更改 Web 服务器配置或规则。
+
+> [!TIP]
+> 使用完整的恢复计划，通过自动化 Runbook 自动执行恢复后的任务，可以实现一键故障转移并优化 RTO。
+
+### <a name="test-failover-to-be-ready-for-a-disaster"></a>测试故障转移以防范灾难
+
+开使用恢复计划触发故障转移或测试故障转移。 始终都应对应用程序完成测试故障转移之后，再执行故障转移。 测试故障转移有助于检查应用程序是否会在恢复站点上显示。 如果在设置中丢失了某些内容，可以轻松触发清理并重做测试故障转移。 多次执行测试故障转移，直到确定应用程序可顺利恢复。
+
+![Site Recovery 中测试恢复计划示例的屏幕截图](./media/site-recovery-create-recovery-plans/rptest.png)
+
+> [!TIP]
+> 由于每个应用程序都是唯一的，需要为每个应用程序生成自定义恢复计划。 
+>
+> 此外，在当前专注于数据中心的动态环境中，应用程序及其依赖关系频繁更改。 每季度对应用程序进行一次测试故障转移，确保恢复计划是最新的。
 
 ## <a name="create-a-recovery-plan"></a>创建恢复计划
 
-1. 单击“恢复计划” > “创建恢复计划”。
-   为恢复计划指定一个名称，并指定源和目标。 源位置必须具有已针对故障转移和恢复启用的虚拟机。
+1. 选择“恢复计划” > “创建恢复计划”。
+   为恢复计划指定一个名称，并指定源和目标。 源位置必须具有已针对故障转移和恢复启用的虚拟机。 根据想要其作为恢复计划的一部分的虚拟机，选择源和目标。 
 
-    - 对于 VMM 到 VMM 的复制，请选择“源类型” > “VMM”，然后选择源和目标 VMM 服务器。 单击“HYPER-V”查看受保护的云。
-    - 对于 VMM 到 Azure 的复制，请选择“源类型” > “VMM”。  选择源 VMM 服务器，再选择“Azure”作为目标。
-    - 对于 Hyper-V 到 Azure 的复制（无 VMM），请选择“源类型” > “Hyper-V 站点”。 选择该站点作为源，并选择“Azure”作为目标。
-    - 对于 VMware VM 或物理本地服务器到 Azure 的复制，请选择某个配置服务器作为源，再选择“Azure”作为目标。
-    - 对于 Azure 到 Azure 恢复计划，选择 Azure 区域作为源，并选择辅助 Azure 区域作为目标。 辅助 Azure 区域仅为保护虚拟机的区域。
-2. 在“选择虚拟机”中，选择要添加到恢复计划中的默认组 (Group 1) 的虚拟机（或复制组）。
+   |方案                   |源               |目标           |
+   |---------------------------|---------------------|-----------------|
+   |Azure 到 Azure             |Azure 区域         |Azure 区域     |
+   |VMware 复制到 Azure            |配置服务器 |Azure            |
+   |Virtual Machine Manager (VMM) 到 Azure               |VMM 显示名称    |Azure            |
+   |Hyper-V 站点到 Azure      |Hyper-V 站点名称    |Azure            |
+   |物理计算机到 Azure |配置服务器 |Azure            |
+   |VMM 到 VMM                 |VMM 友好名称    |VMM 显示名称|
+
+   > [!NOTE]
+   > 恢复计划可包含具有相同源和目标的虚拟机。 VMware 和 System Center Virtual Machine Manager (VMM) 虚拟机不能在同一恢复计划中。 但是，可以将 VMware 虚拟机和物理机添加到同一恢复计划。 在这种情况下，虚拟机和物理机的源是一个配置服务器。
+
+2. 在“选择虚拟机”下，选择要添加到恢复计划中的默认组（组 1）的虚拟机（或复制组）。 仅可选择在源上（在恢复计划中选定）受到保护并针对目标（在恢复计划中选定）受到保护的虚拟机。
 
 ## <a name="customize-and-extend-recovery-plans"></a>自定义和扩展恢复计划
 
-可以自定义和扩展恢复计划：
+要自定义和扩展恢复计划，请转到 Site Recovery 恢复计划资源窗格。 选择“自定义”选项卡。可使用以下选项自定义和扩展恢复计划：
 
-- **添加新组** - 向默认组添加其他恢复计划组（最多 7 个），然后向这些组添加更多计算机或复制组。 组将按添加顺序进行编号。 一个虚拟机或复制组只能包含在一个恢复计划组中。
-- **添加手动操作**- 可以添加要在恢复计划组之前或之后运行的手动操作。 恢复计划运行时，会在手动操作的插入点停止。 此时会显示一个对话框，提示指定该手动操作已完成。
-- **添加脚本**- 可添加在恢复计划组前或后运行的脚本。 添加脚本时，为该组添加一组新的操作。 例如，将使用以下名称创建组 1 的一组预先步骤：“组 1: 预先步骤”。 该集中列出所有预先步骤。 仅当已部署 VMM 服务器时，才能在主站点上添加脚本。
-- **添加 Azure Runbook**- 可通过 Azure Runbook 扩展恢复计划。 例如，自动执行任务或创建单步恢复。 [了解详细信息](site-recovery-runbook-automation.md)。
+- **添加新组**：可向默认组添加最多七个额外的恢复计划组。 然后可在这些恢复计划组中添加更多计算机组或复制组。 组将按添加顺序进行编号。 仅可将一个虚拟机或复制组包含在一个恢复计划组中。
+- **添加手动操作**：可以添加要在恢复计划组之前或之后运行的手动操作。 恢复计划运行时，会在手动操作的插入点停止。 此时会显示一个对话框，提示指定该手动操作已完成。
+- **添加脚本**：可添加在恢复计划组之前或之后运行的脚本。 添加脚本时，为该组添加一组新的操作。 例如，使用以下名称创建了组 1 的一组预先步骤：“组 1：预先步骤”。 该集中将列出所有预先步骤。 仅当已部署 VMM 服务器时，才能在主站点上添加脚本。 有关详细信息，请参阅[向恢复计划添加 VMM 脚本](site-recovery-how-to-add-vmmscript.md)。
+- **添加 Azure runbook**：可使用 Azure runbook 扩展恢复计划。 例如，可使用 runbook 自动执行任务或创建单步恢复。 有关详细信息，请参阅[将 Azure 自动化 runbook 添加到恢复计划](site-recovery-runbook-automation.md)。
 
-## <a name="add-scripts"></a>添加脚本
+## <a name="add-a-script-runbook-or-manual-action-to-a-plan"></a>向计划添加脚本、runbook 或手动操作
 
-可在恢复计划中使用 PowerShell 脚本。
-
- - 确保脚本使用的是 try-catch 块，以便恰当地处理异常。
-    - 如果脚本中出现异常，脚本停止运行且任务显示为失败。
-    - 如果发生错误，脚本的剩余部分不会运行。
-    - 如果在运行计划外故障转移时发生错误，将继续运行恢复计划。
-    - 如果在运行计划内故障转移时发生错误，恢复计划会停止。 需要修复脚本，检查它是否按预期运行，并重新运行恢复计划。
-- Write-Host 命令不适用于恢复计划脚本，脚本将失败。 若要创建输出，请创建转而运行主脚本的代理脚本。 确保所有输出均通过“>>”命令进行传输。
-  * 如果脚本未在 600 秒内返回，则脚本超时。
-  * 如果有任何内容写出到 STDERR，脚本会归类为失败。 此信息会显示在脚本执行详细信息中。
-
-如果在部署中使用 VMM：
-
-* 恢复计划中的脚本在 VMM 服务帐户的上下文中运行。 确保此帐户对脚本所在的远程共享拥有“读取”权限。 测试脚本是否可在 VMM 服务帐户特权级别运行。
-* Windows PowerShell 模块中随附提供了 VMM cmdlet。 安装 VMM 控制台时已安装该模块。 可在脚本中通过以下命令将其加载到脚本中：
-   - Import-Module -Name virtualmachinemanager。 [了解详细信息](https://technet.microsoft.com/library/hh875013.aspx)。
-* 确保 VMM 部署中至少有一个库服务器。 默认情况下，VMM 服务器的库共享路径位于 VMM 服务器本地，其文件夹名称为 MSCVMMLibrary。
-    * 如果库共享路径在远程位置（或在本地，但不与 MSCVMMLibrary 共享），请按如下所示配置共享（例如使用 \\\libserver2.contoso.com\share\）：
-      * 打开注册表编辑器并导航到 **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**。
-      * 编辑值 **ScriptLibraryPath**，将其设置为 \\libserver2.contoso.com\share\. 指定完整的 FQDN。 提供对共享位置的权限。 请注意，这是共享的根节点。 **若要验证这点，可在 VMM 的根节点浏览库。打开的路径即为路径根 - 将在变量中使用。**
-      * 确保测试脚本时所用的用户帐户具有与 VMM 服务帐户相同的权限。 这会检查独立测试的脚本是否按其在恢复计划中的相同方式进行运行。 在 VMM 服务器上，将执行策略设置为绕过，如下所示：
-        * 使用提升的权限打开 64 位 Windows PowerShell 控制台。
-        * 键入： **Set-executionpolicy bypass**。 [了解详细信息](https://technet.microsoft.com/library/ee176961.aspx)。
-
-> [!IMPORTANT]
-> 应仅在 64 位 PowerShell 上将执行策略设置为“免验证”。 如果为 32 位 PowerShell 进行此设置，则不会执行脚本。
-
-## <a name="add-a-script-or-manual-action-to-a-plan"></a>向计划添加脚本或手动操作
-
-向默认恢复计划组添加 VM 或复制组并创建该计划后，可向该计划组添加脚本。
+向默认恢复计划组添加虚拟机或复制组后，即可向恢复计划组添加脚本或手动操作。
 
 1. 打开恢复计划。
-2. 在“步骤”列表中单击某项，然后单击“脚本”或“手动操作”。
-3. 指定是要在选定项的前面还是后面添加该脚本或操作。 使用“上移”和“下移”按钮，上下移动脚本的位置。
-4. 如果添加 VMM 脚本，请选择“故障转移到 VMM 脚本”。 在“脚本路径”中，键入共享的相对路径。 在以下 VMM 示例中指定路径：**\RPScripts\RPScript.PS1**。
-5. 要添加 Azure 自动化 Runbook，请指定该 Runbook 所在的 Azure 自动化帐户，并选择相应的 Azure Runbook 脚本。
-6. 执行恢复计划故障转移，确保脚本按预期运行。
+2. 在“步骤”列表中，选择一个项。 然后，选择“脚本”或“手动操作”。
+3. 指定是要在选定项的前面还是后面添加该脚本或操作。 要将上移或下移脚本，请选择“上移”或“下移”按钮。
+4. 如果添加 VMM 脚本，请选择“故障转移到 VMM 脚本”。 在“脚本路径”中，输入共享的相对路径。 例如，\RPScripts\RPScript.PS1。
+5. 如果添加自动化 runbook，请指定包含 runbook 的自动化帐户。 然后，选择 Azure runbook 脚本。
+6. 要确保脚本按预期运行，请执行恢复计划故障转移。
 
-### <a name="add-a-vmm-script"></a>添加 VMM 脚本
+故障转移或故障回复期间，仅可在以下方案中使用脚本或 runbook 选项。 手动操作在故障转移和故障回复时均可使用。
 
-如果有一个 VMM 源站点，则可在 VMM 服务器上创建脚本，并将其纳入恢复计划。
-
-1. 在库共享中新建文件夹。 例如，\<VMMServerName>\MSSCVMMLibrary\RPScripts。 将其放到源和目标 VMM 服务器上。
-2. 创建脚本（例如，RPScript），并验证其按预期运行。
-3. 将该脚本放在源和目标 VMM 服务器上的 \<VMMServerName> \MSSCVMMLibrary 位置。
+|方案               |故障转移 |故障回复 |
+|-----------------------|---------|---------|
+|Azure 到 Azure         |Runbook |Runbook  |
+|VMware 复制到 Azure        |Runbook |不可用       | 
+|VMM 到 Azure           |Runbook |脚本   |
+|Hyper-V 站点到 Azure  |Runbook |不可用       |
+|VMM 到 VMM             |脚本   |脚本   |
 
 ## <a name="next-steps"></a>后续步骤
 
-[详细了解](site-recovery-failover.md)如何运行故障转移。
-
-<!--Update_Description: wording update -->
+* 详细了解如何[运行故障转移](site-recovery-failover.md)。  
+<!-- Not Available on VIDEO -->
+<!--Update_Description: update meta properties, wording update -->

@@ -11,15 +11,15 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 10/10/2017
-ms.date: 11/20/2017
+ms.topic: article
+origin.date: 02/01/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 69e9c586c394fa4cf4897058a2afd4e73a1c3dbf
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 5843d56d3e0c6b179dcf7fd81864280adbae9e57
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>使用 .NET Framework 从 Azure 事件中心接收事件
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/15/2017
 若要完成本教程，需要满足以下先决条件：
 
 * [Microsoft Visual Studio 2015 或更高版本](http://visualstudio.com)。 本教程中的屏幕截图使用 Visual Studio 2017。
-* 有效的 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个试用帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
+* 有效的 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个试用帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>创建事件中心命名空间和事件中心
 
@@ -46,15 +46,15 @@ ms.lasthandoff: 11/15/2017
 
 若要使用[事件处理程序主机][EventProcessorHost]，必须有一个 [Azure 存储帐户][Azure Storage account]：
 
-1. 登录到 [Azure 门户][Azure portal]，然后单击屏幕左上角的“新建”。
+1. 登录到 [Azure 门户][Azure portal]，单击屏幕左上角的“创建资源”。
 2. 单击“存储”，并单击“存储帐户”。
 
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
-3. 在“创建存储帐户”  边栏选项卡中，键入存储帐户的名称。 选择 Azure 订阅、资源组和要在其中创建该资源的位置。 然后单击“创建” 。
+3. 在“创建存储帐户”窗格中，键入存储帐户的名称。 选择 Azure 订阅、资源组和要在其中创建该资源的位置。 然后单击“创建” 。
 
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 4. 在存储帐户列表中，单击新建的存储帐户。
-5. 在“存储帐户”边栏选项卡中，单击“访问密钥”。 复制 **key1** 的值，在本教程的后面部分使用。
+5. 在“存储帐户”窗格中，单击“访问密钥”。 复制 **key1** 的值，在本教程的后面部分使用。
 
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
@@ -139,8 +139,8 @@ ms.lasthandoff: 11/15/2017
        string eventHubName = "{Event Hub name}";
        string storageAccountName = "{storage account name}";
        string storageAccountKey = "{storage account key}";
-       string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
-
+       string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.chinacloudapi.cn", storageAccountName, storageAccountKey);
+       
        string eventProcessorHostName = Guid.NewGuid().ToString();
        EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
        Console.WriteLine("Registering EventProcessor...");
@@ -153,6 +153,7 @@ ms.lasthandoff: 11/15/2017
        eventProcessorHost.UnregisterEventProcessorAsync().Wait();
     }
     ```
+<!-- Add the ;EndpointSuffix=core.chinacloudapi.cn in storageConnectionString -->
 
 7. 运行程序，并确保没有任何错误。
 
@@ -183,7 +184,7 @@ ms.lasthandoff: 11/15/2017
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [Event Hubs Programming Guide]: event-hubs-programming-guide.md
 [Azure Storage account]:../storage/common/storage-create-storage-account.md
-[Event Processor Host]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[Event Processor Host]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost?view=azure-dotnet
 [Azure portal]: https://portal.azure.cn
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties， update link -->

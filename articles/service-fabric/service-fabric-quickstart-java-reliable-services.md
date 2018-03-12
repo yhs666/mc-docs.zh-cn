@@ -1,6 +1,6 @@
 ---
 title: "创建 Azure Service Fabric Java 应用程序 | Azure"
-description: "“使用 Service Fabric 创建适用于 Azure 的 Java 应用程序”快速入门示例。"
+description: "在本快速入门中，请使用 Service Fabric Reliable Services 示例应用程序创建用于 Azure 的 Java 应用程序。"
 services: service-fabric
 documentationcenter: java
 author: rockboyfor
@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/23/2017
-ms.date: 01/01/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bddfe05565106663f6d9e77e6683859beeaabddd
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 598aaa25bc27e17e7ada86755e5627525a0e932e
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="create-a-java-application"></a>创建 Java 应用程序
+# <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>快速入门：将 Java Service Fabric Reliable Services 应用程序部署到 Azure
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理微服务和容器。 
 
 此快速入门演示如何在 Linux 开发人员计算机上使用 Eclipse IDE 将首个 Java 应用程序部署到 Service Fabric。 完成后，将生成一个带 Java Web 前端的投票应用程序，用于将投票结果保存到群集的有状态后端服务中。
@@ -80,15 +80,16 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ## <a name="deploy-the-application-to-azure"></a>将应用程序部署到 Azure
 
 ### <a name="set-up-your-azure-service-fabric-cluster"></a>设置 Azure Service Fabric 群集
-要将应用程序部署到 Azure 中的群集，可自行创建群集，或使用合作群集。
+若要将应用程序部署到 Azure 中的群集，可创建自己的群集。
 
-合作群集是 Azure 上托管的免费限时 Service Fabric 群集。 这些群集由 Service Fabric 团队运行，任何人均可在其中部署应用程序和了解平台。 若要使用合作群集，请[按照说明操作](http://aka.ms/tryservicefabric)。 
+<!-- Not Avaiable on Party clusters [follow the instructions](http://aka.ms/tryservicefabric) -->
 
 若要了解如何创建自己的群集，请参阅[在 Azure 上创建 Service Fabric 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
 
 > [!Note]
-> Web 前端服务配置为侦听端口 8080 上是否有传入流量。 请确保此端口在群集中处于打开状态。 如果使用的是合作群集，此端口已处于打开状态。
+> Spring Boot 服务配置为侦听端口 8080 上的传入流量。 请确保此端口在群集中处于打开状态。 
 >
+<!-- Not Avaiable on Party Cluster -->
 
 ### <a name="deploy-the-application-using-eclipse"></a>使用 Eclipse 部署应用程序
 应用程序和群集现已准备就绪，可直接通过 Eclipse 部署到群集。
@@ -122,7 +123,7 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 
 若要缩放 Web 前端服务，请按照以下步骤操作：
 
-1. 在群集中打开 Service Fabric Explorer - 例如 `http://lnxxug0tlqm5.chinanorth.cloudapp.chinacloudapi.cn:19080`。
+1. 在群集中打开 Service Fabric Explorer - 例如 `https://lnxxug0tlqm5.chinanorth.cloudapp.chinacloudapi.cn:19080`。
 2. 单击树视图中 fabric:/Voting/VotingWeb 节点旁边的省略号（三个点），再选择“缩放服务”。
 
     ![Service Fabric Explorer 缩放服务](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
@@ -150,4 +151,4 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 * 详细了解如何[在 Java 上使用 Eclipse 调试服务](service-fabric-debugging-your-application-java.md)
 <!-- Not Available on * Learn about [setting up your continuous integreation & deployment using Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md) -->
 * 查看其他 [Java 示例](https://github.com/Azure-Samples/service-fabric-java-getting-started)
-<!-- Update_Description: new article of service fabric quickstart of java reliable services -->
+<!-- Update_Description: update meta properties, wording udpate -->

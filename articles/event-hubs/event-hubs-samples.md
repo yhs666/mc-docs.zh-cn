@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/19/2017
-ms.date: 02/26/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: d4163bdb7e046cf7edf62c95b3f8c12a6f767900
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 26e1b417d31907dc64cd9151dfa83cf936952690
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-hubs-samples"></a>事件中心示例 
 
@@ -48,7 +48,7 @@ Azure 事件中心示例集演示了 [Azure 事件中心](/event-hubs/)内的主
 
 ## <a name="net-framework"></a>.NET framework   
 
-这些示例针对 [.NET Framework 库](https://docs.microsoft.com/dotnet/framework/index)，演示 Azure 事件中心的各种其他功能。
+这些示例针对 [.NET Framework 库](https://docs.microsoft.com/dotnet/framework/index?view=azure-dotnet)，演示 Azure 事件中心的各种其他功能。
 
 ### <a name="notify-users-of-events-received"></a>通知用户已收到事件
 
@@ -62,10 +62,7 @@ Azure 事件中心示例集演示了 [Azure 事件中心](/event-hubs/)内的主
 
 [扩大事件处理](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)示例演示如何使用[事件处理器主机](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)分配事件中心流消耗工作负荷。 它演示如何实现用于管理事件流的 **EventProcessor** 和 **EventProcessorFactory** 对象。 
 
-###  <a name="pull-data-from-sql-into-an-event-hub"></a>将数据从 SQL 提取到事件中心
-
-[提取 SQL 数据](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql)示例演示如何从 SQL 表中提取数据并将其推送到事件中心，以用作下游分析应用程序的输入。
-
+<!-- Remove on Globle site ### Pull web data into an event hub  -->
 <!-- Not Available on ### <a name="pull-web-data-into-an-event-hub"></a> Pull web data into an event hub  -->
 <!-- Not Available on Github.com event-hubs-dotnet-importfromweb -->
 <!-- Not Available [从 Web 导入数据](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) -->
@@ -75,7 +72,7 @@ Azure 事件中心示例集演示了 [Azure 事件中心](/event-hubs/)内的主
 访问以下链接，了解有关 .NET Framework 版本的详细信息：
 
 - [框架和目标](https://docs.microsoft.com/dotnet/articles/standard/frameworks)
-- [.NET Framework 4.6 和 4.5](https://docs.microsoft.com/dotnet/framework/index)
+- [.NET Framework 4.6 和 4.5](https://docs.microsoft.com/dotnet/framework/index?view=azure-dotnet)
 
 可在以下文章中了解有关事件中心的详细信息：
 

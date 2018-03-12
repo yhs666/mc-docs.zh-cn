@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
 origin.date: 11/29/2016
-ms.date: 07/17/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: bc15496fd7be8b2985dd0a70f16df49108624d9d
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: a1670c118c59afcebc2bb8df9f4cc767358be86d
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>将数据仓库迁移到高级存储
 Azure SQL 数据仓库最近推出了 [具有更好的性能可预测性的高级存储][premium storage for greater performance predictability]。 现在可以将标准存储上现有的数据仓库迁移到高级存储。 可以利用自动迁移，如果想要控制迁移时间（这涉及某种停机时间），也可自己执行迁移操作。
@@ -157,10 +157,10 @@ go
 <!--Article references-->
 [automatic migration schedule]: #automatic-migration-schedule
 [self-migration to Premium Storage]: #self-migration-to-premium-storage
-[create a support ticket]: https://www.azure.cn/support/support-ticket-form/?l=zh-cn
+[create a support ticket]: https://support.windowsazure.cn/support/support-azure
 
 <!-- Not Available on [main documentation site]: services/sql-data-warehouse.md -->
-[Pause]: sql-data-warehouse-manage-compute-portal.md#pause-compute
+[Pause]: sql-data-warehouse-manage-compute-portal.md
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
 [scale compute power]: sql-data-warehouse-manage-compute-portal.md#scale-compute-power
@@ -171,3 +171,4 @@ go
 <!--Other Web references-->
 [Premium Storage for greater performance predictability]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Azure Portal]: https://portal.azure.cn
+<!-- Update_Description: update meta properties, wording update -->

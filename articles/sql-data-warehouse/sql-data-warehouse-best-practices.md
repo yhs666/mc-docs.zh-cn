@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-origin.date: 12/06/2017
-ms.date: 01/15/2018
+origin.date: 02/20/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6093ca8c7a2c94531fa2dce09891d75de9ac1560
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 2e2b2452c797911cb36c371dcd99decebba01d08
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库最佳实践
 本文包含一系列最佳实践，可确保用户从 Azure SQL 数据仓库获得最佳性能。  本文的有些概念很基本且很容易解释，而有些概念则相对高级，本文只对其进行大致介绍。  本文的目的是提供一些基本指导，让用户在生成数据仓库时更加关注那些重要的方面。  每部分都介绍一个概念，并提供哪里可以阅读深度介绍的详细文章。
@@ -30,14 +30,7 @@ ms.lasthandoff: 02/13/2018
 有关加载指南，请参阅[加载数据的指南](guidance-for-loading-data.md)。
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>使用暂停和缩放来降低成本
-SQL 数据仓库的一个重要功能，是能够在不使用它时予以暂停，这会停止计算资源的计费。  另一个重要功能是能够缩放资源。  暂停和缩放可以通过 Azure 门户或 PowerShell 命令完成。  请熟悉这些功能，因为这些功能可以在数据仓库不使用时大幅降低成本。  如果希望随时可访问数据仓库，建议将其缩放到最小的大小 (DW100)，而不是暂停。
-
-另请参阅[暂停计算资源][Pause compute resources]、[恢复计算资源][Resume compute resources]、[缩放计算资源][Scale compute resources]。
-
-## <a name="drain-transactions-before-pausing-or-scaling"></a>暂停或缩放之前清空事务
-在暂停或缩放 SQL 数据仓库时，用户一发起暂停或缩放请求，系统就会在后台取消查询。  取消简单的 SELECT 查询是很快的操作，对于暂停或缩放实例所花费的时间几乎没有什么影响。  但是，事务性查询（会修改数据或结构）可能无法快速地停止。  **按定义，事务性查询必须完全完成或回退更改。**  回滚事务性查询已完成的任务可能需要很长时间，甚至比查询应用原始更改更久。  例如，如果取消的删除行查询已经运行一小时，系统可能需要一个小时重新插入已删除的行。  如果在事务运行中运行暂停或缩放，暂停或缩放操作可能需要一些时间，因为暂停和缩放必须等回滚完成才能继续。
-
-另请参阅[了解事务][Understanding transactions]、[优化事务][Optimizing transactions]
+若要了解如何通过暂停和缩放来降低成本，请参阅[管理计算](sql-data-warehouse-manage-compute-overview.md)。 
 
 ## <a name="maintain-statistics"></a>维护统计信息
 不同于 SQL Server（自动检测列并创建或更新列的统计信息），SQL 数据仓库需要手动维护统计信息。  我们计划在将来改进这一点，但现在仍需要维护统计信息，以确保 SQL 数据仓库的计划优化。  优化工具创建的计划只能使用可用的统计信息。  **创建每个列的模板统计信息是开始使用统计信息的简单方式。**  更新统计信息和对数据做重大更改一样重要。  保守的做法是每天或每次加载之后更新统计信息。  创建和更新统计信息的性能与成本之间总有一些取舍。 如果发现维护所有统计信息所需时间太长，可能要更谨慎选择哪些列要进行统计信息、哪些列需要频繁更新。  例如，可能想要更新每天都要添加新值的日期列。 **对涉及联接的列、WHERE 子句中使用的列、在 GROUP BY 中找到的列进行信息统计，可以获得最大效益。**
@@ -52,10 +45,10 @@ SQL 数据仓库的一个重要功能，是能够在不使用它时予以暂停�
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>使用 PolyBase 快速加载和导出数据
 SQL 数据仓库支持通过多种工具（包括 PolyBase 和 BCP）来加载和导出数据。  对于少量的数据，性能不是那么重要，任何工具都可以满足需求。  但是，当要加载或导出大量数据，或者需要快速的性能时，PolyBase 是最佳选择。  PolyBase 使用 SQL 数据仓库的 MPP（大规模并行处理）体系结构，因此加载和导出巨量数据的速度比其他任何工具更快。  可使用 CTAS 或 INSERT INTO 来运行 PolyBase 加载。  **使用 CTAS 可以减少事务日志记录，是加载数据最快的方法。**  PolyBase 支持各种不同的文件格式，包括 Gzip 文件。  
             **要在使用 gzip 文本文件时获得最大的吞吐量，请将文件分成 60 个以上的文件让加载有最大化的并行度。**  若要更快的总吞吐量，请考虑并行加载数据。
-<!-- Not available [Load data with Azure Data Factory]-->
+<!-- Not available Azure Data Factory-->
 
 另请参阅[加载数据][Load data]、[PolyBase 使用指南][Guide for using PolyBase]、[CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]、[Create table as select (CTAS)][Create table as select (CTAS)]
-<!-- Not available [Move data with Azure Data Factory]-->
+<!-- Not available [Move data with Azure Data Factory] [Load Data with Azure Data Factory]-->
 <!-- Not Available [Azure SQL Data Warehouse loading patterns and strategies]-->
 
 ## <a name="load-then-query-external-tables"></a>加载并查询外部表
@@ -123,7 +116,7 @@ SQL 数据仓库有多个 DMV 可用于监视查询执行。  以下监视相关
 <!--Image references-->
 
 <!--Article references-->
-[Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[Create a support ticket]: https://support.windowsazure.cn/support/support-azure
 [Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Create table as select (CTAS)]: ./sql-data-warehouse-develop-ctas.md
 [Table overview]: ./sql-data-warehouse-tables-overview.md

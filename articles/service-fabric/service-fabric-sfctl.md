@@ -9,20 +9,20 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 09/22/2017
-ms.date: 11/13/2017
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 357fdf5623a582077337beb358f4b5ec041d421c
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 73d3e1baaca0ebea5746729fc799bce0295bf7bc
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="sfctl"></a>sfctl 
-用于管理 Service Fabric 群集和实体的命令。 此版本与 Service Fabric 6.0 运行时兼容。 命令遵循名词谓词模式，有关详细信息，请参阅下列子组。
+用于管理 Service Fabric 群集和实体的命令。 此版本与 Service Fabric 6.1 运行时兼容。 命令遵循名词谓词模式，有关详细信息，请参阅下列子组。
 
 ## <a name="subgroups"></a>子组
 |子组|说明|
@@ -34,6 +34,7 @@ ms.lasthandoff: 11/09/2017
 | [is](service-fabric-sfctl-is.md)      | 查询并向基础结构服务发送命令。|
 | [node](service-fabric-sfctl-node.md)    | 管理构成群集的节点。|
 | [partition](service-fabric-sfctl-partition.md)  | 查询和管理任何服务的分区。|
+| 属性  | 在 Service Fabric 名称下存储和查询属性。|
 | [rpm](service-fabric-sfctl-rpm.md)        | 查询并向修复管理器服务发送命令。|
 | [replica](service-fabric-sfctl-replica.md) | 管理属于服务分区的副本。|
 | [service](service-fabric-sfctl-service.md) | 创建、删除和管理服务、服务类型和服务包。|
@@ -43,4 +44,4 @@ ms.lasthandoff: 11/09/2017
 - [安装](service-fabric-cli.md) Service Fabric CLI。
 - 了解如何通过[示例脚本](/service-fabric/scripts/sfctl-upgrade-application)使用 Service Fabric CLI。
 
-<!--Update_Description: new articles on service fabric sfctl -->
+<!--Update_Description: update meta properties, add the Property subgroups content -->

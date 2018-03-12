@@ -16,11 +16,11 @@ ms.workload: data-management
 origin.date: 10/11/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 9f8944360e98c9985051cb985f6808e123c68e46
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 524b4411413abd8db526928486f6c2515c32c811
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>创建并管理 Azure SQL 数据库服务器和数据库
 
@@ -208,7 +208,7 @@ Azure 数据库逻辑服务器：
 |[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/list)|返回服务器的列表。|
 |[Servers - List By Resource Group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|返回资源组中服务器的列表。|
 |[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|更新现有服务器。|
-|[Servers - Sql](https://docs.microsoft.com/rest/api/sql/servers%20-%20sql)|判断是否能使用指定名称创建资源。|
+|Servers - Sql|判断是否能使用指定名称创建资源。|
 |[数据库 - 创建或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|创建新数据库或更新现有数据库。|
 |[数据库 - 获取](https://docs.microsoft.com/rest/api/sql/databases/get)|获取数据库。|
 |[数据库 - 按弹性池获取](https://docs.microsoft.com/rest/api/sql/databases/getbyelasticpool)|获取弹性池内的数据库。|

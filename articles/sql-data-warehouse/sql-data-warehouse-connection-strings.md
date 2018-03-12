@@ -14,24 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
 origin.date: 10/31/2016
-ms.date: 07/17/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: a4abaf1f8342d252d6c68074ee0169044579074c
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: 1fd0bed0171e5b533a6578ff74939822127f6045
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="drivers-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库的驱动程序
 用户可以使用多个不同的应用程序协议（例如 [ADO.NET][ADO.NET]、[ODBC][ODBC]、[PHP][PHP] 和 [JDBC][JDBC]）连接到 SQL 数据仓库。 下面是每个协议的连接字符串的一些示例。  可以使用 Azure 门户来生成连接字符串。  若要使用 Azure 门户生成连接字符串，请导航到数据库边栏选项卡，在“概要”下单击“显示数据库连接字符串”。
 
 ## <a name="sample-adonet-connection-string"></a>示例 ADO.NET 连接字符串
-```C#
+```csharp
 Server=tcp:{your_server}.database.chinacloudapi.cn,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
 ## <a name="sample-odbc-connection-string"></a>示例 ODBC 连接字符串
-```C#
+```csharp
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.chinacloudapi.cn,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 
@@ -59,9 +59,10 @@ jdbc:sqlserver://yourserver.database.chinacloudapi.cn:1433;database=yourdatabase
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--MSDN references-->
-[ADO.NET]: https://msdn.microsoft.com/zh-cn/library/e80y5yhx(v=vs.110).aspx
-[ODBC]: https://msdn.microsoft.com/zh-cn/library/jj730314.aspx
-[PHP]: https://msdn.microsoft.com/zh-cn/library/cc296172.aspx?f=255&MSPPError=-2147217396
-[JDBC]: https://msdn.microsoft.com/zh-cn/library/mt484311(v=sql.110).aspx
+[ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
+[ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
+[PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
+[JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
 
 <!--Other references-->
+<!-- Update_Description: update meta properties, wording update -->

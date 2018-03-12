@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/09/2017
-ms.date: 02/26/2018
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8171bd7512ed14e2203a2aa91e2ed719e43f66f9
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 4bbb9af28a5848b6239178ed60cff86ea18c6677
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="package-an-application"></a>打包应用程序
 本文介绍如何打包 Service Fabric 应用程序并为部署做好准备。
@@ -221,4 +221,4 @@ ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!--Update_Description: update meta properties， wording update, add content of Create an sfpkg -->
+<!--Update_Description: update meta properties -->

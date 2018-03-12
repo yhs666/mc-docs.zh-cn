@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/23/2017
-ms.date: 11/13/2017
+origin.date: 01/10/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: a92d7b90acc0dd404d7b3cbcdb828d800f0533f9
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 174df38c68f708cedfb303dfa3deb04e3f3e336b
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="replicas-and-instances"></a>副本和实例 
 本文概述了有状态服务副本和无状态服务实例的生命周期。
@@ -147,4 +147,4 @@ InBuild 副本是创建或准备加入副本集的副本。 根据副本角色�
 [Reliable Services 生命周期 - C#](service-fabric-reliable-services-lifecycle.md)
 
 
-<!--Update_Description: new articles on service fabric concepts replica lifecycle -->
+<!--Update_Description: update meta properties -->

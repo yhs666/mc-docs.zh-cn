@@ -2,27 +2,21 @@
 title: "Azure Site Recovery：常见问题 | Azure"
 description: "本文讨论有关 Azure Site Recovery 的常见问题。"
 services: site-recovery
-documentationcenter: 
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-origin.date: 10/19/2017
-ms.date: 01/01/2018
+origin.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: f8acf41eab278436e5085d4ac8899eaf9eee0d54
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 8e3942e1b93c2ed23b5c22d2b46a16e2f2c8e07c
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常见问题解答 (FAQ)
-本文包含有关 Azure Site Recovery 的常见问题。 如果在阅读本文后有任何问题，请在 [Azure 恢复服务论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr)上发布这些问题。
+本文包含有关 Azure Site Recovery 的常见问题。 如果在阅读本文后有任何问题，请在 [Azure 恢复服务论坛](https://www.azure.cn/support/forums/)上发布这些问题。
 
 ## <a name="general"></a>常规
 ### <a name="what-does-site-recovery-do"></a>站点恢复的功能是什么？
@@ -165,10 +159,10 @@ Azure 具有复原能力。 Site Recovery 已经能够根据需要故障转移�
 * [详细了解](site-recovery-failback-azure-to-vmware.md) VMware VM 和物理服务器故障回复的信息
 
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-failover-back-to-a-different-host"></a>如果我的本地主机未响应或崩溃，我是否可以故障转移回到另一个主机？
-是，可以使用备用位置恢复从 Azure 故障回复到另一个主机。 通过用于 VMware 和 Hyper-v 虚拟机的以下链接详细了解选项。
+是，可以使用备用位置恢复从 Azure 故障回复到另一个主机。 通过用于 VMware 和 Hyper-V 虚拟机的以下链接详细了解选项。
 
-* [对于 VMware 虚拟机](site-recovery-how-to-failback-azure-to-vmware.md#fail-back-to-the-original-or-alternate-location)
-* [对于 Hyper-v 虚拟机](site-recovery-failback-from-azure-to-hyper-v.md#failback-to-an-alternate-location)
+* [对于 VMware 虚拟机](concepts-types-of-failback.md#alternate-location-recovery-alr)
+* [针对 Hyper-V 虚拟机](hyper-v-azure-failback.md#perform-failback)
 
 ## <a name="service-providers"></a>服务提供商
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>我是服务提供商。 Site Recovery 是否适用于专用和共享的基础结构模型？
@@ -201,4 +195,4 @@ Azure 具有复原能力。 Site Recovery 已经能够根据需要故障转移�
 * 阅读 [站点恢复概述](site-recovery-overview.md)
 * 了解 [Site Recovery 体系结构](site-recovery-components.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

@@ -2,18 +2,18 @@
 title: "在虚拟网络中预配 Azure Batch 池 | Microsoft Docs"
 description: "可以在虚拟网络中创建 Batch 池，以便计算节点可以安全地与网络中的其他 VM（例如文件服务器）进行通信。"
 services: batch
-author: alexchen2016
-manager: digimobile
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
-origin.date: 10/16/2017
-ms.date: 12/04/2017
+origin.date: 02/05/2018
+ms.date: 03/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 48862c03fd5363f5053d8af37534bb90e1af2c07
-ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
+ms.openlocfilehash: 94a53340a36ecd32e6b71a74fbbf9b39eb494425
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>在虚拟网络中创建 Azure Batch 池
 
@@ -73,3 +73,4 @@ Azure Batch 池具有两个设置来允许计算节点彼此进行通信，例�
 - 有关 Batch 深入概述的信息，请参阅[使用 Batch 开发大规模并行计算解决方案](batch-api-basics.md)。
 - 有关创建用户定义的路由的详细信息，请参阅[创建用户定义的路由 - Azure 门户](../virtual-network/create-user-defined-route-portal.md)。
 
+<!--Update_Description: update metedata properties -->

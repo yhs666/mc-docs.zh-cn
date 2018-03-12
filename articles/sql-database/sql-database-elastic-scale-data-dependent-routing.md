@@ -16,14 +16,14 @@ ms.topic: article
 origin.date: 11/28/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 943363e59bbe282d89d52ded7452caf3eda308d9
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 499b0f9b9ccb3d6fd187830485f19475b264c80b
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="data-dependent-routing"></a>依赖于数据的路由
-**数据依赖型路由**是使用查询中的数据将请求路由到相应数据库的功能。 在使用分片数据库时，它是一种基础模式。 请求上下文也可用于路由请求，尤其是当分片键不是查询的一部分时。 将应用程序中使用依赖于数据的路由的每个特定查询和事务限制为针对每个请求访问单一数据库。 对于 Azure SQL 数据库弹性工具，这种路由是通过 ShardMapManager（[Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager)、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)）类实现的。
+**数据依赖型路由**是使用查询中的数据将请求路由到相应数据库的功能。 在使用分片数据库时，它是一种基础模式。 请求上下文也可用于路由请求，尤其是当分片键不是查询的一部分时。 将应用程序中使用依赖于数据的路由的每个特定查询和事务限制为针对每个请求访问单一数据库。 对于 Azure SQL 数据库弹性工具，这种路由是通过 ShardMapManager（Java、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)）类实现的。
 
 应用程序无需在分片环境中跟踪与不同的数据片相关联的各种连接字符串或数据库位置。 但是，[分片映射管理器](sql-database-elastic-scale-shard-map-management.md)在需要时基于分片映射中的数据以及作为应用程序请求目标的分片键值，建立与正确数据库的连接。 该键通常为 customer_id、tenant_id、date_key 或一些作为数据库请求的基础参数的其他特定标识符。 
 

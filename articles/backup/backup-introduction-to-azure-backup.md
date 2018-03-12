@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 01/05/2018
-ms.date: 02/08/2018
+ms.date: 02/27/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 066999481ec0d2a1a7d23f483b6aa85ea458dbf8
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 4e158b596bf316c445c90db23c39433ee7143820
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 备份功能概述
 Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 Azure 云中的数据。 Azure 备份取代了现有的本地或异地备份解决方案，并且是可靠、安全、高性价比的基于云的解决方案。 Azure 备份提供多个组件，可将其下载并部署到适当的计算机、服务器或云中。 依据要保护的内容选择部署的组件或代理。 无论是保护本地数据还是云中数据，所有 Azure 备份组件均可用于将数据备份到 Azure 的恢复服务保管库中。 请参阅本文稍后部分的 [Azure 备份组件表格](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)，了解保护特定数据、应用程序或工作负荷所用的组件。
@@ -103,7 +103,7 @@ Azure 备份会保护高级存储 VM。 Azure 高级存储是基于固态硬盘 
 >
 
 ### <a name="restore-premium-storage-vms"></a>还原高级存储 VM
-可以将高级存储 VM 还原为高级存储或常规存储。 将高级存储 VM 的恢复点还原到高级存储是典型的还原过程。 但是，将高级存储 VM 的恢复点还原到标准存储更符合成本效益。 如果需要 VM 中的一部分文件，可以使用这种还原类型。
+可以将高级存储 VM 还原为高级存储或标准存储。 将高级存储 VM 的恢复点还原到高级存储是典型的还原过程。 但是，将高级存储 VM 的恢复点还原到标准存储更具有成本效益。 如果需要 VM 中的一部分文件，可以使用这种还原类型。
 
 ## 将托管磁盘 VM 与 Azure 备份结合使用<a name="using-managed-disk-vms-with-azure-backup"></a>
 Azure 备份可保护托管磁盘 VM。 使用托管磁盘，用户就不需要管理虚拟机的存储帐户，大大简化 VM 预配。

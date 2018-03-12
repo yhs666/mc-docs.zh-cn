@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/30/2017
-ms.date: 10/02/2017
+origin.date: 01/19/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: a3cdbb8e4d26641232e5febb49e9b4f61483be40
-ms.sourcegitcommit: b2ece7a9542b90975f154d29b1127c10a3cdb22d
+ms.openlocfilehash: 4cae8b49634b56937c75d6358379a2609df53db9
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 网络模式
 可将 Azure Service Fabric 群集与其他 Azure 网络功能集成。 本文说明如何创建使用以下功能的群集：
@@ -37,11 +37,10 @@ Service Fabric 在标准的虚拟机规模集中运行。 可在虚拟机规模�
 
 ## <a name="templates"></a>模板
 
-所有 Service Fabric 模板在[一个下载文件](https://msdnshared.blob.core.windows.net/media/2016/10/SF_Networking_Templates.zip)中提供。 使用以下 PowerShell 命令应可按原样部署模板。 若要部署现有的 Azure 虚拟网络模板或静态公共 IP 模板，请先阅读本文的[初始设置](#initialsetup)部分。
-<!-- Download address should be core.windows.net -->
+所有 Service Fabric 模板都位于 [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking) 中。 使用以下 PowerShell 命令应可按原样部署模板。 若要部署现有的 Azure 虚拟网络模板或静态公共 IP 模板，请先阅读本文的[初始设置](#initialsetup)部分。
 
-<a id="initialsetup"></a>
-## 初始设置
+<a name="initialsetup"></a>
+## <a name="initial-setup"></a>初始设置
 
 ### <a name="existing-virtual-network"></a>现有虚拟网络
 
@@ -52,11 +51,11 @@ Service Fabric 在标准的虚拟机规模集中运行。 可在虚拟机规模�
 静态公共 IP 地址通常是一个专用资源，与其所分配的 VM 分开管理。 它在专用网络资源组中（而不是在 Service Fabric 群集资源组本身中）预配。 使用 Azure 门户或 PowerShell 在同一个 ExistingRG 资源组中创建名为 staticIP1 的静态公共 IP 地址：
 
 ```powershell
-PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location chinaeast -AllocationMethod Static -DomainNameLabel sfnetworking
+PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location chinanorth -AllocationMethod Static -DomainNameLabel sfnetworking
 
 Name                     : staticIP1
 ResourceGroupName        : ExistingRG
-Location                 : chinaeast
+Location                 : chinanorth
 Id                       : /subscriptions/1237f4d2-3dce-1236-ad95-123f764e7123/resourceGroups/ExistingRG/providers/Microsoft.Network/publicIPAddresses/staticIP1
 Etag                     : W/"fc8b0c77-1f84-455d-9930-0404ebba1b64"
 ResourceGuid             : 77c26c06-c0ae-496c-9231-b1a114e08824
@@ -69,17 +68,16 @@ IdleTimeoutInMinutes     : 4
 IpConfiguration          : null
 DnsSettings              : {
                              "DomainNameLabel": "sfnetworking",
-                             "Fqdn": "sfnetworking.chinaeast.cloudapp.chinacloudapi.cn"
+                             "Fqdn": "sfnetworking.chinanorth.cloudapp.chinacloudapi.cn"
                            }
 ```
 
 ### <a name="service-fabric-template"></a>Service Fabric 模板
 
-本文中的示例使用 Service Fabric template.json。 在创建群集之前，可以使用标准门户向导下载该模板。 也可以使用[模板库](https://azure.microsoft.com/documentation/templates/?term=service+fabric)中的模板之一，例如[五节点 Service Fabric 群集](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure)。
-<!-- URL is correct on [five-node Service Fabric cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure) -->
+本文中的示例使用 Service Fabric template.json。 在创建群集之前，可以使用标准门户向导下载该模板。 也可以使用[示例模板](https://github.com/Azure-Samples/service-fabric-cluster-templates)之一，例如[保护五节点 Service Fabric 群集](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure)。
 
-<a id="existingvnet"></a>
-## 现有虚拟网络或子网
+<a name="existingvnet"></a>
+## <a name="existing-virtual-network-or-subnet"></a>现有虚拟网络或子网
 
 1. 将子网参数更改为现有子网的名称，并添加两个新参数以引用现有的虚拟网络：
 
@@ -162,7 +160,7 @@ DnsSettings              : {
 5. 部署模板：
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location chinaeast
+    New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location chinanorth
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
@@ -175,7 +173,7 @@ DnsSettings              : {
 
 请参阅[并非特定于 Service Fabric 的另一个示例](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet)。
 
-<a id="staticpublicip"></a>
+<a name="staticpublicip"></a>
 ## <a name="static-public-ip-address"></a>静态公共 IP 地址
 
 1. 添加现有静态 IP 资源组名称、名称和完全限定的域名 (FQDN) 的参数：
@@ -271,7 +269,7 @@ DnsSettings              : {
 8. 部署模板：
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location chinaeast
+    New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location chinanorth
 
     $staticip = Get-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
 
@@ -282,7 +280,7 @@ DnsSettings              : {
 
 部署后，可以看到负载均衡器已绑定到其他资源组中的公共静态 IP 地址。 Service Fabric 客户端连接终结点和 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 终结点指向静态 IP 地址的 DNS FQDN。
 
-<a id="internallb"></a>
+<a name="internallb"></a>
 ## <a name="internal-only-load-balancer"></a>仅限内部的负载均衡器
 
 本方案用仅限内部的负载均衡器替代默认 Service Fabric 模板中的外部负载均衡器。 有关对 Azure 门户和 Service Fabric 资源提供程序的影响，请参阅前面部分。
@@ -373,14 +371,14 @@ DnsSettings              : {
 7. 部署模板：
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location chinaeast
+    New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location chinanorth
 
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
 部署后，负载均衡器使用专用静态 IP 地址 10.0.0.250。 如果同一虚拟网络中还有其他计算机，可以转到内部 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 终结点。 可以看到，该终结点已连接到负载均衡器后面的某个节点。
 
-<a id="internalexternallb"></a>
+<a name="internalexternallb"></a>
 ## <a name="internal-and-external-load-balancer"></a>内部和外部负载均衡器
 
 本方案从现有的单节点类型外部负载均衡器着手，添加一个相同节点类型的内部负载均衡器。 附加到后端地址池的后端端口只能分配给单个负载均衡器。 选择哪个负载均衡器使用应用程序端口，哪个负载均衡器使用管理终结点（端口 19000 和 19080）。 如果将管理终结点放在内部负载均衡器上，请记住前文所述的 Service Fabric 资源提供程序限制。 本示例将管理终结点保留在外部负载均衡器上。 还需要添加一个端口号为 80 的应用程序端口，并将其放在内部负载均衡器上。
@@ -590,7 +588,7 @@ DnsSettings              : {
 7. 部署模板：
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location chinaeast
+    New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location chinanorth
 
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
     ```
@@ -600,4 +598,4 @@ DnsSettings              : {
 ## <a name="next-steps"></a>后续步骤
 [创建群集](service-fabric-cluster-creation-via-arm.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update meta properties -->

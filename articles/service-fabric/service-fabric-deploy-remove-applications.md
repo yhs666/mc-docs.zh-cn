@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/05/2017
-ms.date: 02/26/2018
+origin.date: 01/19/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: c7c7bd5cdca51f0fa9539895129c3f92cc5df1f5
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 4727aba44fdc2a6bc3b20fe5094f6dae8335d863
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>使用 PowerShell 部署和删除应用程序
 > [!div class="op_single_selector"]
@@ -367,4 +367,4 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 [10]: service-fabric-package-apps.md
 [11]: service-fabric-application-upgrade.md
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: wording update -->

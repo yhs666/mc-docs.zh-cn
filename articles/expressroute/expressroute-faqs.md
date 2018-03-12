@@ -1,6 +1,6 @@
 ---
-title: "Azure ExpressRoute 常见问题解答 | Microsoft 文档"
-description: "ExpressRoute 常见问题包含有关支持的 Azure 服务、费用、数据和连接、SLA、提供程序和位置、带宽的信息和其他技术详细信息。"
+title: "Azure ExpressRoute 常见问题解答"
+description: "ExpressRoute 常见问题包含有关支持的 Azure 服务、费用、数据和连接、SLA、提供商和位置、带宽的信息和其他技术详细信息。"
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/01/2017
+origin.date: 01/17/2018
 ms.author: v-yiso
-ms.date: 01/08/2018
-ms.openlocfilehash: 4baa1ef2e581bf011753976560aae4f61b8d51bd
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.date: 03/12/2018
+ms.openlocfilehash: 1ff4ece4b1571802636cd50a5e547d418d044a92
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -96,7 +96,7 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 
 ## <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>如何确保连接到 ExpressRoute 的虚拟网络上的高可用性？
 
-可以通过将不同的对等位置中的多条 ExpressRoute 线路连接到虚拟网络来实现高可用性。 例如，如果一个 ExpressRoute 站点出现故障，连接会故障转移到另一个 ExpressRoute 站点。 默认情况下，将基于等成本多路径路由 (ECMP) 对离开虚拟网络的流量进行路由。 可以使用连接权重来使一个连接优先于另一个连接。 有关连接权重的更多详细信息，请参阅[优化 ExpressRoute 路由](expressroute-optimize-routing.md)。
+可以通过将不同对等互连位置的 ExpressRoute 线路连接到虚拟网络来实现高可用性。如果一个 ExpressRoute 线路出现故障，则连接将故障转移到另一条 ExpressRoute 线路。 默认情况下，将基于等成本多路径路由 (ECMP) 对离开虚拟网络的流量进行路由。 可以使用连接权重来使一条线路优先于另一条线路。 有关连接权重的更多详细信息，请参阅[优化 ExpressRoute 路由](expressroute-optimize-routing.md)。
 
 ### <a name="onep2plink"></a>如果我不在云交换中共置，而我的服务提供商提供点到点连接，我需要在本地网络与 Microsoft 之间订购两个物理连接吗？
 
@@ -115,9 +115,12 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 
 是的。 可以使用多个服务提供商的 ExpressRoute 线路。 每条 ExpressRoute 线路只与一个服务提供商相关联。 
 
-### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-location"></a>在同一位置中是否可以有多条 ExpressRoute 线路？
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-eg-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>我在同一城市内看到两个 ExpressRoute 对等位置（如新加坡和新加坡 2）。 我应选择哪个对等位置来创建我的 ExpressRoute 线路？
+如果服务提供商在两个站点均提供 ExpressRoute，则可以与提供商协作，选择任意一个站点来设置 ExpressRoute。 
 
-是的。 在同一位置中可以有多条 ExpressRoute 线路，它们可以具有相同或不同的服务提供商。 不过，无法从同一位置将多条 ExpressRoute 线路链接到同一虚拟网络。
+### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>在相同市内是否可以有多条 ExpressRoute 线路？ 是否可以将这些线路链接到同一虚拟网络？
+
+是的。 可以具有多条包含相同或不同服务提供商的 ExpressRoute 线路。 如果市内具有多个 ExpressRoute 对等位置，并且在各个对等位置创建线路，则可以将这些线路链接到同一虚拟网络。 如果在相同对等位置创建线路，则不能将这些线路链接到同一虚拟网络。
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>如何将我的虚拟网络连接到 ExpressRoute 线路
 
@@ -295,8 +298,6 @@ Office 365 服务和 Dynamics 365 要求启用高级外接程序。 有关费用
 ### <a name="can-i-access-office-365-over-the-internet-even-if-expressroute-was-configured-for-my-organization"></a>即使为组织配置了 ExpressRoute，是否也可以通过 Internet 访问 Office 365？
 是的。 即使为网络配置了 ExpressRoute，也可以通过 Internet 访问 Office 365 服务终结点。 如果所在位置已配置为通过 ExpressRoute 连接到 Office 365 服务，则通过 ExpressRoute 进行连接。
 
-### <a name="can-dynamics-ax-online-be-accessed-over-an-expressroute-connection"></a>是否可以通过 ExpressRoute 连接访问 Dynamics AX Online？
-不可以，不支持这样做。
 
 
 <!--Update_Description:update meta properties and wording-->

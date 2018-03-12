@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 11/13/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 06eab6e47e77d1098bd2e61bd5eb8f5a7d771305
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 3a4a96d8e0693ab8221bd792a1bbe7b724aeae99
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="resource-governance"></a>资源调控 
 
@@ -116,8 +116,7 @@ Service Fabric 运行时当前不提供资源保留。 当进程或容器打开�
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
-  <Parameters>
-  </Parameters>
+
   <!--
   ServicePackageA has the number of CPU cores defined, but doesn't have the MemoryInMB defined.
   In this case, Service Fabric sums the limits on code packages and uses the sum as 
@@ -138,6 +137,53 @@ Service Fabric 运行时当前不提供资源保留。 当进程或容器打开�
 因此，在此示例中，CodeA1 分得三分之二个内核，CodeA2 分得三分之一个内核（和相同的软保证预留）。 如果没有为代码包指定 CpuShares，Service Fabric 会在这两个代码包之间平分内核。
 
 内存限制是绝对的，所以这两个代码包都限制为 1024 MB 内存（和相同的软保证保留）。 代码包（容器或进程）无法分配到超出此限制的内存。如果尝试这样做，则会抛出内存不足异常。 若要强制执行资源限制，服务包中的所有代码包均应指定内存限制。
+
+### <a name="using-application-parameters"></a>使用应用程序参数
+
+指定资源调控时，可使用[应用程序参数](service-fabric-manage-multiple-environment-app-configuration.md)管理多个应用配置。 下例展示应用程序参数的用法：
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="4" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="2048" />
+    <Parameter Name="MemoryB" DefaultValue="2048" />
+  </Parameters>
+
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName='ServicePackageA' ServiceManifestVersion='v1'/>
+    <Policies>
+      <ServicePackageResourceGovernancePolicy CpuCores="[CpuCores]"/>
+      <ResourceGovernancePolicy CodePackageRef="CodeA1" CpuShares="[CpuSharesA]" MemoryInMB="[MemoryA]" />
+      <ResourceGovernancePolicy CodePackageRef="CodeA2" CpuShares="[CpuSharesB]" MemoryInMB="[MemoryB]" />
+    </Policies>
+  </ServiceManifestImport>
+```
+
+在此示例中，会为生产环境设置默认参数，其中每个服务包具有 4 核和 2 GB 内存。 可使用应用程序参数文件更改默认值。 在此示例中，一个参数文件可以用来本地测试应用程序，其中它获得的资源将少于生产中所得： 
+
+```xml
+<!-- ApplicationParameters\Local.xml -->
+
+<Application Name="fabric:/TestApplication1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="CpuCores" DefaultValue="2" />
+    <Parameter Name="CpuSharesA" DefaultValue="512" />
+    <Parameter Name="CpuSharesB" DefaultValue="512" />
+    <Parameter Name="MemoryA" DefaultValue="1024" />
+    <Parameter Name="MemoryB" DefaultValue="1024" />
+  </Parameters>
+</Application>
+```
+
+> [!IMPORTANT] 
+> 从 Service Fabric 6.1 版开始，可使用应用程序参数指定资源调控。<br> 
+>
+> 使用应用程序参数指定资源调控时，Service Fabric 无法降级到 6.1 之前的版本。 
 
 ## <a name="other-resources-for-containers"></a>容器的其他资源
 除了 CPU 和内存之外，还可以为容器指定其他资源限制。 这些限制是在代码包一级指定，并在容器启动时应用。 这些资源与 CPU 和内存不同，群集资源管理器不会注意到它们，也不会针对它们进行任何容量检查或负载均衡。 
@@ -165,4 +211,4 @@ Service Fabric 运行时当前不提供资源保留。 当进程或容器打开�
 * 若要详细了解群集资源管理器，请阅读 [Service Fabric 群集资源管理器简介](service-fabric-cluster-resource-manager-introduction.md)。
 * 若要详细了解应用程序模型、服务包、代码包以及如何将副本映射到它们，请阅读 [Service Fabric 中的应用程序建模](service-fabric-application-model.md)。
 
-<!--Update_Description: wording update ->
+<!--Update_Description: wording update, add the content of Using application parameters  ->

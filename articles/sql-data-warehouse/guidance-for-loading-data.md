@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
 origin.date: 12/13/2017
-ms.date: 02/26/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 225efa217c9ed56fb9ce649f453fbdc9d919c17a
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 961b76caebc9e1d1fb0d0c48d98586cb04e26721
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>将数据加载到 Azure SQL 数据仓库中的最佳做法
 关于如何将数据加载到 Azure SQL 数据仓库中的建议以及与之相关的性能优化。 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/23/2018
 ## <a name="preparing-data-in-azure-storage"></a>在 Azure 存储中准备数据
 若要尽量减少延迟，请将存储层和数据仓库并置。
 
-将数据导出为 ORC 文件格式时，文字较多的列的数量可能会因 Java 内存不足的错误而被限制为少至 50 列。 若要解决此限制方面的问题，请仅导出列的一个子集。
+将数据导出为 ORC 文件格式时，如果存在较大的文本列，可能会收到“Java 内存不足”错误。 若要解决此限制方面的问题，请仅导出列的一个子集。
 
 PolyBase 无法加载数据大小超过 1,000,000 字节的行。 将数据置于 Azure Blob 存储的文本文件中时，这些数据必须少于 1,000,000 字节。 无论表架构如何，都有此字节限制。
 <!-- Not Avaiable on  Azure Data Lake Store -->
@@ -46,14 +46,22 @@ PolyBase 无法加载数据大小超过 1,000,000 字节的行。 将数据置�
 
 若要使用适当的计算资源运行负载，请创建指定运行负载的加载用户。 将每个加载用户分配给一个特定的资源类。 若要运行负载，请以某个加载用户的身份登录，然后运行该负载。 该负载使用用户的资源类运行。  与尝试根据当前的资源类需求更改用户的资源类相比，此方法更简单。
 
-此代码为 staticrc20 资源类创建加载用户。 它为用户提供数据库的控制权限，然后将该用户添加为 staticrc20 数据库角色的成员。 若要使用 staticRC20 资源类的资源运行负载，请直接以 LoaderRC20 身份登录，然后运行该负载。 
+### <a name="example-of-creating-a-loading-user"></a>创建加载用户的示例
+此示例为 staticrc20 资源类创建加载用户。 第一步是**连接到主服务器**并创建登录名。
 
-    ```sql
-    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
-    CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
-    ```
+```sql
+   -- Connect to master
+   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+```
+连接到数据仓库并创建用户。 以下代码假定已连接到名为 mySampleDataWarehouse 的数据库。 它演示如何创建一个名为 LoaderRC20 的用户，并向该用户授予对此数据库的控制权限。 然后将该用户添加为 staticrc20 数据库角色的成员。  
+
+```sql
+   -- Connect to the database
+   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
+   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
+   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+```
+若要使用 staticRC20 资源类的资源运行负载，请直接以 LoaderRC20 身份登录，然后运行该负载。
 
 在静态而非动态资源类下运行负载。 使用静态资源类可确保不管[服务级别](performance-tiers.md#service-levels)如何，资源始终不变。 如果使用动态资源类，则资源因服务级别而异。 对于动态类，如果服务级别降低，则意味着可能需要对加载用户使用更大的资源类。
 
@@ -61,7 +69,7 @@ PolyBase 无法加载数据大小超过 1,000,000 字节的行。 将数据置�
 
 通常需要允许多个用户将数据加载到数据仓库中。 使用 [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 进行加载需要数据库的“控制”权限。  “控制”权限允许对所有架构进行控制性访问。 可能不需要让所有加载用户都具有对所有架构的控制访问权限。 若要限制权限，请使用 DENY CONTROL 语句。
 
-例如，考虑为部门 A 使用数据库架构 schema_A，为部门 B 使用 schema_B；让数据库用户 user_A 和 user_B 分别作为部门 A 和 B 中加载的 PolyBase 用户。 这些用户已被授予 CONTROL 数据库权限。 架构 A 和架构 B 的创建者现在使用 DENY 锁定其架构：
+例如，考虑为部门 A 使用数据库架构 schema_A，为部门 B 使用 schema_B；让数据库用户 user_A 和 user_B 分别作为部门 A 和 B 中加载的 PolyBase 用户。 这些用户已被授予 CONTROL 数据库权限。 架构 A 和 B 的创建者现在使用 DENY 锁定其架构：
 
 ```sql
    DENY CONTROL ON SCHEMA :: schema_A TO user_B;
@@ -89,10 +97,7 @@ PolyBase 无法加载数据大小超过 1,000,000 字节的行。 将数据置�
 
 若要解决脏记录问题，请确保外部表和外部文件格式定义正确，并且外部数据符合这些定义。 如果外部数据记录的子集是脏的，可以通过使用 CREATE EXTERNAL TABLE 中的拒绝选项，选择拒绝这些查询记录。
 
-## <a name="insert-data-into-production-table"></a>将数据插入生产表
-下面的建议适用于将行插入生产表中。
-
-### <a name="batch-insert-statements"></a>批处理 INSERT 语句
+## <a name="inserting-data-into-a-production-table"></a>将数据插入生产表
 可以使用 [INSERT 语句](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql)将数据一次性加载到小型表中，甚至可以使用 `INSERT INTO MyLookup VALUES (1, 'Type 1')` 之类的语句定期重新加载某个查找。  但是，单独插入的效率不如执行大容量加载的效率。 
 <!-- URL is not Correct on remove .md postfox on [INSERT statement](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) -->
 
@@ -115,16 +120,22 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 若要轮换 Azure 存储帐户密钥，请执行以下操作：
 
-1. 创建基于辅助存储访问密钥的第二个数据库范围凭据。
-2. 创建基于此新凭据的第二个外部数据源。
-3. 删除外部表后又创建该表，使之指向新的外部数据源。 
+对于每个已更改密钥的存储帐户，请发出 [ALTER DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-credential-transact-sql) 命令。
+<!-- URL is not Correct on remove .md postfox on [ALTER DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-credential-transact-sql) -->
 
-将外部表迁移到新的数据源之后，请执行以下清理任务：
 
-1. 删除第一个外部数据源。
-2. 删除基于主存储访问密钥的第一个数据库范围凭据。
-3. 登录 Azure 并重新生成主访问密钥，供下次轮换时使用。
+示例：
+
+已创建原始密钥
+
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+
+将密钥从密钥 1 轮换为密钥 2
+
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+
+无需对基础外部数据源进行更改。
 
 ## <a name="next-steps"></a>后续步骤
-若要监视加载过程，请参阅[使用 DMV 监视工作负荷](sql-data-warehouse-manage-monitor.md)。
+若要监视数据加载，请参阅[使用 DMV 监视工作负荷](sql-data-warehouse-manage-monitor.md)。
 <!-- Update_Description: wording update -->

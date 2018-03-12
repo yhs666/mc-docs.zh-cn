@@ -9,17 +9,17 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 09/22/2017
-ms.date: 11/13/2017
+origin.date: 12/22/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 16fac6789c131a826b5b74e76ae47e73bed417e4
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 616180ca4839249ebe2b4e1e38e1576ffdd2f967
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="sfctl-store"></a>sfctl store
 针对群集映像存储执行基本文件级别操作。
@@ -28,9 +28,9 @@ ms.lasthandoff: 11/09/2017
 
 |命令|说明|
 | --- | --- |
-|    删除| 删除现有的映像存储内容。|
-|    root-info| 获取映像存储根目录中的内容信息。|
-|    stat  | 获取映像存储内容信息。|
+| 删除| 删除现有的映像存储内容。|
+| root-info| 获取映像存储根目录中的内容信息。|
+| stat  | 获取映像存储内容信息。|
 
 ## <a name="sfctl-store-delete"></a>sfctl store delete
 删除现有的映像存储内容。
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/09/2017
 |参数|说明|
 | --- | --- |
 | --content-path [必需]| 映像存储中文件或文件夹在其根目录中的相对路径。|
-| --timeout -t          | 服务器超时，以秒为单位。  默认值：60。|
+| --timeout -t          | 服务器超时，以秒为单位。 默认值：60。|
 
 ### <a name="global-arguments"></a>全局参数
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/09/2017
 | --- | --- |
 | --debug               | 提高日志记录详细程度，以显示所有调试日志。|
 | --help -h             | 显示此帮助消息并退出。|
-| --output -o           | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
+| --output -o           | 输出格式。 允许的值：json、jsonc、table、tsv。 默认值：json。|
 | --query               | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
 | --verbose             | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。|
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/09/2017
 |参数|说明|
 | --- | --- |
 | --content-path [必需]| 映像存储中文件或文件夹在其根目录中的相对路径。|
-| --timeout -t          | 服务器超时，以秒为单位。  默认值：60。|
+| --timeout -t          | 服务器超时，以秒为单位。 默认值：60。|
 
 ### <a name="global-arguments"></a>全局参数
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 11/09/2017
 | --- | --- |
 | --debug               | 提高日志记录详细程度，以显示所有调试日志。|
 | --help -h             | 显示此帮助消息并退出。|
-| --output -o           | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
+| --output -o           | 输出格式。 允许的值：json、jsonc、table、tsv。 默认值：json。|
 | --query               | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
 | --verbose             | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
@@ -81,4 +81,4 @@ ms.lasthandoff: 11/09/2017
 - 了解如何通过[示例脚本](/service-fabric/scripts/sfctl-upgrade-application)使用 Service Fabric CLI。
 
 
-<!--Update_Description: new articles on service fabric sfctl store -->
+<!--Update_Description: update meta properties -->

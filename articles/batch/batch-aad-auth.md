@@ -3,8 +3,8 @@ title: "使用 Azure Active Directory 对 Azure Batch 服务解决方案进行�
 description: "Batch 支持 Azure AD 在 Batch 服务中进行身份验证。"
 services: batch
 documentationcenter: .net
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 origin.date: 09/28/2017
-ms.date: 01/08/2018
+ms.date: 03/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: bbf97f897a3635844d3ded3c6ae977f92c4b4cde
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: b98f9530a228bb590e02101d063fcfbd2f15ca30
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 服务解决方案进行身份验证
 
@@ -93,7 +93,7 @@ Azure Batch 资源终结点用于获取对 Batch 服务的请求进行身份验�
 
 [注册应用程序](#register-your-application-with-an-azure-ad-tenant)后，请按照 Azure 门户中的下列步骤授予它对 Batch 服务的访问权限：
 
-1. 在 Azure 门户的左侧导航窗格中，选择“更多服务”，单击“应用注册”。
+1. 在 Azure 门户的左侧导航窗格中，选择“所有服务”。 单击“应用注册”。
 2. 在应用注册列表中搜索应用程序名称：
 
     ![搜索应用程序名称](./media/batch-aad-auth/search-app-registration.png)
@@ -125,7 +125,7 @@ Azure Batch 资源终结点用于获取对 Batch 服务的请求进行身份验�
 
 在 Azure 门户中执行以下步骤：
 
-1. 在 Azure 门户的左侧导航窗格中，选择“更多服务”，单击“应用注册”。
+1. 在 Azure 门户的左侧导航窗格中，选择“所有服务”。 单击“应用注册”。
 2. 在应用注册列表中搜索应用程序名称。
 3. 此时会显示“设置”边栏选项卡。 在“API 访问权限”部分，选择“密钥”。
 4. 若要创建密钥，请输入密钥的说明。 然后选择密钥的持续时间，一年或两年。 

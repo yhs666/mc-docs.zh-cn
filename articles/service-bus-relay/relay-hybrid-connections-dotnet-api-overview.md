@@ -1,5 +1,5 @@
 ---
-title: "Azure 中继 .NET Standard API 概述 | Microsoft Docs"
+title: "Azure 中继 .NET Standard API 概述"
 description: "Azure 中继 .NET Standard API 概述"
 services: service-bus-relay
 documentationcenter: na
@@ -12,27 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/05/2017
+origin.date: 01/23/2018
 ms.author: v-yiso
-ms.date: 11/06/2017
-ms.openlocfilehash: dd0508ca04167e6ef926aab19d9c03072a12d806
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.date: 03/12/2018
+ms.openlocfilehash: 4d4cd5a0dccb8542e74df1d6807f0d9946c396db
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Azure 中继混合连接 .NET 标准 API 概述
-本文汇总了一些重要的 Azure 中继混合连接 .NET 标准[客户端 API](https://docs.microsoft.com/dotnet/api/microsoft.azure.relay)。
+
+本文汇总了一些重要的 Azure 中继混合连接 .NET 标准[客户端 API](/dotnet/api/microsoft.azure.relay)。
   
-## <a name="relay-connection-string-builder"></a>中继连接字符串生成器
+## <a name="relay-connection-string-builder-class"></a>中继连接字符串生成器类
 
 [RelayConnectionStringBuilder][RelayConnectionStringBuilder] 类对特定于中继混合连接的连接字符串进行格式化。 该类可用于验证连接字符串的格式或从头开始生成连接字符串。 有关示例，请参阅以下代码：
 
 ```csharp
-var endpoint = "{Relay namespace}";
-var entityPath = "{Name of the Hybrid Connection}";
-var sharedAccessKeyName = "{SAS key name}";
-var sharedAccessKey = "{SAS key value}";
+var endpoint = "[Relay namespace]";
+var entityPath = "[Name of the Hybrid Connection]";
+var sharedAccessKeyName = "[SAS key name]";
+var sharedAccessKey = "[SAS key value]";
 
 var connectionStringBuilder = new RelayConnectionStringBuilder()
 {
@@ -46,7 +47,7 @@ var connectionStringBuilder = new RelayConnectionStringBuilder()
 还可以将连接字符串直接传递给 `RelayConnectionStringBuilder` 方法。 此操作允许验证连接字符串是否为有效格式。 如果任何参数无效，构造函数生成 `ArgumentException`。
 
 ```csharp
-var myConnectionString = "{RelayConnectionString}";
+var myConnectionString = "[RelayConnectionString]";
 // Declare the connectionStringBuilder so that it can be used outside of the loop if needed
 RelayConnectionStringBuilder connectionStringBuilder;
 try
@@ -66,7 +67,8 @@ catch (ArgumentException ae)
 ### <a name="getting-a-hybrid-connection-stream"></a>获取混合连接流
 
 #### <a name="listener"></a>侦听器
-使用 [HybridConnectionListener][HCListener] 可以获取 `HybridConnectionStream` 对象，如下所示：
+
+使用 [HybridConnectionListener][HCListener] 对象可以获取 `HybridConnectionStream` 对象，如下所示：
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -78,7 +80,8 @@ var hybridConnectionStream = await listener.AcceptConnectionAsync();
 ```
 
 #### <a name="client"></a>客户端
-使用 [HybridConnectionClient][HCClient]，可以获取 `HybridConnectionStream` 对象，如下所示：
+
+使用 [HybridConnectionClient][HCClient] 对象可以获取 `HybridConnectionStream` 对象，如下所示：
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -88,6 +91,7 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 ```
 
 ### <a name="receiving-data"></a>接收数据
+
 [HybridConnectionStream][HCStream] 类允许进行双向通信。 在大多数情况下，都会持续地从流接收信息。 如果正在从流读取文本，则还需使用 [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) 对象，以便于分析数据。 例如，可以将数据读取为文本，而不能读取为 `byte[]`。
 
 以下代码可从流中读取各行文本，直到请求取消为止：
@@ -132,7 +136,7 @@ await textWriter.WriteLineAsync("hello");
 ## <a name="next-steps"></a>后续步骤
 若要了解有关 Azure 中继的详细信息，请访问以下链接：
 
-* [Microsoft.Azure.Relay reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.relay)
+* [Microsoft.Azure.Relay reference](/dotnet/api/microsoft.azure.relay)
 * [什么是 Azure 中继？](./relay-what-is-it.md)
 * [可用的中继 API](./relay-api-overview.md)
 

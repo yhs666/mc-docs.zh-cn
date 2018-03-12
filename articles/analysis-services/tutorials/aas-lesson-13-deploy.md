@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: ea47fbe9a68503666038067b3df371e93e2f9bbd
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 1b14311f4aaf8cb8839a402ea34f30a987368521
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy"></a>部署
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 02/23/2018
 本课预计完成时间：**5 分钟**  
 
 ## <a name="prerequisites"></a>先决条件  
-本主题是表格建模教程的一部分，应当按顺序完成。 在执行本课中的任务之前，应当已完成上一课：[第 12 课：在 Excel 中分析](../tutorials/aas-lesson-12-analyze-in-excel.md)。  
+本文是表格建模教程的一部分，应当按顺序完成。 在执行本课中的任务之前，应当已完成上一课：[第 12 课：在 Excel 中分析](../tutorials/aas-lesson-12-analyze-in-excel.md)。  
 
 > [!IMPORTANT]  
 > 必须在远程 Analysis Services 服务器上拥有[管理员权限](../analysis-services-server-admins.md)才能向其进行部署。  
@@ -66,6 +66,8 @@ ms.lasthandoff: 02/23/2018
     ![aas-lesson13-deploy-status](../tutorials/media/aas-lesson13-deploy-status.png)
 
 3. 当部署成功完成时，继续操作并单击“关闭”。  
+
+本课程介绍如何使用最常用且最容易的方法通过 SSDT 部署表格模型。 高级部署选项（例如部署向导或“使用 XMLA 和 AMO 自动完成”）具有更好的灵活性、一致性和计划部署。 若要了解详细信息，请参阅[表格模型解决方案部署](https://docs.microsoft.com/sql/analysis-services/tabular-models/tabular-model-solution-deployment-ssas-tabular)。
 
 ## <a name="conclusion"></a>结论  
 祝贺！ 已完成了第一个 Analysis Services 表格模型的创作和部署。 本教程已指导完成了创建表格模型时的最常见任务。 现在，“Adventure Works Internet 销售”模型已部署，可以使用 SQL Server Management Studio 管理该模型，创建处理脚本和备份计划。 用户现在也可以使用报告客户端应用程序（例如 Microsoft Excel 或 Power BI）连接到该模型。  

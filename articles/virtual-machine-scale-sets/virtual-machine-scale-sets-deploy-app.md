@@ -3,8 +3,8 @@ title: "将应用程序部署到 Azure 虚拟机规模集 | Microsoft Docs"
 description: "了解如何将应用程序部署到规模集中的 Linux 和 Windows 虚拟机实例"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: alexchen2016
-manager: digimobile
+author: iainfoulds
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/13/2017
-ms.date: 12/06/2017
+ms.date: 03/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 813349a723578619b7ff1bb7d3dc0b8fac8ba464
-ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
+ms.openlocfilehash: b953fcca159f494e3d2a0787be9605a7660ba1d9
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>在虚拟机规模集上部署应用程序
 若要在规模集中的虚拟机 (VM) 实例上运行应用程序，首先需要安装应用程序组件和所需文件。 本文介绍如何为规模集中的实例生成自定义 VM 映像，或在现有 VM 实例上自动运行安装脚本。 本文还将介绍如何跨规模集管理应用程序或 OS 更新。
@@ -104,7 +104,7 @@ Update-AzureRmVmss `
 }
 ```
 
-使用 [az vmss extension set](/cli/vmss/extension#set) 将自定义脚本扩展配置应用到规模集中的 VM 实例。 以下示例将 customConfig.json 配置应用于名为 myResourceGroup 的资源组中的 myScaleSet VM 实例。 按如下所示输入自己的名称：
+使用 [az vmss extension set](/cli/vmss/extension#az_vmss_extension_set) 将自定义脚本扩展配置应用到规模集中的 VM 实例。 以下示例将 customConfig.json 配置应用于名为 myResourceGroup 的资源组中的 myScaleSet VM 实例。 按如下所示输入自己的名称：
 
 ```azurecli
 az vmss extension set \
@@ -173,7 +173,7 @@ Cloud-init 还支持不同的发行版。 例如，不需使用 apt-get install 
 
 有关详细信息，包括示例 cloud-init.txt 文件，请参阅[使用 cloud-init 自定义 Azure VM](../virtual-machines/linux/using-cloud-init.md)。
 
-若要创建规模集并使用 cloud-init 文件，请将 `--custom-data` 参数添加到 [az vmss create](/cli/vmss#create) 命令并指定 cloud-init 文件的名称。 以下示例会在 myResourceGroup 中创建名为 myScaleSet 的规模集，并配置包含名为 cloud-init.txt 的文件的 VM 实例。 按如下所示输入自己的名称：
+若要创建规模集并使用 cloud-init 文件，请将 `--custom-data` 参数添加到 [az vmss create](/cli/vmss#az_vmss_create) 命令并指定 cloud-init 文件的名称。 以下示例会在 myResourceGroup 中创建名为 myScaleSet 的规模集，并配置包含名为 cloud-init.txt 的文件的 VM 实例。 按如下所示输入自己的名称：
 
 ```azurecli
 az vmss create \
@@ -226,3 +226,4 @@ az vmss create \
 ## <a name="next-steps"></a>后续步骤
 生成应用程序并将其部署到规模集时，可参阅[规模集设计概述](virtual-machine-scale-sets-design-overview.md)。 若要深入了解如何管理规模集，请参阅[使用 PowerShell 管理规模集](virtual-machine-scale-sets-windows-manage.md)。
 
+<!--Update_Description: link update -->

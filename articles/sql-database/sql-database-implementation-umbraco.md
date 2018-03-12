@@ -16,11 +16,11 @@ ms.workload: NA
 origin.date: 01/10/2017
 ms.date: 07/03/2017
 ms.author: v-johch
-ms.openlocfilehash: 80bf68af13d40b35b70db69ace5e21ab4f0b705b
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 110b400dac618188e80996d7abcb4ced8942860c
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco 使用 Azure SQL 数据库为云中数千个租户快速预配和缩放服务
 ![Umbraco 徽标](./media/sql-database-implementation-umbraco/umbracologo.png)
@@ -43,32 +43,32 @@ UaaS 使 SaaS 客户能够使用他们以前未曾接触过的 Umbraco CMS 功�
 使用 Azure SQL 数据库和其他 Azure 服务，Umbraco 客户可自行预配其环境，Umbraco 可以通过直观的工作流轻松监视和管理数据库：
 
 1. 预配
-
+   
    Umbraco 维护 200 个可用数据库的容量，这些数据库是弹性池中预先预配的数据库。 当有新客户注册 UaaS 时，Umbraco 通过从可用性池向该客户分配数据库，以近乎实时的方式为客户提供新的 CMS 环境。
-
-   当可用性池达到其阈值时，系统将创建新弹性池，并预先预配新数据库，以便根据需要分配给客户。
-
+   
+   当可用性池达到其阈值时，系统会创建新弹性池，并预先预配新数据库，以便根据需要分配给客户。
+   
    项目实施可以使用 C# 管理库和 Azure 服务总线队列完全自动化。
 2. 利用
-
+   
    客户使用一到三个环境（用于生产、过渡和/或开发），每个环境都有自身的数据库。 客户数据库位于弹性池中，使得 Umbraco 无需过度预配即可提供有效的缩放。
-
+   
    ![Umbraco 项目概览](./media/sql-database-implementation-umbraco/figure2.png)
-
+   
    ![Umbraco 项目详细信息](./media/sql-database-implementation-umbraco/figure3.png)
-
+   
    图 2. 显示项目概览和详细信息的 Umbraco 即服务 (UaaS) 客户网站
-
+   
    Azure SQL 数据库使用数据库事务单位 (DTU) 来代表真实世界数据库事务所需的相对能力。 对于 UaaS 客户而言，数据库通常以大约 10 个 DTU 运行，但每个数据库都可以按需求弹性缩放。 这意味着，UaaS 可以确保客户始终拥有必要的资源，甚至是在高峰时间也是如此。 例如，在最近某个星期日的夜间体育赛事期间，一个 UaaS 客户的数据库在比赛的持续时间经历了高达 100 个 DTU 的高峰。 Azure 弹性池使得 Umbraco 既能支持这种高需求，同时又不会导致性能降低。
 3. 监视
-
+   
    Umbraco 使用 Azure 门户中的仪表板以及自定义电子邮件警报来监视数据库活动。
 4. 灾难恢复
-
+   
    Azure 提供两个灾难恢复 (DR) 选项：活动异地复制和异地还原。 公司应该选择的 DR 选项取决于其[业务连续性目标](sql-database-business-continuity.md)。
-
-   活动异地复制可在发生停机时提供最快的响应。 通过活动异地复制，可以在不同区域的服务器上最多创建四个可读的辅助数据库，然后，可以在发生故障时故障转移到其中任何一个辅助数据库。
-
+   
+   活动异地复制可在发生停机时提供最快级别的响应。 通过活动异地复制，可以在不同区域的服务器上最多创建四个可读的辅助数据库，并可以在发生故障时故障转移到其中任何一个辅助数据库。
+   
    Umbraco 不需要异地复制，但它确实利用了 Azure 异地还原来帮助确保发生中断时将停机时间缩到最短。 异地还原依赖于异地冗余 Azure 存储中的数据库备份。 这样，用户便可以在主要区域发生中断时，从备份副本还原。
 5. 取消预配
 
@@ -103,7 +103,7 @@ Umbraco 开发人员的重要目标之一是，为 UaaS 客户提供一种快速
 为了符合所有标准，Umbraco 曾经寻找过符合以下资格的云合作伙伴：
 
 * 有足够的容量与可靠性
-* 支持 Microsoft 开发工具，使 Umbraco 工程师不被迫从头重建其开发环境
+* 支持 Microsoft 开发工具，使 Umbraco 工程师无需从头重建其开发环境
 * 在 UaaS 参与竞争的所有地理市场中都有运营点（企业需要确保它们可以快速访问其数据，并且其数据存储在符合其区域法规要求的位置）
 
 ## <a name="why-umbraco-chose-azure-for-uaas"></a>Umbraco 为何选择将 Azure 用于 UaaS
@@ -120,7 +120,7 @@ Mikkel Madsen 总结，“除了将 Azure 服务总线与 Azure SQL 数据库配
 
 ## <a name="more-information"></a>详细信息
 * 若要深入了解 Azure 弹性池，请参阅[弹性池](sql-database-elastic-pool.md)。
-* 若要深入了解 Azure 服务总线，请参阅 [Azure 服务总线](../service-bus/index.md)。
+* 有关 Azure 服务总线的详细信息，请参阅 [Azure 服务总线](../service-bus/index.md)。
 * 若要深入了解 Web 角色和辅助角色，请参阅[辅助角色](../fundamentals-introduction-to-azure.md#compute)。    
 * 若要深入了解虚拟网络，请参阅[虚拟网络](../virtual-network/index.md)。    
 * 若要深入了解备份与恢复，请参阅[业务连续性](sql-database-business-continuity.md)。    

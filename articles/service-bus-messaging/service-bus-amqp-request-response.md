@@ -1,5 +1,5 @@
 ---
-title: "Azure 服务总线基于请求-响应的操作中的 AMQP 1.0 | Microsoft Docs"
+title: "Azure 服务总线基于请求/响应的操作中的 AMQP 1.0"
 description: "Microsoft Azure 服务总线基于请求/响应的操作的列表。"
 services: service-bus-messaging
 documentationcenter: na
@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/16/2017
+origin.date: 102/22/2018
 ms.author: v-yiso
-ms.date: 02/05/2018
-ms.openlocfilehash: 00bd9a16e4230eefada9adc6c57388cbde5f8e39
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 03/12/2018
+ms.openlocfilehash: 6efa2a263b527a1bf0eba93397f9121612cfc8a6
+ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure 服务总线中的 AMQP 1.0：基于请求/响应的操作
 
-本主题定义 Microsoft Azure 服务总线基于请求/响应的操作的列表。 此信息基于 AMQP 管理版本 1.0 工作草案。  
+本文定义 Microsoft Azure 服务总线基于请求/响应的操作的列表。 此信息基于 AMQP 管理版本 1.0 工作草案。  
 
 有关详细的线级 AMQP 1.0 协议指南（其中介绍了如何基于 OASIS AMQP 技术规范实现和建立服务总线），请参阅 [Azure 服务总线和事件中心的 AMQP 1.0 协议指南](./service-bus-amqp-protocol-guide.md)。  
 
 ## <a name="concepts"></a>概念  
 
-### <a name="entity-description"></a>实体说明  
+### <a name="entity-description"></a>实体描述  
 
-实体说明是指服务总线的 [QueueDescription 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription)、[TopicDescription 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription)或 [SubscriptionDescription 类](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription)对象。  
-
+实体说明是指服务总线的 [QueueDescription 类](/dotnet/api/microsoft.servicebus.messaging.queuedescription)、[TopicDescription 类](/dotnet/api/microsoft.servicebus.messaging.topicdescription)或 [SubscriptionDescription 类](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription)对象。  
+  
 ### <a name="brokered-message"></a>中转消息  
 
 表示映射到 AMQP 消息的服务总线中的消息。 [服务总线 AMQP 协议指南](./service-bus-amqp-protocol-guide.md)中定义了映射。  

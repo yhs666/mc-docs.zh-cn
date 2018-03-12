@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/10/2018
-ms.date: 02/26/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8c8e3908162f6a479179e26a11779e24573fec6b
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 3f42b8d7b7a5f8c821b6fea18254c3e63f416b5e
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 的监视和诊断
 
@@ -43,6 +43,7 @@ ms.lasthandoff: 02/23/2018
 本部分介绍有关监视 Service Fabric 群集的重要方案 - 应用程序、群集、性能和运行状况监视。 其中将会讨论每种方案的意图和总体方法。 可以在[最佳做法 - 监视和诊断](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)中找到有关这些方案以及适用于 Azure 资源的其他一般性监视建议的更多详细信息。 
 
 这些方案也松散映射到前面所述的三个级别的监视和诊断数据，也就是说，要在群集中适当处理每种方案，应该获取来自相应级别的监视和诊断数据。 但运行状况监视方案例外，因为它跨越整个群集以及群集中运行的任何组件。
+
 ## <a name="application-monitoring"></a>应用程序监视
 应用程序监视跟踪所构建应用程序的功能和组件的使用方式。 监视应用程序可以确保捕获影响用户的问题。 监视应用程序可能对以下工作有帮助：
 * 确定应用程序负载和用户流量 - 是否需要缩放服务来满足用户需求，或解决应用程序中的潜在瓶颈？
@@ -119,8 +120,8 @@ Service Fabric 平台包含运行状况模型，针对群集中的实体状态�
 ## <a name="event-analysis"></a>事件分析
 
 可以借助市场中有许多优异平台来分析和可视化监视与诊断数据。 此外，还应考虑 [Elastic Stack](https://www.elastic.co/products)（尤其是考虑在脱机环境中运行群集时）、[Splunk](https://www.splunk.com/) 或其他任何偏好的平台。 
-<!-- Not Available on  [OMS](service-fabric-diagnostics-event-analysis-oms.md)-->
-<!-- Not Available on  [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
+<!-- Not Abailable on [OMS](service-fabric-diagnostics-event-analysis-oms.md)  -->
+<!-- Noy Abailable on [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
 
 选择任何平台时的要点应该包括用户界面和查询选项的习惯性、是否能够可视化数据和轻松创建易读的仪表板，以及平台提供的用于增强监视的其他工具（例如自动警报）。
 
@@ -132,14 +133,14 @@ Service Fabric 平台包含运行状况模型，针对群集中的实体状态�
 
 ![Azure 门户中收集的指标信息视图](media/service-fabric-diagnostics-overview/azure-monitoring-metrics.png)
 
-若要自定义图表，请遵照 [Metrics in Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)（Azure 中的指标）中的说明。 Azure Monitor 仅支持一个订阅。 
-<!-- Not Avaialble [Log Analytics](/log-analytics/) -->
-<!-- Remove on (../monitoring-and-diagnostics/insights-alerts-portal.md). -->
-<!-- Remove on (../monitoring-and-diagnostics/insights-webhooks-alerts.md) -->
+若要自定义图表，请遵照 [Metrics in Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)（Azure 中的指标）中的说明。
+<!-- Not Avaialble on [Create alerts in Azure Monitor for Azure services](../monitoring-and-diagnostics/monitoring-overview-alerts.md) -->
+
 
 ## <a name="next-steps"></a>后续步骤
 
 * 在[平台级别事件和日志生成](service-fabric-diagnostics-event-generation-infra.md)中详细了解如何监视平台以及 Service Fabric 提供的事件
 * 若要开始检测应用程序，请参阅[应用程序级别事件和日志生成](service-fabric-diagnostics-event-generation-app.md)
-* 完成有关[在 Service Fabric 上监视和诊断 ASP.NET Core 应用程序](service-fabric-tutorial-monitoring-aspnet.md)的整篇教程
-<!--Update_Description: update meta properties, wording update -->
+* 通过[在 Service Fabric 上监视和诊断 ASP.NET Core 应用程序](service-fabric-tutorial-monitoring-aspnet.md)，完成为应用程序设置 AI 的步骤
+<!-- Not Avaiable on * Learn how to set up OMS Log Analytics for monitoring containers - [Monitoring and Diagnostics for Windows Containers in Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md) -->
+<!-- Update_Description: update meta properties, wording update -->

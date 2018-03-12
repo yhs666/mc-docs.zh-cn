@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 12/07/2017
-ms.date: 01/01/2018
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 58fa191eb15a4d8751b03672a4e476fdfc5bc80a
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 26d75c33f39a31452cc2b4f5ff5bbc592d8550dd
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 应用程序和服务清单
 本文介绍如何使用 ApplicationManifest.xml 和 ServiceManifest.xml 文件来定义 Service Fabric 应用程序与服务并对其进行版本控制。  [ServiceFabricServiceModel.xsd 架构文档](service-fabric-service-model-schema.md)中阐述了这些清单文件的 XML 架构。
@@ -183,4 +183,4 @@ For more information about other features supported by application manifests, re
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
 
-<!-- Update_Description: new articles service fabric application and service manifests -->
+<!-- Update_Description: update meta properties -->

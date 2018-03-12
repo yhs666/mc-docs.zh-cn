@@ -3,8 +3,8 @@ title: "使用 Azure Active Directory 对 Batch 管理解决方案进行身份�
 description: "通过 Azure Resource Manager 和 Batch 资源提供程序生成的应用程序使用 Azure AD 进行身份验证。"
 services: batch
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
+author: tamram
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,19 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 origin.date: 04/27/2017
-ms.date: 12/04/2017
+ms.date: 03/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1c5d30d688041421cffeebba8178b59a8c14f016
-ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
+ms.openlocfilehash: 89a9f6939ad6ed1059ce3e681a13a9fbd2e5c219
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 管理解决方案进行身份验证
 
 调用 Azure Batch 管理服务的应用程序使用 [Azure Active Directory][aad_about] (Azure AD) 进行身份验证。 Azure AD 是 Microsoft 提供的基于多租户云的目录和标识管理服务。 Azure 本身使用 Azure AD 来对其客户、服务管理员和组织用户进行身份验证。
 
-批处理管理 .NET 库公开用于使用批处理帐户、帐户密钥、应用程序和应用程序包的类型。 批处理管理 .NET 库是一个 Azure 资源提供程序客户端，与 [Azure Resource Manager][resman_overview] 结合使用可以编程方式管理这些资源。 Azure AD 需要对通过任何 Azure 资源提供程序客户端（包括 Batch 管理 .NET 库）和 [Azure 资源管理器][resman_overview]发出的请求进行身份验证。
+批处理管理 .NET 库公开用于使用批处理帐户、帐户密钥、应用程序和应用程序包的类型。 批处理管理 .NET 库是一个 Azure 资源提供程序客户端，与 [Azure Resource Manager][resman_overview] 结合使用可以编程方式管理这些资源。 Azure AD 需要对通过任何 Azure 资源提供程序客户端（包括 Batch 管理 .NET 库）和 [Azure Resource Manager][resman_overview] 发出的请求进行身份验证。
 
 本文探讨如何使用 Azure AD，在使用 Batch 管理 .NET 库的应用程序中进行身份验证。 我们将演示如何使用 Azure AD 和集成身份验证对订阅管理员或协同管理员进行身份验证。 我们使用 GitHub 上提供的 [AccountManagment][acct_mgmt_sample] 示例项目来逐步讲解如何将 Azure AD 与 Batch 管理 .NET 库配合使用。
 
@@ -50,7 +50,7 @@ Azure [Active Directory 身份验证库][aad_adal] (ADAL) 提供一个可在应�
 
 在 Azure 门户中执行以下步骤：
 
-1. 在 Azure 门户的左侧导航窗格中，选择“更多服务”，单击“应用注册”，并单击“添加”。
+1. 在 Azure 门户的左侧导航窗格中，选择“所有服务”，单击“应用注册”，并单击“添加”。
 2. 在应用注册列表中搜索应用程序名称：
 
     ![搜索应用程序名称](./media/batch-aad-auth-management/search-app-registration.png)
@@ -140,3 +140,4 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 [azure_portal]: http://portal.azure.cn
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md
 
+<!--Update_Description: wording update -->

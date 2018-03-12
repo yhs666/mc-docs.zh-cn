@@ -7,13 +7,13 @@ manager: digimobile
 ms.service: service-fabric
 ms.topic: article
 origin.date: 08/22/2017
-ms.date: 12/04/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 00423abda97c3ff07bc96fdeec6d4fef92ae799a
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 1d056c196129b7ab6fcbce2fb70f8d973168f266
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>使用 Azure Service Fabric CLI 管理 Azure Service Fabric 应用程序
 
@@ -171,4 +171,4 @@ sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"
 * [Linux 上的 Service Fabric 入门](service-fabric-get-started-linux.md)
 * [启动 Service Fabric 应用程序升级](service-fabric-application-upgrade.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties -->

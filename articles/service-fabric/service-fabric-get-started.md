@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 11/28/2017
-ms.date: 01/01/2018
+origin.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4428f3c3c9564ee6232d786339ffd26d69a8db72
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: cab7b3866dca739c8af83659e11532bed2eacccc
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上准备开发环境
 > [!div class="op_single_selector"]
@@ -43,9 +43,10 @@ ms.lasthandoff: 12/29/2017
 * Windows 10
 
 > [!NOTE]
-> 默认情况下，Windows 7 仅包含 Windows PowerShell 2.0。 Service Fabric PowerShell cmdlet 需要 PowerShell 3.0 或更高版本。 可以从 Microsoft 下载中心 [下载 Windows PowerShell 5.0][powershell5-download] 。
-> 
-> 
+> Windows 7 支持：
+> - 默认情况下，Windows 7 仅包含 Windows PowerShell 2.0。 Service Fabric PowerShell cmdlet 需要 PowerShell 3.0 或更高版本。 可以从 Microsoft 下载中心 [下载 Windows PowerShell 5.0][powershell5-download] 。
+> - 在 Windows 7 上无法使用 Service Fabric 反向代理。
+>
 
 ## <a name="install-the-sdk-and-tools"></a>安装 SDK 和工具
 ### <a name="to-use-visual-studio-2017"></a>使用 Visual Studio 2017
@@ -64,11 +65,10 @@ Service Fabric 工具是 Visual Studio 2017 中 Azure 开发工作负荷的一�
 * [安装 Azure Service Fabric SDK][core-sdk]
 
 当前版本包括：
-* Service Fabric SDK 2.8.232
-* Service Fabric 运行时 6.0.232
-* 用于 Visual Studio 2015 1.8.51024.1 的 Service Fabric 工具
-* Visual Studio 2017 Update 3 包括用于 Visual Studio 1.7.20170817 的 Service Fabric 工具
-* Visual Studio 2017 Update 4 Preview 1 (15.4.0 Preview 1.0) 包括用于 Visual Studio 1.7.20170721 的 Service Fabric 工具
+* Service Fabric SDK and Tools 3.0.456
+* Service Fabric 运行时 6.1.456
+* Service Fabric Tools for Visual Studio 2015 2.0.10124.2
+* Visual Studio 2017 15.5.6 包括 Service Fabric Tools for Visual Studio 2.0.20180124.2 
 
 有关支持的版本列表，请参阅 [Service Fabric 支持](service-fabric-support.md)
 
@@ -91,6 +91,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 * [使用 Service Fabric 资源管理器可视化群集](service-fabric-visualizing-your-cluster.md)
 <!-- Not Avaialble * [Follow the Service Fabric learning path to get a broad introduction to the platform](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)-->
 * 了解 [Service Fabric 支持选项](service-fabric-support.md)
+* [在群集上自动进行操作系统修补](service-fabric-patch-orchestration-application.md)
 
 <!-- Not Available on [1]: https://www.azure.cn/home/features/service-fabric "Service Fabric campaign page" -->
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
@@ -99,4 +100,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI 链接"
 [powershell5-download]:https://www.microsoft.com/download/details.aspx?id=50395
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

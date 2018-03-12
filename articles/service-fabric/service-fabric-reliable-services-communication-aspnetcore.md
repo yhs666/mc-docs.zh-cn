@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 11/01/2017
-ms.date: 12/04/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 13d9326ea42f73b589d65a6bedcb26369d4739d7
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: b6f8218bd092581d2262751e2939231998f67925
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Service Fabric Reliable Services 中的 ASP.NET Core
 
@@ -27,7 +27,7 @@ ASP.NET Core 是新的开源跨平台框架，用于构建现代基于云的连�
 
 本文详细说明了如何使用 NuGet 包的 **Microsoft.ServiceFabric.AspNetCore.*** 集在 Service Fabric Reliable Services 中托管 ASP.NET Core 服务。
 
-有关 Service Fabric 中 ASP.NET Core 的入门教程以及如何设置开发环境的说明，请参阅[使用 ASP.NET Core 为应用程序构建 Web 前端](service-fabric-add-a-web-frontend.md)。
+有关 Service Fabric 中 ASP.NET Core 的入门教程以及如何设置开发环境的说明，请参阅[创建 .NET 应用程序](service-fabric-tutorial-create-dotnet-app.md)。
 
 本文的其余部分假定你已熟悉 ASP.NET Core。 如果不熟悉，我们建议通读一遍 [ASP.NET Core 基础知识](https://docs.microsoft.com/aspnet/core/fundamentals/index)。
 
@@ -43,7 +43,7 @@ ASP.NET Core 是新的开源跨平台框架，用于构建现代基于云的连�
 
 ## <a name="service-fabric-service-hosting"></a>Service Fabric 服务托管
 
-在 Service Fabric 中，服务的一个或多个实例和/或副本在*服务主机进程*（运行服务代码的可执行文件）中运行。 服务作者拥有服务主机进程，Service Fabric 将为服务作者激活并监视此进程。
+在 Service Fabric 中，服务的一个或多个实例和/或副本在*服务主机进程*（运行服务代码的可执行文件）中运行。 服务作者拥有服务主机进程，Service Fabric 为服务作者激活并监视此进程。
 
 传统的 ASP.NET（最高为 MVC 5）通过 System.Web.dll 与 IIS 紧密耦合。 ASP.NET Core 在 Web 服务器和 Web 应用程序之间提供分隔。 这使 Web 应用程序可在不同 Web 服务器之间移植，并且还允许 Web 服务器*自托管*，这意味着可以在自己的进程（而不是由 IIS 等专用 Web 服务器软件拥有的进程）中启动 Web 服务器。 
 
@@ -72,7 +72,7 @@ Reliable Service 实例由派生自 `StatelessService` 或 `StatefulService` 的
 `Microsoft.ServiceFabric.Services.AspNetCore` NuGet 包包含添加 Service Fabric 可识别的中间件的 `IWebHostBuilder` 上的 `UseServiceFabricIntegration` 扩展方法。 此中间件将 Kestrel 或 HttpSys `ICommunicationListener` 配置为向 Service Fabric 命名服务注册唯一的服务 URL，然后验证客户端请求，确保客户端连接到适当的服务。 在 Service Fabric 等共享主机环境中，多个 Web 应用程序可能在同一物理计算机或虚拟机上运行，但不使用唯一的主机名，为了防止客户端错误地连接到错误的服务，此操作是必需的。 后续部分将对此方案进行详细说明。
 
 ### <a name="a-case-of-mistaken-identity"></a>错误标识示例
-服务副本（无论哪种协议）侦听唯一的 IP:port 组合。 服务副本开始侦听 IP:port 终结点后，它将向 Service Fabric 命名服务报告该终结点地址，并被该命名服务中的客户端或其他服务发现。 如果服务使用动态分配的应用程序端口，服务副本可能恰巧使用同一物理计算机或虚拟机上的以前其他服务所使用的相同 IP:port 终结点。 这可能会导致客户端错误地连接到错误的服务。 出现以下事件序列时可能会出现此情况：
+服务副本（无论哪种协议）侦听唯一的 IP:port 组合。 服务副本开始侦听 IP:port 终结点后，它向 Service Fabric 命名服务报告该终结点地址，并被该命名服务中的客户端或其他服务发现。 如果服务使用动态分配的应用程序端口，服务副本可能恰巧使用同一物理计算机或虚拟机上的以前其他服务所使用的相同 IP:port 终结点。 这可能会导致客户端错误地连接到错误的服务。 出现以下事件序列时可能会出现此情况：
 
  1. 服务 A 通过 HTTP 侦听 10.0.0.1:30000。 
  2. 客户端解析服务 A 并获取地址 10.0.0.1:30000
@@ -86,7 +86,7 @@ Reliable Service 实例由派生自 `StatelessService` 或 `StatefulService` 的
 ### <a name="using-unique-service-urls"></a>使用唯一的服务 URL
 若要防止此情况，服务可向具有唯一标识符的命名服务发布终结点，并在客户端请求期间验证该唯一标识符。 这是非恶意租户受信任环境中的服务之间的协作操作。 这不会在恶意租户环境中提供安全的服务身份验证。
 
-在受信任的环境中，由 `UseServiceFabricIntegration` 方法自动添加的中间件可对已发布到命名服务的地址追加唯一标识符，并在每次请求时验证该标识符。 如果标识符不匹配，该中间件将立即返回 HTTP 410 Gone 响应。
+在受信任的环境中，由 `UseServiceFabricIntegration` 方法自动添加的中间件可对已发布到命名服务的地址追加唯一标识符，并在每次请求时验证该标识符。 如果标识符不匹配，该中间件会立即返回 HTTP 410 Gone 响应。
 
 使用动态分配的端口的服务应使用此中间件。
 
@@ -303,7 +303,7 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 > 通常不应将有状态服务终结点公开到 Internet。 位于无法识别 Service Fabric 服务解析的负载均衡器（如 Azure 负载均衡器）后的群集将无法公开有状态服务，因为负载均衡器无法找到流量并将其路由到相应有状态服务副本。 
 
 ### <a name="externally-exposed-aspnet-core-stateless-services"></a>外部公开的 ASP.NET Core 无状态服务
-对于公开面向 Internet 的外部 HTTP 终结点的前端服务，建议使用 HttpSys Web 服务器。 在 Windows 上，HttpSys 可用于提供端口共享功能，允许使用同一端口在同一组节点上托管多个 Web 服务（通过主机名或路径进行区分），而不依赖前端代理或网关来提供 HTTP 路由。
+对于公开面向 Internet 的外部 HTTP 终结点的前端服务，建议使用 Kestrel Web 服务器。 在 Windows 上，HttpSys 可用于提供端口共享功能，允许使用同一端口在同一组节点上托管多个 Web 服务（通过主机名或路径进行区分），而不依赖前端代理或网关来提供 HTTP 路由。
 
 向 Internet 公开时，无状态服务应使用可通过负载均衡器到达的已知稳定终结点。 这是将为应用程序的用户提供的 URL。 建议采用以下配置：
 
@@ -358,4 +358,4 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 [3]:./media/service-fabric-reliable-services-communication-aspnetcore/httpsys.png
 [4]:./media/service-fabric-reliable-services-communication-aspnetcore/kestrel.png
 
-<!-- Update_Description: repalce WebLister object with Httpsys in code -->
+<!-- Update_Description: update meta properties -->

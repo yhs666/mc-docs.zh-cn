@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 11/01/2017
-ms.date: 12/11/2017
+origin.date: 02/14/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 40c284b86b7ee8e1a0954d5a189e845379b8aefa
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: a6859645373bb8a7983042bfbd03d2fed91effb2
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支持的数据源
 Azure Analysis Services 服务器支持连接到云中的数据源和组织中的本地数据源。 始终添加其他受支持的数据源。 请经常返回查看。 
@@ -69,9 +69,9 @@ Azure Analysis Services 服务器支持连接到云中的数据源和组织中�
 | SQL Server |Microsoft OLE DB Provider for SQL Server |用于 SQL Server 的 .NET Framework 数据提供程序 | |
 | SQL Server |用于 SQL Server 的 .NET Framework 数据提供程序 |用于 SQL Server 的 .NET Framework 数据提供程序 | |
 | Oracle |Microsoft OLE DB Provider for Oracle |用于 .NET 的 Oracle 数据提供程序 | |
-| Oracle |用于 .NET 的 Oracle 数据提供程序 |用于 .NET 的 Oracle 数据提供程序 | |
+| Oracle |用于 .Net 的 Oracle 数据提供程序 |用于 .NET 的 Oracle 数据提供程序 | |
 | Teradata |OLE DB Provider for Teradata |用于 .NET 的 Teradata 数据提供程序 | |
-| Teradata |用于 .NET 的 Teradata 数据提供程序 |用于 .NET 的 Teradata 数据提供程序 | |
+| Teradata |用于 .NET 的 Teradata 数据提供程序 |用于 .Net 的 Teradata 数据提供程序 | |
 | 分析平台系统 |用于 SQL Server 的 .NET Framework 数据提供程序 |用于 SQL Server 的 .NET Framework 数据提供程序 | |
 
 > [!NOTE]

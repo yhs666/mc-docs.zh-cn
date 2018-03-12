@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/05/2018
-ms.date: 02/26/2018
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 28c7609e82995de290cd22b7763a1473cd5044f6
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: c904ac8765ba0015e1161a400dc6155e2c8e0821
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境
 > [!div class="op_single_selector"]
@@ -141,10 +141,12 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
 
 1. 在计算机上安装 nodejs 和 NPM
 
+Ubuntu
   ```bash
   sudo apt-get install npm
   sudo apt install nodejs-legacy
   ```
+
 2. 通过 NPM 在计算机上安装 [Yeoman](http://yeoman.io/) 模板生成器
 
   ```bash
@@ -226,6 +228,7 @@ sudo apt-get install -f
 * [在 Windows 上准备 Linux 开发环境](service-fabric-local-linux-cluster-windows.md)
 * [使用 Service Fabric CLI 管理应用程序](service-fabric-application-lifecycle-sfctl.md)
 * [Service Fabric Windows/Linux 差异](service-fabric-linux-windows-differences.md)
+* [在 Linux 群集上自动进行操作系统修补](service-fabric-patch-orchestration-application-linux.md)
 * [Service Fabric CLI 入门](service-fabric-cli.md)
 
 <!-- Links -->
@@ -239,4 +242,4 @@ sudo apt-get install -f
 [sf-eclipse-plugin]: ./media/service-fabric-get-started-linux/service-fabric-eclipse-plugin.png
 [sfx-linux]: ./media/service-fabric-get-started-linux/sfx-linux.png
 
-<!--Update_Description: update meta properties, wording udpate  -->
+<!--Update_Description: update meta properties, wording udpate, update link  -->
