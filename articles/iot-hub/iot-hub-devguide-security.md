@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/19/2017
+origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 01/15/2018
-ms.openlocfilehash: cc3c9e75aea81282071b671f477d25f67630543c
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.date: 03/19/2018
+ms.openlocfilehash: 94f0597755cd6a07fcba96a71ecdfeaacfb45a91
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="control-access-to-iot-hub"></a>控制对 IoT 中心的访问
 
@@ -196,7 +196,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 
 C# 中用于生成安全令牌的功能是：
 
-```C#
+```csharp
 using System;
 using System.Globalization;
 using System.Net;
@@ -274,7 +274,7 @@ SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejU
 ```
 
 > [!NOTE]
-> 可使用 .NET [设备资源管理器][lnk-device-explorer]工具或基于节点的跨平台 [iothub-explorer][lnk-iothub-explorer] 命令行实用程序生成 SAS 令牌。
+> 可使用 .NET [设备资源管理器][lnk-device-explorer]工具或基于 Python 的跨平台 [Azure CLI 2.0 IoT 扩展][lnk-IoT-extension-CLI-2.0] 命令行实用程序生成 SAS 令牌。
 > 
 > 
 
@@ -494,7 +494,7 @@ IoT 中心开发人员指南中的其他参考主题包括：
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
+[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
 
 [lnk-getstarted-tutorial]: ./iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: ./iot-hub-csharp-csharp-c2d.md

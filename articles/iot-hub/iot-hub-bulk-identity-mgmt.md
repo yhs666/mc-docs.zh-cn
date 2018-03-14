@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/03/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: f00aa25eca1fec74cfdb2a4974c259246e3d512f
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 03/19/2018
+ms.openlocfilehash: 7331d7de91a88ccf45cc0454450d8a2455c59510
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>批量管理 IoT 中心设备标识
 
@@ -50,8 +50,18 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 > [!NOTE]
 > 若要在 C# 代码中使用 **RegistryManager** 类，请将 **Microsoft.Azure.Devices** NuGet 包添加到项目。 **RegistryManager** 类位于 **Microsoft.Azure.Devices** 命名空间。
 
+可使用 **RegistryManager** 类，查询使用返回的 **JobProperties** 元数据的**作业**的状态。 若要创建 **RegistryManager** 类的实例，请使用 **CreateFromConnectionString** 方法：
 
-可使用 **RegistryManager** 类，查询使用返回的 **JobProperties** 元数据的**作业**的状态。
+```csharp
+RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
+```
+
+若要查找 IoT 中心的连接字符串，请在 Azure 门户中执行以下操作：
+
+- 导航到 IoT 中心。
+- 选择“共享访问策略”。
+- 选择一个策略（考虑到所需的权限）。
+- 从屏幕右侧的面板中复制 connectionstring。
 
 以下 C# 代码段演示如何每隔五秒轮询一次以查看作业是否已完成执行：
 

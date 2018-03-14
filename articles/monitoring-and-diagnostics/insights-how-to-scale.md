@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: 62022944791ccc253b03d7a34aa8e973b0b457bb
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 03/19/2018
+ms.openlocfilehash: e6ce98f944ab2d2cba02fd941d24ca669576085c
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>手动或自动缩放实例计数
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 02/13/2018
 ## <a name="scaling-manually"></a>手动缩放
 1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“浏览”，然后导航到要缩放的资源（如“应用服务计划”）。
 2. 单击“设置”>“扩大(应用服务计划)”。
-3. 在“缩放”边栏选项卡顶部，可以查看服务的自动缩放操作历史记录。
+3. 在“缩放”边栏选项卡顶部的“运行历史记录”选项卡中，可以查看服务的自动缩放操作历史记录。
    
     ![缩放分页](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -40,9 +40,8 @@ ms.lasthandoff: 02/13/2018
    > 只有自动缩放执行的操作才会显示在此图表中。 如果手动调整实例计数，则更改不会反映在此图表中。
    > 
    > 
-   
-4. 可以使用滑块手动调整“实例”数。
-5. 单击“保存”命令，可几乎立即缩放到该实例数。 
+4. 可以在“配置”选项卡中手动调整**实例**数。
+5. 单击“保存”命令，可几乎立即缩放到该实例数。
 
 ## <a name="scaling-based-on-a-pre-set-metric"></a>基于预设指标进行缩放
 
