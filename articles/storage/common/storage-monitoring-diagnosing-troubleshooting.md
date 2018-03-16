@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2017
-ms.date: 10/30/2017
+ms.date: 3/5/2018
 ms.author: v-johch
-ms.openlocfilehash: e86258286c643f436a0bc6d76f2909af22d453f9
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 43b6d28e2bf54bd63efa673446ca06f6391518da
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="monitor-diagnose-and-troubleshoot-azure-storage"></a>对 Azure 存储进行监视、诊断和故障排除
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -79,9 +79,8 @@ ms.lasthandoff: 10/23/2017
   * [附录 2：使用 Wireshark 捕获网络流量]
   * [附录 3：使用 Microsoft Message Analyzer 捕获网络流量]
   * [附录 4：使用 Excel 查看度量值和日志数据]
-<!-- Not applicable
-  * [Appendix 5: Monitoring with Application Insights for Visual Studio Team Services]
--->
+  * [附录 5：使用 Application Insights for Visual Studio Team Services 进行监视]
+
 ## <a name="introduction"></a>介绍
 本指南演示如何使用 Azure 存储客户端库中的 Azure 存储分析、客户端日志记录等功能及其他第三方工具，确定、诊断和排查与 Azure 存储相关的问题。
 
@@ -147,7 +146,7 @@ ms.lasthandoff: 10/23/2017
 ### <a name="monitoring-availability"></a>监视可用性
 应通过监视以下每小时或每分钟度量值表中的“可用性”列中的值来监视存储帐户中存储服务的可用性：**$MetricsHourPrimaryTransactionsBlob**、**$MetricsHourPrimaryTransactionsTable**、**$MetricsHourPrimaryTransactionsQueue**、**$MetricsMinutePrimaryTransactionsBlob**、**$MetricsMinutePrimaryTransactionsTable**、**$MetricsMinutePrimaryTransactionsQueue**、**$MetricsCapacityBlob**。 **可用性**列包含一个百分比值，指示该服务的可用性或该行所表示的 API 操作的可用性（**RowKey** 显示行是包含整体服务的度量值还是包含特定 API 操作的度量值）。
 
-任何小于 100% 的值指示某些存储请求将失败。 可以通过检查度量值数据中显示具有不同错误类型（如 **ServerTimeoutError**）的请求数的其他列来了解失败原因。 由于以下原因，应该会看到 **Availability** 暂时低于 100%：比如在该服务移动分区以更好地负载均衡请求时，出现暂时性服务器超时；客户端应用程序中的重试逻辑应处理此类间歇性情况。 [Storage Analytics Logged Operations and Status Messages](http://msdn.microsoft.com/library/azure/hh343260.aspx)（存储分析记录的操作和状态消息）一文列出了存储度量值纳入其“可用性”计算中的事务类型。
+任何小于 100% 的值指示某些存储请求将失败。 可以通过检查度量值数据中显示具有不同错误类型（如 **ServerTimeoutError**）的请求数的其他列来了解失败原因。 由于以下原因，应该会看到 **Availability** 暂时低于 100%：比如在该服务移动分区以更好地负载均衡请求时，出现暂时性服务器超时；客户端应用程序中的重试逻辑应处理此类间歇性情况。 [Storage Analytics Logged Operations and Status Messages](http://msdn.microsoft.com/library/azure/hh343260.aspx) （存储分析记录的操作和状态消息）一文列出了存储度量值纳入其 **可用性** 计算中的事务类型。
 
 在 [Azure 门户](https://portal.azure.cn)中，可以添加警报规则，以便在某项服务的“可用性”低于指定阈值时通知用户。
 
@@ -160,7 +159,7 @@ ms.lasthandoff: 10/23/2017
 * **TotalIngress** 和 **TotalEgress** 列中的值显示进出存储服务或通过特定 API 操作类型的数据总量（以字节为单位）。
 * **TotalRequests** 列中的值显示存储服务的 API 操作正在接收的请求总数。 **TotalRequests** 是存储服务收到的请求总数。
 
-通常会监视这些值的任何意外更改，它们可以指示需要调查的问题。
+通常，对于作为出现需要调查的问题的指示器的任何这些值，将监视其意外更改。
 
 在 [Azure 门户](https://portal.azure.cn)中，可以添加警报规则，以便在此服务的任何性能度量值低于或超过指定阈值时通知用户。
 
@@ -238,29 +237,29 @@ Azure SDK 提供了一个存储模拟器，可以在开发工作站上运行它�
 使用各种日志文件的端到端跟踪是一项有用的技术，用于调查潜在的问题。 可以使用度量数据中的日期/时间信息来指示在日志文件中查找有助于排查问题的详细信息的起始位置。
 
 ### <a name="correlating-log-data"></a>关联日志数据
-查看客户端应用程序、网络跟踪、服务器端存储日志记录中的日志时，能够关联不同日志文件中的请求至关重要。 日志文件包含许多不同的字段，这些字段可用作关联标识符。 客户端请求 ID 是最有用的字段，用于关联不同日志中的条目。 但是,有时，使用服务器请求 ID 或时间戳会很有用。 以下各节提供了有关这些选项的更多详细信息。
+查看客户端应用程序、网络跟踪、服务器端存储日志记录中的日志时，能够关联不同日志文件中的请求至关重要。 日志文件包含许多不同的字段，这些字段可用作关联标识符。 客户端请求 ID 是最有用的字段，用于关联不同日志中的条目。 但有时，使用服务器请求 ID 或时间戳会很有用。 以下各节提供了有关这些选项的更多详细信息。
 
 ### <a name="client-request-id"></a>客户端请求 ID
-存储客户端库会自动为每个请求生成唯一的客户端请求 ID。
+存储客户端库自动为每个请求生成唯一的客户端请求 ID。
 
-* 在存储客户端库创建的客户端日志中，客户端请求 ID 出现在与请求相关的每个日志条目的“客户端请求 ID”  字段中。
-* 在网络跟踪（如 Fiddler 捕获的网络跟踪）中，客户端请求 ID 作为 **x-ms-client-request-id** HTTP 标头值出现在请求消息中。
-* 在服务器端存储日志记录日志中，客户端请求 ID 出现在“客户端请求 ID”列中。
+* 在存储客户端库创建的客户端日志中，客户端请求 ID 显示在与请求相关的每个日志项的“客户端请求 ID”字段中。
+* 在网络跟踪（如 Fiddler 捕获的跟踪）中，客户端请求 ID 在请求消息中显示为 x-ms-client-request-id HTTP 标头值。
+* 在服务器端存储日志记录日志中，客户端请求 ID 显示在“客户端请求 ID”列中。
 
 > [!NOTE]
-> 多个请求可以共享同一客户端请求 ID，因为客户端可以分配此值（尽管存储客户端库会自动分配一个新值）。 如果从客户端重试，所有尝试都共享相同的客户端请求 ID。如果从客户端发送批处理，批处理有单个客户端请求 ID。
+> 多个请求可共享同一客户端请求 ID，因为客户端可分配此值（尽管存储客户端库自动分配一个新值）。 从客户端进行重试时，所有尝试都共享相同的客户端请求 ID。 如果从客户端发送批处理，该批处理具有一个客户端请求 ID。
 > 
 > 
 
 ### <a name="server-request-id"></a>服务器请求 ID
 存储服务会自动生成服务器请求 ID。
 
-* 在服务器端存储日志记录日志中，服务器请求 ID 出现在“请求 ID 标头”  列中。
-* 在网络跟踪（如 Fiddler 捕获的网络跟踪）中，服务器请求 ID 将作为 x-ms-request-id 标头值出现在响应消息中。
-* 在存储客户端库创建的客户端日志中，服务器请求 ID 出现在显示服务器响应详细信息的日志条目的“操作文本”  列中。
+* 在服务器端存储日志记录日志中，服务器请求 ID 显示在“请求 ID 标头”列中。
+* 在网络跟踪（如 Fiddler 捕获的跟踪）中，服务器请求 ID 在响应消息中显示为 x-ms-request-id HTTP 标头值。
+* 在存储客户端库创建的客户端日志中，服务器请求 ID 出现在显示服务器响应详细信息的日志项的“操作文本”列中。
 
 > [!NOTE]
-> 存储服务始终为它接收的每个请求分配唯一的服务器请求 ID，l因此客户端进行的每次重试尝试和批处理中包含的每个操作均使用唯一的服务器请求 ID。
+> 存储服务始终为它接收的每个请求分配唯一的服务器请求 ID，因此客户端进行的每次重试尝试和批处理中包含的每个操作均使用唯一的服务器请求 ID。
 > 
 > 
 
@@ -404,7 +403,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 ### <a name="metrics-show-high-AverageServerLatency"></a>度量值显示高 AverageServerLatency
 如果 blob 下载请求出现高 **AverageServerLatency**，则应使用存储日志记录日志来了解对于同一 blob（或一组 blob）是否存在重复的请求。 对于 Blob 上传请求，应调查客户端正在使用的数据块大小（例如，小于 64k 的数据块大小可能会导致开销，除非读取操作也在小于 64k 的区块中进行），以及是否有多个客户端正在并行将数据块上传到同一 Blob。 还应检查每分钟度量值以了解导致超出每秒可伸缩性目标的请求数峰值：另请参阅“[度量值显示 PercentTimeoutError 增加]”。
 
-如果当对于同一 Blob（或一组 Blob）存在重复的请求时，会看到 Blob 下载请求显示高 **AverageServerLatency**，则应考虑使用 Azure 缓存或 Azure 内容传送网络 (CDN) 缓存这些 Blob。 对于上传请求，可以通过使用较大的数据块大小来提高吞吐量。 对于表查询，也可以在执行相同的查询操作并且数据不会频繁更改的客户端上实施客户端缓存。
+如果当对于同一 Blob（或一组 Blob）存在重复的请求时，会看到 Blob 下载请求显示高 **AverageServerLatency**，则应考虑使用 Azure 缓存或 Azure 内容传送网络 (CDN) 缓存这些 Blob。 对于上传请求，你可以通过使用较大的数据块大小来提高吞吐量。 对于表查询，也可以在执行相同的查询操作并且数据不会频繁更改的客户端上实施客户端缓存。
 
 高 **AverageServerLatency** 值也可能是设计欠佳的表或查询的症状，它会导致扫描操作或执行追加/前面预置反模式。 有关详细信息，请参阅“[度量值显示 PercentThrottlingError 增加]”。
 
@@ -445,7 +444,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 
 如果将事务分布到多个分区中，仍必须注意为存储帐户设置的伸缩性限制。 例如，如果使用 10 个队列（每个队列每秒最多处理 2,000 条 1KB 消息），将达到存储帐户每秒 20,000 条消息的总体限制。 如果每秒需要处理的实体数超过 20,000 个，则应考虑使用多个存储帐户。 还应牢记，请求和实体的大小对存储服务何时限制客户端有影响：如果使用较大的请求和实体，则可能会更快地受到限制。
 
-低效的查询设计也会导致达到表分区的伸缩性限制。 例如，一个使用筛选器的查询仅选择分区中百分之一的实体，但却扫描该分区中的所有实体，这需要访问每个实体。 读取的每个实体均会计入该分区中的事务总数；因此，很容易就会达到可伸缩性目标。
+低效的查询设计也会导致达到表分区的伸缩性限制。 例如，一个使用筛选器的查询仅选择分区中百分之一的实体，但却扫描该分区中的所有实体，从而将需要访问每个实体。 读取的每个实体均会计入该分区中的事务总数；因此，很容易就会达到可伸缩性目标。
 
 > [!NOTE]
 > 性能测试应显示应用程序中的任何低效查询设计。
@@ -453,7 +452,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 > 
 
 ### <a name="metrics-show-an-increase-in-PercentTimeoutError"></a>度量值显示 PercentTimeoutError 增加
-度量值显示其中一个存储服务的 **PercentTimeoutError** 增加。 同时，客户端收到存储操作发出的大量“500 操作超时”HTTP 状态消息。
+度量值显示其中一个存储服务的 **PercentTimeoutError** 增加。 同时，客户端将收到存储操作发出的大量“500 操作超时”HTTP 状态消息。
 
 > [!NOTE]
 > 当存储服务通过将分区移到新服务器来对请求进行负载均衡时，可能会临时地看到超时错误。
@@ -568,7 +567,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 
 下表显示了存储日志记录日志文件中的示例服务器端日志消息：
 
-| 名称 | 值 |
+| Name | 值 |
 | --- | --- |
 | 请求开始时间 | 2014-05-30T06:17:48.4473697Z |
 | 操作类型     | GetBlobProperties            |
@@ -592,7 +591,7 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 ```
 
 > [!NOTE]
-> 在排查客户端 JavaScript 问题时，可以使用 Internet Explorer 中的 F12 开发人员工具来跟踪浏览器与存储服务之间交换的消息。
+> 在排查客户端 JavaScript 问题时，可以使用 Internet Explorer 中的 F12 开发人员工具跟踪浏览器与存储服务之间交换的消息。
 > 
 > 
 
@@ -683,7 +682,7 @@ client.SetServiceProperties(sp);
 如果安装并使用存储客户端库的最新版本，但未更新存储模拟器，通常会出现这种情况。 应安装存储模拟器的最新版本，或者使用云存储而不是模拟器进行开发和测试。
 
 #### <a name="storage-emulator-requires-administrative-privileges"></a>运行存储模拟器需要管理权限
-运行存储模拟器时，系统提示提供管理员凭据。 仅首次初始化存储模拟器时，才会出现这种情况。 初始化存储模拟器后，无需管理权限即可再次运行。
+运行存储模拟器时，系统提示提供管理员凭据。 仅首次初始化存储模拟器时，才会出现这种情况。 初始化存储模拟器后，将无需管理权限即可再次运行。
 
 有关详细信息，请参阅 [使用 Azure 存储模拟器进行开发和测试](storage-use-emulator.md)。 请注意，也可以在 Visual Studio 中初始化存储模拟器，但这也需要管理特权。
 
@@ -730,7 +729,7 @@ sqllocaldb create v11.0
 
 本附录提供了一个简要演练，介绍如何配置 Fiddler 以捕获已安装 Fiddler 的本地计算机与 Azure 存储服务之间的流量。
 
-启动 Fiddler 后，它会开始捕获你的本地计算机上的 HTTP 和 HTTPS 流量。 以下是一些用于控制 Fiddler 的有用命令：
+启动 Fiddler 后，它将开始捕获本地计算机上的 HTTP 和 HTTPS 通信。 以下是一些用于控制 Fiddler 的有用命令：
 
 * 停止和启动捕获流量。 在主菜单上，转到“文件”，然后单击“捕获流量”在打开和关闭捕获之间进行切换。
 * 保存捕获的通信数据。 在主菜单上，转到“文件”，单击“保存”，然后单击“所有会话”，这样即可将流量保存在一个会话存档文件中。 以后可以重新加载“会话存档”以供分析，或者将其发送到 Azure 支持部门（如果要求）。
@@ -750,7 +749,7 @@ sqllocaldb create v11.0
 4. 将一个筛选器添加到“捕获筛选器”文本框中。 例如，host contosoemaildist.table.core.chinacloudapi.cn 会将 Wireshark 配置为只捕获发送到 contosoemaildist 存储帐户中的表服务终结点或从该终结点发送的数据包。 请查看[捕获筛选器的完整列表](http://wiki.wireshark.org/CaptureFilters)。
 
    ![][6]
-5. 单击“启动”。 现在，在本地计算机上使用客户端应用程序时，Wireshark 将捕获发送到表服务终结点或从该终结点发送的所有数据包。
+5. 单击“启动”。 现在，当在本地计算机上使用客户端应用程序时，Wireshark 将捕获发送到表服务终结点或从该终结点发送的所有数据包。
 6. 完成后，在主菜单上，依次单击“捕获”和“停止”。
 7. 若要将捕获的数据保存到 Wireshark 捕获文件中，请在主菜单上依次单击“文件”和“保存”。
 
@@ -771,7 +770,7 @@ WireShark 会在 **packetlist** 窗口中突出显示存在的任何错误。 �
 可以使用 Microsoft Message Analyzer 以与 Fiddler 类似的方式捕获 HTTP 和 HTTPS 流量，并以与 Wireshark 类似的方式捕获网络流量。
 
 #### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>使用 Microsoft Message Analyzer 配置 Web 跟踪会话
-若要使用 Microsoft Message Analyzer 为 HTTP 和 HTTPS 通信配置 Web 跟踪会话，请运行 Microsoft Message Analyzer 应用程序，然后在“文件”菜单上单击“捕获/跟踪”。 在可用的跟踪方案列表中，选择“Web 代理”。 然后在“跟踪方案配置”面板的“HostnameFilter”文本框中，添加存储终结点的名称（可以在 [Azure 门户](https://portal.azure.cn)中查找这些名称）。 例如，如果 Azure 存储帐户的名称是 **contosodata**，则应将以下内容添加到 **HostnameFilter** 文本框：
+若要使用 Microsoft Message Analyzer 为 HTTP 和 HTTPS 通信配置 Web 跟踪会话，请运行 Microsoft Message Analyzer 应用程序，然后在“文件”菜单上单击“捕获/跟踪”。 在可用的跟踪方案列表中，选择“Web 代理”。 然后在“跟踪方案配置”面板的“HostnameFilter”文本框中，添加存储终结点的名称（可以在 [Azure 门户](https://portal.azure.cn)中查找这些名称）。 例如，如果 Azure 存储帐户的名称是 contosodata，则应将以下内容添加到 HostnameFilter 文本框：
 
 ```
 contosodata.blob.core.chinacloudapi.cn contosodata.table.core.chinacloudapi.cn contosodata.queue.core.chinacloudapi.cn
@@ -811,15 +810,15 @@ Microsoft Message Analyzer 中内置的“Web 代理”  跟踪基于 Fiddler；
 * 在“文本导入向导”的第 1 步中，选择“带分隔符”。
 
 在“文本导入向导”的第 1 步中，选择分号作为唯一的分隔符，然后选择双引号作为文本限定符。 然后单击“完成” ，并选择数据在工作簿中的位置。
-<!-- Not applicable
-### <a name="appendix-5"></a>Appendix 5: Monitoring with Application Insights for Visual Studio Team Services
-You can also use the Application Insights feature for Visual Studio Team Services as part of your performance and availability monitoring. This tool can:
 
-* Make sure your web service is available and responsive. Whether your app is a web site or a device app that uses a web service, it can test your URL every few minutes from locations around the world, and let you know if there's a problem.
-* Quickly diagnose any performance issues or exceptions in your web service. Find out if CPU or other resources are being stretched, get stack traces from exceptions, and easily search through log traces. If the app's performance drops below acceptable limits, we can send you an email. You can monitor both .NET and Java web services.
+### <a name="appendix-5"></a>附录 5：使用 Application Insights for Visual Studio Team Services 进行监视
+在性能和可用性监视过程中，还可以使用用于 Visual Studio Team Services 的 Application Insights 功能。 此工具可以：
 
-You can find more information at [What is Application Insights?](../../application-insights/app-insights-overview.md).
--->
+* 确保 Web 服务可用且响应迅速。 无论应用程序是一个网站还是使用 Web 服务的设备应用程序，它都可以从世界各地的位置每隔几分钟测试一次 URL，并且让用户知道是否存在问题。
+* 快速诊断 Web 服务中的任何性能问题或异常。 查明 CPU 或其他资源是否过多使用、从异常获取堆栈跟踪并通过日志跟踪轻松地进行搜索。 如果应用程序的性能降至低于可接受的限制，我们可以向你发送电子邮件。 可以同时监视 .NET 和 Java Web 服务。
+
+
+
 <!--Anchors-->
 [介绍]: #introduction
 [本指南的组织方式]: #how-this-guide-is-organized

@@ -14,11 +14,11 @@ ms.devlang: na
 origin.date: 12/04/2017
 ms.date: 01/22/2018
 ms.author: v-nany
-ms.openlocfilehash: a4c49fa107b26ea62c5c50ceb61bf32c5c9189d6
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: fc23478e4bb66143f8f14b4319acf4366242186e
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>有关 Azure 文件的常见问题解答
 [Azure 文件](storage-files-introduction.md)在云中提供可以通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)（也称为通用 Internet 文件系统，简称 CIFS）访问的完全托管文件共享。 你可以在云或 Windows、Linux 和 macOS 的本地部署同时装载 Azure 文件共享。 另外，你也可以使用 Azure 文件同步（预览版）在 Windows Server 计算机上缓存 Azure 文件共享，以在靠近使用数据的位置实现快速访问。
@@ -97,13 +97,10 @@ ms.lasthandoff: 02/13/2018
 **能否对共享中的文件夹指定只读或只写权限？**  
     如果使用 SMB 装载文件共享，则不具有文件夹级的控制权限。 但是，如果使用 REST API 或客户端库创建共享访问签名，则可以在共享内的文件夹上指定只读或只写权限。
 
-* <a id="ip-restrictions"></a>
-**是否对 Azure 文件共享实现 IP 限制？**  
-    是的。 可以在存储帐户级别对 Azure 文件共享的权限进行限制。 有关详细信息，请参阅[配置 Azure 存储防火墙和虚拟网络](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
 
 * <a id="data-compliance-policies"></a>
 **Azure 文件支持哪些数据符合性策略？**  
-   Azure 文件所依据的存储体系结构与 Azure 存储中的其他存储服务使用的相同。 Azure 文件实施的数据符合性策略也与其他 Azure 存储服务使用的相同。 有关 Azure 存储数据符合性的详细信息，可以下载并参阅 [Azure 数据保护文档](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409)，以及访问 [Microsoft 信任中心](https://www.microsoft.com/TrustCenter/default.aspx)。
+   Azure 文件所依据的存储体系结构与 Azure 存储中的其他存储服务使用的相同。 Azure 文件实施的数据符合性策略也与其他 Azure 存储服务使用的相同。 有关 Azure 存储数据符合性的详细信息，可以下载并参阅 [Azure 数据保护文档](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409)，以及访问 [Azure 信任中心](https://www.azure.cn/support/trust-center/)。
 
 ## <a name="on-premises-access"></a>本地访问
 * <a id="expressroute-not-required"></a>
@@ -114,10 +111,6 @@ ms.lasthandoff: 02/13/2018
 **如何才能在本地计算机上装载 Azure 文件共享？**  
     可以使用 SMB 协议装载文件共享，只要端口 445（TCP 出站）处于打开状态，且客户端支持 SMB 3.0 协议（例如，如果使用的是 Windows 10 或 Windows Server 2016）。 如果端口 445 被组织的策略或 ISP 阻止，则可使用 Azure 文件同步访问 Azure 文件共享。
 
-## <a name="backup"></a>Backup
-* <a id="backup-share"></a>
-**如何备份我的 Azure 文件共享？**  
-    可以使用定期[共享快照（预览版）](storage-how-to-use-files-snapshots.md)来防止意外删除。 此外，也可以使用 AzCopy、RoboCopy 或能够备份已装载文件共享的第三方备份工具。 
 
 
 ## <a name="billing-and-pricing"></a>计费和定价
@@ -152,9 +145,6 @@ ms.lasthandoff: 02/13/2018
 **是否可以将 Azure 文件共享作为 Windows 服务器故障转移群集的文件共享见证？**  
     Azure 文件共享目前不支持此配置。 有关如何为 Azure Blob 存储设置此服务的详细信息，请参阅[部署故障转移群集的云见证](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)。
 
-* <a id="containers"></a>
-**是否可以在 Azure 容器实例上装载 Azure 文件共享？**  
-    是，当信息超出容器实例生存期时，通过 Azure 文件共享来保存信息不失为一种绝佳选择。 有关更多信息，请参阅[使用 Azure 容器实例装载 Azure 文件共享](../../container-instances/container-instances-mounting-azure-files-volume.md)。
 
 * <a id="rest-rename"></a>
 **REST API 中是否有重命名操作？**  
@@ -171,4 +161,3 @@ ms.lasthandoff: 02/13/2018
 ## <a name="see-also"></a>另请参阅
 * [在 Windows 中排查 Azure 文件问题](storage-troubleshoot-windows-file-connection-problems.md)
 * [在 Linux 中排查 Azure 文件问题](storage-troubleshoot-linux-file-connection-problems.md)
-* [对 Azure 文件同步（预览版）进行故障排除](storage-sync-files-troubleshoot.md)

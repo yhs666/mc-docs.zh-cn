@@ -7,16 +7,16 @@ manager: digimobile
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 12/12/2017
-ms.date: 01/29/2018
+origin.date: 01/19/2018
+ms.date: 3/5/2018
 ms.author: v-nany
-ms.openlocfilehash: ae0b3945120b446b7811db80927e11176faecc38
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 16ee71904ab3a0f989b5c6bef0b34cf3620473ac
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="create-a-new-storage-account"></a>新建存储帐户
+# <a name="create-a-storage-account"></a>创建存储帐户
 
 Azure 存储帐户提供云中的唯一命名空间，用于在 Azure 存储中存储和访问数据对象。 存储帐户包含在该帐户下创建的任何 Blob、文件、队列、表和磁盘。 
 
@@ -122,7 +122,7 @@ $location = "chinaeast"
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要通过 Azure CLI 创建新的资源组，请使用 [az group create](/cli/group#create) 命令。 
+若要通过 Azure CLI 创建新的资源组，请使用 [az group create](/cli/group#az_group_create) 命令。 
 
 ```azurecli
 az group create \
@@ -130,7 +130,7 @@ az group create \
     --location westus
 ```
 
-如果不确定为 `--location` 参数指定哪个区域，可使用 [az account list-locations](/cli/account#list) 命令检索订阅支持的区域的列表。
+如果不确定为 `--location` 参数指定哪个区域，可使用 [az account list-locations](/cli/account#az_account_list) 命令检索订阅支持的区域的列表。
 
 ```azurecli
 az account list-locations \
@@ -140,9 +140,19 @@ az account list-locations \
 
 ---
 
-# <a name="create-a-general-purpose-storage-account"></a>创建常规用途存储帐户
+## <a name="create-a-general-purpose-storage-account"></a>创建常规用途存储帐户
 
-可以使用常规用途存储帐户访问所有 Azure 存储服务：Blob、文件、队列、表。 可以在标准层或高级层中创建常规用途存储帐户。 本文中的示例演示了如何在标准层（默认）中创建常规用途存储帐户。 有关存储帐户选项的详细信息，请参阅 [Azure 存储简介](storage-introduction.md)。
+可以使用常规用途存储帐户访问所有 Azure 存储服务：Blob、文件、队列、表。 可以在标准层或高级层中创建常规用途存储帐户。 本文中的示例演示了如何在标准层（默认）中创建常规用途存储帐户。
+
+Azure 存储提供两种类型的常规用途存储帐户：
+
+- 常规用途 v2 帐户 
+- 常规用途 v1 帐户。 
+
+> [!NOTE]
+> 我们建议将新存储帐户创建为**常规用途 v2 帐户**，以利用这些帐户提供的较新功能。  
+
+有关存储帐户类型的详细信息，请参阅 [Azure 存储帐户选项](storage-account-options.md)。
 
 为存储帐户命名时，请记住以下规则：
 
@@ -151,33 +161,43 @@ az account list-locations \
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 
-若要在 Azure 门户中创建常规用途存储帐户，请执行以下步骤：
+若要在 Azure 门户中创建常规用途 v2 存储帐户，请执行以下步骤：
 
-1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“更多服务”。 然后向下滚动到“存储”，接着选择“存储帐户”。 在显示的“存储帐户”窗口中，选择“添加”。
+1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“所有服务”。 然后向下滚动到“存储”，接着选择“存储帐户”。 在显示的“存储帐户”窗口中，选择“添加”。
 2. 输入存储帐户的名称。
-3. 将以下字段设置为默认值：“部署模型”、“帐户类型”、“性能”、“复制”、“需要安全传输”。
-4. 选择要在其中创建存储帐户的订阅。
-5. 在“资源组”部分选择“使用现有资源组”，然后选择在上一部分创建的资源组。
-6. 选择新存储帐户的位置。
-7. 单击“创建”以创建存储帐户。      
+3. 将“帐户类型”字段设置为“StorageV2 (常规用途 v2)”。
+4. 将“复制”字段保持设置为“本地冗余存储(LRS)”。 或者，可以选择“异地冗余存储(GRS)”或“读取访问异地冗余存储(RA-GRS)”。
+5. 将以下字段设置为默认值：“部署模型”、“性能”、“需要安全传输”。
+6. 选择要在其中创建存储帐户的订阅。
+7. 在“资源组”部分选择“使用现有资源组”，然后选择在上一部分创建的资源组。
+8. 选择新存储帐户的位置。
+9. 单击“创建”以创建存储帐户。      
 
 ![显示 Azure 门户中存储帐户创建情况的屏幕截图](./media/storage-quickstart-create-account/create-account-portal.png)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-若要从 PowerShell 创建常规用途存储帐户，请使用 [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 命令： 
+若要使用本地冗余存储 (LRS) 从 PowerShell 创建常规用途 v2 存储帐户，请使用 [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 命令： 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
-  -Kind Storage 
+  -Kind StorageV2 
 ```
+
+若要使用异地冗余存储 (GRS) 或读取访问异地冗余存储 (RA-GRS) 创建常规用途 v2 存储帐户，请将 **SkuName** 参数替换为下表中的所需值。 
+
+|复制选项  |SkuName 参数  |
+|---------|---------|
+|本地冗余存储 (LRS)     |Standard_LRS         |
+|异地冗余存储 (GRS)     |Standard_GRS         |
+|读取访问异地冗余存储 (GRS)     |Standard_RAGRS         |
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要从 Azure CLI 创建常规用途存储帐户，请使用 [az storage account create](/cli/storage/account#create) 命令。
+若要使用本地冗余存储从 Azure CLI 创建常规用途 v2 存储帐户，请使用 [az storage account create](/cli/storage/account#az_storage_account_create) 命令。
 
 ```azurecli
 az storage account create \
@@ -185,9 +205,19 @@ az storage account create \
     --resource-group storage-quickstart-resource-group \
     --location chinaeast \
     --sku Standard_LRS 
+    --kind StorageV2
 ```
 
+若要使用异地冗余存储 (GRS) 或读取访问异地冗余存储 (RA-GRS) 创建常规用途 v2 存储帐户，请将 **sku** 参数替换为下表中的所需值。 
+
+|复制选项  |sku 参数  |
+|---------|---------|
+|本地冗余存储 (LRS)     |Standard_LRS         |
+|异地冗余存储 (GRS)     |Standard_GRS         |
+|读取访问异地冗余存储 (GRS)     |Standard_RAGRS         |
+
 ---
+有关不同的可用复制类型的详细信息，请参阅[存储复制选项](storage-redundancy.md)。
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -211,7 +241,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要删除资源组及其关联的资源（包括新的存储帐户），请使用 [az group delete](/cli/group#delete) 命令。
+若要删除资源组及其关联的资源（包括新的存储帐户），请使用 [az group delete](/cli/group#az_group_delete) 命令。
 
 ```azurecli
 az group delete --name myResourceGroup

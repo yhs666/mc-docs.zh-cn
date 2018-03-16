@@ -3,7 +3,7 @@ title: "使用 Windows 上的 AzCopy 将数据复制或移动到 Azure 存储 | 
 description: "使用 Windows 上的 AzCopy 实用工具将数据移动或复制到 Blob、表和文件内容或从 Blob、表和文件内容移动或复制数据。 从本地文件将数据复制到 Azure 存储，或者在存储帐户中或存储帐户之间复制数据。 轻松地将数据迁移到 Azure 存储。"
 services: storage
 documentationcenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: tysonn
 ms.assetid: aa155738-7c69-4a83-94f8-b97af4461274
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/14/2017
-ms.date: 10/16/2017
-ms.author: v-johch
-ms.openlocfilehash: 2cf9c11ee34bba819c54d65ea5ba88f2efc9b6d0
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+origin.date: 01/29/2018
+ms.date: 03/05/2018
+ms.author: v-nany
+ms.openlocfilehash: 8d654d4aa519fc7f81c7a1b81abc7d9a50701bf7
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>使用 Windows 上的 AzCopy 传输数据
 AzCopy 是一个命令行实用程序，专用于使用旨在实现最佳性能的简单命令将数据复制到 Microsoft Azure Blob、文件和表存储以及从这些位置复制数据。 可在文件系统和存储帐户之间或在存储帐户之间复制数据。  
@@ -472,13 +472,11 @@ AzCopy /Source:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:ht
 
 `/XO` 和 `/XN` 参数分别用于阻止复制较早或较新的源资源。 如果只想复制目标中不存在的源资源，可以在 AzCopy 命令中指定这两个参数：
 
-```
 /Source:http://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /XO /XN
 
 /Source:C:\myfolder /Dest:http://myaccount.file.core.chinacloudapi.cn/myfileshare /DestKey:<destkey> /S /XO /XN
 
 /Source:http://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:http://myaccount.blob.core.chinacloudapi.cn/mycontainer1 /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
-```
 
 注意，当源或目标为表时，则不支持此操作。
 
@@ -492,49 +490,32 @@ AzCopy /@:"C:\responsefiles\copyoperation.txt"
 
 假定有一个名为 `copyoperation.txt` 的响应文件，其中包含以下行： 可以在同一行或多行中指定
 
-```azcopy
 /Source:http://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
-```
 
 每个 AzCopy 参数：
 
-```
-/Source:http://myaccount.blob.core.chinacloudapi.cn/mycontainer
-/Dest:C:\myfolder
-/SourceKey:<sourcekey>
-/S
-/Y
-```
+    /Source:http://myaccount.blob.core.windows.net/mycontainer
+    /Dest:C:\myfolder
+    /SourceKey:<sourcekey>
+    /S
+    /Y
 
 如果将参数拆分到两行（如此处所示的 `/sourcekey` 参数），AzCopy 将会失败：
 
-```
-http://myaccount.blob.core.chinacloudapi.cn/mycontainer
- C:\myfolder
-/sourcekey:
-<sourcekey>
-/S
-/Y
-```
+http://myaccount.blob.core.chinacloudapi.cn/mycontainer C:\myfolder /sourcekey: <sourcekey> /S /Y
 
 ### <a name="use-multiple-response-files-to-specify-command-line-parameters"></a>使用多个响应文件指定命令行参数
 假定有一个名为 `source.txt` 的响应文件，该文件指定了一个源容器：
 
-```azcopy
 /Source:http://myaccount.blob.core.chinacloudapi.cn/mycontainer
-```
 
 有一个名为 `dest.txt` 的响应文件，该文件在文件系统中指定了一个目标文件夹：
 
-```azcopy
-/Dest:C:\myfolder
-```
+    /Dest:C:\myfolder
 
 并且有一个名为 `options.txt` 的响应文件，该文件指定了 AzCopy 的选项：
 
-```azcopy
-/S /Y
-```
+    /S /Y
 
 要使用这些响应文件（都位于目录 `C:\responsefiles`中）调用 AzCopy，请使用以下命令：
 
@@ -625,6 +606,7 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 ```
 
 ## <a name="azcopy-parameters"></a>AzCopy 参数
+
 以下描述了 AzCopy 的参数。 还可以从命令行键入下列命令之一以获取如何使用 AzCopy 的帮助信息：
 
 * 若要获取 AzCopy 的详细命令行帮助信息，请键入： `AzCopy /?`
@@ -632,16 +614,19 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 * 若要获取命令行示例，请键入： `AzCopy /?:Samples`
 
 ### <a name="sourcesource"></a>/Source:"source"
+
 指定要从中复制数据的源。 源可以是文件系统目录、blob 容器、blob 虚拟目录、存储文件共享、存储文件目录或 Azure 表。
 
 **适用对象：** Blob、文件、表
 
 ### <a name="destdestination"></a>/Dest:"destination"
+
 指定要复制到的目标。 目标可以是文件系统目录、blob 容器、blob 虚拟目录、存储文件共享、存储文件目录或 Azure 表。
 
 **适用对象：** Blob、文件、表
 
 ### <a name="patternfile-pattern"></a>/Pattern:"file-pattern"
+
 指定文件模式，它指示要复制哪些文件。 /Pattern 参数的行为是由源数据的位置以及是否存在递归模式选项决定的。 递归模式是通过选项 /S 指定的。
 
 如果指定的源是文件系统中的一个目录，则标准通配符将生效，并且会将该目录中的文件与提供的文件模式进行匹配。 如果指定了选项 /S，则 AzCopy 还会将该目录下的任何子文件夹中的所有文件与指定模式进行匹配。
@@ -657,11 +642,13 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 **适用对象：** Blob、文件
 
 ### <a name="destkeystorage-key"></a>/DestKey:"storage-key"
+
 指定目标资源的存储帐户密钥。
 
 **适用对象：** Blob、文件、表
 
 ### <a name="destsassas-token"></a>/DestSAS:"sas-token"
+
 指定对目标具有读写权限的共享访问签名 (SAS)（如果适用）。 请将 SAS 用双引号括起来，因为它可能包含特殊的命令行字符。
 
 如果目标资源是 blob 容器、文件共享或表，则可以指定此选项，后跟 SAS 令牌，或者可以将 SAS 指定为目标 blob 容器、文件共享或表 URI 的一部分，而不使用此选项。
@@ -671,11 +658,13 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 **适用对象：** Blob、文件、表
 
 ### <a name="sourcekeystorage-key"></a>/SourceKey:"storage-key"
+
 指定源资源的存储帐户密钥。
 
 **适用对象：**Blob、文件、表
 
 ### <a name="sourcesassas-token"></a>/SourceSAS:"sas-token"
+
 指定对源具有“读取”和“列出”权限的共享访问签名（如果适用）。 请将 SAS 用双引号括起来，因为它可能包含特殊的命令行字符。
 
 如果源资源是 blob 容器，并且既未提供密钥又未提供 SAS，则可以通过匿名访问读取 blob 容器。
@@ -691,11 +680,13 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 **适用对象：** Blob、文件
 
 ### <a name="blobtypeblock--page--append"></a>/BlobType:"block" | "page" | "append"
+
 指定目标 Blob 是块 Blob、页 Blob 还是追加 Blob。 仅在要上传 Blob 时，此选项才适用。 否则会发生错误。 如果目标是一个 Blob 并且未指定此选项，则默认情况下 AzCopy 会创建块 Blob。
 
 **适用对象：**Blob
 
 ### <a name="checkmd5"></a>/CheckMD5
+
 计算已下载的数据的 MD5 哈希，并验证存储在 blob 或文件的 Content-MD5 属性中的 MD5 哈希是否与计算得到的哈希匹配。 默认情况下，MD5 检查处于关闭状态，因此，必须指定此选项以在下载数据时执行 MD5 检查。
 
 请注意，Azure 存储不保证为 blob 或文件所存储的 MD5 哈希是最新的。 每当 blob 或文件被修改时，客户端都需要负责对 MD5 进行更新。
@@ -705,6 +696,7 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 **适用对象：** Blob、文件
 
 ### <a name="snapshot"></a>/Snapshot
+
 指示是否传输快照。 只有当源是 blob 时，此选项才有效。
 
 传输的 Blob 快照会按以下格式重命名：blob-name (snapshot-time).extension
@@ -714,6 +706,7 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 **适用对象：** Blob
 
 ### <a name="vverbose-log-file"></a>/V:[verbose-log-file]
+
 将详细的状态消息输出到日志文件中。
 
 默认情况下，详细日志文件在 `%LocalAppData%\Microsoft\Azure\AzCopy`中会被命名为 AzCopyVerbose.log。 如果为此选项指定了现有的文件位置，详细日志会追加到该文件中。  
@@ -721,6 +714,7 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 **适用对象：** Blob、文件、表
 
 ### <a name="zjournal-file-folder"></a>/Z:[journal-file-folder]
+
 指定用于恢复某一操作的日志文件文件夹。
 
 AzCopy 始终支持对被中断的操作进行恢复。
@@ -738,6 +732,7 @@ AzCopy 始终支持对被中断的操作进行恢复。
 **适用对象：** Blob、文件、表
 
 ### <a name="parameter-file"></a>/@:"parameter-file"
+
 指定包含参数的文件。 AzCopy 会像处理在命令行上指定参数一样处理文件中的参数。
 
 在响应文件中，可以在单个行上指定多个参数，也可以将每个参数指定在其单独的行上。 请注意，单个参数不能跨多个行。
@@ -749,11 +744,13 @@ AzCopy 始终支持对被中断的操作进行恢复。
 **适用对象：** Blob、文件、表
 
 ### <a name="y"></a>/Y
-取消所有的 AzCopy 确认提示。
+
+取消所有的 AzCopy 确认提示。 未指定 /XO 和 /XN 时，此选项还允许只写 SAS 令牌用于数据上传方案。
 
 **适用对象：** Blob、文件、表
 
 ### <a name="l"></a>/L
+
 仅指定列出操作；不复制任何数据。
 
 AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行命令行，并对复制的对象数量进行计数，可以同时指定选项 /V 以检查哪些对象要复制到详细日志中。
@@ -765,6 +762,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 **适用对象：** Blob、文件
 
 ### <a name="mt"></a>/MT
+
 将下载的文件的上次修改时间设置为与源 blob 或文件的上次修改时间相同。
 
 **适用对象：**Blob、文件
@@ -781,11 +779,13 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 **适用对象：** Blob、文件
 
 ### <a name="a"></a>/A
+
 仅上传设置了存档属性的文件。
 
 **适用对象：** Blob、文件
 
 ### <a name="iarashcnetoi"></a>/IA:[RASHCNETOI]
+
 仅上传设置了任何指定属性的文件。
 
 可用的属性包括：
@@ -804,6 +804,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 **适用对象：**Blob、文件
 
 ### <a name="xarashcnetoi"></a>/XA:[RASHCNETOI]
+
 排除设置了任何指定属性的文件。
 
 可用的属性包括：
@@ -822,6 +823,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 **适用对象：** Blob、文件
 
 ### <a name="delimiterdelimiter"></a>/Delimiter:"delimiter"
+
 指示用于分隔 blob 名称中的虚拟目录的分隔符字符。
 
 默认情况下，AzCopy 使用 / 作为分隔符字符。 不过，AzCopy 支持使用任何常见字符（例如 @、# 或 %）作为分隔符。 如果需要在命令行上包括这些特殊字符之一，请将文件名用双引号引起来。
@@ -831,6 +833,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 **适用对象：** Blob
 
 ### <a name="ncnumber-of-concurrent-operations"></a>/NC:"number-of-concurrent-operations"
+
 指定并发操作的数量。
 
 默认情况下，AzCopy 会启动一定数量的并发操作以提高数据传输吞吐量。 请注意，在低带宽环境中，大量的并发操作可能会压垮网络连接，并且会阻碍操作彻底完成。 请根据实际可用的网络带宽限制并发操作。
@@ -840,16 +843,19 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 **适用对象：** Blob、文件、表
 
 ### <a name="sourcetypeblob--table"></a>/SourceType:"Blob" | "Table"
+
 指定 `source` 资源是本地开发环境中可用的一个 Blob，在存储模拟器中运行。
 
 **适用对象：**Blob、表
 
 ### <a name="desttypeblob--table"></a>/DestType:"Blob" | "Table"
+
 指定 `destination` 资源是本地开发环境中可用的一个 Blob，在存储模拟器中运行。
 
 **适用对象：** Blob、表
 
 ### <a name="pkrskey1key2key3"></a>/PKRS:"key1#key2#key3#..."
+
 对分区键范围进行拆分以便并行导出表数据，这可以提高导出操作的速度。
 
 如果未指定此选项，AzCopy 将使用单个线程来导出表实体。 例如，如果用户指定了 /PKRS:"aa#bb"，AzCopy 则将启动三个并发操作。
@@ -865,6 +871,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 **适用对象：**表
 
 ### <a name="splitsizefile-size"></a>/SplitSize:"file-size"
+
 指定已导出文件的拆分大小（单位为 MB），允许的最小值为 32。
 
 如果未指定此选项，AzCopy 会将表数据导出到单个文件。
@@ -874,6 +881,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 **适用对象：** 表
 
 ### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/EntityOperation:"InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
+
 指定表数据导入行为。
 
 * InsertOrSkip - 跳过现有实体，或者插入新实体（如果它不存在于表中）。
@@ -883,6 +891,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 **适用对象：**表
 
 ### <a name="manifestmanifest-file"></a>/Manifest:"manifest-file"
+
 指定表导出和导入操作的清单文件。
 
 此选项在导出操作过程中是可选的，如果未指定此选项，AzCopy 会生成具有预定义名称的清单文件。
@@ -892,6 +901,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 **适用对象：** 表
 
 ### <a name="synccopy"></a>/SyncCopy
+
 指示是否要以同步方式在两个 Azure 存储终结点之间复制 blob 或文件。
 
 AzCopy 默认情况下使用服务器端的异步复制。 指定此选项以执行同步复制，可将 blob 或文件下载到本地内存，并将其上传到 Azure 存储。
@@ -901,6 +911,7 @@ AzCopy 默认情况下使用服务器端的异步复制。 指定此选项以执
 **适用对象：** Blob、文件
 
 ### <a name="setcontenttypecontent-type"></a>/SetContentType:"content-type"
+
 指定目标 blob 或文件的 MIME 内容类型。
 
 默认情况下，AzCopy 将 blob 或文件的内容类型设置为 application/octet-stream。 通过显式指定此选项的值，可设置所有 blob 或文件的内容类型。
@@ -910,6 +921,7 @@ AzCopy 默认情况下使用服务器端的异步复制。 指定此选项以执
 **适用对象：** Blob、文件
 
 ### <a name="payloadformatjson--csv"></a>/PayloadFormat:"JSON" | "CSV"
+
 指定表导出数据文件的格式。
 
 如果未指定此选项，则默认情况下，AzCopy 以 JSON 格式导出表数据文件。
@@ -921,14 +933,17 @@ AzCopy 默认情况下使用服务器端的异步复制。 指定此选项以执
 让我们了解一些已知问题和最佳做法。
 
 ### <a name="limit-concurrent-writes-while-copying-data"></a>限制复制数据时的并发写入
+
 在使用 AzCopy 复制 blob 或文件时，请记住，在复制数据时其他应用程序可能正在修改该数据。 如果可能，请确保要复制的数据在复制操作期间不会被修改。 例如，当复制与 Azure 虚拟机关联的 VHD 时，请确保当前没有其他应用程序正在向该 VHD 进行写入。 执行此操作的一个好方法是租用要复制的资源。 另外，还可以先创建 VHD 的快照，然后复制该快照。
 
 如果在复制 blob 或文件时无法阻止其他应用程序向其进行写入，请记住，在作业完成时，复制的资源可能不再与源资源完全相同。
 
 ### <a name="run-one-azcopy-instance-on-one-machine"></a>在一台计算机上运行一个 AzCopy 实例。
-AzCopy 旨在最大程度上利用计算机资源来加快数据传输，如果需要更多的并发操作，我们建议在一台计算机上只运行一个 AzCopy 实例并指定选项 `/NC` 。 有关详细信息，请在命令行中键入 `AzCopy /?:NC`。
+
+AzCopy 旨在最大程度上利用计算机资源来加快数据传输，如果需要更多的并发操作，我们建议在一台计算机上只运行一个 AzCopy 实例并指定选项 `/NC` 。 有关详细信息，请在命令行中键入 `AzCopy /?:NC` 。
 
 ### <a name="enable-fips-compliant-md5-algorithms-for-azcopy-when-you-use-fips-compliant-algorithms-for-encryption-hashing-and-signing"></a>当进行“使用适用于加密、哈希和签名的 FIPS 兼容算法”时，请启用适用于 AzCopy、与 FIPS 兼容的 MD5 算法。
+
 默认情况下，在复制对象时，如有需要 AzCopy 启动 FIPS 兼容的 MD5 设置的某些安全需求时，AzCopy 则会使用 .NET MD5 实现来计算 MD5。
 
 可以创建属性为 `AzureStorageUseV1MD5` 的 app.config 文件 `AzCopy.exe.config`，并将其与 AzCopy.exe 分开放。

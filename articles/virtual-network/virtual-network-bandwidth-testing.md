@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/21/2017
-ms.date: 01/22/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9369a9b6563e5b32ba8323f5daf086bea5430242
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: cc14a4862c3c724b544b636839da84b1cdee436e
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>带宽/吞吐量测试 (NTTTCP)
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 01/19/2018
 
 下载最新版本：<https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
 
-或者，如果已移除，请搜索该项：<https://www.bing.com/search?q=ntttcp+download>\< -- 应该是第一个匹配项
+或者搜索它（如果已移动）：<https://www.bing.com/search?q=ntttcp+download>\< - 应先点击
 
 请考虑将 NTTTCP 放在单独的文件夹中，如 c:\\tools
 
@@ -89,7 +89,7 @@ ntttcp -s -m 8,\*,10.0.0.4 -t 300
 
 ## <a name="testing-vms-running-linux"></a>测试运行 LINUX 的 VM：
 
-使用 nttcp-for-linux。 可从 <https://github.com/Microsoft/ntttcp-for-linux> 中获取
+使用 nttcp-for-linux。 可从 <https://github.com/Microsoft/ntttcp-for-linux> 获得它
 
 在 Linux VM 上（发送方和接收方），运行以下命令以在 VM 上准备 ntttcp-for-linux：
 
@@ -156,6 +156,13 @@ ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
+```
+## <a name="testing-cloud-service-instances"></a>测试云服务实例：
+需要将以下部分添加到 ServiceDefinition.csdef
+```xml
+<Endpoints>
+  <InternalEndpoint name="Endpoint3" protocol="any" />
+</Endpoints> 
 ```
 
 ## <a name="next-steps"></a>后续步骤

@@ -15,7 +15,9 @@
 ### [访问控制列表](virtual-networks-acl.md)
 
 # 入门
-## [创建首个虚拟网络](virtual-network-get-started-vnet-subnet.md)
+## [创建虚拟网络 - 门户](quick-create-portal.md)
+## [创建虚拟网络 - PowerShell](quick-create-powershell.md)
+## [创建虚拟网络 - Azure CLI](quick-create-cli.md)
 
 # 如何
 ## 规划和设计
@@ -148,6 +150,7 @@
 #### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 
 <!--Not Available #### [Logs](virtual-network-nsg-manage-log.md)-->
+### [路由表](manage-route-table.md)
 ### 网络接口 (NIC)
 #### [创建、更改或删除 NIC](virtual-network-network-interface.md)
 #### [添加、更改或删除 IP 地址](virtual-network-network-interface-addresses.md)
@@ -166,6 +169,7 @@
 ### [吞吐量测试](virtual-network-bandwidth-testing.md)
 ### [无法删除虚拟网络](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [VM 到 VM 连接问题](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
+### [为 SMTP 标题检查配置 PTR](create-ptr-for-smtp-service.md)
 
 # 参考
 ## [Azure PowerShell（资源管理器）](https://docs.microsoft.com/powershell/module/azurerm.network)
@@ -186,11 +190,10 @@
 
 # 资源
 ## [网络博客](https://www.azure.cn/blog/tags/虚拟网络)
-## [网络论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [网络论坛](https://www.azure.cn/support/forums/
 ## [价格](https://www.azure.cn/pricing/details/networking/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
-## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 ## [网络资源提供程序](resource-groups-networking.md)
 
 <!--Update_Description: update meta properties, update link-->
-<!--ms.date: 01/22/2018-->
+<!--ms.date: 03/12/2018-->
