@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 08/09/2017
-ms.date: 09/11/2017
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3317a21a403c99e4af49e78ba828970ed1ceec6b
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: d904e64c6085e7c24896f34298eb9a9011414aee
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>使用 Visual Studio 进行 Service Fabric 应用程序升级的教程
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Azure Service Fabric 确保只升级已更改的服务，并在整个升级过�
 
 现在，可在对话框中单击“**发布**”。 可以使用 [Service Fabric Explorer 查看群集和应用程序](service-fabric-visualizing-your-cluster.md)。 “视觉对象”应用程序有一个 Web 服务，在浏览器的地址栏中输入 [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) 即可转到该服务。  应会在屏幕上看到 10 个四处移动的浮动可视对象。
 
-**注意：** 如果部署到 `Cloud.xml` 配置文件 (Azure Service Fabric)，则可以在 **http://{ServiceFabricName}.{Region}.chinacloudapp.cn:8081/visualobjects/** 访问应用程序。 请确保在负载均衡器中配置了 `8081/TCP`（在 Service Fabric 实例所在的资源组中找到负载均衡器）。
+**注意：** 如果部署到 `Cloud.xml` 配置文件 (Azure Service Fabric)，则可以在 **http://{ServiceFabricName}.{Region}.cloudapp.chinacloudapi.cn:8081/visualobjects/** 访问应用程序。 请确保在负载均衡器中配置了 `8081/TCP`（在 Service Fabric 实例所在的资源组中找到负载均衡器）。
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>步骤 2：更新可视对象示例
 你可能会注意到，使用步骤 1 中部署的版本，视觉对象不会旋转。 让我们将此应用程序升级到视觉对象也会旋转的版本。
@@ -89,4 +89,4 @@ Azure Service Fabric 确保只升级已更改的服务，并在整个升级过�
 [image3]: media/service-fabric-application-upgrade-tutorial/upgrade5.png
 [image4]: media/service-fabric-application-upgrade-tutorial/upgrade6.png
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

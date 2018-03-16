@@ -9,17 +9,17 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 09/22/2017
-ms.date: 11/13/2017
+origin.date: 02/22/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: c002efc1ef1df281c6cdca46aec235566a109a21
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 4ff8512bd28d200df5aaa83e6cc066d751d76c9b
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 创建、删除和管理 Docker Compose 部署。
@@ -30,9 +30,9 @@ ms.lasthandoff: 11/09/2017
 | --- | --- |
 |    create| 通过 Compose 文件部署 Service Fabric 应用程序。|
 |    list  | 获取在 Service Fabric 群集中创建的 compose 部署列表。|
-|   remove| 从群集中删除现有的 Service Fabric compose 部署。|
-|   状态| 获取有关 Service Fabric compose 部署的信息。|
-|升级       | 开始升级 Service Fabric 群集中的 compose 部署。|
+|    remove| 从群集中删除现有的 Service Fabric compose 部署。|
+|    状态| 获取有关 Service Fabric compose 部署的信息。|
+|    升级       | 开始升级 Service Fabric 群集中的 compose 部署。|
 |    upgrade-status| 获取在此 Service Fabric Compose 部署中执行的最新升级的详细信息。|
 
 ## <a name="sfctl-compose-create"></a>sfctl compose create
@@ -43,11 +43,11 @@ ms.lasthandoff: 11/09/2017
 |参数|说明|
 | --- | --- |
 | --file-path [必需]| 目标 Docker Compose 文件的路径。|
- |   --deployment-name [必需]| 部署的名称。|
+|    --deployment-name [必需]| 部署的名称。|
 |    --encrypted-pass             | 不提示输入容器注册表密码，而是使用已加密的通行短语。|
 |    --has-pass                   | 提示输入容器注册表的密码。|
 |    --timeout -t                 | 服务器超时时间，以秒为单位。  默认值：60。|
- |   --user                       | 用于连接容器注册表的用户名。|
+|    --user                       | 用于连接容器注册表的用户名。|
 
 ### <a name="global-arguments"></a>全局参数
 
@@ -55,9 +55,9 @@ ms.lasthandoff: 11/09/2017
 | --- | --- |
 | --debug                 | 提高日志记录详细程度，以显示所有调试日志。|
 | --help -h               | 显示此帮助消息并退出。|
-| --output -o             | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
+| --output -o             | 输出格式。  允许的值：json、jsonc、table、tsv。 默认值：json。|
 | --query                 | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
-| --verbose               | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。|
+| --verbose               | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-compose-list"></a>sfctl compose list
 获取在 Service Fabric 群集中创建的 compose 部署列表。
@@ -68,8 +68,8 @@ ms.lasthandoff: 11/09/2017
 
 |参数|说明|
 | --- | --- |
-| --continuation-token| 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。      当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则继续标记不包含值。 不应将此参数的值进行 URL 编码。|
-| --max-results    | 作为分页查询的一部分返回的最大结果数。      此参数定义返回结果数的上限。      如果根据配置中定义的最大消息大小限制，无法将这些结果容纳到消息中，则返回的结果数可能小于指定的最大结果数。 如果此参数为零或者未指定，则分页的查询包含返回消息中最多可容纳的结果数。|
+| --continuation-token| 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则继续标记不包含值。 不应将此参数的值进行 URL 编码。|
+| --max-results    | 作为分页查询的一部分返回的最大结果数。 此参数定义返回结果数的上限。 如果根据配置中定义的最大消息大小限制，无法将这些结果容纳到消息中，则返回的结果数可能小于指定的最大结果数。 如果此参数为零或者未指定，则分页的查询包含返回消息中最多可容纳的结果数。|
 | --timeout -t     | 服务器超时时间，以秒为单位。  默认值：60。|
 
 ### <a name="global-arguments"></a>全局参数
@@ -80,7 +80,7 @@ ms.lasthandoff: 11/09/2017
 | --help -h        | 显示此帮助消息并退出。|
 | --output -o      | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
 | --query          | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
-| --verbose        | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。|
+| --verbose        | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-compose-remove"></a>sfctl compose remove
 从群集中删除现有的 Service Fabric compose 部署。
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/09/2017
 |参数|说明|
 | --- | --- |
 | --deployment-name [必需]| 部署的标识。 这通常是不带“fabric:”URI 方案的应用程序全名。|
-| --timeout -t            | 服务器超时时间，以秒为单位。  默认值：60。|
+| --timeout -t            | 服务器超时时间，以秒为单位。 默认值：60。|
 
 ### <a name="global-arguments"></a>全局参数
 
@@ -100,9 +100,9 @@ ms.lasthandoff: 11/09/2017
 | --- | --- |
 | --debug                 | 提高日志记录详细程度，以显示所有调试日志。|
 | --help -h               | 显示此帮助消息并退出。|
-| --output -o             | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
+| --output -o             | 输出格式。  允许的值：json、jsonc、table、tsv。 默认值：json。|
 | --query                 | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
-| --verbose               | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。|
+| --verbose               | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-compose-status"></a>sfctl compose status
 获取有关 Service Fabric compose 部署的信息。
@@ -122,9 +122,9 @@ ms.lasthandoff: 11/09/2017
 | --- | --- |
 | --debug                 | 提高日志记录详细程度，以显示所有调试日志。|
 | --help -h               | 显示此帮助消息并退出。|
-| --output -o             | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。|
+| --output -o             | 输出格式。  允许的值：json、jsonc、table、tsv。 默认值：json。|
 | --query                 | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
-| --verbose               | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。|
+| --verbose               | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-compose-upgrade"></a>sfctl compose upgrade
 开始升级 Service Fabric 群集中的 compose 部署。
@@ -138,9 +138,9 @@ ms.lasthandoff: 11/09/2017
 |    --deployment-name [必需]| 部署的名称。|
 |    --default-svc-type-health-map| 描述用于评估服务运行状况的运行状况策略的 JSON 编码字典。|
 |    --encrypted-pass             | 不提示输入容器注册表密码，而是使用已加密的通行短语。|
- |   --failure-action             | 可能的值包括：“Invalid”、“Rollback”和“Manual”。|
+|    --failure-action             | 可能的值包括：“Invalid”、“Rollback”和“Manual”。|
 |    --force-restart              | 强制重启。|
- |   --has-pass                   | 提示输入容器注册表的密码。|
+|    --has-pass                   | 提示输入容器注册表的密码。|
 |    --health-check-retry         | 运行状况检查重试超时时间，以毫秒为单位。|
 |    --health-check-stable        | 运行状况检查稳定持续时间，以毫秒为单位。|
 |    --health-check-wait          | 运行状况检查等待持续时间，以毫秒为单位。|
@@ -159,14 +159,13 @@ ms.lasthandoff: 11/09/2017
  |参数|说明|
 | --- | --- |
 |   --debug                      | 提高日志记录详细程度，以显示所有调试日志。|
-|    --help -h                    | 显示此帮助消息并退出。|
- |   --output -o                  | 输出格式。  允许的值：json、jsonc、table、tsv。
-                                   默认值：json。|
- |   --query                      | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
- |   --verbose                    | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
+|   --help -h                    | 显示此帮助消息并退出。|
+|   --output -o                  | 输出格式。  允许的值：json、jsonc、table、tsv。 默认值：json。|
+|   --query                      | JMESPath 查询字符串。 有关详细信息和示例，|                                请参阅 http://jmespath.org/。|
+|   --verbose                    | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="next-steps"></a>后续步骤
 - [安装](service-fabric-cli.md) Service Fabric CLI。
 - 了解如何通过[示例脚本](/service-fabric/scripts/sfctl-upgrade-application)使用 Service Fabric CLI。
 
-<!--Update_Description: new articles on service fabric sfctl compose -->
+<!--Update_Description: update meta properties, wording update -->

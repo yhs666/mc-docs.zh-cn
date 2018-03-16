@@ -1,24 +1,22 @@
 ---
-title: "Azure 快速入门 - 使用 Azure 门户将对象转移到 Azure Blob 存储或从 Azure Blob 存储转移对象 | Microsoft Docs"
-description: "了解如何使用 Azure 门户在 Azure Blob 存储中上传、下载和列出 Blob。"
+title: "Azure 快速入门 - 使用 Azure 门户在 Azure 存储中上传、下载和列出 Blob | Azure"
+description: "在本快速入门中，请使用 Azure 门户来创建存储帐户和容器。 然后，使用该 Azure 门户将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。"
 services: storage
-documentationcenter: storage
 author: yunan2016
 manager: digimobile
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
 ms.topic: quickstart
-origin.date: 12/12/2017
-ms.date: 01/29/2018
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-nany
-ms.openlocfilehash: 3514263366ab91bb679d235fb807f3c714ecc94e
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: d8bb11bc237ae7b718c218ed8013b0ceef819e8f
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-portal"></a>使用 Azure 门户将对象转移到 Azure Blob 存储或从 Azure Blob 存储转移对象
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-portal"></a>快速入门：使用 Azure 门户上传、下载和列出 Blob
 
 本快速入门介绍如何使用 [Azure 门户](https://portal.azure.cn/)在 Azure 存储中创建容器，以及在该容器中上传和下载块 Blob。
 

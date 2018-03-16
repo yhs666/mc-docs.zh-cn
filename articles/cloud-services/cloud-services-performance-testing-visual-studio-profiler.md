@@ -1,5 +1,5 @@
 ---
-title: "在计算模拟器中本地分析云服务 | Azure"
+title: "在计算模拟器中本地分析云服务"
 services: cloud-services
 description: "使用 Visual Studio 探查器调查云服务中的性能问题"
 documentationcenter: 
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 11/18/2016
-ms.date: 12/11/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 84399c2a2111f5f7194152d3cf4f9c5ffe96b260
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 39fa0c30106baabfa4d1ac11ef142d1bad4cf330
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>在 Azure 计算模拟器中使用 Visual Studio 探查器来本地测试云服务的性能
 
 可通过各种工具和技术来测试云服务的性能。
 在将云服务发布到 Azure 后，可以让 Visual Studio 收集分析数据，并在本地进行分析，如 [分析 Azure 应用程序][1]中所述。
 也可以使用诊断来跟踪各种性能计数器，如 [在 Azure 中使用性能计数器][2]中所述。
-此外，在将应用程序部署到云之前，可能需要在计算模拟器中本地分析应用程序。
+此外，在将应用程序部署到云之前，您可能需要在计算模拟器中本地分析应用程序。
 
 本文包含了 CPU 采样分析方法，可在模拟器中本地执行该方法。 CPU 采样是一种干预性不是很强的分析方法。 探查器将按照指定的采样时间间隔拍摄调用堆栈的快照。 将收集一段时间内的数据并将其显示在报告中。 此分析方法倾向于指示在具有大量计算的应用程序中执行大多数 CPU 工作的位置。  这使你能够侧重于应用程序在其上花费最多时间的“热路径”。
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/01/2017
 
 为了进行演示，请将一些代码添加到项目中，这些代码将占用大量时间，从而演示某个明显的性能问题。 例如，将以下代码添加到辅助角色项目：
 
-```
+```csharp
 public class Concatenator
 {
     public static string Concatenate(int number)
@@ -64,16 +64,16 @@ public class Concatenator
 
 在辅助角色的 RoleEntryPoint-derived 类中从 RunAsync 方法调用此代码。 （忽略有关以同步方式运行方法的警告。）
 
-```
-    private async Task RunAsync(CancellationToken cancellationToken)
+```csharp
+private async Task RunAsync(CancellationToken cancellationToken)
+{
+    // TODO: Replace the following with your own logic.
+    while (!cancellationToken.IsCancellationRequested)
     {
-        // TODO: Replace the following with your own logic.
-        while (!cancellationToken.IsCancellationRequested)
-        {
-            Trace.TraceInformation("Working");
-            Concatenator.Concatenate(10000);
-        }
+        Trace.TraceInformation("Working");
+        Concatenator.Concatenate(10000);
     }
+}
 ```
 
 本地生成并运行云服务且不进行调试 (Ctrl+F5)，并将解决方案配置设置为“发布”。 这会确保创建的所有文件和文件夹都用于本地运行应用程序，并确保启动所有仿真程序。 从任务栏启动计算模拟器 UI，以验证辅助角色是否正在运行。
@@ -95,9 +95,11 @@ public class Concatenator
  也可以通过附加到 WaIISHost.exe 来附加到 Web 角色。
 如果应用程序中有多个辅助角色进程，则需要使用 processID 将它们区分开来。 可以通过访问 Process 对象以编程方式查询 processID。 例如，如果将此代码添加到角色中 RoleEntryPoint 派生的类的 Run 方法，则可在计算模拟器 UI 中查看日志以了解要连接到的进程。
 
-    var process = System.Diagnostics.Process.GetCurrentProcess();
-    var message = String.Format("Process ID: {0}", process.Id);
-    Trace.WriteLine(message, "Information");
+```csharp
+var process = System.Diagnostics.Process.GetCurrentProcess();
+var message = String.Format("Process ID: {0}", process.Id);
+Trace.WriteLine(message, "Information");
+```
 
 若要查看日志，请启动计算模拟器 UI。
 
@@ -121,7 +123,7 @@ public class Concatenator
 
 ![探查器报告][11]
 
-如果在热路径中看到 String.wstrcpy，请单击“仅我的代码”以将视图更改为仅显示用户代码。  如果看到 String.Concat，请尝试按“显示所有代码”按钮。
+如果你在热路径中看到 String.wstrcpy，请单击“仅我的代码”以将视图更改为仅显示用户代码。  如果看到 String.Concat，请尝试按“显示所有代码”按钮。
 
 您会看到占用大部分执行时间的 Concatenate 方法和 String.Concat。
 
@@ -135,7 +137,7 @@ public class Concatenator
 
 也可在代码更改之前或之后比较性能。  停止正在运行的进程，并编辑代码以将字符串串联操作替换为使用 StringBuilder：
 
-```
+```csharp
 public static string Concatenate(int number)
 {
     int count;

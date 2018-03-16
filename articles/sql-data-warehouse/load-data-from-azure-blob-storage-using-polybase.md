@@ -1,5 +1,5 @@
 ---
-title: "Polybase 数据加载 - 从 Azure 存储 Blob 到 Azure SQL 数据仓库 | Azure"
+title: "教程：Polybase 数据加载 - 从 Azure 存储 Blob 到 Azure SQL 数据仓库 | Azure"
 description: "本教程使用 Azure 门户和 SQL Server Management Studio 将出租车数据从 Azure Blob 存储加载到 Azure SQL 数据仓库。"
 services: sql-data-warehouse
 documentationcenter: 
@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
 origin.date: 11/17/2017
-ms.date: 01/15/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.reviewer: barbkess
-ms.openlocfilehash: 18bb4f604c3a00b2bf53d4e49e4775f1b812ce3a
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: c74d04f6b8f8c297d1c379c1d4885ad02d1102be
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>使用 PolyBase 将数据从 Azure Blob 存储加载到 Azure SQL 数据仓库
+# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>教程：使用 PolyBase 将数据从 Azure Blob 存储加载到 Azure SQL 数据仓库
 
 PolyBase 是一种标准加载技术，用于将数据加载到 SQL 数据仓库。 在本教程中，使用 PolyBase 将出租车数据从 Azure Blob 存储加载到 Azure SQL 数据仓库。 本教程使用 [Azure 门户](https://portal.azure.cn)和 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 执行以下操作： 
 <!-- Not Available on http://XX.XX.filename.md -->
@@ -52,11 +52,11 @@ PolyBase 是一种标准加载技术，用于将数据加载到 SQL 数据仓库
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>创建空白 SQL 数据仓库
 
-创建 Azure SQL 数据仓库时，会使用定义好的一组[计算资源](performance-tiers)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview)和 [Azure SQL 逻辑服务器](../sql-database/sql-database-features)中创建。 
+创建 Azure SQL 数据仓库时，会使用定义好的一组[计算资源](performance-tiers.md)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 逻辑服务器](../sql-database/sql-database-features.md)中创建。 
 
 按照以下步骤创建空白 SQL 数据仓库。 
 
-1. 单击 Azure 门户左上角的“新建”按钮。
+1. 在 Azure 门户的左上角单击“创建资源”。
 
 2. 从“新建”页中选择“数据库”，然后从“新建”页的“特色”下选择“SQL 数据仓库”。
 
@@ -174,7 +174,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 ## <a name="create-a-user-for-loading-data"></a>创建用于加载数据的用户
 
-服务器管理员帐户用于执行管理操作，不适合对用户数据运行查询。 加载数据通常需要大量内存。 [内存最大值](performance-tiers.md#memory-maximums)根据[性能层](performance-tiers.md)和[资源类](resource-classes-for-workload-management.md)定义。 
+服务器管理员帐户用于执行管理操作，不适合对用户数据运行查询。 加载数据是一种内存密集型操作。 [内存最大值](performance-tiers.md#memory-maximums)根据[性能层](performance-tiers.md)和[资源类](resource-classes-for-workload-management.md)定义。 
 
 最好创建专用于加载数据的登录名和用户。 然后，将加载用户添加到启用相应最大内存分配的[资源类](resource-classes-for-workload-management.md)。
 
@@ -215,7 +215,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
     ![使用新登录名连接](media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
-2. 输入完全限定的服务器名称，但此次输入“LoaderRC20”作为登录名。  输入 LoaderRC20 的密码。
+2. 输入完全限定的服务器名称，并输入“LoaderRC20”作为登录名。  输入 LoaderRC20 的密码。
 
 3. 单击“连接” 。
 
@@ -623,5 +623,4 @@ SQL 数据仓库不会自动创建或自动更新统计信息。 因此，若要
 
 > [!div class="nextstepaction"]
 >[了解如何将现有数据库迁移到 SQL 数据仓库](sql-data-warehouse-overview-migrate.md)
-<!-- Update_Description: new articles on load data from azure blob storage using polybase -->
-<!-- ms.date: 01/15/2018 -->
+<!-- Update_Description: update meta properties, wording update -->

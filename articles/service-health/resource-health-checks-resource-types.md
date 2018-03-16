@@ -1,5 +1,5 @@
 ---
-title: "通过 Azure 资源运行状况支持的资源类型 | Microsoft Docs"
+title: "通过 Azure 资源运行状况支持的资源类型"
 description: "通过 Azure 资源运行状况支持的资源类型"
 services: Resource health
 documentationcenter: 
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 origin.date: 10/09/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 87aa506f00f66763420c423b5f0ad05f621268f0
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 03/19/2018
+ms.openlocfilehash: 6c48600d11171d656c9531279aecf8763eff7b19
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure 资源运行状况中的资源类型和运行状况检查
 下面是通过资源运行状况执行的所有检查（按资源类型）的完整列表。
@@ -74,7 +74,7 @@ ms.lasthandoff: 12/01/2017
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |执行的检查|
 |---|
-|<ul><li>是否存在因 DocumentDB 服务不可用而未处理的数据库或集合请求？</li><li>是否存在因 DocumentDB 服务不可用而未处理的文档请求？</li></ul>|
+|<ul><li>是否存在因 Azure Cosmos DB 服务不可用而未处理的数据库或集合请求？</li><li>是否存在因 Azure Cosmos DB 服务不可用而未处理的文档请求？</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |执行的检查|
@@ -122,6 +122,6 @@ ms.lasthandoff: 12/01/2017
 |<ul><li>主机服务器是否已启动并正在运行？</li><li>Internet 信息服务器是否正在运行？</li><li>负载均衡器是否正在运行？</li><li>是否可从数据中心内访问 Web 应用？</li><li>托管站点内容的存储帐户是否可用？</li></ul>|
 
 # <a name="next-steps"></a>后续步骤
--  请参阅 [Azure 资源运行状况简介](resource-health-overview.md)，了解更多相关信息。 
+-  请参阅 [Azure 服务运行状况简介](service-health-overview.md)和 [Azure 资源运行状况简介](resource-health-overview.md)，了解更多相关信息。 
 -  [有关 Azure 资源运行状况的常见问题解答](resource-health-faq.md)
-- 设置警报，以便收到运行状况问题的通知。 有关详细信息，请参阅[配置服务运行状况的警报](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)。 
+-  设置警报，以便收到运行状况问题的通知。 有关详细信息，请参阅[配置服务运行状况的警报](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)。 

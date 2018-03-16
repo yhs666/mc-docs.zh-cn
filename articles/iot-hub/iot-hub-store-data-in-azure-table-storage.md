@@ -1,5 +1,5 @@
 ---
-title: "将 IoT 中心消息保存到 Azure 数据存储 | Microsoft Docs"
+title: "将 IoT 中心消息保存到 Azure 数据存储"
 description: "使用 IoT 中心消息路由将 IoT 中心消息保存到 Azure Blob 存储中。 IoT 中心消息包含 IoT 设备发送的传感器数据等信息。"
 services: iot-hub
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/04/2017
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2c4b29c32acb37b0e0512be61b6fe1ee505064f0
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 63196decf4015d7e2889ef8e38ae0e9c2c0fdef9
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>将包含传感器数据的 IoT 中心消息保存到 Azure Blob 存储
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 
-1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“新建” > “存储” > “存储帐户” > “创建”。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“创建资源” > “存储” > “存储帐户” > “创建”。
 
 2. 输入存储帐户所需的信息：
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/08/2017
 
    * **固定仪表板**：选中此选项可以方便地从仪表板访问 IoT 中心。
 
-3. 单击“创建” 。
+3. 单击“创建”。
 
 ## <a name="prepare-your-iot-hub-to-route-messages-to-storage"></a>准备 IoT 中心，将消息路由到存储
 

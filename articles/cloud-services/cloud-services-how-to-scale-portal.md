@@ -1,5 +1,5 @@
 ---
-title: "在门户中自动缩放云服务 | Microsoft Docs"
+title: "在门户中自动缩放云服务"
 description: "了解如何使用门户在 Azure 中为云服务 Web 角色或辅助角色配置自动缩放规则。"
 services: cloud-services
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2017
 ms.author: v-yiso
-ms.date: 01/15/2018
-ms.openlocfilehash: 3dcce42b70d9725d0fe7db6ea759b2e530db216b
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.date: 03/19/2018
+ms.openlocfilehash: 228c2eab12b713eb107e2d775d5ce596b00485e9
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>如何在门户中为云服务配置自动缩放
 
 针对云服务辅助角色设置条件，以触发缩减或扩展操作。 针对角色的条件可以基于 CPU、磁盘或角色的网络负载。 也可以基于消息队列或与订阅关联的其他一些 Azure 资源的指标来设置条件。
 
->[!NOTE]
-> 本文着重于云服务 Web 和辅助角色。 如果直接创建虚拟机（经典），该虚拟机将托管在云服务中。 可以通过将标准虚拟机与[可用性集](../virtual-machines/windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)相关联来缩放标准虚拟机，并可以手动将其打开或关闭。
+> [!NOTE]
+> 本文着重于云服务 Web 和辅助角色。 如果直接创建虚拟机（经典），该虚拟机将托管在云服务中。 可以通过将标准虚拟机与[可用性集](../virtual-machines/windows/classic/configure-availability-classic.md)相关联来缩放标准虚拟机，并可以手动将其打开或关闭。
 
 ## <a name="considerations"></a>注意事项
 在配置应用程序的缩放之前，应考虑以下信息：

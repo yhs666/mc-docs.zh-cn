@@ -1,6 +1,6 @@
 ---
 title: "创建 Azure Service Fabric Windows 容器应用程序 | Azure"
-description: "在 Azure Service Fabric 上创建第一个 Windows 容器应用程序。"
+description: "在本快速入门中，请在 Azure Service Fabric 上创建第一个 Windows 容器应用程序。"
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/02/2017
-ms.date: 01/01/2018
+origin.date: 01/25/18
+ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 264b8ac2a5f7cb921b11e1fc6f12d2cbf4aaa0d6
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: bbced68e4977fd7841e8195b48ceb79a7b872dc3
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>在 Azure 上部署 Service Fabric Windows 容器应用程序
+# <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>快速入门：在 Azure 上部署 Service Fabric Windows 容器应用程序
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。 
 
 在 Service Fabric 群集上运行 Windows 容器中的现有应用程序不需要对应用程序进行任何更改。 本快速入门介绍如何在 Service Fabric 应用程序中部署预建的 Docker 容器映像。 完成后，你会有一个正在运行的 Windows Server 2016 Nano Server 和 IIS 容器。 本快速入门介绍如何部署 Windows 容器。若要部署 Linux 容器，请阅读[此快速入门](service-fabric-quickstart-containers-linux.md)。
@@ -80,24 +80,24 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 本文末尾提供完整的 ApplicationManifest.xml 示例文件。
 
 ## <a name="create-a-cluster"></a>创建群集
-若要将应用程序部署到 Azure 群集，可以创建自己的群集，也可以使用合作群集。
+若要将应用程序部署到 Azure 中的群集，可[在 Azure 上创建自己的群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
 
-合作群集是在 Azure 上托管的、由 Service Fabric 团队运行的免费限时 Service Fabric 群集，任何人都可以在其中部署应用程序及了解平台的情况。 若要使用合作群集，请[按照说明操作](http://aka.ms/tryservicefabric)。  
-
-若要了解如何创建自己的群集，请参阅[在 Azure 上创建 Service Fabric 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
-
-请记下连接终结点，下面的步骤会使用该终结点。  
-
+<!-- Not Avaiable on Party clusters -->
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>使用 Visual Studio 将应用程序部署到 Azure
 至此，应用程序已准备就绪，可以直接通过 Visual Studio 将它部署到群集了。
 
 在解决方案资源管理器中右键单击“MyFirstContainer”，选择“发布”。 此时，“发布”对话框显示。
 
-![“发布”对话框](./media/service-fabric-quickstart-dotnet/publish-app.png)
+将群集页面中的“连接终结点”复制到“连接终结点”字段。 例如，`zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19000`。 
+<!-- Not Avaiable on Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in the previous step. -->
 
-在“连接终结点”字段中，键入群集的连接终结点。 注册合作群集时，浏览器中会提供连接终结点，例如 `winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19000`。  单击“发布”，应用程序进行部署。
+![“发布”对话框](./media/service-fabric-quickstart-containers/publish-app.png)
 
-打开浏览器并导航到 http://winh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:80。 此时会看到 IIS 默认网页：![IIS 默认网页][iis-default]
+单击“发布”。
+
+群集中的每个应用程序都必须具有唯一名称。  Party 群集是一个公共、共享的环境，但是可能与现有应用程序存在冲突。  如果存在名称冲突，请重命名 Visual Studio 项目并重新部署。
+
+打开浏览器并导航到 http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:80。 此时会看到 IIS 默认网页：![IIS 默认网页][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Service Fabric 应用程序和服务清单的完整示例
 以下是用在本快速入门中的完整服务和应用程序清单。
@@ -168,6 +168,7 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
+
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 
@@ -200,4 +201,4 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: wording update, update link, remove the party cluster content not suit for azure china -->

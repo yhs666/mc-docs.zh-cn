@@ -9,17 +9,17 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 09/26/2017
-ms.date: 11/13/2017
+origin.date: 02/22/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 61c52f8845eea08f65e572ac5a5944d932df9b5f
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 5f3aee2e8a557f5f7e55eda6fb1d361dc1d8ffda
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 查询并向修复管理器服务发送命令。
@@ -27,9 +27,9 @@ ms.lasthandoff: 11/09/2017
 ## <a name="commands"></a>命令
 |命令|说明|
 | --- | --- |
-|    approve-force| 强制批准给定的修复任务。|
-|    删除       | 删除已完成的修复任务。|
-|    list         | 获取与给定筛选器匹配的修复任务列表。|
+| approve-force| 强制批准给定的修复任务。|
+| 删除       | 删除已完成的修复任务。|
+| list         | 获取与给定筛选器匹配的修复任务列表。|
 
 ## <a name="sfctl-rpm-delete"></a>sfctl rpm delete
 删除已完成的修复任务。
@@ -47,9 +47,9 @@ ms.lasthandoff: 11/09/2017
 | --- | --- |
 |    --debug             | 提高日志记录详细程度，以显示所有调试日志。|
 |    --help -h           | 显示此帮助消息并退出。|
-|    --output -o         | 输出格式。  允许的值：json、jsonc、table、tsv。  默认值：json。
+|    --output -o         | 输出格式。 允许的值：json、jsonc、table、tsv。 默认值：json。|
 |    --query             | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
-|    --verbose           | 提高日志记录详细程度。 使用 --debug 可获取完整调试日志。|
+|    --verbose           | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
 ## <a name="sfctl-rpm-list"></a>sfctl rpm list
 获取与给定筛选器匹配的修复任务列表。
@@ -68,7 +68,7 @@ ms.lasthandoff: 11/09/2017
 | --- | --- |
 |    --debug          | 提高日志记录详细程度，以显示所有调试日志。|
 |    --help -h        | 显示此帮助消息并退出。|
-|    --output -o      | 输出格式。  允许的值：json、jsonc、table、tsv。  默认| json。|
+|    --output -o      | 输出格式。 允许的值：json、jsonc、table、tsv。 默认| json。|
 |    --query          | JMESPath 查询字符串。 有关详细信息和示例，请参阅 http://jmespath.org/。|
 |    --verbose        | 提高日志记录详细程度。 使用 --debug 可获取完整的调试日志。|
 
@@ -76,4 +76,4 @@ ms.lasthandoff: 11/09/2017
 - [安装](service-fabric-cli.md) Service Fabric CLI。
 - 了解如何通过[示例脚本](/service-fabric/scripts/sfctl-upgrade-application)使用 Service Fabric CLI。
 
-<!--Update_Description: new articles on service fabric sfctl rpm -->
+<!--Update_Description: update meta properties -->

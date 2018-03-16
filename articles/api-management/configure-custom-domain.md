@@ -10,17 +10,21 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 12/14/2017
-ms.date: 02/26/2018
+ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: d4a3541d20f5ad56ec74008cc0f3d71acc01d9a9
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 1869390d54fe033b24ec58531455f9d684b4d666
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configure-a-custom-domain-name"></a>配置自定义域名 
 
 创建 API 管理 (APIM) 实例时，Azure 会将其分配到 azure api.net 的一个子域（例如 `apim-service-name.azure-api.cn`）。 不过，你可以使用自己的域名（例如 **contoso.com**）公开你的 APIM 终结点。本教程演示了如何将现有的自定义 DNS 名称映射到 Azure API 管理实例公开的终结点。
+> [!WARNING]
+> 想要使用证书固定改进其应用程序安全性的客户必须使用自定义域名和他们管理的证书，而不是使用默认证书。 改为固定默认证书的客户将硬依赖于他们不控制的证书属性，建议不要这样做。
+>
+>
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -57,7 +61,7 @@ ms.lasthandoff: 02/13/2018
 1. 单击“应用”。
 
     >[!NOTE]
-    >分配证书的过程可能需要 15 分钟左右。
+    >分配证书的过程可能需要 15 分钟或更久，这取决于部署规模。 开发人员 SKU 有故障时间，基本和更高版本的 SKU 没有故障时间。
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 

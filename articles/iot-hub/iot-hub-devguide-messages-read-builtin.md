@@ -3,7 +3,7 @@ title: "了解 Azure IoT 中心内置终结点 | Azure"
 description: "开发人员指南 - 介绍如何使用与事件中心兼容的内置终结点读取设备到云的消息。"
 services: iot-hub
 documentationcenter: .net
-author: Derek1101
+author: dominicbetts
 manager: timlt
 editor: 
 ms.service: iot-hub
@@ -11,14 +11,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/13/2017
+origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 12/18/2017
-ms.openlocfilehash: 48eda632d5415c0cd96fb55311b561118a9b0d39
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.date: 03/19/2018
+ms.openlocfilehash: 789a289da0df94ac91c2be417f725f68db863273
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>从内置终结点读取设备到云的消息
 
@@ -33,7 +33,7 @@ IoT 中心还支持用户管理内置设备到云接收终结点上的使用者�
 
 默认情况下，不显式匹配消息路由规则的所有消息都会写入到内置终结点。 如果禁用此回退路由，将删除不显式匹配任何消息路由规则的消息。
 
-可以通过 [IoT 中心资源提供程序 REST API][lnk-resource-provider-apis] 以编程方式修改保留期时间，或使用 [Azure 门户][lnk-management-portal]进行修改。
+可以使用 [IoT 中心资源提供程序 REST API][lnk-resource-provider-apis] 以编程方式修改保留期时间，或通过 [Azure 门户][lnk-management-portal]进行修改。
 
 IoT 中心向后端服务公开 **messages/events** 内置终结点，让后端服务读取中心收到的设备到云消息。 该终结点与事件中心兼容，因此可以使用事件中心服务支持的任何机制读取消息。
 
@@ -41,7 +41,7 @@ IoT 中心向后端服务公开 **messages/events** 内置终结点，让后端�
 
 使用[适用于 .NET 的 Azure 服务总线 SDK][lnk-servicebus-sdk] 或[事件中心 - 事件处理器主机][lnk-eventprocessorhost]时，可以将任何 IoT 中心连接字符串与正确的权限配合使用。 然后使用**消息/事件**作为事件中心名称。
 
-使用无法识别 IoT 中心的 SDK（或产品集成）时，必须从 IoT 中心设置检索与事件中心兼容的终结点和与事件中心兼容的名称：
+使用无法识别 IoT 中心的 SDK（或产品集成）时，必须检索与事件中心兼容的终结点和与事件中心兼容的名称：
 
 1. 登录 [Azure 门户][lnk-management-portal]，并导航到 IoT 中心。
 1. 单击“终结点” 。
@@ -52,7 +52,7 @@ IoT 中心向后端服务公开 **messages/events** 内置终结点，让后端�
 
 IoT 中心 SDK 需要 IoT 中心终结点名称，即“终结点”下所示的 messages/events。
 
-如果当前使用的 SDK 需要“主机名”或“命名空间”值，请从“事件中心兼容的终结点”中删除方案。 例如，如果与事件中心兼容的终结点为 **sb://iothub-ns-myiothub-1234.servicebus.chinacloudapi.cn/**，则**主机名**为 **iothub-ns-myiothub-1234.servicebus.chinacloudapi.cn**，**命名空间**为 **iothub-ns-myiothub-1234**。
+如果当前使用的 SDK 需要“主机名”或“命名空间”值，请从“事件中心兼容的终结点”中删除方案。 例如，如果与事件中心兼容的终结点为 **sb://iothub-ns-myiothub-1234.servicebus.chinacloudapi.cn/**，则**主机名**为 **iothub-ns-myiothub-1234.servicebus.chinacloudapi.cn**。 命名空间为 iothub-ns-myiothub-1234。
 
 然后，可以使用具有 **ServiceConnect** 权限的任何共享访问策略连接到指定的事件中心。
 
@@ -63,8 +63,8 @@ IoT 中心 SDK 需要 IoT 中心终结点名称，即“终结点”下所示的
 可用于 IoT 中心公开的事件中心兼容终结点的 SDK 和集成包括以下列表中的项目：
 
 * [Java 事件中心客户端](https://github.com/Azure/azure-event-hubs-java)。
-* [Apache Storm Spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md)。 可以在 GitHub 上查看 [Spout 源代码](https://github.com/apache/storm/tree/master/external/storm-eventhubs) 。
-* [Apache Spark 集成](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md)。
+* [Apache Storm Spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md)。 可以在 GitHub 上查看 [Spout 源代码](https://github.com/apache/storm/tree/master/external/storm-eventhubs) 。
+* [Apache Spark 集成](../hdinsight/spark/apache-spark-eventhub-streaming.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

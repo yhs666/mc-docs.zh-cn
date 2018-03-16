@@ -15,15 +15,15 @@ ms.topic: troubleshooting
 origin.date: 09/08/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 6a31e9c66296df8ac4701e4edf7cfccc70a1169a
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: a48c02680717ba67681db8a2203bd51cae2b19f2
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
 
-Azure 存储资源管理器（预览版）是一款独立应用，可用于在 Windows、macOS 和 Linux 上轻松处理 Azure 存储数据。 该应用可以连接 Azure、 Sovereign Clouds 和 Azure Stack 上托管的存储帐户。
+Azure 存储资源管理器（预览版）是一款独立应用，可用于在 Windows、macOS 和 Linux 上轻松处理 Azure 存储数据。 应用可连接到托管在 Azure、National Clouds 和 Azure Stack 上的存储帐户。
 
 本指南汇总了存储资源管理器中常见问题的解决方案。
 
@@ -60,15 +60,15 @@ Azure 存储资源管理器（预览版）是一款独立应用，可用于在 W
 
 6. 打开存储资源管理器，单击“编辑” > “SSL 证书” > “导入证书”，然后使用文件选取器查找、选择并打开已创建的 .cer 文件。
 
-如果使用上述步骤无法找到任何自签名证书，请通过反馈工具与我们联系以获取更多帮助。
+如果通过上述步骤无法找到任何自签名证书，请通过反馈工具联系我们以获取更多帮助。
 
 ### <a name="unable-to-retrieve-subscriptions"></a>无法检索订阅
 
 如果成功登录后无法检索订阅，请按照下列步骤操作，解决此问题：
 
-- 登录 Azure 门户，验证帐户是否有权访问订阅。
+- 通过登录 Azure 门户验证帐户是否有权访问该订阅。
 
-- 请确保使用正确的环境（Azure、Azure China、Azure Germany、Azure US Government 或自定义环境/Azure Stack）登录。
+- 请确保使用正确的环境登录（Azure、Azure 中国、Azure 德国、Azure 美国政府或自定义环境/Azure Stack）。
 
 - 如果使用了代理，请确保已正确配置存储资源管理器代理。
 
@@ -117,7 +117,7 @@ Azure 存储资源管理器（预览版）是一款独立应用，可用于在 W
     - ~/.config/StorageExplorer（对于 Linux）
 
 > [!NOTE]
->  删除这些文件后，需要重新输入凭据。
+>  删除上述文件后，需要重新登录到你的帐户。
 
 ## <a name="proxy-issues"></a>代理问题
 
@@ -181,6 +181,7 @@ Azure 存储资源管理器（预览版）是一款独立应用，可用于在 W
 4.  键的值应为 JSON 数组。 查找与错误 URI 关联的对象，并将其删除。
 5.  按 Ctrl+R 重新加载存储资源管理器。
 
+## <a name="linux-dependencies"></a>Linux 依赖项
 
 ## <a name="next-steps"></a>后续步骤
 

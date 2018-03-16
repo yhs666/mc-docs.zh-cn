@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure IoT 中心路由消息 (.Net) | Microsoft Docs"
+title: "使用 Azure IoT 中心路由消息 (.Net)"
 description: "如何使用路由规则和自定义终结点将消息发送到其他后端服务，从而处理 Azure IoT 中心的设备到云消息。"
 services: iot-hub
 documentationcenter: .net
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/25/2017
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 52d02c0b2300b39ef35c52351b6a45a061b786c3
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 100b569f263bd11dedb1abd356dec9e7ee5c42f4
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="routing-messages-with-iot-hub-net"></a>使用 IoT 中心路由消息 (.NET)
 
@@ -28,9 +28,9 @@ ms.lasthandoff: 12/08/2017
 本教程是在 [IoT 中心入门]教程的基础上制作的。 本教程：
 
 * 介绍如何以基于配置的轻松方式，使用路由规则发送设备到云的消息。
-* 介绍如何隔离需要解决方案后端立即执行操作以进行进一步处理的交互式消息。 例如，设备可能将发送一条警报消息，触发在 CRM 系统中插入票证。 与此相反，数据点消息（例如温度遥测）则送入分析引擎。
+* 介绍如何隔离需要解决方案后端立即执行操作以进行进一步处理的交互式消息。 例如，设备可能会发送一条警报消息，触发在 CRM 系统中插入票证。 与此相反，数据点消息（例如温度遥测）则送入分析引擎。
 
-在本教程结束时，会运行三个 .NET 控制台应用：
+在本教程结束时，会运行 3 个 .NET 控制台应用：
 
 * **SimulatedDevice**，（在 [IoT 中心入门]教程中创建的应用的修改版本）每秒发送一次设备到云的数据点消息，每 10 秒发送一次设备到云的交互式消息。
 * **ReadDeviceToCloudMessages**，显示设备应用发送的非关键遥测数据。
@@ -102,7 +102,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-此方法会将 `"level": "critical"` 和 `"level": "storage"` 属性随机添加到设备发送的消息，以模拟需要应用程序后端立即执行操作的消息或需要永久存储的消息。 应用程序会在消息属性（而非消息正文）中传递此信息，因此 IoT 中心可将消息路由到适当的消息目标。
+此方法会将 `"level": "critical"` 和 `"level": "storage"` 属性随机添加到设备发送的消息，以模拟需要应用程序后端立即执行操作的消息或需要永久存储的消息。 应用程序支持基于消息正文的路由消息。
 
 > [!NOTE]
 > 可使用消息属性根据各种方案路由消息，包括冷路径处理和此处所示的热路径示例。
@@ -118,7 +118,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 * 将其连接到 IoT 中心。
 * 配置 IoT 中心，以根据是否存在某个消息属性将消息发送到队列。
 
-若要深入了解如何处理来自服务总线队列的消息，请参阅 [队列入门][Service Bus queue]教程。
+若要深入了解如何处理来自服务总线队列的消息，请参阅[队列入门][Service Bus queue]教程。
 
 1. 按 [队列入门][Service Bus queue]中所述，创建服务总线队列。 队列必须与 IoT 中心位于同一订阅和区域中。 记下命名空间和队列名称。
 
@@ -185,6 +185,30 @@ private static async void SendDeviceToCloudMessagesAsync()
 
    ![3 个控制台应用][50]
 
+## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>（可选）向 IoT 中心添加存储容器并向其路由消息
+
+本部分创建一个存储帐户并将其连接到 IoT 中心，还会配置 IoT 中心，根据消息上的现有属性发送消息到帐户。 有关如何管理存储的详细信息，请参阅 [Azure 存储入门][Azure 存储]。
+
+ > [!NOTE]
+   > 如果并不局限于一个**终结点**，则除了 **CriticalQueue** 以外，还可以设置 **StorageContainer**，并同时运行两者。
+
+1. 根据 [Azure 存储文档][lnk-storage] 中所述创建存储帐户。 记下帐户名称。
+
+2. 在 Azure 门户中，打开 IoT 中心并单击“终结点” 。
+
+3. 在“终结点”边栏选项卡中，选择“CriticalQueue”终结点，然后单击“删除”。 单击“是”，然后单击“添加”。 将终结点命名为 **StorageContainer**，从下拉列表中选择“Azure 存储容器”，然后创建**存储帐户**和**存储容器**。  记下名称。  完成后，单击底部的“确定”。 
+
+ > [!NOTE]
+   > 如果可以使用不止一个**终结点**，则不需删除 **CriticalQueue**。
+
+4. 单击 IoT 中心的“路由”。 单击边栏选项卡顶部的“添加” ，创建将消息路由到刚添加的队列的路由规则。 选择“设备消息”作为数据源。 输入 `level="storage"` 作为条件，并选择自定义终结点 **StorageContainer** 作为路由规则终结点。 单击底部的“保存”。  
+
+    请确保回退路由设为“开”。 此设置是 IoT 中心的默认配置。
+
+1. 确保以前的应用程序仍在运行。 
+
+1. 在 Azure 门户中，转到自己的存储帐户，在“Blob 服务”下面单击“浏览 Blob...”。选择容器，导航到 JSON 文件并单击该文件，然后单击“下载”查看数据。
+
 ## <a name="next-steps"></a>后续步骤
 在本教程中，介绍了如何使用 IoT 中心的消息路由功能可靠地分派设备到云的消息。
 
@@ -192,7 +216,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 
 若要查看使用 IoT 中心完成端到端解决方案的示例，请参阅 [Azure IoT 套件][lnk-suite]。
 
-若要深入了解如何使用 IoT 中心开发解决方案，请参阅 [IoT 中心开发人员指南]。
+若要了解有关使用 IoT 中心开发解决方案的详细信息，请参阅 [IoT 中心开发人员指南]。
 
 若要详细了解 IoT 中心的消息路由，请参阅[使用 IoT 中心发送和接收消息][lnk-devguide-messaging]。
 
@@ -206,7 +230,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 <!-- Links -->
 [Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [Azure 存储]: /storage/
-[Azure 服务总线]: /service-bus/
+[Azure 服务总线]: /service-bus-messaging/
 [IoT 中心开发人员指南]: iot-hub-devguide.md
 [IoT 中心入门]: iot-hub-csharp-csharp-getstarted.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md

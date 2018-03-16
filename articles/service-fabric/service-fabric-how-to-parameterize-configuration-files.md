@@ -1,0 +1,83 @@
+---
+title: "如何在 Azure Service Fabric 中参数化配置文件 | Azure"
+description: "演示如何在 Service Fabric 中参数化配置文件"
+documentationcenter: .net
+author: rockboyfor
+manager: digimobile
+editor: 
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+origin.date: 12/06/2017
+ms.date: 03/12/2018
+ms.author: v-yeche
+ms.openlocfilehash: 4d43da83ca4a67ffe0eecf9a6a45ae6cc16b967c
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/08/2018
+---
+# <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>如何在 Service Fabric 中参数化配置文件
+
+本文演示如何在 Service Fabric 中参数化配置文件。
+
+## <a name="procedure-for-parameterizing-configuration-files"></a>参数化配置文件的过程
+
+在此示例中，在应用程序部署中使用参数来替代配置值。
+
+1. 打开 Config\Settings.xml 文件。
+1. 通过添加以下 XML 设置配置参数：
+
+    ```xml
+      <Section Name="MyConfigSection">
+        <Parameter Name="CacheSize" Value="25" />
+      </Section>
+    ```
+
+1. 保存并关闭该文件。
+1. 打开 `ApplicationManifest.xml` 文件。
+1. 添加 `ConfigOverride` 元素，引用配置包、节和参数。
+
+      ```xml
+        <ConfigOverrides>
+          <ConfigOverride Name="Config">
+              <Settings>
+                <Section Name="MyConfigSection">
+                    <Parameter Name="CacheSize" Value="[Stateless1_CacheSize]" />
+                </Section>
+              </Settings>
+          </ConfigOverride>
+        </ConfigOverrides>
+      ```
+
+1. 仍在 ApplicationManifest.xml 文件中，然后在 `Parameters` 元素中指定参数
+
+    ```xml
+      <Parameters>
+        <Parameter Name="Stateless1_CacheSize" />
+      </Parameters>
+    ```
+
+1. 并定义 `DefaultValue`
+
+    ```xml
+      <Parameters>
+        <Parameter Name="Stateless1_CacheSize" DefaultValue="80" />
+      </Parameters>
+    ```
+
+> [!NOTE]
+> 在添加 ConfigOverride 的情况下，Service Fabric 将始终选择应用程序参数或应用程序清单中指定的默认值。
+>
+>
+
+使用 Cloud.xml 发布配置文件从 Visual Studio 发布应用程序时，服务将配置为使用端口 80。 如果在未指定 MyWebAPI_PortNumber 参数的情况下部署应用程序，则服务使用端口 8080。
+
+## <a name="next-steps"></a>后续步骤
+若要详细了解本文中讨论的一些核心概念，请参阅文章[管理多个环境的应用程序](service-fabric-manage-multiple-environment-app-configuration.md)。
+
+有关 Visual Studio 中其他可用应用管理功能的信息，请参阅[在 Visual Studio 中管理 Service Fabric 应用程序](service-fabric-manage-application-in-visual-studio.md)。
+<!-- Update_Description: new articles on service fabric how to parameterize the configuration file  -->
+<!--ms.date: 03/12/2018-->

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/29/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: 2005b1051c615aeeb6bfe55400c26d28dd36746d
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 03/19/2018
+ms.openlocfilehash: 3394e0b730eed1bec9a057214aad11b5a77047fc
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>在内部虚拟网络中使用 Azure API 管理服务
 使用 Azure 虚拟网络，Azure API 管理可以管理无法通过 Internet 访问的 API。 可以使用多种 VPN 技术建立连接。 可在虚拟网络中通过两种主要模式部署 API 管理：
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/13/2018
 * 内部
 
 
-在内部虚拟网络模式下部署 API 管理时，所有服务终结点（网关、开发人员门户、发布者门户、直接管理和 Git）均只在用户可控制其访问权限的虚拟网络中可见。 这些服务终结点均未在公共 DNS 服务器上注册。
+在内部虚拟网络模式下部署 API 管理时，所有服务终结点（网关、开发人员门户、Azure 门户、直接管理和 Git）均只在你控制其访问权限的虚拟网络中可见。 这些服务终结点均未在公共 DNS 服务器上注册。
 
 在内部模式下使用 API 管理时，可实现以下方案：
 * 让 API 安全地托管在专用数据中心，该数据中心可以通过站点到站点连接或 Azure ExpressRoute VPN 连接由外部的第三方访问。
@@ -73,14 +73,14 @@ ms.lasthandoff: 02/13/2018
 如果 API 管理采用外部虚拟网络模式，则 DNS 由 Azure 管理。 使用内部虚拟网络模式时，必须管理自己的路由。
 
 > [!NOTE]
-> API 管理服务不会侦听来自 IP 地址的请求， 它只响应到发往其服务终结点上配置的主机名的请求。 这些终结点包括网关、开发人员门户、发布者门户、直接管理终结点和 Git。
+> API 管理服务不会侦听来自 IP 地址的请求， 它只响应到发往其服务终结点上配置的主机名的请求。 这些终结点包括网关、开发人员门户、Azure 门户、直接管理终结点和 Git。
 
 ### <a name="access-on-default-host-names"></a>基于默认主机名的访问权限
 创建 API 管理服务（例如“contoso”）时，将默认配置以下服务终结点：
 
    * 网关或代理：contoso.azure-api.net
 
-   * 发布者门户和开发人员门户：contoso.portal.azure-api.net
+   * Azure 门户和开发人员门户：contoso.portal.azure-api.net
 
    * 直接管理终结点：contoso.management.azure-api.net
 

@@ -3,7 +3,7 @@ title: "确定何时使用 Azure Blob、Azure 文件或 Azure 数据磁盘"
 description: "了解在 Azure 中存储和访问数据的不同方式有助于决定要使用的技术。"
 services: storage
 documentationcenter: 
-author: forester123
+author: yunan2016
 manager: digimobile
 editor: tysonn
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2017
-ms.date: 10/30/2017
-ms.author: v-johch
-ms.openlocfilehash: 05b0c80f5187ae5e7cd4c73b3eedb3618e6b84da
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.date: 3/5/2018
+ms.author: v-nany
+ms.openlocfilehash: c10ec18de5eee4438d5a2e898db2bc5921b66394
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>确定何时使用 Azure Blob、Azure 文件或 Azure 磁盘
 
@@ -27,7 +27,7 @@ Azure 在 Azure 存储中提供多种功能，用于在云中存储和访问数�
 
 ## <a name="scenarios"></a>方案
 
-下表将文件、Blob 和数据磁盘进行比较，并显示各自适用的示例方案。
+下表比较了文件、Blob 和磁盘，并显示每种技术适合的示例情景。
 
 | 功能 | 说明 | 何时使用 |
 |--------------|-------------|-------------|
@@ -41,8 +41,8 @@ Azure 在 Azure 存储中提供多种功能，用于在云中存储和访问数�
   
 ||||  
 |-|-|-|  
-|属性|Azure Blob|Azure 文件|  
-|持久性选项|LRS、ZRS、GRS（和实现更高可用性的 RA-GRS）|LRS、GRS|  
+|属性|Azure Blob|**Azure 文件**|  
+|持久性选项|LRS、GRS、RA-GRS|LRS、GRS|  
 |辅助功能|REST API|REST API<br /><br /> SMB 2.1 和 SMB 3.0（标准文件系统 API）|  
 |连接|REST API -- 全球范围|REST API -- 全球范围<br /><br /> SMB 2.1 -- 区域内<br /><br /> SMB 3.0 -- 全球范围|  
 |终结点|`http://myaccount.blob.core.chinacloudapi.cn/mycontainer/myblob`|`\\myaccount.file.core.chinacloudapi.cn\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.chinacloudapi.cn/myshare/myfile.txt`|  
@@ -63,7 +63,7 @@ Azure 文件是对 Azure 磁盘的补充。 一个磁盘每次只能附加到一
 ||||  
 |-|-|-|  
 |属性|**Azure 磁盘**|Azure 文件|  
-|范围|专用于单个虚拟机|跨多个虚拟机共享访问|  
+|作用域|专用于单个虚拟机|跨多个虚拟机共享访问|  
 |快照和复制|是|否|  
 |配置|虚拟机启动时连接|虚拟机启动后连接|  
 |身份验证|内置|使用 net use 设置|  
@@ -79,6 +79,6 @@ Azure 文件是对 Azure 磁盘的补充。 一个磁盘每次只能附加到一
   
 某些 SMB 功能不适用于云。 有关详细信息，请参阅 [Features not supported by the Azure File service](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service)（Azure 文件服务不支持的功能）。
 
-有关磁盘的详细信息，请参阅[管理磁盘和映像](../../virtual-machines/windows/about-disks-and-vhds.md)以及[如何将数据磁盘附加到 Windows 虚拟机](../../virtual-machines/windows/classic/attach-disk.md)。
+有关磁盘的详细信息，请参阅[管理磁盘和映像](../../virtual-machines/windows/about-disks-and-vhds.md)以及[如何将数据磁盘附加到 Windows 虚拟机](../../virtual-machines/windows/attach-managed-disk-portal.md)。
 
 <!--Update_Description: update "Data Disk" to "Disk"; update Max disk size from 1TB to 4 TB-->

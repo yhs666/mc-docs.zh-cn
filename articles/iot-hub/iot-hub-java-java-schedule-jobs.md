@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure IoT 中心安排作业 (Java) | Microsoft Docs"
+title: "使用 Azure IoT 中心计划作业 (Java)"
 description: "如何安排 Azure IoT 中心作业对多台设备调用直接方法并设置必需属性。 使用适用于 Java 的 Azure IoT 设备 SDK 实现模拟设备应用，并使用适用于 Java 的 Azure IoT 服务 SDK 实现用于运行作业的服务应用。"
 services: iot-hub
 documentationcenter: java
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 10/16/2017
-ms.openlocfilehash: be3008cd23c248ebdecdaa57ee80e2f264a1eec8
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 03/19/2018
+ms.openlocfilehash: c059b1ba497f14a213573bd134d03fbd7843446d
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>计划和广播作业 (Java)
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 09/29/2017
 本教程演示如何：
 
 * 创建设备应用，用于实现名为 lockDoor 的直接方法。 该设备应用还从后端应用接收所需的属性更改。
-* 创建一个后端应用，该应用创建一个作业以在多台设备上调用 **lockDoor** 直接方法。 另一个作业将所需的属性更新发送到多个设备。
+* 创建一个后端应用，该应用创建一个作业以在多台设备上调用 **lockDoor** 直接方法。 另一个作业将所需的属性更新发送到多台设备。
 
 本教程结束时，将有一个 java 控制台设备应用，以及一个 java 控制台后端应用：
 
@@ -63,7 +63,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-若要以编程方式创建设备标识，请参阅[使用 Java 将设备连接到 IoT 中心](iot-hub-java-java-getstarted.md#create-a-device-identity)一文中的相应部分。 还可使用 [iothub-explorer](https://github.com/Azure/iothub-explorer) 工具向 IoT 中心添加设备。
+若要以编程方式创建设备标识，请参阅[使用 Java 将设备连接到 IoT 中心](iot-hub-java-java-getstarted.md#create-a-device-identity)一文中的相应部分。 还可使用[适用于 Azure CLI 2.0 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)工具向 IoT 中心添加设备。
 
 ## <a name="create-the-service-app"></a>创建服务应用
 
@@ -482,7 +482,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
 
 本教程中，在 Azure 门户中配置了新的 IoT 中心，并在 IoT 中心的标识注册表中创建了设备标识。 创建了运行两个作业的后端应用。 第一个作业设置了所需的属性值，第二个作业调用了直接方法。
 
-使用下列资源了解如何执行以下操作：
+充分利用以下资源：
 
 * 通过 [IoT 中心入门](iot-hub-java-java-getstarted.md)教程学习如何从设备发送遥测数据。
 * 通过[使用直接方法](iot-hub-java-java-direct-methods.md)教程学习如何以交互方式控制设备（例如从用户控制的应用打开风扇）。

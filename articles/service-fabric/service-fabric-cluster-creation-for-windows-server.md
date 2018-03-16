@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/10/2017
-ms.date: 01/01/2018
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4111d7af60dc947b3f4958500feebc56cd40179b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 6f02d1752a7d2e2e37583b38ee062ba491ce1cc5
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>创建在 Windows Server 上运行的独立群集
 可以使用 Azure Service Fabric 在运行 Windows Server 的任何虚拟机或计算机上创建 Service Fabric 群集。 这意味着，可以在包含一组相互连接的 Windows Server 计算机的任何环境（无论是本地环境还是任何云提供商所提供的环境）中部署和运行 Service Fabric 应用程序。 Service Fabric 提供了一个安装程序包，用于创建名为“Windows Server 独立包”的 Service Fabric 群集。
@@ -31,18 +31,16 @@ ms.lasthandoff: 02/13/2018
 > 
 > 
 
-<a id="getsupport"></a>
-
+<a name="getsupport"></a>
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>获取用于 Windows Server 的 Service Fabric 包的支持
-* 在 [Azure Service Fabric 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric?)中询问社区关于 Windows Server 的 Service Fabric 独立包的信息。
-* 开具 [Service Fabric 专业支持](https://www.azure.cn/support/support-ticket-form)票证。
-<!-- Not Available on Learn more about Professional Support from Microsoft [here](https://support.microsoft.com/gp/offerprophone?wa=wsignin1.0).-->
+* 在 [Azure Service Fabric 论坛](https://www.azure.cn/support/forums/)中询问社区关于 Windows Server 的 Service Fabric 独立包的信息
+* 开具 [Service Fabric 专业支持](https://www.azure.cn/support/support-ticket-form)票证。  
+<!-- Not Avaiable on [here](https://support.microsoft.com/gp/offerprophone?wa=wsignin1.0) -->
 * 还可以获取作为 [Microsoft 顶级支持](https://support.microsoft.com/premier)的一部分的对此包的支持。
 * 有关详细信息，请参阅 [Azure Service Fabric 支持选项](/service-fabric/service-fabric-support)。
 * 若要出于支持目的收集日志，请运行 [Service Fabric 独立日志收集器](service-fabric-cluster-standalone-package-contents.md)。
 
-<a id="downloadpackage"></a>
-
+<a name="downloadpackage"></a>
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>下载用于 Windows Server 的 Service Fabric 包
 若要创建群集，请使用可在此处找到的用于 Windows Server 的 Service Fabric 包（Windows Server 2012 R2 和更高版本）： <br>
 [下载链接 - Service Fabric 独立包 - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
@@ -55,8 +53,7 @@ ms.lasthandoff: 02/13/2018
 在此处查找独立群集配置示例： <br>
 [独特群集配置示例](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
-<a id="createcluster"></a>
-
+<a name="createcluster"></a>
 ## <a name="create-the-cluster"></a>创建群集
 可以使用*示例*中包含的 [ClusterConfig.Unsecure.DevCluster.json](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples) 文件将 Service Fabric 部署到单机开发群集。
 
@@ -153,7 +150,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 .\CleanFabric.ps1
 ```
 
-<a id="telemetry"></a>
+<a name="telemetry"></a>
 
 ## <a name="telemetry-data-collected-and-how-to-opt-out-of-it"></a>收集的遥测数据以及如何选择禁用遥测
 默认情况下，本产品会收集有关 Service Fabric 使用情况的遥测数据来改善自身。 在安装过程中运行的最佳做法分析器将检查能否连接到 [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1)。 如果无法连接，安装会失败，除非选择禁用遥测。
@@ -207,4 +204,4 @@ Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 <!--Image references-->
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update -->

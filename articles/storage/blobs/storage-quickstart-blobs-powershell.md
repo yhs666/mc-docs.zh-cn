@@ -1,27 +1,21 @@
 ---
-title: "Azure 快速入门 - 使用 PowerShell 将对象转移到 Azure Blob 存储或从中转移对象 | Microsoft Docs"
-description: "快速了解如何使用 PowerShell 将对象转移到 Azure Blob 存储或从中转移对象"
+title: "Azure 快速入门 - 使用 Azure PowerShell 在 Azure 存储中上传、下载和列出 Blob | Azure"
+description: "在本快速入门中，请使用 Azure PowerShell 来创建存储帐户和容器。 然后，使用该 PowerShell 将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。"
 services: storage
-documentationcenter: storage
 author: forester123
 manager: digimobile
-editor: tysonn
-ms.assetid: 
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/23/2017
+ms.date: 03/05/2018
 ms.author: v-johch
-ms.openlocfilehash: 3af9738b52f592f603ad656978f98d63eff60266
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 4a5f30f39194e2e57cbf9236375841a77c98341e
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>使用 Azure PowerShell 将对象转移到 Azure Blob 存储或从中转移对象
+# <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 上传、下载和列出 Blob
 
 Azure PowerShell 模块用于从 PowerShell 命令行或脚本创建和管理 Azure 资源。 此指南详细介绍如何使用 PowerShell 在本地磁盘和 Azure Blob 存储之间传输文件。
 

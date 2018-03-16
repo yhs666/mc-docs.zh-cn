@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 origin.date: 07/31/2017
 ms.date: 12/18/2017
 ms.author: v-nany
-ms.openlocfilehash: 9eec685049fb93800bb35ea1ae6967e17ab83a2d
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: f971a888bf3dec4d4c54b4c9178d3424dba58876
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>使用 Azure DNS 为 Azure 服务提供自定义域设置
 
@@ -27,29 +27,8 @@ Azure DNS 为支持自定义域或具有完全限定域名 (FQDN) 的任何 Azur
 
 若要对自定义域使用 Azure DNS，首先必须将该域委派给 Azure DNS。 有关如何为委派配置名称服务器的说明，请访问[将域委派给 Azure DNS](./dns-delegate-domain-azure-dns.md)。 将域委派给 Azure DNS 区域后，便可以配置所需的 DNS 记录。
 
-可为 [Azure IoT](#azure-iot)、[公共 IP 地址](#public-ip-address)、[应用服务（Web 应用）](#app-service-web-apps)和 [Blob 存储](#blob-storage)配置虚构域或自定义域。
+可为[公共 IP 地址](#public-ip-address)、[应用服务（Web 应用）](#app-service-web-apps)和 [Blob 存储](#blob-storage)配置虚构域或自定义域。
 
-
-## <a name="azure-iot"></a>Azure IoT
-
-Azure IoT 没有任何需要在服务本身上指定的自定义项。 若要对 IoT 中心使用自定义域，只需创建一条指向资源的 CNAME 记录。
-
-导航到“物联网” > “IoT 中心”，选择自己的 IoT 中心。 在“概述”边栏选项卡上，记下 IoT 中心的 FQDN。
-
-![IoT 中心边栏选项卡](./media/dns-custom-domain/iot.png)
-
-接下来，导航到 DNS 区域，单击“+ 记录集”。 在“添加记录集”边栏选项卡上填写以下信息，单击“确定”创建该记录集。
-
-
-|属性  |值  |说明  |
-|---------|---------|---------|
-|名称     | myiothub        | 此值连同域名标签是 IoT 中心的 FQDN。        |
-|类型     | CNAME        | 使用 CNAME 记录相当于使用别名。
-|TTL     | 1        | 1 表示 1 小时        |
-|TTL 单位     | 小时        | 小时用作时间计量单位         |
-|别名     | adatumIOT.azure-devices.cn        | 为其创建别名的 DNS 名称，在本示例中，是 IoT 中心提供的 adatumIOT.azure-devices.cn 主机名。
-
-创建记录后，请使用 `nslookup` 结合 CNAME 记录来测试名称解析
 
 ## <a name="public-ip-address"></a>公共 IP 地址
 
@@ -64,7 +43,7 @@ Azure IoT 没有任何需要在服务本身上指定的自定义项。 若要对
 
 |属性  |值  |说明  |
 |---------|---------|---------|
-|名称     | mywebserver        | 此值连同域名标签是自定义域名的 FQDN。        |
+|Name     | mywebserver        | 此值连同域名标签是自定义域名的 FQDN。        |
 |类型     | A        | 由于资源是 IP 地址，因此应使用 A 记录。        |
 |TTL     | 1        | 1 表示 1 小时        |
 |TTL 单位     | 小时        | 小时用作时间计量单位         |
@@ -91,7 +70,7 @@ Azure IoT 没有任何需要在服务本身上指定的自定义项。 若要对
 
 |属性  |值  |说明  |
 |---------|---------|---------|
-|名称     | mywebserver        | 此值连同域名标签是自定义域名的 FQDN。        |
+|Name     | mywebserver        | 此值连同域名标签是自定义域名的 FQDN。        |
 |类型     | CNAME        | 使用 CNAME 记录相当于使用别名。 如果资源使用了 IP 地址，则会使用 A 记录。        |
 |TTL     | 1        | 1 表示 1 小时        |
 |TTL 单位     | 小时        | 小时用作时间计量单位         |

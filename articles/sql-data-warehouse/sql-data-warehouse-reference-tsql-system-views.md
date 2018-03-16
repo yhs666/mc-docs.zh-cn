@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-origin.date: 07/12/2017
-ms.date: 07/24/2017
+origin.date: 01/22/2018
+ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 07ad27906bdc5f8909f575c8fe870ddc17532780
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 35738fcdae8ca2c70ca09e4e030dacefd17adb55
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="system-views"></a>系统视图
 ## <a name="sql-data-warehouse-catalog-views"></a>SQL 数据仓库目录视图
@@ -38,7 +38,7 @@ ms.lasthandoff: 07/26/2017
 * [sys.pdw_nodes_partitions](http://msdn.microsoft.com/library/mt203908.aspx)
 * [sys.pdw_nodes_pdw_physical_databases](http://msdn.microsoft.com/library/mt203897.aspx)
 * [sys.pdw_nodes_tables](http://msdn.microsoft.com/library/mt203886.aspx)
-* [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com//sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql)
+* [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql)
 * [sys.pdw_table_distribution_properties](http://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](http://msdn.microsoft.com/library/mt203876.aspx)
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 07/26/2017
 * [sys.dm_pdw_sql_requests](http://msdn.microsoft.com/library/mt203889.aspx)
 * [sys.dm_pdw_sys_info](http://msdn.microsoft.com/library/mt203900.aspx)
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
-* [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
+* [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 
 ## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>适用于 SQL 数据仓库的 SQL Server DMV
 以下 DMV 适用于 SQL 数据仓库，但必须在连接到 **master** 数据库后才能执行。
@@ -136,18 +136,16 @@ ms.lasthandoff: 07/26/2017
 * [sys.views](http://msdn.microsoft.com/library/ms190334.aspx)
 
 ## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>SQL 数据仓库中提供的 SQL Server DMV
-SQL 数据仓库公开许多 SQL Server 动态管理视图 (DMV)。 在 SQL 数据仓库中查询这些视图时，它们将报告分布区上运行的 SQL 数据库的状态。
+SQL 数据仓库公开许多 SQL Server 动态管理视图 (DMV)。 在 SQL 数据仓库中查询这些视图时，它们会报告分布区上运行的 SQL 数据库的状态。
 
-由于 SQL 数据仓库采用 Microsoft 的 MPP 技术，因此 SQL 数据仓库和分析平台系统的并行数据仓库 (PDW) 都使用相同的系统视图。
-
-这就是为何其中每个 DMV 都有一个名为 pdw_node_id 的特定列的原因。 这是计算节点的标识符。 在 PDW 中，计算节点是体系结构的强势概念。 在 SQL 数据仓库中，体系结构更严重依赖于分布区。
+SQL 数据仓库和分析平台系统的并行数据仓库 (PDW) 使用相同的系统视图。 每个 DMV 都有名为 pdw_node_id（它是计算节点的标识符）的列。 
 
 > [!NOTE]
-> 若要使用这些视图，请在名称中插入“pdw_nodes_”，如下表所示。
+> 若要使用这些视图，请在名称中插入“pdw_nodes_”，如下表所示：
 > 
 > 
 
-| SQL 数据仓库中的 DMV 名称 | MSDN 上的 SQL Server Transact-SQL 主题链接 |
+| SQL 数据仓库中的 DMV 名称 | SQL Server Transact-SQL 文章|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
@@ -246,4 +244,4 @@ SQL 数据仓库公开许多 SQL Server 动态管理视图 (DMV)。 在 SQL 数�
 
 <!--Other Web references-->
 
-<!--Update_Description: update meta properties, add sys.pdw_replicated_table_cache_state reference link -->
+<!--Update_Description: update meta properties, wording update -->

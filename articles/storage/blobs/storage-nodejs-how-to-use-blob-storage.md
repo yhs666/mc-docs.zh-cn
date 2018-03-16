@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/08/2016
 ms.date: 10/16/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 45c71c473c9bfbb1e2be653bcc4cd44afa238278
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 5e3f4b0bae41e088abd613f3f9e950433b6ac68d
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>如何通过 Node.js 使用 Blob 存储
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -34,17 +34,25 @@ ms.lasthandoff: 10/23/2017
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>创建 Node.js 应用程序
-有关如何创建 Node.js 应用程序的说明，请参阅 [在 Azure 应用服务中创建 Node.js Web 应用]、[使用 Windows PowerShell 构建 Node.js 应用程序并将其部署到 Azure 云服务](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)或[使用 Web Matrix 构建 Node.js Web 应用并将其部署到 Azure](https://www.microsoft.com/web/webmatrix/)。
+有关如何创建 Node.js 应用程序的说明，请参阅[在 Azure App Service 中创建 Node.js Web 应用](../../app-service/app-service-web-get-started-nodejs.md)、[ Node.js 应用程序并将其部署到 Azure 云服务](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)或[使用 Web Matrix 构建 Node.js Web 应用并将其部署到 Azure](https://www.microsoft.com/web/webmatrix/)。
 
 ## <a name="configure-your-application-to-access-storage"></a>配置应用程序以访问存储
 若要使用 Azure 存储，需要 Azure Storage SDK for Node.js，其中包括一组便于与存储 REST 服务进行通信的库。
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>使用 Node 包管理器 (NPM) 可获取该程序包
 1. 使用命令行接口（如 PowerShell (Windows)、Terminal (Mac) 或 Bash (Unix)）导航到在其中创建示例应用程序的文件夹。
-2. 在命令窗口中键入 **npm install azure-storage** 。 该命令的输出类似于以下代码示例。
+2. 在命令窗口中键入 **npm install azure-storage**。 该命令的输出类似于以下代码示例。
 
-  azure-storage@0.5.0 node_modules\azure-storage +-- extend@1.2.1 +-- xmlbuilder@0.4.3 +-- mime@1.2.11 +-- node-uuid@1.4.3 +-- validator@3.22.2 +-- underscore@1.4.4 +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1) +-- xml2js@0.2.7 (sax@0.5.2) +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
-
+        azure-storage@0.5.0 node_modules\azure-storage
+        +-- extend@1.2.1
+        +-- xmlbuilder@0.4.3
+        +-- mime@1.2.11
+        +-- node-uuid@1.4.3
+        +-- validator@3.22.2
+        +-- underscore@1.4.4
+        +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+        +-- xml2js@0.2.7 (sax@0.5.2)
+        +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 3. 可以手动运行 **ls** 命令来验证是否创建了 **node\_modules** 文件夹。 在该文件夹中，找到 **azure-storage** 包，其中包含访问存储所需的库。
 
 ### <a name="import-the-package"></a>导入包
@@ -66,6 +74,8 @@ var blobSvc = azure.createBlobService();
 
 > [!NOTE]
 > 可以匿名访问 Blob，只需使用 **createBlobServiceAnonymous** 并提供主机地址即可。 例如，使用 `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.chinacloudapi.cn/');`。
+>
+>
 
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
@@ -74,7 +84,7 @@ var blobSvc = azure.createBlobService();
 ```nodejs
 blobSvc.createContainerIfNotExists('mycontainer', function(error, result, response){
     if(!error){
-          // Container exists and is private
+      // Container exists and is private
     }
 });
 ```
@@ -134,7 +144,7 @@ var blobSvc = azure.createBlobService().withFilter(retryOperations);
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>将 Blob 上传到容器中
-有三种类型的 Blob：块 Blob、页 Blob 和追加 Blob。 块 Blob 能够实现更高效地上传大型数据。 追加 Blob 针对追加操作进行了优化。 页 Blob 针对读取/写入操作进行了优化。 有关详细信息，请参阅 [Understanding Block Blobs, Append Blobs, and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx)（了解块 Blob、追加 Blob 和页 Blob）。
+有三种类型的 Blob：块 Blob、页 Blob 和追加 Blob。 块 Blob 能够实现更高效地上传大型数据。 追加 Blob 针对追加操作进行了优化。 页 Blob 针对读取/写入操作进行了优化。 有关详细信息，请参阅 [了解块 Blob、追加 Blob 和页 Blob](http://msdn.microsoft.com/library/azure/ee691964.aspx)。
 
 ### <a name="block-blobs"></a>块 Blob
 要将数据上传到块 Blob，可使用以下方法：
@@ -218,6 +228,8 @@ blobSvc.createPageBlobFromLocalFile('mycontainer', 'mypageblob', 'test.txt', fun
 
 > [!NOTE]
 > 页 Blob 包含 512 字节的“页面”。 如果上传大小不是 512 倍数的数据，则会收到错误。
+>
+>
 
 ## <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 若要列出容器中的 Blob，请使用 **listBlobsSegmented** 方法。 如果想要返回带特定前缀的 Blob，请使用 **listBlobsSegmentedWithPrefix**。
@@ -306,6 +318,8 @@ blobSvc.acquireLease('mycontainer', 'myblob', function(error, result, response){
 
 > [!NOTE]
 > 默认情况下，租约期限为无期。 可以指定一个有限的租期（15 到 60 秒），只需提供 `options.leaseDuration` 参数即可。
+>
+>
 
 若要删除租约，请使用 **releaseLease**。 若要中断租约，但又要防止其他人在原始租约到期之前获得新租约，则可使用 **breakLease**。
 
@@ -314,6 +328,8 @@ blobSvc.acquireLease('mycontainer', 'myblob', function(error, result, response){
 
 > [!NOTE]
 > 虽然也可以允许匿名访问 Blob，但共享访问签名可以允许提供更受控制的访问，因为必须生成 SAS。
+>
+>
 
 受信任的应用程序（例如基于云的服务）使用 BlobService 的 generateSharedAccessSignature 生成共享访问签名，然后将其提供给不受信任的或不完全受信任的应用程序，例如移动应用。 共享访问签名可使用策略生成，该策略描述了共享访问签名的生效日期和失效日期，以及授予共享访问签名持有者的访问级别。
 
@@ -408,4 +424,4 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/  
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure portal]: https://portal.azure.cn
-[生成 Node.js 应用程序并将其部署到 Azure 云服务](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) [Azure 存储团队博客]：http://blogs.msdn.com/b/windowsazurestorage/ [用于 Node API 参考的 Azure 存储 SDK]：http://dl.windowsazure.com/nodestoragedocs/index.htmll
+[生成 Node.js 应用程序并将其部署到 Azure 云服务](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) [Azure 存储团队博客]：http://blogs.msdn.com/b/windowsazurestorage/ [用于 Node API 的 Azure 存储 SDK 参考]：http://dl.windowsazure.com/nodestoragedocs/index.htmll

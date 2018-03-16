@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure IoT 中心路由消息 (Node) | Microsoft Docs"
+title: "使用 Azure IoT 中心路由消息 (Node)"
 description: "如何使用路由规则和自定义终结点将消息发送到其他后端服务，从而处理 Azure IoT 中心的设备到云消息。"
 services: iot-hub
 documentationcenter: node
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/17/2017
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 768bd8d15f12b7bbd17c1580280ae3537ac2eac3
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: bcad2036b5fb793462d57e7b7c9312c13fea0f1c
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>使用 IoT 中心路由消息 (Node)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/08/2017
 本教程是在 [IoT 中心入门]教程的基础上制作的。  本教程：
 
 * 介绍如何以基于配置的轻松方式，使用路由规则发送设备到云的消息。
-* 介绍如何隔离需要解决方案后端立即执行操作以进行进一步处理的交互式消息。  例如，设备可能将发送一条警报消息，触发在 CRM 系统中插入票证。  与此相反，数据点消息（例如温度遥测）则送入分析引擎。
+* 介绍如何隔离需要解决方案后端立即执行操作以进行进一步处理的交互式消息。  例如，设备可能会发送一条警报消息，触发在 CRM 系统中插入票证。  与此相反，数据点消息（例如温度遥测）则送入分析引擎。
 
 在本教程结束时，可以运行三个 Node.js 控制台应用：
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 12/08/2017
     };
     ```
    
-    此方法会将 `"level": "critical"` 和 `"level": "storage"` 属性随机添加到设备发送的消息，以模拟需要应用程序后端立即执行操作的消息或需要永久存储的消息。 应用程序会在消息属性（而非消息正文）中传递此信息，因此 IoT 中心可将消息路由到适当的消息目标。
+    此方法会将 `"level": "critical"` 和 `"level": "storage"` 属性随机添加到设备发送的消息，以模拟需要应用程序后端立即执行操作的消息或需要永久存储的消息。 应用程序支持基于消息正文的路由消息。
    
    > [!NOTE]
    > 可使用消息属性根据各种方案路由消息，包括冷路径处理和此处所示的热路径示例。
@@ -104,7 +104,10 @@ ms.lasthandoff: 12/08/2017
 
 本部分创建一个服务总线队列并将其连接到 IoT 中心，还会配置 IoT 中心，根据消息上的现有属性发送消息到队列。 若要深入了解如何处理来自服务总线队列的消息，请参阅 [队列入门][lnk-sb-queues-node]教程。
 
-1. 按 [队列入门][lnk-sb-queues-node]中所述，创建服务总线队列。 记下命名空间和队列名称。
+1. 按[队列入门][lnk-sb-queues-node]中所述，创建服务总线队列。 记下命名空间和队列名称。
+
+    > [!NOTE]
+    > 用作 IoT 中心终结点的服务总线队列和主题不能启用“会话”或“重复项检测”。 如果启用了其中任一选项，该终结点将在 Azure 门户中显示为“无法访问”。
 
 2. 在 Azure 门户中，打开 IoT 中心并单击“终结点” 。
 
@@ -231,7 +234,7 @@ ms.lasthandoff: 12/08/2017
 
 若要查看使用 IoT 中心完成端到端解决方案的示例，请参阅 [Azure IoT 套件][lnk-suite]。
 
-若要深入了解如何使用 IoT 中心开发解决方案，请参阅 [IoT 中心开发人员指南]。
+若要了解有关使用 IoT 中心开发解决方案的详细信息，请参阅 [IoT 中心开发人员指南]。
 
 若要详细了解 IoT 中心的消息路由，请参阅[使用 IoT 中心发送和接收消息][lnk-devguide-messaging]。
 
@@ -251,7 +254,7 @@ ms.lasthandoff: 12/08/2017
 [lnk-sb-queues-node]: ../service-bus-messaging/service-bus-nodejs-how-to-use-queues.md
 
 [Azure 存储]: /storage/
-[Azure 服务总线]: /service-bus/
+[Azure 服务总线]: /service-bus-messaging/
 
 [IoT 中心开发人员指南]: iot-hub-devguide.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md

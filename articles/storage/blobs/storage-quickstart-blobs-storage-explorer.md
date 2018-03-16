@@ -1,28 +1,23 @@
 ---
-title: "Azure 快速入门 - 使用 Azure 存储资源管理器将对象传入/传出 Azure Blob 存储 | Microsoft Docs"
-description: "快速了解如何使用 Azure 存储资源管理器将对象传入/传出 Azure Blob 存储"
+title: "Azure 快速入门 - 使用 Azure 存储资源管理器在 Azure 存储中上传、下载和列出 Blob | Azure"
+description: "在本快速入门中，请使用 Azure 存储资源管理器来创建存储帐户和容器。 然后，使用该存储资源管理器将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。"
 services: storage
 documentationcenter: storage
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: 
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-origin.date: 12/04/2017
-ms.date: 01/01/2018
+origin.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: v-nany
-ms.openlocfilehash: 5c8ddbd26181e8848db67a7ac9c54e0a9328e952
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: f54aad73c7101ca3babadf7f9f9046e9726722d7
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-storage-explorer"></a>使用 Azure 存储资源管理器将对象传入/传出 Azure Blob 存储
+# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>快速入门：使用 Azure 存储资源管理器上传、下载和列出 Blob
 
 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)是多平台用户界面，可用于管理存储帐户的内容。 本指南详细介绍如何使用 Azure 存储资源管理器在本地磁盘与 Azure Blob 存储之间传输文件。
 
@@ -46,7 +41,7 @@ ms.lasthandoff: 12/29/2017
 
 ![“Microsoft Azure 存储资源管理器 - 连接”窗口](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
-完成连接后，将会加载 Azure 存储资源管理器并显示“资源管理器”选项卡。 在此视图中，可以洞察所有 Azure 存储帐户，以及通过 [Azure 存储仿真器](../common/storage-use-emulator.md?toc=%2fstorage%2fblobs%2ftoc.json)和 [Cosmos DB](../../cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md?toc=%2fstorage%2fblobs%2ftoc.json) 帐户环境配置的本地存储。
+完成连接后，将会加载 Azure 存储资源管理器并显示“资源管理器”选项卡。 在此视图中可以查看所有 Azure 存储帐户，以及通过 [Azure 存储模拟器](../common/storage-use-emulator.md?toc=%2fstorage%2fblobs%2ftoc.json)和 [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fstorage%2fblobs%2ftoc.json) 帐户配置的本地存储
 
 ![“Microsoft Azure 存储资源管理器 - 连接”窗口](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 

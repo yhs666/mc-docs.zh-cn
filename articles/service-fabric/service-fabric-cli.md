@@ -7,13 +7,13 @@ manager: digimobile
 ms.service: service-fabric
 ms.topic: get-started-article
 origin.date: 10/20/2017
-ms.date: 12/04/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: cefc464dae88d5567d1d9d2204b8fcfb96325c2e
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 9605a1b99e535ac280aad3910b40e2967f8a8997
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -33,7 +33,8 @@ Service Fabric CLI 旨在支持 Service Fabric SDK 的最新运行时版本。 �
 
 | CLI 版本   | 支持的运行时版本 |
 |---------------|---------------------------|
-| 最新 (~=3)  | 最新 (~=6.0)            |
+| 最新 (~=4)  | 最新 (~=6.1)            |
+| 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
 为 `pip install` 命令添加 `==<version>` 后缀即可选择性地指定要安装的 CLI 的目标版本。 例如，版本 1.1.0 的语法为：
@@ -108,9 +109,10 @@ echo "export PATH=$PATH:~/.local/bin" >> .bashrc
 ```bash
 sudo pip3 install sfctl
 ```
+<!-- Not Available on ### Red Hat Enterprise Linux 7.4 (Service Fabric preview support) -->
 
 <a name = "cli-mac"></a>
-### <a name="macos"></a>MacOS
+### MacOS
 
 对于 MacOS，建议使用 [HomeBrew 包管理器](https://brew.sh)。 如果尚未安装 HomeBrew，请通过运行以下命令安装它：
 
