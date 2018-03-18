@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3fb8437b13e0baa32327efb45e6f56f09fcc42ed
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 09d3b3563caf5ddda02c3a5d876d42dc09e88b49
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>从存储帐户中的专用 VHD 创建 VM
 
@@ -116,7 +116,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
 ### <a name="before-you-begin"></a>准备阶段
 请确保：
 
-* 获取有关**源和目标存储帐户**的信息。 对于源 VM，需要具有存储帐户和容器名称。 通常，容器名称为 **vhds**。 还需要获取目标存储帐户。 如果尚未拥有存储帐户，可以使用门户（“更多服务”>“存储帐户”>“添加”）或使用 [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet 创建一个存储帐户。 
+* 获取有关**源和目标存储帐户**的信息。 对于源 VM，需要具有存储帐户和容器名称。 通常，容器名称为 **vhds**。 还需要获取目标存储帐户。 如果尚未拥有存储帐户，可以使用门户（“所有服务”>“存储帐户”>“添加”）或使用 [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet 创建一个存储帐户。 
 * 已下载并安装 [AzCopy 工具](../../storage/common/storage-use-azcopy.md)。 
 
 ### <a name="deallocate-the-vm"></a>解除分配 VM
@@ -136,7 +136,7 @@ Azure 门户中该 VM 的“状态”将从“已停止”更改为“已停止(
 
 可以使用 Azure 门户或 Azure PowerShell 获取 URL：
 
-* 门户：单击>“更多服务” > “存储帐户” > “存储帐户” > “Blob”，源 VHD 文件可能位于 vhd 容器中。 单击容器的“属性”并复制标记为 **URL** 的文本。 你会需要用到源和目标容器的 URL。 
+* **门户**：单击 **>** 以选择“所有服务” > “存储帐户” > “存储帐户” > “Blob”，源 VHD 文件可能在“vhds”容器中。 单击容器的“属性”并复制标记为 **URL** 的文本。 你会需要用到源和目标容器的 URL。 
 * Powershell：使用 [Get-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) 获取资源组 myResourceGroup 中名为 myVM 的 VM 的信息。 在结果中，查看 **Vhd Uri** 的 **Storage profile** 部分。 URI 的第一部分是容器的 URL，最后一部分是 VM 的 OS VHD 名称。
 
 ```powershell
@@ -146,7 +146,7 @@ Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ## <a name="get-the-storage-access-keys"></a>获取存储访问密钥
 查找源和目标存储帐户的访问密钥。 有关访问密钥的详细信息，请参阅[关于 Azure 存储帐户](../../storage/common/storage-create-storage-account.md)。
 
-* 门户：单击“更多服务” > “存储帐户” > “存储帐户” > “访问密钥”。 复制标记为 **key1** 的密钥。
+* **门户**：单击“所有服务” > “存储帐户” > “存储帐户” > “访问密钥”。 复制标记为 **key1** 的密钥。
 * Powershell：使用 [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) 获取资源组 myResourceGroup 中存储帐户 mystorageaccount 的存储密钥。 复制标记为 key1 的密钥。
 
 ```powershell
@@ -214,27 +214,9 @@ Elapsed time:            00.00:13:07
     $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
-
-### <a name="create-a-public-ip-address-and-nic"></a>创建公共 IP 地址和 NIC
-若要与虚拟网络中的虚拟机通信，需要一个 [公共 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 和网络接口。
-
-1. 创建公共 IP。 在此示例中，公共 IP 地址名称设置为 **myIP**。
-
-    ```powershell
-    $ipName = "myIP"
-    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
-        -AllocationMethod Dynamic
-    ```       
-2. 创建 NIC。 在此示例中，NIC 名称设置为 **myNicName**。
-
-    ```powershell
-    $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
-    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-    ```
-
 ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>创建网络安全组和 RDP 规则
 若要使用 RDP 登录到 VM，需要创建一个允许在端口 3389 上进行 RDP 访问的安全规则。 由于新 VM 的 VHD 是从现有专用 VM 创建的，因此在创建 VM 后，可以使用源虚拟机中有权通过 RDP 登录的现有帐户。
+这需要在创建与其关联的网络接口前完成。  
 本示例将 NSG 名称设置为 **myNsg**，将 RDP 规则名称设置为 **myRdpRule**。
 
 ```powershell
@@ -250,6 +232,24 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 ```
 
 有关终结点和 NSG 规则的详细信息，请参阅 [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（使用 PowerShell 在 Azure 中打开 VM 端口）。
+
+### <a name="create-a-public-ip-address-and-nic"></a>创建公共 IP 地址和 NIC
+若要与虚拟网络中的虚拟机通信，需要一个 [公共 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 和网络接口。
+
+1. 创建公共 IP。 在此示例中，公共 IP 地址名称设置为 **myIP**。
+
+    ```powershell
+    $ipName = "myIP"
+    $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
+        -AllocationMethod Dynamic
+    ```       
+2. 创建 NIC。 在此示例中，NIC 名称设置为 **myNicName**。 此步骤还将之前创建的网络安全组与此 NIC 相关联。
+
+    ```powershell
+    $nicName = "myNicName"
+    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
+    -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+    ```
 
 ### <a name="set-the-vm-name-and-size"></a>设置 VM 名称和大小
 
@@ -307,7 +307,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>验证是否已创建 VM
-应会在 [Azure 门户](https://portal.azure.cn)的“浏览” > “虚拟机”下看到新建的 VM，也可以使用以下 PowerShell 命令查看该 VM：
+在 [Azure 门户](https://portal.azure.cn)中，应当可以在“所有服务” > “虚拟机”下看到新建的 VM，也可以使用以下 PowerShell 命令查看该 VM：
 
 ```powershell
 $vmList = Get-AzureRmVM -ResourceGroupName $rgName
@@ -317,4 +317,4 @@ $vmList.Name
 ## <a name="next-steps"></a>后续步骤
 若要登录到新虚拟机，请在[门户](https://portal.azure.cn)中浏览到该 VM，单击“连接”，然后打开远程桌面 RDP 文件。 使用原始虚拟机的帐户凭据登录到新虚拟机。 有关详细信息，请参阅 [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md)（如何连接并登录到运行 Windows 的 Azure 虚拟机）。
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties, update link, wording update -->

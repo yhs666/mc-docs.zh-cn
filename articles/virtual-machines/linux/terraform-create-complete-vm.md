@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2017
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 60df2d6c84257dd22c3ada68b2681c3c4921f04e
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: f5abdc49abd87755b3f070339c84478b00488d1a
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>在 Azure 中使用 Terraform 创建完整的 Linux 虚拟机基础结构
 
@@ -345,11 +345,11 @@ resource "random_id" "randomId" {
 
 # Create storage account for boot diagnostics
 resource "azurerm_storage_account" "mystorageaccount" {
-    name                = "diag${random_id.randomId.hex}"
-    resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
-    location            = "China East"
-    account_tier = "Standard"           # account_tier = "Standard" is Correct
-    account_replication_type = "LRS"    # account_replication_type = "LRS" is Correct
+    name                        = "diag${random_id.randomId.hex}"
+    resource_group_name         = "${azurerm_resource_group.myterraformgroup.name}"
+    location                    = "China East"
+    account_tier                = "Standard"        # account_tier = "Standard" is Correct
+    account_replication_type    = "LRS"             # account_replication_type = "LRS" is Correct  
 
     tags {
         environment = "Terraform Demo"
@@ -449,7 +449,7 @@ Plan: 7 to add, 0 to change, 0 to destroy.
 terraform apply
 ```
 
-Terraform 完成后，VM 基础结构即已准备完毕。 可使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#show) 获取 VM 的 公共 IP 地址：
+Terraform 完成后，VM 基础结构即已准备完毕。 可使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_show) 获取 VM 的 公共 IP 地址：
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
@@ -464,4 +464,4 @@ ssh azureuser@<publicIps>
 ## <a name="next-steps"></a>后续步骤
 现已使用 Terraform 在 Azure 中创建了基本基础结构。 有关更复杂的方案（包括使用负载均衡器和虚拟机规模集的示例），请参阅众多的[适用于 Azure 的 Terraform 示例](https://github.com/hashicorp/terraform/tree/master/examples)。 有关受支持 Azure 提供程序的最新列表，请参阅 [Terraform 文档](https://www.terraform.io/docs/providers/azurerm/index.html)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update link, wording update -->

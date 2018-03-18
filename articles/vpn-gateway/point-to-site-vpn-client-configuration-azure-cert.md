@@ -1,10 +1,10 @@
 ---
 title: "创建并安装用于 Azure 证书身份验证的 P2S VPN 客户端配置文件：PowerShell：Azure | Microsoft Docs"
-description: "本文介绍如何为使用证书身份验证的点到站点连接创建并安装 VPN 客户端配置文件。"
+description: "为 P2S 证书身份验证配置创建并安装 Windows 和 Mac OS X VPN 客户端配置文件。"
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cherylmc
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,22 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/27/2017
-ms.date: 12/11/2017
+origin.date: 02/12/2018
+ms.date: 03/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 68fcb766d6601901c468a65bac8402a1566336ee
-ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
+ms.openlocfilehash: 82837585528da43e30899e61bf140f7e58c31a35
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>为本机 Azure 证书身份验证 P2S 配置创建并安装 VPN 客户端配置文件
+# <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-point-to-site-configurations"></a>为本机 Azure 证书身份验证点到站点配置创建并安装 VPN 客户端配置文件
 
 VPN 客户端配置文件包含在一个 zip 文件中。 配置文件提供本机 Windows 或 Mac IKEv2 VPN 客户端通过使用本机 Azure 证书身份验证的点到站点连接，来与 VNet 建立连接所需的设置。
-
->[!NOTE]
->IKEv2 for P2S 目前以预览版提供。
->
 
 ### <a name="workflow"></a>P2S 工作流
 
@@ -72,11 +68,17 @@ VPN 客户端配置文件包含在一个 zip 文件中。 配置文件提供本�
 
 只要版本与 Windows 客户端的体系结构匹配，就可以在每台客户端计算机上使用相同的 VPN 客户端配置包。 有关支持的客户端操作系统列表，请参阅 [VPN 网关常见问题解答](vpn-gateway-vpn-faq.md#P2S)中的“点到站点”部分。
 
+>[!NOTE]
+>在要从其进行连接的 Windows 客户端计算机上，必须拥有管理员权限。
+>
+>
+
 请使用以下步骤配置用于证书身份验证的本机 Windows VPN 客户端：
 
 1. 根据 Windows 计算机的体系结构选择 VPN 客户端配置文件。 对于 64 位处理器体系结构，请选择“VpnClientSetupAmd64”安装程序包。 对于 32 位处理器体系结构，请选择“VpnClientSetupX86”安装程序包。 
 2. 双击所需的包进行安装。 如果显示 SmartScreen 弹出窗口，请依次单击“更多信息”、“仍要运行”。
 3. 在客户端计算机上，导航到“网络设置”，并单击“VPN”。 VPN 连接显示所连接到的虚拟网络的名称。 
+4. 尝试连接前，请验证客户端计算机上是否已安装客户端证书。 使用本机 Azure 证书身份验证类型时，客户端证书是身份验证必需的。 有关生成证书的详细信息，请参阅[生成证书](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert)。 有关如何安装客户端证书的信息，请参阅[安装客户端证书](point-to-site-how-to-vpn-client-install-azure-cert.md)。
 
 ## <a name="installmac"></a>Mac 上的 VPN 客户端配置 (OSX)
 
@@ -95,30 +97,32 @@ Azure 不提供用于本机 Azure 证书身份验证的 mobileconfig 文件。 �
     >[!NOTE]
     >双击证书可能不会显示“添加”对话框，但该证书将安装在相应的存储中。 可以在证书类别下的登录密钥链中查找该证书。
   
-2. 在“网络首选项”下打开“网络”对话框，单击“+”创建新的 VPN 客户端连接配置文件，以便通过 P2S 连接来与 Azure VNet 建立连接。
+2. 验证已安装由根证书颁发的客户端证书，该根证书在配置 P2S 设置时已上传到 Azure。 这不同于上一步中安装的 VPNServerRoot。 客户端证书可用于身份验证，且是必需的。 有关生成证书的详细信息，请参阅[生成证书](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert)。 有关如何安装客户端证书的信息，请参阅[安装客户端证书](point-to-site-how-to-vpn-client-install-azure-cert.md)。
+3. 在“网络首选项”下打开“网络”对话框，单击“+”创建新的 VPN 客户端连接配置文件，以便通过 P2S 连接来与 Azure VNet 建立连接。
 
     “接口”值为“VPN”，“VPN 类型”值为“IKEv2”。 在“服务名称”字段中为配置文件指定一个名称，单击“创建”创建 VPN 客户端连接配置文件。
 
     ![网络](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
-3. 从 **Generic** 文件夹中的 **VpnSettings.xml** 文件复制 **VpnServer** 标记值。 将该值粘贴到配置文件的“服务器地址”和“远程 ID”字段中。
+4. 从 **Generic** 文件夹中的 **VpnSettings.xml** 文件复制 **VpnServer** 标记值。 将该值粘贴到配置文件的“服务器地址”和“远程 ID”字段中。
 
     ![服务器信息](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
-4. 单击“身份验证设置”，选择“证书”。 
+5. 单击“身份验证设置”，选择“证书”。 
 
     ![身份验证设置](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
-5. 单击“选择…” 选择要用于身份验证的客户端证书。 客户端证书应已安装在计算机上（请参阅上面 **P2S 工作流**部分中的步骤 #2）。
+6. 单击“选择…” 选择要用于身份验证的客户端证书。 这是你在步骤 2 中安装的证书。
 
     ![证书](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
-6. “选择标识”会显示可供选择的证书列表。 选择适当的证书，单击“继续”。
+7. “选择标识”会显示可供选择的证书列表。 选择适当的证书，单击“继续”。
 
     ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
-7. 在“本地 ID”字段中，指定证书的名称（见步骤 6）。 在本示例中，该名称为“ikev2Client.com”。 然后单击“应用”按钮保存所做的更改。
+8. 在“本地 ID”字段中，指定证书的名称（见步骤 6）。 在本示例中，该名称为“ikev2Client.com”。 然后单击“应用”按钮保存所做的更改。
 
     ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
-8. 在“网络”对话框中，单击“应用”保存所有更改。 然后单击“连接”，启动与 Azure VNet 的 P2S 连接。
+9. 在“网络”对话框中，单击“应用”保存所有更改。 然后单击“连接”，启动与 Azure VNet 的 P2S 连接。
 
 ## <a name="next-steps"></a>后续步骤
 
 返回到相关文章，[完成 P2S 配置](vpn-gateway-howto-point-to-site-rm-ps.md)。
 
+有关 P2S 故障排除信息，请参阅[排查 Azure 点到站点连接问题](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。
 <!--Update_Description: wording update-->

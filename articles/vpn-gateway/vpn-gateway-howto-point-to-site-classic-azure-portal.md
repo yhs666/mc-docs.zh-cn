@@ -1,10 +1,10 @@
 ---
 title: "使用点到站点和证书身份验证将计算机连接到虚拟网络：Azure 经典门户 | Microsoft Docs"
-description: "使用 Azure 门户创建点到站点 VPN 网关连接，安全连接到经典 Azure 虚拟网络。"
+description: "使用 Azure 门户创建经典的点到站点 VPN 网关连接。"
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cherylmc
+manager: jpconnock
 editor: 
 tags: azure-service-management
 ms.assetid: 65e14579-86cf-4d29-a6ac-547ccbd743bd
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/12/2017
-ms.date: 12/29/2017
+origin.date: 02/12/2018
+ms.date: 03/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1d6d9dce9ce379c2ccf533d4bb233e9238b60689
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: 40795498691bc7853a16fcc47553584e8fd55f38
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>使用证书身份验证配置与 VNet 的点到站点连接（经典）：Azure 门户
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-本文介绍如何在经典部署模型中使用 Azure 门户通过点到站点连接来创建 VNet。 此配置使用证书来验证正在进行连接的客户端。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
+本文介绍如何在经典部署模型中使用 Azure 门户通过点到站点连接来创建 VNet。 此配置使用证书（不管是自签名的还是 CA 颁发的）来验证正在进行连接的客户端。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -60,7 +60,7 @@ ms.lasthandoff: 01/04/2018
 可使用以下值创建测试环境，或参考这些值以更好地理解本文中的示例：
 
 - **名称：VNet1**
-- **地址空间：192.168.0.0/16**<br>对于此示例，我们只使用一个地址空间。 对于 VNet，可以有多个地址空间。
+- **地址空间：192.168.0.0/16**<br>对于此示例，我们只使用一个地址空间。 可以在 VNet 中使用多个地址空间，如图所示。
 - **子网名称：FrontEnd**
 - **子网地址范围：192.168.1.0/24**
 - 
@@ -82,9 +82,7 @@ ms.lasthandoff: 01/04/2018
 如果还没有虚拟网络，请创建一个。 这些屏幕截图仅供参考。 请务必替换成自己的值。 若要使用 Azure 门户创建 VNet，请执行以下步骤：
 
 1. 从浏览器导航到 [Azure 门户](http://portal.azure.cn)，并在必要时用 Azure 帐户登录。
-2. 单击“新建” 。 在“搜索应用商店”字段中，键入“虚拟网络”。 从返回的列表中找到“虚拟网络”，单击打开“虚拟网络”页。
-
-    ![搜索虚拟网络页](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)
+2. 单击“创建资源” > “网络” > “虚拟网络”。 
 3. 从靠近“虚拟网络”页底部的“选择部署模型”列表中，选择“经典”，然后单击“创建”。
 
     ![选择部署模型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/selectmodel.png)
@@ -105,7 +103,7 @@ ms.lasthandoff: 01/04/2018
 
 ### <a name="gateway"></a>第 2 部分：创建网关子网和动态路由网关
 
-本步骤创建网关子网和动态路由网关。 在经典部署模型的 Azure 门户中，可以通过相同的配置页创建网关子网和网关。
+本步骤创建网关子网和动态路由网关。 在经典部署模型的 Azure 门户中，可以通过相同的配置页创建网关子网和网关。 网关子网仅用于网关服务。 切勿将任何资源（例如 VM 或任何其他服务）直接部署到网关子网。
 
 1. 在门户中，导航到要为其创建网关的虚拟网络。
 2. 在虚拟网络页的“概览”页上的“VPN 连接”部分，单击“网关”。
@@ -114,25 +112,22 @@ ms.lasthandoff: 01/04/2018
 3. 在“新建 VPN 连接”页中，选择“点到站点”。
 
     ![点到站点连接类型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
-4. 对于“客户端地址空间”，请添加 IP 地址范围。 这是 VPN 客户端在连接时要从中接收 IP 地址的范围。 使用专用 IP 地址范围时，该范围不得与要通过其进行连接的本地位置重叠，也不得与要连接到其中的 VNet 重叠。 可以删除自动填充的范围，并添加要使用的专用 IP 地址范围。
+4. 对于“客户端地址空间”，请添加 IP 地址范围。 这是 VPN 客户端在连接时要从中接收 IP 地址的范围。 使用专用 IP 地址范围时，该范围不得与要通过其进行连接的本地位置重叠，也不得与要连接到其中的 VNet 重叠。 可以删除自动填充的范围，并添加要使用的专用 IP 地址范围。 本示例演示自动填充的范围。 删除它可以添加所需的值。
 
     ![客户端地址空间](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
-5. 选中“立即创建网关”复选框。
-
-    ![立即创建网关](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/creategwimm.png)
-6. 单击“可选网关配置”打开“网关配置”页。
+5. 选中“立即创建网关”复选框。 单击“可选网关配置”打开“网关配置”页。
 
     ![单击可选网关配置](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
-7. 单击“子网配置所需的设置”添加**网关子网**。 尽管创建的网关子网最小可为 /29，但建议至少选择 /28 或 /27，创建包含更多地址的更大子网。 这样便可以留出足够多的地址，满足将来可能需要使用的其他配置。 处理网关子网时，请避免将网络安全组 (NSG) 关联到网关子网。 将网络安全组与此子网关联可能会导致 VPN 网关停止按预期方式工作。
+6. 单击“子网配置所需的设置”添加**网关子网**。 尽管创建的网关子网最小可为 /29，但建议至少选择 /28 或 /27，创建包含更多地址的更大子网。 这样便可以留出足够多的地址，满足将来可能需要使用的其他配置。 处理网关子网时，请避免将网络安全组 (NSG) 关联到网关子网。 将网络安全组与此子网关联可能会导致 VPN 网关停止按预期方式工作。
 
     ![添加网关子网](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
-8. 选择网关“大小”。 大小为虚拟网关的网关 SKU。 在门户中，默认 SKU 为“基本”。 有关网关 SKU 的详细信息，请参阅[关于 VPN 网关设置](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
+7. 选择网关“大小”。 大小为虚拟网关的网关 SKU。 在门户中，默认 SKU 为“基本”。 有关网关 SKU 的详细信息，请参阅[关于 VPN 网关设置](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
 
     ![网关大小](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
-9. 选择网关的“路由类型”。 P2S 配置需要“动态”路由类型。 在此页中完成配置后，请单击“确定”。
+8. 选择网关的“路由类型”。 P2S 配置需要“动态”路由类型。 在此页中完成配置后，请单击“确定”。
 
     ![配置路由类型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
-10. 在“新建 VPN 连接”页中，单击底部的“确定”开始创建虚拟网关。 VPN 网关可能需要长达 45 分钟的时间才能完成，具体取决于所选网关 SKU。
+9. 在“新建 VPN 连接”页中，单击底部的“确定”开始创建虚拟网关。 VPN 网关可能需要长达 45 分钟的时间才能完成，具体取决于所选网关 SKU。
 
 ## <a name="generatecerts"></a>2.创建证书
 
@@ -190,6 +185,11 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 将
 
 ### <a name="connect-to-your-vnet"></a>连接到 VNet
 
+>[!NOTE]
+>在要从其进行连接的客户端计算机上，你必须拥有管理员权限。
+>
+>
+
 1. 若要连接到 VNet，请在客户端计算机上导航到 VPN 连接，找到创建的 VPN 连接。 其名称与虚拟网络的名称相同。 单击“连接” 。 可能会出现与使用证书相关的弹出消息。 如果出现此消息，请单击“继续”  以使用提升的权限。
 2. 在“连接”状态页上，单击“连接”以启动连接。 如果看到“选择证书”屏幕，请确保所显示的客户端证书是要用来连接的证书。 如果不是，请使用下拉箭头选择正确的证书，并单击“确定”。
 
@@ -204,7 +204,7 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 将
 
 ### <a name="verifyvpnconnect"></a>验证 VPN 连接
 
-1. 如果要验证用户的 VPN 连接是否处于活动状态，请打开提升的命令提示符，并运行 *ipconfig/all*。
+1. 若要验证 VPN 连接是否处于活动状态，请在客户端计算机上打开提升的命令提示符，然后运行 *ipconfig/all*。
 2. 查看结果。 请注意，收到的 IP 地址是点到站点连接地址范围中的一个地址，该范围是你在创建 VNet 时指定的。 结果应类似于以下示例：
 
     ```
@@ -263,9 +263,11 @@ Azure 使用证书对点到站点 VPN 的 VPN 客户端进行身份验证。 将
 
 ## <a name="faq"></a>点到站点常见问题解答
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-classic-include.md)]
 
 ## <a name="next-steps"></a>后续步骤
 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/#pivot=services&panel=Compute)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/linux/azure-vm-network-overview.md)。
+
+有关 P2S 故障排除信息，请参阅[排查 Azure 点到站点连接问题](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。
 
 <!--Update_Description: wording update-->

@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 11/28/2017
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: a31702ecb323f3d890d73c5ec569768f06daebba
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: a6bbfef4eb20cbf5a08508258d0fbab162244632
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>将 Azure 自动化 Runbook 添加到恢复计划
 本文将介绍 Azure Site Recovery 如何与 Azure 自动化集成，以便扩展恢复计划。 恢复计划可以安排恢复受 Site Recovery 保护的 VM。 恢复计划支持复制到辅助云和复制到 Azure。 恢复计划还有助于实现恢复的**一致准确性**、**可重复性**和**自动化**。 如果从 VM 故障转移到 Azure，与 Azure 自动化集成可以扩展恢复计划。 可用于执行 Runbook，从而提供功能强大的自动化任务。
@@ -246,8 +246,6 @@ workflow AddPublicIPAndNSG {
 单击“部署到 Azure”按钮，将示例脚本部署到自动化帐户。
 
 [![“部署到 Azure”](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
-
-有关其他示例，请观看下面的视频。 它演示了如何将两层 WordPress 应用程序恢复到 Azure：
 
 <!-- Not Available on Channel9 VIDEO -->
 

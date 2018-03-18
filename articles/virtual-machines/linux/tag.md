@@ -3,8 +3,8 @@ title: "如何标记 Azure Linux 虚拟机 | Azure"
 description: "了解如何标记使用 Resource Manager 部署模型在 Azure 中创建的 Azure Linux 虚拟机。"
 services: virtual-machines-linux
 documentationcenter: 
-author: mmccrory
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ca0e17e5-d78e-42e6-9dad-c1e8f1c58027
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 02/28/2017
-ms.date: 04/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: ab77a6407066e3411b20abab1be1fcc308b908e4
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.date: 03/19/2018
+ms.author: v-yeche
+ms.openlocfilehash: 060d9cf76b7d52ba836a249d631d9e59d490bbea
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>如何在 Azure 中标记 Linux 虚拟机
 本文介绍在 Azure 中通过 Resource Manager 部署模型标记 Linux 虚拟机的不同方式。 标记是用户定义的键/值对，可直接放置在资源或资源组中。 针对每个资源和资源组，Azure 当前支持最多 15 个标记。 标记可以在创建时放置在资源中或添加到现有资源中。 请注意，只有通过 Resource Manager 部署模型创建的资源支持标记。
@@ -28,11 +28,11 @@ ms.lasthandoff: 11/09/2017
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-azure-cli"></a>使用 Azure CLI 进行标记
-首先需要安装最新的 [Azure CLI 2.0（预览版）](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录到 Azure 帐户。
+首先需要安装最新的 [Azure CLI 2.0（预览版）](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-还可以使用 [Azure CLI 1.0](tag-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
+也可以使用 [Azure CLI 1.0](tag-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
 
 可以使用此命令查看给定虚拟机的所有属性，包括标记：
 
@@ -52,7 +52,12 @@ ms.lasthandoff: 11/09/2017
 
 ## <a name="next-steps"></a>后续步骤
 * 若要详细了解如何标记 Azure 资源，请参阅 [Azure Resource Manager 概述][Azure Resource Manager Overview]和[使用标记来组织 Azure 资源][Using Tags to organize your Azure Resources]。
+* 要了解标记如何帮助你管理 Azure 资源的使用，请参阅[了解 Azure 帐单][Understanding your Azure Bill]。
+<!-- Not Available on [Gain insights into your Azure resource consumption][Gain insights into your Azure resource consumption] -->
 
 [Azure CLI environment]: ../../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
+[Understanding your Azure Bill]: ../../billing-understand-your-bill.md
+<!-- Notice correct : [Understanding your Azure Bill]: ../../billing-understand-your-bill.md -->
+<!-- Update_Description: wording update, update link -->

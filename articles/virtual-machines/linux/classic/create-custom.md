@@ -17,10 +17,10 @@ origin.date: 02/09/2017
 ms.date: 03/28/2017
 ms.author: v-dazen
 ms.openlocfilehash: f6a463f33949e107a40f0714ee00a4f7a6893967
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-create-a-classic-linux-vm-with-the-azure-cli-10"></a>如何使用 Azure CLI 1.0 创建经典 Linux VM
 > [!IMPORTANT] 

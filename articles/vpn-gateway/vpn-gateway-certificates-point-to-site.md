@@ -1,10 +1,10 @@
 ---
 title: "为点到站点连接生成和导出证书：PowerShell：Azure | Microsoft Docs"
-description: "本文包含使用 PowerShell 在 Windows 10 上创建自签名根证书、导出公钥和生成客户端证书的步骤。"
+description: "在 Windows 10 或 Windows Server 2016 上使用 PowerShell 创建自签名根证书、导出公钥和生成客户端证书。"
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cherylmc
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 27b99f7c-50dc-4f88-8a6e-d60080819a43
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/09/2017
-ms.date: 11/07/2017
+origin.date: 02/23/2018
+ms.date: 03/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 40b3586dca35867b5cb7778e86f0f767fa236d54
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: fdf10335eb04ba51da62cbfe6d761bb5b478cbd5
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>在 Windows 10 上使用 PowerShell 为点到站点连接生成并导出证书
+# <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10-or-windows-server-2016"></a>在 Windows 10 或 Windows Server 2016 上使用 PowerShell 为点到站点连接生成并导出证书
 
-点到站点连接使用证书进行身份验证。 本文介绍了如何在 Windows 10 上使用 PowerShell 创建自签名根证书并生成客户端证书。 如果正在寻找点到站点配置步骤（例如，如何上传根证书），请从下面的列表选择一篇关于“配置点到站点”的文章：
+点到站点连接使用证书进行身份验证。 本文介绍如何在 Windows 10 或 Windows Server 2016 上使用 PowerShell 创建自签名根证书并生成客户端证书。 如果正在寻找点到站点配置步骤（例如，如何上传根证书），请从下面的列表选择一篇关于“配置点到站点”的文章：
 
 > [!div class="op_single_selector"]
 > * [创建自签名证书 - PowerShell](vpn-gateway-certificates-point-to-site.md)
@@ -36,15 +36,15 @@ ms.lasthandoff: 11/10/2017
 > 
 
 
-必须在运行 Windows 10 的计算机上执行本文中的步骤。 用于生成证书的 PowerShell cmdlet 是 Windows 10 操作系统的一部分，并且在其他版本的 Windows 上不起作用。 只需 Windows 10 计算机即可生成证书。 生成证书后，可上传证书，或在任何支持的客户端操作系统上安装该证书。 
+必须在运行 Windows 10 或 Windows Server 2016 的计算机上执行本文中的步骤。 用于生成证书的 PowerShell cmdlet 是操作系统的一部分，在其他版本的 Windows 上不正常工作。 只需 Windows 10 或 Windows Server 2016 计算机即可生成证书。 生成证书后，可上传证书，或在任何支持的客户端操作系统上安装该证书。 
 
-如果无权访问 Windows 10 计算机，则可使用 [Makecert](vpn-gateway-certificates-point-to-site-makecert.md) 生成证书。 使用任一方法生成的证书均可安装在[支持的](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)所有客户端操作系统上。
+如果无法访问 Windows 10 或 Windows Server 2016 计算机，则可使用 [Makecert](vpn-gateway-certificates-point-to-site-makecert.md) 生成证书。 使用任一方法生成的证书均可安装在[支持的](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)所有客户端操作系统上。
 
 ## <a name="rootcert"></a>创建自签名根证书
 
 使用 New-SelfSignedCertificate cmdlet 创建自签名根证书。 有关参数的其他信息，请参阅 [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate)。
 
-1. 在运行 Windows 10 的计算机上，使用提升的特权打开 Windows PowerShell 控制台。
+1. 在运行 Windows 10 或 Windows Server 2016 的计算机上，使用提升的权限打开 Windows PowerShell 控制台。
 2. 使用以下示例创建自签名根证书。 以下示例创建名为“P2SRootCert”、自动安装在“Certificates-Current User\Personal\Certificates”中的自签名根证书。 打开 certmgr.msc 或“管理用户证书”即可查看该证书。
 
   ```powershell
@@ -79,7 +79,7 @@ exported.cer 文件必须上传到 Azure。 请参阅[配置点到站点连接](
 修改并运行示例以生成客户端证书。 如果在未经修改的情况下直接运行以下示例，会生成名为“P2SChildCert”的客户端证书。  如果想要为子证书指定其他名称，请修改 CN 值。 运行此示例时，请不要更改 TextExtension。 生成的客户端证书自动安装在计算机上的“Certificates - Current User\Personal\Certificates”中。
 
 ```powershell
-New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
 -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
 -HashAlgorithm sha256 -KeyLength 2048 `
 -CertStoreLocation "Cert:\CurrentUser\My" `
@@ -117,7 +117,7 @@ New-SelfSignedCertificate -Type Custom -KeySpec Signature `
 4.  修改并运行示例以生成客户端证书。 如果在未经修改的情况下直接运行以下示例，会生成名为“P2SChildCert”的客户端证书。 如果想要为子证书指定其他名称，请修改 CN 值。 运行此示例时，请不要更改 TextExtension。 生成的客户端证书自动安装在计算机上的“Certificates - Current User\Personal\Certificates”中。
 
   ```powershell
-  New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+  New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
   -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
   -HashAlgorithm sha256 -KeyLength 2048 `
   -CertStoreLocation "Cert:\CurrentUser\My" `
@@ -138,5 +138,7 @@ New-SelfSignedCertificate -Type Custom -KeySpec Signature `
 
 - 有关**资源管理器**部署模型步骤，请参阅[使用本机 Azure 证书身份验证配置 P2S](vpn-gateway-howto-point-to-site-resource-manager-portal.md)。 
 - 有关**经典**部署模型步骤，请参阅 [Configure a Point-to-Site VPN connection to a VNet (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)（配置与 VNet 的点到站点 VPN 连接（经典））。
+
+有关 P2S 故障排除信息，请参阅[排查 Azure 点到站点连接问题](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。
 
 <!--Update_Description: wording update --> 

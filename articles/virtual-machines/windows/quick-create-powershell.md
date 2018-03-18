@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 11/29/2017
-ms.date: 01/15/2018
+origin.date: 02/12/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 8f4463e524fb71b1b809ea6363c17b431e92ed0f
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: c458f7b6f899113b258579805b0d9edca96e93ce
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell"></a>使用 PowerShell 创建 Windows 虚拟机
 
@@ -31,7 +31,7 @@ Azure PowerShell 模块用于从 PowerShell 命令行或脚本创建和管理 Az
 
 <!--Not Available [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]-->
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块版本 5.1.1 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.3.0 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="create-resource-group"></a>创建资源组
 
@@ -43,7 +43,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 
-创建虚拟机配置。 此配置包括部署虚拟机时使用的设置，例如虚拟机映像、大小和身份验证配置。 运行此步骤时，会提示输入凭据。 你输入的值将配置为用于虚拟机的用户名和密码。
+使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建虚拟机。 只需提供每个资源的名称即可，如果这些资源不存在，New-AzureRMVM cmdlet 会创建它们。
 
 运行此步骤时，会提示输入凭据。 你输入的值将配置为用于虚拟机的用户名和密码。
 
@@ -103,4 +103,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [Azure Windows 虚拟机教程](./tutorial-manage-vm.md)
-<!--Update_Description: update meta properties, add New-AzureRmVm cmdlet content -->
+<!--Update_Description: update meta properties, wording update -->

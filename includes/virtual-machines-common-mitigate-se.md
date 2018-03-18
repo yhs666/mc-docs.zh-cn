@@ -1,9 +1,15 @@
 <!-- No Need to update due to we have update zh.cn repository on 01/23/2018 -->
-**文档上次更新时间**：太平洋标准时间 1 月 12 日下午 3:00。
+**上次文档更新**：太平洋标准时间 1 月 22 日下午 3:00。
 
-最近发现了一种称为推理执行旁道攻击的[新型 CPU 漏洞](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002)，这使想要了解其详情的客户向我们提出了问题。  
+最近发现了一种称为推理执行旁道攻击的[新型 CPU 漏洞](https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/ADV180002)，这使想要了解其详情的客户向我们提出了问题。  
 
 运行 Azure 并将客户工作负荷相互隔离的基础结构是受保护的。  这意味着 Azure 上运行的其他客户无法使用这些漏洞攻击你的应用程序。
+
+> [!NOTE] 
+> 以前于 2018 年 1 月 3 日公布的 Azure 缓解措施不受 Intel 提供的最新[更新指南](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/)影响。 由于此新信息，客户 VM 上将没有附加的维护活动。
+>
+> 当我们从硬件供应商收到微代码更新时，我们将继续更新这些最佳做法。 请记得回头检查更新的指南。
+>
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>使操作系统保持最新
 
@@ -22,7 +28,7 @@
 <td>Azure Linux 虚拟机</td> <td>如果有来自操作系统系统提供方的更新可用，请进行安装。 </td>
 </tr>
 <tr>
-<td>Azure Windows 虚拟机 </td> <td>在安装操作系统更新之前，请验证是否正在运行支持的防病毒应用程序。 有关兼容性信息，请与防病毒软件供应商联系。<p> 安装 [1 月安全性汇总](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002)。 </p></td>
+<td>Azure Windows 虚拟机 </td> <td>在安装操作系统更新之前，请验证是否正在运行支持的防病毒应用程序。 有关兼容性信息，请与防病毒软件供应商联系。<p> 安装 [1 月安全性汇总](https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/ADV180002)。 </p></td>
 </tr>
 <tr>
 <td>其他 Azure PaaS 服务</td> <td>使用这些服务的客户不需要执行任何操作。 Azure 会自动使你的操作系统版本保持最新。 </td>
@@ -45,6 +51,6 @@
 
 若要了解详细信息，请参阅 [Securing Azure customers from CPU vulnerability](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/)（确保 Azure 客户免受 CPU 漏洞影响）。
 <!--Update_Description: update the update notice message for Linux -->
-<!--ms.date: 01/29/2018-->
+<!--ms.date: 03/19/2018-->
 <!-- No Need to update due to we have update zh.cn repository on 01/23/2018 -->
 

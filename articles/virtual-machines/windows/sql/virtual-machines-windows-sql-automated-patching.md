@@ -14,26 +14,24 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/05/2018
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 56dc0d2dd80dea11ce0b63d3a14ced41e2d5673a
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 4e186414487c1a6152ea42ddd3c5c9aa66fb4f66
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure 虚拟机中 SQL Server 的自动修补 (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
-> * [经典](../classic/sql-automated-patching.md)
-> 
-> 
+> * [经典](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
 自动修补为运行 SQL Server 的 Azure 虚拟机建立一个维护时段。 只能在此维护时段内安装自动更新。 对于 SQL Server，此限制可以确保在数据库的最佳可能时间进行系统更新和任何关联的重新启动。 自动修补依赖于 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)。
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-若要查看本文的经典版本，请参阅[在 Azure 虚拟机（经典）中对 SQL Server 进行自动修补](../classic/sql-automated-patching.md)。
+若要查看本文的经典版本，请参阅[在 Azure 虚拟机（经典）中对 SQL Server 进行自动修补](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)。
 
 ## <a name="prerequisites"></a>先决条件
 若要使用自动修补，请考虑以下先决条件：
@@ -107,7 +105,7 @@ ms.lasthandoff: 02/13/2018
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
-    $aps = AzureRM.Compute\New-AzureVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
+    $aps = AzureRM.Compute\New-AzureRmVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
     Set-AzureRmVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 

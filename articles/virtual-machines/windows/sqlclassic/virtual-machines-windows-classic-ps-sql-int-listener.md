@@ -3,8 +3,8 @@ title: "在 Azure 中配置 AlwaysOn 可用性组的 ILB 侦听程序 | Azure"
 description: "本教程使用通过经典部署模型创建的资源，并使用内部负载均衡器在 Azure 中创建 AlwaysOn 可用性组侦听程序。"
 services: virtual-machines-windows
 documentationcenter: na
-author: MikeRayMSFT
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-service-management
 ms.assetid: 291288a0-740b-4cfa-af62-053218beba77
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/02/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
-ms.openlocfilehash: f56632f84777b6006b912bd131b03481c797a4d0
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 03/19/2018
+ms.author: v-yeche
+ms.openlocfilehash: 8b5174eb760e6dce4ef12aa2dfa32272dd825a3d
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>在 Azure 中配置 AlwaysOn 可用性组的 ILB 侦听程序
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 08/07/2017
 ## <a name="overview"></a>概述
 
 > [!IMPORTANT]
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Azure Resource Manager 模型和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍经典部署模型的用法。 我们建议在大多数新部署中使用 Resource Manager 模型。
+> Azure 提供两个不同的部署模型用于创建和处理资源：[Azure 资源管理器和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍经典部署模型的用法。 我们建议在大多数新部署中使用 Resource Manager 模型。
 
 若要在 Resource Manager 模型中配置 AlwaysOn 可用性组的侦听程序，请参阅[在 Azure 中配置 AlwaysOn 可用性组的负载均衡器](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md)。
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 08/07/2017
 
 3. 验证想要使用的侦听程序终结点“名称”和“公用端口”是否已被使用。 在本部分的示例中，名称为“MyEndpoint”，端口为“1433”。
 
-4. 在本地客户端上，下载并安装最新的 [PowerShell 模块](/downloads/)。
+4. 在本地客户端上，下载并安装最新的 [PowerShell 模块](https://www.azure.cn/downloads/)。
 
 5. 启动 Azure PowerShell。  
     将打开新的 PowerShell 会话，其中加载了 Azure 管理模块。
@@ -117,7 +117,7 @@ ms.lasthandoff: 08/07/2017
 
 通过两个步骤创建可用性组侦听器。 首先，创建客户端接入点的群集资源，并配置依赖关系。 其次，在 PowerShell 中配置群集资源。
 
-### <a name="create-the-client-access-point-and-configure-the-cluster-dependencies"></a>创建客户端接入点并配置群集依赖关系
+### <a name="create-the-client-access-point-and-configure-the-cluster-dependencies"></a>创建客户端接入点和配置群集依赖关系
 [!INCLUDE [firewall](../../../../includes/virtual-machines-ag-listener-create-listener.md)]
 
 ### <a name="configure-the-cluster-resources-in-powershell"></a>在 PowerShell 中配置群集资源
@@ -167,3 +167,4 @@ ms.lasthandoff: 08/07/2017
 
 ## <a name="next-steps"></a>后续步骤
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
+<!-- Update_Description: wording update, update link -->

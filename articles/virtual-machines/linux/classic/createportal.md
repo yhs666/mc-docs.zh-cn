@@ -17,10 +17,10 @@ origin.date: 05/31/2017
 ms.date: 12/18/2017
 ms.author: v-yeche
 ms.openlocfilehash: bdebb04b06d858ca1209291241c15b879914608a
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="create-a-custom-virtual-machine-running-linux"></a>创建运行 Linux 的自定义虚拟机
 > [!IMPORTANT] 

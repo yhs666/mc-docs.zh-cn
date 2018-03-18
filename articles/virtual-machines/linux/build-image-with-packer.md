@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/13/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: d88790cba58a87b16feeda8845c75e996a207667
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 4fc0ba20d960b719eb012b29628bf5b62d66a655
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>如何使用 Packer 在 Azure 中创建 Linux 虚拟机映像
 从定义 Linux 分发版和操作系统版本的映像创建 Azure 中的每个虚拟机 (VM)。 映像可包括预安装的应用程序和配置。 Azure 应用商店为最常见的分发和应用程序环境提供了许多第一和第三方映像，或者用户可根据需求创建自己的自定义映像。 本文详细介绍如何使用开源工具 [Packer](https://www.packer.io/) 在 Azure 中定义和生成自定义映像。
@@ -28,14 +28,13 @@ ms.lasthandoff: 01/05/2018
 ## <a name="create-azure-resource-group"></a>创建 Azure 资源组
 生成过程中，Packer 将在生成源 VM 时创建临时 Azure 资源。 要捕获该源 VM 用作映像，必须定义资源组。 Packer 生成过程的输出存储在此资源组中。
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
+使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
 az group create -n myResourceGroup -l chinaeast
 ```
-
 
 ## <a name="create-azure-credentials"></a>创建 Azure 凭据
 使用服务主体通过 Azure 对 Packer 进行身份验证。 Azure 服务主体是可与应用、服务和自动化工具（如 Packer）结合使用的安全性标识。 用户控制和定义服务主体可在 Azure 中执行的操作的权限。
@@ -56,7 +55,7 @@ az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, t
 }
 ```
 
-若要进行 Azure 身份验证，还需要通过 [az account show](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#show) 获取 Azure 订阅 ID：
+若要进行 Azure 身份验证，还需要通过 [az account show](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az_account_show) 获取 Azure 订阅 ID：
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -119,6 +118,7 @@ az account show --query "{ subscription_id: id }"
   }]
 }
 ```
+<!-- Notice: SHOULD ADD "cloud_environment_name": "AzureChinaCloud" in json file -->
 
 此模板生成 Ubuntu 16.04 LTS 映像，请安装 NGINX，然后取消设置 VM。
 
@@ -199,7 +199,7 @@ ManagedImageLocation: chinaeast
 Packer 需要几分钟时间来生成 VM、运行设置程序并清理部署。
 
 ## <a name="create-vm-from-azure-image"></a>从 Azure 映像创建 VM
-现在可以通过 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 从映像创建 VM。 指定通过 `--image` 参数创建的映像。 以下示例从 myPackerImage 创建一个名为 myVM 的 VM，并生成 SSH 密钥（如果它们尚不存在）：
+现在可以通过 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 从映像创建 VM。 指定通过 `--image` 参数创建的映像。 以下示例从 myPackerImage 创建一个名为 myVM 的 VM，并生成 SSH 密钥（如果它们尚不存在）：
 
 ```azurecli
 az vm create \
@@ -230,4 +230,4 @@ az vm open-port \
 在此示例中，使用 Packer 创建已安装 NGINX 的 VM 映像。 可以将此 VM 映像与现有部署工作流配合使用，执行例如将应用部署到在使用 Ansible、Chef 或 Puppet 通过映像创建的 VM 中的操作。
 
 有关适用于其他 Linux 发行版本的额外 Packer 模板示例，请参阅此 [GitHub 存储库](https://github.com/hashicorp/packer/tree/master/examples/azure)。
-<!--Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

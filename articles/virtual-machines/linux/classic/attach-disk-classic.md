@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/09/2017
-ms.date: 01/29/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: e9768365e92ae9e810e6dfa6d6e9b3da3fb25446
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: b6c9a6553110c52f5b1b03c2a8f9235af7d7d5c2
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>如何将数据磁盘附加到 Linux 虚拟机
 > [!IMPORTANT] 
@@ -91,7 +91,7 @@ ms.lasthandoff: 01/25/2018
     sudo fdisk /dev/sdc
     ```
 
-4. 出现提示时，键入 **n** 来创建分区。
+4. 出现提示时，请键入 **n** 创建分区。
 
     ![创建设备](./media/attach-disk/fdisknewpartition.png)
 
@@ -212,12 +212,13 @@ ms.lasthandoff: 01/25/2018
     sudo fstrim /datadrive
     ```
 
-    **RHEL/CentOS**
+    **CentOS**
 
     ```bash
     sudo yum install util-linux
     sudo fstrim /datadrive
     ```
+<!-- Not Available on RHEL on Line 212 -->
 
 ## <a name="troubleshooting"></a>故障排除
 [!INCLUDE [virtual-machines-linux-lunzero](../../../../includes/virtual-machines-linux-lunzero.md)]
@@ -226,7 +227,7 @@ ms.lasthandoff: 01/25/2018
 可以阅读下列文章，进一步了解如何使用 Linux VM：
 
 * [如何登录到运行 Linux 的虚拟机][Logon]
-* [如何从 Linux 虚拟机分离磁盘](detach-disk.md)
+* [如何从 Linux 虚拟机分离磁盘](detach-disk-classic.md)
 * [将 Azuer CLI 与经典部署模型搭配使用](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)
 * [在 Azure 中的 Linux VM 上配置 RAID](../configure-raid.md)
 * [在 Azure 中的 Linux VM 上配置 LVM](../configure-lvm.md)
@@ -235,6 +236,5 @@ ms.lasthandoff: 01/25/2018
 [Agent]:../agent-user-guide.md
 [Logon]:../mac-create-ssh-keys.md
 
-<!-- Update_Description: new articles on attach disk classic for Linux VM -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties, update link -->
 

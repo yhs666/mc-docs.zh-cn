@@ -14,20 +14,20 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/11/2017
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 73dab2ee0555944b41abfef82219adf965a7b3d9
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 9dfaa6afcda435c0e7e78adbb04855e69b387579
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 创建 Windows 虚拟机
 
 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速入门教程详细介绍了如何使用 Azure CLI 部署运行 Windows Server 2016 的虚拟机。 部署完成后，我们连接到服务器并安装 IIS。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -35,7 +35,7 @@ Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速�
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
+使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
 
 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
 
@@ -70,7 +70,7 @@ az vm create --resource-group myResourceGroup --name myVM --image win2016datacen
 
 ## <a name="open-port-80-for-web-traffic"></a>为 Web 流量打开端口 80 
 
-默认情况下，仅允许通过 RDP 连接登录到 Azure 中部署的 Windows 虚拟机。 如果此 VM 会用作 Web 服务器，则需要从 Internet 打开端口 80。 使用 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#open-port) 命令打开所需端口。  
+默认情况下，仅允许通过 RDP 连接登录到 Azure 中部署的 Windows 虚拟机。 如果此 VM 会用作 Web 服务器，则需要从 Internet 打开端口 80。 使用 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_open_port) 命令打开所需端口。  
 
  ```azurecli  
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -78,7 +78,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="connect-to-virtual-machine"></a>连接到虚拟机
 
-使用以下命令创建与虚拟机的远程桌面会话。 将 IP 地址替换为虚拟机的公共 IP 地址。 出现提示时，输入创建虚拟机时使用的凭据。
+使用以下命令创建与虚拟机的远程桌面会话。 将 IP 地址替换为你的虚拟机的公共 IP 地址。 出现提示时，输入创建虚拟机时使用的凭据。
 
 ```bash 
 mstsc /v:Public IP Address
@@ -100,7 +100,7 @@ IIS 已安装，并且现在已从 Internet 打开 VM 上的端口 80 - 可以�
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要资源组、VM 和所有相关的资源，可以使用 [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#delete) 命令将其删除。
+如果不再需要资源组、VM 和所有相关的资源，可以使用 [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_delete) 命令将其删除。
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -113,4 +113,4 @@ az group delete --name myResourceGroup
 > [!div class="nextstepaction"]
 > [Azure Windows 虚拟机教程](./tutorial-manage-vm.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

@@ -17,10 +17,10 @@ origin.date: 07/28/2016
 ms.date: 01/05/2017
 ms.author: v-dazen
 ms.openlocfilehash: a5f06a44372f7f580451430f8c83f3f79c346978
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="frequently-asked-question-about-azure-linux-virtual-machines-created-with-the-classic-deployment-model"></a>使用经典部署模型创建的 Azure Linux 虚拟机的常见问题解答
 > [!IMPORTANT] 

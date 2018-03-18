@@ -14,26 +14,24 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/05/2018
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 59f5f16343e237c729c3a667cbd6439bf7226325
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 50ed63107011d3e5ad7eb247231bdc5f5d413ac1
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>使用 SQL Server 代理扩展 (Resource Manager) 在 Azure 虚拟机上自动完成管理任务
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
-> * [经典](../classic/sql-server-agent-extension.md)
-> 
-> 
+> * [经典](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
 
 Azure 虚拟机上运行的 SQL Server IaaS 代理扩展 (SQLIaaSExtension) 可以自动执行管理任务。 本文概述了该扩展支持的服务以及有关安装、状态及删除的说明。
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-若要查看本文的经典版，请参阅[适用于 SQL Server 经典 VM 的 SQL Server 代理扩展](../classic/sql-server-agent-extension.md)。
+若要查看本文的经典版，请参阅[适用于 SQL Server 经典 VM 的 SQL Server 代理扩展](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)。
 
 ## <a name="supported-services"></a>支持的服务
 SQL Server IaaS 代理扩展支持以下管理任务：
@@ -109,4 +107,4 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 
 有关在 Azure 虚拟机中运行 SQL Server 的详细信息，请参阅 [Azure 虚拟机中的 SQL Server 概述](virtual-machines-windows-sql-server-iaas-overview.md)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, update link -->

@@ -17,10 +17,10 @@ origin.date: 08/23/2016
 ms.date: 01/05/2017
 ms.author: v-dazen
 ms.openlocfilehash: 2f55180f578e5f9f1be3cd60e9ff79118a867ea8
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="injecting-custom-data-into-an-azure-virtual-machine"></a>将自定义数据注入到 Azure 虚拟机中
 > [!IMPORTANT] 

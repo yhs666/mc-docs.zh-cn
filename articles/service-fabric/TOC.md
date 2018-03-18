@@ -302,13 +302,13 @@ The az acr is not support in MC
 ### [连接到安全群集](service-fabric-connect-to-secure-cluster.md)
 ### [修补群集节点](service-fabric-patch-orchestration-application.md)
 
-## 监视和诊断
+<!-- Not Avaiable on ## Monitor and diagnose -->
 <!-- Not Avaiable on ### OMS -->
 <!-- Not Avaiable on #### [Set up OMS Log Analytics](service-fabric-diagnostics-oms-setup.md)  -->
 <!-- Not Avaiable on #### [Add the OMS Agent](service-fabric-diagnostics-oms-agent.md)  -->
 <!-- Not Avaiable on #### [Monitor containers](service-fabric-diagnostics-oms-containers.md)  -->
-### 性能监视
-#### [通过 WAD 监视性能](service-fabric-diagnostics-perf-wad.md)
+<!-- Not Avaiable on ### Performance monitoring -->
+<!-- Not Avaiable on #### [Performance monitoring with WAD](service-fabric-diagnostics-perf-wad.md) -->
 
 # 参考
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/)

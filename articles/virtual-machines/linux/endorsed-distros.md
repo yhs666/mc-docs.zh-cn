@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 11/21/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: c17647afbb1b66b60cdb5193b557705245451aa9
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 19abc752df27fa473cd6980691fb1bd62e54119e
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="linux-on-distributions-endorsed-by-azure"></a>Azure 认可的 Linux 发行版
-合作伙伴会在 Azure 应用商店中提供 Linux 映像。 我们与各大 Linux 社区合作以便在认可的发行版列表中添加更多成员。 同时，对于应用商店中未提供的发行版，始终可以遵循[创建并上传包含 Linux 操作系统的虚拟硬盘](classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)自备 Linux 发行版。
+合作伙伴会在 Azure 应用商店中提供 Linux 映像。 我们与各大 Linux 社区合作以便在认可的发行版列表中添加更多成员。 在此期间，对于 Marketplace 未提供的分发，用户始终可以按照[创建并上传包含 Linux 操作系统的虚拟硬盘](/virtual-machines/linux/create-upload-generic)中的准则安装自己的 Linux。
 
 ## <a name="supported-distributions-and-versions"></a>支持的发行版和版本
 下表列出了 Azure 支持的 Linux 分发和版本。 有关 Azure 中支持 Linux 和开源代码技术的更多详细信息，请参阅 [Azure 中对 Linux 映像的支持](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)。
@@ -39,9 +39,9 @@ Azure Linux 代理已预装在 Azure 应用商店映像中，通常可从发行�
 | Debian |Debian 7.9+、8.2+ |在内核中 |包：在“waagent”下的存储库中 <br/>源代码：[GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise |SLES/SLES for SAP<br>11 SP4<br>12 SP1+|在内核中 |包：<p> 对于 11，在 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 存储库中<br>对于 12，包含在“公有云”模块中的“python-azure-agent”下<br/>源代码：[GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE |openSUSE Leap 42.2+ |在内核中 |包：在“python-azure-agent”下的 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 存储库中 <br/>源代码：[GitHub](https://github.com/Azure/WALinuxAgent) |
-| Ubuntu |Ubuntu 12.04+* |在内核中 |包：在“walinuxagent”下的存储库中 <br/>源代码：[GitHub](https://github.com/Azure/WALinuxAgent) |
+| Ubuntu |Ubuntu 12.04+ **<sup>1</sup>** |在内核中 |包：在“walinuxagent”下的存储库中 <br/>源代码：[GitHub](https://github.com/Azure/WALinuxAgent) |
 
-*有关 Azure 中对 Ubuntu 12.04 的支持，请参阅 [EOL 通知](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/)。
+  - **<sup>1</sup>** 有关在 Azure 中对 Ubuntu 12.04 的支持，请参阅 [EOL 通知](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/)。
 <!--Not Available on Oracle Linux, Red Hat Enterprise Linux -->
 
 ## <a name="partners"></a>合作伙伴

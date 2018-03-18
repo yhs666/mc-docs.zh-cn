@@ -3,8 +3,8 @@ title: "SQL Server VM 的自动修补（经典）| Azure"
 description: "介绍在 Azure 中运行且使用经典部署模式的 SQL Server 虚拟机的自动修补功能。"
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-service-management
 ms.assetid: 737b2f65-08b9-4f54-b867-e987730265a8
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 07/05/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: 9d95ac79509a57634599c6487e1cdca8fe43f7d4
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.date: 03/19/2018
+ms.author: v-yeche
+ms.openlocfilehash: 6dbbe814e12aa82d631dfeb24dab8d772e324028
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>在 Azure 虚拟机（经典）中对 SQL Server 进行自动修补
 > [!div class="op_single_selector"]
@@ -93,4 +93,4 @@ ms.lasthandoff: 08/18/2017
 
 有关在 Azure VM 中运行 SQL Server 的详细信息，请参阅 [Azure 虚拟机中的 SQL Server 概述](../sql/virtual-machines-windows-sql-server-iaas-overview.md)。
 
-<!--Update_Description: add sql server 2016-->
+<!-- Update_Description: update meta properties, wording update -->

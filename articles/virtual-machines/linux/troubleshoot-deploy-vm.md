@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: be66248256117d1fcdcff445f364026b5e36b2ec
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 6ee95f13c5e6bbc06e8e8e8b85ebc1dff450bec3
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Linux 虚拟机部署问题
 
@@ -73,11 +73,11 @@ productPesIds="1234, 5678"
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>能否将现有经典 VM 添加到可用性集？
 
-是的。 可以将现有经典 VM 添加到新的或现有的可用性集。 有关详细信息，请参阅[将现有虚拟机添加到可用性集](../windows/classic/configure-availability.md#addmachine)。
+是的。 可以将现有经典 VM 添加到新的或现有的可用性集。 有关详细信息，请参阅[将现有虚拟机添加到可用性集](../windows/classic/configure-availability-classic.md#addmachine)。
 
 ## <a name="next-steps"></a>后续步骤
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)上的 Azure 专家。
 
 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择 **获取支持**。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: wording update, update link  -->

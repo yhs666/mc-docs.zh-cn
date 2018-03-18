@@ -3,8 +3,8 @@ title: "配置 AlwaysOn 可用性组的外部侦听器 | Azure"
 description: "本教程逐步说明如何在 Azure 中创建一个可以使用关联云服务公共虚拟 IP 地址从外部访问的 AlwaysOn 可用性组侦听器。"
 services: virtual-machines-windows
 documentationcenter: na
-author: MikeRayMSFT
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-service-management
 ms.assetid: a2453032-94ab-4775-b976-c74d24716728
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/31/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 1a272009ffcf24ca2a0e7a9a84ee739dccb7925b
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 03/19/2018
+ms.author: v-yeche
+ms.openlocfilehash: 6a64e457e630ce933b2d7295951b0ad78a6c2076
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>在 Azure 中配置 AlwaysOn 可用性组的外部侦听器
 > [!div class="op_single_selector"]
@@ -34,15 +34,15 @@ ms.lasthandoff: 06/23/2017
 > [!IMPORTANT] 
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
 
-你的可用性组可以仅包含本地副本或 Azure 副本，也可以跨越本地和 Azure 以实现混合配置。 Azure 副本可以位于同一区域，也可以跨越使用多个虚拟网络 (VNet) 的多个区域。 下面的步骤假设已经[配置可用性组](../classic/portal-sql-alwayson-availability-groups.md)，但未配置侦听器。
+可用性组可以仅包含本地副本或 Azure 副本，也可以跨越本地和 Azure 以实现混合配置。 Azure 副本可以位于同一区域，也可以跨越使用多个虚拟网络 (VNet) 的多个区域。 下面的步骤假设已经[配置可用性组](../classic/portal-sql-alwayson-availability-groups.md)，但未配置侦听器。
 
 ## <a name="guidelines-and-limitations-for-external-listeners"></a>外部侦听器的准则和限制
 在使用云服务的公共 VIP 地址部署时，请注意有关 Azure 中可用性组侦听器的以下准则：
 
 * Windows Server 2008 R2、Windows Server 2012 和 Windows Server 2012 R2 支持可用性组侦听器。
-* 客户端应用程序必须位于不包含你的可用性组 VM 的云服务中。 Azure 不支持客户端和服务器位于同一个云服务中的直接服务器返回。
-* 默认情况下，本文中的步骤说明如何将一个侦听器配置为使用云服务虚拟 IP (VIP) 地址。 但是，你可以为云服务保留和创建多个 VIP 地址。 这样就可以使用本文中的步骤创建多个侦听器，每个侦听器与不同的 VIP 相关联。 有关如何创建多个 VIP 地址的信息，请参阅[每个云服务具有多个 VIP](../../../load-balancer/load-balancer-multivip.md)。
-* 如果你要为混合环境创建侦听器，则本地网络必须连接到公共 Internet，并通过 Azure 虚拟网络连接到站点到站点 VPN。 位于 Azure 子网中时，只能通过相应云服务的公共 IP 地址来访问该可用性组侦听器。
+* 客户端应用程序必须位于不包含可用性组 VM 的云服务中。 Azure 不支持客户端和服务器位于同一个云服务中的直接服务器返回。
+* 默认情况下，本文中的步骤说明如何将一个侦听器配置为使用云服务虚拟 IP (VIP) 地址。 但是，可以为云服务保留和创建多个 VIP 地址。 这样就可以使用本文中的步骤创建多个侦听器，每个侦听器与不同的 VIP 相关联。 有关如何创建多个 VIP 地址的信息，请参阅[每个云服务具有多个 VIP](../../../load-balancer/load-balancer-multivip.md)。
+* 如果要为混合环境创建侦听器，则本地网络必须连接到公共 Internet，并通过 Azure 虚拟网络连接到站点到站点 VPN。 位于 Azure 子网中时，只能通过相应云服务的公共 IP 地址来访问该可用性组侦听器。
 * 不支持在你在其中也有使用内部负载均衡器 (ILB) 的内部侦听器的同一云服务中创建外部侦听器。
 
 ## <a name="determine-the-accessibility-of-the-listener"></a>确定侦听器的可访问性
@@ -51,17 +51,17 @@ ms.lasthandoff: 06/23/2017
 本文重点介绍如何创建使用 **外部负载均衡**的侦听器。 如果要创建专用于虚拟网络的侦听器，请参阅本文的另一个版本，其中提供了设置[使用 ILB 的侦听器](../classic/ps-sql-int-listener.md)的步骤
 
 ## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>创建支持直接服务器返回的负载均衡 VM 终结点
-外部负载均衡使用托管 VM 的云服务的公共虚拟 IP 地址。 因此，在这种情况下，你不需要创建或配置负载均衡器。
+外部负载均衡使用托管 VM 的云服务的公共虚拟 IP 地址。 因此，在这种情况下，不需要创建或配置负载均衡器。
 
-你必须为每个托管 Azure 副本的 VM 创建一个负载均衡的终结点。 如果你在多个区域中拥有副本，该区域的每个副本必须位于同一个 VNet 的同一个云服务中。 跨越多个 Azure 区域创建可用性组副本需要配置多个 Vnet。 有关配置跨 VNet 连接的详细信息，请参阅[配置 VNet 到 VNet 连接](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)。
+必须为每个托管 Azure 副本的 VM 创建一个负载均衡的终结点。 如果在多个区域中拥有副本，该区域的每个副本必须位于同一个 VNet 的同一个云服务中。 跨越多个 Azure 区域创建可用性组副本需要配置多个 Vnet。 有关配置跨 VNet 连接的详细信息，请参阅[配置 VNet 到 VNet 连接](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)。
 
 1. 在 Azure 门户中，导航到托管副本的每个 VM 并查看详细信息。
 2. 单击每个 VM 的“终结点”选项卡。
-3. 验证想要使用的侦听器终结点“名称”和“公用端口”是否已被使用。 在以下示例中，名称为“MyEndpoint”，端口为“1433”。
-4. 在你本地的客户端上，下载并安装 [最新的 PowerShell 模块](/downloads/)。
-5. 启动 **Azure PowerShell**。 将打开新的 PowerShell 会话，其中加载了 Azure 管理模块。
-6. 运行 **Get-AzurePublishSettingsFile**。 此 cmdlet 将你定向到浏览器，以将发布设置文件下载到本地目录。 系统可能会提示输入 Azure 订阅的登录凭据。
-7. 运行 Import-azurepublishsettingsfile 命令以及你下载发布设置文件的路径： 
+3. 确保想要使用的侦听器终结点“名称”和“公用端口”未被使用。 在下面的示例中，名称为“MyEndpoint”，端口为“1433”。
+4. 在本地客户端上，下载并安装[最新的 PowerShell 模块](https://www.azure.cn/downloads/)。
+5. 启动 **Azure PowerShell**。 随即打开新的 PowerShell 会话，其中加载了 Azure 管理模块。
+6. 运行 **Get-AzurePublishSettingsFile**。 此 cmdlet 会定向到浏览器，以将发布设置文件下载到本地目录。 系统可能会提示输入 Azure 订阅的登录凭据。
+7. 运行 Import-azurepublishsettingsfile 命令以及下载发布设置文件的路径：
 
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
 
@@ -110,8 +110,8 @@ ms.lasthandoff: 06/23/2017
 
         # Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
         # cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
-4. 设置变量之后，打开提升的 Windows PowerShell 窗口，然后从文本编辑器复制脚本，并将其粘贴到 Azure PowerShell 会话中运行。 如果提示符仍然显示 >>，请再次按 Enter，以确保脚本开始运行。
-5. 在每个 VM 上重复此过程。 此脚本将使用云服务的 IP 地址来配置 IP 地址资源，同时设置探测端口等其他参数。 在 IP 地址资源联机后，它可以响应我们在本教程前面部分创建的负载均衡终结点在探测端口上的轮询。
+4. 设置变量之后，打开提升的 Windows PowerShell 窗口，从文本编辑器复制脚本，并将其粘贴到 Azure PowerShell 会话中运行。 如果提示符仍然显示 >>，请再次按 Enter，以确保脚本开始运行。
+5. 在每个 VM 上重复此过程。 此脚本使用云服务的 IP 地址来配置 IP 地址资源，同时设置探测端口等其他参数。 在 IP 地址资源联机后，它可以响应我们在本教程前面部分创建的负载均衡终结点在探测端口上的轮询。
 
 ## <a name="bring-the-listener-online"></a>使侦听器联机
 [!INCLUDE [Bring-Listener-Online](../../../../includes/virtual-machines-ag-listener-bring-online.md)]
@@ -123,7 +123,7 @@ ms.lasthandoff: 06/23/2017
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
 ## <a name="test-the-availability-group-listener-over-the-internet"></a>测试可用性组侦听器（通过 Internet）
-若要从虚拟网络外部访问侦听器，必须使用外部/公共负载均衡（如本主题中所述）而不是 ILB，因为 ILB 只能在同一 VNet 中进行访问。 在连接字符串中指定云服务名称。 例如，如果你的云服务名为 *mycloudservice*，则 sqlcmd 语句将如下所示：
+若要从虚拟网络外部访问侦听器，必须使用外部/公共负载均衡（如本主题中所述）而不是 ILB，因为 ILB 只能在同一 VNet 中进行访问。 在连接字符串中指定云服务名称。 例如，如果云服务名为 *mycloudservice*，则 sqlcmd 语句将如下所示：
 
     sqlcmd -S "mycloudservice.chinacloudapp.cn,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
@@ -133,3 +133,4 @@ ms.lasthandoff: 06/23/2017
 
 ## <a name="next-steps"></a>后续步骤
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
+<!-- Update_Description: wording update, update link -->

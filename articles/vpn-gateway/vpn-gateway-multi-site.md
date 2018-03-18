@@ -1,10 +1,10 @@
 ---
 title: "使用 VPN 网关和 PowerShell 将虚拟网络连接到多个站点：经典 | Microsoft Docs"
-description: "本文指导使用经典部署模型的 VPN 网关将多个本地站点连接到虚拟网络。"
+description: "通过 VPN 网关将多个本地网站连接到经典虚拟网络。"
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: yushwang
+manager: rossort
 editor: 
 tags: azure-service-management
 ms.assetid: b043df6e-f1e8-4a4d-8467-c06079e2c093
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/20/2017
-ms.date: 11/07/2017
+origin.date: 02/14/2018
+ms.date: 03/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: afa62cd90536ebadcbbacbf11b318ef907c53c80
-ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
+ms.openlocfilehash: a76f57ab4551aac0c6d16ceacc5d36f7a6332003
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>将站点到站点连接添加到包含现有 VPN 网关连接的 VNet（经典）
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 01/19/2018
 
 - 每个本地位置都有兼容的 VPN 硬件。 查看[关于用于虚拟网络连接的 VPN 设备](vpn-gateway-about-vpn-devices.md)，以确认要使用的设备是否是已知兼容的设备。
 - 每个 VPN 设备都有一个面向外部的公共 IPv4 IP 地址。 该 IP 地址不能位于 NAT 后面， 必须满足这一要求。
-- 需要安装 Azure PowerShell cmdlet 的最新版本。 请确保同时安装了 Resource Manager 版本和服务管理 (SM) 版本。 有关详细信息，请参阅 [如何安装和配置 Azure PowerShell](/powershell/azure/overview) 。
+- 需要安装 Azure PowerShell cmdlet 的最新版本。 请确保同时安装了 Resource Manager 版本和服务管理 (SM) 版本。 有关详细信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 。
 - 有人能够熟练地配置 VPN 硬件。 必须非常了解如何配置 VPN 设备，或者与具有此能力的人员合作。
 - 要用于虚拟网络（如果尚未创建）的 IP 地址范围。
 - 要连接到的每个本地网络站点的 IP 地址范围。 需确保要连接到的每个本地网络站点的 IP 地址范围不重叠。 否则，门户或 REST API 将拒绝上传配置。<br>例如，如果两个本地网络站点都包含 IP 地址范围 10.2.3.0/24，并且某个包包含目标地址 10.2.3.3，则 Azure 将不知道要将该包发送到哪个站点，因为地址范围是重叠的。 为了防止路由问题，Azure 不允许上传具有重叠范围的配置文件。
@@ -107,7 +107,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
               </LocalNetworkSite>
             </LocalNetworkSites>
             <VirtualNetworkSites>
-              <VirtualNetworkSite name="VNet1" AffinityGroup="ChinaEast">
+              <VirtualNetworkSite name="VNet1" AffinityGroup="ChinaNorth">
                 <AddressSpace>
                   <AddressPrefix>10.20.0.0/16</AddressPrefix>
                   <AddressPrefix>10.21.0.0/16</AddressPrefix>

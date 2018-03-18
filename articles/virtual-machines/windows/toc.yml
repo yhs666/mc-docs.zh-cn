@@ -33,13 +33,15 @@
       href: tutorial-virtual-network.md
     - name: 9 - 备份虚拟机
       href: tutorial-backup-vms.md
-    - name: 10 - 监视和更新 VM
+    - name: 10 - 控制 VM
+      href: tutorial-govern-resources.md
+    - name: 11 - 监视和更新 VM
       href: tutorial-monitoring.md
-    - name: 11 - Team Services CI/CD
+    - name: 12 - 团队服务 CI/CD
       href: tutorial-vsts-iis-cicd.md
-    - name: 12 - 安装 SQL\IIS\.NET 堆栈
+    - name: 13 - 安装 SQL\IIS\.NET 堆栈
       href: tutorial-iis-sql.md
-    - name: 13 - 使用 SSL 保护 Web 服务器
+    - name: 14 - 使用 SSL 保护 Web 服务器
       href: tutorial-secure-web-server.md
 - name: 示例
   items:
@@ -110,7 +112,11 @@
         - name: '使用 C#'
           href: csharp.md
         - name: 使用专用磁盘
-          href: create-vm-specialized.md
+          items:
+            - name: 门户
+              href: create-vm-specialized-portal.md
+            - name: PowerShell
+              href: create-vm-specialized.md
         - name: '将模板与 C# 配合使用'
           href: csharp-template.md
         - name: 使用 Chef 创建 VM
@@ -123,6 +129,8 @@
           href: ps-template.md
         - name: 连接到 VM
           href: connect-logon.md
+        - name: 使用 Azure 混合权益许可证
+          href: hybrid-use-benefit-licensing.md
     - name: 保护 VM
       items:
         - name: 加密
@@ -140,6 +148,8 @@
       items:
         - name: 备份单个 VM
           items:
+            - name: Azure 门户
+              href: ../../backup/quick-backup-vm-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Azure PowerShell
               href: ../../backup/quick-backup-vm-powershell.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
         - name: 备份多个 VM
@@ -166,6 +176,10 @@
           href: agent-user-guide.md
         - name: 计划内维护
           href: maintenance-notifications.md
+        - name: 缓解推理执行
+          href: mitigate-se.md
+        - name: 加速维护常见问题解答
+          href: accelerated-maintenance.md
         - name: 计划事件
           href: scheduled-events.md
         - name: 监视元数据
@@ -237,6 +251,8 @@
           href: convert-disk-storage.md
         - name: 使用 Azure Site Recovery 迁移到高级存储
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: 查找未附加的磁盘
+          href: find-unattached-disks.md
         - name: 使用文件存储
           href: mount-azure-file-storage.md
         - name: 使用模板部署磁盘
@@ -265,6 +281,8 @@
           href: multiple-nics.md
         - name: 分配公用 DNS 名称
           href: portal-create-fqdn.md
+        - name: DNS 解析
+          href: ../../dns/dns-for-azure-services.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
     - name: 使用 VM 扩展
       items:
         - name: VM 扩展 - 概述
@@ -288,6 +306,8 @@
           href: extensions-troubleshoot.md
         - name: 监视和诊断扩展
           href: extensions-diagnostics-template.md
+        - name: 网络观察程序代理
+          href: extensions-nwa.md
     - name: 迁移 VM
       items:
         - name: 迁移 AWS 和本地 VM
@@ -355,6 +375,8 @@
               href: troubleshoot-recovery-disks.md
             - name: Azure 门户
               href: troubleshoot-recovery-disks-portal.md
+        - name: 在脱机模式下安装 VM 代理
+          href: install-vm-agent-offline.md
 - name: 参考
   items:
     - name: Azure CLI

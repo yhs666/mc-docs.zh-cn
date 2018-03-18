@@ -33,19 +33,21 @@
       href: tutorial-virtual-network.md
     - name: 9 - 备份虚拟机
       href: tutorial-backup-vms.md
-    - name: 10 - 监视和更新 VM
+    - name: 10 - 控制 VM
+      href: tutorial-govern-resources.md
+    - name: 11 - 监视和更新 VM
       href: tutorial-monitoring.md
-    - name: 11 - 部署 Jenkins
+    - name: 12 - 部署 Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 12 - 将 CI/CD 与 Team Services 配合使用
+    - name: 13 - 将 Team Services 与 CI/CD 配合使用
       href: tutorial-build-deploy-jenkins.md
-    - name: 13a - 创建 LAMP 堆栈
+    - name: 14a - 创建 LAMP 堆栈
       href: tutorial-lamp-stack.md
-    - name: 13b - 创建 LEMP 堆栈
+    - name: 14b - 创建 LEMP 堆栈
       href: tutorial-lemp-stack.md
-    - name: 13c - 创建 MEAN 堆栈
+    - name: 14c - 创建 MEAN 堆栈
       href: tutorial-mean-stack.md
-    - name: 14 - 使用 SSL 保护 Web 服务器
+    - name: 15 - 使用 SSL 保护 Web 服务器
       href: tutorial-secure-web-server.md
 - name: 示例
   items:
@@ -160,8 +162,6 @@
           href: change-vm-size.md
         - name: 标记 VM
           href: tag.md
-        - name: 使用 cloud-init
-          href: using-cloud-init.md
         - name: 在 VM 上运行脚本
           href: extensions-customscript.md
         - name: 使用远程桌面
@@ -176,6 +176,8 @@
           href: maintenance-notifications.md
         - name: 缓解推理执行
           href: mitigate-se.md
+        - name: 加速维护常见问题解答
+          href: accelerated-maintenance.md
         - name: 计划事件
           href: scheduled-events.md
         - name: 监视元数据
@@ -248,12 +250,16 @@
           href: docker-compose-quickstart.md
     - name: 运行应用程序
       items:
+        - name: Elasticsearch
+          href: tutorial-elasticsearch.md
         - name: FreeBSD 数据包筛选器
           href: freebsd-pf-nat.md
         - name: 数据库
           items:
             - name: MySQL
               href: mysql-install.md
+            - name: SUSE 上的 MySQL
+              href: mysql-on-opensuse.md
             - name: MongoDB
               href: install-mongodb.md
             - name: PostgreSQL
@@ -284,6 +290,8 @@
           href: copy-files-to-linux-vm-using-scp.md
         - name: 使用 Azure Site Recovery 迁移到高级存储
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: 查找未附加的磁盘
+          href: find-unattached-disks.md
         - name: 使用文件存储
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: 使用模板部署磁盘

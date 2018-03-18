@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/09/2017
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 69888332da408402d2c4ed2438da3d8bbc508792
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: fde20856440c300ca7341c4b540e8fbcdfc2882d
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中创建通用 VM 的托管映像
 
@@ -61,7 +61,7 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
 
 直接从 VM 创建映像可确保映像中包含与 VM 关联的所有磁盘，包括 OS 磁盘和任何数据磁盘。 本示例演示如何从使用托管磁盘的 VM 创建托管映像。
 
-在开始之前，请确保有最新版本的 AzureRM.Compute PowerShell 模块。 运行以下命令来安装该模块。
+在开始之前，请确保有最新版本的 AzureRM.Compute PowerShell 模块。 运行以下命令来安装该模块。 （使用 `Get-Module` 检查所使用的版本。）
 
 ```azurepowershell-interactive
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
@@ -208,4 +208,4 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 ## <a name="next-steps"></a>后续步骤
 - 现在，可以[从通用托管映像创建 VM](create-vm-generalized-managed.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-<!--Update_Description: update cmdlet -->
+<!--Update_Description: wording update -->

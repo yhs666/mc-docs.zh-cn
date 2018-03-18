@@ -1,10 +1,10 @@
 ---
 title: "使用点到站点和 RADIUS 身份验证将计算机连接到虚拟网络：PowerShell | Microsoft Docs"
-description: "通过创建使用 RADIUS 身份验证的点到站点 VPN 网关连接，安全地将计算机连接到 Azure 虚拟网络。"
+description: "使用 P2S 和 RADIUS 身份验证将 Windows 和 Mac OS X 客户端安全地连接到虚拟网络。"
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cherylmc
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/04/2017
-ms.date: 12/29/2017
+origin.date: 02/12/2018
+ms.date: 03/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: d521a9b3972bf628092eb2370bbcd3aacd238763
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: 6b4c127ac59c32595bd471c46cd3f2c6007fe413
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>使用 RADIUS 身份验证配置 VNet 的点到站点连接：PowerShell
 
 本文介绍如何创建一个 VNet，其中具有使用 RADIUS 身份验证的点到站点连接。 此配置仅适用于资源管理器部署模型。
 
-点到站点 (P2S) VPN 网关用于创建从单个客户端计算机到虚拟网络的安全连接。 若要从远程位置连接到 VNet，例如从家里或会议室进行远程通信，则可使用点到站点 VPN。 如果只有一些客户端需要连接到 VNet，则可使用 P2S VPN 这种解决方案来代替站点到站点 VPN。
+点到站点 (P2S) VPN 网关用于创建从单个客户端计算机到虚拟网络的安全连接。 要从远程位置连接到 VNet，例如从家里或会议室进行远程通信，则可使用点到站点 VPN。 如果只有一些客户端需要连接到 VNet，则可使用 P2S VPN 这种解决方案来代替站点到站点 VPN。
 
 P2S VPN 连接是从 Windows 和 Mac 设备启动的。 连接方客户端可以使用以下身份验证方法：
 
@@ -238,6 +238,8 @@ VPN 客户端配置可让设备通过 P2S 连接来与 VNet 建立连接。 若�
       NetBIOS over Tcpip..............: Enabled
   ```
 
+若要对 P2S 连接进行故障排除，请参阅[排查 Azure 点到站点连接问题](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。
+
 ## <a name="connectVM"></a>连接到虚拟机
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
@@ -252,4 +254,4 @@ VPN 客户端配置可让设备通过 P2S 连接来与 VNet 建立连接。 若�
 
 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/#pivot=services&panel=Compute)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/linux/azure-vm-network-overview.md)。
 
-<!--Update_Description: code update-->
+<!--Update_Description: wording update-->

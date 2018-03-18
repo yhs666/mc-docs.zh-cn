@@ -12,13 +12,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 10/11/2017
-ms.date: 11/27/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: dbaf495a6162194fb44243d6cbf1ece5cb68436a
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: cf31f88666a7b47ffbde002c42150a3dc1d6aade
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>在 Azure VM 上安装 Elastic Stack
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/24/2017
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
+使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
 
 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroup --location chinaeast
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 命令创建 VM。 
+使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 命令创建 VM。 
 
 下面的示例创建一个名为 *myVM* 的 VM，并且在默认密钥位置中不存在 SSH 密钥时创建这些密钥。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。  
 
@@ -80,7 +80,7 @@ az vm create \
 
 ## <a name="ssh-into-your-vm"></a>通过 SSH 连接到 VM
 
-如果还不知道 VM 的公共 IP 地址，请运行 [az network public-ip list](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#list) 命令：
+如果还不知道 VM 的公共 IP 地址，请运行 [az network public-ip list](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az_network_public_ip_list) 命令：
 
 ```azurecli
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
@@ -242,3 +242,4 @@ az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 > * 在 VM 上安装 Elasticsearch、Logstash 和 Kibana
 > * 通过 Logstash 将示例数据发送到 Elasticsearch 
 > * 在 Kibana 控制台中打开端口并处理数据
+<!-- Update_Description: wording update, update link -->

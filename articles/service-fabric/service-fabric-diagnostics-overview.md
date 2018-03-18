@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 01/10/2018
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3f42b8d7b7a5f8c821b6fea18254c3e63f416b5e
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 09bf5586d623fc2a49d6a1198c5ab76c53893604
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 的监视和诊断
 
@@ -141,6 +141,6 @@ Service Fabric 平台包含运行状况模型，针对群集中的实体状态�
 
 * 在[平台级别事件和日志生成](service-fabric-diagnostics-event-generation-infra.md)中详细了解如何监视平台以及 Service Fabric 提供的事件
 * 若要开始检测应用程序，请参阅[应用程序级别事件和日志生成](service-fabric-diagnostics-event-generation-app.md)
-* 通过[在 Service Fabric 上监视和诊断 ASP.NET Core 应用程序](service-fabric-tutorial-monitoring-aspnet.md)，完成为应用程序设置 AI 的步骤
+<!-- Not Avaiable on * Go through the steps to set up AI for your application with [Monitor and diagnose an ASP.NET Core application on Service Fabric](service-fabric-tutorial-monitoring-aspnet.md) -->
 <!-- Not Avaiable on * Learn how to set up OMS Log Analytics for monitoring containers - [Monitoring and Diagnostics for Windows Containers in Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md) -->
 <!-- Update_Description: update meta properties, wording update -->

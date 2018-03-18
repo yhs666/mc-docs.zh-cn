@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 12/15/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 29fb164c7a086982e79dcaacc1b38f60976142c2
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 74f89bdf1fe26e19db5dfedea3bd8efc64454f20
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>在 Azure 中使用 Windows 客户端实现开发/测试方案
-如果有相应的 Visual Studio（以前为 MSDN）订阅，可以在 Azure 中使用 Windows 7、Windows 8 或 Windows 10 开展开发/测试方案。 本文概述在 Azure 中运行 Windows 客户端和使用 Azure 库映像所要满足的条件。
+如果有相应的 Visual Studio（以前为 MSDN）订阅，可以在 Azure 中使用 Windows 7、Windows 8 或 Windows 10 企业版 (x64) 实施开发/测试方案。 本文概述在 Azure 中运行 Windows 7、Windows 8.1、Windows 10 企业版和使用以下 Azure 库映像所要满足的条件。
 
 ## <a name="subscription-eligibility"></a>订阅条件
 有效的 Visual Studio 订户（已获取 Visual Studio 订阅许可证的用户）可以使用 Windows 客户端进行开发和测试。 可以在自己的硬件上，以及在任何类型的 Azure 订阅中运行的 Azure 虚拟机上使用 Windows 客户端。 不能在 Azure 上针对一般生产目的部署或使用 Windows 客户端，不是有效 Visual Studio 订户的用户也不能使用 Windows 客户端。
@@ -53,5 +53,4 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="next-steps"></a>后续步骤
 现在，可以使用 [PowerShell](quick-create-powershell.md)、[Resource Manager 模板](ps-template.md)或 [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 部署 VM。
-<!--Update_Description: new articles on vm client images -->
-<!--ms.date: 01/08/2018-->
+<!--Update_Description: update meta properties, wording update  -->

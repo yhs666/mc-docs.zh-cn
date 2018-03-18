@@ -17,10 +17,10 @@ origin.date: 02/09/2017
 ms.date: 03/28/2017
 ms.author: v-dazen
 ms.openlocfilehash: 6e777cb3b6a3272753256ead5a1c58f494b0d1ee
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>如何将数据磁盘附加到 Linux 虚拟机
 > [!IMPORTANT] 
@@ -90,7 +90,7 @@ ms.lasthandoff: 11/09/2017
     sudo fdisk /dev/sdc
     ```
 
-4. 出现提示时，键入 **n** 来创建分区。
+4. 出现提示时，请键入 **n** 创建分区。
 
     ![创建设备](./media/attach-disk/fdisknewpartition.png)
 
@@ -135,13 +135,13 @@ ms.lasthandoff: 11/09/2017
 
 11. 将新驱动器添加到 /etc/fstab：
 
-    要确保在重新引导后自动重新装载驱动器，必须将其添加到 /etc/fstab 文件。 此外，强烈建议在 /etc/fstab 中使用 UUID（全局唯一标识符）来引用驱动器而不是只使用设备名称（即 /dev/sdc1）。 如果 OS 在启动过程中检测到磁盘错误，使用 UUID 可以避免将错误的磁盘装载到给定位置，并为剩余的数据磁盘分配这些设备 ID。 若要查找新驱动器的 UUID，可以使用 **blkid** 实用程序：
+    要确保在重新引导后自动重新装载驱动器，必须将其添加到 /etc/fstab 文件。 此外，强烈建议在 /etc/fstab 中使用 UUID（全局唯一标识符）来引用驱动器而不是只使用设备名称（即 /dev/sdc1）。 如果 OS 在启动过程中检测到磁盘错误，使用 UUID 可以避免将错误的磁盘装载到给定位置，然后为剩余的数据磁盘分配这些设备 ID。 若要查找新驱动器的 UUID，可以使用 **blkid** 实用程序：
 
     ```bash
     sudo -i blkid
     ```
 
-    输出内容类似于下面的示例：
+    输出与以下示例类似：
 
     ```bash
     /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"

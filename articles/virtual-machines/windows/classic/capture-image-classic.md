@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 01/29/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1cedd328b216178fe8e6dde7309a0963d85a75b5
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: d50415c977f7d4bd2e4182ced97618dff8b072fc
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>捕获使用经典部署模型创建的 Azure Windows 虚拟机的映像。
+# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>捕获使用经典部署模型创建的 Azure Windows 虚拟机的映像
 > [!IMPORTANT]
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 对于 Resource Manager 模型信息，请参阅[捕获 Azure 中通用 VM 的托管映像](../capture-image-resource.md)。
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
@@ -58,7 +58,7 @@ Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure �
 
    ![运行 Sysprep](./media/capture-image/SysprepGeneral.png)
 5. Sysprep 将关闭虚拟机，这会在 Azure 门户中将虚拟机的状态更改为“已停止”。
-6. 在 Azure 门户中，单击“虚拟机(经典)”，然后选择要捕获的虚拟机。 查看“更多服务”时，“VM 映像(经典)”组在“计算”下列出。
+6. 在 Azure 门户中，单击“虚拟机(经典)”，然后选择要捕获的虚拟机。 查看“全部服务”时，“VM 映像(经典)”组在“计算”下列出。
 
 7. 在命令栏中，单击“捕获”。
 
@@ -75,7 +75,7 @@ Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure �
     ![成功捕获映像](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>后续步骤
-该映像已就绪，可用于创建虚拟机了。 为此，通过在服务菜单底部选择“更多服务”菜单项，并在“计算”组中选择“VM 映像(经典)”来创建虚拟机。 有关说明，请参阅[从映像创建虚拟机](createportal.md)。
+该映像已就绪，可用于创建虚拟机了。 为此，通过在服务菜单底部选择“全部服务”菜单项，并在“计算”组中选择“VM 映像(经典)”来创建虚拟机。 有关说明，请参阅[从映像创建虚拟机](createportal.md)。
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx
@@ -87,5 +87,4 @@ Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure �
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!-- Update_Description: update meta properties, rename the article -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties, wording update -->

@@ -9,7 +9,7 @@ F 系列基于 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器，该处理�
 Fs 系列具有 F 系列的所有优势（在高级存储的基础上）。
 
 <!-- Not Available ## Fsv2-series -->
-## <a name="fs-series"></a>Fs 系列*
+## <a name="fs-series-sup1sup"></a>Fs 系列 <sup>1</sup>
 
 ACU：210 - 250
 
@@ -24,7 +24,7 @@ ACU：210 - 250
 
 MBps = 每秒 10^6 字节，GiB = 1024^3 字节。
 
-*Fs 系列 VM 可能的最大磁盘吞吐量（IOPS 或 MBps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../articles/virtual-machines/windows/premium-storage.md)。
+<sup>1</sup> *Fs 系列 VM 可能的最大磁盘吞吐量（IOPS 或 MBps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../articles/virtual-machines/windows/premium-storage.md)。
 
 <br>
 
@@ -42,5 +42,5 @@ ACU：210 - 250
 <!-- Correct the F-Series Max Disk Count 4,8,16,32,64 -->
 
 <br>
-<!-- ms.date: 01/29/2018 -->
+<!-- ms.date: 03/19/2018 -->
 <!-- Update_Description: wording update -->

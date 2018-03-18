@@ -3,8 +3,8 @@ title: "为 Linux VM 设置 Azure Key Vault | Azure"
 description: "如何使用 CLI 2.0 设置用于 Azure Resource Manager 虚拟机的 Key Vault。"
 services: virtual-machines-linux
 documentationcenter: 
-author: singhkays
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-resource-manager
 ms.assetid: bccdd5ab-5ccf-4760-9039-92c6eafb15bd
@@ -14,31 +14,31 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 02/24/2017
-ms.date: 04/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: f9b23da19a353b609b0ff3ce2e9f87bb0d3a4b5d
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.date: 03/19/2018
+ms.author: v-yeche
+ms.openlocfilehash: f234479213f75c94a445545fd13ffd8e0512ee58
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli-20"></a>如何使用 Azure CLI 2.0 为虚拟机设置 Key Vault
 
-在 Azure Resource Manager 堆栈中，密码/证书被建模为 Key Vault 所提供的资源。 若要了解有关 Azure 密钥保管库的详细信息，请参阅[什么是 Azure 密钥保管库？](../../key-vault/key-vault-whatis.md) 为了让 Key Vault 能与 Azure 资源管理器 VM 搭配使用，必须将 Key Vault 上的 *EnabledForDeployment* 属性设置为 true。 本文说明如何通过 Azure CLI 2.0 设置用于 Azure 虚拟机 (VM) 的 Key Vault。 还可以使用 [Azure CLI 1.0](key-vault-setup-cli-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
+在 Azure Resource Manager 堆栈中，密码/证书被建模为 Key Vault 所提供的资源。 若要了解有关 Azure 密钥保管库的详细信息，请参阅[什么是 Azure 密钥保管库？](../../key-vault/key-vault-whatis.md) 为了让 Key Vault 能与 Azure 资源管理器 VM 搭配使用，必须将 Key Vault 上的 *EnabledForDeployment* 属性设置为 true。 本文说明如何通过 Azure CLI 2.0 设置用于 Azure 虚拟机 (VM) 的 Key Vault。 也可以使用 [Azure CLI 1.0](key-vault-setup-cli-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
 
-若要执行这些步骤，需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录到 Azure 帐户。
+若要执行这些步骤，需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="create-a-key-vault"></a>创建密钥保管库
-使用 [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#create) 创建密钥保管库并分配部署策略。 以下示例在 `myResourceGroup` 资源组中创建名为 `myKeyVault` 的密钥保管库：
+使用 [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_create) 创建密钥保管库并分配部署策略。 以下示例在 `myResourceGroup` 资源组中创建名为 `myKeyVault` 的密钥保管库：
 
 ```azurecli
 az keyvault create -l chinanorth -n myKeyVault -g myResourceGroup --enabled-for-deployment true
 ```
 
 ## <a name="update-a-key-vault-for-use-with-vms"></a>更新用于 VM 的 Key Vault
-使用 [az keyvault update](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#update) 在现有的密钥保管库上设置部署策略。 以下命令在 `myResourceGroup` 资源组中更新名为 `myKeyVault` 的密钥保管库：
+使用 [az keyvault update](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_update) 在现有的密钥保管库上设置部署策略。 以下命令在 `myResourceGroup` 资源组中更新名为 `myKeyVault` 的密钥保管库：
 
 ```azurecli
 az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForDeployment=true
@@ -66,3 +66,5 @@ az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForD
 
 >[!NOTE]
 > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
+
+<!-- Update_Description: update link, wording update -->

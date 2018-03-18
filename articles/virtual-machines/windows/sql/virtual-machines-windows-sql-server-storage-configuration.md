@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 12/05/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 468b0407bf041daa8c5833305d5748911a40dbcb
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 2443d3a449703d93fb3c76ceae2caae31cac4b80
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM 的存储配置
 在 Azure 中配置 SQL Server 虚拟机映像时，可以借助门户自动完成存储配置。 这包括将存储附加到 VM、使该存储可供 SQL Server 访问，并对其进行配置以根据特定的性能要求优化。

@@ -3,8 +3,8 @@ title: "Azure 中 SQL Server 的安全注意事项 | Azure"
 description: "本主题提供有关保护 Azure 虚拟机中运行的 SQL Server 的常规指南。"
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: 
 tags: azure-service-management
 ms.assetid: d710c296-e490-43e7-8ca9-8932586b71da
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/02/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
-ms.openlocfilehash: b403119a4f33e58ec6d433c7fe0c8175889ea749
-ms.sourcegitcommit: 51a25dbbf5f32fe524860b1bb107108122b47bf0
+ms.date: 03/19/2018
+ms.author: v-yeche
+ms.openlocfilehash: ed17cdb6e99136c0f46ac5681ac9a53c1679ffdd
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中 SQL Server 的安全注意事项
+# <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server 的安全注意事项
 
 本主题包括总体安全指南，可帮助建立对 Azure 虚拟机 (VM) 中 SQL Server 实例的安全访问。
 
@@ -100,3 +100,4 @@ SQL Server 侦听非默认端口时，必须在连接时指定该端口。 例�
 如果还对性能最佳做法感兴趣，请参阅 [Azure 虚拟机中 SQL Server 的性能最佳做法](virtual-machines-windows-sql-performance.md)。
 
 若要了解与在 Azure VM 中运行 SQL Server 相关的其他主题，请参阅 [Azure 虚拟机上的 SQL Server 概述](virtual-machines-windows-sql-server-iaas-overview.md)。
+<!-- Update_Description: wording update, update link -->

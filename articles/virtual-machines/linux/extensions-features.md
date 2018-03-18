@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/26/2017
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: fbff22d7b057d604621327491d156713e2116a64
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: d351ebc70093dcd6c5fa7a7d758801f68922a8d8
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>适用于 Linux 的虚拟机扩展和功能
 
-Azure 虚拟机扩展是小型应用程序，可在Azure 虚拟机上提供部署后配置和自动化任务。 例如，如果虚拟机要求安装软件、防病毒保护或进行 Docker 配置，便可以使用 VM 扩展来完成这些任务。 可以使用 Azure CLI、PowerShell、Azure Resource Manager 模板和 Azure 门户运行 Azure VM 扩展。 扩展可与新虚拟机部署捆绑在一起，或者针对任何现有系统运行。
+Azure 虚拟机扩展是小型应用程序，可在Azure 虚拟机上提供部署后配置和自动化任务。 例如，如果虚拟机要求安装软件、防病毒保护或 Docker 配置，便可以使用 VM 扩展来完成这些任务。 可以使用 Azure CLI、PowerShell、Azure Resource Manager 模板和 Azure 门户运行 Azure VM 扩展。 扩展可与新虚拟机部署捆绑在一起，或者针对任何现有系统运行。
 
 本文档提供 VM 扩展的概述、使用 Azure VM 扩展的先决条件，以及有关如何检测、管理和删除 VM 扩展的指南。 由于有许多 VM 扩展可用，每个扩展可能具有唯一的配置，因此本文档提供通用信息。 扩展特定的详细信息可在每个特定于单个扩展的文档中找到。
 
@@ -47,7 +47,7 @@ Azure 虚拟机扩展是小型应用程序，可在Azure 虚拟机上提供部�
 
 Azure VM 代理可管理 Azure 虚拟机与 Azure 结构控制器之间的交互。 VM 代理负责部署和管理 Azure 虚拟机的许多功能层面，包括运行 VM 扩展。 Azure VM 代理预先安装在 Azure 应用商店映像上，并可手动安装在支持的操作系统上。
 
-有关受支持的操作系统以及安装说明的信息，请参阅 [Azure virtual machine agent](../windows/classic/agents-and-extensions.md)（Azure 虚拟机代理）。
+有关受支持的操作系统以及安装说明的信息，请参阅 [Azure virtual machine agent](agent-user-guide.md)（Azure 虚拟机代理）。
 
 ## <a name="discover-vm-extensions"></a>发现 VM 扩展
 
@@ -134,7 +134,7 @@ VM 扩展可添加到 Azure Resource Manager 模板，并在部署模板的过�
 
 ## <a name="secure-vm-extension-data"></a>保护 VM 扩展数据
 
-运行 VM 扩展时，可能需要提供敏感信息，例如凭据、存储帐户名称和存储帐户访问密钥。 许多 VM 扩展包括用于对数据进行加密，并且仅在目标虚拟机内对数据进行解密的受保护配置。 每个扩展都有特定的受保护配置架构，会在特定于扩展的文档中详细介绍每个配置架构。
+运行 VM 扩展时，可能需要提供敏感信息，例如凭据、存储帐户名称和存储帐户访问密钥。 许多 VM 扩展包括受保护的配置，该配置对数据进行加密并且仅在目标虚拟机内才对数据进行解密。 每个扩展都有一个特定的受保护的配置架构，扩展特定的文档中详述了各个架构。
 
 以下示例演示了适用于 Linux 的自定义脚本扩展的实例。 请注意，要执行的命令包含一组凭据。 在此示例中，不会加密要执行的命令。
 
@@ -243,4 +243,4 @@ az vm extension delete --name customScript --resource-group myResourceGroup --vm
 | VM 访问扩展 |重新获取对 Azure 虚拟机的访问权限 |[VM 访问扩展](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure 诊断扩展 |管理 Azure 诊断 |[Azure 诊断扩展](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM 访问扩展 |管理用户和凭据 |[适用于 Linux 的 VM 访问扩展](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update link -->

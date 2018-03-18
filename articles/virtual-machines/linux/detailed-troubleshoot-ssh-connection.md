@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/13/2017
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 99439a302e98e40a5e5c1ec342c7fc394ed199f8
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: a890402977932bf0415e1b5e4c575f7d7baf9d69
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>对连接到 Azure 中 Linux VM 时出现的问题进行详细的 SSH 故障排除的步骤
 有许多可能的原因会导致 SSH 客户端无法访问 VM 上的 SSH 服务。 如果已经执行了较[常规的 SSH 故障排除步骤](troubleshoot-ssh-connection.md)，则需要进一步排查连接问题。 本文指导用户完成详细的故障排除步骤，以确定 SSH 连接失败的位置以及解决方法。
@@ -108,20 +108,20 @@ ms.lasthandoff: 02/13/2018
 
 若要将终结点从问题原因中排除，请删除当前终结点，创建另一个终结点，然后指定 SSH 名称（公共和专用端口号为 TCP 端口 22）。 有关详细信息，请参阅[在 Azure 中的虚拟机上设置终结点](../windows/classic/setup-endpoints.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
-<a id="nsg"></a>
+<a name="nsg"></a>
 
 ## <a name="source-4-network-security-groups"></a>来源 4：网络安全组
 通过使用网络安全组，可以对允许的入站和出站流量进行更精细的控制。 可以创建跨 Azure 虚拟网络中的子网和云服务的规则。 检查网络安全组规则，确保允许传入和传出 Internet 的 SSH 流量。
 有关详细信息，请参阅[关于网络安全组](../../virtual-network/virtual-networks-nsg.md)。
 
-<!-- Not Available on [Azure network monitoring overview](/network-watcher/network-watcher-monitoring-overview) -->
+还可使用 IP Verify 验证 NSG 配置。 有关详细信息，请参阅 [Azure network monitoring overview](/network-watcher/network-watcher-monitoring-overview)（Azure 网络监视概述）。 
 
 ## <a name="source-5-linux-based-azure-virtual-machine"></a>来源 5：基于 Linux 的 Azure 虚拟机
 最后一个可能出现问题的来源是 Azure 虚拟机本身。
 
 ![突出显示基于 Linux 的 Azure 虚拟机的图表](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-如果尚未这样做，请遵循[如何为基于 Linux 的虚拟机重置密码或 SSH](classic/reset-access.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) 中的说明。
+如果尚未这样做，请按照[为基于 Linux 的虚拟机重置密码](reset-password.md)中的说明进行操作。
 
 尝试从计算机重新建立连接。 如果仍然失败，则可能存在以下问题：
 
@@ -134,4 +134,4 @@ ms.lasthandoff: 02/13/2018
 ## <a name="additional-resources"></a>其他资源
 有关对应用程序访问进行故障排除的详细信息，请参阅 [Troubleshoot access to an application running on an Azure virtual machine](troubleshoot-app-connection.md)（对在 Azure 虚拟机上运行的应用程序的访问进行故障排除）
 
-<!--Update_Description: wording update, update meta properties -->
+<!--Update_Description: wording update, update link -->

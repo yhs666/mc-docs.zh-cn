@@ -17,11 +17,11 @@ ms.workload: database
 origin.date: 06/02/2017
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: e9a525d2c7ced4a9e966a15716477f92d75fd738
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: d597e113d25e96acc99b928fbf68677cdb006752
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-the-azure-cli"></a>使用 Azure CLI 重新生成 Azure Cosmos DB 帐户密钥
 
@@ -87,7 +87,7 @@ az group delete --name myResourceGroup
 |---|---|
 | [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
 | [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) | 更新 Azure Cosmos DB 帐户。 |
-| [az cosmosdb regenerate-key](https://docs.azure.cn/zh-cn/cli/cosmosdb/regenerate-key?view=azure-cli-latest) | 重新生成 Azure Cosmos DB 帐户密钥。 |
+| [az cosmosdb regenerate-key](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_regenerate_key) | 重新生成 Azure Cosmos DB 帐户密钥。 |
 | [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤

@@ -3,7 +3,7 @@ title: "使用 Azure CLI 2.0 上传自定义 Linux 磁盘 | Azure"
 description: "使用资源管理器部署模型和 Azure CLI 2.0 创建虚拟硬盘 (VHD) 并将其上传到 Azure"
 services: virtual-machines-linux
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 07/10/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 93f5ddd679b9456dfe5318f6ff91a54f4a064ed5
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 03/19/2018
+ms.author: v-yeche
+ms.openlocfilehash: 01ee4a1a16c7d1cd2c2a99c233c78f0b57e8dd40
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 上传自定义磁盘并从其创建 Linux VM
 本文说明如何使用 Azure CLI 2.0 将虚拟硬盘 (VHD) 上传到 Azure 存储帐户，并从此自定义磁盘创建 Linux VM。 也可以使用 [Azure CLI 1.0](upload-vhd-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。 此功能可让用户安装并配置 Linux 分发以满足用户的需求，并使用该 VHD 快速创建 Azure 虚拟机 (VM)。
@@ -30,39 +30,39 @@ ms.lasthandoff: 02/13/2018
 ## <a name="quick-commands"></a>快速命令
 如果需要快速完成任务，请参阅以下部分，其中详细说明了用于将 VHD 上传到 Azure 的基本命令。 本文档的余下部分（[从此处开始](#requirements)）提供了每个步骤的更详细信息和上下文。
 
-确保已安装了最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录到 Azure 帐户。
+确保已安装了最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 `myResourceGroup`、`mystorageaccount` 和 `mydisks`。
 
-首先，使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 创建资源组。 以下示例在 `WestUs` 位置创建一个名为 `myResourceGroup` 的资源组：
+首先，使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 创建资源组。 以下示例在 `chinanorth` 位置创建一个名为 `myResourceGroup` 的资源组：
 
 ```azurecli
 az group create --name myResourceGroup --location chinanorth
 ```
 
-使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#create) 创建一个用于存放虚拟磁盘的存储帐户。 以下示例创建名为 `mystorageaccount`的存储帐户：
+使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az_storage_account_create) 创建一个用于存放虚拟磁盘的存储帐户。 以下示例创建名为 `mystorageaccount`的存储帐户：
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location chinanorth \
   --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
-使用 [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#list)列出存储帐户的访问密钥。 记下 `key1`：
+使用 [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az_storage_account_keys_list)列出存储帐户的访问密钥。 记下 `key1`：
 
 ```azurecli
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
-通过 [az storage container create](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#create) 使用获取的存储密钥在存储帐户中创建一个容器。 以下示例使用 `key1` 中的存储密钥值创建名为 `mydisks` 的容器：
+通过 [az storage container create](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#az_storage_container_create) 使用获取的存储密钥在存储帐户中创建一个容器。 以下示例使用 `key1` 中的存储密钥值创建名为 `mydisks` 的容器：
 
 ```azurecli
 az storage container create --account-name mystorageaccount \
     --account-key key1 --name mydisks
 ```
 
-最后，使用 [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#upload) 将 VHD 上传到创建的容器。 在 `/path/to/disk/mydisk.vhd` 下指定 VHD 的本地路径：
+最后，使用 [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az_storage_blob_upload) 将 VHD 上传到创建的容器。 在 `/path/to/disk/mydisk.vhd` 下指定 VHD 的本地路径：
 
 ```azurecli
 az storage blob upload --account-name mystorageaccount \
@@ -70,7 +70,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 指定磁盘的 URI (`--image`)。 以下示例使用前面上传的虚拟磁盘创建名为 `myVM` 的 VM：
+使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 指定磁盘的 URI (`--image`)。 以下示例使用前面上传的虚拟磁盘创建名为 `myVM` 的 VM：
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location chinanorth \
@@ -98,11 +98,11 @@ az vm create --resource-group myResourceGroup --location chinanorth \
   * 创建存储帐户和容器，用于存放自定义磁盘以及所创建的 VM
   * 创建所有 VM 之后，可以安全地删除磁盘
 
-确保已安装了最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录到 Azure 帐户。
+确保已安装了最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录到 Azure 帐户。
 
 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 `myResourceGroup`、`mystorageaccount` 和 `mydisks`。
 
-<a id="prepimage"> </a>
+<a name="prepimage"></a>
 
 ## <a name="prepare-the-disk-to-be-uploaded"></a>准备要上传的磁盘
 Azure 支持各种 Linux 分发（请参阅[认可的分发](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)）。 以下文章指导用户准备 Azure 上支持的各种 Linux 分发版：
@@ -123,7 +123,7 @@ Azure 支持各种 Linux 分发（请参阅[认可的分发](endorsed-distros.md
 > 
 
 ## <a name="create-a-resource-group"></a>创建资源组
-资源组以逻辑方式将所有 Azure 资源（例如虚拟网络和存储）聚集在一起，以支持虚拟机。 有关资源组的详细信息，请参阅[资源组概述](../../azure-resource-manager/resource-group-overview.md)。 在上传自定义磁盘和创建 VM 之前，首先需要使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#createe) 创建一个资源组。
+资源组以逻辑方式将所有 Azure 资源（例如虚拟网络和存储）聚集在一起，以支持虚拟机。 有关资源组的详细信息，请参阅[资源组概述](../../azure-resource-manager/resource-group-overview.md)。 在上传自定义磁盘和创建 VM 之前，首先需要使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 创建一个资源组。
 
 以下示例在 `chinanorth` 位置创建一个名为 `myResourceGroup` 的资源组：
 
@@ -133,7 +133,7 @@ az group create --name myResourceGroup --location chinanorth
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
 
-可以使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#create)为自定义磁盘和 VM 创建存储帐户。 从自定义磁盘创建的、使用非托管磁盘的所有 VM 都必须位于该磁盘所在的同一存储帐户中。 
+可以使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az_storage_account_create)为自定义磁盘和 VM 创建存储帐户。 从自定义磁盘创建的、使用非托管磁盘的所有 VM 都必须位于该磁盘所在的同一存储帐户中。 
 
 以下示例在前面创建的资源组中创建名为 `mystorageaccount` 的存储帐户：
 
@@ -143,7 +143,7 @@ az storage account create --resource-group myResourceGroup --location chinanorth
 ```
 
 ## <a name="list-storage-account-keys"></a>列出存储帐户密钥
-Azure 为每个存储帐户生成两个 512 位的访问密钥。 在向存储帐户进行身份验证以执行操作（例如执行写入操作）时，会使用这些访问密钥。 从此处了解有关[管理对存储的访问](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)的详细信息。 可以使用 [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#list)查看访问密钥。
+Azure 为每个存储帐户生成两个 512 位的访问密钥。 在向存储帐户进行身份验证以执行操作（例如执行写入操作）时，会使用这些访问密钥。 从此处了解有关[管理对存储的访问](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)的详细信息。 可以使用 [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az_storage_account_keys_list)查看访问密钥。
 
 查看创建的存储帐户的访问密钥：
 
@@ -165,7 +165,7 @@ info:    storage account keys list command OK
 记下 `key1` ，因为你会在后续步骤中使用它与存储帐户进行交互。
 
 ## <a name="create-a-storage-container"></a>创建存储容器
-在存储帐户中创建用于整理磁盘的容器的方式，与创建各种目录以便有条理地整理本地文件系统的方式相同。 一个存储帐户可以包含任意数目的容器。 可以使用 [az storage container create](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#create) 创建容器。
+在存储帐户中创建用于整理磁盘的容器的方式，与创建各种目录以便有条理地整理本地文件系统的方式相同。 一个存储帐户可以包含任意数目的容器。 可以使用 [az storage container create](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#az_storage_container_create) 创建容器。
 
 以下示例创建一个名为 `mydisks` 的容器：
 
@@ -176,7 +176,7 @@ az storage container create \
 ```
 
 ## <a name="upload-vhd"></a>上传 VHD
-现在，使用 [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#upload)上传自定义磁盘。 可以页 Blob 的形式上传和存储自定义磁盘。
+现在，使用 [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az_storage_blob_upload)上传自定义磁盘。 可以页 Blob 的形式上传和存储自定义磁盘。
 
 指定访问密钥、在上一步中创建的容器，以及自定义磁盘在本地计算机上的路径：
 
@@ -187,9 +187,9 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## <a name="create-the-vm"></a>创建 VM
-若要使用非托管磁盘创建 VM，请使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 指定磁盘的 URI (`--image`)。 以下示例使用前面上传的虚拟磁盘创建名为 `myVM` 的 VM：
+若要使用非托管磁盘创建 VM，请使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 指定磁盘的 URI (`--image`)。 以下示例使用前面上传的虚拟磁盘创建名为 `myVM` 的 VM：
 
-在 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 中指定 `--image` 参数，指向自定义磁盘。 确保 `--storage-account` 与用于存储自定义磁盘的存储帐户匹配。 不需要使用与自定义磁盘相同的容器来存储 VM。 上传自定义磁盘之前，请确保使用前面步骤中所述的相同方式创建任何附加容器。
+在 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 中指定 `--image` 参数，指向自定义磁盘。 确保 `--storage-account` 与用于存储自定义磁盘的存储帐户匹配。 不需要使用与自定义磁盘相同的容器来存储 VM。 上传自定义磁盘之前，请确保使用前面步骤中所述的相同方式创建任何附加容器。
 
 以下示例从自定义磁盘创建名为 `myVM` 的 VM：
 
@@ -226,7 +226,7 @@ Azure Resource Manager 模板是一个 JavaScript 对象表示法 (JSON) 文件�
 
 可以使用[此现有模板从自定义映像创建 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)，或阅读有关[创建自己的 Azure Resource Manager 模板](../../azure-resource-manager/resource-group-authoring-templates.md)的信息。 
 
-配置模板之后，使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#create) 创建 VM。 使用 `--template-uri` 参数指定 JSON 模板的 URI：
+配置模板之后，使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az_group_deployment_create) 创建 VM。 使用 `--template-uri` 参数指定 JSON 模板的 URI：
 
 ```azurecli
 az group deployment create --resource-group myNewResourceGroup \
@@ -242,3 +242,4 @@ az group deployment create --resource-group myNewResourceGroup \
 
 ## <a name="next-steps"></a>后续步骤
 准备好并上传自定义虚拟磁盘之后，可以阅读有关[使用 Resource Manager 和模板](../../azure-resource-manager/resource-group-overview.md)的详细信息。 可能还需要向新 VM [添加数据磁盘](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 如果需要访问在 VM 上运行的应用程序，请务必[打开端口和终结点](nsg-quickstart.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+<!-- Update_Description: update link, wording update -->

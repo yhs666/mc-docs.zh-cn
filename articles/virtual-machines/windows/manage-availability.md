@@ -14,23 +14,23 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 12/06/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2fb4d2c3dd2f6f7b5c7d439d2b29b9dd5c338ccf
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 9b3de087a1fbbfa9ea014751ac556484a49f9684
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>在 Azure 中管理 Windows 虚拟机的可用性 
 
 了解如何设置和管理多个虚拟机，以确保 Windows 应用程序在 Azure 中的高可用性。 也可以[管理 Linux 虚拟机的可用性](../linux/manage-availability.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
-有关在使用经典部署模型时创建和使用可用性集的说明，请参阅[如何配置可用性集](classic/configure-availability.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
+有关在使用经典部署模型时创建和使用可用性集的说明，请参阅[如何配置可用性集](classic/configure-availability-classic.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
 [!INCLUDE [virtual-machines-common-manage-availability](../../../includes/virtual-machines-common-manage-availability.md)]
 
 ## <a name="next-steps"></a>后续步骤
 若要了解对虚拟机进行负载均衡的详细信息，请参阅[对虚拟机进行负载均衡](tutorial-load-balancer.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, update link -->

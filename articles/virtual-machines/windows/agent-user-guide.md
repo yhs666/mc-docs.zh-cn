@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 11/17/2016
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5ee5b3a78d81012483898daed3eb3aed86575640
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 34bc4ed8423dd4df7a5091ad4f03a2025b47e0c6
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure 虚拟机代理概述
 
-Azure 虚拟机代理（AM 代理）是受保护的轻型过程，用于管理 VM 与 Azure 结构控制器的交互。 VM 代理有一个主要角色，目的是启用和执行 Azure 虚拟机扩展。 VM 扩展可用于对虚拟机进行部署后配置，例如安装和配置软件。 虚拟机扩展还可启用恢复功能，例如重置虚拟机的管理密码。 没有 Azure VM 代理，虚拟机扩展无法运行。
+Azure 虚拟机代理（VM 代理）是受保护的轻型过程，用于管理 VM 与 Azure 结构控制器的交互。 VM 代理有一个主要角色，目的是启用和执行 Azure 虚拟机扩展。 VM 扩展可用于对虚拟机进行部署后配置，例如安装和配置软件。 虚拟机扩展还可启用恢复功能，例如重置虚拟机的管理密码。 没有 Azure VM 代理，虚拟机扩展无法运行。
 
 本文档详细介绍如何安装、检测和删除 Azure 虚拟机代理。
 
@@ -83,4 +83,4 @@ foreach ($vm in $vms) {
 ## <a name="upgrade-the-vm-agent"></a>升级 VM 代理
 
 适用于 Windows 的 Azure VM 代理会自动升级。 新虚拟机在部署到 Azure 后会获得最新 VM 代理。 应手动更新自定义 VM 映像，使之包括新的 VM 代理。
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

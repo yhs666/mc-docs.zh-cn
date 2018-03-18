@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/09/2017
-ms.date: 10/30/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 57402223474358cb9ba6d3634b8336ada7c718eb
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: fa6291e5bd65addfd7eceadca86fcd4b23b5ae20
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-snapshot"></a>创建快照
 
@@ -28,14 +28,14 @@ ms.lasthandoff: 10/27/2017
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>使用 Azure 门户创建快照 
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 首先在左上角单击“新建”并搜索“快照”。
+2. 首先在左上角单击“创建资源”并搜索“快照”。
 3. 在“快照”边栏选项卡中，单击“创建”。
 4. 输入快照的 **名称** 。
 5. 选择现有的[资源组](../../azure-resource-manager/resource-group-overview.md#resource-groups)，或键入新资源组的名称。 
 6. 选择 Azure 数据中心“位置”。  
 7. 对于**源磁盘**，选择要获取其快照的托管磁盘。
 8. 选择用于存储快照的“帐户类型”。 建议使用 **Standard_LRS**，除非需要将其存储在高性能磁盘上。
-9. 单击“创建” 。
+9. 单击“创建”。
 
 ## <a name="use-powershell-to-take-a-snapshot"></a>使用 PowerShell 创建快照
 以下步骤演示如何获取要复制的 VHD 磁盘，如何创建快照配置，以及如何使用 [New-AzureRmSnapshot](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet 创建磁盘的快照。 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/27/2017
 请确保安装了最新版本的 AzureRM.Compute PowerShell 模块。 运行以下命令来安装该模块。
 
 ```
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM.Compute -MinimumVersion 2.6.0
 ```
 有关详细信息，请参阅 [Azure PowerShell 版本控制](https://docs.microsoft.com/powershell/azure/overview)。
 
@@ -71,7 +71,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
     ```powershell
     New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
     ```
-如果计划使用快照创建托管磁盘并将其附加到需要高性能的 VM 上，请将参数 `-AccountType Premium_LRS` 用于 New-AzureRmSnapshot 命令。 该参数创建快照，使其作为高级托管磁盘进行存储。 高级托管磁盘比标准托管磁盘开销大。 因此，在使用该参数之前，请确保确实需要“高级”。
+如果计划使用快照创建托管磁盘并将其附加到需要高性能的 VM 上，请将参数 `-AccountType Premium_LRS` 用于 New-AzureRmSnapshot 命令。 该参数创建快照，使其作为高级托管磁盘进行存储。 高级托管磁盘比标准托管磁盘费用高。 因此，在使用该参数之前，请确保确实需要“高级”。
 
 ## <a name="next-steps"></a>后续步骤
 

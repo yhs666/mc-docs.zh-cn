@@ -19,6 +19,8 @@
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure 门户（经典）](vpn-gateway-howto-site-to-site-classic-portal.md)
 
+## [下载 VPN 设备配置脚本](vpn-gateway-download-vpndevicescript.md)
+
 ## 配置点到站点连接 - 本机 Azure 证书身份验证
 ### 配置 P2S VPN
 #### [Azure 门户](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -76,7 +78,7 @@
 ### [概述和 Azure 配置](vpn-gateway-3rdparty-device-config-overview.md)
 ### [示例：Cisco ASA 设备（IKEv2/无 BGP）](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## [从经典部署模型迁移到资源管理器部署模型](vpn-gateway-classic-resource-manager-migration.md)
-## 故障排除
+## [故障排除](vpn-gateway-troubleshoot.md)
 ### [验证 VNet 的 VPN 吞吐量](vpn-gateway-validate-throughput-to-vnet.md)
 ### [社区建议的 VPN 或防火墙设备设置](vpn-gateway-third-party-settings.md)
 ### [点到站点连接问题](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)

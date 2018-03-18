@@ -17,10 +17,10 @@ origin.date: 12/09/2016
 ms.date: 10/16/2017
 ms.author: v-yeche
 ms.openlocfilehash: 2732591030ab51f5957bcc1fd7199b393c73418a
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="creating-a-virtual-machine-for-a-web-application-with-visual-studio"></a>使用 Visual Studio 创建用于Web 应用程序的虚拟机
 

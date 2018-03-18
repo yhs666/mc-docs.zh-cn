@@ -42,7 +42,11 @@
 Azure 平台服务（包括 Web 和移动、数据服务、IoT，等等）都已解决了此漏洞。 使用这些服务的客户不需要执行任何操作。
 <!-- Not Available on serverless feature -->
 
+## <a name="intel-released-additional-guidance-on-january-22-2018-related-to-the-security-vulnerabilities--will-this-guidance-cause-any-additional-maintenance-activities-by-azure"></a>Intel 已于 2018 年 1 月 22 日发布有关安全漏洞的额外指南。  此指南是否要求 Azure 进行其他维护活动？  
+
+2018 年 1 月 3 日发布的 Azure 缓解不受 Intel [更新指南](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/)影响。 此指南不要求对客户 VM 进行额外维护活动。
+
 ## <a name="next-steps"></a>后续步骤
 
 若要了解详细信息，请参阅 [Securing Azure customers from CPU vulnerability](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/)（确保 Azure 客户免受 CPU 漏洞影响）。
-<!--ms.date: 01/29/2018 -->
+<!--ms.date: 03/19/2018 -->

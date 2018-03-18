@@ -18,10 +18,10 @@ ms.date: 04/27/2017
 ms.author: v-dazen
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ffe86406a630aadd76971791ad0e1aa27b8c307a
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="about-the-virtual-machine-agent-and-extensions-for-linux"></a>关于适用于 Linux 的虚拟机代理和扩展
 > [!IMPORTANT]

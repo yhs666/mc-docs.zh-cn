@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/24/2017
-ms.date: 11/27/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 30419fe34a251d20e8b770ba73625cd6add2c343
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 0e2b6c1c2fe45965b8777ac56e4a79ef195fd840
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="install-a-sql92iis92net-stack-in-azure"></a>在 Azure 中安装 SQL&#92;IIS&#92;.NET 堆栈
 
@@ -33,6 +33,10 @@ ms.lasthandoff: 02/13/2018
 > * 创建运行 SQL Server 的 VM
 > * 安装 SQL Server 扩展
 
+<!-- Not Avaiable on [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)] -->
+
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块版本 5.1.1 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+
 ## <a name="create-a-iis-vm"></a>创建 IIS VM 
 
 在此示例中，我们使用 [New-AzVM](https://www.powershellgallery.com/packages/AzureRM.Compute.Experiments) cmdlet 在 PowerShell Cloud Shell 中快速创建 Windows Server 2016 VM，然后安装 IIS 和 .NET Framework。 IIS 和 SQL VM 共享资源组和虚拟网络，因此我们创建这些名称的变量。
@@ -40,9 +44,10 @@ ms.lasthandoff: 02/13/2018
 单击代码块右上方的“试用”按钮，以便在此窗口中启动 Cloud Shell。 在命令提示符下将要求你提供虚拟机的凭据。
 
 ```azurepowershell-interactive
+$vmName = "IISVM$(Get-Random)"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
-New-AzVm -Name myIISVM -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
+New-AzureRMVm -Name $vmName -ResourceGroupName $resourceGroup -VirtualNetworkName $vNetName 
 ```
 
 使用自定义脚本扩展安装 IIS 和 .NET framework。
@@ -51,7 +56,7 @@ New-AzVm -Name myIISVM -ResourceGroupName $resourceGroup -VirtualNetworkName $vN
 
 Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -ExtensionName IIS `
-    -VMName myIISVM `
+    -VMName $vmName `
     -Publisher Microsoft.Compute `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
@@ -99,7 +104,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location chinaeast -VM $vmConfig
 ```
 
-使用 [Set-AzureRmVMSqlServerExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) 将 [SQL Server 扩展](./sql/virtual-machines-windows-sql-server-agent-extension.md)添加到 SQL VM。
+使用 [Set-AzureRmVMSqlServerExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) 将 [SQL Server 扩展](https://docs.microsoft.com/sql/virtual-machines-windows-sql-server-agent-extension.md)添加到 SQL VM。
 
 ```azurepowershell-interactive
 Set-AzureRmVMSqlServerExtension -ResourceGroupName $resourceGroup -VMName mySQLVM -name "SQLExtension"
@@ -119,3 +124,4 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName $resourceGroup -VMName mySQLV
 
 > [!div class="nextstepaction"]
 > [使用 SSL 证书保护 IIS Web 服务器](tutorial-secure-web-server.md)
+<!-- Update_Description: update meta properties, wording update -->

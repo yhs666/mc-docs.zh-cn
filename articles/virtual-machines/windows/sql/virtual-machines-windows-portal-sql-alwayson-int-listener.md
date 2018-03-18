@@ -3,8 +3,8 @@ title: "在 Azure 虚拟机中创建 SQL Server 可用性组侦听器 | Azure"
 description: "有关为 Azure 虚拟机中的 SQL Server AlwaysOn 可用性组创建侦听器的分步说明"
 services: virtual-machines
 documentationcenter: na
-author: MikeRayMSFT
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
@@ -12,25 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 05/01/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: dd7a225f5e374655cceaf09756e55e6aace25db1
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+origin.date: 02/16/2017
+ms.date: 03/19/2018
+ms.author: v-yeche
+ms.openlocfilehash: ca0d08de7dac16897dd67f721fd25aba945a8946
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>在 Azure 中为 Always On 可用性组配置负载均衡器
 本文说明如何在使用 Azure Resource Manager 运行的 Azure 虚拟机中为 SQL Server Always On 可用性组创建负载均衡器。 当 SQL Server 实例位于 Azure 虚拟机时，可用性组需要负载均衡器。 负载均衡器存储可用性组侦听器的 IP 地址。 如果可用性组跨多个区域，则每个区域都需要一个负载均衡器。
 
-若要完成此任务，需要在 Resource Manager 模型中的 Azure 虚拟机上部署 SQL Server 可用性组。 这两个 SQL Server 虚拟机必须属于同一个可用性集。 可以[手动配置可用性组](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)。
+若要完成此任务，需要在使用 Resource Manager 运行的 Azure 虚拟机上部署一个 SQL Server 可用性组。 这两个 SQL Server 虚拟机必须属于同一个可用性集。 可以使用 [Microsoft 模板](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)在 Resource Manager 中自动创建可用性组。 此模板会自动创建内部负载均衡器。 
+
+如果需要，可以[手动配置可用性组](virtual-machines-windows-portal-sql-availability-group-tutorial.md)。
 
 本文要求事先配置可用性组。  
 
 相关主题包括：
 
-* [在 Azure VM 中配置 AlwaysOn 可用性组（手动）](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [在 Azure VM (GUI) 中配置 Always On 可用性组](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [使用 Azure Resource Manager 和 PowerShell 配置 VNet 到 VNet 连接](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 执行本文中的每个步骤可以在 Azure 门户中创建和配置负载均衡器。 完成该过程后，将配置群集，以将负载均衡器中的 IP 地址用于可用性组侦听器。
@@ -63,7 +65,7 @@ ms.lasthandoff: 06/23/2017
 
    | 设置 | 值 |
    | --- | --- |
-   | **Name** |表示负载均衡器的文本名称。 例如 **sqlLB**。 |
+   | **名称** |表示负载均衡器的文本名称。 例如 **sqlLB**。 |
    | **类型** |**内部**：大多数实现使用内部负载均衡器，它允许同一虚拟网络中的应用程序连接到可用性组。  </br> **外部**：允许应用程序通过公共 Internet 连接连接到可用性组。 |
    | **虚拟网络** |选择 SQL Server 实例所在的虚拟网络。 |
    | **子网** |选择 SQL Server 实例所在的子网。 |
@@ -73,9 +75,9 @@ ms.lasthandoff: 06/23/2017
    | **资源组** |选择 SQL Server 实例所在的资源组。 |
    | **位置** |选择 SQL Server 实例所在的 Azure 位置。 |
 
-6. 单击“创建” 。 
+6. 单击“创建”。 
 
-Azure 将创建负载均衡器。 该负载均衡器属于特定的网络、子网、资源组和位置。 在 Azure 完成任务后，请在 Azure 中验证负载均衡器设置。 
+Azure 创建负载均衡器。 该负载均衡器属于特定的网络、子网、资源组和位置。 在 Azure 完成任务后，请在 Azure 中验证负载均衡器设置。 
 
 ### <a name="step-2-configure-the-back-end-pool"></a>步骤 2：配置后端池。
 Azure 将后端地址池称作“后端池”。 在本例中，后端池是可用性组中两个 SQL Server 实例的地址。 
@@ -109,7 +111,7 @@ Azure 将更新后端地址池的设置。 现在，可用性集有了一个池�
 
    | 设置 | 值 |
    | --- | --- |
-   | **Name** |表示探测的文本名称。 例如 **SQLAlwaysOnEndPointProbe**。 |
+   | **名称** |表示探测的文本名称。 例如 **SQLAlwaysOnEndPointProbe**。 |
    | **协议** |**TCP** |
    | **端口** |可以使用任何可用的端口。 例如 *59999*。 |
    | **时间间隔** |*5* |
@@ -135,7 +137,7 @@ Azure 创建探测，然后使用它来测试哪个 SQL Server 实例具有可�
 
    | 设置 | 值 |
    | --- | --- |
-   | **Name** |表示负载均衡规则的文本名称。 例如 **SQLAlwaysOnEndPointListener**。 |
+   | **名称** |表示负载均衡规则的文本名称。 例如 **SQLAlwaysOnEndPointListener**。 |
    | **协议** |**TCP** |
    | **端口** |*1433* |
    | **后端端口** |*1433*.将忽略此值，因为此规则使用“浮动 IP (直接服务器返回)”。 |
@@ -149,7 +151,7 @@ Azure 创建探测，然后使用它来测试哪个 SQL Server 实例具有可�
    > 
 
 4. 单击 **“确定”**。 
-5. Azure 将配置负载均衡规则。 负载均衡器现已配置为将流量路由到托管可用性组侦听器的 SQL Server 实例。 
+5. Azure 配置负载均衡规则。 负载均衡器现已配置为将流量路由到托管可用性组侦听器的 SQL Server 实例。 
 
 此时，资源组有一个连接到这两个 SQL Server 计算机的负载均衡器。 负载均衡器还包含 SQL Server AlwaysOn 可用性组侦听器的 IP 地址，以便任一计算机可以响应针对可用性组的请求。
 
@@ -159,7 +161,7 @@ Azure 创建探测，然后使用它来测试哪个 SQL Server 实例具有可�
 > 
 
 ## <a name="configure-the-cluster-to-use-the-load-balancer-ip-address"></a>将群集配置为使用负载均衡器 IP 地址
-下一步是在群集上配置侦听器，然后将侦听器联机。 请执行以下操作： 
+下一步是在群集上配置侦听器，并将侦听器联机。 请执行以下操作： 
 
 1. 在故障转移群集上创建可用性组侦听器。 
 
@@ -177,9 +179,9 @@ Azure 创建探测，然后使用它来测试哪个 SQL Server 实例具有可�
 1. 启动 SQL Server Management Studio，然后连接到主副本。
 
 2. 转到“AlwaysOn 高可用性” > “可用性组” > “可用性组侦听器”。  
-    你现在应看到在故障转移群集管理器中创建的侦听器名称。 
+    现在应看到在故障转移群集管理器中创建的侦听器名称。 
 
-3. 右键单击侦听器名称，然后单击“属性”。
+3. 右键单击侦听器名称，并单击“属性”。
 
 4. 在“端口”框中，通过使用先前使用过的 $EndpointPort 为可用性组侦听器指定端口号（默认值为 1433），然后单击“确定”。
 
@@ -194,7 +196,7 @@ Azure 创建探测，然后使用它来测试哪个 SQL Server 实例具有可�
 
         sqlcmd -S <listenerName> -E
 
-SQLCMD 连接将自动连接到托管主副本的 SQL Server 实例。 
+SQLCMD 连接会自动连接到托管主副本的 SQL Server 实例。 
 
 ## <a name="create-an-ip-address-for-an-additional-availability-group"></a>为其他可用性组创建一个 IP 地址
 
@@ -221,7 +223,7 @@ SQLCMD 连接将自动连接到托管主副本的 SQL Server 实例。
 
    |设置 |值
    |:-----|:----
-   |**Name** |用于标识探测的名称。
+   |**名称** |用于标识探测的名称。
    |**协议** |TCP
    |**端口** |一个未使用的 TCP 端口，必须在所有虚拟机上可用。 此端口不能用于任何其他用途。 两个侦听器不能使用相同的探测端口。 
    |**时间间隔** |探测尝试之间的时间长短。 使用默认值 (5)。
@@ -235,8 +237,8 @@ SQLCMD 连接将自动连接到托管主副本的 SQL Server 实例。
 
    |设置 |值
    |:-----|:----
-   |**Name** |用于标识负载均衡规则的名称。 
-   |**前端 IP 地址** |选择所创建的 IP 地址。 
+   |**名称** |用于标识负载均衡规则的名称。 
+   |“前端 IP 地址” |选择所创建的 IP 地址。 
    |**协议** |TCP
    |**端口** |使用 SQL Server 实例正在使用的端口。 在不更改的情况下，默认实例使用端口 1433。 
    |后端端口 |使用与“端口”相同的值。
@@ -269,6 +271,35 @@ SQLCMD 连接将自动连接到托管主副本的 SQL Server 实例。
 
 将可用性组配置为使用新 IP 地址时，请配置到侦听器的连接。 
 
+## <a name="add-load-balancing-rule-for-distributed-availability-group"></a>向分布式可用性组添加负载均衡规则
+
+如果分布式可用性组中使用了可用性组，则负载均衡器需应用其他规则。 此规则会存储分布式可用性组侦听器所用的端口。
+
+>[!IMPORTANT]
+>此步骤仅适用于[分布式可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups)中未涉及到任何可用性组的情况。 
+
+1. 在参与到分布式可用性组的每个服务器上，针对分布式可用性组侦听器 TCP 端口创建一个入站规则。 在很多示例中，文档都使用 5022。 
+
+1. 在 Azure 门户中，依次单击负载均衡器、“负载均衡规则”和“+添加”。 
+
+1. 通过以下设置创建负载均衡规则：
+
+   |设置 |值
+   |:-----|:----
+   |**名称** |用于定义分布式可用性组的负载均衡规则的名称。 
+   |**前端 IP 地址** |与可用性组使用相同的前端 IP 地址。
+   |**协议** |TCP
+   |**端口** |5022 - 用于 [分布式可用性组终结点侦听器](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups) 的端口。</br> 可为任何可用端口。  
+   |后端端口 | 5022 - 使用与“端口”相同的值。
+   |后端池 |包含具有 SQL Server 实例的虚拟机的池。 
+   |运行状况探测 |选择所创建的探测。
+   |**会话持久性** |无
+   |**空闲超时(分钟)** |默认值 (4)
+   |**浮动 IP (直接服务器返回)** | Enabled
+
+在参与到分布式可用性组的其他可用性组上，针对负载均衡器重复这些步骤。
+
 ## <a name="next-steps"></a>后续步骤
 
 - [在不同区域中的 Azure 虚拟机上创建 SQL Server AlwaysOn 可用性组](virtual-machines-windows-portal-sql-availability-group-dr.md)
+<!-- Update_Description: add content of load balancing rule for ditributed availability group -->

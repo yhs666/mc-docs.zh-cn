@@ -1,10 +1,10 @@
 ---
 title: "在 VNet 之间创建连接：经典：Azure 门户 | Microsoft Docs"
-description: "如何使用 PowerShell 和 Azure 门户将 Azure 虚拟网络连接到一起。"
+description: "使用 PowerShell 和 Azure 门户将 Azure 虚拟网络连接到一起。"
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cherylmc
+manager: jpconnock
 editor: 
 tags: azure-service-management
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/05/2017
-ms.date: 12/29/2017
+origin.date: 02/14/2018
+ms.date: 03/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 58b475bc6ac2888b1a334c0cc179b293318b5c7f
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: 4cd18114ff770e7847ac24bed6368eceb616d6a2
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>配置 VNet 到 VNet 连接（经典）
 
@@ -239,6 +239,11 @@ Azure 使用在每个本地网络站点中指定的设置来确定如何在 VNet
     Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
     ```
 
+    接下来，使用以下 cmdlet 将 Azure 订阅添加到经典部署模型的 PowerShell。
+
+    ```powershell
+    Add-AzureAccount -Environment AzureChinaCloud
+    ```
 3. 导出并查看网络配置文件。 在计算机上创建一个目录，并将网络配置文件导出到该目录。 在此示例中，网络配置文件导出到 **C:\AzureNet**。
 
     ```powershell

@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 11/15/2017
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8ce692e8a07bb69aa20f98a4c4e8c70dafc0b36b
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 76e55efbb2edddd3247de51f8afb7c42b437c623
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行自动联机备份和还原
 Azure Cosmos DB 可以定期自动备份所有数据。 自动备份不会影响数据库操作的性能或可用性。 所有备份单独存储在另一个存储服务中并在全球复制，针对区域性的灾难提供复原能力。 如果意外删除了 Cosmos DB 容器并且之后需要数据恢复或灾难恢复解决方案，那么自动备份将是合适的方案。  
@@ -32,22 +32,16 @@ Cosmos DB 旨在实现数据[全局分布](distribute-data-globally.md) - 它允
 
 如下图所示，单个 Cosmos DB 容器是[水平分区](partition-data.md)的。 下图中的一个圆圈表示一个“分区”，每个分区通过副本集实现高可用性。 这是单个 Azure 区域中的本地分布（以 X 轴表示）。 此外，每个分区（含有其相应的副本集）都将在与数据库帐户关联的多个区域中进行全球分布（例如，此图中的三个区域 - 中国东部、中国北部和印度中部）。 “分区集”是全局分布的实体，由数据在每个区域中的多个副本组成（以 Y 轴表示）。 可以向数据库帐户关联的区域分配优先级，发生灾难时，Cosmos DB 以透明方式故障转移到下一个区域。 还可以手动模拟故障转移，以测试应用程序的端到端可用性。  
 
-下图演示了 Cosmos DB 的高度冗余。
-
-![Cosmos DB 的高程度冗余性](./media/online-backup-and-restore/redundancy.png)
-
-![Cosmos DB 的高度冗余](./media/online-backup-and-restore/global-distribution.png)
+<!-- Not Available on the Demo -->
 
 ## <a name="full-automatic-online-backups"></a>完整的自动化联机备份
 糟糕，我删除了容器或数据库！ 使用 Cosmos DB，不仅仅是数据，还有数据备份都能获得高度冗余，可以弹性应对区域性的灾难。 目前，执行这些自动化备份的时间间隔约为 4 小时，并且始终会存储最新的 2 次备份。 如果数据意外删除或损坏，请在 8 小时内[联系 Azure 支持部门](https://www.azure.cn/support/contact/)。 
 
 这些备份不会影响数据库操作的性能或可用性。 Cosmos DB 在后台创建备份，不使用预配的 RU，不影响性能，也不影响数据库的可用性。 
 
-不同于存储在 Cosmos DB 中的数据，自动备份存储在 Azure Blob 存储服务中。 为了保证低延迟/高效上传，备份快照会上传到某个 Azure Blob 存储实例，该实例位于 Cosmos DB 数据库帐户当前写入区域所在的同一个区域。 此外，为了弹性应对区域性灾难，还会通过异地冗余存储 (GRS) 将 Azure Blob 存储中的每个备份数据快照复制到另一个区域。 下图显示整个 Cosmos DB 容器（在本示例中为中国北部的所有三个主分区）已在中国北部的远程 Azure Blob 存储帐户中备份，并通过 GRS 复制到中国东部。 
+不同于存储在 Cosmos DB 中的数据，自动备份存储在 Azure Blob 存储服务中。 为了保证低延迟/高效上传，备份快照会上传到某个 Azure Blob 存储实例，该实例位于 Cosmos DB 数据库帐户当前写入区域所在的同一个区域。 此外，为了弹性应对区域性灾难，还会通过异地冗余存储 (GRS) 将 Azure Blob 存储中的每个备份数据快照复制到另一个区域。 
 
-下图演示了 GRS Azure 存储中所有 Cosmos DB 实体的定期完整备份。
-
-![GRS Azure 存储中所有 Cosmos DB 实体的定期完整备份](./media/online-backup-and-restore/automatic-backup.png)
+<!-- Not Avaiable on the Demo -->
 
 ## <a name="backup-retention-period"></a>备份保留期
 如上所述，Azure Cosmos DB 在分区级别每四小时创建一次数据快照。 在任何给定时间，只保留最后两个快照。 但是，如果删除了集合/数据库，我们将保留给定集合/数据库中所有已删除分区的现有快照 30 天。

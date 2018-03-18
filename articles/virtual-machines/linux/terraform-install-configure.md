@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/23/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 596b1cdd7b42a251dffe088f827e8dd5653c360e
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: b2dc8a531aa40ade61e36566d140f59b21776571
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>安装和配置 Terraform 以在 Azure 中预配 VM 和其他基础结构
 
@@ -82,12 +82,13 @@ az vm list-sizes --location chinanorth
 
 ## <a name="configure-terraform-environment-variables"></a>配置 Terraform 环境变量
 
-配置 Terraform 以在创建 Azure 资源时，从服务主体使用租户 ID、订阅 ID、客户端 ID 和客户端密码。 设置以下环境变量，[Azure Terraform 模块](https://registry.terraform.io/modules/Azure)将自动使用该变量。
+配置 Terraform 以在创建 Azure 资源时，从服务主体使用租户 ID、订阅 ID、客户端 ID 和客户端密码。 如果使用的是 Azure 云而不是 Azure 公共域，则还可设置环境。 设置以下环境变量，[Azure Terraform 模块](https://registry.terraform.io/modules/Azure)将自动使用该变量。
 
 - ARM_SUBSCRIPTION_ID
 - ARM_CLIENT_ID
 - ARM_CLIENT_SECRET
 - ARM_TENANT_ID
+- ARM_ENVIRONMENT
 
 可以使用此示例 shell 脚本设置这些变量：
 
@@ -98,7 +99,11 @@ export ARM_SUBSCRIPTION_ID=your_subscription_id
 export ARM_CLIENT_ID=your_appId
 export ARM_CLIENT_SECRET=your_password
 export ARM_TENANT_ID=your_tenant_id
+
+# Not needed for public, required for usgovernment, german, china
+export ARM_ENVIRONMENT=china
 ```
+<!-- Notice: Configure the ARM_ENVIRONMENT=china -->
 
 ## <a name="run-a-sample-script"></a>运行示例脚本
 

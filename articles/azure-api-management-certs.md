@@ -1,10 +1,10 @@
 ---
-title: "上传 Azure Management API 证书 | Microsoft Docs"
-description: "了解如何为 Azure 门户上传 Management API 证书。"
+title: "上传 Azure Service Management 证书 | Microsoft Docs"
+description: "了解如何为 Azure 门户上传 Service Management 证书。"
 services: cloud-services
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
+author: Thraka
+manager: timlt
 editor: 
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: na
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/01/2017
-ms.date: 12/28/2017
+ms.date: 03/16/2018
 ms.author: v-junlch
-ms.openlocfilehash: 55e6385b8e61e3b966604a72c4af9099526a6a8a
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: b5bd2a9b7c1cf053c26defebc6ce4a39422789dc
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="upload-an-azure-management-api-management-certificate"></a>上传 Azure Management API 管理证书
-管理证书使你可以使用 Azure 提供的经典部署模型进行身份验证。 许多程序和工具（如 Visual Studio 或 Azure SDK）会使用这些证书来自动配置和部署各种 Azure 服务。 
+# <a name="upload-an-azure-service-management-certificate"></a>上传 Azure Service Management 证书
+管理证书允许使用 Azure 提供的经典部署模型进行身份验证。 许多程序和工具（如 Visual Studio 或 Azure SDK）会使用这些证书来自动配置和部署各种 Azure 服务。 
 
 > [!WARNING]
 > 请注意！ 这些类型的证书允许使用它们进行身份验证的任何人管理与其相关联的订阅。
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/28/2017
 
 若要深入了解 Azure 证书（包括创建自签名的证书）的详细信息，请参阅 [Azure 云服务的证书概述](cloud-services/cloud-services-certs-create.md#what-are-management-certificates)。
 
-还可以使用 [Azure Active Directory](/active-directory/) 对客户端代码进行身份验证，以用于自动化目的。
+还可以使用 [Azure Active Directory](https://www.azure.cn/home/features/active-directory/) 对客户端代码进行身份验证，以用于自动化目的。
 
 **注意：**必须是订阅的共同管理员，才能在“管理证书”下执行任何操作。 [了解](https://go.microsoft.com/fwlink/?linkid=849300)有关如何在新的 Azure 门户中添加或删除共同管理员 
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/28/2017
 创建管理证书后（仅使用公钥的 .cer 文件），可将其上传到门户。 当该证书在门户中可用时，任何拥有匹配证书（私钥）的人都可通过 Management API 连接并访问与订阅相关联的资源。
 
 1. 登录到 [Azure 门户](http://portal.azure.cn)。
-2. 在底部 Azure 服务列表中，单击“更多服务”，然后在“常规”服务组中选择“订阅”。
+2. 在底部的 Azure 服务列表中，单击“所有服务”，然后在“常规”服务组中选择“订阅”。
 
     ![“订阅”菜单](./media/azure-api-management-certs/subscriptions_menu.png)
 

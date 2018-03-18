@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/08/2017
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 089fa11adefa2de2e2a558b614206683b7a13d1f
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 9ebf1f8851830dbcc369649b5e4550b84522fd76
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>如何监视和更新 Azure 中的 Linux 虚拟机
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 02/13/2018
 
 ## <a name="create-vm"></a>创建 VM
 
-若要查看诊断和指标的状态，需要创建一个 VM。 首先，使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroupMonitor”的资源组。
+若要查看诊断和指标的状态，需要创建一个 VM。 首先，使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroupMonitor”的资源组。
 
 ```azurecli 
 az group create --name myResourceGroupMonitor --location chinaeast
@@ -64,7 +64,7 @@ az vm create \
 
 Linux VM 启动时，启动诊断扩展将捕获启动输出并将其存储在 Azure 存储中。 此数据可以用于排查 VM 启动问题。 使用 Azure CLI 创建 Linux VM 时，不会自动启用启动诊断。
 
-在启用启动诊断之前，需要创建一个存储帐户来存储启动日志。 存储帐户的名称必须全局唯一，介于 3 和 24 个字符之间，并且只能包含数字和小写字母。 使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#create) 命令创建存储帐户。 本示例使用一个随机字符串来创建唯一的存储帐户名称。 
+在启用启动诊断之前，需要创建一个存储帐户来存储启动日志。 存储帐户的名称必须全局唯一，介于 3 和 24 个字符之间，并且只能包含数字和小写字母。 使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az_storage_account_create) 命令创建存储帐户。 本示例使用一个随机字符串来创建唯一的存储帐户名称。 
 
 ```azurecli 
 storageacct=mydiagdata$RANDOM
@@ -93,13 +93,13 @@ az vm boot-diagnostics enable \
 
 ## <a name="view-boot-diagnostics"></a>查看启动诊断
 
-启用引导诊断后，每当停止再启动 VM 时，会将有关启动过程的信息写入日志文件。 本示例首先使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#deallocate) 命令解除分配 VM，如下所示：
+启用引导诊断后，每当停止再启动 VM 时，会将有关启动过程的信息写入日志文件。 本示例首先使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_deallocate) 命令解除分配 VM，如下所示：
 
 ```azurecli 
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
-现在，请使用 [az vm start](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#stop) 命令启动 VM，如下所示：
+现在，请使用 [az vm start](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_stop) 命令启动 VM，如下所示：
 
 ```azurecli 
 az vm start --resource-group myResourceGroupMonitor --name myVM
@@ -154,4 +154,4 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 > * 在 VM 上启用诊断扩展
 > * 基于诊断指标创建警报
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update link, wording update -->

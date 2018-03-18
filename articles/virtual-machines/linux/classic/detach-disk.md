@@ -17,10 +17,10 @@ origin.date: 02/09/2017
 ms.date: 03/28/2017
 ms.author: v-dazen
 ms.openlocfilehash: 0c6cbc2ffb4d21761b276e34d92a83d55edb735a
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-detach-a-disk-from-a-linux-virtual-machine"></a>如何从 Linux 虚拟机分离磁盘
 > [!IMPORTANT] 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: dfde75b0eeba0de2074365ee498d67a0fd10f0df
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: a710e8c860bf7ca84a8232ed685fc1cf547ea6cf
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>使用 Azure PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器
 以下步骤演示了如何使用 Azure PowerShell 命令将基础结构即服务 (IaaS) 资源从经典部署模型迁移到 Azure 资源管理器部署模型。
@@ -45,14 +45,14 @@ ms.lasthandoff: 12/15/2017
 > [!IMPORTANT]
 > 目前不支持通过应用程序网关从经典部署模型迁移到 Resource Manager 部署模型。 如果要迁移带应用程序网关的经典虚拟网络，请先删除该网关，然后运行准备操作来移动网络。 完成迁移后，在 Azure Resource Manager 中重新连接该网关。
 >
->无法自动迁移其他订阅中连接到 ExpressRoute 线路的 ExpressRoute 网关。 此类情况下，请删除 ExpressRoute 网关、迁移虚拟网络并重新创建网关。 有关详细信息，请参阅[将 ExpressRoute 线路和关联的虚拟网络从经典部署模型迁移到 Resource Manager 部署模型](../../expressroute/expressroute-migration-classic-resource-manager.md)。
+>无法自动迁移其他订阅中连接到 ExpressRoute 线路的 ExpressRoute 网关。 此类情况下，请删除 ExpressRoute 网关、迁移虚拟网络并重新创建网关。 有关详细信息，请参阅[将 ExpressRoute 线路和关联的虚拟网络从经典部署模型迁移到资源管理器部署模型](../../expressroute/expressroute-migration-classic-resource-manager.md)。
 >
 >
 
 ## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>步骤2：安装最新版本的 Azure PowerShell
 安装 Azure PowerShell 可以通过两个主要的选项：[PowerShell 库](https://www.powershellgallery.com/profiles/azure-sdk/)或 [Web 平台安装程序 (WebPI)](http://aka.ms/webpi-azps)。 WebPI 接收每月的更新。 PowerShell 库会持续接收更新。 本文基于 Azure PowerShell 2.1.0 版。
 
-如需安装说明，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
+如需安装说明，请参阅 [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)（如何安装和配置 Azure PowerShell）。
 
 <br>
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 12/15/2017
 若要执行此迁移，必须在 [Azure 门户](https://portal.azure.cn)中将你添加为订阅的协同管理员。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在“中心”菜单上，选择“订阅”。 如果看不到该选项，请先选择“更多服务”。
+2. 在“中心”菜单上，选择“订阅”。 如果看不到该选项，请选择“所有服务”。
 3. 查找相应订阅项，并查看“我的角色”字段。 对于协同管理员，该值应为“帐户管理员”。
 
 如果无法添加协同管理员，请联系订阅的服务管理员或协同管理员，将自己添加为协同管理员。   
@@ -80,7 +80,7 @@ ms.lasthandoff: 12/15/2017
     Get-AzureRMSubscription | Sort Name | Select Name
 ```
 
-设置当前会话的 Azure 订阅。 此示例将默认订阅名称设置为“我的 Azure 订阅”。 使用自己的订阅名称替换示例名称。
+设置当前会话的 Azure 订阅。 此示例将默认订阅名称设置为 **My Azure Subscription**。 将示例订阅名称替换成自己的名称。
 
 ```powershell
     Select-AzureRmSubscription -SubscriptionName "My Azure Subscription"
@@ -128,7 +128,7 @@ ms.lasthandoff: 12/15/2017
 <br>
 
 ## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>步骤 5：确保在当前部署或 VNET 的 Azure 区域中有足够的 Azure 资源管理器虚拟机 vCPU
-可以使用以下 PowerShell 命令检查 Azure 资源管理器中目前的 vCPU 数量。
+可以使用以下 PowerShell 命令检查 Azure 资源管理器中目前的 vCPU 数量。 若要了解有关 vCPU 配额的详细信息，请参阅[限制和 Azure 资源管理器](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)。
 
 此示例检查 **中国北部** 区域的可用性。 使用自己的区域名称替换示例名称。
 

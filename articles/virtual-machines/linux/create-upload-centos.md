@@ -3,8 +3,8 @@ title: "在 Azure 中创建和上传基于 CentOS 的 Linux VHD"
 description: "了解如何创建和上传包含基于 CentOS 的 Linux 操作系统的 Azure 虚拟硬盘 (VHD)。"
 services: virtual-machines-linux
 documentationcenter: 
-author: szarkos
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 0e518e92-e981-43f4-b12c-9cba1064c4bb
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/02/2017
-ms.date: 03/20/2017
-ms.author: v-dazen
-ms.openlocfilehash: 07b365bee225dd4adc86f1477cda648d9e1218a6
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 03/19/2018
+ms.author: v-yeche
+ms.openlocfilehash: c087d8ce49cbcbb266b67fd7ed76d6d6d4db01d9
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>为 Azure 准备基于 CentOS 的虚拟机
 * [为 Azure 准备 CentOS 6.x 虚拟机](#centos-6x)
@@ -332,4 +332,6 @@ ms.lasthandoff: 02/13/2018
 14. 在 Hyper-V 管理器中单击“操作”->“关闭”。 Linux VHD 现已准备好上传到 Azure。
 
 ## <a name="next-steps"></a>后续步骤
-现在，可以使用 CentOS Linux 虚拟硬盘在 Azure 中创建新的 Azure 虚拟机了。 如果这是第一次将 .vhd 文件上传到 Azure，请参阅[创建和上传包含 Linux 操作系统的虚拟硬盘](classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)中的步骤 2 和步骤 3。
+现在，可以使用 CentOS Linux 虚拟硬盘在 Azure 中创建新的 Azure 虚拟机了。 如果是首次将 .vhd 文件上传到 Azure，请参阅[从自定义磁盘创建 Linux VM](upload-vhd.md#option-1-upload-a-vhd)。
+
+<!-- Update_Description: wording update, update link -->

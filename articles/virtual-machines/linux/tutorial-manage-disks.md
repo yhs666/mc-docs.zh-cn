@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9b8662ce16929b0b39dbdc76fc2b2c71c0302ec9
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: a9929402ecc26788a2aa6a95185fddcbb6f7e51b
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>使用 Azure CLI 管理 Azure 磁盘
 
@@ -68,6 +68,7 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 | [常规用途](sizes-general.md) | A 和 D 系列 | 32 |
 | [计算优化](sizes-compute.md) | F 系列 | 32 |
 | [内存优化](../virtual-machines-windows-sizes-memory.md) | D 系列 | 64 |
+<!-- Not Available on L, N, A and H series-->
 
 ## <a name="vm-disk-types"></a>VM 磁盘类型
 
@@ -104,7 +105,7 @@ Azure 提供两种类型的磁盘。
 az group create --name myResourceGroupDisk --location chinaeast
 ```
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 命令创建 VM。 `--datadisk-sizes-gb` 参数用于指定应创建并附加到虚拟机的附加磁盘。 若要创建并附加多个磁盘，请使用空格分隔的磁盘大小值列表。 在以下示例中，创建的 VM 具有两个均为 128 GB 的数据磁盘。 因为磁盘大小为 128 GB，所以这两个磁盘都配置为 P10，每个磁盘最多提供 500 IOPS。
+使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 命令创建 VM。 `--datadisk-sizes-gb` 参数用于指定应创建并附加到虚拟机的附加磁盘。 若要创建并附加多个磁盘，请使用空格分隔的磁盘大小值列表。 在以下示例中，创建的 VM 具有两个均为 128 GB 的数据磁盘。 因为磁盘大小为 128 GB，所以这两个磁盘都配置为 P10，每个磁盘最多提供 500 IOPS。
 
 ```azurecli 
 az vm create \
@@ -118,7 +119,7 @@ az vm create \
 
 ### <a name="attach-disk-to-existing-vm"></a>将磁盘附加到现有 VM
 
-若要创建新磁盘并将其附加到现有虚拟机，请使用 [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#attach) 命令。 以下示例创建大小为 128 GB 的高级磁盘，并将其附加到上一步创建的 VM 中。
+若要创建新磁盘并将其附加到现有虚拟机，请使用 [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az_vm_disk_attach) 命令。 以下示例创建大小为 128 GB 的高级磁盘，并将其附加到上一步创建的 VM 中。
 
 ```azurecli 
 az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
@@ -203,13 +204,13 @@ exit
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
-此外，必须解除分配 VM。 使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#deallocate) 命令停止和解除分配 VM。
+此外，必须解除分配 VM。 使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_deallocate) 命令停止和解除分配 VM。
 
 ```azurecli 
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
-使用 [az disk update](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#update) 命令调整磁盘大小。 本示例将名为“myDataDisk”的磁盘的大小调整为 1 TB。
+使用 [az disk update](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az_vm_disk_update) 命令调整磁盘大小。 本示例将名为“myDataDisk”的磁盘的大小调整为 1 TB。
 
 ```azurecli 
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
@@ -297,4 +298,4 @@ az vm disk attach -g myResourceGroupDisk --vm-name myVM --disk $datadisk
 > [!div class="nextstepaction"]
 > [自动配置 VM](./tutorial-automate-vm-deployment.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update link, wording update -->

@@ -3,8 +3,8 @@ title: "SQL Server 可用性组 - Azure 虚拟机 - 概述 | Azure"
 description: "本文介绍 Azure 虚拟机上的 SQL Server 可用性组。"
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 editor: monicar
 tags: azure-service-management
 ms.assetid: 601eebb1-fc2c-4f5b-9c05-0e6ffd0e5334
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/13/2017
-ms.date: 03/20/2017
-ms.author: v-dazen
-ms.openlocfilehash: 9234cfbfdb700fb16ae38fa53a6af32a857ab71b
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 03/19/2018
+ms.author: v-yeche
+ms.openlocfilehash: c57e8543f9a21557276db4c744fc2709f12daada
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Azure 虚拟机上的 SQL Server AlwaysOn 可用性组简介 #
 
@@ -34,11 +34,11 @@ Azure 虚拟机上的 AlwaysOn 可用性组类似于本地的 AlwaysOn 可用性
 
 Azure 虚拟机中可用性组的主要区别是 Azure 虚拟机需要[负载均衡器](../../../load-balancer/load-balancer-overview.md)。 负载均衡器保存可用性组侦听器的 IP 地址。 如果有多个可用性组，则每个组都需要一个侦听器。 一个负载均衡器可以支持多个侦听器。
 
-若要准备在 Azure 虚拟机上生成 SQL Server 可用性组，请参阅这些教程。
+准备好在 Azure 虚拟机上生成 SQL Server 可用性组时，请参阅这些教程。
 
-## <a name="manually-create-an-availability-group"></a>手动创建可用性组
+## <a name="automatically-create-an-availability-group-from-a-template"></a>从模板自动创建可用性组
 
-[在 Azure VM 中手动配置 Always On 可用性组 — Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
+[在 Azure VM 中自动配置 Always On 可用性组 - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 
 ## <a name="manually-create-an-availability-group-in-azure-portal"></a>在 Azure 门户中手动创建可用性组
 
@@ -51,3 +51,4 @@ Azure 虚拟机中可用性组的主要区别是 Azure 虚拟机需要[负载均
 ## <a name="next-steps"></a>后续步骤
 
 [在不同区域中的 Azure 虚拟机上配置 SQL Server Always On 可用性组](virtual-machines-windows-portal-sql-availability-group-dr.md)。
+<!-- Update_Description: wording update, update link -->

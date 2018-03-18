@@ -17,10 +17,10 @@ origin.date: 05/08/2017
 ms.date: 01/08/2018
 ms.author: v-yeche
 ms.openlocfilehash: 713b6731459757818f6909a8fcda05447a1779c8
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>创建 FreeBSD VHD 并将其上传到 Azure
 本文说明如何创建和上传包含 FreeBSD 操作系统的虚拟硬盘 (VHD)。 将其上传后，可以使用它作为自己的映像在 Azure 中创建虚拟机 (VM)。

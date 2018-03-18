@@ -17,10 +17,10 @@ origin.date: 08/29/2016
 ms.date: 01/08/2018
 ms.author: v-yeche
 ms.openlocfilehash: 044663623db2f19b0dfa3a568957d268743b5375
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>从 Azure 命令行接口 (Azure CLI) 使用 Docker VM 扩展
 > [!IMPORTANT] 

@@ -1,5 +1,5 @@
 ## <a name="overview"></a>概述
-在资源组中通过从 [Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/) 部署映像来创建新的虚拟机 (VM) 时，默认的 OS 驱动器通常为 127 GB（默认情况下，某些映像的 OS 磁盘大小更小）。 尽管用户可以将数据磁盘添加到 VM（数量取决于所选择的 SKU），并且我们建议将应用程序和需要大量 CPU 的工作负荷安装在这些附加的磁盘上，但客户有时候还是必须扩展 OS 驱动器以支持特定的方案，例如：
+在资源组中通过从 [Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/) 部署映像来创建新的虚拟机 (VM) 时，默认的 OS 驱动器通常为 127 GB（默认情况下，某些映像的 OS 磁盘大小更小）。 尽管可以将数据磁盘添加到 VM（数量取决于所选择的 SKU），并且我们建议将应用程序和需要大量 CPU 的工作负荷安装在这些附加的磁盘上，但客户有时候还是需要扩展 OS 驱动器以支持特定的方案，例如：
 
 1. 支持将组件安装在 OS 驱动器上的传统应用程序。
 2. 从本地迁移具有较大 OS 驱动器的物理电脑或虚拟机。
@@ -8,6 +8,9 @@
 > Azure 具有用于创建和处理资源的两个不同的部署模型：Resource Manager 和经典。 本文介绍如何使用 Resource Manager 模型。 Azure 建议大多数新部署使用 Resource Manager 模型。
 > 
 > 
+> [!WARNING]
+> 调整 Azure 虚拟机的 OS 磁盘大小会导致其重启。
+>
 
 ## <a name="resize-the-os-drive"></a>调整 OS 驱动器的大小
 本文将使用 [Azure Powershell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)的 Resource Manager 模块，完成调整 OS 驱动器大小的任务。 我们将演示如何为非托管磁盘和托管磁盘调整 OS 驱动器大小，因为调整磁盘大小的方法因这两种磁盘类型而异。
@@ -119,7 +122,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 托管磁盘：
 
 ```Powershell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud -EnvironmentName AzureChinaCloud
+Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
@@ -156,6 +159,4 @@ $disk.DiskSizeGB = 1023
 ```
 
 如果想要了解如何将磁盘附加到 Azure Resource Manager VM，请参阅[此文](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-
-<!--Update_Description: wording update, update cmdlet-->
-<!--ms.date: 01/29/2018-->
+<!--ms.date: 03/19/2018-->

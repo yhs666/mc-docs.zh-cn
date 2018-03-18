@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4e7f460cebb50def91708ace23bc28763ec3f358
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 21b6e3d8dcadfa39518b34b422c233e86ae3669a
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM 上的 Ruby on Rails Web 应用程序
 本教程介绍如何在 Azure 中使用 Linux 虚拟机托管 Ruby on Rails 网站。  
@@ -39,7 +39,7 @@ ms.lasthandoff: 01/25/2018
 
 ### <a name="azure-portal"></a>Azure 门户
 1. 登录到 [Azure 门户](https://portal.azure.cn)
-2. 单击“新建”，再在搜索框中键入“Ubuntu Server 14.04”。 单击搜索返回的条目。 对于部署模型，选择“经典”，再单击“创建”。
+2. 单击“创建资源”，再在搜索框中键入“Ubuntu Server 14.04”。 单击搜索返回的条目。 对于部署模型，选择“经典”，再单击“创建”。
 3. 在“基本信息”边栏选项卡中，输入以下必填字段的值：“名称”（用于 VM）、“用户名”、“身份验证类型”和相应凭据、“Azure 订阅”、“资源组”和“位置”。
 
    ![创建新的 Ubuntu 映像](./media/virtual-machines-linux-classic-ruby-rails-web-app/createvm.png)
@@ -129,7 +129,7 @@ ms.lasthandoff: 01/25/2018
     ![默认 rails 页面][default-rails-cloud]
 
 ## <a name="next-steps"></a>后续步骤
-在本教程中，手动执行大多数步骤。 在生产环境中，可在开发计算机上编写应用，并将其部署到 Azure VM。 此外，大多数生产环境都结合其他服务器进程（如 Apache 或 NginX）来托管 Rails 应用程序，这些进程会处理路由到多个 Rails 应用程序实例的请求并提供静态资源。 有关详细信息，请参阅 http://rubyonrails.org/deploy/。
+在本教程中，手动执行大多数步骤。 在生产环境中，可在开发计算机上编写应用，并将其部署到 Azure VM。 此外，大多数生产环境都结合其他服务器进程（如 Apache 或 NginX）托管 Rails 应用程序，这些进程处理路由到多个 Rails 应用程序实例的请求并提供静态资源。 有关详细信息，请参阅 http://rubyonrails.org/deploy/。
 
 若要详细了解 Ruby on Rails，请参阅 [Ruby on Rails 指南][rails-guides]。
 
@@ -143,7 +143,7 @@ ms.lasthandoff: 01/25/2018
 [blobs]:../../../storage/blobs/storage-ruby-how-to-use-blob-storage.md
 [cdn-howto]:/develop/ruby/app-services/
 [tables]:../../../cosmos-db/table-storage-how-to-use-ruby.md
-[vm-instructions]:createportal.md
+[vm-instructions]:createportal-classic.md
 
 <!-- External Links -->
 [rails-guides]:http://guides.rubyonrails.org/
@@ -157,5 +157,4 @@ ms.lasthandoff: 01/25/2018
 [new-endpoint]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
 [new-endpoint1]:./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
 
-<!-- Update_Description: new articles on network watcher -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties, update link -->

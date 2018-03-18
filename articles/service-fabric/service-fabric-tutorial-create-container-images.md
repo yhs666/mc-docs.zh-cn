@@ -18,10 +18,10 @@ ms.date: 02/26/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 83acc6e0fb3fcb329fc9c8e350751a2d995d1a4b
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>创建 Service Fabric 的容器映像
 

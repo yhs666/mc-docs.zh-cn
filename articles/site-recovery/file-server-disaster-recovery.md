@@ -13,11 +13,11 @@ origin.date: 02/06/2018
 ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0fe0712b52e6fbf8b9c7dcd09eb8cf73eb2390d2
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 8726d695ddddba3c16c0e3a3111fe79cbc929250
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>使用 Azure Site Recovery 保护文件服务器 
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 03/02/2018
 
     如果 VM 包含不受 Azure Site Recovery 支持的配置（例如，经常在文件服务器环境中使用的共享群集磁盘），我们建议采用此方法。  DFSR 也很适合在变动率中等的低带宽环境中工作。 使用此方法时，还需要考虑到一直保持运行某个 Azure VM 所产生的附加成本。  
 
-3.  使用 Azure 文件同步服务复制文件：如果准备将旅程迁移到云中，或者已在使用 Azure VM，则我们建议使用 Azure 文件同步服务，它针对云中可通过行业标准[服务器消息块](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (SMB) 协议访问的完全托管文件共享提供同步。 然后，Azure 文件共享可由云或者 Windows、Linux 和 macOS 的本地部署同时装载。 
+<!-- Not Available on File Sync service to replicate your files -->
 
 下图中的图示旨在帮助决定要对文件服务器环境使用哪种策略。
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 03/02/2018
 |---------|---------|---------|
 |带有/不带 DFSR 的文件服务器环境|   [使用 Azure Site Recovery 进行复制](#replicate-an-onpremises-file-server-using-azure-site-recovery)   |    Site Recovery 不支持共享磁盘群集和 NAS。 如果环境使用上述任何配置，请相应地使用其他任何方法。 <br> Azure Site Recovery 不支持 SMB 3.0，这意味着，仅当已在文件原始位置更新了对文件所做的更改时，复制的 VM 才会合并更改。
 |带有 DFSR 的文件服务器环境     |  [将 DFSR 扩展到 Azure IaaS 虚拟机：](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |     DFSR 可在带宽严重不足的环境中正常工作，但是，此方法要求一直保持运行某个 Azure VM。 需要在规划中考虑该 VM 的成本。         |
-|Azure Iaas VM     |     [Azure 文件同步](#use-azure-file-sync-service-to-replicate-your-files)   |     在灾难恢复方案中，如果使用 Azure 文件同步，则在故障转移期间，需要采取手动操作来确保可在客户端计算机上以透明方式访问文件共享。 AFS 要求在客户端计算机上开放端口 445。     |
+<!-- 不可用于 | Azure Iaas VM     |     [Azure 文件同步](#use-azure-file-sync-service-to-replicate-your-files)   |     在灾难恢复方案中，如果使用 Azure 文件同步，则在故障转移期间，需要采取手动操作来确保可在客户端计算机上以透明方式访问文件共享。 AFS 要求在客户端计算机上开放端口 445。     | -->
 <!-- URL should be replicate-an-onpremises-file-server without servers  -->
 
 ### <a name="site-recovery-support"></a>Site Recovery 支持
@@ -84,11 +84,11 @@ ms.lasthandoff: 03/02/2018
 
 若要配置和管理托管在 Azure IaaS VM 上的文件服务器的灾难恢复，可以根据是否要转移到 [Azure 文件](/storage/files/storage-files-introduction)，在两个选项之间做出选择。
 
-1. [使用 Azure 文件同步](#use-azure-file-sync-service-to-replicate-files-hosted-on-iaas-virtual-machine)
-2. [使用 Azure Site Recovery](#replicate-an-iaas-file-server-virtual-machine-using-azure-site-recovery)
+<!-- Not Available on 1. [Use Azure File Sync](#use-azure-file-sync-service-to-replicate-files-hosted-on-iaas-virtual-machine) -->
+1. [使用 Azure Site Recovery](#replicate-an-iaas-file-server-virtual-machine-using-azure-site-recovery)
 
-<a name="use-azure-file-sync-service-to-replicate-your-files"></a>
-## <a name="use-azure-file-sync-service-to-replicate-files-hosted-on-iaas-virtual-machine"></a>使用 Azure 文件同步服务复制托管在 IaaS 虚拟机上的文件
+
+<!-- Not Available on ## Use Azure File Sync service to replicate files hosted on IaaS virtual machine -->
 
 可以使用 **Azure 文件**来完全取代或补充传统的本地文件服务器或 NAS 设备。 此外，可以使用 Azure 文件同步将 Azure 文件共享复制到本地或云中的 Windows Server，在使用位置对数据进行高性能的分布式缓存。 以下步骤详细说明了其功能与传统文件服务器相同的 Azure VM 的灾难恢复建议：
 1.  遵循[此处](azure-to-azure-quickstart.md)所述的步骤使用 Azure Site Recovery 保护计算机。
@@ -135,24 +135,7 @@ ms.lasthandoff: 03/02/2018
 5.  [实现 DFS 命名空间](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces)。
 6.  实现 DFS 命名空间后，可以通过更新 DFS 命名空间文件夹目标，将共享文件夹从生产环境故障转移到灾难恢复站点。  通过 Active Directory 复制这些 DFS 命名空间更改后，用户会以透明方式连接到相应的文件夹目标。
 
-## <a name="use-azure-file-sync-service-to-replicate-your-on-premises-files"></a>使用 Azure 文件同步服务复制本地文件：
-使用 Azure 文件同步服务可将所需的文件复制到云中，以便在发生灾难和本地文件服务器不可用时，可以从云中装载所需的文件位置，并继续为来自客户端计算机的请求提供服务。
-将 Azure 文件同步与 Azure Site Recovery 中集成的建议方法如下
-1.  遵循[此处](tutorial-vmware-to-azure.md)所述的步骤使用 Azure Site Recovery 保护文件服务器计算机。
-2.  使用 Azure 文件同步，将充当文件服务器的计算机中的文件复制到云中。
-3.  使用 Azure Site Recovery 的恢复计划功能来添加脚本，以便在 Azure 中已故障转移的文件服务器 VM 上装载 Azure 文件共享。
-
-以下步骤详细说明了 Azure 文件同步服务的用法：
-
-1. [在 Azure 中创建存储帐户](/storage/common/storage-create-storage-account?toc=%2fstorage%2ffiles%2ftoc.json)。 如果为存储帐户选择了读取访问异地冗余存储 (RA-GRS)（建议），则发生灾难时，可以从次要区域对数据进行读取访问。 请参阅 [Azure 文件共享灾难恢复策略](/storage/common/storage-disaster-recovery-guidance?toc=%2fstorage%2ffiles%2ftoc.json)了解更多信息。
-2. [创建文件共享](/storage/files/storage-how-to-create-file-share)。
-3. 在本地文件服务器中[部署 Azure 文件同步](/storage/files/storage-sync-files-deployment-guide)。
-4. 创建同步组：同步组中的终结点保持彼此同步。 同步组中必须包含至少一个云终结点和一个服务器终结点，前者表示 Azure 文件共享，后者表示本地 Windows Server 上的路径。
-5. 现在，文件会在 Azure 文件共享和本地服务器中保持同步。
-6.  当本地环境中发生灾难时，可使用[恢复计划](site-recovery-create-recovery-plans.md)执行故障转移，并添加脚本来装载 Azure 文件共享和访问虚拟机中的共享。
-
-> [!NOTE]
-> 确保端口 445 已打开：Azure 文件使用 SMB 协议。 SMB 通过 TCP 端口 445 通信 - 请查看防火墙是否未阻止 TCP 端口 445 与客户端计算机通信。
+<!-- Not Available on ## Use Azure File Sync service to replicate your on-premises files: -->
 
 ## <a name="doing-a-test-failover"></a>执行测试故障转移
 

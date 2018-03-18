@@ -6,18 +6,18 @@ author: rockboyfor
 ms.author: v-yeche
 manager: digimobile
 origin.date: 10/25/2017
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.topic: hero-article
 tags: azure-service-management
 ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 9b4e81379fdede1542bee882b71f3bf05527491a
-ms.sourcegitcommit: 2c6591b24e8ccb1c1b9a56738049b99f5785b833
+ms.openlocfilehash: b8ddbfedb871c0f1c78ec99486ce9c3252ead967
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>在 Azure 门户中预配 Linux SQL Server 虚拟机
 
@@ -38,14 +38,14 @@ ms.lasthandoff: 02/24/2018
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-<a id="create"></a>
+<a name="create"></a>
 ## <a name="create-a-linux-vm-with-sql-server-installed"></a>创建安装了 SQL Server 的 Linux VM
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-1. 在左窗格中，单击“新建”。
+1. 在左窗格中单击“创建资源”。
 
-1. 在“新建”窗格中，单击“计算”。
+1. 在“创建资源”窗格中单击“计算”。
 
 1. 单击“特色”标题旁边的“全部查看”。
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 02/24/2018
 
 1. 在“摘要”页中，单击“购买”以创建 VM。
 
-<a id="connect"></a>
+<a name="connect"></a>
 ## <a name="connect-to-the-linux-vm"></a>连接到 Linux VM
 
 如果已使用 BASH shell，请通过 ssh 命令连接到 Azure VM。 在以下命令中，替换连接到 Linux VM 所需的 VM 用户名和 IP 地址。
@@ -113,7 +113,7 @@ ssh azureadmin@40.55.55.555
 
 若要详细了解如何连接到 Linux VM，请参阅[使用门户在 Azure 上创建 Linux VM](/virtual-machines/virtual-machines-linux-quick-create-portal#ssh-to-the-vm)。
 
-<a id="password"></a>
+<a name="password"></a>
 ## <a name="change-the-sa-password"></a>更改 SA 密码
 
 新的虚拟机使用随机 SA 密码安装 SQL Server。 必须先重置该密码，然后才能使用 SA 登录名连接到 SQL Server。
@@ -146,7 +146,7 @@ ssh azureadmin@40.55.55.555
    echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
    source ~/.bashrc
    ```
-<a id="remote"></a>
+<a name="remote"></a>
 ## <a name="configure-for-remote-connections"></a>针对远程连接进行配置
 
 如果需要远程连接到 Azure VM 上的 SQL Server，必须在网络安全组上配置入站规则。 该规则允许 SQL Server 所侦听的端口（默认为 1433）上的流量。 以下步骤演示如何使用此步骤所对应的 Azure 门户。 
@@ -166,7 +166,7 @@ ssh azureadmin@40.55.55.555
 1. 单击“确定”保存 VM 的规则。
 
 ### <a name="open-the-firewall-on-ubuntu"></a>打开 Ubuntu 上的防火墙
-<!-- Replace RHEL to Ubuntu -->
+<!-- Replace RHEL to Ubuntu due to the Azure China only support Ubuntu image currently -->
 
 本教程介绍如何创建 Ubuntu VM。 若要远程连接到 Ubuntu VM，则还需在 Linux 防火墙上打开端口 1433。
 <!-- Replace RHEL to Ubuntu -->
@@ -182,7 +182,7 @@ ssh azureadmin@40.55.55.555
     sudo ufw reload
     sudo ufw status
     ```
-<!-- Replace the RHEL to Ubuntu -->
+<!-- Replace the shell command to replace RHEL with Ubuntu -->
 
 
 ## <a name="next-steps"></a>后续步骤
@@ -192,4 +192,4 @@ ssh azureadmin@40.55.55.555
 如果已将 Azure VM 配置为进行远程 SQL Server 连接，则还应能够进行远程连接。 若要通过示例来了解如何从 Windows 远程连接到 Linux 上的 SQL Server，请参阅[使用 Windows 上的 SSMS 连接到 Linux 上的 SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-ssms)。 若要通过 Visual Studio Code 进行连接，请参阅[使用 Visual Studio Code 创建和运行 SQL Server 的 Transact-SQL 脚本](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode)
 
 有关 Linux 上的 SQL Server 的更多常规信息，请参阅 [Linux 上的 SQL Server 2017 概述](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)。 若要详细了解如何使用 SQL Server 2017 Linux 虚拟机，请参阅 [Azure 上的 SQL Server 2017 虚拟机概述](sql-server-linux-virtual-machines-overview.md)。
-<!-- Update_Description: new article about provision sql server on linux virtual machine -->
+<!-- Update_Description: update meta propreties, wording update -->

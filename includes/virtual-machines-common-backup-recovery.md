@@ -2,7 +2,7 @@
 
 若要备份运行生产工作负荷的 Azure VM，请使用 Azure 备份。 Azure 备份对 Windows 和 Linux VM 均支持应用程序一致性备份。 Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复保管库中。 从恢复点还原时，可以还原整个 VM，也可以仅还原特定的文件。 
 
-有关适用于 Azure VM 的 Azure 备份动手实践简介，请参阅适用于 [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) 或 [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md) 的“备份 Windows 虚拟机教程”
+有关适用于 Azure VM 的 Azure 备份动手实践简介，请参阅适用于 [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) 或 [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md) 的“备份 Azure 虚拟机”教程。
 
 有关 Azure 备份工作原理的详细信息，请参阅[在 Azure 中计划 VM 备份基础结构](../articles/backup/backup-azure-vms-introduction.md)
 
@@ -25,5 +25,4 @@
 
 ## <a name="next-steps"></a>后续步骤
 可以按照适用于 [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) 或 [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md) 的“备份 Windows 虚拟机教程”试用 Azure 备份。
-<!--Update_Description: new articles on common backup and recovery for VM -->
-<!--ms.date: 10/16/2017 -->
+<!--ms.date: 03/09/2018 -->

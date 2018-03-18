@@ -1,10 +1,10 @@
 ---
 title: "使用点到站点和本机 Azure 证书身份验证将计算机连接到 Azure 虚拟网络：PowerShell | Microsoft Docs"
-description: "通过使用 VPN 网关本机 Azure 证书身份验证创建点到站点 VPN 网关连接，安全地将计算机连接到虚拟网络。 本文适用于 Resource Manager 部署模型并使用 PowerShell。"
+description: "使用 P2S 和自签名证书或 CA 颁发的证书将 Windows 和 Mac OS X 客户端安全地连接到 Azure 虚拟网络。 本文使用 PowerShell。"
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cherylmc
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 3eddadf6-2e96-48c4-87c6-52a146faeec6
@@ -13,56 +13,35 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/04/2017
-ms.date: 12/29/2017
+origin.date: 02/12/2018
+ms.date: 03/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 39d362ea9700df375bfd475626e66823ba932f9f
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: 12a02089e7e3a4c85ad925a2ccde97aeae1ebb71
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点连接：PowerShell
 
-本文介绍如何在 Resource Manager 部署模型中使用 PowerShell 通过点到站点连接来创建 VNet。 此配置使用证书进行身份验证。 在此配置中，由 Azure VPN 网关而非 RADIUS 服务器执行证书验证。 也可使用不同的部署工具或部署模型创建此配置，方法是从以下列表中选择另一选项：
+本文介绍如何将运行 Windows 或 Mac OS X 的单个客户端安全地连接到 Azure VNet。 若要从远程位置连接到 VNet，例如从家里或会议室进行远程通信，则可使用点到站点 VPN。 如果只有一些客户端需要连接到 VNet，也可使用 P2S VPN 来代替站点到站点 VPN。 点到站点连接不需要 VPN 设备或面向公众的 IP 地址。 P2S 基于 SSTP（安全套接字隧道协议）或 IKEv2 创建 VPN 连接。 有关点到站点 VPN 的详细信息，请参阅[关于点到站点 VPN](point-to-site-about.md)。
 
-> [!div class="op_single_selector"]
-> * [Azure 门户](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Azure 门户（经典）](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
->
->
+![将计算机连接到 Azure VNet - 点到站点连接示意图](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
-点到站点 (P2S) VPN 网关用于创建从单个客户端计算机到虚拟网络的安全连接。 若要从远程位置连接到 VNet，例如从家里或会议室进行远程通信，则可使用点到站点 VPN。 如果只有一些客户端需要连接到 VNet，则可使用 P2S VPN 这种解决方案来代替站点到站点 VPN。 P2S VPN 连接是从 Windows 和 Mac 设备启动的。 
 
-连接方客户端可以使用以下身份验证方法：
+## <a name="architecture"></a>体系结构
 
-- RADIUS 服务器
-- VPN 网关本机 Azure 证书身份验证
-
-本文可用来帮助使用本机 Azure 证书身份验证配置采用身份验证的 P2S 配置。 如果希望使用 RADIUS 对进行连接的用户进行身份验证，请参阅[使用 RADIUS 身份验证的 P2S](point-to-site-how-to-radius-ps.md)。
-
-![将计算机连接到 Azure VNet - 点到站点连接示意图](./media/vpn-gateway-howto-point-to-site-rm-ps/p2snativeps.png)
-
-点到站点连接不需要 VPN 设备或面向公众的 IP 地址。 P2S 基于 SSTP（安全套接字隧道协议）或 IKEv2 创建 VPN 连接。
-
-- SSTP 是基于 SSL 的 VPN 隧道，仅在 Windows 客户端平台上受支持。 它可以穿透防火墙，这使得它成为一个可用来从任何位置连接到 Azure 的理想选项。 服务器端支持 SSTP 1.0、1.1 和 1.2 版。 客户端决定要使用的版本。 对于 Windows 8.1 及更高版本，SSTP 默认使用 1.2。
-
-- IKEv2 VPN，这是一种基于标准的 IPsec VPN 解决方案。 IKEv2 VPN 可用于从 Mac 设备进行连接（OSX 10.11 和更高版本）。
-
-点到站点本机 Azure 证书身份验证连接需要以下项：
+点到站点本机 Azure 证书身份验证连接使用可在此练习中配置的以下项目：
 
 - RouteBased VPN 网关。
 - 适用于根证书的公钥（.cer 文件），已上传到 Azure。 上传证书以后，该证书将被视为受信任的证书，用于身份验证。
-- 从根证书生成的客户端证书，安装在每个要连接到 VNet 的客户端计算机上。 此证书用于客户端身份验证。
+- 从根证书生成的客户端证书。 安装在要连接到 VNet 的每个客户端计算机上的客户端证书。 此证书用于客户端身份验证。
 - VPN 客户端配置。 VPN 客户端配置文件包含客户端连接到 VNet 时所需的信息。 这些文件对操作系统自带的现有 VPN 客户端进行配置。 必须使用配置文件中的设置对进行连接的每个客户端进行配置。
-
-有关点到站点连接的详细信息，请参阅[关于点到站点连接](point-to-site-about.md)。
 
 ## <a name="before-you-begin"></a>准备阶段
 
 - 确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-- 安装最新版本的资源管理器 PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
+- 安装最新版本的资源管理器 PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 这很重要，因为早期版本的 cmdlet 不包含本练习所需的最新值。
 
 ### <a name="example"></a>示例值
 
@@ -168,8 +147,8 @@ ms.lasthandoff: 01/04/2018
 为 VNet 配置和创建虚拟网络网关。
 
 - -GatewayType 必须是 **Vpn**，-VpnType 必须是 **RouteBased**。
-- -VpnClientProtocol 用来指定要启用的隧道的类型。 两个隧道选项是 **SSTP** 和 **IKEv2**。 可以选择启用其中之一或启用两者。 如果要启用两者，请同时指定两个名称，以逗号分隔。 Android 和 Linux 上的 Strongswan 客户端以及 iOS 和 OSX 上的本机 IKEv2 VPN 客户端仅会使用 IKEv2 隧道进行连接。 Windows 客户端会首先尝试 IKEv2，如果不能连接，则会回退到 SSTP。
-- VPN 网关可能需要长达 45 分钟的时间才能完成，具体取决于所选[网关 SKU](vpn-gateway-about-vpn-gateway-settings.md)。 本示例使用 IKEv2（目前以预览版提供）。
+- -VpnClientProtocol 用来指定要启用的隧道的类型。 两个隧道选项是 **SSTP** 和 **IKEv2**。 可以选择启用其中之一或启用两者。 如果要启用两者，请同时指定两个名称，以逗号分隔。 Android 和 Linux 上的 strongSwan 客户端以及 iOS 和 OSX 上的本机 IKEv2 VPN 客户端仅会使用 IKEv2 隧道进行连接。 Windows 客户端会首先尝试 IKEv2，如果不能连接，则会回退到 SSTP。
+- VPN 网关可能需要长达 45 分钟的时间才能完成，具体取决于所选[网关 SKU](vpn-gateway-about-vpn-gateway-settings.md)。 本示例使用 IKEv2。
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
@@ -239,6 +218,11 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 ## <a name="connect"></a>9.连接到 Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>从 Windows VPN 客户端进行连接
+
+>[!NOTE]
+>在要从其进行连接的 Windows 客户端计算机上，你必须拥有管理员权限。
+>
+>
 
 1. 若要连接到 VNet，请在客户端计算机上导航到 VPN 连接，找到创建的 VPN 连接。 其名称与虚拟网络的名称相同。 单击“连接” 。 可能会出现与使用证书相关的弹出消息。 单击“继续”使用提升的权限。 
 2. 在“连接”状态页上，单击“连接”以启动连接。 如果看到“选择证书”屏幕，请确保所显示的客户端证书是要用来连接的证书。 如果不是，请使用下拉箭头选择正确的证书，并单击“确定”。
@@ -432,5 +416,7 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 
 ## <a name="next-steps"></a>后续步骤
 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](/#pivot=services&panel=Compute)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/linux/azure-vm-network-overview.md)。
+
+有关 P2S 故障排除信息，请参阅[故障排除：Azure 点到站点连接问题](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。
 
 <!--Update_Description: wording update-->

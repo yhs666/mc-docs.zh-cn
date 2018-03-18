@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/18/2017
-ms.date: 01/23/2018
+ms.date: 03/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 721896599a9200274f9d470ca79b3eaea4e2fac5
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 0eb06e30a12a04c9ce45b9c6f40c5b52774a912d
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>关于用于站点到站点 VPN 网关连接的 VPN 设备和 IPsec/IKE 参数
 
@@ -57,7 +57,8 @@ ms.lasthandoff: 01/23/2018
 | 检查点 |安全网关 |R77.30 |[配置指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[配置指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[配置示例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[配置指南*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |PolicyBased：IOS 15.1<br>RouteBased：IOS 15.2 |[配置示例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[配置示例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| Cisco |ISR |PolicyBased：IOS 15.0<br>RouteBased*：IOS 15.1 |[配置示例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[配置示例**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |ISR |PolicyBased：IOS 15.0<br>RouteBased*：IOS 15.1 |[配置示例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[配置示例\*\*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |Meraki |不适用 |不兼容 |不兼容 |
 | Citrix |NetScaler MPX、SDX、VPX |10.1 及以上 |[配置指南](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |不兼容 |
 | F5 |BIG-IP 系列 |12.0 |[配置指南](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[配置指南](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 |  |[配置指南](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
@@ -104,8 +105,8 @@ ms.lasthandoff: 01/23/2018
 | &lt;SP_AzureNetworkSubnetMask&gt; |指定子网掩码。 示例：255.255.0.0 |
 | &lt;SP_OnPremisesNetworkIpRange&gt; |指定本地范围。 示例：10.2.1.0 |
 | &lt;SP_OnPremisesNetworkSubnetMask&gt; |指定本地子网掩码。 示例：255.255.255.0 |
-| &lt;SP_AzureGatewayIpAddress&gt; |此信息特定于你的虚拟网络，并且用作**网关 IP 地址**。 |
-| &lt;SP_PresharedKey&gt; |此信息特定于你的虚拟网络，并且用作管理密钥。 |
+| &lt;SP_AzureGatewayIpAddress&gt; |此信息特定于虚拟网络，位于管理门户的“网关 IP 地址”中。 |
+| &lt;SP_PresharedKey&gt; |此信息特定于虚拟网络，位于管理门户的“管理密钥”中。 |
 
 ## <a name="ipsec"></a>IPsec/IKE 参数
 

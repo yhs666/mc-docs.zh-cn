@@ -11,9 +11,9 @@
 
 • 对于Windows VM — [Microsoft 服务器软件对 Azure 虚拟机的支持](http://go.microsoft.com/fwlink/p/?LinkId=393550)
 
-• 对于 Linux VM — [Azure 认可的分发中的 Linux](/virtual-machines/linux/endorsed-distros)
+• Linux VM -- [Azure 认可发行版中的 Linux](/virtual-machines/linux/endorsed-distros)
 
-对于 Windows 客户端映像，某些版本的 Windows 7 和 Windows 8.1 可供 MSDN Azure 权益订户及 MSDN 开发订户用于开发和测试任务。
+对于 Windows 客户端映像，某些版本的 Windows 7 和 Windows 8.1 可供 MSDN Azure 权益订户及 MSDN 开发和测试即用即付订户，用于开发和测试任务。
 <!-- Not Available on Mooncake [Windows Client images for MSDN subscribers](https://azure.microsoft.com/blog//2014/05/29/windows-client-images-on-azure/)-->
 
 ## <a name="why-are-affinity-groups-being-deprecated"></a>为什么要弃用地缘组？
@@ -31,7 +31,7 @@ Azure 存储帐户可为操作系统磁盘和任何数据磁盘提供存储空�
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>可以使用哪些虚拟硬盘类型？
 Azure 只支持固定的 VHD 格式的虚拟硬盘。 若要在 Azure 中使用 VHDX，需先使用 Hyper-V 管理器或 [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet 对其进行转换。 然后，使用 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet（在“服务管理”模式下）将 VHD 上传到 Azure 的存储帐户，用于虚拟机。
 
-* 有关 Linux 说明，请参阅[创建并上传包含 Linux 操作系统的虚拟硬盘](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)。
+* 有关 Linux 说明，请参阅[创建并上传包含 Linux 操作系统的虚拟硬盘](../articles/virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)。
 * 有关 Windows 说明，请参阅[创建 Windows Server VHD 并将其上传到 Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
 ## <a name="are-these-virtual-machines-the-same-as-hyper-v-virtual-machines"></a>这些虚拟机是否与 Hyper-V 虚拟机相同？
@@ -126,4 +126,5 @@ Azure 根据 VM 的大小和操作系统按小时进行收费。 对于不足一
 [使用 Azure CLI 创建和管理 Linux VM](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [使用 Azure PowerShell 创建和管理 Windows VM](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update link -->
+<!--ms.date: 03/19/2018 -->

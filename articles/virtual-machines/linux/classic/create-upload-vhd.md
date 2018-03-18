@@ -17,10 +17,10 @@ origin.date: 11/28/2016
 ms.date: 09/04/2016
 ms.author: v-haiqya
 ms.openlocfilehash: d05993d5a554b68ccae2583cd9a9ee066a2b6b74
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>创建并上传包含 Linux 操作系统的虚拟硬盘
 > [!IMPORTANT] 

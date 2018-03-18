@@ -17,10 +17,10 @@ origin.date: 07/12/2016
 ms.date: 12/18/2017
 ms.author: v-yeche
 ms.openlocfilehash: 1dd68d459679b7ad05a66d39fe1ee07172571761
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-configure-an-availability-set-for-linux-virtual-machines-in-the-classic-deployment-model"></a>如何在经典部署模型中为 Linux 虚拟机配置可用性集
 > [!IMPORTANT] 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/11/2017
-ms.date: 01/25/2018
+ms.date: 03/16/2018
 ms.author: v-junlch
-ms.openlocfilehash: 167c417aaecd91b49ebcbc1f4f4b8aef58ac1b1f
-ms.sourcegitcommit: 2c6591b24e8ccb1c1b9a56738049b99f5785b833
+ms.openlocfilehash: 8ecb544daf49e136172e27e913ce9e371620946b
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将进行扩展和更新，以涵盖更多平台。
@@ -66,6 +66,7 @@ ms.lasthandoff: 02/24/2018
 - [监视](#monitor-limits)
 - [多重身份验证](#multi-factor-authentication)
 - [联网](#networking-limits)
+- [网络观察程序](#network-watcher-limits)
 - [通知中心服务](#notification-hub-service-limits)
 - [资源组](#resource-group-limits)
 - [计划程序](#scheduler-limits)
@@ -246,3 +247,4 @@ Azure Cosmos DB 是全局缩放数据库，可对吞吐量和存储进行缩放�
 
 [云服务的大小](cloud-services/cloud-services-sizes-specs.md)
 
+<!--Update_Description: wording update -->

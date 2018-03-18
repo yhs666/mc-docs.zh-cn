@@ -3,8 +3,8 @@ title: "使用 SMB 在 Linux VM 上装载 Azure 文件存储 | Azure"
 description: "如何通过 Azure CLI 2.0 使用 SMB 在 Linux VM 上装载 Azure 文件存储"
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: vlivech
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/13/2017
-ms.date: 04/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 3f5cb9b4d3da7fa7051ececce060f473fee2c7fa
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.date: 03/19/2018
+ms.author: v-yeche
+ms.openlocfilehash: ffd131e9ae7b69c070499109549e83abf34eb48f
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>使用 SMB 在 Linux VM 上装载 Azure 文件存储
 
-本文说明如何通过 Azure CLI 2.0 使用 SMB 装载利用 Linux VM 上的 Azure 文件存储服务。 Azure 文件存储使用标准 SMB 协议在云中提供文件共享。 还可以使用 [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。 要求如下：
+本文说明如何通过 Azure CLI 2.0 使用 SMB 装载利用 Linux VM 上的 Azure 文件存储服务。 Azure 文件存储使用标准 SMB 协议在云中提供文件共享。 也可以使用 [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。 要求如下：
 
 - [一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)
 - [SSH 公钥和私钥文件](mac-create-ssh-keys.md)
@@ -70,7 +70,7 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 创建资源组，以便保存文件共享。
+1. 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 创建资源组，以便保存文件共享。
 
     若要在“中国北部”位置创建名为 `myResourceGroup` 的资源组，请使用以下示例：
 
@@ -78,7 +78,7 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
     az group create --name myResourceGroup --location chinanorth
     ```
 
-2. 使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#create) 创建 Azure 存储帐户，用于存储实际文件。
+2. 使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az_storage_account_create) 创建 Azure 存储帐户，用于存储实际文件。
 
     若要通过 Standard_LRS 存储 SKU 创建名为 mystorageaccount 的存储帐户，请使用以下示例：
 
@@ -93,7 +93,7 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 
     创建存储帐户时，帐户密钥是成对创建的，这样是为了不中断任何服务就可轮换密钥。 轮换到密钥对中的第二个密钥后，创建新的密钥对。 新的存储帐户密钥始终成对创建，可确保始终至少有一个未使用的存储帐户密钥可以轮换到。
 
-    使用 [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#list) 查看存储帐户密钥。 名为 `mystorageaccount` 的存储帐户的密钥列在以下示例中：
+    使用 [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az_storage_account_keys_list) 查看存储帐户密钥。 名为 `mystorageaccount` 的存储帐户的密钥列在以下示例中：
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -110,7 +110,7 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 
 4. 创建文件存储共享。
 
-    使用 [az storage share create](https://docs.azure.cn/zh-cn/cli/storage/share?view=azure-cli-latest#create) 创建的文件存储共享包含 SMB 共享。 配额始终以千兆字节 (GB) 表示。 从前面的 `az storage account keys list` 命令传入其中一个密钥。 使用以下示例创建名为 mystorageshare 的共享，配额为 10 GB：
+    使用 [az storage share create](https://docs.azure.cn/zh-cn/cli/storage/share?view=azure-cli-latest#az_storage_share_create) 创建的文件存储共享包含 SMB 共享。 配额始终以千兆字节 (GB) 表示。 从前面的 `az storage account keys list` 命令传入其中一个密钥。 使用以下示例创建名为 mystorageshare 的共享，配额为 10 GB：
 
     ```azurecli
     az storage share create --name mystorageshare \
@@ -121,7 +121,7 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 
 5. 创建一个装入点目录。
 
-    在 Linux 文件系统中创建将 SMB 共享装载到其中的本地目录。 写入到本地装载目录或从本地装载目录读取的任何内容都会转发到文件存储上托管的 SMB 共享。 若要在 /mnt/mymountdirectory 中创建本地目录，请使用以下示例：
+    在 Linux 文件系统中创建将 SMB 共享装载到其中的本地目录。 写入到本地装载目录或从本地装载目录读取的任何内容都将转发到文件存储上托管的 SMB 共享。 若要在 /mnt/mymountdirectory 中创建本地目录，请使用以下示例：
 
     ```bash
     sudo mkdir -p /mnt/mymountdirectory
@@ -140,7 +140,7 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
     重新启动 Linux VM 后，已装载的 SMB 共享会在关闭过程中卸载。 若要在启动时重新装载 SMB 共享，请向 Linux /etc/fstab 添加一行。 Linux 使用 fstab 文件列出在启动过程中需要装载的文件系统。 添加 SMB 共享可确保文件存储共享是 Linux VM 的永久装载文件系统。 使用 cloud-init 可以将文件存储 SMB 共享添加到新的 VM。
 
     ```bash
-    //myaccountname.file.core.chinacloudapi.cn/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.chinacloudapi.cn/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
 ## <a name="next-steps"></a>后续步骤
@@ -148,3 +148,4 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 - [在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 - [将磁盘添加到 Linux VM](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 - [使用 Azure CLI 加密 Linux VM 上的磁盘](encrypt-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+<!-- Update_Description: update link, wording update -->

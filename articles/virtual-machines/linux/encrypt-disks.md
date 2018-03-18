@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/14/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: eca15f0b285dfc3a7c8e6ad9eb959c98f82fbf7d
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: d2f34782ec5352bde1c64c2be7fcf65f806f3d27
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>如何加密 Linux VM 上的虚拟磁盘
 为了增强虚拟机 (VM) 的安全性以及符合性，可以加密虚拟磁盘和 VM 本身。 VM 是使用 Azure 密钥保管库中受保护的加密密钥加密的。 可以控制这些加密密钥，以及审核对它们的使用。 本文介绍如何使用 Azure CLI 2.0 加密 Linux VM 上的虚拟磁盘。 也可以使用 [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
@@ -30,16 +30,16 @@ ms.lasthandoff: 02/13/2018
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录到 Azure 帐户。 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 myResourceGroup、myKey 和 myVM。
+需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录到 Azure 帐户。 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 myResourceGroup、myKey 和 myVM。
 
-首先，在 Azure 订阅中使用 [az provider register](https://docs.azure.cn/zh-cn/cli/provider?view=azure-cli-latest#register) 启用 Azure Key Vault 提供程序，并使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 创建一个资源组。 以下示例在 *chinaeast* 位置创建名为 *myResourceGroup* 的资源组。
+首先，在 Azure 订阅中使用 [az provider register](https://docs.azure.cn/zh-cn/cli/provider?view=azure-cli-latest#az_provider_register) 启用 Azure Key Vault 提供程序，并使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 创建一个资源组。 以下示例在 *chinaeast* 位置创建名为 *myResourceGroup* 的资源组。
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 az group create --name myResourceGroup --location chinaeast
 ```
 
-使用 [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#create) 创建 Azure Key Vault，并启用 Key Vaul，将其用于磁盘加密。 指定 *keyvault_name* 的唯一 Key Vault 名称，如下所示：
+使用 [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_create) 创建 Azure Key Vault，并启用 Key Vaul，将其用于磁盘加密。 指定 *keyvault_name* 的唯一 Key Vault 名称，如下所示：
 
 ```azurecli
 keyvault_name=myuniquekeyvaultname
@@ -50,21 +50,21 @@ az keyvault create \
     --enabled-for-disk-encryption True
 ```
 
-使用 [az keyvault key create](https://docs.azure.cn/zh-cn/cli/keyvault/key?view=azure-cli-latest#create) 在 Key Vault 中创建加密密钥。 以下示例创建名为 *myKey* 的密钥：
+使用 [az keyvault key create](https://docs.azure.cn/zh-cn/cli/keyvault/key?view=azure-cli-latest#az_keyvault_key_create) 在 Key Vault 中创建加密密钥。 以下示例创建名为 *myKey* 的密钥：
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
 ```
 
-通过将 Azure Active Directory 与 [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#create-for-rbac) 配合使用创建服务主体。 服务主体可处理 Key Vault 中的加密密钥的身份验证和交换。 下面的示例读入服务主体 ID 和密码的值，在稍后的命令中使用：
+通过将 Azure Active Directory 与 [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_create_for_rbac) 配合使用创建服务主体。 服务主体可处理 Key Vault 中的加密密钥的身份验证和交换。 下面的示例读入服务主体 ID 和密码的值，在稍后的命令中使用：
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
 ```
 
-仅在创建服务主体时，输出密码。 如果需要，可查看并记录密码 (`echo $sp_password`)。 可以使用 [az ad sp list](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#list) 列出服务主体并使用 [az ad sp show](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#show) 查看特定服务主体的详细信息。
+仅在创建服务主体时，输出密码。 如果需要，可查看并记录密码 (`echo $sp_password`)。 可以使用 [az ad sp list](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_list) 列出服务主体并使用 [az ad sp show](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_show) 查看特定服务主体的详细信息。
 
-使用 [az keyvault set-policy](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#set-policy) 在 Key Vault 上设置权限。 在以下示例中，服务主体 ID 由上一个命令提供：
+使用 [az keyvault set-policy](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_set_policy) 在 Key Vault 上设置权限。 在以下示例中，服务主体 ID 由上一个命令提供：
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
@@ -72,7 +72,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
     --secret-permissions set
 ```
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 创建 VM 并附加一个 5Gb 数据磁盘。 只有特定应用商店映像才支持磁盘加密。 以下示例使用 CentOS 7.2n 映像创建一个名为 myVM 的 VM：
+使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 创建 VM 并附加一个 5Gb 数据磁盘。 只有特定应用商店映像才支持磁盘加密。 以下示例使用 CentOS 7.2n 映像创建一个名为 myVM 的 VM：
 
 ```azurecli
 az vm create \
@@ -86,7 +86,7 @@ az vm create \
 
 使用上一命令输出中显示的 *publicIpAddress* 通过 SSH 连接到 VM。 创建分区和文件系统，并安装数据磁盘。 有关详细信息，请参阅[连接 Linux VM 以安装新磁盘](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk)。 关闭 SSH 会话。
 
-使用 [az vm encryption enable](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#enable) 加密 VM。 下面的示例使用之前的 `ad sp create-for-rbac` 命令中的 *$sp_id* 和 *$sp_password* 变量：
+使用 [az vm encryption enable](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#az_vm_encryption_enable) 加密 VM。 下面的示例使用之前的 `ad sp create-for-rbac` 命令中的 *$sp_id* 和 *$sp_password* 变量：
 
 ```azurecli
 az vm encryption enable \
@@ -99,19 +99,19 @@ az vm encryption enable \
     --volume-type all
 ```
 
-需要一段时间才能完成磁盘加密过程。 使用 [az vm encryption show](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#show) 监视过程状态：
+需要一段时间才能完成磁盘加密过程。 使用 [az vm encryption show](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#az_vm_encryption_show) 监视过程状态：
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
 ```
 
-状态显示“EncryptionInProgress”。 请等待，直到 OS 磁盘的状态报告 **VMRestartPending**，并使用 [az vm restart](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#restart) 重启 VM：
+状态显示“EncryptionInProgress”。 请等待，直到 OS 磁盘的状态报告 **VMRestartPending**，并使用 [az vm restart](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_restart) 重启 VM：
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
 ```
 
-磁盘加密过程会在启动过程中完成，因此请等待几分钟后再使用 [az vm encryption show](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#show) 查看加密状态：
+磁盘加密过程会在启动过程中完成，因此请等待几分钟后再使用 [az vm encryption show](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#az_vm_encryption_show) 查看加密状态：
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
@@ -161,18 +161,18 @@ Linux VM 上的虚拟磁盘是使用 [dm-crypt](https://wikipedia.org/wiki/Dm-cr
 有关支持的方案和限制的详细信息，请参阅[适用于 IaaS VM 的 Azure 磁盘加密](../../security/azure-security-disk-encryption.md)
 
 ## <a name="create-azure-key-vault-and-keys"></a>创建 Azure Key Vault 和密钥
-需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录到 Azure 帐户。 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup*、*myKey* 和 *myVM*。
+需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录到 Azure 帐户。 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup*、*myKey* 和 *myVM*。
 
 第一步是创建用于存储加密密钥的 Azure 密钥保管库。 Azure 密钥保管库可以存储能够在应用程序和服务中安全实现的密钥、机密或密码。 对于虚拟磁盘加密，可以使用密钥保管库来存储用于加密或解密虚拟磁盘的加密密钥。
 
-在 Azure 订阅中使用 [az provider register](https://docs.azure.cn/zh-cn/cli/provider?view=azure-cli-latest#register) 启用 Azure Key Vault 提供程序，并使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 创建一个资源组。 以下示例在 `chinaeast` 位置创建名为 myResourceGroup 的资源组：
+在 Azure 订阅中使用 [az provider register](https://docs.azure.cn/zh-cn/cli/provider?view=azure-cli-latest#az_provider_register) 启用 Azure Key Vault 提供程序，并使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 创建一个资源组。 以下示例在 `chinaeast` 位置创建名为 myResourceGroup 的资源组：
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 az group create --name myResourceGroup --location chinaeast
 ```
 
-包含加密密钥和关联的计算资源（例如存储和 VM 本身）的 Azure 密钥保管库必须位于同一区域。 使用 [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#create) 创建 Azure Key Vault，并启用 Key Vaul，将其用于磁盘加密。 指定 keyvault_name 的唯一 Key Vault 名称，如下所示：
+包含加密密钥和关联的计算资源（例如存储和 VM 本身）的 Azure 密钥保管库必须位于同一区域。 使用 [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_create) 创建 Azure Key Vault，并启用 Key Vaul，将其用于磁盘加密。 指定 keyvault_name 的唯一 Key Vault 名称，如下所示：
 
 ```azurecli
 keyvault_name=myuniquekeyvaultname
@@ -185,7 +185,7 @@ az keyvault create \
 
 可以使用软件或硬件安全模型 (HSM) 保护来存储加密密钥。 使用 HSM 时需要高级密钥保管库。 与用于存储受软件保护的密钥的标准密钥保管库不同，创建高级密钥保管库会产生额外的费用。 要创建高级密钥保管库，请在前一步骤中，将 `--sku Premium` 添加到命令。 由于创建的是标准密钥保管库，以下示例使用了受软件保护的密钥。
 
-对于这两种保护模型，在启动 VM 解密虚拟磁盘时，都需要向 Azure 平台授予请求加密密钥的访问权限。 使用 [az keyvault key create](https://docs.azure.cn/zh-cn/cli/keyvault/key?view=azure-cli-latest#create) 在 Key Vault 中创建加密密钥。 以下示例创建名为 *myKey* 的密钥：
+对于这两种保护模型，在启动 VM 解密虚拟磁盘时，都需要向 Azure 平台授予请求加密密钥的访问权限。 使用 [az keyvault key create](https://docs.azure.cn/zh-cn/cli/keyvault/key?view=azure-cli-latest#az_keyvault_key_create) 在 Key Vault 中创建加密密钥。 以下示例创建名为 *myKey* 的密钥：
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
@@ -194,15 +194,15 @@ az keyvault key create --vault-name $keyvault_name --name myKey --protection sof
 ## <a name="create-the-azure-active-directory-service-principal"></a>创建 Azure Active Directory 服务主体
 加密或解密虚拟磁盘时，将指定一个帐户来处理身份验证，以及从 Key Vault 交换加密密钥。 此帐户（Azure Active Directory 服务主体）允许 Azure 平台代表 VM 请求相应的加密密钥。 订阅中提供了一个默认的 Azure Active Directory 实例，不过，许多组织使用专用的 Azure Active Directory 目录。
 
-通过将 Azure Active Directory 与 [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#create-for-rbac) 配合使用创建服务主体。 下面的示例读入服务主体 ID 和密码的值，供稍后的命令中使用：
+通过将 Azure Active Directory 与 [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_create_for_rbac) 配合使用创建服务主体。 下面的示例读入服务主体 ID 和密码的值，供稍后的命令中使用：
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
 ```
 
-只有创建服务主体时，才会显示密码。 如果需要，可查看并记录密码 (`echo $sp_password`)。 可以使用 [az ad sp list](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#list) 列出服务主体并使用 [az ad sp show](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#show) 查看特定服务主体的详细信息。
+只有创建服务主体时，才会显示密码。 如果需要，可查看并记录密码 (`echo $sp_password`)。 可以使用 [az ad sp list](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_list) 列出服务主体并使用 [az ad sp show](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_show) 查看特定服务主体的详细信息。
 
-要成功加密或解密虚拟磁盘，必须将 Key Vault 中存储的加密密钥的权限设置为允许 Azure Active Directory 服务主体读取密钥。 使用 [az keyvault set-policy](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#set-policy) 在 Key Vault 上设置权限。 在以下示例中，服务主体 ID 由上一个命令提供：
+要成功加密或解密虚拟磁盘，必须将 Key Vault 中存储的加密密钥的权限设置为允许 Azure Active Directory 服务主体读取密钥。 使用 [az keyvault set-policy](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_set_policy) 在 Key Vault 上设置权限。 在以下示例中，服务主体 ID 由上一个命令提供：
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
@@ -211,7 +211,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
 ```
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 创建要加密的 VM 并附加一个 5Gb 数据磁盘。 只有特定应用商店映像才支持磁盘加密。 以下示例使用 CentOS 7.2n 映像创建一个名为 myVM 的 VM：
+使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 创建要加密的 VM 并附加一个 5Gb 数据磁盘。 只有特定应用商店映像才支持磁盘加密。 以下示例使用 CentOS 7.2n 映像创建一个名为 myVM 的 VM：
 
 ```azurecli
 az vm create \
@@ -233,7 +233,7 @@ az vm create \
 3. 指定用于实际加密和解密的加密密钥。
 4. 指定是要加密 OS 磁盘、数据磁盘还是所有磁盘。
 
-使用 [az vm encryption enable](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#enable) 加密 VM。 下面的示例使用之前的 [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#create-for-rbac) 命令中的 *$sp_id* 和 *$sp_password* 变量：
+使用 [az vm encryption enable](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#az_vm_encryption_enable) 加密 VM。 下面的示例使用之前的 [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_create_for_rbac) 命令中的 *$sp_id* 和 *$sp_password* 变量：
 
 ```azurecli
 az vm encryption enable \
@@ -246,7 +246,7 @@ az vm encryption enable \
     --volume-type all
 ```
 
-需要一段时间才能完成磁盘加密过程。 使用 [az vm encryption show](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#show) 监视过程状态：
+需要一段时间才能完成磁盘加密过程。 使用 [az vm encryption show](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#az_vm_encryption_show) 监视过程状态：
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
@@ -261,7 +261,7 @@ az vm encryption show --resource-group myResourceGroup --name myVM
 ]
 ```
 
-请等待，直到 OS 磁盘的状态报告 **VMRestartPending**，并使用 [az vm restart](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#restart) 重启 VM：
+请等待，直到 OS 磁盘的状态报告 **VMRestartPending**，并使用 [az vm restart](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_restart) 重启 VM：
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM

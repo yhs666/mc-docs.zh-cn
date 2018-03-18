@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2017
-ms.date: 01/29/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0d473913757a80babd3eebdb6fe14e4f45d8be0c
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 90974bca1de9c172dc90bb2cbee4e580da6efeb6
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>如何捕获经典 Linux 虚拟机以用作映像
 > [!IMPORTANT]
@@ -99,7 +99,7 @@ Azure 在“映像”下存储映像 ，以及任何已上传的映像。 有关
    azure vm image list
    ```
 
-   在 [Azure 门户](http://portal.azure.cn)中，新映像会出现在属于“计算”服务的“VM 映像(经典)”中。 可通过在 Azure 服务列表底部单击“更多服务”，并在“计算”服务中查找来访问“VM 映像(经典)”。   
+   在 [Azure 门户](http://portal.azure.cn)中，新映像会出现在属于“计算”服务的“VM 映像(经典)”中。 可通过在 Azure 服务列表顶部单击“全部服务”，并在“计算”服务中查找来访问“VM 映像(经典)”。   
 
    ![成功捕获映像](./media/capture-image/VMCapturedImageAvailable.png)
 
@@ -111,9 +111,8 @@ Azure 在“映像”下存储映像 ，以及任何已上传的映像。 有关
 **另请参阅：**[Azure Linux 代理用户指南](../agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
-[How to Create a Custom Virtual Machine]:create-custom.md
-[How to Attach a Data Disk to a Virtual Machine]:attach-disk.md
-[How to Create a Linux Virtual Machine]:create-custom.md
+[How to Create a Custom Virtual Machine]:create-custom-classic.md
+[How to Attach a Data Disk to a Virtual Machine]:attach-disk-classic.md
+[How to Create a Linux Virtual Machine]:create-custom-classic.md
 
-<!-- Update_Description: new article on capture image classic for Linux VM -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties, update link -->

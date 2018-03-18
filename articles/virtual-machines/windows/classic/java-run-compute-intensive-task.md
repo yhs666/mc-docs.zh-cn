@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: ed932b41de8f4aea9b28801431444f7af0db6480
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: c49ca0e10427fe54847c566a2d9dfdf1dabf777f
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>如何在虚拟机上通过 Java 运行计算密集型任务
 > [!IMPORTANT] 
@@ -53,7 +53,7 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="to-create-a-virtual-machine"></a>创建虚拟机
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 依次单击“新建”、“计算”、“虚拟机”和“从库中”。
+2. 依次单击“创建资源”、“计算”、“虚拟机”和“从库中”。
 3. 在“虚拟机映像选择”对话框中，选择“JDK 7 Windows Server 2012”。
    请注意，万一安装的是尚不能在 JDK 7 中运行的旧版应用程序，则可选择“JDK 6 Windows Server 2012”  。
 4. 单击“下一步” 。

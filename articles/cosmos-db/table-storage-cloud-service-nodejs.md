@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 11/03/2017
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 62855c5c15d4eeda81b945de610fcb393f3bfb43
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 6f553809f98248561d12d1af5124ea3816c4f8d0
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Azure 表存储：Node.js Web 应用程序
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -384,6 +384,7 @@ PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -lo
   WARNING: 2:22:49 PM - Instance WebRole1_IN_0 of role WebRole1 is ready.
   WARNING: 2:22:50 PM - Created Website URL: http://tasklist.cloudapp.chinacloudapi.cn/.
 ```
+<!-- Notice: http://tasklist.cloudapp.net/ convert to http://tasklist.chinacloudapp.cn/ -->
 
 由于在前面的 cmdlet 中指定了 **-launch** 选项，因此在发布完成后，浏览器会打开并显示正在 Azure 中运行的应用程序。
 

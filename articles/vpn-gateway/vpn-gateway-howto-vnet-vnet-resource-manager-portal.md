@@ -3,8 +3,8 @@ title: "将 Azure 虚拟网络连接到另一 VNet：门户 | Microsoft 文档"
 description: "使用 Resource Manager 和 Azure 门户创建 VNet 之间的 VPN 网关连接。"
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cherylmc
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 11/29/2017
-ms.date: 12/29/2017
+origin.date: 02/14/2018
+ms.date: 03/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: c0a0518fbbf006cefc7c759d98c38d3bc92396c5
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: 64f181dbe799f581c615d76ae38f873ad58b46f1
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>使用 Azure 门户配置 VNet 到 VNet VPN 网关连接
 

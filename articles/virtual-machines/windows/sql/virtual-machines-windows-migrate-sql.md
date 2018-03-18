@@ -3,7 +3,7 @@ title: "将 SQL Server 数据库迁移到 VM 上的 SQL Server | Azure"
 description: "了解如何将本地用户数据库迁移到 Azure 虚拟机中的 SQL Server。"
 services: virtual-machines-windows
 documentationcenter: 
-author: hayley244
+author: rockboyfor
 manager: digimobile
 editor: 
 tags: azure-service-management
@@ -13,14 +13,14 @@ ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
-origin.date: 07/17/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 2e73d35e01fc32a23455340986cd040ab196aeea
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+origin.date: 02/13/2018
+ms.date: 03/19/2018
+ms.author: v-yeche
+ms.openlocfilehash: 41ec960146b06d2182aab4a95af1dba77739c6cf
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>将 SQL Server 数据库迁移到 Azure VM 中的 SQL Server
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/28/2017
 * 拆离后，将数据和日志文件复制到 Azure Blob 存储，并从 URL 附加到 Azure VM 中的 SQL Server
 * 将本地物理计算机转换为 Hyper-V VHD，上传到 Azure Blob 存储，并使用上传的 VHD 部署为新 VM
 * 使用 Windows 导入/导出服务运送硬盘驱动器
-* 如果在本地有 AlwaysOn 部署，请使用[添加 Azure 副本向导](../classic/sql-onprem-availability.md)在 Azure 中创建副本，进行故障转移，并将用户指向 Azure 数据库实例
+* 如果在本地有 AlwaysOn 部署，请使用[添加 Azure 副本向导](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md)在 Azure 中创建副本，进行故障转移，并将用户指向 Azure 数据库实例
 * 使用 SQL Server [事务复制](https://msdn.microsoft.com/library/ms151176.aspx)将 Azure SQL Server 实例配置为订阅服务器，禁用复制，并将用户指向 Azure 数据库实例
 
 > [!TIP]
@@ -54,17 +54,17 @@ ms.lasthandoff: 11/28/2017
 
 下表列出了各种主要迁移方法，并讨论了最适合使用该方法的场合。
 
-| 方法 | 源数据库版本 | 目标数据库版本 | 源数据库备份大小限制 | 说明 |
+| 方法 | 源数据库版本 | 目标数据库版本 | 源数据库备份大小限制 | 注释 |
 | --- | --- | --- | --- | --- |
-| [使用压缩功能执行本地备份并将备份文件手动复制到 Azure 虚拟机中](#backup-and-restore) |SQL Server 2005 或更高版本 |SQL Server 2005 或更高版本 | | 这是一项很简单且经过严格测试的技术，适用于跨计算机移动数据库。 |
+| [使用压缩功能执行本地备份并将备份文件手动复制到 Azure 虚拟机中](#backup-and-restore) |SQL Server 2005 或更高版本 |SQL Server 2005 或更高版本 |[Azure VM 存储限制](/azure-subscription-service-limits/) | 这是一项很简单且经过严格测试的技术，适用于跨计算机移动数据库。 |
 | [执行“备份到 URL”并从该 URL 还原到 Azure 虚拟机](#backup-to-url-and-restore) |SQL Server 2012 SP1 CU2 或更高版本 |SQL Server 2012 SP1 CU2 或更高版本 |小于 12.8 TB 用于 SQL Server 2016，否则大于 1 TB | 此方法是通过另一种方式使用 Azure 存储将备份文件移至 VM。 |
 | 
-            [拆离后，将数据和日志文件复制到 Azure Blob 存储，并从 URL 附加到 Azure 虚拟机中的 SQL Server](#detach-and-attach-from-url) |SQL Server 2005 或更高版本 |SQL Server 2014 或更高版本 | |如果计划[使用 Azure Blob 存储服务存储这些文件](https://msdn.microsoft.com/library/dn385720.aspx)并将它们附加到 Azure VM 中运行的 SQL Server，尤其是对于非常大的数据库，可以使用此方法。 |
+            [拆离后，将数据和日志文件复制到 Azure Blob 存储，并从 URL 附加到 Azure 虚拟机中的 SQL Server](#detach-and-attach-from-url) |SQL Server 2005 或更高版本 |SQL Server 2014 或更高版本 |[Azure VM 存储限制](/azure-subscription-service-limits/) |如果计划[使用 Azure Blob 存储服务存储这些文件](https://msdn.microsoft.com/library/dn385720.aspx)并将它们附加到 Azure VM 中运行的 SQL Server，尤其是对于非常大的数据库，可以使用此方法。 |
 | 
-            [将本地计算机转换为 Hyper-V VHD，上传到 Azure Blob 存储，并使用上传的 VHD 部署一个新虚拟机](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 或更高版本 |SQL Server 2005 或更高版本 | |在以下场合使用： [使用你自己的 SQL Server 许可证](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)时；迁移的数据库会在较旧版本的 SQL Server 上运行时；或者将系统数据库和用户数据库一起作为依赖于其他用户数据库和/或系统数据库的数据库的一部分进行迁移时。 |
-| [使用 Windows 导入/导出服务运送硬盘驱动器](#ship-hard-drive) |SQL Server 2005 或更高版本 |SQL Server 2005 或更高版本 | |当手动复制方法速度太慢时使用 [Windows 导入/导出服务](../../../storage/common/storage-import-export-service.md)，比如复制非常大的数据库 |
-| [使用“添加 Azure 副本”向导](../classic/sql-onprem-availability.md) |SQL Server 2012 或更高版本 |SQL Server 2012 或更高版本 | |最大限度地减少停机时间，在拥有 AlwaysOn 本地部署时使用 |
-| [使用 SQL Server 事务复制](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 或更高版本 |SQL Server 2005 或更高版本 | |在需要最大限度地减少停机时间，但没有 AlwaysOn 本地部署时使用 |
+            [将本地计算机转换为 Hyper-V VHD，上传到 Azure Blob 存储，并使用上传的 VHD 部署一个新虚拟机](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 或更高版本 |SQL Server 2005 或更高版本 |[Azure VM 存储限制](/azure-subscription-service-limits/) |在以下场合使用： [使用你自己的 SQL Server 许可证](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)时；迁移的数据库会在较旧版本的 SQL Server 上运行时；或者将系统数据库和用户数据库一起作为依赖于其他用户数据库和/或系统数据库的数据库的一部分进行迁移时。 |
+| [使用 Windows 导入/导出服务运送硬盘驱动器](#ship-hard-drive) |SQL Server 2005 或更高版本 |SQL Server 2005 或更高版本 |[Azure VM 存储限制](/azure-subscription-service-limits/) |当手动复制方法速度太慢时使用 [Windows 导入/导出服务](../../../storage/common/storage-import-export-service.md)，比如复制非常大的数据库 |
+| [使用“添加 Azure 副本”向导](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) |SQL Server 2012 或更高版本 |SQL Server 2012 或更高版本 |[Azure VM 存储限制](/azure-subscription-service-limits/) |最大程度减少故障时间，在具有 AlwaysOn 本地部署时使用 |
+| [使用 SQL Server 事务复制](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 或更高版本 |SQL Server 2005 或更高版本 |[Azure VM 存储限制](/azure-subscription-service-limits/) |在需要尽量减少故障时间且不具备 AlwaysOn 本地部署时使用 |
 
 ## <a name="backup-and-restore"></a>备份和还原
 通过压缩方式备份数据库，将备份复制到 VM，并还原数据库。 如果备份文件大于 1 TB，则必须对其进行条带化，因为 VM 磁盘的最大大小是 1 TB。 使用此手动方法按照下列常规步骤迁移用户数据库：
@@ -88,7 +88,7 @@ ms.lasthandoff: 11/28/2017
 使用此方法可将本地 SQL Server 实例中的所有系统数据库和用户数据库迁移到 Azure 虚拟机。 请使用此手动方法并按照下列常规步骤迁移整个 SQL Server 实例：
 
 1. 使用 [Microsoft 虚拟机转换器](https://technet.microsoft.com/library/dn874008(v=ws.11).aspx)将物理或虚拟机转换为 Hyper-V VHD。
-2. 使用 [Add-AzureVHD cmdlet](https://msdn.microsoft.com/library/windowsazure/dn495173.aspx) 将 VHD 文件上传到 Azure 存储。
+2. 使用 [Add-AzureVHD cmdlet](https://msdn.microsoft.com/library/azure/dn495173.aspx) 将 VHD 文件上传到 Azure 存储。
 3. 使用上传的 VHD 部署新的虚拟机。
 
 > [!NOTE]
@@ -102,4 +102,4 @@ ms.lasthandoff: 11/28/2017
 
 有关从捕获的映像创建 Azure SQL Server 虚拟机的说明，请参阅 CSS SQL Server 工程师博客上的 [Tips & Tricks on 'cloning' Azure SQL virtual machines from captured images](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/)（有关从捕获的映像“克隆”Azure SQL 虚拟机的提示和技巧）。
 
-<!--Update_Description: update storage links-->
+<!--Update_Description: update link, wording update -->

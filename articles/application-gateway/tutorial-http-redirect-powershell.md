@@ -1,6 +1,6 @@
 ---
-title: "使用 SSL 终端创建应用程序网关 - Azure PowerShell | Microsoft Docs"
-description: "了解如何使用 Azure PowerShell 创建应用程序网关并为 SSL 终端添加证书。"
+title: "创建支持 HTTP 到 HTTPS 重定向的应用程序网关 - Azure PowerShell | Microsoft Docs"
+description: "了解如何使用 Azure PowerShell 创建支持从 HTTP 到 HTTPS 重定向流量的应用程序网关。"
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -9,18 +9,18 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-origin.date: 01/25/2018
+origin.date: 01/23/2018
 ms.date: 03/15/2018
 ms.author: v-junlch
-ms.openlocfilehash: 42b2bbb839a80e8900012f36789afd864c2dc7db
+ms.openlocfilehash: 8e632cb1818e578b406655900bd29069076f4452
 ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/17/2018
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>通过 Azure PowerShell 使用 SSL 终端创建应用程序网关
+# <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持 HTTP 到 HTTPS 重定向的应用程序网关
 
-可通过 Azure PowerShell 使用 [SSL 终端](application-gateway-backend-ssl.md)的证书创建使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)作为后端服务器的[应用程序网关](application-gateway-introduction.md)。 在此示例中，规模集包含两个添加到应用程序网关的默认后端池的虚拟机实例。 
+可以通过 Azure PowerShell 使用 SSL 终端的证书创建[应用程序网关](application-gateway-introduction.md)。 路由规则用于将 HTTP 流量重定向到应用程序网关中的 HTTPS 端口。 在此示例中，还会为包含两个虚拟机实例的应用程序网关的后端池创建一个[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)。 
 
 在本文中，学习如何：
 
@@ -28,11 +28,12 @@ ms.lasthandoff: 03/17/2018
 > * 创建自签名证书
 > * 设置网络
 > * 使用证书创建应用程序网关
+> * 添加侦听器和重定向规则
 > * 使用默认后端池创建虚拟机规模集
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 `Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 `Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 若要运行本教程中的命令，还需要运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="create-a-self-signed-certificate"></a>创建自签名证书
 
@@ -74,7 +75,7 @@ New-AzureRmResourceGroup -Name myResourceGroupAG -Location chinanorth
 
 ## <a name="create-network-resources"></a>创建网络资源
 
-使用 [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 配置名为 *myBackendSubnet* 和 *myAGSubnet* 的子网。 使用 [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork) 和子网配置创建名为 *myVNet* 的虚拟网络。 最后使用 [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。 这些资源用于提供与应用程序网关及其关联资源的网络连接。
+使用 [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 创建 *myBackendSubnet* 和 *myAGSubnet* 的子网配置。 使用 [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork) 和子网配置创建名为 *myVNet* 的虚拟网络。 最后使用 [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。 这些资源用于提供与应用程序网关及其关联资源的网络连接。
 
 ```powershell
 $backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
@@ -100,7 +101,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>创建 IP 配置和前端端口
 
-使用 [New-AzureRmApplicationGatewayIPConfiguration](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration) 将前面创建的 *myAGSubnet* 关联到应用程序网关。 使用 [New-AzureRmApplicationGatewayFrontendIPConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig) 将 *myAGPublicIPAddress* 分配给应用程序网关。
+使用 [New-AzureRmApplicationGatewayIPConfiguration](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration) 将前面创建的 *myAGSubnet* 关联到应用程序网关。 使用 [New-AzureRmApplicationGatewayFrontendIPConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig) 将 *myAGPublicIPAddress* 分配给应用程序网关。 然后，可以使用 [New-AzureRmApplicationGatewayFrontendPort](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport) 创建 HTTPS 端口。
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork `
@@ -113,7 +114,7 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
   -Name myAGFrontendIPConfig `
   -PublicIPAddress $pip
-$frontendport = New-AzureRmApplicationGatewayFrontendPort `
+$frontendPort = New-AzureRmApplicationGatewayFrontendPort `
   -Name myFrontendPort `
   -Port 443
 ```
@@ -137,7 +138,7 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 应用程序网关需要侦听器才能适当地将流量路由到后端池。 在此示例中，将一个创建基本侦听器以侦听根 URL 上的 HTTPS 流量。 
 
-使用 [New-AzureRmApplicationGatewaySslCertificate](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermapplicationgatewaysslcertificate) 创建证书对象，然后结合前端配置、前端端口和前面创建的证书使用 [New-AzureRmApplicationGatewayHttpListener](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) 创建名为 *mydefaultListener* 的侦听器。 侦听器需要使用规则来了解哪个后端池使用传入流量。 使用 [New-AzureRmApplicationGatewayRequestRoutingRule](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) 创建一个名为 *rule1* 的基本规则。
+使用 [New-AzureRmApplicationGatewaySslCertificate](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermapplicationgatewaysslcertificate) 创建证书对象，然后结合前端配置、前端端口和前面创建的证书使用 [New-AzureRmApplicationGatewayHttpListener](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) 创建名为 *appGatewayHttpListener* 的侦听器。 侦听器需要使用规则来了解哪个后端池使用传入流量。 使用 [New-AzureRmApplicationGatewayRequestRoutingRule](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) 创建一个名为 *rule1* 的基本规则。
 
 ```powershell
 $pwd = ConvertTo-SecureString `
@@ -148,27 +149,25 @@ $cert = New-AzureRmApplicationGatewaySslCertificate `
   -Name "appgwcert" `
   -CertificateFile "c:\appgwcert.pfx" `
   -Password $pwd
-$defaultlistener = New-AzureRmApplicationGatewayHttpListener `
-  -Name mydefaultListener `
+$defaultListener = New-AzureRmApplicationGatewayHttpListener `
+  -Name appGatewayHttpListener `
   -Protocol Https `
   -FrontendIPConfiguration $fipconfig `
-  -FrontendPort $frontendport `
+  -FrontendPort $frontendPort `
   -SslCertificate $cert
 $frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
   -Name rule1 `
   -RuleType Basic `
-  -HttpListener $defaultlistener `
+  -HttpListener $defaultListener `
   -BackendAddressPool $defaultPool `
   -BackendHttpSettings $poolSettings
 ```
 
-### <a name="create-the-application-gateway-with-the-certificate"></a>使用证书创建应用程序网关
+### <a name="create-the-application-gateway"></a>创建应用程序网关
 
 现在已创建所需的支持资源，请使用 [New-AzureRmApplicationGatewaySku](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) 为名为 *myAppGateway* 的应用程序网关指定参数，然后结合证书使用 [New-AzureRmApplicationGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermapplicationgateway) 创建网关。
 
-### <a name="create-the-application-gateway"></a>创建应用程序网关
-
-```azurepowershell
+```powershell
 $sku = New-AzureRmApplicationGatewaySku `
   -Name Standard_Medium `
   -Tier Standard `
@@ -181,18 +180,89 @@ $appgw = New-AzureRmApplicationGateway `
   -BackendHttpSettingsCollection $poolSettings `
   -FrontendIpConfigurations $fipconfig `
   -GatewayIpConfigurations $gipconfig `
-  -FrontendPorts $frontendport `
-  -HttpListeners $defaultlistener `
+  -FrontendPorts $frontendPort `
+  -HttpListeners $defaultListener `
   -RequestRoutingRules $frontendRule `
   -Sku $sku `
   -SslCertificates $cert
+```
+
+## <a name="add-a-listener-and-redirection-rule"></a>添加侦听器和重定向规则
+
+### <a name="add-the-http-port"></a>添加 HTTP 端口
+
+使用 [Add-AzureRmApplicationGatewayFrontendPort](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermapplicationgatewayfrontendport) 向应用程序网关添加 HTTP 端口。
+
+```powershell
+$appgw = Get-AzureRmApplicationGateway `
+  -Name myAppGateway `
+  -ResourceGroupName myResourceGroupAG
+Add-AzureRmApplicationGatewayFrontendPort `
+  -Name httpPort  `
+  -Port 80 `
+  -ApplicationGateway $appgw
+```
+
+### <a name="add-the-http-listener"></a>添加 HTTP 侦听器
+
+使用 [Add-AzureRmApplicationGatewayHttpListener](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermapplicationgatewayhttplistener) 向应用程序网关添加名为 *myListener* 的 HTTP 侦听器。
+
+```powershell
+$fipconfig = Get-AzureRmApplicationGatewayFrontendIPConfig `
+  -Name myAGFrontendIPConfig `
+  -ApplicationGateway $appgw
+$fp = Get-AzureRmApplicationGatewayFrontendPort `
+  -Name httpPort `
+  -ApplicationGateway $appgw
+Add-AzureRmApplicationGatewayHttpListener `
+  -Name myListener `
+  -Protocol Http `
+  -FrontendPort $fp `
+  -FrontendIPConfiguration $fipconfig `
+  -ApplicationGateway $appgw
+```
+
+### <a name="add-the-redirection-configuration"></a>添加重定向配置
+
+使用 [Add-AzureRmApplicationGatewayRedirectConfiguration](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermapplicationgatewayredirectconfiguration) 将 HTTP 到 HTTPS 重定向配置添加到应用程序网关。
+
+```powershell
+$defaultListener = Get-AzureRmApplicationGatewayHttpListener `
+  -Name appGatewayHttpListener `
+  -ApplicationGateway $appgw
+Add-AzureRmApplicationGatewayRedirectConfiguration -Name httpToHttps `
+  -RedirectType Permanent `
+  -TargetListener $defaultListener `
+  -IncludePath $true `
+  -IncludeQueryString $true `
+  -ApplicationGateway $appgw
+```
+
+### <a name="add-the-routing-rule"></a>添加路由规则
+
+使用 [Add-AzureRmApplicationGatewayRequestRoutingRule](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermapplicationgatewayrequestroutingrule) 将具有重定向配置的路由规则添加到应用程序网关。
+
+```powershell
+$myListener = Get-AzureRmApplicationGatewayHttpListener `
+  -Name myListener `
+  -ApplicationGateway $appgw
+$redirectConfig = Get-AzureRmApplicationGatewayRedirectConfiguration `
+  -Name httpToHttps `
+  -ApplicationGateway $appgw
+Add-AzureRmApplicationGatewayRequestRoutingRule `
+  -Name rule2 `
+  -RuleType Basic `
+  -HttpListener $myListener `
+  -RedirectConfiguration $redirectConfig `
+  -ApplicationGateway $appgw
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 
 ## <a name="create-a-virtual-machine-scale-set"></a>创建虚拟机规模集
 
 在此示例中，将创建虚拟机规模集，以便为应用程序网关的后端池提供服务器。 配置 IP 设置时将规模集分配给后端池。
 
-```azurepowershell
+```powershell
 $vnet = Get-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Name myVNet
@@ -233,7 +303,7 @@ New-AzureRmVmss `
 
 ### <a name="install-iis"></a>安装 IIS
 
-```azurepowershell
+```powershell
 $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
@@ -251,17 +321,17 @@ Update-AzureRmVmss `
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-可以使用 [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 获取应用程序网关的公共 IP 地址。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。
+可以使用 [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 获取应用程序网关的公共 IP 地址。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如，http://52.170.203.149
 
-```azurepowershell
+```powershell
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-![安全警告](./media/application-gateway-ssl-arm/application-gateway-secure.png)
+![安全警告](./media/tutorial-http-redirect-powershell/application-gateway-secure.png)
 
 若要接受有关使用自签名证书的安全警告，请依次选择“详细信息”和“继续转到网页”。 随即显示受保护的 IIS 网站，如下例所示：
 
-![在应用程序网关中测试基 URL](./media/application-gateway-ssl-arm/application-gateway-iistest.png)
+![在应用程序网关中测试基 URL](./media/tutorial-http-redirect-powershell/application-gateway-iistest.png)
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -271,7 +341,9 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 > * 创建自签名证书
 > * 设置网络
 > * 使用证书创建应用程序网关
+> * 添加侦听器和重定向规则
 > * 使用默认后端池创建虚拟机规模集
 
-若要详细了解应用程序网关及其关联的资源，请继续阅读操作指南文章。
+> [!div class="nextstepaction"]
+> [详细了解应用程序网关的作用](application-gateway-introduction.md)
 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 09/06/2016
-ms.date: 10/30/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5edb5ba77f60f6db81cb13b293db205f97a82b74
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 24cd818c01392a71ae5db7ebb4db78b3ce4fb5b3
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>排查在 Azure 中新建 Linux 虚拟机时遇到的经典部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-selectors-include.md)]
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/27/2017
 
 **解决方法：**
 
-若要解决这两个错误，请上传原始 VHD、可用的本地设置、以及与该 OS（通用/专用）相同的设置。 若要以通用设置上传，请记得先运行 -deprovision。 有关详细信息，请参阅 [Create and Upload a Virtual Hard Disk that Contains the Linux Operating System](create-upload-vhd.md)（创建并上传包含 Linux 操作系统的虚拟硬盘）。
+若要解决这两个错误，请上传原始 VHD、可用的本地设置、以及与该 OS（通用/专用）相同的设置。 若要以通用设置上传，请记得先运行 -deprovision。 有关详细信息，请参阅 [Create and Upload a Virtual Hard Disk that Contains the Linux Operating System](create-upload-vhd-classic.md)（创建并上传包含 Linux 操作系统的虚拟硬盘）。
 
 **捕获错误：**
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/27/2017
 
 **解决方法：**
 
-若要解决这两个错误，请从门户中删除当前映像，并[从当前 VHD 重新捕获映像](capture-image.md)，其设置与 OS 的设置相同（通用/专用）。
+若要解决这两个错误，请从门户中删除当前映像，并[从当前 VHD 重新捕获映像](capture-image-classic.md)，其设置与 OS 的设置相同（通用/专用）。
 
 ## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>问题：自定义/库/应用商店映像；分配失败
 当新的 VM 请求被发送到没有可用空间可处理请求、或不支持所请求的 VM 大小的群集，便发生此错误。 在相同的云服务中不可混合不同系列的 VM。 因此，如果想要创建和云服务可支持大小不同的新 VM，计算请求将失败。
@@ -92,4 +92,4 @@ ms.lasthandoff: 10/27/2017
 
 ## <a name="next-steps"></a>后续步骤
 如果你在 Azure 中启动已停止的 Linux VM 或调整现有 Linux VM 的大小时遇到问题，请参阅[排查在 Azure 中重新启动现有 Linux 虚拟机或调整其大小时遇到的经典部署问题](restart-resize-error-troubleshooting.md)。
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update link -->

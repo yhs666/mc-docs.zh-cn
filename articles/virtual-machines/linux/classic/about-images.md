@@ -17,10 +17,10 @@ origin.date: 07/21/2016
 ms.date: 12/18/2017
 ms.author: v-yeche
 ms.openlocfilehash: bebcd8bb356e513ba3df8dde5f8a75dd975b1205
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="about-images-for-linux-virtual-machines"></a>关于 Linux 虚拟机的映像
 > [!IMPORTANT]

@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 07/27/2017
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2d335823a58cecd9988f9f82b81eca5415b35090
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: eb146b0231864562cab32fb78a862d61aae98b63
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>在 Azure 中备份 Linux 虚拟机
 
@@ -168,6 +168,6 @@ ms.lasthandoff: 02/13/2018
 请转到下一教程，了解如何监视虚拟机。
 
 > [!div class="nextstepaction"]
-> [监视虚拟机](tutorial-monitoring.md)
+> [控制虚拟机](tutorial-govern-resources.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update link -->

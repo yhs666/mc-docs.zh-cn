@@ -13,25 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/14/2017
-ms.date: 01/15/2018
+origin.date: 02/22/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: c4a6703b934d157271f77281c9a8a0845ca66f73
-ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
+ms.openlocfilehash: 05e088155ea71b8ed2e84b89c5fc009a417823ce
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Azure 元数据服务：适用于 Windows VM 的计划事件（预览）
+# <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure 元数据服务：适用于 Windows VM 的计划事件
 
-> [!NOTE] 
-> 同意使用条款即可使用预览版。 
->
-<!-- Not Available on [Azure Supplemental Terms of Use for Azure Previews](https://www.azure.cn/support/legal/preview-supplemental-terms/). -->
 
 预定事件是一个 Azure 元数据服务，可提供应用程序时间用于准备虚拟机维护。 它提供有关即将发生的维护事件的信息（例如重新启动），使应用程序可以为其准备并限制中断。 它可用于 Windows 和 Linux 上的所有 Azure 虚拟机类型（包括 PaaS 和 IaaS）。 
 
 有关 Linux 上的计划事件的信息，请参阅[适用于 Linux VM 的计划事件](../linux/scheduled-events.md)。
+
+> [!NOTE] 
+> 计划事件在所有 Azure 区域中正式发布。 有关最新版本信息，请参阅[版本和区域可用性](#version-and-region-availability)。
 
 ## <a name="why-scheduled-events"></a>为何使用计划事件？
 
@@ -54,54 +53,38 @@ ms.lasthandoff: 01/19/2018
 
 Azure 元数据服务公开在 VM 中使用可访问的 REST 终结点运行虚拟机的相关信息。 该信息通过不可路由的 IP 提供，因此不会在 VM 外部公开。
 
-### <a name="scope"></a>作用域
-计划的事件传送到：
-- 云服务中的所有虚拟机
-- 可用性集中的所有虚拟机
-- 规模集位置组中的所有虚拟机。 
-
-因此，应查看事件中的 `Resources` 字段以确定将受到影响的 VM。 
-
-## <a name="discovering-the-endpoint"></a>发现终结点
-对于启用 VNET 的 VM，预定事件的最新版本的完整终结点是： 
+### <a name="endpoint-discovery"></a>终结点发现
+对于启用了 VNET 的 VM，元数据服务可通过不可路由的静态 IP (`169.254.169.254`) 使用。 最新版本的计划事件的完整终结点是： 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
 
-如果在虚拟网络 (VNet) 中创建虚拟机，可从不可路由 IP `169.254.169.254` 获得元数据服务。
 如果不是在虚拟网络中创建虚拟机（云服务和经典 VM 的默认情况），则需使用额外的逻辑以发现要使用的 IP 地址。 请参阅此示例，了解如何[发现主机终结点](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)。
 
-### <a name="versioning"></a>版本控制 
+### <a name="version-and-region-availability"></a>版本和区域可用性
 计划事件服务受版本控制。 版本是必需的，当前版本为 `2017-08-01`。
 
-| 版本 | 发行说明 | 
-| - | - | 
-| 2017-08-01 | <li> 已从 Iaas VM 的资源名称中删除下划线<br><li>针对所有请求强制执行元数据标头要求 | 
-| 2017-03-01 | <li>公共预览版
+| 版本 | 发布类型 | 区域 | 发行说明 | 
+| - | - | - | - |
+| 2017-08-01 | 正式版 | 全部 | <li> 已从 Iaas VM 的资源名称中删除下划线<br><li>针对所有请求强制执行元数据标头要求 | 
+| 2017-03-01 | 预览 | 全部 |<li>初始版本
 
 > [!NOTE] 
 > 支持的计划事件的前一预览版 {latest} 发布为 api-version。 此格式不再受支持，并且将在未来弃用。
 
-### <a name="using-headers"></a>使用标头
-查询元数据服务时，必须提供标头 `Metadata:true` 以确保不会在无意中重定向该请求。 `Metadata:true` 标头对于所有预定事件请求是必需的。 不在请求中包含标头会导致元数据服务发出的“错误的请求”响应。
+### <a name="enabling-and-disabling-scheduled-events"></a>启用和禁用计划事件
+首次为事件发出请求时，为服务启用了计划事件。 首次调用时应该会延迟响应最多两分钟。
 
-### <a name="enabling-scheduled-events"></a>启用计划事件
-首次请求计划事件时，Azure 会在虚拟机上隐式启用该功能。 因此，第一次调用时应该会延迟响应最多两分钟。
-
-> [!NOTE]
-> 如果服务有 1 天未调用终结点，会自动为服务禁用预定事件。 为服务禁用计划事件后，不会为用户启动的维护创建事件。
+如果 24 小时未发出请求，将为服务禁用计划事件。
 
 ### <a name="user-initiated-maintenance"></a>用户启动的维护
 用户通过 Azure 门户、API、CLI 或 PowerShell 启动的虚拟机维护会生成计划事件。 这样便可以在应用程序中测试维护准备逻辑，并可以通过应用程序准备用户启动的维护。
 
 重启虚拟机会计划 `Reboot` 类型的事件。 重新部署虚拟机会计划 `Redeploy` 类型的事件。
 
-> [!NOTE] 
-> 目前，可以同时计划最多 100 个用户启动的维护操作。
-
-> [!NOTE] 
-> 目前，生成计划事件的用户启动的维护不可配置。 可配置性已计划在将来的版本中推出。
-
 ## <a name="using-the-api"></a>使用 API
+
+### <a name="headers"></a>标头
+查询元数据服务时，必须提供标头 `Metadata:true` 以确保不会在无意中重定向该请求。 `Metadata:true` 标头对于所有预定事件请求是必需的。 不在请求中包含标头会导致元数据服务发出的“错误的请求”响应。
 
 ### <a name="query-for-events"></a>查询事件
 只需进行以下调用即可查询计划事件：
@@ -147,6 +130,14 @@ curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01 -H @
 | 冻结| 15 分钟 |
 | 重新启动 | 15 分钟 |
 | 重新部署 | 10 分钟 |
+
+### <a name="event-scope"></a>事件作用域     
+计划的事件传送到：        
+ - 云服务中的所有虚拟机      
+ - 可用性集中的所有虚拟机      
+ - 规模集位置组中的所有虚拟机。         
+
+因此，应查看事件中的 `Resources` 字段以确定将受到影响的 VM。 
 
 ### <a name="starting-an-event"></a>启动事件 
 
@@ -235,4 +226,4 @@ foreach($event in $scheduledEvents.Events)
 - 在 [Azure 实例元数据计划事件 Github 存储库](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)中查看预定事件代码示例
 - 有关 API 的更多信息，请参阅[实例元数据服务](instance-metadata-service.md)。
 - 了解 [Azure 中 Windows 虚拟机的计划内维护](planned-maintenance.md)。
-<!-- Update_Description: update meta properties， remove C# sample code  -->
+<!-- Update_Description: update meta properties， wording update, update link  -->

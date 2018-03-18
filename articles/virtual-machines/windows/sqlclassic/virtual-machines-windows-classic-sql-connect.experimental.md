@@ -3,8 +3,8 @@ title: "连接到 Azure 上的 SQL Server 虚拟机（经典）| Azure"
 description: "了解如何连接到在 Azure 中虚拟机上运行的 SQL Server。 本主题使用经典部署模型。 方案根据网络配置和客户端位置的不同而异。"
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
-manager: jhubbard
+author: rockboyfor
+manager: digimobile
 tags: azure-service-management
 ms.assetid: 416948af-454f-4cfe-8fd2-7cf971cbd3e9
 ms.service: virtual-machines-sql
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/31/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
+ms.date: 03/19/2018
+ms.author: v-yeche
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: d9526d8f71762e97ba3f9c5722f26dc5d6692b33
-ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
+ms.openlocfilehash: 232f9c99835b32ad058dcf4e1fcc9c2aba3efb35
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>连接到 Azure 上的 SQL Server 虚拟机（经典部署）
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ ms.lasthandoff: 01/19/2018
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>连接到同一云服务中的 SQL Server
-可以在同一云服务中创建多个虚拟机。 若要了解此虚拟机方案，请参阅[如何将虚拟机连接到虚拟网络或云服务](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service)。 在此方案中，一台虚拟机上的客户端尝试连接到在同一云服务中另一虚拟机上运行的 SQL Server。
+可以在同一云服务中创建多个虚拟机。 若要了解此虚拟机方案，请参阅[如何将虚拟机连接到虚拟网络或云服务](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service)。 在此方案中，一台虚拟机上的客户端尝试连接到在同一云服务中另一虚拟机上运行的 SQL Server。
 
 在此方案中，可使用 VM **名称**（在门户中也显示为**计算机名**或**主机名**）进行连接。 这是你在创建 VM 时为其提供的名称。 例如，如果将 SQL VM 命名为 **mysqlvm**，则同一云服务中的客户端 VM 可以使用以下连接字符串进行连接：
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 01/19/2018
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-virtual-network"></a>连接到同一虚拟网络中的 SQL Server
-[虚拟网络](../../../virtual-network/virtual-networks-overview.md)支持其他方案。 可以连接同一虚拟网络中的 VM，即使这些 VM 位于不同的云服务中。 使用站点到站点 VPN，可以创建连接 VM 与本地网络和计算机的混合体系结构。
+[虚拟网络](../../../virtual-network/virtual-networks-overview.md)支持其他方案。 可以连接同一虚拟网络中的 VM，即使这些 VM 位于不同的云服务中。 使用[站点到站点 VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)，可以创建连接 VM 与本地网络和计算机的混合体系结构。
 
 虚拟网络还允许将 Azure VM 加入域。 加入域是将 Windows 身份验证用于 SQL Server 的唯一方式。 其他连接方案需要使用用户名和密码进行 SQL 身份验证。
 
@@ -108,3 +108,4 @@ ms.lasthandoff: 01/19/2018
 请务必查看适用于 Azure 虚拟机上运行的 SQL Server 的所有最佳安全性实践。 有关详细信息，请参阅 [Azure 虚拟机中 SQL Server 的安全注意事项](../sql/virtual-machines-windows-sql-security.md)。
 
 有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [SQL Server on Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)（Azure 虚拟机上的 SQL Server）。
+<!-- Update_Description: update meta properties, wording update, update link -->

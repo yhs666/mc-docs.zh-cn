@@ -289,7 +289,7 @@ sudo yum install microsoft-hyper-v
 
 * [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)
 * [虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)
-<!-- Not Available on * [Managed disks pricing](https://www.azure.cn/pricing/details/managed-disks/) -->
+* [托管磁盘定价](https://www.azure.cn/pricing/details/storage/)
 
 ## <a name="azure-backup-support"></a>Azure 备份支持 
 
@@ -313,4 +313,4 @@ sudo yum install microsoft-hyper-v
 
 <!--Update_Description: wording update-->
 <!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-<!--ms.date: 02/05/2018-->
+<!--ms.date: 03/19/2018-->
