@@ -3,8 +3,8 @@ title: "关于 Azure 点到站点 VPN 连接 | Microsoft Docs"
 description: "可以借助本文了解点到站点连接，并确定要使用的 P2S VPN 网关身份验证类型。"
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: cherylmc
+manager: timlt
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/19/2017
-ms.date: 12/11/2017
+origin.date: 01/17/2018
+ms.date: 03/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 23b17507ebe9b3c26a4644ec2685877d68c01478
-ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
+ms.openlocfilehash: 44f794fa3eb1e59bd852b2530c8c07deec5cb5ea
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="about-point-to-site-vpn"></a>关于点到站点 VPN
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/12/2017
 如果在混合客户端环境中包括 Windows 和 Mac 设备，请同时配置 SSTP 和 IKEv2。
 
 >[!NOTE]
->P2S 的 IKEv2 目前处于预览状态，可用于资源管理器部署模型。
+>P2S 的 IKEv2 仅可用于资源管理器部署模型。 它不可用于经典部署模型。
 >
 
 ## <a name="authentication"></a>如何对 P2S VPN 客户端进行身份验证？
@@ -58,28 +58,40 @@ AD 域身份验证可让用户使用其组织域凭据连接到 Azure。 它需�
 
 RADIUS 服务器还能与其他外部标识系统集成。 这样就为 P2S VPN 提供了大量的身份验证选项，包括多重身份验证选项。
 
->[!NOTE]
->适用于 P2S 的 RADIUS 身份验证目前处于预览状态。
->
-
 ![point-to-site]](./media/point-to-site-about/p2s.png "Point-to-Site")
 
 ### <a name="configuration-requirements-for-client-devices"></a>客户端设备的配置要求
 
 用户使用 Windows 和 Mac 设备上的本机 VPN 客户端建立 P2S 连接。 Azure 提供一个 VPN 客户端配置 zip 文件，其中包含这些本机客户端连接到 Azure 时所需的设置。
 
-  - 对于 Windows 设备，VPN 客户端配置包括用户在其设备上安装的安装程序包。
-  - 对于 Mac 设备，该配置包括用户在其设备上安装的 mobileconfig 文件。
+- 对于 Windows 设备，VPN 客户端配置包括用户在其设备上安装的安装程序包。
+- 对于 Mac 设备，该配置包括用户在其设备上安装的 mobileconfig 文件。
 
 该 zip 文件还提供 Azure 端上的一些重要设置的值，使用这些设置可为这些设备创建你自己的配置文件。 其中一些值包括 VPN 网关地址、配置的隧道类型、路由，以及用于网关验证的根证书。
 
-### <a name="which-gateway-skus-support-p2s-vpn"></a>哪些网关 SKU 支持 P2S VPN？
+>[!NOTE]
+>对于 Windows 客户端，你必须具有客户端设备上的管理员权限，才能发起从客户端设备到 Azure 的 VPN 连接。
+>
+
+### <a name="gwsku"></a>哪些网关 SKU 支持 P2S VPN？
 
 [!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
 
 - 聚合吞吐量基准基于对通过单个网关聚合的多个隧道的测量。 受 Internet 流量情况和应用程序行为影响，该吞吐量无法保证。
 - 可在“定价”页上找到定价信息 
 - 可在“SLA”页上查看 SLA（服务级别协议）信息。
+
+>[!NOTE]
+>基本 SKU 不支持 IKEv2 或 RADIUS 身份验证。
+>
+
+## <a name="configure"></a>如何配置 P2S 连接？
+
+P2S 配置需要相当多的特定步骤。 以下文章包含引导你完成 P2S 配置的步骤，以及用于配置 VPN 客户端设备的链接：
+
+- [配置 P2S 连接 - RADIUS 身份验证](point-to-site-how-to-radius-ps.md)
+
+- [配置 P2S 连接 - Azure 本机证书身份验证](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ## <a name="faqcert"></a>本机 Azure 证书身份验证常见问题解答
 
@@ -91,8 +103,8 @@ RADIUS 服务器还能与其他外部标识系统集成。 这样就为 P2S VPN 
 
 ## <a name="next-steps"></a>后续步骤
 
-[配置 P2S 连接 - RADIUS 身份验证](point-to-site-how-to-radius-ps.md)
+- [配置 P2S 连接 - RADIUS 身份验证](point-to-site-how-to-radius-ps.md)
 
-[配置 P2S 连接 - Azure 本机证书身份验证](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [配置 P2S 连接 - Azure 本机证书身份验证](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 <!--Update_Description: wording update-->

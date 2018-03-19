@@ -17,10 +17,10 @@ origin.date: 11/16/2016
 ms.date: 01/08/2018
 ms.author: v-yeche
 ms.openlocfilehash: f45da3a9bc98bcf63bda5e70c441aee7a39cabd7
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>如何使用 VMAccess 扩展重置 Linux VM 密码或 SSH 密钥、修复 SSH 配置，以及检查磁盘一致性
 如果因为忘记密码、安全外壳 (SSH) 密钥不正确或 SSH 配置出现问题而不能连接到 Azure 上的 Linux 虚拟机，请使用 VMAccessForLinux 扩展通过 Azure CLI 重置密码或 SSH 密钥、修复 SSH 配置以及检查磁盘一致性。 
@@ -103,11 +103,11 @@ ms.lasthandoff: 01/05/2018
 
 如果忘记用户名，可以使用 VMAccess 创建具有 sudo 权限的新用户帐户。 在这种情况下，不会修改现有的用户名和密码。
 
-若要创建具有密码访问权限的新 sudo 用户，请使用[“重置密码”](#pwresetcli) 中的脚本并指定新用户名。
+若要创建具有密码访问权限的新 sudo 用户，请使用[重置密码](#pwresetcli) 中的脚本并指定新用户名。
 
 若要创建具有 SSH 密钥访问权限的新 sudo 用户，请使用[“重置 SSH 密钥”](#sshkeyresetcli) 中的脚本并指定新用户名。
 
-还可以使用[“重置密码和 SSH 密钥”](#resetbothcli) 创建同时具有密码和 SSH 密钥访问权限的新用户。
+还可以使用“重置密码和 SSH 密钥” [](#resetbothcli) 创建同时具有密码和 SSH 密钥访问权限的新用户。
 
 ## <a name="sshconfigresetcli"></a>重置 SSH 配置
 如果 SSH 配置处于某种意外状态，可能会丢失对 VM 的访问权限。 可以使用 VMAccess 扩展将配置重置为其默认状态。 为此，只需将“reset_ssh”键设置为“True”。 该扩展将重新启动 SSH 服务器，打开 VM 上的 SSH 端口，然后将 SSH 配置重置为默认值。 将不会更改用户帐户（名称、密码或 SSH 密钥）。

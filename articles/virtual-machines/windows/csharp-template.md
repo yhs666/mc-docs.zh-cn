@@ -3,8 +3,8 @@ title: "使用 C# 和 Resource Manager 模板部署 VM | Azure"
 description: "了解如何使用 C# 和 Resource Manager 模板部署 Azure VM。"
 services: virtual-machines-windows
 documentationcenter: 
-author: davidmu1
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: bfba66e8-c923-4df2-900a-0c2643b81240
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/14/2017
-ms.date: 08/14/2017
-ms.author: v-dazen
-ms.openlocfilehash: 2dac600b528535b50077feb4b1c5843d02bc94bd
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 03/19/2018
+ms.author: v-yeche
+ms.openlocfilehash: 4a8835b4453a13f65a98394a2c9be0011b683945
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>使用 C# 和 Resource Manager 模板部署 Azure 虚拟机
 本文介绍如何使用 C# 部署 Azure Resource Manager 模板。 创建的模板会在包含单个子网的新虚拟网络中部署运行 Windows Server 的单个虚拟机。
 
-有关虚拟机资源的详细说明，请参阅 [Azure Resource Manager 模板中的虚拟机](template-description.md)。 有关模板中所有资源的详细信息，请参阅 [Azure Resource Manager 模板演练](../../azure-resource-manager/resource-manager-template-walkthrough.md)。
+有关虚拟机资源的详细说明，请参阅 [Azure Resource Manager 模板中的虚拟机](template-description.md)。 有关模板中所有资源的详细信息，请参阅 [Azure 资源管理器模板演练](../../azure-resource-manager/resource-manager-template-walkthrough.md)。
 
 完成这些步骤大约需要 10 分钟。
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 08/07/2017
 
 1. 如果尚未安装，请安装 [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)。 在“工作负荷”页上选择“.NET 桌面开发”，然后单击“安装”。 在摘要中，可以看到系统自动选择了“.NET Framework 4 - 4.6 开发工具”。 如果已安装 Visual Studio，则可以使用 Visual Studio 启动器添加 .NET 工作负荷。
 2. 在 Visual Studio 中，单击“文件” > “新建” > “项目”。
-3. 在“模板” > “Visual C#”中，选择“控制台应用(.NET Framework)”，输入 *myDotnetProject* 作为项目名称，选择项目的位置，然后单击“确定”。
+3. 在“模板” > “Visual C#”中，选择“控制台应用(.NET Framework)”，输入 *myDotnetProject* 作为项目名称，选择项目位置，然后单击“确定”。
 
 ## <a name="install-the-packages"></a>安装包
 
@@ -187,7 +187,7 @@ ms.lasthandoff: 08/07/2017
 
 在部署模板之前，请先确保能够访问 [Active Directory 服务主体](../../resource-group-authenticate-service-principal.md)。 从服务主体中，会获取对 Azure Resource Manager 请求进行身份验证的令牌。 还应记录授权文件中所需的应用程序 ID、身份验证密钥和租户 ID。
 
-1. 在解决方案资源管理器中，右键单击“myDotnetProject” > “添加” > “新建项”，然后在“Visual C# 项”中选择“文本文件”。 将文件命名为 azureauth.properties，然后单击“添加”。
+1. 在解决方案资源管理器中，右键单击*myDotnetProject* > **，单击** > 添加**新建项**，然后在**Visual C# 项**中选择*文本文件*。 将文件命名为 azureauth.properties，然后单击“添加”。
 2. 添加这些授权属性：
 
     ```
@@ -283,11 +283,11 @@ container.SetPermissionsAsync(containerPermissions).Wait();
 
 Console.WriteLine("Uploading template file...");
 var templateblob = container.GetBlockBlobReference("CreateVMTemplate.json");
-templateblob.UploadFromFile("..\\..\\CreateVMTemplate.json");
+templateblob.UploadFromFileAsync("..\\..\\CreateVMTemplate.json").Result();
 
 Console.WriteLine("Uploading parameters file...");
 var paramblob = container.GetBlockBlobReference("Parameters.json");
-paramblob.UploadFromFile("..\\..\\Parameters.json");
+paramblob.UploadFromFileAsync("..\\..\\Parameters.json").Result();
 ```
 
 ## <a name="deploy-the-template"></a>部署模板
