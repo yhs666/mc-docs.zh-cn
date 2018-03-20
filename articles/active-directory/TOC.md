@@ -37,6 +37,7 @@
 
 
 ## 管理密码
+### 用户文档
 #### [重置或更改密码](active-directory-passwords-update-your-own-password.md)
 #### [密码最佳做法](active-directory-secure-passwords.md)
 ### IT 管理员：重置密码
@@ -103,6 +104,10 @@
 
 
 
+## 在 Azure VM 上部署 AD DS
+### [Azure VM 上的 Windows Server Active Directory](active-directory-deploying-ws-ad-guidelines.md)
+### [Azure 虚拟网络中的副本域控制器](active-directory-install-replica-active-directory-domain-controller.md)
+### [在 Azure 虚拟网络中新建林](active-directory-new-forest-virtual-machine.md)
 
 ## [在 Azure 中部署 AD FS](./connect/active-directory-aadconnect-azure-adfs.md)
 ### [高可用性](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
