@@ -1,9 +1,9 @@
 ---
-title: "在 Linux VM 上使用 CustomScript 扩展 | Azure"
-description: "了解如何在 Azure 中使用经典部署模型创建的 Linux 虚拟机使用 CustomScript 扩展部署应用程序。"
+title: 在 Linux VM 上使用 CustomScript 扩展 | Azure
+description: 了解如何在 Azure 中使用经典部署模型创建的 Linux 虚拟机使用 CustomScript 扩展部署应用程序。
 editor: tysonn
 manager: digimobile
-documentationcenter: 
+documentationcenter: ''
 services: virtual-machines-linux
 author: hayley244
 tags: azure-service-management
@@ -17,10 +17,10 @@ origin.date: 06/01/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ms.openlocfilehash: dd0ab346de3dc2fea2909f7e24f4a611125927d0
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="deploy-a-lamp-app-using-the-azure-customscript-extension-for-linux"></a>使用适用于 Linux 的 Azure CustomScript 扩展部署 LAMP 应用
 > [!IMPORTANT] 
@@ -93,10 +93,10 @@ script-vm VM 需要使用与 Azure 之间的有效连接安装 Azure CLI。 有�
     cd /var/log/azure/customscript
     tail -f handler.log
 
-运行 CustomScript 扩展后，可以浏览到创建的 PHP 页获取信息。 本文中的示例 PHP 页是 *http://lamp-vm.chinacloudapp.cn/phpinfo.php*。
+运行 CustomScript 扩展后，可以浏览到创建的 PHP 页获取信息。 本文中示例的 PHP 页是 *http://lamp-vm.chinacloudapp.cn/phpinfo.php*。
 
 ## <a name="additional-resources"></a>其他资源
-可以使用相同的基本步骤部署更复杂的应用。 在此示例中，安装脚本作为公共 blob 保存在 Azure 存储中。 比较安全的选择是使用[安全访问签名](https://msdn.microsoft.com/library/azure/ee395415.aspx) (SAS) 将安装脚本存储为安全 Blob。
+可以使用相同的基本步骤部署更复杂的应用。 在本例中，安装脚本已保存为 Azure 存储中的公共 blob。 比较安全的选择是使用[安全访问签名](https://msdn.microsoft.com/library/azure/ee395415.aspx) (SAS) 将安装脚本存储为安全 Blob。
 
 下面列出了 Azure CLI、Linux 和 CustomScript 扩展的其他资源。
 

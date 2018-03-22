@@ -1,11 +1,11 @@
 ---
-title: "在 Linux VM 上使用 cloud-init 配置交换文件 | Azure"
-description: "如何通过 Azure CLI 2.0 使用 cloud-init 在创建期间在 Linux VM 中配置交换文件"
+title: 在 Linux VM 上使用 cloud-init 配置交换文件 | Azure
+description: 如何通过 Azure CLI 2.0 使用 cloud-init 在创建期间在 Linux VM 中配置交换文件
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 691812031409ff74546dbb4a8efdb953cc0fc482
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: c837afd120c1cc83c2d113b99b61df47ce42fbfa
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>在 Linux VM 上使用 cloud-init 配置交换文件
 本文介绍如何使用 [cloud-init](https://cloudinit.readthedocs.io) 在各种 Linux 分发版中配置交换文件。 在传统上，交换文件由 Linux 代理 (WALA) 根据分发版的需要进行配置。  本文档概述在预配期间，使用 cloud-init 按需生成交换文件的过程。  有关 cloud-init 如何在 Azure 以及受支持的 Linux 发行版中本机工作的详细信息，请参阅 [cloud-init 概述](using-cloud-init.md)
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/05/2018
 ## <a name="create-swapfile-for-centos-based-images"></a>为基于 CentOS 的映像创建交换文件
 <!-- Not Available on RedHat -->
 
-在当前 shell 中，创建名为 *cloud_init_swapfile.txt* 的文件并粘贴以下配置。 可使用任何想要使用的编辑器。 输入 `sensible-editor cloud_init_swapfile.txt` 以创建文件并查看可用编辑器的列表。 选择 #1 以使用 nano 编辑器。 请确保已正确复制整个 cloud-init 文件，尤其是第一行。  
+在当前 shell 中，创建名为 *cloud_init_swapfile.txt* 的文件并粘贴以下配置。 对于此示例，请在本地计算机中创建文件。可以使用任何想用的编辑器。 输入 `sensible-editor cloud_init_swapfile.txt` 以创建文件并查看可用编辑器的列表。 选择 #1 以使用 nano 编辑器。 请确保已正确复制整个 cloud-init 文件，尤其是第一行。  
 <!-- Not Available on Cloud Shell -->
 
 ```yaml
@@ -50,13 +50,13 @@ mounts:
 - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
-在部署此映像之前，需要使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
+在部署此映像之前，需要使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
 
 ```azurecli 
 az group create --name myResourceGroup --location chinaeast
 ```
 
-现在，使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 创建 VM，并通过 `--custom-data cloud_init_swapfile.txt` 指定 cloud-init 文件，如下所示：
+现在，使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 创建 VM，并通过 `--custom-data cloud_init_swapfile.txt` 指定 cloud-init 文件，如下所示：
 
 ```azurecli 
 az vm create \
@@ -97,5 +97,4 @@ Filename                Type        Size    Used    Priority
 - [运行包管理器以在首次启动时更新现有包](cloudinit-update-vm.md)
 - [更改 VM 本地主机名](cloudinit-update-vm-hostname.md) 
 - [安装应用程序包、更新配置文件和注入密钥](tutorial-automate-vm-deployment.md)
-<!-- Update_Description: new articles on using cloudinit to configure swapfile -->
-<!-- ms.date: 01/08/2018 -->
+<!-- Update_Description: update link, wording update -->

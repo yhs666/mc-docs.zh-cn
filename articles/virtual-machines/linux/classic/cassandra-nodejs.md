@@ -1,11 +1,11 @@
 ---
-title: "通过 Node.js 在 Azure 中的 Linux 上运行 Cassandra 群集"
-description: "如何使用 Node.js 应用在 Azure 虚拟机上通过 Linux 运行 Cassandra 群集"
+title: 通过 Node.js 在 Azure 中的 Linux 上运行 Cassandra 群集
+description: 如何使用 Node.js 应用在 Azure 虚拟机上通过 Linux 运行 Cassandra 群集
 services: virtual-machines-linux
 documentationcenter: nodejs
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 30de1f29-e97d-492f-ae34-41ec83488de0
 ms.service: virtual-machines-linux
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/17/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: ac48280f31bd607eb5c82a38e3afd10f12375542
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: ac22bb3104a8296dc62f0a222c2bc48ec020da06
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>使用 Node.js 在 Azure 中的 Linux 上运行 Cassandra 群集
 
@@ -293,7 +293,7 @@ Azure 在进行配置时需要用 PEM 或 DER 编码的 X509 公钥。 按照“
 执行以下顺序的操作以捕获映像：
 
 ##### <a name="1-deprovision"></a>1.预配
-使用命令“sudo waagent -deprovision+user”删除虚拟机实例特定信息。 请参阅[如何捕获将用作模板的 Linux 虚拟机](capture-image.md)，了解映像捕获过程的详细信息。
+使用命令“sudo waagent -deprovision+user”删除虚拟机实例特定信息。 请参阅[如何捕获将用作模板的 Linux 虚拟机](capture-image-classic.md)，了解映像捕获过程的详细信息。
 
 ##### <a name="2-shut-down-the-vm"></a>2：关闭 VM
 确保突出显示该虚拟机，并单击底部命令栏中的“关闭”链接。
@@ -466,7 +466,8 @@ Azure 在进行配置时需要用 PEM 或 DER 编码的 X509 公钥。 按照“
 
 在步骤 4 中创建的密钥空间使用 SimpleStrategy 并已将 a replication_factor 设置为 3。 建议使用 SimpleStrategy 进行单数据中心部署，使用 NetworkTopologyStrategy 进行多数据中心部署。 将 replication_factor 设置为 3 即可承受节点故障。
 
-## <a id="tworegion"> </a>多区域部署过程
+<a name="tworegion"></a>
+## <a name="multi-region-deployment-process"></a>多区域部署过程
 利用完成的单区域部署，并在安装第二个区域时重复相同的过程。 单区域部署和多区域部署的主要区别是 VPN 隧道，设置该隧道是为了进行区域间通信；首先安装网络，并完成 VM 预配和 Cassandra 配置。
 
 ### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>步骤 1：在第二个区域创建虚拟网络

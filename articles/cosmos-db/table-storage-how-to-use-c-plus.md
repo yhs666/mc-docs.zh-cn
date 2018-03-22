@@ -1,6 +1,6 @@
 ---
-title: "如何通过 C++ 使用 Azure 表存储 | Azure"
-description: "使用 Azure 表存储（一种 NoSQL 数据存储）将结构化数据存储在云中。"
+title: 如何通过 C++ 使用 Azure 表存储 | Azure
+description: 使用 Azure 表存储（一种 NoSQL 数据存储）将结构化数据存储在云中。
 services: cosmos-db
 documentationcenter: .net
 author: rockboyfor
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 11/03/2017
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 916a398b2272882d2800e4af5a3a80b2ffc70a6b
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: edbb00f3151809b535ec1c5e84f126c5878efe33
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-azure-table-storage-with-c"></a>如何配合使用 C++ 和 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -451,7 +451,8 @@ azure::storage::table_result delete_result = table.execute(delete_operation);
 ## <a name="next-steps"></a>后续步骤
 现在，已了解表存储的基础知识，请打开以下链接了解有关 Azure 存储的详细信息：  
 
-* [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
+* [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是免费的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
+<!-- Notice: Remove from Microsoft -->
 * [如何通过 C++ 使用 Blob 存储](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [如何通过 C++ 使用队列存储](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
 * [使用 C++ 列出 Azure 存储资源](../storage/common/storage-c-plus-plus-enumeration.md)

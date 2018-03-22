@@ -1,8 +1,8 @@
 ---
-title: "Windows 虚拟机概述 | Azure"
-description: "了解如何在 Azure 中创建和管理 Windows 虚拟机。"
+title: Windows 虚拟机概述 | Azure
+description: 了解如何在 Azure 中创建和管理 Windows 虚拟机。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 10/30/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7e726164bb5ea62428c14fff52f8d3e34aeb1bd4
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: ceb221aae131bc7d38e13abf7ab1edb0369b4f86
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虚拟机概述
 
@@ -54,7 +54,7 @@ Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源
 如果使用 Azure 创建操作系统磁盘，计算机名称与虚拟机名称相同。 如果[上传包含以前配置的操作系统的自有映像](upload-generalized-managed.md)并使用它来创建虚拟机，则名称可以不同。 建议在上传自己的映像文件时，使操作系统中的计算机名称与虚拟机名称保持相同。
 
 ### <a name="locations"></a>位置
- 创建 VM 时，区域通常称为 **位置** 。 位置指定 VM 虚拟硬盘的存储位置。
+在 Azure 中创建的所有资源分布在中国的多个[地理区域](https://www.azure.cn/support/service-dashboard/)。 创建 VM 时，区域通常称为 **位置** 。 位置指定 VM 虚拟硬盘的存储位置。
 
 下表显示了获取可用位置列表的一些方法。
 
@@ -63,6 +63,7 @@ Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源
 | Azure 门户 |创建 VM 时，可从列表中选择位置。 |
 | Azure PowerShell |使用 [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation) 命令。 |
 | REST API |使用[列出位置](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations)操作。 |
+| Azure CLI |使用 [az account list-locations](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az_account_list_locations) 操作。 |
 
 ### <a name="vm-size"></a>VM 大小
 VM 的[大小](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)由所要运行的工作负荷决定。 然后，选择的大小决定了处理能力、内存和存储容量等因素。 Azure 提供各种大小来支持多种类型的用途。
@@ -70,13 +71,12 @@ VM 的[大小](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)由所要�
 Azure 根据 VM 的大小和操作系统[按小时进行收费](https://www.azure.cn/pricing/details/virtual-machines/)。 对于不足一小时的部分，Azure 仅根据使用的分钟数计费。 存储将另行定价和收费。
 
 ### <a name="vm-limits"></a>VM 限制
-订阅附带默认的配额限制，在为项目部署大量 VM 时，这些限制可能会造成影响。 每个订阅的当前限制是每区域 20 个 VM。 可以开具支持票证来请求提高限制。
+订阅附带默认的[配额限制](../../azure-subscription-service-limits.md)，在为项目部署大量 VM 时，这些限制可能会造成影响。 每个订阅的当前限制是每区域 20 个 VM。 可以开具支持票证来请求提高限制。
 
 ### <a name="operating-system-disks-and-images"></a>操作系统磁盘和映像
 虚拟机使用[虚拟硬盘 (VHD)](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 来存储其操作系统 (OS) 和数据。 VHD 还可用于存储映像，可以选择某个映像来安装 OS。 
 
-Azure 提供许多应用商店映像，这些映像可配合各种版本和类型的 Windows Server 操作系统使用。 应用商店映像由映像发布者、产品、SKU 和版本（通常指定为最新版本）标识。 
-<!-- Not Available https://azure.microsoft.com/marketplace/virtual-machines/ -->
+Azure 提供许多[应用商店映像](https://market.azure.cn/zh-cn/marketplace/virtual-machines/)来配合各种版本和类型的 Windows Server 操作系统使用。 Marketplace 映像由映像发布者、产品、SKU 和版本（通常指定为最新版本）标识。 
 
 下表显示了查找映像信息的一些方法。
 
@@ -85,6 +85,7 @@ Azure 提供许多应用商店映像，这些映像可配合各种版本和类�
 | Azure 门户 |选择要使用的映像时，系统会自动指定值。 |
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | REST API |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[列出映像产品](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
+| Azure CLI |[az vm image list-publishers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
 
 可以选择[上传并使用自己的映像](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account)，在这种情况下，无需使用发布者名称、产品和 SKU。
 
@@ -100,7 +101,7 @@ VM [扩展](extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 ### <a name="related-resources"></a>相关资源
 VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则要予以创建。
 
-| 资源 | 必选 | 说明 |
+| 资源 | 必须 | 说明 |
 | --- | --- | --- |
 | [资源组](../../azure-resource-manager/resource-group-overview.md) |是 |VM 必须包含在资源组中。 |
 | [存储帐户](../../storage/common/storage-create-storage-account.md) |是 |VM 需要使用存储帐户来存储其虚拟硬盘。 |
@@ -112,7 +113,7 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 ## <a name="how-do-i-create-my-first-vm"></a>如何创建第一个 VM？
 可以选择多种方法创建 VM。 选择哪种方法取决于所在的环境。 
 
-下表提供的信息可帮助你开始创建 VM。
+此表提供的信息可用于创建 VM。
 
 | 方法 | 文章 |
 | --- | --- |
@@ -121,6 +122,7 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 | Azure PowerShell |[使用 PowerShell 创建 Windows VM](../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |
 | 客户端 SDK |[使用 C# 部署 Azure 资源](csharp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |
 | REST API |[创建或更新 VM](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
+| Azure CLI |[使用 Azure CLI 创建 VM](/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
 
 问题偶尔会不期而至。 如果遇到了问题，请查看[排查在 Azure 中创建 Windows 虚拟机时遇到的 Resource Manager 部署问题](troubleshoot-deployment-new-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
@@ -136,6 +138,7 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 | Azure PowerShell |若要了解如何使用 PowerShell 管理 VM，请参阅[使用 Azure PowerShell 模块创建和管理 Windows VM](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 |
 | REST API |使用[获取 VM 信息](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get)操作获取有关 VM 的信息。 |
 | 客户端 SDK |有关使用 C# 管理 VM 的信息，请参阅[使用 Azure Resource Manager 与 C# 来管理 Azure 虚拟机](csharp-manage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 |
+| Azure CLI |有关使用 Azure CLI 管理 VM 的信息，请参阅 [Azure CLI 参考](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest)。 |
 
 ### <a name="log-on-to-the-vm"></a>登录到 VM
 使用 Azure 门户中的“连接”按钮[启动远程桌面 (RDP) 会话](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 尝试使用远程连接时，有时可能会出错。 如果遇到这种情况，请查看[对运行 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中的帮助信息。
@@ -150,6 +153,6 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 
 ## <a name="next-steps"></a>后续步骤
 * 如果打算使用 Linux VM，请查看 [Azure 和 Linux](../linux/overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
-* 在 [Example Azure infrastructure walkthrough](infrastructure-example.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（示例 Azure 基础结构演练）中查看有关设置基础结构的指导。
+* 若要深入了解有关设置基础结构的指导，请参阅[示例 Azure 基础结构演练](infrastructure-example.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

@@ -1,11 +1,11 @@
 ---
-title: "在 Linux 虚拟机上设置 Apache Tomcat | Azure"
-description: "了解如何使用运行 Linux 的 Azure 虚拟机设置 Apache Tomcat7。"
+title: 在 Linux 虚拟机上设置 Apache Tomcat | Azure
+description: 了解如何使用运行 Linux 的 Azure 虚拟机设置 Apache Tomcat7。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 45ecc89c-1cb0-4e80-8944-bd0d0bbedfdc
 ms.service: virtual-machines-linux
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2015
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3ff85cfd69fe9a22b7637d43ca24ad9993558e68
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: fdb6ef5b39d4ebca41d33d43222e9ffaa3697f13
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>使用 Azure 在 Linux 虚拟机上设置 Tomcat7
 Apache Tomcat（简称 Tomcat，以前也称为 Jakarta Tomcat）是由 Apache Software Foundation (ASF) 开发的一个开源 Web 服务器和 servlet 容器。 Tomcat 实现了 Sun Microsystems 提出的 Java Servlet 和 JavaServer Pages (JSP) 规范。 Tomcat 提供用于运行 Java 代码的纯 Java HTTP Web 服务器环境。 在最简单的配置中，Tomcat 在单个操作系统进程中运行。 此进程运行 Java 虚拟机 (JVM)。 浏览器向 Tomcat 发出的每个 HTTP 请求在 Tomcat 进程中作为单独线程进行处理。  
@@ -37,7 +37,7 @@ Apache Tomcat（简称 Tomcat，以前也称为 Jakarta Tomcat）是由 Apache S
 * 如何准备适用于 Tomcat7 的虚拟机。
 * 如何安装 Tomcat7。
 
-本文假设读者已拥有 Azure 订阅。  如果没有，可在 [Azure 网站](https://www.azure.cn/)上注册一个免费试用订阅。
+本文假设读者已拥有 Azure 订阅。  如果没有，可在 [Azure 网站](https://www.azure.cn/)上注册一个免费试用订阅。 如果已有 MSDN 订阅，请参阅 [Azure 特价：MSDN 权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)。 若要了解有关 Azure 的详细信息，请参阅[什么是 Azure？](https://www.azure.cn/home/features/what-is-azure/)。
 
 本文假设读者具备 Tomcat 和 Linux 的基本实践知识。  
 
@@ -63,7 +63,7 @@ SSH 是面向系统管理员的重要工具。 但是，我们并不建议基于
 6. 单击“保存私钥”，并将其保存到名为 privateKey.ppk 的文件。
 
 ### <a name="step-2-create-the-image-in-the-azure-portal"></a>步骤 2：在 Azure 门户中创建映像
-1. 在[门户](https://portal.azure.cn/)中，单击任务栏中的“新建”来创建映像。 然后根据需要选择 Linux 映像。 以下示例使用 Ubuntu 14.04 映像。
+1. 在[门户](https://portal.azure.cn/)中，单击任务栏中的“创建资源”来创建一个映像。 然后根据需要选择 Linux 映像。 以下示例使用 Ubuntu 14.04 映像。
 ![显示“新建”按钮的门户屏幕截图][3]
 
 2. 对于“主机名”，请指定你和 Internet 客户端用来访问此虚拟机的 URL 的名称。 定义 DNS 名称的最后一个部分（例如 tomcatdemo）。 然后，Azure 会生成 tomcatdemo.chinacloudapp.cn 作为 URL。  
@@ -181,7 +181,7 @@ Tomcat 是用 Java 编写的。 有两种类型的 Java 开发工具包 (JDK)：
 如果未使用 Tomcat7，请使用此命令的相应变体。  
 
 #### <a name="confirm-that-tomcat7-installation-is-successful"></a>确认 Tomcat7 安装成功
-若要检查 Tomcat7 是否已成功安装，请浏览到 Tomcat 服务器的 DNS 名称。 在本文中，示例 URL 为 http://tomcatexample.chinacloudapp.cn/。 如果看到如下消息，则表示已正确安装 Tomcat7。
+若要检查 Tomcat7 是否已成功安装，请浏览到 Tomcat 服务器的 DNS 名称。 在本文中，示例 URL 是 http://tomcatexample.chinacloudapp.cn/。 如果看到如下消息，则表示已正确安装 Tomcat7。
 ![指出成功安装 Tomcat7 的消息][16]
 
 ### <a name="install-other-tomcat7-components"></a>安装其他 Tomcat7 组件
@@ -228,7 +228,7 @@ Tomcat 是用 Java 编写的。 有两种类型的 Java 开发工具包 (JDK)：
 
     sudo /etc/init.d/tomcat7 restart  
 
-打开浏览器，然后输入 URL **http://<your tomcat server DNS name>/manager/html**。 对于本文中的示例，URL 为 http://tomcatexample.chinacloudapp.cn/manager/html。  
+打开浏览器，然后输入 URL **http://<your tomcat server DNS name>/manager/html**。 对于本文中的示例，URL 是 http://tomcatexample.chinacloudapp.cn/manager/html。  
 
 连接后，应显示如下内容：  
 ![Tomcat Web 应用程序管理器的屏幕截图][18]
@@ -326,4 +326,4 @@ Tomcat 是用 Java 编写的。 有两种类型的 Java 开发工具包 (JDK)：
 [17]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!-- Update_Description: Add classic portal migration notice. -->
+<!-- Update_Description: update meta properties, update link, wording update -->

@@ -1,27 +1,27 @@
 ---
-title: "Azure 快速入门 - 创建 Windows VM 门户 | Azure"
-description: "Azure 快速入门 - 创建 Windows VM 门户"
+title: Azure 快速入门 - 创建 Windows VM 门户 | Azure
+description: Azure 快速入门 - 创建 Windows VM 门户
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 07/15/2017
-ms.date: 02/05/2018
+origin.date: 12/11/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f364ac063d5c36d7922e566ce5e9aa3a717dd085
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 8f01f860781f125bf62f3dfaff2cda1692f4c988
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>使用 Azure 门户创建 Windows 虚拟机
 
@@ -31,11 +31,11 @@ ms.lasthandoff: 02/13/2018
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-通过 http://portal.azure.cn 登录到 Azure 门户。
+在 http://portal.azure.cn 登录 Azure 门户。
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 
-1. 单击 Azure 门户左上角的“新建”按钮。
+1. 在 Azure 门户的左上角单击“创建资源”。
 
 2. 选择“计算”，并选择“Windows Server 2016 Datacenter”。 
 

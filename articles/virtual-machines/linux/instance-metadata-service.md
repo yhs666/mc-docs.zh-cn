@@ -1,11 +1,11 @@
 ---
-title: "Azure 实例元数据服务 | Azure"
-description: "一个 RESTful 接口，用于获取有关 Linux VM 计算、网络和即将发生的维护事件的信息。"
+title: Azure 实例元数据服务 | Azure
+description: 一个 RESTful 接口，用于获取有关 Linux VM 计算、网络和即将发生的维护事件的信息。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 10/10/2017
 ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4ffb34865fa473c0a2d0cdcdd60c1e465a7969ff
-ms.sourcegitcommit: 2c6591b24e8ccb1c1b9a56738049b99f5785b833
+ms.openlocfilehash: b690a33664b25c440be64542a93c675945068ae3
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -40,7 +40,9 @@ Azure 的实例元数据服务是一个 REST 终结点，所有创建的 IaaS VM
 [Azure 美国政府版](https://azure.microsoft.com/overview/clouds/government/)              | 正式版 | 2017-04-02 
 [Azure 中国](https://www.azure.cn/)                                                           | 正式版 | 2017-04-02
 [Azure 德国](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式版 | 2017-04-02
+<!-- Notice: Correct [All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/) -->
 <!-- Notice : [Azure Government] to [Azure US Government] -->
+
 当有服务更新和/或有可用的新支持版本时，此表将更新
 
 若要试用实例元数据服务，请在上述区域中从 [Azure 资源管理器](https://docs.microsoft.com/rest/api/resources/)或 [Azure 门户](http://portal.azure.cn)创建一个 VM，并按照以下示例操作。
@@ -400,7 +402,7 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 5. 我为什么会收到错误 `500 Internal Server Error`？
    * 请根据指数后退系统重试请求。 如果问题持续出现，请联系 Azure 支持部门。
 6. 在何处共享其他问题/评论？
-   * 请将评论发布到 http://feedback.azure.com。
+   * 在 http://feedback.azure.com 上发送评论。
 7. 这是否适用于虚拟机规模集实例？
    * 是的，元数据服务可用于规模集实例。 
 8. 如何获取服务支持？
@@ -410,6 +412,5 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解由实例元数据服务提供的公共预览版 [scheduledevents](scheduled-events.md) API。
-
-<!--Update_Description: update meta properties， wording update, update link -->
+- 详细了解[计划事件](scheduled-events.md)。
+<!--Update_Description: wording update, update link -->

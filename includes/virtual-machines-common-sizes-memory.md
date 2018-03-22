@@ -7,10 +7,34 @@
 
 * Dv2 系列是原 D 系列的后续系列，其特点是 CPU 功能更强大。 Dv2 系列 CPU 比 D 系列 CPU 快大约 35%。 该系列基于最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器，通过 Intel Turbo Boost Technology 2.0 可以达到 3.1 GHz。 Dv2 系列的内存和磁盘配置与 D 系列相同。
 
-<!-- Not Available ## ESv3-series -->
+
+<!--PENDIND ON Esv3-series, Updte carefully -->
+
+## <a name="esv3-series-sup1sup"></a>Esv3 系列 <sup>1</sup>
+
+ACU：160-190
+
+ESv3 系列实例基于 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) 处理器，可通过 Intel Turbo Boost Technology 2.0 达到 3.5 GHz，并使用高级存储。 Ev3 系列实例适用于内存密集型企业应用程序。
+
+| 大小             | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 缓存和临时存储的最大吞吐量：IOPS/MBps（以 GiB 为单位的缓存大小） | 非缓存磁盘最大吞吐量：IOPS / MBps | 最大 NIC 数/预期网络带宽 (MBps) |
+|------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
+| Standard_E2s_v3  | 2      | 16          | 32             | 4              | 4,000 / 32 (50)                                                       | 3,200 / 48                                | 2 / 1,000                                   |
+| Standard_E4s_v3  | 4      | 32          | 64             | 8              | 8,000 / 64 (100)                                                      | 6,400 / 96                                | 2 / 2,000                                   |
+| Standard_E8s_v3  | 8      | 64          | 128            | 16             | 16,000 / 128 (200)                                                    | 12,800 / 192                              | 4 / 4,000                                       |
+| Standard_E16s_v3 | 16     | 128         | 256            | 32             | 32,000 / 256 (400)                                                    | 25,600 / 384                              | 8 / 8,000                                       |
+| Standard_E32s_v3 <sup>2</sup> | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51,200 / 768                              | 8 / 16,000                             |
+| Standard_E64s_v3 <sup>2,3</sup> | 64     | 432         | 8
+64            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / 30,000                             |
+
+<sup>1</sup> Esv3 系列 VM 的 Intel® 超线程技术功能
+
+<sup>2</sup> 受约束的可用核心大小 
+
+<sup>3</sup> 实例与专用于单个客户的硬件隔离。
+<!--PENDIND ON Esv3-series, Updte carefully -->
 
 <!--PENDIND ON Ev3-series, Updte carefully -->
-## <a name="ev3-series-"></a>Ev3 系列 *
+## <a name="ev3-series-sup1sup"></a>Ev3 系列 <sup>1</sup>
 
 ACU：160 - 190 
 
@@ -25,15 +49,17 @@ Ev3 系列实例基于 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) 处理器，�
 | Standard_E8_v3  | 8         | 64          | 200            | 16             | 12000/187/93                                             | 4 / 4,000                     |
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8 / 8,000                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / 16,000                 |
-| Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
+| Standard_E64_v3<sup>2</sup> | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
 
-*Ev3 系列 VM 的 Intel® 超线程技术功能
+<sup>1</sup> Ev3 系列 VM 的 Intel® 超线程技术功能
+
+<sup>2</sup> 实例对于专用于单个客户的硬件独立。
+
 <!--PENDIND ON Ev3-series, Updte carefully -->
-
 <!-- Not Available ## M-series* -->
 <!-- Not Available ## GS-series*-->
 <!-- Not Available ## G-series-->
-## <a name="dsv2-series"></a>DSv2 系列*
+## <a name="dsv2-series-sup1sup"></a>DSv2 系列 <sup>1</sup>
 
 ACU：210 - 250
 
@@ -43,14 +69,14 @@ ACU：210 - 250
 | Standard_DS12_v2 |4 |28 |56 |16 |16,000 / 128 (144) |12,800 / 192 |4 / 3000 |
 | Standard_DS13_v2 |8 |56 |112 |32 |32,000 / 256 (288) |25,600 / 384 |8 / 6000 |
 | Standard_DS14_v2 |16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 768 |8 / 12000 |
-| Standard_DS15_v2** |20 个 |140 |280 |64 |80,000 / 640 (720) |64,000 / 960 |8 / 25000***|
+| Standard_DS15_v2 <sup>2</sup> |20 个 |140 |280 |64 |80,000 / 640 (720) |64,000 / 960 |8 / 25000 <sup>3</sup> |
 <!-- Please acknowledge that DSv2 Max Disk Count are 8,16,32,64,64 -->
 
-*DSv2 系列 VM 可能的最大磁盘吞吐量（IOPS 或 MBps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../articles/virtual-machines/windows/premium-storage.md)。
+<sup>1</sup> DSv2 系列 VM 可能的最大磁盘吞吐量（IOPS 或 MBps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../articles/virtual-machines/windows/premium-storage.md)。
 
-**实例是一个独立的节点，可保证你的 VM 是 Intel Haswell 节点上的唯一 VM。
+<sup>2</sup> 实例对于专用于单个客户的硬件独立。 
 
-***25000 Mbps，具有加速网络。
+<sup>3</sup> 25000 Mbps，具有加速网络。
 
 <br>
 
@@ -64,16 +90,16 @@ ACU：210 - 250
 | Standard_D12_v2   | 4         | 28          | 200            | 12000/187/93                                         | 16/16x500                         | 4 / 3000                     |
 | Standard_D13_v2   | 8         | 56          | 400            | 24000/375/187                                        | 32/32x500                       | 8 / 6000                     |
 | Standard_D14_v2   | 16        | 112         | 800            | 48000/750/375                                        | 64/64x500                       | 8 / 12000          |
-| Standard_D15_v2*  | 20 个        | 140         | 1,000          | 60000/937/468                                        | 64/64x500                       | 8 / 25000** |
+| Standard_D15_v2 <sup>1</sup> | 20 个        | 140         | 1,000          | 60000/937/468                                        | 64/64x500                       | 8 / 25000 <sup>2</sup> |
 <!-- Please acknowledge that Dv2 Max Disk Count are 8,16,32,64,64 -->
 
-*实例是一个独立的节点，可保证 VM 是 Intel Haswell 节点上的唯一 VM。
+<sup>1</sup> 实例对于专用于单个客户的硬件独立。 
 
-**25000 Mbps，具有加速网络。
+<sup>2</sup> 25000 Mbps，具有加速网络。
 
 <br>
 
-## <a name="ds-series"></a>DS 系列*
+## <a name="ds-series-sup1sup"></a>DS 系列 <sup>1</sup>
 
 ACU：160
 
@@ -85,7 +111,7 @@ ACU：160
 | Standard_DS14 |16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 512 |8 / 8000 |
 <!-- Please acknowledge that DS Max Disk Count are 8,16,32,64 -->
 
-*DS 系列 VM 可能的最大磁盘吞吐量（IOPS 或 MBps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../articles/virtual-machines/windows/premium-storage.md)。
+<sup>1</sup> DS 系列 VM 可能的最大磁盘吞吐量（IOPS 或 MBps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../articles/virtual-machines/windows/premium-storage.md)。
 
 ## <a name="d-series"></a>D 系列
 
@@ -101,5 +127,5 @@ ACU：160
 
 <br>
 <!--Update_Description: wording update, update link -->
-<!--ms.date: 01/29/2018-->
+<!--ms.date: 03/19/2018-->
 <!--PENDING to EV3 configuration list-->

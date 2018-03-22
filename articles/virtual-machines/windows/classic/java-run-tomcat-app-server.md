@@ -1,11 +1,11 @@
 ---
-title: "在经典 Azure VM 上运行 Java 应用程序服务器 | Azure"
-description: "本教程利用使用经典部署模型创建的资源，显示如何创建 Windows 虚拟机并将其配置为运行 Apache Tomcat 应用程序服务器。"
+title: 在经典 Azure VM 上运行 Java 应用程序服务器 | Azure
+description: 本教程利用使用经典部署模型创建的资源，显示如何创建 Windows 虚拟机并将其配置为运行 Apache Tomcat 应用程序服务器。
 services: virtual-machines-windows
 documentationcenter: java
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: d627aa09-f7d6-4239-8110-f8fc5111b939
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
 origin.date: 03/16/2017
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 70b0642f9981e2a23521773554b24858426a3f1e
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 1bad057d1570084e860d9047bb26e406322e9881
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>如何在使用经典部署模型创建的虚拟机上运行 Java 应用程序服务器
 > [!IMPORTANT]
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/15/2017
 
 ## <a name="to-create-a-virtual-machine"></a>创建虚拟机
 1. 登录到 [Azure 门户](https://portal.azure.cn)。  
-2. 依次单击“新建”和“计算”，并在“特色应用”中单击“全部查看”。
+2. 依次单击“创建资源”和“计算”，并在“特别推荐的应用”中单击“查看全部”。
 3. 单击“JDK”，并在“JDK”窗格中单击“JDK 8”。  
    如果安装的是尚不能在 JDK 8 中运行的旧版应用程序，可选择支持 **JDK 6** 和 **JDK 7** 的虚拟机映像。
 4. 在 JDK 8 窗格中，选择“经典”，并单击“创建”。
@@ -56,7 +56,7 @@ ms.lasthandoff: 12/15/2017
    4. 选择适当的**订阅**。
    5. 对于“资源组”，请单击“新建”并输入的新资源组的名称。 或者单击“使用现有项”并选择某个可用资源组。
    6. 选择虚拟机所在的位置，例如“中国东部”。
-6. 单击“下一步” 。
+6. 单击“下一步”。
 7. 在“虚拟机映像大小”边栏选项卡中，选择“A1 标准”或其他合适映像。
 8. 单击“选择”。
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 12/15/2017
 2. 单击“虚拟机(经典)”。 必要时，请单击服务类别下方左下角的“更多服务”。 “虚拟机(经典)”条目列在“计算”组中。
 3. 单击要登录到的虚拟机的名称。
 4. 启动虚拟机后，可使用窗格顶部的菜单进行连接。
-5. 单击“连接”。
+5. 单击“连接” 。
 6. 根据需要响应提示以连接到虚拟机。 通常，将保存或打开含有连接详细信息的 .rdp 文件。 可能需要复制 url:port（.rdp 文件第一行的最后部分）并将其粘贴到远程登录应用程序中。
 
 ## <a name="to-install-a-java-application-server-on-your-virtual-machine"></a>在虚拟机上安装 Java 应用程序服务器
@@ -94,7 +94,7 @@ Tomcat 运行后，可通过在虚拟机浏览器中输入 URL <http://localhost
 2. 单击“虚拟机(经典)”。
 3. 单击正在运行 Java 应用程序服务器的虚拟机的名称。
 4. 单击“终结点” 。
-5. 单击 **“添加”**。
+5. 单击“添加” 。
 6. 在“添加终结点”对话框中：
    1. 为终结点指定名称；例如，“HttpIn”。
    2. 为协议选择 **TCP**。
@@ -123,6 +123,7 @@ Tomcat 运行后，可通过在虚拟机浏览器中输入 URL <http://localhost
     ![新建入站规则名称][NewRuleName]
 
 此时，应可从外部浏览器查看 Tomcat 网站。 在浏览器地址窗口中，以 **http://*your\_DNS\_name*.chinacloudapp.cn** 格式键入 URL，其中 ***your\_DNS\_name*** 是创建虚拟机时指定的 DNS 名称。
+<!-- URL cloudapp.net Convert to chinacloudapp.cn -->
 
 ## <a name="application-lifecycle-considerations"></a>应用程序生命周期注意事项
 * 可以创建自己的 Web 应用程序存档 (WAR) 并将其添加到 **webapps** 文件夹。 例如，创建基本的 Java 服务页 (JSP) 动态 Web 项目并将其作为 WAR 文件导出。 然后，将 WAR 复制到虚拟机上的 Apache Tomcat **webapps** 文件夹中，然后在浏览器中运行它。
@@ -151,4 +152,4 @@ Tomcat 运行后，可通过在虚拟机浏览器中输入 URL <http://localhost
 6. In the **Add endpoint** dialog box, ensure **Add standalone endpoint** is selected, and then click **Next**.
 7. In the **New endpoint details** dialog box:
 -->
-<!-- Update_Description: add classic portal migration notice. -->
+<!-- Update_Description: wording update -->

@@ -1,6 +1,6 @@
 ---
-title: "SQL Server 可用性组 - Azure 虚拟机 - 先决条件 | Azure"
-description: "本教程演示如何配置用于在 Azure VM 中创建 SQL Server AlwaysOn 可用性组的必备组件。"
+title: SQL Server 可用性组 - Azure 虚拟机 - 先决条件 | Azure
+description: 本教程演示如何配置用于在 Azure VM 中创建 SQL Server AlwaysOn 可用性组的必备组件。
 services: virtual-machines
 documentationCenter: na
 author: rockboyfor
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/09/2017
-ms.date: 12/18/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: d82e8a55493d75450aaa9ade22e5689c27e5b83f
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: d49445ac3f38b149fbe60049e4c60f70fe322601
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>完成在 Azure 虚拟机中创建 Alwayson 可用性组的先决条件
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 02/13/2018
 本教程假设你已基本了解 SQL Server AlwaysOn 可用性组。 若不熟悉此技术，请参阅 [AlwaysOn 可用性组概述 (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx)。
 
 ## <a name="create-an-azure-account"></a>创建 Azure 帐户
-需要一个 Azure 帐户。 可以[建立一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)或[激活 Visual Studio 订户权益](https://www.azure.cn/support/legal/offer-rate-plans/?WT.mc_id=A261C142F)。
+需要一个 Azure 帐户。 可以[建立一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)或[激活 Visual Studio 订户权益](https://www.azure.cn/support/legal/offer-rate-plans)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 1. 登录到 [Azure 门户](http://portal.azure.cn)。
@@ -464,7 +464,8 @@ Azure 会创建虚拟机。
 
 在另一个 SQL Server VM 上重复上述步骤。
 
-## <a name="endpoint-firewall"></a> 在每台 SQL Server VM 上配置防火墙
+<a name="endpoint-firewall"></a>
+## <a name="configure-the-firewall-on-each-sql-server-vm"></a>在每个 SQL Server VM 上配置防火墙
 
 该解决方案要求在防火墙中打开以下 TCP 端口：
 

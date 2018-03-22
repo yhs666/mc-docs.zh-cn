@@ -12,15 +12,14 @@
 > 
 > 
 
-## <a id="createset"></a>选项 1：同时创建虚拟机和可用性集
+<a name="createset"></a>
+## <a name="option-1-create-a-virtual-machine-and-an-availability-set-at-the-same-time"></a>选项 1：同时创建虚拟机和可用性集
 可以使用 Azure 门户或 Azure PowerShell 命令来执行此操作。
 
 若要使用 Azure 门户：
 
-1. 如果尚未登录 [Azure 门户](https://portal.azure.cn)，请先登录。
-2. 在中心菜单中，单击“+ 新建”，然后单击“虚拟机”。
-
-    ![Alt 图像文本](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
+1. 登录到 [Azure 门户](https://portal.azure.cn)（如果未登录）。
+2. 单击“创建资源” > “计算”。
 3. 选择要使用的应用商店虚拟机映像。 可以选择创建 Linux 或 Windows 虚拟机。
 4. 对于所选的虚拟机，确认部署模型已设置为“经典”，然后单击“创建”
 
@@ -35,11 +34,12 @@
 
 若要使用 Azure PowerShell 命令创建 Azure 虚拟机并将它添加到新的或现有的可用性集，请参阅[使用 Azure PowerShell 创建和预配置基于 Windows 的虚拟机](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a id="addmachine"></a>选项 2：将现有虚拟机添加到可用性集
+<a name="addmachine"></a>
+## <a name="option-2-add-an-existing-virtual-machine-to-an-availability-set"></a>选项 2：将现有虚拟机添加到可用性集
 在 Azure 门户中，可以将现有经典虚拟机添加到现有可用性集，或为现有经典虚拟机创建新的可用性集。 （请记住，同一可用性集中的虚拟机必须属于同一云服务。）步骤几乎完全相同。 使用 Azure PowerShell 时，可以将虚拟机添加到现有可用性集。
 
 1. 如果尚未登录 [Azure 门户](https://portal.azure.cn)，请先登录。
-2. 在“中心”菜单中，单击“虚拟机(经典)”。
+2. 在左侧菜单中单击“虚拟机(经典)”。
 
     ![Alt 图像文本](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
 3. 从虚拟机列表中，选择想要添加到集中的虚拟机的名称。
@@ -69,3 +69,4 @@
 
 [Create a virtual machine running Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Virtual Network overview]: ../articles/virtual-network/virtual-networks-overview.md
+<!--ms.date: 03/19/2018 -->

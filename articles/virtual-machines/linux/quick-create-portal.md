@@ -1,27 +1,27 @@
 ---
-title: "Azure 快速入门 - 创建 VM 门户 | Azure"
-description: "Azure 快速入门 - 创建 VM 门户"
+title: Azure 快速入门 - 创建 VM 门户 | Azure
+description: Azure 快速入门 - 创建 VM 门户
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 07/15/2017
-ms.date: 02/05/2018
+origin.date: 12/11/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 3d1ac8cad5a678fb2ac2cfba254916f9b3eb8f35
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 285a6ae7061ba71833ea4fdb80a6ee810422bf84
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>使用 Azure 门户创建 Linux 虚拟机
 
@@ -43,13 +43,13 @@ ssh-keygen -t rsa -b 2048
 
 ## <a name="log-in-to-azure"></a>登录 Azure 
 
-通过 http://portal.azure.cn 登录到 Azure 门户。
+在 http://portal.azure.cn 登录 Azure 门户。
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 
-1. 单击 Azure 门户左上角的“新建”按钮。
+1. 在 Azure 门户的左上角单击“创建资源”。
 
-2. 选择“计算”，然后选择“Ubuntu Server 16.04 LTS”。 
+2. 依次选择“计算”、“Ubuntu Server 16.04 LTS”。 
 
 3. 输入虚拟机信息。 对于“身份验证类型”，请选择“SSH 公钥”。 粘贴“SSH 公钥”时，请务必删除所有前导或尾随空格。 完成后，单击“确定”。
 
@@ -123,4 +123,4 @@ sudo apt-get -y install nginx
 > [!div class="nextstepaction"]
 > [Azure Linux 虚拟机教程](./tutorial-manage-vm.md)
 
-<!--Update_Description: update meta propreties, wording update, update link -->
+<!--Update_Description: update meta propreties, wording update -->

@@ -1,11 +1,11 @@
 ---
-title: "在 SQL VM（经典）上自动完成管理任务 | Azure"
-description: "本主题介绍如何管理可以自动执行特定 SQL Server 管理任务的 SQL Server 代理扩展。 这些任务包括自动备份、自动修补和 Azure 密钥保管库集成。 本主题使用经典部署模式。"
+title: 在 SQL VM（经典）上自动完成管理任务 | Azure
+description: 本主题介绍如何管理可以自动执行特定 SQL Server 管理任务的 SQL Server 代理扩展。 这些任务包括自动备份、自动修补和 Azure 密钥保管库集成。 本主题使用经典部署模式。
 services: virtual-machines-windows
-documentationcenter: 
-author: rothja
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-service-management
 ms.assetid: a9bda2e7-cdba-427c-bc30-77cde4376f3a
 ms.service: virtual-machines-sql
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 07/05/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
+ms.date: 03/19/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c455523a2ba123177725f686e4b1efbe40e284fa
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.openlocfilehash: cd10c2eb0328f2d54caf01919af0d178970a1090
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>使用 SQL Server 代理扩展（经典）在 Azure 虚拟机上自动完成管理任务
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ SQL Server IaaS 代理扩展支持以下管理任务：
 | 管理功能 | 说明 |
 | --- | --- |
 | **SQL 自动备份** |对 VM 中的 SQL Server 默认实例自动执行所有数据库的备份计划。 有关详细信息，请参阅[在 Azure 虚拟机（经典）中对 SQL Server 进行自动备份](../classic/sql-automated-backup.md)。 |
-| **SQL 自动修补** |配置维护时段，在此期间可能更新 VM，因此可以避免在工作负荷高峰时间进行更新。 有关详细信息，请参阅[在 Azure 虚拟机（经典）中对 SQL Server 进行自动修补](../classic/sql-automated-patching.md)。 |
+| **SQL 自动修补** |配置维护时段，可在此时段更新 VM，避开工作负荷的高峰期。 有关详细信息，请参阅[在 Azure 虚拟机（经典）中对 SQL Server 进行自动修补](../classic/sql-automated-patching.md)。 |
 | **Azure 密钥保管库集成** |可让你在 SQL Server VM 上自动安装和配置 Azure 密钥保管库。 有关详细信息，请参阅[在 Azure VM（经典）上配置 SQL Server 的 Azure Key Vault 集成](../classic/ps-sql-keyvault.md)。 |
 
 ## <a name="prerequisites"></a>先决条件
@@ -60,7 +60,7 @@ SQL Server IaaS 代理扩展支持以下管理任务：
 ### <a name="azure-powershell"></a>Azure PowerShell：
 [下载和配置最新 Azure PowerShell 命令](https://docs.microsoft.com/powershell/azure/overview)。
 
-启动 Windows PowerShell，并通过 **Add-AzureAccount** 命令将其连接到 Azure 订阅。
+启动 Windows PowerShell，并使用 **Add-AzureAccount -Environment AzureChinaCloud** 命令将其连接到 Azure 订阅。
 
     Add-AzureAccount -Environment AzureChinaCloud
 
@@ -77,7 +77,7 @@ SQL Server IaaS 代理扩展支持以下管理任务：
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -ReferenceName "SQLIaasExtension" -Version "1.2" | Update-AzureVM
 
-如果要更新到最新版本的 SQL IaaS 代理扩展，则必须在更新该扩展后重启虚拟机。
+如果更新到最新版本的 SQL IaaS 代理扩展，则必须在更新该扩展后重启虚拟机。
 
 > [!NOTE]
 > 经典虚拟机不能通过门户安装和配置 SQL IaaS 代理扩展。
@@ -107,4 +107,4 @@ SQL Server IaaS 代理扩展支持以下管理任务：
 
 有关在 Azure 虚拟机中运行 SQL Server 的详细信息，请参阅 [Azure 虚拟机中的 SQL Server 概述](../sql/virtual-machines-windows-sql-server-iaas-overview.md)。
 
-<!--Update_Description: add sql server 2016-->
+<!-- Update_Description: update meta properties, wording update -->

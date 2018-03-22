@@ -1,9 +1,9 @@
 ---
-title: "在 Azure PowerShell 创建 SQL Server 虚拟机（经典）| Azure"
-description: "提供用于创建具有 SQL Server 虚拟机库映像的 Azure VM的步骤和 PowerShell 脚本。 本主题使用经典部署模式。"
+title: 在 Azure PowerShell 创建 SQL Server 虚拟机（经典）| Azure
+description: 提供用于创建具有 SQL Server 虚拟机库映像的 Azure VM的步骤和 PowerShell 脚本。 本主题使用经典部署模式。
 services: virtual-machines-windows
 documentationcenter: na
-author: hayley244
+author: rockboyfor
 manager: digimobile
 tags: azure-service-management
 ms.assetid: b73be387-9323-4e08-be53-6e5928e3786e
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 08/07/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 5e882dee3e15292aacf43322e36eb4f16b50d15c
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 03/19/2018
+ms.author: v-yeche
+ms.openlocfilehash: deb7cd79c2adddc8db94af6872586ce15249b1a2
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>使用 Azure PowerShell 预配 SQL Server 虚拟机（经典）
 
@@ -33,13 +33,14 @@ ms.lasthandoff: 08/29/2017
 ### <a name="install-and-configure-powershell"></a>安装和配置 PowerShell：
 1. 如果没有 Azure 帐户，请访问 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 2. [下载和安装最新 Azure PowerShell 命令](https://docs.microsoft.com/powershell/azure/overview)。
-3. 启动 Windows PowerShell，并通过 **Add-AzureAccount** 命令将其连接到 Azure 订阅。
+3. 启动 Windows PowerShell，并使用 **Add-AzureAccount -Environment AzureChinaCloud** 命令将其连接到 Azure 订阅。
 
    ```powershell
-   Add-AzureAccount -EnvironmentName AzureChinaCloud
+   Add-AzureAccount -Environment AzureChinaCloud
    ```
 
 ## <a name="determine-your-target-azure-region"></a>确定目标 Azure 区域
+
 在位于特定 Azure 区域的云服务中托管你的 SQL Server 虚拟机。 以下步骤帮助你确定用于本教程其余部分的区域、存储帐户和云服务。
 
 1. 确定要用于托管 SQL Server VM 的数据中心。 以下 PowerShell 命令显示可用区域名称的列表。
@@ -55,17 +56,18 @@ ms.lasthandoff: 08/29/2017
    ```
 
 ## <a name="set-your-subscription-and-storage-account"></a>设置订阅和存储帐户
+
 1. 确定用于新虚拟机的 Azure 订阅。
 
    ```powershell
    (Get-AzureSubscription).SubscriptionName
    ```
 
-2. 将目标 Azure 订阅分配到 **$subscr** 变量。 然后将此变量设置为当前 Azure 订阅。
+2. 将目标 Azure 订阅分配到 **$subscr** 变量。 然后将它设置为当前的 Azure 订阅。
 
    ```powershell
    $subscr="<subscription name>"
-   Select-AzureSubscription -SubscriptionName $subscr –Current
+   Select-AzureSubscription -SubscriptionName $subscr -Current
    ```
 
 3. 然后检查现有存储帐户。 以下脚本显示所选区域中存在的所有存储帐户：
@@ -75,9 +77,9 @@ ms.lasthandoff: 08/29/2017
    ```
 
    > [!NOTE]
-   > 如果需要新的存储帐户，首先请使用 New-AzureStorageAccount 命令创建一个全小写的存储帐户名称，如以下示例所示：`New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
+   > 如果需要新的存储帐户，首先请使用 New-AzureStorageAccount 命令创建一个全部小写的存储帐户名称，如以下示例所示：`New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
 
-4. 将目标存储帐户名称分配给 **$staccount**。 然后使用 **Set-AzureSubscription** 设置订阅和当前存储帐户。
+4. 将目标存储帐户名称分配给 **$staccount**。 然后使用 Set-AzureSubscription 设置订阅和当前存储帐户。
 
    ```powershell
    $staccount="<storage account name>"
@@ -85,7 +87,8 @@ ms.lasthandoff: 08/29/2017
    ```
 
 ## <a name="select-a-sql-server-virtual-machine-image"></a>选择 SQL Server 虚拟机映像
-1. 从库中找出可用 SQL Server 虚拟机映像的列表。 这些映像的 **ImageFamily** 属性都以“SQL”开头。 下面的查询会显示已经预安装 SQL Server 的可用映像系列。
+
+1. 从库中找出可用 SQL Server 虚拟机映像的列表。 这些映像的 **ImageFamily** 属性都以“SQL”开头。 以下查询显示已预先安装 SQL Server 的可用映像系列。
 
    ```powershell
    Get-AzureVMImage | where { $_.ImageFamily -like "SQL*" } | select ImageFamily -Unique | Sort-Object -Property ImageFamily
@@ -102,6 +105,7 @@ ms.lasthandoff: 08/29/2017
    ```
 
 ## <a name="create-the-virtual-machine"></a>创建虚拟机
+
 最后，使用 PowerShell 创建虚拟机：
 
 1. 创建一个云服务以托管新 VM。 请注意，还可以改用现有云服务。 使用云服务的短名称创建新变量 **$svcname** 。
@@ -129,7 +133,7 @@ ms.lasthandoff: 08/29/2017
 4. 运行以下脚本来创建虚拟机。
 
    ```powershell
-   New-AzureVM –ServiceName $svcname -VMs $vm1
+   New-AzureVM -ServiceName $svcname -VMs $vm1
    ```
 
 > [!NOTE]
@@ -139,7 +143,7 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="example-powershell-script"></a>PowerShell 脚本示例
 
-以下脚本提供完整脚本的示例，该脚本在 Windows Server 2012 R2 虚拟机上创建 SQL Server 2016 RTM Enterprise。 如果使用此脚本，则必须根据本主题中先前的步骤自定义初始变量。
+以下脚本提供完整脚本的示例，该脚本在 Windows Server 2012 R2 虚拟机上创建 SQL Server 2016 RTM Enterprise。 如果使用此脚本，必须根据本主题中之前的步骤自定义初始变量。
 
 ```powershell
 # Customize these variables based on your settings and requirements:
@@ -153,7 +157,7 @@ $vmsize="A5"
 
 # Set the current subscription and storage account
 # Comment out the New-AzureStorageAccount line if the account already exists
-Select-AzureSubscription -SubscriptionName $subscr –Current
+Select-AzureSubscription -SubscriptionName $subscr -Current
 New-AzureStorageAccount -StorageAccountName $staccount -Location $dcLocation
 Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
@@ -171,7 +175,7 @@ $cred=Get-Credential -Message "Type the name and password of the local administr
 $vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
 # Create the SQL Server VM:
-New-AzureVM –ServiceName $svcname -VMs $vm1
+New-AzureVM -ServiceName $svcname -VMs $vm1
 ```
 
 ## <a name="connect-with-remote-desktop"></a>使用远程桌面进行连接
@@ -190,7 +194,8 @@ New-AzureVM –ServiceName $svcname -VMs $vm1
    .\vm1.rdp
    ```
 
-## <a name="complete-the-configuration-of-the-sql-server-machine-for-remote-access"></a>完成 SQL Server 计算机的配置以进行远程访问
+## <a name="complete-the-configuration-of-the-sql-server-machine-for-remote-access"></a>为远程访问完成 SQL Server 计算机的配置
+
 通过远程桌面登录计算机之后，根据[在 Azure VM 中配置 SQL Server 连接的步骤](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)中的说明配置 SQL Server。
 
 ## <a name="next-steps"></a>后续步骤
@@ -199,6 +204,7 @@ New-AzureVM –ServiceName $svcname -VMs $vm1
 
 在许多情况下，下一步是将数据库迁移到此新的 SQL Server VM。 有关数据库迁移指南，请参阅[将数据库迁移到 Azure VM 上的 SQL Server](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)。
 
-如果还希望使用 Azure 门户创建 SQL 虚拟机，请参阅[在 Azure 上预配 SQL Server 虚拟机](../sql/virtual-machines-windows-portal-sql-server-provision.md)。 请注意，本教程逐步介绍如何在门户中使用推荐的 Resource Manager 模型创建 VM（而非使用此 PowerShell 主题中所用的经典模型）。
+如果还希望使用 Azure 门户创建 SQL 虚拟机，请参阅[在 Azure 上预配 SQL Server 虚拟机](../sql/virtual-machines-windows-portal-sql-server-provision.md)。 请注意，本教程演示了如何在门户中使用推荐的 Resource Manager 模型创建 VM（而非使用此 PowerShell 主题中所用的经典模型）。
 
 除了上述资源，还建议查看[与在 Azure 虚拟机中运行 SQL Server 相关的其他主题](../sql/virtual-machines-windows-sql-server-iaas-overview.md)。
+<!-- Update_Description: wording update, update link -->

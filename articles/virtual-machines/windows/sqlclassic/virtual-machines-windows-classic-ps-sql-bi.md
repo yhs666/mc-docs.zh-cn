@@ -1,10 +1,10 @@
 ---
 title: SQL Server Business Intelligence | Azure
-description: "本主题使用通过经典部署模型创建的资源，并介绍了为 Azure 虚拟机 (VM) 上运行的 SQL Server 提供的 Business Intelligence (BI) 功能。"
+description: 本主题使用通过经典部署模型创建的资源，并介绍了为 Azure 虚拟机 (VM) 上运行的 SQL Server 提供的 Business Intelligence (BI) 功能。
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
-manager: erikre
+author: rockboyfor
+manager: digimobile
 editor: monicar
 tags: azure-service-management
 ms.assetid: c681e7a7-eeda-48aa-bc35-6277f4828244
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/30/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
-ms.openlocfilehash: 36b60d3f68519291653c3b44f7893e8133fa6ed7
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 03/19/2018
+ms.author: v-yeche
+ms.openlocfilehash: c9ed3fa2e6f35f20d30ec1c2c7a52d050f099086
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server Business Intelligence
 > [!IMPORTANT] 
@@ -74,7 +74,7 @@ Azure 虚拟机库包括多个内含 Microsoft SQL Server 的映像。 虚拟机
 * SQL Server 2012 SP3 Enterprise
 * SQL Server 2012 SP3 Standard
 
-| SQL Server BI 功能 | 在库映像上安装的 | 说明 |
+| SQL Server BI 功能 | 在库映像上安装的 | 注释 |
 | --- | --- | --- |
 | **Reporting Services 本机模式** |是 |已安装但需要配置，包括报表管理器 URL。 请参阅 [配置 Reporting Services](#configure-reporting-services)部分。 |
 | **Reporting Services SharePoint 模式** |否 |Azure 虚拟机库映像不包括 SharePoint 或 SharePoint 安装文件。 <sup>1</sup> |
@@ -97,7 +97,7 @@ Azure 虚拟机库包括多个内含 Microsoft SQL Server 的映像。 虚拟机
   * 默认驱动器 **C**: 的驱动器缓存策略未针对处理数据进行优化。
   * **D**: 驱动器是主要用于页面文件的临时驱动器。 **D**: 驱动器不会持久保留且不保存在 blob 存储中。 诸如更改虚拟机大小之类的管理任务会重置 **D**: 驱动器。 建议不要将 D: 驱动器用于存储数据库文件（包括 tempdb）。
 
-    有关创建和附加磁盘的详细信息，请参阅[如何将数据磁盘附加到虚拟机](../classic/attach-disk.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
+    有关创建和附加磁盘的详细信息，请参阅[如何将数据磁盘附加到虚拟机](../classic/attach-disk-classic.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 * 停止或卸载计划不使用的服务。 例如，如果虚拟机仅用于 Reporting Services，停止或卸载 Analysis Services 和 SQL Server Integration Services。 下图是默认情况下启动的服务的示例。
 
     ![SQL Server 服务](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
@@ -169,7 +169,7 @@ SQL Server 的虚拟机库映像包括安装的 Reporting Services 本机模式�
 3. 单击“Microsoft SQL Server 2016” 。
 4. 右键单击“Reporting Services 配置管理器”，然后单击“以管理员身份运行”。
 
-或者：
+或：
 
 1. 单击“启动”。
 2. 在“搜索程序和文件”对话框中，键入 reporting services。 **reporting services** 。
@@ -216,14 +216,14 @@ SQL Server 的虚拟机库映像包括安装的 Reporting Services 本机模式�
 1. 在 VM 中，使用管理员权限启动 Internet Explorer。
 2. 在 VM 上浏览到 http://localhost/reports。
 
-### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>连接到 2012 和 2014 版的远程 Web 门户或报表管理器
+### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>连接到适用于 2014 和 2012 的远程 Web 门户或报表管理器
 如果想要从远程计算机连接到虚拟机上的 2012 和 2014 版 Web 门户或报表管理器，请创建新的虚拟机 TCP 终结点。 默认情况下，报表服务器侦听“端口 80”上的 HTTP 请求。 如果将报表服务器 URL 配置为使用其他端口，必须在下面的说明中指定该端口号。
 
 1. 为虚拟机创建终结点 TCP 端口 80。 有关详细信息，请参阅本文档中的 [虚拟机终结点以及防火墙端口](#virtual-machine-endpoints-and-firewall-ports) 部分。
 2. 在虚拟机的防火墙中打开端口 80。
 3. 使用 Azure 虚拟机 **DNS 名称** 作为 URL 中的服务器名称浏览到 Web 门户。 例如：
 
-    报表服务器：http://uebi.chinacloudapp.cn/reportserver Web 门户：http://uebi.chinacloudapp.cn/reports
+    **报表服务器**：http://uebi.chinacloudapp.cn/reportserver **Web 门户**：http://uebi.chinacloudapp.cn/reports
 
     [为报表服务器访问配置防火墙](https://msdn.microsoft.com/library/bb934283.aspx)
 
@@ -241,7 +241,7 @@ SQL Server 的虚拟机库映像包括安装的 Reporting Services 本机模式�
 * SQL Server Data Tools：远程：在本地计算机上，在 SQL Server Data Tools 中创建一个包含 Reporting Services 报表的 Reporting Services 项目。 将项目配置为连接到 Web 服务 URL。
 
     ![SSRS 项目的 ssdt 项目属性](./media/virtual-machines-windows-classic-ps-sql-bi/IC650114.gif)
-* 创建一个包含报表的 .VHD 硬盘驱动器，上传并附加该驱动器。
+* 创建一个包含报表的 .VHD 硬盘驱动器，然后上传并附加该驱动器。
 
   1. 在本地计算机上创建一个包含报表的 .VHD 硬盘驱动器。
   2. 创建并安装管理证书。
@@ -299,7 +299,7 @@ Analysis Services 的默认实例侦听 TCP 端口 2383。 在虚拟机防火墙
 2. 使用 SQL Server Management Studio 通过更新表格 AS 实例常规属性中的“端口”值来创建一个静态的 Analysis Services 命名实例端口。 有关详细信息，请参阅 [Configure the Windows Firewall to Allow Analysis Services Access](https://msdn.microsoft.com/library/ms174937.aspx#bkmk_fixed)（将 Windows 防火墙配置为允许 Analysis Services 访问）中的“对默认或命名实例使用固定端口”。
 3. 重启 Analysis Services 服务的表格实例。
 
-有关详细信息，请参阅本文档中的 **虚拟机终结点以及防火墙端口** 部分。
+有关详细信息，请参阅本文档中的**虚拟机终结点以及防火墙端口**部分。
 
 ## <a name="virtual-machine-endpoints-and-firewall-ports"></a>虚拟机终结点以及防火墙端口
 本部分总结了要创建的 Azure 虚拟机终结点以及要在虚拟机防火墙中打开的端口。 下表总结了要为其创建终结点的 **TCP** 端口和要在虚拟机防火墙中打开的端口。
@@ -337,7 +337,7 @@ Analysis Services 的默认实例侦听 TCP 端口 2383。 在虚拟机防火墙
 * [Azure 虚拟机上的 SQL Server 概述](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [虚拟机](/virtual-machines/)
 * [在 Azure 上预配 SQL Server 虚拟机](../sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [如何将数据磁盘附加到虚拟机](../classic/attach-disk.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [如何将数据磁盘附加到虚拟机](../classic/attach-disk-classic.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [将数据库迁移到 Azure VM 上的 SQL Server](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Determine the Server Mode of an Analysis Services Instance](https://msdn.microsoft.com/library/gg471594.aspx)（确定 Analysis Services 实例的服务器模式）
 * [Multidimensional Modeling (Adventure Works Tutorial)](https://technet.microsoft.com/library/ms170208.aspx)（多维建模（Adventure Works 教程））
@@ -346,3 +346,7 @@ Analysis Services 的默认实例侦听 TCP 端口 2383。 在虚拟机防火墙
 
 > [!NOTE]
 > [通过 Microsoft SQL Server Connect 提交反馈和联系人信息](https://connect.microsoft.com/SQLServer/Feedback)
+
+### <a name="community-content"></a>社区内容
+* [使用 PowerShell 管理 Azure SQL 数据库。](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
+<!-- Update_Description: wording update, update link -->

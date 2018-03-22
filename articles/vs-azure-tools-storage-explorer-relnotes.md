@@ -1,38 +1,158 @@
 ---
-title: "Azure 存储资源管理器（预览版）发行说明"
-description: "Azure 存储资源管理器（预览版）的发行说明"
+title: Azure 存储资源管理器（预览版）发行说明
+description: Azure 存储资源管理器（预览版）的发行说明
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/31/2017
-ms.date: 01/25/2018
+ms.date: 03/16/2018
 ms.author: v-junlch
-ms.openlocfilehash: 39ee009c8e92f26f8de119079fc8321f4330b694
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 578f7b2d8011dc0a30ae13cea6fd43edcde6eae5
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-storage-explorer-preview-release-notes"></a>Azure 存储资源管理器（预览版）发行说明
 
-本文包含 Azure 存储资源管理器 0.9.3（预览版）及先前版本的发行说明。
+本文包含 Azure 存储资源管理器 0.9.6（预览版）及先前版本的发行说明。
 
 [Azure 存储资源管理器（预览版）](./vs-azure-tools-storage-manage-with-storage-explorer.md)是一款独立应用，可用于在 Windows、macOS 和 Linux 上轻松处理 Azure 存储数据。
 
-## <a name="version-093"></a>0.9.3 版
+## <a name="version-096"></a>版本 0.9.6
+2018/02/28
 
-### <a name="download-azure-storage-explorer-093-preview"></a>下载 Azure 存储资源管理器 0.9.3（预览版）
-- [适用于 Windows 的 Azure 存储资源管理器 0.9.3（预览版）](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [适用于 Mac 的 Azure 存储资源管理器 0.9.3（预览版）](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [适用于 Linux 的 Azure 存储资源管理器 0.9.3（预览版）](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-096-preview"></a>下载 Azure 存储资源管理器 0.9.6（预览版）
+- [适用于 Windows 的 Azure 存储资源管理器 0.9.6（预览版）](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [适用于 Mac 的 Azure 存储资源管理器 0.9.6（预览版）](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [适用于 Linux 的 Azure 存储资源管理器 0.9.6（预览版）](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="fixes"></a>修复项
+- 此问题使所需的 blob/文件无法在编辑器中列出。 此问题已解决。
+- 此问题导致在快照视图之间切换时无法正确显示项。 此问题已解决。
+
+### <a name="known-issues"></a>已知问题
+- 存储资源管理器不支持 ADFS 帐户。
+- 当以 Azure Stack 为目标时，将某些文件作为追加 blob 进行上传可能会失败。
+- 对任务单击“取消”后，可能需要一段时间才能取消该任务。 这是因为我们使用的是[此处](https://github.com/Azure/azure-storage-node/issues/317)介绍的“取消筛选”解决办法。
+- 如果选择错误的 PIN/智能卡证书，需要重启存储资源管理器，使其忘记该选择。
+- 帐户设置面板可能显示需重新输入凭据以筛选订阅。
+- 重命名 blob（单独地或在已重命名的 blob 容器中）不保留快照。 重命名期间保留 blob、文件和实体的所有其他属性和元数据。
+- 尽管 Azure Stack 当前不支持文件共享，但附加 Azure Stack 存储帐户下仍会显示“文件共享”节点。
+- 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+- 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+- 对于 Ubuntu 17.04 用户，需要安装 GConf - 通过运行以下命令，然后重启计算机即可完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>以前的版本
+
+- [版本 0.9.5](#version-095)
+- [版本 0.9.4 和 0.9.3](#version-094-and-093)
+- [版本 0.9.2](#version-092)
+- [版本 0.9.1 和 0.9.0](#version-091-and-090)
+- [版本 0.8.16](#version-0816)
+- [版本 0.8.14](#version-0814)
+- [版本 0.8.13](#version-0813)
+- [版本 0.8.12、0.8.11 和 0.8.10](#version-0812-and-0811-and-0810)
+- [版本 0.8.9 和 0.8.8](#version-089-and-088)
+- [版本 0.8.7](#version-087)
+- [版本 0.8.6](#version-086)
+- [版本 0.8.5](#version-085)
+- [版本 0.8.4](#version-084)
+- [版本 0.8.3](#version-083)
+- [版本 0.8.2](#version-082)
+- [版本 0.8.0](#version-080)
+- [版本 0.7.20160509.0](#version-07201605090)
+- [版本 0.7.20160325.0](#version-07201603250)
+- [版本 0.7.20160129.1](#version-07201601291)
+- [版本 0.7.20160105.0](#version-07201601050)
+- [版本 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-095"></a>版本 0.9.5
+2018/02/06
+
+### <a name="download-azure-storage-explorer-095-preview"></a>下载 Azure 存储资源管理器 0.9.5（预览版）
+- [适用于 Windows 的 Azure 存储资源管理器 0.9.5（预览版）](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [适用于 Mac 的 Azure 存储资源管理器 0.9.5（预览版）](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [适用于 Linux 的 Azure 存储资源管理器 0.9.5（预览版）](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>新建
+
+- 对文件共享快照的支持：
+ - 创建和管理文件共享快照。
+ - 浏览时在文件共享快照之间轻松切换视图。
+ - 还原文件的先前版本。
+- 预览对 Azure Data Lake Store 的支持：
+ - 跨多个帐户连接到 ADLS 资源。
+ - 使用 ADL URI 连接到资源并共享 ADLS。
+ - 按递归方式执行基本文件/文件夹操作。
+ - 将单个文件夹固定到“快速访问”中。
+ - 显示文件夹统计信息。
+
+### <a name="fixes"></a>修复项
+- 启动性能得到改进。
+- 修复了多个 Bug。
+
+### <a name="known-issues"></a>已知问题
+- 存储资源管理器不支持 ADFS 帐户。
+- 当以 Azure Stack 为目标时，将某些文件作为追加 blob 进行上传可能会失败。
+- 对任务单击“取消”后，可能需要一段时间才能取消该任务。 这是因为我们使用的是此处介绍的“取消筛选”解决办法。
+- 如果选择错误的 PIN/智能卡证书，需要重启存储资源管理器，使其忘记该选择。
+- 帐户设置面板可能显示需重新输入凭据以筛选订阅。
+- 重命名 blob（单独地或在已重命名的 blob 容器中）不保留快照。 重命名期间保留 blob、文件和实体的所有其他属性和元数据。
+- 尽管 Azure Stack 当前不支持文件共享，但附加 Azure Stack 存储帐户下仍会显示“文件共享”节点。
+- 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+- 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+- 对于 Ubuntu 17.04 用户，需要安装 GConf - 通过运行以下命令，然后重启计算机即可完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="version-094-and-093"></a>版本 0.9.4 和 0.9.3
+2018 年 1 月 21 日
+
+### <a name="download-azure-storage-explorer-094-preview"></a>下载 Azure 存储资源管理器 0.9.4（预览版）
+- [下载适用于 Windows 的 Azure 存储资源管理器 0.9.4（预览版）](https://go.microsoft.com/fwlink/?LinkId=809306)
+- [下载适用于 Mac 的 Azure 存储资源管理器 0.9.4（预览版）](https://go.microsoft.com/fwlink/?LinkId=809307)
+- [下载适用于 Linux 的 Azure 存储资源管理器 0.9.4（预览版）](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>新建
 - 出现以下情况时，会重复使用现有的存储资源管理器窗口：
@@ -44,6 +164,7 @@ ms.lasthandoff: 01/25/2018
  - 对于 Mac，在“应用菜单”下有一个“新建窗口”选项。
 
 ### <a name="fixes"></a>修复项
+- 修复了安全性问题。 请尽早升级至 0.9.4。
 - 旧活动未正确清理。 这影响了长期运行的作业的性能。 这些活动现在可以正确清理。
 - 涉及大量文件和目录的操作有时会导致存储资源管理器冻结。 现在会限制向 Azure 请求文件共享，目的是限制系统资源的使用。
 
@@ -76,13 +197,7 @@ ms.lasthandoff: 01/25/2018
     ```
 
 ## <a name="version-092"></a>版本 0.9.2
-
-### <a name="download-azure-storage-explorer-092-preview"></a>下载 Azure 存储资源管理器 0.9.2（预览版）
-- [下载适用于 Windows 的 Azure 存储资源管理器 0.9.2（预览版）](https://go.microsoft.com/fwlink/?LinkId=809306)
-- [下载适用于 Mac 的 Azure 存储资源管理器 0.9.2（预览版）](https://go.microsoft.com/fwlink/?LinkId=809307)
-- [下载适用于 Linux 的 Azure 存储资源管理器 0.9.2（预览版）](https://go.microsoft.com/fwlink/?LinkId=809308)
-
-
+2017/11/01
 
 ### <a name="hotfixes"></a>修补程序
 - 根据本地时区编辑表实体的 Edm.DateTime 值时，可能发生意外的数据更改。 编辑器现使用纯文本文本框，以便始终如一地精确控制 Edm.DateTime 值。
@@ -93,7 +208,7 @@ ms.lasthandoff: 01/25/2018
 
 ### <a name="new"></a>新建
 - 预览版对 Azure Cosmos DB 的支持：
- - [联机文档](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+ - 联机文档
  - 创建数据库和集合
  - 操作数据
  - 查询、创建或删除文档
@@ -143,37 +258,11 @@ ms.lasthandoff: 01/25/2018
     sudo apt-get install libgconf-2-4
     ```
 
-
-
-
-
-
-## <a name="previous-releases"></a>以前的版本
-
-- [版本 0.9.1/0.9.0](#version-091)
-- [版本 0.8.16](#version-0816)
-- [版本 0.8.14](#version-0814)
-- [版本 0.8.13](#version-0813)
-- [版本 0.8.12/0.8.11/0.8.10](#version-0812--0811--0810)
-- [版本 0.8.9/0.8.8](#version-089--088)
-- [版本 0.8.7](#version-087)
-- [版本 0.8.6](#version-086)
-- [版本 0.8.5](#version-085)
-- [版本 0.8.4](#version-084)
-- [版本 0.8.3](#version-083)
-- [版本 0.8.2](#version-082)
-- [版本 0.8.0](#version-080)
-- [版本 0.7.20160509.0](#version-07201605090)
-- [版本 0.7.20160325.0](#version-07201603250)
-- [版本 0.7.20160129.1](#version-07201601291)
-- [版本 0.7.20160105.0](#version-07201601050)
-- [版本 0.7.20151116.0](#version-07201511160)
-
-## <a name="version-091--090-preview"></a>版本 0.9.1 / 0.9.0（预览版）
-
+## <a name="version-091-and-090"></a>版本 0.9.1 和 0.9.0
+10/20/2017
 ### <a name="new"></a>新建
 - 预览版对 Azure Cosmos DB 的支持：
- - [联机文档](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+ - 联机文档
  - 创建数据库和集合
  - 操作数据
  - 查询、创建或删除文档
@@ -224,6 +313,7 @@ ms.lasthandoff: 01/25/2018
     ```
 
 ## <a name="version-0816"></a>版本 0.8.16
+8/21/2017
 
 ### <a name="new"></a>新建
 - 打开 Blob 时，如果检测到更改，存储资源管理器会提示上传已下载的文件
@@ -263,7 +353,7 @@ ms.lasthandoff: 01/25/2018
     ```
 
 ### <a name="version-0814"></a>版本 0.8.14
-
+2017/06/22
 
 ### <a name="new"></a>新建
 
@@ -290,6 +380,7 @@ ms.lasthandoff: 01/25/2018
     ```
 
 ### <a name="version-0813"></a>版本 0.8.13
+05/12/2017
 
 #### <a name="new"></a>新建
 
@@ -323,7 +414,8 @@ ms.lasthandoff: 01/25/2018
     ```
 
 
-### <a name="version-0812--0811--0810"></a>版本 0.8.12/0.8.11/0.8.10
+### <a name="version-0812-and-0811-and-0810"></a>版本 0.8.12、0.8.11 和 0.8.10
+2017/04/07
 
 #### <a name="new"></a>新建
 
@@ -365,7 +457,8 @@ ms.lasthandoff: 01/25/2018
     ```
 
 
-### <a name="version-089--088"></a>版本 0.8.9 / 0.8.8
+### <a name="version-089-and-088"></a>版本 0.8.9 和 0.8.8
+2017/02/23
 
 #### <a name="new"></a>新建
 
@@ -392,6 +485,7 @@ ms.lasthandoff: 01/25/2018
 - 快速访问可能需要几秒钟时间导航至目标资源，具体取决于所拥有的资源数。
 - 同时上传 3 组以上的 Blob 或文件可能导致错误。
 
+2016/12/16
 ### <a name="version-087"></a>版本 0.8.7
 
 #### <a name="new"></a>新建
@@ -418,6 +512,7 @@ ms.lasthandoff: 01/25/2018
 - 搜索功能会处理作用范围约 50,000 个节点的搜索操作，之后，如超过此范围，则性能可能会受影响，或导致未经处理的异常
 - 第一次在 macOS 上使用存储资源管理器时，可能会出现多个请求用户提供密钥链访问权限的提示。 建议选择“始终允许”，使提示不再显示
 
+2016/11/18
 ### <a name="version-086"></a>版本 0.8.6
 
 #### <a name="new"></a>新建
@@ -455,6 +550,7 @@ ms.lasthandoff: 01/25/2018
 - 同时上传 3 组以上的 Blob 或文件可能导致错误
 - 搜索功能会处理作用范围约 50,000 个节点的搜索操作，之后，如超过此范围，则性能可能会受影响，或导致未经处理的异常
 
+2016/10/03
 ### <a name="version-085"></a>版本 0.8.5
 
 #### <a name="new"></a>新建
@@ -475,6 +571,7 @@ ms.lasthandoff: 01/25/2018
 - 搜索功能会处理作用范围约 50,000 个节点的搜索操作，之后，如超过此范围，则性能可能会受影响
 - Azure Stack 目前不支持文件，因此尝试展开“文件”会显示错误
 
+2016/09/12
 ### <a name="version-084"></a>版本 0.8.4
 
 #### <a name="new"></a>新建
@@ -493,6 +590,7 @@ ms.lasthandoff: 01/25/2018
 
 - 搜索功能会处理作用范围约 50,000 个节点的搜索操作，之后，如超过此范围，则性能可能会受影响
 
+2016/08/03
 ### <a name="version-083"></a>版本 0.8.3
 
 #### <a name="new"></a>新建
@@ -516,6 +614,7 @@ ms.lasthandoff: 01/25/2018
 - 重命名 blob（单独地或在已重命名的 blob 容器中）不保留快照。 重命名期间保留 blob、文件和实体的所有其他属性和元数据
 - 在 SAS 附加帐户中，复制或重命名资源无法正常工作
 
+2016/07/07
 ### <a name="version-082"></a>版本 0.8.2
 
 #### <a name="new"></a>新建
@@ -536,6 +635,7 @@ ms.lasthandoff: 01/25/2018
 
 - macOS 安装可能需要提升的权限
 
+2016/06/15
 ### <a name="version-080"></a>版本 0.8.0
 
 #### <a name="new"></a>新建
@@ -558,6 +658,7 @@ ms.lasthandoff: 01/25/2018
 - Blob 存储帐户不可查看 $metrics 表
 - 如果使用 Base64 编码对消息编码，则以编程方式添加的队列消息可能无法正确显示
 
+2016/05/17
 ### <a name="version-07201605090"></a>版本 0.7.20160509.0
 
 #### <a name="new"></a>新建
@@ -571,6 +672,8 @@ ms.lasthandoff: 01/25/2018
 #### <a name="known-issues"></a>已知问题
 
 - 表：添加、编辑或导入具有不明确数值（如“1”或“1.0”）的属性的实体，并且用户尝试将其作为 `Edm.String` 发送，该值将通过客户端 API 作为 Edm.Double 返回
+
+2016/03/31
 
 ### <a name="version-07201603250"></a>版本 0.7.20160325.0
 
@@ -594,11 +697,15 @@ ms.lasthandoff: 01/25/2018
 - 如果正在添加、编辑或导入具有不明确数值（如“1”或“1.0”）的属性的实体，并且用户尝试将其作为 `Edm.String` 发送，则该值将通过客户端 API 作为 Edm.Double 返回
 - 导入包含多行记录的 CSV 文件时，数据可能被截或加密
 
+2016/02/03
+
 ### <a name="version-07201601291"></a>版本 0.7.20160129.1
 
 #### <a name="fixes"></a>修复项
 
-- 上传、下载和复制 Blob 时整体性能提升
+- 上传、下载和复制 blob 时整体性能提升
+
+2016/01/14
 
 ### <a name="version-07201601050"></a>版本 0.7.20160105.0
 
@@ -629,6 +736,7 @@ ms.lasthandoff: 01/25/2018
     - `sudo apt-get upgrade`
     - `sudo apt-get dist-upgrade`
 
+11/18/2015
 ### <a name="version-07201511160"></a>版本 0.7.20151116.0
 
 #### <a name="new"></a>新建

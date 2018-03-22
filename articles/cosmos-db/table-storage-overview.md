@@ -1,6 +1,6 @@
 ---
-title: "Azure 表存储概述 | Azure"
-description: "使用 Azure 表存储（一种 NoSQL 数据存储）将结构化数据存储在云中。"
+title: Azure 表存储概述 | Azure
+description: 使用 Azure 表存储（一种 NoSQL 数据存储）将结构化数据存储在云中。
 services: cosmos-db
 documentationcenter: .net
 author: rockboyfor
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 11/03/2017
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9c2ad59eb82d5752ef7dcd5ce2bf41bce132d0a5
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 6cc74b77a77eab485cf1c7016aad40ce8ac79e39
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-table-storage-overview"></a>Azure 表存储概述
 
@@ -33,8 +33,8 @@ Azure 表存储是一项用于在云中存储结构化 NoSQL 数据的服务，�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
-
+* [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是免费的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
+<!-- Notice: Remove from Microsoft -->
 * [Getting Started with Azure Table Storage in .NET](table-storage-how-to-use-dotnet.md)
 
 * 查看表服务参考文档，了解有关可用 API 的完整详情：

@@ -1,11 +1,11 @@
 ---
-title: "Azure 实例元数据服务 | Azure"
-description: "一个 RESTful 接口，用于获取有关 Windows VM 计算、网络和即将发生的维护事件的信息。"
+title: Azure 实例元数据服务 | Azure
+description: 一个 RESTful 接口，用于获取有关 Windows VM 计算、网络和即将发生的维护事件的信息。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 10/10/2017
-ms.date: 02/05/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 97bdf9077f73a8ebffed5e42d9f4f30876df8ab1
-ms.sourcegitcommit: 2c6591b24e8ccb1c1b9a56738049b99f5785b833
+ms.openlocfilehash: a4c2fad1365066ee35adf8812124b9d9b25f14c5
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -53,7 +53,7 @@ Azure 的实例元数据服务是一个 REST 终结点，所有创建的 IaaS VM
 > [!NOTE] 
 > 支持的计划事件的前一预览版 {latest} 发布为 api-version。 此格式不再受支持，并且将在未来弃用。
 
-添加更新的版本时，早期版本仍可供访问以保持兼容性（如果脚本依赖于特定的数据格式）。 但是请注意，在服务正式发布之后，先前的预览版本 (2017-03-01) 可能不再可用。
+在添加更新的版本时，早期版本仍可供访问以保持兼容性（如果脚本依赖于特定的数据格式）。 但是，在服务正式发布之后，先前的预览版本（2017-03-01）可能不再可用。
 
 ### <a name="using-headers"></a>使用标头
 查询实例元数据服务时，必须提供标头 `Metadata: true` 以确保不会意外重定向请求。
@@ -62,7 +62,7 @@ Azure 的实例元数据服务是一个 REST 终结点，所有创建的 IaaS VM
 
 实例元数据可用于运行使用 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) 创建/管理的 VM。 使用以下请求访问虚拟机实例的所有数据类别：
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
 ```
 
@@ -80,13 +80,13 @@ API | 默认数据格式 | 其他格式
 
 若要访问非默认响应格式，在请求中将所请求格式指定为查询字符串参数。 例如：
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
 ```
 
 ### <a name="security"></a>“安全”
 此实例元数据服务终结点只能从不可路由的 IP 地址上正在运行的虚拟机实例中访问。 此外，任何包含`X-Forwarded-For`标头的请求都会被服务拒绝。
-还要求请求包含 `Metadata: true` 标头以确保实际请求是直接计划好的，不属于意外重定向。 
+请求必须包含 `Metadata: true` 标头，以确保实际请求是直接计划好的，而不是无意重定向的一部分。 
 
 ### <a name="error"></a>错误
 如果找不到某个数据元素，或者请求的格式不正确，则实例元数据服务返回标准 HTTP 错误。 例如：
@@ -109,7 +109,7 @@ HTTP 状态代码 | 原因
 
 **请求**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
@@ -118,7 +118,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 > [!NOTE] 
 > 此响应是 JSON 字符串。 以下示例响应显示清晰，可供阅读。
 
-```
+```json
 {
   "interface": [
     {
@@ -148,7 +148,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 
 #### <a name="retrieving-public-ip-address"></a>检索公共 IP 地址
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
 ```
 
@@ -156,7 +156,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 
 **请求**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
@@ -165,7 +165,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > [!NOTE] 
 > 此响应是 JSON 字符串。 以下示例响应显示清晰，可供阅读。
 
-```
+```json
 {
   "compute": {
     "location": "chinanorth",
@@ -217,13 +217,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 可以通过 Powershell 实用工具 `curl` 在 Windows 中检索实例元数据： 
 
-```
+```bash
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
 ```
 
 或通过 `Invoke-RestMethod`cmdlet：
 
-```
+```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
 ```
 
@@ -232,7 +232,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 > [!NOTE] 
 > 响应为 JSON 字符串。 以下响应示例以美观的形式输出以提高可读性。
 
-```
+```json
 {
   "compute": {
     "location": "chinanorth",
@@ -302,7 +302,7 @@ subnet/address | VM 的子网地址 | 2017-04-02
 subnet/prefix | 子网前缀，例如 24 | 2017-04-02 
 ipv6/ipAddress | VM 的本地 IPv6 地址 | 2017-04-02 
 macAddress | VM mac 地址 | 2017-04-02 
-scheduledevents | 当前在公共预览版中提供。请参阅 [scheduledevents](scheduled-events.md) | 2017-03-01
+scheduledevents | 请参阅[计划事件](scheduled-events.md) | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>用法的示例方案  
 
@@ -312,7 +312,7 @@ scheduledevents | 当前在公共预览版中提供。请参阅 [scheduledevents
 
 **请求**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
 ```
 
@@ -329,7 +329,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 
 **请求**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
 ```
 
@@ -345,7 +345,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 
 **请求**
 
-```
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
 ```
 
@@ -354,7 +354,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 > [!NOTE] 
 > 此响应是 JSON 字符串。 以下响应示例以美观的形式输出以提高可读性。
 
-```
+```json
 {
   "compute": {
     "location": "chinanorth",
@@ -392,7 +392,7 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 1. 我收到错误 `400 Bad Request, Required metadata header not specified`。 这是什么意思呢？
    * 实例元数据服务需要在请求中传递标头 `Metadata: true`。 将该标头传入 REST 调用将允许访问实例元数据服务。 
 2. 为什么我无法获取我的 VM 的计算信息？
-   * 当前实例元数据服务仅支持 Azure Resource Manager 创建的实例。 将来可能添加对云服务 VM 的支持。
+   * 当前实例元数据服务仅支持 Azure Resource Manager 创建的实例。 将来可能会添加对云服务 VM 的支持。
 3. 我刚才通过 Azure Resource Manager 创建了我的虚拟机。 为什么我无法看到计算元数据信息？
    * 对于 2016 年 9 月之后创建的所有 VM，请添加[标记](../../azure-resource-manager/resource-group-using-tags.md)以开始查看计算元数据。 对于早期 VM（在 2016 年 9 月之前创建），请在 VM 中添加/删除扩展或数据磁盘以刷新元数据。
 4. 我看不到为新版本 2017-08-01 填充的任何数据
@@ -400,7 +400,7 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 5. 我为什么会收到错误 `500 Internal Server Error`？
    * 请根据指数后退系统重试请求。 如果问题持续出现，请联系 Azure 支持部门。
 6. 在何处共享其他问题/评论？
-   * 请将评论发布到 http://feedback.azure.com。
+   * 在 http://feedback.azure.com 上发送评论。
 7. 这是否适用于虚拟机规模集实例？
    * 是的，元数据服务可用于规模集实例。 
 8. 如何获取服务支持？
@@ -410,5 +410,5 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解由实例元数据服务提供的公共预览版 [scheduledevents](scheduled-events.md) API。
-<!--Update_Description: update meta properties, wording update, update link -->
+- 详细了解[计划事件](scheduled-events.md)
+<!--Update_Description: update meta properties, wording update  -->

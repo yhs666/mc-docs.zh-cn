@@ -1,11 +1,11 @@
 ---
-title: "从 GitHub 更新 Azure Linux 代理 | Azure"
-description: "了解如何从 GitHub 将 Azure 中 Linux VM 的 Azure Linux 代理更新到最新版本"
+title: 从 GitHub 更新 Azure Linux 代理 | Azure
+description: 了解如何通过 GitHub 将 Azure 中 Linux VM 的 Azure Linux 代理更新为最新版本
 services: virtual-machines-linux
-documentationcenter: 
-author: hayley244
+documentationcenter: ''
+author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: f1f19300-987d-4f29-9393-9aba866f049c
 ms.service: virtual-machines-linux
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: e49513fcf847c2d339ac0f010c1b9b1c6e48ba85
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 03/19/2018
+ms.author: v-yeche
+ms.openlocfilehash: 8b908c5b46707282debd2894a73c15f0911f3f28
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>如何更新 VM 上的 Azure Linux 代理
 
@@ -30,6 +30,9 @@ ms.lasthandoff: 08/29/2017
 - 使用 SHH 连接到该 Linux VM。
 
 应始终先对 Linux 发行版存储库中的程序包进行检查。 虽然可用的程序包很有可能不是最新版本，但启用自动更新可确保 Linux 代理始终获得最新的更新。 如果从程序包管理器进行安装遇到问题，应向发行版供应商寻求支持。
+
+## <a name="minimum-virtual-machine-agent-support-in-azure"></a>Azure 中的最小虚拟机代理支持
+验证 [Azure 中的虚拟机代理的最低版本支持](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)，然后再继续。
 
 ## <a name="updating-the-azure-linux-agent"></a>更新 Azure Linux 代理
 
@@ -82,7 +85,7 @@ sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 initctl restart walinuxagent
 ```
 
-#### <a name="restart-agent-for-1604--1704"></a>重新启动 16.04/17.04 的代理
+#### <a name="restart-agent-for-1604--1704"></a>重新启动 16.04 / 17.04 的代理
 
 ```bash
 systemctl restart walinuxagent.service
@@ -90,7 +93,7 @@ systemctl restart walinuxagent.service
 
 ## <a name="debian"></a>Debian
 
-### <a name="debian-7-wheezy"></a>Debian 7“Wheezy”
+### <a name="debian-7-wheezy"></a>Debian 7 "Wheezy"
 
 #### <a name="check-your-current-package-version"></a>检查当前程序包的版本
 
@@ -113,7 +116,7 @@ sudo apt-get install waagent
 #### <a name="enable-agent-auto-update"></a>启用代理自动更新
 由于此版本的 Debian 没有 >= 2.0.16 的版本，因此 AutoUpdate 对该版本不适用。 上述命令的输出将显示程序包是否为最新版。
 
-### <a name="debian-8-jessie--debian-9-stretch"></a>Debian 8 “Jessie”/Debian 9 “Stretch”
+### <a name="debian-8-jessie--debian-9-stretch"></a>Debian 8“Jessie”/Debian 9“Stretch”
 
 #### <a name="check-your-current-package-version"></a>检查当前程序包的版本
 
@@ -159,7 +162,7 @@ sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 sudo systemctl restart walinuxagent.service
 ```
 
-## <a name="redhat--centos"></a>Redhat/CentOS
+## <a name="redhat--centos"></a>Redhat / CentOS
 
 ### <a name="rhelcentos-6"></a>RHEL/CentOS 6
 
@@ -347,11 +350,11 @@ sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 sudo systemctl restart waagent.service
 ```
 
-## <a name="oracle-6-and-7"></a>Oracle 6 和 Oracle 7
+## <a name="oracle-6-and-7"></a>Oracle 6 和 7
 
 对于 Oracle Linux，请确保已启用 `Addons` 存储库。 选择以编辑文件 `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) 或 `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux)，并在此文件中 [ol6_addons] 或 [ol7_addons] 下将行 `enabled=0` 更改为 `enabled=1`。
 
-然后，要安装最新版本的 Azure Linux 代理，请键入：
+然后，若要安装最新版本的 Azure Linux 代理，请键入：
 
 ```bash
 sudo yum install WALinuxAgent
@@ -388,7 +391,6 @@ sudo yum update WALinuxAgent
 ```
 
 通常只需要这样做，但如果因某种原因而需要直接从 https://github.com 安装它，请使用以下步骤。
-
 
 ## <a name="update-the-linux-agent-when-no-agent-package-exists-for-distribution"></a>分发不存在代理程序包时，请更新 Linux 代理
 
@@ -436,7 +438,7 @@ cat /etc/waagent.conf
 AutoUpdate.Enabled=y
 ```
 
-若要允许运行：
+若要启用运行：
 
 ```bash
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
@@ -462,14 +464,14 @@ sudo systemctl restart waagent
 ```
 
 ### <a name="4-confirm-the-azure-linux-agent-version"></a>4.确认 Azure Linux 代理版本
-    
+
 ```bash
 waagent -version
 ```
 
 对于 CoreOS，上面的命令可能无效。
 
-你会看到 Linux 代理版本已更新为新版本。
+会看到 Linux 代理版本已更新为新版本。
 
 有关 Azure Linux 代理的详细信息，请参阅 [Azure Linux 代理自述文件](https://github.com/Azure/WALinuxAgent)。
-<!--Update_Description: whole content update-->
+<!--Update_Description: update meta properties, wording update-->

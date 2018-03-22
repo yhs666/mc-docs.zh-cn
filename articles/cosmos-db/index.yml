@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Azure Cosmos DB 文档"
+title: Azure Cosmos DB 文档
 metadata:
   document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
-  title: "Azure Cosmos DB 文档 - 教程和 API 参考"
-  description: "了解如何使用 Azure Cosmos DB 生成全球分布式多模型数据库。 教程介绍了如何生成和查询文档、键/值数据库。"
+  title: Azure Cosmos DB 文档 - 教程和 API 参考
+  description: 了解如何使用 Azure Cosmos DB 生成多区域分布式多模型数据库。 教程介绍了如何生成和查询文档、键/值数据库。
   services: cosmos-db
   author: rockboyfor
   manager: digimobile
@@ -15,18 +15,18 @@ metadata:
   origin.date: 02/14/2018
   ms.date: 03/05/2018
   ms.author: v-yeche
-  ms.openlocfilehash: d80348965b8efd31f77c1ecaa86290ae4249e7a3
-  ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+  ms.openlocfilehash: f5134e01bfcdb3c6e21f78972660bc00ee30c76e
+  ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 03/02/2018
+  ms.lasthandoff: 03/16/2018
 abstract:
-  description: "Azure Cosmos DB 是一种全球分布式多模型数据库服务。 使用这些快速入门、教程和示例，可通过使用常用 API 和编程模型开发文档数据库、键值数据库和宽列数据库。 然后了解在受益于全面 SLA 的同时，如何在任意数量的 Azure 区域之间复制数据，以及如何缩放吞吐量而不受你的存储影响。"
+  description: Azure Cosmos DB 是多区域分布式多模型数据库服务。 使用这些快速入门、教程和示例，可通过使用常用 API 和编程模型开发文档数据库、键值数据库和宽列数据库。 然后了解在受益于全面 SLA 的同时，如何在任意数量的 Azure 区域之间复制数据，以及如何缩放吞吐量而不受你的存储影响。
 sections:
-- title: "5 分钟快速入门"
+- title: 5 分钟快速入门
   items:
   - type: paragraph
-    text: "了解如何使用 Azure Cosmos DB 创建使用一种多模型 API 的全球级分布式数据库："
+    text: 了解如何使用 Azure Cosmos DB 创建使用一种多模型 API 的多区域分布式数据库：
   - type: table
     style: dataMatrix
     columns:
@@ -51,34 +51,27 @@ sections:
       - href: /cosmos-db/create-mongodb-dotnet
       - href: /cosmos-db/create-mongodb-nodejs
       - href: /cosmos-db/create-mongodb-flask
-    - title: "表 API"
+    - title: 表 API
       values:
       - href: /cosmos-db/create-table-java
       - href: /cosmos-db/create-table-dotnet
       - href: /cosmos-db/create-table-nodejs
       - href: /cosmos-db/create-table-python
       - href: 
-    - title: Cassandra API
-      values:
-      - href: /cosmos-db/create-cassandra-java
-      - href: /cosmos-db/create-cassandra-dotnet
-      - href: /cosmos-db/create-cassandra-nodejs
-      - href: /cosmos-db/create-cassandra-python
-      - href: 
-- title: "分步教程"
+- title: 分步教程
   items:
   - type: paragraph
-    text: "了解如何使用 Azure Cosmos DB 开发应用："
+    text: 了解如何使用 Azure Cosmos DB 开发应用：
   - type: list
     style: ordered
     items:
-    - html: "使用 Cosmos DB 开发应用：<a href=\"/cosmos-db/tutorial-develop-sql-api-dotnet\">SQL</a> | <a href=\"/cosmos-db/tutorial-develop-mongodb\">MongoDB</a> | <a href=\"/cosmos-db/tutorial-develop-table-dotnet\">表</a> |  |"
-    - html: "将数据导入到 Cosmos DB 中：<a href=\"/cosmos-db/import-data\">SQL</a> | <a href=\"/cosmos-db/mongodb-migrate\">MongoDB</a> | <a href=\"/cosmos-db/table-import\">表</a> |"
-    - html: "使用 Cosmos DB 查询数据：<a href=\"/cosmos-db/tutorial-query-sql-api\">SQL</a> | <a href=\"/cosmos-db/tutorial-query-mongodb\">MongoDB</a> | <a href=\"/cosmos-db/tutorial-query-table\">表</a>"
-    - html: "使用 Cosmos DB 进行全球数据库复制：<a href=\"/cosmos-db/tutorial-global-distribution-sql-api\">SQL</a> | <a href=\"/cosmos-db/tutorial-global-distribution-mongodb\">MongoDB</a> | <a href=\"/cosmos-db/tutorial-global-distribution-table\">表</a>"
-    - html: "<a href=\"local-emulator\">使用模拟器本地开发应用程序</a>"
-    - html: "<a href=\"/cosmos-db/tutorial-functions-http-trigger\">使用 Azure Cosmos DB 输入绑定创建 HTTP 触发器</a>"
-- title: "示例"
+    - html: 使用 Cosmos DB 开发应用：<a href="/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-develop-table-dotnet">表</a> |  |
+    - html: 将数据导入到 Cosmos DB 中：<a href="/cosmos-db/import-data">SQL</a> | <a href="/cosmos-db/mongodb-migrate">MongoDB</a> | <a href="/cosmos-db/table-import">表</a> |
+    - html: 使用 Cosmos DB 查询数据：<a href="/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-query-table">表</a>
+    - html: 使用 Cosmos DB 进行全球数据库复制：<a href="/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-global-distribution-table">表</a>
+    - html: <a href="local-emulator">使用模拟器本地开发应用程序</a>
+    - html: <a href="/cosmos-db/tutorial-functions-http-trigger">使用 Azure Cosmos DB 输入绑定创建 HTTP 触发器</a>
+- title: 示例
   items:
   - type: list
     style: unordered

@@ -1,11 +1,11 @@
 ---
-title: "如何使用 Azure PowerShell 创建 SQL Server VM | Azure"
-description: "提供使用 SQL Server 虚拟机库映像创建 Azure VM 的步骤和 PowerShell 命令。"
+title: 使用 Azure PowerShell 预配 SQL Server VM 的指南 | Azure
+description: 提供使用 SQL Server 虚拟机库映像创建 Azure VM 的步骤和 PowerShell 命令。
 services: virtual-machines-windows
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
 ms.service: virtual-machines-sql
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 11/29/2017
-ms.date: 01/08/2018
+origin.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: e5ca164348d5787b12c3eb408013347d36ec4398
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 3cc500de3aab9eda549cd0cba7f12b50cdb7a10f
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="how-to-create-sql-server-virtual-machines-with-azure-powershell"></a>如何使用 Azure PowerShell 创建 SQL Server 虚拟机
+# <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>如何使用 Azure PowerShell 预配 SQL Server 虚拟机
 
 本指南介绍使用 Azure PowerShell 创建 Windows SQL Server VM 的选项。 有关简化的 Azure PowerShell 示例和其他默认值，请参阅 [SQL VM Azure PowerShell 快速入门](quickstart-sql-vm-create-powershell.md)。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-本快速入门需要 Azure PowerShell 模块 3.6 版或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+本文需要 Azure PowerShell 模块 3.6 版或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
 ## <a name="configure-your-subscription"></a>配置订阅
 
@@ -247,7 +247,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 ```
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>设置虚拟机的操作系统属性
-现在，可以使用 [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) cmdlet 设置虚拟机的操作系统属性：将操作系统的类型设置为 Windows，要求安装[虚拟机代理](../classic/agents-and-extensions.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)，指定该 cmdlet 允许使用前面初始化的变量自动更新和设置虚拟机名称、计算机名称和凭据。
+现在，可以使用 [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) cmdlet 设置虚拟机的操作系统属性：将操作系统的类型设置为 Windows，要求安装[虚拟机代理](../agent-user-guide.md)，指定该 cmdlet 允许使用前面初始化的变量自动更新和设置虚拟机名称、计算机名称和凭据。
 
 执行以下 cmdlet，以设置虚拟机的操作系统属性。
 
@@ -308,7 +308,7 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 虚拟机已创建。
 
 > [!NOTE]
-> 可以忽略有关 bot 诊断的错误。 由于为虚拟机磁盘指定的存储帐户是高级存储帐户，因此会创建标准存储帐户用于启动诊断。
+> 可以忽略有关启动诊断的错误。 由于为虚拟机磁盘指定的存储帐户是高级存储帐户，因此会创建标准存储帐户用于启动诊断。
 
 ## <a name="install-the-sql-iaas-agent"></a>安装 SQL IaaS 代理
 SQL Server 虚拟机支持 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)的自动管理功能。 若要在新 VM 上安装该代理，请在创建 VM 后运行以下命令。
@@ -325,7 +325,7 @@ SQL Server 虚拟机支持 [SQL Server IaaS 代理扩展](virtual-machines-windo
 Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-也可以使用 **Remove-AzureRmResourceGroup** 命令永久删除与该虚拟机关联的所有资源。 请小心使用此命令，因为它也会永久删除该虚拟机。
+还可以使用 **Remove-AzureRmResourceGroup** 命令永久删除与虚拟机关联的所有资源。 请小心使用此命令，因为它也会永久删除该虚拟机。
 
 ## <a name="example-script"></a>示例脚本
 以下脚本包含本教程的完整 PowerShell 脚本。 其中假设已将 Azure 订阅设置为配合使用 **Add-AzureRmAccount -EnvironmentName AzureChinaCloud** 和 **Select-AzureRmSubscription** 命令。

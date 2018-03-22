@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 门户中创建 SQL Server Windows VM | Azure"
-description: "本教程介绍如何在 Azure 门户中创建 Windows SQL Server 2017 虚拟机。"
+title: 在门户中创建 SQL Server Windows VM | Azure
+description: 本教程介绍如何在 Azure 门户中创建 Windows SQL Server 2017 虚拟机。
 services: virtual-machines-windows
 documentationcenter: na
 author: rockboyfor
@@ -12,15 +12,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 12/12/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 58260d6353e11c2b7c75cead56e73a4f8022f0e6
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 5dfd81e242b0d34c1c135a0684e841aeee9b0545
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>在 Azure 门户中创建 SQL Server 2017 Windows 虚拟机
+# <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 SQL Server 2017 Windows 虚拟机
 
 > [!div class="op_single_selector"]
 > * [Windows](quickstart-sql-vm-create-portal.md)
@@ -28,13 +28,17 @@ ms.lasthandoff: 02/13/2018
 
 本快速入门逐步讲解如何在 Azure 门户中创建 SQL Server 虚拟机。
 
+> [!TIP]
+> 本快速入门提供的路径适用于快速预配并连接到 SQL VM。 若要详细了解其他 SQL VM 预配选择，请参阅 [Azure 门户中的 Windows SQL Server VM 预配指南](virtual-machines-windows-portal-sql-server-provision.md)。
+
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-## <a id="select"></a>选择 SQL Server VM 映像
+<a name="select"></a>
+## <a name="select-a-sql-server-vm-image"></a>选择 SQL Server VM 映像
 
 1. 使用帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
-1. 在 Azure 门户中，单击“新建”。 该门户会打开“新建”窗口。
+1. 在 Azure 门户中，单击“创建资源”。 
 
 1. 在搜索字段中键入“Windows Server 2016 上的 SQL Server 2017 Developer”，然后按 Enter。
 
@@ -47,7 +51,8 @@ ms.lasthandoff: 02/13/2018
 
 1. 单击“创建”。
 
-## <a id="configure"></a> 提供基本详细信息
+<a name="configure"></a>
+## <a name="provide-basic-details"></a>提供基本详细信息
 
 在“基本信息”窗口中提供以下信息：
 
@@ -124,7 +129,8 @@ ms.lasthandoff: 02/13/2018
 
     ![ssms 连接](./media/quickstart-sql-vm-create-portal/ssms-connect.png)
 
-## <a id="remotedesktop"></a> 远程登录到 VM
+<a name="remotedesktop"></a>
+## <a name="log-in-to-the-vm-remotely"></a>远程登录到 VM
 
 使用以下步骤通过远程桌面连接到 SQL Server 虚拟机：
 
@@ -145,7 +151,4 @@ ms.lasthandoff: 02/13/2018
 > [!div class="nextstepaction"]
 > [将数据库迁移到 SQL VM](virtual-machines-windows-migrate-sql.md)
 
-<!--The parent file of includes file of virtual-machines-sql-server-remote-desktop-connect.md-->
-<!--ms.date:01/08/2018-->
-
-<!-- Update_Description: new articles on creating SQL Server 2017 on Server 2016 in portal -->
+<!-- Update_Description: wording update -->

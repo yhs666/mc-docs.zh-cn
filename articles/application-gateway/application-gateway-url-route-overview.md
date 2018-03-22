@@ -1,11 +1,11 @@
 ---
-title: "基于 URL 的内容路由概述 | Azure"
-description: "本页提供基于应用程序网关 URL 的内容路由、UrlPathMap 配置和 PathBasedRouting 规则的概述。"
+title: 基于 URL 的内容路由概述 | Microsoft Docs
+description: 本页提供基于应用程序网关 URL 的内容路由、UrlPathMap 配置和 PathBasedRouting 规则的概述。
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4409159b-e22d-4c9a-a103-f5d32465d163
 ms.service: application-gateway
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/09/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 11642863bd540f33f5a9beb766f5e7ae69b46769
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 03/15/2018
+ms.author: v-junlch
+ms.openlocfilehash: ece10ee53f7c0ab131459d002c5f0ab8b7957dac
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="url-path-based-routing-overview"></a>基于 URL 路径的路由概述
 
@@ -31,7 +31,10 @@ ms.lasthandoff: 06/23/2017
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-对 http://contoso.com/video* 的请求会路由到 VideoServerPool，对 http://contoso.com/images* 的请求会路由到 ImageServerPool。 如果没有任何路径模式匹配，则选择 DefaultServerPool。
+对 http://contoso.com/video/* 的请求会路由到 VideoServerPool，而对 http://contoso.com/images/* 的请求则会路由到 ImageServerPool。 如果没有任何路径模式匹配，则选择 DefaultServerPool。
+
+> [!IMPORTANT]
+> 规则将按照门户中的列出顺序进行处理。 我们强烈建议先配置多站点侦听器，然后再配置基本侦听器。  这确保将流量路由到适当的后端。 如果基本侦听器先列出并且与传入的请求匹配，则该侦听器将处理该请求。
 
 ## <a name="urlpathmap-configuration-element"></a>UrlPathMap 配置元素
 
@@ -69,7 +72,7 @@ urlPathMap 元素用于指定后端服务器池映射的路径模式。 以下�
 > [!NOTE]
 > PathPattern：此设置是要匹配的路径模式列表。 每个模式必须以 / 开头，只允许在后接“/”的末尾处添加“*”。 发送到路径匹配器的字符串不会在第一个 ? 或 # 之后包含任何文本，这些字符在这里是不允许的。
 
-有关详细信息，可以查看[使用基于 URL 的路由的 Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-application-gateway-url-path-based-routing)。
+有关详细信息，可以查看[使用基于 URL 的路由的 Resource Manager 模板](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing)。
 
 ## <a name="pathbasedrouting-rule"></a>PathBasedRouting 规则
 
@@ -99,3 +102,5 @@ PathBasedRouting 规则的代码片段：
 ## <a name="next-steps"></a>后续步骤
 
 了解基于 URL 的内容路由之后，请转到[使用基于 URL 的路由创建应用程序网关](application-gateway-create-url-route-portal.md)，使用 URL 路由规则创建应用程序网关。
+
+<!--Update_Description: wording update -->

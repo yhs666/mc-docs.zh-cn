@@ -1,10 +1,10 @@
 ---
-title: "在 Azure 中创建和上传 Linux VHD"
-description: "了解如何创建和上传包含 Linux 操作系统的 Azure 虚拟硬盘 (VHD)。"
+title: 在 Azure 中创建和上传 Linux VHD
+description: 了解如何创建和上传包含 Linux 操作系统的 Azure 虚拟硬盘 (VHD)。
 services: virtual-machines-linux
-documentationcenter: 
-author: szarkos
-manager: timlt
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: d351396c-95a0-4092-b7bf-c6aae0bbd112
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/02/2017
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: dd109e87a93509d44e50d6a480575a12778b2dfd
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 03/19/2018
+ms.author: v-yeche
+ms.openlocfilehash: 83748d1db7789a93fadf43e249e1f9c720819a8a
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>有关未认可发行版的信息
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-仅当使用某个[认可的发行版](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)时，Azure 平台 SLA 才适用于运行 Linux OS 的虚拟机。 在 Azure 映像库中提供的所有 Linux 发行版都是具有所需配置的认可发行版。
+仅当使用某个[认可的发行版](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)时，Azure 平台 SLA 才适用于运行 Linux OS 的虚拟机。 对于这些认可的分发版，将在 Azure Marketplace 中提供具有所需配置的 Linux 映像。
 
 * Azure 上的 Linux - [认可的发行版](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure 中对 Linux 映像的支持](https://support.microsoft.com/kb/2941892)
@@ -77,7 +77,7 @@ Azure 上的 VHD 映像必须将虚拟大小调整为 1MB。  通常，应正确
 若要修正此问题，可使用 Hyper-V 管理器控制台或 [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell cmdlet 调整 VM 大小。  如果你未在 Windows 环境中运行，则建议使用 qemu-img 转换（如果需要）并调整 VHD 大小。
 
 > [!NOTE]
-> qemu-img 版本（>=2.2.1）中有一个已知 bug，会导致 VHD 格式不正确。 QEMU 2.6 中已修复此问题。 建议使用 qemu-img 2.2.0 或更低版本，或者更新到 2.6 或更高版本。 参考：https://bugs.launchpad.net/qemu/+bug/1490611。
+> qemu-img 版本（>=2.2.1）中有一个已知 bug，会导致 VHD 格式不正确。 QEMU 2.6 中已修复此问题。 建议使用 qemu-img 2.2.0 或更低版本，或者更新到 2.6 或更高版本。 请参考：https://bugs.launchpad.net/qemu/+bug/1490611。
 > 
 > 
 
@@ -145,6 +145,7 @@ Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序会直接影响上游
 * Azure Linux 代理需要 Python v2.6 以上版本。
 * 此外，该代理还需要 python-pyasn1 模块。 大多数分发提供此模块作为可以安装的单独包。
 * 在某些情况下，Azure Linux 代理可能与 NetworkManager 不兼容。 发行版提供的许多 RPM/Deb 包会将 NetworkManager 配置为与 waagent 包冲突，因此安装 Linux 代理包时会卸载 NetworkManager。
+* Azure Linux 代理必须是上面的最低支持版本，请参阅此文章中的[详细信息](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)。
 
 ## <a name="general-linux-system-requirements"></a>一般 Linux 系统要求
 

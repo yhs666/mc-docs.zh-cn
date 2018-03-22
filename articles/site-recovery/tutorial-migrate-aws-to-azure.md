@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Site Recovery 将 AWS 中的 VM 迁移到 Azure | Azure"
-description: "本文介绍如何使用 Azure Site Recovery 将 Amazon Web Services (AWS) 中运行的 VM 迁移到 Azure。"
+title: 使用 Azure Site Recovery 将 AWS 中的 VM 迁移到 Azure | Azure
+description: 本文介绍如何使用 Azure Site Recovery 将 Amazon Web Services (AWS) 中运行的 VM 迁移到 Azure。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
@@ -10,11 +10,11 @@ origin.date: 02/07/2018
 ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 1bb18c6ba6a78abbfd2e1850df63d4ee686ccbc8
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: edb3fc91b18157415fb36328d4f4cd45c5218dd6
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>将 Amazon Web Services (AWS) VM 迁移到 Azure
 
@@ -77,7 +77,9 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="prepare-the-ec2-instances"></a>准备 EC2 实例
 
-需要一个或多个要迁移的 VM。 这些 EC2 实例应运行 64 位版本的 Windows Server 2008 R2 SP1 或更高版本、Windows Server 2012、Windows Server 2012 R2、Windows Server 2016 或 Red Hat Enterprise Linux 6.7（仅限 HVM 虚拟化实例）。 服务器上只能有 Citrix PV 或 AWS PV 驱动程序。 不支持运行 RedHat PV 驱动程序的实例。
+需要一个或多个要迁移的 VM。 这些 EC2 实例应运行 64 位版本的 Windows Server 2008 R2 SP1 或更高版本、Windows Server 2012、Windows Server 2012 R2、Windows Server 2016。 服务器上只能有 Citrix PV 或 AWS PV 驱动程序。
+<!-- Not Avaiable on Red Hat Enterprise Linux 6.7 (HVM virtualized instances only) -->
+<!-- Not Avaiable on Instances running RedHat PV drivers aren't supported -->
 
 必须在要复制的每个 VM 上安装 Mobility Service。 为 VM 启用复制后，Site Recovery 会自动安装此服务。 若要进行自动安装，需在 EC2 实例上准备一个帐户，Site Recovery 将使用该帐户访问 VM。
 

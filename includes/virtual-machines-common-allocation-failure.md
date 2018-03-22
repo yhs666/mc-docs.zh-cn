@@ -1,4 +1,4 @@
-如果本文未解决你的 Azure 问题，请访问 [MSDN 和 CSDN](https://www.azure.cn/support/forums/) 上的 CSDN Azure 论坛。 可以在这些论坛上发布问题。 此外，还可以通过在 [Azure 支持](https://www.azure.cn/support/contact/)站点上选择“获取支持”来发出 Azure 支持请求。
+如果本文未解决你的 Azure 问题，请访问 [MSDN 和 CSDN](https://www.azure.cn/support/forums/) 上的 CSDN Azure 论坛。 可以在这些论坛上发布问题。 此外，还可以在 [Azure 支持](https://www.azure.cn/support/contact/)站点上发出 Azure 支持请求。
 
 ## <a name="general-troubleshooting-steps"></a>常规故障排除步骤
 ### <a name="troubleshoot-common-allocation-failures-in-the-classic-deployment-model"></a>对经典部署模型中的常见分配失败进行故障排除
@@ -7,7 +7,7 @@
 * 将 VM 重设为不同的 VM 大小。<br>
     单击“浏览全部内容” > “虚拟机(经典)” > 虚拟机 >“设置” > “大小”。 有关详细步骤，请参阅[调整虚拟机的大小](https://msdn.microsoft.com/library/dn168976.aspx)。
 * 从云服务删除所有 VM，然后重新创建 VM。<br>
-    单击“浏览全部内容” > “虚拟机(经典)”> 虚拟机 >“删除”。 然后，单击“新建” > “计算”> [虚拟机映像]。
+    单击“浏览全部内容” > “虚拟机(经典)”> 虚拟机 >“删除”。 然后，单击“创建资源” > “计算”> [虚拟机映像]。
 
 ### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>对 Azure Resource Manager 部署模型中的常见分配失败进行故障排除
 这些步骤可帮助解决虚拟机中的许多分配失败：
@@ -62,7 +62,7 @@ Upgrade_VMSizeNotSupported 或 GeneralError
 
 **解决方法**
 
-如果错误是 Upgrade_VMSizeNotSupported*，请尝试使用不同的 VM 大小。 如果使用不同的 VM 大小不可行，但可接受使用不同的虚拟 IP 地址 (VIP)，则创建新的云服务来托管新的 VM，并将新的云服务添加到运行现有 VM 的区域虚拟网络中。 如果现有的云服务未使用区域虚拟网络，用户仍然可以为新的云服务创建新的虚拟网络，并 [将现有虚拟网络连接到新的虚拟网络](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)。 请参阅有关 [区域虚拟网络](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)的详细信息。
+如果错误是 Upgrade_VMSizeNotSupported*，请尝试使用不同的 VM 大小。 如果使用不同的 VM 大小不可行，但可接受使用不同的虚拟 IP 地址 (VIP)，则创建新的云服务来托管新的 VM，并将新的云服务添加到运行现有 VM 的区域虚拟网络中。 如果现有的云服务未使用区域虚拟网络，用户仍然可以为新的云服务创建新的虚拟网络，并 [将现有虚拟网络连接到新的虚拟网络](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)。 详细了解 [区域虚拟网络](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。
 
 如果错误是 GeneralError*，很可能是因为群集虽然支持资源的类型（例如特定的 VM 大小），但群集目前没有可用的资源。 类似上述，通过创建新的云服务（请注意，新的云服务必须使用不同的 VIP）添加所需的计算资源，并使用区域虚拟网络连接云服务。
 
@@ -132,7 +132,7 @@ New_General* 或 New_VMSizeNotSupported*
 
 **解决方法**
 
-如果不需要地缘组，请为要添加的新资源创建新的区域虚拟网络，并 [将现有虚拟网络连接到新的虚拟网络](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)。 请参阅有关 [区域虚拟网络](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)的详细信息。
+如果不需要地缘组，请为要添加的新资源创建新的区域虚拟网络，并 [将现有虚拟网络连接到新的虚拟网络](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)。 详细了解[区域虚拟网络](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。
 
 此外，用户也可以 [将基于地缘组的虚拟网络迁移到区域虚拟网络](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)，并重新添加所需的资源。
 
@@ -162,14 +162,14 @@ Upgrade_VMSizeNotSupported* 或 GeneralError*
 
 如果错误是 GeneralError*，很可能是因为群集虽然支持资源的类型（例如特定的 VM 大小），但群集目前没有可用的资源。 如果 VM 可以属于不同的可用性集，请在（位于相同区域的）不同的可用性集中创建新的 VM。 然后，可以将这个新的 VM 添加到相同的虚拟网络中。  
 
-## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>分配案例：重启部分停止（已解除分配）的 VM
+## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>分配案例：重新启动部分停止（已解除分配）的 VM
 **错误**
 
 GeneralError*
 
 **群集固定的原因**
 
-部分解除分配表示已停止（解除分配）可用性集中的一或多个（但不是全部）VM。 停止（解除分配）VM 时会释放相关联的资源。 因此，重启已停止（解除分配）的 VM 是一项新的分配请求。 重新启动已部分解除分配的可用性集相当于向现有可用性集添加 VM。 必须在托管现有可用性集的原始群集上尝试发出分配请求。
+部分解除分配表示已停止（解除分配）可用性集中的一或多个（但不是全部）VM。 停止（解除分配）VM 时会释放相关联的资源。 因此，重新启动已停止（解除分配）的 VM 是一项新的分配请求。 重新启动已部分解除分配的可用性集相当于向现有可用性集添加 VM。 必须在托管现有可用性集的原始群集上尝试发出分配请求。
 
 **解决方法**
 
@@ -207,5 +207,4 @@ GeneralError*
 
 “服务器遇到内部错误。 请重试请求。” 或者“无法为服务生成分配。”
 
-<!--Update_Description: update meta properties, wording update-->
-<!--ms.date: 10/16/2017-->
+<!--ms.date: 03/19/2018 -->

@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure PowerShell 创建 SQL Server Windows VM | Azure"
-description: "本教程介绍如何使用 Azure PowerShell 创建 Windows SQL Server 2017 虚拟机。"
+title: 使用 Azure PowerShell 创建 SQL Server Windows VM | Azure
+description: 本教程介绍如何使用 Azure PowerShell 创建 Windows SQL Server 2017 虚拟机。
 services: virtual-machines-windows
 documentationcenter: na
 author: rockboyfor
@@ -11,18 +11,21 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-origin.date: 12/12/2017
-ms.date: 01/08/2018
+origin.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 231b0d901827ca46d42e92c8bd5987dd6781c13e
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 37f9975567ab139b06ccbe35a6f9a7b331d21800
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>使用 Azure PowerShell 创建 SQL Server Windows 虚拟机
+# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建 SQL Server Windows 虚拟机
 
 本快速入门逐步讲解如何使用 Azure PowerShell 创建 SQL Server 虚拟机。
+
+> [!TIP]
+> 本快速入门提供的路径适用于快速预配并连接到 SQL VM。 若要详细了解创建 SQL VM 所需的其他 Azure PowerShell 选项，请参阅 [SQL Server VM 预配指南（使用 Azure PowerShell）](virtual-machines-windows-ps-sql-create.md)。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -177,7 +180,7 @@ ms.lasthandoff: 01/05/2018
 Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-也可以使用 **Remove-AzureRmResourceGroup** 命令永久删除与该虚拟机关联的所有资源。 请小心使用此命令，因为它也会永久删除该虚拟机。
+还可以使用 **Remove-AzureRmResourceGroup** 命令永久删除与虚拟机关联的所有资源。 请小心使用此命令，因为它也会永久删除该虚拟机。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -185,5 +188,4 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 
 > [!div class="nextstepaction"]
 > [将数据库迁移到 SQL VM](virtual-machines-windows-migrate-sql.md)
-<!-- Update_Description: new articles on creating SQL Server 2017 on Server 2016 with powershell -->
-<!--ms.date 01/08/2018 -->
+<!-- Update_Description: wording update  -->

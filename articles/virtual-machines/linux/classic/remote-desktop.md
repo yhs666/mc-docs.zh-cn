@@ -1,11 +1,11 @@
 ---
-title: "使用远程桌面连接到 Linux VM | Azure"
-description: "了解如何安装和配置远程桌面以连接到经典部署模型的 Azure Linux VM"
+title: 使用远程桌面连接到 Linux VM | Azure
+description: 了解如何安装和配置远程桌面以连接到经典部署模型的 Azure Linux VM
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 34348659-ddb7-41da-82d6-b5885859e7e4
 ms.service: virtual-machines-linux
@@ -17,10 +17,10 @@ origin.date: 05/30/2017
 ms.date: 12/18/2017
 ms.author: v-yeche
 ms.openlocfilehash: 99fa35635c6608a9397de3179936a58dcb602964
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-remote-desktop-to-connect-to-a-azure-linux-vm"></a>使用远程桌面连接到 Azure Linux VM
 > [!IMPORTANT] 

@@ -1,27 +1,27 @@
 ---
-title: "在 Azure 中首次启动时自定义 Linux VM | Azure"
-description: "了解在 Azure 中首次启动 Linux VM 时如何使用 cloud-init 和 Key Vault 对其进行自定义"
+title: 在 Azure 中首次启动时自定义 Linux VM | Azure
+description: 了解在 Azure 中首次启动 Linux VM 时如何使用 cloud-init 和 Key Vault 对其进行自定义
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/13/2017
-ms.date: 01/08/2018
+ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 13577a3f8a8f51c6d7cd06ae0da2bf8d26cf270b
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 83ada914ab1a61dce9e5cd862f57cadab5bd77dd
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>如何在首次启动 Linux 虚拟机时对其进行自定义
 在前面的教程中，你已学习如何通过 SSH 连接到虚拟机 (VM) 并手动安装 NGINX。 若要以快速一致的方式创建 VM，通常需要某种形式的自动化。 在首次启动 VM 时实现自定义的常见方法是使用 [cloud-init](https://cloudinit.readthedocs.io)。 本教程介绍如何执行下列操作：
@@ -49,11 +49,12 @@ Cloud-init 还支持不同的发行版。 例如，不需使用 apt-get install 
 | UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |最新 |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |最新 |
 | CoreOS |CoreOS |CoreOS |Stable |最新 |
+| | OpenLogic | CentOS | 7-CI | 最新 |
 
 ## <a name="create-cloud-init-config-file"></a>创建 cloud-init 配置文件
 若要运行 cloud-init，请创建一个 VM，以便安装 NGINX 并运行简单的“Hello World”Node.js 应用。 以下 cloud-init 配置会安装所需的程序包，创建 Node.js 应用，然后初始化并启动该应用。
 
-在当前 shell 中，创建名为“cloud-init.txt”的文件并粘贴下面的配置。 可使用任何想要使用的编辑器。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
+在当前 shell 中，创建名为“cloud-init.txt”的文件并粘贴下面的配置。 可使用任何想要使用的编辑器。 输入 `sensible-editor cloud-init.txt` 以创建文件并查看可用编辑器的列表。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
 <!-- Not Avaialble cloud shell-->
 
 ```yaml
@@ -101,13 +102,13 @@ runcmd:
 有关 cloud-init 配置选项的详细信息，请参阅 [cloud-init 配置示例](https://cloudinit.readthedocs.io/en/latest/topics/examples.html)。
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 创建资源组，然后才能创建 VM。 以下示例在“chinaeast”位置创建名为“myResourceGroupAutomate”的资源组：
+使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 创建资源组，然后才能创建 VM。 以下示例在“chinaeast”位置创建名为“myResourceGroupAutomate”的资源组：
 
 ```azurecli 
 az group create --name myResourceGroupAutomate --location chinaeast
 ```
 
-现在，请使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 创建 VM。 使用 `--custom-data` 参数传入 cloud-init 配置文件。 如果未将 cloud-init.txt 配置文件保存在现有工作目录中，请提供该文件的完整路径。 以下示例创建名为“myAutomatedVM”的 VM：
+现在，请使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 创建 VM。 使用 `--custom-data` 参数传入 cloud-init 配置文件。 如果未将 cloud-init.txt 配置文件保存在现有工作目录中，请提供该文件的完整路径。 以下示例创建名为“myAutomatedVM”的 VM：
 
 ```azurecli 
 az vm create \
@@ -121,7 +122,7 @@ az vm create \
 
 创建 VM、安装程序包和启动应用需耗时几分钟。 在 Azure CLI 返回提示之后，仍然存在继续运行的后台任务。 可能还需等待几分钟才能访问应用。 创建 VM 后，请记下 Azure CLI 显示的 `publicIpAddress`。 此地址用于通过 Web 浏览器访问 Node.js 应用。
 
-若要使 VM 能使用 Web 流量，请通过 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#open-port) 从 Internet 中打开端口 80：
+若要使 VM 能使用 Web 流量，请通过 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_open_port) 从 Internet 中打开端口 80：
 
 ```azurecli 
 az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
@@ -145,7 +146,7 @@ Azure Key Vault 保护加密密钥和机密，例如证书或密码。 Key Vault
 - 创建 VM 并注入证书
 
 ### <a name="create-an-azure-key-vault"></a>创建 Azure Key Vault
-首先，使用 [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#create) 创建 Key Vault，并在部署 VM 时启用该 Key Vault。 每个 Key Vault 均需具备唯一名称且全部小写。 将下例中的 mykeyvault 替换为自己唯一的 Key Vault 名称：
+首先，使用 [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_create) 创建 Key Vault，并在部署 VM 时启用该 Key Vault。 每个 Key Vault 均需具备唯一名称且全部小写。 将下例中的 mykeyvault 替换为自己唯一的 Key Vault 名称：
 
 ```azurecli 
 keyvault_name=mykeyvault
@@ -156,7 +157,7 @@ az keyvault create \
 ```
 
 ### <a name="generate-certificate-and-store-in-key-vault"></a>生成证书并将其存储在 Key Vault 中
-为供生产使用，应通过 [az keyvault certificate import](https://docs.azure.cn/zh-cn/cli/keyvault/certificate?view=azure-cli-latest#import) 导入由受信任的提供程序签名的有效证书。 在本教程中，以下示例显示了如何使用 [az keyvault certificate create](https://docs.azure.cn/zh-cn/cli/keyvault/certificate?view=azure-cli-latest#create) 生成使用默认证书策略的自签名证书：
+为供生产使用，应通过 [az keyvault certificate import](https://docs.azure.cn/zh-cn/cli/keyvault/certificate?view=azure-cli-latest#az_keyvault_certificate_import) 导入由受信任的提供程序签名的有效证书。 在本教程中，以下示例显示了如何使用 [az keyvault certificate create](https://docs.azure.cn/zh-cn/cli/keyvault/certificate?view=azure-cli-latest#az_keyvault_certificate_create) 生成使用默认证书策略的自签名证书：
 
 ```azurecli 
 az keyvault certificate create \
@@ -166,7 +167,7 @@ az keyvault certificate create \
 ```
 
 ### <a name="prepare-certificate-for-use-with-vm"></a>准备用于 VM 的证书
-若要在 VM 创建过程中使用该证书，请使用 [az keyvault secret list-versions](https://docs.azure.cn/zh-cn/cli/keyvault/secret?view=azure-cli-latest#list-versions) 获取证书的 ID。 VM 需要特定格式的证书才能在启动时将其注入，因此请使用 [az vm format-secret](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#format-secret) 转换该证书。 以下示例将这些命令的输出分配给变量，以便在后续步骤中使用：
+若要在 VM 创建过程中使用该证书，请使用 [az keyvault secret list-versions](https://docs.azure.cn/zh-cn/cli/keyvault/secret?view=azure-cli-latest#az_keyvault_secret_list_versions) 获取证书的 ID。 VM 需要特定格式的证书才能在启动时将其注入，因此请使用 [az vm format-secret](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_format_secret) 转换该证书。 以下示例将这些命令的输出分配给变量，以便在后续步骤中使用：
 
 ```azurecli 
 secret=$(az keyvault secret list-versions \
@@ -179,7 +180,7 @@ vm_secret=$(az vm format-secret --secret "$secret")
 ### <a name="create-cloud-init-config-to-secure-nginx"></a>创建 cloud-init 配置以保护 NGINX
 创建 VM 时，证书和密钥都将存储在受保护的 /var/lib/waagent/ 目录中。 要将证书自动添加到 VM 并配置 NGINX，可使用上一示例中已更新的 cloud-init 配置。
 
-创建名为“cloud-init-secured.txt”的文件并粘贴下面的配置。 同样，请确保已正确复制整个 cloud-init 文件，尤其是第一行：
+创建名为“cloud-init-secured.txt”的文件并粘贴下面的配置。 再次使用 `sensible-editor cloud-init-secured.txt` 创建文件并查看可用编辑器的列表。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
 
 ```yaml
 #cloud-config
@@ -231,7 +232,7 @@ runcmd:
 ```
 
 ### <a name="create-secure-vm"></a>创建安全的 VM
-现在，请使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#create) 创建 VM。 使用 `--secrets` 参数注入 Key Vault 中的证书数据。 与上个示例一样，使用 `--custom-data` 参数传入 cloud-init 配置：
+现在，请使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 创建 VM。 使用 `--secrets` 参数注入 Key Vault 中的证书数据。 与上个示例一样，使用 `--custom-data` 参数传入 cloud-init 配置：
 
 ```azurecli 
 az vm create \
@@ -246,7 +247,7 @@ az vm create \
 
 创建 VM、安装程序包和启动应用需耗时几分钟。 在 Azure CLI 返回提示之后，仍然存在继续运行的后台任务。 可能还需等待几分钟才能访问应用。 创建 VM 后，请记下 Azure CLI 显示的 `publicIpAddress`。 此地址用于通过 Web 浏览器访问 Node.js 应用。
 
-若要使 VM 能使用安全的 Web 流量，请通过 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#open-port) 从 Internet 打开端口 443：
+若要使 VM 能使用安全的 Web 流量，请通过 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_open_port) 从 Internet 打开端口 443：
 
 ```azurecli 
 az vm open-port \
@@ -279,4 +280,4 @@ az vm open-port \
 > [!div class="nextstepaction"]
 > [创建自定义 VM 映像](./tutorial-custom-images.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update link, wording update-->

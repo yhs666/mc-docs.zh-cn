@@ -1,12 +1,12 @@
 ---
-title: "使用 BI 分析工具连接到 Azure Cosmos DB | Azure"
-description: "了解如何使用 Azure Cosmos DB ODBC 驱动程序创建表和视图，以便可以在 BI 和数据分析软件中查看规范化数据。"
-keywords: "odbc, odbc 驱动程序"
+title: 使用 BI 分析工具连接到 Azure Cosmos DB | Azure
+description: 了解如何使用 Azure Cosmos DB ODBC 驱动程序创建表和视图，以便可以在 BI 和数据分析软件中查看规范化数据。
+keywords: odbc, odbc 驱动程序
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 01/16/2018
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5ccc4e7e9011e725c37e2dc99653d9c71d149770
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 10b0ecb243cd9b770a20e873f19746e6489dbe36
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具和 ODBC 驱动程序连接到 Azure Cosmos DB
 
@@ -100,8 +100,8 @@ Azure Cosmos DB 是一种无架构数据库，它允许应用程序即时迭代�
     以后如果想要配合 DSN 使用此架构，请打开“Azure Cosmos DB ODBC 驱动程序 DSN 设置”窗口（通过“ODBC 数据源管理器”），单击“高级选项”，并在“架构文件”框中导航到保存的架构。 将架构文件保存到现有 DSN 会将 DSN 连接范围修改为架构定义的数据和结构。
 
 <a name="schema-editor"></a>
-<a name="table-mapping">
-## <a name="astep-4-create-a-schema-definition-using-the-table-delimiters-mapping-method"></a></a>步骤 4：使用表分隔符映射方法创建架构定义
+<a name="table-mapping"></a>
+## <a name="step-4-create-a-schema-definition-using-the-table-delimiters-mapping-method"></a>步骤 4：使用表分隔符映射方法创建架构定义
 
 可以使用两种类型的采样方法：**集合映射**或**表分隔符**。 采样会话可以利用这两种采样方法，但每个集合只能使用特定的采样方法。 
 

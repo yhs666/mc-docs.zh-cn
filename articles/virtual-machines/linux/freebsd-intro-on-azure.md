@@ -1,11 +1,11 @@
 ---
-title: "Azure FreeBSD 简介 | Azure"
-description: "了解如何在 Azure 上使用 FreeBSD 虚拟机。"
+title: Azure FreeBSD 简介 | Azure
+description: 了解如何在 Azure 上使用 FreeBSD 虚拟机。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 32b87a5f-d024-4da0-8bf0-77e233d1422b
 ms.service: virtual-machines-linux
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 09/13/2017
-ms.date: 10/30/2017
+ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 57937bf42e7e024c60bc434118f52cc84f611642
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 145c8ad9eb812250980462f96dfeb38f34665410
+ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure FreeBSD 简介
 本主题概述如何在 Azure 中运行 FreeBSD 虚拟机。
@@ -43,7 +43,8 @@ Microsoft Corporation 在 Azure 上提供预先配置了 [Azure VM 来宾代理]
 
 - [Azure 应用商店中的 FreeBSD 10.3](https://portal.azure.cn/#create/Microsoft.FreeBSD103-ARM)
 - [Azure 应用商店中的 FreeBSD 11.0](https://portal.azure.cn/#create/Microsoft.FreeBSD110-ARM)
-- [Azure Marketplace 中的 FreeBSD 11.1](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
+- [Azure Marketplace 中的 FreeBSD](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.FreeBSD)
+<!-- Notice: [China Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.FreeBSD)-->
 
 ### <a name="create-a-freebsd-vm-through-azure-cli-20-on-freebsd"></a>通过 FreeBSD 上的 Azure CLI 2.0 创建 FreeBSD VM
 首先需要通过以下命令在 FreeBSD 计算机上安装 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest)。
@@ -98,7 +99,7 @@ ssh azureuser@xx.xx.xx.xx -i /etc/ssh/ssh_host_rsa_key
 * 重置原始的 sudo 用户的密码。
 * 使用指定的密码创建新的 sudo 用户。
 * 使用给定的密钥设置公共主机密钥。
-* 重置在 VM 预配期间提供的公共主机密钥（如果未提供主机密钥）。
+* 重置 VM 预配期间提供的公共主机密钥（如果未提供主机密钥）。
 * 打开 SSH 端口 (22) 并还原 sshd_config（如果 reset_ssh 设置为 true）。
 * 删除现有用户。
 * 检查磁盘。
@@ -133,10 +134,9 @@ $ sudo <COMMAND>
 可以选择使用 `sudo -s`获取 root shell。
 
 ## <a name="known-issues"></a>已知问题
-[Azure VM 来宾代理](https://github.com/Azure/WALinuxAgent/) 2.2.2 存在 [已知问题] (https://github.com/Azure/WALinuxAgent/pull/517)，此问题导致 Azure 上的 FreeBSD VM 预配失败。 [Azure VM 来宾代理](https://github.com/Azure/WALinuxAgent/) 2.2.3 及更高版本已修复此问题。 
+[Azure VM 来宾代理](https://github.com/Azure/WALinuxAgent/) 2.2.2 存在 [已知问题](https://github.com/Azure/WALinuxAgent/pull/517)，此问题导致 Azure 上的 FreeBSD VM 预配失败。 [Azure VM 来宾代理](https://github.com/Azure/WALinuxAgent/) 2.2.3 及更高版本已修复此问题。 
 
 ## <a name="next-steps"></a>后续步骤
 * 转到 [Azure 应用商店](https://portal.azure.cn/#create/Microsoft.FreeBSD110-ARM) 创建 FreeBSD VM。
-* 要将自己的 FreeBSD 上传到 Azure，请参阅[创建 FreeBSD VHD 并将其上传到 Azure](classic/freebsd-create-upload-vhd.md)。
 
-<!--Update_Description: update meta properties， update link-->
+<!--Update_Description: update meta properties， update link, wording update -->

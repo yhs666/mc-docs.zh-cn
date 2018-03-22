@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB 的表 API 简介 | Azure"
-description: "了解如何通过常用 OSS MongoDB API 使用 Azure Cosmos DB 以低延迟存储和查询大量键值对数据。"
+title: Azure Cosmos DB 的表 API 简介 | Azure
+description: 了解如何通过常用 OSS MongoDB API 使用 Azure Cosmos DB 以低延迟存储和查询大量键值对数据。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
 editor: monicar
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,19 +15,20 @@ ms.topic: get-started-article
 origin.date: 11/20/2017
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 416fd1cd811e4a3d9d40686c1f0a289343408a37
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 9aba508240a03dcbb9e440853506a8f4053c884d
+ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 表 API 简介
 
 [Azure Cosmos DB](introduction.md) 提供的表 API 适用于为 Azure 表存储编写且需要以下高级功能的应用程序：
 
 * [统包式多区域分布](distribute-data-globally.md)。
+* [多区域专用的吞吐量](partition-data.md)。
 <!-- Notice: 全球 to 多个区域 -->
-* 全球范围内[专用的吞吐量](partition-data.md)。
+<!-- Notice: worldwide to multiple-region -->
 * 99% 的情况下低至个位数的毫秒级延迟。
 * 保证高可用性。
 * [自动编制辅助索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)。
@@ -42,7 +43,7 @@ ms.lasthandoff: 03/02/2018
 
 | | Azure 表存储 | Azure Cosmos DB 表 API |
 | --- | --- | --- |
-| 延迟 | 快速，但对延迟没有上限。 | 读取操作和写入操作的低至个位数的毫秒级延迟（通过以下统计数据提供支持：在全球任何位置，对于任何规模，99% 的情况下读取操作的延迟 < 10 毫秒、写入操作的延迟 < 15 毫秒）。 |
+| 延迟 | 快速，但对延迟没有上限。 | 读取操作和写入操作的低至个位数的毫秒级延迟（通过以下统计数据提供支持：在多区域的任何位置，对于任何规模，99% 的情况下读取操作的延迟 < 10 毫秒、写入操作的延迟 < 15 毫秒）。 |
 | 吞吐量 | 可变吞吐量模型。 表的可伸缩性限制为 20,000 个操作/秒。 | 使用 SLA 支持的[每个表专用保留吞吐量](request-units.md)实现高度可缩放。 帐户没有吞吐量上限，每个表支持 >1000 万个操作/秒。 |
 | 多区域分布 | 具有一个可选可读辅助读取区域以实现高可用性的单一区域。 不能启动故障转移。 | [统包式多区域分布](distribute-data-globally.md)，分布到一到多个区域。 支持在中国各地随时[自动和手动故障转移](regional-failover.md)。 |
 | 索引 | 仅对 PartitionKey 和 RowKey 建立主索引。 没有辅助索引。 | 自动对所有属性完成编制索引，没有索引管理。 |
