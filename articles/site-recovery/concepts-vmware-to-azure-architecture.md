@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery 中的 VMware 到 Azure 复制体系结构 | Azure"
-description: "本文概述了使用 Azure Site Recovery 将本地 VMware VM 复制到 Azure 时使用的组件和体系结构"
+title: Azure Site Recovery 中的 VMware 到 Azure 复制体系结构 | Azure
+description: 本文概述了使用 Azure Site Recovery 将本地 VMware VM 复制到 Azure 时使用的组件和体系结构
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
@@ -8,11 +8,11 @@ ms.topic: article
 origin.date: 01/15/2018
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 881d08d261ec443e37a8f4469140cd5452a83571
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: a9ec51135946eed1179f1a2653db818c51115447
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware 到 Azure 复制体系结构
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 03/02/2018
 
     * 如果启用了多 VM 一致性，则复制组中的计算机将通过端口 20004 相互通信。 如果将多台计算机分组到复制组，并且这些组在故障转移时共享崩溃一致且应用一致的恢复点，请使用多 VM 方案。 如果计算机运行相同的工作负荷并需要保持一致，此方法非常有用。
 
-6. 流量通过 Internet 复制到 Azure 存储公共终结点。 或者，可以使用 Azure ExpressRoute [公共对等互连](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)。 不支持通过站点到站点虚拟专用网络 (VPN) 将流量从本地站点复制到 Azure。
+6. 流量通过 Internet 复制到 Azure 存储公共终结点。 或者，可以使用 Azure ExpressRoute [公共对等互连](../expressroute/expressroute-circuit-peerings.md#public-peering)。 不支持通过站点到站点虚拟专用网络 (VPN) 将流量从本地站点复制到 Azure。
 <!-- Sync late on azure-public-peering-->
 
 **VMware 到 Azure 的复制过程**

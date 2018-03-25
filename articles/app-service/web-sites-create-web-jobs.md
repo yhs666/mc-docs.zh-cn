@@ -1,9 +1,9 @@
 ---
-title: "在 Azure 应用服务中使用 WebJobs 运行后台任务"
-description: "了解如何使用 WebJobs 在 Azure 应用服务 Web 应用、API 应用或移动应用中运行后台任务。"
+title: 在 Azure 应用服务中使用 WebJobs 运行后台任务
+description: 了解如何使用 WebJobs 在 Azure 应用服务 Web 应用、API 应用或移动应用中运行后台任务。
 services: app-service
-documentationcenter: 
-author: ggailey777
+documentationcenter: ''
+author: tdykstra
 manager: erikre
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 09/09/2017
 ms.date: 10/30/2017
 ms.author: v-yiso
-ms.openlocfilehash: 7a5595e8784b95d5728e989bfd403f49f12a5647
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 368b9fb17b90889f14faae1054f7590db6956045
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>在 Azure 应用服务中使用 WebJobs 运行后台任务
 
@@ -80,10 +80,10 @@ when making changes in one don't forget the other two.
 
    | 设置      | 示例值   | 说明  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myContinuousWebJob | 在应用服务应用中唯一的名称。 必须以字母或数字开头，且不能包含除“-”和“_”以外的特殊字符。 |
+   | **名称** | myContinuousWebJob | 在应用服务应用中唯一的名称。 必须以字母或数字开头，且不能包含除“-”和“_”以外的特殊字符。 |
    | **文件上传** | ConsoleApp.zip | 一个 *.zip* 文件，其中包含可执行文件或脚本文件，以及运行程序或脚本所需的所有支持文件。 [支持的文件类型](#acceptablefiles)部分中列出了支持的可执行文件或脚本文件类型。 |
    | **类型** | 连续 | 本文前面介绍了 [Web 作业类型](#webjob-types)。 |
-   | **缩放** | 多实例 | 仅适用于连续 Web 作业。 确定程序或脚本是在所有实例还是只在一个实例上运行。 指定要在多个实例上运行的选项不适用于免费或共享[定价层](https://azure.microsoft.com/pricing/details/app-service/)。 |
+   | **缩放** | 多实例 | 仅适用于连续 Web 作业。 确定程序或脚本是在所有实例还是只在一个实例上运行。 指定要在多个实例上运行的选项不适用于免费或共享[定价层](https://www.azure.cn/pricing/details/app-service/)。 |
 
 4. 单击 **“确定”**。
 
@@ -118,7 +118,7 @@ when making changes in one don't forget the other two.
 
    | 设置      | 示例值   | 说明  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myTriggeredWebJob | 在应用服务应用中唯一的名称。 必须以字母或数字开头，且不能包含除“-”和“_”以外的特殊字符。|
+   | **名称** | myTriggeredWebJob | 在应用服务应用中唯一的名称。 必须以字母或数字开头，且不能包含除“-”和“_”以外的特殊字符。|
    | **文件上传** | ConsoleApp.zip | 一个 *.zip* 文件，其中包含可执行文件或脚本文件，以及运行程序或脚本所需的所有支持文件。 [支持的文件类型](#acceptablefiles)部分中列出了支持的可执行文件或脚本文件类型。 |
    | **类型** | 触发 | 本文前面介绍了 [Web 作业类型](#webjob-types)。 |
    | **触发器** | 手动 | |
@@ -156,7 +156,7 @@ when making changes in one don't forget the other two.
 
    | 设置      | 示例值   | 说明  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myScheduledWebJob | 在应用服务应用中唯一的名称。 必须以字母或数字开头，且不能包含除“-”和“_”以外的特殊字符。 |
+   | **名称** | myScheduledWebJob | 在应用服务应用中唯一的名称。 必须以字母或数字开头，且不能包含除“-”和“_”以外的特殊字符。 |
    | **文件上传** | ConsoleApp.zip | 一个 *.zip* 文件，其中包含可执行文件或脚本文件，以及运行程序或脚本所需的所有支持文件。 [支持的文件类型](#acceptablefiles)部分中列出了支持的可执行文件或脚本文件类型。 |
    | **类型** | 触发 | 本文前面介绍了 [Web 作业类型](#webjob-types)。 |
    | **触发器** | 计划 | 要使计划可靠运行，请启用 Always On 功能。 Always On 仅在基本、标准和高级定价层中提供。|

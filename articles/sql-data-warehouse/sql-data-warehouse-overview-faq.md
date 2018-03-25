@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL 数据仓库常见问题解答 | Azure"
-description: "本文列出客户和开发人员提出的 Azure SQL 数据仓库常见问题"
+title: Azure SQL 数据仓库常见问题解答 | Azure
+description: 本文列出客户和开发人员提出的 Azure SQL 数据仓库常见问题
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 812CA525-3BF3-49DF-8DF3-FB4342464F4F
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.custom: overview
 origin.date: 03/01/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: cda77931f5c99761d1f9e89b4779098ffc7cc6d7
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 8e9dabb2a4a493bfc871735b1be29a5028a8257d
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL 数据仓库常见问题解答
 
@@ -101,7 +101,6 @@ A. 可在[连接字符串]页找到 DW 驱动程序支持
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [连接字符串]: ./sql-data-warehouse-connection-strings.md
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
-[Support Tickets]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [安全性]: ./sql-data-warehouse-overview-manage-security.md
 [Microsoft 符合性]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
 [容量限制]: ./sql-data-warehouse-service-capacity-limits.md

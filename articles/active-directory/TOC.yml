@@ -1,3 +1,5 @@
+- name: 管理访问概述
+  href: manage-access-to-azure-resources.md
 - name: Azure 中的资源访问权限
   href: active-directory-understanding-resource-access.md
 - name: 基于角色的访问控制 (RBAC)
@@ -5,6 +7,8 @@
   items:
     - name: 管理访问权限分配
       items:
+        - name: 按用户
+          href: role-based-access-control-manage-assignments.md
         - name: 按资源
           href: role-based-access-control-configure.md
     - name: 内置角色

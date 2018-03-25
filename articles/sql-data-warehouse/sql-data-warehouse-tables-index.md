@@ -1,12 +1,11 @@
 ---
-title: "为 SQL 数据仓库中的表编制索引 | Azure"
-description: "Azure SQL 数据仓库中的表索引入门。"
+title: 为 SQL 数据仓库中的表编制索引 | Azure
+description: Azure SQL 数据仓库中的表索引入门。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +15,11 @@ ms.custom: tables
 origin.date: 12/06/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: f70d95a7e861570a1ef0e9b8af8bd4ff2c2e2e03
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 6d216833275951816a08c63eb857d6dcf62ed773
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>为 SQL 数据仓库中的表编制索引
 > [!div class="op_single_selector"]
@@ -309,7 +308,7 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[Concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[Concurrency]: ./resource-classes-for-workload-management.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 

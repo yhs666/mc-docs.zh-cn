@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 将 Web 应用连接到 MongoDB (Cosmos DB) | Microsoft Docs"
-description: "Azure CLI 脚本示例 - 将 Web 应用连接到 MongoDB (Cosmos DB)"
+title: Azure CLI 脚本示例 - 将 Web 应用连接到 MongoDB (Cosmos DB) | Microsoft Docs
+description: Azure CLI 脚本示例 - 将 Web 应用连接到 MongoDB (Cosmos DB)
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: bbbdbc42-efb5-4b4f-8ba6-c03c9d16a7ea
 ms.service: app-service
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 origin.date: 12/11/2017
-ms.date: 01/02/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 5c94fc6b67b226cf91b6eb009c918cd03f86ad17
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.openlocfilehash: 02e687a4405eaf10ab1055f14e0865fb81c19bf3
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-a-web-app-to-cosmos-db"></a>将 Web 应用连接到 Cosmos DB
 
@@ -30,9 +30,11 @@ ms.lasthandoff: 12/25/2017
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
-如果选择在本地安装并使用 CLI，则需要使用 Azure CLI 2.0 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
+
+如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -40,25 +42,27 @@ ms.lasthandoff: 12/25/2017
 #/bin/bash
 
 # Variables
-appName="webappwithcosmosdb$random"
-storageName="webappwithcosmosdb$random"
+appName="webappwithcosmosdb$RANDOM"
 location="ChinaNorth"
 
 # Create a Resource Group 
 az group create --name myResourceGroup --location $location
 
 # Create an App Service Plan
-az appservice plan create --name WebAppWithCosmosDBPlan --resource-group myResourceGroup --location $location
-
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --location $location
 # Create a Web App
-az webapp create --name $appName --plan WebAppWithCosmosDBPlan --resource-group myResourceGroup 
+az webapp create --name $appName --plan myAppServicePlan --resource-group myResourceGroup 
 
-# Create a Cosmos DB
-cosmosdb=$(az cosmosdb create --name $appName --resource-group myResourceGroup --query documentEndpoint --output tsv)
-cosmosCreds=$(az cosmosdb list-keys --name $appName --resource-group myResourceGroup --query primaryMasterKey --output tsv)
+# Create a Cosmos DB with MongoDB API
+az cosmosdb create --name $appName --resource-group myResourceGroup --kind MongoDB
+
+# Get the MongoDB URL
+connectionString=$(az cosmosdb list-connection-strings --name $appName --resource-group myResourceGroup \
+--query connectionStrings[0].connectionString --output tsv)
 
 # Assign the connection string to an App Setting in the Web App
-az webapp config appsettings set --settings "COSMOSDB_URL=$cosmosdb" "COSMOSDB_KEY=$cosmosCreds" --name $appName --resource-group myResourceGroup
+az webapp config appsettings set --name $appName --resource-group myResourceGroup \
+--settings "MONGODB_URL=$connectionString" 
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]

@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure 存储模拟器进行开发和测试 | Azure"
-description: "Azure 存储模拟器为开发和测试 Azure 存储应用程序提供了免费的本地开发环境。 了解如何对请求进行身份验证、如何从应用程序连接到模拟器以及如何使用命令行工具。"
+title: 使用 Azure 存储模拟器进行开发和测试 | Azure
+description: Azure 存储模拟器为开发和测试 Azure 存储应用程序提供了免费的本地开发环境。 了解如何对请求进行身份验证、如何从应用程序连接到模拟器以及如何使用命令行工具。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: hayley244
 manager: digimobile
 editor: tysonn
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/08/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 36ad2eecff728987de22239f954d9eae4171920e
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 357f0bc9589be7250c8121d387fd443e92633965
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 存储模拟器进行开发和测试
 
@@ -44,6 +44,14 @@ Azure 存储模拟器提供了一个针对开发目的模拟 Azure Blob、队列
 存储模拟器与 Azure 存储服务之间存在一些功能差异。 有关这些差异的详细信息，请参阅本文后面的[存储模拟器与 Azure 存储之间的差异](#differences-between-the-storage-emulator-and-azure-storage)部分。
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>启动并初始化存储模拟器
+
+### <a name="run-the-azure-storage-emulator-in-dockerhttpshubdockercomrmicrosoftazure-storage-emulator"></a>[在 Docker 中运行 Azure 存储模拟器](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
+```
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
+```
+
+### <a name="using-sdk"></a>使用 SDK
+
 若要启动 Azure 存储模拟器：
 1. 选择“开始”按钮或按 Windows 键。
 1. 开始键入 `Azure Storage Emulator`。
@@ -151,7 +159,7 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 `http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt`
 
 > [!NOTE]
-> 若要使用存储模拟器以编程方式访问次要副本，请使用用于 .Net 的存储客户端库 3.2 版或更高版本。 有关详细信息，请参阅 [用于 .NET 的 Azure 存储客户端库](https://msdn.microsoft.com/library/azure/dn261237.aspx)。
+> 若要使用存储模拟器以编程方式访问次要副本，请使用 Storage Client Library for .NET 3.2 版或更高版本。 有关详细信息，请参阅 [用于 .NET 的 Azure 存储客户端库](https://msdn.microsoft.com/library/azure/dn261237.aspx)。
 >
 >
 
@@ -185,7 +193,7 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 * 如 [对存储模拟器中的资源进行寻址](#addressing-resources-in-the-storage-emulator)中所述，存储模拟器与 Azure 存储帐户中的资源以不同方式寻址。 存在这种差异是因为在云中可进行域名解析，但在本地计算机上不提供域名解析。
 * 存储模拟器帐户从 3.1 版开始，支持读取访问地域冗余复制 (RA-GRS)。 在模拟器中，所有帐户都已启用 RA-GRS，在主要和次要副本之间不会有任何延迟。 获取 Blob 服务统计信息、获取队列服务统计信息和获取表服务统计信息操作在帐户辅助上受支持，并且始终根据基础 SQL 数据库返回 `LastSyncTime` 响应元素的值作为当前时间。
 * 文件服务和 SMB 协议服务终结点当前在存储模拟器中不受支持。
-* 如果使用模拟器尚不支持的存储服务版本，则存储模拟器返回 VersionNotSupportedByEmulator 错误（HTTP 状态代码 400 - 错误请求）。
+* 如果使用模拟器尚不支持的存储服务版本，则存储模拟器将返回 VersionNotSupportedByEmulator 错误（HTTP 状态代码 400 - 错误请求）。
 
 ### <a name="differences-for-blob-storage"></a>Blob 存储的差异
 以下差异适用于模拟器中的 Blob 存储：
@@ -242,7 +250,7 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 ### <a name="version-42"></a>版本 4.2
 * 存储模拟器现在支持 Blob、队列和表服务终结点上的 2015-04-05 版本的存储服务。
 
-### <a name="version-41"></a>版本 4.1
+### <a name="version-41"></a>4.1 版
 * 存储模拟器现在支持 Blob、队列和表服务终结点上的 2015-02-21 版本的存储服务，但是新的“追加 Blob”功能例外。
 * 如果使用模拟器尚不支持的存储服务版本，则模拟器会返回一条有意义的错误消息。 建议使用最新版本的模拟器。 如果遇到 VersionNotSupportedByEmulator 错误（HTTP 状态代码 400 - 错误请求），请下载最新版本的存储模拟器。
 * 修复了在并发合并操作期间发生争用情况下导致表实体数据不正确的错误。
@@ -254,7 +262,7 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 * 存储模拟器现在支持 Blob、队列和表服务终结点上的 2014-02-14 版本的存储服务。 文件服务终结点目前在存储模拟器中不受支持。 请参阅 [Versioning for the Azure Storage Services](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services)（Azure 存储服务的版本控制），了解有关 2014-02-14 版本的详细信息。
 
 ### <a name="version-31"></a>版本 3.1
-* 在存储模拟器中现在支持读取访问异地冗余存储 (RA-GRS)。 获取 Blob 服务统计信息、获取队列服务统计信息和获取表服务统计信息 API 在帐户辅助副本上受支持，并且将始终根据基础 SQL 数据库返回 LastSyncTime 响应元素的值作为当前时间。 若要使用存储模拟器以编程方式访问次要副本，请使用用于 .Net 的存储客户端库 3.2 版或更高版本。 有关详细信息，请参阅用于 .NET 的 Azure 存储客户端库。
+* 在存储模拟器中现在支持读取访问异地冗余存储 (RA-GRS)。 获取 Blob 服务统计信息、获取队列服务统计信息和获取表服务统计信息 API 在帐户辅助副本上受支持，并且将始终根据基础 SQL 数据库返回 LastSyncTime 响应元素的值作为当前时间。 若要使用存储模拟器以编程方式访问次要副本，请使用 Storage Client Library for .NET 3.2 版或更高版本。 有关详细信息，请参阅用于 .NET 的 Azure 存储客户端库。
 
 ### <a name="version-30"></a>版本 3.0
 * Azure 存储模拟器中不再与计算模拟器在同一个包中提供。

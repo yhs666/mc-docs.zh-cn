@@ -1,12 +1,12 @@
 ---
-title: "Azure 虚拟网络流量路由 | Azure"
-description: "了解 Azure 如何路由虚拟网络流量，以及你如何自定义 Azure 的路由。"
+title: Azure 虚拟网络流量路由 | Azure
+description: 了解 Azure 如何路由虚拟网络流量，以及你如何自定义 Azure 的路由。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 10/26/2017
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.custom: 
-ms.openlocfilehash: c0b6ce58151293569f3d1f2ba897f800016f1bd4
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.custom: ''
+ms.openlocfilehash: a06ae0691f90786bd826e8517755eb99bdc646ca
+ms.sourcegitcommit: 9b4669fe42e0dd7e3b463423ae4f58143af2b111
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>虚拟网络流量路由
 
@@ -160,8 +160,8 @@ Azure 会针对不同的 Azure 功能添加其他默认的系统路由，但前�
         - 没有与阻止设备通信的网络安全组规则相关联
         - 不拒绝通信
         - 能够进行网络地址转换和转发，或者能够对流向子网中目标资源的流量进行代理，以及能够让流量返回 Internet。 
-    - **虚拟网关**：如果网关为 ExpressRoute 虚拟网关，则连接了 Internet 的本地设备可以进行网络地址转换和转发，或者通过 ExpressRoute 的[专用对等互连](../expressroute/expressroute-circuit-peerings.md?toc=%2fvirtual-network%2ftoc.json#azure-private-peering)对流向子网中目标资源的流量进行代理。 
-
+    - **虚拟网关**：如果网关为 ExpressRoute 虚拟网关，则连接了 Internet 的本地设备可以进行网络地址转换和转发，或者通过 ExpressRoute 的[专用对等互连](../expressroute/expressroute-circuit-peerings.md?toc=%2fvirtual-network%2ftoc.json#private-peering)对流向子网中目标资源的流量进行代理。 
+        <!-- Archor SHOULD BE private-peering -->
   请参阅 [Azure 与本地数据中心之间的外围网络](https://docs.microsoft.com/zh-cn/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fvirtual-network%2ftoc.json)和 [Azure 与 Internet 之间的外围网络](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fvirtual-network%2ftoc.json)，了解在 Internet 和 Azure 之间使用虚拟网关和虚拟设备时的实施详情。
 <!-- URL is Correct on https://docs.microsoft.com/zh-cn/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fvirtual-network%2ftoc.json -->
 

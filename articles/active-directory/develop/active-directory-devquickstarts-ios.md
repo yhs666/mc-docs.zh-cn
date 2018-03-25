@@ -1,11 +1,11 @@
 ---
-title: "Azure AD iOS 入门 | Microsoft Docs"
-description: "如何构建与 Azure AD 相集成以方便登录，并使用 OAuth 调用 Azure AD 保护 API 的 iOS 应用程序。"
+title: Azure AD iOS 入门 | Microsoft Docs
+description: 如何构建与 Azure AD 相集成以方便登录，并使用 OAuth 调用 Azure AD 保护 API 的 iOS 应用程序。
 services: active-directory
 documentationcenter: ios
 author: brandwe
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ origin.date: 11/30/2017
 ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: ac4d170e1e18bd0fbe515a509f07af51e3d6888b
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 82bdcec1aea7cf7a856e0bf1dcf121144cb07ed5
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="azure-ad-ios-getting-started"></a>Azure AD iOS 入门
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -64,11 +64,11 @@ ms.lasthandoff: 01/17/2018
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在顶部栏上，单击帐户。 在“目录”列表下选择要注册应用程序的 Active Directory 租户。
-3. 在最左侧的导航窗格中单击“更多服务”，并选择“Azure Active Directory”。
-4. 单击“应用注册”，然后选择“新建应用程序注册”。
-5. 创建新的**本机**应用程序。
-    - 应用程序的**名称**向最终用户描述该应用程序。
-    - **重定向 URI** 是 Azure AD 用来返回令牌响应的方案与字符串组合。  请输入特定于应用程序并基于之前的重定向 URI 信息的一个值。
+3. 在最左侧的导航窗格中单击“所有服务”，并选择“Azure Active Directory”。
+4. 单击“应用注册”，并选择“添加”。
+5. 根据提示创建新的“本机客户端应用程序”。
+  * 应用程序的**名称**向最终用户描述该应用程序。
+  * **重定向 URI** 是 Azure AD 用来返回令牌响应的方案与字符串组合。  请输入特定于应用程序并基于之前的重定向 URI 信息的一个值。
 6. 完成注册后，Azure AD 将为应用分配一个唯一的应用程序 ID。  在后面的部分中会用到此值，因此，请从应用程序选项卡中复制此值。
 7. 在“设置”页上，选择“所需权限”，并选择“添加”。 选择“Microsoft Graph”作为 API，并在“委派的权限”下添加“读取目录数据”权限。  这会设置应用程序以在 Azure AD Graph API 中查询用户。
 

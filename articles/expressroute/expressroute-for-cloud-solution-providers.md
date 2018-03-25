@@ -1,11 +1,11 @@
 ---
-title: "适用于云解决方案提供商的 Azure ExpressRoute | Azure"
-description: "本文提供的信息适用于想要将 Azure 服务和 ExpressRoute 纳入到产品/服务中去的云服务提供商。"
+title: 适用于云解决方案提供商的 Azure ExpressRoute | Azure
+description: 本文提供的信息适用于想要将 Azure 服务和 ExpressRoute 纳入到产品/服务中去的云服务提供商。
 documentationcenter: na
 services: expressroute
 author: richcar
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/10/2016
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: ca7cc5e3d638f871e83d9cac355a21c956af151a
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.date: ''
+ms.openlocfilehash: fb114dcb80a1bc76a5074ea4ec12765fa313478a
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>适用于云解决方案提供商 (CSP) 的 ExpressRoute
 
@@ -83,7 +83,7 @@ ExpressRoute 支持的网络速度其范围为 50 Mb/秒到 10Gb/秒。 因此�
 ExpressRoute 支持将多个 vNet 连接到单个 ExpressRoute 线路，以便更好地利用速度更高的连接。 单个 ExpressRoute 线路可以在同一客户拥有的多个 Azure 订阅之间共享。
 
 ## <a name="configuring-expressroute"></a>配置 ExpressRoute
-可以在单个 ExpressRoute 线路上配置 ExpressRoute 来支持三种类型的流量（[路由域](#ExpressRoute-routing-domains)）。 该流量可分成 Azure 公共对等互连和专用对等互连。 可以选择一种类型的或所有类型的需通过单个 ExpressRoute 线路发送的流量，也可以使用多个 ExpressRoute 线路，具体取决于 ExpressRoute 线路的大小以及客户的隔离要求。 客户所面临的安全状况可能不允许公共流量和专用流量经过相同的线路。
+可以在单个 ExpressRoute 线路上配置 ExpressRoute 来支持三种类型的流量（[路由域](#ExpressRoute-routing-domains)）。 该流量可分成 Microsoft 对等互连、Azure 公共对等互连和专用对等互连。 可以选择一种类型的或所有类型的需通过单个 ExpressRoute 线路发送的流量，也可以使用多个 ExpressRoute 线路，具体取决于 ExpressRoute 线路的大小以及客户的隔离要求。 客户所面临的安全状况可能不允许公共流量和专用流量经过相同的线路。
 
 ### <a name="connect-through-model"></a>Connect-Through 模型
 在 Connect-Through 配置中，需要负责所有网络基础结构，确保将客户数据中心资源连接到 Azure 中托管的订阅。 每个想要使用 Azure 功能的客户都需要建立自己的 ExpressRoute 连接，这些连接由你来管理。 随后你使用客户所用的相同方法来采购 ExpressRoute 线路。 按照适用于线路预配和线路状态的 [ExpressRoute 工作流](./expressroute-workflows.md)一文中概述的相同步骤进行操作。 然后配置边界网关协议 (BGP) 路由，控制在本地网络和 Azure vNet 之间的流量。
@@ -94,7 +94,7 @@ ExpressRoute 支持将多个 vNet 连接到单个 ExpressRoute 线路，以便�
 你可以帮助设置连接和配置路由，以允许你的数据中心的资源与数据中心的客户端资源或者在 Azure 中托管的资源进行通信。
 
 ## <a name="expressroute-routing-domains"></a>ExpressRoute 路由域
-ExpressRoute 提供三种路由域：公共对等互连、专用对等互连、Microsoft 对等互连。 在主动-主动配置中，每个路由域都配置了相同的路由器，以确保高可用性。 有关 ExpressRoute 路由域的更多详细信息，请查看[此处](./expressroute-circuit-peerings.md)。
+ExpressRoute 提供三种路由域：公共对等互连、专用对等互连和 Microsoft 对等互连。 在主动-主动配置中，每个路由域都配置了相同的路由器，以确保高可用性。 有关 ExpressRoute 路由域的更多详细信息，请查看[此处](expressroute-circuit-peerings.md)。
 
 你可以定义自定义路由筛选器，根据需要来允许路由。 如需详细信息，或者需要了解如何进行此类更改，请参阅详细介绍路由筛选器的以下文章：[使用 PowerShell 创建和修改 ExpressRoute 线路的路由](./expressroute-howto-routing-classic.md)。
 

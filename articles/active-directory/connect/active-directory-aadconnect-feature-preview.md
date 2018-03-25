@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect：预览版功能 | Microsoft Docs"
-description: "本主题详细介绍 Azure AD Connect 中以预览版形式提供的功能。"
+title: Azure AD Connect：预览版功能 | Microsoft Docs
+description: 本主题详细介绍 Azure AD Connect 中以预览版形式提供的功能。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: c75cd8cf-3eff-4619-bbca-66276757cc07
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 07/13/2017
 ms.date: 12/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: d73d7498ab36b27565070b71eed6a9ce705a6cdc
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: edf9773b211f719649962a4385f308dc6773300c
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="more-details-about-features-in-preview"></a>有关预览版功能的详细信息
 本主题介绍如何使用当前以预览版形式提供的功能。
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/22/2017
 ## <a name="group-writeback"></a>组写回
 使用可选功能中的组写回选项可将 **Office 365 组**写回到安装有 Exchange 的林。 这是永远在云中受控制的组。 如果有本地 Exchange，则可以将这些组写回到本地，使具有本地 Exchange 邮箱的用户可以从这些组发送和接收电子邮件。
 
-可在 [此处](http://aka.ms/O365g)找到有关 Office 365 组及其用法的详细信息。
+可在 [此处](https://aka.ms/O365g)找到有关 Office 365 组及其用法的详细信息。
 
 Office 365 组在本地 AD DS 中显示为分发组。 本地 Exchange 服务器必须是 Exchange 2013 累积更新 8（2015 年 3 月发行）或 Exchange 2016，才能识别这个新的组类型。
 

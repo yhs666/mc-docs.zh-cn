@@ -1,11 +1,11 @@
 ---
-title: "结合使用弹性查询概念和 Azure SQL 数据仓库 | Azure"
-description: "结合使用弹性查询概念和 Azure SQL 数据仓库"
+title: 结合使用弹性查询概念和 Azure SQL 数据仓库 | Azure
+description: 结合使用弹性查询概念和 Azure SQL 数据仓库
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.custom: integrate
 origin.date: 09/18/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 97b035717dbb5b29d4588ce509dc2d987e0df614
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 5c32d25ebbcbce5a40c61c50e96065072e0208d8
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>如何结合使用弹性查询和 SQL 数据仓库
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 02/13/2018
 
 问：弹性查询是否有 DTU 限制？
 
-答：弹性查询的 DTU 限制和一般查询相同。 标准策略是逻辑服务器有 DTU 限制，以防客户意外超支。 若要为多个数据库和 SQL 数据仓库实例启用弹性查询，可能会意外达到上限。 如果发生这种情况，请提交增加逻辑服务器的 DTU 限制的请求。 可增加配额，具体方法为[创建支持票证](/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket)，并选择“配额”作为请求类型
+答：弹性查询的 DTU 限制和一般查询相同。 标准策略是逻辑服务器有 DTU 限制，以防客户意外超支。 若要为多个数据库和 SQL 数据仓库实例启用弹性查询，可能会意外达到上限。 如果发生这种情况，请提交增加逻辑服务器的 DTU 限制的请求。 
 
 问：能否将行级别安全性/动态数据掩码与弹性查询结合使用？
 

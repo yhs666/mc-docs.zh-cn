@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect：帐户和权限 | Microsoft Docs"
-description: "本主题介绍使用和创建的帐户以及所需的权限。"
+title: Azure AD Connect：帐户和权限 | Microsoft Docs
+description: 本主题介绍使用和创建的帐户以及所需的权限。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/03/2017
-ms.date: 12/25/2017
+ms.date: 3/5/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6f9db2cb144db3787cabf4354ce21995c1d2db86
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 445962333d064e264f1243ef8f98a6c009d439c9
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帐户和权限
 Azure AD Connect 安装向导提供提供两种不同的路径：
@@ -96,7 +96,7 @@ Azure AD Connect 版本 1.1.524.0 及更高版本提供了相应选项，让 Azu
 从 Azure AD Connect 的一个版本升级到新版本时，需要拥有以下权限：
 
 >[!IMPORTANT]
->从版本 1.1.484 开始，Azure AD Connect 引入了一个回归 bug，导致需要 sysadmin 权限才能升级 SQL 数据库。  此 bug 在最新版本 1.1.614 中仍然存在。  若要升级到此版本，需要 sysadmin 权限。  Dbo 权限是不够的。  如果尝试在没有 sysadmin 权限的情况下升级 Azure AD Connect，升级将失败，之后 Azure AD Connect 将不再正常工作。  Microsoft 已意识到此问题，并在努力更正此问题。
+>从版本 1.1.484 开始，Azure AD Connect 引入了一个回归 bug，导致需要 sysadmin 权限才能升级 SQL 数据库。  在内部版本 1.1.647 中解决了此 bug。  若要升级到此版本，需要 sysadmin 权限。  Dbo 权限是不够的。  如果尝试在没有 sysadmin 权限的情况下升级 Azure AD Connect，升级将失败，之后 Azure AD Connect 将不再正常工作。  Microsoft 已意识到此问题，并在努力更正此问题。
 
 
 | 主体 | 所需的权限 | 用途 |

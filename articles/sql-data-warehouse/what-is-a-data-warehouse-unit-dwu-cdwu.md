@@ -1,11 +1,11 @@
 ---
-title: "什么是 Azure SQL 数据仓库中的数据仓库单位（DWU、cDWU）？ | Azure"
-description: "Azure SQL 数据仓库中的性能横向扩展功能。 通过调整 DWU、cDWU 数目进行横向扩展，或者通过暂停和恢复计算资源来节省成本。"
+title: 什么是 Azure SQL 数据仓库中的数据仓库单位（DWU、cDWU）？ | Azure
+description: Azure SQL 数据仓库中的性能横向扩展功能。 通过调整 DWU、cDWU 数目进行横向扩展，或者通过暂停和恢复计算资源来节省成本。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.custom: manage
 origin.date: 11/10/2017
 ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: a7ff432853a26434d51ae3c012d17d66c011a8ce
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: d796bd5396465e209c9a6b5e8eaca2bc15fbe9ee
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>数据仓库单位 (DWU) 和计算数据仓库单位 (cDWU)
 介绍 Azure SQL 数据仓库的数据仓库单位 (DWU) 和计算数据仓库单位 (cDWU)。 包括针对如何选择合适的数据仓库单位数以及如何更改其数目的建议。 
@@ -81,7 +81,7 @@ SQL 数据仓库是一个向外扩展系统，可预配大量计算和查询大�
 
 1. 在 Visual Studio 中打开“SQL Server 对象资源管理器”。
 2. 连接到与逻辑 SQL 数据库服务器关联的 master 数据库。
-3. 从 sys.database_service_objectives 动态管理视图中选择。 下面是一个示例： 
+3. 从 sys.database_service_objectives 动态管理视图中选择。 以下是示例： 
 
 ```sql
 SELECT  db.name [Database]
@@ -198,7 +198,7 @@ AND       major_resource_id = 'MySQLDW'
 [Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
 [Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
 
-[Workload and concurrency management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload and concurrency management]: ./resource-classes-for-workload-management.md
 [Table design overview]: ./sql-data-warehouse-tables-overview.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
 [Table indexing]: ./sql-data-warehouse-tables-index.md

@@ -1,6 +1,6 @@
 ---
-title: "使用 .NET SDK for Hadoop 运行 Apache Pig 作业 - Azure HDInsight | Azure"
-description: "了解如何使用 .NET SDK for Hadoop 将 Pig 作业提交到 HDInsight 上的 Hadoop。"
+title: 使用 .NET SDK for Hadoop 运行 Apache Pig 作业 - Azure HDInsight | Azure
+description: 了解如何使用 .NET SDK for Hadoop 将 Pig 作业提交到 HDInsight 上的 Hadoop。
 services: hdinsight
 documentationcenter: .net
 author: Blackmist
@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/08/2017
-ms.date: 12/18/2017
+origin.date: 01/29/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: c8640bc9523cd6d691356a1c5a556a8f0dcfd14f
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 69a98ec7c03ce8aba7bb31b8cf8daffc67336b67
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>使用 HDInsight 中的 .NET SDK for Hadoop 运行 Pig 作业
 
@@ -33,12 +33,12 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本文中的步骤，需要以下项。
+若要完成本文中的步骤，需要以下各项。
 
 * Azure HDInsight (Hadoop on HDInsight) 群集（基于 Windows 或 Linux）。
 
   > [!IMPORTANT]
-  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+  > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * Visual Studio 2012、2013、2015 或 2017。
 
@@ -54,7 +54,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
    | ------ | ------ |
    | 类别 | 模板/Visual C#/Windows |
    | 模板 | 控制台应用程序 |
-   | 名称 | SubmitPigJob |
+   | Name | SubmitPigJob |
 
 3. 单击“确定”以创建该项目  。
 
@@ -71,7 +71,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
     using Microsoft.Azure.Management.HDInsight.Job.Models;
     using Hyak.Common;
 
-    namespace SubmitHDInsightJobDotNet
+    namespace SubmitPigJob
     {
         class Program
         {

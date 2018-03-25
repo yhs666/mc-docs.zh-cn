@@ -1,6 +1,6 @@
 ---
-title: "设置源环境（VMware 到 Azure）| Azure"
-description: "本文介绍如何设置本地环境，以便开始将 VMware 虚拟机复制到 Azure。"
+title: 设置源环境（VMware 到 Azure）| Azure
+description: 本文介绍如何设置本地环境，以便开始将 VMware 虚拟机复制到 Azure。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
@@ -11,12 +11,13 @@ ms.workload: storage-backup-recovery
 origin.date: 02/22/2018
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0adb950888b942cc7fb5bf6f70711a87006961c7
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 3d4c733ebe331671905fbfa47757ba20ff0c72e7
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
+<a name="set-up-the-source-environment"></a>
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>设置源环境（VMware 到 Azure）
 > [!div class="op_single_selector"]
 > * [VMware 到 Azure](./site-recovery-set-up-vmware-to-azure.md)

@@ -1,25 +1,25 @@
 ---
-title: "位置和连接提供商：Azure ExpressRoute | Azure"
-description: "本文详细说明了服务的上市区域，以及如何连接到 Azure 区域。 按位置排序。"
+title: 位置和连接提供商：Azure ExpressRoute | Azure
+description: 本文详细说明了服务的上市区域，以及如何连接到 Azure 区域。 按位置排序。
 services: expressroute
 documentationCenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: feb67da3-5abc-4acb-bad4-f78e3c541ded
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/08/2018
+origin.date: 03/09/2018
 ms.author: v-yiso
-ms.date: 03/12/2018
-ms.openlocfilehash: 9828a15f94eb2de057a6d3ae1298b4319fd2a7de
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.date: 04/02/2018
+ms.openlocfilehash: 7cb3820912ea62b7d7051f0fd31d2ebd557ec877
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作伙伴和对等位置
 

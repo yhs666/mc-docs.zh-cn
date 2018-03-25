@@ -1,11 +1,11 @@
 ---
-title: "快速入门：在 Azure SQL 数据仓库中暂停和恢复计算 - PowerShell | Azure"
-description: "PowerShell 任务通过暂停 Azure SQL 数据仓库的计算来节约成本。 在要使用数据仓库时恢复计算。"
+title: 快速入门：在 Azure SQL 数据仓库中暂停和恢复计算 - PowerShell | Azure
+description: PowerShell 任务通过暂停 Azure SQL 数据仓库的计算来节约成本。 在要使用数据仓库时恢复计算。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,11 @@ ms.custom: manage
 origin.date: 01/25/2018
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 025cb3c0cdd690a46f45284371a650600f7a942a
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: a36f6bc7e9b4d96fdee6c0ff287ccabc0d17e389
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-powershell"></a>快速入门：在 PowerShell 中暂停和恢复 Azure SQL 数据仓库的计算
 使用 PowerShell 暂停 Azure SQL 数据仓库的计算来节约成本。 在准备好使用数据仓库时[还原计算](sql-data-warehouse-manage-compute-overview.md)。
@@ -46,7 +46,7 @@ Add-AzureRmAccount -EnvironmentName AzureChinaCloud
 Get-AzureRmSubscription
 ```
 
-如果需要使用与默认订阅不同的订阅，请运行 [Select-AzureRmSubscription](https://docs.microsoft.com/powershell/module/azurerm.profile/select-azurermsubscription)。
+如果需要使用与默认订阅不同的订阅，请运行 [Select-AzureRmSubscription](https://docs.microsoft.com/en-us/powershell/module/azure/select-azuresubscription?view=azuresmps-4.0.0)。
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "MySubscription"

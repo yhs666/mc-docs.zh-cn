@@ -1,6 +1,6 @@
 ---
-title: "Android 上 Azure Active Directory 基于证书的身份验证 | Microsoft Docs"
-description: "了解 Android 设备的解决方案中配置基于证书的身份验证的支持方案和要求"
+title: Android 上 Azure Active Directory 基于证书的身份验证 | Microsoft Docs
+description: 了解 Android 设备的解决方案中配置基于证书的身份验证的支持方案和要求
 services: active-directory
 author: alexchen2016
 documentationcenter: na
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 10/13/2017
-ms.date: 11/22/2017
+origin.date: 01/15/2018
+ms.date: 03/05/2018
 ms.author: v-junlch
 ms.reviewer: nigu
-ms.openlocfilehash: eae4dda3711ca15bc1a0e1310e4c413d66abc258
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 63615a8eafc8f63004097e751b1dd20a487422ed
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Android 上 Azure Active Directory 基于证书的身份验证
 

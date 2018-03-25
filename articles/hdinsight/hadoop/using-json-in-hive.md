@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure HDInsight 中的 Apache Hive 分析和处理 JSON 文档"
-description: "了解如何使用 JSON 文档，以及如何使用 Azure HDInsight 中的 Apache Hive 来分析这些文档"
+title: 使用 Azure HDInsight 中的 Apache Hive 分析和处理 JSON 文档
+description: 了解如何使用 JSON 文档，以及如何使用 Azure HDInsight 中的 Apache Hive 来分析这些文档
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 12/20/2017
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: c1a1f3144ce9d2f6181f612f1467f255abc03fee
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: 9de400cafd14ff31501ef0d4e7b9f5d4a63d7bbe
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>使用 Azure HDInsight 中的 Apache Hive 分析和处理 JSON 文档
 
@@ -152,7 +152,6 @@ SerDe 是用于分析嵌套 JSON 文档的最佳选择。 使用它可以定义 
 
 * [将 Hive 和 HiveQL 与 HDInsight 中的 Hadoop 配合使用以分析示例 Apache log4j 文件](../hdinsight-use-hive.md)
 * [使用 HDInsight 中的 Hive 分析航班延误数据](../hdinsight-analyze-flight-delay-data.md)
-* [使用 Azure Cosmos DB 和 HDInsight 运行 Hadoop 作业](../../cosmos-db/run-hadoop-with-hdinsight.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

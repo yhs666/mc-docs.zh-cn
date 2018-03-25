@@ -1,8 +1,8 @@
 ---
-title: "使用 Ambari 视图来操作 HDInsight (Hadoop) 上的 Hive - Azure | Azure"
-description: "了解如何从 Web 浏览器中使用 Hive 视图来提交 Hive 查询。 Hive 视图是随基于 Linux 的 HDInsight 群集提供的 Ambari Web UI 的一部分。"
+title: 使用 Ambari 视图来操作 HDInsight (Hadoop) 上的 Hive - Azure | Azure
+description: 了解如何从 Web 浏览器中使用 Hive 视图来提交 Hive 查询。 Hive 视图是随基于 Linux 的 HDInsight 群集提供的 Ambari Web UI 的一部分。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -14,63 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 07/31/2017
-ms.date: 12/18/2017
+origin.date: 02/13/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6f7d22dcd6e80093163b2679dce531f97d6c08cb
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: f0a9b74867c97ec16eb4c98c90629a98f739b796
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>将 Ambari Hive 视图与 HDInsight 中的 Hadoop 配合使用
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-了解如何使用 Ambari Hive 视图运行 Hive 查询。 Ambari 是一个管理和监控实用程序，随基于 Linux 的 HDInsight 群集一起提供。 通过 Ambari 提供的功能之一是可用于运行 Hive 查询的 Web UI。
-
-> [!NOTE]
-> Ambari 还有许多本文档中未讨论的功能。 有关详细信息，请参阅[使用 Ambari Web UI 管理 HDInsight 群集](../hdinsight-hadoop-manage-ambari.md)。
+了解如何使用 Ambari Hive 视图运行 Hive 查询。 Hive 视图允许从 Web 浏览器创作、优化和运行 Hive 查询。
 
 ## <a name="prerequisites"></a>先决条件
 
-* 基于 Linux 的 HDInsight 群集。 有关创建群集的信息，请参阅[开始在 HDInsight 中使用 Hadoop](apache-hadoop-linux-tutorial-get-started.md)。
+* 基于 Linux 的 Hadoop on HDInsight 群集版本 3.4 或更高版本。
 
-> [!IMPORTANT]
-> 本文档中的步骤需要使用 Linux 的 Azure HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+  > [!IMPORTANT]
+  > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-## <a name="open-the-hive-view"></a>打开 Hive 视图
+* Web 浏览器
 
-可以从 Azure 门户打开 Ambari 视图。 选择 HDInsight 群集，然后从“快速链接”部分选择“Ambari 视图”。
+## <a name="run-a-hive-query"></a>运行 Hive 查询
 
-![门户快速链接部分](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
+1. 打开 [Azure 门户](https://portal.azure.cn)。
 
-在视图列表中，选择“Hive 视图”。
+2. 选择 HDInsight 群集，然后从“快速链接”部分选择“Ambari 视图”。
 
-![已选中 Hive 视图](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
+    ![门户快速链接部分](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
 
-> [!NOTE]
-> 访问 Ambari 时，系统会提示向该站点进行身份验证。 输入在创建群集时使用的管理员（默认 `admin`）帐户名和密码。
+    当提示进行身份验证时，请使用在创建群集时所提供的群集登录名（默认为 `admin`）帐户名称和密码。
 
-应看到类似于下图的页面：
+3. 在视图列表中，选择“Hive 视图”。
 
-![Hive 视图查询工作表图像](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+    ![已选中 Hive 视图](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
 
-## <a name="run-a-query"></a>运行查询
+    Hive 视图页面类似于下图：
 
-若要运行 hive 查询，请使用 Hive 视图中的以下步骤。
+    ![Hive 视图查询工作表图像](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
-1. 将以下 HiveQL 语句从“查询”选项卡粘贴到工作表中：
+4. 将以下 HiveQL 语句从“查询”选项卡粘贴到工作表中：
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs(
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' 
+        GROUP BY t4;
     ```
 
-    这些语句可执行以下操作：
+    这些语句执行以下操作：
 
    * `DROP TABLE`：删除表和数据文件（如果该表已存在）。
 
@@ -83,42 +88,20 @@ ms.lasthandoff: 12/08/2017
 
    * `SELECT`：选择 t4 列包含值 [ERROR] 的所有行的计数。
 
-     > [!NOTE]
-     > 预期以外部源（例如自动化数据上传过程或其他 MapReduce 操作）更新基础数据时，请使用外部表。 删除外部表*不会*删除数据，只会删除表定义。
-
     > [!IMPORTANT]
     > 将“数据库”选择保留为“默认”。 本文档中的示例使用 HDInsight 附带的默认数据库。
 
-2. 要启动查询，请使用工作表下方的“执行”按钮。 按钮变为橙色，文本更改为“停止”。
+5. 要启动查询，请使用工作表下方的“执行”按钮。 按钮变为橙色，文本更改为“停止”。
 
-3. 完成查询后，“结果”选项卡显示操作结果。 以下文本是查询结果：
+6. 完成查询后，“结果”选项卡显示操作结果。 以下文本是查询结果：
 
-        sev       cnt
-        [ERROR]   3
+        loglevel       count
+        [ERROR]        3
 
     可使用“日志”选项卡查看作业创建的日志记录信息。
 
    > [!TIP]
    > 通过位于“查询处理结果”部分左上角的“保存结果”下拉对话框，可下载或保存结果。
-
-4. 选择此查询的前四行，然后选择“执行”。 请注意，作业完成时不会有任何结果。 在选择了查询的一部分时使用“执行”  按钮只会运行所选语句。 在这种情况下，所选内容不包括会从表中检索行的最后一条语句。 如果只选择该行并使用“执行”，则应该会看到预期的结果。
-
-5. 要添加工作表，请使用“查询编辑器”底部的“新建工作表”按钮。 在新工作表中，输入以下 Hive 语句：
-
-    ```hiveql
-    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
-    ```
-
-  这些语句可执行以下操作：
-
-   * **CREATE TABLE IF NOT EXISTS**：创建表（如果尚不存在表）。 由于未使用 EXTERNAL 关键字，因此将创建一个内部表。 内部表存储在 Hive 数据仓库中，并完全由 Hive 管理。 与外部表不同，删除内部表会同时删除基础数据。
-
-   * **STORED AS ORC**：以优化行纵栏表 (ORC) 格式存储数据。 ORC 是高度优化且有效的 Hive 数据存储格式。
-
-   * **INSERT OVERWRITE ...SELECT**从包含 `[ERROR]` 的 log4jLogs 表中选择行，然后将数据插入 errorLogs 表中。
-
-使用“执行”按钮运行此查询。 如果查询返回零行，则“结果”选项卡不包含任何信息。 查询完成后，状态应显示为“成功”。
 
 ### <a name="visual-explain"></a>Visual explain
 
@@ -153,9 +136,12 @@ ms.lasthandoff: 12/08/2017
 
 ![“保存的查询”选项卡图像](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
+> [!TIP]
+> 保存的查询存储在默认群集存储中。 可在路径 `/user/<username>/hive/scripts` 下找到保存的查询。 它们存储为纯文本 `.hql` 文件。
+>
 ## <a name="user-defined-functions"></a>用户定义的函数
 
-还可以通过用户定义函数 (UDF) 扩展 Hive。 使用 UDF 实现 HiveQL 中不容易建模的功能或逻辑。
+可以通过用户定义函数 (UDF) 扩展 Hive。 使用 UDF 实现 HiveQL 中不容易建模的功能或逻辑。
 
 使用 Hive 视图顶部的“UDF”选项卡，声明并保存一组 UDF。 可以在**查询编辑器**中使用这些 UDF。
 

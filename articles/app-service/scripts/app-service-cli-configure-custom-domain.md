@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 将自定义域映射到 Web 应用 | Azure"
-description: "Azure CLI 脚本示例 - 将自定义域映射到 Web 应用"
+title: Azure CLI 脚本示例 - 将自定义域映射到 Web 应用 | Azure
+description: Azure CLI 脚本示例 - 将自定义域映射到 Web 应用
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 5ac4a680-cc73-4578-bcd6-8668c08802c2
 ms.service: app-service-web
@@ -13,15 +13,15 @@ ms.workload: web
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-origin.date: 06/19/2017
-ms.date: 10/30/2017
+origin.date: 12/11/2017
+ms.date: 04/02/2017
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 9de080f0e93215d1c48a0211b6f48c9af75bf49f
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.openlocfilehash: fff3e1aa31368a0bb8e3aa2b96e78e0c96410a94
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="map-a-custom-domain-to-a-web-app"></a>将自定义域映射到 Web 应用
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/25/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 CLI，则需要使用 Azure CLI 2.0 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
+如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -55,7 +55,7 @@ echo "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsites.cn
 read -p "Press [Enter] key when ready ..."
 
 # Before continuing, go to your DNS configuration UI for your custom domain and follow the 
-# instructions at https://docs.azure.cn/app-service-web/web-sites-custom-domain-name#step-2-create-the-dns-records to configure a CNAME record for the 
+# instructions at https://docs.azure.cn/zh-cn/app-service/app-service-web-tutorial-custom-domain#step-2-create-the-dns-records to configure a CNAME record for the 
 # hostname "www" and point it your web app's default domain name.
 
 # Map your prepared custom domain name to the web app.

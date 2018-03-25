@@ -1,25 +1,25 @@
 ---
-title: "了解 Azure Active Directory 体系结构 | Azure"
-description: "介绍什么是 Azure AD 租户，以及如何通过 Azure Active Directory 管理 Azure。"
+title: 了解 Azure Active Directory 体系结构 | Azure
+description: 介绍什么是 Azure AD 租户，以及如何通过 Azure Active Directory 管理 Azure。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 writer: v-lorisc
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/08/2017
-ms.date: 12/25/2017
+ms.date: 03/05/2018
 ms.author: v-nany
-ms.openlocfilehash: 61a490455a00c071935d63c142567b89cc08bcee
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 3a15e5c2547d1c156cba118d9bce75ac1d34f653
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="understand-azure-active-directory-architecture"></a>了解 Azure Active Directory 体系结构
 使用 Azure Active Directory (Azure AD) 可以安全地管理用户对 Azure 服务和资源的访问。 Azure AD 随附了整套标识管理功能。 有关 Azure AD 功能的信息，请参阅[什么是 Azure Active Directory？](active-directory-whatis.md)

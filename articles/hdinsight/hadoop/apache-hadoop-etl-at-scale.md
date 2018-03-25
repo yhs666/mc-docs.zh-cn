@@ -1,13 +1,13 @@
 ---
-title: "大规模提取、转换和加载 (ETL)"
-description: "了解如何通过 Hadoop 在 HDInsight 中使用 ETL。"
+title: 大规模提取、转换和加载 (ETL)
+description: 了解如何通过 Hadoop 在 HDInsight 中使用 ETL。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/14/2017
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5c253d96eb2322dec1a4fb7cc67d9fd7ac6274ff
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: 5ccb91b8772141eb94509abd7bd1ed977ae85928
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>大规模提取、转换和加载 (ETL)
 
@@ -128,4 +128,4 @@ Apache Flume 无法与 Azure HDInsight 配合使用。  本地 Hadoop 安装可�
 ## <a name="next-steps"></a>后续步骤
 
 * [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
-<!-- * [Using Apache Hive as an ETL Tool](hdinsight-using-apache-hive-as-an-etl-tool.md) -->
+* [使用 Apache Hive 作为 ETL 工具](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 

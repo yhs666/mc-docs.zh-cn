@@ -1,11 +1,11 @@
 ---
-title: "Java HBase 客户端 - Azure HDInsight | Azure"
-description: "了解如何使用 Apache Maven 构建基于 Java 的 Apache HBase 应用程序，然后将其部署到 Azure HDInsight 上的 HBase。"
+title: Java HBase 客户端 - Azure HDInsight | Azure
+description: 了解如何使用 Apache Maven 构建基于 Java 的 Apache HBase 应用程序，然后将其部署到 Azure HDInsight 上的 HBase。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
-editor: 
+manager: cgronlun
+editor: ''
 ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/03/2017
-ms.date: 12/18/2017
+origin.date: 01/25/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 272efc22648404d99e44c1c9ebb8e02cf61b5754
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 364c77cce13fe2bc5b51eff8f3ad9b26320b3e8b
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>构建适用于 Apache HBase 的 Java 应用程序
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/08/2017
 > 本文档中的步骤最近通过 HDInsight 3.6 进行了测试。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="requirements"></a>要求
 
@@ -249,7 +249,7 @@ ms.lasthandoff: 12/08/2017
 
 3. 保存 `CreateTable.java` 文件。
 
-4. 在 `hbaseapp/src/main/java/com/microsoft/examples` 目录中，创建一个名为 `SearchByEmail.java` 的文件。 将以下文本用作此文件的内容：
+4. 在 `hbaseapp/src/main/java/com/microsoft/examples` 目录中，创建名为 `SearchByEmail.java` 的文件。 将以下文本用作此文件的内容：
 
    ```java
     package com.microsoft.examples;
@@ -328,7 +328,7 @@ ms.lasthandoff: 12/08/2017
 
 5. 保存 `SearchByEmail.java` 文件。
 
-6. 在 `hbaseapp/src/main/hava/com/microsoft/examples` 目录中，创建一个名为 `DeleteTable.java` 的文件。 将以下文本用作此文件的内容：
+6. 在 `hbaseapp/src/main/hava/com/microsoft/examples` 目录中，创建名为 `DeleteTable.java` 的文件。 将以下文本用作此文件的内容：
 
    ```java
     package com.microsoft.examples;
@@ -644,7 +644,7 @@ ms.lasthandoff: 12/08/2017
     Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
     ```
 
-    将 `hdinsightclustername` 替换为群集的名称。 此命令将 `hbaseapp-1.0-SNAPSHOT.jar` 上传到群集的主存储中的 `example/jars` 位置。
+    将 `hdinsightclustername` 替换为群集的名称。 出现提示时，输入群集登录名 (admin) 和密码。 此命令将 `hbaseapp-1.0-SNAPSHOT.jar` 上传到群集的主存储中的 `example/jars` 位置。
 
 5. 若要使用 `hbaseapp` 创建表，请使用以下命令：
 
@@ -652,7 +652,7 @@ ms.lasthandoff: 12/08/2017
     Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName hdinsightclustername
     ```
 
-    将 `hdinsightclustername` 替换为群集的名称。
+    将 `hdinsightclustername` 替换为群集的名称。 出现提示时，输入群集登录名 (admin) 和密码。
 
     此命令将在 HDInsight 群集上的 HBase 中创建一个名为 **people** 的表。 此命令在控制台窗口中不显示任何输出。
 
@@ -662,7 +662,7 @@ ms.lasthandoff: 12/08/2017
     Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName hdinsightclustername -emailRegex contoso.com
     ```
 
-    将 `hdinsightclustername` 替换为群集的名称。
+    将 `hdinsightclustername` 替换为群集的名称。 出现提示时，输入群集登录名 (admin) 和密码。
 
     此命令使用 `SearchByEmail` 类搜索 `contactinformation` 列系列和 `email` 列包含字符串 `contoso.com` 的任何行。 应该会收到以下结果：
 

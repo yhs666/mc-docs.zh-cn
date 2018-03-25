@@ -1,11 +1,11 @@
 ---
-title: "SQL 数据仓库容量限制 | Azure"
-description: "SQL 数据仓库的连接、数据库、表和查询的最大值。"
+title: SQL 数据仓库容量限制 | Azure
+description: SQL 数据仓库的连接、数据库、表和查询的最大值。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: e1eac122-baee-4200-a2ed-f38bfa0f67ce
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.custom: reference
 origin.date: 12/14/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: e5c510332f6993c50900fbe9504f686be9279dbd
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 7fb81feb259dbe4d890091a20c1167bbb0f60cef
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL 数据仓库容量限制
 下表包含 Azure SQL 数据仓库的各个组件允许的最大值。
@@ -98,7 +98,7 @@ ms.lasthandoff: 01/11/2018
 <!--Article references-->
 [Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md
 [SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
-[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload management]: ./resource-classes-for-workload-management.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md
 [data type]: ./sql-data-warehouse-tables-data-types.md
 <!-- Not Available [creating a support ticket]: /sql-data-warehouse-get-started-create-support-ticket.md-->

@@ -1,3 +1,5 @@
+# [SQL 数据仓库文档](index.md)
+
 # 概述
 
 ## [关于 SQL 数据仓库](sql-data-warehouse-overview-what-is.md)
@@ -14,8 +16,9 @@
 ### [PowerShell](quickstart-scale-compute-powershell.md)
 ### [T-SQL](quickstart-scale-compute-tsql.md)
 
+
 # 教程
-## [1 - 从 blob 加载数据](load-data-from-azure-blob-storage-using-polybase.md)
+## [1 - 加载 WideWorldImporters](load-data-wideworldimportersdw.md)
 
 # 概念
 ## 服务功能
@@ -32,6 +35,7 @@
 ### [概述](sql-data-warehouse-overview-manage-security.md)
 ### [身份验证](sql-data-warehouse-authentication.md)
 
+
 ## 迁移到 SQL 数据仓库
 ### [概述](sql-data-warehouse-overview-migrate.md)
 ### [迁移架构](sql-data-warehouse-migrate-schema.md)
@@ -42,15 +46,18 @@
 ### [概述](design-elt-data-loading.md)
 ### [最佳实践](guidance-for-loading-data.md)
 
+
 ## 集成
 ### [概述](sql-data-warehouse-overview-integrate.md)
 ### [SQL 数据库弹性查询](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
-## 监视和优化
-### [工作负荷管理](resource-classes-for-workload-management.md)
+
+## 查询性能
+### [资源类](resource-classes-for-workload-management.md)
 ### [列存储压缩](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
-### [监视](sql-data-warehouse-manage-monitor.md)
-### [故障排除](sql-data-warehouse-troubleshoot.md)
+
+## [监视](sql-data-warehouse-manage-monitor.md)
+
 
 ## 开发数据仓库
 ### [概述](sql-data-warehouse-overview-develop.md)
@@ -82,6 +89,8 @@
 #### [变量赋值](sql-data-warehouse-develop-variable-assignment.md)
 #### [视图](sql-data-warehouse-develop-views.md)
 
+## [故障排除](sql-data-warehouse-troubleshoot.md)
+
 # 操作指南
 ## 服务功能
 ### [还原数据仓库 - 门户](sql-data-warehouse-restore-database-portal.md)
@@ -93,7 +102,9 @@
 ### [启用加密 - T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
 ### [威胁检测](sql-data-warehouse-security-threat-detection.md)
 
+
 ## 加载和移动数据
+### [纽约出租车数据](load-data-from-azure-blob-storage-using-polybase.md)
 ### [Contoso 公共数据](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 <!-- Not Available ### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)-->
 ### [BCP](sql-data-warehouse-load-with-bcp.md)

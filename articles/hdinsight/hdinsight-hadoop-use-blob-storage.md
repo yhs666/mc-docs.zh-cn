@@ -1,9 +1,9 @@
 ---
-title: "从与 HDFS 兼容的 Azure 存储查询数据 - Azure HDInsight | Azure"
-description: "了解如何从 Azure 存储查询数据，以存储分析结果。"
-keywords: "blob 存储,hdfs,结构化数据,非结构化数据,Hadoop 输入,Hadoop 输出, hadoop 存储, hdfs 输入,hdfs 输出,hdfs 存储,wasb azure"
+title: 从与 HDFS 兼容的 Azure 存储查询数据 - Azure HDInsight | Azure
+description: 了解如何从 Azure 存储查询数据，以存储分析结果。
+keywords: blob 存储,hdfs,结构化数据,非结构化数据,Hadoop 输入,Hadoop 输出, hadoop 存储, hdfs 输入,hdfs 输出,hdfs 存储,wasb azure
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -18,11 +18,11 @@ ms.topic: get-started-article
 origin.date: 11/06/2017
 ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: 189865e97dfdedbd30db9b34d7a63f44d8d327be
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 70cd725d36d2756ec218e52f5f6442377917501f
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>将 Azure 存储与 Azure HDInsight 群集配合使用
 
@@ -55,7 +55,7 @@ Azure 存储是一种稳健、通用的存储解决方案，它与 HDInsight 无
 
 ![Hadoop 群集使用 HDFS API 来访问 Blob 存储中的结构化和非结构化数据，并在其中存储这些数据。](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight Storage Architecture")
 
-HDInsight 提供对在本地附加到计算节点的分布式文件系统的访问权限。 可使用完全限定 URI 访问该文件系统，例如：
+HDInsight 提供对在本地附加到计算节点的分布式文件系统的访问。 可使用完全限定 URI 访问该文件系统，例如：
 
     hdfs://<namenodehost>/<path>
 
@@ -72,7 +72,7 @@ HDInsight 提供对在本地附加到计算节点的分布式文件系统的访�
             **没有连接到群集的存储帐户中的公共容器或公共 Blob：**你对这些容器中的 Blob 具有只读权限。
 
   > [!NOTE]
-  > 利用公共容器，可以获得该容器中可用的所有 Blob 的列表以及容器元数据。 利用公共 Blob，仅在知道正确 URL 时才可访问 Blob。 有关详细信息，请参阅<a href="/storage/storage-manage-access-to-resources/">限制对容器和 Blob 的访问</a>。
+  > 利用公共容器，可以获得该容器中可用的所有 Blob 的列表以及容器元数据。 利用公共 Blob，仅在知道正确 URL 时才可访问 Blob。 有关详细信息，请参阅<a href="/storage/blobs/storage-manage-access-to-resources/">限制对容器和 Blob 的访问</a>。
   > 
   > 
 * **没有连接到群集的存储帐户中的私有容器：**不能访问这些容器中的 Blob，除非在提交 WebHCat 作业时定义存储帐户。 本文后面对此做了解释。
@@ -92,7 +92,7 @@ Blob 可用于结构化和非结构化数据。 Blob 容器将数据存储为键
 * **数据存档：** 通过在 Azure 存储中存储数据，可以安全地删除用于计算的 HDInsight 群集而不会丢失用户数据。
 * **数据存储成本：** 与在 Azure 存储中存储数据相比，在 DFS 中长期存储数据的成本更高，因为计算群集的成本高于 Azure 存储的成本。 此外，由于数据无需在每次生成计算群集时重新加载，也节省了数据加载成本。
 * **弹性扩展：** 尽管 HDFS 提供扩展文件系统，但规模由为群集创建的节点数量决定。 与依靠自动获得的 Azure 存储的弹性缩放功能相比，更改规模的过程可能更复杂。
-* **异地复制：** 可对 Azure 存储进行异地复制。 尽管这可提供地理恢复和数据冗余功能，但针对异地复制位置的故障转移将大大影响性能，并且可能会产生额外成本。 因此，我们建议你仅在数据的价值值得你支付额外成本时才选择适当的异地复制。
+* **异地复制：** 可对 Azure 存储进行异地复制。 尽管这可为你提供地理恢复和数据冗余功能，但针对异地复制位置的故障转移将大大影响你的性能，并且可能会产生额外成本。 因此，我们建议你仅在数据的价值值得你支付额外成本时才选择适当的异地复制。
 
 某些 MapReduce 作业和包可能会产生中间结果，并不想在 Azure 存储中存储这些结果。 在此情况下，仍可以选择将数据存储在本地 HDFS 中。 实际上，HDInsight 在 Hive 作业和其他过程中会为其中某些中间结果使用 DFS。
 
@@ -119,7 +119,7 @@ Blob 可用于结构化和非结构化数据。 Blob 容器将数据存储为键
 > 不支持在 HDInsight 群集之外的其他位置使用别的存储帐户。
 
 ### <a name="use-azure-powershell"></a>使用 Azure PowerShell
-如果 [已安装并配置 Azure PowerShell][powershell-install]，可从 Azure PowerShell 提示符使用以下命令来创建存储帐户和容器：
+如果[已安装并配置 Azure PowerShell][powershell-install]，可以从 Azure PowerShell 提示符使用以下命令来创建存储帐户和容器：
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -215,7 +215,7 @@ URI 方案提供了使用 *wasb:* 前缀的未加密访问和使用 *wasbs* 的 
 请参阅[将数据上传到 HDInsight][hdinsight-upload-data]。
 
 #### <a name="download-files"></a>下载文件
-以下脚本将一个块 Blob 下载到当前文件夹。 运行该脚本之前，请将该目录更改成有写权限的文件夹。
+以下脚本将一个块 Blob 下载到当前文件夹。 运行该脚本之前，请将目录更改成具有写权限的文件夹。
 
     $resourceGroupName = "<AzureResourceGroupName>"
     $storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at creation.

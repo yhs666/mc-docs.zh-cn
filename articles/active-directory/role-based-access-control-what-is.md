@@ -1,8 +1,8 @@
 ---
-title: "使用 RBAC 管理访问和权限 — Azure RBAC | Microsoft Docs"
-description: "Azure 门户中具有 Azure 基于角色的访问控制的访问管理入门。 在目录中使用角色分配来分配权限。"
+title: 使用 RBAC 管理访问和权限 — Azure RBAC | Microsoft Docs
+description: Azure 门户中具有 Azure 基于角色的访问控制的访问管理入门。 在目录中使用角色分配来分配权限。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
@@ -15,11 +15,11 @@ origin.date: 01/02/2018
 ms.date: 1/29/2018
 ms.author: v-junlch
 ms.reviewer: rqureshi
-ms.openlocfilehash: 358da515a6305de1330fb175f48ebbcb823fdda0
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: b5eb975c8dd7efcfbf6f74288c11e3be42253243
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Azure 门户中基于角色的访问控制入门
 面向安全的公司应侧重于向员工提供他们所需的确切权限。 权限过多，可能会向攻击者公开帐户。 权限太少意味着员工无法有效地完成其工作。 Azure 基于角色的访问控制 (RBAC) 可通过为 Azure 提供精细的访问权限管理来帮助解决此问题。
@@ -59,7 +59,7 @@ Azure 中的其他 RBAC 角色允许对特定的 Azure 资源进行管理。 例
 * 将参与者角色分配给资源组范围内的应用程序。 它可以管理该资源组中所有类型的资源，但不能管理订阅中的其他资源组。
 
 ## <a name="azure-rbac-vs-classic-subscription-administrators"></a>Azure RBAC 与经典订阅管理员
-经典订阅管理员和共同管理员对 Azure 订阅具有完全访问权限。 他们可以使用 [Azure 门户](https://portal.azure.cn)通过 RBAC 模型中的 Azure 资源管理器 API 管理资源，经典版管理员分配有订阅范围的“所有者”角色。
+经典订阅管理员和共同管理员对 Azure 订阅具有完全访问权限。 他们可以将 [Azure 门户](https://portal.azure.cn)和 Azure 资源管理器 API 配合使用或使用经典部署模型 API。 在 RBAC 模型中，经典管理员具有订阅范围内的所有者角色。
 
 仅 Azure 门户和新的 Azure Resource Manager API 支持 Azure RBAC。 分配了 RBAC 角色的用户和应用程序不能使用 Azure 经典部署模型 API。
 

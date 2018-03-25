@@ -1,8 +1,8 @@
 ---
-title: "在 HDInsight 中运行 Hadoop 示例 - Azure | Azure"
-description: "使用所提供的示例开始使用 Azure HDInsight 服务。 在数据群集中使用运行 MapReduce 程序的 PowerShell 脚本。"
+title: 在 HDInsight 中运行 Hadoop 示例 - Azure | Azure
+description: 使用所提供的示例开始使用 Azure HDInsight 服务。 在数据群集中使用运行 MapReduce 程序的 PowerShell 脚本。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 09/18/2017
+ms.date: 03/26/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2662dc47f6f039ed5fcb5973e52b6ccb49af1a95
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: a4a33f3fd88a8b166ffebcd259af7171bae2bad2
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>在基于 Windows 的 HDInsight 中运行 Hadoop MapReduce 示例
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/15/2017
 
 * [字数统计][hdinsight-sample-wordcount]：计算单词在文本文件中出现的次数。
 * [C# 流式处理字数统计][hdinsight-sample-csharp-streaming]：使用 Hadoop 流式处理接口计算单词在文本文件中出现的次数。
-* [Pi 估计器][hdinsight-sample-pi-estimator]：使用统计学方法（拟蒙特卡罗法）估算 pi 值。
+* [Pi 估计器][hdinsight-sample-pi-estimator]：使用统计学方法（拟蒙特卡罗法）来估算 pi 值。
 * [**10-GB Graysort**][hdinsight-sample-10gb-graysort]：使用 HDInsight 对 10 GB 文件运行常规用途的 GraySort。 有三个作业要运行：Teragen 生成数据，Terasort 对数据排序，而 Teravalidate 确认数据已正确排序。
 
 > [!NOTE]
@@ -54,7 +54,7 @@ Web 上有许多介绍 Hadoop 相关技术（例如基于 Java 的 MapReduce 编
 * **配备 Azure PowerShell 的工作站**。
 
     > [!IMPORTANT]
-    > Azure PowerShell 对于使用 Azure Service Manager 管理 HDInsight 资源的支持已**弃用**，会于 2017 年 1 月 1 日删除。 本文档中的步骤使用的是与 Azure Resource Manager 兼容的新 HDInsight cmdlet。
+    > Azure PowerShell 对于使用 Azure Service Manager 管理 HDInsight 资源的支持已**弃用**，会于 2017 年 1 月 1 日删除。 本文档中的步骤使用的是与 Azure 资源管理器兼容的新 HDInsight cmdlet。
     >
     > 请按照[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 中的步骤安装最新版本的 Azure PowerShell。 如果脚本需要修改后才能使用与 Azure Resource Manager 兼容的新 cmdlet，请参阅[迁移到基于 Azure Resource Manager 的面向 HDInsight 群集的开发工具](hdinsight-hadoop-development-using-azure-resource-manager.md)。
 
@@ -121,11 +121,11 @@ Web 上有许多介绍 Hadoop 相关技术（例如基于 Java 的 MapReduce 编
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
     ```
 
-    MapReduce 作业将生成一个名为 part-r-00000 的文件，其中包含单词和计数。 该脚本使用 findstr 命令列出包含“there”的所有单词。
+    MapReduce 作业生成一个名为 *part-r-00000*的文件，其中包含单词和计数。 该脚本使用 findstr 命令列出包含“there”的所有单词。
 3. 设置前 3 个变量，并运行脚本。
 
 ## <a name="hdinsight-sample-csharp-streaming"></a>字数统计 - C# 流式处理
-Hadoop 向 MapReduce 提供流式处理 API，利用它，可以采用 Java 以外的语言编写映射函数和化简函数。
+Hadoop 向 MapReduce 提供了一个流式处理 API，利用它，可以采用 Java 之外的其他语言来编写映射函数和化简函数。
 
 > [!NOTE]
 > 本教程中的步骤仅适用于基于 Windows 的 HDInsight 群集。 有关基于 Linux 的 HDInsight 群集流式处理的示例，请参阅[开发适用于 HDInsight 的 Python 流式处理程序](hadoop/apache-hadoop-streaming-python.md)。
@@ -174,7 +174,7 @@ pi 估计器使用统计学方法（拟蒙特卡罗法）估算 pi 值。 单位
     ```
 
 ## <a name="hdinsight-sample-10gb-graysort"></a>10-GB Graysort
-此示例使用适度的 10GB 数据，这样运行速度相对更快。 它使用由 Owen O'Malley 和 Arun Murthy 开发的 MapReduce 应用程序，此应用程序以 0.578TB/分钟（100TB 用时 173 分钟）的速率赢得了 2009 年年度常用（“daytona”）TB 级排序基准。 有关这一排序基准和其他排序基准的详细信息，请参阅 [Sortbenchmark](http://sortbenchmark.org/) 站点。
+此示例使用适中的 10GB 数据，这样它运行时能相对快一点。 它使用由 Owen O'Malley 和 Arun Murthy 开发的 MapReduce 应用程序，此应用程序以 0.578TB/分钟（100TB 用时 173 分钟）的速率赢得了 2009 年年度常用（“daytona”）TB 级排序基准。 有关这一排序基准和其他排序基准的详细信息，请参阅 [Sortbenchmark](http://sortbenchmark.org/) 站点。
 
 本示例使用三组 MapReduce 程序：
 
@@ -520,7 +520,7 @@ implements Mapper<LongWritable, LongWritable, BooleanWritable, LongWritable> {
 //Map method.
 //@param offset samples starting from the (offset+1)th sample.
 //@param size the number of samples for this map
-//@param out output {ture->numInside, false->numOutside}
+//@param out output {true->numInside, false->numOutside}
 //@param reporter
 public void map(LongWritable offset,
 LongWritable size,

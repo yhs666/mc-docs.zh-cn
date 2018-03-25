@@ -1,12 +1,12 @@
 ---
-title: "验证连接：Azure ExpressRoute 故障排除指南 | Azure"
-description: "本页说明如何对 ExpressRoute 线路的端到端连接进行故障排除和验证。"
+title: 验证连接：Azure ExpressRoute 故障排除指南 | Azure
+description: 本页说明如何对 ExpressRoute 线路的端到端连接进行故障排除和验证。
 documentationcenter: na
 services: expressroute
 author: rambk
 manager: tracsman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 09/26/2017
 ms.author: v-yiso
 ms.date: 03/12/2018
-ms.openlocfilehash: e393600027ba8345a32d59b690b47e32a2e33848
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: bf37a68fb83282b5ecc0fa12eee9da960d775404
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="verifying-expressroute-connectivity"></a>验证 ExpressRoute 连接
 ExpressRoute 可以通过经连接提供商加速的专用连接将本地网络扩展到 Microsoft 云中，涉及以下三个不同的网络区域：
@@ -179,7 +179,7 @@ Status                           : Enabled
 >
 
 ##<a name="validate-peering-configuration"></a>验证对等互连配置
-在服务提供商完成对 ExpressRoute 线路的预配以后，即可基于 MSEE-PR (4) 和 MSEE (5) 之间的 ExpressRoute 线路创建路由配置。 每个 ExpressRoute 线路可以启用一个、两个或三个路由上下文：Azure 专用对等互连（流量通往 Azure 中的专用虚拟网络）、Azure 公共对等互连（流量通往 Azure 中的公共 IP 地址）。 有关如何创建和修改路由配置的详细信息，请参阅 [创建和修改 ExpressRoute 线路的路由][CreatePeering]一文。
+在服务提供商完成对 ExpressRoute 线路的预配以后，即可基于 MSEE-PR (4) 和 MSEE (5) 之间的 ExpressRoute 线路创建路由配置。 每个 ExpressRoute 线路可以启用一个、两个或三个路由上下文：Azure 专用对等互连（流量通往 Azure 中的专用虚拟网络）、Azure 公共对等互连（流量通往 Azure 中的公共 IP 地址）、以及 Microsoft 对等互连（流量通往 Office 365 和 Dynamics 365）。 有关如何创建和修改路由配置的详细信息，请参阅 [创建和修改 ExpressRoute 线路的路由][CreatePeering]一文。
 
 ###<a name="verification-via-the-azure-portal"></a>通过 Azure 门户进行验证
 
@@ -192,7 +192,7 @@ Status                           : Enabled
 
 ![5][5]
 
-如以上示例所述，Azure 专用对等互连路由上下文已启用，而 Azure 公共对等互连路由上下文则未启用。 成功启用的对等互连上下文还会列出主要的和辅助的点到点（BGP 所必需）子网。 /30 子网用于 MSEE 和 PE-MSEE 的接口 IP 地址。 
+如以上示例所述，Azure 专用对等互连路由上下文已启用，而 Azure 公共和 Microsoft 对等互连路由上下文则未启用。 成功启用的对等互连上下文还会列出主要的和辅助的点到点（BGP 所必需）子网。 /30 子网用于 MSEE 和 PE-MSEE 的接口 IP 地址。 
 
 >[!NOTE]
 >如果未启用对等互连，请检查分配的主要子网和辅助子网是否符合 PE-MSEE 上的配置。 否则，若要更改 MSEE 路由器上的配置，请参阅[创建和修改 ExpressRoute 线路的路由][CreatePeering]
@@ -288,6 +288,9 @@ VlanId                         : 100
 Get-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
 ```
 
+若要获取 Microsoft 对等互连配置详细信息，请使用以下命令：
+
+    Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
 >[!IMPORTANT]
 >如果服务提供商设置了第 3 层对等互连，则通过门户或 PowerShell 设置 ExpressRoute 对等互连会覆盖服务提供商设置。 重置提供商这一侧的对等互连设置需要服务提供商的支持。 如果确定服务提供商只提供第 2 层服务，则只修改 ExpressRoute 对等互连！

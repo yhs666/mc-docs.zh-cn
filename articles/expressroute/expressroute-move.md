@@ -1,11 +1,11 @@
 ---
-title: "将 ExpressRoute 线路从经典部署模型转移到 Resource Manager 部署模型 | Azure"
-description: "本页概述桥接经典部署模型与 Resource Manager 部署模型时所要了解的知识。"
+title: 将 ExpressRoute 线路从经典部署模型转移到 Resource Manager 部署模型 | Azure
+description: 本页概述桥接经典部署模型与 Resource Manager 部署模型时所要了解的知识。
 documentationCenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/02/2017
 ms.author: v-yiso
-ms.date: 
-ms.openlocfilehash: 16df2d04f433168b6ddf166418a8eead1dbcf308
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.date: 03/26/2018
+ms.openlocfilehash: 0ff577afa064a2062d89157723c63c775fc7bfa1
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>将 ExpressRoute 线路从经典部署模型转移到 Resource Manager 部署模型
 
@@ -48,6 +48,11 @@ ms.lasthandoff: 11/28/2017
 - 无论是在 Resource Manager 部署模型还是经典部署模型中创建的，ExpressRoute 线路始终都可以访问 Resource Manager 部署模型。 这意味着，你可以根据[如何链接虚拟网络](./expressroute-howto-linkvnet-arm.md)中的说明，与 Resource Manager 部署模型中创建的虚拟网络建立连接。
 - 对经典部署模型的访问权限由 ExpressRoute 线路中的 **allowClassicOperations** 参数控制。
 
+> [!IMPORTANT]
+> 将应用[服务限制](../azure-subscription-service-limits.md)页中所述的所有配额。 例如，标准线路最多可以有 10 个跨经典部署模型和 Resource Manager 部署模型的虚拟网络链接/连接。
+> 
+> 
+
 ## <a name="controlling-access-to-the-classic-deployment-model"></a>控制对经典部署模型的访问权限
 
 设置 ExpressRoute 线路的 **allowClassicOperations** 参数，即可让单个 ExpressRoute 线路链接到这两种部署模型中的虚拟网络。
@@ -66,8 +71,8 @@ ms.lasthandoff: 11/28/2017
 
 将 **allowClassicOperations** 设置为 TRUE 时，无法执行以下经典操作：
 
- - 创建/更新/获取/删除针对 Azure 专用对等互连、Azure 公共对等互连的边界网关协议 (BGP) 对等互连
- - 删除 ExpressRoute 线路
+* 创建/更新/获取/删除针对 Azure 专用对等互连、Azure 公共对等互连和 Microsoft 对等互连的边界网关协议 (BGP) 对等互连
+* 删除 ExpressRoute 线路
 
 ## <a name="communication-between-the-classic-and-the-resource-manager-deployment-models"></a>经典部署模型和 Resource Manager 部署模型之间的通信
 
@@ -75,9 +80,8 @@ ExpressRoute 线路相当于经典部署模型与 Resource Manager 部署模型�
 
 聚合吞吐量受限于虚拟网络网关的吞吐容量。 在这种情况下，流量不进入连接服务提供商的网络或网络。 虚拟网络之间的流量完全包含在 Microsoft 网络中。
 
-## <a name="access-to-azure-public-peering-resources"></a>对 Azure 公共对等互连资源的访问权限
-
-可以继续访问通常可通过 Azure 公共对等互连访问的资源，而不会出现任何中断。  
+## <a name="access-to-azure-public-and-microsoft-peering-resources"></a>对 Azure 公共对等互连资源和 Microsoft 对等互连资源的访问权限
+可以继续访问通常可通过 Azure 公共对等互连和 Microsoft 对等互连访问的资源，而不会出现任何中断。  
 
 ## <a name="whats-supported"></a>支持的操作
 

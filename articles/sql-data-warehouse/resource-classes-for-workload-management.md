@@ -1,11 +1,11 @@
 ---
-title: "用于工作负荷管理的资源类 - Azure SQL 数据仓库 | Azure"
-description: "有关使用资源类管理并发性以及计算 Azure SQL 数据仓库中查询的资源的指导。"
+title: 用于工作负荷管理的资源类 - Azure SQL 数据仓库 | Azure
+description: 有关使用资源类管理并发性以及计算 Azure SQL 数据仓库中查询的资源的指导。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.custom: performance
 origin.date: 10/23/2017
 ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 63dc4c70370954b71dee62db5d6ed861e44b6172
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 0f170c847adc71b5ceec150584f248c8468d627c
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="resource-classes-for-workload-management"></a>用于工作负荷管理的资源类
 有关使用资源类来管理并发运行的并发查询数，以及计算 Azure SQL 数据仓库中查询的资源的指导。
@@ -84,6 +84,11 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 ```
 
 服务管理员的资源类是固定的，不可更改。  服务管理员是预配过程中创建的用户。
+
+> [!NOTE]
+> 定义为 Active Directory 管理员的用户或组也是服务管理员。
+>
+>
 
 ### <a name="default-resource-class"></a>默认资源类
 默认情况下，每个用户都是小型资源类 (**smallrc**) 的成员。 

@@ -1,6 +1,6 @@
 ---
-title: "使应用程序数据在 Azure 中高度可用 | Microsoft Docs"
-description: "利用读取访问异地冗余存储，使应用程序数据高度可用"
+title: 使应用程序数据在 Azure 中高度可用 | Microsoft Docs
+description: 利用读取访问异地冗余存储，使应用程序数据高度可用
 services: storage
 author: yunan2016
 manager: digimobile
@@ -11,11 +11,11 @@ origin.date: 02/20/2018
 ms.date: 03/05/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 49de0c556502d8c67c701a2f1f2de6fd8f2266a2
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: b6bf821a082ce0cb4e925e7c48bc0b5ec00f66eb
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>使应用程序数据在 Azure 存储中高度可用
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 03/12/2018
    | ------------ | ------------------ | ------------------------------------------------- |
    | **名称** | mystorageaccount | 存储帐户的唯一值 |
    | 部署模型 | Resource Manager  | 资源管理器包含最新功能。|
-   | 帐户类型 | 常规用途 | 有关帐户类型的详细信息，请参阅[存储帐户的类型](../common/storage-introduction.md#types-of-storage-accounts) |
+   | 帐户类型 | StorageV2 | 有关帐户类型的详细信息，请参阅[存储帐户的类型](../common/storage-introduction.md#types-of-storage-accounts) |
    | **性能** | 标准 | 对于示例方案，“标准”已足够。 |
    | **复制**| 读取访问异地冗余存储 (RA-GRS) | 这是运行示例所必需的。 |
    |需要安全传输 | 已禁用| 此方案不需要安全传输。 |
@@ -78,7 +78,7 @@ ms.lasthandoff: 03/12/2018
    |**ResourceGroup** | MyResourceGroup |如需有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
    |**位置** | 中国东部 | 选择一个位置。 |
 
-![创建存储帐户](media/storage-create-geo-redundant-storage/figure1.png)
+![创建存储帐户](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>下载示例
 

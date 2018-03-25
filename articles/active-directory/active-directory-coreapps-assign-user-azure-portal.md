@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Active Directory 中向企业应用分配用户或组 | Azure"
-description: "如何选择企业应用，在 Azure Active Directory 中向其分配用户或组"
+title: 在 Azure Active Directory 中向企业应用分配用户或组 | Azure
+description: 如何选择企业应用，在 Azure Active Directory 中向其分配用户或组
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 5817ad48-d916-492b-a8d0-2ade8c50a224
 ms.service: active-directory
 ms.workload: identity
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/30/2017
-ms.date: 12/25/2017
+ms.date: 03/05/2018
 ms.author: v-nany
 ms.reviewer: luleon
-ms.openlocfilehash: 4511da1f033b1a8a4b5dde03cc94e94155dc4d4a
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 34f2801348b1b7eedae223495368f549b367aa0d
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中向企业应用分配用户或组
 若要将用户或组分配到企业应用，必须具有适当的权限才能管理企业应用，并且必须是目录的全局管理员。
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>如何在 Azure 门户中分配用户对企业应用的访问权限？
 1. 使用目录全局管理员的帐户登录到 [Azure 门户](https://portal.azure.cn) 。
-2. 选择“更多服务”，在文本框中输入“Azure Active Directory”，并选择“Enter”。
+2. 选择“所有服务”，在文本框中输入 Azure Active Directory，并选择“Enter”。
 3. 在“Azure Active Directory - 目录名”边栏选项卡（即，正在管理的目录的 Azure AD 边栏选项卡）中，选择“企业应用程序”。
 
     ![打开企业应用](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)

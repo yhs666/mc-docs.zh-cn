@@ -3,23 +3,22 @@ title: Azure Stack 中的 DNS | Microsoft Docs
 description: Azure Stack 中的 DNS
 services: azure-stack
 documentationcenter: ''
-author: ScottNapolitan
-manager: byronr
-editor: ''
+author: mattbriggs
+manager: femila
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 03/08/2018
+origin.date: 02/28/2018
+ms.date: 03/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: f6ed0e2d2686e946eae6f2f314cf8c473583cbe6
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 601977fdb1a3123e5d986416afc412207cb19798
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="dns-in-azure-stack"></a>Azure Stack 中的 DNS
 
@@ -103,3 +102,4 @@ Etag 是在 Azure Stack DNS REST API 级别使用 HTTP 标头指定的。 下表
 ## <a name="next-steps"></a>后续步骤
 [适用于 Azure Stack 的 iDNS 简介](azure-stack-understanding-dns.md)
 
+<!-- Update_Description: wording update -->

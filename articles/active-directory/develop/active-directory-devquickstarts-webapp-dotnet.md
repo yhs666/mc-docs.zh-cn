@@ -1,11 +1,11 @@
 ---
-title: "Azure AD .NET Web 应用入门 | Microsoft Docs"
-description: "生成一个与 Azure AD 集成以支持登录的 .NET MVC Web 应用。"
+title: Azure AD .NET Web 应用入门 | Microsoft Docs
+description: 生成一个与 Azure AD 集成以支持登录的 .NET MVC Web 应用。
 services: active-directory
 documentationcenter: .net
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: e15a41a4-dc5d-4c90-b3fe-5dc33b9a1e96
 ms.service: active-directory
 ms.workload: identity
@@ -16,16 +16,16 @@ origin.date: 01/23/2017
 ms.date: 10/19/2017
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: a6ca792068669e4a1cbe27ce2846bd39b77763b2
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 0c67b4b5a0ad3a453525508b1efad8b396d3a26b
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="aspnet-web-app-sign-in-and-sign-out-with-azure-ad"></a>使用 Azure AD 执行 ASP.NET Web 应用登录和注销
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure Active Directory (Azure AD) 只需几行代码就能实现单一登录和注销，方便用户外包 Web 应用标识管理。 通过使用 Open Web Interface for .NET (OWIN) 中间件的 Microsoft 实现，可以使用户登录 ASP.NET Web 应用或从其注销。 NET Framework 4.5 中包含社区驱动 OWIN 中间件。 本文演示如何使用 OWIN 执行以下操作：
+Azure Active Directory (Azure AD) 只需几行代码就能实现单一登录和注销，方便用户外包 Web 应用标识管理。 通过使用 Open Web Interface for .NET (OWIN) 中间件的 Microsoft 实现，可以使用户登录 ASP.NET Web 应用或从其注销。 .NET Framework 4.5 中包含社区驱动 OWIN 中间件。 本文演示如何使用 OWIN 执行以下操作：
 
 - 使用 Azure AD 作为标识提供者将用户登录到 Web 应用。
 - 显示某些用户信息。
@@ -64,7 +64,7 @@ Azure Active Directory (Azure AD) 只需几行代码就能实现单一登录和�
 2. 若要将 OWIN 启动类添加到名为 `Startup.cs` 的项目，右键单击该项目，依次选择“添加”、“新建项”，然后搜索“OWIN”。 应用启动时，OWIN 中间件会调用 Configuration(...) 方法。
 3. 将类声明更改为 `public partial class Startup`。 我们已在另一个文件中实现了此类的一部分。 在 Configuration(...) 方法中，调用 ConfgureAuth(...) 以设置应用的身份验证。  
 
-    ```C#
+    ```csharp
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
@@ -76,7 +76,7 @@ Azure Active Directory (Azure AD) 只需几行代码就能实现单一登录和�
 
 4. 打开 App_Start\Startup.Auth.cs 文件，然后实现 ConfigureAuth(...) 方法。 在 *OpenIDConnectAuthenticationOptions* 中提供的参数充当应用与 Azure AD 通信时使用的坐标。 还需要设置 Cookie 身份验证，因为 OpenID Connect 中间件会在后台使用 Cookie。
 
-     ```C#
+    ```csharp
      public void ConfigureAuth(IAppBuilder app)
      {
          app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -112,7 +112,7 @@ Azure Active Directory (Azure AD) 只需几行代码就能实现单一登录和�
 
 1. 可以在控制器中使用授权标记，要求用户在访问特定页面之前登录。 为此，请打开 Controllers\HomeController.cs，然后将 `[Authorize]` 标记添加到 About 操作。
 
-    ```C#
+    ```csharp
     [Authorize]
     public ActionResult About()
     {
@@ -121,7 +121,7 @@ Azure Active Directory (Azure AD) 只需几行代码就能实现单一登录和�
 
 2. 还可以使用 OWIN 直接从代码内部发出身份验证请求。 为此，请打开 Controllers\AccountController.cs。 然后在 SignIn() 和 SignOut() 操作中，发出 OpenID Connect 质询和注销请求。
 
-    ```C#
+    ```csharp
     public void SignIn()
     {
         // Send an OpenID Connect sign-in request.
@@ -167,7 +167,7 @@ Azure Active Directory (Azure AD) 只需几行代码就能实现单一登录和�
 
 1. 打开 Controllers\HomeController.cs 文件。 可以通过 `ClaimsPrincipal.Current` 安全主体对象访问控制器中的用户声明。
 
-    ```C#
+    ```csharp
     public ActionResult About()
     {
         ViewBag.Name = ClaimsPrincipal.Current.FindFirst(ClaimTypes.Name).Value;

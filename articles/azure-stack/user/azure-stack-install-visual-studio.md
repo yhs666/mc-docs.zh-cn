@@ -1,25 +1,24 @@
 ---
-title: "安装 Visual Studio 并连接到 Azure Stack | Microsoft Docs"
-description: "了解安装 Visual Studio 并连接到 Azure Stack 所需的步骤"
+title: 安装 Visual Studio 并连接到 Azure Stack | Microsoft Docs
+description: 了解安装 Visual Studio 并连接到 Azure Stack 所需的步骤
 services: azure-stack
-documentationcenter: 
-author: heathl17
-manager: byronr
-editor: 
+documentationcenter: ''
+author: mattbriggs
+manager: femila
 ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 03/08/2018
+origin.date: 02/28/2018
+ms.date: 03/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9f4cf17eb11e6d563b9828f9c88e4c0aeb54b2ab
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 5fbcdaa9f23b9db41a5e2ba7bc30ae40fc574810
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>安装 Visual Studio 并连接到 Azure Stack
 
@@ -56,3 +55,4 @@ ms.lasthandoff: 03/16/2018
 
  - [为 Azure Stack 开发模板](azure-stack-develop-templates.md)
 
+<!-- Update_Description: update metedata properties -->

@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure PowerShell 管理基于角色的访问控制 (RBAC) | Microsoft Docs"
-description: "如何使用 Azure PowerShell 管理 RBAC，包括列出角色、分配角色和删除角色分配。"
+title: 使用 Azure PowerShell 管理基于角色的访问控制 (RBAC) | Microsoft Docs
+description: 如何使用 Azure PowerShell 管理 RBAC，包括列出角色、分配角色和删除角色分配。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
@@ -15,11 +15,11 @@ origin.date: 07/12/2017
 ms.date: 01/01/2018
 ms.author: v-junlch
 ms.reviewer: rqureshi
-ms.openlocfilehash: 00689690e0b19c40363b0a972fbfa6b009c367c1
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 843e1e28f951db61c31a06a6262ce190aa0b9b8b
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>使用 Azure PowerShell 管理基于角色的访问控制
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/29/2017
 > * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 > * [REST API](role-based-access-control-manage-access-rest.md)
 
-可以使用 Azure 门户中基于角色的访问控制 (RBAC) 和 Azure Resource Management API 精细管理对订阅的访问权限。 使用此功能，可以通过在特定范围内为 Active Directory 用户、组或服务主体分配某些角色来向其授予访问权限。
+使用基于角色的访问控制 (RBAC) 时，可以通过分配特定范围的角色，为用户、组和服务主体定义访问权限。 本文介绍如何使用 Azure PowerShell 管理访问权限。
 
 在使用 PowerShell 管理 RBAC 之前，需具备以下先决条件：
 

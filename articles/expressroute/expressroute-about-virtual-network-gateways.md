@@ -1,11 +1,11 @@
 ---
-title: "关于 ExpressRoute 虚拟网络网关 | Azure"
-description: "了解 ExpressRoute 的虚拟网络网关。"
+title: 关于 ExpressRoute 虚拟网络网关 | Azure
+description: 了解 ExpressRoute 的虚拟网络网关。
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager, azure-service-management
 ms.assetid: 7e0d9658-bc00-45b0-848f-f7a6da648635
 ms.service: expressroute
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/05/2017
+origin.date: 03/05/2018
 ms.author: v-yiso
-ms.date: 08/21/2017
-ms.openlocfilehash: 995bc012a13e6cb79de951b13017d513d2d20304
-ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
+ms.date: 04/02/2017
+ms.openlocfilehash: 132e4e374986d45d04f1cb6be062c94506c3535b
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>关于 ExpressRoute 的虚拟网络网关
 
@@ -53,13 +53,13 @@ ms.lasthandoff: 08/14/2017
 
 有关将 REST API 和 PowerShell cmdlet 用于虚拟网络网关配置的其他技术资源和特定语法要求，请参阅以下页面：
 
-|**经典** | **Resource Manager**|
-|-----|----|
-|[PowerShell](https://msdn.microsoft.com/library/mt270335.aspx)|[PowerShell](https://msdn.microsoft.com/zh-cn/library/mt163510.aspx)|
-|[REST API](https://msdn.microsoft.com/library/jj154113.aspx)||
+| **经典** | **Resource Manager** |
+| --- | --- |
+| [PowerShell](https://msdn.microsoft.com/library/mt270335.aspx) |[PowerShell](https://msdn.microsoft.com/library/mt163510.aspx) |
+| [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## <a name="next-steps"></a>后续步骤
 
 有关可用连接配置的详细信息，请参阅 [ExpressRoute 概述](./expressroute-introduction.md)。
 
-<!--Update_Description:update meta properties only-->
+有关创建 ExpressRoute 网关的详细信息，请参阅[创建 ExpressRoute 的虚拟网络网关](expressroute-howto-add-gateway-resource-manager.md)。

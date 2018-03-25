@@ -34,6 +34,9 @@
         - name: Kafka 和 Spark（结构化流式处理）
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true
+        - name: 通过结构化流式处理将数据从 Kafka 传输到 Azure Cosmos DB
+          href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: Kafka 和 Spark (DStream)
           href: ../hdinsight-apache-spark-with-kafka.md
           maintainContext: true
@@ -42,6 +45,10 @@
           maintainContext: true
     - name: 开发
       items:
+        - name: 使用 Kafka 生成者和使用者 API
+          href: apache-kafka-producer-consumer-api.md
+        - name: 使用 Kafka 流 API
+          href: apache-kafka-streams-api.md
         - name: 使用空边缘节点
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
@@ -63,6 +70,21 @@
               maintainContext: true
             - name: 使用 REST 安装应用
               href: 'https://msdn.microsoft.com/library/mt706515.aspx'
+            - name: 安装已发布的应用 - Cask Data Application Platform (CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: 安装已发布的应用 - Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: 安装已发布的应用 - Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: 安装已发布的应用 - H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: 安装已发布的应用 - Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: 安全
       items:
         - name: 将 SSH 与 HDInsight 配合使用

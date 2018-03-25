@@ -1,11 +1,11 @@
 ---
-title: "Azure AD .NET Web API 入门 | Microsoft Docs"
-description: "如何生成一个与 Azure AD 集成以进行身份验证和授权的 .NET MVC Web API。"
+title: Azure AD .NET Web API 入门 | Microsoft Docs
+description: 如何生成一个与 Azure AD 集成以进行身份验证和授权的 .NET MVC Web API。
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ origin.date: 01/23/2017
 ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: ff9e31941a78cbf67bd21ee9f0244d981648ea9f
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 3959c8732b9893989eabcfc8e1d9497514264739
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="azure-ad-net-web-api-getting-started"></a>Azure AD .NET Web API 入门
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -74,7 +74,7 @@ ms.lasthandoff: 01/17/2018
 
 3. 将类声明更改为 `public partial class Startup`。 我们已在另一个文件中实现了此类的一部分。 在 `Configuration(…)` 方法中，调用 `ConfgureAuth(…)` 以设置 Web 应用的身份验证。
 
-    ```C#
+    ```csharp
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
@@ -86,7 +86,7 @@ ms.lasthandoff: 01/17/2018
 
 4. 打开文件 `App_Start\Startup.Auth.cs` 并实现 `ConfigureAuth(…)` 方法。 在 `WindowsAzureActiveDirectoryBearerAuthenticationOptions` 中提供的参数充当应用与 Azure AD 通信时使用的坐标。
 
-    ```C#
+    ```csharp
     public void ConfigureAuth(IAppBuilder app)
     {
         app.UseWindowsAzureActiveDirectoryBearerAuthentication(
@@ -100,7 +100,7 @@ ms.lasthandoff: 01/17/2018
 
 5. 现在，你可以使用 `[Authorize]` 属性并结合 JSON Web 令牌 (JWT) 持有者身份验证来保护控制器和操作。 使用 authorize 标记修饰 `Controllers\TodoListController.cs` 类。 这会强制用户在访问该页面之前登录。
 
-    ```C#
+    ```csharp
     [Authorize]
     public class TodoListController : ApiController
     {
@@ -110,7 +110,7 @@ ms.lasthandoff: 01/17/2018
 
 6. Web API 的一个常见要求是验证令牌中存在的“作用域”。 这可确保用户已同意授予访问待办事项列表服务所需的权限。
 
-    ```C#
+    ```csharp
     public IEnumerable<TodoItem> Get()
     {
         // user_impersonation is the default permission exposed by applications in Azure AD

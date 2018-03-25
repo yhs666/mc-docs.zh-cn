@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect：支持的拓扑 | Microsoft Docs"
-description: "本主题详细说明 Azure AD Connect 的受支持和不受支持的拓扑"
+title: Azure AD Connect：支持的拓扑 | Microsoft Docs
+description: 本主题详细说明 Azure AD Connect 的受支持和不受支持的拓扑
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 07/12/2017
 ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: 8a2e1de4ea6593fc1862f4678d2d468005cfeae5
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: d2549bfed7a3606127273041f30905a871a630c8
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓扑
 本文介绍了使用 Azure AD Connect 同步作为关键集成解决方案的各种本地拓扑和 Azure Active Directory (Azure AD) 拓扑。 此外，介绍支持和不支持的配置。
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/24/2017
 | Azure AD Connect 同步服务器 |![Azure AD Connect 同步服务器](./media/active-directory-aadconnect-topologies/LegendSync1.png) |
 | Azure AD Connect 同步服务器“暂存模式” |![Azure AD Connect 同步服务器“暂存模式”](./media/active-directory-aadconnect-topologies/LegendSync2.png) |
 | 装有 Forefront Identity Manager (FIM) 2010 或 Microsoft Identity Manager (MIM) 2016 的 GALSync |![使用 FIM 2010 或 MIM 2016 的 GALSync](./media/active-directory-aadconnect-topologies/LegendSync3.png) |
-| Azure AD Connect 同步服务器（详细说明） |![Azure AD Connect 同步服务器（详细说明）](./media/active-directory-aadconnect-topologies/LegendSync4.png) |
+| Azure AD Connect 同步服务器（详细说明） |![Azure AD Connect 同步服务器，详细说明](./media/active-directory-aadconnect-topologies/LegendSync4.png) |
 | Azure AD |![Azure Active Directory](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
 | 不支持的方案 |![不支持的方案](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
 
@@ -111,7 +111,7 @@ Azure AD Connect 同步中的默认配置假设：
 某些 Office 365 工作负荷对支持的拓扑实施一些限制：
 
 | 工作负载 | 限制 |
---------- | ---------
+| --------- | --------- |
 | Exchange Online | 有关 Exchange Online 支持的混合拓扑的详细信息，请参阅[具有多个 Active Directory 林的混合部署](https://technet.microsoft.com/library/jj873754.aspx)。 |
 | Skype for Business | 使用多个本地林时，只支持帐户资源林拓扑。 有关详细信息，请参阅 [Skype for Business Server 2015 的环境要求](https://technet.microsoft.com/library/dn933910.aspx)。 |
 

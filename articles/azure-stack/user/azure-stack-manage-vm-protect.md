@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: 02get-started-article
-ms.date: 02/27/2018
-ms.author: mabrigg
+origin.date: 02/27/2018
+ms.date: 03/22/2018
+ms.author: v-junlch
 ms.reviewer: hector.linares
-ms.openlocfilehash: e7c437e3310fbf5c921920a3f08ecb8fe1f0d931
-ms.sourcegitcommit: dee174086b5f3d59d2045bf197c800e62a30fe60
+ms.openlocfilehash: d9a2bc2171b9faa5397f825b75fdeb25c28fa086
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>保护在 Azure Stack 上部署的虚拟机
 
@@ -27,13 +28,13 @@ ms.lasthandoff: 03/16/2018
 
 本文介绍有关如何保护在 Azure Stack 上部署的用户 VM 的指南。
 
-为了防止数据丢失和计划外停机，需要为用户应用程序和数据实施备份恢复或灾难恢复计划。 该计划对每个应用程序来说都是唯一的，但会遵循一个框架，而该框架是按组织的综合性业务连续性和灾难恢复 (BC/DR) 策略制定的。 如需应用程序可用性和复原能力的常规模式和做法，请参阅 Azure 体系结构中心的[设计适用于 Azure 的可复原应用程序](https://docs.microsoft.com/azure/architecture/resiliency)。
+为了防止数据丢失和计划外停机，需要为用户应用程序和数据实施备份恢复或灾难恢复计划。 该计划对每个应用程序来说都是唯一的，但会遵循一个框架，而该框架是按组织的综合性业务连续性和灾难恢复 (BC/DR) 策略制定的。 
 
 ## <a name="azure-stack-infrastructure-recovery"></a>Azure Stack 基础结构恢复
 
 用户需要以独立于 Azure Stack 的基础结构服务的方式保护其 VM。
 
-如果 Azure Stack 云的脱机时间延长或者永远无法恢复，则需制定一项计划，让应用程序始终能够处理用户请求，尽量缩短停机时间。 Azure Stack 云的操作员负责准备一个针对底层 Azure Stack 基础结构和服务的恢复计划。 若要进行详细了解，请阅读[从灾难性数据丢失中恢复](https://docs.microsoft.com/azure/azure-stack/azure-stack-backup-recover-data)一文。 
+如果 Azure Stack 云的脱机时间延长或者永远无法恢复，则需制定一项计划，让应用程序始终能够处理用户请求，尽量缩短停机时间。 Azure Stack 云的操作员负责准备一个针对底层 Azure Stack 基础结构和服务的恢复计划。 若要进行详细了解，请阅读[从灾难性数据丢失中恢复](/azure-stack/azure-stack-backup-recover-data)一文。 
 
 Azure Stack 基础结构服务的恢复计划不包括恢复用户 VM、存储帐户或数据库。 作为应用程序所有者，你负责实施针对应用程序和数据的恢复计划。
  
@@ -147,7 +148,9 @@ Azure Stack 部署的重要注意事项：
 ## <a name="next-steps"></a>后续步骤 
 
 本文介绍了有关如何保护在 Azure Stack 上部署的用户 VM 的指南。 若要详细了解如何使用 Azure 服务来保护 VM，请参阅：
- - [针对 Azure Stack 的 Azure 备份服务器支持](https://docs.microsoft.com/en-us/azure/backup/ ) 
- - [针对 Azure Stack 的 Azure Site Recovery 支持](https://docs.microsoft.com/en-us/azure/site-recovery/)  
+ - [针对 Azure Stack 的 Azure 备份服务器支持](/backup/ ) 
+ - [针对 Azure Stack 的 Azure Site Recovery 支持](/site-recovery/)  
  
 若要详细了解在 Azure Stack 上提供 VM 保护的合作伙伴产品，请参阅“[Protecting applications and data on Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)（保护 Azure Stack 上的应用程序和数据）”。
+
+<!-- Update_Description: wording update -->

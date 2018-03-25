@@ -81,20 +81,30 @@
       items:
         - name: 与 Data Lake Store 配合使用
           href: apache-spark-use-with-data-lake-store.md
+        - name: 连接到 Azure SQL 数据库
+          href: apache-spark-connect-to-sql-database.md
+        - name: 使用 Spark 和 Cosmos DB 实现 lambda 体系结构
+          href: ../../cosmos-db/lambda-architecture.md
+          maintainContext: true
     - name: Spark 流式处理
       items:
         - name: 概述
           href: apache-spark-streaming-overview.md
-        - name: 处理流事件
-          href: apache-spark-eventhub-streaming.md
+        - name: 在 YARN 中创建高度可用的 Spark 流式处理作业
+          href: apache-spark-streaming-high-availability.md
         - name: 使用事件中心进行结构化流式处理
           href: apache-spark-eventhub-structured-streaming.md
         - name: 将结构化流式处理与 Kafka 配合使用
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true
+        - name: 通过结构化流式处理将数据从 Kafka 传输到 CosmosDB
+          href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: 将 Spark 流式处理 (DStream) 与 Kafka 配合使用
           href: ../hdinsight-apache-spark-with-kafka.md
           maintainContext: true
+        - name: 使用一次性事件处理创建 Spark 流式处理作业
+          href: apache-spark-streaming-exactly-once.md
     - name: Spark 和机器学习
       items:
         - name: 预测 HVAC 性能
@@ -107,6 +117,13 @@
           href: apache-spark-deep-learning-caffe.md
         - name: 与 Microsoft 认知工具包配合使用
           href: apache-spark-microsoft-cognitive-toolkit.md
+        - name: 创建 Spark 机器学习管道
+          href: apache-spark-creating-ml-pipelines.md
+    - name: 分析大数据
+      items:
+        - name: 使用 Spark 读取和写入 HBase 数据
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
     - name: 扩展群集
       items:
         - name: 使用 Bootstrap 自定义群集
@@ -149,6 +166,21 @@
               maintainContext: true
             - name: 使用 REST 安装应用
               href: 'https://msdn.microsoft.com/library/mt706515.aspx'
+            - name: 安装已发布的应用 - Cask Data Application Platform (CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: 安装已发布的应用 - Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: 安装已发布的应用 - Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: 安装已发布的应用 - H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: 安装已发布的应用 - Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: 安全
       items:
         - name: 将 SSH 与 HDInsight 配合使用
@@ -165,6 +197,10 @@
           maintainContext: true
     - name: 管理
       items:
+        - name: 配置 Spark 设置
+          href: apache-spark-settings.md
+        - name: 优化 Spark 作业
+          href: apache-spark-perf.md
         - name: 群集容量规划
           href: ../hdinsight-capacity-planning.md
           maintainContext: true

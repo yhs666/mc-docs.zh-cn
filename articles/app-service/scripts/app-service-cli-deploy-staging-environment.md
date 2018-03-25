@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 创建 Web 应用并将代码部署到过渡环境 | Azure"
-description: "Azure CLI 脚本示例 - 创建 Web 应用并将代码部署到过渡环境"
+title: Azure CLI 脚本示例 - 创建 Web 应用并将代码部署到过渡环境 | Azure
+description: Azure CLI 脚本示例 - 创建 Web 应用并将代码部署到过渡环境
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 2b995dcd-e471-4355-9fda-00babcdb156e
 ms.service: app-service-web
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 origin.date: 12/11/2017
-ms.date: 01/02/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 5d54e3823091e933e9eaaa366caa4f7ac977c77c
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.openlocfilehash: 14be4dd6b448eaf4f64bfc49708c4a04203e2c5c
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>创建 Web 应用并将代码部署到过渡环境
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/25/2017
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
-如果选择在本地安装并使用 CLI，则需要使用 Azure CLI 2.0 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
+如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -61,16 +61,15 @@ az webapp deployment slot create --name $webappname --resource-group myResourceG
 az webapp deployment source config --name $webappname --resource-group myResourceGroup \
 --slot staging --repo-url $gitrepo --branch master --manual-integration
 
-# Browse to the deployed web app on staging. Deployment may be in progress, so rerun this if necessary.
-az webapp browse --name $webappname --resource-group myResourceGroup --slot staging
+# Copy the result of the following command into a browser to see the staging slot.
+echo http://$webappname-staging.chinacloudsites.cn
 
 # Swap the verified/warmed up staging slot into production.
 az webapp deployment slot swap --name $webappname --resource-group myResourceGroup \
 --slot staging
 
-# Browse to the production slot. 
-az webapp browse --name $webappname --resource-group myResourceGroup
-
+# Copy the result of the following command into a browser to see the web app in the production slot.
+echo http://$webappname.chinacloudsites.cn
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]

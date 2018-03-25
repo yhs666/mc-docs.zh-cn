@@ -1,8 +1,8 @@
 ---
-title: "将 MapReduce 和 PowerShell 与 Hadoop 配合使用 - Azure HDInsight | Azure"
-description: "了解如何使用 PowerShell 在 HDInsight 的 Hadoop 上远程运行 MapReduce 作业。"
+title: 将 MapReduce 和 PowerShell 与 Hadoop 配合使用 - Azure HDInsight | Azure
+description: 了解如何使用 PowerShell 在 HDInsight 的 Hadoop 上远程运行 MapReduce 作业。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/27/2017
-ms.date: 12/18/2017
+origin.date: 02/16/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6b2530360d5c82a68f229fb0bc984d1bb8297b76
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 7b892014893b68178c53d0f9d5efc337f5a60975
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>通过 PowerShell 使用 HDInsight 上的 Hadoop 运行 MapReduce 作业
 
@@ -36,11 +36,11 @@ ms.lasthandoff: 12/08/2017
 * **Azure HDInsight（HDInsight 上的 Hadoop）群集**
 
   > [!IMPORTANT]
-  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+  > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * **配备 Azure PowerShell 的工作站**。
 
-## <a id="powershell"></a>使用 Azure PowerShell 运行 MapReduce 作业
+## <a id="powershell"></a>运行 MapReduce 作业
 
 Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 MapReduce 作业。 从内部来讲，PowerShell 将对 HDInsight 群集上运行的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)（以前称为 Templeton）进行 REST 调用。
 
@@ -134,7 +134,7 @@ Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 MapReduce �
 
     运行脚本时，系统会提示输入 HDInsight 群集的名称和该群集的登录名。 还会提示针对 Azure 订阅进行身份验证。
 
-3. 作业完成后，会收到类似于以下文本的输出：
+3. 作业完成后，将收到类似于以下文本的输出：
 
         Cluster         : CLUSTERNAME
         ExitCode        : 0

@@ -1,12 +1,12 @@
 ---
-title: "Phoenix 查询服务器 REST SDK - Azure HDInsight"
-description: 
+title: Phoenix 查询服务器 REST SDK - Azure HDInsight
+description: ''
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 12/04/2017
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: aad3c87516e6bdb5f5595bb1bc439ca8ff3e4c2e
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: 0eda1d3c6037d5bc8831161881df44632ea2654d
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="phoenix-query-server-rest-sdk"></a>Phoenix 查询服务器 REST SDK
 
@@ -40,8 +40,8 @@ ms.lasthandoff: 02/24/2018
 
 若要开始使用库，请实例化新的 `PhoenixClient` 对象，将包含 `Uri` 的 `ClusterCredentials` 传递到群集，并传递群集的 Hadoop 用户名和密码。
 
-```c#
-var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.cn/"), "USERNAME", "PASSWORD");
+```csharp
+var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
 client = new PhoenixClient(credentials);
 ```
 
@@ -51,7 +51,7 @@ client = new PhoenixClient(credentials);
 
 若要将一个或多个请求发送到 PQS，需包括一个将请求与连接相关联的唯一连接标识符。
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 ```
 
@@ -61,7 +61,7 @@ string connId = Guid.NewGuid().ToString();
 
 若要调用 `ConnectionSyncRequestAsync`，请传入 `ConnectionProperties` 对象。
 
-```c#
+```csharp
 ConnectionProperties connProperties = new ConnectionProperties
 {
     HasAutoCommit = true,
@@ -103,7 +103,7 @@ HBase 与任何其他 RDBMS 一样，在表中存储数据。 Phoenix 使用标�
 
 此示例和所有后续示例都按照[实例化新的 PhoenixClient 对象](#instantiate-new-phoenixclient-object)中的定义使用实例化的 `PhoenixClient` 对象。
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 
@@ -173,13 +173,13 @@ finally
 
 以下示例显示了一个单独的数据插入，引用的 `List<string>` 集合包含美国的州和领地缩写：
 
-```c#
+```csharp
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
 表的 `StateProvince` 列值会用在后续的选择操作中。
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -290,7 +290,7 @@ finally
 
 以下代码几乎与逐个插入数据的代码相同。 此示例在调用 `ExecuteBatchRequestAsync` 的过程中使用 `UpdateBatch` 对象，而不是使用准备好的语句重复调用 `ExecuteRequestAsync`。
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
@@ -408,7 +408,7 @@ finally
 2. 使用总行计数 select 语句检索单一标量结果。
 3. 执行一个 select 语句，返回单个州或领地的客户总数。
 
-```c#
+```csharp
 string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 
@@ -544,6 +544,7 @@ MH: 6
 FM: 5
 ```
 
-<!-- ## Next steps -->
-<!-- * [Phoenix in HDInsight](hdinsight-phoenix-in-hdinsight.md)  -->
-<!-- * [Using the HBase REST SDK](hdinsight-using-hbase-rest-sdk.md)  -->
+## <a name="next-steps"></a>后续步骤 
+
+* [HDInsight 中的 Phoenix](../hdinsight-phoenix-in-hdinsight.md)
+* [使用 HBase REST SDK](apache-hbase-rest-sdk.md)

@@ -1,13 +1,13 @@
 ---
-title: "Azure HDInsight 中的群集容量规划 | Microsoft Docs"
-description: "如何指定 HDInsight 群集的容量和性能。"
+title: Azure HDInsight 中的群集容量规划 | Microsoft Docs
+description: 如何指定 HDInsight 群集的容量和性能。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
@@ -17,11 +17,11 @@ ms.topic: article
 origin.date: 09/22/2017
 ms.date: 12/25/2017
 ms.author: v-yiso
-ms.openlocfilehash: 238a6a979c4329e561ceea99ec104118269678bc
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 198b739ee7aa0b9b501110b4f442af5daa1d56ba
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 群集的容量规划
 
@@ -68,7 +68,7 @@ Azure 存储具有一些[容量限制](../azure-subscription-service-limits.md#s
 
 ## <a name="choose-a-cluster-type"></a>选择群集类型
 
-群集类型确定 HDInsight 群集配置为运行的工作负荷，例如 Hadoop、Storm、Kafka 或 Spark。 每个群集类型具有一个特定的部署拓扑，该拓扑附带大小和节点数方面的要求。
+群集类型确定 HDInsight 群集配置为运行的工作负荷，例如 Hadoop、Storm、Kafka 或 Spark。 有关可用群集类型的详细说明，请参阅 [Azure HDInsight 简介](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight)。 每个群集类型具有一个特定的部署拓扑，该拓扑附带大小和节点数方面的要求。
 
 ## <a name="choose-the-vm-size-and-type"></a>选择 VM 大小和类型
 
@@ -90,8 +90,7 @@ VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
 根据群集类型，增加工作节点数目可以添加更多的计算容量（例如更多的核心），但同时也可能会增大整个群集为所处理数据的内存中存储提供支持所需的内存总量。 在 VM 大小和类型的选择上，适当的群集规模通常是使用模拟工作负荷或 canary 查询凭经验选择出来的。
 
-可以扩展群集来满足峰值负载需求，然后在不再需要这些额外的节点时缩减群集。
-<!-- - see [Scaling - best practices](hdinsight-scaling-best-practices.md). -->
+可以扩展群集来满足峰值负载需求，然后在不再需要这些额外的节点时缩减群集。 有关详细信息，请参阅[缩放 HDInsight 群集](hdinsight-scaling-best-practices.md)。
 
 ### <a name="cluster-lifecycle"></a>群集生命周期
 

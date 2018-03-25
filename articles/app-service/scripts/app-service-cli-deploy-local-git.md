@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 从本地 Git 存储库创建 Web 应用并部署代码 | Azure"
-description: "Azure CLI 脚本示例 - 从本地 Git 存储库创建 Web 应用并部署代码"
+title: Azure CLI 脚本示例 - 从本地 Git 存储库创建 Web 应用并部署代码 | Azure
+description: Azure CLI 脚本示例 - 从本地 Git 存储库创建 Web 应用并部署代码
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 048f98aa-f708-44cb-9b9e-953f67dc6da8
 ms.service: app-service-web
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 origin.date: 12/11/2017
-ms.date: 01/02/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 31ffe818a7a59f8c51af2d0c555991cbc5fe0267
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.openlocfilehash: 47b20ff8444d094bfbe205dee31d267574bf11a0
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>从本地 Git 存储库创建 Web 应用并部署代码
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/25/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 CLI，则需要使用 Azure CLI 2.0 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
+如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -67,9 +67,8 @@ git push azure master
 
 # When prompted for password, use the value of $password that you specified
 
-# Browse to the deployed web app.
-az webapp browse --name $webappname --resource-group myResourceGroup
-
+# Copy the result of the following command into a browser to see the web app.
+echo http://$webappname.chinacloudsites.cn
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]

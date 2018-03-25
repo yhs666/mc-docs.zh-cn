@@ -1,6 +1,6 @@
 ---
-title: "使用适用于 Azure 存储的 Python 进行客户端加密 | Azure"
-description: "适用于 Python 的 Azure 存储客户端库支持客户端加密，实现 Azure 存储应用程序的最高安全性。"
+title: 使用适用于 Azure 存储的 Python 进行客户端加密 | Azure
+description: 适用于 Python 的 Azure 存储客户端库支持客户端加密，实现 Azure 存储应用程序的最高安全性。
 services: storage
 documentationcenter: python
 author: lakasa
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 05/11/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: fdb882b4794028bd28917f1de95236bbab537710
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 499edfdd70d62ec04dbb6ee4d30d23db56cf2460
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="client-side-encryption-with-python-for-azure-storage"></a>使用适用于 Azure 存储的 Python 进行客户端加密
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -48,7 +48,7 @@ ms.lasthandoff: 08/25/2017
 通过信封技术解密的工作方式如下：
 
 1. 客户端库假定用户在本地管理密钥加密密钥 (KEK)。 用户不需要知道用于加密的特定密钥。 但是，可以设置和使用一个密钥解析程序，将不同的密钥标识符解析为密钥。
-2. 客户端库下载存储在服务中的已加密数据以及任何加密材料。
+2. 客户端库下载已加密数据以及存储在服务中的任何加密材料。
 3. 然后，使用密钥加密密钥 (KEK) 对已包装的内容加密密钥 (CEK) 进行解包（解密）。 这里同样，客户端库无法访问 KEK。 它只是调用自定义提供程序的解包算法。
 4. 然后，使用内容加密密钥 (CEK) 解密已加密的用户数据。
 
@@ -74,7 +74,7 @@ ms.lasthandoff: 08/25/2017
 ### <a name="queues"></a>队列
 由于队列消息可以采用任何格式，客户端库定义一个自定义格式，其在消息文本中包括初始化向量 (IV) 和已加密的内容加密密钥 (CEK)。
 
-在加密过程中，客户端库会生成 16 个字节的随机 IV 和 32 个字节的随机 CEK，并使用此信息对队列消息文本执行信封加密。 然后，将已包装的 CEK 和一些附加加密元数据添加到已加密的队列消息中。 此修改后的消息（如下所示）存储在服务中。
+在加密过程中，客户端库将生成 16 字节的随机 IV 和 32 字节的随机 CEK，并使用此信息对队列消息文本执行信封加密。 然后，将已包装的 CEK 和一些附加加密元数据添加到已加密的队列消息中。 此修改后的消息（如下所示）存储在服务中。
 
 ```
 <MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
@@ -94,7 +94,7 @@ ms.lasthandoff: 08/25/2017
 
 1. 用户指定要加密的属性。
 2. 客户端库为每个实体生成 16 个字节的随机初始化向量 (IV) 和 32 个字节的随机内容加密密钥 (CEK)，并通过为每个属性派生新的 IV 对要加密的单独属性执行信封加密。 加密的属性存储为二进制数据。
-3. 然后，已包装的 CEK 和一些附加加密元数据会存储为两个附加保留属性。 第一个保留属性 (\_ClientEncryptionMetadata1) 是一个字符串属性，保存有关 IV、版本和已包装密钥的信息。 第二个保留属性 (\_ClientEncryptionMetadata2) 是一个二进制属性，保存有关已加密属性的信息。 第二个属性 (\_ClientEncryptionMetadata2) 中的信息本身是加密的。
+3. 然后，已包装的 CEK 和一些附加加密元数据将存储为两个附加保留属性。 第一个保留属性 (\_ClientEncryptionMetadata1) 是一个字符串属性，保存有关 IV、版本和已包装密钥的信息。 第二个保留属性 (\_ClientEncryptionMetadata2) 是一个二进制属性，保存有关已加密属性的信息。 第二个属性 (\_ClientEncryptionMetadata2) 中的信息本身是加密的。
 4. 由于加密需要这两个附加保留属性，用户现在可能只有 250 个自定义属性，而不是 252 个。 实体的总大小必须小于 1MB。
    
    请注意，只有字符串属性可以加密。 如果要对其他类型的属性进行加密，必须将它们转换为字符串。 加密的字符串作为二进制属性存储在服务中，并在解密之后转换回字符串（原始字符串，不是 EdmType.STRING 类型的 EntityProperties）。
@@ -107,6 +107,10 @@ ms.lasthandoff: 08/25/2017
 请注意，使用批的加密策略将实例插入批时，会将实体加密（使用 tableservice 的加密策略提交批时不会加密实体）。
 
 ### <a name="queries"></a>查询
+> [!NOTE]
+> 由于实体已加密，因此不能运行根据已加密属性进行筛选的查询。  如果尝试运行，结果将会不正确，因为该服务会尝试将已加密的数据与未加密的数据进行比较。
+> 
+>
 若要执行查询操作，必须指定一个能够解析结果集中的所有密钥的密钥解析程序。 如果查询结果中包含的实体不能解析为提供程序，则客户端库会引发错误。 对于执行服务器端投影的任何查询，在默认情况下，客户端库将为所选列添加特殊的加密元数据属性（\_ClientEncryptionMetadata1 和 \_ClientEncryptionMetadata2）。
 
 > [!IMPORTANT]

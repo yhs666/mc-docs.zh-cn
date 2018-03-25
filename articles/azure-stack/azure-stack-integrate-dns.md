@@ -1,20 +1,21 @@
 ---
-title: "Azure Stack 数据中心集成 - DNS"
-description: "了解如何将 Azure Stack DNS 与数据中心 DNS 集成"
+title: Azure Stack 数据中心集成 - DNS
+description: 了解如何将 Azure Stack DNS 与数据中心 DNS 集成
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-origin.date: 01/31/2018
-ms.date: 03/02/2018
+origin.date: 02/28/2018
+ms.date: 03/22/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
-keywords: 
-ms.openlocfilehash: d603058674ea486202ac7850b120afc7f8dcfb67
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+keywords: ''
+ms.openlocfilehash: 7c3adb41898092eab2e3af26427c4eb94ebe0de4
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 数据中心集成 - DNS
 若要从 Azure Stack 外部访问 Azure Stack 终结点（`portal`、`adminportal`、`management`、`adminmanagement` 等），需将 Azure Stack DNS 服务与托管 DNS 区域（需在 Azure Stack 中使用）的 DNS 服务器集成。
@@ -141,3 +142,4 @@ Azure Stack DNS 服务器的 FQDN 具有以下格式：
 
 [防火墙集成](azure-stack-firewall.md)
 
+<!-- Update_Description: update metedata properties -->

@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Windows Phone 入门 | Microsoft Docs"
-description: "如何生成一个与 Azure AD 集成以方便登录，并使用 OAuth 调用 Azure AD 保护 API 的 Windows Phone 应用程序。"
+title: Azure AD Windows Phone 入门 | Microsoft Docs
+description: 如何生成一个与 Azure AD 集成以方便登录，并使用 OAuth 调用 Azure AD 保护 API 的 Windows Phone 应用程序。
 services: active-directory
 documentationcenter: windows
 author: jmprieur
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 66f5ac20-5e1f-4b9d-bb99-9b3305e26416
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ origin.date: 11/30/2017
 ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: c96cdb898e49379e3cb332d0a83c4cedc72df341
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: cab41a28687a95936b995ddc1e54bd095f83b5be
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="azure-ad-windows-phone-getting-started"></a>Azure AD Windows Phone 入门
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -56,7 +56,7 @@ ms.lasthandoff: 01/17/2018
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在顶栏上单击帐户，并在“目录”列表下选择要注册应用程序的 Active Directory 租户。
-3. 单击左侧导航栏中的“更多服务”，并选择“Azure Active Directory”。
+3. 单击左侧导航栏中的“所有服务”，并选择“Azure Active Directory”。
 4. 单击“应用注册”并选择“新建应用程序注册”。
 5. 创建新的**本机**应用程序。
     - 应用程序的“名称”向最终用户描述应用程序
@@ -95,7 +95,7 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
 
 - 第一步是初始化应用程序的 `AuthenticationContext` （ADAL 的主类）。  将在此处传递 ADAL 与 Azure AD 通信时所需的坐标，并告诉 ADAL 如何缓存令牌。
 
-    ```C#
+```csharp
     public MainPage()
     {
         ...
@@ -105,12 +105,12 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
     }
     ```
 
-- 现在查找 `Search(...)` 方法，当用户在应用程序的 UI 中单击“搜索”按钮时，会调用该方法。  此方法将向 Azure AD Graph API 发出 GET 请求，以查询其 UPN 以给定搜索词开头的用户。  但是若要查询图形 API，需要在请求的 `Authorization` 标头中包含 access_token - 这是 ADAL 传入的位置。
+- Now locate the `Search(...)` method, which will be invoked when the user cliks the "Search" button in the app's UI.  This method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.  But in order to query the Graph API, you need to include an access_token in the `Authorization` header of the request - this is where ADAL comes in.
 
-    ```C#
-    private async void Search(object sender, RoutedEventArgs e)
-    {
-        ...
+```csharp
+private async void Search(object sender, RoutedEventArgs e)
+{
+    ...
 
         // Try to get a token without triggering any user prompt.
         // ADAL will check whether the requested token is in ADAL's token cache or can otherwise be obtained without user interaction.
@@ -129,29 +129,29 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
     }
     ```
 
-- 如果需要交互式身份验证，ADAL 使用 Windows Phone 的 Web 身份验证代理 (WAB) 和[延续模型](http://www.cloudidentity.com/blog/2014/06/16/adal-for-windows-phone-8-1-deep-dive/)来显示 Azure AD 登录页。  当用户登录时，应用需要向 ADAL 传递 WAB 交互的结果。  这只要实现 `ContinueWebAuthentication` 接口即可：
+- If interactive authentication is necessary, ADAL will use Windows Phone's Web Authentication Broker (WAB) and [continuation model](http://www.cloudidentity.com/blog/2014/06/16/adal-for-windows-phone-8-1-deep-dive/) to display the Azure AD sign in page.  When the user signs in, your app needs to pass ADAL the results of the WAB interaction.  This is as simple as implementing the `ContinueWebAuthentication` interface:
 
-    ```C#
-    // This method is automatically invoked when the application
-    // is reactivated after an authentication interaction through WebAuthenticationBroker.
-    public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationEventArgs args)
-    {
-        // pass the authentication interaction results to ADAL, which will
-        // conclude the token acquisition operation and invoke the callback specified in AcquireTokenAndContinue.
-        await authContext.ContinueAcquireTokenAsync(args);
-    }
-    ```
+```csharp
+// This method is automatically invoked when the application
+// is reactivated after an authentication interaction through WebAuthenticationBroker.
+public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationEventArgs args)
+{
+    // pass the authentication interaction results to ADAL, which will
+    // conclude the token acquisition operation and invoke the callback specified in AcquireTokenAndContinue.
+    await authContext.ContinueAcquireTokenAsync(args);
+}
+```
 
 - 现在，可以使用 ADAL 返回给应用程序的 `AuthenticationResult` 。  在 `QueryGraph(...)` 回调中，将获取的 access_token 附加到 Authorization 标头中的 GET 请求：
 
-    ```C#
-    private async void QueryGraph(AuthenticationResult result)
+```csharp
+private async void QueryGraph(AuthenticationResult result)
+{
+    if (result.Status != AuthenticationStatus.Success)
     {
-        if (result.Status != AuthenticationStatus.Success)
-        {
-            MessageDialog dialog = new MessageDialog(string.Format("If the error continues, please contact your administrator.\n\nError: {0}\n\nError Description:\n\n{1}", result.Error, result.ErrorDescription), "Sorry, an error occurred while signing you in.");
-            await dialog.ShowAsync();
-        }
+        MessageDialog dialog = new MessageDialog(string.Format("If the error continues, please contact your administrator.\n\nError: {0}\n\nError Description:\n\n{1}", result.Error, result.ErrorDescription), "Sorry, an error occurred while signing you in.");
+        await dialog.ShowAsync();
+    }
 
         // Add the access token to the Authorization Header of the call to the Graph API, and call the Graph API.
         httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
@@ -160,32 +160,31 @@ ADAL 遵守的基本原理是，每当应用程序需要访问令牌时，它只
     }
     ```
 
-- 还可以使用 `AuthenticationResult` 对象在应用程序中显示有关用户的信息。 在 `QueryGraph(...)` 方法中，使用该结果在页上显示用户的 ID：
+- You can also use the `AuthenticationResult` object to display information about the user in your app. In the `QueryGraph(...)` method, use the result to show the user's id on the page:
 
-    ```C#
-    // Update the Page UI to represent the signed in user
-    ActiveUser.Text = result.UserInfo.DisplayableId;
-    ```
+```csharp
+// Update the Page UI to represent the signed in user
+ActiveUser.Text = result.UserInfo.DisplayableId;
+```
+* 最后，还可以使用 ADAL 将用户从应用程序中注销。  当用户单击“注销”按钮时，我们希望确保 `AcquireTokenSilentAsync(...)` 的后续调用失败。  使用 ADAL 时，只需清除令牌缓存即可：
 
-- 最后，还可以使用 ADAL 将用户从应用程序中注销。  当用户单击“注销”按钮时，我们希望确保 `AcquireTokenSilentAsync(...)` 的后续调用失败。  使用 ADAL 时，只需清除令牌缓存即可：
-
-    ```C#
-    private void SignOut()
-    {
-        // Clear session state from the token cache.
-        authContext.TokenCache.Clear();
+```csharp
+private void SignOut()
+{
+    // Clear session state from the token cache.
+    authContext.TokenCache.Clear();
 
         ...
     }
     ```
 
-祝贺！ 现在，已创建一个有效的 Windows Phone 应用，它可以对用户进行身份验证，使用 OAuth 2.0 安全调用 Web API，并获取有关用户的基本信息。  如果尚未这样做，可以在租户中填充一些用户。  运行 DirectorySearcher 应用，并使用这些用户之一进行登录。  根据用户的 UPN 搜索其他用户。  关闭应用程序，并重新运行它。  请注意，用户的会话将保持不变。  注销，并以其他用户身份重新登录。
+Congratulations! You now have a working Windows Phone app that has the ability to authenticate users, securely call Web APIs using OAuth 2.0, and get basic information about the user.  If you haven’t already, now is the time to populate your tenant with some users.  Run your DirectorySearcher app, and sign in with one of those users.  Search for other users based on their UPN.  Close the app, and re-run it.  Notice how the user’s session remains intact.  Sign out, and sign back in as another user.
 
-使用 ADAL 可以方便地将所有这些常见标识功能合并到应用程序中。  它会负责所有的繁琐工作 - 缓存管理、OAuth 协议支持、向用户显示登录名 UI、刷新已过期的令牌，等等。  只需要真正了解一个 API 调用，即 `authContext.AcquireToken*(…)`。
+ADAL makes it easy to incorporate all of these common identity features into your application.  It takes care of all the dirty work for you - cache management, OAuth protocol support, presenting the user with a login UI, refreshing expired tokens, and more.  All you really need to know is a single API call, `authContext.AcquireToken*(…)`.
 
-[此处](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/complete.zip)提供了已完成示例（无配置值）以供参考。  现在，可以转到其他标识方案。  可能想要尝试：
+For reference, the completed sample (without your configuration values) is provided [here](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/complete.zip).  You can now move on to additional identity scenarios.  You may want to try:
 
-[使用 Azure AD 保护 .NET Web API >>](active-directory-devquickstarts-webapi-dotnet.md)
+[Secure a .NET Web API with Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 

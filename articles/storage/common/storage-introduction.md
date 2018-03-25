@@ -1,25 +1,19 @@
 ---
-title: "Azure 存储简介 | Azure"
-description: "Microsoft 的云中数据存储 - Azure 存储的简介。"
+title: Azure 存储简介 | Azure
+description: Microsoft 的云中数据存储 - Azure 存储的简介。
 services: storage
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: tysonn
-ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 origin.date: 01/21/2018
 ms.date: 3/5/2018
 ms.author: v-nany
-ms.openlocfilehash: cf39ccbe0ef0f359c17119fb413b1e4619a8e28e
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 23cd4d5bcd3b8d2a4502854710de0f3736406e61
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 存储简介
 
@@ -137,7 +131,7 @@ Blob 存储帐户是专用于存储块 Blob 和追加 Blob 的存储帐户。 �
 ### <a name="encryption-at-rest"></a>静态加密
 
 
-可以为 Blob 存储或 Azure 文件（预览版）启用存储服务加密 (SSE)。 如果启用此功能，所有写入到特定服务的数据都会在写入前加密。 读取数据时，数据会在返回前解密。
+SSE 自动加密所有性能层（标准和高级）、所有部署模型（Azure 资源管理器和经典）、所有 Azure 存储服务（Blob、队列、表和文件）中的数据。 SSE 不影响 Azure 存储性能。
 
 有关 SSE 静态加密的详细信息，请参阅[静态数据的 Azure 存储服务加密](storage-service-encryption.md)。
 

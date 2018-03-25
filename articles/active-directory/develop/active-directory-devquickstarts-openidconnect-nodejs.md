@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Node.js Web 应用入门 | Microsoft Docs"
-description: "了解如何构建用于登录的与 Azure AD 集成的 Node.js Express MVC Web 应用。"
+title: Azure AD Node.js Web 应用入门 | Microsoft Docs
+description: 了解如何构建用于登录的与 Azure AD 集成的 Node.js Express MVC Web 应用。
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ origin.date: 11/30/2017
 ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 1b540f38b7c6039a82cb68bfb9fb2c690ea2c418
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: c8d2cbd3c37ddd81898ed022f3fc2c769069d3c8
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js Web 应用入门
 此处，我们使用 Passport 进行以下操作：
@@ -49,7 +49,7 @@ Passport 是 Node.js 的身份验证中间件。 Passport 很灵活并且采用�
 
 2. 在页面顶部的菜单中选择帐户。 在“目录”列表下选择要注册应用程序的 Active Directory 租户。
 
-3. 在屏幕左侧的菜单中，选择“更多服务”，并选择“Azure Active Directory”。
+3. 在屏幕左侧的菜单中，选择“所有服务”，并选择“Azure Active Directory”。
 
 4. 选择“应用注册”，然后选择“新建应用程序注册”。
 

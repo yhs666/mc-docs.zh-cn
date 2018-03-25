@@ -1,3 +1,5 @@
+# [ExpressRoute 文档](index.md)
+
 # 概述
 ## [什么是 ExpressRoute？](expressroute-introduction.md)
 ## [ExpressRoute 常见问题](expressroute-faqs.md)
@@ -27,14 +29,22 @@
 ### [Azure 门户](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Azure CLI](howto-linkvnet-cli.md)
+## [通过 Microsoft 对等互连配置站点到站点 VPN](site-to-site-vpn-over-microsoft-peering.md)
 ## 配置 ExpressRoute 的虚拟网络网关
 ### [Azure 门户](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [配置 ExpressRoute 和站点到站点并存连接](expressroute-howto-coexist-resource-manager.md)
+## 配置用于 Microsoft 对等互连的路由筛选器
+### [Azure 门户](how-to-routefilter-portal.md)
+### [Azure PowerShell](how-to-routefilter-powershell.md)
+### [Azure CLI](how-to-routefilter-cli.md)
+## [从公共对等互连移到 Microsoft 对等互连](how-to-move-peering.md)
 ## [将线路从经典部署模型迁移到 Resource Manager 部署模型](expressroute-howto-move-arm.md)
 ## [将关联的虚拟网络从经典部署模型迁移到 Resource Manager 部署模型](expressroute-migration-classic-resource-manager.md)
 ## 为 ExpressRoute 配置路由器
 ### [配置路由器](expressroute-config-samples-routing.md)
+### [NAT 的路由器配置示例](expressroute-config-samples-nat.md)
+## [为 ExpressRoute 配置网络性能监视器](how-to-npm.md)
 ## 经典部署模型文章
 ### [修改线路](expressroute-howto-circuit-classic.md)
 ### [创建和修改对等互连配置](expressroute-howto-routing-classic.md)
@@ -44,9 +54,11 @@
 
 ## 最佳实践
 ### [优化路由](expressroute-optimize-routing.md)
+### [用于 ExpressRoute 的 NAT](expressroute-nat.md)
 
 ## 故障排除
 ### [验证 ExpressRoute 连接](expressroute-troubleshooting-expressroute-overview.md)
+### [解决网络性能问题](expressroute-troubleshooting-network-performance.md)
 ### [重置故障线路](reset-circuit.md)
 ### [获取 ARP 表](expressroute-troubleshooting-arp-resource-manager.md)
 ### [获取 ARP 表（经典）](expressroute-troubleshooting-arp-classic.md)

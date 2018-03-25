@@ -1,32 +1,38 @@
 ---
-title: "在 Azure Active Directory 中分配管理员角色 | Azure"
-description: "管理员角色可以创建或编辑用户、向其他用户分配管理角色、重置用户密码、管理用户许可证，或者管理域。 分配为管理员角色的用户在组织已订阅的所有云服务中具有相同的权限。"
+title: 在 Azure Active Directory 中分配管理员角色 | Azure
+description: 管理员角色可以创建或编辑用户、向其他用户分配管理角色、重置用户密码、管理用户许可证，或者管理域。 分配为管理员角色的用户在组织已订阅的所有云服务中具有相同的权限。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: 7fc27e8e-b55f-4194-9b8f-2e95705fb731
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-origin.date: 12/13/2017
-ms.date: 1/1/2017
+origin.date: 02/07/2018
+ms.date: 03/05/2018
 ms.author: v-nany
-ms.reviewer: Vince.Smith
-ms.custom: it-pro;
-ms.openlocfilehash: 88be9d91b9ad6d711aa47134636b5986d71be22a
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.reviewer: vincesm
+ms.custom: it-pro
+ms.openlocfilehash: 20079efa20a6eac51f677ce31a7fba0b7e3944ee
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中分配管理员角色
 
 使用 Azure Active Directory (Azure AD) 时，可以指定不同的管理员来执行不同的功能。 管理员可以按角色访问 Azure 门户中的各种功能：创建或编辑用户、将管理角色分配给他人、重置用户密码、管理用户许可证以及管理域等。 分配为管理员角色的用户在组织所订阅的所有云服务中拥有相同的权限，不管该角色是通过 Office 365 门户、Azure 门户还是用于 Windows PowerShell 的 Azure AD 模块分配的。
 
+## <a name="details-about-the-global-administrator-role"></a>有关全局管理员角色的详细信息
+全局管理员有权访问所有管理功能。 默认情况下，系统会将注册 Azure 订阅的人员指派为目录的全局管理员角色。 只有全局管理员才能分配其他管理员角色。
+
+## <a name="assign-or-remove-administrator-roles"></a>分配或删除管理员角色
+若要了解如何在 Azure Active Directory 中向用户分配管理角色，请参阅[在 Azure Active Directory 中向用户分配管理角色](active-directory-users-assign-role-azure-portal.md)。
+
+## <a name="available-roles"></a>可用的角色
 提供以下管理员角色：
 
 * **计费管理员**：进行采购、管理订阅、管理支持票证并监视服务运行状况。
@@ -64,7 +70,7 @@ ms.lasthandoff: 02/23/2018
 
 * **合作伙伴层 2 支持**：请勿使用。 此角色已弃用，并将从 Azure AD 中删除。 此角色仅供少数 Microsoft 转售合作伙伴使用，不适用于一般用途。
 
-* **密码管理员 / 支持人员管理员**：具有此角色的用户可以重置密码、管理服务请求和监视服务运行状况。 密码管理员只能为用户和其他密码管理员重置密码。
+* **密码管理员/支持管理员**：具有此角色的用户可以更改密码、管理服务请求和监视服务运行状况。 支持管理员只能为用户和其他支持管理员更改密码。 
 
   > [!NOTE]
   > 在 Microsoft 图形 API、Azure AD 图形 API 和 Azure AD PowerShell 中，此角色标识为“支持管理员”。 它是 [Azure 门户](https://portal.azure.com/)中的“密码管理员”。
@@ -74,6 +80,7 @@ ms.lasthandoff: 02/23/2018
 * **Power BI 服务管理员**：具有此角色的用户在 Microsoft Power BI（如果存在此服务）中拥有全局权限，并可以管理支持票证和监视服务运行状况。 有关详细信息，请参阅 [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US)（关于 Office 365 管理员角色）。
 
 * **特权角色管理员**：具有此角色的用户可以管理角色分配以及 Azure AD Privileged Identity Management 内的 Azure Active Directory。 此外，此角色允许 Privileged Identity Management 的所有方面。
+
 
 * **安全管理员**：具有此角色的用户具有“安全读取者”角色的所有只读权限，以及能够管理与安全相关的服务配置的能力：Azure Active Directory Identity Protection、Azure 信息保护、Privileged Identity Management 和 Office 365 安全与合规中心。 [Office 365 安全与合规中心](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)提供了有关 Office 365 权限的详细信息。
 
@@ -90,7 +97,7 @@ ms.lasthandoff: 02/23/2018
   >
   >
 
-* **用户帐户管理员**：具有此角色的用户可以创建和管理用户和组的所有方面。 此外，此角色包括管理支持票证的功能，并监视服务运行状况。 适用某些限制。 例如，此角色不允许删除全局管理员，并且尽管它确实允许更改为非管理员的密码，它不允许更改的全局管理员的密码或其他特权的管理员。
+* **用户帐户管理员**：具有此角色的用户可以创建和管理用户和组的所有方面。 此外，此角色包括管理支持票证的功能，并监视服务运行状况。 适用某些限制。 例如，此角色不允许删除全局管理员。 用户帐户管理员只能为用户、支持管理员和其他用户帐户管理员更改密码。
 
 ## <a name="administrator-permissions"></a>管理员权限
 
@@ -100,8 +107,6 @@ ms.lasthandoff: 02/23/2018
 | --- | --- |
 |<p>查看公司信息和用户信息</p><p>管理 Office 支持票证</p><p>为 Office 产品执行计费和采购操作</p> |<p>重置用户密码</p><p>创建和管理用户视图</p><p>创建、编辑和删除用户与组，以及管理用户许可证</p><p>管理域</p><p>管理公司信息</p><p>向其他人委派管理角色</p><p>使用目录同步</p><p>查看审核日志</p>|
 
-### <a name="conditional-access-administrator"></a>条件访问管理员
-
 
 
 ### <a name="global-administrator"></a>全局管理员
@@ -109,10 +114,10 @@ ms.lasthandoff: 02/23/2018
 | --- | --- |
 |<p>查看公司信息和用户信息</p><p>管理 Office 支持票证</p><p>为 Office 产品执行计费和采购操作</p><p>重置用户密码</p><p>重置其他管理员的密码</p> <p>创建和管理用户视图</p><p>创建、编辑和删除用户与组，以及管理用户许可证</p><p>管理域</p><p>管理公司信息</p><p>向其他人委派管理角色</p><p>使用目录同步</p><p>启用或禁用多重身份验证</p><p>查看审核日志</p> |不适用 |
 
-### <a name="password-administrator"></a>密码管理员
+### <a name="password-administrator--helpdesk-administrator"></a>密码管理员/支持管理员
 | 有权执行的操作 | 无权执行的操作 |
 | --- | --- |
-| <p>查看公司信息和用户信息</p><p>管理 Office 支持票证</p><p>重置用户密码</p> <p>重置其他管理员的密码</p>|<p>为 Office 产品执行计费和采购操作</p><p>创建和管理用户视图</p><p>创建、编辑和删除用户与组，以及管理用户许可证</p><p>管理域</p><p>管理公司信息</p><p>向其他人委派管理角色</p><p>使用目录同步</p><p>查看报告</p>|
+| <p>查看公司信息和用户信息</p><p>管理 Office 支持票证</p><p>只能为用户和其他支持管理员更改密码</p>|<p>为 Office 产品执行计费和采购操作</p><p>创建和管理用户视图</p><p>创建、编辑和删除用户与组，以及管理用户许可证</p><p>管理域</p><p>管理公司信息</p><p>向其他人委派管理角色</p><p>使用目录同步</p><p>查看报告</p>|
 
 ### <a name="service-administrator"></a>服务管理员
 | 有权执行的操作 | 无权执行的操作 |
@@ -137,10 +142,6 @@ ms.lasthandoff: 02/23/2018
 | Identity Protection Center |<ul><li>安全读取者角色的所有权限。<li>此外，还能够执行除了重置密码以外的所有 IPC 操作。 |
 | Privileged Identity Management |<ul><li>安全读取者角色的所有权限。<li>**不能**管理 Azure AD 角色成员身份或设置。 |
 | <p>监视 Office 365 服务运行状况</p><p>Office 365 安全与合规中心 |<ul><li>安全读取者角色的所有权限。<li>可以配置高级威胁防护功能中的所有设置（恶意软件和病毒保护、恶意 URL 配置、URL 跟踪等）。 |
-
-## <a name="details-about-the-global-administrator-role"></a>有关全局管理员角色的详细信息
-全局管理员有权访问所有管理功能。 默认情况下，系统会将注册 Azure 订阅的人员指派为目录的全局管理员角色。 只有全局管理员才能分配其他管理员角色。
-
 
 
 ## <a name="deprecated-roles"></a>已弃用的角色

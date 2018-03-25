@@ -1,6 +1,6 @@
 ---
-title: "Azure AD Node.js Web API 入门 | Microsoft Docs"
-description: "如何生成一个与 Azure AD 集成、可用于身份验证的 Node.js REST Web API。"
+title: Azure AD Node.js Web API 入门 | Microsoft Docs
+description: 如何生成一个与 Azure AD 集成、可用于身份验证的 Node.js REST Web API。
 services: active-directory
 documentationcenter: nodejs
 author: craigshoemaker
@@ -15,11 +15,11 @@ origin.date: 11/30/2017
 ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: e64ea638cc528b5e91b030e9702addd8764cfa3b
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: a357ecdf50c7f293a5ea59a405d19232c4fb3d93
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD Node.js Web API 入门
 
@@ -126,13 +126,18 @@ const
 
 ```JavaScript
 const authenticationStrategy = new BearerStrategy(config.credentials, (token, done) => {
-    let userToken = authenticatedUserTokens.find((user) => user.sub === token.sub);
+    let currentUser = null;
+
+    let userToken = authenticatedUserTokens.find((user) => {
+        currentUser = user;
+        user.sub === token.sub;
+    });
 
     if(!userToken) {
         authenticatedUserTokens.push(token);
     }
 
-    return done(null, user, token);
+    return done(null, currentUser, token);
 });
 ```
 此实现通过将身份验证令牌添加到 `authenticatedUserTokens` 数组（如果这些令牌不存在）来使用自动注册。

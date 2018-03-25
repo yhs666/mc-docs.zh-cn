@@ -1,11 +1,11 @@
 ---
-title: "SQL 数据仓库系统视图 | Azure"
-description: "SQL 数据仓库的系统视图内容链接。"
+title: SQL 数据仓库系统视图 | Azure
+description: SQL 数据仓库的系统视图内容链接。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.custom: reference
 origin.date: 01/22/2018
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 35738fcdae8ca2c70ca09e4e030dacefd17adb55
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 9e16b7b9d6fc2ffc543628304fa4dffec2b5d1e4
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="system-views"></a>系统视图
 ## <a name="sql-data-warehouse-catalog-views"></a>SQL 数据仓库目录视图
@@ -210,6 +210,8 @@ SQL 数据仓库和分析平台系统的并行数据仓库 (PDW) 使用相同的
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](http://msdn.microsoft.com/library/ms188778.aspx) |
 
 ## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>SQL 数据仓库中提供的 SQL Server 2016 PolyBase DMV
+以下 DMV 适用于 SQL 数据仓库，但必须在连接到 **master** 数据库后才能执行。
+
 * [sys.dm_exec_compute_node_errors](http://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](http://msdn.microsoft.com/library/mt146382.aspx)
 * [sys.dm_exec_compute_nodes](https://msdn.microsoft.com/library/mt130700.aspx)

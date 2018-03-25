@@ -1,25 +1,23 @@
 ---
-title: "模拟在 Azure 中访问读取访问冗余存储时出现的故障 | Microsoft Docs"
-description: "模拟在访问读取访问异地冗余存储时出现的错误"
+title: 模拟在 Azure 中访问读取访问冗余存储时出现的故障 | Microsoft Docs
+description: 模拟在访问读取访问异地冗余存储时出现的错误
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: forester123
 manager: digimobile
-editor: 
 ms.service: storage
-ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: csharp
+ms.devlang: ''
 ms.topic: tutorial
 origin.date: 12/23/2017
 ms.date: 03/05/2018
 ms.author: v-johch
 ms.custom: mvc
-ms.openlocfilehash: 3f483c547c4da003e078b912e04a4f4619ff86b7
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: aea0546374a5edd5cb46f12a0fdfe1a29d531390
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>模拟在访问读取访问冗余存储时出现的故障
 
@@ -35,6 +33,7 @@ ms.lasthandoff: 03/12/2018
 > * 运行和暂停应用程序
 > * 使用 [fiddler](#simulate-a-failure-with-fiddler) 或[无效的静态路由](#simulate-a-failure-with-an-invalid-static-route)模拟失败 
 > * 模拟主终结点还原
+
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -165,7 +164,7 @@ route del <destination_ip> gw <gateway_ip>
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-route delete <destination_ip> <gateway_ip>
+route delete <destination_ip>
 
 ---
 

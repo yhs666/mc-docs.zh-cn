@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Xamarin 入门 | Microsoft Docs"
-description: "构建一个与 Azure AD 集成以方便登录，并使用 OAuth 调用受 Azure AD 保护的 API 的 Xamarin 应用程序。"
+title: Azure AD Xamarin 入门 | Microsoft Docs
+description: 构建一个与 Azure AD 集成以方便登录，并使用 OAuth 调用受 Azure AD 保护的 API 的 Xamarin 应用程序。
 services: active-directory
 documentationcenter: xamarin
 author: jmprieur
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ origin.date: 11/30/2017
 ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: cf604595083e5ccf6a682ac257ec200369ebdba8
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 478f36bc39313785e415b677c178db752736032a
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Azure AD Xamarin 入门
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -51,7 +51,7 @@ ms.lasthandoff: 01/17/2018
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在顶部栏上，单击帐户。 然后，在“目录”列表下选择要注册应用的 Active Directory 租户。
-3. 在左窗格中，单击“更多服务”，并选择“Azure Active Directory”。
+3. 在左窗格中，单击“所有服务”，并选择“Azure Active Directory”。
 4. 单击“应用注册”，然后选择“新建应用程序注册”。
 5. 创建新的**本机**应用程序。
     - **名称** - 向用户描述应用。
@@ -99,7 +99,7 @@ ms.lasthandoff: 01/17/2018
 
 1. 打开 DirectorySearcher.cs，然后将一个新参数添加到 `SearchByAlias(...)` 方法。 `IPlatformParameters` 是上下文参数，用于封装 ADAL 需要对其执行身份验证的特定于平台的对象。
 
-    ```C#
+    ```csharp
     public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
     {
     ```
@@ -108,7 +108,7 @@ ms.lasthandoff: 01/17/2018
 此操作将传递 ADAL 与 Azure AD 通信时所需的坐标。
 3. 调用 `AcquireTokenAsync(...)`，该类接受 `IPlatformParameters` 对象，并调用所需的身份验证流来向应用程序返回令牌。
 
-    ```C#
+    ```csharp
     ...
         AuthenticationResult authResult = null;
         try
@@ -127,7 +127,7 @@ ms.lasthandoff: 01/17/2018
     `AcquireTokenAsync(...)` 首先会尝试返回请求资源（在本例中为图形 API）的令牌，而不提示用户输入其凭据（通过缓存或刷新旧令牌）。 必要时，它会在获取请求的令牌之前，向用户显示 Azure AD 登录页。
 4. 在 **Authorization** 标头中将访问令牌附加到图形 API 请求：
 
-    ```C#
+    ```csharp
     ...
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
     ...
@@ -138,12 +138,12 @@ ms.lasthandoff: 01/17/2018
 ### <a name="android"></a>Android
 1. 在 MainActivity.cs 中，在按钮单击处理程序中添加对 `SearchByAlias(...)` 的调用：
 
-    ```C#
+    ```csharp
     List<User> results = await DirectorySearcher.SearchByAlias(searchTermText.Text, new PlatformParameters(this));
     ```
 2. 重写 `OnActivityResult` 生命周期方法，将所有身份验证重定向转发回到相应的方法。 ADAL 在 Android 中为此提供了帮助器方法：
 
-    ```C#
+    ```csharp
     ...
     protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
     {
@@ -156,7 +156,7 @@ ms.lasthandoff: 01/17/2018
 ### <a name="windows-desktop"></a>Windows 桌面
 在 MainWindow.xaml.cs 中，只需调用 `SearchByAlias(...)`，并在桌面的 `PlatformParameters` 对象中传递 `WindowInteropHelper`：
 
-```C#
+```csharp
 List<User> results = await DirectorySearcher.SearchByAlias(
   SearchTermText.Text,
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
@@ -165,7 +165,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
 #### <a name="ios"></a>iOS
 在 DirSearchClient_iOSViewController.cs 中，iOS `PlatformParameters` 对象将引用视图控制器：
 
-```C#
+```csharp
 List<User> results = await DirectorySearcher.SearchByAlias(
   SearchTermText.Text,
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
@@ -174,7 +174,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
 ### <a name="windows-universal"></a>Windows Universal
 在 Windows Universal 中打开 MainPage.xaml.cs，并实现 `Search` 方法。 此方法根据需要使用共享项目中的帮助器方法来更新 UI。
 
-```C#
+```csharp
 ...
 List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(SearchTermText.Text, new PlatformParameters(PromptBehavior.Auto, false));
 ...

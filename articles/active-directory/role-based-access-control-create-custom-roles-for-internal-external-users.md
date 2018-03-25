@@ -1,31 +1,33 @@
 ---
-title: "在 Azure 中创建自定义的基于角色的访问控制角色并将其分配给内部和外部用户 | Azure"
-description: "为内部和外部用户分配使用 PowerShell 与 CLI 创建的自定义 RBAC 角色"
+title: 在 Azure 中创建自定义的基于角色的访问控制角色并将其分配给内部和外部用户 | Azure
+description: 为内部和外部用户分配使用 PowerShell 与 CLI 创建的自定义 RBAC 角色
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
 editor: kgremban
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 12/06/2017
-ms.date: 1/1/2018
+ms.date: 3/5/2018
 ms.author: v-nany
-ms.openlocfilehash: 1f971a259b9812305d2d26a85d3f03cdbfb6df23
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.reviewer: skwan
+ms.custom: it-pro
+ms.openlocfilehash: 15c46002288c353bf3f078c98056aea9b2d8519c
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="intro-on-role-based-access-control"></a>基于角色的访问控制简介
 
 基于角色的访问控制是只能在 Azure 门户中使用的功能，可让订阅所有者将具体的角色分配到可在环境中管理特定资源范围的其他用户。
 
-对于需要访问你环境中的特定资源，但不一定要访问整个基础结构或任何计费相关范围的大型组织以及与外部协作者、供应商或自由职业者合作的中小型企业而言，RBAC 可以改善安全管理。 RBAC 允许灵活拥有管理员帐户（订阅级别的服务管理员角色）管理的 Azure 订阅，并邀请多个用户在同一个订阅下工作，但不为他们分配任何管理权限。 从管理和计费角度看，RBAC 功能经证实是各种 Azure 使用方案中的省时且能提高管理效率的选项。
+对于需要访问环境中的特定资源，但不一定要访问整个基础结构或任何计费相关范围的大型组织以及与外部协作者、供应商或自由职业者合作的中小型企业而言，RBAC 可以改善安全管理。 RBAC 允许灵活拥有管理员帐户（订阅级别的服务管理员角色）管理的 Azure 订阅，并邀请多个用户在同一个订阅下工作，但不为他们分配任何管理权限。 从管理和计费角度看，RBAC 功能经证实是各种 Azure 使用方案中的省时且能提高管理效率的选项。
 
 ## <a name="prerequisites"></a>先决条件
 在 Azure 环境中使用 RBAC 需要满足以下要求：
@@ -95,7 +97,7 @@ RBAC 角色只能由订阅的“所有者”授予，因此管理员用户必须
 已邀请用户“chessercarlton@gmail.com”成为“1 元试用”订阅的“所有者”。 发送邀请后，外部用户将收到包含激活链接的电子邮件确认。
 ![RBAC 角色的电子邮件邀请](./media/role-based-access-control-create-custom-roles-for-internal-external-users/5.png)
 
-由于在组织外部，新用户在“默认租户 Azure”目录中没有任何现有的属性。 同意在与外部用户分配有角色的订阅相关联的目录中记录该用户后，将会创建这些属性。
+由于在组织外部，新用户在“默认租户 Azure”目录中没有任何现有的属性。 在外部用户同意记录在与其分配有角色的订阅关联的目录中后，会创建这些属性。
 
 
 
@@ -113,12 +115,7 @@ RBAC 角色只能由订阅的“所有者”授予，因此管理员用户必须
 
 
 
-
-
-
-在这两个门户的“用户”视图中，可根据以下特征识别外部用户：
-
-- Azure 门户中的不同图标类型
+在“用户”视图中，可以通过 Azure 门户中的不同图标类型识别外部用户。
 
 但是，在“订阅”范围向外部用户授予“所有者”或“参与者”访问权限并不允许他们访问管理员用户的目录，除非“全局管理员”允许访问。 在用户属性中，可以看到包含“成员”和“来宾”这两个通用参数的“用户类型”。 成员是已在目录中注册的用户，而来宾是来自外部源的、受邀加入目录的用户。
 
@@ -144,7 +141,6 @@ Azure Active Directory 与 Azure 订阅之间不像其他 Azure 资源（例如�
 * 无法查看订阅中的其他任何资源类型
 * 从计费角度无法操作任何更改
 
-
 ## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>将内置的 RBAC 角色分配到外部用户
 针对此项测试中的不同方案，外部用户“alflanigan@gmail.com”将添加为“虚拟机参与者”。
 
@@ -163,7 +159,7 @@ Azure Active Directory 与 Azure 订阅之间不像其他 Azure 资源（例如�
 无论是从授予 RBAC 角色的管理角度，还是将授予用户对角色的访问权限的角度来看，流程都与添加外部用户相同。 此处的差别在于，受邀用户不会收到任何电子邮件邀请，因为订阅中的所有资源范围只有在登录后才会显示在仪表板中。
 
 ## <a name="assign-rbac-roles-at-the-resource-group-scope"></a>在资源组范围分配 RBAC 角色
-对于外部和内部（属于同一个目录）这两种用户类型，在**资源组**范围分配 RBAC 角色的过程与在订阅级别分配角色的过程相同。 分配有 RBAC 角色的用户只能通过 Azure 门户中的“资源组”图标查看其环境中有权访问的资源组。
+对于外部和内部（属于同一个目录）这两种用户类型，在**资源组**范围分配 RBAC 角色的过程与在订阅级别分配角色的过程相同。 分配有 RBAC 角色的用户只能通过 Azure 门户中的“资源组”图标查看其环境中他们有权访问的资源组。
 
 ## <a name="assign-rbac-roles-at-the-resource-scope"></a>在资源范围分配 RBAC 角色
 在 Azure 中的资源范围分配 RBAC 角色的过程，与在订阅级别或资源组级别分配该角色的过程相同，这两种方案都遵循相同的工作流。 同样，分配有 RBAC 角色的用户只能在“所有资源”选项卡或直接在仪表板中查看他们有权访问的项。
@@ -182,9 +178,9 @@ Azure 中提供的内置 RBAC 角色可确保根据环境中可用的资源授�
 
 创建自定义 RBAC 角色需要使用某个内置角色，对其进行编辑，然后将它导入回到环境中。 角色的下载和上传是使用 PowerShell 或 CLI 管理的。
 
-必须了解创建可在订阅级别授予精细访问权限，并允许受邀用户灵活提出支持请求的自定义角色的相关先决条件。
+必须了解创建可在订阅级别授予精细访问权限，并允许受邀用户灵活提出支持请求的自定义角色的先决条件。
 
-在此示例中，允许用户查看所有资源范围，但不允许编辑这些范围或者创建新范围的内置角色“读取者”已经过自定义，允许用户使用相应的选项提出支持请求。
+在此示例中，允许用户查看所有资源范围，但不允许编辑这些范围或者创建新范围的内置角色“读者”已经过自定义，允许用户使用相应的选项提出支持请求。
 
 第一个操作（导出“读取者”角色）需要在使用提升的权限以管理员身份运行的 PowerShell 中完成。
 
@@ -286,7 +282,7 @@ New-AzureRMRoleDefinition -InputFile "C:\rbacrole2.json"
 
 创建自定义角色的步骤与前面所述相同，唯一的差别在于，使用 CLI 时，无法在 JSON 模板中下载角色，但可以在 CLI 中查看角色。
 
-对于本示例，我已选择内置角色“备份读取者”。
+对于本示例，我已选择内置角色“备份读者”。
 
 ```
 
@@ -329,4 +325,3 @@ azure role create --inputfile <path>
 
 
 ![Azure Cloud Shell](./media/role-based-access-control-create-custom-roles-for-internal-external-users/27.png)
-

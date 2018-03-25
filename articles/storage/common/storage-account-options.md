@@ -1,6 +1,6 @@
 ---
-title: "Azure 存储帐户选项 | Azure"
-description: "了解使用 Azure 存储的选项。"
+title: Azure 存储帐户选项 | Azure
+description: 了解使用 Azure 存储的选项。
 services: storage
 author: yunan2016
 manager: digimobile
@@ -10,11 +10,11 @@ ms.topic: get-started-article
 origin.date: 01/17/2018
 ms.date: 03/05/2018
 ms.author: v-nany
-ms.openlocfilehash: cb7ceec96b5989d697980e485c918a7ec1c14659
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: b4659d8207577ecbf25f384ccc86e65cd4cd5786
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-storage-account-options"></a>Azure 存储帐户选项
 
@@ -298,8 +298,8 @@ AzCopy 是一个 Windows 命令行实用程序，用于将数据高性能复制�
 
 有关详细信息，请参阅 [Azure Blob 存储入门](../blobs/storage-dotnet-how-to-use-blobs.md)。
 
-> [!NOTE]
-> 使用客户端加密进行加密的 blob 会存储与 blob 一起存储的加密相关元数据。 任何复制机制应确保保留 Blob 元数据，尤其是与加密相关的元数据，这一点很重要。 如果复制不包含此元数据的 Blob，则不能再次检索 Blob 内容。 有关加密相关元数据的详细信息，请参阅 [Azure 存储客户端加密](../common/storage-client-side-encryption.md?toc=%2fstorage%2fblobs%2ftoc.json)。
+> [!IMPORTANT]
+> 使用客户端加密进行加密的 Blob 会将与加密相关的元数据与 Blob 一起存储。 如果复制使用客户端加密来加密的 Blob，请确保复制操作保留 Blob 元数据，尤其是与加密相关的元数据。 如果复制不包含此加密元数据的 Blob，则不能再次检索 Blob 内容。 有关加密相关元数据的详细信息，请参阅 [Azure 存储客户端加密](../common/storage-client-side-encryption.md?toc=%2fstorage%2fblobs%2ftoc.json)。
 
 ## <a name="faq"></a>常见问题
 

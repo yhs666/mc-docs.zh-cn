@@ -1,8 +1,8 @@
 ---
-title: "使用虚拟网络扩展 HDInsight"
-description: "了解如何使用 Azure 虚拟网络将 HDInsight 连接到其他云资源或数据中心内的资源"
+title: 使用虚拟网络扩展 HDInsight
+description: 了解如何使用 Azure 虚拟网络将 HDInsight 连接到其他云资源或数据中心内的资源
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.workload: big-data
 origin.date: 01/08/2018
 ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9d8b9372f910c6d0a87b8520abb47409b32106b7
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: bc3527156a9b341a7e39392b2ab3e32395ba5944
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 Azure HDInsight
 
@@ -180,7 +180,7 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 
 ## <a name="directly-connect-to-hadoop-services"></a>直接连接到 Hadoop 服务
 
-HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 例如，这些文档假定你可以连接到 https://CLUSTERNAME.azurehdinsight.cn 上的群集。 此地址使用公共网关，如果你使用了 NSG 或 UDR 限制来自 Internet 的访问，则该网关不可用。
+HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 例如，可以通过 https://CLUSTERNAME.azurehdinsight.cn 连接到该群集。 此地址使用公共网关，如果你使用了 NSG 或 UDR 限制来自 Internet 的访问，则该网关不可用。
 
 若要通过虚拟网络连接到 Ambari 以及其他网页，请使用以下步骤：
 
@@ -299,8 +299,10 @@ HDInsight 在多个端口上公开服务。 使用虚拟设备防火墙时，必
     | 英国 | 英国西部 | 51.141.13.110</br>51.141.7.20 | 443 | 入站 |
     | &nbsp; | 英国南部 | 51.140.47.39</br>51.140.52.16 | 443 | 入站 |
     | 美国 | 美国中部 | 13.67.223.215</br>40.86.83.253 | 443 | 入站 |
+    | &nbsp; | 美国东部 | 13.82.225.233</br>40.71.175.99 | 443 | 入站 |
     | &nbsp; | 美国中北部 | 157.56.8.38</br>157.55.213.99 | 443 | 入站 |
     | &nbsp; | 美国中西部 | 52.161.23.15</br>52.161.10.167 | 443 | 入站 |
+    | &nbsp; | 美国西部 | 13.64.254.98</br>23.101.196.19 | 443 | 入站 |
     | &nbsp; | 美国西部 2 | 52.175.211.210</br>52.175.222.222 | 443 | 入站 |
 
     若要获取用于 Azure 政府版的 IP 地址的信息，请参阅 [Azure 政府智能 + 分析](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics)文档。

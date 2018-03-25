@@ -1,8 +1,8 @@
 ---
-title: "在 HDInsight 中使用 Hadoop Pig | Azure"
-description: "了解如何将 Pig 与 HDInsight 上的 Hadoop 配合使用。"
+title: 在 HDInsight 中使用 Hadoop Pig | Azure
+description: 了解如何将 Pig 与 HDInsight 上的 Hadoop 配合使用。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/06/2017
-ms.date: 12/18/2017
+origin.date: 01/29/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1606914e0e2bed30ff9338ad93c025ac201428b9
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: ee71b228a38d2a1d4227a312938d79fdaad9b576
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="use-pig-with-hadoop-on-hdinsight"></a>将 Pig 与 Hadoop on HDInsight 配合使用
+# <a name="use-pig-with-hadoop-on-hdinsight"></a>将 Pig 与 HDInsight 上的 Hadoop 配合使用
 
-了解如何将 [Apache Pig](http://pig.apache.org/) 与 HDInsight 配合使用...
+了解如何将 [Apache Pig](http://pig.apache.org/) 与 HDInsight 配合使用。
 
 Pig 是一个平台，可以使用名为 *Pig Latin* 的过程语言为 Hadoop 创建程序。 Pig 可以替代 Java 来创建 *MapReduce* 解决方案，它已包括在 Azure HDInsight 中。 使用下表可以找出将 Pig 与 HDInsight 配合使用的各种方法：
 
@@ -35,10 +35,9 @@ Pig 是一个平台，可以使用名为 *Pig Latin* 的过程语言为 Hadoop �
 | [REST API](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux 或 Windows |Linux、Unix、Mac OS X 或 Windows |
 | [.NET SDK for Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux 或 Windows |Windows（暂时） |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux 或 Windows |Windows |
-| [远程桌面](apache-hadoop-use-pig-remote-desktop.md)（HDInsight 3.2 和 3.3） |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a id="why"></a>为何使用 Pig
 
@@ -105,12 +104,11 @@ HDInsight 可以使用各种方法来运行 Pig Latin 作业。 使用下表来�
 | [Curl](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux 或 Windows |Linux、Unix、Mac OS X 或 Windows |
 | [.NET SDK for Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux 或 Windows |Windows（暂时） |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux 或 Windows |Windows |
-| [远程桌面](apache-hadoop-use-pig-remote-desktop.md)（HDInsight 3.2 和 3.3） |✔ |✔ |Windows |Windows |
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="pig-and-sql-server-integration-services"></a>Pig 和 SQL Server Integration Services
 

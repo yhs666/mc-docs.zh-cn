@@ -1,8 +1,8 @@
 ---
-title: "在 Azure HDInsight 上安装第三方 Hadoop 应用程序 | Azure"
-description: "了解如何在 Azure HDInsight 上安装第三方 Hadoop 应用程序。"
+title: 在 Azure HDInsight 上安装第三方 Hadoop 应用程序 | Azure
+description: 了解如何在 Azure HDInsight 上安装第三方 Hadoop 应用程序。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/06/2017
-ms.date: 12/25/2017
+origin.date: 02/16/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7416cf1efaca5d8d3feac21ba98adf23c4a90049
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 2140bdd6e60a6e04ca41152288175c1394e702b2
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安装第三方 Hadoop 应用程序
 
@@ -34,13 +34,12 @@ HDInsight 应用程序是用户可以在 HDInsight 群集上安装的应用程�
 * **AtScale 智能平台**可将 HDInsight 群集变为横向扩展 OLAP 服务器。 使用此应用程序可通过 BI 工具（包括 Microsoft Excel、PowerBI、Tableau Software 和 QlikView）以交互方式查询几十亿行数据。
 * **Cask CDAP for HDInsight** 为大数据提供首个统一的集成平台，可将数据应用程序和 Data Lake 的生产时间缩短 80%。 此应用程序仅支持标准 HBase 3.4 群集。
 * **DATAIKU DDS on HDInsight**，利用此应用程序，数据专家可以对针对性很强的服务进行原型、生成和部署方面的操作，将原始数据转换成有影响力的业务预测。
-* **Datameer**： [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) 提供一种交互方式，让分析师发现、分析和可视化大数据的结果。 轻松拉进其他数据源，以发现新的关系并迅速获取所需的答案。
 * **H2O Artificial Intelligence for HDInsight (Beta)** H2O Sparkling Water 支持以下分布式算法：GLM、Naïve Bayes、分布式随机森林、梯度提升机、深层神经网络、深度学习、K 平均值、PCA、通用化低级别模型、异常检测和自动编码器。
-* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) 是以 Apache Kylin 和 Apache Hadoop 为后盾的，随时可供企业使用的数据仓库；它在处理大规模数据集时可实现次秒级的查询延迟，简化了企业用户和分析师的数据分析。 
+* **Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) 是以 Apache Kylin 和 Apache Hadoop 为后盾的，随时可供企业使用的数据仓库；它在处理大规模数据集时可提供次秒级的查询延迟，简化了企业用户和分析师的数据分析。 
 * **Paxata 自助服务数据准备**
-* **SnapLogic Hadooplex** 在 HDInsight 上运行的 SnapLogic Hadooplex 可让客户自行将几乎任何来源中的数据引入并制备到 Azure 云平台，从而更快地获取业务见解。
 * **Spark Job Server for KNIME Spark Executor** Spark Job Server for KNIME Spark Executor 用于将 KNIME Analytics Platform 连接到 HDInsight 群集。
 * **用于 HDnsight 的 Streamsets 数据收集器**提供了一个全功能的集成开发环境 (IDE)，它允许用户设计、测试、部署和管理汇合流和批处理数据的全面互通引入管道，并提供各种流中转换 - 所有这些都无需编写自定义代码。 
+* **[Trifacta](http://www.trifacta.com/)** 利用机器学习来提供突破性的用户体验、工作流和体系结构，使得数据工程师和分析师能够更高效地探究和编制当今的各种数据。
 * **WANdisco Fusion HDI App** 可随数据更改（无论数据位于何处）提供到数据的连续一致连接。 它支持用户随时随地访问数据，不会出现任何停机或中断情况。
 
 本文提供的说明将使用 Azure 门户。 也可以从门户导出 Azure Resource Manager 模板或从供应商处获取 Resource Manage 模板的副本，并使用 Azure PowerShell 和 Azure CLI 部署模板。  请参阅[使用资源管理器模板在 HDInsight 中创建 Hadoop 群集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
@@ -59,14 +58,10 @@ HDInsight 应用程序是用户可以在 HDInsight 群集上安装的应用程�
 4. 单击“配置”类别下的“应用程序”。 可以看到已安装的应用程序列表。 如果找不到“应用程序”，这意味着没有适用于此版本 HDInsight 群集的应用程序。
 
     ![HDInsight 应用程序门户菜单](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
-5. 单击菜单中的“添加”。 
+5. 单击菜单中的“添加”。 可以看到现有 HDInsight 应用程序的列表。
    
-    ![HDInsight 应用程序已安装的应用](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
-
-    可以看到现有 HDInsight 应用程序的列表。
-
     ![HDInsight 应用程序可用应用程序](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
-6. 单击其中一个应用程序、接受法律条款，并单击“选择” 。
+6. 单击某个可用的应用程序，然后按照说明进行操作以接受法律条款。
 
 可以通过门户通知查看安装状态（单击门户顶部的铃铛图标）。 安装应用程序后，应用程序会出现在“已安装的应用”列表中。
 
@@ -81,7 +76,7 @@ HDInsight 应用程序是用户可以在 HDInsight 群集上安装的应用程�
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在左侧菜单中单击“HDInsight 群集”  。 
 3. 单击某个 HDInsight 群集。
-4. 在“设置”中，单击“常规”类别下的“应用程序”。 “已安装的应用”在右侧列出。 
+4. 在“设置”中，单击“配置”类别下的“应用程序”。 “已安装的应用”在右侧列出。 
    
     ![HDInsight 应用程序已安装的应用](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. 单击其中一个已安装的应用程序，以显示属性。 属性列表：

@@ -1,11 +1,11 @@
 ---
-title: "Azure AD AngularJS 入门 | Microsoft Docs"
-description: "如何生成一个与 Azure AD 集成以方便登录，并使用 OAuth 调用 Azure AD 保护 API 的 AngularJS 单页面应用程序。"
+title: Azure AD AngularJS 入门 | Microsoft Docs
+description: 如何生成一个与 Azure AD 集成以方便登录，并使用 OAuth 调用 Azure AD 保护 API 的 AngularJS 单页面应用程序。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: jmprieur
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ origin.date: 11/30/2017
 ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: f230247470323dcab7021eddc63001b83060d4fb
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 291706b796f507583ba703bba6e2216ff1ae72b2
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Azure AD AngularJS 入门
 
@@ -49,11 +49,11 @@ ms.lasthandoff: 01/17/2018
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 如果登录到多个目录，可能需要确保正在查看正确目录。 若要执行此操作，在顶部栏上，单击你的帐户。 在“目录”列表下选择要注册应用程序的 Azure AD 租户。
-3. 在左窗格中，单击“更多服务”，并选择“Azure Active Directory”。
-4. 单击“应用注册”，然后选择“新建应用程序注册”。
-5. 创建一个新的 Web 应用程序和/或 Web API：
-  - **名称**向用户描述应用程序。
-  - **登录 URL** 是用户可以在其中登录并使用你的应用的 URL。 此 URL 以后可以更改。 本示例的默认位置是 `https://localhost:44326/`。
+3. 在左窗格中，单击“所有服务”，并选择“Azure Active Directory”。
+4. 单击“应用注册”，并选择“添加”。
+5. 根据提示创建一个新的 Web 应用程序和/或 Web API：
+  * **名称**向用户描述应用程序。
+  * “重定向 URI”是 Azure AD 要将令牌返回到的位置。 本示例的默认位置是 `https://localhost:44326/`。
 6. 完成注册后，Azure AD 将向应用分配唯一应用程序 ID。  在后面的部分中会用到此值，因此，请从应用程序选项卡中复制此值。
 7. Adal.js 使用 OAuth 隐式流来与 Azure AD 通信。 必须为应用程序启用隐式流：
   1. 单击应用程序，并选择“清单”打开内联清单编辑器。

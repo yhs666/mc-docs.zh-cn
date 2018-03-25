@@ -1,8 +1,8 @@
 ---
-title: "由 HDInsight 上的 Hadoop 服务使用的端口 - Azure | Azure"
-description: "HDInsight 上运行的 Hadoop 服务使用的端口列表。"
+title: 由 HDInsight 上的 Hadoop 服务使用的端口 - Azure | Azure
+description: HDInsight 上运行的 Hadoop 服务使用的端口列表。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/13/2017
-ms.date: 12/25/2017
+origin.date: 02/07/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: b1e268c68d9ca90ae0438a145a13a25ba38518ba
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: a093453a7aad3362380f7043d8825160fea19bfc
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>由 HDInsight 上的 Hadoop 服务使用的端口
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/15/2017
 > [!IMPORTANT]
 > 如果尚未指定某个 Azure 虚拟网络作为 HDInsight 的配置选项，系统自动创建一个 Azure 虚拟网络。 但无法将其他计算机（例如其他 Azure 虚拟机或客户端开发计算机）加入到此虚拟网络中。
 
-如果要将其他计算机添加到虚拟网络，必须先创建虚拟网络，然后在创建 HDInsight 群集时指定该网络。 有关详细信息，请参阅[使用 Azure 虚拟网络扩展 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)
+要将其他计算机添加到虚拟网络，必须先创建虚拟网络，然后在创建 HDInsight 群集时指定该网络。 有关详细信息，请参阅[使用 Azure 虚拟网络扩展 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="public-ports"></a>公共端口
 
@@ -75,7 +75,7 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 > 某些服务仅适用于特定的群集类型。 例如，HBase 仅适用于 HBase 群集类型。
 
 > [!IMPORTANT]
-> 某些服务仅在一个头节点上运行一次。 如果尝试连接到主头节点上的服务并收到 404 错误，请重试使用辅助头节点。
+> 某些服务仅在一个头节点上运行一次。 如果尝试连接到主头节点上的服务并收到错误，请重试使用辅助头节点。
 
 ### <a name="ambari"></a>Ambari
 
@@ -146,7 +146,7 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 | 服务 | Nodes | 端口 | 协议 | 说明 |
 | --- | --- | --- | --- | --- |
 | TimeLine（应用程序历史记录） |头节点 |6188 |HTTP |TimeLine 服务 Web UI |
-| TimeLine（应用程序历史记录） |头节点 |30200 |RPC |Timeline 服务 Web UI |
+| TimeLine（应用程序历史记录） |头节点 |30200 |RPC |TimeLine 服务 Web UI |
 
 ### <a name="hbase-ports"></a>HBase 端口
 
@@ -170,6 +170,7 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift 服务器 |头节点 |10002 |Thrift | &nbsp; | 用于连接到 Spark SQL 的服务 (Thrift/JDBC) |
 | Livy 服务器 | 头节点 | 8998 | HTTP | &nbsp; | 用于运行语句、作业和应用程序的服务 |
+| Jupyter 笔记本 | 头节点 | 8001 | HTTP | &nbsp; | Jupyter notebook 网站 |
 
 示例:
 

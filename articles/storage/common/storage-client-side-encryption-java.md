@@ -1,6 +1,6 @@
 ---
-title: "使用适用于 Azure 存储的 Java 进行客户端加密 | Azure"
-description: "用于 Java 的 Azure 存储客户端库支持客户端加密以及与 Azure 密钥保管库集成以实现 Azure 存储应用程序的最佳安全性。"
+title: 使用适用于 Azure 存储的 Java 进行客户端加密 | Azure
+description: 用于 Java 的 Azure 存储客户端库支持客户端加密以及与 Azure 密钥保管库集成以实现 Azure 存储应用程序的最佳安全性。
 services: storage
 documentationcenter: java
 author: lakasa
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 05/11/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 5bcb3b02867473af526be7ef9007b980ec262d4f
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: e1d981db7bef55717f726514a962013033184ee0
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-azure-storage"></a>Azure 存储的使用 Java 的客户端加密和 Azure 密钥保管库
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -60,7 +60,7 @@ ms.lasthandoff: 08/25/2017
 > 
 > 
 
-下载已加密的 Blob 需要使用 download/openInputStream* 便捷方法检索整个 Blob 的内容。 将已包装的 CEK 解包，与 IV（在本示例中存储为 Blob 元数据）一起使用将解密后的数据返回给用户。
+下载已加密的 Blob 需要使用 **download*/openInputStream** 便捷方法检索整个 Blob 的内容。 将已包装的 CEK 解包，与 IV（在本示例中存储为 Blob 元数据）一起使用将解密后的数据返回给用户。
 
 下载已加密的 Blob 中的任意范围（**downloadRange*** 方法）涉及调整用户提供的范围以获取少量的可用于成功解密所请求的范围的附加数据。  
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 08/25/2017
 ### <a name="queues"></a>队列
 由于队列消息可以采用任何格式，客户端库定义一个自定义格式，其在消息文本中包括初始化向量 (IV) 和已加密的内容加密密钥 (CEK)。  
 
-在加密过程中，客户端库会生成 16 个字节的随机 IV 和 32 个字节的随机 CEK，并使用此信息对队列消息文本执行信封加密。 然后，将已包装的 CEK 和一些附加加密元数据添加到已加密的队列消息中。 此修改后的消息（如下所示）存储在服务中。
+在加密过程中，客户端库将生成 16 字节的随机 IV 和 32 字节的随机 CEK，并使用此信息对队列消息文本执行信封加密。 然后，将已包装的 CEK 和一些附加加密元数据添加到已加密的队列消息中。 此修改后的消息（如下所示）存储在服务中。
 
 ```
 <MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
@@ -89,7 +89,7 @@ ms.lasthandoff: 08/25/2017
 
 1. 用户指定要加密的属性。  
 2. 客户端库为每个实体生成 16 个字节的随机初始化向量 (IV) 和 32 个字节的随机内容加密密钥 (CEK)，并通过为每个属性派生新的 IV 对要加密的单独属性执行信封加密。 加密的属性存储为二进制数据。  
-3. 然后，已包装的 CEK 和一些附加加密元数据会存储为两个附加保留属性。 第一个保留属性 (_ClientEncryptionMetadata1) 是一个字符串属性，保存有关 IV、版本和已包装密钥的信息。 第二个保留属性 (_ClientEncryptionMetadata2) 是一个二进制属性，保存有关已加密属性的信息。 第二个属性 (_ClientEncryptionMetadata2) 中的信息本身是已加密。  
+3. 然后，已包装的 CEK 和一些附加加密元数据将存储为两个附加保留属性。 第一个保留属性 (_ClientEncryptionMetadata1) 是一个字符串属性，保存有关 IV、版本和已包装密钥的信息。 第二个保留属性 (_ClientEncryptionMetadata2) 是一个二进制属性，保存有关已加密属性的信息。 第二个属性 (_ClientEncryptionMetadata2) 中的信息本身是已加密。  
 4. 由于加密需要这两个附加保留属性，用户现在可能只有 250 个自定义属性，而不是 252 个。 实体的总大小必须小于 1MB。  
    
    请注意，只有字符串属性可以加密。 如果要对其他类型的属性进行加密，必须将它们转换为字符串。 加密的字符串作为二进制属性存储在服务中，并在解密之后转换回字符串。
@@ -100,9 +100,13 @@ ms.lasthandoff: 08/25/2017
 在批处理操作中，将对该批处理操作中的所有行使用同一 KEK，因为客户端库仅允许每个批处理操作使用一个选项对象（因此是一个策略/KEK）。 但是，客户端库会为批处理中的每行在内部生成一个新的随机 IV 和随机 CEK。 用户还可以选择通过在加密解析程序中定义此行为来加密批处理中的每个操作的不同属性。
 
 ### <a name="queries"></a>查询
+> [!NOTE]
+> 由于实体已加密，因此不能运行根据已加密属性进行筛选的查询。  如果尝试运行，结果将会不正确，因为该服务会尝试将已加密的数据与未加密的数据进行比较。
+> 
+>
 若要执行查询操作，必须指定一个能够解析结果集中的所有密钥的密钥解析程序。 如果查询结果中包含的实体不能解析为提供程序，则客户端库会引发错误。 对于执行服务器端投影的任何查询，在默认情况下，客户端库为所选列添加特殊的加密元数据属性（_ClientEncryptionMetadata1 和 _ClientEncryptionMetadata2）。
 
-## <a name="azure-key-vault"></a>Azure 密钥保管库
+## <a name="azure-key-vault"></a>Azure Key Vault
 Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密钥和机密。 通过 Azure 密钥保管库，用户可以使用受硬件安全模块 (HSM) 保护的密钥，来加密密钥和机密（例如身份验证密钥、存储帐户密钥、数据加密密钥、.PFX 文件和密码）。 有关详细信息，请参阅[什么是 Azure 密钥保管库？](../../key-vault/key-vault-whatis.md)。
 
 存储客户端库使用密钥保管库核心库，以便在整个 Azure 上提供一个通用框架进行管理密钥。 用户还可以从使用密钥保管库扩展库中获得其他好处。 扩展库围绕简单无缝的对称/RSA 本地和云密钥提供程序以及使用聚合和缓存提供有用的功能。
@@ -112,11 +116,11 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
 
 * azure-keyvault-core 包含 IKey 和 IKeyResolver。 它是没有依赖项的小型包。 用于 Java 的存储空间客户端库将其定义为一个依赖项。
 * azure-keyvault 包含密钥保管库 REST 客户端。  
-* azure-keyvault-extensions 包含扩展代码，其中包括加密算法以及 RSAKey 和 SymmetricKey 的实现。 它依赖于 Core 和 KeyVault 命名空间，并提供用于定义聚合解析程序（在用户想要使用多个密钥提供程序时）和缓存密钥解析程序的功能。 虽然存储客户端库不直接依赖于此包，但是如果用户想要使用 Azure 密钥保管库存储其密钥或通过密钥保管库扩展来使用本地和云加密提供程序，则他们需要此包。  
+* azure-keyvault-extensions 包含扩展代码，其中包括加密算法以及 RSAKey 和 SymmetricKey 的实现。 它依赖于 Core 和 KeyVault 命名空间，并提供用于定义聚合解析程序（在用户想要使用多个密钥提供程序时）和缓存密钥解析程序的功能。 虽然存储客户端库不直接依赖于此包，但是如果用户想要使用 Azure 密钥保管库来存储其密钥或通过密钥保管库扩展来使用本地和云加密提供程序，则他们将需要此包。  
   
   密钥保管库专为高价值主密钥设计，每个密钥保管库的限流限制的设计也考虑了这一点。 使用密钥保管库执行客户端加密时，首选模型是使用在密钥保管库中作为机密存储并在本地缓存的对称主密钥。 用户必须执行以下操作：  
 
-1. 脱机创建密钥并将其上传到密钥保管库。  
+1. 脱机创建一个机密并将其上传到密钥保管库。  
 2. 使用机密的基标识符作为参数来解析机密的当前版本进行加密，并在本地缓存此信息。 使用 CachingKeyResolver 进行缓存；用户不需要实现自己的缓存逻辑。  
 3. 创建加密策略时，使用缓存解析程序作为输入。
    有关密钥保管库用法的详细信息，请查看加密代码示例。 <fix URL>  
@@ -137,7 +141,7 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
 ## <a name="client-api--interface"></a>客户端 API/接口
 在创建 EncryptionPolicy 对象时，用户可以只提供密钥（实现 IKey）、只提供解析程序（实现 IKeyResolver），或两者都提供。 IKey 是使用密钥标识符标识的基本密钥类型，它提供了包装/解包逻辑。 IKeyResolver 用于在解密过程中解析密钥。 它定义了 ResolveKey 方法，该方法根据给定的密钥标识符返回 IKey。 由此，用户能够在多个位置中托管的多个密钥之间进行选择。
 
-* 对于加密，始终使用该密钥，而没有密钥会导致错误。  
+* 对于加密，始终使用该密钥，而没有密钥将导致错误。  
 * 对于解密：  
   
   * 如果指定为获取密钥，则调用密钥解析程序。 如果指定了解析程序，但该解析程序不具有密钥标识符的映射，则会引发错误。  

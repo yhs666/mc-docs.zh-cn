@@ -1,11 +1,11 @@
 ---
-title: "如何删除用户对应用程序的访问权限 | Azure"
-description: "了解如何删除用户对应用程序的访问权限"
+title: 如何删除用户对应用程序的访问权限 | Azure
+description: 了解如何删除用户对应用程序的访问权限
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 07/11/2017
 ms.date: 1/1/2018
 ms.author: v-nany
-ms.openlocfilehash: 2d462f761c87e334ddf32e92f41c8f59d2ba8352
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 12ac8def7846af0997eff72d73a1a6ca8f4be8aa
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>如何删除用户对应用程序的访问权限
 
@@ -34,11 +34,11 @@ ms.lasthandoff: 12/29/2017
 
 ## <a name="i-want-to-delete-an-application-entirely"></a>我要彻底删除应用程序
 
-若要“删除应用程序”，请按照以下说明进行操作：
+若要**删除应用程序**，请按照以下说明进行操作：
 
 1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”或“共同管理员”身份登录。
 
-2.  在左侧主导航菜单底部单击“更多服务”，打开“Azure Active Directory 扩展”。
+2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory 扩展”。
 
 3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
 
@@ -50,17 +50,17 @@ ms.lasthandoff: 12/29/2017
 
 6.  选择要删除的应用程序。
 
-7.  加载应用程序后，在应用程序顶部的“概述”边栏选项卡中，单击“删除”图标。
+7.  加载应用程序后，在应用程序顶部的“概述”窗格中，单击“删除”图标。
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>我要禁用用户未来针对应用程序的所有同意操作
 
 针对整个目录禁用用户同意操作，可防止最终用户同意任何应用程序。 管理员仍可代表用户执行同意操作。 若要深入了解应用程序同意，以及为何要或不这样操作，请参阅[了解用户和管理员同意](./develop/active-directory-devhowto-multi-tenant-overview.md#understanding-user-and-admin-consent)。
 
-若要**禁用用户未来在整个目录中执行的同意操作**，请根据以下说明进行操作：
+若要**禁用用户未来在整个目录中执行的所有同意操作**，请根据以下说明进行操作：
 
 1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
 
-2.  在左侧主导航菜单底部单击“更多服务”，打开“Azure Active Directory 扩展”。
+2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory 扩展”。
 
 3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 12/29/2017
 
 5.  单击“用户设置”。
 
-6.  通过将“用户可以同意应用代表他们访问公司数据”开关设置为“否”来禁用将来的所有用户同意操作，并单击“保存”按钮。
+6.  通过将“用户可以允许应用访问其数据”切换为“否”来禁用用户未来的所有同意操作，并单击“保存”按钮。
 
 
 # <a name="next-steps"></a>后续步骤

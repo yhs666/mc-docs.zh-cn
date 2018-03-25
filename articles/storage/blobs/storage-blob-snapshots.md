@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 存储中创建 Blob 的只读快照 | Azure"
-description: "了解如何在指定时刻及时创建 blob 的快照以备份 blob 数据。 了解如何对快照计费，以及如何使用快照最大程度地减少容量费用。"
+title: 在 Azure 存储中创建 Blob 的只读快照 | Azure
+description: 了解如何在指定时刻及时创建 blob 的快照以备份 blob 数据。 了解如何对快照计费，以及如何使用快照最大程度地减少容量费用。
 services: storage
 author: mmacy
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 origin.date: 04/11/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: e5c20b2e144b9ece006fe7b52ebc675cf942786d
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 6e1c737896e24f2e5228f09cd7548658f5ecadba
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-blob-snapshot"></a>创建 Blob 快照
 
@@ -32,8 +32,6 @@ Blob 的快照与其基本 Blob 相同，不过，Blob URI 的后面追加了一
 任何与基本 Blob 关联的租约都不会影响快照。 无法获取快照上的租约。
 
 VHD 文件用于存储 VM 磁盘的当前信息和状态。 可以将磁盘从 VM 分离或者关闭 VM，并拍摄其 VHD 文件的快照。 可以在以后使用该快照文件检索该时间点的 VHD 文件并重新创建 VM。
-
-如果为 Blob 所在的存储帐户启用了存储服务加密 (SSE)，则会对该 Blob 的任何快照进行静息加密。
 
 ## <a name="create-a-snapshot"></a>创建快照
 以下代码示例演示了如何使用[用于 .NET 的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)创建快照。 该示例在创建快照时为其指定了额外的元数据。

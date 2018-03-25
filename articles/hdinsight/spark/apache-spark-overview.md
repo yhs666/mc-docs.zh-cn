@@ -1,9 +1,9 @@
 ---
-title: "Azure HDInsight 上的 Spark 简介 | Azure"
-description: "本文介绍了 HDInsight 上的 Spark，以及可以在 HDInsight 上使用 Spark 群集的不同方案。"
-keywords: "什么是 apache spark,spark 群集,spark 简介,hdinsight 上的 spark"
+title: Azure HDInsight 上的 Spark 简介 | Azure
+description: 本文介绍了 HDInsight 上的 Spark，以及可以在 HDInsight 上使用 Spark 群集的不同方案。
+keywords: 什么是 apache spark,spark 群集,spark 简介,hdinsight 上的 spark
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -16,19 +16,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 12/13/2017
-ms.date: 01/15/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: ff6fdeab90e4cf2fea77cfb44b6eece8cf3aa69c
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: d771a39996214c7f2f1969911cdf299aee920748
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>HDInsight 上的 Spark 简介
 
 本文介绍 HDInsight 上的 Spark。 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> 是一种开放源代码并行处理框架，支持内存中处理，以提升大数据分析应用程序的性能。 HDInsight 上的 Spark 群集兼容 Azure 存储 (WASB)，因此可以通过 Spark 群集轻松处理 Azure 中存储的现有数据。
 
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]在 HDInsight 上创建 Spark 群集时，将会创建已安装并配置了 Spark 的 Azure 计算资源。 在 HDInsight 中创建 Spark 群集只需要约 10 分钟。 系统将要处理的数据存储在 Azure 存储中。 请参阅[将 Azure 存储与 HDInsight 配合使用](../hdinsight-hadoop-use-blob-storage.md)。
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
+在 HDInsight 上创建 Spark 群集时，将会创建已安装并配置了 Spark 的 Azure 计算资源。 在 HDInsight 中创建 Spark 群集只需要约 10 分钟。 系统将要处理的数据存储在 Azure 存储中。 请参阅[将 Azure 存储与 HDInsight 配合使用](../hdinsight-hadoop-use-blob-storage.md)。
 
 ![Spark：一种统一框架](./media/apache-spark-overview/hdinsight-spark-overview.png)
 
@@ -89,7 +90,6 @@ HDInsight 中的 Apache Spark 将数据存储在 Azure 存储内。 商务专家
 Apache Spark 随附 [MLlib](http://spark.apache.org/mllib/) - 构建在 Spark（可以从 HDInsight 中的 Spark 群集使用）基础之上的机器学习库。 HDInsight 上的 Spark 群集还包含 Anaconda - 为机器学习提供各种包的 Python 发行版。 结合内置的 Jupyter 和 Zeppelin Notebook 支持，你将拥有最先进的机器学习应用程序创建环境。
 
 ### <a name="spark-streaming-and-real-time-data-analysis"></a>Spark 流式处理和实时数据分析
-[观看教程](apache-spark-eventhub-streaming.md)
 
 HDInsight 中的 Spark 群集提供丰富的支持，供你生成实时分析解决方案。 尽管 Spark 已随附从 Kafka、Flume、Twitter、ZeroMQ 或 TCP 套接字等众多来源引入数据的连接器，但 HDInsight 中的 Spark 增加了一流的支持，供你从 Azure 事件中心引入数据。 事件中心是 Azure 上最广泛使用的队列服务。 拥有立即可用的事件中心支持，让 HDInsight 中的 Spark 群集成为生成实时分析管道的理想平台。
 
@@ -112,7 +112,6 @@ HDInsight 上的 Spark 群集还提供 [ODBC 驱动程序](http://go.microsoft.c
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](apache-spark-eventhub-streaming.md)
 * [使用 HDInsight 中的 Spark 分析网站日志](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序

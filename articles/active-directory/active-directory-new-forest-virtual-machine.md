@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 虚拟网络中安装 Active Directory 林 | Microsoft 文档"
-description: "本教程介绍了如何在 Azure 虚拟网络上的虚拟机 (VM) 中创建新的 Active Directory 林。"
+title: 在 Azure 虚拟网络中安装 Active Directory 林 | Microsoft 文档
+description: 本教程介绍了如何在 Azure 虚拟网络上的虚拟机 (VM) 中创建新的 Active Directory 林。
 services: active-directory, virtual-network
-keywords: "active directory 虚拟机, 安装 active directory 林, azure active directory 视频 "
-documentationcenter: 
+keywords: 'active directory 虚拟机, 安装 active directory 林, azure active directory 视频 '
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-tags: 
+tags: ''
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
 ms.devlang: na
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 12/06/2017
-ms.date: 1/1/2018
+ms.date: 3/5/2018
 ms.author: v-nany
-ms.openlocfilehash: ddc9aa71ee53a5ac1cdde8881803134cdb6100bf
-ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
+ms.openlocfilehash: a2028c0ff886deed29767cc59cb4cffce3b949e9
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>在 Azure 虚拟网络中安装新的 Active Directory 林
 本文说明如何在 [Azure 虚拟网络](../virtual-network/virtual-networks-overview.md)上的虚拟机 (VM) 中创建新的 Windows Server Active Directory 环境。 在此情况下，Azure 虚拟网络未连接到本地网络。
@@ -57,7 +57,7 @@ ms.lasthandoff: 01/19/2018
 ## <a name="create-vms-to-run-the-domain-controller-and-dns-server-roles"></a>创建 VM 以运行域控制器和 DNS 服务器角色
 重复以下步骤，根据需要创建用于托管 DC 角色的 VM。 应该至少部署两个虚拟 DC 以提供容错和冗余。 如果 Azure 虚拟网络包含至少两个采用类似配置的 DC（即，它们都是 GC、运行 DNS 服务器，并且都不包含任何 FSMO 角色，等等），那么，可将运行这些 DC 的 VM 放在可用性集中，以获得更高的容错能力。
 
-若要使用 Windows PowerShell 而不是 UI 创建 VM，请参阅[使用 Azure PowerShell 创建和预配置基于 Windows 的虚拟机](../virtual-machines/windows/classic/create-powershell.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
+若要使用 Windows PowerShell 而不是 UI 创建 VM，请参阅[使用 PowerShell 创建虚拟机](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)示例。
 
 1. 在 Azure 门户中，选择“新建” > “计算”，然后选择一个虚拟机。 使用以下值来完成向导操作。 除非建议或必须使用其他值，否则请接受默认的设置值。
 
@@ -67,9 +67,9 @@ ms.lasthandoff: 01/19/2018
    |  **虚拟机配置** |<p>虚拟机名称：键入单个标签名称（例如 AzureDC1）。</p><p>新用户名：键入用户的名称。 此用户将是 VM 上本地管理员组的成员。 在首次登录 VM 时，需要使用此名称。 名为“管理员”的内置帐户将无法使用。</p><p>新密码/确认：键入密码</p> |
    |  **虚拟机配置** |<p>云服务：针对第一个 VM 选择“创建新云服务”，并在创建更多用于托管 DC 角色的 VM 时选择该云服务名称。<b></b></p><p>云服务 DNS 名称：指定一个全局唯一的名称</p><p>区域/地缘组/虚拟网络：指定虚拟网络名称（例如 WestUSVNet）。</p><p>存储帐户：针对第一个 VM 选择“使用自动生成的存储帐户”，并在创建更多用于托管 DC 角色的 VM 时选择该存储帐户名称。<b></b></p><p>可用性集：选择“创建可用性集”。<b></b></p><p>可用性集名称：键入创建第一个 VM 时的可用性集的名称，并在创建更多 VM 时选择该名称。</p> |
    |  **虚拟机配置** |<p>选择“安装 VM 代理”，以及所需的任何其他扩展。<b></b></p> |
-2. 将磁盘附加到要运行 DC 服务器角色的每个 VM。 需要提供额外的磁盘来存储 AD 数据库、日志和 SYSVOL。 指定磁盘的大小（例如 10 GB）并将“主机缓存首选项”设置为“无”。 有关步骤，请参阅[如何将数据磁盘附加到 Windows 虚拟机](../virtual-machines/windows/classic/attach-disk.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
+2. 将磁盘附加到要运行 DC 服务器角色的每个 VM。 需要提供额外的磁盘来存储 AD 数据库、日志和 SYSVOL。 指定磁盘的大小（例如 10 GB）并将“主机缓存首选项”设置为“无”。 有关步骤，请参阅[如何将数据磁盘附加到 Windows 虚拟机](../virtual-machines/windows/attach-managed-disk-portal.md)。
 3. 在首次登录 VM 之后，请打开“服务器管理器” > “文件和存储服务”，使用 NTFS 在该磁盘上创建一个卷。
-4. 为要运行 DC 角色的 VM 保留静态 IP 地址。 若要保留静态 IP 地址，请下载 Microsoft Web 平台安装程序， [安装 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) 并运行 Set-AzureStaticVNetIP cmdlet。 例如：
+4. 为要运行 DC 角色的 VM 保留静态 IP 地址。 若要保留静态 IP 地址，请下载 Microsoft Web 平台安装程序， [安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 并运行 Set-AzureStaticVNetIP cmdlet。 例如：
 
     `Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM`
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 01/19/2018
 
 若要使用 Windows PowerShell 而不是 UI 创建 VM，请参阅[使用 Azure PowerShell 创建和预配置基于 Windows 的虚拟机](../virtual-machines/windows/classic/create-powershell.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
-有关如何使用 Windows PowerShell 的详细信息，请参阅 [Get Started with Azure Cmdlets](https://msdn.microsoft.com/library/azure/jj554332.aspx)（Azure Cmdlet 入门）和 [Azure Cmdlet 参考](https://msdn.microsoft.com/library/azure/jj554330.aspx)。
+有关如何使用 Windows PowerShell 的详细信息，请参阅 [Get Started with Azure Cmdlets](https://docs.microsoft.com/powershell/azure/overview)（Azure Cmdlet 入门）和 [Azure Cmdlet 参考](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
 
 ## <a name="see-also"></a>另请参阅
 - [如何在 Azure 虚拟网络中安装新的 Active Directory 林](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
@@ -112,9 +112,9 @@ ms.lasthandoff: 01/19/2018
 - [Azure IT Pro IaaS：(01) 虚拟机基础知识](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 - [Azure IT Pro IaaS：(05) 创建虚拟网络和跨界连接](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 - [虚拟网络概述](../virtual-network/virtual-networks-overview.md)
-- [如何安装和配置 Azure PowerShell](../powershell-install-configure.md)
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-* [Azure Cmdlet 参考](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+- [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+- [Azure Cmdlet 参考](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 - [设置 Azure VM 静态 IP 地址](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
 - [如何向 Azure VM 分配静态 IP](http://www.bhargavs.com/index.php/2014/03/13/how-to-assign-static-ip-to-azure-vm/)
 - [安装新的 Active Directory 林](https://technet.microsoft.com/library/jj574166.aspx)

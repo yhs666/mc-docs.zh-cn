@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 从 GitHub 使用部署创建 Web 应用 | Azure"
-description: "Azure CLI 脚本示例 - 从 GitHub 使用部署创建 Web 应用"
+title: Azure CLI 脚本示例 - 从 GitHub 使用部署创建 Web 应用 | Azure
+description: Azure CLI 脚本示例 - 从 GitHub 使用部署创建 Web 应用
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
 ms.service: app-service-web
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: sample
 ms.topic: article
 origin.date: 12/11/2017
-ms.date: 01/02/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: c4e1dde0ce83408d0cad7bec36322b7bc27d1897
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.openlocfilehash: e3eceb9de69d1b9cbaec2dc2eb712a8f3ca323f8
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-web-app-with-deployment-from-github"></a>从 GitHub 使用部署创建 Web 应用
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/25/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 CLI，则需要使用 Azure CLI 2.0 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
+如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -55,9 +55,8 @@ az webapp create --name $webappname --resource-group myResourceGroup --plan $web
 az webapp deployment source config --name $webappname --resource-group myResourceGroup \
 --repo-url $gitrepo --branch master --manual-integration
 
-# Browse to the web app.
-az webapp browse --name $webappname --resource-group myResourceGroup
-
+# Copy the result of the following command into a browser to see the web app.
+echo http://$webappname.chinacloudsites.cn
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]

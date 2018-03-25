@@ -1,11 +1,11 @@
 ---
-title: "Azure Batch CLI 入门 | Microsoft Docs"
-description: "Azure CLI 中用于管理 Azure Batch 服务资源的 Batch 命令简介"
+title: Azure Batch CLI 入门 | Microsoft Docs
+description: Azure CLI 中用于管理 Azure Batch 服务资源的 Batch 命令简介
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
 ms.devlang: na
@@ -16,11 +16,11 @@ origin.date: 09/28/2017
 ms.date: 03/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 039a56fa5e0e3311ef114ac3072b453fc7c903da
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: b51c11a179ccdba1abd4b824e665c6182ede5c33
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 资源
 
@@ -70,7 +70,7 @@ Microsoft 建议使用最新版的 Azure CLI，即 2.0 版。 有关 2.0 版的�
 1. [以交互方式登录](/cli/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in)。 从命令行自行运行 Azure CLI 命令时，请以交互方式登录。
 2. [使用服务主体登录](/cli/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal)。 从脚本或应用程序运行 Azure CLI 命令时，请使用服务主体登录。
 
-本文的目的是介绍如何以交互方式登录到 Azure。 在命令行中键入 [az login](/cli/#az_login)：
+本文的目的是介绍如何以交互方式登录到 Azure。 在命令行中键入 [az login](/cli/reference-index#az_login)：
 
 ```azurecli
 # Log in to Azure China and authenticate interactively.

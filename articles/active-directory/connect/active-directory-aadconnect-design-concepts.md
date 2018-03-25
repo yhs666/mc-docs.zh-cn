@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect：设计概念 | Microsoft Docs"
-description: "本主题详细说明某些实现设计方面的问题"
+title: Azure AD Connect：设计概念 | Microsoft Docs
+description: 本主题详细说明某些实现设计方面的问题
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
 ms.custom: azure-ad-connect
@@ -16,11 +16,11 @@ ms.workload: Identity
 origin.date: 07/13/2017
 ms.date: 12/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: 508e1101803e2ff576dfab2fa068e9ed01dfacdd
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 595ca5b6a465270d51ac53ff4d745621729232a1
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect：设计概念
 本主题旨在说明 Azure AD Connect 实现设计期间必须考虑到的各个方面。 本主题是对特定领域的深入探讨，其他主题中也简要描述了这些概念。
@@ -192,7 +192,6 @@ John 是 contoso.com 中的用户。将用户同步到 Azure AD 目录 contoso.p
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>不可路由的本地域与 Azure AD 的 UPN
 有些组织使用不可路由的域（例如 contoso.local）或简单的单标签域（例如 contoso）。 在 Azure AD 中，无法验证不可路由的域。 Azure AD Connect 只能同步到 Azure AD 中已验证的域。 创建 Azure AD 目录时，会创建可路由的域，该域成为 Azure AD 的默认域，例如 contoso.partner.onmschina.cn。 因此，如果不希望同步到默认的 partner.onmschina.cn 域，必须在此类方案中验证任何其他可路由的域。
 
-有关添加和验证域的详细信息，请阅读 [Add your custom domain name to Azure Active Directory](../active-directory-domains-add-azure-portal.md)（将自定义域名添加到 Azure Active Directory）。
 
 Azure AD Connect 将检测是否在不可路由的域环境中运行，并在适当的情况下警告你不要继续使用快速设置。 如果在不可路由的域中操作，用户的 UPN 可能也包含不可路由的后缀。 例如，如果在 contoso.local 下运行，Azure AD Connect 建议使用自定义设置而不是快速设置。 使用自定义设置，可以在用户同步到 Azure AD 之后，指定要用作 UPN 以供登录 Azure 的属性。
 

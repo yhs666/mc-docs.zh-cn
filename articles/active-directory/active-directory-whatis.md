@@ -1,8 +1,8 @@
 ---
-title: "什么是 Azure Active Directory？"
-description: "使用 Azure Active Directory 将现有的本地标识扩展到云中，或开发 Azure AD 集成的应用程序。"
+title: 什么是 Azure Active Directory？
+description: 使用 Azure Active Directory 将现有的本地标识扩展到云中，或开发 Azure AD 集成的应用程序。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 ms.reviewer: jsnow
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 1/29/2018
+ms.date: 03/05/2018
 ms.custom: it-pro
-ms.openlocfilehash: 2a0e06d6c2d07cad404bd6698fe64167bbf12931
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: f493368139eb25e1881ebb8b0ef0b67e8070ce68
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="what-is-azure-active-directory"></a>什么是 Azure Active Directory？
 Azure Active Directory (Azure AD) 是 Microsoft 提供的多租户、基于云的目录和标识管理服务。 Azure AD 将核心目录服务、高级标识监管和应用程序访问管理相结合。 Azure AD 还提供功能丰富、基于标准的平台，该平台支持开发人员根据集中的策略和规则为应用程序提供访问控制。 
@@ -55,7 +55,6 @@ Azure AD 的多租户、地理分布、高可用性设计意味着可以依赖�
 
 - [立即试用！](./index.md) - 现在就可以使用此链接注册试用版并部署第一个云解决方案
 
-- 阅读“Azure AD 入门”，获取有关如何设置和快速运行 Azure AD 租户的提示与技巧
 
 
             **如果是开发人员：**

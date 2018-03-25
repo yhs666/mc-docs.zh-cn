@@ -1,7 +1,7 @@
 ---
-title: "了解 Azure 标识 | Microsoft Docs"
-description: "大致了解 Azure 标识解决方案的术语、概念和建议，以便为组织做出最明智的标识监管决策。"
-keywords: 
+title: 了解 Azure 标识 | Microsoft Docs
+description: 大致了解 Azure 标识解决方案的术语、概念和建议，以便为组织做出最明智的标识监管决策。
+keywords: ''
 author: alexchen2016
 manager: digimobile
 ms.reviewer: jsnow
@@ -9,16 +9,16 @@ ms.author: v-junlch
 origin.date: 07/17/2017
 ms.date: 10/18/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 6123d0fb4da74e43835d1fa29513fedea4d9a315
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 3dcdb264f47e0552e0e1bceca2fc8f3801f6e878
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>了解 Azure 标识解决方案
 Azure Active Directory (Azure AD) 是一个标识和访问管理云解决方案，它提供目录服务、标识监管和应用程序访问管理功能。 Azure AD 可以快速启用到 [Azure AD 应用程序库](https://azure.microsoft.com/marketplace/active-directory/all/)中的 1,000 个预先集成的商业和自定义应用的单一登录 (SSO)。 你可能已在使用其中的许多应用，例如 Office 365、Salesforce.com、Box、ServiceNow 和 Workday。
@@ -57,13 +57,13 @@ Azure 根据每个组织的需求提供复杂程度不一的多种方式来利�
 
 
 ### <a name="the-difference-between-windows-server-ad-ds-and-azure-ad"></a>Windows Server AD DS 与 Azure AD 之间的差别
-Azure Active Directory (Azure AD) 和本地 Active Directory（Active Directory 域服务，简称 AD DS）都是可以存储目录数据以及管理用户和资源之间通信的系统，涉及用户登录过程、身份验证和目录搜索。
+Azure Active Directory (Azure AD) 和本地 Active Directory（Active Directory 域服务或 AD DS）都是存储目录数据和管理用户和资源之间通信（包括用户登录过程、身份验证和目录搜索）的系统。
 
 如果你已熟悉 Windows 2000 Server 中最先引入的本地 Windows Server Active Directory 域服务 (AD DS) 的话，则可能已了解标识服务的基本概念。 但是，还要了解的一个要点是，Azure AD 不仅仅是在云中的域控制器。 它是在 Azure 中提供标识即服务 (IDaaS) 的一种全新方式，让我们以完全不同的思路考虑如何全面融入基于云的功能，以及帮助组织抵御新型威胁。 
 
-AD DS 是 Windows Server 上的服务器角色，这意味着它可以部署在物理机或虚拟机上。 它的层次结构基于 X.500。 它使用 DNS 来查找对象，可以使用 LDAP 进行交互，且主要使用 Kerberos 进行身份验证。 除了将计算机加入域，Active Directory 还可以启用组织单位 (OU) 和组策略对象 (GPO)，因此可以在域之间建立信任。
+AD DS 是 Windows Server 上的服务器角色，这意味着可将它部署在物理计算机或虚拟机上。 它的层次结构基于 X.500。 它使用 DNS 来查找对象，可以使用 LDAP 进行交互，且主要使用 Kerberos 进行身份验证。 除了将计算机加入域，Active Directory 还可以启用组织单位 (OU) 和组策略对象 (GPO)，因此可以在域之间建立信任。
 
-多年以来，IT 部门一直在使用 AD DS 保护其安全外设，但需要为员工、客户与合作伙伴提供标识支持的无外设企业需要一个全新的控制平面。 Azure AD 就是这样一个标识控制平面。 安全保护已从企业防火墙延伸到云中，Azure AD 可在其中通过为用户提供一个通用标识来保护公司资源和访问（在本地或云中）。 这为用户提供了灵活性来安全地访问他们所需的应用，可以从几乎任何设备完成其工作。 还提供了无缝的基于风险的数据保护控制（由机器学习功能和深度报告功能提供支持），这是 IT 确保公司数据安全所必需的。
+多年以来，IT 部门一直在使用 AD DS 保护其安全外设，但需要为员工、客户与合作伙伴提供标识支持的无外设企业需要一个全新的控制平面。 Azure AD 就是这样一个标识控制平面。 安全保护已从企业防火墙延伸到云中，Azure AD 可在其中通过为用户提供一个通用标识来保护公司资源和访问（在本地或云中）。 这为用户提供了灵活性来安全地访问他们所需的应用，可以从几乎任何设备完成其工作。 此外，还提供以机器学习功能和深度报告为后盾的、IT 部门为保护数据安全而需要的基于风险的无缝数据保护控制机制。
 
 Azure AD 是多客户公共目录服务，这意味着用户可以在 Azure AD 中为云服务器和 Office 365 之类的应用程序创建租户。 用户和组在平面结构中创建，没有 OU 或 GPO。 身份验证通过 SAML、WS-Federation、OAuth 等协议执行。 可以查询 Azure AD，但必须使用名为“AD Graph API”的 REST API，而不能使用 LDAP。 这些都是基于 HTTP 和 HTTPS 运行的。
 
@@ -94,7 +94,7 @@ Azure 允许以多种方式管理用户的标识，不管这些标识是完全�
 ## <a name="where-can-i-learn-more"></a>可以从何处了解详细信息？
 我们提供了大量的优秀在线资源，以帮助用户了解 Azure AD 的方方面面。 下面是一些有助于快速入门的优秀文章：
 
-- [使用 Azure AD Connect 启用目录的混合管理](active-directory-aadconnect.md)
+- [使用 Azure AD Connect 启用目录的混合管理](./connect/active-directory-aadconnect.md)
 - [在互联世界中提高安全性](../multi-factor-authentication/multi-factor-authentication.md)
 - [从任意位置管理密码](active-directory-passwords.md)
 - [Azure Active Directory 的应用程序访问与单一登录是什么？](active-directory-appssoaccess-whatis.md)

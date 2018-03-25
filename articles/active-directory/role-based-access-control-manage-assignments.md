@@ -1,8 +1,8 @@
 ---
-title: "查看 Azure 资源访问权限分配 | Azure"
-description: "在 Azure 门户中查看和管理任何用户或组的所有基于角色的访问控制分配"
+title: 查看 Azure 资源访问权限分配 | Azure
+description: 在 Azure 门户中查看和管理任何用户或组的所有基于角色的访问控制分配
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
 editor: jeffsta
@@ -15,11 +15,11 @@ ms.workload: identity
 origin.date: 05/04/2017
 ms.date: 1/1/2018
 ms.author: v-nany
-ms.openlocfilehash: 8d856c875697cf8a32e9f0b068ef0713c665fe09
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 2acaee53616fecf2a7e3296c12aa5046031e33cc
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>在 Azure 门户中查看用户和组的访问权限分配
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/29/2017
 ## <a name="view-access-assignments"></a>查看访问权限分配
 若要查找单个用户或组的访问权限分配，请从 [Azure 门户](http://portal.azure.com)中的 Azure Active Directory 开始。
 
-1. 选择“Azure Active Directory” 。 如果此选项在导航列表中不可见，请选择“更多服务”，然后向下滚动即可找到“Azure Active Directory”。
+1. 选择“Azure Active Directory” 。 如果此选项在导航列表中不可见，请选择“所有服务”，然后向下滚动即可找到“Azure Active Directory”。
 2. 选择“用户和组”，并选择“所有用户”或“所有组”。 在本例中，我们侧重于个人用户。
     ![在 Azure Active Directory 中管理用户和组 - 屏幕截图](./media/role-based-access-control-manage-assignments/rbac_users_groups.png)
 3. 按名称或用户名搜索用户。

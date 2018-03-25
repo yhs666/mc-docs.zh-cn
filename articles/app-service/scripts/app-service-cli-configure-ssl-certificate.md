@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 将自定义 SSL 证书绑定到 Web 应用 | Azure"
-description: "Azure CLI 脚本示例 - 将自定义 SSL 证书绑定到 Web 应用"
+title: Azure CLI 脚本示例 - 将自定义 SSL 证书绑定到 Web 应用 | Azure
+description: Azure CLI 脚本示例 - 将自定义 SSL 证书绑定到 Web 应用
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
 ms.service: app-service-web
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 origin.date: 12/11/2017
-ms.date: 01/02/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: ee8884b1c21126eef9ac3dccdcf61a580501f4f2
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.openlocfilehash: 805db8df97e5bbb683f23f5ebcb03a2b276ff6a2
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-web-app"></a>将自定义 SSL 证书绑定到 Web 应用
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/25/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 CLI，则需要使用 Azure CLI 2.0 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
+如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -44,37 +44,38 @@ ms.lasthandoff: 12/25/2017
 fqdn=<replace-with-www.{yourdomain}>
 pfxPath=<replace-with-path-to-your-.PFX-file>
 pfxPassword=<replace-with-your=.PFX-password>
+resourceGroup=myResourceGroup
 webappname=mywebapp$RANDOM
 
 # Create a resource group.
-az group create --location chinanorth --name myResourceGroup
+az group create --location chinanorth --name $resourceGroup
 
 # Create an App Service plan in Basic tier (minimum required by custom domains).
-az appservice plan create --name $webappname --resource-group myResourceGroup --sku B1
+az appservice plan create --name $webappname --resource-group $resourceGroup --sku B1
 
 # Create a web app.
-az webapp create --name $webappname --resource-group myResourceGroup \
+az webapp create --name $webappname --resource-group $resourceGroup \
 --plan $webappname
 
 echo "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsites.cn"
 read -p "Press [Enter] key when ready ..."
 
 # Before continuing, go to your DNS configuration UI for your custom domain and follow the 
-# instructions at https://docs.azure.cn/app-service-web/web-sites-custom-domain-name#step-2-create-the-dns-records to configure a CNAME record for the 
+# instructions at https://docs.azure.cn/zh-cn/app-service/app-service-web-tutorial-custom-domain#step-2-create-the-dns-records to configure a CNAME record for the 
 # hostname "www" and point it your web app's default domain name.
 
 # Map your prepared custom domain name to the web app.
-az webapp config hostname add --webapp-name $webappname --resource-group myResourceGroup \
+az webapp config hostname add --webapp-name $webappname --resource-group $resourceGroup \
 --hostname $fqdn
 
 # Upload the SSL certificate and get the thumbprint.
-thumprint=$(az webapp config ssl upload --certificate-file $pfxPath \
---certificate-password $pfxPassword --name $webappname --resource-group myResourceGroup \
+thumbprint=$(az webapp config ssl upload --certificate-file $pfxPath \
+--certificate-password $pfxPassword --name $webappname --resource-group $resourceGroup \
 --query thumbprint --output tsv)
 
 # Binds the uploaded SSL certificate to the web app.
 az webapp config ssl bind --certificate-thumbprint $thumbprint --ssl-type SNI \
---name $webappname --resource-group myResourceGroup
+--name $webappname --resource-group $resourceGroup
 
 echo "You can now browse to https://$fqdn"
 ```

@@ -1,11 +1,11 @@
 ---
-title: "管理 Azure SQL 数据仓库中的计算资源 | Azure"
-description: "了解 Azure SQL 数据仓库中的性能横向扩展功能。 调整 DWU 可以实现横向扩展，暂停数据仓库可以降低成本。"
+title: 管理 Azure SQL 数据仓库中的计算资源 | Azure
+description: 了解 Azure SQL 数据仓库中的性能横向扩展功能。 调整 DWU 可以实现横向扩展，暂停数据仓库可以降低成本。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.custom: manage
 origin.date: 02/20/2018
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: b268664bfba7a7287c3ed0a923eede895d644db5
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 3f58cfe2982c331a829b51d80ff3e310e1d9cea8
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>管理 Azure SQL 数据仓库中的计算资源
 了解如何管理 Azure SQL 数据仓库中的计算资源。 可以通过暂停数据仓库来降低成本，或者根据性能需求缩放数据仓库。 
@@ -28,6 +28,7 @@ ms.lasthandoff: 03/08/2018
 ## <a name="what-is-compute-management"></a>计算管理是什么？
 SQL 数据仓库的体系结构对存储和计算功能进行了分隔，允许每项功能单独进行缩放。 因此，可以独立于数据存储，根据性能需求缩放计算资源。 还可以暂停和恢复计算资源。 此体系结构的自然结果是，计算和存储的[计费](https://www.azure.cn/pricing/details/sql-data-warehouse/)是独立的。 如果有一段时间不需要使用数据仓库，可以通过暂停计算来节省计算成本。 
 
+<a name="scale-compute"><a/>
 ## <a name="scaling-compute"></a>缩放计算资源
 调整数据仓库的[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)设置，可以横向扩展或还原计算资源。 添加更多的数据仓库单位后，加载和查询性能可线性提高。 SQL 数据仓库提供数据仓库单位的[服务级别](performance-tiers.md#service-levels)，确保在横向扩展或还原后性能不会有明显的变化。 
 
@@ -79,6 +80,8 @@ SQL 数据仓库的体系结构对存储和计算功能进行了分隔，允许�
 
 添加数据仓库单位可提高并行度。 如果工作在计算节点之间均匀拆分，则更高的并行度可以提高查询性能。 有几种原因会导致横向扩展不能改变性能。 数据可能在分布区中扭曲，或者查询可能引入了大量的数据移动操作。 若要调查查询性能问题，请参阅[排查性能问题](sql-data-warehouse-troubleshoot.md#performance)。 
 
+<a name="pause-compute-bk"><a/>
+<a name="resume-compute-bk"><a/>
 ## <a name="pausing-and-resuming-compute"></a>暂停和恢复计算资源
 暂停计算资源会导致存储层从计算节点分离。 将从帐户中释放计算资源。 暂停计算资源时，不会产生计算费用。 恢复计算资源会将存储重新附加到计算节点，并且恢复计算费用。 暂停数据仓库时：
 
@@ -105,12 +108,6 @@ SQL 数据仓库的体系结构对存储和计算功能进行了分隔，允许�
 
 另请参阅[了解事务](sql-data-warehouse-develop-transactions.md)和 [优化事务][优化事务](sql-data-warehouse-develop-best-practices-transactions.md)。
 
-## <a name="automating-compute-management"></a>将计算管理自动化
-若要将计算管理操作自动化，请参阅[使用 Azure Functions 管理计算](manage-compute-with-azure-functions.md)。
-
-每项横向扩展、暂停和恢复操作可能需要几分钟才能完成。 如果自动执行缩放、暂停或恢复操作，我们建议实现相应的逻辑来确保先完成特定的操作，然后再继续其他操作。 通过不同的终结点检查数据仓库状态可以正确实现此类操作的自动化。 
-
-若要检查数据仓库状态，请参阅适用于 [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) 或 [T-SQL](quickstart-scale-compute-tsql.md#check-database-state) 的快速入门。 也可以使用 [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state) 检查数据仓库状态。
 
 ## <a name="permissions"></a>权限
 

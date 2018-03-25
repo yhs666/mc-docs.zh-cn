@@ -1,8 +1,8 @@
 ---
-title: "将 Beeline 与 Apache Hive 配合使用 - Azure HDInsight | Azure"
-description: "了解如何使用 Beeline 客户端通过 Hadoop on HDInsight 运行 Hive 查询。 Beeline 是用于通过 JDBC 操作 HiveServer2 的实用工具。"
+title: 将 Beeline 与 Apache Hive 配合使用 - Azure HDInsight | Azure
+description: 了解如何使用 Beeline 客户端通过 Hadoop on HDInsight 运行 Hive 查询。 Beeline 是用于通过 JDBC 操作 HiveServer2 的实用工具。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/01/2017
-ms.date: 12/18/2017
+origin.date: 01/02/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7b2b9e3934c0e4d2d8a53928b78e57a8bcadbe46
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 0cc7915cbba9f946505124654add839f0b2675b7
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>将 Beeline 客户端与 Apache Hive 配合使用
 
@@ -45,16 +45,16 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
 ## <a id="prereq"></a>先决条件
 
-* 基于 Linux 的 HDInsight 上的 Hadoop 群集。
+* 基于 Linux 的 Hadoop on HDInsight 群集版本 3.4 或更高版本。
 
   > [!IMPORTANT]
-  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+  > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * SSH 客户端或本地 Beeline 客户端。 本文档中的大多数步骤都假定从与群集的 SSH 会话使用 Beeline。 有关从群集外部运行 Beeline 的信息，请参阅[远程使用 Beeline](#remote) 部分。
 
     有关使用 SSH 的详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-## <a id="beeline"></a>使用 Beeline
+## <a id="beeline"></a>运行 Hive 查询
 
 1. 启动 Beeline 时，必须提供用于 HDInsight 群集上的 HiveServer2 的连接字符串：
 
@@ -117,17 +117,26 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs (
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+        GROUP BY t4;
     ```
 
-    这些语句将执行以下操作：
+    这些语句执行以下操作：
 
     * `DROP TABLE` - 如果表存在，则将其删除。
 
-    * `CREATE EXTERNAL TABLE` - 在 Hive 中创建一个**外部**表。 外部表只会在 Hive 中存储表定义。 数据将保留在原始位置。
+    * `CREATE EXTERNAL TABLE` - 在 Hive 中创建一个**外部**表。 外部表只会在 Hive 中存储表定义。 数据保留在原始位置。
 
     * `ROW FORMAT` - 如何设置数据的格式。 在此情况下，每个日志中的字段以空格分隔。
 
@@ -170,7 +179,7 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
 5. 若要退出 Beeline，请使用 `!exit`。
 
-## <a id="file"></a>使用 Beeline 运行 HiveQL 文件
+### <a id="file"></a>使用 Beeline 运行 HiveQL 文件
 
 使用以下步骤创建文件，并使用 Beeline 运行该文件。
 
@@ -187,7 +196,7 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
     ```
 
-    这些语句将执行以下操作：
+    这些语句执行以下操作：
 
     * **CREATE TABLE IF NOT EXISTS** - 创建表（如果该表尚不存在）。 因为未使用 **EXTERNAL** 关键字，此语句创建内部表。 内部表存储在 Hive 数据仓库中，由 Hive 全权管理。
     * **STORED AS ORC**：以优化行纵栏表 (ORC) 格式存储数据。 ORC 格式是高度优化且有效的 Hive 数据存储格式。
@@ -248,7 +257,7 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
 Spark 提供自己的 HiveServer2 实现（有时称为 Spark Thrift 服务器）。 此服务使用 Spark SQL 而不是 Hive 来解析查询，并且可以根据查询改善性能。
 
-若要连接到 HDInsight 群集上 Spark 的 Spark Thrift 服务器，请使用端口 `10002` 而不是 `10001`。 例如， `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`。
+若要连接到 HDInsight 群集上 Spark 的 Spark Thrift 服务器，请使用端口 `10002` 而不是 `10001`。 例如，`beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`。
 
 > [!IMPORTANT]
 > Spark Thrift 服务器不能通过 Internet 直接访问。 只能从 SSH 会话或 HDInsight 群集所在的同一 Azure 虚拟网络内连接到它。

@@ -11,6 +11,7 @@ Fs 系列具有 F 系列的所有优势（在高级存储的基础上）。
 <!-- Not Available ## Fsv2-series -->
 ## <a name="fs-series-sup1sup"></a>Fs 系列 <sup>1</sup>
 
+<!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
 ACU：210 - 250
 
 | 大小 | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 缓存和临时存储的最大吞吐量：IOPS/MBps（以 GiB 为单位的缓存大小） | 非缓存磁盘最大吞吐量：IOPS / MBps | 最大 NIC 数/预期网络带宽 (MBps) |
@@ -40,7 +41,7 @@ ACU：210 - 250
 | Standard_F8  | 8         | 16          | 128            | 24000/375/187                                        | 32/32x500                       | 8 / 6000                     |
 | Standard_F16 | 16        | 32          | 256            | 48000/750/375                                        | 64/64x500                       | 8 / 12000           |
 <!-- Correct the F-Series Max Disk Count 4,8,16,32,64 -->
-
+<!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
 <br>
 <!-- ms.date: 03/19/2018 -->
 <!-- Update_Description: wording update -->

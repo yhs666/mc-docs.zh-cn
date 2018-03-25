@@ -1,11 +1,11 @@
 ---
-title: "配置可以并存的 ExpressRoute 连接和站点到站点 VPN 连接：Resource Manager：Azure | Azure"
-description: "本文指导你为 Resource Manager 模型配置可共存的 ExpressRoute 和站点到站点 VPN 连接。"
+title: 配置可以并存的 ExpressRoute 连接和站点到站点 VPN 连接：Resource Manager：Azure | Azure
+description: 本文指导你为 Resource Manager 模型配置可共存的 ExpressRoute 和站点到站点 VPN 连接。
 documentationCenter: na
 services: expressroute
 author: charwen
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c7717b14-3da3-4a6d-b78e-a5020766bc2c
 ms.service: expressroute
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/19/2017
 ms.author: v-yiso
-ms.date: 03/12/2018
-ms.openlocfilehash: b993ff1f01966e6325cd430247c89168deba47ed
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.date: 03/26/2018
+ms.openlocfilehash: ecbb1ba7496f62d1ea7eb7426eb1a91c59627c80
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>设置 ExpressRoute 和站点到站点并存连接
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ ms.lasthandoff: 03/02/2018
 ## <a name="configuration-designs"></a>配置设计
 
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>将站点到站点 VPN 配置为 ExpressRoute 的故障转移路径
-可以将站点到站点 VPN 连接配置为 ExpressRoute 的备份。 这仅适用于链接到 Azure 专用对等路径的虚拟网络。 对于可通过 Azure 公共对等互连访问的服务，没有基于 VPN 的故障转移解决方案。 ExpressRoute 线路始终是主链接。 仅当 ExpressRoute 线路失败时，数据才会流经站点到站点 VPN 路径。
+可以将站点到站点 VPN 连接配置为 ExpressRoute 的备份。 这仅适用于链接到 Azure 专用对等路径的虚拟网络。 对于可通过 Azure 公共线路和 Microsoft 对等线路访问的服务，没有基于 VPN 的故障转移解决方案。 ExpressRoute 线路始终是主链接。 仅当 ExpressRoute 线路失败时，数据才会流经站点到站点 VPN 路径。
 
 > [!NOTE]
 > 虽然在两个路由相同的情况下 ExpressRoute 线路优先于站点到站点 VPN，Azure 仍会使用最长的前缀匹配来选择指向数据包目标的路由。
@@ -94,7 +94,7 @@ ms.lasthandoff: 03/02/2018
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
   $VNetASN = 65010
   ```
-3. 创建包括网关子网的虚拟网络。 有关虚拟网络配置的详细信息，请参阅 [Azure 虚拟网络配置](../virtual-network/virtual-networks-create-vnet-arm-ps.md)。
+3. 创建包括网关子网的虚拟网络。 有关创建虚拟网络的详细信息，请参阅[创建虚拟网络](../virtual-network/manage-virtual-network.md#create-a-virtual-network)。 有关创建子网的详细信息，请参阅[创建子网](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)。
 
     >[!IMPORTANT]
     > 网关子网必须是 /27 或更短的前缀（例如 /26 或 /25）。

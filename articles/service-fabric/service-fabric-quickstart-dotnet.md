@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 中创建 .NET Service Fabric 应用程序 | Azure"
-description: "在本快速入门中，请使用 Service Fabric Reliable Services 示例应用程序创建用于 Azure 的 .NET 应用程序。"
+title: 在 Azure 中创建 .NET Service Fabric 应用程序 | Azure
+description: 在本快速入门中，请使用 Service Fabric Reliable Services 示例应用程序创建用于 Azure 的 .NET 应用程序。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: quickstart
@@ -16,11 +16,11 @@ origin.date: 01/25/2018
 ms.date: 03/12/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a97d0944e4e2e1cef5f5d4e2cff3e7310b440117
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 23aae068fab922527aefe2eb6955ad81a39024d1
+ms.sourcegitcommit: 9b4669fe42e0dd7e3b463423ae4f58143af2b111
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>快速入门：在 Azure 中创建 .NET Service Fabric 应用程序
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。 
@@ -130,11 +130,11 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 1. 在解决方案资源管理器中，右键单击“投票”，再选择“发布”。 此时，“发布”对话框显示。
 
 2. 将 Party 群集页面中的“连接终结点”复制到“连接终结点”字段。 例如，`zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19000`。
-<!-- Not Available on  Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in a previous step. -->
+    <!-- Not Available on  Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in a previous step. -->
 
-    ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
+    ![“发布”对话框](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-    Each application in the cluster must have a unique name. If there is a name conflict, rename the Visual Studio project and deploy again.
+    群集中的每个应用程序都必须具有唯一名称。 如果存在名称冲突，请重命名 Visual Studio 项目并重新部署。
     <!-- Not Available on Party cluster -->
 3. 单击“发布”。
 

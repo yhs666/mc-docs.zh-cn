@@ -1,13 +1,13 @@
 ---
-title: "Hadoop 组件和版本"
-description: "了解 HDInsight 中的 Hadoop 组件和版本，以及 Hortonworks 数据平台的此云分发版中可用的服务级别。"
-keywords: "hadoop 版本,hadoop 生态系统组件,hadoop 组件,如何检查 hadoop 版本"
+title: Hadoop 组件和版本
+description: 了解 HDInsight 中的 Hadoop 组件和版本，以及 Hortonworks 数据平台的此云分发版中可用的服务级别。
+keywords: hadoop 版本,hadoop 生态系统组件,hadoop 组件,如何检查 hadoop 版本
 services: hdinsight
 editor: cgronlun
 manager: asadk
 author: bprakash
 tags: azure-portal
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -18,11 +18,11 @@ ms.topic: article
 origin.date: 01/09/2018
 ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6652479c5ee464ba1f86116a6f302079c2c02747
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 0013ef22082a45ef0dda3576334646e75cef5cf9
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight 提供了哪些 Hadoop 组件和版本？
 
@@ -235,14 +235,16 @@ _停用日期_是指在此后不能在 HDInsight 上创建此群集版本的日�
 > 如果需要在群集中使用 32 个以上的辅助角色节点，则必须选择至少具有 8 个核心和 14 GB RAM 的头节点大小。
 >
 >
-| 群集类型 | Hadoop | HBase | Storm | Spark |
-| --- | --- | --- | --- | --- |
-| 头：默认 VM 大小 |D3 v2 |D3 v2 |A3 |D12 v2 |
-| 头：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |A3、A4、A5 |D12 v2、D13 v2、D14 v2 |
-| 辅助角色：默认 VM 大小 |D3 v2 |D3 v2 |D3 v2 |Windows：D12 v2；Linux：D4 v2 |
-| 辅助角色：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
-| Zookeeper：默认 VM 大小 | |A3 |A2 | |
-| Zookeeper：建议的 VM 大小 | |A3、A4、A5 |A2、A3、A4 | |
+  | 群集类型 | Hadoop | HBase | 交互式查询 | Storm | Spark |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | 头：默认 VM 大小 |D3 v2 |D3 v2 | D13、D14 |A3 |D12 v2 |
+  | 头：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2  | D13、D14 |A3、A4、A5 |D12 v2、D13 v2、D14 v2 |
+  | 辅助角色：默认 VM 大小 |D3 v2 |D3 v2  | D13、D14 |D3 v2 |Windows：D12 v2；Linux：D4 v2 |
+  | 辅助角色：建议的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2  | D13、D14 |D3 v2、D4 v2、D12 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
+  | Zookeeper：默认 VM 大小 | |A3 | |A2 | |
+  | Zookeeper：建议的 VM 大小 | |A3、A4、A5 | | A2、A3、A4 | |
+  | 边缘：默认 VM 大小 | | | | | |
+  | 边缘：建议的 VM 大小 | | | | | |
 
 > [!NOTE]
 > - 头称为 Storm 群集类型的 *Nimbus* 。

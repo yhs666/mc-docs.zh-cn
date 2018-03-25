@@ -1,26 +1,26 @@
 ---
-title: "使用 C 将 Raspberry Pi 预配到远程监视 - Azure"
-description: "介绍如何使用以 C 编写的应用程序将 Raspberry Pi 设备连接到 Azure IoT 套件预配置远程监视解决方案。"
+title: 使用 C 将 Raspberry Pi 预配到远程监视 - Azure
+description: 介绍如何使用以 C 编写的应用程序将 Raspberry Pi 设备连接到 Azure IoT 套件预配置远程监视解决方案。
 services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/03/2018
-ms.date: 02/05/2018
+origin.date: 03/14/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: fb58862cf4b1551554749af68c5acd0f97b73c1d
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: efd4a3cd9f3cb4abca000114dcbf278e2249a0ff
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>将 Raspberry Pi 设备连接到远程监视预配置解决方案 (C)
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 02/13/2018
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]

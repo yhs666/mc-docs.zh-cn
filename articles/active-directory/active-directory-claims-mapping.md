@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory（公共预览版）中的声明映射 | Microsoft Docs"
-description: "本页介绍 Azure Active Directory 声明映射。"
+title: Azure Active Directory（公共预览版）中的声明映射 | Microsoft Docs
+description: 本页介绍 Azure Active Directory 声明映射。
 services: active-directory
 author: billmath
 manager: femila
@@ -12,11 +12,11 @@ ms.topic: article
 origin.date: 06/14/2017
 ms.author: v-junlch
 ms.date: 06/21/2017
-ms.openlocfilehash: 0079d2b4bebb8fc560683f888a9738862f3034dc
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 7e2b1a4e8b40b2209c18fd8912b85e3d60b703cd
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Azure Active Directory（公共预览版）中的声明映射
 
@@ -427,7 +427,7 @@ ID 元素标识源中用于为声明提供值的属性。 下表列出对 Source
 2.  运行 Connect 命令登录到你的 Azure AD 管理员帐户。 每次启动新会话都需要运行此命令。
     
      ``` powershell
-    Connect-AzureAD -Confirm
+    Connect-AzureAD  -AzureEnvironment AzureChinaCloud  -Confirm 
     
     ```
 3.  若要查看组织中创建的所有策略，请运行以下命令。 在以下方案中，建议在大多数操作之后运行此命令，以检查是否按预期创建策略。

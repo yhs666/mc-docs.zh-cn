@@ -1,24 +1,25 @@
 ---
-title: "将租户添加到 Azure Stack 以获取用量和计费信息 | Microsoft Docs"
-description: "将最终用户添加到云服务提供程序管理的 Azure Stack 所要执行的步骤。"
+title: 将租户添加到 Azure Stack 以获取用量和计费信息 | Microsoft Docs
+description: 将最终用户添加到云服务提供程序管理的 Azure Stack 所要执行的步骤。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
-ms.author: mabrigg
+origin.date: 03/08/2018
+ms.date: 03/22/2018
+ms.author: v-junlch
 ms.reviewer: alfredo
-ms.openlocfilehash: 67e5a67d7cd5caf6bd4d2625969b139411d62696
-ms.sourcegitcommit: dee174086b5f3d59d2045bf197c800e62a30fe60
+ms.openlocfilehash: d170b329e94d1cdb39f26063c7636d1a236fbf9f
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>将租户添加到 Azure Stack 以获取用量和计费信息
 
@@ -35,7 +36,7 @@ CSP 通常向其 Azure Stack 部署中的多个客户（租户）提供服务。
 
 **添加最终客户的步骤**
 
-![设置云服务提供程序以进行用量跟踪，以及管理最终客户帐户](media\azure-stack-csp-enable-billing-usage-tracking\process-csp-enable-billing.png)
+![设置云服务提供程序以进行用量跟踪，以及管理最终客户帐户](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ## <a name="create-a-new-customer-in-partner-center"></a>在合作伙伴中心创建新客户
 
@@ -58,7 +59,7 @@ CSP 通常向其 Azure Stack 部署中的多个客户（租户）提供服务。
 > 若要执行此步骤，必须[注册 Azure Stack](azure-stack-register.md)。
 
 1. 使用权限提升的提示符打开 Windows PowerShell，并运行：  
-    `Login-AzureRmAccount`
+    `Login-AzureRmAccount -EnvironmentName AzureChinaCloud`
 2. 键入 Azure 凭据。
 3. 在 PowerShell 会话中运行：
 
@@ -84,10 +85,12 @@ CSP 通常向其 Azure Stack 部署中的多个客户（租户）提供服务。
 
 ## <a name="create-a-local-resource-in-the-end-customer-tenant-in-azure-stack"></a>在 Azure Stack 中的最终客户租户内创建本地资源
 
-将新客户添加到 Azure Stack，或者最终客户租户已启用拥有所有者特权的来宾帐户后，请验证是否可在其租户中创建资源。 例如，他们可以[使用 Azure Stack 门户创建 Windows 虚拟机](user\azure-stack-quick-windows-portal.md)。
+将新客户添加到 Azure Stack，或者最终客户租户已启用拥有所有者特权的来宾帐户后，请验证是否可在其租户中创建资源。 例如，他们可以[使用 Azure Stack 门户创建 Windows 虚拟机](user/azure-stack-quick-windows-portal.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
  - 若要查看注册过程中触发的错误消息，请参阅[租户注册错误消息](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes)。
- - 若要详细了解如何从 Azure Stack 检索资源用量信息，请参阅 [Azure Stack 中的用量和计费](/azure-stack-billing-and-chargeback.md)。
- - 若要了解最终客户如何将你添加为 CSP 或其 Azure Stack 租户的管理员，请参阅[让云服务提供程序管理 Azure Stack 订阅](user\azure-stack-csp-enable-billing-usage-tracking.md)。
+ - 若要详细了解如何从 Azure Stack 检索资源用量信息，请参阅 [Azure Stack 中的用量和计费](azure-stack-billing-and-chargeback.md)。
+ - 若要了解最终客户如何将你添加为 CSP 或其 Azure Stack 租户的管理员，请参阅[让云服务提供程序管理 Azure Stack 订阅](user/azure-stack-csp-enable-billing-usage-tracking.md)。
+
+<!-- Update_Description: wording update -->

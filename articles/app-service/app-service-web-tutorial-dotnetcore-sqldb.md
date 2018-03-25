@@ -1,25 +1,25 @@
 ---
-title: "在 Azure 应用服务中生成 .NET Core 和 SQL 数据库 Web 应用"
-description: "了解如何在 Azure 应用服务中运行 .NET Core 应用，同时使其连接到 SQL 数据库。"
+title: 在 Azure 应用服务中生成 .NET Core 和 SQL 数据库 Web 应用
+description: 了解如何在 Azure 应用服务中运行 .NET Core 应用，同时使其连接到 SQL 数据库。
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 01/23/2018
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: c8ffd6fea7525971ea26acca8b823175ce16d139
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 4e942ff839382c1965fe2dc4d0d8e4146c85a665
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>在 Azure 应用服务中生成 .NET Core 和 SQL 数据库 Web 应用
 
@@ -324,7 +324,7 @@ public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")
 
 ```csharp
 <td>
-    @Html.DisplayFor(modelItem => item.CreatedDate)
+    @Html.DisplayFor(modelItem => item.Done)
 </td>
 ```
 

@@ -1,13 +1,13 @@
 ---
-title: "将 Apache Hive 用作 ETL 工具 - Azure HDInsight"
-description: "使用 Apache Hive 提取、转换和加载 (ETL) Azure HDInsight 中的数据。"
+title: 将 Apache Hive 用作 ETL 工具 - Azure HDInsight
+description: 使用 Apache Hive 提取、转换和加载 (ETL) Azure HDInsight 中的数据。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/14/2017
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 90bde102b8062891caf95155e092c6b8f37ef68f
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: 689b3039fd9e69053a62501573eca341924e848a
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>将 Apache Hive 用作提取、转换和加载 (ETL) 工具
 
@@ -95,7 +95,8 @@ ms.lasthandoff: 02/24/2018
 
 如果需要在 ETL 过程中对数据执行多个操作，请考虑如何管理这些操作。 如果操作由外部程序而不是解决方案中的工作流控制，则需要确定某些操作是否可以并行运行，并检测每项操作何时完成。 与使用外部脚本或自定义程序来尝试协调一系列操作相比，使用工作流机制（例如 Hadoop 中的 Oozie）可能更方便。 有关 Oozie 的详细信息，请参阅[工作流和作业业务流程](https://msdn.microsoft.com/library/dn749829.aspx)。
 
-<!-- ## Next steps -->
-<!-- * [ETL at scale](../hdinsight-etl-at-scale.md): Learn more about performing ETL at scale. -->
-<!-- * [Operationalize Data Pipelines with Oozie](hdinsight-operationalize-data-pipeline.md): Learn how to build a data pipeline that uses Hive to summarize CSV flight delay data, stage the prepared data in Azure Storage blobs, and then use Sqoop to load the summarized data into Azure SQL Database. -->
-<!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md): Walk through an end-to-end ETL pipeline.  -->
+## <a name="next-steps"></a>后续步骤
+
+* [大规模 ETL](apache-hadoop-etl-at-scale.md)
+* [使数据管道可操作化](../hdinsight-operationalize-data-pipeline.md)
+<!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md) -->

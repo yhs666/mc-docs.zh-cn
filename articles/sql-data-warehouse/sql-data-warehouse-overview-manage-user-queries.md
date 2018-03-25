@@ -1,12 +1,11 @@
 ---
-title: "在 Azure SQL 数据仓库中监视用户查询 | Azure"
-description: "在 Azure SQL 数据仓库中监视用户查询时的注意事项、最佳实践和任务的概述"
+title: 在 Azure SQL 数据仓库中监视用户查询 | Azure
+description: 在 Azure SQL 数据仓库中监视用户查询时的注意事项、最佳实践和任务的概述
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 1d0960db-5dcf-4a08-b1dc-6c5d3d5a616d
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +15,11 @@ ms.custom: performance
 origin.date: 10/31/2016
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: e4fe1255e2ce149be734d43e3021e707622ae992
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: 49f838cd444aa4ddad3d0f9a99925adde6a27fe3
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-user-queries-in-azure-sql-data-warehouse"></a>在 Azure SQL 数据仓库中监视用户查询
 在 SQL 数据仓库中监视用户查询时的注意事项、最佳实践和任务的概述。
@@ -37,7 +36,7 @@ ms.lasthandoff: 07/05/2017
 
 <!--Article references-->
 [Find long-running queries]: sql-data-warehouse-manage-monitor.md
-[Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md
+[Concurrency and workload management]: resource-classes-for-workload-management.md
 [Management overview]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->

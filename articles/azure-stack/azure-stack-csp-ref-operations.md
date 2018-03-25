@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: mabrigg
+origin.date: 02/22/2018
+ms.date: 03/22/2018
+ms.author: v-junlch
 ms.reviewer: alfredo
-ms.openlocfilehash: be15fbc5fad79f1079b901b3d6cb4948c45a0ab4
-ms.sourcegitcommit: dee174086b5f3d59d2045bf197c800e62a30fe60
+ms.openlocfilehash: 3500890e9530c267d6931c32707609fae44353ae
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>在 Azure Stack 中管理租户注册
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 03/16/2018
 
 ### <a name="powershell"></a>PowerShell
 
-使用 New-AzureRmResource cmdlet 更新注册资源。 使用用于初始注册的帐户登录到 Azure (`Login-AzureRMAccount`)。 下面是演示如何添加租户的示例：
+使用 New-AzureRmResource cmdlet 更新注册资源。 使用用于初始注册的帐户登录到 Azure (`Login-AzureRMAccount -EnvironmentName AzureChinaCloud`)。 下面是演示如何添加租户的示例：
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -78,7 +79,7 @@ ms.lasthandoff: 03/16/2018
 
 ### <a name="powershell"></a>PowerShell
 
-使用 Get-AzureRmResovurce cmdlet 列出所有已注册的租户。 使用用于初始注册的帐户登录到 Azure (`Login-AzureRMAccount`)。 下面是演示如何添加租户的示例：
+使用 Get-AzureRmResovurce cmdlet 列出所有已注册的租户。 使用用于初始注册的帐户登录到 Azure (`Login-AzureRMAccount -EnvironmentName AzureChinaCloud`)。 下面是演示如何添加租户的示例：
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -146,4 +147,6 @@ api-version=2017-06-01 HTTP/1.1`
 
 ## <a name="next-steps"></a>后续步骤
 
- - 若要详细了解如何从 Azure Stack 检索资源用量信息，请参阅 [Azure Stack 中的用量和计费](/azure-stack-billing-and-chargeback.md)。
+ - 若要详细了解如何从 Azure Stack 检索资源使用情况信息，请参阅 [Azure Stack 中的使用情况和计费](azure-stack-billing-and-chargeback.md)。
+
+<!-- Update_Description: wording update -->

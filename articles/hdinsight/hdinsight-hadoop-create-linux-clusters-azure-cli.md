@@ -1,8 +1,8 @@
 ---
-title: "使用命令行创建 Hadoop 群集 - Azure HDInsight | Azure"
-description: "了解如何使用跨平台 Azure CLI 1.0 创建 HDInsight 群集。"
+title: 使用命令行创建 Hadoop 群集 - Azure HDInsight | Azure
+description: 了解如何使用跨平台 Azure CLI 1.0 创建 HDInsight 群集。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 12/01/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3341cb6a14b359bc494549e71e7dd1eefdd1007a
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 0779922753a52319d75ec22c9538a7f2093e2bc1
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>使用 Azure CLI 创建 HDInsight 群集
 
@@ -32,7 +32,9 @@ ms.lasthandoff: 12/15/2017
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> 本主题介绍如何使用 Azure CLI 1.0 创建 HDInsight 群集。 此版本的 CLI 已弃用，并且对创建 HDInsight 群集的支持尚未添加到 Azure CLI 2.0。
+>
+> 也可以使用 Azure PowerShell 来创建和管理 HDInsight 群集。 有关详细信息，请参阅[使用 Azure PowerShell 创建 HDInsight 群集](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)文档。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -43,11 +45,11 @@ ms.lasthandoff: 12/15/2017
 * **Azure CLI**。 本文档中的步骤最近已使用 Azure CLI 版本 0.10.14 进行测试。
 
     > [!IMPORTANT]
-    > 本文中的步骤不适用于 Azure CLI 2.0。 Azure CLI 2.0 不支持创建 HDInsight 群集。
+    > Azure CLI 1.0 已弃用，并且对创建 HDInsight 群集的支持尚未添加到 Azure CLI 2.0。
 
 ## <a name="log-in-to-your-azure-subscription"></a>登录到 Azure 订阅
 
-按照 [从 Azure 命令行接口 (Azure CLI) 连接到 Azure 订阅](../xplat-cli-connect.md) 中所述的步骤，使用 **登录** 方法连接到订阅。
+按照 [从 Azure 命令行接口 (Azure CLI) 连接到 Azure 订阅](/cli/authenticate-azure-cli) 中所述的步骤，使用 **登录** 方法连接到订阅。
 
 ## <a name="create-a-cluster"></a>创建群集
 
@@ -104,7 +106,7 @@ ms.lasthandoff: 12/15/2017
     * 将 `Hadoop` 替换为要创建的群集类型。 例如，`Hadoop`、`HBase`、`Kafka`、`Spark` 或 `Storm`。
 
      > [!IMPORTANT]
-     > HDInsight 群集具有各种不同的类型，与该群集进行优化的工作负荷或技术相对应。 没有任何方法支持创建组合多种类型的群集，如一个群集同时具有 Storm 和 HBase 类型。
+     > HDInsight 群集具有各种不同的类型，与该群集进行优化的工作负荷或技术相对应。 不支持在一个群集上创建合并了多个类型（如 Storm 和 HBase）的群集。
 
     * 将 `location` 替换为前面步骤中使用的同一个位置。
 
@@ -119,7 +121,7 @@ ms.lasthandoff: 12/15/2017
     * 将 `sshuser` 和 `sshuserpassword` 替换为通过 SSH 访问群集时要使用的用户名和密码
 
     > [!IMPORTANT]
-    > 此示例创建一个具有两个辅助节点的群集。 还可以在创建群集后，通过执行缩放操作更改工作节点数。 如果计划使用 32 个以上的辅助角色节点，则必须选择至少具有 8 个核心和 14-GB RAM 的头节点大小。 在创建群集期间，可以使用 `--headNodeSize` 参数设置头节点大小。
+    > 此示例创建一个具有两个辅助角色节点的群集。 还可以在创建群集后，通过执行缩放操作更改工作节点数。 如果计划使用 32 个以上的辅助角色节点，则必须选择至少具有 8 个核心和 14-GB RAM 的头节点大小。 在创建群集期间，可以使用 `--headNodeSize` 参数设置头节点大小。
     >
     > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 

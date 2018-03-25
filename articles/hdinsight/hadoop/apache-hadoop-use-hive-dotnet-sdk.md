@@ -1,10 +1,10 @@
 ---
-title: "使用 HDInsight .NET SDK 运行 Hive 查询 - Azure | Azure"
-description: "了解如何使用 HDInsight .NET SDK 将 Hadoop 作业提交到 Azure HDInsight Hadoop。"
+title: 使用 HDInsight .NET SDK 运行 Hive 查询 - Azure | Azure
+description: 了解如何使用 HDInsight .NET SDK 将 Hadoop 作业提交到 Azure HDInsight Hadoop。
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: 4e291890-f8b4-426c-b5e8-d4fd512ff042
@@ -17,11 +17,11 @@ ms.topic: article
 origin.date: 12/20/2017
 ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 12d33ab2a014f169b461a260a5d1391058c51ca8
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: 9c762a1357537c4e5594953e070436ad60f6ddf9
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK 运行 Hive 查询
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -40,7 +40,7 @@ ms.lasthandoff: 02/24/2018
 
 * **Visual Studio 2013/2015/2017**。
 
-## <a name="submit-hive-queries-using-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK 提交 Hive 查询
+## <a name="run-a-hive-query"></a>运行 Hive 查询
 HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsight 群集的操作。 
 
 **提交作业**

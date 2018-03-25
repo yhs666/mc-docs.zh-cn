@@ -4,6 +4,9 @@
   items:
     - name: 概述
       href: apache-hadoop-introduction.md
+    - name: HDInsight 中的 Hadoop 体系结构
+      href: ../hdinsight-hadoop-architecture.md
+      maintainContext: true
     - name: HDInsight 上的 Hadoop 组件
       href: ../hdinsight-component-versioning.md
       maintainContext: true
@@ -38,7 +41,7 @@
               href: apache-hadoop-use-hive-ambari-view.md
             - name: 使用 Beeline
               href: apache-hadoop-use-hive-beeline.md
-            - name: 使用 cURL
+            - name: 使用 REST API
               href: apache-hadoop-use-hive-curl.md
             - name: 使用 Azure PowerShell
               href: apache-hadoop-use-hive-powershell.md
@@ -153,6 +156,9 @@
           maintainContext: true
         - name: 适用于 HDInsight 的高级分析
           href: apache-hadoop-deep-dive-advanced-analytics.md
+        - name: HDInsight 中的大规模流式处理
+          href: ../hdinsight-streaming-at-scale-overview.md
+          maintainContext: true
     - name: 扩展群集
       items:
         - name: 使用 Bootstrap 自定义群集
@@ -195,6 +201,21 @@
               maintainContext: true
             - name: 使用 REST 安装应用
               href: 'https://msdn.microsoft.com/library/mt706515.aspx'
+            - name: 安装已发布的应用 - Cask Data Application Platform (CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: 安装已发布的应用 - Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: 安装已发布的应用 - Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: 安装已发布的应用 - H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: 安装已发布的应用 - Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: 安全
       items:
         - name: 将 SSH 与 HDInsight 配合使用
@@ -259,6 +280,12 @@
             - name: 使用 Ambari REST API
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: 缩放 HDInsight 群集
+          href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
+        - name: 使用外部元数据存储
+          href: ../hdinsight-use-external-metadata-stores.md
+          maintainContext: true
         - name: 管理 HDInsight 群集的日志
           href: ../hdinsight-log-management.md
           maintainContext: true
@@ -282,6 +309,9 @@
               href: apache-hadoop-use-sqoop-dotnet-sdk.md
             - name: 使用 Azure PowerShell 运行
               href: apache-hadoop-use-sqoop-powershell.md
+        - name: 使数据分析管道可操作化
+          href: ../hdinsight-operationalize-data-pipeline.md
+          maintainContext: true
         - name: 为工作流使用 Oozie
           href: ../hdinsight-use-oozie-linux-mac.md
           maintainContext: true

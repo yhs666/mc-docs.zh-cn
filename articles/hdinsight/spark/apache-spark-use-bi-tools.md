@@ -1,9 +1,9 @@
 ---
-title: "使用 Azure HDInsight 上的数据可视化工具的 Spark BI | Azure"
-description: "在 HDInsight 群集上使用 Apache Spark BI 使用数据可视化工具进行分析"
-keywords: "apache spark bi,spark bi, spark 数据可视化, spark 商业智能"
+title: 使用 Azure HDInsight 上的数据可视化工具的 Spark BI | Azure
+description: 在 HDInsight 群集上使用 Apache Spark BI 使用数据可视化工具进行分析
+keywords: apache spark bi,spark bi, spark 数据可视化, spark 商业智能
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: cgronlun
 editor: cgronlun
@@ -15,24 +15,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/29/2017
-ms.date: 01/15/2018
+origin.date: 02/14/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0e92c3b353f900b43a12c385bb2d313d00dec0c2
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 9204436d31f8598f0eb722a3900b32b1e6d490e2
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>使用 Azure HDInsight 上的数据可视化工具的 Apache Spark BI
 
-了解如何使用 [Microsoft Power BI](http://powerbi.microsoft.com) 和 [Tableau](http://www.tableau.com) 在 Azure HDInsight 上直观显示 Apache Spark 群集中的数据。
+了解如何使用 [Microsoft Power BI](http://powerbi.microsoft.com) 在 Azure HDInsight 上直观显示 Apache Spark 群集中的数据。
 
 ## <a name="prerequisites"></a>先决条件
 
-* 完成[对 HDInsight 中的 Spark 群集运行交互式查询](./apache-spark-load-data-run-query.md)。
+* **完成学习[在 HDInsight 中的 Spark 群集上运行交互式查询](./apache-spark-load-data-run-query.md)一文**。
 * **Power BI**[：Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) 和 [Power BI 试用订阅](https://app.powerbi.com/signupredirect?pbi_source=web)（可选）。
-* **Tableau**：[Tableau Desktop](http://www.tableau.com/products/desktop) 和 [Microsoft Spark ODBC 驱动程序](http://go.microsoft.com/fwlink/?LinkId=616229)。
 
 
 ## <a name="hivetable"></a>验证数据
@@ -65,21 +64,6 @@ ms.lasthandoff: 01/12/2018
     ![在 Spark 中显示 hvac 表中的行](./media/apache-spark-use-bi-tools/select-limit.png)
 
 3. 请在 Notebook 的“文件”菜单中单击“关闭并停止”。 关闭 Notebook 以释放资源。 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## <a name="powerbi"></a>使用 Power BI
 
 在本部分，将使用 Power BI 从 Spark 群集数据创建可视化效果、报表和仪表板。 
@@ -110,7 +94,7 @@ ms.lasthandoff: 01/12/2018
 
     ![Spark 群集用户名和密码](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Spark 群集用户名和密码")
 
-    Power BI Desktop 拥有连接到 Spark 群集和从 `hvac` 表中加载数据所需的信息。 该表及表中各列显示在“字段”窗格中。  请参阅下面的屏幕截图。
+    Power BI Desktop 拥有连接到 Spark 群集和从 `hvac` 表中加载数据所需的信息。 该表及表中各列显示在“字段”窗格中。  请参阅下面的屏幕截图：
 
 6. 可视化每栋建筑物的目标温度与实际温度之间的差异： 
 
@@ -213,11 +197,11 @@ Power BI 服务允许在整个组织中共享报表和仪表板。 在本部分�
 6. 单击左下角的“工作表 1”选项卡  。 针对每个日期生成一种视觉效果，用于显示所有建筑物的目标温度和实际温度平均值。 将“日期”和“建筑物 ID”拖到“列”，将“实际温度”/“目标温度”拖到“行”。 在“标记”下面选择“区域”，以使用区域映射进行 Spark 数据可视化。
 
      ![添加用于 Spark 数据可视化的字段](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "添加用于 Spark 数据可视化的字段")
-7. 默认情况下，温度字段显示为聚合值。 如果想要改为显示平均温度，可以从下拉列表中执行该操作，如以下屏幕截图所示。
+7. 默认情况下，温度字段显示为聚合值。 如果想要改为显示平均温度，可以从下拉列表中执行该操作，如以下屏幕截图所示：
 
     ![将温度用于 Spark 数据可视化](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "将温度用于 Spark 数据可视化")
 
-8. 也可以将一个温度映射叠加在另一个温度映射之上，以更好地感受目标温度和实际温度之间的差异。 将鼠标移到下方区域映射的角落，直到出现以红色圆圈突出显示的控点形状为止。 将映射拖到顶部的其他映射，当出现以红色矩形突出显示的形状时释放鼠标。
+8. 也可以将一个温度映射叠加在另一个温度映射上，以便更好感受目标温度和实际温度之间的差异。 将鼠标移到下方区域映射的角落，直到出现以红色圆圈突出显示的控点形状为止。 将映射拖到顶部的其他映射，当出现以红色矩形突出显示的形状时释放鼠标。
 
     ![合并用于 Spark 数据可视化的映射](./media/apache-spark-use-bi-tools/spark-data-visualization-merge-maps.png "合并用于 Spark 数据可视化的映射")
 

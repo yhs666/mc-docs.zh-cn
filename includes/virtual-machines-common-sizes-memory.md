@@ -60,7 +60,7 @@ Ev3 系列实例基于 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) 处理器，�
 <!-- Not Available ## GS-series*-->
 <!-- Not Available ## G-series-->
 ## <a name="dsv2-series-sup1sup"></a>DSv2 系列 <sup>1</sup>
-
+<!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
 ACU：210 - 250
 
 | 大小 | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 缓存和临时存储的最大吞吐量：IOPS/MBps（以 GiB 为单位的缓存大小） | 非缓存磁盘最大吞吐量：IOPS / MBps | 最大 NIC 数/预期网络带宽 (MBps) |
@@ -124,6 +124,7 @@ ACU：160
 | Standard_D13 | 8         | 56          | 400            | 24000/375/187                                        | 32/32x500                       | 8 / 4000                     |
 | Standard_D14 | 16        | 112         | 800            | 48000/750/375                                        | 64/64x500                       | 8 / 8000                |
 <!-- Please acknowledge that D-series Max Disk Count are 8,16,32,64-->
+<!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
 
 <br>
 <!--Update_Description: wording update, update link -->

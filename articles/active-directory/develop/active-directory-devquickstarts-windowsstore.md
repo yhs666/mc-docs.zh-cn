@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Windows 通用平台 (UWP/XAML) 入门 | Microsoft Docs"
-description: "生成与 Azure AD 集成以方便登录，并使用 OAuth 调用 Azure AD 保护 API 的 Windows 应用商店应用。"
+title: Azure AD Windows 通用平台 (UWP/XAML) 入门 | Microsoft Docs
+description: 生成与 Azure AD 集成以方便登录，并使用 OAuth 调用 Azure AD 保护 API 的 Windows 应用商店应用。
 services: active-directory
 documentationcenter: windows
 author: jmprieur
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3b96a6d1-270b-4ac1-b9b5-58070c896a68
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ origin.date: 11/30/2017
 ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 8474c4a91bbf74d9fc15f7062d0a661cca548785
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: d1a243f5be4257cefcc48933b60efd55f4a9a82e
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Azure AD Windows 通用平台 (UWP/XAML) 入门
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -90,7 +90,7 @@ ADAL 遵守的基本原理是，每当应用需要访问令牌时，只需调用
 
 1. 初始化应用的 `AuthenticationContext`，这是 ADAL 的主类。 此操作将向 ADAL 传递它与 Azure AD 通信所需的坐标，并告知 ADAL 如何缓存令牌。
 
-    ```C#
+    ```csharp
     public MainPage()
     {
         ...
@@ -101,7 +101,7 @@ ADAL 遵守的基本原理是，每当应用需要访问令牌时，只需调用
 
 2. 找到 `Search(...)` 方法，用户在应用 UI 上单击“搜索”按钮时会调用此方法。 此方法将向 Azure AD 图形 API 发出 get 请求，以查询其 UPN 以给定搜索词开头的用户。 要查询图形 API，请将访问令牌包括在请求的 **Authorization** 标头中。 然后便是 ADAL 发挥作用的时候。
 
-    ```C#
+    ```csharp
     private async void Search(object sender, RoutedEventArgs e)
     {
         ...
@@ -124,20 +124,20 @@ ADAL 遵守的基本原理是，每当应用需要访问令牌时，只需调用
     应用通过调用 `AcquireTokenAsync(...)` 请求令牌时，ADAL 会尝试返回一个令牌，而不要求用户输入凭据。 如果 ADAL 确定用户需要登录以获取令牌，则会显示登录对话框、收集用户的凭据，并在身份验证成功后返回令牌。 如果 ADAL 出于任何原因无法返回令牌，则 AuthenticationResult 将处于错误状态。
 3. 现在，就可以使用刚刚获得的访问令牌。 同时，在 `Search(...)` 方法中，将令牌附加到 **Authorization** 标头的图形 API get 请求中：
 
-    ```C#
+    ```csharp
     // Add the access token to the Authorization header of the call to the Graph API, and call the Graph API.
     httpClient.DefaultRequestHeaders.Authorization = new HttpCredentialsHeaderValue("Bearer", result.AccessToken);
 
     ```
 4. 还可使用 `AuthenticationResult` 对象在应用中显示有关用户的信息，例如，用户的 ID：
 
-    ```C#
+    ```csharp
     // Update the page UI to represent the signed-in user
     ActiveUser.Text = result.UserInfo.DisplayableId;
     ```
 5. 还可使用 ADAL 将用户从应用中注销。 用户单击“注销”按钮时，需确保 `AcquireTokenAsync(...)` 的后续调用显示登录视图。 使用 ADAL 时，此操作与清除令牌缓存一样简单：
 
-    ```C#
+    ```csharp
     private void SignOut()
     {
         // Clear session state from the token cache.

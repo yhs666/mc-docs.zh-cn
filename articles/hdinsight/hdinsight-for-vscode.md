@@ -1,27 +1,27 @@
 ---
-title: "Azure HDInsight 工具 -将 Visual Studio Code 用于 Hive、LLAP 或 pySpark"
-description: "了解如何使用用于 Visual Studio Code 的 Azure HDInsight 工具来创建、提交查询和脚本。"
+title: Azure HDInsight 工具 -将 Visual Studio Code 用于 Hive、LLAP 或 pySpark
+description: 了解如何使用用于 Visual Studio Code 的 Azure HDInsight 工具来创建、提交查询和脚本。
 Keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
-manager: 
+manager: ''
 editor: jgao
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 10/27/2017
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 78de116ede0782b972ed75707c6c0aa50c5d1bf3
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: 5f562938cd35931d08ad72dffd1229342db6ee27
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用用于 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -102,6 +102,26 @@ ms.lasthandoff: 02/24/2018
     - 提交交互式 PySpark 查询
     - 提交 PySpark 批处理脚本
     - 设置配置
+
+**链接群集**
+
+可以使用 Ambari 管理的用户名链接标准群集，还可以使用域用户名（例如：user1@contoso.com）链接安全 hadoop 群集。
+1. 通过选择 **CTRL+SHIFT+P** 打开命令面板，然后输入“HDInsight: Link a cluster”。
+
+   ![链接群集命令](./media/hdinsight-for-vscode/link-cluster-command.png)
+
+2. 输入 HDInsight 群集 URL -> 输入用户名 -> 输入密码 -> 选择群集类型 -> 如果通过验证，将显示成功信息。
+   
+   ![“链接群集”对话框](./media/hdinsight-for-vscode/link-cluster-process.png)
+
+   > [!NOTE]
+   > 如果群集已登录到 Azure 订阅中并且已链接群集，则我们使用链接用户名和密码。 
+   
+3. 可以使用命令**列出群集**来查看链接群集。 现在可以将脚本提交到此链接群集。
+
+   ![链接的群集](./media/hdinsight-for-vscode/linked-cluster.png)
+
+4. 还可以通过从命令面板输入“HDInsight: Unlink a cluster”取消链接群集。
 
 ## <a name="list-hdinsight-clusters"></a>列出 HDInsight 群集
 
@@ -293,7 +313,6 @@ ms.lasthandoff: 02/24/2018
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](spark/apache-spark-use-bi-tools.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](spark/apache-spark-eventhub-streaming.md)
 * [使用 HDInsight 中的 Spark 分析网站日志](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-running-applications"></a>创建和运行应用程序

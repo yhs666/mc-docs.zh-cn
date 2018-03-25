@@ -1,11 +1,11 @@
 ---
-title: "使用 PowerShell 创建 SQL 数据仓库 | Azure"
-description: "使用 PowerShell 创建 SQL 数据仓库"
+title: 使用 PowerShell 创建 SQL 数据仓库 | Azure
+description: 使用 PowerShell 创建 SQL 数据仓库
 services: sql-data-warehouse
 documentationCenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 97434863-7938-4129-8949-5a119f5949e3
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.custom: create
 origin.date: 10/31/2016
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0c9443a0bf75e5f3ba401ba6e022d5796af68aa9
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 25437eba4e8eba1230be99b0cb33c84cfc26e60f
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-sql-data-warehouse-using-powershell"></a>使用 PowerShell 创建 SQL 数据仓库
 
@@ -94,7 +94,6 @@ ms.lasthandoff: 02/13/2018
 [load]: ./sql-data-warehouse-load-with-bcp.md
 [loading sample data]: ./sql-data-warehouse-load-sample-databases.md
 [PowerShell cmdlets and REST APIs]: ./sql-data-warehouse-reference-powershell-cmdlets.md
-[firewall rules]: ../sql-database-configure-firewall-settings.md
 
 [How to install and configure Azure PowerShell]: https://docs.microsoft.com/zh-cn/powershell/azureps-cmdlets-docs
 <!-- Not Available on [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md -->

@@ -1,8 +1,8 @@
 ---
-title: "将 MapReduce 和 SSH 连接与 HDInsight 中的 Hadoop 配合使用 - Azure | Azure"
-description: "了解如何在 HDInsight 上的 Hadoop 中使用 SSH 运行 MapReduce 作业。"
+title: 将 MapReduce 和 SSH 连接与 HDInsight 中的 Hadoop 配合使用 - Azure | Azure
+description: 了解如何在 HDInsight 上的 Hadoop 中使用 SSH 运行 MapReduce 作业。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/23/2017
-ms.date: 12/18/2017
+origin.date: 01/17/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: f9702f5ac49e91611f6a269bff294ae44b310aee
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: bd111c80c1f6f8c79d143a3034953cdb1882ce5c
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>通过 SSH 将 MapReduce 与 HDInsight 上的 Hadoop 配合使用
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/08/2017
 * 基于 Linux 的 HDInsight（HDInsight 上的 Hadoop）群集
 
   > [!IMPORTANT]
-  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+  > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * SSH 客户端。 有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（将 SSH 与 HDInsight 配合使用）
 

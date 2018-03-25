@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Java 命令行入门 | Microsoft 文档"
-description: "如何生成使用户登录以访问 API 的 Java 命令行应用。"
+title: Azure AD Java 命令行入门 | Microsoft 文档
+description: 如何生成使用户登录以访问 API 的 Java 命令行应用。
 services: active-directory
 documentationcenter: java
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 51e1a8f9-6ff0-4643-a350-0ba794e26fd1
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ origin.date: 01/23/2017
 ms.date: 01/09/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: cae86762f933de13a2ec56a1255c3c642b91049f
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 1df2f8b16857d102f13359df9c2f8873796d6b3d
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>通过 Azure AD 使用 Java 命令行应用访问 API
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -47,11 +47,11 @@ ms.lasthandoff: 01/11/2018
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在顶栏上单击帐户，并在“目录”列表下选择要注册应用程序的 Active Directory 租户。
-3. 单击左侧导航栏中的“更多服务”，并选择“Azure Active Directory”。
-4. 单击“应用注册”并选择“新建应用程序注册”。
-5. 创建一个新的 **Web 应用程序和/或 WebAPI**。
-  - 应用程序的**名称**向最终用户描述应用程序
-  - “登录 URL”  是应用的基本 URL。  框架的默认值为 `http://localhost:8080/adal4jsample/`。
+3. 单击左侧导航栏中的“所有服务”，并选择“Azure Active Directory”。
+4. 单击“应用注册”并选择“添加”。
+5. 根据提示创建一个新的 **Web 应用程序和/或 WebAPI**。
+  * 应用程序的**名称**向最终用户描述应用程序
+  * “登录 URL”  是应用的基本 URL。  框架的默认值为 `http://localhost:8080/adal4jsample/`。
 6. 完成注册后，AAD 将为应用分配唯一的应用程序 ID。  在后面的部分中会用到此值，因此，请从应用程序选项卡中复制此值。
 7. 从应用程序的“设置” -> “属性”页中，更新应用 ID URI。 “应用程序 ID URI”是应用程序的唯一标识符  。  约定使用 `https://<tenant-domain>/<app-name>`，例如 `http://localhost:8080/adal4jsample/`。
 

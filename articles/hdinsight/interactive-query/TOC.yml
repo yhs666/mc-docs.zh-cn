@@ -49,7 +49,7 @@
             - name: 使用 Beeline
               href: ../hadoop/apache-hadoop-use-hive-beeline.md
               maintainContext: true
-            - name: 使用 cURL
+            - name: 使用 REST API
               href: ../hadoop/apache-hadoop-use-hive-curl.md
               maintainContext: true
             - name: 使用 Azure PowerShell
@@ -100,7 +100,6 @@
           maintainContext: true
         - name: 将 Power BI 连接到交互式查询
           href: ./apache-hadoop-connect-hive-power-bi-directquery.md
-          maintainContext: true
         - name: 将 Power BI 连接到 Hadoop
           href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
           maintainContext: true
@@ -146,6 +145,21 @@
               maintainContext: true
             - name: 使用 REST 安装应用
               href: 'https://msdn.microsoft.com/library/mt706515.aspx'
+            - name: 安装已发布的应用 - Cask Data Application Platform (CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: 安装已发布的应用 - Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: 安装已发布的应用 - Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: 安装已发布的应用 - H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: 安装已发布的应用 - Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: 安全
       items:
         - name: 将 SSH 与 HDInsight 配合使用
@@ -210,6 +224,12 @@
             - name: 使用 Ambari REST API
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: 缩放 HDInsight 群集
+          href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
+        - name: 使用外部元数据存储
+          href: ../hdinsight-use-external-metadata-stores.md
+          maintainContext: true
         - name: 管理 HDInsight 群集的日志
           href: ../hdinsight-log-management.md
           maintainContext: true

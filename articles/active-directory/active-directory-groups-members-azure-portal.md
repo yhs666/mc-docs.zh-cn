@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Active Directory 中管理组的成员 | Microsoft Docs"
-description: "如何在 Azure Active Directory 中的组中添加或删除用户和设备"
+title: 在 Azure Active Directory 中管理组的成员 | Microsoft Docs
+description: 如何在 Azure Active Directory 中的组中添加或删除用户和设备
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: d399a97d-fd2a-4b2d-b73d-0975db83f41b
 ms.service: active-directory
 ms.workload: identity
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/28/2017
-ms.date: 12/25/2017
+ms.date: 3/5/2018
 ms.author: v-nany
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 521697924f580e4b5880278843202c4344df72f5
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 6b0e9c8b6645ad7ba918b58f52c6f988f6773e06
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>在 Azure Active Directory 租户中管理用户的组成员身份
 本文介绍如何在 Azure Active Directory (Azure AD) 中管理组的成员。
 
 ## <a name="how-do-i-find-the-members-and-manage-them"></a>如何查找成员并对其进行管理？
 1. 使用目录全局管理员的帐户登录到 [Azure 门户](https://portal.azure.cn) 。
-2. 选择“更多服务”，在文本框中输入“用户和组”，并选择 **Enter**。
+2. 选择“所有服务”，在文本框中输入“用户和组”，并选择 **Enter**。
 
    ![打开“用户管理”](./media/active-directory-groups-members-azure-portal/search-user-management.png)
 3. 在“用户和组”边栏选项卡中，选择“所有组”。

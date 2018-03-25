@@ -1,8 +1,8 @@
 ---
-title: "调试 Azure HDInsight 中运行的 Apache Spark 作业"
-description: "使用 YARN UI、Spark UI 和 Spark History Server 来跟踪和调试 Azure HDInsight 中的 Spark 群集上运行的作业"
+title: 调试 Azure HDInsight 中运行的 Apache Spark 作业
+description: 使用 YARN UI、Spark UI 和 Spark History Server 来跟踪和调试 Azure HDInsight 中的 Spark 群集上运行的作业
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: cgronlun
 editor: cgronlun
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/20/2017
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 774e67c61ef6e36f0d0cb9e9d6d5faff627bdb5a
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: a5ed8a03ca609208730ee06d6aaff9ed8487a69f
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>调试 Azure HDInsight 中运行的 Apache Spark 作业
 
-在本文中，将了解如何使用 YARN UI、Spark UI 和 Spark History Server 来跟踪和调试 HDInsight 群集中运行的 Spark 作业。 在本文中，将使用 Spark 群集中提供的笔记本启动 Spark 作业，相关信息请参阅“机器学习：使用 MLLib 对食物检测数据进行预测分析”。 也可以执行以下步骤来跟踪使用任何其他方法（例如 **spark-submit**）提交的应用程序。
+在本文中，将了解如何使用 YARN UI、Spark UI 和 Spark History Server 来跟踪和调试 HDInsight 群集中运行的 Spark 作业。 将使用 Spark 群集中提供的笔记本启动 Spark 作业，相关信息请参阅“机器学习：使用 MLLib 对食物检测数据进行预测分析”。 也可以执行以下步骤来跟踪使用任何其他方法（例如 spark-submit）提交的应用程序。
 
 ## <a name="prerequisites"></a>先决条件
 必须满足以下条件：
@@ -35,12 +35,12 @@ ms.lasthandoff: 02/24/2018
 * 你应该已开始运行 Notebook，相关信息请参阅 **[Machine learning: Predictive analysis on food inspection data using MLLib](apache-spark-machine-learning-mllib-ipython.md)**（机器学习：使用 MLLib 对食品检测数据进行预测分析）。 有关如何运行此 Notebook 的说明，请单击以下链接。  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>在 YARN UI 中跟踪应用程序
-1. 启动 YARN UI。 在群集边栏选项卡中，单击“群集仪表板”，然后单击“YARN”。
+1. 启动 YARN UI。 单击“群集仪表板”，再单击“YARN”。
    
     ![启动 YARN UI](./media/apache-spark-job-debugging/launch-yarn-ui.png)
    
    > [!TIP]
-   > 或者，也可以从 Ambari UI 启动 YARN UI。 若要启动 Ambari UI，请在群集边栏选项卡中单击“群集仪表板”，然后单击“HDInsight 群集仪表板”。 在 Ambari UI 中依次单击“YARN”、“快速链接”、活动的 Resource Manager 和“ResourceManager UI”。    
+   > 或者，也可以从 Ambari UI 启动 YARN UI。 要启动 Ambari UI，请单击“群集仪表板”，并单击“HDInsight 群集仪表板”。 在 Ambari UI 中依次单击“YARN”、“快速链接”、活动的资源管理器和“资源管理器 UI”。    
    > 
    > 
 2. 由于 Spark 作业是使用 Jupyter Notebook 启动的，因此应用程序的名称为 **remotesparkmagics**（这是从 Notebook 启动的所有应用程序的名称）。 单击应用程序名称旁边的应用程序 ID，以获取有关该作业的详细信息。 此时将启动应用程序视图。
@@ -122,8 +122,7 @@ ms.lasthandoff: 02/24/2018
 * [使用 Scala 创建独立的应用程序](apache-spark-create-standalone-application.md)
 * [使用 Livy 在 Spark 群集中远程运行作业](apache-spark-livy-rest-interface.md)
 * [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](apache-spark-intellij-tool-plugin.md)
-* [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](apache-spark-eventhub-streaming.md)
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely（使用 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Spark 应用程序）](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Spark 应用程序](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](apache-spark-zeppelin-notebook.md)
 * [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](apache-spark-jupyter-notebook-use-external-packages.md)

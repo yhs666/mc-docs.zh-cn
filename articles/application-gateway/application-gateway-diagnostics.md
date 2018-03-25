@@ -1,6 +1,6 @@
 ---
-title: "监视应用程序网关的访问日志、性能日志、后端运行状况及指标 | Microsoft Docs"
-description: "了解如何启用和管理应用程序网关的访问日志和性能日志"
+title: 监视应用程序网关的访问日志、性能日志、后端运行状况及指标 | Microsoft Docs
+description: 了解如何启用和管理应用程序网关的访问日志和性能日志
 services: application-gateway
 documentationcenter: na
 author: amitsriva
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 01/17/2017
 ms.date: 02/02/2018
 ms.author: v-junlch
-ms.openlocfilehash: d9a3ebb0e707e61e357b1c601d392128a52a6acb
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: bed63497f6e5b04bc9df46e85f7e2cb853de0c78
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>应用程序网关的后端运行状况、诊断日志和指标
 
@@ -318,8 +318,6 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 创建指标警报后，会显示警报列表。 它提供所有警报规则概述。
 
 ![警报和规则列表][9]
-
-若要了解有关警报通知的详细信息，请参阅[接收警报通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)。
 
 若要深入了解 webhook 以及如何将其与警报搭配使用，请参阅[针对 Azure 指标警报配置 webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md)。
 

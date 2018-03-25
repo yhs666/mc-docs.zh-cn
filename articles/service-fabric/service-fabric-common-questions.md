@@ -1,11 +1,11 @@
 ---
-title: "有关 Azure Service Fabric 的常见问题 | Azure"
-description: "有关 Service Fabric 的常见问题及其回答"
+title: 有关 Azure Service Fabric 的常见问题 | Azure
+description: 有关 Service Fabric 的常见问题及其回答
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 08/18/2017
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 81a1e68e861052f3a1fab728f0042ad2ccf3e71d
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 960d9d4bc72bfcc2fc026859f68f48440deb7a0f
+ms.sourcegitcommit: 9b4669fe42e0dd7e3b463423ae4f58143af2b111
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 常见问题
 
@@ -148,6 +148,6 @@ Reliable Services 通常已分区，因此，存储量仅受限于群集中的�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [了解核心 Service Fabric 概念和最佳做法](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
+<!-- Not Available on  [Learn about core Service Fabric concepts and best practices](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965) -->
 
 <!--Update_Description: update meta properties, wording update, update link -->

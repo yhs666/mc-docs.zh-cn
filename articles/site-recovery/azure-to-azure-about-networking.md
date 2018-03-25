@@ -1,6 +1,6 @@
 ---
-title: "关于使用 Azure Site Recovery 进行 Azure 到 Azure 灾难恢复的网络 | Azure"
-description: "概述了使用 Azure Site Recovery 复制 Azure 虚拟机的网络。"
+title: 关于使用 Azure Site Recovery 进行 Azure 到 Azure 灾难恢复的网络 | Azure
+description: 概述了使用 Azure Site Recovery 复制 Azure 虚拟机的网络。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
@@ -9,11 +9,11 @@ ms.topic: article
 origin.date: 02/08/2018
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5af21876a0aed1417ca084fbc52110205ca24ab3
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 0352e4a86d80dc6081a780cb8a343bc28be05c38
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>关于 Azure 到 Azure 复制的网络
 
@@ -125,7 +125,8 @@ These rules are required so that replication can be enabled from the target regi
   - 源虚拟网络和 ExpressRoute 线路。
   - 目标虚拟网络和 ExpressRoute 线路。
 
-- ExpressRoute 标准规定，可以在同一地缘政治区域创建线路。 若要在不同的地缘政治区域创建 ExpressRoute 线路，则需使用 Azure ExpressRoute 高级版，这会增加成本。 （如果已在使用 ExpressRoute 高级版，则不必支付额外费用。）有关更多详细信息，请参阅 [ExpressRoute 位置文档](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region)和 [ExpressRoute 定价](https://www.azure.cn/pricing/details/expressroute/)。
+- ExpressRoute 标准规定，可以在同一地缘政治区域创建线路。 若要在不同的地缘政治区域创建 ExpressRoute 线路，则需使用 Azure ExpressRoute 高级版，这会增加成本。 （如果已在使用 ExpressRoute 高级版，则不必支付额外费用。）有关更多详细信息，请参阅 [ExpressRoute 位置文档](../expressroute/expressroute-locations.md)和 [ExpressRoute 定价](https://www.azure.cn/pricing/details/expressroute/)。
+<!-- Archor is not Exist on #azure-regions-to-expressroute-locations-within-a-geopolitical-region -->
 
 - 建议在源区域和目标区域中使用不同的 IP 范围。 ExpressRoute 线路无法同时连接两个使用相同 IP 范围的 Azure 虚拟网络。
 

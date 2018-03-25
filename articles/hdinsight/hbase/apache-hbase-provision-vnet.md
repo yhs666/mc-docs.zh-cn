@@ -1,9 +1,9 @@
 ---
-title: "在虚拟网络中创建 HBase 群集 - Azure | Azure"
-description: "开始在 Azure HDInsight 中使用 HBase。 了解如何在 Azure 虚拟网络上创建 HDInsight HBase 群集。"
-keywords: 
+title: 在虚拟网络中创建 HBase 群集 - Azure | Azure
+description: 开始在 Azure HDInsight 中使用 HBase。 了解如何在 Azure 虚拟网络上创建 HDInsight HBase 群集。
+keywords: ''
 services: hdinsight,virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/03/2017
-ms.date: 01/15/2018
+origin.date: 02/22/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 01b42de6e5f0ce4f4df15faa45bf2eaa8df6a5df
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 976e460813ba57448a7d0a1d483ea74681758ff4
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虚拟网络中的 HDInsight 上创建 HBase 群集
 了解如何在 [Azure 虚拟网络][1]中创建 Azure HDInsight HBase 群集。
@@ -255,7 +255,7 @@ ms.lasthandoff: 01/12/2018
 * [开始在 HDInsight 中将 HBase 与 Hadoop 配合使用](./apache-hbase-tutorial-get-started-linux.md)
 * [虚拟网络概述](../../virtual-network/virtual-networks-overview.md)
 
-[1]: https://www.azure.cn/home/features/networking/
+[1]: https://www.azure.cn/home/features/virtual-network/
 [2]: http://technet.microsoft.com/library/ee176961.aspx
 [3]: http://technet.microsoft.com/library/hh847889.aspx
 

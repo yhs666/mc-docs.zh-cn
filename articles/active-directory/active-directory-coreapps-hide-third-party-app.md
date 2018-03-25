@@ -1,26 +1,26 @@
 ---
-title: "使应用程序不出现在用户在 Azure Active Directory 中的体验中 | Microsoft Docs"
-description: "如何使应用程序不出现在用户在 Azure Active Directory 中的体验中"
+title: 使应用程序不出现在用户在 Azure Active Directory 中的体验中 | Microsoft Docs
+description: 如何使应用程序不出现在用户在 Azure Active Directory 中的体验中
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/11/2017
-ms.date: 1/29/2018
+origin.date: 01/04/2018
+ms.date: 03/05/2018
 ms.author: v-nany
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: eda5bfb419c52c8144520ed62c1ac39ad39dfe7d
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 378e6149b2cb1ada79619568af8b94b68395d319
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>使应用程序不出现在用户在 Azure Active Directory 中的体验中
 
@@ -31,8 +31,8 @@ ms.lasthandoff: 02/13/2018
 ### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>如何使第三方应用不显示在用户的访问面板和 O365 应用启动器上？
 
 1.  使用目录全局管理员的帐户登录到 [Azure 门户](https://portal.azure.cn) 。
-2.  选择“更多服务”，在文本框中输入 **Azure Active Directory**，并选择“Enter”。
-3.  在“Azure Active Directory - 目录名称”屏幕上（即所管理目录的 Azure AD 屏幕），选择“企业应用程序”。
+2.  选择“所有服务”，在文本框中输入 **Azure Active Directory**，并选择“Enter”。
+3.  在“Azure Active Directory - 目录名称”屏幕上 （即所管理目录的 Azure AD 屏幕），选择“企业应用程序”。
 ![企业应用](media/active-directory-coreapps-hide-third-party-app/app1.png)
 4.  在“企业应用程序”屏幕上，选择“所有应用程序”。 此时会显示可管理应用的列表。
 5.  在“企业应用程序 - 所有应用程序”屏幕上，选择一个应用。</br>

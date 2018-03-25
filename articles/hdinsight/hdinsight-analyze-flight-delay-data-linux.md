@@ -1,8 +1,8 @@
 ---
-title: "在 HDInsight 上使用 Hive 分析航班延误数据 - Azure | Azure"
-description: "了解如何在基于 Linux 的 HDInsight 上使用 Hive 分析航班数据，然后使用 Sqoop 将数据导出到 SQL 数据库。"
+title: 在 HDInsight 上使用 Hive 分析航班延误数据 - Azure | Azure
+description: 了解如何在基于 Linux 的 HDInsight 上使用 Hive 分析航班数据，然后使用 Sqoop 将数据导出到 SQL 数据库。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/24/2017
-ms.date: 12/25/2017
+origin.date: 01/19/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 6590be568bb1a6add1ae10fd2967215dbafc15d8
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: c0853d19ae9e7c011c3089551cc019592e395dd3
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上使用 Hive 分析航班延误数据
 
@@ -40,11 +40,11 @@ ms.lasthandoff: 12/15/2017
 
 ## <a name="download-the-flight-data"></a>下载航班数据
 
-1. 浏览到 [美国研究与技术创新管理部门 - 运输统计局][rita-website]。
+1. 浏览到[美国研究与技术创新管理部门、运输统计局][rita-website]。
 
 2. 在该页面上，选择以下值：
 
-   | 名称 | 值 |
+   | Name | 值 |
    | --- | --- |
    | 筛选年份 |2013 |
    | 筛选期间 |1 月 |
@@ -200,9 +200,8 @@ ms.lasthandoff: 12/15/2017
 > [!NOTE]
 > 可通过多种方式连接到 SQL 数据库并创建表。 以下步骤从 HDInsight 群集使用 [FreeTDS](http://www.freetds.org/) 。
 
-1. 使用 SSH 连接到基于 Linux 的 HDInsight 群集，并从 SSH 会话运行以下步骤。
 
-2. 使用以下命令安装 FreeTDS：
+1. 若要安装 FreeTDS，请使用以下命令从 SSH 连接到群集：
 
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
@@ -211,10 +210,12 @@ ms.lasthandoff: 12/15/2017
 3. 安装完成后，使用以下命令连接到 SQL 数据库服务器。 使用 SQL 数据库服务器名称替换 **serverName**。 使用 SQL 数据库登录信息替换 **adminLogin** 和 **adminPassword**。 使用数据库名称替换 **databaseName**。
 
     ```
-    TDSVER=8.0 tsql -H <serverName>.database.chinacloudapi.cn -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
+    TDSVER=8.0 tsql -H <serverName>.database.chinacloudapi.cn -U <adminLogin> -p 1433 -D <databaseName>
     ```
 
-    你会收到类似于以下文本的输出：
+    出现提示时，输入 SQL 数据库管理员登录名的密码。
+
+    将收到类似于以下文本的输出：
 
     ```
     locale is "en_US.UTF-8"
@@ -244,7 +245,7 @@ ms.lasthandoff: 12/15/2017
     GO
     ```
 
-    输出类似于以下文本：
+    输出与以下文本类似：
 
     ```
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE

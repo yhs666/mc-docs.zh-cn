@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 将 Web 应用连接到 SQL 数据库 | Azure"
-description: "Azure CLI 脚本示例 - 将 Web 应用连接到 SQL 数据库"
+title: Azure CLI 脚本示例 - 将 Web 应用连接到 SQL 数据库 | Azure
+description: Azure CLI 脚本示例 - 将 Web 应用连接到 SQL 数据库
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 7c2efdd0-f553-4038-a77a-e953021b3f77
 ms.service: app-service
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 origin.date: 12/11/2017
-ms.date: 01/02/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 74f86d2562f5ae1368350e1d0558e876b7493fc2
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.openlocfilehash: 92ebc077170994eb874ce5eba46cd8c1444964af
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-a-web-app-to-a-sql-database"></a>将 Web 应用连接到 SQL 数据库
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/25/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 CLI，则需要使用 Azure CLI 2.0 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
+如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -39,35 +39,45 @@ ms.lasthandoff: 12/25/2017
 #/bin/bash
 
 # Variables
-appName="webappwithSQL$random"
-serverName="webappwithsql$random"
+appName="webappwithSQL$RANDOM"
+serverName="webappwithsql$RANDOM"
 location="ChinaNorth"
 startip="0.0.0.0"
 endip="0.0.0.0"
 username="<replace-with-username>"
 sqlServerPassword="<replace-with-password>"
 
-# Create a Resource Group 
+# Create a resource group 
 az group create --name myResourceGroup --location $location
 
 # Create an App Service Plan
-az appservice plan create --name WebAppWithSQLPlan --resource-group myResourceGroup --location $location
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --location $location
 
 # Create a Web App
-az webapp create --name $appName --plan WebAppWithSQLPlan --resource-group myResourceGroup
+az webapp create --name $appName --plan myAppServicePlan --resource-group myResourceGroup
 
-# Create a SQL Server
+# Create a SQL Database server
 az sql server create --name $serverName --resource-group myResourceGroup --location $location --admin-user $username --admin-password $sqlServerPassword
 
-# Configure Firewall for Azure Access
-az sql server firewall-rule create --resource-group myResourceGroup --server $serverName --name AllowYourIp --start-ip-address $startip --end-ip-address $endip
+# Configure firewall for Azure access
+az sql server firewall-rule create --server $serverName --resource-group myResourceGroup \
+--name AllowYourIp --start-ip-address $startip --end-ip-address $endip
 
-# Create Database on Server
-az sql db create --resource-group myResourceGroup --server $serverName --name MySampleDatabase --service-objective S0
+# Create a database called 'MySampleDatabase' on server
+az sql db create --server $serverName --resource-group myResourceGroup --name MySampleDatabase \
+--service-objective S0
 
-# Assign the connection string to an App Setting in the Web App
-az webapp config appsettings set --settings "SQLSRV_CONNSTR=Server=tcp:$serverName.database.chinacloudapi.cn;Database=MySampleDatabase;User ID=$username@$serverName;Password=$sqlServerPassword;Trusted_Connection=False;Encrypt=True;" --name $appName --resource-group myResourceGroup
+# Get connection string for the database
+connstring=$(az sql db show-connection-string --name MySampleDatabase --server $serverName \
+--client ado.net --output tsv)
 
+# Add credentials to connection string
+connstring=${connstring//<username>/$username}
+connstring=${connstring//<password>/$sqlServerPassword}
+
+# Assign the connection string to an app setting in the web app
+az webapp config appsettings set --name $appName --resource-group myResourceGroup \
+--settings "SQLSRV_CONNSTR=$connstring" 
 ```
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]

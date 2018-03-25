@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
-ms.author: mabrigg
+origin.date: 02/27/2018
+ms.date: 03/22/2018
+ms.author: v-junlch
 ms.reviewer: alfredop
-ms.openlocfilehash: 4bc5644425aa11fb210d81095e4166baefc6432e
-ms.sourcegitcommit: dee174086b5f3d59d2045bf197c800e62a30fe60
+ms.openlocfilehash: be8df878708bfe2aaecde25283baa77023fca92d
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>允许云服务提供商管理 Azure Stack 订阅
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 03/16/2018
 
 ## <a name="manage-your-subscription-with-a-cloud-service-provider"></a>使用云服务提供商管理订阅
 
-1. 将 CSP 作为具有用户角色的来宾用户添加到你的租户目录。  有关添加用户的步骤，请参阅[将新用户添加到 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)
+1. 将 CSP 作为具有用户角色的来宾用户添加到你的租户目录。  有关添加用户的步骤，请参阅[将新用户添加到 Azure Active Directory](/active-directory/add-users-azure-active-directory)
 2. 然后，CSP 将为你创建本地 Azure Stack 订阅。
 3. 你就可以开始使用 Azure Stack。
 3. 然后，CSP 应在你的订阅中创建资源，以确认他们还可以管理你的资源。 例如，他们可以[使用 Azure Stack 门户创建 Windows 虚拟机](azure-stack-quick-windows-portal.md)。
@@ -40,12 +41,14 @@ ms.lasthandoff: 03/16/2018
 
 将 CSP 作为所有者添加到你的订阅。 
 
-1. 将 CSP 作为具有所有者角色 的来宾用户添加你的租户目录。  有关添加用户的步骤，请参阅[将新用户添加到 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)
-2. 将所有者角色添加到 CSP 来宾用户。 有关将 CSP 用户添加到订阅的步骤，请参阅[使用基于角色的访问控制管理对 Azure 订阅资源的访问权限](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)
+1. 将 CSP 作为具有所有者角色 的来宾用户添加你的租户目录。  有关添加用户的步骤，请参阅[将新用户添加到 Azure Active Directory](/active-directory/add-users-azure-active-directory)
+2. 将所有者角色添加到 CSP 来宾用户。 有关将 CSP 用户添加到订阅的步骤，请参阅[使用基于角色的访问控制管理对 Azure 订阅资源的访问权限](/active-directory/role-based-access-control-configure)
 3. 然后，CSP 将为你创建本地 Azure Stack 订阅。
 4. 你就可以开始使用 Azure Stack。
 5. 然后，CSP 应在你的订阅中创建资源，以确认他们可以管理你的资源。 
 
 ## <a name="next-steps"></a>后续步骤
 
-  - 若要详细了解如何从 Azure Stack 检索资源用量信息，请参阅 [Azure Stack 中的用量和计费](../azure-stack-billing-and-chargeback.md)。
+  - 若要详细了解如何从 Azure Stack 检索资源使用情况信息，请参阅 [Azure Stack 中的使用情况和计费](../azure-stack-billing-and-chargeback.md)。
+
+<!-- Update_Description: wording update -->

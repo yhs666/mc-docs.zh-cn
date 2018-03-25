@@ -1,11 +1,11 @@
 ---
-title: "连接到 Azure SQL 数据仓库 - SSMS | Azure"
-description: "使用 SQL Server Management Studio (SSMS) 可连接并查询 Azure SQL 数据仓库。"
+title: 连接到 Azure SQL 数据仓库 - SSMS | Azure
+description: 使用 SQL Server Management Studio (SSMS) 可连接并查询 Azure SQL 数据仓库。
 services: sql-data-warehouse
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 299e50b3-e68a-471c-8aee-b0b9874781bd
 ms.service: sql-data-warehouse
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.custom: connect
 origin.date: 10/31/2016
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7f5fb8e85690b990e1802cd496888fadbfb206b7
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 76ae1c63aaf0abb97445286892fc7b81888c1221
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>使用 SQL Server Management Studio (SSMS) 连接到 SQL 数据仓库
 > [!div class="op_single_selector"]
@@ -87,7 +87,6 @@ ms.lasthandoff: 03/02/2018
 [Connect to SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 [Authenticate to SQL Data Warehouse]: sql-data-warehouse-authentication.md
-[visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md 
 
 <!--Other-->
 [Azure portal]: https://portal.azure.cn

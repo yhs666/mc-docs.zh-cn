@@ -1,11 +1,11 @@
 ---
-title: "还原 Azure SQL 数据仓库 (PowerShell) | Azure"
-description: "用于还原 SQL 数据仓库的 PowerShell 任务。"
+title: 还原 Azure SQL 数据仓库 (PowerShell) | Azure
+description: 用于还原 SQL 数据仓库的 PowerShell 任务。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: ac62f154-c8b0-4c33-9c42-f480808aa1d2
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.custom: backup-restore
 origin.date: 12/06/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 906403cd35b39ef68a99b74402f03fda86a917ab
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 753d902128b7d6a9396080c5776c0d535e5c3565
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>还原 Azure SQL 数据仓库 (PowerShell)
 > [!div class="op_single_selector"]
@@ -76,7 +76,7 @@ $Database = Get-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -Server
 $PointInTime="<RestorePointCreationDate>"  
 
 # Restore database from a restore point
-$RestoredDatabase = Restore-AzureRmSqlDatabase -FromPointInTimeBackup -PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.$ServerName -TargetDatabaseName $NewDatabaseName -ResourceId $Database.ResourceID
+$RestoredDatabase = Restore-AzureRmSqlDatabase -FromPointInTimeBackup �PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName $NewDatabaseName �ResourceId $Database.ResourceID
 
 # Verify the status of restored database
 $RestoredDatabase.status

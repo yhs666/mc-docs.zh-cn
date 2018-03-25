@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Java Web 应用入门 | Microsoft 文档"
-description: "生成可让用户使用工作或学校帐户登录的 Java Web 应用。"
+title: Azure AD Java Web 应用入门 | Microsoft 文档
+description: 生成可让用户使用工作或学校帐户登录的 Java Web 应用。
 services: active-directory
 documentationcenter: java
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2b92b605-9cd5-4b99-bcbb-66c026558119
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ origin.date: 11/30/2017
 ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 70fb449e25736f0cf530907d2e4fa0e3c794a958
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 4ec12d7baffccf726c5f8c68710308f414b26c57
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="azure-ad-java-web-app-getting-started"></a>Azure AD Java Web 应用入门
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -45,7 +45,7 @@ ms.lasthandoff: 01/17/2018
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在顶部栏中，单击帐户名。 在“目录”列表下选择要注册应用的 Active Directory 租户。
-3. 在左窗格中，单击“更多服务”，并选择“Azure Active Directory”。
+3. 在左窗格中，单击“所有服务”，并选择“Azure Active Directory”。
 4. 单击“应用注册”，然后选择“新建应用程序注册”。
 5. 创建一个 **Web 应用程序和/或 WebAPI**。
   - **名称** - 向用户描述应用。

@@ -1,6 +1,6 @@
 ---
-title: "对 Azure 存储使用 Azure PowerShell | Azure"
-description: "了解如何使用 Azure 存储的 Azure PowerShell cmdlet 来创建和管理存储帐户；使用 Blob、表、队列和文件；配置和查询存储分析并创建共享访问签名。"
+title: 对 Azure 存储使用 Azure PowerShell | Azure
+description: 了解如何使用 Azure 存储的 Azure PowerShell cmdlet 来创建和管理存储帐户；使用 Blob、表、队列和文件；配置和查询存储分析并创建共享访问签名。
 services: storage
 documentationcenter: na
 author: yunan2016
@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 11/02/2017
 ms.date: 3/5/2018
 ms.author: v-nany
-ms.openlocfilehash: d552c630bd445e1fe71dda9c09e5afa9b556825d
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 25413eedb90e1e032604ec26664a34a81198a3a7
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>对 Azure 存储 使用 Azure PowerShell
 
@@ -137,8 +137,6 @@ SKU 名称指示用于存储帐户的复制类型，如 LRS（本地冗余存储
 * SKU 是存储帐户的复制设置，例如 LRS（对于本地冗余存储）。 例如，可能会从标准\_LRS 更改为标准\_GRS 或标准\_RAGRS。 请注意，无法将 Standard\_ZRS 或 Premium\_LRS 更改为其他 SKU，反之亦然。
 
 * Blob 存储帐户的访问层。 将访问层的值设置为“热”或“冷”，并允许用户通过选择符合存储帐户使用方式的访问层来最大限度地降低成本。 有关详细信息，请参阅[热、冷存储层和存档存储层](../blobs/storage-blob-storage-tiers.md)。
-
-* Blob 存储和/或文件存储的存储服务加密设置。 有关 SSE 的详细信息，请参阅[存储服务加密](storage-service-encryption.md)。
 
 * 仅允许 HTTPS 流量。 
 

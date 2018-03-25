@@ -1,6 +1,6 @@
 ---
-title: "Azure 资源管理器模板示例 - 应用服务"
-description: "Azure 资源管理器模板示例 - 应用服务"
+title: Azure 资源管理器模板示例 - 应用服务
+description: 应用服务 Web 应用功能的 Azure 资源管理器模板示例
 services: app-service
 documentationcenter: app-service
 author: tfitzmac
@@ -13,30 +13,30 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
 origin.date: 02/26/2018
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 379b01fd1e431e4601e955414def4da1747d41a6
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 48748f051cada5dd3257842309372ef528d90816
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="azure-resource-manager-templates-for-azure-web-apps"></a>用于 Azure Web 应用的 Azure 资源管理器模板
+# <a name="azure-resource-manager-templates-for-web-apps"></a>Web 应用的 Azure 资源管理器模板
 
-下表包含 Azure 资源管理器模板链接。 有关如何在创建 Web 应用模板时避免常见错误的建议，请参阅[使用 Azure 资源管理器模板部署 Web 应用的指南](web-sites-rm-template-guidance.md)。
+下表包含 Azure 应用服务 Web 应用功能的 Azure 资源管理器模板链接。 有关如何在创建 Web 应用模板时避免常见错误的建议，请参阅[使用 Azure 资源管理器模板部署 Web 应用的指南](web-sites-rm-template-guidance.md)。
 
 | | |
 |-|-|
 |**部署 Web 应用**||
 | [链接到 GitHub 存储库的 Web 应用](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-github-deploy)| 部署从 GitHub 拉取代码的 Azure Web 应用。 |
-| [使用自定义部署槽的 Web 应用](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots)| 使用自定义部署槽/环境部署 Azure Web 应用。 |
+| [使用自定义部署槽位的 Web 应用](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots)| 使用自定义部署槽/环境部署 Azure Web 应用。 |
 |**配置 Web 应用**||
-| [来自 Key Vault 的 Web 应用证书](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)| 部署来自 Key Vault 机密的 Azure Web 应用证书并将其用于 SSL 绑定。 |
+| [来自 Key Vault 的 Web 应用证书](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)| 部署来自 Azure Key Vault 机密的 Azure Web 应用证书并将其用于 SSL 绑定。 |
 | [使用自定义域的 Web 应用](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain)| 使用自定义主机名部署 Azure Web 应用。 |
 | [使用自定义域和 SSL 的 Web 应用](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl)| 使用自定义主机名部署 Azure Web 应用，并从 Key Vault 获取 Web 应用证书用于 SSL 绑定。 |
-| [使用 GoLang 扩展的 Web 应用](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| 使用 Golang 站点扩展部署 Azure Web 应用，以便运行在 Azure 的 Golang 上开发的 Web 应用程序。 |
-| [使用 Java 8 和 Tomcat 8 的 Web 应用](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat)| 部署启用了 Java 8 和 Tomcat 8 的 Azure Web 应用，以便在 Azure 中运行 Java 应用程序。 |
+| [使用 GoLang 扩展的 Web 应用](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| 使用 GoLang 站点扩展部署 Azure Web 应用。 然后，可以在 Azure 中运行在 GoLang 上开发的 Web 应用程序。 |
+| [使用 Java 8 和 Tomcat 8 的 Web 应用](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat)| 部署已启用 Java 8 和 Tomcat 8 的 Azure Web 应用。 然后，可以在 Azure 中运行 Java 应用程序。 |
 |**使用连接的资源的 Web 应用**||
 | [使用 MySQL 的 Web 应用](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-mysql)| 在 Windows 上部署使用 Azure Database for MySQL 的 Azure Web 应用。 |
 | [使用 PostgreSQL 的 Web 应用](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-postgresql)| 在 Windows 上部署使用 Azure Database for PostgreSQL 的 Azure Web 应用。 |

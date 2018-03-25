@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 应用注册 | Azure"
-description: "本文介绍如何使用 Azure 门户将应用程序注册到 Azure Active Directory"
+title: Azure Active Directory 应用注册 | Azure
+description: 本文介绍如何使用 Azure 门户将应用程序注册到 Azure Active Directory
 services: active-directory
 documentationcenter: .net
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 7dc7b89f-653f-405a-b5f4-2c1288720c15
 ms.service: active-directory
 ms.workload: identity
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/20/2017
-ms.date: 12/25/2017
+ms.date: 03/05/2018
 ms.author: v-nany
 ms.reviewer: elisol
-ms.openlocfilehash: 9009b773712b1ca9e65556b2bf03ce126b868d9f
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 895f98ffdf39e16d8536c2fd74a0107d66186449
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>将应用程序注册到 Azure Active Directory 租户
 
@@ -28,8 +28,8 @@ ms.lasthandoff: 12/22/2017
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在页面右上角选择帐户，选择 Azure AD 租户。
-3. 在左侧导航窗格中，选择“更多服务”，单击“应用注册”，并单击“添加”。
-4. 根据提示创建新的应用程序。 如需 Web 应用程序或本机应用程序的特定示例，请查看[快速入门](.\develop\active-directory-developers-guide.md)。
+3. 在左侧导航窗格中，选择“所有服务”，单击“应用注册”，并单击“添加”。
+4. 根据提示创建新的应用程序。 如需 Web 应用程序或本机应用程序的特定示例，请查看[快速入门](./develop/active-directory-developers-guide.md)。
   * 对于 Web 应用程序，请在用户登录页面（如 `http://localhost:12345`）提供“登录 URL”，即应用的基 URL。
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.partner.onmschina.cn/my-first-aad-app`-->
   * 对于本机应用程序，请提供“重定向 URI” ，Azure AD 用其返回令牌响应。 输入特定于应用程序的值，例如 `http://MyFirstAADApp`
@@ -41,8 +41,8 @@ ms.lasthandoff: 12/22/2017
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在页面右上角选择帐户，选择 Azure AD 租户。
-3. 在左侧导航窗格中，选择“更多服务”，单击“应用注册”，并从列表中选择你的应用程序。
-4. 单击“设置”，打开应用程序的设置页面。
+3. 在左侧导航窗格中，选择“所有服务”，单击“应用注册”，并从列表中选择应用程序。
+4. 单击“设置”  ，打开应用程序的设置页面。
   * 在 **属性** 页面中，可修改应用程序的常规信息。 这包括应用程序名称、登录 URL 和注销 URL。
   * 在 **答复 URL** 页面中，可添加答复 URL，它是 Azure AD 发送令牌响应的位置。
   * 在 **所有者** 页面中，可添加应用程序所有者。
@@ -55,8 +55,8 @@ ms.lasthandoff: 12/22/2017
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在页面右上角选择帐户，选择 Azure AD 租户。
-3. 在左侧导航窗格中，选择“更多服务”，单击“应用注册”，并从列表中选择你的应用程序。
-4. 在应用程序页面中，单击“清单”打开内联清单编辑器。
+3. 在左侧导航窗格中，选择“所有服务”，单击“应用注册”，并从列表中选择应用程序。
+4. 在应用程序页面中，单击“清单”  打开内联清单编辑器。
 5. 准备就绪后，可直接对清单进行更改和保存。 或者，可下载清单并在用户喜爱的编辑器中打开，并上传更新的清单。
 
 ## <a name="next-steps"></a>后续步骤

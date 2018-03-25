@@ -1,24 +1,24 @@
 ---
-title: "如何将用户和组分配到应用程序 | Microsoft Docs"
-description: "将用户分配到应用程序以授予访问权限"
+title: 如何将用户和组分配到应用程序 | Microsoft Docs
+description: 将用户分配到应用程序以授予访问权限
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 1/1/2018
+ms.date: 3/5/2018
 ms.author: v-nany
-ms.openlocfilehash: d1087d21dc4c28886cc9529e59c7ccdf5160b653
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: ea46ae3a95eb491a4b329126d790088ef4e020f1
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="how-to-assign-users-and-groups-to-an-application"></a>如何将用户和组分配到应用程序
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/29/2017
 
 1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
 
-2.  在左侧主导航菜单底部单击“更多服务”，打开“Azure Active Directory 扩展”。
+2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory 扩展”。
 
 3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
 
@@ -59,9 +59,9 @@ ms.lasthandoff: 12/29/2017
 
 7.  在应用程序加载后，在应用程序的左侧导航菜单中单击“用户和组”。
 
-8.  单击“用户和组”列表顶部的“添加”按钮，打开“添加分配”边栏选项卡。
+8.  单击“用户和组”列表顶部的“添加”按钮，以打开“添加分配”窗格。
 
-9.  在“添加分配”边栏选项卡中，单击“用户和组”选择器。
+9.  在“添加分配”窗格中，单击“用户和组”选择器。
 
 10. 在“按名称或电子邮件地址搜索”搜索框中，键入要分配的用户的**全名**或**电子邮件地址**。
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 12/29/2017
 
 13. 在完成用户的选择后，单击“选择”按钮将他们添加到要分配给应用程序的用户和组列表。
 
-14. **可选：**单击“添加分配”边栏选项卡中的“选择角色”选择器可选择要分配给所选用户的角色。
+14. **可选：**单击“添加分配”窗格中的“选择角色”选择器，选择一个角色来分配给所选用户。
 
 15. 单击“分配”按钮，将应用程序分配给选定用户。
 

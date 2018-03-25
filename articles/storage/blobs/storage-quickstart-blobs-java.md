@@ -1,6 +1,6 @@
 ---
-title: "Azure 快速入门 - 使用 Java 在 Azure 存储中上传、下载和列出 Blob | Microsoft Docs"
-description: "在本快速入门中，请创建存储帐户和容器。 然后，使用适用于 Java 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。"
+title: Azure 快速入门 - 使用 Java 在 Azure 存储中上传、下载和列出 Blob | Microsoft Docs
+description: 在本快速入门中，请创建存储帐户和容器。 然后，使用适用于 Java 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
 author: yunan2016
 manager: digimobile
@@ -10,11 +10,11 @@ ms.topic: quickstart
 origin.date: 02/22/2018
 ms.date: 03/05/2018
 ms.author: v-nany
-ms.openlocfilehash: 6f0c00bf1aaa79a6eac9ddc2dcaa6ea8d5ad66d0
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 75c1ae0353d2b3cc63ca186f83817cdefba89231
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>快速入门：使用 Java 上传、下载和列出 Blob
 
@@ -204,6 +204,19 @@ downloadedFile.deleteOnExit();
 if(sourceFile != null)
 sourceFile.deleteOnExit();
 ```
+
+## <a name="resources-for-developing-java-applications-with-blobs"></a>用于开发包含 Blob 的 Java 应用程序的资源
+
+查看以下附加资源，了解如何使用 Blob 存储进行 Java 开发：
+
+### <a name="binaries-and-source-code"></a>二进制文件和源代码
+
+- 在 GitHub 上查看并下载 Azure 存储的 [Java 客户端库源代码](https://github.com/Azure/azure-storage-java)。
+
+### <a name="client-library-reference-and-samples"></a>客户端库参考和示例
+
+- 参阅 [Java API 参考](https://docs.azure.cn/zh-cn/java/api/overview/storage)，详细了解 Java 客户端库。
+- 浏览使用 Java 客户端库编写的 [Blob 存储示例](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob)。
 
 ## <a name="next-steps"></a>后续步骤
 

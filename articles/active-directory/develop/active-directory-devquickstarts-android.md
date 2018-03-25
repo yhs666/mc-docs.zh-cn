@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Android 入门 | Microsoft 文档"
-description: "如何生成一个与 Azure AD 集成以方便登录，并使用 OAuth2.0 调用受 Azure AD 保护 API 的 Android 应用程序。"
+title: Azure AD Android 入门 | Microsoft 文档
+description: 如何生成一个与 Azure AD 集成以方便登录，并使用 OAuth2.0 调用受 Azure AD 保护 API 的 Android 应用程序。
 services: active-directory
 documentationcenter: android
 author: danieldobalian
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ origin.date: 11/30/2017
 ms.date: 01/17/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 033fef4cc8a04a92835796fbb7071c04b7950530
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 8cd34603372bdff0e5338c984a3d074de541a28d
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="azure-ad-android-getting-started"></a>Azure AD Android 入门
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -53,8 +53,8 @@ Active Directory 支持添加两种类型的应用程序：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在顶部栏上，单击帐户。 在“目录”列表中，选择要在其中注册应用程序的 Azure AD 租户。
-3. 在左窗格中，单击“更多服务”，并选择“Azure Active Directory”。
-4. 单击“应用注册”，然后选择“新建应用程序注册”。
+3. 在左窗格中，单击“所有服务”，并选择“Azure Active Directory”。
+4. 单击“应用注册”，并选择“添加”。
 5. 为应用程序输入一个友好的名称（例如“TodoListService”），选择“Web 应用程序和/或 Web API”，并单击“下一步”。
 6. 对于登录 URL，输入示例的基 URL。 默认情况下，它是 `https://localhost:8080`。
 7. 单击“确定”完成注册。
@@ -71,9 +71,9 @@ Active Directory 支持添加两种类型的应用程序：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在顶部栏上，单击帐户。 在“目录”列表中，选择要在其中注册应用程序的 Azure AD 租户。
-3. 在左窗格中，单击“更多服务”，并选择“Azure Active Directory”。
-4. 单击“应用注册”，然后选择“新建应用程序注册”。
-5. 为应用程序输入一个友好的名称（例如 **TodoListClient-Android**），选择“本机应用程序”，并单击“下一步”。
+3. 在左窗格中，单击“所有服务”，并选择“Azure Active Directory”。
+4. 单击“应用注册”，并选择“添加”。
+5. 为应用程序输入一个友好的名称（例如“TodoListClient-Android”），选择“本机客户端应用程序”，并单击“下一步”。
 6. 对于“重定向 URI”，输入 `http://TodoListClient`。 单击“完成” 。
 7. 在应用程序页面中，找到应用程序 ID 值并复制它。 稍后在配置应用程序时需要此值。
 8. 在“设置”页上，选择“所需权限”，并选择“添加”。  找到并选择 TodoListService，在“委派的权限”下添加“访问 TodoListService”权限，并单击“完成”。

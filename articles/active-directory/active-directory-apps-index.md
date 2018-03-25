@@ -1,8 +1,8 @@
 ---
-title: "有关 Azure Active Directory 中应用程序管理的文章索引 | Azure"
-description: "了解如何自定义联合证书的到期日期，以及如何续订即将过期的证书。"
+title: 有关 Azure Active Directory 中应用程序管理的文章索引 | Azure
+description: 了解如何自定义联合证书的到期日期，以及如何续订即将过期的证书。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/21/2017
-ms.date: 11/22/2017
+origin.date: 01/26/2018
+ms.date: 03/05/2018
 ms.author: v-junlch
 ms.reviewer: asteen
-ms.openlocfilehash: 7dcca820e5f64ce49cfc4631452cbaa7f0e09bad
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 5f0b70e53be38ddf6028abf7bea38ccbf2658f30
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>有关 Azure Active Directory 中应用程序管理的文章索引
 本页提供了一份完整列表，列出编写的 Azure Active Directory (Azure AD) 中各种应用程序相关功能的所有文章。
