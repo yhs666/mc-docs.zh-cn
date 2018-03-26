@@ -1,11 +1,11 @@
 ---
-title: "适用于 Blob 的 Azure 热、冷、存档存储 | Microsoft Docs"
-description: "适用于 Azure 存储帐户的热、冷、存档存储。"
+title: 适用于 Blob 的 Azure 热、冷、存档存储 | Microsoft Docs
+description: 适用于 Azure 存储帐户的热、冷、存档存储。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
 ms.workload: storage
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 origin.date: 12/11/2017
 ms.date: 03/05/2018
 ms.author: v-nany
-ms.openlocfilehash: f4b995fa3c1167b1392414fd4fc4aef9c70e4c94
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 47681fe5c37cf0f000a6704a12258114399a3ea2
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob 存储：热、冷、存档存储层
 
@@ -33,7 +33,7 @@ Azure 存储为 Blob 对象存储提供三个存储层，因此你可以根据�
 
 ## <a name="storage-accounts-that-support-tiering"></a>支持分层的存储帐户
 
-在 Blob 存储或常规用途 v2 (GPv2) 帐户中，只能将对象存储数据分为热层、冷层、存档层。 常规用途 v1 (GPv1) 帐户不支持分层。 不过，客户可以轻松地将其现有的 GPv1 或 Blob 存储帐户转换为 GPv2 帐户，只需在 Azure 门户中单击一下即可。 GPv2 为 Blob、文件和队列提供新的定价结构，还可以访问各种其他的全新存储功能。 另外，以后只对 GPv2 帐户提供某些新功能和价格折扣。 因此，客户应使用 GPv2 帐户进行评估，但只应在查看所有服务的定价以后再使用此类帐户，因为某些工作负荷的价格在 GPv2 中可能比在 GPv1 中更高。 若要了解详细信息，请参阅 [Azure 存储帐户选项](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+在 Blob 存储或常规用途 v2 (GPv2) 帐户中，只能将对象存储数据分为热层、冷层、存档层。 常规用途 v1 (GPv1) 帐户不支持分层。 不过，客户可以轻松地将其现有的 GPv1 或 Blob 存储帐户转换为 GPv2 帐户，只需在 Azure 门户中单击一下即可。 GPv2 为 Blob、文件和队列提供新的定价结构，还可以访问各种其他的全新存储功能。 另外，以后只对 GPv2 帐户提供某些新功能和价格折扣。 因此，客户应使用 GPv2 帐户进行评估，但只应在查看所有服务的定价以后再使用此类帐户，因为某些工作负荷的价格在 GPv2 中可能比在 GPv1 中更高。 若要了解详细信息，请参阅 [Azure 存储帐户选项](../common/storage-account-options.md?toc=%2fstorage%2fblobs%2ftoc.json)。
 
 Blob 存储和 GPv2 帐户在帐户级别公开“访问层”属性，方便你将存储帐户中任何 Blob 的默认存储层指定为热层或冷层，前提是该 Blob 尚未在对象级别设置该层。 对于已在对象级别设置该层的对象，不会应用帐户层。 存档层仅适用于对象级别。 可以随时在这些存储层之间进行切换。
 
@@ -84,7 +84,7 @@ Blob 存储和 GPv2 帐户在帐户级别公开“访问层”属性，方便你
 
 如果将帐户层从热切换为冷，则只按 GPv2 帐户中没有设置层的所有 Blob 的写入操作次数（以 10,000 次为单位）收费。 不会在 Blob 存储帐户中对此收费。 如果将 Blob 存储或 GPv2 帐户从冷切换为热，则会按读取操作次数（以 10,000 次为单位）和数据检索量（以 GB 为单位）收费。 也可能还会收取从池或存档层移出的任何 Blob 的早期删除费用。
 
-### <a name="cool-and-archive-early-deletion-effective-march-1-2018"></a>“冷”和“存档”提前删除（2018 年 3 月 1 日起生效）
+### <a name="cool-and-archive-early-deletion"></a>“冷”层和“存档”层提前删除
 
 除了按 GB 和按月收费，移到冷层（仅限 GPv2 帐户）中的 Blob 会有一个 30 天的冷层早期删除期限，移到存档层中的 Blob 会有一个 180 天的存档层早期删除期限。 此项费用按比例计算。 例如，如果将某个 Blob 移到存档层，然后在 45 天后将其删除或移到热层，则需支付相当于将该 Blob 存储在存档层中 135（180 减 45）天的早期删除费用。
 
@@ -103,7 +103,7 @@ Blob 存储和 GPv2 帐户在帐户级别公开“访问层”属性，方便你
 | **可伸缩性和性能目标** | 与通用存储帐户相同 | 与通用存储帐户相同 | 与通用存储帐户相同 |
 
 > [!NOTE]
-> Blob 存储帐户支持与常规用途存储帐户相同的性能和可伸缩性目标。 有关详细信息，请参阅 [Azure 存储的可伸缩性和性能目标](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+> Blob 存储帐户支持与常规用途存储帐户相同的性能和可伸缩性目标。 有关详细信息，请参阅 [Azure 存储的可伸缩性和性能目标](../common/storage-scalability-targets.md?toc=%2fstorage%2fblobs%2ftoc.json)。
 
 ## <a name="quickstart-scenarios"></a>快速入门方案
 
@@ -178,7 +178,7 @@ GPv1 和 GPv2 帐户的定价结构不同，客户在决定使用 GPv2 帐户之
 
 **如何确定在删除或移出冷层或存档层的 Blob 时是否会产生早期删除费用？**
 
-在删除或移出冷层（仅限 GPv2 帐户）或存档层的任何 Blob 时，如果相应的存储时间不足 30 天（冷层）和 180 天（存档层），则会产生按比例计费的早期删除费用（自 2018 年 3 月 1 日起生效）。 若要确定 Blob 已在冷层或存档层中存储了多长时间，可以查看“访问层更改时间”Blob 属性，该属性提供上次进行层更改的戳记。 查看[冷层和存档层的早期删除](#cool-and-archive-early-deletion)部分可获取更多详细信息。
+在删除或移出冷层（仅限 GPv2 帐户）或存档层的任何 Blob 时，如果相应的存储时间不足 30 天（冷层）和 180 天（存档层），则会产生按比例计费的早期删除费用。 若要确定 Blob 已在冷层或存档层中存储了多长时间，可以查看“访问层更改时间”Blob 属性，该属性提供上次进行层更改的戳记。 查看[冷层和存档层的早期删除](#cool-and-archive-early-deletion)部分可获取更多详细信息。
 
 **哪些 Azure 工具和 SDK 支持 Blob 级别的分层和存档存储？**
 
