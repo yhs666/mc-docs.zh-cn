@@ -134,7 +134,7 @@ Nagios 监视插件是与合作伙伴 Cloudbase 解决方案一起开发的，�
 
 **请求**
 
-该请求获取默认提供程序订阅的所有活动警报和已关闭的警报。 没有请求正文。
+该请求获取默认提供商订阅的所有活动警报和已关闭的警报。 没有请求正文。
 
 
 |方法  |请求 URI  |
@@ -147,7 +147,7 @@ Nagios 监视插件是与合作伙伴 Cloudbase 解决方案一起开发的，�
 |参数  |说明  |
 |---------|---------|
 |armendpoint     |  Azure Stack 环境的 Azure 资源管理器终结点，采用 https://adminmanagement.{区域名称}.{外部 FQDN} 格式。 例如，如果外部 FQDN 是 *azurestack.external*，区域名称是 *local*，则 资源管理器终结点为 https://adminmanagement.local.azurestack.external。       |
-|subid     |   正在发出调用的用户的订阅 ID。 只能通过拥有默认提供程序订阅权限的用户身份使用此 API 进行查询。      |
+|subid     |   正在发出调用的用户的订阅 ID。 只能通过拥有默认提供商订阅权限的用户身份使用此 API 进行查询。      |
 |RegionName     |    Azure Stack 部署的区域名称。     |
 |api-version     |  用于发出此请求的协议版本。 必须使用 2016-05-01。      |
 |     |         |
@@ -250,7 +250,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |参数  |说明  |
 |---------|---------|
 |*armendpoint*     |   Azure Stack 环境的资源管理器终结点，采用 https://adminmanagement.{区域名称}.{外部 FQDN} 格式。 例如，如果外部 FQDN 是 *azurestack.external*，区域名称是 *local*，则 资源管理器终结点为 https://adminmanagement.local.azurestack.external。      |
-|*subid*     |    正在发出调用的用户的订阅 ID。 只能通过拥有默认提供程序订阅权限的用户身份使用此 API 进行查询。     |
+|*subid*     |    正在发出调用的用户的订阅 ID。 只能通过拥有默认提供商订阅权限的用户身份使用此 API 进行查询。     |
 |*RegionName*     |   Azure Stack 部署的区域名称。      |
 |*api-version*     |    用于发出此请求的协议版本。 必须使用 2016-05-01。     |
 |*alertid*     |    警报的唯一 ID。     |
@@ -395,7 +395,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |参数  |说明  |
 |---------|---------|
 |*armendpoint*     |    Azure Stack 环境的资源管理器终结点，采用 https://adminmanagement.{区域名称}.{外部 FQDN} 格式。 例如，如果外部 FQDN 是 azurestack.external，区域名称是 local，则 资源管理器终结点为 https://adminmanagement.local.azurestack.external。     |
-|*subid*     |     正在发出调用的用户的订阅 ID。 只能通过拥有默认提供程序订阅权限的用户身份使用此 API 进行查询。    |
+|*subid*     |     正在发出调用的用户的订阅 ID。 只能通过拥有默认提供商订阅权限的用户身份使用此 API 进行查询。    |
 |*RegionName*     |     Azure Stack 部署的区域名称。    |
 |*api-version*     |   用于发出此请求的协议版本。 必须使用 2016-05-01。      |
 
@@ -464,7 +464,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |参数  |说明  |
 |---------|---------|
 |*armendpoint*     |    Azure Stack 环境的资源管理器终结点，采用 https://adminmanagement.{区域名称}.{外部 FQDN} 格式。 例如，如果外部 FQDN 是 azurestack.external，区域名称是 local，则 资源管理器终结点为 https://adminmanagement.local.azurestack.external。     |
-|*subid*     |正在发出调用的用户的订阅 ID。 只能通过拥有默认提供程序订阅权限的用户身份使用此 API 进行查询。         |
+|*subid*     |正在发出调用的用户的订阅 ID。 只能通过拥有默认提供商订阅权限的用户身份使用此 API 进行查询。         |
 |*RegionName*     |  Azure Stack 部署的区域名称。       |
 |*api-version*     |  用于发出此请求的协议版本。 必须使用 2016-05-01。       |
 |*RegistrationID* |特定资源提供程序的注册 ID。 |

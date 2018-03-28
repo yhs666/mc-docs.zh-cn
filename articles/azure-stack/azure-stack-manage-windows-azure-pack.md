@@ -162,7 +162,7 @@ Azure Pack 租户 API 必须信任 Azure Stack 安全令牌服务 (STS)。
 
     .\Install-Connector.ps1
     ```
-     d.单击“验证存储凭据”以验证存储帐户。 将目录切换到 **c:\inetpub**，验证是否已安装这三个新站点：
+     d. 将目录切换到 **c:\inetpub**，验证是否已安装这三个新站点：
 
        - MgmtSvc-Connector
 
@@ -170,7 +170,7 @@ Azure Pack 租户 API 必须信任 Azure Stack 安全令牌服务 (STS)。
 
        - MgmtSvc-ConnectorController
 
-    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 在相同的 **c:\temp\wapconnector\setup\scripts** 文件夹中，运行 **Configure-Certificates.ps1** 脚本来安装证书。 默认情况下，该脚本将使用 Azure Pack 中的租户门户站点可用的相同证书。 请确保这是有效证书（受 Azure Stack AzS-WASP01 虚拟机和任何访问 Azure Stack 门户的客户端计算机的信任）。 否则无法通信。 （或者，也可以使用 -Thumbprint 参数以参数的形式显式传递证书指纹。）
+    e. 在相同的 **c:\temp\wapconnector\setup\scripts** 文件夹中，运行 **Configure-Certificates.ps1** 脚本来安装证书。 默认情况下，该脚本将使用 Azure Pack 中的租户门户站点可用的相同证书。 请确保这是有效证书（受 Azure Stack AzS-WASP01 虚拟机和任何访问 Azure Stack 门户的客户端计算机的信任）。 否则无法通信。 （或者，也可以使用 -Thumbprint 参数以参数的形式显式传递证书指纹。）
 
      ```powershell
         cd C:\temp\wapconnector\setup\scripts\
@@ -178,7 +178,7 @@ Azure Pack 租户 API 必须信任 Azure Stack 安全令牌服务 (STS)。
         .\Configure-Certificates.ps1
     ```
 
-    f.单击“保存”以保存设置。 若要完成这三个服务的配置，请运行 **Configure-WapConnector.ps1** 脚本来更新 Web.config 文件参数。
+    f. 若要完成这三个服务的配置，请运行 **Configure-WapConnector.ps1** 脚本来更新 Web.config 文件参数。
 
     |  参数 | 说明 | 示例 |   
     | -------- | ------------- | ------- |  
@@ -202,9 +202,9 @@ Azure Pack 租户 API 必须信任 Azure Stack 安全令牌服务 (STS)。
 
     c. 将前面保存的 AzurePackConnectorOutput.txt 文件复制到 **c:\temp\WAPConnector**。
 
-    d.单击“验证存储凭据”以验证存储帐户。 与文件复制到的租户 API VM 建立控制台或 RDP 连接。
+    d. 与文件复制到的租户 API VM 建立控制台或 RDP 连接。
     
-    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 将目录切换到 **c:\temp\wapconnector\setup\scripts**，并运行 **Update-TenantAPI.ps1**。 此新版 WAP 租户 API 包含更改，不仅可以启用与当前 STS 的信任关系，而且还能启用与 Azure Stack 中的 AD FS 实例的信任关系。
+    e. 将目录切换到 **c:\temp\wapconnector\setup\scripts**，并运行 **Update-TenantAPI.ps1**。 此新版 WAP 租户 API 包含更改，不仅可以启用与当前 STS 的信任关系，而且还能启用与 Azure Stack 中的 AD FS 实例的信任关系。
 
      ```powershell
     cd C:\temp\wapconnector\setup\packages\
@@ -212,7 +212,7 @@ Azure Pack 租户 API 必须信任 Azure Stack 安全令牌服务 (STS)。
     .\Update-TenantAPI.ps1
     ```
 
-    f.单击“保存”以保存设置。  在每个运行租户 API 的虚拟机上重复步骤 2。
+    f.  在每个运行租户 API 的虚拟机上重复步骤 2。
 3. **只在一个**租户 API VM 上，运行 Configure-TrustAzureStack.ps1 脚本，以添加与租户 API 和 Azure Stack 上 AD FS 实例之间的信任关系。 必须使用对 Microsoft.MgmtSvc.Store 数据库拥有管理员访问权限的帐户。 此脚本采用以下参数：
 
     | 参数 | 说明 | 示例 |

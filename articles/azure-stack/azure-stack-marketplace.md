@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Stack 中发布自定义的 Marketplace 项（面向云操作员）| Microsoft Docs"
-description: "向 Azure Stack 操作员介绍了解如何在 Azure Stack 中发布自定义的 Marketplace 项。"
+title: 在 Azure Stack 中发布自定义的 Marketplace 项（面向云操作员）| Microsoft Docs
+description: 向 Azure Stack 操作员介绍了解如何在 Azure Stack 中发布自定义的 Marketplace 项。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
 ms.service: azure-stack
 ms.workload: na
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/08/2018
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-Marketplace 是一组针对 Azure Stack 自定义的服务、应用程序和资源集合，例如网络、虚拟机、存储等等。 用户可在此位置创建新资源和部署新应用程序。 可将 Marketplace 视为购物目录，用户可在此处浏览并选择所需的商品。 若要使用某个 Marketplace 项，用户必须订阅一个可让他们访问该项的产品。
+Marketplace 是一组针对 Azure Stack 自定义的服务、应用程序和资源集合，例如网络、虚拟机、存储等等。 用户可在此位置创建新资源和部署新应用程序。 可将 Marketplace 视为购物目录，用户可在此处浏览并选择所需的商品。 若要使用某个 Marketplace 项，用户必须订阅一个可让他们访问该项的产品/服务。
 
 Azure Stack 操作员可以确定要添加（发布）到 Marketplace 的项。 可以发布数据库、应用服务等项。 然后，所有用户都可以看到这些项。 可以发布创建的自定义项。 还可以从不断扩充的 [Azure Marketplace 项列表](azure-stack-marketplace-azure-items.md)发布项。 将某个项发布到 Marketplace 后，用户在五分钟内就能看到它。
 

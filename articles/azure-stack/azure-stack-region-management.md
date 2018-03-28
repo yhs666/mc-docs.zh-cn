@@ -1,11 +1,11 @@
 ---
-title: "Azure Stack 中的区域管理 | Microsoft Docs"
-description: "Azure Stack 中的区域管理概述。"
+title: Azure Stack 中的区域管理 | Microsoft Docs
+description: Azure Stack 中的区域管理概述。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: efemmano
 manager: dsavage
-editor: 
+editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
 ms.workload: na

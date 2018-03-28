@@ -25,7 +25,7 @@ ms.lasthandoff: 03/08/2018
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-Azure Stack 包含基础结构监视功能，可用于查看 Azure Stack 区域的运行状况和警报。 “区域管理”磁贴默认固定在默认提供程序订阅的管理员门户上，其中列出了 Azure Stack 的所有已部署区域。 该磁贴除了显示每个区域的活动严重警报和警告警报数目以外，也是 Azure Stack 运行状况和警报功能的入口点。
+Azure Stack 包含基础结构监视功能，可用于查看 Azure Stack 区域的运行状况和警报。 “区域管理”磁贴默认固定在默认提供商订阅的管理员门户上，其中列出了 Azure Stack 的所有已部署区域。 该磁贴除了显示每个区域的活动严重警报和警告警报数目以外，也是 Azure Stack 运行状况和警报功能的入口点。
 
  ![“区域管理”磁贴](./media/azure-stack-monitor-health/image1.png)
 

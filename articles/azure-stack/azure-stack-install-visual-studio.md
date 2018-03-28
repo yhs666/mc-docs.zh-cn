@@ -1,11 +1,11 @@
 ---
-title: "安装 Visual Studio 并连接到 Azure Stack | Microsoft Docs"
-description: "了解安装 Visual Studio 并连接到 Azure Stack 所需的步骤"
+title: 安装 Visual Studio 并连接到 Azure Stack | Microsoft Docs
+description: 了解安装 Visual Studio 并连接到 Azure Stack 所需的步骤
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
 ms.service: azure-stack
 ms.workload: na

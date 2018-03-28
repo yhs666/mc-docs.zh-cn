@@ -1,12 +1,12 @@
 ---
-title: "从 Azure 下载 Marketplace 项 | Microsoft Docs"
-description: "可以将 Marketplace 项从 Azure 下载到 Azure Stack 部署。"
+title: 从 Azure 下载 Marketplace 项 | Microsoft Docs
+description: 可以将 Marketplace 项从 Azure 下载到 Azure Stack 部署。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -24,16 +24,16 @@ ms.lasthandoff: 03/02/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>将 Marketplace 项从 Azure 下载到 Azure Stack
 
-适用于：Azure Stack 集成系统和 Azure Stack 开发工具包
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 
-在决定要在 Azure Stack Marketplace 中包括什么内容时，应考虑可以从 Azure Marketplace 获得的内容。 可以从特选的 Azure Marketplace 项列表中下载，这些项已经过预先测试，可以在 Azure Stack 上运行。 新项会不断地添加到此列表中，因此请务必返回来查看新内容。
+在决定要在 Azure Stack Marketplace 中包括什么内容时，应考虑可以从 Azure Marketplace 获得的内容。 可以从特选的 Azure Marketplace 项列表中下载，这些项已经过预先测试，可以在 Azure Stack 上运行。 新项会不断地添加到此列表中，因此请务必经常返回查看新内容。
 
-## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>在连接的情况下（具有 Internet 连接）下载 Marketplace 项
+## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>在联网场景中（具有 Internet 连接）下载 Marketplace 项
 
 1. 若要下载 Marketplace 项，必须先[将 Azure Stack 注册到 Azure](azure-stack-register.md)。
 2. 登录到 Azure Stack 管理员门户 (https://portal.local.azurestack.external)。
-3. 一些 Marketplace 项可能是大型的。 请单击“资源提供程序” > “存储”进行检查，确保系统有足够的空间。
+3. 一些 Marketplace 项可能占用很大存储空间。 请单击“资源提供程序” > “存储”进行检查，确保系统有足够的空间。
 
     ![](./media/azure-stack-download-azure-marketplace-item/image01.png)
 
@@ -52,9 +52,9 @@ ms.lasthandoff: 03/02/2018
 6. 下载完成后，即可以 Azure Stack 操作员或用户的身份部署新的 Marketplace 项。 单击“+新建”，在类别中搜索这个新的 Marketplace 项，然后将其选中。
 7. 单击“创建”，开始新下载项的创建体验。 按照分步说明部署你的项。
 
-## <a name="download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>在 断开连接或部分连接的情况下（Internet 连接受到限制）下载 Marketplace 项
+## <a name="download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>在联网或部分联网的场景中（Internet 连接受到限制）下载 Marketplace 项
 
-在断开连接模式下（没有任何 Internet 连接）部署 Azure Stack 时，不能通过 Azure Stack 门户下载 Marketplace 项。 但是，可以使用 Marketplace 联合工具将 Marketplace 项下载到有 Internet 连接的计算机，然后再将这些项转移到 Azure Stack 环境。
+在离线模式下（没有任何 Internet 连接）部署 Azure Stack 时，不能通过 Azure Stack 门户下载 Marketplace 项。 但是，可以使用 Marketplace 联合工具将 Marketplace 项下载到有 Internet 连接的计算机，然后再将这些项转移到 Azure Stack 环境。
 
 ### <a name="prerequisites"></a>先决条件
 在使用 Marketplace 联合工具之前，请确保已[将 Azure Stack 注册到 Azure 订阅](azure-stack-register.md)。  

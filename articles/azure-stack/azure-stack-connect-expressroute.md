@@ -1,12 +1,12 @@
 ---
-title: "使用 ExpressRoute 将 Azure Stack 连接到 Azure"
-description: "如何使用 ExpressRoute 将 Azure Stack 中的虚拟网络连接到 Azure 中的虚拟网络。"
+title: 使用 ExpressRoute 将 Azure Stack 连接到 Azure
+description: 如何使用 ExpressRoute 将 Azure Stack 中的虚拟网络连接到 Azure 中的虚拟网络。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,7 +15,7 @@ ms.topic: get-started-article
 origin.date: 09/25/2017
 ms.date: 03/01/2018
 ms.author: v-junlch
-ms.reviewer: 
+ms.reviewer: ''
 ms.openlocfilehash: 7aac78cd8d4918ce719809d40991765825db8ac7
 ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
@@ -67,7 +67,7 @@ ms.lasthandoff: 03/02/2018
 - 一个 Azure Stack 部署。
 
    有关部署 Azure Stack 开发工具包的信息，请参阅 [Azure Stack 开发工具包部署快速入门](azure-stack-deploy-overview.md)。
-- Azure Stack 中可供用户订阅的产品。
+- Azure Stack 中可供用户订阅的产品/服务。
 
   有关说明，请参阅[将虚拟机提供给 Azure Stack 用户使用](azure-stack-tutorial-tenant-vm.md)。
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 03/02/2018
 
     c. 单击“固定到仪表板”。
 
-    d.单击“验证存储凭据”以验证存储帐户。 单击“创建”。
+    d. 单击“创建”。
 
 
 

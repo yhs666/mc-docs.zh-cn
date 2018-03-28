@@ -1,11 +1,11 @@
 ---
-title: "关于 Azure Stack 的 VPN 网关 | Microsoft Docs"
-description: "了解和配置用于 Azure Stack 的 VPN 网关。"
+title: 关于 Azure Stack 的 VPN 网关 | Microsoft Docs
+description: 了解和配置用于 Azure Stack 的 VPN 网关。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
 ms.service: azure-stack
 ms.workload: na

@@ -39,7 +39,7 @@ ms.lasthandoff: 03/08/2018
 可以使用其他选项部署 SQL VM，包括 [Azure Stack 快速入门库](https://github.com/Azure/AzureStack-QuickStart-Templates)中的模板。
 
 > [!NOTE]
-> 必须通过用户订阅创建安装在多节点 Azure Stack 上的任何宿主服务器， 而不能通过默认提供程序订阅创建。 必须通过用户门户或者使用相应的登录名通过 PowerShell 会话来创建这些服务器。 所有宿主服务器都是可计费的 VM，并且必须具有相应的 SQL 许可证。 服务管理员可以是订阅的所有者。
+> 必须通过用户订阅创建安装在多节点 Azure Stack 上的任何宿主服务器， 而不能通过默认提供商订阅创建。 必须通过用户门户或者使用相应的登录名通过 PowerShell 会话来创建这些服务器。 所有宿主服务器都是可计费的 VM，并且必须具有相应的 SQL 许可证。 服务管理员可以是订阅的所有者。
 
 
 ### <a name="required-privileges"></a>所需的特权
@@ -138,16 +138,16 @@ GO
 
 ## <a name="making-sql-databases-available-to-users"></a>将 SQL 数据库提供给用户使用
 
-创建计划和产品，使用户能够使用 SQL 数据库。 将 Microsoft.SqlAdapter 服务添加到计划，并添加现有的配额或创建新配额。 如果创建配额，请可以指定允许用户使用的容量。
+创建计划和产品/服务，使用户能够使用 SQL 数据库。 将 Microsoft.SqlAdapter 服务添加到计划，并添加现有的配额或创建新配额。 如果创建配额，请可以指定允许用户使用的容量。
 
-![创建计划和产品以包含数据库](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
+![创建计划和产品/服务以包含数据库](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
 
 ## <a name="maintenance-of-the-sql-adapter-rp"></a>SQL 适配器 RP 的维护
 
 本文不介绍 SQL 实例的维护，只提供有关密码轮换的信息。 你需要责任修补和备份/恢复与 SQL 适配器配合使用的数据库服务器。
 
 ### <a name="patching-and-updating"></a>修补和更新
- 不能将 SQL 适配器作为 Azure Stack 的一部分进行维护，因为它是一个加载项组件。 Microsoft 会根据需要为 SQL 适配器提供更新。 SQL 适配器在默认提供程序订阅下面的用户虚拟机上实例化。 因此，需要提供 Windows 修补程序、防病毒签名等信息。使用修补和更新周期提供的 Windows 更新包可将更新应用到 Windows VM。 发布更新的适配器后，会提供一个脚本来应用更新。 此脚本将创建新的 RP VM，并迁移现有的任何状态。
+ 不能将 SQL 适配器作为 Azure Stack 的一部分进行维护，因为它是一个加载项组件。 Microsoft 会根据需要为 SQL 适配器提供更新。 SQL 适配器在默认提供商订阅下面的用户虚拟机上实例化。 因此，需要提供 Windows 修补程序、防病毒签名等信息。使用修补和更新周期提供的 Windows 更新包可将更新应用到 Windows VM。 发布更新的适配器后，会提供一个脚本来应用更新。 此脚本将创建新的 RP VM，并迁移现有的任何状态。
 
  ### <a name="backuprestoredisaster-recovery"></a>备份/还原/灾难恢复
  不能在 Azure Stack BC-DR 过程中备份 SQL 适配器，因为它是加载项组件。 我们会提供脚本来简化以下操作：

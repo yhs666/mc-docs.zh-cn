@@ -1,11 +1,11 @@
 ---
-title: "Azure Stack 管理基础知识 | Microsoft Docs"
-description: "了解对 Azure Stack 进行管理需要知道哪些知识。"
+title: Azure Stack 管理基础知识 | Microsoft Docs
+description: 了解对 Azure Stack 进行管理需要知道哪些知识。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/08/2018
 
 如果使用 Azure Stack 开发工具包，请参阅[什么是 Azure Stack？](azure-stack-poc.md)一文，确保了解该开发工具包的用途和限制。 应该将开发工具包作为“沙盒”使用，在其中对 Azure Stack 进行评估，并在非生产环境中开发和测试应用。 （有关部署信息，请参阅 [Azure Stack 开发工具包部署](azure-stack-deploy-overview.md)快速入门。）
 
-正如 Azure 一样，我们的创新速度很快。 我们会定期发布新版本。 如果运行的是此开发工具包，但需要更新到最新版本，则必须[重新部署 Azure Stack](azure-stack-redeploy.md)。 不能应用更新包。 此过程需要一定的时间，但好处是可以尝试最新功能。 我们网站上的开发工具包文档反映了最新的发行版。
+正如 Azure 一样，我们的创新速度很快。 我们会定期发布新版本。 如果运行的是开发工具包，但需要更新到最新版本，则必须[重新部署 Azure Stack](azure-stack-redeploy.md)。 不能应用更新包。 此过程需要一定的时间，但好处是可以尝试最新功能。 我们网站上的开发工具包文档反映了最新的发行版。
 
 ## <a name="learn-about-available-services"></a>了解可用的服务
 
@@ -76,16 +76,16 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 
 ## <a name="your-typical-responsibilities"></a>典型责任
 
-用户需要使用服务， 从其角度来看，你的主要角色是向他们提供这些服务。 你必须通过创建计划、产品和配额来确定要提供的具体服务并将这些服务提供给用户。 有关详细信息，请参阅[概述：如何在 Azure Stack 中提供服务](azure-stack-offer-services-overview.md)。 
+用户需要使用服务， 从其角度来看，你的主要角色是向他们提供这些服务。 你必须通过创建计划、产品/服务和配额来确定要提供的具体服务并将这些服务提供给用户。 有关详细信息，请参阅[概述：如何在 Azure Stack 中提供服务](azure-stack-offer-services-overview.md)。 
 
-此外还需向 [Marketplace](azure-stack-marketplace.md)添加项目，例如虚拟机映像。 最简单的方式是[将 Marketplace 项目从 Azure 下载到 Azure Stack](azure-stack-download-azure-marketplace-item.md)。
+此外还需向 [Marketplace](azure-stack-marketplace.md) 添加项，例如虚拟机映像。 最简单的方式是[将 Marketplace 项从 Azure 下载到 Azure Stack](azure-stack-download-azure-marketplace-item.md)。
 
 > [!NOTE]
 > 如需测试计划、产品和服务，应使用[用户门户](azure-stack-manage-portals.md)而不是管理员门户。
 
 除了提供服务，还必须执行操作员的所有常规任务，使 Azure Stack 始终能够启动并运行。 这些任务包括以下内容：
 
-- 添加用户帐户（用于 [Azure Active Directory](azure-stack-add-new-user-aad.md) 部署或 [Active Directory 联合身份验证服务](azure-stack-add-users-adfs.md)部署）
+- 添加用户帐户（用于 [Azure Active Directory](azure-stack-add-new-user-aad.md) 部署或 [Active Directory 联合身份验证服务 (AD FS)](azure-stack-add-users-adfs.md) 部署）
 - [分配基于角色的访问控制 (RBAC) 角色](azure-stack-manage-permissions.md)（不限管理员）
 - [监视基础结构运行状况](azure-stack-monitor-health.md)
 - 管理[网络](azure-stack-viewing-public-ip-address-consumption.md)和[存储](azure-stack-manage-storage-accounts.md)资源
@@ -93,13 +93,13 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 
 ## <a name="what-to-tell-your-users"></a>需要告知用户的内容
 
-需要让用户知道如何使用 Azure Stack 中的服务、如何连接到环境，以及如何订阅产品。 除了根据需要提供用户自定义文档，还可以引导用户访问 Azure Stack 用户文档站点。
+需要让用户知道如何使用 Azure Stack 中的服务、如何连接到环境，以及如何订阅产品/服务。 除了根据需要提供用户自定义文档，还可以引导用户访问 Azure Stack 用户文档站点。
 
 **了解如何使用 Azure Stack 中的服务**
 
-在 Azure Stack 中使用服务和生成应用之前，用户必须了解某些信息。 例如，必须了解特定的 PowerShell 和 API 版本要求。 另外，Azure 中的服务与 Azure Stack 中的相应服务存在一些功能差异。 请确保用户参阅以下文章：
+在 Azure Stack 中使用服务和开发应用之前，用户必须了解某些信息。 例如，必须了解特定的 PowerShell 和 API 版本要求。 另外，Azure 中的服务与 Azure Stack 中的相应服务存在一些功能差异。 请确保用户参阅以下文章：
 
-- [关键注意事项：使用 Azure Stack 的服务或为其生成应用](user/azure-stack-considerations.md)
+- [重要注意事项：使用 Azure Stack 的服务或开发适用于 Azure Stack 的应用](user/azure-stack-considerations.md)
 - [Azure Stack 中虚拟机的注意事项](user/azure-stack-vm-considerations.md)
 - [存储：差异和注意事项](user/azure-stack-acs-differences.md)
 
@@ -115,23 +115,23 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 
 **订阅产品/服务**
 
-在访问服务之前，用户必须[订阅产品](azure-stack-subscribe-plan-provision-vm.md)，该产品是你以操作员身份创建的。
+在访问服务之前，用户必须[订阅产品/服务](azure-stack-subscribe-plan-provision-vm.md)，该产品/服务是你以操作员身份创建的。
 
 ## <a name="where-to-get-support"></a>从何处获取支持
 
 ### <a name="integrated-systems"></a>集成系统
 
-对于集成系统，Microsoft 和其原始设备制造商 (OEM) 硬件合作伙伴之间已经建立了协调的问题升级和解决流程。
+对于集成系统，Microsoft 和其原始设备制造商 (OEM) 硬件合作伙伴之间已经建立了协作的问题升级和解决流程。
 
-如果存在云服务问题，请通过 Microsoft 客户支持服务 (CSS) 寻求支持。 如果单击管理员门户右上角的“帮助和支持”图标（问号），再单击“新建支持请求”，则会打开一种站点，然后就可以在其中直接提出支持请求。
+如果存在云服务问题，请通过 Microsoft 客户支持服务 (CSS) 寻求支持。 单击管理员门户右上角的“帮助和支持”图标（问号），再单击“新建支持请求”，则会打开一个网站，然后就可以在其中直接提出支持请求。
 
-如果存在部署问题、修补程序和更新问题、硬件（包括现场可更换部件）问题，以及任何硬件品牌软件（例如在硬件生命周期主机上运行的软件）问题，请首先联系 OEM 硬件供应商。
+如果存在部署问题、修补和更新问题、硬件（包括现场可更换部件）问题，以及任何硬件品牌软件（例如在硬件生命周期主机上运行的软件）问题，请首先联系 OEM 硬件供应商。
 
 至于其他问题，请联系 Microsoft CSS。
 
 ### <a name="development-kit"></a>开发工具包
 
-至于开发工具包，可以在 [Microsoft 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中提问与支持相关的问题。 如果单击管理员门户右上角的“帮助和支持”图标（问号），然后单击“新建支持请求”，则会直接打开论坛站点。 我们会定期关注这些论坛。 由于开发工具包是一个评估环境，因此我们不会通过 Microsoft CSS 提供官方支持。
+至于开发工具包，可以在 [Microsoft 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中提出与支持相关的问题。 单击管理员门户右上角的“帮助和支持”图标（问号），然后单击“新建支持请求”，则会直接打开论坛网站。 我们会定期关注这些论坛。 由于开发工具包是一个评估环境，因此我们不会通过 Microsoft CSS 提供官方支持。
 
 ## <a name="next-steps"></a>后续步骤
 

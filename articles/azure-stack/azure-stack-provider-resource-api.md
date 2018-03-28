@@ -1,11 +1,11 @@
 ---
-title: "提供者资源使用情况 API | Microsoft Docs"
-description: "资源使用情况 API 的参考，该 API 用于检索 Azure Stack 使用情况信息"
+title: 提供者资源使用情况 API | Microsoft Docs
+description: 资源使用情况 API 的参考，该 API 用于检索 Azure Stack 使用情况信息
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: AlfredoPizzirani
 manager: byronr
-editor: 
+editor: ''
 ms.assetid: b6055923-b6a6-45f0-8979-225b713150ae
 ms.service: azure-stack
 ms.workload: na

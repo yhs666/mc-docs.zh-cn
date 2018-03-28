@@ -25,7 +25,7 @@ ms.lasthandoff: 03/08/2018
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 使用 SQL Server 资源提供程序适配器可以公开 [Azure Stack](azure-stack-poc.md) 的 SQL 数据库即服务。 安装资源提供程序并将它连接到一个或多个 SQL Server 实例之后，你和用户可以创建：
-- 适用于云本地应用程序的数据库。
+- 适用于云原生应用的数据库。
 - 基于 SQL 的网站。
 - 基于 SQL 的工作负荷。
 无需每次预配托管 SQL Server 的虚拟机 (VM)。

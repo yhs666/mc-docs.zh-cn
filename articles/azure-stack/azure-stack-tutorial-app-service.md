@@ -1,12 +1,12 @@
 ---
-title: "将 Web 和 API 应用提供给 Azure Stack 用户使用 | Microsoft Docs"
-description: "有关安装应用服务资源提供程序并创建产品，使 Azure Stack 用户能够创建 Web 和 API 应用的教程。"
+title: 将 Web 和 API 应用提供给 Azure Stack 用户使用 | Microsoft Docs
+description: 有关安装应用服务资源提供程序并创建产品/服务，使 Azure Stack 用户能够创建 Web 和 API 应用的教程。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,7 +15,7 @@ ms.topic: tutorial
 origin.date: 07/03/2017
 ms.date: 03/04/2018
 ms.author: v-junlch
-ms.reviewer: 
+ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: da273aed673cd6b8c488661dd93e472f5f2de9e5
 ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
@@ -25,12 +25,12 @@ ms.lasthandoff: 03/08/2018
 ---
 # <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>将 Web 和 API 应用提供给 Azure Stack 用户使用
 
-Azure Stack 云管理员可以创建产品，使用户（租户）能够创建 Azure Functions、Web 和 API 应用程序。 通过向用户提供这些基于云的按需应用程序的访问权限，可以节省用户的时间和资源。 若要设置此功能，需要：
+Azure Stack 云管理员可以创建产品/服务，使用户（租户）能够创建 Azure Functions、Web 和 API 应用程序。 通过向用户提供这些基于云的按需应用程序的访问权限，可以节省用户的时间和资源。 若要设置此功能，需要：
 
 > [!div class="checklist"]
 > * 部署应用服务资源提供程序
-> * 创建产品
-> * 测试产品
+> * 创建产品/服务
+> * 测试产品/服务
 
 ## <a name="deploy-the-app-service-resource-provider"></a>部署应用服务资源提供程序
 
@@ -40,9 +40,9 @@ Azure Stack 云管理员可以创建产品，使用户（租户）能够创建 A
 4. [安装应用服务资源提供程序](azure-stack-app-service-deploy.md)（需要在数小时之后才能安装完资源提供程序并显示所有辅助角色）。
 5. [验证安装](azure-stack-app-service-deploy.md#validate-the-app-service-on-azure-stack-installation)。
 
-## <a name="create-an-offer"></a>创建产品
+## <a name="create-an-offer"></a>创建产品/服务
 
-例如，可以创建一个产品来让用户创建 DNN Web 内容管理系统。 这需要用到已通过安装 SQL Server 资源提供程序启用的 SQL Server 服务。
+例如，可以创建一个产品/服务来让用户创建 DNN Web 内容管理系统。 这需要用到已通过安装 SQL Server 资源提供程序启用的 SQL Server 服务。
 
 1.  [设置配额](azure-stack-setting-quotas.md)并将其命名为 *AppServiceQuota*。 在“命名空间”字段中选择“Microsoft.Web”。
 2.  [创建计划](azure-stack-create-plan.md)。 将计划命名为 *TestAppServicePlan*，并依次选择“Microsoft.SQL”服务和“AppService 配额”配额。
@@ -52,13 +52,13 @@ Azure Stack 云管理员可以创建产品，使用户（租户）能够创建 A
     > 
     >
 
-3.  [创建产品](azure-stack-create-offer.md)，将其命名为 **TestAppServiceOffer**，然后选择“TestAppServicePlan”计划。
+3.  [创建产品/服务](azure-stack-create-offer.md)，将其命名为 **TestAppServiceOffer**，然后选择“TestAppServicePlan”计划。
 
-## <a name="test-the-offer"></a>测试产品
+## <a name="test-the-offer"></a>测试产品/服务
 
-部署应用服务资源提供程序并创建产品后，可以用户身份登录并订阅该产品，然后创建应用。 本示例将创建一个 DNN 平台内容管理系统。 必须先创建 SQL 数据库，然后再创建 DNN Web 应用。
+部署应用服务资源提供程序并创建产品/服务后，可以用户身份登录并订阅该产品/服务，然后创建应用。 本示例将创建一个 DNN 平台内容管理系统。 必须先创建 SQL 数据库，然后再创建 DNN Web 应用。
 
-### <a name="subscribe-to-the-offer"></a>订阅产品
+### <a name="subscribe-to-the-offer"></a>订阅产品/服务
 1. 以租户身份登录到 Azure Stack 门户 (https://portal.local.azurestack.external)。
 2. 单击“获取订阅”， > 在“显示名称”下键入 **TestAppServiceSubscription**，然后选择“选择服务” > “TestAppServiceOffer” > “创建”。
 
@@ -87,8 +87,8 @@ Azure Stack 云管理员可以创建产品，使用户（租户）能够创建 A
 
 > [!div class="checklist"]
 > * 部署应用服务资源提供程序
-> * 创建产品
-> * 测试产品
+> * 创建产品/服务
+> * 测试产品/服务
 
 转到下一教程，了解如何执行以下操作：
 

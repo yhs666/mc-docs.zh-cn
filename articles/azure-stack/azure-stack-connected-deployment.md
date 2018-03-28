@@ -1,12 +1,12 @@
 ---
-title: "Azure Stack 集成系统的 Azure 连接型部署决策 | Microsoft Docs"
-description: "确定多节点 Azure Stack Azure 连接型部署的部署计划决策。"
+title: Azure Stack 集成系统的 Azure 连接型部署决策 | Microsoft Docs
+description: 确定多节点 Azure Stack Azure 连接型部署的部署计划决策。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/02/2018
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack 集成系统的 Azure 连接型部署计划决策
 在决定[如何将 Azure Stack 集成到混合云环境](azure-stack-connection-models.md)后，可以完成 Azure Stack 部署决策。
 
-部署连接到 Azure 的 Azure Stack 意味着可以将 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 用于标识存储。 也可从以下计费模式进行选择：即用即付或按容量付费。 连接型部署是默认选项，因为这样可以让客户充分利用 Azure Stack，尤其是在使用涉及到 Azure 和 Azure Stack 的混合云方案的情况下。 
+部署连接到 Azure 的 Azure Stack 意味着可以将 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 用于标识存储。 也可从以下计费模式进行选择：即用即付或按容量付费。 联网部署是默认选项，因为这样可以让客户充分利用 Azure Stack，尤其是在使用涉及到 Azure 和 Azure Stack 的混合云方案的情况下。 
 
 ## <a name="choose-an-identity-store"></a>选择标识存储
 使用连接型部署时，可以选择将 Azure AD 或 AD FS 用于标识存储。 没有 Internet 连接的断开连接型部署只能使用 AD FS。

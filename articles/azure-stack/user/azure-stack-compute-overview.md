@@ -61,7 +61,7 @@ Azure Stack VM 可提供虚拟化的灵活性，你无需管理单个群集或�
 ### <a name="operating-system-disks-and-images"></a>操作系统磁盘和映像
 
 虚拟机使用虚拟硬盘 (VHD) 来存储其操作系统 (OS) 和数据。 VHD 还可用于存储映像，可以选择某个映像来安装 OS。
-Azure Stack 提供一个 Marketplace，适用于各种版本和类型的操作系统。 应用商店映像由映像发布者、产品、SKU 和版本（通常指定为最新版本）标识。
+Azure Stack 提供一个 Marketplace，适用于各种版本和类型的操作系统。 应用商店映像由映像发布者、产品/服务、SKU 和版本（通常指定为最新版本）标识。
 
 下表显示了查找映像信息的一些方法：
 
@@ -70,7 +70,7 @@ Azure Stack 提供一个 Marketplace，适用于各种版本和类型的操作�
 |---------|---------|
 |Azure Stack 门户|选择要使用的映像时，系统会自动指定值。|
 |Azure Stack PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
-|REST API     |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>[列出映像产品](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
+|REST API     |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>[列出映像产品/服务](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
 
 可以选择上传并使用自己的映像。 如果这样做，则不会使用发布者名称、产品/服务和 SKU。
 

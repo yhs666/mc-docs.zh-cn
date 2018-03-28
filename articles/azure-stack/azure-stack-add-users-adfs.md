@@ -1,11 +1,11 @@
 ---
-title: "为 Azure Stack ADFS 添加用户 | Microsoft Docs"
-description: "了解如何为 Azure Stack 的 ADFS 部署添加用户"
+title: 为 Azure Stack ADFS 添加用户 | Microsoft Docs
+description: 了解如何为 Azure Stack 的 ADFS 部署添加用户
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na

@@ -1,11 +1,11 @@
 ---
-title: "管理 Azure Stack 中每个用户对资源的权限（服务管理员和租户）| Microsoft Docs"
-description: "作为服务管理员或租户，了解如何管理 RBAC 权限。"
+title: 管理 Azure Stack 中每个用户对资源的权限（服务管理员和租户）| Microsoft Docs
+description: 作为服务管理员或租户，了解如何管理 RBAC 权限。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: fenila
-editor: 
+editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na

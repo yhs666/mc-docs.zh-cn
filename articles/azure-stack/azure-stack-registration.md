@@ -1,12 +1,12 @@
 ---
-title: "Azure Stack 集成系统的 Azure 注册 | Microsoft Docs"
-description: "介绍多节点 Azure Stack Azure 连接部署的 Azure 注册过程。"
+title: Azure Stack 集成系统的 Azure 注册 | Microsoft Docs
+description: 介绍多节点 Azure Stack Azure 连接部署的 Azure 注册过程。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -126,10 +126,10 @@ Set-AzsRegistration `
     -BillingModel Capacity
 ```
 
-## <a name="register-azure-stack-in-disconnected-environments"></a>在断开连接的环境中注册 Azure Stack 
+## <a name="register-azure-stack-in-disconnected-environments"></a>在离线环境中注册 Azure Stack 
 *本部分中的信息适用于 Azure Stack 1712 更新版 (180106.1) 和更高版本，不支持更低的版本。*
 
-若要在断开连接的环境（未建立 Internet 连接）中注册 Azure Stack，需要从 Azure Stack 环境获取注册令牌，然后在可连接到 Azure 并已[安装适用于 Azure Stack 的 PowerShell](/azure-stack/azure-stack-powershell-install) 的计算机上使用该令牌。  
+若要在离线环境（未建立 Internet 连接）中注册 Azure Stack，需要从 Azure Stack 环境获取注册令牌，然后在可连接到 Azure 并已[安装适用于 Azure Stack 的 PowerShell](/azure-stack/azure-stack-powershell-install) 的计算机上使用该令牌。  
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>从 Azure Stack 环境获取注册令牌
   1. 若要获取注册令牌，请运行以下 PowerShell 命令：  
@@ -215,5 +215,5 @@ UnRegister-AzsEnvironment -RegistrationToken $registrationToken
 
 ## <a name="next-steps"></a>后续步骤
 
-[外部监视集成](azure-stack-integrate-monitor.md)
+[外部监控集成](azure-stack-integrate-monitor.md)
 

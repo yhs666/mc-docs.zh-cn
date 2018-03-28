@@ -1,11 +1,11 @@
 ---
-title: "Azure Stack 故障排除 | Microsoft Docs"
-description: "Azure Stack 故障排除。"
+title: Azure Stack 故障排除 | Microsoft Docs
+description: Azure Stack 故障排除。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
 ms.service: azure-stack
 ms.workload: na
@@ -66,10 +66,10 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="storage"></a>存储
 ### <a name="storage-reclamation"></a>存储回收
-回收的容量最长可能需要在 14 小时后才显示在门户中。 空间回收取决于多种因素，包括块 Blob 存储中内部容器文件的用量百分比。 因此，根据删除的数据量，我们无法保证运行垃圾收集器时可回收的空间量。
+回收的容量最长可能需要在 14 小时后才显示在门户中。 空间回收取决于多种因素，包括块 Blob 存储中内部容器文件的用量百分比。 因此，删除的数据量无法保证垃圾收集器运行时可回收的空间量。
 
-## <a name="azure-pack-connector"></a>Azure 包连接器
-- 如果在部署 Azure Stack 开发工具包之后更改 azurestackadmin 帐户的密码，则不再能够配置多云模式。 因此，无法连接到目标 Azure 包环境。
+## <a name="azure-pack-connector"></a>Azure Pack 连接器
+- 如果在部署 Azure Stack 开发工具包之后更改 azurestackadmin 帐户的密码，则不再能够配置多云模式。 因此，无法连接到目标 Azure Pack 环境。
 - 设置多云模式之后：
     - 用户只有在重置门户设置之后，才能看到仪表板。 （在用户门户中，单击门户设置图标（右上角的齿轮图标）。 在“还原默认设置”下，单击“应用”。）
     - 仪表板标题可能不显示。 如果发生此问题，必须手动添加标题。

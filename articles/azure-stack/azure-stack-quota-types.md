@@ -1,12 +1,12 @@
 ---
-title: "Azure Stack 中的配额类型 | Microsoft Docs"
-description: "查看可用于 Azure Stack 中的服务和资源的不同配额类型。"
+title: Azure Stack 中的配额类型 | Microsoft Docs
+description: 查看可用于 Azure Stack 中的服务和资源的不同配额类型。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,7 +15,7 @@ ms.topic: get-started-article
 origin.date: 08/23/2017
 ms.date: 03/02/2018
 ms.author: v-junlch
-ms.reviewer: 
+ms.reviewer: ''
 ms.openlocfilehash: a5d62c31bb27331514167092efe767d222f13ea4
 ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT

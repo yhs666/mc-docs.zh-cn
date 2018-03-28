@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Stack 中创建计划 | Microsoft Docs"
-description: "作为云管理员，创建一个让订阅方预配虚拟机的计划。"
+title: 在 Azure Stack 中创建计划 | Microsoft Docs
+description: 作为云管理员，创建一个让订阅方预配虚拟机的计划。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
 ms.workload: na
@@ -15,7 +15,7 @@ ms.topic: get-started-article
 origin.date: 07/10/2017
 ms.date: 03/01/2018
 ms.author: v-junlch
-ms.reviewer: 
+ms.reviewer: ''
 ms.openlocfilehash: 0d60ba35e5065f7cd50651147fd376ea5ebab9b7
 ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT

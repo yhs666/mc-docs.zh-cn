@@ -1,6 +1,6 @@
 ---
-title: "Azure Stack 中的诊断"
-description: "如何收集日志文件以在 Azure Stack 中进行诊断"
+title: Azure Stack 中的诊断
+description: 如何收集日志文件以在 Azure Stack 中进行诊断
 services: azure-stack
 author: jeffgilb
 manager: femila

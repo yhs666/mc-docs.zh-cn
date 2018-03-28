@@ -1,12 +1,12 @@
 ---
-title: "Azure Stack 集成系统的边界连接网络集成注意事项 | Microsoft Docs"
-description: "了解可以执行哪些操作来为多节点 Azure Stack 规划数据中心边界网络连接。"
+title: Azure Stack 集成系统的边界连接网络集成注意事项 | Microsoft Docs
+description: 了解可以执行哪些操作来为多节点 Azure Stack 规划数据中心边界网络连接。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na

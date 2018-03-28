@@ -1,11 +1,11 @@
 ---
-title: "更换 Azure Stack 集成系统上的缩放单位节点 | Microsoft Docs"
-description: "了解如何更换 Azure Stack 集成系统上的物理缩放单位节点。"
+title: 更换 Azure Stack 集成系统上的缩放单位节点 | Microsoft Docs
+description: 了解如何更换 Azure Stack 集成系统上的物理缩放单位节点。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: f9434689-ee66-493c-a237-5c81e528e5de
 ms.service: azure-stack
 ms.workload: na

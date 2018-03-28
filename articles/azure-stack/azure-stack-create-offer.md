@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Stack 中创建产品/服务 | Microsoft Docs"
-description: "作为云管理员，了解如何在 Azure Stack 中为用户创建产品/服务。"
+title: 在 Azure Stack 中创建产品/服务 | Microsoft Docs
+description: 作为云管理员，了解如何在 Azure Stack 中为用户创建产品/服务。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 96b080a4-a9a5-407c-ba54-111de2413d59
 ms.service: azure-stack
 ms.workload: na
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/02/2018
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-[产品/服务](azure-stack-key-features.md)是提供者提供给用户购买或订阅的一个或多个计划。 本文档演示如何创建包含在上一步中[创建的计划](azure-stack-create-plan.md)的产品/服务。 订阅方使用此产品/服务可以预配虚拟机。
+[产品/服务](azure-stack-key-features.md)是提供者提供给用户购买或订阅的一个或多个计划的组合。 本文档演示如何创建包含在上一步中[创建的计划](azure-stack-create-plan.md)的产品/服务。 订阅方使用此产品/服务可以预配虚拟机。
 
 1. 登录到 Azure Stack 管理员门户 (https://adminportal.local.azurestack.external)，单击“新建” > “租户产品/服务 + 计划” > “产品/服务”。
 

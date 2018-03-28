@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Stack 中轮换机密 | Microsoft Docs"
-description: "了解如何在 Azure Stack 中轮换机密。"
+title: 在 Azure Stack 中轮换机密 | Microsoft Docs
+description: 了解如何在 Azure Stack 中轮换机密。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 49071044-6767-4041-9EDD-6132295FA551
 ms.service: azure-stack
 ms.workload: na

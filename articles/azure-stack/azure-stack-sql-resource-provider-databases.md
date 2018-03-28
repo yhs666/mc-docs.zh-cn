@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Stack 上使用 SQL Adapter RP 提供的数据库 | Microsoft Docs"
-description: "如何创建和管理使用 SQL 适配器资源提供程序预配的 SQL 数据库"
+title: 在 Azure Stack 上使用 SQL Adapter RP 提供的数据库 | Microsoft Docs
+description: 如何创建和管理使用 SQL 适配器资源提供程序预配的 SQL 数据库
 services: azure-stack
-documentationCenter: 
+documentationCenter: ''
 author: JeffGoldner
 manager: bradleyb
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na

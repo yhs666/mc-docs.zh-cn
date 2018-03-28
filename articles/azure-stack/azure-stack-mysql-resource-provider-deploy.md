@@ -46,7 +46,7 @@ ms.lasthandoff: 03/08/2018
 - 从 Azure Marketplace 下载并部署 MySQL 服务器。
 
 > [!NOTE]
-> 必须通过租户订阅创建安装在多节点 Azure Stack 实现上的宿主服务器， 而不能通过默认提供程序订阅创建。 必须通过租户门户或者使用相应的登录名通过 PowerShell 会话来创建这些服务器。 所有宿主服务器都是可计费的 VM，并且必须具有相应的许可证。 服务管理员可以是租户订阅的所有者。
+> 必须通过租户订阅创建安装在多节点 Azure Stack 实现上的宿主服务器， 而不能通过默认提供商订阅创建。 必须通过租户门户或者使用相应的登录名通过 PowerShell 会话来创建这些服务器。 所有宿主服务器都是可计费的 VM，并且必须具有相应的许可证。 服务管理员可以是租户订阅的所有者。
 
 ### <a name="required-privileges"></a>所需的特权
 系统帐户必须拥有以下特权：
@@ -263,9 +263,9 @@ SKU 名称应反映属性，使租户能够适当地放置其数据库。 SKU �
 
 
 ## <a name="make-mysql-databases-available-to-tenants"></a>将 MySQL 数据库提供给租户使用
-创建计划和产品，使租户能够使用 MySQL 数据库。 例如，添加 Microsoft.MySqlAdapter 服务、增加配额，等等。
+创建计划和产品/服务，使租户能够使用 MySQL 数据库。 例如，添加 Microsoft.MySqlAdapter 服务、增加配额，等等。
 
-![创建计划和产品以包含数据库](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
+![创建计划和产品/服务以包含数据库](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
 
 ## <a name="update-the-administrative-password"></a>更新管理密码
 若要修改密码，可以先在 MySQL 服务器实例上更改密码。 选择“管理资源” > “MySQL 宿主服务器”。 然后选择宿主服务器。 在“设置”面板中选择“密码”。

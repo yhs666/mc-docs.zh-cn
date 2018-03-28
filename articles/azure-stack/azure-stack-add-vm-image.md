@@ -1,11 +1,11 @@
 ---
-title: "向 Azure Stack 添加 VM 映像 | Microsoft Docs"
-description: "添加组织的自定义 Windows 或 Linux VM 映像，供租户使用。"
+title: 向 Azure Stack 添加 VM 映像 | Microsoft Docs
+description: 添加组织的自定义 Windows 或 Linux VM 映像，供租户使用。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na

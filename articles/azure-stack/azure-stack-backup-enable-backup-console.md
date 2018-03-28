@@ -1,11 +1,11 @@
 ---
-title: "从管理门户为 Azure Stack 启用备份 | Microsoft Docs"
-description: "通过管理门户启用基础结构备份服务，以便出现故障时可以还原 Azure Stack。"
+title: 从管理门户为 Azure Stack 启用备份 | Microsoft Docs
+description: 通过管理门户启用基础结构备份服务，以便出现故障时可以还原 Azure Stack。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 56C948E7-4523-43B9-A236-1EF906A0304F
 ms.service: azure-stack
 ms.workload: naS

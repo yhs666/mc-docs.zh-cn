@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Active Directory 中添加新的 Azure Stack 租户帐户 | Microsoft Docs"
-description: "部署 Azure Stack 开发工具包后，需要至少创建一个租户用户帐户，以便浏览租户门户。"
+title: 在 Azure Active Directory 中添加新的 Azure Stack 租户帐户 | Microsoft Docs
+description: 部署 Azure Stack 开发工具包后，需要至少创建一个租户用户帐户，以便浏览租户门户。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
 ms.service: azure-stack
 ms.workload: na

@@ -1,12 +1,12 @@
 ---
-title: "使用 VPN 将 Azure Stack 连接到 Azure"
-description: "如何使用 VPN 将 Azure Stack 中的虚拟网络连接到 Azure 中的虚拟网络。"
+title: 使用 VPN 将 Azure Stack 连接到 Azure
+description: 如何使用 VPN 将 Azure Stack 中的虚拟网络连接到 Azure 中的虚拟网络。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -127,7 +127,7 @@ ms.lasthandoff: 03/02/2018
 接下来，在 Azure Stack 中创建网络资源。
 
 ### <a name="sign-in-as-a-user"></a>以用户身份登录
-服务管理员可以用户身份登录，以便对其用户可能使用的计划、产品和订阅进行测试。 请在登录之前[创建用户帐户](azure-stack-add-new-user-aad.md)（如何尚未这样做）。
+服务管理员可以用户身份登录，以便对其用户可能使用的计划、产品/服务和订阅进行测试。 请在登录之前[创建用户帐户](azure-stack-add-new-user-aad.md)（如何尚未这样做）。
 
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>创建虚拟网络和 VM 子网
 1. 使用用户帐户登录到用户门户。

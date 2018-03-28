@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Stack 中管理更新概述 | Microsoft Docs"
-description: "了解 Azure Stack 集成系统的更新管理。"
+title: 在 Azure Stack 中管理更新概述 | Microsoft Docs
+description: 了解 Azure Stack 集成系统的更新管理。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 9b0781f4-2cd5-4619-a9b1-59182b4a6e43
 ms.service: azure-stack
 ms.workload: na

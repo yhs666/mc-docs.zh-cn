@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Stack 中创建和发布 Marketplace 项 | Microsoft Docs"
-description: "在 Azure Stack 中创建和发布 Marketplace 项。"
+title: 在 Azure Stack 中创建和发布 Marketplace 项 | Microsoft Docs
+description: 在 Azure Stack 中创建和发布 Marketplace 项。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
 ms.service: azure-stack
 ms.workload: na

@@ -60,7 +60,7 @@ Azure Stack 每隔两分钟收集一次基础结构角色和缩放单位节点�
 
    c. 在“存储终结点域”下选择“其他”，并指定存储终结点的 **[区域].[域名]**。
 
-   d.单击“验证存储凭据”以验证存储帐户。 选中“使用 HTTP”复选框。
+   d. 选中“使用 HTTP”复选框。
 
    ![附加外部存储](./media/azure-stack-integrate-security/attach-storage.png)
 

@@ -48,7 +48,7 @@ ms.lasthandoff: 03/08/2018
     .\MarketplaceToolkit.ps1
     ```
 
-2. 单击“解决方案”选项卡。此屏幕接受 Marketplace 项相关信息。 请输入想要显示在 Marketplace 中的项目相关信息。  也可以指定[参数文件](azure-stack-marketplace-publisher.md#use-a-parameters-file)来预先填充窗体。  
+2. 单击“解决方案”选项卡。此屏幕接受 Marketplace 项相关信息。 请输入想要显示在 Marketplace 中的项相关信息。  也可以指定[参数文件](azure-stack-marketplace-publisher.md#use-a-parameters-file)来预先填充窗体。  
     
     ![Marketplace 工具包第一个屏幕的屏幕截图](./media/azure-stack-marketplace-publisher/image7.png)
 3. 单击“浏览”以选择每个图标和屏幕截图字段的图像文件。  可以使用自己的图标，或[支持文件](azure-stack-marketplace-publisher.md#support-files)部分中的示例图标。
