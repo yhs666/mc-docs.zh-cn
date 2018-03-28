@@ -1,8 +1,8 @@
 ---
-title: "Azure Stack 网络：差异和注意事项"
-description: "了解 Azure Stack 中网络的差异和用法注意事项。"
+title: Azure Stack 网络：差异和注意事项
+description: 了解 Azure Stack 中网络的差异和用法注意事项。
 services: azure-stack
-keywords: 
+keywords: ''
 author: ScottNapolitan
 ms.author: v-junlch
 origin.date: 09/25/2017
@@ -27,7 +27,7 @@ Azure Stack 中的网络功能提供 Azure 中的许多类似功能，但在开�
 
 ## <a name="cheat-sheet-networking-differences"></a>速查表：网络差异
 
-|服务 | 功能 | Azure（全局） | Azure Stack |
+|服务 | 功能 | Azure（公有云） | Azure Stack |
 | --- | --- | --- | --- |
 | DNS | 多租户 DNS | 支持| 尚不支持|
 | |DNS AAAA 记录|支持|不支持|
@@ -42,7 +42,7 @@ Azure Stack 中的网络功能提供 Azure 中的许多类似功能，但在开�
 |负载均衡器|IPv6 公共 IP 地址|支持将 IPv6 公共 IP 地址分配给负载均衡器。|仅支持 IPv4。|
 |网络观察程序|网络观察程序租户网络监视功能|支持|尚不支持|
 |CDN|内容交付网络配置文件|支持|尚不支持|
-|应用程序网关|第 7 层负载均衡|支持|尚不支持|
+|应用程序网关|7 层负载均衡|支持|尚不支持|
 |流量管理器|路由传入的流量，以获得最佳应用程序性能和可靠性。|支持|尚不支持|
 |Express Route|设置快速专用连接，从本地基础结构或共置设施连接到 Azure 云服务。|支持|支持将 Azure Stack 连接到 Express Route 线路。|
 

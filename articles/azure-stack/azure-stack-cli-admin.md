@@ -1,11 +1,11 @@
 ---
-title: "为 Azure Stack 用户启用 Azure CLI | Microsoft Docs"
-description: "了解如何使用跨平台命令行接口 (CLI) 管理和部署 Azure Stack 上的资源"
+title: 为 Azure Stack 用户启用 Azure CLI | Microsoft Docs
+description: 了解如何使用跨平台命令行接口 (CLI) 管理和部署 Azure Stack 上的资源
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
 ms.workload: na

@@ -1,11 +1,11 @@
 ---
-title: "启动和停止 Azure Stack | Microsoft Docs"
-description: "了解如何启动和关闭 Azure Stack。"
+title: 启动和停止 Azure Stack | Microsoft Docs
+description: 了解如何启动和关闭 Azure Stack。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 43BF9DCF-F1B7-49B5-ADC5-1DA3AF9668CA
 ms.service: azure-stack
 ms.workload: na

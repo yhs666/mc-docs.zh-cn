@@ -1,12 +1,12 @@
 ---
-title: "评估 Azure Stack 开发工具包 | Microsoft Docs"
-description: "了解如何部署用于评估目的的 Azure Stack 开发工具包。"
+title: 评估 Azure Stack 开发工具包 | Microsoft Docs
+description: 了解如何部署用于评估目的的 Azure Stack 开发工具包。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/02/2018
 
 [Azure Stack 开发工具包](azure-stack-poc.md)是一个测试和开发环境，你可以部署它以评估和演示 Azure Stack 功能和服务。 若要启动并运行该工具包，需要准备环境硬件并运行一些脚本（这将需要几个小时）。 之后，便可以登录到管理员门户和用户门户管理 Azure Stack 和测试产品/服务。 
 
-1. [**规划硬件、软件和网络**](azure-stack-deploy.md)。 承载开发工具包的计算机（开发工具包主机）必须满足硬件、软件和网络要求。 还必须选择是使用 Azure Active Directory 还是使用 Active Directory 联合身份验证服务。 请务必在开始部署前符合这些先决条件，以便安装进程能顺利运行。 
+1. [**规划硬件、软件和网络**](azure-stack-deploy.md)。 承载开发工具包的计算机（开发工具包主机）必须满足硬件、软件和网络要求。 还必须选择是使用 Azure Active Directory 还是使用 Active Directory 联合身份验证服务 (AD FS)。 请务必在开始部署前符合这些先决条件，以便安装进程能顺利运行。 
 
 2. [**下载并提取部署包**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit)。 可以将部署包下载到开发工具包主机或另一台计算机。 提取的部署文件占用 60 GB 的可用磁盘空间，因此使用另一台计算机有助于减少开发工具包主机的硬件要求。
 

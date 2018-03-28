@@ -83,7 +83,7 @@
               href: azure-stack-kv-push-secret-into-vm.md
             - name: KeyVault 示例应用
               href: azure-stack-kv-sample-app.md
-    - name: 生成应用
+    - name: 开发应用
       items:
         - name: 为 Azure Stack 进行开发
           href: azure-stack-developer.md

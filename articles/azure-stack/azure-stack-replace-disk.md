@@ -1,11 +1,11 @@
 ---
-title: "更换 Azure Stack 中的物理磁盘 | Microsoft Docs"
-description: "概述如何更换 Azure Stack 中的物理磁盘的过程。"
+title: 更换 Azure Stack 中的物理磁盘 | Microsoft Docs
+description: 概述如何更换 Azure Stack 中的物理磁盘的过程。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na

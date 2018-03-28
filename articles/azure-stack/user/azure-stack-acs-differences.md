@@ -1,12 +1,12 @@
 ---
-title: "Azure Stack 存储：差异和注意事项"
-description: "了解 Azure Stack 存储与 Azure 存储之间的差异，以及 Azure Stack 部署注意事项。"
+title: Azure Stack 存储：差异和注意事项
+description: 了解 Azure Stack 存储与 Azure 存储之间的差异，以及 Azure Stack 部署注意事项。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
 ms.reviwer: xiaofmao
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -31,13 +31,13 @@ Azure Stack 存储是 Azure Stack 中的一组存储云服务。 Azure Stack 存
 
 ## <a name="cheat-sheet-storage-differences"></a>速查表：存储差异
 
-| 功能 | Azure（全局） | Azure Stack |
+| 功能 | Azure（公有云） | Azure Stack |
 | --- | --- | --- |
 |文件存储|支持基于云的 SMB 文件共享|尚不支持
 |静态数据的 Azure 存储服务加密|256 位 AES 加密|尚不支持
 |存储帐户类型|常规用途和 Azure Blob 存储帐户|仅限常规用途
 |复制选项|本地冗余存储、异地冗余存储、读取访问异地冗余存储和区域冗余存储|本地冗余存储
-|高级存储|完全支持|可预配，但无性能限制或保证
+|高级存储|完全支持|可部署，但无性能限制或保证
 |托管磁盘|支持高级和标准版|尚不支持
 |Blob 名称|1,024 个字符（2,048 字节）|880 个字符（1,760 字节）
 |块 Blob 大小上限|4.75 TB（100 MB X 50,000 块）|50,000 X 4 MB（约 195 GB）

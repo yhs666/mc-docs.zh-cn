@@ -1,12 +1,12 @@
 ---
-title: "针对 Azure Stack 中的 Azure 应用服务服务器角色的容量计划 | Microsoft Docs"
-description: "针对 Azure Stack 中的 Azure 应用服务服务器角色的容量计划"
+title: 针对 Azure Stack 中的 Azure 应用服务服务器角色的容量计划 | Microsoft Docs
+description: 针对 Azure Stack 中的 Azure 应用服务服务器角色的容量计划
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na

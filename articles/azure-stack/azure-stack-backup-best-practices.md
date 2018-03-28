@@ -1,11 +1,11 @@
 ---
-title: "Azure Stack 的基础结构备份服务最佳做法 | Microsoft Docs"
-description: "在数据中心内部署和管理 Azure Stack 时可以遵守一套最佳做法，以便在发生灾难性故障时帮助减轻数据损失。"
+title: Azure Stack 的基础结构备份服务最佳做法 | Microsoft Docs
+description: 在数据中心内部署和管理 Azure Stack 时可以遵守一套最佳做法，以便在发生灾难性故障时帮助减轻数据损失。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
 ms.service: azure-stack
 ms.workload: na

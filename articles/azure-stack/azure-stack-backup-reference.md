@@ -1,11 +1,11 @@
 ---
-title: "Azure Stack 基础结构备份服务参考 | Microsoft Docs"
-description: "本文包含 Azure Stack 基础结构备份服务的参考资料。"
+title: Azure Stack 基础结构备份服务参考 | Microsoft Docs
+description: 本文包含 Azure Stack 基础结构备份服务的参考资料。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: D6EC0224-97EA-446C-BC95-A3D32F668E2C
 ms.service: azure-stack
 ms.workload: na

@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Stack 中使用 PowerShell 创建 Linux 虚拟机 | Microsoft Docs"
-description: "在 Azure Stack 中使用 PowerShell 创建 Linux 虚拟机。"
+title: 在 Azure Stack 中使用 PowerShell 创建 Linux 虚拟机 | Microsoft Docs
+description: 在 Azure Stack 中使用 PowerShell 创建 Linux 虚拟机。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 03EE5929-4F05-47D7-B246-EA93D6FC47CD
 ms.service: azure-stack
 ms.workload: na
@@ -107,7 +107,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>创建网络安全组和网络安全组规则
 
-网络安全组使用入站和出站规则保护虚拟机。 让我们创建端口 3389 的入站规则以允许传入的远程桌面连接，并创建端口 80 的入站规则以允许传入的 Web 流量。
+网络安全组使用入站和出站规则保护虚拟机。 让我们创建端口 22 的入站规则以允许传入的远程桌面连接，并创建端口 80 的入站规则以允许传入的 Web 流量。
 
 ```powershell
 # Create an inbound network security group rule for port 22

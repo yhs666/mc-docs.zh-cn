@@ -1,11 +1,11 @@
 ---
-title: "配置 Azure Stack 操作员的 PowerShell 环境 | Microsoft Docs"
-description: "了解如何配置 Azure Stack 操作员的 PowerShell 环境。"
+title: 配置 Azure Stack 操作员的 PowerShell 环境 | Microsoft Docs
+description: 了解如何配置 Azure Stack 操作员的 PowerShell 环境。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 37D9CAC9-538B-4504-B51B-7336158D8A6B
 ms.service: azure-stack
 ms.workload: na

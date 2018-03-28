@@ -1,12 +1,12 @@
 ---
-title: "适用于 Azure Stack 的 Azure Marketplace 项目 | Microsoft Docs"
-description: "这些 Azure Marketplace 项目可以用在 Azure Stack 中。"
+title: 适用于 Azure Stack 的 Azure Marketplace 项 | Microsoft Docs
+description: 这些 Azure Marketplace 项可以用在 Azure Stack 中。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -22,17 +22,17 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/08/2018
 ---
-# <a name="azure-marketplace-items-available-for-azure-stack"></a>适用于 Azure Stack 的 Azure Marketplace 项目
+# <a name="azure-marketplace-items-available-for-azure-stack"></a>适用于 Azure Stack 的 Azure Marketplace 项
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 
 ## <a name="virtual-machine-extensions"></a>虚拟机扩展
-建议在有所需 VM 扩展的更新时下载这些项目。 在产品中提供的扩展不会在普通修补程序和更新过程中更新；请经常查看更新。 其他扩展只能通过 Marketplace 管理获取。
+建议每当所需的 VM 扩展有更新时就下载这些更新。 随产品一起提供的扩展不会在普通的修补和更新过程中更新；请经常查看更新。 其他扩展只能通过 Marketplace 管理获取。
 
 |  | 项名称 | 说明 | 发布者 | OS 类型 |
 | --- | --- | --- | --- | --- |
-|![](./media/azure-stack-marketplace-azure-items/cse.png) | [ SQL IaaS 扩展 ](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>下载此扩展即可在 Windows Marketplace 项目上部署任何 SQL Server - 此项为必需项。</b> | Microsoft | Windows |
+|![](./media/azure-stack-marketplace-azure-items/cse.png) | [ SQL IaaS 扩展 ](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>要部署任何“Windows 上的 SQL Server”的 Marketplace 项，必须下载此扩展。</b> | Microsoft | Windows |
 |![](./media/azure-stack-marketplace-azure-items/cse.png) | [ 自定义脚本扩展 ](/virtual-machines/windows/extensions-customscript)| <b>请下载此更新，此更新针对用于 Windows 的自定义脚本扩展的内置版本。</b> | Microsoft | Windows |
 |![](./media/azure-stack-marketplace-azure-items/dsc.png) | [ PowerShell DSC 扩展 ](/virtual-machines/windows/extensions-dsc-overview)| <b>请下载此更新，此更新针对 PowerShell DSC 扩展的内置版本。</b> | Microsoft | Windows |
 | ![](./media/azure-stack-marketplace-azure-items/cse.png) | [ Microsoft 反恶意软件扩展 ](/security/azure-security-antimalware)| 适用于 Azure 的 Microsoft 反恶意软件是一个针对应用程序和租户环境所提供的单一代理解决方案，可在在后台运行而无需人工干预。 | Microsoft | Windows |
@@ -205,12 +205,12 @@ Azure Stack 支持下述 Azure Marketplace 虚拟机和解决方案模板。 请
 | ![](./media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine Sales CRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.x2enginesalescrm) | 紧凑的营销、销售和客户服务应用程序。 | Bitnami |
 | ![](./media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | CMS 和 Web 门户程序，适用于创建动态网站。 | Bitnami |
 | ![](./media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | 开源 CRM 系统：移动、社交和游戏化。 | Bitnami |
-| ![](./media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC Security Management](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC 提供高级的多层威胁防护，可以保护客户在 Azure 中的资产免受恶意软件和复杂威胁的损害。 <b>下载两种 Check Point vSEC Marketplace 项目。</b> | 检查点 |
-| ![](./media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | 使用 Chef Automate 这种持续自动化平台进行生成、部署和管理。 <b>下载两种 Chef Marketplace 项目</b> | Chef Software, Inc |
+| ![](./media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC Security Management](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC 提供高级的多层威胁防护，可以保护客户在 Azure 中的资产免受恶意软件和复杂威胁的损害。 <b>下载两种 Check Point vSEC Marketplace 项。</b> | 检查点 |
+| ![](./media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | 使用 Chef Automate 这种持续自动化平台进行生成、部署和管理。 <b>下载两种 Chef Marketplace 项</b> | Chef Software, Inc |
 | ![](./media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks 数据平台 (HDP) 沙盒](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | 由 HDP 2.5 100% 开源平台提供支持，适用于 Hadoop、Spark、Storm、HBase、Kafka、Hive、Ambari。 | Hortonworks |
 | ![](./media/azure-stack-marketplace-azure-items/kemp.png) | [LoadMaster 负载均衡器 ADC 内容交换机](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 第 4-7 层应用程序传送控制器 (ADC) 负载均衡器、内容交换机和流量管理器。 | KEMP Technologies Inc. |
 | ![](./media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 compatible - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | 兼容 S3 的存储服务，涵盖公用的和本地的容量资源。 | NooBaa |
-| ![](./media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | 使用 Puppet Enterprise 可以实现 Azure Stack 基础结构整个生命周期的自动化。 <b>下载两种 Puppet Marketplace 项目。</b> | Puppet |
+| ![](./media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | 使用 Puppet Enterprise 可以实现 Azure Stack 基础结构整个生命周期的自动化。 <b>下载两种 Puppet Marketplace 项。</b> | Puppet |
 | ![](./media/azure-stack-marketplace-azure-items/suse.png) | SUSE Manager 3.0 Proxy (BYOS) | 同类最佳开源基础结构管理。 | SUSE |
 | ![](./media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown Software Tool ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown Software Tool v7.1 - 迁移 + 高可用性。 | ZeroDown Software |
 

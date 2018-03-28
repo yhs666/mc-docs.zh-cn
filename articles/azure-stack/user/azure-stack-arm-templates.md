@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Stack 中使用 Azure 资源管理器模板 | Microsoft Docs"
-description: "了解如何在 Azure Stack 中使用 Azure 资源管理器模板来预配资源。"
+title: 在 Azure Stack 中使用 Azure 资源管理器模板 | Microsoft Docs
+description: 了解如何在 Azure Stack 中使用 Azure 资源管理器模板来部署资源。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
 ms.service: azure-stack
 ms.workload: na
@@ -15,7 +15,7 @@ ms.topic: article
 origin.date: 09/25/2017
 ms.date: 03/08/2018
 ms.author: v-junlch
-ms.reviewer: 
+ms.reviewer: ''
 ms.openlocfilehash: a4df672c4683dfd4d31b6b395ff177b32562910a
 ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
@@ -32,28 +32,28 @@ Azure 资源管理器 模板可通过单个协调操作部署和预配应用程�
 
 [GitHub](http://aka.ms/azurestackgithub) 中提供了以下快速入门模板：
 
-## <a name="deploy-sharepoint-non-high-availability"></a>部署 SharePoint（非高可用性）
+## <a name="deploy-sharepoint-non-high-availability"></a>部署 SharePoint（非高可用）
 使用 PowerShell DSC 扩展创建包含以下资源的 SharePoint 2013 场：
 
-- 虚拟网络
+- 一个虚拟网络
 - 三个存储帐户
 - 两个外部负载均衡器
 - 一个 VM，配置为包含单个域的新林的域控制器
 - 一个 VM，配置为 SQL Server 2014 独立服务器
 - 一个 VM，配置为单机 SharePoint 2013 场
 
-## <a name="deploy-ad-non-high-availability"></a>部署 AD（非高可用性）
+## <a name="deploy-ad-non-high-availability"></a>部署 AD（非高可用）
 使用 PowerShell DSC 扩展创建包含以下资源的 AD 域控制器服务器：
 
-- 虚拟网络
+- 一个虚拟网络
 - 一个存储帐户
 - 一个外部负载均衡器
 - 一个 VM，配置为包含单个域的新林的域控制器
 
-## <a name="deploy-adsql-non-high-availability"></a>部署 AD/SQL（非高可用性）
+## <a name="deploy-adsql-non-high-availability"></a>部署 AD/SQL（非高可用）
 使用 PowerShell DSC 扩展创建包含以下资源的 SQL Server 2014 独立服务器：
 
-- 虚拟网络
+- 一个虚拟网络
 - 两个存储帐户
 - 一个外部负载均衡器
 - 一个 VM，配置为包含单个域的新林的域控制器

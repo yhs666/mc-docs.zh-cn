@@ -1,11 +1,11 @@
 ---
-title: "从 GitHub 下载 Azure Stack 工具 | Microsoft Docs"
-description: "了解如何下载操作 Azure Stack 时所需的工具。"
+title: 从 GitHub 下载 Azure Stack 工具 | Microsoft Docs
+description: 了解如何下载操作 Azure Stack 时所需的工具。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: E4DF77FA-F468-42B5-B44F-F10ED8049171
 ms.service: azure-stack
 ms.workload: na
@@ -59,7 +59,7 @@ cd AzureStack-Tools-master
 | [注册到 Azure](azure-stack-register.md) | 使用此模块可将开发工具包实例注册到 Azure。 注册后，可从 Azure 下载 Marketplace 项，并在 Azure Stack 中使用它们。 | 云操作员 |
 | [Azure Stack 部署](azure-stack-run-powershell-script.md) | 使用此模块可通过 Azure Stack 虚拟硬盘 (VHD) 映像来准备用于部署和重新部署的 Azure Stack 主计算机。 | 云操作员|
 | [连接到 Azure Stack](azure-stack-connect-powershell.md) | 使用此模块可通过 PowerShell 连接到 Azure Stack 实例，并配置与 Azure Stack 的 VPN 连接。 | 云操作员和用户 |
-| [Azure Stack 服务管理](azure-stack-create-offer.md) | 使用此模块可创建默认租户产品，该产品通过不同的计算、Azure 存储、网络和 Key Vault 服务提供无限配额。   | 云操作员|
+| [Azure Stack 服务管理](azure-stack-create-offer.md) | 使用此模块可创建默认租户产品/服务，该产品/服务通过不同的计算、Azure 存储、网络和 Key Vault 服务提供无限配额。   | 云操作员|
 | [模板验证程序](user/azure-stack-validate-templates.md) | 使用此模块可以验证是否可将现有或新的模板部署到 Azure Stack。 | 云操作员和用户|
 
 

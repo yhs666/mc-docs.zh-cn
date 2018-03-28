@@ -133,7 +133,7 @@ Write-Host
 
 ## <a name="download-and-run-the-sample-application"></a>下载并运行示例应用程序
 
-从 Azure [密钥保管库客户端示例](https://www.microsoft.com/en-us/download/details.aspx?id=45343)页下载密钥保管库示例。 将 .zip 文件的内容解压缩到开发工作站上。 示例文件夹中有两个示例。 我们在本文中会使用 HellpKeyVault 示例。 浏览到 **Microsoft.Azure.KeyVault.Samples** >  **示例**  > **HelloKeyVault** 文件夹，然后在 Visual Studio 中打开 HelloKeyVault 应用程序。 
+从 Azure [密钥保管库客户端示例](https://www.microsoft.com/en-us/download/details.aspx?id=45343)页下载密钥保管库示例。 将 .zip 文件的内容解压缩到开发工作站上。 示例文件夹中有两个示例。 我们在本文中会使用 HellpKeyVault 示例。 浏览到 **Microsoft.Azure.KeyVault.Samples** > **示例** > **HelloKeyVault** 文件夹，然后在 Visual Studio 中打开 HelloKeyVault 应用程序。 
 
 打开 HelloKeyVault\App.config 文件，并将 <appSettings> 元素的值替换为前面脚本返回的 **VaultUrl**、**AuthClientId** 和 **AuthClientSecret** 值。 请注意，默认情况下 App.config 包含 *AuthCertThumbprint* 的占位符，但请改用 *AuthClientSecret*。 替换设置后，请重新生成解决方案并启动应用程序。
 

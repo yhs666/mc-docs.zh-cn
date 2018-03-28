@@ -1,12 +1,12 @@
 ---
-title: "为 Azure Stack 集成系统部署生成 Azure Stack 公钥基础结构证书 | Microsoft Docs"
-description: "介绍 Azure Stack 集成系统的 Azure Stack PKI 证书部署过程。"
+title: 为 Azure Stack 集成系统部署生成 Azure Stack 公钥基础结构证书 | Microsoft Docs
+description: 介绍 Azure Stack 集成系统的 Azure Stack PKI 证书部署过程。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na

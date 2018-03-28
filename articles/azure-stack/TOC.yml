@@ -198,9 +198,9 @@
               href: azure-stack-plan-offer-quota-overview.md
             - name: 创建计划
               href: azure-stack-create-plan.md
-            - name: 创建产品
+            - name: 创建产品/服务
               href: azure-stack-create-offer.md
-            - name: 订阅产品
+            - name: 订阅产品/服务
               href: azure-stack-subscribe-plan-provision-vm.md
             - name: 在 Azure Stack 中委托产品/服务
               href: azure-stack-delegated-provider.md

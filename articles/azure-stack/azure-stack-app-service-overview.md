@@ -1,12 +1,12 @@
 ---
-title: "应用服务概述：Azure Stack | Microsoft Docs"
-description: "Azure Stack 上的应用服务概述"
+title: 应用服务概述：Azure Stack | Microsoft Docs
+description: Azure Stack 上的应用服务概述
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na

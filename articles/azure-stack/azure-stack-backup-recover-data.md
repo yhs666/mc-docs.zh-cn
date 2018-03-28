@@ -1,11 +1,11 @@
 ---
-title: "使用基础结构备份服务在 Azure Stack 中发生灾难性数据丢失后进行恢复 | Microsoft Docs"
-description: "当灾难性故障导致 Azure Stack 失败后，在重新建立 Azure Stack 部署时可以还原基础结构数据。"
+title: 使用基础结构备份服务在 Azure Stack 中发生灾难性数据丢失后进行恢复 | Microsoft Docs
+description: 当灾难性故障导致 Azure Stack 失败后，在重新建立 Azure Stack 部署时可以还原基础结构数据。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 2ECE8580-0BDE-4D4A-9120-1F6771F2E815
 ms.service: azure-stack
 ms.workload: na

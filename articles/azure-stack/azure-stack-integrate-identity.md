@@ -48,7 +48,7 @@ ms.lasthandoff: 03/08/2018
 
 对于 Graph 配置，必须提供在现有 Active Directory 中拥有“读取”权限的服务帐户。 自动化需要使用此帐户作为输入来启用 RBAC 方案。
 
-在最后一个步骤中，将为默认提供程序订阅配置新的所有者。 登录到 Azure Stack 管理员门户时，此帐户对所有资源拥有完全访问权限。
+在最后一个步骤中，将为默认提供商订阅配置新的所有者。 登录到 Azure Stack 管理员门户时，此帐户对所有资源拥有完全访问权限。
 
 要求：
 
@@ -138,7 +138,7 @@ Azure Stack 中的 Graph 服务使用以下协议和端口来与目标 Active Di
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
    ```
 
-3. 使用适用于环境的参数运行以下命令，更新默认提供程序订阅的所有者：
+3. 使用适用于环境的参数运行以下命令，更新默认提供商订阅的所有者：
 
    ```powershell
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
@@ -191,7 +191,7 @@ Azure Stack 中的 Graph 服务使用以下协议和端口来与目标 Active Di
    Register-CustomAdfs -CustomAdfsName Contoso - CustomADFSFederationMetadataFile \\share\metadataexample.xml
    ```
 
-3. 使用适用于环境的参数运行以下命令，更新默认提供程序订阅的所有者：
+3. 使用适用于环境的参数运行以下命令，更新默认提供商订阅的所有者：
 
    ```powershell
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
@@ -308,7 +308,7 @@ Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的�
    运行回滚操作后，所有配置更改都会回滚。 只能使用内置的 **CloudAdmin** 用户身份进行身份验证。
 
    > [!IMPORTANT]
-   > 必须配置默认提供程序订阅的原始所有者
+   > 必须配置默认提供商订阅的原始所有者
 
    ```powershell
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"

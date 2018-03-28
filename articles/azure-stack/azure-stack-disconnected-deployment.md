@@ -1,12 +1,12 @@
 ---
-title: "Azure Stack 集成系统的 Azure 断开连接部署决策 | Microsoft Docs"
-description: "确定多节点 Azure Stack Azure 连接部署的部署计划决策。"
+title: Azure Stack 集成系统的 Azure 断开连接部署决策 | Microsoft Docs
+description: 确定多节点 Azure Stack Azure 连接部署的部署计划决策。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/02/2018
 > [!TIP]
 > 有时候，这种类型的环境也称为“潜艇方案”。
 
-断开连接部署并非绝对意味着你以后不能将 Azure Stack 实例连接到 Azure 来实现混合租户 VM 方案。 它只意味着在部署期间不连接到 Azure，或者不希望使用 Azure Active Directory 作为标识存储。
+离线部署并非绝对意味着你以后不能将 Azure Stack 实例连接到 Azure 来实现混合租户 VM 方案。 它只意味着在部署期间不连接到 Azure，或者不希望使用 Azure Active Directory 作为标识存储。
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>在断开连接部署中被削弱或不可用的功能 
 Azure Stack 设计为在连接到 Azure 的情况下功能最佳，因此请务必注意，在断开连接模式下，有些功能被削弱或完全不可用。 

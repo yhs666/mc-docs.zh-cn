@@ -1,12 +1,12 @@
 ---
-title: "Azure Stack 集成系统的 Azure Stack 防火墙计划 | Microsoft Docs"
-description: "介绍了多节点 Azure Stack Azure 连接部署的 Azure Stack 防火墙注意事项。"
+title: Azure Stack 集成系统的 Azure Stack 防火墙计划 | Microsoft Docs
+description: 介绍了多节点 Azure Stack Azure 连接部署的 Azure Stack 防火墙注意事项。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na

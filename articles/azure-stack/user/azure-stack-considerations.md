@@ -1,11 +1,11 @@
 ---
-title: "使用服务和生成应用时 Azure 与 Azure Stack 之间的主要差异 | Microsoft Docs"
-description: "使用或生成适用于 Azure Stack 的服务和应用时需要了解的差异。"
+title: 使用服务和开发应用时 Azure 与 Azure Stack 之间的主要差异 | Microsoft Docs
+description: 使用 Azure Stack 的服务或开发适用于 Azure Stack 的应用时需要了解的差异。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: c81f551d-c13e-47d9-a5c2-eb1ea4806228
 ms.service: azure-stack
 ms.workload: na
@@ -21,19 +21,19 @@ ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/16/2018
 ---
-# <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>重要注意事项：使用或生成适用于 Azure Stack 的服务和应用
+# <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>重要注意事项：使用 Azure Stack 的服务或开发适用于 Azure Stack 的应用
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-使用或生成适用于 Azure Stack 的服务和应用时，必须了解 Azure Stack 与 Azure 之间有所差异。 本文概述在将 Azure Stack 用作混合云开发环境的目标时的重要注意事项。
+使用 Azure Stack 的服务或开发适用于 Azure Stack 的应用时，必须了解 Azure Stack 与 Azure 之间有所差异。 本文概述在将 Azure Stack 用作混合云开发环境的目标时的重要注意事项。
 
 ## <a name="overview"></a>概述
 
-Azure Stack 是一个混合云平台，可用于通过公司或服务提供商的数据中心使用 Azure 服务。 开发人员可以生成在 Azure Stack 上运行的应用。 然后，可将这些应用部署到 Azure Stack 或 Azure，或者，可以生成利用 Azure Stack 云与 Azure 之间的连接的真正混合式应用。
+Azure Stack 是一个混合云平台，可用于通过公司或服务提供商的数据中心使用 Azure 服务。 开发人员可以开发在 Azure Stack 上运行的应用。 然后，可将这些应用部署到 Azure Stack 或 Azure，或者，可以开发利用 Azure Stack 云与 Azure 之间的连接的真正混合式应用。
 
-Azure Stack 运营商会告知有哪些服务可用，以及如何获取支持。 他们通过自定义计划和产品来提供这些服务。
+Azure Stack 运营商会告知有哪些服务可用，以及如何获取支持。 他们通过自定义计划和产品/服务来提供这些服务。
 
-Azure 技术内容假设应用是为 Azure 服务（而不是 Azure Stack）开发的。 生成应用并将其部署到 Azure Stack 时，必须了解一些主要差异，例如：
+Azure 技术文档内容假设应用是为 Azure 服务（而不是 Azure Stack）开发的。 开发应用并将其部署到 Azure Stack 时，必须了解一些主要差异，例如：
 
 - Azure Stack 提供 Azure 所提供的一部分服务和功能。
 - 你的公司或服务提供商可以选择他们想要提供的服务。 这包括自定义的服务或应用程序。 他们可以提供自己的自定义文档。
@@ -44,9 +44,9 @@ Azure 技术内容假设应用是为 Azure 服务（而不是 Azure Stack）开�
 
 下表描述了 Azure Stack 与 Azure 之间的大致差异。 开发适用于 Azure Stack 的应用或使用 Azure Stack 服务时，请记住这些差异。
 
-| 区域 | Azure（全局） | Azure Stack |
+| 区域 | Azure（公有云） | Azure Stack |
 | -------- | ------------- | ----------|
-| 由谁操作？ | Microsoft | 你的组织或服务提供商。|
+| 由谁运营？ | Microsoft | 你的组织或服务提供商。|
 | 寻求支持的联系对象是谁？ | Microsoft | 对于集成环境，请联系你的组织或服务提供商的 Azure Stack 运营商来获取支持。<br><br>如需获取 Azure Stack 开发工具包的支持，请访问 [Microsoft 论坛](https://social.msdn.microsoft.com/Forums/home?forum=azurestack)。 由于开发工具包是一个评估环境，因此我们不会通过 Microsoft 客户支持服务 (CSS) 提供官方支持。
 | 可用服务 | 参阅 [Azure 产品](https://azure.microsoft.com/services/?b=17.04b)列表。 可用服务因 Azure 区域而异。 | Azure Stack 支持部分 Azure 服务。 实际服务因你的组织或服务提供商选择提供的服务而异。
 | Azure 资源管理器终结点* | https://management.chinacloudapi.cn | 对于 Azure Stack 集成系统，请使用 Azure Stack 运营商提供的终结点。<br><br>对于开发工具包，请使用：https://management.local.azurestack.external
@@ -78,7 +78,7 @@ Azure Stack 支持特定版本的 Azure PowerShell 和 Azure 服务 API。 必�
 >[!NOTE]
  如果使用 Azure Stack 开发工具包，并且拥有管理访问权限，请参阅[管理更新](/azure-stack/azure-stack-updates#determine-the-current-version)的“确定当前版本”部分来确定 Azure Stack 内部版本。
 
-对于其他 API，请运行以下 PowerShell 命令输出 Azure Stack 订阅中支持的命名空间、资源类型和 API 版本。 请注意，可能仍存在属性级别的差异。 （若要正常运行此命令，必须事先[安装](azure-stack-powershell-install.md)并[配置](azure-stack-powershell-configure-user.md)适用于 Azure Stack 环境的 PowerShell。 此外，必须有 Azure Stack 产品的订阅。）
+对于其他 API，请运行以下 PowerShell 命令输出 Azure Stack 订阅中支持的命名空间、资源类型和 API 版本。 请注意，可能仍存在属性级别的差异。 （若要正常运行此命令，必须事先[安装](azure-stack-powershell-install.md)并[配置](azure-stack-powershell-configure-user.md)适用于 Azure Stack 环境的 PowerShell。 此外，必须有 Azure Stack 产品/服务的订阅。）
 
  ```powershell
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `

@@ -1,11 +1,11 @@
 ---
-title: "使用基础结构备份服务对 Azure Stack 进行备份和数据恢复 | Microsoft Docs"
-description: "可以使用基础结构备份服务备份和还原配置和服务数据。"
+title: 使用基础结构备份服务对 Azure Stack 进行备份和数据恢复 | Microsoft Docs
+description: 可以使用基础结构备份服务备份和还原配置和服务数据。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 9B51A3FB-EEFC-4CD8-84A8-38C52CFAD2E4
 ms.service: azure-stack
 ms.workload: na
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/02/2018
 在启用备份服务之前，请确保已[符合要求](#verify-requirements-for-the-infrastructure-backup-service)。
 
 > [!Note]  
-> 基础结构备份服务不包括用户数据和应用程序。 请参阅以下文章，获取有关备份和还原[应用程序服务](https://aka.ms/azure-stack-app-service)、[SQL](https://aka.ms/azure-stack-ms-sql) 和 [MySQL](https://aka.ms/azure-stack-mysql) 资源提供程序及关联的用户数据的说明。
+> 基础结构备份服务不包括用户数据和应用程序。 请参阅以下文章，获取有关备份和还原[应用服务](https://aka.ms/azure-stack-app-service)、[SQL](https://aka.ms/azure-stack-ms-sql) 和 [MySQL](https://aka.ms/azure-stack-mysql) 资源提供程序及关联的用户数据的说明。
 
 ## <a name="the-infrastructure-backup-service"></a>基础结构备份服务
 

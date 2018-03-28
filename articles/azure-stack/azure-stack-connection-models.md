@@ -1,12 +1,12 @@
 ---
-title: "Azure Stack 集成系统连接模型 | Microsoft Docs"
-description: "确定多节点 Azure Stack 的部署规划决策。"
+title: Azure Stack 集成系统连接模型 | Microsoft Docs
+description: 确定多节点 Azure Stack 的部署规划决策。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na

@@ -1,11 +1,11 @@
 ---
-title: "将 Linux 映像添加到 Azure Stack"
-description: "了解如何将 Linux 映像添加到 Azure Stack。"
+title: 将 Linux 映像添加到 Azure Stack
+description: 了解如何将 Linux 映像添加到 Azure Stack。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -68,7 +68,7 @@ ms.lasthandoff: 03/08/2018
         **RHEL / CentOS / Oracle Linux**
 
             # sudo yum install python-setuptools
-   d.单击“验证存储凭据”以验证存储帐户。 安装 Azure 代理：
+   d. 安装 Azure 代理：
 
             # cd WALinuxAgent-2.2.21
             # sudo python3 setup.py install --register-service

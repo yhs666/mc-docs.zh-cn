@@ -1,11 +1,11 @@
 ---
-title: "Azure Stack 的工具和 PaaS 服务 | Microsoft Docs"
-description: "了解如何开始使用 Azure Stack 中的 PaaS 服务。"
+title: Azure Stack 的工具和 PaaS 服务 | Microsoft Docs
+description: 了解如何开始使用 Azure Stack 中的 PaaS 服务。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 2ce8d7e3-bc5d-4d61-8ab8-e8f61df40675
 ms.service: multiple
 ms.workload: na
@@ -15,7 +15,7 @@ ms.topic: article
 origin.date: 07/10/2017
 ms.date: 03/04/2018
 ms.author: v-junlch
-ms.reviewer: 
+ms.reviewer: ''
 ms.openlocfilehash: 580e40b0b8891dd33e8554e7cee90e6324f59b83
 ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT

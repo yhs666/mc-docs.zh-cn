@@ -1,12 +1,12 @@
 ---
-title: "Azure Stack 支持的来宾操作系统 | Microsoft Docs"
-description: "在 Azure Stack 上可以使用这些来宾操作系统。"
+title: Azure Stack 支持的来宾操作系统 | Microsoft Docs
+description: 在 Azure Stack 上可以使用这些来宾操作系统。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: Brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na

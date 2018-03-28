@@ -70,7 +70,7 @@ CSP 通常向其 Azure Stack 部署中的多个客户（租户）提供服务。
 | 参数 | 说明 |
 | --- | --- | 
 |registrationSubscriptionID | 用于 Azure Stack 初始注册的 Azure 订阅。 |
-| customerSubscriptionID | 属于要注册的客户的 Azure 订阅（不是 Azure Stack）。 必须在 CSP 产品中创建；在实践中，这意味着通过合作伙伴中心创建。 如果客户有多个 Azure Active Directory 租户，则必须在用于登录 Azure Stack 的租户中创建此订阅。
+| customerSubscriptionID | 属于要注册的客户的 Azure 订阅（不是 Azure Stack）。 必须在 CSP 产品/服务中创建；在实践中，这意味着通过合作伙伴中心创建。 如果客户有多个 Azure Active Directory 租户，则必须在用于登录 Azure Stack 的租户中创建此订阅。
 | resourceGroup | Azure 中用于存储注册的资源组。 
 | registrationName | Azure Stack 的注册名称。 它是 Azure 中存储的对象。 | 
 

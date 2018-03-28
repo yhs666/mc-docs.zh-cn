@@ -1,11 +1,11 @@
 ---
-title: "更换 Azure Stack 缩放单位节点上的硬件组件 | Microsoft Docs"
-description: "了解如何更换 Azure Stack 集成系统上的硬件组件。"
+title: 更换 Azure Stack 缩放单位节点上的硬件组件 | Microsoft Docs
+description: 了解如何更换 Azure Stack 集成系统上的硬件组件。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: c6e036bf-8c80-48b5-b2d2-aa7390c1b7c9
 ms.service: azure-stack
 ms.workload: na

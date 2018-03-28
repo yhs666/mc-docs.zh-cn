@@ -1,11 +1,11 @@
 ---
-title: "使用 PowerShell 为 Azure Stack 启用备份 | Microsoft Docs"
-description: "使用 Windows PowerShell 启用基础结构备份服务，以便出现故障时可以还原 Azure Stack。"
+title: 使用 PowerShell 为 Azure Stack 启用备份 | Microsoft Docs
+description: 使用 Windows PowerShell 启用基础结构备份服务，以便出现故障时可以还原 Azure Stack。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 7DFEFEBE-D6B7-4BE0-ADC1-1C01FB7E81A6
 ms.service: azure-stack
 ms.workload: na

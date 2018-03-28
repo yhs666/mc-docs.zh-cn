@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Stack 中使用 PowerShell 创建 Windows 虚拟机 | Microsoft Docs"
-description: "在 Azure Stack 中使用 PowerShell 创建 Windows 虚拟机。"
+title: 在 Azure Stack 中使用 PowerShell 创建 Windows 虚拟机 | Microsoft Docs
+description: 在 Azure Stack 中使用 PowerShell 创建 Windows 虚拟机。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 7CA6C0AC-23B7-4007-BA32-7A950FD1F3B8
 ms.service: azure-stack
 ms.workload: na

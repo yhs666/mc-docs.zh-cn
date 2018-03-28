@@ -144,7 +144,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 ## <a name="ipsecike-parameters"></a>IPsec/IKE 参数
 在 Azure Stack 中设置 VPN 连接时，需在两端配置连接。  若要配置 Azure Stack 与硬件设备（例如用作 VPN 网关的交换机或路由器）之间的 VPN 连接，可能需要在该设备上进行其他设置。
 
-Azure Stack 仅支持一个产品，这与 Azure 不同，后者支持将多个产品用作发起程序和响应程序。
+Azure Stack 仅支持一个产品/服务，这与 Azure 不同，后者支持将多个产品/服务用作发起程序和响应程序。
 
 ###  <a name="ike-phase-1-main-mode-parameters"></a>IKE 阶段 1（主模式）参数
 | 属性              | 值|
