@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 02/22/2018
-ms.date: 03/02/2018
+origin.date: 02/27/2018
+ms.date: 03/22/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: 029d87f70eec6504d3ead481249e5e5b351669d3
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 2bd616a30544f473ab88f5f818dfcee414d8fc45
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>将 Marketplace 项从 Azure 下载到 Azure Stack
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/02/2018
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>在联网场景中（具有 Internet 连接）下载 Marketplace 项
 
 1. 若要下载 Marketplace 项，必须先[将 Azure Stack 注册到 Azure](azure-stack-register.md)。
-2. 登录到 Azure Stack 管理员门户 (https://portal.local.azurestack.external)。
+2. 登录 Azure Stack 管理员门户 (https://portal.local.azurestack.external)。
 3. 一些 Marketplace 项可能占用很大存储空间。 请单击“资源提供程序” > “存储”进行检查，确保系统有足够的空间。
 
     ![](./media/azure-stack-download-azure-marketplace-item/image01.png)
@@ -76,6 +76,7 @@ ms.lasthandoff: 03/02/2018
 
    ```PowerShell
    # Download the tools archive.
+   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
    invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
      -OutFile master.zip
 
@@ -110,7 +111,7 @@ ms.lasthandoff: 03/02/2018
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>导入该映像，将其发布到 Azure Stack Marketplace
 
-1. 在下载映像和库包以后，将它们和 AzureStack-Tools-master 文件夹中的内容保存到可移动磁盘驱动器，并将其复制到 Azure Stack 环境（可以将其以本地方式复制到任何位置，例如“C:\MarketplaceImages”）。   
+1. 在下载映像和库包以后，将它们和 AzureStack-Tools-master 文件夹中的内容保存到可移动磁盘驱动器，并将其复制到 Azure Stack 环境（可以将其以本地方式复制到任何位置，例如“C:\MarketplaceImages”）。     
 
 2. 在导入此映像之前，必须连接到 Azure Stack 操作员的环境，所用步骤参见[配置 Azure Stack 操作员的 PowerShell 环境](azure-stack-powershell-configure-admin.md)。  
 
@@ -152,9 +153,10 @@ ms.lasthandoff: 03/02/2018
 
 6. 库项发布后，可以通过“新建” > “Marketplace”窗格来查看。  
 
-   ![应用商店](./media/azure-stack-download-azure-marketplace-item/image06.png)
+   ![Marketplace](./media/azure-stack-download-azure-marketplace-item/image06.png)
 
 ## <a name="next-steps"></a>后续步骤
 
 [创建和发布 Marketplace 项](azure-stack-create-and-publish-marketplace-item.md)
 
+<!-- Update_Description: wording update -->
