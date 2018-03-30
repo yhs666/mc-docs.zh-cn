@@ -1,32 +1,32 @@
 ---
-title: "在 Azure Stack 中委托产品/服务 | Microsoft Docs"
-description: "了解如何委托他人来管理创建产品/服务以及为你注册用户的事情。"
+title: 在 Azure Stack 中委托产品/服务 | Microsoft Docs
+description: 了解如何委托他人来管理创建产品/服务以及为你注册用户的事情。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 157f0207-bddc-42e5-8351-197ec23f9d46
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/25/2017
-ms.date: 03/01/2018
+origin.date: 02/28/2018
+ms.date: 03/22/2018
 ms.author: v-junlch
 ms.reviewer: alfredop
-ms.openlocfilehash: b862894fa0b15cc07cf2c722a429e6d3471bbbb0
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 961a659df9a20d5898f8991b7545d403e5a86a43
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="delegate-offers-in-azure-stack"></a>在 Azure Stack 中委托产品/服务
 
-适用于：Azure Stack 集成系统和 Azure Stack 开发工具包
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-作为 Azure Stack 操作员，你经常需要委托他人来管理创建产品/服务以及注册用户的事情。 例如，如果你是服务提供商，则可能需要经销商来代表你注册和管理客户。 或者，如果你是企业的中心 IT 小组的成员，则可能需要下属公司在你不参与的情况下注册用户。
+作为 Azure Stack 操作员，你经常需要委托他人来管理创建产品/服务以及注册用户的事情。 例如，服务提供商可能需要经销商来代表他们注册和管理客户。 或者，如果你是企业的中心 IT 小组的成员，则可能需要下属公司在你不参与的情况下注册用户。
 
 可以通过委托来接触和管理更多的用户（与直接接触和管理相比），这有助于完成相关任务。 下图演示了一个级别的委托，但 Azure Stack 支持多个级别。 委托的提供商 (DP) 可以反过来委托其他提供商，最多可以有五个级别。
 
@@ -59,7 +59,7 @@ Azure Stack 操作员可以使用委托功能将创建产品/服务和用户的�
 
 ## <a name="set-up-roles"></a>设置角色
 
-如果要查看委托的提供商如何工作，则除了 Azure Stack 操作员帐户，还需要其他 Azure AD 帐户。 如果没有这两个帐户，请创建。 这两个帐户可以属于任何 Azure AD 用户。 我们称之为委托的提供商和用户。
+如果要查看委托的提供商如何工作，则除了 Azure Stack 操作员帐户，还需要其他 Azure AD 帐户。 如果没有这两个帐户，请创建。 这些帐户可以属于任何 Azure AD 用户，称为委托的提供商和用户。
 
 | **角色** | **组织权限** |
 | --- | --- |
@@ -72,9 +72,9 @@ Azure Stack 操作员可以使用委托功能将创建产品/服务和用户的�
 2. 创建使用户成为委托的提供商的产品/服务：
    
    a.  [创建计划](azure-stack-create-plan.md)。
-       此计划应该只包括订阅服务。 在本文中，我们使用名为 **PlanForDelegation** 的计划。
+       此计划应该只包括订阅服务。 本文使用名为 **PlanForDelegation** 的计划。
    
-   b.  根据此计划[创建产品/服务](azure-stack-create-offer.md)。 在本文中，我们使用名为 **OfferToDP** 的产品/服务。
+   b.  根据此计划[创建产品/服务](azure-stack-create-offer.md)。 本文使用名为 **OfferToDP** 的产品/服务。
    
    c.  创建完产品/服务以后，将委托的提供商添加为此产品/服务的订户。 为此，请选择“订阅” > “添加” > “新建租户订阅”。
    
@@ -89,7 +89,7 @@ Azure Stack 操作员可以使用委托功能将创建产品/服务和用户的�
 
 现在已建立委托的提供商。 下一步是创建要委托的可供客户使用的计划和产品/服务。 最好是将此产品/服务准确地定义成想要客户看到的那种规格，因为委托的提供商不能更改该产品/服务中包括的计划和配额。
 
-1. 以 Azure Stack 操作员的身份[创建计划](azure-stack-create-plan.md)以及基于该计划的[产品/服务](azure-stack-create-offer.md)。 在本文中，我们使用名为 **DelegatedOffer** 的产品/服务。
+1. 以 Azure Stack 操作员的身份[创建计划](azure-stack-create-plan.md)以及基于该计划的[产品/服务](azure-stack-create-offer.md)。 本文使用名为 **DelegatedOffer** 的产品/服务。
    
    > [!NOTE]
    > 此产品/服务不必是公共的。 如果进行选择，可以选择将其公开。 但大多数情况下，只需向委托的提供商提供其访问权限。 在你按照以下步骤中的说明委托专用产品/服务以后，委托的提供商即可对其进行访问。
@@ -105,14 +105,14 @@ Azure Stack 操作员可以使用委托功能将创建产品/服务和用户的�
 
 ## <a name="delegated-provider-customizes-the-offer"></a>委托的提供商自定义产品/服务
 
-以委托的提供商的身份登录到用户门户。 然后，使用委托的产品/服务作为模板，创建新的产品/服务。
+以委托的提供商身份登录到用户门户，然后使用委托的产品/服务作为模板来创建新的产品/服务。
 
 1. 选择“新建” > “租户产品/服务 + 计划” > “产品/服务”。
 
     ![创建新的产品/服务](./media/azure-stack-delegated-provider/image5.png)
 
 
-1. 为产品/服务指定一个名称。 在这里，我们选择 **ResellerOffer**。 选择委托的产品/服务作为模板，然后选择“创建”。
+1. 为产品/服务指定一个名称。 本文使用 **ResellerOffer**。 选择委托的产品/服务作为模板，然后选择“创建”。
    
    ![指定名称](./media/azure-stack-delegated-provider/image6.png)
 
@@ -123,7 +123,7 @@ Azure Stack 操作员可以使用委托功能将创建产品/服务和用户的�
 
 2. 委托的提供商通过自己的 URL 公开这些产品/服务。 这些产品/服务只能通过委托的门户来查看。 若要查找和更改此 URL，请执行以下操作：
    
-    a.  选择“浏览” > “更多服务” >  “订阅”。 然后选择委托的提供商的订阅。 在我们的示例中，它是“DPSubscription” > “属性”。
+    a.  选择“浏览” > “更多服务” > “订阅”。 然后选择委托的提供商的订阅。 例如“DPSubscription” > “属性”。
    
     b.  将门户 URL 复制到单独的位置，例如记事本。
    
@@ -135,7 +135,7 @@ Azure Stack 操作员可以使用委托功能将创建产品/服务和用户的�
 1. 在新的浏览器窗口中，转到上一步保存的委托的门户 URL。 以用户身份登录到门户。 
    
    >[!NOTE]
-   > 此步骤使用委托的门户。 否则，委托的产品/服务会不可见。
+   >除非使用委托的门户，否则委托的产品/服务不可见。 
 
 2. 在仪表板中，选择“获取订阅”。 可以看到，只向用户提供由委托的提供商创建的委托的产品/服务：
 
@@ -151,7 +151,6 @@ Azure Stack 操作员可以使用委托功能将创建产品/服务和用户的�
 
 在创建多层产品/服务委托时，委托的提供商又会将产品/服务委托给下一提供商。 委托的提供商的此过程与 Azure Stack 操作员的此过程相同（请参阅 [Azure Stack 操作员创建委托的产品/服务](#cloud-operator-creates-the-delegated-offer)）。
 
-## <a name="next-steps"></a>后续步骤
-[预配 VM](azure-stack-provision-vm.md)
 
 
+<!-- Update_Description: wording update -->

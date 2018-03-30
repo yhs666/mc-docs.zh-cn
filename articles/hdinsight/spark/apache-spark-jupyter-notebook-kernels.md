@@ -1,9 +1,9 @@
 ---
-title: "Azure HDInsight 中 Spark 群集上的 Jupyter Notebook 的内核 | Azure"
-description: "了解 Azure HDInsight 上的 Spark 群集所提供的 Jupyter Notebook 的 PySpark、PySpark3 和 Spark 内核。"
-keywords: "spark 中的 jupyter Notebook,jupyter spark"
+title: Azure HDInsight 中 Spark 群集上的 Jupyter Notebook 的内核 | Azure
+description: 了解 Azure HDInsight 上的 Spark 群集所提供的 Jupyter Notebook 的 PySpark、PySpark3 和 Spark 内核。
+keywords: spark 中的 jupyter Notebook,jupyter spark
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,14 +15,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/11/2017
-ms.date: 01/15/2018
+origin.date: 02/22/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6c653ea939cf4b3e77fe9e86bd88e2a468eda005
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: c96442425f115537f4cbf54b760da10169806fc9
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight 中 Spark 群集上的 Jupyter Notebook 的内核 
 
@@ -91,7 +91,7 @@ HDInsight Spark 群集提供可在 Spark 上的 Jupyter Notebook 中用于测试
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |针对 sqlContext 执行 Hive 查询。 如果传递了 `-o` 参数，则查询的结果以 [Pandas](http://pandas.pydata.org/) 数据帧的形式保存在 %%local Python 上下文中。 |
    | local |`%%local`<br>`a=1` |后续行中的所有代码在本地执行。 代码必须是有效的 Python2 代码，即使不考虑所使用的内核。 因此，即使在创建 Notebook 时选择了“PySpark3”或“Spark”，但如果在单元中使用 `%%local` magic，该单元也只能包含有效的 Python2 代码。 |
    | 日志 |`%%logs` |输出当前 Livy 会话的日志。 |
-   | 删除 |`%%delete -f -s <session number>` |删除当前 Livy 终结点的特定会话。 请注意，无法删除针对内核本身启动的会话。 |
+   | 删除 |`%%delete -f -s <session number>` |删除当前 Livy 终结点的特定会话。 无法删除针对内核本身启动的会话。 |
    | cleanup |`%%cleanup -f` |删除当前 Livy 终结点的所有会话，包括此笔记本的会话。 force 标志 -f 是必需的。 |
 
    > [!NOTE]
@@ -138,7 +138,7 @@ HDInsight Spark 群集提供可在 Spark 上的 Jupyter Notebook 中用于测试
 
 ## <a name="where-are-the-notebooks-stored"></a>Notebook 存储在何处？
 
-Jupyter 笔记本保存在与 **/HdiNotebooks** 文件夹下面的群集关联的存储帐户中。  可以从存储帐户访问在 Jupyter 内部创建的 Notebook、文本文件和文件夹。  例如，如果使用 Jupyter 创建文件夹 **myfolder** 和 Notebook **myfolder/mynotebook.ipynb**，可在存储帐户中通过 `/HdiNotebooks/myfolder/mynotebook.ipynb` 访问该 Notebook。  反之亦然，如果直接将笔记本上传到 `/HdiNotebooks/mynotebook1.ipynb` 中的存储帐户，则可以从 Jupyter 查看该笔记本。  即使删除了群集，Notebook 也仍会保留在存储帐户中。
+如果群集使用 Azure 存储作为默认存储帐户，Jupyter notebook 将保存到 **/HdiNotebooks** 文件夹下的存储帐户。  可以从存储帐户访问在 Jupyter 内部创建的 Notebook、文本文件和文件夹。  例如，如果使用 Jupyter 创建文件夹 **myfolder** 和 Notebook **myfolder/mynotebook.ipynb**，可在存储帐户中通过 `/HdiNotebooks/myfolder/mynotebook.ipynb` 访问该 Notebook。  反之亦然，如果直接将笔记本上传到 `/HdiNotebooks/mynotebook1.ipynb` 中的存储帐户，则可以从 Jupyter 查看该笔记本。  即使删除了群集，Notebook 也仍会保留在存储帐户中。
 
 将笔记本保存到存储帐户的方式与 HDFS 兼容。 因此，如果通过 SSH 访问群集，可以使用如以下代码片段所示的文件管理命令：
 
@@ -146,7 +146,7 @@ Jupyter 笔记本保存在与 **/HdiNotebooks** 文件夹下面的群集关联�
     hdfs dfs -copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
     hdfs dfs -copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it's visible from Jupyter
 
-笔记本还会保存到头节点 `/var/lib/jupyter`，以防止访问群集的存储帐户时出现问题。
+笔记本还会保存在 `/var/lib/jupyter` 中的群集头节点上。
 
 ## <a name="supported-browser"></a>支持的浏览器
 
@@ -162,7 +162,6 @@ Google Chrome 仅支持 Spark HDInsight 群集中的 Jupyter Notebook。
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](apache-spark-eventhub-streaming.md)
 * [使用 HDInsight 中的 Spark 分析网站日志](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序

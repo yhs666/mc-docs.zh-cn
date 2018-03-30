@@ -1,8 +1,8 @@
 ---
-title: "Apache Kafka on HDInsight 简介 - Azure | Azure"
-description: "了解 Apache Kafka on HDInsight：它的涵义和用途以及在何处可找到示例和入门信息。"
+title: Apache Kafka on HDInsight 简介 - Azure | Azure
+description: 了解 Apache Kafka on HDInsight：它的涵义和用途以及在何处可找到示例和入门信息。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/07/2017
-ms.date: 01/15/2018
+origin.date: 12/04/2017
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4dc0a85023f2cf75dac80e3bd270f7e6dd2168a6
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: c822e48888a9d4b101f0b2abccef43ce00520664
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Apache Kafka on HDInsight 简介
 
@@ -30,23 +30,41 @@ ms.lasthandoff: 01/12/2018
 
 Kafka on HDInsight 提供以下功能：
 
-* 服务级别协议 (SLA)：[HDInsight 的 SLA 信息](https://www.azure.cn/support/sla/hdinsight/)。
+* __关于 Kafka 正常运行时间的 99% 服务级别协议 (SLA)__：有关详细信息，请参阅 [HDInsight 的 SLA 信息](https://www.azure.cn/support/sla/hdinsight/)。
 
-* 发布-订阅消息模式：Kafka 提供生成者 API 用于向 Kafka 主题发布记录。 订阅某个主题时，会用到使用者 API。
+* __容错和支架识别__：在设计上，Kafka 采用机架的一维视图，它在某些环境中表现良好。 但是，在 Azure 之类的环境中，机架被分为二维 - 更新域 (UD) 和容错域 (FD)。 Microsoft 提供相应的工具来确保重新均衡不同 UD 和 FD 中的分区与副本。 
 
-* 流式处理：执行实时流处理时，往往会将 Kafka 与 Apache Storm 或 Spark 配合使用。 Kafka 0.10.0.0（HDInsight 版本 3.5 和 3.6）引入了流式处理 API，可用于构建流式处理解决方案，而无需使用 Storm 或 Spark。
+    有关详细信息，请参阅[使用 Kafka on HDInsight 实现高可用性](apache-kafka-high-availability.md)。
 
-* 横向缩放：Kafka 可在 HDInsight 群集中的节点之间对流进行分区。 使用者进程可与单个分区相关联，在使用记录时提供负载均衡。
-
-* 有序传送：在每个分区内，记录按接收顺序存储在流中。 通过在使用者进程与分区之间建立一对一的关联，可以保证记录按顺序处理。
-
-* 容错：可以在节点之间复制分区以提供容错能力。
-
-* 与 Azure 托管磁盘集成：托管磁盘为 HDInsight 群集中虚拟机使用的磁盘提供更高的规模和吞吐量。
-
-    默认情况下，已为 Kafka on HDInsight 启用托管磁盘。 可以在 HDInsight 创建过程中配置每个节点使用的磁盘数。 有关托管磁盘的详细信息，请参阅 [Azure 托管磁盘](../../virtual-machines/windows/managed-disks-overview.md)。
+* **与 Azure 托管磁盘集成**：托管磁盘为 Kafka on HDInsight 使用的磁盘提供更高的规模和吞吐量，群集中每个节点提供高达 16 TB 的空间。
 
     有关为 Kafka on HDInsight 配置托管磁盘的信息，请参阅[提高 Kafka on HDInsight 的可伸缩性](apache-kafka-scalability.md)。
+
+    有关托管磁盘的详细信息，请参阅 [Azure 托管磁盘](../../virtual-machines/windows/managed-disks-overview.md)。
+
+* **Kafka 数据复制**：Kafka 提供 MirrorMaker 实用工具，用于在 Kafka 群集之间复制数据。
+
+    有关使用 MirrorMaker 的信息，请参阅[使用 Kafka on HDInsight 复制 Kafka 主题](apache-kafka-mirroring.md)。
+
+* **群集缩放**：创建群集后，HDInsight 允许更改工作节点（托管 Kafka-broker）的数目。 工作负荷增加时，可以扩展群集；要降低成本，可以缩减群集。 可以通过 Azure 门户、Azure PowerShell 和其他 Azure 管理界面执行缩放。 对于 Kafka，在执行缩放操作后，应重新均衡分区副本。 重新均衡分区可让 Kafka 利用新的工作节点数。
+
+    有关详细信息，请参阅[使用 Kafka on HDInsight 实现高可用性](apache-kafka-high-availability.md)。
+
+* **发布-订阅消息传送模式**：Kafka 提供一个生成者 API，用于将记录发布到 Kafka 主题。 订阅某个主题时，会用到使用者 API。
+
+    有关详细信息，请参阅 [Kafka on HDInsight 入门](apache-kafka-get-started.md)。
+
+* **流处理**：Kafka 通常与 Apache Storm 或 Spark 配合使用，以实现实时流式处理。 Kafka 0.10.0.0（HDInsight 版本 3.5 和 3.6）引入了流式处理 API，可用于构建流式处理解决方案，而无需使用 Storm 或 Spark。
+
+    有关详细信息，请参阅 [Kafka on HDInsight 入门](apache-kafka-get-started.md)。
+
+* **横向缩放**：Kafka 可将 HDInsight 群集中不同节点之间的流进行分区。 使用者进程可与单个分区相关联，在使用记录时提供负载均衡。
+
+    有关详细信息，请参阅 [Kafka on HDInsight 入门](apache-kafka-get-started.md)。
+
+* **有序传送**：在每个分区中，记录按接收顺序存储在流中。 通过在使用者进程与分区之间建立一对一的关联，可以保证记录按顺序处理。
+
+    有关详细信息，请参阅 [Kafka on HDInsight 入门](apache-kafka-get-started.md)。
 
 ## <a name="use-cases"></a>用例
 
@@ -68,7 +86,7 @@ Kafka on HDInsight 提供以下功能：
 每个 Kafka 中转站都使用 Azure 托管磁盘。 磁盘数是用户定义的，可以为每个中转站提供高达 16 TB 的存储。
 
 > [!IMPORTANT]
-> Kafka 无法识别 Azure 数据中心内的基础硬件（机架）。 若要确保基础硬件上的所有分区都正确地进行平衡，请参阅[配置数据的高可用性 (Kafka)](apache-kafka-high-availability.md)。
+> Kafka 无法识别 Azure 数据中心内的基础硬件（机架）。 若要确保正确均衡底层硬件上的分区，请参阅[配置数据的高可用性 (Kafka)](apache-kafka-high-availability.md) 文档。
 
 ## <a name="next-steps"></a>后续步骤
 

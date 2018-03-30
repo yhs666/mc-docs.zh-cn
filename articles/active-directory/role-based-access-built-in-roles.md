@@ -1,27 +1,26 @@
 ---
-title: "操作和不操作 - Azure 基于角色的访问控制 (RBAC) | Microsoft Docs"
-description: "本主题介绍适用于基于角色的访问控制 (RBAC) 的内置角色。 将不断添加角色，所以请查看文档是否有最新版本。"
+title: 操作和不操作 - Azure 基于角色的访问控制 (RBAC) | Microsoft Docs
+description: 本主题介绍适用于基于角色的访问控制 (RBAC) 的内置角色。 将不断添加角色，所以请查看文档是否有最新版本。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
+editor: ''
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: ''
 ms.workload: identity
-origin.date: 06/28/2017
-ms.date: 07/28/2017
+origin.date: 02/23/2018
+ms.date: 03/05/2018
 ms.author: v-junlch
-ms.reviewer: 
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: accfd564b7e4b9a6cfd9fa6788c5ef703de2672b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.reviewer: ''
+ms.custom: it-pro
+ms.openlocfilehash: 10fa9f6760a5a583f194a848a358894705ee6029
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>用于 Azure 基于角色的访问控制的内置角色
 Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和服务的内置角色。 不能修改内置角色的定义。 但是，可以创建 [Azure RBAC 中的自定义角色](role-based-access-control-custom-roles.md)，以满足组织的特定需要。
@@ -53,6 +52,7 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | [BizTalk 参与者](#biztalk-contributor) |可管理 BizTalk 服务 |
 | [ClearDB MySQL DB 参与者](#cleardb-mysql-db-contributor) |可管理 ClearDB MySQL 数据库 |
 | [参与者](#contributor) |可管理除访问权限以外的一切内容。 |
+| [Cosmos DB 帐户读者角色](#cosmos-db-account-reader-role) |可以读取 Azure Cosmos DB 帐户数据 |
 | [数据工厂参与者](#data-factory-contributor) |可创建和管理数据工厂，以及它们包含的子资源。 |
 | [DevTest 实验室用户](#devtest-labs-user) |可查看一切内容，并可连接、启动、重启和关闭虚拟机 |
 | [DNS 区域参与者](#dns-zone-contributor) |可以管理 DNS 区域和记录 |
@@ -63,13 +63,14 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | [监视读取者](#monitoring-reader) |可以读取所有监视数据 |
 | [监视参与者](#monitoring-contributor) |可以读取监视数据和编辑监视设置 |
 | [网络参与者](#network-contributor) |可管理所有网络资源 |
-| [New elic APM 帐户参与者](#new-relic-apm-account-contributor) |可管理 New Relic 应用程序性能管理帐户和应用程序 |
 | [所有者](#owner) |可管理一切内容（包括访问权限） |
 | [读者](#reader) |可查看一切内容，但不可作出更改 |
 | [Redis 缓存参与者](#redis-cache-contributor) |可管理 Redis 缓存 |
 | [计划程序作业集合参与者](#scheduler-job-collections-contributor) |可管理计划程序作业集合 |
 | [搜索服务参与者](#search-service-contributor) |可管理搜索服务 |
-| [安全管理器](#security-manager) |可管理安全组件、安全策略和虚拟机 |
+| [安全管理员](#security-administrator) | 仅在安全中心内：可以查看安全策略、查看安全状态、编辑安全策略、查看警报和建议、关闭警报和建议 |
+| [安全管理器](#security-manager) | 可管理安全组件、安全策略和虚拟机 |
+| [安全读者](#security-reader) | 仅在安全中心内：可以查看建议和警报、查看安全策略、查看安全状态，但不能进行更改 |
 | [Site Recovery 参与者](#site-recovery-contributor) | 可以在恢复服务保管库中管理 Site Recovery |
 | [Site Recovery 操作员](#site-recovery-operator) | 可以在恢复服务保管库中管理故障转移和故障回复 Site Recovery |
 | [Site Recovery 读取者](#site-recovery-reader) | 可以查看所有 Site Recovery 管理操作  |
@@ -266,7 +267,7 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | 读取保管库的注册项 |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  读取恢复服务保管库的使用情况 |
 
-## <a name="billing-reader">计费读者</a>
+### <a name="billing-reader">计费读者</a>
 可以查看所有计费信息
 
 | **操作** |  |
@@ -313,7 +314,20 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Authorization/*/Delete |无法删除角色和角色分配 |
 | Microsoft.Authorization/*/Write |无法创建角色和角色分配 |
 
-### 数据工厂参与者 <a name="data-factory-contributor"></a>
+### Cosmos DB 帐户读取者角色<a name="cosmos-db-account-reader-role"></a>
+可以读取 Azure Cosmos DB 帐户数据。 请参阅 [Cosmos DB 帐户参与者](#documentdb-account-contributor)，了解如何管理 Azure Cosmos DB 帐户。
+
+| **操作** |  |
+| --- | --- |
+|Microsoft.Authorization/*/read|读取角色和角色分配，可以读取授予每个用户的权限|
+|Microsoft.DocumentDB/*/read|读取任何集合|
+|Microsoft.DocumentDB/databaseAccounts/readonlykeys/action|读取只读密钥窗格|
+|Microsoft.Insights/Metrics/read|读取帐户指标|
+|Microsoft.Insights/MetricDefinitions/read|读取指标定义|
+|Microsoft.Resources/subscriptions/resourceGroups/read|读取资源组|
+|Microsoft.Support/*|创建和管理支持票证|
+
+### 数据工厂参与者<a name="data-factory-contributor"></a>
 创建和管理数据工厂，以及它们包含的子资源。
 
 | **操作** |  |
@@ -372,13 +386,13 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Resources/subscriptions/resourceGroups/read |读取资源组 |
 | Microsoft.Support/\* |创建和管理支持票证 |
 
-### Azure Cosmos DB 帐户参与者 <a name="documentdb-account-contributor"></a>
-可管理 Azure Cosmos DB 帐户
+### DocumentDB 帐户参与者<a name="documentdb-account-contributor"></a>
+可管理 Azure Cosmos DB 帐户。 Azure Cosmos DB 以前称为 DocumentDB。
 
 | **操作** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |读取角色和角色分配 |
-| Microsoft.DocumentDb/databaseAccounts/* |创建和管理 DocumentDB 帐户 |
+| Microsoft.DocumentDb/databaseAccounts/* |创建并管理 Azure Cosmos DB 帐户 |
 | Microsoft.Insights/alertRules/* |创建和管理警报规则 |
 | Microsoft.ResourceHealth/availabilityStatuses/read |读取资源的运行状况 |
 | Microsoft.Resources/deployments/* |创建和管理资源组部署 |
@@ -399,7 +413,7 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Support/* |创建和管理支持票证 |
 
 ### 监视读取者 <a name="monitoring-reader"></a>
-可以读取所有监视数据（指标、日志等）。 另请参阅 [Azure Monitor 的角色、权限和安全入门](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)。
+可以读取所有监视数据（指标、日志等）。 
 
 | **操作** |  |
 | --- | --- |
@@ -408,7 +422,7 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Support/* |创建和管理支持票证 |
 
 ### 监视参与者 <a name="monitoring-contributor"></a>
-可以读取所有监视数据和编辑监视设置。 另请参阅 [Azure Monitor 的角色、权限和安全入门](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)。
+可以读取所有监视数据和编辑监视设置。 
 
 | **操作** |  |
 | --- | --- |
@@ -441,20 +455,7 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Resources/subscriptions/resourceGroups/read |读取资源组 |
 | Microsoft.Support/* |创建和管理支持票证 |
 
-### New elic APM 帐户参与者 <a name="new-relic-apm-account-contributor"></a>
-可管理 New Relic 应用程序性能管理帐户和应用程序
-
-| **操作** |  |
-| --- | --- |
-| Microsoft.Authorization/*/read |读取角色和角色分配 |
-| Microsoft.Insights/alertRules/* |创建和管理警报规则 |
-| Microsoft.ResourceHealth/availabilityStatuses/read |读取资源的运行状况 |
-| Microsoft.Resources/deployments/* |创建和管理资源组部署 |
-| Microsoft.Resources/subscriptions/resourceGroups/read |读取资源组 |
-| Microsoft.Support/* |创建和管理支持票证 |
-| NewRelic.APM/accounts/* |创建并管理 New Relic 应用程序性能管理帐户 |
-
-### 所有者 <a name="owner"></a>
+### <a name="owner"></a>所有者
 可管理一切内容（包括访问权限）
 
 | **操作** |  |
@@ -507,21 +508,50 @@ Azure 基于角色的访问控制 (RBAC) 附带以下可分配到用户、组和
 | Microsoft.Search/searchServices/* |创建和管理搜索服务 |
 | Microsoft.Support/* |创建和管理支持票证 |
 
+### <a name="security-administrator"></a>安全管理员
+仅在安全中心内：可以查看安全策略、查看安全状态、编辑安全策略、查看警报和建议、关闭警报和建议
+
+| **操作** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |读取角色和角色分配 |
+| Microsoft.Authorization/policyAssignments/* | 创建和管理策略分配 |
+| Microsoft.Authorization/policySetDefinitions/* | 创建和管理策略集 |
+| Microsoft.Authorization/policyDefinitions/* | 创建和管理策略定义 |
+| Microsoft.Insights/alertRules/* | 创建和管理警报规则 |
+| Microsoft.operationalInsights/workspaces/*/read | 查看 Log Analytics 数据 |
+| Microsoft.Resources/deployments/* |创建和管理资源组部署 |
+| Microsoft.Resources/subscriptions/resourceGroups/read |读取资源组 |
+| Microsoft.Security/*/read | 读取安全组件和策略 |
+| Microsoft.Support/* |创建和管理支持票证 |
+
 ### <a name="security-manager"></a>安全管理器
 可管理安全组件、安全策略和虚拟机
 
 | **操作** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |读取角色和角色分配 |
-| Microsoft.ClassicCompute/*/read |读取经典计算虚拟机的配置信息 |
-| Microsoft.ClassicCompute/virtualMachines/*/write |为虚拟机写入配置 |
+| Microsoft.ClassicCompute/*/read |读取经典虚拟机的配置信息 |
+| Microsoft.ClassicCompute/virtualMachines/*/write |写入经典虚拟机的配置 |
 | Microsoft.ClassicNetwork/*/read |读取有关经典网络的配置信息 |
-| Microsoft.Insights/alertRules/* |创建和管理警报规则 |
+| Microsoft.Insights/alertRules/* | 创建和管理警报规则 |
 | Microsoft.ResourceHealth/availabilityStatuses/read |读取资源的运行状况 |
 | Microsoft.Resources/deployments/* |创建和管理资源组部署 |
 | Microsoft.Resources/subscriptions/resourceGroups/read |读取资源组 |
 | Microsoft.Security/* |创建和管理安全组件和策略 |
 | Microsoft.Support/* |创建和管理支持票证 |
+
+### <a name="security-reader"></a>安全读者
+仅在安全中心内：可以查看建议和警报、查看安全策略、查看安全状态，但不能进行更改
+
+| **操作** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |读取角色和角色分配 |
+| Microsoft.Insights/alertRules/* | 创建和管理警报规则 |
+| Microsoft.operationalInsights/workspaces/*/read | 查看 Log Analytics 数据 |
+| Microsoft.Resources/subscriptions/resourceGroups/read |读取资源组 |
+| Microsoft.Security/*/read | 读取安全组件和策略 |
+| Microsoft.Support/* |创建和管理支持票证 |
+| Microsoft.Resources/deployments/* |创建和管理资源组部署 |
 
 ### <a name="site-recovery-contributor"></a>Site Recovery 参与者
 可以管理所有 Site Recovery 管理操作，但无法创建恢复服务保管库和向其他用户分配访问权限

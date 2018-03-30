@@ -1,8 +1,8 @@
 ---
-title: "将 Apache Kafka 与 Storm on HDInsight 配合使用 - Azure | Microsoft Docs"
-description: "同时安装 Apache Kafka 和 Apache Storm on HDInsight。 了解如何使用 Storm 随附的 KafkaBolt 和 KafkaSpout 组件向 Kafka 写入数据，并从中读取数据。 此外，还了解如何使用 Flux 框架来定义和提交 Storm 拓扑。"
+title: 将 Apache Kafka 与 Storm on HDInsight 配合使用 - Azure
+description: Apache Kafka 将随 Apache Storm on HDInsight 一起安装。 了解如何使用 Storm 随附的 KafkaBolt 和 KafkaSpout 组件向 Kafka 写入数据，并从中读取数据。 此外，还了解如何使用 Flux 框架来定义和提交 Storm 拓扑。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -13,31 +13,31 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/07/2017
-ms.date: 12/25/2017
+origin.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 39c5c745ab6f8d9999156d190a52537759b75538
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 7dce19fc4ccadd6bd4e1525e9ff012fcea19f8b6
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>将 Apache Kafka 与 HDInsight 中的 Storm 配合使用
 
 了解如何使用 Apache Storm 执行对 Apache Kafka 的读写操作。 本示例还演示如何将数据从 Storm 拓扑保存到由 HDInsight 使用的 HDFS 兼容文件系统。
 
 > [!NOTE]
-> 本文档中的步骤创建了一个 Azure 资源组，其中同时包含了 Storm on HDInsight 群集以及 Kafka on HDInsight 群集。 这两个群集位于同一个 Azure 虚拟网络中，因此，Storm 群集可以直接与 Kafka 群集通信。
+> 本文档中的步骤会创建一个 Azure 资源组，其中包含一个 Storm on HDInsight 群集以及一个 Kafka on HDInsight 群集。 这两个群集位于同一个 Azure 虚拟网络中，因此，Storm 群集可以直接与 Kafka 群集通信。
 > 
-> 完成本文档中的步骤后，请记得删除这些群集，避免支付额外费用。
+> 完成本文档中的步骤后，请记得删除这些群集，避免产生额外费用。
 
 ## <a name="get-the-code"></a>获取代码
 
-本文档中使用的示例代码位于 [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka)。
+[https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka) 上提供了本文档中使用的示例的代码。
 
 若要编译此项目，需要对开发环境进行以下配置：
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 或更高版本。 HDInsight 3.5 或更高版本需要 Java 8。
+* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 或更高版本。 HDInsight 3.5 或更高版本需要 Java 8。
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/15/2017
 
 * 文本编辑器或 IDE。
 
-可以在开发工作站上安装 Java 和 JDK 时设置以下环境变量。 但应检查其是否存在并且包含相关系统的适当值。
+可以在开发工作站上安装 Java 和 JDK 时设置以下环境变量。 不过，应该检查它们是否存在并且包含系统的正确值。
 
 * `JAVA_HOME` - 应该指向 JDK 的安装目录。
 * `PATH` - 应该包含以下路径：
@@ -69,7 +69,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
    
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.chinacloudapi.cn%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    如需 Azure 资源管理器模板，请访问 **https://hditutorialdata.blob.core.chinacloudapi.cn/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v1.json**。 它创建以下资源：
+    Azure 资源管理器模板位于 **https://hditutorialdata.blob.core.chinacloudapi.cn/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v2.json**。 它创建以下资源：
     
     * Azure 资源组
     * Azure 虚拟网络
@@ -86,9 +86,10 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
     * **资源组**：创建一个组或选择现有组。 此组包含 HDInsight 群集。
    
-    * **位置**：选择在地理上邻近的位置。
+    * 位置：选择在地理上邻近的位置。
 
-    * **基群集名称**：此值将用作 Storm 和 Kafka 群集的基名称。 例如，输入 **hdi** 创建名为 **storm-hdi** 的 Storm 群集和名为 **kafka-hdi** 的 Kafka 群集。
+    * 
+            **基群集名称**：此值用作 Storm 和 Kafka 群集的基名称。 例如，输入 **hdi** 创建名为 **storm-hdi** 的 Storm 群集和名为 **kafka-hdi** 的 Kafka 群集。
    
     * **群集登录用户名**：Storm 和 Kafka 群集的管理员用户名。
    
@@ -107,7 +108,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 ![VNet 和群集的资源组部分](./media/hdinsight-apache-storm-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
-> 请注意，HDInsight 群集的名称为 **storm-BASENAME** 和 **kafka-BASENAME**，其中 BASENAME 是为模板提供的名称。 在连接到群集的后续步骤中，会用到这些名称。
+> 请注意，HDInsight 群集的名称为 **storm-BASENAME** 和 **kafka-BASENAME**，其中 BASENAME 是为模板提供的名称。 在后续步骤中连接到群集时，将用到这些名称。
 
 ## <a name="understanding-the-code"></a>了解数据
 
@@ -123,7 +124,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
     此拓扑使用 Storm HdfsBolt 将数据写入 Storm 群集的默认存储。
 ### <a name="flux"></a>Flux
 
-拓扑是使用 [Flux](https://storm.apache.org/releases/1.1.0/flux.html)定义的。 Storm 0.10.x 中引入了 Flux，允许从代码分离拓扑配置。 对于使用 Flux 框架的拓扑，该拓扑在 YAML 文件中进行定义。 YAML 文件可以作为拓扑的一部分包括在内。 它也可以是提交拓扑时使用的独立文件。 Flux 还支持在运行时进行变量替换，本示例中使用了该变量替换。
+拓扑是使用 [Flux](https://storm.apache.org/releases/1.1.2/flux.html)定义的。 Storm 0.10.x 中引入了 Flux，允许从代码分离拓扑配置。 对于使用 Flux 框架的拓扑，该拓扑在 YAML 文件中进行定义。 YAML 文件可以作为拓扑的一部分包括在内。 它也可以是提交拓扑时使用的独立文件。 Flux 还支持在运行时进行变量替换，本示例中使用了该变量替换。
 
 在运行时为这些拓扑设置以下参数：
 
@@ -133,7 +134,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 * `${kafka.zookeeper.hosts}`：Kafka 群集中 Zookeeper 运行时所在的主机。
 
-有关 Flux 拓扑的详细信息，请参阅 [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html)。
+有关 Flux 拓扑的详细信息，请参阅 [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html)。
 
 ## <a name="download-and-compile-the-project"></a>下载并编译项目
 
@@ -174,7 +175,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
     ```
 
     > [!IMPORTANT]
-    > Bash 示例假定 `$CLUSTERNAME` 包含 HDInsight 群集的名称。 还假定 [jq](https://stedolan.github.io/jq/) 已安装。 出现提示时，输入群集登录帐户的密码。
+    > Bash 示例假定 `$CLUSTERNAME` 包含 HDInsight 群集的名称。 它还假定安装了 [jq](https://stedolan.github.io/jq/) 1.5 或更高版本。 出现提示时，输入群集登录帐户的密码。
 
     返回的值类似于下文：
 
@@ -220,10 +221,10 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 4. 保存 `dev.properties` 文件，然后使用以下命令将其上传到 Storm 群集：
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.cn:KafkaTopology-1.0-SNAPSHOT.jar
+    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
-    将 USERNAME 替换为群集的 SSH 用户名。 用创建群集时使用的基名称替换 **BASENAME**。
+    将 USERNAME 替换为群集的 SSH 用户名。 将 BASENAME 替换为创建群集时使用的基名称。
 
 ## <a name="start-the-writer"></a>启动编写器
 
@@ -245,7 +246,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
     将 `$KAFKAZKHOSTS` 替换为在上一部分中检索到的 Zookeeper 主机信息。
 
-2. 与 Storm 群集建立 SSH 连接后，使用以下命令启动编写器拓扑：
+2. 与 Storm 群集建立 SSH 连接后，使用以下命令启动写入器拓扑：
 
     ```bash
     storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /writer.yaml --filter dev.properties
@@ -257,7 +258,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
     * `--remote`：将拓扑提交到 Nimbus。 拓扑分布在群集中的辅助角色节点。
 
-    * `-R /writer.yaml`：使用 `writer.yaml` 文件配置拓扑。 `-R` 指示此资源包含在 jar 文件中。 它位于 jar 的根目录中，因此 `/writer.yaml` 是它的路径。
+    * `-R /writer.yaml`：使用 `writer.yaml` 文件配置拓扑。 `-R` 指示此资源包含在 jar 文件中。 该资源位于 jar 的根目录，因此， `/writer.yaml` 是它的路径。
 
     * `--filter`：使用 `dev.properties` 文件中的值填充 `writer.yaml` 拓扑中的条目。 例如，文件中 `kafka.topic` 条目的值用于替换拓扑定义中的 `${kafka.topic}` 条目。
 
@@ -269,7 +270,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
     将 `$KAFKAZKHOSTS` 替换为在上一部分中检索到的 Zookeeper 主机信息。
 
-    此命令使用 Kafka 附带的脚本来监视主题。 片刻之后，应开始返回已写入主题的随机句子。 输出类似于以下示例：
+    此命令使用 Kafka 随附的脚本来监视主题。 片刻之后，应开始返回已写入主题的随机句子。 输出类似于以下示例：
 
         i am at two with nature             
         an apple a day keeps the doctor away
@@ -289,6 +290,10 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
     按 Ctrl+C 停止脚本。
 
 ## <a name="start-the-reader"></a>启动读取器
+
+> [!NOTE]
+> 在 Storm UI 中查看读取器时，可能会看到__拓扑 Spout 滞后错误__部分。 对于此示例，可以忽略该错误。
+>
 
 1. 与 Storm 群集建立 SSH 会话后，使用以下命令启动读取器拓扑：
 

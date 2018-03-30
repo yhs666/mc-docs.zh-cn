@@ -1,33 +1,34 @@
 ---
-title: "使用 Storm 处理来自事件中心的事件 - Azure HDInsight | Azure"
-description: "了解如何使用在 Visual Studio 中通过用于 Visual Studio 的 HDInsight 工具创建的 C# Storm 拓扑处理来自 Azure 事件中心的数据。"
+title: 使用 Storm 处理来自事件中心的事件 - Azure HDInsight | Azure
+description: 了解如何使用在 Visual Studio 中通过用于 Visual Studio 的 HDInsight 工具创建的 C# Storm 拓扑处理来自 Azure 事件中心的数据。
 services: hdinsight,notification hubs
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: ''
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/27/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: a2eba73cf74aaf6dacfbfad3591ac3687b3a2570
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 05e27da897eaf81847fde773dcf53bb1d192b232
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>使用 Storm on HDInsight 处理来自 Azure 事件中心的事件 (C#)
+# <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>使用 Storm on HDInsight 从 Azure 事件中心处理事件 (C#)
 
 [!INCLUDE [azure-sdk-developer-differences](../../../includes/azure-sdk-developer-differences.md)]
 
 
-[!INCLUDE [azure-visual-studio-login-guide](../../../includes/azure-visual-studio-login-guide.md)] 了解如何从 Apache Storm on HDInsight 使用 Azure 事件中心。 本文档使用 C# Storm 拓扑对事件中心读取和写入数据
+[!INCLUDE [azure-visual-studio-login-guide](../../../includes/azure-visual-studio-login-guide.md)]
+了解如何从 Apache Storm on HDInsight 使用 Azure 事件中心。 本文档使用 C# Storm 拓扑对事件中心读取和写入数据
 
 > [!NOTE]
 > 如需此项目的 Java 版，请参阅[使用 Storm on HDInsight 从 Azure 事件中心处理事件 (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)。
@@ -37,16 +38,13 @@ ms.lasthandoff: 12/15/2017
 本文档中的步骤使用 SCP.NET，后者是一个 NuGet 包，方便用户创建适用于 Storm on HDInsight 的 C# 拓扑和组件。
 
 > [!IMPORTANT]
-> 虽然本文档中的步骤依赖于带 Visual Studio 的 Windows 开发环境，但是也可将编译的项目提交到使用 Linux 的 Storm on HDInsight 群集。 仅 2016 年 10 月 28 日之后创建的基于 Linux 的群集支持 SCP.NET 拓扑。
+> 虽然本文档中的步骤依赖于带 Visual Studio 的 Windows 开发环境，但是也可将编译的项目提交到使用 Linux 的 Storm on HDInsight 群集。 仅在 2016 年 10 月 28 日以后创建的基于 Linux 的群集支持 SCP.NET 拓扑。
 
 HDInsight 3.4 及更高版本使用 Mono 运行 C# 拓扑。 本文档中使用的示例适用于 HDInsight 3.6。 如果你计划为 HDInsight 创建自己的 .NET 解决方案，请查看 [Mono 兼容性](http://www.mono-project.com/docs/about-mono/compatibility/)文档了解可能的不兼容性。
 
-> [!WARNING]
-> 如果你在构建使用 SCP.NET 版本 1.0.0.x 的项目时遇到问题，请联系 Microsoft 支持部门以寻求帮助。
-
 ### <a name="cluster-versioning"></a>群集版本控制
 
-用于项目的 Microsoft.SCP.Net.SDK NuGet 包必须与安装在 HDInsight 上的 Storm 的主要版本匹配。 HDInsight 版本 3.5 和 3.6 使用 Storm 1.x，因此必须对这些群集使用 SCP.NET 版本 1.0.x.x。
+项目所使用的 Microsoft.SCP.Net.SDK NuGet 包必须与安装在 HDInsight 上的 Storm 的主要版本匹配。 HDInsight 版本 3.5 和 3.6 使用 Storm 1.x，因此必须对这些群集使用 SCP.NET 版本 1.0.x.x。
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
 
@@ -59,7 +57,7 @@ C# 拓扑还必须针对 .NET 4.5 运行。
 
 ## <a name="how-to-work-with-event-hubs"></a>如何使用事件中心
 
-Microsoft 提供一组 Java 组件用于与 Storm 拓扑中的事件中心通信。 可以在 [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar) 找到包含这些组件的 HDInsight 3.6 兼容版本的 Java 存档 (JAR) 文件。
+Microsoft 提供一组可用来与 Storm 拓扑中的事件中心通信的 Java 组件。 可以在 [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar) 上找到包含这些组件的 HDInsight 3.6 兼容版本的 Java 存档 (JAR) 文件。
 
 > [!IMPORTANT]
 > 虽然组件是以 Java 编写的，但可通过 C# 拓扑轻松使用它们。
@@ -73,7 +71,7 @@ Microsoft 提供一组 Java 组件用于与 Storm 拓扑中的事件中心通信
 
 ### <a name="example-spout-usage"></a>Spout 用法示例
 
-SCP.NET 提供将 EventHubSpout 添加到拓扑的方法。 与使用泛型方法添加 Java 组件相比，这些方法可以更轻松地添加 Spout。 以下示例演示了如何使用 SCP.NET 所提供的 __SetEventHubSpout__ 和 **EventHubSpoutConfig** 方法创建 Spout：
+SCP.NET 提供了用于将 EventHubSpout 添加到拓扑的方法。 与使用泛型方法添加 Java 组件相比，这些方法可以更轻松地添加 Spout。 以下示例演示了如何使用 SCP.NET 所提供的 __SetEventHubSpout__ 和 **EventHubSpoutConfig** 方法创建 Spout：
 
 ```csharp
 topologyBuilder.SetEventHubSpout(
@@ -87,7 +85,7 @@ topologyBuilder.SetEventHubSpout(
     eventHubPartitions);
 ```
 
-上面的示例创建了名为 __EventHubSpout__ 的全新 Spout 组件，并将其配置为与事件中心通信。 组件的并行度提示设置为事件中心的分区数。 使用此设置，Storm 可为每个分区创建一个组件实例。
+上面的示例创建了名为 __EventHubSpout__ 的全新 Spout 组件，并将其配置为与事件中心通信。 组件的并行度提示设置为事件中心的分区数。 此设置允许 Storm 为每个分区创建一个组件实例。
 
 ### <a name="example-bolt-usage"></a>Bolt 用法示例
 
@@ -133,14 +131,14 @@ topologyBuilder.SetJavaBolt(
 
 * [用于 Visual Studio 的 HDInsight 工具](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)。
 
-* Java JDK 1.8 或更高版本，适用于开发环境。 [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 提供了 JDK 下载内容。
+* Java JDK 1.8 或更高版本，适用于开发环境。 [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 提供了 JDK 下载。
 
   * **JAVA_HOME** 环境变量必须指向包含 Java 的目录。
   * 路径中必须包含 **%JAVA_HOME%/bin** 目录。
 
 ## <a name="download-the-event-hubs-components"></a>下载事件中心组件
 
-从 [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar) 下载事件中心 Spout 和 Bolt 组件。
+从 [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar) 下载事件中心 spout 和 bolt 组件。
 
 创建一个名为 `eventhubspout` 的目录，并将文件保存到该目录中。
 
@@ -148,9 +146,9 @@ topologyBuilder.SetJavaBolt(
 
 事件中心是此示例的数据源。 使用[事件中心入门](../../event-hubs/event-hubs-create.md)的“创建事件中心”部分中的信息。
 
-1. 创建事件中心后，在 Azure 门户中查看 EventHub 边栏选项卡，选择“共享访问策略”。 选择“+ 添加”添加以下策略： 
+1. 创建事件中心后，在 Azure 门户中查看“事件中心”设置，选择“共享访问策略”。 选择“+ 添加”添加以下策略： 
 
-   | 名称 | 权限 |
+   | Name | 权限 |
    | --- | --- |
    | writer |发送 |
    | reader |侦听 |
@@ -181,7 +179,7 @@ topologyBuilder.SetJavaBolt(
 
 1. 打开 **EventHubReader** 项目。
 
-2. 打开 **EventHubReader** 的 **App.config** 文件。 使用此前配置的事件中心提供的信息，填充以下项的值：
+2. 打开 **EventHubReader** 的 **App.config** 文件。 使用前面在事件中心配置的信息填写以下键的值：
 
    | 键 | 值 |
    | --- | --- |

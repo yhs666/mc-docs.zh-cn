@@ -1,28 +1,34 @@
 ---
-title: "在 Azure Stack 上部署应用服务之前 | Microsoft Docs"
-description: "在 Azure Stack 上部署应用服务之前需要完成的步骤"
+title: 在 Azure Stack 上部署应用服务之前 | Microsoft Docs
+description: 在 Azure Stack 上部署应用服务之前需要完成的步骤
 services: azure-stack
-documentationcenter: 
-author: brenduns
-manager: femila
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: apwestgarth
+manager: stefsch
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/29/2018
-ms.date: 03/01/2018
+origin.date: 03/09/2018
+ms.date: 03/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: f32b2e4501e8cbc145313c808acbd4e1d172562d
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: a6ebbb4851c15c41e1f89292d99f491b4208aff0
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>在 Azure Stack 上开始使用应用服务之前
+
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+
+> [!IMPORTANT]
+> 请应用针对 Azure Stack 集成系统的 1802 更新，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务。
+>
+>
 
 在 Azure Stack 上部署 Azure 应用服务之前，必须完成本文中的先决条件步骤。
 
@@ -39,15 +45,23 @@ ms.lasthandoff: 03/08/2018
    - Remove-AppService.ps1
    - 模块
      - GraphAPI.psm1
-    
-## <a name="prepare-for-high-availability"></a>准备高可用性
 
-Azure Stack 上的 Azure 应用服务目前无法提供高可用性，因为 Azure Stack 仅将工作负荷部署到一个容错域。
+## <a name="high-availability"></a>高可用性
 
-若要准备让 Azure Stack 上的 Azure 应用服务提供高可用性，请在高可用性配置中部署所需的文件服务器和 SQL Server 实例。 如果 Azure Stack 支持多个容错域，我们将提供有关如何在高可用性配置中启用 Azure Stack 上的 Azure 应用服务的指导。
+由于 1802 版 Azure Stack 的推出（此版本已添加对容错域的支持），Azure Stack 上新的 Azure 应用服务部署将分配到各个容错域并提供容错功能。  对于 Azure Stack 上现有的 Azure 应用服务部署（部署时间在 1802 更新发布以前），请参阅[此文档](azure-stack-app-service-fault-domain-update.md)了解如何重新均衡部署。
 
+此外，为了让 Azure Stack 上的 Azure 应用服务提供高可用性，请在高可用性配置中部署所需的文件服务器和 SQL Server 实例。 
 
 ## <a name="get-certificates"></a>获取证书
+
+### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Azure Stack 的 Azure 资源管理器根证书
+
+在可以访问 Azure Stack 集成系统或 Azure Stack 开发工具包主机上的特权终结点的计算机上以 azurestack\CloudAdmin 身份运行的 PowerShell 会话中，从帮助器脚本解压缩到的文件夹运行 Get-AzureStackRootCert.ps1 脚本。 此脚本在应用服务所需的、用于创建证书的脚本所在的同一文件夹中创建一个根证书。
+
+| Get-AzureStackRootCert.ps1 参数 | 必需还是可选 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| PrivilegedEndpoint | 必须 | AzS-ERCS01 | 特权终结点 |
+| CloudAdminCredential | 必须 | AzureStack\CloudAdmin | Azure Stack 云管理的域帐户凭据 |
 
 ### <a name="certificates-required-for-the-azure-stack-development-kit"></a>Azure Stack 开发工具包所需的证书
 
@@ -56,9 +70,9 @@ Azure Stack 上的 Azure 应用服务目前无法提供高可用性，因为 Azu
 | 文件名 | 用途 |
 | --- | --- |
 | _.appservice.local.azurestack.external.pfx | 应用服务默认 SSL 证书 |
-| Api.appservice.local.azurestack.external.pfx | 应用服务 API SSL 证书 |
+| api.appservice.local.azurestack.external.pfx | 应用服务 API SSL 证书 |
 | ftp.appservice.local.azurestack.external.pfx | 应用服务发布者 SSL 证书 |
-| Sso.appservice.local.azurestack.external.pfx | 应用服务标识应用程序证书 |
+| sso.appservice.local.azurestack.external.pfx | 应用服务标识应用程序证书 |
 
 在 Azure Stack 开发工具包主机上运行该脚本，并确保以 azurestack\CloudAdmin 身份运行 PowerShell：
 
@@ -74,18 +88,19 @@ Azure Stack 上的 Azure 应用服务目前无法提供高可用性，因为 Azu
 
 ### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Azure Stack 上的 Azure 应用服务的生产部署所需的证书
 
-若要在生产环境中运行资源提供程序，必须提供以下四个证书。
+若要在生产环境中运行资源提供程序，必须提供以下四个证书：
 
 #### <a name="default-domain-certificate"></a>默认域证书
 
 默认域证书放在“前端”角色上。 对 Azure 应用服务发出通配符或默认域请求的用户应用程序使用此证书。 该证书还用于源代码管理操作 (Kudu)。
 
-该证书必须采用 .pfx 格式，并且应该是包含两个使用者的通配符证书。 因此，使用一个证书即可同时涵盖用于源代码管理操作的默认域和 SCM 终结点。
+该证书必须采用 .pfx 格式，并且应该是包含三个使用者的通配符证书。 因此，使用一个证书即可同时涵盖用于源代码管理操作的默认域和 SCM 终结点。
 
 | 格式 | 示例 |
 | --- | --- |
 | \*.appservice.\<region\>.\<DomainName\>.\<extension\> | \*.appservice.redmond.azurestack.external |
-| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.appservice.scm.redmond.azurestack.external |
+| \*.scm.appservice.<region>.<DomainName>.<extension> | \*.scm.appservice.redmond.azurestack.external |
+| \*.sso.appservice.<region>.<DomainName>.<extension> | \*.sso.appservice.redmond.azurestack.external |
 
 #### <a name="api-certificate"></a>API 证书
 
@@ -101,11 +116,12 @@ API 证书放在“管理”角色上。 资源提供程序使用它来帮助保
 
 | 格式 | 示例 |
 | --- | --- |
-| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
+| ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | ftp.appservice.redmond.azurestack.external |
 
 #### <a name="identity-certificate"></a>标识证书
 
 标识应用程序的证书可以实现：
+
 - Azure Active Directory (Azure AD) 或 Active Directory 联合身份身份验证服务 (AD FS) 目录、Azure Stack 与应用服务 之间的集成，以支持与计算资源提供程序的集成。
 - Azure Stack 上的 Azure 应用服务中的高级开发人员工具的单一登录方案。
 
@@ -115,15 +131,19 @@ API 证书放在“管理”角色上。 资源提供程序使用它来帮助保
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Azure Stack 的 Azure 资源管理器根证书
+## <a name="virtual-network"></a>虚拟网络
 
-在以 azurestack\CloudAdmin 身份运行的 PowerShell 话中，从帮助器脚本提取到的文件夹运行 Get-AzureStackRootCert.ps1 脚本。 此脚本在应用服务所需的、用于创建证书的脚本所在的同一文件夹中创建四个证书。
+Azure Stack 上的 Azure 应用服务允许将资源提供程序部署到现有的虚拟网络，否则应用服务会在部署时创建一个虚拟网络。  使用现有虚拟网络可以通过内部 IP 连接到 Azure Stack 上的 Azure 应用服务所需的文件服务器和 SQL Server。  在 Azure Stack 上安装 Azure 应用服务之前，必须为虚拟网络配置以下地址范围和子网：
 
-| Get-AzureStackRootCert.ps1 参数 | 必需还是可选 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| PrivelegedEndpoint | 必须 | AzS-ERCS01 | 特权终结点 |
-| CloudAdminCredential | 必须 | AzureStack\CloudAdmin | Azure Stack 云管理的域帐户凭据 |
+虚拟网络 - /16
 
+子网
+
+- ControllersSubnet /24
+- ManagementServersSubnet /24
+- FrontEndsSubnet /24
+- PublishersSubnet /24
+- WorkersSubnet /21
 
 ## <a name="prepare-the-file-server"></a>准备文件服务器
 
@@ -131,8 +151,11 @@ Azure 应用服务需要使用文件服务器。 在生产部署中，必须将�
 
 如果只部署 Azure Stack 开发工具包，则可以使用[示例 Azure 资源管理器部署模板](https://aka.ms/appsvconmasdkfstemplate)来部署已配置的单节点文件服务器。 单节点文件服务器位于工作组中。
 
-### <a name="provision-groups-and-accounts-in-active-directory"></a>在 Active Directory 中预配组和帐户
+>[!IMPORTANT]
+> 如果选择在现有虚拟网络中部署应用服务，应将文件服务器部署到独立于应用服务的子网中。
+>
 
+### <a name="provision-groups-and-accounts-in-active-directory"></a>在 Active Directory 中预配组和帐户
 
 1. 创建以下 Active Directory 全局安全组：
    - FileShareOwners
@@ -216,6 +239,7 @@ net localgroup Administrators FileShareOwners /add
 在文件服务器上或故障转移群集节点（当前的群集资源所有者）上，在权限提升的命令提示符下运行以下命令。 将斜体显示的值替换为环境特定的值。
 
 #### <a name="active-directory"></a>Active Directory
+
 ```DOS
 set DOMAIN=<DOMAIN>
 set WEBSITES_FOLDER=C:\WebSites
@@ -228,6 +252,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ```
 
 #### <a name="workgroup"></a>工作组
+
 ```DOS
 set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
@@ -246,19 +271,25 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 对于生产和高可用性目的，应使用完整版本的 SQL Server 2014 SP2 或更高版本，启用混合模式身份验证，并在[高可用性配置](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)中部署。
 
-必须能够从所有“应用服务”角色访问 Azure Stack 上的 Azure 应用服务的 SQL Server 实例。 可以在 Azure Stack 中的默认提供程序订阅中部署 SQL Server。 或者，可以使用组织中现有的基础结构（前提是与 Azure Stack 建立了连接）。 如果使用 Azure Marketplace 映像，请记得相应地配置防火墙。 
+必须能够从所有“应用服务”角色访问 Azure Stack 上的 Azure 应用服务的 SQL Server 实例。 可以在 Azure Stack 中的默认提供商订阅中部署 SQL Server。 或者，可以使用组织中现有的基础结构（前提是与 Azure Stack 建立了连接）。 如果使用 Azure Marketplace 映像，请记得相应地配置防火墙。
 
 对于任何 SQL Server 角色，可以使用默认实例或命名实例。 如果使用命名实例，请务必手动启动 SQL Server Browser 服务并打开端口 1434。
+
+>[!IMPORTANT]
+> 如果选择在现有虚拟网络中部署应用服务，应将 SQL Server 部署到独立于应用服务和文件服务器的子网中。
+>
 
 ## <a name="create-an-azure-active-directory-application"></a>创建 Azure Active Directory 应用程序
 
 配置 Azure AD 服务主体以支持以下功能：
-- 辅助角色层上的虚拟机规模集集成
-- Azure Functions 门户和高级开发人员工具的 SSO
+
+- 辅助角色层上的虚拟机规模集集成。
+- Azure Functions 门户和高级开发人员工具的 SSO。
 
 这些步骤只适用于 Azure AD 保护的 Azure Stack 环境。
 
 管理员必须配置 SSO 才能执行以下操作：
+
 - 在 应用服务 (Kudu) 中启用高级开发人员工具。
 - 启用 Azure Functions 门户体验。
 
@@ -276,7 +307,8 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 10. 选择“应用注册”。
 11. 搜索步骤 7 返回的应用程序 ID。 随即会列出应用服务应用程序。
 12. 在列表中选择“应用程序”。
-13. 选择“所需的权限” > “授予权限” > “是”。
+13. 单击“设置”。
+14. 选择“所需的权限” > “授予权限” > “是”。
 
 | Create-AADIdentityApp.ps1 参数 | 必需还是可选 | 默认值 | 说明 |
 | --- | --- | --- | --- |
@@ -290,10 +322,12 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ## <a name="create-an-active-directory-federation-services-application"></a>创建 Active Directory 联合身份验证服务应用程序
 
 对于受 AD FS 保护的 Azure Stack 环境，必须配置 AD FS 服务主体以支持以下功能：
-- 辅助角色层上的虚拟机规模集集成
-- Azure Functions 门户和高级开发人员工具的 SSO
+
+- 辅助角色层上的虚拟机规模集集成。
+- Azure Functions 门户和高级开发人员工具的 SSO。
 
 管理员必须配置 SSO 才能执行以下操作：
+
 - 针对辅助角色层上的虚拟机规模集集成配置服务主体。
 - 在 应用服务 (Kudu) 中启用高级开发人员工具。
 - 启用 Azure Functions 门户体验。
@@ -303,9 +337,9 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 1. 以 azurestack\AzureStackAdmin 身份打开 PowerShell 实例。
 2. 转到在[先决条件步骤](/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts)中下载并提取的脚本所在的位置。
 3. [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
-4.  运行 **Create-ADFSIdentityApp.ps1** 脚本。
-5.  在“凭据”窗口中，输入 AD FS 云管理帐户和密码。 选择“确定” 。
-6.  提供[前面创建的证书](/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)的证书文件路径和证书密码。 默认情况下值，为此步骤创建的证书是 **sso.appservice.local.azurestack.external.pfx**。
+4. 运行 **Create-ADFSIdentityApp.ps1** 脚本。
+5. 在“凭据”窗口中，输入 AD FS 云管理帐户和密码。 选择“确定” 。
+6. 提供[前面创建的证书](/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)的证书文件路径和证书密码。 默认情况下值，为此步骤创建的证书是 **sso.appservice.local.azurestack.external.pfx**。
 
 | Create-ADFSIdentityApp.ps1 参数 | 必需还是可选 | 默认值 | 说明 |
 | --- | --- | --- | --- |
@@ -315,8 +349,8 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 | CertificateFilePath | 必须 | Null | 标识应用程序的证书 PFX 文件的路径。 |
 | CertificatePassword | 必须 | Null | 帮助保护证书私钥的密码。 |
 
-
 ## <a name="next-steps"></a>后续步骤
 
 [安装应用服务资源提供程序](azure-stack-app-service-deploy.md)
 
+<!-- Update_Description: wording update -->

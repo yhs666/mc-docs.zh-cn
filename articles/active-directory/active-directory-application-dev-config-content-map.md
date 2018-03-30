@@ -1,8 +1,8 @@
 ---
-title: "配置或注册应用程序时出现问题"
-description: "配置或注册应用程序时出现问题"
+title: 配置或注册应用程序时出现问题
+description: 配置或注册应用程序时出现问题
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 ms.service: active-directory
@@ -13,11 +13,11 @@ ms.topic: article
 origin.date: 07/11/2017
 ms.date: 07/18/2017
 ms.author: v-junlch
-ms.openlocfilehash: 72cfb1eed931fff8ff7a47e6e0e35c8ca93f3e97
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: bb9b95fc92f39b881511f5be08e8e09da1daf796
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="problems-configuring-or-registering-my-application"></a>配置或注册应用程序时出现问题
 

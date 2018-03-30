@@ -1,13 +1,13 @@
 ---
-title: "创建、更改或删除 Azure 网络接口 | Azure"
-description: "了解什么是网络接口，以及如何创建、删除网络接口及更改其设置。"
+title: 创建、更改或删除 Azure 网络接口 | Azure
+description: 了解什么是网络接口，以及如何创建、删除网络接口及更改其设置。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 07/24/2017
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: b26b22d88e7d3e96e3f81ad901072453fc8bd152
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: da7e8b308e203181bf3bf128189421e6e4e8fa11
+ms.sourcegitcommit: 9b4669fe42e0dd7e3b463423ae4f58143af2b111
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>创建、更改或删除网络接口
 
@@ -57,10 +57,9 @@ ms.lasthandoff: 03/12/2018
     |专用 IP 地址分配|是| 在此设置中，会为 IPv4 地址选择分配方法。 从以下分配方法中选择：**动态：**选择此选项时，Azure 将从所选子网的地址空间中自动分配下一个可用地址。 **静态：**选择此选项时，必须手动从所选子网的地址空间中手动分配一个可用的 IP 地址。 静态地址和动态地址保持不变，除非手动更改或删除网络接口。 创建网络接口后，可更改分配方法。 Azure DHCP 服务器将此地址分配到虚拟机操作系统中的网络接口。|
     |网络安全组|否| 保留设置为“无”，选择现有的[网络安全组](virtual-networks-nsg.md)，或[创建网络安全组](virtual-networks-create-nsg-arm-pportal.md)。 网络安全组可用于筛选进出网络接口的网络流量。 可向网络接口应用零个或一个网络安全组。 也可向网络接口分配到的子网应用零个或一个网络安全组。 将网络安全组应用到网络接口以及该接口分配到的子网时，有时会产生意外结果。 若要对应用到网络接口和子网的网络安全组进行故障排除，请阅读[网络安全组故障排除](virtual-network-nsg-troubleshoot-portal.md#nsg)一文。|
     |订阅|是|选择一个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)。 网络接口附加到的虚拟机及其连接到的虚拟网络必须位于同一订阅中。|
-<!-- Not Available IPv6 -->
-<!-- Not Available IPv6 -->
-    |Resource group|Yes|Select an existing [resource group](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group) or create one. A network interface can exist in the same, or different resource group, than the virtual machine you attach it to, or the virtual network you connect it to.|
-    |Location|Yes|The virtual machine you attach a network interface to and the virtual network you connect it to must exist in the same [location](https://azure.microsoft.com/regions), also referred to as a region.|
+    <!-- Not Available IPv6 -->
+    <!-- Not Available IPv6 -->
+    |资源组|是|选择现有[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)或创建新资源组。 网络接口可与它附加到的虚拟机或者连接到的虚拟网络位于相同或不同的资源组中。| |位置|是|网络接口附加到的虚拟机及其连接到的虚拟网络必须位于同一[位置](https://azure.microsoft.com/regions)（也称为区域）。|
 
 创建网络接口时，门户不会提供向接口分配公共 IP 地址的选项，但使用门户创建虚拟机时，门户会创建一个公共 IP 地址并将其分配到网络接口。 若要了解创建网络接口后如何向其添加公共 IP 地址，请阅读[管理 IP 地址](virtual-network-network-interface-addresses.md)一文。 若要使用公共 IP 地址创建网络接口，必须使用 CLI 或 PowerShell 创建网络接口。
 

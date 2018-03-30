@@ -1,6 +1,6 @@
 ---
-title: "在 Azure Stack 中运行验证测试 | Microsoft Docs"
-description: "如何收集日志文件以在 Azure Stack 中进行诊断"
+title: 在 Azure Stack 中运行验证测试 | Microsoft Docs
+description: 如何收集日志文件以在 Azure Stack 中进行诊断
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -11,14 +11,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/05/2018
-ms.date: 03/02/2018
+origin.date: 02/26/2018
+ms.date: 03/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: c2470d8cb6d194a7b9dbfe37cbbb21a9a753744a
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 81f3d3f510419ca6493a333d5782669315fb01cf
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>为 Azure Stack 运行验证测试
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 03/02/2018
 | ServiceAdminCredentials | PSCredential    | 否       | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | 否       | FALSE   |
 | AdminCredential         | PSCredential    | 否       | 不可用      |
-| StorageConnectionString | String          | 否       | 不可用      |
+<!-- | StorageConnectionString | String          | 否       | 不可用      | 在 1802 中不受支持 -->
 | 列出                    | SwitchParameter | 否       | FALSE   |
 | 忽略                  | String          | 否       | 不可用      |
 | 包括                 | String          | 否       | 不可用      |
@@ -173,3 +173,4 @@ Test-AzureStack cmdlet 支持以下通用参数：Verbose、Debug、ErrorAction�
  - 若要详细了解 Azure Stack 诊断工具和问题日志记录，请参阅 [Azure Stack 诊断工具](azure-stack-diagnostics.md)。
  - 若要了解有关故障排除的详细信息，请参阅 [Azure Stack 故障排除](azure-stack-troubleshooting.md)
 
+<!-- Update_Description: wording update -->

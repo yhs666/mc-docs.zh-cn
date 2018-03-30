@@ -1,24 +1,24 @@
 ---
-title: "创建 Azure Stack 的服务主体 | Microsoft Docs"
-description: "介绍如何创建新的服务主体，并在 Azure 资源管理器中将此服务主体与基于角色的访问控制配合使用以管理对资源的访问权限。"
+title: 创建 Azure Stack 的服务主体 | Microsoft Docs
+description: 介绍如何创建新的服务主体，并在 Azure 资源管理器中将此服务主体与基于角色的访问控制配合使用以管理对资源的访问权限。
 services: azure-resource-manager
 documentationcenter: na
-author: heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/17/2017
-ms.date: 03/01/2018
+origin.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 87e3600294eeb9c1d8e65c75f095ad6700a14f6a
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 647f382ae67be3aca0ff3bf993c713dba365faa0
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>提供对 Azure Stack 的应用程序访问权限
 
@@ -52,14 +52,14 @@ ms.lasthandoff: 03/02/2018
 已为应用程序创建服务主体。
 
 ### <a name="get-credentials"></a>获取凭据
-以编程方式登录时，需要使用应用程序的 ID 和身份验证密钥。 若要获取这些值，请使用以下步骤：
+以编程方式登录时，需要使用应用程序、Web 应用/API 的 ID 和身份验证密钥。 若要获取这些值，请使用以下步骤：
 
 1. 从 Active Directory 中的“应用注册”，选择应用程序。
 
 2. 复制“应用程序 ID”并将其存储在应用程序代码中。 [示例应用程序](#sample-applications)部分的应用程序引用此值作为客户端 ID。
 
      ![客户端 ID](./media/azure-stack-create-service-principal/image12.png)
-3. 若要生成身份验证密钥，请选择“密钥” 。
+3. 若要为 Web 应用/API 生成身份验证密钥，请选择“设置” > “密钥”。 
 
 4. 提供密钥说明和密钥持续时间。 完成后，选择“保存” 。
 
@@ -166,3 +166,4 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
 [为 ADFS 添加用户](azure-stack-add-users-adfs.md)
 [管理用户权限](azure-stack-manage-permissions.md)
 
+<!-- Update_Description: wording update -->

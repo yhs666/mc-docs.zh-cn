@@ -1,24 +1,24 @@
 ---
-title: "Azure AD 分层密码安全性 | Microsoft Docs"
-description: "介绍 Azure AD 如何强制实施强密码，并防止用户密码被网络罪犯利用。"
+title: Azure AD 分层密码安全性 | Microsoft Docs
+description: 介绍 Azure AD 如何强制实施强密码，并防止用户密码被网络罪犯利用。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/28/2017
-ms.date: 1/1/2018
+ms.date: 3/5/2018
 ms.author: v-nany
-ms.openlocfilehash: dd8de247c26f97e92fedb3b8aeee08b3303efab4
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 920221ce74722fd8a26d2e4a548b6e262cc45bcc
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Azure AD 密码安全性多层方法
 
@@ -42,16 +42,16 @@ Azure AD 整合了以下常用功能用于保护密码：
 
 ## <a name="azure-ad-password-protections"></a>Azure AD 密码保护
 
-Azure AD 使用行业认可的方法来确保对用户和管理员密码的安全保护，包括：
+Azure AD 和 Microsoft 帐户系统利用行业认可的方法，保证安全保护用户和管理员的密码，包括：
 
 * 动态阻止的密码
 * 智能密码锁定
 
-若要了解基于当前研究的密码管理，请参阅[密码指南](http://aka.ms/passwordguidance)白皮书。
+若要了解基于当前研究的密码管理，请参阅[密码指南](https://aka.ms/passwordguidance)白皮书。
 
 ### <a name="dynamically-banned-passwords"></a>动态阻止的密码
 
-Azure AD 通过动态阻止常用密码来保护密码。 Azure AD Identity Protection 团队将定期分析阻止的密码列表，防止用户选择常用的密码。 此服务适用于 Azure AD 服务客户。
+Azure AD 帐户通过动态阻止常用密码来保护密码。 Azure AD Identity Protection 团队将定期分析阻止的密码列表，防止用户选择常用的密码。 此服务适用于 Azure AD 和 Microsoft 帐户服务客户。
 
 创建密码时，管理员有必要鼓励用户选择包含字母、数字、字符或单词的唯一组合的密码短语。 这样，用户密码基本上不可能遭到破解，同时便于记忆。
 

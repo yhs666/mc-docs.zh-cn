@@ -1,25 +1,25 @@
 ---
-title: "Azure ExpressRoute 线路和路由域 | Azure"
-description: "本页提供 ExpressRoute 线路和路由域的概述。"
+title: Azure ExpressRoute 线路和路由域 | Azure
+description: 本页提供 ExpressRoute 线路和路由域的概述。
 documentationCenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/30/2017
+origin.date: 03/01/2018
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 99f50389f9a0402ca18d7499fef7782c603d1942
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 04/02/2018
+ms.openlocfilehash: 7b4cb963fadd69cac3b9a87943bcbd0c8a6b3195
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute 线路和路由域
  必须订购一条 *ExpressRoute 线路*，以通过连接提供商将本地基础结构连接到 Microsoft。 下图展示了 WAN 与 Microsoft 之间连接的逻辑表示。
@@ -36,8 +36,7 @@ ExpressRoute 线路最多可以有三个独立的对等互连：Azure 公共、A
 每条线路有固定的带宽（50 Mbps、100 Mbps、200 Mbps、500 Mbps、1 Gbps、10 Gbps），并映射到连接提供商和对等互连位置。 所选择的带宽在线路的所有对等互连之间共享。 
 
 ### <a name="quotas-limits-and-limitations"></a>配额、限制和局限性
-
-默认配额和限制适用于每条 ExpressRoute 线路。 
+默认配额和限制适用于每条 ExpressRoute 线路。 有关配额的最新信息，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
 
 ## <a name="expressroute-routing-domains"></a>ExpressRoute 路由域
 
@@ -48,9 +47,14 @@ ExpressRoute 线路最多可以有三个独立的对等互连：Azure 公共、A
 ### <a name="azure-private-peering"></a>Azure 专用对等互连
 可以通过专用对等域来连接虚拟网络内部署的 Azure 计算服务（即虚拟机 (IaaS) 和云服务 (PaaS)）。 专用对等域被视为进入 Microsoft Azure 的核心网络的受信任扩展。 可以在核心网络和 Azure 虚拟网络 (VNet) 之间设置双向连接。 利用此对等互连，可以使用专用 IP 地址直接连接到虚拟机和云服务。  
 
-可以将多个虚拟网络连接到专用对等域。 有关限制和局限性的信息，请查看[常见问题解答页](./expressroute-faqs.md)。 有关路由配置的详细信息，请参阅[路由](./expressroute-routing.md)页。
+可以将多个虚拟网络连接到专用对等域。 有关限制和局限性的信息，请查看[常见问题解答页](expressroute-faqs.md)。 有关限制的最新信息，请访问 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。  有关路由配置的详细信息，请参阅[路由](expressroute-routing.md)页。
 
 ### <a name="azure-public-peering"></a>Azure 公共对等互连
+
+> [!IMPORTANT]
+> 所有 Azure PaaS 服务也可通过 Microsoft 对等互连访问。 建议创建 Microsoft 对等互连，通过对等互连连接到 Azure PaaS 服务。  
+>   
+
 
 Azure 存储、SQL 数据库和网站等服务是通过公共 IP 地址提供的。 可以通过公共对等路由域私下连接到公共 IP 地址（包括云服务的 VIP）上托管的服务。 可以将公共对等域连接到外围网络，并从 WAN 连接到公共 IP 地址上的所有 Azure 服务，而无需通过 Internet 连接。 
 
@@ -58,21 +62,30 @@ Azure 存储、SQL 数据库和网站等服务是通过公共 IP 地址提供的
 
 可以在网络中定义自定义路由筛选器，以只使用所需的路由。 有关路由配置的详细信息，请参阅[路由](expressroute-routing.md)页。 
 
-有关通过公共对等路由域支持的服务的更多详细信息，请参阅[常见问题解答页](expressroute-faqs.md)。 
+有关通过公共对等路由域支持的服务的详细信息，请参阅[常见问题解答](expressroute-faqs.md)。
 
+### <a name="microsoft-peering"></a>Microsoft 对等互连
+[!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+
+与 Microsoft 联机服务（Office 365、Dynamics 365 和 Azure PaaS 服务）的连接通过 Microsoft 对等互连建立。 我们通过 Microsoft 对等路由域在你的 WAN 和 Microsoft 云服务之间启用双向连接。 只能通过由你或连接提供商拥有的公共 IP 地址连接到 Microsoft 云服务，并且你必须遵守我们规定的所有规则。 有关详细信息，请参阅 [ExpressRoute 先决条件](expressroute-prerequisites.md)页。
+
+有关支持的服务、费用和配置的更多详细信息，请参阅[常见问题解答](expressroute-faqs.md)页。 有关提供 Microsoft 对等互连支持的连接提供商列表的更多信息，请参阅 [ExpressRoute 位置](expressroute-locations.md)页。
 
 ## <a name="routing-domain-comparison"></a>路由域比较
 下表比较了三种路由域：
 
-||**专用对等互连**|**公共对等互连**|
-|---|---|---|---|
-|每个对等互连支持的最大前缀数|默认情况下为 4000，而 ExpressRoute 高级版支持 10,000|200|
-|**支持的 IP 地址范围**|WAN 中任何有效的 IP 地址。|由你或连接提供商拥有的公共 IP 地址。|
-|**AS 编号要求**|专用和公共 AS 编号。 如果选择使用公共 AS 编号，必须拥有该编号。 | 专用和公共 AS 编号。 但是，必须证明对公共 IP 地址的所有权。|
-|**路由接口 IP 地址**|RFC1918 和公共 IP 地址|在路由注册表中向你注册的公共 IP 地址。|
-|**MD5 哈希支持**| 是|是|
+|  | **专用对等互连** | **公共对等互连** | **Microsoft 对等互连*** |
+| --- | --- | --- | --- |
+| 每个对等互连支持的最大前缀数 |默认情况下为 4000，而 ExpressRoute 高级版支持 10,000 |200 |200 |
+| **支持的 IP 地址范围** |WAN 中任何有效的 IP 地址。 |由你或连接提供商拥有的公共 IP 地址。 |由你或连接提供商拥有的公共 IP 地址。 |
+| **AS 编号要求** |专用和公共 AS 编号。 如果选择使用公共 AS 编号，必须拥有该编号。 |专用和公共 AS 编号。 但是，必须证明对公共 IP 地址的所有权。 |专用和公共 AS 编号。 但是，必须证明对公共 IP 地址的所有权。 |
+| **支持的 IP 协议**| IPv4 | IPv4 | IPv4、IPv6 |
+| **路由接口 IP 地址** |RFC1918 和公共 IP 地址 |在路由注册表中向你注册的公共 IP 地址。 |在路由注册表中注册的公共 IP 地址。 |
+| **MD5 哈希支持** |是 |是 |是 |
 
-可以选择启用一个或多个路由域作为 ExpressRoute 线路的一部分。 要将这些路由域合并成单个路由域，可以选择将所有路由域放置在同一个 VPN 中。 此外，还可以如图所示，将它们放置在不同的路由域中。 建议的配置是将专用对等链路直接连接到核心网络，并将公共对等链路连接到外围网络。
+(*) 需要 Premium 加载项 SKU 层
+
+可以选择启用一个或多个路由域作为 ExpressRoute 线路的一部分。 要将这些路由域合并成单个路由域，可以选择将所有路由域放置在同一个 VPN 中。 此外，还可以如图所示，将它们放置在不同的路由域中。 建议的配置是将专用对等链路直接连接到核心网络，并将公共和 Microsoft 对等链路连接到外围网络。
 
 如果选择所有三个对等会话，需要使用三对 BGP 会话（每队用于一个对等类型）。 BGP 会话对提供高度可用的链接。 若要通过第 2 层连接性提供程序进行连接，需要负责配置和管理路由。 可以通过查看设置 ExpressRoute 的[工作流](expressroute-workflows.md)了解更多详细信息。
 

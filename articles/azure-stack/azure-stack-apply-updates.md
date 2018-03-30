@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Stack 中应用更新 | Microsoft Docs"
-description: "了解如何为 Azure Stack 集成系统导入并安装 Microsoft 更新包。"
+title: 在 Azure Stack 中应用更新 | Microsoft Docs
+description: 了解如何为 Azure Stack 集成系统导入并安装 Microsoft 更新包。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/20/2017
-ms.date: 03/01/2018
+ms.date: 03/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: bf6c180cb0cd9b40446b710ee13b708c1803ff24
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 8a5d59aa4710d98523267fcfbb3a8cc49af617d8
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="apply-updates-in-azure-stack"></a>在 Azure Stack 中应用更新
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 03/02/2018
  
     ![显示上传每个包文件的位置](./media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. 对于 *PackageName*.bin 和 Metadata.xml 文件，重复步骤 6 和步骤 7。 
+8. 对于 *PackageName*.bin 和 Metadata.xml 文件，重复步骤 6 和步骤 7。 不要导入 Supplemental Notice.txt 文件（如果已包含）。
 9. 完成后，可以查看通知（在门户右上角的钟形图标）。 通知应指示已完成上传。 
 10. 导航回仪表板上的“更新”磁贴。 该磁贴应指示有可用更新。 单击该磁贴可查看新添加的更新包。
 11. 若要安装更新，请选择标记为“就绪”的包，然后右键单击该包并选择“立即更新”，或者单击顶部附近的“立即更新”操作。
@@ -80,3 +80,4 @@ ms.lasthandoff: 03/02/2018
 - [在 Azure Stack 中管理更新概述](azure-stack-updates.md)
 - [Azure Stack 服务策略](azure-stack-servicing-policy.md)
 
+<!-- Update_Description: wording update -->

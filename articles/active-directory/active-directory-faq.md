@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 常见问题 | Azure"
-description: "“Azure Active Directory 常见问题”解答有关如何访问 Azure 和 Azure Active Directory、管理密码以及访问应用程序的问题。"
+title: Azure Active Directory 常见问题 | Azure
+description: “Azure Active Directory 常见问题”解答有关如何访问 Azure 和 Azure Active Directory、管理密码以及访问应用程序的问题。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 origin.date: 12/14/2017
 ms.date: 1/1/2018
 ms.author: v-nany
-ms.openlocfilehash: 73351353173043ce53c620153210bf3bbb010d85
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 0d042f61e949db4c204ee950f927a6785fe5548b
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决�
 ## <a name="access-azure-and-azure-active-directory"></a>访问 Azure 和 Azure Active Directory
 **问：尝试在 Azure 门户中访问 Azure AD 时，为何出现“找不到订阅”错误？**
 
-**答：**若要访问 Azure 门户，每个用户都需要 Azure 订阅的权限。 如果订阅为付费型 Office 365 订阅或 Azure AD 订阅，请访问 [http://aka.ms/accessAAD](http://aka.ms/accessAAD) ，了解一次性激活步骤。 否则需要激活 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/) 或付费型订阅。
+**答：**若要访问 Azure 门户，每个用户都需要 Azure 订阅的权限。 上获取。 否则需要激活 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/) 或付费型订阅。
 
 有关详细信息，请参阅：
 

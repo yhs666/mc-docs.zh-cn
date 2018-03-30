@@ -1,11 +1,11 @@
 ---
-title: "快速入门：在 Azure SQL 数据仓库中横向扩展计算资源 - PowerShell | Azure"
-description: "若要向外扩展的 Powershell 任务通过调整数据仓库单位计算资源。"
+title: 快速入门：在 Azure SQL 数据仓库中横向扩展计算资源 - PowerShell | Azure
+description: 若要向外扩展的 Powershell 任务通过调整数据仓库单位计算资源。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,11 @@ ms.custom: manage
 origin.date: 01/31/2018
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5d6f00e886a572f0947d82ae508ff384eddc4d3d
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: c75018783cdb2beb087289e7f3dc32e1505e8100
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>快速入门：使用 PowerShell 在 Azure SQL 数据仓库中缩放计算资源
 
@@ -47,7 +47,7 @@ Add-AzureRmAccount -EnvironmentName AzureChinaCloud
 Get-AzureRmSubscription
 ```
 
-如果需要使用与默认订阅不同的订阅，请运行 [Select-AzureRmSubscription](https://docs.microsoft.com/powershell/module/azurerm.profile/select-azurermsubscription)。
+如果需要使用与默认订阅不同的订阅，请运行 [Select-AzureRmSubscription](https://docs.microsoft.com/en-us/powershell/module/azure/select-azuresubscription?view=azuresmps-4.0.0)。
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "MySubscription"
@@ -65,7 +65,7 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 
     ![服务器名称和资源组](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. 记下将用作数据库名称的数据仓库名称。 同时记下服务器名称和资源组。 执行暂停和恢复命令时会用到。
+4. 记下将用作数据库名称的数据仓库名称。 请记住，数据仓库是一种数据库。 同时记下服务器名称和资源组。 执行暂停和恢复命令时会用到。
 5. 如果服务器是 foo.database.chinacloudapi.cn，请在 PowerShell cmdlet 中仅使用第一部分作为服务器名称。 在上图中，完整的服务器名称为 newserver-20171113.database.chinacloudapi.cn。 我们将使用 newserver-20171113 作为 PowerShell cmdlet 中的服务器名称。
 
 ## <a name="scale-compute"></a>缩放计算
@@ -78,12 +78,13 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
 ```
 
-## <a name="check-database-state"></a>检查数据库状态
+## <a name="check-data-warehouse-state"></a>检查数据仓库状态
 
 若要查看数据仓库的当前状态，使用 [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase) PowerShell cmdlet。 此 cmdlet 获取资源组 **myResourceGroup** 和服务器 **mynewserver-20171113.database.chinacloudapi.cn** 中 **mySampleDataWarehouse** 数据库的状态。
 
 ```powershell
-Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database
 ```
 
 这会导致以下类似的结果
@@ -114,7 +115,13 @@ ReadScale                     : Disabled
 ZoneRedundant                 : False
 ```
 
-然后，可以在其中进行检查，了解查看数据库的状态。 在本例中，可以看到此数据库处于联机状态。  运行此命令后，应收到“联机”、“正在暂停”、“正在恢复”、“正在缩放”和“已暂停”等状态值。
+可以在输出中查看数据库的 **Status**（状态）。 在本例中，可以看到此数据库处于联机状态。  运行此命令后，应收到“联机”、“正在暂停”、“正在恢复”、“正在缩放”和“已暂停”等状态值。 
+
+若要查看数据库本身的状态，请使用以下命令：
+
+```powershell
+$database | Select-Object DatabaseName,Status
+```
 
 ## <a name="next-steps"></a>后续步骤
 现在已暂停并恢复了数据仓库的计算。 若要了解有关 Azure SQL 数据仓库的详细信息，请继续有关加载数据的教程。

@@ -1,8 +1,8 @@
 ---
-title: "排查 Azure HDInsight 中的 Apache Spark 群集问题 | Azure"
-description: "了解与 Azure HDInsight 中的 Apache Spark 群集相关的问题以及如何解决这些问题。"
+title: 排查 Azure HDInsight 中的 Apache Spark 群集问题 | Azure
+description: 了解与 Azure HDInsight 中的 Apache Spark 群集相关的问题以及如何解决这些问题。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,25 +14,25 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/28/2017
-ms.date: 01/15/2018
+origin.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 52b045e85835a76707e391e05ae3aaeca739f772
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: b9664e649ad59f595e7991661d3777c813f26888
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight 上的 Apache Spark 群集的已知问题
 
 本文档记述了 HDInsight Spark 公共预览版的所有已知问题。  
 
 ## <a name="livy-leaks-interactive-session"></a>Livy 泄漏交互式会话
-在某个交互式会话仍保持活动状态的情况下，Livy 重新启动（从 Ambari 重新启动，或者由于头节点 0 虚拟机重新启动），同时交互式作业会话泄漏。 因此，新作业可能陷于“已接受”状态中，且无法启动。
+如果 Livy 在某个交互式会话仍保持活动状态的情况下重启（通过 Ambari 重启或由于头节点 0 虚拟机重启导致），则会泄漏交互式作业会话。 因此，新作业可能卡在“已接受”状态且无法启动。
 
 **缓解：**
 
-使用以下过程解决该问题：
+请使用以下步骤解决该问题：
 
 1. 通过 SSH 连接到头节点。 有关信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 01/12/2018
 
         yarn application -list
 
-    如果作业是通过未指定明确名称的 Livy 交互式会话启动的，则默认的作业名称是 Livy；对于 Jupyter 笔记本启动的 Livy 会话，作业名称以 remotesparkmagics_* 开头。 
+    如果在未指定显式名称的情况下通过 Livy 交互式对话启动作业，则默认的作业名称将为 Livy。 对于由 Jupyter 笔记本启动的 Livy 对话，作业名称以 remotesparkmagics_* 开头。 
 3. 运行以下命令以终止这些作业。 
 
         yarn application -kill <Application ID>
@@ -70,13 +70,13 @@ ms.lasthandoff: 01/12/2018
 
 **缓解：**
 
-必须改用 Spark-HBase 连接器。 有关说明，请参阅[如何使用 Spark-HBase 连接器](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/)。
+必须改用 Spark-HBase 连接器。 相关说明请参阅[如何使用 Spark-HBase 连接器](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/)。
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Jupyter 笔记本的相关问题
 下面是与 Jupyter 笔记本相关的一些已知问题。
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>笔记本的文件名中包含非 ASCII 字符
-可在 Spark HDInsight 群集中使用的 Jupyter 笔记本的文件名不应包含非 ASCII 字符。 如果尝试通过 Jupyter UI 上传文件名中包含非 ASCII 字符的文件，操作会失败且不发出提示（即，Jupyter 不允许上传该文件，但同时也不引发可视的错误）。 
+可在 Spark HDInsight 群集中使用的 Jupyter 笔记本的文件名不应包含非 ASCII 字符。 如果尝试通过 Jupyter UI 上传文件名中包含非 ASCII 字符的文件，操作会失败且不显示提示（即 Jupyter 禁止上传该文件，但也不引发可视的错误）。 
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>加载大型笔记本时发生错误
 加载大型笔记本时，可能会看到错误“ **`Error loading notebook`** 。  
@@ -89,7 +89,7 @@ ms.lasthandoff: 01/12/2018
 
 若要防止今后发生此错误，必须遵循一些最佳实践：
 
-* 必须保持较小的笔记本大小。 发回到 Jupyter 的所有 Spark 作业输出都会保存在笔记本中。  一般而言，Jupyter 的最佳实践是避免对大型 RDD 或数据帧运行 `.collect()`；如果想要查看 RDD 的内容，请考虑运行 `.take()` 或 `.sample()`，这样，输出便不会太大。
+* 必须保持较小的笔记本大小。 发回到 Jupyter 的所有 Spark 作业输出都会保存在笔记本中。  一般而言，Jupyter 的最佳用法是避免对大型 RDD 或数据帧运行 `.collect()`；相反，如果想要查看 RDD 的内容，请考虑运行 `.take()` 或 `.sample()`，以使输出不至于过大。
 * 此外，在保存笔记本时，请清除所有输出单元以减小大小。
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>笔记本初次启动花费的时间比预期要长
@@ -117,7 +117,6 @@ ms.lasthandoff: 01/12/2018
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](apache-spark-eventhub-streaming.md)
 * [使用 HDInsight 中的 Spark 分析网站日志](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序

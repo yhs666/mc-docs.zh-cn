@@ -1,8 +1,8 @@
 ---
-title: "了解 Azure 中的资源访问权限 | Microsoft Docs"
-description: "本主题介绍有关使用订阅管理员在整个 Azure 门户中控制资源访问权限的概念"
+title: 了解 Azure 中的资源访问权限 | Microsoft Docs
+description: 本主题介绍有关使用订阅管理员在整个 Azure 门户中控制资源访问权限的概念
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/06/2017
-ms.date: 1/1/2018
+ms.date: 3/5/2018
 ms.author: v-nany
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9c16adf2397c0bd15af4648f6f9dbbeebcde4ea9
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 81e4e1ae108c54a0e9caa9197e7a0628a19b8aca
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="understanding-resource-access-in-azure"></a>了解 Azure 中的资源访问权限
 
-Azure 中的访问控制首先体现在计费方面。 Azure 帐户的所有者（可通过访问 [Azure 帐户中心](https://account.windowsazure.cn/subscriptions)进行访问）是帐户管理员 (AA)。 订阅是计费容器，但它们也可充当安全边界：每个订阅都有一个服务管理员 (SA)，此管理员可以使用 [Azure 门户](https://portal.azure.cn/)在该订阅中添加、删除和修改 Azure 资源。 新订阅的默认 SA 是 AA，但 AA 可以在 Azure 帐户中心更改 SA。
+Azure 中的访问控制首先体现在计费方面。 Azure 帐户的所有者是帐户管理员 (AA)。 订阅是计费容器，但它们也可充当安全边界：每个订阅都有一个服务管理员 (SA)，此管理员可以使用 [Azure 门户](https://portal.azure.cn/)在该订阅中添加、删除和修改 Azure 资源。 新订阅的默认 SA 是 AA，但 AA 可以更改 SA。
 
 <br><br>![Azure 帐户][1]
 

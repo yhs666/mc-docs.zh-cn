@@ -1,11 +1,11 @@
 ---
-title: "在不同 Azure Stack 开发工具包环境中的两个虚拟网络之间创建站点到站点 VPN 连接 | Microsoft Docs"
-description: "逐步指导云管理员在两个单节点 Azure Stack 开发工具包环境之间创建站点到站点 VPN 连接。"
+title: 在不同 Azure Stack 开发工具包环境中的两个虚拟网络之间创建站点到站点 VPN 连接 | Microsoft Docs
+description: 逐步指导云管理员在两个单节点 Azure Stack 开发工具包环境之间创建站点到站点 VPN 连接。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
 ms.workload: na
@@ -16,11 +16,11 @@ origin.date: 07/10/2017
 ms.date: 03/01/2018
 ms.author: v-junlch
 ms.reviewer: scottnap
-ms.openlocfilehash: bdab242725b5f166f04e69f58b34175e367b11ae
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 3867fd2bf1f3da5a48158dda400fe1f281d82fa3
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>在不同 Azure Stack 开发工具包环境中的两个虚拟网络之间创建站点到站点 VPN 连接
 ## <a name="overview"></a>概述
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/02/2018
 ### <a name="before-you-begin"></a>准备阶段
 若要完成连接配置，请确保在开始之前准备好以下各项：
 
-- 两台符合 [Azure Stack 部署先决条件](azure-stack-deploy.md)所定义的 Azure Stack 开发工具包硬件要求的服务器。 此外，请确保符合[此文](azure-stack-deploy.md)中提到的其他先决条件。
+- 满足[快速入门：评估 Azure Stack 开发工具包](/azure-stack/azure-stack-deploy-overview)中所述 Azure Stack 开发工具包硬件要求的两台服务器和其他必备组件。
 - [Azure Stack 开发工具包](https://azure.microsoft.com/en-us/overview/azure-stack/try/)部署包。
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>部署 Azure Stack 开发工具包环境
@@ -43,8 +43,8 @@ ms.lasthandoff: 03/02/2018
 > 对于部署的每个 Azure Stack 开发工具包，请遵照[部署说明](azure-stack-run-powershell-script.md)。 在本文中，Azure Stack 开发工具包环境名为 *POC1* 和 *POC2*。
 
 
-## <a name="prepare-an-offer-on-poc1-and-poc2"></a>在 POC1 和 POC2 中准备产品
-在 POC1 和 POC2 中准备一个产品，使用户能够订阅该产品并部署虚拟机。 有关如何创建产品的信息，请参阅[向 Azure Stack 用户提供虚拟机](azure-stack-tutorial-tenant-vm.md)。
+## <a name="prepare-an-offer-on-poc1-and-poc2"></a>在 POC1 和 POC2 中准备产品/服务
+在 POC1 和 POC2 中准备一个产品/服务，使用户能够订阅该产品/服务并部署虚拟机。 有关如何创建产品/服务的信息，请参阅[向 Azure Stack 用户提供虚拟机](azure-stack-tutorial-tenant-vm.md)。
 
 ## <a name="review-and-complete-the-network-configuration-table"></a>查看并填写网络配置表
 下表汇总了这两个 Azure Stack 开发工具包环境的网络配置。 使用此表格后面提供的过程来添加网络特定的外部 BGPNAT 地址。
@@ -87,7 +87,7 @@ ms.lasthandoff: 03/02/2018
 ![用于创建资源的工作流](./media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
 
 ### <a name="sign-in-as-a-tenant"></a>以租户身份登录
-服务管理员可以租户身份登录，以便对其租户可能使用的计划、产品和订阅进行测试。 请在登录之前[创建租户帐户](azure-stack-add-new-user-aad.md)（如何尚未这样做）。
+服务管理员可以租户身份登录，以便对其租户可能使用的计划、产品/服务和订阅进行测试。 请在登录之前[创建租户帐户](azure-stack-add-new-user-aad.md)（如何尚未这样做）。
 
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>创建虚拟网络和 VM 子网
 1. 使用租户帐户登录到用户门户。
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/02/2018
 
     ![创建新虚拟网络](./media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
-3. 转到 **Marketplace**，然后选择“网络”。
+3. 转到“Marketplace”，然后选择“网络”。
 4. 选择“虚拟网络”。
 5. 对于“名称”、“地址空间”、“子网名称”和“子网地址范围”，请使用前面网络配置表中显示的值。
 6. “订阅”中显示了前面创建的订阅。
@@ -118,7 +118,7 @@ ms.lasthandoff: 03/02/2018
 
 ### <a name="create-the-virtual-network-gateway"></a>创建虚拟网络网关
 1. 在 Azure 门户中，选择“新建”。 
-2. 转到 **Marketplace**，然后选择“网络”。
+2. 转到“Marketplace”，然后选择“网络”。
 3. 从网络资源列表中选择“虚拟网络网关”。
 4. 在“名称”中输入 **GW1**。
 5. 选择“虚拟网络”项以选择虚拟网络。
@@ -140,7 +140,7 @@ ms.lasthandoff: 03/02/2018
 ### <a name="create-the-local-network-gateway-resource"></a>创建本地网关资源
 1. 登录到 POC1 的 Azure Stack 物理机。
 2. 在用户门户中，选择“新建”。
-3. 转到 **Marketplace**，然后选择“网络”。
+3. 转到“Marketplace”，然后选择“网络”。
 4. 从资源列表中选择“本地网络网关”。
 5. 在“名称”中输入 **POC2-GW**。
 6. 在“IP 地址”中，输入 POC2 的外部 BGPNAT 地址。 此地址已显示在前面的网络配置表中。
@@ -149,7 +149,7 @@ ms.lasthandoff: 03/02/2018
 
 ### <a name="create-the-connection"></a>创建连接
 1. 在用户门户中，选择“新建”。
-2. 转到 **Marketplace**，然后选择“网络”。
+2. 转到“Marketplace”，然后选择“网络”。
 3. 从资源列表中选择“连接”。
 4. 在“基本”设置边栏选项卡上，针对“连接类型”选择“站点到站点(IPSec)”。
 5. 选择“订阅”、“资源组”和“位置”，然后选择“确定”。
@@ -179,13 +179,13 @@ ms.lasthandoff: 03/02/2018
 下一步骤是创建 POC2 的网络资源。 以下说明介绍如何使用用户门户来创建资源。
 
 ### <a name="sign-in-as-a-tenant"></a>以租户身份登录
-服务管理员可以租户身份登录，以便对其租户可能使用的计划、产品和订阅进行测试。 请在登录之前[创建租户帐户](azure-stack-add-new-user-aad.md)（如何尚未这样做）。
+服务管理员可以租户身份登录，以便对其租户可能使用的计划、产品/服务和订阅进行测试。 请在登录之前[创建租户帐户](azure-stack-add-new-user-aad.md)（如何尚未这样做）。
 
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>创建虚拟网络和 VM 子网
 
 1. 使用租户帐户登录。
 2. 在用户门户中，选择“新建”。
-3. 转到 **Marketplace**，然后选择“网络”。
+3. 转到“Marketplace”，然后选择“网络”。
 4. 选择“虚拟网络”。
 5. 使用前面网络配置表中显示的信息来识别 POC2 的“名称”、“地址空间”、“子网名称”和“子网地址范围”的值。
 6. “订阅”中显示了前面创建的订阅。

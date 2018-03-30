@@ -1,11 +1,11 @@
 ---
-title: "如何获取 Azure AD 租户 | Microsoft Docs"
-description: "如何获取用于注册和生成应用程序的 Azure Active Directory 租户。"
+title: 如何获取 Azure AD 租户 | Microsoft Docs
+description: 如何获取用于注册和生成应用程序的 Azure Active Directory 租户。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ origin.date: 07/19/2017
 ms.date: 01/10/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: e55a3445ad38d505bf3495b7c9d5eaccba24ed6f
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 11895b0ba71979ea851d4e592092916b999badcd
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>如何获取 Azure Active Directory 租户
 在 Azure Active Directory (Azure AD) 中，[租户](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)表示组织。  它是组织在注册 Azure、Microsoft Intune 或 Office 365 等 Azure 云服务时接收并拥有的 Azure AD 服务专用实例。  每个 Azure AD 租户都是独特的，独立于其他 Azure AD 租户。  
@@ -45,7 +45,7 @@ ms.lasthandoff: 01/11/2018
 为此，请执行下列步骤。  或者，用户可能想要创建新的租户，并遵循类似的过程中在该租户中创建管理员。
 
 1. 使用个人帐户登录到 [Azure 门户](https://portal.azure.cn)
-2. 导航到门户的“Azure Active Directory”部分（可在左侧导航栏中的“更多服务”下找到）
+2. 导航到门户的“Azure Active Directory”部分（可在左侧导航栏中的“所有服务”下找到）
 3. 应自动登录到“默认目录”，否则可以通过单击右上角的帐户名称切换目录。
 4. 在“用户和组”部分选择“所有用户”，然后单击“新建用户”。
 5. 在“添加用户”表单中，提供以下详细信息：
@@ -59,7 +59,7 @@ ms.lasthandoff: 01/11/2018
 8. 若要更改临时密码，请使用此新用户帐户登录到 [https://login.partner.microsoftonline.cn](https://login.partner.microsoftonline.cn)，然后根据请求更改密码。
 
 ## <a name="use-an-organizational-azure-subscription"></a>使用组织 Azure 订阅
-如果以前使用组织帐户注册过 Azure 订阅，则已经有了一个租户！  在 [Azure 门户](https://portal.azure.cn)中导航到“更多服务”和“Azure Active Directory”时，会看到一个租户。  可以根据需要任意使用此租户。
+如果以前使用组织帐户注册过 Azure 订阅，则已经有了一个租户！  在 [Azure 门户](https://portal.azure.cn)中导航到“所有服务”和“Azure Active Directory”时，会看到一个租户。  可以根据需要任意使用此租户。
 
 ## <a name="start-from-scratch"></a>从头开始
 如果上述所有方法都不起作用，请不要担心。 直接访问 [Azure 门户](https://portal.azure.cn/#create/Microsoft.AzureActiveDirectory)，创建新的 Azure AD 目录。 完成此过程后，会获得自己的 Azure AD 租户，该租户使用了你在注册期间选择的域名。  在 [Azure 门户](https://portal.azure.cn)中，可以通过导航到左侧导航栏中的 **Azure Active Directory** 来查找租户。

@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure 门户在 HDInsight 中管理基于 Windows 的 Hadoop 群集 | Azure"
-description: "了解如何管理 HDInsight 服务。 创建 HDInsight 群集，打开交互式 JavaScript 控制台，并打开 Hadoop 命令控制台。"
+title: 使用 Azure 门户在 HDInsight 中管理基于 Windows 的 Hadoop 群集 | Azure
+description: 了解如何管理 HDInsight 服务。 创建 HDInsight 群集，打开交互式 JavaScript 控制台，并打开 Hadoop 命令控制台。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: ca49de05c1a73dae79600da8ef48874f9388ae08
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: fd393baeb53cd3b6ae105b7d3d91c9a15cb33eba
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户管理 HDInsight 中基于 Windows 的 Hadoop 群集
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/15/2017
 本文中的信息仅适用于基于 Windows 的 HDInsight 群集。 有关管理基于 Linux 的群集的信息，请参阅[使用 Azure 门户管理 HDInsight 中的 Hadoop 群集](hdinsight-administer-use-portal-linux.md)。
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/15/2017
 1. 登录到 [https://portal.azure.cn](https://portal.azure.cn)。
 2. 打开门户之后，可以：
 
-   * 单击左侧菜单中的“新建”以创建新群集： 
+   * 单击左侧菜单中的“创建资源”以创建新的群集：
 
        ![新建 HDInsight 群集按钮](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
    * 单击左侧菜单中的“HDInsight 群集”。
@@ -129,7 +129,7 @@ HDInsight 使用各种 Hadoop 组件。 有关已获得验证和支持的组件�
 
    * **主机名**：群集名称。
    * **群集 URL**。
-   * **状态**：包括“已终止”、“已接受”、ClusterStorageProvisioned、AzureVMConfiguration、HDInsightConfiguration、“正常运行”、“正在运行”、“错误”、“正在删除”、“已删除”、“超时”、DeleteQueued、DeleteTimedout、DeleteError、PatchQueued、CertRolloverQueued、ResizeQueued、ClusterCustomization
+   * **状态**：包括 Aborted、Accepted、ClusterStorageProvisioned、AzureVMConfiguration、HDInsightConfiguration、Operational、Running、Error、Deleting、Deleted、Timedout、DeleteQueued、DeleteTimedout、DeleteError、PatchQueued、CertRolloverQueued、ResizeQueued、ClusterCustomization
    * **区域**：Azure 位置。 有关受支持的 Azure 位置的列表，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)中的“区域”下拉列表框。
    * **已创建的数据**。
    * **操作系统**：**Windows** 或 **Linux**。
@@ -154,7 +154,7 @@ HDInsight 使用各种 Hadoop 组件。 有关已获得验证和支持的组件�
 使用群集缩放功能，可更改 Azure HDInsight 中运行的群集使用的辅助节点数，而无需重新创建群集。
 
 > [!NOTE]
-> 只支持使用 HDInsight 3.1.3 或更高版本的群集。 如果不确定群集的版本，可以查看“属性”页面。  请参阅 [列出并显示群集](#list-and-show-clusters)。
+> 只支持使用 HDInsight 3.1.3 或更高版本的群集。 如果不确定群集的版本，可以查看“属性”页面。  请参阅[列出和显示群集](#list-and-show-clusters)。
 >
 >
 
@@ -201,13 +201,13 @@ HDInsight 使用各种 Hadoop 组件。 有关已获得验证和支持的组件�
 1. 登录到[门户][azure-portal]。
 2. 从左侧菜单中依次单击“浏览全部”、“HDInsight 群集”和群集名称。
 3. 从顶部菜单中单击“设置”，然后单击“缩放群集”。
-4. 输入 **辅助节点数**。 Azure 订阅中的群集节点数量限制有所不同。 要增加限制，可联系计费支持人员。  成本信息将反映对节点数所做的更改。
+4. 输入**辅助角色节点数**。 Azure 订阅中的群集节点数量限制有所不同。 要增加限制，可联系计费支持人员。  成本信息将反映对节点数所做的更改。
 
     ![HDInsight Hadoop HBase Storm Spark 缩放](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
 
 ## <a name="pauseshut-down-clusters"></a>暂停/关闭群集
-大多数 Hadoop 作业只是偶尔运行的批处理作业。 大多数 Hadoop 群集都存在长时间不进行处理的情况。 有了 HDInsight，便可以将数据存储在 Azure 存储中，因此可以在群集不用时安全地删除群集。
-此外，还需要支付 HDInsight 群集费用，即使未使用。 由于群集费用数倍于存储空间费用，因此在群集不用时删除群集可以节省费用。
+大多数 Hadoop 作业为批处理作业，只是偶尔运行。 大多数 Hadoop 群集都存在长时间不进行处理的情况。 有了 HDInsight，便可以将数据存储在 Azure 存储中，因此可以在群集不用时安全地删除群集。
+此外，还需要支付 HDInsight 群集费用，即使未使用。 由于群集费用高于存储空间费用数倍，因此在不使用群集时将其删除可以节省费用。
 
 可以通过许多方式对此过程进行程序性处理：
 
@@ -313,7 +313,7 @@ HDInsight 群集边栏选项卡的“使用情况”部分会显示相关信息�
 >
 
 ## <a name="open-hadoop-ui"></a>打开 Hadoop UI
-若要监视群集、浏览文件系统和查看日志，请单击 HDInsight 查询控制台中的“Hadoop UI”。 请参阅 [打开 HDInsight 查询控制台](#open-hdinsight-query-console)。
+若要监视群集、浏览文件系统和查看日志，请单击 HDInsight 查询控制台中的“Hadoop UI”。 请参阅[打开 HDInsight 查询控制台](#open-hdinsight-query-console)。
 
 ## <a name="open-yarn-ui"></a>打开 Yarn UI
 若要使用 Yarn 用户界面，请单击 HDInsight 查询控制台中的“Yarn UI”。 请参阅 [打开 HDInsight 查询控制台](#open-hdinsight-query-console)。
@@ -328,7 +328,7 @@ HDInsight 群集边栏选项卡的“使用情况”部分会显示相关信息�
 3. 从顶部菜单中单击“设置”，然后单击“远程桌面”。
 4. 输入“到期日期”、“远程桌面用户名”和“远程桌面密码”，然后单击“启用”。
 
-    ![HDInsight 启用禁用配置远程桌面](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
+    ![HDInsight 启用/禁用配置远程桌面](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
     “到期日期”的默认值为“一周”。
 
@@ -341,7 +341,7 @@ HDInsight 群集边栏选项卡的“使用情况”部分会显示相关信息�
 
 1. 登录到[门户][azure-portal]。
 2. 从左侧菜单中依次单击“浏览全部”、“HDInsight 群集”和群集名称。
-3. 从顶部菜单中单击“设置”，然后单击“远程桌面”。
+3. 从顶部菜单中单击“设置”，并单击“远程桌面”。
 4. 单击“连接”，并按照说明进行操作。 如果禁用“连接”，必须首先启用它。 请确保使用远程桌面用户的用户名和密码。  不能使用群集用户凭据。
 
 ## <a name="open-hadoop-command-line"></a>打开 Hadoop 命令行
@@ -356,7 +356,7 @@ HDInsight 群集边栏选项卡的“使用情况”部分会显示相关信息�
 
     有关 Hadoop 命令的详细信息，请参阅 [Hadoop 命令参考](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html)。
 
-在上面的屏幕截图中，文件夹名称已嵌入 Hadoop 版本号。 可以根据群集上安装的 Hadoop 组件的版本更改版本号。 可以使用 Hadoop 环境变量引用这些文件夹。 例如：
+在上面的屏幕截图中，文件夹名称已嵌入 Hadoop 版本号。 版本号可以根据群集上安装的 Hadoop 组件的版本而更改。 可以使用 Hadoop 环境变量引用这些文件夹。 例如：
 
     cd %hadoop_home%
     cd %hive_home%

@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure AD Connect 进行 Active Directory 联合身份验证服务的管理和自定义 | Microsoft Docs"
-description: "使用 Azure AD Connect 管理 AD FS 并使用 Azure AD Connect 和 PowerShell 自定义用户的 AD FS 登录体验。"
-keywords: "AD FS, ADFS, AD FS 管理, AAD Connect, Connect, 登录, AD FS 自定义, 修复信任, O365, 联合, 信赖方"
+title: 使用 Azure AD Connect 进行 Active Directory 联合身份验证服务的管理和自定义 | Microsoft Docs
+description: 使用 Azure AD Connect 管理 AD FS 并使用 Azure AD Connect 和 PowerShell 自定义用户的 AD FS 登录体验。
+keywords: AD FS, ADFS, AD FS 管理, AAD Connect, Connect, 登录, AD FS 自定义, 修复信任, O365, 联合, 信赖方
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 07/18/2017
 ms.date: 12/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: ec59ae4c15d99c86afbebf6ccc1a15c046ee0577
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 286c6e087ef633e7169b4ae453c049aef9cb8a53
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自定义 Active Directory 联合身份验证服务
 本文介绍如何使用 Azure Active Directory (Azure AD) Connect 管理和自定义 Active Directory 联合身份验证服务 (AD FS)。 另外，还介绍了可能需要针对完整的 AD FS 场配置执行的其他常见 AD FS 任务。
@@ -171,7 +171,7 @@ ms.lasthandoff: 12/28/2017
 
    ![Azure AD 域](./media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
-    选择域后，向导将提供有关向导将采取的进一步操作以及配置产生的影响的适当信息。 在某些情况下，如果选择的域尚未在 Azure AD 中进行验证，则向导将提供帮助验证域的信息。 有关更多详细信息，请参阅[将自定义域名添加到 Azure Active Directory](../active-directory-domains-add-azure-portal.md)。
+    选择域后，向导将提供有关向导将采取的进一步操作以及配置产生的影响的适当信息。 在某些情况下，如果选择的域尚未在 Azure AD 中进行验证，则向导将提供帮助验证域的信息。 有关更多详细信息，请参阅[将自定义域名添加到 Azure Active Directory](../add-custom-domain.md)。
 
 5. 单击“下一步”。 “已准备好配置”页会显示 Azure AD Connect 将要执行的操作列表。 单击“安装”完成配置。
 
@@ -223,7 +223,7 @@ AD FS 支持丰富的声明语言，让你用来创建自定义声明规则。 �
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-此规则定义名为 **idflag** 的临时标志，当没有为用户填充的 **ms-ds-consistencyguid** 时，该标志设置为 **useguid**。 这背后的逻辑在于 AD FS 不允许空的声明。 因此，在规则 1 中添加声明 http://contoso.com/ws/2016/02/identity/claims/objectguid 和 http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid 时，仅当为用户填充该值时会最终得到 **msdsconsistencyguid** 声明。 如果未填充该值，AD FS 发现该空值后会立即将它删除。 所有对象都具有 **objectGuid**，因此在执行规则 1 后声明将始终存在。
+此规则定义名为 **idflag** 的临时标志，当没有为用户填充的 **ms-ds-consistencyguid** 时，该标志设置为 **useguid**。 这背后的逻辑在于 AD FS 不允许空的声明。 因此，在规则 1 中添加声明 http://contoso.com/ws/2016/02/identity/claims/objectguid 和 http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid 时，仅当填充了用户值时，才会获得 **msdsconsistencyguid** 声明。 如果未填充该值，在 AD FS 中它就会作为空值出现，并立即删除。 所有对象都具有 **objectGuid**，因此在执行规则 1 后声明将始终存在。
 
 **规则 3：如果存在，将 ms-ds-consistencyguid 作为不可变 ID 发出**
 
@@ -262,7 +262,7 @@ AD FS 支持丰富的声明语言，让你用来创建自定义声明规则。 �
 
     => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
 
-**声明值：** http://sub.contoso.com/adfs/services/trust/
+**声明值：**http://sub.contoso.com/adfs/services/trust/
 
 若要只在颁发者声明值中包含根域，请更改声明规则，使其与以下内容相符：
 

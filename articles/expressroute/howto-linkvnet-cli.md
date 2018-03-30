@@ -1,26 +1,26 @@
 ---
-title: "将虚拟网络链接到 ExpressRoute 线路：CLI：Azure | Microsoft Docs"
-description: "本文档概述了如何使用资源管理器部署模型和 CLI 将虚拟网络 (VNet) 链接到 ExpressRoute 线路。"
+title: 将虚拟网络链接到 ExpressRoute 线路：CLI：Azure
+description: 本文档概述了如何使用资源管理器部署模型和 CLI 将虚拟网络 (VNet) 链接到 ExpressRoute 线路。
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: timlit
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/25/2017
+origin.date: 03/08/2018
 ms.author: v-yiso
-ms.date: 11/13/2017
-ms.openlocfilehash: 548806f7beb396349f6adbe55c0f1d7285b94bc6
-ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+ms.date: 04/02/2018
+ms.openlocfilehash: cf9791b45f319357c6ad487384df981336f74d4c
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>使用 CLI 将虚拟网络连接到 ExpressRoute 线路
 
@@ -43,7 +43,9 @@ ms.lasthandoff: 11/03/2017
   * 请确保已配置 Azure 专用对等互连。 必须运行网络和 Microsoft 之间的 BGP 对等互连，使你能够启用端到端的连接。
   * 确保已创建并完全预配一个虚拟网络和一个虚拟网络网关。 请按照说明[为 ExpressRoute 配置虚拟网络网关](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)。 请务必使用 `--gateway-type ExpressRoute`。
 
-* 最多可以将 10 个虚拟网络链接到一条标准 ExpressRoute 线路。 使用标准 ExpressRoute 线路时，所有虚拟网络必须都位于同一地缘政治区域。 
+* 最多可以将 10 个虚拟网络链接到一条标准 ExpressRoute 线路。 使用标准 ExpressRoute 线路时，所有虚拟网络都必须位于同一地缘政治区域。 
+
+* 单个 VNet 可最多连接到 4 条 ExpressRoute 线路。 通过以下流程为正在连接的每条 ExpressRoute 线路创建新的连接对象。 ExpressRoute 线路可在同一订阅、不同订阅或两者兼有。
 
 * 如果启用 ExpressRoute 高级版外接程序，则可以链接 ExpressRoute 线路的地缘政治区域外部的虚拟网络，或者将更多虚拟网络连接到 ExpressRoute 线路。 有关高级版外接程序的详细信息，请参阅[常见问题解答](expressroute-faqs.md)。
 
@@ -55,7 +57,7 @@ ms.lasthandoff: 11/03/2017
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
 ```
 
-## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>将另一订阅中的虚拟网络连接到线路
+## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>将不同订阅中的虚拟网络连接到线路
 
 用户可以在多个订阅之间共享 ExpressRoute 线路。 下图是在多个订阅之间共享 ExpressRoute 线路的简单示意图。
 
@@ -76,7 +78,7 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 
 ### <a name="circuit-owner-operations"></a>线路所有者操作
 
-**若要创建授权**
+**创建授权**
 
 线路所有者创建一个授权，这将创建一个授权密钥，供线路用户用于将其虚拟网络网关连接到 ExpressRoute 线路。 一个授权只可用于一个连接。
 
@@ -106,7 +108,7 @@ az network express-route auth create --circuit-name MyCircuit -g ExpressRouteRes
 az network express-route auth list --circuit-name MyCircuit -g ExpressRouteResourceGroup
 ```
 
-**若要添加授权**
+**添加授权**
 
 线路所有者可以使用以下示例来添加授权：
 
@@ -114,7 +116,7 @@ az network express-route auth list --circuit-name MyCircuit -g ExpressRouteResou
 az network express-route auth create --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization1
 ```
 
-**若要删除授权**
+**删除授权**
 
 线路所有者可以运行以下示例来撤销/删除对用户的授权：
 
@@ -138,7 +140,7 @@ Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit --authorization-key "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 ```
 
-**若要释放连接授权**
+**释放连接授权**
 
 可以通过删除 ExpressRoute 线路与虚拟网络之间的连接释放授权。
 

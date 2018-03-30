@@ -1,28 +1,28 @@
 ---
-title: "将 SSH 与 Hadoop 配合使用 - Azure HDInsight | Azure"
-description: "使用安全外壳 (SSH) 访问 HDInsight。 本文档介绍如何通过 Windows、Linux、Unix 或 macOS 客户端使用 ssh 和 scp 命令连接到 HDInsight。"
+title: 将 SSH 与 Hadoop 配合使用 - Azure HDInsight | Azure
+description: 使用安全外壳 (SSH) 访问 HDInsight。 本文档介绍如何通过 Windows、Linux、Unix 或 macOS 客户端使用 ssh 和 scp 命令连接到 HDInsight。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-keywords: "linux 中的 hadoop 命令,hadoop linux 命令,hadoop macos,ssh hadoop,ssh hadoop 群集"
+keywords: linux 中的 hadoop 命令,hadoop linux 命令,hadoop macos,ssh hadoop,ssh hadoop 群集
 ms.assetid: a6a16405-a4a7-4151-9bbf-ab26972216c5
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/10/2017
-ms.date: 12/25/2017
+origin.date: 02/07/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 48c8f254cfa6d707ab700d4503bf6f6bcd70fbf1
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: b9faa6e7d73c57942dbe896b493d5b47832f09f1
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>使用 SSH 连接到 HDInsight (Hadoop)
 
@@ -57,11 +57,17 @@ Linux、Unix 和 macOS 系统提供 `ssh` 和 `scp` 命令。 `ssh` 客户端通
 
 默认情况下，Microsoft Windows 不安装任何 SSH 客户端。 `ssh` 和 `scp` 客户端通过以下包提供给 Windows 使用：
 
+* OpenSSH 客户端 (Beta)：在 Fall Creators Update 中转到“设置” > “应用和功能” > “管理可选功能” > “添加功能”，选择“OpenSSH 客户端”。 
+
+    > [!NOTE]
+    > 如果在启用此功能后 `ssh` 和 `scp` 命令在 PowerShell 中不可用，请注销后再重新登录。
+
 * [基于 Windows 10 的 Ubuntu 上的 Bash](https://msdn.microsoft.com/commandline/wsl/about)：通过 Windows 命令行中的 Bash 提供 `ssh` 和 `scp` 命令。
 
+* [OpenSSH 客户端 (Beta)](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/)：这是 Windows 10 Fall Creators Update 中引入的可选功能。
 * [Git (https://git-scm.com/)](https://git-scm.com/)：通过 GitBash 命令行提供 `ssh` 和 `scp` 命令。
 
-此外，还可以使用多个图形 SSH 客户端，例如 [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) 和 [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/)。 尽管可以使用这些客户端连接到 HDInsight，但连接的过程与使用 `ssh` 实用工具时不同。 有关详细信息，请参阅所用图形客户端的文档。
+还可以使用多个图形 SSH 客户端，例如 [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) 和 [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/)。 尽管可以使用这些客户端连接到 HDInsight，但连接的过程与使用 `ssh` 实用工具时不同。 有关详细信息，请参阅所用图形客户端的文档。
 
 ## <a id="sshkey"></a>身份验证：SSH 密钥
 
@@ -85,7 +91,7 @@ SSH 密钥使用[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptogr
 
     ssh-keygen -t rsa -b 2048
 
-在创建密钥的过程中，系统会提示输入信息。 例如，密钥的存储位置，或者是否要使用密码。 完成该过程后，将创建两个文件：一个公钥文件和一个私钥文件。
+在创建密钥的过程中，系统会提示输入信息。 例如，密钥的存储位置，或者是否要使用密码。 完成该过程后，会创建两个文件：一个公钥文件和一个私钥文件。
 
 * __公钥__用于创建 HDInsight 群集。 公钥的扩展名为 `.pub`。
 
@@ -123,6 +129,11 @@ SSH 密钥使用[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptogr
 
 有关更改 SSH 用户帐户密码的信息，请参阅 [Manage HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords)（管理 HDInsight）文档的 __Change passwords__（更改密码）部分。
 
+## <a id="domainjoined"></a>身份验证：已加入域的 HDInsight
+
+如果使用__已加入域的 HDInsight 群集__，必须在通过 SSH 建立连接后使用 `kinit` 命令。 此命令会提示输入域用户和密码，并在与群集关联的 Azure Active Directory 域中对会话进行身份验证。
+
+有关详细信息，请参阅 [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md)（配置已加入域的 HDInsight）。
 
 ## <a name="connect-to-nodes"></a>连接到节点
 

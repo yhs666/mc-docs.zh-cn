@@ -1,11 +1,11 @@
 ---
-title: "如何使用 Azure Redis 缓存 | Microsoft Docs"
-description: "了解如何使用 Azure Redis 缓存提高 Azure 应用程序的性能"
+title: 如何使用 Azure Redis 缓存 | Microsoft Docs
+description: 了解如何使用 Azure Redis 缓存提高 Azure 应用程序的性能
 services: redis-cache,app-service
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: c502f74c-44de-4087-8303-1b1f43da12d5
 ms.service: cache
 ms.workload: tbd
@@ -15,11 +15,11 @@ ms.topic: hero-article
 origin.date: 07/27/2017
 ms.date: 09/14/2017
 ms.author: v-junlch
-ms.openlocfilehash: 07f700585edd6892cd58f98795f4c778594c477e
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: 0326fb9d2622dbfa1fd004bc0c06c37a006d62e1
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-use-azure-redis-cache"></a>如何使用 Azure Redis 缓存
 > [!div class="op_single_selector"]
@@ -278,7 +278,6 @@ Azure Redis 缓存可以缓存 .NET 对象以及基元数据类型，但在缓�
 [Output Cache Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320837
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
-[Azure Caching]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
 [How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658

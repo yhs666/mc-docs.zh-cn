@@ -1,26 +1,26 @@
 ---
-title: "有关 Azure Stack 集成系统的一般数据中心集成注意事项 | Microsoft Docs"
-description: "了解可以执行哪些工作来为数据中心与多节点 Azure Stack 的集成做好规划与准备。"
+title: 有关 Azure Stack 集成系统的一般数据中心集成注意事项 | Microsoft Docs
+description: 了解可以执行哪些工作来为数据中心与多节点 Azure Stack 的集成做好规划与准备。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/06/2018
-ms.date: 03/01/2018
+origin.date: 03/02/2018
+ms.date: 03/22/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
-ms.openlocfilehash: 042abb51549c954b5ef6da2256457f26b0a2cec0
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 1d977aa735988b18f9c8ab8e2858459f13f9c99a
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>有关 Azure Stack 集成系统的数据中心集成注意事项
 如果你对 Azure Stack 集成系统感兴趣，应了解一些有关部署的重要规划注意事项，及系统如何融入数据中心。 本文提供这些注意事项的综合概述，帮助你在 Azure Stack 多节点系统方面做出重要的基础结构决策。 配合 OEM 硬件供应商将 Azure Stack 部署到数据中心时，了解这些注意事项会有所帮助。  
@@ -31,6 +31,15 @@ ms.lasthandoff: 03/02/2018
 若要部署 Azure Stack，需在部署开始之前，将规划信息提供给解决方案提供商，以便快速顺利地完成部署过程。 所需的信息包括网络、安全和标识信息，以及可能需要许多不同领域和决策制定者相关知识的重要决策。 因此，可能需要与组织中多个团队的人员协商，确保在部署开始之前已准备好全部所需的信息。 收集此信息时，与硬件供应商沟通可能有所帮助，因为他们可以提供有助做出决策的建议。
 
 研究和收集所需的信息时，可能需要对网络环境进行一些部署前的配置更改。 这可能包括保留 Azure Stack 解决方案的 IP 地址空间，配置路由器、交换机和防火墙，以便为连接到新的 Azure Stack 解决方案交换机做好准备。 确保在主题领域专家的帮助下完成规划。
+
+## <a name="capacity-planning-considerations"></a>容量规划注意事项
+评估 Azure Stack 解决方案的采购时，必须在硬件配置方面做出选择，因为它直接影响到 Azure Stack 解决方案的总体容量。 考虑因素包括 CPU、内存密度、存储配置和总体解决方案规模（例如服务器的数目）的一般选择。 不同于传统的虚拟化解决方案，简单地评估这些组件并不能很好地确定可用的容量。 第一个原因是 Azure Stack 构建为在解决方案自身内部托管基础结构或管理组件。 第二个原因是解决方案的某些容量保留用于支持复原；更新解决方案的软件时，必须将租户工作负荷的中断降到最低程度。 
+
+[Azure Stack 容量规划程序电子表格](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822)通过两种方法帮助你在规划容量时做出明智的决策：选择硬件产品/服务并尝试符合资源组合，或定义 Azure Stack 要运行的工作负荷，以查看可支持此操作的可用硬件 SKU。 最后，可以参考该电子表格做出 Azure Stack 规划和配置方面的决策。 
+
+该电子表格不能取代你自己的调查和分析。  Microsoft 对于该电子表格中提供的信息不做任何明示或暗示的声明或保证。
+
+
 
 ## <a name="management-considerations"></a>管理注意事项
 Azure Stack 是一个密封的系统，从权限和网络角度来看，其基础结构已锁定。 可以应用网络访问控制列表 (ACL) 来阻止所有未经授权的传入流量，以及基础结构组件之间所有不必要的通信。 这样，未经授权的用户便难以访问系统。
@@ -46,7 +55,7 @@ Azure Stack 是一个密封的系统，从权限和网络角度来看，其基�
 
 标识提供者选项与租户虚拟机、标识系统及其使用的帐户、它们能否加入 Active Directory 域等因素无关。两者是彼此独立的。
 
-可以在 [Azure Stack 集成系统连接模型](.\azure-stack-connection-models.md)一文中详细了解如何选择标识提供者。
+可以在 [Azure Stack 集成系统连接模型](azure-stack-connection-models.md)一文中详细了解如何选择标识提供者。
 
 ### <a name="ad-fs-and-graph-integration"></a>AD FS 与 Graph 集成
 如果选择将 AD FS 作为标识提供者来部署 Azure Stack，必须通过联合信任将 Azure Stack 上的 AD FS 实例与现有的 AD FS 实例集成。 这样，现有 Active Directory 林中的标识便可以对 Azure Stack 中的资源进行身份验证。
@@ -100,7 +109,7 @@ Azure Stack 是一个密封的系统，从权限和网络角度来看，其基�
 ## <a name="time-synchronization"></a>时间同步
 必须选择用于同步 Azure Stack 的特定时间服务器。  时间符号化对于 Azure Stack 及其基础结构角色而言很重要，因为它用于生成 Kerberos 票证，而这些票证用于内部服务的相互身份验证。
 
-必须指定时间同步服务器的 IP，不过，基础结构中的大多数组件都可以解析 URL，而有些组件只支持 IP 地址。 如果使用“断开连接”部署选项，必须在企业网络中指定时间服务器，并确保可从 Azure Stack 中的基础结构网络访问该服务器。
+必须指定时间同步服务器的 IP，不过，基础结构中的大多数组件都可以解析 URL，而有些组件只支持 IP 地址。 如果使用“离线”部署选项，必须在企业网络中指定时间服务器，并确保可从 Azure Stack 中的基础结构网络访问该服务器。
 
 ## <a name="connect-azure-stack-to-azure"></a>将 Azure Stack 连接到 Azure
 
@@ -172,7 +181,7 @@ Azure Stack 解决方案随附的硬件生命周期主机是 Azure Stack 外部�
 - 在现有的基于 Windows 的文件服务器或第三方设备上需有外部 SMB 文件共享。
 - 应将此同一共享用于网络交换机与硬件生命周期主机的备份。 OEM 硬件供应商会帮助提供这些组件的备份和还原指导，因为这些操作在 Azure Stack 外部进行。 你要负责根据 OEM 供应商的建议来运行备份工作流。
 
-如果发生重大数据丢失，可以使用基础结构备份来重新植入部署数据，例如部署输入和标识符、服务帐户、CA 根证书、联合资源（在断开连接部署中）、计划、产品、订阅、配额、RBAC 策略与角色分配，以及 Key Vault 机密。
+如果发生重大数据丢失，可以使用基础结构备份来重新植入部署数据，例如部署输入和标识符、服务帐户、CA 根证书、联合资源（在离线部署中）、计划、产品/服务、订阅、配额、RBAC 策略与角色分配，以及 Key Vault 机密。
  
 ### <a name="protect-tenant-applications-on-iaas-virtual-machines"></a>保护 IaaS 虚拟机上的租户应用程序
 
@@ -187,9 +196,10 @@ Azure Stack 不备份租户应用程序和数据。 必须针对 Azure Stack 的
 
 ## <a name="learn-more"></a>了解详细信息
 
-- 有关用例、购买方法、合作伙伴和 OEM 硬件供应商的详细信息，请参阅 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 产品页。
-- 有关 Azure Stack 集成系统的路线图和上市区域的详细信息，请参阅白皮书：[Azure Stack：Azure 的扩展](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)。 
+- 有关用例、购买、合作伙伴和 OEM 硬件供应商的信息，请参阅 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 产品页。
+- 有关 Azure Stack 集成系统的路线图和上市区域的信息，请参阅白皮书：[Azure Stack: An extension of Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)（Azure Stack：Azure 的扩展）。 
 
 ## <a name="next-steps"></a>后续步骤
 [Azure Stack 部署连接模型](azure-stack-connection-models.md)
 
+<!-- Update_Description: wording update -->

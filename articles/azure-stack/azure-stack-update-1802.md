@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
-ms.author: brenduns
+origin.date: 03/20/2018
+ms.date: 03/22/2018
+ms.author: v-junlch
 ms.reviewer: justini
-ms.openlocfilehash: 247f13717971d3660b3ec0ee94821bd593c5fed0
-ms.sourcegitcommit: dee174086b5f3d59d2045bf197c800e62a30fe60
+ms.openlocfilehash: 82820504bc0d322afe6abb7d9bf59ab3024951ee
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure Stack 1802 更新
 
@@ -36,7 +37,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 
 ## <a name="before-you-begin"></a>准备阶段    
 > [!IMPORTANT]    
-> 在安装此更新的过程中，请勿尝试创建虚拟机。 有关如何管理更新的详细信息，请参阅[在 Azure Stack 中管理更新的概述](/azure-stack-updates#plan-for-updates)。
+> 在安装此更新的过程中，请勿尝试创建虚拟机。 有关如何管理更新的详细信息，请参阅[在 Azure Stack 中管理更新的概述](azure-stack-updates#plan-for-updates)。
 
 
 ### <a name="prerequisites"></a>先决条件
@@ -68,7 +69,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
     - 2015-12-11 
     - 2015-07-08 
     
-    有关详细信息，请参阅 [Azure Stack 存储：差异和注意事项](/azure/azure-stack/user/azure-stack-acs-differences)。
+    有关详细信息，请参阅 [Azure Stack 存储：差异和注意事项](/azure-stack/user/azure-stack-acs-differences)。
 
 - **对更大型[块 Blob](azure-stack-acs-differences.md) 的支持**：
     - 允许的最大块大小从 4 MB 增至 100 MB。
@@ -124,6 +125,13 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 
     可以放心地忽略此警报。 
 
+- <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
+
+- 在管理员门户和用户门户中，如果选择通过旧版 API（例如 2015-06-15）创建的存储帐户的“概述”边栏选项卡，则“概述”边栏选项卡无法加载。 这包括系统存储帐户，例如修补和更新过程中使用的 **updateadminaccount**。 
+
+  解决方法是使用 PowerShell 运行 **Start-ResourceSynchronization.ps1** 脚本，以便重新可以访问存储帐户详细信息。 [GitHub 中提供了该脚本]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts)，必须在特权终结点上使用服务管理员凭据运行该脚本。 
+
+
 #### <a name="health-and-monitoring"></a>运行状况和监视
 更新到 1802 后没有任何已知问题。
 
@@ -131,7 +139,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 - 用户无需订阅就能浏览整个商城，并且能看到计划和产品/服务等管理项。 对用户而言，这些项是非功能性的。
 
 #### <a name="compute"></a>计算
-- 无法在门户中使用虚拟机规模集的缩放设置。 解决方法是使用 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)。 由于 PowerShell 版本差异，必须使用 `-Name` 参数，而不是 `-VMScaleSetName`。
+- 无法在门户中使用虚拟机规模集的缩放设置。 解决方法是使用 [Azure PowerShell](/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)。 由于 PowerShell 版本差异，必须使用 `-Name` 参数，而不是 `-VMScaleSetName`。
 
 - Azure Stack 支持只使用固定类型的 VHD。 某些通过 Azure Stack 上的商城提供的映像使用动态 VHD，但这些映像已删除。 重设附加了动态磁盘的虚拟机 (VM) 的大小会导致该 VM 处于故障状态。
 
@@ -277,9 +285,11 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 ## <a name="more-information"></a>详细信息
 Microsoft 已提供某种方式让用户使用装有 1710 更新的特权终结点 (PEP) 来监视和恢复更新。
 
-- 请参阅文档：[使用特权终结点监视 Azure Stack 中的更新](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update)。
+- 请参阅文档：[使用特权终结点监视 Azure Stack 中的更新](/azure-stack/azure-stack-monitor-update)。
 
 ## <a name="see-also"></a>另请参阅
 
 - 有关 Azure Stack 中更新管理的概述，请参阅[在 Azure Stack 中管理更新的概述](azure-stack-updates.md)。
 - 有关如何在 Azure Stack 中应用更新的详细信息，请参阅[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)。
+
+<!-- Update_Description: wording update -->

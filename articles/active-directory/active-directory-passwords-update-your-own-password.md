@@ -1,9 +1,9 @@
 ---
-title: "Azure AD：重置密码 | Microsoft Docs"
-description: "使用自助密码重置功能重新获取工作用户帐户或学校用户帐户的访问权限"
+title: Azure AD：重置密码 | Microsoft Docs
+description: 使用自助密码重置功能重新获取工作用户帐户或学校用户帐户的访问权限
 services: active-directory
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
 ms.reviewer: gahug
@@ -17,11 +17,11 @@ origin.date: 01/11/2018
 ms.date: 1/29/2018
 ms.author: v-nanyu
 ms.custom: end-user
-ms.openlocfilehash: 7adb440e3a541026d4e76f34d1ebd46f4394b600
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: bbc151b2f05ece96d682b0a3c531c83785383fbf
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="reset-your-work-or-school-password"></a>重置工作或学校密码
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 02/13/2018
    > 如果需要解锁帐户，此时应选择“我知道密码，但是仍然无法登录”选项。
    >
 
-3. 根据 IT 人员配置 SSPR 的方式，会出现以下一个或多个身份验证方法。 你或者 IT 人员已按照[注册自助服务密码重置](active-directory-passwords-reset-register.md)一文中的步骤填充了其中一些信息。
+3. 根据 IT 人员配置 SSPR 的方式，会出现以下一个或多个身份验证方法。 
 
    * **向我的备用电子邮件发送电子邮件**
    * **向我的手机发送短信**
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/13/2018
 | 尝试更改我的密码时看到错误。 | 很遗憾，你的密码包含单词、短语或模式，这些使你的密码容易被猜出。 请使用其他密码重试。 | 请选择更难猜的密码。 |
 | 在输入我的用户 ID 后，出现了“请联系管理员”页面 | 请与管理员联系。 <br> <br> 我们检测到你的用户帐户密码不受 Microsoft 管理。 因此，我们无法自动重置密码。 <br> <br> 需要与 IT 人员联系以获得进一步帮助。 | 出现此消息是因为 IT 人员在你的本地环境中管理你的密码。 因此，你无法使用“无法访问帐户”链接重置你的密码。 <br> <br> 若要重置密码，请直接联系 IT 人员获取帮助，并告知想要重置密码，以便他们能够为你启用此功能。|
 | 在输入我的用户 ID 后，出现“你的帐户未针对密码重置进行启用”错误 | 帐户未启用密码重置。 <br> <br> 很抱歉，IT 人员尚未将你的帐户设置为可使用此服务。 <br> <br> 如果你愿意，我们可以联系你所在组织的管理员为你重置密码。 | 之所以看到此消息，是因为 IT 人员未对组织启用从“无法访问帐户”链接重置密码的功能，或未授权你使用该功能。 <br> <br> 若要重置密码，请选择“联系管理员”链接，向公司 IT 人员发送电子邮件并告知想要重置密码，以便他们能够为你启用此功能。 |
-| 在输入我的用户 ID 后，出现了“我们无法验你的证帐户”错误 | 我们无法验证帐户。 <br> <br> 如果你愿意，我们可以联系你所在组织的管理员为你重置密码。 | 之所以看到此消息，是因为已经启用了密码重置，但你并未注册使用此服务。 若要注册密码重置，请在重新获取帐户访问权限后转到 http://aka.ms/ssprsetup。 <br> <br> 若要重置密码，请选择“联系管理员”链接以向公司 IT 人员发送电子邮件。 |
+| 在输入我的用户 ID 后，出现了“我们无法验你的证帐户”错误 | 我们无法验证帐户。 <br> <br> 如果你愿意，我们可以联系你所在组织的管理员为你重置密码。 | 之所以看到此消息，是因为已经启用了密码重置，但你并未注册使用此服务。 若要注册密码重置，请在重新获取帐户访问权限后转到 https://aka.ms/ssprsetup。 <br> <br> 若要重置密码，请选择“联系管理员”链接以向公司 IT 人员发送电子邮件。 |
 
 ## <a name="next-steps"></a>后续步骤
 

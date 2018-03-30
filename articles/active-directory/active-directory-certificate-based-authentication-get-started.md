@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory 基于证书的身份验证 - 入门 | Microsoft Docs"
-description: "了解如何在环境中配置基于证书的身份验证"
+title: Azure Active Directory 基于证书的身份验证 - 入门 | Microsoft Docs
+description: 了解如何在环境中配置基于证书的身份验证
 author: alexchen2016
 documentationcenter: na
 manager: digimobile
@@ -14,11 +14,11 @@ origin.date: 10/13/2017
 ms.date: 11/22/2017
 ms.author: v-junlch
 ms.reviewer: nigu
-ms.openlocfilehash: af91cfc7f4f4d54457286a67a6f2218e6f8938e1
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 53d6810171dce2473fb7dfc783afb255460c3fc6
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory 中基于证书的身份验证入门
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/24/2017
 
 本主题：
 
-- 提供的步骤介绍如何为 Office 365 企业版、商业版、教育版和美国政府版计划中租户的用户配置并使用基于证书的身份验证。 此功能在 Office 365 中国版、美国国防部版、美国联邦政府版计划中以预览版形式提供。
+- 提供的步骤介绍如何为 Office 365 企业版、商业版、教育版和美国政府版计划中租户的用户配置并使用基于证书的身份验证。 可在 Office 365 China（Office 365 中国版）、Office 365 US Government Defense（Office 365 美国政府国防版）和 Office 365 US Government Federal（Office 365 美国政府联邦版）计划中使用此功能。
 
 - 假设已配置[公钥基础结构 (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) 和 [AD FS](connect/active-directory-aadconnectfed-whatis.md)。    
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/24/2017
 
 - 每个证书颁发机构必须有一个可通过面向 Internet 的 URL 引用的证书吊销列表 (CRL)。  
 
-- 必须已在 Azure Active Directory 中至少配置一个证书颁发机构。 可以在 [配置证书颁发机构](#step-2-configure-the-certificate-authorities) 部分查找相关步骤。  
+- 必须在 Azure Active Directory 中至少配置一个证书颁发机构。 可以在 [配置证书颁发机构](#step-2-configure-the-certificate-authorities) 部分查找相关步骤。  
 
 - 对于 Exchange ActiveSync 客户端，客户端证书的“使用者可选名称”字段的主体名称或 RFC822 名称值必须为 Exchange Online 中用户的可路由电子邮件地址。 Azure Active Directory 会将 RFC822 值映射到目录中的“代理地址”属性。  
 
@@ -75,8 +75,8 @@ ms.lasthandoff: 11/24/2017
 
 若要在 Azure Active Directory 中配置证书颁发机构，请为每个证书颁发机构上传以下内容：
 
-- 证书的公共部分，格式为 *.cer*
-- 证书吊销列表 (CRL) 所在的面向 Internet 的 URL
+* 证书的公共部分，格式为 *.cer*
+* 证书吊销列表 (CRL) 所在的面向 Internet 的 URL
 
 证书颁发机构的架构如下所示：
 
@@ -109,13 +109,13 @@ ms.lasthandoff: 11/24/2017
 
         Install-Module -Name AzureAD -RequiredVersion 2.0.0.33
 
-作为第一个配置步骤，需建立与租户的连接。 建立到租户的连接以后，即可查看、添加、删除和修改在目录中定义的可信证书颁发机构。
+配置的第一步，需要建立与租户的连接。 建立到租户的连接以后，即可查看、添加、删除和修改在目录中定义的可信证书颁发机构。
 
 ### <a name="connect"></a>连接
 
-若要建立与租户的连接，请使用 [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0) cmdlet：
+若要建立与租户的连接，请使用 [Connect-AzureAD -AzureEnvironment AzureChinaCloud](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0) cmdlet：
 
-    Connect-AzureAD
+    Connect-AzureAD -AzureEnvironment AzureChinaCloud
 
 
 ### <a name="retrieve"></a>检索
@@ -169,7 +169,7 @@ ms.lasthandoff: 11/24/2017
 1. 使用管理员凭据连接到 MSOL 服务：
 
         $msolcred = get-credential
-        connect-msolservice -credential $msolcred
+        connect-msolservice -credential $msolcred -AzureEnvironment AzureChinaCloud
 
 2. 检索用户的当前 StsRefreshTokensValidFrom 值：
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/24/2017
 
 作为第一个配置测试，应尝试使用**设备上的浏览器**登录 [Outlook Web Access](https://outlook.office365.com) 或 [SharePoint Online](https://microsoft.sharepoint.com)。
 
-如果登录成功，则可确定：
+如果登录成功，则表示：
 
 - 已为测试设备预配用户证书
 - 已正确配置 AD FS  

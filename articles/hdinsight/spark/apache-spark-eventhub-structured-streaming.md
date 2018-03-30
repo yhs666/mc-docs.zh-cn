@@ -1,9 +1,9 @@
 ---
-title: "在 Azure HDInsight 中将 Apache Spark 结构化流与事件中心配合使用"
-description: "构建一个 Apache Spark 流式处理示例，用于演示如何向 Azure 事件中心发送数据流，然后使用 scala 应用程序在 HDInsight Spark 群集中接收这些事件。"
-keywords: "apache spark 流式处理,spark 流式处理,spark 示例,apache spark 流式处理示例,事件中心 azure 示例,spark 示例"
+title: 在 Azure HDInsight 中将 Apache Spark 结构化流与事件中心配合使用
+description: 构建一个 Apache Spark 流式处理示例，用于演示如何向 Azure 事件中心发送数据流，然后使用 scala 应用程序在 HDInsight Spark 群集中接收这些事件。
+keywords: apache spark 流式处理,spark 流式处理,spark 示例,apache spark 流式处理示例,事件中心 azure 示例,spark 示例
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: dc31d86e43fc0d096397f1d61164328a6a642523
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: d5c0dc31d061b3d61afe29ccf8671141ab0fe0d3
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="apache-spark-structured-streaming-on-hdinsight-to-process-events-from-event-hubs"></a>使用 HDInsight 中的 Apache Spark 结构化流处理事件中心的事件
 
@@ -36,14 +36,12 @@ ms.lasthandoff: 02/24/2018
 
 * HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](apache-spark-jupyter-spark-sql.md)。
 
-* Azure 事件中心命名空间。 有关详细信息，请参阅[创建 Azure 事件中心命名空间](apache-spark-eventhub-streaming.md#create-an-azure-event-hub)。
-
 * Oracle Java 开发工具包。 可从[此处](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)进行安装。
 
 * Apache Maven。 可以从[此处](https://maven.apache.org/download.cgi)下载它。 [此处](https://maven.apache.org/install.html)提供了有关安装 Maven 的说明。
 
 ## <a name="build-configure-and-run-the-event-producer"></a>生成、配置和运行事件生成者
-此任务克隆一个可创建随机事件并将其发送到配置的事件中心的示例应用程序。 GitHub 中提供了此示例应用程序，网址为：[https://github.com/hdinsight/eventhubs-sample-event-producer](https://github.com/hdinsight/eventhubs-sample-event-producer)。
+此任务克隆一个可创建随机事件并将其发送到配置的事件中心的示例应用程序。 GitHub [https://github.com/hdinsight/eventhubs-sample-event-producer](https://github.com/hdinsight/eventhubs-sample-event-producer) 中提供了此示例应用程序。
 
 1. 确保已安装 git 工具。 可以从 [GIT 下载](http://www.git-scm.com/downloads)页下载。 
 2. 打开命令提示符或终端 shell，从所选的目录运行以下命令以克隆项目。

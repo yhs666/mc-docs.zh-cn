@@ -1,27 +1,27 @@
 ---
-title: "使用 Visual Studio 和 C# 的 Apache Storm 拓扑 - Azure HDInsight | Azure"
-description: "了解如何在 C# 中创建 Storm 拓扑。 在 Visual Studio 中使用针对 Visual Studio 的 Hadoop 工具创建简单的字数统计拓扑。"
+title: 使用 Visual Studio 和 C# 的 Apache Storm 拓扑 - Azure HDInsight
+description: 了解如何在 C# 中创建 Storm 拓扑。 在 Visual Studio 中使用针对 Visual Studio 的 Hadoop 工具创建简单的字数统计拓扑。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: ''
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/27/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5155cebb0afc76e11a96fbc30c6265224d08866a
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 850eb88f5f794b5c324a10787f79b35c0afbc231
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用针对 Visual Studio 的 Data Lake 工具开发 Apache Storm 的 C# 拓扑
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/15/2017
 [!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
 
 > [!NOTE]
-> 虽然本文档中的步骤依赖于具有 Visual Studio 的 Windows 开发环境，但编译后的项目可以提交到基于 Linux 或基于 Windows 的 HDInsight 群集。 仅在 2016 年 10 月 28 日以后创建的基于 Linux 的群集支持 SCP.NET 拓扑。
+> 虽然本文档中的步骤依赖于带 Visual Studio 的 Windows 开发环境，但是也可将编译的项目提交到基于 Linux 或 Windows 的 HDInsight 群集。 仅在 2016 年 10 月 28 日以后创建的基于 Linux 的群集支持 SCP.NET 拓扑。
 
 若要将 C# 拓扑与基于 Linux 的群集配合使用，必须将项目使用的 Microsoft.SCP.Net.SDK NuGet 包更新到 0.10.0.6 或更高版本。 包的版本还必须与 HDInsight 上安装的 Storm 的主要版本相符。
 
@@ -47,9 +47,6 @@ ms.lasthandoff: 12/15/2017
 
 > [!IMPORTANT]
 > 基于 Linux 的群集上的 C# 拓扑必须使用 .NET 4.5，并使用 Mono 在 HDInsight 群集上运行。 请查看 [Mono 兼容性](http://www.mono-project.com/docs/about-mono/compatibility/)，了解可能的不兼容性。
-
-> [!WARNING]
-> 如果你在构建使用 SCP.NET 版本 1.0.0.x 的项目时遇到问题，请联系 Microsoft 支持部门以寻求帮助。
 
 ## <a name="install-visual-studio"></a>安装 Visual Studio
 
@@ -129,9 +126,9 @@ namespace ConsoleApplication2
 | Storm 示例 |基本的字数统计拓扑。 |
 
 > [!WARNING]
-> 并非所有的模板都可用于基于 Linux 的 HDInsight。 模板使用的 NuGet 程序包可能与 Mono 不兼容。 查看 [Mono 兼容性](http://www.mono-project.com/docs/about-mono/compatibility/)文档并使用 [.NET Portability Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) 确定潜在问题。
+> 并非所有模板都可用于基于 Linux 的 HDInsight。 模板使用的 NuGet 程序包可能与 Mono 不兼容。 查看 [Mono 兼容性](http://www.mono-project.com/docs/about-mono/compatibility/)文档并使用 [.NET Portability Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) 确定潜在问题。
 
-在本文档的步骤中，使用基本 Storm 应用程序项目类型创建拓扑。
+在本文档的步骤中，将使用基本 Storm 应用程序项目类型来创建拓扑。
 
 ### <a name="hbase-templates-notes"></a>HBase 模板说明
 
@@ -174,7 +171,7 @@ HBase 读取器和写入器模板使用 HBase REST API（而不是 HBase Java AP
 
    * 失败（仅限事务拓扑）：处理无法处理拓扑中其他组件的元组。 实现 Fail 方法可以重新发出元组，以便对其再次处理。
 
-2. 将 **Spout** 类的内容替换为以下文本。 此 Spout 随机将句子发出到拓扑中。
+2. 将 **Spout** 类的内容替换为以下文本：此 Spout 将句子随机发送到拓扑。
 
     ```csharp
     private Context ctx;
@@ -247,7 +244,7 @@ HBase 读取器和写入器模板使用 HBase REST API（而不是 HBase Java AP
      > [!NOTE]
      > 这些 Bolt 读取和写入流，但是你也可以使用 Bolt 来与数据库或服务等源进行通信。
 
-3. 打开 **Splitter.cs**。 默认情况下它只包含一个方法： **Execute**。 在 Bolt 收到要处理的元组时会调用 Execute 方法。 此时，可读取和处理传入元组，以及发出传出元组。
+3. 打开 **Splitter.cs**。 默认情况下它只包含一个方法： **Execute**。 在 Bolt 收到要处理的元组时将调用 Execute 方法。 此时，可读取和处理传入元组，以及发出传出元组。
 
 4. 将 **Splitter** 类的内容替换为以下代码：
 
@@ -295,7 +292,7 @@ HBase 读取器和写入器模板使用 HBase REST API（而不是 HBase Java AP
     }
     ```
 
-5. 打开 Counter.cs，将类内容替换为以下内容：
+5. 打开 **Counter.cs** 并将类内容替换为以下代码：
 
     ```csharp
     private Context ctx;
@@ -357,7 +354,7 @@ Spout 和 Bolt 以图形方式排列，用于定义数据在组件之间的流�
 
 句子从 Spout 发出，然后分布到 Splitter Bolt 的实例。 Splitter Bolt 将句子分割成多个单词，并将这些单词分布到 Counter Bolt。
 
-因为字数会本地保留在 Counter 实例中，所以我们想要确保特定单词流向相同的 Counter Bolt 实例。 每个实例都会跟踪特定的单词。 由于 Splitter Bolt 不保留任何状态，因此哪个 Splitter 实例接收哪个语句无关紧要。
+因为字数会本地保留在 Counter 实例中，所以想要确保特定单词流向相同的 Counter Bolt 实例。 每个实例都会跟踪特定的单词。 由于 Splitter Bolt 不保留任何状态，因此哪个 Splitter 实例接收哪个语句无关紧要。
 
 打开 **Program.cs**。 重要的方法是 **GetTopologyBuilder**，用于定义提交到 Storm 的拓扑。 将 **GetTopologyBuilder** 的内容替换为以下代码，以实现上面所述的拓扑：
 
@@ -476,16 +473,17 @@ return topologyBuilder;
   > [!NOTE]
   > 此版本还演示了如何使用文本文件中的 clojure 代码作为 Java 组件。
 
-若要切换在提交项目时使用的拓扑，只需将 `[Active(true)]` 语句移到要在提交给群集之前使用的拓扑即可。
+
+若要切换在提交项目时使用的拓扑，请将 `[Active(true)]` 语句移到要在提交给群集之前使用的拓扑。
 
 > [!NOTE]
 > 在 **JavaDependency** 文件夹中，所需的所有 Java 文件都会提供为此项目的一部分。
 
 创建和提交混合拓扑时，需注意以下事项：
 
-* 必须使用 JavaComponentConstructor 来创建 Spout 或 Bolt 的 Java 类的实例。
+* 使用 **JavaComponentConstructor** 创建 Spout 或 Bolt 的 Java 类实例。
 
-* 应该使用 microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer 将传入或传出 Java 组件的数据从 Java 对象序列化为 JSON。
+* 使用 **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** 将传入或传出 Java 组件的数据从 Java 对象序列化为 JSON。
 
 * 将拓扑提交到服务器时，必须使用“其他配置”选项指定 Java 文件路径。 指定的路径应该是包含 JAR 文件的目录，而 JAR 文件包含 Java 类。
 
@@ -546,7 +544,7 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 2. 从包管理器中选择“更新”。 有可用更新时会将其列出。 单击“更新”可让包安装更新。
 
 > [!IMPORTANT]
-> 如果项目是通过未使用 NuGet 的旧版 SCP.NET 创建的，则必须执行以下步骤以更新到新版本：
+> 如果项目是通过未使用 NuGet 的旧版 SCP.NET 创建的，则必须执行以下步骤以更新到更新版本：
 >
 > 1. 在“解决方案资源管理器”中，右键单击项目，然后选择“管理 NuGet 包”。
 > 2. 使用“搜索”字段搜索 Microsoft.SCP.Net.SDK，然后将其添加到项目中。
@@ -576,7 +574,7 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 虽然很容易就可以将拓扑部署到群集，但是，在某些情况下，可能需要在本地测试拓扑。 使用以下步骤，在开发环境上本地执行和测试本教程中的示例拓扑。
 
 > [!WARNING]
-> 本地测试只适用于仅限 C# 的基本拓扑。 不能将本地测试用于混合拓扑或使用多个流的拓扑。
+> 本地测试只适用于仅限 C# 的基本拓扑。 不能将本地测试用于混合拓扑或用于使用多个流的拓扑。
 
 1. 在“解决方案资源管理器”中，右键单击项目，然后选择“属性”。 在项目属性中，将“输出类型”更改为“控制台应用程序”。
 
@@ -707,7 +705,7 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 
 ### <a name="log-information"></a>记录信息
 
-可以使用 `Context.Logger`轻松记录拓扑组件中的信息。 例如，以下代码会创建一个信息日志条目：
+可以使用 `Context.Logger`轻松记录拓扑组件中的信息。 例如，以下命令会创建一个信息日志条目：
 
 ```csharp
 Context.Logger.Info("Component started");
@@ -732,7 +730,7 @@ Context.Logger.Info("Component started");
 
 ### <a name="errors-submitting-topologies"></a>提交拓扑时出错
 
-如果将拓扑提交到 HDInsight 时遇到错误，可在 HDInsight 群集上找到处理拓扑提交的服务器端组件的日志。 若要检索这些日志，请从命令行使用以下命令：
+如果用户在将拓扑提交到 HDInsight 时遇到错误，则可查找服务器端组件的日志，这些组件处理 HDInsight 群集上的拓扑提交事项。 若要检索这些日志，请从命令行使用以下命令：
 
     scp sshuser@clustername-ssh.azurehdinsight.cn:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 

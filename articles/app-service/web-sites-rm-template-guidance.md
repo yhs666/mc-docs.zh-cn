@@ -1,6 +1,6 @@
 ---
-title: "使用模板部署 Azure Web 应用指南"
-description: "关于创建 Azure 资源管理器模板来部署 Web 应用的建议。"
+title: 有关使用模板部署 Azure Web 应用的指南
+description: 关于创建 Azure 资源管理器模板来部署 Web 应用的建议。
 services: app-service
 documentationcenter: app-service
 author: tfitzmac
@@ -10,25 +10,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
 origin.date: 03/12/2018
-ms.openlocfilehash: 588bf796152e025104aede85ce64a4e9316ac423
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 1f86393418c5420fd85262ea67c7da71960dfcbe
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="guidance-on-deploying-web-apps-with-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板部署 Web 应用指南
+# <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>有关使用 Azure 资源管理器模板部署 Web 应用的指南
 
-本文提供关于创建 Azure 资源管理器模板来部署应用服务解决方案的建议。 这些建议可帮助你避免常见问题。
+本文提供创建 Azure 资源管理器模板以部署 Azure 应用服务解决方案的建议。 这些建议可帮助你避免常见问题。
 
 ## <a name="define-dependencies"></a>定义依赖关系
 
-定义 Web 应用的依赖关系需要了解 Web 应用内的资源如何进行交互。 如果以错误顺序指定依赖关系，可能会导致部署错误，或者创建使部署停止的争用条件。
+为 Web 应用定义依赖项需要了解 Web 应用中的资源如何进行交互。 如果以错误的顺序指定依赖项，则可能会导致部署错误或者创建造成停止部署的争用条件。
 
 > [!WARNING]
-> 如果模板中包含 MS 部署站点扩展，则必须将任何配置资源设置为依赖于 MS 部署资源。 配置更改会导致站点以异步方式重启。 将配置资源设为依赖于 MS 部署，可确保在站点重启之前完成 MS 部署。 如果没有这些依赖关系，站点可能会在 MS 部署的部署过程中重启。 有关示例模板，请参阅[包含 Web 部署依赖关系的 Wordpress 模板](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json)。
+> 如果在模板中包括了 MSDeploy 站点扩展，则必须将任何配置资源设置为依赖于 MSDeploy 资源。 配置更改会导致站点以异步方式重启。 通过使配置资源依赖于 MSDeploy，可确保 MSDeploy 在站点重启前完成。 如果没有这些依赖关系，则站点可能会在 MSDeploy 的部署过程中重启。 有关示例模板，请参阅[具有 Web 部署依赖项的 WordPress 模板](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json)。
 
 下图显示了各种应用服务资源的依赖顺序。
 
@@ -37,27 +37,27 @@ ms.lasthandoff: 03/02/2018
 按以下顺序部署资源：
 
 **第 1 层**
-* 应用服务计划
-* 任何其他相关资源，如数据库或存储帐户
+* 应用服务计划。
+* 任何其他相关资源，例如数据库或存储帐户。
 
 **第 2 层**
-* Web 应用 - 依赖于应用服务计划
-* 面向目标服务器场的 Application Insights - 依赖于应用服务计划
+* Web 应用 - 依赖于应用服务计划。
+* 以服务器场为目标的 Azure Application Insights 实例 - 依赖于应用服务计划。
 
 **第 3 层**
-* 源代码管理 - 依赖于 Web 应用
-* MSDeploy 站点扩展 - 依赖于 Web 应用
-* 面向目标服务器场的 Application Insights - 依赖于 Web 应用
+* 源代码管理 - 依赖于 Web 应用。
+* MSDeploy 站点扩展 - 依赖于 Web 应用。
+* 以服务器场为目标的 Application Insights 实例 - 依赖于 Web 应用。
 
 **第 4 层**
-* 应用服务证书 - 依赖于源代码管理或 MSDeploy（如果任一项存在，否则依赖于 Web 应用）
-* 配置设置（连接字符串、Web 配置值、应用设置）- 依赖于源代码管理或 MSDeploy（如果任一项存在，否则依赖于 Web 应用）
+* 应用服务证书 - 依赖于存在的源代码管理或 MSDeploy； 若都不存在，则依赖于 Web 应用。
+* 配置设置（连接字符串、web.config 值、应用设置）- 依赖于存在的源代码管理或 MSDeploy； 若都不存在，则依赖于 Web 应用。
 
 **第 5 层**
-* 主机名绑定 - 依赖于证书（如果存在，否则依赖于更高级别资源）
-* 站点扩展 - 依赖于配置设置（如果存在，否则依赖于更高级别资源）
+* 主机名绑定 - 依赖于如果存在的证书； 若不存在，则依赖于较高级别的资源。
+* 站点扩展 - 依赖于存在的配置设置； 若不存在，则依赖于较高级别的资源。
 
-通常，解决方案仅包括上述某些资源和层。 对于缺少的层，将较低资源映射到下一个更高层。
+通常，解决方案仅包括上述某些资源和层。 对于缺少的层，请将较低的资源映射到下一个较高的层。
 
 以下示例显示了模板的一部分。 连接字符串配置值依赖于 MSDeploy 扩展。 MSDeploy 扩展依赖于 Web 应用和数据库。
 
@@ -87,9 +87,17 @@ ms.lasthandoff: 03/02/2018
 }
 ```
 
-## <a name="unique-web-app-name"></a>唯一的 Web 应用名称
+## <a name="find-information-about-msdeploy-errors"></a>查找有关 MSDeploy 错误的信息
 
-Web 应用的名称必须全局唯一。 可以使用可能唯一的命名约定，也可以使用 [uniqueString 函数](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring)帮助生成唯一名称。
+如果你的资源管理器模板使用了 MSDeploy，则部署错误消息可能难以理解。 若要在部署失败后获取更多信息，请尝试以下步骤：
+
+1. 转到站点的 [Kudu 控制台](https://github.com/projectkudu/kudu/wiki/Kudu-console)。
+2. 浏览到 D:\home\LogFiles\SiteExtensions\MSDeploy 上的文件夹。
+3. 查找 appManagerStatus.xml 和 appManagerLog.xml 文件。 第一个文件记录了状态。 第二个文件记录了有关错误的信息。 如果你不太理解此错误，可以将它发布到论坛上来寻求帮助。
+
+## <a name="choose-a-unique-web-app-name"></a>选择唯一的 Web 应用名称
+
+Web 应用的名称必须全局唯一。 可以使用某个可能唯一的命名约定，也可以使用 [uniqueString 函数](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring)来帮助生成唯一名称。
 
 ```json
 {

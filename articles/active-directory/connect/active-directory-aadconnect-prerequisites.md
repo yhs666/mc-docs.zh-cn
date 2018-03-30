@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect：先决条件和硬件 | Microsoft Docs"
-description: "本主题介绍 Azure AD Connect 的先决条件和硬件要求"
+title: Azure AD Connect：先决条件和硬件 | Microsoft Docs
+description: 本主题介绍 Azure AD Connect 的先决条件和硬件要求
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 07/12/2017
 ms.date: 12/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: 8d51e2e0b209fe1d826e92f40428724e354fa2b6
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 855f2dc6bcb695623d0d86ded69adec64ba2f75c
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的先决条件
 本主题介绍 Azure AD Connect 的先决条件和硬件要求。
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/22/2017
 ### <a name="azure-ad"></a>Azure AD
 - Azure 订阅或 [Azure 试用版订阅](https://www.azure.cn/pricing/1rmb-trial/)。 此订阅只是用来访问 Azure 门户，而不是用于 Azure AD Connect。 如果使用 PowerShell 或 Office 365，则无需 Azure 订阅即可使用 Azure AD Connect。 如果有 Office 365 许可证，还可以使用 Office 365 门户。 使用付费的 Office 365 许可证，还可以从 Office 365 门户访问 Azure 门户。
   - 还可以使用 [Azure 门户](https://portal.azure.cn)。 此门户不需要 Azure AD 许可证。
-- [添加并验证域](../active-directory-domains-add-azure-portal.md)，该域是计划在 Azure AD 中使用的。 例如，如果计划让用户使用 contoso.com，请确保此域已经过验证，并且不是直接使用 contoso.partner.onmschina.cn 默认域。
+- [添加并验证域](../add-custom-domain.md)，该域是计划在 Azure AD 中使用的。 例如，如果计划让用户使用 contoso.com，请确保此域已经过验证，并且不是直接使用 contoso.partner.onmschina.cn 默认域。
 - 默认情况下，一个 Azure AD 租户允许 5 万个对象。 在验证域后，该限制增加到 30 万个对象。 如果在 Azure AD 中需要更多的对象，则需要开具支持案例来请求增大此限制。 如果需要 50 万个以上的对象，则需要购买 Office 365、Azure AD Basic、Azure AD Premium 或企业移动性和安全性等许可证。
 
 ### <a name="prepare-your-on-premises-data"></a>准备本地数据
@@ -56,12 +56,12 @@ ms.lasthandoff: 12/22/2017
 - 如果正在部署 Active Directory 联合身份验证服务，则要安装 AD FS 或 Web 应用程序代理的服务器必须是 Windows Server 2012 R2 或更高版本。 [Windows 远程管理](#windows-remote-management) 才能进行远程安装。
 - 若要部署 Active Directory 联合身份验证服务，需要使用 [SSL 证书](#ssl-certificate-requirements)。
 - 若要部署 Active Directory 联合身份验证服务，需要配置 [名称解析](#name-resolution-for-federation-servers)。
-- 如果全局管理员已启用 MFA，URL **https://secure.aadcdn.microsoftonline-p.com** 必须在受信任的站点列表中。 在显示 MFA 质询提示之前，系统会先提示将此站点添加到受信任的站点列表中（如果尚未添加）。 可以使用 Internet Explorer 将它添加到受信任站点。
+- 如果全局管理员已启用 MFA，URL **https://secure.aadcdn.microsoftonline-p.com** 必须在受信任的站点列表中。 在显示 MFA 质询提示之前，系统会先提示将此 URL 添加到受信任的站点列表中（如果尚未添加）。 可以使用 Internet Explorer 将它添加到受信任站点。
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect 所使用的 SQL Server
 - Azure AD Connect 要求使用 SQL Server 数据库来存储标识数据。 默认安装 SQL Server 2012 Express LocalDB（轻量版本的 SQL Server Express）。 SQL Server Express 有 10GB 的大小限制，允许管理大约 100,000 个对象。 如果需要管理更多的目录对象，则需要将安装向导指向不同的 SQL Server 安装。
 - 如果使用独立的 SQL Server，则这些要求适用：
-  - Azure AD Connect 支持从 SQL Server 2008（包含最新的 Service Pack）到 SQL Server 2016 SP1 的各种 Microsoft SQL Server。 
+  - Azure AD Connect 支持从 SQL Server 2008（包含最新的 Service Pack）到 SQL Server 2016 SP1 的所有版本 Microsoft SQL Server。 
             **不支持**将 Azure SQL 数据库用作数据库。
   - 必须使用不区分大小写的 SQL 排序规则。 可通过名称中的 \_CI_ 识别这些排序规则。 **不支持**使用区分大小写的排序规则，该规则可通过其名称中的 \_CS_ 识别。
   - 每个 SQL 实例只能有一个同步引擎。 **不支持** 与 FIM/MIM Sync、DirSync 或 Azure AD Sync 共享 SQL 实例。

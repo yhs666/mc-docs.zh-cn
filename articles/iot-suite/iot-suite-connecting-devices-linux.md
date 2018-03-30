@@ -1,26 +1,26 @@
 ---
-title: "使用 C 将 Linux 设备预配到远程监视 - Azure | Microsoft Docs"
-description: "介绍如何使用在 Linux 上运行的以 C 编写的应用程序将设备连接到 Azure IoT 套件预配置远程监视解决方案。"
-services: 
+title: 使用 C 将 Linux 设备预配到远程监视 - Azure
+description: 介绍如何使用在 Linux 上运行的以 C 编写的应用程序将设备连接到 Azure IoT 套件预配置远程监视解决方案。
+services: ''
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0c7c8039-0bbf-4bb5-9e79-ed8cff433629
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/12/2017
+origin.date: 03/14/2018
 ms.author: v-yiso
-ms.date: 01/08/2018
-ms.openlocfilehash: 2036f2bab78d4157d03932a397aed5896589aa95
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.date: 04/02/2018
+ms.openlocfilehash: 45a7042740c37d4d53e9032701862a948529c1dc
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-linux"></a>将设备连接到远程监视预配置解决方案 (Linux)
 
@@ -82,7 +82,7 @@ git clone https://github.com/kgabis/parson.git
 #include "schemaserializer.h"
 #include "azure_c_shared_utility/threadapi.h"
 #include "azure_c_shared_utility/platform.h"
-#include "parson.h"
+#include <string.h>
 ```
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]

@@ -1,6 +1,6 @@
 ---
-title: "Azure RBAC 故障排除 | Microsoft Docs"
-description: "获取有关基于角色的访问控制资源问题或疑问的帮助。"
+title: 排查 Azure 基于角色的访问控制 (RBAC) 问题 | Azure
+description: 获取有关基于角色的访问控制资源问题或疑问的帮助。
 services: azure-portal
 documentationcenter: na
 author: alexchen2016
@@ -15,13 +15,14 @@ origin.date: 07/12/2017
 ms.date: 08/22/2017
 ms.author: v-junlch
 ms.reviewer: rqureshi
-ms.openlocfilehash: 40621521d5fbe550c45c10412e026aa49874266f
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.custom: seohack1
+ms.openlocfilehash: f59348a2445589697d5d992642558223b5783d6f
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 03/19/2018
 ---
-# <a name="role-based-access-control-troubleshooting"></a>基于角色的访问控制故障排除
+# <a name="troubleshooting-azure-role-based-access-control"></a>Azure 基于角色的访问控制疑难解答 
 
 本文回答有关使用角色授予的特定访问权限的常见问题，以便你了解在 Azure 门户中使用角色时可以预期什么，并可以排查访问权限问题。 以下三种角色涵盖所有资源类型：
 
@@ -55,13 +56,13 @@ ms.lasthandoff: 08/25/2017
 
 因此，如果只授予某人对 Web 应用的访问权限，则 Azure 门户中的网站边栏选项卡上的很多功能将被禁用。
 
-这些项需要对与网站对应的应用服务计划具有写入权限：  
+这些项需要对与网站对应的**应用服务计划**具有**写**访问权限：  
 
 - 查看 Web 应用的定价层（免费或标准）  
 - 规模配置（实例数、虚拟机大小、自动缩放设置）  
 - 配额（存储空间、带宽、CPU）  
 
-这些项需要对包含网站的整个资源组具有写入权限：  
+这些项需要对包含网站的整个**资源组**具有**写**访问权限：  
 
 - SSL 证书和绑定（SSL 证书可以在同一资源组和地理位置中的站点之间共享）  
 - 警报规则  

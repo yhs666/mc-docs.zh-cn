@@ -1,120 +1,137 @@
 ---
-title: "从本地 Git 部署到 Azure 应用服务"
-description: "了解如何实现从本地 Git 部署到 Azure 应用服务。"
+title: 从本地 Git 部署到 Azure 应用服务
+description: 了解如何实现从本地 Git 部署到 Azure 应用服务。
 services: app-service
-documentationcenter: 
-author: dariagrigoriu
+documentationcenter: ''
+author: cephalin
 manager: cfowler
-editor: mollybos
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/14/2016
-ms.date: 03/12/2018
+origin.date: 03/05/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: 19efb94680af7b6a1ee9b3df4bf27b3fd61ade6b
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: ba53c633e9d9a1f47975818a3fed2fcdc3598c4c
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
-本教程说明如何将应用从本地计算机上的 Git 存储库部署到 [Azure Web 应用](app-service-web-overview.md)。 应用服务支持结合 [Azure 门户]中的“本地 Git”部署选项使用此方法。  
+
+本操作方法指南说明如何将代码从本地计算机上的 Git 存储库部署到 [Azure 应用服务](app-service-web-overview.md)。
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>先决条件
-要完成本教程，需要：
 
-* Git。 可在 [此处](http://www.git-scm.com/downloads)下载二进制安装文件。  
-* 对 Git 有一个基本的了解。
-* 一个 Azure 帐户。 如果没有帐户，可以 [注册试用版](https://www.azure.cn/pricing/1rmb-trial)。
+按照本操作方法指南中的步骤操作：
 
-## <a name="Step1"></a>步骤 1：创建本地存储库
-执行下列任务可创建新的 Git 存储库。
+* [安装 Git](http://www.git-scm.com/downloads)。
+* 使用想要部署的代码维护本地 Git 存储库。
 
-1. 启动一个命令行工具，例如 **GitBash** (Windows) 或 **Bash** (Unix Shell)。 在 OS X 系统上，可以通过 **Terminal** 应用程序访问命令行。
-2. 导航到要部署的内容所在的目录。
-3. 使用以下命令可初始化新的 Git 存储库：
+要遵循示例存储库操作，请在本地终端窗口运行以下命令：
 
-```bash  
-git init
+```bash
+git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-## <a name="Step2"></a>步骤 2：提交内容
-应用服务支持用各种编程语言创建的应用程序。 
+## <a name="prepare-your-repository"></a>准备存储库
 
-1. 如果存储库尚不包含内容，请添加静态 .html 文件（如下所示）或跳过此步骤：
-   * 使用文本编辑器，在 Git 存储库的根中创建一个名为 **index.html** 的新文件。
-   * 添加以下文本作为 index.html 文件的内容并保存该文件：*Hello Git!*
-1. 在命令行中，验证当前位置是否在 Git 存储库的根目录下。 然后使用以下命令将文件添加到存储库中：
+确保存储库根路径具有项目中的正确文件。
 
-    ```bash  
-    git add -A 
-    ```
-3. 接下来，使用以下命令将更改提交到存储库：
+| 运行时 | 根目录文件 |
+|-|-|
+| ASP.NET（仅限 Windows） | *.sln、*.csproj 或 default.aspx |
+| ASP.NET Core | *.sln 或 *.csproj |
+| PHP | index.php |
+| Ruby（仅限 Linux） | Gemfile |
+| Node.js | server.js、app.js 或具有启动脚本的 package.json |
+| Python（仅限 Windows） | \*.py、requirements.txt 或 runtime.txt |
+| HTML | default.htm、default.html、default.asp、index.htm、index.html 或 iisstart.htm |
+| Web 作业 | App\_Data/jobs/continuous（适用于连续的 WebJobs）或 App\_Data/jobs/triggered（适用于触发的 WebJobs）下的 \<job_name>/run.\<extension>。 有关详细信息，请参阅 [Kudu WebJobs 文档](https://github.com/projectkudu/kudu/wiki/WebJobs) |
 
-    ```bash  
-    git commit -m "Hello Azure App Service"
-    ```  
+要自定义部署，可以在存储库根路径中添加 .deployment 文件。 有关详细信息，请参阅[自定义部署](https://github.com/projectkudu/kudu/wiki/Customizing-deployments)和[自定义部署脚本](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)。
 
-## <a name="Step3"></a>步骤 3：启用应用服务应用存储库
-执行以下步骤为应用服务应用启用 Git 存储库。
+> [!NOTE]
+> 请确保 `git commit` 想要部署的所有更改。
+>
+>
 
-1. 登录到 [Azure 门户]。
-1. 在应用服务应用的视图中，单击“设置”>“部署源”。 依次单击“选择源”、“本地 Git 存储库”、“确定”。
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-    ![本地 Git 存储库](./media/app-service-deploy-local-git/local_git_selection.png)
+[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user.md)]
 
-1. 如果这是你第一次在 Azure 中设置存储库，则需要为其创建登录凭据。 使用凭据登录到 Azure 存储库并从本地 Git 存储库推送更改。 在 Web 应用的视图中，单击“设置”>“部署凭据”，并配置部署用户名和密码。 完成后，单击“保存”。
+## <a name="enable-git-for-your-app"></a>启用应用的 Git
 
-    ![](./media/app-service-deploy-local-git/deployment_credentials.png)
+要启用现有应用服务应用的 Git 部署，请运行 [`az webapp deployment source config-local-git`](/cli/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_local_git)。
 
-## <a name="Step4"></a>步骤 4：部署项目
-使用以下步骤通过本地 Git 将应用发布到应用服务。
+```azurecli
+az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
+```
 
-1. 在 Azure 门户的 Web 应用视图中，对“Git URL”单击“设置”>“属性”。
+要创建启用 Git 的应用，请结合 `--deployment-local-git` 参数运行 [`az webapp create`](/cli/webapp?view=azure-cli-latest#az_webapp_create)。
 
-    ![](./media/app-service-deploy-local-git/git_url.png)
+```azurecli
+az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
+```
 
-    **Git URL** 是从本地存储库到部署的远程引用。 在后续步骤中将使用此 URL。
-1. 使用命令行验证当前位置是否在本地 Git 存储库的根目录下。
-1. 使用 `git remote` 添加步骤 1 的 **Git URL** 中所列的远程引用。 命令类似于以下内容：
+`az webapp create` 命令的输出应如下所示：
 
-    ```bash
-        git remote add azure https://<username>@localgitdeployment.scm.chinacloudsites.cn:443/localgitdeployment.git         
-    ```
-   > [!NOTE]
-   > **remote** 命令可将命名引用添加到远程存储库。 在本示例中，它为 Web 应用的存储库创建名为“azure”的引用。
-   > 
-   > 
-   
-1. 使用创建的新 **azure** 远程将内容推送到应用服务。
+```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.chinacloudsites.cn/<app_name>.git'
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.chinacloudsites.cn",
+  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.chinacloudsites.cn/<app_name>.git",
+  "enabled": true,
+  < JSON data removed for brevity. >
+}
+```
 
-    ```bash  
-    git push azure master
-    ```
+## <a name="deploy-your-project"></a>部署项目
 
-    在 Azure 门户中重置部署凭据时，系统会提示输入以前创建的密码。 输入该密码（请注意，在键入密码时，Gitbash 不会将星号回显到控制台）。 
-1. 返回到 Azure 门户中的应用。 最近推送的日志条目应显示在“部署”视图中。
+回到本地终端窗口，将 Azure 远程功能添加到本地 Git 存储库。 使用从[启用应用的 Git](#enable-git-for-you-app)中获取的 Git 远程 URL 替换 \<url>。
+
+```bash
+git remote add azure <url>
+```
+
+使用以下命令推送到 Azure 远程功能以部署应用。 提示输入密码时，请确保输入在[配置部署用户](#configure-a-deployment-user)中创建的密码，而不是用于登录到 Azure 门户的密码。
+
+```bash
+git push azure master
+```
+
+在输出中可能会看到特定于运行时的自动化，如 MSBuild for ASP.NET、`npm install` for Node.js 和 `pip install` for Python。 
+
+部署完成后，Azure 门户中的应用现应在“部署选项”页具有 `git push` 的记录。
 
     ![](./media/app-service-deploy-local-git/deployment_history.png)
 
-1. 单击 Web 应用页顶部的“浏览”按钮来验证是否已部署内容。
+浏览到应用以验证内容已部署。
 
-## <a name="Step5"></a>故障排除
+## <a name="troubleshooting"></a>故障排除
+
 以下是使用 Git 发布到 Azure 中的应用服务应用时遇到的常见错误或问题：
 
-- - -
-**症状**：无法访问“[siteURL]”：无法连接到 [scmAddress]
+---
+**症状**：`Unable to access '[siteURL]': Failed to connect to [scmAddress]`
 
-**原因**：如果应用无法正常工作，则会发生该错误。
+**原因**：如果应用无法启动和运行，则会发生该错误。
 
 **解决方法**：在 Azure 门户中启动应用。 如果 Web 应用停止时，Git 部署将不可用。
 
-- - -
-**症状**：无法解析主机“主机名”
+---
+**症状**：`Couldn't resolve host 'hostname'`
 
 **原因**：如果创建“azure”远程网站时输入的地址信息不正确，则会发生该错误。
 
@@ -125,7 +142,7 @@ git init
 
 **原因**：如果在 `git push` 期间未指定分支，或者未在 `.gitconfig` 中设置 `push.default` 值，则会出现此错误。
 
-**解决方法**：请再次执行推送操作，并指定 master 分支。 例如：
+**解决方法**：再次运行 `git push`，指定主分支。 例如：
 
 ```bash  
 git push azure master
@@ -134,9 +151,9 @@ git push azure master
 ---
 **症状**：`src refspec [branchname] does not match any.`
 
-**原因**：如果尝试推送到“azure”远程网站上 master 分支之外的分支，则会发生该错误。
+**原因**：如果尝试推送到“azure”远程网站上主分支之外的分支，则会发生该错误。
 
-**解决方法**：请再次执行推送操作，并指定 master 分支。 例如：
+**解决方法**：再次运行 `git push`，指定主分支。 例如：
 
 ```bash  
 git push azure master
@@ -156,7 +173,7 @@ git config --global http.postBuffer 524288000
 ---
 **症状**：`Error - Changes committed to remote repository but your web app not updated.`
 
-**原因**：如果部署的是 Node.js 应用，其中包含用于指定其他必需模块的 package.json 文件，则会发生该错误。
+**原因**：如果部署 Node.js 应用时使用的 package.json 文件指定了其他所需模块，则会发生该错误。
 
 **解决方法**：应在发生此错误之前记录包含“npm ERR!” 的其他消息，这些消息可提供有关失败的其他上下文。 以下是该错误的已知原因和相应的“npm ERR!” 消息:
 
@@ -169,17 +186,6 @@ git config --global http.postBuffer 524288000
   * `npm ERR! [modulename@version] preinstall: \make || gmake\`
 
 ## <a name="additional-resources"></a>其他资源
-* [Git 文档](http://git-scm.com/documentation)
+
 * [项目 Kudu 文档](https://github.com/projectkudu/kudu/wiki)
 * [连续部署到 Azure 应用服务](app-service-continuous-deployment.md)
-* [如何使用适用于 Azure 的 PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview)
-* [如何使用 Azure 命令行接口](../cli-install-nodejs.md)
-
-[Azure Developer Center]: /develop/overview/
-[Azure 门户]: https://portal.azure.cn
-[Git website]: http://git-scm.com
-[Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Azure Command-Line Interface]: /azure-resource-manager/xplat-cli-azure-resource-manager/
-
-[Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
-[Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart

@@ -1,8 +1,8 @@
 ---
-title: "使用 Windows 上的 AzCopy 将数据复制或移动到 Azure 存储 | Microsoft Docs"
-description: "使用 Windows 上的 AzCopy 实用工具将数据移动或复制到 Blob、表和文件内容或从 Blob、表和文件内容移动或复制数据。 从本地文件将数据复制到 Azure 存储，或者在存储帐户中或存储帐户之间复制数据。 轻松地将数据迁移到 Azure 存储。"
+title: 使用 Windows 上的 AzCopy 将数据复制或移动到 Azure 存储 | Microsoft Docs
+description: 使用 Windows 上的 AzCopy 实用工具将数据移动或复制到 Blob、表和文件内容或从 Blob、表和文件内容移动或复制数据。 从本地文件将数据复制到 Azure 存储，或者在存储帐户中或存储帐户之间复制数据。 轻松地将数据迁移到 Azure 存储。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
 editor: tysonn
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 01/29/2018
 ms.date: 03/05/2018
 ms.author: v-nany
-ms.openlocfilehash: 8d654d4aa519fc7f81c7a1b81abc7d9a50701bf7
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: cdf86bd3e847d10eaf5013155746cb0ad783cec6
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>使用 Windows 上的 AzCopy 传输数据
 AzCopy 是一个命令行实用程序，专用于使用旨在实现最佳性能的简单命令将数据复制到 Microsoft Azure Blob、文件和表存储以及从这些位置复制数据。 可在文件系统和存储帐户之间或在存储帐户之间复制数据。  
@@ -57,7 +57,7 @@ AzCopy /Source:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:C:
 ### <a name="download-a-single-blob-from-the-secondary-region"></a>从次要区域下载单个 Blob
 
 ```azcopy
-AzCopy /Source:https://myaccount-secondary.blob.core.chinacloudapi.cn/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+AzCopy /Source:https://myaccount-secondary.blob.core.chinacloudapi.cn/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
 请注意，必须启用读取访问权限异地冗余存储才能访问次要区域。
@@ -107,7 +107,7 @@ AzCopy /Source:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:C:
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-前缀适用于虚拟目录，后者构成了 blob 名称的第一个部分。 在上面所示的示例中，虚拟目录与指定的前缀不匹配，因此不会下载它。 此外，如果未指定选项 `\S`，AzCopy 将不会下载任何 blob。
+前缀适用于虚拟目录，后者构成了 blob 名称的第一个部分。 在上面所示的示例中，虚拟目录与指定的前缀不匹配，因此不会下载它。 此外，如果未指定选项 `/S`，AzCopy 将不会下载任何 blob。
 
 ### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>将已导出文件的上次修改时间设置为与源 blob 相同
 
@@ -611,7 +611,7 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 
 * 若要获取 AzCopy 的详细命令行帮助信息，请键入： `AzCopy /?`
 * 若要获取任何 AzCopy 参数的详细帮助信息，请键入： `AzCopy /?:SourceKey`
-* 若要获取命令行示例，请键入： `AzCopy /?:Samples`
+* 若要获取命令行示例，请键入： `AzCopy /?:Sample`
 
 ### <a name="sourcesource"></a>/Source:"source"
 

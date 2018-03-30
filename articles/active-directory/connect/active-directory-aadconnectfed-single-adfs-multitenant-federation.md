@@ -1,13 +1,13 @@
 ---
-title: "联合多个 Azure AD 与单个 AD FS | Microsoft Docs"
-description: "本文档介绍如何联合多个 Azure AD 与单个 AD FS。"
-keywords: "联合, ADFS, AD FS, 多个租户, 单个 AD FS, 一个 ADFS, 多租户联合身份验证, 多林 adfs, aad connect, 联合身份验证, 跨租户联合身份验证"
+title: 联合多个 Azure AD 与单个 AD FS | Microsoft Docs
+description: 本文档介绍如何联合多个 Azure AD 与单个 AD FS。
+keywords: 联合, ADFS, AD FS, 多个租户, 单个 AD FS, 一个 ADFS, 多租户联合身份验证, 多林 adfs, aad connect, 联合身份验证, 跨租户联合身份验证
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 origin.date: 07/17/2017
 ms.date: 12/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: 482b20d8c44d8e9bc20394d543aa2f4578cdf4c8
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 1586d6265dbce071ea18def9fea084e2b1f5997f
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>将 Azure AD 的多个实例与 AD FS 的单个实例联合
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/22/2017
  
 在 AD FS 服务器上，打开 Azure AD PowerShell 并执行以下步骤：
  
-连接到 Azure Active Directory，其中包含域 contoso.com Connect-MsolService 更新 contoso.com 的联合身份验证设置 Update-MsolFederatedDomain -DomainName contoso.com -SupportMultipleDomain
+连接到 Azure Active Directory，其中包含域 contoso.com Connect-MsolService -AzureEnvironment AzureChinaCloud 更新 contoso.com 的联合身份验证设置 Update-MsolFederatedDomain -DomainName contoso.com -SupportMultipleDomain
  
 会将域联合身份验证设置中的颁发者更改为“http://contoso.com/adfs/services/trust”，并且会为 Azure AD 信赖方信任添加颁发声明规则，以便根据 UPN 后缀颁发正确的 issuerId 值。
  

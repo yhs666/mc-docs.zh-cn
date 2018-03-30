@@ -1,23 +1,23 @@
 ---
-title: "在 Azure Stack 中提供虚拟机规模集 | Microsoft Docs"
-description: "了解云操作员如何向 Azure Stack 应用商店中添加虚拟机规模集"
+title: 在 Azure Stack 中提供虚拟机规模集 | Microsoft Docs
+description: 了解云操作员如何向 Azure Stack 应用商店中添加虚拟机规模集
 services: azure-stack
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 03/01/2018
+origin.date: 03/13/2018
+ms.date: 03/22/2018
 ms.author: v-junlch
 ms.reviewer: anajod
-keywords: 
-ms.openlocfilehash: 50b42d9a390484a07cfb986532e64bcfe9c7efc8
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+keywords: ''
+ms.openlocfilehash: d7e13b2f644a6f49b86da3036eb0999fccccfcbe
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虚拟机规模集
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/02/2018
 
 虚拟机规模集是一种 Azure Stack 计算资源。 可以使用它们部署和管理一组相同的虚拟机。 由于所有虚拟机的配置都相同，因此规模集不需要预配虚拟机。 可以更方便地构建面向大型计算、大数据、容器化工作负荷的大规模服务。
 
-本主题将指导你完成在 Azure Stack 应用商店中提供规模集的过程。 完成此过程之后，用户将可以将虚拟机规模集添加到其订阅。
+本文将指导你完成在 Azure Stack Marketplace 中提供规模集的过程。 完成此过程之后，用户将可以将虚拟机规模集添加到其订阅。
 
 Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 有关详细信息，请参阅以下视频：
 - [Mark Russinovich talks Azure scale sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)（Mark Russinovich 谈论 Azure 规模集）
@@ -43,8 +43,6 @@ Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 
         Import-Module .\AzureStack.ComputeAdmin.psm1
 
 - **操作系统映像**
-
-   如果尚未将操作系统映像添加到 Azure Stack 应用商店，请参阅[将 Windows Server 2016 VM 映像添加到 Azure Stack 应用商店](azure-stack-add-default-image.md)。
 
    若要支持 Linux，请下载 Ubuntu Server 16.04 并使用带以下参数的 ```Add-AzsVMImage``` 添加它：```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```。
 
@@ -68,7 +66,6 @@ $Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
 
 $AzsEnv = Get-AzureRmEnvironment AzureStackAdmin
 $AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
-Select-AzureRmProfile -Profile $AzsEnvContext
 
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
@@ -82,10 +79,11 @@ Add-AzsVMSSGalleryItem -Location $Location
     Remove-AzsVMSSGalleryItem
 
 > [!NOTE]
-> 库项可能不会立即删除。 可能需要刷新门户几次，该库项才会从应用商店中删除。
+> 库项可能不会立即删除。 可能需要刷新门户几次，该项才会从 Marketplace 中删除。
 
 
 ## <a name="next-steps"></a>后续步骤
 [Azure Stack 常见问题解答](azure-stack-faq.md)
 
 
+<!-- Update_Description: wording update -->

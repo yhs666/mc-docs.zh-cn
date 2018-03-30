@@ -1,10 +1,10 @@
 ---
-title: "使用共享访问签名限制访问 - Azure HDInsight | Azure"
-description: "了解如何使用共享访问签名限制对 HDInsight 访问存储在 Azure 存储 Blob 中的数据。"
+title: 使用共享访问签名限制访问 - Azure HDInsight | Azure
+description: 了解如何使用共享访问签名限制对 HDInsight 访问存储在 Azure 存储 Blob 中的数据。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
@@ -13,18 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/02/2017
-ms.date: 12/25/2017
+origin.date: 01/25/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0c82017b5f0819416b6fb2b0477299867e3578c7
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 9273c317613b9c5ba081b7dbcd35397d77e38b44
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 存储共享访问签名来限制访问 HDInsight 中的数据
 
 HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权限。 可以使用 Blob 容器中的共享访问签名来限制对数据的访问。 例如，提供对数据的只读访问权限。 共享访问签名 (SAS) 是可用于限制数据访问权限的一项 Azure 存储帐户功能。 例如，它可以提供对数据的只读访问。
+
+> [!IMPORTANT]
+> 对于使用 Apache Ranger 的解决方案，请考虑使用已加入域的 HDInsight。 有关详细信息，请参阅[配置已加入域的 HDInsight](./domain-joined/apache-domain-joined-configure.md) 文档。
 
 > [!WARNING]
 > HDInsight 必须对群集的默认存储拥有完全访问权限。
@@ -40,9 +43,9 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
 * 基于 Linux 的 HDInsight 群集或 [Azure PowerShell][powershell] - 如果拥有现有的基于 Linux 的群集，可以使用 Ambari 将共享访问签名添加到群集。 如果没有，则可以使用 Azure PowerShell 创建群集，并在创建群集期间添加共享访问签名。
 
     > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+    > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-* 来自以下网址的示例文件： [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)。 此存储库包含以下项：
+* [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature) 中的示例文件。 此存储库包含以下项：
 
   * Visual Studio 项目，可以创建存储容器、存储策略，以及与 HDInsight 配合使用的 SAS
   * Python 脚本，可以创建存储容器、存储策略，以及与 HDInsight 配合使用的 SAS
@@ -56,7 +59,7 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
 
 * 存储的访问策略：在资源容器（例如 Blob 容器）中定义存储的访问策略。 可以使用策略来管理一个或多个共享访问签名的约束。 将某一 SAS 与一个存储访问策略相关联时，该 SAS 会继承对该存储访问策略定义的约束：开始时间、到期时间和权限。
 
-这两种形式之间的差异对于一个关键情形而言十分重要：吊销。 SAS 就是 URL，因此获取该 SAS 的任何人都可以使用它，而与谁请求它开始操作无关。 如果 SAS 是公开发布的，则世界上的任何人都可以使用它。 在发生以下四种情况之一前分发的 SAS 有效：
+这两种形式之间的差异对于一个关键情形而言十分重要：吊销。 SAS 就是 URL，因此获取该 SAS 的任何人都可以使用它，而与谁请求它开始操作无关。 如果某一 SAS 是公开发布的，则世界上的任何人都可以使用它。 在发生以下四种情况之一前分发的 SAS 有效：
 
 1. 达到了对该 SAS 指定的到期时间。
 
@@ -118,7 +121,7 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
 
     保存 SAS 策略令牌、存储帐户名称和容器名称。 将存储帐户与 HDInsight 群集关联时，将使用这些值。
 
-## <a name="use-the-sas-with-hdinsight"></a>配合 HDInsight 使用 SAS
+## <a name="use-the-sas-with-hdinsight"></a>将 SAS 与 HDInsight 配合使用
 
 创建 HDInsight 群集时，必须指定主存储帐户，可以选择性地指定其他存储帐户。 这两种添加存储的方法都需要对所用存储帐户和容器拥有完全访问权限。
 
@@ -194,7 +197,7 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
 
 如果拥有现有的基于 Linux 的群集，可以通过执行以下步骤将 SAS 添加到 **core-site** 配置：
 
-1. 打开群集的 Ambari Web UI。 此页的地址是 https://YOURCLUSTERNAME.azurehdinsight.cn。 出现提示时，使用创建群集时所用的管理员名称 (admin) 和密码向群集进行身份验证。
+1. 打开群集的 Ambari Web UI。 此页面的地址为 https://YOURCLUSTERNAME.azurehdinsight.cn。 出现提示时，使用创建群集时所用的管理员名称 (admin) 和密码向群集进行身份验证。
 
 2. 从 Ambari Web UI 的左侧，选择“HDFS”，并在页面的中间选择“配置”选项卡。
 
@@ -214,7 +217,7 @@ HDInsight 对群集关联的 Azure 存储帐户中的数据拥有完全访问权
    > [!IMPORTANT]
    > 必须重启几个服务才能使更改生效。
 
-6. 在 Ambari Web UI 中，从左侧的列表中选择“HDFS”，并从右侧的“服务操作”下拉列表选择“全部重启”。 出现提示时，选择“打开维护模式”，并选择“确认全部重启”。
+6. 在 Ambari Web UI 中，从左侧的列表中选择“HDFS”，并从右侧的“服务操作”下拉列表中选择“重启所有受影响项”。 出现提示时，选择“确认全部重启”。
 
     对 MapReduce2 和 YARN 重复此过程。
 

@@ -1,8 +1,8 @@
 ---
-title: "在 HDInsight 中将 Hadoop Pig 与 REST 配合使用 - Azure | Azure"
-description: "了解如何使用 REST 在 Azure HDInsight 中的 Hadoop 群集上运行 Pig Latin 作业。"
+title: 在 HDInsight 中将 Hadoop Pig 与 REST 配合使用 - Azure | Azure
+description: 了解如何使用 REST 在 Azure HDInsight 中的 Hadoop 群集上运行 Pig Latin 作业。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -17,11 +17,11 @@ ms.workload: big-data
 origin.date: 10/23/2017
 ms.date: 12/18/2017
 ms.author: v-yiso
-ms.openlocfilehash: e691b37f9c1b91f94c2d71711320ea30d13dec2f
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: f55aca967b694a1ff75f812eb30be3fd315d3fb6
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>使用 REST 通过 HDInsight 上的 Hadoop 运行 Pig 作业
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/08/2017
 * Azure HDInsight（HDInsight 上的 Hadoop）群集（基于 Linux 或 Windows）
 
   > [!IMPORTANT]
-  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+  > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * [Curl](http://curl.haxx.se/)
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 12/08/2017
     * **-u**：用来对请求进行身份验证的用户名和密码。
     * **-G**：指示此请求是 GET 请求
 
-     所有请求的 URL 开头都是 **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**。 路径 **/status** 指示请求是要返回服务器的 WebHCat（也称为 Templeton）状态。
+     URL 的开头 (**https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**) 对于所有请求都是相同的。 路径 **/status** 指示请求是要返回服务器的 WebHCat（也称为 Templeton）状态。
 
 2. 使用以下代码将 Pig Latin 作业提交到群集：
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 12/08/2017
     > [!NOTE]
     > 请注意，在与 Curl 配合使用时，将使用 `+` 字符替换 Pig Latin 语句中的空格。
 
-    此命令应返回可用来检查作业状态的作业 ID，例如：
+    此命令应会返回可用来检查作业状态的作业 ID，例如：
 
         {"id":"job_1415651640909_0026"}
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 12/08/2017
 
      将 `JOBID` 替换为上一步骤返回的值。 例如，如果返回值为 `{"id":"job_1415651640909_0026"}`，则 `JOBID` 将是 `job_1415651640909_0026`。
 
-    如果作业已完成，状态将是 **SUCCEEDED**。
+    如果作业已完成，状态是 **SUCCEEDED**。
 
     > [!NOTE]
     > 此 Curl 请求返回具有作业相关信息的 JavaScript 对象表示法 (JSON) 文档；使用 jq 可以仅检索状态值。
@@ -106,7 +106,7 @@ ms.lasthandoff: 12/08/2017
 
 当作业的状态更改为“成功”后，可检索作业结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置；在本例中，该位置为 `/example/pigcurl`。
 
-HDInsight 可以使用 Azure 存储作为默认数据存储。 有关详细信息，请参阅[基于 Linux 的 HDInsight 信息](hdinsight-hadoop-linux-information.md#hdfs-and-azure-storage)文档的存储部分。
+HDInsight 可以使用 Azure 存储作为默认数据存储。 有关详细信息，请参阅[基于 Linux 的 HDInsight 信息](../hdinsight-hadoop-linux-information.md#hdfs-and-azure-storage)文档的存储部分。
 
 ## <a id="summary"></a>摘要
 

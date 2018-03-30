@@ -1,11 +1,11 @@
 ---
-title: "创建、更改或删除 Azure 公共 IP 地址 | Azure"
-description: "了解如何创建、更改或删除公共 IP 地址。"
+title: 创建、更改或删除 Azure 公共 IP 地址 | Azure
+description: 了解如何创建、更改或删除公共 IP 地址。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
 ms.service: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2b89fb0527ad3bec7c6bc171b3a3e09b1ea49e48
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 5bbc9fe60e77cffb1eda35061ef1339f086e0889
+ms.sourcegitcommit: 9b4669fe42e0dd7e3b463423ae4f58143af2b111
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>创建、更改或删除公共 IP 地址
 
@@ -51,15 +51,9 @@ ms.lasthandoff: 03/12/2018
     |设置|必需？|详细信息|
     |---|---|---|
     |SKU|是|引入 SKU 之前创建的所有公共 IP 地址均为基本 SKU 公共 IP 地址。  创建公共 IP 地址后，无法更改此 SKU。 独立虚拟机、可用性集内的虚拟机或虚拟机规模集可使用基本 SKU 或标准 SKU。  不允许在可用性集或规模集内的虚拟机之间混用 SKU。 基本 SKU：如果要在支持可用性区域的区域内创建公共 IP 地址，“可用性区域”设置默认设为“无”。 可选择一个可用性区域，保证公共 IP 地址具有一个特定区域。 标准 SKU：标准 SKU 公共 IP 可关联到虚拟机或负载均衡器前端。 如果要在支持可用性区域的区域内创建公共 IP 地址，“可用性区域”设置默认设为“区域冗余”。 有关可用性区域的详细信息，请参阅“可用性区域”设置。 将地址关联到标准负载均衡器时需使用标准 SKU。  标准 SKU 目前为预览版本。 创建标准 SKU 公共 IP 地址之前，必须先完成“注册标准 SKU 预览版”中的步骤，然后在支持的位置（区域）中创建该公共 IP 地址。 有关支持位置的列表，请密切关注 [Azure 虚拟网络更新](https://www.azure.cn/what-is-new/)页面，了解其他的区域支持信息。 将标准 SKU 公共 IP 地址分配到虚拟机的网络接口时，必须使用[网络安全组](security-overview.md#network-security-groups)显式允许预期流量。 创建并关联网络安全组且显式允许所需流量之后，才可与资源通信。|
-<!-- Not Avaialbe on Load Balancer Standard -->
-    |Name|Yes|The name must be unique within the resource group you select.|
-    |IP Version|Yes| Select IPv4.  While public IPv4 addresses can be assigned to several Azure resources.
-    |IP address assignment|Yes|**Dynamic:** Dynamic addresses are assigned only after the public IP address is associated to a network interface attached to a virtual machine and the virtual machine is started for the first time. Dynamic addresses can change if the virtual machine the network interface is attached to is stopped (deallocated). The address remains the same if the virtual machine is rebooted or stopped (but not deallocated). **Static:** Static addresses are assigned when the public IP address is created. Static addresses do not change even if the virtual machine is put in the stopped (deallocated) state. The address is only released when the network interface is deleted. You can change the assignment method after the network interface is created. If you select *Standard* for **SKU**, the assignment method is *Static*.|
-    |Idle timeout (minutes)|No|How many minutes to keep a TCP or HTTP connection open without relying on clients to send keep-alive messages.|
-    |DNS name label|No|Must be unique within the Azure location you create the name in (across all subscriptions and all customers). Azure automatically registers the name and IP address in its DNS so you can connect to a resource with the name. Azure appends a default subnet such as *location.cloudapp.chinacloudapi.cn* (where location is the location you select) to the name you provide, to create the fully qualified DNS name. Azure's default DNS contains IPv4 A name records and responds with record when the DNS name is looked up. The client chooses (IPv4) address to communicate with. Instead of, or in addition to, using the DNS name label with the default suffix, you can use the Azure DNS service to configure a DNS name with a custom suffix that resolves to the public IP address.|
-    |Subscription|Yes|Must exist in the same [subscription](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription) as the resource you want to associate the public IP address to.|
-    |Resource group|Yes|Can exist in the same, or different, [resource group](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group) as the resource you want to associate the public IP address to.|
-    |Location|Yes|Must exist in the same [location](https://azure.microsoft.com/regions), also referred to as region, as the resource you want to associate the public IP address to.|
+    <!-- Not Avaialbe on Load Balancer Standard -->
+    |名称|是|该名称必须在所选资源组中唯一。| |IP 版本|是| 选择 IPv4。  虽然可以将公共 IPv4 地址分配给多个 Azure 资源，
+    |IP 地址分配|是|**动态：**仅在将公共 IP 地址与附加到虚拟机的网络接口相关联并首次启动该虚拟机后，才分配动态地址。 如果网络接口所附加到的虚拟机停止（解除分配），动态地址可能发生更改。 如果虚拟机重启或停止（但未解除分配），该地址将保持不变。 **静态：** 创建公共 IP 地址时，将分配静态地址。 即使虚拟机处于停止（解除分配）状态，静态地址也不改变。 仅当删除网络接口时才释放该地址。 创建网络接口后，可更改分配方法。 如果选择“标准”作为 SKU，则分配方法为“静态”。| |空闲超时（分钟）|否|在不依赖于客户端发送 keep-alive 消息的情况下，将 TCP 或 HTTP 连接保持打开的分钟数。| |DNS 名称标签|否|必须在创建该名称的 Azure 位置（所有订阅和所有客户位置）中保持唯一。 Azure 会在其 DNS 中自动注册该名称和 IP 地址，使你能够连接到使用该名称的资源。 Azure 会将类似于 *location.cloudapp.chinacloudapi.cn*（其中 location 是所选的位置）的默认子网追加到提供的名称后面，以创建完全限定的 DNS 名称。 Azure 的默认 DNS 包含 IPv4 A 名称记录，并在查找 DNS 名称时响应该记录。 客户端选择要与哪个 (IPv4) 地址通信。 除了使用带有默认后缀的 DNS 名称标签以外，还可以改用 Azure DNS 服务来配置带有自定义后缀（可解析为公共 IP 地址）的 DNS 名称。| |订阅|是|必须与要将公共 IP 地址关联到的资源位于同一[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)中。| |资源组|是|可与要将公共 IP 地址关联到的资源位于相同或不同的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)中。| |位置|是|必须与要将公共 IP 地址关联到的资源位于同一[位置](https://azure.microsoft.com/regions)（也称为“区域”）。|
 <!-- Line 49 Not Available on [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
 <!-- Not Available on Available zone -->
 

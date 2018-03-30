@@ -1,28 +1,28 @@
 ---
-title: "Apache Storm 示例 Java 拓扑 - Azure HDInsight | Azure"
-description: "了解如何通过创建一个示例单词计数拓扑，来以 Java 语言创建 Apache Storm 拓扑。"
+title: Apache Storm 示例 Java 拓扑 - Azure HDInsight | Azure
+description: 了解如何通过创建一个示例单词计数拓扑，来以 Java 语言创建 Apache Storm 拓扑。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-keywords: "apache storm,apache storm 示例,storm java,storm 拓扑示例"
+keywords: apache storm,apache storm 示例,storm java,storm 拓扑示例
 ms.assetid: a8838f29-9c08-4fd9-99ef-26655d1bf6d7
 ms.service: hdinsight
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/01/2017
-ms.date: 12/25/2017
+origin.date: 02/20/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 66e7e714fedb08fc370c1ee2dd764951ec72a66c
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: e2e857477938aba96361f4194158aef0bb3f6bd7
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>以 Java 语言创建 Apache Storm 拓扑
 
@@ -30,10 +30,7 @@ ms.lasthandoff: 12/15/2017
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
 
-> [!NOTE]
-> Storm 0.10.0 或更高版本中提供了 Flux 框架。 HDInsight 3.3 和 3.4 提供了 Storm 0.10.0。
-
-完成本文档中的步骤之后，可将拓扑部署到 Apache Storm on HDInsight。
+完成本文档中的步骤之后，便可以将拓扑部署到 Apache Storm on HDInsight。
 
 > [!NOTE]
 > [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount) 上提供了本文档中创建的 Storm 拓扑示例的完整版本。
@@ -48,7 +45,7 @@ ms.lasthandoff: 12/15/2017
 
 ## <a name="configure-environment-variables"></a>配置环境变量
 
-可以在安装 Java 和 JDK 时设置以下环境变量。 但应检查其是否存在并且包含相关系统的适当值。
+可以在安装 Java 和 JDK 时设置以下环境变量。 不过，应该检查它们是否存在并且包含系统的正确值。
 
 * **JAVA_HOME** - 应该指向已安装 Java 运行时环境 (JRE) 的目录。 例如，在 Unix 或 Linux 分发版中，它的值应该类似于 `/usr/lib/jvm/java-8-oracle`。 在 Windows 中，它的值类似于 `c:\Program Files (x86)\Java\jre1.8`
 
@@ -164,7 +161,7 @@ Maven 允许定义项目级的值，称为属性。 在 __pom.xml__ 中，在 `<
 
 ## <a name="build-configuration"></a>生成配置
 
-Maven 插件可用于自定义项目的生成阶段。 例如，如何编译项目或者如何将其打包到 JAR 文件中。 打开 `pom.xml` 文件，并紧靠在 `</project>` 行的上方添加以下代码。
+Maven 插件可用于自定义项目的生成阶段。 例如，如何编译项目或者如何将其打包到 JAR 文件中。 打开 `pom.xml` 文件，并在 `</project>` 行的上方直接添加以下代码。
 
 ```xml
 <build>
@@ -175,7 +172,7 @@ Maven 插件可用于自定义项目的生成阶段。 例如，如何编译项�
 </build>
 ```
 
-此节用于添加插件、资源和其他生成配置选项。 有关 **pom.xml** 文件的完整参考信息，请参阅 [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html)。
+此节用于添加插件、资源和其他生成配置选项。 有关 **pom.xml** 文件的完整参考，请参阅 [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html)。
 
 ### <a name="add-plug-ins"></a>添加插件
 
@@ -726,7 +723,7 @@ YAML 文件定义了要用于拓扑的组件以及它们之间的数据流。 �
     ```
 
     > [!WARNING]
-    > 如果拓扑使用 Storm 1.0.1 位，此命令会失败。 此失败是由 [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055) 引起的。 相反，[在开发环境中安装 Storm](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)，并按照以下步骤操作：
+    > 如果拓扑使用 Storm 1.0.1 位，此命令会失败。 此失败是由 [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055) 导致的。 相反，[在开发环境中安装 Storm](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)，并按照以下步骤操作：
     >
     > 如果已[在开发环境中安装 Storm](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)，则可以改用以下命令：
     >
@@ -774,7 +771,7 @@ YAML 文件定义了要用于拓扑的组件以及它们之间的数据流。 �
 
     启动拓扑后，应会发现发出批的间隔时间已发生更改，反映 newtopology.yaml 中的值。 因此可以看到，无需重新编译拓扑即可通过 YAML 文件更改配置。
 
-有关 Flux 框架的上述功能和其他功能的详细信息，请参阅 [Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html)。
+有关 Flux 框架的上述功能和其他功能的详细信息，请参阅 [Flux https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html)。
 
 ## <a name="trident"></a>Trident
 

@@ -1,11 +1,11 @@
 ---
-title: "快速入门：在 Azure SQL 数据仓库中横向扩展计算资源 - T-SQL | Azure"
-description: "通过调整 DWU 缩放计算资源的 T-SQL 命令。"
+title: 快速入门：在 Azure SQL 数据仓库中横向扩展计算资源 - T-SQL | Azure
+description: 通过调整 DWU 缩放计算资源的 T-SQL 命令。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,11 @@ ms.custom: manage
 origin.date: 01/31/2018
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: d7f1e5275995cf41abafb24b410ccb0461615d51
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 26f3a1e9ccd570dd37250b66fc3bbfccd95ea676
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>快速入门：使用 T-SQL 在 Azure SQL 数据仓库中缩放计算资源
 
@@ -101,18 +101,9 @@ MODIFY (SERVICE_OBJECTIVE = 'DW300')
 ;
 ```
 
-## <a name="check-database-state"></a>检查数据库状态
+## <a name="check-data-warehouse-state"></a>检查数据仓库状态
 
-若要检查数据库状态，对其运行以下查询 **master** 数据库。
-
-```sql
-SELECT name AS "Database Name", state_desc AS "Status" 
-FROM sys.databases db
-WHERE db.name = 'mySampleDataWarehouse'
-;
-```
-
-运行此命令后，应收到“联机”、“正在暂停”、“正在恢复”、“正在缩放”和“已暂停”等状态值。
+暂停数据仓库后，无法使用 T-SQL 与它建立连接。 若要查看数据仓库的当前状态，可以使用 PowerShell cmdlet。 有关示例，请参阅[检查数据仓库状态 - PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state)。 
 
 ## <a name="check-operation-status"></a>检查操作状态
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory 概念证明操作手册：构建基块 | Microsoft Docs"
-description: "浏览并快速实现标识和访问管理方案"
+title: Azure Active Directory 概念证明操作手册：构建基块 | Microsoft Docs
+description: 浏览并快速实现标识和访问管理方案
 services: active-directory
-keywords: "azure active directory 操作手册, 概念证明, PoC"
-documentationcenter: 
+keywords: azure active directory 操作手册, 概念证明, PoC
+documentationcenter: ''
 author: dstefanMSFT
 manager: femila
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 05/04/2017
 ms.author: v-junlch
 ms.date: 06/12/2017
-ms.openlocfilehash: ee507a7db9349e4c1dd502d44cfd667fe7a479f5
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: edfd300be94acca9569198c5e33c91926fb60cef
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念证明操作手册：构建基块
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/12/2018
 
 | 先决条件 | 资源 |
 | --- | --- |
-| 使用有效 Azure 订阅定义的 Azure AD 租户 | [如何获取 Azure Active Directory 租户](./develop/active-directory-howto-tenant.md)<br/>**请注意：**如果环境中已经具备 Azure AD Premium 许可证，则可以通过导航到 https://aka.ms/accessaad 来获取零上限订阅 <br/>在以下网页中了解详细信息：https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ 和 https://technet.microsoft.com/library/dn832618.aspx |
+| 使用有效 Azure 订阅定义的 Azure AD 租户 | [如何获取 Azure Active Directory 租户](./develop/active-directory-howto-tenant.md)<br/>**注意：**如果已创建一个具有 Azure AD Premium 许可证的环境，可以导航到 https://aka.ms/accessaad 获取一个没有上限的订阅 <br/>在 https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ 和 https://technet.microsoft.com/library/dn832618.aspx 中了解详细信息 |
 | Azure AD 全局管理员凭据 | 在 Azure Active Directory 中分配管理员角色 |
 | 可选但强烈建议：用作应急措施的并行实验室环境 | [Azure AD Connect 的先决条件](./connect/active-directory-aadconnect-prerequisites.md) |
 
@@ -70,12 +70,12 @@ ms.lasthandoff: 01/12/2018
 ### <a name="considerations"></a>注意事项
 
 1. 在[此处](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)查看密码哈希同步的安全注意事项。  如果试点生产用户的密码哈希同步明显不是一个选项，请考虑以下替代方法：
-   - 在生产域中创建测试用户。 确保不要同步任何其他帐户
-   - 移到 UAT 环境
+   * 在生产域中创建测试用户。 确保不要同步任何其他帐户
+   * 移到 UAT 环境
 2.  如果想要追求联合，有必要了解使用本地标识提供者关联联合解决方案以及 POC 的成本，并根据想要获得的优势权衡这种做法：
-    - 该解决方案在关键路径中，因此必须采用高可用性设计
-    - 它是需要规划容量的本地服务
-    - 它是需要监视/维护/修补的本地服务
+    * 该解决方案在关键路径中，因此必须采用高可用性设计
+    * 它是需要规划容量的本地服务
+    * 它是需要监视/维护/修补的本地服务
 
 了解详细信息：[了解 Office 365 标识和 Azure Active Directory - 联合标识](https://support.office.com/article/Understanding-Office-365-identity-and-Azure-Active-Directory-06a189e7-5ec6-4af2-94bf-a22ea225a7a9#bk_federated)
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 01/12/2018
 大约完成时间：60 分钟
 
 > [!IMPORTANT]
-> 这是一项高级配置，需要对 FIM/MIM 有一定的了解。 如果在生产环境中使用，我们建议浏览[顶级支持](https://support.microsoft.com/zh-cn/premier)了解有关此配置的问题。
+> 这是一项高级配置，需要对 FIM/MIM 有一定的了解。 如果在生产环境中使用，我们建议浏览[顶级支持](https://support.microsoft.com/premier)了解有关此配置的问题。
 
 ### <a name="pre-requisites"></a>先决条件
 
@@ -162,6 +162,8 @@ ms.lasthandoff: 01/12/2018
 ### <a name="considerations"></a>注意事项
 
 若要详细了解这种部署的注意事项，请访问：[ADFS：使用 Azure AD 和 Office 365 进行证书身份验证](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/)
+
+
 
 > [!NOTE]
 > 应该保护用户证书资产。 通过管理设备或者使用 PIN 码（如果在智能卡中存储）保护证书。

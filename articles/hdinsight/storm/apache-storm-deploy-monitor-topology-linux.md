@@ -1,8 +1,8 @@
 ---
-title: "在基于 Linux 的 HDInsight 上部署和管理 Apache Storm 拓扑 | Azure"
-description: "了解如何使用基于 Linux 的 HDInsight 上的 Storm 仪表板部署、监视和管理 Apache Storm 拓扑。 使用 Hadoop Tools for Visual Studio。"
+title: 在基于 Linux 的 HDInsight 上部署和管理 Apache Storm 拓扑 | Azure
+description: 了解如何使用基于 Linux 的 HDInsight 上的 Storm 仪表板部署、监视和管理 Apache Storm 拓扑。 使用 Hadoop Tools for Visual Studio。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/28/2017
-ms.date: 12/25/2017
+origin.date: 02/22/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: a796d28da6cd553d49b73967ce32c68cefba378a
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 0199418b21389122a04013a0e66fc4c4c704f92a
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>在 HDInsight 上部署和管理 Apache Storm 拓扑
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/15/2017
 [!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> 本文中的步骤需要使用 HDInsight 群集上基于 Linux 的 Storm。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。 
+> 本文中的步骤需要使用 HDInsight 群集上基于 Linux 的 Storm。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。 
 >
 > 有关在基于 Windows 的 HDInsight 上部署和监视拓扑的详细信息，请参阅 [在基于 Windows 的 HDInsight 上部署和管理 Apache Storm 拓扑](apache-storm-deploy-monitor-topology.md)
 
@@ -122,7 +122,7 @@ HDInsight Tools 可用于将 C# 或混合拓扑提交到 Storm 群集。 以下�
 若要重新平衡拓扑，请使用“拓扑摘要”顶部的“重新平衡”按钮。
 
 > [!WARNING]
-> 重新平衡某个拓扑首先会停用该拓扑，然后跨群集平均重新分布辅助角色，最后让拓扑返回到发生重新平衡之前的状态。 因此，如果拓扑原本处于活动，则它将再次变为活动状态。 如果它原本已停用，则将保持停用状态。
+> 重新平衡某个拓扑首先会停用该拓扑，然后跨群集平均重新分布辅助角色，最后让拓扑返回到发生重新平衡之前的状态。 因此，如果拓扑原本处于活动，则它会再次变为活动状态。 如果它原本已停用，则保持停用状态。
 
 ### <a name="kill-a-topology"></a>终止拓扑
 
@@ -163,7 +163,7 @@ Storm 拓扑在启动后，将会不断运行，直到将其停止。 若要停�
 重新平衡拓扑可以让系统修改拓扑的并行度。 例如，如果调整了群集的大小以添加更多节点，则重新平衡允许拓扑查看新节点。
 
 > [!WARNING]
-> 重新平衡某个拓扑首先会停用该拓扑，然后跨群集平均重新分布辅助角色，最后让拓扑返回到发生重新平衡之前的状态。 因此，如果拓扑原本处于活动，则它将再次变为活动状态。 如果它原本已停用，则将保持停用状态。
+> 重新平衡某个拓扑首先会停用该拓扑，然后跨群集平均重新分布辅助角色，最后让拓扑返回到发生重新平衡之前的状态。 因此，如果拓扑原本处于活动，则它会再次变为活动状态。 如果它原本已停用，则保持停用状态。
 
     storm rebalance TOPOLOGYNAME
 
@@ -229,7 +229,7 @@ Storm UI 是以 REST API 为基础生成的，因此，可以使用 API 执行�
 
 * **从 SSH 会话**：通过与群集建立的 SSH 会话使用命令 `headnode -f`。
 * **从 Ambari Web**：从页面顶部选择“服务”，并选择“Storm”。 在“摘要”选项卡中，选择“Storm UI 服务器”。 页面顶部会显示承载 Storm UI 和 REST API 的节点的 FQDN。
-* **从 Ambari REST API**：使用命令 `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 来检索有关 Storm UI 和 REST API 正在其上运行的节点的信息。 将 **PASSWORD** 替换为群集的管理员密码。 将 **CLUSTERNAME** 替换为群集名称。 在响应中，“host_name”条目包含节点的 FQDN。
+* **从 Ambari REST API**：使用命令 `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 来检索有关 Storm UI 和 REST API 正在其上运行的节点的信息。 将 **CLUSTERNAME** 替换为群集名称。 出现提示时，请输入登录（管理员）帐户的密码。 在响应中，“host_name”条目包含节点的 FQDN。
 
 ### <a name="authentication"></a>身份验证
 

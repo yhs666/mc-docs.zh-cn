@@ -1,8 +1,8 @@
 ---
-title: "为 Azure 应用服务中的 Web 应用设置过渡环境"
-description: "了解如何对 Azure 应用服务中的 Web 应用使用分阶段发布。"
+title: 为 Azure 应用服务中的 Web 应用设置过渡环境
+description: 了解如何对 Azure 应用服务中的 Web 应用使用分阶段发布。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/16/2016
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: 23d6d69faf17e33a85e9678ec8e2fe912e9fef73
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 205ba673c3c994f35686b88e3358c71cad7f1a69
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>设置 Azure 应用服务中的过渡环境
 <a name="Overview"></a>
 
-将 Web 应用、移动后端和 API 应用部署到[应用服务](app-service-web-overview.md)时，如果应用在“标准”或“高级”应用服务计划模式下运行，则可以部署到单独的部署槽而不是默认的生产槽。 部署槽实际上是具有自身主机名的实时应用。 两个部署槽（包括生产槽）之间的应用内容与配置元素可以交换。 将应用程序部署到部署槽具有以下优点：
+将 Web 应用、移动后端和 API 应用部署到[应用服务](app-service-web-overview.md)时，如果应用在“标准”或“高级”应用服务计划层下运行，则可以部署到单独的部署槽位而不是默认的生产槽位。 部署槽实际上是具有自身主机名的实时应用。 两个部署槽（包括生产槽）之间的应用内容与配置元素可以交换。 将应用程序部署到部署槽具有以下优点：
 
 * 可以在分阶段部署槽中验证应用更改，并将其与生产槽交换。
 * 首先将应用部署到槽，然后将其交换到生产，这确保槽的所有实例都已准备好，并交换到生产。 部署应用时，这样可避免停机。 流量重定向是无缝的，且不会因交换操作而删除任何请求。 当不需要预交换验证时，可以通过配置[自动交换](#Auto-Swap)来自动化这整个工作流。
 * 交换后，具有以前分阶段应用的槽现在具有以前的生产应用。 如果交换到生产槽的更改与预期不同，可以立即执行同一交换来收回“上一已知的良好站点”。
 
-每种应用服务计划模式支持不同数量的部署槽。 若要了解应用模式支持的槽数，请参阅[应用服务定价](https://www.azure.cn/pricing/details/app-service/)。
+每种应用服务计划模式支持不同数量的部署槽。 要了解应用层支持的槽数，请参阅[应用服务定价](https://www.azure.cn/pricing/details/app-service/)。
 
-* 如果应用具有多个槽，则无法更改模式。
+* 如果应用具有多个槽，则无法更改层。
 * 缩放不适用于非生产槽。
-* 非生产槽不支持链接的资源管理。 仅在 Azure 门户中，可以通过暂时将非生产槽移到其他应用服务计划模式，避免对生产槽造成这种潜在影响。 请注意，非生产槽必须先再次与生产槽共享相同的模式，才能交换这两个槽。
+* 非生产槽不支持链接的资源管理。 仅在 Azure 门户中，可以通过暂时会非生产槽位移到其他应用服务计划层避免对生产槽位造成这种潜在影响。 请注意，非生产槽必须先再次与生产槽共享相同的层，才能交换这两个槽。
 
 <a name="Add"></a>
 
 ## <a name="add-a-deployment-slot"></a>添加部署槽
-必须在“标准”或“高级”模式下运行应用，才能启用多个部署槽。
+必须在“标准”或“高级”层下运行应用，才能启用多个部署槽。
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，打开应用的[资源边栏选项卡](../azure-resource-manager/resource-group-portal.md#manage-resources)。
 2. 选择“部署槽”选项，并单击“添加槽”。
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/02/2018
     ![添加新部署槽][QGAddNewDeploymentSlot]
 
    > [!NOTE]
-   > 如果应用尚未处于“标准”或“高级”模式，则会收到消息，指示启用过渡支持的模式。 此时，可选择“升级”，并导航到应用的“缩放”选项卡，并继续。
+   > 如果应用尚未处于“标准”或“高级”层，则会收到消息，指示启用过渡支持的层。 此时，可选择“升级”，并导航到应用的“缩放”选项卡，并继续。
    > 
    > 
 3. 在“添加槽”边栏选项卡中，为槽提供一个名称，并选择是否要从其他现有部署槽中克隆应用配置。 单击复选标记以继续。
@@ -206,7 +206,7 @@ New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] 
 ```
 
 - - -
-### <a name="initiate-a-swap-with-review-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>启动带预览的交换（多阶段交换）并将目标槽配置应用到源槽
+### <a name="initiate-a-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>启动带预览的交换（多阶段交换）并将目标槽位配置应用到源槽位
 ```
 $ParametersObject = @{targetSlot  = "[slot name - e.g. "production"]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01

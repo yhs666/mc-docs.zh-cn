@@ -1,11 +1,11 @@
 ---
-title: "使用 DMV 监视工作负荷 | Azure"
-description: "了解如何使用 DMV 监视工作负荷。"
+title: 使用 DMV 监视工作负荷 | Azure
+description: 了解如何使用 DMV 监视工作负荷。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,14 +16,14 @@ ms.custom: performance
 origin.date: 12/14/2017
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7e0df77a2d316ea24152d133c0012df608b69228
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 04066cae1fba15ffa650a78eda08a3660a996f23
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>使用 DMV 监视工作负荷
-本文介绍如何使用动态管理视图 (DMV) 在 Azure SQL 数据仓库中监视工作负荷及调查查询执行情况。
+本文介绍如何使用动态管理视图 (DMV) 监视工作负荷。 这包括调查 Azure SQL 数据仓库中的查询执行情况。
 
 ## <a name="permissions"></a>权限
 若要查询本文中的 DMV，需具有 VIEW DATABASE STATE 或 CONTROL 权限。 通常情况下，首选授予 VIEW DATABASE STATE 权限，因为该权限的限制要大得多。
@@ -73,7 +73,7 @@ WHERE   [label] = 'My Query';
 
 从前面的查询结果中，记下想要调查的查询的 **请求 ID** 。
 
-处于**已暂停**状态的查询是指因并发限制而排队的查询。 这些查询也出现在类型为 UserConcurrencyResourceType 的 sys.dm_pdw_waits 等待查询中。 请参阅 [Concurrency and workload management][Concurrency and workload management] （并发和工作负荷管理），了解并发限制的更多详细信息。 查询也可能因其他原因（如对象锁定）处于等待状态。  如果查询正在等待资源，请参阅本文后面的 [调查等待资源的查询][Investigating queries waiting for resources] 。
+处于**已暂停**状态的查询是指因并发限制而排队的查询。 这些查询也出现在类型为 UserConcurrencyResourceType 的 sys.dm_pdw_waits 等待查询中。 有关并发限制的信息，请参阅[性能层](performance-tiers.md)或[用于工作负荷管理的资源类](resource-classes-for-workload-management.md)。 查询也可能因其他原因（如对象锁定）处于等待状态。  如果查询正在等待资源，请参阅本文后面的 [调查等待资源的查询][Investigating queries waiting for resources] 。
 
 为了简化在 sys.dm_pdw_exec_requests 表中查找查询的过程，请使用 [LABEL][LABEL] 将注释分配给可在 sys.dm_pdw_exec_requests 视图中查找的查询。
 
@@ -136,7 +136,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
 * 检查 *total_elapsed_time* 列，以查看是否有特定分布在数据移动上比其他分布花费了更多时间。
-* 对于长时间运行的分布，请检查 *rows_processed* 列，以查看从该分布移动的行数是否远远多于其他分布。 如果是这样，这可能表示底层数据的偏斜。
+* 对于长时间运行的分布，请检查 *rows_processed* 列，以查看从该分布移动的行数是否远远多于其他分布。 如果是这样，此发现可能指示基础数据倾斜。
 
 如果查询正在运行，则可以使用 [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] 检索特定分发中当前正在运行的 SQL 步骤的 SQL Server 计划高速缓存中的 SQL Server 估计计划。
 
@@ -175,9 +175,9 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 如果查询正在主动等待另一个查询中的资源，则状态将为 **AcquireResources**。  如果查询具有全部所需资源，则状态将为 **Granted**。
 
 ## <a name="monitor-tempdb"></a>监视 tempdb
-较高的 tempdb 利用率可能是性能缓慢和内存不足问题的根本原因。 如果发现 tempdb 在执行查询的过程中达到其限制，请考虑扩展数据仓库。 下面介绍如何确定每个节点上的每个查询的 tempdb 用量。 
+较高的 tempdb 利用率可能是性能缓慢和内存不足问题的根本原因。 如果发现 tempdb 在执行查询的过程中达到其限制，请考虑扩展数据仓库。 以下信息说明如何确定每个节点上每个查询的 tempdb 使用情况。 
 
-创建以下视图，以关联 sys.dm_pdw_sql_requests 的相应节点 ID。 这样，便可以利用其他直通 DMV，并将这些表与 sys.dm_pdw_sql_requests 相联接。
+创建以下视图，为 sys.dm_pdw_sql_requests 关联相应的节点 ID。 有了节点 ID 后，即可使用其他直通 DMV 将这些表与 sys.dm_pdw_sql_requests 联接。
 
 ```sql
 -- sys.dm_pdw_sql_requests with the correct node id
@@ -201,7 +201,7 @@ CREATE VIEW sql_requests AS
 FROM sys.pdw_distributions AS d
 RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
 ```
-运行以下查询来监视 tempdb：
+若要监视 tempdb，请运行以下查询：
 
 ```sql
 -- Monitor tempdb
@@ -285,8 +285,8 @@ GROUP BY t.pdw_node_id, nod.[type]
 ```
 
 ## <a name="next-steps"></a>后续步骤
-请参阅 [系统视图][System views] ，了解 DMV 的详细信息。
-有关最佳实践的详细信息，请参阅 [SQL 数据仓库最佳实践][SQL Data Warehouse best practices]
+有关 DMV 的详细信息，请参阅[系统视图][System views]。
+
 
 <!--Image references-->
 
@@ -295,7 +295,6 @@ GROUP BY t.pdw_node_id, nod.[type]
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->

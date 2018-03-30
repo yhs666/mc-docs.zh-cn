@@ -1,11 +1,11 @@
 ---
-title: "用于在 Azure 中开发数据仓库的资源 | Azure"
-description: "SQL 数据仓库的开发概念、设计决策、建议和编程技术。"
+title: 用于在 Azure 中开发数据仓库的资源 | Azure
+description: SQL 数据仓库的开发概念、设计决策、建议和编程技术。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: 996e3afc-c21c-4e21-b9df-997f953f6dfd
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,17 +16,17 @@ ms.custom: develop
 origin.date: 10/31/2016
 ms.date: 03/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8fe55cfdd9e336584b2c749651060b5fc830a4bb
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 9ad28b9ea91aa9ff65c0bafd31346c5a58487151
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>SQL 数据仓库的设计决策和编程技术
 请阅读以下开发文章，以更好地了解 SQL 数据仓库的关键设计决策、建议和编程技术。
 
 ## <a name="key-design-decisions"></a>关键设计决策
-以下文章重点介绍了在使用 SQL 数据仓库开发分布式数据仓库时，需要了解的一些关键概念和设计决策：
+以下文章重点介绍有关使用 SQL 数据仓库开发分布式数据仓库的概念和设计决策：
 
 * [连接][connections]
 * [并发][concurrency]
@@ -39,7 +39,7 @@ ms.lasthandoff: 06/23/2017
 * [统计信息][statistics]
 
 ## <a name="development-recommendations-and-coding-techniques"></a>开发建议和编程技术
-以下文章重点介绍了用于开发 SQL 数据仓库的具体编程技术、技巧和建议：
+以下文章重点介绍用于开发 SQL 数据仓库的具体编程技术、技巧和建议：
 
 * [存储过程][stored procedures]
 * [标签][labels]
@@ -51,12 +51,12 @@ ms.lasthandoff: 06/23/2017
 * [变量赋值][variable assignment]
 
 ## <a name="next-steps"></a>后续步骤
-阅读开发文章后，请浏览 [Transact-SQL 参考][Transact-SQL reference] 页，以了解有关 SQL 数据仓库支持的语法的更多详细信息。
+有关更多参考信息，请参阅 SQL 数据仓库的 [Transact-SQL 参考][Transact-SQL reference]页。
 
 <!--Image references-->
 
 <!--Article references-->
-[concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[concurrency]: ./resource-classes-for-workload-management.md
 [connections]: ./sql-data-warehouse-connect-overview.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
 [dynamic SQL]: ./sql-data-warehouse-develop-dynamic-sql.md

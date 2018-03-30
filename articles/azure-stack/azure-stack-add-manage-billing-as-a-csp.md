@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
-ms.author: mabrigg
+origin.date: 02/27/2018
+ms.date: 03/21/2018
+ms.author: v-junlch
 ms.reviewer: alfredo
-ms.openlocfilehash: 23e3a675e6a464c92d26df220c8126c970f590a0
-ms.sourcegitcommit: dee174086b5f3d59d2045bf197c800e62a30fe60
+ms.openlocfilehash: 6e6aecdd2e238ee209508e3ab9dfc3f4cc41475d
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>管理充当云服务提供商的 Azure Stack 的使用情况和计费 
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 03/16/2018
 
 在直接 CSP 或 CSP 分销商运营 Azure Stack 的情况下，应首选云服务提供商共享服务 (CSPSS) 订阅进行注册。
 
-CSPSS 订阅与共享服务租户相关联。 注册 Azure Stack 时，需提供帐户的凭据，该帐户是订阅的所有者。 用于注册 Azure Stack 的帐户可以不同于用于部署的管理员帐户；这两个帐户不需要属于同一域。 换言之，可以使用已经使用过的租户进行部署。 例如，可以使用 ContosoCSP.onmicrosoft.com 进行部署，然后使用另一租户（例如 IURContosoCSP.onmicrosoft.com）进行注册。需要记住，在进行日常 Azure Stack 管理时，使用 ContosoCSP.onmicrosoft.com 登录。 需要执行注册操作时，则使用 IURContosoCSP.onmicrosoft.com 登录到 Azure。
+CSPSS 订阅与共享服务租户相关联。 注册 Azure Stack 时，需提供帐户的凭据，该帐户是订阅的所有者。 用于注册 Azure Stack 的帐户可以不同于用于部署的管理员帐户；这两个帐户不需要属于同一域。 换言之，可以使用已经使用过的租户进行部署。 例如，可以使用 ContosoCSP.partner.onmschina.cn 进行部署，然后使用另一租户（例如 IURContosoCSP.partner.onmschina.cn）进行注册。 需要记住，在进行日常 Azure Stack 管理时，使用 ContosoCSP.partner.onmschina.cn 登录。 需要执行注册操作时，则使用 IURContosoCSP.partner.onmschina.cn 登录到 Azure。
 
 请参阅下文，以便获取 CSPSS 订阅的说明以及如何创建订阅的指导：[添加 Azure 合作伙伴共享服务](https://msdn.microsoft.com/partner-center/shared-services)。
 
@@ -84,4 +85,5 @@ Azure Stack 可以通过注册执行以下操作：
 ## <a name="next-steps"></a>后续步骤
 
  - 若要详细了解 CSP 计划，请参阅[云解决方案提供商计划](https://partnercenter.microsoft.com/en-us/partner/programs)。
- - 若要详细了解如何从 Azure Stack 检索资源使用情况信息，请参阅 [Azure Stack 中的使用情况和计费](/azure-stack-billing-and-chargeback.md)。
+ - 若要详细了解如何从 Azure Stack 检索资源使用情况信息，请参阅 [Azure Stack 中的使用情况和计费](azure-stack-billing-and-chargeback.md)。
+<!-- Update_Description: wording update -->

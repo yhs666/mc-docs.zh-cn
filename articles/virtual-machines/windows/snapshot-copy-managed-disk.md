@@ -1,10 +1,10 @@
 ---
-title: "在 Azure 中创建 VHD 的快照 | Azure"
-description: "了解如何创建 Azure VM 的副本，以便将其用作备份或用于排查问题。"
-documentationcenter: 
+title: 在 Azure 中创建 VHD 的快照 | Azure
+description: 了解如何创建 Azure VM 的副本，以便将其用作备份或用于排查问题。
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 15eb778e-fc07-45ef-bdc8-9090193a6d20
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 10/09/2017
 ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: fa6291e5bd65addfd7eceadca86fcd4b23b5ae20
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: c049edf86cb786bc8482c5d601f143a03af8df01
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="create-a-snapshot"></a>创建快照
 
@@ -71,7 +71,8 @@ Install-Module AzureRM.Compute -MinimumVersion 2.6.0
     ```powershell
     New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
     ```
-如果计划使用快照创建托管磁盘并将其附加到需要高性能的 VM 上，请将参数 `-AccountType Premium_LRS` 用于 New-AzureRmSnapshot 命令。 该参数创建快照，使其作为高级托管磁盘进行存储。 高级托管磁盘比标准托管磁盘费用高。 因此，在使用该参数之前，请确保确实需要“高级”。
+如果计划使用快照创建托管磁盘并将其附加到需要高性能的 VM 上，请将参数 `-AccountType Premium_LRS` 用于 New-AzureRmSnapshotConfig 命令。 该参数创建快照，使其作为高级托管磁盘进行存储。 高级托管磁盘比标准托管磁盘费用高。 因此，在使用该参数之前，请确保确实需要“高级”。
+<!-- Notice: -AccountType Premium_LRS 只能用于 New-AzureRmSnapshotConfig 命令,而不是 New-AzureRmSnapshot 命令 -->
 
 ## <a name="next-steps"></a>后续步骤
 

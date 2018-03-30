@@ -1,8 +1,8 @@
 ---
-title: "脚本操作 - 在 Azure HDInsight 上安装包含 Jupyter 的 Python 包"
-description: "逐步说明如何使用脚本操作配置 HDInsight Spark 群集随附的 Jupyter notebook，以使用外部 python 包。"
+title: 脚本操作 - 在 Azure HDInsight 上安装包含 Jupyter 的 Python 包
+description: 逐步说明如何使用脚本操作配置 HDInsight Spark 群集随附的 Jupyter notebook，以使用外部 python 包。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2018
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1f9fc51c3a2667667d5199fbea3d0dd0ef99da87
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: 1559b49e94772cdee63b42ac25857df24aa38ed6
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>在 HDInsight 上的 Apache Spark 群集中使用建本操作安装适用于 Jupyter 笔记本的外部 Python 包
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.lasthandoff: 02/24/2018
 
 可以在 [包索引](https://pypi.python.org/pypi) 中搜索可用包的完整列表。 也可以从其他源获取可用包的列表。 例如，可以安装通过 [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) 或 [conda-forge](https://conda-forge.org/feedstocks/) 提供的包。
 
-本文介绍如何使用脚本操作在群集上安装 [TensorFlow](https://www.tensorflow.org/) 包并通过 Jupyter notebook 使用它。
+本文介绍如何使用脚本操作在群集上安装 [TensorFlow](https://www.tensorflow.org/) 包并通过 Jupyter 笔记本使用它。
 
 ## <a name="prerequisites"></a>先决条件
 必须满足以下条件：
@@ -56,7 +56,7 @@ ms.lasthandoff: 02/24/2018
 
 1. 在 [Azure 门户](https://portal.azure.cn/)上的启动板中，单击 Spark 群集的磁贴（如果已将它固定到启动板）。 也可以单击“全部浏览” > “HDInsight 群集”导航到群集。   
 
-2. 在 Spark 群集边栏选项卡中，单击左窗格中的“脚本操作”。 运行用于在头节点和工作节点中安装 TensorFlow 的自定义操作。 可以从以下位置引用 bash 脚本：https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh 访问有关[如何使用自定义脚本操作](/hdinsight/hdinsight-hadoop-customize-cluster-linux)的文档。
+2. 在 Spark 群集边栏选项卡中，单击左窗格中的“脚本操作”。 运行用于在头节点和工作节点中安装 TensorFlow 的自定义操作。 https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh 中提供了 bash 脚本的参考信息。请访问有关[如何使用自定义脚本操作](/hdinsight/hdinsight-hadoop-customize-cluster-linux)的文档。
 
    > [!NOTE]
    > 群集中有两个 python 安装。 Spark 将使用位于 `/usr/bin/anaconda/bin` 中的 Anaconda python 安装。 通过 `/usr/bin/anaconda/bin/pip` 和 `/usr/bin/anaconda/bin/conda` 在自定义操作中引用该安装。
@@ -91,7 +91,6 @@ ms.lasthandoff: 02/24/2018
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](apache-spark-eventhub-streaming.md)
 * [使用 HDInsight 中的 Spark 分析网站日志](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序

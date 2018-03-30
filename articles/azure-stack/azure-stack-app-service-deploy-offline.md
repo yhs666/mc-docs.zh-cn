@@ -1,31 +1,37 @@
 ---
-title: "在脱机环境中部署应用服务：Azure Stack | Microsoft Docs"
-description: "有关如何在受 AD FS 保护且已断开连接的 Azure Stack 环境中部署应用服务的详细指南。"
+title: 在 Azure Stack 离线环境中部署应用服务 | Microsoft Docs
+description: 有关如何在受 AD FS 保护的离线 Azure Stack 环境中部署应用服务的详细指南。
 services: azure-stack
-documentationcenter: 
-author: brenduns
-manager: femila
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: apwestgarth
+manager: stefsch
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/29/2018
-ms.date: 03/01/2018
+origin.date: 03/09/2018
+ms.date: 03/21/2018
 ms.author: v-junlch
-ms.reviewer: anwestg
-ms.openlocfilehash: 9e52c4a26d16a049f79ce0995314330cbc6a5645
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: c13e7bddf17f58515d415b0b9a553eba0e72756b
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>将应用服务资源提供程序添加到受 AD FS 保护且已断开连接的 Azure Stack 环境
-适用于：Azure Stack 集成系统和 Azure Stack 开发工具包
+# <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>将应用服务资源提供程序添加到受 AD FS 保护的离线 Azure Stack 环境
+
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+
+> [!IMPORTANT]
+> 请应用针对 Azure Stack 集成系统的 1802 更新，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务。
+>
+>
 
 按照本文中的说明操作即可将[应用服务资源提供程序](azure-stack-app-service-overview.md)安装到符合以下条件的 Azure Stack 环境：
+
 - 未连接到 Internet
 - 受 Active Directory 联合身份验证服务 (AD FS) 保护。
 
@@ -38,66 +44,78 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="create-an-offline-installation-package"></a>创建脱机安装包
 
-若要在断开连接的环境中部署应用服务，必须先在连接到 Internet 的计算机上创建脱机安装包。
+若要在离线环境中部署应用服务，必须先在连接到 Internet 的计算机上创建脱机安装包。
 
 1. 在连接到 Internet 的计算机上运行 AppService.exe 安装程序。
 
 2. 单击“高级” > “创建脱机安装包”。
 
-    ![应用服务安装程序](./media/azure-stack-app-service-deploy-offline/image01.png)   
+    ![应用服务安装程序][1]
 
 3. 应用服务安装程序创建脱机安装包并显示其路径。 可以单击“打开文件夹”，在文件资源管理器中打开该文件夹。
 
-    ![应用服务安装程序](./media/azure-stack-app-service-deploy-offline/image02.png)   
+    ![应用服务安装程序](./media/azure-stack-app-service-deploy-offline/image02.png)
 
 4. 将安装程序 (AppService.exe) 和脱机安装包复制到 Azure Stack 主机。
 
 ## <a name="complete-the-offline-installation-of-app-service-on-azure-stack"></a>在 Azure Stack 上完成应用服务的脱机安装
 
-1. 在断开连接的 Azure Stack 主机上，以 azurestack\clouadmin 身份运行 appservice.exe。
+1. 在可以访问“Azure Stack 管理”Azure 资源管理终结点的计算机上，以管理员身份运行 appservice.exe。
 
 2. 单击“高级” > “完成脱机安装”。
 
-    ![应用服务安装程序](./media/azure-stack-app-service-deploy-offline/image03.png)   
+    ![应用服务安装程序][2]
 
 3. 浏览到以前创建的脱机安装包的位置，然后单击“下一步”。
 
-    ![应用服务安装程序](./media/azure-stack-app-service-deploy-offline/image04.png)   
+    ![应用服务安装程序](./media/azure-stack-app-service-deploy-offline/image04.png)
 
 4. 查看并接受 Microsoft 软件许可条款，然后单击“下一步”。
 
 5. 查看并接受第三方许可条款，然后单击“下一步”。
 
-6. 请确保应用服务云配置信息正确无误。 如果在 Azure Stack 开发工具包部署过程中使用了默认设置，可以接受此处的默认值。 但是，如果在部署 Azure Stack 时自定义了选项，则必须根据自定义的情况编辑此窗口中的值。 例如，如果使用域后缀 mycloud.com，则必须将终结点更改为 management.mycloud.com。确认信息后，单击“下一步”。
+6. 请确保应用服务云配置信息正确无误。 如果在 Azure Stack 开发工具包部署过程中使用了默认设置，可以接受此处的默认值。 但是，如果在部署 Azure Stack 时自定义了选项，或者要部署到集成系统，则必须在此窗口中编辑相应的值，以反映自己的需要。 例如，如果使用域后缀 mycloud.com，则必须将“Azure Stack 租户”Azure 资源管理器终结点更改为 management.<region>.mycloud.com。确认信息后，单击“下一步”。
 
-    ![应用服务安装程序](./media/azure-stack-app-service-deploy/image02.png)
+    ![应用服务安装程序][3]
 
 7. 在下一页上执行以下操作：
     1. 单击“Azure Stack 订阅”框旁边的“连接”按钮。
-        - 如果使用 Azure Active Directory (Azure AD)，请输入在部署 Azure Stack 时提供的 Azure AD 管理员帐户和密码。 单击“登录”。
-        - 如果使用 Active Directory 联合身份验证服务 (AD FS)，请提供管理员帐户。 例如，cloudadmin@azurestack.local。 输入密码，并单击“登录”。
+        - 提供管理员帐户。 例如，cloudadmin@azurestack.local。 输入密码，并单击“登录”。
     2. 在“Azure Stack 订阅”框中，选择订阅。
     3. 在“Azure Stack 位置”框中，选择要部署到的区域所对应的位置。 例如，如果要部署到 Azure Stack 开发工具包，请选择“本地”。
-    4. 输入应用服务部署对应的**资源组名称**。 默认情况下，它设置为 **APPSERVICE-LOCAL**。
-    5. 输入希望应用服务在安装过程中创建的**存储帐户名称**。 默认情况下，它设置为 **appsvclocalstor**。
-    6. 单击“下一步”。
+    4. 单击“下一步”。
 
-    ![应用服务安装程序](./media/azure-stack-app-service-deploy/image03.png)
+    ![应用服务安装程序][4]
 
-8. 输入文件共享的信息，然后单击“下一步”。 文件共享的地址必须使用文件服务器的完全限定域名（例如 \\\appservicefileserver.local.cloudapp.azurestack.external\websites）或 IP 地址（例如 \\\10.0.0.1\websites）。
+8. 现在，可以选择部署到通过[此处](azure-stack-app-service-before-you-get-started.md#virtual-network)所述的步骤配置的现有虚拟网络，或者让应用服务安装程序创建虚拟网络和关联的子网。
+    1. 选择“使用默认设置创建 VNet”，接受默认值，然后单击“下一步”，或者
+    2. 选择“使用现有的 VNet 和子网”。
+        1. 选择包含虚拟网络的**资源组**；
+        2. 选择要部署到的正确**虚拟网络**名称；
+        3. 为每个所需角色子网选择正确的“子网”值；
+        4. 单击“下一步” 
 
-    ![应用服务安装程序](./media/azure-stack-app-service-deploy/image04.png)
+    ![应用服务安装程序][5]
 
-9. 在下一页上执行以下操作：
-    1. 在“标识应用程序 ID”框中，输入用于标识的应用程序 GUID。
+9. 输入文件共享的信息，然后单击“下一步”。 文件共享的地址必须使用文件服务器的完全限定域名或 IP 地址。 例如 \\\appservicefileserver.local.cloudapp.azurestack.external\websites，或 \\\10.0.0.1\websites。
+
+> [!NOTE]
+> 在继续下一步之前，安装程序会尝试测试与文件共享的连接。  但是，如果前面已选择部署到现有虚拟网络，则安装程序可能无法连接到文件共享，并显示警告来询问是否继续。  请检查文件共享信息，如果正确，则继续。
+>
+>
+
+   ![应用服务安装程序][8]
+
+10. 在下一页上：
+    1. 在“标识应用程序 ID”框中，输入要用于标识的应用程序 GUID（来自 Azure AD）。
     2. 在“标识应用程序证书文件”框中，输入（或浏览到）证书文件的位置。
     3. 在“标识应用程序证书密码”框中，输入证书的密码。 此密码是在使用脚本创建证书时记下的密码。
     4. 在“Azure 资源管理器根证书文件”框中，输入（或浏览到）证书文件的位置。
     5. 单击“下一步”。
 
-    ![应用服务安装程序](./media/azure-stack-app-service-deploy/image05.png)
+    ![应用服务安装程序][10]
 
-10. 对于三个证书文件框的每一个框，请单击“浏览”，导航到相应的证书文件并键入密码。 这些证书是在[创建所需证书步骤](azure-stack-app-service-deploy.md)中创建的。 输入所有信息后，单击“下一步”。
+11. 对于三个证书文件框的每一个框，单击“浏览”并导航到相应的证书文件。 必须为每个证书提供密码。 这些证书是在[创建所需证书步骤](azure-stack-app-service-before-you-get-started.md#get-certificates)中创建的。 输入所有信息后，单击“下一步”。
 
     | Box | 证书文件名示例 |
     | --- | --- |
@@ -107,16 +125,21 @@ ms.lasthandoff: 03/02/2018
 
     如果在创建证书时使用了其他域后缀，证书文件名不要使用 *local.AzureStack.external*， 而要改用自定义域信息。
 
-    ![应用服务安装程序](./media/azure-stack-app-service-deploy/image06.png)    
+    ![应用服务安装程序][11]
 
-11. 为用于托管应用服务资源提供程序数据库的服务器实例输入 SQL Server 详细信息，然后单击“下一步”。 安装程序将验证 SQL 连接属性。
+12. 为用于托管应用服务资源提供程序数据库的服务器实例输入 SQL Server 详细信息，然后单击“下一步”。 安装程序将验证 SQL 连接属性。
 
-    ![应用服务安装程序](./media/azure-stack-app-service-deploy/image07.png)    
+> [!NOTE]
+> 在继续下一步之前，安装程序会尝试测试与 SQL Server 的连接。  但是，如果前面已选择部署到现有虚拟网络，则安装程序可能无法连接到 SQL Server，并显示警告来询问是否继续。  请检查 SQL Server 信息，如果正确，则继续。
+>
+>
+   
+   ![应用服务安装程序][12]
 
-12. 查看角色实例和 SKU 选项。 使用 ASDK 部署中每个角色的最小实例数和最小 SKU 填充默认值。 提供 vCPU 和内存要求摘要是为了帮助你规划部署。 进行选择后，单击“下一步”。
+13. 查看角色实例和 SKU 选项。 使用 ASDK 部署中每个角色的最小实例数和最小 SKU 填充默认值。 提供 vCPU 和内存要求摘要是为了帮助你规划部署。 进行选择后，单击“下一步”。
 
      > [!NOTE]
-     > 对于生产部署，请按照 [Azure Stack 中 Azure 应用服务服务器角色的容量规划](azure-stack-app-service-capacity-planning.md)中的指南进行操作。
+     > 对于生产部署，请遵循 [Azure Stack 中 Azure 应用服务服务器角色的容量规划](azure-stack-app-service-capacity-planning.md)中的指导。
      >
      >
 
@@ -128,33 +151,32 @@ ms.lasthandoff: 03/02/2018
     | FrontEnd | 1 | Standard_A1 -（1 vCPU，1792 MB） | 将请求路由到应用服务应用程序。 |
     | 共享辅助角色 | 1 | Standard_A1 -（1 vCPU，1792 MB） | 托管 Web 应用程序或 API 应用程序和 Azure Functions 应用。 可能需要添加更多实例。 作为操作员，可以定义产品/服务，并选择任何 SKU 层。 这些层必须至少具有一个 vCPU。 |
 
-    ![应用服务安装程序](./media/azure-stack-app-service-deploy/image08.png)    
+    ![应用服务安装程序][14]
 
     > [!NOTE]
-    > **不支持将 Windows Server 2016 Core 平台映像与 Azure Stack 上的 Azure 应用服务配合使用**。
+    > **不支持将 Windows Server 2016 Core 平台映像与 Azure Stack 上的 Azure 应用服务配合使用。请勿将评估映像用于生产部署。**
 
-13. 在“选择平台映像”框中选择部署型 Windows Server 2016 虚拟机映像，该映像由应用服务云的计算资源提供程序提供。 单击“下一步”。
+14. 在“选择平台映像”框中选择部署型 Windows Server 2016 虚拟机映像，该映像由应用服务云的计算资源提供程序提供。 单击“下一步”。
 
-14. 在下一页上执行以下操作：
+15. 在下一页上执行以下操作：
      1. 输入辅助角色虚拟机管理员用户名和密码。
      2. 输入其他角色虚拟机管理员用户名和密码。
      3. 单击“下一步”。
 
-    ![应用服务安装程序](./media/azure-stack-app-service-deploy/image09.png)    
+    ![应用服务安装程序][16]
 
-15. 在摘要页上执行以下操作：
+16. 在摘要页上执行以下操作：
     1. 验证所做的选择。 若要进行更改，请使用“上一步”按钮访问前面的页面。
     2. 如果配置正确，则选中此复选框。
     3. 若要开始部署，请单击“下一步”。
 
-    ![应用服务安装程序](./media/azure-stack-app-service-deploy/image10.png)    
+    ![应用服务安装程序][17]
 
-16. 在下一页上执行以下操作：
+17. 在下一页上执行以下操作：
     1. 跟踪安装进度。 Azure Stack 上的应用服务大约需要 60 分钟才能完成基于默认选择的部署。
     2. 安装程序成功完成后，单击“退出”。
 
-    ![应用服务安装程序](./media/azure-stack-app-service-deploy/image11.png)    
-
+    ![应用服务安装程序][18]
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>验证 Azure Stack 上的应用服务安装
 
@@ -162,8 +184,7 @@ ms.lasthandoff: 03/02/2018
 
 2. 在状态下的概览中，检查“状态”是否显示“所有角色已就绪”。
 
-    ![应用服务管理](./media/azure-stack-app-service-deploy/image12.png)    
-
+    ![应用服务管理](./media/azure-stack-app-service-deploy/image12.png)
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>体验 Azure Stack 上的应用服务
 
@@ -210,3 +231,24 @@ ms.lasthandoff: 03/02/2018
 <!--Links-->
 [App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
 
+<!--Image references-->
+[1]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-advanced-create-package.png
+[2]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-advanced-complete-offline.png
+[3]: ./media/azure-stack-app-service-deploy-offline/app-service-azure-stack-arm-endpoints.png
+[4]: ./media/azure-stack-app-service-deploy-offline/app-service-azure-stack-subscription-information.png
+[5]: ./media/azure-stack-app-service-deploy-offline/app-service-default-VNET-config.png
+[6]: ./media/azure-stack-app-service-deploy-offline/app-service-custom-VNET-config.png
+[7]: ./media/azure-stack-app-service-deploy-offline/app-service-custom-VNET-config-with-values.png
+[8]: ./media/azure-stack-app-service-deploy-offline/app-service-fileshare-configuration.png
+[9]: ./media/azure-stack-app-service-deploy-offline/app-service-fileshare-configuration-error.png
+[10]: ./media/azure-stack-app-service-deploy-offline/app-service-identity-app.png
+[11]: ./media/azure-stack-app-service-deploy-offline/app-service-certificates.png
+[12]: ./media/azure-stack-app-service-deploy-offline/app-service-sql-configuration.png
+[13]: ./media/azure-stack-app-service-deploy-offline/app-service-sql-configuration-error.png
+[14]: ./media/azure-stack-app-service-deploy-offline/app-service-cloud-quantities.png
+[15]: ./media/azure-stack-app-service-deploy-offline/app-service-windows-image-selection.png
+[16]: ./media/azure-stack-app-service-deploy-offline/app-service-role-credentials.png
+[17]: ./media/azure-stack-app-service-deploy-offline/app-service-azure-stack-deployment-summary.png
+[18]: ./media/azure-stack-app-service-deploy-offline/app-service-deployment-progress.png
+
+<!-- Update_Description: wording update -->

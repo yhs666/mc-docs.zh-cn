@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Graph API 快速入门 | Microsoft Docs"
-description: "Azure Active Directory 图形 API 通过 OData REST API 终结点提供对 Azure AD 的编程访问权限。 应用程序可以使用图形 API 对目录数据和对象执行创建、读取、更新和删除 (CRUD) 操作。"
+title: Azure AD Graph API 快速入门 | Microsoft Docs
+description: Azure Active Directory 图形 API 通过 OData REST API 终结点提供对 Azure AD 的编程访问权限。 应用程序可以使用图形 API 对目录数据和对象执行创建、读取、更新和删除 (CRUD) 操作。
 services: active-directory
 documentationcenter: n/a
 author: viv-liu
 manager: mtillman
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 9dc268a9-32e8-402c-a43f-02b183c295c5
 ms.service: active-directory
 ms.devlang: na
@@ -17,24 +17,24 @@ origin.date: 04/28/2017
 ms.date: 01/10/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: bbae6a3e59d939b75357ab20286681ef3af2b232
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 3be987608e443632b6b3bc925de3a611137957e0
+ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/19/2018
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Azure AD 图形 API 快速入门
 Azure Active Directory (AD) Graph API 通过 OData REST API 终结点提供对 Azure AD 的编程访问权限。 应用程序可以使用图形 API 对目录数据和对象执行创建、读取、更新和删除 (CRUD) 操作。 例如，可以使用 Graph API 创建新用户、查看或更新用户的属性、更改用户的密码、检查基于角色的访问的组成员身份、禁用或删除用户。 有关 Graph API 功能和应用方案的详细信息，请参阅 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 和 [Azure AD Graph API 先决条件](https://msdn.microsoft.com/library/hh974476.aspx)。 
 
 > [!IMPORTANT]
-> 强烈建议使用 [Microsoft Graph](developer.microsoft.com/zh-cn/graph/graph-explorer-china)（而非 Azure AD Graph API）访问 Azure Active Directory 资源。 目前，我们在集中开发 Microsoft Graph，未计划进一步改进 Azure AD Graph API。 Azure AD Graph API 仍可能适用的方案非常有限；有关详细信息，请参阅 Office 开发人员中心的 [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph)（Microsoft Graph 或 Azure AD Graph）博客文章。
+> 强烈建议使用 [Microsoft Graph](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china)（而非 Azure AD Graph API）访问 Azure Active Directory 资源。 目前，我们在集中开发 Microsoft Graph，未计划进一步改进 Azure AD Graph API。 Azure AD Graph API 仍可能适用的方案非常有限；有关详细信息，请参阅 Office 开发人员中心的 [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph)（Microsoft Graph 或 Azure AD Graph）博客文章。
 > 
 > 
 
 ## <a name="how-to-construct-a-graph-api-url"></a>如何构造图形 API URL
 在 Graph API 中，若要访问要对其执行 CRUD 操作的目录数据和对象（即资源或实体），可以使用基于开放数据 (OData) 协议的 URL。 图形 API 中使用的 URL 包括四个主要部分：服务根、租户标识符、资源路径和查询字符串选项： `https://graph.chinacloudapi.cn/{tenant-identifier}/{resource-path}?[query-parameters]`。 以下面的 URL 为例： `https://graph.chinacloudapi.cn/contoso.com/groups?api-version=1.6`。
 
-- **服务根**：在 Azure AD Graph API 中，服务根始终是 https://graph.chinacloudapi.cn。
+- **服务根**：在 Azure AD 图形 API 中，服务根始终是 https://graph.chinacloudapi.cn。
 - **租户标识符**：此部分可以是已验证（注册）的域名，在前面示例中为 contoso.com。也可以是租户对象 ID 或者“myorganization”或“me”别名。 有关详细信息，请参阅[对 Graph API 中的实体和操作进行寻址](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview)。
 - **资源路径**：URL 的此部分标识要交互的资源（用户、组、特定用户或特定组，等等）。在上面的示例中，它是用于对资源集寻址的顶级“组”。 也可以对特定的实体寻址，例如“users/{objectId}”或“users/userPrincipalName”。
 - **查询参数**：问号 (?) 用于分隔资源路径部分与查询参数部分。 需要对图形 API 中的所有请求提供“Api-version”查询参数。 Graph API 还支持以下 OData 查询选项：**$filter**、**$orderby**、**$expand**、**$top** 和 **$format**。 当前不支持以下查询选项：**$count**、**$inlinecount** 和 **$skip**。 有关详细信息，请参阅 [Azure AD 图形 API 支持的查询、筛选和分页选项](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options)。
@@ -59,7 +59,7 @@ Azure Active Directory (AD) Graph API 通过 OData REST API 终结点提供对 A
 
 ![Azure AD 图形 API 资源管理器](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
-**加载 Graph 浏览器**：若要加载该工具，请导航到 [https://graphexplorerchina.azurewebsites.net/](https://graphexplorerchina.azurewebsites.net/)。 单击“登录”，并使用 Azure AD 帐户凭据登录，以针对租户运行 Graph 资源资源器。 如果你针对自己的租户运行 Graph 资源资源器，则你或管理员需要在登录期间表示同意。 如果拥有 Office 365 订阅，则会自动拥有 Azure AD 租户。 用于登录 Office 365 的凭据事实上就是 Azure AD 帐户，可以在图形资源资源器上使用这些凭据。
+**加载图形资源管理器**：若要加载该工具，请导航到 [https://graphexplorerchina.azurewebsites.net/](https://graphexplorerchina.azurewebsites.net/)。 单击“登录”，并使用 Azure AD 帐户凭据登录，以针对租户运行 Graph 资源资源器。 如果你针对自己的租户运行 Graph 资源资源器，则你或管理员需要在登录期间表示同意。 如果拥有 Office 365 订阅，则会自动拥有 Azure AD 租户。 用于登录 Office 365 的凭据事实上就是 Azure AD 帐户，可以在图形资源资源器上使用这些凭据。
 
 **运行查询**：若要运行查询，请在请求文本框中键入查询，然后单击“获取”或单击 **Enter** 键。 结果将显示在响应框中。 例如，`https://graph.chinacloudapi.cn/myorganization/groups?api-version=1.6` 将列出已登录用户目录中的所有组对象。
 

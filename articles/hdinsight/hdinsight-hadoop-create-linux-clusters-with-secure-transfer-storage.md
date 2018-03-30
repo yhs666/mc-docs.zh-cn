@@ -1,9 +1,9 @@
 ---
-title: "在 Azure HDInsight 中使用安全传输存储帐户创建 Hadoop 群集 | Azure"
-description: "了解如何使用启用安全传输的 Azure 存储帐户创建 HDInsight 群集。"
-keywords: "hadoop 入门,hadoop linux,hadoop 快速入门,安全传输,azure 存储帐户"
+title: 在 Azure HDInsight 中使用安全传输存储帐户创建 Hadoop 群集 | Azure
+description: 了解如何使用启用安全传输的 Azure 存储帐户创建 HDInsight 群集。
+keywords: hadoop 入门,hadoop linux,hadoop 快速入门,安全传输,azure 存储帐户
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/06/2017
-ms.date: 12/25/2017
+origin.date: 02/22/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 10ed08bea6b727ae1dc92b2996937d37e63db2ba
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 3eed9bf185ebe507c8a7ba32058e2d20a5caa951
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>在 Azure HDInsight 中使用安全传输存储帐户创建 Hadoop 群集
 
@@ -30,22 +30,22 @@ ms.lasthandoff: 12/15/2017
 ## <a name="prerequisites"></a>先决条件
 在开始阅读本教程前，必须具备以下条件：
 
-* **Azure 订阅**：若要创建试用一个月的帐户，请浏览到 [https://www.azure.cn/pricing/1rmb-trial](https://www.azure.cn/pricing/1rmb-trial)。
+* **Azure 订阅**：若要创建一个月试用帐户，请访问 [https://www.azure.cn/pricing/1rmb-trial](https://www.azure.cn/pricing/1rmb-trial)。
 * 启用安全传输的 Azure 存储帐户。 有关说明，请参阅[创建存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)和[需要安全传输](../storage/common/storage-require-secure-transfer.md)。
 * 存储帐户中的 Blob 容器。 
 ## <a name="create-cluster"></a>创建群集
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-本部分介绍如何使用 [Azure 资源管理器模板](../azure-resource-manager/resource-group-template-deploy.md)在 HDInsight 中创建 Hadoop 群集。 模板位于 [Gibhub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-existing-default-storage-account/) 中。 学习本教程不需要有 Resource Manager 模板方面的经验。 如需其他群集创建方法或要了解本教程中使用的属性，请参阅 [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)（创建 HDInsight 群集）。
+本部分介绍如何使用 [Azure 资源管理器模板](../azure-resource-manager/resource-group-template-deploy.md)在 HDInsight 中创建 Hadoop 群集。 模板位于 [Gibhub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-existing-default-storage-account/) 中。 对于遵循本教程，Resource Manager 模板体验不是必需的。 如需其他群集创建方法或需了解本教程中使用的属性，请参阅[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 
-1. 单击以下映像以登录到 Azure，并在 Azure 门户中打开 Resource Manager 模板。 
+1. 单击以下映像以登录到 Azure，然后在 Azure 门户中打开 Resource Manager 模板。 
    
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-existing-default-storage-account%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. 按说明遵循以下规范创建群集： 
 
-    - 指定 HDInsight 版本 3.6。  默认版本为 3.5。 3.6 或更高版本是必需的。
+    - 指定 HDInsight 版本 3.6。  3.6 或更高版本是必需的。
     - 指定启用安全传输的存储帐户。
     - 对存储帐户使用短名称。
     - 必须事先创建存储帐户和 blob 容器。 
@@ -74,7 +74,7 @@ ms.lasthandoff: 12/15/2017
 * 要了解有关将 Hive 与 HDInsight 配合使用（包括如何从 Visual Studio 中执行 Hive 查询）的详细信息，请参阅[将 Hive 与 HDInsight 配合使用][hdinsight-use-hive]。
 * 要了解 Pig（一种用于转换数据的语言），请参阅[将 Pig 与 HDInsight 配合使用][hdinsight-use-pig]。
 * 要了解 MapReduce（在 Hadoop 中处理数据的程序编写方式），请参阅[将 MapReduce 与 HDInsight 配合使用][hdinsight-use-mapreduce]。
-* 若要了解如何使用用于 Visual Studio 的 HDInsight 工具来分析 HDInsight 数据，请参阅 [Get started using Visual Studio Hadoop tools for HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md)（用于 HDInsight 的 Visual Studio Hadoop 工具入门）。
+* 若要了解使用适用于 Visual Studio 的 HDInsight 工具在 HDInsight 上进行数据分析的内容，请参阅[用于 HDInsight 的 Visual Studio Hadoop 工具入门](hadoop/apache-hadoop-visual-studio-tools-get-started.md)。
 
 若要详细了解如何通过 HDInsight 来存储数据，或者如何将数据导入 HDInsight，请参阅以下文章：
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 12/15/2017
 
 若要详细了解如何创建或管理 HDInsight 群集，请参阅以下文章：
 
-* 若要了解如何管理基于 Linux 的 HDInsight 群集，请参阅 [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md)（使用 Ambari 管理 HDInsight 群集）。
+* 若要了解如何管理基于 Linux 的 HDInsight 群集，请参阅[使用 Ambari 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)。
 * 若要详细了解在创建 HDInsight 群集时可以选择哪些选项，请参阅[使用自定义选项在 Linux 上创建 HDInsight](hdinsight-hadoop-provision-linux-clusters.md)。
 * 如果熟悉 Linux 和 Hadoop，但想要了解有关 HDInsight 上 Hadoop 的具体信息，请参阅[使用 Linux 上的 HDInsight](hdinsight-hadoop-linux-information.md)。 此文提供了如下所述信息：
 
