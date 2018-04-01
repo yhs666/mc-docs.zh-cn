@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 媒体分析检测动作 | Azure"
-description: "Azure 媒体动作检测器媒体处理器 (MP) 可让你在冗长且平淡的视频中有效识别出你感兴趣的部分。"
+title: 使用 Azure 媒体分析检测动作 | Azure
+description: Azure 媒体动作检测器媒体处理器 (MP) 可让你在冗长且平淡的视频中有效识别出你感兴趣的部分。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,17 +14,17 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 11f1187044ee90771f77afca6e4105ebbf6e1eeb
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: f21529d5b6c2fbb54acbcc8fd16cb170688f420a
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>使用 Azure 媒体分析检测动作
 ## <a name="overview"></a>概述
 借助“Azure Media Motion Detector”媒体处理器 (MP)，用户可在冗长且平淡的视频中有效识别出感兴趣的部分。 可以对静态相机数据片段使用动作检测，以识别视频中有动作的部分。 它会生成 JSON 文件，其中包含带时间戳的元数据，以及发生事件的边界区域。
 
-此技术面向安全视频提要，它可以将动作分类为相关事件和误报（例如阴影或光源变化）。 这样，便可以在无需查看无止境的不相关事件的情况下，从相机输出生成安全警报，并从长时间的监控视频中提取感兴趣的片段。
+此技术面向安全视频提要，它可以将动作分类为相关事件和误报（例如阴影或光源变化）。 这样，便可以在不会被发送无止境的不相关事件的情况下，从相机源生成安全警报，同时能够从长时间的监控视频中提取感兴趣的片段。
 
 **Azure 媒体动作检测器** MP 目前以预览版提供。
 
@@ -42,12 +42,14 @@ ms.lasthandoff: 12/22/2017
 | Name | 选项 | 说明 | 默认 |
 | --- | --- | --- | --- |
 | sensitivityLevel |字符串：'low'、'medium'、'high' |设置报告动作情况的敏感度级别。 调整此项是为了调整误报数量。 |'medium' |
-| frameSamplingValue |正整数 |设置算法的运行频率。 1 等于每个帧，2 是指每隔一个帧，如此类推。 |1 |
+| frameSamplingValue |正整数 |设置算法的运行频率。 1 等于每个帧，2 是指每 2 个帧，如此类推。 |1 |
 | detectLightChange |布尔值：'true'、'false' |设置是否在结果中报告轻微的更改 |'False' |
 | mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>示例：00:00:03 |指定动作事件之间的时间窗口，其中的 2 个事件将组合成 1 个事件进行报告。 |00:00:00 |
 | detectionZones |检测区域的一个数组：<br/>- 检测区域是一个包含 3 个或 3 个以上点的数组<br/>- 点是从 0 到 1 的 x 和 y 坐标。 |描述要使用的多边形检测区域列表。<br/>报告结果时将报告以 ID 表示的区域，其中第一个是 ‘id’:0 |单个区域，涵盖整个帧。 |
 
 ### <a name="json-example"></a>JSON 示例
+
+```json
     {
       "version": "1.0",
       "options": {
@@ -75,10 +77,10 @@ ms.lasthandoff: 12/22/2017
         ]
       }
     }
-
+```
 
 ## <a name="motion-detector-output-files"></a>动作检测器输出文件
-动作检测作业会在输出资产中返回 JSON 文件，该文件描述视频中的动作警报和类别。 该文件包含有关在视频中检测到的动作的时间和持续时间的信息。
+动作检测作业会在输出资产中返回 JSON 文件，该文件描述视频中的动作警报及其类别。 该文件将包含有关在视频中检测到的动作的时间和持续时间的信息。
 
 一旦固定背景视频（例如监控视频）中出现运动对象，动作检测器 API 将提供指示器。 动作检测器经过训练可减少误报（例如光源和阴影变化）。 当前算法限制包括夜视视频、半透明对象和小对象。
 
@@ -108,8 +110,9 @@ ms.lasthandoff: 12/22/2017
 | 括号 [] |每个括号表示事件中的单个间隔。 如果该间隔显示空括号，则表示没有检测到动作。 |
 | 位置 |事件下的此新项列出发生动作的位置。 这比检测区域更具体。 |
 
-下面是 JSON 输出示例
+以下 JSON 示例显示输出：
 
+```json
     {
       "version": 2,
       "timescale": 23976,
@@ -151,8 +154,8 @@ ms.lasthandoff: 12/22/2017
                 "regionId": 0
               }
             ],
+```
 
-    …
 ## <a name="limitations"></a>限制
 * 支持的输入视频格式包括 MP4、MOV 和 WMV。
 * 动作检测已针对固定背景视频优化。 算法专注于降低误报，例如光源变化和阴影。
@@ -165,33 +168,36 @@ ms.lasthandoff: 12/22/2017
 1. 创建资产并将媒体文件上传到资产。
 2. 基于包含以下 json 预设的配置文件创建含有视频动作检测任务的作业： 
    
-        {
-          "Version": "1.0",
-          "Options": {
-            "SensitivityLevel": "medium",
-            "FrameSamplingValue": 1,
-            "DetectLightChange": "False",
-            "MergeTimeThreshold":
-            "00:00:02",
-            "DetectionZones": [
-              [
-                {"x": 0, "y": 0},
-                {"x": 0.5, "y": 0},
-                {"x": 0, "y": 1}
-               ],
-              [
-                {"x": 0.3, "y": 0.3},
-                {"x": 0.55, "y": 0.3},
-                {"x": 0.8, "y": 0.3},
-                {"x": 0.8, "y": 0.55},
-                {"x": 0.8, "y": 0.8},
-                {"x": 0.55, "y": 0.8},
-                {"x": 0.3, "y": 0.8},
-                {"x": 0.3, "y": 0.55}
-              ]
-            ]
-          }
-        }
+    ```json
+            {
+            "Version": "1.0",
+            "Options": {
+                "SensitivityLevel": "medium",
+                "FrameSamplingValue": 1,
+                "DetectLightChange": "False",
+                "MergeTimeThreshold":
+                "00:00:02",
+                "DetectionZones": [
+                [
+                    {"x": 0, "y": 0},
+                    {"x": 0.5, "y": 0},
+                    {"x": 0, "y": 1}
+                ],
+                [
+                    {"x": 0.3, "y": 0.3},
+                    {"x": 0.55, "y": 0.3},
+                    {"x": 0.8, "y": 0.3},
+                    {"x": 0.8, "y": 0.55},
+                    {"x": 0.8, "y": 0.8},
+                    {"x": 0.55, "y": 0.8},
+                    {"x": 0.3, "y": 0.8},
+                    {"x": 0.3, "y": 0.55}
+                ]
+                ]
+            }
+            }
+    ```
+
 3. 下载输出 JSON 文件。 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>创建和配置 Visual Studio 项目
@@ -200,7 +206,7 @@ ms.lasthandoff: 12/22/2017
 
 #### <a name="example"></a>示例
 
-```
+```csharp
 
 using System;
 using System.Configuration;

@@ -1,3 +1,5 @@
+# [媒体服务文档](index.md)
+
 # [概述](media-services-overview.md)
 ## [方案和可用性](scenarios-and-availability.md)
 ## [概念](media-services-concepts.md)
@@ -39,7 +41,6 @@
 ### [按需流式处理集合](postman-collection.md)
 ### [实时流式处理集合](postman-live-streaming-collection.md)
 ### [环境](postman-environment.md)
-### [集合](postman-collection.md)
 ## 上传内容
 ### 将文件上传到帐户中
 #### [Azure 门户](media-services-portal-upload-files.md)
@@ -123,14 +124,20 @@
 ### [适用于 Windows 10 的脱机 PlayReady](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
 ### [适用于 iOS 的脱机 FairPlay](media-services-protect-hls-with-offline-fairplay.md)
 ### [在 Azure 门户中配置](media-services-portal-protect-content.md)
+### [传送 DRM 许可证](media-services-deliver-keys-and-licenses.md)
 ### 创建内容密钥
 #### [.NET](media-services-dotnet-create-contentkey.md)
 #### [REST](media-services-rest-create-contentkey.md)
+### 许可证模板概述
+#### [PlayReady 许可证模板](media-services-playready-license-template-overview.md)
+### 配置资产传送策略
+#### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
+#### [REST](media-services-rest-configure-asset-delivery-policy.md)
 ### 配置内容密钥授权策略
 #### [Azure 门户](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
-### [在 Safari 中播放 AES 加密的 HLS](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
+### [将身份验证令牌传递到 AMS](media-services-pass-authentication-tokens.md)
 
 ## [分析](media-services-analytics-overview.md)
 ### [使用 Azure 门户分析媒体](media-services-portal-analyze.md)
@@ -196,6 +203,9 @@
 ## [Azure PowerShell（服务管理）](https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](https://docs.microsoft.com/rest/api/media/mediaservice)  
+## 规范
+### [实时引入 - 碎片化的 MP4 实时引入规范](media-services-fmp4-live-ingest-overview.md)
+### [平滑流式处理 HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
 
 # 资源
 ## [发行说明](media-services-release-notes.md)

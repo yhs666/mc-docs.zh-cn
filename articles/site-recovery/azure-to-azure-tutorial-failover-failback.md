@@ -1,20 +1,20 @@
 ---
-title: "使用 Azure Site Recovery（预览）对复制到 Azure 次要区域的 Azure VM 进行故障转移和故障回复"
-description: "了解如何使用 Azure Site Recovery 对复制到 Azure 次要区域的 Azure VM 进行故障转移和故障回复"
+title: 使用 Azure Site Recovery（预览）对复制到 Azure 次要区域的 Azure VM 进行故障转移和故障回复
+description: 了解如何使用 Azure Site Recovery 对复制到 Azure 次要区域的 Azure VM 进行故障转移和故障回复
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 02/07/2018
-ms.date: 03/05/2018
+origin.date: 03/08/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d9ce545d77dd2a70e356aee6e3f08370df609ad3
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 8ac0136e8146ccdfa9fad559f7f153a625360f8e
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>对 Azure 区域（预览）之间的 Azure VM 进行故障转移和故障回复
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/02/2018
 ## <a name="prerequisites"></a>先决条件
 
 - 确保已完成[灾难恢复演练](azure-to-azure-tutorial-dr-drill.md)，检查所有内容是否都按预期工作。
-- 在运行测试故障转移之前，验证 VM 属性。 该 VM 必须符合 [Azure 要求](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
+- 在运行测试故障转移之前，验证 VM 属性。 该 VM 必须符合 [Azure 要求](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions)。
 
 <a name="run-a-failover"></a>
 ## <a name="run-a-failover-to-the-secondary-region"></a>运行到次要区域的故障转移
@@ -72,4 +72,4 @@ ms.lasthandoff: 03/02/2018
 
 VM 重新受保护后，可以根据需要故障回复到主要区域。 若要执行此操作，请按照[故障转移](#run-a-failover)说明进行操作。
 
-<!-- Update_Description: update meta properties， wording update -->
+<!-- Update_Description: update meta properties， update link -->

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 自动化管理 Azure API 管理"
-description: "了解如何使用 Azure 自动化服务管理 Azure API 管理。"
+title: 使用 Azure 自动化管理 Azure API 管理
+description: 了解如何使用 Azure 自动化服务管理 Azure API 管理。
 services: api-management, automation
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: eamono
-editor: 
+editor: ''
 ms.assetid: 2e53c9af-f738-47f8-b1b6-593050a7c51b
 ms.service: api-management
 ms.workload: mobile
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 02/13/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 96a5bbeff115a9dae477a1dd71900d03997bf858
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 04/09/2018
+ms.openlocfilehash: 2500ceaed66b72b7f781c0ac1ae12ea41d33bdaf
+ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>使用 Azure 自动化管理 Azure API 管理
 本指南介绍 Azure 自动化服务，以及如何使用它来简化 Azure API 管理的管理。
@@ -32,7 +32,7 @@ Azure 自动化提供了具有高可靠性和高可用性的工作流执行引�
 通过将云管理任务改为由 Azure 自动化自动运行，可以降低运营开销，解放 IT 和开发运营人员，让他们将精力集中在增加企业价值的工作上。
 
 ## <a name="how-can-azure-automation-help-manage-azure-api-management"></a>Azure 自动化如何帮助管理 Azure API Management？
-可使用[适用于 Azure API 管理 API 的 Windows PowerShell cmdlet](https://azure.microsoft.com/updates/full-set-of-windows-powershell-cmdlets-for-azure-api-management-api/) 在 Azure 自动化中管理 API 管理。 在 Azure 自动化中，可以编写 PowerShell 工作流脚本来使用 cmdlet 执行多种 API 管理任务。 还可以将 Azure 自动化中的这些 cmdlet 与其他 Azure 服务的 cmdlet 搭配使用，以自动完成跨 Azure 服务和第三方系统的复杂任务。
+可使用[适用于 Azure API 管理 API 的 Windows PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/?view=azurermps-5.5.0#api_management/) 在 Azure 自动化中管理 API 管理。 在 Azure 自动化中，可以编写 PowerShell 工作流脚本来使用 cmdlet 执行多种 API 管理任务。 还可以将 Azure 自动化中的这些 cmdlet 与其他 Azure 服务的 cmdlet 搭配使用，以自动完成跨 Azure 服务和第三方系统的复杂任务。
 
 以下是利用自动化使用 API 管理的一些示例：
 

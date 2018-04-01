@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager 模板的结构和语法 | Azure"
-description: "使用声明性 JSON 语法描述 Azure Resource Manager 模板的结构和属性。"
+title: Azure Resource Manager 模板的结构和语法 | Azure
+description: 使用声明性 JSON 语法描述 Azure Resource Manager 模板的结构和属性。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/13/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: e0ba5d74acdacb6efd01f64c6997ea04bca523f8
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: f2f02be9e1dfefd326f47d63ee59c703b490e6e5
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure 资源管理器模板的 Resources 节
 
@@ -162,7 +162,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 ```json
 {
-    "$schema": "https://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "variables": {
       "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
@@ -191,7 +191,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 ```json
 {
-    "$schema": "https://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     {
@@ -214,7 +214,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 ```
 
 ## <a name="tags"></a>标记
-[!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
+[!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
 ### <a name="add-tags-to-your-template"></a>将标记添加到模板
 
@@ -395,4 +395,4 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 * 可能需要使用不同资源组中的资源。 使用跨多个资源组共享的存储帐户或虚拟网络时，此方案很常见。 有关详细信息，请参阅 [resourceId 函数](resource-group-template-functions-resource.md#resourceid)。
 <!--Not Available on [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md) -->
 
-<!-- Update_Description: new articles on resource manager templates resources -->
+<!-- Update_Description: wording update, update link -->

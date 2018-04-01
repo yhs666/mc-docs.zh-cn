@@ -1,19 +1,19 @@
 ---
-title: "使用 Azure Site Recovery 为本地站点之间的 Hyper-V VM 设置灾难恢复 | Azure"
-description: "了解如何使用 Azure Site Recovery 为本地站点之间的 Hyper-V VM 设置灾难恢复。"
+title: 使用 Azure Site Recovery 为本地站点之间的 Hyper-V VM 设置灾难恢复 | Azure
+description: 了解如何使用 Azure Site Recovery 为本地站点之间的 Hyper-V VM 设置灾难恢复。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/12/2018
-ms.date: 03/05/2018
+origin.date: 03/08/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0811e856cdc33c3226efc9af307a20e1613ab421
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 530d3749a8c535adf529afa63444f7c18f022372
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>为 Hyper-V VM 设置到辅助本地站点的灾难恢复
 
@@ -34,9 +34,8 @@ ms.lasthandoff: 03/02/2018
 完成本方案：
 
 - 查看[方案体系结构和组件](hyper-v-vmm-architecture.md)。
-- 查看所有组件的[支持要求](site-recovery-support-matrix-to-sec-site.md)。
-- 确保 VMM 服务器和 Hyper-V 主机符合[支持要求](site-recovery-support-matrix-to-sec-site.md)。
-- 确保要复制的 VM 符合[复制计算机支持](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions)。
+- 确保 VMM 服务器和 Hyper-V 主机符合[支持要求](hyper-v-vmm-secondary-support-matrix.md)。
+- 确保要复制的 VM 符合[复制计算机支持](hyper-v-vmm-secondary-support-matrix.md#replicated-vm-support)。
 - 准备 VMM 服务器进行网络映射。
 
 ### <a name="prepare-for-network-mapping"></a>准备网络映射
@@ -151,6 +150,4 @@ ms.lasthandoff: 03/02/2018
 
 [运行灾难恢复演练](hyper-v-vmm-test-failover.md)
 
-<!-- Update_Description: update meta properties, wording update, update link -->
-<!--The parent file of includes file of site-recovery-create-vault.md-->
-<!--ms.date:03/05/2018-->
+<!-- Update_Description: update meta properties, wording update -->

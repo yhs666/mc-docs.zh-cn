@@ -1,11 +1,11 @@
 ---
-title: "Azure Cosmos DB 对 MongoDB 的功能支持 | Azure"
-description: "了解 Azure Cosmos DB MongoDB API 为 MongoDB 3.4 提供的功能支持。"
+title: Azure Cosmos DB 对 MongoDB 的功能支持 | Azure
+description: 了解 Azure Cosmos DB MongoDB API 为 MongoDB 3.4 提供的功能支持。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 03/05/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4f0ed46edd49c64c89a668a94fe907467cc6f859
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: f90ebaf21e26783394d192c5498b7e07ca9f8a2c
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB API 对 MongoDB 功能和语法的支持
 
@@ -236,7 +236,7 @@ $regex | ``` { "Volcano Name": { $regex: "^Rain"} } ```|  | -
 
 在 $regex 查询中，左定位表达式允许索引搜索。 但是，使用“i”修饰符（不区分大小写）和“m”修饰符（多行）会导致在所有表达式中进行集合扫描。
 需要包括“$”或“|”时，最好是创建两个（或两个以上）正则表达式查询。 例如，如果原始查询为 ```find({x:{$regex: /^abc$/})```，则必须将其修改为 ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```。
-第一部分会使用索引将搜索限制为以 ^abc 开头的那些文档，第二部分会匹配确切的条目。 条运算符“|”充当“or”函数 - 查询 ```find({x:{$regex: /^abc|^def/})``` 会匹配其字段“x”的值以“abc”或“def”开头的文档。 若要利用该索引，建议将该查询拆分成两个不同的查询，再通过 $or 运算符联接到一起：```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```。
+第一部分会使用索引将搜索限制为以 ^abc 开头的那些文档，第二部分会匹配确切的条目。 竖条运算符“|”充当“or”函数 - 查询 ```find({x:{$regex: /^abc|^def/})``` 匹配字段“x”的值以“abc”或“def”开头的文档。 若要利用该索引，建议将该查询拆分成两个不同的查询，再通过 $or 运算符联接到一起：```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```。
 
 ### <a name="update-operators"></a>更新运算符
 
@@ -330,4 +330,4 @@ Azure Cosmos DB 支持服务器端自动分片。 Azure Cosmos DB 不支持手�
 - 了解如何配合 MongoDB 数据库 API 来[使用 Robo 3T](mongodb-robomongo.md)。
 - 浏览具有 MongoDB 协议支持的 Azure Cosmos DB [示例](mongodb-samples.md)。
 
-<!-- Update_Description: update meta properties, add content of Update operators section -->
+<!-- Update_Description: update meta properties, wording update -->

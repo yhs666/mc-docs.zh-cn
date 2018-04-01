@@ -1,26 +1,26 @@
 ---
-title: "使用 PowerShell 创建 Azure Analysis Services 服务器 | Azure"
-description: "了解如何使用 PowerShell 创建 Azure Analysis Services 服务器"
+title: 使用 PowerShell 创建 Azure Analysis Services 服务器 | Azure
+description: 了解如何使用 PowerShell 创建 Azure Analysis Services 服务器
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 830b934a29885a676dd6044e33106ebda9f933b9
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 4a8c7587735210a4df05de02f7f543c3976b7006
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>使用 PowerShell 创建 Azure Analysis Services 服务器
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/08/2018
 > [!NOTE]
 > 创建服务器可能会导致新的计费服务。 若要了解详细信息，请参阅 [Analysis Services 定价](https://www.azure.cn/pricing/details/analysis-services/)。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="before-you-begin"></a>准备阶段
 若要完成本快速入门，需要以下项：
 
 * **Azure 订阅**：访问 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial-full)以创建帐户。
@@ -46,7 +46,7 @@ Import-Module AzureRM.AnalysisServices
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-使用 [Add-AzureRmAccount -EnvironmentName AzureChinaCloud](https://docs.microsoft.com/powershell/module/azurerm.profile/add-azurermaccount) 命令登录到 Azure 订阅。 按屏幕说明操作。
+使用 [Add-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/add-azurermaccount) 命令登录到 Azure 订阅。 按屏幕指令操作。
 
 ```powershell
 Add-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -65,7 +65,7 @@ New-AzureRmResourceGroup -Name "myResourceGroup" -Location "China North"
 使用 [New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) 命令创建新的服务器。 以下示例在中国北部区域的 myResourceGroup 中的 D1 层创建名为 myServer 的服务器，并指定 philipc@adventureworks.com 为服务器管理员。
 
 ```powershell
-New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myServer" -Location China North -Sku D1 -Administrator "philipc@adventure-works.com"
+New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myServer" -Location "China North" -Sku D1 -Administrator "philipc@adventure-works.com"
 ```
 
 ## <a name="clean-up-resources"></a>清理资源
@@ -81,4 +81,4 @@ Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myReso
 [从 SSDT 部署模型](analysis-services-deploy.md)   
 [在 Azure 门户中创建模型](analysis-services-create-model-portal.md)
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: wording update, update link -->

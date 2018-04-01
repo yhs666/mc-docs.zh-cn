@@ -1,11 +1,11 @@
 ---
-title: "调整媒体处理的规模概述 | Microsoft Docs"
-description: "本主题概述了如何使用 Azure 媒体服务调整媒体处理的规模。"
+title: 调整媒体处理的规模概述 | Microsoft Docs
+description: 本主题概述了如何使用 Azure 媒体服务调整媒体处理的规模。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: forester123
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 780ef5c2-3bd6-4261-8540-6dee77041387
 ms.service: media-services
 ms.workload: media
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 07/04/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 078c42549ea89be19c6d82a31a2df0f3232aa285
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 8bd61f1509f30bfba990a50b8c9077fbce533f6d
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="scaling-media-processing-overview"></a>调整媒体处理的规模概述
 此页概述了如何以及为何调整媒体处理的规模。 
@@ -45,7 +45,6 @@ ms.lasthandoff: 12/22/2017
 
 * 保留单位可用于并行化所有媒体处理，其中使用 Azure Media Indexer 为作业编制索引。  但是，与编码不同，索引作业使用更快的保留单位并不能更快地完成处理。
 * 如果使用共享的池（即没有任何保留单位），则编码任务具有与 S1 RU 相同的性能。 但是，任务在排队状态下花费的时间可能没有上限，并且在任何给定的时间内，最多只会运行一项任务。
-
 
 ## <a name="billing"></a>计费
 

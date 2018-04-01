@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB：SQL Java API、SDK 和资源 | Azure"
-description: "了解有关 SQL Java API 和 SDK 的所有信息，包括发布日期、停用日期和 Azure Cosmos DB SQL Java SDK 各版本之间所做的更改。"
+title: Azure Cosmos DB：SQL Java API、SDK 和资源 | Azure
+description: 了解有关 SQL Java API 和 SDK 的所有信息，包括发布日期、停用日期和 Azure Cosmos DB SQL Java SDK 各版本之间所做的更改。
 services: cosmos-db
 documentationcenter: java
 author: rockboyfor
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 11/14/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e70a17f0fd149a92ff248b828d580414243a04ed
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: e5d2190825252bd6ec07473da706b5cacd2ac501
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Java SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -28,15 +28,19 @@ ms.lasthandoff: 12/22/2017
 > * [.NET 更改源](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [异步 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
-> * [SQL](../cosmos-db/documentdb-sql-query-reference.md)
+> * [SQL](../cosmos-db/sql-api-sql-query-reference.md)
 > 
 > 
+<!-- Redirecrt https://msdn.microsoft.com/library/azure/dn782250.aspx to sql-api-sql-query-reference.md -->
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+SQL API Java SDK 支持同步操作。 如需异步支持，请使用 [SQL API Async Java SDK](sql-api-sdk-async-java.md)。 
 
 <table>
 
@@ -61,4 +65,4 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
-<!-- Update_Description: new articles on SQL api sdk java -->
+<!-- Update_Description: wording update, update link -->

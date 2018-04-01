@@ -1,13 +1,13 @@
 ---
-title: "Azure CLI 脚本 - 缩放 Azure Cosmos DB 容器吞吐量 | Azure"
-description: "Azure CLI 脚本示例 - 缩放 Azure Cosmos DB 容器吞吐量"
+title: Azure CLI 脚本 - 缩放 Azure Cosmos DB 容器吞吐量 | Azure
+description: Azure CLI 脚本示例 - 缩放 Azure Cosmos DB 容器吞吐量
 services: cosmos-db
 documentationcenter: cosmosdb
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: azurecli
@@ -15,13 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/02/2017
-ms.date: 03/05/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 227908b1d7d98c132a91dff2fe497e087b08a92d
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: e1778e32696e919ef0a5f2c311b176a6f96f8450
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>使用 Azure CLI 缩放 Azure Cosmos DB 容器吞吐量
 

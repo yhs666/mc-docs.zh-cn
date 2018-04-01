@@ -1,25 +1,25 @@
 ---
-title: "将 Azure 虚拟机故障转移到另一个 Azure 区域时保留 IP 地址 | Azure"
-description: "介绍在使用 Azure Site Recovery 进行 Azure 到 Azure 的故障转移方案时如何保留 IP 地址"
+title: 将 Azure 虚拟机故障转移到另一个 Azure 区域时保留 IP 地址 | Azure
+description: 介绍在使用 Azure Site Recovery 进行 Azure 到 Azure 的故障转移方案时如何保留 IP 地址
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/06/2018
-ms.date: 03/05/2018
+origin.date: 02/27/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 504d0576c83804b22bb8ba3b01b2eee170c4b01e
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: dda6e9bca492cd71644575423388cbb20fe8bf2b
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>为 Azure 虚拟机故障转移保留 IP 地址
 
@@ -89,7 +89,7 @@ VPN 网关利用公共 IP 地址和网关跃点建立连接。 如果不想要�
 
 此功能目前以公共预览版提供，正在扩展到更多支持区域 - 它可以实现直接的 VM 到 VM 连接，且无需任何公共 Internet 或额外的跃点。
 
-有关详细信息，请参阅[对等互连文档](../virtual-network/virtual-network-create-peering.md#register)和[定价](https://www.azure.cn/pricing/details/networking/)。
+有关详细信息，请参阅[对等互连文档](../virtual-network/tutorial-connect-virtual-networks-portal.md#register)和[定价](https://www.azure.cn/pricing/details/networking/)。
 
 ## <a name="on-premises-to-azure-connectivity"></a>本地到 Azure 的连接
 
@@ -122,5 +122,4 @@ VPN 网关利用公共 IP 地址和网关跃点建立连接。 如果不想要�
 ## <a name="next-steps"></a>后续步骤
 - 详细了解[恢复计划](site-recovery-create-recovery-plans.md)。
 
-<!-- Update_Description: new articles on site recovery retain IP azure VM failover -->
-<!--ms.date: 03/05/2018-->
+<!-- Update_Description: wording update, update link -->

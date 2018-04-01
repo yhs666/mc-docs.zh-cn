@@ -1,28 +1,54 @@
 ---
-title: "Azure 资源运行状况 - 教程"
-description: "Azure 服务运行状况会在 Azure 服务问题影响你时提供个性化的指导和支持，并且会帮助你为即将到来的计划内维护做好准备。 Azure 服务运行状况将通过具有针对性和灵活性的通知提醒你和你的团队。"
-services: Resource health
+title: Azure 服务运行状况
+description: Azure 服务运行状况是一个体验套件，在你受到 Azure 服务中的问题影响时提供个性化指导和支持。
+services: Azure Service Health
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 07/07/2017
-ms.date: 03/19/2018
+ms.date: 04/09/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4d6a5ff8f77f42ef6d8aa6bccab893df514d5d75
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 0fef7b7d60d1f7afc0f085dd0dc5e051750e7d32
+ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-service-health-documentation"></a>Azure 服务运行状况文档
 
-Azure 服务运行状况会在 Azure 服务问题影响你时提供个性化的指导和支持，并且会帮助你为即将到来的计划内维护做好准备。 Azure 服务运行状况将通过具有针对性和灵活性的通知提醒你和你的团队。
+Azure 服务运行状况是一个体验套件，在你受到 Azure 服务中的问题影响时提供个性化指导和支持。 它会通知你、帮助你了解问题影响，并在问题得以解决时告知你。 此外，它还帮助你对可能会影响资源可用性的定期维护和更改做好准备。
+
+Azure 服务运行状况由以下部分组成：
+ 1. **Azure 状态** - Azure 服务运行状况的全局视图
+ 2. **服务运行状况** - Azure 服务运行状况的个性化视图
+ 3. **资源运行状况** - Azure 服务预配给你的各个资源的运行状况的更深入视图
+
+同时，这些体验在与你最相关的粒度上提供 Azure 运行状况的综合视图。
+
 <ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/service-health/azure-status-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/GlobeSuccess.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>了解有关 Azure 状态的详细信息</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
     <li>
         <a href="/service-health/service-health-overview">
         <div class="cardSize">
@@ -34,7 +60,7 @@ Azure 服务运行状况会在 Azure 服务问题影响你时提供个性化的�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>了解 Azure 服务运行状况</h3>
+                        <h3>了解有关服务运行状况的详细信息</h3>
                     </div>
                 </div>
             </div>
@@ -42,17 +68,17 @@ Azure 服务运行状况会在 Azure 服务问题影响你时提供个性化的�
         </a>
     </li>
     <li>
-        <a href="/service-health/resource-health-checks-resource-types">
+        <a href="/service-health/resource-health-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/ResourceDefault.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>了解资源运行状况中的资源类型和运行状况检查</h3>
+                        <h3>了解有关资源运行状况的详细信息</h3>
                     </div>
                 </div>
             </div>

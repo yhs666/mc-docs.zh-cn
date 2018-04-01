@@ -1,6 +1,6 @@
 ---
-title: "Azure 虚拟网络对等互连 | Azure"
-description: "了解 Azure 中的虚拟网络对等互连。"
+title: Azure 虚拟网络对等互连 | Azure
+description: 了解 Azure 中的虚拟网络对等互连。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: c7ededb8b3dc3a936dea0455db0d1c672e640a2d
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: c3a277db8024f8e7cca13ef8ce374448f98921c7
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="virtual-network-peering"></a>虚拟网络对等互连
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/12/2018
 
 ## <a name="requirements-constraints"></a>要求和约束
 
-* 在同一区域中的虚拟网络之间建立对等互连的功能已推出正式版。 在不同区域中进行虚拟网络对等互连之前，必须先[注册订阅](virtual-network-create-peering.md#register)（针对预览版）。 如果尚未完成预览版的注册，则无法在不同区域创建虚拟网络之间的对等互连。
+* 在同一区域中的虚拟网络之间建立对等互连的功能已推出正式版。 在不同区域中进行虚拟网络对等互连之前，必须先[注册订阅](tutorial-connect-virtual-networks-powershell.md#register)（针对预览版）。 如果尚未完成预览版的注册，则无法在不同区域创建虚拟网络之间的对等互连。
     > [!WARNING]
     > 跨区域创建的虚拟网络对等互连与正式版中的对等互连相比，可用性和可靠性级别可能不同。 虚拟网络对等互连的功能可能存在约束，不一定可在所有 Azure 区域中使用。 有关此功能可用性和状态方面的最新通知，请参阅 [Azure 虚拟网络更新](https://www.azure.cn/what-is-new/)页。
 <!-- PENDING on across Azure regions -->
@@ -131,7 +131,7 @@ ms.lasthandoff: 03/12/2018
 
     |Azure 部署模型  | 订阅  |
     |---------|---------|
-    |都是资源管理器模型 |[相同](virtual-network-create-peering.md)|
+    |都是资源管理器模型 |[相同](tutorial-connect-virtual-networks-portal.md)|
     | |[不同](create-peering-different-subscriptions.md)|
     |一个是资源管理器模型，一个是经典模型     |[相同](create-peering-different-deployment-models.md)|
     | |[不同](create-peering-different-deployment-models-subscriptions.md)|
@@ -139,4 +139,4 @@ ms.lasthandoff: 03/12/2018
 * 了解如何创建[中心和分支网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#virtual network-peering)。
 * 了解所有[虚拟网络对等互连设置以及如何对其进行更改](virtual-network-manage-peering.md)
 
-<!--Update_Description: wording update， update meta properties, Update link -->
+<!--Update_Description: wording update， Update link -->

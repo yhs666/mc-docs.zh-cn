@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB：SQL Node.js API、SDK 和资源 | Azure"
-description: "全面了解 SQL Node.js API 和 SDK，以及 Azure Cosmos DB Node.js SDK 各版本之间所做的更改。"
+title: Azure Cosmos DB：SQL Node.js API、SDK 和资源 | Azure
+description: 了解有关 SQL Node.js API 和 SDK 的全部信息，包括发布日期、停用日期和 Azure Cosmos DB Node.js SDK 各版本之间所做的更改。
 services: cosmos-db
 documentationcenter: nodejs
 author: rockboyfor
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 01/04/2018
-ms.date: 01/29/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d88c18d5466084c39c36d4d16dffd739d8dea267
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 3b69f6203f13d23838070d8afdcbba955fa9b9fb
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Node.js SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -28,13 +28,15 @@ ms.lasthandoff: 01/23/2018
 > * [.NET 更改源](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [异步 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
-> * [SQL](../cosmos-db/documentdb-sql-query-reference.md)
+> * [SQL](../cosmos-db/sql-api-sql-query-reference.md)
 > 
 > 
+<!-- Redirecrt https://msdn.microsoft.com/library/azure/dn782250.aspx to sql-api-sql-query-reference.md -->
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 

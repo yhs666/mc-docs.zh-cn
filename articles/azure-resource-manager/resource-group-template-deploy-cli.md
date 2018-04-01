@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure CLI 和模板部署资源 | Azure"
-description: "使用 Azure Resource Manager 和 Azure CLI 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。"
+title: 使用 Azure CLI 和模板部署资源 | Azure
+description: 使用 Azure Resource Manager 和 Azure CLI 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/31/2017
-ms.date: 10/23/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 773936392f13e34b8fa58a915d9f889f657ccfc6
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 9af8b4ea38f1a3ac4d2fb814ad8dc3afc3b43641
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 模板和 Azure CLI 部署资源
 
-本主题介绍了如何将 Azure CLI 2.0 与 Resource Manager 模板配合使用来将资源部署到 Azure。 如果不熟悉部署和管理 Azure 解决方案的概念，请参阅 [Azure Resource Manager 概述](resource-group-overview.md)。  
+本文介绍了如何将 Azure CLI 2.0 与资源管理器模板配合使用将资源部署到 Azure。 如果不熟悉部署和管理 Azure 解决方案的概念，请参阅 [Azure Resource Manager 概述](resource-group-overview.md)。  
 
-所部署的 Resource Manager 模板可以是计算机上的本地文件，也可以是位于 GitHub 等存储库中的外部文件。 本文中部署的模板可在[示例模板](#sample-template)部分中找到，也可在 [GitHub 中的存储帐户模板](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json)中找到。
+部署的 Resource Manager 模板可以是计算机上的本地文件，也可以是位于 GitHub 等存储库中的外部文件。 本文中部署的模板可在[示例模板](#sample-template)部分中找到，也可在 [GitHub 中的存储帐户模板](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json)中找到。
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
@@ -53,7 +53,7 @@ az group deployment create \
     --parameters storageAccountType=Standard_GRS
 ```
 
-部署可能需要几分钟才能完成。 完成后，会看到一条包含结果的消息：
+部署可能需要几分钟才能完成。 完成之后，会看到一条包含以下结果的消息：
 
 ```azurecli
 "provisioningState": "Succeeded",
@@ -61,7 +61,7 @@ az group deployment create \
 
 ## <a name="deploy-external-template"></a>部署外部模板
 
-可能更愿意将 Resource Manager 模板存储在外部位置，而不是将它们存储在本地计算机上。 可以将模板存储在源控件存储库（例如 GitHub）中。 另外，还可以将其存储在 Azure 存储帐户中，以便在组织中共享访问。
+你可能更愿意将 Resource Manager 模板存储在外部位置，而不是存储在本地计算机上。 可以将模板存储在源控件存储库（例如 GitHub）中。 另外，还可以将其存储在 Azure 存储帐户中，以便在组织中共享访问。
 
 若要部署外部模板，请使用 **template-uri** 参数。 使用示例中的 URI 从 GitHub 部署示例模板。
 
@@ -80,6 +80,14 @@ az group deployment create \
 前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。 但是，如果不希望模板可公开访问，可以通过将其存储在专用存储容器中来保护它。 若要了解如何部署需要共享访问签名 (SAS) 令牌的模板，请参阅[部署具有 SAS 令牌的专用模板](resource-manager-cli-sas-token.md)。
 
 <!-- Not Available on Cloud Shell -->
+   ```azurecli
+   az group create --name examplegroup --location "China East"
+   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
+   ```
+
+## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>部署到多个资源组或订阅
+
+通常情况下，将模板中的所有资源部署到单个资源组。 不过，在某些情况下，你可能希望将一组资源部署在一起但将其放置在不同的资源组或订阅中。 在单个部署中可以仅部署到五个资源组。 有关详细信息，[将 Azure 资源部署到多个订阅或资源组](resource-manager-cross-resource-group-deployment.md)。
 
 ## <a name="parameter-files"></a>参数文件
 
@@ -113,7 +121,7 @@ az group deployment create \
 
 ## <a name="test-a-template-deployment"></a>测试模板部署
 
-若要测试模板和参数值而不实际部署任何资源，请使用 [az group deployment validate](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#validate)。 
+若要测试模板和参数值而不实际部署任何资源，请使用 [az group deployment validate](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az_group_deployment_validate)。 
 
 ```azurecli
 az group deployment validate \
@@ -177,7 +185,7 @@ az group deployment create \
 
 ## <a name="sample-template"></a>示例模板
 
-本主题中的示例使用以下模板。 复制并将其另存为名为 storage.json 的文件。 若要了解如何创建此模板，请参阅[创建第一个 Azure Resource Manager 模板](resource-manager-create-first-template.md)。  
+本文中的示例使用以下模板。 复制并将其另存为名为 storage.json 的文件。 若要了解如何创建此模板，请参阅[创建第一个 Azure Resource Manager 模板](resource-manager-create-first-template.md)。  
 
 ```json
 {
@@ -232,4 +240,4 @@ az group deployment create \
 * 有关部署需要 SAS 令牌的模板的信息，请参阅[使用 SAS 令牌部署专用模板](resource-manager-cli-sas-token.md)。
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link  -->

@@ -1,11 +1,11 @@
 ---
-title: "Azure 媒体服务概念 | Microsoft Docs"
-description: "本主题提供 Azure 媒体服务概念的概述"
+title: Azure 媒体服务概念 | Microsoft Docs
+description: 本主题提供 Azure 媒体服务概念的概述
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: forester123
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: dcefc8bc-e2ea-4b38-a643-9010f4436fb5
 ms.service: media-services
 ms.workload: media
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 07/07/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 44900ad190e27856b1c7ce6c817816fd0d6c0e55
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 59b7c39195f5697f48aa64d3cb44afd0ee67ce52
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-media-services-concepts"></a>Azure 媒体服务概念
 本部分概述最重要的媒体服务概念。
@@ -68,7 +68,7 @@ ms.lasthandoff: 12/22/2017
 ### <a name="blob-container"></a>Blob 容器
 一个 Blob 容器包含一组 Blob 集。 Blob 容器用作媒体服务中的访问控制分界点和资产上的共享访问签名 (SAS) 定位符。 一个 Azure 存储帐户可以包含无数个 Blob 容器。 一个容器可以存储无数个 Blob。
 
-> [!NOTE]
+>[!NOTE]
 > 在不使用媒体服务 API 的情况下，不应该尝试更改媒体服务生成的 blob 容器内容。
 > 
 > 
@@ -78,8 +78,8 @@ ms.lasthandoff: 12/22/2017
 
 媒体服务支持两种类型的定位符：OnDemandOrigin 定位符，用于对媒体进行流式处理（例如，MPEG DASH、HLS 或平滑流式处理）；渐进式下载媒体和 SAS URL 定位符，用于与 Azure 存储相互上传或下载媒体文件。 
 
-> [!NOTE]
-> 创建 OnDemandOrigin 定位符时，不应使用列表权限 (AccessPermissions.List)。 
+>[!NOTE]
+>创建 OnDemandOrigin 定位符时，不应使用列表权限 (AccessPermissions.List)。 
 
 ### <a name="storage-account"></a>存储帐户
 对 Azure 存储进行的所有访问都要通过存储帐户完成。 一个媒体服务帐户可与一个或多个存储帐户相关联。 一个帐户可以包含无限个容器，只要每个存储帐户的容器总大小不超过 500TB 即可。  媒体服务提供 SDK 级工具，可用于管理多个存储帐户，并在上传到这些帐户时基于指标或随机分发使资产分发达到负载均衡。 有关详细信息，请参阅[使用 Azure 存储](https://msdn.microsoft.com/library/azure/dn767951.aspx)。 
@@ -192,7 +192,7 @@ StreamingEndpoint 表示一个流服务，该服务可以直接将内容传递�
 
 http://amstest1.streaming.mediaservices.chinacloudapi.cn/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-### <a name="streaming-urls"></a>流 URL
+### <a name="streaming-urls"></a>流式处理 URL
 将内容流式传输到客户端。 若要为用户提供流式处理 URL，必须先创建一个 OnDemandOrigin 定位符。 创建定位符可提供包含要流式传输的内容的资产的基本路径。 但是，为了能够流式传输此内容，需要进一步修改此路径。 要构造流清单文件的完整 URL，必须将定位符的 Path 值与清单 (filename.ism) 文件名连接起来。 然后，向定位符路径追加 /Manifest 和相应的格式（如果需要）。
 
 也可通过 SSL 连接流式传输内容。 为此，请确保流 URL 以 HTTPS 开头。 目前，AMS 对自定义域不支持 SSL。  

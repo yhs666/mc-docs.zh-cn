@@ -1,24 +1,20 @@
 ---
-title: "我在 Azure 自动化中的第一个 Python Runbook | Microsoft Docs"
-description: "本教程指导创建、测试和发布一个简单的 Python Runbook。"
+title: 我在 Azure 自动化中的第一个 Python Runbook | Microsoft Docs
+description: 本教程指导创建、测试和发布一个简单的 Python Runbook。
 services: automation
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: tysonn
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 07/25/2017
 ms.date: 01/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 6671b2ab66e7e7c039366ff3e8564fff29a8d391
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: ec2e8cfa8ef427fd698daba67a5a915dda6ed712
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="my-first-python-runbook"></a>我的第一个 Python Runbook
 

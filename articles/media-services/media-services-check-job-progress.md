@@ -1,11 +1,11 @@
 ---
-title: "使用 .NET 监视作业进度"
-description: "了解如何使用事件处理程序代码来跟踪作业进度并发送状态更新。 代码示例用 C# 编写，并使用用于 .NET 的媒体服务 SDK。"
+title: 使用 .NET 监视作业进度
+description: 了解如何使用事件处理程序代码来跟踪作业进度并发送状态更新。 代码示例用 C# 编写，并使用用于 .NET 的媒体服务 SDK。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: hayley244
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: ee720ed6-8ce5-4434-b6d6-4df71fca224e
 ms.service: media-services
 ms.workload: media
@@ -15,15 +15,15 @@ ms.topic: article
 origin.date: 07/20/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 4f1a2a424f49ee7a9602d01c305ac3188497bab7
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+ms.openlocfilehash: b41afa09bb54e430779a24704024eab75d2f5991
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="monitor-job-progress-using-net"></a>使用 .NET 监视作业进度
 > [!div class="op_single_selector"]
-> * [门户](media-services-portal-check-job-progress.md)
+> * [Portal](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)
 > * [REST](media-services-rest-check-job-progress.md)
 > 
@@ -35,7 +35,7 @@ ms.lasthandoff: 08/31/2017
 
 以下代码示例定义了 StateChanged 事件处理程序。 此事件处理程序跟踪作业进度，并根据现状提供更新的状态。 该代码还定义了 LogJobStop 方法。 此 helper 方法记录错误详细信息。
 
-```
+```csharp
 private static void StateChanged(object sender, JobStateChangedEventArgs e)
 {
     Console.WriteLine("Job state changed event:");

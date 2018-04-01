@@ -2,18 +2,19 @@
 title: Azure Stack 培训和认证
 description: 了解 Azure Stack 培训认证的机会
 services: azure-stack
-author: vhorne
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 03/04/2018
+origin.date: 02/28/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
 keywords: ''
-ms.openlocfilehash: 2376905547155c937826acefdf22e350c2555d8e
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 2558881ec8fa14a32359d0d9474f0d37034df906
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-stack-training-and-certification"></a>Azure Stack 培训和认证
 
@@ -34,3 +35,4 @@ Azure Stack 认证目前正在开发中。 请不时回来查看最新的信息�
 
 [Azure Stack 文档](/azure-stack/)
 
+<!-- Update_Description: update metedata properties -->

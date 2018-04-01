@@ -1,19 +1,19 @@
 ---
-title: "在 Azure Site Recovery 中配置 Azure VM 复制 | Azure"
-description: "本文介绍如何使用 Site Recovery 配置从一个 Azure 区域到另一个区域的 Azure VM 复制。"
+title: 在 Azure Site Recovery 中配置 Azure VM 复制 | Azure
+description: 本文介绍如何使用 Site Recovery 配置从一个 Azure 区域到另一个区域的 Azure VM 复制。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/12/2017
-ms.date: 03/05/2018
+origin.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 81772b2067f7df521c6ea269fc50c478e42b1b6b
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: f7cf825adbe69f40502f3c4549fff5cc153ed5a4
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>将 Azure 虚拟机复制到另一个 Azure 区域
 
@@ -70,8 +70,8 @@ ms.lasthandoff: 03/02/2018
 2. 单击“创建目标资源” > “启用复制”。
 3. 为 VM 启用复制后，可以在“复制的项”下检查 VM 的运行状况
 
->[!NOTE]
->在初始复制期间，VM 状态刷新可能需要一段时间，但不显示进度。 单击“刷新”按钮可获取最新状态。
+> [!NOTE]
+> 在初始复制期间，VM 状态刷新可能需要一段时间，但不显示进度。 单击“刷新”按钮可获取最新状态。
 >
 
 # <a name="next-steps"></a>后续步骤

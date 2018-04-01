@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Site Recovery（预览版）为 Azure VM 设置到辅助 Azure 区域的灾难恢复"
-description: "了解如何使用 Azure Site Recovery 服务为 Azure VM 设置到其他 Azure 区域的灾难恢复。"
+title: 使用 Azure Site Recovery（预览版）为 Azure VM 设置到辅助 Azure 区域的灾难恢复
+description: 了解如何使用 Azure Site Recovery 服务为 Azure VM 设置到其他 Azure 区域的灾难恢复。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 12/11/2017
-ms.date: 03/05/2018
+origin.date: 03/16/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f1763010e6bb358a4eba1d722a73888de3a7567f
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 03270dddc45508174290a28ae7cef36eab4654a1
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>为 Azure VM 设置到辅助 Azure 区域的灾难恢复（预览版）
 
@@ -181,4 +181,4 @@ Site Recovery 会针对目标区域创建默认设置和复制策略。 你可�
 > [!div class="nextstepaction"]
 > [运行灾难恢复演练](azure-to-azure-tutorial-dr-drill.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

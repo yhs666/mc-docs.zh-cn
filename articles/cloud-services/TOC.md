@@ -1,3 +1,5 @@
+# [云服务文档](index.md)
+
 # 概述
 ## [什么是云服务？](cloud-services-choose-me.md)
 ## [云服务配置文件和打包](cloud-services-model-and-package.md)
@@ -16,8 +18,6 @@
 ### [创建 PHP Web 角色和辅助角色](../cloud-services-php-create-web-role.md)
 ### [构建和部署 Node.js 应用程序](cloud-services-nodejs-develop-deploy-app.md)
 ### [使用 Express 构建 Node.js Web 应用程序](cloud-services-nodejs-develop-deploy-express-app.md)
-### 配置持续生成和部署包
-#### [TFS 和 Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [配置角色的流量规则](cloud-services-enable-communication-role-instances.md)
 ### [处理云服务生命周期事件](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
@@ -30,6 +30,7 @@
 ### 配置远程桌面
 #### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 ## 部署
 ### [在门户中创建和部署云服务](cloud-services-how-to-create-deploy-portal.md)

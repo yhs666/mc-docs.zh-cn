@@ -1,9 +1,9 @@
 ---
-title: "使用 Azure CLI 管理资源 | Azure"
-description: "使用 Azure 命令行接口 (CLI) 管理 Azure 资源和组"
-editor: 
+title: 使用 Azure CLI 管理资源 | Azure
+description: 使用 Azure 命令行接口 (CLI) 管理 Azure 资源和组
+editor: ''
 manager: digimobile
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 services: azure-resource-manager
 ms.service: azure-resource-manager
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 origin.date: 10/06/2017
-ms.date: 10/23/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 697b9e3d8cfa840006369d8eadca752350af6b26
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: b5717b15a20a9767666f8df6eca96c994c22707e
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>使用 Azure CLI 管理 Azure 资源和资源组
 
-本文介绍如何使用 Azure CLI 和 Azure 资源管理器管理解决方案。 如果不熟悉 Resource Manager，请参阅 [Resource Manager 概述](resource-group-overview.md)。 本主题重点介绍管理任务。 用户能够：
+本文介绍如何使用 Azure CLI 和 Azure 资源管理器管理解决方案。 如果不熟悉 Resource Manager，请参阅 [Resource Manager 概述](resource-group-overview.md)。 本文重点介绍管理任务。 用户能够：
 
 1. 创建资源组
 2. 将资源添加到资源组
@@ -230,4 +230,4 @@ az lock delete --name storagelock --resource-group TestRG1 --resource-type Micro
 * 可以将现有资源移动到新的资源组。 有关示例，请参阅[将资源移动到新的资源组或订阅中](resource-group-move-resources.md)。
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
 
-<!--Update_Description: update meta properties, update azure CLI and powershell command-->
+<!--Update_Description: wording update -->

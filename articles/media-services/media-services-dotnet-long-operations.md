@@ -1,11 +1,11 @@
 ---
-title: "轮询长时间运行的操作"
-description: "本主题展示了如何轮询长时间运行的操作。"
+title: 轮询长时间运行的操作
+description: 本主题展示了如何轮询长时间运行的操作。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 9a68c4b1-6159-42fe-9439-a3661a90ae03
 ms.service: media-services
 ms.workload: media
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 1e4a450a483330bc33368650d6d31f4183f54e77
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 11ce602f5e5d5a45abba3f532d1293fa6fb66801
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>使用 Azure 媒体服务传送实时流
 
@@ -48,7 +48,7 @@ Microsoft Azure 媒体服务提供了相应的 API 来向媒体服务发送启�
 
 ### <a name="channeloperations-class-definition"></a>ChannelOperations 类定义
 
-```
+```csharp
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System;
 using System.Collections.Generic;
@@ -193,22 +193,22 @@ public class ChannelOperations
 
 ### <a name="the-client-code"></a>客户端代码
 
-```
+```csharp
 ChannelOperations channelOperations = new ChannelOperations();
 string opId = channelOperations.StartChannelCreation("MyChannel001");
 
-    string channelId = null;
-    bool isCompleted = false;
+string channelId = null;
+bool isCompleted = false;
 
-    while (isCompleted == false)
-    {
-        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
-        isCompleted = channelOperations.IsCompleted(opId, out channelId);
-    }
+while (isCompleted == false)
+{
+    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
+    isCompleted = channelOperations.IsCompleted(opId, out channelId);
+}
 
-    // If we got here, we should have the newly created channel id.
-    Console.WriteLine(channelId);
-
+// If we got here, we should have the newly created channel id.
+Console.WriteLine(channelId);
+```
 
 
 <!--Update_Description: update code to use AAD token instead of ACS-->

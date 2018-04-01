@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 03/02/2018
+origin.date: 02/27/2018
+ms.date: 03/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1a2f56b31559654998261481a27a04d5dd2eaa1c
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 01fae70376882bd0fb1ee856fa2158d03cff8ec9
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="download-azure-stack-tools-from-github"></a>从 GitHub 下载 Azure Stack 工具
 
@@ -32,6 +32,7 @@ ms.lasthandoff: 03/08/2018
 cd \
 
 # Download the tools archive.
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -67,3 +68,4 @@ cd AzureStack-Tools-master
 - [配置 Azure Stack 用户的 PowerShell 环境](user/azure-stack-powershell-configure-user.md)   
 - [通过 VPN 连接到 Azure Stack 开发工具包](azure-stack-connect-azure-stack.md)  
 
+<!-- Update_Description: code update -->

@@ -1,7 +1,7 @@
 ---
-title: "用于 Azure Cosmos DB 的 SQL API Python 示例 | Azure"
-description: "在 github 上查找有关 Azure Cosmos DB 中常见任务的 Python 示例，包括 CRUD 操作。"
-keywords: "python 示例"
+title: 用于 Azure Cosmos DB 的 SQL API Python 示例 | Azure
+description: 在 github 上查找有关 Azure Cosmos DB 中常见任务的 Python 示例，包括 CRUD 操作。
+keywords: python 示例
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-origin.date: 02/09/2018
-ms.date: 03/05/2018
+origin.date: 03/14/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 05b999e60b74b35bba38ea4034a04b712db062db
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: bfb23193fb81b631eed0afbb4f2ad2349c583235
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 示例
 
@@ -28,9 +28,10 @@ ms.lasthandoff: 03/02/2018
 > * [Java 示例](sql-api-java-samples.md)
 > * [Node.js 示例](sql-api-nodejs-samples.md)
 > * [Python 示例](sql-api-python-samples.md)
+>
+>
 <!-- Not Available > * [Azure Code Sample Gallery](https://www.azure.cn/resources/samples/?sort=0&service=cosmos-db) -->
-> 
-> 
+
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 03/02/2018
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- 可以[激活 Visual Studio 订户权益](https://www.azure.cn/support/legal/offer-rate-plans/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)：Visual Studio 订阅每月为用户提供可用于付费版 Azure 服务的信用额度。
+- 可以[激活 Visual Studio 订户权益](https://www.azure.cn/support/legal/offer-rate-plans/)：Visual Studio 订阅每月为用户提供可用于付费版 Azure 服务的信用额度。
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -72,6 +73,7 @@ ms.lasthandoff: 03/02/2018
 | [创建集合](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L84-L135) |[document_client.CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [读取数据库中所有集合的列表](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L198-L209) |[document_client.ReadCollections](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#ReadCollections) |
 | [按 ID 获取集合](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L178-L195) |[document_client.ReadCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#ReadCollection) |
+| [更改集合的吞吐量](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement/Program.py#L168-L172) | [document_client.ReplaceOffer](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html)|
 | [删除集合](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L212-L225) |[document_client.DeleteCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#DeleteCollection) |
 
 ## <a name="document-examples"></a>文档示例

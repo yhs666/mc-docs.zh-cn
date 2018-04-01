@@ -3,7 +3,7 @@ title: 管理 Azure Stack 中的存储容量 | Microsoft Docs
 description: 监视和管理 Azure Stack 的可用存储空间。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: b0e694e4-3575-424c-afda-7d48c2025a62
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 12/14/2017
-ms.date: 03/02/2018
+origin.date: 02/22/2017
+ms.date: 03/26/2018
 ms.author: v-junlch
 ms.reviewer: jiahan
-ms.openlocfilehash: 31be00d2a60a629f30fbfe3eaf9afa110bf69c70
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 9cd361d416fc21dd5f092da78e1b12cdf4ae423d
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>管理 Azure Stack 的存储容量
 
@@ -191,3 +191,4 @@ VM 磁盘包括操作系统磁盘，由租户添加到容器。 VM 还可能包�
 ## <a name="next-steps"></a>后续步骤
 详细了解如何[将虚拟机提供给用户](azure-stack-tutorial-tenant-vm.md)。
 
+<!-- Update_Description: update metedata properties -->

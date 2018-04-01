@@ -1,25 +1,25 @@
 ---
-title: "使用 Python 将设备上的文件上传到 Azure IoT 中心"
-description: "如何使用适用于 Python 的 Azure IoT 设备 SDK 将文件上的设备上传到云端。 上传的文件存储在 Azure 存储 Blob 容器中。"
+title: 使用 Python 将设备上的文件上传到 Azure IoT 中心
+description: 如何使用适用于 Python 的 Azure IoT 设备 SDK 将文件上的设备上传到云端。 上传的文件存储在 Azure 存储 Blob 容器中。
 services: iot-hub
 documentationcenter: python
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
 ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/16/2018
-ms.date: 03/19/2018
+origin.date: 03/05/2018
+ms.date: 04/09/2018
 ms.author: v-yiso
-ms.openlocfilehash: cd478ee74d9045bf7056997ffdfe7df64286e097
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 531209caa6da9e545e8cdf23d4e43d2b8426b69f
+ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
 

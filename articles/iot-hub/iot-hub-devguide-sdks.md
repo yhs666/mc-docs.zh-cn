@@ -1,26 +1,26 @@
 ---
-title: "了解 Azure IoT SDK | Azure"
-description: "开发人员指南 - 介绍了相关链接，其指向可用于构建设备应用和后端应用的各种 Azure IoT 设备和服务 SDK。"
+title: 了解 Azure IoT SDK | Azure
+description: 开发人员指南 - 介绍了相关链接，其指向可用于构建设备应用和后端应用的各种 Azure IoT 设备和服务 SDK。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c5c9a497-bb03-4301-be2d-00edfb7d308f
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/29/2018
+origin.date: 03/12/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 03/19/2018
-ms.openlocfilehash: 91b5e3f946edaf6d05fd0d789cea7409cc926481
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 04/09/2018
+ms.openlocfilehash: b88e2c937479a7e6e9df519aa3883441e5580345
+ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="understand-and-use-azure-iot-sdks"></a>了解和使用 Azure IoT SDK
 
@@ -102,9 +102,9 @@ Azure IoT Edge 包含用于创建 IoT 网关解决方案的基础结构和模块
 
 [lnk-c-device-sdk]: https://github.com/Azure/azure-iot-sdk-c
 [lnk-c-service-sdk]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_service_client
-[lnk-dotnet-device-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
+[lnk-dotnet-device-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device
 [lnk-java-device-sdk]: https://github.com/Azure/azure-iot-sdk-java/tree/master/device
-[lnk-dotnet-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
+[lnk-dotnet-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service
 [lnk-java-service-sdk]: https://github.com/Azure/azure-iot-sdk-java/tree/master/service
 [lnk-node-device-sdk]: https://github.com/Azure/azure-iot-sdk-node/tree/master/device
 [lnk-node-service-sdk]: https://github.com/Azure/azure-iot-sdk-node/tree/master/service
@@ -118,7 +118,7 @@ Azure IoT Edge 包含用于创建 IoT 网关解决方案的基础结构和模块
 [lnk-java-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device
 [lnk-node-ref]: https://azure.github.io/azure-iot-sdk-node/
 [lnk-rest-ref]: https://docs.microsoft.com/rest/api/iothub/
-[lnk-java-service-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth
+[lnk-java-service-ref]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service
 [lnk-node-service-ref]: https://azure.github.io/azure-iot-sdk-node/
 [lnk-gateway-ref]: http://azure.github.io/iot-edge/api_reference/c/html/
 

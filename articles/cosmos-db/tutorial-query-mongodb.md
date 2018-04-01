@@ -1,29 +1,29 @@
 ---
-title: "Azure Cosmos DB：如何使用 MongoDB API 进行查询？ | Azure"
-description: "了解如何使用 Azure Cosmos DB 的 MongoDB API 进行查询"
+title: Azure Cosmos DB：如何使用 MongoDB API 进行查询？ | Azure
+description: 了解如何使用 Azure Cosmos DB 的 MongoDB API 进行查询
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
-origin.date: 05/10/2017
-ms.date: 12/25/2017
+ms.workload: ''
+origin.date: 03/16/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 36d45cd4ac838dfdc5e2e7848d16c81a44aa8f46
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: e9458fd61efaace99a41978ff7886777fc53dbba
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB：如何使用 MongoDB API 进行查询？
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>教程：使用 MongoDB API 查询 Azure Cosmos DB
 
 Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查询](https://docs.mongodb.com/manual/tutorial/query-documents/)。 
 
@@ -120,7 +120,7 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
 
 **查询**
 
-    db.familes.find( { id: "WakefieldFamily" }, { children: true } )
+    db.families.find( { id: "WakefieldFamily" }, { children: true } )
 
 **结果**
 
@@ -313,4 +313,4 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
 > [!div class="nextstepaction"]
 > [全局分发数据](tutorial-global-distribution-sql-api.md)
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update link -->

@@ -1,26 +1,26 @@
 ---
-title: "创建 Azure 虚拟网络对等互连 - 不同的部署模型 - 相同的订阅 | Azure"
-description: "了解如何在通过相同 Azure 订阅中的不同 Azure 部署模型创建的虚拟网络间创建虚拟网络对等互连。"
+title: 创建 Azure 虚拟网络对等互连 - 不同的部署模型 - 相同的订阅 | Azure
+description: 了解如何在通过相同 Azure 订阅中的不同 Azure 部署模型创建的虚拟网络间创建虚拟网络对等互连。
 services: virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: df6fe6569aa944e4135bd28c481e7a26dacfee7b
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: f40836e7b829342f362b1de10fd8720de224da18
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>创建虚拟网络对等互连 - 不同的部署模型，相同的订阅 
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/12/2018
 
 |Azure 部署模型  | Azure 订阅  |
 |--------- |---------|
-|[均为资源管理器模型](virtual-network-create-peering.md) |相同|
+|[均为资源管理器模型](tutorial-connect-virtual-networks-portal.md) |相同|
 |[均为 Resource Manager 模型](create-peering-different-subscriptions.md) |不同|
 |[一个为资源管理器模型，一个为经典模型](create-peering-different-deployment-models-subscriptions.md) |不同|
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 03/12/2018
     ```
 
 5. 创建资源组和虚拟网络（资源管理器）。 可使用 CLI 1.0 或 2.0（[安装](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest)）。 本教程中使用 CLI 2.0 创建虚拟网络（资源管理器），因为必须使用 2.0 来创建对等互连。 从安装有 CLI 2.0.4 或更高版本的本地计算机执行以下 bash CLI 脚本。 有关在 Windows 客户端上运行 bash CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../virtual-machines/windows/cli-options.md?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest)。
-<!-- Not Available on Cloud Shell -->
+    <!-- Not Available on Cloud Shell -->
 
     [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -331,4 +331,4 @@ ms.lasthandoff: 03/12/2018
 - 了解所有的[虚拟网络对等互连设置](virtual-network-manage-peering.md#create-a-peering)。
 - 了解如何使用虚拟网络对等互连[创建中心辐射型网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

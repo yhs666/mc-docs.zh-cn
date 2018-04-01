@@ -1,11 +1,11 @@
 ---
-title: "什么是云服务模型和包 | Microsoft Docs"
-description: "描述 Azure 中的云服务模型（.csdef、.cscfg）和包 (.cspkg)"
+title: 什么是云服务模型和包
+description: 描述 Azure 中的云服务模型（.csdef、.cscfg）和包 (.cspkg)
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
 ms.service: cloud-services
 ms.workload: tbd
@@ -15,14 +15,14 @@ ms.topic: article
 origin.date: 07/05/2017
 ms.author: v-yiso
 ms.date: 12/11/2017
-ms.openlocfilehash: a5918e5452cb2c5f01baf6808f7b6397ad85e52d
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 683a3bce798db43d484ecf11bf14f129b17336fe
+ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>什么是云服务模型以及如何将其打包？
-云服务由以下三个组件创建：服务定义 (.csdef)、服务配置 (.cscfg) 和服务包 (.cspkg)。 **ServiceDefinition.csdef** 和 **ServiceConfig.cscfg** 文件都基于 XML，同时介绍云服务的结构及其配置方式；统称为模型。 **ServicePackage.cspkg** 是基于 **ServiceDefinition.csdef** 和其他文件生成的 zip 文件，它包含所有必需的基于二进制的依赖项。 Azure 可从 **ServicePackage.cspkg** 和 **ServiceConfig.cscfg** 两者创建云服务。
+云服务由以下三个组件创建：服务定义 (.csdef)、服务配置 (.cscfg) 和服务包 (.cspkg)。 **ServiceDefinition.csdef** 和 **ServiceConfig.cscfg** 文件都基于 XML，同时介绍云服务的结构及其配置方式；统称为模型。 **ServicePackage.cspkg** 是基于 **ServiceDefinition.csdef** 和其他文件生成的 zip 文件，它包含所有必需的基于二进制的依赖项。 Azure 可从 ServicePackage.cspkg 和 ServiceConfig.cscfg 两者创建云服务。
 
 云服务在 Azure 中开始运行后，可以通 **ServiceConfig.cscfg** 文件重新进行配置，但不能更改定义。
 
@@ -149,7 +149,7 @@ ms.lasthandoff: 12/01/2017
 为角色配置运行实例的设置。 `<Setting>` 元素的名称必须与服务定义文件中的设置定义匹配。
 
 **Certificates**  
-配置服务使用的证书。 前面的代码示例演示如何定义 RemoteAccess 模块的证书。 *指纹*属性的值必须设置为要使用的证书的指纹。
+配置服务使用的证书。 前面的代码示例演示如何定义 RemoteAccess 模块的证书。 *thumbprint* 属性的值必须设置为要使用的证书的指纹。
 
 <p/>
 
@@ -259,16 +259,16 @@ cspack [DirectoryName]\[ServiceDefinition]
 
 其中变量如下所示定义：
 
-| 变量                  | 值 |
-| ------------------------- | ----- |
-| \[DirectoryName\]         | 包含 Azure 项目 .csdef 文件的根项目目录下的子目录。|
-| \[ServiceDefinition\]     | 服务定义文件的名称。 默认情况下，此文件名为 ServiceDefinition.csdef。  |
-| \[OutputFileName\]        | 生成的包文件的名称。 通常，此值设为该应用程序的名称。 如果未指定任何文件名称，则应用程序包将创建为 \[ApplicationName\].cspkg。|
-| \[RoleName\]              | 在服务定义文件中定义的角色的名称。|
-| \[RoleBinariesDirectory] | 该角色二进制文件的位置。|
-| \[VirtualPath\]           | 在服务定义的站点部分中定义的每个虚拟路径的物理目录。|
-| \[PhysicalPath\]          | 在服务定义的站点节点中定义的每个虚拟路径的内容的物理目录。|
-| \[RoleAssemblyName\]      | 角色的二进制文件的名称。| 
+| 变量 | 值 |
+| --- | --- |
+| \[DirectoryName\] |包含 Azure 项目 .csdef 文件的根项目目录下的子目录。 |
+| \[ServiceDefinition\] |服务定义文件的名称。 默认情况下，此文件名为 ServiceDefinition.csdef。 |
+| \[OutputFileName\] |生成的包文件的名称。 通常，此值设为该应用程序的名称。 如果未指定任何文件名称，则应用程序包将创建为 \[ApplicationName\].cspkg。 |
+| \[RoleName\] |在服务定义文件中定义的角色的名称。 |
+| \[RoleBinariesDirectory] |该角色二进制文件的位置。 |
+| \[VirtualPath\] |在服务定义的站点部分中定义的每个虚拟路径的物理目录。 |
+| \[PhysicalPath\] |在服务定义的站点节点中定义的每个虚拟路径的内容的物理目录。 |
+| \[RoleAssemblyName\] |角色的二进制文件的名称。 |
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -286,7 +286,7 @@ cspack [DirectoryName]\[ServiceDefinition]
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
-[vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
+[vs_remote]: cloud-services-role-enable-remote-desktop-visual-studio.md
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md

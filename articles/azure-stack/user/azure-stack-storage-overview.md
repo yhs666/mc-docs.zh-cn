@@ -3,23 +3,22 @@ title: Azure Stack 存储简介
 description: 了解 Azure Stack 存储
 services: azure-stack
 documentationcenter: ''
-author: xiaofmao
-manager: ''
-editor: ''
+author: mattbriggs
+manager: femila
 ms.assetid: 092aba28-04bc-44c0-90e1-e79d82f4ff42
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/25/2017
-ms.date: 03/09/2018
+origin.date: 02/29/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: f497ae6a2bb796785281ac4aee8535c781f20d65
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 79ca1bf81c604d0b06709eabc7ab38d1394847b5
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-stack-storage"></a>Azure Stack 存储简介
 
@@ -91,3 +90,4 @@ Blob 存储提供三种类型的 blob：
 - 若要了解有关 Azure 存储的详细信息，请参阅 [Azure 存储简介](../../storage/common/storage-introduction.md)
 
 
+<!-- Update_Description: update metedata properties -->

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/04/2017
-ms.date: 03/08/2018
+origin.date: 02/26/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: eec0cf958e8d5bcf0343391d7c516947639803fa
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: d461c94936a2e5148365532c43642ee60daee0c5
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>安装并配置与 Azure Stack 配合使用的 CLI
 
@@ -197,3 +197,4 @@ az group create \
 
 [管理用户权限](azure-stack-manage-permissions.md)
 
+<!-- Update_Description: update metedata properties -->

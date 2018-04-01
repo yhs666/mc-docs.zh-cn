@@ -1,11 +1,11 @@
 ---
-title: "自定义 Media Encoder Standard 预设 | Microsoft Docs"
-description: "本主题说明如何通过自定义 Media Encoder Standard 任务预设执行高级编码。 本主题说明如何使用媒体服务 .NET SDK 创建编码任务和作业。 此外，还说明如何向编码作业提供自定义预设。"
+title: 自定义 Media Encoder Standard 预设 | Microsoft Docs
+description: 本主题说明如何通过自定义 Media Encoder Standard 任务预设执行高级编码。 本主题说明如何使用媒体服务 .NET SDK 创建编码任务和作业。 此外，还说明如何向编码作业提供自定义预设。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: ec95392f-d34a-4c22-a6df-5274eaac445b
 ms.service: media-services
 ms.workload: media
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 740d5fb1b772d577ab642db1d94bb28b6690eab4
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 126a56260113a6744eb65616ad042d9a2c52e7db
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>自定义 Media Encoder Standard 预设
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 12/22/2017
 
 打开“CustomPreset_JSON.json”文件，删除“H264Layers” 中的前三层，使文件如下所示。
 
-    
+```json 
     {  
       "Version": 1.0,  
       "Codecs": [  
@@ -108,7 +108,7 @@ ms.lasthandoff: 12/22/2017
         }  
       ]  
     }  
-    
+```
 
 ## <a id="encoding_with_dotnet"></a>使用媒体服务 .NET SDK 进行编码
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 12/22/2017
 
 #### <a name="example"></a>示例   
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

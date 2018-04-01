@@ -2,17 +2,18 @@
 title: Azure Stack 虚拟机简介
 description: 了解 Azure Stack 虚拟机
 services: azure-stack
-author: anjayajodha
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-origin.date: 09/25/2017
-ms.date: 03/08/2018
+origin.date: 02/28/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: e7f4f8840d879809d468b913d74028ea9e1ecb40
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 8243aded6ae33e5953fc41aae19aa56ac131843e
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 虚拟机简介
 
@@ -61,7 +62,7 @@ Azure Stack VM 可提供虚拟化的灵活性，你无需管理单个群集或�
 ### <a name="operating-system-disks-and-images"></a>操作系统磁盘和映像
 
 虚拟机使用虚拟硬盘 (VHD) 来存储其操作系统 (OS) 和数据。 VHD 还可用于存储映像，可以选择某个映像来安装 OS。
-Azure Stack 提供一个 Marketplace，适用于各种版本和类型的操作系统。 应用商店映像由映像发布者、产品/服务、SKU 和版本（通常指定为最新版本）标识。
+Azure Stack 提供一个 Marketplace，适用于各种版本和类型的操作系统。 应用商店映像由映像发布者、产品、SKU 和版本（通常指定为最新版本）标识。
 
 下表显示了查找映像信息的一些方法：
 
@@ -70,7 +71,7 @@ Azure Stack 提供一个 Marketplace，适用于各种版本和类型的操作�
 |---------|---------|
 |Azure Stack 门户|选择要使用的映像时，系统会自动指定值。|
 |Azure Stack PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
-|REST API     |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>[列出映像产品/服务](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
+|REST API     |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>[列出映像产品](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
 
 可以选择上传并使用自己的映像。 如果这样做，则不会使用发布者名称、产品/服务和 SKU。
 
@@ -133,3 +134,4 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 - [Azure Stack 中虚拟机的注意事项](azure-stack-vm-considerations.md)
 
 
+<!-- Update_Description: update metedata properties -->

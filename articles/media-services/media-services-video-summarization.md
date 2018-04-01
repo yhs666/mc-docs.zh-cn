@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 媒体视频缩略图创建视频摘要 | Azure"
-description: "视频摘要可通过自动选择来自源视频的有趣片段帮助你创建长视频的摘要。 要提供有关长视频内容的快速概述时，这很有用。"
+title: 使用 Azure 媒体视频缩略图创建视频摘要 | Azure
+description: 视频摘要可通过自动选择来自源视频的有趣片段帮助你创建长视频的摘要。 要提供有关长视频内容的快速概述时，这很有用。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
 ms.service: media-services
 ms.workload: media
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: f1b51d6e6b61a0a455d1aaefc96875c26bcc846f
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: e2ce6bb550e0e24f13f3f0bf95f20a91afb219de
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>使用 Azure 媒体视频缩略图创建视频摘要
 ## <a name="overview"></a>概述
@@ -45,8 +45,10 @@ ms.lasthandoff: 12/22/2017
 ## <a name="task-configuration-preset"></a>任务配置（预设）
 使用 **Azure 媒体视频缩略图**创建视频缩略图时，必须指定配置预设值。 以上缩略图示例使用以下 JSON 基本配置创建：
 
-```
-{"version":"1.0"}
+```json
+    {
+        "version":"1.0"
+    }
 ```
 
 当前你可更改以下参数：
@@ -66,15 +68,15 @@ ms.lasthandoff: 12/22/2017
 
 下面的 JSON 设置可用的参数。
 
-```
-{
-    "version": "1.0",
-    "options": {
-        "outputAudio": "true",
-        "maxMotionThumbnailDurationInSecs": "10",
-        "fadeInFadeOut": "true"
+```json
+    {
+        "version": "1.0",
+        "options": {
+            "outputAudio": "true",
+            "maxMotionThumbnailDurationInSecs": "10",
+            "fadeInFadeOut": "true"
+        }
     }
-}
 ```
 
 ## <a name="net-sample-code"></a>.NET 示例代码
@@ -83,15 +85,18 @@ ms.lasthandoff: 12/22/2017
 
 1. 创建资产并将媒体文件上传到资产。
 2. 基于包含以下 json 预设的配置文件创建含有视频缩略图任务的作业： 
-   
-        {                
-            "version": "1.0",
-            "options": {
-                "outputAudio": "true",
-                "maxMotionThumbnailDurationInSecs": "30",
-                "fadeInFadeOut": "false"
+    
+    ```json
+            {                
+                "version": "1.0",
+                "options": {
+                    "outputAudio": "true",
+                    "maxMotionThumbnailDurationInSecs": "30",
+                    "fadeInFadeOut": "false"
+                }
             }
-        }
+    ```
+
 3. 下载输出文件。 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>创建和配置 Visual Studio 项目
@@ -100,6 +105,7 @@ ms.lasthandoff: 12/22/2017
 
 #### <a name="example"></a>示例
 
+```csharp
     using System;
     using System.Configuration;
     using System.IO;
@@ -267,6 +273,7 @@ ms.lasthandoff: 12/22/2017
 
         }
     }
+```
 
 ### <a name="video-thumbnail-output"></a>视频缩略图输出
 

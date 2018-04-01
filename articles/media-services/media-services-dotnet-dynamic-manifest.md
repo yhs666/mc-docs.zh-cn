@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 媒体服务 .NET SDK 创建筛选器"
-description: "本主题介绍如何创建筛选器，以便客户端能够使用它们来流式传输流的特定部分。 媒体服务创建动态清单来存档此选择性流。"
+title: 使用 Azure 媒体服务 .NET SDK 创建筛选器
+description: 本主题介绍如何创建筛选器，以便客户端能够使用它们来流式传输流的特定部分。 媒体服务创建动态清单来存档此选择性流。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 2f6894ca-fb43-43c0-9151-ddbb2833cafd
 ms.service: media-services
 ms.workload: media
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/07/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 156a0a40703de2aacaa9fc5ccd28639f2d090c1c
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 59fd41aa9ebb33860cb00255d40610b76b56609a
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="creating-filters-with-azure-media-services-net-sdk"></a>使用 Azure 媒体服务 .NET SDK 创建筛选器
 > [!div class="op_single_selector"]
@@ -47,6 +47,7 @@ ms.lasthandoff: 12/22/2017
 ## <a name="createupdatereaddelete-global-filters"></a>创建/更新/读取/删除全局筛选器
 以下代码演示如何使用 .NET 创建、更新、读取和删除资产筛选器。
 
+```csharp
     string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
 
     List<FilterTrackSelectStatement> filterTrackSelectStatements = new List<FilterTrackSelectStatement>();
@@ -71,11 +72,12 @@ ms.lasthandoff: 12/22/2017
 
     // Delete
     filter.Delete();
-
+```
 
 ## <a name="createupdatereaddelete-asset-filters"></a>创建/更新/读取/删除资产筛选器
 以下代码演示如何使用 .NET 创建、更新、读取和删除资产筛选器。
 
+```csharp
     string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
     var asset = _context.Assets.Create(assetName, AssetCreationOptions.None);
 
@@ -101,7 +103,7 @@ ms.lasthandoff: 12/22/2017
     // Delete
     filterUpdated.Delete();
 
-
+```
 
 
 ## <a name="build-streaming-urls-that-use-filters"></a>生成使用筛选器的流式处理 URL

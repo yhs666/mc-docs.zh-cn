@@ -1,11 +1,9 @@
 ---
-title: "将 JSON 对象传递到 Azure 自动化 Runbook | Azure"
-description: "如何将参数作为 JSON 对象传递给 runbook"
+title: 将 JSON 对象传递到 Azure 自动化 Runbook | Azure
+description: 如何将参数作为 JSON 对象传递给 runbook
 services: automation
-documentationcenter: dev-center-name
 author: yunan2016
 manager: digimobile
-keywords: "powershell, runbook, json, azure 自动化"
 ms.service: automation
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +12,11 @@ ms.workload: TBD
 origin.date: 06/15/2017
 ms.date: 01/15/2018
 ms.author: v-nany
-ms.openlocfilehash: 1647fd35fd4184ae13a94f7363cbc1c1f9043113
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 2aaad665bb8189773275eb47b2a8b6883b4952ac
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>将 JSON 对象传递到 Azure 自动化 Runbook
 

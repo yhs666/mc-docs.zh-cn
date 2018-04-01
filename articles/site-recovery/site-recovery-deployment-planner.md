@@ -1,25 +1,25 @@
 ---
-title: "适用于 VMware 到 Azure 部署的 Azure Site Recovery 部署规划器 | Azure"
-description: "本文为 Azure Site Recovery Deployment Planner 用户指南。"
+title: 适用于 VMware 到 Azure 部署的 Azure Site Recovery 部署规划器 | Azure
+description: 本文为 Azure Site Recovery Deployment Planner 用户指南。
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 12/04/2017
-ms.date: 03/05/2018
+origin.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5902d8e07d80de90e01899fde12d6297943ccd93
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 33deec7038d2fa2a8697c8af87f2c14069cdf8e0
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>适用于 VMware 到 Azure 部署的 Azure Site Recovery 部署规划器
 本文为适用于 VMware 到 Azure 生产部署的 Azure Site Recovery 部署规划器用户指南。
@@ -93,13 +93,16 @@ ms.lasthandoff: 03/02/2018
 >
 
 ## <a name="download-and-extract-the-deployment-planner-tool"></a>下载和提取部署规划器工具
-1. 下载最新版本的 [Site Recovery 部署规划器](https://aka.ms/asr-deployment-planner)。 该工具已打包到 .zip 文件夹中。 该工具的当前版本仅支持 VMware 到 Azure 的方案。
+1. 下载最新版本的 [Site Recovery 部署规划器](https://aka.ms/asr-deployment-planner)。
+该工具已打包到 .zip 文件夹中。 该工具的当前版本仅支持 VMware 到 Azure 的方案。
 
-2. 将 .zip 文件夹复制到要从中运行该工具的 Windows Server。 可以从 Windows Server 2012 R2 运行该工具，前提是该服务器具有网络访问权限，可以连接到 vCenter 服务器/vSphere ESXi 主机，其中包含要分析的 VM。 但是，我们建议在其硬件配置符合[配置服务器大小调整指南](https://aka.ms/asr-v2a-on-prem-components)的服务器上运行该工具。 如果已在本地部署 Site Recovery 组件，请从配置服务器运行该工具。
+2. 将 .zip 文件夹复制到要从中运行该工具的 Windows Server。
+可以从 Windows Server 2012 R2 运行该工具，前提是该服务器具有网络访问权限，可以连接到 vCenter 服务器/vSphere ESXi 主机，其中包含要分析的 VM。 但是，我们建议在其硬件配置符合[配置服务器大小调整指南](https://aka.ms/asr-v2a-on-prem-components)的服务器上运行该工具。 如果已在本地部署 Site Recovery 组件，请从配置服务器运行该工具。
 
     我们建议在运行该工具的服务器上实施与配置服务器（包含内置的进程服务器）一样的硬件配置。 此类配置可确保该工具所报告的已实现吞吐量与 Site Recovery 在复制过程中能够达到的实际吞吐量相符。 吞吐量计算取决于服务器上的可用网络带宽和服务器的硬件配置（例如 CPU 和存储）。 如果从任何其他服务器运行该工具，则会计算从该服务器到 Azure 的吞吐量。 另外，由于该服务器的硬件配置可能不同于配置服务器的硬件配置，该工具所报告的已实现吞吐量可能不准确。
 
-3. 解压缩 .zip 文件夹。 该文件夹包含多个文件和子文件夹。 可执行文件是父文件夹中的 ASRDeploymentPlanner.exe。
+3. 解压缩 .zip 文件夹。
+该文件夹包含多个文件和子文件夹。 可执行文件是父文件夹中的 ASRDeploymentPlanner.exe。
 
     示例：将 .zip 文件复制到 E:\ 驱动器并将它解压缩。
     E:\ASR Deployment Planner_v2.1zip
@@ -123,4 +126,4 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="next-steps"></a>后续步骤
 [运行 Site Recovery 部署规划器](site-recovery-vmware-deployment-planner-run.md)
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

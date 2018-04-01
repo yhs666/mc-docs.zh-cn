@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/24/2017
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: da7e8b308e203181bf3bf128189421e6e4e8fa11
-ms.sourcegitcommit: 9b4669fe42e0dd7e3b463423ae4f58143af2b111
+ms.openlocfilehash: e0289ca24af6ac2980a8ffe2b47b4a1e04a2a961
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>创建、更改或删除网络接口
 
@@ -28,21 +28,22 @@ ms.lasthandoff: 03/22/2018
 
 如果需要为网络接口添加、更改或删除 IP 地址，请阅读[管理 IP 地址](virtual-network-network-interface-addresses.md)一文。 如果需要向虚拟机添加网络接口或从中删除网络接口，请阅读[添加或删除网络接口](virtual-network-network-interface-vm.md)一文。
 
-## <a name="before"></a>准备工作
+<a name="before"></a>
+## <a name="before-you-begin"></a>准备阶段
 
-在完成本文任何部分中的任何步骤之前，请完成以下任务：
+在完成本文任何部分中的步骤之前，请完成以下任务：
 
-- 查看 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文，了解网络接口的限制。
-- 使用 Azure 帐户登录到 Azure [门户](https://portal.azure.cn)、Azure 命令行接口 (CLI) 或 Azure PowerShell。 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-- 如果使用 PowerShell 命令来完成本文中的任务，请[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs?toc=%2fvirtual-network%2ftoc.json)。 确保已安装最新版本的 Azure PowerShell cmdlet。 若要获取 PowerShell 命令的帮助和示例，请键入 `get-help <command> -full`。
-- 如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，请[安装和配置 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest)。 确保已安装最新版本的 Azure CLI。 若要获取 CLI 命令的帮助，请键入 `az <command> --help`。
+- 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
+- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。 本教程需要 Azure PowerShell 模块 5.2.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+- 如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.26 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 <!-- Not Avaiable on Azure Cloud Shell -->
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 <a name="create-nic"></a>
 ## <a name="create-a-network-interface"></a>创建网络接口
-使用 Azure 门户创建虚拟机时，门户会使用默认设置创建一个网络接口。 如果想要指定所有网络接口设置，可使用自定义设置创建网络接口并在创建虚拟机（使用 PowerShell 或 Azure CLI）时向其附加此网络接口。 还可创建网络接口并将其添加到现有的虚拟机（使用 PowerShell 或 Azure CLI）。 若要了解如何创建包含现有网络接口的虚拟机，或者要在现有虚拟机中添加或删除网络接口，请阅读[添加或删除网络接口](virtual-network-network-interface-vm.md)一文。 创建网络接口之前，创建该接口时所在的同一位置和订阅中必须存在现有的[虚拟网络](virtual-networks-create-vnet-arm-pportal.md)。
+使用 Azure 门户创建虚拟机时，门户会使用默认设置创建一个网络接口。 如果想要指定所有网络接口设置，可使用自定义设置创建网络接口并在创建虚拟机（使用 PowerShell 或 Azure CLI）时向其附加此网络接口。 还可创建网络接口并将其添加到现有的虚拟机（使用 PowerShell 或 Azure CLI）。 若要了解如何创建包含现有网络接口的虚拟机，或者要在现有虚拟机中添加或删除网络接口，请阅读[添加或删除网络接口](virtual-network-network-interface-vm.md)一文。 创建网络接口之前，创建该接口时所在的同一位置和订阅中必须存在现有的[虚拟网络](manage-virtual-network.md#create-a-virtual-network)。
 
 1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到 [Azure 门户](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
 2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。 在搜索结果中出现“网络接口”  时，单击该接口。
@@ -127,7 +128,7 @@ IP 转发使网络接口附加到的虚拟机能够：
 - 接收未针对分配给任一网络接口 IP 配置的 IP 地址的网络流量。
 - 使用与分配给某一网络接口 IP 配置的源 IP 地址不同的地址发送网络流量。
 
-必须为附加到虚拟机并接收虚拟机需转发的流量的每个网络接口启用该设置。 无论虚拟机上附加了一个还是多个网络接口，该虚拟机都可转发流量。 尽管 IP 转发是一项 Azure 设置，但虚拟机也必须运行某个应用程序（例如防火墙、WAN 优化和负载均衡应用程序）才能转发流量。 运行网络应用程序的虚拟机通常称为网络虚拟设备。 可在 [Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/apps/category/networking?page=1&subcategories=appliances) 中查看可直接部署的网络虚拟设备列表。 IP 转发通常用于用户定义的路由。 若要详细了解用户定义的路由，请阅读[用户定义的路由](virtual-networks-udr-overview.md)一文。
+必须为附加到虚拟机并接收虚拟机需转发的流量的每个网络接口启用该设置。 无论虚拟机上附加了一个还是多个网络接口，该虚拟机都可转发流量。 尽管 IP 转发是一项 Azure 设置，但虚拟机也必须运行某个应用程序（例如防火墙、WAN 优化和负载均衡应用程序）才能转发流量。 运行网络应用程序的虚拟机通常称为网络虚拟设备。 可在 [Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/apps?search=networking&page=1&subcategories=appliances) 中查看可直接部署的网络虚拟设备列表。 IP 转发通常用于用户定义的路由。 若要详细了解用户定义的路由，请阅读[用户定义的路由](virtual-networks-udr-overview.md)一文。
 
 1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到 [Azure 门户](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
 2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。 在搜索结果中出现“网络接口”  时，单击该接口。
@@ -168,7 +169,7 @@ IP 转发使网络接口附加到的虚拟机能够：
 <a name="delete-nic"></a>
 ## <a name="delete-a-network-interface"></a>删除网络接口
 
-只要网络接口未附加到虚拟机，即可删除此接口。 如果已将其附加到虚拟机，则必须先将虚拟机置于停止（解除分配）状态，再从虚拟机分离网络接口，然后才能删除网络接口。 若要从虚拟机中分离网络接口，请完成[添加或删除网络接口](virtual-network-network-interface-vm.md)一文的[从虚拟机中分离网络接口](virtual-network-network-interface-vm.md#vm-remove-nic)部分中的步骤。 删除虚拟机会分离其上附加的所有网络接口，但不会删除网络接口。
+只要网络接口未附加到虚拟机，即可删除此接口。 如果已将其附加到虚拟机，则必须先将虚拟机置于停止（解除分配）状态，再从虚拟机分离网络接口，然后才能删除网络接口。 若要从虚拟机中分离网络接口，请完成[添加或删除网络接口](virtual-network-network-interface-vm.md)一文的[从虚拟机中分离网络接口](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm)部分中的步骤。 删除虚拟机会分离其上附加的所有网络接口，但不会删除网络接口。
 
 1. 使用已分配订阅的“网络参与者”角色权限（最低权限）的帐户登录到 [Azure 门户](https://portal.azure.cn)。 请参阅[用于 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)一文，详细了解如何将角色和权限分配给帐户。
 2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。 在搜索结果中出现“网络接口”  时，单击该接口。
@@ -195,4 +196,4 @@ IP 转发使网络接口附加到的虚拟机能够：
 |创建具有多个 IPv4 地址的单 NIC VM|[CLI](virtual-network-multiple-ip-addresses-cli.md)、[PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 <!-- Not Avaiable on LoadBalancer IPV6 -->
 
-<!--Update_Description: update meta properties, update reference link, wording update -->
+<!--Update_Description: update reference link, wording update -->

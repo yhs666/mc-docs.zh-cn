@@ -1,12 +1,10 @@
 ---
-title: "使用 webhook 启动 Azure 自动化 runbook | Azure"
-description: "一个可供客户端通过 HTTP 调用在 Azure 自动化中启动 Runbook 的 Webhook。  本文介绍了如何创建 Webhook，以及如何通过调用 Webhook 来启动 Runbook。"
+title: 使用 webhook 启动 Azure 自动化 runbook | Azure
+description: 一个可供客户端通过 HTTP 调用在 Azure 自动化中启动 Runbook 的 Webhook。  本文介绍了如何创建 Webhook，以及如何通过调用 Webhook 来启动 Runbook。
 services: automation
-documentationcenter: 
 author: yunan2016
 manager: digimobile
 editor: tysonn
-ms.assetid: 9b20237c-a593-4299-bbdc-35c47ee9e55d
 ms.service: automation
 ms.devlang: na
 ms.topic: article
@@ -15,11 +13,11 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 01/15/2018
 ms.author: v-nany
-ms.openlocfilehash: 83236c247a6ea1340827cef0ecadd27bc5c6dacd
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 80dc90a29aa5e38d5cd4f9e824fa41632a18a2ac
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 webhook 启动 Azure 自动化 runbook
 *Webhook* 可以用来在 Azure 自动化中通过单个 HTTP 请求来启动特定的 Runbook。 这样，外部服务（例如 Visual Studio Team Services、GitHub、Microsoft Operations Management Suite Log Analytics 或自定义应用程序）就可以在不通过 Azure 自动化 API 实现完整解决方案的情况下启动 Runbook。  

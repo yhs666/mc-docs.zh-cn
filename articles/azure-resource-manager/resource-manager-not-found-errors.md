@@ -1,32 +1,32 @@
 ---
-title: "Azure 资源找不到错误 | Azure"
-description: "说明如何在找不到资源时解决错误。"
+title: Azure 资源找不到错误 | Azure
+description: 说明如何在找不到资源时解决错误。
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-origin.date: 09/13/2017
-ms.date: 10/23/2017
+origin.date: 03/08/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 52ff88cbb8da34988933d554d361caf34a288250
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: e07615ef40fd7f5f79c7277b42853fe6928d9e5a
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>解决 Azure 资源找不到错误
 
-本文介绍在部署过程中找不到资源时可能遇到的错误。 
+本文介绍部署过程中找不到资源时可能遇到的错误。
 
 ## <a name="symptom"></a>症状
 
-如果模板包含无法解析的资源的名称，将出现类似于下面的错误：
+模板包含无法解析的资源的名称时，会收到类似于以下的错误消息：
 
 ```
 Code=NotFound;
@@ -43,13 +43,11 @@ group {resource group name} was not found.
 
 ## <a name="cause"></a>原因
 
-资源管理器需要检索资源的属性，但无法确定订阅中的资源。
+资源管理器需要检索资源的属性，但不能确定订阅中的资源。
 
-## <a name="solution"></a>解决方案
+## <a name="solution-1---set-dependencies"></a>解决方案 1 - 设置依赖关系
 
-### <a name="solution-1"></a>解决方案 1
-
-若要部署模板中缺少的资源，请检查是否需要添加依赖关系。 如果可能，Resource Manager 将通过并行创建资源来优化部署。 如果一个资源必须在另一个资源之后部署，则需在模板中使用 **dependsOn** 元素创建与其他资源的依赖关系。 例如，在部署 Web 应用时，应用服务计划必须存在。 如果未指定该 Web 应用与应用服务计划的依赖关系，则 Resource Manager 会同时创建这两个资源。 会收到一条错误消息，指出未能找到应用服务计划资源，因为尝试在 Web 应用上设置属性时它尚不存在。 在 Web 应用中设置依赖关系可避免此错误。
+如果尝试在模板中部署缺少的资源，请检查是否需要添加依赖关系。 如果可能，Resource Manager 会通过并行创建资源来优化部署。 如果一个资源必须在另一个资源之后部署，则需在模板中使用 dependsOn 元素。 例如，在部署 Web 应用时，应用服务计划必须存在。 如果未指定该 Web 应用与应用服务计划的依赖关系，则 Resource Manager 会同时创建这两个资源。 会收到一条错误消息，指出未能找到应用服务计划资源，因为尝试在 Web 应用上设置属性时它尚不存在。 在 Web 应用中设置依赖关系可避免此错误。
 
 ```json
 {
@@ -62,9 +60,27 @@ group {resource group name} was not found.
 }
 ```
 
-有关依赖项错误的故障诊断建议，请参阅 [检查部署顺序](resource-manager-troubleshoot-tips.md#check-deployment-sequence)。
+不过，你想要避免设置不必要的依赖项。 存在不必要的依赖项时，会导致不互相依赖的资源无法并行部署，从而延长了部署时间。 此外，可能会创建阻止部署的循环依赖项。 在同一模板中部署被引用资源时，[reference](resource-group-template-functions-resource.md#reference) 函数在该资源上创建隐式依赖项。 因此，用户拥有的依赖项可以多于在 **dependsOn** 属性中指定的依赖项。 [resourceId](resource-group-template-functions-resource.md#resourceid) 函数不创建隐式依赖项，也不验证资源是否存在。
 
-### <a name="solution-2"></a>解决方案 2
+遇到依赖项问题时，需了解资源部署顺序。 查看部署操作顺序的方法如下：
+
+1. 选择资源组的部署历史记录。
+
+   ![选择部署历史记录](./media/resource-manager-not-found-errors/select-deployment.png)
+
+2. 从历史记录中选择一个部署，并选择“事件” 。
+
+   ![选择部署事件](./media/resource-manager-not-found-errors/select-deployment-events.png)
+
+3. 检查每项资源的事件的顺序。 注意每个操作的状态。 例如，下图显示了并行部署的三个存储帐户。 请注意，这三个存储帐户是同时启动的。
+
+   ![并行部署](./media/resource-manager-not-found-errors/deployment-events-parallel.png)
+
+   下图显示了非并行部署的三个存储帐户。 第二个存储帐户依赖于第一个存储帐户，第三个存储帐户又依赖于第二个存储帐户。 启动、接受并处理完成第一个存储帐户后才开始对下一个进行操作。
+
+   ![连续部署](./media/resource-manager-not-found-errors/deployment-events-sequence.png)
+
+## <a name="solution-2---get-resource-from-different-resource-group"></a>解决方案 2 - 从其他资源组获取资源
 
 当资源未存在于要部署到的资源组中时，请使用 [resourceId 函数](resource-group-template-functions-resource.md#resourceid)获取资源的完全限定名称。
 
@@ -75,7 +91,7 @@ group {resource group name} was not found.
 }
 ```
 
-### <a name="solution-3"></a>解决方案 3
+## <a name="solution-3---check-reference-function"></a>解决方案 3 - 检查引用函数
 
 查找包含 [reference](resource-group-template-functions-resource.md#reference) 函数的表达式。 提供的值因资源是否位于同一模板、资源组和订阅中而有所不同。 请仔细检查是否为方案提供了所需的参数值。 如果资源位于不同的资源组中，请提供完整的资源 ID。 例如，若要引用另一个资源组中的存储帐户，请使用：
 
@@ -84,4 +100,4 @@ group {resource group name} was not found.
 ```
 
 
-<!--Update_Description: new articles on Resource Manager not found errors-->
+<!--Update_Description: update meta properties, wording update -->

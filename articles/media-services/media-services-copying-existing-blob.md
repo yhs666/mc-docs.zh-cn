@@ -1,11 +1,11 @@
 ---
-title: "将 Blob 从存储帐户复制到 Azure 媒体服务资产 | Azure"
-description: "本主题说明如何将现有 blob 复制到媒体服务资产。 示例使用 Azure 媒体服务 .NET SDK 扩展。"
+title: 将 Blob 从存储帐户复制到 Azure 媒体服务资产 | Azure
+description: 本主题说明如何将现有 blob 复制到媒体服务资产。 示例使用 Azure 媒体服务 .NET SDK 扩展。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 966dd3102ba43f17d926c88a162a76bf1732dcdd
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: f8642a0c39be11955b652e2534fcb0c721c4d1bb
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>将现有 Blob 复制到媒体服务资产
 本文说明了如何使用 [Azure 媒体服务 .NET SDK 扩展](https://github.com/Azure/azure-sdk-for-media-services-extensions/)将 Blob 从存储帐户复制到新的 Azure 媒体服务 (AMS) 资产中。
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/22/2017
 1. 按照[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述来设置开发环境。 
 2. 将 appSettings 节添加到 .config 文件，并根据媒体服务帐户、目标存储帐户和源资产 ID 更新值。  
 
-```   
+```xml
 <appSettings>
     <add key="AMSSourceAADTenantDomain" value="tenant"/>
     <add key="AMSSourceRESTAPIEndpoint" value="endpoint"/>
@@ -78,7 +78,7 @@ ms.lasthandoff: 12/22/2017
 
 以下代码使用单个扩展通过扩展的 **IAsset.Copy** 方法将源资产中的所有文件复制到目标资产。
 
-```
+```csharp
 using System;
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System.Linq;
@@ -168,7 +168,7 @@ namespace CopyExistingBlobsIntoAsset
 1. 按照[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述来设置开发环境。 
 2. 将 appSettings 节添加到 .config 文件，并根据源存储和目标 AMS 帐户更新值。
 
-```
+```xml
 <appSettings>
     <add key="SourceStorageAccountName" value="name" />
     <add key="SourceStorageAccountKey" value="key" />
@@ -190,7 +190,7 @@ namespace CopyExistingBlobsIntoAsset
 >[!NOTE]
 >不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[本文](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;
@@ -372,6 +372,7 @@ namespace CopyExistingBlobsIntoAsset
     }
 }
 ```
+
 ## <a name="next-steps"></a>后续步骤
 
 现即可编码已上传的资产。 有关详细信息，请参阅 [对资产进行编码](media-services-portal-encode.md)。

@@ -1,8 +1,8 @@
 ---
-title: "锁定 Azure 资源以防止更改 | Azure"
-description: "通过对所有用户和角色应用锁，来防止用户更新或删除关键 Azure 资源。"
+title: 锁定 Azure 资源以防止更改 | Azure
+description: 通过对所有用户和角色应用锁，来防止用户更新或删除关键 Azure 资源。
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -12,18 +12,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/03/2018
-ms.date: 01/29/2018
+origin.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: a2b981498d19f388827eaa20cd5ca5a853c04c1f
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: f2510adca0fdae1a56b1ad2bf6dbf5cbea346582
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>锁定资源，以防止意外更改 
 
-管理员可能需要锁定订阅、资源组或资源，以防止组织中的其他用户意外删除或修改关键资源。 可以将锁定级别设置为 **CanNotDelete** 或 **ReadOnly**。 
+管理员可能需要锁定订阅、资源组或资源，以防止组织中的其他用户意外删除或修改关键资源。 可以将锁定级别设置为 **CanNotDelete** 或 **ReadOnly**。 在门户中，锁定分别称为**删除**和**只读**。
 
 * **CanNotDelete** 味着经授权的用户仍可读取和修改资源，但不能删除资源。 
 * **ReadOnly** 意味着经授权的用户可以读取资源，但不能删除或更新资源。 应用此锁类似于将所有经授权的用户限制于“读者”角色授予的权限。 
@@ -158,7 +158,7 @@ Remove-AzureRmResourceLock -LockId $lockId
 
 ## <a name="azure-cli"></a>Azure CLI
 
-可以通过 Azure CLI 使用 [az lock create](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#create) 命令锁定已部署的资源。
+可以通过 Azure CLI 使用 [az lock create](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#az_lock_create) 命令锁定已部署的资源。
 
 若要锁定某个资源，请提供该资源的名称、其资源类型及其资源组名称。
 
@@ -172,7 +172,7 @@ az lock create --name LockSite --lock-type CanNotDelete --resource-group example
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-若要获取有关某个锁的信息，请使用 [az lock list](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#list)。 若要获取订阅中的所有锁，请使用：
+若要获取有关某个锁的信息，请使用 [az lock list](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#az_lock_list)。 若要获取订阅中的所有锁，请使用：
 
 ```azurecli
 az lock list

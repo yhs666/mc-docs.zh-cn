@@ -1,11 +1,11 @@
 ---
-title: "Azure 虚拟网络 | Azure"
-description: "了解 Azure 虚拟网络概念和功能。"
+title: Azure 虚拟网络 | Azure
+description: 了解 Azure 虚拟网络概念和功能。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 9633de4b-a867-4ddf-be3c-a332edf02e24
 ms.service: virtual-network
@@ -13,22 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/12/2017
-ms.date: 03/12/2018
+origin.date: 03/01/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4a622922d2e81879b63622fa5bffc3619c7e4267
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 4f5d38fa7a1535a044fd3f79ca23e11188d868b7
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-virtual-network"></a>Azure 虚拟网络
+# <a name="what-is-azure-virtual-network"></a>什么是 Azure 虚拟网络？
 
-Azure 资源可以通过 Azure 虚拟网络服务与虚拟网络中的其他资源安全地通信。 虚拟网络是对专用于订阅的 Azure 云进行的逻辑隔离。 可将虚拟网络连接到其他虚拟网络，或本地网络。 下图显示了 Azure 虚拟网络服务的部分功能：
+Azure 虚拟网络能让 Azure 资源互相通信以及与 Internet 通信。 虚拟网络将你的资源与 Azure 云中其他用户的资源隔离开来。 可将虚拟网络连接到其他虚拟网络，或本地网络。 
 
-![网络示意图](./media/virtual-networks-overview/virtual-network-overview.png)
-
-若要了解有关以下 Azure 虚拟网络功能的详细信息，请单击功能：
+Azure 虚拟网络提供以下广泛使用的功能：
 - **[隔离：](#isolation)**虚拟网络之间彼此隔离。 可以为使用相同 CIDR（例如 10.0.0.0/0）地址块的开发、测试和生产创建单独的虚拟网络。 相反地，也可以创建使用不同 CIDR 地址的多个虚拟网络并将网络连接在一起。 可将一个虚拟网络分为多个子网。 Azure 为虚拟网络中部署的资源提供内部名称解析。 如果需要，可以配置虚拟网络来使用自己的 DNS 服务器，而不使用 Azure 内部名称解析。
 - **[Internet 通信：](#internet)**默认情况下，资源（例如虚拟网络中部署的虚拟机）有权访问 Internet。 根据需要，还可对特定资源启用入站访问。
 - **[Azure 资源通信：](#within-vnet)**虚拟网络中部署的 Azure 资源可以使用专用 IP 地址相互通信，即使这些资源部署在不同的子网中。 Azure 在子网、互连虚拟网络和本地网络之间提供默认路由，因此无需配置和管理路由。 如果需要，可以自定义 Azure 的路由。
@@ -44,14 +42,14 @@ Azure 资源可以通过 Azure 虚拟网络服务与虚拟网络中的其他资�
 - 使用公共和专用 (RFC 1918) 地址指定自定义专用 IP 地址空间。 Azure 从分配的地址空间中向虚拟网络中的资源分配一个专用 IP 地址。
 <!-- Not Available on #region -->
 - 将虚拟网络细分为一个或多个子网，并向每个子网分配一部分虚拟网络地址空间。
-- 使用 Azure 提供的名称解析或指定自己的 DNS 服务器以供虚拟网络中的资源使用。 若要详细了解虚拟网络中的名称解析，请参阅[虚拟网络中的资源的名称解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)一文。
+- 使用 Azure 提供的名称解析或指定自己的 DNS 服务器以供虚拟网络中的资源使用。 若要详细了解虚拟网络中的名称解析，请参阅[虚拟网络中资源的名称解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 
 
 <a name="internet"></a>
 ## <a name="internet-communication"></a>Internet 通信
-虚拟网络中的所有资源都可以与 Internet 进行出站通信。 默认情况下，资源的专用 IP 地址是源网络地址 (SNAT)，该地址已转换为 Azure 基础结构选择的公共 IP 地址。 若要了解出站网络连接的详细信息，请阅读[了解 Azure 中的出站连接](..\load-balancer\load-balancer-outbound-connections.md)一文。 若要阻止出站 Internet 连接，可以自定义路由或筛选流量。
+虚拟网络中的所有资源都可以与 Internet 进行出站通信。 默认情况下，资源的专用 IP 地址是源网络地址 (SNAT)，该地址已转换为 Azure 基础结构选择的公共 IP 地址。 若要详细了解出站 Internet 连接，请参阅[了解 Azure 中的出站连接](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fvirtual-network%2ftoc.json)。 若要阻止出站 Internet 连接，可以自定义路由或筛选流量。
 
-若要从 Internet 入站通信到 Azure 资源或出站通信到不具 SNAT 的 Internet，则必须向资源分配一个公共 IP 地址。 若要详细了解公共 IP 地址，请阅读 [公共 IP 地址](virtual-network-public-ip-address.md)一文。
+若要从 Internet 入站通信到 Azure 资源或出站通信到不具 SNAT 的 Internet，则必须向资源分配一个公共 IP 地址。 若要详细了解公用 IP 地址，请参阅[公用 IP 地址](virtual-network-public-ip-address.md)。
 
 <a name="within-vnet"></a>
 ## <a name="secure-communication-between-azure-resources"></a>Azure 资源之间的安全通信
@@ -65,7 +63,7 @@ Azure 资源可以通过 Azure 虚拟网络服务与虚拟网络中的其他资�
 <a name="connect-vnets"></a>
 ## <a name="connect-virtual-networks"></a>连接虚拟网络
 
-可以互相连接虚拟网络，使虚拟网络中的资源能够通过虚拟网络对等互连相互进行通信。 不同虚拟网络中的资源之间的带宽和延迟与同一虚拟网络中的资源之间的带宽和延迟相同。 若要了解对等互连的详细信息，请阅读[虚拟网络对等互连](virtual-network-peering-overview.md)一文。
+可以互相连接虚拟网络，使虚拟网络中的资源能够通过虚拟网络对等互连相互进行通信。 不同虚拟网络中的资源之间的带宽和延迟与同一虚拟网络中的资源之间的带宽和延迟相同。 若要详细了解对等互连，请参阅[虚拟网络对等互连](virtual-network-peering-overview.md)。
 
 ## <a name="connect-on-premises"></a>连接到本地网络
 
@@ -79,26 +77,18 @@ Azure 资源可以通过 Azure 虚拟网络服务与虚拟网络中的其他资�
 ## <a name="filtering"></a>筛选网络流量
 可使用以下两个选项中任意一个或同时使用这两个方案筛选子网之间的网络流量：
 - **网络安全组：**每个网络安全组可包含多个入站和出站安全规则，通过这些规则可按源和目标 IP 地址、端口和协议筛选流量。 可以将网络安全组应用到虚拟机的每个网络接口。 此外，还可以将网络安全组应用到网络接口或其他 Azure 资源所在的子网。 若要深入了解网络安全组，请参阅[网络安全组](security-overview.md#network-security-groups)。
-- **虚拟网络设备：**虚拟网络设备是运行软件的虚拟机，软件可执行网络功能，例如防火墙。 可在 [Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/apps/category/networking?page=1&subcategories=appliances) 中查看可用的网络虚拟设备列表。 网络虚拟设备也可用于提供 WAN 优化和其他网络流量功能。 网络虚拟设备通常与用户定义路由或 BGP 路由配合使用。 还可以使用网络虚拟设备来筛选虚拟网络之间的流量。
+- **虚拟网络设备：**虚拟网络设备是运行软件的虚拟机，软件可执行网络功能，例如防火墙。 可在 [Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/apps?networking&page=1&subcategories=appliances) 中查看可用的网络虚拟设备列表。 网络虚拟设备也可用于提供 WAN 优化和其他网络流量功能。 网络虚拟设备通常与用户定义路由或 BGP 路由配合使用。 还可以使用网络虚拟设备来筛选虚拟网络之间的流量。
 
 ## <a name="routing"></a>路由网络流量
 
 默认情况下，Azure 会创建路由表，使连接到虚拟网络中任何子网的资源可相互通信或与 Internet 通信。 可使用以下两个选项中任意一个或同时使用二者替代 Azure 创建的默认路由：
-- **用户定义路由：**可创建自定义路由表，其中包含可对每个子网控制流量路由位置的路由。 若要深入了解用户定义的路由，请参阅[用户定义的路由](virtual-networks-udr-overview.md#user-defined)。
+- **路由表：**可创建自定义路由表，其中包含可对每个子网控制流量路由到位置的路由。 若要详细了解自定义路由，请参阅[自定义路由](virtual-networks-udr-overview.md#user-defined)。
 - **BGP 路由：**如果使用 Azure VPN 网关或 ExpressRoute 连接将虚拟网络连接到本地网络，则可将 BGP 路由传播到虚拟网络。
-
-## <a name="pricing"></a>定价
-
-虚拟网络、子网、路由表或网络安全组无收费。 出站 Internet 带宽使用、公共 IP 地址、虚拟网络对等互连、VPN 网关和 ExpressRoute 各有其定价结构。 相关详细信息，请查看[虚拟网络](https://www.azure.cn/pricing/details/networking/)、[VPN 网关](https://www.azure.cn/pricing/details/vpn-gateway/)和 [ExpressRoute](https://www.azure.cn/pricing/details/expressroute/) 定价页面。
-
-## <a name="faq"></a>常见问题
-
-若要查看关于 Azure 虚拟网络的常见问题解答，请参阅[虚拟网络常见问题解答](virtual-networks-faq.md)一文。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 完成[创建首个虚拟网络](quick-create-portal.md)中的步骤，创建自己的首个虚拟网络，并将几个虚拟机部署到此网络。
-- 完成[配置点到站点连接](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)中的步骤，为虚拟网络创建一个点到站点连接。
-<!-- Not Available [network capabilities](../networking/networking-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
+现在你已概要了解 Azure 虚拟网络。 通过创建虚拟网络并在其中部署一些 Azure 虚拟机来了解如何利用 Azure 虚拟网络的一些功能。
 
-<!--Update_Description: update meta properties, wording update, update reference link-->
+> [!div class="nextstepaction"]
+> [创建虚拟网络](quick-create-portal.md)
+<!--Update_Description: update meta properties, wording update, update link-->

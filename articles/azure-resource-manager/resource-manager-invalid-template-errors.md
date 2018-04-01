@@ -1,24 +1,24 @@
 ---
-title: "Azure 无效模板错误 | Azure"
-description: "说明如何解决无效模板错误。"
+title: Azure 无效模板错误 | Azure
+description: 说明如何解决无效模板错误。
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-origin.date: 09/13/2017
-ms.date: 10/23/2017
+origin.date: 03/08/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 54a34c6fcc5cbcac16eb2e1304b43da524d2c7d3
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: e137dc27cad7106af012215c4a2e78362e0b151d
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>解决无效模板错误
 
@@ -39,9 +39,9 @@ Message=<varies>
 
 此错误可由多种不同类型的错误导致。 它们通常涉及模板中的语法或结构错误。
 
-## <a name="solution"></a>解决方案
+<a name="syntax-error"></a>
 
-### <a name="solution-1---syntax-error"></a>解决方案 1 - 语法错误
+## <a name="solution-1---syntax-error"></a>解决方案 1 - 语法错误
 
 如果有错误消息指出模板验证失败，则可能是模板中存在语法问题。
 
@@ -50,7 +50,7 @@ Code=InvalidTemplate
 Message=Deployment template validation failed
 ```
 
-此错误很容易发生，因为模板表达式可能很复杂。 例如，存储帐户的以下名称分配包含一组方括号、三个函数、三组圆括号、一组单引号和一个属性：
+此错误很容易发生，因为模板表达式可能很复杂。 例如，存储帐户的以下名称分配具有一组方括号、三个函数、三组圆括号、一组单引号和一个属性：
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
@@ -60,7 +60,9 @@ Message=Deployment template validation failed
 
 收到此类错误时，请仔细检查表达式语法。 考虑使用 [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 或 [Visual Studio Code](resource-manager-vs-code.md) 等 JSON 编辑器，此类编辑器在出现语法错误时可以发出警告。
 
-### <a name="solution-2---incorrect-segment-lengths"></a>解决方案 2 - 段长度不正确
+<a name="incorrect-segment-lengths"></a>
+
+## <a name="solution-2---incorrect-segment-lengths"></a>解决方案 2 - 段长度不正确
 
 当资源名称的格式不正确时，会发生另一种模板无效错误。
 
@@ -70,7 +72,7 @@ Message=Deployment template validation failed: 'The template resource {resource-
 for type {resource-type} has incorrect segment lengths.
 ```
 
-根级别的资源其名称中的段必须比资源类型中的段少一个。 段之间用斜杠隔开。 在下面的示例中，类型有两个段，名称有一个段，因此为 **有效名称**。
+根级别的资源其名称中的段必须比资源类型中的段少一个。 段之间用斜杠隔开。 在下面的示例中，类型有两个段，名称有一个段，因此为有效名称。
 
 ```json
 {
@@ -119,9 +121,11 @@ for type {resource-type} has incorrect segment lengths.
 }
 ```
 
-### <a name="solution-3---parameter-is-not-valid"></a>解决方案 3 - 参数无效
+<a name="parameter-not-valid"></a>
 
-如果模板指定了参数的允许值，但你提供的值并不是这些允许值之一，则会收到类似于下面的错误消息：
+## <a name="solution-3---parameter-is-not-valid"></a>解决方案 3 - 参数无效
+
+如果所提供的的参数值不是允许值之一，则会收到类似于以下错误的消息：
 
 ```
 Code=InvalidTemplate;
@@ -130,10 +134,42 @@ for the template parameter {parameter name} is not valid. The parameter value is
 part of the allowed values
 ```
 
-请仔细检查模板中的允许值，并提供在部署过程中提供这些值之一。
+请仔细检查模板中的允许值，并提供在部署过程中提供这些值之一。 有关允许参数值的详细信息，请参阅 [Azure 资源管理器模板的参数部分](resource-manager-templates-parameters.md)。
 
-### <a name="solution-4---circular-dependency-detected"></a>解决方案 4 - 检测到循环依赖项
+<a name="too-many-resource-groups"></a>
+
+## <a name="solution-4---too-many-target-resource-groups"></a>解决方案 4 - 太多目标资源组
+
+如果在单个部署中指定的目标资源组超过五个，则会收到此错误。 请考虑合并部署中的资源组数，或者部署某些模板作为单独的部署。 有关详细信息，[将 Azure 资源部署到多个订阅或资源组](resource-manager-cross-resource-group-deployment.md)。
+
+<a name="circular-dependency"></a>
+
+## <a name="solution-5---circular-dependency-detected"></a>解决方案 5 - 检测到循环依赖项
 
 当资源以某种方式互相依赖，导致部署无法启动时，就会出现此错误。 将多个相互依赖的项组合在一起时，会导致两个或两个以上的资源等待其他资源，而后者也在进行等待。 例如，resource1 依赖于 resource3，resource2 依赖于 resource1，resource3 依赖于 resource2。 通常情况下，删除不必要的依赖项即可解决此问题。
 
-<!--Update_Description: new articles on invalid template errors-->
+解决循环依赖项问题的步骤：
+
+1. 在模板中找到循环依赖项中标识的资源。 
+2. 检查该资源的 **dependsOn** 属性并使用 **reference** 函数查看其所依赖的资源。 
+3. 检查这些资源，看其依赖于哪些资源。 顺着这些依赖项检查下去，直到找到依赖于原始资源的资源。
+5. 对于循环依赖项所牵涉的资源，请仔细检查所有使用 **dependsOn** 属性的情况，确定不需要的依赖项。 删除这些依赖项。 如果不确定某个依赖项是否为必需依赖项，可尝试删除它。 
+6. 重新部署模板。
+
+部署模板时，删除 **dependsOn** 属性中的值可能导致错误。 如果遇到错误，可将依赖项添加回模板。 
+
+如果该方法无法解决循环依赖项问题，可考虑将部分部署逻辑移至子资源（例如扩展或配置设置）中。 将这些子资源配置为在循环依赖项所牵涉的资源之后部署。 例如，假设要部署两个虚拟机，但必须在每个虚拟机上设置引用另一虚拟机的属性。 可以按下述顺序部署这两个虚拟机：
+
+1. vm1
+2. vm2
+3. vm1 上的扩展依赖于 vm1 和 vm2。 扩展在 vm1 上设置的值是从 vm2 获取的。
+4. vm2 上的扩展依赖于 vm1 和 vm2。 扩展在 vm2 上设置的值是从 vm1 获取的。
+
+同一方法适用于应用服务应用。 可以考虑将配置值移到应用资源的子资源中。 可以按下述顺序部署两个 Web 应用：
+
+1. webapp1
+2. webapp2
+3. webapp1 的配置依赖于 webapp1 和 webapp2。 它包含应用设置，其值来自 webapp2。
+4. webapp2 的配置依赖于 webapp1 和 webapp2。 它包含应用设置，其值来自 webapp1。
+
+<!-- Update_Description: update meta properties, add the content of circular dependency detected -->

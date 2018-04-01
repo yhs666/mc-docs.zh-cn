@@ -1,18 +1,18 @@
 ---
-title: "使用 Site Recovery 对复制到 Azure 的物理服务器进行故障转移和故障回复 | Azure"
-description: "了解如何使用 Azure Site Recovery 将物理服务器故障转移到 Azure 以及如何故障回复到本地站点"
+title: 使用 Site Recovery 对复制到 Azure 的物理服务器进行故障转移和故障回复 | Azure
+description: 了解如何使用 Azure Site Recovery 将物理服务器故障转移到 Azure 以及如何故障回复到本地站点
 services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/22/2018
-ms.date: 03/05/2018
+origin.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9330d535ca3997244da79d4cc932c5f2171c6b3d
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: d9076fcf03c14ba3d51cbc519f9c1712f16480ef
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>对复制到 Azure 的物理服务器进行故障转移和故障回复
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="verify-server-properties"></a>验证服务器属性
 
-验证服务器属性，确保其符合 Azure VM 的 [Azure 要求](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
+验证服务器属性，确保其符合 Azure VM 的 [Azure 要求](vmware-physical-azure-support-matrix.md#replicated-machines)。
 
 1. 在“受保护的项”中，单击“复制的项”，然后选择计算机。
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 03/02/2018
 
 - 出于测试目的，如果具有 Azure ExpressRoute 连接，可使用自动安装于配置服务器上的本地进程服务器。
 - 如果具有 VPN 连接，或者在生产环境中运行故障回复，为进行故障回复则必须将 Azure VM 设置为基于 Azure 的进程服务器。
-- 按照[本文](site-recovery-vmware-setup-azure-ps-resource-manager.md)中的说明在 Azure 中设置进程服务器。
+- 按照[本文](vmware-azure-set-up-process-server-azure.md)中的说明在 Azure 中设置进程服务器。
 
 ## <a name="configure-the-master-target-server"></a>配置主目标服务器
 
@@ -118,4 +118,4 @@ ms.lasthandoff: 03/02/2018
 2. 选择用于将复制数据发送到 Azure 的进程服务器，然后单击“确定”。
 
 重新保护完成后，该 VM 将复制回 Azure，此时可按需运行故障转移。
-<!-- Update_Description: update meta propeties -->
+<!-- Update_Description: update meta propeties, update link -->

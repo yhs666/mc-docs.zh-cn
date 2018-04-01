@@ -1,19 +1,19 @@
 ---
-title: "删除服务器并禁用保护 | Azure"
-description: "本文介绍如何从 Site Recovery 保管库中注销服务器，以及如何禁用虚拟机和物理服务器的保护。"
+title: 删除服务器并禁用保护 | Azure
+description: 本文介绍如何从 Site Recovery 保管库中注销服务器，以及如何禁用虚拟机和物理服务器的保护。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/07/2018
-ms.date: 03/05/2018
+origin.date: 03/05/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: b682276452ba7b402e1aa435f17c13126352396c
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 990ff12c676dc772052341b89e2c9d2b38916255
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="remove-servers-and-disable-protection"></a>删除服务器并禁用保护
 
@@ -24,8 +24,8 @@ ms.lasthandoff: 03/02/2018
 如果将 VMware VM 或 Windows/Linux 物理服务器复制到 Azure，可按如下所述从保管库中取消注册未连接的配置服务器：
 
 1. [禁用对虚拟机的保护](#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)。
-2. [取消关联](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy)并[删除](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy)所有复制策略
-3. [删除配置服务器](site-recovery-vmware-to-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
+2. [取消关联或删除](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy)复制策略。
+3. [删除配置服务器](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
 
 ## <a name="unregister-a-vmm-server"></a>取消注册 VMM 服务器
 

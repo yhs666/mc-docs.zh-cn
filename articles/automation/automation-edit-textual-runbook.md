@@ -1,25 +1,19 @@
 ---
-title: "在 Azure 自动化中编辑文本 Runbook"
-description: "本文提供的不同过程适用于在 Azure 自动化中通过文本编辑器来处理 PowerShell 和 PowerShell 工作流 Runbook。"
+title: 在 Azure 自动化中编辑文本 Runbook
+description: 本文提供的不同过程适用于在 Azure 自动化中通过文本编辑器来处理 PowerShell 和 PowerShell 工作流 Runbook。
 services: automation
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: tysonn
-ms.assetid: 6f5b48fb-6f30-4e99-9e14-9061b5554b08
 ms.service: automation
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 02/23/2016
 ms.date: 01/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 7006f1e3527b40c63a1adf80406d28cba6c7a69c
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 44e36da19c1600f845eec2fbfe5e38f0d99abf46
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>在 Azure 自动化中编辑文本 Runbook
 Azure 自动化中的文本编辑器可以用来编辑 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 和 [PowerShell 工作流 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)。 该编辑器具有其他代码编辑器的典型功能（例如智能感知和颜色编码），并提供其他特殊功能来协助访问 Runbook 的常用资源。  本文提供了使用该编辑器执行不同功能的详细步骤。

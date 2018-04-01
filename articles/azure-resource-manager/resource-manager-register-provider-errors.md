@@ -1,24 +1,24 @@
 ---
-title: "Azure 资源提供程序注册错误 | Azure"
-description: "说明如何解决 Azure 资源提供程序注册错误。"
+title: Azure 资源提供程序注册错误 | Azure
+description: 说明如何解决 Azure 资源提供程序注册错误。
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-origin.date: 09/13/2017
-ms.date: 10/23/2017
+origin.date: 03/09/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 654b45c1b4c162bdf252aef0b65586fe0e954372
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: f7c5d7f703d2b51f84e1f935c39288841133844a
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>解决资源提供程序注册错误
 
@@ -41,6 +41,8 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
+错误消息应提供有关支持的位置和 API 版本的建议。 可以将模板更改为建议的值之一。 Azure 门户或正在使用的命令行接口会自动注册大多数提供程序；但非全部。 如果以前未使用特定的资源提供程序，则可能需要注册该提供程序。
+
 ## <a name="cause"></a>原因
 
 可能由于下三种原因之一而收到此错误：
@@ -49,11 +51,7 @@ Message: The subscription is not registered to use namespace {resource-provider-
 1. 资源类型不支持该 API 版本
 1. 资源类型不支持该位置
 
-## <a name="solution"></a>解决方案
-
-错误消息应提供有关支持的位置和 API 版本的建议。 可以将模板更改为建议的值之一。 Azure 门户或正在使用的命令行接口会自动注册大多数提供程序；但非全部。 如果以前未使用特定的资源提供程序，则可能需要注册该提供程序。 可以通过 PowerShell 或 Azure CLI 了解有关资源提供程序的详细信息。
-
-### <a name="solution-1"></a>解决方案 1
+## <a name="solution-1---powershell"></a>解决方案 1 - PowerShell
 
 对于 PowerShell，请使用 **Get-AzureRmResourceProvider** 查看注册状态。
 
@@ -79,9 +77,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
-### <a name="solution-2"></a>解决方案 2
-
-**Azure CLI**
+## <a name="solution-2---azure-cli"></a>解决方案 2 - Azure CLI
 
 若要查看是否已注册提供程序，请使用 `az provider list` 命令。
 
@@ -101,7 +97,7 @@ az provider register --namespace Microsoft.Cdn
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-### <a name="solution-3"></a>解决方案 3
+## <a name="solution-3---azure-portal"></a>解决方案 3 - Azure 门户
 
 可以通过门户查看注册状态，并注册资源提供程序命名空间。
 
@@ -113,4 +109,4 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
    ![列出资源提供程序](./media/resource-manager-register-provider-errors/list-resource-providers.png)
 
-<!--Update_Description: new articles on resource manager register provider errors-->
+<!--Update_Description: update meta properties, wording update-->

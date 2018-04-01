@@ -1,31 +1,31 @@
 ---
-title: "适用于 VMware 到 Azure 部署的 Azure Site Recovery Deployment Planner | Azure"
-description: "本文介绍针对 VMware 到 Azure 方案运行 Azure Site Recovery 部署规划器的模式。"
+title: 适用于 VMware 到 Azure 部署的 Azure Site Recovery Deployment Planner | Azure
+description: 本文介绍针对 VMware 到 Azure 方案运行 Azure Site Recovery 部署规划器的模式。
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 12/04/2017
-ms.date: 03/05/2018
+origin.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 058d68a4b1631343f26b379bd67be2700fdad0c7
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 5976bda6a37c98052aaa4b570ac96c758939315c
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>运行适用于 VMware 到 Azure 部署的 Azure Site Recovery 部署规划器
 本文为适用于 VMware 到 Azure 生产部署的 Azure Site Recovery Deployment Planner 用户指南。
 
 ## <a name="modes-of-running-deployment-planner"></a>运行部署规划器的模式
-可使用以下四种模式之一运行该命令行工具 (ASRDeploymentPlanner.exe)： 
+可使用以下四种模式之一运行该命令行工具 (ASRDeploymentPlanner.exe)：
 
 1.  [分析](#profile-vmware-vms)
 2.  [报表生成](#generate-report)
@@ -50,7 +50,7 @@ ms.lasthandoff: 03/02/2018
 
 4. 如果系统不将 Connect-VIServer 视为 cmdlet 的名称，则可能需要运行以下命令。
 
-            Add-PSSnapin VMware.VimAutomation.Core 
+            Add-PSSnapin VMware.VimAutomation.Core
 
 5. 要获取在 vCenter 服务器/vSphere ESXi 主机上的 VM 的所有名称并将列表存储在 .txt 文件中，请运行下面列出的两个命令。
 将 &lsaquo;server name&rsaquo;、&lsaquo;user name&rsaquo;、&lsaquo;password&rsaquo; 和 &lsaquo;outputfile.txt&rsaquo; 替换为输入。
@@ -100,7 +100,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-使用默认设置时，若要分析特定数量的 VM（例如 1500 个 VM），请创建两个 VMList.txt 文件。 一个包含 1000 个 VM，另一个是 500 个 VM 的列表。 运行 ASR 部署规划器的这两个实例，一个使用 VMList1.txt，另一个使用 VMList2.txt。 可以使用同一目录路径来存储两个 VMList VM 的已分析数据。 
+使用默认设置时，若要分析特定数量的 VM（例如 1500 个 VM），请创建两个 VMList.txt 文件。 一个包含 1000 个 VM，另一个是 500 个 VM 的列表。 运行 ASR 部署规划器的这两个实例，一个使用 VMList1.txt，另一个使用 VMList2.txt。 可以使用同一目录路径来存储两个 VMList VM 的已分析数据。
 
 我们已经看到，根据硬件配置（尤其是在其中运行报表生成工具的服务器的 RAM 大小），在内存不足的情况下，操作可能会失败。 如果硬件良好，可将 MaxVMsSupported 更改为更高的值。  
 
@@ -292,4 +292,4 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 ## <a name="next-steps"></a>后续步骤
 * [分析生成的报表](site-recovery-vmware-deployment-planner-analyze-report.md)。
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

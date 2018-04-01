@@ -1,29 +1,29 @@
 ---
-title: "如何查询 Azure Cosmos DB 中的表数据？ | Azure"
-description: "了解如何查询 Azure Cosmos DB 中的表数据"
+title: 如何查询 Azure Cosmos DB 中的表数据？ | Azure
+description: 了解如何查询 Azure Cosmos DB 中的表数据
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 14bcb94e-583c-46f7-9ea8-db010eb2ab43
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 origin.date: 11/15/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d3ec53944fb5bd718c116f3838e7669edd72b3eb
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: a054bf23c3c011cd7361e4b80d9c374631e53a61
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure Cosmos DB：如何使用表 API 查询表数据
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>教程：使用表 API 查询 Azure Cosmos DB
 
 Azure Cosmos DB [表 API](table-introduction.md) 支持针对键/值（表）数据进行 OData 和 [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) 查询。  
 
@@ -118,4 +118,4 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 > [!div class="nextstepaction"]
 > [全局分发数据](tutorial-global-distribution-table.md)
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties -->

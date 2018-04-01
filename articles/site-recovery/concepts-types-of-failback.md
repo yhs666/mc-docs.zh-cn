@@ -1,27 +1,22 @@
 ---
-title: "Azure Site Recovery 中的故障回复 | Azure"
-description: "本文概述了各种类型的故障回复，以及在使用 Azure Site Recovery 服务故障回复到本地时要考虑的注意事项。"
+title: Azure Site Recovery 中的故障回复 | Azure
+description: 本文概述了各种类型的故障回复，以及在使用 Azure Site Recovery 服务故障回复到本地时要考虑的注意事项。
 services: site-recovery
-documentationcenter: 
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 12/18/2017
-ms.date: 03/05/2018
+origin.date: 03/05/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 16aa3413f18d897e33a4c83a5a4414365dea13a7
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 1888f16bd8ec44858225e66caefe3e58c282e742
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-failback"></a>故障回复概述
+
 故障转移到 Azure 以后，可以故障回复到本地站点。 使用 Azure Site Recovery 可以执行两种不同类型的故障回复： 
 
 - 故障回复到原始位置 
@@ -56,6 +51,5 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="next-steps"></a>后续步骤
 
-按照步骤执行[故障回复操作](site-recovery-how-to-failback-azure-to-vmware.md)。
-<!-- Update_Description: new articles on failback types in site recovery -->
-<!--ms.date: 03/05/2018-->
+按照步骤执行[故障回复操作](vmware-azure-failback.md)。
+<!-- Update_Description: update meta properties -->

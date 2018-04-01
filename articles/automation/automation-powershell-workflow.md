@@ -1,12 +1,9 @@
 ---
-title: "了解适用于 Azure 自动化的 PowerShell 工作流 | Azure"
-description: "本文旨在作为熟悉 PowerShell 的创作人员的一个速成教程，以便其了解 PowerShell 和 PowerShell 工作流以及适用于自动化 Runbook 的概念之间的具体差异。"
+title: 了解适用于 Azure 自动化的 PowerShell 工作流 | Azure
+description: 本文旨在作为熟悉 PowerShell 的创作人员的一个速成教程，以便其了解 PowerShell 和 PowerShell 工作流以及适用于自动化 Runbook 的概念之间的具体差异。
 services: automation
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: tysonn
-ms.assetid: 84bf133e-5343-4e0e-8d6c-bb14304a70db
 ms.service: automation
 ms.devlang: na
 ms.topic: article
@@ -15,11 +12,11 @@ ms.workload: infrastructure-services
 origin.date: 04/21/2017
 ms.date: 01/15/2018
 ms.author: v-nany
-ms.openlocfilehash: 8133e49dc6bc39ec9bf6e613d9f071d5c026ebb0
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 8ecfaca74eb6b018607ddda35b353e783786d322
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>了解重要的适用于自动化 Runbook 的 Windows PowerShell 工作流概念 
 Azure 自动化中的 Runbook 作为 Windows PowerShell 工作流实现。  Windows PowerShell 工作流类似于 Windows PowerShell 脚本，但包括一些可能会让新用户产生混淆的重大差异。  本文旨在提供有关使用 PowerShell 工作流编写 runbook 的帮助，但我们建议使用 PowerShell 编写 runbook，除非是需要检查点的情况。  编写 PowerShell 工作流 runbook 时存在几个语法差异，这些差异会增加编写有效工作流时所需的工作量。  

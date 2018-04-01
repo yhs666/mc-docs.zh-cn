@@ -3,22 +3,22 @@ title: 创建 Azure Stack 的服务主体 | Microsoft Docs
 description: 介绍如何创建新的服务主体，并在 Azure 资源管理器中将此服务主体与基于角色的访问控制配合使用以管理对资源的访问权限。
 services: azure-resource-manager
 documentationcenter: na
-author: heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/25/2017
-ms.date: 03/08/2018
+origin.date: 02/28/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 84c26ffe9187870e0809413d3bbbc0263f64f032
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 5cc96026fcd305db13be53dac02d91b258b17783
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>提供对 Azure Stack 的应用程序访问权限
 
@@ -142,3 +142,4 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
 
 [管理用户权限](azure-stack-manage-permissions.md)
 
+<!-- Update_Description: update metedata properties -->

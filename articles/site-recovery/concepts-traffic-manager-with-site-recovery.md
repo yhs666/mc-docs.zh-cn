@@ -1,25 +1,20 @@
 ---
-title: "将 Azure 流量管理器与 Azure Site Recovery 配合使用 | Azure"
-description: "介绍如何结合使用 Azure Site Recovery 和 Azure 流量管理器来实现灾难恢复和迁移"
+title: 将 Azure 流量管理器与 Azure Site Recovery 配合使用 | Azure
+description: 介绍如何结合使用 Azure Site Recovery 和 Azure 流量管理器来实现灾难恢复和迁移
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 02/23/2018
-ms.date: 03/05/2018
+origin.date: 03/05/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: fcb743ec82849a36e942bfe1462946eb696982b0
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 7a32b7c3b48a53cc2b9beb07029f319943329d09
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>将 Azure 流量管理器与 Azure Site Recovery 配合使用
 
@@ -50,11 +45,11 @@ ms.lasthandoff: 03/02/2018
 
 根据业务要求，在发生灾难时，**公司 A** 可以选择以更高或更低的[探测频率](../traffic-manager/traffic-manager-monitoring.md)在本地与 Azure 之间切换，并确保将用户停机时间减到最小。
 
-遏制灾难后，**公司 A** 可以使用 Azure Site Recovery 从 Azure 故障回复到其本地环境（[VMware](site-recovery-how-to-failback-azure-to-vmware.md) 或 [Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md)）。 当流量管理器检测到**主要**终结点再次正常后，可在其 DNS 响应中自动利用**主要**终结点。
+遏制灾难后，**公司 A** 可以使用 Azure Site Recovery 从 Azure 故障回复到其本地环境（[VMware](vmware-azure-failback.md) 或 [Hyper-V](hyper-v-azure-failback.md)）。 当流量管理器检测到**主要**终结点再次正常后，可在其 DNS 响应中自动利用**主要**终结点。
 
 ## <a name="on-premises-to-azure-migration"></a>本地到 Azure 的迁移
 
-除灾难恢复以外，Azure Site Recovery 还支持[迁移到 Azure](site-recovery-migrate-to-azure.md)。 使用 Azure Site Recovery 的强大测试故障转移功能，客户可以在 Azure 上评估应用程序性能，而不影响其本地环境。 当客户准备好迁移时，可以选择统一迁移整个工作负荷，或选择逐渐迁移和缩放。
+除灾难恢复以外，Azure Site Recovery 还支持[迁移到 Azure](migrate-overview.md)。 使用 Azure Site Recovery 的强大测试故障转移功能，客户可以在 Azure 上评估应用程序性能，而不影响其本地环境。 当客户准备好迁移时，可以选择统一迁移整个工作负荷，或选择逐渐迁移和缩放。
 
 Azure 流量管理器的[加权](../traffic-manager/traffic-manager-configure-weighted-routing-method.md)路由方法可用于将一部分传入流量定向到 Azure，同时将大部分流量定向到本地环境。 此方法有助于评估缩放性能，因为在将越来越多的工作负荷迁移到 Azure 时，可以不断地增大分配给 Azure 的权重。
 
@@ -126,5 +121,4 @@ Azure 流量管理器的[加权](../traffic-manager/traffic-manager-configure-we
 - 详细了解[嵌套式流量管理器配置文件](../traffic-manager/traffic-manager-nested-profiles.md)。
 - 详细了解[终结点监视](../traffic-manager/traffic-manager-monitoring.md)。
 - 详细了解如何使用[恢复计划](site-recovery-create-recovery-plans.md)自动执行应用程序故障转移。
-<!-- Update_Description: new article on using traffic manager profile in site recovery scenario -->
-<!--ms.date: 02/05/2018-->
+<!-- Update_Description: update meta properties -->

@@ -1,25 +1,25 @@
 ---
-title: "使用 Java 将事件发送到 Azure 事件中心 | Azure"
-description: "使用 Java 向事件中心发送入门"
+title: 使用 Java 将事件发送到 Azure 事件中心 | Azure
+description: 使用 Java 向事件中心发送入门
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: core
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 02/26/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: b93c6780def985f3675776e3d49c1b5f33a3df4a
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: b09a06e917345da1f96ed32cf63d2154d5325f8e
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>使用 Java 将事件发送到 Azure 事件中心
 
@@ -56,15 +56,13 @@ ms.lasthandoff: 02/23/2018
 import java.io.IOException;
 import java.nio.charset.*;
 import java.util.*;
-import java.util.concurrent.ExecutionException;
 
 import com.microsoft.azure.eventhubs.*;
-import com.microsoft.azure.servicebus.*;
 
 public class Send
 {
     public static void main(String[] args) 
-            throws ServiceBusException, ExecutionException, InterruptedException, IOException
+            throws EventHubException, IOException
     {
 ```
 

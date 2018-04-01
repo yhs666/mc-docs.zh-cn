@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 媒体分析进行面部修订 | Azure"
-description: "本主题演示如何使用 Azure 媒体分析检测面部。"
+title: 使用 Azure 媒体分析进行面部修订 | Azure
+description: 本主题演示如何使用 Azure 媒体分析检测面部。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 179ee977871b00b4f24a0adea5a00ca01d777736
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 2e616a0de110f1fc8bdaf2f568931f94569bae1c
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>使用 Azure 媒体分析进行面部修订
 ## <a name="overview"></a>概述
@@ -58,6 +58,7 @@ ms.lasthandoff: 12/22/2017
 
 #### <a name="output-example"></a>输出示例：
 
+```json
     {
       "version": 1,
       "timescale": 24000,
@@ -104,6 +105,7 @@ ms.lasthandoff: 12/22/2017
             ],
 
     … truncated
+```
 
 ### <a name="redact-mode"></a>修订模式
 工作流的第二步使用更大数量的输入，这些输入必须合并为单个资产。
@@ -139,7 +141,9 @@ ms.lasthandoff: 12/22/2017
 
 ### <a name="example-json"></a>示例 JSON：
 
+```json
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+```
 
 #### <a name="low"></a>低
 
@@ -173,8 +177,16 @@ ms.lasthandoff: 12/22/2017
 
 1. 创建资产并将媒体文件上传到资产。
 2. 基于包含以下 json 预设的配置文件创建含有面部修订任务的作业： 
-   
-        {'version':'1.0', 'options': {'mode':'combined'}}
+
+    ```json
+            {
+                'version':'1.0',
+                'options': {
+                    'mode':'combined'
+                }
+            }
+    ```
+
 3. 下载输出 JSON 文件。 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>创建和配置 Visual Studio 项目
@@ -183,7 +195,7 @@ ms.lasthandoff: 12/22/2017
 
 #### <a name="example"></a>示例
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

@@ -1,6 +1,6 @@
 ---
-title: "通过 Python 开始使用 Azure 表存储 | Azure"
-description: "使用 Azure 表存储（一种 NoSQL 数据存储）将结构化数据存储在云中。"
+title: 通过 Python 开始使用 Azure 表存储 | Azure
+description: 使用 Azure 表存储（一种 NoSQL 数据存储）将结构化数据存储在云中。
 services: cosmos-db
 documentationcenter: python
 author: rockboyfor
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 02/08/2018
-ms.date: 03/05/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: bef08504445536aa2c7933e0a883498f2614234f
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 57f555900e50f9db9269f6f5da601bf77f301615
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>通过 Python 开始使用 Azure 表存储
 
@@ -43,8 +43,9 @@ Azure 表存储是一项用于在云中存储结构化 NoSQL 数据的服务，�
 若要成功完成本教程，需要具备以下先决条件：
 
 - [Python](https://www.python.org/downloads/) 2.7、3.3、3.4、3.5 或 3.6
-- [用于 Python 的 Azure Cosmos DB 表 SDK 1.01](https://pypi.python.org/pypi/azure-cosmosdb-table/)。 此 SDK 同时与 Azure 表存储和 Azure Cosmos DB 表 API 连接。
-- [Azure 存储帐户](/storage/common/storage-create-storage-account#create-a-storage-account)或 [Azure Cosmos DB 帐户](https://www.azure.cn/try/cosmosdb/)
+- [用于 Python 的 Azure Cosmos DB 表 SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/)。 此 SDK 同时与 Azure 表存储和 Azure Cosmos DB 表 API 连接。
+- [Azure 存储帐户](/storage/common/storage-create-storage-account#create-a-storage-account)
+<!-- Not Avaiable on  [Azure Cosmos DB account](https://www.azure.cn/try/cosmosdb/) -->
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -90,7 +91,7 @@ table_service = TableService(account_name='myaccount', account_key='mykey',endpo
 若要连接到 Azure Cosmos DB，请从 Azure 门户中复制主连接字符串，并使用复制的连接字符串创建 [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) 对象：
 
 ```python
-table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;TableEndpoint=https://myaccount.documents.azure.cn')
+table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=https://myaccount.documents.azure.cn')
 ```
 
 ## <a name="create-a-table"></a>创建表
@@ -218,8 +219,7 @@ for task in tasks:
 
 ## <a name="delete-an-entity"></a>删除条目
 
-将实体的 PartitionKey 和 RowKey 传递给 delete_entity 方法即可删除该实体。
-<!-- Not Available on  [py_delete_entity] -->
+将实体的 **PartitionKey** 和 **RowKey** 传递给 [delete_entity][py_delete_entity] 方法，以删除该实体。
 
 ```python
 table_service.delete_entity('tasktable', 'tasksSeattle', '001')
@@ -227,8 +227,7 @@ table_service.delete_entity('tasktable', 'tasksSeattle', '001')
 
 ## <a name="delete-a-table"></a>删除表
 
-如果不再需要某个表或其内的任何实体，请调用 delete_table 方法将该表从 Azure 存储中永久删除。
-<!-- Not Available on  [py_delete_table] -->
+如果不再需要表或表中的所有实体，请调用 [delete_table][py_delete_table]方法，从 Azure 存储永久删除该表。
 
 ```python
 table_service.delete_table('tasktable')

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 门户调整媒体处理的规模 | Azure"
-description: "本教程逐步演示如何使用 Azure 门户调整媒体处理的规模。"
+title: 使用 Azure 门户调整媒体处理的规模 | Azure
+description: 本教程逐步演示如何使用 Azure 门户调整媒体处理的规模。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
 ms.service: media-services
 ms.workload: media
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 07/04/2017
 ms.date: 08/07/2017
 ms.author: v-haiqya
-ms.openlocfilehash: c240df0b3676295ca093632160eccd301b38d85c
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: e61f0606f68136bfba63889cfdc73f5e74cbd741
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="change-the-reserved-unit-type"></a>更改保留单位类型
 
@@ -42,12 +42,13 @@ ms.lasthandoff: 12/22/2017
 
 除了指定保留单位类型，还可以指定为帐户预配**保留单位** (RU)。 预配的 RU 数决定了给定帐户中可并发处理的媒体任务数。
 
-> [!NOTE]
-> RU 可用于并行化所有媒体处理，包括使用 Azure Media Indexer 为作业编制索引。 但是，与编码不同，索引作业使用更快的保留单位并不能更快地完成处理。
+>[!NOTE]
+>RU 可用于并行化所有媒体处理，包括使用 Azure Media Indexer 为作业编制索引。 但是，与编码不同，索引作业使用更快的保留单位并不能更快地完成处理。
 
 > [!IMPORTANT]
 > 请确保查看[概述](media-services-scale-media-processing-overview.md)主题，以获取有关缩放媒体处理主题的详细信息。
->
+> 
+> 
 
 ## <a name="scale-media-processing"></a>调整媒体处理的规模
 
@@ -55,12 +56,11 @@ ms.lasthandoff: 12/22/2017
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择 Azure 媒体服务帐户。
 2. 在“设置”窗口中，选择“媒体保留单位”。
-
-    若要更改所选保留单位类型的保留单位数，请使用“媒体保留单位”  滑块。
-
-    若要更改“保留单位类型” ，请按“S1”、“S2”或“S3”。
-
-    ![“处理器”页](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
+   
+    若要更改所选保留单位类型的保留单位数，请使用屏幕顶部的“媒体保留单位”滑块。
+   
+    若要更改“保留单位类型”，请单击“保留处理单位的速度”栏。 然后，选择所需的定价层：S1、S2 或 S3。
+   
 3. 按“保存”按钮保存更改。
 
     按“保存”后，会立即分配新的保留单位。

@@ -1,24 +1,24 @@
 ---
-title: "Azure 存储帐户名称错误 | Azure"
-description: "说明指定存储帐户名称时可能遇到的错误。"
+title: Azure 存储帐户名称错误 | Azure
+description: 说明指定存储帐户名称时可能遇到的错误。
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-origin.date: 09/13/2017
-ms.date: 10/23/2017
+origin.date: 03/09/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 876493e1db1d0145e7009f13e7e4cc87ebf4d855
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 865694b8f1754257b0f680f31b534ca646113c72
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>解决存储帐户名称错误
 
@@ -49,16 +49,12 @@ Message=The storage account named mystorage is already taken.
 
 ## <a name="solution"></a>解决方案
 
-### <a name="solution-1"></a>解决方案 1
-
 请确保存储帐户名称是唯一的。 可将命名约定与 [uniqueString](resource-group-template-functions-string.md#uniquestring) 函数的结果连接起来创建一个唯一名称。
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 "type": "Microsoft.Storage/storageAccounts",
 ```
-
-### <a name="solution-2"></a>解决方案 2
 
 请确保存储帐户名称不超过 24 个字符。 [uniqueString](resource-group-template-functions-string.md#uniquestring) 函数返回 13 个字符。 如果将前缀或后缀连接到 **uniqueString** 结果，请提供 11 个字符（或更少字符）的值。
 
@@ -75,8 +71,6 @@ Message=The storage account named mystorage is already taken.
 }
 ```
 
-### <a name="solution-3"></a>解决方案 3
-
 请确保存储帐户名称不包含任何大写字母或特殊字符。
 
-<!--Update_Description: new articles on resource manager storage account name errors-->
+<!--Update_Description: update meta properties, wording update -->

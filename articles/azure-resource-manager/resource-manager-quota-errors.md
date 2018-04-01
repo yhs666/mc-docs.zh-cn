@@ -1,24 +1,24 @@
 ---
-title: "Azure 配额错误 | Azure"
-description: "说明如何解决资源配额错误。"
+title: Azure 配额错误 | Azure
+description: 说明如何解决资源配额错误。
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-origin.date: 11/27/2017
-ms.date: 12/25/2017
+origin.date: 03/09/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 17ac0315539ca6eed338fe79526d1638184478b2
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 64877c52eab7d5fbceea817ac3a8a16ed37d05dc
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>解决资源配额错误
 
@@ -45,12 +45,12 @@ please delete some resources of this type before creating a new one.
 
 ## <a name="cause"></a>原因
 
-按每个资源组、订阅、帐户和其他作用域应用配额。 例如，订阅可能配置为限制某个区域的核心数目。 如果尝试部署超过允许核心数目的虚拟机，将收到指出超过配额的错误消息。
-有关完整的配额信息，请参阅。
+按每个资源组、订阅、帐户和其他作用域应用配额。 例如，订阅可能配置为限制某个区域的核心数目。 如果尝试部署超过允许核心数目的虚拟机，则会收到指出超过配额的错误消息。
+有关完整的配额信息，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
 
-## <a name="solution"></a>解决方案
+## <a name="troubleshooting"></a>故障排除
 
-### <a name="solution-1"></a>解决方案 1
+### <a name="azure-cli"></a>Azure CLI
 
 对于 Azure CLI，使用 `az vm list-usage` 命令查找虚拟机配额。
 
@@ -74,7 +74,7 @@ az vm list-usage --location "China East"
 ]
 ```
 
-### <a name="solution-2"></a>解决方案 2
+### <a name="powershell"></a>PowerShell
 
 对于 PowerShell，使用 **Get-AzureRmVMUsage** 命令查找虚拟机配额。
 
@@ -92,7 +92,7 @@ Total Regional Cores                         0   100 Count
 Virtual Machines                             0 10000 Count
 ```
 
-### <a name="solution-3"></a>解决方案 3
+## <a name="solution"></a>解决方案
 
 若要请求增加配额，请转到门户并提出支持问题。 在支持问题中，为你想要在其中进行部署的区域请求增加配额。
 

@@ -1,8 +1,8 @@
 ---
-title: "查看 Azure 活动日志，以便监视资源 | Azure"
-description: "使用活动日志查看用户操作和错误。 显示 Azure 门户、PowerShell、Azure CLI 和 REST。"
+title: 查看 Azure 活动日志，以便监视资源 | Azure
+description: 使用活动日志查看用户操作和错误。 显示 Azure 门户、PowerShell、Azure CLI 和 REST。
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: ad63b42c7b744d4e888fef725158ba16cec8bbcb
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 9396aec8ffb683687c7d6c0605053f8cac955d79
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>查看活动日志，以便审核对资源的操作
 通过活动日志，可以确定：
@@ -30,7 +30,9 @@ ms.lasthandoff: 12/22/2017
 * 操作的状态
 * 其他可能有助于研究操作的属性的值
 
-[!INCLUDE [resource-manager-audit-limitations](../../includes/resource-manager-audit-limitations.md)]
+活动日志包含针对资源执行的所有写入操作（PUT、POST、DELETE）。 它不包含读取操作 (GET)。 有关资源操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)。 在进行故障排除或监视组织中的用户如何修改资源时，可以使用审核日志来查找错误。
+
+活动日志将保留 90 天。 可以查询任何日期范围，只要开始日期不早于过去 90 天。
 
 可以通过门户、PowerShell、Azure CLI、Insights REST API 或 [Insights .NET 库](https://www.nuget.org/packages/Microsoft.Azure.Insights/)检索活动日志中的信息。
 
@@ -147,5 +149,4 @@ ms.lasthandoff: 12/22/2017
 * 若要了解用于查看部署操作的命令，请参阅[查看部署操作](resource-manager-deployment-operations.md)。
 * 若要了解如何防止对所有用户的资源执行删除操作，请参阅[使用 Azure Resource Manager 锁定资源](resource-group-lock-resources.md)。
 * 若要查看可用于每个 Azure 资源管理器提供程序的操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)
-<!--Not Available the parent file of includes file of resource-manager-audit-limitations.md-->
-<!--ms.date:12/25/2017-->
+<!-- Update_Description: update meta properties, wording update, update link -->

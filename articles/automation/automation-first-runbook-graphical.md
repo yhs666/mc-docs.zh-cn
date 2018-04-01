@@ -1,26 +1,20 @@
 ---
-title: "我在 Azure 自动化中的第一个图形 Runbook | Azure"
-description: "本教程指导完成创建、 测试和发布一个简单图形 Runbook。"
-services: automation
-documentationcenter: 
+title: 我在 Azure 自动化中的第一个图形 Runbook | Azure
+description: 本教程指导完成创建、 测试和发布一个简单图形 Runbook。
 author: yunan2016
 manager: digimobile
-editor: 
-keywords: "runbook, runbook 模板, runbook 自动化, azure runbook"
-ms.assetid: dcb88f19-ed2b-4372-9724-6625cd287c8a
+keywords: runbook, runbook 模板, runbook 自动化, azure runbook
+services: automation
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-origin.date: 05/17/2017
-ms.date: 01/22/2018
+ms.topic: article
+origin.date: 03/16/2018
+ms.date: 03/20/2018
 ms.author: v-nany
-ms.openlocfilehash: ab1eff6f552434c681ae11c8d98556f7b24c252b
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: ff18bf3e0813cfae83a4a1520510d6d59b9566cf
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="my-first-graphical-runbook"></a>我的第一个图形 Runbook
 

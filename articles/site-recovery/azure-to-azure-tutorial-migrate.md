@@ -1,18 +1,19 @@
 ---
-title: "使用 Azure Site Recovery 在两个 Azure 区域之间迁移 Azure VM | Azure"
-description: "使用 Azure Site Recovery 将 Azure IaaS VM 从一个 Azure 区域迁移到另一个 Azure 区域。"
+title: 使用 Azure Site Recovery 在两个 Azure 区域之间迁移 Azure VM | Azure
+description: 使用 Azure Site Recovery 将 Azure IaaS VM 从一个 Azure 区域迁移到另一个 Azure 区域。
 services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 01/07/2018
-ms.date: 03/05/2018
+origin.date: 02/27/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: ae365d532f892aeb7721a681734c661ceaea111e
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.custom: MVC
+ms.openlocfilehash: 3ac841469654959f0ac2e5f2d2ac109518feb880
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>将 Azure VM 迁移到另一区域
 
@@ -110,7 +111,8 @@ Site Recovery 会检索与订阅和资源组关联的 VM 列表。
 2. 在“故障转移”中，选择“最新”。 加密密钥设置与此方案无关。
 3. 选择“在开始故障转移前关闭计算机”。 Site Recovery 在触发故障转移之前会尝试关闭源 VM。 即使关机失败，故障转移也仍会继续。 可以在“作业”页上跟踪故障转移进度。
 4. 检查 Azure VM 是否在 Azure 中按预期显示。
-5. 在“复制的项”中，右键单击 VM >“完成迁移”。 这将完成迁移过程，并停止 VM 的复制。
+5. 在“复制的项”中，右键单击 VM >“提交”。 这样就完成了迁移进程。
+6. 提交完成后，请单击“禁用复制”。  这样会停止 VM 的复制。
 
 ## <a name="next-steps"></a>后续步骤
 

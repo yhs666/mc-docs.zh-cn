@@ -1,25 +1,25 @@
 ---
-title: "Azure 事件中心示例 | Azure"
-description: "Azure 事件中心示例"
+title: Azure 事件中心示例 | Azure
+description: Azure 事件中心示例
 services: event-hubs
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/19/2017
-ms.date: 03/12/2018
+origin.date: 03/05/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 26e1b417d31907dc64cd9151dfa83cf936952690
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: c789b6b4f094d422b506616ad2fb872236d40e94
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="event-hubs-samples"></a>事件中心示例 
 
@@ -62,11 +62,6 @@ Azure 事件中心示例集演示了 [Azure 事件中心](/event-hubs/)内的主
 
 [扩大事件处理](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)示例演示如何使用[事件处理器主机](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)分配事件中心流消耗工作负荷。 它演示如何实现用于管理事件流的 **EventProcessor** 和 **EventProcessorFactory** 对象。 
 
-<!-- Remove on Globle site ### Pull web data into an event hub  -->
-<!-- Not Available on ### <a name="pull-web-data-into-an-event-hub"></a> Pull web data into an event hub  -->
-<!-- Not Available on Github.com event-hubs-dotnet-importfromweb -->
-<!-- Not Available [从 Web 导入数据](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) -->
-
 ## <a name="next-steps"></a>后续步骤
 
 访问以下链接，了解有关 .NET Framework 版本的详细信息：
@@ -77,7 +72,7 @@ Azure 事件中心示例集演示了 [Azure 事件中心](/event-hubs/)内的主
 可在以下文章中了解有关事件中心的详细信息：
 
 - [事件中心概述](event-hubs-what-is-event-hubs.md)
-- [创建事件中心](event-hubs-create.md)
+- [事件中心功能](event-hubs-features.md)
 - [事件中心常见问题](event-hubs-faq.md)
 
-<!--Update_Description: update meta properties, update reference link-->
+<!--Update_Description: update meta properties, wording update, update reference link-->

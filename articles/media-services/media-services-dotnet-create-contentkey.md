@@ -1,11 +1,11 @@
 ---
-title: "使用 .NET 创建内容密钥"
-description: "了解如何创建提供对资产进行安全访问的内容密钥。"
+title: 使用 .NET 创建内容密钥
+description: 了解如何创建提供对资产进行安全访问的内容密钥。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: hayley244
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 225b05e5-7d30-409c-b5b7-3ef0634310c7
 ms.service: media-services
 ms.workload: media
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 07/20/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 20955994db8b14676dab039af19689acc8fe3a38
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+ms.openlocfilehash: 93e5b0de25c79f900b39c4ee2f8b70f830b38846
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-contentkeys-with-net"></a>使用 .NET 创建内容密钥
 > [!div class="op_single_selector"]
@@ -44,6 +44,7 @@ ms.lasthandoff: 08/31/2017
 ## <a name="contentkeytype"></a>ContentKeyType
 创建内容密钥时必须设置的值之一是内容密钥类型。 选择以下值之一。 
 
+```csharp
     public enum ContentKeyType
     {
         /// <summary>
@@ -67,10 +68,12 @@ ms.lasthandoff: 08/31/2017
         /// </summary>
         EnvelopeEncryption = 4
     }
+```
 
 ## <a id="envelope_contentkey"></a>创建信封类型 ContentKey
 以下代码段创建信封加密类型的内容密钥。 然后，它会将密钥与指定的资产关联。
 
+```csharp
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
     {
         // Create envelope encryption content key
@@ -102,12 +105,13 @@ ms.lasthandoff: 08/31/2017
 call
 
     IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
-
+```
 
 
 ## <a id="common_contentkey"></a>创建公共类型 ContentKey
 以下代码段创建公共加密类型的内容密钥。 然后，它会将密钥与指定的资产关联。
 
+```csharp
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
     {
         // Create common encryption content key
@@ -138,7 +142,7 @@ call
 
         return returnValue;
     }
-    
 call
 
     IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
+```

@@ -1,32 +1,38 @@
 ---
-title: "将 Azure 资源部署到多个订阅和资源组 | Azure"
-description: "介绍如何在部署期间将多个 Azure 订阅和资源组作为目标。"
+title: 将 Azure 资源部署到多个订阅和资源组 | Azure
+description: 介绍如何在部署期间将多个 Azure 订阅和资源组作为目标。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/18/2017
-ms.date: 01/29/2018
+origin.date: 03/13/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: a6a6b7ae881821752d6180fdd44395cc0fc2a5d9
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: c7157de625f60c7788803f786c1a9fdcc79abde9
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>将 Azure 资源部署到多个订阅或资源组
 
 通常情况下，将模板中的所有资源部署到单个[资源组](resource-group-overview.md)。 不过，在某些情况下，你可能希望将一组资源部署在一起但将其放置在不同的资源组或订阅中。 例如，你可能希望将 Azure Site Recovery 的备份虚拟机部署到一个单独的资源组和位置。 资源管理器允许使用嵌套的模板将不同于父模板所用订阅和资源组的多个不同订阅和资源组作为目标。
 
+> [!NOTE]
+> 在单个部署中可以仅部署到五个资源组。 通常情况下，此限制意味着，在嵌套或链接的部署中可以部署到为父模板指定的一个资源组和最多四个资源组。 但是，如果父模板仅包含嵌套或链接的模板，并且本身不部署任何资源，则在嵌套或链接的部署中最多可包含五个资源组。
+
 ## <a name="specify-a-subscription-and-resource-group"></a>指定订阅和资源组
 
 若要将其他资源作为目标，请使用嵌套模板或链接模板。 `Microsoft.Resources/deployments` 资源类型提供 `subscriptionId` 和 `resourceGroup` 的参数。 使用这些属性可为嵌套部署指定不同的订阅和资源组。 在运行部署之前，所有资源组都必须存在。 如果未指定订阅 ID 或资源组，将使用父模板中的订阅和资源组。
+
+用于部署模板的帐户必须有权部署到指定的订阅 ID。 
+<!-- Not Available on [add guest users from another directory](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) -->
 
 若要指定其他资源组和订阅，请使用：
 
@@ -224,6 +230,37 @@ New-AzureRmResourceGroupDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
 ```
 
+在前面的示例中，**parentRG** 和 **inlineRG** 都解析为 **parentGroup**。 **linkedRG** 解析为 **linkedGroup**。 前述示例的输出为：
+
+```powershell
+ Name             Type                       Value
+ ===============  =========================  ==========
+ parentRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+                                               "name": "parentGroup",
+                                               "location": "chinaeast",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
+ inlineRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+                                               "name": "parentGroup",
+                                               "location": "chinaeast",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
+ linkedRG         Object                     {
+                                               "id": "/subscriptions/<subscription-id>/resourceGroups/linkedGroup",
+                                               "name": "linkedGroup",
+                                               "location": "chinaeast",
+                                               "properties": {
+                                                 "provisioningState": "Succeeded"
+                                               }
+                                             }
+```
+
 ### <a name="azure-cli"></a>Azure CLI
 
 对于 Azure CLI，若要将两个存储帐户部署到**同一订阅**中的两个资源组，请使用：
@@ -276,10 +313,52 @@ az group deployment create \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json 
 ```
 
+在前面的示例中，**parentRG** 和 **inlineRG** 都解析为 **parentGroup**。 **linkedRG** 解析为 **linkedGroup**。 前述示例的输出为：
+
+```azurecli
+...
+"outputs": {
+  "inlineRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+      "location": "chinaeast",
+      "name": "parentGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  },
+  "linkedRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/linkedGroup",
+      "location": "chinaeast",
+      "name": "linkedGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  },
+  "parentRG": {
+    "type": "Object",
+    "value": {
+      "id": "/subscriptions/<subscription-id>/resourceGroups/parentGroup",
+      "location": "chinaeast",
+      "name": "parentGroup",
+      "properties": {
+        "provisioningState": "Succeeded"
+      }
+    }
+  }
+},
+...
+```
+
 ## <a name="next-steps"></a>后续步骤
 
 * 若要了解如何在模板中定义参数，请参阅[了解 Azure 资源管理器模板的结构和语法](resource-group-authoring-templates.md)。
 * 有关解决常见部署错误的提示，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。
 * 有关部署需要 SAS 令牌的模板的信息，请参阅[使用 SAS 令牌部署专用模板](resource-manager-powershell-sas-token.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update meta properties, update link -->

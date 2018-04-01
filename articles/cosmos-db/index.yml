@@ -13,13 +13,13 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 02/14/2018
-  ms.date: 03/05/2018
+  ms.date: 03/26/2018
   ms.author: v-yeche
-  ms.openlocfilehash: f5134e01bfcdb3c6e21f78972660bc00ee30c76e
-  ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+  ms.openlocfilehash: 489f14bd9be73aee3ce27f4b285abc504d5b74bf
+  ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 03/16/2018
+  ms.lasthandoff: 03/28/2018
 abstract:
   description: Azure Cosmos DB 是多区域分布式多模型数据库服务。 使用这些快速入门、教程和示例，可通过使用常用 API 和编程模型开发文档数据库、键值数据库和宽列数据库。 然后了解在受益于全面 SLA 的同时，如何在任意数量的 Azure 区域之间复制数据，以及如何缩放吞吐量而不受你的存储影响。
 sections:

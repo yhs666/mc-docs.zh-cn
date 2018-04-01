@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 队列存储通过 .NET 监视媒体服务作业通知 | Azure"
-description: "了解如何使用 Azure 队列存储监视媒体服务作业通知。 代码示例用 C# 编写，并使用用于 .NET 的媒体服务 SDK。"
+title: 使用 Azure 队列存储通过 .NET 监视媒体服务作业通知 | Azure
+description: 了解如何使用 Azure 队列存储监视媒体服务作业通知。 代码示例用 C# 编写，并使用用于 .NET 的媒体服务 SDK。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: f535d0b5-f86c-465f-81c6-177f4f490987
 ms.service: media-services
 ms.workload: media
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: a75971714668494de0418564ac310da0a9e30553
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 904d1a51e64ab0be4c7e8c45df30a66f8af0af90
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure 队列存储通过 .NET 监视媒体服务作业通知
 运行编码作业时，通常需要采用某种方式来跟踪作业进度。 可以配置媒体服务将通知传送到 [Azure 队列存储](../storage/storage-dotnet-how-to-use-queues.md)。 然后可以通过从队列存储获取通知来监视作业进度。 
@@ -49,9 +49,7 @@ ms.lasthandoff: 12/22/2017
 5. 将通知终结点附加到作业，并提交编码作业。 可以将多个通知终结点附加到一个作业。
 6. 将 **NotificationJobState.FinalStatesOnly** 传递到 **AddNew** 方法。 （本例中，只想了解作业处理的最终状态。）
 
-    ```
-    job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
-    ```
+        job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
 7. 如果传递 **NotificationJobState.All**，则会收到以下所有状态更改通知：已排队、已计划、处理中和已完成。 但如前所述，队列存储不保证按顺序传递。 若要对消息排序，请使用 **Timestamp** 属性（在以下示例的 **EncodingJobMessage** 类型中定义）。 可能出现重复消息。 若要检查重复项，请使用 **ETag 属性**（在 **EncodingJobMessage** 类型中定义）。 此外，可能会跳过某些状态更改通知。
 8. 每 10 秒检查一次队列，等待作业进入已完成状态。 处理消息后删除消息。
 9. 删除队列和通知终结点。
@@ -71,7 +69,7 @@ ms.lasthandoff: 12/22/2017
 
 ### <a name="code"></a>代码
 
-```
+```csharp
 using System;
 using System.Linq;
 using System.Configuration;
@@ -155,7 +153,7 @@ namespace JobNotification
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-
+            
             // Create the queue that will be receiving the notification messages.
             _queue = CreateQueue(_StorageConnectionString, endPointAddress);
 

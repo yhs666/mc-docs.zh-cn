@@ -1,6 +1,6 @@
 ---
-title: "Azure 资源管理器模板参数节 | Azure"
-description: "使用声明性 JSON 语法描述 Azure 资源管理器模板的 parameters 节。"
+title: Azure 资源管理器模板参数节 | Azure
+description: 使用声明性 JSON 语法描述 Azure 资源管理器模板的 parameters 节。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/11/2017
-ms.date: 12/25/2017
+origin.date: 01/19/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 16aae2f06e0f342a8f43f0e4803af76e768b98af
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: d555637acd85c7b261d748a678382fffbfd0c0ec
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Azure 资源管理器模板的 Parameters 节
 在模板的 parameters 节中，可以指定在部署资源时能够输入的值。 提供针对特定环境（例如开发、测试和生产环境）定制的参数值可以自定义部署。 无需在模板中提供参数，但如果没有参数，模板始终部署具有相同名称、位置和属性的相同资源。
@@ -132,6 +132,7 @@ ms.lasthandoff: 12/22/2017
     "type": "object",
     "defaultValue": {
       "name": "VNet1",
+      "location": "chinaeast",
       "addressPrefixes": [
         {
           "name": "firstPrefix",
@@ -161,7 +162,7 @@ ms.lasthandoff: 12/22/2017
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[parameters('VNetSettings').name]",
-    "location":"[resourceGroup().location]",
+    "location": "[parameters('VNetSettings').location]",
     "properties": {
       "addressSpace":{
         "addressPrefixes": [
@@ -238,7 +239,7 @@ ms.lasthandoff: 12/22/2017
    }
    ```
 
-* 尽量避免使用参数来指定位置。 改用资源组的 **location** 属性。 如果对所有资源使用 **resourceGroup().location** 表达式，请将模板中的资源部署在资源组所在的同一位置：
+* 使用参数来指定位置，并尽可能多地与可能需要位于同一位置的资源共享该参数值。 此方法可以最大程度地减少用户必须提供位置信息的次数。 如果只有有限数量的位置支持某种资源类型，可能需要在模板中直接指定有效的位置，或者添加其他位置参数。 当组织对其用户限制允许的区域时，**resourceGroup().location** 表达式可能会使用户无法部署模板。 例如，一个用户在某个区域中创建了一个资源组。 第二个用户必须部署到该资源组，但却无法访问该区域。 
 
    ```json
    "resources": [
@@ -246,13 +247,12 @@ ms.lasthandoff: 12/22/2017
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
          "apiVersion": "2016-01-01",
-         "location": "[resourceGroup().location]",
+         "location": "[parameters('location')]",
          ...
      }
    ]
    ```
 
-   如果只有有限数量的位置支持某种资源类型，可能需要在模板中直接指定有效的位置。 如果必须使用 **location** 参数，请尽量与可能需要位于同一位置的资源共享该参数值。 此方法可以最大程度地减少用户必须提供位置信息的次数。
 * 避免对资源类型的 API 版本使用参数或变量。 资源的属性和值可能会因版本号的不同而异。 如果将 API 版本设置为参数或变量，代码编辑器中的 IntelliSense 无法确定正确架构。 并且会在模板中将 API 版本硬编码。
 * 避免在模板中指定与部署命令中某个参数匹配的参数名称。 资源管理器解决此命名冲突的方式是将后缀 **FromTemplate** 添加到模板参数。 例如，如果在模板中包括名为 **ResourceGroupName** 的参数，则该参数会与 [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet 中的 **ResourceGroupName** 参数冲突。 在部署期间，系统会提示用户提供 **ResourceGroupNameFromTemplate** 的值。
 
@@ -272,4 +272,4 @@ ms.lasthandoff: 12/22/2017
 * 有关用户可以使用的来自模板中的函数的详细信息，请参阅 [Azure Resource Manager Template Functions](resource-group-template-functions.md)（Azure Resource Manager 模板函数）。
 * 有关使用参数对象的信息，请参阅[将对象用作 Azure 资源管理器模板中的参数](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters)。
 
-<!-- Update_Description: new articles about resource manager templates parameters -->
+<!-- Update_Description: update meta properties, wording update -->

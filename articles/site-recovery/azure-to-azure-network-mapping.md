@@ -1,25 +1,25 @@
 ---
-title: "在 Azure Site Recovery 中的两个 Azure 区域之间映射虚拟网络 | Azure"
-description: "Azure Site Recovery 可协调虚拟机和物理服务器的复制、故障转移与恢复。 了解有关故障转移到 Azure 或辅助数据中心的信息。"
+title: 在 Azure Site Recovery 中的两个 Azure 区域之间映射虚拟网络 | Azure
+description: Azure Site Recovery 可协调虚拟机和物理服务器的复制、故障转移与恢复。 了解有关故障转移到 Azure 或辅助数据中心的信息。
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 12/15/2017
-ms.date: 03/05/2018
+origin.date: 02/27/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 28e531e10493660d3b58ca9f295e6b9720c861dc
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: cb59bff5aa7464184247a86647c405b226d7d8f0
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>可在不同 Azure 区域中的虚拟网络之间建立对等互连。
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 03/02/2018
 >
 
 ## <a name="subnet-selection"></a>子网选择
-根据源虚拟机子网的名称选择目标虚拟机的子网。 如果可在目标网络中找到与源虚拟机子网同名的子网，则为目标虚拟机选择该子网。 如果目标网络中没有同名的子网，则按字母顺序选择第一个子网作为目标子网。 
+根据源虚拟机子网的名称选择目标虚拟机的子网。 如果可在目标网络中找到与源虚拟机子网同名的子网，则为目标虚拟机选择该子网。 如果目标网络中没有同名的子网，则按字母顺序选择第一个子网作为目标子网。
 
 若要修改子网，请转到**计算和网络**虚拟机的设置。
 
@@ -95,4 +95,4 @@ ms.lasthandoff: 03/02/2018
 ## <a name="next-steps"></a>后续步骤
 
 * 查看[有关复制 Azure 虚拟机的网络指南](site-recovery-azure-to-azure-networking-guidance.md)。
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties -->

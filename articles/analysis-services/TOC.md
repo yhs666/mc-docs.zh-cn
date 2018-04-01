@@ -1,3 +1,5 @@
+# [Analysis Services 文档](index.md)
+
 # 概述
 ## [了解 Analysis Services](analysis-services-overview.md)
 ## [支持的数据源](analysis-services-datasource.md)
@@ -14,9 +16,14 @@
 
 # 操作说明 
 ## [安装并配置本地数据网关](analysis-services-gateway-install.md)
+<!-- Not Avaiable ## [Import a Power BI Desktop file](analysis-services-import-pbix.md) -->
 ## [备份和还原](analysis-services-backup.md)
 <!--Not Available ## [Refresh with REST API](analysis-services-async-refresh.md) -->
 <!--Not Available ## [Configure scale-out](analysis-services-scale-out.md) -->
+## 自动执行管理任务
+### [创建服务主体 - Azure 门户](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [创建服务主体 - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [将服务主体添加到服务器管理员角色](analysis-services-addservprinc-admins.md)
 ## 服务器管理
 ### [配置服务器名称别名](analysis-services-server-alias.md)
 ### [管理服务器](analysis-services-manage.md)
@@ -30,23 +37,24 @@
 ### [使用 Power BI 进行连接](analysis-services-connect-pbi.md)
 ### [创建 .odc 文件](analysis-services-odc.md)
 ## 教程
+### [1 - 添加示例模型](analysis-services-create-sample-model.md)
 ### [数据建模 - Adventure Works 教程](tutorials/aas-adventure-works-tutorial.md)
-### [1 - 创建表格模型项目](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
-### [2 - 获取数据](tutorials/aas-lesson-2-get-data.md)
-### [3 - 标记为日期表](tutorials/aas-lesson-3-mark-as-date-table.md) 
-### [4 - 创建关系](tutorials/aas-lesson-4-create-relationships.md) 
-### [5 - 创建计算列](tutorials/aas-lesson-5-create-calculated-columns.md)
-### [6 - 创建度量值](tutorials/aas-lesson-6-create-measures.md)  
-### [7 - 创建关键绩效指标](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
-### [8 - 创建透视](tutorials/aas-lesson-8-create-perspectives.md) 
-### [9 - 创建层次结构](tutorials/aas-lesson-9-create-hierarchies.md) 
-### [10 - 创建分区](tutorials/aas-lesson-10-create-partitions.md) 
-### [11 - 创建角色](tutorials/aas-lesson-11-create-roles.md)
-### [12 - 在 Excel 中分析](tutorials/aas-lesson-12-analyze-in-excel.md)
-### [13 - 部署](tutorials/aas-lesson-13-deploy.md)
-### [补充课程 - 详细信息行](tutorials/aas-supplemental-lesson-detail-rows.md)
-### [补充课程 - 动态安全性](tutorials/aas-supplemental-lesson-dynamic-security.md)
-### [补充课程 - 不规则层次结构](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+#### [1 - 创建表格模型项目](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
+#### [2 - 获取数据](tutorials/aas-lesson-2-get-data.md)
+#### [3 - 标记为日期表](tutorials/aas-lesson-3-mark-as-date-table.md) 
+#### [4 - 创建关系](tutorials/aas-lesson-4-create-relationships.md) 
+#### [5 - 创建计算列](tutorials/aas-lesson-5-create-calculated-columns.md)
+#### [6 - 创建度量值](tutorials/aas-lesson-6-create-measures.md)  
+#### [7 - 创建关键绩效指标](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
+#### [8 - 创建透视](tutorials/aas-lesson-8-create-perspectives.md) 
+#### [9 - 创建层次结构](tutorials/aas-lesson-9-create-hierarchies.md) 
+#### [10 - 创建分区](tutorials/aas-lesson-10-create-partitions.md) 
+#### [11 - 创建角色](tutorials/aas-lesson-11-create-roles.md)
+#### [12 - 在 Excel 中分析](tutorials/aas-lesson-12-analyze-in-excel.md)
+#### [13 - 部署](tutorials/aas-lesson-13-deploy.md)
+#### [补充课程 - 详细信息行](tutorials/aas-supplemental-lesson-detail-rows.md)
+#### [补充课程 - 动态安全性](tutorials/aas-supplemental-lesson-dynamic-security.md)
+#### [补充课程 - 不规则层次结构](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # 参考
 ## [Azure PowerShell](analysis-services-powershell.md)
@@ -66,4 +74,4 @@
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 <!-- Not Availabel ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)-->
 <!-- Not Availabel ## [Videos](https://www.azure.cn/video-center/&sort=newest)-->
-<!--ms.date: 02/26/2018 -->
+<!--ms.date: 03/22/2018 -->

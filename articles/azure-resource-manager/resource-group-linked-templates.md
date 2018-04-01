@@ -1,6 +1,6 @@
 ---
-title: "用于 Azure 部署的链接模板 | Azure"
-description: "介绍如何使用 Azure Resource Manager 模板中的链接模板创建一个模块化的模板的解决方案。 演示如何传递参数值、指定参数文件和动态创建的 URL。"
+title: 用于 Azure 部署的链接模板 | Azure
+description: 介绍如何使用 Azure Resource Manager 模板中的链接模板创建一个模块化的模板的解决方案。 演示如何传递参数值、指定参数文件和动态创建的 URL。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/11/2018
-ms.date: 01/29/2018
+origin.date: 01/17/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8550eb4920432c4a03ea99276496f823dbaf0341
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: a33f81505d1e2f8ddd735ec6824c6819c79800c2
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 资源时使用链接模版和嵌套模版
 
@@ -28,8 +28,6 @@ ms.lasthandoff: 01/23/2018
 对于中小型解决方案，单个模板更易于理解和维护。 可以查看单个文件中的所有资源和值。 对于高级方案，使用链接模板可将解决方案分解为目标组件，并重复使用模板。
 
 使用链接模板时，需创建一个用于在部署期间接收参数值的主模板。 主模板包含所有链接模板，并根据需要将值传递给这些模板。
-
-![链接模板](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
 ## <a name="link-or-nest-a-template"></a>链接或嵌套模板
 
@@ -83,7 +81,10 @@ ms.lasthandoff: 01/23/2018
 ]
 ```
 
-对于嵌套模板，不能使用嵌套模板中定义的参数或变量。 可以使用主模板中的参数和变量。 在前面的示例中，`[variables('storageName')]` 从主模板（而不是嵌套模板）中检索值。 此限制不适用于外部模版。
+> [!NOTE]
+> 对于嵌套模板，不能使用嵌套模板中定义的参数或变量。 可以使用主模板中的参数和变量。 在前面的示例中，`[variables('storageName')]` 从主模板（而不是嵌套模板）中检索值。 此限制不适用于外部模版。
+>
+> 不能在嵌套模板的 outputs 节中使用 `reference` 函数。 若要返回嵌套模板中部署的资源的值，请将嵌套模板转换为链接模板。
 
 ### <a name="external-template-and-external-parameters"></a>外部模板和外部参数
 

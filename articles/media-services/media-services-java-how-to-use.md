@@ -1,11 +1,11 @@
 ---
-title: "开始使用 Java 传送点播内容 | Azure"
-description: "本教程引导用户完成相关步骤，利用 Java 和 Azure 媒体服务 (AMS) 应用程序实现基本的点播视频 (VoD) 内容传送服务。"
+title: 开始使用 Java 传送点播内容 | Azure
+description: 本教程引导用户完成相关步骤，利用 Java 和 Azure 媒体服务 (AMS) 应用程序实现基本的点播视频 (VoD) 内容传送服务。
 services: media-services
 documentationcenter: java
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
 ms.service: media-services
 ms.workload: media
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 origin.date: 10/26/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: 80f32992ea763cd2b525526c7802f2ecc2ba3c43
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.openlocfilehash: 3642c55bc0affacbdde96217a201f8fa01ae1983
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>用于 Azure 媒体服务的 Java 客户端 SDK 入门
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -67,6 +67,7 @@ ms.lasthandoff: 12/25/2017
 
 该代码还依赖于本地存储的视频文件。 必须编辑代码，提供自己的要上传的本地文件。
 
+```java
     import java.io.*;
     import java.net.URI;
     import java.security.NoSuchAlgorithmException;
@@ -299,7 +300,7 @@ ms.lasthandoff: 12/25/2017
             }
         }
     }
-
+```
 
 
 

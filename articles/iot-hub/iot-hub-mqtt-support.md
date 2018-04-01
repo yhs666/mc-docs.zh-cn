@@ -1,25 +1,25 @@
 ---
-title: "了解 Azure IoT 中心 MQTT 支持 | Azure"
-description: "开发人员指南 - 支持设备使用 MQTT 协议连接到面向设备的 IoT 中心终结点。 介绍了 Azure IoT 设备 SDK 中的内置 MQTT 支持。"
+title: 了解 Azure IoT 中心 MQTT 支持 | Azure
+description: 开发人员指南 - 支持设备使用 MQTT 协议连接到面向设备的 IoT 中心终结点。 介绍了 Azure IoT 设备 SDK 中的内置 MQTT 支持。
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/19/2018
-ms.date: 03/19/2018
+origin.date: 03/05/2018
+ms.date: 04/09/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3f50f8444686b4169cc63eb9929f5a4e6d4fca0c
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 2606b050d854d03f3cb9dd4c2f8bdc3d0330e772
+ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 协议与 IoT 中心通信
 
@@ -93,6 +93,8 @@ IoT 中心允许设备通过以下方式与 IoT 中心设备终结点通信：
 
 对于 MQTT 连接和断开连接数据包，IoT 中心会在**操作监视**通道上发出事件。 此事件包含的其他信息有助于排查连接问题。
 
+设备应用可以在 CONNECT 数据包中指定 Will 消息。 设备应用应该使用 `devices/{device_id}/messages/events/{property_bag}` 或 `devices/{device_id}/messages/events/{property_bag}` 作为 Will 主题名称，用于定义要作为遥测消息转发的 Will 消息。 在此情况下，如果关闭网络连接，但之前未从设备中接收到 DISCONNECT 数据包，则 IoT 中心将 CONNECT 数据包中提供的 Will 消息发送到遥测通道。 遥测通道可以是默认事件终结点或由 IoT 中心路由定义的自定义终结点。 消息具有 iothub-MessageType 属性，其中包含分配给它的 Will 的值。
+
 ### <a name="tlsssl-configuration"></a>TLS/SSL 配置
 
 若要直接使用 MQTT 协议，客户端*必须*通过 TLS/SSL 连接。 尝试跳过此步骤失败并显示连接错误。
@@ -147,8 +149,8 @@ client.publish("devices/" + device_id + "/messages/events/", "{id=123}", qos=1)
 client.loop_forever()
 ```
 
-
 ### <a name="sending-device-to-cloud-messages"></a>发送“设备到云”消息
+
 成功建立连接后，设备可以使用 `devices/{device_id}/messages/events/` 或 `devices/{device_id}/messages/events/{property_bag}` 作为**主题名称**将消息发送到 IoT 中心。 `{property_bag}` 元素可让设备使用 URL 编码格式发送包含其他属性的消息。 例如：
 
 ```text
@@ -160,7 +162,8 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 >
 >
 
-设备应用还可使用 `devices/{device_id}/messages/events/{property_bag}` 作为 **Will 主题名称**，用于定义要作为遥测消息转发的 Will 消息。
+
+下面列出了 IoT 中心特定于实现的行为：
 
 - IoT 中心不支持 QoS 2 消息。 如果设备应用使用 **QoS 2** 发布消息，IoT 中心将断开网络连接。
 - IoT 中心不会保存 Retain 消息。 如果设备在 **RETAIN** 标志设置为 1 的情况下发送消息，则 IoT 中心会在消息中添加 **x-opt-retain** 应用程序属性。 在此情况下，IoT 中心不会存储保留消息，而将其传递到后端应用。

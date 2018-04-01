@@ -1,12 +1,12 @@
 ---
-title: "用于 Azure Cosmos DB 的 Azure CLI 示例 | Azure"
-description: "Azure CLI 示例 - 创建和管理 Azure Cosmos DB 帐户、数据库、容器、区域和防火墙。"
+title: 用于 Azure Cosmos DB 的 Azure CLI 示例 | Azure
+description: Azure CLI 示例 - 创建和管理 Azure Cosmos DB 帐户、数据库、容器、区域和防火墙。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: azurecli
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
 origin.date: 11/29/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 00b458f066393c58291a67029b643975e6bae905
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 28ec419689d2a25ea10797f2959a3e8e97c717c5
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 Azure CLI 示例
 
@@ -49,6 +49,5 @@ ms.lasthandoff: 01/17/2018
 <!--NOTICES: Line 35 全球范围 to 多个数据中心范围  -->
 <!--NOTICE: Line 35 Globally TO Multiple data-center-->
 
-<!--Not Available the parent file of includes file of cosmos-db-sql-api.md-->
-<!--ms.date:12/25/2017-->
+
 <!--Update_Description: update meta properties, wording update, update link -->

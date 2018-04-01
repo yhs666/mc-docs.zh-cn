@@ -1,11 +1,11 @@
 ---
-title: "如何委派用户注册和产品订阅"
-description: "了解如何在 Azure API 管理中将用户注册和产品订阅委派给第三方。"
+title: 如何委派用户注册和产品订阅
+description: 了解如何在 Azure API 管理中将用户注册和产品订阅委派给第三方。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8b7ad5ee-a873-4966-a400-7e508bbbe158
 ms.service: api-management
 ms.workload: mobile
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/15/2016
 ms.author: v-yiso
 ms.date: 02/26/2018
-ms.openlocfilehash: 0173d323e13db94c949a8394732e9cf37bc06664
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 536609e91a0e954145d552d93b2053abfde27737
+ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派用户注册和产品订阅
 可以通过委派使用现有网站处理开发人员的登录/注册和产品订阅事项，不需使用开发人员门户中的内置功能。 这样就可以让网站拥有用户数据，并通过自定义方式对这些步骤进行验证。
@@ -39,13 +39,13 @@ ms.lasthandoff: 02/13/2018
 ![“委派”页][api-management-delegation-signin-up]
 
 * 确定特殊委派终结点的 URL，将其输入到“委派终结点 URL”字段中。 
-* 在”委派身份验证密钥”字段中输入一个密钥，该密钥用于计算提供给用户进行验证的签名，确保请求确实来自 Azure API 管理。 单击“生成”按钮即可让 API 管理随机生成一个密钥。
+* 在”委派身份验证密钥”字段中输入一个密钥，该密钥用于计算提供给用户进行验证的签名，确保请求确实来自 Azure API 管理。 可以单击“生成”按钮让 API 管理随机生成一个密钥。
 
 现在需创建“委派终结点”。 该终结点需执行多项操作：
 
 1. 接收以下形式的请求：
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={源页的 URL}&salt={字符串}&sig={字符串}*
+   > http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}
    > 
    > 
    
@@ -71,12 +71,13 @@ ms.lasthandoff: 02/13/2018
    * 通过 API 管理 REST API [请求单一登录 (SSO) 令牌]
    * 将 returnUrl 查询参数追加到从上述 API 调用接收的 SSO URL：
      
-     > 例如 https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > 例如，https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
+     
    * 将用户重定向到上述生成的 URL
 
-除了 **SignIn** 操作，还可以执行帐户管理，只需按上述步骤使用以下某个操作即可。
+除了 **SignIn** 操作，还可以执行帐户管理，只需按上述步骤使用以下某个操作即可：
 
 * **ChangePassword**
 * **ChangeProfile**
@@ -102,7 +103,7 @@ ms.lasthandoff: 02/13/2018
 
 1. 接收以下形式的请求：
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={操作}&productId={要订阅的产品}&userId={提出请求的用户}&salt={字符串}&sig={字符串}*
+   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
    > 
    > 
    
@@ -118,13 +119,13 @@ ms.lasthandoff: 02/13/2018
    * **sig**：计算的安全哈希，用于与用户自行计算的哈希进行比较
 2. 验证请求是否来自 Azure API 管理（可选，但强烈推荐执行以确保安全）
    
-   * 根据 **productId**、**userId** 和 **salt** 查询参数计算字符串的 HMAC-SHA512：
+   * 根据 **productId**、**userId 和 **salt** 查询参数计算字符串的 HMAC-SHA512：
      
      > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
      > 
    * 将上面计算的哈希与 **sig** 查询参数的值进行比较。 如果两个哈希匹配，则转到下一步，否则拒绝该请求。
-3. 根据在 **operation** 中请求的操作的类型（例如请求计费信息、提问更多问题，等等）进行产品订阅处理。
+3. 根据在 **operation** 中请求的操作类型（例如请求计费信息、提问更多问题，等等）进行产品订阅处理。
 4. 在这一端成功为用户订阅产品以后，即可[调用产品订阅 REST API] 为用户订阅 API 管理产品。
 
 ## <a name="delegate-example-code"> </a> 示例代码
@@ -132,7 +133,7 @@ ms.lasthandoff: 02/13/2018
 
 **用于生成 returnUrl 哈希的 C# 代码**
 
-```c#
+```csharp
 using System.Security.Cryptography;
 
 string key = "delegation validation key";

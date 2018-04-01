@@ -1,11 +1,11 @@
 ---
-title: "使用负载均衡器自定义探测监视运行状况 | Azure"
-description: "了解如何使用 Azure 负载均衡器的自定义探测来监视负载均衡器后面的实例"
+title: 使用负载均衡器自定义探测监视运行状况 | Azure
+description: 了解如何使用 Azure 负载均衡器的自定义探测来监视负载均衡器后面的实例
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
 ms.service: load-balancer
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/25/2017
-ms.date: 12/25/2017
+origin.date: 03/08/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 07e4ffa3c051afbb1af3c67dcf19b0b278076cf0
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: db22db6329972ba968257926c3b62b1575d80d7d
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-load-balancer-probes"></a>了解负载均衡器探测
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Azure 负载均衡器提供相应的功能让你使用探测来监视服务器实例的运行状况。 当探测无法响应时，负载均衡器会停止向状况不良的实例发送新连接。 现有连接不受影响，新连接将发送到状况良好的实例。
+Azure 负载均衡器使用运行状况探测来确定应接收新流的后端池实例。 运行状况探测失败时，负载均衡器停止向相应的不正常运行实例发送新流，并且该实例上的现有流不受影响。  所有后端池实例向下探测时，所有现有流将在后端池的所有实例上均超时。
 
-云服务角色（辅助角色和 Web 角色）使用来宾代理进行探测监视。 在负载均衡器后面使用 VM 时，必须配置 TCP 或 HTTP 自定义探测。
+云服务角色（辅助角色和 Web 角色）使用来宾代理进行探测监视。 当在负载均衡器后面使用 VM 时，必须配置 TCP 或 HTTP 自定义运行状况探测。
 
 ## <a name="understand-probe-count-and-timeout"></a>了解探测计数和超时
 

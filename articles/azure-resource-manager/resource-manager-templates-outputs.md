@@ -1,6 +1,6 @@
 ---
-title: "Azure 资源管理器模板输出 | Azure"
-description: "介绍如何使用声明性 JSON 语法为 Azure 资源管理器模板定义输出。"
+title: Azure 资源管理器模板输出 | Azure
+description: 介绍如何使用声明性 JSON 语法为 Azure 资源管理器模板定义输出。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/14/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: f0073a29d425f65653bc3385dec04581a8bebbd2
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 2ee0712608551290ade2229ddb0296f36be84b70
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Azure 资源管理器模板中的 Outputs 节
 在 Outputs 节中，可以指定从部署返回的值。 例如，可能会返回用于访问已部署资源的 URI。
@@ -57,6 +57,8 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
     "id": "[reference('linkedTemplate').outputs.resourceID.value]"
 }
 ```
+
+不能在[嵌套模板](resource-group-linked-templates.md#link-or-nest-a-template)的 outputs 节中使用 `reference` 函数。 若要返回嵌套模板中部署的资源的值，请将嵌套模板转换为链接模板。
 
 ## <a name="available-properties"></a>可用属性
 
@@ -108,4 +110,4 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 * 要在部署期间合并多个模板，请参阅[将已链接的模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)。
 * 可能需要使用不同资源组中的资源。 使用跨多个资源组共享的存储帐户或虚拟网络时，此方案很常见。 有关详细信息，请参阅 [resourceId 函数](resource-group-template-functions-resource.md#resourceid)。
 
-<!-- Update_Description: new articles about resource manager templates outputs -->
+<!-- Update_Description: update meta properties, wording update -->

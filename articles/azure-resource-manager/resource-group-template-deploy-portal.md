@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure 门户部署 Azure 资源 | Azure"
-description: "使用 Azure 门户和 Azure Resource Manager 来部署资源。"
+title: 使用 Azure 门户部署 Azure 资源 | Azure
+description: 使用 Azure 门户和 Azure Resource Manager 来部署资源。
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/08/2017
-ms.date: 09/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: d910cb00b06e0f9d628050fa5c5967532a0bccd3
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 7151c3179feba3c4dc53944f3996a24907499d01
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 模板和 Azure 门户部署资源
 
@@ -30,17 +30,17 @@ ms.lasthandoff: 02/13/2018
 
     ![选择资源组](./media/resource-group-template-deploy-portal/select-resource-groups.png)
 
-2. 在“资源组”下，选择“添加”。
+1. 在“资源组”下，选择“添加”。
 
     ![添加资源组](./media/resource-group-template-deploy-portal/add-resource-group.png)
 
-3. 为其命名并指定位置，如有必要，选择一个订阅。 需要提供资源组的位置，因为资源组存储与资源有关的元数据。 出于合规性原因，你可能会想要指定该元数据的存储位置。 一般情况下，建议指定大部分资源的驻留位置。 使用相同位置可简化模板。
+1. 为其命名并指定位置，如有必要，选择一个订阅。 需要提供资源组的位置，因为资源组存储与资源有关的元数据。 出于合规性原因，你可能会想要指定该元数据的存储位置。 一般情况下，建议指定大部分资源的驻留位置。 使用相同位置可简化模板。
 
     ![设置组的值](./media/resource-group-template-deploy-portal/set-group-properties.png)
 
     完成属性设置后，选择“创建”。
 
-4. 若要查看新资源组，选择“刷新”。
+1. 若要查看新资源组，选择“刷新”。
 
     ![刷新资源组](./media/resource-group-template-deploy-portal/refresh-resource-groups.png)
 
@@ -48,19 +48,19 @@ ms.lasthandoff: 02/13/2018
 
 创建资源组后，可以从应用商店将资源部署到资源组。 应用商店为常见方案提供预定义的解决方案。
 
-1. 若要开始部署，选择“新建”。
+1. 若要开始部署，请选择“创建资源”。
 
     ![新建资源](./media/resource-group-template-deploy-portal/new-resources.png)
 
-2. 查找希望部署的资源类型。
+1. 查找希望部署的资源类型。
 
     ![选择资源类型](./media/resource-group-template-deploy-portal/select-resource-type.png)
 
-3. 如果看不到想要部署的特定解决方案，可以在应用商店中搜索。 例如，若要查找 Wordpress 解决方案，开始键入 Wordpress 并选择所需选项。
+1. 如果看不到想要部署的特定解决方案，可以在应用商店中搜索。 例如，若要查找 Wordpress 解决方案，开始键入 Wordpress 并选择所需选项。
 
     ![搜索 Marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
 
-4. 根据所选资源的类型，需要在部署之前设置相关属性的集合。 对于所有类型，必须选择目标资源组。 以下映像演示了如何创建 Web 应用并将其部署到创建的资源组。
+1. 根据所选资源的类型，需要在部署之前设置相关属性的集合。 对于所有类型，必须选择目标资源组。 以下映像演示了如何创建 Web 应用并将其部署到创建的资源组。
 
     ![创建资源组](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
@@ -68,11 +68,11 @@ ms.lasthandoff: 02/13/2018
 
     ![新建资源组](./media/resource-group-template-deploy-portal/select-new-group.png)
 
-5. 部署开始。 部署可能需要几分钟的时间。 完成部署后，会看到一条通知。
+1. 部署开始。 部署可能需要几分钟的时间。 完成部署后，会看到一条通知。
 
     ![查看通知](./media/resource-group-template-deploy-portal/view-notification.png)
 
-6. 部署资源后，可以通过选择“添加”将更多资源添加到资源组。
+1. 部署资源后，可以通过选择“添加”将更多资源添加到资源组。
 
     ![添加资源](./media/resource-group-template-deploy-portal/add-resource.png)
 
@@ -80,35 +80,35 @@ ms.lasthandoff: 02/13/2018
 
 如果想要执行部署，但不使用应用商店中的任何模板，可以创建自定义模板来针对解决方案定义基础结构。 若要了解如何创建模板，请参阅[了解 Azure 资源管理器模板的结构和语法](resource-group-authoring-templates.md)。
 
-1. 若要通过门户部署自定义模板，请选择“新建”，并搜索“模板部署”，直至可以从选项中选择它。
+1. 若要通过门户部署自定义模板，请选择“创建资源”，并搜索“模板部署”，直至可以从选项中选择它。
 
     ![搜索模板部署](./media/resource-group-template-deploy-portal/search-template.png)
 
-2. 选择“创建” 。
+1. 选择“创建” 。
 
     ![选择“创建”](./media/resource-group-template-deploy-portal/show-template-option.png)
 
-3. 此时，会看到用于创建模板的几个选项。 选择“在编辑器中生成自己的模板”。
+1. 此时，会看到用于创建模板的几个选项。 选择“在编辑器中生成自己的模板”。
 
     ![视图选项](./media/resource-group-template-deploy-portal/see-options.png)
 
-4. 你已具有可用于自定义的空白模板。
+1. 你已具有可用于自定义的空白模板。
 
     ![创建模板](./media/resource-group-template-deploy-portal/blank-template.png)
 
-5. 可以手动编辑 JSON 语法，也可以从[模板库快速入门](https://github.com/Azure/azure-quickstart-templates/)中选择预建模板。 但是，本文使用的是“添加资源”选项。
+1. 可以手动编辑 JSON 语法，也可以从[模板库快速入门](https://github.com/Azure/azure-quickstart-templates/)中选择预建模板。 但是，本文使用的是“添加资源”选项。
 
     ![编辑模板](./media/resource-group-template-deploy-portal/select-add-resource.png)
 
-6. 选择“存储帐户”并为其提供名称。 完成提供值后，选择“确定”。
+1. 选择“存储帐户”并为其提供名称。 完成提供值后，选择“确定”。
 
     ![选择存储帐户](./media/resource-group-template-deploy-portal/add-storage-account.png)
 
-7. 编辑器会自动为资源类型添加 JSON。 请注意，它包含用于定义存储帐户类型的参数。 选择“其他安全性验证” 。
+1. 编辑器会自动为资源类型添加 JSON。 请注意，它包含用于定义存储帐户类型的参数。 选择“其他安全性验证” 。
 
     ![显示模板](./media/resource-group-template-deploy-portal/show-json.png)
 
-8. 现在，可以选择部署模板中定义的资源。 若要部署，请同意条款和条件，然后选择“购买”。
+1. 现在，可以选择部署模板中定义的资源。 若要部署，请同意条款和条件，然后选择“购买”。
 
     ![部署模板](./media/resource-group-template-deploy-portal/provide-custom-template-values.png)
 
@@ -121,15 +121,15 @@ ms.lasthandoff: 02/13/2018
 
     ![其他服务](./media/resource-group-template-deploy-portal/more-services.png)
 
-2. 搜索模板并选择该选项。
+1. 搜索模板并选择该选项。
 
     ![搜索模板](./media/resource-group-template-deploy-portal/find-templates.png)
 
-3. 从已保存到帐户的模板列表中，选择要使用的模板。
+1. 从已保存到帐户的模板列表中，选择要使用的模板。
 
     ![已保存模板](./media/resource-group-template-deploy-portal/saved-templates.png)
 
-4. 选择“部署”  以重新部署该已保存模板。
+1. 选择“部署”  以重新部署该已保存模板。
 
     ![部署已保存模板](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 

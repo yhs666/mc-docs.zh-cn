@@ -1,11 +1,11 @@
 ---
-title: "使用 .NET 配置 Azure 媒体服务遥测 | Azure"
-description: "本文说明如何通过 .NET SDK 使用 Azure 媒体服务遥测。"
+title: 使用 .NET 配置 Azure 媒体服务遥测 | Azure
+description: 本文说明如何通过 .NET SDK 使用 Azure 媒体服务遥测。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: f8f55e37-0714-49ea-bf4a-e6c1319bec44
 ms.service: media-services
 ms.workload: media
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: ae45a976932e2114124c6f0166595240b8729a83
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: ac08edf3a913b50b1a6f9fe299858d04bd8447e6
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>使用 .NET 配置 Azure 媒体服务遥测
 
@@ -43,19 +43,23 @@ ms.lasthandoff: 12/22/2017
 - 获取已附加到媒体服务帐户的存储帐户的凭据。 
 - 创建一个通知终结点，将其 EndPointType 设置为 AzureTable，并使 endPontAddress 指向存储表。
 
+```csharp
         INotificationEndPoint notificationEndPoint = 
                       _context.NotificationEndPoints.Create("monitoring", 
                       NotificationEndPointType.AzureTable,
                       "https://" + _mediaServicesStorageAccountName + ".table.core.chinacloudapi.cn/");
+```
 
 - 为要监视的服务创建监视配置设置。 最多允许一个监视配置设置。 
   
+```csharp
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
             new List<ComponentMonitoringSetting>()
             {
                 new ComponentMonitoringSetting(MonitoringComponent.Channel, MonitoringLevel.Normal),
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
+```
 
 ## <a name="consuming-telemetry-information"></a>使用遥测信息
 
@@ -67,13 +71,15 @@ ms.lasthandoff: 12/22/2017
 
 2. 将以下元素添加到 app.config 文件中定义的 **appSettings**：
 
+    ```xml
     <add key="StorageAccountName" value="storage_name" />
+    ```
  
 ## <a name="example"></a>示例  
     
 以下示例说明如何为指定的 AMS 帐户启用遥测，以及如何使用 Azure 媒体服务 .NET SDK 查询度量值。  
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

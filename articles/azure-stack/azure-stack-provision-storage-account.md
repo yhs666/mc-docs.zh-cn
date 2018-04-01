@@ -3,23 +3,22 @@ title: Azure Stack 中的存储帐户 | Microsoft Docs
 description: 了解如何创建 Azure Stack 存储帐户。
 services: azure-stack
 documentationcenter: ''
-author: vhorne
-manager: byronr
-editor: ''
+author: mattbriggs
+manager: femila
 ms.assetid: e1152110-b756-4c1a-9fa2-73fe3ab0ad8e
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 03/01/2017
-ms.date: 03/02/2018
+origin.date: 02/28/2018
+ms.date: 03/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: bd6fd83a16a8cd4776d50f0d8b2022fe550c6dff
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 297eb015d429649a2570980088ac23d691bdd8fd
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Azure Stack 中的存储帐户
 存储帐户包含 Blob 和表服务，以及存储数据对象的唯一命名空间。 默认情况下，只有你，即存储帐户所有者，才能使用帐户中的数据。
@@ -41,3 +40,4 @@ ms.lasthandoff: 03/08/2018
 
 [下载与 Azure 一致的 Azure Stack 存储验证指南](http://aka.ms/azurestacktp1doc)
 
+<!-- Update_Description: update metedata properties -->

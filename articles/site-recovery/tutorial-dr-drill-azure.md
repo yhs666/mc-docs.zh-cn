@@ -1,19 +1,18 @@
 ---
-title: "使用 Azure Site Recovery 运行从本地计算机到 Azure 的灾难恢复演练 | Azure"
-description: "了解使用 Azure Site Recovery 对从 Azure 本地计算机运行灾难恢复演练的相关信息"
+title: 使用 Azure Site Recovery 运行从本地计算机到 Azure 的灾难恢复演练 | Azure
+description: 了解使用 Azure Site Recovery 对从 Azure 本地计算机运行灾难恢复演练的相关信息
 services: site-recovery
 author: rockboyfor
-manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 12/31/2017
-ms.date: 01/22/2018
+origin.date: 03/08/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 469e56a4b0106996f78c0f3bceabf28542f27abc
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: c46bc49ceaba93d41556e252fac17de225b75b99
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>运行 Azure 灾难恢复演练
 
@@ -32,7 +31,7 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="verify-vm-properties"></a>验证虚拟机属性
 
-运行测试故障转移前，验证虚拟机属性，确保虚拟机符合 [Azure 要求](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
+运行测试性故障转移前，请验证 VM 属性，确保 Hyper-V VM[hyper-v-azure-support-matrix.md#replicated-vms]、[VMware VM 或物理服务器](vmware-physical-azure-support-matrix.md#replicated-machines)符合 Azure 要求。
 
 1. 在“受保护的项”中，单击“复制的项”>“虚拟机”。
 2. “复制的项”窗格中具有 VM 信息、运行状况状态和最新可用恢复点的摘要。 单击“属性”，查看详细信息。
@@ -68,6 +67,6 @@ ms.lasthandoff: 01/19/2018
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [为本地 VMware VM 运行故障转移和故障回复](tutorial-vmware-to-azure-failover-failback.md)。
+> [为本地 VMware VM 运行故障转移和故障回复](vmware-azure-tutorial-failover-failback.md)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

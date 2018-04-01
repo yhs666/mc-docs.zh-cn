@@ -1,26 +1,26 @@
 ---
-title: "连接到 Azure Analysis Services 所需的客户端库 | Azure"
-description: "介绍了客户端应用程序和工具连接 Azure Analysis Services 时所需的客户端库"
+title: 连接到 Azure Analysis Services 所需的客户端库 | Azure
+description: 介绍了客户端应用程序和工具连接 Azure Analysis Services 时所需的客户端库
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-origin.date: 02/22/2018
-ms.date: 03/12/2018
+origin.date: 02/27/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7b10a07efb54459029d6d14894f6c8ef21db4afd
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 4265c610e0f750e2c445665c9ce7367999747c04
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>用于连接到 Azure Analysis Services 的客户端库
 
@@ -28,21 +28,21 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>下载最新客户端库 (Windows Installer)  
 
-|下载  |版本  | 
+|下载  |产品版本  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.300.129.01      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.300.129.01      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2      |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.208      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.208      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2     |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO 和 ADOMD（NuGet 包）
 
 Analysis Services Management Objects (AMO) 和 ADOMD 客户端库在 [NuGet.org](https://www.nuget.org/) 上作为可安装的程序包提供。建议你迁移到 NuGet 引用而非使用 Windows Installer。 
 
-|程序包  |版本  | 
+|程序包  | 产品版本  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2      |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2.0      |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2.0      |
 
 NuGet 包程序集 AssemblyVersion 遵循语义版本控制：MAJOR.MINOR.PATCH。 NuGet 引用加载预期的版本，即使 GAC 中存在不同的版本（由 MSI 安装导致的）。 PATCH 将随每次发布递增。 AMO 和 ADOMD 版本保持同步。
 
@@ -98,4 +98,4 @@ Microsoft 客户端应用程序（例如 Power BI Desktop 和 Excel）会安装�
 [使用 Excel 进行连接](analysis-services-connect-excel.md)    
 [使用 Power BI 进行连接](analysis-services-connect-pbi.md)
 
-<!--Update_Description: update meta properties, add content of AMO and ADOMD (NuGet packages), updaate wording -->
+<!--Update_Description: update meta properties, wording update,  -->

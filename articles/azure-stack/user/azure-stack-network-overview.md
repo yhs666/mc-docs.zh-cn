@@ -2,17 +2,18 @@
 title: Azure Stack 网络简介
 description: 了解 Azure Stack 网络
 services: azure-stack
-author: ScottNapolitan
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-origin.date: 09/25/2017
-ms.date: 03/08/2018
+origin.date: 02/28/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: f2abe0084f3b36d4842f1dafff688cbc3d4adf63
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 6376c7516d72d0dfff57563be3c85135ea415279
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-stack-networking"></a>Azure Stack 网络简介
 
@@ -33,3 +34,4 @@ Azure Stack 提供可以结合使用或单独使用的各种网络功能：
 - [Azure Stack 网络注意事项](azure-stack-network-differences.md)
 
 
+<!-- Update_Description: update metedata properties -->

@@ -1,26 +1,26 @@
 ---
-title: "使用 Azure Analysis Services Web 设计器创建表格模型 | Azure"
-description: "介绍如何在 Azure 门户中使用 Web 设计器创建 Azure Analysis Services 表格模型。"
+title: 使用 Azure Analysis Services Web 设计器创建表格模型 | Azure
+description: 介绍如何在 Azure 门户中使用 Web 设计器创建 Azure Analysis Services 表格模型。
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: b8f7e39f32cd067a828026af81098653c0ac17b1
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: a50978120a30f7f74bca4539ee5e8d0bc974d89a
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-model-in-azure-portal"></a>在 Azure 门户中创建模型
 
@@ -28,15 +28,19 @@ Azure 门户的 Azure Analysis Services Web 设计器（预览）功能提供一
 
 请记住，Web 设计器是**预览版**。 虽然会不断推出新功能，但预览版中的功能会受到限制。 对于更高级的模型开发和测试，最好使用 Visual Studio (SSDT) 和 SQL Server Management Studio (SSMS)。
 
-## <a name="prerequisites"></a>先决条件
+## <a name="before-you-begin"></a>准备阶段
 
 - 位于标准层或开发人员层的 Azure Analysis Services 服务器。 使用 Web 设计器创建的新模型是 DirectQuery，且仅支持上述这些层。
 - 作为数据源的 Azure SQL 数据库、Azure SQL 数据仓库或 Power BI Desktop (.pbix) 文件。 从 Power BI Desktop 文件创建的新模型支持 Azure SQL 数据库、Azure SQL 数据仓库、Oracle 和 Teradata 数据源。
 - 用于连接到 Azure SQL 数据库或 Azure SQL 数据仓库数据源的 SQL Server 帐户和密码。
 
+## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
+
+登录到 [Azure 门户](https://portal.azure.cn/)。
+
 ## <a name="to-create-a-new-tabular-model"></a>创建新的表格模型
 
-1. 在服务器的“概述”边栏选项卡 >“Web 设计器”中，单击“打开”。
+1. 在服务器的“概述” > “Web 设计器”中，单击“打开”。
 
     ![在 Azure 门户中创建模型](./media/analysis-services-create-model-portal/aas-create-portal-overview-wd.png)
 
@@ -72,4 +76,4 @@ Azure 门户的 Azure Analysis Services Web 设计器（预览）功能提供一
 [管理数据库角色和用户](analysis-services-database-users.md)  
 [使用 Excel 进行连接](analysis-services-connect-excel.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: wording update, update link -->

@@ -1,11 +1,11 @@
 ---
-title: "将媒体服务资产下载到计算机 - Azure | Azure"
-description: "了解如何将资产下载到计算机。 代码示例用 C# 编写且使用适用于 .NET 的媒体服务 SDK。"
+title: 将媒体服务资产下载到计算机 - Azure | Azure
+description: 了解如何将资产下载到计算机。 代码示例用 C# 编写且使用适用于 .NET 的媒体服务 SDK。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: hayley244
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
 ms.service: media-services
 ms.workload: media
@@ -15,20 +15,21 @@ ms.topic: article
 origin.date: 08/09/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 73f28e204741e26f3663490a43aa2a36c36d0779
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+ms.openlocfilehash: 77995b14d5016546b39b06c20bc5c1fd2f3621a4
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>如何：通过下载交付资产
-本主题介绍已上传到媒体服务的媒体资产交付选项。 可以采用众多的应用程序方案来交付媒体服务内容。 可以下载媒体资产，或使用定位符访问媒体资产。 还可以将媒体内容发送到其他应用程序或其他内容提供商。 为了提高性能和伸缩性，用户还可以使用内容传送网络 (CDN) 来传送内容。
+本文介绍已上传到媒体服务的媒体资产的交付选项。 可以采用众多的应用程序方案来交付媒体服务内容。 编码后，下载生成的媒体资产，或使用流式处理定位符访问这些资产。 为了提高性能和伸缩性，用户还可以使用内容传送网络 (CDN) 来传送内容。
 
-此示例演示如何将媒体资产从媒体服务下载到本地计算机。 该代码将按作业 ID 查询与媒体服务帐户关联的作业，并访问其 OutputMediaAssets 集合（即运行作业后生成的、包含一个或多个输出媒体资产的集）。 此示例演示如何通过作业下载输出媒体资产，但也可运用相同的方法下载其他资产。
+此示例演示如何将媒体资产从媒体服务下载到本地计算机。 该代码将按作业 ID 查询与媒体服务帐户关联的作业，并访问其 OutputMediaAssets 集合（即运行作业后生成的、包含一个或多个输出媒体资产的集）。 此示例演示如何通过作业下载输出媒体资产，但可以运用相同的方法来下载其他资产。
 
 >[!NOTE]
->不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[此](media-services-dotnet-manage-entities.md#limit-access-policies)主题。
+>不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，请使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[本文](media-services-dotnet-manage-entities.md#limit-access-policies)。
 
+```csharp
     // Download the output asset of the specified job to a local folder.
     static IAsset DownloadAssetToLocal( string jobId, string outputFolder)
     {
@@ -77,6 +78,7 @@ ms.lasthandoff: 08/31/2017
     {
         Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
     }
+```
 
 
 ## <a name="see-also"></a>另请参阅

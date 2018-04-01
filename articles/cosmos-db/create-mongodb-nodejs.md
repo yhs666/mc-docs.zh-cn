@@ -1,26 +1,26 @@
 ---
-title: "使用 Node.js 将 MongoDB 应用连接到 Azure Cosmos DB | Azure"
-description: "了解如何将现有的 Node.js MongoDB 应用连接到 Azure Cosmos DB"
+title: 使用 Node.js 将 MongoDB 应用连接到 Azure Cosmos DB | Azure
+description: 了解如何将现有的 Node.js MongoDB 应用连接到 Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 06/19/2017
-ms.date: 03/05/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: b837d899c0399c6ba1d11fd4d7fa1ed9ab3225db
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 5574f11b15b8bdfa1f74d36aa52e8cbb9c145ead
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB：迁移现有的 Node.js MongoDB Web 应用 
 
@@ -70,7 +70,7 @@ npm start
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-如果使用已安装的 Azure CLI，请使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 命令登录到 Azure 订阅，按屏幕说明操作。
+如果使用已安装的 Azure CLI，请使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login) 命令登录到 Azure 订阅，按屏幕说明操作。
 
 ```azurecli
 az cloud set -n AzureChinaCloud

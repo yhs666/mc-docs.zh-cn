@@ -1,11 +1,11 @@
 ---
-title: "部署多个 Azure 资源实例 | Azure"
-description: "在部署资源时使用 Azure Resource Manager 模板中的复制操作和数组执行多次迭代。"
+title: 部署多个 Azure 资源实例 | Azure
+description: 在部署资源时使用 Azure Resource Manager 模板中的复制操作和数组执行多次迭代。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 94d95810-a87b-460f-8e82-c69d462ac3ca
 ms.service: azure-resource-manager
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/15/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7a7fa09860ca144857f1e4d9a5751faa3278e190
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 6f01b5ab2b1e1090c28ac0313e04a3c22a595876
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>在 Azure Resource Manager 模板中部署资源或属性的多个实例
 本文介绍如何有条件地部署资源，以及如何在 Azure 资源管理器模板中进行迭代操作，以创建资源的多个实例。
@@ -136,7 +136,7 @@ ms.lasthandoff: 12/22/2017
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
         {
@@ -263,7 +263,7 @@ Resource Manager 在部署期间会扩展 `copy` 数组。 该数组的名称将
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
@@ -345,6 +345,8 @@ Resource Manager 在部署期间会扩展 `copy` 数组。 该数组的名称将
     "outputs": {}
 }
 ```
+
+<a name="looping-on-a-nested-resource"></a>
 
 ## <a name="iteration-for-a-child-resource"></a>子资源的迭代
 不能对子资源使用 copy 循环。 要创建子资源的多个实例，而该子资源通常在其他资源中定义为嵌套资源，则必须将该资源创建为顶级资源。 可以通过 type 和 name 属性定义与父资源的关系。

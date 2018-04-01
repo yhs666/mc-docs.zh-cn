@@ -1,25 +1,25 @@
 ---
-title: "对故障转移到 Azure 的故障进行排除 | Azure"
-description: "本指南介绍如何解决在故障转移到 Azure 中的常见错误"
+title: 对故障转移到 Azure 的故障进行排除 | Azure
+description: 本指南介绍如何解决在故障转移到 Azure 中的常见错误
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 11/22/2017
-ms.date: 01/01/2018
+origin.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: c72b5cb7893571e157ce2abbaf06662e876b797c
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: ab28809fa3df2d19996926df63326054802088e9
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>解决从虚拟机到 Azure 的故障转移时出现的错误
 在执行从虚拟机到 Azure 的故障转移时，可能会收到以下错误之一。 若要解决错误，请为每个错误条件使用所述步骤。
@@ -32,7 +32,7 @@ Site Recovery 无法在 Azure 中创建故障转移的虚拟机。 以下其中�
 
 * 尝试在同一个可用性集中故障转移不同大小系列的虚拟机。 确保在同一个可用性集中选择相同大小系列的所有虚拟机。 可以转到虚拟机的“计算和网络”设置来更改大小，然后重试故障转移。
 
-* 订阅上有一个阻止创建虚拟机的策略。 请更改此策略以允许创建虚拟机，然后重试故障转移。 
+* 订阅上有一个阻止创建虚拟机的策略。 请更改此策略以允许创建虚拟机，然后重试故障转移。
 
 ## <a name="failover-failed-with-error-id-28092"></a>故障转移失败，错误 ID 为 28092
 
@@ -42,7 +42,7 @@ Site Recovery 无法为故障转移的虚拟机创建网络接口。 请确保�
 
 Site Recovery 无法在 Azure 中创建故障转移的经典虚拟机。 这可能是因为：
 
-* 创建虚拟机所需的其中一个资源（如虚拟网络）不存在。 在虚拟机的“计算和网络”设置下创建虚拟网络，或者将设置修改为已经存在的虚拟网络，然后重试故障转移。 
+* 创建虚拟机所需的其中一个资源（如虚拟网络）不存在。 在虚拟机的“计算和网络”设置下创建虚拟网络，或者将设置修改为已经存在的虚拟网络，然后重试故障转移。
 
 ## <a name="next-steps"></a>后续步骤
 

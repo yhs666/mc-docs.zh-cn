@@ -1,25 +1,25 @@
 ---
-title: "了解 Azure IoT 中心查询语言"
-description: "开发人员指南 - 介绍类似 SQL 的 IoT 中心查询语言，该语言用于在 IoT 中心检索设备孪生和作业的相关信息。"
+title: 了解 Azure IoT 中心查询语言
+description: 开发人员指南 - 介绍类似 SQL 的 IoT 中心查询语言，该语言用于在 IoT 中心检索设备孪生和作业的相关信息。
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/29/2018
+origin.date: 02/26/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: e815a1ba7eb5074e4b2f35e26cad60660012e87c
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 04/09/2018
+ms.openlocfilehash: e62f54e1b7621989d94f43f5b9e0c2560921fc93
+ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>用于设备孪生、作业和消息路由的 IoT 中心查询语言
 
@@ -296,28 +296,28 @@ WHERE devices.jobs.jobId = 'myJobId'
 IoT 中心采用消息标头的以下 JSON 表示形式来路由消息：
 
 ```json
-    {
-        "$messageId": "",
-        "$enqueuedTime": "",
-        "$to": "",
-        "$expiryTimeUtc": "",
-        "$correlationId": "",
-        "$userId": "",
-        "$ack": "",
-        "$connectionDeviceId": "",
-        "$connectionDeviceGenerationId": "",
-        "$connectionAuthMethod": "",
-        "$content-type": "",
-        "$content-encoding": "",
-
-        "userProperty1": "",
-        "userProperty2": ""
-    }
+{
+  "message": {
+    "systemProperties": {
+      "contentType": "application/json",
+      "contentEncoding": "utf-8",
+      "iothub-message-source": "deviceMessages",
+      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
+    },
+    "appProperties": {
+      "processingPath": "<optional>",
+      "verbose": "<optional>",
+      "severity": "<optional>",
+      "testDevice": "<optional>"
+    },
+    "body": "{\"Weather\":{\"Temperature\":50}}"
+  }
+}
 ```
 
 消息系统属性以 `'$'` 符号作为前缀。
-用户属性始终使用其名称进行访问。 如果用户属性名与系统属性（例如 `$to`）完全一致，则将使用 `$to` 表达式检索用户属性。
-始终可以使用括号 `{}` 访问系统属性：例如，可以使用表达式 `{$to}` 访问系统属性 `to`。 将属性名称括在括号中始终可检索相应的系统属性。
+用户属性始终使用其名称进行访问。 如果用户属性名与系统属性（例如 `$contentType`）完全一致，则将使用 `$contentType` 表达式检索用户属性。
+始终可以使用括号 `{}` 访问系统属性：例如，可以使用表达式 `{$contentType}` 访问系统属性 `contentType`。 将属性名称括在括号中始终可检索相应的系统属性。
 
 请记住，属性名称不区分大小写。
 
@@ -349,12 +349,58 @@ messageType = 'alerts' AND as_number(severity) <= 2
 
 如果消息正文是使用 UTF-8、UTF-16 或 UTF-32 编码的正确的 JSON 格式，则 IoT 中心只能基于消息正文内容路由。 将消息的内容类型设置为 `application/json`。 在消息标头中，将内容编码设置为一个受支持的 UTF 编码。 如果未指定标题，IoT 中心不会尝试对消息评估涉及正文的任何查询表达式。 如果消息不是 JSON 消息，或者如果消息未指定内容类型和内容编码，仍可以使用消息路由基于消息标题路由该消息。
 
+下面的示例演示如何创建具有正确格式和编码 JSON 正文的消息：
+
+```csharp
+string messageBody = @"{ 
+                            ""Weather"":{ 
+                                ""Temperature"":50, 
+                                ""Time"":""2017-03-09T00:00:00.000Z"", 
+                                ""PrevTemperatures"":[ 
+                                    20, 
+                                    30, 
+                                    40 
+                                ], 
+                                ""IsEnabled"":true, 
+                                ""Location"":{ 
+                                    ""Street"":""One Microsoft Way"", 
+                                    ""City"":""Redmond"", 
+                                    ""State"":""WA"" 
+                                }, 
+                                ""HistoricalData"":[ 
+                                    { 
+                                    ""Month"":""Feb"", 
+                                    ""Temperature"":40 
+                                    }, 
+                                    { 
+                                    ""Month"":""Jan"", 
+                                    ""Temperature"":30 
+                                    } 
+                                ] 
+                            } 
+                        }"; 
+ 
+// Encode message body using UTF-8 
+byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
+ 
+using (var message = new Message(messageBytes)) 
+{ 
+    // Set message body type and content encoding. 
+    message.ContentEncoding = "utf-8"; 
+    message.ContentType = "application/json"; 
+ 
+    // Add other custom application properties.  
+    message.Properties["Status"] = "Active";    
+ 
+    await deviceClient.SendEventAsync(message); 
+}
+```
+
 可以在查询表达式中使用 `$body` 来路由消息。 可以在查询表达式中使用简单正文引用、正文数组引用或多个正文引用。 查询表达式还可以将正文引用与消息标头引用相结合。 例如，下面的所有查询表达式都有效：
 
 ```sql
-$body.message.Weather.Location.State = 'WA'
 $body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.message.Weather.IsEnabled
+$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
 length($body.Weather.Location.State) = 2
 $body.Weather.Temperature = 50 AND Status = 'Active'
 ```

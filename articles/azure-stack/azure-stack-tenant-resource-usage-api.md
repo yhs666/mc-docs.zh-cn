@@ -3,8 +3,8 @@ title: 租户资源用量 API | Microsoft Docs
 description: 用于检索 Azure Stack 用量信息的资源用量 API 的参考。
 services: azure-stack
 documentationcenter: ''
-author: AlfredoPizzirani
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: b9d7c7ee-e906-4978-92a3-a2c52df16c36
 ms.service: azure-stack
@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/10/2016
-ms.date: 03/04/2018
+origin.date: 02/22/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 662aad534df73828dd97782990302fd43a6b4586
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: alfredop
+ms.openlocfilehash: d103fdb5f20ab62a9b08d445bf1ac38f1acc97fe
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tenant-resource-usage-api"></a>租户资源用量 API
+
 租户可以使用租户 API 来查看租户的资源用量数据。 此 API 与 Azure 用量 API（目前以个人预览版提供）一致。
 
 可以像在 Azure 中一样，使用 Windows PowerShell cmdlet **Get-UsageAggregates** 获取用量数据。
@@ -85,9 +87,11 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 | *quantity* |此时间范围内发生的资源消耗量。 |
 | *meterId* |所消耗资源的唯一 ID（也称为 *ResourceID*） |
 
+
 ## <a name="next-steps"></a>后续步骤
 [提供程序资源使用情况 API](azure-stack-provider-resource-api.md)
 
 [有关使用情况的常见问题解答](azure-stack-usage-related-faq.md)
 
 
+<!-- Update_Description: update metedata properties -->

@@ -1,26 +1,26 @@
 ---
-title: "创建 Azure 虚拟网络对等互连 - 不同的部署模型 - 不同的订阅 | Azure"
-description: "了解如何在通过不同 Azure 订阅中的不同 Azure 部署模型创建的虚拟网络间创建虚拟网络对等互连。"
+title: 创建 Azure 虚拟网络对等互连 - 不同的部署模型 - 不同的订阅 | Azure
+description: 了解如何在通过不同 Azure 订阅中的不同 Azure 部署模型创建的虚拟网络间创建虚拟网络对等互连。
 services: virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/15/2017
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: d565ec3fd271ece180bf78abbffb618bb306ee50
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: d533382c21a6eaafa19ceb00bbd9f84ff8aa50b0
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>创建虚拟网络对等互连 - 不同的部署模型和不同的订阅
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/12/2018
 
 |Azure 部署模型  | Azure 订阅  |
 |--------- |---------|
-|[均为资源管理器模型](virtual-network-create-peering.md) |相同|
+|[均为资源管理器模型](tutorial-connect-virtual-networks-portal.md) |相同|
 |[均为 Resource Manager 模型](create-peering-different-subscriptions.md) |不同|
 |[一个为资源管理器模型，一个为经典模型](create-peering-different-deployment-models.md) |相同|
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 03/12/2018
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "China East"
     ```
 5. 必须通过[安装的](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest) Azure CLI 2.0.4 或更高版本使用 bash shell 来完成其余步骤。 有关在 Windows 客户端上运行 CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../virtual-machines/windows/cli-options.md?toc=%2fvirtual-network%2ftoc.json)。 
-
+    <!-- Not Available on Azure Cloud Shell -->
     [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
     
 6. 将以下脚本复制到计算机上的文本编辑器。 将 `<SubscriptionB-Id>` 替换为订阅 ID。 如果不知道订阅 ID，请输入 `az account show` 命令。 输出中的 **id** 值就是订阅 ID。复制修改后的脚本，将其粘贴到 CLI 2.0 会话中，按 `Enter`。 
@@ -349,4 +349,4 @@ ms.lasthandoff: 03/12/2018
 - 了解所有的[虚拟网络对等互连设置](virtual-network-manage-peering.md#create-a-peering)。
 - 了解如何使用虚拟网络对等互连[创建中心辐射型网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering)。
 
-<!--Update_Description: update meta properties, wording update, update cmdlet parameter. -->
+<!--Update_Description: update meta properties, wording update, update link -->

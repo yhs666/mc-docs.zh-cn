@@ -1,11 +1,11 @@
 ---
-title: "使用 .NET 通过 Media Encoder Standard 对资产进行编码 | Azure"
-description: "本文介绍如何使用 .NET 通过 Media Encoder Standard 对资产进行编码。"
+title: 使用 .NET 通过 Media Encoder Standard 对资产进行编码 | Azure
+description: 本文介绍如何使用 .NET 通过 Media Encoder Standard 对资产进行编码。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 03431b64-5518-478a-a1c2-1de345999274
 ms.service: media-services
 ms.workload: media
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: b40925a59e25b0cbe82e0a8be35ae0f7c34056a4
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 060fccb522b067b6e262e2ba23a6a6ce2e57b514
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>使用 .NET 通过 Media Encoder Standard 对资产进行编码
 编码作业是媒体服务中最常见的处理操作之一。 可通过创建编码作业将媒体文件从一种编码转换为另一种编码。 进行编码时，可以使用媒体服务内置的 Media Encoder。 另外，也可以使用媒体服务合作伙伴提供的编码器；第三方编码器可通过 Azure Marketplace 购得。 
@@ -72,7 +72,7 @@ Media Encoder Standard 使用[此处](media-services-mes-presets-overview.md)所
 
 #### <a name="example"></a>示例 
 
-```
+```csharp
 using System;
 using System.Linq;
 using System.Configuration;

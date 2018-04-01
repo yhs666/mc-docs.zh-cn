@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure CLI (azure.js) 创建 IoT 中心 | Azure"
-description: "如何使用跨平台的 Azure CLI (azure.js) 创建 Azure IoT 中心。"
+title: 使用 Azure CLI (azure.js) 创建 IoT 中心 | Azure
+description: 如何使用跨平台的 Azure CLI (azure.js) 创建 Azure IoT 中心。
 services: iot-hub
 documentationcenter: .net
 author: BeatriceOltean
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/04/2017
 ms.author: v-yiso
-ms.date: 09/25/2017
-ms.openlocfilehash: e8451e0de390915114bfefa387a6ad1506f31536
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 04/09/2018
+ms.openlocfilehash: 5f82fd80705b8db1f1145a8d84403406ed53af7e
+ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>使用 Azure CLI 创建 IoT 中心
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 可使用 Azure CLI (azure.js) 以编程方式创建和管理 Azure IoT 中心。 本文介绍如何使用 Azure CLI (azure.js) 创建 IoT 中心。
 
-可使用以下 CLI 版本之一完成任务：
+可以使用以下 CLI 版本之一完成任务：
 
 * Azure CLI (azure.js) – 如本文所述，用于经典部署模型和资源管理部署模型的 CLI。
 * [Azure CLI 2.0 (az.py)](./iot-hub-create-using-cli.md) - 适用于资源管理部署模型的下一代 CLI。
@@ -89,7 +89,7 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 ```
 
 * **resource-group**。 资源组名称。 格式为 1-64 位长度不区分大小写的字母数字、下划线和连字符。
-* **name**。 要创建的 IoT 中心的名称。 格式为 3-50 位长度不区分大小写的字母数字、下划线和连字符。
+* **name**。 要创建的 IoT 中心的名称。 格式为 3-50 位长度不区分大小写的字母数字和连字符。
 * **location**。 要预配 IoT 中心的位置（Azure 区域/数据中心）。
 * **sku-name**。 sku 的名称，以下值之一：[F1, S1, S2, S3]。 有关最新的完整列表，请参阅 IoT 中心的定价页。
 * **units**。 预配的单位数。 范围：F1 [1-1]: S1、S2 [1-200] : S3 [1-10]。 IoT Hub 单位数基于总消息计数和要连接的设备数。

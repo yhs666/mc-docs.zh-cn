@@ -1,6 +1,6 @@
 ---
-title: "Resource Manager 模板函数 | Azure"
-description: "介绍在 Azure Resource Manager 模板中检索值、处理字符串和数字以及检索部署信息时所用的函数。"
+title: Resource Manager 模板函数 | Azure
+description: 介绍在 Azure Resource Manager 模板中检索值、处理字符串和数字以及检索部署信息时所用的函数。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -13,22 +13,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/18/2017
-ms.date: 10/23/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: e7e01dc48c28270fbf48e4611bca00bc123df2a3
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 18b7e98f059b304b140cdf5f3b9e4dccac70d688
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager 模板函数
-本主题介绍可以在 Azure Resource Manager 模板中使用的所有函数。
+本文介绍可以在 Azure 资源管理器模板中使用的所有函数。
 
 通过将函数分别括在方括号（`[` 和 `]`）内，在模板中添加函数。 在部署过程中计算表达式。 尽管编写为字符串文本，但表达式的计算结果可以是不同的 JSON 类型，例如数组、对象或整数。 如同在 JavaScript 中一样，函数调用的格式为 `functionName(arg1,arg2,arg3)`。 使用点和 [index] 运算符引用属性。
 
 模板表达式不能超过 24,576 个字符。
 
-模板函数及其参数不区分大小写。 例如，Resource Manager 将 **variables('var1')** 和 **VARIABLES('VAR1')** 视为相同。 在求值时，除非函数明确修改大小写（例如，使用 toUpper 或 toLower 进行修改），否则函数将保留大小写。 某些资源类型可能会提出大小写要求，而不考虑函数求值方式。
+模板函数及其参数不区分大小写。 例如，资源管理器将 **variables('var1')** 和 **VARIABLES('VAR1')** 解析为相同内容。 在求值时，除非函数明确修改大小写（例如，使用 toUpper 或 toLower 进行修改），否则函数将保留大小写。 某些资源类型可能会提出大小写要求，而不考虑函数求值方式。
 
 <a id="array" />
 <a id="coalesce" />
@@ -38,6 +38,7 @@ ms.lasthandoff: 10/20/2017
 <a id="empty" />
 <a id="first" />
 <a id="intersection" />
+<a id="json" />
 <a id="last" />
 <a id="length" />
 <a id="min" />
@@ -94,6 +95,21 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 * [参数](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
+<a id="and" />
+<a id="bool" />
+<a id="if" />
+<a id="not" />
+<a id="or" />
+
+## <a name="logical-functions"></a>逻辑函数
+资源管理器提供以下用于处理逻辑条件的函数：
+
+* [and](resource-group-template-functions-logical.md#and)
+* [bool](resource-group-template-functions-logical.md#bool)
+* [if](resource-group-template-functions-logical.md#if)
+* [not](resource-group-template-functions-logical.md#not)
+* [or](resource-group-template-functions-logical.md#or)
+
 <a id="add" />
 <a id="copyindex" />
 <a id="div" />
@@ -104,15 +120,6 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 <a id="mod" />
 <a id="mul" />
 <a id="sub" />
-
-## <a name="logical-functions"></a>逻辑函数
-资源管理器提供以下用于处理逻辑条件的函数：
-
-* [and](resource-group-template-functions-logical.md#and)
-* [bool](resource-group-template-functions-logical.md#bool)
-* [if](resource-group-template-functions-logical.md#if)
-* [not](resource-group-template-functions-logical.md#not)
-* [or](resource-group-template-functions-logical.md#or)
 
 ## <a name="numeric-functions"></a>数值函数
 Resource Manager 提供以下用于处理整数的函数：
@@ -156,6 +163,7 @@ Resource Manager 提供以下用于获取资源值的函数：
 <a id="emptystring" />
 <a id="endswith" />
 <a id="firststring" />
+<a id="guid" />
 <a id="indexof" />
 <a id="laststring" />
 <a id="lastindexof" />
@@ -212,8 +220,8 @@ Resource Manager 提供以下用于处理字符串的函数：
 
 ## <a name="next-steps"></a>后续步骤
 * 有关 Azure Resource Manager 模板中各部分的说明，请参阅 [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)（创作 Azure Resource Manager 模板）
-* 要合并多个模板，请参阅 [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)（将链接的模板与 Azure Resource Manager 配合使用）
+* 要合并多个模板，请参阅[将链接的模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)
 * 若要在创建资源类型时迭代指定的次数，请参阅 [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)（在 Azure Resource Manager 中创建多个资源实例）
 * 若要查看如何部署已创建的模板，请参阅 [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)（使用 Azure Resource Manager 模板部署应用程序）
 
-<!--Update_Description: update meta properties, add guid link in String function content block-->
+<!--Update_Description: update meta properties, update link, wording update -->

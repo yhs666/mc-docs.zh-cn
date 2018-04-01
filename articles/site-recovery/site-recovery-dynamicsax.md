@@ -1,25 +1,25 @@
 ---
-title: "使用 Azure Site Recovery 复制多层 Dynamics AX 部署 | Azure"
-description: "本文介绍如何使用 Azure Site Recovery 复制和保护 Dynamics AX"
+title: 使用 Azure Site Recovery 复制多层 Dynamics AX 部署 | Azure
+description: 本文介绍如何使用 Azure Site Recovery 复制和保护 Dynamics AX
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/11/2017
-ms.date: 01/01/2018
+origin.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7ea5718d982b99482b664e393f8228af41a39667
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: b0b8a10e25a9a8ccafccff9d052565d787aaab0a
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 复制多层 Dynamics AX 应用程序
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 12/29/2017
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>使用 Site Recovery 启用 Dynamics AX 应用程序的灾难恢复
 ### <a name="protect-your-dynamics-ax-application"></a>保护 Dynamics AX 应用程序
-若要实现完整应用程序复制与恢复，Dynamics AX 的每个组件都必须受到保护。 
+若要实现完整应用程序复制与恢复，Dynamics AX 的每个组件都必须受到保护。
 
 ### <a name="1-set-up-active-directory-and-dns-replication"></a>1.设置 Active Directory 和 DNS 复制
 
@@ -126,13 +126,13 @@ ms.lasthandoff: 12/29/2017
 确保选择的恢复点尽量靠近数据库 PIT，但不能在它的前面。
 
 * 脚本：添加负载均衡器（仅限 E-A）。
-应用程序对象服务器 VM 组启动后，请添加一个脚本（通过 Azure 自动化），以便向其添加负载均衡器。 可以使用脚本完成此任务。 有关详细信息，请参阅[如何为多层应用程序灾难恢复添加负载均衡器](https://azure.microsoft.com/blog//cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/)。
+应用程序对象服务器 VM 组启动后，请添加一个脚本（通过 Azure 自动化），以便向其添加负载均衡器。 可以使用脚本完成此任务。 有关详细信息，请参阅[如何为多层应用程序灾难恢复添加负载均衡器](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/)。
 
 * 故障转移组 2：对 Dynamics AX 客户端 VM 进行故障转移。 在执行恢复计划的过程中故障转移 Web 层 VM。
 
 ### <a name="perform-a-test-failover"></a>执行测试故障转移
 
-有关在测试故障转移期间的 Active Directory 具体信息，请参阅“Active Directory 灾难恢复解决方案”随附的指南。 
+有关在测试故障转移期间的 Active Directory 具体信息，请参阅“Active Directory 灾难恢复解决方案”随附的指南。
 
 有关测试故障转移期间 SQL Server 的特定信息，请参阅[使用 SQL Server 和 Azure Site Recovery 复制应用程序](site-recovery-sql.md)。
 
@@ -185,5 +185,4 @@ ms.lasthandoff: 12/29/2017
 
 ## <a name="next-steps"></a>后续步骤
 若要详细了解如何使用 Site Recovery 保护企业工作负荷，请参阅[我可以保护哪些工作负荷？](site-recovery-workload.md)。
-<!-- Update_Description: new articles on site recovery dynamicsax -->
-<!-- ms.date: 01/01/2018 -->
+<!-- Update_Description: update meta propeties, update link -->

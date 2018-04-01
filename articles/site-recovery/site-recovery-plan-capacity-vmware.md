@@ -1,19 +1,19 @@
 ---
-title: "规划容量和缩放以便使用 Azure Site Recovery 将 VMware 复制到 Azure | Azure"
-description: "请阅读本文了解如何规划容量和缩放，以便使用 Azure Site Recovery 将 VMware VM 复制到 Azure"
+title: 规划容量和缩放以便使用 Azure Site Recovery 将 VMware 复制到 Azure | Azure
+description: 请阅读本文了解如何规划容量和缩放，以便使用 Azure Site Recovery 将 VMware VM 复制到 Azure
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/07/2018
-ms.date: 03/05/2018
+origin.date: 02/27/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2a50708bc8dc4631acadb56a58a81e82475e8282
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 2b392d6d8c9eba255147427355e4c76e109e3b13
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>通过 Azure Site Recovery，针对 VMware 复制规划容量和缩放
 
@@ -137,4 +137,4 @@ ms.lasthandoff: 03/02/2018
 
 下载并运行 [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

@@ -1,12 +1,10 @@
 ---
-title: "验证 Azure 自动化帐户配置 | Azure"
-description: "本文介绍如何确认自动化帐户的配置设置是正确的。"
+title: 验证 Azure 自动化帐户配置 | Azure
+description: 本文介绍如何确认自动化帐户的配置设置是正确的。
 services: automation
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -15,11 +13,11 @@ ms.topic: article
 origin.date: 08/07/2017
 ms.date: 01/15/2018
 ms.author: v-nany
-ms.openlocfilehash: 0c62ce8c7e832e611999bcf95329ca513af61cd2
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 8f9aca0c0def344e9b8cb4919a7e763cd61a71ac
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>测试 Azure 自动化运行方式身份验证
 成功创建自动化帐户以后，即可执行一个简单的测试，确认你能够成功地在 Azure 资源管理器部署或 Azure 经典部署中使用新创建的或更新的自动化运行方式帐户进行身份验证。    

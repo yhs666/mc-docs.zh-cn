@@ -1,29 +1,30 @@
 ---
-title: "估算 Azure 中的复制容量 | Azure"
-description: "参考本文估算使用 Azure Site Recovery 进行复制时可用的容量"
+title: 估算 Azure 中的复制容量 | Azure
+description: 参考本文估算使用 Azure Site Recovery 进行复制时可用的容量
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 11/28/2017
-ms.date: 03/05/2018
+origin.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7af53956486c3ad11b3de3e49d64be93307ce96f
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: cab2fa5f866011cf477e060ffd4f81f1d2867e6d
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>计划用于使用 Site Recovery 保护 Hyper-V VM 的容量
 
-[适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器](site-recovery-hyper-v-deployment-planner.md)的新增强版本现已可用。 它取代了旧工具。 使用新工具规划部署。 该工具提供以下指导原则：
+[适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器](site-recovery-hyper-v-deployment-planner.md)的新增强版本现已可用。 它取代了旧工具。 使用新工具规划部署。
+该工具提供以下指导原则：
 
 * 根据磁盘数量、磁盘大小、IOPS、变动量和一些 VM 特征评估 VM 的合格性
 * 网络带宽需求与 RPO 评估
@@ -57,7 +58,7 @@ Azure Site Recovery Capacity Planner 工具可帮助用户确定通过 Azure Sit
 
    a. 在“选择你的方案”中，选择“Hyper-V 到 Azure”或“VMware/物理设备到 Azure”.
 
-   b. 在“平均每日数据更改率(%)”中输入使用 [Hyper-V 容量计划工具](site-recovery-capacity-planning-for-hyper-v-replication.md)或 [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) 收集的信息。 
+   b. 在“平均每日数据更改率(%)”中输入使用 [Hyper-V 容量计划工具](site-recovery-capacity-planning-for-hyper-v-replication.md)或 [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) 收集的信息。
 
    c. 将 Hyper-V VM 复制到 Azure 时，不使用“压缩”设置。 对于压缩，请使用第三方应用程序（例如 Riverbed）。
 
@@ -145,10 +146,10 @@ AA 到 AE 列为输出，提供的是每个 VM 的信息。
 ### <a name="submit-data-in-capacity-planner"></a>在 Capacity Planner 中提交数据
 1. 打开“Capacity Planner”工作表时，该表会根据你所指定的设置进行填充。 “工作负荷”一词会出现在“基础输入源”单元格中，用来表示输入是“工作负荷限定”工作表。
 
-2. 如果想要进行更改，则需修改“工作负荷限定”工作表。 然后再次选择“将数据提交到规划器工具”。 
+2. 如果想要进行更改，则需修改“工作负荷限定”工作表。 然后再次选择“将数据提交到规划器工具”。
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## <a name="next-steps"></a>后续步骤
 [了解如何运行](site-recovery-capacity-planning-for-hyper-v-replication.md)容量计划工具。
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties -->

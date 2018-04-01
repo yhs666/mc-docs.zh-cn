@@ -1,25 +1,19 @@
 ---
-title: "Site Recovery 中的故障转移 | Azure"
-description: "Azure Site Recovery 可以协调虚拟机和物理服务器的复制、故障转移与恢复。 了解有关故障转移到 Azure 或辅助数据中心的信息。"
+title: Site Recovery 中的故障转移 | Azure
+description: Azure Site Recovery 可以协调虚拟机和物理服务器的复制、故障转移与恢复。 了解有关故障转移到 Azure 或辅助数据中心的信息。
 services: site-recovery
-documentationcenter: 
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-origin.date: 09/25/2017
-ms.date: 03/05/2018
+origin.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 36e11b47e3acd22ab738af861c77ead70a2001a8
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: e3212f607c46b85083b0bdeb1e2b1f91e76bae89
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="failover-in-site-recovery"></a>Site Recovery 中的故障转移
 本文介绍了如何对由 Site Recovery 保护的虚拟机和物理服务器进行故障回复。
@@ -97,34 +91,34 @@ ms.lasthandoff: 03/02/2018
 在某些情况下，虚拟机的故障转移需要额外的中间步骤，中间步骤通常耗费约 8 到 10 分钟才能完成。 在以下情况下，故障转移所需的时间比通常更多：
 
 * VMware 虚拟机所使用的移动服务版本早于 9.8
-* 物理服务器 
+* 物理服务器
 * VMware Linux 虚拟机
 * 作为物理服务器受到保护的 Hyper-V 虚拟机
-* VMware 虚拟机，其中下列驱动程序不作为启动驱动程序 
-    * storvsc 
-    * vmbus 
-    * storflt 
-    * intelide 
+* VMware 虚拟机，其中下列驱动程序不作为启动驱动程序
+    * storvsc
+    * vmbus
+    * storflt
+    * intelide
     * atapi
 * 未启用 DHCP 服务的 VMware 虚拟机（无论它们使用 DHCP 还是使用静态 IP 地址）
 
-在其他所有情况下，此中间步骤都非必需，因而故障转移的耗时会减少。 
+在其他所有情况下，此中间步骤都非必需，因而故障转移的耗时会减少。
 
 ## <a name="using-scripts-in-failover"></a>在故障转移中使用脚本
 执行故障转移时，你可能希望自动执行某些操作。 在[恢复计划](site-recovery-create-recovery-plans.md)中使用脚本或 [Azure 自动化 Runbook](site-recovery-runbook-automation.md) 可以实现此目的。
 
 ## <a name="post-failover-considerations"></a>故障转移后注意事项
 故障转移后，可能需要考虑以下建议：
-### <a name="retaining-drive-letter-after-failover"></a>在故障转移后保留驱动器号 
+### <a name="retaining-drive-letter-after-failover"></a>在故障转移后保留驱动器号
 若要在故障转移后保留虚拟机上的驱动器号，可将虚拟机的“SAN 策略”设置为 **OnlineAll**。 [了解详细信息](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure)。
 
 ## <a name="next-steps"></a>后续步骤
 
 > [!WARNING]
-> 故障转移虚拟机并且本地数据中心可用后，应该在本地数据中心[**重新保护**](site-recovery-how-to-reprotect.md) VMware 虚拟机。
+> 故障转移虚拟机并且本地数据中心可用后，应该在本地数据中心[**重新保护**](vmware-azure-reprotect.md) VMware 虚拟机。
 
-使用[“计划的故障转移”](site-recovery-failback-from-azure-to-hyper-v.md)选项可将 Hyper-V 虚拟机从 Azure“故障回复”到本地。
+使用[“计划的故障转移”](hyper-v-azure-failback.md)选项可将 Hyper-V 虚拟机从 Azure“故障回复”到本地。
 
 如果已将 Hyper-V 虚拟机故障转移到 VMM 服务器管理的另一个本地数据中心并且主数据中心可用，请使用“反向复制”选项开始复制回到主数据中心。
 
-<!--Update_Description: wording update, update link -->
+<!-- Update_Description: update meta propeties, update link -->

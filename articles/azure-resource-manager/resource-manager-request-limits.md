@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager 请求限制 | Azure"
-description: "介绍在达到订阅限制后如何对 Azure Resource Manager 请求进行限制。"
+title: Azure Resource Manager 请求限制 | Azure
+description: 介绍在达到订阅限制后如何对 Azure Resource Manager 请求进行限制。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/11/2017
-ms.date: 08/21/2017
+origin.date: 01/26/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: fef876311fba78b6996e955822f263f8c36386f7
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: e0315a65f2b072f5a31ee9ac86a161622a31f619
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="throttling-resource-manager-requests"></a>限制 Resource Manager 请求数
-对于每个订阅和租户，Resource Manager 将每小时的读取请求数限制为 15,000 个，将每小时的写入请求数限制为 1,200 个。 这些限制适用于每个 Azure 资源管理器实例；每个 Azure 区域中有多个实例，Azure 资源管理器部署到所有 Azure 区域。  因此，在实践中，限制实际上比上面列出的要高得多，因为用户请求通常是由多个不同的实例提供服务。
+对于每个订阅和租户，Resource Manager 将读取请求数限制为 15,000/小时，将写入请求数限制为 1,200/小时。 这些限制适用于每个 Azure 资源管理器实例。 每个 Azure 区域中有多个实例，Azure 资源管理器将部署到所有 Azure 区域。  因此，在实践中，限制实际上比上述限制要高得多，因为用户请求通常是由多个不同的实例提供服务。
 
-如果应用程序或脚本达到这些限制，则需要限制请求。 本主题介绍如何在达到限制之前确定剩余的请求数，以及在达到限制后如何响应。
+如果应用程序或脚本达到了这些限制，则需对请求数进行限制。 本文说明如何在达到限制之前确定剩余的请求数，以及达到限制时如何做出响应。
 
 达到限制时，会收到 HTTP 状态代码“429 请求过多”。
 
 请求数仅限于订阅或租户。 如果订阅中有多个并发应用程序在进行请求，则会将这些应用程序发出的请求加在一起来确定剩余请求数。
 
-订阅范围的请求是需要传递订阅 ID 的请求，例如在订阅中检索资源组。 租户范围的请求是指不包括订阅 ID 的请求，例如检索有效的 Azure 位置。
+划归到订阅的请求涉及到传递订阅 ID，例如，检索订阅中的资源组。 划归到租户的请求不包括订阅 ID，例如，检索有效的 Azure 位置。
 
 ## <a name="remaining-requests"></a>剩余请求数
 可以通过检查响应标头确定剩余请求数。 每个请求都包含剩余读取和写入请求数的值。 下表说明了各种响应标头，用户可以检查其中是否存在这些值：
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/28/2017
 | x-ms-ratelimit-remaining-tenant-resource-entities-read |划归到租户的剩余资源类型集合请求数。<br /><br />仅当服务重写了默认限制时，才为租户级别的请求添加此标头。 |
 
 ## <a name="retrieving-the-header-values"></a>检索标头值
-在代码或脚本中检索这些标头值与检索任何标头值无异。 
+检索代码或脚本中的这些标头值与检索任何标头值没有什么不同。 
 
 例如，在 **C#** 中，可使用以下代码从名为 **response** 的 **HttpWebResponse** 对象中检索标头值：
 
@@ -86,7 +86,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 在 **Azure CLI**中，可以使用更详细的选项检索标头值。
 
 ```azurecli
-azure group list -vv --json
+az group list --verbose --debug
 ```
 
 这会返回许多值，包括以下对象：
@@ -106,10 +106,11 @@ silly: returnObject
 ```
 
 ## <a name="waiting-before-sending-next-request"></a>在发送下一请求之前等待
-达到请求限制时，Resource Manager 会在标头中返回 **429** HTTP 状态代码和 **Retry-After** 值。 **Retry-After** 值指定在发送下一个请求之前应用程序应该等待（或休眠）的秒数。 如果在重试值所对应的时间尚未用完之前发送请求，则系统不会处理该请求，而会返回新的重试值。
+达到请求限制时，Resource Manager 会在标头中返回 **429** HTTP 状态代码和 **Retry-After** 值。 **Retry-After** 值指定在发送下一个请求之前应用程序应该等待（或休眠）的秒数。 如果在尚未到达重试时间值的情况下发送请求，该请求不会受到处理，同时会返回一个新的重试时间值。
 
 ## <a name="next-steps"></a>后续步骤
 
+* 有关限制和配额的详细信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。
 * 若要了解如何处理异步 REST 请求，请参阅[跟踪异步 Azure 操作](resource-manager-async-operations.md)。
 
-<!--Update_Description: update meta properties, wroding update-->
+<!--Update_Description: update meta properties, wroding update, update link -->

@@ -1,10 +1,10 @@
 ---
-title: "为 VM 配置专用 IP 地址 - Azure PowerShell | Azure"
-description: "了解如何使用 PowerShell 为虚拟机配置专用 IP 地址。"
+title: 为 VM 配置专用 IP 地址 - Azure PowerShell | Azure
+description: 了解如何使用 PowerShell 为虚拟机配置专用 IP 地址。
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: d5f18929-15e3-40a2-9ee3-8188bc248ed8
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/23/2016
-ms.date: 03/31/2017
-ms.author: v-dazen
+ms.date: 04/02/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aab30317544d4fa8db874d66beb4a9861a3bcc88
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: 4c48cd09fce9b9c6e0a7a632e810b3b758b6f08e
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>使用 PowerShell 为虚拟机配置专用 IP 地址
 
@@ -29,11 +29,11 @@ ms.lasthandoff: 06/21/2017
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure 建议通过 Resource Manager 部署模型创建资源。 若要深入了解这两个模型之间的差异，请阅读[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md)一文。 本文介绍 Resource Manager 部署模型。 还可以[管理经典部署模型中的静态专用 IP 地址](virtual-networks-static-private-ip-classic-ps.md)。
+Azure 有两个部署模型：Azure Resource Manager 和经典模型。 Azure 建议通过 Resource Manager 部署模型创建资源。 若要详细了解这两个模型之间的差异，请阅读[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md)一文。 本文介绍 Resource Manager 部署模型。 还可以[管理经典部署模型中的静态专用 IP 地址](virtual-networks-static-private-ip-classic-ps.md)。
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-以下示例 PowerShell 命令需要基于以上方案创建的简单环境。 若要运行本文档中所显示的命令，请首先构建[创建 VNet](virtual-networks-create-vnet-arm-ps.md) 中所述的测试环境。
+以下示例 PowerShell 命令需要基于以上方案创建的简单环境。 若要运行本文档中所显示的命令，请先构建[创建虚拟网络](quick-create-powershell.md)中所述的测试环境。
 
 ## <a name="create-a-vm-with-a-static-private-ip-address"></a>使用静态专用 IP 地址创建 VM
 若要在名为 *TestVNet* 的 VNet 的 *FrontEnd* 子网中使用静态专用 IP *192.168.1.101* 创建名为 *DNS01* 的 VM，请按照以下步骤进行操作：
@@ -191,7 +191,7 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
     NetworkSecurityGroup : null
     Primary              : True
 
-## <a name="add-a-static-private-ip-address-to-a-network-interface"></a>将静态专用 IP 地址添加到网络接口
+## <a name="add-a-static-private-ip-address-to-a-network-interface"></a>向网络接口添加静态专用 IP 地址
 若要向使用上述脚本创建的 VM 添加静态专用 IP 地址，请运行以下命令：
 
 ```powershell
@@ -202,7 +202,7 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
 ## <a name="change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>更改分配给网络接口的专用 IP 地址的分配方法
 
-使用静态或动态分配方法将专用 IP 地址分配给 NIC。 在启动之前处于已停止（已解除分配）状态的 VM 后，动态 IP 地址可能会改变。 如果 VM 托管着需要同一 IP 地址的服务，则这可能会导致问题，即使在从已停止（已解除分配）状态重新启动后也是如此。 将保留静态 IP 地址，直到 VM 已删除。 若要更改 IP 地址的分配方法，请运行以下脚本，将分配方法从动态更改为静态。 如果当前专用 IP 地址的分配方法为静态，请在执行脚本前将“静态”更改为“动态”。
+专用 IP 地址通过静态或动态分配方法分配给 NIC。 在启动之前处于已停止（已解除分配）状态的 VM 后，动态 IP 地址可能会改变。 如果 VM 托管着需要同一 IP 地址的服务，则这可能会导致问题，即使在从已停止（已解除分配）状态重新启动后也是如此。 静态 IP 地址会一直保留，直到 VM 被删除。 要更改 IP 地址的分配方法，请运行以下脚本，将分配方法从动态更改为静态。 如果当前专用 IP 地址的分配方法为静态，请在执行脚本前将“静态”更改为“动态”。
 
 ```powershell
 $RG = "TestRG"
@@ -216,7 +216,7 @@ $IP = $nic.IpConfigurations[0].PrivateIpAddress
 Write-Host "The allocation method is now set to"$nic.IpConfigurations[0].PrivateIpAllocationMethod"for the IP address" $IP"." -NoNewline
 ```
 
-如果不知道 NIC 的名称，可输入以下命令来查看资源组中 NIC 的列表：
+如果不知道 NIC 的名称，可以通过输入以下命令来查看资源组中 NIC 的列表：
 
 ```powershell
 Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.ProvisioningState -eq 'Succeeded'} 
@@ -226,3 +226,4 @@ Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.Provisioni
 * 了解[保留公共 IP](virtual-networks-reserved-public-ip.md) 地址。
 * 了解[实例层级公共 IP (ILPIP) 地址](virtual-networks-instance-level-public-ip.md)。
 * 查阅[保留 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)。
+<!--Update_Description: wording update, update reference link-->

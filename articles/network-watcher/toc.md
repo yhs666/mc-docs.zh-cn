@@ -1,3 +1,5 @@
+# [Azure 网络观察程序文档](index.md)
+
 # 概述
 ## [什么是网络观察程序？](network-watcher-monitoring-overview.md)
 ## [拓扑](network-watcher-topology-overview.md)
@@ -7,7 +9,7 @@
 ## [安全组视图](network-watcher-security-group-view-overview.md)
 ## [下一跃点](network-watcher-next-hop-overview.md)
 ## [VPN 连接故障排除](network-watcher-troubleshoot-overview.md)
-## [连接监视](network-watcher-connectivity-overview.md)
+## [排查连接问题](network-watcher-connectivity-overview.md)
 ## [服务限制](../azure-subscription-service-limits.md?toc=%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
 
 # 入门
@@ -46,7 +48,7 @@
 ### [Azure CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
 ### [Azure CLI](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
-## 测试连接
+## 排查连接问题
 ### [Azure 门户](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [Azure CLI](network-watcher-connectivity-cli.md)
@@ -61,6 +63,7 @@
 # 如何
 ## [使用 Azure 自动化监视 VPN 网关](network-watcher-monitor-with-azure-automation.md)
 ## [通过 VPN 网关诊断本地连接](network-watcher-diagnose-on-premises-connectivity.md)
+## [监视网络连接](connection-monitor.md)
 ## [使用 PowerShell 在网络上执行符合性检查和审核](network-watcher-nsg-auditing-powershell.md)
 ## [在 Azure Log Analytics 中分析应用程序网关日志](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fnetwork-watcher%2ftoc.json)
 ## 数据包捕获
@@ -70,6 +73,7 @@
 ### [使用开放源代码工具可视化网络流量模式](network-watcher-using-open-source-tools.md)
 ## 分析 NSG 流日志
 ### [读取 NSG 流日志](network-watcher-read-nsg-flow-logs.md)
+<!--Not Available ### Traffic Analytics -->
 ### [使用 Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [使用 Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [使用 Grafana](network-watcher-nsg-grafana.md)
@@ -96,4 +100,4 @@
 ## [服务更新](https://www.azure.cn/what-is-new/)
 ## [SLA](https://www.azure.cn/support/legal/sla/)
 <!--Not Available ## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)-->
-<!--ms.date: 01/22/2018 -->
+<!--ms.date: 04/02/2018 -->

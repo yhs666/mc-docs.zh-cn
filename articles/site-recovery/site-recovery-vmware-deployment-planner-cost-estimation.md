@@ -1,25 +1,25 @@
 ---
-title: "适用于 VMware 到 Azure 部署的 Azure Site Recovery Deployment Planner | Azure"
-description: "本文为 Azure Site Recovery Deployment Planner 用户指南。"
+title: 适用于 VMware 到 Azure 部署的 Azure Site Recovery Deployment Planner | Azure
+description: 本文为 Azure Site Recovery Deployment Planner 用户指南。
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 08/28/2017
-ms.date: 01/01/2018
+origin.date: 03/09/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3b47c4d8c98709c78aeaf9fe81d402b2823648d2
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 37b75643f4563f711223deb753d59fc59845f607
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery 部署规划器成本估算报表  
 
@@ -154,5 +154,4 @@ ms.lasthandoff: 02/13/2018
 
 ## <a name="next-steps"></a>后续步骤
 详细了解如何[使用 Azure Site Recovery 将 VMware VM 转移到 Azure 进行保护](/site-recovery/tutorial-vmware-to-azure)。
-<!-- Update_Description: new articles on site recovery vmware deployment planner cost estimation -->
-<!-- ms.date: 01/01/2018 -->
+<!-- Update_Description: update meta properties, wording update -->

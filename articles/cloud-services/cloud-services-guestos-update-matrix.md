@@ -1,11 +1,11 @@
 ---
-title: "了解最新的 Azure 来宾 OS 版本"
-description: "有关 Azure 云服务来宾 OS 的最新发行新闻以及 SDK 兼容性。"
+title: 了解最新的 Azure 来宾 OS 版本
+description: 有关 Azure 云服务来宾 OS 的最新发行新闻以及 SDK 兼容性。
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: tbd
 origin.date: 02/04/2018
 ms.author: v-yiso
 ms.date: 03/19/2018
-ms.openlocfilehash: d50dd2e2551dfd2de25b87f7e60c46e8ac7ede77
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: e31dddf8a804b42d92dc37fec8bc68b6029c1bd1
+ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 来宾 OS 版本和 SDK 兼容性对照表
 提供适用于云服务的最新 Azure 来宾 OS 版本的最新信息。 此信息可帮助在禁用来宾 OS 之前规划升级路径。 如果根据 [Azure 来宾 OS 更新设置][Azure Guest OS Update Settings]中所述将角色配置为使用自动进行来宾 OS 更新，则不一定要阅读本页面。
@@ -144,7 +144,7 @@ ms.lasthandoff: 03/12/2018
 
 | 配置字符串 | 发行日期 | 停用日期 | 失效日期 |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.57_2017801-01 |2018 年 1 月 29 日 |3.59 发布后 |TBD |
+| WA-GUEST-OS-3.57_201801-01 |2018 年 1 月 29 日 |3.59 发布后 |TBD |
 | WA-GUEST-OS-3.56_201712-01 |2018 年 1 月 4 日 |3.58 发布后 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |2017 年 12 月 14 日 |2018 年 1 月 29 日 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |2017 年 11 月 8 日 |2018 年 1 月 4 日 |TBD |

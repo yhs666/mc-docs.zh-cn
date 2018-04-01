@@ -1,11 +1,11 @@
 ---
-title: "控制 Azure 虚拟网络中的路由 - CLI - 经典 | Azure"
-description: "了解如何在典型部署模型中使用 Azure CLI 控制 Vnet 中的路由"
+title: 控制 Azure 虚拟网络中的路由 - CLI - 经典 | Azure
+description: 了解如何在典型部署模型中使用 Azure CLI 控制 Vnet 中的路由
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
-editor: 
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-service-management
 ms.assetid: ca2b4638-8777-4d30-b972-eb790a7c804f
 ms.service: virtual-network
@@ -14,19 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 12/26/2016
-ms.author: v-dazen
-ms.openlocfilehash: 9663defd93d85becec4973d26051c1ee9b86584e
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 04/02/2018
+ms.author: v-yeche
+ms.openlocfilehash: 2dcf0611bf43763a36d6cefa9eb67c5d98da89c4
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>使用 Azure CLI 控制路由和使用虚拟设备（经典）
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [Azure CLI](tutorial-create-route-table-cli.md)
 > * [模板](virtual-network-create-udr-arm-template.md)
 > * [PowerShell（经典）](virtual-network-create-udr-classic-ps.md)
 > * [CLI（经典）](virtual-network-create-udr-classic-cli.md)
@@ -35,7 +35,7 @@ ms.lasthandoff: 06/23/2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-本文介绍经典部署模型。 还可以[在 Resource Manager 部署模型中控制路由和使用虚拟设备](virtual-network-create-udr-arm-cli.md)。
+本文介绍经典部署模型。 还可以[在 Resource Manager 部署模型中控制路由和使用虚拟设备](tutorial-create-route-table-cli.md)。
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 06/23/2017
 
         info:    New mode is asm
 
-2. 运行以下命令，为前端子网创建路由表：
+2. 运行以下命令为前端子网创建路由表：
 
     ```azurecli
     azure network route-table create -n UDR-FrontEnd -l chinanorth
@@ -94,7 +94,7 @@ ms.lasthandoff: 06/23/2017
    * **-a（或 --address-prefix）**。 数据包的目标子网的地址前缀。 对于我们的方案，为 *192.168.2.0/24*。
    * **-t（或 --next-hop-type）**。 要发送的对象流量的类型。 可能的值为 *VirtualAppliance*、*VirtualNetworkGateway*、*VNETLocal*、*Internet* 或 *None*。
    * **-p（或 --next-hop-ip-address**）。 下一个跃点的 IP 地址。 对于我们的方案，为 *192.168.0.4*。
-4. 运行以下命令，将创建的路由表与 **FrontEnd** 子网关联：
+4. 运行以下命令将已创建的路由表与 **FrontEnd** 子网关联：
 
     ```azurecli
     azure network vnet subnet route-table add -t TestVNet -n FrontEnd -r UDR-FrontEnd
@@ -116,7 +116,7 @@ ms.lasthandoff: 06/23/2017
     参数：
 
    * **-t（或 --vnet-name）**。 子网所在的 VNet 的名称。 对于我们的方案，为 *TestVNet*。
-   * **-n（或 --subnet-name）**。 将在其中添加路由表的子网的名称。 对于我们的方案，为 *FrontEnd*。
+   * **-n（或 --subnet-name）**。 会在其中添加路由表的子网的名称。 对于我们的方案，为 *FrontEnd*。
 
 ## <a name="create-the-udr-for-the-back-end-subnet"></a>为后端子网创建 UDR
 若要根据方案为后端子网创建所需的路由表和路由，请完成以下步骤：
@@ -138,3 +138,4 @@ ms.lasthandoff: 06/23/2017
     ```azurecli
     azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
     ```
+<!-- Update_Description: update meta properties, wording update, update link -->

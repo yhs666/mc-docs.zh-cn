@@ -1,12 +1,12 @@
 ---
-title: "使用 MongoDB API 生成 Azure Cosmos DB 应用 | Azure"
-description: "使用适用于 MongoDB 的 Azure Cosmos DB API 创建联机数据库的教程。"
-keywords: "mongodb 示例"
+title: 使用 MongoDB API 生成 Azure Cosmos DB 应用 | Azure
+description: 使用适用于 MongoDB 的 Azure Cosmos DB API 创建联机数据库的教程。
+keywords: mongodb 示例
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: fb38bc53-3561-487d-9e03-20f232319a87
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/22/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3a7a3abad7bd86a6055b510d6f75f0035fca28d9
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: b2a0f6072aa9082d5e78708cfbeed84c438143fb
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>使用 Node.js 生成 Azure Cosmos DB: API for MongoDB 应用
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/22/2017
     var MongoClient = require('mongodb').MongoClient;
     var assert = require('assert');
     var ObjectId = require('mongodb').ObjectID;
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.cn:10255/?ssl=true';
+    var url = 'mongodb://<username>:<password>@<endpoint>.documents.azure.cn:10255/?ssl=true';
 
     var insertDocument = function(db, callback) {
     db.collection('families').insertOne( {

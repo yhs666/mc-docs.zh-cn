@@ -1,25 +1,25 @@
 ---
-title: "Azure 事件中心功能概述 | Azure"
-description: "有关 Azure 事件中心功能的概述和详细信息"
+title: Azure 事件中心功能概述 | Azure
+description: 有关 Azure 事件中心功能的概述和详细信息
 services: event-hubs
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/17/2017
-ms.date: 12/04/2017
+origin.date: 03/02/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0ee18aa77cdbab8043920064e961d6c60ef93e83
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 9ed3f50321ab82a76d78d20264f882e8b37ddf24
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="event-hubs-features-overview"></a>事件中心功能概述
 
@@ -35,7 +35,7 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 可以通过 AMQP 1.0 或 HTTPS 发布事件。 服务总线提供了[客户端库和类](event-hubs-dotnet-framework-api-overview.md)，用于从 .NET 客户端将事件发布到事件中心。 对于其他运行时和平台，可以使用任何 AMQP 1.0 客户端，例如 [Apache Qpid](http://qpid.apache.org/)。 可以逐个或者批量发送事件。 单个发布（事件数据实例）限制为 256 KB，无论其为单个事件还是批量事件。 发布大于此限制的事件将导致出错。 发布者最好是不知道事件中心内的分区数，而只是通过其 SAS 令牌指定“分区键”（如下一部分所述）或其标识。
 
-是要使用 AMQP 还 HTTPS 根据具体的使用方案而定。 AMQP 除了需要使用传输级别安全 (TLS) 或 SSL/TLS 以外，还需要建立持久的双向套接字。 初始化会话时，AMQP 具有较高的网络成本，但是 HTTPS 需要为每个请求使用额外的 SSL 开销。 对于活动频繁的发布者，AMQP 的性能更高。
+是要使用 AMQP 还 HTTPS 根据具体的使用方案而定。 AMQP 除了需要使用传输级别安全 (TLS) 或 SSL/TLS 以外，还需要建立持久的双向套接字。 AMQP 在初始化会话时的网络成本更高，而 HTTPS 则每次请求都需要额外的 SSL 开销。 对于活动频繁的发布者，AMQP 的性能更高。
 
 ![事件中心](./media/event-hubs-features/partition_keys.png)
 
@@ -68,7 +68,7 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 ![事件中心](./media/event-hubs-features/multiple_partitions.png)
 
-分区数在创建时指定，必须介于 2 到 32 之间。 分区计数不可更改，因此在设置分区计数时应考虑长期规模。 分区是一种数据组织机制，与使用方应用程序中所需的下游并行度相关。 事件中心的分区数与预期会有的并发读取者数直接相关。 要将分区数增加到 32 以上，可以联系事件中心团队。
+分区数在创建时指定，必须介于 2 到 32 之间。 分区计数不可更改，因此在设置分区计数时应考虑长期规模。 分区是一种数据组织机制，与使用方应用程序中所需的下游并行度相关。 事件中心的分区数与预期会有的并发读取者数直接相关。 可以通过联系事件中心团队将分区数增加到 32 个以上。
 
 虽然可以标识分区并向其直接发送数据，但并不建议直接发送到分区。 而应使用[事件发布者](#event-publishers)和[容量](#capacity)部分介绍的更高级构造。 
 
@@ -151,7 +151,7 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 * 入口：最高每秒 1 MB 或每秒 1000 个事件（以先达到的限制为准）
 * 出口：最高每秒 2 MB
 
-超出所购吞吐量单位的容量时，入口受限，返回 [ServerBusyException](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)。 出口不会出现限制异常，但仍受限于所购买吞吐量单位的容量。 如果收到发布速率异常或者预期看到更高的出口，请务必检查为命名空间购买的吞吐量单位数量。 可以在 [Azure 门户](https://portal.azure.cn)中命名空间的“规模”边栏选项卡上管理吞吐量单位。 也可使用[事件中心 API](event-hubs-api-overview.md) 以编程方式管理吞吐量单位。
+超出所购吞吐量单位的容量时，入口受限，返回 [ServerBusyException](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)。 出口不会出现限制异常，但仍受限于所购买吞吐量单位的容量。 如果收到发布速率异常或者预期会看到更高的出口，请务必检查为命名空间购买了多少吞吐量单位。 可以在 [Azure 门户](https://portal.azure.cn)中命名空间的“规模”边栏选项卡上管理吞吐量单位。 也可使用[事件中心 API](event-hubs-api-overview.md) 以编程方式管理吞吐量单位。
 
 吞吐量单位按小时计费，需提前购买。 购买后，吞吐量单位的最短计费时限为一小时。 最多可为事件中心命名空间购买 20 个吞吐量单位，并在命名空间中的所有事件中心之间共享。
 

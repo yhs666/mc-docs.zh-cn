@@ -1,18 +1,18 @@
 ---
-title: "使用 Site Recovery 对复制到 Azure 的 Hyper-V VM 进行故障转移和故障回复 | Azure"
-description: "了解如何使用 Azure Site Recovery 将 Hyper-V VM 故障转移到 Azure 以及向本地站点进行故障回复"
+title: 使用 Site Recovery 对复制到 Azure 的 Hyper-V VM 进行故障转移和故障回复 | Azure
+description: 了解如何使用 Azure Site Recovery 将 Hyper-V VM 故障转移到 Azure 以及向本地站点进行故障回复
 services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/14/2018
-ms.date: 03/05/2018
+origin.date: 03/08/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1ba846578088eab35b42f21e09df8fb73be15885
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: ed8f19f8971f8e05c96283fe99fb686f30bfd49c
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>对复制到 Azure 的 Hyper-V VM 进行故障转移和故障回复
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="verify-vm-properties"></a>验证虚拟机属性
 
-验证 VM 属性，确保 VM 符合 [Azure 要求](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
+验证 VM 属性，确保 VM 符合 [Azure 要求](hyper-v-azure-support-matrix.md#replicated-vms)。
 
 1. 在“受保护的项”中，单击“复制的项”>“<VM 名称>”。
 
@@ -83,5 +83,4 @@ ms.lasthandoff: 03/02/2018
 6. 登录到本地 VM，检查它是否按预期方式可用。
 7. 本地 VM 当前处于“等待提交”状态。 单击“提交”。 这会删除 Azure VM 及其磁盘，并准备本地 VM 进行反向复制。
 若要开始将本地 VM 复制到 Azure，请启用“反向复制”。 这会触发自关闭 Azure VM 以来发生的增量更改。
-<!-- Update_Description: new articles on hyper-v to azure failover failback tutorial -->
-<!--ms.date: 03/05/2018-->
+<!-- Update_Description: update meta properties, update link -->

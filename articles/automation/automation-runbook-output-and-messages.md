@@ -1,25 +1,21 @@
 ---
-title: "Azure 自动化中的 Runbook 输出和消息 | Azure"
-description: "介绍如何创建和检索 Azure 自动化中 Runbook 的输出和错误消息。"
+title: Azure 自动化中的 Runbook 输出和消息 | Azure
+description: 介绍如何创建和检索 Azure 自动化中 Runbook 的输出和错误消息。
 services: automation
-documentationcenter: 
 author: yunan2016
 manager: digimobile
 editor: tysonn
-ms.assetid: 13a414f5-0e2c-4be2-9558-a3e3ec84b6b2
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 11/11/2016
 ms.date: 01/15/2018
 ms.author: v-nany
-ms.openlocfilehash: a3c293198aff5c455103724901c4da340071afea
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: b325d314b8fe6345e14cc84d0669d0dc13298f4c
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure 自动化中的 Runbook 输出和消息
 大多数 Azure 自动化 Runbook 向用户或旨在由其他工作流使用的复杂对象提供某种形式的输出，例如错误消息。 Windows PowerShell 提供 [多个流](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) ，以便从脚本或工作流发送输出。 Azure 自动化以不同方式处理其中的每个流，在创建 Runbook 时，应该遵循有关如何使用每个流的最佳实践。

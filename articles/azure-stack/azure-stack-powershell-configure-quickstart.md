@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/11/2018
-ms.date: 03/02/2018
+origin.date: 03/22/2018
+ms.date: 03/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9ecdbd71395d2edd8ed127e5fd69f6817ce8d00f
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: d1e4c66f5697e9a4ca700a18f1b1f4f63c74369a
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>在 Azure Stack 中使用 PowerShell 启动并运行
 
@@ -69,7 +69,7 @@ Install-Module `
 
 # Download Azure Stack tools from GitHub and import the connect module.
 cd \
-
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -84,10 +84,6 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
-
-# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
-
 
 # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
@@ -139,6 +135,7 @@ Install-Module `
 
 # Download Azure Stack tools from GitHub and import the connect module.
 cd \
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -153,9 +150,6 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
 $ArmEndpoint = "<Resource Manager endpoint for your environment>"
-
-# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
 
 # Register an AzureRM environment that targets your Azure Stack instance
 Add-AzureRMEnvironment `
@@ -190,7 +184,7 @@ New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 - [开发模板](user/azure-stack-develop-templates.md)
 
 
-
+<!-- Update_Description: wording update -->
 
 
 

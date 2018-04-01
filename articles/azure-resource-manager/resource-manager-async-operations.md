@@ -1,25 +1,25 @@
 ---
-title: "Azure 异步操作 | Azure"
-description: "介绍如何在 Azure 中跟踪异步操作。"
+title: Azure 异步操作 | Azure
+description: 介绍如何在 Azure 中跟踪异步操作。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/11/2017
-ms.date: 01/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: f23e55b6a23d9b72eb38088ec589879b03f66628
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 7812904f6d85f061c7968e1051d917b88e6ef9dd
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="track-asynchronous-azure-operations"></a>跟踪异步 Azure 操作
 某些 Azure REST 操作以异步方式运行，因为操作无法快速完成。 本主题介绍如何通过响应中返回的值跟踪异步操作的状态。  
@@ -80,7 +80,7 @@ response.Headers.GetValues("Azure-AsyncOperation").GetValue(0)
 
 ## <a name="provisioningstate-values"></a>provisioningState 值
 
-用于创建、更新或删除（PUT、PATCH、DELETE）资源的操作通常返回 `provisioningState` 值。 完成操作后，将返回以下三个值之一： 
+用于创建、更新或删除（PUT、PATCH、DELETE）资源的操作通常返回 `provisioningState` 值。 完成操作后，返回以下三个值之一： 
 
 * 已成功
 * 已失败
@@ -123,7 +123,7 @@ https://management.chinacloudapi.cn/subscriptions/{subscription-id}/providers/Mi
 
 ### <a name="deploy-resources-201-with-azure-asyncoperation"></a>部署资源（Azure-AsyncOperation 标头出现 201 响应）
 
-此示例演示将资源部署到 Azure 时，如何确定“部署”  操作的状态。 初始请求采用以下格式：
+此示例演示将资源部署到 Azure 时，如何确定“部署” 操作的状态。 初始请求采用以下格式：
 
 ```HTTP
 PUT
@@ -195,5 +195,6 @@ https://management.chinacloudapi.cn/subscriptions/{subscription-id}/providers/Mi
 ## <a name="next-steps"></a>后续步骤
 
 * 有关每个 REST 操作的文档，请参阅 [REST API 文档](https://docs.microsoft.com/rest/api/)。
-* 有关通过 Resource Manager REST API 管理资源的信息，请参阅[使用 Resource Manager REST API](./resource-manager-rest-api.md)。
-* 有关通过 Resource Manager REST API 部署模板的信息，请参阅[使用 Resource Manager 模板和 Resource Manager REST API 部署资源](./resource-group-template-deploy-rest.md)。
+* 有关通过 Resource Manager REST API 部署模板的信息，请参阅[使用 Resource Manager 模板和 Resource Manager REST API 部署资源](resource-group-template-deploy-rest.md)。
+
+<!-- Update_Description: update meta properties, wording update, update link -->

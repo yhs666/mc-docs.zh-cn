@@ -1,25 +1,25 @@
 ---
-title: "使用基于角色的访问控制管理 Azure Site Recovery | Azure"
-description: "本文介绍如何应用基于角色的访问控制 (RBAC)，并利用它来管理 Azure Site Recovery 部署"
+title: 使用基于角色的访问控制管理 Azure Site Recovery | Azure
+description: 本文介绍如何应用基于角色的访问控制 (RBAC)，并利用它来管理 Azure Site Recovery 部署
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2018
-ms.date: 03/05/2018
+origin.date: 02/27/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0e6416af32cdd6500d28fa81a228ac05bff2a272
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 8467fd58a9b4398b5b623570a2cf5f276617a32b
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>使用基于角色的访问控制管理 Azure Site Recovery
 

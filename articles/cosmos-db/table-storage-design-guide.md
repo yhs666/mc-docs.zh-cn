@@ -1,6 +1,6 @@
 ---
-title: "Azure 存储表设计指南 | Azure"
-description: "在 Azure 表存储中设计可伸缩的高性能表"
+title: Azure 存储表设计指南 | Azure
+description: 在 Azure 表存储中设计可伸缩的高性能表
 services: cosmos-db
 documentationcenter: na
 author: rockboyfor
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 11/03/2017
-ms.date: 03/05/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3377e8d50cdd15dd4f899cad923daa8f9df4db76
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 1d68baec2414293e9a08c151691cb14c92429008
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 存储表设计指南：设计可伸缩的高性能表
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -233,7 +233,7 @@ EGT 还引入了潜在的权衡，以便在设计中进行评估：使用更多�
 * [处理异类实体类型](#working-with-heterogeneous-entity-types)  
 
 ### <a name="choosing-an-appropriate-partitionkey"></a>选择适当的 PartitionKey
-所选的 **PartitionKey** 应平衡不同需求，决定是使用 EGT 确保一致性还是将实体分布到多个分区中来确保可缩放的解决方案。  
+所选的 **PartitionKey** 应权衡不同需求，决定是使用 EGT 确保一致性还是将实体分布到多个分区中来确保可伸缩的解决方案。  
 
 一种极端做法是，可以将所有实体都存储在单个分区，但这可能会限制解决方案的可伸缩性并且会使表服务无法对请求进行负载均衡。 另一种极端做法是，可以每个分区存储一个实体，这样可以获得高伸缩性，并且使表服务能够对请求进行负载均衡，但无法使用实体组事务。  
 
@@ -262,7 +262,7 @@ EGT 还引入了潜在的权衡，以便在设计中进行评估：使用更多�
 
 * [内分区的第二索引模式](#intra-partition-secondary-index-pattern) - 利用同一分区中的 RowKey 值存储每个实体的多个副本，实现快速、高效的查询并借助不同的 RowKey 值替换排序顺序。  
 * [内分区的第二索引模式](#inter-partition-secondary-index-pattern) - 在单独分区/表格中利用不同 RowKey 值存储每个实体的多个副本，实现快速高效的查找，并借助 RowKey 值替换排序顺序。
-* [日志结尾模式](#log-tail-pattern) - 利用按日期和时间倒序方式排序的 RowKey 值，检索最近添加到分区中的 n 个实体。  
+* [日志结尾模式](#log-tail-pattern) - 通过使用以日期时间倒序排序的 *RowKey* 值检索最近添加到分区中的 **n** 个实体。  
 
 ## <a name="design-for-data-modification"></a>针对数据修改的设计
 本部分重点介绍优化插入、更新和删除的设计注意事项。 在某些情况下，需要在针对查询优化的设计与针对数据修改优化的设计之间进行权衡，就像你在设计关系数据库时要做的那样（尽管在关系数据库中，管理设计权衡的方法是不同的）。 [表设计模式](#table-design-patterns)部分介绍了一些详细的表服务设计模式，着重阐释了其中的部分权衡。 在实践中，会发现许多针对查询实体优化的设计对于修改实体也能很好地工作。  
@@ -298,7 +298,7 @@ EGT 还引入了潜在的权衡，以便在设计中进行评估：使用更多�
 [表设计模式](#table-design-patterns) 这部分中的以下模式实施针对高效查询的设计与针对高效数据修改的设计之间的折衷方案：  
 
 * [复合键模式](#compound-key-pattern) - 使用复合 **RowKey** 值可让客户端使用单个点查询查找相关数据。  
-* [日志结尾模式](#log-tail-pattern) - 利用按日期和时间倒序方式排序的 RowKey 值，检索最近添加到分区中的 n 个实体。  
+* [日志结尾模式](#log-tail-pattern) - 通过使用以日期时间倒序排序的 *RowKey* 值检索最近添加到分区中的 **n** 个实体。  
 
 ## <a name="encrypting-table-data"></a>对表数据进行加密
 .NET Azure 存储客户端库支持对插入和替换操作的字符串实体属性进行加密。 加密的字符串作为二进制属性存储在服务中，并在解密之后转换回字符串。    
@@ -720,10 +720,10 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 * [最终一致的事务模式](#eventually-consistent-transactions-pattern)  
 
 ### <a name="log-tail-pattern"></a>日志结尾模式
-使用按日期和时间倒序排列的 RowKey 值，检索最近添加到分区的 n 个实体。  
+通过使用以日期时间倒序排序的 *RowKey* 值检索最近添加到分区中的 **n** 个实体。  
 
 #### <a name="context-and-problem"></a>上下文和问题
-一个常见的需求是能够检索最近创建的实体，例如某个员工提交的最近 10 个费用报销单。 表查询支持 $top 查询操作，可返回一个集中的前 n 个实体：没有可返回集中最后 n 个实体的等效查询操作。  
+一个常见的需求是能够检索最近创建的实体，例如某个员工提交的最近 10 个费用报销单。 表查询支持 **$top** 查询操作以返回一个集中的前 n 个实体：没有等效的查询操作可返回一个集中的最后 *n* 个实体。  
 
 #### <a name="solution"></a>解决方案
 利用按日期/时间倒序顺序自然排序的 **RowKey** 存储实体，由此使最新条目始终显示为表格中的第一条。  
@@ -1547,4 +1547,4 @@ private static async Task SimpleEmployeeUpsertAsync(CloudTable employeeTable,
 [28]: ./media/storage-table-design-guide/storage-table-design-IMAGE28.png
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

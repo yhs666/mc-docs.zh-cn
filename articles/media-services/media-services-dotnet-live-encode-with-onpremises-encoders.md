@@ -1,11 +1,11 @@
 ---
-title: "如何使用 .NET 通过本地编码器执行实时传送视频流 | Azure"
-description: "本主题演示如何使用 .NET 通过本地编码器执行实时编码。"
+title: 如何使用 .NET 通过本地编码器执行实时传送视频流 | Azure
+description: 本主题演示如何使用 .NET 通过本地编码器执行实时编码。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 15908152-d23c-4d55-906a-3bfd74927db5
 ms.service: media-services
 ms.workload: media
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 5cdf174ba1b30512f42f774dc70e37fb48d3e1e0
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: da4ad8e9877268f4f128a4d4668a049fa2d5e17d
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>如何使用 .NET 通过本地编码器执行实时传送视频流
 > [!div class="op_single_selector"]
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/22/2017
 
 有关如何配置实时编码器的信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)。
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

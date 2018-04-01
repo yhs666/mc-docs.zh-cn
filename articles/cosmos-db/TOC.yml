@@ -206,6 +206,10 @@
               href: mongodb-robomongo.md
             - name: 使用 Mongoose
               href: mongodb-mongoose.md
+            - name: 使用读取首选项
+              href: mongodb-readpreference.md
+            - name: 索引
+              href: mongodb-indexing.md
             - name: MongoDB 功能支持
               href: mongodb-feature-support.md
             - name: Angular 教程系列
@@ -302,8 +306,13 @@
           href: lambda-architecture.md
         - name: 连接到 Spark
           href: spark-connector.md
+        - name: 通过 HDInsight 上的 Kafka 和 Spark 进行流式处理
+          href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: 使用 Azure 应用服务部署网站
           href: create-website.md
+        - name: 使用逻辑应用进行应用程序日志记录
+          href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
         - name: 实时处理传感器数据
           href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
         - name: 使用 Power BI 直观显示数据
@@ -316,6 +325,8 @@
   items:
     - name: SQL API
       items:
+        - name: 异步 Java
+          href: sql-api-sdk-async-java.md
         - name: Java
           href: sql-api-sdk-java.md
         - name: .NET

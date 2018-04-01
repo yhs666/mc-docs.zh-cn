@@ -1,11 +1,11 @@
 ---
-title: "如何使用 Azure 媒体服务实时传送视频流以通过 .NET 创建多比特率流 | Azure"
-description: "本教程指导使用 .NET SDK 完成创建通道的步骤，该通道接收单比特率实时流，并将其编码为多比特率流。"
+title: 如何使用 Azure 媒体服务实时传送视频流以通过 .NET 创建多比特率流 | Azure
+description: 本教程指导使用 .NET SDK 完成创建通道的步骤，该通道接收单比特率实时流，并将其编码为多比特率流。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
 ms.service: media-services
 ms.workload: media
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 3d7aaa0fd2ee4d06edd2ff2229ce03c4a6a9ce17
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: e94787175d89b9ec5059c29af3bbfbee1f1f08d6
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>如何使用 Azure 媒体服务执行实时流式处理以通过 .NET 创建多比特率流
 > [!div class="op_single_selector"]
@@ -111,7 +111,7 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="code-example"></a>代码示例
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

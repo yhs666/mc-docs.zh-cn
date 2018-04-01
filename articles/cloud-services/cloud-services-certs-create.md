@@ -1,11 +1,11 @@
 ---
-title: "云服务和管理证书 | Azure"
-description: "了解如何在 Azure 中创建和使用证书"
+title: 云服务和管理证书 | Azure
+description: 了解如何在 Azure 中创建和使用证书
 services: cloud-services
-documentationCenter: .net
-authors: Thraka
+documentationcenter: .net
+author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc70d00d-899b-4771-855f-44574dc4bfc6
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/19/2017
 ms.author: v-yiso
-ms.date: 01/15/2018
-ms.openlocfilehash: 19299c76797ea9d277d56cfacfa3a7b105023f03
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.date: 04/02/2018
+ms.openlocfilehash: 826a76b7b9acbbdcea82078c44ba0ebb7d29dd03
+ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure 云服务证书概述
 证书在 Azure 中用于云服务（[服务证书](#what-are-service-certificates)）以及用于通过管理 API 进行身份验证（[管理证书](#what-are-management-certificates)）。 本主题提供了这两种证书类型的一般概述，并说明了如何[创建](#create)并将其[部署](#deploy)到 Azure。
@@ -48,8 +48,6 @@ Azure 使用的证书可以包含一个私钥或公钥。 证书具有指纹，�
 
 ### <a name="limitations"></a>限制
 每个订阅最多只能有 100 个管理证书。 特定服务管理员用户 ID 下的所有订阅同样最多只能有 100 个管理证书。 如果帐户管理员的用户 ID 下已添加 100 个管理证书，但还需要更多证书，则可以添加共同管理员，从而增加额外的证书。 
-
-当添加的证书数量达到 100 个之后，请检查是否可重用现有证书，并决定是否添加更多证书。 添加共同管理员可能导致证书管理流程变得更复杂。
 
 <a name="create"></a>
 ## <a name="create-a-new-self-signed-certificate"></a>创建新的自签名证书
@@ -88,7 +86,7 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 Internet 上有许多关于如何使用 IIS 实现此操作的信息。 [此页面](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) 就是示例之一，其阐述非常清楚。 
 
 ### <a name="linux"></a>Linux
-[本文](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)介绍如何通过 SSH 创建证书。
+[本文](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)介绍如何通过 SSH 创建证书。
 
 ## <a name="next-steps"></a>后续步骤
 [将服务证书上传到 Azure 门户](cloud-services-configure-ssl-certificate-portal.md)。

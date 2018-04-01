@@ -1,25 +1,25 @@
 ---
-title: "可以通过 Azure Site Recovery 保护哪些工作负荷？ | Azure"
-description: "介绍可以通过将灾难恢复与 Azure Site Recovery 服务配合使用来保护的工作负荷。"
+title: 可以通过 Azure Site Recovery 保护哪些工作负荷？ | Azure
+description: 介绍可以通过将灾难恢复与 Azure Site Recovery 服务配合使用来保护的工作负荷。
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 12/15/2017
-ms.date: 01/22/2018
+origin.date: 03/16/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 149189eb1c059f6c9c239f5c87adb8ed2b018d7e
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: ec9b066fb37e9e2b6abe5c69fbf48918b17b3f27
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>可以通过 Azure Site Recovery 保护哪些工作负荷？
 

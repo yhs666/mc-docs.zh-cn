@@ -1,26 +1,26 @@
 ---
-title: "配置 Azure 虚拟网络服务终结点 | Azure"
-description: "了解如何从虚拟网络启用和禁用服务终结点"
+title: 配置 Azure 虚拟网络服务终结点 | Azure
+description: 了解如何从虚拟网络启用和禁用服务终结点
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/31/2018
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.custom: 
-ms.openlocfilehash: 187a75ef572494537c1f553fdec4213c9443cf0e
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.custom: ''
+ms.openlocfilehash: e4242026f0fe8e06083a028f34e681179cd470c6
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>配置虚拟网络服务终结点
 
@@ -230,7 +230,7 @@ Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRm
 ## <a name="azure-cli"></a>Azure CLI
 
 设置先决条件：
-- 使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。 有关登录的详细信息，请参阅 [Azure CLI 2.0 入门](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest)。
+- 使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login) 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。 有关登录的详细信息，请参阅 [Azure CLI 2.0 入门](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest)。
  - 该帐户必须拥有创建虚拟网络和服务终结点的必要[权限](#provisioning)。
 
  有关针对虚拟网络的完整命令列表，请参阅 [Azure CLI 虚拟网络命令](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest)
@@ -397,4 +397,4 @@ VNet 和 Azure 服务资源可以位于相同或不同的订阅中。 如果两�
 
 [在虚拟网络中保护 Azure SQL](/sql-database/sql-database-vnet-service-endpoint-rule-overview)
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update wording, update link -->

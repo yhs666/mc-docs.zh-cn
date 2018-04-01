@@ -1,12 +1,12 @@
 ---
-title: "适用于 .NET 的 Azure Cosmos DB 性能提示 | Azure"
-description: "了解用于提高 Azure Cosmos DB 数据库性能的客户端配置选项"
-keywords: "如何提高数据库性能"
+title: 适用于 .NET 的 Azure Cosmos DB 性能提示 | Azure
+description: 了解用于提高 Azure Cosmos DB 数据库性能的客户端配置选项
+keywords: 如何提高数据库性能
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 94ff155e-f9bc-488f-8c7a-5e7037091bb9
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/24/2018
-ms.date: 03/05/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1146789ff9c07ec0b7180666aeed15479df07948
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 4dc591c861535c721f8d817c0e02103abb4cb0cb
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -227,4 +227,4 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 此外，若要了解如何设计应用程序以实现缩放和高性能的详细信息，请参阅 [Azure Cosmos DB 中的分区和缩放](partition-data.md)。
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

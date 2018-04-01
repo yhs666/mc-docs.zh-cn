@@ -1,11 +1,11 @@
 ---
-title: "如何设置计算机以使用 .NET 进行媒体服务开发"
-description: "了解使用适用于 .NET 的媒体服务 SDK 进行媒体服务开发所要满足的先决条件。 此外，了解如何创建 Visual Studio 应用程序。"
+title: 如何设置计算机以使用 .NET 进行媒体服务开发
+description: 了解使用适用于 .NET 的媒体服务 SDK 进行媒体服务开发所要满足的先决条件。 此外，了解如何创建 Visual Studio 应用程序。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
 ms.workload: media
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 43112ee86e1892bda20fcbcba013fb8859797e2e
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: edfcb0c032a4bc6607a5211cebff7086cfad22e3
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="media-services-development-with-net"></a>使用 .NET 进行媒体服务开发
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -64,67 +64,73 @@ ms.lasthandoff: 12/22/2017
     3. 在 .NET Framework 程序集下，找到并选择 System.Configuration 程序集，并按“确定”。
 6. 打开 App.config 文件并将 **appSettings** 节添加到文件。 设置连接到媒体服务 API 所需的值。 有关详细信息，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
 
-设置使用**服务主体**身份验证方法进行连接所需的值。  
+    设置使用**服务主体**身份验证方法进行连接所需的值。
 
-        <configuration>
-        ...
-            <appSettings>
-                <add key="AMSAADTenantDomain" value="tenant"/>
-                <add key="AMSRESTAPIEndpoint" value="endpoint"/>
-                <add key="AMSClientId" value="id"/>
-                <add key="AMSClientSecret" value="secret"/>
-            </appSettings>
+        ```csharp
+                <configuration>
+                ...
+                    <appSettings>
+                        <add key="AMSAADTenantDomain" value="tenant"/>
+                        <add key="AMSRESTAPIEndpoint" value="endpoint"/>
+                        <add key="AMSClientId" value="id"/>
+                        <add key="AMSClientSecret" value="secret"/>
+                    </appSettings>
+                </configuration>
+        ```
 
-        </configuration>
 7. 向你的项目中添加 **System.Configuration** 引用。
-7. 使用以下代码覆盖位于 Program.cs 文件开头的现有 **using** 语句：
-           
-        using System;
-        using System.Configuration;
-        using System.IO;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-        using System.Threading;
-        using System.Collections.Generic;
-        using System.Linq;
+8. 使用以下代码覆盖位于 Program.cs 文件开头的现有 **using** 语句：
 
-现在，可以开始开发媒体服务应用程序了。    
+    ```csharp      
+            using System;
+            using System.Configuration;
+            using System.IO;
+            using Microsoft.WindowsAzure.MediaServices.Client;
+            using System.Threading;
+            using System.Collections.Generic;
+            using System.Linq;
+    ```
+
+    现在，可以开始开发媒体服务应用程序了。    
 
 ## <a name="example"></a>示例
 
 下面是一个小型示例，该示例连接到 AMS API 并列出所有可用的媒体处理器。
 
-    class Program
-    {
-        // Read values from the App.config file.
-
-        private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
-        private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
-        private static readonly string _AMSClientId =
-            ConfigurationManager.AppSettings["AMSClientId"];
-        private static readonly string _AMSClientSecret =
-            ConfigurationManager.AppSettings["AMSClientSecret"];
-    
-        private static CloudMediaContext _context = null;
-        static void Main(string[] args)
+```csharp
+        class Program
         {
-            AzureAdTokenCredentials tokenCredentials = 
-                new AzureAdTokenCredentials(_AADTenantDomain,
-                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-                    AzureEnvironments.AzureCloudEnvironment);
+            // Read values from the App.config file.
 
-            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-
-            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-
-            // List all available Media Processors
-            foreach (var mp in _context.MediaProcessors)
+            private static readonly string _AADTenantDomain =
+                ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+                ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+            private static readonly string _AMSClientId =
+                ConfigurationManager.AppSettings["AMSClientId"];
+            private static readonly string _AMSClientSecret =
+                ConfigurationManager.AppSettings["AMSClientSecret"];
+        
+            private static CloudMediaContext _context = null;
+            static void Main(string[] args)
             {
-                Console.WriteLine(mp.Name);
-            }
+                AzureAdTokenCredentials tokenCredentials = 
+                    new AzureAdTokenCredentials(_AADTenantDomain,
+                        new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                        AzureEnvironments.AzureCloudEnvironment);
 
-        }
+                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+        
+                // List all available Media Processors
+                foreach (var mp in _context.MediaProcessors)
+                {
+                    Console.WriteLine(mp.Name);
+                }
+        
+            }
+ ```
 
 ##<a name="next-steps"></a>后续步骤
 

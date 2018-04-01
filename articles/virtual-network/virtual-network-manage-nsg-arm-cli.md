@@ -1,11 +1,11 @@
 ---
-title: "管理网络安全组 - Azure CLI | Azure"
-description: "了解如何使用 Azure 命令行接口管理网络安全组。"
+title: 管理网络安全组 - Azure CLI | Azure
+description: 了解如何使用 Azure 命令行接口管理网络安全组。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: ed17d314-07e6-4c7f-bcf1-a8a2535d7c14
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/21/2017
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7caf3becd64e51e5733cf9115411ac8566d45144
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 26fab51c7e36dce9a60521548a19ff19db8df665
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli"></a>使用 Azure CLI 管理网络安全组
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/12/2018
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## <a name="prerequisite"></a>先决条件
-如果尚未这样做，请安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录 Azure 帐户。 
+如果尚未这样做，请安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login) 登录 Azure 帐户。 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -347,4 +347,4 @@ az network vnet subnet update \
 <!--Not Available ## Next steps-->
 <!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) -->
 
-<!-- Update_Description: update meta properties, update link, wording update -->
+<!-- Update_Description: update link, wording update -->

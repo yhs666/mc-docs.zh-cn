@@ -1,26 +1,21 @@
 ---
-title: "Azure 自动化中基于角色的访问控制 | Microsoft Docs"
-description: "基于角色的访问控制 (RBAC) 可用于对 Azure 资源进行访问管理。 本文介绍如何设置 Azure 自动化中的 RBAC。"
+title: Azure 自动化中基于角色的访问控制 | Microsoft Docs
+description: 基于角色的访问控制 (RBAC) 可用于对 Azure 资源进行访问管理。 本文介绍如何设置 Azure 自动化中的 RBAC。
 services: automation
-documentationcenter: 
 author: yunan2016
 manager: digimobile
 editor: tysonn
-keywords: "自动化 rbac, 基于角色的访问控制, azure rbac"
-ms.assetid: 04b5625e-0ee8-4b5b-85cd-7734c1b3d4a3
+keywords: 自动化 rbac, 基于角色的访问控制, azure rbac
 ms.service: automation
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 02/05/2018
 ms.date: 2/27/2018
 ms.author: v-nany
-ms.openlocfilehash: 04d934e37b4bd733f793f6a1f84895437b1d17ac
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: ea8bccd288bcc699255b4fb4d5be7632a13a2277
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自动化中基于角色的访问控制
 

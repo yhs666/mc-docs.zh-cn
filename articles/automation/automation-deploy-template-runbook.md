@@ -1,24 +1,21 @@
 ---
-title: "在 Azure 自动化 Runbook 中部署 Azure 资源管理器模板 | Microsoft Docs"
-description: "如何通过 Runbook 部署 Azure 存储中存储的 Azure 资源管理器模板"
+title: 在 Azure 自动化 Runbook 中部署 Azure 资源管理器模板 | Microsoft Docs
+description: 如何通过 Runbook 部署 Azure 存储中存储的 Azure 资源管理器模板
 services: automation
-documentationcenter: dev-center-name
 author: yunan2016
 manager: digimobile
-keywords: "powershell, runbook, json, azure 自动化"
+keywords: powershell, runbook, json, azure 自动化
 ms.service: automation
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
 origin.date: 07/09/2017
 ms.date: 01/11/2018
 ms.author: v-nany
-ms.openlocfilehash: b6ec70e9b655f2059cfaef66814a000529fd6454
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 490ff3217910dbcf70ba1ba6bb8c7b6209fcb62e
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>在 Azure 自动化 PowerShell Runbook 中部署 Azure 资源管理器模板
 

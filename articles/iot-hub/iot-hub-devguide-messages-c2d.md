@@ -1,24 +1,24 @@
 ---
-title: "了解 Azure IoT 中心云到设备的消息传送 | Azure"
-description: "开发人员指南 - 如何在 IoT 中心使用云到设备的消息传送。 包含有关消息生命周期和配置选项的信息。"
+title: 了解 Azure IoT 中心云到设备的消息传送 | Azure
+description: 开发人员指南 - 如何在 IoT 中心使用云到设备的消息传送。 包含有关消息生命周期和配置选项的信息。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 09/06/2017
+origin.date: 03/15/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 1e18acbba8081d34d1b53bef85d12fe770dea081
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 04/09/2018
+ms.openlocfilehash: bb3fa462d44ff0637e19dc9597952fabb84cf95e
+ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>从 IoT 中心发送云到设备的消息
 
@@ -83,11 +83,11 @@ IoT 中心服务向设备发送消息时，该服务会将消息状态设置为�
 
 如果 **Ack** 为 **full**，且未收到反馈消息，则意味着反馈消息已过期。 该服务无法了解原始消息的经历。 实际上，服务应该确保它可以在反馈过期之前对其进行处理。 最长过期时间是两天，因此当发生故障时，有时间让服务再次运行。
 
-如[终结点][lnk-endpoints]中所述，IoT 中心通过面向服务的终结点 (**/messages/servicebound/feedback**) 以消息方式传送反馈。 接收反馈的语义与从云到设备的消息的语义相同，并且具有相同的[消息生命周期][lnk-lifecycle]。 可能的话，消息反馈将放入单个消息中，其格式如下：
+如[终结点][lnk-endpoints]中所述，IoT 中心通过面向服务的终结点 (**/messages/servicebound/feedback**) 以消息方式传送反馈。 接收反馈的语义与云到设备消息的语义相同。 可能的话，消息反馈将放入单个消息中，其格式如下：
 
 | 属性     | 说明 |
 | ------------ | ----------- |
-| EnqueuedTime | 指示创建消息时的时间戳。 |
+| EnqueuedTime | 指示中心收到反馈消息时的时间戳。 |
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
@@ -95,7 +95,7 @@ IoT 中心服务向设备发送消息时，该服务会将消息状态设置为�
 
 | 属性           | 说明 |
 | ------------------ | ----------- |
-| EnqueuedTimeUtc    | 指示消息结果出现时的时间戳。 例如，设备已完成或消息已过期。 |
+| EnqueuedTimeUtc    | 指示消息结果出现时的时间戳。 例如，中心收到了已过期的反馈消息或原始消息。 |
 | OriginalMessageId  | 与此反馈信息相关的从云到设备的消息的 MessageId。 |
 | StatusCode         | 必需的字符串。 在 IoT 中心生成的反馈消息中使用。 <br/> “Success” <br/> “Expired” <br/> “DeliveryCountExceeded” <br/> “Rejected” <br/> “Purged” |
 | 说明        | **StatusCode**的字符串值。 |

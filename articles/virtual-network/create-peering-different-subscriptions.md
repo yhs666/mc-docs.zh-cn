@@ -1,26 +1,26 @@
 ---
-title: "创建 Azure 虚拟网络对等互连 - 资源管理器 - 不同的订阅 | Azure"
-description: "了解如何在通过不同 Azure 订阅中的资源管理器创建的虚拟网络间创建虚拟网络对等互连。"
+title: 创建 Azure 虚拟网络对等互连 - 资源管理器 - 不同的订阅 | Azure
+description: 了解如何在通过不同 Azure 订阅中的资源管理器创建的虚拟网络间创建虚拟网络对等互连。
 services: virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6a393a738ce357c1641cb98c7c2ff5ca69c4085c
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: bbc00e396cb58521748663da9e6afdc957a60e19
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>创建虚拟网络对等互连 - 资源管理器，不同的订阅 
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/12/2018
 
 |Azure 部署模型  | Azure 订阅  |
 |--------- |---------|
-|[均为资源管理器模型](virtual-network-create-peering.md) |相同|
+|[均为资源管理器模型](tutorial-connect-virtual-networks-portal.md) |相同|
 |[一个为资源管理器模型，一个为经典模型](create-peering-different-deployment-models.md) |相同|
 |[一个为 Resource Manager 模型，一个为经典模型](create-peering-different-deployment-models-subscriptions.md) |不同|
 
@@ -394,4 +394,4 @@ ms.lasthandoff: 03/12/2018
 - 了解所有的[虚拟网络对等互连设置](virtual-network-manage-peering.md#create-a-peering)。
 - 了解如何使用虚拟网络对等互连[创建中心辐射型网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering)。
 
-<!--Update_Description: update meta propeties, wording update, update link -->
+<!--Update_Description: wording update, update link -->

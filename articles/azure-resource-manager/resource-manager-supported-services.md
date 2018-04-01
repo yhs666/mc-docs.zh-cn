@@ -1,6 +1,6 @@
 ---
-title: "Azure 资源提供程序和资源类型 | Azure"
-description: "介绍支持 Resource Manager 的资源提供程序及其架构和可用 API 版本，以及可托管资源的区域。"
+title: Azure 资源提供程序和资源类型 | Azure
+description: 介绍支持 Resource Manager 的资源提供程序及其架构和可用 API 版本，以及可托管资源的区域。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/25/2017
-ms.date: 09/04/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: bbd3cfb35d4dde22e28ca1d89af8cff36b2857a1
-ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
+ms.openlocfilehash: 84be7c8219db646ca6eca0745ca9a293a5567c2c
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="resource-providers-and-types"></a>资源提供程序和类型
 
@@ -54,7 +54,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-通过注册资源提供程序，将订阅配置为使用资源提供程序。 注册的作用域始终是订阅。 默认情况下，将自动注册许多资源提供程序。 但可能需要手动注册某些资源提供程序。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 此操作包含在“参与者”和“所有者”角色中。
+通过注册资源提供程序来配置订阅，以供资源提供程序使用。 注册的作用域始终是订阅。 默认情况下，将自动注册许多资源提供程序。 但可能需要手动注册某些资源提供程序。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 此操作包含在“参与者”和“所有者”角色中。
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
@@ -77,7 +77,7 @@ Locations         : {China North, China East, China East 2, China North...}
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
-这会返回类似于下面的结果：
+这会返回类似于以下的结果：
 
 ```powershell
 {ProviderNamespace : Microsoft.Batch
@@ -155,13 +155,13 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-通过注册资源提供程序，将订阅配置为使用资源提供程序。 注册的作用域始终是订阅。 默认情况下，将自动注册许多资源提供程序。 但可能需要手动注册某些资源提供程序。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 此操作包含在“参与者”和“所有者”角色中。
+通过注册资源提供程序来配置订阅，以供资源提供程序使用。 注册的作用域始终是订阅。 默认情况下，将自动注册许多资源提供程序。 但可能需要手动注册某些资源提供程序。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 此操作包含在“参与者”和“所有者”角色中。
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
 ```
 
-这会返回一条消息，指出注册正在进行。
+这将返回“注册正在进行中”的信息。
 
 当订阅中仍有某个资源提供程序的资源类型时，不能注销该资源提供程序。
 
@@ -171,7 +171,7 @@ az provider register --namespace Microsoft.Batch
 az provider show --namespace Microsoft.Batch
 ```
 
-这会返回类似于下面的结果：
+这会返回类似于以下的结果：
 
 ```azurecli
 {
@@ -258,9 +258,9 @@ China East
 
 当订阅中仍有某个资源提供程序的资源类型时，不能注销该资源提供程序。
 
-若要查看特定资源提供程序的信息，请选择“更多服务”。
+若要查看特定资源提供程序的信息，请选择“所有服务”。
 
-![选择更多服务](./media/resource-manager-supported-services/more-services.png)
+![选择“所有服务”](./media/resource-manager-supported-services/more-services.png)
 
 搜索“资源浏览器”，然后从可用选项中选择它。
 

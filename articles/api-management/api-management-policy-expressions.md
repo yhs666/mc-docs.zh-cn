@@ -1,11 +1,11 @@
 ---
-title: "Azure API 管理策略表达式"
-description: "了解 Azure API 管理中的策略表达式。"
+title: Azure API 管理策略表达式
+description: 了解 Azure API 管理中的策略表达式。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ea160028-fc04-4782-aa26-4b8329df3448
 ms.service: api-management
 ms.workload: mobile
@@ -15,15 +15,23 @@ ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
 ms.date: 03/19/2018
-ms.openlocfilehash: b5a9ad15dd6ae418c0e830781ff057d8b71680a8
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: e2703b46c6ac31e233a4085c061b228059d64807
+ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="api-management-policy-expressions"></a>API 管理策略表达式
-策略表达式语法为 C# 6.0 版。 每个表达式都可以访问隐式提供的[上下文](./api-management-policy-expressions.md#ContextVariables)变量以及允许的 .NET Framework 类型[子集](./api-management-policy-expressions.md#CLRTypes)。  
-  
+本文讨论策略表达式语法 C# 7。 每个表达式都可以访问隐式提供的[上下文](api-management-policy-expressions.md#ContextVariables)变量以及允许的 .NET Framework 类型[子集](api-management-policy-expressions.md#CLRTypes)。  
+
+更多相关信息：
+
+- 了解如何向后端服务提供上下文信息。 使用[设置查询字符串参数](api-management-transformation-policies.md#SetQueryStringParameter)和[设置 HTTP 标头](api-management-transformation-policies.md#SetHTTPheader)策略来提供此信息。
+- 了解如何使用[验证 JWT](api-management-access-restriction-policies.md#ValidateJWT) 策略根据令牌声明预先授予操作访问权限。   
+- 了解如何使用 [API 检查器](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/)跟踪查看策略求值方法和这些求值的结果。  
+- 了解如何对[从缓存获取](api-management-caching-policies.md#GetFromCache)和[存储到缓存](api-management-caching-policies.md#StoreToCache)策略使用表达式，以便配置 API 管理响应缓存。 设置持续时间，使之匹配由后端服务的 `Cache-Control` 指令指定的后端服务响应缓存。  
+- 了解如何进行内容筛选。 删除使用[控制流](api-management-advanced-policies.md#choose)和[设置正文](api-management-transformation-policies.md#SetBody)策略从后端接收的响应中的数据元素。 
+- 若要下载此视频中使用的策略语句，请参阅 [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) github 存储库。  
   
   
 ##  <a name="Syntax"></a> 语法  

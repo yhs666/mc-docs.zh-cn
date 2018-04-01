@@ -1,12 +1,12 @@
 ---
-title: "使用 .NET SDK 管理流式处理终结点。 | Microsoft Docs"
-description: "本主题说明如何使用 Azure 门户管理流式处理终结点。"
+title: 使用 .NET SDK 管理流式处理终结点。 | Microsoft Docs
+description: 本主题说明如何使用 Azure 门户管理流式处理终结点。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 writer: juliako
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 0da34a97-f36c-48d0-8ea2-ec12584a2215
 ms.service: media-services
 ms.workload: media
@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 76059df13b8d3326090b2fd00faa28bb8781fdf1
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: e214b6cec1c6577a87d2a4c1f4d911d072b89afd
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>使用 .NET SDK 管理流式处理终结点
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 12/22/2017
     
 将 Program.cs 中的代码替换为以下代码：
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;

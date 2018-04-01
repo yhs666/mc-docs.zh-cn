@@ -1,3 +1,5 @@
+# [负载均衡器文档](index.md)
+
 # 概述
 ## [什么是负载均衡器？](load-balancer-overview.md)
 <!-- Not Available ## [What is Load Balancer Standard?](load-balancer-standard-overview.md)-->
@@ -9,6 +11,7 @@
 <!-- Not Available ## [IPv6 support](load-balancer-ipv6-overview.md)-->
 ## [多个 VIP](load-balancer-multivip-overview.md)
 ## [了解出站连接](load-balancer-outbound-connections.md)
+<!-- Not Available ## [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md)-->
 
 # 入门
 
@@ -22,14 +25,13 @@
 ### [配置公共负载均衡器 (CLI)](load-balancer-get-started-internet-arm-cli.md)
 ### [配置公共负载均衡器（模板）](load-balancer-get-started-internet-arm-template.md)
 
+<!-- Not Available ## [Create public Load Balancer with IPv6](load-balancer-ipv6-internet-ps.md) -->
+<!-- Not Available ### [Create public Load Balancer with IPv6 (CLI)](load-balancer-ipv6-internet-cli.md) -->
+<!-- Not Available ### [Create public Load Balancer with IPv6 (Template)](load-balancer-ipv6-internet-template.md) -->
 
-
-<!-- Not Available ## [Create an Internet facing load balancer with IPv6](load-balancer-ipv6-internet-ps.md)-->
-<!-- Not Available ### [Create an Internet facing load balancer with IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)-->
-<!-- Not Available ### [Create an Internet facing load balancer with IPv6 (Template)](load-balancer-ipv6-internet-template.md)-->
-<!-- Not Available ## [Create a zone redundant Public Load Balancer Standard](load-balancer-get-started-internet-az-portal.md)-->
-<!-- Not Available ### [Create a zone redundant Public Load Balancer Standard (PowerShell)](load-balancer-get-started-internet-az-powershell.md)-->
-<!-- Not Available ### [Create a zone redundant Public Load Balancer Standard (CLI)](load-balancer-get-started-internet-az-cli.md)-->
+<!-- Not Available ## [Create a zone redundant public Load Balancer Standard](load-balancer-get-started-internet-az-portal.md) -->
+<!-- Not Available ### [Create a zone redundant public Load Balancer Standard (PowerShell)](load-balancer-get-started-internet-az-powershell.md) -->
+<!-- Not Available ### [Create a zone redundant public Load Balancer Standard (CLI)](load-balancer-get-started-internet-az-cli.md) -->
 
 # 如何
 ## [配置负载均衡器的 TCP 空闲超时](load-balancer-tcp-idle-timeout.md)
@@ -48,6 +50,7 @@
 ### [对 Azure 负载均衡器进行故障排除](load-balancer-troubleshoot.md)
 
 ## 经典部署模型文章
+### [出站连接（经典）](load-balancer-outbound-connections-classic.md)
 ### [为云服务配置内部负载均衡器](load-balancer-get-started-ilb-classic-cloud.md)
 #### [为云服务配置内部负载均衡器 (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 #### [为云服务配置内部负载均衡器 (CLI)](load-balancer-get-started-ilb-classic-cli.md)
@@ -80,4 +83,4 @@
 ## [服务更新](https://www.azure.cn/what-is-new/)
 
 <!--Update_Description: wording update, update link -->
-<!-- ms.date: 12/25/2017 -->
+<!-- ms.date: 04/02/2018 -->

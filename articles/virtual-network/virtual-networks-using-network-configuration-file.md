@@ -1,11 +1,11 @@
 ---
-title: "配置 Azure 虚拟网络（经典）- 网络配置文件 | Azure"
-description: "了解如何通过导出、更改和导入网络配置文件来创建和修改虚拟网络（经典）。"
+title: 配置 Azure 虚拟网络（经典）- 网络配置文件 | Azure
+description: 了解如何通过导出、更改和导入网络配置文件来创建和修改虚拟网络（经典）。
 services: virtual-network
-documentationcenter: 
-author: jimdial
-manager: timlt
-editor: 
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-service-management
 ms.assetid: c29b9059-22b0-444e-bbfe-3e35f83cde2f
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/23/2017
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.custom: 
-ms.openlocfilehash: b85f79eb889de65f4ee655801a8b40c92f0ed46c
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 04/02/2018
+ms.author: v-yeche
+ms.custom: ''
+ms.openlocfilehash: c30ddf4e7dc3461cb6a48e156424955fa4e9fdff
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>使用网络配置文件配置虚拟网络（经典）
 > [!IMPORTANT]
@@ -58,7 +58,7 @@ ms.lasthandoff: 02/13/2018
 
 ## <a name="create-or-modify-a-network-configuration-file"></a>创建或修改网络配置文件
 
-网络配置文件是一个 XML 文件（使用 PowerShell 时）或一个 json 文件（使用 Azure CLI 时）。 可在任何文本或 XML/json 编辑器中编辑该文件。 [网络配置文件架构设置](https://msdn.microsoft.com/library/azure/jj157100.aspx)一文中提供了所有设置的详细信息。 有关设置的更多说明，请参阅[查看虚拟网络和设置](virtual-network-manage-network.md#view-vnet)。 对文件所做的更改：
+网络配置文件是一个 XML 文件（使用 PowerShell 时）或一个 json 文件（使用 Azure CLI 时）。 可在任何文本或 XML/json 编辑器中编辑该文件。 [网络配置文件架构设置](https://msdn.microsoft.com/library/azure/jj157100.aspx)一文中提供了所有设置的详细信息。 有关设置的更多说明，请参阅[查看虚拟网络和设置](manage-virtual-network.md#view-virtual-networks-and-settings)。 对文件所做的更改：
 
 - 必须符合架构，否则导入网络配置文件将会失败。
 - 覆盖订阅的所有现有网络设置，因此，在修改时请格外小心。 例如，请参考以下示例网络配置文件。 假设原始文件包含两个 **VirtualNetworkSite** 实例，而我们已按示例中所示更改了此文件。 导入文件时，Azure 会删除我们在该文件中删除的 **VirtualNetworkSite** 的虚拟网络实例。 这种简化方案假设虚拟网络中没有任何资源，如果有，则无法删除虚拟网络，并且导入将会失败。
@@ -145,4 +145,4 @@ ms.lasthandoff: 02/13/2018
     azure network import c:\azure\networkconfig.json
     ```
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

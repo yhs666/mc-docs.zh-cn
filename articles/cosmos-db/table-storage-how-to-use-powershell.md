@@ -12,20 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/02/2017
-ms.date: 03/05/2018
+origin.date: 03/14/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 158187e4930e3a3cb9fcd3984544d9c8125a697c
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 4e52f9805ea26b1c6deffe57775c66b2e73009c3
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 执行 Azure 表存储操作 
-
->[!NOTE]
->Azure Cosmos DB 表 API 提供了用于表存储的高级功能，如统包全局分发、低延迟读取和写入、自动辅助索引和专用吞吐量。 在大多数情况下，本文中的 PowerShell 命令适用于 Azure Cosmos DB 表 API 和 Azure 表存储，但本文特定于 Azure 表存储。 如果你使用的是 Azure Cosmos DB 表 API，请参阅[使用 Azure PowerShell 执行 Azure Cosmos DB 表 API 操作](table-powershell.md)。
->
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 Azure 表存储是一种 NoSQL 数据存储，可用于存储和查询大量的结构化非关系型数据。 该服务的主要组件包括表、实体和属性。 表是实体的集合。 实体是一组属性。 每个实体最多可以有 252 个属性（都是一些名称-值对）。 本文假设用户熟知 Azure 表存储服务的概念。 有关详细信息，请参阅 [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)（了解表服务数据模型）和[通过 .NET 开始使用 Azure 表存储](table-storage-how-to-use-dotnet.md)。
 
@@ -39,7 +36,7 @@ Azure 表存储是一种 NoSQL 数据存储，可用于存储和查询大量的�
 > * 删除表实体
 > * 删除表
 
-本操作指南文章介绍如何在新的资源组中创建新存储帐户，以便你可以在创建完成后轻松删除。 如果你要使用现有存储帐户，也可以改为使用现有帐户。
+本操作指南文章介绍如何在新的资源组中新建 Azure 存储帐户，以便可以在创建完成后轻松删除。 如果你要使用现有存储帐户，也可以改用现有帐户。
 
 本文中的示例需要 Azure PowerShell 模块 4.4.0 或更高版本。 在 PowerShell 窗口中，运行 `Get-Module -ListAvailable AzureRM` 可查找版本。 如果未显示任何信息或需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 
 
@@ -106,7 +103,7 @@ New-AzureStorageTable -Name $tableName -Context $ctx
 使用 [Get-AzureStorageTable](https://docs.microsoft.com/powershell/module/azure.storage/Get-AzureStorageTable) 在存储帐户中检索表列表。
 
 ```powershell
-$storageTable = Get-AzureStorageTable -Context $ctx | select Name
+Get-AzureStorageTable -Context $ctx | select Name
 ```
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>检索对特定表的引用
@@ -158,4 +155,4 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是免费的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
 <!-- Notice: Remove from Microsoft -->
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

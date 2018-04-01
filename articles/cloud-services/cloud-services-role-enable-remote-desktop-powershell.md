@@ -1,31 +1,32 @@
 ---
-title: "使用 PowerShell 为 Azure 云服务中的角色启用远程桌面连接"
-description: "如何使用 PowerShell 配置 Azure 云服务应用程序以允许远程桌面连接"
+title: 使用 PowerShell 为 Azure 云服务中的角色启用远程桌面连接
+description: 如何使用 PowerShell 配置 Azure 云服务应用程序以允许远程桌面连接
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf2f70a4-20dc-4302-a91a-38cd7a2baa62
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+origin.date: 07/18/2017
+ms.date: 04/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0b5f00cc33774a5c04cb36600e4a60eb521db54f
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: ec341a523e4531d62cf8cac2311871dba43249ce
+ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 为 Azure 云服务中的角色启用远程桌面连接
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](./cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md)
-> * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
+> * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 >
 >
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="configure-remote-desktop-from-powershell"></a>从 PowerShell 配置远程桌面
 
-使用 [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/zh-cn/library/azure/dn495117.aspx) cmdlet 可以在云服务部署的指定角色或所有角色上启用远程桌面。 该 cmdlet 允许通过接受 PSCredential 对象的 *Credential* 参数为远程桌面用户指定用户名和密码。
+使用 [Set-AzureServiceRemoteDesktopExtension](https://docs.microsoft.com/en-us/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet 可以在云服务部署的指定角色或所有角色上启用远程桌面。 该 cmdlet 允许通过接受 PSCredential 对象的 *Credential* 参数为远程桌面用户指定用户名和密码。
 
 如果以交互方式使用 PowerShell，可以通过调用 [Get-Credentials](https://technet.microsoft.com/zh-cn/library/hh849815.aspx) cmdlet 轻松设置 PSCredential 对象。 
 
@@ -110,4 +111,3 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 ## <a name="additional-resources"></a>其他资源
 
 [如何配置云服务](cloud-services-how-to-configure-portal.md)
-[云服务常见问题 - 远程桌面](cloud-services-faq.md)

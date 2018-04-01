@@ -1,11 +1,11 @@
 ---
-title: "创建网络安全组 - Azure CLI | Azure"
-description: "了解如何使用 Azure CLI 创建和部署网络安全组。"
+title: 创建网络安全组 - Azure CLI | Azure
+description: 了解如何使用 Azure CLI 创建和部署网络安全组。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 9ea82c09-f4a6-4268-88bc-fc439db40c48
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/17/2017
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a346adeab7e088d85e38790b2ce315f165a48d0
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 1db96ef902029b4afd21bb9d0f7e8c5a956064d7
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-cli"></a>使用 Azure CLI 创建网络安全组
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/12/2018
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. 如果尚未这样做，请安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录 Azure 帐户。 
+1. 如果尚未这样做，请安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login) 登录 Azure 帐户。 
 
 2. 运行 [az network nsg create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az_network_nsg_create) 命令创建 NSG。 
 
@@ -354,4 +354,4 @@ ms.lasthandoff: 03/12/2018
     }
     ```
 
-<!-- Update_Description: update meta properties, update link, wording update -->
+<!-- Update_Description: update link, wording update -->

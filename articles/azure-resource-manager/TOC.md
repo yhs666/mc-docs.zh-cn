@@ -1,3 +1,5 @@
+# [Azure 资源管理器文档](index.md)
+
 # 概述
 ## [什么是 Resource Manager？](resource-group-overview.md)
 ## [资源提供程序和类型](resource-manager-supported-services.md)
@@ -20,7 +22,6 @@
 ### [定义资源之间的依赖关系](resource-group-define-dependencies.md)
 ### [创建多个实例](resource-group-create-multiple.md)
 ### [更新资源](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/update-resource)
-### [用于设计模板的模式](best-practices-resource-manager-design-templates.md)
 
 ## 部署
 ### Azure PowerShell
@@ -43,12 +44,9 @@
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
 ### [Azure 门户](resource-group-portal.md)
-### [REST API](resource-manager-rest-api.md)
 ### [使用标记来组织资源](resource-group-using-tags.md)
 ### [将资源移到新组或订阅](resource-group-move-resources.md)
-<!-- Not Avaialble ### [Organize subscriptions with management groups](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure-resource-manager%2ftoc.json) -->
 ### [管理示例](resource-manager-subscription-examples.md)
-<!-- Not Avaialble ### [Managed applications](../managed-applications/overview.md) -->
 
 ## 控制访问
 ### 创建服务主体
@@ -63,21 +61,20 @@
 ### [查看部署操作](resource-manager-deployment-operations.md)
 
 ## 故障排除
-### [常见部署错误](resource-manager-common-deployment-errors.md)
-#### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
-#### [InvalidTemplate](resource-manager-invalid-template-errors.md)
-#### [Linux 部署问题](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-#### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
-#### [NotFound](resource-manager-not-found-errors.md)
-#### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
-#### [Linux 预配和分配问题](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-#### [Windows 预配和分配问题](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
+### [排查部署错误](resource-manager-common-deployment-errors.md)
+### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
+### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+### [Linux 部署问题](../virtual-machines/linux/troubleshoot-deploy-vm.md)
+### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
+### [NotFound](resource-manager-not-found-errors.md)
+### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+### [Linux 预配和分配问题](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+### [Windows 预配和分配问题](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
 <!-- Not Avaible #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)-->
-#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
-#### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
-#### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
-#### [Windows 部署问题](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-### [了解部署错误](resource-manager-troubleshoot-tips.md)
+### [ReservedResourceName](resource-manager-reserved-resource-name.md)
+### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
+### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
+### [Windows 部署问题](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # 参考
 ## [模板格式](https://docs.microsoft.com/en-us/azure/templates/)
@@ -104,4 +101,4 @@
 ## [限制请求](resource-manager-request-limits.md)
 ## [跟踪异步操作](resource-manager-async-operations.md)
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager) -->
-<!--ms.date: 01/29/2018 -->
+<!--ms.date: 03/26/2018 -->

@@ -1,25 +1,25 @@
 ---
-title: "Azure Resource Manager 模板函数 - 资源 | Azure"
-description: "介绍可在 Azure Resource Manager 模板中用于检索资源相关值的函数。"
+title: Azure Resource Manager 模板函数 - 资源 | Azure
+description: 介绍可在 Azure Resource Manager 模板中用于检索资源相关值的函数。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/09/2017
-ms.date: 10/23/2017
+origin.date: 01/22/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: e4c592f7ab47b45c41d315e48e455fc55dea30a9
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 9eb753a03bba4c8a373b61a0dd0115423f19d142
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的资源函数
 
@@ -44,9 +44,9 @@ Resource Manager 提供以下用于获取资源值的函数：
 
 返回支持 list 操作的任何资源类型的值。 最常见的用法是 `listKeys`。 
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | resourceName 或 resourceIdentifier |是 |字符串 |资源的唯一标识符。 |
 | apiVersion |是 |字符串 |资源运行时状态的 API 版本。 通常采用 **yyyy-mm-dd**格式。 |
@@ -148,11 +148,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="providers"></a>providers
 `providers(providerNamespace, [resourceType])`
 
-返回有关资源提供程序及其支持的资源类型的信息。 如果未提供资源类型，该函数将返回资源提供程序支持的所有类型。
+返回有关资源提供程序及其支持的资源类型的信息。 如果未提供资源类型，该函数返回资源提供程序支持的所有类型。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |是 |字符串 |提供程序的命名空间 |
 | resourceType |否 |字符串 |指定的命名空间中的资源类型。 |
@@ -236,9 +236,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 返回表示资源的运行时状态的对象。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | resourceName 或 resourceIdentifier |是 |字符串 |资源的名称或唯一标识符。 |
 | apiVersion |否 |字符串 |指定的资源的 API 版本。 如果资源不是在同一模板中预配的，请包含此参数。 通常采用 **yyyy-mm-dd**格式。 |
@@ -250,7 +250,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="remarks"></a>备注
 
-reference 函数从运行时状态派生其值，因此不能在 variables 节中使用。 可以在模板的 outputs 节中使用它。 
+reference 函数从运行时状态派生其值，因此不能在 variables 节中使用。 可以在模板或[链接模板](resource-group-linked-templates.md#link-or-nest-a-template)的 outputs 节中使用它。 不能在[嵌套模板](resource-group-linked-templates.md#link-or-nest-a-template)的 outputs 节中使用它。 若要返回嵌套模板中部署的资源的值，请将嵌套模板转换为链接模板。 
 
 如果在相同的模板内设置了引用的资源，则可使用 reference 函数来隐式声明一个资源依赖于另一个资源。 不需要同时使用 dependsOn 属性。 只有当引用的资源已完成部署后，才会对函数求值。
 
@@ -523,14 +523,14 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="resourceid" />
 
-## <a name="resourceid"></a>resourceId
+## <a name="resourceid"></a>ResourceId
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
 返回资源的唯一标识符。 如果资源名称不确定或未设置在相同的模板内，请使用此函数。 
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |否 |字符串（GUID 格式） |默认值为当前订阅。 如果需要检索另一个订阅中的资源，请指定此值。 |
 | resourceGroupName |否 |字符串 |默认值为当前资源组。 如果需要检索另一个资源组中的资源，请指定此值。 |
@@ -540,7 +540,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ### <a name="return-value"></a>返回值
 
-将使用以下格式返回标识符：
+使用以下格式返回标识符：
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -651,11 +651,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| 名称 | 类型 | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | 字符串 | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 要使用 Azure CLI 部署此示例模板，请使用：
@@ -721,9 +721,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* 有关 Azure Resource Manager 模板中各部分的说明，请参阅 [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)（创作 Azure Resource Manager 模板）。
+* 有关 Azure 资源管理器模板中各部分的说明，请参阅[创作 Azure 资源管理器模板](resource-group-authoring-templates.md)。
 * 若要合并多个模板，请参阅[将链接的模板与 Azure Resource Manager 配合使用](resource-group-linked-templates.md)。
 * 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
 * 若要查看如何部署已创建的模板，请参阅[使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
 
-<!--Update_Description: update meta properties, add full parameter cmdlet sample and json file-->
+<!--Update_Description: update meta properties, wording update, update link -->

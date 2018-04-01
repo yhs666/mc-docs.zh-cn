@@ -1,30 +1,30 @@
 ---
-title: "创建、更改或删除 Azure 路由表 | Azure"
-description: "了解如何创建、更改或删除路由表。"
+title: 创建、更改或删除 Azure 路由表 | Azure
+description: 了解如何创建、更改或删除路由表。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/09/2018
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: f37972a94ddf60891a525f9a216bb564a8703978
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 26a9859140269ccf45f72137fc4dce9565fe3f86
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>创建、更改或删除路由表
 
-Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 若要更改 Azure 的任何默认路由，可以创建一个路由表。 如果你不熟悉 Azure 路由，我们建议在完成本文中所述的任务之前，先阅读[路由概述](virtual-networks-udr-overview.md)并完成[使用路由表路由网络流量](create-user-defined-route-portal.md)教程。
+Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 若要更改 Azure 的任何默认路由，可以创建一个路由表。 如果你不熟悉 Azure 路由，我们建议在完成本文中所述的任务之前，先阅读[路由概述](virtual-networks-udr-overview.md)并完成[使用路由表路由网络流量](tutorial-create-route-table-portal.md)教程。
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -34,14 +34,15 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 - 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
 - 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。 本教程需要 Azure PowerShell 模块 5.2.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
 - 如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.26 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
+<!-- Not Available on Azure Cloud Shell -->
 
 ## <a name="create-a-route-table"></a>创建路由表
 
 在每个 Azure 位置和订阅中可创建的路由表数目有限制。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
-1. 在门户左上角选择“+ 新建”。
+1. 在门户左上角选择“+ 创建资源”。
 2. 依次选择“网络”、“路由表”。
-3. 输入路由表的**名称**，选择自己的**订阅**，创建新的**资源组**或选择现有的资源组，选择一个**位置**，然后选择“创建”。 “禁用 BGP 路由传播”选项会阻止通过 BGP 将本地路由传播到 Azure 虚拟网络。 如果虚拟网络未连接到 Azure 网络网关（VPN 或 ExpressRoute），请清除“已禁用”选项。 
+3. 输入路由表的**名称**，选择自己的**订阅**，创建新的**资源组**或选择现有的资源组，选择一个**位置**，然后选择“创建”。 “禁用 BGP 路由传播”选项会禁止本地路由通过 BGP 传播到路由表所关联到的任何子网中的网络接口。 如果虚拟网络未连接到 Azure 网络网关（VPN 或 ExpressRoute），请清除“已禁用”选项。
 
 命令
 
@@ -246,5 +247,4 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 
 需要使用“联接路由表”操作将路由表关联到子网。
 
-<!-- Update_Description: new articles on manage route table -->
-<!--ms.date: 03/12/2018-->
+<!-- Update_Description: wording update, update link -->

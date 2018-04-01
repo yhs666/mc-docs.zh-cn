@@ -1,23 +1,23 @@
 ---
-title: "Azure 虚拟网络文档 - 教程和 API 参考 | Azure"
-description: "了解如何在云中使用虚拟网络。 文档介绍了如何部署 VNet、使用它来启动资源，以及与本地网络集成。"
+title: Azure 虚拟网络文档 - 教程和 API 参考 | Azure
+description: 了解如何在云中使用虚拟网络。 文档介绍了如何部署 VNet、使用它来启动资源，以及与本地网络集成。
 services: virtual-network
 author: rockboyfor
 manager: digimobile
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 09/25/2017
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 14e47e75de226c0c0ec59fa5b38483f0b968b4f3
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 148cf1de5f37d237341f715c0cb30fb52ca8a143
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="virtual-network-documentation"></a>虚拟网络文档
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 09/22/2017
         </a>
     </li>
     <li>
-        <a href="/virtual-network/virtual-networks-create-vnet-arm-pportal">
+        <a href="/virtual-network/quick-create-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ ms.lasthandoff: 09/22/2017
         </a>
     </li>
     <li>
-        <a href="/virtual-network/virtual-networks-create-vnet-arm-ps">
+        <a href="/virtual-network/quick-create-powershell">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ ms.lasthandoff: 09/22/2017
         </a>
     </li>
     <li>
-        <a href="/virtual-network/virtual-networks-create-vnet-arm-cli">
+        <a href="/virtual-network/quick-create-cli">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

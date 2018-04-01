@@ -1,11 +1,11 @@
 ---
-title: "控制 Azure 虚拟网络中的路由 - PowerShell - 经典 | Azure"
-description: "了解如何使用 PowerShell 控制 VNet 中的路由 | 经典"
+title: 控制 Azure 虚拟网络中的路由 - PowerShell - 经典 | Azure
+description: 了解如何使用 PowerShell 控制 VNet 中的路由 | 经典
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
-editor: 
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-service-management
 ms.assetid: d8d07c16-cbe5-4536-acd6-870269346fe3
 ms.service: virtual-network
@@ -14,19 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 12/26/2016
-ms.author: v-dazen
-ms.openlocfilehash: c0f352f4d9f0287a9ce36af30d8177a1d5d33ae0
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 04/02/2018
+ms.author: v-yeche
+ms.openlocfilehash: 528d4f50e61d41c7d2b6512bf2f51aee6604871a
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>使用 PowerShell 控制路由和使用虚拟设备（经典）
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [Azure CLI](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [Azure CLI](tutorial-create-route-table-cli.md)
 > * [模板](virtual-network-create-udr-arm-template.md)
 > * [PowerShell（经典）](virtual-network-create-udr-classic-ps.md)
 > * [CLI（经典）](virtual-network-create-udr-classic-cli.md)
@@ -34,7 +34,7 @@ ms.lasthandoff: 06/21/2017
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> 在使用 Azure 资源之前，请务必了解 Azure 当前使用两种部署模型：Azure Resource Manager 部署模型和经典部署模型。 在使用任何 Azure 资源之前，请确保了解 [部署模型和工具](../azure-resource-manager/resource-manager-deployment-model.md) 。 可选择本文顶部的选项，查看不同工具的文档。 本文介绍经典部署模型。
+> 在使用 Azure 资源之前，请务必了解 Azure 当前使用两种部署模型：Azure 资源管理器部署模型和经典部署模型。 在使用任何 Azure 资源之前，请确保了解 [部署模型和工具](../azure-resource-manager/resource-manager-deployment-model.md) 。 可选择本文顶部的选项，查看不同工具的文档。 本文介绍经典部署模型。
 > 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
@@ -62,7 +62,7 @@ ms.lasthandoff: 06/21/2017
     -NextHopIpAddress 192.168.0.4
     ```
 
-3. 运行以下命令，将路由表与 **FrontEnd** 子网关联：
+3. 运行以下命令将路由表与 **FrontEnd** 子网关联：
 
     ```powershell
     Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
@@ -117,3 +117,4 @@ ms.lasthandoff: 06/21/2017
     Get-AzureVM -Name FW1 -ServiceName TestRGFW `
     | Set-AzureIPForwarding -Enable
     ```
+<!-- Update_Description: update meta properties, update link -->

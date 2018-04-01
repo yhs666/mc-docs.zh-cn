@@ -1,19 +1,19 @@
 ---
-title: "使用 PowerShell 和 Azure Resource Manager 复制 Hyper-V VM | Azure"
-description: "在 PowerShell 和 Azure Resource Manager 中使用 Azure Site Recovery 将 Hyper-V VM 自动复制到 Azure。"
+title: 使用 PowerShell 和 Azure Resource Manager 复制 Hyper-V VM | Azure
+description: 在 PowerShell 和 Azure Resource Manager 中使用 Azure Site Recovery 将 Hyper-V VM 自动复制到 Azure。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/14/2018
-ms.date: 03/05/2018
+origin.date: 03/08/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: b24271548b18b72a3549fa1505ad42edb20a097f
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 4dff8f196018c0feef226855e4388c5bcf02a498
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>使用 PowerShell 和 Azure 资源管理器对 Hyper-V VM 设置到 Azure 的灾难恢复
 
@@ -40,7 +40,7 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
 此外，本文中提及的特定示例要求满足以下先决条件：
 
 * 一台运行 Windows Server 2012 R2 或 Microsoft Hyper-V Server 2012 R2 的 Hyper-V 主机，其中包含一个或多个 VM。 Hyper-V 服务器应直接或通过代理连接到 Internet。
-* 要复制的 VM 应符合[这些先决条件](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
+* 要复制的 VM 应符合[这些先决条件](hyper-v-azure-support-matrix.md#replicated-vms)。
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>步骤 1：登录到 Azure 帐户
 
@@ -201,5 +201,4 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
 
 ## <a name="next-steps"></a>后续步骤
 [详细了解](https://msdn.microsoft.com/library/azure/mt637930.aspx) Azure Site Recovery 和 Azure 资源管理器 PowerShell cmdlet。
-<!-- Update_Description: new articles on hyper-v to azure failback with powershell and azure resource manager -->
-<!--ms.date: 03/05/2018-->
+<!-- Update_Description: update meta properties, update link, wording update -->

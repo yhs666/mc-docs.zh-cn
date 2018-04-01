@@ -3,23 +3,22 @@ title: 将存储资源管理器连接到 Azure Stack 订阅
 description: 了解如何将存储资源管理器连接到 Azure Stack 订阅
 services: azure-stack
 documentationcenter: ''
-author: xiaofmao
-manager: ''
-editor: ''
+author: mattbriggs
+manager: femila
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/25/2017
-ms.date: 03/09/2018
+origin.date: 02/28/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: ef9535391e2c73094ca2315c2972bf7bc7995253
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 7ad9429c86371eaaac13b4a75eafbc907a23b4f8
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>将存储资源管理器连接到 Azure Stack 订阅
 
@@ -114,3 +113,4 @@ Azure 存储资源管理器（预览版）是一款独立应用，可用于在 W
 [30]: ./media/azure-stack-storage-connect-se/select-accounts-azure-stack.png
 [31]: ./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png
 
+<!-- Update_Description: update metedata properties -->

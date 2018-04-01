@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序“下一跃点”功能查找下一跃点 - Azure CLI 2.0 | Azure"
-description: "本文介绍如何使用 Azure CLI 通过“下一跃点”功能查找下一跃点类型和 ip 地址。"
+title: 使用 Azure 网络观察程序“下一跃点”功能查找下一跃点 - Azure CLI 2.0 | Azure
+description: 本文介绍如何使用 Azure CLI 通过“下一跃点”功能查找下一跃点类型和 ip 地址。
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 0700c274-3e0d-4dca-acfa-3ceac8990613
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 12/25/2017
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0576989ade09dce636730ff47a1c072d858453c8
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 882c2827ca14553f7a967d4f5cb82cd02d83f08d
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>使用 Azure CLI 2.0 通过 Azure 网络观察程序中的“下一跃点”功能找到下一跃点类型
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 12/22/2017
 
 为了获取下一跃点，我们将调用 `az network watcher show-next-hop` cmdlet。 我们向该 cmdlet 传递网络观察程序资源组 NetworkWatcher、虚拟机 ID、源 IP 地址和目标 IP 地址。 在此示例中，目标 IP 地址属于另一个虚拟网络中的 VM。 在两个虚拟网络之间有一个虚拟网络网关。
 
-如果尚未这样做，请安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录 Azure 帐户。 然后运行以下命令：
+如果尚未这样做，请安装并配置最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login) 登录 Azure 帐户。 然后运行以下命令：
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -90,4 +90,4 @@ az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNa
 
 通过访问[使用网络观察程序进行 NSG 审核](network-watcher-nsg-auditing-powershell.md)，了解如何以编程方式查看网络安全组设置
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: wording update, update link  -->

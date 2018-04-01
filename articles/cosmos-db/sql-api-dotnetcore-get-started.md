@@ -1,26 +1,26 @@
 ---
-title: "Azure Cosmos DB：SQL API 入门（使用 .NET Core）教程 | Azure"
-description: "有关使用 Azure Cosmos DB SQL API .NET Core SDK 创建联机数据库和 C# 控制台应用程序的教程。"
+title: Azure Cosmos DB：SQL API 入门（使用 .NET Core）教程 | Azure
+description: 有关使用 Azure Cosmos DB SQL API .NET Core SDK 创建联机数据库和 C# 控制台应用程序的教程。
 services: cosmos-db
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 08/15/2017
-ms.date: 12/25/2017
+origin.date: 03/12/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 ms.custom: devcenter
-ms.openlocfilehash: 2a0e8fa931222ab31679d31fee6ffaa1718d6422
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 965516bb23be09c4b19a469976e93b8e54971397
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB：SQL API 和 .NET Core 入门
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ ms.lasthandoff: 12/22/2017
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)] 
+* 如果尚未安装 Visual Studio 2017，可以下载并使用免费的 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 如果要开发通用 Windows 平台 (UWP) 应用，则应使用 **Visual Studio 2017 版本 15.4** 或更高版本。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
     * 如果在 MacOS 或 Linux 上操作，可以通过安装适用于所选平台的 [.NET Core SDK](https://www.microsoft.com/net/core#macos)，从命令行开发 .NET Core 应用。 
     * 如果在 Windows 上操作，可以通过安装 [.NET Core SDK](https://www.microsoft.com/net/core#windows)，从命令行开发 .NET Core 应用。 
     * 可以使用自己的编辑器，或下载免费的适用于 Windows、Linux 和 MacOS 的 [Visual Studio Code](https://code.visualstudio.com/)。 
@@ -219,7 +219,7 @@ private async Task GetStartedDemo()
 ```csharp
     this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
-    await this.client.CreateDatabaseIfNotExists("FamilyDB_oa");
+    await this.client.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
 
     // ADD THIS PART TO YOUR CODE
     await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"), new DocumentCollection { Id = "FamilyCollection_oa" });
@@ -319,7 +319,7 @@ private async Task CreateFamilyDocumentIfNotExists(string databaseName, string c
 将 `// ADD THIS PART TO YOUR CODE` 后面的代码复制并粘贴到文档集合创建下的 **GetStartedDemo** 方法。
 
 ```csharp
-await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+await this.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
 
 await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
@@ -465,15 +465,8 @@ Azure Cosmos DB 支持替换 JSON 文档。
 // ADD THIS PART TO YOUR CODE
 private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
 {
-    try
-    {
-        await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
-        this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
-    }
-    catch (DocumentClientException de)
-    {
-        throw;
-    }
+    await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
+    this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
 }
 ```
 
@@ -506,15 +499,8 @@ Azure Cosmos DB 支持删除 JSON 文档。
 // ADD THIS PART TO YOUR CODE
 private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
 {
-    try
-    {
-        await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
-        Console.WriteLine("Deleted Family {0}", documentName);
-    }
-    catch (DocumentClientException de)
-    {
-        throw;
-    }
+    await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
+    Console.WriteLine("Deleted Family {0}", documentName);
 }
 ```
 
@@ -601,4 +587,4 @@ End of demo, press any key to exit.
 
 [create-sql-api-dotnet.md#create-account]: create-sql-api-dotnet.md#create-account
 [keys]: media/sql-api-dotnetcore-get-started/nosql-tutorial-keys.png
-<!-- Update_Description: new articles on SQL api dotnet core get started -->
+<!-- Update_Description: wording update, update cmdlet -->

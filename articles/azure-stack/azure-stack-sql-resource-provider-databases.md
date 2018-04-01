@@ -3,22 +3,22 @@ title: 在 Azure Stack 上使用 SQL Adapter RP 提供的数据库 | Microsoft D
 description: 如何创建和管理使用 SQL 适配器资源提供程序预配的 SQL 数据库
 services: azure-stack
 documentationCenter: ''
-author: JeffGoldner
-manager: bradleyb
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/10/2017
-ms.date: 03/04/2018
+origin.date: 02/28/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8b9c5d57712b478b35baad07d7aa00664af2c3d2
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 20348070b24eb88822e04c6a3dd7a38b85a4841b
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-sql-databases"></a>创建 SQL 数据库
 
@@ -63,3 +63,4 @@ AlwaysOn 数据库应显示为已进行同步，并且在所有实例和可用�
 
 ![验证 AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
 
+<!-- Update_Description: update metedata properties -->

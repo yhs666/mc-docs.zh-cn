@@ -1,24 +1,24 @@
 ---
-title: "Azure SKU 不可用错误 | Azure"
-description: "介绍如何解决部署过程中 SKU 不可用错误。"
+title: Azure SKU 不可用错误 | Azure
+description: 介绍如何解决部署过程中 SKU 不可用错误。
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-origin.date: 09/13/2017
-ms.date: 10/23/2017
+origin.date: 03/09/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2819b4f6e8ba497406898bf364a6f2b982b86da1
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: dacaf57ace3607af60216650b606f20dacb1b65d
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>解决 SKU 不可用错误
 
@@ -38,17 +38,14 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 当所选的资源 SKU（如 VM 大小）不可用于所选的位置时，会收到此错误。
 
-## <a name="solution"></a>解决方案
+## <a name="solution-1---powershell"></a>解决方案 1 - PowerShell
 
-若要解决此问题，需要确定区域提供哪些 SKU。 可使用 PowerShell、门户或 REST 操作查找可用的 SKU。
-
-### <a name="solution-1"></a>解决方案 1
-
-在 PowerShell 中使用 [Get-AzureRmComputeResourceSku](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) 命令。 按位置对结果进行筛选。 必须安装最新版本 PowerShell 才能运行此命令。
+要确定区域中可用的 SKU，请使用 [Get-AzureRmComputeResourceSku](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) 命令。 按位置对结果进行筛选。 必须安装最新版本 PowerShell 才能运行此命令。
 
 ```powershell
 Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("chinaeast")}
 ```
+<!-- Correct on {$_.Locations.Contains("chinaeast")} -->
 
 结果包括位置的 SKU 列表以及针对该 SKU 的任何限制。
 
@@ -62,9 +59,9 @@ virtualMachines      Standard_A1 chinaeast
 virtualMachines      Standard_A2 chinaeast
 ```
 
-### <a name="solution-2"></a>解决方案 2
+## <a name="solution-2---azure-cli"></a>解决方案 2 - Azure CLI
 
-在 Azure CLI 中，使用 `az vm list-skus` 命令。 然后，可以使用 `grep` 或类似的实用工具来筛选输出。
+要确定区域中可用的 SKU，请使用 `az vm list-skus` 命令。 然后，可以使用 `grep` 或类似的实用工具来筛选输出。
 
 ```bash
 $ az vm list-skus --output table
@@ -80,15 +77,15 @@ availabilitySets  chinaeast           Classic                 MaximumPlatformFau
 availabilitySets  chinaeast           Aligned                 MaximumPlatformFaultDomainCount=3
 ```
 
-### <a name="solution-3"></a>解决方案 3
+## <a name="solution-3---azure-portal"></a>解决方案 3 - Azure 门户
 
-使用[门户](https://portal.azure.cn)。 登录到门户，并通过界面添加资源。 设置值时，可看到该资源的可用 SKU。 不需要完成部署。
+要确定区域中可用的 SKU，请使用[门户](https://portal.azure.cn)。 登录到门户，并通过界面添加资源。 设置值时，可看到该资源的可用 SKU。 不需要完成部署。
 
 ![可用的 SKU](./media/resource-manager-sku-not-available-errors/view-sku.png)
 
-### <a name="solution-4"></a>解决方案 4
+## <a name="solution-4---rest"></a>解决方案 4 - REST
 
-对虚拟机使用 REST API。 发送以下请求：
+要确定区域中可用的 SKU，请对虚拟机使用 REST API。 发送以下请求：
 
 ```HTTP 
 GET
@@ -127,4 +124,4 @@ https://management.chinacloudapi.cn/subscriptions/{subscription-id}/providers/Mi
 
 如果在该区域或满足业务需求的备用区域中找不到合适的 SKU，请将 [SKU 请求](https://support.windowsazure.cn/support/support-azure)提交到 Azure 支持。
 <!-- Redirect  https://aka.ms/skurestriction to https://support.windowsazure.cn/support/support-azure -->
-<!--Update_Description: new articles on resource manager sku not available errors-->
+<!--Update_Description: update meta properties, wording update -->

@@ -1,36 +1,36 @@
 ---
-title: "创建包含多个子网的 Azure 虚拟网络（经典）| Azure"
-description: "了解如何在 Azure 中创建包含多个子网的虚拟网络（经典）。"
+title: 创建包含多个子网的 Azure 虚拟网络（经典）| Azure
+description: 了解如何在 Azure 中创建包含多个子网的虚拟网络（经典）。
 services: virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/31/2017
-ms.date: 03/12/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.custom: 
-ms.openlocfilehash: 96a30ed260d189358dec18f5e441e224f53c2925
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.custom: ''
+ms.openlocfilehash: d97146a85905a165f063e2a7b076268fd5cae391
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>创建包含多个子网的虚拟网络（经典）
 
 > [!IMPORTANT]
-> Azure 有两个用于创建和处理资源的[不同部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)：资源管理器和经典模型。 本文介绍使用经典部署模型的情况。 Azure 建议通过[资源管理器](virtual-networks-create-vnet-arm-pportal.md)部署模型新建大多数虚拟网络。
+> Azure 有两个用于创建和处理资源的[不同部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)：资源管理器和经典模型。 本文介绍使用经典部署模型的情况。 Azure 建议通过[资源管理器](quick-create-portal.md)部署模型新建大多数虚拟网络。
 
 本教程介绍如何创建包含独立公共子网和专用子网的基本 Azure 虚拟网络（经典）。 可以在子网中创建虚拟机和云服务等 Azure 资源。 在虚拟网络（经典）中创建的资源可以彼此通信，并可以与连接到虚拟网络的其他网络中的资源通信。
 
-详细了解所有[虚拟网络](virtual-network-manage-network.md)和[子网](virtual-network-manage-subnet.md)设置。
+详细了解所有[虚拟网络](manage-virtual-network.md)和[子网](virtual-network-manage-subnet.md)设置。
 
 > [!WARNING]
 > 禁用订阅后，Azure 会立即删除虚拟网络（经典）。 不管虚拟网络（经典）中是否存在资源，都会删除虚拟网络。 如果以后重新启用订阅，必须重新创建虚拟网络中存在的资源。
@@ -163,10 +163,10 @@ ms.lasthandoff: 03/12/2018
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要了解有关所有虚拟网络和子网设置的信息，请参阅[管理虚拟网络](virtual-network-manage-network.md)和[管理虚拟网络子网](virtual-network-manage-subnet.md)。 在生产环境中有使用虚拟网络和子网的多种选项，以满足不同的要求。
+- 若要了解有关所有虚拟网络和子网设置的信息，请参阅[管理虚拟网络](manage-virtual-network.md)和[管理虚拟网络子网](virtual-network-manage-subnet.md)。 在生产环境中有使用虚拟网络和子网的多种选项，以满足不同的要求。
 - 若要筛选入站和出站子网流量，请创建[网络安全组](virtual-networks-nsg.md)并将其应用到子网。
 - 创建 [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fvirtual-network%2ftoc.json) 虚拟机，并将其连接到现有的虚拟网络。
 - 若要在同一 Azure 位置连接两个虚拟网络，请在虚拟网络之间创建[虚拟网络对等互连](create-peering-different-deployment-models.md)。 可将虚拟网络（资源管理器）对等互连到虚拟网络（经典），但不能在两个虚拟网络（经典）之间创建对等互连。
 - 使用 [VPN 网关](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)或 [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fvirtual-network%2ftoc.json) 线路将虚拟网络连接到本地网络。
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: wording update, update link -->

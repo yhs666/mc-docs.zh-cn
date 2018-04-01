@@ -1,25 +1,22 @@
 ---
-title: "Azure 自动化入门 | Azure"
-description: "本文概述了 Azure 自动化服务，探讨了 Azure Marketplace 产品/服务的载入准备过程涉及的设计和实现细节。"
+title: Azure 自动化入门 | Azure
+description: 本文概述了 Azure 自动化服务，探讨了 Azure Marketplace 产品/服务的载入准备过程涉及的设计和实现细节。
 services: automation
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: 
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 origin.date: 08/31/2017
 ms.date: 01/15/2018
 ms.author: v-nany
-ms.openlocfilehash: 0f64699c9da096b9039f00fb7e0d760a3e39ecc0
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 72127c0bf2f4300da8d10a9762ca4c47ad3378b0
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="get-started-with-azure-automation"></a>Azure 自动化入门
 

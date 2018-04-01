@@ -1,13 +1,13 @@
 ---
-title: "Azure CLI 脚本 - 重新生成 Azure Cosmos DB 帐户密钥 | Azure"
-description: "Azure CLI 脚本示例 - 重新生成 Azure Cosmos DB 帐户密钥"
+title: Azure CLI 脚本 - 重新生成 Azure Cosmos DB 帐户密钥 | Azure
+description: Azure CLI 脚本示例 - 重新生成 Azure Cosmos DB 帐户密钥
 services: cosmos-db
 documentationcenter: cosmosdb
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: azurecli
@@ -15,13 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/02/2017
-ms.date: 03/05/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: d597e113d25e96acc99b928fbf68677cdb006752
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 52ce18352d8b90c8648156c8ad9efa5717732319
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-the-azure-cli"></a>使用 Azure CLI 重新生成 Azure Cosmos DB 帐户密钥
 

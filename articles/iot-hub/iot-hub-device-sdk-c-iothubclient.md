@@ -1,11 +1,11 @@
 ---
-title: "适用于 C 语言的 Azure IoT 设备 SDK - IoTHubClient | Azure"
-description: "如何使用 Azure IoT 设备 SDK 中面向 C 语言的 IoTHubClient 库创建与 IoT 中心通信的设备应用。"
+title: 适用于 C 语言的 Azure IoT 设备 SDK - IoTHubClient | Azure
+description: 如何使用 Azure IoT 设备 SDK 中面向 C 语言的 IoTHubClient 库创建与 IoT 中心通信的设备应用。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: olivierbloch
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 828cf2bf-999d-4b8a-8a28-c7c901629600
 ms.service: iot-hub
 ms.devlang: cpp
@@ -15,17 +15,17 @@ ms.workload: na
 origin.date: 08/29/2017
 ms.date: 12/18/2017
 ms.author: v-yiso
-ms.openlocfilehash: 8d220cc4f33e459d6a12b91eba928d1567d1dfd8
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 8792e318a995457f2b6879e02c200e94155aa028
+ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>适用于 C 语言的 Azure IoT 设备 SDK - 有关 IoTHubClient 的详细信息
 
 此系列中的[第一篇文章](./iot-hub-device-sdk-c-intro.md)介绍了**适用于 C 语言的 Azure IoT 设备 SDK**。该文章已说明 SDK 中有两个体系结构层。 底层是 **IoTHubClient** 库，用于直接管理与 IoT 中心的通信。 另有一个 **序列化程序** 库，它构建在 SDK 的顶部，可提供序列化服务。 在本文中，我们会提供有关 **IoTHubClient** 库的更多详细信息。
 
-前一篇文章介绍了如何使用 **IoTHubClient** 库将事件发送到 IoT 中心及接收消息。 本文将扩大讨论范围，介绍**较低级别 API**，说明如何更精确地管理发送和接收数据的*时机*。 此外将说明如何使用 **IoTHubClient** 库中的属性处理功能，将属性附加到事件（以及从消息中检索属性）。 最后，进一步介绍如何以不同的方式来处理从 IoT 中心收到的消息。
+前一篇文章介绍了如何使用 **IoTHubClient** 库将事件发送到 IoT 中心及接收消息。 本文扩大讨论范围，介绍 *较低级别 API* ，介绍如何更精确地管理发送和接收数据的 **时机**。 此外将说明如何使用 **IoTHubClient** 库中的属性处理功能，将属性附加到事件（以及从消息中检索属性）。 最后，进一步说明如何以不同的方式来处理从 IoT 中心收到的消息。
 
 本文结尾提供了几个其他主题，深入介绍了设备凭据以及如何通过配置选项更改 **IoTHubClient** 的行为。
 
@@ -128,7 +128,7 @@ while ((IoTHubClient_LL_GetSendStatus(iotHubClientHandle, &status) == IOTHUB_CLI
 IoTHubClient_LL_Destroy(iotHubClientHandle);
 ```
 
-基本上，只有一组 API 使用后台线程来发送和接收数据，而另一组 API 不会使用后台线程来执行相同的操作。 许多开发人员可能更喜欢使用非 LL API，但是当他们想要明确控制网络传输时，较低级别 API 就很有用。 例如，有些设备会收集各时间段的数据，并且只按指定的时间间隔引入事件（例如，每小时一次或每天一次）。 较低级别 API 可以在与 IoT 中心之间发送和接收数据时提供明确控制的能力。 还有一些人纯粹偏好较低级别 API 提供的简单性。 所有操作都发生在主线程上，而不是有些操作在后台发生。
+基本上，只有一组 API 使用后台线程来发送和接收数据，而另一组 API 不会使用后台线程来执行相同的操作。 许多开发人员可能偏好非 LL API，但是当他们想要明确控制网络传输时，较低级别 API 就很有用。 例如，有些设备会收集各时间段的数据，并且只按指定的时间间隔引入事件（例如，每小时一次或每天一次）。 较低级别 API 可以在与 IoT 中心之间发送和接收数据时提供明确控制的能力。 还有一些人纯粹偏好较低级别 API 提供的简单性。 所有操作都发生在主线程上，而不是有些操作在后台发生。
 
 无论选择哪种模型，都必须与使用的 API 相一致。 如果首先调用 **IoTHubClient\_LL\_CreateFromConnectionString**，则对于任何后续工作，请务必只使用相应的较低级别的 API：
 
@@ -217,7 +217,8 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 
 请注意，返回类型为 **IOTHUBMESSAGE\_DISPOSITION\_RESULT**，在本特定案例中，将返回 **IOTHUBMESSAGE\_ACCEPTED**。 此函数还可能返回其他值，这些值将改变 **IoTHubClient** 库响应消息回调的方式。 选项如下。
 
--   **IOTHUBMESSAGE\_ACCEPTED** - 消息已成功处理。 **IoTHubClient** 库将不对同一消息再次调用回调函数。
+-   **IOTHUBMESSAGE\_ACCEPTED** - 消息已成功处理。 
+            **IoTHubClient** 库不对同一消息再次调用回调函数。
 
 -   **IOTHUBMESSAGE\_REJECTED** - 未处理消息，且将来也不会处理。 **IoTHubClient** 库不应该对同一消息再次调用回调函数。
 
@@ -275,7 +276,7 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 * **SetBatching**（布尔值）– 如果为 **true**，则将数据分批发送到 IoT 中心。 如果为 **false**，则逐个发送消息。 默认值为 **false**。 请注意，“SetBatching”选项仅适用于 HTTPS 协议，不适用于 MQTT 或 AMQP 协议。
 * **Timeout**（无符号整数）– 此值以毫秒表示。 如果发送 HTTPS 请求或接收响应所花费的时间超过此时间，即表示连接超时。
 
-batching 选项非常重要。 默认情况下，库将逐个引入事件（单个事件是你传递给 **IoTHubClient\_LL\_SendEventAsync** 的任何内容）。 如果 batching 选项为 **true**，库将尽可能多地从缓冲区中收集事件（上限为 IoT 中心接受的消息大小上限）。  事件批在单个 HTTP 调用中发送到 IoT 中心（单个事件已捆绑到 JSON 数组中）。 启用批处理通常可以大幅提升性能，因为网络往返时间会缩减。 不过，这也会明显减少带宽，你要在事件批中发送一组 HTTP 标头，而不是针对每个事件发送一组标头。 除非有使用其他方式的特殊理由，否则建议启用批处理。
+batching 选项非常重要。 默认情况下，库将逐个引入事件（单个事件是你传递给 **IoTHubClient\_LL\_SendEventAsync** 的任何内容）。 如果 batching 选项为 **true**，库将尽可能多地从缓冲区中收集事件（上限为 IoT 中心接受的消息大小上限）。  事件批在单个 HTTPS 调用中发送到 IoT 中心（单个事件已捆绑到 JSON 数组中）。 启用批处理通常可以大幅提升性能，因为网络往返时间会缩减。 不过，这也会明显减少带宽，你要在事件批中发送一组 HTTPS 标头，而不是针对每个事件发送一组标头。 除非有使用其他方式的特殊理由，否则建议启用批处理。
 
 ## <a name="next-steps"></a>后续步骤
 本文详细探讨了**适用于 C 语言的 Azure IoT 设备 SDK** 中的 **IoTHubClient** 库的行为。参考这些信息可以充分了解 **IoTHubClient** 库的功能。 [下一篇文章](iot-hub-device-sdk-c-serializer.md)将提供有关**序列化程序**库的类似详细信息。

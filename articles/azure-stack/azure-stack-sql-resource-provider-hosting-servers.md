@@ -3,22 +3,22 @@ title: Azure Stack 上的 SQL 宿主服务器 | Microsoft Docs
 description: 如何添加 SQL 实例以通过 SQL 适配器资源提供程序进行预配
 services: azure-stack
 documentationCenter: ''
-author: JeffGoldner
-manager: bradleyb
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/14/2017
-ms.date: 03/04/2018
+origin.date: 02/28/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 660ea9b7b6c7d1bcbaa80f07e7399cfe5143a0a7
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: b9464fbda6ffd6e776686fa9c59f4c3e28bc14b7
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>添加供 SQL 适配器使用的宿主服务器
 
@@ -168,3 +168,4 @@ GO
 
 [添加数据库](azure-stack-sql-resource-provider-databases.md)
 
+<!-- Update_Description: update metedata properties -->
