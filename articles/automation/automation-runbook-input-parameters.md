@@ -1,25 +1,21 @@
 ---
-title: "Runbook 输入参数 | Azure"
-description: "Runbook 输入参数可让你将数据传递到启动的 Runbook，以增加 Runbook 的弹性。 本文介绍在 Runbook 中使用输入参数的不同方案。"
+title: Runbook 输入参数 | Azure
+description: Runbook 输入参数可让你将数据传递到启动的 Runbook，以增加 Runbook 的弹性。 本文介绍在 Runbook 中使用输入参数的不同方案。
 services: automation
-documentationcenter: 
 author: MGoedtel
 manager: jwhit
 editor: tysonn
-ms.assetid: 4d3dff2c-1f55-498d-9a0e-eee497e5bedb
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 origin.date: 10/11/2016
 ms.date: 03/28/2017
 ms.author: v-dazen
-ms.openlocfilehash: d5b90fbe52d790e23a62119f7f188d6789c26159
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: aaccbe78b998df6738ff6abbf5f6ee3102604787
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="runbook-input-parameters"></a>Runbook 输入参数
 

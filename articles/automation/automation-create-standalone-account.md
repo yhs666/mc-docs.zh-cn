@@ -1,25 +1,20 @@
 ---
-title: "创建独立的 Azure 自动化帐户 | Microsoft Docs"
-description: "本教程引导在 Azure 自动化中创建、测试安全主体，并示范如何使用安全主体进行身份验证。"
+title: 创建独立的 Azure 自动化帐户 | Microsoft Docs
+description: 本教程引导在 Azure 自动化中创建、测试安全主体，并示范如何使用安全主体进行身份验证。
 services: automation
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
 ms.service: automation
 ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-origin.date: 08/18/2017
-ms.date: 01/11/2018
+ms.topic: article
+origin.date: 03/15/2018
+ms.date: 03/20/2018
 ms.author: v-nany
-ms.openlocfilehash: 0bc73fad0ea360410bd84108f317e94a0e6d32b8
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 2982bc5c1ecfba01fa01cf28e0220f653dbc6594
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>创建独立的 Azure 自动化帐户
 本文介绍如何在 Azure 门户中创建 Azure 自动化帐户。 可以使用门户自动化帐户来评估和了解自动化，而无需使用其他管理解决方案。 以后随时可以添加这些管理解决方案或者与 Log Analytics 集成，以获得高级的 Runbook 作业监视。 

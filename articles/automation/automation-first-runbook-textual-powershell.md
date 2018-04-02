@@ -1,26 +1,21 @@
 ---
-title: "我在 Azure 自动化中的第一个 PowerShell Runbook | Microsoft Docs"
-description: "本教程指导创建、测试和发布一个简单的 PowerShell Runbook。"
-services: automation
-documentationcenter: 
+title: 我在 Azure 自动化中的第一个 PowerShell Runbook | Microsoft Docs
+description: 本教程指导创建、测试和发布一个简单的 PowerShell Runbook。
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
-keywords: "azure powershell, powershell 脚本教程, powershell 自动化"
-ms.assetid: a43b395a-e740-41a3-ae62-40eac9d0ec00
+keywords: azure powershell, powershell 脚本教程, powershell 自动化
+services: automation
 ms.service: automation
 ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
 origin.date: 08/31/2017
 ms.date: 01/15/2018
 ms.author: v-nany
-ms.openlocfilehash: 1cf757120be834b242a49a1c9cf9f558c141822f
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 2aad2863240c72ac1a11cc2e70191a96ff7adc84
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="my-first-powershell-runbook"></a>我的第一个 PowerShell Runbook
 
