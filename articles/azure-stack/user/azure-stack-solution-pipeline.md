@@ -1,11 +1,11 @@
 ---
-title: "将应用部署到 Azure 和 Azure Stack | Microsoft Docs"
-description: "了解如何使用混合 CI/CD 管道将应用部署到 Azure 和 Azure Stack。"
+title: 将应用部署到 Azure 和 Azure Stack | Microsoft Docs
+description: 了解如何使用混合 CI/CD 管道将应用部署到 Azure 和 Azure Stack。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na

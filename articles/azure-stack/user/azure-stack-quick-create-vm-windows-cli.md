@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure CLI 在 Azure Stack 中创建 Windows 虚拟机 | Microsoft Docs"
-description: "了解如何使用 Azure CLI 在 Azure Stack 中创建 Windows VM"
+title: 使用 Azure CLI 在 Azure Stack 中创建 Windows 虚拟机 | Microsoft Docs
+description: 了解如何使用 Azure CLI 在 Azure Stack 中创建 Windows VM
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: E26B246E-811D-44C9-9BA6-2B3CE5B62E83
 ms.service: azure-stack
 ms.workload: na

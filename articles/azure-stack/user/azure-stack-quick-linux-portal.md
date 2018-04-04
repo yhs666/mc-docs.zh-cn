@@ -1,6 +1,6 @@
 ---
-title: "Azure Stack 快速入门 - 创建 VM 门户"
-description: "Azure Stack 快速入门 - 使用门户创建 Linux VM"
+title: Azure Stack 快速入门 - 创建 VM 门户
+description: Azure Stack 快速入门 - 使用门户创建 Linux VM
 services: azure-stack
 cloud: azure-stack
 author: brenduns
@@ -10,7 +10,7 @@ ms.topic: quickstart
 origin.date: 12/11/2017
 ms.date: 03/08/2018
 ms.author: v-junlch
-ms.reviewer: 
+ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: 946e26d6a373f582009836386969cce5bd9e1cb6
 ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f

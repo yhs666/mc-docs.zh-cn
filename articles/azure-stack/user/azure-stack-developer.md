@@ -1,11 +1,11 @@
 ---
-title: "开发适用于 Azure Stack 的应用 | Microsoft Docs"
-description: "了解在 Azure Stack 中制作应用程序原型的开发注意事项"
+title: 开发适用于 Azure Stack 的应用 | Microsoft Docs
+description: 了解在 Azure Stack 中制作应用程序原型的开发注意事项
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: d3ebc6b1-0ffe-4d3e-ba4a-388239d6cdc3
 ms.service: azure-stack
 ms.workload: na
@@ -15,7 +15,7 @@ ms.topic: article
 origin.date: 09/25/2017
 ms.date: 03/08/2018
 ms.author: v-junlch
-ms.reviewer: 
+ms.reviewer: ''
 ms.openlocfilehash: a0a464fe38c25623ec819eabee5f9559fa234be6
 ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT

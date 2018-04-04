@@ -71,7 +71,7 @@ ms.lasthandoff: 03/08/2018
 以用户身份登录到用户门户后，可在目录租户（组织）中查找并订阅公共产品/服务和附加计划。 如果 Azure Stack 环境支持[多租户](azure-stack-enable-multitenancy.md)，则可以从远程目录租户订阅产品/服务。
 
 ### <a name="to-subscribe-to-an-offer"></a>订阅产品/服务
-1. [登录](azure-stack-connect-azure-stack.md)到 Azure Stack 用户门户 (https://portal.local.azurestack.external)，并单击“获取订阅”。
+1. [登录](azure-stack-connect-azure-stack.md)到 Azure Stack 用户门户 ( https://portal.local.azurestack.external )，并单击“获取订阅”。
 
    ![获取订阅](./media/azure-stack-subscribe-plan-provision-vm/image01.png)
 2. 在“显示名称”字段中键入订阅的名称，单击“产品/服务”，单击“选择产品/服务”窗格中的某个产品/服务，然后单击“创建”。

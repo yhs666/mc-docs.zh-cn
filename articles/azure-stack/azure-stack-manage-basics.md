@@ -37,7 +37,7 @@ ms.lasthandoff: 03/08/2018
 
 如果使用 Azure Stack 开发工具包，请参阅[什么是 Azure Stack？](azure-stack-poc.md)一文，确保了解该开发工具包的用途和限制。 应该将开发工具包作为“沙盒”使用，在其中对 Azure Stack 进行评估，并在非生产环境中开发和测试应用。 （有关部署信息，请参阅 [Azure Stack 开发工具包部署](azure-stack-deploy-overview.md)快速入门。）
 
-正如 Azure 一样，我们的创新速度很快。 我们会定期发布新版本。 如果运行的是开发工具包，但需要更新到最新版本，则必须[重新部署 Azure Stack](azure-stack-redeploy.md)。 不能应用更新包。 此过程需要一定的时间，但好处是可以尝试最新功能。 我们网站上的开发工具包文档反映了最新的发行版。
+正如 Azure 一样，我们的创新速度很快。 我们会定期发布新版本。 如果开发包正在运行，但需要更新到最新版本，则必须[重新部署 Azure Stack](azure-stack-redeploy.md)。 不能应用更新包。 此过程需要一定的时间，但好处是可以尝试最新功能。 我们网站上的开发工具包文档反映了最新的发行版。
 
 ## <a name="learn-about-available-services"></a>了解可用的服务
 

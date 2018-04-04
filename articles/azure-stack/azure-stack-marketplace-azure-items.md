@@ -28,11 +28,11 @@ ms.lasthandoff: 03/08/2018
 
 
 ## <a name="virtual-machine-extensions"></a>虚拟机扩展
-建议每当所需的 VM 扩展有更新时就下载这些更新。 随产品一起提供的扩展不会在普通的修补和更新过程中更新；请经常查看更新。 其他扩展只能通过 Marketplace 管理获取。
+所用的VM扩展有更新时，建议下载这些更新。 产品中自带的扩展不会在普通修补升级过程中更新；请经常查看更新。 其他扩展只能通过 Marketplace 管理获取。
 
 |  | 项名称 | 说明 | 发布者 | OS 类型 |
 | --- | --- | --- | --- | --- |
-|![](./media/azure-stack-marketplace-azure-items/cse.png) | [ SQL IaaS 扩展 ](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>要部署任何“Windows 上的 SQL Server”的 Marketplace 项，必须下载此扩展。</b> | Microsoft | Windows |
+|![](./media/azure-stack-marketplace-azure-items/cse.png) | [ SQL IaaS 扩展 ](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>要部署 “Windows上的SQL Server”的任何 Marketplace项目，必须下载此扩展。</b> | Microsoft | Windows |
 |![](./media/azure-stack-marketplace-azure-items/cse.png) | [ 自定义脚本扩展 ](/virtual-machines/windows/extensions-customscript)| <b>请下载此更新，此更新针对用于 Windows 的自定义脚本扩展的内置版本。</b> | Microsoft | Windows |
 |![](./media/azure-stack-marketplace-azure-items/dsc.png) | [ PowerShell DSC 扩展 ](/virtual-machines/windows/extensions-dsc-overview)| <b>请下载此更新，此更新针对 PowerShell DSC 扩展的内置版本。</b> | Microsoft | Windows |
 | ![](./media/azure-stack-marketplace-azure-items/cse.png) | [ Microsoft 反恶意软件扩展 ](/security/azure-security-antimalware)| 适用于 Azure 的 Microsoft 反恶意软件是一个针对应用程序和租户环境所提供的单一代理解决方案，可在在后台运行而无需人工干预。 | Microsoft | Windows |

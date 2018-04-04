@@ -1,11 +1,11 @@
 ---
-title: "配置 Azure Stack 用户的 PowerShell 环境 | Microsoft Docs"
-description: "配置 Azure Stack 用户的 PowerShell 环境"
+title: 配置 Azure Stack 用户的 PowerShell 环境 | Microsoft Docs
+description: 配置 Azure Stack 用户的 PowerShell 环境
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na

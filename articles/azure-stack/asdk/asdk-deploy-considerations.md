@@ -119,7 +119,7 @@ ms.lasthandoff: 03/23/2018
 确保可以在 NIC 连接到的网络上使用 DHCP 服务器。 如果 DHCP 不可用，则除了主机使用的静态 IPv4 网络，还必须准备另一个此类网络。 必须提供该 IP 地址和网关作为部署参数。
 
 ### <a name="internet-access"></a>Internet 访问
-Azure Stack 需要以直接方式或通过透明代理访问 Internet。 Azure Stack 不支持通过配置 Web 代理来启用 Internet 访问。 主机 IP 和分配到 MAS-BGPNAT01 的新 IP（通过 DHCP 或静态 IP 的方式进行分配）必须能够访问 Internet。 用到了端口 80 和 443，访问的域名是 graph.chinacloudapi.cn 和 login.partner.microsoftonline.cn。
+Azure Stack 需要访问 Internet，可以直接访问，也可以通过透明代理进行访问。 Azure Stack 不支持通过配置 Web 代理来启用 Internet 访问。 主机 IP 和分配到 MAS-BGPNAT01 的新 IP（通过 DHCP 或静态 IP 的方式进行分配）必须能够访问 Internet。 用到了端口 80 和 443，访问的域名是 graph.chinacloudapi.cn 和 login.partner.microsoftonline.cn。
 
 
 ## <a name="next-steps"></a>后续步骤

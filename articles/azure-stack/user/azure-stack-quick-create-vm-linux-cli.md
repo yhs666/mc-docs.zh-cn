@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Stack 中使用 Azure CLI 创建 Linux 虚拟机 | Microsoft Docs"
-description: "在 Azure Stack 中使用 CLI 创建 Linux 虚拟机。"
+title: 在 Azure Stack 中使用 Azure CLI 创建 Linux 虚拟机 | Microsoft Docs
+description: 在 Azure Stack 中使用 CLI 创建 Linux 虚拟机。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 21F7D599-1FEC-4827-A5C3-06495C5F53A4
 ms.service: azure-stack
 ms.workload: na

@@ -1,6 +1,6 @@
 ---
-title: "Azure Stack 快速入门 - 创建 Windows 虚拟机"
-description: "Azure Stack 快速入门 - 使用门户创建 Windows VM"
+title: Azure Stack 快速入门 - 创建 Windows 虚拟机
+description: Azure Stack 快速入门 - 使用门户创建 Windows VM
 services: azure-stack
 author: brenduns
 manager: femila
@@ -9,7 +9,7 @@ ms.topic: quickstart
 origin.date: 09/15/2017
 ms.date: 03/09/2018
 ms.author: v-junlch
-ms.reviewer: 
+ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: cc825f1a950ff435335415109f4879b044055586
 ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f

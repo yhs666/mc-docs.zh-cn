@@ -63,7 +63,7 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="storage"></a>存储
 ### <a name="storage-reclamation"></a>存储回收
-回收的容量最长可能需要在 14 小时后才显示在门户中。 空间回收取决于多种因素，包括块 Blob 存储中内部容器文件的用量百分比。 因此，删除的数据量无法保证垃圾收集器运行时可回收的空间量。
+回收的容量最长可能需要在 14 小时后才显示在门户中。 空间回收取决于多种因素，包括块 Blob 存储中内部容器文件的用量百分比。 因此，我们无法保证运行垃圾收集器时可回收的空间量，这取决于删除的数据量。
 
 ## <a name="next-steps"></a>后续步骤
 [访问 Azure Stack 支持论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)

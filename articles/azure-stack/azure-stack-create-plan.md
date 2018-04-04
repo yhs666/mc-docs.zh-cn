@@ -28,7 +28,7 @@ ms.lasthandoff: 03/02/2018
 
 [计划](azure-stack-key-features.md)是对一个或多个服务的分组。 作为提供商，可以创建提供给用户的计划。 反过来，用户可以订阅产品/服务，以便使用其所包括的计划和服务。 此示例演示如何创建一个包括计算、网络和存储资源提供程序的计划。 订阅方使用此计划可以预配虚拟机。
 
-1. 登录到 Azure Stack 管理员门户 (https://adminportal.local.azurestack.external)。 输入在[运行 PowerShell 脚本](azure-stack-run-powershell-script.md)部分的步骤 5 中创建的帐户的凭据。
+1. 登录到 Azure Stack 管理员门户 ( https://adminportal.local.azurestack.external )。 输入在[运行 PowerShell 脚本](azure-stack-run-powershell-script.md)部分的步骤 5 中创建的帐户的凭据。
 
 2. 若要创建用户可以订阅的计划和产品/服务，请单击“新建” > “租户产品/服务 + 计划” > “计划”。
 

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Stack 门户 | Microsoft Docs"
-description: "了解如何访问和使用 Azure Stack 中的用户门户。"
+title: 使用 Azure Stack 门户 | Microsoft Docs
+description: 了解如何访问和使用 Azure Stack 中的用户门户。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 5aa00123-5b87-45e0-a671-4165e66bfbc6
 ms.service: azure-stack
 ms.workload: na

@@ -1,11 +1,11 @@
 ---
-title: "安装适用于 Azure Stack 的 PowerShell | Microsoft Docs"
-description: "了解如何安装适用于 Azure Stack 的 PowerShell。"
+title: 安装适用于 Azure Stack 的 PowerShell | Microsoft Docs
+description: 了解如何安装适用于 Azure Stack 的 PowerShell。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: F8D99A91-15B5-4073-BE07-A43514A6D2CF
 ms.service: azure-stack
 ms.workload: na

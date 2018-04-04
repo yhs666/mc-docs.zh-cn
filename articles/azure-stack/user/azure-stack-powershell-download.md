@@ -1,11 +1,11 @@
 ---
-title: "从 GitHub 下载 Azure Stack 工具 | Microsoft Docs"
-description: "了解如何下载使用 Azure Stack 所需的工具。"
+title: 从 GitHub 下载 Azure Stack 工具 | Microsoft Docs
+description: 了解如何下载使用 Azure Stack 所需的工具。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 28F360AD-789A-488D-965F-FC6E6CCF3329
 ms.service: azure-stack
 ms.workload: na
