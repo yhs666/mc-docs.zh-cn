@@ -3,8 +3,8 @@ title: 了解 Azure Stack 中的 DNS | Microsoft Docs
 description: 了解 Azure Stack 中的 DNS 特性和功能
 services: azure-stack
 documentationcenter: ''
-author: ScottNapolitan
-manager: darmour
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: 60f5ac85-be19-49ac-a7c1-f290d682b5de
 ms.service: azure-stack
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/25/2017
-ms.date: 03/09/2018
+origin.date: 02/28/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: b671adb6b0528c4838ddba2b95855c017cc4aa44
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 73e3659ff1820e64eabb402e09896809c0c1b50c
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introducing-idns-for-azure-stack"></a>适用于 Azure Stack 的 iDNS 简介
 
@@ -46,7 +46,7 @@ iDNS 不允许针对可以从虚拟网络外部解析的名称创建 DNS 记录�
 
 ![DNS 名称标签的屏幕截图](./media/azure-stack-understanding-dns-in-tp2/image3.png)
 
-在上图中，Azure 将会在 DNS 中为该区域下指定的 DNS 名称标签创建“A”记录。 前缀和后缀一起构成完全限定域名 (FQDN)，此域名可以从公共 Internet 上的任何位置解析。
+在上图中，Azure 会在 DNS 中为 **chinanorth.chinacloudapp.cn** 区域下指定的 DNS 名称标签创建“A”记录。 前缀和后缀一起构成完全限定域名 (FQDN)，此域名可以从公共 Internet 上的任何位置解析。
 
 Azure Stack 仅支持用于内部名称注册的 iDNS，因此它无法执行以下操作：
 
@@ -56,3 +56,4 @@ Azure Stack 仅支持用于内部名称注册的 iDNS，因此它无法执行以
 - 支持购买域名。
 
 
+<!-- Update_Description: wording update -->

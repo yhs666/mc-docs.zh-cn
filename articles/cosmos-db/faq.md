@@ -1,26 +1,26 @@
 ---
-title: "Azure Cosmos DB 常见问题解答 | Azure"
-description: "获取有关 Azure Cosmos DB（多区域分布式多模型数据库服务）的常见问题的解答。 了解容量、性能级别和缩放。"
-keywords: "数据库问题, 常见问题, documentdb, azure, Microsoft azure"
+title: Azure Cosmos DB 常见问题解答 | Azure
+description: 获取有关 Azure Cosmos DB（多区域分布式多模型数据库服务）的常见问题的解答。 了解容量、性能级别和缩放。
+keywords: 数据库问题, 常见问题, documentdb, azure, Microsoft azure
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/12/2018
-ms.date: 03/05/2018
+origin.date: 03/14/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1c344112f6fed20b3039c7d6a6b0c55af582bf94
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 3824d44a69595b93b8a16b5d199e7346f0014ba7
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 <!-- meta.description: GLOBALLY to multiple-region -->
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常见问题解答
@@ -201,6 +201,7 @@ Azure Cosmos DB 实施严格的安全要求和标准。 Azure Cosmos DB 帐户�
 * 目前不支持 CORS
 * Azure 表存储中的表名不区分大小写，但出现在 Azure Cosmos DB 表 API 中
 * Azure Cosmos DB 的某些编码信息内部格式，例如二进制字段，目前不如想像的那么有效。 因此，这会导致数据大小受到意外限制。 例如，目前无法使用整整有 1 MB 的表实体来存储二进制数据，因为编码会增大数据大小。
+* 当前不支持实体属性名称“Id”
 
 对于 REST API，有大量的终结点/查询选项不受 Azure Cosmos DB 表 API 的支持：
 | REST 方法 | REST 终结点/查询选项 | 文档 URL | 说明 |
@@ -272,7 +273,7 @@ DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB>;AccountKey
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>如何将现有 Azure 表存储应用程序迁移到此服务？
 支持使用 [AzCopy](/storage/common/storage-use-azcopy) 和 [Azure Cosmos DB 数据迁移工具](import-data.md)。
 
-### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>如何在特定情况下为此服务扩展存储大小？比如，最初我有 *n* GB 的数据，但一段时间后我的数据会增长到 1 TB。 
+### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>如何为此服务扩展存储大小，比如，最初我有 *n* GB 的数据，但一段时间后我的数据会增长到 1 TB？ 
 根据设计，可以通过横向缩放让 Azure Cosmos DB 提供无限的存储。 可以通过服务来监视并有效地增大存储。 
 
 ### <a name="how-do-i-monitor-the-table-api-offering"></a>如何监视表 API 服务？

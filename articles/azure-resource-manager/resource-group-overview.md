@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager 概述 | Azure"
-description: "介绍如何使用 Azure Resource Manager 在 Azure 上部署和管理资源以及对其进行访问控制。"
+title: Azure Resource Manager 概述 | Azure
+description: 介绍如何使用 Azure Resource Manager 在 Azure 上部署和管理资源以及对其进行访问控制。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/14/2017
-ms.date: 11/27/2017
+origin.date: 01/30/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 22af291f77dd4e4351106099838c5b558053b9e8
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 6567894a3a3c40227352c6854c3a8dc92d653664
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概述
 应用程序的基础结构通常由许多组件构成：可能有虚拟机、存储帐户和虚拟网络，或 Web 应用、数据库、数据库服务器和第三方服务。 这些组件不会以独立的实体出现，而是以单个实体的相关部件和依赖部件出现。 如果希望以组的方式部署、管理和监视这些这些组件， 那么，可以使用 Azure 资源管理器以组的方式处理解决方案中的资源。 可以通过一个协调的操作为解决方案部署、更新或删除所有资源。 可以使用一个模板来完成部署，该模板适用于不同的环境，例如测试、过渡和生产。 资源管理器提供安全、审核和标记功能，以帮助你在部署后管理资源。 
@@ -62,8 +62,6 @@ Resource Manager 针对通过 Azure PowerShell、Azure CLI、Azure 门户、REST
 3. 运行强制性命令来管理资源，例如启动或停止应用或计算机。
 4. 排列资源组中具有相同生命周期的资源。 使用标记来组织其他所有资源。
 
-有关模板的建议，请参阅[创建 Azure Resource Manager 模板的最佳实践](resource-manager-template-best-practices.md)。
-
 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
 
 ## <a name="resource-groups"></a>资源组
@@ -79,14 +77,14 @@ Resource Manager 针对通过 Azure PowerShell、Azure CLI、Azure 门户、REST
 
 创建资源组时，需要为该资源组提供一个位置。 你可能想知道，“为什么资源组需要一个位置？ 以及，如果资源可以具有与资源组不同的位置，资源组的位置应该不重要啊？ ” 资源组存储与资源有关的元数据。 因此，当指定资源组的位置时，也就指定了元数据的存储位置。 出于合规性原因，可能需要确保数据存储在某一特定区域。
 
-## <a name="resource-providers"></a> 资源提供程序
+## <a name="resource-providers"></a>资源提供程序
 每个资源提供程序都会提供一组用于 Azure 服务的资源和操作。 例如，若要存储密钥和密码，可以使用 **Microsoft.KeyVault** 资源提供程序。 此资源提供程序提供名为“保管库”的资源类型，用于创建密钥保管库。 
 
 资源类型的名称采用以下格式：{resource-provider}/{resource-type}。 例如，Key Vault 类型为 **Microsoft.KeyVault/vaults**。
 
 开始部署资源之前，应了解可用的资源提供程序。 了解资源提供程序和资源的名称可帮助定义想要部署到 Azure 的资源。 此外，还需要知道每种资源类型的有效位置和 API 版本。 有关详细信息，请参阅[资源提供程序和类型](resource-manager-supported-services.md)。
 
-## <a name="template-deployment"></a> 模板部署
+## <a name="template-deployment"></a>模板部署
 使用 Resource Manager 可以创建一个模板（采用 JSON 格式），用于定义 Azure 解决方案的基础结构和配置。 使用模板，可以在解决方案的整个生命周期内重复部署该解决方案，确保以一致的状态部署资源。 从门户创建解决方案时，该解决方案会自动包含部署模板。 无需从头开始创建模板，因为可以从解决方案的模板着手，并根据特定需求自定义该模板。 可以通过导出资源组的当前状态或查看特定部署所用的模板，来检索现有资源组的模板。 查看[导出的模板](resource-manager-export-template.md)是了解模板语法的有用方法。
 
 若要了解模板的格式及其构造方法，请参阅[创建第一个 Azure 资源管理器模板](resource-manager-create-first-template.md)。 若要查看资源类型的 JSON 语法，请参阅[定义 Azure Resource Manager 模板中的资源](https://docs.microsoft.com/en-us/azure/templates/)。
@@ -139,7 +137,7 @@ REQUEST BODY
 
 ![层模板](./media/resource-group-overview/tier-templates.png)
 
-有关设计模板的更多建议，请参阅 [设计 Azure Resource Manager 模板的最佳实践](best-practices-resource-manager-design-templates.md)。 有关嵌套模板的信息，请参阅[将链接模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)。
+有关嵌套模板的信息，请参阅[将链接模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)。
 
 Azure Resource Manager 会分析依赖关系，以确保按正确的顺序创建资源。 如果一个资源依赖于另一个资源（例如虚拟机需要存储帐户才能访问磁盘）中的值，请设置依赖关系。 有关详细信息，请参阅[在 Azure Resource Manager 模板中定义依赖关系](resource-group-define-dependencies.md)。
 

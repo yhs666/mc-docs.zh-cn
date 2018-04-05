@@ -3,8 +3,8 @@ title: 了解 Azure Stack 的安全控制措施 | Microsoft Docs
 description: 向服务管理员介绍应用于 Azure Stack 的安全控制措施
 services: azure-stack
 documentationcenter: ''
-author: Heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 03/04/2018
+origin.date: 03/06/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: c72fa3df325b99053ffae05c9bc1c462dab94d53
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: a89a5dc20e6f9d95d6929045d738efe9807540a1
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 基础结构安全局势
 
@@ -32,10 +32,14 @@ Azure Stack 中有两个并存的安全局势层。 第一层由 Azure Stack 基
 ## <a name="security-approach"></a>安全方法
 Azure Stack 中设计了安全局势功能来防范新式威胁，它符合主要合规标准的要求。 因此，Azure Stack 基础结构的安全局势构建在两个支柱之上：
 
- - **假想入侵。** 我们从假设系统已被入侵的情况出发，将重点放在检测入侵并限制其影响上，而不只是尽量防止攻击。 
- - **默认强化。**  由于基础结构在定义完善的硬件和软件中运行，因此我们会启用、配置和验证安全功能，而这些功能往往由客户来实施。
+ - **假想入侵。**  
+我们从假设系统已被入侵的情况出发，将重点放在检测入侵并限制其影响上，而不只是尽量防止攻击。 
+ - **默认强化。**  
+由于基础结构在定义完善的硬件和软件中运行，因此我们会在默认情况下启用、配置和验证所有安全功能。
 
-由于 Azure Stack 是以集成系统的形式交付的，因此 Azure Stack 基础结构的安全局势由 Microsoft 定义。  如同在 Azure 中一样，租户需负责定义其租户工作负荷的安全局势。 本文档提供有关 Azure Stack 基础结构安全局势的基础知识。
+
+
+由于 Azure Stack 是以集成系统的形式交付的，因此 Azure Stack 基础结构的安全局势由 Microsoft 定义。 如同在 Azure 中一样，租户需负责定义其租户工作负荷的安全局势。 本文档提供有关 Azure Stack 基础结构安全局势的基础知识。
 
 ## <a name="data-at-rest-encryption"></a>静态数据加密
 所有 Azure Stack 基础结构和租户静态数据都以 Bitlocker 加密。 这种加密可以防范 Azure Stack 存储组件的实物遗失或失窃。 
@@ -72,12 +76,12 @@ Azure Stack 中的管理是使用三个入口点来控制的，其中每个入�
 3. 对于特定的低级操作（例如数据中心集成或支持方案），Azure Stack 公开一个称作[特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 终结点。 此终结点只公开一组已添加到允许列表的 cmdlet，并且经常接受审核。
 
 ## <a name="network-controls"></a>网络控制措施
-Azure Stack 基础结构随附多个网络访问控制列表 (ACL) 层。  ACL 可防止用户对基础结构组件进行未经授权的访问，并将基础结构通信限制为基础结构在运行时所要访问的路径。 
+Azure Stack 基础结构随附多个网络访问控制列表 (ACL) 层。 ACL 可防止用户对基础结构组件进行未经授权的访问，并将基础结构通信限制为基础结构在运行时需要访问的路径。 
 
 在三个层中实施网络 ACL：
 1.  机架顶部交换机
 2.  软件定义的网络
 3.  主机和 VM 操作系统防火墙 
 
-
+<!-- Update_Description: wording update -->
 

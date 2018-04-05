@@ -3,8 +3,8 @@ title: Azure Stack 中的区域管理 | Microsoft Docs
 description: Azure Stack 中的区域管理概述。
 services: azure-stack
 documentationcenter: ''
-author: efemmano
-manager: dsavage
+author: brenduns
+manager: femila
 editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 03/02/2018
+origin.date: 02/27/2018
+ms.date: 03/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 16c91a17b866970a6207315c1673ac99c2e8191b
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: efemmano
+ms.openlocfilehash: 622bb278dd9848ff76544533b8730076e0dfa073
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="region-management-in-azure-stack"></a>Azure Stack 中的区域管理
 
@@ -42,20 +43,15 @@ Azure Stack 在“区域管理”磁贴中提供了一组区域管理功能。 A
 
 2. **警报**。 此磁贴会列出全系统警报，并提供有关每个警报的详细信息。
 
-3. **更新**。 在此磁贴中，可以查看 Azure Stack 基础结构的当前版本。
+3. **更新**。 在此磁贴中，可以查看 Azure Stack 基础结构的当前版本、可用更新和更新历史记录。 也可以更新集成系统。
 
-4. **资源提供程序**。 通过“资源提供程序”可管理运行 Azure Stack 时所需的组件所提供的租户功能。 每个资源提供程序均附带管理体验。 这项体验可能包括特定提供程序的警报、指标和其他特定于资源提供程序的管理功能。
- 
-5. **基础结构角色**。 基础结构角色是运行 Azure Stack 时所需的组件。 仅报告警报的基础结构角色会列出。 通过单击角色，可以查看与特定角色关联的警报，以及运行此角色的角色实例。 尽管包含启动、重新启动或关闭基础结构角色实例的功能，但请**勿**在开发工具包环境中执行此操作。 这些选项仅专为每个基础结构角色具有多个角色实例的多节点环境而设计。 在开发工具包中重新启动角色实例（特别是 AzS-Xrp01）会导致系统不稳定。
+4. **资源提供程序**。 可以通过“资源提供程序”管理运行 Azure Stack 时所需组件提供的用户功能。 每个资源提供程序均附带管理体验。 这项体验可能包括特定提供程序的警报、指标和其他特定于资源提供程序的管理功能。
+
+5. **基础结构角色**。 基础结构角色是运行 Azure Stack 时所需的组件。 仅报告警报的基础结构角色会列出。 通过单击角色，可以查看与特定角色关联的警报，以及运行此角色的角色实例。
 
 ## <a name="next-steps"></a>后续步骤
 [在 Azure Stack 中监视运行状况和警报](azure-stack-monitor-health.md)
 
 [在 Azure Stack 中管理更新](azure-stack-updates.md)
 
-
-
-
-
-
-
+<!-- Update_Description: wording update -->

@@ -3,18 +3,19 @@ title: Azure Stack 数据中心集成 - 安全性
 description: 了解如何将 Azure Stack 安全性与数据中心安全性集成
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-origin.date: 01/31/2018
-ms.date: 03/02/2018
+origin.date: 02/28/2018
+ms.date: 03/26/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 36fcfc8adf20989da2a57b29177dd17f45b9f984
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: c6f7c929ce8d9ce1a59e45ac1a0c97f1627b7405
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Azure Stack 数据中心集成 - 安全性
 Azure Stack 在设计和构建时已将安全性考虑进去。 Azure Stack 是锁定的系统，因此不支持安装软件安全代理。
@@ -31,7 +32,7 @@ Azure Stack 每隔两分钟收集一次基础结构角色和缩放单位节点�
 
 ### <a name="use-azure-storage-explorer-to-view-events"></a>使用 Azure 存储资源管理器查看事件
 
-可以使用名为“Azure 存储资源管理器”的工具来检索 Azure Stack 收集的事件。 可以从 [http://storageexplorer.com](http://storageexplorer.com) 下载 Azure 存储资源管理器。
+可以使用名为“Azure 存储资源管理器”的工具来检索 Azure Stack 收集的事件。 可从 [http://storageexplorer.com](http://storageexplorer.com) 下载 Azure 存储资源管理器。
 
 以下过程示例可用于配置 Azure Stack 的 Azure 存储资源管理器：
 
@@ -60,7 +61,7 @@ Azure Stack 每隔两分钟收集一次基础结构角色和缩放单位节点�
 
    c. 在“存储终结点域”下选择“其他”，并指定存储终结点的 **[区域].[域名]**。
 
-   d. 选中“使用 HTTP”复选框。
+   d.单击“验证存储凭据”以验证存储帐户。 选中“使用 HTTP”复选框。
 
    ![附加外部存储](./media/azure-stack-integrate-security/attach-storage.png)
 
@@ -94,3 +95,4 @@ Syslog 目标地址是针对部署所收集的可选参数，但也可以在部�
 
 [服务策略](azure-stack-servicing-policy.md)
 
+<!-- Update_Description: update metedata properties -->

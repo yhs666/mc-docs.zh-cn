@@ -1,27 +1,27 @@
 ---
-title: "适用于 Azure Cosmos DB 的数据库迁移工具 | Azure"
-description: "本文演示了如何使用开源 Azure Cosmos DB 数据迁移工具将数据从各种源导入到 Azure Cosmos DB，包括 MongoDB、SQL Server、表存储、Amazon DynamoDB、CSV 和 JSON 文件。 将 CSV 转换为 JSON。"
-keywords: "csv 到 json, 数据库迁移工具, 将 csv 转换为 json"
+title: 适用于 Azure Cosmos DB 的数据库迁移工具 | Azure
+description: 本文演示了如何使用开源 Azure Cosmos DB 数据迁移工具将数据从各种源导入到 Azure Cosmos DB，包括 MongoDB、SQL Server、表存储、Amazon DynamoDB、CSV 和 JSON 文件。 将 CSV 转换为 JSON。
+keywords: csv 到 json, 数据库迁移工具, 将 csv 转换为 json
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d173581d-782a-445c-98d9-5e3c49b00e25
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/15/2017
-ms.date: 12/25/2017
+origin.date: 02/27/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7b1471039c15a73e4d23ba79522eb6071d300bdb
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 994c6785816aea973fb2ff2f3b06d3b4064e3794
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB：数据迁移工具
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 02/13/2018
 导入工具将包括图形用户界面 (dtui.exe)，还可从命令行 (dt.exe) 中驱动。 实际上，有一个选项可以在通过用户界面设置导入后输出关联的命令。 可以转换表格源数据（例如 SQL Server 或 CSV 文件），以便可以在导入过程中创建层次结构关系（子文档）。 继续阅读，以了解有关源选项、用于从每个源导入的示例命令行以及目标选项的详细信息，并查看导入结果。
 
 ## <a name="Install"></a>安装
-迁移工具源代码可从[此存储库](https://github.com/azure/azure-documentdb-datamigrationtool)中的 GitHub 上下载，编译版本可从 [Microsoft 下载中心](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)获取。 可以编译解决方案，或者只下载并将编译版本解压缩到所选的目录中。 然后运行以下任一文件：
+迁移工具源代码可在 GitHub 上的[此存储库](https://github.com/azure/azure-documentdb-datamigrationtool)中获得。 可以在本地下载并编译解决方案，然后运行以下任一项：
 
 * **Dtui.exe**︰该工具的图形界面版本
 * **Dtui.exe**︰该工具的命令行版本
@@ -490,7 +490,7 @@ Azure Cosmos DB - 顺序记录导入程序具有下列高级附加选项：
 工具提供的策略模板包括︰
 
 * 默认。 针对字符串执行等式查询并针对数值使用 ORDER BY、范围和等式查询时，此策略最佳。 与范围模板相比，此策略的索引存储开销较低。
-* 范围。 针对数值和字符串都使用 ORDER BY、范围和等式查询时，此策略最佳。 与默认或哈希模板相比，此策略的索引存储开销较高。
+* 范围。 此策略最适合对数字和字符串同时使用 ORDER BY、范围和等式查询的情况。 与默认或哈希模板相比，此策略的索引存储开销较高。
 
 ![Azure Cosmos DB 索引策略高级选项的屏幕截图](./media/import-data/indexingpolicy2.png)
 
@@ -576,4 +576,4 @@ Azure Cosmos DB - 顺序记录导入程序具有下列高级附加选项：
 > [!div class="nextstepaction"]
 >[如何查询数据？](../cosmos-db/tutorial-query-sql-api.md)
 
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update meta properties, wording update -->

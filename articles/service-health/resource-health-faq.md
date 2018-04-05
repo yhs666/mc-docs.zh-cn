@@ -1,11 +1,11 @@
 ---
-title: "Azure 资源运行状况常见问题解答 | Microsoft Docs"
-description: "Azure 资源运行状况概述"
+title: Azure 资源运行状况常见问题解答
+description: Azure 资源运行状况概述
 services: Resource health
 documentationcenter: dev-center-name
 author: BernardoAMunoz
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 origin.date: 07/05/2017
 ms.author: v-yiso
-ms.date: 11/13/2017
-ms.openlocfilehash: 4b537623fe2834ce3b50cb0a03cb333c002078cf
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.date: 04/09/2018
+ms.openlocfilehash: a7513ce136a4e0143f223d16084cbc355b2db878
+ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-resource-health-faq"></a>Azure 资源运行状况常见问题解答
 获取 Azure 资源运行状况常见问题的解答。
@@ -57,7 +57,7 @@ ms.lasthandoff: 11/03/2017
 在门户中，用户启动的操作用蓝色通知图标显示，而计划内和计划外事件则用红色警告图标显示。 [资源运行状况概述](Resource-health-overview.md)中提供了更多详细信息。  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>能否将资源运行状况与监视工具集成？
-资源运行状况是一项服务，旨在帮助你诊断和减轻影响资源的 Azure 服务问题。 虽然可以使用资源运行状况 API 来程序性地获取运行状态，但建议使用指标来监视资源。 一旦检测到问题，资源运行状况就可以帮助确定根本原因，指导完成解决问题所需的操作。 请访问 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)，详细了解如何使用指标来检查资源。
+资源运行状况是一项服务，旨在帮助你诊断和减轻影响资源的 Azure 服务问题。 虽然可以使用资源运行状况 API 来程序性地获取运行状态，但建议使用指标来监视资源。 一旦检测到问题，资源运行状况就可以帮助确定根本原因，指导完成解决问题所需的操作。 请访问 [Azure Monitor](/monitoring-and-diagnostics/)，详细了解如何使用指标来检查资源。
 
 ## <a name="where-do-i-find-resource-health"></a>在何处查找资源运行状况？
 登录 Azure 门户以后，即可通过多种方式访问资源运行状况：
@@ -84,12 +84,12 @@ ms.lasthandoff: 11/03/2017
 - 中国东部
 - 中国北部
 
-## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>资源运行状况与服务运行状况仪表板或 Azure 门户服务通知有何不同？
-资源运行状况提供的信息比 Azure 服务运行状况仪表板提供的更具体。
+## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>资源运行状况与 Azure 状态或服务运行状况仪表板有何不同？
+资源运行状况提供的信息比 Azure 状态或服务运行状况仪表板提供的更具体。
 
-[Azure 状态](https://status.azure.com)和门户服务通知会告知影响大量客户（例如某个 Azure 区域的客户）的服务问题，而资源运行状况则会公开更细致的事件，这些事件仅与特定的资源相关。 例如，如果某个主机意外重启，资源运行状况仅提醒其虚拟机在该主机上运行的那些客户。
+[Azure 状态](https://www.azure.cn/support/service-dashboard/)和服务运行状况仪表板会告知影响大量客户（例如某个 Azure 区域的客户）的服务问题，而资源运行状况则会公开更细致的事件，这些事件仅与特定的资源相关。 例如，如果某个主机意外重启，资源运行状况仅提醒其虚拟机在该主机上运行的那些客户。
 
-必须注意的是，为了让你全面了解影响资源的事件，资源运行状况还会呈现在服务通知和服务运行状况仪表板中发布的事件。
+必须注意的是，为了让你全面了解影响资源的事件，资源运行状况还会呈现在服务运行状况仪表板中发布的事件。
 
 ## <a name="do-i-need-to-activate-resource-health-for-each-resource"></a>是否需要激活每个资源的资源运行状况？
 否。运行状况信息适用于可以通过资源运行状况获取的所有资源类型。 

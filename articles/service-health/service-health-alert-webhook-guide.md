@@ -1,25 +1,25 @@
 ---
-title: "使用 Webhook 为现有的问题管理系统配置运行状况通知"
-description: "获取有关发送到现有问题管理系统的服务运行状况事件的个性化通知。"
+title: 使用 Webhook 为现有的问题管理系统配置运行状况通知
+description: 获取有关发送到现有问题管理系统的服务运行状况事件的个性化通知。
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/14/2017
-ms.date: 03/19/2018
+ms.date: 04/09/2018
 ms.author: v-yiso
-ms.openlocfilehash: 45d148c37e3bff0fa5e59b3aa356c12bc83e6d8f
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 057e3156c75c7d8e7954aef1c7ac0b320bdbcdb6
+ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>使用 Webhook 为现有的问题管理系统配置运行状况通知
 
@@ -49,13 +49,13 @@ ms.lasthandoff: 03/12/2018
  * `data.context.activityLog.properties.impactedServices`
  * `data.context.activityLog.properties.trackingId`
 
-## <a name="creating-a-direct-link-to-azure-service-health-for-an-incident"></a>针对某个事件，创建 Azure 服务运行状况的直接链接
-可以通过生成专用 URL，在台式或移动设备上创建个性化 Azure 服务运行状况事件的直接链接。 使用 `trackingId` 以及 `subscriptionId` 的头三个和最后三个数字来生成该链接：
+## <a name="creating-a-direct-link-to-the-service-health-dashboard-for-an-incident"></a>针对某个事件，创建服务运行状况仪表板的直接链接
+通过生成专用 URL，可在台式或移动设备上创建服务运行状况仪表板的直接链接。 使用 `trackingId` 以及 `subscriptionId` 的头三个和最后三个数字来生成该链接：
 ```
 https://app.azure.com/h/<trackingId>/<first and last three digits of subscriptionId>
 ```
 
-例如，如果 `subscriptionId` 为 `bba14129-e895-429b-8809-278e836ecdb3`，`trackingId` 为 `0DET-URB`，则个性化 Azure 服务运行状况 URL 为：
+例如，如果 `subscriptionId` 为 `bba14129-e895-429b-8809-278e836ecdb3`，`trackingId` 为 `0DET-URB`，则服务运行状况 URL 为：
 
 ```
 https://app.azure.com/h/0DET-URB/bbadb3

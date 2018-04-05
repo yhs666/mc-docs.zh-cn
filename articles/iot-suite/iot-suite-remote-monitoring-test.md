@@ -1,7 +1,7 @@
 ---
-title: "远程监视解决方案中的设备模拟"
-description: "本教程介绍如何在远程监视预配置解决方案中使用设备模拟器。"
-services: 
+title: 远程监视解决方案中的设备模拟
+description: 本教程介绍如何在远程监视预配置解决方案中使用设备模拟器。
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -13,11 +13,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 6ed314479a3d1920325b8189458bbcee36afa8d3
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: e026563acb05c3108f8260be4d1f641ca4dea4df
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-new-simulated-device"></a>创建新的模拟设备
 

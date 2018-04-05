@@ -1,11 +1,11 @@
 ---
-title: "使用 AES-128 动态加密和密钥传送服务 | Azure"
-description: "借助 Azure 媒体服务，可传送使用 AES 128 位加密密钥加密的内容。 媒体服务还提供密钥传送服务，将加密密钥传送给已授权的用户。 本主题说明如何使用 AES-128 动态加密以及如何使用密钥传送服务。"
+title: 使用 AES-128 动态加密和密钥传送服务 | Azure
+description: 借助 Azure 媒体服务，可传送使用 AES 128 位加密密钥加密的内容。 媒体服务还提供密钥传送服务，将加密密钥传送给已授权的用户。 本主题说明如何使用 AES-128 动态加密以及如何使用密钥传送服务。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 4d2c10af-9ee0-408f-899b-33fa4c1d89b9
 ms.service: media-services
 ms.workload: media
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 08/25/2017
 ms.date: 12/22/2017
 ms.author: v-nany
-ms.openlocfilehash: 66751e7a518b9764fa8176a73b067a2736edb3d5
-ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
+ms.openlocfilehash: 0f431bb61ce3916330a587db52cd2f65d4f1d5e3
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>使用 AES-128 动态加密和密钥传递服务
 > [!div class="op_single_selector"]
@@ -127,6 +127,7 @@ ms.lasthandoff: 01/19/2018
 ## <a name="get-a-test-token"></a>获取测试令牌
 获取用于密钥授权策略的基于令牌限制的测试令牌。
 
+```csharp
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate = 
@@ -137,6 +138,7 @@ ms.lasthandoff: 01/19/2018
     //so you have to add it in front of the token string. 
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+```
 
 可以使用 [Azure 媒体服务播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)来测试流。
 
@@ -146,6 +148,7 @@ ms.lasthandoff: 01/19/2018
 ### <a name="manifest-files"></a>清单文件
 客户端需要从清单文件提取 URL（也包含内容密钥 ID [kid]）值。 然后，客户端将尝试从密钥传送服务获取加密密钥。 客户端还需要提取 IV 值，并使用该值来解密流。 下面的代码片段演示平滑流式处理清单的 <Protection> 元素。
 
+```xml
     <Protection>
       <ProtectionHeader SystemID="B47B251A-2409-4B42-958E-08DBAE7B4EE9">
         <ContentProtection xmlns:sea="urn:mpeg:dash:schema:sea:2012" schemeIdUri="urn:mpeg:dash:sea:2012">
@@ -157,10 +160,11 @@ ms.lasthandoff: 01/19/2018
         </ContentProtection>
       </ProtectionHeader>
     </Protection>
+```
 
 对于 HLS，根清单将划分成段文件。 
 
-例如，根清单为 http://test001.origin.mediaservices.chinacloudapi.cn/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl) 并且包含段文件名的列表。
+例如，根清单为 http://test001.origin.mediaservices.chinacloudapi.cn/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl)，它包含段文件名的列表。
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -169,7 +173,7 @@ ms.lasthandoff: 01/19/2018
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-如果在文本编辑器中打开其中一个段文件（例如，http://test001.origin.mediaservices.chinacloudapi.cn/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl)，则应包含 #EXT-X-KEY，表示文件已加密。
+如果在文本编辑器中打开其中一个段文件（例如，http://test001.origin.mediaservices.chinacloudapi.cn/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl），则应包含 #EXT-X-KEY，表示文件已加密。
 
     #EXTM3U
     #EXT-X-VERSION:4
@@ -192,6 +196,7 @@ ms.lasthandoff: 01/19/2018
 
 以下代码演示如何使用密钥传送 Uri（从清单提取）和令牌，向媒体服务密钥传送服务发送请求。 （本文不讨论如何从 STS 获取 SWT。）
 
+```csharp
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
     {
         HttpWebRequest request = (HttpWebRequest)WebRequest.Create(keyDeliveryUri);
@@ -231,6 +236,7 @@ ms.lasthandoff: 01/19/2018
         Array.Copy(buffer, key, length);
         return key;
     }
+```
 
 ## <a name="protect-your-content-with-aes-128-by-using-net"></a>在 .NET 中使用 AES-128 保护内容
 
@@ -240,8 +246,10 @@ ms.lasthandoff: 01/19/2018
 
 2. 将以下元素添加到 app.config 文件中定义的 appSettings：
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
 ### <a id="example"></a>示例
 

@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure Cosmos DB 模拟器进行本地开发 | Azure"
-description: "利用 Azure Cosmos DB 模拟器，可以在本地免费开发和测试应用程序，无需创建 Azure 订阅。"
+title: 使用 Azure Cosmos DB 模拟器进行本地开发 | Azure
+description: 利用 Azure Cosmos DB 模拟器，可以在本地免费开发和测试应用程序，无需创建 Azure 订阅。
 services: cosmos-db
-documentationcenter: 
-keywords: "Azure Cosmos DB 模拟器"
+documentationcenter: ''
+keywords: Azure Cosmos DB 模拟器
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/15/2018
-ms.date: 03/05/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: cc8a59ca48e9e5d2a18b66e902f58eeadc9ba600
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 0e9107564395e5a96c572508ee8f3081c441670c
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>将 Azure Cosmos DB 模拟器用于本地开发和测试
 
@@ -31,11 +31,11 @@ ms.lasthandoff: 03/02/2018
 </tr>
 <tr>
   <td><strong>Docker</strong></td>
-  <td>[Docker 中心](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
+  <td>[Docker 中心](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
 </tr>
 <tr>
   <td><strong>Docker 源</strong></td>
-  <td>[GitHub](https://github.com/azure/azure-documentdb-emulator-docker)</td>
+  <td>[GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
 </tr>
 </table>
 
@@ -105,7 +105,7 @@ Azure Cosmos DB 模拟器默认安装到 `C:\Program Files\Azure Cosmos DB Emula
 
 ## <a name="start-data-explorer"></a>启动数据资源管理器
 
-Azure Cosmos DB 模拟器启动时，会在浏览器中自动打开 Azure Cosmos DB 数据资源管理器。 地址会显示为 [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html)。 如果关闭浏览器并想要稍后重新打开，可在浏览器中打开 URL 或从 Windows 任务栏图标中的 Azure Cosmos DB 模拟器中启动，如下所示。
+Azure Cosmos DB 模拟器启动时，会在浏览器中自动打开 Azure Cosmos DB 数据资源管理器。 地址显示为 [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html)。 如果关闭浏览器并想要稍后重新打开，可在浏览器中打开 URL 或从 Windows 任务栏图标中的 Azure Cosmos DB 模拟器中启动，如下所示。
 
 ![Azure Cosmos DB 本地模拟器数据资源管理器启动器](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
@@ -502,4 +502,4 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 > [!div class="nextstepaction"]
 > [导出 Azure Cosmos DB 模拟器证书](local-emulator-export-ssl-certificates.md)
 
-<!--Update_Description: update meta properties, add content of Controlling the Emulator and Change list, wording update, update link-->
+<!--Update_Description: update meta properties, wording update -->

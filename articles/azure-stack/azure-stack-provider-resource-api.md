@@ -3,23 +3,23 @@ title: 提供者资源使用情况 API | Microsoft Docs
 description: 资源使用情况 API 的参考，该 API 用于检索 Azure Stack 使用情况信息
 services: azure-stack
 documentationcenter: ''
-author: AlfredoPizzirani
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
-ms.assetid: b6055923-b6a6-45f0-8979-225b713150ae
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/10/2017
-ms.date: 03/02/2018
+origin.date: 02/22/2018
+ms.date: 03/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: a753775142d1d208ad9cc6ced72cfcc2ec3776fd
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: alfredop
+ms.openlocfilehash: 15dd0fc1e1ed40ac51e2e46c1677ea455e0da178
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="provider-resource-usage-api"></a>提供商资源使用情况 API
 “提供者”一词适用于服务管理员和任何委派的提供者。 Azure Stack 操作员和委派的提供者可使用提供者使用情况 API，查看其直接租户的使用情况。 例如，如图中所示，P0 可以调用提供者 API，以获取 P1 和 P2 直接使用的使用情况信息；而 P1 可以调用以获取 P3 和 P4 的使用情况信息。
@@ -43,7 +43,7 @@ ms.lasthandoff: 03/08/2018
 | *subId* |进行调用的用户的订阅 ID。 |
 | *reportedStartTime* |查询的开始时间。 *DateTime* 的值应为以协调世界时 (UTC) 和小时开始时的时间呈现，例如 13:00。 对于每日聚合，请将此值设置为 UTC 午夜。 格式是*转义* ISO 8601。 例如，*2015-06-16T18%3a53%3a11%2b00%3a00Z*，其中冒号会转义为 *%3a*，而加号会转义为 *%2b*，使其符合 URI 规范。 |
 | *reportedEndTime* |查询的结束时间。 适用于 *reportedStartTime* 的约束也适用于此参数。 *reportedEndTime* 的值不得为未来或当前的日期。 如果是，结果会设为“处理未完成”。 |
-| *aggregationGranularity* |这是可选参数，它有两个截然不同的可能值：每日和每小时。 如同以上两个值所暗示，一个会每日返回数据，另一个则会每小时返回数据。 默认值为“每日”选项。 |
+| *aggregationGranularity* |这是可选参数，它有两个截然不同的可能值：daily 和 hourly。 如同以上两个值所暗示，一个会每日返回数据，另一个则会每小时返回数据。 默认值为“每日”选项。 |
 | *subscriberId* |订阅 ID。 若要获取筛选的数据，需要提供者直接租户的订阅 ID。 如果未指定订阅 ID 参数，调用会返回所有提供者直接租户的使用情况数据。 |
 | *api-version* |用于发出此请求的协议版本。 此值设置为 *2015-06-01-preview*。 |
 | *continuationToken* |从上次调用使用情况 API 提供者取回的标记。 响应大于 1,000 行时，需要此标记，可作为进度的书签。 若无此标记，则会从一天或小时开始时的时间检索数据，取决于所传入的粒度。 |
@@ -90,8 +90,22 @@ meterID1",
 | *数量* |此时间范围内发生的资源消耗数量。 |
 | *meterId* |所消耗资源的唯一 ID（也称为 *ResourceID*）。 |
 
+
+## <a name="retrieve-usage-information"></a>检索使用情况信息
+
+若要生成使用情况数据，你应当有正在运行且在主动使用系统的资源，例如，活动虚拟机或包含某些数据的存储帐户，等等。如果不确定你是否有任何资源在 Azure Stack Marketplace 中运行，请部署一个虚拟机 (VM)，并验证 VM 监视边栏选项卡以确保它正在运行。 使用以下 PowerShell cmdlet 来查看使用情况数据：
+
+1. [安装适用于 Azure Stack 的 PowerShell。](azure-stack-powershell-install.md)
+2. [配置 Azure Stack 用户的](user/azure-stack-powershell-configure-user.md)或 [Azure Stack 操作员的](azure-stack-powershell-configure-admin.md) PowerShell 环境 
+3. 若要检索使用情况数据，请使用 [Get-UsageAggregates](https://docs.microsoft.com/powershell/module/azurerm.usageaggregates/get-usageaggregates) PowerShell cmdlet：
+    
+    ```powershell
+    Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+    ```
+
 ## <a name="next-steps"></a>后续步骤
 [租户资源使用情况 API 参考](azure-stack-tenant-resource-usage-api.md)
 
 [有关使用情况的常见问题解答](azure-stack-usage-related-faq.md)
 
+<!-- Update_Description: wording update -->

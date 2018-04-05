@@ -2,19 +2,20 @@
 title: Azure Stack 数据中心集成 - 标识
 description: 了解如何将 Azure Stack AD FS 与数据中心 AD FS 集成
 services: azure-stack
-author: mattbriggs
+author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-origin.date: 02/01/2018
-ms.date: 03/02/2018
+origin.date: 03/20/2018
+ms.date: 03/26/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 74be42407f6301f3f6b5810f5ce6288e49342e4a
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: cffb971b5f9cc999fea730f9ad8b834901b709b8
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 数据中心集成 - 标识
 可以使用 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 作为标识提供者来部署 Azure Stack。 必须在部署 Azure Stack 之前做出选择。 使用 AD FS 的部署也称为在断开连接模式下部署 Azure Stack。
@@ -334,5 +335,6 @@ Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的�
 
 ## <a name="next-steps"></a>后续步骤
 
-[注册 Azure Stack](azure-stack-registration.md)
+[集成外部监视解决方案](azure-stack-integrate-monitor.md)
 
+<!-- Update_Description: wording update -->

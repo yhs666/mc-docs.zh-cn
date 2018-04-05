@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 12/08/2017
-ms.date: 03/04/2018
+origin.date: 03/01/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
 ms.reviewer: comartin
-ms.openlocfilehash: 82341ea63d7407f7ba9d486c5c62a28484688b07
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: f60cbb52d6b49486bd52a3d4bbff4734e13119ae
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遥测
 
@@ -39,7 +39,7 @@ Azure Stack 遥测基于 Windows Server 2016 互连用户体验与遥测组件�
 > 若要支持遥测数据流，必须在网络中开放端口 443 (HTTPS)。 互连用户体验与遥测组件连接到 Microsoft 数据管理服务（位于 https://v10.vortex-win.data.microsoft.com）。互连用户体验与遥测组件还连接到 https://settings-win.data.microsoft.com 来下载配置信息。
 
 ## <a name="privacy-considerations"></a>隐私注意事项
-ETW 服务将遥测数据发回到受保护的云存储。 最小特权原则支配遥测数据的访问。 只有具有有效业务需求的 Microsoft 人员才能访问遥测数据。 除非客户自行要求，或者符合 [Azure Stack 隐私声明](http://windows.microsoft.com/windows/preview-privacy-statement)中所述的受限目的，否则 Microsoft 不会第三方共享客户个人数据。 我们与 OEM 和合作伙伴共享业务报告，其中包含匿名的聚合遥测信息。 数据共享决策由 Microsoft 内部团队（包括隐私、法律和数据管理利益干系人）做出。
+ETW 服务将遥测数据发回到受保护的云存储。 最小特权原则支配遥测数据的访问。 只有具有有效业务需求的 Microsoft 人员才能访问遥测数据。 除非客户自行要求，或者符合 [Microsoft 隐私声明](https://privacy.microsoft.com/PrivacyStatement)中所述的受限目的，否则 Microsoft 不会与第三方共享客户个人数据。 我们与 OEM 和合作伙伴共享业务报告，其中包含匿名的聚合遥测信息。 数据共享决策由 Microsoft 内部团队（包括隐私、法律和数据管理利益干系人）做出。
 
 Microsoft 相信并实践信息最小化。 我们尽量只收集所需的信息，并且只在服务所需或进行分析时才存储这些信息。 许多有关 Azure Stack 系统和 Azure 服务工作原则的信息在六个月内删除。 汇总或聚合的数据保留更长一段时间。
 
@@ -60,7 +60,7 @@ Microsoft 无意收集敏感信息，例如信用卡号、用户名和密码、�
 示例包括：与 Azure Stack 角色关联的容器、存储用量和网络配置的客户用量。 我们还使用见解来推动某些管理和监视解决方案的改善与智能化。  这可以帮助客户诊断质量问题，减少向 Microsoft 拨打支持电话的次数，从而节省资金。
 
 ## <a name="manage-telemetry-collection"></a>管理遥测数据的收集
-我们不建议在组织中关闭遥测，因为遥测可以提供推动产品功能和稳定性改进的数据。 但我们认识到，在某些情况下有必要关闭遥测。 
+不建议在组织中关闭遥测，因为遥测提供的数据可以改进产品功能和稳定性。 但我们认识到，在某些情况下有必要关闭遥测。 
 
 在这种情况下，可以使用部署前的注册表设置或使用部署后的遥测终结点，配置发送给 Microsoft 的遥测级别。
 
@@ -93,7 +93,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
  - 存储属性，例如驱动器数目、类型和大小。
 - **遥测功能**，包括已上传事件、已删除事件的百分比，以及上次上传时间。
 - **质量相关的信息**，帮助 Microsoft 初步了解 Azure Stack 的运行情况。 示例是针对特定硬件配置发出的严重警报计数。
-- **兼容性数据**，帮助了解系统和虚拟机上已安装哪些资源提供程序，以及识别潜在的兼容性问题。
+- **兼容性数据，有助于了解系统和虚拟机上已安装哪些资源提供程序，以及识别潜在的兼容性问题。
 
 **2（增强）**。 其他见解，包括：操作系统和其他 Azure Stack 服务的用法、工作原理、高级可靠性数据，以及来自“基本”和“安全”级别的数据。 
 
@@ -102,7 +102,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 > [!NOTE]
 > 默认遥测级别值为 2（增强）。
 
-请注意，关闭 Windows 和 Azure Stack 遥测也会禁用 SQL 遥测。 有关 Windows Server 遥测设置的含义的详细信息，请参阅 [Windows 遥测白皮书](https://aka.ms/winservtelemetry)。 
+关闭 Windows 和 Azure Stack 遥测也会禁用 SQL 遥测。 有关 Windows Server 遥测设置的含义的详细信息，请参阅 [Windows 遥测白皮书](https://aka.ms/winservtelemetry)。 
 
 > [!IMPORTANT]
 > 这些遥测级别只适用于 Microsoft Azure Stack 组件。 Azure Stack 硬件合作伙伴在硬件生命周期主机中运行的非 Microsoft 软件组件和服务可能与这些遥测级别以外的云服务通信。 应该咨询 Azure Stack 硬件解决方案提供商，以了解其遥测策略，以及如何启用或禁用。 
@@ -110,8 +110,8 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 ### <a name="asdk-and-multinode-enable-or-disable-telemetry-after-deployment"></a>ASDK 和 MultiNode：在部署后启用或禁用遥测
 
 若要在部署之后启用或禁用遥测，必须能够访问 ERCS VM 上公开的特权终结点 (PEP)。
-1.  若要启用：`Set-Telemetry -Enable`
-2.  若要禁用：`Set-Telemetry -Disable`
+1. 若要启用：`Set-Telemetry -Enable`
+2. 若要禁用：`Set-Telemetry -Disable`
 
 PARAMETER 详细信息： 
 > .PARAMETER Enable - 启用遥测数据上传 
@@ -150,3 +150,4 @@ if($psSession)
 [部署 Azure Stack 开发工具包](azure-stack-run-powershell-script.md)
 
 
+<!-- Update_Description: wording update -->

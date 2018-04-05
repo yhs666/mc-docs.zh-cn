@@ -3,30 +3,31 @@ title: Azure Stack 数据中心集成 - 发布终结点
 description: 了解如何在数据中心发布 Azure Stack 终结点
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-origin.date: 02/16/2018
-ms.date: 03/02/2018
+origin.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: v-junlch
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 739a58d54dc458bb4888f7559c52d07d5dd7488b
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: ebae35ec01b933198cc95de2c394313cadb587c6
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 数据中心集成 - 发布终结点
-Azure Stack 为其基础结构角色设置多个虚拟 IP 地址 (VIP)。 这些 VIP 是从公共 IP 地址池分配的。 每个 VIP 受软件定义的网络层中的访问控制列表 (ACL) 保护。 还可以在物理交换机（TOR 和 BMC）之间使用 ACL 来进一步强化解决方案。 将会根据部署时的指定，针对外部 DNS 区域中的每个终结点创建一个 DNS 条目。
+Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP 是从公共 IP 地址池分配的。 每个 VIP 受软件定义的网络层中的访问控制列表 (ACL) 保护。 还可以在物理交换机（TOR 和 BMC）之间使用 ACL 来进一步强化解决方案。 将会根据部署时的指定，针对外部 DNS 区域中的每个终结点创建一个 DNS 条目。
 
 
 以下体系结构图显示了不同的网络层和 ACL：
 
-![体系结构图](./media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![结构化图片](./media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ## <a name="ports-and-protocols-inbound"></a>端口和协议（入站）
 
-下面列出了将 Azure Stack 终结点发布到外部网络时所需的基础结构 VIP。 该列表显示了每个终结点、所需的端口和协议。 特定资源提供程序部署的文档中介绍了其他资源提供程序（例如 SQL 资源提供程序等）所需的终结点。
+将 Azure Stack 终结点发布到外部网络需要一组基础结构 VIP。 “终结点 (VIP)”表显示了每个终结点、所需的端口和协议。 请参阅特定资源提供程序部署文档，了解需要其他资源提供程序（例如 SQL 资源提供程序）的终结点。
 
 此处未列出内部基础结构 VIP，因为发布 Azure Stack 时不需要这些 VIP。
 
@@ -71,5 +72,7 @@ Azure Stack 仅支持透明代理服务器。 如果部署中的透明代理上�
 
 
 ## <a name="next-steps"></a>后续步骤
+
 [Azure Stack PKI 要求](azure-stack-pki-certs.md)
 
+<!-- Update_Description: wording update -->

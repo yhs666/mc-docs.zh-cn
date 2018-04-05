@@ -1,28 +1,28 @@
 ---
-title: "Azure Cosmos DB：使用 .NET 和 SQL API 构建 Web 应用 | Azure"
-description: "演示了一个可以用来连接到 Azure Cosmos DB SQL API 并进行查询的 .NET 代码示例"
+title: 使用 SQL API 生成包含 Azure Cosmos DB 的 .NET Web 应用 | Azure
+description: 本快速入门介绍如何使用 Azure Cosmos DB SQL API 和 Azure 门户创建 .NET Web 应用
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 12/15/2017
-ms.date: 12/25/2017
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: b7301babb4064451df0e2be0e1fea1aa5ff56b9f
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 9a918efe040f433aadaebe5460af2fda5865e4f9
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-cosmos-db-build-a-sql-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB：使用 .NET 和 Azure 门户构建 SQL API Web 应用
+# <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>快速入门：使用 SQL API 和 Azure 门户生成包含 Azure Cosmos DB 的 .NET Web 应用
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
@@ -102,19 +102,19 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 快速查看应用中发生的情况。 打开 DocumentDBRepository.cs 文件，会发现以下代码行创建 Azure Cosmos DB 资源。 
 
-* 在第 78 行对 DocumentClient 进行初始化。
+* 在第 76 行对 DocumentClient 进行初始化。
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
-* 在第 93 行创建一个新数据库。
+* 在第 91 行创建一个新数据库。
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* 在第 112 行创建一个新集合。
+* 在第 110 行创建一个新集合。
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
@@ -122,10 +122,9 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
         new DocumentCollection { Id = CollectionId },
         new DocumentCollection
             {
-               Id = CollectionId,
-               PartitionKey = new PartitionKeyDefinition() { Paths = new Collection<string>() { "/category" } }
+               Id = CollectionId
             },
-        new RequestOptions { OfferThroughput = 1000 });
+        new RequestOptions { OfferThroughput = 400 });
     ```
 
 ## <a name="update-your-connection-string"></a>更新连接字符串
@@ -179,6 +178,4 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 > [!div class="nextstepaction"]
 > [将数据导入 Azure Cosmos DB](import-data.md)
 
-<!-- Update_Description: new articles on create SQL api dotnet application-->
-<!--Not Available the parent file of includes file of cosmos-db-create-dbaccount.md-->
-<!--ms.date:12/25/2017-->
+<!-- Update_Description: wording update, update link-->

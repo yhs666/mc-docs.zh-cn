@@ -1,12 +1,12 @@
 ---
-title: "注册 Azure Stack | Microsoft Docs"
-description: "将 Azure Stack 注册到 Azure 订阅。"
+title: 注册 Azure Stack | Microsoft Docs
+description: 将 Azure Stack 注册到 Azure 订阅。
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,16 +16,16 @@ origin.date: 01/08/2018
 ms.date: 03/02/2018
 ms.author: v-junlch
 ms.openlocfilehash: c4ba38fb50d339ffe70ac284d7bbda7d87b0bc0e
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>将 Azure Stack 注册到 Azure 订阅
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-可将 [Azure Stack](azure-stack-poc.md) 注册到 Azure，以便从 Azure 下载 Marketplace 项目，并设置向 Microsoft 报告商业数据的功能。
+可将 [Azure Stack](azure-stack-poc.md) 注册到 Azure，以便从 Azure 下载 Marketplace 项，并设置向 Microsoft 报告商业数据的功能。
 
 > [!NOTE]
 >之所以建议注册，是因为这样可以测试重要的 Azure Stack 功能，例如 Marketplace 联合和使用情况报告。 注册 Azure Stack 之后，使用情况将报告给 Azure 商业组件。 用于注册的订阅下会显示此信息。 不会向 Azure Stack 开发工具包用户收取使用费用，不管报告的使用量是多少。

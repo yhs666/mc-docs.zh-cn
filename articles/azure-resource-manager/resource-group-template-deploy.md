@@ -1,6 +1,6 @@
 ---
-title: "使用 PowerShell 和模板部署资源 | Azure"
-description: "使用 Azure Resource Manager 和 Azure PowerShell 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。"
+title: 使用 PowerShell 和模板部署资源 | Azure
+description: 使用 Azure Resource Manager 和 Azure PowerShell 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/06/2017
-ms.date: 01/29/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1259ea8a85e8c23329d33c31c7682bd2443599f6
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 2b243b7a330fa180f26f0e67b4c4a53e335475e1
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>使用 Resource Manager 模板和 Azure PowerShell 部署资源
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 01/23/2018
 
 必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell 模块，然后运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 创建与 Azure 的连接。
 
-<a id="deploy-local-template"></a> 
+<a name="deploy-local-template"></a> 
 ## <a name="deploy-a-template-from-your-local-machine"></a>从本地计算机部署模板
 
 将资源部署到 Azure 时，执行以下操作：
@@ -78,7 +78,11 @@ New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "China East"
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile "C:\users\ContainerAdministrator\CloudDrive\templates\azuredeploy.json" -storageAccountType Standard_GRS
 ```
 
-## <a name="parameter-files"></a>参数文件
+## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>部署到多个资源组或订阅
+
+通常情况下，将模板中的所有资源部署到单个资源组。 不过，在某些情况下，你可能希望将一组资源部署在一起但将其放置在不同的资源组或订阅中。 在单个部署中可以仅部署到五个资源组。 有关详细信息，[将 Azure 资源部署到多个订阅或资源组](resource-manager-cross-resource-group-deployment.md)。
+
+## <a name="parameter-file"></a>参数文件
 
 你可能会发现，与在脚本中以内联值的形式传递参数相比，使用包含参数值的 JSON 文件更为容易。 参数文件必须采用以下格式：
 

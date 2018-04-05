@@ -1,6 +1,6 @@
 ---
-title: "在门户中创建 Azure 应用标识 | Azure"
-description: "介绍如何创建新的 Azure Active Directory 应用程序和服务主体，在 Azure Resource Manager 中将此服务主体与基于角色的访问控制配合使用可以管理对资源的访问权限。"
+title: 在门户中创建 Azure 应用标识 | Azure
+description: 介绍如何创建新的 Azure Active Directory 应用程序和服务主体，在 Azure Resource Manager 中将此服务主体与基于角色的访问控制配合使用可以管理对资源的访问权限。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -11,32 +11,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/16/2017
-ms.date: 12/25/2017
+origin.date: 03/12/2018
+ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 488177bed87d3182832bb8827a1bd06f9ffda720
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 2a8ea2c20dac7b16f66310ee68b39935ac8d89e0
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体
 
-当应用程序需要访问或修改资源时，必须设置 Azure Active Directory (AD) 应用程序，并为其分配所需的权限。 与使用用户自己的凭据运行应用相比，此方法更优，原因在于：
-
-* 可以将权限分配给应用标识，这些权限不同于自己的权限。 通常情况下，这些权限仅限于应用需执行的操作。
-* 职责变化时，无需更改应用的凭据。 
-* 执行无人参与的脚本时，可以使用证书自动执行身份验证。
+当代码需要访问或修改资源时，必须设置 Azure Active Directory (AD) 应用程序。 将所需的权限分配给 AD 应用程序。 这种方法优于在自己的凭据下运行应用，因为可以将自己未拥有的权限分配给应用标识。 通常情况下，这些权限仅限于应用需执行的操作。
 
 本文介绍了如何通过门户执行这些步骤。 重点介绍单租户应用程序，其中应用程序只应在一个组织内运行。 通常会将单租户应用程序作为在组织中运行的业务线应用程序使用。
+
+<!-- Not Available on MSI (Managed Service Identity) -->
 
 ## <a name="required-permissions"></a>所需的权限
 
 若要完成本文，必须拥有足够的权限向 Azure AD 租户注册应用，并将应用程序分配给 Azure 订阅中的角色。 请确保拥有适当的权限来执行这些步骤。
 
 ### <a name="check-azure-active-directory-permissions"></a>检查 Azure Active Directory 权限
-
-1. 通过 [Azure 门户](https://portal.azure.cn)登录 Azure 帐户。
 
 1. 选择“Azure Active Directory” 。
 
@@ -50,21 +46,9 @@ ms.lasthandoff: 02/13/2018
 
     ![查看应用注册](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. 如果应用注册设置已设置为“否” ，则只有管理员用户可以注册应用。 检查帐户是否为 Active AD 租户的管理员。 从快速任务选择“概述”和“查找用户”。
+1. 如果应用注册设置已设置为“否” ，则只有管理员用户可以注册应用。 检查帐户是否为 Active AD 租户的管理员。 选择“概述”并查看用户信息。 如果将帐户分配到“用户”角色，但（前面步骤中设置的）应用注册设置仅限于管理员用户，请要求管理员分配管理员角色或允许用户注册应用。
 
-    ![查找用户](./media/resource-group-create-service-principal-portal/find-user.png)
-
-1. 搜索帐户，在找到帐户后选择它。
-
-    ![搜索用户](./media/resource-group-create-service-principal-portal/show-user.png)
-
-1. 对于帐户，选择“目录角色”。
-
-    ![目录角色](./media/resource-group-create-service-principal-portal/select-directory-role.png)
-
-1. 在 Azure AD 中查看分配的目录角色。 如果帐户分配到“用户”角色，但（前面的步骤中设置的）应用注册设置仅限于管理员用户，请要求管理员为你分配管理员角色或允许用户注册应用。
-
-    ![查看角色](./media/resource-group-create-service-principal-portal/view-role.png)
+    ![查找用户](./media/resource-group-create-service-principal-portal/view-user-info.png)
 
 ### <a name="check-azure-subscription-permissions"></a>检查 Azure 订阅权限
 
@@ -72,23 +56,17 @@ ms.lasthandoff: 02/13/2018
 
 检查订阅权限的方法如下：
 
-1. 如果未在前述步骤中看到 Azure AD 帐户，请从左窗格中选择“Azure Active Directory”。
+1. 在右上角选择自己的帐户，然后选择“我的权限”。
 
-1. 查找 Azure AD 帐户。 从快速任务选择“概述”和“查找用户”。
+    ![选择用户权限](./media/resource-group-create-service-principal-portal/select-my-permissions.png)
 
-    ![查找用户](./media/resource-group-create-service-principal-portal/find-user.png)
+1. 从下拉列表中选择订阅。 选择“单击此处查看此订阅的完整访问详细信息”。
 
-1. 搜索帐户，在找到帐户后选择它。
+    ![查找用户](./media/resource-group-create-service-principal-portal/view-details.png)
 
-    ![搜索用户](./media/resource-group-create-service-principal-portal/show-user.png)
+1. 查看分配到的角色，确定你是否拥有足够的权限来向角色分配 AD 应用。 如果没有，请要求订阅管理员将你添加到用户访问管理员角色。 在下图中，用户分配到了“所有者”角色，这意味着该用户具有足够的权限。
 
-1. 选择“Azure 资源” 。
-
-    ![选择资源](./media/resource-group-create-service-principal-portal/select-azure-resources.png)
-
-1. 查看分配到的角色，确定你是否拥有足够的权限来向角色分配 AD 应用。 如果没有，请要求订阅管理员将你添加到用户访问管理员角色。 在下图中，用户分配到了两个订阅的“所有者”角色，这意味着该用户具有足够的权限。
-
-    ![显示权限](./media/resource-group-create-service-principal-portal/view-assigned-roles.png)
+    ![显示权限](./media/resource-group-create-service-principal-portal/view-user-role.png)
 
 ## <a name="create-an-azure-active-directory-application"></a>创建 Azure Active Directory 应用程序
 
@@ -105,8 +83,8 @@ ms.lasthandoff: 02/13/2018
 
     ![添加应用](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. 为应用提供名称和 URL。 选择“Web 应用/API”作为要创建的应用程序的类型。 无法创建原生应用程序的凭据，因此这种类型不适用于自动应用。 。
-
+1. 为应用提供名称和 URL。 选择“Web 应用/API”作为要创建的应用程序的类型。 无法创建原生应用程序的凭据，因此这种类型不适用于自动化应用程序。 。
+    <!-- Not Available on [Native application](../active-directory/active-directory-application-proxy-native-client.md) -->
     ![命名应用程序](./media/resource-group-create-service-principal-portal/create-app.png)
 
 已创建应用程序。
@@ -122,6 +100,10 @@ ms.lasthandoff: 02/13/2018
 1. 复制“应用程序 ID”并将其存储在应用程序代码中。 一些[示例应用程序](#log-in-as-the-application)将此值称为“客户端 ID”。
 
     ![客户端 ID](./media/resource-group-create-service-principal-portal/copy-app-id.png)
+
+1. 若要生成身份验证密钥，请选择“设置”。
+
+   ![选择“设置”](./media/resource-group-create-service-principal-portal/select-settings.png)
 
 1. 若要生成身份验证密钥，请选择“密钥” 。
 
@@ -183,22 +165,9 @@ ms.lasthandoff: 02/13/2018
 
 1. 选择“保存”完成角色分配。 该应用程序会显示在分配到该范围角色的用户列表中。
 
-## <a name="log-in-as-the-application"></a>作为应用程序登录
-
-现已在 Azure Active Directory 中设置应用程序。 可使用 ID 和密钥登录为该应用程序。 应用程序分配到角色，可以该角色身份执行特定操作。 有关在不同平台上通过应用程序登录的信息，请参阅：
-
-* [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
-* [Azure CLI](resource-group-authenticate-service-principal-cli.md)
-* [REST](https://docs.microsoft.com/rest/api/#create-the-request)
-* [.NET](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
-* [Java](https://docs.azure.cn/java/java-sdk-azure-authenticate)
-* [Node.js](https://docs.microsoft.com/javascript/azure/node-sdk-azure-get-started?view=azure-node-2.0.0)
-* [Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
-* [Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
-
 ## <a name="next-steps"></a>后续步骤
 * 若要设置多租户应用程序，请参阅 [使用 Azure Resource Manager API 进行授权的开发人员指南](resource-manager-api-authentication.md)。
 * 若要了解如何指定安全策略，请参阅 [Azure 基于角色的访问控制](../active-directory/role-based-access-control-configure.md)。  
 * 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

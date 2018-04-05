@@ -1,11 +1,11 @@
 ---
-title: "创建面向 Internet 的负载均衡器 - Azure 门户 | Azure"
-description: "了解如何使用 Azure 门户在 Resource Manager 中创建面向 Internet 的负载均衡器"
+title: 创建面向 Internet 的负载均衡器 - Azure 门户 | Azure
+description: 了解如何使用 Azure 门户在 Resource Manager 中创建面向 Internet 的负载均衡器
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
@@ -14,13 +14,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 12/25/2017
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: c9bb15cc908d8b10cce732b749955750797223bb
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 951a465c2755531087f50aecb93c27843d662a03
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>使用 Azure 门户创建面向 Internet 的负载均衡器
 
@@ -55,10 +55,10 @@ ms.lasthandoff: 12/22/2017
 ## <a name="set-up-a-load-balancer-in-azure-portal"></a>在 Azure 门户中设置负载均衡器
 
 > [!IMPORTANT]
-> 本示例假定已有名为 **myVNet** 的虚拟网络。 请参考[创建虚拟网络](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)完成此操作。 本示例还假定 **myVNet** 内有一个名为 **LB-Subnet-BE** 的子网以及两个分别名为 **web1** 和 **web2** 的 VM，这两个 VM 都位于 **myVNet** 中名为 **myAvailSet** 的可用性集中。 请参考[此链接](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)创建 VM。
+> 本示例假定已有名为 **myVNet** 的虚拟网络。 请参考[创建虚拟网络](../virtual-network/manage-virtual-network.md#create-a-virtual-network)完成此操作。 本示例还假定 **myVNet** 内有一个名为 **LB-Subnet-BE** 的子网以及两个分别名为 **web1** 和 **web2** 的 VM，这两个 VM 都位于 **myVNet** 中名为 **myAvailSet** 的可用性集中。 请参考[此链接](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)创建 VM。
 
-1. 从浏览器导航到 Azure 门户：[http://portal.azure.cn](http://portal.azure.cn)，然后使用 Azure 帐户登录。
-2. 在屏幕的左上方，选择“新建” > “网络” > “负载均衡器”。
+1. 从浏览器导航到 Azure 门户 [](http://portal.azure.cn)http://portal.azure.cn 并使用 Azure 帐户登录。
+2. 在屏幕的左上方，选择“创建资源” > “网络” > “负载均衡器”。
 3. 在“创建负载均衡器”边栏选项卡中，为负载均衡器键入一个名称。 此例中使用名称 **myLoadBalancer**。
 4. 在“类型”下，选择“公共”。
 5. 在“公共 IP 地址”下，创建名为 **myPublicIP** 的新公共 IP。
@@ -114,4 +114,4 @@ ms.lasthandoff: 12/22/2017
 
 [配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update link -->

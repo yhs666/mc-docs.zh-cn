@@ -1,19 +1,19 @@
 ---
-title: "关于 Azure Site Recovery？ | Azure"
-description: "简要介绍 Azure Site Recovery 服务并概述讲解部署方案。"
+title: 关于 Azure Site Recovery | Azure
+description: 简要介绍 Azure Site Recovery 服务并概述讲解部署方案。
 services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: overview
-origin.date: 01/07/2018
-ms.date: 03/05/2018
+origin.date: 03/08/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 75fef5f427b5b911a8c2743c6f610490b5ad9204
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 019653fcb685f266076306af420a0ebcae5d9b16
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-site-recovery"></a>关于 Site Recovery
 
@@ -55,8 +55,8 @@ Site Recovery 可以为以下计算机管理复制：
 --- | ---
 **复制方案** | 将 Azure VM 从一个 Azure 区域复制到另一个 Azure 区域。<br/><br/>  将本地 VMware VM、Hyper-V VM、物理服务器（Windows 和 Linux）复制到 Azure。<br/><br/> 将本地 VMware VM、System Center VMM 托管的 Hyper-V VM 以及物理服务器复制到辅助站点。
 **区域** | 查看 Site Recovery [支持的区域](https://www.azure.cn/support/service-dashboard/services/)。 |
-**复制的计算机** | 查看 [Azure VM](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)、[本地 VM](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) 和[物理服务器](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)的复制要求。
-**VMware 服务器/主机** | 要复制的 VMware VM 可以位于[支持的 vSphere 主机/vCenter 服务器](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)上。
+**复制的计算机** | 查看 [Azure VM](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions) 复制、[本地 VMware VM 和物理服务器](vmware-physical-azure-support-matrix.md#replicated-machines)以及[本地 Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) 的复制要求。
+**VMware 服务器/主机** | 要复制的 VMware VM 可以位于[支持的主机和虚拟化服务器](vmware-physical-azure-support-matrix.md)上。
 **工作负荷** | 可以在支持复制的计算机上复制运行的任何工作负荷。 另外，Site Recovery 团队已针对[多个应用](site-recovery-workload.md#workload-summary)执行了特定于应用的测试。
 
 ## <a name="next-steps"></a>后续步骤

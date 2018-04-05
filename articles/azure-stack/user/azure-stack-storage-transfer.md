@@ -3,23 +3,23 @@ title: 适用于 Azure Stack 存储的工具
 description: 了解 Azure Stack 存储数据传送工具
 services: azure-stack
 documentationcenter: ''
-author: xiaofmao
-manager: ''
-editor: ''
+author: mattbriggs
+manager: femila
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/25/2017
-ms.date: 03/09/2018
+origin.date: 02/21/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 13af0ef139824df5e3457a86f6eb8dac38701f66
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.reviewer: xiaofmao
+ms.openlocfilehash: baedeac4158f859427be1b1f8c33b66179680e9a
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>适用于 Azure Stack 存储的工具
 
@@ -51,7 +51,11 @@ Azure Stack 提供了一组存储服务，适用于磁盘、Blob、表、队列�
 AzCopy 是一个命令行实用程序，专用于通过简单的可以优化性能的命令将数据复制到 Azure Blob、表存储以及从这些位置复制数据。 可在存储帐户中将数据从一个对象复制到另一个对象，或者在存储帐户之间复制。 有两种版本的 AzCopy：基于 Windows 的 AzCopy 和基于 Linux 的 AzCopy。 Azure Stack 只支持 Windows 版。 
  
 ### <a name="download-and-install-azcopy"></a>下载并安装 AzCopy 
-[下载](https://aka.ms/azcopyforazurestack)支持用于 Azure Stack 的 Windows 版 AzCopy。 可以采用与 Azure 一样的方式在 Azure Stack 上安装和使用 AzCopy。 若要了解详细信息，请参阅[使用 AzCopy 命令行实用程序传输数据](../../storage/common/storage-use-azcopy.md)。 
+
+[下载](https://aka.ms/azcopyforazurestack) Azure Stack 支持的 Windows 版 AzCopy。 可以采用与 Azure 一样的方式在 Azure Stack 上安装和使用 AzCopy。 若要了解详细信息，请参阅[使用 AzCopy 命令行实用程序传输数据](../../storage/common/storage-use-azcopy.md)。 
+
+ - 对于更新 1802 或更高版本，请[下载 AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417)。
+ - 对于以前的版本，请[下载 AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20150405)。
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>针对数据传输的 AzCopy 命令示例
 以下示例演示了一些将数据复制到 Azure Stack Blob 以及从这些位置复制数据的典型方案。 若要了解详细信息，请参阅[使用 AzCopy 命令行实用程序传输数据](../../storage/storage-use-azcopy.md)。 
@@ -64,14 +68,14 @@ AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer 
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 #### <a name="move-data-between-azure-and-azure-stack-storage"></a>在 Azure 和 Azure Stack 存储之间移动数据 
-不支持在 Azure 存储和 Azure Stack 之间进行异步数据传输。 需通过 `/SyncCopy` 选项指定该传输。 
+不支持在 Azure 存储和 Azure Stack 之间进行异步数据传输。 需通过 **/SyncCopy** 选项指定该传输。 
 ```azcopy 
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.chinacloudapi.cn/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
 ```
 
 ### <a name="azcopy-known-issues"></a>Azcopy 已知问题
 - 在文件存储上执行的任何 AzCopy 操作都不可用，因为文件存储在 Azure Stack 中不可用。
-- 不支持在 Azure 存储和 Azure Stack 之间进行异步数据传输。 可以使用 `/SyncCopy` 选项来指定传输，以便复制数据。
+- 不支持在 Azure 存储和 Azure Stack 之间进行异步数据传输。 可以使用 **/SyncCopy** 选项来指定传输，以便复制数据。
 - Azure Stack 存储不支持 Azcopy 的 Linux 版本。 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
@@ -225,9 +229,8 @@ echo "Done"
 
 Azure 存储资源管理器是 Microsoft 提供的独立应用， 可用于在 Windows、macOS 和 Linux 上轻松处理 Azure 存储和 Azure Stack 存储数据。 如果希望通过某种方式轻松管理 Azure Stack 存储数据，则请考虑使用 Azure 存储资源管理器。
 
-若要详细了解如何配置 Azure 存储资源管理器，使之能够用于 Azure Stack，请参阅[将存储资源管理器连接到 Azure Stack 订阅](azure-stack-storage-connect-se.md)。
-
-有关 Azure 存储资源管理器的详细信息，请参阅[存储资源管理器（预览版）入门](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+ - 若要详细了解如何配置 Azure 存储资源管理器，使之能够用于 Azure Stack，请参阅[将存储资源管理器连接到 Azure Stack 订阅](azure-stack-storage-connect-se.md)。
+ - 若要详细了解 Azure 存储资源管理器，请参阅[存储资源管理器（预览版）入门](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## <a name="next-steps"></a>后续步骤
 - [将存储资源管理器连接到 Azure Stack 订阅](azure-stack-storage-connect-se.md)
@@ -236,3 +239,4 @@ Azure 存储资源管理器是 Microsoft 提供的独立应用， 可用于在 W
 - [Azure 存储简介](../../storage/common/storage-introduction.md)
 
 
+<!-- Update_Description: wording update -->

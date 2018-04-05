@@ -40,7 +40,7 @@
 ## 缓存
 ### [添加缓存以提升性能](api-management-howto-cache.md)
 ## 保护后端
-### [使用 AAD 保护 Web API 后端](api-management-howto-protect-backend-with-aad.md)
+### [使用 Azure AD 保护 API](api-management-howto-protect-backend-with-aad.md)
 ### [连接到虚拟网络](api-management-using-with-vnet.md)
 ### [连接到内部虚拟网络](api-management-using-with-internal-vnet.md)
 ### [在内部 VNET 中集成应用程序网关](api-management-howto-integrate-internal-vnet-appgateway.md)
@@ -48,7 +48,7 @@
 ## 自定义开发人员体验
 ### [修改页面内容和布局](api-management-modify-content-layout.md)
 ### [使用模板自定义系统页面](api-management-developer-portal-templates.md)
-### [使用 AAD 进行身份验证](api-management-howto-aad.md)
+### [使用 Azure AD 进行身份验证](api-management-howto-aad.md)
 ### [委托身份验证](api-management-howto-setup-delegation.md)
 ### [电子邮件通知和模板](api-management-howto-configure-notifications.md)
 ### [启用控制台 OAuth 支持](api-management-howto-oauth2.md)
@@ -95,6 +95,7 @@
 ## [REST（原始）](https://docs.microsoft.com/en-us/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 # 资源
 ## [常见问题](api-management-faq.md)
+## [区域可用性](https://www.azure.cn/support/service-dashboard/)
 ## [API 设计指南](https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json)
 ## [API 实现指南](https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)

@@ -12,32 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/21/2018
-ms.date: 03/02/2018
+origin.date: 02/27/2018
+ms.date: 03/26/2018
 ms.author: v-junlch
-ms.reviewer: unknown
-ms.openlocfilehash: 38f320107b7ea281ec3895b5d02e1399f5d7b078
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.reviewer: ''
+ms.openlocfilehash: 9a6112fae6b45f1a5145ea90e67326fe56ec3b59
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Azure Stack 中的重要功能和概念
-
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
-
 如果你不太熟悉 Azure Stack，本文的术语和功能说明可能会有所帮助。
 
 ## <a name="personas"></a>角色
 Azure Stack 中有两种用户：云操作员（提供者）和租户（使用者）。
 
-- **云操作员**可以配置 Azure Stack 以及管理产品/服务、计划、服务、配额和价格，为其租户提供资源。  云操作员还可以管理容量以及对警报做出响应。  
+- **云操作员**可以配置 Azure Stack 以及管理产品、计划、服务、配额和价格，为其租户提供资源。  云操作员还可以管理容量以及对警报做出响应。  
 - **租户**（也称为用户）使用云管理员提供的服务。 租户可以预配、监视和管理他们订阅的服务，例如 Web 应用、存储和虚拟机。
 
 ## <a name="portal"></a>门户
 与 Azure Stack 交互的主要方法包括管理员门户、用户门户和 PowerShell。
 
-每个 Azure Stack 门户由 Azure 资源管理器的单独实例提供支持。  云操作员可以使用管理员门户来管理 Azure Stack和执行某些操作，例如创建租户产品/服务。  用户门户（也称为租户门户）提供自助服务体验让用户使用云资源，例如虚拟机、存储帐户和 Web 应用。 有关详细信息，请参阅 [Using the Azure Stack administrator and user portals](azure-stack-manage-portals.md)（使用 Azure Stack 管理员门户和用户门户）。
+每个 Azure Stack 门户由 Azure 资源管理器的单独实例提供支持。  云操作员可以使用管理员门户来管理 Azure Stack和执行某些操作，例如创建租户产品。  用户门户（也称为租户门户）提供自助服务体验让用户使用云资源，例如虚拟机、存储帐户和 Web 应用。 有关详细信息，请参阅 [Using the Azure Stack administrator and user portals](azure-stack-manage-portals.md)（使用 Azure Stack 管理员门户和用户门户）。
 
 ## <a name="identity"></a>标识 
 Azure Stack 使用 Azure Active Directory (AAD) 或 Active Directory 联合身份验证服务 (AD FS) 作为标识提供者。  
@@ -46,7 +43,7 @@ Azure Stack 使用 Azure Active Directory (AAD) 或 Active Directory 联合身�
 Azure Active Directory 是 Microsoft 的基于云的多租户标识提供者。  大多数混合方案使用 Azure Active Directory 作为标识存储。
 
 ### <a name="active-directory-federation-services"></a>Active Directory 联合身份验证服务
-对于离线 Azure Stack 部署，可以选择使用 Active Directory 联合身份验证服务 (AD FS)。  Azure Stack、资源提供者和其他应用程序使用 AD FS 的方式与它们使用 Azure Active Directory 的方式非常类似。 Azure Stack 包含自身的 AD FS 和 Active Directory 实例，另外还包含 Active Directory 图形 API。 Azure Stack 开发工具包支持以下 AD FS 方案：
+对于断开连接的 Azure Stack 部署，可以选择使用 Active Directory 联合身份验证服务 (AD FS)。  Azure Stack、资源提供者和其他应用程序使用 AD FS 的方式与它们使用 Azure Active Directory 的方式非常类似。 Azure Stack 包含自身的 AD FS 和 Active Directory 实例，另外还包含 Active Directory 图形 API。 Azure Stack 开发工具包支持以下 AD FS 方案：
 
 - 使用 AD FS 登录到部署。
 - 使用 Key Vault 中的机密创建虚拟机
@@ -58,12 +55,12 @@ Azure Active Directory 是 Microsoft 的基于云的多租户标识提供者。 
 - 创建服务主体并使用它们登录到 Azure PowerShell
 
 
-## <a name="regions-services-plans-offers-and-subscriptions"></a>区域、服务、计划、产品/服务和订阅
-在 Azure Stack 中，使用区域、订阅、服务和计划将服务传送到租户。 租户可以订阅多个产品/服务。 产品/服务可以包含一个或多个计划，计划可以包含一个或多个服务。
+## <a name="regions-services-plans-offers-and-subscriptions"></a>区域、服务、计划、产品和订阅
+在 Azure Stack 中，使用区域、订阅、服务和计划将服务传送到租户。 租户可以订阅多个产品。 产品可以包含一个或多个计划，计划可以包含一个或多个服务。
 
 ![](./media/azure-stack-key-features/image4.png)
 
-租户产品/服务订阅的示例层次结构，每个订阅包含不同的计划和服务。
+租户产品订阅的示例层次结构，每个订阅包含不同的计划和服务。
 
 ### <a name="regions"></a>区域
 Azure Stack 区域是规模与管理的基本要素。 组织可以创建多个区域，并在每个区域中分配资源。 还可以在区域中包含不同的服务产品。 Azure Stack 开发工具包仅支持一个区域，该区域自动命名为 *local*。
@@ -76,27 +73,28 @@ Azure Stack 区域是规模与管理的基本要素。 组织可以创建多个�
 
 可以使用配额设置来配置已添加到计划的每个服务，以帮助管理云容量。 配额可以包括限制（例如 VM、RAM 和 CPU 限制），并应用到每个用户订阅。 配额可按位置区分。 例如，包含区域 A 中计算服务的计划的配额可能是两个虚拟机、4 GB RAM 和 10 个 CPU 核心。
 
-创建产品/服务时，服务管理员可以包含**基本计划**。 当租户订阅该产品/服务时，默认会包括这些基本计划。 用户订阅（并且已创建订阅）后，便有权访问这些基本计划中指定的所有资源提供程序（附带相应的配额）。
+创建产品时，服务管理员可以包含**基本计划**。 当租户订阅该产品时，默认会包括这些基本计划。 用户订阅（并且已创建订阅）后，便有权访问这些基本计划中指定的所有资源提供程序（附带相应的配额）。
 
-服务管理员还可以在产品/服务中包含**附加计划**。 默认情况下，订阅中不包含附加计划。 附加计划是产品/服务中提供的额外计划（配额），订阅所有者可将其添加到自己的订阅中。
+服务管理员还可以在产品中包含**附加计划**。 默认情况下，订阅中不包含附加计划。 附加计划是产品中提供的额外计划（配额），订阅所有者可将其添加到自己的订阅中。
 
-### <a name="offers"></a>产品/服务
-产品/服务是提供者提供给租户购买（订阅）的一个或多个计划的组合。 例如，产品/服务 Alpha 可能包含计划 A 和计划 B，这两个计划分别包含一组计算服务和一组存储与网络服务。
+### <a name="offers"></a>产品
+产品是提供者提供给租户购买（订阅）的一个或多个计划。 例如，产品 Alpha 可能包含计划 A 和计划 B，这两个计划分别包含一组计算服务和一组存储与网络服务。
 
-产品/服务附带一组基本计划。服务管理员可以创建附加计划，租户可将这些附加计划添加到其订阅中。
+产品附带一组基本计划。服务管理员可以创建附加计划，租户可将这些附加计划添加到其订阅中。
 
 ### <a name="subscriptions"></a>订阅
-租户可通过订阅购买产品/服务。 订阅是租户与产品/服务的组合。 租户可以购买多个产品/服务的订阅。 每个订阅仅适用于一个产品/服务。 租户的订阅确定了他们可以访问哪些计划/服务。
+租户可通过订阅购买产品。 订阅是租户与产品的组合。 租户可以购买多个产品的订阅。 每个订阅仅适用于一个产品。 租户的订阅确定了他们可以访问哪些计划/服务。
 
 订阅可帮助提供者组织和访问云资源与服务。
 
-对于管理员而言，默认提供商订阅是在部署期间创建的。 此订阅可用于管理 Azure Stack、部署其他资源提供程序，以及为租户创建计划和产品/服务。 不应使用此订阅来运行客户工作负荷和应用程序。 
+对于管理员而言，默认提供程序订阅是在部署期间创建的。 此订阅可用于管理 Azure Stack、部署其他资源提供程序，以及为租户创建计划和产品。 不应使用此订阅来运行客户工作负荷和应用程序。 
+
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 借助 Azure 资源管理器，可在基于模板的声明性模型中使用基础结构资源。   资源管理器提供单个界面用于部署和管理解决方案组件。 有关完整信息和指南，请参阅 [Azure 资源管理器概述](../azure-resource-manager/resource-group-overview.md)。
 
 ### <a name="resource-groups"></a>资源组
-资源组是资源、服务和应用程序的集合 — 每个资源都有一种类型，例如虚拟机、虚拟网络、公共 IP、存储帐户和网站。 每个资源必须在资源组中，因此，资源组有助于以逻辑方式组织资源，例如，按工作负荷或位置进行组织。  在 Azure Stack 中，计划和产品/服务等资源也在资源组中管理。
+资源组是资源、服务和应用程序的集合 — 每个资源都有一种类型，例如虚拟机、虚拟网络、公共 IP、存储帐户和网站。 每个资源必须在资源组中，因此，资源组有助于以逻辑方式组织资源，例如，按工作负荷或位置进行组织。  在 Azure Stack 中，计划和产品等资源也在资源组中管理。
  
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 模板
 使用 Azure 资源管理器可以创建一个模板（采用 JSON 格式），用于定义应用程序的部署和配置。 此模板称为 Azure 资源管理器模板，让你以声明性方式定义部署。 使用模板可以在整个应用程序生命周期内反复部署该应用程序，并确保以一致的状态部署资源。
@@ -129,6 +127,25 @@ Azure 队列存储用于在应用程序组件之间进行云消息传送。 在�
 ### <a name="keyvault"></a>KeyVault
 KeyVault RP 针对密码和证书等机密提供管理与审核。 例如，在 VM 部署期间，租户可以使用 KeyVault RP 来提供管理员密码或密钥。
 
+## <a name="high-availability-for-azure-stack"></a>Azure Stack 的高可用性
+适用于：Azure Stack 1802 或更高版本
+
+为了在 Azure 中实现多 VM 生产系统的高可用性，可以将 VM 置于横跨多个容错域和更新域的可用性集中。 这样可确保[部署在可用性集中的 VM](/virtual-machines/windows/tutorial-availability-sets) 在物理上彼此隔离（位于不同的服务器架上），因此可以进行故障还原，如下图所示：
+
+  ![Azure Stack 高可用性](./media/azure-stack-key-features/high-availability.png)
+
+### <a name="availablity-sets-in-azure-stack"></a>Azure Stack 中的可用性集
+在发生硬件故障时，虽然 Azure Stack 的基础结构已具备故障还原能力，但基础技术（故障转移群集功能）的局限仍会导致受影响物理服务器上的 VM 出现停机。 为了与 Azure 保持一致，Azure Stack 支持的可用性集最多有三个容错域。
+
+- **容错域**。 置于可用性集中的 VM 在物理上是彼此隔离的，换句话说，会尽可能均衡地让其分散到多个容错域（Azure Stack 节点）中。 出现硬件故障时，发生故障的容错域中的 VM 会在其他容错域中重启，但在将其置于容错域中时，会尽可能让其与同一可用性集中的其他 VM 隔离。 当硬件重新联机时，会对 VM 重新进行均衡操作，以维持高可用性。 
+ 
+- **更新域**。 更新域是另一可以在可用性集中提供高可用性的 Azure 概念。 更新域是可以同时维护的基础硬件逻辑组。 同一个更新域中的 VM 会在计划内维护期间一起重启。 当租户在可用性集内创建 VM 时，Azure 平台会自动将 VM 分布到这些更新域。 在 Azure Stack 中，VM 会先跨群集中的其他联机主机进行实时迁移，然后其基础主机才会进行更新。 由于在主机更新期间不会造成租户停机，因此 Azure Stack 上存在更新域功能只是为了确保与 Azure 实现模板兼容。 
+
+### <a name="upgrade-scenarios"></a>升级方案 
+在 Azure Stack 版本 1802 之前创建的可用性集中的 VM 有一个默认的容错域和升级域数目（分别为 1 和 1）。 对于这些预先存在的可用性集中的 VM，若要实现高可用性，必须先删除现有的 VM，然后使用正确的容错域和更新域计数将其重新部署到新的可用性集中，如[更改 Windows VM 的可用性集](/virtual-machines/windows/change-availability-set)中所述。 
+
+对于 VM 规模集，将会在内部使用默认的容错域和更新域计数（分别为 3 和 5）创建可用性集。 在 1802 更新之前创建的任何 VM 规模集都会置于具有默认容错域和更新域计数（分别为 1 和 1）的可用性集中。 若要更新这些 VM 规模集实例，以便让其重新进行分布，请按 1802 更新之前存在的实例数对 VM 规模集进行横向扩展，然后删除较旧的 VM 规模集实例。 
+
 ## <a name="role-based-access-control-rbac"></a>基于角色的访问控制 (RBAC)
 可以使用 RBAC 向已获授权的用户、组和服务授予系统访问权限：在订阅、资源组或单个资源的级别为其分配角色即可。 每个角色定义了用户、组或服务对 Azure Stack 资源拥有的访问级别。
 
@@ -146,5 +163,6 @@ Azure Stack 从所有资源提供程序收集聚合用量数据，并将其传�
 - 其他改进
 
 ## <a name="next-steps"></a>后续步骤
-[评估 Azure Stack 开发工具包](/azure-stack/azure-stack-deploy-overview)
+[评估 Azure Stack 开发工具包](azure-stack-deploy-overview.md)
 
+<!-- Update_Description: wording update -->

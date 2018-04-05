@@ -6,16 +6,14 @@
       href: azure-stack-poc.md
     - name: 发行说明
       items:
-        - name: 开发工具包发行说明
-          href: azure-stack-asdk-release-notes.md
-        - name: 集成系统发行说明
-          items:
-            - name: 1712 更新
-              href: azure-stack-update-1712.md
-            - name: 1711 更新
-              href: azure-stack-update-1711.md
-            - name: 1710 更新
-              href: azure-stack-update-1710.md
+        - name: 1802 更新
+          href: azure-stack-update-1802.md
+        - name: 1712 更新
+          href: azure-stack-update-1712.md
+        - name: 1711 更新
+          href: azure-stack-update-1711.md
+        - name: 1710 更新
+          href: azure-stack-update-1710.md
 - name: 快速入门
   expanded: true
   items:
@@ -65,8 +63,6 @@
               href: validate-pki-certs.md
         - name: 标识集成
           href: azure-stack-integrate-identity.md
-        - name: 注册 Azure Stack
-          href: azure-stack-registration.md
         - name: 外部监视
           href: azure-stack-integrate-monitor.md
         - name: 安全集成
@@ -75,30 +71,14 @@
       href: azure-stack-servicing-policy.md
     - name: 重要功能和概念
       href: azure-stack-key-features.md
-    - name: 开发工具包体系结构
-      href: azure-stack-architecture.md
     - name: 管理基础知识
       href: azure-stack-manage-basics.md
 - name: 操作指南
   items:
-    - name: 部署 ASDK
-      items:
-        - name: 先决条件
-          href: azure-stack-deploy.md
-        - name: 遥测
-          href: azure-stack-telemetry.md
-        - name: 部署
-          href: azure-stack-run-powershell-script.md
-        - name: 安装 PowerShell
-          href: azure-stack-powershell-install.md
-        - name: 注册
-          href: azure-stack-register.md
-        - name: 连接到 Azure Stack
-          href: azure-stack-connect-azure-stack.md
-        - name: 添加默认映像
-          href: azure-stack-add-default-image.md
-        - name: 创建测试 VM
-          href: azure-stack-provision-vm.md
+    - name: 配置遥测数据的收集
+      href: azure-stack-telemetry.md
+    - name: 注册 Azure Stack
+      href: azure-stack-registration.md
     - name: 管理
       items:
         - name: 区域管理
@@ -133,14 +113,18 @@
           href: azure-stack-monitor-health.md
         - name: 管理网络资源
           href: azure-stack-viewing-public-ip-address-consumption.md
-        - name: 管理存储资源
-          href: azure-stack-manage-storage-accounts.md
-        - name: 管理存储容量
-          href: azure-stack-manage-storage-shares.md
         - name: 管理 Azure Pack VM
           href: azure-stack-manage-windows-azure-pack.md
         - name: 启动和停止 Azure Stack
           href: azure-stack-start-and-stop.md
+        - name: 管理容量
+          items:
+            - name: 管理存储资源
+              href: azure-stack-manage-storage-accounts.md
+            - name: 管理存储容量
+              href: azure-stack-manage-storage-shares.md
+            - name: 管理 Azure Stack 的物理存储容量
+              href: azure-stack-manage-storage-physical-capacity.md
         - name: 更换硬件
           items:
             - name: 节点操作
@@ -198,9 +182,9 @@
               href: azure-stack-plan-offer-quota-overview.md
             - name: 创建计划
               href: azure-stack-create-plan.md
-            - name: 创建产品/服务
+            - name: 创建产品
               href: azure-stack-create-offer.md
-            - name: 订阅产品/服务
+            - name: 订阅产品
               href: azure-stack-subscribe-plan-provision-vm.md
             - name: 在 Azure Stack 中委托产品/服务
               href: azure-stack-delegated-provider.md
@@ -226,12 +210,22 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: 准备工作
               href: azure-stack-app-service-before-you-get-started.md
+            - name: 如何跨容错域在 Azure Stack 上重新分配 Azure 应用服务
+              href: azure-stack-app-service-fault-domain-update.md
             - name: 部署应用服务资源提供程序
               href: azure-stack-app-service-deploy.md
             - name: 脱机部署应用服务
               href: azure-stack-app-service-deploy-offline.md
+            - name: 更新应用服务
+              href: azure-stack-app-service-update.md
+            - name: 脱机更新应用服务
+              href: azure-stack-app-service-update-offline.md
+            - name: 添加更多 Web 辅助角色
+              href: azure-stack-app-service-add-worker-roles.md
             - name: 配置部署源
               href: azure-stack-app-service-configure-deployment-sources.md
+            - name: 基于 Azure Stack 的应用服务 Update 1 发行说明
+              href: azure-stack-app-service-release-notes-update-one.md
         - name: 充实 Marketplace
           items:
             - name: Marketplace 概述
@@ -256,14 +250,24 @@
           items:
             - name: 概述
               href: azure-stack-billing-and-chargeback.md
-            - name: 使用情况数据报告
-              href: azure-stack-usage-reporting.md
-            - name: 提供者使用情况 API
-              href: azure-stack-provider-resource-api.md
-            - name: 租户使用情况 API
-              href: azure-stack-tenant-resource-usage-api.md
-            - name: 使用情况常见问题
-              href: azure-stack-usage-related-faq.md
+            - name: 以 CSP 身份管理使用情况和计费
+              href: azure-stack-add-manage-billing-as-a-csp.md
+            - name: 添加租户以获取用量和计费信息
+              href: azure-stack-csp-howto-register-tenants.md
+            - name: 管理租户注册
+              href: azure-stack-csp-ref-operations.md
+            - name: 使用情况和计费参考
+              items:
+                - name: 使用情况数据报告
+                  href: azure-stack-usage-reporting.md
+                - name: 适用于云服务提供商的使用情况报告基础结构
+                  href: azure-stack-csp-ref-infrastructure.md
+                - name: 提供者使用情况 API
+                  href: azure-stack-provider-resource-api.md
+                - name: 租户使用情况 API
+                  href: azure-stack-tenant-resource-usage-api.md
+                - name: 使用情况常见问题
+                  href: azure-stack-usage-related-faq.md
         - name: 连接到 Azure
           items:
             - name: 使用 VPN 进行连接
@@ -292,6 +296,8 @@
   items:
     - name: Azure Stack 用户文档
       href: /azure-stack/user/
+    - name: ASDK 文档
+      href: /azure-stack/asdk/
 - name: 资源
   items:
     - name: Azure Stack MSDN 论坛

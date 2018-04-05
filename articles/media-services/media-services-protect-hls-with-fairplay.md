@@ -1,11 +1,11 @@
 ---
-title: "使用 Microsoft PlayReady 或 Apple FairPlay 保护 HLS 内容 - Azure | Azure"
-description: "本主题概括介绍并演示了如何使用 Azure 媒体服务通过 Apple FairPlay 动态加密 HTTP Live Streaming (HLS) 内容。 它还演示了如何使用媒体服务许可证传送服务将 FairPlay 许可证传送到客户端。"
+title: 使用 Microsoft PlayReady 或 Apple FairPlay 保护 HLS 内容 - Azure | Azure
+description: 本主题概括介绍并演示了如何使用 Azure 媒体服务通过 Apple FairPlay 动态加密 HTTP Live Streaming (HLS) 内容。 它还演示了如何使用媒体服务许可证传送服务将 FairPlay 许可证传送到客户端。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
 ms.service: media-services
 ms.workload: media
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: acceb41bad3012368b0403385988cc78dd063d36
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 71eb0dd5e81484b33b332bb4dcf315b6d37cce41
+ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>使用 Apple FairPlay 或 Microsoft PlayReady 保护 HLS 内容
 使用 Azure 媒体服务，可使用以下格式动态加密 HTTP Live Streaming (HLS) 内容：  
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/22/2017
 
 下图显示了 **HLS + FairPlay 或 PlayReady 动态加密**工作流。
 
-![动态加密工作流的图示](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![动态加密工作流的图示](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
 本文演示如何使用媒体服务通过 Apple FairPlay 动态加密 HLS 内容。 它还演示了如何使用媒体服务许可证传送服务将 FairPlay 许可证传送到客户端。
 
@@ -63,11 +63,11 @@ ms.lasthandoff: 12/22/2017
         转到 Apple 提供的 FairPlay 证书和其他文件所在的文件夹。
     2. 从命令行运行以下命令。 这会将 .cer 文件转换为 .pem 文件。
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in fairplay.cer -out fairplay-out.pem
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
     3. 从命令行运行以下命令。 这会将 .pem 文件转换为包含私钥的 .pfx 文件。 然后， OpenSSL 会要求提供 .pfx 文件的密码。
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
-  * **应用证书密码**：用于创建 .pfx 文件的密码。
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
+  * 应用证书密码：用于创建 .pfx 文件的密码。
   * 应用证书密码 ID：必须上传密码，其方式与上传其他媒体服务密钥类似。 使用 ContentKeyType.FairPlayPfxPassword 枚举值获取媒体服务 ID。 需要在密钥传送策略选项中使用此 ID。
   * iv：这是 16 字节的随机值。 该值必须与资产传送策略中的 iv 相匹配。 生成 iv 并将其放入以下两个位置：资产传送策略和密钥传送策略选项。
   * ASK：使用 Apple 开发人员门户生成证书时会收到此密钥。 每个开发团队都会收到唯一的 ASK。 请保存一份 ASK 副本，并将其存储在安全位置。 稍后需要将 ASK 作为 FairPlayAsk 配置到媒体服务。
@@ -145,8 +145,10 @@ ms.lasthandoff: 12/22/2017
 1. 设置开发环境，并根据[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述，在 app.config 文件中填充连接信息。 
 2. 将以下元素添加到 app.config 文件中定义的 appSettings：
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
 ## <a name="example"></a>示例
 
@@ -159,7 +161,7 @@ ms.lasthandoff: 12/22/2017
 
 请务必将变量更新为指向输入文件所在的文件夹。
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

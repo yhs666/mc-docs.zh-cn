@@ -6,20 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 2A397C83-1A6C-4290-B0EF-FDC34EE290CD
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/28/2017
-ms.date: 03/04/2018
+origin.date: 02/22/2018
+ms.date: 03/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 29dccd95703d66f75c15b6230be472243ffaf38a
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: alfredop
+ms.openlocfilehash: f7f300c1b0445b72d669d137f2c21445400c44da
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 报告 Azure Stack 用量数据 
 
@@ -96,6 +96,10 @@ ms.lasthandoff: 03/08/2018
 
 在 Azure Stack 开发工具包中，用量数据报告需要全球 Azure 系统中创建的订阅。 在某个主权云（Azure 政府、Azure 德国和 Azure 中国云）中创建的订阅无法注册到 Azure，因此不支持用量数据报告。
 
+## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>用户如何在 Azure 计费门户中确定 Azure Stack 用量数据？
+
+用户可以在用量详细信息文件中查看 Azure Stack 用量数据。 若要了解如何获取用量详细信息文件，请参阅[从 Azure 帐户中心下载用量文件](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv)一文。 用量详细信息文件包含的 Azure Stack 计量可用于标识 Azure Stack 存储和 VM。 在 Azure Stack 中使用的所有资源都在名为“Azure Stack”的区域下报告。
+
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>为何 Azure Stack 中报告的用量与从 Azure 帐户中心生成的报告不匹配？
 
 Azure Stack 用量 API 报告用量数据的时间与 Azure 帐户中心报告用量数据的时间始终存在延迟。 之所以发生这种延迟，是因为需要将用量数据从 Azure Stack 上传到 Azure 商务系统。 由于这种延迟，在午夜之前短暂发生的用量可能要在第二天才显示在 Azure 中。 如果使用 [Azure Stack 用量 API](azure-stack-provider-resource-api.md) 并将结果与 Azure 计费门户中报告的用量相比较，则可能会看到差异。
@@ -105,4 +109,6 @@ Azure Stack 用量 API 报告用量数据的时间与 Azure 帐户中心报告�
 - [提供者使用情况 API](azure-stack-provider-resource-api.md)  
 - [租户使用情况 API](azure-stack-tenant-resource-usage-api.md)
 - [使用情况常见问题](azure-stack-usage-related-faq.md)
+- [以云服务提供商身份管理使用情况和计费](azure-stack-add-manage-billing-as-a-csp.md)
 
+<!-- Update_Description: wording update -->
