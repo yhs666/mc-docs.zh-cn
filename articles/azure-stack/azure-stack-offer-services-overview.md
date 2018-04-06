@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/25/2017
-ms.date: 03/02/2018
+origin.date: 03/05/2018
+ms.date: 03/26/2018
 ms.author: v-junlch
 ms.reviewer: ''
-ms.openlocfilehash: 25a0619f7a3f2602218be7509af8d372d6b2bec5
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 67a0cfd769302cde2abf9eba8e3e5146c21f3858
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>在 Azure Stack 中提供服务概述
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/08/2018
 
 [Azure Stack](azure-stack-poc.md) 是一种混合云平台，通过它可从数据中心提供服务。 作为服务提供商，可以向租户提供服务。 在企业或政府机构中，你可以向员工提供本地服务。 可以提供的服务包括但不限于：
 
-- 平台即服务 (PaaS) 服务，如应用服务、移动应用、API 应用、API 函数、SQL、MySQL。
+- 平台即服务 (PaaS) 服务，如应用服务、API 应用、API 函数、SQL、MySQL。
 
 你甚至可以合并服务为不同用户集成和构建复杂解决方案。
 
@@ -40,11 +40,12 @@ ms.lasthandoff: 03/08/2018
 
 **试用版产品/服务**：可以使用试用版产品/服务吸引新用户，然后这些用户可以再升级到其他服务。 若要创建试用版产品/服务，请创建一个较小的[基本计划](azure-stack-plan-offer-quota-overview.md#base-plan)，其中包含一个可选的更大加载项计划。
 
-**容量规划**：你可能会担心用户占用大量资源，阻塞所有用户使用系统。 若要帮助提高性能，可以[配置带有配额的计划](azure-stack-plan-offer-quota-overview.md#plans)以限定使用量上限。
+**容量规划**：你可能会担心用户占用大量资源，阻塞所有用户使用的系统。 若要帮助提高性能，可以[配置带有配额的计划](azure-stack-plan-offer-quota-overview.md#plans)以限定使用量上限。
 
 **授权供应商**：可以授权其他人在你的环境中创建产品/服务。 例如，如果你是服务提供商，可以将此功能[委托](azure-stack-delegated-provider.md)给经销商。 或者，如果你是组织，则可以委托给其他部门/子公司。
 
 ## <a name="next-steps"></a>后续步骤
-[了解有关产品/服务、计划、配额和订阅的详细信息](azure-stack-plan-offer-quota-overview.md)
+[在 Azure Stack 中创建产品/服务](azure-stack-create-offer.md)
 
 
+<!-- Update_Description: wording update -->
