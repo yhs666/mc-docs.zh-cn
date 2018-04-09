@@ -1,31 +1,25 @@
 ---
-title: "Azure SQL 数据库案例研究 - Snelstart | Azure"
-description: "了解 SnelStart 如何使用 SQL 数据库以每月 1,000 个新 Azure SQL 数据库的速度快速扩展其业务服务"
+title: Azure SQL 数据库案例研究 - Snelstart | Azure
+description: 了解 SnelStart 如何使用 SQL 数据库以每月 1,000 个新 Azure SQL 数据库的速度快速扩展其业务服务
 services: sql-database
-documentationcenter: 
 author: Hayley244
 manager: digimobile
-editor: 
-ms.assetid: fab506b2-439d-4f1a-bdc5-d1d25c80d267
 ms.service: sql-database
 ms.custom: reference
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 origin.date: 01/10/2017
 ms.date: 07/03/2017
 ms.author: v-johch
-ms.openlocfilehash: 22560a9556a85efa81c897c644479c0030a52f64
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: f2c80d6e3486d44327960041f9a171a5f1f7bcd5
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>借助 Azure，SnelStart 以每月 1,000 个新 Azure SQL 数据库的速度快速扩展其业务服务
 ![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)
 
-SnelStart 为荷兰的中小企业 (SMB) 编写流行的财务和业务管理软件。 它的 55,000 家客户由 110 名员工提供服务，其中包括 35 名 IT 人员。 通过从桌面软件转移到 Azure 上的服务型软件 (SaaS) 产品，SnelStart 不仅能够使用 C# 中的熟悉环境将管理自动化，而且还能使用弹性池避免过度预配或预配不足，优化性能与伸缩性，从而充分利用内置服务。 Azure 使得 SnelStart 能够在本地环境与云之间灵活移动客户。
+SnelStart 为荷兰的中小企业 (SMB) 编写流行的财务和业务管理软件。 它的 55,000 家客户由 110 名员工提供服务，其中包括 35 名 IT 人员。 通过从桌面软件转移到 Azure 上的软件即服务 (SaaS) 产品，SnelStart 不仅能够使用 C# 中的熟悉环境将管理自动化，而且还能使用弹性池避免过度预配或预配不足，优化性能与伸缩性，从而充分利用内置服务。 Azure 使得 SnelStart 能够在本地环境与云之间灵活移动客户。
 
 ## <a name="why-snelstart-extended-services-from-the-desktop-to-the-cloud"></a>为何 SnelStart 将服务从桌面扩展到云中
 > “使用 Azure 意味着可以缩短软件交付时间、快速响应客户需求，在需求增大时缩放解决方案。”
@@ -75,7 +69,7 @@ Azure 平台模型消除了基础结构开销，使 SnelStart 能够使用 C# �
 
 > — Carlo Kuip，IT 架构师
 
-此外，SnelStart Web 服务还使得客户和会计师能够轻松访问 Azure SQL 数据库弹性池中的数据。 此 SaaS 模型结合数据库弹性与 Azure Resource Manager，可为 SnelStart 提供伸缩性功能来为每项 Azure 部署提供辅助。 项目实施可以使用 C# 管理库完全自动化。
+此外，SnelStart Web 服务还使得客户和会计师能够轻松访问 Azure SQL 数据库弹性池中的数据。 此 SaaS 模型结合数据库弹性与 Azure 资源管理器，可为 SnelStart 提供伸缩性功能来为每项 Azure 部署提供辅助。 项目实施可以使用 C# 管理库完全自动化。
 
 ![SnelStart 体系结构](./media/sql-database-implementation-snelstart/figure1.png)
 
@@ -93,6 +87,6 @@ SnelStart 当前的目标是不断拓展客户群体并使他们感到满意。 
 
 ## <a name="more-information"></a>详细信息
 * 若要深入了解 Azure 弹性池，请参阅[弹性池](sql-database-elastic-pool.md)。
-* 若要深入了解 Web 角色和辅助角色，请参阅[辅助角色](../fundamentals-introduction-to-azure.md#compute)。    
+* 有关 Web 角色和辅助角色的详细信息，请参阅[辅助角色](../fundamentals-introduction-to-azure.md#compute)。    
 * 有关 Azure SQL 数据仓库的详细信息，请参阅 [SQL 数据仓库](../sql-data-warehouse/index.md)
 * 有关 SnelStart 的详细信息，请参阅 [SnelStart](http://www.snelstart.nl)。

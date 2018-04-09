@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL 数据库内存中技术 | Microsoft 文档"
-description: "Azure SQL 数据库内存中技术大幅提升了事务和分析工作负荷的性能。"
+title: Azure SQL 数据库内存中技术 | Microsoft 文档
+description: Azure SQL 数据库内存中技术大幅提升了事务和分析工作负荷的性能。
 services: sql-database
-documentationCenter: 
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
 ms.service: sql-database
 ms.custom: develop databases
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 11/16/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: 427ede21f76d2436eaec56fbbade736935964b04
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: f4bc9f7521c56493503369e0a11725bcd5c6cf11
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>在 SQL 数据库中使用内存中技术优化性能
 

@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 35261b0f9822bcea0db461ef7e7e68a8b12d1e54
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: f02cb6e0aeffcc0a0c82397a16f75f72a46acc04
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>使用 Azure 媒体分析将视频文件中的文本内容转换为数字文本
 ## <a name="overview"></a>概述
@@ -224,7 +224,7 @@ namespace OCR
             AzureAdTokenCredentials tokenCredentials =
                 new AzureAdTokenCredentials(_AADTenantDomain,
                     new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-                    AzureEnvironments.AzureCloudEnvironment);
+                    AzureEnvironments.AzureChinaCloudEnvironment);
 
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 

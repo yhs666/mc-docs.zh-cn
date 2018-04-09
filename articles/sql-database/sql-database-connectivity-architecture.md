@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL 数据库连接体系结构 | Azure"
-description: "本文档从 Azure 内或 Azure 外介绍 Azure SQLDB 连接体系结构。"
+title: Azure SQL 数据库连接体系结构 | Azure
+description: 本文档从 Azure 内或 Azure 外介绍 Azure SQLDB 连接体系结构。
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: monicar
-ms.assetid: 
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 01/02/2018
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 11a2cc2f525f15ced9e8155dc6e88295b2913f30
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 9b9388bb41573509d8ac04d81e8612d80db24983
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL 数据库连接体系结构 
 

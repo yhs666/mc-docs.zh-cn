@@ -1,26 +1,21 @@
 ---
-title: "使用 PHP 查询 Azure SQL 数据库 | Azure"
-description: "本主题介绍如何使用 PHP 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。"
+title: 使用 PHP 查询 Azure SQL 数据库 | Azure
+description: 本主题介绍如何使用 PHP 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: 4e71db4a-a 22f-4f1c-83e5-4a34a036ecf3
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
 origin.date: 11/29/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 18f6ec11d7eb357f43f1567290bd649b10117c78
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: b01ea0e0a3fdf55b76f41d81e332165848c53bbd
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>使用 PHP 查询 Azure SQL 数据库
 

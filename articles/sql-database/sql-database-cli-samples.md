@@ -1,27 +1,22 @@
 ---
-title: "适用于 SQL 数据库的 Azure CLI 脚本示例 | Azure"
-description: "创建和管理 Azure SQL 数据库服务器、弹性池、数据库和防火墙的 Azure CLI 脚本示例。"
+title: 适用于 SQL 数据库的 Azure CLI 脚本示例 | Azure
+description: 创建和管理 Azure SQL 数据库服务器、弹性池、数据库和防火墙的 Azure CLI 脚本示例。
 services: sql-database
-documentationcenter: sql-database
 author: Hayley244
 manager: digimobile
-editor: tysonn
 tags: azure-service-management
-ms.assetid: 
 ms.service: sql-database
-ms.custom: overview-samples
+ms.custom: overview-samples, mvc
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
 origin.date: 06/23/2017
 ms.date: 07/31/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 4163b31cb22d47f227d47370f9b312c712290ae4
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: c7f77678a55b7931023c6914e5d37e9e3d8dd38c
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Azure CLI 示例
 

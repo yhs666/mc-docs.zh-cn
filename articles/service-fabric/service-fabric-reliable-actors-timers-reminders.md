@@ -1,6 +1,6 @@
 ---
-title: "Reliable Actors 计时程序和提醒程序 | Azure"
-description: "Service Fabric Reliable Actors 的计时器和提醒简介。"
+title: Reliable Actors 计时程序和提醒程序 | Azure
+description: Service Fabric Reliable Actors 的计时器和提醒简介。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/02/2017
-ms.date: 12/04/2017
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: d9b5d21173221393bef93c63eb10226c6baa7029
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: b5561f2be9d2d4a0d868249e84110d1d1debfd77
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="actor-timers-and-reminders"></a>执行组件计时器和提醒
 执行组件可通过注册计时器或提醒来计划自身的定期工作。 本文演示如何使用计时器和提醒，并说明它们之间的差异。
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/01/2017
 ## <a name="actor-timers"></a>执行组件计时器
 执行组件计时器围绕 .NET 或 Java 计时器提供一个简单包装器，确保回叫方法采用 Actors 运行时提供的基于轮次的并发保证。
 
-执行组件可以对其基类使用 `RegisterTimer`(C#) 或 `registerTimer`(Java) 和 `UnregisterTimer`(C#) 或 `unregisterTimer`(Java) 方法以注册和注销其计时器。 下面的示例演示了如何使用计时器 API。 这些 API 非常类似于 .NET 计时器或 Java 计时器。 在此示例中，当计时器到期时，Actors 运行时会调用 `MoveObject`(C#) 或 `moveObject`(Java) 方法。 可保证该方法遵循基于轮次的并发。 这意味着，任何其他执行组件方法或计时器/提醒回调会一直进行，直到此回调完成执行为止。
+执行组件可以对其基类使用 `RegisterTimer`(C#) 或 `registerTimer`(Java) 和 `UnregisterTimer`(C#) 或 `unregisterTimer`(Java) 方法以注册和注销其计时器。 下面的示例演示了如何使用计时器 API。 这些 API 非常类似于 .NET 计时器或 Java 计时器。 在此示例中，当计时器到期时，Actors 运行时会调用 `MoveObject`(C#) 或 `moveObject`(Java) 方法。 该方法可保证遵循基于轮次的并发。 这意味着，任何其他执行组件方法或计时器/提醒回调会一直进行，直到此回调完成执行为止。
 
 ```csharp
 class VisualObjectActor : Actor, IVisualObject
@@ -147,8 +147,8 @@ protected override async Task OnActivateAsync()
     IActorReminder reminderRegistration = await this.RegisterReminderAsync(
         reminderName,
         BitConverter.GetBytes(amountInDollars),
-        TimeSpan.FromDays(3),
-        TimeSpan.FromDays(1));
+        TimeSpan.FromDays(3),    //The amount of time to delay before firing the reminder
+        TimeSpan.FromDays(1));    //The time interval between firing of reminders
 }
 ```
 
@@ -212,7 +212,7 @@ public class ToDoListActorImpl extends FabricActor implements ToDoListActor, Rem
 
 触发提醒时，Reliable Actors 运行时会对执行组件调用 `ReceiveReminderAsync`(C#) 或 `receiveReminderAsync`(Java) 方法。 一个执行组件可以注册多个提醒，而 `ReceiveReminderAsync`(C#) 或 `receiveReminderAsync`(Java) 方法会在触发其中任一提醒时调用。 执行组件可以使用传入给 `ReceiveReminderAsync`(C#) 或 `receiveReminderAsync`(Java) 方法的提醒名称来找出触发的提醒。
 
-Actors 运行时会在 `ReceiveReminderAsync`(C#) 或 `receiveReminderAsync`(Java) 调用完成时保存执行组件的状态。 如果在保存状态时发生错误，则会停用该执行组件对象并激活一个新实例。
+Actors 运行时会在 `ReceiveReminderAsync`(C#) 或 `receiveReminderAsync`(Java) 调用完成时保存执行组件的状态。 如果保存状态时发生错误，则会停用该执行组件对象并激活一个新实例。
 
 为了注销提醒，执行组件会调用 `UnregisterReminderAsync`(C#) 或 `unregisterReminderAsync`(Java) 方法，如以下示例所示。
 

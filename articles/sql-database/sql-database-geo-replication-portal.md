@@ -1,26 +1,20 @@
 ---
-title: "Azure 门户：SQL 数据库异地复制 | Azure"
-description: "在 Azure 门户中为 Azure SQL 数据库配置异地复制，并启动故障转移"
+title: Azure 门户：SQL 数据库异地复制 | Azure
+description: 在 Azure 门户中为 Azure SQL 数据库配置异地复制，并启动故障转移
 services: sql-database
-documentationcenter: 
 author: Hayley244
 manager: digimobile
-editor: 
-ms.assetid: d0b29822-714f-4633-a5ab-fb1a09d43ced
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 origin.date: 03/06/2016
 ms.date: 07/31/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 0f6cb34364f557c341c03784d9b4dda8c86b0fd0
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 79b99da21f1f080cff62ae364511bdfe7a489135
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>在 Azure 门户中为 Azure SQL 数据库配置活动异地复制，并启动故障转移
 
@@ -48,7 +42,7 @@ ms.lasthandoff: 07/28/2017
 > 
 
 1. 在 [Azure 门户](http://portal.azure.cn)中，浏览到需要设置以便进行异地复制的数据库。
-2. 在 SQL 数据库页上，选择“异地复制” ，然后选择要创建辅助数据库的区域。
+2. 在 SQL 数据库页上，选择“异地复制” ，并选择要创建辅助数据库的区域。
    
     ![配置异地复制](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
 3. 选择或配置辅助数据库的服务器和定价层。

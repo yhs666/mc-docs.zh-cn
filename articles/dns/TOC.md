@@ -1,3 +1,5 @@
+# [DNS 文档](index.md)
+
 # 概述
 
 ## [什么是 Azure DNS？](dns-overview.md)

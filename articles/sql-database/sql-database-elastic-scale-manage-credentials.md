@@ -1,26 +1,20 @@
 ---
-title: "管理弹性数据库客户端库中的凭据 | Azure"
-description: "如何为弹性数据库应用设置正确的凭据级别（从管理员到只读权限）"
+title: 管理弹性数据库客户端库中的凭据 | Azure
+description: 如何为弹性数据库应用设置正确的凭据级别（从管理员到只读权限）
 services: sql-database
-documentationcenter: 
 manager: digimobile
 author: yunan2016
-editor: 
-ms.assetid: 72e0edaf-795e-4856-84a5-6594f735fb7e
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 11/29/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 5814c674721f4e4e66d07daaf3af65910f11b2a5
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 68f3b655a62cf789580e479655c97575b0fbd426
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>用于访问弹性数据库客户端库的凭据
 [弹性数据库客户端库](sql-database-elastic-database-client-library.md)使用三种不同的凭据来访问[分片映射管理器](sql-database-elastic-scale-shard-map-management.md)。 使用凭据时，应根据需要尽可能采用最低访问级别。

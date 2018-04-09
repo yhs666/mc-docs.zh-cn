@@ -1,26 +1,20 @@
 ---
-title: "将 Azure SQL 数据库导出到 BACPAC 文件 | Azure"
-description: "使用 Azure 门户将 Azure SQL 数据库导出到 BACPAC 文件"
+title: 将 Azure SQL 数据库导出到 BACPAC 文件 | Azure
+description: 使用 Azure 门户将 Azure SQL 数据库导出到 BACPAC 文件
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: 
-ms.assetid: 41d63a97-37db-4e40-b652-77c2fd1c09b7
 ms.service: sql-database
 ms.custom: load & move data
-ms.devlang: NA
 origin.date: 10/11/2017
 ms.date: 2/28/2018
 ms.author: v-johch
-ms.workload: data-management
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 43e6662aa5e3ca08190385dcbca654be4c8d8aea
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: a71dd833e361c7086f36979d45e54f8186345cb8
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>将 Azure SQL 数据库导出到 BACPAC 文件
 

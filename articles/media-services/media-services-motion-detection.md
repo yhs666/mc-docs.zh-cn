@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: f21529d5b6c2fbb54acbcc8fd16cb170688f420a
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: 315315fdf0dee98d42318bfa76983d0da5738704
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>使用 Azure 媒体分析检测动作
 ## <a name="overview"></a>概述
@@ -238,7 +238,7 @@ namespace VideoMotionDetection
             AzureAdTokenCredentials tokenCredentials =
                 new AzureAdTokenCredentials(_AADTenantDomain,
                     new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-                    AzureEnvironments.AzureCloudEnvironment);
+                    AzureEnvironments.AzureChinaCloudEnvironment);
 
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 

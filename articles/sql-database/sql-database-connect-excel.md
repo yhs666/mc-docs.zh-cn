@@ -1,27 +1,21 @@
 ---
-title: "将 Excel 连接到 SQL 数据库 | Azure"
-description: "了解如何将 Microsoft Excel 连接到在云中的 Azure SQL 数据库。 将数据导入 Excel 以进行报告和数据探索。"
+title: 将 Excel 连接到 SQL 数据库 | Azure
+description: 了解如何将 Microsoft Excel 连接到在云中的 Azure SQL 数据库。 将数据导入 Excel 以进行报告和数据探索。
 services: sql-database
-keywords: "将 excel 连接到 sql, 将数据导入 excel"
-documentationcenter: 
+keywords: 将 excel 连接到 sql, 将数据导入 excel
 author: forester123
 manager: digimobile
-editor: 
-ms.assetid: 906924bc-2707-48d3-bac6-397976a0409d
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 03/10/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: dc6f0b42b4c5d8a72cafebf92011e942803fbb11
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: 5beba92f585e3fdbb3eb0f25fec80e1069c07d4d
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>将 Excel 连接到 Azure SQL 数据库并创建报表
 
@@ -32,7 +26,7 @@ ms.lasthandoff: 10/31/2017
 还需要 Excel 的副本。 本文使用 [Microsoft Excel 2016](https://products.office.com/)。
 
 ## <a name="connect-excel-to-a-sql-database-and-create-an-odc-file"></a>将 Excel 连接到 SQL 数据库并创建 odc 文件
-1. 如果要将 Excel 连接到 SQL 数据库，请打开 Excel，并创建新的工作簿或打开现有的 Excel 工作簿。
+1. 要将 Excel 连接到 SQL 数据库，请打开 Excel，然后创建新的工作簿或打开现有的 Excel 工作簿。
 2. 在页面顶部的菜单栏中单击“数据”，单击“从其他源”，并单击“从 SQL Server”。
    
    ![选择数据源：将 Excel 连接到 SQL 数据库。](./media/sql-database-connect-excel/excel_data_source.png)

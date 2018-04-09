@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: a6759548a1aa913714dc4a9783f8610fa62b5fe1
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: 1e319f72bef7405aba4d9859efbc674d5250f999
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/08/2018
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>创建生成 fMP4 区块的编码任务
 
@@ -79,7 +79,7 @@ namespace AdaptiveStreaming
             AzureAdTokenCredentials tokenCredentials =
                 new AzureAdTokenCredentials(_AADTenantDomain,
                     new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-                    AzureEnvironments.AzureCloudEnvironment);
+                    AzureEnvironments.AzureChinaCloudEnvironment);
 
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 

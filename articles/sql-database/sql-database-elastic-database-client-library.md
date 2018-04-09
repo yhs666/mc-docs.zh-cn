@@ -1,26 +1,20 @@
 ---
-title: "构建可缩放的云数据库 | Azure"
-description: "使用弹性数据库客户端库构建可缩放的 .NET 数据库应用"
+title: 构建可缩放的云数据库 | Azure
+description: 使用弹性数据库客户端库构建可缩放的 .NET 数据库应用
 services: sql-database
-documentationCenter: 
 manager: digimobile
 author: yunan2016
-editor: 
-ms.assetid: 1f11c52d-13c1-4994-b9b1-5b1ae2f9255f
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 11/12/2016
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: d1110312c85fc67a40ff06ecbe92a251290cb3e6
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: f9688acfea9b6151cb7b19bd2f0cc050d416d800
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="building-scalable-cloud-databases"></a>构建可缩放的云数据库
 使用 Azure SQL 数据库的可缩放工具和功能，可以轻松扩大数据库。 特别是，可以使用 **弹性数据库客户端库** 来创建和管理扩大的数据库。 此功能可让你使用成百上千个 Azure SQL 数据库，轻松地开发分片应用程序。

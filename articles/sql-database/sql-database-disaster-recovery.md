@@ -1,32 +1,27 @@
 ---
-title: "SQL 数据库灾难恢复 | Azure"
-description: "了解在发生区域性的数据中心服务中断或故障后，如何使用 Azure SQL 数据库活动异地复制和异地还原功能来恢复数据库。"
+title: SQL 数据库灾难恢复 | Azure
+description: 了解在发生区域性的数据中心服务中断或故障后，如何使用 Azure SQL 数据库活动异地复制和异地还原功能来恢复数据库。
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: monicar
-ms.assetid: 4800960e-3f9d-40ce-9e55-fb7f2784c067
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 origin.date: 12/13/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 0f822b4d5e7b96c255c6894db33044987a32422f
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 4b77e16226243b4e3097f02da05689a7b5e44b40
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>还原 Azure SQL 数据库或故障转移到辅助数据库
 Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
 
 * [活动的异地复制和故障转移组](sql-database-geo-replication-overview.md)
 * [异地还原](sql-database-recovery-using-backups.md#point-in-time-restore)
+* [区域冗余数据库](sql-database-high-availability.md)
 
 若要了解业务连续性方案以及支持这些方案的功能，请参阅[业务连续性](sql-database-business-continuity.md)。
 
@@ -40,7 +35,7 @@ Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
 * 标识（并选择性定义）用户访问新的主数据库时所需的服务器级防火墙规则。
 * 确定要如何将用户重定向到新的主服务器，例如通过更改连接字符串或更改 DNS 条目。
 * 标识（并选择性创建）新主服务器的 master 数据库中必须存在的登录信息，并确保这些登录信息在 master 数据库中具有相应权限（若有）。 有关详细信息，请参阅[灾难恢复后的 SQL 数据库安全性](sql-database-geo-replication-security-config.md)
-* 标识需要更新才可映射到新的主数据库的警报规则。
+* 需要更新标识才可映射到新的主数据库的警报规则。
 * 记录当前主数据库上的审核配置
 * 执行[灾难恢复演练](sql-database-disaster-recovery-drills.md)。 若要模拟中断情况进行异地还原，可删除或重命名源数据库以引发应用程序连接失败。 若要使用故障转移组来模拟服务中断，可禁用连接到数据库的 Web 应用程序或虚拟机，或者故障转移数据库以引发应用程序连接失败。
 
@@ -61,7 +56,7 @@ Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
 Azure 团队会努力尽快还原服务可用性，但视根本原因而定，有可能需要数小时或数天的时间。  如果应用程序可以容忍长时间停机，则可以等待恢复完成。 在此情况下，不需要采取任何操作。 可在 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)上查看当前服务状态。 在区域恢复后，将会还原应用程序的可用性。
 
 ## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>故障转移到故障转移组中异地复制的辅助服务器
-如果应用程序停机可能会带来业务责任，则应使用故障转移组。 这样，应用程序在发生中断时，就可以快速还原其他区域的可用性。 了解如何[配置故障转移组](sql-database-geo-replication-portal.md)。
+如果应用程序停机可能会带来业务责任，则应当使用故障转移组。 这样，应用程序在发生中断时，就可以快速还原其他区域的可用性。 了解如何[配置故障转移组](sql-database-geo-replication-portal.md)。
 
 若要还原数据库的可用性，必须使用其中一种受支持的方法，启动到辅助服务器的故障转移。
 

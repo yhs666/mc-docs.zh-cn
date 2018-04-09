@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric 编程模型概述 | Azure"
-description: "Service Fabric 提供了两个框架用于生成服务：执行组件框架和服务框架。 它们在简单性和控制力方面具有截然不同的取舍。"
+title: Service Fabric 编程模型概述 | Azure
+description: Service Fabric 提供了两个框架用于生成服务：执行组件框架和服务框架。 它们在简单性和控制力方面具有截然不同的取舍。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/02/2017
-ms.date: 03/12/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: cfe1d37de7b28576005ce8b3bd2f50ac0900f00c
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: af65966457b676a5790789dbcbdb7a63b2b8d2f5
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="service-fabric-programming-model-overview"></a>Service Fabric 编程模型概述
-Service Fabric 提供了多种方法来编写和管理服务。 服务可以选择使用 Service Fabric API 来充分利用平台的功能和应用程序框架。 服务还可以是采用任何语言编写的任何已编译可执行程序，也可以是在 Service Fabric 群集上直接托管的容器中运行的代码。
+Service Fabric 提供了多种方法来编写和管理服务。 服务可以选择使用 Service Fabric API 来充分利用平台的功能和应用程序框架。 服务还可以是采用任何语言编写的任意已编译可执行程序，也可以是在 Service Fabric 群集上托管的容器中运行的代码。
 
 ## <a name="guest-executables"></a>来宾可执行文件
-[来宾可执行文件](service-fabric-deploy-existing-app.md)是（采用任何语言编写的）任意现有可执行文件，可在应用程序中作为服务运行。 来宾可执行文件不直接调用 Service Fabric SDK API。 但是，它们仍受益于平台提供的功能，如服务可发现性、自定义运行状况和负载报告（通过调用 Service Fabric 公开的 REST API）。 它们还具有完整的应用程序生命周期支持。
+[来宾可执行文件](service-fabric-guest-executables-introduction.md)是（采用任何语言编写的）任意现有可执行文件，可在应用程序中作为服务运行。 来宾可执行文件不直接调用 Service Fabric SDK API。 但是，它们仍受益于平台提供的功能，如服务可发现性、自定义运行状况和负载报告（通过调用 Service Fabric 公开的 REST API）。 它们还具有完整的应用程序生命周期支持。
 
 从部署第一个[来宾可执行文件应用程序](service-fabric-deploy-existing-app.md)开始使用来宾可执行文件。
 
@@ -51,7 +51,7 @@ ASP.NET Core 是新的开源跨平台框架，用于构建现代基于云的连�
 ## <a name="reliable-actors"></a>Reliable Actors
 Reliable Actor 框架在 Reliable Services 的基础上生成，是根据执行组件设计模式实现虚拟执行组件模式的应用程序框架。 Reliable Actor 框架使用称为执行组件的单线程执行的独立的计算单元和状态。 Reliable Actor 框架为执行组件提供内置通信，以及提供预设的状态暂留和扩展配置。
 
-由于 Reliable Actors 自身是在 Reliable Services 基础上构建的应用程序框架，所以它完全与 Service Fabric 平台集成，并且获益于平台所提供的完整功能集。
+由于 Reliable Actors 是在 Reliable Services 基础上构建的应用程序框架，因此它完全与 Service Fabric 平台集成，并且受益于平台所提供的完整功能集。
 
 [了解有关 Reliable Actors 的详细信息](service-fabric-reliable-actors-introduction.md)或通过[编写第一个 Reliable Actor 服务](service-fabric-reliable-actors-get-started.md)帮助你入门
 
@@ -66,4 +66,4 @@ Reliable Actor 框架在 Reliable Services 的基础上生成，是根据执行�
 
 [Service Fabric 和 ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: wording update, update link -->

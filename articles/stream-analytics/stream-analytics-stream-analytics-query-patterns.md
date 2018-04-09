@@ -1,9 +1,9 @@
 ---
-title: "流分析中常用使用模式的查询示例 | Azure"
-description: "常见的 Azure 流分析查询模式"
-keywords: "查询示例"
+title: 流分析中常用使用模式的查询示例 | Azure
+description: 常见的 Azure 流分析查询模式
+keywords: 查询示例
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 08/08/2017
-ms.date: 10/02/2017
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 066ebf42ea6f03ac77d3e58047965b314078b642
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 16c8bb3da4ee0109114db0bc15080d7da80c0490
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>常用流分析使用模式的查询示例
 ## <a name="introduction"></a>简介
@@ -208,7 +208,7 @@ Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些查询�
 
 **输出：**
 
-| 计数 | 时间 |
+| CountMake | 时间 |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -502,10 +502,83 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
         input TIMESTAMP BY t
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 
-**说明**：此查询每隔 5 秒生成一个事件，并输出上次收到的最后一个事件。 [跳跃窗口](https://msdn.microsoft.com/library/dn835041.aspx)持续时间决定了查询在查找最新事件时会回溯多久（在本例中为 300 秒）。
+**说明**：此查询每隔 5 秒生成一个事件，并输出上次收到的最后一个事件。 [跳跃窗口](https://msdn.microsoft.com/library/dn835041.aspx "跳跃窗口 - Azure 流分析")持续时间确定查询将查找最新事件的时间（在本例中为 300 秒）。
+
+## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>查询示例：在同一流中关联两个事件类型
+**说明**：有时我们需要基于某个特定时间范围内发生的多个事件类型生成警报。
+例如，在家用烤箱的 IoT 方案中，我们想要在风扇温度小于 40 且在过去 3 分钟内最大功率小于 10 时引发警报。
+
+**输入**：
+
+| time | deviceId | sensorName | value |
+| --- | --- | --- | --- |
+| "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
+| "2018-01-01T16:01:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:02:00" | "Oven1" | "temp" |100 |
+| "2018-01-01T16:02:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:03:00" | "Oven1" | "temp" |70 |
+| "2018-01-01T16:03:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:04:00" | "Oven1" | "temp" |50 |
+| "2018-01-01T16:04:00" | "Oven1" | "power" |15 |
+| "2018-01-01T16:05:00" | "Oven1" | "temp" |30 |
+| "2018-01-01T16:05:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:06:00" | "Oven1" | "temp" |20 个 |
+| "2018-01-01T16:06:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:07:00" | "Oven1" | "temp" |20 个 |
+| "2018-01-01T16:07:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:08:00" | "Oven1" | "temp" |20 个 |
+| "2018-01-01T16:08:00" | "Oven1" | "power" |8 |
+
+**输出**：
+
+| EventTime | deviceId | temp | alertMessage | maxPowerDuringLast3mins |
+| --- | --- | --- | --- | --- | 
+| "2018-01-01T16:05:00" | "Oven1" |30 | “加热元件短路” |15 |
+| "2018-01-01T16:06:00" | "Oven1" |20 个 | “加热元件短路” |15 |
+| "2018-01-01T16:07:00" | "Oven1" |20 个 | “加热元件短路” |15 |
+
+**解决方案**：
+
+````
+WITH max_power_during_last_3_mins AS (
+    SELECT 
+        System.TimeStamp AS windowTime,
+        deviceId,
+        max(value) as maxPower
+    FROM
+        input TIMESTAMP BY t
+    WHERE 
+        sensorName = 'power' 
+    GROUP BY 
+        deviceId, 
+        SlidingWindow(minute, 3) 
+)
+
+SELECT 
+    t1.t AS eventTime,
+    t1.deviceId, 
+    t1.value AS temp,
+    'Short circuit heating elements' as alertMessage,
+    t2.maxPower AS maxPowerDuringLast3mins
+
+INTO resultsr
+
+FROM input t1 TIMESTAMP BY t
+JOIN max_power_during_last_3_mins t2
+    ON t1.deviceId = t2.deviceId 
+    AND t1.t = t2.windowTime
+    AND DATEDIFF(minute,t1,t2) between 0 and 3
+
+WHERE
+    t1.sensorName = 'temp'
+    AND t1.value <= 40
+    AND t2.maxPower > 10
+````
+
+**说明**：第一个查询 `max_power_during_last_3_mins` 使用[滑动窗口](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics)查找在过去 3 分钟内每个设备的功率传感器最大值。 将第二个查询联接到第一个查询，以便在与当前事件有关的最近窗口中查找功率值。 然后，假如满足条件，将为设备生成警报。
 
 ## <a name="get-help"></a>获取帮助
-若需进一步的帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)
@@ -514,4 +587,4 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, add content of correlate two event types within the same stream -->

@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 08/25/2017
 ms.date: 12/22/2017
 ms.author: v-nany
-ms.openlocfilehash: 0f431bb61ce3916330a587db52cd2f65d4f1d5e3
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: 60e9e762d21de5f47da1eda0dec6ec59e33ad065
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>使用 AES-128 动态加密和密钥传递服务
 > [!div class="op_single_selector"]
@@ -309,7 +309,7 @@ namespace DynamicEncryptionWithAES
             AzureAdTokenCredentials tokenCredentials =
                 new AzureAdTokenCredentials(_AADTenantDomain,
                     new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-                    AzureEnvironments.AzureCloudEnvironment);
+                    AzureEnvironments.AzureChinaCloudEnvironment);
 
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 

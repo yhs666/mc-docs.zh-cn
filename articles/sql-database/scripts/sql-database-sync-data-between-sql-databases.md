@@ -1,13 +1,13 @@
 ---
-title: "PowerShell 示例 - 在多个 Azure SQL 数据库之间进行同步 | Azure"
-description: "用于在多个 Azure SQL 数据库之间进行同步的 Azure PowerShell 示例脚本"
+title: PowerShell 示例 - 在多个 Azure SQL 数据库之间进行同步 | Azure
+description: 用于在多个 Azure SQL 数据库之间进行同步的 Azure PowerShell 示例脚本
 services: sql-database
 documentationcenter: sql-database
 author: yunan2016
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: PowerShell
@@ -18,11 +18,11 @@ origin.date: 7/31/2017
 ms.date: 12/11/2017
 ms.author: v-nany
 ms.reviewer: douglasl
-ms.openlocfilehash: 3f80b63bf979b05c5b13502d88dfc94573054572
-ms.sourcegitcommit: ac0aab977d289366db6a9b230f27a6a8c6c190e9
+ms.openlocfilehash: e5dbf3e698d86ea90f871696f945d9bea7388ae0
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>使用 PowerShell 在多个 SQL 数据库之间进行同步
  
@@ -263,7 +263,7 @@ Update-AzureRmSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
                             -Name $SyncGroupName `
                             -Schema $TempFile
 
-$SyncStartTime = Get-Date
+$SyncLogStartTime = Get-Date
 
 # Trigger sync manually
 Write-Host "Trigger sync manually"

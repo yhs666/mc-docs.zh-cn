@@ -1,27 +1,20 @@
 ---
-title: "解析 T-SQL 差异 - 迁移 - Azure SQL 数据库 | Azure"
-description: "在 Azure SQL 数据库中不完全支持的 Transact-SQL 语句"
+title: 解析 T-SQL 差异 - 迁移 - Azure SQL 数据库 | Azure
+description: 在 Azure SQL 数据库中不完全支持的 Transact-SQL 语句
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: c05abd9e-28a7-4c97-9bdf-bc60d08fc92e
 ms.service: sql-database
 ms.custom: migrate
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 10/23/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: 95464099e030572b9979e1fa4116ad3a2c7ffa16
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 26dfdb2cd917c61acd852cc4ad4491e7897396a8
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>解析迁移到 SQL 数据库的过程中的 Transact-SQL 差异   
 从 SQL Server [将数据库迁移](sql-database-cloud-migrate.md)到 Azure SQL Server 时，可能会发现需要对数据库进行一些重新设计才能迁移 SQL Server。 本文提供相关指南来帮助你执行此重新设计和了解重新设计是必需的基本原因。 若要检测不兼容性，请使用 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595)。

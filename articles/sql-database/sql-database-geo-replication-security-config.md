@@ -1,26 +1,20 @@
 ---
-title: "配置灾难恢复的 Azure SQL 数据库安全性 | Microsoft Docs"
-description: "了解在数据库还原或故障转移到辅助服务器后配置和管理安全性的安全注意事项。"
+title: 配置灾难恢复的 Azure SQL 数据库安全性 | Microsoft Docs
+description: 了解在数据库还原或故障转移到辅助服务器后配置和管理安全性的安全注意事项。
 services: sql-database
-documentationcenter: na
 author: forester123
 manager: digimobile
-editor: monicar
-ms.assetid: c7c898c9-69d4-4e16-8b7e-720bbb3353dd
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 10/13/2016
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 511e89a1731898c0617958032aeea81159d7571c
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: 568f2444abab86a40d6326f909f57369aca0159d
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>针对异地还原或故障转移配置和管理 Azure SQL 数据库的安全性 
 

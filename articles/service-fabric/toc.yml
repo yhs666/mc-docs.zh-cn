@@ -1,10 +1,11 @@
 - name: Service Fabric 文档
-  href: /service-fabric
+  href: index.yml
 - name: 概述
   items:
     - name: 什么是 Service Fabric？
       href: service-fabric-overview.md
 - name: 快速入门
+  expanded: true
   items:
     - name: 创建 .NET 应用程序
       href: service-fabric-quickstart-dotnet.md
@@ -28,6 +29,16 @@
           href: service-fabric-tutorial-deploy-app-to-party-cluster.md
         - name: 3 - 配置 CI/CD
           href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
+    - name: 部署 Java 应用
+      items:
+        - name: 1- 生成 Java 应用程序
+          href: service-fabric-tutorial-create-java-app.md
+        - name: 2- 调试应用程序
+          href: service-fabric-tutorial-debug-log-local-cluster.md
+        - name: 3- 部署应用程序
+          href: service-fabric-tutorial-java-deploy-azure.md
+        - name: 5- 配置 CI/CD
+          href: service-fabric-tutorial-java-jenkins.md
     - name: 将现有 .NET 应用容器化
       items:
         - name: 1 - 使用 Docker Compose 部署 .NET 应用
@@ -81,8 +92,6 @@
         - name: Reliable Services
           href: service-fabric-reliable-services-introduction.md
           items:
-            - name: 副本和实例生命周期
-              href: service-fabric-concepts-replica-lifecycle.md
             - name: 'Reliable Services 生命周期 - C#'
               href: service-fabric-reliable-services-lifecycle.md
             - name: Reliable Services 生命周期 - Java
@@ -118,6 +127,8 @@
               href: service-fabric-reliable-actors-reentrancy.md
             - name: 类型序列化
               href: service-fabric-reliable-actors-notes-on-actor-type-serialization.md
+        - name: 来宾可执行文件
+          href: service-fabric-guest-executables-introduction.md
     - name: 应用程序和服务
       items:
         - name: 应用程序模型
@@ -134,6 +145,8 @@
           href: service-fabric-concepts-scalability.md
         - name: 服务的可用性
           href: service-fabric-availability-services.md
+        - name: 副本和实例生命周期
+          href: service-fabric-concepts-replica-lifecycle.md
         - name: 重新配置
           href: service-fabric-concepts-reconfiguration.md
         - name: 服务通信
@@ -368,8 +381,8 @@
           href: service-fabric-migrate-old-javaapp-to-use-maven.md
         - name: 配置反向代理以进行安全通信
           href: service-fabric-reverseproxy-configure-secure-communication.md
-        - name: ASP.NET Core
-          href: service-fabric-reliable-services-communication-aspnetcore.md
+        - name: 生成 ASP.NET Core 服务
+          href: service-fabric-add-a-web-frontend.md
         - name: 配置安全性
           items:
             - name: 管理应用程序机密
@@ -511,11 +524,7 @@
         - name: 连接到安全群集
           href: service-fabric-connect-to-secure-cluster.md
         - name: 修补群集节点
-          items:
-            - name: Windows
-              href: service-fabric-patch-orchestration-application.md
-            - name: Linux
-              href: service-fabric-patch-orchestration-application-linux.md
+          href: service-fabric-patch-orchestration-application.md
     - name: 监视和诊断
       items:
         - name: 性能监视
@@ -557,9 +566,6 @@
           href: service-fabric-sfctl-store.md
     - name: Java API
       href: 'https://docs.azure.cn/zh-cn/java/api/overview/servicefabric'
-      items:
-        - name: Java REST 客户端 API
-          href: service-fabric-java-rest-api-usage.md
     - name: .NET
       href: 'https://docs.azure.cn/zh-cn/dotnet/api/overview/service-fabric?view=azure-dotnet'
     - name: REST
@@ -573,7 +579,7 @@
     - name: 常见问题
       href: service-fabric-common-questions.md
     - name: MSDN 论坛
-      href: 'https://www.azure.cn/support/forums/'
+      href: 'https://www.azure.cn/support/contact/'
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/service-fabric/'
     - name: 定价计算器

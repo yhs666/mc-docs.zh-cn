@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Media Encoder Standard 自动生成比特率阶梯 | Azure"
-description: "本主题介绍如何使用 Media Encoder Standard (MES) 根据输入分辨率和比特率自动生成比特率阶梯。 不会超过输入分辨率和比特率。 例如，如果输入在 3Mbps 时为 720p，则输出最多会保持 720p，并且会以低于 3Mbps 的速率开始。"
+title: 使用 Azure Media Encoder Standard 自动生成比特率阶梯 | Azure
+description: 本主题介绍如何使用 Media Encoder Standard (MES) 根据输入分辨率和比特率自动生成比特率阶梯。 不会超过输入分辨率和比特率。 例如，如果输入在 3Mbps 时为 720p，则输出最多会保持 720p，并且会以低于 3Mbps 的速率开始。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 12/10/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: cf28abe25c23fd122718e93380df41531771f2ea
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 060f5040bad86a6d16d4e780b62c6ade7e6c3310
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/08/2018
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>使用 Azure Media Encoder Standard 自动生成比特率阶梯
 
@@ -80,7 +80,7 @@ namespace AdaptiveStreamingMESPresest
             AzureAdTokenCredentials tokenCredentials =
                 new AzureAdTokenCredentials(_AADTenantDomain,
                     new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-                    AzureEnvironments.AzureCloudEnvironment);
+                    AzureEnvironments.AzureChinaCloudEnvironment);
 
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 

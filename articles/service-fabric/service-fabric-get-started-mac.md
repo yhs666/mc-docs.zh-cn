@@ -1,11 +1,11 @@
 ---
-title: "在 Mac OS X 上设置开发环境以使用 Azure Service Fabric | Azure"
-description: "安装运行时、SDK 和工具并创建本地开发群集。 完成此设置后，就可以在 Mac OS X 上开始生成应用程序了。"
+title: 在 Mac OS X 上设置开发环境以使用 Azure Service Fabric | Azure
+description: 安装运行时、SDK 和工具并创建本地开发群集。 完成此设置后，就可以在 Mac OS X 上开始生成应用程序了。
 services: service-fabric
 documentationcenter: java
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/17/2017
-ms.date: 03/12/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: c4aa1b4cf8580b9a02002ca17facdc3e872d2f4c
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: c61e4d5619609126bda1068a14277e6948568416
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上设置开发环境
 > [!div class="op_single_selector"]
@@ -100,6 +100,12 @@ Azure Service Fabric 不在 Mac OS X 本机上运行。为了运行本地 Servic
 
 按照 [Service Fabric CLI](service-fabric-cli.md#cli-mac) 中的说明在 Mac 上安装 Service Fabric CLI (`sfctl`)。
 CLI 命令支持与 Service Fabric 实体（包括群集、应用程序和服务）交互。
+
+1. 若要在部署应用程序之前连接到群集，请运行以下命令。 
+
+```bash
+sfctl cluster select --endpoint http://localhost:19080
+```
 
 ## <a name="create-your-application-on-your-mac-by-using-yeoman"></a>使用 Yeoman 在 Mac 上创建应用程序
 
@@ -190,4 +196,4 @@ docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, add cmdlet content -->

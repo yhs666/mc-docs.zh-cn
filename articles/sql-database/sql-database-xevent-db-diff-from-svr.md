@@ -1,27 +1,21 @@
 ---
-title: "SQL 数据库中的扩展事件 | Azure"
-description: "介绍 Azure SQL 数据库中的扩展事件 (XEvents)，以及这些事件会话与 Microsoft SQL Server 中的事件会话的细微差别。"
+title: SQL 数据库中的扩展事件 | Azure
+description: 介绍 Azure SQL 数据库中的扩展事件 (XEvents)，以及这些事件会话与 Microsoft SQL Server 中的事件会话的细微差别。
 services: sql-database
-documentationcenter: 
 author: Hayley244
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 3b28cf15-f820-4b3c-8310-908d6d5b9d0c
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: On Demand
 ms.topic: article
 origin.date: 02/03/2017
 ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: e8f8f643ce909e1c845bc654a0ab09b4115b8f5a
-ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
+ms.openlocfilehash: 4fba22efc795ff830662bddfb821fe3f1bc207c0
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="extended-events-in-sql-database"></a>SQL 数据库中的扩展事件
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]

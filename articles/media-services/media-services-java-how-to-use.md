@@ -15,11 +15,11 @@ ms.topic: get-started-article
 origin.date: 10/26/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: 3642c55bc0affacbdde96217a201f8fa01ae1983
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: e18d2ed017afdc563675f99837c83a0a71a39e1b
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>用于 Azure 媒体服务的 Java 客户端 SDK 入门
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -130,7 +130,7 @@ ms.lasthandoff: 03/29/2018
                 AzureAdTokenCredentials credentials = new AzureAdTokenCredentials(
                         tenant,
                         new AzureAdClientSymmetricKey(clientId, clientKey),
-                        AzureEnvironments.AzureChinaCloudEnvironment);
+                        AzureEnvironments.AZURE_CHINA_CLOUD_ENVIRONMENT);
 
                 AzureAdTokenProvider provider = new AzureAdTokenProvider(credentials, executorService);
 

@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/10/2017
 ms.date: 1/22/2018
 ms.author: v-johch
-ms.openlocfilehash: f29d960937aa09850c1478ce5925fac1fdfe4097
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: 019f541456063ff6bf51cda015758cca7b79e1a5
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>使用 Azure 媒体服务传送 DRM 许可证或 AES 密钥
 Azure 媒体服务可引入、编码、添加内容保护，以及流式传输内容。  一些客户希望将媒体服务仅用于传送许可证和/或密钥，以及通过使用其本地服务器进行编码、加密和流式处理。 本文说明如何使用媒体服务来传送 PlayReady 许可证，但使用本地服务器来完成其余部分。 
@@ -85,7 +85,7 @@ namespace DeliverDRMLicenses
             AzureAdTokenCredentials tokenCredentials =
                 new AzureAdTokenCredentials(_AADTenantDomain,
                     new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-                    AzureEnvironments.AzureCloudEnvironment);
+                    AzureEnvironments.AzureChinaCloudEnvironment);
 
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 

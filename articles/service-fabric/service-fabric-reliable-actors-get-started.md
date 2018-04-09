@@ -1,25 +1,25 @@
 ---
-title: "用 C# 创建第一个基于执行组件的 Azure 微服务 | Azure"
-description: "本教程介绍了使用 Service Fabric Reliable Actors 创建、调试和部署简单的基于执行组件的服务的步骤。"
+title: 用 C# 创建第一个基于执行组件的 Azure 微服务 | Azure
+description: 本教程介绍了使用 Service Fabric Reliable Actors 创建、调试和部署简单的基于执行组件的服务的步骤。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 11/20/2017
-ms.date: 01/01/2018
+origin.date: 03/16/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: bd1c704d6a15748907a94c314b89f4312ebcccdf
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 26776999d1b103da9b7159f1efab8a8fa43ff94e
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 入门
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/29/2017
 
 ![适用于 Visual Studio 的 Service Fabric 工具 - 新建项目][1]
 
-在下一对话框中，选择“执行组件服务”并输入服务的名称。
+在下一对话框中，选择 **.Net Core 2.0** 下的“执行组件服务”，并输入服务的名称。
 
 ![Service Fabric 项目模板][5]
 

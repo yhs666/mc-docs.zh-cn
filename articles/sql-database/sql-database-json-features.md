@@ -1,25 +1,19 @@
 ---
-title: "Azure SQL 数据库 JSON 功能 | Azure"
-description: "使用 Azure SQL 数据库可以分析、查询数据，以 JavaScript 对象表示法 (JSON) 设置数据格式。"
+title: Azure SQL 数据库 JSON 功能 | Azure
+description: 使用 Azure SQL 数据库可以分析、查询数据，以 JavaScript 对象表示法 (JSON) 设置数据格式。
 services: sql-database
-documentationcenter: 
 author: Hayley244
 manager: digimobile
-editor: 
-ms.assetid: 55860105-2f5f-4b10-87a0-99faa32b5653
 ms.service: sql-database
-ms.devlang: NA
 origin.date: 11/15/2016
 ms.date: 07/03/2017
 ms.author: v-johch
-ms.workload: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 55a46e2468de293258253d916c86b2487c589268
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: d267f1677769300be76fd9be5a2f3f45f2e8b349
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL 数据库中的 JSON 功能入门
 使用 Azure SQL 数据库可以分析和查询以 JavaScript 对象表示法 [(JSON)](http://www.json.org/) 格式表示的数据，并将关系数据导出为 JSON 文本。
@@ -36,7 +30,7 @@ Azure SQL 数据库提供以下函数用于处理 JSON 数据：
 如果具有 JSON 文本，可使用内置函数 [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx)、[JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx) 和 [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx)，从 JSON 中提取数据，或者验证 JSON 的格式是否正确。 使用 [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) 函数可以更新 JSON 文本中的值。 对于更高级的查询和分析，使用 [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) 函数可将 JSON 对象数组转换成行集。 可对返回的结果集执行任何 SQL 查询。 最后，使用 [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) 子句可将存储在关系表中的数据设置为 JSON 文本格式。
 
 ## <a name="formatting-relational-data-in-json-format"></a>将关系数据设置为 JSON 格式
-如果 Web 服务从数据库层提取数据并以 JSON 格式提供响应，或者客户端 JavaScript 框架或库接受 JSON 格式的数据，则可以直接在 SQL 查询中将数据库内容格式化为 JSON。 不再需要编写应用程序代码将 Azure SQL 数据库中的结果格式化为 JSON，也不再需要包含一些 JSON 序列化库来转换表格查询结果，然后将对象序列化为 JSON 格式。 可以使用 FOR JSON 子句将 Azure SQL 数据库中的 SQL 查询结果格式化为 JSON，然后直接在应用程序中使用这种格式。
+如果 Web 服务从数据库层提取数据并以 JSON 格式提供响应，或者客户端 JavaScript 框架或库接受 JSON 格式的数据，则可以直接在 SQL 查询中将数据库内容格式化为 JSON。 不再需要编写应用程序代码将 Azure SQL 数据库中的结果格式化为 JSON，也不再需要包含一些 JSON 序列化库来转换表格查询结果，并将对象序列化为 JSON 格式。 可以使用 FOR JSON 子句将 Azure SQL 数据库中的 SQL 查询结果格式化为 JSON，并直接在应用程序中使用这种格式。
 
 以下示例使用 FOR JSON 子句，将 Sales.Customer 表中的行格式化为 JSON：
 
@@ -93,7 +87,7 @@ where Customer.CustomerID = 931
 FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
 ```
 
-无需单独发送查询来获取 Customer 数据，然后再提取相关 Orders 列表，而可以通过一个查询来获取全部所需的数据，如以下示例输出中所示：
+无需单独发送查询来获取 Customer 数据，再提取相关 Orders 列表，而可以通过一个查询来获取全部所需的数据，如以下示例输出中所示：
 
 ```
 {
@@ -138,7 +132,7 @@ EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","childr
 ## <a name="querying-json-data"></a>查询 JSON 数据
 如果格式化为 JSON 的数据已存储在 Azure SQL 表中，可以通过 JSON 函数在任何 SQL 查询中使用此数据。
 
-通过可在 Azure SQL 数据库中使用的 JSON 函数，可将格式化为 JSON 的数据视为其他任何 SQL 数据类型。 可以轻松地从 JSON 文本中提取值，然后在任何查询中使用 JSON 数据：
+通过可在 Azure SQL 数据库中使用的 JSON 函数，可将格式化为 JSON 的数据视为其他任何 SQL 数据类型。 可以轻松地从 JSON 文本中提取值，并在任何查询中使用 JSON 数据：
 
 ```
 select Id, Title, JSON_VALUE(Data, '$.Color'), JSON_QUERY(Data, '$.tags')
@@ -164,12 +158,12 @@ ALTER TABLE Products
         CHECK (ISJSON(Data) > 0)
 ```
 
-如果输入的文本是格式正确的 JSON，ISJSON 函数将返回值 1。 在每次插入或更新 JSON 列时，此约束都会验证新文本值是否为格式正确的 JSON。
+如果输入的文本是格式正确的 JSON，ISJSON 函数返回值 1。 在每次插入或更新 JSON 列时，此约束都会验证新文本值是否为格式正确的 JSON。
 
 ## <a name="transforming-json-into-tabular-format"></a>将 JSON 转换为表格格式
-Azure SQL 数据库还允许将 JSON 集合转换为表格格式，然后加载或查询 JSON 数据。
+Azure SQL 数据库还允许将 JSON 集合转换为表格格式，并加载或查询 JSON 数据。
 
-OPENJSON 是一个表值函数，可分析 JSON 文本、查找 JSON 对象数组、迭代数组的元素，然后在输出结果中针对每个数组元素返回一行。
+OPENJSON 是一个表值函数，可分析 JSON 文本、查找 JSON 对象数组、迭代数组的元素，并在输出结果中针对每个数组元素返回一行。
 
 ![JSON 表格](./media/sql-database-json-features/image_2.png)
 
@@ -194,10 +188,10 @@ AS BEGIN
 END
 ```
 
-可以分析采用 JSON 数组格式并作为参数提供给存储过程的订单集合，然后将它插入 Orders 表。
+可以分析采用 JSON 数组格式并作为参数提供给存储过程的订单集合，并将它插入 Orders 表。
 
 ## <a name="next-steps"></a>后续步骤
-若要了解如何将 JSON 集成到应用程序中，请参阅以下资源：
+要了解如何将 JSON 集成到应用程序中，请参阅以下资源：
 
 * [TechNet 博客](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)
 * [MSDN 文档](https://msdn.microsoft.com/library/dn921897.aspx)

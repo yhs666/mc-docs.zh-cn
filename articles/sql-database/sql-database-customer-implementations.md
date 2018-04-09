@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL 数据库客户实现技术 | Azure"
-description: "了解有关 Azure SQL 数据库的客户实现的技术详细信息以解决业务问题"
+title: Azure SQL 数据库客户实现技术 | Azure
+description: 了解有关 Azure SQL 数据库的客户实现的技术详细信息以解决业务问题
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: 
-ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
 ms.service: sql-database
 ms.custom: reference
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 origin.date: 03/03/2017
 ms.date: 10/02/2017
 ms.author: v-johch
-ms.openlocfilehash: 6c491a72602e2ba1d40e0c135252940a21063a38
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: fb574d48a848b2336673655c7e933041e020fc1b
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Azure SQL 数据库客户实现技术研究
 

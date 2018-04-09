@@ -1,27 +1,21 @@
 ---
-title: "多重身份验证 - Azure SQL | Microsoft Docs"
-description: "Azure SQL 数据库和 Azure SQL 数据仓库支持使用 Active Directory 通用身份验证，从 SQL Server Management Studio (SSMS) 进行连接。"
+title: 多重身份验证 - Azure SQL | Microsoft Docs
+description: Azure SQL 数据库和 Azure SQL 数据仓库支持使用 Active Directory 通用身份验证，从 SQL Server Management Studio (SSMS) 进行连接。
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: forester123
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: fbd6e644-0520-439c-8304-2e4fb6d6eb91
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 09/29/2017
 ms.date: 01/08/2018
 ms.author: v-johch
-ms.openlocfilehash: 3aaada71172ecbcbceb125d8fe398617ca61cb43
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: b93e531fe2d4e229bc31906356f123901242e2a8
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>使用 SQL 数据库和 SQL 数据仓库进行通用身份验证（MFA 的 SSMS 支持）
 Azure SQL 数据库和 Azure SQL 数据仓库支持使用 Active Directory 通用身份验证，从 SQL Server Management Studio (SSMS) 进行连接。 

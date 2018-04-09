@@ -1,27 +1,20 @@
 ---
-title: "授予到 Azure SQL 数据库的访问权限 | Azure"
-description: "了解如何授予到 Microsoft Azure SQL 数据库的访问权限。"
+title: 授予到 Azure SQL 数据库的访问权限 | Azure
+description: 了解如何授予到 Microsoft Azure SQL 数据库的访问权限。
 services: sql-database
-documentationcenter: 
 author: Hayley244
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 8e71b04c-bc38-4153-8f83-f2b14faa31d9
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 02/06/2017
 ms.date: 07/31/2017
 ms.author: v-haiqya
-ms.openlocfilehash: f2a6c4e4fcfa16f150c637ae0bb352a0cef1df9e
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 152c0f055cfdb3ea638848b5241ee902a16f7f31
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="azure-sql-database-access-control"></a>Azure SQL 数据库访问控制
 为了确保安全性，SQL 数据库会进行访问控制，即：使用防火墙规则来限制通过 IP 地址进行的连接，使用身份验证机制来要求用户证明其身份，并使用授权机制来限制用户执行特定操作和访问特定数据。 

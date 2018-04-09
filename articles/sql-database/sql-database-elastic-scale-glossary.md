@@ -1,26 +1,21 @@
 ---
-title: "弹性数据库工具词汇表 | Azure"
-description: "弹性数据库工具所用术语的解释"
+title: 弹性数据库工具词汇表 | Azure
+description: 弹性数据库工具所用术语的解释
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 manager: digimobile
 author: Hayley244
-editor: 
-ms.assetid: a23a4e81-6706-452d-afc1-a550e5e47af9
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 10/24/2016
 ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 23264927d27736b041828d9beab096c9e5f13ecb
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 4f67511783f8b80862fa628bb1a3bba121857259
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="elastic-database-tools-glossary"></a>弹性数据库工具词汇表
 Azure SQL 数据库中的[弹性数据库工具](sql-database-elastic-scale-introduction.md)功能的术语定义如下。 这些工具用于管理[分片映射](sql-database-elastic-scale-shard-map-management.md)，包括[客户端库](sql-database-elastic-database-client-library.md)、[拆分/合并工具](sql-database-elastic-scale-overview-split-and-merge.md)、[弹性池](sql-database-elastic-pool.md)和[查询](sql-database-elastic-query-overview.md)。 

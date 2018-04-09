@@ -1,26 +1,20 @@
 ---
-title: "SQL 数据库灾难恢复演练 | Microsoft 文档"
-description: "了解使用 Azure SQL 数据库执行灾难恢复演练的指南和最佳做法。"
+title: SQL 数据库灾难恢复演练 | Microsoft 文档
+description: 了解使用 Azure SQL 数据库执行灾难恢复演练的指南和最佳做法。
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: monicar
-ms.assetid: b44a269c-fe2a-404f-b013-290030860bd1
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 origin.date: 10/20/2016
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 8cc222468b82d238cc2e6a1f2acff86c071e3e58
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 11fc185102e2e40f0d19fab3e86882981c5fd9d7
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="performing-disaster-recovery-drill"></a>执行灾难恢复演练
 建议定期对恢复工作流执行应用程序就绪性验证。 验证应用程序的行为以及数据丢失和/或涉及到故障转移的中断所造成的影响，是一种良好的工程实践。 许多行业标准在涉及到业务连续性认证方面也会提出此要求。

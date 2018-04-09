@@ -1,26 +1,20 @@
 ---
-title: "用于 SQL 数据库的连接库 | Microsoft 文档"
-description: "提供下载模块的链接，这些模块适用于通过多种客户端编程语言连接到 SQL Server 和 SQL 数据库。"
+title: 用于 SQL 数据库的连接库 | Microsoft 文档
+description: 提供下载模块的链接，这些模块适用于通过多种客户端编程语言连接到 SQL Server 和 SQL 数据库。
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: genemi
-ms.assetid: 13d899d3-cf46-4e4d-8919-cf4b41ca836d
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 11/29/2017
 ms.date: 01/22/2018
 ms.author: v-nany
-ms.openlocfilehash: 0fad45ee6e8b0c0c9ce1647ac2c6c6e19fe63858
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 4dcaecbf3e4cd5a678bd4334864dd43fea8f6073
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="connectivity-libraries-and-frameworks-for-sql-server"></a>适用于 SQL Server 的连接库和框架
 

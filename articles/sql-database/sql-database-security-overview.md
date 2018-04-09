@@ -1,27 +1,21 @@
 ---
-title: "Azure SQL 数据库安全概述 | Microsoft 文档"
-description: "了解 Azure SQL 数据库和 SQL Server 的安全性，包括云与本地 SQL Server 之间的差异。"
+title: Azure SQL 数据库安全概述 | Microsoft 文档
+description: 了解 Azure SQL 数据库和 SQL Server 的安全性，包括云与本地 SQL Server 之间的差异。
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
 ms.reviewer: carlrab
-editor: 
-ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-management
 origin.date: 01/29/2018
 ms.date: 02/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 33baa3ff9e960742072fdf11077cd15b9b2424f2
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: f085112d35dc787480045800827623259c547099
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="securing-your-sql-database"></a>保护 SQL 数据库
 
@@ -87,6 +81,21 @@ Azure SQL 数据库审核可跟踪数据库活动，通过将数据库事件记�
  
 ## <a name="compliance"></a>合规性
 除了上述有助于应用程序符合各项安全要求的特性和功能以外，Azure SQL 数据库还定期参与审核，并已通过许多法规标准的认证。 有关详细信息，请参阅 [Microsoft Azure 信任中心](https://www.trustcenter.cn/)，可以从中找到 [SQL 数据库法规认证](https://www.trustcenter.cn/zh-cn/compliance/default.html)的最新列表。
+
+
+## <a name="security-management"></a>安全管理
+
+SQL 数据库通过提供数据库扫描和集中式安全仪表板（使用 [SQL 漏洞评估](sql-vulnerability-assessment.md)）可帮助你管理数据安全性。
+
+**漏洞评估**：[SQL 漏洞评估](sql-vulnerability-assessment.md)（目前处于预览状态）是一个内置于 Azure SQL 数据库中的易于配置的工具，可帮助你发现、跟踪和修正潜在的数据库漏洞。 该评估在数据库上执行漏洞扫描并生成报告（让你了解安全状态），其中包括用于解决安全问题和提高数据库安全性的可操作步骤。 可以通过为权限配置、功能配置和数据库设置设置可接受的基线，来为环境自定义评估报告。 此评估可以帮助你：
+
+- 满足需要数据库扫描报告的符合性要求。 
+
+- 满足数据隐私标准。 
+
+- 监视其中难以追踪变化的动态数据库环境。
+
+有关详细信息，请参阅 [SQL 漏洞评估](sql-vulnerability-assessment.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

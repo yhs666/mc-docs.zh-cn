@@ -1,27 +1,21 @@
 ---
-title: "管理多个具有弹性池的 SQL 数据库 - Azure | Microsoft 文档"
-description: "使用弹性池管理和缩放多个 SQL 数据库（成千上万的）。 可以按一个价格将资源分布到需要的任何位置。"
-keywords: "多个数据库, 数据库资源, 数据库性能"
+title: 管理多个具有弹性池的 SQL 数据库 - Azure | Microsoft 文档
+description: 使用弹性池管理和缩放多个 SQL 数据库（成千上万的）。 可以按一个价格将资源分布到需要的任何位置。
+keywords: 多个数据库, 数据库资源, 数据库性能
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: 
-ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: NA
-origin.date: 10/11/2017
-ms.date: 11/06/2017
-ms.author: v-johch
-ms.workload: data-management
+ms.date: 03/02/2018
+ms.author: carlrab
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: e06f3f3c9a6169e095fe825a0a5522b1b3c4be22
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 2b0ee7b93242295d0683a47dcb45570c68222220
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>弹性池有助于管理和缩放多个 Azure SQL 数据库
 

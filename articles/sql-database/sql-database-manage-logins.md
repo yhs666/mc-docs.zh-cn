@@ -1,28 +1,21 @@
 ---
-title: "Azure SQL 登录名和用户 | Azure"
-description: "了解 SQL 数据库安全管理，特别是如何通过服务器级的主体帐户管理数据库的访问和登录安全。"
-keywords: "sql 数据库安全,数据库安全管理,登录安全,数据库安全,数据库访问权限"
+title: Azure SQL 登录名和用户 | Azure
+description: 了解 SQL 数据库安全管理，特别是如何通过服务器级的主体帐户管理数据库的访问和登录安全。
+keywords: sql 数据库安全,数据库安全管理,登录安全,数据库安全,数据库访问权限
 services: sql-database
-documentationcenter: 
 author: Hayley244
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 0a65a93f-d5dc-424b-a774-7ed62d996f8c
 ms.service: sql-database
-ms.custom: authentication and authorization
-ms.devlang: na
+ms.custom: security
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 01/23/2017
 ms.date: 07/03/2017
 ms.author: v-johch
-ms.openlocfilehash: 736ee9fb5a5c0a81917a2dbe42859847eba706c5
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 0228eced62786b4717a82856d2a2538c0ae94936
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="controlling-and-granting-database-access"></a>控制和授予数据库访问权限
 
@@ -153,7 +146,8 @@ GRANT ALTER ANY USER TO Mary;
 数据库角色可以是内置的角色，例如 **db_owner**、**db_ddladmin**、**db_datawriter**、**db_datareader**、**db_denydatawriter** 和 **db_denydatareader**。 **db_owner** 通常用于向部分用户授予完全权限。 其他固定数据库角色可用于快速开发简单的数据库，但不建议用于大多数生产数据库。 例如，**db_datareader** 固定数据库角色授予用户对数据库中每个表的读取访问权限，这通常超出了必要的范畴。 而如果先使用 [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) 语句创建自己的用户定义数据库角色，再根据业务需要向每个角色授予所需的最低权限，则要合适得多。 如果用户是多个角色的成员，则会聚合所有这些角色的权限。
 
 ## <a name="permissions"></a>权限
-可以在 SQL 数据库中单独授予或拒绝 100 多种权限。 这些权限中，许多都是嵌套式的。 例如，针对架构的 `UPDATE` 权限包括针对该架构中每个表的 `UPDATE` 权限。 与大多数权限系统中的情况一样，拒绝某个权限将覆盖对该权限的授予操作。 考虑到权限的嵌套性质和数目，可能需要进行仔细的研究才能设计出适当的权限系统，以便对数据库进行恰当的保护。 一开始可以了解[权限（数据库引擎）](https://msdn.microsoft.com/library/ms191291.aspx)中的权限列表，然后查看这些权限的[海报大小的图](http://go.microsoft.com/fwlink/?LinkId=229142)。
+可以在 SQL 数据库中单独授予或拒绝 100 多种权限。 这些权限中，许多都是嵌套式的。 例如，针对架构的 `UPDATE` 权限包括针对该架构中每个表的 `UPDATE` 权限。 与大多数权限系统中的情况一样，拒绝某个权限将覆盖对该权限的授予操作。 考虑到权限的嵌套性质和数目，可能需要进行仔细的研究才能设计出适当的权限系统，以便对数据库进行恰当的保护。 一开始可以了解[权限（数据库引擎）](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)中的权限列表，然后查看这些权限的[海报大小的图](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png)。
+
 
 ### <a name="considerations-and-restrictions"></a>注意事项和限制
 管理 SQL 数据库中的登录名和用户时，请注意以下事项：

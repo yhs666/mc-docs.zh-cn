@@ -1,27 +1,22 @@
 ---
-title: "Azure PowerShell：创建 SQL 数据库 | Microsoft Docs"
-description: "了解如何在 Azure 门户中创建 SQL 数据库逻辑服务器、服务器级防火墙规则和数据库。"
-keywords: "SQL 数据库教程：创建 SQL 数据库"
+title: Azure PowerShell：创建 SQL 数据库 | Microsoft Docs
+description: 了解如何在 Azure 门户中创建 SQL 数据库逻辑服务器、服务器级防火墙规则和数据库。
+keywords: SQL 数据库教程：创建 SQL 数据库
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
-ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: quickstart
 origin.date: 04/17/2017
 ms.date: 07/31/2017
 ms.author: v-johch
-ms.openlocfilehash: ab790663ad9d6c3b125e124632fbe4701ff936c8
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 8f5c9d8256aeadf05d8e715fed7c6d415c254e9a
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>使用 PowerShell 创建单一 Azure SQL 数据库
 

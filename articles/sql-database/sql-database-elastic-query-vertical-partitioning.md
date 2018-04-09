@@ -1,25 +1,20 @@
 ---
-title: "跨具有不同架构的云数据库进行查询 | Azure"
-description: "如何在垂直分区上设置跨数据库查询"
+title: 跨具有不同架构的云数据库进行查询 | Azure
+description: 如何在垂直分区上设置跨数据库查询
 services: sql-database
-documentationCenter: 
 manager: digimobile
 author: yunan2016
-ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 12/12/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 2c36e35b36a769f17da6a43e268945e11ca35725
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 8a2512011cbd4065a01f207a28f31d9d2b7c686a
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>跨具有不同架构的云数据库进行查询（预览版）
 ![跨不同数据库中的表进行查询][1]

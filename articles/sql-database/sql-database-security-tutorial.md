@@ -1,27 +1,20 @@
 ---
-title: "保护 Azure SQL 数据库 | Azure"
-description: "介绍保护 Azure SQL 数据库的技术和功能。"
+title: 保护 Azure SQL 数据库 | Azure
+description: 介绍保护 Azure SQL 数据库的技术和功能。
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,security
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: 
 origin.date: 06/28/2017
 ms.date: 01/08/2018
 ms.author: v-johch
-ms.openlocfilehash: 2b62d88f9d9245308e9b991df6b8477d020785b0
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 4a4593001f6f2f3f38e8112b6fc8a7d8646a0a54
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>保护 Azure SQL 数据库
 
@@ -188,7 +181,7 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 5. 单击“保存” 。
 
 > [!IMPORTANT]
-> 如果希望自定义审核事件，可通过 PowerShell 或 REST API 实现 - 请参阅 [SQL 数据库审核](sql-database-auditing.md)了解详细信息。
+> 如果希望自定义审核事件，可通过 PowerShell 或 REST API 实现 - 请参阅 [SQL 数据库审核](sql-database-auditing.md)，了解详细信息。
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>启用 SQL 数据库威胁检测

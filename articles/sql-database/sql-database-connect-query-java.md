@@ -1,26 +1,21 @@
 ---
-title: "使用 Java 查询 Azure SQL 数据库 | Azure"
-description: "本主题介绍如何使用 Java 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。"
+title: 使用 Java 查询 Azure SQL 数据库 | Azure
+description: 本主题介绍如何使用 Java 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 07/11/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 0b659819d603e020a78aa74de21f2c0e16d322b7
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: dd5efa44491cdc694d5fc839a37b297fa42b9020
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>使用 Java 查询 Azure SQL 数据库
 
@@ -58,7 +53,7 @@ ms.lasthandoff: 03/02/2018
    <dependency>
        <groupId>com.microsoft.sqlserver</groupId>
        <artifactId>mssql-jdbc</artifactId>
-       <version>6.2.2.jre8</version>
+       <version>6.4.0.jre8</version>
    </dependency>
    ```
 

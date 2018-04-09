@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL 数据库审核入门 | Microsoft 文档"
-description: "使用 Azure SQL 数据库审核跟踪写入审核日志的数据库事件。"
+title: Azure SQL 数据库审核入门 | Microsoft 文档
+description: 使用 Azure SQL 数据库审核跟踪写入审核日志的数据库事件。
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: giladm
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
 ms.custom: security
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 06/07/2017
 ms.date: 2/28/2018
 ms.author: v-johch
-ms.openlocfilehash: e76af3a58eafad0c210d719c734bfd660472f37d
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 82d3affbcdad594fb5bd38a7555028cd2721893b
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 数据库审核入门
 Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储帐户中的审核日志。 审核还可：

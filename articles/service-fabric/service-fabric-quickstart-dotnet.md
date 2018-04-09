@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/25/2018
-ms.date: 03/12/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 23aae068fab922527aefe2eb6955ad81a39024d1
-ms.sourcegitcommit: 9b4669fe42e0dd7e3b463423ae4f58143af2b111
+ms.openlocfilehash: 701dae93fdb68e93257a8fcbbb18354125d8b1e2
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>快速入门：在 Azure 中创建 .NET Service Fabric 应用程序
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。 
@@ -95,9 +95,9 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 在 Visual Studio 中调试应用程序时，使用的是本地 Service Fabric 开发群集。 可以根据需要针对自己的方案调整调试体验。 在此应用程序中，数据将使用可靠的字典存储到后端服务中。 停止调试程序时，Visual Studio 会默认删除应用程序。 删除应用程序后，后端服务中的数据也会随之一起删除。 若要跨调试会话保留数据，可以将“应用程序调试模式”作为 Visual Studio 中“投票”项目的属性进行更改。
 
 若要查看代码，请完成以下步骤：
-1. 打开 /VotingWeb/Controllers/VotesController.cs 文件，并在 Web API 的 Put 方法（第 47 行）中设置一个断点。你可以在 Visual Studio 的解决方案资源管理器中搜索此文件。
+1. 打开 /VotingWeb/Controllers/VotesController.cs 文件，并在 Web API 的 Put 方法（第 69 行）中设置一个断点。可以在 Visual Studio 的解决方案资源管理器中搜索此文件。
 
-2. 打开 **/VotingData/Controllers/VoteDataController.cs** 文件，并在此 Web API 的 Put 方法（第 50 行）中设置一个断点。
+2. 打开 **/VotingData/Controllers/VoteDataController.cs** 文件，并在此 Web API 的 Put 方法（第 54 行）中设置一个断点。
 
 3. 返回到浏览器，再单击投票选项或添加新的投票选项。 点击 Web 前端 API 控制器中的第一个断点。
     - 此时，浏览器中的 JavaScript 将请求发送到前端服务中的 Web API 控制器。
@@ -140,7 +140,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 4. 打开浏览器，键入群集地址（后跟“:8080”），转到群集中的应用程序，例如，`http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:8080`。 此时，应该能够看到应用程序在 Azure 群集中运行。
 
-![应用程序前端](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
+    ![应用程序前端](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>在群集中缩放应用程序和服务
 可以跨群集轻松缩放 Service Fabric 服务，以便适应服务负载变化。 可以通过更改群集中运行的实例数量来缩放服务。 服务缩放方式有多种，可以使用 PowerShell 或 Service Fabric CLI (sfctl) 脚本/命令。 在此示例中，使用 Service Fabric Explorer。

@@ -1,31 +1,25 @@
 ---
-title: "SQL 错误代码 - 数据库连接错误 | Azure"
-description: "了解有关 SQL 数据库客户端应用程序的 SQL 错误代码，例如常见的数据库连接错误、数据库复制问题和常规错误。 "
-keywords: "SQL 错误代码, 访问 SQL, 数据库连接错误, SQL 错误代码"
+title: SQL 错误代码 - 数据库连接错误 | Azure
+description: '了解有关 SQL 数据库客户端应用程序的 SQL 错误代码，例如常见的数据库连接错误、数据库复制问题和常规错误。 '
+keywords: SQL 错误代码, 访问 SQL, 数据库连接错误, SQL 错误代码
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: 
-ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: drivers
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 09/28/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 1066ef88a3e896402c7882459c702d895474e6e7
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: eac0164abd59779af2b72faa972aa38892fe5366
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL 数据库客户端应用程序的 SQL 错误代码：数据库连接错误和其他问题
 
-本文列出了 SQL 数据库客户端应用程序的 SQL 错误代码，包括数据库连接错误、暂时性错误（也称为暂时性故障）、资源调控错误、数据库复制问题、弹性池和其他错误。 大多数类别特定于 Azure SQL 数据库，并不适用于 Microsoft SQL Server。
+本文列出了 SQL 数据库客户端应用程序的 SQL 错误代码，包括数据库连接错误、暂时性错误（也称为暂时性故障）、资源调控错误、数据库复制问题、弹性池和其他错误。 大多数类别特定于 Azure SQL 数据库，并不适用于 Microsoft SQL Server。 另请参阅[系统错误消息](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx)。
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>数据库连接错误、暂时性错误和其他临时错误
 下表涵盖了应用程序尝试访问 SQL 数据库时，可能遇到的连接丢失错误和其他暂时性错误的 SQL 错误代码。 有关如何连接到 Azure SQL 数据库的入门教程，请参阅[连接到 Azure SQL 数据库](sql-database-libraries.md)。

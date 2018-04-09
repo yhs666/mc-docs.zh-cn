@@ -1,25 +1,25 @@
 ---
-title: "从 Java SDK 迁移到 Maven - 更新旧的 Azure Service Fabric Java 应用程序以使用 Maven | Azure"
-description: "更新曾使用 Service Fabric Java SDK 的旧式 Java 应用程序，以便从 Maven 提取 Service Fabric Java 依赖项。 完成此设置以后，即可生成旧式 Java 应用程序。"
+title: 从 Java SDK 迁移到 Maven - 更新旧的 Azure Service Fabric Java 应用程序以使用 Maven | Azure
+description: 更新曾使用 Service Fabric Java SDK 的旧式 Java 应用程序，以便从 Maven 提取 Service Fabric Java 依赖项。 完成此设置以后，即可生成旧式 Java 应用程序。
 services: service-fabric
 documentationcenter: java
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/23/2017
-ms.date: 03/12/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 96dc43aed1bc59b78390d0e76eb71ddd3cb4116c
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: d031cd58b69a9b533dc66473e04299fe49e7a58c
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>更新旧式 Java Service Fabric 应用程序，以便从 Maven 提取 Java 库
 我们最近已将 Service Fabric Java 二进制文件从 Service Fabric Java SDK 移至 Maven 托管。 现在，你可以使用 mavencentral 来提取最新的 Service Fabric Java 依赖项。 本快速入门介绍如何更新现有的 Java 应用程序（此前使用 Yeoman 模板或 Eclipse 创建，可与 Service Fabric Java SDK 配合使用），使之与基于 Maven 的版本兼容。

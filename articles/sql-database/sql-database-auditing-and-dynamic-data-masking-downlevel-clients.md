@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL 数据库的表审核、TDS 重定向和 IP 终结点 | Azure"
-description: "了解在 Azure SQL 数据库中实现表审核时，审核、TDS 重定向和 IP 终结点的变化。"
+title: Azure SQL 数据库的表审核、TDS 重定向和 IP 终结点 | Azure
+description: 了解在 Azure SQL 数据库中实现表审核时，审核、TDS 重定向和 IP 终结点的变化。
 services: sql-database
-documentationcenter: 
 author: Hayley244
 manager: digimobile
-editor: 
-ms.assetid: 4ef19ed1-e798-43a2-ad99-0e563f93ab53
 ms.service: sql-database
 ms.custom: security
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2017
 ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: d40a262a6a1612c62fc003a67778e2cb36db9e3f
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 76cce47ee8f737337a317de5b66a5d0ea89247ef
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL 数据库 - 针对表审核的下层客户端支持和 IP 终结点更改
 
@@ -51,7 +45,7 @@ ms.lasthandoff: 07/14/2017
 ## <a id="subheading-2"></a>IP 终结点在启用审核时更改
 请注意，启用表审核时，数据库的 IP 终结点将发生更改。 如果具有严格的防火墙设置，请相应地更新这些防火墙设置。
 
-新的数据库 IP 终结点将取决于数据库区域：
+新的数据库 IP 终结点取决于数据库区域：
 
 | 数据库区域 | 可能的 IP 终结点 |
 | --- | --- |

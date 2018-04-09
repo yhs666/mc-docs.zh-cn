@@ -1,27 +1,22 @@
 ---
-title: "Azure CLI：创建 SQL 数据库 | Azure"
-description: "了解如何使用 Azure CLI 创建 SQL 数据库逻辑服务器、服务器级防火墙规则和数据库。"
-keywords: "SQL 数据库教程：创建 SQL 数据库"
+title: Azure CLI：创建 SQL 数据库 | Azure
+description: 了解如何使用 Azure CLI 创建 SQL 数据库逻辑服务器、服务器级防火墙规则和数据库。
+keywords: SQL 数据库教程：创建 SQL 数据库
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
-ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 10/11/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 37b642f7137e9413243326c4002c2e8eabc5ea75
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: 2b500bbed608656496e308bc9f61750c581cba17
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>使用 Azure CLI 创建单一 Azure SQL 数据库
 

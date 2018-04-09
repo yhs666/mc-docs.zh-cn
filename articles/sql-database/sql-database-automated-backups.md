@@ -1,26 +1,21 @@
 ---
-title: "Azure SQL 数据库自动化异地冗余备份 | Microsoft Docs"
-description: "SQL 数据库每隔几分钟会自动创建一个本地数据库备份，并使用 Azure 读取访问异地冗余存储来提供异地冗余。"
+title: Azure SQL 数据库自动化异地冗余备份 | Microsoft Docs
+description: SQL 数据库每隔几分钟会自动创建一个本地数据库备份，并使用 Azure 读取访问异地冗余存储来提供异地冗余。
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: 
-ms.assetid: 3ee3d49d-16fa-47cf-a3ab-7b22aa491a8d
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: Active
 origin.date: 07/05/2017
 ms.date: 2/28/2018
 ms.author: v-johch
-ms.openlocfilehash: 0f998aa514cc3cd3c5d536df1cb283ca9fd2affa
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 8d0bf9d1d5665394d9e6a7638c351e27261d48b4
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>了解 SQL 数据库自动备份
 

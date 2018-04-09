@@ -1,21 +1,21 @@
 ---
-title: "如何使用批处理来改善 Azure SQL 数据库应用程序的性能"
-description: "本主题提供有关数据库批处理操作大幅改善 Azure SQL 数据库应用程序速度和缩放性的证据。 尽管这些批处理方法适用于任何 SQL Server 数据库，但本文将重点放在 Azure 上。"
+title: 如何使用批处理来改善 Azure SQL 数据库应用程序的性能
+description: 本主题提供有关数据库批处理操作大幅改善 Azure SQL 数据库应用程序速度和缩放性的证据。 尽管这些批处理方法适用于任何 SQL Server 数据库，但本文将重点放在 Azure 上。
 services: sql-database
 documentationCenter: na
 authors: hayley244
 manager: digimobile
-editor: 
 ms.service: sql-database
+ms.custom: develop apps
 ms.topic: article
 origin.date: 07/12/2016
 ms.date: 07/31/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 7ccbce21ecb784cb333c46acd056cc09efbfbbe3
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 97f32ef378295d8c71293da513b000f1638db448
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>如何使用批处理来改善 SQL 数据库应用程序的性能
 对 Azure SQL 数据库执行批处理操作可以大幅改善应用程序的性能和缩放性。 为了帮助你了解优点，本文的第一部分包含一些示例测试结果，用于比较对 SQL 数据库发出的顺序请求和分批请求。 本文的余下部分介绍了帮助你在 Azure 应用程序中成功使用批处理的方法、方案和注意事项。
@@ -91,7 +91,7 @@ dbOperations.Add("insert MyTable values ('new value',3)");
 | 操作 | 无事务（毫秒） | 事务（毫秒） |
 | --- | --- | --- |
 | 1 |130 |402 |
-| 10 |1208 |1226 |
+| 10 个 |1208 |1226 |
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
@@ -100,7 +100,7 @@ dbOperations.Add("insert MyTable values ('new value',3)");
 | 操作 | 无事务（毫秒） | 事务（毫秒） |
 | --- | --- | --- |
 | 1 |21 |26 |
-| 10 |220 |56 |
+| 10 个 |220 |56 |
 | 100 |2145 |341 |
 | 1000 |21479 |2756 |
 
@@ -178,7 +178,7 @@ dbOperations.Add("insert MyTable values ('new value',3)");
 | 操作 | 本地到 Azure（毫秒） | 同一 Azure 数据中心（毫秒） |
 | --- | --- | --- |
 | 1 |124 |32 |
-| 10 |131 |25 |
+| 10 个 |131 |25 |
 | 100 |338 |51 |
 | 1000 |2615 |382 |
 | 10000 |23830 |3586 |
@@ -213,7 +213,7 @@ SQL 批量复制是另一种向目标数据库中插入大量数据的方法。 
 | 操作 | 本地到 Azure（毫秒） | 同一 Azure 数据中心（毫秒） |
 | --- | --- | --- |
 | 1 |433 |57 |
-| 10 |441 |32 |
+| 10 个 |441 |32 |
 | 100 |636 |53 |
 | 1000 |2535 |341 |
 | 10000 |21605 |2737 |
@@ -252,8 +252,8 @@ SQL 批量复制是另一种向目标数据库中插入大量数据的方法。 
 
 | 操作 | 表值参数（毫秒） | 单语句 INSERT（毫秒） |
 | --- | --- | --- |
-| 1 |32 |20 |
-| 10 |30 |25 |
+| 1 |32 |20 个 |
+| 10 个 |30 |25 |
 | 100 |33 |51 |
 
 > [!NOTE]
@@ -293,8 +293,8 @@ SQL 批量复制是另一种向目标数据库中插入大量数据的方法。 
 | --- | --- | --- |
 | 1000 |1 |347 |
 | 500 |2 |355 |
-| 100 |10 |465 |
-| 50 |20 |630 |
+| 100 |10 个 |465 |
+| 50 |20 个 |630 |
 
 > [!NOTE]
 > 结果并非基准。 请参阅[有关本主题中计时结果的注意事项](#note-about-timing-results-in-this-topic)。

@@ -1,26 +1,20 @@
 ---
-title: "分片映射管理器的性能计数器"
-description: "ShardMapManager 类和数据相关的路由的性能计数器"
+title: 分片映射管理器的性能计数器
+description: ShardMapManager 类和数据相关的路由的性能计数器
 services: sql-database
-documentationCenter: 
 manager: digimobile
 author: Hayley244
-editor: 
-ms.assetid: b090aba0-2e30-454c-96b3-dffa281f539a
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2016
 ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 066e58dc88a02cd2e4f2c7ce7abc72b710ede149
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: af337894d03991db841b8f082d25a46954c5d49a
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>分片映射管理器的性能计数器
 可以捕获[分片映射管理器](sql-database-elastic-scale-shard-map-management.md)的性能，尤其是在使用[数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)时。 计数器是使用 Microsoft.Azure.SqlDatabase.ElasticScale.Client 类的方法创建的。  
@@ -51,7 +45,7 @@ ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()
 
 性能计数器是按进程为每个缓存分片映射创建的。  
 
-## <a name="notes"></a>说明
+## <a name="notes"></a>注释
 以下事件会触发性能计数器创建：  
 
 * 如果 ShardMapManager 包含任何分片映射，使用[预先加载](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerloadpolicy.aspx)初始化 [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)。 这包括 [GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx?f=255&MSPPError=-2147217396#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerFactory.GetSqlShardMapManager%28System.String,Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardMapManagerLoadPolicy%29) 和 [TryGetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx) 方法。

@@ -1,31 +1,25 @@
 ---
-title: "将数据从 CSV 文件载入 Azure SQL 数据库 (bcp) | Azure"
-description: "对于较小的数据，请使用 bcp 将数据导入到 Azure SQL 数据库。"
+title: 将数据从 CSV 文件载入 Azure SQL 数据库 (bcp) | Azure
+description: 对于较小的数据，请使用 bcp 将数据导入到 Azure SQL 数据库。
 services: sql-database
-documentationcenter: NA
 author: Hayley244
 manager: digimobile
-editor: 
-ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
 ms.service: sql-database
 ms.custom: migrate and move
-ms.devlang: NA
 ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
 origin.date: 01/10/2017
 ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 9f6a93fc4ee3ef63c833036a890078dcc72ac369
-ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
+ms.openlocfilehash: b49bf8921fa4d66822585c5c704a11c99ba48d6f
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>将数据从 CSV 加载到 Azure SQL 数据库（平面文件）
 可以使用 bcp 命令行实用程序将数据从 CSV 文件导入 Azure SQL 数据库。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 ### <a name="prerequisites"></a>先决条件
 若要完成本文中的步骤，需要：
 

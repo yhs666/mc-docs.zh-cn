@@ -1,11 +1,11 @@
 ---
-title: "将现有可执行文件部署到 Azure Service Fabric | Azure"
-description: "有关如何将现有应用程序打包为来宾可执行文件，以便可以部署到 Service Fabric 群集的演练"
+title: 将现有可执行文件部署到 Azure Service Fabric | Azure
+description: 了解如何将现有应用程序打包为来宾可执行文件，以便部署到 Service Fabric 群集。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,70 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 07/02/2017
-ms.date: 12/04/2017
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9f601c49dcd554b734920be9188fe2a30a251fe1
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 37e9222b7b6e4b21595b72420952fad074206315
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="deploy-a-guest-executable-to-service-fabric"></a>将来宾可执行文件部署到 Service Fabric
-可以在 Azure Service Fabric 中运行任何类型的代码（如 Node.js、Java 或 C++）作为服务。 Service Fabric 将这些类型的服务称为来宾可执行文件。
-
-来宾可执行文件由 Service Fabric 如同无状态服务一样进行处理。 因此，可以出于可用性和其他指标目的将它们放置在群集中的节点上。 本文介绍如何使用 Visual Studio 或命令行实用工具打包来宾可执行文件并将其部署到 Service Fabric 群集。
-
-其中会介绍打包来宾可执行文件并将其部署到 Service Fabric 的基本步骤。  
-
-## <a name="benefits-of-running-a-guest-executable-in-service-fabric"></a>在 Service Fabric 中运行来宾可执行文件的优势
-在 Service Fabric 群集中运行来宾可执行文件有几个优势：
-
-* 高可用性。 Service Fabric 中运行的应用程序具有高可用性。 Service Fabric 可确保应用程序的实例保持运行。
-* 运行状况监视。 Service Fabric 运行状况监视会检测应用程序是否正在运行，在发生故障时可提供诊断信息。   
-* 应用程序生命周期管理。 除了提供无需停机的升级，如果升级期间报告了运行不正常事件，Service Fabric 还支持回滚到以前的版本。    
-* 密度。 可以在群集中运行多个应用程序，这样便无需使每个应用程序在自己的硬件上运行。
-* 可发现性：使用 REST，可以调用要在群集中查找其他服务的 Service Fabric 命名服务。 
-
-## <a name="samples"></a>示例
-* [打包和部署来宾可执行文件的示例](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [使用 REST 通过命名服务进行通信的两种来宾可执行文件（C# 和 nodejs）示例](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
-
-## <a name="overview-of-application-and-service-manifest-files"></a>应用程序和服务清单文件概述
-在部署来宾可执行文件期间，最好先了解 Service Fabric 打包和部署模型（如[应用程序模型](service-fabric-application-model.md)中所述）。 Service Fabric 打包模型依赖两个 XML 文件：应用程序清单和服务清单。 ApplicationManifest.xml 和 ServiceManifest.xml 文件的架构定义随 Service Fabric SDK 一起安装到 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*。
-
-* **应用程序清单**：应用程序清单用于描述应用程序。 它列出自身的构成服务，以及用于定义应如何部署一个或多个服务的其他参数（如实例数）。
-
-  在 Service Fabric 中，应用程序是部署和升级的单位。 可将应用程序作为一个单位进行升级，其中潜在的失败和潜在回滚受到管理。 Service Fabric 保证升级过程成功，一旦升级失败，它不会使应用程序保持未知或不稳定状态。
-* **服务清单** 服务清单描述服务的组件。 其中包含服务的名称和类型、其代码以及配置等数据。 服务清单还包含一些可以用于在部署之后配置服务的其他参数。
-
-## <a name="application-package-file-structure"></a>应用程序包文件结构
-要将应用程序部署到 Service Fabric，应用程序应遵循预定义的目录结构。 下面是该结构的示例。
-
-```
-|-- ApplicationPackageRoot
-    |-- GuestService1Pkg
-        |-- Code
-            |-- existingapp.exe
-        |-- Config
-            |-- Settings.xml
-        |-- Data
-        |-- ServiceManifest.xml
-    |-- ApplicationManifest.xml
-```
-
-ApplicationPackageRoot 包含定义应用程序的 ApplicationManifest.xml 文件。 应用程序中包含的每个服务的子目录用于包含该服务需要的所有项目。 这些子目录为 servicemanifest.xml 以及以下内容（通常）：
-
-* *Code*。 此目录包含服务代码。
-* *Config*。此目录包含一个 Settings.xml 文件（必要时，还包含其他文件），服务可以在运行时访问该文件以检索特定的配置设置。
-* *Data*。 这是用于存储服务可能需要的其他本地数据的其他目录。 数据应仅用于存储临时数据。 如果需要对服务进行重定位（例如在故障转移期间），则 Service Fabric 不会复制对数据目录所做的更改。
-
-> [!NOTE]
-> 如果不需要 `config` 和 `data` 目录，则不必创建它们。
->
->
-
-## <a name="package-an-existing-executable"></a>打包现有可执行文件
-打包来宾可执行文件时，可以选择使用 Visual Studio 项目模板，或者 [手动创建应用程序包](#manually)。 使用 Visual Studio 时，新的项目模板为用户创建应用程序包结构和清单文件。
+# <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>打包现有可执行文件并将其部署到 Service Fabric
+将现有可执行文件打包为[来宾可执行文件](service-fabric-guest-executables-introduction.md)时，可以选择是使用 Visual Studio 项目模板，还是[手动创建应用程序包](#manually)。 使用 Visual Studio 时，新的项目模板为用户创建应用程序包结构和清单文件。
 
 > [!TIP]
 > 将现有 Windows 可执行文件打包到服务中的最简单方法就是使用 Visual Studio 以及在 Linux 上使用 Yeoman
@@ -98,7 +44,9 @@ Visual Studio 提供 Service Fabric 服务模板将来宾可执行文件部署�
 4. 为服务命名，并单击“确定” 。
 5. 如果服务需要使用终结点进行通信，现在可以在 ServiceManifest.xml 文件中添加协议、端口和类型。 例如： `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`。
 6. 接下来，可以通过在 Visual Studio 中调试解决方案，针对本地群集使用打包和发布操作。 准备就绪后，可将应用程序发布到远程群集，或者将解决方案签入源代码管理。
-7. 请转到本文末尾，了解如何查看 Service Fabric Explorer 中运行的来宾可执行文件服务。
+7. 请阅读[检查正在运行的应用程序](#check-your-running-application)，了解如何查看在 Service Fabric Explorer 中运行的来宾可执行服务。
+
+有关示例演练，请参阅[使用 Visual Studio 创建第一个来宾可执行应用程序](quickstart-guest-app.md)。
 
 ## <a name="use-yeoman-to-package-and-deploy-an-existing-executable-on-linux"></a>使用 Yeoman 在 Linux 上打包和部署现有可执行文件
 
@@ -110,7 +58,7 @@ Visual Studio 提供 Service Fabric 服务模板将来宾可执行文件部署�
 
 Yeoman 创建应用程序包，其中包含相应的应用程序和清单文件，以及安装和卸载脚本。
 
-<a id="manually"></a>
+<a name="manually"></a>
 
 ## <a name="manually-package-and-deploy-an-existing-executable"></a>手动打包和部署现有的可执行文件
 手动打包来宾可执行文件的过程基于以下常规步骤：
@@ -133,7 +81,7 @@ Yeoman 创建应用程序包，其中包含相应的应用程序和清单文件�
 Service Fabric 对应用程序根目录下的内容执行了 `xcopy`，因此除创建 code 和 settings 这两个顶级目录以外没有其他任何预定义结构可以使用。 （如有需要可以选取其他名称。 有关详细信息，请参阅下一节内容。）
 
 > [!NOTE]
-> 确保包含应用程序需要的所有文件和依赖项。 Service Fabric 将复制群集中所有节点上的应用程序包的内容，会在群集中部署应用程序的服务。 包中应该包含应用程序需要运行的所有代码。 不要假定已安装依赖项。
+> 请务必添加应用程序需要的所有文件和依赖项。 Service Fabric 将复制群集中所有节点上的应用程序包的内容，会在群集中部署应用程序的服务。 包中应该包含应用程序需要运行的所有代码。 不要假定已安装依赖项。
 >
 >
 
@@ -331,7 +279,7 @@ Service Fabric 服务可以采用各种“配置”进行部署。 例如，可�
 * `InstanceCount = "1"`。 在此情况下，只会在群集中部署一个服务实例。 Service Fabric 的计划程序确定在哪一个节点上部署服务。
 * `InstanceCount ="-1"`。 在此情况下，会在 Service Fabric 群集中的每个节点上部署一个服务实例。 结果是群集中的每个节点上都有一个（且只有一个）服务实例。
 
-这是前端应用程序（不包括 REST 终结点）的有用配置，因为客户端应用程序需要“连接到”群集中的任何节点才能使用该终结点。 例如，当 Service Fabric 群集的所有节点都连接到负载均衡器时，也可以使用此配置。 然后，客户端流量可以分布于在集群中所有节点上运行的服务。
+这是前端应用程序（不包括 REST 终结点）的有用配置，因为客户端应用程序需要“连接到”群集中的任何节点才能使用该终结点。 此配置也适用于其他应用场景，例如，当 Service Fabric 群集的所有节点都连接负载均衡器时。 然后，客户端流量可以分布于在集群中所有节点上运行的服务。
 
 ## <a name="check-your-running-application"></a>检查正在运行的应用程序
 在 Service Fabric Explorer 中，确定服务在其中运行的节点。 在此示例中，它在节点 1 上运行：
@@ -354,4 +302,4 @@ Service Fabric 服务可以采用各种“配置”进行部署。 例如，可�
 * [部署多个来宾可执行文件](service-fabric-deploy-multiple-apps.md)
 * [使用 Visual Studio 创建第一个 Service Fabric 应用程序](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!--Update_Description: update meta properties, wording update  -->
+<!--Update_Description: update meta properties  -->

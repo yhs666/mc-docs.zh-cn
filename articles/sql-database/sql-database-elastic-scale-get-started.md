@@ -1,26 +1,20 @@
 ---
-title: "弹性数据库工具入门 | Microsoft Docs"
-description: "大致介绍 Azure SQL 数据库的弹性数据库工具功能，包括易于使用的示例应用。"
+title: 弹性数据库工具入门 | Microsoft Docs
+description: 大致介绍 Azure SQL 数据库的弹性数据库工具功能，包括易于使用的示例应用。
 services: sql-database
-documentationcenter: 
 manager: digimobile
 author: yunan2016
-editor: CarlRabeler
-ms.assetid: b6911f8d-2bae-4d04-9fa8-f79a3db7129d
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 11/16/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 551f8f3c1764a7d7252384a35c27c1de0eac72d5
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 78082cba706e43a96ec2479d55634f691e7fc4ce
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="get-started-with-elastic-database-tools"></a>弹性数据库工具入门
 本文档通过帮助你运行示例应用来介绍[弹性数据库客户端库](sql-database-elastic-database-client-library.md)的开发人员体验。 此示例应用将创建一个简单的分片应用程序，并探讨 Azure SQL 数据库的弹性数据库工具特性的主要功能。 它重点介绍[分片映射管理](sql-database-elastic-scale-shard-map-management.md)、[数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)和[多分片查询](sql-database-elastic-scale-multishard-querying.md)的用例。 该客户端库可用于 Java 和 .NET。 

@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric 可靠服务编程模型概述 | Azure"
-description: "了解 Service Fabric 的 Reliable Service 编程模型，并开始编写自己的服务。"
+title: Service Fabric 可靠服务编程模型概述 | Azure
+description: 了解 Service Fabric 的 Reliable Service 编程模型，并开始编写自己的服务。
 services: Service-Fabric
 documentationcenter: .net
 author: rockboyfor
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/23/2018
-ms.date: 03/12/2018
+origin.date: 03/09/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6d317debdd176af1b0713bfa1face5ed253afe3e
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 9505f263780e0fc5270af4d6c02020252f3f5668
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="reliable-services-overview"></a>Reliable Services 概述
 Azure Service Fabric 可简化无状态和有状态 Reliable Services 的编写与管理。 本主题的内容：
@@ -35,7 +35,7 @@ Service Fabric 通过 [Service Fabric 应用程序管理](service-fabric-deploy-
 ## <a name="what-are-reliable-services"></a>什么是 Reliable Services？
 Reliable Services 可提供简单且功能强大的顶级编程模型，以便帮助用户表达对其应用程序至关重要的内容。 借助 Reliable Services 编程模型有以下益处：
 
-* 访问其余的 Service Fabric 编程 API。 与建模为[来宾可执行文件](service-fabric-deploy-existing-app.md)的 Service Fabric Services 不同，Reliable Services 往往直接使用其余的 Service Fabric API。 这样，服务便可以：
+* 访问其余的 Service Fabric 编程 API。 与建模为[来宾可执行文件](service-fabric-guest-executables-introduction.md)的 Service Fabric Services 不同，Reliable Services 往往直接使用其余的 Service Fabric API。 这样，服务便可以：
   * 查询系统
   * 报告群集中实体的运行状况
   * 接收有关配置和代码更改的通知
@@ -85,10 +85,6 @@ Service Fabric 中常见的无状态服务使用示例是作为前端，它公�
 
 现在的大多数服务将其状态存储在外部，因为外部存储可为该状态提供可靠性、可用性、可伸缩性和一致性。 在 Service Fabric 中，服务无需将其状态存储在外部。 Service Fabric 为服务代码和服务状态处理这些要求。
 
-> [!NOTE]
-> Linux（适用于 C# 或 Java）不提供对有状态 Reliable Services 的支持。
->
-
 假设我们要编写一个服务来处理映像。 为此，该服务将提取一个映像，然后针对该映像执行一系列转换。 此服务会返回一个可公开 API（如 `ConvertImage(Image i, IList<Conversion> conversions)`）的通信侦听器（假设为 Web API）。 在收到请求时，服务将请求存储在 `IReliableQueue` 中，并将某个 ID 返回给客户端，使它能够跟踪该请求。
 
 在此服务中，`RunAsync()` 可能更复杂。 服务在其 `RunAsync()` 内部使用一个循环从 `IReliableQueue` 中提取请求并执行请求的转换。 结果存储在 `IReliableDictionary` 中，以便当客户端返回时可以获取其转换后的映像。 为了确保即使发生故障映像也不丢失，此 Reliable Services 将从队列提取数据、执行转换，并将整个结果存储在事务中。 在此情况下，仅当转换完成时，才会从队列中删除消息并将结果存储在结果字典中。 或者，服务可从队列中提取映像，并立即将其存储在远程存储中。 这可以减少服务必须管理的状态数量，但会增大复杂性，因为服务必须保留必要的元数据来管理远程存储。 不管使用哪种方法，如果某个环节在中途失败，请求将保留在队列中等待处理。
@@ -115,4 +111,4 @@ Service Fabric 中常见的无状态服务使用示例是作为前端，它公�
 * [Reliable Services 高级用法](service-fabric-reliable-services-advanced-usage.md)
 * [Reliable Actors 编程模型](service-fabric-reliable-actors-introduction.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update link -->

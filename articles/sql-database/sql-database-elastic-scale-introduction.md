@@ -1,26 +1,20 @@
 ---
-title: "使用 Azure SQL 数据库进行扩展 | Azure"
-description: "软件即服务 (SaaS) 开发人员可以使用这些工具轻松地在云中创建可缩放的弹性数据库"
+title: 使用 Azure SQL 数据库进行扩展 | Azure
+description: 软件即服务 (SaaS) 开发人员可以使用这些工具轻松地在云中创建可缩放的弹性数据库
 services: sql-database
-documentationCenter: 
 manager: digimobile
 author: Hayley244
-editor: 
-ms.assetid: d15a2e3f-5adf-41f0-95fa-4b945448e184
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 09/06/2016
 ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 111257b6c8a50165482867b3b0c3e8fd01248910
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 2abd49383c7cae84e507809746764f7a483f1562
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Scaling out with Azure SQL Database（使用 Azure SQL 数据库进行扩展）
 可以使用**弹性数据库**工具轻松扩大 Azure SQL 数据库。 借助这些工具和功能，可以使用 Azure SQL 数据库中几乎不受限制的数据库资源来为事务工作负荷，尤其是软件即服务 (SaaS) 应用程序创建解决方案。 弹性数据库的功能包括：

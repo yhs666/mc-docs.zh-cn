@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL 数据库性能优化指南 | Microsoft Docs"
-description: "了解如何使用建议提高 Azure SQL 数据库查询性能。"
+title: Azure SQL 数据库性能优化指南 | Microsoft Docs
+description: 了解如何使用建议提高 Azure SQL 数据库查询性能。
 services: sql-database
-documentationcenter: na
 author: forester123
 manager: digimobile
-editor: 
-ms.assetid: dd8d95fa-24b2-4233-b3f1-8e8952a7a22b
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 02/12/2018
 ms.date: 02/28/2018
 ms.author: v-johch
-ms.openlocfilehash: 329fca04df9f0d3128235ec5677fd99f66acf949
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 2488d9fda378fd39338762105c8c2cc15c0a00ca
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>在 Azure SQL 数据库中优化性能
 

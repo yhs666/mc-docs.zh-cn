@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL 数据库资源限制 | Azure"
-description: "本页介绍 Azure SQL 数据库的一些常见资源限制。"
+title: Azure SQL 数据库资源限制 | Azure
+description: 本页介绍 Azure SQL 数据库的一些常见资源限制。
 services: sql-database
-documentationcenter: na
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 02/12/2018
 ms.date: 02/28/2018
 ms.author: v-nany
-ms.openlocfilehash: f52699a8fdd298766538464c4c7626fc24e6deb0
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 6b64e955c4e61c7639457e88c672cc9ea7c30776
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL 数据库资源限制
 
@@ -62,7 +56,6 @@ ms.lasthandoff: 03/02/2018
 
 > [!NOTE]
 > 弹性池中各个数据库的资源限制通常与池外部基于 DTU 和服务层的各个数据库相同。 例如，S2 数据库的最大并发辅助进程数为 120 个。 因此，如果池中每个数据库的最大 DTU 是 50 个 DTU（这等效于 S2），则标准池中数据库的最大并发辅助进程数也是 120 个辅助进程。
->
 
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 

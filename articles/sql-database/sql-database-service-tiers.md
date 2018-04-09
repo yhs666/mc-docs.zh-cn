@@ -1,27 +1,20 @@
 ---
-title: "Azure SQL 数据库服务 | Microsoft Docs"
-description: "了解单一数据库和池数据库的服务层以提供性能级别和存储大小。"
-keywords: 
+title: Azure SQL 数据库服务 | Microsoft Docs
+description: 了解单一数据库和池数据库的服务层以提供性能级别和存储大小。
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: 
-ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 02/26/2018
 ms.date: 02/28/2018
 ms.author: v-johch
-ms.openlocfilehash: 11452ab2aa2c85c8251a5432bcecb998ff3912f3
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 9956bae5a76c3c6202312a5200467663dd261f73
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>什么是 Azure SQL 数据库服务层？
 

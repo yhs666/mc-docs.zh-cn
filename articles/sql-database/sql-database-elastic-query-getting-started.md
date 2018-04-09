@@ -1,25 +1,20 @@
 ---
-title: "跨扩展云数据库（横向分区）进行报告 | Microsoft 文档"
-description: "使用跨数据库数据库查询跨多个数据库进行报告。"
+title: 跨扩展云数据库（横向分区）进行报告 | Microsoft 文档
+description: 使用跨数据库数据库查询跨多个数据库进行报告。
 services: sql-database
-documentationcenter: 
 manager: digimobile
 author: forester123
-ms.assetid: c81ef5e3-41e9-4fd2-8631-868f2e168147
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2016
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: ac712c957a2d182b7d24da9bea45b5deaf92b04f
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: afe5841dcdff23f96e40d3d9893dd3410e75d649
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>跨扩展云数据库进行报告（预览）
 可以使用[弹性查询](sql-database-elastic-query-overview.md)从单个连接点中的多个 Azure SQL 数据库中创建报告。 数据库必须进行横向分区（也称为“分片”）。
@@ -111,7 +106,7 @@ WITH
 select count(CustomerId) from [dbo].[Customers]
 ```
 
-将注意到，查询会从所有分片聚合结果并提供以下输出：
+你将注意到，查询会从所有分片聚合结果并提供以下输出：
 
 ![输出详细信息][4]
 

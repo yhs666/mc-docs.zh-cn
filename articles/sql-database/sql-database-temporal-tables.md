@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL 数据库中的临时表入门 | Azure"
-description: "了解如何开始使用 Azure SQL 数据库中的临时表。"
+title: Azure SQL 数据库中的临时表入门 | Azure
+description: 了解如何开始使用 Azure SQL 数据库中的临时表。
 services: sql-database
-documentationcenter: 
 author: Hayley244
 manager: digimobile
-editor: 
-ms.assetid: c8c0f232-0751-4a7f-a36e-67a0b29fa1b8
 ms.service: sql-database
 ms.custom: development
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: sql-database
 origin.date: 01/10/2017
 ms.date: 07/03/2017
 ms.author: v-johch
-ms.openlocfilehash: e0570cc6b8d460c00e0a1d95c3d18562bae9ffc1
-ms.sourcegitcommit: 73b1d0f7686dea85647ef194111528c83dbec03b
+ms.openlocfilehash: 1009c41c6afba1f16c95845d5561ec8ab87cb312
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Azure SQL 数据库中的临时表入门
 临时表是 Azure SQL 数据库中新的可编程功能，可用于跟踪和分析数据更改的完整历史记录，而无需编写自定义代码。 临时表保存与时间上下文密切相关的数据，因此，只有特定时段内的存储事实才会解译为有效。 利用临时表的这种属性，可执行基于时间的有效分析，并从数据演变中获得见解。
@@ -47,7 +41,7 @@ ms.lasthandoff: 06/28/2017
 
 ![SSMSNewTable](./media/sql-database-temporal-tables/AzureTemporal2.png)
 
-在 SSDT 中将新项添加到数据库项目时，请选择“临时表(版本由系统控制)”模板。 此时将打开表设计器，让你轻松指定表布局：
+在 SSDT 中将新项添加到数据库项目时，请选择“临时表(版本由系统控制)”模板。 此时会打开表设计器，让你轻松指定表布局：
 
 ![SSDTNewTable](./media/sql-database-temporal-tables/AzureTemporal3.png)
 
@@ -66,9 +60,9 @@ CREATE TABLE WebsiteUserInfo
  WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.WebsiteUserInfoHistory));
 ````
 
-当你创建版本由系统控制的临时表时，将自动创建随附默认配置的历史记录表。 默认历史记录表包含期限列（结束、开始）上启用页压缩的聚集 B 树索引。 此配置非常适合使用临时表的大部分方案，特别是用于[数据审核](https://msdn.microsoft.com/library/mt631669.aspx#Anchor_0)。 
+创建版本由系统控制的临时表时，会自动创建随附默认配置的历史记录表。 默认历史记录表包含期限列（结束、开始）上启用页压缩的聚集 B 树索引。 此配置非常适合使用临时表的大部分方案，特别是用于[数据审核](https://msdn.microsoft.com/library/mt631669.aspx#Anchor_0)。 
 
-在此特定案例中，我们的目标是针对一段较长的数据历史记录以及较大的数据集，执行基于时间的趋势分析，因此历史记录表的存储选择为聚集列存储索引。 聚集列存储为分析查询提供极佳的压缩和性能。 临时表允许你灵活且完全独立地在当前表和临时表中配置索引。 
+在此特定案例中，我们的目标是针对一段较长的数据历史记录以及较大的数据集，执行基于时间的趋势分析，因此历史记录表的存储选择为聚集列存储索引。 聚集列存储为分析查询提供极佳的压缩和性能。 临时表允许灵活且完全独立地在当前表和临时表中配置索引。 
 
 > [!NOTE]
 > 只能在高级服务层中使用列存储索引。
@@ -108,7 +102,7 @@ WITH (DROP_EXISTING = ON);
 ````
 
 ## <a name="step-2-run-your-workload-regularly"></a>步骤 2：定期运行工作负荷
-临时表的主要优点是，不需要以任何方式更改或调整网站就可以执行更改跟踪。 创建临时表后，每当对数据进行修改时，都将自动保存以前的行版本。 
+临时表的主要优点是，不需要以任何方式更改或调整网站就可以执行更改跟踪。 创建临时表后，每当对数据进行修改时，以前的行版本都会自动保存。 
 
 若要利用此特定方案的自动更改跟踪功能，只需在每次用户结束网站上的会话时更新列 **PagesVisited** ：
 

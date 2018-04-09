@@ -14,17 +14,17 @@ ms.topic: article
 origin.date: 02/21/2018
 ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1651bb173c50c6350df9d72b154d154c601a24d4
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 143c037a9803811dd187f36fa351fa2313440c7e
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="virtual-machine-governance-with-azure-powershell"></a>使用 Azure PowerShell 控制虚拟机
 
 [!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+<!-- Not Avaiable on [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)] -->
 
 如果选择在本地安装并使用 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 对于本地安装，还必须[下载 Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)来创建新的 Azure Active Directory 组。
 
@@ -75,56 +75,8 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 通常情况下，请对*网络参与者*和*存储帐户参与者*重复执行此过程，确保分配用户来管理已部署的资源。 在本文中，可以跳过这些步骤。
 
-## <a name="azure-policies"></a>Azure 策略
-
-[!include[Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
-
-### <a name="apply-policies"></a>应用策略
-
-订阅已经有多个策略定义。 若要查看可用的策略定义，请使用 [Get-AzureRmPolicyDefinition](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Get-AzureRmPolicyDefinition) 命令：
-
-```azurepowershell-interactive
-(Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
-```
-
-可以看到现有的策略定义。 策略类型为“内置”或“自定义”。 在这些定义中查找所述条件正是你要分配的条件的定义。 在本文中，分配的策略要符合以下条件：
-
-* 限制所有资源的位置。
-* 限制虚拟机的 SKU。
-* 审核不使用托管磁盘的虚拟机。
-
-在下面的示例中，你将基于显示名称检索三个策略定义。 并且使用 [New-AzureRMPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicyassignment) 命令将这些定义分配到资源组。 对于某些策略，你将提供参数值来指定允许的值。
-
-```azurepowershell-interactive
-# Values to use for parameters
-$locations ="chinaeast", "chinaeast2"
-$skus = "Standard_DS1_v2", "Standard_E2s_v2"
-
-# Get the resource group
-$rg = Get-AzureRmResourceGroup -Name myResourceGroup
-
-# Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
-$locationDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
-$skuDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
-$auditDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
-
-# Assign policy for allowed locations
-New-AzureRMPolicyAssignment -Name "Set permitted locations" `
-  -Scope $rg.ResourceId `
-  -PolicyDefinition $locationDefinition `
-  -listOfAllowedLocations $locations
-
-# Assign policy for allowed SKUs
-New-AzureRMPolicyAssignment -Name "Set permitted VM SKUs" `
-  -Scope $rg.ResourceId `
-  -PolicyDefinition $skuDefinition `
-  -listOfAllowedSKUs $skus
-
-# Assign policy for auditing unmanaged disks
-New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
-  -Scope $rg.ResourceId `
-  -PolicyDefinition $auditDefinition
-```
+<!-- Not Avaiable on ## Azure policies -->
+<!-- Not Avaiable on ### Apply policies -->
 
 ## <a name="deploy-the-virtual-machine"></a>部署虚拟机
 

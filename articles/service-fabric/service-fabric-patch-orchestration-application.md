@@ -1,25 +1,25 @@
 ---
-title: "Azure Service Fabric 修补业务流程应用程序 | Azure"
-description: "用于在 Service Fabric 群集中自动修补操作系统的应用程序。"
+title: Azure Service Fabric 修补业务流程应用程序 | Azure
+description: 用于在 Service Fabric 群集中自动修补操作系统的应用程序。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/16/2018
-ms.date: 03/12/2018
+origin.date: 03/07/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 56f0b54c8bdaf296235e98a48450eba32b30dc82
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: e826b5fa7428b74918be9f7f2d6c847d1efb6284
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>在 Service Fabric 群集中修补 Windows 操作系统
 
@@ -137,7 +137,9 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="download-the-app-package"></a>下载应用包
 
-从[下载链接](https://go.microsoft.com/fwlink/P/?linkid=849590)下载应用程序。
+可以从[存档链接](https://go.microsoft.com/fwlink/?linkid=869566)下载应用程序和安装脚本。
+
+可以从 [sfpkg 链接](https://go.microsoft.com/fwlink/?linkid=869567)下载 sfpkg 格式的应用程序。 这对[基于 Azure 资源管理器的应用程序部署](service-fabric-application-arm-resource.md)非常有用。
 
 ## <a name="configure-the-app"></a>配置应用
 
@@ -357,3 +359,4 @@ Windows 更新发生故障时，会使特定节点或升级域上的应用程序
 <!-- Not Available ## Release Notes :-->
 
 <!--Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -1,26 +1,21 @@
 ---
-title: "使用 Node.js 查询 Azure SQL 数据库 | Azure"
-description: "本主题介绍如何使用 Node.js 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。"
+title: 使用 Node.js 查询 Azure SQL 数据库 | Azure
+description: 本主题介绍如何使用 Node.js 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: 53f70e37-5eb4-400d-972e-dd7ea0caacd4
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: drivers
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 07/06/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: c511b0f4d281636978d48e5b82d15572cefee52f
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: aaca58a14436ea1b85ab51177b034ebab5ef1d84
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>使用 Node.js 查询 Azure SQL 数据库
 

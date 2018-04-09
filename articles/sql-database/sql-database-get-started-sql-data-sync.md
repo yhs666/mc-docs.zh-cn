@@ -1,27 +1,21 @@
 ---
-title: "安装 Azure SQL 数据同步（预览版）| Azure"
-description: "本教程演示如何设置 Azure SQL 数据同步（预览版）"
+title: 安装 Azure SQL 数据同步（预览版）| Azure
+description: 本教程演示如何设置 Azure SQL 数据同步（预览版）
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 11/13/2017
 ms.date: 12/11/2017
 ms.author: v-nany
 ms.reviewer: douglasl
-ms.openlocfilehash: 406b8b3d03648993d7c1b4677319a9dae6166842
-ms.sourcegitcommit: ac0aab977d289366db6a9b230f27a6a8c6c190e9
+ms.openlocfilehash: 69ecac10e74c4cfbbad535f03968cf6aa55d89f0
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>设置 SQL 数据同步（预览版）
 本教程将介绍如何创建包含 Azure SQL 数据库和 SQL Server 实例的混合同步组，从而设置 Azure SQL 数据同步。 新的同步组进行了全面配置，可根据所设定的计划进行同步。

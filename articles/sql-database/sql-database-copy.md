@@ -1,26 +1,20 @@
 ---
-title: "复制 Azure SQL 数据库 | Microsoft Docs"
-description: "在相同或不同的服务器上创建现有 Azure SQL 数据库的事务一致性副本。"
+title: 复制 Azure SQL 数据库 | Microsoft Docs
+description: 在相同或不同的服务器上创建现有 Azure SQL 数据库的事务一致性副本。
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: 
-ms.assetid: 5aaf6bcd-3839-49b5-8c77-cbdf786e359b
 ms.service: sql-database
 ms.custom: load & move data
-ms.devlang: NA
 origin.date: 06/15/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.workload: data-management
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 64bdc71b96435f685cec3ef3c5b4160129b34b1a
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: 489e7c63d5a61db544f27560000d4b488a982561
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="copy-an-azure-sql-database"></a>复制 Azure SQL 数据库
 
@@ -28,7 +22,7 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="overview"></a>概述
 
-数据库副本是源数据库截至复制请求发出时的快照。 可以选择相同或不同的服务器、其服务层和性能级别，或相同服务层中的不同性能级别（版本）。 在完成该复制后，副本将成为能够完全行使功能的独立数据库。 此时，可以升级或降级到任意版本。 登录名、用户和权限可单独进行管理。  
+数据库副本是源数据库截至复制请求发出时的快照。 可以选择相同或不同的服务器、其服务层和性能级别，或相同服务层中的不同性能级别（版本）。 在完成该复制后，副本将成为能够完全行使功能的独立数据库。 此时，可以将其升级或降级为任何版本。 登录名、用户和权限可单独进行管理。  
 
 ## <a name="logins-in-the-database-copy"></a>数据库副本中的登录名
 

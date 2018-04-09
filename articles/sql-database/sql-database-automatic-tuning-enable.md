@@ -1,26 +1,21 @@
 ---
-title: "为 Azure SQL 数据库启用自动优化 | Azure"
-description: "可以轻松地在 Azure SQL 数据库中启用自动优化。"
+title: 为 Azure SQL 数据库启用自动优化 | Azure
+description: 可以轻松地在 Azure SQL 数据库中启用自动优化。
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: vvasic
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: NA
 origin.date: 09/19/2016
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: 10a1e224c490b5c3efb065adc8ddf63dc4964579
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 84a91cb84c9174b522eb89964e318d15bc52819e
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="enable-automatic-tuning"></a>启用自动优化
 

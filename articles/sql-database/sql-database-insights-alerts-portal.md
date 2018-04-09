@@ -1,26 +1,20 @@
 ---
-title: "使用 Azure 门户创建 SQL 数据库警报 | Azure"
-description: "使用 Azure 门户创建 SQL 数据库警报，该警报可在满足指定的条件时触发通知或自动化操作。"
+title: 使用 Azure 门户创建 SQL 数据库警报 | Azure
+description: 使用 Azure 门户创建 SQL 数据库警报，该警报可在满足指定的条件时触发通知或自动化操作。
 author: forester123
 manager: digimobile
-editor: 
 services: sql-database
-documentationcenter: 
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
 ms.service: sql-database
 ms.custom: monitor and tune
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2017
 ms.date: 10/02/2017
 ms.author: v-johch
-ms.openlocfilehash: c05d3e931ce149e52871412605335a50b06c99e4
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 5bed814304b0dca5d2dd4772c5ba4b1f0a7d6d9a
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>使用 Azure 门户为 Azure SQL 数据库和数据仓库创建警报
 

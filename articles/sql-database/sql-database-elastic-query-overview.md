@@ -1,25 +1,20 @@
 ---
-title: "Azure SQL 数据库弹性查询概述 | Microsoft Docs"
-description: "使用弹性查询可运行跨多个数据库的 Transact-SQL 查询。"
+title: Azure SQL 数据库弹性查询概述 | Microsoft Docs
+description: 使用弹性查询可运行跨多个数据库的 Transact-SQL 查询。
 services: sql-database
-documentationcenter: 
 manager: digimobile
 author: forester123
-ms.assetid: a8bf0e2c-bc74-44d0-9b1e-bcc9a6aa2e33
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 04/27/2016
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 37ce146811877fa02cd1cb42d756009efe350f44
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: 0ead1e120d785934e750f15c0c9e2235151c82b7
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL 数据库弹性查询概述（预览版）
 使用弹性查询功能（处于预览状态）可以跨 Azure SQL 数据库中的多个数据库运行 Transact-SQL 查询。 它允许你执行跨数据库查询以访问远程表，以及连接 Microsoft 和第三方工具（Excel、PowerBI、Tableau 等）以跨多个数据库的数据层进行查询。 使用此功能，可以将查询横向扩展到 SQL 数据库中的较大数据层，并直观显示商业智能 (BI) 报表中的结果。

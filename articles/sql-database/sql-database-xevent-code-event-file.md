@@ -1,27 +1,20 @@
 ---
-title: "SQL 数据库的 XEvent 事件文件代码 | Azure"
-description: "提供一个双阶段代码示例的 PowerShell 和 Transact-SQL，该示例演示 Azure SQL 数据库的扩展事件中的事件文件目标。 此方案的一部分要求使用 Azure 存储。"
+title: SQL 数据库的 XEvent 事件文件代码 | Azure
+description: 提供一个双阶段代码示例的 PowerShell 和 Transact-SQL，该示例演示 Azure SQL 数据库的扩展事件中的事件文件目标。 此方案的一部分要求使用 Azure 存储。
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: bbb10ecc-739f-4159-b844-12b4be161231
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 10/05/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 9fde76abd38dcef6edc383f0fa89378432244dde
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: 80d96f1efc7f0fe03020dfb855e535fa5ed13eb6
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL 数据库中扩展事件的事件文件目标代码
 

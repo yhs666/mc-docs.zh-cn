@@ -1,25 +1,21 @@
 ---
-title: "使用 Go 查询 Azure SQL 数据库 | Azure"
-description: "使用 Go 创建连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询和修改数据。"
+title: 使用 Go 查询 Azure SQL 数据库 | Azure
+description: 使用 Go 创建连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询和修改数据。
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: craigg
-editor: MightyPen
-ms.assetid: 
+ms.reviewer: MightyPen
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: b35a148d96dfa4706698b2df4585144d105cc306
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 41d0fdf61e1fd0fab59df2568b866dedc43a16eb
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="use-go-to-query-an-azure-sql-database"></a>使用 Go 查询 Azure SQL 数据库
 

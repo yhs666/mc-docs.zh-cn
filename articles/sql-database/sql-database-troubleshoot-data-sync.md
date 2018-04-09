@@ -1,6 +1,6 @@
 ---
-title: "排查 Azure SQL 数据同步（预览版）问题 | Azure"
-description: "了解如何排查 Azure SQL 数据同步（预览版）的常见问题"
+title: 排查 Azure SQL 数据同步（预览版）问题 | Azure
+description: 了解如何排查 Azure SQL 数据同步（预览版）的常见问题
 services: sql-database
 origin.date: 11/13/2017
 ms.date: 12/11/2017
@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: sql-database
 author: yunan2016
 manager: digimobile
-ms.openlocfilehash: 6862dbac1f304eaa9e849c1db0d371c71ca6c758
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.custom: data-sync
+ms.openlocfilehash: 09a5bb71f03f25690713492a332c07c3ef3424bb
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>排查 SQL 数据同步（预览版）的问题
 
@@ -216,7 +217,7 @@ SQL 数据同步（预览版）预配过程针对不同架构中的同名表使�
     a. 选择“启动”。  
     b. 在搜索框中输入 **services.msc**。  
     c. 在搜索结果中，选择“服务”。  
-    d.单击“下一步”。 在“服务”窗口中，滚动到 **SQL 数据同步（预览版）代理预览**的条目。  
+    d. 在“服务”窗口中，滚动到 **SQL 数据同步（预览版）代理预览**的条目。  
 2. 右键单击“SQL 数据同步(预览版)代理预览版”并选择“停止”。
 3. 右键单击“SQL 数据同步(预览版)代理预览版”并选择“属性”。
 4. 在“SQL 数据同步(预览版)代理预览版属性”中，选择“登录”选项卡。
@@ -238,7 +239,7 @@ SQL 数据同步（预览版）预配过程针对不同架构中的同名表使�
 
 -   SQL 数据同步（预览版）Windows 服务正在运行。  
 -   SQL 数据同步（预览版）预览 Windows 服务的服务帐户具有网络访问权限。    
--   客户端代理能够访问定位器服务。 检查以下注册表项是否包含 https://locator.sync.azure.com/LocatorServiceApi.svc 值：  
+-   客户端代理能够访问定位器服务。 检查以下注册表项是否具有值 https://locator.sync.azure.com/LocatorServiceApi.svc:  
     -   x86 计算机：`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
     -   x64 计算机：`HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
 
@@ -339,7 +340,7 @@ SQL 数据同步（预览版）预配过程针对不同架构中的同名表使�
     a. 在“开始”菜单中，搜索“服务”。  
     b. 在搜索结果中，选择“服务”。  
     c. 找到 **SQL 数据同步（预览版）预览**服务。  
-    d.单击“下一步”。 如果服务状态为“已停止”，请右键单击服务名称，选择“启动”。
+    d. 如果服务状态为“已停止”，请右键单击服务名称，选择“启动”。
 -   确保 SQL 数据库和 SQL Server 数据库都已联机。
 -   等待预配或同步过程完成，然后重试删除同步组。
 
@@ -359,9 +360,9 @@ SQL 数据同步（预览版）预配过程针对不同架构中的同名表使�
     a. 选择“开始”菜单。  
     b. 在搜索框中输入 **services.msc**。  
     c. 在搜索结果窗格的“程序”部分，双击“服务”。  
-    d.单击“下一步”。 右键单击“SQL 数据同步(预览版)”服务。  
-    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 如果该服务正在运行，请将其停止。  
-    f.单击“保存”以保存设置。 右键单击该服务，并选择“启动”。  
+    d. 右键单击“SQL 数据同步(预览版)”服务。  
+    e. 如果该服务正在运行，请将其停止。  
+    f. 右键单击该服务，并选择“启动”。  
     g. 检查数据库是否仍已注册。 如果已不再注册数据库，则操作完成。 否则，请继续执行下一步。
 2. 打开客户端代理应用 (SqlAzureDataSyncAgent)。
 3. 选择“编辑凭据”，输入数据库的凭据。

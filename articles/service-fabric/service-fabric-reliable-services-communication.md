@@ -1,6 +1,6 @@
 ---
-title: "Reliable Services 通信概述 | Azure"
-description: "概述 Reliable Services 通信模型，包括在服务上打开侦听器、解析终结点，以及在服务之间进行通信。"
+title: Reliable Services 通信概述 | Azure
+description: 概述 Reliable Services 通信模型，包括在服务上打开侦听器、解析终结点，以及在服务之间进行通信。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 11/01/2017
-ms.date: 01/01/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 91be1f6919826e5099429ffbba3d03dfbf1ab3f6
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 4553c1c3ce0867acdf063f4b844a06a77ed87c96
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>如何使用 Reliable Services 通信 API
 “Azure Service Fabric 即平台”完全不受服务间通信的影响。 所有协议和堆栈（从 UDP 到 HTTP）都可接受。 至于服务应以哪种方式通信，完全由服务开发人员选择。 Reliable Services 应用程序框架提供了一些内置的通信堆栈和 API，可用于生成自定义通信组件。
@@ -55,7 +55,7 @@ public interface CommunicationListener {
 对于无状态服务：
 
 ```csharp
-class MyStatelessService : StatelessService
+public class MyStatelessService : StatelessService
 {
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
@@ -77,13 +77,16 @@ public class MyStatelessService extends StatelessService {
 
 对于有状态服务：
 
-> [!NOTE]
-> Java 目前不支持有状态的 Reliable Services。
->
->
+```java
+    @Override
+    protected List<ServiceReplicaListener> createServiceReplicaListeners() {
+        ...
+    }
+    ...
+```
 
 ```csharp
-class MyStatefulService : StatefulService
+public class MyStatefulService : StatefulService
 {
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
@@ -273,7 +276,7 @@ CompletableFuture<ResolvedServicePartition> partition =
 通信客户端只接收地址，并使用它连接到服务。 客户端可以使用它想要的任何协议。
 
 ```csharp
-class MyCommunicationClient : ICommunicationClient
+public class MyCommunicationClient : ICommunicationClient
 {
     public ResolvedServiceEndpoint Endpoint { get; set; }
 
@@ -430,4 +433,4 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 * [使用 Reliable Services 远程控制执行远程过程调用](service-fabric-reliable-services-communication-remoting.md)
 * [使用 Reliable Services 的 WCF 通信](service-fabric-reliable-services-communication-wcf.md)
 
-<!-- Update_Description: update link -->
+<!-- Update_Description: update link, update meta properties -->

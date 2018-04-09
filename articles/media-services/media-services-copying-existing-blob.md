@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: f8642a0c39be11955b652e2534fcb0c721c4d1bb
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: 19d66861083a30994e3139bb86c602dec2c9444f
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>将现有 Blob 复制到媒体服务资产
 本文说明了如何使用 [Azure 媒体服务 .NET SDK 扩展](https://github.com/Azure/azure-sdk-for-media-services-extensions/)将 Blob 从存储帐户复制到新的 Azure 媒体服务 (AMS) 资产中。
@@ -121,11 +121,11 @@ namespace CopyExistingBlobsIntoAsset
         {
             AzureAdTokenCredentials tokenCredentials1 = new AzureAdTokenCredentials(_sourceAADTenantDomain,
                    new AzureAdClientSymmetricKey(_sourceClientId, _sourceClientSecret),
-                   AzureEnvironments.AzureCloudEnvironment);
+                   AzureEnvironments.AzureChinaCloudEnvironment);
 
             AzureAdTokenCredentials tokenCredentials2 = new AzureAdTokenCredentials(_destAADTenantDomain,
                    new AzureAdClientSymmetricKey(_destClientId, _destClientSecret),
-                   AzureEnvironments.AzureCloudEnvironment);
+                   AzureEnvironments.AzureChinaCloudEnvironment);
 
             var tokenProvider1 = new AzureAdTokenProvider(tokenCredentials1);
             var tokenProvider2 = new AzureAdTokenProvider(tokenCredentials2);
@@ -233,7 +233,7 @@ namespace CopyExistingBlobsIntoAsset
         {
             AzureAdTokenCredentials tokenCredentials = new AzureAdTokenCredentials(_AMSAADTenantDomain,
                new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-               AzureEnvironments.AzureCloudEnvironment);
+               AzureEnvironments.AzureChinaCloudEnvironment);
             
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 

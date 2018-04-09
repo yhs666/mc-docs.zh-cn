@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 11ce602f5e5d5a45abba3f532d1293fa6fb66801
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: 43b461e737a2f49604ddd7e7a46316efc5c025e5
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>使用 Azure 媒体服务传送实时流
 
@@ -79,7 +79,7 @@ public class ChannelOperations
         AzureAdTokenCredentials tokenCredentials = 
             new AzureAdTokenCredentials(_AADTenantDomain,
                 new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-                AzureEnvironments.AzureCloudEnvironment);
+                AzureEnvironments.AzureChinaCloudEnvironment);
 
         var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 

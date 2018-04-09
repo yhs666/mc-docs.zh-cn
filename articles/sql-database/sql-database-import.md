@@ -1,26 +1,20 @@
 ---
-title: "导入 BACPAC 文件以创建 Azure SQL 数据库 | Azure"
-description: "通过导入 BACPAC 文件创建一个新的 Azure SQL 数据库。"
+title: 导入 BACPAC 文件以创建 Azure SQL 数据库 | Azure
+description: 通过导入 BACPAC 文件创建一个新的 Azure SQL 数据库。
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: cf9a9631-56aa-4985-a565-1cacc297871d
 ms.service: sql-database
 ms.custom: load & move data
-ms.devlang: NA
 origin.date: 01/29/2018
 ms.date: 02/28/2018
 ms.author: v-nany
-ms.workload: data-management
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.openlocfilehash: 9feeba734f363d5fa2577737071e58c10a2c8eab
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: c48da551e0819801b2fc259e709db038d4343a06
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>将 BACPAC 文件导入到新的 Azure SQL 数据库
 

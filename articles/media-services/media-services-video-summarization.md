@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: e2ce6bb550e0e24f13f3f0bf95f20a91afb219de
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: c9621c94db8cfb98926b48024fc89eecad662eb5
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>使用 Azure 媒体视频缩略图创建视频摘要
 ## <a name="overview"></a>概述
@@ -136,7 +136,7 @@ ms.lasthandoff: 03/29/2018
                 AzureAdTokenCredentials tokenCredentials = 
                     new AzureAdTokenCredentials(_AADTenantDomain,
                         new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-                        AzureEnvironments.AzureCloudEnvironment);
+                        AzureEnvironments.AzureChinaCloudEnvironment);
 
                 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 

@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL 数据库常见问题解答 | Azure"
-description: "客户就云数据库、Azure SQL 数据库、Microsoft 的关系数据库管理系统 (RDBMS) 和云中“数据库即服务”经常提出的问题的解答。"
+title: Azure SQL 数据库常见问题解答 | Azure
+description: 客户就云数据库、Azure SQL 数据库、Microsoft 的关系数据库管理系统 (RDBMS) 和云中“数据库即服务”经常提出的问题的解答。
 services: sql-database
-documentationcenter: 
 author: Hayley244
 manager: digimobile
-editor: 
-ms.assetid: 1da12abc-0646-43ba-b564-e3b049a6487f
 ms.service: sql-database
 ms.custom: reference
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-management
 origin.date: 02/07/2017
 ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 930123cf29d74c714118b51905c1d01979ab6faa
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: be3a9989f4910730ce9ef6ff569dae18b4406278
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="sql-database-faq"></a>SQL 数据库常见问题
 

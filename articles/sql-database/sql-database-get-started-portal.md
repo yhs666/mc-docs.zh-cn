@@ -1,27 +1,21 @@
 ---
-title: "Azure 门户：创建 SQL 数据库 | Microsoft Docs"
-description: "在 Azure 门户中创建 SQL 数据库逻辑服务器、服务器级防火墙规则和数据库，并对其进行查询。"
-keywords: "SQL 数据库教程：创建 SQL 数据库"
+title: Azure 门户：创建 SQL 数据库 | Microsoft Docs
+description: 在 Azure 门户中创建 SQL 数据库逻辑服务器、服务器级防火墙规则和数据库，并对其进行查询。
+keywords: SQL 数据库教程：创建 SQL 数据库
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: data-management
-ms.tgt_pltfrm: portal
-ms.devlang: na
 ms.topic: quickstart
 origin.date: 02/16/2018
 ms.date: 02/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 9e29f585c748761df473b516babf65a45d9baa95
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: d0883bac1259ff82545b2f69a4caaf1dd63d6a0f
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 <a name="create-an-azure-sql-database-logical-server"></a>
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>在 Azure 门户中创建 Azure SQL 数据库

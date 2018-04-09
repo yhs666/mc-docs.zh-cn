@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL 数据库单一数据库 | Microsoft Docs"
-description: "管理单个 Azure SQL 数据库的服务层、性能级别和存储量。"
+title: Azure SQL 数据库单一数据库 | Microsoft Docs
+description: 管理单个 Azure SQL 数据库的服务层、性能级别和存储量。
 services: sql-database
-documentationcenter: na
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 origin.date: 02/12/2018
 ms.date: 02/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 41c66173c8fe1fc71aaf4f3873514505e2c039e5
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: e41639282b6fe7fb9559684115266b044c2b494d
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>管理 Azure SQL 数据库中单一数据库的资源
 

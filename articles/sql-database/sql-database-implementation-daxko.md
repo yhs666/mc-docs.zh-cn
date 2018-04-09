@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL 数据库案例研究 - Daxko/CSI | Azure"
-description: "了解 Daxko/CSI 如何使用 SQL 数据库加速其开发周期和增强其客户服务与性能"
+title: Azure SQL 数据库案例研究 - Daxko/CSI | Azure
+description: 了解 Daxko/CSI 如何使用 SQL 数据库加速其开发周期和增强其客户服务与性能
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
 ms.service: sql-database
 ms.custom: reference
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 origin.date: 01/10/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: b6d06187577d67e2083e60cdbe3009af81d307a0
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 936945599eadd4f5019b645a798e7d052c54f4b7
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI 使用 Azure 来加速其开发周期和增强其客户服务与性能
 ![Daxko/CSI 徽标](./media/sql-database-implementation-daxko/csidaxkologo25.png)

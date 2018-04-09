@@ -1,26 +1,26 @@
 ---
-title: "创建适用于 Service Fabric 的 .NET 应用程序 | Azure"
-description: "本教程介绍如何使用 ASP.NET Core 前端和 Reliable Services 有状态后端创建一个应用程序，然后将其部署到群集。"
+title: 创建适用于 Service Fabric 的 .NET 应用程序 | Azure
+description: 本教程介绍如何使用 ASP.NET Core 前端和 Reliable Services 有状态后端创建一个应用程序，然后将其部署到群集。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/29/2018
-ms.date: 03/12/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9362cb2801d4f70ac457f9c613a513afbf1f6816
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: b30a01263151d9f637b5ab4df9ebb24b70f58588
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>教程：使用 ASP.NET Core Web API 前端服务和有状态后端服务创建并部署应用程序
 本教程是一个系列中的第一部分。  其中介绍了如何使用 ASP.NET Core Web API 前端和有状态后端服务创建 Azure Service Fabric 应用程序以存储数据。 完成后，将生成一个投票应用程序，其中包含 ASP.NET Core Web 前端，用于将投票结果保存到群集的有状态后端服务中。 如果不想手动创建投票应用程序，可以[下载已完成应用程序的源代码](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)，跳到[大致了解投票示例应用程序](#walkthrough_anchor)。
@@ -153,7 +153,7 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
             <div class="col-xs-8 col-xs-offset-2">
                 <form class="col-xs-12 center-block">
                     <div class="col-xs-6 form-group">
-                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item" />
+                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item"/>
                     </div>
                     <button id="btnAdd" class="btn btn-default" ng-click="add(item)">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -273,6 +273,7 @@ internal static Uri GetVotingDataServiceName(ServiceContext context)
     return new Uri($"{context.CodePackageActivationContext.ApplicationName}/VotingData");
 }
 ```
+
 ### <a name="add-the-votescontrollercs-file"></a>添加 VotesController.cs 文件
 添加控制器用于定义投票操作。 右键单击“控制器”文件夹，然后选择“添加”->“新建项目”->“类”。  将文件命名为“VotesController.cs”，然后单击“添加”。  
 
@@ -472,7 +473,7 @@ namespace VotingData.Controllers
 在“VotingWeb”项目中，打开 Controllers/VotesController.cs 文件。  将 `VotesController` 类定义内容替换为以下内容，然后保存所做更改。
 
 ```csharp
-    public class VotesController : Controller
+public class VotesController : Controller
 {
     private readonly HttpClient httpClient;
     private readonly FabricClient fabricClient;

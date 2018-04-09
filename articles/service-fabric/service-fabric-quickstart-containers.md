@@ -1,26 +1,26 @@
 ---
-title: "创建 Azure Service Fabric Windows 容器应用程序 | Azure"
-description: "在本快速入门中，请在 Azure Service Fabric 上创建第一个 Windows 容器应用程序。"
+title: 创建 Azure Service Fabric Windows 容器应用程序 | Azure
+description: 在本快速入门中，请在 Azure Service Fabric 上创建第一个 Windows 容器应用程序。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
 editor: vturecek
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/25/18
-ms.date: 03/12/2018
+origin.date: 02/27/18
+ms.date: 04/09/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: bbced68e4977fd7841e8195b48ceb79a7b872dc3
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: e92cfac429011fabe552575eaf836032279625a2
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>快速入门：在 Azure 上部署 Service Fabric Windows 容器应用程序
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。 
@@ -49,21 +49,25 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 
 选择“Service Fabric 应用程序”，将其命名为“MyFirstContainer”，并单击“确定”。
 
-从“服务模板”列表中选择“容器”。
+从“托管的容器和应用程序”模板中选择“容器”。
 
 在“映像名称”中输入“microsoft/iis:nanoserver”，即 [Windows Server Nano Server 和 IIS 基映像](https://hub.docker.com/r/microsoft/iis/)。 
 
 将服务命名为“MyContainerService”，然后单击“确定”。
 
 ## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>配置通信和容器端口到主机端口映射
-此服务需要使用终结点进行通信。  现在，可以将协议、端口和类型添加到 ServiceManifest.xml 文件中的 `Endpoint`。 就本快速入门来说，容器化服务会在端口 80 上进行侦听： 
+此服务需要使用终结点进行通信。  就本快速入门来说，容器化服务会在端口 80 上进行侦听。  在解决方案资源管理器中，打开 *MyFirstContainer/ApplicationPackageRoot/MyContainerServicePkg/ServiceManifest.xml*。  在 ServiceManifest.xml 文件中更新现有的 `Endpoint`，然后添加协议、端口和 URI 方案： 
 
 ```xml
-<Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+<Resources>
+    <Endpoints>
+        <Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+   </Endpoints>
+</Resources>
 ```
 提供 `UriScheme` 即可向 Service Fabric 命名服务自动注册容器终结点，确保其可以被发现。 本文末尾提供完整的 ServiceManifest.xml 示例文件。 
 
-在 ApplicationManifest.xml 文件的 `ContainerHostPolicies` 中指定 `PortBinding` 策略，以便配置容器端口到主机端口的映射。  就本快速入门来说，`ContainerPort` 为 80，`EndpointRef` 为“MyContainerServiceTypeEndpoint”（在服务清单中定义的终结点）。  传入到端口 80 上的服务的请求映射到容器上的端口 80。  
+配置容器的“端口到主机”端口映射，使端口 80 上针对服务的传入请求映射到容器上的端口 80。  在解决方案资源管理器中打开 *MyFirstContainer/ApplicationPackageRoot/ApplicationManifest.xml*，然后在 `ContainerHostPolicies` 中指定 `PortBinding` 策略。  就本快速入门来说，`ContainerPort` 为 80，`EndpointRef` 为“MyContainerServiceTypeEndpoint”（在服务清单中定义的终结点）。    
 
 ```xml
 <ServiceManifestImport>
@@ -88,7 +92,7 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 
 在解决方案资源管理器中右键单击“MyFirstContainer”，选择“发布”。 此时，“发布”对话框显示。
 
-将群集页面中的“连接终结点”复制到“连接终结点”字段。 例如，`zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19000`。 
+将 Party 群集页面中的“连接终结点”复制到“连接终结点”字段。 例如，`zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19000`。
 <!-- Not Avaiable on Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in the previous step. -->
 
 ![“发布”对话框](./media/service-fabric-quickstart-containers/publish-app.png)
@@ -168,7 +172,6 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
-
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 
@@ -201,4 +204,4 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png
 
-<!--Update_Description: wording update, update link, remove the party cluster content not suit for azure china -->
+<!--Update_Description: wording update, update link -->

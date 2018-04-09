@@ -1,25 +1,25 @@
 ---
-title: "设置 Azure 微服务的 Windows 开发环境 | Azure"
-description: "安装运行时、SDK 和工具并创建本地开发群集。 完成此设置后，就可以在 Windows 上开始生成应用程序。"
+title: 设置 Azure 微服务的 Windows 开发环境 | Azure
+description: 安装运行时、SDK 和工具并创建本地开发群集。 完成此设置后，就可以在 Windows 上开始生成应用程序。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/29/2018
-ms.date: 03/12/2018
+origin.date: 02/20/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: cab7b3866dca739c8af83659e11532bed2eacccc
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: ff2ddf59cf081ecf3ec19e88e6c4b7bab6ffe833
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上准备开发环境
 > [!div class="op_single_selector"]
@@ -65,10 +65,10 @@ Service Fabric 工具是 Visual Studio 2017 中 Azure 开发工作负荷的一�
 * [安装 Azure Service Fabric SDK][core-sdk]
 
 当前版本包括：
-* Service Fabric SDK and Tools 3.0.456
-* Service Fabric 运行时 6.1.456
+* Service Fabric SDK and Tools 3.0.467
+* Service Fabric 运行时 6.1.467
 * Service Fabric Tools for Visual Studio 2015 2.0.10124.2
-* Visual Studio 2017 15.5.6 包括 Service Fabric Tools for Visual Studio 2.0.20180124.2 
+* Visual Studio 2017 15.5.6 包括 Service Fabric Tools for Visual Studio 2.0.20180124.2  
 
 有关支持的版本列表，请参阅 [Service Fabric 支持](service-fabric-support.md)
 
@@ -100,4 +100,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Core SDK WebPI 链接"
 [powershell5-download]:https://www.microsoft.com/download/details.aspx?id=50395
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

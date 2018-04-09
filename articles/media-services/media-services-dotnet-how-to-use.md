@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: edfcb0c032a4bc6607a5211cebff7086cfad22e3
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: 9a4ad412628fb2f7be5414b96adf203ba3acfd55
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="media-services-development-with-net"></a>使用 .NET 进行媒体服务开发
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -117,7 +117,7 @@ ms.lasthandoff: 03/29/2018
                 AzureAdTokenCredentials tokenCredentials = 
                     new AzureAdTokenCredentials(_AADTenantDomain,
                         new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-                        AzureEnvironments.AzureCloudEnvironment);
+                        AzureEnvironments.AzureChinaCloudEnvironment);
 
                 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 

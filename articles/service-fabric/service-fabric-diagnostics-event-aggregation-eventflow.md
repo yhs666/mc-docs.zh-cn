@@ -1,25 +1,25 @@
 ---
-title: "使用 EventFlow 聚合 Azure Service Fabric 事件 | Azure"
-description: "了解通过使用 EventFlow 集合和收集事件来监视和诊断 Azure Service Fabric 群集。"
+title: 使用 EventFlow 聚合 Azure Service Fabric 事件 | Azure
+description: 了解通过使用 EventFlow 集合和收集事件来监视和诊断 Azure Service Fabric 群集。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/15/2017
-ms.date: 03/12/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0bbb2f2ff2c96d299556fe0540371ef678333789
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 4c0640cce047928553558dd0c367037bf172206a
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>使用 EventFlow 聚合和收集事件
 
@@ -33,12 +33,12 @@ EventFlow 二进制文件以一组 NuGet 包的形式提供。 如果要将 Even
 
 将显示一个不同包的列表，带有“输入”和“输出”标记。 EventFlow 支持不同日志提供程序和分析器。 托管 EventFlow 的服务应该根据应用程序日志的源和目标包含相应的包。 除核心 ServiceFabric 包外，至少还需配置一个输入和输出。 例如，可添加下列包将 EventSource 事件发送到 Application Insights：
 
-* `Microsoft.Diagnostics.EventFlow.Input.EventSource`（从该服务的 EventSource 类和标准 EventSource 捕获数据，例如 *Microsoft-ServiceFabric-Services* 和 *Microsoft-ServiceFabric-Actors*）
-* `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`（我们会将日志发送到 Azure Application Insights 资源）
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource`（从该服务的 EventSource 类和标准 EventSource 捕获数据，例如 *Microsoft-ServiceFabric-Services* 和 *Microsoft-ServiceFabric-Actors*）
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`（我们会将日志发送到 Azure Application Insights 资源）
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric`（允许初始化来自 Service Fabric 服务配置的 EventFlow 管道，并以 Service Fabric 运行状况报表的形式报告发送诊断数据的任何相关问题）
 
 >[!NOTE]
->`Microsoft.Diagnostics.EventFlow.Input.EventSource` 包要求服务项目面向 .NET Framework 4.6 或更高版本。 在安装此包之前，请确保在项目属性中设置相应的目标框架。
+>`Microsoft.Diagnostics.EventFlow.Inputs.EventSource` 包要求服务项目面向 .NET Framework 4.6 或更高版本。 在安装此包之前，请确保在项目属性中设置相应的目标框架。
 
 安装所有包后，下一步是在服务中配置和启用 EventFlow。
 

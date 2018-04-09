@@ -1,27 +1,20 @@
 ---
-title: "使用动态管理视图监视 Azure SQL 数据库 | Azure"
-description: "了解如何通过使用动态管理视图监视 Azure SQL 数据库来检测并诊断常见性能问题。"
+title: 使用动态管理视图监视 Azure SQL 数据库 | Azure
+description: 了解如何通过使用动态管理视图监视 Azure SQL 数据库来检测并诊断常见性能问题。
 services: sql-database
-documentationcenter: 
 author: Hayley244
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: d08f505f-3c62-47d4-bab7-35c9a834b79b
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 01/10/2017
 ms.date: 07/03/2017
 ms.author: v-johch
-ms.openlocfilehash: d15209ac1fb141759dd5fd1bf4ae484124814304
-ms.sourcegitcommit: a93ff901be297d731c91d77cd7d5c67da432f5d4
+ms.openlocfilehash: b595d0a72261671e62b5ba6c44d355094dd4dcc5
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>使用动态管理视图监视 Azure SQL 数据库
 Azure SQL 数据库支持通过一部分动态管理视图来诊断性能问题，这些问题可能由查询受阻或长时间运行、资源瓶颈、不良查询计划等原因造成。 本主题提供有关如何通过使用动态管理视图检测常见性能问题的信息。

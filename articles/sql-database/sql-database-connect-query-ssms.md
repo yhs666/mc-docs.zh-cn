@@ -1,28 +1,21 @@
 ---
-title: "SSMS：在 Azure SQL 数据库中进行连接和数据查询 | Azure"
-description: "了解如何通过使用 SQL Server Management Studio (SSMS) 连接到在 Azure 上的 SQL 数据库。 然后，通过运行 Transact-SQL (T-SQL) 语句来查询和编辑数据。"
-metacanonical: 
-keywords: "连接到 sql 数据库, sql server management studio"
+title: SSMS：在 Azure SQL 数据库中进行连接和数据查询 | Azure
+description: 了解如何通过使用 SQL Server Management Studio (SSMS) 连接到在 Azure 上的 SQL 数据库。 然后，通过运行 Transact-SQL (T-SQL) 语句来查询和编辑数据。
+keywords: 连接到 sql 数据库, sql server management studio
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: 7cd2a114-c13c-4ace-9088-97bd9d68de12
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 origin.date: 11/28/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: dd07c1400c5f441288aab5ac49e9e0cac57c9ea9
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: c4bb6c2fdbcd91508cfb662905e8d9a444613e8d
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL 数据库：使用 SQL Server Management Studio 进行连接和数据查询
 

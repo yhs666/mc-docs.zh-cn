@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 中 Reliable Collections 的相关指导原则和建议 | Azure"
-description: "有关使用 Service Fabric Reliable Collections 的指导原则和建议"
+title: Azure Service Fabric 中 Reliable Collections 的相关指导原则和建议 | Azure
+description: 有关使用 Service Fabric Reliable Collections 的指导原则和建议
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 12/10/2017
-ms.date: 01/01/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 768d2aaa9bee9cd8ae96c78223a04e7274253124
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 1bb311b9ced2e9a303da068b98ad1c7667fd64e8
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric 中 Reliable Collections 的相关指导原则和建议
 本部分提供有关使用可靠状态管理器和 Reliable Collections 的指导原则。 目的是帮助用户避免常见错误。
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/29/2017
 这些指导原则被归纳整理成简单的建议，冠以*务必*、*请考虑*、*避免*和*切勿*等提示语。
 
 * 切勿修改读取操作（例如 `TryPeekAsync` 或 `TryGetValueAsync`）返回的自定义类型的对象。 Reliable Collections 与 Concurrent Collections 一样，返回对这些对象的引用，而非副本。
-* 在修改返回的自定义类型的对象之前，务必对其进行深层复制。 由于结构和内置类型均按值传递，因此无需对其进行深层复制。
+* 在修改返回的自定义类型的对象之前，务必对其进行深层复制。 由于结构和内置类型均按值传递，因此无需对其进行深层复制，除非它们包含要修改的引用类型字段或属性。
 * 切勿对超时值使用 `TimeSpan.MaxValue` 。 应使用超时值来检测死锁。
 * 切勿在已提交、中止或释放一个事务之后使用该事务。
 * 切勿在对其创建的事务范围之外使用枚举。

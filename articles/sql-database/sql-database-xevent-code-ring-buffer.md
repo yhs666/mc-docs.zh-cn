@@ -1,27 +1,20 @@
 ---
-title: "SQL 数据库的 XEvent 环形缓冲区代码 | Azure"
-description: "提供一个 Transact-SQL 代码示例，以帮助你快速轻松地在 Azure SQL 数据库中使用环形缓存区目标。"
+title: SQL 数据库的 XEvent 环形缓冲区代码 | Azure
+description: 提供一个 Transact-SQL 代码示例，以帮助你快速轻松地在 Azure SQL 数据库中使用环形缓存区目标。
 services: sql-database
-documentationcenter: 
 author: Hayley244
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 2510fb3f-c8f2-437a-8f49-9d5f6c96e75b
 ms.service: sql-database
 ms.custom: monitor and tune
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 02/03/2017
 ms.date: 09/18/2017
 ms.author: v-haiqya
-ms.openlocfilehash: b02759eb973ecf1246ec7ce04c1365bceaa1107d
-ms.sourcegitcommit: 6042b51f51e22beee92c3c0e4da6eb6ad5045835
+ms.openlocfilehash: bb7b47904dfe5e5aa3ac1a49ee63aab342050903
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>SQL 数据库中扩展事件的环形缓冲区目标代码
 

@@ -1,30 +1,25 @@
 ---
-title: "跨数据库查询（纵向分区）入门 | Azure"
-description: "如何在垂直分区数据库中使用弹性数据库查询"
+title: 跨数据库查询（纵向分区）入门 | Azure
+description: 如何在垂直分区数据库中使用弹性数据库查询
 services: sql-database
-documentationCenter: 
 manager: digimobile
 author: Hayley244
-ms.assetid: e5b44b10-c432-4f96-b20e-08615ff4d5dd
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2016
 ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: bdb4c34f0afda91ad4e8a879b91712001df11619
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: 40812ec24bacd4e92f7467fdbe163ef7a6dec3da
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>跨数据库查询（纵向分区）入门（预览）
 Azure SQL 数据库弹性数据库查询（预览版）可让你使用单一连接点运行跨多个数据库的 T-SQL 查询。 本主题适用于[垂直分区数据库](sql-database-elastic-query-vertical-partitioning.md)。  
 
-完成时，你将会：了解如何配置和使用 Azure SQL 数据库执行跨多个相关数据库的查询。 
+完成时，会：了解如何配置和使用 Azure SQL 数据库执行跨多个相关数据库的查询。 
 
 有关弹性数据库查询功能的详细信息，请参阅 [Azure SQL 数据库弹性数据库查询概述](sql-database-elastic-query-overview.md)。 
 

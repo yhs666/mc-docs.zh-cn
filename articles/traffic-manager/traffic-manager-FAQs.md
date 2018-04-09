@@ -1,25 +1,25 @@
 ---
-title: "Azure 流量管理器 - 常见问题 | Azure"
-description: "本文提供有关流量管理器的常见问题解答"
+title: Azure 流量管理器 - 常见问题 | Azure
+description: 本文提供有关流量管理器的常见问题解答
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/18/2017
-ms.date: 01/15/2018
+origin.date: 03/18/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3324ff73735c8605f549b95f138d88c36997ecdc
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 632a33793151e2327aaf99634743df7950129589
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理器常见问题解答 (FAQ)
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 01/11/2018
 
 要解决此问题，我们建议使用 HTTP 重定向将流量从裸域名定向到不同的 URL，然后即可使用流量管理器。 例如，裸域“contoso.com”可将用户重定向到指向流量管理器 DNS 名称的 CNAME“www.contoso.com”。
 
-在流量管理器中实现对裸域的完全支持已列入我们的待开发功能中。 请[在我们的社区反馈站点上投票](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly)，表达对此项功能的支持。
+<!-- Not Available on Full support for naked domains in Traffic Manager is tracked in our feature backlog. You can register your support for this feature request by [voting for it on our community feedback site](https://www.azure.cn/support/support-azure/) -->
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>处理 DNS 查询时流量管理器是否会考虑客户端子网地址？ 
 会，除了流量管理器收到的 DNS 查询的源 IP 地址（通常是 DNS 解析程序的 IP 地址）外，在执行地理和性能路由方法的查找时，流量管理器还会考虑客户端子网地址（如果该地址包含在解析程序代表最终用户发出请求的查询中）。  
@@ -266,4 +266,4 @@ Azure Resource Manager 要求所有资源组指定一个位置，这决定了部
 - 详细了解流量管理器[终结点监视和自动故障转移](../traffic-manager/traffic-manager-monitoring.md)。
 - 详细了解流量管理器[流量路由方法](../traffic-manager/traffic-manager-routing-methods.md)。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update -->

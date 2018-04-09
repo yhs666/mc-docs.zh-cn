@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric 上的 Reliable Actors | Azure"
-description: "介绍 Reliable Actors 如何在 Reliable Services 上进行分层以及如何使用 Service Fabric 平台的功能。"
+title: Service Fabric 上的 Reliable Actors | Azure
+description: 介绍 Reliable Actors 如何在 Reliable Services 上进行分层以及如何使用 Service Fabric 平台的功能。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 09/20/2017
-ms.date: 11/13/2017
+origin.date: 03/09/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: afab7df284119348d8ea233818825fd177a89ced
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 7baf0fe7a1aff6e004243e5af34e04bb6967c2e2
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Reliable Actors 如何使用 Service Fabric 平台
 本文介绍了 Reliable Actors 如何使用 Azure Service Fabric 平台。 Reliable Actors 在有状态的可靠服务（称为*执行组件服务*）的实现托管的框架中运行。 执行组件服务包含管理执行组件的生命周期和消息发送所需的所有组件：
@@ -42,9 +42,6 @@ ms.lasthandoff: 11/09/2017
 * 服务备份和还原。
 * 共享给所有执行组件的功能，例如断路器。
 * 对执行组件服务自身和每个执行组件的远程过程调用。
-
-> [!NOTE]
-> Java/Linux 目前不支持有状态服务。
 
 ### <a name="using-the-actor-service"></a>使用执行组件服务
 执行组件实例可访问运行这些实例的执行组件服务。 通过执行组件服务，执行组件实例可以编程方式获取服务上下文。 服务上下文包括分区 ID、服务名称、应用程序名称以及其他特定于 Service Fabric 平台的信息：
@@ -405,7 +402,7 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 * [执行组件生命周期和垃圾回收](service-fabric-reliable-actors-lifecycle.md)
 * [执行组件 API 参考文档](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [.NET 代码示例](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java 代码示例](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java 代码示例](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png
@@ -414,4 +411,4 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 
-<!--Update_Description: update meta properties, add content of Actor using Remoting V2 Stacks-->
+<!--Update_Description: update meta properties -->

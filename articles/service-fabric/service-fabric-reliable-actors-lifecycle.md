@@ -1,6 +1,6 @@
 ---
-title: "基于执行组件的 Azure 微服务生命周期概述 | Azure"
-description: "介绍 Service Fabric Reliable Actor 生命周期、垃圾回收和如何手动删除执行组件及其状态"
+title: 基于执行组件的 Azure 微服务生命周期概述 | Azure
+description: 介绍 Service Fabric Reliable Actor 生命周期、垃圾回收和如何手动删除执行组件及其状态
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/06/2017
-ms.date: 11/13/2017
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: a7647f7f3d21c89d9eceef9d1fe875888c715602
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 24b8be3d363b93a648b689dcd08a51dacc736769
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>执行组件生命周期、自动垃圾回收和手动删除
 首次调用执行组件的任何方法时即可激活该执行组件。 如果在可配置的一段时间内未使用执行组件，则此执行组件将停用（执行组件运行时对其进行垃圾回收）。 还可以在任何时候手动删除执行组件及其状态。
@@ -126,7 +126,6 @@ IActorService myActorServiceProxy = ActorServiceProxy.Create(
 
 await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 ```
-
 ```Java
 ActorId actorToDelete = new ActorId(id);
 
@@ -152,10 +151,10 @@ myActorServiceProxy.deleteActorAsync(actorToDelete);
 * [执行组件可重入性](service-fabric-reliable-actors-reentrancy.md)
 * [执行组件诊断和性能监视](service-fabric-reliable-actors-diagnostics.md)
 * [执行组件 API 参考文档](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# 示例代码](https://github.com/Azure/servicefabric-samples)
-* [Java 代码示例](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [C# 示例代码](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Java 代码示例](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update link -->

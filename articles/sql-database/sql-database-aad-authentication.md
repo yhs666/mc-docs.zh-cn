@@ -1,27 +1,20 @@
 ---
-title: "Azure Active Directory 身份验证 - Azure SQL（概述）| Azure"
-description: "了解如何通过 SQL 数据库和 SQL 数据仓库使用 Azure Active Directory 进行身份验证"
+title: Azure Active Directory 身份验证 - Azure SQL（概述）| Azure
+description: 了解如何通过 SQL 数据库和 SQL 数据仓库使用 Azure Active Directory 进行身份验证
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 09/12/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: b7f2405ffc3e71d21bc2db8af6ed4b73bdff59bb
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: 7efda0a7017611198a30f732fa3d298ea2867c3c
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>通过 SQL 数据库或 SQL 数据仓库使用 Azure Active Directory 身份验证进行身份验证
 Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) 中的标识连接到 Azure SQL 数据库和 [SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的一种机制。 通过 Azure AD 身份验证，可在一个中心位置中集中管理数据库用户和其他 Microsoft 服务的标识。 集中 ID 管理提供一个单一位置来管理数据库用户，并简化权限管理。 包括如下优点：

@@ -1,33 +1,28 @@
 ---
-title: "SQL 数据库：什么是 DTU？ | Azure"
-description: "了解什么是 Azure SQL 数据库事务单位。"
-keywords: "数据库选项,数据库性能"
+title: SQL 数据库：什么是 DTU？ | Azure
+description: 了解什么是 Azure SQL 数据库事务单位。
+keywords: 数据库选项,数据库性能
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
 editor: CarlRabeler
-ms.assetid: 89e3e9ce-2eeb-4949-b40f-6fc3bf520538
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: NA
 origin.date: 04/13/2017
 ms.date: 10/02/2017
 ms.author: v-johch
-ms.openlocfilehash: 2fade8ed58d6e34b2c9d16110a5bbd2587378703
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 1b6ed20e75f7b90a04ae39cc71422205fb21667e
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>数据库事务单位 (DTU) 和弹性数据库事务单位 (eDTU)
 本文解释数据库事务单位 (DTU) 和弹性数据库事务单位 (eDTU)，以及在达到 DTU 或 eDTU 上限时会发生什么情况。  
 
 ## <a name="what-are-database-transaction-units-dtus"></a>数据库事务单位 (DTU) 的定义是？
-对于[服务层](sql-database-single-database-resources.md)内特定性能级别的单个 Azure SQL 数据库，Microsoft 保证该数据库（独立于 Azure 云中的任何其他数据库）可获得一定级别的资源，并提供可预测的性能级别。 此资源量是以若干数据库事务单位或 DTU 计算的，是 CPU、内存、I/O（数据和事务日志 I/O）的混合度量值。 这些资源之间的比率最初由 [OLTP 基准工作负荷](sql-database-benchmark-overview.md)决定，后者旨在作为典型的真实 OLTP 工作负荷。 工作负荷超过任何以上资源量时，吞吐量将受到限制，从而导致性能下降和超时。 工作负荷使用的资源不会影响 Azure 云中供其他 SQL 数据库使用的资源，而其他工作负荷使用的资源也不会影响供 SQL 数据库使用的资源。
+对于[服务层](sql-database-single-database-resources.md)内特定性能级别的单个 Azure SQL 数据库，Microsoft 保证该数据库（独立于 Azure 云中的任何其他数据库）可获得一定级别的资源，并提供可预测的性能级别。 此资源量是以若干数据库事务单位或 DTU 计算的，是 CPU、内存、I/O（数据和事务日志 I/O）的混合度量值。 这些资源之间的比率最初由 [OLTP 基准工作负荷](sql-database-benchmark-overview.md)决定，后者旨在作为典型的真实 OLTP 工作负荷。 工作负荷超过任何以上资源量时，吞吐量将受到限制，从而导致性能下降和超时。 工作负荷使用的资源不会影响 Azure 云中其他 SQL 数据库可用的资源，而其他工作负荷使用的资源也不会影响用户自己的 SQL 数据库可用的资源。
 
 ![边界框](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
@@ -59,7 +54,7 @@ DTU 最适用于了解 Azure SQL 数据库在不同性能级别和服务层之�
 池很适合具有特定使用模式的大量数据库。 对于给定的数据库，此模式的特征是低平均使用量与相对不频繁的使用高峰。 SQL数据库自动评估现有 SQL 数据库服务器中数据库的历史资源使用率，并在 Azure 门户中推荐适当的池配置。 有关详细信息，请参阅[何时使用弹性池？](sql-database-elastic-pool.md)
 
 ## <a name="what-happens-when-i-hit-my-maximum-dtus"></a>达到最大 DTU 时会发生什么情况？
-性能级别会校准并受到控制，在选定服务层/性能级别所允许的最大限制范围内提供所需的资源来运行数据库工作负荷。 如果工作负荷达到了 CPU/数据 IO/日志 IO 限制之一，会继续接收资源直到达到最大允许级别，但是，查询延迟可能会不断增大。 这些限制不会造成任何错误，而只会减慢工作负荷，直到严重变慢，以致于查询开始超时。如果达到了并发用户会话/请求（工作线程）的最大允许数目限制，会看到明确的错误。 有关 CPU、内存、数据 I/O 和事务日志 I/O 以外的资源的限制信息，请参阅 [Azure SQL 数据库资源限制]( sql-database-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached)。
+性能级别会校准并受到控制，在选定服务层/性能级别所允许的最大限制范围内提供所需的资源来运行数据库工作负荷。 如果工作负荷达到了 CPU/数据 IO/日志 IO 限制中的其中一个限制，会继续接收资源直到达到最大允许级别，但是，可能会发现查询延迟不断增加。 这些限制不会造成任何错误，而只会减慢工作负荷，直到严重变慢，以致于查询开始超时。如果达到了并发用户会话/请求（工作线程）的最大允许数目限制，会看到明确的错误。 有关 CPU、内存、数据 I/O 和事务日志 I/O 以外的资源的限制信息，请参阅 [Azure SQL 数据库资源限制]( sql-database-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached)。
 
 ## <a name="next-steps"></a>后续步骤
 * 有关适用于单一数据库和弹性池上的 DTU 和 eDTU，以及除 CPU、内存、数据 I/O 和事务日志 I/O 之外的其他资源限制的信息，请参阅[服务层](sql-database-service-tiers.md)。

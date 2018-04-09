@@ -1,26 +1,20 @@
 ---
-title: "威胁检测 - Azure SQL 数据库 | Azure"
-description: "威胁检测会检测异常的数据库活动，指出数据库有潜在的安全威胁。"
+title: 威胁检测 - Azure SQL 数据库 | Azure
+description: 威胁检测会检测异常的数据库活动，指出数据库有潜在的安全威胁。
 services: sql-database
-documentationcenter: 
 author: Hayley244
 manager: digimobile
-editor: v-romcal
-ms.assetid: b50d232a-4225-46ed-91e7-75288f55ee84
 ms.service: sql-database
 ms.custom: security-protect
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
 origin.date: 06/19/2017
 ms.date: 01/08/2018
 ms.author: v-johch
-ms.openlocfilehash: 2879ee058781ff6945fb5ddc2a805733d60ebce5
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 74e9c547934f3ba893db72a7828caae6b2799e9e
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="sql-database-threat-detection"></a>SQL 数据库威胁检测
 
@@ -34,7 +28,7 @@ SQL 威胁检测提供新的安全层，在发生异常活动时会提供安全�
 
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>在 Azure 门户中为数据库设置威胁检测
-1. 启动 Azure 门户 ( [https://portal.azure.cn](https://portal.azure.cn))。
+1. 在 [https://portal.azure.cn](https://portal.azure.cn) 中启动 Azure 门户。
 2. 导航到要监视的 SQL 数据库的“配置”页。 在“设置”页中，选择“审核和威胁检测”。 
     ![导航窗格][1]
 3. 在“审核和威胁检测”配置页中，将审核设置为“打开”，随后会显示威胁检测设置。
@@ -55,7 +49,7 @@ SQL 威胁检测提供新的安全层，在发生异常活动时会提供安全�
    电子邮件将提供可疑安全事件的相关信息，包括异常活动的性质、数据库名称、服务器名称、应用程序名称和事件时间。 此外，电子邮件还会提供可能原因和建议操作的相关信息，帮助调查和缓解数据库的潜在威胁。<br/>
      
     ![导航窗格][4]
-2. 电子邮件警报包括指向 SQL 审核日志的直接链接。 单击此链接将启动 Azure 门户，并打开可疑事件发生前后的 SQL 审核记录。 单击审核记录可查看有关可疑数据库活动的详细信息，使查找已执行的 SQL 语句（访问者、执行内容、执行时间）以及确定事件是否合法或有恶意（例如易受 SQL 注入攻击的应用程序漏洞、有人破坏敏感数据等）变得更简单。<br/>
+2. 电子邮件警报包括指向 SQL 审核日志的直接链接。 单击此链接将启动 Azure 门户，并打开可疑事件发生前后的 SQL 审核记录。 单击审核记录可查看有关可疑数据库活动的详细信息，使查找已执行的 SQL 语句（访问者、执行内容、执行时间）以及确定事件是否合法或有恶意（例如易受 SQL 注入攻击的应用程序漏洞、有人破坏敏感数据等等）变得更简单。<br/>
    ![导航窗格][5]
 
 

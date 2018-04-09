@@ -1,3 +1,5 @@
+# [流量管理器文档](index.md)
+
 # 概述
 ## [什么是流量管理器？](traffic-manager-overview.md)
 ## [路由方法](traffic-manager-routing-methods.md)
@@ -18,6 +20,9 @@
 ## [配置优先级路由方法](traffic-manager-configure-priority-routing-method.md)
 ## [配置加权路由方法](traffic-manager-configure-weighted-routing-method.md)
 ## [配置性能路由方法](traffic-manager-configure-performance-routing-method.md)
+<!--Not Available ## Send Real User Measurements to Traffic Manager -->
+<!--Not Available ### [Using Visual Studio SDK](traffic-manager-create-rum-visual-studio.md) -->
+<!--Not Available ### [Using web pages](traffic-manager-create-rum-web-pages.md) -->
 ## [管理终结点](traffic-manager-manage-endpoints.md)
 ## [管理配置文件](traffic-manager-manage-profiles.md)
 ## [验证流量管理器设置](traffic-manager-testing-settings.md)
@@ -28,7 +33,7 @@
 ## 故障排除
 ### [排查 Azure 流量管理器中出现降级状态的问题](traffic-manager-troubleshooting-degraded.md)
 
-# 引用
+# 参考
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
 ## [Azure CLI](https://docs.azure.cn/zh-cn/cli/network/traffic-manager?view=azure-cli-latest)
 ## [Java](https://docs.azure.cn/java/api/com.microsoft.azure.management.trafficmanager)
@@ -44,11 +49,11 @@
 
 # 资源
 ## [博客](https://www.azure.cn/blog/tags/网络服务)
-## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
-## [定价](https://www.azure.cn/pricing/details/traffic-manager/)
+## [MSDN 论坛](https://www.azure.cn/support/contact/)
+## [价格](https://www.azure.cn/pricing/details/traffic-manager/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [服务更新](https://www.azure.cn/what-is-new/)
 ## [SLA](https://www.azure.cn/support/sla/traffic-manager/)
 ## [视频](https://www.azure.cn/video-center/)
 
-<!--Update_Description: update link-->
+<!--ms.date: 04/09/2018 -->

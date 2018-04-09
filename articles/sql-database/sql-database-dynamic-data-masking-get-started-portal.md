@@ -1,26 +1,20 @@
 ---
-title: "Azure 门户：SQL 数据库动态数据屏蔽 | Azure"
-description: "如何开始在 Azure 门户中使用 SQL 数据库动态数据屏蔽"
+title: Azure 门户：SQL 数据库动态数据屏蔽 | Azure
+description: 如何开始在 Azure 门户中使用 SQL 数据库动态数据屏蔽
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: "2"
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
 origin.date: 11/22/2016
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: c5aa641421af80378185559460cff86de8aba12e
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 982c6b3f66372dc30c4b151bbb12772685b43313
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Azure 门户的 SQL 数据库动态数据掩码入门
 
@@ -28,7 +22,7 @@ ms.lasthandoff: 01/05/2018
 
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>使用 Azure 门户为数据库设置动态数据掩码
-1. 启动 Azure 门户 ( [https://portal.azure.cn](https://portal.azure.cn))。
+1. 在 [https://portal.azure.cn](https://portal.azure.cn) 中启动 Azure 门户。
 2. 导航到要掩码的敏感数据所在数据库的设置页。
 3. 单击“动态数据掩码”磁贴，这会启动“动态数据掩码”配置页。
    

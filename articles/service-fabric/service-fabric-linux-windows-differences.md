@@ -1,25 +1,25 @@
 ---
-title: "Linux 和 Windows 之间的 Azure Service Fabric 差异 | Azure"
-description: "Linux 上的 Azure Service Fabric 与 Windows 上的 Azure Service Fabric 之间的差异。"
+title: Linux 和 Windows 之间的 Azure Service Fabric 差异 | Azure
+description: Linux 上的 Azure Service Fabric 与 Windows 上的 Azure Service Fabric 之间的差异。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 03/12/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: a11754a854203e3b564fef9f8a3a75466956a382
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: c0cdd982d46532adc7e975df3828f09722df8147
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Linux 上的 Service Fabric 与 Windows 上的 Service Fabric 之间的差异
 
@@ -98,4 +98,4 @@ Windows 和 Linux 的开发工具也不相同。 Visual Studio、Powershell、VS
 * [在 Linux 上创建第一个 CSharp 应用程序](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [使用 Service Fabric CLI 管理应用程序](service-fabric-application-lifecycle-sfctl.md)
 
-<!--Update_Description: wording update, update meta properties -->
+<!--Update_Description: update meta properties -->

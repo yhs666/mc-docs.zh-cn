@@ -1,11 +1,11 @@
 ---
-title: "Service Fabric 项目创建后续步骤 | Azure"
-description: "了解刚刚在 Visual Studio 中创建的应用程序项目。  了解如何使用教程生成服务，并详细了解如何开发适用于 Service Fabric 的服务。"
+title: Service Fabric 项目创建后续步骤 | Azure
+description: 了解刚刚在 Visual Studio 中创建的应用程序项目。  了解如何使用教程生成服务，并详细了解如何开发适用于 Service Fabric 的服务。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 299d1f97-1ca9-440d-9f81-d1d0dd2bf4df
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/07/2017
-ms.date: 01/01/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 604f32c5cd3ea918be2ee99d983f137383e8e51a
-ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
+ms.openlocfilehash: df8b234c23e0f382b3ad2690c08c030141efab2b
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Service Fabric 应用程序和后续步骤
 已创建 Azure Service Fabric 应用程序。 本指南介绍一些可以尝试阅读的教程、项目构成、你可能感兴趣的其他信息，以及可能的后续步骤。
@@ -55,7 +55,7 @@ ms.lasthandoff: 01/19/2018
 * 用于描述应用程序的应用程序清单。 可以在 ApplicationPackageRoot 文件夹下查找清单。 详细了解[应用程序和服务清单](service-fabric-application-model.md)。
 
 ## <a name="learn-more-about-the-programming-models"></a>详细了解编程模型
-Service Fabric 提供了多种方法来编写和管理服务。  下面是有关[无状态和有状态 Reliable Services](service-fabric-reliable-services-introduction.md)、[Reliable Actors](service-fabric-reliable-actors-introduction.md)、[容器](service-fabric-containers-overview.md)、[来宾可执行文件](service-fabric-deploy-existing-app.md)及[无状态和有状态 ASP.NET Core 服务](service-fabric-reliable-services-communication-aspnetcore.md)的概述和概念信息。
+Service Fabric 提供了多种方法来编写和管理服务。  下面是有关[无状态和有状态 Reliable Services](service-fabric-reliable-services-introduction.md)、[Reliable Actors](service-fabric-reliable-actors-introduction.md)、[容器](service-fabric-containers-overview.md)、[来宾可执行文件](service-fabric-guest-executables-introduction.md)及[无状态和有状态 ASP.NET Core 服务](service-fabric-reliable-services-communication-aspnetcore.md)的概述和概念信息。
 
 ## <a name="learn-about-service-communication"></a>了解服务通信
 Service Fabric 应用程序由不同的服务组成，其中每个服务执行专门的任务。 这些服务可以相互通信，群集外部可能有些客户端应用程序会与这些服务进行连接和通信。 了解如何在 Service Fabric 中[设置与服务进行的通信以及服务之间的通信](service-fabric-connect-and-communicate-with-services.md)。 

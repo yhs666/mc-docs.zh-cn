@@ -1,25 +1,25 @@
 ---
-title: "Azure Service Fabric 映像存储区连接字符串 | Azure"
-description: "了解映像存储区连接字符串"
+title: Azure Service Fabric 映像存储区连接字符串 | Azure
+description: 了解映像存储区连接字符串
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 00f8059d-9d53-4cb8-b44a-b25149de3030
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/10/2018
-ms.date: 02/26/2018
+origin.date: 02/27/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 308fdfd1ee21c5947760d2567ec8e6cbaa2aadff
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: e27a4f030b3402c84a476be9072072b18e6ec4ca
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>了解 ImageStoreConnectionString 设置
 
@@ -35,8 +35,9 @@ Service Fabric 一开始被许多不同的团队用作 Microsoft 内部消耗平
 
 2. 文件系统：“file:[file system path]”
 
-3. Azure 存储："xstore:DefaultEndpointsProtocol=https;AccountName=[...];AccountKey=[...];Container=[...];EndpointSuffix=core.cloudapp.chinacloudapi.cn"
-<!-- Add the EndpointSuffix in configuration of EndpointSuffix=core.cloudapp.chinacloudapi.cn -->
+3. Azure 存储：“xstore:DefaultEndpointsProtocol=https;AccountName=[...];AccountKey=[...];Container=[...];EndpointSuffix=core.chinacloudapi.cn”
+<!-- Add the EndpointSuffix in configuration of EndpointSuffix=core.chinacloudapi.cn -->
+<!-- Notice: core.windows.net to core.chinacloudapi.cn -->
 
 在生产中使用的提供程序类型为映像存储区服务，它是可通过 Service Fabric Explorer 查看的有状态持久化系统服务。 
 
@@ -44,7 +45,9 @@ Service Fabric 一开始被许多不同的团队用作 Microsoft 内部消耗平
 
 在群集内的系统服务中托管映像存储区可清除包存储库的外部依赖项，并让我们能够更好地控制存储的位置。 围绕映像存储区的后续改进很可能先针对映像存储区提供程序（若非唯一目标）。 客户端已连接到目标群集，因此，映像存储区服务提供程序的连接字符串不具有任何唯一的信息。 客户端只需知道应使用面向系统服务的协议即可。
 
-在开发过程中，本地单机群集使用文件系统提供程序，而不使用映像存储区服务，目的在于让群集的 bootstrap 操作速度略微提升。 差异通常较小，但在开发期间，它对大多数人员而言是有用的优化。 尽管可部署其他存储提供程序类型的本地单机群集，但通常没有理由这么做，因为无论使用哪种提供程序，开发/测试工作流都保持不变。 除这种用法外，文件系统和 Azure 存储提供程序仅为提供旧版支持而存在。
+在开发过程中，本地单机群集使用文件系统提供程序，而不使用映像存储区服务，目的在于让群集的 bootstrap 操作速度略微提升。 差异通常较小，但在开发期间，它对大多数人员而言是有用的优化。 尽管可部署其他存储提供程序类型的本地单机群集，但通常没有理由这么做，因为无论使用哪种提供程序，开发/测试工作流都保持不变。 Azure 存储提供程序仅用于为在引入映像存储服务提供程序前部署的旧群集提供旧版支持。
+
+此外，文件系统提供程序和 Azure 存储提供程序都不应用作在多个群集之间共享映像存储的方法 - 这会导致群集配置数据损坏，因为每个群集都可以将冲突数据写入到映像存储。 若要在多个群集之间共享预配的应用程序包，请改用 [sfpkg][12] 文件，可以使用下载 URI 将这些文件上传到任何外部存储。
 
 因此，虽然 ImageStoreConnectionString 是可配置的，但用户通常只使用默认设置。 通过 Visual Studio 发布到 Azure 时，该参数会相应地自动设置。 对于在 Azure 中托管的群集的编程部署，连接字符串始终是“fabric:ImageStore”。 即使有疑问时，也始终可通过 [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest)、[.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) 或 [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest) 检索群集清单来验证其值。 同样，本地测试和生产群集应始终配置为使用映像存储区服务提供程序。
 
@@ -57,5 +60,6 @@ Service Fabric 一开始被许多不同的团队用作 Microsoft 内部消耗平
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
+[12]: service-fabric-package-apps.md#create-an-sfpkg
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, update link, wording update -->

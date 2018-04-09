@@ -1,26 +1,21 @@
 ---
-title: "使用 Ruby 查询 Azure SQL 数据库 | Azure"
-description: "本主题介绍如何使用 Ruby 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。"
+title: 使用 Ruby 查询 Azure SQL 数据库 | Azure
+description: 本主题介绍如何使用 Ruby 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: 94fec528-58ba-4352-ba0d-25ae4b273e90
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
 origin.date: 07/15/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 69cf8449e51fa7c17be40a8f630c3a78afe80034
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 136378125cf05f53af129e677977b5a6dee6d280
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="use-ruby-to-query-an-azure-sql-database"></a>使用 Ruby 查询 Azure SQL 数据库
 

@@ -1,27 +1,21 @@
 ---
-title: "修复 SQL 连接错误和暂时性错误 | Azure"
-description: "了解如何排查、诊断和防止 Azure SQL 数据库中的 SQL 连接错误或暂时性错误。 "
-keywords: "SQL 连接, 连接字符串, 连接问题, 暂时性错误, 连接错误"
+title: 修复 SQL 连接错误和暂时性错误 | Azure
+description: '了解如何排查、诊断和防止 Azure SQL 数据库中的 SQL 连接错误或暂时性错误。 '
+keywords: SQL 连接, 连接字符串, 连接问题, 暂时性错误, 连接错误
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 origin.date: 11/29/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: dff6891fb315367b75920552b6898cd8f3907d8b
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 77ff795391953a5047d6b87745fbde588882eff5
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>排查、诊断和防止 SQL 数据库中的 SQL 连接错误和暂时性错误
 本文介绍如何防止、排查、诊断和减少客户端应用程序在与 Azure SQL 数据库交互时发生的连接错误和暂时性错误。 了解如何配置重试逻辑、生成连接字符串以及调整其他连接设置。
@@ -252,7 +246,7 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 客户端可以通过记录其所遇到的所有错误来帮助你进行诊断。 可将日志条目与 SQL 数据库本身内部记录的错误数据相关联。
 
-Enterprise Library 6 (EntLib60) 提供了 .NET 托管类来帮助进行日志记录。 有关详细信息，请参阅：[5 - 与写入日志一样简单：使用日志记录应用程序块](http://msdn.microsoft.com/library/dn440731.aspx)
+Enterprise Library 6 (EntLib60) 提供了 .NET 托管类来帮助进行日志记录。 有关详细信息，请参阅：[5 - 与写入日志一样简单：使用日志记录应用程序块](http://msdn.microsoft.com/library/dn440731.aspx)。
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 

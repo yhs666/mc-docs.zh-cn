@@ -1,26 +1,20 @@
 ---
-title: "查询分片的 Azure SQL 数据库 | Azure"
-description: "使用弹性数据库客户端库运行跨分片查询。"
+title: 查询分片的 Azure SQL 数据库 | Azure
+description: 使用弹性数据库客户端库运行跨分片查询。
 services: sql-database
-documentationCenter: 
 manager: digimobile
 author: yunan2016
-editor: 
-ms.assetid: a4379c15-f213-4026-ab6f-a450ee9d5758
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: b9b865994d35d11d7c7fa9b1503180d900625e9c
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: ccfff22b813d76596ca563ef938132cb35184690
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="multi-shard-querying"></a>多分片查询
 ## <a name="overview"></a>概述

@@ -1,27 +1,20 @@
 ---
-title: "Azure 分析的公共数据集 | Azure"
-description: "了解可用于设计 Azure 分析服务和解决方案原型并进行测试的公共数据集。"
+title: Azure 分析的公共数据集 | Azure
+description: 了解可用于设计 Azure 分析服务和解决方案原型并进行测试的公共数据集。
 services: sql-database
-documentationcenter: 
 author: Hayley244
 manager: digimobile
-editor: 
-tags: 
 ms.custom: reference
-ms.assetid: 
 ms.service: sql-database
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: 
 origin.date: 03/20/2017
 ms.date: 07/03/2017
 ms.author: v-johch
-ms.openlocfilehash: 7feacee6956e3d455dc6de5a1563b767cac689ff
-ms.sourcegitcommit: bb82041119027be7a62fc96945d92a8a452e7849
+ms.openlocfilehash: 4328d5786eeb5cf030529c1f3ea71730b9f03008
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>用于测试和原型设计的公共数据集
 
@@ -33,7 +26,7 @@ ms.lasthandoff: 06/28/2017
 |---|---|---|
 | [美国政府数据](https://www.census.gov/data.html) | 超过 190,000 个数据集，涵盖了美国的农业、气候、消费者、生态系统、教育、能源、金融、保健、地方政府、制造业、海运、海洋、公共安全和科研方面的数据。 | 各种大小的文件，采用 HTML、XML、CSV、JSON、Excel 等格式。 可按文件格式筛选可用数据集。 |
 | [美国人口普查数据](https://www.census.gov/data.html) | 美国人口的统计数据 | 数据集采用各种格式。 |
-| [来自 NASA 的地球科学数据](https://earthdata.nasa.gov/) | 32,000 多个数据集，涵盖了农业、大气、生物圈、气候、低温层、人文领域、水圈、地表、海洋、太阳与地球相互作用等方面的数据。 | 数据集采用各种格式。 |
+| [来自 NASA 的地球科学数据](https://earthdata.nasa.gov/) | 32,000 多个数据集，涵盖了农业、大气、生物圈、气候、低温层、人文领域、水圈、地表、海洋、太阳与地球相互作用等方面的数据。 | 各种格式的数据集。 |
 | [航班延迟和其他交通数据](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | “美国运输部 (DOT) 运输统计局 (BTS) 对大型航空公司运营的国内航班的准时情况进行了跟踪。 可在此网站发布的汇总表中了解准时的、延迟的和取消的航班及转机航班数的汇总信息。” | 文件为 CSV 格式。 |
 | [交通死亡事故 - 美国事故分析报告系统 (FARS)](http://www.nhtsa.gov/FARS) | “FARS 是全国性的普查，可提供 NHTSA、国会和美国公众就机动车辆交通事故造成的致命事故公开的年度数据。” | “使用 FARS 查询系统自己创建在线运行的死亡数据。 或从 FTP 站点下载自 1975 起的所有 FARS 数据。” |
 | [有毒化学物质数据 - EPA 毒性预测 (ToxCast™) 数据](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | “EPA 可公开提供最近更新的数千种化学品的高通量毒性数据。 该数据由 EPA 的 ToxCast 研究得出。” | 存在各种格式的数据集，包括电子表格、R 包和 MySQL 数据库文件。 |

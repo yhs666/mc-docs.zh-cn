@@ -1,26 +1,20 @@
 ---
-title: "迁移要扩大的现有数据库 | Azure"
-description: "通过创建分片映射管理器来转换分片数据库，以使用弹性数据库工具"
+title: 迁移要扩大的现有数据库 | Azure
+description: 通过创建分片映射管理器来转换分片数据库，以使用弹性数据库工具
 services: sql-database
-documentationcenter: 
 author: Hayley244
 manager: digimobile
-editor: 
-ms.assetid: 8c851d8e-8fd5-4327-89c1-9178b20ddd69
 ms.service: sql-database
 ms.custom: scale out apps
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-management
 origin.date: 10/24/2016
 ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 46ebb788fde1008f7d5f0ef7530fc8e5aa9e698a
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 7e33071d1319c969509fd40a45bd42647fe6ff96
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>迁移要扩展的现有数据库
 使用 Azure SQL 数据库数据库工具（例如[弹性数据库客户端库](sql-database-elastic-database-client-library.md)）轻松管理现有的扩展共享数据库。 必须先转换现有数据库集，以使用[分片映射管理器](sql-database-elastic-scale-shard-map-management.md)。 

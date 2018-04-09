@@ -1,26 +1,21 @@
 ---
-title: "拆分/合并安全配置 | Microsoft 文档"
-description: "使用拆分/合并服务设置用于加密的 x409 证书以实现弹性缩放。"
+title: 拆分/合并安全配置 | Microsoft 文档
+description: 使用拆分/合并服务设置用于加密的 x409 证书以实现弹性缩放。
 metakeywords: Elastic Database certificates security
 services: sql-database
-documentationcenter: 
 manager: digimobile
 author: yunan2016
-ms.assetid: f9e89c57-61a0-484f-b787-82dae2349cb6
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 05/27/2016
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: a35f8b61b8136e20223168f1bc49986c1b4b4131
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 30d0641ad4e976f5de28bfcfde7b52d0f7412f97
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="split-merge-security-configuration"></a>拆分/合并安全配置
 若要使用拆分/合并服务，必须正确配置安全性。 该服务是 Azure SQL 数据库弹性缩放功能的一部分。 有关详细信息，请参阅[弹性缩放拆分和合并服务教程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)。

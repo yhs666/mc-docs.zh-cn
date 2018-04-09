@@ -1,27 +1,20 @@
 ---
-title: "什么是 Azure SQL 数据库服务？ | Azure"
-description: "获取 SQL 数据库简介：Microsoft 在云中的关系数据库管理系统 (RDBMS) 的技术详细信息与功能。"
-keywords: "SQL 简介, 什么是 SQL 数据库"
+title: 什么是 Azure SQL 数据库服务？ | Azure
+description: 获取 SQL 数据库简介：Microsoft 在云中的关系数据库管理系统 (RDBMS) 的技术详细信息与功能。
+keywords: SQL 简介, 什么是 SQL 数据库
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: cgronlun
-ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview, mvc
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 09/20/2017
 ms.date: 2/28/2018
 ms.author: v-johch
-ms.openlocfilehash: 0b818a7cf3c211f8bc637d171f438bb0934a5f84
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: db01c403615a854b341985e8b96911c1a399f0b9
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什么是 Azure SQL 数据库服务？ 
 
@@ -121,7 +114,7 @@ SQL 数据库是使用 [Always Encrypted](https://docs.microsoft.com/sql/relatio
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 集成和多重身份验证
 
-通过 SQL 数据库，可使用 [Azure Active Directory 集成](sql-database-aad-authentication.md)集中管理数据库用户和其他 Microsoft 服务的身份。 此功能简化了权限管理，增强了安全性。 Azure Active Directory 支持[多重身份验证](sql-database-ssms-mfa-authentication.md) (MFA)，以便在支持单一登录进程的同时提高数据和应用程序安全性。
+通过 SQL 数据库，可使用 [Azure Active Directory 集成](sql-database-aad-authentication.md)集中管理数据库用户和其他 Microsoft 服务的身份。 此功能简化了权限管理，增强了安全性。 Azure Active Directory 支持[多重身份验证](sql-database-ssms-mfa-authentication.md) (MFA)，以便在支持单一登录过程的同时提高数据和应用程序安全性。
 
 ### <a name="compliance-certification"></a>符合性认证
 

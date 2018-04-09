@@ -1,25 +1,20 @@
 ---
-title: "升级到最新的弹性数据库客户端库 | Microsoft 文档"
-description: "使用 Nuget 升级弹性数据库客户端库。"
+title: 升级到最新的弹性数据库客户端库 | Microsoft 文档
+description: 使用 Nuget 升级弹性数据库客户端库。
 services: sql-database
-documentationcenter: 
 manager: digimobile
 author: forester123
-ms.assetid: 0a546510-76e7-465e-9271-f15ff0cfa959
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 03/06/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: b3ef0e204040478e26b8521c9d68a5ac253faad2
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: e34aaf6d7658dd49ee86f9b7d3ab14af775b0640
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>升级应用以使用最新的弹性数据库客户端库
 可通过 Visual Studio 中的 NuGet 和 NuGetPackage 管理器界面获取[弹性数据库客户端库](sql-database-elastic-database-client-library.md)的新版本。 升级包含客户端库的 bug 修复和新功能支持。
@@ -57,18 +52,16 @@ ms.lasthandoff: 10/31/2017
 
 或者，创建一个 Visual Studio 应用程序，它打开 ShardMapManager，循环访问所有分片并通过调用 [UpgradeLocalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore.aspx) 和 [UpgradeGlobalStore](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore.aspx) 方法执行元数据升级，如此示例所示： 
 
-```
-ShardMapManager smm =
-   ShardMapManagerFactory.GetSqlShardMapManager
-   (connStr, ShardMapManagerLoadPolicy.Lazy); 
-smm.UpgradeGlobalStore(); 
+    ShardMapManager smm =
+       ShardMapManagerFactory.GetSqlShardMapManager
+       (connStr, ShardMapManagerLoadPolicy.Lazy); 
+    smm.UpgradeGlobalStore(); 
 
-foreach (ShardLocation loc in
- smm.GetDistinctShardLocations()) 
-{   
-   smm.UpgradeLocalStore(loc); 
-} 
-```
+    foreach (ShardLocation loc in
+     smm.GetDistinctShardLocations()) 
+    {   
+       smm.UpgradeLocalStore(loc); 
+    } 
 
 这些元数据升级技术可以应用多次而无危害。 例如，如果在已更新后，旧的客户端版本无意中创建了一个分片，可以对所有分片再次运行升级，以确保最新的元数据版本在整个基础结构中存在。 
 

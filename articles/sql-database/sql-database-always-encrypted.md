@@ -1,27 +1,21 @@
 ---
-title: "Always Encrypted：Azure SQL 数据库 - Windows 证书存储 | Azure"
-description: "本文演示如何使用 SQL Server Management Studio (SSMS) 中的 Always Encrypted 向导，通过数据加密来保护 SQL 数据库中的敏感数据。 它还演示如何将加密密钥存储在 Windows 证书存储中。"
-keywords: "加密数据, sql 加密, 数据库加密, 敏感数据, 始终加密"
+title: Always Encrypted：Azure SQL 数据库 - Windows 证书存储 | Azure
+description: 本文演示如何使用 SQL Server Management Studio (SSMS) 中的 Always Encrypted 向导，通过数据加密来保护 SQL 数据库中的敏感数据。 它还演示如何将加密密钥存储在 Windows 证书存储中。
+keywords: 加密数据, sql 加密, 数据库加密, 敏感数据, 始终加密
 services: sql-database
-documentationcenter: 
 author: Hayley244
 manager: digimobile
-editor: cgronlun
-ms.assetid: ce7e052e-8bf6-4d7c-9204-4c6f4afeba4b
 ms.service: sql-database
 ms.custom: security
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 03/02/2017
-ms.date: 
+ms.date: ''
 ms.author: v-johch
-ms.openlocfilehash: 46265332f77941ff6d6b28905f037749a844bdd9
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 24a3432907248b655eeb25b352897c675fb0de9e
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>始终加密：保护 SQL 数据库中的敏感数据并将加密密钥存储在 Windows 证书存储中
 

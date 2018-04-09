@@ -1,23 +1,23 @@
 ---
-title: "Azure Service Fabric 环境变量 | Azure"
-description: "Service Fabric 环境变量的参考文档"
+title: Azure Service Fabric 环境变量 | Azure
+description: Service Fabric 环境变量的参考文档
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/07/2017
-ms.date: 03/12/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9c64d7f41eb56efc8784ab91541f597e828abaf1
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 9b70751b9580e32e7e2ba98e518aef179b5928b2
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="service-fabric-environment-variables"></a>Service Fabric 环境变量
 
@@ -37,7 +37,7 @@ Service Fabric 为每个服务实例提供了内置环境变量集。 下面是�
 | Fabric_NodeId                                | 运行进程的节点的节点 ID                            | bf865279ba277deb864a976fbf4c200e                                     |
 | Fabric_NodeIPOrFQDN                          | 群集清单文件中指定的节点的 IP 或FQDN。 | localhost 或 10.0.0.1                                                |
 | Fabric_NodeName                              | 运行进程的节点的节点名称                          | _Node_0                                                              |
-| Fabric_ServiceName                           | 服务的名称，如果服务在 ExclusiveProcess 模式下托管  | MyService                                               |
+| Fabric_ServiceName                           | 服务的名称（如果服务在 ExclusiveProcess 模式下托管）。 仅当使用 ServicePackageActivationMode ExclusiveProcess 创建服务时，此变量值才可用。  | MyService                                               |
 | Fabric_ServicePackageActivationId            | ServicePackageActivationId                                         | GUID                                                               |
 | Fabric_ServicePackageName                    | 包含进程的服务包的名称                     | Web1Pkg                                                              |
 
@@ -56,5 +56,4 @@ Service Fabric 运行时使用的内部环境变量：
 - FabricActivatorAddress
 - FabricPackageFileName
 - HostedServiceName
-<!-- Update_Description: new articles on service fabric environment variables reference -->
-<!--ms.date: 03/12/2018-->
+<!-- Update_Description: wording update -->

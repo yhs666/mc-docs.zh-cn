@@ -15,11 +15,11 @@ ms.topic: hero-article
 origin.date: 12/10/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 22d3596a2a2a4046229d13a03478e27744545a46
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: 8e59220c19a2958995f697a4fcdd8a670fdf1b71
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 开始传送点播内容
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -119,7 +119,7 @@ ms.lasthandoff: 03/29/2018
             AzureAdTokenCredentials tokenCredentials = 
                 new AzureAdTokenCredentials(_AADTenantDomain,
                     new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-                    AzureEnvironments.AzureCloudEnvironment);
+                    AzureEnvironments.AzureChinaCloudEnvironment);
 
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 

@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL 数据库的查询性能见解 | Microsoft 文档"
-description: "查询性能监视可以识别 Azure SQL 数据库中 CPU 消耗最大的查询。"
+title: Azure SQL 数据库的查询性能见解 | Microsoft 文档
+description: 查询性能监视可以识别 Azure SQL 数据库中 CPU 消耗最大的查询。
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: monicar
-ms.assetid: c2f580b2-3835-453f-89f5-140e02dd2ea7
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 07/05/2017
 ms.date: 10/02/2017
 ms.author: v-johch
-ms.openlocfilehash: 6bb8bacc8e01537f0d1f509bbd26bdc70e4b3b5d
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 878f82faf81b74eeb40690221abefdde1c4d4eff
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL 数据库 Query Performance Insight
 管理和优化关系数据库性能是一项颇具挑战性的操作，需要投入大量的专业知识和时间。 查询性能见解通过提供以下功能使排查数据库性能问题花费的时间更少：
@@ -41,7 +35,7 @@ ms.lasthandoff: 09/28/2017
 * 需要具备**读者**、**所有者**、**参与者**、**SQL DB 参与者**或 **SQL Server 参与者**权限才能查看资源占用排名靠前的查询和图表。 
 * 需要具备**所有者**、**参与者**、**SQL DB 参与者**或 **SQL Server 参与者**权限才能查看查询文本。
 
-## <a name="using-query-performance-insight"></a>使用 Query Performance Insight
+## <a name="using-query-performance-insight"></a>使用查询性能见解
 查询性能见解很容易使用：
 
 * 打开 [Azure 门户](https://portal.azure.cn/)并找到要检查的数据库。 
@@ -79,7 +73,7 @@ ms.lasthandoff: 09/28/2017
    * 特定查询的执行总次数。
      
      使用复选框选择或清除图表要包含或排除的单个查询。
-3. 如果感觉数据已过时，可单击“**刷新**”按钮。
+3. 如果感觉数据已过时，可单击“刷新”  按钮。
 4. 可以使用滑块和缩放按钮来更改观测间隔和检查峰值：![设置](./media/sql-database-query-performance/zoom.png)
 5. 或者，如果想要查看不同的视图，则可以选择“**自定义**”选项卡并设置：
    

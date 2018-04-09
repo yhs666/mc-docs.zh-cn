@@ -1,27 +1,22 @@
 ---
-title: "监视和性能优化 - Azure SQL 数据库 | Azure"
-description: "有关通过评估和改进来调整 Azure SQL 数据库性能的提示。"
+title: 监视和性能优化 - Azure SQL 数据库 | Azure
+description: 有关通过评估和改进来调整 Azure SQL 数据库性能的提示。
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: 
-keywords: "sql 性能优化, 数据库性能优化, sql 性能优化提示, sql 数据库性能优化"
-ms.assetid: eb7b3f66-3b33-4e1b-84fb-424a928a6672
+editor: ''
+keywords: sql 性能优化, 数据库性能优化, sql 性能优化提示, sql 数据库性能优化
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 06/13/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: fe5269963836d16ab8ff0ee908b29d7cef747ec1
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: f64abdcc996cd716a3565c5693a4abef0fd3728f
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="monitoring-and-performance-tuning"></a>监视和性能优化
 

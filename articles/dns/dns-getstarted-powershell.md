@@ -1,11 +1,11 @@
 ---
-title: "通过 PowerShell 开始使用 Azure DNS | Azure"
-description: "了解如何在 Azure DNS 中创建 DNS 区域和记录。 这是有关使用 PowerShell 创建和管理第一个 DNS 区域和记录的分步指南。"
+title: 通过 PowerShell 开始使用 Azure DNS | Azure
+description: 了解如何在 Azure DNS 中创建 DNS 区域和记录。 这是有关使用 PowerShell 创建和管理第一个 DNS 区域和记录的分步指南。
 services: dns
 documentationcenter: na
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
 ms.service: dns
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 03/10/2017
 ms.date: 12/18/2017
 ms.author: v-nany
-ms.openlocfilehash: 1810b81d7e733b5718f20d65a6abb77d8c0f9c99
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: 38122c23879cb8db9be8251167523f7214c4f703
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="get-started-with-azure-dns-using-powershell"></a>通过 PowerShell 开始使用 Azure DNS
 
@@ -79,7 +79,7 @@ Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyResourceGroup
 区域的名称服务器是通过 `Get-AzureRmDnsZone` cmdlet 指定的：
 
 ```powershell
-Get-AzureRmDnsZone -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 
 Name                  : contoso.com
 ResourceGroupName     : myresourcegroup
