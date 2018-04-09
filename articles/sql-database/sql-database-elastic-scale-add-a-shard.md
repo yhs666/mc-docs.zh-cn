@@ -1,26 +1,20 @@
 ---
-title: "使用弹性数据库工具添加分片 | Azure"
-description: "如何使用弹性缩放 API 将新分片添加到分片集。"
+title: 使用弹性数据库工具添加分片 | Azure
+description: 如何使用弹性缩放 API 将新分片添加到分片集。
 services: sql-database
-documentationcenter: 
 manager: digimobile
 author: yunan2016
-editor: 
-ms.assetid: 62a349db-bebe-406f-a120-2f1986f2b286
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 84cf3d974d88790096c23d63871a3f636b8d4b1c
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 1535a70147ac691eac93dcdaa59e09583d71e99f
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>使用弹性数据库工具添加分片
 ## <a name="to-add-a-shard-for-a-new-range-or-key"></a>添加新范围或键的分片

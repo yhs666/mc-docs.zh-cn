@@ -1,25 +1,20 @@
 ---
-title: "设计灾难恢复解决方案 - Azure SQL 数据库 | Azure"
-description: "了解如何通过选择合适的故障转移模式来设计可实现灾难恢复的云解决方案。"
+title: 设计灾难恢复解决方案 - Azure SQL 数据库 | Azure
+description: 了解如何通过选择合适的故障转移模式来设计可实现灾难恢复的云解决方案。
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: monicar
-ms.assetid: 2db99057-0c79-4fb0-a7f1-d1c057ec787f
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 origin.date: 12/13/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: cd4e268986378d8e2b14cdef127dd592d3ce1509
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: cf1d4aa0dc451d5cd22bb1e3303597b20357415c
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>使用 SQL 数据库弹性池的应用程序的灾难恢复策略
 这些年来，我们已经认识到云服务并不能做到万无一失，并且会发生灾难性事件。 SQL 数据库具备许多功能，可在发生这些事件时保证应用程序的业务连续性。 [弹性池](sql-database-elastic-pool.md)和单一数据库支持相同类型的灾难恢复功能。 本文介绍了几种针对利用这些 SQL 数据库业务连续性功能的弹性池的 DR 策略。

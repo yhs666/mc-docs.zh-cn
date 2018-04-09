@@ -1,26 +1,21 @@
 ---
-title: "Azure SQL 数据库数据发现和分类 | Microsoft Docs"
-description: "Azure SQL 数据库数据发现和分类"
+title: Azure SQL 数据库数据发现和分类 | Microsoft Docs
+description: Azure SQL 数据库数据发现和分类
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
 ms.reviewer: carlrab
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
 ms.custom: security
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 01/29/2018
 ms.date: 02/28/2018
 ms.author: v-nany
-ms.openlocfilehash: b80bac59a375db9d7903183534b486fa8acf91e4
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: f4ec5a79066138b84b667e76310fcc0dc7f4c55a
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL 数据库数据发现和分类
 数据发现和分类（当前为预览版）提供了内置于 Azure SQL 数据库的高级功能，可用于发现、分类、标记和保护数据库中的敏感数据。 & 

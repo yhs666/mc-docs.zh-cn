@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL 数据库数据相关路由 | Azure"
-description: "如何将 .NET 应用中的 ShardMapManager 类用于数据相关路由（Azure SQL 数据库中共享数据库的一项功能）"
+title: Azure SQL 数据库数据相关路由 | Azure
+description: 如何将 .NET 应用中的 ShardMapManager 类用于数据相关路由（Azure SQL 数据库中共享数据库的一项功能）
 services: sql-database
-documentationcenter: 
 manager: digimobile
 author: yunan2016
-editor: 
-ms.assetid: cad09e15-5561-4448-aa18-b38f54cda004
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 499b0f9b9ccb3d6fd187830485f19475b264c80b
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 5bc1ffe4a6dfe2888f272847ead280d45921f013
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="data-dependent-routing"></a>依赖于数据的路由
 **数据依赖型路由**是使用查询中的数据将请求路由到相应数据库的功能。 在使用分片数据库时，它是一种基础模式。 请求上下文也可用于路由请求，尤其是当分片键不是查询的一部分时。 将应用程序中使用依赖于数据的路由的每个特定查询和事务限制为针对每个请求访问单一数据库。 对于 Azure SQL 数据库弹性工具，这种路由是通过 ShardMapManager（Java、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)）类实现的。

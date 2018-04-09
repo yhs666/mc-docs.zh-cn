@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL 数据库 - 自动优化 | Microsoft Docs"
-description: "Azure SQL 数据库可分析 SQL 查询并自动适应用户工作负荷。"
+title: Azure SQL 数据库 - 自动优化 | Microsoft Docs
+description: Azure SQL 数据库可分析 SQL 查询并自动适应用户工作负荷。
 services: sql-database
-documentationcenter: 
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 origin.date: 01/02/2018
 ms.date: 01/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 86915688f3ea002a1b602f5371fe7f0488d03a61
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: e765a7e1fb57412157fb3507657b9f02d4c4a117
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL 数据库中的自动优化
 
