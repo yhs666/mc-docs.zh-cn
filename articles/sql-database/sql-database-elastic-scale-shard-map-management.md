@@ -1,33 +1,28 @@
 ---
-title: "横向扩展 Azure SQL 数据库 | Azure"
-description: "如何使用弹性数据库客户端库 ShardMapManager"
+title: 横向扩展 Azure SQL 数据库 | Azure
+description: 如何使用弹性数据库客户端库 ShardMapManager
 services: sql-database
-documentationcenter: 
 manager: digimobile
 author: yunan2016
-editor: 
-ms.assetid: 0e9d647a-9ba9-4875-aa22-662d01283439
+editor: ''
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 91ff7106260220483d8fd9da1faed358f2f90e9c
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: c8f8b1a17bdd6242d783ea4f920dc714b49fc01d
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>使用分片映射管理器扩大数据库
 若要轻松地扩大 SQL Azure 上的数据库，请使用分片映射管理器。 分片映射管理器是一个特殊的数据库，它维护一个分片集中有关所有分片（数据库）的全局映射信息。 元数据允许应用程序基于 **分片键**值连接到正确的数据库。 此外，在集中的每个分片都包含跟踪本地分片数据的映射（称为 shardlet）。 
 
 ![分片映射管理](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
-了解如何构建这些映射对于分片映射管理至关重要。 使用[弹性数据库客户端库](sql-database-elastic-database-client-library.md)中发现的 ShardMapManager 类（Java、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)）来完成此操作。  
+了解如何构建这些映射对于分片映射管理至关重要。 使用[弹性数据库客户端库](sql-database-elastic-database-client-library.md)中的 ShardMapManager 类（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager)、[.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）来完成此操作。  
 
 ## <a name="shard-maps-and-shard-mappings"></a>分片映射
 对于每个分片，必须选择要创建的分片映射类型。 选择取决于数据库架构： 
@@ -243,7 +238,7 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
   
     仅当映射处于“脱机”状态时才允许在分片映射上进行某些操作，其中包括 UpdateMapping 和 DeleteMapping。 当映射处于脱机状态时，基于该映射中所包含的键的数据依赖请求将返回一个错误。 此外，当范围首次处于脱机状态时，所有到受影响分片的连接都会自动终止，以防止因范围的更改而导致查询出现不一致或不完整的结果。 
 
-映射是 .Net 中的不可变对象。  以上会更改映射的所有方法也会使代码中任何对映射的引用失效。 为了更轻松地执行操作序列来更改映射的状态，所有会更改映射的方法都会返回新的映射引用，以便能够链接操作。 例如，若要在 shardmap sm 中删除包含键 25 的现有映射，可以执行以下命令： 
+映射是 .Net 中的不可变对象。  以上会更改映射的所有方法也会使代码中任何对映射的引用失效。 为了更轻松地执行操作序列来更改映射的状态，所有会更改映射的方法都将返回新的映射引用，以便能够链接操作。 例如，若要在 shardmap sm 中删除包含键 25 的现有映射，可以执行以下命令： 
 
 ```
     sm.DeleteMapping(sm.MarkMappingOffline(sm.GetMappingForKey(25)));
@@ -252,9 +247,9 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
 ## <a name="adding-a-shard"></a>添加分片
 对于已经存在的分片映射，应用程序通常仅需要添加新分片，以处理预期的新键或键范围数据。 例如，由租户 ID 分片的应用程序可能需要为新的租户预配新分片，或者在每个新的月份开始之前，每月分片的数据可能需要预配新分片。 
 
-如果新的键值范围还不是现有映射的组成部分且无需移动数据，则添加新分片以及将新键或范围关联到该分片非常简单。 有关添加新分片的详细信息，请参阅[添加新分片](sql-database-elastic-scale-add-a-shard.md)。
+如果新的键值范围还不是现有映射的组成部分且无需移动数据，则添加新分片以及将新的键或范围关联到该分片非常简单。 有关添加新分片的详细信息，请参阅[添加新分片](sql-database-elastic-scale-add-a-shard.md)。
 
-但是，在需要移动数据的情况下，需要拆分/合并工具并结合使用必要的分片映射更新，才能安排在分片之间移动数据。 有关使用拆分/合并工具的详细信息，请参阅[拆分/合并概述](sql-database-elastic-scale-overview-split-and-merge.md) 
+但是，在需要移动数据的情况下，需要拆分/合并工具并结合使用必要的分片映射更新，才能安排在分片之间移动数据。 有关使用拆分合并工具的详细信息，请参阅[拆分/合并概述](sql-database-elastic-scale-overview-split-and-merge.md) 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

@@ -1,26 +1,26 @@
 ---
-title: "将 Azure Service Fabric 与 API 管理集成 | Azure"
-description: "本教程介绍 Azure API 管理和 Service Fabric 的快速入门方法。"
+title: 将 Azure Service Fabric 与 API 管理集成 | Azure
+description: 本教程介绍 Azure API 管理和 Service Fabric 的快速入门方法。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/26/2018
-ms.date: 03/12/2018
+origin.date: 03/09/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: bbea5e027d3fe1f85d962db7ec11c6adb081bcf7
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: ef89855fe04590bbf9bffcbb57bf4c12d644b0e6
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-deploy-api-management-with-service-fabric"></a>教程：部署 API 管理与 Service Fabric
 本教程是一个系列中的第四部分，  使用 Service Fabric 部署 Azure API 管理是一个高级方案。  当需要使用一组丰富的路由规则为后端 Service Fabric 服务发布 API 时，API 管理非常有用。 云应用程序通常都需要使用前端网关，为用户、设备或其他应用程序提供同一个入口点。 在 Service Fabric 中，网关可以是专为流量入口（如 ASP.NET Core 应用程序、事件中心、IoT 中心或 Azure API 管理）设计的任意无状态服务。 
@@ -119,7 +119,7 @@ az account set --subscription <guid>
 
    ```bash
    git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-   cd service-fabric-java-getting-started
+   cd service-fabric-java-getting-started/reliable-services-actor-sample
    ```
 
 2. 编辑 *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*。 更新终结点，使服务在端口 8081 上进行侦听。
@@ -139,7 +139,7 @@ az account set --subscription <guid>
 
    ```bash
    cd Scripts
-   sfctl cluster select --endpoint http://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19080
+   sfctl cluster select --endpoint https://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19080 --pem <full_path_to_pem_on_dev_machine> --no-verify
    ./install.sh
    ```
 
@@ -160,35 +160,35 @@ az account set --subscription <guid>
 以下部分介绍由 apim.json 模板定义的资源。 有关详细信息，请访问每个部分中模板引用文档的链接。 文本稍后部分设置了 apim.parameters.json 参数文件中定义的可配置参数。
 
 ### <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
-[Microsoft.ApiManagement/service](/templates/microsoft.apimanagement/service) 描述了 API 管理服务实例：名称、SKU 或层级、资源组位置、发布者信息和虚拟网络。
+[Microsoft.ApiManagement/service](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.apimanagement/service) 描述了 API 管理服务实例：名称、SKU 或层级、资源组位置、发布者信息和虚拟网络。
 
 ### <a name="microsoftapimanagementservicecertificates"></a>Microsoft.ApiManagement/service/certificates
-[Microsoft.ApiManagement/service/certificates](/templates/microsoft.apimanagement/service/certificates) 用于配置 API 管理安全性。 API 管理必须使用有权访问群集的客户端证书对用于服务发现的 Service Fabric 群集进行身份验证。 本教程使用在之前创建 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor)或 [Linux 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md#createvaultandcert_anchor)时指定的相同证书，该证书默认可用于访问群集。 
+[Microsoft.ApiManagement/service/certificates](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.apimanagement/service/certificates) 用于配置 API 管理安全性。 API 管理必须使用有权访问群集的客户端证书对用于服务发现的 Service Fabric 群集进行身份验证。 本教程使用在之前创建 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor)或 [Linux 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md#createvaultandcert_anchor)时指定的相同证书，该证书默认可用于访问群集。 
 
 本教程对客户端身份验证和群集节点到节点安全性使用相同的证书。 如果配置了一个单独的客户端证书，则可以使用它来访问 Service Fabric 群集。 提供创建 Service Fabric 群集时指定的群集证书私钥文件 (.pfx) 的“名称”、“密码”和“数据”（base-64 编码字符串）。
 
 ### <a name="microsoftapimanagementservicebackends"></a>Microsoft.ApiManagement/service/backends
-[Microsoft.ApiManagement/service/backends](/templates/microsoft.apimanagement/service/backends) 描述了流量转发到的后端服务。 
+[Microsoft.ApiManagement/service/backends](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.apimanagement/service/backends) 描述了流量转发到的后端服务。 
 
 对于 Service Fabric 后端，后端是 Service Fabric 群集，而不是特定的 Service Fabric 服务。 这允许单个策略路由到群集中的多个服务。 如果后端策略中未指定任何服务名称，那么此处的 url 字段是群集中一个服务的完全限定的服务名称，默认情况下所有请求都路由到该服务。 如果不打算获取回退服务，可以使用一个假的服务名称，如“fabric:/fake/service”。 resourceId 指定群集管理终结点。  clientCertificateThumbprint 和 serverCertificateThumbprints 标识用于对群集进行身份验证的证书。
 
 ### <a name="microsoftapimanagementserviceproducts"></a>Microsoft.ApiManagement/service/products
-[Microsoft.ApiManagement/service/products](/templates/microsoft.apimanagement/service/products) 用于创建产品。 在 Azure API 管理中，产品包含一个或多个 API 以及使用配额和使用条款。 一旦产品发布，开发人员便可以订阅该产品，并可开始使用该产品的 API。 
+[Microsoft.ApiManagement/service/products](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.apimanagement/service/products) 用于创建产品。 在 Azure API 管理中，产品包含一个或多个 API 以及使用配额和使用条款。 一旦产品发布，开发人员便可以订阅该产品，并可开始使用该产品的 API。 
 
 为产品输入描述性“displayName”和“description”。 对于本教程，需要订阅，但不需要管理员的订阅批准。  产品“state”为“已发布”，并对订阅者可见。 
 
 ### <a name="microsoftapimanagementserviceapis"></a>Microsoft.ApiManagement/service/apis
-[Microsoft.ApiManagement/service/apis](/templates/microsoft.apimanagement/service/apis) 用于创建 API。 API 管理中的 API 表示一组可由客户端应用程序调用的操作。 添加操作后，该 API 便添加到某一产品并可以发布。 发布 API 后，它可供开发人员订阅和使用。
+[Microsoft.ApiManagement/service/apis](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.apimanagement/service/apis) 用于创建 API。 API 管理中的 API 表示一组可由客户端应用程序调用的操作。 添加操作后，该 API 便添加到某一产品并可以发布。 发布 API 后，它可供开发人员订阅和使用。
 
 - “displayName”可以是 API 的任意名称。 在本教程中，使用“Service Fabric App”。
 - “name”为 API 提供一个唯一且有描述性的名称，例如“service-fabric-app”。 它显示在开发人员和发布者门户中。 
-- “serviceUrl”引用实现 API 的 HTTP 服务。 API 管理将请求转发到此地址。 对于 Service Fabric 后端，不使用此 URL 值。 可以在此处设置任何值。 本教程以“http://servicefabric”为例。 
+- “serviceUrl”引用实现 API 的 HTTP 服务。 API 管理将请求转发到此地址。 对于 Service Fabric 后端，不使用此 URL 值。 可以在此处设置任何值。 例如，在本教程中，可以设置“http://servicefabric”。 
 - “path”附加到 API 管理服务的基础 URL。 基 URL 是常见的由 API 管理服务实例托管的所有 API。 API 管理通过其后缀区分 API，因此后缀对于给定发布者的每个 API 必须唯一。 
 - “protocols”确定可用于访问 API 的协议。 本教程列出“http”和“https”。
 - “path”是 API 的后缀。 在本教程中，使用“myapp”。
 
 ### <a name="microsoftapimanagementserviceapisoperations"></a>Microsoft.ApiManagement/service/apis/operations
-[Microsoft.ApiManagement/service/apis/operations](/templates/microsoft.apimanagement/service/apis/operations) 在使用 API 管理中的 API 前，必须向 API 添加操作。  外部客户端使用操作与 Service Fabric 群集中运行的 ASP.NET Core 无状态服务进行通信。
+[Microsoft.ApiManagement/service/apis/operations](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.apimanagement/service/apis/operations) 在使用 API 管理中的 API 前，必须向 API 添加操作。  外部客户端使用操作与 Service Fabric 群集中运行的 ASP.NET Core 无状态服务进行通信。
 
 要添加前端 API 操作，请填写以下值：
 
@@ -197,7 +197,7 @@ az account set --subscription <guid>
 - “urlTemplate”附加到 API 的基础 URL，并标识单个 HTTP 操作。  在本教程中，如果添加了.NET 后端服务，则使用 `/api/values`，如果添加了 Java 后端服务，则使用 `getMessage`。  默认情况下，在此处指定的 URL 路径是发送到后端 Service Fabric 服务的 URL 路径。 如果在此处使用服务所用的相同 URL 路径（例如“/api/values”），则无需进一步修改即可正常执行该操作。 还可以在此处指定一个与后端 Service Fabric 服务使用的 URL 路径不同的 URL 路径，这种情况下，还需要在以后的操作策略中指定路径重写。
 
 ### <a name="microsoftapimanagementserviceapispolicies"></a>Microsoft.ApiManagement/service/apis/policies
-[Microsoft.ApiManagement/service/apis/policies](/templates/microsoft.apimanagement/service/apis/policies) 创建将所有内容联系在一起的后端策略。 可以在其中配置将请求路由到的后端 Service Fabric 服务。 可以将此策略应用到任何 API 操作。  有关详细信息，请参阅[策略概述](/api-management/api-management-howto-policies)。 
+[Microsoft.ApiManagement/service/apis/policies](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.apimanagement/service/apis/policies) 创建将所有内容联系在一起的后端策略。 可以在其中配置将请求路由到的后端 Service Fabric 服务。 可以将此策略应用到任何 API 操作。  有关详细信息，请参阅[策略概述](/api-management/api-management-howto-policies)。 
 
 [Service Fabric 的后端配置](/api-management/api-management-transformation-policies#SetBackendService)提供以下请求路由控件： 
  - 服务实例选择，方法是指定硬编码的 Service Fabric 服务实例名称（例如，`"fabric:/myapp/myservice"`）或从 HTTP 请求中生成的名称（例如，`"fabric:/myapp/users/" + context.Request.MatchedParameters["name"]`）。
@@ -352,4 +352,4 @@ az group delete --name $ResourceGroupName
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link  -->

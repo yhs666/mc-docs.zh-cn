@@ -1,11 +1,11 @@
 ---
-title: "跨多个存储帐户管理媒体服务资产 | Microsoft Docs"
-description: "本文提供如何跨多个存储帐户管理媒体服务资产的指导。"
+title: 跨多个存储帐户管理媒体服务资产 | Microsoft Docs
+description: 本文提供如何跨多个存储帐户管理媒体服务资产的指导。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 12/10/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 66f46d4f78f8d6ef6416636c3f8e704e9daea4ac
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 3eb5eed4473fcd06dcb44950882ca2d44b19c074
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>跨多个存储帐户管理媒体服务资产
 从 Microsoft Azure 媒体服务 2.2 开始，可以将多个存储帐户附加到一个媒体服务帐户。 将多个存储帐户附加到一个媒体服务帐户这一功能具有以下优势：
@@ -107,7 +107,7 @@ namespace MultipleStorageAccounts
             AzureAdTokenCredentials tokenCredentials = 
                 new AzureAdTokenCredentials(_AADTenantDomain,
                     new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
-                    AzureEnvironments.AzureCloudEnvironment);
+                    AzureEnvironments.AzureChinaCloudEnvironment);
 
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 

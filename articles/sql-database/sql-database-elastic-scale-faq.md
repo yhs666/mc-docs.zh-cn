@@ -1,26 +1,21 @@
 ---
-title: "Azure SQL 弹性缩放常见问题解答 | Azure"
-description: "有关 Azure SQL 数据库弹性缩放的常见问题。"
+title: Azure SQL 弹性缩放常见问题解答 | Azure
+description: 有关 Azure SQL 数据库弹性缩放的常见问题。
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 manager: digimobile
 author: Hayley244
-editor: 
-ms.assetid: e60dde9c-bb7b-4f2f-b52c-bdb506d49fcb
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 10/24/2016
 ms.date: 07/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 2c34fbe66dbbd10a5ae8f7d59d5023b2a9869add
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: cb01c2fbbf9be15447928985a7fc70ca49825fdf
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="elastic-database-tools-faq"></a>弹性数据库工具常见问题
 #### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>如果每个分片只有单个租户且没有分片键，该如何为架构信息填充分片键？
@@ -45,9 +40,9 @@ ms.lasthandoff: 07/14/2017
 弹性缩放 API 使用户能够连接到分片键的正确数据库，但不提供分片键筛选。  如果需要，请在查询中添加 **WHERE** 子句，以将范围限制到提供的分片键。
 
 #### <a name="can-i-use-a-different-azure-database-edition-for-each-shard-in-my-shard-set"></a>是否可为分片集中的每个分片使用不同的 Azure 数据库版本？
-是的，每个分片是单独的数据库，因此，一个分片可以是高级版，而另一个可以是标准版。 此外，在分片的生命周期内，该分片的版本可以进行多次上调或下调。
+是的，每个分片是单独的数据库，因此，一个分片可以是高级版，而另一个可以是标准版。 此外，在分片的生命周期内，该分片的版本可以上调或下调多次。
 
 #### <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>在拆分或合并操作期间，“拆分/合并”工具是否会设置（或删除）数据库？
-不可以。 对于 **拆分** 操作，必须存在目标数据库和相应的架构，并且必须注册到分片映射管理器。  对于 **合并** 操作，必须从分片映射管理器中删除分片，然后删除数据库。
+否。 对于 **拆分** 操作，必须存在目标数据库和相应的架构，并且必须注册到分片映射管理器。  对于 **合并** 操作，必须从分片映射管理器中删除分片，并删除数据库。
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

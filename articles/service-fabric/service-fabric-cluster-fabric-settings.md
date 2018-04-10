@@ -1,11 +1,11 @@
 ---
-title: "更改 Azure Service Fabric 设置 | Azure"
-description: "本文介绍可以自定义的结构设置和结构升级策略。"
+title: 更改 Azure Service Fabric 设置 | Azure
+description: 本文介绍可以自定义的结构设置和结构升级策略。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/09/2018
-ms.date: 03/12/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: e145aeb0b88c68be0dcca439e7dd2356253f71f2
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: ea6ebc056c0bfb48f509d4f15beb910b2cc01caa
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自定义 Service Fabric 群集设置和结构升级策略
 本文档说明如何为 Service Fabric 群集自定义各种结构设置和结构升级策略。 可以通过 [Azure 门户](https://portal.azure.cn)或使用 Azure 资源管理器模板完成自定义。
@@ -367,6 +367,7 @@ ms.lasthandoff: 03/08/2018
 |CommonName2Ntlmx509StoreLocation|string，默认值为 L"LocalMachine"| 静态|使用 NTLM 身份验证时，用于在 CommonName2NtlmPasswordSecret 上生成 HMAC 的 X509 证书的存储位置 |
 |CommonName2Ntlmx509StoreName|string，默认值为 L"MY"|静态| 使用 NTLM 身份验证时，用于在 CommonName2NtlmPasswordSecret 上生成 HMAC 的 X509 证书的存储名称 |
 |CommonName2Ntlmx509CommonName|string，默认值为 L""|静态|使用 NTLM 身份验证时，用于在 CommonName2NtlmPasswordSecret 上生成 HMAC 的 X509 证书的公用名 |
+|GenerateV1CommonNameAccount| bool，默认值为 TRUE|静态|指定是否要使用用户名 V1 生成算法生成帐户。 从 Service Fabric 6.1 版开始，始终创建具有 v2 生成的帐户。 从/到不支持 V2 生成的版本升级需要 V1 帐户（6.1 版以前）。|
 
 ### <a name="section-name-imagestoreservice"></a>节名称：ImageStoreService
 | **参数** | **允许的值** | **升级策略** | **指导或简短说明** |

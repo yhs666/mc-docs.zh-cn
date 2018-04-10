@@ -1,11 +1,11 @@
 ---
-title: "规划 Service Fabric 群集容量 | Azure"
-description: "Service Fabric 群集容量规划注意事项。 节点类型、操作、耐久性和可靠性层"
+title: 规划 Service Fabric 群集容量 | Azure
+description: Service Fabric 群集容量规划注意事项。 节点类型、操作、耐久性和可靠性层
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/04/2018
-ms.date: 02/26/2018
+ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4856cf3b08ef7616a1df9230d5884ef2173b13c3
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 08230885e1b5ac7ef90cee685ae92bf8d52b9102
+ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 群集容量规划注意事项
 对于任何生产部署，容量规划都是一个重要的步骤。 下面是在规划过程中必须注意的一些事项。
@@ -69,7 +69,7 @@ ms.lasthandoff: 02/23/2018
 
 此权限表示为以下值：
 
-* 黄金 - 每个 UD 可持续暂停基础结构作业 2 小时。 仅可在 DS15_v2、D15_v2 等完整节点 VM sku 上启用“黄金”持续性（一般情况下，http://aka.ms/vmspecs 中列出的、注释中标记为“实例独立于专供单个客户使用的硬件”的所有大小 VM 都是完整节点 VM）
+* 黄金 - 每个 UD 可持续暂停基础结构作业 2 小时。 仅可在 DS15_v2、D15_v2 等完整节点 VM sku 上启用“黄金”持续性（一般情况下，/virtual-machines/windows/sizes?toc=%2fvirtual-machines%2fwindows%2ftoc.json 中列出的、注释中标记为“实例独立于专供单个客户使用的硬件”的所有大小 VM 都是完整节点 VM）
 <!-- Not Avaible on L series, GS series, G series -->
 * 白银 - 可以为每个 UD 持续暂停基础结构作业 10 分钟，并且可在所有单核及多核的标准 VM 上使用。
 * Bronze - 无权限。 这是默认值。 仅将此持续性级别用于只运行无状态工作负载的节点类型。 
@@ -89,10 +89,11 @@ ms.lasthandoff: 02/23/2018
 
 1. 部署到虚拟机规模集和其他相关 Azure 资源可能会由于群集中的问题或基础结构级别的问题而延迟、超时或被完全阻止。 
 2. 由于 Azure 基础结构操作期间发生的自动节点停用而增加了[副本生命周期事件](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle )（例如，主交换）的数量。
+3. 执行 Azure 平台的软件更新或硬件维护活动时，将节点暂停服务一段时间。 在这些活动期间，你可能会看到状态为“正在禁用”/“已禁用”的节点。 这会暂时降低群集的容量，但不应影响群集或应用程序的可用性。
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>有关何时使用“白银”或“黄金”耐久性级别的建议
 
-对于托管要频繁缩小规模（减小 VM 实例计数）的有状态服务，并且希望延迟部署操作以利于简化这些“缩小规模”操作的所有节点类型，请使用“白银”或“黄金”耐久性。 “扩大规模”的情况（添加 VM 实例）不会受所选耐久性层的影响，只有“缩小规模”的情况才受其影响。
+对于托管要频繁缩小规模（减小 VM 实例计数）的有状态服务，并且你愿意延迟部署操作并减少容量以利于简化这些“缩小规模”操作的所有节点类型，请使用“白银”或“黄金”耐久性。 “扩大规模”的情况（添加 VM 实例）不会受所选耐久性层的影响，只有“缩小规模”的情况才受其影响。
 
 ### <a name="changing-durability-levels"></a>更改耐久性级别
 - 耐久性级别为“白银”或“黄金”的节点类型不能降级为“青铜”。
@@ -216,4 +217,4 @@ ms.lasthandoff: 02/23/2018
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update link -->

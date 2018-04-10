@@ -1,28 +1,23 @@
 ---
-title: "内存中 OLTP 改善 SQL 事务性能 | Azure"
-description: "利用 In-Memory OLTP 改善现有 SQL 数据库中的事务性能。"
+title: 内存中 OLTP 改善 SQL 事务性能 | Azure
+description: 利用 In-Memory OLTP 改善现有 SQL 数据库中的事务性能。
 services: sql-database
-documentationcenter: 
 author: Hayley244
 manager: digimobile
-editor: MightyPen
-ms.assetid: c2bf14a0-905b-47b4-afb6-efe9a61147d5
+ms.reviewer: MightyPen
 ms.service: sql-database
 ms.custom: develop databases
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 11/22/2016
 ms.date: 07/03/2017
 ms.author: v-johch
-ms.openlocfilehash: eb1e2e503f5e03994d28fe587f0e2e8274748a39
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: cf38762c46ff095ff69534c9347af4b4cfb88f52
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 04/08/2018
 ---
-# <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>使用内存中 OLTP 改善 SQL 数据库中应用程序的性能
+# <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>使用内存中 OLTP 改善 SQL 数据库中的应用程序性能
 [内存中 OLTP](sql-database-in-memory.md) 可以用来改善[高级](sql-database-service-tiers.md) Azure SQL 数据库中的事务处理、数据引入的性能以及暂时性数据状况，且不需要提高定价层。 
 
 > [!NOTE] 
@@ -44,7 +39,7 @@ SSMS 包含可以针对具有活动工作负荷的数据库运行的“事务性
 
 若要在 SSMS 中生成报告，请执行以下操作：
 
-* 在“对象资源管理器” 中，右键单击你的数据库节点。
+* 在“对象资源管理器”中，右键单击数据库节点。
 * 单击“报表” > “标准报表” > “事务性能分析概述”。
 
 有关详细信息，请参阅[确定表或存储过程是否应移植到内存中 OLTP](http://msdn.microsoft.com/library/dn205133.aspx)。
@@ -52,7 +47,7 @@ SSMS 包含可以针对具有活动工作负荷的数据库运行的“事务性
 ## <a name="step-3-create-a-comparable-test-database"></a>步骤 3：创建可比较的测试数据库
 假设报告指出数据库的某个表在转换成内存优化的表后会带来好处。 我们建议先进行测试，以确认这项指示。
 
-你需要创建生产数据库的测试副本。 测试数据库应该位于与生产数据库相同的服务层级别。
+需要创建生产数据库的测试副本。 测试数据库应该位于与生产数据库相同的服务层级别。
 
 为了简化测试，请按以下方式调整测试数据库：
 
@@ -66,7 +61,7 @@ SSMS 包含可以针对具有活动工作负荷的数据库运行的“事务性
    ```
 
 ## <a name="step-4-migrate-tables"></a>步骤 4：迁移表
-必须创建并填充想要测试的表的内存优化副本。 你可以使用以下方式之一来创建该副本：
+必须创建并填充想要测试的表的内存优化副本。 可以使用以下方式之一来创建该副本：
 
 * SSMS 中提供便利的内存优化向导。
 * 手动 T-SQL。
@@ -83,7 +78,7 @@ SSMS 包含可以针对具有活动工作负荷的数据库运行的“事务性
    * [内存优化顾问中的](http://msdn.microsoft.com/library/dn284308.aspx)内存优化清单。
    * [内存中 OLTP 不支持的 Transact-SQL 构造](http://msdn.microsoft.com/library/dn246937.aspx)。
    * [迁移到内存中 OLTP](http://msdn.microsoft.com/library/dn247639.aspx)。
-4. 如果该表没有不受支持的功能，顾问可为你执行实际的架构和数据迁移。
+4. 如果该表没有不受支持的功能，顾问可执行实际的架构和数据迁移。
 
 #### <a name="manual-t-sql"></a>手动 T-SQL
 若要使用此迁移选项，请执行以下操作：
@@ -91,7 +86,7 @@ SSMS 包含可以针对具有活动工作负荷的数据库运行的“事务性
 1. 使用 SSMS（或类似的实用程序）连接到测试数据库。
 2. 获取表及其索引的完整 T-SQL 脚本。
 
-   * 在 SSMS 中，右键单击你的表节点。
+   * 在 SSMS 中，右键单击表节点。
    * 单击“编写表脚本为” > “创建到” > “新建查询窗口”。
 3. 在脚本窗口中，将 WITH (MEMORY_OPTIMIZED = ON) 添加到 CREATE TABLE 语句。
 4. 如果存在 CLUSTERED 索引，请将其更改为 NONCLUSTERED。
@@ -161,7 +156,7 @@ CREATE PROCEDURE schemaname.procedurename
 为了尽可能减少网络延迟，请在数据库所在的同一 Azure 地理区域运行测试。
 
 ## <a name="step-7-post-implementation-monitoring"></a>步骤 7：实施后的监视
-建议你监视在生产环境中实施 In-Memory 后的性能影响：
+建议监视在生产环境中实施 In-Memory 后的性能影响：
 
 * [监视内存中存储](sql-database-in-memory-oltp-monitoring.md)。
 * [使用动态管理视图监视 Azure SQL 数据库](sql-database-monitoring-with-dmvs.md)

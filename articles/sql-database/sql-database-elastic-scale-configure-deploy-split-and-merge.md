@@ -1,26 +1,20 @@
 ---
-title: "部署拆分 / 合并服务 | Microsoft 文档"
-description: "可使用拆分/合并工具在分片数据库之间移动数据。"
+title: 部署拆分 / 合并服务 | Microsoft 文档
+description: 可使用拆分/合并工具在分片数据库之间移动数据。
 services: sql-database
-documentationcenter: 
 author: forester123
 manager: digimobile
-editor: 
-ms.assetid: 9a993c0f-7052-46cd-aa59-073bea8d535a
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 10/24/2016
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 502c694994d9e9114b1aef3ea35772c5a2d30636
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 09738e795feae6b4d2ce96c3bbef7f0ede7f01e2
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>部署拆分/合并服务
 可使用拆分/合并工具在分片数据库之间移动数据。 请参阅[在扩展云数据库之间移动数据](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -153,7 +147,7 @@ pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
     ```
 
 * 确保服务器名称不以 **https://** 开头。
-* 确保 Azure SQL DB 服务器允许 Azure 服务与其连接。 若要执行此操作，请打开 https://portal.azure.cn，依次单击左侧的“SQL 数据库”和顶部的“服务器”，然后选择你的服务器。 在顶部单击“配置”并确保将“Azure 服务”设置为“是”。 （请参阅此文章顶部的“先决条件”部分）。
+* 确保 Azure SQL DB 服务器允许 Azure 服务与其连接。 为此，请打开 https://portal.azure.cn，单击左侧的“SQL 数据库”和顶部的“服务器”，然后选择你的服务器。 在顶部单击“配置”并确保将“Azure 服务”设置为“是”。 （请参阅此文章顶部的“先决条件”部分）。
 
 ## <a name="test-the-service-deployment"></a>测试服务部署
 ### <a name="connect-with-a-web-browser"></a>使用 Web 浏览器建立连接

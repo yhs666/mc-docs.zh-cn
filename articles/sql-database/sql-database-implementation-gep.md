@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL 数据库案例研究 - GEP | Azure"
-description: "了解 GEP 如何使用 SQL 数据库扩大全球客户群体，实现效率提升"
+title: Azure SQL 数据库案例研究 - GEP | Azure
+description: 了解 GEP 如何使用 SQL 数据库扩大全球客户群体，实现效率提升
 services: sql-database
-documentationcenter: 
 author: Hayley244
 manager: digimobile
-editor: 
-ms.assetid: ae8bcb10-c251-4bac-b666-10a253918583
 ms.service: sql-database
 ms.custom: reference
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 origin.date: 01/10/2017
 ms.date: 07/03/2017
 ms.author: v-johch
-ms.openlocfilehash: c5adee4f68e11e5c563c989914f349b0e052b45f
-ms.sourcegitcommit: f119d4ef8ad3f5d7175261552ce4ca7e2231bc7b
+ms.openlocfilehash: 056fc0a476c347d01fec2733f535c3ef7f0352d7
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="azure-gives-gep-global-reach-and-greater-efficiency"></a>Azure 实现 GEP 全球覆盖并提高效率
 ![GEP 徽标](./media/sql-database-implementation-gep/geplogo.png)

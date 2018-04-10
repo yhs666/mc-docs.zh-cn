@@ -1,26 +1,20 @@
 ---
-title: "Azure SQL 数据库功能概述 | Azure"
-description: "本页概述 Azure SQL 数据库逻辑服务器和数据库，并提供带有每个列出功能的链接的功能支持矩阵。"
+title: Azure SQL 数据库功能比较 | Azure
+description: 本文将 Azure SQL 数据库和托管实例相互之间以及与 SQL Server 之间的功能进行了比较。
 services: sql-database
-documentationcenter: na
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
+ms.reviewer: bonova, carlrab
 ms.service: sql-database
-ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
 origin.date: 02/08/2018
 ms.date: 02/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 7a725e5d4139c5eb569060765f7b883555eb3e4a
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: e648e1c187e6fe7f247420b3b4cdd8dc219ce2cd
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比较：Azure SQL 数据库与 SQL Server 
 

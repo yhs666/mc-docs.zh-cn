@@ -1,11 +1,11 @@
 ---
-title: "通过 Azure AD 身份验证使用 .NET 访问 Azure 媒体服务 API | Azure"
-description: "本主题介绍如何使用 Azure Active Directory (Azure AD) 身份验证通过 .NET 访问 Azure 媒体服务 (AMS) API。"
+title: 通过 Azure AD 身份验证使用 .NET 访问 Azure 媒体服务 API | Azure
+description: 本主题介绍如何使用 Azure Active Directory (Azure AD) 身份验证通过 .NET 访问 Azure 媒体服务 (AMS) API。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: erikre
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 06/17/2017
 ms.date: 08/07/2017
 ms.author: v-haiqya
-ms.openlocfilehash: cf81e8aeb95ef7a3738f3f621a2ba31c563d458b
-ms.sourcegitcommit: dc2d05f1b67f4988ef28a0931e6e38712f4492af
+ms.openlocfilehash: 6f1940fa4a3b9b0647a08f3ca3a9183546668d7f
+ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 04/08/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>使用 Azure AD 身份验证通过 .NET 访问 Azure 媒体服务 API
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 08/04/2017
 - 媒体服务（本机）应用程序客户端 ID。 
 - 媒体服务（本机）应用程序重定向 URI。 
 
-这些参数的值可在 **AzureEnvironments.AzureCloudEnvironment** 中找到。 **AzureEnvironments.AzureCloudEnvironment** 常量是 .NET SDK 中的一个帮助程序，可以为公共 Azure 数据中心获取正确的环境变量设置。 
+这些参数的值可在 **AzureEnvironments.AzureChinaCloudEnvironment** 中找到。 **AzureEnvironments.AzureChinaCloudEnvironment** 常量是 .NET SDK 中的一个帮助程序，可以为公共 Azure 数据中心获取正确的环境变量设置。 
 
 它包含预定义的环境设置，从而仅允许访问公共数据中心中的媒体服务。 在中国云区域，可以使用 **AzureChinaCloudEnvironment**。
 
