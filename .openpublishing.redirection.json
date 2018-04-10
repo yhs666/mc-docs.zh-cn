@@ -6122,17 +6122,17 @@
     },
     {
 	"source_path": "articles/azure-resource-manager/resource-manager-rest-api.md",
-	"redirect_url": "/rest/api/",
+	"redirect_url": "https://docs.microsoft.com/en-us/rest/api/",
 	"redirect_document_id": "false"
     },
     {
 	"source_path": "articles/cosmos-db/run-hadoop-with-hdinsight.md",
-	"redirect_url": "https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-hive",
+	"redirect_url": "https://docs.azure.cn/hdinsight/hadoop/hdinsight-use-hive",
 	"redirect_document_id": "false"
     },
     {
 	"source_path": "articles/cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md",
-	"redirect_url": "https://docs.microsoft.com/azure/cosmos-db/storage-explorer",
+	"redirect_url": "https://docs.azure.cn/cosmos-db/storage-explorer",
 	"redirect_document_id": "false"
     },
     {
