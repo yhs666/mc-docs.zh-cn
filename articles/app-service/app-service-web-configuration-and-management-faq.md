@@ -1,11 +1,11 @@
 ---
-title: "Azure Web 应用配置常见问题解答 | Azure"
-description: "获取有关 Azure App Service Web 应用功能配置和管理常见问题的解答。"
+title: Azure Web 应用配置常见问题解答 | Azure
+description: 获取有关 Azure App Service Web 应用功能配置和管理常见问题的解答。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -162,7 +162,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 3. 确认已选中“网络”选项卡，然后选中绿色“播放”按钮。
 4. 执行可重现问题的步骤。
 5. 选择红色“停止”按钮。
-6. 选择“保存”按钮（磁盘图标），保存 HAR 文件（在 Internet Explorer 和 Edge 中）*或者*右键单击 HAR 文件，然后选择“内容另存为 HAR”（在 Chrome 中）。
+6. 选择“保存”按钮（磁盘图标），保存 HAR 文件（在 Internet Explorer 和 Microsoft Edge 中）*或者*右键单击 HAR 文件，然后选择“内容另存为 HAR”（在 Chrome 中）。
 
 ### <a name="f12-console-output"></a>F12 控制台输出
 

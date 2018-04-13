@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric 独立群集部署准备 | Azure"
-description: "在部署专用于处理生产工作负荷的群集之前要考虑的与准备环境和创建群集配置相关的文档。"
+title: Azure Service Fabric 独立群集部署准备 | Azure
+description: 在部署专用于处理生产工作负荷的群集之前要考虑的与准备环境和创建群集配置相关的文档。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -109,7 +109,7 @@ ms.lasthandoff: 12/29/2017
 5. 如果群集计算机无法访问 Internet，请在群集配置中设置以下项：
 * 禁用遥测：在“属性”下，设置 *"enableTelemetry": false*
 * 禁用自动下载 Fabric 版本和禁用通知当前群集版本支持即将终止：在“属性”下，设置 *"fabricClusterAutoupgradeEnabled": false*
-* 或者，如果网络 Internet 访问仅限于白名单中的域，则需要自动升级以下域：go.microsoft.com   download.microsoft.com
+* 或者，如果网络 Internet 访问仅限于允许列表中的域，则需要自动升级以下域：go.microsoft.com   download.microsoft.com
 
 6. 设置适当的 Service Fabric 防病毒排除项：
 

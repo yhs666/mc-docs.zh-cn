@@ -1,11 +1,11 @@
 ---
-title: "Azure 事件中心身份验证和安全模型概述 | Azure"
-description: "事件中心身份验证和安全模型概述。"
+title: Azure 事件中心身份验证和安全模型概述 | Azure
+description: 事件中心身份验证和安全模型概述。
 services: event-hubs
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 93841e30-0c5c-4719-9dc1-57a4814342e7
 ms.service: event-hubs
 ms.devlang: na

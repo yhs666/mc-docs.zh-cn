@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure Site Recovery 在 Azure 之间复制虚拟机的网络指南 | Azure"
-description: "有关复制 Azure 虚拟机的网络指南"
+title: 使用 Azure Site Recovery 在 Azure 之间复制虚拟机的网络指南 | Azure
+description: 有关复制 Azure 虚拟机的网络指南
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -78,7 +78,7 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
     >[!NOTE]
     > 如果将来向 Office 365 IP 范围添加新的 IP，则需要创建新的 NSG 规则。
 
-- 确保根据目标位置将 Site Recovery 服务终结点 IP 添加到白名单。
+- 确保根据目标位置将 Site Recovery 服务终结点 IP 添加到允许列表。
 <!-- Append china region whitelist from PM later -->
 
 ## <a name="sample-nsg-configuration"></a>NSG 配置示例

@@ -1,12 +1,12 @@
 ---
-title: "复制应用程序（Azure 到 Azure）| Azure"
-description: "本文介绍如何在 Azure 中设置在一个 Azure 区域中运行的虚拟机到另一个区域的复制。"
+title: 复制应用程序（Azure 到 Azure）| Azure
+description: 本文介绍如何在 Azure 中设置在一个 Azure 区域中运行的虚拟机到另一个区域的复制。
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/29/2017
     >
     > 建议在想进行 VM 复制的位置创建“恢复服务保管库”。 例如，如果目标位置为“中国北部”，请在“中国北部”创建保管库。
 
-* 如果使用网络安全组 (NSG) 规则或防火墙代理来控制 Azure VM 的出站互联网连接访问，请确保将所需的 URL 或 IP 加入白名单。 有关更多详细信息，请参阅[网络指南文档](./site-recovery-azure-to-azure-networking-guidance.md)。
+* 如果使用网络安全组 (NSG) 规则或防火墙代理来控制 Azure VM 的出站互联网连接访问，请确保将所需的 URL 或 IP 加入允许列表 有关更多详细信息，请参阅[网络指南文档](./site-recovery-azure-to-azure-networking-guidance.md)。
 
 * 如果在 Azure 中，本地和源位置之间存在 ExpressRoute 或 VPN 连接，请按照 [Azure 到本地 ExpressRoute/VPN 配置的 Site Recovery 注意事项](site-recovery-azure-to-azure-networking-guidance.md#guidelines-for-existing-azure-to-on-premises-expressroutevpn-configuration)文档操作。
 

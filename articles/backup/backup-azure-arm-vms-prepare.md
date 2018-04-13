@@ -1,12 +1,12 @@
 ---
-title: "Azure 备份：准备备份虚拟机 | Microsoft 文档"
-description: "确保对环境进行准备，以便在 Azure 中备份虚拟机。"
+title: Azure 备份：准备备份虚拟机 | Microsoft 文档
+description: 确保对环境进行准备，以便在 Azure 中备份虚拟机。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "备份; 备份;"
+editor: ''
+keywords: 备份; 备份;
 ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -202,7 +202,7 @@ Azure 备份服务提供两种类型的保管库用于保护 VM：备份保管�
 ## <a name="establish-network-connectivity"></a>建立网络连接
 为了管理 VM 快照，备份扩展需要连接 Azure 公共 IP 地址。 如果未建立适当的 Internet 连接，虚拟机的 HTTP 请求会超时，并且备份操作会失败。 如果部署中配置了访问限制（例如，通过网络安全组 (NSG)），请选择其中一个选项来提供备份流量的明确路径：
 
-- [将 Azure 数据中心 IP 范围加入白名单](http://www.microsoft.com/en-us/download/details.aspx?id=42064)。
+- [将 Azure 数据中心 IP 范围加入允许列表](http://www.microsoft.com/en-us/download/details.aspx?id=42064)。
 - 部署 HTTP 代理服务器来路由流量。
 
 在确定使用哪个选项时，要取舍的不外乎是易管理性、控制粒度和成本等要素。
@@ -213,7 +213,7 @@ Azure 备份服务提供两种类型的保管库用于保护 VM：备份保管�
 | 使用 HTTP 代理 |允许在代理中对存储 URL 进行精细控制。<br><br>在单个位置通过 Internet 访问 VM。<br><br>不受 Azure IP 地址变化的影响。 |通过代理软件运行 VM 带来的额外成本。 |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Whitelist the Azure datacenter IP ranges
-要将 Azure 数据中心 IP 范围加入白名单，请参阅 [Azure 网站](http://www.microsoft.com/en-us/download/details.aspx?id=42064)获取有关 IP 范围的详细信息和说明。
+要将 Azure 数据中心 IP 范围加入允许列表，请参阅 [Azure 网站](http://www.microsoft.com/en-us/download/details.aspx?id=42064)获取有关 IP 范围的详细信息和说明。
 
 可以允许使用[服务标记](../virtual-network/security-overview.md#service-tags)与特定区域的存储建立连接。 请确保允许访问存储帐户的规则的优先级高于阻止 Internet 访问的规则。 
 

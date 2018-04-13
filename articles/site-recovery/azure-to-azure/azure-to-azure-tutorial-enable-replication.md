@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Site Recovery（预览版）为 Azure VM 设置到辅助 Azure 区域的灾难恢复"
-description: "了解如何使用 Azure Site Recovery 服务为 Azure VM 设置到其他 Azure 区域的灾难恢复。"
+title: 使用 Azure Site Recovery（预览版）为 Azure VM 设置到辅助 Azure 区域的灾难恢复
+description: 了解如何使用 Azure Site Recovery 服务为 Azure VM 设置到其他 Azure 区域的灾难恢复。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
@@ -78,7 +78,7 @@ ms.lasthandoff: 02/13/2018
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 地址范围的出站连接
 
-当使用任何基于 IP 的防火墙、 代理或 NSG 规则来控制出站连接时，需要将以下 IP 地址范围列入白名单。 从以下链接下载范围列表：
+需要将以下 IP 地址范围列入白名单当使用任何基于 IP 的防火墙、 代理或 NSG 规则来控制出站连接时，需要将以下 IP 地址范围列入允许列表。 从以下链接下载范围列表：
 
 <!-- Not Available on  - [Azure Datacenter IP Ranges](http://www.microsoft.com/download/details.aspx?id=42064) -->
 <!-- Not Available on  - [Windows Azure Datacenter IP Ranges in Germany](http://www.microsoft.com/download/details.aspx?id=54770) -->
