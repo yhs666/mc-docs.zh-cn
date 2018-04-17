@@ -12,19 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 03/04/2018
+origin.date: 04/03/2018
+ms.date: 04/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4fa7c5a32cd71d7c21e76c99d81e406d6a7d2e60
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 8f96d56ac422ed12ea99b87f30bedc521a49f6af
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服务策略
-
-*适用于：Azure Stack 集成系统*
-
 本文介绍 Azure Stack 集成系统的服务策略，以及必须如何做才能使系统保持在受支持的状态。 
 
 ## <a name="update-package-types"></a>更新包类型
@@ -45,27 +42,16 @@ Microsoft 更新包具有以下命名约定，可帮助你轻松识别发布日�
 例如，2017 年 6 月 15 日发布的 Microsoft 软件更新是版本“1.0.170615.1”。
 
 ## <a name="keep-your-system-under-support"></a>保持系统受支持
+必须不断更新 Azure Stack 部署才能持续获得支持。 针对延迟更新的策略是，若要确保 Azure Stack 始终获得支持，必须运行最近发布的更新版本，或者运行以前发布的两个主要更新版本之一。  修补程序不属于主要更新版本。  如果缺少至少两个更新，Azure Stack 云会被视为不合规，必须至少更新到最低的受支持版本才能获得支持。 
 
-若要获得系统支持，必须保持在特定时间间隔内更新 Azure Stack。 我们对于 Microsoft 软件更新的延迟拟定的策略是三个月。 如果系统过期超过三个月，会被视为不合规。 必须将系统更新为至少最低支持版本，才能获得支持。 
+例如，如果最新发布的更新版本为 1805，在此之前的两个更新包为版本 1804 和 1803，则 1803 和 1804 仍受支持， 但 1802 不受支持。 即使最近一到两个月没有发布任何版本，此策略也有效。 例如，如果最新版本为 1805，但没有版本 1804，则此前的两个更新包（1803 和 1802）仍可获得支持。
 
-Microsoft 软件更新包是非累积的，而且先决条件是需要前一个更新包。 如果决定延后一个或多个更新，如果想要获取最新版本，请考虑整体运行时。
+Microsoft 软件更新包是非累积性的，其先决条件是需要前一个更新包。 如果决定延后一个或多个更新，则要使用最新版本，请考虑整体运行时。 
 
-下表显示示例更新包发布、其先决条件，以及要维持支持必要的系统最低支持版本。 该表基于 Azure Stack 集成系统的初始版本（内部版本 1708），第一次更新包发布 (1709) 是在 2017 年 9 月。 
-
-| 最新更新包（*示例*） | 先决条件 | 最低支持版本 |
-| -- | -- | -- |
-| 1710 | 1709 | 不适用 |
-| 1711 | 1710 | 1709 |
-| 1712 | 1711 | 1710 |
-| 1802 | 1801 | 1712 |
-| 1803 | 1802 | 1801 |
-| 1804 | 1803 | 1802 |
-| 1805 | 1804 | 1803 |
-| | | 
 
 ## <a name="next-steps"></a>后续步骤
 
 - [在 Azure Stack 中管理更新](azure-stack-updates.md)
 
-
+<!-- Update_Description: wording update -->
 

@@ -1,28 +1,28 @@
 ---
-title: "用于 IntelliJ 的 Azure 工具包 - 通过 SSH 远程调试 Spark 应用程序 | Azure"
-description: "逐步介绍如何使用用于 IntelliJ 的 Azure 工具包中的 HDInsight 工具通过 SSH 远程调试 HDInsight 群集上的应用程序"
-keywords: "远程调试 intellij, 远程调试 intellij, ssh, intellij, hdinsight, 调试 intellij, 调试"
+title: 用于 IntelliJ 的 Azure 工具包 - 通过 SSH 远程调试 Spark 应用程序
+description: 逐步介绍如何使用用于 IntelliJ 的 Azure 工具包中的 HDInsight 工具通过 SSH 远程调试 HDInsight 群集上的应用程序
+keywords: 远程调试 intellij, 远程调试 intellij, ssh, intellij, hdinsight, 调试 intellij, 调试
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
 manager: DJ
 editor: Jenny Jiang
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 origin.date: 11/25/2017
-ms.date: 12/25/2017
+ms.date: 04/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6bfb63735e46039198c7e143461129ac2ecc6a2e
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: e44ce11131cd32d96c32bacfaaef72dec5dad2f0
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>使用用于 IntelliJ 的 Azure 工具包通过 SSH 本地或远程调试 HDInsight 群集上的 Spark 应用程序
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/15/2017
 
       ![创建调试项目](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
-   d.单击“下一步”。 选择“**下一步**”。     
+   d. 选择“**下一步**”。     
  
 2. 在下一个“新建项目”窗口中执行以下操作：
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/15/2017
 
    c. 在“Spark 版本”下拉列表中，Scala 项目创建向导集成了 Spark SDK 和 Scala SDK 的正确版本。 如果 Spark 群集版本低于 2.0，请选择“Spark 1.x”。 否则，选择“Spark 2.x”。 本示例使用“Spark 2.0.2 (Scala 2.11.8)”。
 
-   d.单击“下一步”。 选择“完成”。
+   d. 选择“完成”。
 
 3. 选择 **src** > **main** > **scala** 打开项目中的代码。 本示例使用“SparkCore_wasbloTest”脚本。
 
@@ -116,7 +116,7 @@ ms.lasthandoff: 12/15/2017
 
    ![启用 Spark 远程调试](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
 
-5. 现已使用提供的名称保存配置。 若要查看配置详细信息，请选择配置名称。 若要进行更改，请选择“编辑配置”。 
+5. 该配置现在以用户提供的名称保存。 若要查看配置详细信息，请选择配置名称。 若要进行更改，请选择“编辑配置”。 
 
 6. 完成配置设置后，可以针对远程群集运行项目，或执行远程调试。
    
@@ -168,7 +168,6 @@ ms.lasthandoff: 12/15/2017
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 结合 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](apache-spark-eventhub-streaming.md)
 * [使用 HDInsight 中的 Spark 分析网站日志](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序

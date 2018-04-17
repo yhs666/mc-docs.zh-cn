@@ -1,9 +1,9 @@
 ---
-title: "在 HDInsight 中上传 Hadoop 作业的数据 | Azure"
-description: "了解如何在 HDInsight 中使用 Azure CLI、Azure 存储资源管理器、Azure PowerShell、Hadoop 命令行或 Sqoop 上传和访问 Hadoop 作业的数据。"
-keywords: "etl hadoop, 将数据引入 hadoop, hadoop 加载数据"
+title: 在 HDInsight 中上传 Hadoop 作业的数据 | Azure
+description: 了解如何在 HDInsight 中使用 Azure CLI、Azure 存储资源管理器、Azure PowerShell、Hadoop 命令行或 Sqoop 上传和访问 Hadoop 作业的数据。
+keywords: etl hadoop, 将数据引入 hadoop, hadoop 加载数据
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -16,23 +16,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2017
-ms.date: 01/15/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: 24f81a3fd699b309ae3de9ec667f6af16019f375
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 772c9ff1a875188a2b37df8c056429a6689c5fa9
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中上传 Hadoop 作业的数据
-Azure HDInsight 在 Azure 存储之上提供了一个功能完备的 Hadoop 分布式文件系统 (HDFS)。 该系统为一个 HDFS 扩展，可为客户提供无缝体验。 在该系统的帮助下，Hadoop 生态系统中的整套组件能够直接操作其管理的数据。 Azure Blob 存储和 HDFS 是独立的文件系统，并且已针对数据的存储和计算进行了优化。 有关使用 Azure 存储的益处的信息，请参阅[将 Azure 存储与 HDInsight 配合使用][hdinsight-storage]。
+Azure HDInsight 在 Azure 存储之上提供了一个功能完备的 Hadoop 分布式文件系统 (HDFS)。 该系统为一个 HDFS 扩展，可为客户提供无缝体验。 在该系统的帮助下，Hadoop 生态系统中的整套组件能够直接操作其管理的数据。 Azure 存储是独立的文件系统，已针对数据的存储和计算进行优化。 有关使用 Azure 存储的益处的信息，请参阅[将 Azure 存储与 HDInsight 配合使用][hdinsight-storage]。
 
 ## <a name="prerequisites"></a>先决条件
 
 在开始下一步之前，请注意以下要求：
 
 * 一个 Azure HDInsight 群集。 有关说明，请参阅 [Azure HDInsight 入门][hdinsight-get-started]或[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。
-* 学习以下文章：
+* 学习以下两篇文章：
 
     - [将 Azure 存储与 HDInsight 配合使用][hdinsight-storage]
 
@@ -175,7 +175,7 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/example/data/davinci.txt
 
-有关用于处理文件的其他 Hadoop 命令列表，请参阅 [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+若要查看可用于文件的其他 Hadoop 命令的列表，请参阅 [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]
 > 在 HBase 群集上，写入数据为 256 KB 时会使用默认块大小。 虽然在使用 HBase Api 或 REST API 时可良好运行，但使用 `hadoop` 或 `hdfs dfs` 命令编写大于 ~12 GB 的数据会导致错误。 有关详细信息，请参阅本文的[在 Blob 上编写时的存储异常](#storageexception)部分。
@@ -198,7 +198,7 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 有关详细信息，请参阅[导航链接的资源](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources)。
 
 #### <a id="storageexplorer"></a>Azure 存储资源管理器
-*Azure 存储资源管理器* 是一种用于在 Blob 中检查和更改数据的实用工具。 它是一个免费的开源工具，可从 [http://storageexplorer.com/](http://storageexplorer.com/)下载。 也可以从此链接获取源代码。
+*Azure 存储资源管理器* 是一种用于在 Blob 中检查和更改数据的实用工具。 它是免费的开源工具，可从 [http://storageexplorer.com/](http://storageexplorer.com/) 下载。 也可以从此链接获取源代码。
 
 使用该工具之前，必须知道 Azure 存储帐户名和帐户密钥。 有关如何获取此信息的说明，请参阅 [创建、管理或删除存储帐户][azure-create-storage-account]中的“如何：查看、复制和重新生成存储访问密钥”部分。
 
@@ -273,7 +273,7 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 还可以使用 Ambari 全局增加 `fs.azure.write.request.size` 的值。 可以使用以下步骤在 Ambari Web UI 中更改该值：
 
-1. 在浏览器中，转到群集的 Ambari Web UI。 网址为 https://CLUSTERNAME.azurehdinsight.cn，其中 CLUSTERNAME 是群集的名称。
+1. 在浏览器中，转到群集的 Ambari Web UI。 该地址为 https://CLUSTERNAME.azurehdinsight.cn，其中“CLUSTERNAME”是群集名称。
 
     出现提示时，输入群集的管理员名称和密码。
 2. 在屏幕左侧选择“HDFS”，然后选择“配置”选项卡。

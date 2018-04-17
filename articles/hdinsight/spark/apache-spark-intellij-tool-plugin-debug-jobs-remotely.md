@@ -1,8 +1,8 @@
 ---
-title: "用于 IntelliJ 的 Azure 工具包：在 HDInsight Spark 中远程调试应用程序 | Microsoft Docs"
-description: "了解如何使用用于 IntelliJ 的 Azure 工具包中的 HDInsight 工具通过 VPN 远程调试 HDInsight 群集上运行的 Spark 应用程序。"
+title: 用于 IntelliJ 的 Azure 工具包：在 HDInsight Spark 中远程调试应用程序
+description: 了解如何使用用于 IntelliJ 的 Azure 工具包中的 HDInsight 工具通过 VPN 远程调试 HDInsight 群集上运行的 Spark 应用程序。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
-ms.date: 12/25/2017
+ms.date: 04/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: 496903e2893ef03a97de0bd04ea7fdda35d11d25
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 456e53f1476562a07ebb118074fc39134f8eff57
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>使用用于 IntelliJ 的 Azure 工具包通过 VPN 在 HDInsight 中远程调试 Spark 应用程序
 
@@ -272,7 +272,6 @@ ms.lasthandoff: 12/15/2017
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 结合 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](apache-spark-eventhub-streaming.md)
 * [使用 HDInsight 中的 Spark 分析网站日志](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序

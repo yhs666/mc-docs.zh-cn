@@ -1,29 +1,32 @@
 ---
-title: "使用端到端密钥轮替和审核设置 Azure 密钥保管库 | Microsoft Docs"
-description: "使用本操作指南帮助设置密钥轮替和监视密钥保管库日志。"
+title: 使用端到端密钥轮替和审核设置 Azure 密钥保管库 | Microsoft Docs
+description: 使用本操作指南帮助设置密钥轮替和监视密钥保管库日志。
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: swgriffith
 manager: mbaldwin
-tags: 
+tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/07/2017
-ms.date: 03/04/2018
+origin.date: 03/01/2018
+ms.date: 04/02/2018
 ms.author: v-junlch
-ms.openlocfilehash: ef40598c18d32fa157a09889411590748c7cd069
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: e5f785595faa588e38142529fca6b0757af76818
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>使用端到端密钥轮替和审核设置 Azure Key Vault
 ## <a name="introduction"></a>简介
 创建 Key Vault 后，可以开始使用该保管库存储密钥和机密。 应用程序不再需要保存密钥或机密，而会根据需要从密钥保管库请求密钥或机密。 这样，便可以更新密钥和机密，不会影响应用程序，同时可以各种可能的方法管理密钥和机密。
+
+>[!IMPORTANT]
+> 本文中的示例仅用于说明目的， 它们不应在生产环境中使用。 
 
 本文演练一个使用 Azure Key Vault 来存储机密的示例。在本例中，应用程序将访问 Azure 存储帐户机密。 本文还会演示如何实现该存储帐户机密的计划轮替。 最后，介绍了如何监视密钥保管库审核日志，并在收到意外请求时发出警报。
 
@@ -82,25 +85,15 @@ Get-AzureKeyVaultSecret -VaultName <vaultName>
 
 打开 Azure Active Directory 的“应用程序”选项卡。
 
-![在 Azure Active Directory 中打开应用程序](./media/keyvault-keyrotation/AzureAD_Header.png)
+选择“应用注册” -> “新建应用程序注册”，将应用程序添加到 Azure Active Directory。
 
-选择“ADD”，向 Azure Active Directory 添加应用程序。
-
-![选择“ADD”](./media/keyvault-keyrotation/Azure_AD_AddApp.png)
-
-将应用程序类型保留为“Web 应用程序和/或 WEB API”，并为应用程序命名。
-
-![为应用程序命名](./media/keyvault-keyrotation/AzureAD_NewApp1.png)
+将应用程序类型保留为“Web 应用/API”，并为应用程序命名。
 
 为应用程序指定“登录 URL”和“应用 ID URI”。 可以在本演示中随意填写这些信息，以后也可以根据需要更改。
-
-![提供所需的 URI](./media/keyvault-keyrotation/AzureAD_NewApp2.png)
 
 将应用程序添加到 Azure Active Directory 后，会转到应用程序页。 单击“配置”选项卡，并查找并复制“客户端 ID”值。 记下客户端 ID 以供后续步骤使用。
 
 接下来，为应用程序生成密钥，以便它可以与 Azure Active Directory 交互。 可以在“配置”选项卡的“密钥”部分下创建此密钥。记下在 Azure Active Directory 应用程序中新生成的密钥，以供后续步骤使用。
-
-![Azure Active Directory 应用密钥](./media/keyvault-keyrotation/Azure_AD_AppKeys.png)
 
 在建立从应用程序到密钥保管库的任何调用之前，必须让密钥保管库知道应用程序及其权限。 以下命令从 Azure Active Directory 应用获取保管库名称和客户端 ID，并为应用程序授予对密钥保管库的“Get”权限。
 
@@ -234,3 +227,4 @@ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Secre
 
 在编辑器窗格中，选择“测试窗格”测试脚本。 正常运行脚本后，可以选择“发布”，并返回 Runbook 的配置窗格以应用 Runbook 的计划。
 
+<!-- Update_Description: wording update -->

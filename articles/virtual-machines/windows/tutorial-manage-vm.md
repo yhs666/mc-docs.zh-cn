@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/09/2018
-ms.date: 03/19/2018
+ms.date: 04/10/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 21645920beed6a69582705a7c3eeb8a4e819369c
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 738510ecc4973396ee7d51dd240978105148df61
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>使用 Azure PowerShell 模块创建和管理 Windows VM
 
@@ -161,10 +161,10 @@ New-AzureRmVm `
 下表将大小分类成了多个用例。  
 | 类型                     | 常见大小           |    说明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [常规用途](sizes-general.md)        |DSv2、Dv2、DS、D、Av2、A0-7| CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
-| [计算优化](sizes-compute.md)   | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
-| [内存优化](sizes-memory.md)    | DSv2、DS、Dv2、D   | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
-<!-- Not Available on GS, G Series -->
+<!-- Pending On DV3, EV3 GA Annoucement-->
+| [常规用途](sizes-general.md)         |Dsv3、Dv3、DSv2、Dv2、DS、D、Av2、A0-7| 均衡的 CPU 内存比。 适用于开发/测试、小到中型应用程序和数据解决方案。  | | [计算优化](sizes-compute.md)   | Fs、F             | CPU 内存比高。 适用于中等流量的应用程序、网络设备和批处理。        | | [内存优化](sizes-memory.md)    | Esv3、Ev3、DSv2、DS、Dv2、D   | 内存核心比高。 适用于关系数据库、中到大型缓存和内存中分析。                 |
+<!-- Pending On DV3, EV3 GA Annoucement-->
+<!-- Not Available on M, GS, G Series -->
 <!-- Not Available on | Storage optimized       | Ls   -->
 <!-- Not Available on | GPU           | NV, NC         -->
 <!-- Not Available on | High performance | H, A8-11    -->
