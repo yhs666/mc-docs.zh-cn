@@ -107,6 +107,8 @@
               href: backup-azure-vms-encryption.md
             - name: 在创建 VM 期间启用 VM 备份
               href: backup-during-vm-creation.md
+            - name: 升级到 VM 备份堆栈 V2
+              href: backup-upgrade-to-vm-backup-stack-v2.md
         - name: 管理和监视 VM
           items:
             - name: 在 Azure 门户中管理 Azure VM 备份
@@ -123,14 +125,6 @@
               href: backup-azure-vms-encryption.md
             - name: 还原已加密 VM 的 Key Vault 密钥和机密
               href: backup-azure-restore-key-secret.md
-    - name: 配置 Azure 备份报表
-      items:
-        - name: 配置 Azure 备份报表
-          href: backup-azure-configure-reports.md
-        - name: Azure 备份报表的数据模型
-          href: backup-azure-reports-data-model.md
-        - name: Azure 备份的 Log Analytics 数据模型
-          href: backup-azure-log-analytics-data-model.md
     - name: 数据保护管理器
       items:
         - name: 在 Azure 门户中准备 DPM 工作负荷

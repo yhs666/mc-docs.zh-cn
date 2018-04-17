@@ -1,23 +1,23 @@
 ---
-title: "了解活动日志警报中使用的 Webhook 架构"
-description: "了解有关活动日志警报激活时发布到 webhook URL 的 JSON 架构。"
+title: 了解活动日志警报中使用的 Webhook 架构
+description: 了解有关活动日志警报激活时发布到 webhook URL 的 JSON 架构。
 author: johnkemnetz
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/31/2017
-ms.date: 02/26/218
+ms.date: 04/16/218
 ms.author: v-yiso
-ms.openlocfilehash: cd74bb3b760300c07478922ae27af6edc04bbf19
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 356115773d171f7b06a8e5148e8abf7721cc9d51
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 活动日志警报的 Webhook
 作为操作组定义的一部分，可以配置 webhook 终结点以接收活动日志警报通知。 通过 webhook 可以将这些通知路由到其他系统，以便进行后续处理或自定义操作。 本文介绍针对 webhook 发出的 HTTP POST 的有效负载的大致形式。
@@ -128,7 +128,7 @@ Webhook 可以选择使用基于令牌的授权进行身份验证。 保存的 w
 }
 ```
 
-有关服务运行状况通知活动日志警报的特定架构详细信息，请参阅[服务运行状况通知](monitoring-service-notifications.md)。
+有关服务运行状况通知活动日志警报的特定架构详细信息，请参阅[服务运行状况通知](monitoring-service-notifications.md)。 此外，请了解如何[使用现有的问题管理解决方案配置服务运行状况 Webhook 通知](../service-health/service-health-alert-webhook-guide.md)。
 
 有关所有其他活动日志警报的特定架构的详细信息，请参阅 [Azure 活动日志概述](monitoring-overview-activity-logs.md)。
 

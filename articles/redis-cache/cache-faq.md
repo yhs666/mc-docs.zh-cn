@@ -1,11 +1,11 @@
 ---
-title: "Azure Redis 缓存常见问题 | Microsoft Docs"
-description: "了解常见问题的答案，以及有关 Azure Redis 缓存的模式和最佳实践"
+title: Azure Redis 缓存常见问题 | Microsoft Docs
+description: 了解常见问题的答案，以及有关 Azure Redis 缓存的模式和最佳实践
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
 ms.workload: tbd
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 07/27/2017
-ms.date: 03/01/2018
+ms.date: 03/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: 921c7a4dff5d49b5d87f940692aa523d788110ad
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 59afe8fbbe3f267d1c96c30f1de4969ecaaee0bb
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis 缓存常见问题
 了解有关 Azure Redis 缓存的常见问题解答、模式和最佳实践。
@@ -82,14 +82,14 @@ ms.lasthandoff: 03/02/2018
 - [哪种 Azure 缓存产品适合我？](#which-azure-cache-offering-is-right-for-me)
 
 ### <a name="what-is-azure-redis-cache"></a>什么是 Azure Redis 缓存？
-Azure Redis 缓存以常用的开放源 [Redis 缓存](http://redis.io)为基础。 这样便可以访问安全、专用的 Redis 缓存，该缓存由 Azure.cn 管理并可从 Azure 内的任何应用程序进行访问。 有关更详细的概述，请参阅 Azure.com 上的 [Azure Redis 缓存](/redis-cache/)产品页。
+Azure Redis 缓存以常用的开放源 [Redis 缓存](http://redis.io)为基础。 这样便可以访问安全、专用的 Redis 缓存，该缓存由 Azure.cn 管理并可从 Azure 内的任何应用程序进行访问。 有关更详细的概述，请参阅 Azure.com 上的 [Azure Redis 缓存](https://www.azure.cn/home/features/redis-cache/)产品页。
 
 ### <a name="how-can-i-get-started-with-azure-redis-cache"></a>使用 Azure Redis 缓存？
 可通过多种方法来开始使用 Azure Redis 缓存。
 
 - 用户可以查看适用于 [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)、[ASP.NET](cache-web-app-howto.md)、[Java](cache-java-get-started.md)、[Node.js](cache-nodejs-get-started.md) 和 [Python](cache-python-get-started.md) 的教程之一。
 - 可以观看 [How to Build High-Performance Apps Using Azure Redis Cache](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/)（如何使用 Azure Redis 缓存生成高性能应用）。
-- 可以查看与你项目的开发语言对应的面向客户的客户端文档，了解如何使用 Redis。 许多 Redis 客户端都可用于 Azure Redis 缓存。 有关 Redis 客户端的列表，请参阅 [http://redis.io/clients](http://redis.io/clients)。
+- 可以查看与你项目的开发语言对应的面向客户的客户端文档，了解如何使用 Redis。 许多 Redis 客户端都可用于 Azure Redis 缓存。 有关 Redis 客户端列表，请参阅 [http://redis.io/clients](http://redis.io/clients)。
 
 如果还没有 Azure 帐户，可以：
 
@@ -230,9 +230,7 @@ Azure Redis 缓存没有本地模拟器，但可以在本地计算机上从 [Red
 - 还可以使用 Redis 命令行工具。 若要使用这些工具，请执行以下步骤：
 - 下载 [Redis 命令行工具](https://github.com/MSOpenTech/redis/releases/)。
 - 使用 `redis-cli.exe`连接到缓存。 使用 -h 开关传入缓存终结点，使用 -a 传入密钥，如以下示例中所示：
-- `redis-cli -h <your cache="" name="">
-  .redis.cache.chinacloudapi.cn -a <key>
-  `
+- `redis-cli -h <redis cache name>.redis.cache.chinacloudapi.cn -a <key>`
 
 > [!NOTE]
 > Redis 命令行工具对 SSL 端口不起作用，但是，可以[根据适用于 Redis 预览版的 ASP.NET 会话状态提供程序通告](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)中的说明，使用 `stunnel` 等实用程序安全地将这些工具连接到 SSL。

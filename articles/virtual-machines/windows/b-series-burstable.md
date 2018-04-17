@@ -1,26 +1,26 @@
 ---
-title: "B 系列 Azure Windows VM 大小 | Azure"
-description: "描述 B 系列可突增 Azure VM 大小。"
+title: B 系列 Azure Windows VM 大小 | Azure
+description: 描述 B 系列可突增 Azure VM 大小。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 02/05/2018
-ms.date: 02/05/2018
+origin.date: 09/07/2017
+ms.date: 04/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2bd4d557967902b5c692a4a87c014d55e2fee082
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: ae0aabbfc2d6614230890099282ad6f8a571ed61
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B 系列可突增虚拟机大小
 
@@ -39,4 +39,4 @@ ms.lasthandoff: 02/13/2018
 
 <!-- Update_Description: new article on widnows b series burstable -->
 <!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-<!--ms.date: 02/05/2018-->
+<!--ms.date: 04/10/2018-->

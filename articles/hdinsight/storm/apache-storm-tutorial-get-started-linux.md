@@ -1,9 +1,9 @@
 ---
-title: "Apache Storm on HDInsight 上的 storm-starter 示例 - Azure | Azure"
-description: "了解如何在 HDInsight 上使用 Apache Storm 和 storm-starter 示例执行大数据分析和实时处理数据。"
-keywords: "storm-starter, apache storm 示例"
+title: Apache Storm on HDInsight 上的 storm-starter 示例 - Azure | Azure
+description: 了解如何在 HDInsight 上使用 Apache Storm 和 storm-starter 示例执行大数据分析和实时处理数据。
+keywords: storm-starter, apache storm 示例
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -13,15 +13,15 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/05/2017
-ms.date: 01/15/2018
+origin.date: 02/27/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 43dc258e3208ed895578e2d01baf0bef1eaa9452
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 094ecc531d691543786faf6b58a32435703c081a
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/09/2018
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>通过 storm-starter 示例开始使用 Apache Storm on HDInsight
 
@@ -44,7 +44,7 @@ Apache Storm 是一个可扩展的、具有容错能力的分布式实时计算�
 
 使用以下步骤创建 Storm on HDInsight 群集：
 
-1. 从 [Azure 门户](https://portal.azure.cn)依次选择“+ 新建”**、“数据 + 分析”**、“HDInsight”。
+1. 从 [Azure 门户](https://portal.azure.com)依次选择“+ 创建资源”、“数据 + 分析”、“HDInsight”。
 
     ![创建 HDInsight 群集](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
@@ -67,9 +67,7 @@ Apache Storm 是一个可扩展的、具有容错能力的分布式实时计算�
 
     * 版本：Storm 1.1.0 (HDI 3.6)
 
-    * **群集层**：标准
-
-    最后使用“选择”按钮保存设置。
+   最后使用“选择”按钮保存设置。
 
     ![选择群集类型](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-cluster-type.png)
 
@@ -111,7 +109,7 @@ Apache Storm 是一个可扩展的、具有容错能力的分布式实时计算�
     >
     > WordCount 示例和其他 storm-starter 示例已经包含在群集中，其位置为 `/usr/hdp/current/storm-client/contrib/storm-starter/`。
 
-如果有兴趣查看 Storm 初学者示例的源，可以在以下网页中找到代码：[https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter)。 此链接针对与 HDInsight 3.6 一起提供的 Storm 1.1.x。 对于其他版本的 Storm，可使用页面顶部的“分支”按钮选择不同的 Storm 版本。
+如果想要查看 storm-starter 示例的源代码，可在 [https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter) 上找到代码。 此链接针对与 HDInsight 3.6 一起提供的 Storm 1.1.x。 对于其他版本的 Storm，可使用页面顶部的“分支”按钮选择不同的 Storm 版本。
 
 ## <a name="monitor-the-topology"></a>监视拓扑
 
@@ -119,7 +117,7 @@ Storm UI 提供一个 Web 界面用于处理正在运行的拓扑，HDInsight �
 
 执行以下步骤以使用 Storm UI 来监视拓扑。
 
-1. 若要显示 Storm UI，请在 Web 浏览器中打开 https://CLUSTERNAME.azurehdinsight.cn/stormui。 将 **CLUSTERNAME** 替换为群集名称。
+1. 若要显示 Storm UI，请打开 Web 浏览器，访问 https://CLUSTERNAME.azurehdinsight.cn/stormui。 将 **CLUSTERNAME** 替换为群集名称。
 
     > [!NOTE]
     > 如果系统要求提供用户名和密码，请输入创建群集时使用的群集管理员用户名 (admin) 和密码。

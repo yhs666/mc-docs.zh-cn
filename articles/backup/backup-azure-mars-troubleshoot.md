@@ -1,11 +1,11 @@
 ---
-title: "对 Azure 备份代理进行故障排除 | Microsoft Docs"
-description: "排除与 Azure 备份代理的安装和注册相关的问题"
+title: 对 Azure 备份代理进行故障排除 | Microsoft Docs
+description: 排除与 Azure 备份代理的安装和注册相关的问题
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/04/2017
-ms.date: 02/07/2018
+ms.date: 04/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: a5f85ea914521d78fd81baf00d7b52bc3c1e58fe
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 117cd7f63eb168aa13affb0b7310d435d3c05b1b
+ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>排除 Azure 备份代理配置和注册问题
 ## <a name="recommended-steps"></a>建议的步骤
 请参考下表中建议的操作来解决在 Azure 备份代理的安装和注册过程中可能会遇到的错误。
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="invalid-vault-credentials-provided-the-file-is-either-corrupted-or-does-not-have-the-latest-credentials-associated-with-recovery-service"></a>提供的保管库凭据无效。 该文件已损坏，或者没有与恢复服务关联的最新凭据。
 | 错误详细信息 | 可能的原因 | 建议的操作 |

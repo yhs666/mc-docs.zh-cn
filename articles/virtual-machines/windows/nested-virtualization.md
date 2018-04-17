@@ -1,23 +1,24 @@
 ---
-title: "如何在 Azure 虚拟机中启用嵌套虚拟化 | Azure"
-description: "如何在 Azure 虚拟机中启用嵌套虚拟化"
+title: 如何在 Azure 虚拟机中启用嵌套虚拟化 | Azure
+description: 如何在 Azure 虚拟机中启用嵌套虚拟化
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 ms.author: v-yeche
-origin.date: 02/05/2018
-ms.date: 02/05/2018
+origin.date: 10/09/2017
+ms.date: 4/10/2018
 ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 3af4f27478270374d1d03f4e717e85908bec831f
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: a9e455c820db231580e314d93d5ddb7a239e9f5e
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/09/2018
 ---
+<!-- Update_Description: new article on nested virtualization on Ev3 and Dv3 -->
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>如何在 Azure VM 中启用嵌套虚拟化
 
 Azure 虚拟机的 Dv3 和 Ev3 系列支持嵌套虚拟化。 此功能可在支持开发、测试、培训和演示环境等方面提供极大的灵活性。 
@@ -78,7 +79,7 @@ Azure 虚拟机的 Dv3 和 Ev3 系列支持嵌套虚拟化。 此功能可在支
 2. 创建内部交换机。
 
     ```powershell
-    New-VMSwitch -SwitchName "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
     ```
 
 3. 查看交换机的属性，并记下新适配器的 ifIndex。
@@ -179,4 +180,4 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
 <!-- Update_Description: new article on nested virtualization on Ev3 and Dv3 -->
-<!--ms.date: 02/05/2018-->
+<!--ms.date: 04/10/2018-->

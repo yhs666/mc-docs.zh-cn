@@ -1,11 +1,11 @@
 ---
-title: "将本地网络连接到 Azure 虚拟网络：站点到站点 VPN：门户 | Microsoft 文档"
-description: "通过公共 Internet 创建从本地网络到 Azure 虚拟网络的 IPsec 连接的步骤。 这些步骤帮助你使用门户创建跨界站点到站点 VPN 网关连接。"
+title: 将本地网络连接到 Azure 虚拟网络：站点到站点 VPN：门户 | Microsoft 文档
+description: 通过公共 Internet 创建从本地网络到 Azure 虚拟网络的 IPsec 连接的步骤。 这些步骤有助于使用门户创建跨界站点到站点 VPN 网关连接。
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
-editor: 
+author: cherylmc
+manager: timlt
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 827a4db7-7fa5-4eaf-b7e1-e1518c51c815
 ms.service: vpn-gateway
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 11/17/2017
-ms.date: 12/11/2017
+origin.date: 03/13/2018
+ms.date: 03/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8ccefbd52fcc0c1a0a7aebfc1e13c0c380f953ac
-ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
+ms.openlocfilehash: 8b8473fde20af3025e3955dccde1bbb6b88f84da
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>在 Azure 门户中创建站点到站点连接
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/12/2017
 
 ![站点到站点 VPN 网关跨界连接示意图](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在开始配置之前，请验证是否符合以下条件：
 
@@ -80,9 +80,11 @@ ms.lasthandoff: 12/12/2017
 
 ## <a name="gatewaysubnet"></a>3.创建网关子网
 
-[!INCLUDE [vpn-gateway-aboutgwsubnet](../../includes/vpn-gateway-about-gwsubnet-include.md)]
+[!INCLUDE [about gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-s2s-rm-portal-include.md)]
+
+[!INCLUDE [no nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="VNetGateway"></a>4.创建 VPN 网关
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/14/2017
-ms.date: 03/12/2018
+origin.date: 02/23/2018
+ms.date: 03/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5216d44bd4f9d2c04ede8782bf9f3f5904a5fe5b
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 61404fdb045c6a0f978827e81abc048aa7913442
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>故障排除：Azure 点到站点连接问题
 
@@ -41,7 +41,9 @@ ms.lasthandoff: 03/16/2018
 
 若要解决该问题，请执行以下步骤：
 
-1. 请确保已正确的位置安装下列证书：
+1. 打开证书管理器：单击“开始”，键入“管理计算机证书”，然后单击搜索结果中的“管理计算机证书”。
+
+2. 请确保已正确的位置安装下列证书：
 
     | 证书 | 位置 |
     | ------------- | ------------- |
@@ -49,7 +51,7 @@ ms.lasthandoff: 03/16/2018
     | Azuregateway-*GUID*.chinacloudapp.cn  | Current User\Trusted Root Certification Authorities|
     | AzureGateway-*GUID*.chinacloudapp.cn, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
-2. 转到 Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>，在用户和计算机的存储上手动安装证书（*.cer 文件）。
+3. 转到 Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>，在用户和计算机的存储上手动安装证书（*.cer 文件）。
 
 若要详细了解如何安装客户端证书，请参阅[为点到站点连接生成并导出证书](vpn-gateway-certificates-point-to-site.md)。
 
@@ -326,7 +328,7 @@ SMB 协议用于文件共享访问。 连接启动时，VPN 客户端添加了�
 更新网卡驱动程序：
 
 1. 单击“开始”，键入“设备管理器”，然后从结果列表中选择它。 如果系统提示需要管理员密码或确认，请键入密码或进行确认。
-2. 在“网络适配器”类别，查找要更新的网卡。  
+2. 在“网络适配器”类别中，找到要更新的 NIC。  
 3. 双击设备名称，选择“更新驱动程序”，选择“自动搜索更新的驱动程序软件”。
 4. 如果 Windows 找不到新的驱动程序，可以尝试在设备制造商的网站上查找，并按照说明执行操作。
 5. 重启计算机并再次尝试连接。

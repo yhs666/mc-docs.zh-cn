@@ -1,11 +1,11 @@
 ---
-title: "在工作流中创建循环和范围或者解除批处理数据 - Azure 逻辑应用"
-description: "创建循环来迭代数据，将操作分组到范围，或者解除批处理数据，以便在 Azure 逻辑应用中启动更多工作流。"
+title: 在工作流中创建循环和范围或者解除批处理数据 - Azure 逻辑应用
+description: 创建循环来迭代数据，将操作分组到范围，或者解除批处理数据，以便在 Azure 逻辑应用中启动更多工作流。
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: integration
@@ -16,10 +16,10 @@ origin.date: 11/29/2016
 ms.author: v-yiso
 ms.date: 03/19/2018
 ms.openlocfilehash: 8e1b6026d5a7fe3acb34be7262a529500e3e962b
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/13/2018
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>逻辑应用循环、范围和解除批处理
   

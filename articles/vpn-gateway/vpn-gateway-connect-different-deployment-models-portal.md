@@ -1,11 +1,11 @@
 ---
-title: "将经典虚拟网络连接到 Azure 资源管理器 VNet：门户 | Microsoft Docs"
-description: "使用 VPN 网关和门户在经典 VNet 和资源管理器 VNet 之间创建 VPN 连接"
+title: 将经典虚拟网络连接到 Azure 资源管理器 VNet：门户 | Microsoft Docs
+description: 使用 VPN 网关和门户将经典 VNet 连接到资源管理器 VNet 的步骤
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
 ms.service: vpn-gateway
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/13/2018
-ms.date: 03/12/2018
+origin.date: 03/13/2018
+ms.date: 03/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: c0f2b9190a8965ce3fd0501d4280c3f136727d5f
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 0dc7340e4b23ebe498e5111145ee5cc34a2968b2
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>使用门户从不同的部署模型连接虚拟网络
 
@@ -106,9 +106,7 @@ SKU = VpnGw1 <br>
 
 1. 导航到“所有资源”并在列表中找到“ClassicVNet”。
 2. 在“概述”页面的“VPN 连接”部分中，单击“网关”，创建网关。
-    
-      ![配置 VPN 网关](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "配置 VPN 网关")
-
+    ![配置 VPN 网关](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "配置 VPN 网关")
 3. 在“新建 VPN 连接”页面上，对于“连接类型”，选择“站点到站点”。
 4. 对于“本地站点”，请单击“配置所需设置”。 这会打开“本地站点”页面。
 5. 在“本地站点”页面上，创建一个表示资源管理器 VNet 的名称。 例如，RMVNetLocal。
@@ -122,7 +120,6 @@ SKU = VpnGw1 <br>
 2. 单击“可选网关配置”打开“网关配置”页。
 
     ![打开网关配置页面](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "打开网关配置页面")
-      
 3. 单击“子网 - 配置所需设置”，打开“添加子网”页面。 “名称”已配置有所需值 **GatewaySubnet**。
 4. **地址范围** 指网关子网的范围。 虽然可以创建具有地址范围 /29（3 个地址）的网关子网，但建议创建包含更多 IP 地址的网关子网。 这可以适应将来可能需要更多可用 IP 地址的配置。 如果可能，请使用 /27 或 /28。 如果使用这些步骤进行练习，可以参考[示例](#values)值。 本示例使用“10.0.0.32/28”。 单击“确定”  创建网关子网。
 5. “网关配置”页面上的“大小”指的是网关 SKU。 选择 VPN 网关的网关 SKU。
@@ -153,7 +150,7 @@ SKU = VpnGw1 <br>
 - 地址范围 = 192.168.1.0/24 <br>
 
 
-如果还没有资源管理器 VNet 并且运行这些步骤进行练习，则可以使用[此文章](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)以及上文中的示例设置值创建 VNet。
+如果还没有资源管理器 VNet 并且运行这些步骤进行练习，则可以使用[创建虚拟网络](../virtual-network/quick-create-portal.md)中的步骤以及示例设置值创建虚拟网络。
 
 ### <a name="2-create-a-gateway-subnet"></a>2.创建网关子网
 
@@ -161,9 +158,9 @@ SKU = VpnGw1 <br>
 
 创建虚拟网关前，先要创建网关子网。 创建 CIDR 计数为 /28 或更大（/27、/26 等）的网关子网。 如果正在练习创建此配置，可以使用示例值。
 
-[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
-
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
+
+[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ### <a name="creategw"></a>3.创建虚拟网关
 
@@ -305,7 +302,7 @@ Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
-###<a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>验证从 Resource Manager VNet 到经典 VNet 的连接
+### <a name="to-verify-the-connection-from-your-resource-manager-vnet-to-your-classic-vnet"></a>验证从 Resource Manager VNet 到经典 VNet 的连接
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 

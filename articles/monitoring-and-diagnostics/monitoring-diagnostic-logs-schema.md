@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/24/2018
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: 23a42665d2c358a205564fce1f5423a021ccc2cd
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: ceef1262b300c9cc4be7241b56cd5e5012315e6e
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 诊断日志支持的服务、架构和类别
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 03/28/2018
 | 流分析 |[作业诊断日志](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | 虚拟网络 | 架构不可用。 |
 
-# <a name="supported-diagnostic-log-categories"></a>支持的诊断日志类别
+## <a name="supported-log-categories-per-resource-type"></a>每种资源类型支持的日志类别
 |资源类型|类别|类别显示名称|
 |---|---|---|
 |Microsoft.AnalysisServices/servers|引擎|引擎|
@@ -60,6 +60,8 @@ ms.lasthandoff: 03/28/2018
 |Microsoft.Automation/automationAccounts|JobLogs|作业日志|
 |Microsoft.Automation/automationAccounts|JobStreams|作业流|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Dsc 节点状态|
+|Microsoft.Batch/batchAccounts|ServiceLog|服务日志|
+|Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.Devices/IotHubs|连接|连接|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|设备遥测|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D 命令|
@@ -71,21 +73,10 @@ ms.lasthandoff: 03/28/2018
 |Microsoft.Devices/IotHubs|TwinQueries|孪生查询|
 |Microsoft.Devices/IotHubs|JobsOperations|作业操作|
 |Microsoft.Devices/IotHubs|DirectMethods|直接方法|
-|Microsoft.Devices/IotHubs|E2EDiagnostics|E2E 诊断（预览版）|
 |Microsoft.Devices/provisioningServices|DeviceOperations|设备操作|
 |Microsoft.Devices/provisioningServices|ServiceOperations|服务操作|
-|Microsoft.Devices/ElasticPools/IotHubTenants|连接|连接|
-|Microsoft.Devices/ElasticPools/IotHubTenants|DeviceTelemetry|设备遥测|
-|Microsoft.Devices/ElasticPools/IotHubTenants|C2DCommands|C2D 命令|
-|Microsoft.Devices/ElasticPools/IotHubTenants|DeviceIdentityOperations|设备标识操作|
-|Microsoft.Devices/ElasticPools/IotHubTenants|FileUploadOperations|文件上传操作|
-|Microsoft.Devices/ElasticPools/IotHubTenants|路由|路由|
-|Microsoft.Devices/ElasticPools/IotHubTenants|D2C 孪生操作|D2C 孪生操作|
-|Microsoft.Devices/ElasticPools/IotHubTenants|C2DTwinOperations|C2D 孪生操作|
-|Microsoft.Devices/ElasticPools/IotHubTenants|TwinQueries|孪生查询|
-|Microsoft.Devices/ElasticPools/IotHubTenants|JobsOperations|作业操作|
-|Microsoft.Devices/ElasticPools/IotHubTenants|DirectMethods|直接方法|
-|Microsoft.Devices/ElasticPools/IotHubTenants|E2EDiagnostics|E2E 诊断（预览版）|
+|Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
+|Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|存档日志|
 |Microsoft.EventHub/namespaces|OperationalLogs|运行日志|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|自动缩放日志|
@@ -93,12 +84,18 @@ ms.lasthandoff: 03/28/2018
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|网络安全组事件|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|网络安全组规则计数器|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|网络安全组规则流事件|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|负载均衡器警报事件|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|负载均衡器探测运行状况|
+|Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS 保护通知|
+|Microsoft.Network/virtualNetworks|VMProtectionAlerts|VM 保护警报|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|应用程序网关访问日志|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|应用程序网关性能日志|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|应用程序网关防火墙日志|
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|网关诊断日志|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|隧道诊断日志|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|路由诊断日志|
+|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|流量管理器探测运行状况结果事件|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|GWM 计数器表|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure 备份报告数据|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery 作业|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery 事件|
@@ -107,7 +104,16 @@ ms.lasthandoff: 03/28/2018
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery 恢复点|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Azure Site Recovery 复制数据上传速度|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery 受保护的磁盘数据改动|
+|Microsoft.Search/searchServices|OperationLogs|操作日志|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|操作日志|
+|Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|查询存储运行时统计信息|
+|Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|查询存储等待统计信息|
+|Microsoft.Sql/servers/databases|错误|错误|
+|Microsoft.Sql/servers/databases|DatabaseWaitStatistics|数据库等待统计信息|
+|Microsoft.Sql/servers/databases|超时|超时|
+|Microsoft.Sql/servers/databases|块|块|
+|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|审核|审核日志|
 |Microsoft.StreamAnalytics/streamingjobs|执行|执行|
 |Microsoft.StreamAnalytics/streamingjobs|创作|创作|
 

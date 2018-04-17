@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/04/2017
-ms.date: 03/26/2018
+origin.date: 02/27/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: c822e48888a9d4b101f0b2abccef43ce00520664
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 959a7317957528e925e75be80a2957b61037613b
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Apache Kafka on HDInsight 简介
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/22/2018
 
 Kafka on HDInsight 提供以下功能：
 
-* __关于 Kafka 正常运行时间的 99% 服务级别协议 (SLA)__：有关详细信息，请参阅 [HDInsight 的 SLA 信息](https://www.azure.cn/support/sla/hdinsight/)。
+* __关于 Kafka 正常运行时间的 99% 服务级别协议 (SLA)__：有关详细信息，请参阅 [HDInsight 的 SLA 信息](https://www.azure.cn/support/sla/hdinsight/)文档。
 
 * __容错和支架识别__：在设计上，Kafka 采用机架的一维视图，它在某些环境中表现良好。 但是，在 Azure 之类的环境中，机架被分为二维 - 更新域 (UD) 和容错域 (FD)。 Microsoft 提供相应的工具来确保重新均衡不同 UD 和 FD 中的分区与副本。 
 

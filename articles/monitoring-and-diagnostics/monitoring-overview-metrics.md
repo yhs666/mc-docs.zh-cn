@@ -1,9 +1,9 @@
 ---
-title: "Microsoft Azure 中的指标概述"
-description: "Microsoft Azure 中的指标及其用法的概述"
+title: Microsoft Azure 中的指标概述
+description: Microsoft Azure 中的指标及其用法的概述
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/25/2017
-ms.date: 12/11/2017
+ms.date: 04/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: 08826454d6003b7c50063afe6df69934f63d915f
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 441dc7f8c28ecd9a090becee3923d1461fbad325
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="overview-of-metrics-in-azure"></a>Azure 中的指标概述
 本文介绍 Azure 中的指标及其优点，以及如何开始使用它们。  

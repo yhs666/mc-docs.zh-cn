@@ -1,12 +1,12 @@
 ---
-title: "Azure 的 vCPU 配额 | Azure"
-description: "了解 Azure 的 vCPU 配额。"
-keywords: 
+title: Azure 的 vCPU 配额 | Azure
+description: 了解 Azure 的 vCPU 配额。
+keywords: ''
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/05/2016
-ms.date: 01/08/2018
+ms.date: 4/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 14464ab6ae0e331dea24e351b86ac3ee31d10cab
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: d77ba7d1f586d61bb1503a2849f1dcafc2f6aadd
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>虚拟机 vCPU 配额
 
@@ -76,5 +76,5 @@ az vm list-usage --location "China East"
 ## <a name="next-steps"></a>后续步骤
 
 有关计费和配额的详细信息，请参阅 [Azure 订阅和服务限制、配额与约束](/azure-subscription-service-limits?toc=/azure/billing/TOC.json)。
-<!-- Update_Description: new articles on network watcher -->
-<!-- ms.date: 01/08/2018 -->
+<!-- Update_Description: update meta propertiessss -->
+<!-- ms.date: 04/10/2018 -->

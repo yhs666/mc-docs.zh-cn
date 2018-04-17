@@ -311,8 +311,6 @@
           maintainContext: true
         - name: 使用 Azure 应用服务部署网站
           href: create-website.md
-        - name: 使用逻辑应用进行应用程序日志记录
-          href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
         - name: 实时处理传感器数据
           href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
         - name: 使用 Power BI 直观显示数据

@@ -1,12 +1,12 @@
 ---
-title: "将 Windows 系统状态备份到 Azure | Microsoft Docs"
-description: "了解如何将 Windows Server 的系统状态和/或 Windows 计算机备份到 Azure。"
+title: 将 Windows 系统状态备份到 Azure | Microsoft Docs
+description: 了解如何将 Windows Server 的系统状态和/或 Windows 计算机备份到 Azure。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: carmonm
-editor: 
-keywords: "如何备份; 备份文件和文件夹"
+editor: ''
+keywords: 如何备份; 备份文件和文件夹
 ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/31/2017
-ms.date: 02/27/2018
+ms.date: 04/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9459648d156de9896c6b5f791fdfa2930b55721e
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 2abd203977bc3bffad301d6d4b36095d571e4856
+ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>备份资源管理器部署中的 Windows 系统状态
 本文介绍了如何将 Windows Server 系统状态备份到 Azure。 本教程旨在引导完成基本操作。
@@ -88,7 +88,7 @@ ms.lasthandoff: 03/02/2018
 
     ![存储配置选项](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    默认情况下，保管库具有异地冗余存储。 如果使用 Azure 作为主要备份存储终结点，请继续使用“异地冗余” 。 如果不使用 Azure 作为主要的备份存储终结点，则请选择“本地冗余”，减少 Azure 存储费用。 请在此[存储冗余概述](../storage/common/storage-redundancy.md)中深入了解[异地冗余](../storage/common/storage-redundancy.md#geo-redundant-storage)和[本地冗余](../storage/common/storage-redundancy.md#locally-redundant-storage)存储选项。
+    默认情况下，保管库具有异地冗余存储。 如果使用 Azure 作为主要备份存储终结点，请继续使用“异地冗余” 。 如果不使用 Azure 作为主要的备份存储终结点，则请选择“本地冗余”，减少 Azure 存储费用。 请在此[存储冗余概述](../storage/common/storage-redundancy.md)中深入了解[异地冗余](../storage/common/storage-redundancy-grs.md)和[本地冗余](../storage/common/storage-redundancy-lrs.md)存储选项。
 
 创建保管库之后，即可对其进行配置，以便备份 Windows 系统状态。
 
@@ -139,6 +139,8 @@ ms.lasthandoff: 03/02/2018
 > [!NOTE]
 > 保管库凭据只能保存到打算使用代理的 Windows Server 的本地位置。 
 >
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="install-and-register-the-agent"></a>安装并注册代理
 
@@ -226,3 +228,4 @@ ms.lasthandoff: 03/02/2018
 - 至此，你已备份 Windows Server 系统状态，接下来可以[管理保管库和服务器](backup-azure-manage-windows-server.md)了。
 - 如果需要还原备份，请参阅[将文件还原到 Windows 计算机](backup-azure-restore-windows-server.md)一文。
 
+<!-- Update_Description: wording update -->

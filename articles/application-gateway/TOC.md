@@ -1,3 +1,5 @@
+# [应用程序网关文档](index.md)
+
 # 概述
 ## [什么是应用程序网关？](application-gateway-introduction.md)
 ## [应用程序网关常见问题解答](application-gateway-faq.md)

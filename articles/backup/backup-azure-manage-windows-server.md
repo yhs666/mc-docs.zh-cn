@@ -1,8 +1,8 @@
 ---
-title: "管理 Azure 恢复服务保管库和服务器 | Microsoft Docs"
-description: "使用本文管理 Azure 恢复服务保管库和服务器。"
+title: 管理 Azure 恢复服务保管库和服务器 | Microsoft Docs
+description: 使用本文管理 Azure 恢复服务保管库和服务器。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
 editor: tysonn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/23/2018
-ms.date: 02/27/2018
+ms.date: 04/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3501e13efc880d646cfb9ec883bc676dcac7badc
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: df931f4d5e6cefac723887670690ae8bc350084a
+ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>监视和管理适用于 Windows 计算机的 Azure 恢复服务保管库和服务器
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 03/02/2018
 恢复服务保管库仪表板显示恢复服务保管库的详细信息或属性。
 
 1. 使用 Azure 订阅登录到 [Azure 门户](https://portal.azure.cn/) 。
-2. 单击“更多服务”。 
+2. 单击“所有服务”。 
 
 3. 如果要打开恢复服务保管库。 在对话框中，开始键入“恢复服务”。 开始键入时，会根据输入筛选该列表。 单击“恢复服务保管库”，显示订阅中恢复服务保管库的列表。
 
@@ -121,21 +121,24 @@ ms.lasthandoff: 03/02/2018
 >
 
 ## <a name="manage-backup-items"></a>管理备份项
-现在可以在管理门户中管理本地备份。 在仪表板的“备份”部分，“备份项”磁贴显示在保管库中受保护的备份项数目。
+在仪表板的“备份”部分，“备份项”磁贴显示在保管库中受保护的备份项数目。
 
-![备份项磁贴](./media/backup-azure-manage-windows-server/backup-items-tile_new.png)
+单击“备份项”磁贴中的“**文件-文件夹**”。
 
-单击“Azure 备份代理”。
+![备份项磁贴](./media/backup-azure-manage-windows-server/backup-items-tile.png)
 
-![设置中的备份项](./media/backup-azure-manage-windows-server/backup_items.png)
-
-此时会打开筛选器设置为“文件夹”的“备份项”边栏选项卡，其中列出了每个特定的备份项。
+此时会打开筛选器设置为“文件夹”的“备份项”菜单，其中列出了每个特定的备份项。
 
 ![备份项](./media/backup-azure-manage-windows-server/backup-item-list.png)
 
 如果选择列表中的特定备份项，则会显示该项的重要详细信息。
 
-![设置中的备份项](./media/backup-azure-manage-windows-server/backup-files-and-folders_details.png)
+> [!NOTE]
+> 在“设置”菜单中管理文件和文件夹时，可先选择“受保护的项”>“备份项”，然后从下拉菜单中选择“文件-文件夹”。
+>
+>
+
+![设置中的备份项](./media/backup-azure-manage-windows-server/backup-files-and-folders.png)
 
 ## <a name="manage-backup-jobs"></a>管理备份作业
 本地备份（将本地服务器备份到 Azure 时）和 Azure 备份的备份作业均显示在仪表板中。
@@ -194,6 +197,8 @@ ms.lasthandoff: 03/02/2018
 > 若要恢复数据，请参阅[将文件还原到 Windows Server 或 Windows 客户端计算机](backup-azure-restore-windows-server.md)。
 >
 >
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="modify-the-backup-schedule"></a>修改备份计划
 1. 在“Azure 备份代理”中，单击“计划备份”。

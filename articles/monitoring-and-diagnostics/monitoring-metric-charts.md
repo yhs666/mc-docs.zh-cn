@@ -1,6 +1,6 @@
 ---
-title: "Azure Monitor 指标资源管理器"
-description: "了解 Azure Monitor 指标资源管理器中的新功能"
+title: Azure Monitor 指标资源管理器
+description: 了解 Azure Monitor 指标资源管理器中的新功能
 author: vgorbenko
 manager: Victor.Mushkatin
 editor: mrbullwinkle
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/17/2017
-ms.date: 02/26/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: 21a83a0e684bd344eaf48f8b87786e5443951bce
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 9bd287c67f5c77234b042e9aa279523e9f837fcd
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor 指标资源管理器
 
@@ -33,7 +33,7 @@ Azure Monitor 指标资源管理器是 Microsoft Azure 门户的一个组件，�
 
 ## <a name="what-are-metrics-in-azure"></a>Azure 中的指标是什么？
 
-Microsoft Azure 中的指标是随着时间的推移收集和存储的一系列测量值和计数。 标准指标由 Azure 平台本身提供。 标准指标反映 Azure 资源的运行状况和使用情况统计信息。
+Microsoft Azure 中的指标是随着时间的推移收集和存储的一系列测量值和计数。 有标准（或“平台”）指标和自定义指标。 标准指标由 Azure 平台本身提供。 标准指标反映 Azure 资源的运行状况和使用情况统计信息。
 
 ## <a name="what-are-multi-dimensional-metrics"></a>什么是多维指标？
 

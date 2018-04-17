@@ -1,10 +1,10 @@
 ---
-title: "安装 Azure CLI 1.0 | Microsoft Docs"
-description: "安装适用于 Mac、Linux 和 Windows 的 Azure CLI 1.0 即可使用 Azure 服务"
-editor: 
-manager: digimobile
-documentationcenter: 
-author: alexchen2016
+title: 安装 Azure CLI 1.0 | Microsoft Docs
+description: 安装适用于 Mac、Linux 和 Windows 的 Azure CLI 1.0 即可使用 Azure 服务
+editor: ''
+manager: timlt
+documentationcenter: ''
+author: squillace
 services: virtual-machines-linux,virtual-network,storage,azure-resource-manager
 tags: azure-resource-manager,azure-service-management
 ms.assetid: bdb776c8-7a76-4f3a-887c-236b4fffee10
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2017
-ms.date: 12/28/2017
+ms.date: 04/04/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2207eff1abb3a8aaa66b588f551ff79fd78d4461
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 75bfb981ef6c29be4b8cd01f2b3103bfae4f2f98
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="install-the-azure-cli-10"></a>安装 Azure CLI 1.0
 > [!div class="op_single_selector"]
-> * [PowerShell](/powershell-install-configure)
+> * [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 > * [Azure CLI 1.0](cli-install-nodejs.md)
 > * [Azure CLI 2.0](/cli/install-azure-cli)
 
 > [!IMPORTANT]
 > 本主题介绍如何安装 Azure CLI 1.0。 此 CLI 已弃用，并且仅应当用于支持带有“经典”资源的 Azure 服务管理 (ASM) 模型。
-> 对于 Azure 资源管理器 (ARM) 部署，请使用 [Azure CLI 2.0](/cli/overview)。
+> 对于 Azure 资源管理器部署，请使用 [Azure CLI 2.0](/cli/overview)。
 
 快速安装 Azure 命令行接口 (Azure CLI 1.0)，以便使用一组基于 shell 的开源命令在 Azure 中创建和管理资源。 在计算机上安装这些跨平台工具时有多个选项：
 
@@ -141,4 +141,4 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [cliasm]: /cli/get-started-with-az-cli2
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
-<!--Update_Description: link update -->
+<!-- Update_Description: wording update -->

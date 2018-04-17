@@ -1,11 +1,11 @@
 ---
-title: "使用 PowerShell 将 Windows Server 备份到 Azure | Microsoft 文档"
-description: "了解如何使用 PowerShell 部署和管理 Azure 备份"
+title: 使用 PowerShell 将 Windows Server 备份到 Azure | Microsoft 文档
+description: 了解如何使用 PowerShell 部署和管理 Azure 备份
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: 
+editor: ''
 ms.assetid: 65218095-2996-44d9-917b-8c84fc9ac415
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2016
-ms.date: 01/08/2018
+ms.date: 04/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: a9f34bf9683556877b92c197dba56e4f0aae700a
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: e8056b3fc3e3360f7aa520322df17c5d0dd9644c
+ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 客户端的 Azure 备份
 本文说明如何使用 PowerShell 在 Windows Server 或 Windows 客户端上设置 Azure 备份，以及管理备份和恢复。
@@ -48,14 +48,14 @@ Azure PowerShell 1.0 已在 2015 年 10 月发布。 此版本在 0.9.8 版本�
 2. 恢复服务保管库是一种 ARM 资源，因此需要将它放在资源组中。 可以使用现有资源组，也可以创建新组。 创建新的资源组时，请指定资源组的名称和位置。  
 
     ```
-    PS C:\> New-AzureRmResourceGroup -Name "test-rg" -Location "China North"
+    PS C:\> New-AzureRmResourceGroup -Name "test-rg" -Location "ChinaNorth"
     ```
 3. 使用 **New-AzureRmRecoveryServicesVault** cmdlet 创建新的保管库。 确保为保管库指定的位置与用于资源组的位置是相同的。
 
     ```
-    PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "China North"
+    PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "ChinaNorth"
     ```
-4. 指定要使用的存储冗余类型；可以使用[本地冗余存储 (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) 或[异地冗余存储 (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage)。 以下示例显示，testVault 的 -BackupStorageRedundancy 选项设置为 GeoRedundant。
+4. 指定要使用的存储冗余类型；可以使用[本地冗余存储 (LRS)](../storage/common/storage-redundancy-lrs.md) 或[异地冗余存储 (GRS)](../storage/common/storage-redundancy-grs.md)。 以下示例显示，testVault 的 -BackupStorageRedundancy 选项设置为 GeoRedundant。
 
    > [!TIP]
    > 许多 Azure 备份 cmdlet 要求使用恢复服务保管库对象作为输入。 出于此原因，在变量中存储备份恢复服务保管库对象可提供方便。
@@ -83,6 +83,8 @@ SubscriptionId    : 1234-567f-8910-abc
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="installing-the-azure-backup-agent"></a>安装 Azure 备份代理
 在安装 Azure 备份代理之前，必须先将安装程序下载到 Windows Server 上。 可以从 [Microsoft 下载中心](http://aka.ms/azurebackup_agent)或恢复服务保管库的“仪表板”页获取最新版本的安装程序。 将安装程序保存到方便访问的位置，例如 *C:\Downloads\*。
@@ -163,7 +165,7 @@ PS C:\> Start-OBRegistration-VaultCredentials $cred -Confirm:$false
 CertThumbprint      :7a2ef2caa2e74b6ed1222a5e89288ddad438df2
 SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
 ServiceResourceName: testvault
-Region              :China North
+Region              :ChinaNorth
 Machine registration succeeded.
 ```
 

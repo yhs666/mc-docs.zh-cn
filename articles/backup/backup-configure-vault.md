@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure 备份代理备份文件和文件夹 | Microsoft 文档"
-description: "使用 Azure 备份代理将 Windows 文件和文件夹备份到 Azure。 创建恢复服务保管库，安装备份代理，定义备份策略，以及对文件和文件夹运行初始备份。"
+title: 使用 Azure 备份代理备份文件和文件夹 | Microsoft 文档
+description: 使用 Azure 备份代理将 Windows 文件和文件夹备份到 Azure。 创建恢复服务保管库，安装备份代理，定义备份策略，以及对文件和文件夹运行初始备份。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "备份保管库; 备份 Windows 服务器; 备份 windows;"
+editor: ''
+keywords: 备份保管库; 备份 Windows 服务器; 备份 windows;
 ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/05/2018
-ms.date: 02/08/2018
+ms.date: 04/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 10bb791ae5f32d28753358c59ff728bea21583fb
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 1c329115be6c9562d4936c776221aaf5bf2549cf
+ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>通过 Resource Manager 部署模型将 Windows Server 或客户端备份到 Azure
 本文介绍如何通过 Resource Manager 部署模型使用 Azure 备份将 Windows Server（或 Windows 客户端）文件和文件夹备份到 Azure。
@@ -35,7 +35,7 @@ ms.lasthandoff: 02/13/2018
 
 ### <a name="to-create-a-recovery-services-vault"></a>创建恢复服务保管库
 1. 若尚未登录 [Azure 门户](https://portal.azure.cn/) ，请使用 Azure 订阅登录。
-2. 在“中心”菜单中，单击“更多服务”，并在资源列表中，键入“恢复服务”并单击“恢复服务保管库”。
+2. 在“中心”菜单中单击“所有服务”，然后在资源列表中键入“恢复服务”并单击“恢复服务保管库”。
 
     ![创建恢复服务保管库步骤 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 02/13/2018
 
   ![存储配置选项](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-  默认情况下，保管库具有异地冗余存储。 如果使用 Azure 作为主要备份存储终结点，请继续使用“异地冗余” 。 如果不使用 Azure 作为主要的备份存储终结点，则请选择“本地冗余”，减少 Azure 存储费用。 请在此[存储冗余概述](../storage/common/storage-redundancy.md)中深入了解[异地冗余](../storage/common/storage-redundancy.md#geo-redundant-storage)和[本地冗余](../storage/common/storage-redundancy.md#locally-redundant-storage)存储选项。
+  默认情况下，保管库具有异地冗余存储。 如果使用 Azure 作为主要备份存储终结点，请继续使用“异地冗余” 。 如果不使用 Azure 作为主要的备份存储终结点，则请选择“本地冗余”，减少 Azure 存储费用。 请在此[存储冗余概述](../storage/common/storage-redundancy.md)中深入了解[异地冗余](../storage/common/storage-redundancy-grs.md)和[本地冗余](../storage/common/storage-redundancy-lrs.md)存储选项。
 
 现在，你已创建了保管库，接下来请准备基础结构以备份文件和文件夹，方法是下载并安装 Azure 恢复服务代理，下载保管库凭据，并使用这些凭据向保管库注册该代理。
 
@@ -144,6 +144,9 @@ ms.lasthandoff: 02/13/2018
   保管库凭据下载到“下载”文件夹。 下载完保管库凭据以后，会显示一个弹出窗口，询问用户是要打开还是要保存凭据。 单击“保存” 。 如果意外地单击了“打开”，可以让尝试打开保管库凭据的对话框关闭。 不能打开保管库凭据。 继续下一步。 保管库凭据位于“下载”文件夹中。   
 
   ![已下载保管库凭据](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
+
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="install-and-register-the-agent"></a>安装并注册代理
 
@@ -261,4 +264,4 @@ Azure 备份代理提供了网络限制。 限制功能将控制数据传输期�
 - 备份文件和文件夹后，可以 [管理保管库和服务器](backup-azure-manage-windows-server.md)。
 - 如果需要还原备份，请参阅[将文件还原到 Windows 计算机](backup-azure-restore-windows-server.md)一文。
 
-<!--Update_Description: remove include file: backup-deployment-models.md -->
+<!-- Update_Description: wording update -->

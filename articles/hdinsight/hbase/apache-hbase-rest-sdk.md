@@ -1,13 +1,13 @@
 ---
-title: "使用 HBase .NET SDK - Azure HDInsight"
-description: "使用 HBase .NET SDK 创建和删除表，以及读取和写入数据。"
+title: 使用 HBase .NET SDK - Azure HDInsight
+description: 使用 HBase .NET SDK 创建和删除表，以及读取和写入数据。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
@@ -17,11 +17,11 @@ ms.topic: article
 origin.date: 12/13/2017
 ms.date: 02/26/2018
 ms.author: ashishth
-ms.openlocfilehash: 187c5983ac52e9daed4aa7a2476d98d0e2a8d58b
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: b7a1651829a447c19a0a69f458ca718db8bffd22
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="use-the-hbase-net-sdk"></a>使用 HBase .NET SDK
 
@@ -39,7 +39,7 @@ HBase .NET SDK 以 NuGet 包的形式提供，可以使用以下命令通过 Vis
 
 若要使用 SDK，请实例化新的 `HBaseClient` 对象，将包含 `Uri` 的 `ClusterCredentials` 传递到群集，并传递 Hadoop 用户名和密码。
 
-```c#
+```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.cn"), "USERNAME", "PASSWORD");
 client = new HBaseClient(credentials);
 ```
@@ -54,7 +54,7 @@ HBase 在表中存储数据。 表包含 *Rowkey*、主键以及一个或多个�
 
 若要创建新表，请指定 `TableSchema` 和列。 以下代码检查“RestSDKTable”表是否已存在 - 如果不存在，则会创建该表。
 
-```c#
+```csharp
 if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 {
     // Create the table
@@ -72,7 +72,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 
 若要删除表，请执行以下操作：
 
-```c#
+```csharp
 await client.DeleteTableAsync("RestSDKTable");
 ```
 
@@ -80,7 +80,7 @@ await client.DeleteTableAsync("RestSDKTable");
 
 若要插入数据，请指定唯一行键作为行标识符。 所有数据存储在 `byte[]` 数组中。 以下代码定义 `title`、`director` 和 `release_date` 列并将其添加到 t1 列系列，因为这些列是访问最频繁的。 `description` 和 `tagline` 列添加到 t2 列系列。 可以根据需要将数据分区，分为多个列系列。
 
-```c#
+```csharp
 var key = "fifth_element";
 var row = new CellSet.Row { key = Encoding.UTF8.GetBytes(key) };
 var value = new Cell
@@ -128,7 +128,7 @@ HBase 可实现 BigTable，因此数据格式如下所示：
 
 若要从 HBase 表中读取数据，请将表名称和行键传递到 `GetCellsAsync` 方法，以便返回 `CellSet`。
 
-```c#
+```csharp
 var key = "fifth_element";
 
 var cells = await client.GetCellsAsync("RestSDKTable", key);
@@ -142,7 +142,7 @@ Console.WriteLine(Encoding.UTF8.GetString(cells.rows[0].values
 
 在这种情况下，代码只返回第一个匹配行，因为一个唯一键只应有一个行。 返回的值从 `byte[]` 数组更改成 `string` 格式。 也可将值转换为其他类型，例如表示电影发布日期的整数：
 
-```c#
+```csharp
 var releaseDateField = cells.rows[0].values
     .Find(c => Encoding.UTF8.GetString(c.column) == "t1:release_date");
 int releaseDate = 0;
@@ -159,7 +159,7 @@ Console.WriteLine(releaseDate);
 
 HBase 使用 `scan` 来检索一个或多个行。 此示例请求多个行（10 个一批），并检索其键值在 25 到 35 之间的数据。 在检索所有行之后，请删除扫描仪，对资源进行清理。
 
-```c#
+```csharp
 var tableName = "mytablename";
 
 // Assume the table has integer keys and we want data between keys 25 and 35

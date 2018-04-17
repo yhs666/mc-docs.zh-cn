@@ -1,6 +1,6 @@
 ---
-title: "适用于 Azure 应用程序网关的 Web 应用程序防火墙 (WAF) 简介 | Azure"
-description: "此页概述适用于应用程序网关的 Web 应用程序防火墙 (WAF)"
+title: Azure 应用程序网关的 Web 应用程序防火墙 (WAF) 简介 | Microsoft Docs
+description: 本页概述应用程序网关的 Web 应用程序防火墙 (WAF)
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/03/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 53080a772ebb811cacda7841632297076f71bade
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.date: 04/04/2018
+ms.author: v-junlch
+ms.openlocfilehash: 3cb0660ce516b8d0cfec531981ad23a11e08f30d
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="web-application-firewall-waf"></a>Web 应用程序防火墙 (WAF)
 
@@ -37,19 +37,19 @@ Web 应用程序防火墙基于 [OWASP 核心规则集](https://www.owasp.org/in
 
 ### <a name="protection"></a>保护
 
-* 无需修改后端代码即可保护 Web 应用程序免受 Web 漏洞和攻击的威胁。
+- 无需修改后端代码即可保护 Web 应用程序免受 Web 漏洞和攻击的威胁。
 
-* 在应用程序网关背后同时保护多个 Web 应用程序。 应用程序网关支持在单个网关背后托管最多 20 个网站，并使用 WAF 防止所有这些网站受到 Web 攻击的威胁。
+- 在应用程序网关背后同时保护多个 Web 应用程序。 应用程序网关支持在单个网关背后托管最多 20 个网站，并使用 WAF 防止所有这些网站受到 Web 攻击的威胁。
 
 ### <a name="monitoring"></a>监视
 
-* 使用实时 WAF 日志监视 Web 应用程序受到的攻击。 此日志与 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) 集成，让你跟踪 WAF 警报和日志并轻松监视趋势。
+- 使用实时 WAF 日志监视 Web 应用程序受到的攻击。 此日志与 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) 集成，让你跟踪 WAF 警报和日志并轻松监视趋势。
 
-* WAF 即将与 Azure 安全中心集成。 使用 Azure 安全中心可在一个中心位置查看所有 Azure 资源的安全状态。
+- WAF 与 Azure 安全中心集成。 使用 Azure 安全中心可在一个中心位置查看所有 Azure 资源的安全状态。
 
 ### <a name="customization"></a>自定义
 
-* 可根据应用程序的要求自定义 WAF 规则和规则组，并消除误报。
+- 可根据应用程序的要求自定义 WAF 规则和规则组，并消除误报。
 
 ## <a name="features"></a>功能
 
@@ -110,12 +110,12 @@ Web 应用程序防火墙中默认已预先配置 CRS 3.0，你也可以选择�
 
 应用程序网关 WAF 可配置为在以下两种模式中运行：
 
-* **检测模式** - 配置为在检测模式中运行时，应用程序网关 WAF 监视所有威胁警报并记录到日志文件中。 应使用“诊断”部分打开应用程序网关的日志记录诊断。 还需要确保已选择并打开 WAF 日志。 在检测模式下运行时，Web 应用程序防火墙不会阻止传入的请求。
+* **检测模式** - 配置为在检测模式中运行时，应用程序网关 WAF 监视所有威胁警报并记录到日志文件中。 应使用“诊断”部分打开应用程序网关的日志记录诊断。 还需确保已选择并打开 WAF 日志。 在检测模式下运行时，Web 应用程序防火墙不会阻止传入的请求。
 * **阻止模式** - 配置为在阻止模式中运行时，应用程序网关主动阻止其规则检测到的入侵和攻击。 攻击者会收到 403 未授权访问异常，且连接会终止。 阻止模式会继续在 WAF 日志中记录此类攻击。
 
 ### <a name="application-gateway-waf-reports"></a>WAF 监视
 
-监视应用程序网关的运行状况非常重要。 借助日志记录以及与 Azure Monitor、Azure 安全中心（即将推出）和 Log Analytics 的集成，可以监视 Web 应用程序防火墙及其保护的应用程序的运行状况。
+监视应用程序网关的运行状况非常重要。 借助日志记录以及与 Azure Monitor、Azure 安全中心和 Log Analytics 的集成，可以监视 Web 应用程序防火墙及其保护的应用程序的运行状况。
 
 ![诊断](./media/application-gateway-web-application-firewall-overview/diagnostics.png)
 
@@ -166,3 +166,6 @@ WAF 的计费方式从 2017 年 5 月 5 日开始生效，在此之前，WAF SKU
 ## <a name="next-steps"></a>后续步骤
 
 深入了解 WAF 的功能后，请参阅[如何在应用程序网关上配置 Web 应用程序防火墙](application-gateway-web-application-firewall-portal.md)。
+
+
+<!-- Update_Description: wording update -->

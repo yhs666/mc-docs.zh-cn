@@ -1,12 +1,12 @@
 ---
-title: "Azure 备份常见问题解答 | Microsoft Docs"
-description: "针对以下常见问题的解答：包括恢复服务保管库在内的 Azure 备份功能、能够备份的内容、原理、加密和限制。 "
+title: Azure 备份常见问题解答 | Microsoft Docs
+description: '针对以下常见问题的解答：包括恢复服务保管库在内的 Azure 备份功能、能够备份的内容、原理、加密和限制。 '
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "备份和灾难恢复;备份服务"
+editor: ''
+keywords: 备份和灾难恢复;备份服务
 ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/21/2017
-ms.date: 02/27/2018
+ms.date: 04/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8f5529dc6b3deae8f3e5928c09ed4cd1a078115b
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 058bbf2ddf5394f26aa32eef35adb2c52333212c
+ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>有关 Azure 备份服务的问题
 本文解答有关 Azure 备份组件的常见问题。 某些答案提供内含全面信息的文章的链接。 单击“评论”（右侧）即可提问有关 Azure 备份的问题。 评论显示在本文末尾。 需要使用 Livefyre 帐户发表评论。 还可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/02/2018
 ## <a name="recovery-services-vault"></a>恢复服务保管库
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>在每个 Azure 订阅中可以创建的保管库数量是否有任何限制？ <br/>
-是的。 从 2016 年 9 月起，可以为每个订阅创建 25 个恢复服务保管库。 在 Azure 备份支持的区域中，可以为每个订阅最多创建 25 个恢复服务保管库。 如果需要更多保管库，请创建另一订阅。
+是的。 从 2018 年 1 月开始，在 Azure 备份支持的每个区域中，可以为每个订阅最多创建 25 个恢复服务保管库。 如果需要更多保管库，请创建另一订阅。
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>可针对每个保管库注册的服务器/计算机数量是否有限制？ <br/>
 每个保管库最多可以注册 200 个 Azure 虚拟机。 如果使用 MAB 代理，每个保管库最多可以注册 50 个 MAB 代理。 可以将 50 个 MAB 服务器/DPM 服务器注册到一个保管库。
@@ -133,8 +133,7 @@ Azure 备份支持以下列表中的操作系统使用 Azure 备份服务器和 
 | Microsoft Exchange |所备份 Exchange 服务器中所有 Exchange 数据库的总和 |
 | BMR/系统状态 |所备份计算机的 BMR 或系统状态的每个副本 |
 
-就 Azure VM 备份来说，每个 VM 最多可以有 16 个数据磁盘，每个数据磁盘的大小不得超出 1024GB。 <br>
-我们提供了[个人预览版](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0)，最多可支持 4TB 的磁盘。 
+就 Azure VM 备份来说，每个 VM 最多可以有 16 个数据磁盘，每个数据磁盘的大小不得超出 4095GB。 <br>
 
 ## <a name="retention-policy-and-recovery-points"></a>保留策略和恢复点
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>DPM 和 Windows Server/客户端（即，在不带 DPM 的 Windows Server 上）的保留策略是否有差别？<br/>

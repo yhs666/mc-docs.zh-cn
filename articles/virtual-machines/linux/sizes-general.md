@@ -1,26 +1,26 @@
 ---
-title: "Azure Linux VM 大小 - 通用 | Azure"
-description: "列出 Azure 中 Linux 虚拟机进行常规用途所适用的各种大小。 针对此系列中的大小列出了 vCPU、数据磁盘和 NIC 的数量，以及存储吞吐量和网络带宽。"
+title: Azure Linux VM 大小 - 通用 | Azure
+description: 列出 Azure 中 Linux 虚拟机进行常规用途所适用的各种大小。 针对此系列中的大小列出了 vCPU、数据磁盘和 NIC 的数量，以及存储吞吐量和网络带宽。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 11/08/2017
-ms.date: 02/05/2018
+ms.date: 4/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4feb47a06296aebe434840d9950b2d0309fe2df7
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 181536a0d976833edfdfe9f11ef97ab040eddac2
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>常规用途虚拟机大小
 
@@ -39,4 +39,4 @@ ms.lasthandoff: 02/13/2018
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
 <!--The parent file of includes file of virtual-machines-common-sizes-general.md-->
-<!--ms.date:02/05/2018-->
+<!--ms.date:04/10/2018-->

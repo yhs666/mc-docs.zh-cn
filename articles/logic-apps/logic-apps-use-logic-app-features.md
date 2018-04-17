@@ -1,11 +1,11 @@
 ---
-title: "添加条件并启动工作流 - Azure 逻辑应用"
-description: "通过添加条件逻辑、触发器、操作和参数来控制工作流在 Azure 逻辑应用中的运行方式。"
+title: 添加条件并启动工作流 - Azure 逻辑应用
+description: 通过添加条件逻辑、触发器、操作和参数来控制工作流在 Azure 逻辑应用中的运行方式。
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: e4e24de4-049a-4b3a-a14c-3bf3163287a8
 ms.service: logic-apps
 ms.workload: integration
@@ -16,10 +16,10 @@ origin.date: 01/28/2017
 ms.author: v-yiso
 ms.date: 03/19/2018
 ms.openlocfilehash: 4fa354fe0aaaa5afac653b799b5f370c3990222b
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/13/2018
 ---
 # <a name="use-logic-apps-features"></a>使用逻辑应用功能
 

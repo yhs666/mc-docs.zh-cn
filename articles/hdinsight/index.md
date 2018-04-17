@@ -1,11 +1,11 @@
 ---
-title: "Azure HDInsight 文档 - 教程和 API 参考 | Azure"
-description: "了解 Hadoop on HDInsight。 文档介绍了如何使用 Hadoop、Spark、HBase 等技术处理、分析大数据并从中获得见解。"
+title: Azure HDInsight 文档 - 教程和 API 参考 | Azure
+description: 了解 Hadoop on HDInsight。 文档介绍了如何使用 Hadoop、Spark、HBase 等技术处理、分析大数据并从中获得见解。
 services: hdinsight
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.topic: landing-page
 origin.date: 12/05/2017
 ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 45fd27f233800dae43305a1624c319563d0d6514
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 69da1ada240a9a947a61eaa69b5b85d1d4ce0d8b
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/09/2018
 ---
 #<a name="azure-hdinsight-documentation"></a>Azure HDInsight 文档
 
@@ -146,6 +146,24 @@ Azure HDInsight 是适用于企业的分析服务，具有完全托管、全面�
                     </div>
                     <div class="cardText">
                         <h3>在 HDInsight 上安装第三方应用程序</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/hdinsight/domain-joined/apache-domain-joined-introduction">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>HDInsight 上的企业安全性</h3>
                     </div>
                 </div>
             </div>

@@ -1,12 +1,12 @@
 ---
-title: "适用于 Xamarin.iOS 应用的 Azure 通知中心入门 | Microsoft Docs"
-description: "在本教程中，将了解如何使用 Azure 通知中心将推送通知发送到 Xamarin iOS 应用程序。"
+title: 适用于 Xamarin.iOS 应用的 Azure 通知中心入门 | Microsoft Docs
+description: 在本教程中，将了解如何使用 Azure 通知中心将推送通知发送到 Xamarin iOS 应用程序。
 services: notification-hubs
-keywords: "ios 推送通知, 推送消息, 推送通知, 推送消息"
+keywords: ios 推送通知, 推送消息, 推送通知, 推送消息
 documentationcenter: xamarin
 author: jwhiteDev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 12/22/2017
-ms.date: 01/22/2018
+ms.date: 04/04/2018
 ms.author: v-junlch
-ms.openlocfilehash: 27c14c37a87502f9e859aad2562533dff58f0b2e
-ms.sourcegitcommit: c0a9889921cd1ee52d58255a5a2db5e7930c4a4b
+ms.openlocfilehash: ca3ad8242a8f506f079adebce7c0c98062bd9acf
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-xamarinios-apps"></a>适用于 Xamarin.iOS 应用的 Azure 通知中心入门
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -63,9 +63,11 @@ ms.lasthandoff: 01/23/2018
 
 <li>
 
-<p>单击“Apple (APNS)”<b></b>。 确保选择“证书”，单击文件图标，然后选择此前导出的<b></b> <b>.p12</b> 文件。 确保同时指定正确的密码。</p>
+<p>单击“Notification Services”按钮，然后选择“Apple (APNS)”。<b></b><b></b> 确保选择“证书”，单击文件图标，然后选择此前导出的<b></b> <b>.p12</b> 文件。 确保同时指定正确的密码。</p>
 
 <p>由于此项目用于开发，因此请务必选择“沙盒”模式<b></b>。 仅当想要将推送通知发送给从应用商店购买你应用的用户时，才使用“生产”模式<b></b>。</p>
+
+![在 Azure 门户中配置 APNS][6]
 
 ![在 Azure 门户中配置 APNS 证书][7]
 </li>
@@ -83,7 +85,7 @@ ms.lasthandoff: 01/23/2018
 
 2. 输入应用名称和组织标识符，然后点击“下一步”和“创建”。
 
-3. 在“解决方案”视图中双击“Into.plist”，确保“标识”下的捆绑标识符与创建预配配置文件时使用的相符。 在“签名”下，确保选中开发人员帐户；在“团队”下，确保选中“自动管理签名”。这样就会自动选中签名证书和预配配置文件。
+3. 在“解决方案”视图中双击“Info.plist”，确保“标识”下的捆绑标识符与创建预配配置文件时使用的相符。 在“签名”下，确保选中开发人员帐户；在“团队”下，确保选中“自动管理签名”。这样就会自动选中签名证书和预配配置文件。
 
     ![Visual Studio- iOS 应用配置][32]
 
@@ -218,7 +220,7 @@ ms.lasthandoff: 01/23/2018
 - REST 接口：可以使用 [REST 接口](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)在任何后端平台上支持推送通知。
 - **Azure 通知中心 .NET SDK**：在 Visual Studio 的 Nuget 包管理器中，运行 [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
 - Node.js：[如何通过 Node.js 使用通知中心](notification-hubs-nodejs-push-notification-tutorial.md)。
-- Java / PHP**：有关如何使用 REST API 发送推送通知的示例，请参阅“如何通过 Java/PHP 使用通知中心”([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md))。
+- Java / PHP \**：有关如何使用 REST API 发送推送通知的示例，请参阅“如何通过 Java/PHP 使用通知中心”([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md))。
 
 ## <a name="next-steps"></a>后续步骤
 在这个简单的示例中，已将推送通知广播到所有 iOS 设备。 要针对特定客户，请参考教程 [使用通知中心将通知推送到用户]。 如果要按兴趣组划分用户，可以阅读 [使用通知中心发送突发新闻]。 请在[通知中心指南]和[适用于 iOS 的通知中心操作方法指南]中了解有关如何使用通知中心的详细信息。
@@ -248,7 +250,7 @@ ms.lasthandoff: 01/23/2018
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Visual Studio for Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
-[使用通知中心将通知推送到用户]: ./notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[使用通知中心将通知推送到用户]: /notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification
 [使用通知中心发送突发新闻]: ./notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [Local and Push Notification Programming Guide]:https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1

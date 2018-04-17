@@ -16,11 +16,11 @@ origin.date: 10/26/2017
 ms.date: 04/02/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 5795d8453db53692e0152775c88fee72a4799737
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 800c6cffc57237d91ccd51e379bd5859286f635a
+ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>虚拟网络流量路由
 
@@ -91,8 +91,8 @@ Azure 会针对不同的 Azure 功能添加其他默认的系统路由，但前�
 
     - Azure [内部负载均衡器](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fvirtual-network%2ftoc.json)的专用 IP 地址。 
 
-<!-- Not Available on [high availability strategy for network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha.md?toc=%2fvirtual-network%2ftoc.json) -->
-    You can define a route with 0.0.0.0/0 as the address prefix and a next hop type of virtual appliance, enabling the appliance to inspect the traffic and determine whether to forward or drop the traffic. If you intend to create a user-defined route that contains the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first.
+    <!-- Not Available on [high availability strategy for network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha.md?toc=%2fvirtual-network%2ftoc.json) -->
+    可以在定义路由时，使用“0.0.0.0/0”作为地址前缀，使用“虚拟设备”作为下一跃点类型，这样设备就可以检查流量，并决定是转发流量还是丢弃流量。 若要创建包含 0.0.0.0/0 地址前缀的用户定义路由，请先阅读 [0.0.0.0/0 地址前缀](#default-route)。
 
 - **虚拟网关**：需要将目标为特定地址前缀的流量路由到虚拟网关时，请指定此项。 创建虚拟网关时，类型必须为“VPN”。 不能在用户定义路由中指定将虚拟网关创建为“ExpressRoute”类型，因为类型为 ExpressRoute 时，必须对自定义路由使用 [BGP](#border-gateway-protocol-routes)。 可以定义一个路由，让其将目标为 0.0.0.0/0 地址前缀的流量定向到[基于路由](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fvirtual-network%2ftoc.json#vpntype)的虚拟网关。 可以在本地设置一个设备，让其检查流量并决定是转发还是丢弃流量。 若要创建地址前缀为 0.0.0.0/0 的用户定义路由，请先阅读 [0.0.0.0/0 地址前缀](#default-route)。 可以通过 BGP 播发前缀为 0.0.0.0/0 的路由，而不必配置地址前缀为 0.0.0.0/0 的用户定义路由，前提是[为 VPN 虚拟网关启用 BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fvirtual-network%2ftoc.json)。
 - **无**：需要丢弃流向某个地址前缀的流量，而不是将该流量转发到目标时，请指定此项。 如果某项功能尚未完全配置好，Azure 可能会针对部分可选的系统路由列出“无”。 例如，如果看到“无”作为“下一跃点 IP 地址”列出，且“下一跃点类型”为“虚拟网关”或“虚拟设备”，则可能是因为设备未运行或未完全配置好。 Azure 为保留的地址前缀创建系统[默认路由](#default)，使用“无”作为下一跃点类型。

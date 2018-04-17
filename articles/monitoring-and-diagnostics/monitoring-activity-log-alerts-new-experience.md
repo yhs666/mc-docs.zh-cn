@@ -1,9 +1,9 @@
 ---
-title: "使用 Azure Monitor 中的新警报（预览版）体验创建和管理活动日志警报"
-description: "本文介绍如何通过 Azure Monitor 中的“警报”（预览版）选项卡创建活动日志警报。 此文将详细介绍此功能的新用户体验。"
+title: 使用 Azure Monitor 中的新警报（预览版）体验创建和管理活动日志警报
+description: 本文介绍如何通过 Azure Monitor 中的“警报”（预览版）选项卡创建活动日志警报。 此文将详细介绍此功能的新用户体验。
 author: JYOTHIRMAISURI
 manager: vvithal
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: aabc0e57-78cd-44dd-a8d1-af5e1e567360
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
-ms.author: v-jysur
-ms.custom: 
-ms.openlocfilehash: ab6131c6673d994a8bd516dcf12a645664d2924f
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+origin.date: 02/05/2018
+ms.date: 04/16/2018
+ms.author: v-yiso
+ms.custom: ''
+ms.openlocfilehash: 01fe2722839cfc41bb529d5b5b9465a71f70a327
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>使用新的警报（预览版）体验创建活动日志警报
 
@@ -111,7 +112,7 @@ ms.lasthandoff: 03/12/2018
 
         ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
-4. 在“定义警报规则”下提供以下详细信息：
+4. 在“定义警报规则详细信息”下提供以下详细信息：
 
     - **警报规则名称** – 新警报规则的名称
     - **说明** – 新警报规则的说明

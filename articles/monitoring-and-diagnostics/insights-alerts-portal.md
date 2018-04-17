@@ -1,9 +1,9 @@
 ---
-title: "为 Azure 服务创建警报 - Azure 门户 | Azure"
-description: "满足指定的条件时，触发电子邮件、通知、调用网站 URL (webhook) 或自动执行。"
+title: 为 Azure 服务创建警报 - Azure 门户 | Azure
+description: 满足指定的条件时，触发电子邮件、通知、调用网站 URL (webhook) 或自动执行。
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
@@ -15,20 +15,20 @@ ms.topic: article
 origin.date: 09/23/2016
 ms.date: 12/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: a7dc3e2c83287c09756a5de391e6aa10d8d5865e
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 0af2e8afc34a9164449db7b48a3f65f6c665d34f
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>在 Azure Monitor 中为 Azure 服务创建指标警报 - Azure 门户
 > [!div class="op_single_selector"]
->- [门户](./insights-alerts-portal.md)
+>- [Portal](./insights-alerts-portal.md)
 >- [PowerShell](./insights-alerts-powershell.md)
 >- [CLI](./insights-alerts-command-line-interface.md) 
 
 ## <a name="overview"></a>概述
-本文展示如何使用 Azure 门户设置 Azure 指标警报。   
+本文演示如何使用 Azure 门户设置 Azure 指标警报。   
 
 可以根据监控指标或事件接收 Azure 服务的警报。
 
@@ -41,6 +41,11 @@ ms.lasthandoff: 12/01/2017
 - 向指定的其他电子邮件地址发送电子邮件。
 - 调用 Webhook
 - 开始执行 Azure Runbook（仅在 Azure 门户中可行） 
+
+> [!NOTE]
+> Azure Monitor 现在支持公共预览版中的近实时指标警报。 这些警报使用操作组。 详细了解[近实时指标警报](monitoring-near-real-time-metric-alerts.md)。
+>
+>
 
 可以使用以下工具配置和获取关于指标警报的信息：
 
@@ -62,7 +67,8 @@ ms.lasthandoff: 12/01/2017
     ![添加警报](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 
 4. **命名**警报规则，并选择也在通知电子邮件中显示的“说明”。
-5. 选择想要监视的“指标”为该指标选择一个“条件”和“阈值”。 还选择了触发警报前指标规则必须满足的时间**段**。 例如，如果使用时间段"PT5M"，且警报针对 CPU 高于 80% 的情况，则 CPU 持续高于 80% 达到 5 分钟时触发警报。 在发生第一次触发后，当 CPU 使用率保持低于 80% 达到 5 分钟时，该触发器会再次触发。 每 1 分钟对 CPU 进行一次测量。   
+
+5. 选择想要监视的“指标”为该指标选择一个“条件”和“阈值”。 还选择触发警报前指标规则必须满足的时间段。 例如，如果使用时间段“过去 5 分钟”，且警报针对 CPU 高于 80% 的情况，则 CPU 持续高于 80% 达到 5 分钟时触发警报。 在发生第一次触发后，当 CPU 使用率保持低于 80% 达到 5 分钟时，该触发器会再次触发。 CPU 指标度量每 1 分钟进行一次。
 
 6. 如果触发警报时希望向管理员和共同管理员发送电子邮件，则选择“向所有者发送电子邮件...”。
 
@@ -74,7 +80,7 @@ ms.lasthandoff: 12/01/2017
 
 10. 警报创建完成后，选择“确定”。   
 
-几分钟后，警报将处于活动状态，并按前面所述进行触发。
+在几分钟后，警报将如前所述激活并触发。
 
 ## <a name="managing-your-alerts"></a>管理警报
 
@@ -86,6 +92,7 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="next-steps"></a>后续步骤
 * [获取 Azure 监视概述](monitoring-overview.md)，包括可收集和监视的信息的类型。
+* 详细了解新的[近实时指标警报（预览）](monitoring-near-real-time-metric-alerts.md)
 * 了解[在警报中配置 Webhook](./insights-webhooks-alerts.md)的详细信息。
 * 详细了解[针对活动日志事件配置警报](./monitoring-activity-log-alerts.md)。
 * 了解关于 [Azure 自动化 Runbook](../automation/automation-starting-a-runbook.md) 的详细信息。

@@ -1,11 +1,11 @@
 ---
-title: "有助于保护使用 Azure 备份的混合备份的安全功能 | Microsoft Docs"
-description: "了解如何在 Azure 备份中使用安全功能，使备份更加安全"
+title: 有助于保护使用 Azure 备份的混合备份的安全功能 | Microsoft Docs
+description: 了解如何在 Azure 备份中使用安全功能，使备份更加安全
 services: backup
-documentationcenter: 
-author: alexchen2016
-manager: digimobile
-editor: 
+documentationcenter: ''
+author: JPallavi
+manager: vijayts
+editor: ''
 ms.assetid: 47bc8423-0a08-4191-826d-3f52de0b4cb8
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/08/2017
-ms.date: 09/04/2017
+ms.date: 04/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: d04090d8e685d1b1a30cf0e1b14f583b0c2b7ab3
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: a925f667845e17287a783dee123bbdaa3ce2152b
+ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>有助于保护使用 Azure 备份的混合备份的安全功能
 对安全问题（例如恶意软件、勒索软件、入侵）的关注在逐渐上升。 这些安全问题可能会代价高昂（就金钱和数据来说）。 为了防止此类攻击，Azure 备份现提供可保护混合备份的安全功能。 本文介绍如何通过 Azure 恢复服务代理和 Azure 备份服务器来启用和使用这些功能。 这些功能包括：
@@ -74,12 +74,12 @@ ms.lasthandoff: 09/08/2017
 对于 **Azure 备份服务器**用户：
 
 1. 如果发生备份的服务器仍可用，则重新保护已删除的数据源，并使用**恢复数据**功能从所有旧的恢复点恢复。
-2. 如果该服务器不可用，则使用[从另一 Azure 备份服务器恢复数据](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server)功能，通过另一 Azure 备份服务器实例获取此数据。
+2. 如果该服务器不可用，则使用[从另一 Azure 备份服务器恢复数据](backup-azure-alternate-dpm-server.md)功能，通过另一 Azure 备份服务器实例获取此数据。
 
 对于 **Data Protection Manager** 用户：
 
 1. 如果发生备份的服务器仍可用，则重新保护已删除的数据源，并使用**恢复数据**功能从所有旧的恢复点恢复。
-2. 如果该服务器不可用，则通过[添加外部 DPM](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) 来使用另一个 Data Protection Manager 服务器获取此数据。
+2. 如果该服务器不可用，则通过[添加外部 DPM](backup-azure-alternate-dpm-server.md) 来使用另一个 Data Protection Manager 服务器获取此数据。
 
 ## <a name="prevent-attacks"></a>防止攻击
 已添加检查，确保只有效用户才可执行各种操作。 这些检查包括：添加额外的身份验证层，以及为恢复目的而保持一个最小的保留期时间范围。
@@ -110,13 +110,14 @@ ms.lasthandoff: 09/08/2017
 ## <a name="troubleshooting-errors"></a>排查错误
 | 操作 | 错误详细信息 | 解决方法 |
 | --- | --- | --- |
-| 策略更改 |无法修改备份策略。 错误：由于内部服务错误 [0x29834]，当前操作失败。 请稍后重试操作。 如果该问题仍然存在，请联系 Microsoft 支持部门。 |**原因：**<br/>当启用安全设置、尝试缩短保留期范围至低于以上指定的最小值和使用不受支持的版本时，会出现此错误（本文第一条注释已指定所支持的版本）。 <br/>**建议的操作：**<br/> 在这种情况下，应将保留期时段设置为高于指定保留期时间段的最小值（以日计为七天、以周记为四周、以月计为三个月或以年计为一年）以进行策略相关的更新。 （可选）首选更新备份代理、Azure 备份服务器和/或 DPM UR 来利用所有的安全性更新。 |
-| 更改通行短语 |输入的安全 PIN 不正确。 (ID: 100130) 请提供正确的安全 PIN 来完成此操作。 |**原因：**<br/> 当执行关键操作（如更改通行短语）时输入无效或已过期的安全 PIN 将出现此错误。 <br/>**建议的操作：**<br/> 若要完成该操作，必须输入有效的安全 PIN。 若要获取 PIN，登录到 Azure 门户并导航到“恢复服务保管库”>“设置”>“属性”>“生成安全 PIN”。 使用此 PIN 更改通行短语。 |
-| 更改通行短语 |操作失败。 ID：120002 |**原因：**<br/>当启用安全设置、尝试更改通行短语和使用不受支持的版本时，会出现此错误（本文第一条注释已指定有效版本）。<br/>**建议的操作：**<br/> 若要更改通行短语，必须首先更新备份代理至最低版本 minimum 2.0.9052、更新Azure 备份服务器至最低更新 1 和/或更新 DPM 至最低 DPM 2012 R2 UR12 或 DPM 2016 UR2 （下载链接如下），并输入有效的安全 PIN。 若要获取 PIN，登录到 Azure 门户并导航到“恢复服务保管库”>“设置”>“属性”>“生成安全 PIN”。 使用此 PIN 更改通行短语。 |
+| 策略更改 |无法修改备份策略。 错误：由于内部服务错误 [0x29834]，当前操作失败。 请稍后重试操作。 如果该问题仍然存在，请联系 Microsoft 支持部门。 |**原因：**<br/>当启用安全设置、尝试缩短保留期范围至低于以上指定的最小值和使用不受支持的版本时，将出现此错误（本文第一条注释已指定所支持的版本）。 <br/>**建议的操作：**<br/> 在这种情况下，应将保留期设置为高于指定保留期的最小值（以日计为七天、以周记为四周、以月计为三个月或以年计为一年），以进行策略相关的更新。 （可选）首选更新备份代理、Azure 备份服务器和/或 DPM UR 来利用所有的安全性更新。 |
+| 更改通行短语 |输入的安全 PIN 不正确。 (ID: 100130) 请提供正确的安全 PIN 来完成此操作。 |原因：<br/> 当执行关键操作（如更改通行短语）时输入无效或已过期的安全 PIN 将出现此错误。 <br/>**建议的操作：**<br/> 若要完成该操作，必须输入有效的安全 PIN。 若要获取 PIN，登录到 Azure 门户并导航到“恢复服务保管库”>“设置”>“属性”>“生成安全 PIN”。 使用此 PIN 更改通行短语。 |
+| 更改通行短语 |操作失败。 ID：120002 |**原因：**<br/>当启用安全设置、尝试更改通行短语和使用不受支持的版本时，将出现此错误（本文第一条注释已指定有效版本）。<br/>建议的操作<br/> 若要更改通行短语，必须首先更新备份代理至最低版本 minimum 2.0.9052、更新Azure 备份服务器至最低更新 1 和/或更新 DPM 至最低 DPM 2012 R2 UR12 或 DPM 2016 UR2 （下载链接如下），然后输入有效的安全 PIN。 若要获取 PIN，登录到 Azure 门户并导航到“恢复服务保管库”>“设置”>“属性”>“生成安全 PIN”。 使用此 PIN 更改通行短语。 |
 
 ## <a name="next-steps"></a>后续步骤
-- 参阅 [Azure 恢复服务保管库入门](backup-azure-vms-first-look-arm.md)了解如何启用这些功能。
+- [Azure 恢复服务保管库入门](backup-azure-vms-first-look-arm.md)，介绍如何启用这些功能。
 - [下载最新的 Azure 恢复服务代理](http://aka.ms/azurebackup_agent)，保护 Windows 计算机并防止备份数据受到攻击。
 - [下载最新的 Azure 备份服务器](https://aka.ms/latest_azurebackupserver)，保护工作负荷并防止备份数据受到攻击。
 - [下载适用于 System Center 2012 R2 Data Protection Manager 的 UR12](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) 或[下载适用于 System Center 2016 Data Protection Manager 的 UR2](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager)，保护工作负荷和备份数据免受攻击。
 
+<!-- Update_Description: wording update -->

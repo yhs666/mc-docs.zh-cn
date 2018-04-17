@@ -301,6 +301,26 @@
               maintainContext: true
 - name: 企业就绪情况
   items:
+    - name: 企业安全性
+      items:
+        - name: 概述
+          href: ../domain-joined/apache-domain-joined-introduction.md
+          maintainContext: true
+        - name: 企业安全性计划
+          href: ../domain-joined/apache-domain-joined-architecture.md
+          maintainContext: true
+        - name: 在 HDInsight 中配置企业安全性
+          href: ../domain-joined/apache-domain-joined-configure.md
+          maintainContext: true
+        - name: 使用 Azure AD DS 在 HDInsight 中配置企业安全性
+          href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
+          maintainContext: true
+        - name: 配置 Hive 策略
+          href: ../domain-joined/apache-domain-joined-run-hive.md
+          maintainContext: true
+        - name: 使用企业安全性管理群集
+          href: ../domain-joined/apache-domain-joined-manage.md
+          maintainContext: true
     - name: 保护数据
       href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
       maintainContext: true

@@ -1,11 +1,11 @@
 ---
-title: "初步了解：使用恢复服务保管库保护 Azure VM | Microsoft Docs"
-description: "使用恢复服务保管库保护 Azure VM。 使用资源管理器部署的 VM、经典部署型 VM、高级存储 VM、加密 VM 和基于托管磁盘的 VM 的备份来保护数据。 创建并注册恢复服务保管库。 在 Azure 中注册 VM、创建策略和保护 VM。"
+title: 初步了解：使用恢复服务保管库保护 Azure VM | Microsoft Docs
+description: 使用恢复服务保管库保护 Azure VM。 使用资源管理器部署的 VM、经典部署型 VM、高级存储 VM、加密 VM 和基于托管磁盘的 VM 的备份来保护数据。 创建并注册恢复服务保管库。 在 Azure 中注册 VM、创建策略和保护 VM。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 keyword: backups; vm backup
 ms.assetid: 45e773d6-c91f-4501-8876-ae57db517cd1
 ms.service: backup
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 01/05/2018
-ms.date: 02/27/2018
+ms.date: 04/08/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 14e5eea8d0299ba3be24e559442b01f84c2d16c9
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: a5113bf835877d248b55296cb5755efddfac77ed
+ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>将 Azure 虚拟机备份到恢复服务保管库
 
@@ -51,9 +51,9 @@ ms.lasthandoff: 03/02/2018
 执行以下步骤，在 Azure 门户的虚拟机管理边栏选项卡中配置备份作业。 以下步骤仅适用于 Azure 门户中的虚拟机。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 在“中心”菜单上，单击“更多服务”，并在“筛选器”对话框中键入“虚拟机”。 键入时，系统会筛选出资源列表。 看到虚拟机时，请选择它。
+2. 在“中心”菜单上单击“所有服务”，然后在“筛选器”对话框中键入“虚拟机”。 键入时，系统会筛选出资源列表。 看到虚拟机时，请选择它。
 
-  ![演示如何从“所有服务”导航到虚拟机的屏幕截图](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
+    ![演示如何从“所有服务”导航到虚拟机的屏幕截图](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
 
     将显示订阅中的虚拟机 (VM) 列表。
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 03/02/2018
     ![将显示订阅中的 VM 列表。](./media/backup-azure-vms-first-look-arm/list-of-vms-selected.png)
 
     选择 VM 时，虚拟机列表会移至左侧，并且虚拟机管理边栏选项卡和虚拟机仪表板将打开。 </br>
-  ![VM 管理边栏选项卡](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
+    ![VM 管理边栏选项卡](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
 
 4. 在 VM 管理边栏选项卡上的“设置”部分中，单击“备份”。 </br>
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 03/02/2018
 
     ![启用备份向导](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-    如果没有恢复服务保管库，或想要使用新的保管库，可单击“新建”并提供新保管库的名称。 将在与虚拟机相同的资源组和相同的位置中创建新保管库。 如果想要使用不同的值创建恢复服务保管库，请参阅如何[创建恢复服务保管库](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm)部分。
+    如果没有恢复服务保管库，或想要使用新的保管库，可单击“新建”并提供新保管库的名称。 将在与虚拟机相同的资源组和相同的区域中创建新保管库。 如果想要使用不同的值创建恢复服务保管库，请参阅如何[创建恢复服务保管库](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm)部分。
 
 6. 若要查看备份策略的详细信息，请单击“备份策略”。
 
@@ -125,14 +125,14 @@ ms.lasthandoff: 03/02/2018
 恢复服务保管库是存储所有按时间创建的备份和恢复点的实体。 恢复服务保管库还包含应用到受保护 VM 的备份策略。
 
 > [!NOTE]
-> 备份 VM 是在本地执行的过程。 无法将某个位置的 VM 备份到另一个位置的恢复服务保管库。 因此，对于包含要备份的 VM 的具有 Azure 位置，必须至少有一个恢复服务保管库。
+> 备份 VM 是在本地执行的过程。 无法将某个区域的 VM 备份到另一个区域的恢复服务保管库。 因此，每个有 VM 需要备份的 Azure 区域都必须至少存在一个恢复服务保管库。
 >
 >
 
 若要创建恢复服务保管库，请执行以下操作：
 
 1. 如果尚未登录 [Azure 门户](https://portal.azure.cn/)，请使用 Azure 订阅登录。
-2. 在“中心”菜单上，单击“更多服务”，并在“筛选器”对话框中键入“恢复服务”。 键入时，系统会筛选出资源列表。 在列表中看见“恢复服务保管库”时，请单击它。
+2. 在“中心”菜单上单击“所有服务”，然后在“筛选器”对话框中键入“恢复服务”。 键入时，系统会筛选出资源列表。 在列表中看见“恢复服务保管库”时，请单击它。
 
     ![创建恢复服务保管库步骤 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 03/02/2018
 7. 单击“位置”，为保管库选择地理区域  。 此选项决定了备份数据要发送到的地理区域。
 
     > [!IMPORTANT]
-    > 如果不确定 VM 的所在位置，请关闭保管库创建对话框，并转到门户中的虚拟机列表。 如果多个区域中有虚拟机，请在每个区域中创建恢复服务保管库。 请先在第一个位置创建保管库，并转到下一个位置。 无需指定用于存储备份数据的存储帐户 - 恢复服务保管库和 Azure 备份服务会自动处理存储。
+    > 如果不确定 VM 的所在区域，请关闭保管库创建对话框，并转到门户中的虚拟机列表。 如果多个区域中有虚拟机，请在每个区域中创建恢复服务保管库。 请先在第一个区域创建保管库，然后转到下一个区域。 无需指定用于存储备份数据的存储帐户 - 恢复服务保管库和 Azure 备份服务会自动处理存储。
     >
 
 8. 在“恢复服务保管库”边栏选项卡的底部，单击“创建” 。
@@ -176,7 +176,7 @@ ms.lasthandoff: 03/02/2018
 现已创建保管库，接下来请了解如何设置存储复制。
 
 ### <a name="set-storage-replication"></a>设置存储复制
-存储复制选项可让你在异地冗余存储与本地冗余存储之间进行选择。 默认情况下，保管库具有异地冗余存储。 如果恢复服务保管库是主备份，请将存储复制选项设置为异地冗余存储。 如果想要一个更便宜、但持久性不高的选项，请选择“本地冗余存储”。 请参阅 [Azure 存储复制概述](../storage/common/storage-redundancy.md)部分，深入了解[异地冗余](../storage/common/storage-redundancy.md#geo-redundant-storage)和[本地冗余](../storage/common/storage-redundancy.md#locally-redundant-storage)存储选项。
+存储复制选项可让你在异地冗余存储与本地冗余存储之间进行选择。 默认情况下，保管库具有异地冗余存储。 如果恢复服务保管库是主备份，请将存储复制选项设置为异地冗余存储。 如果想要一个更便宜、但持久性不高的选项，请选择“本地冗余存储”。 请参阅 [Azure 存储复制概述](../storage/common/storage-redundancy.md)部分，深入了解[异地冗余](../storage/common/storage-redundancy-grs.md)和[本地冗余](../storage/common/storage-redundancy-lrs.md)存储选项。
 
 若要编辑存储复制设置，请执行以下操作：
 
@@ -197,13 +197,13 @@ ms.lasthandoff: 03/02/2018
 
     ![存储配置选项](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    默认情况下，保管库具有异地冗余存储。 如果使用 Azure 作为主要备份存储终结点，请继续使用“异地冗余”。 如果不使用 Azure 作为主要的备份存储终结点，则请选择“本地冗余”，减少 Azure 存储费用。 请在此[存储冗余概述](../storage/common/storage-redundancy.md)中深入了解[异地冗余](../storage/common/storage-redundancy.md#geo-redundant-storage)和[本地冗余](../storage/common/storage-redundancy.md#locally-redundant-storage)存储选项。
+    默认情况下，保管库具有异地冗余存储。 如果使用 Azure 作为主要备份存储终结点，请继续使用“异地冗余”。 如果不使用 Azure 作为主要的备份存储终结点，则请选择“本地冗余”，减少 Azure 存储费用。 请在此[存储冗余概述](../storage/common/storage-redundancy.md)中深入了解[异地冗余](../storage/common/storage-redundancy-grs.md)和[本地冗余](../storage/common/storage-redundancy-lrs.md)存储选项。
 
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>选择备份目标、设置策略并定义要保护的项
 在向保管库注册 VM 前，请先执行发现过程，以确保能够识别任何添加到订阅中的新虚拟机。 该过程会在 Azure 上查询订阅中的虚拟机列表和其他信息，例如云服务名称、区域等。 在 Azure 门户中，方案是指要放入恢复服务保管库中的项。 策略是有关恢复点创建频率和时间的计划。 策略还包含恢复点的保留范围。
 
-1. 如果已打开恢复服务保管库，请转到步骤 2。 否则，请在“中心”菜单上单击“更多服务”，在资源列表中键入“恢复服务”并单击“恢复服务保管库”。
+1. 如果已打开恢复服务保管库，请转到步骤 2。 否则，请单击“所有服务”。 键入“恢复服务”，然后单击“恢复服务保管库”。
 
     ![创建恢复服务保管库步骤 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -240,7 +240,7 @@ ms.lasthandoff: 03/02/2018
 
     ![选择工作负荷](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    所选虚拟机已验证。 如果未看到应出现的虚拟机，请检查它们是否在恢复服务保管库所在的同一 Azure 位置中。 恢复服务保管库的位置显示在保管库仪表板上。
+    所选虚拟机已验证。 如果未看到所需的虚拟机，请检查它们是否在恢复服务保管库所在的同一个 Azure 位置，以及是否尚未受保护。 恢复服务保管库的位置显示在保管库仪表板上。
 
 6. 现在已定义保管库的所有设置，接下来请在“备份”边栏选项卡中，单击“启用备份”将策略部署到保管库和 VM。 部署备份策略不会创建虚拟机的初始恢复点。
 

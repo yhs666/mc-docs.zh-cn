@@ -32,8 +32,10 @@
      > 
      > 
 
-     如果是具有 Visual Studio 级别订阅的 MSDN 订户，可以创建一个预构建的 Azure 虚拟机，其中包含 Visual Studio 以及其他多个映像。 有关详细信息，请参阅 [Create a Virtual Machine in Visual Studio by Using Images Visual Studio 2013 Gallery image for MSDN subscribers](http://visualstudio2013msdngalleryimage.chinacloudsites.cn)（在 Visual Studio 中使用 Visual Studio 2013 库映像为 MSDN 订户创建虚拟机）和 [MSDN 订阅](https://www.visualstudio.com/products/msdn-subscriptions-vs)。
-5. 在“虚拟机基本设置”页上，输入计算机名称，并添加虚拟机的规格（包含大小）以及用户名和密码。 完成后，单击“下一步” 。
+     如果是具有 Visual Studio 级别订阅的 MSDN 订户，可以创建一个预构建的 Azure 虚拟机，其中包含 Visual Studio 以及其他多个映像。
+     <!-- Not Available on  [Create a Virtual Machine in Visual Studio by Using Images Visual Studio 2013 Gallery image for MSDN subscribers](http://visualstudio2013msdngalleryimage.chinacloudsites.cn) -->
+     <!-- Not Available on [MSDN 订阅](https://www.visualstudio.com/products/msdn-subscriptions-vs) -->
+5. 在“虚拟机基本设置”  页上，输入计算机名称，并添加虚拟机的规格（包含大小）以及用户名和密码。 完成后，单击“下一步” 。
 
     需要通过远程桌面使用新名称和密码来登录计算机，因此最好能记下新名称和密码，以免忘记。 在 Visual Studio 中创建 Azure 虚拟机之后，可以在 [Azure 管理门户](http://manage.windowsazure.cn/)中更改其大小和其他设置。
 
@@ -53,11 +55,13 @@
     ![虚拟机向导中的“终结点”页。](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
 
     可用的终结点取决于为虚拟机选择的云服务。 有关详细信息，请参阅 [Azure 服务终结点](/virtual-machines/windows/classic/setup-endpoints)。
+    <!-- Notice: URL Rediect to /virtual-machines/windows/classic/setup-endpoints -->
 
-   > [!NOTE]
-   > 启用公共终结点后，便可以通过 Internet 使用虚拟机上的服务。 请务必在虚拟机上安装并正确配置终结点和服务，例如，为终结点设置访问控制列表 (ACL)。 有关详细信息，请参阅[如何设置虚拟机的终结点](/virtual-machines/windows/classic/setup-endpoints)。
-   > 
-   > 
+    > [!NOTE]
+    > 启用公共终结点后，便可以通过 Internet 使用虚拟机上的服务。 请务必在虚拟机上安装并正确配置终结点和服务，例如，为终结点设置访问控制列表 (ACL)。 有关详细信息，请参阅[如何设置虚拟机的终结点](/virtual-machines/windows/classic/setup-endpoints)。
+    > 
+    > 
+    <!-- Notice: URL Rediect to /virtual-machines/windows/classic/setup-endpoints -->
 10. 配置完虚拟机设置后，请选择“创建”  按钮以创建虚拟机。
 
      Azure 创建虚拟机时，“Azure 活动日志”  会显示虚拟机创建操作的进度。
@@ -73,7 +77,7 @@
      ![服务器资源管理器中显示的虚拟机。](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
 
 ## <a name="manage-your-virtual-machines"></a>管理虚拟机
-在虚拟机配置页上，除了关闭、连接、刷新虚拟机以及向选定虚拟机添加检查点之外，还可以查看或更改虚拟机的设置。 可以：
+在虚拟机配置页上，除了关闭、连接、刷新虚拟机以及向选定虚拟机添加检查点之外，还可以查看或更改虚拟机的设置。 方法：
 
 * 选择虚拟机大小。
 * 选择用于虚拟机的可用性集。

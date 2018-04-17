@@ -1,10 +1,10 @@
 ---
-title: "Azure 应用程序网关常见问题 | Microsoft 文档"
-description: "本页提供有关 Azure 应用程序网关常见问题的解答"
+title: Azure 应用程序网关常见问题 | Microsoft 文档
+description: 本页提供有关 Azure 应用程序网关常见问题的解答
 documentationcenter: na
 services: application-gateway
-author: alexchen2016
-manager: digimobile
+author: davidmu1
+manager: timlt
 editor: tysonn
 ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
 ms.service: application-gateway
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/19/2017
-ms.date: 12/29/2017
+ms.date: 04/04/2018
 ms.author: v-junlch
-ms.openlocfilehash: 688d6bdfc77a34422e9c9968d6e62528d116f36a
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: 915f4241d266791c861e1d459ffc7362afbfb209
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>应用程序网关常见问题
 
@@ -136,10 +136,6 @@ Azure 应用程序网关是服务形式的应用程序传送控制器 (ADC)，�
 **问：如何处理规则？**
 
 按配置规则的顺序处理规则。 建议将多站点规则配置在基本规则之前，以降低将流量路由到错误后端的可能性，因为基本规则会在评估多站点规则之前根据端口匹配流量。
-
-**问：如何处理规则？**
-
-规则按照其创建的顺序进行处理。 建议先配置多站点规则，再配置基本规则。 通过先配置多站点侦听器，此配置可以减少将流量路由到错误后端的机会。 由于在评估多站点规则之前，基本规则会基于端口匹配流量，因此可能出现此路由问题。
 
 **问：自定义探测的 Host 字段是什么意思？**
 

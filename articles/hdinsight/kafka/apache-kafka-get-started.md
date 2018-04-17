@@ -14,13 +14,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/20/2018
-ms.date: 03/26/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: 793ba070efa1ae7f092382549a35519e4fb3e5e5
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: a087f2eb1731aa37554fa0855d7daeecf0290ec3
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>Apache Kafka on HDInsight 入门
 
@@ -40,6 +40,15 @@ ms.lasthandoff: 03/22/2018
 
     * **群集名称**：HDInsight 群集的名称。 此名称必须唯一。
     * **订阅**：选择要使用的订阅。
+    * **群集类型**：选择此项，然后在“群集配置”中设置以下值：
+
+        * **群集类型**：Kafka
+        * 版本：Kafka 0.10.0 (HDI 3.6)
+
+        使用“选择”按钮保存群集类型设置。
+
+        ![选择群集类型](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
+
     * **群集登录用户名**和**群集登录密码**：通过 HTTPS 访问群集时的登录凭据。 可以使用这些凭据访问 Ambari Web UI 或 REST API 等服务。
     * **安全外壳 (SSH) 用户名**：通过 SSH 访问群集时使用的登录名。 默认情况下，密码与群集登录密码相同。
     * **资源组**：要在其中创建群集的资源组。
@@ -50,19 +59,9 @@ ms.lasthandoff: 03/22/2018
    
  ![选择订阅](./media/apache-kafka-get-started/hdinsight-basic-configuration.png)
 
-3. 选择“群集类型”，然后在“群集配置”中设置以下值：
+3. 使用“下一步”按钮完成基本配置。
 
-    * **群集类型**：Kafka
-
-    * 版本：Kafka 0.10.0 (HDI 3.6)
-
-    最后使用“选择”按钮保存设置。
-     
- ![选择群集类型](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
-
-4. 选择群集类型后，使用“选择”按钮设置群集类型。 接下来，使用“下一步”  按钮完成基本配置。
-
-5. 在“存储”中选择或创建存储帐户。 对于本文档中的步骤，请让其他字段保留默认值。 使用“下一步”  按钮保存存储配置。
+4. 在“存储”中选择或创建存储帐户。 对于本文档中的步骤，请让其他字段保留默认值。 使用“下一步”  按钮保存存储配置。
 
     ![设置 HDInsight 的存储帐户设置](./media/apache-kafka-get-started/set-hdinsight-storage-account.png)
 

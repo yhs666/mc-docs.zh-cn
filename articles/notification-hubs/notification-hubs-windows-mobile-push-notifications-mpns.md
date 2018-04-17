@@ -1,26 +1,26 @@
 ---
-title: "适用于 Windows Phone 应用的 Azure 通知中心入门 | Microsoft Docs"
-description: "在本教程中，将了解如何使用 Azure 通知中心将通知推送到 Windows Phone 8 或 Windows Phone 8.1 Silverlight 应用程序。"
+title: 适用于 Windows Phone 应用的 Azure 通知中心入门 | Microsoft Docs
+description: 在本教程中，将了解如何使用 Azure 通知中心将通知推送到 Windows Phone 8 或 Windows Phone 8.1 Silverlight 应用程序。
 services: notification-hubs
 documentationcenter: windows
-keywords: "推送通知,push notification,windows phone 推送"
+keywords: 推送通知,push notification,windows phone 推送
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-origin.date: 12/22/2017
-ms.date: 01/22/2018
+origin.date: 03/06/2018
+ms.date: 04/04/2018
 ms.author: v-junlch
-ms.openlocfilehash: d802eaf8363913694432d60cf3b740f987aa76d9
-ms.sourcegitcommit: c0a9889921cd1ee52d58255a5a2db5e7930c4a4b
+ms.openlocfilehash: 7314677ee8203808a063ffd4ca690db29da76ac3
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-windows-phone-apps"></a>适用于 Windows Phone 应用的 Azure 通知中心入门
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -31,7 +31,7 @@ ms.lasthandoff: 01/23/2018
 > 
 > 
 
-本教程演示如何使用 Azure 通知中心将推送通知发送到 Windows Phone 8 或 Windows Phone 8.1 Silverlight 应用程序。 如果你要以 Windows Phone 8.1（非 Silverlight）为目标，请参阅 [Windows Universal](./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 版本。
+本教程演示如何使用 Azure 通知中心将推送通知发送到 Windows Phone 8 或 Windows Phone 8.1 Silverlight 应用程序。 如果你要以 Windows Phone 8.1（非 Silverlight）为目标，请参阅 [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 版本。
 在本教程中，你将创建一个空白 Windows Phone 8 应用，它使用 Microsoft 推送通知服务 (MPNS) 接收推送通知。 完成后，能够使用通知中心将推送通知广播到运行应用的所有设备。
 
 > [!NOTE]
@@ -52,7 +52,7 @@ ms.lasthandoff: 01/23/2018
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="6">
-<li><p>在“通知设置”下，选择“Windows Phone (MPNS)”，然后单击“启用未经身份验证的推送”复选框。<b></b><b></b><b></b></p>
+<li><p>在“Notification Services”下选择“Windows Phone (MPNS)”，然后单击“启用未经身份验证的推送”复选框。<b></b><b></b><b></b></p>
 
 ![Azure 门户 - 启用未经身份验证的推送通知](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
 </li>
@@ -170,4 +170,4 @@ ms.lasthandoff: 01/23/2018
 [tile catalog]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [通知中心 - Windows Phone Silverlight 教程]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!-- Update_Description: wording update -->
+

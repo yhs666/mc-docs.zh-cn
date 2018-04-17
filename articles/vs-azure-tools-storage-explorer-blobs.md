@@ -1,11 +1,11 @@
 ---
-title: "使用存储资源管理器（预览版）管理 Azure Blob 存储资源 | Azure"
-description: "使用存储资源管理器（预览版）管理 Azure Blob 容器和 Blob"
+title: 使用存储资源管理器（预览版）管理 Azure Blob 存储资源 | Azure
+description: 使用存储资源管理器（预览版）管理 Azure Blob 容器和 Blob
 services: storage
 documentationcenter: na
 author: TomArcher
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
 ms.service: storage
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 11/18/2016
 ms.date: 03/30/2017
 ms.author: v-junlch
-ms.openlocfilehash: 8289f5c0d46492b0623919b49b8fce2c25c86c13
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: 07c6f5710c1e7b05b95de6ec290a5b94e7ab80c8
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>使用存储资源管理器（预览版）管理 Azure Blob 存储资源
 ## <a name="overview"></a>概述
@@ -42,7 +42,7 @@ ms.lasthandoff: 09/15/2017
 3. 右键单击“Blob 容器”，然后从上下文菜单中选择“创建 Blob 容器”。
 
    ![“创建 Blob 容器”上下文菜单][0]
-4. 此时会在“Blob 容器”文件夹下显示一个文本框。 输入 Blob 容器的名称。 要查看 Blob 容器命名规则和限制列表，请参阅[容器命名规则](./storage/blobs/storage-dotnet-how-to-use-blobs.md#create-a-container)部分。
+4. 此时会在“Blob 容器”文件夹下显示一个文本框。 输入 Blob 容器的名称。 要查看 Blob 容器命名规则和限制列表，请参阅[容器命名规则](./storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions)部分。
 
    ![“创建 Blob 容器”文本框][1]
 5. 完成时按 **Enter** 可创建 Blob 容器，按 **Esc** 可取消相关操作。 成功创建 Blob 容器后，该容器将显示在所选存储帐户的“Blob 容器”文件夹下。
@@ -61,7 +61,7 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
    也可双击想要查看的 Blob 容器。
 
    ![“打开 Blob 容器编辑器”上下文菜单][19]
-5. 主窗格会显示该 Blob 容器的内容。
+5. 主窗格会显示 Blob 容器的内容。
 
    ![Blob 容器编辑器][3]
 
@@ -161,7 +161,7 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
 2. 在左窗格中，展开想要管理的 Blob 容器所在的存储帐户。
 3. 展开该存储帐户的“Blob 容器”。
 4. 双击想要查看的 Blob 容器。
-5. 主窗格会显示该 Blob 容器的内容。
+5. 主窗格会显示 Blob 容器的内容。
 
    ![查看 Blob 容器][3]
 6. 主窗格会显示该 Blob 容器的内容。
@@ -175,7 +175,7 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
      2. 在“上传文件”对话框中，选择“文件”文本框右侧的省略号 (**…**) 按钮，以选择要上传的文件。
 
         ![“上传文件”选项][16]
-     3. 将类型指定为“Blob 类型”。 [通过 .NET 开始使用 Azure Blob 存储](./storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts)一文说明了不同 Blob 类型的区别。
+     3. 将类型指定为“Blob 类型”。 [通过 .NET 开始使用 Azure Blob 存储](./storage/blobs/storage-dotnet-how-to-use-blobs.md)一文说明了不同 Blob 类型的区别。
      4. （可选）指定要将选定文件上传到其中的目标文件夹。 如果目标文件夹不存在，系统会创建一个。
      5. 选择“上传”。
    - **将文件夹上传到 Blob 容器**
@@ -186,7 +186,7 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
      2. 在“上传文件夹”对话框中，选择“文件夹”文本框右侧的省略号 (**…**) 按钮，以选择要上传其内容的文件夹。
 
         ![“上传文件夹”选项][18]
-     3. 将类型指定为“Blob 类型”。 [通过 .NET 开始使用 Azure Blob 存储](./storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts)一文说明了不同 Blob 类型的区别。
+     3. 将类型指定为“Blob 类型”。 [通过 .NET 开始使用 Azure Blob 存储](./storage/blobs/storage-dotnet-how-to-use-blobs.md)一文说明了不同 Blob 类型的区别。
      4. （可选）指定要将选定文件夹的内容上传到其中的目标文件夹。 如果目标文件夹不存在，系统会创建一个。
      5. 选择“上传”。
    - **将 Blob 下载到本地计算机**
@@ -199,7 +199,7 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
 
      1. 选择要打开的 Blob。
      2. 在主窗格的工具栏上，选择“打开”。
-     3. 将使用与 Blob 的基础文件类型相关联的应用程序下载和打开 Blob。
+     3. 使用与 Blob 的基础文件类型相关联的应用程序下载和打开 Blob。
    - **将 Blob 复制到剪贴板**
 
      1. 选择要复制的 Blob。

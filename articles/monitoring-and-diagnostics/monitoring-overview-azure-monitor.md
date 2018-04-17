@@ -1,12 +1,12 @@
 ---
-title: "Azure Monitor 概述"
-description: "Azure Monitor 收集在警报、webhook、自动缩放和自动化中使用的统计信息。 本文还列出了其他 Microsoft 监视选项。"
+title: Azure Monitor 概述
+description: Azure Monitor 收集在警报、webhook、自动缩放和自动化中使用的统计信息。 本文还列出了其他 Microsoft 监视选项。
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/23/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: 5370d292a16ac9736933ef1a61fc3988086533b5
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 04/16/2018
+ms.openlocfilehash: 46b92475d479a6d99330e268e0dc7ccf0e5eea7b
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="overview-of-azure-monitor"></a>Azure Monitor 概述
 本文概述了 Azure 中的 Azure Monitor 服务。 它讨论了 Azure Monitor 可以执行的工作并指出了可以在哪里找到有关如何使用 Azure Monitor 的其他信息。  
@@ -45,6 +45,7 @@ Azure Monitor 的登录页有助于用户：
 
 - 已触发的警报和警报源 - 此表显示摘要计数、警报源以及所选时间段触发的警报次数。 它同时适用于指标警报和活动日志警报。 *<编辑：还针对所有警报（事件、指标和日志）显示了具有统一体验的警报（预览）>*
 - 活动日志错误 - 如果任何 Azure 资源日志事件具有严重错误级别，可查看高级计数并单击进入活动日志页来调查每个事件。
+- Azure 服务运行状况 - 可查看服务运行状况服务问题、计划内维护事件和运行状况咨询数。 当 Azure 基础结构中的问题影响到个人的服务时，Azure 服务运行状况会提供个性化的信息。  有关详细信息，请参阅 [Azure 服务运行状况](../service-health/service-health-overview.md)。  
 
 
 ## <a name="azure-monitor-sources---compute-subset"></a>Azure Monitor 源 - 计算子集

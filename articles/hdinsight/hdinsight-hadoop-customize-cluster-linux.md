@@ -17,11 +17,11 @@ ms.topic: article
 origin.date: 01/29/2018
 ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: ec9e45a19e05b06e9ab78ae6d8c03bada932ea74
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: e566d39f1893d0f622ebe434ef91f5834dd74c24
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>使用脚本操作自定义基于 Linux 的 HDInsight 群集
 
@@ -225,92 +225,92 @@ HDInsight 提供了脚本用于在 HDInsight 群集上安装以下组件：
 以下脚本演示如何在使用 PowerShell 创建群集时应用脚本操作：
 
 ```powershell
-# Login to your Azure subscription
-# Is there an active Azure subscription?
-$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-if(-not($sub))
-{
-    Add-AzureRmAccount -EnvironmentName AzureChinaCloud
-}
+  # Login to your Azure subscription
+    # Is there an active Azure subscription?
+    $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+    if(-not($sub))
+    {
+        Add-AzureRmAccount
+    }
 
-# If you have multiple subscriptions, set the one to use
-# $subscriptionID = "<subscription ID to use>"
-# Select-AzureRmSubscription -SubscriptionId $subscriptionID
+    # If you have multiple subscriptions, set the one to use
+    # $subscriptionID = "<subscription ID to use>"
+    # Select-AzureRmSubscription -SubscriptionId $subscriptionID
 
-# Get user input/default values
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
-$location = Read-Host -Prompt "Enter the Azure region to create resources in"
+    # Get user input/default values
+    $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+    $location = Read-Host -Prompt "Enter the Azure region to create resources in"
 
-# Create the resource group
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    # Create the resource group
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
-$defaultStorageAccountName = Read-Host -Prompt "Enter the name of the storage account"
+    $defaultStorageAccountName = Read-Host -Prompt "Enter the name of the storage account"
 
-# Create an Azure storae account and container
-New-AzureRmStorageAccount `
-    -ResourceGroupName $resourceGroupName `
-    -Name $defaultStorageAccountName `
-    -Type Standard_LRS `
-    -Location $location
-$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
-                                -ResourceGroupName $resourceGroupName `
-                                -Name $defaultStorageAccountName)[0].Value
-$defaultStorageContext = New-AzureStorageContext `
-                                -StorageAccountName $defaultStorageAccountName `
-                                -StorageAccountKey $defaultStorageAccountKey
+    # Create an Azure storae account and container
+    New-AzureRmStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $defaultStorageAccountName `
+        -Type Standard_LRS `
+        -Location $location
+    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+                                    -ResourceGroupName $resourceGroupName `
+                                    -Name $defaultStorageAccountName)[0].Value
+    $defaultStorageContext = New-AzureStorageContext `
+                                    -StorageAccountName $defaultStorageAccountName `
+                                    -StorageAccountKey $defaultStorageAccountKey
 
-# Get information for the HDInsight cluster
-$clusterName = Read-Host -Prompt "Enter the name of the HDInsight cluster"
-# Cluster login is used to secure HTTPS services hosted on the cluster
-$httpCredential = Get-Credential -Message "Enter Cluster login credentials" -UserName "admin"
-# SSH user is used to remotely connect to the cluster using SSH clients
-$sshCredential = Get-Credential -Message "Enter SSH user credentials"
+    # Get information for the HDInsight cluster
+    $clusterName = Read-Host -Prompt "Enter the name of the HDInsight cluster"
+    # Cluster login is used to secure HTTPS services hosted on the cluster
+    $httpCredential = Get-Credential -Message "Enter Cluster login credentials" -UserName "admin"
+    # SSH user is used to remotely connect to the cluster using SSH clients
+    $sshCredential = Get-Credential -Message "Enter SSH user credentials"
 
-# Default cluster size (# of worker nodes), version, type, and OS
-$clusterSizeInNodes = "4"
-$clusterVersion = "3.5"
-$clusterType = "Hadoop"
-$clusterOS = "Linux"
-# Set the storage container name to the cluster name
-$defaultBlobContainerName = $clusterName
+    # Default cluster size (# of worker nodes), version, type, and OS
+    $clusterSizeInNodes = "4"
+    $clusterVersion = "3.5"
+    $clusterType = "Hadoop"
+    $clusterOS = "Linux"
+    # Set the storage container name to the cluster name
+    $defaultBlobContainerName = $clusterName
 
-# Create a blob container. This holds the default data store for the cluster.
-New-AzureStorageContainer `
-    -Name $clusterName -Context $defaultStorageContext
+    # Create a blob container. This holds the default data store for the cluster.
+    New-AzureStorageContainer `
+        -Name $clusterName -Context $defaultStorageContext
 
-# Create an HDInsight configuration object
-$config = New-AzureRmHDInsightClusterConfig
-# Add the script action
-$scriptActionUri="https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh"
-# Add for the head nodes
-$config = Add-AzureRmHDInsightScriptAction `
-    -Config $config `
-    -Name "Install Giraph" `
-    -NodeType HeadNode `
-    -Uri $scriptActionUri
-# Continue adding the script action for any other node types
-# that it must run on.
-$config = Add-AzureRmHDInsightScriptAction `
-    -Config $config `
-    -Name "Install Giraph" `
-    -NodeType WorkerNode `
-    -Uri $scriptActionUri
+    # Create an HDInsight configuration object
+    $config = New-AzureRmHDInsightClusterConfig
+    # Add the script action
+    $scriptActionUri="https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh"
+    # Add for the head nodes
+    $config = Add-AzureRmHDInsightScriptAction `
+        -Config $config `
+        -Name "Install Giraph" `
+        -NodeType HeadNode `
+        -Uri $scriptActionUri
+    # Continue adding the script action for any other node types
+    # that it must run on.
+    $config = Add-AzureRmHDInsightScriptAction `
+        -Config $config `
+        -Name "Install Giraph" `
+        -NodeType WorkerNode `
+        -Uri $scriptActionUri
 
-# Create the cluster using the configuration object
-New-AzureRmHDInsightCluster `
-    -Config $config `
-    -ResourceGroupName $resourceGroupName `
-    -ClusterName $clusterName `
-    -Location $location `
-    -ClusterSizeInNodes $clusterSizeInNodes `
-    -ClusterType $clusterType `
-    -OSType $clusterOS `
-    -Version $clusterVersion `
-    -HttpCredential $httpCredential `
-    -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.chinacloudapi.cn" `
-    -DefaultStorageAccountKey $defaultStorageAccountKey `
-    -DefaultStorageContainer $containerName `
-    -SshCredential $sshCredential
+    # Create the cluster using the configuration object
+    New-AzureRmHDInsightCluster `
+        -Config $config `
+        -ResourceGroupName $resourceGroupName `
+        -ClusterName $clusterName `
+        -Location $location `
+        -ClusterSizeInNodes $clusterSizeInNodes `
+        -ClusterType $clusterType `
+        -OSType $clusterOS `
+        -Version $clusterVersion `
+        -HttpCredential $httpCredential `
+        -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+        -DefaultStorageAccountKey $defaultStorageAccountKey `
+        -DefaultStorageContainer $containerName `
+        -SshCredential $sshCredential
 ```
 
 创建群集可能需要几分钟时间。

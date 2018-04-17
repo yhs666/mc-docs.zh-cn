@@ -1,11 +1,11 @@
 ---
-title: "在 Visual Studio 中创建、生成和部署逻辑应用 - Azure 逻辑应用"
-description: "创建 Visual Studio 项目以便设计、生成和部署 Azure 逻辑应用。"
+title: 在 Visual Studio 中创建、生成和部署逻辑应用 - Azure 逻辑应用
+description: 创建 Visual Studio 项目以便设计、生成和部署 Azure 逻辑应用。
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: e484e5ce-77e9-4fa9-bcbe-f851b4eb42a6
 ms.service: logic-apps
 ms.workload: integration
@@ -16,10 +16,10 @@ ms.custom: H1Hack27Feb2017
 ms.date: 03/19/2018
 ms.author: v-yiso
 ms.openlocfilehash: baeb40733d9473970c7f2db91fcad0426c399bb3
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/13/2018
 ---
 # <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>在 Visual Studio 中设计、生成和部署 Azure 逻辑应用
 

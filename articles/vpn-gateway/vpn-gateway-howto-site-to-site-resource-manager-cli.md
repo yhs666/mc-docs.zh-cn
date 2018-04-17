@@ -1,26 +1,26 @@
 ---
-title: "将本地网络连接到 Azure 虚拟网络：站点到站点 VPN：CLI | Microsoft Docs"
-description: "通过公共 Internet 创建从本地网络到 Azure 虚拟网络的 IPsec 连接的步骤。 这些步骤有助于使用 CLI 创建跨界站点到站点 VPN 网关连接。"
+title: 将本地网络连接到 Azure 虚拟网络：站点到站点 VPN：CLI | Microsoft Docs
+description: 通过公共 Internet 创建从本地网络到 Azure 虚拟网络的 IPsec 连接的步骤。 这些步骤有助于使用 CLI 创建跨界站点到站点 VPN 网关连接。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/09/2017
-ms.date: 03/12/2018
+origin.date: 03/13/2018
+ms.date: 03/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9827662df546485ce5ae3c767bf4ff4617216843
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 8e566727e9641aba3b16cd14d02388f56caa9e60
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>使用 CLI 创建具有站点到站点 VPN 连接的虚拟网络
 
@@ -90,7 +90,7 @@ az group create --name TestRG1 --location chinanorth
 如果还没有虚拟网络，请使用 [az network vnet create](/cli/network/vnet#az_network_vnet_create) 命令创建一个。 创建虚拟网络时，请确保指定的地址空间不与本地网络的任一个地址空间重叠。
 
 >[!NOTE]
->为了让此 VNet 连接到本地位置，需与本地网络管理员协调操作，指定一个 IP 地址范围，将其专用于此虚拟网络。 否则，如果 VPN 连接的两侧存在重复的地址范围，则流量不会正确路由。
+>为了让此 VNet 连接到本地位置，需与本地网络管理员协调操作，指定一个 IP 地址范围，将其专用于此虚拟网络。 如果 VPN 连接的两侧存在重复的地址范围，则流量不会按预期的方式路由。 另外，若要将此 VNet 连接到其他 VNet，则地址空间不能与其他 VNet 重叠。 请注意对网络配置进行相应的计划。
 >
 >
 
@@ -102,17 +102,16 @@ az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefi
 
 ## 4.<a name="gwsub"></a>创建网关子网
 
-[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-对于此配置，还需要一个网关子网。 虚拟网关使用的网关子网包含 VPN 网关服务使用的 IP 地址。 创建网关子网时，必须将其命名为“GatewaySubnet”。 如果将其命名为其他名称，也将创建子网，但 Azure 不将它视为网关子网。
-
-指定的网关子网的大小取决于要创建的 VPN 网关配置。 尽管创建的网关子网最小可为 /29，但建议选择 /27 或 /28，创建包含更多地址的更大子网。 使用更大的网关子网可以有足够的 IP 地址来应对未来可能会有的配置。
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
 
 使用 [az network vnet subnet create](/cli/network/vnet/subnet#az_network_vnet_subnet_create) 命令创建网关子网。
 
 ```azurecli
 az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name TestVNet1
 ```
+
+[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="localnet"></a>5.创建本地网关
 
@@ -207,4 +206,4 @@ az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --v
 - 有关网络 Azure CLI 命令的列表，请参阅 [Azure CLI](/cli/network)。
 - 有关使用 Azure 资源管理器模板创建站点到站点 VPN 连接的信息，请参阅[创建站点到站点 VPN 连接](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/)。
 - 有关使用 Azure 资源管理器模板创建 vnet 到 vnet VPN 连接的信息，请参阅[部署 HBase 异地复制](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/)。
-<!--Update_Description: link update-->
+<!--Update_Description: wording update-->

@@ -1,8 +1,8 @@
 ---
-title: "使用 Spark 中的 Python 库分析网站日志 - Azure | Azure"
-description: "此笔记本演示如何结合使用自定义库和 Azure HDInsight 上的 Spark 来分析日志数据。"
+title: 使用 Spark 中的 Python 库分析网站日志 - Azure | Azure
+description: 此笔记本演示如何结合使用自定义库和 Azure HDInsight 上的 Spark 来分析日志数据。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: cgronlun
 editor: cgronlun
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
-ms.date: 02/26/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: 47ee9a75bd4c0bb9587818f3ae45d2e4efb0452d
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: 01500927e44e077dd3efa48c50ad2e43bbabacc2
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>将自定义 Python 库与 HDInsight 上的 Spark 群集配合使用来分析网站日志
 
@@ -211,7 +211,6 @@ ms.lasthandoff: 02/24/2018
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 对使用 HVAC 数据生成温度进行分析](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](../hdinsight-apache-spark-eventhub-streaming.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序
 * [使用 Scala 创建独立的应用程序](apache-spark-create-standalone-application.md)

@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 11/15/2017
 ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1c41b94986ac1f66b7f3c44af8923921c7fbc204
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 286265ddcf5af692fa3b211458de03a0497096b9
+ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 数据库安全性
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/28/2018
 
 有关主密钥和资源令牌的详细信息，请参阅[保护对 Azure Cosmos DB 数据的访问](secure-access-to-data.md)。
 
-有关审核日志的详细信息，请参阅 [Azure Cosmos DB 诊断日志记录](logging.md)。
+<!-- Not Available on [Azure Cosmos DB diagnostic logging](logging.md) -->
 
 有关 Microsoft 认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/)。
 

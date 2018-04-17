@@ -1,9 +1,9 @@
 ---
-title: "使用资源管理器模板自动启用诊断设置"
-description: "了解如何使用 Resource Manager 模板创建诊断设置，以便将诊断日志流式传输到事件中心，或者将其存储在存储帐户中。"
+title: 使用资源管理器模板自动启用诊断设置
+description: 了解如何使用 Resource Manager 模板创建诊断设置，以便将诊断日志流式传输到事件中心，或者将其存储在存储帐户中。
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: a8a88a8c-4a48-4df6-8f7e-d90634d39c57
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/13/2018
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: 35c61a6f121071928a2480ced13352ea736debcf
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: bb465c769fef4c97dbf262b64fe2aeadc4297781
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>在创建资源时使用 Resource Manager 模板自动启用诊断设置
 本文介绍如何使用 [Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)在创建资源时配置资源的诊断设置。 这样可以让用户在创建资源时自动将诊断日志和指标流式传输到事件中心、将其存档在存储帐户中，或者发送到 Log Analytics。
@@ -81,7 +81,7 @@ ms.lasthandoff: 03/12/2018
     "resources": [
       {
         "type": "providers/diagnosticSettings",
-        "name": "Microsoft.Insights/service",
+        "name": "Microsoft.Insights/[parameters('settingName')]",
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],

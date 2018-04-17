@@ -1,8 +1,8 @@
 ---
-title: "Microsoft Authenticator 应用的帮助和支持 | Microsoft Docs"
-description: "提供与 Microsoft Authenticator 应用和 Azure Multi-Factor Authentication 相关的常见问题与解答列表。"
+title: Microsoft Authenticator 应用的帮助和支持 | Microsoft Docs
+description: 提供与 Microsoft Authenticator 应用和 Azure Multi-Factor Authentication 相关的常见问题与解答列表。
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/17/2017
-ms.date: 03/05/2018
+origin.date: 03/08/2018
+ms.date: 04/03/2018
 ms.author: v-junlch
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 63ae8e757a6c220ade88bfdb985370a25d92f11c
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 7419933216349ca146dc6d06c7abe64078710886
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator 应用常见问题解答
 
@@ -112,4 +112,4 @@ Microsoft Authenticator 应用替代了 Azure Authenticator 应用，建议使�
 - 为工作或学校帐户[进行设置双重验证时遇到问题](multi-factor-authentication-end-user-troubleshoot.md)？
 - [使用 Microsoft Authenticator 通过手机登录](microsoft-authenticator-app-phone-signin-faq.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

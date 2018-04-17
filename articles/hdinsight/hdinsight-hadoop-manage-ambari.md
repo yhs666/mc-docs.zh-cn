@@ -1,8 +1,8 @@
 ---
-title: "使用 Ambari Web UI 监视和管理 Azure HDInsight"
-description: "了解如何使用 Ambari 监视和管理基于 Linux 的 HDInsight 群集。 本文档介绍如何使用 HDInsight 群集附带的 Ambari Web UI。"
+title: 使用 Ambari Web UI 监视和管理 Azure HDInsight
+description: 了解如何使用 Ambari 监视和管理基于 Linux 的 HDInsight 群集。 本文档介绍如何使用 HDInsight 群集附带的 Ambari Web UI。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -17,11 +17,11 @@ ms.workload: big-data
 origin.date: 01/04/2018
 ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: b8c8e1789b7dbc9a4fd36fbd7e945bdbbc276993
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: c2cb074415a31c546a9d03196bc826d12abd2acb
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>使用 Ambari Web UI 管理 HDInsight 群集
 
@@ -42,7 +42,7 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 
 ## <a name="connectivity"></a>连接
 
-位于 HTTPS://CLUSTERNAME.azurehdidnsight.net处的 HDInsight 群集上提供了 Ambari Web UI，其中 **CLUSTERNAME** 是你的 HDInsight 群集的名称。
+在 HDInsight 群集上从 HTTPS://CLUSTERNAME.azurehdidnsight.net 可获得 Ambari Web UI，其中 CLUSTERNAME 是你的群集名称。
 
 > [!IMPORTANT]
 > 连接到 HDInsight 上的 Ambari 需要 HTTPS。 当提示进行身份验证时，请使用在创建群集时提供的管理员帐户名称和密码。
@@ -149,6 +149,10 @@ Apache Ambari 提供简单易用的 Web UI 和 REST API 来简化 Hadoop 群集�
 > 选择某项服务的**快速链接**条目可能会返回“找不到服务”错误。 如果遇到此错误，则在使用此服务的**快速链接**条目时必须使用 SSH 隧道。 有关信息，请参阅[将 SSH 隧道与 HDInsight 配合使用](hdinsight-linux-ambari-ssh-tunnel.md)
 
 ## <a name="management"></a>管理
+
+### <a name="ambari-users-groups-and-permissions"></a>Ambari 用户、组和权限
+
+使用[已加入域](./domain-joined/apache-domain-joined-introduction.md)的 HDInsight 群集时，支持使用用户、组和权限。 若要深入了解如何在已加入域的群集上使用 Ambari 管理 UI，请参阅[管理已加入域的 HDInsight 群集](./domain-joined/apache-domain-joined-introduction.md)。
 
 > [!WARNING]
 > 不要在基于 Linux 的 HDInsight 群集上更改 Ambari 监视程序 (hdinsightwatchdog) 的密码。 更改密码将导致无法通过群集使用脚本操作或执行缩放操作。

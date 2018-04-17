@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 应用程序网关上配置 SSL 策略 - PowerShell | Microsoft Docs"
-description: "本页提供有关在 Azure 应用程序网关上配置 SSL 策略的说明"
+title: 在 Azure 应用程序网关上配置 SSL 策略 - PowerShell | Microsoft Docs
+description: 本页提供有关在 Azure 应用程序网关上配置 SSL 策略的说明
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/19/2017
-ms.date: 01/17/2018
+ms.date: 04/04/2018
 ms.author: v-junlch
-ms.openlocfilehash: 007c1fecac549c0b15fe7294a0a79c0d82c9f76e
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 86cdbd56d05762b87fea4a18e65a0bf53e18678c
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>在应用程序网关上配置 SSL 策略版本和密码套件
 
@@ -76,7 +76,7 @@ AvailableProtocols:
 
 ## <a name="list-pre-defined-ssl-policies"></a>列出预定义 SSL 策略
 
-应用程序网关包含 3 个可使用的预定义策略。 `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet 会检索这些策略。 每个策略启用不同的协议版本和密码套件。 这些预定义策略可用于在应用程序网关上快速配置 SSL 策略。 如果未定义特定 SSL 策略，则默认选择 AppGwSslPolicy20170401。
+应用程序网关包含 3 个可使用的预定义策略。 `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet 会检索这些策略。 每个策略启用不同的协议版本和密码套件。 这些预定义策略可用于在应用程序网关上快速配置 SSL 策略。 如果未定义特定 SSL 策略，则默认选择 AppGwSslPolicy20150501。
 
 以下是运行 `Get-AzureRmApplicationGatewaySslPredefinedPolicy` 的一个示例。
 
@@ -211,4 +211,4 @@ $SetGW = Set-AzureRmApplicationGateway -ApplicationGateway $AppGW
 
 Visit [Application Gateway redirect overview](application-gateway-redirect-overview.md) to learn how to redirect HTTP traffic to a HTTPS endpoint.
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

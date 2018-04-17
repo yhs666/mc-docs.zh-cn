@@ -1,12 +1,12 @@
 ---
-title: "Azure 备份代理常见问题解答 | Microsoft Docs"
-description: "以下常见问题的解答：Azure 备份代理工作原理、备份和保留限制。"
+title: Azure 备份代理常见问题解答 | Microsoft Docs
+description: 以下常见问题的解答：Azure 备份代理工作原理、备份和保留限制。
 services: backup
-documentationcenter: 
-author: alexchen2016
-manager: digimobile
-editor: 
-keywords: "备份和灾难恢复;备份服务"
+documentationcenter: ''
+author: trinadhk
+manager: shreeshd
+editor: ''
+keywords: 备份和灾难恢复;备份服务
 ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 09/04/2017
+ms.date: 04/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: b75487568ec8aa4934dcd3a29a3f542f31c5ff23
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 5081d029518016c384f1158ea07b9f4a53375604
+ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>有关 Azure 备份代理的问题
 本文提供常见问题的解答，有助于快速了解 Azure 备份代理组件。 某些答案提供内含全面信息的文章的链接。 还可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="configure-backup"></a>配置备份
 ### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>我可以在哪里下载最新的 Azure 备份代理？ <br/>
@@ -35,7 +37,7 @@ ms.lasthandoff: 09/08/2017
 ### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>可以从哪些类型的驱动器备份文件和文件夹？ <br/>
 无法备份以下驱动器/卷：
 
-- 可移除介质：所有备份源必须是固定的。
+- 可移动介质：所有备份项源必须报告为“固定”。
 - 只读卷：为使卷影复制服务 (VSS) 起作用，卷必须是可写的。
 - 脱机卷：为使 VSS 起作用，卷必须是联机的。
 - 网络共享：若要使用联机备份进行备份，卷对于服务器而言必须是本地的。
@@ -70,7 +72,7 @@ ms.lasthandoff: 09/08/2017
 ### <a name="does-the-azure-backup-agent-work-on-a-server-that-uses-windows-server-2012-deduplication-br"></a>Azure 备份代理是否适用于使用 Windows Server 2012 删除重复功能的服务器？ <br/>
 是的。 代理服务在准备备份操作时将消除了重复的数据转换为常规数据。 然后，它将对数据进行优化以便备份、对数据进行加密，并将已加密的数据发送到联机备份服务。
 
-## <a name="backup"></a>备份
+## <a name="backup"></a>Backup
 ### <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>如何更改为 Azure 备份代理指定的缓存位置？<br/>
 请使用以下列表来更改缓存位置。
 
@@ -127,3 +129,4 @@ Azure 备份代理依赖于 NTFS。 [可以指定的文件路径的长度受限�
 ### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>即使配置了备份策略，仍会显示警告“尚未为此服务器配置 Azure 备份” <br/>
 在本地服务器上存储的备份计划设置与备份保管库中存储的设置不同时，可能会出现此警告。 服务器或设置恢复为已知良好状态后，备份计划可能会失去同步。 如果收到此警告，请[重新配置备份策略](backup-azure-manage-windows-server.md)，并**立即运行备份**，以便将本地服务器与 Azure 重新同步。
 
+<!-- Update_Description: wording update -->

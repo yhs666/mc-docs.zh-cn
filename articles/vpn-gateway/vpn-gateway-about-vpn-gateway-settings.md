@@ -1,11 +1,11 @@
 ---
-title: "跨界 Azure 连接的 VPN 网关设置 | Microsoft Docs"
-description: "了解 Azure 虚拟网络网关的 VPN 网关设置。"
+title: 跨界 Azure 连接的 VPN 网关设置 | Microsoft Docs
+description: 了解用于 Azure 虚拟网络网关的 VPN 网关设置。
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
-editor: 
+author: cherylmc
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
 ms.service: vpn-gateway
@@ -13,20 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/12/2017
-ms.date: 11/07/2017
+origin.date: 03/20/2018
+ms.date: 03/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: cd096ae9701bd065a49a6977fcc16ad5443bef06
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: b1f7e2ca3ca903bd06fddb06d3e3327e2872e150
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>关于 VPN 网关配置设置
 
 VPN 网关是一种虚拟网络网关，它通过公共连接在虚拟网络和本地位置之间发送加密流量。 还可以使用 VPN 网关跨 Azure 主干在虚拟网络之间发送流量。
 
 VPN 网关连接依赖于多个资源的配置，每个资源都包含可配置的设置。 本文的各个部分介绍与 Resource Manager 部署模型中创建的虚拟网络的 VPN 网关相关的资源和设置。 可在[关于 VPN 网关](vpn-gateway-about-vpngateways.md)一文中找到每种连接解决方案的介绍和拓扑图。
+
+>[!NOTE]
+> 本文中的值适用于使用 -GatewayType 'Vpn' 的虚拟网络网关。 这就是这些特殊虚拟网络网关称为 VPN 网关的原因。 ExpressRoute 网关的值与用于 VPN 网关的值不同。
+>
+>有关适用于 -GatewayType 'ExpressRoute' 的值，请参阅[适用于 ExpressRoute 的虚拟网络网关](../expressroute/expressroute-about-virtual-network-gateways.md)。
+>
+>
 
 ## <a name="gwtype"></a>网关类型
 
@@ -51,7 +58,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-### <a name="configure-the-gateway-sku"></a>配置网关 SKU
+### <a name="configure-a-gateway-sku"></a>配置网关 SKU
 
 #### <a name="azure-portal"></a>Azure 门户
 
@@ -59,24 +66,35 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 #### <a name="powershell"></a>PowerShell
 
-以下 PowerShell 示例将 `-GatewaySku` 指定为 VpnGw1。
+以下 PowerShell 示例将 `-GatewaySku` 指定为 VpnGw1。 使用 PowerShell 创建网关时，需要首先创建 IP 配置，然后变量引用它。 在此示例中，配置变量为 $gwipconfig。
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location 'China North' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### <a name="resize"></a>更改网关 SKU 或为其调整大小
+#### <a name="azure-cli"></a>Azure CLI
 
-如果想要将网关 SKU 升级到更强大的 SKU，可以使用 `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet。 也可以使用此 cmdlet 下调网关 SKU 大小。
-
-以下 PowerShell 示例演示如何将网关 SKU 的大小调整为 VpnGw2。
-
-```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
+```azurecli
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
+
+###  <a name="resizechange"></a>调整与更改 SKU
+
+调整网关 SKU 大小相当容易。 调整网关大小时只会出现极短的停机时间。 但是，大小调整有如下规则：
+
+1. 可以在 VpnGw1 SKU、VpnGw2 SKU 和 VpnGw3 SKU 之间调整大小。
+2. 使用旧版网关 SKU 时，仍可在基本、标准和高性能 SKU 之间调整大小。
+3. 不能从基本/标准/高性能 SKU 调整为新版 VpnGw1/VpnGw2/VpnGw3 SKU， 而只能[更改](#change)为新版 SKU。
+
+#### <a name="resizegwsku"></a>重设网关大小
+
+[!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
+
+####  <a name="change"></a>从旧版 SKU 更改为新版 SKU
+
+[!INCLUDE [Change a SKU](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="connectiontype"></a>连接类型
 
@@ -121,7 +139,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 在创建 VPN 网关之前，必须创建一个网关子网。 网关子网包含虚拟网络网关 VM 和服务使用的 IP 地址。 创建虚拟网络网关时，会将网关 VM 部署到网关子网，并使用所需的 VPN 网关设置进行配置。 不能将任何其他设备（例如，其他 VM）部署到网关子网。 网关子网必须命名为“GatewaySubnet”才能正常工作。 将网关子网命名为“GatewaySubnet”，可以让 Azure 知道这就是要将虚拟网络网关 VM 和服务部署到的目标子网。
 
-创建网关子网时，请指定子网包含的 IP 地址数。 将网关子网中的 IP 地址分配到网关 VM 和网关服务。 有些配置需要具有比其他配置更多的 IP 地址。 查看要创建的配置的说明，验证要创建的网关子网是否会满足这些要求。 此外，可能需要确保网关子网包含足够的 IP 地址，以便应对将来可能会添加的配置。 尽管网关子网最小可创建为 /29，但建议创建 /28 或更大（/28、/27 和 /26 等）的网关子网。 这样一来，如果以后添加功能，就无需断开网关，删除并重新创建网关子网以容纳更多 IP 地址。
+创建网关子网时，需指定子网包含的 IP 地址数。 将网关子网中的 IP 地址分配到网关 VM 和网关服务。 有些配置需要具有比其他配置更多的 IP 地址。 查看要创建的配置的说明，验证要创建的网关子网是否会满足这些要求。 此外，可能需要确保网关子网包含足够的 IP 地址，以便应对将来可能会添加的配置。 尽管网关子网最小可创建为 /29，但建议创建 /28 或更大（/28、/27 和 /26 等）的网关子网。 这样一来，如果以后添加功能，就无需断开网关，删除并重新创建网关子网以容纳更多 IP 地址。
 
 以下 Resource Manager PowerShell 示例显示名为 GatewaySubnet 的网关子网。 可以看到，CIDR 表示法指定了 /27，这可提供足够的 IP 地址供大多数现有配置使用。
 
@@ -135,7 +153,7 @@ Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.
 
 创建 VPN 网关配置时，本地网络网关通常代表本地位置。 在经典部署模型中，本地网络网关称为本地站点。 
 
-指定本地网络网关的名称（即本地 VPN 设备的公共 IP 地址），并指定位于本地位置的地址前缀。 Azure 查看网络流量的目标地址前缀、查阅针对本地网络网关指定的配置，并相应地路由数据包。 也应该针对使用 VPN 网关连接的 VNet 到 VNet 配置指定本地网络网关。
+指定本地网络网关的名称（即本地 VPN 设备的公共 IP 地址），并指定位于本地位置的地址前缀。 Azure 将查看网络流量的目标地址前缀、查阅针对本地网络网关指定的配置，并相应地路由数据包。 也应该针对使用 VPN 网关连接的 VNet 到 VNet 配置指定本地网络网关。
 
 以下 PowerShell 示例创建新的本地网络网关：
 
@@ -146,7 +164,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 有时需要修改本地网络网关设置。 例如，在添加或修改地址范围时，或 VPN 设备的 IP 地址发生变化时。 请参阅[使用 PowerShell 修改本地网络网关设置](vpn-gateway-modify-local-network-gateway.md)。
 
-## <a name="resources"></a>REST API 和 PowerShell cmdlet
+## <a name="resources"></a>REST APIs、PowerShell cmdlet 和 CLI
 
 有关将 REST API、PowerShell cmdlet 或 Azure CLI 用于 VPN 网关配置的其他技术资源和具体语法要求，请参阅以下页面：
 

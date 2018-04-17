@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure Active Directory 域服务配置已加入域的 HDInsight 群集 - Azure"
-description: "了解如何使用 Azure Active Directory 域服务设置和配置已加入域的 HDInsight 群集"
+title: 使用 Azure Active Directory 域服务配置已加入域的 HDInsight 群集 - Azure
+description: 了解如何使用 Azure Active Directory 域服务设置和配置已加入域的 HDInsight 群集
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: jhubbard
 editor: cgronlun
-tags: 
+tags: ''
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: big-data
 origin.date: 11/10/2017
 ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: e4b2ecee6a7067998b3680ae1853d96d59597edb
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: abd8a77604e3bdffd6825aa9048b9282f62956ec
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory 域服务设置和配置已加入域的 HDInsight 群集
 
@@ -57,6 +57,9 @@ ms.lasthandoff: 03/02/2018
 - **组织单位**：要用于 HDInsight 群集的 OU 的可分辨名称。 例如：OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com。如果此 OU 不存在，HDInsight 群集会尝试创建此 OU。 
 - **LDAPS URL**：例如 ldaps://contoso.onmicrosoft.com:636
 - **访问用户组**：其用户要同步到群集的安全组。 例如 HiveUsers。 如果想要指定多个用户组，请使用逗号“,”分隔这些组。
+ 
+> [!NOTE]
+> 由于 Apache Zeppelin 使用域名对管理服务帐户进行身份验证，因此服务帐户必须具有与其 UPN 后缀相同的域名，Apache Zeppelin 才能正常工作。
  
 以下屏幕截图显示了 Azure 门户中的配置：
 

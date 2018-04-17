@@ -1,23 +1,23 @@
 ---
-title: "接收有关 Azure 服务通知的活动日志警报"
-description: "在 Azure 服务发生时，通过短信、电子邮件或 webhook 接收通知。"
+title: 接收有关 Azure 服务通知的活动日志警报
+description: 在 Azure 服务发生时，通过短信、电子邮件或 webhook 接收通知。
 author: johnkemnetz
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/31/2017
-ms.date: 02/26/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5d68e3dcff7f6ae5c77996759214ff2f4443bcbe
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: c368a6afd314fe1cdc0d195a989a8bfc3f6f0888
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>创建有关服务通知的活动日志警报
 ## <a name="overview"></a>概述
@@ -76,7 +76,7 @@ ms.lasthandoff: 02/13/2018
 
 在几分钟内，警报将处于活动状态，并根据创建期间指定的条件开始触发。
 
-有关活动日志警报的 webhook 架构的信息，请参阅 [Azure 活动日志警报的 Webhook](monitoring-activity-log-alerts-webhook.md)。
+了解如何[为现有问题管理系统配置 Webhook 通知](../service-health/service-health-alert-webhook-guide.md)。 有关活动日志警报的 webhook 架构的信息，请参阅 [Azure 活动日志警报的 Webhook](monitoring-activity-log-alerts-webhook.md)。
 
 >[!NOTE]
 >这些步骤中定义的操作组可以作为现有操作组重复用于所有未来的警报定义。
@@ -102,6 +102,7 @@ ms.lasthandoff: 02/13/2018
 * 如果要暂时停止或恢复接收警报的通知，可“禁用”或“启用”它。
 
 ## <a name="next-steps"></a>后续步骤
+- 了解如何[为现有问题管理系统配置 Webhook 通知](../service-health/service-health-alert-webhook-guide.md)。
 - 了解[服务运行状况通知](monitoring-service-notifications.md)。
 - 了解[通知速率限制](monitoring-alerts-rate-limiting.md)。
 - 查看[活动日志警报 webhook 架构](monitoring-activity-log-alerts-webhook.md)。

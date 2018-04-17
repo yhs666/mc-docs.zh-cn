@@ -1,6 +1,8 @@
+# [Key Vault 文档](index.md)
+
 # 概述
 ## [什么是 Key Vault？](key-vault-whatis.md)
-## [服务概述](/key-vault/)
+## [服务概述](https://www.azure.cn/home/features/key-vault/)
 
 # 入门
 ## [Key Vault 入门](key-vault-get-started.md)
@@ -37,7 +39,7 @@
 ## [代码示例](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault)
 ## [Azure CLI](/cli/keyvault)
-## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault)
+## [.NET](/dotnet/api/microsoft.azure.keyvault)
 ## [Java](/java/api/com.microsoft.azure.keyvault)
 ## Node.js
 ### [保管库管理](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)

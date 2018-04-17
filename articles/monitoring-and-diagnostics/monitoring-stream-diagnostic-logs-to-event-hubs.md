@@ -1,9 +1,9 @@
 ---
-title: "将 Azure 诊断日志流式传输到事件中心"
-description: "了解如何将 Azure 诊断日志流式传输到事件中心。"
+title: 将 Azure 诊断日志流式传输到事件中心
+description: 了解如何将 Azure 诊断日志流式传输到事件中心。
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 42bc4845-c564-4568-b72d-0614591ebd80
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/22/2017
 ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6b4ac310c1585773d54bb5f98b06f27d6907c365
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 53f3e9ea20111e33513ac3f253550671c7ef2074
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>将 Azure 诊断日志流式传输到事件中心
 可将 **[Azure 诊断日志](monitoring-overview-of-diagnostic-logs.md)**以近实时方式流式传输到任何应用程序，方法是使用门户中的内置“导出到事件中心”选项，或者通过 Azure PowerShell Cmdlet 或 Azure CLI 在诊断设置中启用事件中心授权规则 ID。
@@ -84,10 +84,10 @@ ms.lasthandoff: 02/13/2018
 若要通过 [Azure PowerShell Cmdlet](insights-powershell-samples.md) 启用流式传输，可以使用 `Set-AzureRmDiagnosticSetting` cmdlet 并设置以下参数：
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
-服务总线规则 ID 是以下格式的字符串：`{Service Bus resource ID}/authorizationrules/{key name}`，例如 `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`。 目前无法使用 PowerShell 选择特定事件中心名称。
+事件中心授权规则 ID 是以下格式的字符串：`{Event Hub namespace resource ID}/authorizationrules/{key name}`，例如 `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`。 目前无法使用 PowerShell 选择特定事件中心名称。
 
 ### <a name="via-azure-cli"></a>通过 Azure CLI
 若要通过 [Azure CLI](insights-cli-samples.md) 启用流式传输，可以使用 `insights diagnostic set` 命令，如下所示：
@@ -96,7 +96,7 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [y
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-可以对服务总线规则 ID 使用相同的格式，详见 PowerShell Cmdlet 的解释。 目前无法使用 Azure CLI 选择特定事件中心名称。
+可以对事件中心授权规则 ID 使用相同的格式，详见 PowerShell Cmdlet 的解释。 目前无法使用 Azure CLI 选择特定事件中心名称。
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>如何使用事件中心的日志数据？
 下面是事件中心的输出数据示例：

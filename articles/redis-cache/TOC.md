@@ -1,5 +1,7 @@
+# [Redis 缓存文档](index.md)
+
 # 概述
-##[为何使用 Redis 缓存](/redis-cache/)
+##[为何使用 Redis 缓存](https://www.azure.cn/home/features/redis-cache/)
 ##[探究高级层功能](cache-premium-tier-intro.md)
 ## 方案
 ###[访问缓存中的项目](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache)
@@ -43,21 +45,21 @@
 ###[设置异常警报](cache-how-to-monitor.md#operations-and-alerts)
 ## 缩放
 ###[更新为不同大小和层级](cache-how-to-scale.md)
-###[使用 Redis 群集进行缩减/扩展](cache-how-to-premium-clustering.md)
+###[使用 Redis 群集来缩小/扩大](cache-how-to-premium-clustering.md)
 ## 与 Spring Boot 集成
 ###[将 Spring Boot Initializer 应用与 Redis 缓存配合使用](cache-java-spring-boot-initializer-with-redis-cache.md)
 
-# 引用
+# 参考
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.rediscache)
 ## [Azure CLI 预览版](/cli/redis)
-## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.redis)
+## [.NET](/dotnet/api/microsoft.azure.management.redis)
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Redis 客户端](http://redis.io/clients)
 ## [Redis 命令](http://redis.io/commands#)
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
 
 # 资源
-## [定价](https://www.azure.cn/pricing/details/redis-cache/)
+## [价格](https://www.azure.cn/pricing/details/redis-cache/)
 ## [Redis 缓存示例](cache-redis-samples.md)
 
 

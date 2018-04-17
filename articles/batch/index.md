@@ -1,11 +1,11 @@
 ---
-title: "Azure Batch 文档 - 教程和 API 参考 | Microsoft 文档"
-description: "了解如何使用批处理有效运行大规模并行和高性能计算应用程序。 教程、API 参考和其他文档。"
+title: Azure Batch 文档 - 教程和 API 参考 | Microsoft 文档
+description: 了解如何使用批处理有效运行大规模并行和高性能计算应用程序。 教程、API 参考和其他文档。
 services: batch
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: batch
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,10 +13,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: v-junlch
 ms.openlocfilehash: 38c7ec0f6625c60ea7635d2ddac2f5098089c25c
-ms.sourcegitcommit: c2be8d831d87f6a4d28c5950bebb2c7b8b6760bf
+ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/10/2018
 ---
 #<a name="batch-documentation"></a>Batch 文档
 

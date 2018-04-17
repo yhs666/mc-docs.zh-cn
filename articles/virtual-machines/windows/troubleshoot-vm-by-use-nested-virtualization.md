@@ -1,26 +1,27 @@
 ---
-title: "使用 Azure 中的嵌套虚拟化排查问题 Azure VM | Azure"
-description: "如何使用 Azure 中的嵌套虚拟化排查问题 Azure VM"
+title: 使用 Azure 中的嵌套虚拟化排查问题 Azure VM | Azure
+description: 如何使用 Azure 中的嵌套虚拟化排查问题 Azure VM
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 02/05/2018
-ms.date: 02/05/2018
+origin.date: 11/06/2017
+ms.date: 04/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: feb2493144aad92da124de0cadee7f5d7675d6e4
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 67359a1c9f85d19b176f60d176deeb28424348c4
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/09/2018
 ---
+<!-- Pending On EV3 and DV3 GA Announcement -->
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>使用 Azure 中的嵌套虚拟化排查问题 Azure VM
 
 本文介绍如何在 Azure 中创建一个嵌套虚拟化环境，以便能在 Hyper-V 主机（恢复 VM）上装载问题 VM 磁盘来进行故障排除。
@@ -141,5 +142,6 @@ ms.lasthandoff: 02/13/2018
 
 如果在连接到 VM 时遇到问题，请参阅[对 Azure VM 的 RDP 连接进行故障排除](troubleshoot-rdp-connection.md)。 如果在访问 VM 上运行的应用程序时遇到问题，请参阅[对 Windows VM 上的应用程序连接问题进行故障排除](troubleshoot-app-connection.md)。
 
+<!-- Pending On EV3 and DV3 GA Announcement -->
 <!-- Update_Description: new article on troubleshoot VM by user nested vitualization -->
-<!--ms.date: 02/05/2018-->
+<!--ms.date: 04/10/2018-->

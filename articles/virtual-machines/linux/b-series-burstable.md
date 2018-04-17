@@ -1,26 +1,26 @@
 ---
-title: "B 系列 Azure Linux VM 大小 | Azure"
-description: "描述 B 系列可突增 Azure VM 大小。"
+title: B 系列 Azure Linux VM 大小 | Azure
+description: 描述 B 系列可突增 Azure VM 大小。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 02/05/2018
-ms.date: 02/05/2018
+origin.date: 09/07/2017
+ms.date: 04/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: faf9800960b6cd97de912e10d5741eda3f3977f9
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: c843c2ad0c22d14ad362b8e7d02370c5d0c70219
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B 系列可突增虚拟机大小
 
@@ -39,4 +39,4 @@ ms.lasthandoff: 02/13/2018
 
 <!--The parent file of includes file of virtual-machines-common-b-series-burstable.md-->
 <!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-<!--ms.date:02/05/2018-->
+<!--ms.date: 04/10/2018-->

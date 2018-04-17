@@ -27,7 +27,8 @@
 ## <a name="will-there-be-a-performance-impact-as-a-result-of-resolving-this-update"></a>解决此更新是否会造成性能影响？
 
 大多数 Azure 客户不会感觉此更新会造成显著的性能影响。 我们一直致力于优化 CPU 和磁盘 I/O 路径，并未看到在应用修补程序后出现显著的性能影响。 
-<!-- Not Available on [Windows](/virtual-network/create-vm-accelerated-networking-powershell) or [Linux](/virtual-network/create-vm-accelerated-networking-cli) -->
+<!-- Not Available on [Windows](/virtual-network/create-vm-accelerated-networking-powershell) -->
+<!-- Not Available on [Linux](/virtual-network/create-vm-accelerated-networking-cli) -->
 
 ## <a name="i-follow-your-recommendations-for-high-availability-will-my-environment-remain-highly-available-during-the-reboot"></a>我接受了你们提供的高可用性建议，在重启期间，我的环境是否会保持高可用性？
 

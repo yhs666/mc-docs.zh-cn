@@ -13,52 +13,52 @@ ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
 origin.date: 02/16/2018
-ms.date: 03/26/2018
+ms.date: 04/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7cbfdc9abe479b2b81e20f6982b393e627594cb0
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 9dcefe5b954d819256df630d656c16443cbff728
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>使用 Azure PowerShell 管理资源
 
 [!INCLUDE [Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
 
-<!-- Not Avaiable on [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)] 00>
+<!-- Not Avaiable on [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)] -->
 
-If you choose to install and use the PowerShell locally, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` to create a connection with Azure.
+如果选择在本地安装并使用 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
 
-## Understand scope
+## <a name="understand-scope"></a>了解范围
 
 [!INCLUDE [Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
 
-In this article, you apply all management settings to a resource group so you can easily remove those settings when done.
+在本文中，请将所有管理设置应用到资源组，以便在完成后可以轻松地删除这些设置。
 
-Let's create the resource group.
+让我们创建该资源组。
 
 ```azurepowershell-interactive
 Set-AzureRmContext -Subscription <subscription-name>
 New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 ```
 
-Currently, the resource group is empty.
+目前，资源组为空。
 
-## Role-based access control
+## <a name="role-based-access-control"></a>基于角色的访问控制
 
 [!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
 
-### Assign a role
+### <a name="assign-a-role"></a>分配角色
 
-In this article, you deploy a virtual machine and its related virtual network. For managing virtual machine solutions, there are three resource-specific roles that provide commonly needed access:
+在本文中，请部署一个虚拟机及其相关的虚拟网络。 若要管理虚拟机解决方案，可以使用三种特定于资源的角色来进行通常所需的访问：
 
-* [Virtual Machine Contributor](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Network Contributor](../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Storage Account Contributor](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [虚拟机参与者](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
+* [网络参与者](../active-directory/role-based-access-built-in-roles.md#network-contributor)
+* [存储帐户参与者](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
 
-Instead of assigning roles to individual users, it's often easier to [create an Azure Active Directory group](../active-directory/active-directory-groups-create-azure-portal.md) for users who need to take similar actions. Then, assign that group to the appropriate role. To simplify this article, you create an Azure Active Directory group without members. You can still assign this group to a role for a scope. 
+通常情况下，与其向单个用户分配角色，不如为需要进行相似操作的用户[创建一个 Azure Active Directory 组](../active-directory/active-directory-groups-create-azure-portal.md)， 然后向该组分配相应的角色。 为了简单起见，本文创建一个没有成员的 Azure Active Directory 组。 仍然可以为该组分配一个负责某个范围的角色。 
 
-The following example creates a group and assigns it to the Virtual Machine Contributor role for the resource group. To run the `New-AzureAdGroup` command, you must either use the [Azure Cloud Shell](/cloud-shell/overview) or [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/).
+以下示例创建一个组，然后为其分配了资源组的“虚拟机参与者”角色。 若要运行 `New-AzureAdGroup` 命令，必须使用 [Azure Cloud Shell](/cloud-shell/overview) 或[下载 Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)。
 
 ```azurepowershell-interactive
 $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
@@ -70,7 +70,7 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-Typically, you repeat the process for **Network Contributor** and **Storage Account Contributor** to make sure users are assigned to manage the deployed resources. In this article, you can skip those steps.
+通常情况下，请对**网络参与者**和**存储帐户参与者**重复执行此过程，确保分配用户来管理已部署的资源。 在本文中，可以跳过这些步骤。
 
 <!-- Not Available on ## Azure policies -->
 

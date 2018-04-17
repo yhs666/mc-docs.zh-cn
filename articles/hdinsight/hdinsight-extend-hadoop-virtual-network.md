@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+origin.date: 02/21/2018
+ms.date: 04/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: bc3527156a9b341a7e39392b2ab3e32395ba5944
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 17d2f1c7cdf4c868d250e3daf94e2f67d1977a60
+ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/09/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 Azure HDInsight
 
@@ -437,6 +437,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
     -Name $subnetName `
     -AddressPrefix $subnet.AddressPrefix `
     -NetworkSecurityGroup $nsg
+$vnet | Set-AzureRmVirtual Network
 ```
 
 > [!IMPORTANT]

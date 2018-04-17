@@ -1,5 +1,5 @@
 - name: Azure HDInsight 文档
-  href: /azure/hdinsight
+  href: /hdinsight
 - name: HDInsight 上的 HBase
   items:
     - name: 概述

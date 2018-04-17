@@ -10,13 +10,14 @@ origin.date: 02/21/2018
 ms.date: 03/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 575042700eb1886c723e08af309e51a2bf787183
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: e0ec366b8c09f874f4e4bfa7470b917368c2379c
+ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/09/2018
 ---
-在创建任何项之前，让我们复习一下作用域的概念。 Azure 提供四个级别的管理：管理组、订阅、资源组和资源。 [管理组](../articles/billing/billing-enterprise-mgmt-group-overview.md)处于预览状态。 下图显示了一个这些层的示例。
+在创建任何项之前，让我们复习一下作用域的概念。 Azure 提供四个级别的管理：管理组、订阅、资源组和资源。 下图显示了一个这些层的示例。
+<!-- Not Available on [Management groups](../articles/billing/billing-enterprise-mgmt-group-overview.md) -->
 
 ![作用域](./media/resource-manager-governance-scope/scope-levels.png)
 
