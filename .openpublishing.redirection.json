@@ -8927,6 +8927,11 @@
       "source_path": "articles/azure-stack/user/azure-stack-connect-cli.md",
       "redirect_url": "/azure-stack/user/azure-stack-version-profiles-azurecli2",
       "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/application-gateway/application-gateway-configure-redirect-powershell.md",
+      "redirect_url": "/application-gateway/tutorial-url-redirect-powershell",
+      "redirect_document_id": false
   }
     
 
