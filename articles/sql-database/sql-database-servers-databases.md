@@ -7,30 +7,33 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-origin.date: 10/11/2017
-ms.date: 11/06/2017
+origin.date: 04/10/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 83d752b9855413ec1f11ff161f4302c424c92731
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 2ddbeedc6524f3ae8e31fcf944e757cebb4efee3
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>创建并管理 Azure SQL 数据库服务器和数据库
 
-SQL 数据库提供了两种类型的数据库：
+SQL 数据库提供了三种类型的数据库：
 
 - 可以使用定义的一组[用于不同工作负载的计算和存储资源](sql-database-service-tiers.md)，在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)中创建单个数据库。 Azure SQL 数据库与在特定 Azure 区域内创建的 Azure SQL 数据库逻辑服务器相关联。
 - 使用定义的一组[用于不同工作负载的计算和存储资源](sql-database-service-tiers.md)（这些计算和存储资源由池中的所有数据库共享）在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)中创建数据库，作为[数据库池](sql-database-elastic-pool.md)的部分。 Azure SQL 数据库与在特定 Azure 区域内创建的 Azure SQL 数据库逻辑服务器相关联。
+- 使用定义的一组用于服务器实例上所有数据库的计算和存储资源，在 [Azure 资源](../azure-resource-manager/resource-group-overview.md)组中创建 [SQL 服务器的实例](sql-database-managed-instance.md)（托管实例）。 一个托管实例同时包含系统和用户数据库。 使用托管实例可将数据库即时转移到完全托管的 PaaS，而无需重新设计应用程序。 托管实例与本地 SQL Server 编程模型高度兼容，支持大多数 SQL Server 功能，并支持随附的工具和服务。  
 
- Azure SQL 数据库支持表格格式数据流 (TDS) 协议客户端 7.3 或更高版本，但仅允许加密的 TCP/IP 连接。
+Microsoft Azure SQL 数据库支持表格格式数据流 (TDS) 协议客户端 7.3 版或更高版本，并仅允许加密的 TCP/IP 连接。
 
+> [!IMPORTANT]
+> SQL 数据库托管实例（当前处于公共预览状态）提供单个常规用途服务层。 有关详细信息，请参阅 [SQL 数据库托管实例](sql-database-managed-instance.md)。 本文剩余部分不适用于托管实例。
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>什么是 Azure SQL 逻辑服务器？
 
 逻辑服务器用作多个单一或[已共用](sql-database-elastic-pool.md)数据库的中心管理点，包括[登录名](sql-database-manage-logins.md)[防火墙规则](sql-database-firewall-configure.md)[审核规则](sql-database-auditing.md)[威胁检测策略](sql-database-threat-detection.md)和[故障转移组](sql-database-geo-replication-overview.md)。 逻辑服务器可以与其资源组位于不同的区域。 必须先创建逻辑服务器，然后才能创建 Azure SQL 数据库。 服务器上的所有数据库都在逻辑服务器所在的同一区域内创建而成。
 
-逻辑服务器是一种逻辑构造，它不同于在本地环境中可能已熟悉的 SQL Server 实例。 具体而言，SQL 数据库服务对数据库相对于其逻辑服务器的位置不做出任何保证，并且不公开任何实例级访问权限或功能。 
+逻辑服务器是一种逻辑构造，它不同于在本地环境中可能已熟悉的 SQL Server 实例。 具体而言，SQL 数据库服务对数据库相对于其逻辑服务器的位置不做出任何保证，并且不公开任何实例级访问权限或功能。 相反，SQL 数据库托管实例中的服务器与你可能熟悉的本地环境中的 SQL Server 实例相似。
 
 创建逻辑服务器时，提供服务器登录帐户和密码，此凭据有权管理服务器上的 master 数据库及其上创建的所有数据库。 这一初始帐户就是 SQL 登录帐户。 Azure SQL 数据库支持结合使用 SQL 身份验证和 Azure Active Directory 身份验证以进行身份验证。 若要详细了解登录名和身份验证，请参阅[在 Azure SQL 数据库中管理数据库和登录名](sql-database-manage-logins.md)。 不支持 Windows 身份验证。 
 
@@ -44,14 +47,14 @@ Azure 数据库逻辑服务器：
 - 是数据库、弹性池和数据仓库的父资源
 - 为数据库、弹性池和数据仓库提供命名空间
 - 是具有强生存期语义的逻辑容器。也就是说，删除服务器也会随之删除包含的数据库、弹性池和数据仓库
-- 参与 [Azure 基于角色的访问控制 (RBAC)](/active-directory/role-based-access-control-what-is)。也就是说，服务器中的数据库、弹性池和数据库从服务器继承访问权限
+- 参与 [Azure 基于角色的访问控制 (RBAC)](/azure/role-based-access-control/overview)。也就是说，服务器中的数据库、弹性池和数据库从服务器继承访问权限
 - 是位置靠前的数据库、弹性池和数据仓库标识元素，用于管理 Azure 资源（请参阅“数据库和池的 URL 方案”）
 - 在区域中并置资源
 - 为数据库访问提供连接终结点 (<serverName>.database.chinacloudapi.cn)
 - 通过连接到 master 数据库通过 DMV 提供对所含资源相关元数据的访问方式 
 - 提供应用于数据库的管理策略的作用域，即登录名、防火墙、审核、威胁检测等。 
 - 受父订阅中的配额限制（默认情况下，每个订阅六个服务器）
-- 提供所含资源的数据库配额和 DTU 配额范围（例如，45,000 个 DTU）
+- 提供所含资源的数据库配额和 DTU 或 vCore 配额范围（例如，45,000 个 DTU）
 - 是在包含资源上启用的功能的版本控制作用域 
 - 服务器级主体登录名可以管理服务器上的所有数据库
 - 可以包含的登录名类似于本地 SQL Server 实例中的登录名，这些登录名有权访问服务器上的一个或多个数据库，并且可以被授予有限的管理权限。 有关详细信息，请参阅[登录名](sql-database-manage-logins.md)。
@@ -76,7 +79,8 @@ Azure 数据库逻辑服务器：
 
 > [!IMPORTANT]
 > 若要了解如何选择数据库定价层，请参阅[服务层](sql-database-service-tiers.md)。
->
+
+要创建托管实例，请参阅[创建托管实例](sql-database-managed-instance-create-tutorial-portal.md)
 
 ### <a name="manage-an-existing-sql-server"></a>管理现有 SQL 服务器
 

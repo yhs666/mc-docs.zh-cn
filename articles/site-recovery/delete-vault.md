@@ -10,11 +10,11 @@ ms.topic: article
 origin.date: 03/05/2018
 ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 50ce8e00c54022e17f921d66efb04a219cc7fb64
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 1a4568a98f0637aedbc2d6a65db3ae77332c20e9
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="delete-a-site-recovery-vault"></a>删除 Site Recovery 保管库
 依赖项可能会阻止删除 Azure Site Recovery 保管库。 需要采取的措施因 Site Recovery 方案而异：VMware 到 Azure、Hyper-V（含和不含 System Center Virtual Machine Manager）到 Azure 和 Azure 备份。 若要删除用于 Azure 备份的保管库，请参阅[删除 Azure 备份保管库](../backup/backup-azure-delete-vault.md)。
@@ -39,17 +39,18 @@ ms.lasthandoff: 03/28/2018
 
 2. 依次转到保管库 ->“Site Recovery 基础结构”->“对于 System Center VMM” -> “复制策略”，取消关联并删除所有复制策略
 
-3.  按照[取消注册已连接的 VMM 服务器](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server)中的步骤操作，删除对 Virtual Machine Manager 服务器的引用。
+3. 按照[取消注册已连接的 VMM 服务器](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server)中的步骤操作，删除对 Virtual Machine Manager 服务器的引用。
+<!--Not Available on ## -->
 
-4.  删除保管库。
+4. 删除保管库。
 
 ### <a name="hyper-v-vms-without-virtual-machine-manager-to-azure"></a>Hyper-V VM（不带 Virtual Machine Manager）到 Azure
 1. 按照[禁用对 Hyper-V 虚拟机（Hyper-V 到 Azure）的保护](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure)中的步骤操作，删除所有受保护的 VM。
 
 2. 依次转到保管库 ->“Site Recovery 基础结构”->“对于 Hyper-V 站点” -> “复制策略”，取消关联并删除所有复制策略
 
-3. 按照[取消注册 Hyper-V 主机](/site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site)中的步骤操作，删除对 Hyper-V 服务器的引用。
-<!-- URL is correct with . [Unregister a Hyper-V host](./site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) -->
+3. 按照[取消注册 Hyper-V 主机](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site)中的步骤操作，删除对 Hyper-V 服务器的引用。
+<!-- URL is correct with . [Unregister a Hyper-V host](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) -->
 
 4. 删除 Hyper-V 站点。
 

@@ -1,12 +1,11 @@
 ---
-title: "适用于 Azure Cosmos DB 的 Azure PowerShell 示例 | Azure"
-description: "Azure PowerShell 示例 - 可用于创建和管理 Azure Cosmos DB 帐户的脚本。"
+title: 适用于 Azure Cosmos DB 的 Azure PowerShell 示例 | Azure
+description: Azure PowerShell 示例 - 可用于创建和管理 Azure Cosmos DB 帐户的脚本。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: 
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: na
@@ -14,17 +13,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
 origin.date: 10/16/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9e3d54e9565ec408ee8ca4c5b383a7d1e42cf492
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: b8f1d2ed040b7f1a5b1750365131efa1968917e8
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>适用于 Azure Cosmos DB 的 Azure PowerShell 示例
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 下表包含指向适用于 Azure Cosmos DB 的示例 Azure PowerShell 脚本的链接。 目前只能通过 PowerShell 管理 Azure Cosmos DB accountlayer；不能通过 PowerShell 管理数据库和集合等其他资源。
 

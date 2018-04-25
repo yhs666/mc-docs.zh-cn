@@ -1,11 +1,11 @@
 ---
-title: "向 Azure 虚拟机添加监视和诊断 | Azure"
-description: "使用 Azure 资源管理器模板新建具有 Azure 诊断扩展的 Windows 虚拟机。"
+title: 向 Azure 虚拟机添加监视和诊断 | Azure
+description: 使用 Azure 资源管理器模板新建具有 Azure 诊断扩展的 Windows 虚拟机。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
 ms.service: virtual-machines-windows
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 02/05/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b86b555aa9c87d7ea1decc57297fe82371bc046
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: c6dd23f8a78c5a727c1adba9fc153a95da3504ba
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>将监视和诊断与 Windows VM 和 Azure Resource Manager 模板配合使用
 Azure 诊断扩展可在基于 Windows 的 Azure 虚拟机上提供监视和诊断功能。 通过将该扩展纳入为 Azure 资源管理器模板的一部分，可以在虚拟机上启用这些功能。 有关将任何扩展纳入为虚拟机模板一部分的详细信息，请参阅[使用 VM 扩展创作 Azure Resource Manager 模板](template-description.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json#extensions)。 本文介绍了如何将 Azure 诊断扩展添加到 Windows 虚拟机模板中。  
@@ -153,7 +153,7 @@ Azure 诊断扩展可在基于 Windows 的 Azure 虚拟机上提供监视和诊�
 "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 ```
 
-MetricAggregation 值 *PT1H* 和 *PT1M* 表示一分钟的聚合和一小时的聚合。
+MetricAggregation 值 *PT1M* 和 *PT1H* 分别表示一分钟的聚合和一小时的聚合。
 
 ## <a name="wadmetrics-tables-in-storage"></a>存储中的 WADMetrics 表
 上述指标配置会在诊断存储帐户中生成具有以下命名约定的表：

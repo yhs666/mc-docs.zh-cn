@@ -1,11 +1,11 @@
 ---
-title: "Web 应用概述 | Azure"
-description: "了解 Azure 应用服务如何帮助用户开发和托管 Web 应用程序"
+title: Web 应用概述 | Azure
+description: 了解 Azure 应用服务如何帮助用户开发和托管 Web 应用程序
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.service: app-service-web
 ms.workload: web
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 01/04/2017
-ms.date: 12/04/2017
+ms.date: 04/30/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: f7325d63fcf64a21e49ba2671a2439eeb48f4fa5
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 3870be679e15fbdfea79c8004518f8eff31b2d11
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="web-apps-overview"></a>Web 应用概述
 
@@ -40,7 +40,7 @@ Web 应用不仅可将 Microsoft Azure 的强大功能（例如安全性、负�
 * **Visual Studio 集成** — Visual Studio 中的专用工具可简化创建、部署和调试工作。
 * **API 和移动功能** - Web 应用针对 RESTful API 方案提供统包式 CORS 支持，通过启用身份验证、脱机数据同步、推送通知等功能简化移动应用方案。
 
-除了应用服务中的 Web 应用，Azure 还提供可用来托管网站和 Web 应用程序的其他服务。 大多数情况下，Web 应用是最佳选择。  对于微服务体系结构，请考虑使用 [Service Fabric](/service-fabric)；如果需要更好地控制运行代码的 VM，请考虑使用 [Azure 虚拟机](/virtual-machines/)。 有关如何在这些 Azure 服务之间做出选择的详细信息，请参阅 [Azure 应用服务、虚拟机、Service Fabric 和云服务的比较](choose-web-site-cloud-service-vm.md)。
+除了应用服务中的 Web 应用，Azure 还提供可用来托管网站和 Web 应用程序的其他服务。 大多数情况下，Web 应用是最佳选择。  对于微服务体系结构，请考虑使用 [Service Fabric](/service-fabric)。 如果需要更好地控制运行代码的 VM，请考虑使用 [Azure 虚拟机](/virtual-machines/)。 有关如何在这些 Azure 服务之间做出选择的详细信息，请参阅 [Azure 应用服务、虚拟机、Service Fabric 和云服务的比较](choose-web-site-cloud-service-vm.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

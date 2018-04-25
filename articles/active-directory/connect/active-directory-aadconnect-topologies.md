@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 07/12/2017
 ms.date: 11/22/2017
 ms.author: v-junlch
-ms.openlocfilehash: d2549bfed7a3606127273041f30905a871a630c8
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: e71443d4c258cb67f5ccfe63397992488c9d9e3a
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓扑
 本文介绍了使用 Azure AD Connect 同步作为关键集成解决方案的各种本地拓扑和 Azure Active Directory (Azure AD) 拓扑。 此外，介绍支持和不支持的配置。
@@ -143,7 +143,8 @@ Azure AD Connect 同步服务器与 Azure AD 租户之间不存在一对一的�
 
 DNS 域只能在单个 Azure AD 租户中注册。 本地 Active Directory 实例中的用户 UPN 也必须使用独立的命名空间。 例如，在上图中，三个独立 UPN 后缀都注册在本地 Active Directory 实例中：contoso.com、fabrikam.com 和 wingtiptoys.com。每个本地 Active Directory 域中的用户使用不同的命名空间。
 
-Azure AD 租户实例之间没有任何 GALSync。 Exchange Online 和 Skype for Business 中的通讯簿只在相同的租户中显示用户。
+>[!NOTE]
+>全局地址列表同步 (GalSync) 未在此拓扑中自动执行，需要其他自定义 MIM 实现，以确保每个租户在 Exchange Online 和 Skype for Business Online 中具有完整的全局地址列表 (GAL)。
 
 另外，此拓扑对支持的方案实施以下限制：
 

@@ -9,11 +9,11 @@ ms.topic: article
 origin.date: 03/05/2018
 ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 51c0c3fe2efaccca68fc98d4c7f911c5168d9f39
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 8bf435a1472598846f6c77d9af4b1db728f3d81a
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc"></a>使用 Azure Automation DSC 部署移动服务
 
@@ -26,7 +26,8 @@ ms.lasthandoff: 03/28/2018
 * 一个存储库，用于存储所需设置
 * 一个存储库，用于存储注册到管理服务器时所需的密码。 将为特定配置服务器生成唯一密码。 
 * 应在要启用保护的计算机上安装 Windows Management Framework (WMF) 5.0。 这是 Automation DSC 的必要条件。
-如需将 DSC 用于安装了 WMF 4.0 的 Windows 计算机，请参阅[在断开连接的环境中使用 DSC](## Use DSC in disconnected environments)。
+如需将 DSC 用于安装了 WMF 4.0 的 Windows 计算机，请参阅[在断开连接的环境中使用 DSC](#use-dsc-in-disconnected-environments)。
+<!-- Notice: Archor Should be #use-dsc-in-disconnected-environments-->
 
 ## <a name="extract-binaries"></a>提取二进制文件
 

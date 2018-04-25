@@ -1,11 +1,11 @@
 ---
-title: "工作流定义语言架构 - Azure 逻辑应用"
-description: "定义基于 Azure 逻辑应用工作流定义架构的工作流"
+title: 工作流定义语言架构 - Azure 逻辑应用
+description: 定义基于 Azure 逻辑应用工作流定义架构的工作流
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
 ms.workload: integration
@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 origin.date: 03/21/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: f5be7064e78cc80a519fce641fff8704af747131
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 04/30/2018
+ms.openlocfilehash: c9b9b53c90f106caaf498680a802beaa580476b1
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Azure 逻辑应用的工作流定义语言架构
 
@@ -127,14 +127,14 @@ ms.lasthandoff: 03/12/2018
 > [!NOTE]
 > 某些表达式从运行时操作获取其值，而这些操作在开始执行时可能不存在。 可以使用**函数**来帮助检索其中的某些值。  
   
-表达式可出现在 JSON 字符串值中的任何位置，始终生成另一个 JSON 值。 将某个 JSON 值判定为表达式时，会通过删除 @ 符号来提取表达式的正文。 如果需要以 @ 开头的文本字符串，必须使用 @@ 将它转义。 以下示例演示了如何计算表达式。  
+表达式可出现在 JSON 字符串值中的任何位置，始终生成另一个 JSON 值。 将某个 JSON 值判定为表达式时，会通过删除 \@ 符号来提取表达式的正文。 如果需要以 \@\ 开头的文本字符串，必须使用 @@ 将它转义。 以下示例演示了如何计算表达式。  
   
 |JSON 值|结果|  
 |----------------|------------|  
 |"parameters"|返回字符“parameters”。|  
 |"parameters[1]"|返回字符“parameters[1]”。|  
-|"@@"|返回包含“@”的、由 1 个字符构成的字符串。|  
-|" @"|返回包含“@”的、由 2 个字符构成的字符串。|  
+|"@@"|返回包含\“\@\”的、由 1 个字符构成的字符串。|  
+|\" \@\"|返回包含 \“ \@ \”的、由 2 个字符构成的字符串。|  
   
 如果使用*字符串内插*，表达式还可以显示在 `@{ ... }` 中包装表达式的字符串内。 例如： <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
@@ -274,11 +274,11 @@ ms.lasthandoff: 03/12/2018
 |dataUri|返回某个值的数据 URI。 例如，以下函数返回数据 URI `text/plain;charset=utf8;base64,c29tZSBzdHJpbmc=`： <p>`dataUri('some string')` <p> **参数数目**：1<p> **名称**：值<p> **说明**：必需。 要转换为数据 URI 的值。|  
 |decodeBase64|返回 based64 输入字符串的字符串表示形式。 例如，以下函数返回 `some string`： <p>`decodeBase64('c29tZSBzdHJpbmc=')` <p> **参数数目**：1 <p> **名称**：字符串 <p> **说明**：返回 based64 输入字符串的字符串表示形式。|  
 |encodeUriComponent|对传入的字符串进行 URL 转义。 例如，以下函数返回 `You+Are%3ACool%2FAwesome`： <p>`encodeUriComponent('You Are:Cool/Awesome')` <p> **参数数目**：1 <p> **名称**：字符串 <p> **说明**：必需。 要对其中的 URL 不安全字符进行转义的字符串。|  
-|decodeUriComponent|对传入的字符串取消 URL 转义。 例如，以下函数返回 `You Are:Cool/Awesome`： <p>`encodeUriComponent('You+Are%3ACool%2FAwesome')` <p> **参数数目**：1 <p> **名称**：字符串 <p> **说明**：必需。 要在其中解码 URL 不安全字符的字符串。|  
+|decodeUriComponent|对传入的字符串取消 URL 转义。 例如，以下函数返回 `You Are:Cool/Awesome`： <p>`decodeUriComponent('You+Are%3ACool%2FAwesome')` <p> **参数数目**：1 <p> **名称**：字符串 <p> **说明**：必需。 要在其中解码 URL 不安全字符的字符串。|  
 |decodeDataUri|返回数据 URI 输入字符串的二进制表示形式。 例如，以下函数返回 `some string` 二进制表示形式： <p>`decodeDataUri('data:;base64,c29tZSBzdHJpbmc=')` <p> **参数数目**：1 <p> **名称**：字符串 <p> **说明**：必需。 要解码为二进制表示形式的 dataURI。|  
 |uriComponent|返回某个值的 URI 编码表示形式。 例如，以下函数返回 `You+Are%3ACool%2FAwesome`： <p>`uriComponent('You Are:Cool/Awesome')` <p> **参数数目**：1<p> **名称**：字符串 <p> **说明**：必需。 要进行 URI 编码的字符串。|  
 |uriComponentToBinary|返回 URI 编码字符串的二进制表示形式。 例如，以下函数返回 `You Are:Cool/Awesome` 二进制表示形式： <p>`uriComponentToBinary('You+Are%3ACool%2FAwesome')` <p> **参数数目**：1 <p> **名称**：字符串<p> **说明**：必需。 URI 编码的字符串。|  
-|uriComponentToString|返回 URI 编码字符串的字符串表示形式。 例如，以下函数返回 `You Are:Cool/Awesome`： <p>`uriComponentToBinary('You+Are%3ACool%2FAwesome')` <p> **参数数目**：1<p> **名称**：字符串<p> **说明**：必需。 URI 编码的字符串。|  
+|uriComponentToString|返回 URI 编码字符串的字符串表示形式。 例如，以下函数返回 `You Are:Cool/Awesome`： <p>`uriComponentToString('You+Are%3ACool%2FAwesome')` <p> **参数数目**：1<p> **名称**：字符串<p> **说明**：必需。 URI 编码的字符串。|  
 |xml|返回值的 XML 表示形式。 例如，以下函数返回 `'\<name>Alan\</name>'` 表示的 XML 内容： <p>`xml('\<name>Alan\</name>')` <p>`xml()` 函数也支持 JSON 对象输入。 例如，参数 `{ "abc": "xyz" }` 将转换为 XML 内容：`\<abc>xyz\</abc>` <p> **参数数目**：1<p> **名称**：值<p> **说明**：必需。 要转换为 XML 的值。|  
 |数组|将参数转换为数组。 例如，以下函数返回 `["abc"]`： <p>`array('abc')` <p> **参数数目**：1 <p> **名称**：值 <p> **说明**：必需。 要转换为数组的值。|
 |createArray|从参数创建数组。 例如，以下函数返回 `["a", "c"]`： <p>`createArray('a', 'c')` <p> **参数数目**：1 ... *n* <p> **名称**：Any *n* <p> **说明**：必需。 要合并成数组的值。|
@@ -325,8 +325,8 @@ ms.lasthandoff: 03/12/2018
 |addseconds|将整数秒数添加到传入的字符串时间戳。 秒数可为正数或负数。 默认情况下，结果是采用 ISO 8601 格式 ("o") 的字符串，除非提供了格式说明符。 例如：`2015-03-15T13:27:00Z` <p>`addseconds('2015-03-15T13:27:36Z', -36)` <p> **参数数目**：1 <p> **名称**：时间戳 <p> **说明**：必需。 包含时间的字符串。 <p> **参数数目**：2 <p> **名称**：秒 <p> **说明**：必需。 要添加的秒数。 可为负数（减去相应的秒数）。 <p> **参数数目**：3 <p> **名称**：格式 <p> **说明**：可选 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。|  
 |addminutes|将整数分钟数添加到传入的字符串时间戳。 分钟数可为正数或负数。 默认情况下，结果是采用 ISO 8601 格式 ("o") 的字符串，除非提供了格式说明符。 例如：`2015-03-15T14:00:36Z` <p>`addminutes('2015-03-15T13:27:36Z', 33)` <p> **参数数目**：1 <p> **名称**：时间戳 <p> **说明**：必需。 包含时间的字符串。 <p> **参数数目**：2 <p> **名称**：分钟 <p> **说明**：必需。 要添加的分钟数。 可为负数（减去相应的分钟数）。 <p> **参数数目**：3 <p> **名称**：格式 <p> **说明**：可选 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。|  
 |addhours|将整数小时数添加到传入的字符串时间戳。 小时数可为正数或负数。 默认情况下，结果是采用 ISO 8601 格式 ("o") 的字符串，除非提供了格式说明符。 例如：`2015-03-16T01:27:36Z` <p>`addhours('2015-03-15T13:27:36Z', 12)` <p> **参数数目**：1 <p> **名称**：时间戳 <p> **说明**：必需。 包含时间的字符串。 <p> **参数数目**：2 <p> **名称**：小时 <p> **说明**：必需。 要添加的小时数。 可为负数（减去相应的小时数）。 <p> **参数数目**：3 <p> **名称**：格式 <p> **说明**：可选 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。|  
-|adddays|将整数天数添加到传入的字符串时间戳。 天数可为正数或负数。 默认情况下，结果是采用 ISO 8601 格式 ("o") 的字符串，除非提供了格式说明符。 例如：`2015-02-23T13:27:36Z` <p>`adddays('2015-03-15T13:27:36Z', -2)` <p> **参数数目**：1 <p> **名称**：时间戳 <p> **说明**：必需。 包含时间的字符串。 <p> **参数数目**：2 <p> **名称**：天 <p> **说明**：必需。 要添加的天数。 可为负数（减去相应的天数）。 <p> **参数数目**：3 <p> **名称**：格式 <p> **说明**：可选 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。|  
-|formatDateTime|返回日期格式的字符串。 默认情况下，结果是采用 ISO 8601 格式 ("o") 的字符串，除非提供了格式说明符。 例如：`2015-02-23T13:27:36Z` <p>`formatDateTime('2015-03-15T13:27:36Z', 'o')` <p> **参数数目**：1 <p> **名称**：日期 <p> **说明**：必需。 包含日期的字符串。 <p> **参数数目**：2 <p> **名称**：格式 <p> **说明**：可选 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。|  
+|adddays|将整数天数添加到传入的字符串时间戳。 天数可为正数或负数。 默认情况下，结果是采用 ISO 8601 格式 ("o") 的字符串，除非提供了格式说明符。 例如：`2015-03-13T13:27:36Z` <p>`adddays('2015-03-15T13:27:36Z', -2)` <p> **参数数目**：1 <p> **名称**：时间戳 <p> **说明**：必需。 包含时间的字符串。 <p> **参数数目**：2 <p> **名称**：天 <p> **说明**：必需。 要添加的天数。 可为负数（减去相应的天数）。 <p> **参数数目**：3 <p> **名称**：格式 <p> **说明**：可选 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。|  
+|formatDateTime|返回日期格式的字符串。 默认情况下，结果是采用 ISO 8601 格式 ("o") 的字符串，除非提供了格式说明符。 例如：`2015-03-15T13:27:36Z` <p>`formatDateTime('2015-03-15T13:27:36Z', 'o')` <p> **参数数目**：1 <p> **名称**：日期 <p> **说明**：必需。 包含日期的字符串。 <p> **参数数目**：2 <p> **名称**：格式 <p> **说明**：可选 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。|  
 |startOfHour|返回传入的字符串时间戳的起始小时。 例如 `2017-03-15T13:00:00Z`：<br /><br /> `startOfHour('2017-03-15T13:27:36Z')`<br /><br /> **参数数目**：1<br /><br /> **名称**：时间戳<br /><br /> **说明**：必需。 这是包含时间的字符串。<br /><br />**参数数目**：2<br /><br /> **名称**：格式<br /><br /> **说明**：可选 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。|  
 |startOfDay|返回传入的字符串时间戳的起始日期。 例如 `2017-03-15T00:00:00Z`：<br /><br /> `startOfDay('2017-03-15T13:27:36Z')`<br /><br /> **参数数目**：1<br /><br /> **名称**：时间戳<br /><br /> **说明**：必需。 这是包含时间的字符串。<br /><br />**参数数目**：2<br /><br /> **名称**：格式<br /><br /> **说明**：可选 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。| 
 |startOfMonth|返回传入的字符串时间戳的起始月份。 例如 `2017-03-01T00:00:00Z`：<br /><br /> `startOfMonth('2017-03-15T13:27:36Z')`<br /><br /> **参数数目**：1<br /><br /> **名称**：时间戳<br /><br /> **说明**：必需。 这是包含时间的字符串。<br /><br />**参数数目**：2<br /><br /> **名称**：格式<br /><br /> **说明**：可选 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。| 

@@ -1,13 +1,12 @@
 ---
-title: "作为键值存储的 Azure Cosmos DB - 费用概述 | Azure"
-description: "了解将 Azure Cosmos DB 用作键值存储时的低成本。"
-keywords: "键值存储"
+title: 作为键值存储的 Azure Cosmos DB - 费用概述 | Azure
+description: 了解将 Azure Cosmos DB 用作键值存储时的低成本。
+keywords: 键值存储
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-documentationcenter: 
+tags: ''
+documentationcenter: ''
 ms.assetid: 7f765c17-8549-4509-9475-46394fc3a218
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4607fdc8e4e858754b4200a7a6c2343d1221e1dd
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 1f3cf3f5179a52456f6e904db8b5283ac9569b9f
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store---cost-overview"></a>用作键值存储的 Azure Cosmos DB - 费用概述
 
@@ -44,17 +43,7 @@ Azure Cosmos DB 的性能基于分区的预配[请求单位](request-units.md) (
 |1 KB|1 RU|5 RU|
 |100 KB|10 RU|50 RU|
 
-<!-- Not Available ## Cost of reads and writes
-
-If you provision 1,000 RU/sec, this amounts to 3.6 m RU/hour and will cost $0.08 for the hour (in the US and Europe). For a 1-KB size document, this means that you can consume 3.6-m reads or 0.72-m writes (3.6 m RU / 5) using your provisioned throughput. Normalized to million reads and writes, the cost would be $0.022 /m reads ($0.08 / 3.6) and $0.111/m writes ($0.08 / 0.72). The cost per million becomes minimal as shown in the table below.
-
-|Item Size|1-m Read|1-m Write|
-|-------------|-------|--------|
-|1 KB|$0.022|$0.111|
-|100 KB|$0.222|$1.111|
-
-Most of the basic blob or object stores services charge $0.40 per million read transaction and $5 per million write transaction. If used optimally, Cosmos DB can be up to 98% cheaper than these other solutions (for 1KB transactions).
--->
+<!-- Not Available ## Cost of reads and writes -->
 
 ## <a name="next-steps"></a>后续步骤
 

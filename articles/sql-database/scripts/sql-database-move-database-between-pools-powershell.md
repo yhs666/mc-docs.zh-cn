@@ -1,27 +1,27 @@
 ---
-title: "PowerShell 示例 - 移动 Azure SQL 数据库 - SQL 弹性池 | Azure"
-description: "使用 PowerShell 在弹性池之间移动 SQL 数据库的 Azure PowerShell 示例脚本"
+title: PowerShell 示例 - 移动 Azure SQL 数据库 - SQL 弹性池 | Azure
+description: 使用 PowerShell 在弹性池之间移动 SQL 数据库的 Azure PowerShell 示例脚本
 services: sql-database
 documentationcenter: sql-database
 author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 06/23/2017
-ms.date: 10/02/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 54754b7cba3604b8007989c7ff831e8d76faf4ba
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 295996328396c7d76c784d390639aba19985d217
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>使用 PowerShell 创建弹性池，并在弹性池之间移动数据库
 
@@ -119,7 +119,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver) | 创建用于托管数据库或弹性池的逻辑服务器。 |

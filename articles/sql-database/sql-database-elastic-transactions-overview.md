@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.topic: article
 ms.custom: scale out apps
 ms.workload: On Demand
-origin.date: 05/27/2016
-ms.date: 11/06/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: db0641a23c9e33a180d644e16201711b5bbb0eb7
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 61129274aaa5f9ba9d8e817cceb957b4a7858e20
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>跨云数据库的分布式事务
 通过 Azure SQL 数据库 (SQL DB) 的弹性数据库事务可在 SQL DB 中跨多个数据库运行事务。 SQL DB 的弹性数据库事务适用于使用 ADO .NET 的 .NET 应用程序，并且与你熟悉的使用 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) 类的编程体验相集成。 若要获取该库，请参阅 [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981)（Web 安装程序）。

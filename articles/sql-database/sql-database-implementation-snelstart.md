@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: reference
 ms.topic: article
-origin.date: 01/10/2017
-ms.date: 07/03/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: f2c80d6e3486d44327960041f9a171a5f1f7bcd5
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: c8709ce46663b10aad0ad1e7ca0b8f2c14469312
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>借助 Azure，SnelStart 以每月 1,000 个新 Azure SQL 数据库的速度快速扩展其业务服务
 ![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)

@@ -1,10 +1,10 @@
 ---
-title: "使用 VM 扩展监视 Linux VM | Azure"
-description: "了解如何使用 Linux 诊断扩展监视 Azure 中 Linux VM 的性能和诊断数据。"
+title: 使用 VM 扩展监视 Linux VM | Azure
+description: 了解如何使用 Linux 诊断扩展监视 Azure 中 Linux VM 的性能和诊断数据。
 services: virtual-machines-linux
 author: hayley244
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: f54a11c5-5a0e-40ff-af6c-e60bd464058b
 ms.service: virtual-machines-linux
@@ -15,20 +15,21 @@ ms.topic: article
 origin.date: 12/15/2015
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 5a1c1a43b995a9babd5a92cfa9c5d1c2a93a2f3d
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: c3ed590f144ff2727f0392d02254110b401b765d
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>使用 Linux 诊断扩展监视 Linux VM 的性能和诊断数据
 
 本文档介绍 Linux 诊断扩展 2.3 版。
 
 > [!IMPORTANT]
-> 此版本已弃用，2018 年 6 月 30 日以后随时有可能取消发布该版本。 该版本已替换为 3.0 版本。 有关详细信息，请参阅 [Linux 诊断扩展 3.0 版相关文档](../diagnostic-extension.md)。
+> 此版本已弃用，2018 年 6 月 30 日以后随时有可能取消发布该版本。
+<!-- Not Available on  [documentation for version 3.0 of the Linux Diagnostic Extension](../diagnostic-extension.md) -->
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 
 （注意：Linux 诊断扩展在 [GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) 上处于开源状态，其中首次发布有关该扩展的最新信息。 建议先查看 [GitHub 页](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic)。）
 
@@ -70,7 +71,7 @@ Linux 诊断扩展可帮助用户监视 Azure 上运行的 Linux VM。 它具有
   * 运行 **azure vm extension set --help** 了解详细的帮助信息。
   * 运行“azure login -e AzureChinaCloud”，登录到 Azure。
   * 运行 **azure vm list** 可列出在 Azure 上拥有的所有虚拟机。
-* 用于存储数据的存储帐户。 需要以前创建的存储帐户名称和访问密钥，以将数据上传到存储中。
+* 用于存储数据的存储帐户。 你将需要以前创建的存储帐户名称和访问密钥，以将数据上传到存储中。
 
 ## <a name="use-the-azure-cli-command-to-enable-the-linux-diagnostic-extension"></a>使用 Azure CLI 命令启用 Linux 诊断扩展
 
@@ -89,7 +90,7 @@ Linux 诊断扩展可帮助用户监视 Azure 上运行的 Linux VM。 它具有
         "storageAccountKey" : "the key of the account"
     }
 
-步骤 2. 运行 azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2. --private-config-path PrivateConfig.json*。
+步骤 2. 运行 **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**。
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>方案 2. 自定义性能监视器指标
 
@@ -111,7 +112,7 @@ Linux 诊断扩展可帮助用户监视 Azure 上运行的 Linux VM。 它具有
           ]
     }
 
-步骤 2. 运行 azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json*。
+步骤 2. 运行 **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**。
 
 ### <a name="scenario-3-upload-your-own-log-files"></a>方案 3. 上传自己的日志文件
 
@@ -133,7 +134,7 @@ Linux 诊断扩展可帮助用户监视 Azure 上运行的 Linux VM。 它具有
 
 步骤 2. 运行 `azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json`。
 
-请注意，在 2.3 版之前的扩展版本上使用此设置，所有写入到 `/var/log/mysql.err` 的日志也可能会复制到 `/var/log/syslog`（或 `/var/log/messages`，具体取决于 Linux 发行版）。 如果想要避免此重复的日志记录，可以在 rsyslog 配置中不包括 `local6` 设备日志的日志记录。 这取决于 Linux 发行版，但在 Ubuntu 14.04 系统中，要修改的文件是 `/etc/rsyslog.d/50-default.conf`，你可以将行 `*.*;auth,authpriv.none -/var/log/syslog` 替换为 `*.*;auth,authpriv,local6.none -/var/log/syslog`。 在最新修补程序版本 2.3 (2.3.9007) 中解决了此问题，因此，如果使用扩展版本 2.3，此问题应该不会发生。 如果在重新启动 VM 后此问题仍存在，请与我们联系，并帮助我们故障排除以确定未自动安装最新修补程序版本的原因。
+请注意，在 2.3 版之前的扩展版本上使用此设置，所有写入到 `/var/log/mysql.err` 的日志也可能会复制到 `/var/log/syslog`（或 `/var/log/messages`，具体取决于 Linux 发行版）。 如果要避免此重复的日志记录，可以在 rsyslog 配置中不包括 `local6` 设备日志的日志记录。 这取决于 Linux 发行版，但在 Ubuntu 14.04 系统中，要修改的文件是 `/etc/rsyslog.d/50-default.conf`，你可以将行 `*.*;auth,authpriv.none -/var/log/syslog` 替换为 `*.*;auth,authpriv,local6.none -/var/log/syslog`。 在最新修补程序版本 2.3 (2.3.9007) 中解决了此问题，因此，如果使用扩展版本 2.3，此问题应该不会发生。 如果在重新启动 VM 后此问题仍存在，请与我们联系，并帮助我们故障排除以确定未自动安装最新修补程序版本的原因。
 
 ### <a name="scenario-4-stop-the-extension-from-collecting-any-logs"></a>方案 4. 阻止扩展收集任何日志
 
@@ -146,7 +147,7 @@ Linux 诊断扩展可帮助用户监视 Azure 上运行的 Linux VM。 它具有
         "enableSyslog" : "false"
     }
 
-步骤 2. 运行 azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json*。
+步骤 2. 运行 **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**。
 
 ## <a name="review-your-data"></a>查看数据
 

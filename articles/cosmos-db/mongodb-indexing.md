@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 origin.date: 03/01/2018
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9b1006c3223f7c4f4a270a99e4c0e212dab491ee
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 2c581900abc7ae54cb0ecb4bddcac73c4c6f92aa
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB: MongoDB API 中的索引编制
 
@@ -105,5 +105,4 @@ globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 * [Azure Cosmos DB 如何编制数据索引？](../cosmos-db/indexing-policies.md)
 * [利用生存时间使 Azure Cosmos DB 集合中的数据自动过期](../cosmos-db/time-to-live.md)
 
-<!-- Update_Description: new articles on mongodb indexing  -->
-<!--ms.date: 03/26/2018-->
+<!-- Update_Description: update meta properties  -->

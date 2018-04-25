@@ -1,11 +1,11 @@
 ---
-title: "在 SQL VM (Resource Manager) 上自动完成管理任务 | Azure"
-description: "本文介绍如何管理可以自动执行特定 SQL Server 管理任务的 SQL Server 代理扩展。 这些任务包括自动备份、自动修补和 Azure 密钥保管库集成。"
+title: 在 SQL VM (Resource Manager) 上自动完成管理任务 | Azure
+description: 本文介绍如何管理可以自动执行特定 SQL Server 管理任务的 SQL Server 代理扩展。 这些任务包括自动备份、自动修补和 Azure 密钥保管库集成。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
 ms.service: virtual-machines-sql
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 01/05/2018
-ms.date: 03/19/2018
+origin.date: 03/07/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 50ed63107011d3e5ad7eb247231bdc5f5d413ac1
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: e175c68178a1d6457831e4b8d7914d7101b6706e
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>使用 SQL Server 代理扩展 (Resource Manager) 在 Azure 虚拟机上自动完成管理任务
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ SQL Server IaaS 代理扩展支持以下管理任务：
 | 管理功能 | 说明 |
 | --- | --- |
 | **SQL 自动备份** |对 VM 中的 SQL Server 默认实例自动执行所有数据库的备份计划。 有关详细信息，请参阅 [Azure 虚拟机 (Resource Manager) 中 SQL Server 的自动备份](virtual-machines-windows-sql-automated-backup.md)。 |
-| **SQL 自动修补** |配置维护时段，在此期间可能更新 VM，因此可以避免在工作负荷高峰时间进行更新。 有关详细信息，请参阅 [Azure 虚拟机 (Resource Manager) 中 SQL Server 的自动修补](virtual-machines-windows-sql-automated-patching.md)。 |
+| **SQL 自动修补** |配置维护时段，可在此时段对 VM 进行重要的 Windows 更新，避开工作负荷的高峰期。 有关详细信息，请参阅 [Azure 虚拟机 (Resource Manager) 中 SQL Server 的自动修补](virtual-machines-windows-sql-automated-patching.md)。 |
 | **Azure 密钥保管库集成** |可让你在 SQL Server VM 上自动安装和配置 Azure 密钥保管库。 有关详细信息，请参阅[为 Azure VM (Resource Manager) 上的 SQL Server 配置 Azure Key Vault 集成](virtual-machines-windows-ps-sql-keyvault.md)。 |
 
 一旦安装和运行，SQL Server IaaS 代理扩展便可使这些管理功能在 Azure 门户中虚拟机的 SQL Server 面板上获得，也可通过 Azure PowerShell for SQL Server 应用商店映像和 Azure PowerShell 获得，以手动安装扩展。 

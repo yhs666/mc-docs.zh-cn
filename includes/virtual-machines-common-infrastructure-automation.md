@@ -81,14 +81,14 @@ DSC 配置定义要在计算机上安装的内容，以及如何配置主机。 
 - [使用 Terraform 创建 Azure 基础结构](../articles/virtual-machines/linux/terraform-create-complete-vm.md)。
 
 ## <a name="azure-automation"></a>Azure 自动化
-[Azure 自动化](https://www.azure.cn/home/features/automation/)使用 Runbook 在目标 VM 上处理一组任务。 Azure 自动化用于管理现有 VM，而不是创建基础结构。 Azure 自动化可以跨 Linux 和 Windows VM 运行，还可以通过混合 Runbook 辅助角色在本地虚拟机或物理机上运行。 可以将 Runbook 存储在源代码管理存储库（例如 GitHub）中。 然后即可手动运行或按定义的计划运行这些 Runbook。
+[Azure 自动化](https://www.azure.cn/home/features/automation/)使用 Runbook 在目标 VM 上处理一组任务。 Azure 自动化用于管理现有 VM，而不是创建基础结构。 Azure 自动化可以跨 Linux 和 Windows VM 运行，还可以通过混合 Runbook 辅助角色在本地虚拟机或物理计算机上运行。 可以将 Runbook 存储在源代码管理存储库（例如 GitHub）中。 然后即可手动运行或按定义的计划运行这些 Runbook。
 
 Azure 自动化还提供 Desired State Configuration (DSC) 服务，用于针对给定的一组 VM 的配置方式创建定义。 然后，DSC 就可以确保所需配置得到应用且 VM 保持一致。 Azure 自动化 DSC 可以在 Windows 和 Linux 计算机上运行。
 
 了解如何：
 
 - [创建 PowerShell Runbook](../articles/automation/automation-first-runbook-textual-powershell.md)。
-<!-- Not Avaiable on - [Use Hybrid Runbook Worker to manage on-prem resources](../articles/automation/automation-hybrid-runbook-worker.md) -->
+<!-- Not Avaiable on - [Use Hybrid Runbook Worker to manage on-premises resources](../articles/automation/automation-hybrid-runbook-worker.md) -->
 <!-- Not Available on - [Use Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md) -->
 
 ## <a name="visual-studio-team-services"></a>Visual Studio Team Services
@@ -109,4 +109,3 @@ Azure 自动化还提供 Desired State Configuration (DSC) 服务，用于针对
 可以通过许多不同的选项，在 Azure 中使用基础结构自动化工具。 可以自由使用最适合自己的需求和环境的解决方案。 若要开始尝试一些内置到 Azure 的工具，请了解如何自动完成 [Linux](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md) 或 [Windows](../articles/virtual-machines/windows/tutorial-automate-vm-deployment.md) VM 的自定义。
 
 <!--Update_Description: wording update, update link -->
-<!--ms.date: 01/08/2018-->

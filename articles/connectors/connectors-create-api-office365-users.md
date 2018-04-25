@@ -16,11 +16,11 @@ ms.workload: integration
 origin.date: 08/18/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
-ms.openlocfilehash: 77fe325f6c923c70d974c145548f8e4ea2110314
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 0eafb186c0a83a689760626884b8ddecdf9b3aaf
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Office 365 用户连接器入门
 连接到 Office 365 用户，获取配置文件、搜索用户等。 通过 Office 365 用户，可以：
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/22/2018
 > 
 > 
 
-创建连接后，输入 Office 365 用户属性，如用户 ID。 本主题中的 **REST API 参考**介绍了这些属性。
+创建连接后，输入 Office 365 用户属性，如用户 ID。 本文中的 **REST API 参考**介绍了这些属性。
 
 ## <a name="connector-specific-details"></a>特定于连接器的详细信息
 

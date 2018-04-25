@@ -1,12 +1,11 @@
 ---
-title: "适用于 Java 的 Azure Cosmos DB 性能提示 | Azure"
-description: "了解用于提高 Azure Cosmos DB 数据库性能的客户端配置选项"
-keywords: "如何提高数据库性能"
+title: 适用于 Java 的 Azure Cosmos DB 性能提示 | Azure
+description: 了解用于提高 Azure Cosmos DB 数据库性能的客户端配置选项
+keywords: 如何提高数据库性能
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: 
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: dfe8f426-3c98-4edc-8094-092d41f2795e
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/02/2018
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: b3b891e7387963e162312be3ca3cb6fbc21980b3
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 5ba93d979f9b578e9d02f2ee48450a79eedd2d5b
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 > [!div class="op_single_selector"]
+> * [异步 Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
@@ -83,17 +83,17 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 3. **使用网关模式时，增加每个主机的 MaxPoolSize**
 
     使用网关模式时，Azure Cosmos DB 请求是通过 HTTPS/REST 发出的，并受制于每个主机名或 IP 地址的默认连接限制。 可能需要将 MaxPoolSize 设置为较大的值 (200-1000)，以便客户端库能够同时利用多个连接来访问 Azure Cosmos DB。 在 Java SDK 中，[ConnectionPolicy.getMaxPoolSize](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy) 的默认值为 100。 使用 [setMaxPoolSize]( https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) 可更改该值。
-<!-- URL is valid on ._connection_mode without gsetmaxpoolsize -->
+<!-- URL is valid on ._connection_policy without gsetmaxpoolsize -->
 
 4. **优化分区集合的并行查询。**
 
     Azure Cosmos DB SQL Java SDK 版本 1.9.0 和更高版本支持并行查询，可并行查询已分区集合（有关详细信息，请参阅[使用 SDK](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) 以及相关的[代码示例](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples)）。 并行查询旨改善查询延迟和串行配对物上的吞吐量。
 
-    (a) ***优化 setMaxDegreeOfParallelism\:***并行查询的方式是并行查询多个分区。 但就查询本身而言，会按顺序提取单个已分区集合中的数据。 因此，通过使用 [setMaxDegreeOfParallelism](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._feed_options.setmaxdegreeofparallelism) 设置分区数，最有可能实现查询的最高性能，但前提是所有其他系统条件仍保持不变。 如果不知道分区数，可使用 setMaxDegreeOfParallelism 设置一个较高的数值，系统会选择最小值（分区数、用户输入）作为最大并行度。 
+    (a) ***优化 setMaxDegreeOfParallelism\:*** 并行查询的方式是并行查询多个分区。 但就查询本身而言，会按顺序提取单个已分区集合中的数据。 因此，通过使用 [setMaxDegreeOfParallelism](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._feed_options.setmaxdegreeofparallelism) 设置分区数，最有可能实现查询的最高性能，但前提是所有其他系统条件仍保持不变。 如果不知道分区数，可使用 setMaxDegreeOfParallelism 设置一个较高的数值，系统会选择最小值（分区数、用户输入）作为最大并行度。 
 
     必须注意，如果查询时数据均衡分布在所有分区之间，则并行查询可提供最大的优势。 如果对分区集合进行分区，其中全部或大部分查询所返回的数据集中于几个分区（最坏的情况下为一个分区），则这些分区会遇到查询的性能瓶颈。
 
-    (b) ***优化 setMaxBufferedItemCount\:***并行查询专用于在客户端处理当前一批结果时预提取结果。 预提取帮助改进查询中的的总体延迟。 setMaxBufferedItemCount 会限制预提取结果的数目。 通过将 [setMaxBufferedItemCount](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._feed_options.setmaxbuffereditemcount) 设置为预期返回的结果数（或较高的数值），可使查询从预提取获得最大的好处。
+    (b) ***优化 setMaxBufferedItemCount\:*** 并行查询专用于在客户端处理当前一批结果时预提取结果。 预提取帮助改进查询中的的总体延迟。 setMaxBufferedItemCount 会限制预提取结果的数目。 通过将 [setMaxBufferedItemCount](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._feed_options.setmaxbuffereditemcount) 设置为预期返回的结果数（或较高的数值），可使查询从预提取获得最大的好处。
 
     预提取的工作方式不因 MaxDegreeOfParallelism 而异，并且有一个单独的缓冲区用来存储所有分区的数据。  
 
@@ -106,14 +106,14 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 7. **使用基于名称的寻址**
 
-    使用基于名称的寻址，其中的链接格式为 `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`，而不是使用格式为 `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` 的 SelfLinks (_self)（旨在避免检索用于构造链接的所有资源的 ResourceId）。 此外，由于会重新创建这些资源（名称可能相同），因此，缓存这些资源的用处不大。
+    使用基于名称的寻址，其中的链接格式为 `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`，而不是使用格式为 `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` 的 SelfLinks (\_self)（旨在避免检索用于构造链接的所有资源的 ResourceId）。 此外，由于会重新创建这些资源（名称可能相同），因此，缓存这些资源的用处不大。
 
    <a name="tune-page-size"></a>
 8. **调整查询/读取源的页面大小以获得更好的性能**
 
     使用读取源功能（例如 [readDocuments]( https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.readdocuments#com_microsoft_azure_documentdb__document_client_readDocuments_String_FeedOptions_c)）执行批量文档读取时，或发出 SQL 查询时，如果结果集太大，则以分段方式返回结果。 默认情况下，以包括 100 个项的块或 1 MB 大小的块返回结果（以先达到的限制为准）。
 
-    若要减少检索所有适用结果所需的网络往返次数，可以使用 [x-ms-max-item-count](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-request-headers) 请求标头将页面大小最大增加到 1000。 在只需要显示几个结果的情况下（例如，用户界面或应用程序 API 一次只返回 10 个结果），也可以将页面大小缩小为 10，以降低读取和查询所耗用的吞吐量。
+    若要减少检索所有适用结果所需的网络往返次数，可以使用 [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 请求标头将页面大小最大增加到 1000。 在只需要显示几个结果的情况下（例如，用户界面或应用程序 API 一次只返回 10 个结果），也可以将页面大小缩小为 10，以降低读取和查询所耗用的吞吐量。
 
     也可以使用 [setPageSize 方法](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer)设置页面大小。
 
@@ -146,7 +146,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     查询的复杂性会影响操作使用的请求单位数量。 谓词数、谓词性质、UDF 数目和源数据集的大小都会影响查询操作的成本。
 
-    若要测量任何操作（创建、更新或删除）的开销，请检查 [x-ms-request-charge](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) 标头（或 [ResourceResponse<T>](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._resource_response) 或 [FeedResponse<T>](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._feed_response) 中的等效 RequestCharge 属性）来测量这些操作占用的请求单位数。
+    若要测量任何操作（创建、更新或删除）的开销，请检查 [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) 标头（或 [ResourceResponse<T>](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._resource_response) 或 [FeedResponse<T>](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._feed_response) 中的等效 RequestCharge 属性）来测量这些操作占用的请求单位数。
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);
@@ -158,7 +158,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 <a name="429"></a>
 2. **处理速率限制/请求速率太大**
 
-    客户端尝试超过帐户保留的吞吐量时，服务器的性能不会降低，并且不会使用超过保留级别的吞吐量容量。 服务器将抢先结束 RequestRateTooLarge（HTTP 状态代码 429）的请求并返回 [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) 标头，该标头指示重新尝试请求前用户必须等待的时间量（以毫秒为单位）。
+    客户端尝试超过帐户保留的吞吐量时，服务器的性能不会降低，并且不会使用超过保留级别的吞吐量容量。 服务器将抢先结束 RequestRateTooLarge（HTTP 状态代码 429）的请求并返回 [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) 标头，该标头指示重新尝试请求前用户必须等待的时间量（以毫秒为单位）。
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge

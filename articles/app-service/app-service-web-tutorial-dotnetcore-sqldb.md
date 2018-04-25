@@ -15,11 +15,11 @@ origin.date: 01/23/2018
 ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 4e942ff839382c1965fe2dc4d0d8e4146c85a665
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 674b4f2844a6883e85f7f9e916ecff90df8c9b60
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>在 Azure 应用服务中生成 .NET Core 和 SQL 数据库 Web 应用
 
@@ -143,7 +143,7 @@ az sql db create --resource-group myResourceGroup --server <server_name> --name 
 将下列字符串替换为先前所使用的 \<server_name>、\<db_username> 和 \<db_password>。
 
 ```
-Server=tcp:<server_name>.database.chinacloudapi.cn,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=<db_username>;Password=<db_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+Server=tcp:<server_name>.database.chinacloudapi.cn,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
 ```
 
 这是 .NET Core 应用的连接字符串。 将其进行复制，留待稍后使用。
@@ -198,7 +198,7 @@ if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
             options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
 else
     services.AddDbContext<MyDatabaseContext>(options =>
-            options.UseSqlite("Data Source=MvcMovie.db"));
+            options.UseSqlite("Data Source=localdatabase.db"));
 
 // Automatically perform database migration
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
@@ -211,7 +211,8 @@ services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate
 保存所做的更改，然后将其提交到 Git 存储库。 
 
 ```bash
-git commit -am "connect to SQLDB in Azure"
+git add .
+git commit -m "connect to SQLDB in Azure"
 ```
 
 ### <a name="push-to-azure-from-git"></a>从 Git 推送到 Azure
@@ -343,7 +344,8 @@ dotnet run
 ### <a name="publish-changes-to-azure"></a>发布对 Azure 所做的更改
 
 ```bash
-git commit -am "added done field"
+git add .
+git commit -m "added done field"
 git push azure master
 ```
 

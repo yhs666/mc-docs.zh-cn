@@ -1,11 +1,10 @@
 ---
-title: "使用 Azure Cosmos DB 中的日期 | Azure"
-description: "了解如何使用 Azure Cosmos DB 中的日期。"
+title: 使用 Azure Cosmos DB 中的日期 | Azure
+description: 了解如何使用 Azure Cosmos DB 中的日期。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: e587772f-ce9f-498c-a017-a51e7265bb23
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/25/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6971d9e41d834a15b24595baf54c71db854dfcf7
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 368622c321a2e9ca6f2a27637750fcfa650f9b30
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的日期
 Azure Cosmos DB 通过本机 [JSON](http://www.json.org) 数据模型提供架构灵活性和丰富的索引。 所有 Azure Cosmos DB 资源（包括数据库、集合、文档和存储过程）均作为 JSON 文档进行建模和存储。 JSON（和 Azure Cosmos DB）仅支持一小部分基本类型：字符串、数字、布尔值、数组、对象和 Null。这是对可移植性的要求。 但是，JSON 具有相当的灵活性，允许开发人员和框架使用这些基元并将其编写为对象或数组，以便表示更复杂的类型。 
@@ -92,4 +91,4 @@ SQL .NET SDK 自动支持通过 LINQ 查询存储在 Azure Cosmos DB 中的数�
 * 详细了解 [SQL 查询](sql-api-sql-query.md)
 * 详细了解 [Azure Cosmos DB 索引策略](indexing-policies.md)
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties -->

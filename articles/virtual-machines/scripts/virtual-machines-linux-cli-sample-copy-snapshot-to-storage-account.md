@@ -1,27 +1,27 @@
 ---
-title: "Azure CLI 脚本示例 - 将快照作为 VHD 导出/复制到不同区域中的存储帐户 | Azure"
-description: "Azure CLI 脚本示例 - 将快照作为 VHD 导出/复制到相同或不同区域中的存储帐户"
+title: Azure CLI 脚本示例 - 将快照作为 VHD 导出/复制到不同区域中的存储帐户 | Azure
+description: Azure CLI 脚本示例 - 将快照作为 VHD 导出/复制到相同或不同区域中的存储帐户
 services: virtual-machines-linux
 documentationcenter: storage
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/19/2017
-ms.date: 01/08/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6c75f16cfc0c36209a19678fee50f1db4ee7ed7d
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 8e7b216c5567e9dcfc32aa0d33ce0a310e69a08c
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-cli"></a>使用 CLI 将托管快照作为 VHD 导出/复制到不同区域中的存储帐户
 
@@ -86,4 +86,4 @@ az storage blob copy start --destination-blob $destinationVHDFileName --destinat
 
 可以在 [Azure Linux VM 文档](../../app-service/app-service-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机和托管磁盘 CLI 脚本示例。
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties -->

@@ -8,19 +8,18 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-origin.date: 02/16/2018
-ms.date: 02/28/2018
+origin.date: 04/04/2018
+ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: d0883bac1259ff82545b2f69a4caaf1dd63d6a0f
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 87eff910a2d39f47381098f585354ced24819b5f
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
-<a name="create-an-azure-sql-database-logical-server"></a>
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>在 Azure 门户中创建 Azure SQL 数据库
 
-本快速入门教程逐步讲解如何在 Azure 中创建 SQL 数据库。 Azure SQL 数据库是一种“数据库即服务”产品，可用于在云中运行和缩放高可用性 SQL Server 数据库。 本快速入门教程介绍如何开始使用 Azure 门户创建 SQL 数据库。
+本快速入门教程逐步讲解如何使用[基于 DTU 的购买模型](sql-database-service-tiers.md#vcore-based-purchasing-model-preview)在 Azure 中创建 SQL 数据库。 Azure SQL 数据库是一种“数据库即服务”产品，可用于在云中运行和缩放高可用性 SQL Server 数据库。 本快速入门教程介绍如何开始使用 Azure 门户创建 SQL 数据库。
 
 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
 
@@ -106,7 +105,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
 1. 部署完成后，在左侧菜单中单击“SQL 数据库”，然后在“SQL 数据库”页上单击“mySampleDatabase”。 此时会打开数据库的概览页，显示完全限定的服务器名称（例如 **mynewserver-20170824.database.chinacloudapi.cn**），并且会提供进行进一步配置所需的选项。
 
-2. 在后续的快速入门中，请复制此完全限定的服务器名称，将其用于连接到服务器及其数据库。
+2. 在后续的快速入门教程中，请复制此完全限定的服务器名称，将其用于连接到服务器及其数据库。
 
    ![服务器名称](./media/sql-database-get-started-portal/server-name.png)
 
@@ -161,13 +160,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
 ## <a name="next-steps"></a>后续步骤
 
-有了数据库以后，即可使用偏好的工具进行连接和查询。 若要了解详细信息，请选择下面的工具：
-
-- [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-- [Visual Studio Code](sql-database-connect-query-vscode.md)
-- [.NET](sql-database-connect-query-dotnet.md)
-- [PHP](sql-database-connect-query-php.md)
-- [Node.js](sql-database-connect-query-nodejs.md)
-- [Java](sql-database-connect-query-java.md)
-- [Python](sql-database-connect-query-python.md)
-- [Ruby](sql-database-connect-query-ruby.md)
+- 有了数据库以后，即可使用一种偏好的工具或语言进行[连接和查询](sql-database-connect-query.md)。 
+- 若要了解如何设计第一个数据库、创建表和插入数据，请参阅以下教程之一：
+ - [使用 SSMS 设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)
+  - [设计 Azure SQL 数据库，并使用 C# 和 ADO.NET 进行连接](sql-database-design-first-database-csharp.md)

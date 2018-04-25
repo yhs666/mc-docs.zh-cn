@@ -4,7 +4,6 @@ description: Azure CLI 示例 - 创建和管理 Azure Cosmos DB 帐户、数据�
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: cosmos-db
@@ -14,17 +13,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: database
 origin.date: 11/29/2017
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 28ec419689d2a25ea10797f2959a3e8e97c717c5
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 97570958b140ad476921210837fc2e90f8824dc0
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 Azure CLI 示例
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 下表包括用于 Azure Cosmos DB 的示例 Azure CLI 脚本的链接。 所有 Azure Cosmos DB CLI 命令参考页可在 [Azure CLI 2.0 参考](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest)中找到。
 

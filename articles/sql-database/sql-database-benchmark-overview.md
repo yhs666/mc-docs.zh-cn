@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库基准检验概述
+title: Azure SQL 数据库 DTU 基准检验概述
 description: 本主题介绍在 Azure SQL 数据库的性能测量中使用的 Azure SQL 数据库基准检验。
 services: sql-database
 author: Hayley244
@@ -7,18 +7,18 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-origin.date: 06/21/2016
-ms.date: 07/10/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 9134c301f7c1caf1dac6b36ef6000bcce1b0f6e5
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 8d41d31bf21703b5c35f3a063348613bb8fd6702
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="azure-sql-database-benchmark-overview"></a>Azure SQL 数据库基准检验概述
+# <a name="azure-sql-database-dtu-benchmark-overview"></a>Azure SQL 数据库 DTU 基准检验概述
 ## <a name="overview"></a>概述
-Azure SQL 数据库提供了三个具有多个性能级别的[服务层](sql-database-service-tiers.md)。 每个性能级别均提供不断增加的资源集或“能力”，旨在递增地提供更高的吞吐量。
+在基于 DTU 的购买模型中，Microsoft Azure SQL 数据库提供了三个具有多个性能级别的[服务层](sql-database-service-tiers.md)。 每个性能级别均提供不断增加的资源集或“能力”，旨在递增地提供更高的吞吐量。
 
 能够量化每个性能级别的递增能力如何转换为更高的数据库性能至关重要。 为此，Microsoft 开发了 Azure SQL 数据库基准检验 (ASDB)。 基准检验将执行在所有 OLTP 工作负荷中找到的基本操作组合。 我们会度量为每个性能级别下运行的数据库实现的吞吐量。
 
@@ -101,7 +101,7 @@ ASDB 将度量联机事务处理 (OLTP) 工作负荷中最常发生的基本数�
 | 标准 (S2) |50 |7.1 GB |
 | 高级 (P1) |100 |14 GB |
 | 高级 (P2) |200 |28 GB |
-| 高级 (P6/P3) |800 |114 GB |
+| 高级 (P6) |800 |114 GB |
 
 ## <a name="measurement-duration"></a>度量持续时间
 有效地运行基准检验需要稳定状态度量持续时间至少为 1 小时。

@@ -5,7 +5,6 @@ services: cosmos-db
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: tysonn
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6cc74b77a77eab485cf1c7016aad40ce8ac79e39
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 143f297b33d9a2fb975b2ef8e7eca58ce91edf04
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-table-storage-overview"></a>Azure 表存储概述
 

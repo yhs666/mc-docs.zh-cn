@@ -1,25 +1,25 @@
 ---
-title: "使用 Azure 资源管理器模板创建服务总线消息命名空间"
-description: "使用 Azure 资源管理器模板创建服务总线消息命名空间"
+title: 使用 Azure 资源管理器模板创建服务总线消息命名空间
+description: 使用 Azure 资源管理器模板创建服务总线消息命名空间
 services: service-bus
 documentationCenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: dc0d6482-6344-4cef-8644-d4573639f5e4
 ms.service: service-bus
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 12/21/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 02/05/2018
-ms.openlocfilehash: 2cc0bd1fec26c0228217d4ab3f9d68ed36216bfc
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 04/30/2018
+ms.openlocfilehash: 5fa4891d08a3d5b9bd5866d325459992ac656a65
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建服务总线命名空间
 
@@ -117,8 +117,7 @@ ms.lasthandoff: 02/13/2018
         "location": "[variables('location')]",
         "kind": "Messaging",
         "sku": {
-            "name": "StandardSku",
-            "tier": "Standard"
+            "name": "Standard",
         },
         "properties": {
         }

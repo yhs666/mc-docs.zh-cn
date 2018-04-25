@@ -1,11 +1,10 @@
 ---
-title: "使用模板部署 Web 应用 - Azure Cosmos DB | Azure"
-description: "了解如何使用 Azure Resource Manager 模板部署 Azure Cosmos DB 帐户、Azure 应用服务 Web 应用以及示例 Web 应用程序。"
+title: 使用模板部署 Web 应用 - Azure Cosmos DB | Azure
+description: 了解如何使用 Azure Resource Manager 模板部署 Azure Cosmos DB 帐户、Azure 应用服务 Web 应用以及示例 Web 应用程序。
 services: cosmos-db, app-service\web
 author: rockboyfor
 manager: digimobile
-editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 087d8786-1155-42c7-924b-0eaba5a8b3e0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/23/2018
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7ed4ec8f5c0947707d271094186c5ef7694ce696
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: ff3f5212d5dba5988c073a5157bdb70ff7805de4
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板部署 Azure Cosmos DB 和 Azure 应用服务 Web 应用
 本教程说明如何使用 Azure Resource Manager 模板来部署和集成 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/)、[Azure 应用服务](/app-service-web/app-service-changes-existing-services)、Web 应用以及示例 Web 应用程序。
@@ -79,7 +78,7 @@ ms.lasthandoff: 03/02/2018
    ![模板部署 UI 的屏幕截图](./media/create-website/TemplateDeployment6.png)
 7. 部署完成后，会打开“资源组”窗格。
    ![“资源组”窗格的屏幕截图](./media/create-website/TemplateDeployment7.png)  
-8. 若要使用应用程序，请导航到 Web 应用 URL（上述示例中的 URL 是 http://mydemodocdbwebapp.chinacloudsites.cn）。  会看到下列 Web 应用程序：
+8. 若要使用应用程序，请导航到 Web 应用 URL（上述示例中的 URL 是 http://mydemodocdbwebapp.chinacloudsites.cn)）。  会看到下列 Web 应用程序：
 
    ![示例待办事项应用程序](./media/create-website/image2.png)
 9. 继续在 Web 应用中创建几个任务，并返回到 Azure 门户中的“资源组”窗格。 单击“资源”列表中的“Azure Cosmos DB 帐户”资源，并单击“数据资源管理器”。
@@ -137,4 +136,4 @@ ms.lasthandoff: 03/02/2018
 <!-- Not Available on [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) -->
 
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: update meta properties -->

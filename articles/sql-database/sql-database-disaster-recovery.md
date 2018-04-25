@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-origin.date: 12/13/2017
-ms.date: 01/08/2018
+origin.date: 04/04/2018
+ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: 4b77e16226243b4e3097f02da05689a7b5e44b40
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 888e3d0f74f9ac585ebe2f4ac38218e1115a6723
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>还原 Azure SQL 数据库或故障转移到辅助数据库
 Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
@@ -26,12 +26,12 @@ Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
 若要了解业务连续性方案以及支持这些方案的功能，请参阅[业务连续性](sql-database-business-continuity.md)。
 
 > [!NOTE]
-> 如果使用区域冗余高级数据库或池，则恢复过程是自动完成的，此材料的其余部分不适用。 
+> 如果使用区域冗余高级或业务关键数据库或池（预览），将自动执行恢复过程，此材料的其余部分将不适用。 
 
 ### <a name="prepare-for-the-event-of-an-outage"></a>准备好应对中断事件
 为了使用故障转移组或异地冗余备份成功恢复到其他数据区域，需要为下一次数据中心服务中断准备服务器，以便在需要时使其成为新的主服务器，还需要记录、测试各项明确定义的步骤，确保顺利恢复数据。 准备步骤包括：
 
-* 标识其他区域中要成为新的主服务器的逻辑服务器。 对于异地还原，此服务器通常位于数据库所在区域的配对区域（中国北部和中国东部）中。 这样就不需支付异地还原操作过程中引发的额外的流量费用。
+* 标识其他区域中要成为新的主服务器的逻辑服务器。 对于异地还原，这个服务器通常位于数据库所在区域的[配对区域](../best-practices-availability-paired-regions.md)中。 这会在异地还原操作期间消除额外的流量成本。
 * 标识（并选择性定义）用户访问新的主数据库时所需的服务器级防火墙规则。
 * 确定要如何将用户重定向到新的主服务器，例如通过更改连接字符串或更改 DNS 条目。
 * 标识（并选择性创建）新主服务器的 master 数据库中必须存在的登录信息，并确保这些登录信息在 master 数据库中具有相应权限（若有）。 有关详细信息，请参阅[灾难恢复后的 SQL 数据库安全性](sql-database-geo-replication-security-config.md)
@@ -53,7 +53,7 @@ Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
 使用[获取可恢复数据库](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) 获取最新的异地复制还原点。
 
 ## <a name="wait-for-service-recovery"></a>等待服务恢复
-Azure 团队会努力尽快还原服务可用性，但视根本原因而定，有可能需要数小时或数天的时间。  如果应用程序可以容忍长时间停机，则可以等待恢复完成。 在此情况下，不需要采取任何操作。 可在 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)上查看当前服务状态。 在区域恢复后，将会还原应用程序的可用性。
+Azure 团队会努力尽快还原服务可用性，但视根本原因而定，有可能需要数小时或数天的时间。  如果应用程序可以容忍长时间停机，则可以等待恢复完成。 在此情况下，不需要采取任何操作。 可在 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)上查看当前服务状态。 在区域恢复后，会还原应用程序的可用性。
 
 ## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>故障转移到故障转移组中异地复制的辅助服务器
 如果应用程序停机可能会带来业务责任，则应当使用故障转移组。 这样，应用程序在发生中断时，就可以快速还原其他区域的可用性。 了解如何[配置故障转移组](sql-database-geo-replication-portal.md)。

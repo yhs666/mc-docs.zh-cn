@@ -1,27 +1,27 @@
 ---
-title: "PowerShell 示例 - 审核 - 威胁检测 - Azure SQL 数据库 | Azure"
-description: "在 Azure SQL 数据库中配置审核和威胁检测的 Azure PowerShell 示例脚本"
+title: PowerShell 示例 - 审核 - 威胁检测 - Azure SQL 数据库 | Azure
+description: 在 Azure SQL 数据库中配置审核和威胁检测的 Azure PowerShell 示例脚本
 services: sql-database
 documentationcenter: sql-database
 author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: mvc,security
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 09/08/2017
-ms.date: 10/02/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 7e8f7974a7817af0678acf40f0c4dcafe61aabe4
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 6d550f4826084ba5de7729a66d24fb12faf05204
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>使用 PowerShell 配置 SQL 数据库审核和威胁检测
 
@@ -108,7 +108,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver) | 创建用于托管数据库或弹性池的逻辑服务器。 |

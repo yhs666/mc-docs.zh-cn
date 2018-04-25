@@ -13,18 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 10/17/2017
-ms.date: 03/19/2018
+origin.date: 02/20/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: e1547117e7fc3c7a960ed7d5e1f292807d8cec31
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: aa2082143bc04812d2bcd18382e03667ac2ba452
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定价指南
 
-本文提供 Azure 的 SQL Server 虚拟机的定价指南。 有几个选项会影响成本，请务必选取适当的映像来平衡成本与业务需求。
+本文提供 Azure 中 [SQL Server 虚拟机](virtual-machines-windows-sql-server-iaas-overview.md)的定价指南。 有几个选项会影响成本，请务必选取适当的映像来平衡成本与业务需求。
+
+> [!TIP]
+> 如果只需了解特定 SQL Server 版本和虚拟机大小组合的成本估算值，请参阅[定价页](https://www.azure.cn/pricing/details/virtual-machines/)。 从“操作系统/软件”列表中选择你的操作系统和 SQL Server 版本。
+>
+> ![VM 定价页上的 UI](./media/virtual-machines-windows-sql-server-pricing-guidance/virtual-machines-pricing-ui.png)
+>
+> 或使用[定价计算器](https://www.azure.cn/pricing/#explore-cost)添加并配置虚拟机。 
 
 ## <a name="free-licensed-sql-server-editions"></a>SQL Server 免费授权版
 

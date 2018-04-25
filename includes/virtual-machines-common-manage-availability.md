@@ -1,3 +1,20 @@
+---
+title: include 文件
+description: include 文件
+services: virtual-machines
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 03/09/2018
+ms.date: 04/16/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: a88c481b35155741fa532e842a47e5162af32164
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>了解 VM 重启 - 维护和停机
 有三种情况可能会导致 Azure 中的虚拟机受影响：计划外硬件维护、意外停机、计划内维护。
 
@@ -70,4 +87,5 @@
 <!-- Not Avaiable on [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets -->
 [在可用性集中对 VM 使用托管磁盘]: #use-managed-disks-for-vms-in-an-availability-set
 <!-- Not Available on [Use availability zones to protect from datacenter level failures]: #use-availability-zones-to-protect-from-datacenter-level-failures-->
-<!--ms.date: 03/19/2018-->
+
+<!-- Update_Description: update meta properties -->

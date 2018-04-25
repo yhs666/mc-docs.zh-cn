@@ -1,25 +1,25 @@
 ---
-title: "Azure AD Connect 同步的属性 | Microsoft 文档"
-description: "列出同步到 Azure Active Directory 的属性。"
+title: Azure AD Connect 同步的属性 | Microsoft 文档
+description: 列出同步到 Azure Active Directory 的属性。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/17/2017
-ms.date: 12/25/2017
+origin.date: 03/05/2018
+ms.date: 04/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: 83da5531d1b2393e14c6737aa89a61a99ab9e3a5
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: f0ad5570af774a110654dd23547b7c9f260b9154
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步：与 Azure Active Directory 同步的属性
 本主题列出通过 Azure AD Connect 同步进行同步的属性。  
@@ -421,17 +421,17 @@ ms.lasthandoff: 12/28/2017
 ## <a name="exchange-hybrid-writeback"></a>Exchange 混合写回
 选择启用 **Exchange 混合**部署时，这些属性从 Azure AD 写回到本地 Active Directory。 根据 Exchange 版本，可能会同步更少的属性。
 
-| 属性名称 | User | 联系人 | 组 | 注释 |
-| --- |:---:|:---:|:---:| --- |
-| msDS-ExternalDirectoryObjectID |X | | |派生自 Azure AD 中的 cloudAnchor。 此属性是 Exchange 2016 和 Windows Server 2016 AD 中的新增属性。 |
-| msExchArchiveStatus |X | | |联机存档：使客户能够存档邮件。 |
-| msExchBlockedSendersHash |X | | |筛选：从客户端写回本地筛选及在线安全和已阻止的发件人数据。 |
-| msExchSafeRecipientsHash |X | | |筛选：从客户端写回本地筛选及在线安全和已阻止的发件人数据。 |
-| msExchSafeSendersHash |X | | |筛选：从客户端写回本地筛选及在线安全和已阻止的发件人数据。 |
-| msExchUCVoiceMailSettings |X | | |启用统一消息传送 (UM) - 在线语音邮件：供 Microsoft Lync Server 集成用于向 Lync Server 本地指示用户在在线服务中有语音邮件。 |
-| msExchUserHoldPolicies |X | | |诉讼数据保留：启用云服务来标识哪些用户正处于诉讼数据保留状态。 |
-| proxyAddresses |X |X |X |只插入 Exchange Online 中的 x500 地址。 |
-| publicDelegates |X | | |允许向拥有本地 Exchange 邮箱的用户授予 Exchange Online 邮箱的 SendOnBehalfTo 权限。 需要 Azure AD Connect 内部版本 1.1.552.0 或更高版本。 |
+| 属性名称（连接 UI） |属性名称（本地 AD） | User | 联系人 | 组 | 注释 |
+| --- |:---:|:---:|:---:| --- |---|
+| msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |派生自 Azure AD 中的 cloudAnchor。 此属性是 Exchange 2016 和 Windows Server 2016 AD 中的新增属性。 |
+| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |联机存档：使客户能够存档邮件。 |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |筛选：从客户端写回本地筛选及在线安全和已阻止的发件人数据。 |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |筛选：从客户端写回本地筛选及在线安全和已阻止的发件人数据。 |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |筛选：从客户端写回本地筛选及在线安全和已阻止的发件人数据。 |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |启用统一消息传送 (UM) - 在线语音邮件：供 Microsoft Lync Server 集成用于向 Lync Server 本地指示用户在在线服务中有语音邮件。 |
+| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |诉讼数据保留：启用云服务来标识哪些用户正处于诉讼数据保留状态。 |
+| ProxyAddresses| ProxyAddresses |X |X |X |只插入 Exchange Online 中的 x500 地址。 |
+| publicDelegates| ms-Exch-Public-Delegates  |X | | |允许向拥有本地 Exchange 邮箱的用户授予 Exchange Online 邮箱的 SendOnBehalfTo 权限。 需要 Azure AD Connect 内部版本 1.1.552.0 或更高版本。 |
 
 ## <a name="exchange-mail-public-folder"></a>Exchange 邮件公共文件夹
 如果选择启用 Exchange 邮件公用文件夹，这些属性将从本地 Active Directory 同步到 Azure AD。

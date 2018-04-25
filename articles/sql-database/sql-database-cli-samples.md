@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.custom: overview-samples, mvc
 ms.devlang: azurecli
 ms.topic: sample
-origin.date: 06/23/2017
-ms.date: 07/31/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-haiqya
-ms.openlocfilehash: c7f77678a55b7931023c6914e5d37e9e3d8dd38c
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 6f8bff73281dc089305849753a5367d7b513bd6c
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Azure CLI 示例
 

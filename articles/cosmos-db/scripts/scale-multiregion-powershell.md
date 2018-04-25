@@ -1,13 +1,12 @@
 ---
-title: "Azure PowerShell 脚本 - Azure Cosmos DB 的多区域复制 | Azure"
-description: "Azure PowerShell 脚本示例 - Azure Cosmos DB 的多区域复制"
+title: Azure PowerShell 脚本 - Azure Cosmos DB 的多区域复制 | Azure
+description: Azure PowerShell 脚本示例 - Azure Cosmos DB 的多区域复制
 services: cosmos-db
 documentationcenter: cosmosdb
 author: rockboyfor
 manager: digimobile
-editor: 
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: PowerShell
@@ -15,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 05/10/2017
-ms.date: 07/17/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: bb362180bddca5e4da95173236ddc1145c9ea0a3
-ms.sourcegitcommit: b15d77b0f003bef2dfb9206da97d2fe0af60365a
+ms.openlocfilehash: fc91bc74c8a7898e1d74cdfe9fa8044ce4ff8cf8
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-powershell"></a>使用 PowerShell 将 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级
 
@@ -34,16 +33,14 @@ ms.lasthandoff: 07/07/2017
 ```powershell
 # Set the Azure resource group name and location
 $resourceGroupName = "myResourceGroup"
-$resourceGroupLocation = "South Central US"
+$resourceGroupLocation = "China East"
 
 # Database name
 $DBName = "testdb"
 # Distribution locations
-$locations = @(@{"locationName"="East US"; 
-                 "failoverPriority"=2},
-               @{"locationName"="West US"; 
+$locations = @(@{"locationName"="China East"; 
                  "failoverPriority"=1},
-               @{"locationName"="South Central US"; 
+               @{"locationName"="China North"; 
                  "failoverPriority"=0})
 
 # Create the resource group
@@ -68,14 +65,10 @@ New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
                     -PropertyObject $DBProperties
 
 # Modify locations/priorities
-$newLocations = @(@{"locationName"="West US"; 
-                 "failoverPriority"=0},
-               @{"locationName"="East US"; 
+$newLocations = @(@{"locationName"="China North"; 
                  "failoverPriority"=1},
-               @{"locationName"="South Central US"; 
-                 "failoverPriority"=2},
-               @{"locationName"="North Central US";
-                 "failoverPriority"=3})
+               @{"locationName"="China East"; 
+                 "failoverPriority"=0})
 
 # Updated properties
 $updateDBProperties = @{"databaseAccountOfferType"="Standard";
@@ -102,16 +95,17 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/zh-cn/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
-| [New-AzureRmResource](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | 创建用于托管数据库或弹性池的逻辑服务器。 |
-| [Set-AzureRMResource](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.resources/set-azurermresource?view=azurermps-3.8.0) | 修改数据库帐户。 |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/zh-cn/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | 创建用于托管数据库或弹性池的逻辑服务器。 |
+| [Set-AzureRMResource](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermresource?view=azurermps-3.8.0) | 修改数据库帐户。 |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 |||
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/zh-cn/powershell/)。
+有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
+<!-- Update_Description: wording update, update link -->

@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-origin.date: 09/30/2016
-ms.date: 07/31/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 50318623277f1c95d5f5bab054533a1f1dcd8fb3
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 7695cb66a835483325206603156260df25a9150b
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>获取对应用程序进行身份验证所需的值以便从代码访问 SQL 数据库
 若要在代码中创建并管理 SQL 数据库，必须在创建 Azure 资源的订阅中的 Azure Active Directory (AAD) 域内注册你的应用。

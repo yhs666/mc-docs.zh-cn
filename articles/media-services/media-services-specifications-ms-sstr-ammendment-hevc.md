@@ -16,10 +16,10 @@ origin.date: 03/07/2018
 ms.date: 03/20/2018
 ms.author: v-nany
 ms.openlocfilehash: dc1587edf55315213c14868e3e57ed341d70207e
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/17/2018
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-ammendment-for-hevc"></a>HEVC 的平滑流式处理协议 (MS-SSTR) 修正
 

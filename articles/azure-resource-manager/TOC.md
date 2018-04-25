@@ -90,7 +90,8 @@
 ## [Azure CLI](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest)
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](https://docs.azure.cn/java/api/com.microsoft.azure.management.resources)
-## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
+<!-- Not Available on ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html) -->
+<!-- URL is not Available on resourcemanagement.html -->
 ## [REST](https://docs.microsoft.com/rest/api/resources/)
 
 # 资源

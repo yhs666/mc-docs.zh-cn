@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-origin.date: 10/24/2016
-ms.date: 11/06/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 09738e795feae6b4d2ce96c3bbef7f0ede7f01e2
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 79cee727a7d1e95b07557d10817ee9da2f510ab4
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>部署拆分/合并服务
 可使用拆分/合并工具在分片数据库之间移动数据。 请参阅[在扩展云数据库之间移动数据](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -177,7 +177,7 @@ pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
     <td>2.    创建 2 个分片数据库。
   </tr>
   <tr>
-    <td>3.    为这些数据库创建一个分片映射（删除这些数据库上的任何现有的分片映射）。 </td>
+    <td>3.    为这些数据库创建一个分片映射（删除这些数据库上的任何现有分片映射）。 </td>
   </tr>
   <tr>
     <td>4.    在这两个分片中创建一个小的示例表，然后使用一个分片填充该表。</td>

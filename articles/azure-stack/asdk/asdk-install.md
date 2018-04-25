@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/16/2018
-ms.date: 03/22/2018
+origin.date: 03/22/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: 388a38fe847872e2bf4871d288bb4a6d24bfd02e
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 9eddc2f92dbef1d9479b8173d57962d21192beea
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>安装 Azure Stack 开发工具包 (ASDK)
 [准备 ASDK 主机](asdk-prepare-host.md)后，可以使用本文中的以下步骤将 ASDK 部署到 CloudBuilder.vhdx 映像中。
@@ -99,3 +99,4 @@ ms.lasthandoff: 03/23/2018
 ## <a name="next-steps"></a>后续步骤
 [部署后的配置](asdk-post-deploy.md)
 
+<!-- Update_Description: update metedata properties -->

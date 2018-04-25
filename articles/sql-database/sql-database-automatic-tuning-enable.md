@@ -8,14 +8,14 @@ ms.assetid: ''
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-origin.date: 09/19/2016
-ms.date: 12/11/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: 84a91cb84c9174b522eb89964e318d15bc52819e
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 0a18197da385a076fdcfe7a71f43d97cf91529c4
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="enable-automatic-tuning"></a>启用自动优化
 

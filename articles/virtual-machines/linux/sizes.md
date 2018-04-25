@@ -1,11 +1,11 @@
 ---
-title: "Azure 中的 Linux VM 大小 | Azure"
-description: "列出 Azure 中 Linux 虚拟机的不同可用大小。"
+title: Azure 中的 Linux VM 大小 | Azure
+description: 列出 Azure 中 Linux 虚拟机的不同可用大小。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: da681171-f045-4c80-a5a9-d8bd47964673
 ms.service: virtual-machines-linux
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 11/08/2017
-ms.date: 02/05/2018
+origin.date: 03/01/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8fe19514015c8cc70eed4c4e02a7b40aa0e52d00
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 44f30f60d008c7faf341404e9392e0833742ca9c
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虚拟机的大小
 本文介绍可用于运行 Linux 应用和工作负荷的 Azure 虚拟机的可用大小与选项。 此外，还提供在计划使用这些资源时要考虑的部署注意事项。 本文也适用于 [Windows 虚拟机](../windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -66,5 +66,5 @@ ms.lasthandoff: 02/13/2018
 <!--Not Available- [GPU](sizes-gpu.md)-->
 <!--Not Available- [High performance compute](sizes-hpc.md)-->
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: update meta properties, wording update -->
 <!--PENDING FOR B-SERIES, Ev3, Dv3 GA ANOUNCEMENT -->

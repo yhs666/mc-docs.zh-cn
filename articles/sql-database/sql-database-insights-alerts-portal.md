@@ -7,14 +7,14 @@ services: sql-database
 ms.service: sql-database
 ms.custom: monitor and tune
 ms.topic: article
-origin.date: 06/06/2017
-ms.date: 10/02/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 5bed814304b0dca5d2dd4772c5ba4b1f0a7d6d9a
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: dd9f3b9344e1550f358e2f4296dce45262727b66
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>使用 Azure 门户为 Azure SQL 数据库和数据仓库创建警报
 

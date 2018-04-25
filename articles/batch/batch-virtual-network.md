@@ -1,19 +1,19 @@
 ---
-title: "在虚拟网络中预配 Azure Batch 池 | Microsoft Docs"
-description: "可以在虚拟网络中创建 Batch 池，以便计算节点可以安全地与网络中的其他 VM（例如文件服务器）进行通信。"
+title: 在虚拟网络中预配 Azure Batch 池 | Microsoft Docs
+description: 可以在虚拟网络中创建 Batch 池，以便计算节点可以安全地与网络中的其他 VM（例如文件服务器）进行通信。
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 origin.date: 02/05/2018
-ms.date: 03/07/2018
+ms.date: 04/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: 94a53340a36ecd32e6b71a74fbbf9b39eb494425
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 33ebacb77564168ea8a2a35cadca2e32cddb5f1d
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>在虚拟网络中创建 Azure Batch 池
 
@@ -33,7 +33,7 @@ Azure Batch 池具有两个设置来允许计算节点彼此进行通信，例�
 
 - **身份验证**。 若要使用 Azure VNet，Batch 客户端 API 必须使用 Azure Active Directory (AD) 身份验证。 有关 Azure AD 的 Azure Batch 支持，请参阅[使用 Active Directory 对 Batch 服务解决方案进行身份验证](batch-aad-auth.md)。 
 
-- **一个 Azure VNet**。 若要提前准备具有一个或多个子网的 VNet，可以使用 Azure 门户、Azure PowerShell、Azure 命令行接口 (CLI) 或其他方法。 若要创建基于 Azure 资源管理器的 VNet，请参阅 [Create a virtual network with multiple subnets](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)（创建具有多个子网的虚拟网络）。 若要创建经典 VNet，请参阅 [Create a virtual network (classic) with multiple subnets](../virtual-network/create-virtual-network-classic.md)（创建具有多个子网的虚拟网络（经典））。
+- **一个 Azure VNet**。 若要提前准备具有一个或多个子网的 VNet，可以使用 Azure 门户、Azure PowerShell、Azure 命令行接口 (CLI) 或其他方法。 若要创建经典 VNet，请参阅 [Create a virtual network (classic) with multiple subnets](../virtual-network/create-virtual-network-classic.md)（创建具有多个子网的虚拟网络（经典））。
 
 ### <a name="vnet-requirements"></a>VNet 要求
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
@@ -71,6 +71,5 @@ Azure Batch 池具有两个设置来允许计算节点彼此进行通信，例�
 ## <a name="next-steps"></a>后续步骤
 
 - 有关 Batch 深入概述的信息，请参阅[使用 Batch 开发大规模并行计算解决方案](batch-api-basics.md)。
-- 有关创建用户定义的路由的详细信息，请参阅[创建用户定义的路由 - Azure 门户](../virtual-network/create-user-defined-route-portal.md)。
 
-<!--Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

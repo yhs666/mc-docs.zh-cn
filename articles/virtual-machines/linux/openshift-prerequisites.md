@@ -1,24 +1,24 @@
 ---
-title: "Azure 中的 OpenShift 的先决条件 | Azure"
-description: "在 Azure 中部署 OpenShift 的先决条件。"
+title: Azure 中的 OpenShift 的先决条件 | Azure
+description: 在 Azure 中部署 OpenShift 的先决条件。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/08/2018
-ms.openlocfilehash: 4c409846f97757994cfb49a05bd6d30154008965
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 09f5c5909c6ce87c3a1ebc6715670230e10aa2d4
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>在 Azure 中部署 OpenShift 所要满足的一般先决条件
 
@@ -51,7 +51,7 @@ OpenShift 的安装使用 Ansible 攻略。 Ansible 使用安全外壳 (SSH) 连
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure 
-使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 命令登录到 Azure 订阅，按屏幕说明操作，或者单击“试用”使用 Cloud Shell。
+使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 命令登录到 Azure 订阅，按屏幕说明操作，或者单击“试用”使用 Cloud Shell。
 
 ```azurecli 
 az login

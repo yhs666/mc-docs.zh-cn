@@ -1,11 +1,10 @@
 ---
-title: "使用 Azure Cosmos DB 中的地理空间数据 | Azure"
-description: "了解如何使用 Azure Cosmos DB 和 SQL API 创建、索引和查询空间对象。"
+title: 使用 Azure Cosmos DB 中的地理空间数据 | Azure
+description: 了解如何使用 Azure Cosmos DB 和 SQL API 创建、索引和查询空间对象。
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: monicar
 ms.assetid: 82ce2898-a9f9-4acf-af4d-8ca4ba9c7b8f
 ms.service: cosmos-db
 ms.devlang: na
@@ -13,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 origin.date: 10/20/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cc96c8b5c4aa8e813f0c451f7795de74d41c3373
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: d60ab1c03c1ae8ac8667c3557f271fb3cfc8957b
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的地理空间和 GeoJSON 位置数据
 本文介绍了 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 中的地理空间功能。 在阅读本文之后，能够回答以下问题：

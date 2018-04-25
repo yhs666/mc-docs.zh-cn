@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-origin.date: 02/06/2017
-ms.date: 07/31/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 152c0f055cfdb3ea638848b5241ee902a16f7f31
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 82ac92e9103eb5307d00b14b337df43595d64678
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-sql-database-access-control"></a>Azure SQL 数据库访问控制
 为了确保安全性，SQL 数据库会进行访问控制，即：使用防火墙规则来限制通过 IP 地址进行的连接，使用身份验证机制来要求用户证明其身份，并使用授权机制来限制用户执行特定操作和访问特定数据。 

@@ -9,11 +9,11 @@ ms.topic: article
 origin.date: 02/08/2018
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0352e4a86d80dc6081a780cb8a343bc28be05c38
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: e87da25395d8da3689e09b964171231c908ecb36
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>关于 Azure 到 Azure 复制的网络
 
@@ -52,6 +52,7 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
 *.hypervrecoverymanager.windowsazure.cn | 必需，以便从 VM 进行 Site Recovery 服务通信。
 *.servicebus.chinacloudapi.cn | 必需，以便从 VM 写入 Site Recovery 监视和诊断数据。
 
+<a name="outbound-connectivity-for-azure-site-recovery-ip-ranges"></a>
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 地址范围的出站连接
 
 如果使用基于 IP 的防火墙代理或 NSG 规则来控制出站连接，需要允许这些 IP 地址范围。

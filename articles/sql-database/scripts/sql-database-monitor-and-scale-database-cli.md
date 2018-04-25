@@ -1,27 +1,27 @@
 ---
-title: "CLI 示例 - 监视缩放 - 单一 Azure SQL 数据库 | Azure"
-description: "监视和缩放单一 Azure SQL 数据库的 Azure CLI 示例脚本"
+title: CLI 示例 - 监视缩放 - 单一 Azure SQL 数据库 | Azure
+description: 监视和缩放单一 Azure SQL 数据库的 Azure CLI 示例脚本
 services: sql-database
 documentationcenter: sql-database
 author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 06/23/2017
-ms.date: 11/06/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: d0610c0f3157276d16ffa3dbe92a5fa32da4056c
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: f4b203aa66ec30eb0ac7ff3e6bcc6655d854207c
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>使用 CLI 监视和缩放单一 SQL 数据库
 

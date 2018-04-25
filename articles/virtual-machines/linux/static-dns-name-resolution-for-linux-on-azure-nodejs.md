@@ -1,38 +1,38 @@
 ---
-title: "在 Azure 上使用内部 DNS 进行 VM 名称解析 | Azure"
-description: "在 Azure 上使用内部 DNS 进行 VM 名称解析。"
+title: 在 Azure 上使用内部 DNS 进行 VM 名称解析 | Azure
+description: 在 Azure 上使用内部 DNS 进行 VM 名称解析。
 services: virtual-machines-linux
-documentationcenter: 
-author: hayley244
+documentationcenter: ''
+author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/05/2016
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 98685ff0fd81c9bda2a318b2267b1159999ba04f
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 04/16/2018
+ms.author: v-yeche
+ms.openlocfilehash: a6249ca982afbe3ef6d222eaa7df4656f47e2bdc
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>在 Azure 上使用内部 DNS 进行 VM 名称解析
 
 本文说明如何使用虚拟 NIC 卡 (VNic) 和 DNS 标签名称为 Linux VM 设置静态内部 DNS 名称。 静态 DNS 名称用于永久基础结构服务，如本文档所使用的 Jenkins 生成服务器或 Git 服务器。
 
-要求包括：
+要求如下：
 
 * [一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)
 * [SSH 公钥和私钥文件](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
-可使用以下 CLI 版本之一完成任务：
+可以使用以下 CLI 版本之一完成任务：
 
 - [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
 - [Azure CLI 2.0](static-dns-name-resolution-for-linux-on-azure.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
@@ -41,7 +41,7 @@ ms.lasthandoff: 08/29/2017
 
 如果需要快速完成任务，以下部分详细介绍所需的命令。 本文档的余下部分（ [从此处开始](#detailed-walkthrough)）提供了每个步骤的更详细信息和上下文。  
 
-前提条件： 资源组、VNet、将 SSH 入站的 NSG、子网。
+前提条件：资源组、VNet、SSH 入站的 NSG、子网。
 
 ### <a name="create-a-vnic-with-a-static-internal-dns-name"></a>使用静态内部 DNS 名称创建 VNic
 
@@ -94,7 +94,7 @@ azure group create myResourceGroup \
 
 ## <a name="create-the-vnet"></a>创建 VNet
 
-第一步是生成用于在其中启动 VM 的 VNet。  该 VNet 包含本演练所用的一个子网。  有关 Azure VNet 的详细信息，请参阅[使用 Azure CLI 创建虚拟网络](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+第一步是生成用于在其中启动 VM 的 VNet。  该 VNet 包含本演练所用的一个子网。  有关 Azure VNet 的详细信息，请参阅[创建虚拟网络](../../virtual-network/manage-virtual-network.md?toc=%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)
 
 ```azurecli
 azure network vnet create myVNet \
@@ -115,7 +115,7 @@ azure network nsg create myNSG \
 
 ## <a name="add-an-inbound-ssh-allow-rule"></a>添加入站 SSH 允许规则
 
-Linux VM 需要从 Internet 访问，因此需要允许通过网络将入站端口 22 流量传递到 Linux VM 上的端口 22 的规则。
+Linux VM 需要从 Internet 进行访问，因此需要一个规则，允许端口 22 的入站流量通过网络传递到 Linux VM 上的端口 22。
 
 ```azurecli
 azure network nsg rule create inboundSSH \
@@ -147,7 +147,7 @@ azure network vnet subnet create mySubNet \
 
 ## <a name="creating-static-dns-names"></a>创建静态 DNS 名称
 
-Azure 非常灵活，但要使用 DNS 名称进行 VM 名称解析，需要使用 DNS 标签将它们创建为虚拟网卡 (VNic)。  VNic 很重要，因为用户可以通过将它们连接到不同的 VM 来重新使用它们，这使 VNic 保持作为静态资源，而 VM 可以是临时 VM。  通过在 VNic 上使用 DNS 标签，我们能够从 VNet 中的其他 VM 启用简单名称解析。  使用可解析名称可使其他 VM 能够通过 DNS 名称 `Jenkins` 或作为 `gitrepo` 的Git 服务器访问自动化服务器。  创建 VNic 并将其与上一步中创建的子网相关联。
+Azure 非常灵活，但要使用 DNS 名称进行 VM 名称解析，需要使用 DNS 标签将它们创建为虚拟网卡 (VNic)。  VNic 很重要，因为用户可以通过将它们连接到不同的 VM 重新使用它们，这使 VNic 保持作为静态资源，而 VM 可以是临时 VM。  通过在 VNic 上使用 DNS 标签，我们能够从 VNet 中的其他 VM 启用简单名称解析。  使用可解析名称可使其他 VM 能够通过 DNS 名称 `Jenkins` 或作为 `gitrepo` 的Git 服务器访问自动化服务器。  创建 VNic 并将其与上一步创建的子网相关联。
 
 ```azurecli
 azure network nic create jenkinsVNic \
@@ -183,3 +183,5 @@ azure vm create jenkins \
 ## <a name="next-steps"></a>后续步骤
 * [直接使用 Azure CLI 命令创建自定义的 Linux VM 环境](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [使用模板在 Azure 上创建 Linux VM](create-ssh-secured-vm-from-template.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+
+<!-- Update_Description: update meta properties, update link -->

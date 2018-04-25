@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 03/15/2018
 ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2e8aee13859750889b04d3131ecd3885902801e3
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: c4732730139a45e9b2221bbbb7b967417a3aca24
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
@@ -309,7 +309,7 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 可以移动基本 SKU 公共 IP。
 不能移动标准 SKU 公共 IP。
 
-## <a name="a-nameuse-portaluse-portal"></a><a name="use-portal">使用门户
+## <a name="use-portal"></a>使用门户
 
 如果要移动资源，请选择包含这些资源的资源组，并选择“移动”  按钮。
 

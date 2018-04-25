@@ -1,12 +1,11 @@
 ---
-title: "利用生存时间使 Azure Cosmos DB 中的数据过期 | Azure"
-description: "通过 TTL 功能，Azure Cosmos DB 能够在一段时间后将文档自动从系统中清除。"
+title: 利用生存时间使 Azure Cosmos DB 中的数据过期 | Azure
+description: 通过 TTL 功能，Azure Cosmos DB 能够在一段时间后将文档自动从系统中清除。
 services: cosmos-db
-documentationcenter: 
-keywords: "生存时间"
+documentationcenter: ''
+keywords: 生存时间
 author: rockboyfor
 manager: digimobile
-editor: 
 ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -14,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/29/2017
-ms.date: 01/29/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0fc48f91dd65a4fb2ef8c1c4d116842f2c54a7b5
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 65c15773e56b02f27b928fc5ed28156e9569d843
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>利用生存时间使 Azure Cosmos DB 集合中的数据自动过期
 应用程序可以生成和存储大量数据。 其中的某些数据（如计算机生成的事件数据、日志和用户会话信息）仅在有限的一段时间内才有用。 当数据变得多余，应用程序不再需要时，可以安全地清除这些数据并减少应用程序的存储需求。
@@ -148,7 +147,7 @@ TTL 功能在两个级别受 TTL 属性控制 - 集合级别和文档级别。 �
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
-<a id="ttl-and-index-interaction"></a> 
+<a name="ttl-and-index-interaction"></a>
 ## <a name="ttl-and-index-interaction"></a>TTL 和索引交互
 通过添加或更改集合上的 TTL 设置更改基础索引。 将 TTL 值从 Off 更改为 On 时，集合将重新编制索引。 如果在索引模式为“一致”时对索引策略进行更改，用户将看不到对索引的更改。 当索引模式设置为“延迟”时，索引将始终同步，如果更改了 TTL 值，将从头重新创建索引。 如果更改了 TTL 值并且索引模式设置为“延迟”，则在索引重新生成期间完成的查询不会返回完整或正确的结果。
 

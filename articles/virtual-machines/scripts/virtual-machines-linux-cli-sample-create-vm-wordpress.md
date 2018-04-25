@@ -1,27 +1,27 @@
 ---
-title: "Azure CLI 脚本示例 - 使用 WordPress 创建 Linux VM | Azure"
-description: "Azure CLI 脚本示例 - 使用 WordPress 创建 Linux VM"
+title: Azure CLI 脚本示例 - 使用 WordPress 创建 Linux VM | Azure
+description: Azure CLI 脚本示例 - 使用 WordPress 创建 Linux VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/27/2017
-ms.date: 10/16/2017
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 174f4135c3f2cb4f94e6120e56e63f1376de7b45
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: f25c74985a8af9a2743485de944a664d0f9584e8
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-vm-with-wordpress"></a>使用 WordPress 创建 VM
 
@@ -67,7 +67,7 @@ az group delete --name myResourceGroup
 
 此脚本使用以下命令创建资源组、虚拟机和所有相关资源。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
 | [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和 NSG。 此命令还指定要使用的虚拟机映像和管理凭据。  |

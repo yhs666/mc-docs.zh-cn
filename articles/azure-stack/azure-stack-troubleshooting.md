@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2018
-ms.date: 03/04/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
 ms.reviewer: unknown
-ms.openlocfilehash: 50c868161aa2bf27fb35636e90aebebd4af7f3fa
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: dd8b71d87b38c04136e5161f4845ac2cfac07853
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-stack-troubleshooting"></a>Azure Stack 故障排除
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 03/08/2018
 在 Azure Stack 中部署 VM 之前，必须先添加 Windows Server 映像和库项。
 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>重启 Azure Stack 主机之后，某些 VM 可能不会自动启动。
-将重新启动主机之后，可能会发现，Azure Stack 服务并非立即可用。  这是因为 Azure Stack [基础结构 VM](azure-stack-architecture.md#virtual-machine-roles) 与 RP 需要花费一点时间来检查一致性，但最终会自动启动。
+将重新启动主机之后，可能会发现，Azure Stack 服务并非立即可用。  这是因为 Azure Stack [基础结构 VM](asdk/asdk-architecture.md#virtual-machine-roles) 与 RP 需要花费一点时间来检查一致性，但最终会自动启动。
 
 另外还可能发现，在重新启动 Azure Stack 开发工具包主机之后，租户 VM 不会自动启动。 这是一个已知问题，只需执行几个手动步骤就能让它们联机：
 
@@ -75,6 +75,6 @@ ms.lasthandoff: 03/08/2018
     - 仪表板标题可能不显示。 如果发生此问题，必须手动添加标题。
     - 首次将某些磁贴添加到仪表板时，它们可能无法正常显示。 若要解决此问题，请刷新浏览器。
 
-
+<!-- Update_Description: link update -->
 
 

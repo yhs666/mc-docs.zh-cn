@@ -11,11 +11,11 @@ origin.date: 02/05/2018
 ms.date: 02/28/2018
 ms.reviewer: genemi;ayolubek
 ms.author: v-nany
-ms.openlocfilehash: 99cf54d78aee38eb63bb3cff5061b1833d0dca40
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 1e29eabfe236770734b88f4b4ea22d0af1e2e638
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL 数据库的 DNS 别名
 
@@ -64,7 +64,7 @@ Azure SQL 数据库的 DNS 别名功能有助于实现以下方案：
 - 不受限于任一区域：DNS 别名不受限于某一区域。 可以更新任何 DNS 别名，以引用位于任何地理区域中的 Azure SQL 数据库服务器。
     - 但是，将别名更新为引用另一台服务器时，这两台服务器必须位于同一个 Azure 订阅中。
 
-- 权限：管理 DNS 别名的用户必须拥有“服务器参与者”权限或更高权限。 有关详细信息，请参阅 [Azure 门户中基于角色的访问控制入门](../active-directory/role-based-access-control-what-is.md)。
+- 权限：管理 DNS 别名的用户必须拥有“服务器参与者”权限或更高权限。 有关详细信息，请参阅 [Azure 门户中基于角色的访问控制入门](../role-based-access-control/overview.md)。
 
 
 

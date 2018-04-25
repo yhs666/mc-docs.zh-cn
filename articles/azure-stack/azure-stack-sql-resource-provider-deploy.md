@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/07/2018
-ms.date: 03/27/2018
+origin.date: 03/27/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: 3fdffa37b673bf8304d953982796be57701311f0
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 48a4079a04e028c7d7660534d4bdc2d47f267af8
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>在 Azure Stack 中使用 SQL 数据库
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 03/28/2018
     | 1710：1.0.171028.1 | [SQL RP 版本 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
   
 
-4. 从特权终结点检索 Azure Stack 根证书。 对于 Azure Stack SDK，将在此过程中创建自签名证书。 对于集成系统，必须提供相应的证书。
+4. 对于 Azure Stack SDK，将在此过程中创建自签名证书。 对于集成系统，必须提供相应的证书。
 
    若要提供自己的证书，请将 .pfx 文件放在 **DependencyFilesLocalPath** 中，如下所示：
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 03/28/2018
 
     - 在 DependencyFilesLocalPath 参数指向的目录中，只能存在单个证书文件。
 
-    - 文件名不能包含任何特殊字符。
+    - 文件名不能包含任何特殊字符或空格。
 
 
 5. 打开权限提升的（管理）**新** PowerShell 控制台，并切换到解压缩后的文件所在的目录。 使用新窗口可以避免因系统上已加载的错误 PowerShell 模块可能造成的问题。

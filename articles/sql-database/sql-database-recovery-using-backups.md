@@ -8,17 +8,17 @@ editor: monicar
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-origin.date: 02/13/2018
-ms.date: 02/28/2018
+origin.date: 04/04/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 75bf28593cb7f686162f5ea54de199a98ef14fcc
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: ba4c4ce0256abe0c13c7f92066975703392ca259
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自动数据库备份恢复 Azure SQL 数据库
-SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)为数据库恢复提供三个选项。 可从数据库备份还原到：
+SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)和[长期保留的备份](sql-database-long-term-retention.md)为数据库恢复提供这些选项。 可从数据库备份还原到：
 
 * 保留期内指定时间点的同一逻辑服务器上的新数据库。 
 * 已删除数据库的删除时间的同一逻辑服务器上的数据库。
@@ -32,7 +32,7 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)为
 - 如果数据库最大大小超过 500 GB，将 P11–P15 还原为 S4-S12 或 P1–P6。
 - 如果数据库最大大小超过 250 GB，将 P1–P6 还原为 S4-S12。
 
-由于已还原数据库的最大大小超出了该性能级别附送的存储量，因此将产生额外费用，针对超出附送量的额外预配存储收取。  有关额外存储定价的详细信息，请参阅 [SQL 数据库定价页面](https://www.azure.cn/pricing/details/sql-database/)。  如果实际使用的空间量小于附送的存储量，只要将数据库最大大小减少到附送的量，就能避免此项额外费用。 有关数据库存储大小和更改数据库最大大小的详细信息，请参阅[单一数据库资源限制](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels)。  
+由于已还原数据库的最大大小超出了该性能级别附送的存储量，因此将产生额外费用，针对超出附送量的额外预配存储收取。  有关额外存储定价的详细信息，请参阅 [SQL 数据库定价页面](https://azure.microsoft.com/pricing/details/sql-database/)。  如果实际使用的空间量小于附送的存储量，只要将数据库最大大小减少到附送的量，就能避免此项额外费用。 有关数据库存储大小和更改数据库最大大小的详细信息，请参阅[单一数据库基于 DTU 的资源限制](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels)和[单一数据库基于 vCore 的资源限制](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels)。  
 
 > [!NOTE]
 > 在创建[数据库副本](sql-database-copy.md)时，将用到[自动数据库备份](sql-database-automated-backups.md)。 
@@ -50,8 +50,15 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)为
 * 目标区域中正在处理的并行还原请求数。 
   
   对于非常大和/或活动的数据库，还原可能要花费几个小时。 如果一个区域出现长时间的服务中断，则可能是因为存在大量正在由其他区域处理的异地还原请求。 当存在很多请求时，则可能会延长该区域中数据库的恢复时间。 大部分数据库还原操作可在 12 小时内完成。
-  
-  没有任何内置功能用于执行批量还原。 [Azure SQL 数据库：完全恢复服务器](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) 脚本是完成此任务的一种方法示例。
+
+对于单个订阅，会在要提交和处理的并发还原请求数上有一些限制（包括时间点还原、地理还原和从长期保留备份中还原）：
+|  | **处理的并发请求数最多为 #** | **提交的并发请求数最多为 #** |
+| :--- | --: | --: |
+|单个数据库（每个订阅）|10 个|60|
+|弹性池（每个池）|4|200|
+||||
+
+没有任何内置功能用于执行批量还原。 [Azure SQL 数据库：完全恢复服务器](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) 脚本是完成此任务的一种方法示例。
 
 > [!IMPORTANT]
 > 若要使用自动备份进行恢复，用户必须是订阅中的 SQL Server 参与者角色的成员或是订阅所有者。 可以使用 Azure 门户、PowerShell 或 REST API 进行恢复。 但不能使用 Transact-SQL。 
@@ -112,7 +119,7 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)为
 当前，异地辅助数据库上不支持时间点还原。 仅主数据库支持时间点还原。 有关使用异地还原在中断后恢复的详细信息，请参阅[在中断后恢复](sql-database-disaster-recovery.md)。
 
 > [!IMPORTANT]
-> 从备份中恢复是 SQL 数据库中提供的最基本的灾难恢复解决方案，具有最长的 恢复点目标 (RPO) 和估计恢复时间 (ERT)。 对于使用基本数据库的解决方案，异地还原通常是 ERT 为 12 小时的合理灾难恢复解决方案。 对于使用较大标准或高级数据库、需要更短恢复时间的解决方案，应考虑使用[活动地域复制](sql-database-geo-replication-overview.md)。 活动异地复制可提供低得多的 RPO 和 ERT，因为它只需要启动故障转移，即可故障转移到连续复制的辅助数据库。 有关业务连续性选项的详细信息，请参阅[业务连续性概述](sql-database-business-continuity.md)。
+> 从备份中恢复是 SQL 数据库中提供的最基本的灾难恢复解决方案，具有最长的 恢复点目标 (RPO) 和估计恢复时间 (ERT)。 对于使用小型数据库（例如基本服务层或弹性池中的小型租户数据库）的解决方案，异地还原在 ERT 为 12 小时的情况下通常是一个合理的 DR 解决方案。 对于使用大型数据库并需要更短恢复时间的解决方案，应考虑使用[故障转移组和活动异地复制](sql-database-geo-replication-overview.md)。 活动异地复制可提供低得多的 RPO 和 ERT，因为它只需要启动故障转移，即可故障转移到连续复制的辅助数据库。 有关业务连续性选项的详细信息，请参阅[业务连续性概述](sql-database-business-continuity.md)。
 > 
 
 ### <a name="azure-portal"></a>Azure 门户
@@ -144,5 +151,6 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)为
 ## <a name="next-steps"></a>后续步骤
 * 有关业务连续性概述和应用场景，请参阅[业务连续性概述](sql-database-business-continuity.md)
 * 若要了解 Azure SQL 数据库的自动备份，请参阅 [SQL 数据库自动备份](sql-database-automated-backups.md)
+* 若要了解长期保留，请参阅[长期保留](sql-database-long-term-retention.md)。
 * 若要了解更快的恢复选项，请参阅[故障转移组和活动异地复制](sql-database-geo-replication-overview.md)。  
 <!--Update_Description: wording update-->

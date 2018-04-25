@@ -15,17 +15,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
 origin.date: 05/10/2017
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: bbb3e44ef1788837f05b48dfb3f5e9682bbe401e
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 89fe990a15430eb043c87697dba693cecad57473
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>教程：使用 SQL API 查询 Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB [SQL API](documentdb-introduction.md) 支持使用 SQL 查询文档。 本文提供一个示例文档和两个示例 SQL 查询和结果。
 

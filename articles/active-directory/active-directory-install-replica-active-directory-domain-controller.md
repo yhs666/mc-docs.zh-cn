@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 虚拟机上安装本地 Active Directory 域的副本域控制器 | Microsoft Docs"
-description: "如何在 Azure 虚拟网络中的 Azure 虚拟机 (VM) 上安装本地 Active Directory 域的副本 DC。"
+title: 在 Azure 虚拟机上安装本地 Active Directory 域的副本域控制器 | Microsoft Docs
+description: 如何在 Azure 虚拟网络中的 Azure 虚拟机 (VM) 上安装本地 Active Directory 域的副本 DC。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 8c9ebf1b-289a-4dd6-9567-a946450005c0
 ms.service: active-directory
 ms.workload: identity
@@ -17,11 +17,11 @@ ms.date: 11/22/2017
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9b4e54e6e1da98a5150e151bad46e4d91377b7b6
-ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
+ms.openlocfilehash: 4b41b8311f26a3951042e485c12e4b22c0931331
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>在 Azure 虚拟网络中安装副本 Active Directory 域控制器
 本文介绍如何在 Azure 虚拟网络中的 Azure 虚拟机 (VM) 上为本地 Active Directory 域安装用作副本 DC 的域控制器 (DC)。 也可以[在 Azure 虚拟网络中安装 Windows Server Active Directory 林](active-directory-new-forest-virtual-machine.md)。 有关如何在 Azure 虚拟网络上安装 Active Directory 域服务 (AD DS)，请参阅[在 Azure 虚拟机上部署 Windows Server Active Directory 的指南](https://msdn.microsoft.com/library/azure/jj156090.aspx)。
@@ -63,7 +63,7 @@ Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddr
 
 ## <a name="reconfigure-dns-server-for-the-virtual-network"></a>重新配置虚拟网络的 DNS 服务器
 1. 若要获取虚拟网络名称的列表，请在 [Azure 门户](https://portal.azure.cn)中搜索“虚拟网络”，然后选择“虚拟网络”查看该列表。 
-2. 打开想要管理的虚拟网络，然后[重新配置虚拟网络的 DNS 服务器 IP 地址](../virtual-network/virtual-network-manage-network.md#dns-servers)，以便使用分配到副本 DC 的静态 IP 地址，而不是本地 DNS 服务器的 IP 地址。
+2. 打开想要管理的虚拟网络，然后[重新配置虚拟网络的 DNS 服务器 IP 地址](../virtual-network/manage-virtual-network.md#change-dns-servers)，以便使用分配到副本 DC 的静态 IP 地址，而不是本地 DNS 服务器的 IP 地址。
 3. 若要确保虚拟网络中的所有副本 DC VM 配置为使用虚拟网络上的 DNS 服务器：
   1. 选择“虚拟机”。
   2. 选择 VM，然后选择“重启”。 

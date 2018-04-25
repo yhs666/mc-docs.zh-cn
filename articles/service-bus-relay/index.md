@@ -1,23 +1,23 @@
 ---
+title: 服务总线中继文档
+description: 了解 Azure 中继服务在混合云与本地环境中的工作方式，获取完整的操作指南、教程、视频、API 参考和其他信息。
+services: service-bus-relay
+author: sethmanheim
+manager: timlt
 layout: LandingPage
-title: "服务总线中继文档"
-description: "了解 Azure 中继服务在混合云与本地环境中的工作方式，获取完整的操作指南、教程、视频、API 参考和其他信息。"
-services: service-bus
-author: czeumault
-manager: carolz
-ms.assetid: 
-ms.service: service-bus
+ms.assetid: ''
+ms.service: service-bus-relay
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-orgin.date: 03/14/2017
-ms.date: 02/05/2018
+orgin.date: 04/02/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4b114ab9f72c98ca8f173e7576de159f9f3a9836
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: dc701c78b7cb83ef63a9461f3277c7b616290adf
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="service-bus-relay-documentation"></a>服务总线中继文档
 了解 Azure 中继服务如何在无需打开防火墙连接或者对企业网络基础结构进行全面改造的情况下，为企业网络和公有云中的本地环境与云环境之间的混合应用程序提供辅助。

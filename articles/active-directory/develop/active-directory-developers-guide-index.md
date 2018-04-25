@@ -1,11 +1,11 @@
 ---
-title: "针对开发人员的 Azure Active Directory | Microsoft Docs"
-description: "Azure Active Directory 开发人员指南中的所有指南和参考文章列表。"
+title: 针对开发人员的 Azure Active Directory | Microsoft Docs
+description: Azure Active Directory 开发人员指南中的所有指南和参考文章列表。
 services: active-directory
 documentationcenter: dev-center-name
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ origin.date: 07/19/2017
 ms.date: 08/24/2017
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 4ab40027a68b6df06a847f689cf3fae3adaa392b
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: f4c4587cabd6070da7ebd542ef9f7e4eb28594f5
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Azure AD 开发人员指南中的文章
 下面是 Azure Active Directory 开发人员指南中涉及的所有主题的列表。
@@ -41,8 +41,9 @@ ms.lasthandoff: 11/28/2017
 | [Office 365 卖家仪表板](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | 如何在 O365 卖家仪表板上发布应用程序 |
 | [Visual Studio 连接服务](vs-active-directory-dotnet-getting-started.md)                                               | 如何在 Visual Studio 中使用 Azure AD 与 MVC 项目的集成 |
 | [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | 如何使用 ADFS 与本地 Active Directory 集成 |
+| [ADAL 错误处理最佳做法](active-directory-devhowto-adal-error-handling.md) | 如何构建弹性错误处理和启用日志记录 |
 
-## <a name="reference"></a>引用
+## <a name="reference"></a>参考
 以下文章提供了有关 REST 和身份验证库 API、协议、错误、代码示例和终结点的基础信息。
 
 |                                                                                     | |

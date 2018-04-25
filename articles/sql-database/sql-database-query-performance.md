@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-origin.date: 07/05/2017
-ms.date: 10/02/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 878f82faf81b74eeb40690221abefdde1c4d4eff
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 95b4915d05edfd2bd3d5defc18d5819e3258e422
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL 数据库 Query Performance Insight
 管理和优化关系数据库性能是一项颇具挑战性的操作，需要投入大量的专业知识和时间。 查询性能见解通过提供以下功能使排查数据库性能问题花费的时间更少：
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/08/2018
 * 查询性能见解要求已在数据库上启用 [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)。 如果未运行查询存储，该门户会提示将其打开。
 
 ## <a name="permissions"></a>权限
-需要具备以下[基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)权限才能使用查询性能见解： 
+需要具备以下[基于角色的访问控制](../role-based-access-control/overview.md)权限才能使用查询性能见解： 
 
 * 需要具备**读者**、**所有者**、**参与者**、**SQL DB 参与者**或 **SQL Server 参与者**权限才能查看资源占用排名靠前的查询和图表。 
 * 需要具备**所有者**、**参与者**、**SQL DB 参与者**或 **SQL Server 参与者**权限才能查看查询文本。

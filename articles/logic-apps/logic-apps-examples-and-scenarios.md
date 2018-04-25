@@ -1,25 +1,25 @@
 ---
-title: "示例和常见方案 - Azure 逻辑应用"
-description: "通过示例、方案、教程和演练深入了解逻辑应用"
+title: 示例和常见方案 - Azure 逻辑应用
+description: 通过示例、方案、教程和演练深入了解逻辑应用
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
-origin.date: 09/13/2017
+origin.date: 01/31/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 914d8195479e0ffe1ecfe5b0b148498facd190c7
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 04/23/2018
+ms.openlocfilehash: 892fdf948a6bee137277709438534111e9cabcb0
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure 逻辑应用的常见方案、示例、教程和演练
 
@@ -64,14 +64,14 @@ ms.lasthandoff: 03/12/2018
 * [使用 webhook 响应外部事件和操作](../logic-apps/logic-apps-create-api-app.md)
 * [利用对 HTTP 请求的同步响应调用、触发或嵌套工作流](../logic-apps/logic-apps-http-endpoint.md)
 * [教程：在几分钟内使用逻辑应用和 Power BI 生成由 AI 提供支持的社交仪表板](http://aka.ms/logicappsdemo)
-* [教程：响应 Twilio SMS webhook 并发送文本响应](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>控制流、错误处理和日志记录功能
 
 逻辑应用包括高级控制流（例如条件、开关、循环和作用域）的丰富功能。 若要确保解决方案具有弹性，还可以在工作流中实现错误和异常处理。 如需有关工作流运行状态的通知和诊断日志，Azure 逻辑应用还提供了监视和警报。
 
-* [在逻辑应用中使用循环和批处理数组和集合中的项](../logic-apps/logic-apps-loops-and-scopes.md)
-* [使用 switch 语句执行不同操作](../logic-apps/logic-apps-switch-case.md)
+* 基于[条件语句](../logic-apps/logic-apps-control-flow-conditional-statement.md)和 [Switch 语句](../logic-apps/logic-apps-control-flow-switch-statement.md)执行不同操作
+* [使用循环重复执行步骤或处理数组和集合中的项](../logic-apps/logic-apps-control-flow-loops.md)
+* [使用范围将操作组合在一起](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [工作流中的授权错误和异常处理](../logic-apps/logic-apps-exception-handling.md)
 * [用例：医疗保健公司如何将逻辑应用异常处理用于 HL7 FHIR 工作流](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [在现有的逻辑应用上启用监视、日志记录和警报](../logic-apps/logic-apps-monitor-your-logic-apps.md)
@@ -81,7 +81,7 @@ ms.lasthandoff: 03/12/2018
 
 可以使用 Visual Studio、Visual Studio Team Services，或任何其他源代码管理和自动生成工具充分开发和部署逻辑应用。 为了支持资源模板中工作流和从属连接的部署，逻辑应用使用 Azure 资源部署模板。 Visual Studio 工具会自动生成这些模板，可以在源代码管理中签入这些模板以进行版本控制。
 
-* [从 Visual Studio 生成和部署逻辑应用](../logic-apps/logic-apps-deploy-from-vs.md)
+* [使用 Visual Studio 创建和部署逻辑应用](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [在现有的逻辑应用上启用监视、日志记录和警报](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [创建自动部署模板](../logic-apps/logic-apps-create-deploy-template.md)
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 03/12/2018
 
 * [工作流表达式在逻辑应用中的工作原理](../logic-apps/logic-apps-author-definitions.md)
 * [处理非 JSON 内容类型](../logic-apps/logic-apps-content-type.md)，如 `application/xml`、`application/octet-stream` 和 `multipart/formdata`
-* [参考：Azure 逻辑应用工作流定义语言](http://aka.ms/logicappsdocs)
+* [Azure 逻辑应用的工作流定义语言架构](http://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>其他集成和功能
 
@@ -99,15 +99,19 @@ ms.lasthandoff: 03/12/2018
 
 * [使用 Azure Serverless 创建实时社交仪表板](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [从逻辑应用调用 Azure 函数](../logic-apps/logic-apps-azure-functions.md)
-* [方案：使用 Azure Functions 触发逻辑应用](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [教程：使用 Azure Functions 触发逻辑应用](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [博客：从逻辑应用调用 SOAP 终结点](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>端到端方案
 
-* [白皮书：使用 Azure 服务（如逻辑应用）的企业集成端到端案例管理](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+* [白皮书：端到端案例管理与 Azure 服务（如逻辑应用）的集成](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+
+## <a name="customer-stories"></a>客户案例
+
+了解 Azure 逻辑应用以及其他 Azure 服务和 Microsoft 产品如何通过简化、组织、自动执行和协调复杂流程帮助[这些公司](https://aka.ms/logic-apps-customer-stories)提高其灵活性并集中精力处理其核心业务。
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用工作流定义语言创作工作流定义](../logic-apps/logic-apps-author-definitions.md)
+* [使用 JSON 根据逻辑应用定义生成](../logic-apps/logic-apps-author-definitions.md)
 * [在逻辑应用中处理错误和异常](../logic-apps/logic-apps-exception-handling.md)
 * [就如何改进 Azure 逻辑应用提交评论、问题、反馈或建议](https://feedback.azure.com/forums/287593-logic-apps)

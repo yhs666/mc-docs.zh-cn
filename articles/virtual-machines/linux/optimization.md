@@ -1,9 +1,9 @@
 ---
-title: "在 Azure 上优化 Linux VM | Azure"
-description: "了解一些优化提示，以确保正确设置 Linux VM，从而在 Azure 上获得最佳性能"
-keywords: "linux 虚拟机,虚拟机 linux,ubuntu 虚拟机"
+title: 在 Azure 上优化 Linux VM | Azure
+description: 了解一些优化提示，以确保正确设置 Linux VM，从而在 Azure 上获得最佳性能
+keywords: linux 虚拟机,虚拟机 linux,ubuntu 虚拟机
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 09/06/2016
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 821ff2707acdbeb01e45a6b4cda3275096912987
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: bd502df2adb6cd821cc0e4b2ba8d497e9cc1766d
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>在 Azure 上优化 Linux VM
 通过命令行或门户创建运行 Linux 虚拟机 (VM) 是一项很简单的操作。 本教程说明如何在 Azure 平台上设置 VM 以确保优化其性能。 本主题使用 Ubuntu Server VM，不过也可以[将自己的映像作为模板](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)来创建 Linux 虚拟机。  
 
 ## <a name="prerequisites"></a>先决条件
-本主题假设已有一个有效的 Azure 订阅（[注册试用版](https://www.azure.cn/pricing/1rmb-trial/)），并已在 Azure 订阅中预配 VM。 请确保已安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录到 Azure 订阅，并[创建 VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+本主题假设已有一个有效的 Azure 订阅（[注册试用版](https://www.azure.cn/pricing/1rmb-trial/)），并已在 Azure 订阅中预配 VM。 请确保已安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 订阅，并[创建 VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -134,9 +134,8 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 其他有用资源的链接： 
 
-* [高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../windows/premium-storage.md)
-* [Azure Linux 代理用户指南](../windows/agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-* [优化 Azure Linux VM 上的 MySQL 性能](classic/optimize-mysql.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [在 Linux 上配置软件 RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-
+* [高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](premium-storage.md)
+* [Azure Linux 代理用户指南](agent-user-guide.md)
+* [优化 Azure Linux VM 上的 MySQL 性能](classic/optimize-mysql.md)
+* [在 Linux 上配置软件 RAID](configure-raid.md)
 <!-- Update_Description: update link, wording update -->

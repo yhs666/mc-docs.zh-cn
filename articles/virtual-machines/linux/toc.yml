@@ -97,6 +97,8 @@
           href: disk-scalability-targets.md
         - name: 磁盘的备份和灾难恢复
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: 对附加的 VHD 进行故障排除
+          href: troubleshoot-vhds.md
     - name: 网络
       href: network-overview.md
     - name: 基础结构自动化
@@ -176,8 +178,6 @@
           href: maintenance-notifications.md
         - name: 缓解推理执行
           href: mitigate-se.md
-        - name: 加速维护常见问题解答
-          href: accelerated-maintenance.md
         - name: 计划事件
           href: scheduled-events.md
         - name: 监视元数据
@@ -194,6 +194,8 @@
               href: create-upload-ubuntu.md
             - name: CentOS
               href: create-upload-centos.md
+            - name: Red Hat
+              href: redhat-create-upload-vhd.md
             - name: Debian
               href: debian-create-upload-vhd.md
             - name: SUSE
@@ -264,6 +266,8 @@
               href: install-mongodb.md
             - name: PostgreSQL
               href: postgresql-install.md
+            - name: Linux 上的 MS SQL
+              href: /virtual-machines/linux/sql/provision-sql-server-linux-virtual-machine
     - name: 管理存储
       items:
         - name: 磁盘常见问题解答
@@ -394,7 +398,7 @@
     - name: PowerShell
       href: 'https://docs.microsoft.com/powershell/azureps-cmdlets-docs'
     - name: .NET
-      href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute'
+      href: 'https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.compute'
     - name: Java
       href: 'https://docs.azure.cn/zh-cn/java/api/overview/'
     - name: Node.js

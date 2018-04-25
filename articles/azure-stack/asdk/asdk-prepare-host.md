@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/16/2018
-ms.date: 03/22/2018
+origin.date: 03/22/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: 016d821295077696443952cb1094d98de8bb0947
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 4b77d75c7a89f3e9e544861c9496ff5b2cc9a4da
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="prepare-the-asdk-host-computer"></a>准备 ASDK 主机
 在主机上安装 ASDK 之前，必须先准备好用于安装的 ASDK 环境。 准备好开发工具包主机之后，该主机会从 CloudBuilder.vhdx 虚拟机硬盘启动，以开始进行 ASDK 部署。
@@ -37,6 +37,8 @@ ms.lasthandoff: 03/23/2018
   $LocalPath = 'C:\AzureStack_Installer'
   # Create folder
   New-Item $LocalPath -Type directory
+  # Enforce usage of TLSv1.2 to download from GitHub
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
   # Download file
   Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
   ```
@@ -72,3 +74,4 @@ ms.lasthandoff: 03/23/2018
 ## <a name="next-steps"></a>后续步骤
 [安装 ASDK](asdk-install.md)
 
+<!-- Update_Description: wording update -->

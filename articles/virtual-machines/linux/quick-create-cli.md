@@ -1,27 +1,27 @@
 ---
-title: "Azure 快速入门 - 创建 VM CLI | Azure"
-description: "快速了解如何使用 Azure CLI 创建虚拟机。"
+title: Azure 快速入门 - 创建 VM CLI | Azure
+description: 快速了解如何使用 Azure CLI 创建虚拟机。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/13/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 79c5a749d944a50987efd91748f69eba8b09bf6c
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 0a4d6428898efb0993c15171cc768107d57f2d96
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 创建 Linux 虚拟机
 
@@ -117,4 +117,4 @@ az group delete --name myResourceGroup
 > [!div class="nextstepaction"]
 > [Azure Linux 虚拟机教程](./tutorial-manage-vm.md)
 
-<!--Update_Description: update meta properties, update link  -->
+<!--Update_Description: update meta properties  -->

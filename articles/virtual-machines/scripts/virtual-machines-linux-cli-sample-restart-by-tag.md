@@ -1,27 +1,27 @@
 ---
-title: "Azure CLI 脚本示例 - 重新启动 VM | Azure"
-description: "Azure CLI 脚本示例 — 按标记和 ID 重新启动 VM"
+title: Azure CLI 脚本示例 - 重新启动 VM | Azure
+description: Azure CLI 脚本示例 — 按标记和 ID 重新启动 VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/01/2017
-ms.date: 10/16/2017
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 109cffb1cc71d7ce4d878fbb3020366e20bc274f
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: 491d34898ba92f78106ed35164de4386aced9ee8
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="restart-vms"></a>重新启动 VM
 
@@ -55,7 +55,7 @@ az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Mic
 
 ### <a name="provision-the-vms"></a>预配 VM
 
-此脚本创建一个资源组，并它创建三个 VM 并重新启动。
+此脚本创建一个资源组，它创建三个 VM 并重新启动。
 其中的两个带有标记。
 
 ```azurecli
@@ -117,7 +117,7 @@ az group delete -n myResourceGroup --no-wait --yes
 
 此脚本使用以下命令创建资源组、虚拟机、可用性集、负载均衡器和所有相关资源。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
 | [az vm create](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az_vm_availability_set_create) | 创建虚拟机。  |

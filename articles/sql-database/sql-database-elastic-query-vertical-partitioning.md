@@ -7,14 +7,14 @@ author: yunan2016
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-origin.date: 12/12/2017
-ms.date: 01/08/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: 8a2512011cbd4065a01f207a28f31d9d2b7c686a
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 95fb73ce4ef867cec5f6259078421b8b85f696dd
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>跨具有不同架构的云数据库进行查询（预览版）
 ![跨不同数据库中的表进行查询][1]

@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中创建 Linux VM 的不同方式 | Azure"
-description: "介绍在 Azure 上创建 Linux 虚拟机的不同方法，并提供每种方法的工具和教程的链接。"
+title: 在 Azure 中创建 Linux VM 的不同方式 | Azure
+description: 介绍在 Azure 上创建 Linux 虚拟机的不同方法，并提供每种方法的工具和教程的链接。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f38f8a44-6c88-4490-a84a-46388212d24c
 ms.service: virtual-machines-linux
@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 origin.date: 05/11/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
-ms.openlocfilehash: 566b3b3a7c0cf3b9c4a7f6a3c393da56eaddb43f
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: b8eda33cdb0fcb810999f0f5693640f071db9642
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="different-ways-to-create-a-linux-vm"></a>创建 Linux VM 的不同方式
 用户可以在 Azure 中灵活地使用适合自己的工具和工作流创建 Linux 虚拟机 (VM)。 本文总结了创建 Linux VM 的相关差异和示例，包括 Azure CLI 2.0。 还可以查看包括 [Azure CLI 1.0](creation-choices-nodejs.md) 在内的创建选项。
 
-[Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 可通过 npm 包、发行版提供的程序包或 Docker 容器跨平台使用。 为环境安装最适当的内部版本，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录到 Azure 帐户
+[Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 可通过 npm 包、发行版提供的程序包或 Docker 容器跨平台使用。 为环境安装最适当的内部版本，并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#login) 登录到 Azure 帐户
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 11/10/2017
     ```
 * [创建 Linux VM 并使用 cloud-init 进行自定义](tutorial-automate-vm-deployment.md)
 
-* [在多个 Linux VM 上创建负载均衡且高度可用的应用程序](tutorial-load-balancer.md)
+* [在多个 Linux VM 上创建负载均衡且具有高可用性的应用程序](tutorial-load-balancer.md)
 
 ## <a name="azure-portal"></a>Azure 门户
 [Azure 门户](https://portal.azure.cn)允许用户快速创建 VM，因为不需在系统上安装任何内容。 使用 Azure 门户创建 VM：
@@ -97,14 +97,14 @@ az vm image list --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS --
 
 请参阅[使用 Azure CLI 导航并选择 Azure 虚拟机映像](cli-ps-findimage.md)，获取有关浏览和使用可用映像的更多示例。
 
-[az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#create) 命令具有一些别名，可用于快速访问较常见的分发版及其最新版本。 使用别名通常比每次创建 VM 时指定发布者、产品、SKU 和版本更加快捷：
+[az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#create) 命令具有一些别名，可用于快速访问较常见的分发版及其最新版本。 使用别名比每次创建 VM 时都指定发布者、产品/服务、SKU 和版本要快速：
 
 | 别名 | 发布者 | 产品 | SKU | 版本 |
 |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |Centos |7.2 |最新 |
 | CoreOS |CoreOS |CoreOS |Stable |最新 |
 | Debian |credativ |Debian |8 |最新 |
-| openSUSE |SUSE |openSUSE |13.2 |latest |
+| openSUSE |SUSE |openSUSE |13.2 |最新 |
 | SLES |SLES |SLES |12-SP1 |最新 |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |最新 |
 

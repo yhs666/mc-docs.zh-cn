@@ -1,11 +1,11 @@
 ---
-title: "用于 B2B 监视的 AS2 跟踪架构 - Azure 逻辑应用"
-description: "使用 AS2 跟踪架构通过 Azure 集成帐户中的事务监视 B2B 消息。"
+title: 用于 B2B 监视的 AS2 跟踪架构 - Azure 逻辑应用
+description: 使用 AS2 跟踪架构通过 Azure 集成帐户中的事务监视 B2B 消息。
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.service: logic-apps
 ms.workload: integration
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/27/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
+ms.date: 04/30/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5073ee1c07b07e38c8ea9ca998422061c0c8b49
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 31e0a1179cd7027e6c5e670348cb7d75fa8f8014
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>启动或启用对 AS2 消息和 MDN 的跟踪，监视成功、错误和消息属性
 可以在 Azure 集成帐户中使用这些 AS2 跟踪架构来帮助监视企业到企业 (B2B) 的事务：
@@ -137,4 +137,4 @@ ms.lasthandoff: 03/12/2018
 * 了解有关[监视 B2B 消息](logic-apps-monitor-b2b-message.md)的详细信息。   
 * 了解有关 [B2B 自定义跟踪架构](logic-apps-track-integration-account-custom-tracking-schema.md)的详细信息。   
 * 了解有关 [X12 跟踪架构](logic-apps-track-integration-account-x12-tracking-schema.md)的详细信息。   
-* 了解有关[在 Operations Management Suite 门户中跟踪 B2B 消息](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)的信息。
+* 了解[在 Log Analytics 中跟踪 B2B 消息](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。

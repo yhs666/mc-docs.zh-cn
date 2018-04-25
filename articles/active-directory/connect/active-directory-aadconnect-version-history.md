@@ -15,11 +15,11 @@ ms.workload: identity
 origin.date: 12/14/2017
 ms.date: 01/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: 212bd9f32721d9b8fedac73c614895e4e189599a
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: ba49a202a1725129964d8d71ea86ff28cad661d2
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本发布历史记录
 Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特性和功能。 并非所有的新增内容都适用于所有受众。
@@ -36,6 +36,16 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 所需的权限 | 有关应用更新时所需的权限，请参阅[帐户和权限](./active-directory-aadconnect-accounts-permissions.md#upgrade)。
 
 下载 | [下载 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)。
+
+## <a name="117500"></a>1.1.750.0
+状态：已分发给选定客户。此版本当前已分发给启用了自动升级的一小部分随机 AADConnect 租户。 在未来几周内我们将扩大这组租户，直到 100% 的自动升级客户收到此版本。 在此之后，我们会在上面的下载链接中发布此版本供一般下载。
+>[!NOTE]
+>完成到此新版本的升级以后，将会自动触发针对 Azure AD 连接器的完全同步和完全导入，以及针对 AD 连接器的完全同步。 由于这可能需要一些时间（具体取决于 Azure AD Connect 环境的大小），因此请确保已采取必要的支持措施，否则需推迟升级，直至找到合适的升级时间。
+
+### <a name="azure-ad-connect"></a>具有 Azure AD Connect
+#### <a name="fixed-issues"></a>修复的问题
+
+* 如果自动升级状态设置为“已暂停”，则 Set-ADSyncAutoUpgrade cmdlet 以前会阻止自动升级。 现在已对此进行更改，使其不会阻止未来版本的自动升级。
 
 ## <a name="117490"></a>1.1.749.0
 状态：已分发给选定客户

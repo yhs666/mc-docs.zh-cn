@@ -7,14 +7,14 @@ author: Hayley244
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-origin.date: 10/25/2016
-ms.date: 07/10/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 960997bc08e5de726e03f5ed5413bef1b22e882c
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: d48157952f5b6e7575616d8761180df0357a60cf
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>使用 RecoveryManager 类解决分片映射问题
 [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) 类使 ADO.Net 应用程序能够轻松检测并更正分片数据库环境中全局分片映射 (GSM) 与本地分片映射 (LSM) 中的任何不一致性。 
@@ -60,6 +60,7 @@ GSM 和 LSM 可能会因为以下原因而出现不同步的情况：
 
 * location 参数是分片位置，具体而言，包括要分离的分片的服务器名称和数据库名称。 
 * shardMapName 参数是分片映射名称。 仅当多个分片映射由同一分片映射管理器管理时，才需要此参数。 可选。 
+
 
 > [!IMPORTANT]
 > 仅当确定所更新映射的范围为空时，才使用此方法。 上述方法不会检查数据中移动的范围，因此最好在代码中包含检查操作。
@@ -108,14 +109,14 @@ GSM 和 LSM 可能会因为以下原因而出现不同步的情况：
 
 此示例将分片添加到最近从较早时间点还原的分片映射。 由于已还原分片（也就是 LSM 中的分片映射），因此该分片可能与 GSM 中的分片条目不一致。 在此示例代码之外，分片已还原并重命名为数据库的原始名称。 由于它已还原，因此假设 LSM 中的映射为受信任的映射。 
 
-    
-    rm.AttachShard(s.Location, customerMap); 
-    var gs = rm.DetectMappingDifferences(s.Location); 
-       foreach (RecoveryToken g in gs) 
-        { 
-        rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
-        } 
-    
+   ```
+   rm.AttachShard(s.Location, customerMap); 
+   var gs = rm.DetectMappingDifferences(s.Location); 
+      foreach (RecoveryToken g in gs) 
+       { 
+       rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
+       } 
+   ```
 
 ## <a name="updating-shard-locations-after-a-geo-failover-restore-of-the-shards"></a>在分片异地故障转移（还原）之后更新分片位置
 发生异地故障转移时，使辅助数据库可供写入访问，并成为新的主数据库。 服务器的名称（根据具体的配置，有时还包括数据库的名称）可能与原始主副本不同。 因此，必须修复 GSM 和 LSM 中分片的映射条目。 同样，如果数据库还原到不同的名称或位置，或还原到较早的时间点，则可能会造成分片映射中出现不一致性。 分片映射管理器会将打开的连接分发给正确的数据库。 这种分发基于分片映射中的数据以及作为应用程序请求目标的分片键值。 异地故障转移之后，必须使用准确的服务器名称、数据库名称和已恢复数据库的分片映射更新这些信息。 
@@ -135,26 +136,29 @@ GSM 和 LSM 可能会因为以下原因而出现不同步的情况：
 2. 将分片附加到反映新分片位置的分片映射（参数“Configuration.SecondaryServer”是新的服务器名称，但是相同的数据库名称）。
 3. 通过检测每个分片的 GSM 与 LSM 之间的映射差异来检索恢复令牌。 
 4. 通过信任来自每个分片 LSM 的映射解决不一致性。 
-
-    
-    var shards = smm.GetShards();  foreach (shard s in shards)  {   if (s.Location.Server == Configuration.PrimaryServer) 
-
+   
+   ```
+   var shards = smm.GetShards(); 
+   foreach (shard s in shards) 
+   { 
+     if (s.Location.Server == Configuration.PrimaryServer) 
+   
          { 
           ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database); 
-
+   
           rm.DetachShard(s.Location); 
-
+   
           rm.AttachShard(slNew); 
-
+   
           var gs = rm.DetectMappingDifferences(slNew); 
-
+   
           foreach (RecoveryToken g in gs) 
             { 
                rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
             } 
         } 
     } 
-   
+   ```
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

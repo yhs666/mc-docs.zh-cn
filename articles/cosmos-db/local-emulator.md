@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/15/2018
-ms.date: 03/26/2018
+origin.date: 03/27/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0e9107564395e5a96c572508ee8f3081c441670c
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 9a38ada75128f099ba1b971f79da66007998144d
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>将 Azure Cosmos DB 模拟器用于本地开发和测试
 
@@ -42,8 +42,8 @@ ms.lasthandoff: 03/28/2018
 为方便进行开发，Azure Cosmos DB 模拟器提供了一个模拟 Azure Cosmos DB 服务的本地环境。 使用 Azure Cosmos DB 模拟器可在本地开发和测试应用程序，无需创建 Azure 订阅且不会产生任何费用。 如果对应用程序在 Azure Cosmos DB 模拟器中的工作情况感到满意，则可以切换到在云中使用 Azure Cosmos DB 帐户。
 
 > [!NOTE]
-> 目前，模拟器中的数据资源管理器仅完全支持 SQL API 集合和 MongoDB 集合。 不完全支持表容器。 
-<!-- Not Avaiable on  Graph, and Cassandra -->
+> 目前，模拟器中的数据资源管理器仅完全支持 SQL API 集合和 MongoDB 集合。 
+<!-- Not Avaiable on Table, Graph, and Cassandra -->
 
 本文涵盖以下任务： 
 
@@ -344,17 +344,41 @@ Import-Module Microsoft.Azure.CosmosDB.Emulator
 
 ### `Get-CosmosDbEmulatorStatus`
 
+#### <a name="syntax"></a>语法
+
+`Get-CosmosDbEmulatorStatus`
+
+#### <a name="remarks"></a>备注
+
 返回以下 ServiceControllerStatus 值之一：ServiceControllerStatus.StartPending、ServiceControllerStatus.Running 或 ServiceControllerStatus.Stopped。
 
-### `Start-CosmosDbEmulator [-NoWait]`
+### `Start-CosmosDbEmulator`
+
+#### <a name="syntax"></a>语法
+
+`Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>]  [<CommonParameters>]`
+
+#### <a name="remarks"></a>备注
 
 启动模拟器。 默认情况下，此命令会一直等待，直至模拟器做好接受请求的准备。 如果希望 cmdlet 在启动模拟器后立即返回，请使用 -NoWait 选项。
 
-### `Stop-CosmosDbEmulator [-NoWait]`
+### `Stop-CosmosDbEmulator`
+
+#### <a name="syntax"></a>语法
+
+ `Stop-CosmosDbEmulator [-NoWait]`
+
+#### <a name="remarks"></a>备注
 
 停止模拟器。 默认情况下，此命令会一直等待，直至模拟器完全关闭。 如果希望 cmdlet 在模拟器开始关闭后立即返回，请使用 -NoWait 选项。
 
-### `Uninstall-CosmosDbEmulator [-RemoveData]`
+### `Uninstall-CosmosDbEmulator`
+
+#### <a name="syntax"></a>语法
+
+`Uninstall-CosmosDbEmulator [-RemoveData]`
+
+#### <a name="remarks"></a>备注
 
 卸载模拟器，并可视需要删除 $env:LOCALAPPDATA\CosmosDbEmulator 的完整内容。
 此 cmdlet 可确保在卸载模拟器之前，模拟器已停止。
@@ -444,7 +468,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 5. 再现问题。 如果数据资源管理器无法运行，只需等待几秒钟，待浏览器打开以捕获错误。
 5. `CosmosDB.Emulator.exe /stoptraces`
 6. 导航到 `%ProgramFiles%\Azure Cosmos DB Emulator`，查找 docdbemulator_000001.etl 文件。
-7. 将 .etl 文件和重现步骤一起发送至 [Azure 支持](https://www.azure.cn/support/forums/)进行调试。
+7. 将 .etl 文件和重现步骤一起发送至 [Azure 支持](https://www.azure.cn/support/contact/)进行调试。
 
 <a name="uninstall"></a>
 ### <a name="uninstall-the-local-emulator"></a>卸载本地模拟器
@@ -457,6 +481,20 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 ## <a name="change-list"></a>更改列表
 
 可以通过右键单击任务栏上的本地模拟器图标并单击“关于”菜单项来查看版本号。
+
+### <a name="12106-released-on-march-27-2018"></a>2018 年 3 月 27 日发布的 1.21.0.6 版
+
+除了更新与 Cosmos DB 云服务配套的模拟器服务之外，我们还在此版本中包括了一项新功能和两个 bug 修复。
+
+#### <a name="features"></a>功能
+
+1. Start-CosmosDbEmulator 命令现在包括了启动选项。
+
+#### <a name="bug-fixes"></a>Bug 修复
+
+1. Microsoft.Azure.CosmosDB.Emulator PowerShell 模块现在会确保加载 `ServiceControllerStatus` 枚举。
+
+2. Microsoft.Azure.CosmosDB.Emulator PowerShell 模块现在包括了一个清单；第一个版本中遗漏了此清单。
 
 ### <a name="1201084-released-on-february-14-2018"></a>1.20.108.4 在 2018 年 2 月 14 日发布
 
@@ -502,4 +540,4 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 > [!div class="nextstepaction"]
 > [导出 Azure Cosmos DB 模拟器证书](local-emulator-export-ssl-certificates.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

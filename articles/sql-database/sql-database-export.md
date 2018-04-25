@@ -6,15 +6,15 @@ author: forester123
 manager: digimobile
 ms.service: sql-database
 ms.custom: load & move data
-origin.date: 10/11/2017
-ms.date: 2/28/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 ms.topic: article
-ms.openlocfilehash: a71dd833e361c7086f36979d45e54f8186345cb8
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 908edbd237a9807a5bc459de7abb2dc7d72f4c40
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>将 Azure SQL 数据库导出到 BACPAC 文件
 

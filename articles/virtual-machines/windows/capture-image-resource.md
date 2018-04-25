@@ -1,26 +1,26 @@
 ---
-title: "在 Azure 中创建托管映像 | Azure"
-description: "在 Azure 中创建通用 VM 或 VHD 的托管映像。 映像可用于创建多个使用托管磁盘的 VM。"
+title: 在 Azure 中创建托管映像 | Azure
+description: 在 Azure 中创建通用 VM 或 VHD 的托管映像。 映像可用于创建多个使用托管磁盘的 VM。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 10/09/2017
-ms.date: 03/19/2018
+origin.date: 03/06/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: fde20856440c300ca7341c4b540e8fbcdfc2882d
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 7cfd5218ce8a91ddbd476822f0680aaf7047b88e
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中创建通用 VM 的托管映像
 
@@ -33,7 +33,9 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
 确保 Sysprep 支持计算机上运行的服务器角色。 有关详细信息，请参阅 [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
-> 如果在首次将 VHD 上传到 Azure 之前运行 Sysprep，请确保先[准备好 VM](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，然后再运行 Sysprep。 
+> 在 VM 上运行 Sysprep 后，它被视为已通用化，且无法重启。 通用化 VM 的过程是不可逆的。 如果需要保持原始 VM 正常运行，则应保留 [VM 的副本](create-vm-specialized.md#option-3-copy-an-existing-azure-vm)并将此副本通用化。 
+>
+> 如果在首次将 VHD 上传到 Azure 之前运行 Sysprep，请确保先[准备好 VM](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，然后再运行 Sysprep。  
 > 
 > 
 
@@ -208,4 +210,4 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 ## <a name="next-steps"></a>后续步骤
 - 现在，可以[从通用托管映像创建 VM](create-vm-generalized-managed.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update link -->

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/06/2018
-ms.date: 04/08/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: justini
-ms.openlocfilehash: 45ee5c20c900c72990e36d8a4813aefa8a387035
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 48251dafda41048e26bd5a63cd48a7ac89ff2e98
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure Stack 1803 更新
 
@@ -274,3 +274,4 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
 - 有关 Azure Stack 中更新管理的概述，请参阅[在 Azure Stack 中管理更新的概述](azure-stack-updates.md)。
 - 有关如何在 Azure Stack 中应用更新的详细信息，请参阅[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)。
 
+<!-- Update_Description: update metedata properties -->

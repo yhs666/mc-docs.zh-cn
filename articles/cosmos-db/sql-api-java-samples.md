@@ -1,7 +1,7 @@
 ---
-title: "Azure Cosmos DB：SQL API 的 Java 示例 | Azure"
-description: "在 GitHub 上查找使用 Azure Cosmos DB SQL API 的常见任务的 Java 示例，包括 CRUD 操作。"
-keywords: "NoSQL 示例"
+title: Azure Cosmos DB：SQL API 的 Java 示例 | Azure
+description: 在 GitHub 上查找使用 Azure Cosmos DB SQL API 的常见任务的 Java 示例，包括 CRUD 操作。
+keywords: NoSQL 示例
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 02/08/2018
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: dff788db56b24bd123def829c098299e29104573
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: fdcb880e539414ce98df987728cc8fa5e7380322
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的 Java 示例
 
@@ -31,8 +31,6 @@ ms.lasthandoff: 03/02/2018
 > * [Azure 代码示例库](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) GitHub 存储库中包含可对 Azure Cosmos DB 资源执行 CRUD 操作和其他常见操作的最新示例应用程序。 本文提供：
 
@@ -164,5 +162,4 @@ $ cd azure-documentdb-java
 | [运行带参数的存储过程](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java#L121-L144) | [DocumentClient.executeStoredProcedure](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.executestoredprocedure) |
 | [运行带对象参数的存储过程](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java#L147-L177) | [DocumentClient.executeStoredProcedure](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.executestoredprocedure) |
 
-<!-- Update_Description: new articles about cosmos DB sql api java sample in cosmod DB -->
-<!--ms.date: 03/05/2018 -->
+<!-- Update_Description: update meta properties -->

@@ -7,14 +7,14 @@ author: Hayley244
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-origin.date: 09/06/2016
-ms.date: 07/10/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 2abd49383c7cae84e507809746764f7a483f1562
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: d4a9881f52d3895691bfe10391f72bbb224110f2
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Scaling out with Azure SQL Database（使用 Azure SQL 数据库进行扩展）
 可以使用**弹性数据库**工具轻松扩大 Azure SQL 数据库。 借助这些工具和功能，可以使用 Azure SQL 数据库中几乎不受限制的数据库资源来为事务工作负荷，尤其是软件即服务 (SaaS) 应用程序创建解决方案。 弹性数据库的功能包括：
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/08/2018
 * [弹性数据库查询](sql-database-elastic-query-overview.md)（预览版）：可跨多个数据库运行 Transact-SQL 查询。 这样，便可以连接到 Excel、PowerBI、Tableau 等报表工具。
 * [弹性事务](sql-database-elastic-transactions-overview.md)：使用此功能可在 Azure SQL 数据库中跨多个数据库运行事务。 弹性数据库事务适用于使用 ADO .NET 的 .NET 应用程序，并且与熟悉的使用 [System.Transaction 类](https://msdn.microsoft.com/library/system.transactions.aspx)的编程体验相集成。
 
-下图显示的体系结构与数据库集合有关的 **弹性数据库功能** 。
+下图显示了一种体系结构，它包含与数据库集合有关的弹性数据库功能。
 
 在此图中，数据库颜色表示架构。 颜色相同的数据库具有相同的架构。
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/08/2018
 5. 
             **拆分/合并工具**用于将数据从一个分片移到另一个分片。
 6. 使用 **弹性数据库查询** 可以编写跨分片集中所有数据库运行的查询。
-7. **弹性事务** 允许跨多个数据库运行事务。 
+7. 弹性事务允许跨多个数据库运行事务。 
 
 ![弹性数据库工具][1]
 
@@ -56,7 +56,7 @@ VM 和 blob 存储可以轻松实现云应用程序的弹性和缩放需求 - �
 
 纵向缩放是指增加或减少单个数据库的性能级别 - 这也称为“向上扩展”。
 
-大多数云规模的数据库应用程序都使用这些两种策略的组合。 例如，软件即服务应用程序可能使用横向缩放来预配新的最终客户，使用纵向缩放来允许每个最终客户的数据库根据工作负荷的需要增加或缩减资源。
+大多数云规模的数据库应用程序都使用这两种策略的组合。 例如，软件即服务应用程序可能使用横向缩放来预配新的最终客户，使用纵向缩放来允许每个最终客户的数据库根据工作负荷的需要增加或缩减资源。
 
 * 可以使用[弹性数据库客户端库](sql-database-elastic-database-client-library.md)来管理水平缩放。
 * 可以通过使用 Azure PowerShell cmdlet 更改服务层或者通过将数据库放入弹性池中，来实现纵向缩放。

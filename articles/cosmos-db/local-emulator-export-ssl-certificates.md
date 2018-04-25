@@ -1,12 +1,12 @@
 ---
-title: "导出 Azure Cosmos DB 模拟器证书 | Azure"
-description: "使用不使用 Windows 证书存储的语言和运行时进行开发时，需要导出和管理 SSL 证书。 此文提供了分步说明。"
+title: 导出 Azure Cosmos DB 模拟器证书 | Azure
+description: 使用不使用 Windows 证书存储的语言和运行时进行开发时，需要导出和管理 SSL 证书。 此文提供了分步说明。
 services: cosmos-db
-documentationcenter: 
-keywords: "Azure Cosmos DB 模拟器"
+documentationcenter: ''
+keywords: Azure Cosmos DB 模拟器
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: ef43deda-c2e9-4193-99e2-7f6a88a0319f
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/06/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f72d5f77179b29e33003f7cedbd906d60ae8bdce
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 3edf00dfdfaee5bc93adc15a65061802e99e0b6c
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>使用 Java、Python 和 Node.js 导出要使用的 Azure Cosmos DB 模拟器证书
 
@@ -105,4 +105,4 @@ Azure Cosmos DB 模拟器提供了一个模拟用于开发的 Azure Cosmos DB �
 
 <!-- Not Available on [Create an Azure Function with input from Azure Cosmos DB](tutorial-functions-http-trigger.md) -->
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties -->

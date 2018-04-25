@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/22/2017
-ms.date: 03/26/2018
+origin.date: 03/23/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: b2a0f6072aa9082d5e78708cfbeed84c438143fb
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: f04cbb20698033d4caf61fe2bbef7f16e69b00cf
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>使用 Node.js 生成 Azure Cosmos DB: API for MongoDB 应用
 > [!div class="op_single_selector"]
@@ -109,6 +109,44 @@ ms.lasthandoff: 03/28/2018
     );
     };
 
+    MongoClient.connect(url, function(err, client) {
+    assert.equal(null, err);
+    var db = client.db('familiesdb');
+    insertDocument(db, function() {
+        findFamilies(db, function() {
+        updateFamilies(db, function() {
+            removeFamilies(db, function() {
+                client.close();
+            });
+        });
+        });
+    });
+    });
+    ```
+
+    **可选**：如果使用的是 MongoDB Node.js 2.2 驱动程序，请替换下面的代码片段：
+
+    原始：
+
+    ```nodejs
+    MongoClient.connect(url, function(err, client) {
+    assert.equal(null, err);
+    var db = client.db('familiesdb');
+    insertDocument(db, function() {
+        findFamilies(db, function() {
+        updateFamilies(db, function() {
+            removeFamilies(db, function() {
+                client.close();
+            });
+        });
+        });
+    });
+    });
+    ```
+
+    应替换为：
+
+    ```nodejs
     MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
     insertDocument(db, function() {
@@ -125,6 +163,15 @@ ms.lasthandoff: 03/28/2018
 
 2. 按照帐户设置修改 app.js 文件中的以下变量（了解如何查找[连接字符串](connect-mongodb-account.md)）：
 
+    > [!IMPORTANT]
+    > MongoDB Node.js 3.0 驱动程序需要在 Cosmos DB 密码中对特殊字符进行编码。 请务必将“=”字符编码为 %3D
+    >
+    > 示例：密码 jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv== 编码为 jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D
+    >
+    > MongoDB Node.js 2.2 驱动程序无需在 Cosmos DB 密码中对特殊字符进行编码。
+    >
+    >
+
     ```nodejs
     var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.cn:10255/?ssl=true';
     ```
@@ -134,4 +181,4 @@ ms.lasthandoff: 03/28/2018
 ## <a name="next-steps"></a>后续步骤
 * 了解如何配合[使用 MongoChef](mongodb-mongochef.md) 与 Azure Cosmos DB: API for MongoDB 帐户。
 
-<!--Update_Description: update link -->
+<!-- Update_Description: update meta properties, wording update -->

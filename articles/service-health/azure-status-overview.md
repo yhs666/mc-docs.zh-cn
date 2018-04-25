@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-origin.date: 03/09/2017
-ms.date: 04/02/2017
+origin.date: 03/27/2018
+ms.date: 04/30/2017
 ms.author: v-yiso
-ms.openlocfilehash: cf340a03649fb090692b6da16141249736c0a166
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 52307612c0a9bdcc09e1644a6b10698dc9008fe7
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-status"></a>Azure 状态
 [Azure 状态](https://www.azure.cn/support/service-dashboard/)可提供 Azure 服务运行状况的全局视图。 通过 Azure 状态可获取有关服务可用性的最新信息。 所有人均可访问 Azure 状态并查看报告其服务运行状况的所有服务。 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/28/2018
 ![Azure 状态页](./media/azure-status-overview/azure-status.PNG)
 
 ## <a name="azure-status-updates"></a>Azure 状态更新
-Azure 状态页会根据 Azure 服务运行状况的变化而实时更新。 如果保持 Azure 状态页处于打开状态，则可控制页面上新数据的刷新频率。 
+Azure 状态页会根据 Azure 服务运行状况的变化而实时更新。 如果保持 Azure 状态页处于打开状态，则可控制页面上新数据的刷新频率。 在顶部，你可查看页面上次更新时间。
 
 ![Azure 状态刷新](./media/azure-status-overview/update.PNG)
 

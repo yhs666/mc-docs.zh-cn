@@ -1,11 +1,11 @@
 ---
-title: "为 Azure 逻辑应用创建部署模板"
-description: "创建 Azure 资源管理器模板以用于逻辑应用部署和版本管理"
+title: 为 Azure 逻辑应用创建部署模板
+description: 使用 Azure 资源管理器模板部署逻辑应用
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: anneta
-editor: 
+author: ecfan
+manager: SyntaxC4
+editor: ''
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 origin.date: 10/18/2016
-ms.date: 03/19/2018
+ms.date: 04/23/2018
 ms.author: v-yiso
-ms.openlocfilehash: 162463af79eba90a79f3fa973808a7ac88bf0adf
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: b6f3878a633531086a719d6ec153f64843bd1e83
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="create-templates-for-logic-apps-deployment-and-release-management"></a>创建模板以用于逻辑应用部署和版本管理
+# <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>使用 Azure 资源管理器模板部署逻辑应用
 
 创建逻辑应用之后，可能想要将其创建为 Azure 资源管理器模板。
 这样，可以轻松地将逻辑应用部署到任何需要它的环境或资源组。
@@ -47,7 +47,7 @@ ms.lasthandoff: 03/12/2018
 
 ## <a name="create-a-logic-app-deployment-template"></a>创建逻辑应用的部署模板
 
-获得有效逻辑应用部署模板的最简单方法是使用 [Visual Studio Tools for Logic Apps](logic-apps-deploy-from-vs.md)。
+获得有效逻辑应用部署模板的最简单方法是使用 [Visual Studio Tools for Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites)。
 Visual Studio 工具生成可跨任何订阅或位置使用的有效部署模板。
 
 其他一些工具可在创建逻辑应用部署模板时提供帮助。
@@ -79,6 +79,101 @@ Visual Studio 工具生成可跨任何订阅或位置使用的有效部署模板
 
 ## <a name="add-parameters-to-a-logic-app-template"></a>向逻辑应用模板添加参数
 创建逻辑应用模板后，可以继续添加或修改可能需要的参数。 例如，如果定义在 Azure 函数或嵌套工作流中包括资源 ID，并且打算在单个部署中部署此函数或工作流，那么可以将更多资源添加到模板，并根据需要参数化 ID。 上述情况同样适用于对要与每个资源组一起部署的自定义 API 或 Swagger 终结点的任何引用。
+
+### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>将从属资源的引用添加到 Visual Studio 部署模板
+
+如果希望逻辑应用引用从属资源，可以在逻辑应用部署模板中使用 [Azure 资源管理器模板函数](/azure-resource-manager/resource-group-template-functions)。 例如，可能想让逻辑应用引用要与逻辑应用一起部署的 Azure 函数或集成帐户。 请遵循以下准则，了解如何在部署模板中使用参数，使逻辑应用设计器可正确地呈现。 
+
+可以在以下类型的触发器和操作中使用逻辑应用参数：
+
+*   子工作流
+*   APIM 调用
+*   API 连接运行时 URL
+*   API 连接路径
+
+可以使用模板函数，如参数、变量、资源 ID、concat 等。例如，下面是替换 Azure 函数资源 ID 的方法：
+
+```
+"parameters":{
+    "functionName": {
+        "type":"string",
+        "minLength":1,
+        "defaultValue":"<FunctionName>"
+    }
+},
+```
+
+使用参数的位置：
+
+```
+"MyFunction": {
+    "type": "Function",
+    "inputs": {
+        "body":{},
+        "function":{
+            "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
+        }
+    },
+    "runAfter":{}
+}
+```
+再举一例，可以参数化服务总线发送消息操作：
+
+```
+"Send_message": {
+    "type": "ApiConnection",
+        "inputs": {
+            "host": {
+                "connection": {
+                    "name": "@parameters('$connections')['servicebus']['connectionId']"
+                }
+            },
+            "method": "post",
+            "path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
+            "body": {
+                "ContentData": "@{base64(triggerBody())}"
+            },
+            "queries": {
+                "systemProperties": "None"
+            }
+        },
+        "runAfter": {}
+    }
+```
+> [!NOTE] 
+> host.runtimeUrl 是可选的，可从模板中删除（如果存在）。
+> 
+
+
+> [!NOTE] 
+> 为了使逻辑应用设计器能工作，在使用参数时必须提供默认值，例如：
+> 
+> ```
+> "parameters": {
+>     "IntegrationAccount": {
+>     "type":"string",
+>     "minLength":1,
+>     "defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
+>     }
+> },
+> ```
+
+## <a name="add-your-logic-app-to-an-existing-resource-group-project"></a>将逻辑应用添加到现有资源组项目
+
+如果存在现有资源组项目，可在“JSON 大纲”窗口中将逻辑应用添加到该项目。 还可以添加另一个逻辑应用和之前创建的应用。
+
+1. 打开 `<template>.json` 文件。
+
+2. 若要打开“JSON 大纲”窗口，请转到“视图” > “其他窗口” > “JSON 大纲”。
+
+3. 要将资源添加到模板文件，请在“JSON 大纲”窗口顶部单击“添加资源”。 或者在“JSON 大纲”窗口中，右键单击“资源”，并选择“添加新资源”。
+
+    ![“JSON 大纲”窗口](./media/logic-apps-create-deploy-template/jsonoutline.png)
+    
+4. 在“添加资源”对话框中，找到并选择“逻辑应用”。 为逻辑应用命名，并选择“添加”。
+
+    ![添加资源](./media/logic-apps-create-deploy-template/addresource.png)
+
 
 ## <a name="deploy-a-logic-app-template"></a>部署逻辑应用模板
 

@@ -10,11 +10,11 @@ ms.topic: article
 origin.date: 01/02/2018
 ms.date: 01/08/2018
 ms.author: v-nany
-ms.openlocfilehash: 9b9388bb41573509d8ac04d81e8612d80db24983
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 014a75e60452555e3b56675bdc78888eb5b12f14
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL 数据库连接体系结构 
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 04/08/2018
 
 ## <a name="change-azure-sql-database-connection-policy"></a>更改 Azure SQL 数据库连接策略
 
-若要为 Azure SQL 数据库服务器更改 Azure SQL 数据库连接策略，请使用 [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx)。 
+若要更改 Azure SQL 数据库服务器的 Azure SQL 数据库连接策略，请使用 [conn-policy](https://docs.azure.cn/zh-cn/cli/sql/server/conn-policy) 命令。
 
 - 如果将连接策略设置为“代理”，所有网络数据包都将通过 Azure SQL 数据库网关流动。 对于此设置，需要只允许出站到 Azure SQL 数据库网关 IP。 使用“代理”设置比使用“重定向”设置的延迟时间更长。
 - 如果将连接策略设置为“重定向”，则所有网络数据包将直接流向中间件代理。 对于此设置，需要允许出站到多个 IP。
@@ -141,7 +141,7 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要了解如何为 Azure SQL 数据库服务器更改 Azure SQL 数据库连接策略，请参阅[使用 REST API 创建或更新服务器连接策略](https://msdn.microsoft.com/library/azure/mt604439.aspx)。
+- 有关如何更改 Azure SQL 数据库服务器的 Azure SQL 数据库连接策略的信息，请参阅 [conn-policy](https://docs.azure.cn/cli/sql/server/conn-policy)。
 - 若要了解使用 ADO.NET 4.5 或更高版本的客户端的 Azure SQL 数据库连接行为，请参阅[用于 ADO.NET 4.5 的非 1433 端口](sql-database-develop-direct-route-ports-adonet-v12.md)。
 - 若要了解常规应用程序开发的概述信息，请参阅[SQL 数据库应用程序开发概述](sql-database-develop-overview.md)。
 

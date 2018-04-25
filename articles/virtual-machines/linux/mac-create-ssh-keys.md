@@ -1,11 +1,11 @@
 ---
-title: "创建和使用适用于 Azure 中 Linux VM 的 SSH 密钥对 | Azure"
-description: "如何创建和使用适用于 Azure 中 Linux VM 的 SSH 公钥和私钥对，提高身份验证过程的安全性。"
+title: 创建和使用适用于 Azure 中 Linux VM 的 SSH 密钥对 | Azure
+description: 如何创建和使用适用于 Azure 中 Linux VM 的 SSH 公钥和私钥对，提高身份验证过程的安全性。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 34ae9482-da3e-4b2d-9d0d-9d672aa42498
 ms.service: virtual-machines-linux
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/13/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6f638f252d13eda3614694b8c4682b51a26c18f3
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 28e5ff42488896f6b0a9128541988e28552b9ce6
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>如何创建和使用适用于 Azure 中 Linux VM 的 SSH 公钥和私钥对
 使用安全外壳 (SSH) 密钥对，可以在 Azure 上创建使用 SSH 密钥进行身份验证的虚拟机 (VM)，从而无需密码即可登录。 本文介绍如何快速生成和使用适用于 Linux VM 的 SSH 协议版本 2 RSA 公钥和私钥文件对。 如需更详细的步骤和其他示例，请参阅[创建 SSH 密钥对和证书的详细步骤](create-ssh-keys-detailed.md)。
 <!-- Not Available on You can complete these steps with the Azure Cloud Shell -->
 
 ## <a name="create-an-ssh-key-pair"></a>创建 SSH 密钥对
-请使用 `ssh-keygen` 命令创建 SSH 公钥和私钥文件，这些文件默认在 `~/.ssh` 目录中创建，但是可以在系统提示时指定其他位置和其他通行短语（用于访问私钥文件的密码）。 请通过 Bash 外壳程序运行以下命令，在出现提示时使用自己的信息进行回应。
+使用 `ssh-keygen` 命令创建默认在 `~/.ssh` 目录中创建的 SSH 公钥和私钥文件。 可以在提示时指定不同的位置和其他密码（用于访问私钥文件的密码）。 如果 SSH 密钥对存在于当前位置，则它们已被覆盖。
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
 ## <a name="use-the-ssh-key-pair"></a>使用 SSH 密钥对
-放置在 Azure 中 Linux VM 上的公钥默认存储在 `~/.ssh/id_rsa.pub` 中，除非在创建该公钥时更改了位置。 如果使用 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest) 创建 VM，请在将 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 与 `--ssh-key-path` 选项结合使用时指定该公钥的位置。 如果复制并粘贴要在 Azure 门户或 Resource Manager 模板中使用的公钥文件的内容，请确保不复制额外的空格。 例如，如果使用 OS X，则可将公钥文件（默认为 **~/.ssh/id_rsa.pub**）通过管道传送到 **pbcopy**，以便复制内容（也可通过其他 Linux 程序（例如 `xclip`）执行此操作）。
+放置在 Azure 中 Linux VM 上的公钥默认存储在 `~/.ssh/id_rsa.pub` 中，除非在创建该公钥时更改了位置。 如果使用 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest) 创建 VM，请在将 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 与 `--ssh-key-path` 选项结合使用时指定该公钥的位置。 如果复制并粘贴要在 Azure 门户或 Resource Manager 模板中使用的公钥文件的内容，请确保不复制额外的空格。 例如，如果使用 OS X，则可将公钥文件（默认为 **~/.ssh/id_rsa.pub**）通过管道传送到 **pbcopy**，以便复制内容（也可通过其他 Linux 程序（例如 `xclip`）执行此操作）。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

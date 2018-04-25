@@ -13,14 +13,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 09/25/2017
-ms.date: 03/08/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 5efd31535fd1f7fde3ba672062be8f66afd3fc3c
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 3da2a50e955cff9ce1677b658279abde8bff0c5c
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-a-linux-virtual-machine-by-using-azure-cli-in-azure-stack"></a>在 Azure Stack 中使用 Azure CLI 创建 Linux 虚拟机
 
@@ -32,7 +32,7 @@ Azure CLI 用于从命令行创建和管理 Azure Stack 资源。 本快速入�
 
 - 确保 Azure Stack 运营商已将“Ubuntu Server 16.04 LTS”映像添加到 Azure Stack Marketplace。 
 
-- Azure Stack 需要使用特定版本的 Azure CLI 来创建和管理资源。 如果尚未针对 Azure Stack 配置 Azure CLI，请登录到[开发工具包](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)，或登录到基于 Windows 的外部客户端（如果[通过 VPN 建立了连接](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)），遵循相应的步骤[安装并配置 Azure CLI](azure-stack-connect-cli.md)。
+- Azure Stack 需要使用特定版本的 Azure CLI 来创建和管理资源。 如果尚未针对 Azure Stack 配置 Azure CLI，请登录到[开发工具包](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)，或登录到基于 Windows 的外部客户端（如果[通过 VPN 建立了连接](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)），遵循相应的步骤[安装并配置 Azure CLI](azure-stack-version-profiles-azurecli2.md)。
 
 - 应在 Windows 用户配置文件的 .ssh 目录中创建名为 id_rsa.pub 的 SSH 公钥。 有关创建 SSH 密钥的详细信息，请参阅[在 Windows 上创建 SSH 密钥](../../virtual-machines/linux/ssh-from-windows.md)。 
 
@@ -110,3 +110,4 @@ az group delete --name myResourceGroup
 在本快速入门中，我们部署了一个简单的 Linux 虚拟机。 有关 Azure Stack 虚拟机的详细信息，请转到 [Azure Stack 中虚拟机的注意事项](azure-stack-vm-considerations.md)。
 
 
+<!-- Update_Description: link update -->

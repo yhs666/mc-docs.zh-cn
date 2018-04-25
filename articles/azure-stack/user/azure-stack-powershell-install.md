@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/13/2017
-ms.date: 03/08/2018
+origin.date: 04/10/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0c354a3a75d70ca030e44b7a086bf84e12f51afe
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 79a91d2080351ebc9a2682519b3acde46b95533b
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>安装适用于 Azure Stack 的 PowerShell  
 
@@ -50,14 +50,13 @@ Set-PSRepository `
 
 - 登录到开发工具包或基于 Windows 的外部客户端（如果打算建立 VPN 连接）。 从 `C:\Program Files (x86)\WindowsPowerShell\Modules` 和 `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` 文件夹中删除以“Azure”开头的所有文件夹。 删除这些文件夹会从“AzureStackAdmin”和“global”用户范围中删除所有现有的 PowerShell 模块。 
 
-以下部分介绍安装适用于 Azure Stack 的 PowerShell 所要执行的步骤。 可在已建立连接、部分连接或断开连接的情况下，在 Azure Stack 上安装 PowerShell。 
+以下部分介绍安装适用于 Azure Stack 的 PowerShell 所要执行的步骤。 可在已联网、部分联网或离线场景中运行的 Azure Stack 上安装 PowerShell。 
 
-## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>在已建立连接的情况下（已建立 Internet 连接）安装 PowerShell
+## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>在联网场景中（已建立 Internet 连接）安装 PowerShell
 
-通过 API 版本配置文件安装与 Azure Stack 兼容的 AzureRM 模块。 Azure Stack 需要 **2017-03-09-profile** API 版本配置文件（可通过安装 AzureRM.Bootstrapper 模块获取）。 有关 API 版本配置文件及其提供的 cmdlet 的详细信息，请参阅[管理 API 版本配置文件](azure-stack-version-profiles.md)。 除了 AzureRM 模块以外，还应安装 Azure Stack 特定的 Azure PowerShell 模块。 运行以下 PowerShell 脚本，在开发工作站上安装这些模块：
+通过 API 版本配置文件安装与 Azure Stack 兼容的 AzureRM 模块。 Azure Stack 需要 **2017-03-09-profile** API 版本配置文件（可通过安装 AzureRM.Bootstrapper 模块获取）。 有关 API 版本配置文件及其提供的 cmdlet 的详细信息，请参阅[管理 API 版本配置文件](azure-stack-version-profiles-powershell.md)。 除了 AzureRM 模块以外，还应安装 Azure Stack 特定的 Azure PowerShell 模块。 运行以下 PowerShell 脚本，在开发工作站上安装这些模块：
 
-> [!IMPORTANT]
-> AzureRM 1.2.11 PowerShell 模块版本随附了重大更改列表。 
+
 
   ```powershell
   # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
@@ -81,12 +80,9 @@ Set-PSRepository `
   ```
   如果安装成功，输出中会显示 AzureRM 和 Azure Stack 模块。
 
-## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>在断开连接或部分连接的情况下（Internet 连接受到限制）安装 PowerShell
+## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>在离线或部分联网的场景中（Internet 连接受到限制）安装 PowerShell
 
 在断开连接或部分连接的情况下，必须先将 PowerShell 模块下载到已建立 Internet 连接的计算机，然后将其传送到 Azure Stack 开发工具包进行安装。
-
-> [!IMPORTANT]
-> AzureRM 1.2.11 PowerShell 模块版本随附了重大更改列表。 
 
 1. 登录到已建立 Internet 连接的计算机，使用以下脚本将 AzureRM 和 AzureStack 包下载到本地计算机：
 
@@ -135,7 +131,8 @@ Set-PSRepository `
 
 ## <a name="next-steps"></a>后续步骤
 
-- [从 GitHub 下载 Azure Stack 工具](azure-stack-powershell-download.md)
+- [从 GitHub 下载 Azure Stack 工具](azure-stack-powershell-download.md)  
 - [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)  
-- [在 Azure Stack 中管理 API 版本配置文件](azure-stack-version-profiles.md)  
+- [在 Azure Stack 中管理 API 版本配置文件](azure-stack-version-profiles-powershell.md)  
 
+<!-- Update_Description: wording update -->

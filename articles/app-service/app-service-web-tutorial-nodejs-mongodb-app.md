@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中构建 Node.js 和 MongoDB Web 应用 | Azure"
-description: "了解如何使在 Node.js 应用在 Azure 中运行，并使用 MongoDB 连接字符串连接到 Cosmos DB 数据库。"
+title: 在 Azure 中构建 Node.js 和 MongoDB Web 应用 | Azure
+description: 了解如何使在 Node.js 应用在 Azure 中运行，并使用 MongoDB 连接字符串连接到 Cosmos DB 数据库。
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 05/04/2017
-ms.date: 01/02/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 15e84d5371a37981bbe0264ad56c4586c8025d1a
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.openlocfilehash: 30a30856370f3c1e9c8d47520b5e109abdbe94b4
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>在 Azure 中生成 Node.js 和 MongoDB Web 应用
+# <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>教程：在 Azure 中生成 Node.js 和 MongoDB Web 应用
 
 Azure Web 应用提供高度可缩放、自修补的 Web 托管服务。 本教程演示如何在 Azure 中创建 Node.js Web 应用，并将其连接至 MongoDB 数据库。 完成本教程后，将获得一个在 [Azure App Service](app-service-web-overview.md) 中运行的 MEAN（MongoDB、Express、AngularJS 和 Node.js）应用程序）。 为简单起见，示例应用程序使用了 [MEAN.js web 框架](http://meanjs.org/)。
 
@@ -38,6 +38,8 @@ Azure Web 应用提供高度可缩放、自修补的 Web 托管服务。 本教�
 > * 从 Azure 流式传输诊断日志
 > * 在 Azure 门户中管理应用
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>先决条件
 
 完成本教程：
@@ -47,8 +49,6 @@ Azure Web 应用提供高度可缩放、自修补的 Web 托管服务。 本教�
 1. [安装 Bower](https://bower.io/)（[MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started) 所需的）
 1. [安装 Gulp.js](http://gulpjs.com/) [（MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started) 要求的）
 1. [安装并运行 MongoDB 社区版](https://docs.mongodb.com/manual/administration/install-community/) 
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="test-local-mongodb"></a>测试本地 MongoDB
 
@@ -252,6 +252,7 @@ MEAN.JS version: 0.5.0
 
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
+<a name="create"></a>
 ### <a name="create-a-web-app"></a>创建 Web 应用
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 

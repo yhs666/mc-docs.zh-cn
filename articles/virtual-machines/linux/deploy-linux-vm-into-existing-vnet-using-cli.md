@@ -1,13 +1,13 @@
 ---
-title: "使用 Azure CLI 2.0 将 Linux VM 部署到现有网络中 | Azure"
-description: "了解如何使用 Azure CLI 2.0 将 Linux 虚拟机部署到现有虚拟网络"
+title: 使用 Azure CLI 2.0 将 Linux VM 部署到现有网络中 | Azure
+description: 了解如何使用 Azure CLI 2.0 将 Linux 虚拟机部署到现有虚拟网络
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 05/11/2017
 ms.date: 07/03/2017
 ms.author: v-dazen
-ms.openlocfilehash: 8bac8290869f56eb36ed52510f0d3b1a68b6f618
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: b237a0f52d1bf12f8cb8fa5665ee3384aee8784d
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-deploy-a-linux-virtual-machine-into-an-existing-azure-virtual-network-with-the-azure-cli"></a>如何使用 Azure CLI 将 Linux 虚拟机部署到现有 Azure 虚拟网络
 
@@ -29,12 +29,12 @@ ms.lasthandoff: 11/10/2017
 - [一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)
 - [SSH 公钥和私钥文件](mac-create-ssh-keys.md)
 
-还可以使用 [Azure CLI 1.0](deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md) 执行这些步骤。
+也可以使用 [Azure CLI 1.0](deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md) 执行这些步骤。
 
 ## <a name="quick-commands"></a>快速命令
 如果需要快速完成任务，以下部分详细介绍所需的命令。 本文档的余下部分（[从此处开始](#detailed-walkthrough)）提供了每个步骤的更详细信息和上下文。
 
-若要创建此自定义环境，需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录到 Azure 帐户。
+若要创建此自定义环境，需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -58,13 +58,13 @@ az vm create \
 
 选择静态的、长期存在的且部署频率极低的资源作为 Azure 资产，例如虚拟网络和网络安全组。 部署虚拟网络后，新部署可以重复使用它，而不会对基础结构产生任何负面影响。 可将虚拟网络想像为传统硬件网络交换机 - 不需要为全新的硬件交换机配置每个部署。 正确配置虚拟网络后，在该虚拟网络的整个生命周期中，可继续反复地将新 VM 部署到该虚拟网络，只需做很少的更改（如果有）。
 
-若要创建此自定义环境，需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#login) 登录到 Azure 帐户。
+若要创建此自定义环境，需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#login) 登录到 Azure 帐户。
 
 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup*、*myVnet* 和 *myVM*。
 
 ## <a name="create-the-resource-group"></a>创建资源组
 
-首先创建 Azure 资源组，以便整理本演练中创建的所有内容。 有关资源组的详细信息，请参阅 [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)。 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
+首先创建 Azure 资源组，以便整理本演练中创建的所有内容。 有关资源组的详细信息，请参阅 [Azure 资源管理器概述](../../azure-resource-manager/resource-group-overview.md)。 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
 
 ```azurecli
 az group create \
@@ -99,7 +99,7 @@ az network nsg create \
 
 ## <a name="add-an-inbound-ssh-allow-rule"></a>添加入站 SSH 允许规则
 
-VM 需要从 Internet 进行访问，因此需要一个规则，允许端口 22 的入站流量通过网络传递到 VM 上的端口 22。 使用 [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#create)为网络安全组添加入站规则。 以下示例创建名为 *myNetworkSecurityGroupRuleSSH* 的规则：
+VM 需要从 Internet 进行访问，因此需要一个规则，允许端口 22 的入站流量通过网络传递到 VM 上的端口 22。 使用 [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#create) 为网络安全组添加入站规则。 以下示例创建名为 *myNetworkSecurityGroupRuleSSH* 的规则：
 
 ```azurecli
 az network nsg rule create \

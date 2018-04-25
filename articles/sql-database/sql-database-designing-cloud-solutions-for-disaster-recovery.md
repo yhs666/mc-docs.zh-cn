@@ -8,14 +8,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-origin.date: 12/13/2017
-ms.date: 01/08/2018
+origin.date: 04/04/2018
+ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: bb0f16ef0f57d543a62ea09dcbf3a8195ae8a5a2
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 722df89f9df3551793ff1a51ab9a4b8635c895de
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>使用 Azure SQL 数据库设计高可用性服务
 

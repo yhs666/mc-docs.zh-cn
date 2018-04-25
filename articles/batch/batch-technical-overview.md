@@ -1,26 +1,26 @@
 ---
-title: "Azure Batch 在云中运行大型并行作业 | Microsoft Docs"
-description: "了解如何使用 Azure Batch 服务执行大规模并发工作负荷与 HPC 工作负荷"
+title: Azure Batch 在云中运行大型并行作业 | Microsoft Docs
+description: 了解如何使用 Azure Batch 服务执行大规模并发工作负荷与 HPC 工作负荷
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: mscurrell
-manager: jkabat
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 01/19/2018
-ms.date: 03/07/2018
+ms.date: 04/09/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: bca6b709835bd2b261d797f2580be0331288ab6a
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: f787ece125740cde74c3f7f8f4ac76936ff0da3e
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-is-azure-batch"></a>什么是 Azure Batch？
 
@@ -79,3 +79,4 @@ Batch 的常用方案涉及在计算节点池中横向扩展本质并行工作�
 请参阅[适用于开发人员的 Batch 功能概述](batch-api-basics.md)，详细了解池、节点、作业、任务，以及生成 Batch 应用程序时可以使用的许多 API 功能。 
 
 
+<!-- Update_Description: wording update -->

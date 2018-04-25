@@ -1,26 +1,26 @@
 ---
-title: "使用 FreeBSD 的数据包筛选器在 Azure 中创建防火墙 | Azure"
-description: "了解如何在 Azure 中使用 FreeBSD 的 PF 部署 NAT 防火墙。"
+title: 使用 FreeBSD 的数据包筛选器在 Azure 中创建防火墙 | Azure
+description: 了解如何在 Azure 中使用 FreeBSD 的 PF 部署 NAT 防火墙。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 02/20/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2ec6ff6f1612e8ceaf30ed0cbcd8cdefc0b0ed8c
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 3659c2ffd0a08f27d1c560845705c95a4222836b
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>如何使用 FreeBSD 的数据包筛选器在 Azure 中创建安全防火墙
 本文介绍如何通过 Azure Resource Manager 模板使用 FreeBSD 的数据包筛选器为通用 Web 服务器方案部署 NAT 防火墙。
@@ -35,7 +35,7 @@ Azure Resource Manager 模板设置一个使用 PF 执行 NAT/重定向的 FreeB
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
 
 ### <a name="deploy-through-azure-cli"></a>通过 Azure CLI 进行部署
-需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录到 Azure 帐户。 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 创建资源组。 以下示例在 `China North` 位置创建名为 `myResourceGroup` 的资源组。
+需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 创建资源组。 以下示例在 `China North` 位置创建名为 `myResourceGroup` 的资源组。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

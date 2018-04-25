@@ -1,11 +1,11 @@
 ---
-title: "泛型 SQL 连接器 | Microsoft Docs"
-description: "本文介绍如何配置 Microsoft 的泛型 SQL 连接器。"
+title: 泛型 SQL 连接器 | Microsoft Docs
+description: 本文介绍如何配置 Microsoft 的泛型 SQL 连接器。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: fimguy
 manager: bhu
-editor: 
+editor: ''
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 12/19/2017
 ms.date: 01/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7803df87195dd9744088df9431bb3e29fdd02b94
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 06f26fdba38bde4c669b881fe58692af3b3208a3
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>泛型 SQL 连接器技术参考
 本指南介绍泛型 SQL 连接器。 本文适用于以下产品：
@@ -153,7 +153,7 @@ ms.lasthandoff: 01/17/2018
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
 >[!IMPORTANT]
- 自 2017 年 5 月起，更改了 “*”（即“任何选项”），以支持导入和导出流。 如果要使用此选项，多值表/视图须具有一个包含对象类型的属性。
+ 自 2017 年 5 月起，更改了“\*”（即“任何选项”），以支持导入和导出流。 如果要使用此选项，多值表/视图须具有一个包含对象类型的属性。
 
 ![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
 

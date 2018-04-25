@@ -1,25 +1,25 @@
 ---
-title: "在 Azure 中扩展 Linux VM 上的虚拟硬盘 | Azure"
-description: "了解如何使用 Azure CLI 2.0 在 Linux VM 上扩展虚拟硬盘"
+title: 在 Azure 中扩展 Linux VM 上的虚拟硬盘 | Azure
+description: 了解如何使用 Azure CLI 2.0 在 Linux VM 上扩展虚拟硬盘
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/13/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: bc70bbf1443c18501f29ca994be6688897c17f86
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 04731c0575b3286e9950c7cb6b1fa68e57c1b9f7
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>如何使用 Azure CLI 扩展 Linux VM 上的虚拟硬盘
 在 Azure 的 Linux 虚拟机 (VM) 上，操作系统 (OS) 的默认虚拟硬盘大小通常为 30 GB。 可通过[添加数据磁盘](add-disk.md)来扩充存储空间，但也可能想要扩展现有的数据磁盘。 本文详述如何使用 Azure CLI 2.0 扩展 Linux VM 的托管磁盘。 也可使用 [Azure CLI 1.0](expand-disks-nodejs.md) 扩展非托管 OS 磁盘。
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/17/2018
 > 执行磁盘重设大小操作前请务必确保已备份数据。 有关详细信息，请参阅[在 Azure 中备份 Linux VM](tutorial-backup-vms.md)。
 
 ## <a name="expand-azure-managed-disk"></a>扩展 Azure 托管磁盘
-确保已安装了最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录到 Azure 帐户。
+确保已安装了最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
 本文需要 Azure 中的现有 VM 已附加至少一个数据磁盘并且该磁盘已准备就绪。 如果尚无可用的 VM，请参阅[使用数据磁盘创建和准备 VM](tutorial-manage-disks.md#create-and-attach-disks)。
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 03/17/2018
     End?  [107GB]? 215GB
     ```
 
-    d.单击“验证存储凭据”以验证存储帐户。 若要退出，请输入 `quit`
+    d. 若要退出，请输入 `quit`
 
 3. 重设分区大小后，请使用 `e2fsck` 验证分区一致性：
 

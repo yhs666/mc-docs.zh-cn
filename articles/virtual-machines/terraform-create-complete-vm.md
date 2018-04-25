@@ -1,13 +1,13 @@
 ---
-title: "使用 Terraform 在 Azure 中创建基本基础结构 | Azure"
-description: "了解如何使用 Terraform 创建 Azure 资源"
+title: 使用 Terraform 在 Azure 中创建基本基础结构 | Azure
+description: 了解如何使用 Terraform 创建 Azure 资源
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
 manager: jtalkar
 editor: na
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 origin.date: 06/14/2017
 ms.date: 08/14/2017
 ms.author: v-dazen
-ms.openlocfilehash: d221865bb9c611478388a96f591a2b11e425a108
-ms.sourcegitcommit: 55c51539fdd337dbcbf420fedb0c7eaa690545f2
+ms.openlocfilehash: ff8b5bc798130626362cefcf083631b55672fbe6
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-basic-infrastructure-in-azure-by-using-terraform"></a>使用 Terraform 在 Azure 中创建基本基础结构
 本文介绍在 Azure 中预配虚拟机以及底层基础结构所要执行的步骤。 其中介绍了如何编写 Terraform 脚本，以及在云基础结构中实施更改之前如何可视化更改。 此外，还介绍了如何使用 Terraform 在 Azure 中创建基础结构。
@@ -202,6 +202,7 @@ terraform apply terraformscripts
 ```
 一段时间后，Azure 门户上的 `terraformtest` 资源组中应会显示资源，其中包括一个虚拟机。
 
+<a name="complete-terraform-script"><a/>
 ## <a name="complete-the-terraform-script"></a>完成 Terraform 脚本
 
 ```

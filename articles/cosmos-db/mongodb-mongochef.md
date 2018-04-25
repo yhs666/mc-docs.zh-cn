@@ -1,12 +1,11 @@
 ---
-title: "对 Azure Cosmos DB 使用 Studio 3T (MongoChef) | Azure"
-description: "了解如何配合使用 Studio 3T 与 Azure Cosmos DB MongoDB API 帐户"
+title: 对 Azure Cosmos DB 使用 Studio 3T (MongoChef) | Azure
+description: 了解如何配合使用 Studio 3T 与 Azure Cosmos DB MongoDB API 帐户
 keywords: mongochef, studio 3T
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: 
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/18/2018
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 26cac7559e9b4caaf36b2d3633c85f731ab7aa64
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 7745d6aae0be058e231031a63c8d2e66d13f0908
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-use-studio-3t-with-a-mongodb-api-account"></a>Azure Cosmos DB：配合使用 Studio 3T 与 MongoDB API 帐户
 
@@ -117,4 +116,4 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="next-steps"></a>后续步骤
 * 浏览 Azure Cosmos DB MongoDB API [示例](mongodb-samples.md)。
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

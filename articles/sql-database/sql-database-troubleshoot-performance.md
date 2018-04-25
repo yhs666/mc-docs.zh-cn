@@ -9,14 +9,14 @@ keywords: sql 性能优化, 数据库性能优化, sql 性能优化提示, sql �
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: troubleshooting
-origin.date: 06/13/2017
-ms.date: 11/06/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: f64abdcc996cd716a3565c5693a4abef0fd3728f
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 127e56916b1ef77ea950d54cd074513b15bc25c5
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="monitoring-and-performance-tuning"></a>监视和性能优化
 

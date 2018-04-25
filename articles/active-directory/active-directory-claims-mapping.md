@@ -12,11 +12,11 @@ ms.topic: article
 origin.date: 06/14/2017
 ms.author: v-junlch
 ms.date: 06/21/2017
-ms.openlocfilehash: 7e2b1a4e8b40b2209c18fd8912b85e3d60b703cd
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: 4d502fcd3e1a6c1b2824344c4f593111dfdd5211
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Azure Active Directory（公共预览版）中的声明映射
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/19/2018
 - 选择或更改在特定声明中发出的数据的源。
 
 >[!NOTE]
->此功能目前以公共预览版提供。 应准备好还原或删除所做的任何更改。 在公共预览版推出期间，可在任何 Azure Active Directory (Azure AD) 订阅中使用此功能。 但是，在正式版推出后，某些功能可能需要使用 Azure Active Directory Premium 订阅。
+>此功能目前以公共预览版提供。 应准备好还原或删除所做的任何更改。 在公共预览版推出期间，可在任何 Azure Active Directory (Azure AD) 订阅中使用此功能。 但是，在正式版推出后，某些功能可能需要使用 Azure Active Directory Premium 订阅。 此功能支持配置适用于 WS-Fed、SAML、OAuth 和 OpenID Connect 协议的声明映射策略。
 
 ## <a name="claims-mapping-policy-type"></a>声明映射策略类型
 在 Azure AD 中，**策略**对象表示针对组织中的单个应用程序或所有应用程序强制实施的一组规则。 每种类型的策略都有一个唯一的结构，其中的一组属性将应用于它们所分配到的对象。

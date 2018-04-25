@@ -1,19 +1,19 @@
 ---
-title: "Azure SQL 数据同步最佳做法 | Azure"
-description: "了解有关配置和运行 Azure SQL 数据同步（预览版）的最佳做法。"
+title: Azure SQL 数据同步最佳做法 | Azure
+description: 了解有关配置和运行 Azure SQL 数据同步（预览版）的最佳做法。
 services: sql-database
 ms.topic: article
 ms.service: sql-database
 author: yunan2016
-origin.date: 11/13/2017
-ms.date: 12/11/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 manager: digimobile
-ms.openlocfilehash: b68bedc2662ebb093b815c75c4c316e9cc972777
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: ebd2e13ca5d19c185cfbcd5e8e10d663e391410c
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="best-practices-for-sql-data-sync-preview"></a>SQL 数据同步最佳做法（预览版） 
 

@@ -1,11 +1,11 @@
 ---
-title: "重置对 Azure Linux VM 的访问权限 | Azure"
-description: "如何使用 VMAccess 扩展和 Azure CLI 2.0 在 Linux VM 上管理管理用户和重置访问权限"
+title: 重置对 Azure Linux VM 的访问权限 | Azure
+description: 如何使用 VMAccess 扩展和 Azure CLI 2.0 在 Linux VM 上管理管理用户和重置访问权限
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
 ms.service: virtual-machines-linux
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 08/04/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: c46bfbc0dbafbad2a9e719a145538314f9c9659d
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: f2d412543ced775ce67cba0691b632d7a85652c8
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>配合使用 VMAccess 扩展和 Azure CLI 2.0 管理管理用户、SSH，并检查或修复 Linux VM 上的磁盘
 Linux VM 上的磁盘显示错误。 不知道怎样重置 Linux VM 的根密码，或者不小心删除了 SSH 私钥。 如果在数据中心的时代发生这种情况，则需要开车到那里，并打开 KVM 访问服务器控制台。 请将 Azure VMAccess 扩展想像成该 KVM 交换机，它允许访问控制台以重置 Linux 访问或执行磁盘级维护。
@@ -33,7 +33,7 @@ Linux VM 上的磁盘显示错误。 不知道怎样重置 Linux VM 的根密码
 * 使用 Azure CLI 2.0 和所需参数。
 * [使用 VMAccess 要处理和操作的原始 JSON 文件](#use-json-files-and-the-vmaccess-extension)。
 
-下面的示例使用 [az vm user](https://docs.azure.cn/zh-cn/cli/vm/user?view=azure-cli-latest) 命令。 若要执行这些步骤，需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录到 Azure 帐户。
+下面的示例使用 [az vm user](https://docs.azure.cn/zh-cn/cli/vm/user?view=azure-cli-latest) 命令。 若要执行这些步骤，需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -236,4 +236,3 @@ az vm extension set \
 [在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md)
 
 <!--Update_Description: wording update, update link -->
-

@@ -1,22 +1,22 @@
 ---
-title: "教程 - 使用用于 Node.js 的 Azure Batch 客户端库 | Microsoft Docs"
-description: "了解 Azure Batch 的基本概念，并使用 Node.js 构建简单的解决方案。"
+title: 教程 - 使用用于 Node.js 的 Azure Batch 客户端库 | Microsoft Docs
+description: 了解 Azure Batch 的基本概念，并使用 Node.js 构建简单的解决方案。
 services: batch
-author: alexchen2016
-manager: digimobile
-ms.assetid: 
+author: shwetams
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
 ms.topic: hero-article
 ms.workload: big-compute
 origin.date: 05/22/2017
-ms.date: 07/03/2017
+ms.date: 04/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: ca1b16e96e7c30290cb443136af2597429752819
-ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
+ms.openlocfilehash: cc339284c839331d0a031464488e5314d1b1f65b
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>用于 Node.js 的 Batch SDK 入门
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/12/2017
 >
 >
 
-了解使用 [Azure Batch Node.js SDK](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) 在 Node.js 中生成 Batch 客户端的基础知识。 我们采用分步方式来了解一个 Batch 应用程序的方案，然后通过 Node.js 客户端设置该方案。  
+了解使用 [Azure Batch Node.js SDK](https://docs.microsoft.com/javascript/api/overview/azure/batch) 在 Node.js 中生成 Batch 客户端的基础知识。 我们采用分步方式来了解一个 Batch 应用程序的方案，然后通过 Node.js 客户端设置该方案。  
 
 ## <a name="prerequisites"></a>先决条件
 本文假设你有 Node.js 的实践知识并熟悉 Linux， 同时还假设你已设置 Azure 帐户并具有创建 Batch 和存储服务所需的访问权限。
@@ -106,7 +106,7 @@ var batch_client = new batch.ServiceClient(credentials,accountUrl);
 
 Azure Batch URI 可以在 Azure 门户的“概览”选项卡中找到。 它的格式为：
 
-`https://accountname.location.batch.azure.com`
+`https://accountname.location.batch.chinacloudapi.cn`
 
 请参阅屏幕截图：
 
@@ -193,7 +193,7 @@ var cloudPool = batch_client.pool.get(poolid,function(error,result,request,respo
 ```
 { id: 'processcsv_201721152',
   displayName: 'processcsv_201721152',
-  url: 'https://<batch-account-name>.centralus.batch.azure.com/pools/processcsv_201721152',
+  url: 'https://<batch-account-name>.centralus.batch.chinacloudapi.cn/pools/processcsv_201721152',
   eTag: '<eTag>',
   lastModified: 2017-03-27T10:28:02.398Z,
   creationTime: 2017-03-27T10:28:02.398Z,
@@ -349,6 +349,7 @@ var container_list = ["con1","con2","con3","con4"]
 ## <a name="next-steps"></a>后续步骤
 
 - 如果对 Batch 服务不熟悉，建议查看 [Azure Batch 功能概述](batch-api-basics.md) 一文。
-- 请查看 [Batch Node.js 参考](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/)了解 Batch API。
+- 请查看 [Batch Node.js 参考](https://docs.microsoft.com/javascript/api/overview/azure/batch)了解 Batch API。
 
 
+<!-- Update_Description: wording update -->

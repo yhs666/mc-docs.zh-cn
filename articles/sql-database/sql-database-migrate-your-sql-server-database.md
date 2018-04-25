@@ -7,18 +7,23 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-origin.date: 01/29/2018
+origin.date: 04/10/2018
 ms.date: 02/28/2018
 ms.author: v-johch
-ms.openlocfilehash: ff2704e48c0c6bc6da6a53f0f53acfb504860d15
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 6bb1e9f4a9c89b05a340240e788eca8bb310bc60
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>将 SQL Server 数据库迁移到 Azure SQL 数据库
 
-将 SQL Server 数据库移至 Azure SQL 数据库很简单，与在 Azure 中创建空 SQL 数据库然后使用 [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) 将数据导入到 Azure 一样简单。 本教程介绍以下内容：
+将 SQL Server 数据库移至 Azure SQL 数据库的单个数据库，与在 Azure 中创建空 SQL 数据库然后使用[数据迁移助手](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) 将数据库导入到 Azure 一样简单。 有关其他迁移选项，请参阅[将数据库迁移到 Azure SQL 数据库](sql-database-cloud-migrate.md)。
+
+> [!IMPORTANT]
+> 若要迁移到 Azure SQL 数据库托管实例，请参阅[从 SQL Server 迁移到托管实例](sql-database-managed-instance-migrate.md)
+
+本教程介绍以下内容：
 
 > [!div class="checklist"]
 > * 在 Azure 门户中创建空 Azure SQL 数据库（使用新的或现有的 Azure SQL 数据库服务器）
@@ -106,7 +111,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
 1. 部署完成后，在左侧菜单中单击“SQL 数据库”，然后在“SQL 数据库”页上单击“mySampleDatabase”。 此时会打开数据库的概览页，显示完全限定的服务器名称（例如 **mynewserver-20170824.database.chinacloudapi.cn**），并且会提供进行进一步配置所需的选项。 
 
-2. 在后续的快速入门中，请复制此完全限定的服务器名称，将其用于连接到服务器及其数据库。 
+2. 在后续的快速入门教程中，请复制此完全限定的服务器名称，将其用于连接到服务器及其数据库。 
 
    ![服务器名称](./media/sql-database-get-started-portal/server-name.png) 
 

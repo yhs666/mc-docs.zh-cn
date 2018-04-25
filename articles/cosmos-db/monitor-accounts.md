@@ -1,11 +1,10 @@
 ---
-title: "监视 Azure Cosmos DB 请求和存储 | Azure"
-description: "了解如何监视 Azure Cosmos DB 帐户的性能指标（如请求和服务器错误）以及使用情况指标（如存储消耗）。"
+title: 监视 Azure Cosmos DB 请求和存储 | Azure
+description: 了解如何监视 Azure Cosmos DB 帐户的性能指标（如请求和服务器错误）以及使用情况指标（如存储消耗）。
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: cgronlun
 ms.assetid: 4c6a2e6f-6e78-48e3-8dc6-f4498b235a9e
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2017
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0d0fab65f9bbfec7a651b5ceadfcca788149da0a
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 980f44ce7d6e92b7fdb5b1b0f409d416aa48781f
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="monitor-azure-cosmos-db"></a>监视 Azure Cosmos DB
 可以在 [Azure 门户](https://portal.azure.cn/)中监视 Azure Cosmos DB 帐户。 对于每个 Azure Cosmos DB 帐户，一整套指标可用于监视吞吐量、存储、可用性、延迟和一致性。
@@ -35,7 +34,13 @@ ms.lasthandoff: 03/02/2018
 
    ![显示指标套件的“监视”可重用功能区的屏幕截图](./media/monitor-accounts/metrics-suite.png)
 
-<!--Not Available ## View performance metrics by using Azure Monitoring-->
+## <a name="view-performance-metrics-by-using-azure-monitoring"></a>使用 Azure Monitor 查看性能指标
+1. 在 [Azure 门户](https://portal.azure.cn/)中，单击左栏中的“监视”。
+2. 在资源菜单中，单击“指标”。
+3. 在“监视 - 指标”窗口的“资源组”下拉菜单中，选择与想要监视的 Azure Cosmos DB 帐户关联的资源组。 
+4. 在“资源”  下拉菜单中，选择要监视的数据库帐户。
+5. 在“可用指标” 列表中，选择要显示的指标。 使用 Ctrl 按钮进行多选。 
+
 ## <a name="view-performance-metrics-on-the-account-page"></a>在“帐户”页上查看性能指标
 1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“所有服务”，滚动到“数据库”，单击“Azure Cosmos DB”，然后单击要查看其性能指标的 Azure Cosmos DB 帐户的名称。
 2. 默认情况下，“监视”可重用功能区  显示以下磁贴：
@@ -82,4 +87,4 @@ ms.lasthandoff: 03/02/2018
 ## <a name="next-steps"></a>后续步骤
 若要深入了解 Azure Cosmos DB 容量规划，请参阅 [Azure Cosmos DB Capacity Planner 计算器](https://www.documentdb.com/capacityplanner)。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update meta properties, add Monitor metirc content -->

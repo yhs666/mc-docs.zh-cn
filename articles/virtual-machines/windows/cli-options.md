@@ -1,26 +1,26 @@
 ---
-title: "在 Windows 上使用 Azure CLI | Azure"
-description: "在 Windows 上使用 Azure CLI"
+title: 在 Windows 上使用 Azure CLI | Azure
+description: 在 Windows 上使用 Azure CLI
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/14/2017
-ms.date: 01/08/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: e9da591b04655c994e746fd871cb3d8d430635a7
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 9d89357ac2adc8590c0a655afaac9d2526b190f2
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="using-the-azure-cli-on-windows"></a>在 Windows 上使用 Azure CLI
 
@@ -65,4 +65,4 @@ docker run -it azuresdk/azure-cli-python:latest bash
 
 [用于 Azure SQL 的 CLI 示例](../../sql-database/sql-database-cli-samples.md)
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties -->

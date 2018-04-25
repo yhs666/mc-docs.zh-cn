@@ -1,11 +1,11 @@
 ---
-title: "如何通过 Java 使用 Azure 服务总线主题 | Azure"
-description: "在 Azure 中使用服务总线主题和订阅。"
+title: 如何通过 Java 使用 Azure 服务总线主题 | Azure
+description: 在 Azure 中使用服务总线主题和订阅。
 services: service-bus
 documentationCenter: java
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
 ms.service: service-bus
 ms.workload: tbd
@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 10/17/2017
 ms.author: v-yiso
 ms.date: 12/11/2017
-ms.openlocfilehash: 74b55ac5a873d86f9a6b50d05fd48e377521b70e
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: ea40052c73c10a9c31a307fdbbcf1348424ac3c9
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>如何通过 Java 使用服务总线主题和订阅
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 12/01/2017
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用 Service Bus
+## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
 在生成本示例之前，请确保已安装 [Azure SDK for Java][Azure SDK for Java]。 如果使用 Eclipse，则可以安装包含 Azure SDK for Java 的[用于 Eclipse 的 Azure 工具包][Azure Toolkit for Eclipse]。 然后，用户可以将 **Microsoft Azure Libraries for Java** 添加到项目：
 
 ![](./media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
@@ -59,10 +59,10 @@ import com.microsoft.windowsazure.core.*;
 import javax.xml.datatype.*;
 ```
 
-向生成路径添加 Azure Libraries for Java，并将其包含在项目部署程序集中。
+向您的生成路径添加 Azure Libraries for Java，并将其包含在您的项目部署程序集中。
 
 ## <a name="create-a-topic"></a>创建主题
-服务总线主题的管理操作可通过 **ServiceBusContract** 类执行。 **ServiceBusContract** 对象是使用封装了 SAS 令牌及用于管理其权限的适当配置构造的，而 **ServiceBusContract** 类是与 Azure 进行通信的单一点。
+服务总线主题的管理操作可通过 **ServiceBusContract** 类执行。 **ServiceBusContract** 对象是使用封装了 SAS 令牌及用于管理它的权限的适当配置构造的，而 **ServiceBusContract** 类是与 Azure 进行通信的单一点。
 
 **ServiceBusService** 类提供了创建、枚举和删除主题的方法。 以下示例演示了如何通过名为 `HowToSample` 的命名空间，使用 **ServiceBusService** 对象创建名为 `TestTopic` 的主题：
 
@@ -170,7 +170,7 @@ service.sendTopicMessage("TestTopic", message);
 }
 ```
 
-服务总线主题在标准层中支持的最大消息大小为 256 KB。 标头最大为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小是在创建时定义的，上限为 5 GB。
+服务总线主题在标准层中支持的最大消息大小为 256 KB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小是在创建时定义的，上限为 5 GB。
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>如何从订阅接收消息
 若要从订阅接收消息，请使用 **ServiceBusContract** 对象。 收到的消息可在两种不同模式下工作：**ReceiveAndDelete** 和 **PeekLock**（默认模式）。
@@ -259,10 +259,11 @@ service.deleteTopic("TestTopic");
 
   [Azure SDK for Java]: https://www.azure.cn/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
-  [Service Bus queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
-[SqlFilter]: https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.filters.sqlfilter 
-[SqlFilter.SqlExpression]: https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.filters.sqlfilter.sqlexpression
-[BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
-  [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
-  [2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
-  [3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png
+[Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
+[SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression
+[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+
+[0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
+[2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
+[3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png

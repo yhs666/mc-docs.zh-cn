@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 06/06/2016
 ms.date: 04/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: 332f93384ac1737210089e47ad88b1ff6b793c92
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 0ef5e0e5e4a5c6612cac398d406527229262d716
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure 应用服务中启用 Web 应用的诊断日志记录
 ## <a name="overview"></a>概述
@@ -85,7 +85,7 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 > 只能使用存储客户端访问或由直接使用这些存储系统的应用程序访问存储在“表存储”或“Blob 存储”中的信息。 例如，Visual Studio 2013 包含的存储资源管理器可用于浏览表或 Blob 存储，而 HDInsight 可以访问存储在 Blob 存储中的数据。 还可编写通过使用 [Azure SDK](/downloads/#) 之一访问 Azure 存储的应用程序。
 >
 > [!NOTE]
-> 也可从 Azure PowerShell 使用 **Set-AzureWebsite** cmdlet 启用诊断。 如果尚未安装 Azure PowerShell，或尚未将其配置为使用 Azure 订阅，请参阅[如何使用 Azure PowerShell](/powershell-install-configure)。
+> 也可从 Azure PowerShell 使用 **Set-AzureWebsite** cmdlet 启用诊断。 如果尚未安装 Azure PowerShell，或尚未将其配置为使用 Azure 订阅，请参阅[安装和配置 Azure PowerShell](/powershell-install-configure)。
 >
 >
 
@@ -114,14 +114,14 @@ Azure 提供内置诊断功能，可帮助调试[应用服务 Web 应用](app-se
 此命令会将 **-Name** 参数指定的 Web 应用的日志保存到当前目录中名为 **logs.zip** 的文件。
 
 > [!NOTE]
-> 如果尚未安装 Azure PowerShell，或尚未将其配置为使用 Azure 订阅，请参阅[如何使用 Azure PowerShell](/powershell-install-configure)。
+> 如果尚未安装 Azure PowerShell，或尚未将其配置为使用 Azure 订阅，请参阅[安装和配置 Azure PowerShell](/powershell-install-configure)。
 >
 >
 
 ### <a name="download-with-azure-command-line-interface"></a>使用 Azure 命令行接口下载
 若要使用 Azure 命令行接口下载日志文件，请打开新的命令提示符、PowerShell、Bash 或终端会话，并输入以下命令：
 
-    azure site log download webappname
+    az webapp log download --resource-group resourcegroupname --name webappname
 
 此命令将名为“webappname”的 Web 应用的日志保存到当前目录中名为 **diagnostics.zip** 的文件。
 

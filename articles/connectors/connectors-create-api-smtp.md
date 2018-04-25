@@ -3,7 +3,7 @@ title: Azure 逻辑应用中的 SMTP 连接器
 description: 使用 Azure 应用服务创建逻辑应用。 连接到 SMTP 以发送电子邮件。
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 origin.date: 07/15/2016
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: 36426ea61ced740380e61ece05d59739c26ba5e8
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 04/23/2018
+ms.openlocfilehash: 6a2ee7497e749e05e08f7f5c254c64581cad9739
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-the-smtp-connector"></a>SMTP 连接器入门
 连接到 SMTP 以发送电子邮件。
@@ -38,15 +38,22 @@ ms.lasthandoff: 03/22/2018
 ## <a name="use-an-smtp-trigger"></a>使用 SMTP 触发器
 触发器是用于启动在逻辑应用中定义的工作流的事件。 [了解有关触发器的详细信息](../logic-apps/logic-apps-overview.md#logic-app-concepts)。
 
-在此示例中，由于 SMTP 没有自己的触发器，因此使用“Salesforce - 创建对象时”触发器。 此触发器在 Salesforce 中新建对象时激活。 对于此示例，我们将设置为每次在 Salesforce 中新建潜在客户时，通过 SMTP 连接器发生“发送电子邮件”操作，并附带要创建的新潜在客户的通知。
+在此示例中，SMTP 没有自己的触发器。 因此，使用“Salesforce - 创建对象时”触发器。 此触发器在 Salesforce 中新建对象时激活。 对于此示例，我们将设置为每次在 Salesforce 中新建潜在客户时，都使用 SMTP 连接器进行“发送电子邮件”操作，并附带所创建的新潜在客户的通知。
 
 1. 在逻辑应用设计器上的搜索框中输入“salesforce”，并选择“Salesforce - 创建对象时”触发器。  
+
    ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
+   
 2. 显示“创建对象时”控件。
+
    ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
-3. 选择“对象类型”，并从对象列表中选择“潜在客户”。 在此步骤中，将指示要创建一个触发器，每当在 Salesforce 中新建潜在客户时，该触发器都将通知逻辑应用。  
+   
+3. 选择“对象类型”，并从对象列表中选择“潜在客户”。 在此步骤中，将创建一个触发器，每当在 Salesforce 中新建潜在客户时，该触发器都将通知逻辑应用。  
+
    ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
+   
 4. 已创建触发器。  
+
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
 ## <a name="use-an-smtp-action"></a>使用 SMTP 操作
@@ -55,14 +62,22 @@ ms.lasthandoff: 03/22/2018
 现在已添加触发器，请按照以下步骤添加 SMTP 操作，该操作会在 Salesforce 中新建潜在客户时发生。
 
 1. 选择“+ 新步骤”，添加要在新建潜在客户时采取的操作。  
+
    ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  
-2. 选择“添加操作”。 这会打开可搜索要采取的任何操作的搜索框。  
+   
+2. 选择“添加操作”。 这会打开可搜索要采取的任何操作的搜索框。
+  
    ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)  
+   
 3. 输入“smtp”搜索与 SMTP 相关的操作。  
 4. 选择“SMTP - 发送电子邮件”作为新建潜在客户时要采取的操作。 操作控制块打开。 如果之前未在设计器块中建立 SMTP 连接，必须执行此操作。  
-   ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)    
-5. 在 **SMTP - 发送电子邮件**块中输入所需的电子邮件信息。  
+
+   ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)   
+    
+5. 在 **SMTP - 发送电子邮件**块中输入所需的电子邮件信息。 
+ 
    ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
+   
 6. 保存工作，以便激活工作流。  
 
 ## <a name="connector-specific-details"></a>特定于连接器的详细信息

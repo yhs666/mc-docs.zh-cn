@@ -1,12 +1,12 @@
 ---
-title: "使用 HTTP 终结点调用、触发或嵌套工作流 - Azure 逻辑应用"
-description: "设置 HTTP 终结点用于调用、触发或嵌套 Azure 逻辑应用的工作流"
+title: 使用 HTTP 终结点调用、触发或嵌套工作流 - Azure 逻辑应用
+description: 设置 HTTP 终结点用于调用、触发或嵌套 Azure 逻辑应用的工作流
 services: logic-apps
-keywords: "工作流, HTTP 终结点"
+keywords: 工作流, HTTP 终结点
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.service: logic-apps
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 origin.date: 03/31/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: bc87737c9c7a6cd4ad3c644a98064a23efa36d9b
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 04/23/2018
+ms.openlocfilehash: 3209446a0c86a7e1b67de3cb12ef997799b44364
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>在逻辑应用中使用 HTTP 终结点调用、触发或嵌套工作流
 
@@ -31,12 +31,12 @@ ms.lasthandoff: 03/12/2018
 
 * [请求](../connectors/connectors-native-reqres.md)
 
-* [API 连接 Webhook](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
+* [API 连接 Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
 
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > 尽管本文中的示例使用“请求”触发器，但也可使用任何所列的 HTTP 触发器，所有原理同样适用于其他触发器类型。
+   > 尽管这些示例使用“请求”触发器，但也可使用任何所列的 HTTP 触发器，所有原理同样适用于其他触发器类型。
 
 ## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>设置逻辑应用的 HTTP 终结点
 
@@ -207,6 +207,9 @@ ms.lasthandoff: 03/12/2018
 
 创建 HTTP 终结点之后，可以通过针对整个 URL 执行 `POST` 方法来触发逻辑应用。 逻辑应用对直接访问终结点提供内置支持。
 
+> [!NOTE] 
+> 在任何时候若要手动运行逻辑应用，请在逻辑应用设计器或逻辑应用代码视图工具栏上，选择“运行”。
+
 ## <a name="reference-content-from-an-incoming-request"></a>引用传入请求中的内容
 
 如果内容的类型为 `application/json`，可以引用传入请求中的属性。 否则，内容被视为可以传递给其他 API 的单个二进制单元。 若要引用工作流中的此内容，则必须转换此内容。 例如，如果传递 `application/xml` 内容，可以使用 `@xpath()` 执行 XPath 提取，或使用 `@json()` 将 XML 转换为 JSON。 了解[处理内容类型](../logic-apps/logic-apps-content-type.md)。
@@ -235,7 +238,7 @@ ms.lasthandoff: 03/12/2018
 
 ### <a name="construct-the-response"></a>构造响应
 
-可以在响应正文中包含多个标头和任何类型的内容。 在我们的示例响应中，标头指定响应的内容类型为 `application/json`。 正文根据前面为“请求”触发器更新的 JSON 架构包含 `title` 和 `name`。
+可以在响应正文中包含多个标头和任何类型的内容。 在示例响应中，标头指定响应的内容类型为 `application/json`。 正文根据前面为“请求”触发器更新的 JSON 架构包含 `title` 和 `name`。
 
 ![HTTP 响应操作][3]
 

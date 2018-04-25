@@ -1,3 +1,4 @@
 > [!TIP]
-> 本文中的内容适用于原始的 Azure 表存储。 但是，现在提供了表存储高级版本，即 Azure Cosmos DB 表 API，该版本提供吞吐量优化表、全局分发和自动辅助索引。 若要详细了解和尝试高级体验，请查看 [Azure Cosmos DB 表 API](https://aka.ms/premiumtables)。
+> 本文中的内容适用于原始的 Azure 表存储。
 >
+<!-- Not Available on  However, there is now a premium offering for table storage, the Azure Cosmos DB Table API that offers throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the premium experience, please check out [Azure Cosmos DB Table API](https://aka.ms/premiumtables) -->

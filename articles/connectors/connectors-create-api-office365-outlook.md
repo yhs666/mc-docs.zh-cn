@@ -16,11 +16,11 @@ ms.workload: integration
 origin.date: 10/18/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
-ms.openlocfilehash: 48e7ec8b7a64c5aea946ad0293f9bf2504b0e41a
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 4f58258fb7f914eccfb6f83c6fca53d474180b43
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Office 365 Outlook 连接器入门
 Office 365 Outlook 连接器在 Office 365 中启用与 Outlook 的交互。 使用此连接器创建、编辑和更新联系人和日历项，还可以获取、发送和回复电子邮件。
@@ -31,7 +31,7 @@ Office 365 Outlook 连接器在 Office 365 中启用与 Outlook 的交互。 使
 * 在存在新电子邮件时、更新日历项时等情况下，使用触发器启动工作流。
 * 使用发送电子邮件、创建新日历事件等操作。 例如，当 Salesforce 中存在新对象时（触发器），向 Office 365 Outlook 发送一封电子邮件（操作）。 
 
-本主题演示了如何在逻辑应用中使用 Office 365 Outlook 连接器，还列出了触发器和操作。
+本文演示如何在逻辑应用中使用 Office 365 Outlook 连接器，还列出了触发器和操作。
 
 > [!NOTE]
 > 此文章版本适用于逻辑应用正式版 (GA)。

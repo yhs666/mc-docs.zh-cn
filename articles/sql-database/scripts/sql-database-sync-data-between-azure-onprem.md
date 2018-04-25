@@ -1,28 +1,28 @@
 ---
-title: "PowerShell 示例 - 在 SQL 数据库和本地 SQL Server 之间进行同步 | Azure"
-description: "用于在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步的 Azure PowerShell 示例脚本"
+title: PowerShell 示例 - 在 SQL 数据库和本地 SQL Server 之间进行同步 | Azure
+description: 用于在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步的 Azure PowerShell 示例脚本
 services: sql-database
 documentationcenter: sql-database
 author: yunan2016
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 7/31/2017
-ms.date: 2/28/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 ms.reviewer: douglasl
-ms.openlocfilehash: 24e4adc3b3fcc2d4753df3194bbf0accb32ac563
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 33f581bf46a7c612916298cfd6d67fb373840326
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>使用 PowerShell 在 SQL 数据库和 SQL Server 本地数据库之间进行同步
 

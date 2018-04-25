@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure CLI 2.0 复制 Linux VM | Azure"
-description: "了解如何使用 Azure CLI 2.0 和托管磁盘创建 Azure Linux VM 的副本。"
+title: 使用 Azure CLI 2.0 复制 Linux VM | Azure
+description: 了解如何使用 Azure CLI 2.0 和托管磁盘创建 Azure Linux VM 的副本。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 09/25/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 730183bfffb73d5518ef10d38312e6d9fe5e3ba2
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 937963256f08f5f1134574bc62018cd2700a7ba2
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-20-and-managed-disks"></a>使用 Azure CLI 2.0 和托管磁盘创建 Azure Linux VM 的副本
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/17/2018
 
 -   安装 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)
 
--   使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录到一个 Azure 帐户。
+-   使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到一个 Azure 帐户。
 
 -   使用一个 Azure VM 作为副本的来源。
 
@@ -136,4 +136,4 @@ az vm create --resource-group myResourceGroup \
 
 若要了解如何使用 Azure CLI 管理新 VM，请参阅 [Azure Resource Manager 的 Azure CLI 命令](../azure-cli-arm-commands.md)。
 
-<!--Update_Description: update meta properties, update link, wording update-->
+<!--Update_Description: update meta properties, update link -->

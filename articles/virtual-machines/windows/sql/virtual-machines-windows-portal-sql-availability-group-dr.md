@@ -1,6 +1,6 @@
 ---
-title: "SQL Server 可用性组 - Azure 虚拟机 - 灾难恢复 | Azure"
-description: "本文介绍如何使用不同区域中的副本在 Azure 虚拟机上配置 SQL Server Always On 可用性组。"
+title: SQL Server 可用性组 - Azure 虚拟机 - 灾难恢复 | Azure
+description: 本文介绍如何使用不同区域中的副本在 Azure 虚拟机上配置 SQL Server Always On 可用性组。
 services: virtual-machines
 documentationCenter: na
 author: rockboyfor
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/02/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: c66afdfe2d3c044be05a4bbfdc2c793ac55e0fa8
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: e93fd37a873d1abf7e9fbfe9986d92d3e109578a
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>在位于不同区域的 Azure 虚拟机上配置 Always On 可用性组
 
@@ -57,13 +57,12 @@ ms.lasthandoff: 03/17/2018
 
 >[!IMPORTANT]
 >对于在两个 Azure 区域之间进行复制的数据，此体系结构会产生出站数据费用。 请参阅[带宽定价](https://www.azure.cn/pricing/details/data-transfer/)。  
-<!-- URL is correct on [Bandwidth Pricing](https://www.azure.cn/pricing/details/data-transfer/) -->
 
 ## <a name="create-remote-replica"></a>创建远程副本
 
 若要在远程数据中心创建副本，请执行以下步骤：
 
-1. [在新区域中创建虚拟网络](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md)。
+1. [在新区域中创建虚拟网络](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network)。
 
 1. [使用 Azure 门户配置 VNet 到 VNet 连接](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)。
 

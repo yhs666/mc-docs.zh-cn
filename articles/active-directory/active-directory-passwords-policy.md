@@ -1,13 +1,13 @@
 ---
-title: "自助密码重置策略 - Azure Active Directory"
-description: "Azure AD 自助密码重置策略选项"
+title: 自助密码重置策略 - Azure Active Directory
+description: Azure AD 自助密码重置策略选项
 services: active-directory
-keywords: "Active Directory 密码管理, 密码管理, Azure AD 自助密码重置"
-documentationcenter: 
+keywords: Active Directory 密码管理, 密码管理, Azure AD 自助密码重置
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -17,11 +17,11 @@ origin.date: 01/11/2018
 ms.date: 1/29/2018
 ms.author: v-nany
 ms.custom: it-pro
-ms.openlocfilehash: 1c2a87b02fda878cf427461897e95b98f60d3c1b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 024e96d615cfd37a4bd63b6fbb335cc574487635
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory 中的密码策略和限制
 
@@ -87,8 +87,8 @@ Microsoft 为任意 Azure 管理员角色强制实施默认强*双门*密码重�
 | 属性 | UserPrincipalName 要求 |
 | --- | --- |
 | 允许的字符 |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> 上获取。 - \_ ! \# ^ \~</li></ul> |
-| 不允许的字符 |<ul> <li>任何不分隔用户名和域的“@”字符。</li> <li>不能包含紧靠在“@”符号前面的点字符“.”</li></ul> |
-| 长度约束 |<ul> <li>总长度不能超过 113 个字符</li><li>在“@”符号前最多能有 64 个字符</li><li>在“@”符号后最多能有 48 个字符</li></ul> |
+| 不允许的字符 |<ul> <li>任何不分隔用户名和域的“\@\"”字符。</li> <li>不能包含紧靠在“\@\"”符号前面的点字符“.”</li></ul> |
+| 长度约束 |<ul> <li>总长度不能超过 113 个字符</li><li>在“\@\"”符号前最多能有 64 个字符</li><li>在“\@\"”符号后最多能有 48 个字符</li></ul> |
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>仅适用于云用户帐户的密码策略
 
@@ -97,7 +97,7 @@ Microsoft 为任意 Azure 管理员角色强制实施默认强*双门*密码重�
 | 属性 | 要求 |
 | --- | --- |
 | 允许的字符 |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-| 不允许的字符 |<ul><li>Unicode 字符。</li><li>空格。</li><li> 仅限强密码：不能包含紧靠在“@”符号前面的点字符“.”。</li></ul> |
+| 不允许的字符 |<ul><li>Unicode 字符。</li><li>空格。</li><li> 仅限强密码：不能包含紧靠在“\@\"”符号前面的点字符“.”。</li></ul> |
 | 密码限制 |<ul><li>至少 8 个字符，最多包含 16 个字符。</li><li>仅限强密码：需满足以下 4 条中的 3 条：<ul><li>小写字符。</li><li>大写字符。</li><li>数字 (0-9)。</li><li>符号（请参阅前面的密码限制）。</li></ul></li></ul> |
 | 密码过期期限 |<ul><li>默认值：**90** 天。</li><li>可通过 Windows PowerShell 的 Azure Active Directory 模块中的 `Set-MsolPasswordPolicy` cmdlet 来配置该值。</li></ul> |
 | 密码过期通知 |<ul><li>默认值：**14** 天（密码到期前）。</li><li>可使用 `Set-MsolPasswordPolicy` cmdlet 配置该值。</li></ul> |

@@ -1,26 +1,25 @@
 ---
-title: "Azure Cosmos DB 索引策略 | Azure"
-description: "了解如何在 Azure Cosmos DB 中为工作编制索引。 了解如何配置和更改索引策略，实现自动索引并提高性能。"
-keywords: "索引的工作原理, 自动索引, 索引数据库"
+title: Azure Cosmos DB 索引策略 | Azure
+description: 了解如何在 Azure Cosmos DB 中为工作编制索引。 了解如何配置和更改索引策略，实现自动索引并提高性能。
+keywords: 索引的工作原理, 自动索引, 索引数据库
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: monicar
 ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-origin.date: 08/17/2017
-ms.date: 01/29/2018
+origin.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4c758a97b940fd6913be583ca9e5838d0db9d73a
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 44cbffd3a385f85851a50686bd239137806becbc
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何为数据编制索引？
 
@@ -28,6 +27,7 @@ ms.lasthandoff: 01/23/2018
 
 要了解 Azure Cosmos DB 中的索引工作原理，管理索引策略时了解它至关重要，可以在索引存储开销、写入和查询吞吐量以及查询一致性之间进行细致权衡。  
 
+<!-- Not Available on https://www.youtube.com/embed/uFu2D-GscG0 -->
 在本文中，我们将仔细研究 Azure Cosmos DB 索引策略、自定义索引策略的方法和相关的权衡方案。 
 
 阅读本文后，可以回答以下问题：
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/23/2018
 * 如何对集合的索引策略进行更改？
 * 如何比较不同索引策略的存储和性能？
 
-<a id="CustomizingIndexingPolicy"></a>
+<a name="CustomizingIndexingPolicy"></a> 
 ## <a name="customizing-the-indexing-policy-of-a-collection"></a>自定义集合的索引策略
 通过重写 Azure Cosmos DB 集合的默认索引策略，可以在存储、写入/查询性能和查询一致性之间进行权衡。 可配置以下几个方面：
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 01/23/2018
 2. 在左侧导航菜单中，选择“设置”，然后选择“索引策略”。 
 3. 在“索引策略”下，更改索引策略，然后选择“确定”。 
 
-<a id="indexing-modes"></a>
+<a name="indexing-modes"></a>
 ### <a name="database-indexing-modes"></a>数据库索引模式
 Azure Cosmos DB 支持三种索引模式，可通过索引策略对 Azure Cosmos DB 集合进行配置：一致、延迟和无。
 
@@ -236,7 +236,7 @@ Azure Cosmos DB 还针对每个路径支持空间索引类型，可为 Point、P
 
 关闭自动索引后，仍然可以选择性地只将特定的文档添加到索引中。 相反，可以保留自动索引，并选择排除特定的文档。 当只需要查询一个文档子集时，索引开/关配置非常有用。
 
-下面的示例演示了如何使用 [SQL API .NET SDK](/cosmos-db/sql-api-sdk-dotnet) 和 [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) 属性来显式包括文档。
+下面的示例演示了如何使用 [SQL API .NET SDK](/cosmos-db/sql-api-sdk-dotnet) 和 [RequestOptions.IndexingDirective](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.requestoptions.indexingdirective?view=azure-dotnet) 属性来显式包括文档。
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a document in indexing,

@@ -5,7 +5,6 @@ services: cosmos-db
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: tysonn
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/14/2018
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: fcbb09e1b98ad4117ce2ab70f558b55d7d5a84a2
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 04c7a257bb17905ae77b4f6415dcae0f9c6ae18c
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>通过 .NET 开始使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -41,7 +40,7 @@ Azure 表存储是一项用于在云中存储结构化 NoSQL 数据的服务，�
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [适用于 .NET 的 Azure 存储通用库（预览版）](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)。 这是受生产环境支持的必需预览包。 
-* [适用于 .NET 的 Azure CosmosDB 表库](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)
+<!-- Not Available on [Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) -->
 * [适用于 .NET 的 Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure 存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
@@ -50,11 +49,8 @@ Azure 表存储是一项用于在云中存储结构化 NoSQL 数据的服务，�
 ### <a name="more-samples"></a>更多示例
 有关使用表存储的其他示例，请参阅[在 .NET 中使用 Azure 表存储入门](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/)。 可以下载示例应用程序并运行，或在 GitHub 上浏览代码。
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
-
 ## <a name="create-an-azure-service-account"></a>创建 Azure 服务帐户
-
-可以通过 Azure 表存储或 Azure Cosmos DB 使用表。 可以阅读[表产品](table-introduction.md#table-offerings)来详细了解服务之间的差别。 需要为所要使用的服务创建一个帐户。 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 创建第一个 Azure 存储帐户的最简单方法是使用 [Azure 门户](https://portal.azure.cn)。 若要了解更多信息，请参阅 [创建存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
@@ -63,9 +59,7 @@ Azure 表存储是一项用于在云中存储结构化 NoSQL 数据的服务，�
 
 如果暂时不想创建存储帐户，也可以使用 Azure 存储模拟器在本地环境中运行和测试代码。 有关详细信息，请参阅 [使用 Azure 存储模拟器进行开发和测试](../storage/common/storage-use-emulator.md)。
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>创建 Azure Cosmos DB 表 API 帐户
-
-有关创建 Azure Cosmos DB 表 API 帐户的说明，请参阅[创建表 API 帐户](create-table-dotnet.md#create-a-database-account)。
+<!-- Not Available on ### Create an Azure Cosmos DB Table API account -->
 
 ## <a name="set-up-your-development-environment"></a>设置开发环境
 接下来在 Visual Studio 中设置开发环境，即可试用本指南中的代码示例。
@@ -111,7 +105,7 @@ Azure 表存储是一项用于在云中存储结构化 NoSQL 数据的服务，�
 可从两个环境中选择用于运行本指南中示例的环境：
 
 * 可针对云中的 Azure 存储帐户运行代码。 
-* 可针对云中的 Azure Cosmos DB 帐户运行代码。
+<!-- Not Available on * You can run your code against an Azure Cosmos DB account in the cloud. -->
 * 可针对 Azure 存储模拟器运行代码。 存储模拟器是模拟云中 Azure 存储帐户的本地环境。 应用程序处于开发阶段时，可以选择使用模拟器免费测试和调试代码。 模拟器使用已知帐户和密钥。 有关详细信息，请参阅[使用 Azure 存储模拟器进行开发和测试](../storage/common/storage-use-emulator.md)。
 
 如果以云中的存储帐户为目标，请从 Azure 门户复制存储帐户的主访问密钥。 有关详细信息，请参阅 [查看和复制存储访问密钥](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys)。
@@ -121,7 +115,7 @@ Azure 表存储是一项用于在云中存储结构化 NoSQL 数据的服务，�
 > 
 > 
 
-如果以 Azure Cosmos DB 帐户为目标，请从 Azure 门户复制表 API 帐户的主访问密钥。 有关详细信息，请参阅[更新连接字符串](create-table-dotnet.md#update-your-connection-string)。
+<!-- Not Available on  [Update your connection string](create-table-dotnet.md#update-your-connection-string) -->
 
 ### <a name="configure-your-storage-connection-string"></a>配置存储连接字符串
 适用于 .NET 的 Azure 存储通用库支持使用存储连接字符串来配置终结点和用于访问存储服务的凭据。 维护存储连接字符串的最佳方法在配置文件中。 
@@ -141,7 +135,7 @@ Azure 表存储是一项用于在云中存储结构化 NoSQL 数据的服务，�
         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
     </startup>
     <appSettings>
-        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
+        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.chinacloudapi.cn" />
     </appSettings>
 </configuration>
 ```
@@ -149,15 +143,11 @@ Azure 表存储是一项用于在云中存储结构化 NoSQL 数据的服务，�
 例如，如果使用的是 Azure 存储帐户，则配置设置应类似于：
 
 ```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==;TableEndpoint=https://<yourstoragename>.table.core.chinacloudapi.cn/" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==;EndpointSuffix=core.chinacloudapi.cn" />
 ```
 <!-- Add the TableEndPoint configuration-->
 
-如果使用的是 Azure Cosmos DB 帐户，则配置设置应类似于：
-
-```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.cn:443/;" />
-```
+<!-- Not Available on Azure Cosmos DB Table -->
 
 若要以存储模拟器为目标，可使用映射到已知帐户名称和密钥的快捷方式。 在这种情况下，连接字符串设置如下所示：
 

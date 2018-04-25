@@ -1,12 +1,12 @@
 ---
-title: "Azure 到 Azure 复制问题和错误的 Azure Site Recovery 故障排除 | Azure"
-description: "排查复制 Azure 虚拟机进行灾难恢复时出现的错误和问题"
+title: Azure 到 Azure 复制问题和错误的 Azure Site Recovery 故障排除 | Azure
+description: 排查复制 Azure 虚拟机进行灾难恢复时出现的错误和问题
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 11/21/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 93b66a8da654b86a4ec20f8cdff2f0ee8f43aad8
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: b12ca6b6e8980073e7933d7ce3ee73a52d3ea241
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 到 Azure VM 复制问题故障排除
 
@@ -110,13 +110,13 @@ ms.lasthandoff: 02/13/2018
 
 错误代码 | 可能的原因 | 建议
 --- | --- | ---
-150039<br></br>**消息**：逻辑单元号 (LUN) 为 (LUNValue) 的 Azure 数据磁盘 (DiskName) (DiskURI) 未映射到具有相同 LUN 值的 VM 报告的相应磁盘。 | - 新的数据磁盘已附加到 VM，但未初始化。</br></br>- VM 中的数据磁盘未正确报告附加到 VM 的磁盘的 LUN 值。| 确保数据磁盘已初始化，然后重试该操作。</br></br>对于 Windows：[附加并初始化新磁盘](/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk)。</br></br>对于 Linux：[在 Linux 中初始化新数据磁盘](/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux)。
+150039<br></br>**消息**：逻辑单元号 (LUN) 为 (LUNValue) 的 Azure 数据磁盘 (DiskName) (DiskURI) 未映射到具有相同 LUN 值的 VM 报告的相应磁盘。 | - 新的数据磁盘已附加到 VM，但未初始化。</br></br>- VM 中的数据磁盘未正确报告附加到 VM 的磁盘的 LUN 值。| 确保数据磁盘已初始化，然后重试该操作。</br></br>对于 Windows：[附加并初始化新磁盘](/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk)。</br></br>对于 Linux：[在 Linux 中初始化新数据磁盘](/virtual-machines/linux/classic/add-disk)。
 
 ### <a name="fix-the-problem"></a>解决问题
 确保数据磁盘已初始化，然后重试该操作：
 
 - 对于 Windows：[附加并初始化新磁盘](/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk)。
-- 对于 Linux：[在 Linux 中初始化新数据磁盘](/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux)。
+- 对于 Linux：[在 Linux 中初始化新数据磁盘](/virtual-machines/linux/classic/add-disk)。
 
 如果问题仍然存在，请联系支持部门。
 

@@ -1,25 +1,25 @@
 ---
-title: "使用共享访问签名进行 Azure 服务总线访问控制"
-description: "根据如何使用共享访问签名进行服务总线访问控制，并详细介绍如何使用 Azure 服务总线进行 SAS 授权。"
+title: 使用共享访问签名进行 Azure 服务总线访问控制
+description: 根据如何使用共享访问签名进行服务总线访问控制，并详细介绍如何使用 Azure 服务总线进行 SAS 授权。
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: 73ce6da0e9a206da951a4a5348aba2eb39b913b7
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 58ba8d6a0573d17089c03f45fe2718dea61054de
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>使用共享访问签名进行服务总线访问控制
 
@@ -274,6 +274,7 @@ AMQP 消息包含一组属性，比简单消息包含更多信息。 SAS 令牌�
 | 将消息放入死信队列 |侦听 |任何有效队列地址 |
 | 获取与消息队列会话关联的状态 |侦听 |任何有效队列地址 |
 | 设置与消息队列会话关联的状态 |侦听 |任何有效队列地址 |
+| 安排消息稍后发送；例如，[ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |侦听 | 任何有效队列地址
 | **主题** | | |
 | 创建主题 |管理 |任何命名空间地址 |
 | 删除主题 |管理 |任何有效主题地址 |

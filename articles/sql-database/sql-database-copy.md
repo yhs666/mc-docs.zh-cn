@@ -6,15 +6,15 @@ author: forester123
 manager: digimobile
 ms.service: sql-database
 ms.custom: load & move data
-origin.date: 06/15/2017
-ms.date: 11/06/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 ms.topic: article
-ms.openlocfilehash: 489e7c63d5a61db544f27560000d4b488a982561
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: adf886cb334c7afca4f79a62ac34971ba4e2ddae
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-an-azure-sql-database"></a>复制 Azure SQL 数据库
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/08/2018
 
 ## <a name="copy-a-database-by-using-the-azure-portal"></a>使用 Azure 门户复制数据库
 
-若要使用 Azure 门户复制数据库，请打开数据库页，然后单击“复制”。 
+要使用 Azure 门户复制数据库，请打开数据库页，并单击“复制”。 
 
    ![数据库复制](./media/sql-database-copy/database-copy.png)
 

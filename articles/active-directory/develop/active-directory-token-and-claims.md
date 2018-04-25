@@ -1,11 +1,11 @@
 ---
-title: "了解 Azure AD 支持的不同令牌和声明类型 | Microsoft Docs"
-description: "本指南帮助你了解和评估 Azure Active Directory (AAD) 颁发的 SAML 2.0 令牌和 JSON Web 令牌 (JWT) 令牌中的声明。"
+title: 了解 Azure AD 支持的不同令牌和声明类型 | Microsoft Docs
+description: 本指南帮助你了解和评估 Azure Active Directory (AAD) 颁发的 SAML 2.0 令牌和 JSON Web 令牌 (JWT) 令牌中的声明。
 documentationcenter: na
 author: alexchen2016
 services: active-directory
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ origin.date: 09/07/2017
 ms.date: 09/20/2017
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: bb08cd000001c0ea62a6ae977a40183204d0dc3b
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: 7d69f61798cea30ffe9cf71af9e0003c39a5c2df
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 令牌参考
 Azure Active Directory (Azure AD) 在处理每个身份验证流时会发出多种类型的安全令牌。 本文档说明每种令牌的格式、安全特征和内容。
@@ -51,27 +51,27 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 #### <a name="claims-in-idtokens"></a>Id_token 中的声明
 > [!div class="mx-codeBreakAll"]
-| JWT 声明 | 名称 | 说明 |
+| JWT 声明 | Name | 说明 |
 | --- | --- | --- |
 | `appid` |应用程序 ID |标识使用令牌访问资源的应用程序。 该应用程序可以自身名义或者代表用户进行操作。 应用程序 ID 通常表示应用程序对象，但它还可以表示 Azure AD 中的服务主体对象。 <br><br> JWT 值示例： <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud` |目标受众 |令牌的目标接收方。 接收令牌的应用程序必须验证受众值是否正确，并拒绝任何以其他受众为目标的令牌。 <br><br> SAML 值示例： <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> JWT 值示例： <br> `"aud":"https://contoso.com"` |
-| `appidacr` |应用程序身份验证上下文类引用 |表示对客户端进行身份验证的方式。 对于公共客户端，该值为 0。 如果使用客户端 ID 和客户端机密，则该值为 1。 <br><br> JWT 值示例： <br> `"appidacr": "0"` |
+| `appidacr` |应用程序身份验证上下文类引用 |表示对客户端进行身份验证的方式。 对于公共客户端，该值为 0。 如果使用客户端 ID 和客户端机密，则该值为 1。 <br><br> **JWT 值示例**： <br> `"appidacr": "0"` |
 | `acr` |身份验证上下文类引用 |表示使用者的身份验证方式，此方式与应用程序身份验证上下文类引用声明中的客户端身份验证截然不同。 值为“0”表示最终用户身份验证不符合 ISO/IEC 29115 要求。 <br><br> JWT 值示例： <br> `"acr": "0"` |
 | 身份验证即时 |记录身份验证发生的日期和时间。 <br><br> SAML 值示例： <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
-| `amr` |身份验证方法 |标识对令牌使用者进行身份验证的方式。 <br><br> SAML 值示例： <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> JWT 值示例：`“amr”: ["pwd"]` |
-| `given_name` |名字 |按照 Azure AD 用户对象的设置，指定用户的名字。 <br><br> SAML 值示例： <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>`<br>`<AttributeValue>Frank<AttributeValue>` <br><br> JWT 值示例： <br> `"given_name": "Frank"` |
+| `amr` |身份验证方法 |标识对令牌使用者的身份验证方式。 <br><br> SAML 值示例： <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> JWT 值示例：`“amr”: ["pwd"]` |
+| `given_name` |名字 |和对 Azure AD 用户对象的设置一样，指定用户的名。 <br><br> SAML 值示例： <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>`<br>`<AttributeValue>Frank<AttributeValue>` <br><br> JWT 值示例： <br> `"given_name": "Frank"` |
 | `groups` |组 |指定表示使用者的组成员身份的对象 ID。 这些值具有唯一性（请参阅对象 ID），可安全地用于管理访问，例如强制要求授权访问资源。 组声明中包含的组通过应用程序清单的“groupMembershipClaims”属性，基于每个应用程序进行配置。 值为 null 将排除所有组；值为“SecurityGroup”将只包括“Active Directory 安全组”成员身份；值为“All”将包括安全组和 Office 365 通讯组列表。 <br><br> SAML 值示例： <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> JWT 值示例： <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
 | `idp` |标识提供者 |记录对令牌使用者进行身份验证的标识提供者。 除非用户帐户与颁发者不在同一租户中，否则此值与颁发者声明的值相同。 <br><br> SAML 值示例： <br> `<Attribute Name=” http://schemas.microsoft.com/identity/claims/identityprovider”>`<br>`<AttributeValue>https://sts.chinacloudapi.cn/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` <br><br> JWT 值示例： <br> `"idp":”https://sts.chinacloudapi.cn/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
-| `iat` |IssuedAt |存储颁发令牌的时间。 通常用于度量令牌新鲜度。 <br><br> SAML 值示例： <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> JWT 值示例： <br> `"iat": 1390234181` |
+| `iat` |IssuedAt |存储颁发令牌的时间。 它通常用于度量令牌新鲜度。 <br><br> SAML 值示例： <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> JWT 值示例： <br> `"iat": 1390234181` |
 | `iss` |颁发者 |标识构造并返回令牌的安全令牌服务 (STS)。 在 Azure AD 返回的令牌中，颁发者是 sts.chinacloudapi.cn。 颁发者声明值中的 GUID 是 Azure AD 目录的租户 ID。 租户 ID 是固定不变且可靠的目录标识符。 <br><br> SAML 值示例： <br> `<Issuer>https://sts.chinacloudapi.cn/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> JWT 值示例： <br>  `"iss":”https://sts.chinacloudapi.cn/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
-| `family_name` |姓氏 |按照 Azure AD 用户对象中的定义，指定用户的姓氏。 <br><br> SAML 值示例： <br> `<Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>`<br>`<AttributeValue>Miller<AttributeValue>` <br><br> JWT 值示例： <br> `"family_name": "Miller"` |
-| `unique_name` |名称 |提供一个用户可读值，用于标识令牌使用者。 此值不一定在租户中唯一，且仅供显示。 <br><br> SAML 值示例： <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>` <br><br> JWT 值示例： <br> `"unique_name": "frankm@contoso.com"` |
+| `family_name` |姓氏 |按照 Azure AD 用户对象中的定义，指定用户的姓。 <br><br> SAML 值示例： <br> `<Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>`<br>`<AttributeValue>Miller<AttributeValue>` <br><br> JWT 值示例： <br> `"family_name": "Miller"` |
+| `unique_name` |Name |提供一个用户可读值，用于标识令牌使用者。 此值不一定在租户中唯一，它旨在仅用于显示目的。 <br><br> SAML 值示例： <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>` <br><br> JWT 值示例： <br> `"unique_name": "frankm@contoso.com"` |
 | `oid` |对象 ID |包含 Azure AD 中对象的唯一标识符。 此值固定不变，无法重新分配或重复使用。 在对 Azure AD 进行的查询中，可使用对象 ID 来标识对象。 <br><br> SAML 值示例： <br> `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` <br><br> JWT 值示例： <br> `"oid":"528b2ac2-aa9c-45e1-88d4-959b53bc7dd0"` |
 | `roles` |角色 |表示直接和间接通过组成员身份授予使用者的所有应用程序角色，可用于实施基于角色的访问控制。 可通过应用程序清单的 `appRoles` 属性，对每个应用程序定义应用程序角色。 每个应用程序角色的 `value` 属性是角色声明中显示的值。 <br><br> SAML 值示例： <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`<br>`<AttributeValue>Admin</AttributeValue>` <br><br> JWT 值示例： <br> `“roles”: ["Admin", … ]` |
 | `scp` |范围 |表示向客户端应用程序授予的模拟权限。 默认权限为 `user_impersonation`。 受保护资源的所有者可在 Azure AD 中注册其他值。 <br><br> JWT 值示例： <br> `"scp": "user_impersonation"` |
 | `sub` |使用者 |标识令牌断言信息的主体，例如应用程序的用户。 此值固定不变，无法重新分配或重复使用，因此可用于安全地执行授权检查。 因为使用者始终存在于 Azure AD 颁发的令牌中，我们建议在通用授权系统中使用此值。 <br> `SubjectConfirmation` 不是一个声明。 它用于描述对令牌使用者的验证方式。 `Bearer` 表示通过对令牌的持有来确认使用者。 <br><br> SAML 值示例： <br> `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>` <br><br> JWT 值示例： <br> `"sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"` |
 | `tid` |租户 ID |一个固定不变且不能重复使用的标识符，用于标识颁发令牌的目录租户。 可以使用此值访问多租户应用程序中特定于租户的目录资源。 例如，可以在调用图形 API 时使用此值标识租户。 <br><br> SAML 值示例： <br> `<Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>` <br><br> JWT 值示例： <br> `"tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"` |
-| `nbf`, `exp` |令牌生存期 |定义令牌保持有效状态的时间间隔。 验证令牌的服务应验证当前日期是否在令牌生存期内，如果不是，则应拒绝令牌。 考虑到 Azure AD 与服务之间可能存在时钟时间差异（“时间偏差”），服务最多可以超出令牌生存期五分钟。 <br><br> SAML 值示例： <br> `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br><br> JWT 值示例： <br> `"nbf":1363289634, "exp":1363293234` |
+| `nbf`, `exp` |令牌生存期 |定义令牌保持有效状态的时间间隔。 验证令牌的服务应验证当前日期是否在令牌生存期内，如果不是，则应拒绝令牌。 考虑到 Azure AD 与服务之间可能存在时钟时间差异（“时间偏差”），服务最多可以超出令牌生存期五分钟。 <br><br> **SAML 值示例**： <br> `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br><br> JWT 值示例： <br> `"nbf":1363289634, "exp":1363293234` |
 | `upn` |用户主体名称 |存储用户主体的用户名。<br><br> JWT 值示例： <br> `"upn": frankm@contoso.com` |
 | `ver` |版本 |存储令牌的版本号。 <br><br> JWT 值示例： <br> `"ver": "1.0"` |
 
@@ -80,9 +80,9 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 如果应用只使用访问令牌来获取对 API 的访问权限，则可以（而且应该）将访问令牌视为完全不透明 - 它只是在 HTTP 请求中，由应用传递给资源的字符串。
 
-请求访问令牌时，Azure AD 还是会返回一些有关访问令牌的元数据以供应用使用。  此信息包括访问令牌的到期时间及其有效范围。  这让应用能够对访问令牌执行智能缓存，而无需分析访问令牌本身。
+请求访问令牌时，Azure AD 还针对应用的使用返回一些有关访问令牌的元数据。  此信息包括访问令牌的到期时间及其有效范围。  这让应用能够对访问令牌执行智能缓存，而无需分析访问令牌本身。
 
-如果应用是通过 Azure AD 保护的 API，需要 HTTP 请求中的访问令牌，则应验证和检查接收到的令牌。 在使用访问令牌访问资源之前，应用程序应执行访问令牌的验证。 有关验证的详细信息，请参阅 [验证令牌](#validating-tokens)。  
+如果应用是使用 Azure AD 保护的 API，预期要在 HTTP 请求中为其提供访问令牌，则你应该针对收到的令牌执行验证和检查。 在使用访问令牌访问资源之前，应用程序应执行访问令牌的验证。 有关验证的详细信息，请参阅 [验证令牌](#validating-tokens)。  
 有关如何使用 .NET 执行此操作的详细信息，请参阅[使用 Azure AD 的持有者令牌保护 Web API](active-directory-devquickstarts-webapi-dotnet.md)。
 
 ## <a name="refresh-tokens"></a>刷新令牌
@@ -91,13 +91,13 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 刷新令牌属于多资源令牌。  也就是说，在一个资源的令牌请求期间收到的刷新令牌可以兑换完全不同资源的访问令牌。 为此，请在目标资源的请求中设置 `resource` 参数。
 
-刷新令牌对应用完全不透明。 它们属于长效令牌，但你不应将应用编写成预期刷新令牌将持续任何一段时间。  刷新令牌可能由于各种原因而随时失效。  让应用知道刷新令牌是否有效的唯一方式就是对 Azure AD 令牌终结点发出令牌请求以尝试兑换刷新令牌。
+刷新令牌对应用完全不透明。 它们属于长效令牌，但你不应将应用编写成预期刷新令牌将持续任何一段时间。  刷新令牌可能由于各种原因而随时失效 - 请参阅[令牌吊销](#token-revocation)了解这些原因。  让应用知道刷新令牌是否有效的唯一方式就是对 Azure AD 令牌终结点发出令牌请求以尝试兑换刷新令牌。
 
 使用刷新令牌兑换新的访问令牌时，会在令牌响应中收到新的刷新令牌。  应该保存新颁发的刷新令牌，并替换请求中使用的刷新令牌。  这会保证刷新令牌尽可能长期保持有效。
 
 ## 验证令牌 <a name="validating-tokens"></a>
 
-为验证 id_token 或 access_token，应用应该同时验证令牌的签名和声明。 若要验证访问令牌，应用还需验证颁发者、受众和签名令牌。 这些需要根据 OpenID 发现文档中的值进行验证。 例如，与租户无关的文档版本位于 [https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration](https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration)。 Azure AD 中间件具有验证访问令牌的内置功能，浏览[示例](active-directory-code-samples.md)可找到你所用语言的示例。 有关如何显式验证 JWT 令牌的详细信息，请参阅 [手动 JWT 验证示例](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)。  
+为验证 id_token 或 access_token，应用应该同时验证令牌的签名和声明。 若要验证访问令牌，应用还需验证颁发者、受众和签名令牌。 这些需要根据 OpenID 发现文档中的值进行验证。 例如，文档的租户独立版本位于 [https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration](https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration)。 Azure AD 中间件具有验证访问令牌的内置功能，浏览[示例](active-directory-code-samples.md)可找到你所用语言的示例。 有关如何显式验证 JWT 令牌的详细信息，请参阅 [手动 JWT 验证示例](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)。  
 
 我们已提供库和代码示例，以演示如何轻松处理令牌验证 - 想要了解基本过程的用户可以参阅以下信息。  另外还有多个第三方开源库可用于 JWT 验证 - 几乎每个平台和语言都至少有一个选项。 有关 Azure AD 身份验证库和代码示例的详细信息，请参阅 [Azure AD 身份验证库](active-directory-authentication-libraries.md)。
 
@@ -147,6 +147,24 @@ https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration
 - 等等...
 
 有关应用应该针对 ID 令牌执行的声明验证的完整列表，请参阅 [OpenID Connect 规范](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)。 有关这些声明的预期值的详细信息，请参阅前面的 [id_token](#id-tokens) 部分。
+
+## <a name="token-revocation"></a>令牌吊销
+
+刷新令牌可能由于各种原因而随时失效或吊销。  这些原因主要分为两个类别：超时和吊销。 
+* 令牌超时
+  * MaxInactiveTime：如果在 MaxInactiveTime 指定的时间内未使用刷新令牌，刷新令牌将不再有效。 
+  * MaxSessionAge：如果 MaxAgeSessionMultiFactor 或 MaxAgeSessionSingleFactor 已设置为其默认值（“直到吊销”）以外的值，则在经过 MaxAgeSession* 中设置的时间后，将需要重新进行身份验证。  
+  * 示例:
+    * 租户的 MaxInactiveTime 为 5 天，用户去度假一周，因此 AAD 在 7 天内未看到用户发出的新令牌请求。  下次用户请求新令牌时，他们将看到其刷新令牌已被吊销，他们必须重新输入其凭据。 
+    * 敏感应用程序的 MaxAgeSessionSingleFactor 为 1 天。  如果用户在星期一登录，则在星期二（已经过 25 个小时后），他们将需要重新进行身份验证。  
+* 撤销
+  * 自愿密码更改：如果用户更改了其密码，他们可能需要在其某些应用程序中重新进行身份验证，具体取决于获得令牌的方式。  请参阅下面的注释，了解例外情况。 
+  * 非自愿密码更改：如果管理员强制用户更改其密码或重置密码，则使用其密码获得的用户令牌将会失效。  请参阅下面的注释，了解例外情况。 
+  * 安全漏洞：如果出现安全漏洞（例如本地存储的密码泄露），管理员可以撤消当前颁发的所有刷新令牌。  这将强制所有用户重新进行身份验证。 
+
+注意： 
+
+如果使用了非密码的身份验证方法（Windows Hello、Authenticator 应用、面部或指纹等生物识别）来获得令牌，更改用户的密码不会强制用户重新进行身份验证（但它会强制其 Authenticator 应用重新进行身份验证）。  这是因为其所选身份验证输入（例如面部）并未发生更改，因此可再次使用进行重新身份验证。
 
 ## <a name="sample-tokens"></a>示例令牌
 

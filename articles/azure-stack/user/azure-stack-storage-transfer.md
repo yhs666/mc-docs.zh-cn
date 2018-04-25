@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 02/21/2018
-ms.date: 03/27/2018
+origin.date: 03/30/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: xiaofmao
-ms.openlocfilehash: baedeac4158f859427be1b1f8c33b66179680e9a
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 7e76bb2d8459fe17b108b44cade3d61edd29e463
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>适用于 Azure Stack 存储的工具
 
@@ -182,7 +182,7 @@ Azure CLI 是 Azure 的命令行体验，用于管理 Azure 资源。 可以将�
 
 Azure CLI 经过优化，可用于从命令行管理 Azure 资源，以及生成可以针对 Azure 资源管理器运行的自动化脚本。 它提供 Azure Stack 门户所提供的许多功能，包括各种数据访问功能。
 
-Azure Stack 需要 Azure CLI 2.0 版。 若要详细了解如何通过 Azure Stack 来安装和配置 Azure CLI，请参阅[安装和配置 Azure Stack CLI](azure-stack-connect-cli.md)。 若要详细了解如何使用 Azure CLI 2.0 来执行多个可利用 Azure Stack 存储帐户中资源的任务，请参阅[将 Azure CLI2.0 与 Azure 存储配合使用](../../storage/storage-azure-cli.md)
+Azure Stack 需要 Azure CLI 2.0 版。 若要详细了解如何通过 Azure Stack 来安装和配置 Azure CLI，请参阅[安装和配置 Azure Stack CLI](azure-stack-version-profiles-azurecli2.md)。 若要详细了解如何使用 Azure CLI 2.0 来执行多个可利用 Azure Stack 存储帐户中资源的任务，请参阅[将 Azure CLI2.0 与 Azure 存储配合使用](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>适用于 Azure Stack 的 Azure CLI 示例脚本 
 完成 CLI 安装和配置以后，即可尝试以下步骤，以便使用一个小的 shell 示例脚本与 Azure Stack 存储资源交互。 此脚本先在存储帐户中创建一个新容器，然后将现有文件作为 Blob 上传到该容器中，列出容器中的所有 Blob，最后再将文件下载到指定的本地计算机上的目标。 运行此脚本之前，请确保已成功连接并登录到目标 Azure Stack。 
@@ -239,4 +239,4 @@ Azure 存储资源管理器是 Microsoft 提供的独立应用， 可用于在 W
 - [Azure 存储简介](../../storage/common/storage-introduction.md)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

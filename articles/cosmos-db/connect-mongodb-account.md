@@ -1,12 +1,11 @@
 ---
-title: "Azure Cosmos DB 帐户的 MongoDB 连接字符串 | Azure"
-description: "了解如何使用 MongoDB 连接字符串，将 MongoDB 应用连接到 Azure Cosmos DB 帐户。"
-keywords: "mongodb 连接字符串"
+title: Azure Cosmos DB 帐户的 MongoDB 连接字符串 | Azure
+description: 了解如何使用 MongoDB 连接字符串，将 MongoDB 应用连接到 Azure Cosmos DB 帐户。
+keywords: mongodb 连接字符串
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: 
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/19/2017
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 139d1bddb71697fa06167de0989c92791eb2d5b6
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 66604983e4af1ae2a2a1da0100d603342716f7d6
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>将 MongoDB 应用程序连接到 Azure Cosmos DB
 了解如何使用 MongoDB 连接字符串，将 MongoDB 应用连接到 Azure Cosmos DB 帐户。 然后，可使用 Azure Cosmos DB 数据库作为 MongoDB 应用的数据存储。 
@@ -81,4 +80,4 @@ Azure Cosmos DB 支持标准 MongoDB 连接字符串 URI 格式，但要满足�
 * 了解如何配合[使用 Studio 3T (MongoChef)](mongodb-mongochef.md) 与 Azure Cosmos DB API for MongoDB 帐户。
 * 查看[示例](mongodb-samples.md)，了解 Azure Cosmos DB API for MongoDB。
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

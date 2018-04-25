@@ -9,11 +9,11 @@ ms.topic: article
 origin.date: 02/27/2018
 ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2b392d6d8c9eba255147427355e4c76e109e3b13
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: dae657ee50d31fdc0ba6d5583486866a7b2efb75
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>通过 Azure Site Recovery，针对 VMware 复制规划容量和缩放
 
@@ -117,9 +117,9 @@ ms.lasthandoff: 03/28/2018
 3. 下载并运行 Site Recovery 统一安装程序文件来安装进程服务器。 这还会将其注册到保管库中。
 4. 在“准备阶段”中选择“添加额外的进程服务器以扩大部署”。
 5. 完成向导，完成方式与安装配置服务器时采用的方式相同。
-<!-- Anrch not Exist on [set up]()#step-2-set-up-the-source-environment -->
+    <!-- Anrch not Exist on [set up]()#step-2-set-up-the-source-environment -->
 
-    ![Screenshot of Azure Site Recovery Unified Setup wizard](./media/site-recovery-vmware-to-azure/add-ps1.png)
+    ![Azure Site Recovery 统一安装程序向导的屏幕截图](./media/site-recovery-vmware-to-azure/add-ps1.png)
 6. 在“配置服务器详细信息”中，指定配置服务器的 IP 地址和密码。 若要获取密码，请在配置服务器上运行 **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe -n**。
 
     ![“配置服务器详细信息”页的屏幕截图](./media/site-recovery-vmware-to-azure/add-ps2.png)

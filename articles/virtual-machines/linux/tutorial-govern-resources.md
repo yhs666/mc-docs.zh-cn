@@ -12,17 +12,17 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2018
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 41e0e093b68b98c31d3bb4aeb8dacc4a7c185c38
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 4955ad71af49c18a43aa039f4a8cc3bb8f6ae3db
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>使用 Azure CLI 控制虚拟机
 
-[!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="understand-scope"></a>了解范围
 
-[!include[Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
 在本教程中，你将所有管理设置应用于一个资源组，以便在完成后可以轻松地删除这些设置。
 
@@ -70,69 +70,8 @@ az role assignment create --assignee-object-id $adgroupId --role "Virtual Machin
 
 通常情况下，请对*网络参与者*和*存储帐户参与者*重复执行此过程，确保分配用户来管理已部署的资源。 在本文中，可以跳过这些步骤。
 
-## <a name="azure-policies"></a>Azure 策略
-
-[!include[Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
-
-### <a name="apply-policies"></a>应用策略
-
-订阅已经有多个策略定义。 若要查看可用的策略定义，请使用 [az policy definition list](https://docs.azure.cn/zh-cn/cli/policy/definition?view=azure-cli-latest#az_policy_definition_list) 命令：
-
-```azurecli
-az policy definition list --query "[].[displayName, policyType, name]" --output table
-```
-
-可以看到现有的策略定义。 策略类型为“内置”或“自定义”。 在这些定义中查找所述条件正是你要分配的条件的定义。 在本文中，分配的策略要符合以下条件：
-
-* 限制所有资源的位置。
-* 限制虚拟机的 SKU。
-* 审核不使用托管磁盘的虚拟机。
-
-在下面的示例中，你将基于显示名称检索三个策略定义。 并且使用 [az policy assignment create](https://docs.azure.cn/zh-cn/cli/policy/assignment?view=azure-cli-latest#az_policy_assignment_create) 命令将这些定义分配到资源组。 对于某些策略，你将提供参数值来指定允许的值。
-
-```azurecli
-# Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
-locationDefinition=$(az policy definition list --query "[?displayName=='Allowed locations'].name | [0]" --output tsv)
-skuDefinition=$(az policy definition list --query "[?displayName=='Allowed virtual machine SKUs'].name | [0]" --output tsv)
-auditDefinition=$(az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks'].name | [0]" --output tsv)
-
-# Assign policy for allowed locations
-az policy assignment create --name "Set permitted locations" \
-  --resource-group myResourceGroup \
-  --policy $locationDefinition \
-  --params '{ 
-      "listOfAllowedLocations": {
-        "value": [
-          "chinaeast", 
-          "chinaeast2"
-        ]
-      }
-    }'
-
-# Assign policy for allowed SKUs
-az policy assignment create --name "Set permitted VM SKUs" \
-  --resource-group myResourceGroup \
-  --policy $skuDefinition \
-  --params '{ 
-      "listOfAllowedSKUs": {
-        "value": [
-          "Standard_DS1_v2", 
-          "Standard_E2s_v2"
-        ]
-      }
-    }'
-
-# Assign policy for auditing unmanaged disks
-az policy assignment create --name "Audit unmanaged disks" \
-  --resource-group myResourceGroup \
-  --policy $auditDefinition
-```
-
-前面的示例假定你已知道了策略的参数。 如果需要查看参数，请使用：
-
-```azurecli
-az policy definition show --name $locationDefinition --query parameters
-```
+<!-- Not Avaiable on ## Azure policies -->
+<!-- Not Avaiable on ### Apply policies -->
 
 ## <a name="deploy-the-virtual-machine"></a>部署虚拟机
 
@@ -180,7 +119,7 @@ az group delete --name myResourceGroup
 
 可以将[标记](../../azure-resource-manager/resource-group-using-tags.md)应用于 Azure 资源，以逻辑方式按类别对其进行组织。 每个标记包含一个名称和一个值。 例如，可以对生产中的所有资源应用名称“Environment”和值“Production”。
 
-[!include[Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
+[!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
 若要将标记应用于虚拟机，请使用 [az resource tag](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az_resource_tag) 命令。 资源上的任何现有标记都不会保留。
 
@@ -207,7 +146,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 <!-- Not Available on ### View costs by tag values -->
 
-<!-- [!include[Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)] -->
+[!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -247,4 +186,4 @@ az group delete --name myResourceGroup
 > [监视虚拟机](tutorial-monitoring.md)
 
 <!--The parent file of includes file of resource-manager-governance-tags-cli.md-->
-<!--ms.date:03/05/2018-->
+<!--ms.date: 04/16/2018-->

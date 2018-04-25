@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-origin.date: 11/16/2017
-ms.date: 12/11/2017
+origin.date: 04/04/2018
+ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: f4bc9f7521c56493503369e0a11725bcd5c6cf11
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: efcd61463c584fb777f8784fe707ff3bcde5bd32
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>在 SQL 数据库中使用内存中技术优化性能
 
@@ -23,9 +23,9 @@ ms.lasthandoff: 04/08/2018
 以下两个示例演示了如何借助内存中 OLTP 大幅改善性能：
 
 - 使用内存中 OLTP，[仲裁商业解决方案能够使其工作负荷增加一倍，同时节省 70% 的 DTU](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)。
-    - DTU 表示“数据库吞吐量单位”，包括资源消耗量的测量值。
+    - DTU 表示“数据库事务单位”，包括资源消耗量的测量值。
 - 以下视频使用示例工作负荷演示资源消耗方面的重大改进：[In-Memory OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB)（“Azure SQL 数据库中的内存中 OLTP”视频）。
-    - 有关更多详细信息，请参阅博客文章：[In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)（“Azure SQL 数据库中的内存中 OLTP”博客文章）
+    - 有关详细信息，请参阅博客文章：[“Azure SQL 数据库中的内存中 OLTP”博客文章](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 可在高级层中的所有数据库（包括高级弹性池中的数据库）内使用内存中技术。
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/08/2018
 
 Azure SQL 数据库采用以下内存中技术：
 
--  内存中 OLTP 可提升吞吐量并降低事务处理的延迟。 可受益于内存中 OLTP 的情况包括：高吞吐量事务处理（例如贸易和游戏）、从事件或 IoT 设备引入数据、缓存、数据加载以及临时表和表变量等情况。
+- *内存中 OLTP* 可提高事务量并降低事务处理的延迟。 可受益于内存中 OLTP 的情况包括：高吞吐量事务处理（例如贸易和游戏）、从事件或 IoT 设备引入数据、缓存、数据加载以及临时表和表变量等情况。
 - 聚集列存储索引，可减少存储占用（高达 10 倍）并提高报告和分析查询的性能。 将其与数据集市中的事实数据表结合使用，可在数据库中容纳更多数据并提升性能。 此外，将其与操作数据库中的历史数据结合使用，可存档并查询高达 10 倍的额外数据。
 - 用于 HTAP 的非聚集列存储索引通过直接查询操作数据库来帮助获取对业务的实时见解，无需运行开销不菲的提取、转换和加载 (ETL) 过程，也无需等待填充数据仓库。 非聚集列存储索引允许非常快速地对 OLTP 数据库执行分析查询，同时减少对操作工作负荷的影响。
 - 也可以使用内存优化表与列存储的组合。 使用这种组合可以针对相同的数据极快执行事务处理和并发运行分析查询。
@@ -72,7 +72,7 @@ Azure SQL 数据库采用以下内存中技术：
 
 内存中 OLTP 包括用于存储用户数据的内存优化表。 这些表必需在内存可容纳的范围内。 由于内存是直接在 SQL 数据库服务中管理的，因此我们提出了用户数据配额的概念。 这种概念称为“内存中 OLTP 存储”。
 
-每个受支持的独立数据库定价层和每个弹性池定价层都包括一定量的内存中 OLTP 存储。 在编写本文时，每 125 个数据库事务单位 (DTU) 或弹性数据库事务单位 (eDTU) 可使用 1 GB 存储。 有关详细信息，请参阅[资源限制](sql-database-resource-limits.md)。
+每个受支持的独立数据库定价层和每个弹性池定价层都包括一定量的内存中 OLTP 存储。 请参阅[基于 DTU 的资源限制](sql-database-dtu-resource-limits.md)和[基于 vCore 的资源限制](sql-database-vcore-resource-limits.md)。
 
 以下各项计入内存中 OLTP 存储上限：
 
@@ -88,8 +88,8 @@ Azure SQL 数据库采用以下内存中技术：
 
 使用弹性池时，池中的所有数据库共享内存中 OLTP 存储。 因此一个数据库中的使用量可能对其他数据库造成影响。 对此，有两个缓解方法：
 
-- 为低于池的 eDTU 计数的数据库整体配置最大 eDTU。 此最大值将池中任意数据库中的内存中 OLTP 存储利用率限制为与 eDTU 计数对应的大小。
-- 配置大于 0 的最小 eDTU。 此最小值可保证池中的每个数据库都有与配置的最小 eDTU 对应的可用内存中 OLTP 存储量。
+- 为低于池的 eDTU 或 vCore 计数的数据库整体配置 `Max-eDTU` 或 `MaxvCore`。 此最大值将池中任意数据库中的内存中 OLTP 存储利用率限制为与 eDTU 计数对应的大小。
+- 配置大于 0 的 `Min-eDTU` 或 `MinvCore`。 此最小值可保证池中的每个数据库都有与配置的 `Min-eDTU` 或 `vCore` 对应的可用内存中 OLTP 存储量。
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>列存储索引的数据大小和存储
 
@@ -105,7 +105,7 @@ Azure SQL 数据库采用以下内存中技术：
 
 升级到更高的定价层时（例如，从标准层升级到高级层），绝对不会出现任何不兼容性或其他问题。 可用的功能和资源只会增加。
 
-但是，降级定价层可能会对数据库造成负面影响。 如果数据库包含内存中 OLTP 对象，则从高级层降级到标准或基本层时，影响就尤为明显。 降级后，内存优化表和列存储索引不可用（即使它们保持可见）。 降低弹性池的定价层或将使用内存中技术的数据库移动到标准或基本弹性池时，也应考虑这些问题。
+但是，降级定价层可能会对数据库造成负面影响。 如果数据库包含内存中 OLTP 对象，则从高级层降级到标准或基本层时，影响就尤为明显。 降级后，内存优化表不可用（即使它们保持可见）。 降低弹性池的定价层或将使用内存中技术的数据库移动到标准或基本弹性池时，也应考虑这些问题。
 
 ### <a name="in-memory-oltp"></a>内存中 OLTP
 
@@ -131,11 +131,11 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="columnstore-indexes"></a>列存储索引
 
-*降级到基本或标准层*：只有高级定价层支持列存储索引，标准或基本层则不支持。 将数据库降级到标准或基本层后，列存储索引不可用。 系统会保留列存储索引，但永远不会利用索引。 如果后来又升级回到高级层，列存储索引立即可供再次利用。
+降级到基本或标准层：只有高级定价层、标准层、S3 及以上层支持列存储索引，基本层则不支持。 将数据库降级到不受支持的层或级别时后，列存储索引不可用。 系统会保留列存储索引，但永远不会利用索引。 如果后来又升级回到受支持的层或级别，列存储索引立即可供再次利用。
 
-如果有**聚集**列存储索引，则降级层后，整个表不可用。 因此，我们建议在将数据库降级到高级层以下之前，先删除所有聚集列存储索引。
+如果有聚集列存储索引，则降级后，整个表不可用。 因此，我们建议在将数据库降级到不受支持的层或级别前，先删除所有聚集列存储索引。
 
-*降级到较低的高级层*：如果整个数据库处于目标定价层的最大数据库大小或弹性池中可用存储的范围内，则此降级操作会成功。 列存储索引不会造成特殊影响。
+降级到受支持的层或级别：如果整个数据库处于目标定价层的最大数据库大小或弹性池中可用存储的范围内，则此降级操作会成功。 列存储索引不会造成特殊影响。
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
@@ -153,7 +153,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 #### <a name="installation-steps"></a>安装步骤
 
-1. 在 [Azure 门户](https://portal.azure.cn/)中，在服务器上创建一个高级数据库。 将“源”设置为 AdventureWorksLT 示例数据库。 有关详细说明，请参阅[创建第一个 Azure SQL 数据库](sql-database-get-started-portal.md)。
+1. 通过 [Azure 门户](https://portal.azure.com/)，在服务器上创建一个高级或业务关键（预览）数据库。 将“源”设置为 AdventureWorksLT 示例数据库。 有关详细说明，请参阅[创建第一个 Azure SQL 数据库](sql-database-get-started-portal.md)。
 
 2. 使用 SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx) 连接到该数据库。
 

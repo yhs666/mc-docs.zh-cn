@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure CLI 2.0 创建 Linux 环境 | Azure"
-description: "使用 Azure CLI 2.0 从头开始创建存储、Linux VM、虚拟网络和子网、负载均衡器、NIC、公共 IP 和网络安全组。"
+title: 使用 Azure CLI 2.0 创建 Linux 环境 | Azure
+description: 使用 Azure CLI 2.0 从头开始创建存储、Linux VM、虚拟网络和子网、负载均衡器、NIC、公共 IP 和网络安全组。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
 ms.service: virtual-machines-linux
@@ -14,18 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/14/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 633889daf3991537694b8b71dc5a656a625c8560
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 7fd1c8810f6f314838e8b8bac78242ccfc209f0e
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 创建完整的 Linux 虚拟机
 若要在 Azure 中快速创建虚拟机 (VM)，可使用单个使用默认值的 Azure CLI 命令创建任何所需的支持资源。 虚拟网络、公共 IP 地址和网络安全组规则等资源均会自动创建。 为了在生产使用中更好地控制环境，可提前创建这些资源，并将 VM 添加到其中。 本文逐步介绍如何创建 VM 和每个支持资源。
 
-确保已安装了最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录到 Azure 帐户。
+确保已安装了最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -38,7 +38,7 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 创建
 az group create --name myResourceGroup --location chinaeast
 ```
 
-默认情况下，Azure CLI 命令的输出采用 JSON（JavaScript 对象表示法）格式。 若要更改列表或表的默认输出，请使用 [az configure --output](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_configure)。 还可以向任何命令添加 `--output` 以一次性地更改输出格式。 以下示例显示了来自 `az group create` 命令的 JSON 输出：
+默认情况下，Azure CLI 命令的输出采用 JSON（JavaScript 对象表示法）格式。 若要更改列表或表的默认输出，请使用 [az configure --output](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-configure)。 还可以向任何命令添加 `--output` 以一次性地更改输出格式。 以下示例显示了来自 `az group create` 命令的 JSON 输出：
 
 ```json                       
 {
@@ -334,7 +334,7 @@ az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGro
 ```
 
 ## <a name="create-a-virtual-nic"></a>创建虚拟 NIC
-由于可将规则应用到虚拟网络接口卡 (NIC) 的使用上，因此能以编程方式使用它。 可以将多个虚拟 NIC 附加到 VM，具体取决于 [VM 大小](sizes.md)。 在以下 [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#create) 命令中，会创建一个名为 *myNic* 的 NIC，并将其与网络安全组相关联。 公共 IP 地址 *myPublicIP* 也与此虚拟 NIC 相关联。
+由于可将规则应用到虚拟网络接口卡 (NIC) 的使用上，因此能以编程方式使用它。 可以将多个虚拟 NIC 附加到 VM，具体取决于 [VM 大小](sizes.md)。 在以下 [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az_network_nic_create) 命令中，会创建一个名为 *myNic* 的 NIC，并将其与网络安全组相关联。 公共 IP 地址 *myPublicIP* 也与此虚拟 NIC 相关联。
 
 ```azurecli
 az network nic create \

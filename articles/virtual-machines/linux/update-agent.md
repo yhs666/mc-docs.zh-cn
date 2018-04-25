@@ -1,6 +1,6 @@
 ---
 title: 从 GitHub 更新 Azure Linux 代理 | Azure
-description: 了解如何通过 GitHub 将 Azure 中 Linux VM 的 Azure Linux 代理更新为最新版本
+description: 了解如何为 Azure 中的 Linux VM 更新 Azure Linux 代理
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8b908c5b46707282debd2894a73c15f0911f3f28
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 6aef08d482182a7a767b750422e71da64367b4b8
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>如何更新 VM 上的 Azure Linux 代理
 
@@ -474,4 +474,4 @@ waagent -version
 会看到 Linux 代理版本已更新为新版本。
 
 有关 Azure Linux 代理的详细信息，请参阅 [Azure Linux 代理自述文件](https://github.com/Azure/WALinuxAgent)。
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

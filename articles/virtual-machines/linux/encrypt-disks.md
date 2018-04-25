@@ -1,11 +1,11 @@
 ---
-title: "加密 Azure 中 Linux VM 上的磁盘 | Azure"
-description: "如何使用 Azure CLI 2.0 加密 Linux VM 上的虚拟磁盘以增强安全性"
+title: 加密 Azure 中 Linux VM 上的磁盘 | Azure
+description: 如何使用 Azure CLI 2.0 加密 Linux VM 上的虚拟磁盘以增强安全性
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 2a23b6fa-6941-4998-9804-8efe93b647b3
 ms.service: virtual-machines-linux
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/14/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: d2f34782ec5352bde1c64c2be7fcf65f806f3d27
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: d2f34b8afce06f58d191b0bccb20bdecc8795742
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>如何加密 Linux VM 上的虚拟磁盘
 为了增强虚拟机 (VM) 的安全性以及符合性，可以加密虚拟磁盘和 VM 本身。 VM 是使用 Azure 密钥保管库中受保护的加密密钥加密的。 可以控制这些加密密钥，以及审核对它们的使用。 本文介绍如何使用 Azure CLI 2.0 加密 Linux VM 上的虚拟磁盘。 也可以使用 [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/17/2018
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录到 Azure 帐户。 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 myResourceGroup、myKey 和 myVM。
+需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 myResourceGroup、myKey 和 myVM。
 
 首先，在 Azure 订阅中使用 [az provider register](https://docs.azure.cn/zh-cn/cli/provider?view=azure-cli-latest#az_provider_register) 启用 Azure Key Vault 提供程序，并使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 创建一个资源组。 以下示例在 *chinaeast* 位置创建名为 *myResourceGroup* 的资源组。
 
@@ -161,7 +161,7 @@ Linux VM 上的虚拟磁盘是使用 [dm-crypt](https://wikipedia.org/wiki/Dm-cr
 有关支持的方案和限制的详细信息，请参阅[适用于 IaaS VM 的 Azure 磁盘加密](../../security/azure-security-disk-encryption.md)
 
 ## <a name="create-azure-key-vault-and-keys"></a>创建 Azure Key Vault 和密钥
-需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录到 Azure 帐户。 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup*、*myKey* 和 *myVM*。
+需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup*、*myKey* 和 *myVM*。
 
 第一步是创建用于存储加密密钥的 Azure 密钥保管库。 Azure 密钥保管库可以存储能够在应用程序和服务中安全实现的密钥、机密或密码。 对于虚拟磁盘加密，可以使用密钥保管库来存储用于加密或解密虚拟磁盘的加密密钥。
 

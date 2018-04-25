@@ -1,27 +1,27 @@
 ---
-title: "CLI 示例 - 移动 Azure SQL 数据库 - SQL 弹性池 | Azure"
-description: "用于在 SQL 弹性池中移动 SQL 数据库的 Azure CLI 示例脚本"
+title: CLI 示例 - 移动 Azure SQL 数据库 - SQL 弹性池 | Azure
+description: 用于在 SQL 弹性池中移动 SQL 数据库的 Azure CLI 示例脚本
 services: sql-database
 documentationcenter: sql-database
 author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 07/05/2017
-ms.date: 2/28/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 47e7aa6b27850676b3346c7c115fa1bb87c67b78
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: ebbc6119bdf5daf72e3e938bb6c67f971944877a
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>使用 CLI 在 SQL 弹性池中移动 Azure SQL 数据库
 

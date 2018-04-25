@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: reference
 ms.topic: article
-origin.date: 01/10/2017
-ms.date: 07/03/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 01657ce5a072021e0322fa8abea7e46dbf6badd9
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 37fd84e2c836db573d9a0c5a98c8376522b61d3d
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco 使用 Azure SQL 数据库为云中数千个租户快速预配和缩放服务
 ![Umbraco 徽标](./media/sql-database-implementation-umbraco/umbracologo.png)

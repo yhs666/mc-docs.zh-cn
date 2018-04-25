@@ -13,14 +13,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 09/25/2017
-ms.date: 03/08/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 235794bc5aa6601d2ebdd2b688ac7e8e158efde5
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: fd1603c318b256664c0ee9bff9b2c7aa3b282ed2
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>使用 Azure CLI 在 Azure Stack 中创建 Windows 虚拟机
 
@@ -30,7 +30,7 @@ Azure CLI 用于从命令行创建和管理 Azure Stack 资源。 本指南详�
 
 - 确保 Azure Stack 运营商已将“Windows Server 2016”映像添加到 Azure Stack Marketplace。  
 
-- Azure Stack 需要使用特定版本的 Azure CLI 来创建和管理资源。 如果未针对 Azure Stack 配置 Azure CLI，请遵循[安装和配置 Azure CLI](azure-stack-connect-cli.md) 的步骤。
+- Azure Stack 需要使用特定版本的 Azure CLI 来创建和管理资源。 如果未针对 Azure Stack 配置 Azure CLI，请遵循[安装和配置 Azure CLI](azure-stack-version-profiles-azurecli2.md) 的步骤。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -99,3 +99,4 @@ az group delete --name myResourceGroup
 
 在本快速入门中，我们部署了一个简单的 Windows 虚拟机。 有关 Azure Stack 虚拟机的详细信息，请转到 [Azure Stack 中虚拟机的注意事项](azure-stack-vm-considerations.md)。
 
+<!-- Update_Description: link update -->

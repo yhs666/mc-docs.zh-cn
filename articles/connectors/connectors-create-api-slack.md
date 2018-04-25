@@ -3,7 +3,7 @@ title: 在 Azure 逻辑应用中使用 Slack 连接器 | Microsoft Docs
 description: 在逻辑应用中连接到 Slack
 services: logic-apps
 documentationcenter: ''
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/18/2016
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: 28473ccf1a3e1ea9fe89f9557cb97660fa1c1823
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 04/23/2018
+ms.openlocfilehash: 7b7433f05c1c771b2e42cb7a24ab9366969b214c
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-the-slack-connector"></a>Slack 连接器入门
 Slack 是一款团队通信工具，可将所有团队通信归于一处，可即时搜索，并且随时随地可用。 
@@ -34,23 +34,33 @@ Slack 是一款团队通信工具，可将所有团队通信归于一处，可�
 | --- | --- | --- |
 | 令牌 |是 |提供 Slack 凭据 |
 
-按照以下步骤登录 Slack 并在逻辑应用中完成 Slack“连接”配置：
+按照以下步骤登录 Slack 并在逻辑应用中完成 Slack **连接**配置：
 
 1. 选择“重复周期”
 2. 选择“频率”并输入“间隔”
 3. 选择“添加操作”  
+
    ![配置 Slack][1]  
+   
 4. 在搜索框中输入“Slack”，并等待搜索返回在名称中带有 Slack 的所有项
 5. 选择“Slack - 发布消息”
 6. 选择“登录到 Slack”：  
+
    ![配置 Slack][2]
-7. 提供用于登录的 Slack 凭据以向应用程序授权    
+   
+7. 提供用于登录的 Slack 凭据以向应用程序授权  
+  
    ![配置 Slack][3]  
-8. 将重定向到组织的登录页面。 **授权** Slack 与逻辑应用交互：      
+   
+8. 将重定向到组织的登录页面。 **授权** Slack 与逻辑应用交互：   
+   
    ![配置 Slack][5] 
+   
 9. 授权完成后，将重定向到逻辑应用，通过配置“Slack - 获取所有消息”部分完成它。 添加所需的其他触发器和操作。  
+
    ![配置 Slack][6]
-10. 通过选择上方菜单栏中的“保存” 保存工作。
+   
+10. 通过选择菜单（在顶部）中的“保存”保存工作。
 
 ## <a name="connector-specific-details"></a>特定于连接器的详细信息
 

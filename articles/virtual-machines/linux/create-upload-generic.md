@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 02/02/2017
-ms.date: 03/19/2018
+origin.date: 03/12/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 83748d1db7789a93fadf43e249e1f9c720819a8a
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: bb7154c790bb7dc90aa2065a1ff6f7e1e5fff8b7
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>有关未认可发行版的信息
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -52,7 +52,7 @@ ms.lasthandoff: 03/17/2018
 * 低于 2.6.37 的 Linux 内核版本不支持具有更大 VM 大小的 Hyper-V 上的 NUMA。 
 <!-- Not Available on This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in RHEL 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command-line in grub.conf. For more information see Red Hat [KB 436883](https://access.redhat.com/solutions/436883) -->
 * 不要在操作系统磁盘上配置交换分区。 可以配置 Linux 代理，以在临时资源磁盘上创建交换文件。  可以在下面的步骤中找到有关此内容的详细信息。
-* 所有 VHD 的大小必须是 1 MB 的倍数。
+* Azure 上的所有 VHD 必须已将虚拟大小调整为 1MB。 从原始磁盘转换为 VHD 时，必须确保在转换前原始磁盘大小是 1MB 的倍数。 可以在下面的步骤中找到更多信息。
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>安装无 Hyper-V 的内核模块
 Azure 在 Hyper-V 虚拟机监控程序上运行，因此 Linux 需要安装某些内核模块才能在 Azure 中运行。 如果具有在 Hyper-V 外部创建的虚拟机，Linux 安装程序可能无法在初始 ramdisk（initrd 或 initramfs）中包含 Hyper-V 驱动程序，除非它检测到它正在运行 Hyper-V 环境。 使用不同虚拟化系统（即 Virtualbox、KVM 等）来准备 Linux 映像时，可能需要重新生成 initrd 以确保至少 `hv_vmbus` 和 `hv_storvsc` 内核模块可在初始 ramdisk 上使用。
@@ -153,8 +153,6 @@ Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序会直接影响上游
 
         console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
 
-    这还可以确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。
-
     除此之外，建议 *删除* 以下参数（如果存在）：
 
         rhgb quiet crashkernel=auto
@@ -190,4 +188,4 @@ Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序会直接影响上游
 
 * 然后，需要关闭虚拟机并将 VHD 上传到 Azure。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update meta properties -->

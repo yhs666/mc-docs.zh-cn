@@ -14,14 +14,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/11/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 8f01f860781f125bf62f3dfaff2cda1692f4c988
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 13d4e88995b0c7859f058f6464318594520c5079
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>使用 Azure 门户创建 Windows 虚拟机
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-在 http://portal.azure.cn 登录 Azure 门户。
+在 https://portal.azure.cn 登录 Azure 门户。
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 

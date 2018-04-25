@@ -1,11 +1,11 @@
 ---
-title: "限制和配置 - Azure 逻辑应用"
-description: "Azure 逻辑应用的服务限制和配置值"
+title: 限制和配置 - Azure 逻辑应用
+description: Azure 逻辑应用的服务限制和配置值
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: integration
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/25/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: f85eb079cfa3a024e494cbce085f780533a5d72f
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 04/30/2018
+ms.openlocfilehash: 60b3058b00d9a8f2627aacc49c2c3a64a184de60
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>逻辑应用限制和配置
 
@@ -29,13 +29,13 @@ ms.lasthandoff: 03/12/2018
 
 ### <a name="http-request-limits"></a>HTTP 请求限制
 
-这些限制适用于单个 HTTP 请求或连接器调用。
+以下限制适用于单个 HTTP 请求或连接器调用：
 
 #### <a name="timeout"></a>超时
 
 | Name | 限制 | 注释 | 
 | ---- | ----- | ----- | 
-| 请求超时 | 120 秒 | [异步模式](../logic-apps/logic-apps-create-api-app.md)或 [Until 循环](logic-apps-loops-and-scopes.md)可以根据需要进行补偿 |
+| 请求超时 | 120 秒 | [异步模式](../logic-apps/logic-apps-create-api-app.md)或 [Until 循环](logic-apps-control-flow-loops.md)可以根据需要进行补偿 | 
 |||| 
 
 #### <a name="message-size"></a>消息大小
@@ -57,7 +57,7 @@ ms.lasthandoff: 03/12/2018
 
 ### <a name="run-duration-and-retention"></a>运行持续时间和保留期
 
-这些限制适用于单个逻辑应用运行。
+下面是针对单个逻辑应用运行的限制：
 
 | Name | 限制 | 
 | ---- | ----- | 
@@ -67,11 +67,11 @@ ms.lasthandoff: 03/12/2018
 | 最大重复间隔 | 500 天 | 
 ||| 
 
-若要在正常处理流中超出运行持续时间或存储保留期限制，请[与产品团队联系](mailto://logicappsemail@microsoft.com)，获取满足要求的帮助。
+若要在正常处理流中超出运行持续时间或存储保留期限制，请[与逻辑应用团队联系](mailto://logicappsemail@microsoft.com)，获取满足要求的帮助。
 
 ### <a name="looping-and-debatching-limits"></a>循环和解除批处理限制
 
-这些限制适用于单个逻辑应用运行。
+下面是针对单个逻辑应用运行的限制：
 
 | Name | 限制 | 注释 | 
 | ---- | ----- | ----- | 
@@ -83,22 +83,22 @@ ms.lasthandoff: 03/12/2018
 
 ### <a name="throughput-limits"></a>吞吐量限制
 
-这些限制适用于单个逻辑应用资源。
+下面是针对单个逻辑应用实例的限制：
 
 | Name | 限制 | 注释 | 
 | ----- | ----- | ----- | 
-| 每 5 分钟执行的操作数 | 100,000 |<p>以 `High Througput` 模式运行逻辑应用可以将此限制提高到 300,000。 可以通过将工作流资源的 `runtimeConfiguration` 下的 `operationOptions` 属性设置为 `OptimizedForHighThroughput` 来配置高吞吐量模式。 <p>请注意高吞吐量模式处于预览状态。 也可以根据需要在多个应用之间分配工作负荷。 | 
+| 每 5 分钟执行的操作数 | 100,000 | 若要将限制增加到 300,000，可以在 `High Throughput` 模式下运行逻辑应用。 若要配置高吞吐量模式，请在工作流资源的 `runtimeConfiguration` 下，将 `operationOptions` 属性设置为 `OptimizedForHighThroughput`。 <p>**请注意**：高吞吐量模式处于预览状态。 另外，还可以根据需要在多个应用之间分配工作负荷。 | 
 | 操作并发传出调用数 | ~2,500 | 减少并发请求数，或根据需要减少持续时间。 | 
 | 运行时终结点：并发传入调用数 |~1,000 | 减少并发请求数，或根据需要减少持续时间。 | 
 | 运行时终结点：每 5 分钟读取的调用数  | 60,000 | 可以根据需要在多个应用之间分配工作负荷。 | 
 | 运行时终结点：每 5 分钟调用的调用数| 45,000 |可以根据需要在多个应用之间分配工作负荷。 | 
 |||| 
 
-若要在正常处理中超过这些限制，或要运行可能超过这些限制的负载测试，请[与产品团队联系](mailto://logicappsemail@microsoft.com)，获取满足要求的帮助。
+若要在正常处理中超过这些限制，或要运行可能超过这些限制的负载测试，请[与逻辑应用团队联系](mailto://logicappsemail@microsoft.com)，获取满足要求的帮助。
 
 ### <a name="logic-app-definition-limits"></a>逻辑应用定义限制
 
-这些限制适用于单个逻辑应用定义。
+下面是针对单个逻辑应用定义的限制：
 
 | Name | 限制 | 注释 | 
 | ---- | ----- | ----- | 
@@ -130,7 +130,7 @@ ms.lasthandoff: 03/12/2018
 
 ### <a name="integration-account-limits"></a>集成帐户限制
 
-这些限制适用于可添加到集成帐户的项目。
+下面介绍了可添加到集成帐户的项目所要遵循的限制。
 
 | Name | 限制 | 注释 | 
 | ---- | ----- | ----- | 
@@ -161,7 +161,7 @@ ms.lasthandoff: 03/12/2018
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>B2B 协议（AS2、X12、EDIFACT）消息大小
 
-这些限制适用于 B2B 协议。
+以下限制适用于 B2B 协议：
 
 | Name | 限制 | 注释 | 
 | ---- | ----- | ----- | 

@@ -1,3 +1,20 @@
+---
+title: include 文件
+description: include 文件
+services: virtual-machines
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 03/09/2018
+ms.date: 04/16/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: ddb02663f8e2d88d437bbe8165493fa000174472
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 04/16/2018
+---
 Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性、性能及安全性。 此类更新包括修补宿主环境（例如操作系统、虚拟机监控程序以及主机上部署的各种代理）中的软件组件、升级网络组件以及硬件解除授权等多项内容。 大多数此类更新在执行时不会影响托管的虚拟机。 但是，也会存在更新产生影响的情况：
 
 - 如果维护不需重新启动，Azure 会在更新主机时使用就地迁移来暂停 VM。
@@ -49,5 +66,4 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 
 有关配置虚拟机以实现高可用性的详细信息，请参阅“管理 [Windows](../articles/virtual-machines/windows/manage-availability.md) 或 [Linux](../articles/virtual-machines/linux/manage-availability.md) 虚拟机的可用性”。
 
-<!--Update_Description: wording update-->
-<!--ms.date: 01/08/2018,  NO Changes TO OVERWRITE ON ZH-CN REPOSITORY -->
+<!--Update_Description: update meta properties -->

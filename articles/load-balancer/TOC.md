@@ -42,7 +42,7 @@
 ## [使用多个 IP 配置](load-balancer-multiple-ip.md)
 ### [使用多个 IP 配置 (CLI)](load-balancer-multiple-ip-cli.md)
 ### [使用多个 IP 配置 (PowerShell)](load-balancer-multiple-ip-powershell.md)
-## [Azure 负载均衡器的 Log Analytics](load-balancer-monitor-log.md)
+<!-- Not Available ## [Log analytics for Azure Load Balancer](load-balancer-monitor-log.md) -->
 <!-- Not Available ## [Configuring DHCPv6 for Linux VMs](load-balancer-ipv6-for-linux.md)-->
 <!-- Not Available ## [Configure High Availability Ports for Internal Load Balancer](load-balancer-configure-ha-ports.md)-->
 

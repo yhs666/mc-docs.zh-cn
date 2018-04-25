@@ -1,6 +1,6 @@
 ---
-title: "使用转换转换 XML 数据 - Azure 逻辑应用"
-description: "使用 Enterprise Integration SDK 创建转换或映射将 XML 数据在逻辑应用的格式之间转换"
+title: 使用转换转换 XML 数据 - Azure 逻辑应用
+description: 使用 Enterprise Integration SDK 创建转换或映射将 XML 数据在逻辑应用的格式之间转换
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/08/2016
-ms.date: 03/19/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: 936213b1d2e2e4119a3853a0dde6486172978582
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: c98954097103145ae7b42f5291d10275f108d237
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>企业集成与 XML 转换
 ## <a name="overview"></a>概述
@@ -74,11 +74,49 @@ ms.lasthandoff: 03/12/2018
 * 上传现有映射  
 * 包括对 XML 格式的支持。
 
-## <a name="adanced-features"></a>高级功能
-以下功能只能从代码视图访问。
+## <a name="advanced-features"></a>高级功能
+
+### <a name="reference-assembly-or-custom-code-from-maps"></a>映射中的引用程序集或自定义代码 
+转换操作还支持包含外部程序集引用的映射或转换。 此功能可直接从 XSLT 映射调用自定义 .NET 代码。 以下是在映射中使用程序集的先决条件。
+
+* 映射和从映射引用的程序集需要[上传到集成帐户](./logic-apps-enterprise-integration-maps.md)。 
+
+  > [!NOTE]
+  > 映射和程序集需按特定顺序上传。 上传引用程序集的映射之前，必须先上传程序集。
+
+* 映射必须还具有这些属性和 CDATA 节，该节包含对程序集代码的调用：
+
+    * “名称”是自定义程序集名称。
+    * “命名空间”是包含自定义代码的程序集中的命名空间。
+
+  此示例演示了一个映射，该映射引用名为“XslUtilitiesLib”的程序集并从该程序集调用 `circumreference` 方法。
+
+  ````xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
+  <msxsl:script language="C#" implements-prefix="user">
+    <msxsl:assembly name="XsltHelperLib"/>
+    <msxsl:using namespace="XsltHelpers"/>
+    <![CDATA[public double circumference(int radius){ XsltHelper helper = new XsltHelper(); return helper.circumference(radius); }]]>
+  </msxsl:script>
+  <xsl:template match="data">
+     <circles>
+        <xsl:for-each select="circle">
+            <circle>
+                <xsl:copy-of select="node()"/>
+                    <circumference>
+                        <xsl:value-of select="user:circumference(radius)"/>
+                    </circumference>
+            </circle>
+        </xsl:for-each>
+     </circles>
+    </xsl:template>
+    </xsl:stylesheet>
+  ````
+
 
 ### <a name="byte-order-mark"></a>字节顺序标记
-默认情况下，转换的响应将以字节顺序标记 (BOM) 开头。 若要禁用此功能，请为 `transformOptions` 属性指定 `disableByteOrderMark`：
+默认情况下，转换的响应会以字节顺序标记 (BOM) 开头。 仅在“代码视图”编辑器中工作时，才可访问此功能。 若要禁用此功能，请为 `transformOptions` 属性指定 `disableByteOrderMark`：
 
 ````json
 "Transform_XML": {
@@ -95,6 +133,10 @@ ms.lasthandoff: 03/12/2018
     "type": "Xslt"
 }
 ````
+
+
+
+
 
 ## <a name="learn-more"></a>了解详细信息
 * [了解有关 Enterprise Integration Pack 的详细信息](../logic-apps/logic-apps-enterprise-integration-overview.md "了解 Enterprise Integration Pack")  

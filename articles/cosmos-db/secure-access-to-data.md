@@ -1,11 +1,10 @@
 ---
-title: "了解如何保护对 Azure Cosmos DB 中数据的访问 | Azure"
-description: "了解有关 Azure Cosmos DB 中的访问控制概念，包括主密钥、只读密钥、用户和权限。"
+title: 了解如何保护对 Azure Cosmos DB 中数据的访问 | Azure
+description: 了解有关 Azure Cosmos DB 中的访问控制概念，包括主密钥、只读密钥、用户和权限。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 8641225d-e839-4ba6-a6fd-d6314ae3a51c
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/24/2017
-ms.date: 09/18/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: fbff516f9c02c35555c22d5d96cf9578ed824308
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 0f45a43a79f9ebd0d6c70c5db47352e04f5e9c82
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>保护对 Azure Cosmos DB 数据的访问
 本文概述了如何保护对存储在 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 中的数据的访问。
@@ -31,7 +30,7 @@ Azure Cosmos DB 使用两种类型的密钥来验证用户身份并提供其数�
 |[主密钥](#master-keys) |用于管理资源：数据库帐户、数据库、用户和权限|
 |[资源令牌](#resource-tokens)|用于应用程序资源：集合、文档、附件、存储过程、触发器和 UDF|
 
-<a id="master-keys"></a>
+<a name="master-keys"></a>
 
 ## <a name="master-keys"></a>主密钥 
 
@@ -75,7 +74,7 @@ Database database = await client.CreateDatabaseAsync(
     });
 ```
 
-<a id="resource-tokens"></a>
+<a name="resource-tokens"></a>
 
 ## <a name="resource-tokens"></a>资源令牌
 
@@ -101,15 +100,15 @@ Cosmos DB 资源令牌提供一种安全的替代方案，使客户端能够根�
 5. 一旦建立标识，中间层服务就会基于标识请求权限。
 6. 中间层服务将资源令牌发送回手机应用。
 7. 手机应用可以继续使用该资源令牌以该资源令牌定义的权限按照该资源令牌允许的间隔直接访问 Cosmos DB 资源。 
-8. 资源令牌到期后，后续请求收到 401 未经授权的异常。  此时，手机应用会重新建立标识，并请求新的资源令牌。
+8. 资源令牌到期后，后续请求将收到 401 未经授权的异常。  此时，手机应用会重新建立标识，并请求新的资源令牌。
 
     ![Azure Cosmos DB 资源令牌工作流](./media/secure-access-to-data/resourcekeyworkflow.png)
 
-资源令牌的生成和管理由本机 Cosmos DB 客户端库处理；但是，如果使用 REST，必须构造请求/身份验证标头。 有关为 REST 创建身份验证标头的详细信息，请参阅 [Cosmos DB 资源的访问控制](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources)或 [SDK 源代码](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js)。
+资源令牌的生成和管理由本机 Cosmos DB 客户端库处理；但是，如果使用 REST，必须构造请求/身份验证标头。 有关为 REST 创建身份验证标头的详细信息，请参阅 [Cosmos DB 资源的访问控制](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources)或 [SDK 源代码](https://github.com/Azure/azure-documentdb-node/blob/master/source/lib/auth.js)。
 
 有关用于生成或代理资源令牌的中间层服务的示例，请参阅 [ResourceTokenBroker 应用](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers)。
 
-<a id="users"></a>
+<a name="users"></a>
 
 ## <a name="users"></a>用户
 Cosmos DB 用户与 Cosmos DB 数据库关联。  每个数据库可以包含零个或更多 Cosmos DB 用户。  以下代码示例演示如何创建 Cosmos DB 用户资源。
@@ -129,7 +128,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 > 
 > 
 
-<a id="permissions"></a>
+<a name="permissions"></a>
 
 ## <a name="permissions"></a>权限
 Cosmos DB 权限资源与 Cosmos DB 用户关联。  每个用户可能包含零个或多个 Cosmos DB 权限。  权限资源提供对用户在尝试访问某个特定应用程序资源时需要的安全令牌的访问权限。
@@ -152,7 +151,7 @@ Cosmos DB 权限资源与 Cosmos DB 用户关联。  每个用户可能包含零
 Permission docPermission = new Permission
 {
     PermissionMode = PermissionMode.Read,
-    ResourceLink = documentCollection.SelfLink,
+    ResourceLink = UriFactory.CreateDocumentCollectionUri("db", "collection"),
     Id = "readperm"
 };
 
@@ -183,6 +182,5 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ## <a name="next-steps"></a>后续步骤
 * 若要详细了解 Cosmos DB 数据库安全性，请参阅 [Cosmos DB：数据库安全性](database-security.md)。
 * 若要了解如何管理主密钥和只读密钥，请参阅[如何管理 Azure Cosmos DB 帐户](manage-account.md#keys)。
-* 若要了解如何构造 Azure Cosmos DB 授权令牌，请参阅 [Azure Cosmos DB 资源的访问控制](https://docs.microsoft.com/rest/api/documentdb/access-control-on-documentdb-resources)。
-
-<!--Update_Description: wording update-->
+* 若要了解如何构造 Azure Cosmos DB 授权令牌，请参阅 [Azure Cosmos DB 资源的访问控制](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources)。
+<!-- Update_Description: wording update, update link -->

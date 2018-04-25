@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: monitor and tune
 ms.topic: article
-origin.date: 02/03/2017
-ms.date: 09/18/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-haiqya
-ms.openlocfilehash: bb7b47904dfe5e5aa3ac1a49ee63aab342050903
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 54fb55386c545bc10ba3ef699fd156a50f756b3c
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>SQL 数据库中扩展事件的环形缓冲区目标代码
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 04/08/2018
 
 只要稍加修改，就可以在 Azure SQL 数据库或 Microsoft SQL Server 上运行以下环形缓冲区的代码示例。 不同之处在于步骤 5 的 FROM 子句中使用的某些动态管理视图 (DMV) 的名称中出现了节点“_database”。 例如：
 
-* sys.dm_xe**_database**_session_targets
+* sys.dm_xe **_database**_session_targets
 * sys.dm_xe_session_targets
 
 &nbsp;

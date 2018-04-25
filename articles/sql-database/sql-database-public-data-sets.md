@@ -7,14 +7,14 @@ manager: digimobile
 ms.custom: reference
 ms.service: sql-database
 ms.topic: article
-origin.date: 03/20/2017
-ms.date: 07/03/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 4328d5786eeb5cf030529c1f3ea71730b9f03008
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 00c5510fd2754d2b03016cc3abb4526f31f01cce
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>用于测试和原型设计的公共数据集
 

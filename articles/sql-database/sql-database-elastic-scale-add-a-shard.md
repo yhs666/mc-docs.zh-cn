@@ -7,14 +7,14 @@ author: yunan2016
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-origin.date: 11/28/2017
-ms.date: 01/08/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: 1535a70147ac691eac93dcdaa59e09583d71e99f
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 7f12152cd613a60afa0e7e12a3cd47ed02772f61
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>使用弹性数据库工具添加分片
 ## <a name="to-add-a-shard-for-a-new-range-or-key"></a>添加新范围或键的分片

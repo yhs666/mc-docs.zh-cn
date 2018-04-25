@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-origin.date: 07/01/2017
+origin.date: 03/27/2018
 ms.author: v-yiso
-ms.date: 04/09/2018
-ms.openlocfilehash: d454b98e5eff04b219de2e652b6c4fdde20795d9
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.date: 04/30/2018
+ms.openlocfilehash: e216aa28f14f33102242aaa4530b20b44ee6bdb3
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-resource-health-overview"></a>Azure 资源运行状况概述
  
@@ -90,7 +90,7 @@ Azure 资源运行状况有助于在 Azure 服务问题影响资源时进行诊�
 
 ![通过资源视图打开“资源运行状况”](./media/resource-health-overview/from-resource-blade.png)
 
-此外，还可以通过选择“所有服务”，并在筛选器文本框中键入“资源运行状况”来访问“资源运行状况”。 在**帮助 + 支持**窗格中，选择[资源运行状况](https://ms.portal.azure.cn/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth)。
+此外，还可以通过选择“所有服务”，并在筛选器文本框中键入“资源运行状况”来访问“资源运行状况”。 在“帮助 + 支持”窗格中，选择“资源运行状况”[](https://ms.portal.azure.cn/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth)。
 
 ![通过“所有服务”打开“资源运行状况”](./media/resource-health-overview/FromOtherServices.png)
 

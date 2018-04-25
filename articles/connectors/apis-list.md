@@ -3,7 +3,7 @@ title: 适用于 Azure 逻辑应用的连接器
 description: 从所有可用的 Microsoft 连接器中进行选择，以生成并创建逻辑应用
 services: logic-apps
 documentationcenter: ''
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 origin.date: 06/21/2017
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: d65abda66faf7f2a017c819873d520776ee12f1e
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 04/30/2018
+ms.openlocfilehash: 093e93188c37d5570e75b759899b704c7f7dae22
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="connectors-list"></a>连接器列表
 若要查找每个连接器的 Swagger 说明和连接器限制所定义的触发器和操作，请参阅[连接器详细信息](/connectors/)。
@@ -232,7 +232,6 @@ Enterprise Integration Pack (EIP) 包括 BizTalk Server 社区众所周知的连
 [Azure-Automation-icon]: ./media/apis-list/azure-automation.png
 [AzureBlobStorageicon]: ./media/apis-list/azureblob.png
 [Azure-Data-Lake-icon]: ./media/apis-list/azure-data-lake.png
-[Azure-DocumentDBicon]: ./media/apis-list/azure-documentdb.png
 [Azure-MLicon]: ./media/apis-list/azureml.png
 [Azure-Resource-Manager-icon]: ./media/apis-list/azure-resource-manager.png
 [Azure-Queues-icon]: ./media/apis-list/azure-queues.png

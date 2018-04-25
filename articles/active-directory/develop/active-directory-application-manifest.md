@@ -1,11 +1,11 @@
 ---
-title: "了解 Azure Active Directory 应用程序清单 | Microsoft Docs"
-description: "详细介绍 Azure Active Directory 应用程序清单，该清单表示 Azure AD 租户中的应用程序标识配置，并方便实现 OAuth 授权、许可体验和其他功能。"
+title: 了解 Azure Active Directory 应用程序清单 | Microsoft Docs
+description: 详细介绍 Azure Active Directory 应用程序清单，该清单表示 Azure AD 租户中的应用程序标识配置，并方便实现 OAuth 授权、许可体验和其他功能。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: sureshja
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
 ms.devlang: na
@@ -17,11 +17,11 @@ ms.date: 01/09/2018
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: f8b62462ecf4417088dfc79cecd24441df4a7368
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 6fc344d0ad4836ac47b9b22a3ed2b83096ac84f3
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-application-manifest"></a>Azure Active Directory 应用程序清单
 与 Azure AD 集成的应用必须向 Azure AD 租户注册。 可以在 [Azure 门户](https://portal.azure.cn)中使用应用清单（在“Azure AD”边栏选项卡下）配置此应用。
@@ -73,6 +73,7 @@ ms.lasthandoff: 01/11/2018
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type
 [APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type
+[AZURE-PORTAL]: https://portal.azure.cn
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
 [IMPLICIT-GRANT]: active-directory-dev-understanding-oauth2-implicit-grant.md

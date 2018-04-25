@@ -1,3 +1,20 @@
+---
+title: include 文件
+description: include 文件
+services: virtual-machines-windows
+author: rockboyfor
+ms.service: virtual-machines-windows
+ms.topic: include
+origin.date: 03/11/2018
+ms.date: 04/16/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: e72c2ec79eea7f9aac9cb1f6061a66b8010bd677
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 04/16/2018
+---
 创建 Azure 虚拟机 (VM) 时，必须创建[虚拟网络](../articles/virtual-network/virtual-networks-overview.md) (VNet) 或使用现有的 VNet。 此外，还需要确定如何在 VNet 上访问 VM。 [在创建资源之前必须做好规划](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)，确保了解[网络资源的限制](../articles/azure-subscription-service-limits.md#networking-limits)。
 
 在下图中，VM 显示为 Web 服务器和数据库服务器。 每组 VM 已分配到 VNet 中的独立子网。
@@ -72,10 +89,10 @@
 
 | 方法 | 说明 |
 | ------ | ----------- |
-| [Azure 门户](../articles/virtual-network/virtual-networks-create-vnet-arm-pportal.md) | 如果要在创建 VM 时让 Azure 创建 VNet，VNet 的名称是包含 VNet 的资源组名称和 **-vnet**的组合。 地址空间为 10.0.0.0/24，所需的子网名称为 **default**，子网地址范围为 10.0.0.0/24。 |
-| [Azure PowerShell](../articles/virtual-network/virtual-networks-create-vnet-arm-ps.md) | 使用 [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) 和 [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork) 可以创建子网与 VNet。 还可以使用 [Add-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) 将子网添加到现有 VNet。 |
-| [Azure CLI](../articles/virtual-network/virtual-networks-create-vnet-arm-cli.md) | 子网和 VNet 是同时创建的。 在 **az network vnet create** 后面提供 [--subnet-name](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#create) 参数并指定子网名称。 |
-| [模板](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md) | 创建 VNet 和子网的最简单方法是下载一个现有的模板（例如 [包含两个子网的虚拟网络](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)），并根据需要对它进行修改。 |
+| [Azure 门户](../articles/virtual-network/quick-create-portal.md) | 如果要在创建 VM 时让 Azure 创建 VNet，VNet 的名称是包含 VNet 的资源组名称和 **-vnet**的组合。 地址空间为 10.0.0.0/24，所需的子网名称为 **default**，子网地址范围为 10.0.0.0/24。 |
+| [Azure PowerShell](../articles/virtual-network/quick-create-powershell.md) | 使用 [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) 和 [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork) 可以创建子网与 VNet。 还可以使用 [Add-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) 将子网添加到现有 VNet。 |
+| [Azure CLI](../articles/virtual-network/quick-create-cli.md) | 子网和 VNet 是同时创建的。 在 **az network vnet create** 后面提供 [--subnet-name](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#create) 参数并指定子网名称。 |
+| 模板 | 创建 VNet 和子网的最简单方法是下载一个现有的模板（例如[包含两个子网的虚拟网络](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)），并根据需要对它进行修改。 |
 
 ## <a name="network-security-groups"></a>网络安全组
 
@@ -156,5 +173,4 @@ NSG 包含两种类型的规则：入站规则和出站规则。 在每组中，
 - 了解如何配置 [VNet 到 VNet 连接](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)。
 - 了解如何[排查路由问题](../articles/virtual-network/virtual-network-routes-troubleshoot-portal.md)。
 
-<!--Update_Description: update link -->
-<!--ms.date: 01/08/2018-->
+<!--Update_Description: update link, wording update -->

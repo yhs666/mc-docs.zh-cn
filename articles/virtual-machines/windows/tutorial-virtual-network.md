@@ -1,27 +1,27 @@
 ---
-title: "Azure 虚拟网络和 Windows 虚拟机 | Azure"
-description: "教程 - 使用 Azure PowerShell 管理 Azure 虚拟网络和 Windows 虚拟机"
+title: Azure 虚拟网络和 Windows 虚拟机 | Azure
+description: 教程 - 使用 Azure PowerShell 管理 Azure 虚拟网络和 Windows 虚拟机
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 10/12/2017
-ms.date: 12/18/2017
+origin.date: 02/27/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a08c7e2132d861b8a8de60a8bbee8412d9a5e73c
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: c721bf5ce152d87984a2f18fc55ef5ccfab52f36
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 虚拟网络和 Windows 虚拟机
 
@@ -33,6 +33,12 @@ Azure 虚拟机使用 Azure 网络进行内部和外部网络通信。 本教程
 > * 创建前端 VM
 > * 安全的网络流量
 > * 创建后端 VM
+
+本教程需要 AzureRM.Compute 模块 4.3.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM.Compute` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
+
+## <a name="vm-networking-overview"></a>VM 网络概述
+
+Azure 虚拟网络在虚拟机、Internet 与其他 Azure 服务（例如 Azure SQL 数据库）之间实现安全网络连接。 虚拟网络分解为称作“子网”的逻辑段。 子网用于控制网络流，并充当安全边界。 部署 VM 时，该 VM 通常包含一个附加到子网的虚拟网络接口。
 
 完成本教程时，可以看到创建了以下资源：
 
@@ -47,12 +53,6 @@ Azure 虚拟机使用 Azure 网络进行内部和外部网络通信。 本教程
 - *myBackendSubnet* - 与 *myBackendNSG* 关联且供后端资源使用的子网。
 - *myBackendNic* - *myBackendVM* 用于与 *myFrontendVM* 通信的网络接口。
 - *myBackendVM* - 使用端口 1433 与 *myFrontendVM* 通信的 VM。
-
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 若要查找版本，请运行 `Get-Module -ListAvailable AzureRM`。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
-
-## <a name="vm-networking-overview"></a>VM 网络概述
-
-Azure 虚拟网络在虚拟机、Internet 与其他 Azure 服务（例如 Azure SQL 数据库）之间实现安全网络连接。 虚拟网络分解为称作“子网”的逻辑段。 子网用于控制网络流，并充当安全边界。 部署 VM 时，该 VM 通常包含一个附加到子网的虚拟网络接口。
 
 ## <a name="create-a-virtual-network-and-subnet"></a>创建虚拟网络和子网
 
@@ -123,7 +123,7 @@ VM 需要虚拟网络接口 (NIC) 才能在虚拟网络中进行通信。 使用
 $frontendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location ChinaEast `
-  -Name myFrontendNic `
+  -Name myFrontend `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id
 ```
@@ -134,38 +134,18 @@ $frontendNic = New-AzureRmNetworkInterface `
 $cred = Get-Credential
 ```
 
-使用 [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig)、[Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem)、[Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage)、[Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk)、[Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) 和 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建 VM：
+使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建 VM。
 
 ```powershell
-$frontendVM = New-AzureRmVMConfig `
-    -VMName myFrontendVM `
-    -VMSize Standard_D1
-$frontendVM = Set-AzureRmVMOperatingSystem `
-    -VM $frontendVM `
-    -Windows `
-    -ComputerName myFrontendVM `
-    -Credential $cred `
-    -ProvisionVMAgent `
-    -EnableAutoUpdate
-$frontendVM = Set-AzureRmVMSourceImage `
-    -VM $frontendVM `
-    -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer `
-    -Skus 2016-Datacenter `
-    -Version latest
-$frontendVM = Set-AzureRmVMOSDisk `
-    -VM $frontendVM `
-    -Name myFrontendOSDisk `
-    -DiskSizeInGB 128 `
-    -CreateOption FromImage `
-    -Caching ReadWrite
-$frontendVM = Add-AzureRmVMNetworkInterface `
-    -VM $frontendVM `
-    -Id $frontendNic.Id
 New-AzureRmVM `
-    -ResourceGroupName myRGNetwork `
-    -Location ChinaEast `
-    -VM $frontendVM
+   -Credential $cred `
+   -Name myFrontend `
+   -PublicIpAddressName myPublicIPAddress `
+   -ResourceGroupName myRGNetwork `
+   -Location "ChinaEast" `
+   -Size Standard_D1 `
+   -SubnetName myFrontendSubnet `
+   -VirtualNetworkName myVNet
 ```
 
 ## <a name="secure-network-traffic"></a>安全的网络流量
@@ -265,7 +245,7 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 $backendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location ChinaEast `
-  -Name myBackendNic `
+  -Name myBackend `
   -SubnetId $vnet.Subnets[1].Id
 ```
 
@@ -278,35 +258,14 @@ $cred = Get-Credential
 创建 myBackendVM：
 
 ```powershell
-$backendVM = New-AzureRmVMConfig `
-  -VMName myBackendVM `
-  -VMSize Standard_D1
-$backendVM = Set-AzureRmVMOperatingSystem `
-  -VM $backendVM `
-  -Windows `
-  -ComputerName myBackendVM `
-  -Credential $cred `
-  -ProvisionVMAgent `
-  -EnableAutoUpdate
-$backendVM = Set-AzureRmVMSourceImage `
-  -VM $backendVM `
-  -PublisherName MicrosoftSQLServer `
-  -Offer SQL2016SP1-WS2016 `
-  -Skus Enterprise `
-  -Version latest
-$backendVM = Set-AzureRmVMOSDisk `
-  -VM $backendVM `
-  -Name myBackendOSDisk `
-  -DiskSizeInGB 128 `
-  -CreateOption FromImage `
-  -Caching ReadWrite
-$backendVM = Add-AzureRmVMNetworkInterface `
-  -VM $backendVM `
-  -Id $backendNic.Id
 New-AzureRmVM `
-  -ResourceGroupName myRGNetwork `
-  -Location ChinaEast `
-  -VM $backendVM
+   -Credential $cred `
+   -Name myBackend `
+   -ImageName "MicrosoftSQLServer:SQL2016SP1-WS2016:Enterprise:latest" `
+   -ResourceGroupName myRGNetwork `
+   -Location "ChinaEast" `
+   -SubnetName myFrontendSubnet `
+   -VirtualNetworkName myVNet
 ```
 
 虽然使用的映像安装了 SQL Server，但本教程中不会使用 SQL Server。 安装它是为了演示如何配置 VM 来处理 Web 流量以及如何配置 VM 来处理数据库管理。

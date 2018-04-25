@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-origin.date: 01/02/2018
-ms.date: 01/28/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: e765a7e1fb57412157fb3507657b9f02d4c4a117
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 799ef2cd8f723e65a9b0040518ae4ae7cec1ea0c
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL 数据库中的自动优化
 

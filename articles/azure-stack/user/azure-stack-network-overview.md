@@ -6,14 +6,14 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-origin.date: 02/28/2018
-ms.date: 03/27/2018
+origin.date: 04/09/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6376c7516d72d0dfff57563be3c85135ea415279
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 5bd11c5613bc1046479c795dc5a6fe0e11d54aca
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="introduction-to-azure-stack-networking"></a>Azure Stack 网络简介
 

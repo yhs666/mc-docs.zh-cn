@@ -1,13 +1,13 @@
 ---
-title: "PowerShell 示例-更新 SQL 数据同步的同步架构 | Microsoft Docs"
-description: "用于更新 SQL 数据同步的同步架构的 Azure PowerShell 示例脚本"
+title: PowerShell 示例-更新 SQL 数据同步的同步架构 | Microsoft Docs
+description: 用于更新 SQL 数据同步的同步架构的 Azure PowerShell 示例脚本
 services: sql-database
 documentationcenter: sql-database
 author: yunan2016
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
@@ -18,15 +18,15 @@ origin.date: 01/10/2018
 ms.date: 01/22/2018
 ms.author: v-nany
 ms.reviewer: douglasl
-ms.openlocfilehash: 0c16905a2215ea392011115bf6749913911a9d85
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: fcfa5da6d6cc0b68e541f037999e4f8fabe9fb19
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>使用 PowerShell 更新现有同步组中的同步架构
 
-此 PowerShell 示例可更新现有同步组中的同步架构。 同步多个表时，此脚本可帮助你有效地更新同步架构。
+此 PowerShell 示例可更新现有 SQL 数据同步（预览版）同步组中的同步架构。 同步多个表时，此脚本可帮助你有效地更新同步架构。
 
 此示例演示如何使用 **UpdateSyncSchema** 脚本，该脚本在 GitHub 上以 [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1) 的形式提供。
 

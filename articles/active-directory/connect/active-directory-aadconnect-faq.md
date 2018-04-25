@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Connect：常见问题解答 - | Microsoft Docs"
-description: "此页包含有关 Azure AD Connect 的常见问题。"
+title: Azure Active Directory Connect：常见问题解答 - | Microsoft Docs
+description: 此页包含有关 Azure AD Connect 的常见问题。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/12/2017
+origin.date: 03/09/2017
 ms.date: 12/20/2017
 ms.author: v-junlch
-ms.openlocfilehash: b78c541703df2309f10bb071330ce46119d086b0
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: d7b7689efc53af1bc3dc0a6c7d9f4d988799b315
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>有关 Azure Active Directory Connect 的常见问题
 
@@ -79,7 +79,7 @@ Azure AD Connect 不支持纯 IPv6 环境。
 还可以根据 [Azure AD Connect 同步服务功能](active-directory-aadconnectsyncservice-features.md)中所述配置 Azure AD，以允许同步引擎更新 userPrincipalName。
 
 **问：是否支持本地 AD 组/联系人对象与现有 Azure AD 组/联系人对象的软匹配？**  
-否，目前不支持。
+是，这将取决于 proxyAddress。  未启用邮件的组不支持软匹配。
 
 **问：是否支持手动设置现有 Azure AD 组/联系人对象的 ImmutableId 属性，以将其硬匹配到本地 AD 组/联系人对象？**  
 不能，目前不支持。

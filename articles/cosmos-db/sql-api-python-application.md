@@ -6,7 +6,6 @@ services: cosmos-db
 documentationcenter: python
 author: rockboyfor
 manager: digimobile
-editor: cgronlun
 ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
 ms.service: cosmos-db
 ms.workload: data-management
@@ -14,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 02/23/2017
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c0ad55333b0864a78587cc3e35cdca04e6dbeb9b
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: f6ec0ec79fcde7da4926a650631d74238136222c
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>构建使用 Azure Cosmos DB 的 Python Flask Web 应用程序
 > [!div class="op_single_selector"]
@@ -31,8 +30,6 @@ ms.lasthandoff: 03/28/2018
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 本教程介绍如何使用 Azure Cosmos DB 通过 Azure 应用服务中托管的 Python Flask 应用程序存储和访问数据。 本教程假设读者在 Python 和 Azure 网站的用法方面具有一定的经验。
 
@@ -408,7 +405,7 @@ def vote():
 10. 在“选择扩展”页上，向下滚动到最近的 Python 2.7 安装并选择 x86 或 x64 位选项，然后单击“确定”接受法律条款。  
 
 11. 使用 Kudu 控制台（可通过 `https://<your app service name>.scm.chinacloudsites.cn/DebugConsole` 访问）安装应用的 `requirements.txt` 文件中所列的包。 为此，请在 Kudu 诊断控制台中导航到 Python 文件夹 `D:\home\Python27`，并根据 [Kudu 控制台](https://docs.microsoft.com/zh-cn/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console)部分中所述运行以下命令：
-<!-- URL is correct on [Kudu console](https://docs.microsoft.com/zh-cn/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console) -->
+<!-- URL is correct without .md on [Kudu console](https://docs.microsoft.com/zh-cn/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console) -->
 
     ```
     D:\home\Python27>python -m pip install --upgrade -r /home/site/wwwroot/requirements.txt

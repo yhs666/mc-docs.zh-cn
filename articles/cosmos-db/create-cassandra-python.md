@@ -1,11 +1,11 @@
 ---
-title: "快速入门：将 Cassandra API 与 Python 配合使用 - Azure Cosmos DB | Azure"
-description: "本快速入门介绍如何配合 Python 使用 Azure Cosmos DB 的 Apache Cassandra API 创建配置文件应用程序"
+title: 快速入门：将 Cassandra API 与 Python 配合使用 - Azure Cosmos DB | Azure
+description: 本快速入门介绍如何配合 Python 使用 Azure Cosmos DB 的 Apache Cassandra API 创建配置文件应用程序
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 4ebc883e-c512-4e34-bd10-19f048661159
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
@@ -17,10 +17,10 @@ origin.date: 11/15/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
 ms.openlocfilehash: 9653b30af377877f6eb3e8d7bc80baf332a2b415
-ms.sourcegitcommit: a4ef22d361b2b930db6ed52cc0c22abc781ab7cb
+ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>快速入门：使用 Python 和 Azure Cosmos DB 生成 Cassandra 应用
 
@@ -162,7 +162,7 @@ Azure Cosmos DB 由 21Vianet 提供，是全球分布的多模型数据库服务
 
 ## <a name="use-the-x509-certificate"></a>使用 X509 证书
 
-1. 如果需要添加 Baltimore CyberTrust 根，它具有序列号 02:00:00:b9 和 SHA1 指纹 d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74。 可以从 https://cacert.omniroot.com/bc2025.crt 下载、使用扩展名 .cer 保存到本地文件
+1. 如果需要添加 Baltimore CyberTrust 根，它具有序列号 02:00:00:b9 和 SHA1 指纹 d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74。 可以从 https://cacert.omniroot.com/bc2025.crt 下载，然后使用扩展名 .cer 保存到本地文件
 
 2. 打开 pyquickstart.py，并将“path\to\cert”更改为指向新证书。
 

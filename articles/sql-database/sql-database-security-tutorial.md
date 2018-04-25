@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-origin.date: 06/28/2017
+origin.date: 04/01/2018
 ms.date: 01/08/2018
 ms.author: v-johch
-ms.openlocfilehash: 4a4593001f6f2f3f38e8112b6fc8a7d8646a0a54
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: fb3768ca47e6053829bf1ce110ddfec5ff5bd106
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>保护 Azure SQL 数据库
 

@@ -1,22 +1,21 @@
 ---
-title: "设置 Azure Cosmos DB 中的访问控制 | Azure"
-description: "了解如何设置 Azure Cosmos DB 中的访问控制。"
+title: 设置 Azure Cosmos DB 中的访问控制 | Azure
+description: 了解如何设置 Azure Cosmos DB 中的访问控制。
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
 ms.assetid: fae3af3f-4d6e-46d8-9d9b-b80a4218add9
 ms.service: cosmos-db
 ms.topic: article
 origin.date: 02/06/2018
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: d056e75b545ef813d22b552bc2fd135c7c2a0bff
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: a463a76355682db41f9eef734d991ef3ad0160fd
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="access-control-in-azure-cosmos-db"></a>Azure Cosmos DB 中的访问控制
 
@@ -32,5 +31,4 @@ ms.lasthandoff: 03/02/2018
 
 实体现在便可以读取 Azure Cosmos DB 资源。
 
-<!-- Update_Description: new articles about access control in cosmod DB -->
-<!--ms.date: 03/05/2018 -->
+<!-- Update_Description: Update meta properties -->

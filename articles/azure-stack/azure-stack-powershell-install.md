@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2018
-ms.date: 03/02/2018
+origin.date: 03/30/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: b0329871b0c1290d97168f79b79c67ae852154dd
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: f33e21f40af209b0590a6d102c79783e49daa51c
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>安装适用于 Azure Stack 的 PowerShell  
 
@@ -56,7 +56,7 @@ Set-PSRepository `
 
 ## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>在联网场景中（已建立 Internet 连接）安装 PowerShell
 
-通过 API 版本配置文件安装与 Azure Stack 兼容的 AzureRM 模块。 Azure Stack 需要 **2017-03-09-profile** API 版本配置文件（可通过安装 AzureRM.Bootstrapper 模块获取）。 有关 API 版本配置文件及其提供的 cmdlet 的详细信息，请参阅[管理 API 版本配置文件](azure-stack-version-profiles.md)。 除了 AzureRM 模块以外，还应安装 Azure Stack 特定的 Azure PowerShell 模块。 运行以下 PowerShell 脚本，在开发工作站上安装这些模块：
+通过 API 版本配置文件安装与 Azure Stack 兼容的 AzureRM 模块。 Azure Stack 需要 **2017-03-09-profile** API 版本配置文件（可通过安装 AzureRM.Bootstrapper 模块获取）。 有关 API 版本配置文件及其提供的 cmdlet 的详细信息，请参阅[管理 API 版本配置文件](user/azure-stack-version-profiles.md)。 除了 AzureRM 模块以外，还应安装 Azure Stack 特定的 Azure PowerShell 模块。 运行以下 PowerShell 脚本，在开发工作站上安装这些模块：
 
 > [!IMPORTANT]
 > AzureRM 1.2.11 PowerShell 模块版本随附了重大更改列表。
@@ -139,5 +139,6 @@ Set-PSRepository `
 - [从 GitHub 下载 Azure Stack 工具](azure-stack-powershell-download.md)
 - [配置 Azure Stack 用户的 PowerShell 环境](user/azure-stack-powershell-configure-user.md)  
 - [配置 Azure Stack 操作员的 PowerShell 环境](azure-stack-powershell-configure-admin.md) 
-- [在 Azure Stack 中管理 API 版本配置文件](azure-stack-version-profiles.md)  
+- [在 Azure Stack 中管理 API 版本配置文件](user/azure-stack-version-profiles.md)  
 
+<!-- Update_Description: link update -->

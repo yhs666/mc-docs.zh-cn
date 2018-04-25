@@ -1,35 +1,36 @@
 ---
-title: "Azure Cosmos DB 中的唯一键 | Azure"
-description: "了解如何使用 Azure Cosmos DB 数据库中的唯一键。"
+title: Azure Cosmos DB 中的唯一键 | Azure
+description: 了解如何使用 Azure Cosmos DB 数据库中的唯一键。
 services: cosmos-db
-keywords: "唯一键约束, 违反唯一键约束"
+keywords: 唯一键约束, 违反唯一键约束
 author: rockboyfor
 manager: digimobile
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/27/2017
-ms.date: 12/25/2017
+origin.date: 03/21/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 95764f17b71a302ad482fb66b81baef09e82e6d8
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: fe4b67e1686dc54eb6cfe74bef7edb6794b9b655
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一键
 
 开发人员可以使用唯一键对其数据库添加一层数据完整性。 创建容器时，通过创建唯一键策略，可确保每个[分区键](partition-data.md)的一个或多个值的唯一性。 使用唯一键策略创建容器后，它可以避免创建值与唯一键约束指定的值重复的任何新的或更新项。   
 
 > [!NOTE]
-> 最新版本的 [.NET](sql-api-sdk-dotnet.md) 和 [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDK 以及 [MongoDB API](mongodb-feature-support.md#unique-indexes) 支持唯一键。 表 API 目前不支持唯一键。 
+> 最新版本的 [.NET](sql-api-sdk-dotnet.md) 和 [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDK 以及 [MongoDB API](mongodb-feature-support.md#unique-indexes) 支持唯一键。 
 > 
 >
+<!-- Not Available on The Table API do not support unique keys at this time-->
 
 ## <a name="use-case"></a>使用案例
 
@@ -59,7 +60,7 @@ ms.lasthandoff: 12/22/2017
 
 每个唯一键可以包含最多 16 个路径值（例如 /firstName、/lastName、/address/zipCode 等）。 
 
-每个唯一键策略可以具有最多 10 个唯一键约束或组合。 因此，使用名字、姓氏和电子邮件地址的上例就是一个约束，并且它使用了 16 个可能的可用路径中的三个。 
+每个唯一的密钥策略最多可以有 10 个唯一的密钥约束或组合，并且所有唯一索引属性的组合路径不应超过 60 个字符。 因此，使用名字、姓氏和电子邮件地址的上例就是一个约束，并且它使用了 16 个可能的可用路径中的三个。 
 
 如果容器上存在唯一键策略，则用于创建、更新和删除项的请求单元费用会略高。 
 
@@ -137,4 +138,4 @@ db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } 
 ## <a name="next-steps"></a>后续步骤
 
 在本文中，你学习了如何为数据库中的项创建唯一键。 如果你是第一次创建容器，请查看[将 Azure Cosmos DB 中的数据分区](partition-data.md)作为相互依赖的唯一键和分区键。
-<!-- Update_Description: new articles on unique keys -->
+<!-- Update_Description: update meta propreties, wording update -->

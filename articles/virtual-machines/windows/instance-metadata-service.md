@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 10/10/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: a4c2fad1365066ee35adf8812124b9d9b25f14c5
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 94c0418742f03b5d4b575975f37bb562255734e6
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -36,10 +36,10 @@ Azure 的实例元数据服务是一个 REST 终结点，所有创建的 IaaS VM
 
 区域                                        | 可用性？                                 | 支持的版本
 -----------------------------------------------|-----------------------------------------------|-----------------
-[全球所有公开上市的 Azure 区域](https://azure.microsoft.com/regions/)     | 正式版   | 2017-04-02, 2017-08-01
-[Azure 政府](https://azure.microsoft.com/overview/clouds/government/)              | 正式版 | 2017-04-02
-[Azure 中国](https://www.azure.cn/)                                                           | 正式版 | 2017-04-02
-[Azure 德国](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式版 | 2017-04-02
+[全球所有公开上市的 Azure 区域](https://azure.microsoft.com/regions/)     | 正式版   | 2017-04-02, 2017-08-01, 2017-12-01
+[Azure 美国政府版](https://azure.microsoft.com/overview/clouds/government/)              | 正式版 | 2017-04-02,2017-08-01
+[Azure 中国](https://www.azure.cn/)                                                           | 正式版 | 2017-04-02,2017-08-01
+[Azure 德国](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式版 | 2017-04-02,2017-08-01
 <!-- [All Generally Available Global Azure Regions] Should be https://azure.microsoft.com/regions/ -->
 当有服务更新和/或有可用的新支持版本时，此表将更新
 
@@ -48,7 +48,7 @@ Azure 的实例元数据服务是一个 REST 终结点，所有创建的 IaaS VM
 ## <a name="usage"></a>使用情况
 
 ### <a name="versioning"></a>版本控制
-已对实例元数据服务进行了版本控制。 版本是必需的，全局 Azure 上的当前版本为 `2017-08-01`。 当前支持的版本为（2017-04-02、2017-08-01）
+已对实例元数据服务进行了版本控制。 版本是必需的，全局 Azure 上的当前版本为 `2017-12-01`。 当前支持的版本为（2017-04-02、2017-08-01、2017-12-01）
 
 > [!NOTE] 
 > 支持的计划事件的前一预览版 {latest} 发布为 api-version。 此格式不再受支持，并且将在未来弃用。
@@ -63,7 +63,7 @@ Azure 的实例元数据服务是一个 REST 终结点，所有创建的 IaaS VM
 实例元数据可用于运行使用 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) 创建/管理的 VM。 使用以下请求访问虚拟机实例的所有数据类别：
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
 > [!NOTE] 
@@ -81,7 +81,7 @@ API | 默认数据格式 | 其他格式
 若要访问非默认响应格式，在请求中将所请求格式指定为查询字符串参数。 例如：
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 ### <a name="security"></a>“安全”
@@ -149,7 +149,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 #### <a name="retrieving-public-ip-address"></a>检索公共 IP 地址
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="retrieving-all-metadata-for-an-instance"></a>检索实例的所有元数据
@@ -157,7 +157,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **请求**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-12-01"
 ```
 
 **响应**
@@ -182,6 +182,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
     "tags": "",
     "version": "16.04.201708030",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
+    "vmScaleSetName": "",
     "vmSize": "Standard_D1"
   },
   "network": {
@@ -218,13 +219,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 可以通过 Powershell 实用工具 `curl` 在 Windows 中检索实例元数据： 
 
 ```bash
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-04-02 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
 ```
 
 或通过 `Invoke-RestMethod`cmdlet：
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-04-02 -Method get 
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 
 ```
 
 **响应**
@@ -296,13 +297,14 @@ subscriptionId | 虚拟机的 Azure 订阅 | 2017-08-01
 标记 | 虚拟机的[标记](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
 resourceGroupName | 虚拟机的[资源组](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
 placementGroupId | 虚拟机规模集的[放置组](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
+vmScaleSetName | 虚拟机规模集的 [Virtual Machine ScaleSet Name] (../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
 ipv4/privateIpAddress | VM 的本地 IPv4 地址 | 2017-04-02
 ipv4/publicIpAddress | VM 的公共 IPv4 地址 | 2017-04-02
 subnet/address | VM 的子网地址 | 2017-04-02 
 subnet/prefix | 子网前缀，例如 24 | 2017-04-02 
 ipv6/ipAddress | VM 的本地 IPv6 地址 | 2017-04-02 
 macAddress | VM mac 地址 | 2017-04-02 
-scheduledevents | 请参阅[计划事件](scheduled-events.md) | 2017-03-01
+scheduledevents | 请参阅[计划事件](scheduled-events.md) | 2017-08-01
 
 ## <a name="example-scenarios-for-usage"></a>用法的示例方案  
 
@@ -313,7 +315,7 @@ scheduledevents | 请参阅[计划事件](scheduled-events.md) | 2017-03-01
 **请求**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-04-02&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 **响应**
@@ -325,12 +327,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>基于容错/更新域放置容器、数据分区 
 
 对于某些方案，不同数据副本的放置至关重要。 例如，对于 [HDFS 副本放置](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)或者对于通过 [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) 放置容器，可能需要知道正在运行 VM 的 `platformFaultDomain` 和 `platformUpdateDomain`。
+<!-- Not Available on [Availability Zones](../../availability-zones/az-overview.md) -->
 可以直接通过实例元数据服务查询此数据。
 
 **请求**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-04-02&format=text" 
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text" 
 ```
 
 **响应**
@@ -346,7 +349,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 **请求**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-08-01"
 ```
 
 **响应**

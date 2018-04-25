@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: migrate and move
 ms.topic: get-started-article
-origin.date: 01/10/2017
-ms.date: 09/18/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-haiqya
-ms.openlocfilehash: b49bf8921fa4d66822585c5c704a11c99ba48d6f
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 97b9d7ee1ed2328c98c9aa1a375b454ced1e434e
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>将数据从 CSV 加载到 Azure SQL 数据库（平面文件）
 可以使用 bcp 命令行实用程序将数据从 CSV 文件导入 Azure SQL 数据库。

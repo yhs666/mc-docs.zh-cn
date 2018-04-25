@@ -10,11 +10,11 @@ ms.topic: article
 origin.date: 07/05/2017
 ms.date: 2/28/2018
 ms.author: v-johch
-ms.openlocfilehash: 87d09d05dcaa19cb85eec08db4844e42ad3c8a83
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: a72f625adafd3d4bd6e7cd0758c212d4a560ba67
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>查找并应用性能建议
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 04/08/2018
 
 ## <a name="viewing-recommendations"></a>查看建议
 
-若要查看和应用性能建议，需要 Azure 中相应的[基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)权限。 查看建议需要“读取者”、“SQL DB 参与者”权限，执行任何操作（如创建或删除索引、取消创建索引）需要“所有者”、“SQL DB 参与者”权限。
+若要查看和应用性能建议，需要 Azure 中相应的[基于角色的访问控制](../role-based-access-control/overview.md)权限。 查看建议需要“读取者”、“SQL DB 参与者”权限，执行任何操作（如创建或删除索引、取消创建索引）需要“所有者”、“SQL DB 参与者”权限。
 
 在 Azure 门户中使用以下步骤查找性能建议：
 

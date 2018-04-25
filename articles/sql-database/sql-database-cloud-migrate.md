@@ -11,11 +11,11 @@ ms.topic: article
 origin.date: 11/07/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: 499da78ce1ef199f68db3dd7607f2cae65704722
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: a11c031975f542b485b6134c45c0bce8e46b44f3
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>将 SQL Server 数据库迁移到 Azure SQL 数据库
 本文介绍将 SQL Server 2005 或更高版本的数据库迁移到 Azure SQL 数据库中的单个或共用数据库的主要方法。 
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/08/2018
 
  如果可以承受一定的停机时间，或者正在针对以后的迁移执行生产数据库的测试迁移，请使用此方法迁移到单个或共用数据库。 有关教程，请参阅[迁移 SQL Server 数据库](sql-database-migrate-your-sql-server-database.md)。
 
-下面的列表包含使用此方法将 SQL Server 数据库迁移到单个或共用数据库的常规工作流。
+下面的列表包含使用此方法将 SQL Server 数据库迁移到单个或共用数据库的常规工作流。 有关迁移到托管实例的信息，请参阅[迁移到托管实例](sql-database-managed-instance-migrate.md)。
 
   ![VSSSDT 迁移示意图](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
@@ -111,6 +111,10 @@ ms.lasthandoff: 04/08/2018
 * [SQL Server 2005 中已停用的数据库引擎功能](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 
 除了搜索 Internet 和使用这些资源，还可以使用 [MSDN SQL Server 社区论坛](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver)或 [StackOverflow](http://stackoverflow.com/)。
+
+> [!IMPORTANT]
+> 使用 SQL 数据库托管实例可迁移现有 SQL Server 实例及其数据库，而几乎不会出现兼容性问题。 请参阅[什么是托管实例](sql-database-managed-instance.md)。
+
 
 ## <a name="next-steps"></a>后续步骤
 * 使用 Azure SQL EMEA 工程师博客中的脚本来 [监视迁移过程中的 tempdb 使用情况](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/)。

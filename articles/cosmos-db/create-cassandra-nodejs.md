@@ -1,11 +1,11 @@
 ---
-title: "快速入门：将 Cassandra API 与 Node.js 配合使用 - Azure Cosmos DB | Azure"
-description: "本快速入门介绍如何配合 Node.js 使用 Azure Cosmos DB Cassandra API 创建配置文件应用程序"
+title: 快速入门：将 Cassandra API 与 Node.js 配合使用 - Azure Cosmos DB | Azure
+description: 本快速入门介绍如何配合 Node.js 使用 Azure Cosmos DB Cassandra API 创建配置文件应用程序
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 4732e57d-32ed-40e2-b148-a8df4ff2630d
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
@@ -17,10 +17,10 @@ origin.date: 11/15/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
 ms.openlocfilehash: 9e85c89d58dcd5a0c262bac070643d0aa6604a5f
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>快速入门：使用 Node.js 和 Azure Cosmos DB 生成 Cassandra 应用
 
@@ -182,7 +182,7 @@ Azure Cosmos DB 由 Microsoft 提供，是全球分布的多模型数据库服�
 
 ## <a name="use-the-x509-certificate"></a>使用 X509 证书 
 
-1. 如果需要添加 Baltimore CyberTrust 根，它具有序列号 02:00:00:b9 和 SHA1 指纹 d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74。 可以从 https://cacert.omniroot.com/bc2025.crt 下载、使用扩展名 .cer 保存到本地文件。 
+1. 如果需要添加 Baltimore CyberTrust 根，它具有序列号 02:00:00:b9 和 SHA1 指纹 d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74。 可以从 https://cacert.omniroot.com/bc2025.crt 下载，然后使用扩展名 .cer 保存到本地文件。 
 
 2. 打开 uprofile.js，并将“path\to\cert”更改为指向新证书。 
 

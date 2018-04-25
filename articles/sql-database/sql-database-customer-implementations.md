@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: reference
 ms.topic: article
-origin.date: 03/03/2017
-ms.date: 10/02/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: fb574d48a848b2336673655c7e933041e020fc1b
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 34a559c4fad70dcf9099c5d5d4d7a581c072cc18
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Azure SQL 数据库客户实现技术研究
 

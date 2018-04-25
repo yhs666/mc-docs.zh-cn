@@ -1,12 +1,12 @@
 ---
-title: "从 Azure 逻辑应用部署和调用 Web API 与 REST API"
-description: "在 Azure 逻辑应用中为系统集成工作流部署和调用 Web API 与 REST API"
-keywords: "Web API, REST API, 连接器, 工作流, 系统集成, 身份验证"
+title: 从 Azure 逻辑应用部署和调用 Web API 与 REST API
+description: 在 Azure 逻辑应用中为系统集成工作流部署和调用 Web API 与 REST API
+keywords: Web API, REST API, 连接器, 工作流, 系统集成, 身份验证
 services: logic-apps
 author: stepsic-microsoft-com
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.service: logic-apps
 ms.workload: integration
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/26/2017
-ms.date: 03/19/2018
+ms.date: 04/23/2018
 ms.author: v-yiso
-ms.openlocfilehash: f9e52330c6f996c39323102bb1896a624bd93219
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 219550e6d81dd4b6baa0ce8ff942d22ed31a306a
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>从逻辑应用工作流部署和调用自定义 API
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 03/12/2018
 
    ![允许从逻辑应用设计器向自定义 API 发送请求](./media/logic-apps-custom-api-deploy-call/custom-api-cors.png)
 
-有关详细信息，请参阅[生成 Node.js RESTful API](../app-service/app-service-web-tutorial-rest-api.md)。
+有关详细信息，请参阅[在 Azure 应用服务中使用 CORS 托管 RESTful API](../app-service/app-service-web-tutorial-rest-api.md)。
 
 ## <a name="call-your-custom-api-from-logic-app-workflows"></a>从逻辑应用工作流调用自定义 API
 

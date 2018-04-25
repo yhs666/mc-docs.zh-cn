@@ -3,7 +3,7 @@ title: Azure 逻辑应用中的 Wunderlist 连接器
 description: 创建与 Wunderlist 的连接，并使用此连接在逻辑应用中构建工作流。
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 origin.date: 08/18/2016
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: eec98f88a8db194ced2d02753b9ef1fd2e9f97fd
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 04/23/2018
+ms.openlocfilehash: 1c07a7a47eda54c74cf8456f68b2b3efe4568d84
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-the-wunderlist-connector"></a>Wunderlist 连接器入门
-Wunderlist 提供待办事项列表和任务管理器，帮助人们完成他们的事务。  无论是与爱人共享购物单、处理某个项目还是计划度假，Wunderlist 都可使捕获、共享和完成待办事项更轻松。 奇妙清单在手机、平板电脑和计算机之间即时同步，便于你从任意位置访问所有任务。
+Wunderlist 是待办事项列表和任务管理器，可帮助用户完成其任务。  无论是共享购物单、处理某个项目还是计划度假，使用 Wunderlist 都可轻松捕获、共享和完成列表项。 Wunderlist 在手机、平板电脑和计算机之间即时同步，以便你从任意位置访问所有任务。
 
 若要立即开始创建逻辑应用，请参阅[创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 

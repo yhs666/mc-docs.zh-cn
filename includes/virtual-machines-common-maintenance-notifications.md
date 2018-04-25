@@ -1,3 +1,20 @@
+---
+title: include 文件
+description: include 文件
+services: virtual-machines
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 03/09/2018
+ms.date: 04/16/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: 88d401050bbe8b21be97ffdc708ce65334fd654b
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>在门户中查看计划用于维护的虚拟机
 
 安排了计划的大量维护并发送通知后，可以观察受即将到来的大量维护影响的虚拟机列表。 
@@ -48,5 +65,4 @@ Azure 通过向订阅所有者和共有者组发送电子邮件来传达计划�
 
 如果错过了可以开始维护的窗口，当 Azure 重新启动虚拟机时，仍然可以看到该窗口。
 
-<!--Update_Description: remove the Retry Later status in Line 23-->
-<!--ms.date: 01/29/2018 -->
+<!--Update_Description: update meta properties -->

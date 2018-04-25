@@ -11,10 +11,10 @@ origin.date: 02/12/2018
 ms.date: 02/28/2018
 ms.author: v-nany
 ms.openlocfilehash: 6b64e955c4e61c7639457e88c672cc9ea7c30776
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL 数据库资源限制
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步：了解默认配置 | Microsoft Docs"
-description: "本文介绍 Azure AD Connect 同步中的默认配置。"
+title: Azure AD Connect 同步：了解默认配置 | Microsoft Docs
+description: 本文介绍 Azure AD Connect 同步中的默认配置。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
 ms.workload: identity
@@ -15,14 +15,14 @@ ms.topic: article
 origin.date: 07/13/2017
 ms.date: 07/31/2017
 ms.author: v-junlch
-ms.openlocfilehash: 7c7a1d18cb2a1f437e243f56496f61f307ce9a16
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: ce5832a104950bdfd6fd1f13e00d0e82658ed355
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 同步：了解默认配置
-本文介绍现成的配置规则。 其中将说明这些规则及其对配置有何影响。 此外还会逐步介绍如何完成 Azure AD Connect 同步的默认配置。 其目的是让读者了解配置模型（名为声明性设置）在实际示例中的运行情形。 本文假设已使用安装向导安装并配置了 Azure AD Connect 同步。
+本文介绍现成的配置规则。 其中将说明这些规则及其对配置有何影响。 此外还会逐步介绍如何完成 Azure AD Connect 同步的默认配置。其目的是让读者了解配置模型（名为声明性设置）在实际示例中的运行情形。 本文假设已使用安装向导安装并配置了 Azure AD Connect 同步。
 
 若要了解配置模型的详细信息，请参阅[了解声明性预配](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
 
@@ -36,13 +36,13 @@ ms.lasthandoff: 08/11/2017
 
 - 必须具有 sourceAnchor。
 - 在 Azure AD 中创建对象之后，无法更改 sourceAnchor。 如果值在本地更改，对象将停止同步，直到 sourceAnchor 重新改回其原先的值。
-- 必须填充 accountEnabled (userAccountControl) 属性。 本地 Active Directory 中始终存在此属性，并已进行填充。
+- 必须填充 accountEnabled (userAccountControl) 属性。 在本地 Active Directory 中始终有此属性存在，并且进行填充。
 
 以下用户对象 **不会** 同步到 Azure AD：
 
 - `IsPresent([isCriticalSystemObject])`。 确保不会同步 Active Directory 中的多个现成对象（例如内置的管理员帐户）。
 - `IsPresent([sAMAccountName]) = False`。 确定不会同步没有 sAMAccountName 属性的用户对象。 这种情况实际上只发生在从 NT4 升级的域中。
-- `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. 不同步 Azure AD Connect 同步和早期版本使用的服务帐户。
+- `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. 不同步 Azure AD Connect Sync 和早期版本使用的服务帐户。
 - 不同步不在 Exchange Online 中运行的 Exchange 帐户。
   - `[sAMAccountName] = "SUPPORT_388945a0"`
   - `Left([mailNickname], 14) = "SystemMailbox{"`
@@ -51,7 +51,7 @@ ms.lasthandoff: 08/11/2017
 - 不同步不在 Exchange Online 中运行的对象。
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
   此位掩码 (&H21C07000) 将筛选掉以下对象：
-  - 支持邮件的公共文件夹
+  - 启用电子邮件的公用文件夹（在版本 1.1.524.0 的预览版中）
   - 系统助理邮箱
   - 邮箱数据库邮箱（系统邮箱）
   - 通用安全组（不适用于用户，但由于历史原因而存在）
@@ -71,7 +71,7 @@ ms.lasthandoff: 08/11/2017
   4. Exchange 相关的属性（GAL 中未显示的技术属性）从 `mailNickname ISNOTNULL` 的林提供。
   5. 如果有多个林匹配其中一个规则，将使用连接器（林）的创建顺序（日期/时间）来确定属性将由哪个林提供。
 
-### <a name="contact-out-of-box-rules"></a>联系人现成规则
+### <a name="contact-out-of-box-rules"></a>联系人的现成规则
 联系人对象必须满足以下条件才进行同步：
 
 - 联系人必须已启用邮件。 这可以使用以下规则来验证：
@@ -129,7 +129,7 @@ FSP 联接到 Metaverse 中的“任何”（\*）对象。 这种联接实际�
 
 ![同步规则编辑器图标](./media/active-directory-aadconnectsync-understanding-default-configuration/sre.png)
 
-SRE 是一个资源套件工具，随 Azure AD Connect 同步一起安装。 必须是 ADSyncAdmins 组的成员才能启动它。 该工具启动时显示以下屏幕：
+SRE 是一个资源套件工具，随 Azure AD Connect 同步一起安装。必须是 ADSyncAdmins 组的成员才能启动它。 该工具启动时显示以下屏幕：
 
 ![入站同步规则](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulesinbound.png)
 
@@ -153,7 +153,7 @@ SRE 是一个资源套件工具，随 Azure AD Connect 同步一起安装。 必
 
 还可以找到以下相关信息：此规则与哪个已连接系统相关、此规则适合于已连接系统中的哪种对象类型，以及 metaverse 对象类型。 无论源对象类型是用户、iNetOrgPerson 还是联系人，metaverse 对象类型始终是人。 Metaverse 对象类型应该永不更改，因此将它创建为泛型类型。 可以将链接类型设置为“联接”、“StickyJoin”或“预配”。 此设置将与“联接规则”部分协同工作，稍后介绍此方面的内容。
 
-还可以看到此同步规则用于密码同步。 如果用户在此同步规则的范围内，密码将从本地同步到云（假设已启用密码同步功能）。
+还可以看到此同步规则用于密码同步。如果用户在此同步规则的范围内，密码将从本地同步到云（假设已启用密码同步功能）。
 
 #### <a name="scoping-filter"></a>范围筛选器
 “范围筛选器”部分用于配置同步规则何时适用。 由于正在查看的同步规则的名称指示只应对已启用的用户应用该规则，因此对范围进行了配置，使得 AD 属性 **userAccountControl** 不能对 2 这个位进行设置。 同步引擎在 AD 中找到用户时，如果 userAccountControl 设置为十进制值 512（已启用的普通用户），则应用此同步规则。 如果用户的 userAccountControl 设置为 514（已禁用的普通用户），则不应用该规则。
@@ -218,7 +218,7 @@ NULL
 ### <a name="putting-it-all-together"></a>汇总
 我们现在对同步规则已有足够的认识，能够了解配置如何在不同的同步规则下运行。 如果观察某个用户和提供给 metaverse 的属性，会发现规则按以下顺序应用：
 
-| 名称 | 注释 |
+| Name | 注释 |
 |:--- |:--- |
 | In from AD - User Join |联接连接器空间对象与 metaverse 的规则。 |
 | In from AD - UserAccount Enabled |登录 Azure AD 和 Office 365 所需的属性。 我们可以从已启用的帐户获取这些属性。 |
@@ -228,8 +228,8 @@ NULL
 | In from AD - User Lync |仅当检测到 Lync 时才存在。 传递所有基础结构 Lync 属性。 |
 
 ## <a name="next-steps"></a>后续步骤
-- 在[了解声明性预配](active-directory-aadconnectsync-understanding-declarative-provisioning.md)中阅读有关配置模型的详细信息。
-- 在[了解声明性预配表达式](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)中阅读有关表达式语言的详细信息。
+- 在 [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md)（了解声明性预配）中了解有关配置模型的详细信息。
+- 在 [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)（了解声明性预配表达式）中了解有关表达式语言的详细信息。
 - 在[了解用户和联系人](active-directory-aadconnectsync-understanding-users-and-contacts.md)中继续了解现成配置的工作原理
 - 在[如何更改默认配置](active-directory-aadconnectsync-change-the-configuration.md)中了解如何使用声明性预配进行实际更改。
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 03/14/2018
 ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: f9748d4500009bbdf721e6a02c7d20d3230a0a0f
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 1df2c55d459e0f591ba380db826153e489124990
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="outbound-connections-classic"></a>出站连接（经典）
 
@@ -105,8 +105,8 @@ SNAT 端口是根据[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的�
 
 使用端口伪装 SNAT ([PAT](#pat)) 时，Azure 使用某种算法根据后端池的大小来确定可用的预先分配 SNAT 端口数目。 SNAT 端口是可用于特定公共 IP 源地址的临时端口。
 
-部署实例时，Azure 根据共享给定公共 IP 地址的 VM 或 Web 辅助角色实例数目预分配 SNAT 端口。  创建出站流后，当流关闭或[空闲超时](#ideltimeout)时，[PAT](#pat) 动态使用（不超过预先分配的限制）和释放这些端口。
-
+部署实例时，Azure 根据共享给定公共 IP 地址的 VM 或 Web 辅助角色实例数目预分配 SNAT 端口。  创建出站流后，当流关闭或[空闲超时](#idletimeout)时，[PAT](#pat) 动态使用（不超过预先分配的限制）和释放这些端口。
+<!-- Notice: Should be #idletimeout -->
 下表显示了针对后端池大小层的 SNAT 端口预分配：
 
 | Instances | 每个实例的预分配 SNAT 端口数 |

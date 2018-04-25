@@ -1,27 +1,27 @@
 ---
-title: "PowerShell 示例 - 活动异地复制 - 单个 Azure SQL 数据库 | Microsoft Docs"
-description: "为单个 Azure SQL 数据库设置活动异地复制并进行故障转移的 Azure PowerShell 示例脚本。"
+title: PowerShell 示例 - 活动异地复制 - 单个 Azure SQL 数据库 | Microsoft Docs
+description: 为单个 Azure SQL 数据库设置活动异地复制并进行故障转移的 Azure PowerShell 示例脚本。
 services: sql-database
 documentationcenter: sql-database
 author: forester123
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: business continuity
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 06/23/2017
-ms.date: 11/06/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: bfbbfa2069b151bf1cade2be1cbe79236174fb96
-ms.sourcegitcommit: 5671b584a09260954f1e8e1ce936ce85d74b6328
+ms.openlocfilehash: 70b04593c74343a859d4b5c8c613981ee5e9f457
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-azure-sql-database"></a>使用 PowerShell 为单一 Azure SQL 数据库配置活动异地复制
 
@@ -110,7 +110,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $secondaryresourcegroupname
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver) | 创建用于托管数据库或弹性池的逻辑服务器。 |

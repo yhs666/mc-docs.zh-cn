@@ -1,12 +1,11 @@
 ---
-title: "使用 mongoimport 和 mongorestore 将数据导入 Azure Cosmos DB 帐户以与 MongoDB API 配合使用 | Azure"
-description: "了解如何使用 mongoimport 和 mongorestore 将数据导入到 API for MongoDB 帐户"
-keywords: "mongoimport，mongorestore"
+title: 使用 mongoimport 和 mongorestore 将数据导入 Azure Cosmos DB 帐户以与 MongoDB API 配合使用 | Azure
+description: 了解如何使用 mongoimport 和 mongorestore 将数据导入到 API for MongoDB 帐户
+keywords: mongoimport，mongorestore
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: 
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/12/2017
-ms.date: 09/18/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 8a7e8f32b72f22268a68698c72c4efe6bdcaeb68
-ms.sourcegitcommit: dab5bd46cb3c4f35be78fac9e8b0f1801f7dfcaf
+ms.openlocfilehash: 350be4962860233a26b3faee46d17a4eba87ec33
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB：导入 MongoDB 数据 
 
@@ -107,7 +106,7 @@ ms.lasthandoff: 09/13/2017
         }
         ```
 
-    d.单击“验证存储凭据”以验证存储帐户。 记下请求费用。
+    d. 记下请求费用。
 
 3. 确定计算机连接 Azure Cosmos DB 云服务的延迟时间：
 
@@ -154,4 +153,4 @@ ms.lasthandoff: 09/13/2017
 > [!div class="nextstepaction"]
 >[如何查询 MongoDB 数据？](../cosmos-db/tutorial-query-mongodb.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties -->

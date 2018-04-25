@@ -1,27 +1,27 @@
 ---
-title: "Azure CLI 脚本示例 - 装载操作系统磁盘 | Azure"
-description: "Azure CLI 脚本示例 - 装载操作系统磁盘"
+title: Azure CLI 脚本示例 - 装载操作系统磁盘 | Azure
+description: Azure CLI 脚本示例 - 装载操作系统磁盘
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/27/2017
-ms.date: 10/16/2017
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a493203dce188ccaf10ad22cdacae6df4503151a
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: 45d9f54ee7611b9ebb3d7cba86c6249c5883a8fb
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>对 VM 操作系统磁盘进行故障排除
 
@@ -63,7 +63,7 @@ ssh $ip 'sudo mount -t ext4 /dev/sdc1 /mnt/remountedOsDisk'
 
 此脚本使用以下命令创建资源组、虚拟机和所有相关资源。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_show) | 返回虚拟机列表。 在此示例中，查询选项用于返回虚拟机操作系统磁盘。 然后，将此值添加到名为“uri”的变量。 |
 | [az vm delete](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_delete) | 删除虚拟机。 |

@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: article
-origin.date: 10/12/2016
-ms.date: 07/03/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 6ae31e2a3aeaa1bc6ff6cc552fccd64bc00b0862
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: bd49da7c1334953fdc2b6326025a955c7b4de049
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>使用保留策略管理临时表中的历史数据
 与普通的表相比，临时表数据库大小的增长幅度可能更大，尤其是长时间保留历史数据时。 因此，针对历史数据创建保留策略是规划和管理每个临时表的生命周期的一个重要方面。 Azure SQL 数据库中的临时表附带了易用的保留机制，可帮助完成此任务。
@@ -23,26 +23,26 @@ ms.lasthandoff: 04/08/2018
 
 定义保留策略后，Azure SQL 数据库将开始定期检查是否有符合自动数据清理条件的历史行。 匹配行的识别以及从历史记录表中删除这些行的过程在系统计划和运行的后台任务中发生。 历史记录表行的期限条件根据表示 SYSTEM_TIME 期限结束时间的列进行检查。 例如，如果保留期设置为六个月，则可以清理符合以下条件的表行：
 
-```
+````
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
-```
+````
 
 在前面的示例中，假设 **ValidTo** 列对应于 SYSTEM_TIME 期限结束时间。
 
 ## <a name="how-to-configure-retention-policy"></a>如何配置保留策略？
 在为临时表配置保留策略之前，请先检查是否 *在数据库级别*启用了临时历史记录保留策略。
 
-```
+````
 SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
-```
+````
 
 数据库标志 **is_temporal_history_retention_enabled** 默认设置为 ON，但用户可以使用 ALTER DATABASE 语句更改此值。 在执行[时间点还原](sql-database-recovery-using-backups.md)操作后，它会自动设置为 OFF。 若要为数据库启用临时历史记录保留策略清理，请执行以下语句：
 
-```
+````
 ALTER DATABASE <myDB>
 SET TEMPORAL_HISTORY_RETENTION  ON
-```
+````
 
 > [!IMPORTANT]
 > 即使 **is_temporal_history_retention_enabled** 设置为 OFF，也可以为临时表配置保留策略，但在这种情况下，不会针对陈旧的行触发自动清理。
@@ -51,7 +51,7 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 
 在创建表的过程中，可以通过指定 HISTORY_RETENTION_PERIOD 参数的值来配置保留策略：
 
-```
+````
 CREATE TABLE dbo.WebsiteUserInfo
 (  
     [UserID] int NOT NULL PRIMARY KEY CLUSTERED
@@ -69,16 +69,16 @@ CREATE TABLE dbo.WebsiteUserInfo
         HISTORY_RETENTION_PERIOD = 6 MONTHS
      )
  );
-```
+````
 
 Azure SQL 数据库允许使用不同的时间单位指定保留策略：DAYS、WEEKS、MONTHS 和 YEARS。 如果省略 HISTORY_RETENTION_PERIOD，则假设保留期限为 INFINITE（无限期）。 也可以显式使用 INFINITE 关键字。
 
 在某些情况下，你可能想要在创建表后配置保留策略或更改以前配置的值。 在这种情况下，请使用 ALTER TABLE 语句：
 
-```
+````
 ALTER TABLE dbo.WebsiteUserInfo
 SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
-```
+````
 
 > [!IMPORTANT]
 > 将 SYSTEM_VERSIONING 设置为 OFF 不会保存保留期值。 在未显式指定 HISTORY_RETENTION_PERIOD 的情况下将 SYSTEM_VERSIONING 设置为 ON 会导致保留期为 INFINITE。
@@ -87,7 +87,7 @@ SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
 
 要查看保留策略的当前状态，请使用以下查询，该查询将数据库级别的临时保留启用标志与单个表的保留期相联接：
 
-```
+````
 SELECT DB.is_temporal_history_retention_enabled,
 SCHEMA_NAME(T1.schema_id) AS TemporalTableSchema,
 T1.name as TemporalTableName,  SCHEMA_NAME(T2.schema_id) AS HistoryTableSchema,
@@ -98,11 +98,12 @@ OUTER APPLY (select is_temporal_history_retention_enabled from sys.databases
 where name = DB_NAME()) AS DB
 LEFT JOIN sys.tables T2   
 ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
-```
+````
+
 
 ## <a name="how-sql-database-deletes-aged-rows"></a>SQL 数据库如何删除陈旧行？
-清理过程取决于历史记录表的索引布局。 必须注意，只能为具有聚集索引（B 树或列存储）的历史记录表配置有限期保留策略。 对于具有有限保留期的所有时态表，系统会创建一个后台任务来执行陈旧数据清理。
-行存储（B 树）聚集索引的清理逻辑以较小的块区（最大 10K）删除陈旧行，因此可以最大程度地减轻数据库日志和 I/O 子系统的压力。 尽管清理逻辑利用所需的 B 树索引，但不一定能够保证按顺序删除超过保留期的行。 因此， *请不要对应用程序中的清理顺序有任何依赖*。
+清理过程取决于历史记录表的索引布局。 必须注意，只能为具有聚集索引（B 树或列存储）的历史记录表配置有限期保留策略。 对于具有有限保留期的所有临时表，系统会创建一个后台任务来执行陈旧数据清理。
+行存储（B 树）聚集索引的清理逻辑以较小的区块（最大 10K）删除陈旧行，从而可以最大程度地减轻数据库日志和 IO 子系统的压力。 尽管清理逻辑利用所需的 B 树索引，但不一定能够保证按顺序删除超过保留期的行。 因此， *请不要对应用程序中的清理顺序有任何依赖*。
 
 针对聚集列存储的清理任务会一次性删除整个[行组](https://msdn.microsoft.com/library/gg492088.aspx)（每个行组通常包含 1 百万行），这种方式非常高效，尤其是在高速生成历史数据时。
 
@@ -111,7 +112,7 @@ ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 当工作负荷快速生成大量的历史数据时，优异的数据压缩和高效的保留数据清理使得聚集列存储索引成为完美的选择。 使用临时表进行更改跟踪和审核、趋势分析或 IoT 数据引入的密集型[事务处理工作负荷](https://msdn.microsoft.com/library/mt631669.aspx)往往使用该模式。
 
 ## <a name="index-considerations"></a>索引注意事项
-针对具有行存储聚集索引的表的清理任务要求索引的开头为对应于 SYSTEM_TIME 期限结束时间的列。 如果不存在这样的索引，则无法配置有限保留期：
+针对具有行存储聚集索引的表的清理任务要求索引的开头为对应于 SYSTEM_TIME 期限结束时间的列。 若没有此类索引，则无法配置有限保留期：
 
 *消息 13765，级别 16，状态 1 <br></br>在版本由系统控制的临时表 'temporalstagetestdb.dbo.WebsiteUserInfo' 中设置有限保留期失败，因为历史记录表 'temporalstagetestdb.dbo.WebsiteUserInfoHistory' 不包含所需的聚集索引。请考虑在历史记录表中创建聚集列存储，或者创建开头为与 SYSTEM_TIME 期限结束时间匹配的列的 B 树索引。*
 
@@ -123,7 +124,7 @@ ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 
 避免在具有有限保留期的历史记录表中重建聚集列存储索引，因为这可能会改变行组中由系统版本控制操作施加的固有顺序。 如果需要在历史记录表中重建聚集列存储索引，请在符合条件的 B 树索引顶层创建该索引，同时保留行组的顺序，以便能够执行常规数据清理。 如果要使用具有聚集列索引且数据顺序没有保证的现有历史记录表创建临时表，则应采用同样的方法：
 
-```
+````
 /*Create B-tree ordered by the end of period column*/
 CREATE CLUSTERED INDEX IX_WebsiteUserInfoHistory ON WebsiteUserInfoHistory (ValidTo)
 WITH (DROP_EXISTING = ON);
@@ -131,13 +132,13 @@ GO
 /*Re-create clustered columnstore index*/
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory ON WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON);
-```
+````
 
 为具有聚集列存储索引的历史记录表配置有限保留期时，无法在该表表创建附加的非聚集 B 树索引：
 
-```
+````
 CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
-```
+````
 
 尝试执行上述语句会失败并出现以下错误：
 
@@ -148,9 +149,9 @@ CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
 
 下图显示一个简单查询的查询计划：
 
-```
+````
 SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
-```
+````
 
 该查询计划包含的附加筛选器已应用到历史记录表上“聚集索引扫描”运算符中的期限结束时间列 (ValidTo)（已突出显示）。 此示例假设已在 WebsiteUserInfo 表中设置了一个月 (1 MONTH) 的保留期。
 
@@ -169,10 +170,10 @@ SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
 
 如果想要激活临时保留清理，请在执行时间点还原后运行以下 Transact-SQL 语句：
 
-```
+````
 ALTER DATABASE <myDB>
 SET TEMPORAL_HISTORY_RETENTION  ON
-```
+````
 
 ## <a name="next-steps"></a>后续步骤
 若要了解如何在应用程序中使用临时表，请查看 [Azure SQL 数据库中的临时表入门](sql-database-temporal-tables.md)。

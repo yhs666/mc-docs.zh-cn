@@ -1,27 +1,27 @@
 ---
-title: "使用 Azure CLI 创建和管理 Linux VM | Azure"
-description: "教程 - 使用 Azure CLI 创建和管理 Linux VM"
+title: 使用 Azure CLI 创建和管理 Linux VM | Azure
+description: 教程 - 使用 Azure CLI 创建和管理 Linux VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7b54a8c4fd5caa32417b7672a5b65d902bae5d8a
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: f9abca6b93c0d4579ff9fece27abfcc69ac451f7
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>使用 Azure CLI 创建和管理 Linux VM
 
@@ -157,7 +157,7 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 | [计算优化](sizes-compute.md)   | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
 | [内存优化](../virtual-machines-windows-sizes-memory.md)    | Esv3、Ev3、DSv2、DS、Dv2、D   | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
 <!--PENDING FOR Dv3,Ev3 GA ANOUNCEMENT -->
-<!-- Not Available Ls, G, NV, H series-->
+<!-- Not Available Ls, G, NV, H, A8-11 series-->
 
 ### <a name="find-available-vm-sizes"></a>查找可用的 VM 大小
 
@@ -323,5 +323,5 @@ az group delete --name myResourceGroupVM --no-wait --yes
 > [!div class="nextstepaction"]
 > [创建和管理 VM 磁盘](./tutorial-manage-disks.md)
 
-<!--Update_Description: update link, wording update-->
+<!--Update_Description: update meta properties -->
 <!--PENDING FOR Ev3, Dv3 GA ANOUNCEMENT -->

@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: develop databases, mvc
 ms.topic: tutorial
-origin.date: 01/12/2018
-ms.date: 1/22/2018
+origin.date: 03/15/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 0e222d68b34d34b7d5c2dc24099819a8e75bc871
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 778677c28ad6fcd57f17b972e162ab74a2378fdf
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>设计 Azure SQL 数据库，并使用 C# 和 ADO.NET 进行连接
 

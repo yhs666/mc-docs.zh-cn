@@ -1,26 +1,26 @@
 ---
-title: "Azure CLI 脚本示例 - 加密 Windows VM | Azure"
-description: "Azure CLI 脚本示例 - 加密 Windows VM"
+title: Azure CLI 脚本示例 - 加密 Windows VM | Azure
+description: Azure CLI 脚本示例 - 加密 Windows VM
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/15/2017
-ms.date: 01/08/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3214c70bcefc7fa2043897564299f4dc25793665
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 0525325ded86d3eaec2f900590c33e6b09a8c496
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="encrypt-a-windows-virtual-machine-in-azure"></a>在 Azure 中加密 Windows 虚拟机
 
@@ -67,7 +67,7 @@ az vm create \
     --admin-password myPassword12
 
 # Encrypt the VM disks.
-az vm encryption enable --resource-group myResourceGroup2 --name myVM \
+az vm encryption enable --resource-group myResourceGroup --name myVM \
   --aad-client-id $sp_id \
   --aad-client-secret $sp_password \
   --disk-encryption-keyvault $keyvault_name \
@@ -114,4 +114,4 @@ az group delete --name myResourceGroup
 
 可以在 [Azure Windows VM 文档](../windows/cli-samples.md?toc=%2fvirtual-machines%windows%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
 
-<!--Update_Description: update meta propreties -->
+<!--Update_Description: update meta propreties, wording update -->

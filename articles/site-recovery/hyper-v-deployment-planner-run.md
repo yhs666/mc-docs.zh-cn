@@ -1,6 +1,6 @@
 ---
-title: "适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器 | Azure"
-description: "本文介绍在从 Hyper-V 移到 Azure 时运行 Azure Site Recovery 部署规划器的模式。"
+title: 适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器 | Azure
+description: 本文介绍在从 Hyper-V 移到 Azure 时运行 Azure Site Recovery 部署规划器的模式。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
@@ -9,11 +9,11 @@ ms.topic: article
 origin.date: 02/14/2018
 ms.date: 03/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: ecc44797fbd54aa3523787ba3978e16fc1f79637
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 984965b8ed96777484f89ec417003f665a9c5a2b
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>运行适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器
 
@@ -26,6 +26,7 @@ ms.lasthandoff: 03/02/2018
 
 首先，运行该工具，从单个或多个 Hyper-V 主机中获取 VM 的列表。 然后，以分析模式运行该工具，收集 VM 数据变动量和 IOPS。 接下来，运行该工具生成报告，确定网络带宽和存储要求。
 
+<a name="get-vm-list-for-profiling-hyper-v-vms"></a>
 ## <a name="get-the-vm-list-for-profiling-hyper-v-vms"></a>获取 VM 列表，以便对 Hyper-V VM 进行分析
 首先，需要一个要分析的 VM 的列表。 使用部署规划器工具的 GetVMList 模式，通过单个命令生成多个 Hyper-V 主机上存在的 VM 的列表。 生成完整列表以后，即可从输出文件中删除不希望分析的 VM。 然后使用输出文件进行所有其他的操作：分析、生成报表、获取吞吐量。
 
@@ -156,6 +157,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Dire
 
 Azure Site Recovery 不支持使用 iSCSI 和传递磁盘的 VM。 但是，此工具无法检测和分析附加到 VM 的 iSCSI 和传递磁盘。
 
+<a name="generate-report"></a>
 ## <a name="generate-a-report"></a>生成报告
 该工具生成一个启用了宏的 Microsoft Excel 文件（XLSM 文件）作为报表输出， 并对所有部署建议进行了汇总。 该报表名为 DeploymentPlannerReport_*唯一数字标识符*.xlsm，置于指定目录中。
 

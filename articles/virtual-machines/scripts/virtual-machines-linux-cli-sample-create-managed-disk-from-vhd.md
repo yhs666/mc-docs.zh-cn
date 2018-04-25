@@ -1,31 +1,31 @@
 ---
-title: "Azure CLI 脚本示例 - 在相同订阅的存储帐户中从 VHD 文件创建托管磁盘 | Azure"
-description: "Azure CLI 脚本示例 - 在相同订阅的存储帐户中从 VHD 文件创建托管磁盘"
+title: Azure CLI 脚本示例 - 在相同订阅的存储帐户中从 VHD 文件创建托管磁盘 | Azure
+description: Azure CLI 脚本示例 - 在相同订阅的存储帐户中从 VHD 文件创建托管磁盘
 services: virtual-machines-linux
 documentationcenter: storage
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/19/2017
-ms.date: 10/30/2017
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 78e0ff8c61ee6c447f7ee7df5723181fd84dc4f6
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 273ef4a54900cf5fc5500b0c516f18042fd8e0d1
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli"></a>使用 CLI 在相同订阅的存储帐户中从 VHD 文件创建托管磁盘
 
-此脚本在相同订阅的存储帐户中从 VHD 文件创建托管磁盘。 使用此脚本将专用 VHD（未通用化/未进行 sysprep）导入到托管 OS 磁盘以创建虚拟机。 或使用它将数据 VHD 导入到托管数据磁盘。 
+此脚本在相同订阅的存储帐户中从 VHD 文件创建托管磁盘。 使用此脚本将专用（未经过通用化/sysprep 处理）的 VHD 导入到托管 OS 磁盘以创建虚拟机。 或使用它将数据 VHD 导入到托管数据磁盘。 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -73,7 +73,7 @@ az disk create --resource-group $resourceGroupName --name $diskName --sku $stora
 
 此脚本使用以下命令从 VHD 创建托管磁盘。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [az disk create](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az_disk_create) | 在相同订阅的存储帐户中使用 VHD 的 URI 创建托管磁盘 |
 
@@ -85,4 +85,4 @@ az disk create --resource-group $resourceGroupName --name $diskName --sku $stora
 
 可以在 [Azure Linux VM 文档](../../app-service/app-service-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机和托管磁盘 CLI 脚本示例。
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties -->

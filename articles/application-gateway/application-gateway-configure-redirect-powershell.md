@@ -1,11 +1,11 @@
 ---
-title: "为 Azure 应用程序网关配置重定向 - PowerShell | Microsoft Docs"
-description: "本页提供有关使用 PowerShell 为应用程序网关配置重定向的方案"
+title: 为 Azure 应用程序网关配置重定向 - PowerShell | Microsoft Docs
+description: 本页提供有关使用 PowerShell 为应用程序网关配置重定向的方案
 documentationcenter: na
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
@@ -15,10 +15,10 @@ origin.date: 07/18/2017
 ms.date: 01/17/2018
 ms.author: v-junlch
 ms.openlocfilehash: 6a220e3604ac1eafb54195f332612623d81fcbb6
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/25/2018
 ---
 # <a name="configure-redirection-on-application-gateway-with-powershell"></a>使用 PowerShell 在应用程序网关上配置重定向
 

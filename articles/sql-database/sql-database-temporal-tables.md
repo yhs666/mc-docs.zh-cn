@@ -10,11 +10,11 @@ ms.topic: article
 origin.date: 01/10/2017
 ms.date: 07/03/2017
 ms.author: v-johch
-ms.openlocfilehash: 1009c41c6afba1f16c95845d5561ec8ab87cb312
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 5a93c51b00a91713184ae90292a357750959bb23
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Azure SQL 数据库中的临时表入门
 临时表是 Azure SQL 数据库中新的可编程功能，可用于跟踪和分析数据更改的完整历史记录，而无需编写自定义代码。 临时表保存与时间上下文密切相关的数据，因此，只有特定时段内的存储事实才会解译为有效。 利用临时表的这种属性，可执行基于时间的有效分析，并从数据演变中获得见解。
@@ -65,7 +65,7 @@ CREATE TABLE WebsiteUserInfo
 在此特定案例中，我们的目标是针对一段较长的数据历史记录以及较大的数据集，执行基于时间的趋势分析，因此历史记录表的存储选择为聚集列存储索引。 聚集列存储为分析查询提供极佳的压缩和性能。 临时表允许灵活且完全独立地在当前表和临时表中配置索引。 
 
 > [!NOTE]
-> 只能在高级服务层中使用列存储索引。
+> 高级层、标准层、S3 及更高版本中提供列存储索引。
 >
 
 以下脚本演示如何将历史记录表的默认索引更改为聚集列存储：

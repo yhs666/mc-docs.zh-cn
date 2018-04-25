@@ -1,26 +1,26 @@
 ---
-title: "将 Windows 虚拟机从非托管磁盘转换为托管磁盘 - Azure 托管磁盘 | Azure"
-description: "如何在资源管理器部署模型中使用 PowerShell 将 Windows VM 从非托管磁盘转换为托管磁盘"
+title: 将 Windows 虚拟机从非托管磁盘转换为托管磁盘 - Azure 托管磁盘 | Azure
+description: 如何在资源管理器部署模型中使用 PowerShell 将 Windows VM 从非托管磁盘转换为托管磁盘
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 01/03/2018
-ms.date: 02/05/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: cfa8413cf9056efd5208f43797bdb044271385ee
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 5ecb368c848b355a59c942274838f56f49bcd66a
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>将 Windows 虚拟机从非托管磁盘转换为托管磁盘
 
@@ -47,16 +47,10 @@ ms.lasthandoff: 02/13/2018
   Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
   ```
 
-2. 使用 [ConvertTo-AzureRmVMManagedDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) cmdlet 将 VM 转换为托管磁盘。 以下过程转换之前的 VM，包括 OS 磁盘和任何数据磁盘：
+2. 使用 [ConvertTo-AzureRmVMManagedDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) cmdlet 将 VM 转换为托管磁盘。 以下过程转换之前的 VM，包括 OS 磁盘和任何数据磁盘，并启用虚拟机：
 
   ```azurepowershell-interactive
   ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
-  ```
-
-3. 使用 [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm) 在转换为托管磁盘后启动 VM。 以下示例重启之前的 VM：
-
-  ```azurepowershell-interactive
-  Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
   ```
 
 ## <a name="convert-vms-in-an-availability-set"></a>在可用性集中转换 VM
@@ -80,7 +74,7 @@ ms.lasthandoff: 02/13/2018
   Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
   ```
 
-2. 解除分配 VM，并转换可用性集中的 VM。 以下脚本使用 [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm) cmdlet 解除分配每个 VM，使用 [ConvertTo-AzureRmVMManagedDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) 进行转换，并使用 [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm) 重启：
+2. 解除分配 VM，并转换可用性集中的 VM。 以下脚本使用 [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm) cmdlet 解除分配每个 VM，使用 [ConvertTo-AzureRmVMManagedDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) 进行转换，并在转换进程结束后自动将其重启：
 
   ```azurepowershell-interactive
   $avSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
@@ -90,7 +84,6 @@ ms.lasthandoff: 02/13/2018
      $vm = Get-AzureRmVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
      Stop-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name -Force
      ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
-     Start-AzureRmVM -ResourceGroupName $rgName -Name $vm.Name
   }
   ```
 
@@ -105,4 +98,4 @@ ms.lasthandoff: 02/13/2018
 
 使用[快照](snapshot-copy-managed-disk.md)获取 VM 的只读副本。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

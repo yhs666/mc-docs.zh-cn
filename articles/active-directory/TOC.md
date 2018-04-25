@@ -1,3 +1,5 @@
+# [Azure Active Directory 文档](index.md)
+
 # 概述
 ## [什么是 Azure Active Directory？](active-directory-whatis.md)
 ## [关于 Azure 标识管理](identity-fundamentals.md)

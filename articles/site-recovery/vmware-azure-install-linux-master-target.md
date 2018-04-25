@@ -10,11 +10,11 @@ ms.topic: article
 origin.date: 03/05/2018
 ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: e2c1a09e1632586b5c9d7722a0e9ccabdc91feed
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: d56769305c256b66c643f876941636e2c0e1446c
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>安装 Linux 主目标服务器
 将虚拟机故障转移到 Azure 后，可将虚拟机故障回复到本地站点。 若要故障回复，需要在本地站点中重新保护 Azure 中的虚拟机。 对于此过程，需要安装一个本地主目标服务器用于接收流量。 
@@ -236,7 +236,8 @@ Azure Site Recovery 主目标服务器需要特定版本的 Ubuntu，请确保�
 
     `multipath -ll`
 
-    ![保留磁盘的多路径 ID](./media/vmware-azure-install-linux-master-target/media/image22.png)
+    ![保留磁盘的多路径 ID](./media/vmware-azure-install-linux-master-target/image22.png)
+    <!--Notice: Image Path NOT contains /media/image22.png-->
 
 3. 格式化驱动器并在新驱动器上创建文件系统。
 

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/25/2017
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: 7ef0c965ac79b61ad9a1a0847fee1326596186e4
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 04/23/2018
+ms.openlocfilehash: af642eec9238104a675845c7b374a74dfb961910
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>使用逻辑应用计划定期运行的任务和工作流
+# <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>使用 Azure 逻辑应用创建和计划定期运行的任务
 
 若要计划定期运行的任务、操作、工作负荷或过程，可以创建一个能够通过“计划 - 定期”[触发器](../logic-apps/logic-apps-overview.md#logic-app-concepts)启动的逻辑应用工作流。 使用此触发器，可以设置定期计划的开始日期和时间，以及一个用于执行任务的定期计划，部分示例如下：
 
@@ -110,7 +110,7 @@ ms.lasthandoff: 03/22/2018
 
 ## <a name="json-example"></a>JSON 示例
 
-下面是定期触发器定义的示例：
+下面是[定期触发器定义](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger)的示例：
 
 ``` json
 {

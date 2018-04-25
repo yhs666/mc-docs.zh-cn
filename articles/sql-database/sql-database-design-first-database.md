@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-origin.date: 01/29/2018
-ms.date: 02/28/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 3d2b4f6c74c1f2cf7e09a4829e965c90ba65d0fc
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 01562de71fac4e7b975cfa61555db54810d3f201
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="design-your-first-azure-sql-database"></a>设计第一个 Azure SQL 数据库
+# <a name="design-your-first-azure-sql-database-using-ssms"></a>使用 SSMS 设计第一个 Azure SQL 数据库
 
 Azure SQL 数据库与 Microsoft 云 (Azure) 中的数据库即服务 (DBaaS) 相关。 本教程介绍如何使用 Azure 门户和 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) 执行以下操作： 
 
@@ -29,7 +29,7 @@ Azure SQL 数据库与 Microsoft 云 (Azure) 中的数据库即服务 (DBaaS) �
 > * 使用 SSMS 查询这些数据
 > * 在 Azure 门户中将数据库还原到之前的[时间点还原](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -75,7 +75,7 @@ Azure SQL 数据库与 Microsoft 云 (Azure) 中的数据库即服务 (DBaaS) �
 
 5. 单击“选择”。
 
-6. 单击“定价层”，指定服务层、DTU 数和存储量。 浏览相关选项，了解适用于每个服务层的 DTU 数和存储量。 
+6. 单击“定价层”，指定服务层、DTU 或 vCore 数，以及存储量。 浏览相关选项，了解适用于每个服务层的 DTU/vCore 数和存储量。 
 
 7. 对于本教程，请选择“标准”服务层，然后使用滑块选择“100 DTU (S3)”和“400”GB 存储。
 
@@ -94,8 +94,8 @@ Azure SQL 数据库与 Microsoft 云 (Azure) 中的数据库即服务 (DBaaS) �
 11. 完成 SQL 数据库表单后，即可单击“创建”对数据库进行预配。 预配需要数分钟。 
 
 12. 在工具栏上，单击“通知”可监视部署过程。
-
-    ![通知](./media/sql-database-get-started-portal/notification.png)
+    
+     ![通知](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>创建服务器级防火墙规则
 
@@ -107,7 +107,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
 1. 部署完成后，在左侧菜单中单击“SQL 数据库”，然后在“SQL 数据库”页上单击“mySampleDatabase”。 此时会打开数据库的概览页，显示完全限定的服务器名称（例如 **mynewserver-20170824.database.chinacloudapi.cn**），并且会提供进行进一步配置所需的选项。 
 
-2. 在后续的快速入门中，请复制此完全限定的服务器名称，将其用于连接到服务器及其数据库。 
+2. 在后续的快速入门教程中，请复制此完全限定的服务器名称，将其用于连接到服务器及其数据库。 
 
    ![服务器名称](./media/sql-database-get-started-portal/server-name.png) 
 

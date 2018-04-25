@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 12/12/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5dfd81e242b0d34c1c135a0684e841aeee9b0545
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: d99bf251c5da933d45f8d84b32cd2096a2e8c0e8
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 SQL Server 2017 Windows 虚拟机
 
@@ -31,10 +31,16 @@ ms.lasthandoff: 03/17/2018
 > [!TIP]
 > 本快速入门提供的路径适用于快速预配并连接到 SQL VM。 若要详细了解其他 SQL VM 预配选择，请参阅 [Azure 门户中的 Windows SQL Server VM 预配指南](virtual-machines-windows-portal-sql-server-provision.md)。
 
+> [!TIP]
+> 如果对 SQL Server 虚拟机有任何疑问，请参阅[常见问题解答](virtual-machines-windows-sql-server-iaas-faq.md)。
+
+<a name="subscription"></a>
+##  <a name="get-an-azure-subscription"></a>获取 Azure 订阅
+
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 <a name="select"></a>
-## <a name="select-a-sql-server-vm-image"></a>选择 SQL Server VM 映像
+##  <a name="select-a-sql-server-vm-image"></a>选择 SQL Server VM 映像
 
 1. 使用帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
@@ -52,7 +58,7 @@ ms.lasthandoff: 03/17/2018
 1. 单击“创建”。
 
 <a name="configure"></a>
-## <a name="provide-basic-details"></a>提供基本详细信息
+##  <a name="provide-basic-details"></a>提供基本详细信息
 
 在“基本信息”窗口中提供以下信息：
 
@@ -130,7 +136,7 @@ ms.lasthandoff: 03/17/2018
     ![ssms 连接](./media/quickstart-sql-vm-create-portal/ssms-connect.png)
 
 <a name="remotedesktop"></a>
-## <a name="log-in-to-the-vm-remotely"></a>远程登录到 VM
+##  <a name="log-in-to-the-vm-remotely"></a>远程登录到 VM
 
 使用以下步骤通过远程桌面连接到 SQL Server 虚拟机：
 

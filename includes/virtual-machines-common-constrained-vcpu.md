@@ -1,3 +1,20 @@
+---
+title: include 文件
+description: include 文件
+services: virtual-machines
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 03/09/2018
+ms.date: 04/16/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: d3c1ffded77a9766eacbc77a8f36c6d895a71e85
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 04/16/2018
+---
 某些数据库工作负荷（例如 SQL Server 或 Oracle）要求高内存、高存储和高 I/O 带宽，但不要求高核心计数。 许多数据库工作负荷不是 CPU 密集型的。 Azure 提供特定的 VM 大小，允许你对 VM vCPU 计数进行限制，在保留相同的内存、存储和 I/O 带宽的同时，降低软件许可成本。
 
 可以将 vCPU 计数限制为原始 VM 大小的一半或四分之一。 这些新的 VM 大小有一个用于指定活动 vCPU 数的后缀，方便你对其进行标识。
@@ -7,10 +24,12 @@
 
 | Name                | vCPU | 规格           |
 |---------------------|------|-----------------|
+<!-- 不可用于| Standard_DS11-1_v2  | 1    | 与 DS11_v2 相同 |-->
+<!-- 不可用于| Standard_DS12-2_v2  | 2    | 与 DS12_v2 相同 |-->
+<!-- 不可用于| Standard_DS12-1_v2  | 1    | 与 DS12_v2 相同 |-->
 | Standard_DS13-4_v2  | 4    | 同 DS13_v2 |
 | Standard_DS13-2_v2  | 2    | 同 DS13_v2 |
 | Standard_DS14-8_v2  | 8    | 同 DS14_v2 |
 | Standard_DS14-4_v2  | 4    | 同 DS14_v2 |
 <!-- Not Available on Standard M, E, GS seriese -->
-<!-- Update_Description: new articles on VM common constrained vCPU -->
-<!-- ms.date: 01/08/2018 -->
+<!-- Update_Description: wording update-->

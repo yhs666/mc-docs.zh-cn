@@ -1,27 +1,27 @@
 ---
-title: "使用 Azure CLI 管理 Azure 磁盘 | Azure"
-description: "教程 - 使用 Azure CLI 管理 Azure 磁盘"
+title: 使用 Azure CLI 管理 Azure 磁盘 | Azure
+description: 教程 - 使用 Azure CLI 管理 Azure 磁盘
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/02/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a9929402ecc26788a2aa6a95185fddcbb6f7e51b
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 956de0de9e63d3ff7811278d33dbad45b59213de
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>使用 Azure CLI 管理 Azure 磁盘
 
@@ -55,6 +55,7 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 | [常规用途](sizes-general.md) | A 和 D 系列 | 800 |
 | [计算优化](sizes-compute.md) | F 系列 | 800 |
 | [内存优化](../virtual-machines-windows-sizes-memory.md) | D 系列 | 6144 |
+<!-- Not Available on G series-->
 <!-- Not Available on L, N, A and H series-->
 
 ## <a name="azure-data-disks"></a>Azure 数据磁盘
@@ -68,6 +69,7 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 | [常规用途](sizes-general.md) | A 和 D 系列 | 32 |
 | [计算优化](sizes-compute.md) | F 系列 | 32 |
 | [内存优化](../virtual-machines-windows-sizes-memory.md) | D 系列 | 64 |
+<!-- Not Available on G series-->
 <!-- Not Available on L, N, A and H series-->
 
 ## <a name="vm-disk-types"></a>VM 磁盘类型
@@ -182,10 +184,10 @@ sudo -i blkid
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-在 /etc/fstab 文件中添加类似于以下内容的行。 另请注意，可使用 barrier=0 禁用写入屏障，此配置可提高磁盘性能。 
+在 /etc/fstab 文件中添加类似于以下内容的行。
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail,barrier=0   1  2
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail   1  2
 ```
 
 配置磁盘后，请关闭 SSH 会话。
@@ -298,4 +300,4 @@ az vm disk attach -g myResourceGroupDisk --vm-name myVM --disk $datadisk
 > [!div class="nextstepaction"]
 > [自动配置 VM](./tutorial-automate-vm-deployment.md)
 
-<!--Update_Description: update link, wording update -->
+<!--Update_Description: update meta properties -->

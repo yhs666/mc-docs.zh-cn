@@ -6,15 +6,15 @@ author: yunan2016
 manager: digimobile
 ms.service: sql-database
 ms.topic: article
-origin.date: 12/13/2017
-ms.date: 02/28/2018
+origin.date: 04/04/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 ms.reviewer: carlrab
-ms.openlocfilehash: 388e3d6b3cec1c4abce41ec123dd149c28cc615e
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 2f549e5a972a69f3643ea9ea5c82612e3a163226
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>高可用性和 Azure SQL 数据库
 自 Azure SQL 数据库 PaaS 服务推出以来，Azure 已向客户承诺在该服务中内置高可用性 (HA)，客户无需操作和添加特殊的逻辑，或者围绕 HA 做出决策。 Azure 对 HA 系统的配置和操作保持完全控制，并为客户提供 SLA。 HA SLA 适用于区域中的 SQL 数据库，对于超出 Azure 可合理控制的因素（例如，自然灾害、战争、恐怖活动、暴动、政府措施，或者 Azure 数据中心外部（包括客户站点，或者客户站点与 Azure 数据中心之间的位置）的网络或设备故障）所造成的整个区域范围的故障，它不能提供保护。
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/08/2018
 客户主要对其自身数据库的复原能力感兴趣，而对整个 SQL 数据库服务的复原能力不太感兴趣。 如果“我的数据库”属于 0.01% 的已停止数据库，则服务在 99.99% 的时间保持运行就会变得毫无意义。 每个数据库需有容错能力，故障缓解永远不应导致已提交事务的丢失。 
 
 SQL 数据库使用基于直接附加磁盘/VHD 的本地存储 (LS) 和基于 Azure 高级存储页 Blob 的远程存储 (RS) 来存储数据。 
-- 本地存储在针对具有较高 IOPS 要求的任务关键型 OLTP 应用程序设计的高级数据库和池中使用。 
+- 本地存储在针对具有较高 IOPS 要求的任务关键型 OLTP 应用程序设计的“高级”或“业务关键（预览版）”数据库和弹性池中使用。 
 - 远程存储用于基本和标准服务层，这些层针对要求存储和计算能力可单独缩放的预算导向型业务工作负载而设计。 这些层使用用于存储数据库和日志文件的单个页 Blob，并使用内置的存储复制和故障转移机制。
 
 在这两种情况下，SQL 数据库的复制、故障检测和故障转移机制完全自动化，无需人工干预即可运行。 此体系结构旨在确保已提交的数据永远不会丢失，并且数据持久性优先于其他所有要求。
@@ -47,7 +47,7 @@ SQL 数据库使用基于直接附加磁盘/VHD 的本地存储 (LS) 和基于 A
 
 ## <a name="data-redundancy"></a>数据冗余
 
-SQL 数据库中的高可用性解决方案基于 SQL Server 的 [AlwaysON](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) 技术，同时适用于 LS 和 RS 数据库，在两者中的差异很小。 在 LS 配置中，AlwaysON 用于实现持久性；在 RS 中，它用于实现可用性（降低 RTO）。 
+SQL 数据库中的高可用性解决方案基于 SQL Server 的 [AlwaysON 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)技术，同时适用于 LS 和 RS 数据库，在两者中的差异很小。 在 LS 配置中，AlwaysON 可用性组技术用于实现持久性；在 RS 中，它用于实现可用性（降低 RTO）。 
 
 ## <a name="local-storage-configuration"></a>本地存储配置
 

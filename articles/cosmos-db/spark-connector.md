@@ -1,12 +1,11 @@
 ---
-title: "将 Apache Spark 连接到 Azure Cosmos DB | Azure"
-description: "使用本教程来了解 Azure Cosmos DB Spark 连接器：使用该连接器可将 Apache Spark 连接到 Azure Cosmos DB，以便在 Microsoft 提供的针对云设计的多租户多区域分布式数据库系统中执行分布式聚合和数据科学。"
+title: 将 Apache Spark 连接到 Azure Cosmos DB | Azure
+description: 使用本教程来了解 Azure Cosmos DB Spark 连接器：使用该连接器可将 Apache Spark 连接到 Azure Cosmos DB，以便在 Microsoft 提供的针对云设计的多租户多区域分布式数据库系统中执行分布式聚合和数据科学。
 keywords: apache spark
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
 ms.assetid: c4f46007-2606-4273-ab16-29d0e15c0736
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/08/2018
-ms.date: 01/29/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3a5885826ddab7212d283cd7d2ccc8a6851f2fc4
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: f5975add36a2fd9d5872196b95c7a1100ba17cf4
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 <!-- Notice in meta : 全球 to 多个区域 -->
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>使用 Spark 到 Azure Cosmos DB 的连接器加速实时大数据分析
@@ -46,7 +45,7 @@ Spark 到 Azure Cosmos DB 的连接器能使 Azure Cosmos DB 充当 Apache Spark
 
 * [Apache Spark](http://spark.apache.org/) 是一个强大开源处理引擎，专为速度、易用性和复杂分析而打造。
 
-* 通过 [Apache Spark on Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)，可以使用 [Azure HDInsight](https://www.azure.cn/home/features/hdinsight/apache-spark/) 在云中为任务关键型部署方案部署 Apache Spark。
+* 通过 [Apache Spark on Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)，可以使用 [Azure HDInsight](https://www.azure.cn/home/features/hdinsight/) 在云中为任务关键型部署方案部署 Apache Spark。
 
 官方支持的版本：
 

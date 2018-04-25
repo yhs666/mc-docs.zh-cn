@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.devlang: nodejs
 ms.topic: quickstart
-origin.date: 07/06/2017
-ms.date: 01/08/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: aaca58a14436ea1b85ab51177b034ebab5ef1d84
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: c75390218fbe7886fd5adfdd943ebcf871e8be0c
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>使用 Node.js 查询 Azure SQL 数据库
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 02/28/2018
-ms.date: 04/02/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 988c4cd948db0b0d2026e8ee67a28cc9d59f7e77
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: c31376f7ccc2ad24b1cd84c8f2b7ec7be2553692
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="host-a-restful-api-with-cors-in-azure-app-service"></a>在 Azure 应用服务中托管启用了 CORS 的 RESTful API
 
@@ -201,8 +201,7 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 > * 使用 Git 将 RESTful API 部署到 Azure
 > * 启用应用服务 CORS 支持
 
-转到下一教程，了解如何向 Web 应用映射自定义 DNS 名称。
+转到下一教程，了解如何对用户进行身份验证和授权。
 
 > [!div class="nextstepaction"]
-> [将现有的自定义 DNS 名称映射到 Azure Web 应用](app-service-web-tutorial-custom-domain.md)
-
+> [教程：对用户进行端到端身份验证和授权](app-service-web-tutorial-auth-aad.md)

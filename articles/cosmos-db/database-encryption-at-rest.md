@@ -4,7 +4,6 @@ description: 了解 Azure Cosmos DB 如何为所有数据提供默认加密。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: mimig
 documentationcenter: ''
 ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
 ms.service: cosmos-db
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 591b3ec05bbc2d2b09b4c7eeb808a85864e56226
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: fa0ab0b3acc3145b942a0ba1f0ea4fc85661d115
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure Cosmos DB 数据库静态加密
 
@@ -56,7 +55,6 @@ ms.lasthandoff: 03/16/2018
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>问：可以使用自己的加密密钥吗？
 答：Cosmos DB 是一项 PaaS 服务，我们一直在努力使该服务易于使用。 我们注意到此问题经常被作为一个与满足符合性要求（例如 PCI-DSS）相关的代理问题问起。 在构建此功能时，我们一直与符合性审核机构合作，确保使用 Cosmos DB 的客户满足相关要求，不需要客户自己管理密钥。
-因此，我们当前没有向用户提供自行管理密钥的选项。
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>问：哪些区域已开启加密？
 答：所有 Azure Cosmos DB 区域都已针对所有用户数据开启加密。

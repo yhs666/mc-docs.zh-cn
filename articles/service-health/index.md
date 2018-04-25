@@ -10,14 +10,14 @@ ms.service: service-health
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-origin.date: 07/07/2017
-ms.date: 04/09/2018
+origin.date: 03/27/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0fef7b7d60d1f7afc0f085dd0dc5e051750e7d32
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.openlocfilehash: 0d2c569922adeda47d882e48ca8508a27b431c8d
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-service-health-documentation"></a>Azure 服务运行状况文档
 

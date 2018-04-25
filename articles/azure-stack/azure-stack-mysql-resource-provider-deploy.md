@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/07/2018
-ms.date: 03/26/2018
+origin.date: 03/27/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: c681d2489e4f685b03da0e70dfbec51485168819
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 9258ed85aa775db7ef4bb0b10a996540cd855e6e
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-mysql-databases-on-azure-stack"></a>在 Azure Stack 上使用 MySQL 数据库
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 03/28/2018
     | 1711：1.0.171122.1 | [MySQL RP 版本 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1710：1.0.171028.1 | [MySQL RP 版本 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
 
-4.  从特权终结点检索 Azure Stack 根证书。 对于 Azure SDK，将在此过程中创建自签名证书。 对于多节点，必须提供相应的证书。
+4.  对于 Azure SDK，将在此过程中创建自签名证书。 对于多节点，必须提供相应的证书。
 
     如需提供自己的证书，请将满足以下条件的 .pfx 文件放在 **DependencyFilesLocalPath** 中：
 

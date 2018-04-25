@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: security-protect
 ms.topic: article
-origin.date: 06/19/2017
-ms.date: 01/08/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 74e9c547934f3ba893db72a7828caae6b2799e9e
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: ac6a980d8ec21f35da77f7c336719dcd1015d257
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="sql-database-threat-detection"></a>SQL 数据库威胁检测
 

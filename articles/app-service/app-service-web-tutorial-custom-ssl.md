@@ -1,26 +1,26 @@
 ---
-title: "将现有的自定义 SSL 证书绑定到 Azure Web 应用 | Microsoft Docs"
-description: "了解如何将自定义 SSL 证书绑定到 Azure 应用服务中的 Web 应用、移动应用后端或 API 应用。"
+title: 将现有的自定义 SSL 证书绑定到 Azure Web 应用
+description: 了解如何将自定义 SSL 证书绑定到 Azure 应用服务中的 Web 应用、移动应用后端或 API 应用。
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 5d5bf588-b0bb-4c6d-8840-1b609cfb5750
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-origin.date: 06/23/2017
-ms.date: 12/04/2017
+origin.date: 11/30/2017
+ms.date: 04/30/2017
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 32bd1961f1ffd905e93c63fbb41dbe9541a66745
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 8791e81c05498d5f1d18fca0a811dfaf7cdab85d
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>将现有的自定义 SSL 证书绑定到 Azure Web 应用
 
@@ -60,6 +60,9 @@ Azure Web 应用提供高度可缩放、自修补的 Web 托管服务。 本教�
 * 已导出为受密码保护的 PFX 文件
 * 包含长度至少为 2048 位的私钥
 * 包含证书链中的所有中间证书
+
+> [!NOTE]
+> **椭圆曲线加密 (ECC) 证书**可用于应用服务，但本文不予讨论。 请咨询证书颁发机构，了解有关创建 ECC 证书的确切步骤。
 
 ## <a name="prepare-your-web-app"></a>准备 Web 应用
 
@@ -145,7 +148,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 出现提示时，定义导出密码。 稍后将 SSL 证书上传到应用服务时需使用此密码。
 
-如果使用了 IIS 或 _Certreq.exe_ 来生成证书请求，请将证书安装到你的本地计算机，然后[将证书导出为 PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx)。
+如果使用 IIS 或 Certreq.exe 生成证书请求，请将证书安装到本地计算机，然后[将证书导出为 PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx)。
 
 ### <a name="upload-your-ssl-certificate"></a>上传 SSL 证书
 
@@ -214,63 +217,19 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ## <a name="enforce-https"></a>实施 HTTPS
 
-应用服务*不*强制实施 HTTPS，因此任何人仍可使用 HTTP 访问你的 Web 应用。 如果想要对 Web 应用强制实施 HTTPS，请在 Web 应用的 web.config 文件中定义重写规则。 无论 Web 应用的语言框架如何，应用服务都会使用此文件。
+默认情况下，任何人都仍可使用 HTTP 访问 Web 应用。 可以将所有 HTTP 请求都重定向到 HTTPS 端口。
 
-> [!NOTE]
-> 存在语言特定的请求重定向。 ASP.NET MVC 可使用 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 筛选器，而非 _web.config_ 中的重写规则。
+在 Web 应用页的左侧导航窗格中，选择“自定义域”。 然后，在“仅 HTTPS”中，选择“启用”。
 
-如果你是 .NET 开发人员，应该比较熟悉此文件。 此文件位于解决方案的根目录中。
+![实施 HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-或者，如果你使用 PHP、Node.js、Python 或 Java 进行开发，我们可能会在应用服务中替你生成此文件。
+该操作完成后，将导航到指向应用的任一 HTTP URL。 例如：
 
-遵循[使用 FTP/S 将应用部署到 Azure 应用服务](app-service-deploy-ftp.md)中的说明连接到 Web 应用的 FTP 终结点。
+- `http://<app_name>.chinacloudapi.cn`
+- `http://contoso.com`
+- `http://www.contoso.com`
 
-此文件应位于 _/home/site/wwwroot_ 中。 如果不是，请使用以下 XML 在此文件夹中创建 _web.config_ 文件：
-
-```xml   
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <system.webServer>
-    <rewrite>
-      <rules>
-        <!-- BEGIN rule ELEMENT FOR HTTPS REDIRECT -->
-        <rule name="Force HTTPS" enabled="true">
-          <match url="(.*)" ignoreCase="false" />
-          <conditions>
-            <add input="{HTTPS}" pattern="off" />
-          </conditions>
-          <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
-        </rule>
-        <!-- END rule ELEMENT FOR HTTPS REDIRECT -->
-      </rules>
-    </rewrite>
-  </system.webServer>
-</configuration>
-```
-
-对于现有的 _web.config_ 文件，将整个 `<rule>` 元素复制到 _web.config_ 的 `configuration/system.webServer/rewrite/rules` 元素中。 如果 _web.config_ 中已有其他 `<rule>` 元素，请将复制的 `<rule>` 元素放置在其他 `<rule>` 元素的前面。
-
-每当用户对你的 Web 应用发出 HTTP 请求时，此规则都会将 HTTP 301（永久重定向）返回到 HTTPS 协议。 例如，它从 `http://contoso.com` 重定向到 `https://contoso.com`。
-
-有关 IIS URL 重写模块的详细信息，请参阅 [URL 重写](http://www.iis.net/downloads/microsoft/url-rewrite)文档。
-
-## <a name="enforce-https-for-web-apps-on-linux"></a>对 Linux 上的 Web 应用强制实施 HTTPS
-
-Linux 上的应用服务不会强制实施 HTTPS，因此所有人仍可使用 HTTP 访问你的 Web 应用。 若要对 Web 应用强制实施 HTTPS，请在 Web 应用的 .htaccess 文件中定义重写规则。 
-
-遵循[使用 FTP/S 将应用部署到 Azure 应用服务](app-service-deploy-ftp.md)中的说明连接到 Web 应用的 FTP 终结点。
-
-在 /home/site/wwwroot 中，使用以下代码创建 .htaccess 文件：
-
-```
-RewriteEngine On
-RewriteCond %{HTTP:X-ARR-SSL} ^$
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-```
-
-每当用户对你的 Web 应用发出 HTTP 请求时，此规则都会将 HTTP 301（永久重定向）返回到 HTTPS 协议。 例如，将请求从 `http://contoso.com` 重定向到 `https://contoso.com`。
-
-## <a name="automate-with-scripts"></a>使用脚本自动化
+## <a name="automate-with-scripts"></a>使用脚本自动执行
 
 可以在 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 或 [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview) 中使用脚本自动完成 Web 应用的 SSL 绑定。
 
@@ -312,7 +271,7 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>公用证书（可选）
-可向自己的 Web 应用上传[公用证书](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)。 可在应用服务或应用服务环境 (ASE) 中，通过 Web 应用使用公用证书。 若要将证书存储在 LocalMachine 证书存储中，则需要在应用服务环境中使用 Web 应用。 有关详细信息，请参阅[如何向 Web 应用配置公用证书](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)。
+可向自己的 Web 应用上传[公用证书](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)。 还可以对应用服务环境中的应用使用公用证书。 若要将证书存储在 LocalMachine 证书存储中，需要在应用服务环境中使用 Web 应用。 有关详细信息，请参阅[如何将公用证书配置到 Web 应用](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)。
 
 ![上传公用证书](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
@@ -330,3 +289,5 @@ New-AzureRmWebAppSSLBinding `
 
 > [!div class="nextstepaction"]
 > [向 Azure 应用服务添加内容交付网络 (CDN)](app-service-web-tutorial-content-delivery-network.md)
+
+有关详细信息，请参阅[在 Azure 应用服务的应用程序代码中使用 SSL 证书](app-service-web-ssl-cert-load.md)。

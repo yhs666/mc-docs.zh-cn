@@ -1,26 +1,26 @@
 ---
-title: "从 Azure 下载 Linux VHD | Azure"
-description: "使用 Azure CLI 和 Azure 门户下载 Linux VHD。"
+title: 从 Azure 下载 Linux VHD | Azure
+description: 使用 Azure CLI 和 Azure 门户下载 Linux VHD。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8c5d494d8656c38c3b2d36f43533ee7d5f7de025
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 4f3b35ac75c32eef28d27c245abb5409940239d7
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>从 Azure 下载 Linux VHD
 
@@ -46,7 +46,7 @@ Azure 中的虚拟机 (VM) 将[磁盘](../windows/managed-disks-overview.md?toc=
     exit 
     ```
 
-2. 使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录到 Azure 帐户。
+2. 使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 3. 停止并解除分配 VM。
 
     ```azurecli

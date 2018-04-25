@@ -1,11 +1,11 @@
 ---
-title: "Linux VM 的计算基准测试分数 | Azure"
-description: "比较运行 Linux 的 Azure VM 的 CoreMark 计算基准测试分数"
+title: Linux VM 的计算基准测试分数 | Azure
+description: 比较运行 Linux 的 Azure VM 的 CoreMark 计算基准测试分数
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 93e812c1-79dd-40c5-b97b-aa79f5cd7d76
 ms.service: virtual-machines-linux
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 10/30/2017
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1c791acfa21491d735dc62402f714b7fbbce25cb
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 9cdf5d619a55fade88d43ee193dc3be65a5e059a
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Linux VM 的计算基准测试分数
 以下 CoreMark 基准测试分数显示运行 Ubuntu 的 Azure 高性能 VM 产品阵容的计算性能。 此外，还提供了 [Windows VM](../windows/compute-benchmark-scores.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)的计算基准测试分数。
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/27/2017
 | Standard_D12_v2 |4 |1 |Intel Xeon E5-2673 v3 @ 2.4 GHz |131 |55,673 |1,418 |
 | Standard_D13_v2 |8 |1 |Intel Xeon E5-2673 v3 @ 2.4 GHz |140 |107,986 |3,089 |
 | Standard_D14_v2 |16 |2 |Intel Xeon E5-2673 v3 @ 2.4 GHz |140 |208,186 |8,839 |
-| Standard_D15_v2 |20 |2 |Intel Xeon E5-2673 v3 @ 2.4 GHz |28 |268,560 |4,667 |
+| Standard_D15_v2 |20 个 |2 |Intel Xeon E5-2673 v3 @ 2.4 GHz |28 |268,560 |4,667 |
 
 ## <a name="f-series"></a>F 系列
 | 大小 | vCPU | NUMA 节点 | CPU | 运行次数 | 迭代次数/秒 | 标准偏差 |
@@ -62,4 +62,4 @@ Linux 分数是通过在 Ubuntu 上运行 [CoreMark](http://www.eembc.org/corema
 * 有关存储容量、磁盘详细信息以及选择 VM 大小的注意事项，请参阅[虚拟机的大小](sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 * 若要在 Linux VM 上运行 CoreMark 脚本，请下载 [CoreMark 脚本包](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip)。
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

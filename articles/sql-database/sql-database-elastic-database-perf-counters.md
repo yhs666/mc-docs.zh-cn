@@ -7,14 +7,14 @@ author: Hayley244
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-origin.date: 05/23/2016
-ms.date: 07/10/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: af337894d03991db841b8f082d25a46954c5d49a
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 45229222216b148d29a6b94f170ac78da9c77cba
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>分片映射管理器的性能计数器
 可以捕获[分片映射管理器](sql-database-elastic-scale-shard-map-management.md)的性能，尤其是在使用[数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)时。 计数器是使用 Microsoft.Azure.SqlDatabase.ElasticScale.Client 类的方法创建的。  
@@ -30,9 +30,7 @@ ms.lasthandoff: 04/08/2018
 ## <a name="create-performance-category-and-counters"></a>创建性能类别和计数器
 若要创建计数器，请调用 [ShardMapManagmentFactory 类](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx)的 CreatePeformanceCategoryAndCounters 方法。 只有管理员才能执行该方法： 
 
-```
-ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
-```
+    ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 
 也可以使用[此 ](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283)PowerShell 脚本来执行该方法。 该方法将创建以下性能计数器：  
 

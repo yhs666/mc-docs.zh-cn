@@ -1,23 +1,23 @@
 ---
 layout: LandingPage
-title: "服务总线消息传送文档"
-description: "了解如何设置消息传送，用于连接跨本地和云环境的应用程序与服务。"
+title: 服务总线消息传送文档
+description: 了解如何设置消息传送，用于连接跨本地和云环境的应用程序与服务。
 services: service-bus
-author: czeumault
-manager: carolz
-ms.assetid: 
+author: sethmanheim
+manager: timlt
+ms.assetid: ''
 ms.service: service-bus
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-origin.date: 03/14/2017
-ms.date: 02/05/2018
+origin.date: 04/02/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: 15db9a8ef74b17879f17a5fab7fffb291f42fb4d
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 1e3110214013d5d1ed4c4e2dca6543ba2a2da0bf
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="service-bus-messaging-documentation"></a>服务总线消息传送文档
 消息传送服务以中转或第三方通信机制的形式提供可靠的信息传递。

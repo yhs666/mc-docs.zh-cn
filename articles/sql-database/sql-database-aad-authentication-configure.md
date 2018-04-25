@@ -10,11 +10,11 @@ ms.topic: article
 origin.date: 01/09/2018
 ms.date: 1/22/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 01dc15eb90c948047577c98d758caf81cc1e0ce5
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 3645860c79bb9ccf2cf2b3fd048529475f7f6abc
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>使用 SQL 数据库或 SQL 数据仓库配置和管理 Azure Active Directory 身份验证
 
@@ -39,7 +39,56 @@ ms.lasthandoff: 04/08/2018
 > 如果用户使用的不是基于 Azure AD 的帐户（包括 Azure SQL Server 管理员帐户），则无法创建基于 Azure AD 的用户，这是因为他们无权使用 Azure AD 验证建议的数据库用户。
 > 
 
-## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-server"></a>为 Azure SQL Server 预配 Azure Active Directory 管理员
+## <a name="provision-an-azure-active-directory-administrator-for-your-managed-instance"></a>为托管实例预配 Azure Active Directory 管理员
+
+> [!IMPORTANT]
+> 如果正在预配托管实例，请执行以下步骤。 仅可在 Azure AD 中由全局/公司管理员执行此操作。 以下步骤介绍在目录中为具有不同权限的用户授予权限的过程。
+
+托管实例需要权限来读取 Azure AD，以成功完成诸如通过安全组成员资格验证用户身份或创建新用户等任务。 为此，需要授予托管实例读取 Azure AD 的权限。 有两种方法来完成此操作：从门户和 PowerShell。 以下是两种方法的步骤。
+
+1. 在 Azure 门户右上角，单击相关连接以下拉包含可能 Active Directory 的列表。 
+2. 选择正确的 Active Directory 作为默认的 Azure AD。 
+
+   此步骤将与 Active Directory 关联的订阅链接到托管实例，确保为 Azure AD 和托管实例使用相同的订阅。
+3. 导航到托管实例，并选择想要用于 Azure AD 集成的托管实例。
+
+   ![aad](./media/sql-database-aad-authentication/aad.png)
+
+4.  单击 Active Directory 管理员页顶端的横幅。 如果在 Azure AD 中以全局/公司管理员身份登录，则可以通过 Azure 门户或使用 PowerShell 来完成。
+
+    ![授予权限 - 门户](./media/sql-database-aad-authentication/grant-permissions.png)
+
+    ![授予权限 - powershell](./media/sql-database-aad-authentication/grant-permissions-powershell.png)
+    
+    如果在 Azure AD 中以全局/公司管理员身份登录，则可以通过 Azure 门户或执行 PowerShell 脚本来完成。
+
+5. 成功完成操作后，右上角会显示以下通知：
+
+    ![success](./media/sql-database-aad-authentication/success.png)
+
+6.  现在即可为托管实例选择 Azure AD 管理员。 为此，请在“Active Directory 管理员”页上单击“设置管理员”命令。
+
+    ![设置管理员](./media/sql-database-aad-authentication/set-admin.png)
+
+7. 在“添加管理员”页中，搜索某位用户，选择该用户或组作为管理员，并单击“选择”。 
+
+   “Active Directory 管理员”页会显示 Active Directory 的所有成员和组。 若用户或组为灰显，则无法选择，因为不支持它们作为 Azure AD 管理员。 请参阅 [Azure AD 功能和限制](sql-database-aad-authentication.md#azure-ad-features-and-limitations)中受支持的管理员列表。 基于角色的访问控制 (RBAC) 仅适用于 Azure 门户，不会传播到 SQL Server。
+
+    ![添加管理员](./media/sql-database-aad-authentication/add-admin.png)
+
+8. 在“Active Directory 管理员”页顶部，单击“保存”。
+
+    ![保存](./media/sql-database-aad-authentication/save.png)
+
+    更改管理员的过程可能需要几分钟时间。 然后，新管理员将出现在“Active Directory 管理员”框中。
+
+> [!IMPORTANT]
+> 设置 Azure AD 管理员时，此新的管理员名称（用户或组）不能已作为 SQL Server 身份验证用户存在于虚拟 master 数据库中。 如果存在，Azure AD 管理员设置会失败；将回滚其创建，并指示此管理员（名称）已存在。 由于这种 SQL Server 身份验证用户不是 Azure AD 的一部分，因此使用 Azure AD 身份验证连接到服务器的任何尝试都会失败。
+
+> [!TIP]
+> 之后要删除管理员，请在“Active Directory 管理员”页顶部，单击“删除管理员”，并单击“保存”。
+ 
+## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server"></a>为 Azure SQL 数据库服务器预配 Azure Active Directory 管理员
 
 以下两个过程说明如何使用 PowerShell 在 Azure 门户中为 Azure SQL Server 预配 Azure Active Directory 管理员。
 
@@ -314,4 +363,4 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.chinacloudapi.cn -U bob@contoso.com -
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth2.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db2.png
 
-<!--Update_Description: update Global CLI 2.O links to Mooncake CLI 2.O links-->
+<!--Update_Description: update management instance related content-->

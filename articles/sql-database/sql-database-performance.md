@@ -7,19 +7,19 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-origin.date: 07/19/2016
-ms.date: 07/03/2017
+origin.date: 04/01/2018
+ms.date: 04/7/2018
 ms.author: v-johch
-ms.openlocfilehash: d04c75c474cdafc612b12d89a53b7a1fc6c25fca
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 9ffbc3d9ae7068026b911054f0b533d7a06dc1bd
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="monitor-and-improve-performance"></a>监视和提高性能
-Azure SQL 数据库可识别数据库中的潜在问题，并通过提供智能优化操作和建议来推荐可提高工作负荷性能的操作。
+Azure SQL 数据库确定数据库中的潜在问题，并通过提供智能优化操作和建议来建议可以提高工作负荷性能的操作。
 
-若要了解数据库的性能，请在 [Azure 门户](http://portal.azure.cn)中浏览到该数据库，然后使用“概述”页上的“性能”磁贴，或向下导航到“支持 + 故障排除”部分：
+若要查看数据库性能，请使用“概述”页上的“性能”磁贴，或向下导航至“支持 + 故障排除”部分：
 
    ![查看性能](./media/sql-database-performance/entries.png)
 
@@ -65,8 +65,9 @@ Azure SQL 数据库可以通过应用[性能建议](sql-database-advisor.md)来�
 
   ![性能仪表板](./media/sql-database-query-performance/performance.png)
 
-在**[如何使用查询性能见解](sql-database-query-performance.md)**一文中了解有关此页面的详细信息。
+在**[如何使用查询性能见解](sql-database-query-performance.md)** 一文中了解有关此页面的详细信息。
 
 ## <a name="additional-resources"></a>其他资源
 * [Azure SQL 数据库的单一数据库性能指导](sql-database-performance-guidance.md)
-* [何时使用弹性数据库池？](sql-database-elastic-pool-guidance.md)
+* [何时应使用弹性池？](sql-database-elastic-pool-guidance.md)
+

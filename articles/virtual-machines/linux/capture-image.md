@@ -1,11 +1,11 @@
 ---
-title: "使用 CLI 2.0 在 Azure 中捕获 Linux VM 的映像 | Azure"
-description: "使用 Azure CLI 2.0 捕获 Azure VM 的映像以用于批量部署。"
+title: 使用 CLI 2.0 在 Azure 中捕获 Linux VM 的映像 | Azure
+description: 使用 Azure CLI 2.0 捕获 Azure VM 的映像以用于批量部署。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 07/10/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: b0a03f8554b64e3d2d502378d3fb87f0e0b16481
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 370f380790373f6d1201cb53cb5b887db7051d96
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>如何创建虚拟机或 VHD 的映像
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 03/17/2018
 
 * 需要使用托管磁盘在 Resource Manager 部署模型中创建 Azure VM。 如果尚未创建 Linux VM，则可以使用[门户](quick-create-portal.md)、[Azure CLI](quick-create-cli.md) 或 [Resource Manager 模板](create-ssh-secured-vm-from-template.md)。 根据需要配置 VM。 例如， [添加数据磁盘](add-disk.md)、应用更新和安装应用程序。 
 
-* 还需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录到 Azure 帐户。
+* 还需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -145,4 +145,4 @@ az vm show \
 
 有关使用 CLI 管理 VM 的详细信息，请参阅 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest)。
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: wording update, update link -->

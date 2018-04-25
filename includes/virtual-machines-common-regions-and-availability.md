@@ -1,5 +1,7 @@
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure 中虚拟机的区域和可用性
 Azure 在中国的两个数据中心运行。 这些数据中心分组到地理区域，让用户可灵活选择构建应用程序的位置。 请务必了解 Azure 中虚拟机 (VM) 运行的方式和位置，以及最大化性能、可用性和冗余的选项。 本文提供了 Azure 的可用性和冗余功能的概述。
+<!--Notice: multiple TO two -->
+<!--Notice: around the world TO in china -->
 
 ## <a name="what-are-azure-regions"></a>什么是 Azure 区域？
 可以在规定的地理区域（例如“中国北部”或“中国东部”）创建 Azure 资源。 可查看[区域及其位置的列表](https://www.azure.cn/support/service-dashboard/)。 为了提供冗余和可用性，每个区域都设有多个数据中心。 这样，便可灵活设计应用程序，创建距离用户最近的 VM，满足任何法律、符合性或税务要求。
@@ -15,8 +17,9 @@ Azure 在中国的两个数据中心运行。 这些数据中心分组到地理�
 
 | 主要 | 次要 |
 |:--- |:--- |
-| 中国东部 |中国东部 |
+| 中国北部 |中国东部 |
 
+<!-- Not Available on  [list of regional pairs here](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions) -->
 ## <a name="feature-availability"></a>功能可用性
 某些服务或 VM 功能（例如特定的 VM 大小或存储类型）仅在特定区域提供。 也有一些全球性 Azure 服务不需要选择特定的区域，例如 [Azure Active Directory](../articles/active-directory/active-directory-whatis.md)、[流量管理器](../articles/traffic-manager/traffic-manager-overview.md)或 Azure DNS。 若要更好地设计应用程序环境，可查看 [Azure 服务在每个区域的可用性](https://www.azure.cn/support/service-dashboard/#services)。 此外，还可以[以编程方式查询受支持的 VM 大小和每个区域中的限制](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md)。
 <!-- URL waiting for release on [Azure DNS](../articles/dns/dns-overview.md) -->
@@ -62,7 +65,7 @@ Azure 在中国的两个数据中心运行。 这些数据中心分组到地理�
 有关不同存储类型和可用性选项的定价信息，请参阅 [Azure 存储器定价](https://www.azure.cn/pricing/details/storage/)。
 
 ## <a name="availability-sets"></a>可用性集
-可用性集是数据中心内的 VM 的逻辑分组，可让 Azure 了解应用程序的构建方式，以便提供冗余和可用性。 建议在可用性集内创建两个或多个 VM，提供高度可用的应用程序，并满足 [99.95% Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) 的要求。 当单个 VM 使用 [Azure 高级存储](../articles/virtual-machines/windows/premium-storage.md)时，Azure SLA 适用于计划外维护事件。 
+可用性集是数据中心内的 VM 的逻辑分组，可让 Azure 了解应用程序的构建方式，以便提供冗余和可用性。 建议在可用性集内创建两个或多个 VM，提供高度可用的应用程序，并满足 [99.95% Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) 的要求。 可用性集本身是免费的，只需为创建的每个 VM 实例付费。 当单个 VM 使用 [Azure 高级存储](../articles/virtual-machines/windows/premium-storage.md)时，Azure SLA 适用于计划外维护事件。 
 
 可用性集由可防止硬件故障以及允许安全应用更新的两个额外分组构成 - 容错域 (FD) 和更新域 (UD)。 详细了解如何管理 [Linux VM](../articles/virtual-machines/linux/manage-availability.md) 或 [Windows VM](../articles/virtual-machines/windows/manage-availability.md) 的可用性。
 
@@ -80,4 +83,3 @@ Azure 在中国的两个数据中心运行。 这些数据中心分组到地理�
 现在即可开始使用这些可用性和冗余功能构建 Azure 环境。 有关最佳做法的信息，请参阅 [Azure 可用性最佳做法](../articles/best-practices-availability-checklist.md)。
 
 <!--Update_Description: wording update, update link -->
-<!--ms.date: 12/11/2017-->

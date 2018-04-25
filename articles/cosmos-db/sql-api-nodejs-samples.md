@@ -1,7 +1,7 @@
 ---
-title: "用于 Azure Cosmos DB 的 Node.js 示例 | Azure"
-description: "在 github 上查找有关 Azure Cosmos DB 中常见任务的 Node.js 示例，包括 CRUD 操作。"
-keywords: "Node.js 示例"
+title: 用于 Azure Cosmos DB 的 Node.js 示例 | Azure
+description: 在 github 上查找有关 Azure Cosmos DB 中常见任务的 Node.js 示例，包括 CRUD 操作。
+keywords: Node.js 示例
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
@@ -14,24 +14,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: e13a72c0de5981238ca682c5aacba6773beae1aa
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 60792ae44f374497a5cd73f4e54121be8880945a
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js 示例
 > [!div class="op_single_selector"]
 > * [.NET 示例](sql-api-dotnet-samples.md)
 > * [Node.js 示例](sql-api-nodejs-samples.md)
 > * [Python 示例](sql-api-python-samples.md)
-> * [Azure 代码示例库](https://www.azure.cn/resources/samples/?sort=0&service=cosmos-db)
+> * [Azure 代码示例库](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 对 Azure Cosmos DB 资源执行 CRUD 操作和其他常见操作的示例解决方案包含在 [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub 存储库中。 本文将提供：
 
@@ -127,4 +125,4 @@ ms.lasthandoff: 12/22/2017
 | [使用 HashPartitionResolver](https://github.com/Azure/azure-documentdb-node/blob/ce0fc3c4e70b0279091a1e03620a668d93a14fc2/samples/Partitioning/app.js#L53-L103) |[HashPartitionResolver](http://azure.github.io/azure-documentdb-node/HashPartitionResolver.html) |
 
 有关在 Azure Cosmos DB 中对数据进行分区的详细信息，请参阅[对 Azure Cosmos DB 中的数据进行分区和扩展](partition-data.md)。
-<!-- Update_Description: new articles on SQL api nodejs sample -->
+<!-- Update_Description: wording update, update link -->

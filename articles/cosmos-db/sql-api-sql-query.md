@@ -1,9 +1,9 @@
 ---
-title: "Azure Cosmos DB 的 SQL 查询 | Azure"
-description: "了解 Azure Cosmos DB 的 SQL 语法、数据库概念和 SQL 查询。 SQL 可在 Azure Cosmos DB 中作为 JSON 查询语言使用。"
-keywords: "sql 语法, sql 查询, sql 查询, json 查询语言, 数据库概念和 sql 查询, 聚合函数"
+title: Azure Cosmos DB 的 SQL 查询 | Azure
+description: 了解 Azure Cosmos DB 的 SQL 语法、数据库概念和 SQL 查询。 SQL 可在 Azure Cosmos DB 中作为 JSON 查询语言使用。
+keywords: sql 语法, sql 查询, sql 查询, json 查询语言, 数据库概念和 sql 查询, 聚合函数
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: monicar
@@ -13,18 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/25/2017
-ms.date: 03/05/2018
+origin.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: ab27de820aa2c9e9ab63c5a0c9be8b3ea2c886b2
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 10c97e805f0143c803c3dae6c731a6d21c8d526e
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 查询
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 SQL API 帐户中的 JSON 查询语言来支持查询文档。 Azure Cosmos DB 是真正无架构的服务。 凭借其对数据库引擎内 JSON 数据模型的直接承诺，它可以提供 JSON 文档的自动索引，而无需显式架构或创建辅助索引。
 
@@ -171,7 +169,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 SQL API 帐户中
 * Cosmos DB 集合是 JSON 文档的一个无架构容器。 集合中，文档内和跨文档的数据实体的关系是按包含关系隐式捕获的，而不是按主键和外键关系。 考虑到稍后会在本文中讨论文档内联接，因此这是一个值得注意的重要方面。
 
 <a name="Indexing"></a>
-## <a name="cosmos-db-indexing"></a>Cosmos DB 索引
+##  <a name="cosmos-db-indexing"></a>Cosmos DB 索引
 了解 SQL 语法之前，有必要先了解 Azure Cosmos DB 中的索引设计。 
 
 数据库索引的目的是在提供良好的吞吐量和低延迟的同时，以最小的资源消耗（如 CPU 和输入/输出）提供各种形式的查询。 通常，为查询数据库选择正确的索引需要大量的计划和试验。 此方法对数据不符合严格的架构并且快速发展的无架构数据库来说是一个挑战。 
@@ -1073,7 +1071,8 @@ TOP 关键字可用于限制来自查询中的值的数量。 当 TOP 与 ORDER 
       }
     ]
 
-### <a name="Joins"></a>联接
+<a name="Joins"></a>
+### <a name="joins"></a>联接
 在关系型数据库中，跨表联接的要求是非常重要的。 设计规范化的架构是一项逻辑要求。 与此相反，SQL API 处理无架构文档的非规范化数据模型。 这在逻辑上等效于“自联接”。
 
 语言支持的语法为 <from_source1> JOIN <from_source2> JOIN ...JOIN <from_sourceN>。 总体而言，此语法返回一组 **N** 元组（带有 **N** 个值的元组）。 每个元组拥有通过对它们相应的集遍历所有集合别名所产生的值。 换言之，这是加入联接的集的完整叉积。
@@ -2202,7 +2201,8 @@ Cosmos DB 使用存储过程和触发器，为对集合直接执行基于 JavaSc
             });
     }
 
-## <a name="References"></a>参考
+<a name="References"></a>
+## <a name="references"></a>参考
 1. [Azure Cosmos DB 简介][introduction]
 2. [Azure Cosmos DB SQL 规范](/cosmos-db/sql-api-sql-query-reference)
 <!-- http://go.microsoft.com/fwlink/p/?LinkID=510612 Redirect to cosmos-db/sql-api-sql-query-reference-->
@@ -2212,7 +2212,7 @@ Cosmos DB 使用存储过程和触发器，为对集合直接执行基于 JavaSc
 6. JSON [http://json.org/](http://json.org/)
 7. Javascript 规范 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. 针对大型数据库的查询评估技术 [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+9. Query evaluation techniques for large databases [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)（针对大型数据库的查询评估技术）
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.

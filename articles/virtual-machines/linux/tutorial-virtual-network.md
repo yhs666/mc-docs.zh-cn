@@ -1,27 +1,27 @@
 ---
-title: "Azure 虚拟网络和 Linux 虚拟机 | Azure"
-description: "教程 - 使用 Azure CLI 管理 Azure 虚拟网络和 Linux 虚拟机"
+title: Azure 虚拟网络和 Linux 虚拟机 | Azure
+description: 教程 - 使用 Azure CLI 管理 Azure 虚拟网络和 Linux 虚拟机
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/10/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6a2bdb21e5ca17bcfd986086f9a4ffe3f9b671bc
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 215b6a0f4edf4c12f33b9b19136ac02531601814
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>使用 Azure CLI 管理 Azure 虚拟网络和 Linux 虚拟机
 
@@ -307,4 +307,4 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --
 > [!div class="nextstepaction"]
 > [在 Azure 中备份 Linux 虚拟机](./tutorial-backup-vms.md)
 
-<!--Update_Description: update link, wording update -->
+<!--Update_Description: update meta properties -->

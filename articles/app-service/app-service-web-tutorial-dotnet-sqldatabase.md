@@ -1,11 +1,11 @@
 ---
-title: "使用 SQL 数据库在 Azure 中生成 ASP.NET | Azure"
-description: "了解如何在 Azure 中运行 ASP.NET 应用，同时使其连接到 SQL 数据库。"
+title: 使用 SQL 数据库在 Azure 中生成 ASP.NET | Azure
+description: 了解如何在 Azure 中运行 ASP.NET 应用，同时使其连接到 SQL 数据库。
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
 ms.workload: web
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
 origin.date: 06/09/2017
-ms.date: 12/04/2017
+ms.date: 04/30/2018
 ms.author: v-yiso
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d91bec23538c049018d6f492746843e20a7273bc
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 5945541fc59be69de419fd909d3c0c8686b1826d
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>使用 SQL 数据库在 Azure 中生成 ASP.NET 应用
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/24/2017
 
 ![Azure Web 应用中已发布 ASP.NET 应用程序](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-本教程介绍如何执行下列操作：
+本教程介绍如何：
 
 > [!div class="checklist"]
 > * 在 Azure 中创建 SQL 数据库
@@ -39,9 +39,11 @@ ms.lasthandoff: 11/24/2017
 > * 将日志从 Azure 流式传输到终端
 > * 在 Azure 门户中管理应用
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程，需执行以下操作：
+完成本教程：
 
 * 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
   - **ASP.NET 和 Web 开发**
@@ -49,7 +51,7 @@ ms.lasthandoff: 11/24/2017
 
   ![ASP.NET 和 Web 开发以及 Azure 开发（在 Web 和云下）](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+如果已安装 Visual Studio，请单击“工具” > **Get Tools and Features**“获取工具和功能”，以便在 Visual Studio 中添加工作负荷。
 
 ## <a name="download-the-sample"></a>下载示例
 
@@ -132,7 +134,7 @@ ms.lasthandoff: 11/24/2017
 
 在创建数据库之前，需要 [Azure SQL 数据库逻辑服务器](../sql-database/sql-database-features.md)。 逻辑服务器包含一组作为组管理的数据库。
 
-选择“浏览其他 Azure 服务”。
+单击“浏览其他 Azure 服务”。
 
 ![配置 Web 应用名称](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
@@ -156,13 +158,13 @@ ms.lasthandoff: 11/24/2017
 
 在“配置 SQL 数据库”对话框中： 
 
-* 保留默认生成的数据库名称。
+* 保留默认生成的**数据库名称**。
 * 在“连接字符串名称”中，键入 *MyDbConnection*。 此名称必须与 *Models/MyDatabaseContext.cs* 中引用的连接字符串相匹配。
-* 选择“确定” 。
+* 选择“确定”。
 
 ![配置 SQL 数据库](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-“创建应用服务”对话框会显示所创建的资源。 单击“创建” 。 
+“创建应用服务”对话框会显示所创建的资源。 单击“创建”。 
 
 ![已创建的资源](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
@@ -302,7 +304,7 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 
 这就是要在 `Index` 和 `Create` 视图中查看更改所需的全部操作。 
 
-键入 `Ctrl+F5`，以便运行该应用。
+键入 `Ctrl+F5` 运行应用。
 
 现在可以添加待办事项，然后单击“完成”。 然后，它应作为已完成项在主页中显示。 请记住，`Edit`视图不显示`Done`字段，因为没有更改`Edit`视图。
 

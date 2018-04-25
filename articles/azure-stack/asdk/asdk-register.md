@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/16/2018
-ms.date: 03/22/2018
+origin.date: 03/27/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: e4f91c5b2434ab5475232c502953d0dda9f1f8b9
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: b90d3f0333f72142f3f3424b7013365f18d5f76b
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>将 Azure Stack 注册到 Azure
 可将 Azure Stack 开发工具包 (ASDK) 安装注册到 Azure，以便从 Azure 下载 Marketplace 项，并设置向 Microsoft 报告商务数据的功能。 之所以建议注册，是因为这样可以测试重要的 Azure Stack 功能，例如 Marketplace 联合和使用情况报告。 注册 Azure Stack 之后，使用情况将报告给 Azure 商业组件。 用于注册的订阅下会显示此信息。 但是，ASDK 用户无需付费，不管他们报告的用量是多少。
@@ -50,11 +50,12 @@ ms.lasthandoff: 03/23/2018
 
     #Register Azure Stack
     $AzureContext = Get-AzureRmContext
-    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
+    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     Set-AzsRegistration `
-        -CloudAdminCredential $CloudAdminCred `
+        -PrivilegedEndpointCredential $CloudAdminCred `
         -PrivilegedEndpoint AzS-ERCS01 `
         -BillingModel Development
+    -ResourceGroupLocation "ChinaEast"
 
 3. When the script completes, you should see this message: **Your environment is now registered and activated using the provided parameters.**
 
@@ -76,3 +77,4 @@ Follow these steps to verify that the ASDK registration with Azure was successfu
 ## Next steps
 [Add an Azure Stack marketplace item](asdk-marketplace-item.md)
 
+<!-- Update_Description: wording update -->

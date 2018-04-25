@@ -16,11 +16,11 @@ ms.workload: Identity
 origin.date: 07/13/2017
 ms.date: 12/25/2017
 ms.author: v-junlch
-ms.openlocfilehash: 595ca5b6a465270d51ac53ff4d745621729232a1
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: b7f14af97602fe27803273223c0e8df06427e633
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect：设计概念
 本主题旨在说明 Azure AD Connect 实现设计期间必须考虑到的各个方面。 本主题是对特定领域的深入探讨，其他主题中也简要描述了这些概念。
@@ -46,7 +46,7 @@ sourceAnchor 属性定义为 *在对象生存期内不会变化的属性*。 它
 - 不包含特殊字符：&#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 - 必须全局唯一
 - 必须是字符串、整数或二进制数
-- 不应基于用户的名称，这些名称会有变化
+- 不应基于用户的名称，他们会改变
 - 不应区分大小写，避免使用可能因大小写而改变的值
 - 应在创建对象时分配
 

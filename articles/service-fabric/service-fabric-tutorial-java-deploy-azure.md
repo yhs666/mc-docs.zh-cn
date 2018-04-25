@@ -16,11 +16,11 @@ origin.date: 02/26/2018
 ms.date: 04/09/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 57de095cea0864ed4418f51ad4a9c0c570ebc56a
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: c5213b774be9df0cab81308d21d78b431d9f4ca7
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>教程：将 Java 应用程序部署到 Azure 中的 Service Fabric 群集
 本教程是一个系列的第三部分，介绍如何将 Service Fabric 应用程序部署到 Azure 中的群集。
@@ -239,9 +239,7 @@ ms.lasthandoff: 04/05/2018
 > * 创建通过 ELK 进行监视所需的资源 
 > * 可选：如何使用合作群集来试用 Service Fabric
 
-转到下一教程：
-> [!div class="nextstepaction"]
-> [设置监视和诊断](service-fabric-tutorial-java-elk.md)
+<!-- Not Available on [Set up Monitoring & Diagnostics](service-fabric-tutorial-java-elk.md) -->
 
 <!-- Update_Description: new articles on service fabric turioal java deploy azure -->
 <!--ms.date: 04/09/2018-->

@@ -16,11 +16,11 @@ ms.workload: identity
 origin.date: 12/06/2017
 ms.date: 3/5/2018
 ms.author: v-nany
-ms.openlocfilehash: a2028c0ff886deed29767cc59cb4cffce3b949e9
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: c127d06fead66142ef093f590ab4313a67be2e84
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>在 Azure 虚拟网络中安装新的 Active Directory 林
 本文说明如何在 [Azure 虚拟网络](../virtual-network/virtual-networks-overview.md)上的虚拟机 (VM) 中创建新的 Windows Server Active Directory 环境。 在此情况下，Azure 虚拟网络未连接到本地网络。
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/19/2018
 - 有关在 Azure 虚拟网络上安装 Active Directory 域服务 (AD DS) 的概念性指南，请参阅[在 Azure 虚拟机上部署 Windows Server Active Directory 的指南](https://msdn.microsoft.com/library/azure/jj156090.aspx)。
 
 ## <a name="scenario-diagram"></a>方案示意图
-在此场景中，外部用户需要访问在添加域的服务器上运行的应用程序。 运行应用程序服务器的 VM 及运行域控制器的 VM 安装在 Azure 虚拟网络中其自身的云服务内。 它们还包含在可用性集内以提高容错能力。
+在此案例中，外部用户需要访问在添加域的服务器上运行的应用程序。 运行应用程序服务器的 VM 及运行域控制器的 VM 安装在 Azure 虚拟网络中其自身的云服务内。 它们还包含在可用性集内以提高容错能力。
 
 ![Azure 虚拟网络中虚拟机上的 Active Directory 林 ][1]
 

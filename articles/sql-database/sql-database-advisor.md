@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-origin.date: 09/20/2017
-ms.date: 2/28/2018
+origin.date: 04/01/2018
+ms.date: 4/17/2018
 ms.author: v-nany
-ms.openlocfilehash: ef4fed52037aee5bb55361a6e20dd02312fafd36
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: a1207f728542677ae80f8e61cbf82d1053917bc5
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL 数据库性能建议
 

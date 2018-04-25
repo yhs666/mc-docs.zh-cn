@@ -2,19 +2,19 @@
 title: 排查 Azure SQL 数据同步（预览版）问题 | Azure
 description: 了解如何排查 Azure SQL 数据同步（预览版）的常见问题
 services: sql-database
-origin.date: 11/13/2017
-ms.date: 12/11/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 ms.topic: article
 ms.service: sql-database
 author: yunan2016
 manager: digimobile
 ms.custom: data-sync
-ms.openlocfilehash: 09a5bb71f03f25690713492a332c07c3ef3424bb
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: b78928e894015d8f43b50fcf77673bc0cefe3ced
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>排查 SQL 数据同步（预览版）的问题
 

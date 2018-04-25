@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 中重新部署 Linux 虚拟机 | Azure"
-description: "如何通过在 Azure 中重新部署 Linux 虚拟机来解决 SSH 连接问题。"
+title: 在 Azure 中重新部署 Linux 虚拟机 | Azure
+description: 如何通过在 Azure 中重新部署 Linux 虚拟机来解决 SSH 连接问题。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/14/2017
-ms.date: 03/19/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4bd86a8e9e30e3e4a220115fecf4f71bc30b3c55
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: d57d5d829cd5f7dcaa77e4a081f8789964eff236
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>将 Linux 虚拟机重新部署到新的 Azure 节点
 如果在对 SSH 或应用程序访问 Azure 中 Linux 虚拟机 (VM) 进行故障排除时遇到困难，重新部署 VM 可能会有帮助。 重新部署 VM 时，将 VM 移到 Azure 基础结构中的新节点，并重新提供支持。 所有配置选项和关联资源均保留。 本文介绍如何使用 Azure CLI 或 Azure 门户重新部署 VM。
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/17/2018
 - [Azure 门户](#using-azure-portal)
 <a name="azure-cli-20"></a>
 ## <a name="use-the-azure-cli-20"></a>使用 Azure CLI 2.0
-安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest#az_login) 登录到 Azure 帐户。
+安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

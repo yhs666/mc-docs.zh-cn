@@ -42,7 +42,7 @@
 
 # 参考
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-## [Azure CLI](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest)
+## [Azure CLI](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 ## [SQL Server 驱动程序](https://docs.microsoft.com/sql/connect/sql-connection-libraries)
 ## [REST](https://docs.microsoft.com/rest/api/)

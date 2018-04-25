@@ -1,27 +1,27 @@
 ---
-title: "Azure 快速入门 - 创建 VM PowerShell | Azure"
-description: "快速了解如何使用 PowerShell 创建 Linux 虚拟机"
+title: Azure 快速入门 - 创建 VM PowerShell | Azure
+description: 快速了解如何使用 PowerShell 创建 Linux 虚拟机
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/13/2017
-ms.date: 01/29/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c6ea1a81b51ffd46dbd13b947d26030de8c07eaf
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 2e74ecfa06ca0017d156823dfeeafdab9f8c28ba
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>使用 PowerShell 创建 Linux 虚拟机
 
@@ -169,4 +169,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 > [!div class="nextstepaction"]
 > [Azure Linux 虚拟机教程](./tutorial-manage-vm.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

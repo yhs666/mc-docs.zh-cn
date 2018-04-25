@@ -1,25 +1,25 @@
 ---
-title: "使用 Azure Resource Manager 模板创建 Azure 服务总线主题订阅和规则 | Azure Docs"
-description: "使用 Azure Resource Manager 模板创建包含主题、订阅和规则的服务总线命名空间"
+title: 使用 Azure Resource Manager 模板创建 Azure 服务总线主题订阅和规则 | Azure Docs
+description: 使用 Azure Resource Manager 模板创建包含主题、订阅和规则的服务总线命名空间
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9e0aaf58-0214-4bca-bd00-d29c08f9b1bc
 ms.service: service-bus
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 11/10/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: c62cd829ee2a045fa4c09bfe2d3278784c4ea084
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 04/30/2018
+ms.openlocfilehash: bc855c02ac417cf3a82f14f678aa080110b1c9be
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建包含主题、订阅和规则的服务总线命名空间
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 12/01/2017
 
 [![部署到 Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-subscription-rule%2Fazuredeploy.json)
 
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 使用 Azure Resource Manager，可以定义在部署模板时想要指定的值的参数。 该模板具有一个名为 `Parameters` 的部分，其中包含所有参数值。 应该为随着要部署的项目或要部署到的环境而变化的值定义参数。 不要为永远保持不变的值定义参数。 每个参数值可在模板中用来定义所部署的资源。
 
 模板定义以下参数：
@@ -117,7 +117,6 @@ ms.lasthandoff: 12/01/2017
         "location": "[variables('location')]",
         "sku": {
             "name": "Standard",
-            "tier": "Standard"
         },
         "resources": [{
             "apiVersion": "[variables('sbVersion')]",
@@ -174,7 +173,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>后续步骤
-现在，已使用 Azure 资源管理器创建并部署了资源，请通过查看以下文章了解如何管理这些资源：
+现在，已使用 Azure Resource Manager 创建并部署了资源，请通过查看以下文章了解如何管理这些资源：
 
 * [管理 Azure 服务总线](./service-bus-management-libraries.md)
 * [使用 PowerShell 管理服务总线](./service-bus-manage-with-ps.md)

@@ -5,20 +5,20 @@ services: sql-database
 author: Hayley244
 manager: digimobile
 ms.service: sql-database
-origin.date: 11/15/2016
-ms.date: 07/03/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
 ms.topic: article
-ms.openlocfilehash: d267f1677769300be76fd9be5a2f3f45f2e8b349
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: b5e8a9fd25af3729d045dd9cfb5a74ba58ca28d7
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL 数据库中的 JSON 功能入门
 使用 Azure SQL 数据库可以分析和查询以 JavaScript 对象表示法 [(JSON)](http://www.json.org/) 格式表示的数据，并将关系数据导出为 JSON 文本。
 
-JSON 是用于在新式 Web 与移动应用程序中交换数据的流行数据格式。 JSON 还用于将半结构化数据存储在日志文件或 NoSQL 数据库（例如 [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/)）中。 许多 REST Web 服务返回采用 JSON 文本格式的结果，或接受采用 JSON 格式的数据。 [Azure 存储](https://www.azure.cn/home/features/storage/)和 [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/) 等大多数 Azure 服务都具有可返回或使用 JSON 的 REST 终结点。
+JSON 是用于在新式 Web 与移动应用程序中交换数据的流行数据格式。 JSON 还用于将半结构化数据存储在日志文件或 NoSQL 数据库（例如 [Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/)）中。 许多 REST Web 服务返回采用 JSON 文本格式的结果，或接受采用 JSON 格式的数据。 [Azure 存储](https://www.azure.cn/home/features/storage/)和 [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/) 等大多数 Azure 服务都具有可返回或使用 JSON 的 REST 终结点。
 
 使用 Azure SQL 数据库可以轻松处理 JSON 数据，将数据库与新式服务集成。
 

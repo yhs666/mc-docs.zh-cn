@@ -1,27 +1,27 @@
 ---
-title: "Azure CLI 脚本示例 - 从快照创建托管磁盘 | Azure"
-description: "Azure CLI 脚本示例 - 从快照创建托管磁盘"
+title: Azure CLI 脚本示例 - 从快照创建托管磁盘 | Azure
+description: Azure CLI 脚本示例 - 从快照创建托管磁盘
 services: virtual-machines-linux
 documentationcenter: storage
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/19/2017
-ms.date: 10/30/2017
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9b28cccee47da32947b4af6a828d5f82c9b6fa6d
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 1998dfd8ff97bf96bf5b873d8542a6abc88fa186
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>使用 CLI 从快照创建托管磁盘
 
@@ -68,9 +68,9 @@ az disk create --resource-group $resourceGroupName --name $diskName --sku $stora
 
 此脚本使用以下命令从快照创建托管磁盘。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
-| [az snapshot show](https://docs.azure.cn/zh-cn/cli/snapshot?view=azure-cli-latest#az_snapshot_show) | 使用快照的名称和资源组属性获取该快照的所有属性。 使用 ID 属性创建托管磁盘。  |
+| [az snapshot show](https://docs.azure.cn/zh-cn/cli/snapshot?view=azure-cli-latest#az_snapshot_show) | 使用快照的名称和资源组属性获取快照的所有属性。 使用 ID 属性创建托管磁盘。  |
 | [az disk create](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az_disk_create) | 使用托管快照的快照 ID 创建托管磁盘 |
 
 ## <a name="next-steps"></a>后续步骤
@@ -81,4 +81,4 @@ az disk create --resource-group $resourceGroupName --name $diskName --sku $stora
 
 可以在 [Azure Linux VM 文档](../../app-service/app-service-cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机和托管磁盘 CLI 脚本示例。
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties -->

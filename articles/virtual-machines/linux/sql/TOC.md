@@ -8,7 +8,7 @@
 
 # 参考
 ## [“Linux 上的 SQL Server”文档](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
-## [Azure CLI](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest)
+## [Azure CLI](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest)
 ## [PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [SQL Server 驱动程序](https://msdn.microsoft.com/library/mt654049.aspx)

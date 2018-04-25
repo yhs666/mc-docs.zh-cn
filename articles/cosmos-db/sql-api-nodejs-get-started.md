@@ -1,7 +1,7 @@
 ---
-title: "适用于 Azure Cosmos DB 的 SQL API 的 Node.js 教程 | Azure"
-description: "本 Node.js 教程将创建采用 SQL API 的 Cosmos DB。"
-keywords: "node.js 教程, 节点数据库"
+title: 适用于 Azure Cosmos DB 的 SQL API 的 Node.js 教程 | Azure
+description: 本 Node.js 教程将创建采用 SQL API 的 Cosmos DB。
+keywords: node.js 教程, 节点数据库
 services: cosmos-db
 documentationcenter: node.js
 author: rockboyfor
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: article
 origin.date: 08/14/2017
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: ffeb0592cee8070db5c6352f5a53ff9482dc0a28
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: ef8bfb1f3d56b55a1338f4fcbca3de85c5f0b727
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Node.js 教程：在 Azure Cosmos DB 中使用 SQL API 创建 Node.js 控制台应用程序
 > [!div class="op_single_selector"]
@@ -32,8 +32,6 @@ ms.lasthandoff: 03/02/2018
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 欢迎使用 Azure Cosmos DB Node.js SDK 的 Node.js 教程！ 学习本教程后，将拥有一个可创建并查询 Azure Cosmos DB 资源的控制台应用程序。
 
@@ -183,7 +181,7 @@ ms.lasthandoff: 03/02/2018
     module.exports = config;
 
 <a name="Connect"></a>
-## <a name="step-4-connect-to-an-azure-cosmos-db-account"></a>步骤 4：连接到 Azure Cosmos DB 帐户
+##  <a name="step-4-connect-to-an-azure-cosmos-db-account"></a>步骤 4：连接到 Azure Cosmos DB 帐户
 在文本编辑器中打开空的 ```app.js``` 文件。 复制并粘贴以下代码，以导入 ```documentdb``` 模块和新建的 ```config``` 模块。
 
     // ADD THIS PART TO YOUR CODE

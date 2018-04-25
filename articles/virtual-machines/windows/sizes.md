@@ -1,11 +1,11 @@
 ---
-title: "Azure 中的 Windows VM 大小 | Azure"
-description: "列出 Azure 中 Windows 虚拟机的不同可用大小。"
+title: Azure 中的 Windows VM 大小 | Azure
+description: 列出 Azure 中 Windows 虚拟机的不同可用大小。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: aabf0d30-04eb-4d34-b44a-69f8bfb84f22
 ms.service: virtual-machines-windows
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 02/05/2018
-ms.date: 02/05/2018
+origin.date: 03/01/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: a4b649d10b0cf9b94c10b80d85e56150ca99ea0f
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 7ab329b960df6f579775a538387afd0effed04a4
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
@@ -33,8 +33,9 @@ ms.lasthandoff: 02/13/2018
 | [计算优化](sizes-compute.md)        | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        |
 | [内存优化](../virtual-machines-windows-sizes-memory.md)         | Esv3、Ev3、DSv2、DS、Dv2、D   | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
 <!--PENDING FOR Dv3, Ev3 and B-SERIES GA ANOUNCEMENT -->
+<!-- Not Available M, Gs, G series -->
 <!-- Not Available [Storage optimized] Ls -->
-<!-- Not Available [GPU] NV, NC  -->
+<!-- Not Available [GPU] NV, NC, N-series  -->
 <!-- Not Available [High performance compute] H, A8-11 -->
 
 <br> 
@@ -62,5 +63,9 @@ ms.lasthandoff: 02/13/2018
 - [常规用途](sizes-general.md)
 - [计算优化](sizes-compute.md)
 - [内存优化](../virtual-machines-windows-sizes-memory.md)
+<!-- Not Available on - [Storage optimized](../virtual-machines-windows-sizes-storage.md) -->
+<!-- Not Available on - [GPU optimized](sizes-gpu.md) -->
+<!-- Not Available on - [High performance compute](sizes-hpc.md)-->
+
 <!--Update_Description: update meta properties, update link -->
 <!--PENDING FOR Dv3, Ev3 and B-SERIES GA ANOUNCEMENT -->

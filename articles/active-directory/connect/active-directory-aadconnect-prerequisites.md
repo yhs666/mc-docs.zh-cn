@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 12/20/2017
+origin.date: 03/09/2018
+ms.date: 04/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: 855f2dc6bcb695623d0d86ded69adec64ba2f75c
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: 62794c3168ead61091aa71956fd11294249ae40a
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的先决条件
 本主题介绍 Azure AD Connect 的先决条件和硬件要求。
@@ -32,6 +32,7 @@ ms.lasthandoff: 03/19/2018
   - 还可以使用 [Azure 门户](https://portal.azure.cn)。 此门户不需要 Azure AD 许可证。
 - [添加并验证域](../add-custom-domain.md)，该域是计划在 Azure AD 中使用的。 例如，如果计划让用户使用 contoso.com，请确保此域已经过验证，并且不是直接使用 contoso.partner.onmschina.cn 默认域。
 - 默认情况下，一个 Azure AD 租户允许 5 万个对象。 在验证域后，该限制增加到 30 万个对象。 如果在 Azure AD 中需要更多的对象，则需要开具支持案例来请求增大此限制。 如果需要 50 万个以上的对象，则需要购买 Office 365、Azure AD Basic、Azure AD Premium 或企业移动性和安全性等许可证。
+- ADSyncPrep 是 PowerShell 脚本模块，提供为 Azure AD Connect 准备 Active Directory 环境的功能。  ADSyncPrep 需要 [Azure AD Microsoft Online v1.1 PowerShell 模块](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)。  版本 2 将无法工作。  可以使用 `Install-Module` cmdlet 安装模块。  有关更多信息，请参见所提供的链接。
 
 ### <a name="prepare-your-on-premises-data"></a>准备本地数据
 - 使用 [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) 确定目录中的错误，如重复项和格式设置问题，然后同步到 Azure AD 和 Office 365。
