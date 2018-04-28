@@ -8903,6 +8903,276 @@
       "redirect_url": "/cloud-services/cloud-services-choose-me",
       "redirect_document_id": false
   },
+    {
+        "source_path": "articles/azure-resource-manager/resource-manager-troubleshoot-tips.md",
+        "redirect_url": "/azure-resource-manager/resource-manager-common-deployment-errors",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/concepts-physical-to-azure-architecture.md",
+        "redirect_url": "physical-azure-architecture",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/concepts-vmware-to-azure-architecture.md",
+        "redirect_url": "vmware-azure-architecture",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/how-to-deploy-configuration-server.md",
+        "redirect_url": "vmware-azure-deploy-configuration-server",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-automate-mobility-service-install.md",
+        "redirect_url": "vmware-azure-mobility-deploy-automation-dsc",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-exclude-disk.md",
+        "redirect_url": "vmware-azure-exclude-disk",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-how-to-failback-azure-to-vmware.md",
+        "redirect_url": "vmware-azure-failback",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-how-to-install-linux-master-target.md",
+        "redirect_url": "vmware-azure-install-linux-master-target",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-how-to-reprotect.md",
+        "redirect_url": "vmware-azure-reprotect",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-install-mobility-service-using-sccm.md",
+        "redirect_url": "vmware-azure-mobility-install-configuration-mgr",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-manage-multi-tenancy-with-csp.md",
+        "redirect_url": "vmware-azure-multi-tenant-csp-disaster-recovery",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-migrate-to-azure.md",
+        "redirect_url": "migrate-overview",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-multi-tenant-support-vmware-using-csp.md",
+        "redirect_url": "vmware-azure-multi-tenant-csp-disaster-recovery",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-prepare-target-physical-to-azure.md",
+        "redirect_url": "physical-azure-set-up-target",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-prepare-target-vmware-to-azure.md",
+        "redirect_url": "vmware-azure-set-up-target",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-replicate-vmware-to-azure.md",
+        "redirect_url": "vmware-azure-enable-replication",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-set-up-physical-to-azure.md",
+        "redirect_url": "physical-azure-set-up-source",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-setup-replication-settings-vmware.md",
+        "redirect_url": "vmware-azure-set-up-replication",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-set-up-vmware-to-azure.md",
+        "redirect_url": "vmware-azure-set-up-source",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-support-matrix-to-azure.md",
+        "redirect_url": "vmware-physical-azure-support-matrix",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-support-matrix-to-sec-site.md",
+        "redirect_url": "vmware-physical-secondary-support-matrix",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-vmware-setup-azure-ps-resource-manager.md",
+        "redirect_url": "vmware-azure-set-up-process-server-azure",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-install-mob-svc.md",
+        "redirect_url": "vmware-azure-install-mobility-service",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-manage-configuration-server.md",
+        "redirect_url": "vmware-azure-manage-configuration-server",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-manage-scaleout-process-server.md",
+        "redirect_url": "vmware-azure-set-up-process-server-scale",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-powershell.md",
+        "redirect_url": "vmware-azure-disaster-recovery-powershell",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-protection-troubleshoot.md",
+        "redirect_url": "vmware-azure-troubleshoot-replication",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/site-recovery-vmware-to-azure-push-install-error-codes.md",
+        "redirect_url": "vmware-azure-troubleshoot-push-install",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/support-matrix-vmware-to-azure.md",
+        "redirect_url": "vmware-physical-azure-support-matrix",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/troubleshoot-failback-reprotect.md",
+        "redirect_url": "vmware-azure-troubleshoot-failback-reprotect",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/tutorial-migrate-aws-to-azure.md",
+        "redirect_url": "migrate-tutorial-aws-azure",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/tutorial-migrate-on-premises-to-azure.md",
+        "redirect_url": "migrate-tutorial-on-premises-azure",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/tutorial-physical-to-azure.md",
+        "redirect_url": "physical-azure-disaster-recovery",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/tutorial-prepare-on-premises-vmware.md",
+        "redirect_url": "vmware-azure-tutorial-prepare-on-premises",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/tutorial-vmware-to-azure.md",
+        "redirect_url": "vmware-azure-tutorial",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/site-recovery/tutorial-vmware-to-vmware.md",
+        "redirect_url": "vmware-physical-secondary-disaster-recovery",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-develop-concurrency.md",
+        "redirect_url": "/sql-data-warehouse/resource-classes-for-workload-management",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-index-all-articles.md",
+        "redirect_url": "/sql-data-warehouse/sql-data-warehouse-overview-what-is",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/stream-analytics/stream-analytics-malformed-events.md",
+        "redirect_url": "/stream-analytics/stream-analytics-common-troubleshooting-issues",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/accelerated-maintenance.md",
+        "redirect_url": "/virtual-machines/linux/mitigate-se",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/accelerated-maintenance.md",
+        "redirect_url": "/virtual-machines/windows/mitigate-se",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/virtual-network/create-public-ip-availability-zone-cli.md",
+        "redirect_url": "/virtual-network/virtual-network-public-ip-address",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/virtual-network/create-public-ip-availability-zone-portal.md",
+        "redirect_url": "/virtual-network/virtual-network-public-ip-address",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/virtual-network/create-public-ip-availability-zone-powershell.md",
+        "redirect_url": "/virtual-network/virtual-network-public-ip-address",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/virtual-network/create-user-defined-route-portal.md",
+        "redirect_url": "/virtual-network/tutorial-create-route-table-portal",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-create-peering.md",
+        "redirect_url": "/virtual-network/tutorial-connect-virtual-networks-portal",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-create-udr-arm-cli.md",
+        "redirect_url": "/virtual-network/tutorial-create-route-table-cli",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-create-udr-arm-ps.md",
+        "redirect_url": "/virtual-network/tutorial-create-route-table-powershell",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-get-started-vnet-subnet.md",
+        "redirect_url": "/virtual-network/quick-create-portal",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-network-manage-network.md",
+        "redirect_url": "/virtual-network/manage-virtual-network",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-cli.md",
+        "redirect_url": "/virtual-network/quick-create-cli",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-pportal.md",
+        "redirect_url": "/virtual-network/quick-create-portal",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-ps.md",
+        "redirect_url": "/virtual-network/quick-create-powershell",
+        "redirect_document_id": "False"
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md",
+        "redirect_url": "/virtual-network/quick-create-portal",
+        "redirect_document_id": "False"
+    },
   {
       "source_path": "articles/azure-stack/azure-stack-manage-storage-physical-capacity.md",
       "redirect_url": "/azure-stack/azure-stack-manage-storage-physical-memory-capacity",
@@ -8931,6 +9201,41 @@
   {
       "source_path": "articles/application-gateway/application-gateway-configure-redirect-powershell.md",
       "redirect_url": "/application-gateway/tutorial-url-redirect-powershell",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md",
+      "redirect_url": "/virtual-machine-scale-sets/tutorial-autoscale-cli",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create-cli.md",
+      "redirect_url": "/virtual-machine-scale-sets/quick-create-cli",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create-portal.md",
+      "redirect_url": "/virtual-machine-scale-sets/quick-create-portal",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create-template-linux.md",
+      "redirect_url": "/virtual-machine-scale-sets/quick-create-template-linux",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create-template-windows.md",
+      "redirect_url": "/virtual-machine-scale-sets/quick-create-template-windows",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-managed-disks.md",
+      "redirect_url": "/virtual-machine-scale-sets/tutorial-use-disks-cli",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md",
+      "redirect_url": "/virtual-machine-scale-sets/overview",
       "redirect_document_id": false
   }
     
