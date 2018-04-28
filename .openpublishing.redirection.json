@@ -9237,6 +9237,16 @@
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md",
       "redirect_url": "/virtual-machine-scale-sets/overview",
       "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md",
+      "redirect_url": "/virtual-machine-scale-sets/tutorial-autoscale-powershell",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create-powershell.md",
+      "redirect_url": "/virtual-machine-scale-sets/quick-create-powershell",
+      "redirect_document_id": false
   }
     
 
