@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/09/2018
-ms.date: 04/09/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: ea6ebc056c0bfb48f509d4f15beb910b2cc01caa
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: 640d1ca3bf3fe57ea96a6fbffcc1a4d6994275f7
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自定义 Service Fabric 群集设置和结构升级策略
 本文档说明如何为 Service Fabric 群集自定义各种结构设置和结构升级策略。 可以通过 [Azure 门户](https://portal.azure.cn)或使用 Azure 资源管理器模板完成自定义。

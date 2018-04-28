@@ -1,26 +1,19 @@
 ---
-title: "Azure Analysis Services 教程第 11 课：创建角色 | Azure"
-description: "介绍如何在 Azure Analysis Services 教程项目中创建角色。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 教程第 11 课：创建角色 | Azure
+description: 介绍如何在 Azure Analysis Services 教程项目中创建角色。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2f2ac83a3c68ab9120b3c5ab964097a980ce5b27
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.reviewer: minewiskan
+ms.openlocfilehash: abc1918d02ee219a10c551af2d83b947c30f8846
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-roles"></a>创建角色
 
@@ -92,4 +85,4 @@ ms.lasthandoff: 02/23/2018
 ## <a name="whats-next"></a>后续步骤
 [第 12 课：在 Excel 中分析](../tutorials/aas-lesson-12-analyze-in-excel.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

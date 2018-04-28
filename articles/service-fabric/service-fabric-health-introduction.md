@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/28/2018
-ms.date: 04/09/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: ea0398cd7b59b89bd79583698f8ac8585726fffd
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: ca93e86416bf4222de85409ac0c6ccdec8e34bb2
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Service Fabric 运行状况监视简介
 Azure Service Fabric 引入了一个运行状况模型，该模型提供丰富、灵活且可扩展的运行状况评估和报告。 使用该模型，可对群集及其中所运行服务的状态进行准实时监视。 可以轻松获取运行状况信息，并在潜在问题级联并造成大规模停机之前予以更正。 在典型模型中，服务基于其本地视图发送报告，并聚合信息，以提供整体的群集级别视图。
@@ -212,7 +212,7 @@ Service Fabric 使用三种健康状况来描述实体是否正常运行：“�
 * **说明**。 报告器用于提供有关运行状况事件的详细信息的字符串。 **SourceId**、**属性**和 **HealthState** 应完整说明报告。 说明中添加了用户可读的报告相关信息。 该文本可让管理员和用户更容易了解运行状况报告。
 * **HealthState**。 说明报告的运行状况状态的[枚举](service-fabric-health-introduction.md#health-states)。 接受值的值有“正常”、“警告”和“错误”。
 * **TimeToLive**。 指示运行状况报告有效时长的时间跨度。 结合 **RemoveWhenExpired**时，它能够使运行状况存储知道如何评估过期的事件。 默认情况下，此值为无穷大，表示报告永远有效。
-* **RemoveWhenExpired**。 布尔值。 如果设置为 true，过期的运行状况报告会自动从运行状况存储中删除，并且该报告不会影响实体运行状况评估。 仅当报告在一段指定时间内有效且报告器不需要显式清除它时使用。也用于从运行状况存储删除报告（例如，监视器被更改并停止发送包含以前的源和属性的报告）。 它可以发送具有短暂的 TimeToLive 和 RemoveWhenExpired 的报告，以清除运行状况存储中的所有以往状态。 如果该值设置为 false，过期的报告在运行状况评估中则被视为错误。 false 值向运行状况存储指示，源应该对此属性进行定期报告。 如果没有定期报告，则监视器必然存在问题。 通过将事件视为错误来捕获监视器运行状况。
+* **RemoveWhenExpired**。 布尔值。 如果设置为 true，将从运行状况存储自动删除过期的运行状况报告，并且该报告不会影响实体运行状况评估。 仅当报告在一段指定时间内有效且报告器不需要显式清除它时使用。也用于从运行状况存储删除报告（例如，监视器被更改并停止发送包含以前的源和属性的报告）。 它可以发送具有短暂的 TimeToLive 和 RemoveWhenExpired 的报告，以清除运行状况存储中的所有以往状态。 如果该值设置为 false，过期的报告在运行状况评估中则被视为错误。 false 值向运行状况存储指示，源应该对此属性进行定期报告。 如果没有定期报告，则监视器必然存在问题。 通过将事件视为错误来捕获监视器运行状况。
 * **SequenceNumber**。 需要不断增加的正整数，它表示报告的顺序。 运行状况存储使用它来检测因网络延迟或其他问题而较晚收到的过时报告。 如果序列号小于或等于实体、源和属性最近应用的序列号，则会拒绝报告。 如果未指定，则会自动生成序列号。 只有在报告状态转换时，才需放入序列号。 在此情况下，源需要记住它所发送的报告，并保留信息以便在故障转移时进行恢复。
 
 每个运行状况报告都需要四条信息（SourceId、ntity identifier、Property 和 HealthState）。 不允许 SourceId 字符串以前缀“**System.**”开头，该字符串是为系统报告保留的。 对于相同实体，相同的源和属性只有一个报告。 如果为相同的源和属性生成多个报告，它们会在运行状况客户端（如果按批处理）或在运行状况存储端覆盖彼此。 根据序列号进行这种替换操作：较新的报告（具有更高的序列号）替换较旧的报告。

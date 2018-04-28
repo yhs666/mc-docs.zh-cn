@@ -1,27 +1,24 @@
 ---
-title: "Azure SQL 数据仓库文档 - 教程、API 参考 | Azure"
-description: "了解如何使用结合了 SQL Server 与大规模并行处理的 SQL 数据仓库。 文档说明如何加载、分析、管理和导出数据。"
+title: Azure SQL 数据仓库文档 - 教程和概念 | Microsoft Docs
+description: 了解如何使用将 SQL 关系数据库与大规模并行处理相结合的 Azure SQL 数据仓库。 教程和其他文档介绍了如何使用数据仓库设计、加载、管理和分析数据。
 services: sql-data-warehouse
 author: rockboyfor
 manager: digimobile
 layout: LandingPage
-ms.assetid: 
 ms.service: sql-data-warehouse
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0e9cf5d66dd913b7e5033f0a053c7cf09804dc4a
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: b65f015b14c6c839cd143bda53d8d833d22b36a1
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-data-warehouse-documentation"></a>SQL 数据仓库文档
 
-了解如何使用 SQL 数据仓库，其结合了 SQL Server 关系数据库与大规模并行处理。 教程和其他文档介绍了如何将数据加载到数据仓库，并分析、管理和导出数据。
+了解如何使用将 SQL 关系数据库与大规模并行处理相结合的 Azure SQL 数据仓库。 教程和其他文档介绍了如何使用数据仓库设计、加载、管理和分析数据。 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -64,7 +61,7 @@ ms.lasthandoff: 12/08/2017
 
 ---
 
-<h2>引用</h2>
+<h2>参考</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

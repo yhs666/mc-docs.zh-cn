@@ -43,7 +43,6 @@
       items:
         - name: 1 - 使用 Docker Compose 部署 .NET 应用
           href: service-fabric-host-app-in-a-container.md
-        - name: 2 - 监视容器
     - name: 创建和管理群集
       items:
         - name: 1- 在 Azure 上创建群集
@@ -111,10 +110,6 @@
               href: service-fabric-reliable-services-reliable-concurrent-queue.md
             - name: Reliable Collection 序列化
               href: service-fabric-reliable-services-reliable-collections-serialization.md
-            - name: 可靠状态管理器和 Reliable Collection 内部
-              href: service-fabric-reliable-services-reliable-collections-internals.md
-            - name: 高级用法
-              href: service-fabric-reliable-services-advanced-usage.md
         - name: Reliable Actors
           href: service-fabric-reliable-actors-introduction.md
           items:
@@ -161,6 +156,8 @@
               href: service-fabric-reverseproxy-configure-secure-communication.md
             - name: 反向代理诊断
               href: service-fabric-reverse-proxy-diagnostics.md
+            - name: ASP.NET Core
+              href: service-fabric-reliable-services-communication-aspnetcore.md
         - name: 应用程序生命周期
           href: service-fabric-application-lifecycle.md
           items:
@@ -188,6 +185,8 @@
       items:
         - name: 群集安全性
           href: service-fabric-cluster-security.md
+        - name: 扩展
+          href: service-fabric-cluster-scaling.md
         - name: Linux 和 Windows 之间的功能差异
           href: service-fabric-linux-windows-differences.md
         - name: Azure 上的群集
@@ -304,8 +303,6 @@
               href: service-fabric-deploy-multiple-apps.md
         - name: 生成容器服务
           items:
-            - name: 容器安全性
-              href: service-fabric-securing-containers.md
             - name: 容器和服务的资源调控
               href: service-fabric-resource-governance.md
             - name: 卷和日志记录驱动程序

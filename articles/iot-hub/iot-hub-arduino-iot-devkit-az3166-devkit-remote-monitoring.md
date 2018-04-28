@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/02/2018
-ms.date: 04/9/2018
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5dae45d1e952e0b7a729ac82bac4aea5d65b8d16
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.openlocfilehash: 9e1cb39e5fa32d55405c0f2a15185345f6c9f517
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>将 MXChip IoT DevKit 连接到 Azure IoT 套件以进行远程监视
 

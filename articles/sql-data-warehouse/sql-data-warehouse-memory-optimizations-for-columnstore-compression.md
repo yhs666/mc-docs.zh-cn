@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-origin.date: 10/23/2017
-ms.date: 12/11/2017
+origin.date: 03/15/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6b3c0978af67a2309fd5b828e21d3f4d80cd3bbe
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 2423560d28355f79102d1b2ece39024b43d38350
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>最大化列存储的行组质量
 
@@ -140,7 +140,7 @@ OPTION (MAXDOP 1);
 DWU 大小和用户资源类共同确定用户查询可用的内存量。 若要增加加载查询的内存授予，可增加 DWU 的数量或增加资源类。
 
 - 若要增加 DWU，请参阅[如何进行性能缩放？](quickstart-scale-compute-portal.md)
-- 若要更改查询的资源类，请参阅[更改用户资源类示例](resource-classes-for-workload-management.md#assigning-resource-classes)。
+- 若要更改查询的资源类，请参阅[更改用户资源类示例](resource-classes-for-workload-management.md#change-a-users-resource-class)。
 
 例如，使用 DWU 100 时，smallrc 资源类中的用户在每次分发时可使用 100 MB 的内存。 有关详细信息，请参阅 [SQL 数据仓库中的并发](resource-classes-for-workload-management.md)。
 

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure IoT 中心设备孪生属性 (Python)"
-description: "如何使用 Azure IoT 中心设备孪生配置设备。 使用 Azure IoT SDK for Python 实现模拟设备应用，并实现可使用设备孪生更改设备配置的服务应用。"
+title: 使用 Azure IoT 中心设备孪生属性 (Python)
+description: 如何使用 Azure IoT 中心设备孪生配置设备。 使用 Azure IoT SDK for Python 实现模拟设备应用，并实现可使用设备孪生更改设备配置的服务应用。
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d0bcec50-26e6-40f0-8096-733b2f3071ec
 ms.service: iot-hub
 ms.devlang: python
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/12/2018
-ms.date: 03/19/2018
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4c309133b3588c255570e7c137955220629246f5
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: d040f0501b087da91882f0e6bcee85734508066b
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-desired-properties-to-configure-devices-python"></a>使用所需属性配置设备 (Python)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
@@ -160,7 +160,7 @@ ms.lasthandoff: 03/12/2018
 1. 运行设备应用：
    
     ```cmd/sh
-    node SimulateDeviceConfiguration.js
+    node SimulateDeviceConfiguration.py
     ```
    
     此时会显示消息 `Device twins updated.`。 使应用保持运行状态。

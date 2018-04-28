@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/26/2018
 ms.author: v-yiso
-ms.date: 04/09/2018
-ms.openlocfilehash: e62f54e1b7621989d94f43f5b9e0c2560921fc93
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.date: 05/07/2018
+ms.openlocfilehash: 4cb79813c89b61d852773d85032967989cf108cb
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>用于设备孪生、作业和消息路由的 IoT 中心查询语言
 
@@ -27,6 +27,8 @@ IoT 中心提供类似于 SQL 的强大语言，用于检索有关[设备孪生]
 
 * IoT 中心查询语言的主要功能简介，以及
 * 语言的详细说明。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-twin-queries"></a>设备孪生查询
 [设备孪生][lnk-twins] 可以包含标记和属性形式的任意 JSON 对象。 通过 IoT 中心，可将设备孪生作为包含所有设备孪生信息的 JSON 文档进行查询。

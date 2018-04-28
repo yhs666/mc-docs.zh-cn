@@ -1,25 +1,19 @@
 ---
-title: 快速入门：在 Azure SQL 数据仓库中横向扩展计算资源 - PowerShell | Azure
-description: 若要向外扩展的 Powershell 任务通过调整数据仓库单位计算资源。
+title: 快速入门：在 Azure SQL 数据仓库中横向扩展计算资源 - PowerShell | Microsoft Docs
+description: 使用 PowerShell 在 Azure SQL 数据仓库中缩放计算资源 横向扩展计算为提高性能或缩放重新计算以节约成本。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
-manager: digimobile
-editor: ''
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
+ms.topic: quickstart
+ms.component: implement
 origin.date: 01/31/2018
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: c75018783cdb2beb087289e7f3dc32e1505e8100
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: c5ca7542ff3ca3c12ab1595ccd3a4f5c6257f235
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>快速入门：使用 PowerShell 在 Azure SQL 数据仓库中缩放计算资源
 

@@ -1,25 +1,19 @@
 ---
 title: 将服务主体添加到 Azure Analysis Services 服务器管理员角色 | Azure
 description: 了解如何将自动化服务主体添加到服务器管理员角色
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 03/05/2018
-ms.date: 03/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: bc12cc2e67bcd57cd8634a8ba81e81e3fb85f9ff
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.reviewer: minewiskan
+ms.openlocfilehash: c036e8af308b87480e3dc707f30afdc1c187888a
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-a-service-principle-to-the-server-administrator-role"></a>将服务主体添加到服务器管理员角色 
 
@@ -47,11 +41,10 @@ ms.lasthandoff: 03/28/2018
     ![搜索服务主体帐户](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 > [!NOTE]
-> 对于使用 AzureRm cmdlet 进行的服务器操作，运行计划程序的服务主体还必须属于 [Azure 基于角色的访问控制 (RBAC)](../active-directory/role-based-access-control-what-is.md) 中资源的所有者角色。 
+> 对于使用 AzureRm cmdlet 进行的服务器操作，运行计划程序的服务主体还必须属于 [Azure 基于角色的访问控制 (RBAC)](https://docs.microsoft.com/zh-cn/azure/role-based-access-control/overview) 中资源的所有者角色。 
 
 ## <a name="related-information"></a>相关信息
 
 * [下载 SQL Server PowerShell 模块](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [下载 SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
-<!-- Update_Description: new articles on analysis services to add server admin -->
-<!--ms.date: 03/26/2018-->
+<!-- Update_Description: update link, update meta properties -->

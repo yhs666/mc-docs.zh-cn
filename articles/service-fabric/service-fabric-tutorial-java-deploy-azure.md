@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/26/2018
-ms.date: 04/09/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c5213b774be9df0cab81308d21d78b431d9f4ca7
-ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
+ms.openlocfilehash: c81082e78cb3f0600314c1ab256509a12bc162eb
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>教程：将 Java 应用程序部署到 Azure 中的 Service Fabric 群集
 本教程是一个系列的第三部分，介绍如何将 Service Fabric 应用程序部署到 Azure 中的群集。
@@ -73,7 +73,7 @@ ms.lasthandoff: 04/18/2018
     ```bash
     ./new-service-fabric-cluster-certificate.sh [REGION] [KEY-VAULT-RESOURCE-GROUP] [KEY-VAULT-NAME] [CERTIFICATE-PASSWORD] [CLUSTER-DNS-NAME-FOR-CERTIFICATE]
 
-    Example: ./new-service-fabric-cluster-certificate.sh 'chinanorth' 'testkeyvaultrg' 'testkeyvault' '<password>' 'testservicefabric.chinanorth.chinacloudapp.cn'
+    Example: ./new-service-fabric-cluster-certificate.sh 'chinanorth' 'testkeyvaultrg' 'testkeyvault' '<password>' 'testservicefabric.chinanorth.cloudapp.chinacloudapi.cn'
     ```
 
     上述命令返回以下信息，该信息应该记下来供以后使用。
@@ -107,7 +107,7 @@ ms.lasthandoff: 04/18/2018
 8. 复制帐户 SAS URL，留待创建 Service Fabric 群集之用。 它类似于以下 URL：
 
     ```
-    https://teststorageaccount.table.core.chinacloudapi.cn/?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
+    ?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
     ```
 
 9. 创建包含事件中心资源的资源组。 事件中心用于将消息从 Service Fabric 发送到运行 ELK 资源的服务器。
@@ -164,10 +164,10 @@ ms.lasthandoff: 04/18/2018
     复制返回的 JSON 中的 **sr** 字段的值。 **sr** 字段值是 EventHubs 的 SAS 令牌。 以下 URL 是 **sr** 字段的示例：
 
     ```bash
-    https%3A%2F%2Ftesteventhubs.servicebus.chinacloudapi.cn%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=<policy_name>
+    https%3A%2F%testeventhub.servicebus.chinacloudapi.cn%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    EventHubs 的 SAS URL 遵循以下结构：https://<namespacename>.servicebus.chinacloudapi.cn/<eventhubsname>?sr=<sastoken>。 例如： https://testeventhubs.servicebus.chinacloudapi.cn/testeventhubs?sr=https%3A%2F%2Ftesteventhubs.servicebus.chinacloudapi.cn%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
+    EventHubs 的 SAS URL 遵循以下结构：https://<namespacename>.servicebus.chinacloudapi.cn/<eventhubsname>?sr=<sastoken>。 例如： https://testeventhubnamespace.servicebus.chinacloudapi.cn/testeventhub?sr=https%3A%2F%testeventhub.servicebus.chinacloudapi.cn%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
 12. 打开 *sfdeploy.parameters.json* 文件，替换前述步骤中的以下内容 
 
@@ -202,13 +202,13 @@ ms.lasthandoff: 04/18/2018
 2. 若要将应用程序部署到此群集，必须使用 SFCTL 来建立到群集的连接。 SFCTL 要求使用一个 PEM 文件，其中的公钥和私钥用于连接到群集。因此，请运行以下命令，生成包含公钥和私钥的 PEM 文件。 
 
     ```bash
-    openssl pkcs12 -in testservicefabric.chinanorth.chinacloudapp.cn.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
+    openssl pkcs12 -in testservicefabric.chinanorth.cloudapp.chinacloudapi.cn.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
     ```
 
 3. 运行以下命令以连接到群集。
 
     ```bash
-    sfctl cluster select --endpoint https://testlinuxcluster.chinanorth.chinacloudapp.cn:19080 --pem sfctlconnection.pem --no-verify
+    sfctl cluster select --endpoint https://testlinuxcluster.chinanorth.cloudapp.chinacloudapi.cn:19080 --pem sfctlconnection.pem --no-verify
     ```
 
 4. 若要部署应用程序，请导航到 *Voting/Scripts* 文件夹，然后运行 **install.sh** 脚本。 
@@ -217,11 +217,11 @@ ms.lasthandoff: 04/18/2018
     ./install.sh
     ```
 
-5. 若要访问 Service Fabric Explorer，请打开最常用的浏览器，然后键入 https://testlinuxcluster.chinanorth.chinacloudapp.cn:19080。 从证书存储中选择需要用来连接到此终结点的证书。 如果使用 Linux 计算机，则必须将通过 *new-service-fabric-cluster-certificate.sh* 脚本生成的证书导入到 Chrome 中，然后才能查看 Service Fabric Explorer。 如果使用 Mac，则必须将 PFX 文件安装到密钥链中。 你注意到应用程序已安装到群集上。 
+5. 若要访问 Service Fabric Explorer，请打开最常用的浏览器，然后键入 https://testlinuxcluster.chinanorth.cloudapp.chinacloudapi.cn:19080。 从证书存储中选择需要用来连接到此终结点的证书。 如果使用 Linux 计算机，则必须将通过 *new-service-fabric-cluster-certificate.sh* 脚本生成的证书导入到 Chrome 中，然后才能查看 Service Fabric Explorer。 如果使用 Mac，则必须将 PFX 文件安装到密钥链中。 你注意到应用程序已安装到群集上。 
 
     ![SFX Java Azure](./media/service-fabric-tutorial-java-deploy-azure/sfxjavaonazure.png)
 
-6. 若要访问应用程序，请键入 https://testlinuxcluster.chinanorth.chinacloudapp.cn:8080 
+6. 若要访问应用程序，请键入 https://testlinuxcluster.chinanorth.cloudapp.chinacloudapi.cn:8080 
 
     ![Voting 应用 Java Azure](./media/service-fabric-tutorial-java-deploy-azure/votingappjavaazure.png)
 
@@ -239,7 +239,5 @@ ms.lasthandoff: 04/18/2018
 > * 创建通过 ELK 进行监视所需的资源 
 > * 可选：如何使用合作群集来试用 Service Fabric
 
-<!-- Not Available on [Set up Monitoring & Diagnostics](service-fabric-tutorial-java-elk.md) -->
-
-<!-- Update_Description: new articles on service fabric turioal java deploy azure -->
-<!--ms.date: 04/09/2018-->
+<!-- Not Available on [Set up Monitoring & Diagnostics](service-fabric-tutorial-java-elk.md)-->
+<!-- Update_Description: wording update, update link  -->

@@ -1,26 +1,19 @@
 ---
-title: "Azure Analysis Services 中的数据模型兼容性级别 | Azure"
-description: "了解表格数据模型兼容性级别。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 中的数据模型兼容性级别 | Azure
+description: 了解表格数据模型兼容性级别。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6f17a7666da910def51296f9bf7c2702498e9c92
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: minewiskan
+ms.openlocfilehash: c19a73762f5912238893a8b14b9e7f16255f6309
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Analysis Services 表格模型的兼容性级别
 

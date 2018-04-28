@@ -1,33 +1,25 @@
 ---
-title: "教程：Polybase 数据加载 - 从 Azure 存储 Blob 到 Azure SQL 数据仓库 | Azure"
-description: "本教程使用 Azure 门户和 SQL Server Management Studio 将出租车数据从 Azure Blob 存储加载到 Azure SQL 数据仓库。"
+title: 教程：将纽约出租车数据加载到 Azure SQL 数据仓库 | Microsoft Docs
+description: 教程使用 Azure 门户和 SQL Server Management Studio 将纽约市出租车数据从公共 Azure Blob 加载到 Azure SQL 数据仓库。
 services: sql-data-warehouse
-documentationcenter: 
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
+ms.component: implement
 origin.date: 11/17/2017
 ms.date: 03/12/2018
 ms.author: v-yeche
 ms.reviewer: barbkess
-ms.openlocfilehash: c74d04f6b8f8c297d1c379c1d4885ad02d1102be
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 35f39f89e02ca28d7f239edc39e2a93b7fc27b8f
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>教程：使用 PolyBase 将数据从 Azure Blob 存储加载到 Azure SQL 数据仓库
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>教程：将纽约出租车数据加载到 Azure SQL 数据仓库
 
-PolyBase 是一种标准加载技术，用于将数据加载到 SQL 数据仓库。 在本教程中，使用 PolyBase 将出租车数据从 Azure Blob 存储加载到 Azure SQL 数据仓库。 本教程使用 [Azure 门户](https://portal.azure.cn)和 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 执行以下操作： 
-<!-- Not Available on http://XX.XX.filename.md -->
+本教程使用 PolyBase 将纽约市出租车数据从公共 Azure Blob 加载到 Azure SQL 数据仓库。 本教程使用 [Azure 门户](https://portal.azure.cn)和 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 执行以下操作： 
 
 > [!div class="checklist"]
 > * 在 Azure 门户中创建数据仓库
@@ -52,7 +44,7 @@ PolyBase 是一种标准加载技术，用于将数据加载到 SQL 数据仓库
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>创建空白 SQL 数据仓库
 
-创建 Azure SQL 数据仓库时，会使用定义好的一组[计算资源](performance-tiers.md)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 逻辑服务器](../sql-database/sql-database-features.md)中创建。 
+创建 Azure SQL 数据仓库时，会使用定义好的一组[计算资源](memory-and-concurrency-limits.md)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 逻辑服务器](../sql-database/sql-database-features.md)中创建。 
 
 按照以下步骤创建空白 SQL 数据仓库。 
 
@@ -225,8 +217,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 ## <a name="create-external-tables-for-the-sample-data"></a>为示例数据创建外部表
 
-已准备好开始将数据加载到新的数据仓库。 本教程说明了如何使用 [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 从 Azure 存储 Blob 加载出租车数据。 若要了解如何将数据置于 Azure Blob 存储或如何将其直接从源加载到 SQL 数据仓库以供将来参考，请参阅[加载概述](sql-data-warehouse-overview-load.md)。
-<!-- URL is Correct to remove .md postfix on [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) -->
+已准备好开始将数据加载到新的数据仓库。 本教程说明如何使用外部表从 Azure 存储 Blob 加载纽约市出租车数据。 若要了解如何将数据置于 Azure Blob 存储或如何将其直接从源加载到 SQL 数据仓库以供将来参考，请参阅[加载概述](sql-data-warehouse-overview-load.md)。
 
 运行以下 SQL 脚本，指定有关想要加载的数据的信息。 此信息包括数据所在的位置、数据内容的格式以及数据的表定义。 
 

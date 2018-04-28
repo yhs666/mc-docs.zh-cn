@@ -1,26 +1,19 @@
 ---
-title: "Azure Analysis Services 教程第 7 课：创建关键绩效指标 | Azure"
-description: "介绍如何在 Azure Analysis Services 教程项目中创建关键绩效指标。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 教程第 7 课：创建关键绩效指标 | Azure
+description: 介绍如何在 Azure Analysis Services 教程项目中创建关键绩效指标。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 22a50c036ee3b18f701162ede38e351dcf8bd42a
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.reviewer: minewiskan
+ms.openlocfilehash: 3e9712a80f2e8ca05667ed080ac7124f63c9cdcf
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-key-performance-indicators"></a>创建关键绩效指标
 
@@ -85,4 +78,4 @@ ms.lasthandoff: 02/23/2018
 ## <a name="whats-next"></a>后续步骤
 [第 8 课：创建透视](../tutorials/aas-lesson-8-create-perspectives.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties  -->

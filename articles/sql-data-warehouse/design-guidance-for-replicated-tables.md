@@ -1,25 +1,20 @@
 ---
-title: "针对复制的表的设计指南 - Azure SQL 数据仓库 | Azure"
-description: "有关在 Azure SQL 数据仓库架构中设计复制的表的建议。"
+title: 针对复制的表的设计指南 - Azure SQL 数据仓库 | Azure
+description: 有关在 Azure SQL 数据仓库架构中设计复制的表的建议。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
+ms.topic: conceptual
+ms.component: design
 origin.date: 10/23/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 68f915c2706351511cbf7e4f5be067791dcb266b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 96e6c3bad0f4e0bbc57f1bf8e081b487a1656212
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>有关在 Azure SQL 数据仓库中使用复制的表的设计指南
 本文提供了有关在 SQL 数据仓库架构中设计复制的表的建议。 可以使用这些建议通过减少数据移动和降低查询复杂性来提高查询性能。
@@ -29,9 +24,9 @@ ms.lasthandoff: 02/13/2018
 > 
 
 ## <a name="prerequisites"></a>先决条件
-本文假定你熟悉 SQL 数据仓库中的数据分发和数据移动概念。  有关详细信息，请参阅[体系结构](massively-parallel-processing-mpp-architecture.md)一文。 
+本文假设读者熟悉 SQL 数据仓库中的数据分布和数据移动概念。  有关详细信息，请参阅[体系结构](massively-parallel-processing-mpp-architecture.md)一文。 
 
-作为表设计的一部分，请尽可能多地去了解你的数据及其查询方式。  例如，请考虑以下问题：
+在设计表的过程中，尽可能多地了解数据以及数据查询方式。  例如，请考虑以下问题：
 
 - 表有多大？   
 - 表的刷新频率是多少？   
@@ -137,7 +132,7 @@ SQL 数据仓库通过维护表的主版本来实现复制的表。 它将主版
 
 发生下列情况后，需要重新生成：
 - 加载或修改了数据
-- 数据仓库缩放为不同的[服务级别](performance-tiers.md#service-levels)
+- 数据仓库缩放为不同级别
 - 更新了表定义
 
 发生下列情况后，不需要重新生成：

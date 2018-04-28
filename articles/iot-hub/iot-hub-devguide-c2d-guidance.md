@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中心从云到设备选项 | Azure"
-description: "开发人员指南 - 指导用户何时使用直接方法、设备孪生的所需属性或云到设备的消息，以进行从云到设备的通信。"
+title: Azure IoT 中心从云到设备选项 | Azure
+description: 开发人员指南 - 指导用户何时使用直接方法、设备孪生的所需属性或云到设备的消息，以进行从云到设备的通信。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
 ms.service: iot-hub
 ms.devlang: multiple
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
-ms.date: 03/19/2018
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: d1ff8852cf1c9306e7f93ebfb847c4590c73ff96
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: edfa5d9641965acd21e15f55b8aa2226af3ccac3
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cloud-to-device-communications-guidance"></a>从云到设备通信指南
 IoT 中心提供三个选项，允许设备应用向后端应用公开功能：
@@ -27,6 +27,8 @@ IoT 中心提供三个选项，允许设备应用向后端应用公开功能：
 * [直接方法][lnk-methods]，适用于需要立即确认结果的通信。 直接方法通常用于以交互方式控制设备，例如打开风扇。
 * [孪生的所需属性][lnk-twins]，适用于旨在将设备置于某个所需状态的长时间运行命令。 例如，将遥测发送间隔设置为 30 分钟。
 * [云到设备消息][lnk-c2d]，适用于向设备应用提供单向通知。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 下面详细比较了各种从云到设备的通信选项。
 

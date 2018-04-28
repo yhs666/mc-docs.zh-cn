@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/17/2018
-ms.date: 03/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: a33f81505d1e2f8ddd735ec6824c6819c79800c2
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 0e83b8b8859519e2add6e8907e032da0bfdd666d
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 资源时使用链接模版和嵌套模版
 
@@ -447,7 +447,7 @@ done
 }
 ```
 
-在 PowerShell 中，使用以下命令获取容器的令牌并部署模板：
+在 PowerShell 中，使用以下命令获取容器的令牌并部署模板。 注意，**containerSasToken** 参数是在模板中定义的。 它不是 **New-AzureRmResourceGroupDeployment** 命令中的参数。
 
 ```powershell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates

@@ -1,25 +1,25 @@
 ---
-title: "使用 Apache Storm 从 Azure 事件中心接收事件 | Azure"
-description: "使用 Apache Storm 从事件中心进行接收入门"
+title: 使用 Apache Storm 从 Azure 事件中心接收事件 | Azure
+description: 使用 Apache Storm 从事件中心进行接收入门
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-origin.date: 08/15/2017
-ms.date: 02/26/2018
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: e0f61776d54f294cedc552832c885f15f0359467
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 444f8ecd341127f539d021ea083d3ea4a10c8731
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>使用 Apache Storm 从事件中心接收事件
 
@@ -254,4 +254,4 @@ ms.lasthandoff: 02/23/2018
 
 [12]: ./media/event-hubs-get-started-receive-storm/create-storm1.png
 
-<!-- Update_Description: update meta properties, wording update  -->
+<!-- Update_Description: update meta properties  -->

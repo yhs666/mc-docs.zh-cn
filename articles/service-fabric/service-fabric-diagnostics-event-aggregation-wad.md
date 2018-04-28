@@ -1,25 +1,25 @@
 ---
-title: "使用 Windows Azure 诊断聚合 Azure Service Fabric 事件 | Azure"
-description: "了解如何使用 WAD 聚合和收集事件，以便对 Azure Service Fabric 群集进行监视和诊断。"
+title: 使用 Windows Azure 诊断聚合 Azure Service Fabric 事件 | Azure
+description: 了解如何使用 WAD 聚合和收集事件，以便对 Azure Service Fabric 群集进行监视和诊断。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 11/02/2017
-ms.date: 01/01/2018
+origin.date: 03/19/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 58ce524774b2b6ffdb5a993dc937d066cabb1ca5
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: e905154763361e9c296a54e6b755888e4df6a511
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>使用 Windows Azure 诊断聚合和集合事件
 > [!div class="op_single_selector"]
@@ -64,7 +64,8 @@ ms.lasthandoff: 02/13/2018
 使用门户创建群集时，我们强烈建议先下载模板， **并单击“确定”** 创建群集。 有关详细信息，请参阅[使用 Azure Resource Manager 模板设置 Service Fabric 群集](service-fabric-cluster-creation-via-arm.md)。 以后，需要通过模板进行更改，因为无法使用门户进行某些更改。
 
 ### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 在创建群集过程中部署诊断扩展
-要使用 Resource Manager 创建群集，需要在创建群集之前，将诊断配置 JSON 添加到整个群集 Resource Manager 模板。 我们将在 Resource Manager 模板示例中提供包含五个 VM 的群集 Resource Manager 模板，并在演示 Resource Manager 模板示例的过程中添加诊断配置。 可以在 Azure 示例库中的以下位置找到该示例： [包含五节点群集的诊断 Resource Manager 模板示例](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)。
+要使用 Resource Manager 创建群集，需要在创建群集之前，将诊断配置 JSON 添加到整个群集 Resource Manager 模板。 我们将在 Resource Manager 模板示例中提供包含五个 VM 的群集 Resource Manager 模板，并在演示 Resource Manager 模板示例的过程中添加诊断配置。 可以在 Azure 示例库中的以下位置找到该示例： [包含五节点群集的诊断 Resource Manager 模板示例](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)。
+<!--URL should be https://azure.microsoft.com/en-in/resources/templates/ -->
 
 若要查看 Resource Manager 模板中的诊断设置，请打开 azuredeploy.json 文件并搜索 **IaaSDiagnostics**。 若要使用此模板创建群集，请选择在上面的链接中提供的“部署到 Azure”  按钮。
 
@@ -172,67 +173,86 @@ ms.lasthandoff: 02/13/2018
 
 如上所述修改 template.json 文件后，请重新发布 Resource Manager 模板。 如果已导出模板，则运行 deploy.ps1 文件会重新发布模板。 部署后，请确保 **ProvisioningState** 为 **Succeeded**。
 
-## <a name="collect-health-and-load-events"></a>收集运行状况和负载事件
+> [!TIP]
+> 如果要将容器部署到群集，可通过将此代码添加到“WadCfg > DiagnosticMonitorConfiguration”节，启用 WAD 来选取 docker 统计信息。
+>
+>```json
+>"DockerSources": {
+>    "Stats": {
+>        "enabled": true,
+>        "sampleRate": "PT1M"
+>    }
+>},
+>```
 
-从 5.4 版本的 Service Fabric 开始，可收集运行状况和加载指标事件。 这些事件反映了由系统或代码使用 [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) 或 [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx) 等运行状况或加载报告 API 生成的事件。 这允许随时间聚合和查看系统运行状况，以及基于运行状况或加载事件进行警报。 要在 Visual Studio 的诊断事件查看器中查看这些事件，请将“Microsoft-ServiceFabric:4:0x4000000000000008”添加到 ETW 提供程序列表。
+## <a name="log-collection-configurations"></a>日志收集配置
+其他通道的日志也可供收集，下面是你可以在 Azure 中运行的群集的模板中进行的一些最常见配置。
 
-若要收集群集中的事件，请将资源管理器模板的 WadCfg 中的 `scheduledTransferKeywordFilter` 修改为 `4611686018427387912`。
-
-```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387912",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
-
-## <a name="collect-reverse-proxy-events"></a>收集反向代理事件
-
-从 Service Fabric 的 5.7 版本开始，可通过数据和消息通道收集[反向代理](service-fabric-reverseproxy.md)事件。 
-
-反向代理通过主数据和消息通道仅推送错误事件 - 反映请求处理失败和关键问题。 详细通道包含与反向代理处理的所有请求有关的详细事件。 
-
-若要查看 Visual Studio 的诊断事件查看器中的错误事件，请将“Microsoft-ServiceFabric:4:0x4000000000000010”添加到 ETW 提供程序列表中。 对于所有请求遥测，将 ETW 提供程序列表中的 Microsoft-ServiceFabric 条目更新为“Microsoft-ServiceFabric:4:0x4000000000000020”。
-
-对于在 Azure 中运行的群集：
-
-若要在主数据和消息通道中选取跟踪，请将资源管理器模板的 WadCfg 中的 `scheduledTransferKeywordFilter` 值修改为 `4611686018427387920`。
+* 操作通道 - 基本：默认情况下启用，由 Service Fabric 和群集执行的高级操作，包括发生的节点事件、所部署新应用程序的事件或升级回退事件等。有关事件的列表，请参阅[操作通道事件](/service-fabric/service-fabric-diagnostics-event-generation-operational)。
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387920",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
-
-若要收集所有请求处理事件，通过将资源管理器模板的 WadCfg 中的 `scheduledTransferKeywordFilter` 值更改为 `4611686018427387936`，可开启数据和消息详细通道。
+      scheduledTransferKeywordFilter: "4611686018427387904"
+  ```
+* 操作通道 - 详细：这包括运行状况报告和负载均衡决策，加上基本操作通道中的所有内容。 这些事件由系统或代码使用 [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) 或 [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx) 等运行状况或加载报告 API 生成。 要在 Visual Studio 的诊断事件查看器中查看这些事件，请将“Microsoft-ServiceFabric:4:0x4000000000000008”添加到 ETW 提供程序列表。
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387936",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387912"
+  ```
 
-启用收集来自此详细通道的事件会快速生成大量跟踪并消耗存储容量。 请只有在绝对必要的情况下才开启。
-有关反向代理事件的详细故障排除，请参阅[反向代理诊断指南](service-fabric-reverse-proxy-diagnostics.md)。
+* 数据和消息通道 - 基本：消息（当前仅限 ReverseProxy）和数据路径中生成的关键日志和事件，以及详细操作通道日志。 这些事件是处理失败的请求和 ReverseProxy 中的其他关键问题以及已处理的请求。 **这是我们针对全面日志记录的建议**。 若要在 Visual Studio 的诊断事件查看器中查看这些事件，请将“Microsoft-ServiceFabric:4:0x4000000000000010”添加到 ETW 提供程序列表。
+
+```json
+      scheduledTransferKeywordFilter: "4611686018427387928"
+  ```
+
+* 数据和消息通道 - 详细：包含群集和详细操作通道中的数据和消息提供的所有非关键日志。 有关对所有反向代理事件的详细故障排除，请参阅[反向代理诊断指南](service-fabric-reverse-proxy-diagnostics.md)。  若要在 Visual Studio 的诊断事件查看器中查看这些事件，请将“Microsoft-ServiceFabric:4:0x4000000000000020”添加到 ETW 提供程序列表。
+
+```json
+      scheduledTransferKeywordFilter: "4611686018427387944"
+  ```
+
+>[!NOTE]
+>此通道包含非常大量的事件，从详细通道启用事件收集会导致快速生成大量跟踪并可能会消耗存储容量。 请只有在绝对必要的情况下才启用此项。
+
+若要启用“基本数据和消息通道”（我们针对全面日志记录的建议），模板的 `WadCfg` 中的 `EtwManifestProviderConfiguration` 将如下所示：
+
+```json
+  "WadCfg": {
+        "DiagnosticMonitorConfiguration": {
+          "overallQuotaInMB": "50000",
+          "EtwProviders": {
+            "EtwEventSourceProviderConfiguration": [
+              {
+                "provider": "Microsoft-ServiceFabric-Actors",
+                "scheduledTransferKeywordFilter": "1",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableActorEventTable"
+                }
+              },
+              {
+                "provider": "Microsoft-ServiceFabric-Services",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableServiceEventTable"
+                }
+              }
+            ],
+            "EtwManifestProviderConfiguration": [
+              {
+                "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                "scheduledTransferLogLevelFilter": "Information",
+                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricSystemEventTable"
+                }
+              }
+            ]
+          }
+        }
+      },
+```
 
 ## <a name="collect-from-new-eventsource-channels"></a>从新的 EventSource 通道收集
 
@@ -275,4 +295,4 @@ ms.lasthandoff: 02/13/2018
 <!-- Not Available on * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
 <!-- Not Available on * [Event Analysis and Visualization with OMS](service-fabric-diagnostics-event-analysis-oms.md) -->
 
-<!--Update_Description: update link -->
+<!--Update_Description: update meta propreties, update link, wording update -->

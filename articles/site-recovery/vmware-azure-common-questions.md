@@ -9,11 +9,11 @@ ms.topic: article
 origin.date: 03/15/2018
 ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 79f440c26f4f458e3ac0c46148db5e1d2deae9d1
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 83ef2abf804932e93cdb094fcb9c08287094c4cc
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常见问题 - VMware 到 Azure 的复制
 
@@ -109,7 +109,7 @@ Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将�
 虽然可以这样做，但运行配置服务器的 Azure VM 需要与本地的 VMware 基础结构和 VM 通信。 产生的开销可能导致这种做法不切实际。
 
 ### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>在哪里可以获取最新版本的配置服务器模板？
-可以从 [Microsoft 下载中心](https://aka.ms/asrconfigurationserver)下载最新版本。
+可以从 [Microsoft 下载中心](http://aka\.ms/asrconfigurationserver_bjb)下载最新版本。
 
 ### <a name="how-do-i-update-the-configuration-server"></a>如何更新配置服务器？
 请安装更新汇总。 可以在 [wiki 更新页](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)中找到最新的更新信息。

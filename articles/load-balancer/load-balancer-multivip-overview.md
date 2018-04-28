@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/25/2017
-ms.date: 04/02/2018
+origin.date: 03/22/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7f4f9d4fe8a926b3278694481436a736833621e3
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 86209003eb0ac7ac4d248a05975ab3e1090c0566
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure 负载均衡器的多个前端
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 使用 Azure 负载均衡器可对多个端口和/或多个 IP 地址上的服务进行负载均衡。 可以使用公共和内部负载均衡器定义来对一组 VM 之间的流量进行负载均衡。
 
 本文介绍此功能的基础知识、重要概念和约束。 如果只想要公开一个 IP 地址上的服务，可以查看[公共](load-balancer-get-started-internet-portal.md)或[内部](load-balancer-get-started-ilb-arm-portal.md)负载均衡器配置的简要说明。 添加多个前端是对单个前端配置的递增。 使用本文中的概念，随时可以扩展简化的配置。
 
-定义 Azure 负载均衡器时，前端和后端配置与规则相连接。 规则引用的运行状况探测用于确定如何将新流量发送到后端池中的节点。 前端由前端 IP 配置（也称为 VIP）定义，VIP 是由负载均衡规则中的 IP 地址（公共或内部）、传输协议（UDP 或 TCP）和端口号组成的 3 元组。 DIP 是附加到后端池中 VM 的 Azure 虚拟 NIC 上的 IP 地址。
+定义 Azure 负载均衡器时，前端和后端池配置与规则相连接。 规则引用的运行状况探测用于确定如何将新流量发送到后端池中的节点。 前端（也称为 VIP）由负载均衡规则中的 IP 地址（公共或内部）、传输协议（UDP 或 TCP）和端口号组成的 3 元组定义。 后端池是引用负载均衡器后端池的虚拟机 IP 配置（NIC 资源的一部分）的集合。
 
 下表包含一些示例前端配置：
 
@@ -135,7 +133,11 @@ DIP 是入站流量的目标。 在后端池中，每个 VM 公开 DIP 上唯一
 ## <a name="limitations"></a>限制
 
 * 只有 IaaS VM 支持多个前端配置。
-* 使用浮点 IP 规则时，应用程序必须为出站流量使用 DIP。 如果应用程序绑定到来宾 OS 中环回接口上配置的前端 IP 地址，则无法使用 SNAT 来重写出站流量，此时流量处理会失败。
+* 使用浮点 IP 规则时，应用程序必须为出站流使用主要 IP 配置。 如果应用程序绑定到来宾 OS 中环回接口上配置的前端 IP 地址，则无法使用 Azure 的 SNAT 来重写出站流，此时流处理会失败。
 * 公共 IP 地址会影响计费。 有关详细信息，请参阅 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)
 * 订阅有所限制。 有关详细信息，请参阅[服务限制](../azure-subscription-service-limits.md#networking-limits)。
+
+## <a name="next-steps"></a>后续步骤
+
+- 查看[出站连接](load-balancer-outbound-connections.md)，了解多个前端对出站连接行为的影响。
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -1,25 +1,19 @@
 ---
-title: "Azure Analysis Services 服务器别名 | Azure"
-description: "介绍如何创建和使用服务器别名。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 服务器别名 | Azure
+description: 介绍如何创建和使用服务器别名。
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 68f3d2932a360557103bd29d987583386416023c
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: minewiskan
+ms.openlocfilehash: 9d5a315db5b28724925965a593c74ea7698a0b05
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="alias-server-names"></a>服务器别名
 
@@ -64,3 +58,4 @@ protected void Page_Load(object sender, EventArgs e)
 [客户端库](analysis-services-data-providers.md)   
 [从 Power BI Desktop 进行连接](analysis-services-connect-pbi.md)
 
+<!-- Update_Description: update meta properties, update link -->

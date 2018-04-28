@@ -1,32 +1,25 @@
 ---
 title: 教程：将数据加载到 Azure SQL 数据仓库 | Microsoft Docs
-description: 本教程使用 Azure 门户和 SQL Server Management Studio 将 WideWorldImportersDW 数据仓库从 Azure Blob 存储加载到 Azure SQL 数据仓库。
+description: 教程使用 Azure 门户和 SQL Server Management Studio 将 WideWorldImportersDW 数据仓库从公共 Azure Blob 加载到 Azure SQL 数据仓库。
 services: sql-data-warehouse
-documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
+ms.component: implement
 origin.date: 03/06/2018
 ms.date: 03/21/2018
 ms.author: v-nany
 ms.reviewer: barbkess
-ms.openlocfilehash: aa4b1fad8a925c01f3e734440f8345490b4d137b
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 88b3aac8db64d0915b78ef8c2b1740213dfde5b1
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>教程：将数据加载到 Azure SQL 数据仓库
 
-本教程将 WideWorldImportersDW 数据仓库从 Azure Blob 存储加载到 Azure SQL 数据仓库。 本教程使用 [Azure 门户](https://portal.azure.cn)和 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 执行以下操作： 
+本教程使用 PolyBase 将 WideWorldImportersDW 数据仓库从 Azure Blob 存储加载到 Azure SQL 数据仓库。 本教程使用 [Azure 门户](https://portal.azure.cn)和 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 执行以下操作： 
 
 > [!div class="checklist"]
 > * 在 Azure 门户中创建数据仓库
@@ -52,7 +45,7 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>创建空白 SQL 数据仓库
 
-创建 Azure SQL 数据仓库时，会使用定义好的一组[计算资源](performance-tiers.md)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 逻辑服务器](../sql-database/sql-database-features.md)中创建。 
+创建 Azure SQL 数据仓库时，会使用定义好的一组[计算资源](memory-and-concurrency-limits.md)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 逻辑服务器](../sql-database/sql-database-features.md)中创建。 
 
 按照以下步骤创建空白 SQL 数据仓库。 
 
@@ -172,7 +165,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 ## <a name="create-a-user-for-loading-data"></a>创建用于加载数据的用户
 
-服务器管理员帐户用于执行管理操作，不适合对用户数据运行查询。 加载数据是一种内存密集型操作。 [内存最大值](performance-tiers.md#memory-maximums)根据[性能层](performance-tiers.md)和[资源类](resource-classes-for-workload-management.md)定义。 
+服务器管理员帐户用于执行管理操作，不适合对用户数据运行查询。 加载数据是一种内存密集型操作。 内存最大值根据[性能层](memory-and-concurrency-limits.md#performance-tiers)、[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)和[资源类](resource-classes-for-workload-management.md)定义。 
 
 最好创建专用于加载数据的登录名和用户。 然后，将加载用户添加到启用相应最大内存分配的[资源类](resource-classes-for-workload-management.md)。
 
@@ -239,7 +232,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     CREATE MASTER KEY;
     ```
 
-4. 运行以下 [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql.md) 语句，定义 Azure Blob 的位置。 这是外部出租车数据的位置。  要运行追加到查询窗口的命令，请突出显示要运行的命令，然后单击“执行”。
+4. 运行以下 [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) 语句，定义 Azure Blob 的位置。 这是外部出租车数据的位置。  要运行追加到查询窗口的命令，请突出显示要运行的命令，然后单击“执行”。
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -250,7 +243,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     );
     ```
 
-5. 运行以下 [CREATE EXTERNAL FILE FORMAT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql.md) T-SQL 语句，指定外部数据文件的格式设置特征和选项。 此语句指定外部数据需存储为文本，且值由竖线（“|”）字符分隔。  
+5. 运行以下 [CREATE EXTERNAL FILE FORMAT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql) T-SQL 语句，指定外部数据文件的格式设置特征和选项。 此语句指定外部数据需存储为文本，且值由竖线（“|”）字符分隔。  
 
     ```sql
     CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -265,7 +258,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     );
     ```
 
-6.  运行以下 [CREATE SCHEMA](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql.md) 语句，创建外部文件格式的架构。 ext 架构提供组织即将创建的外部表的方法。 wwi 架构组织要包含数据的标准表。 
+6.  运行以下 [CREATE SCHEMA](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql) 语句，创建外部文件格式的架构。 ext 架构提供组织即将创建的外部表的方法。 wwi 架构组织要包含数据的标准表。 
 
     ```sql
     CREATE SCHEMA ext;
@@ -560,7 +553,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 > 本教程直接将数据加载到最终表。 在生产环境中，通常使用 CREATE TABLE AS SELECT 将数据加载到临时表。 数据在临时表中时，可以执行任何必要的转换。 要将临时表中的数据追加到生产表，可以使用 INSERT...SELECT 语句。 有关详细信息，请参阅[将数据插入到生产表](guidance-for-loading-data.md#inserting-data-into-a-production-table)。
 > 
 
-下面的脚本使用 [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL 语句将数据从 Azure 存储 Blob 加载到数据仓库中的新表。 CTAS 基于 select 语句的结果创建新表。 新表包含与 select 语句结果相同的列和数据类型。 当 select 语句从外部表进行选择时，SQL 数据仓库将数据导入数据仓库中的关系表。 
+下面的脚本使用 [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 语句将数据从 Azure 存储 Blob 加载到数据仓库中的新表。 CTAS 基于 select 语句的结果创建新表。 新表包含与 select 语句结果相同的列和数据类型。 当 select 语句从外部表进行选择时，SQL 数据仓库将数据导入数据仓库中的关系表。 
 
 此脚本不会将数据载入 wwi.dimension_Date 和 wwi.fact_Sales 表。 稍后的步骤会生成这些表，使表中包含数目可调整的行。
 
@@ -954,12 +947,13 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
         END;
 
     END;
+    ```
 
-## Generate millions of rows
-Use the stored procedures you created to generate millions of rows in the wwi.fact_Sales table, and corresponding data in the wwi.dimension_Date table. 
+## <a name="generate-millions-of-rows"></a>生成数百万行
+使用创建的存储过程在 wwi.fact_Sales 表中生成数百万行，并在 wwi.dimension_Date 表中生成相应的数据。 
 
 
-1. Run this procedure to seed the [wwi].[seed_Sale] with more rows.
+1. 运行此过程，在 [wwi].[seed_Sale] 中播种更多行。
 
     ```sql    
     EXEC [wwi].[InitialSalesDataPopulation]

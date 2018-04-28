@@ -1,25 +1,22 @@
 ---
-title: "快速入门：在 Azure SQL 数据仓库中横向扩展计算资源 - Azure 门户 | Azure"
-description: "用于管理计算能力的 Azure 门户任务。 通过调整 DWU 缩放计算资源。 或者，暂停和恢复计算资源来节省成本。"
+title: 快速入门：在 Azure SQL 数据仓库中横向扩展计算资源 - Azure 门户 | Microsoft Docs
+description: 使用 Azure 门户在 Azure SQL 数据仓库中缩放计算资源。 横向扩展计算为提高性能或缩放重新计算以节约成本。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.custom: manage
+ms.component: implement
 origin.date: 01/31/2018
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5434e505d8d2f625ca3c36c95f5ea48e32357643
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: d4826445b6299b54007e585111e34caa2da968fc
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入门：使用 Azure 门户在 Azure SQL 数据仓库中缩放计算资源
 

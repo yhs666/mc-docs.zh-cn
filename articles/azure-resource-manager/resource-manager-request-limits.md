@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/26/2018
-ms.date: 03/26/2018
+origin.date: 04/10/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: e0315a65f2b072f5a31ee9ac86a161622a31f619
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: cabfcc66a39ae4c455c6e42b773d6e86c0d77b89
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="throttling-resource-manager-requests"></a>限制 Resource Manager 请求数
 对于每个订阅和租户，Resource Manager 将读取请求数限制为 15,000/小时，将写入请求数限制为 1,200/小时。 这些限制适用于每个 Azure 资源管理器实例。 每个 Azure 区域中有多个实例，Azure 资源管理器将部署到所有 Azure 区域。  因此，在实践中，限制实际上比上述限制要高得多，因为用户请求通常是由多个不同的实例提供服务。
@@ -37,8 +37,8 @@ ms.lasthandoff: 03/28/2018
 
 | 响应标头 | 说明 |
 | --- | --- |
-| x-ms-ratelimit-remaining-subscription-reads |订阅范围的剩余读取数 |
-| x-ms-ratelimit-remaining-subscription-writes |订阅范围的剩余写入数 |
+| x-ms-ratelimit-remaining-subscription-reads |划归到订阅的剩余读取数。 执行读取操作时返回此值。 |
+| x-ms-ratelimit-remaining-subscription-writes |划归到订阅的剩余写入数。 执行写入操作时返回此值。 |
 | x-ms-ratelimit-remaining-tenant-reads |租户范围的剩余读取数 |
 | x-ms-ratelimit-remaining-tenant-writes |租户范围的剩余写入数 |
 | x-ms-ratelimit-remaining-subscription-resource-requests |划归到订阅的剩余资源类型请求数。<br /><br />仅当服务重写了默认限制时，才返回此标头值。 Resource Manager 将累加此值而不是订阅读取/写入数。 |
@@ -71,7 +71,6 @@ Get-AzureRmResourceGroup -Debug
 这会返回许多值，包括以下响应值：
 
 ```powershell
-...
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
@@ -80,7 +79,25 @@ OK
 Headers:
 Pragma                        : no-cache
 x-ms-ratelimit-remaining-subscription-reads: 14999
-...
+```
+
+若要获取写入限制，请使用写入操作： 
+
+```powershell
+New-AzureRmResourceGroup -Name myresourcegroup -Location chinanorth -Debug
+```
+
+这会返回许多值，包括以下值：
+
+```powershell
+DEBUG: ============================ HTTP RESPONSE ============================
+
+Status Code:
+Created
+
+Headers:
+Pragma                        : no-cache
+x-ms-ratelimit-remaining-subscription-writes: 1199
 ```
 
 在 **Azure CLI**中，可以使用更详细的选项检索标头值。
@@ -89,24 +106,41 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 az group list --verbose --debug
 ```
 
-这会返回许多值，包括以下对象：
+这会返回许多值，包括以下值：
 
 ```azurecli
-...
-silly: returnObject
-{
-  "statusCode": 200,
-  "header": {
-    "cache-control": "no-cache",
-    "pragma": "no-cache",
-    "content-type": "application/json; charset=utf-8",
-    "expires": "-1",
-    "x-ms-ratelimit-remaining-subscription-reads": "14998",
-    ...
+msrest.http_logger : Response status: 200
+msrest.http_logger : Response headers:
+msrest.http_logger :     'Cache-Control': 'no-cache'
+msrest.http_logger :     'Pragma': 'no-cache'
+msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
+msrest.http_logger :     'Content-Encoding': 'gzip'
+msrest.http_logger :     'Expires': '-1'
+msrest.http_logger :     'Vary': 'Accept-Encoding'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '14998'
+```
+
+若要获取写入限制，请使用写入操作： 
+
+```azurecli
+az group create -n myresourcegroup --location chinanorth --verbose --debug
+```
+
+这会返回许多值，包括以下值：
+
+```azurecli
+msrest.http_logger : Response status: 201
+msrest.http_logger : Response headers:
+msrest.http_logger :     'Cache-Control': 'no-cache'
+msrest.http_logger :     'Pragma': 'no-cache'
+msrest.http_logger :     'Content-Length': '163'
+msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
+msrest.http_logger :     'Expires': '-1'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
 
 ## <a name="waiting-before-sending-next-request"></a>在发送下一请求之前等待
-达到请求限制时，Resource Manager 会在标头中返回 **429** HTTP 状态代码和 **Retry-After** 值。 **Retry-After** 值指定在发送下一个请求之前应用程序应该等待（或休眠）的秒数。 如果在尚未到达重试时间值的情况下发送请求，该请求不会受到处理，同时会返回一个新的重试时间值。
+达到请求限制时，Resource Manager 会在标头中返回 **429** HTTP 状态代码和 **Retry-After** 值。 **Retry-After** 值指定在发送下一个请求之前应用程序应该等待（或休眠）的秒数。 如果在尚未达到重试时间值的情况下发送请求，该请求不会得到处理，并会返回一个新的重试时间值。
 
 ## <a name="next-steps"></a>后续步骤
 

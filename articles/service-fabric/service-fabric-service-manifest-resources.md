@@ -1,11 +1,11 @@
 ---
-title: "指定 Service Fabric 服务终结点 | Azure"
-description: "如何在服务清单中描述终结点资源，包括如何设置 HTTPS 终结点"
+title: 指定 Service Fabric 服务终结点 | Azure
+description: 如何在服务清单中描述终结点资源，包括如何设置 HTTPS 终结点
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 03/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3829497b7311cda5ee0f35844541e8811d14a0ac
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 6ea72f7c5fef0635673e5f3a2fff9c68ce17f1f7
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>在服务清单中指定资源
 ## <a name="overview"></a>概述
@@ -154,7 +154,7 @@ HTTPS 协议提供服务器身份验证，用于对客户端-服务器通信进�
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>重写 ServiceManifest.xml 中的终结点
 
-在 ApplicationManifest 中，添加一个 ResourceOverrides 节，作为 ConfigOverrides 节的同级。 在此节中，可以为服务清单中指定的 resources 节中的 Endpoints 节指定替代。
+在 ApplicationManifest 中，添加一个 ResourceOverrides 节，作为 ConfigOverrides 节的同级。 在此节中，可以为服务清单中指定的 resources 节中的 Endpoints 节指定替代。 运行时 5.7.217/SDK 2.7.217 及更高版本支持替代终结点。
 
 若要使用 ApplicationParameter 重写 ServiceManifest 中的终结点，请更改 ApplicationManifest，如下所示：
 

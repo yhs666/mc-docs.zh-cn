@@ -1,26 +1,19 @@
 ---
-title: "Azure Analysis Services 教程第 6 课：创建度量值 | Azure"
-description: "介绍如何在 Azure Analysis Services 教程项目中创建度量值。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 教程第 6 课：创建度量值 | Azure
+description: 介绍如何在 Azure Analysis Services 教程项目中创建度量值。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1585401d42b5a78b6313e9328880b1fd55699e02
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.reviewer: minewiskan
+ms.openlocfilehash: 8fa13704e77446493c9dcb3955fc26aadf89cf29
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-measures"></a>创建度量值
 
@@ -129,4 +122,4 @@ ms.lasthandoff: 02/23/2018
 ## <a name="whats-next"></a>后续步骤
 [第 7 课：创建关键绩效指标](../tutorials/aas-lesson-7-create-key-performance-indicators.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

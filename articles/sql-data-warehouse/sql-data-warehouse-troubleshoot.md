@@ -3,27 +3,21 @@ title: 排查 Azure SQL 数据仓库问题 | Azure
 description: 排查 Azure SQL 数据仓库问题。
 services: sql-data-warehouse
 documentationcenter: NA
-author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-origin.date: 03/30/2017
-ms.date: 01/15/2018
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/14/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 41d5c9d3a8584c6a1d83b7e8927550fb1e860d05
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: d342777eb7e1c4ce35bed9c89cb325f8e33bb112
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>排查 Azure SQL 数据仓库问题
-本主题列出了客户较常见的一些故障排除问题。
+本主题列出了常见的故障排除问题。
 
 ## <a name="connecting"></a>连接
 | 问题 | 解决方法 |
@@ -86,7 +80,7 @@ ms.lasthandoff: 03/23/2018
 
 <!--Article references-->
 [Security overview]: ./sql-data-warehouse-overview-manage-security.md
-[SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
+[SSMS]: https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms
 [SSDT for Visual Studio]: ./sql-data-warehouse-install-visual-studio.md
 [Drivers for Azure SQL Data Warehouse]: ./sql-data-warehouse-connection-strings.md
 [Connect to Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
@@ -120,8 +114,8 @@ ms.lasthandoff: 03/23/2018
 [Working around the PolyBase UTF-8 requirement]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
 <!--MSDN references-->
-[sys.database_principals]: https://msdn.microsoft.com/library/ms187328.aspx
-[CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
+[sys.database_principals]: https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql
+[CREATE FUNCTION]: https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse
 [sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->

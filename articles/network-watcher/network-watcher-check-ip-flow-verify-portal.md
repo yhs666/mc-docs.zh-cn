@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序“IP 流验证”功能验证流量 - Azure 门户 | Azure"
-description: "本文介绍如何检查是允许还是拒绝进出虚拟机的流量"
+title: 使用 Azure 网络观察程序“IP 流验证”功能验证流量 - Azure 门户 | Azure
+description: 本文介绍如何检查是允许还是拒绝进出虚拟机的流量
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: e0e3e9a8-70eb-409a-a744-0ce9deb27148
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6d639d9d61beb59b04dddd3d118442cf35eaeaf0
-ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
+ms.openlocfilehash: a5c4bebca23ef0874ef0f30be029fbffac2a2dbb
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-to-or-from-a-vm-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>使用 Azure 网络观察程序的组件（即“IP 流验证”功能）检查是允许还是拒绝进出 VM 的流量
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/10/2017
 
 “IP 流验证”是网络观察程序的一项功能，用于验证是否允许流量进出虚拟机。 可以针对传入或传出流量运行验证。 此方案对于获取虚拟机是否可以与外部资源或其他资源通信的当前状态很有用。 可以使用“IP 流验证”功能验证网络安全组 (NSG) 规则是否正确配置，以及对 NSG 规则所阻止的流进行故障排除。 使用“IP 流验证”功能的另一个原因是确保要阻止的流量已由 NSG 正确阻止。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 此方案假定用户已按照[创建网络观察程序](network-watcher-create.md)中的步骤创建网络观察程序，或者已经有网络观察程序的实例。 此方案还假定要使用的包含有效虚拟机的资源组已存在。
 
@@ -59,10 +59,10 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-如果流量不应被阻止但却被阻止，请参阅[管理网络安全组](../virtual-network/virtual-network-manage-nsg-arm-portal.md)，查找已定义的网络安全组和安全规则。
+如果流量不应被阻止但却被阻止，请参阅[管理网络安全组](../virtual-network/manage-network-security-group.md)，查找已定义的网络安全组和安全规则。
 
 [1]: ./media/network-watcher-check-ip-flow-verify-portal/figure1.png
 [2]: ./media/network-watcher-check-ip-flow-verify-portal/figure2.png
 
 
-<!--Update_Description: new articles on network watcher check ip flow verify portal -->
+<!--Update_Description: update link, wording update  -->

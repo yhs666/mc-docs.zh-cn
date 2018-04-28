@@ -1,11 +1,11 @@
 ---
-title: "使用 bcp 将数据载入 SQL 数据仓库 | Azure"
-description: "了解什么是 bcp，以及如何将它用于数据仓库方案。"
+title: 使用 bcp 将数据载入 SQL 数据仓库 | Azure
+description: 了解什么是 bcp，以及如何将它用于数据仓库方案。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.custom: loading
 origin.date: 01/22/2018
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: edb7fb65599eede2cc1448053a62d465e26253f4
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: e7a871e19ffb0a50c56b2a8bcb1b7f52d8993d9e
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="load-data-with-bcp"></a>使用 bcp 加载数据
 
@@ -172,9 +172,13 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 > 
 
 ## <a name="next-steps"></a>后续步骤
-若要设计加载过程，请参阅[加载概述](design-elt-data-loading.md)。  
+若要设计加载过程，请参阅[将数据加载到 Azure SQL 数据仓库中的最佳做法](guidance-for-loading-data.md)。  
+
+
 
 <!--MSDN references-->
+
+
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433

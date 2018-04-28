@@ -12,29 +12,29 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/27/18
-ms.date: 04/09/2018
+origin.date: 04/03/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e92cfac429011fabe552575eaf836032279625a2
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: 14e024611cdc1fceea01ef676117f8d21021c79f
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>快速入门：在 Azure 上部署 Service Fabric Windows 容器应用程序
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。 
 
 在 Service Fabric 群集上运行 Windows 容器中的现有应用程序不需要对应用程序进行任何更改。 本快速入门介绍如何在 Service Fabric 应用程序中部署预建的 Docker 容器映像。 完成后，你会有一个正在运行的 Windows Server 2016 Nano Server 和 IIS 容器。 本快速入门介绍如何部署 Windows 容器。若要部署 Linux 容器，请阅读[此快速入门](service-fabric-quickstart-containers-linux.md)。
 
-![IIS 默认网页][iis-default]
+![iis-default][iis-default]
 
-可以通过此快速入门了解如何：
-> [!div class="checklist"]
-> * 打包 Docker 映像容器
-> * 配置通信
-> * 生成并打包 Service Fabric 应用程序
-> * 将容器应用程序部署到 Azure
+此快速入门介绍如何：
+
+* 打包 Docker 映像容器
+* 配置通信
+* 生成并打包 Service Fabric 应用程序
+* 将容器应用程序部署到 Azure
 
 ## <a name="prerequisites"></a>先决条件
 * 一个 Azure 订阅（可以创建[试用帐户](https://www.azure.cn/pricing/1rmb-trial)）。
@@ -85,7 +85,7 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 
 ## <a name="create-a-cluster"></a>创建群集
 若要将应用程序部署到 Azure 中的群集，可[在 Azure 上创建自己的群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
-
+<!-- Notice: follow the previous code due to there is no party service fabric in china-->
 <!-- Not Avaiable on Party clusters -->
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>使用 Visual Studio 将应用程序部署到 Azure
 至此，应用程序已准备就绪，可以直接通过 Visual Studio 将它部署到群集了。
@@ -190,16 +190,16 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 
 ## <a name="next-steps"></a>后续步骤
 在此快速入门中，读者学习了如何：
-> [!div class="checklist"]
-> * 打包 Docker 映像容器
-> * 配置通信
-> * 生成并打包 Service Fabric 应用程序
-> * 将容器应用程序部署到 Azure
 
-* 详细了解如何运行 [Service Fabric 上的容器](service-fabric-containers-overview.md)。
-* 阅读[在容器中部署 .NET 应用程序](service-fabric-host-app-in-a-container.md)教程。
-* 了解 Service Fabric [应用程序生命周期](service-fabric-application-lifecycle.md)。
-* 查看 GitHub 上的 [Service Fabric 容器代码示例](https://github.com/Azure-Samples/service-fabric-containers)。
+* 打包 Docker 映像容器
+* 配置通信
+* 生成并打包 Service Fabric 应用程序
+* 将容器应用程序部署到 Azure
+
+若要详细了解如何在 Service Fabric 中使用 Windows 容器，请继续学习适用于 Windows 容器应用的教程。
+
+> [!div class="nextstepaction"]
+> [创建 Windows 容器应用](./service-fabric-host-app-in-a-container.md)
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png

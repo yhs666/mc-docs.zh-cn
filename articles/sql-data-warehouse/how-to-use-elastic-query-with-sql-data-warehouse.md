@@ -1,30 +1,26 @@
 ---
-title: 结合使用弹性查询概念和 Azure SQL 数据仓库 | Azure
-description: 结合使用弹性查询概念和 Azure SQL 数据仓库
+title: 弹性查询 - 从 Azure SQL 数据库访问 Azure SQL 数据仓库中的数据 | Microsoft Docs
+description: 了解使用弹性查询从 Azure SQL 数据库访问 Azure SQL 数据仓库中的数据的最佳做法。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
+ms.topic: conceptual
+ms.component: implement
 origin.date: 09/18/2017
 ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5c32d25ebbcbce5a40c61c50e96065072e0208d8
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 7b6959b8af324604922cda78640d3594d0413dd7
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>如何结合使用弹性查询和 SQL 数据仓库
+# <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>使用 Azure SQL 数据库中的弹性查询访问 Azure SQL 数据仓库中的数据的最佳做法
+了解使用弹性查询从 Azure SQL 数据库访问 Azure SQL 数据仓库中的数据的最佳做法。 
 
-结合使用弹性查询和 Azure SQL 数据仓库，可以在 SQL 数据库中编写 Transact-SQL，通过外部表将它远程发送到 Azure SQL 数据仓库实例。 使用此功能，不仅可以节约成本，还能构建更多高效益体系结构，具体视方案而定。
+## <a name="what-is-an-elastic-query"></a>什么是弹性查询？
+可以通过弹性查询使用 T-SQL 和外部表在 Azure SQL 数据库中编写一个查询，该查询通过远程方式发送到 Azure SQL 数据仓库。 使用此功能，不仅可以节约成本，还能构建更多高效益体系结构，具体视方案而定。
 
 此功能支持两个主要方案：
 
@@ -45,8 +41,7 @@ ms.lasthandoff: 03/23/2018
 
 使用弹性查询，可以对 SQL 数据仓库实例远程执行查询。 通过在两个数据库之间将热数据和冷数据分隔开来，可以充分利用 SQL 数据库和 SQL 数据仓库。 用户可以在 SQL 数据库中保留更多最新数据，这些数据可用于生成报告，并供大量普通业务用户参考。 不过，如果需要更多数据或计算，用户可以将部分查询卸载到 SQL 数据仓库实例中，这样可以更快、更高效地处理大规模聚合。
 
-## <a name="elastic-query-overview"></a>弹性查询概述
-
+## <a name="elastic-query-process"></a>弹性查询过程
 使用弹性查询，能够让 SQL 数据仓库中的数据可供 SQL 数据库实例使用。 借助弹性查询，SQL 数据库中的查询可以引用远程 SQL 数据仓库实例中的表。 
 
 第一步是创建外部数据源定义，用于引用 SQL 数据仓库实例，这需要使用 SQL 数据仓库中的现有用户凭据。 在远程 SQL 数据仓库实例中，不需要进行任何更改。 
@@ -55,11 +50,12 @@ ms.lasthandoff: 03/23/2018
 > 
 > 必须拥有 ALTER ANY EXTERNAL DATA SOURCE 权限。 此权限包含在 ALTER DATABASE 权限中。 必须拥有 ALTER ANY EXTERNAL DATA SOURCE 权限，才能引用远程数据源。
 
-接下来，在 SQL 数据库实例中创建远程外部表定义，指向 SQL 数据仓库中的远程表。 如果查询使用外部表，引用外部表的查询部分会发送到 SQL 数据仓库实例进行处理。 查询完成后，结果集便会发送回调用方 SQL 数据库实例。 有关如何在 SQL 数据库和 SQL 数据仓库之间设置弹性查询的简易教程，请参阅[配置结合使用弹性查询和 SQL 数据仓库][Configure Elastic Query with SQL Data Warehouse]。
+接下来，在 SQL 数据库实例中创建远程外部表定义，使之指向 SQL 数据仓库中的远程表。 如果查询使用外部表，引用外部表的查询部分会发送到 SQL 数据仓库实例进行处理。 查询完成后，结果集便会发送回调用方 SQL 数据库实例。 有关如何在 SQL 数据库和 SQL 数据仓库之间设置弹性查询的简易教程，请参阅[配置结合使用弹性查询和 SQL 数据仓库][Configure Elastic Query with SQL Data Warehouse]。
 
 若要详细了解如何结合使用弹性查询和 SQL 数据库，请参阅 [Azure SQL 数据库弹性查询概述][Azure SQL Database elastic query overview]。
 
 ## <a name="best-practices"></a>最佳实践
+请按照这些最佳做法来有效地使用弹性查询。
 
 ### <a name="general"></a>常规
 
@@ -73,9 +69,9 @@ ms.lasthandoff: 03/23/2018
 
 ### <a name="elastic-querying"></a>弹性查询
 
-- 在许多情况下，可能需要管理一种延伸表，此表中的一部分作为缓存数据存在于 SQL 数据库中供使用，剩余的数据存储在 SQL 数据仓库中。 SQL 数据库中需要有两个对象：SQL 数据库内引用 SQL 数据仓库中基表的外部表，SQL 数据库中表的“缓存”部分。 考虑在表格缓存部分和外部表基础上创建视图，该操作会联合这两个表，并应用筛选器，用于分离在通过外部表公开的 SQL 数据库和 SQL 数据仓库中具体化的数据。
+- 在许多情况下，可能需要管理一种延伸表，此表中的一部分作为缓存数据存在于 SQL 数据库中供使用，剩余的数据存储在 SQL 数据仓库中。 SQL 数据库中需要两个对象：SQL 数据库内引用 SQL 数据仓库中基表的外部表，SQL 数据库中表的“缓存”部分。 考虑在表格缓存部分和外部表基础上创建视图，该操作会联合这两个表，并应用筛选器，用于分离在通过外部表公开的 SQL 数据库和 SQL 数据仓库中具体化的数据。
 
-  假设要在 SQL 数据库实例中保留最近一年的数据。 有两个表，分别为引用数据仓库订单表的 ext.Orders，和表示 SQL 数据库实例中最近几年数据的 dbo.Orders。 我们根据两个表在最近一年的分区点上创建视图，而不是让用户决定是否查询哪个表。
+  假设要在 SQL 数据库实例中保留最近一年的数据。 **ext.Orders** 表引用数据仓库订单表。 **dbo.Orders** 代表 SQL 数据库实例中最近几年的数据。 请根据两个表在最近一年的分区点上创建视图，而不是让用户决定是否查询哪个表。
 
   ```sql
   CREATE VIEW dbo.Orders_Elastic AS
@@ -104,6 +100,7 @@ ms.lasthandoff: 03/23/2018
 
   对数据仓库实例运行的每个弹性查询都有相关的提交、编译、运行和数据移动开销。 请注意，每个弹性查询都会计入并发槽计数，并且都会使用资源。  
 
+
 - 如果用户打算进一步向下钻取到数据仓库实例中的结果集，不妨在 SQL 数据库的临时表中具体化，从而提升性能，并防止不必要的资源使用。
 
 ### <a name="moving-data"></a>数据移动 
@@ -113,13 +110,13 @@ ms.lasthandoff: 03/23/2018
 
 ### <a name="when-to-choose-azure-analysis-services-vs-sql-database"></a>何时选择 Azure Analysis Services 与 SQL 数据库
 
-#### <a name="azure-analysis-services"></a>Azure Analysis Services
+在以下情况下使用 Azure Analysis Services：
 
 - 打算将缓存与提交许多小型查询的 BI 工具结合使用
 - 需要次秒级查询延迟
 - 在管理/开发 Analysis Services 模型方面拥有丰富的经验 
 
-#### <a name="sql-database"></a>SQL 数据库
+在以下情况下使用 Azure SQL 数据库：
 
 - 希望使用 SQL 查询缓存数据
 - 需要远程执行特定查询
@@ -152,8 +149,6 @@ ms.lasthandoff: 03/23/2018
 答：可以在 SQL 数据仓库中将空间类型存储为 varbinary(max) 值。 使用弹性查询查询这些列时，可以在运行时将它们转换为相应的类型。
 
 ![空间类型](./media/sql-data-warehouse-elastic-query-with-sql-database/geometry-types.png)
-
-<!--Image references-->
 
 <!--Article references-->
 

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-origin.date: 12/06/2017
-ms.date: 01/15/2018
+origin.date: 02/27/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 753d902128b7d6a9396080c5776c0d535e5c3565
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: a14f2f220bae9c09d30f498e557fb5b3da0f394f
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>还原 Azure SQL 数据仓库 (PowerShell)
 > [!div class="op_single_selector"]
@@ -127,6 +127,11 @@ $RestoredDatabase.status
 ## <a name="restore-from-an-azure-geographical-region"></a>从 Azure 地理区域还原
 若要恢复数据库，请使用 [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] cmdlet。
 
+> [!NOTE]
+> 可以异地还原到“计算优化”性能层！ 若要执行此操作，请将一个“计算优化”ServiceObjectiveName 指定为可选参数。 
+>
+> 
+
 1. 打开 Windows PowerShell。
 2. 连接到 Azure 帐户，并列出与帐户关联的所有订阅。
 3. 选择包含要还原的数据库的订阅。
@@ -143,7 +148,7 @@ Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
 $GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
 # Recover database
-$GeoRestoredDatabase = Restore-AzureRmSqlDatabase -FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" -ResourceId $GeoBackup.ResourceID
+$GeoRestoredDatabase = Restore-AzureRmSqlDatabase �FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" �ResourceId $GeoBackup.ResourceID -ServiceObjectiveName "<YourTargetServiceLevel>"
 
 # Verify that the geo-restored database is online
 $GeoRestoredDatabase.status

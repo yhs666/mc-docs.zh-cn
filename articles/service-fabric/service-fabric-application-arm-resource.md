@@ -1,25 +1,25 @@
 ---
-title: "使用 Azure 资源管理器部署和升级应用程序及服务 | Azure"
-description: "了解如何使用 Azure 资源管理器模板，将应用程序和服务部署到 Service Fabric 群集。"
+title: 使用 Azure 资源管理器部署和升级应用程序及服务 | Azure
+description: 了解如何使用 Azure 资源管理器模板，将应用程序和服务部署到 Service Fabric 群集。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/06/2017
-ms.date: 03/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 35b97abf765be0615d6591173f63ae388508e526
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: c0cf5495e6d89c12e69a1b0164821caf017226b2
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>将应用程序和服务作为 Azure 资源管理器资源进行管理
 
@@ -109,7 +109,7 @@ ms.lasthandoff: 03/08/2018
       },
       "serviceName": {
         "type": "string",
-        "defaultValue": "Service1",
+        "defaultValue": "Application1~Service1",
         "metadata": {
           "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
@@ -123,7 +123,7 @@ ms.lasthandoff: 03/08/2018
       },
       "serviceName2": {
         "type": "string",
-        "defaultValue": "Service2",
+        "defaultValue": "Application1~Service2",
         "metadata": {
           "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }

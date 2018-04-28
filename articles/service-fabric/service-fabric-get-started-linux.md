@@ -1,11 +1,11 @@
 ---
-title: "在 Linux 上设置开发环境 | Azure"
-description: "在 Linux 上安装运行时和 SDK 并创建本地开发群集。 完成此设置后，便可以开始生成应用程序。"
+title: 在 Linux 上设置开发环境 | Azure
+description: 在 Linux 上安装运行时和 SDK 并创建本地开发群集。 完成此设置后，便可以开始生成应用程序。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 03/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: c904ac8765ba0015e1161a400dc6155e2c8e0821
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: ff681028a61f8aa62ae89b6f41e996031f7b882b
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境
 > [!div class="op_single_selector"]
@@ -29,13 +29,23 @@ ms.lasthandoff: 03/08/2018
 >
 >  
 
-若要在 Linux 开发计算机上部署和运行 [Azure Service Fabric 应用程序](service-fabric-application-model.md)，请安装运行时和常用 SDK。 还可以安装用于 Java 和 .NET Core 开发的可选 SDK。
+若要在 Linux 开发计算机上部署和运行 [Azure Service Fabric 应用程序](service-fabric-application-model.md)，请安装运行时和常用 SDK。 还可以安装用于 Java 和 .NET Core 开发的可选 SDK。 
+
+本文中的步骤假设你在 Linux 上进行本地安装，或者使用 Service Fabric OneBox 容器映像 `microsoft/service-fabric-onebox`。 
+
+不支持在适用于 Linux 的 Windows 子系统上安装 Service Fabric 运行时和 SDK。 但是，支持使用 Azure Service Fabric 命令行接口 (CLI) 来管理托管在云中或本地其他位置的 Service Fabric 实体。 有关如何安装 CLI 的信息，请参阅[设置 Service Fabric CLI](./service-fabric-cli.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
-支持使用以下操作系统版本进行开发：
+* 支持使用以下操作系统版本进行开发：
 
-* Ubuntu 16.04 (`Xenial Xerus`)
+    * Ubuntu 16.04 (`Xenial Xerus`)
+
+* 确保已安装 `apt-transport-https` 包。
+
+    ```bash
+    sudo apt-get install apt-transport-https
+    ```
 
 ## <a name="installation-methods"></a>安装方法
 
@@ -109,6 +119,12 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+上述安装随附的 Service Fabric 运行时包含下表中所述的包。 
+
+ | | DotNetCore | Java | Python | NodeJS | 
+--- | --- | --- | --- |---
+Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicit from npm | 最新 |
+
 ## <a name="set-up-a-local-cluster"></a>设置本地群集
   完成安装后，应该能够启动本地群集。
 
@@ -118,7 +134,7 @@ sudo apt-get install servicefabricsdkcommon
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. 打开 Web 浏览器，转到 [Service Fabric Explorer](http://localhost:19080/Explorer)。 如果群集已开始，应看到 Service Fabric Explorer 仪表板。
+2. 打开 Web 浏览器，转到 [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`)。 如果群集已开始，应看到 Service Fabric Explorer 仪表板。 群集完全设置可能需要几分钟时间。 如果浏览器无法打开该 URL 或者 Service Fabric Explorer 未显示系统已准备就绪，请等待几分钟，然后重试。
 
     ![Linux 上的 Service Fabric Explorer][sfx-linux]
 
@@ -169,16 +185,21 @@ Ubuntu
 
 若要使用 Java 生成 Service Fabric 服务，请安装 JDK 1.8 和 Gradle 以运行生成任务。 以下代码片段安装 Open JDK 1.8 和 Gradle。 Service Fabric Java 库是从 Maven 拉取的。
 
-  ```bash
-  sudo apt-get install openjdk-8-jdk-headless
-  sudo apt-get install gradle
-  ```
+```bash
+sudo apt-get install openjdk-8-jdk-headless
+sudo apt-get install gradle
+```
 
-## <a name="install-the-eclipse-neon-plug-in-optional"></a>安装 Eclipse Neon 插件（可选）
+## <a name="install-the-eclipse-plug-in-optional"></a>安装 Eclipse 插件（可选）
 
-可以在面向 Java 开发人员的 Eclipse IDE 中安装用于 Service Fabric 的 Eclipse 插件。 可以使用 Eclipse，在 Service Fabric Java 应用程序的基础上创建 Service Fabric 来宾可执行应用程序和容器应用程序。
+可以在面向 Java 开发人员或 Java EE 开发人员的 Eclipse IDE 中安装用于 Service Fabric 的 Eclipse 插件。 可以使用 Eclipse，在 Service Fabric Java 应用程序的基础上创建 Service Fabric 来宾可执行应用程序和容器应用程序。
 
-1. 在 Eclipse 中，请确保已安装最新 Eclipse Neon 和最新 Buildship（1.0.17 或更高版本）。 可以通过“帮助” > “安装详细信息”检查已安装组件的版本。 可以按 [Eclipse Buildship：适用于 Gradle 的 Eclipse 插件][buildship-update]中的说明更新 Buildship。
+> [!IMPORTANT]
+> Service Fabric 插件需要 Eclipse Neon 或更高版本。 请参阅此注意事项后面的说明，了解如何查看 Eclipse 的版本。 如果安装的是较旧版本的 Eclipse，可以从 [Eclipse 站点](https://www.eclipse.org)下载较新的版本。 建议不要在现有 Eclipse 安装版本的基础上进行安装（覆盖）。 可以先删除现有版本，然后再运行安装程序，也可以在另一目录中安装较新的版本。 
+> 
+> 在 Ubuntu 上，建议直接从 Eclipse 站点进行安装，而不是使用包安装程序（`apt` 或 `apt-get`）。 这样做可确保获取最新版 Eclipse。 可以安装面向 Java 开发人员或 Java EE 开发人员的 Eclipse IDE。
+
+1. 在 Eclipse 中，请确保已安装 Eclipse Neon 或更高版本，以及 Buildship 2.2.1 版或更高版本。 可以通过选择“帮助” > “关于 Eclipse” > “安装详细信息”检查已安装组件的版本。 可以按 [Eclipse Buildship：适用于 Gradle 的 Eclipse 插件][buildship-update]中的说明更新 Buildship。
 
 2. 若要安装 Service Fabric 插件，请选择“帮助” > “安装新软件”。
 
@@ -192,7 +213,7 @@ Ubuntu
 
 6. 完成安装步骤，并接受最新用户许可协议。
 
-如果已安装 Service Fabric Eclipse 插件，请确保使用最新版本。 可以通过选择“帮助” > “安装详细信息”并在已安装插件的列表中搜索 Service Fabric 来进行检查。如果可以使用更新的版本，请选择“更新”。
+如果已安装 Service Fabric Eclipse 插件，请确保使用最新版本。 可以通过选择“帮助” > “关于 Eclipse” > “安装详细信息”并在已安装插件的列表中搜索 Service Fabric 来检查版本。如果可以使用更新的版本，请选择“更新”。
 
 有关详细信息，请参阅[使用适用于 Eclipse 的 Service Fabric 插件开发 Java 应用程序](service-fabric-get-started-eclipse.md)。
 

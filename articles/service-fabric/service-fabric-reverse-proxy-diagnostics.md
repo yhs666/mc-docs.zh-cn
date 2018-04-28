@@ -1,30 +1,30 @@
 ---
-title: "Azure Service Fabric 反向代理诊断 | Azure"
-description: "了解如何监视和诊断在反向代理处处理的请求。"
+title: Azure Service Fabric 反向代理诊断 | Azure
+description: 了解如何监视和诊断在反向代理处处理的请求。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 08/08/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2ed26f5f28363ade1a380814713d3d672317c35c
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: a20d60414b3a4f4cca087e107ee36cda94b309f2
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>了解如何监视和诊断在反向代理处处理的请求
 
 从 5.7 版本的 Service Fabric 开始，可收集反向代理事件。 事件采用两个通道提供，一个只包含与反向代理处请求处理故障相关的错误事件，而另一个通道包含关于成功和失败请求记录的详细事件。
 
-若要收集本地和 Azure Service Fabric 群集中这些通道的事件，请参阅[收集反向代理事件](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events)。
+若要收集本地和 Azure Service Fabric 群集中这些通道的事件，请参阅[收集反向代理事件](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)。
 
 ## <a name="troubleshoot-using-diagnostics-logs"></a>使用诊断日志进行故障排除
 下面举例说明了如何解释人们可能遇到的常见失败日志：
@@ -199,7 +199,7 @@ ms.lasthandoff: 11/09/2017
 ## <a name="next-steps"></a>后续步骤
 * [使用 Microsoft Azure 诊断的事件聚合和收集](service-fabric-diagnostics-event-aggregation-wad.md)，用于启用 Azure 群集中的日志收集。
 * 若要在 Visual Studio 中查看 Service Fabric 事件，请参阅[本地监视和诊断](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)。
-* 请参阅[将反向代理配置为连接到安全服务](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services)了解 Azure 资源管理器模板示例，使用其他服务证书验证选项配置安全反向代理。
+* 请参阅[配置反向代理以连接到安全服务](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services)，获取用于通过不同的服务证书验证选项配置安全反向代理的 Azure Resource Manager 模板示例。
 * 若要了解详细信息，请参阅 [Service Fabric 反向代理](service-fabric-reverseproxy.md)。
 
-<!--Update_Description: add content of error FABRIC_E_SERVICE_DOES_NOT_EXIST -->
+<!--Update_Description: update link -->

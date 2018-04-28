@@ -14,17 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/08/2018
-ms.date: 04/02/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: db22db6329972ba968257926c3b62b1575d80d7d
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: e39d50df4f596e92b7d4e4a55adcf03c85998bf4
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understand-load-balancer-probes"></a>了解负载均衡器探测
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure 负载均衡器使用运行状况探测来确定应接收新流的后端池实例。 运行状况探测失败时，负载均衡器停止向相应的不正常运行实例发送新流，并且该实例上的现有流不受影响。  所有后端池实例向下探测时，所有现有流将在后端池的所有实例上均超时。
 

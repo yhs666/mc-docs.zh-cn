@@ -1,25 +1,25 @@
 ---
-title: "在 Azure Service Fabric 中管理多个环境的应用程序 | Azure"
-description: "Azure Service Fabric 应用程序可以在规模为一台计算机到数千台计算机的群集上运行。 在某些情况下，需要以不同的方式针对各种环境配置应用程序。 本文介绍如何为每个环境定义不同的应用程序参数。"
+title: 在 Azure Service Fabric 中管理多个环境的应用程序 | Azure
+description: Azure Service Fabric 应用程序可以在规模为一台计算机到数千台计算机的群集上运行。 在某些情况下，需要以不同的方式针对各种环境配置应用程序。 本文介绍如何为每个环境定义不同的应用程序参数。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/09/2017
-ms.date: 03/12/2018
+origin.date: 02/23/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8dfc9657e0e078285fcd8b45ac3867b1f7669a13
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 44473baf8b836fc68213c71d3c80ff042d4e4613
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>管理多个环境的应用程序
 
@@ -60,4 +60,4 @@ ms.lasthandoff: 03/08/2018
 - [如何在 Service Fabric 中使用参数来指定服务的端口号](service-fabric-how-to-specify-port-number-using-parameters.md)
 - [如何参数化配置文件](service-fabric-how-to-parameterize-configuration-files.md)
 - [环境变量引用](service-fabric-environment-variables-reference.md)
-<!--Update_Description: update meta properties, wording update， update link -->
+<!--Update_Description: update meta properties  -->

@@ -1,26 +1,19 @@
 ---
-title: "Azure Analysis Services 教程第 10 课：创建分区 | Azure"
-description: "介绍了在 Azure Analysis Services 教程项目中如何创建分区。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 教程第 10 课：创建分区 | Azure
+description: 介绍了在 Azure Analysis Services 教程项目中如何创建分区。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7ebc25e7b550665389c7cab160664fc5eb37ff0f
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.reviewer: minewiskan
+ms.openlocfilehash: a8c428b90d214bc3cdff16887d2af2d901738ace
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-partitions"></a>创建分区
 
@@ -114,4 +107,4 @@ ms.lasthandoff: 02/23/2018
  ## <a name="whats-next"></a>后续步骤
 转到下一课：[第 11 课：创建角色](../tutorials/aas-lesson-11-create-roles.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

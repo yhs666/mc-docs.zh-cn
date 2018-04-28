@@ -13,13 +13,13 @@ ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
 origin.date: 02/16/2018
-ms.date: 04/10/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9dcefe5b954d819256df630d656c16443cbff728
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 665149671a31cf76a8a710db93dd5f84d876e8c4
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>使用 Azure PowerShell 管理资源
 
@@ -52,9 +52,11 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 
 在本文中，请部署一个虚拟机及其相关的虚拟网络。 若要管理虚拟机解决方案，可以使用三种特定于资源的角色来进行通常所需的访问：
 
-* [虚拟机参与者](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [网络参与者](../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [存储帐户参与者](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+<!--Pending role-based-access-control to Release -->
+* [虚拟机参与者](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [网络参与者](../role-based-access-control/built-in-roles.md#network-contributor)
+* [存储帐户参与者](../role-based-access-control/built-in-roles.md#storage-account-contributor)
+<!--Pending role-based-access-control to Release -->
 
 通常情况下，与其向单个用户分配角色，不如为需要进行相似操作的用户[创建一个 Azure Active Directory 组](../active-directory/active-directory-groups-create-azure-portal.md)， 然后向该组分配相应的角色。 为了简单起见，本文创建一个没有成员的 Azure Active Directory 组。 仍然可以为该组分配一个负责某个范围的角色。 
 
@@ -187,5 +189,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
 
 <!--Update_Description: update meta properties, wording update, update link -->
-<!--The parent file of includes file of resource-manager-governance-intro.md-->
-<!--ms.date:03/26/2018-->
+<!--The parent file of includes file of resource-manager-governance-rbac.md-->
+<!--ms.date:04/30/2018-->

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 04/09/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 00d65b47faf9dab37521af76b939d863106d0aa0
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: 64180dd158c9e07b5d6cfffb5dead055dd91a0f4
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="scaling-in-service-fabric"></a>在 Service Fabric 中进行缩放
 Azure Service Fabric 通过管理服务、分区以及群集的节点上的副本，让生成可缩放的应用程序更简单。 在同一硬件上运行多个工作负荷不仅可实现最大资源使用率，还可提供在如何选择缩放工作负荷方面的灵活性。 
@@ -116,12 +116,8 @@ Service Fabric 支持分区。 分区可将服务拆分成若干逻辑和物理�
 ## <a name="scaling-by-adding-and-removing-nodes-from-the-cluster"></a>通过在群集中添加节点和从群集删除节点进行缩放 
 使用 Service Fabric 进行缩放的另一种方法是更改群集大小。 更改群集的大小意味着添加或删除群集中的一个或多个节点类型的节点。 例如，想一想群集中的所有节点均为热的情况。 这意味着群集的资源几乎全部耗尽。 在这种情况下，缩放的最佳方法是将更多节点添加到群集中。 新节点联接群集后，Service Fabric 群集资源管理器将服务移到其中，导致现有节点上的总负载减少。 对于实例计数为 -1 的无状态服务，会自动创建更多服务实例。 这会使某些调用从现有节点移到新节点。 
 
-可通过 Service Fabric Azure 资源管理器 PowerShell 模块向群集添加和删除节点。
-
-```posh
-Add-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName  -NumberOfNodesToAdd 5 
-Remove-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName -NumberOfNodesToRemove 5
-```
+<!-- Check cluster scaling is release or not -->
+有关详细信息，请参阅[群集缩放](service-fabric-cluster-scaling.md)。
 
 ## <a name="putting-it-all-together"></a>汇总
 让我们汇总已在此文中讨论的所有观点，并讨论一个示例。 请考虑以下服务：要生成一个充当通讯簿的服务，其中保存名称和联系信息。 

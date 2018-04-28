@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/15/2017
-ms.date: 04/09/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4c0640cce047928553558dd0c367037bf172206a
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: 6a08c623915ed9c1b8ae84157dc646acb4a7027d
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>使用 EventFlow 聚合和收集事件
 
@@ -157,7 +157,7 @@ servicefabric:/<section-name>/<setting-name>
 ## <a name="next-steps"></a>后续步骤
 
 <!-- Not Available on * * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
-<!-- Not Available on * [Event Analysis and Visualization with OMS](service-fabric-diagnostics-event-analysis-oms.md) -->
+<!-- Not Available on * [Event Analysis and Visualization with Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) -->
 * [EventFlow 文档](https://github.com/Azure/diagnostics-eventflow)
 
 <!--Update_Description: update meta properties, wording update -->

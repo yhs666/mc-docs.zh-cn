@@ -10,11 +10,11 @@ origin.date: 02/27/2018
 ms.date: 04/02/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 9f1417a4642b4f0e98bc48e3415493bf8d823457
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: e8e8c8e8be0ca3bde9287ed41ac9218a72f89698
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>针对本地 VMware VM 设置到 Azure 的灾难恢复
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 03/28/2018
 4. 下载配置服务器的 OVF 模板。
 
   > [!TIP]
-  可以直接从 [Microsoft 下载中心](https://aka.ms/asrconfigurationserver)下载最新版本的配置服务器模板。
+  可以直接从 [Microsoft 下载中心](http://aka\.ms/asrconfigurationserver_bjb)下载最新版本的配置服务器模板。
 
 ## <a name="import-the-template-in-vmware"></a>在 VMware 中导入模板
 

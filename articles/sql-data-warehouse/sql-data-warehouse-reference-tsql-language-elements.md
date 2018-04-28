@@ -1,30 +1,26 @@
 ---
-title: "SQL 数据仓库 Transact-SQL 语言元素 | Azure"
-description: "用于 SQL 数据仓库的 Transact-SQL 语言元素的参考内容链接列表。"
+title: T-SQL 语言元素 - Azure SQL 数据仓库 | Microsoft Docs
+description: 有关 Azure SQL 数据仓库中支持的 T-SQL 语句文档的链接。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: ea0b9a3e-e489-458e-addc-cc153e5cc158
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-origin.date: 10/31/2016
-ms.date: 07/17/2017
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/14/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8ea3a9af8320db9f49f9bc6a11c4ac9f755ad59c
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: 154bf3ccb2a4a0e43f31a43a24b3fe7acd354154
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="language-elements"></a>语言元素
+# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中支持的 T-SQL 语言元素
+有关 Azure SQL 数据仓库中支持的 T-SQL 语言元素文档的链接。
+
 ## <a name="core-elements"></a>核心元素
-* [语法约定](https://msdn.microsoft.com/zh-cn/library/ms177563.aspx)
+* [语法约定](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
 * [对象命名规则](https://msdn.microsoft.com/zh-cn/library/ms175874.aspx)
 * [保留的关键字](https://msdn.microsoft.com/zh-cn/library/ms189822.aspx)
 * [排序规则](https://msdn.microsoft.com/zh-cn/library/ff848763.aspx)
@@ -73,7 +69,7 @@ ms.lasthandoff: 07/05/2017
 * [IS [NOT] NULL](https://msdn.microsoft.com/zh-cn/library/ms188795.aspx)
 * [LIKE](https://msdn.microsoft.com/zh-cn/library/ms179859.aspx)
 * [NOT](https://msdn.microsoft.com/zh-cn/library/ms189455.aspx)
-* [OR](https://msdn.microsoft.com/zh-cn/library/ms188361.aspx)
+* [或者](https://msdn.microsoft.com/zh-cn/library/ms188361.aspx)
 
 ### <a name="bitwise-operators"></a>位运算符
 * [&（位与）](https://msdn.microsoft.com/zh-cn/library/ms174965.aspx)
@@ -280,11 +276,5 @@ ms.lasthandoff: 07/05/2017
 * [SET XACT_ABORT](https://msdn.microsoft.com/zh-cn/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>后续步骤
-有关更多参考信息，请参阅 [SQL 数据仓库参考概述][SQL Data Warehouse reference overview]。
+有关详细参考信息，请参阅 [Azure SQL 数据仓库中的 T-SQL 语句](sql-data-warehouse-reference-tsql-statements.md)以及 [Azure SQL 数据仓库中的系统视图](sql-data-warehouse-reference-tsql-system-views.md)。
 
-<!--Image references-->
-
-<!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
-
-<!--MSDN references-->

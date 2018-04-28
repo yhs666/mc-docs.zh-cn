@@ -1,26 +1,26 @@
 ---
-title: "Azure PowerShell 脚本示例 - 创建 Service Fabric 群集 | Azure"
-description: "Azure PowerShell 脚本示例 - 创建一个三节点的测试 Service Fabric 群集。"
+title: Azure PowerShell 脚本示例 - 创建 Service Fabric 群集 | Azure
+description: Azure PowerShell 脚本示例 - 创建一个三节点的测试 Service Fabric 群集。
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 01/29/2018
-ms.date: 03/12/2018
+origin.date: 03/19/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7ac3f9a5670e4764be7dab129cd0142311d417bc
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: d20a69e70a7096269eaf429eb1915a427bd36c13
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-three-node-test-service-fabric-cluster"></a>创建一个三节点的测试 Service Fabric 群集
 

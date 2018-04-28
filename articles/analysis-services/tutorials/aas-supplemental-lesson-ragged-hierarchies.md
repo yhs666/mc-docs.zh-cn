@@ -1,26 +1,19 @@
 ---
-title: "Azure Analysis Services 教程补充课程：不规则层次结构 | Azure"
-description: "介绍如何在 Azure Analysis Services 教程中修复不规则层次结构。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 教程补充课程：不规则层次结构 | Azure
+description: 介绍如何在 Azure Analysis Services 教程中修复不规则层次结构。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: d1e9982c2efa7b47e424b48f0ecf09b955e1b47f
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.reviewer: minewiskan
+ms.openlocfilehash: 6d74dac18ede3b3bdd6991801775d58a9cdeee7f
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>补充课程 - 不规则层次结构
 
@@ -129,4 +122,4 @@ ms.lasthandoff: 02/23/2018
 [补充课程 - 动态安全性](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [补充课程 - 详细信息行](../tutorials/aas-supplemental-lesson-detail-rows.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

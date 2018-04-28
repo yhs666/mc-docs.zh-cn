@@ -1,6 +1,6 @@
 ---
-title: "Key Vault 机密与 Azure 资源管理器模板 | Azure"
-description: "说明在部署期间如何以参数形式从密钥保管库传递机密。"
+title: Key Vault 机密与 Azure 资源管理器模板 | Azure
+description: 说明在部署期间如何以参数形式从密钥保管库传递机密。
 services: azure-resource-manager,key-vault
 documentationcenter: na
 author: rockboyfor
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/30/2017
-ms.date: 12/25/2017
+origin.date: 04/11/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: da571a8461b9f13ef7812b1995313436ec1e772b
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: a455e67022c09716811376e58d5df95f64d33b5e
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>在部署过程中使用 Azure Key Vault 传递安全参数值
 
@@ -63,7 +63,7 @@ Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue
 
 ## <a name="enable-access-to-the-secret"></a>启用密钥访问权限
 
-无论使用的是新密钥保管库还是现有密钥保管库，请确保部署模板的用户可以访问密钥。 部署引用某个密钥的模板的用户必须具有密钥保管库的 `Microsoft.KeyVault/vaults/deploy/action` 权限。 [所有者](../active-directory/role-based-access-built-in-roles.md#owner)和[参与者](../active-directory/role-based-access-built-in-roles.md#contributor)角色均授予该访问权限。
+无论使用的是新密钥保管库还是现有密钥保管库，请确保部署模板的用户可以访问密钥。 部署引用某个密钥的模板的用户必须具有密钥保管库的 `Microsoft.KeyVault/vaults/deploy/action` 权限。 [所有者](../role-based-access-control/built-in-roles.md#owner)和[参与者](../role-based-access-control/built-in-roles.md#contributor)角色均授予该访问权限。
 
 ## <a name="reference-a-secret-with-static-id"></a>通过静态 ID 引用机密
 接收 key vault 机密的模板与任何其他模板类似。 这是因为在参数文件（而不是在模板）中引用 key vault。 下图显示了参数文件如何引用机密并将该值传递到模板。
@@ -131,6 +131,13 @@ Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue
 }
 ```
 
+如果需要使用当前版本以外的机密版本，请使用 `secretVersion` 属性。
+
+```json
+"secretName": "examplesecret",
+"secretVersion": "cd91b2b7e10e492ebb870a6ee0591b68"
+```
+
 现在，部署模板并传入参数文件。 可以使用 GitHub 中的示例模板，但必须使用本地参数文件并将值设置为自己的环境。
 
 >[!NOTE]
@@ -160,7 +167,7 @@ New-AzureRmResourceGroupDeployment `
 
 ## <a name="reference-a-secret-with-dynamic-id"></a>通过动态 ID 引用机密
 
-上一部分介绍了如何传递密钥保管库机密的静态资源 ID。 但是，在某些情况下，需要引用随当前部署而变的密钥保管库机密。 在这种情况下，不能在参数文件中对资源 ID 进行硬编码。 遗憾的是，不能在参数文件中动态生成资源 ID，因为参数文件中不允许模板表达式。
+上一部分介绍了如何传递密钥保管库机密的静态资源 ID。 但是，在某些情况下，需要引用随当前部署而变的密钥保管库机密。 在这种情况下，不能在参数文件中对资源 ID 进行硬编码。 遗憾的是，不能在参数文件中动态生成资源 ID，因为参数文件中不允许使用模板表达式。
 
 要动态生成 Key Vault 机密的资源 ID，必须将需要机密的资源迁移到链接模板。 在父模板中添加链接模板，然后传入包含动态生成的资源 ID 的参数。 下图显示链接模板中的参数如何引用机密。
 

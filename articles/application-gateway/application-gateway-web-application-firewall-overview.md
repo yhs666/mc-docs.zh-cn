@@ -6,20 +6,19 @@ services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/03/2017
-ms.date: 04/04/2018
+origin.date: 04/16/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3cb0660ce516b8d0cfec531981ad23a11e08f30d
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 1b7f31ee0c854fc6f9a0bb661389ddbac74c9154
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="web-application-firewall-waf"></a>Web 应用程序防火墙 (WAF)
 
@@ -55,13 +54,13 @@ Web 应用程序防火墙基于 [OWASP 核心规则集](https://www.owasp.org/in
 
 Web 应用程序防火墙中默认已预先配置 CRS 3.0，你也可以选择使用版本 2.2.9。 与版本 2.2.9 相比，CRS 3.0 的误报数更少。 提供[根据需求自定义规则](application-gateway-customize-waf-rules-portal.md)的功能。 Web 应用程序防火墙防范的某些常见 Web 安全漏洞包括：
 
-* SQL 注入保护
-* 跨站点脚本保护
-* 常见 Web 攻击保护，例如命令注入、HTTP 请求走私、HTTP 响应拆分和远程文件包含攻击
-* 防止 HTTP 协议违反行为
-* 防止 HTTP 协议异常行为，例如缺少主机用户代理和接受标头
-* 防止自动程序、爬网程序和扫描程序
-* 检测常见应用程序错误配置（即 Apache、IIS 等）
+- SQL 注入保护
+- 跨站点脚本保护
+- 常见 Web 攻击保护，例如命令注入、HTTP 请求走私、HTTP 响应拆分和远程文件包含攻击
+- 防止 HTTP 协议违反行为
+- 防止 HTTP 协议异常行为，例如缺少主机用户代理和接受标头
+- 防止自动程序、爬网程序和扫描程序
+- 检测常见应用程序错误配置（即 Apache、IIS 等）。
 
 有关规则及其保护措施的更详细列表，请参阅下面的[核心规则集](#core-rule-sets)。
 
@@ -75,9 +74,7 @@ Web 应用程序防火墙中默认已预先配置 CRS 3.0，你也可以选择�
 
 |RuleGroup|说明|
 |---|---|
-|**[REQUEST-910-IP-REPUTATION](application-gateway-crs-rulegroups-rules.md#crs910)**|包含用于防范已知垃圾邮件制造者或恶意活动的规则。|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|包含用于锁定方法（PUT、PATCH< 等）的规则。|
-|**[REQUEST-912-DOS-PROTECTION](application-gateway-crs-rulegroups-rules.md#crs912)**| 包含用于防范拒绝服务 (DoS) 攻击的规则。|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| 包含用于防范端口和环境扫描程序的规则。|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|包含用于防范协议和编码问题的规则。|
 |**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|包含用于防范标头注入、请求走私和响应拆分的规则|
@@ -110,8 +107,8 @@ Web 应用程序防火墙中默认已预先配置 CRS 3.0，你也可以选择�
 
 应用程序网关 WAF 可配置为在以下两种模式中运行：
 
-* **检测模式** - 配置为在检测模式中运行时，应用程序网关 WAF 监视所有威胁警报并记录到日志文件中。 应使用“诊断”部分打开应用程序网关的日志记录诊断。 还需确保已选择并打开 WAF 日志。 在检测模式下运行时，Web 应用程序防火墙不会阻止传入的请求。
-* **阻止模式** - 配置为在阻止模式中运行时，应用程序网关主动阻止其规则检测到的入侵和攻击。 攻击者会收到 403 未授权访问异常，且连接会终止。 阻止模式会继续在 WAF 日志中记录此类攻击。
+- **检测模式** - 配置为在检测模式中运行时，应用程序网关 WAF 监视所有威胁警报并记录到日志文件中。 应使用“诊断”部分打开应用程序网关的日志记录诊断。 还需确保已选择并打开 WAF 日志。 在检测模式下运行时，Web 应用程序防火墙不会阻止传入的请求。
+- **阻止模式** - 配置为在阻止模式中运行时，应用程序网关主动阻止其规则检测到的入侵和攻击。 攻击者会收到 403 未授权访问异常，且连接会终止。 阻止模式会继续在 WAF 日志中记录此类攻击。
 
 ### <a name="application-gateway-waf-reports"></a>WAF 监视
 
@@ -161,7 +158,6 @@ Web 应用程序防火墙中默认已预先配置 CRS 3.0，你也可以选择�
 
 Web 应用程序防火墙在新的 WAF SKU 中提供。 此 SKU 仅在 Azure Resource Manager 预配模型中可用，在经典部署模型中不可用。 此外，WAF SKU 仅提供中型和大型应用程序网关实例大小。 应用程序网关的所有限制同样适用于 WAF SKU。 定价基于每小时网关实例费和数据处理费。 WAF SKU 的每小时网关定价不同于标准 SKU 费用，具体请参阅[应用程序网关定价详细信息](https://www.azure.cn/pricing/details/application-gateway/)。 数据处理费保持不变。 不会按规则或规则组收费。 可以使用同一个 Web 应用程序防火墙保护多个 Web 应用程序，支持多个应用程序不会产生额外的费用。 
 
-WAF 的计费方式从 2017 年 5 月 5 日开始生效，在此之前，WAF SKU 网关继续按标准费率计费。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure IoT 中心计划作业 (Java)"
-description: "如何安排 Azure IoT 中心作业对多台设备调用直接方法并设置必需属性。 使用适用于 Java 的 Azure IoT 设备 SDK 实现模拟设备应用，并使用适用于 Java 的 Azure IoT 服务 SDK 实现用于运行作业的服务应用。"
+title: 使用 Azure IoT 中心计划作业 (Java)
+description: 如何安排 Azure IoT 中心作业对多台设备调用直接方法并设置必需属性。 使用适用于 Java 的 Azure IoT 设备 SDK 实现模拟设备应用，并使用适用于 Java 的 Azure IoT 服务 SDK 实现用于运行作业的服务应用。
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: article
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: c059b1ba497f14a213573bd134d03fbd7843446d
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 05/07/2018
+ms.openlocfilehash: b754e67f794004c86b353dc3f81ba31be6ee8d16
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>计划和广播作业 (Java)
 
@@ -36,6 +36,8 @@ ms.lasthandoff: 03/12/2018
 
 * 设备孪生和属性：[设备孪生入门](iot-hub-java-java-twin-getstarted.md)
 * 直接方法：[IoT 中心开发人员指南 - 直接方法](iot-hub-devguide-direct-methods.md)和[教程：使用直接方法](iot-hub-java-java-direct-methods.md)
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 本教程演示如何：
 

@@ -1,25 +1,25 @@
 ---
-title: "使用 Azure 门户创建 IoT 中心 | Azure"
-description: "如何通过 Azure 门户创建、管理和删除 Azure IoT 中心。 包括有关定价层、缩放、安全性和消息传递配置的信息。"
+title: 使用 Azure 门户创建 IoT 中心 | Azure
+description: 如何通过 Azure 门户创建、管理和删除 Azure IoT 中心。 包括有关定价层、缩放、安全性和消息传递配置的信息。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0909cd2b-4c1e-49e0-b68a-75532caf0a6a
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/26/2017
+origin.date: 04/01/2018
 ms.author: v-yiso
-ms.date: 09/25/2017
-ms.openlocfilehash: 8894e3ab762e1c92137bf78deccf6b29dda0b28d
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.date: 05/07/2018
+ms.openlocfilehash: 59f6e4c95e07394675fa8aecd84173966ee08807
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>使用 Azure 门户创建 IoT 中心
 
@@ -52,20 +52,10 @@ ms.lasthandoff: 12/08/2017
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 ### <a name="choose-the-pricing-tier"></a>选择定价层
-可以从四个层中做选择：**免费**、**标准 1**、**标准 2** 和**标准 S3**。 免费层只允许 500 台设备连接到 IoT 中心，并且每天最多传输 8,000 条信息。
 
-标准 S1：对拥有大量设备且每个设备能够生成少量数据的 IoT 解决方案使用 S1 版。 S1 版的每个计价单位能够在所有已连接设备间每天传输最多 400,000 条消息。
+可以根据你需要的功能数以及每天通过解决方案发送的消息数从多个层中进行选择。 免费层适用于测试和评估。 它允许 500 台设备连接到 IoT 中心，并且每天最多传输 8,000 条信息。 每个 Azure 订阅可以在免费层中创建一个 IoT 中心。 
 
-标准 S2：对设备生成大量数据的 IoT 解决方案使用 S2 版。 S2 版的每个计价单位能够在所有已连接设备间每天传输最多 600 万条消息。
-
-标准 S3：对生成大量数据的 IoT 解决方案使用 S3 版。 S3 版的每个计价单位能够在所有已连接设备间每天传输最多 3 亿条消息。
-
-![][4]
-
-> [!NOTE]
-> IoT 中心只允许每个 Azure 订阅有一个免费中心。
-> 
-> 
+有关其他层选项的详细信息，请参阅[选择合适的 IoT 中心层](iot-hub-scaling.md)。
 
 ### <a name="iot-hub-units"></a>IoT 中心单位
 
@@ -107,7 +97,7 @@ Azure IoT 中心自动列出用户帐户所链接的 Azure 订阅。 可以选�
 
     “服务连接”策略授予访问服务终结点的权限，例如“接收设备到云”。 “设备连接”策略授予使用 IoT 中心的设备端终结点发送和接收消息的权限。
 
-* 单击“**创建**”将此新建策略添加到现有列表。
+* 单击“创建”将此新建策略添加到现有列表。
 
 ![][10]
 
@@ -119,7 +109,7 @@ Azure IoT 中心自动列出用户帐户所链接的 Azure 订阅。 可以选�
 ### <a name="built-in-endpoints"></a>内置终结点
 有两个内置终结点：**云到设备反馈**和**事件**。
 
-* **云到设备反馈**设置：此设置有两项子设置：消息的**云到设备 TTL**（生存时间）和**保留时间**（以小时为单位）。 首次创建 IoT 中心时，这两项设置具有一小时的默认值。 若要调整这些设置，请使用滑块或键入值。
+* **云到设备反馈**设置：此设置有两项子设置：消息的**云到设备 TTL**（生存时间）和**保留时间**（以小时为单位）。 首次创建 IoT 中心时，这两个设置的默认值均为一小时。 若要调整这些设置，请使用滑块或键入值。
 * **事件** 设置：此设置具有多个子设置，其中一些子设置是只读的。 以下列表说明了这些设置：
 
     * **分区**：创建 IoT 中心时，会设置一个默认值。 可以通过此设置更改分区数。
@@ -150,16 +140,6 @@ Azure IoT 中心自动列出用户帐户所链接的 Azure 订阅。 可以选�
 单击“路由”边栏选项卡顶部的“添加”，输入所需信息，然后单击“确定”，即可将路由添加到 IoT 中心。 然后路由就会在主“路由”边栏选项卡中列出。 在路由列表中单击路由即可对其进行编辑。 要启用路由，请在路由列表中单击它，然后将“启用”切换按钮设置为“关”。 若要保存更改，单击边栏选项卡底部的“确定”。
 
 ![][15]
-
-## <a name="pricing-and-scale"></a>定价和缩放
-现有 IoT 中心的定价可通过“定价”设置来更改，但存在以下例外情况： 
-
-* 在当前的实现中，使用免费 SKU 的 IoT 中心无法更改为付费型 SKU 层，反之亦然。
-* Azure 订阅中只能有一个免费层 IoT 中心。
-
-![][12]
-
-只有在当天发送的消息数目超过较低层的配额时，才可从较高层移动到较低层。 例如，如果每天的消息数目超过 400,000，则可更改 IoT 中心的层。 但是，如果更改为 S1 层，则会在当天对 IoT 中心进行限制。
 
 ## <a name="delete-the-iot-hub"></a>删除 IoT 中心
 

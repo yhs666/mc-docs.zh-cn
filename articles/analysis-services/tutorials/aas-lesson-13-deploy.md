@@ -1,26 +1,19 @@
 ---
-title: "Azure Analysis Services 教程第 13 课：部署 | Azure"
-description: "介绍如何将教程项目部署到 Azure Analysis Services。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 教程第 13 课：部署 | Azure
+description: 介绍如何将教程项目部署到 Azure Analysis Services。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1b14311f4aaf8cb8839a402ea34f30a987368521
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: minewiskan
+ms.openlocfilehash: 08cfb06d2e67788853e097c39071d45baba5c99d
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy"></a>部署
 
@@ -80,4 +73,4 @@ ms.lasthandoff: 03/08/2018
 [补充课程 - 详细信息行](../tutorials/aas-supplemental-lesson-detail-rows.md)   
 [补充课程 - 不规则层次结构](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

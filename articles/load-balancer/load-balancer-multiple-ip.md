@@ -1,6 +1,6 @@
 ---
-title: "针对 Azure 中的多个 IP 配置进行负载均衡 | Azure"
-description: "在主要和辅助 IP 配置之间进行负载均衡。"
+title: 针对 Azure 中的多个 IP 配置进行负载均衡 | Azure
+description: 在主要和辅助 IP 配置之间进行负载均衡。
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 12/11/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 62e1da90930771b00adbefb5afb58651ace976ef
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 30dbd087382dea45bcb5ba55e67fd8ccf7be6080
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>使用 Azure 门户对多个 IP 配置进行负载均衡
 
@@ -27,8 +27,6 @@ ms.lasthandoff: 03/12/2018
 > * [Portal](load-balancer-multiple-ip.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 本文介绍如何对辅助网络接口控制器 (NIC) 上的多个 IP 地址使用 Azure 负载均衡器。 下图演示了本文所述的方案：
 
@@ -90,7 +88,7 @@ ms.lasthandoff: 03/12/2018
 
 1. 浏览到 Azure 门户：http://portal.azure.cn。 使用 Azure 帐户登录。
 
-2. 在屏幕左上方，选择“新建” > “网络” > “负载均衡器”。 接下来，选择“创建”。
+2. 在屏幕的左上方，选择“创建资源” > “网络” > “负载均衡器”。 接下来，选择“创建”。
 
 3. 在“创建负载均衡器”下，为负载均衡器键入一个名称。 此方案使用名称 **mylb**。
 

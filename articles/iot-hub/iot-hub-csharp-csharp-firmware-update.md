@@ -1,31 +1,33 @@
 ---
-title: "使用 Azure IoT 中心更新设备固件 (.NET/.NET) | Microsoft Docs"
-description: "如何使用 Azure IoT 中心上的设备管理进行设备固件更新。 使用适用于 .NET 的 Azure IoT 设备 SDK 实现模拟设备应用，并使用适用于 .NET 的 Azure IoT 服务 SDK 实现可触发固件更新的服务应用。"
+title: 使用 Azure IoT 中心更新设备固件 (.NET/.NET) | Microsoft Docs
+description: 如何使用 Azure IoT 中心上的设备管理进行设备固件更新。 使用适用于 .NET 的 Azure IoT 设备 SDK 实现模拟设备应用，并使用适用于 .NET 的 Azure IoT 服务 SDK 实现可触发固件更新的服务应用。
 services: iot-hub
 documentationcenter: .net
-author: JimacoMS2
+author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/19/2017
-ms.date: 12/18/2017
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: 493381f9d8191fe5edbce126cd902526b9c2ffc7
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: cb8cad93afdf5c316e29fa7aac26725fb774fb70
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>使用设备管理启动设备固件更新 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 在[设备管理入门][lnk-dm-getstarted]教程中，已了解如何使用[设备孪生][lnk-devtwin]和[直接方法][lnk-c2dmethod]基元来远程重新启动设备。 本教程使用相同的 IoT 中心基元，并演示如何进行端到端模拟固件更新。  此模式在用于 [Raspberry Pi device implementation sample][lnk-rpi-implementation]（Raspberry Pi 设备实现示例）的固件更新实现中使用。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 本教程演示如何：
 
@@ -390,7 +392,7 @@ ms.lasthandoff: 12/08/2017
 ## <a name="next-steps"></a>后续步骤
 在本教程中，直接触发了设备的远程固件更新，并使用了报告属性跟踪固件更新的进度。
 
-若要了解如何扩展 IoT 解决方案并在多个设备上计划方法调用，请参阅 [Schedule and broadcast jobs][lnk-tutorial-jobs] （计划和广播作业）教程。
+若要了解如何扩展 IoT 解决方案以及在多个设备上计划方法调用，请参阅[计划和广播作业][lnk-tutorial-jobs]教程。
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-csharp-firmware-update/servicesdknuget.png

@@ -1,27 +1,27 @@
 ---
-title: "Azure PowerShell 示例 - Service Fabric | Azure"
-description: "Azure PowerShell 示例 - Service Fabric"
+title: Azure PowerShell 示例 - Service Fabric | Azure
+description: Azure PowerShell 示例 - Service Fabric
 services: service-fabric
 documentationcenter: service-fabric
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.service: service-fabric
 ms.devlang: na
-ms.topic: sampler
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-origin.date: 12/13/2017
-ms.date: 01/01/2018
+origin.date: 04/09/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9fdb030e72c754e7e073e601615e4da6bd070cfc
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: a7cb7f392aad7b5328a5934ca971f47c3a4f6e3f
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 示例
 
@@ -45,4 +45,4 @@ ms.lasthandoff: 12/29/2017
 | [升级应用程序](./scripts/service-fabric-powershell-upgrade-application.md)| 升级应用程序。|
 | [删除应用程序](./scripts/service-fabric-powershell-remove-application.md)| 从群集中删除应用程序。|
 
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update meta properties -->

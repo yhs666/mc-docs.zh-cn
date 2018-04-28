@@ -1,26 +1,20 @@
 ---
-title: "数据加载最佳做法 - Azure SQL 数据仓库 | Azure"
-description: "关于如何使用 Azure SQL 数据仓库加载数据和执行 ELT 的建议。"
+title: 数据加载最佳做法 - Azure SQL 数据仓库 | Azure
+description: 关于如何使用 Azure SQL 数据仓库加载数据和执行 ELT 的建议。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
+ms.topic: conceptual
+ms.component: implement
 origin.date: 12/13/2017
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 961b76caebc9e1d1fb0d0c48d98586cb04e26721
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 882ad481fa348370c622f904b2d418d97d60fc51
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>将数据加载到 Azure SQL 数据仓库中的最佳做法
 关于如何将数据加载到 Azure SQL 数据仓库中的建议以及与之相关的性能优化。 
@@ -63,11 +57,11 @@ PolyBase 无法加载数据大小超过 1,000,000 字节的行。 将数据置�
 ```
 若要使用 staticRC20 资源类的资源运行负载，请直接以 LoaderRC20 身份登录，然后运行该负载。
 
-在静态而非动态资源类下运行负载。 使用静态资源类可确保不管[服务级别](performance-tiers.md#service-levels)如何，资源始终不变。 如果使用动态资源类，则资源因服务级别而异。 对于动态类，如果服务级别降低，则意味着可能需要对加载用户使用更大的资源类。
+在静态而非动态资源类下运行负载。 使用静态资源类可确保不管[数据仓库单元](what-is-a-data-warehouse-unit-dwu-cdwu.md)如何，资源始终不变。 如果使用动态资源类，则资源因服务级别而异。 对于动态类，如果服务级别降低，则意味着可能需要对加载用户使用更大的资源类。
 
 ## <a name="allowing-multiple-users-to-load"></a>允许多个用户进行加载
 
-通常需要允许多个用户将数据加载到数据仓库中。 使用 [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 进行加载需要数据库的“控制”权限。  “控制”权限允许对所有架构进行控制性访问。 可能不需要让所有加载用户都具有对所有架构的控制访问权限。 若要限制权限，请使用 DENY CONTROL 语句。
+通常需要允许多个用户将数据加载到数据仓库中。 使用 [CREATE TABLE AS SELECT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 进行加载需要数据库的“控制”权限。  “控制”权限允许对所有架构进行控制性访问。 可能不需要让所有加载用户都具有对所有架构的控制访问权限。 若要限制权限，请使用 DENY CONTROL 语句。
 
 例如，考虑为部门 A 使用数据库架构 schema_A，为部门 B 使用 schema_B；让数据库用户 user_A 和 user_B 分别作为部门 A 和 B 中加载的 PolyBase 用户。 这些用户已被授予 CONTROL 数据库权限。 架构 A 和 B 的创建者现在使用 DENY 锁定其架构：
 
@@ -105,7 +99,7 @@ PolyBase 无法加载数据大小超过 1,000,000 字节的行。 将数据置�
 
 ## <a name="creating-statistics-after-the-load"></a>创建加载后的统计信息
 
-为了改进查询性能，在首次加载数据或者在数据发生重大更改之后，必须针对所有表的所有列创建统计信息。  有关统计信息的详细说明，请参阅[统计信息][统计信息]。 以下示例针对 Customer_Speed 表的五个列创建统计信息。
+为了改进查询性能，在首次加载数据或者在数据发生重大更改之后，必须针对所有表的所有列创建统计信息。  有关统计信息的详细说明，请参阅[统计信息](sql-data-warehouse-tables-statistics.md)。 以下示例针对 Customer_Speed 表的五个列创建统计信息。
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -123,16 +117,19 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 对于每个已更改密钥的存储帐户，请发出 [ALTER DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-credential-transact-sql) 命令。
 <!-- URL is not Correct on remove .md postfox on [ALTER DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-credential-transact-sql) -->
 
-
 示例：
 
 已创建原始密钥
 
-CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+    ```sql
+    CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
+    ``` 
 
 将密钥从密钥 1 轮换为密钥 2
 
-ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+    ```sq;
+    ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+    ```
 
 无需对基础外部数据源进行更改。
 

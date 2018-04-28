@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中心设备孪生入门 (Python)"
-description: "如何使用 Azure IoT 中心设备孪生添加标记，并使用 IoT 中心查询。 使用用于 Python 的 Azure IoT SDK 来实现一个模拟设备应用，并实现可添加标记和运行 IoT 中心查询的一个服务应用。"
+title: Azure IoT 中心设备孪生入门 (Python)
+description: 如何使用 Azure IoT 中心设备孪生添加标记，并使用 IoT 中心查询。 使用用于 Python 的 Azure IoT SDK 来实现一个模拟设备应用，并实现可添加标记和运行 IoT 中心查询的一个服务应用。
 services: iot-hub
 documentationcenter: python
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 314c88e4-cce1-441c-b75a-d2e08e39ae7d
 ms.service: iot-hub
 ms.devlang: python
@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 12/04/2017
 ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 85e0f16811d1208a42132fe5c5b63269a2d03e39
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 38ddca28529013d8587569ef9d8fa9702d9e7420
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-device-twins-python"></a>设备孪生入门 (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -243,7 +243,7 @@ ms.lasthandoff: 03/12/2018
 1. 运行设备应用
    
     ```cmd/sh
-    python ReportConnectivity.js
+    python ReportConnectivity.py
     ```
    
     应当会看到关于设备孪生已更新的确认。
@@ -253,7 +253,7 @@ ms.lasthandoff: 03/12/2018
 6. 现在设备报告了其连接信息，应出现在两个查询中。 回过头来再次运行查询：
    
     ```cmd/sh
-    python AddTagsAndQuery.js
+    python AddTagsAndQuery.py
     ```
    
     这一次，两个查询结果中应当都会显示你的 **{Device Id}**。

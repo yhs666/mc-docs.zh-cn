@@ -1,28 +1,23 @@
 ---
-title: "快速入门：在 Azure SQL 数据仓库中暂停和恢复计算 - Azure 门户 | Azure"
-description: "Azure 门户任务通过暂停 Azure SQL 数据仓库的计算来节约成本。 在准备好使用数据仓库时恢复计算。"
+title: 快速入门：在 Azure SQL 数据仓库中暂停和恢复计算 - Azure 门户 | Microsoft Docs
+description: 使用 Azure 门户暂停 Azure SQL 数据仓库中的计算来节约成本。 在准备好使用数据仓库时恢复计算。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
+ms.topic: quickstart
+ms.component: implement
 origin.date: 01/23/2018
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: e4f9116e1af3183e08a1ee198c26e4eff53396cf
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 136d2b43010a5fff7cc6f3d090da7069df767a90
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入门：在 Azure 门户中暂停和恢复 Azure SQL 数据仓库的计算
-暂停 Azure SQL 数据仓库的计算以节约成本。 在准备好使用数据仓库时[还原计算](sql-data-warehouse-manage-compute-overview.md)。
+使用 Azure 门户暂停 Azure SQL 数据仓库中的计算来节约成本。 在准备好使用数据仓库时[还原计算](sql-data-warehouse-manage-compute-overview.md)。
 
 如果还没有 Azure 订阅，可以在开始前创建一个[免费](https://www.azure.cn/pricing/1rmb-trial/)帐户。
 

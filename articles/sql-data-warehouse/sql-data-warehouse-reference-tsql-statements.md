@@ -1,28 +1,24 @@
 ---
-title: "SQL 数据仓库 Transact-SQL 参考 | Azure"
-description: "SQL 数据仓库使用的 Transact-SQL 主题参考内容的链接。"
+title: T-SQL 语句 - Azure SQL 数据仓库 | Microsoft Docs
+description: 有关 Azure SQL 数据仓库中支持的 T-SQL 语句文档的链接。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 0abc5934-1e67-491a-b7d7-8b520d1ae98e
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-origin.date: 10/31/2016
-ms.date: 07/17/2017
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/14/2018
+ms.date: 04/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: ef89da4b70bf77445f0f7cb24e98f76da96df2f7
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.openlocfilehash: f493910899fa55b71ce5c29ce5ef103e727deb90
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="transact-sql-topics"></a>Transact-SQL 主题
+# <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中支持的 T-SQL 语句
+有关 Azure SQL 数据仓库中支持的 T-SQL 语句文档的链接。
+
 ## <a name="data-definition-language-ddl-statements"></a>数据定义语言 (DDL) 语句
 * [ALTER DATABASE](https://msdn.microsoft.com/zh-cn/library/mt204042.aspx)
 * [ALTER INDEX](https://msdn.microsoft.com/zh-cn/library/ms188388.aspx)
@@ -114,13 +110,4 @@ ms.lasthandoff: 07/05/2017
 * [OPEN MASTER KEY](https://msdn.microsoft.com/zh-cn/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>后续步骤
-有关更多 TSQL 示例，请参阅 [SQL 数据仓库参考概述][SQL Data Warehouse reference overview]。
-
-<!--Image references-->
-
-<!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
+有关详细参考信息，请参阅 [Azure SQL 数据仓库中的 T-SQL 语言元素](sql-data-warehouse-reference-tsql-language-elements.md)以及 [Azure SQL 数据仓库中的系统视图](sql-data-warehouse-reference-tsql-system-views.md)。

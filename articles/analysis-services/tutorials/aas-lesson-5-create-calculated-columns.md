@@ -1,26 +1,19 @@
 ---
-title: "Azure Analysis Services 教程第 5 课：创建计算列 | Azure"
-description: "介绍如何在 Azure Analysis Services 教程项目中创建计算列。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 教程第 5 课：创建计算列 | Azure
+description: 介绍如何在 Azure Analysis Services 教程项目中创建计算列。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: f6f3e527cd99a4318b0fc69b94dd127a53509887
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.reviewer: minewiskan
+ms.openlocfilehash: d369257aa14552141ffc6708d3ccffee90c95a87
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-calculated-columns"></a>创建计算列
 
@@ -133,4 +126,4 @@ ProductCategoryName 计算列用于在 DimProduct 表中创建层次结构，该
 ## <a name="whats-next"></a>后续步骤
 [第 6 课：创建度量值](../tutorials/aas-lesson-6-create-measures.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

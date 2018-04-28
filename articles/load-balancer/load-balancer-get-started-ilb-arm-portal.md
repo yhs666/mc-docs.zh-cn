@@ -1,11 +1,11 @@
 ---
-title: "创建内部负载均衡器 - Azure 门户 | Azure"
-description: "了解如何使用 Azure 门户在 Resource Manager 中创建内部负载均衡器"
+title: 创建内部负载均衡器 - Azure 门户 | Azure
+description: 了解如何使用 Azure 门户在 Resource Manager 中创建内部负载均衡器
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 1ac14fb9-8d14-4892-bfe6-8bc74c48ae2c
 ms.service: load-balancer
@@ -14,13 +14,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 02/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: e18e7b58b988f7c8d9ff0bb79f17597ef459bf73
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 853c9b1b373da689826d1818eaab8509692d0a7b
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>在 Azure 门户中创建内部负载均衡器
 
@@ -29,8 +29,6 @@ ms.lasthandoff: 02/23/2018
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [模板](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -41,7 +39,7 @@ ms.lasthandoff: 02/23/2018
 使用以下步骤从 Azure 门户创建内部负载均衡器。
 
 1. 打开浏览器，导航到 [Azure 门户](http://portal.azure.cn)，并使用 Azure 帐户登录。
-2. 在屏幕的左上方，单击“新建” > “网络” > “负载均衡器”。
+2. 在屏幕的左上方，单击“创建资源” > “网络” > “负载均衡器”。
 3. 在“创建负载均衡器”边栏选项卡中，输入负载均衡器的“名称”。
 4. 在“类型”下，单击“内部”。
 5. 单击“虚拟网络” ，并选择要在其中创建负载均衡器的虚拟网络。

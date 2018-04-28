@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序安全组视图自动进行 NSG 审核 | Azure"
-description: "本页说明如何配置网络安全组的审核"
+title: 使用 Azure 网络观察程序安全组视图自动进行 NSG 审核 | Azure
+description: 本页说明如何配置网络安全组的审核
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 78a01bcf-74fe-402a-9812-285f3501f877
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: d6b12cfdd365e91181d76898e9f99c4a4dbc77fb
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 9c51aae0eca5c62dd3a2f8326e71e852b119b992
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>使用 Azure 网络观察程序安全组视图自动进行 NSG 审核
 
@@ -27,11 +27,11 @@ ms.lasthandoff: 11/14/2017
 
 如果不熟悉网络安全组，请访问[网络安全概述](../virtual-network/virtual-networks-nsg.md)
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 本方案将已知合理的基准与针对虚拟机返回的安全组视图结果进行比较。
 
-本方案假设已根据[创建网络观察程序](network-watcher-create.md)中的步骤创建了网络观察程序。 此外，本方案假设要使用一个包含有效虚拟机的资源组。
+此方案假定已按照[创建网络观察程序](network-watcher-create.md)中的步骤创建网络观察程序。 此外，本方案假设要使用一个包含有效虚拟机的资源组。
 
 ## <a name="scenario"></a>方案
 
@@ -126,7 +126,7 @@ $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
 下一步是检索网络观察程序实例。 将 `$networkWatcher` 变量传递给 `AzureRmNetworkWatcherSecurityGroupView` cmdlet。
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "chinaeast" } 
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "chinanorth" } 
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
 ```
 
@@ -188,6 +188,6 @@ SideIndicator            : <=
 
 ## <a name="next-steps"></a>后续步骤
 
-如果更改了设置，请参阅[管理网络安全组](../virtual-network/virtual-network-manage-nsg-arm-portal.md)来跟踪有问题的网络安全组和安全规则。
+如果更改了设置，请参阅[管理网络安全组](../virtual-network/manage-network-security-group.md)来跟踪有问题的网络安全组和安全规则。
 
-<!--Update_Description: new articles on network watcher nsg auditing powershell -->
+<!--Update_Description: update link, wording update -->

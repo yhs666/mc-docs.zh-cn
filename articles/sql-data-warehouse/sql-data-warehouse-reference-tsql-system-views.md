@@ -2,30 +2,25 @@
 title: SQL 数据仓库系统视图 | Azure
 description: SQL 数据仓库的系统视图内容链接。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: reference
-origin.date: 01/22/2018
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/14/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9e16b7b9d6fc2ffc543628304fa4dffec2b5d1e4
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: c925e9eff69eaf2ea1377df02e8ab1e054f2d10f
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="system-views"></a>系统视图
+# <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库支持的系统视图
+有关 Azure SQL 数据仓库中支持的 T-SQL 语句文档的链接。
+
 ## <a name="sql-data-warehouse-catalog-views"></a>SQL 数据仓库目录视图
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
-* [sys.pdw_database_mappings](http://msdn.microsoft.com/library/mt203891.aspx)
 * [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
 * [sys.pdw_index_mappings](http://msdn.microsoft.com/library/mt203912.aspx)
 * [sys.pdw_loader_backup_run_details](https://msdn.microsoft.com/library/mt203877.aspx)
@@ -235,15 +230,4 @@ SQL 数据仓库和分析平台系统的并行数据仓库 (PDW) 使用相同的
 * [VIEWS](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>后续步骤
-有关更多参考信息，请参阅 [SQL 数据仓库参考概述][SQL Data Warehouse reference overview]。
-
-<!--Image references-->
-
-<!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-
-<!--Update_Description: update meta properties, wording update -->
+有关更多参考信息，请参阅 [Azure SQL 数据仓库中的 T-SQL 语句](sql-data-warehouse-reference-tsql-statements.md)以及 [Azure SQL 数据仓库中的 T-SQL 语句元素](sql-data-warehouse-reference-tsql-language-elements.md)。

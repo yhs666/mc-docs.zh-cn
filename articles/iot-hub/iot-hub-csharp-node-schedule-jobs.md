@@ -1,11 +1,11 @@
 ---
-title: "通过 Azure IoT 中心 (.NET/Node) 安排作业 | Azure"
-description: "如何安排 Azure IoT 中心作业实现多台设备上的直接方法调用。 使用适用于 Node.js 的 Azure IoT 设备 SDK 实现模拟设备应用，并使用适用于 .NET 的 Azure IoT 服务 SDK 实现用于运行作业的服务应用。"
+title: 通过 Azure IoT 中心 (.NET/Node) 安排作业 | Azure
+description: 如何安排 Azure IoT 中心作业实现多台设备上的直接方法调用。 使用适用于 Node.js 的 Azure IoT 设备 SDK 实现模拟设备应用，并使用适用于 .NET 的 Azure IoT 服务 SDK 实现用于运行作业的服务应用。
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: b1f4882267344f24bf2b2f99b426eaa9b9eb14c3
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 05/07/2018
+ms.openlocfilehash: dd5806a80faf45fed1efbe2cd38cab316e2804a9
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>计划和广播作业 (.NET/Node.js)
 
@@ -37,6 +37,8 @@ ms.lasthandoff: 03/12/2018
 
 * 设备孪生和属性：[设备孪生入门][lnk-get-started-twin]和[教程：如何使用设备孪生属性][lnk-twin-props]
 * 直接方法：[IoT 中心开发人员指南 - 直接方法][lnk-dev-methods]和[教程：使用直接方法][lnk-c2d-methods]
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 本教程演示如何：
 
@@ -119,7 +121,7 @@ ms.lasthandoff: 03/12/2018
             "deviceId='myDeviceId'",
             directMethod,
             DateTime.Now,
-            10);
+            (long)TimeSpan.FromMinutes(2).TotalSeconds);
 
         Console.WriteLine("Started Method Job");
     }
@@ -139,7 +141,7 @@ ms.lasthandoff: 03/12/2018
             "deviceId='myDeviceId'",
             twin,
             DateTime.Now,
-            10);
+            (long)TimeSpan.FromMinutes(2).TotalSeconds);
 
         Console.WriteLine("Started Twin Update Job");
     }

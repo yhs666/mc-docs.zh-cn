@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/16/2018
-ms.date: 4/10/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 90be2a003e4994e8c3c9ff07fd7e1db83c89d561
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: ca41ec2382d1bd12eaec1ed70ee62f92a3bfb628
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>使用 Azure 门户通过 Azure 网络观察程序监视网络连接
 
@@ -72,4 +72,4 @@ ms.lasthandoff: 04/16/2018
 <!-- Not Avaialable on [Creating an alert-triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 - 通过 [IP 流验证](network-watcher-check-ip-flow-verify-portal.md)确定某个流量是传入还是传出 VM。
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties -->

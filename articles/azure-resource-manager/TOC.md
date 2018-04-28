@@ -5,6 +5,7 @@
 ## [资源提供程序和类型](resource-manager-supported-services.md)
 ## [Resource Manager 部署和经典部署](resource-manager-deployment-model.md)
 ## [订阅管理](resource-manager-subscription-governance.md)
+<!-- Not Available on ## [Organize resources with management groups](management-groups-overview.md) -->
 
 # 入门
 ## [创建和部署模板](resource-manager-create-first-template.md)
@@ -46,6 +47,9 @@
 ### [Azure 门户](resource-group-portal.md)
 ### [使用标记来组织资源](resource-group-using-tags.md)
 ### [将资源移到新组或订阅](resource-group-move-resources.md)
+<!-- Not Available on ### [Programmatically create EA subscriptions](programmatically-create-subscription.md)-->
+<!-- Not Available on ### [Create management groups](management-groups-create.md) -->
+<!-- Not Available on ### [Manage your management groups](management-groups-manage.md) -->
 ### [管理示例](resource-manager-subscription-examples.md)
 
 ## 控制访问
@@ -77,7 +81,7 @@
 ### [Windows 部署问题](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
 # 参考
-## [模板格式](https://docs.microsoft.com/en-us/azure/templates/)
+## [模板格式](https://docs.microsoft.com/zh-cn/azure/templates/)
 ## [模板函数](resource-group-template-functions.md)
 ### [数组和对象函数](resource-group-template-functions-array.md)
 ### [比较函数](resource-group-template-functions-comparison.md)
@@ -88,7 +92,7 @@
 ### [字符串函数](resource-group-template-functions-string.md)
 ## [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.resources)
 ## [Azure CLI](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest)
-## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.resourcemanager)
+## [.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.resourcemanager?view=azure-dotnet)
 ## [Java](https://docs.azure.cn/java/api/com.microsoft.azure.management.resources)
 <!-- Not Available on ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html) -->
 <!-- URL is not Available on resourcemanagement.html -->
@@ -102,4 +106,4 @@
 ## [限制请求](resource-manager-request-limits.md)
 ## [跟踪异步操作](resource-manager-async-operations.md)
 <!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager) -->
-<!--ms.date: 03/26/2018 -->
+<!--ms.date: 04/30/2018 -->

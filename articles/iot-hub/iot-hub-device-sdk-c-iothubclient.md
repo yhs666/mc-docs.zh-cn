@@ -3,7 +3,7 @@ title: 适用于 C 语言的 Azure IoT 设备 SDK - IoTHubClient | Azure
 description: 如何使用 Azure IoT 设备 SDK 中面向 C 语言的 IoTHubClient 库创建与 IoT 中心通信的设备应用。
 services: iot-hub
 documentationcenter: ''
-author: olivierbloch
+author: yzhong94
 manager: timlt
 editor: ''
 ms.assetid: 828cf2bf-999d-4b8a-8a28-c7c901629600
@@ -13,17 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/29/2017
-ms.date: 12/18/2017
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: 8792e318a995457f2b6879e02c200e94155aa028
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.openlocfilehash: d261a5fdda92676148da03413eef83c47b372eb2
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>适用于 C 语言的 Azure IoT 设备 SDK - 有关 IoTHubClient 的详细信息
+此系列中的[第一篇文章](iot-hub-device-sdk-c-intro.md)介绍了**适用于 C 语言的 Azure IoT 设备 SDK**。该文章已说明 SDK 中有两个体系结构层。 底层是 **IoTHubClient** 库，用于直接管理与 IoT 中心的通信。 另有一个 **序列化程序** 库，它构建在 SDK 的顶部，可提供序列化服务。 在本文中，我们会提供有关 **IoTHubClient** 库的更多详细信息。
 
-此系列中的[第一篇文章](./iot-hub-device-sdk-c-intro.md)介绍了**适用于 C 语言的 Azure IoT 设备 SDK**。该文章已说明 SDK 中有两个体系结构层。 底层是 **IoTHubClient** 库，用于直接管理与 IoT 中心的通信。 另有一个 **序列化程序** 库，它构建在 SDK 的顶部，可提供序列化服务。 在本文中，我们会提供有关 **IoTHubClient** 库的更多详细信息。
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 前一篇文章介绍了如何使用 **IoTHubClient** 库将事件发送到 IoT 中心及接收消息。 本文扩大讨论范围，介绍 *较低级别 API* ，介绍如何更精确地管理发送和接收数据的 **时机**。 此外将说明如何使用 **IoTHubClient** 库中的属性处理功能，将属性附加到事件（以及从消息中检索属性）。 最后，进一步说明如何以不同的方式来处理从 IoT 中心收到的消息。
 

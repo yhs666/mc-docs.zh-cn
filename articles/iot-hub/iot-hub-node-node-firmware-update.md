@@ -1,11 +1,11 @@
 ---
-title: "通过 Azure IoT 中心进行设备固件更新 (Node) | Azure"
-description: "如何使用 Azure IoT 中心上的设备管理进行设备固件更新。 使用 Azure IoT SDK for Node.js 实现模拟设备应用以及触发固件更新的服务应用。"
+title: 通过 Azure IoT 中心进行设备固件更新 (Node) | Azure
+description: 如何使用 Azure IoT 中心上的设备管理进行设备固件更新。 使用 Azure IoT SDK for Node.js 实现模拟设备应用以及触发固件更新的服务应用。
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
 ms.service: iot-hub
 ms.devlang: multiple
@@ -13,18 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/07/2017
-ms.date: 11/20/2017
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: 431494d7bbf114353fbc7e1a34fc49e62d8d5947
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.openlocfilehash: 7d490d7baa5c800a0f4619191ec31ccf5a521050
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>使用设备管理启动设备固件更新 (Node/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 在[设备管理入门][lnk-dm-getstarted]教程中，已了解如何使用[设备孪生][lnk-devtwin]和[直接方法][lnk-c2dmethod]基元来远程重新启动设备。 本教程使用相同的 IoT 中心基元，提供指南，并演示如何进行端到端模拟固件更新。  此模式在用于 Intel Edison 设备示例的固件更新实现中使用。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 本教程演示如何：
 
@@ -138,12 +140,12 @@ dmpatterns_fwupdate_device.js，它使用早前创建的设备标识连接到 Io
     ```
     node dmpatterns_fwupdate_service.js
     ```
-3. 可以在控制台中看到设备对直接方法的响应。
+3. 可在控制台查看对直接方法的设备响应。
 
 ## <a name="next-steps"></a>后续步骤
 在本教程中，直接触发了设备的远程固件更新，并使用了报告属性跟踪固件更新的进度。
 
-若要了解如何扩展 IoT 解决方案并在多个设备上计划方法调用，请参阅 [Schedule and broadcast jobs][lnk-tutorial-jobs] （计划和广播作业）教程。
+若要了解如何扩展 IoT 解决方案以及在多个设备上计划方法调用，请参阅[计划和广播作业][lnk-tutorial-jobs]教程。
 
 [lnk-devtwin]: ./iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: ./iot-hub-devguide-direct-methods.md

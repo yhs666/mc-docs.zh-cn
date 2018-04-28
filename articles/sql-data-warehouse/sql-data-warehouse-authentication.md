@@ -1,37 +1,23 @@
 ---
-title: "对 Azure SQL 数据仓库进行身份验证 | Azure"
-description: "对 Azure SQL 数据仓库进行的 Azure Active Directory (AAD) 和 SQL Server 身份验证。"
+title: 对 Azure SQL 数据仓库进行身份验证 | Azure
+description: 对 Azure SQL 数据仓库进行的 Azure Active Directory (AAD) 和 SQL Server 身份验证。
 services: sql-data-warehouse
-documentationcenter: 
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: fefaaa75-2d0c-4e5d-aadb-410342d1ad73
 ms.service: sql-data-warehouse
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.custom: security
+ms.topic: conceptual
+ms.component: implement
 origin.date: 03/21/2017
 ms.date: 07/24/2017
 ms.author: v-yeche
-ms.openlocfilehash: 82c026fb7f9d35614fe6b02986284a309c197611
-ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
+ms.openlocfilehash: 3c365b4958067f283baa5b2be6f6c0decb2b3a90
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="authentication-to-azure-sql-data-warehouse"></a>对 Azure SQL 数据仓库进行身份验证
-
-> [!div class="op_single_selector"]
-> * [安全性概述](sql-data-warehouse-overview-manage-security.md)
-> * [身份验证](sql-data-warehouse-authentication.md)
-> * [加密（门户）](sql-data-warehouse-encryption-tde.md)
-> * [加密 (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-> 
-> 
+# <a name="authenticate-to-azure-sql-data-warehouse"></a>向 Azure SQL 数据仓库进行身份验证
+了解如何使用 Azure Active Directory (AAD) 或 SQL Server 身份验证向 Azure SQL 数据仓库进行身份验证。
 
 若要连接到 SQL 数据仓库，必须传入安全凭据进行身份验证。 建立连接时，特定的连接设置已配置为建立查询会话的一部分。  
 
@@ -48,7 +34,7 @@ ms.lasthandoff: 07/26/2017
 
 默认情况下，连接连接到 master 数据库而不是用户数据库。 若要连接到用户数据库，可以选择执行以下两项操作之一：
 
-* 在 SSDT、SSMS 或应用程序连接字符串中将服务器注册到 SQL Server 对象资源管理器时指定默认数据库。 例如，包含 ODBC 连接的 InitialCatalog 参数。
+* 在 SSDT、SSMS 或应用程序连接字符串中将您的服务器注册到 SQL Server 对象资源管理器时指定默认数据库。 例如，包含 ODBC 连接的 InitialCatalog 参数。
 * 在 SSDT 中创建会话之前先突出显示用户数据库。
 
 > [!NOTE]

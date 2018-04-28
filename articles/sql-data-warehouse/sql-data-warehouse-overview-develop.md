@@ -6,21 +6,20 @@ documentationcenter: NA
 author: rockboyfor
 manager: barbkess
 editor: ''
-ms.assetid: 996e3afc-c21c-4e21-b9df-997f953f6dfd
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: develop
-origin.date: 10/31/2016
-ms.date: 03/20/2017
+origin.date: 03/22/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9ad28b9ea91aa9ff65c0bafd31346c5a58487151
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 6ba4e72e2ff54e6a9126f7614fbf9dc830dbfab2
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>SQL 数据仓库的设计决策和编程技术
 请阅读以下开发文章，以更好地了解 SQL 数据仓库的关键设计决策、建议和编程技术。
@@ -51,7 +50,7 @@ ms.lasthandoff: 03/23/2018
 * [变量赋值][variable assignment]
 
 ## <a name="next-steps"></a>后续步骤
-有关更多参考信息，请参阅 SQL 数据仓库的 [Transact-SQL 参考][Transact-SQL reference]页。
+有关更多参考信息，请参阅 [SQL 数据仓库 T-SQL 语句](sql-data-warehouse-reference-tsql-statements.md)。
 
 <!--Image references-->
 
@@ -73,7 +72,7 @@ ms.lasthandoff: 03/23/2018
 [user-defined schemas]: ./sql-data-warehouse-develop-user-defined-schemas.md
 [variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
 [views]: ./sql-data-warehouse-develop-views.md
-[Transact-SQL reference]: ./sql-data-warehouse-overview-reference.md
+
 
 <!--MSDN references-->
 [renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx

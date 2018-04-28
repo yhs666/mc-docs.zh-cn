@@ -1,11 +1,11 @@
 ---
-title: "升级 Azure Service Fabric 群集 | Azure"
-description: "升级运行 Service Fabric 群集的 Service Fabric 代码和/或配置，包括设置群集更新模式、升级证书、添加应用程序端口、执行操作系统修补，等等。 执行升级时可以预期什么？"
+title: 升级 Azure Service Fabric 群集 | Azure
+description: 升级运行 Service Fabric 群集的 Service Fabric 代码和/或配置，包括设置群集更新模式、升级证书、添加应用程序端口、执行操作系统修补，等等。 执行升级时可以预期什么？
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/10/2017
-ms.date: 09/11/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: ffb3b7259051c29572f14ae5350e923bc95a05e3
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 1eed8df44b037dbd8b796d0badec131c8c358a31
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>升级 Azure Service Fabric 群集
 > [!div class="op_single_selector"]
@@ -29,6 +29,7 @@ ms.lasthandoff: 09/08/2017
 > 
 
 对于任何新式系统而言，为可升级性做好规划是实现产品长期成功的关键所在。 Azure Service Fabric 群集是你拥有的，但部分由 Azure 管理的资源。 本文说明自动管理的项目以及可以自行配置的项目。
+<!-- Notice: Change Microsoft to Azure -->
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>控制群集中运行的结构版本
 可以将群集设置为 21ViaNet 发布自动结构升级时接收该升级，也可以选择想要群集安装的受支持结构版本。
@@ -50,7 +51,7 @@ ms.lasthandoff: 09/08/2017
 在实时群集上可以利用管理经验将群集设置为自动或手动模式。 
 
 #### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal"></a>在设置为手动模式的群集上，通过门户升级到新版本。
-若要升级到新版本，只需从下拉列表中选择可用的版本并保存即可。 结构升级自动开始。 升级过程中遵守群集运行状况策略（节点运行状况和所有在群集中运行的应用程序的运行状况的组合）。
+若要升级到新版本，只需从下拉列表中选择可用的版本并保存即可。 结构升级会被自动启动。 升级过程中遵守群集运行状况策略（节点运行状况和所有在群集中运行的应用程序的运行状况的组合）。
 
 如果不符合现行的群集运行状况策略，则回滚升级。 请在本文档中向下滚动，详细了解如何设置这些自定义运行状况策略。 
 
@@ -64,14 +65,14 @@ ms.lasthandoff: 09/08/2017
 ![ARMUpgradeMode][ARMUpgradeMode]
 
 #### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>在设置为手动模式的群集上，通过 Resource Manager 模板升级到新版本。
-当群集处于手动模式时，要升级到新版本，请将“clusterCodeVersion”更改为支持的版本，然后部署该版本。 部署模板时，自动开始结构升级。 升级过程中遵守群集运行状况策略（节点运行状况和所有在群集中运行的应用程序的运行状况的组合）。
+当群集处于手动模式时，要升级到新版本，请将“clusterCodeVersion”更改为支持的版本，然后部署该版本。 模板的部署启动了结构升级自动被启动。 在升级期间，将遵守群集运行状况策略（节点运行状况和所有在群集中运行的应用程序的运行状况的组合）。
 
 如果不符合现行的群集运行状况策略，则回滚升级。 请在本文档中向下滚动，详细了解如何设置这些自定义运行状况策略。 
 
 解决导致回滚的问题后，需要遵循前面相同的步骤再次启动升级。
 
 ### <a name="get-list-of-all-available-version-for-all-environments-for-a-given-subscription"></a>获取给定订阅的所有环境的所有可用版本列表
-运行以下命令，应会看到类似于下面的输出。
+运行以下命令，应会获得类似于此的输出。
 
 “supportExpiryUtc”告知给定的版本何时即将到期或已过期。 最新版本没有有效日期 - 它的值为“9999-12-31T23:59:59.9999999”，这只是表示尚未设置过期日期。
 
@@ -120,6 +121,7 @@ Output:
 
 ## <a name="fabric-upgrade-behavior-when-the-cluster-upgrade-mode-is-automatic"></a>群集升级模式为“自动”时的结构升级行为
 Azure 将维护 Azure 群集中运行的结构代码和配置。 我们根据需要，对软件执行受监视的自动升级。 升级的部分可能是代码和/或配置。 为了确保应用程序不受这些升级的影响或者将影响降到最低，我们分以下阶段执行升级：
+<!-- Notice: Change Microsoft to Azure-->
 
 ### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>阶段 1：使用所有群集运行状况策略执行升级
 在此阶段，升级过程将每次升级一个升级域，已在群集中运行的应用程序将继续运行，而不会造成任何停机时间。 升级过程中遵守群集运行状况策略（节点运行状况和所有在群集中运行的应用程序的运行状况的组合）。
@@ -130,7 +132,7 @@ Azure 将维护 Azure 群集中运行的结构代码和配置。 我们根据需
 * 建议的补救措施（如果有）。
 * 距离执行阶段 2 的天数 (n)。
 
-如果有任何升级因为基础结构方面的原因而失败，我们应尝试多次执行同一升级。 自电子邮件发送日期的 n 天之后，我们继续执行阶段 2。
+如果有任何升级因为基础结构方面的原因而失败，我们将尝试多次执行同一升级。 自电子邮件发送日期的 n 天之后，我们继续执行阶段 2。
 
 如果符合群集运行状况策略，则升级被视为成功并标记为完成。 在此阶段进行初始升级或重新运行任何升级期间，可能发生这种情形。 如果运行成功，不会发送任何电子邮件确认。 这是为了避免发送过多的电子邮件。收到电子邮件则表示出现异常。 大多数群集升级预期都会成功，且不影响应用程序可用性。
 
@@ -143,7 +145,7 @@ Azure 将维护 Azure 群集中运行的结构代码和配置。 我们根据需
 * 建议的补救措施（如果有）。
 * 距离执行阶段 3 的天数 (n)。
 
-如果有任何升级因为基础结构方面的原因而失败，我们应尝试多次执行同一升级。 会在 n 天结束前的几天发送提醒电子邮件。 自电子邮件发送日期的 n 天之后，我们将继续执行阶段 3。 必须认真看待阶段 2 发送的电子邮件并采取补救措施。
+如果有任何升级因为基础结构方面的原因而失败，我们应尝试多次执行同一升级。 将在 n 天结束前的几天发送提醒电子邮件。 自电子邮件发送日期的 n 天之后，我们将继续执行阶段 3。 必须认真看待阶段 2 发送的电子邮件并采取补救措施。
 
 如果符合群集运行状况策略，则升级被视为成功并标记为完成。 在此阶段进行初始升级或重新运行任何升级期间，可能发生这种情形。 如果运行成功，不会发送任何电子邮件确认。
 
@@ -156,7 +158,7 @@ Azure 将维护 Azure 群集中运行的结构代码和配置。 我们根据需
 
 系统会将包含此信息以及补救措施的电子邮件发送给订阅所有者。 预期不会有任何群集遇到阶段 3 失败的状况。
 
-如果符合群集运行状况策略，则升级被视为成功并标记为完成。 在此阶段进行初始升级或重新运行任何升级期间，可能发生这种情形。 如果运行成功，不会发送任何电子邮件确认。
+如果符合群集运行状况策略，则升级被视为成功并标记为完成。 在此阶段进行初始升级或重新运行任何升级期间，可能发生这种情形。 如果运行成功，将不发送任何电子邮件确认。
 
 ## <a name="cluster-configurations-that-you-control"></a>可以控制的群集配置
 除了设置群集升级模式外，还可以在实时群集上更改以下配置。

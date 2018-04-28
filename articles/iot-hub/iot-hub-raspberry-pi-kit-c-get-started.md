@@ -1,34 +1,34 @@
 ---
-title: "连接到云的 Raspberry Pi (C) - 将 Raspberry Pi 连接到 Azure IoT 中心 | Microsoft Docs"
-description: "在本教程中了解如何设置 Raspberry Pi 并将其连接到 Azure IoT 中心，使其能够将数据发送到 Azure 云平台。"
+title: 连接到云的 Raspberry Pi (C) - 将 Raspberry Pi 连接到 Azure IoT 中心 | Microsoft Docs
+description: 在本教程中了解如何设置 Raspberry Pi 并将其连接到 Azure IoT 中心，使其能够将数据发送到 Azure 云平台。
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "Azure IoT Raspberry Pi, Raspberry Pi IoT 中心, Raspberry Pi 将数据发送到云, 连接到云的 Raspberry Pi"
+tags: ''
+keywords: Azure IoT Raspberry Pi, Raspberry Pi IoT 中心, Raspberry Pi 将数据发送到云, 连接到云的 Raspberry Pi
 ms.assetid: 68c0e730-1dc8-4e26-ac6b-573b217b302d
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/12/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 09/25/2017
-ms.openlocfilehash: 1d7d809b0149a00808fdc5ad01df30c84d391269
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.date: 05/07/2018
+ms.openlocfilehash: d842bdcce7d79d0eb17391e4893d661f778fc4a1
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (C)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 在本教程中，首先学习有关使用运行 Raspbian 的 Raspberry Pi 的基础知识。 然后学习如何使用 [Azure IoT 中心](./iot-hub-what-is-iot-hub.md)将设备无缝连接到云。 有关 Windows 10 IoT Core 的示例，请访问 [Windows 开发人员中心](http://www.windowsondevices.com/)。
-还没有工具包？ 试用 [Raspberry Pi 联机模拟器](./iot-hub-raspberry-pi-web-simulator-get-started.md)。 或在[此处](https://www.azure.cn/develop/iot/iot-starter-kits)购买新工具包。
+还没有工具包？ 试用 [Raspberry Pi 联机模拟器](./iot-hub-raspberry-pi-web-simulator-get-started.md)。 或在[此处](https://docs.azure.cn/zh-cn/develop/iot/iot-starter-kits)购买新工具包。
 
 ## <a name="what-you-do"></a>准备工作
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/08/2017
 
 * Raspberry Pi 2 或 Raspberry Pi 3 电路板。
 * 一个有效的 Azure 订阅。 如果没有 Azure 帐户，只需几分钟时间就能[创建一个免费的 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-* 连接到 Pi 的监视器、USB 键盘和鼠标。
+* 监视器、USB 键盘和连接到 Pi 的鼠标。
 * 运行 Windows 或 Linux 的 Mac 或电脑。
 * Internet 连接。
 * 16 GB 或更大容量的 microSD 卡。
@@ -81,7 +81,7 @@ ms.lasthandoff: 12/08/2017
 
 1. 下载 Raspbian。
    1. [下载 Raspbian Jessie with Desktop](https://www.raspberrypi.org/downloads/raspbian/)（.zip 文件）。
-   1. 将 Raspbian 映像提取到计算机上的一个文件夹中。
+   1. 将 Raspbian 映像解压缩到计算机的某个文件夹中。
 1. 将 Raspbian 安装到 microSD 卡。
    1. [下载并安装 Etcher SD 卡刻录机实用工具](https://etcher.io/)。
    1. 运行 Etcher 并选择已在步骤 1 中解压缩的 Raspbian 映像。

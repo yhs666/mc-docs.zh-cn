@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 12/10/2017
-ms.date: 04/09/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1bb311b9ced2e9a303da068b98ad1c7667fd64e8
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: d207a5f6f82559ea1fc25a9f4a6f1c3b000938a0
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric 中 Reliable Collections 的相关指导原则和建议
 本部分提供有关使用可靠状态管理器和 Reliable Collections 的指导原则。 目的是帮助用户避免常见错误。
@@ -53,7 +53,6 @@ ms.lasthandoff: 04/05/2018
 ### <a name="next-steps"></a>后续步骤
 * [使用 Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [事务和锁](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [可靠状态管理器和 Reliable Collection 的内部结构](service-fabric-reliable-services-reliable-collections-internals.md)
 * 管理数据
   * [备份和还原](service-fabric-reliable-services-backup-restore.md)
   * [通知](service-fabric-reliable-services-notifications.md)
@@ -62,4 +61,4 @@ ms.lasthandoff: 04/05/2018
 * 其他
   * [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
   * [Reliable Collections 的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update link -->

@@ -1,26 +1,19 @@
 ---
-title: "Azure Analysis Services 概述 | Azure"
-description: "Azure 中的 Analysis Services 简介。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 概述 | Azure
+description: Azure 中的 Analysis Services 简介。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 83d7a29c-57ae-4aa0-8327-72dd8f00247d
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.topic: overview
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: b4ae8cf7d308589b775f240de8e895b8816d464d
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: minewiskan
+ms.openlocfilehash: a667912a6ca56d1f16b82a4fb772b302d9e55694
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-analysis-services-overview"></a>Azure Analysis Services 概述
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)

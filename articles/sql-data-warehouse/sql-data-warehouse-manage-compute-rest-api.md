@@ -1,32 +1,29 @@
 ---
-title: "在 Azure SQL 数据仓库中使用 REST 进行暂停、恢复和缩放 | Azure"
-description: "通过 REST API 管理 SQL 数据仓库中的计算能力。"
+title: 在 Azure SQL 数据仓库中使用 REST 进行暂停、恢复和缩放 | Azure
+description: 通过 REST API 管理 SQL 数据仓库中的计算能力。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-origin.date: 02/13/2018
-ms.date: 03/12/2018
+origin.date: 03/22/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: bc3c1a3f06801158a5ef15ca85a7f0338b8b2cf9
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: e2a71a9b574bcc2ce7f7ee2f0ecb8e9c79971c5b
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库的 REST API
 用于管理 Azure SQL 数据仓库中的计算的 REST API。
 
-
-<a name="scale-performance-bk"></a>
-<a name="scale-compute-bk"></a>
 ## <a name="scale-compute"></a>缩放计算
 若要更改数据仓库单位，请使用[创建或更新数据库](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) REST API。 以下示例将托管在服务器 MyServer 上的数据库 MySQLDW 的数据仓库单位设置为 DW1000。 该服务器位于名为 ResourceGroup1 的 Azure 资源组中。
 
@@ -69,5 +66,5 @@ GET https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resource
 
 <a name="next-steps-bk"></a>
 ## <a name="next-steps"></a>后续步骤
-有关其他管理任务，请参阅[管理概述](./sql-data-warehouse-overview-manage.md)。
-<!--Update_Description: update meta properties, wording update-->
+有关详细信息，请参阅[管理计算](sql-data-warehouse-manage-compute-overview.md)。
+

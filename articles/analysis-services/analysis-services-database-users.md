@@ -1,26 +1,19 @@
 ---
-title: "管理 Azure Analysis Services 中的数据库角色和用户| Azure"
-description: "了解如何在 Azure 中管理 Analysis Services 服务器上的数据库角色和用户。"
-services: analysis-services
-documentationcenter: 
+title: 管理 Azure Analysis Services 中的数据库角色和用户| Azure
+description: 了解如何在 Azure 中管理 Analysis Services 服务器上的数据库角色和用户。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7f2f49d192281bf086bb078d244d0edf48ac6ba6
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: minewiskan
+ms.openlocfilehash: cc7f4804091e58bce4756a0f568ac50b0033644e
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-database-roles-and-users"></a>管理数据库角色和用户
 

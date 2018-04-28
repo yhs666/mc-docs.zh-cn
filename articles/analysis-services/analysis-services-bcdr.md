@@ -1,25 +1,19 @@
 ---
-title: "Azure Analysis Services 高可用性 | Azure"
-description: "确保 Azure Analysis Services 高可用性。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 高可用性 | Azure
+description: 确保 Azure Analysis Services 高可用性。
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: f2b6733c10589fa7ebf63e125e6f32162f0e2257
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: minewiskan
+ms.openlocfilehash: 95b74970f9d7000fbf1be13f554f222d0249f495
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="analysis-services-high-availability"></a>Analysis Services 高可用性
 本文说明如何确保 Azure Analysis Services 服务器的高可用性。 

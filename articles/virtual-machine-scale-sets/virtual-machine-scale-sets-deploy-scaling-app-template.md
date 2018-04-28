@@ -1,29 +1,29 @@
 ---
-title: "使用 Azure 模板创建虚拟机规模集 | Microsoft Docs"
-description: "了解如何使用 Azure 资源管理器模板快速创建虚拟机规模集"
+title: 使用 Azure 模板创建虚拟机规模集 | Microsoft Docs
+description: 了解如何使用 Azure 资源管理器模板快速创建虚拟机规模集
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/16/2017
-ms.date: 03/05/2018
+ms.date: 04/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: b5b70dde0094f4a6785556326cc9fc152f13dbc0
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 1d9b7969259fc3d7d0152aa854fa5ed132db92d7
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建虚拟机规模集
-利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则，以便根据资源使用情况（如 CPU 使用率、内存需求或网络流量）进行自动缩放。 在此入门文章中，可以使用 Azure 资源管理器模板创建虚拟机规模集。 也可使用 [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md)、[Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) 或 [Azure 门户](virtual-machine-scale-sets-create-portal.md)创建规模集。
+利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则，以便根据资源使用情况（如 CPU 使用率、内存需求或网络流量）进行自动缩放。 在此入门文章中，可以使用 Azure 资源管理器模板创建虚拟机规模集。 也可使用 [Azure CLI 2.0](quick-create-cli.md)、[Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) 或 [Azure 门户](quick-create-portal.md)创建规模集。
 
 
 ## <a name="overview-of-templates"></a>模板概述

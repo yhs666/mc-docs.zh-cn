@@ -1,26 +1,19 @@
 ---
-title: "Azure Analysis Services 教程补充课程：动态安全性 | Azure"
-description: "介绍如何通过 Azure Analysis Services 教程中的行筛选器来使用动态安全性。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 教程补充课程：动态安全性 | Azure
+description: 介绍如何通过 Azure Analysis Services 教程中的行筛选器来使用动态安全性。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: ff7669dbd65e4863503474350c4c18ea07433dd0
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.reviewer: minewiskan
+ms.openlocfilehash: 2dffd8a62cca37bc840fc2c86e071f1e6710aa96
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>补充课程 - 动态安全性
 
@@ -189,4 +182,4 @@ AdventureWorksDW 示例数据库中的 DimEmployee 表包含 AdventureWorks 域�
 [LOOKUPVALUE 函数 (DAX)](https://msdn.microsoft.com/library/gg492170.aspx)  
 [CUSTOMDATA 函数 (DAX)](https://msdn.microsoft.com/library/hh213140.aspx)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties  -->

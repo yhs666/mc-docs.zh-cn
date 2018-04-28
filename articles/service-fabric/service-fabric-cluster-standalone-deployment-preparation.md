@@ -12,15 +12,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/12/2017
-ms.date: 01/01/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 30e10d54ad14df94d91a77e2b8fbb69142fb7458
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 5d8fcb19a7e8c21b0236284309ab401900a1270f
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 04/28/2018
 ---
 <a name="preparemachines"></a>
+
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>规划和准备 Service Fabric 独立群集部署
 在创建群集之前，请执行以下步骤。
 
@@ -49,11 +50,11 @@ ms.lasthandoff: 12/29/2017
 
 有关 FD 和 UD 的更多详细信息，请参阅 [Service Fabric 群集介绍](service-fabric-cluster-resource-manager-cluster-description.md)。
 
-如果你能够完全控制节点的维护和管理，也就是说，你负责更新和更换计算机，则用于生产的群集应当跨至少三个 FD 以便在生产环境中受支持。 对于在你对计算机没有完全控制权限的环境（例如 Amazon Web Services VM 实例）中运行的群集，应当在群集中配备至少五个 FD。 每个 FD 可以有一个或多个节点。 这是为了防止计算机升级和更新导致发生问题，根据这些更新和升级的时间安排，它们可能会干扰群集中的应用程序和服务的运行。
+如果能够完全控制节点的维护和管理（即负责更新和更换计算机），则应该将生产环境中的群集至少跨越三个 FD，这样才能使它在生产环境中受支持。 对于在无法完全控制计算机的环境（例如 Amazon Web Services VM 实例）中运行的群集，至少应在群集中部署五个 FD。 每个 FD 可以有一个或多个节点。 这是为了防止计算机升级和更新造成问题，根据升级和更新的时间，这些问题可能会干扰群集中应用程序和服务的运行。
 
 ## <a name="determine-the-initial-cluster-size"></a>确定初始群集大小
 
-通常，群集中的节点数目取决于业务需求，即，群集上将运行多少服务和容器，以及需要多少资源来支持工作负荷。 对于生产用群集，建议在群集中配备至少 5 个节点，跨 5 个 FD。 不过，如上所述，如果你对节点具有完全控制权并且可以跨三个 FD，则三个节点应当也可以胜任该工作。
+通常，群集中的节点数是根据业务需求确定的，例如，要在群集上运行多少个服务和容器，以及需要多少个资源来维持工作负荷。 对于生产群集，我们建议在群集中至少跨 5 个 FD 部署 5 个节点。 不过，如上所述，如果你对节点具有完全控制权并且可以跨三个 FD，则三个节点应当也可以胜任该工作。
 
 运行有状态工作负荷的测试用群集应当具有三个节点，而运行无状态工作负荷的测试用群集只需要一个节点。 还应当注意，若是用于开发，可以在一台指定的计算机上配备多个节点。 不过，在生产环境中，对于每台物理机或虚拟机，Service Fabric 只支持一个节点。
 
@@ -89,7 +90,7 @@ ms.lasthandoff: 12/29/2017
 
 群集配置将所有设置配置到环境后，可针对群集环境对其进行测试（步骤 7）。
 
-<a id="environmentsetup"></a>
+<a name="environmentsetup"></a>
 
 ## <a name="environment-setup"></a>环境设置
 
@@ -99,7 +100,7 @@ ms.lasthandoff: 12/29/2017
 * 已卸载 Service Fabric SDK
 * 已卸载 Service Fabric 运行时 
 * 已启用 Windows 防火墙服务 (mpssvc)
-* 已启用远程注册表服务 (remoteregistry)
+* 已启用远程注册表服务（远程注册表）
 * 已启用文件共享 (SMB)
 * 已基于群集配置端口打开所需的端口
 * 已为 Windows SMB 和远程注册表服务打开了必要的端口：135、137、138、139 和 445

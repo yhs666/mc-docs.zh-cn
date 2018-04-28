@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序“IP 流验证”功能验证流量 - Azure CLI | Azure"
-description: "本文介绍如何使用 Azure CLI 检查是允许还是拒绝进出虚拟机的流量"
+title: 使用 Azure 网络观察程序“IP 流验证”功能验证流量 - Azure CLI | Azure
+description: 本文介绍如何使用 Azure CLI 检查是允许还是拒绝进出虚拟机的流量
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 92b857ed-c834-4c1b-8ee9-538e7ae7391d
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 12/25/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 824e829ec09c72c7b971cae4744ffdd7c59a59a2
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 340b628e0becd47b06682f7c83681bfc3dabdf3c
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-to-or-from-a-vm-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>使用 Azure 网络观察程序的组件（即“IP 流验证”功能）检查是允许还是拒绝进出 VM 的流量
 
@@ -57,7 +57,7 @@ az vm show --resource-group MyResourceGroup5431 --name MyVM-Web
 
 ## <a name="get-the-nics"></a>获取 NIC
 
-需要虚拟机上的 NIC 的 IP 地址，在此示例中我们会在虚拟机上检索 NIC。 如果已知道要在虚拟机上测试的 IP 地址，则可以跳过此步骤。
+需要虚拟机上的 NIC 的 IP 地址。 使用下面的命令检索附加到虚拟机的 NIC。 如果已知道要在虚拟机上测试的 IP 地址，则可以跳过此步骤。
 
 ```azurecli
 az network nic show --resource-group MyResourceGroup5431 --name MyNic-Web
@@ -65,7 +65,7 @@ az network nic show --resource-group MyResourceGroup5431 --name MyNic-Web
 
 ## <a name="run-ip-flow-verify"></a>运行“IP 流验证”
 
-现在，我们已掌握运行 cmdlet 所需的信息，因此将运行 `az network watcher test-ip-flow` cmdlet 以测试流量。 在此示例中，我们将使用第一个 NIC 上的第一个 IP 地址。
+运行 `az network watcher test-ip-flow` cmdlet 测试流量。 在此示例中，将使用第一个 NIC 的第一个 IP 地址。
 
 ```azurecli
 az network watcher test-ip-flow --resource-group resourceGroupName --direction directionInboundorOutbound --protocol protocolTCPorUDP --local ipAddressandPort --remote ipAddressandPort --vm vmNameorID --nic nicNameorID
@@ -87,11 +87,11 @@ az network watcher test-ip-flow --resource-group resourceGroupName --direction d
 
 ## <a name="next-steps"></a>后续步骤
 
-如果流量被阻止且不应被阻止，请参阅[管理网络安全组](../virtual-network/virtual-network-manage-nsg-arm-portal.md)找到定义的网络安全组和安全规则。
+如果流量被阻止且不应被阻止，请参阅[管理网络安全组](../virtual-network/manage-network-security-group.md)找到定义的网络安全组和安全规则。
 
 访问[使用网络观察程序审核网络安全组 (NSG)](network-watcher-nsg-auditing-powershell.md)，了解如何审核 NSG 设置。
 
 [1]: ./media/network-watcher-check-ip-flow-verify-portal/figure1.png
 [2]: ./media/network-watcher-check-ip-flow-verify-portal/figure2.png
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update link -->

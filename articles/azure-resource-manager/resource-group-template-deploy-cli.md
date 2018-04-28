@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/31/2017
-ms.date: 03/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9af8b4ea38f1a3ac4d2fb814ad8dc3afc3b43641
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: d3bb7abce992a7d62f28d67542eb9accf5327661
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 模板和 Azure CLI 部署资源
 
@@ -80,10 +80,12 @@ az group deployment create \
 前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。 但是，如果不希望模板可公开访问，可以通过将其存储在专用存储容器中来保护它。 若要了解如何部署需要共享访问签名 (SAS) 令牌的模板，请参阅[部署具有 SAS 令牌的专用模板](resource-manager-cli-sas-token.md)。
 
 <!-- Not Available on Cloud Shell -->
-   ```azurecli
-   az group create --name examplegroup --location "China East"
-   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
-   ```
+```azurecli
+az group create --name examplegroup --location "China East"
+az group deployment create --resource-group examplegroup \
+  --template-uri <copied URL> \
+  --parameters storageAccountType=Standard_GRS
+```
 
 ## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>部署到多个资源组或订阅
 

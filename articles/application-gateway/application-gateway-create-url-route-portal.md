@@ -1,22 +1,21 @@
 ---
-title: 使用基于 URL 路径的路由规则创建应用程序网关 - Azure 门户 | Microsoft Docs
+title: 使用基于 URL 路径的路由规则创建应用程序网关 - Azure 门户
 description: 了解如何使用 Azure 门户为应用程序网关和虚拟机规模集创建基于 URL 路径的路由规则。
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-origin.date: 01/26/2018
-ms.date: 03/15/2018
+origin.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: afe6beeb0d8e998b9610fc910a1f8440065fd1b4
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 884ba289d4a7191cfeda6f8480d13c02e94220df
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>通过 Azure 门户使用基于路径的路由规则创建应用程序网关
 
@@ -153,11 +152,11 @@ ms.lasthandoff: 03/17/2018
 
     ![记下应用程序网关的公共 IP 地址](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如 http://http://40.121.222.19。
+2. 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如，http://http://40.121.222.19。
 
     ![在应用程序网关中测试基 URL](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
-3. 将 URL 更改为 http://&lt;ip-address&gt;:8080/video/test.htm（请将 &lt;ip-address&gt; 替换为自己的 IP 地址），然后，应会看到如以下示例所示的内容：
+3. 将 URL 更改为 http://&lt;ip-address&gt;:8080/images/test.htm（请将 &lt;ip-address&gt; 替换为自己的 IP 地址），然后，应会看到如以下示例所示的内容：
 
     ![在应用程序网关中测试映像 URL](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
@@ -178,3 +177,4 @@ ms.lasthandoff: 03/17/2018
 
 若要详细了解应用程序网关及其关联的资源，请继续阅读操作指南文章。
 
+<!-- Update_Description: wording update -->

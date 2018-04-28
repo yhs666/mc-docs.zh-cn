@@ -9,11 +9,11 @@ ms.topic: article
 origin.date: 03/05/2018
 ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5700812ac6cdafe6d6facca9f44076bf1dfb4fc8
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 6d64a703532193505518bbf18e6d4a29e732a2d5
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-a-configuration-server"></a>部署配置服务器
 
@@ -47,7 +47,7 @@ Site Recovery 提供可下载的模板，以将配置服务器设置为高度可
 4. 下载配置服务器的开放虚拟化格式 (OVF) 模板。
 
   > [!TIP]
-  可以直接从 [Microsoft 下载中心](https://aka.ms/asrconfigurationserver)下载最新版本的配置服务器模板。
+  可以直接从 [Microsoft 下载中心](http://aka\.ms/asrconfigurationserver_bjb)下载最新版本的配置服务器模板。
 
 ## <a name="import-the-template-in-vmware"></a>在 VMware 中导入模板
 

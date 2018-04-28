@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure IoT 中心计划作业 (Python)"
-description: "如何安排 Azure IoT 中心作业实现多台设备上的直接方法调用。 使用 Azure IoT SDK for Python 实现模拟设备应用以及用于运行作业的服务应用。"
+title: 使用 Azure IoT 中心计划作业 (Python)
+description: 如何安排 Azure IoT 中心作业实现多台设备上的直接方法调用。 使用 Azure IoT SDK for Python 实现模拟设备应用以及用于运行作业的服务应用。
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
 ms.service: iot-hub
 ms.devlang: multiple
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/16/2018
-ms.date: 03/19/2018
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9c6581e8c54389b89263845155824208949fc017
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 69df7f6c201fe83fd9a999a1e552b77ab3ddfd3d
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>计划和广播作业 (Python)
 
@@ -37,6 +37,8 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
 
 * 设备孪生和属性：[设备孪生入门][lnk-get-started-twin]和[教程：如何使用设备孪生属性][lnk-twin-props]
 * 直接方法：[IoT 中心开发人员指南 - 直接方法][lnk-dev-methods]和[教程：直接方法][lnk-c2d-methods]
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 本教程演示如何：
 

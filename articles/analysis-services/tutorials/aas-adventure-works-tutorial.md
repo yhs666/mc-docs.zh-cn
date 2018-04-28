@@ -1,26 +1,19 @@
 ---
-title: "Azure Analysis Services Adventure Works 教程 | Azure"
-description: "介绍 Azure Analysis Services 的 Adventure Works 教程"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services Adventure Works 教程 | Azure
+description: 介绍 Azure Analysis Services 的 Adventure Works 教程
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/10/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: f7db5556c582bb2931abdcccaa97a17e996fbc14
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: minewiskan
+ms.openlocfilehash: c7081ba4180af67699e374e4482a1993dab9cec6
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 教程
 
@@ -101,4 +94,4 @@ ms.lasthandoff: 03/08/2018
 ## <a name="next-steps"></a>后续步骤  
 若要开始，请参阅[第 1 课：创建新的表格模型项目](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)。
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties -->

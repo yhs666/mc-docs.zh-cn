@@ -1,11 +1,11 @@
 ---
-title: "了解 Azure IoT 中心设备孪生"
-description: "开发人员指南 - 使用设备孪生在 IoT 中心与设备之间同步状态和配置数据"
+title: 了解 Azure IoT 中心设备孪生
+description: 开发人员指南 - 使用设备孪生在 IoT 中心与设备之间同步状态和配置数据
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8a3da072-a5bf-46e5-8de4-24cdbb2a03fa
 ms.service: iot-hub
 ms.devlang: multiple
@@ -13,17 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
-ms.date: 03/19/2018
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: e9b589087ef7563a6d1c61329264bd38ebf8d686
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 6c31bab2e6df260aea59f25e02e2b0256240f915
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解并在 IoT 中心内使用设备孪生
 
-设备孪生是存储设备状态信息（例如元数据、配置和条件）的 JSON 文档。 Azure IoT 中心为连接到 IoT 中心的每台设备保留一个设备孪生。 本文介绍：
+设备孪生是存储设备状态信息（例如元数据、配置和条件）的 JSON 文档。 Azure IoT 中心为连接到 IoT 中心的每台设备保留一个设备孪生。 
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
+本文介绍：
 
 * 设备孪生的结构：标记、所需的属性和报告的属性。
 * 设备应用和后端可在设备孪生上执行的操作。
@@ -234,7 +238,7 @@ ms.lasthandoff: 03/12/2018
 * JSON 对象中的所有值可采用以下 JSON 类型：布尔值、数字、字符串、对象。 不允许数组。 最大整数值为 4503599627370495，而最小整数值为 -4503599627370496。
 * 标记、所需属性和报告属性中的所有 JSON 对象的最大嵌套深度为 5 层。 例如，以下对象是有效的：
 
-    ```
+    ```json
     {
         ...
         "tags": {
@@ -265,49 +269,49 @@ IoT 中心拒绝将这些文档的大小增加到超出限制的所有操作，�
 IoT 中心保留设备孪生所需属性和报告属性中每个 JSON 对象的上次更新时间戳。 时间戳采用 UTC，以 [ISO8601] 格式编码`YYYY-MM-DDTHH:MM:SS.mmmZ`。
 例如：
 
-```
-    {
-        ...
-        "properties": {
-            "desired": {
+```json
+{
+    ...
+    "properties": {
+        "desired": {
+            "telemetryConfig": {
+                "sendFrequency": "5m"
+            },
+            "$metadata": {
                 "telemetryConfig": {
-                    "sendFrequency": "5m"
-                },
-                "$metadata": {
-                    "telemetryConfig": {
-                        "sendFrequency": {
-                            "$lastUpdated": "2016-03-30T16:24:48.789Z"
-                        },
+                    "sendFrequency": {
                         "$lastUpdated": "2016-03-30T16:24:48.789Z"
                     },
                     "$lastUpdated": "2016-03-30T16:24:48.789Z"
                 },
-                "$version": 23
+                "$lastUpdated": "2016-03-30T16:24:48.789Z"
             },
-            "reported": {
+            "$version": 23
+        },
+        "reported": {
+            "telemetryConfig": {
+                "sendFrequency": "5m",
+                "status": "success"
+            }
+            "batteryLevel": "55%",
+            "$metadata": {
                 "telemetryConfig": {
                     "sendFrequency": "5m",
-                    "status": "success"
-                }
-                "batteryLevel": "55%",
-                "$metadata": {
-                    "telemetryConfig": {
-                        "sendFrequency": "5m",
-                        "status": {
-                            "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                        },
+                    "status": {
                         "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                    }
-                    "batteryLevel": {
-                        "$lastUpdated": "2016-04-01T16:35:48.789Z"
                     },
-                    "$lastUpdated": "2016-04-01T16:24:48.789Z"
+                    "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                }
+                "batteryLevel": {
+                    "$lastUpdated": "2016-04-01T16:35:48.789Z"
                 },
-                "$version": 123
-            }
+                "$lastUpdated": "2016-04-01T16:24:48.789Z"
+            },
+            "$version": 123
         }
-        ...
     }
+    ...
+}
 ```
 
 会在每个级别（而不仅仅是 JSON 结构的叶级别）保留此信息，以便保留删除了对象键的更新。

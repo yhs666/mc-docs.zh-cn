@@ -1,26 +1,23 @@
 ---
-title: 监视应用程序网关的访问日志、性能日志、后端运行状况及指标 | Microsoft Docs
+title: 监视应用程序网关的访问日志、性能日志、后端运行状况及指标
 description: 了解如何启用和管理应用程序网关的访问日志和性能日志
 services: application-gateway
-documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 300628b8-8e3d-40ab-b294-3ecc5e48ef98
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/17/2017
-ms.date: 02/02/2018
+origin.date: 04/02/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: bed63497f6e5b04bc9df46e85f7e2cb853de0c78
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 017dd1d7a7b00cef833328436607d748f22db4ba
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>应用程序网关的后端运行状况、诊断日志和指标
 
@@ -28,9 +25,9 @@ ms.lasthandoff: 03/23/2018
 
 - [后端运行状况](#back-end-health)：应用程序网关提供通过 Azure 门户和 PowerShell 监视后端池中的服务器运行状况的功能。 还可通过性能诊断日志找到后端池的运行状况。
 
-- [日志](#diagnostic-logs)：通过日志记录，可出于监视目的从资源保存或使用性能、访问及其他数据。
+- [日志](#diagnostic-logging)：通过日志记录，可出于监视目的从资源保存或使用性能、访问及其他数据。
 
-- [指标](#metrics)：应用程序网关当前有一个指标指标。 此指标可衡量应用程序网关的吞吐量，以每秒字节数为单位。
+- [指标](#metrics)：应用程序网关当前有七个指标可用来查看性能计数器。
 
 ## <a name="back-end-health"></a>后端运行状况
 
@@ -148,7 +145,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |clientPort     | 请求的起始端口。       |
 |httpMethod     | 请求所用的 HTTP 方法。       |
 |requestUri     | 所收到请求的 URI。        |
-|RequestQuery     | 服务器路由的项：发送请求的后端池实例。 </br> X-AzureApplicationGateway-LOG-ID：用于请求的相关性 ID， 可用于排查后端服务器上的流量问题。 </br>SERVER-STATUS：应用程序网关从后端接收的 HTTP 响应代码。       |
+|RequestQuery     | 服务器路由的项：发送请求的后端池实例。</br>X-AzureApplicationGateway-LOG-ID：用于请求的相关性 ID， 可用于排查后端服务器上的流量问题。 </br>SERVER-STATUS：应用程序网关从后端接收的 HTTP 响应代码。       |
 |UserAgent     | HTTP 请求标头中的用户代理。        |
 |httpStatus     | 从应用程序网关返回到客户端的 HTTP 状态代码。       |
 |httpVersion     | 请求的 HTTP 版本。        |
@@ -285,9 +282,30 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ## <a name="metrics"></a>指标
 
-指标是某些 Azure 资源的一项功能，可在此查看门户中的性能计数器。 对于应用程序网关，现在可用一个指标。 此指标是吞吐量，可在门户中看到。 浏览到应用程序网关，然后单击“指标”。 若要查看这些值，请在“可用度量值”  部分选择吞吐量。 可在下图看到一个带有筛选器的示例，该筛选器可用于显示不同时间范围的数据。
+指标是某些 Azure 资源的一项功能，可在此查看门户中的性能计数器。 应用程序网关支持以下指标：
 
-![带有筛选器的指标视图][5]
+- **当前连接数**
+- **失败的请求数**
+- **正常的主机计数**
+
+   可以按每个后端池进行筛选来显示特定后端池中正常的/不正常的主机数。
+
+
+- **响应状态**
+
+   可以进一步对响应状态代码分布进行归类来显示 2xx、3xx、4xx 和 5xx 类别的响应。
+
+- **吞吐量**
+- **请求总数**
+- **不正常的主机计数**
+
+   可以按每个后端池进行筛选来显示特定后端池中正常的/不正常的主机数。
+
+浏览到应用程序网关，并在“监视”下单击“指标”。 若要查看可用值，请选择“指标”下拉列表。
+
+在下图中可以看到过去 30 分钟显示的三个指标的示例：
+
+[![](./media/application-gateway-diagnostics/figure5.png "度量值视图")](./media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 若要查看当前的指标列表，请参阅 [Azure Monitor 支持的指标](../monitoring-and-diagnostics/monitoring-supported-metrics.md)。
 

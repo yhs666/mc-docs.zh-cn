@@ -1,11 +1,11 @@
 ---
-title: "了解 Azure IoT 中心消息传送 | Azure"
-description: "开发人员指南 - 使用 IoT 中心进行设备到云和云到设备的消息传送。 包括消息格式和支持的通信协议的相关信息。"
+title: 了解 Azure IoT 中心消息传送 | Azure
+description: 开发人员指南 - 使用 IoT 中心进行设备到云和云到设备的消息传送。 包括消息格式和支持的通信协议的相关信息。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 8674017f2132c4b8f444c594a4397f23b1637b19
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 05/07/2018
+ms.openlocfilehash: 6975b1c0211312488350d352f5dfddabd4bbf777
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>使用 IoT 中心进行设备到云和云到设备的消息传送
 
@@ -27,6 +27,8 @@ ms.lasthandoff: 03/12/2018
 
 * 从设备将[设备到云][lnk-d2c]消息发送到解决方案后端。
 * 从解决方案后端将[云到设备][lnk-c2d]消息发送到设备。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 IoT 中心消息传送功能的核心属性是消息的可靠性和持久性。 这些属性可在设备端上恢复间歇性连接，以及在云恢复事件处理的负载高峰。 IoT 中心对从设备到云和从云到设备的消息传送实施*至少一次*传送保证。
 

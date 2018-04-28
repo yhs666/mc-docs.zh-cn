@@ -16,11 +16,11 @@ ms.custom: manage
 origin.date: 02/20/2018
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3f58cfe2982c331a829b51d80ff3e310e1d9cea8
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 781913b386543ea73680775f07152526428a8036
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>管理 Azure SQL 数据仓库中的计算资源
 了解如何管理 Azure SQL 数据仓库中的计算资源。 可以通过暂停数据仓库来降低成本，或者根据性能需求缩放数据仓库。 
@@ -30,7 +30,7 @@ SQL 数据仓库的体系结构对存储和计算功能进行了分隔，允许�
 
 <a name="scale-compute"><a/>
 ## <a name="scaling-compute"></a>缩放计算资源
-调整数据仓库的[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)设置，可以横向扩展或还原计算资源。 添加更多的数据仓库单位后，加载和查询性能可线性提高。 SQL 数据仓库提供数据仓库单位的[服务级别](performance-tiers.md#service-levels)，确保在横向扩展或还原后性能不会有明显的变化。 
+调整数据仓库的[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)设置，可以横向扩展或还原计算资源。 添加更多的数据仓库单位后，加载和查询性能可线性提高。 
 
 有关横向扩展的步骤，请参阅适用于 [Azure 门户](quickstart-scale-compute-portal.md)、[PowerShell](quickstart-scale-compute-powershell.md) 或 [T-SQL](quickstart-scale-compute-tsql.md) 的快速入门。 也可以使用 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute) 执行横向扩展操作。
 

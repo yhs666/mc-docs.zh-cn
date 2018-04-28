@@ -1,26 +1,26 @@
 ---
-title: "使用 iothub-explorer 进行 Azure IoT 设备管理 | Azure"
-description: "使用 iothub-explorer CLI 工具进行 Azure IoT 中心设备管理，该特点是使用直接方法并提供孪生的所需属性管理选项。"
+title: 使用 iothub-explorer 进行 Azure IoT 设备管理 | Azure
+description: 使用 iothub-explorer CLI 工具进行 Azure IoT 中心设备管理，该特点是使用直接方法并提供孪生的所需属性管理选项。
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "azure iot 设备管理, azure iot 中心设备管理, 设备管理 iot, iot 中心设备管理"
+tags: ''
+keywords: azure iot 设备管理, azure iot 中心设备管理, 设备管理 iot, iot 中心设备管理
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/12/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 7e89f289fdb9a47235bc92dd5a2fc5722ea9135e
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 05/07/2018
+ms.openlocfilehash: 50bbb79fdffd4d86766f941f4da7a0ee3f57c953
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>使用 iothub-explorer 进行 Azure IoT 中心设备管理
 
@@ -29,6 +29,8 @@ ms.lasthandoff: 03/12/2018
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) 是一种在主机上运行的 CLI 工具，用于管理 IoT 中心注册表中的设备标识。 它附带了可用于执行各种任务的管理选项。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 | 管理选项          | 任务                                                                                                                            |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------|
@@ -41,8 +43,7 @@ ms.lasthandoff: 03/12/2018
 
 有关这些选项的差异和使用指导的更详细说明，请参阅[设备到云通信指南](./iot-hub-devguide-d2c-guidance.md)和[云到设备通信指南](./iot-hub-devguide-c2d-guidance.md)。
 
-> [!NOTE]
-> 设备孪生是存储设备状态信息（元数据、配置和条件）的 JSON 文档。 IoT 中心为连接到它的每台设备保留一个设备孪生。 有关设备孪生的详细信息，请参阅[设备孪生入门](./iot-hub-node-node-twin-getstarted.md)。
+设备孪生是存储设备状态信息（元数据、配置和条件）的 JSON 文档。 IoT 中心为连接到它的每台设备保留一个设备孪生。 有关设备孪生的详细信息，请参阅[设备孪生入门](iot-hub-node-node-twin-getstarted.md)。
 
 ## <a name="what-you-learn"></a>学习内容
 

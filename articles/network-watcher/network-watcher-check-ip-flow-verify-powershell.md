@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序“IP 流验证”功能验证流量 - PowerShell | Azure"
-description: "本文介绍如何使用 PowerShell 检查系统是允许还是拒绝进出虚拟机的流量"
+title: 使用 Azure 网络观察程序“IP 流验证”功能验证流量 - PowerShell | Azure
+description: 本文介绍如何使用 PowerShell 检查系统是允许还是拒绝进出虚拟机的流量
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: e1dad757-8c5d-467f-812e-7cc751143207
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 39b500affb2231f965631b165c26f923eb6a7d6e
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: eb2d4f28cca3610920c2feb4b19a89ac87096cc4
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-to-or-from-a-vm-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>使用 Azure 网络观察程序的组件（即“IP 流验证”功能）检查系统是允许还是拒绝进出 VM 的流量
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/14/2017
 
 “IP 流验证”是网络观察程序的一项功能，用于验证是否允许流量进出虚拟机。 此方案用于获取虚拟机的当前状态，即其是否可以与外部资源或后端通信。 可以使用“IP 流验证”功能验证网络安全组 (NSG) 规则是否正确配置，以及对 NSG 规则所阻止的流进行故障排除。 使用“IP 流验证”功能的另一个原因是确保要阻止的流量已由 NSG 正确阻止。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 此方案假定用户已按照[创建网络观察程序](network-watcher-create.md)中的步骤创建网络观察程序，或者已经有网络观察程序的实例。 此方案还假定要使用的包含有效虚拟机的资源组已存在。
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 11/14/2017
 第一步是检索网络观察程序实例。 将 `$networkWatcher` 变量传递给 IP 流验证 cmdlet。
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "chinaeast" } 
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "chinanorth" } 
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
 ```
 
@@ -59,7 +59,7 @@ $VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
 
 ## <a name="get-the-nics"></a>获取 NIC
 
-需要虚拟机上的 NIC 的 IP 地址，在此示例中我们会在虚拟机上检索 NIC。 如果已知道要在虚拟机上测试的 IP 地址，则可以跳过此步骤。
+需要虚拟机上的 NIC 的 IP 地址。 使用下面的命令检索附加到虚拟机的 NIC。 如果已知道要在虚拟机上测试的 IP 地址，则可以跳过此步骤。
 
 ```powershell
 $Nics = Get-AzureRmNetworkInterface | Where {$_.Id -eq $vm.NetworkProfile.NetworkInterfaces.Id.ForEach({$_})}
@@ -67,7 +67,7 @@ $Nics = Get-AzureRmNetworkInterface | Where {$_.Id -eq $vm.NetworkProfile.Networ
 
 ## <a name="run-ip-flow-verify"></a>运行“IP 流验证”
 
-现在，我们已掌握运行 cmdlet 所需的信息，因此将运行 `Test-AzureRmNetworkWatcherIPFlow` cmdlet 以测试流量。 在此示例中，我们将使用第一个 NIC 上的第一个 IP 地址。
+运行 `Test-AzureRmNetworkWatcherIPFlow` cmdlet 测试流量。 在此示例中，将使用第一个 NIC 上的第一个 IP 地址。
 
 ```powershell
 Test-AzureRmNetworkWatcherIPFlow -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id `
@@ -90,10 +90,10 @@ Allow  defaultSecurityRules/AllowInternetOutBound
 
 ## <a name="next-steps"></a>后续步骤
 
-如果流量不应被阻止但却被阻止，请参阅[管理网络安全组](../virtual-network/virtual-network-manage-nsg-arm-portal.md)，查找已定义的网络安全组和安全规则。
+如果流量不应被阻止但却被阻止，请参阅[管理网络安全组](../virtual-network/manage-network-security-group.md)，查找已定义的网络安全组和安全规则。
 
 [1]: ./media/network-watcher-check-ip-flow-verify-portal/figure1.png
 [2]: ./media/network-watcher-check-ip-flow-verify-portal/figure2.png
 
 
-<!--Update_Description: new articles on network watcher check ip flow verify powershell -->
+<!--Update_Description: updata link, wording update -->

@@ -1,26 +1,19 @@
 ---
-title: "Azure Analysis Services 中的身份验证和用户权限 | Azure"
-description: "了解 Azure Analysis Services 中的身份验证和用户权限。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 中的身份验证和用户权限 | Azure
+description: 了解 Azure Analysis Services 中的身份验证和用户权限。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: ef2bed3903f86a2048b92cabd1ee5adb3ab770e2
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: minewiskan
+ms.openlocfilehash: 62274d1f9d2955fa4b12c3f2ce2537776fbccece
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="authentication-and-user-permissions"></a>身份验证和用户权限
 Azure Analysis Services 使用 Azure Active Directory (Azure AD) 进行标识管理和用户身份验证。 在相同订阅中，创建、管理或连接到 Azure Analysis Services 服务器的任何用户均需具备 [Azure AD 租户](../active-directory/active-directory-administer.md)中的有效用户标识。
@@ -69,7 +62,7 @@ Excel 用户可使用 Windows 帐户、组织 ID（电子邮件地址）或外�
 
 ![Azure 门户中的访问控制](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-此级别的角色适用于符合以下条件的用户或帐户：需要执行可在门户中完成或使用 Azure 资源管理器模板完成的任务。 若要了解详细信息，请参阅[基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)。 
+此级别的角色适用于符合以下条件的用户或帐户：需要执行可在门户中完成或使用 Azure 资源管理器模板完成的任务。 若要了解详细信息，请参阅[基于角色的访问控制](https://docs.microsoft.com/zh-cn/azure/role-based-access-control/overview)。 
 
 ## <a name="database-roles"></a>数据库角色
 
@@ -82,6 +75,6 @@ Excel 用户可使用 Windows 帐户、组织 ID（电子邮件地址）或外�
 <!-- Not Available [Manage access to resources with Azure Active Directory groups](../active-directory/active-directory-manage-groups.md) -->
 [管理数据库角色和用户](analysis-services-database-users.md)  
 [管理服务器管理员](analysis-services-server-admins.md)  
-[基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)
+[基于角色的访问控制](https://docs.microsoft.com/zh-cn/azure/role-based-access-control/overview)
 
-<!--Update_Description: update meta properties  -->
+<!--Update_Description: update meta properties, update link  -->

@@ -1,11 +1,11 @@
 ---
-title: "了解 Azure IoT 中心终结点 | Azure"
-description: "开发人员指南 - 有关 IoT 中心面向设备和面向服务的终结点的参考信息。"
+title: 了解 Azure IoT 中心终结点 | Azure
+description: 开发人员指南 - 有关 IoT 中心面向设备和面向服务的终结点的参考信息。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 57ba52ae-19c6-43e4-bc6c-d8a5c2476e95
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 53e2717e4975520025877ce00382cbd6d042a324
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 05/07/2018
+ms.openlocfilehash: e5f11fafd5e16208af3320ea5b27367da0f11742
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>参考 - IoT 中心终结点
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
 ## <a name="iot-hub-names"></a>IoT 中心名称
 
 可以在“概述”边栏选项卡上找到在门户中承载你的终结点的 IoT 中心的名称。 默认情况下，IoT 中心的 DNS 名称如下所示：`{your iot hub name}.azure-devices.cn`。

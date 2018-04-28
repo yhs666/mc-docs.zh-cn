@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/30/2018
-ms.date: 03/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6567894a3a3c40227352c6854c3a8dc92d653664
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 446cfc016ed13a483f642e5275c60cd0dfd96013
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概述
 应用程序的基础结构通常由许多组件构成：可能有虚拟机、存储帐户和虚拟网络，或 Web 应用、数据库、数据库服务器和第三方服务。 这些组件不会以独立的实体出现，而是以单个实体的相关部件和依赖部件出现。 如果希望以组的方式部署、管理和监视这些这些组件， 那么，可以使用 Azure 资源管理器以组的方式处理解决方案中的资源。 可以通过一个协调的操作为解决方案部署、更新或删除所有资源。 可以使用一个模板来完成部署，该模板适用于不同的环境，例如测试、过渡和生产。 资源管理器提供安全、审核和标记功能，以帮助你在部署后管理资源。 
@@ -87,7 +87,7 @@ Resource Manager 针对通过 Azure PowerShell、Azure CLI、Azure 门户、REST
 ## <a name="template-deployment"></a>模板部署
 使用 Resource Manager 可以创建一个模板（采用 JSON 格式），用于定义 Azure 解决方案的基础结构和配置。 使用模板，可以在解决方案的整个生命周期内重复部署该解决方案，确保以一致的状态部署资源。 从门户创建解决方案时，该解决方案会自动包含部署模板。 无需从头开始创建模板，因为可以从解决方案的模板着手，并根据特定需求自定义该模板。 可以通过导出资源组的当前状态或查看特定部署所用的模板，来检索现有资源组的模板。 查看[导出的模板](resource-manager-export-template.md)是了解模板语法的有用方法。
 
-若要了解模板的格式及其构造方法，请参阅[创建第一个 Azure 资源管理器模板](resource-manager-create-first-template.md)。 若要查看资源类型的 JSON 语法，请参阅[定义 Azure Resource Manager 模板中的资源](https://docs.microsoft.com/en-us/azure/templates/)。
+若要了解模板的格式及其构造方法，请参阅[创建第一个 Azure 资源管理器模板](resource-manager-create-first-template.md)。 若要查看资源类型的 JSON 语法，请参阅[定义 Azure Resource Manager 模板中的资源](https://docs.microsoft.com/zh-cn/azure/templates/)。
 
 Resource Manager 像处理其他任何请求一样处理模板（请参阅[一致的管理层](#consistent-management-layer)图像）。 它会分析模板，并将其语法转换为相应资源提供程序所需的 REST API 操作。 例如，当 Resource Manager 收到具有以下资源定义的模板时：
 
@@ -218,7 +218,7 @@ Azure 还提供资源特定的多种角色。 一些常见的角色包括：
 4. SQL Server 参与者 - 可以管理 SQL 服务器和数据库，但不能管理其安全相关的策略
 5. 网站参与者 - 可以管理网站，但不能管理其连接到的 Web 计划
 
-有关角色及允许操作的完整列表，请参阅 [RBAC：内置角色](../active-directory/role-based-access-built-in-roles.md)。 有关基于角色的访问控制的详细信息，请参阅 [Azure 基于角色的访问控制](../active-directory/role-based-access-control-configure.md)。 
+有关角色及允许操作的完整列表，请参阅 [RBAC：内置角色](../role-based-access-control/built-in-roles.md)。 有关基于角色的访问控制的详细信息，请参阅 [Azure 基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)。 
 
 在某些情况下，可能需要运行访问资源的代码或脚本，但不是希望在用户的凭据下运行它。 在某些情况下，我们想要为应用程序创建名为服务主体的标识，并为该服务主体分配适当的角色。 在 Resource Manager 中可为应用程序创建凭据，以编程方式对应用程序进行身份验证。 若要了解如何创建服务主体，请参阅以下主题之一：
 
@@ -268,7 +268,7 @@ Azure SDK 适用于多种语言和平台。 每种语言实现可通过其生态
 
 有关在资源中使用这些语言的信息，请参阅：
 
-* [面向 .NET 开发人员的 Azure](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet)
+* [面向 .NET 开发人员的 Azure](https://docs.azure.cn/zh-cn/dotnet/?view=azure-dotnet)
 * [面向 Java 开发人员的 Azure](https://docs.azure.cn/java/)
 * [面向 Node.js 开发人员的 Azure](https://docs.microsoft.com/javascript/azure/)
 * [面向 Python 开发人员的 Azure](https://docs.microsoft.com/python/azure/)

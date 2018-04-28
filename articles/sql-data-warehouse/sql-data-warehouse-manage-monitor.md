@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-origin.date: 12/14/2017
-ms.date: 03/05/2018
+origin.date: 03/15/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 04066cae1fba15ffa650a78eda08a3660a996f23
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 5f125b15eb9c912dce0be6525637b5dc8627722a
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>使用 DMV 监视工作负荷
 本文介绍如何使用动态管理视图 (DMV) 监视工作负荷。 这包括调查 Azure SQL 数据仓库中的查询执行情况。
@@ -291,7 +291,6 @@ GROUP BY t.pdw_node_id, nod.[type]
 <!--Image references-->
 
 <!--Article references-->
-[Manage overview]: ./sql-data-warehouse-overview-manage.md
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md

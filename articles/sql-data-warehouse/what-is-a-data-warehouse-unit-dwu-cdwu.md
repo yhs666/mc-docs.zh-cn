@@ -2,28 +2,22 @@
 title: 什么是 Azure SQL 数据仓库中的数据仓库单位（DWU、cDWU）？ | Azure
 description: Azure SQL 数据仓库中的性能横向扩展功能。 通过调整 DWU、cDWU 数目进行横向扩展，或者通过暂停和恢复计算资源来节省成本。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-origin.date: 11/10/2017
-ms.date: 12/11/2017
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/14/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: d796bd5396465e209c9a6b5e8eaca2bc15fbe9ee
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 02e6c97edc30aeb16e64cda24bd7b5665dc5ff6d
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>数据仓库单位 (DWU) 和计算数据仓库单位 (cDWU)
-介绍 Azure SQL 数据仓库的数据仓库单位 (DWU) 和计算数据仓库单位 (cDWU)。 包括针对如何选择合适的数据仓库单位数以及如何更改其数目的建议。 
+针对选择理想数目的数据仓库单位（DWU、cDWU）来优化价格和性能以及如何更改单位数提供了建议。 
 
 ## <a name="what-are-data-warehouse-units"></a>什么是数据仓库单位？
 借助 SQL 数据仓库，将 CPU、内存和 IO 捆绑到称为数据仓库单位 (DWU) 的计算规模单位中。 DWU 表示抽象、规范化的计算资源和性能度量值。 通过更改服务级别，可更改分配给系统的 DWU 数，这反过来又会调整系统的性能和成本。 
@@ -40,6 +34,27 @@ ms.lasthandoff: 03/23/2018
 - 以线性方式更改系统对扫描、聚合和 CTAS 语句的性能
 - 增加 PolyBase 加载操作的读取器和编写器数量
 - 增加并发查询和并发槽的最大数量。
+
+## <a name="service-level-objective"></a>服务级别目标
+服务级别目标 (SLO) 是确定数据仓库的成本和性能级别的可伸缩性设置。 “计算优化”性能层规模的服务级别以计算数据仓库单位 (cDWU) 计量，例如 DW2000c。 “弹性优化”服务级别以 DWU 计量，例如 DW2000。 
+
+在 T-SQL 中，SERVICE_OBJECTIVE 设置确定了数据仓库的服务级别和性能层。
+
+```sql
+--Optimized for Elasticity
+CREATE DATABASE myElasticSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000'
+)
+;
+
+--Optimized for Compute
+CREATE DATABASE myComputeSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000c'
+)
+;
+```
 
 ## <a name="performance-tiers-and-data-warehouse-units"></a>性能层和数据仓库单位
 
@@ -69,11 +84,11 @@ SQL 数据仓库是一个向外扩展系统，可预配大量计算和查询大�
 
 > [!NOTE]
 >
-> 此外，如果可以计算节点之间拆分工作，与多个并行化只会增加查询性能。 如果发现该缩放未更改性能，建议优化表设计和/或查询。 对于查询优化指南，请参阅以下[性能](sql-data-warehouse-overview-manage-user-queries.md)文章。 
+> 此外，如果可以计算节点之间拆分工作，与多个并行化只会增加查询性能。 如果发现该缩放未更改性能，建议优化表设计和/或查询。 有关查询优化指南，请参阅[管理用户查询](sql-data-warehouse-overview-manage-user-queries.md)。 
 
 ## <a name="permissions"></a>权限
 
-更改数据仓库单位需要 [ALTER DATABASE][ALTER DATABASE] 中所述的权限。 
+更改数据仓库单位需要 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) 中所述的权限。 
 
 ## <a name="view-current-dwu-settings"></a>查看当前的 DWU 设置
 
@@ -104,11 +119,13 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 3. 单击“保存” 。 此时会显示确认消息。 单击“是”确认，或者单击“否”取消。
 
 ### <a name="powershell"></a>PowerShell
-要更改 DWU 或 cDWU，请使用 [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase] PowerShell cmdlet。 以下示例将托管在服务器 MyServer 上的数据库 MySQLDW 的服务级别目标设置为 DW1000。
+若要更改 DWU 或 cDWU，请使用 [Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell cmdlet。 以下示例将托管在服务器 MyServer 上的数据库 MySQLDW 的服务级别目标设置为 DW1000。
 
 ```Powershell
 Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
+
+有关详细信息，请参阅[适用于 SQL 数据仓库的 PowerShell cmdlet](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 ### <a name="t-sql"></a>T-SQL
 使用 T-SQL 可查看当前的 DWU 或 cDWU 设置、更改设置和检查进度。 
@@ -116,7 +133,7 @@ Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -Requested
 更改 DWU 或 cDWU：
 
 1. 连接到与逻辑 SQL 数据库服务器关联的 master 数据库。
-2. 使用 [ALTER DATABASE][ALTER DATABASE] TSQL 语句。 以下示例将数据库 MySQLDW 的服务级别目标设置为 DW1000。 
+2. 使用 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) TSQL 语句。 以下示例将数据库 MySQLDW 的服务级别目标设置为 DW1000。 
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -126,7 +143,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 ### <a name="rest-apis"></a>REST API
 
-要更改 DWU，请使用 [创建或更新数据库][Create or Update Database] REST API。 以下示例将托管在服务器 MyServer 上的数据库 MySQLDW 的服务级别目标设置为 DW1000。 该服务器位于名为 ResourceGroup1 的 Azure 资源组中。
+若要更改 DWU，请使用[创建或更新数据库 REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)。 以下示例将托管在服务器 MyServer 上的数据库 MySQLDW 的服务级别目标设置为 DW1000。 该服务器位于名为 ResourceGroup1 的 Azure 资源组中。
 
 ```
 PUT https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -138,6 +155,8 @@ Content-Type: application/json; charset=UTF-8
     }
 }
 ```
+
+有关更多 REST API 示例，请参阅[适用于 SQL 数据仓库的 REST API](sql-data-warehouse-manage-compute-rest-api.md)。
 
 ## <a name="check-status-of-dwu-changes"></a>检查 DWU 更改的状态
 
@@ -178,40 +197,7 @@ AND       major_resource_id = 'MySQLDW'
 - 对于减少操作，不需要的节点会从存储中分离出来并重新附加到剩余节点。
 
 ## <a name="next-steps"></a>后续步骤
-请参阅以下文章，了解其他一些重要性能概念：
+若要了解有关如何管理性能的详细信息，请参阅[用于工作负荷管理的资源类](resource-classes-for-workload-management.md)和[内存和并发限制](memory-and-concurrency-limits.md)。
 
-* [工作负荷和并发管理][Workload and concurrency management]
-* [表设计概述][Table design overview]
-* [表分布][Table distribution]
-* [表索引][Table indexing]
-* [表分区][Table partitioning]
-* [表统计信息][Table statistics]
-* [最佳做法][Best practices]
 
-<!--Image reference-->
 
-<!--Article references-->
-
-[capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
-
-[Check database state with T-SQL]: ./sql-data-warehouse-manage-compute-tsql.md#check-database-state-and-operation-progress
-[Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
-[Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
-
-[Workload and concurrency management]: ./resource-classes-for-workload-management.md
-[Table design overview]: ./sql-data-warehouse-tables-overview.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Table indexing]: ./sql-data-warehouse-tables-index.md
-[Table partitioning]: ./sql-data-warehouse-tables-partition.md
-[Table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Best practices]: ./sql-data-warehouse-best-practices.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-
-[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
-
-<!--MSDN references-->
-[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
-
-<!--Other Web references-->
-[Azure portal]: http://portal.azure.cn/
-<!-- Update_Description: new articles on what is a data warehouse unit of DWUs and cDWUs  -->

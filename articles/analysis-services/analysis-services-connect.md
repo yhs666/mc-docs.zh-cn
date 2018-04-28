@@ -1,26 +1,19 @@
 ---
-title: "连接到 Azure Analysis Services | Azure"
-description: "了解如何连接到 Azure 中的 Analysis Services 服务器并从中获取数据。"
-services: analysis-services
-documentationcenter: 
+title: 连接到 Azure Analysis Services | Azure
+description: 了解如何连接到 Azure 中的 Analysis Services 服务器并从中获取数据。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: b37f70a0-9166-4173-932d-935d769539d1
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: ab8dd83d508c56df053c604e498de31a03cd297b
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: minewiskan
+ms.openlocfilehash: bf614ac3cb971e374162eac08b4ce67982c13ec4
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-to-an-azure-analysis-services-server"></a>连接到 Azure Analysis Services 服务器
 

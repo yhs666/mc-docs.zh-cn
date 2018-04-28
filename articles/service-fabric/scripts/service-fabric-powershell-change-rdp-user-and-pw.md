@@ -1,30 +1,30 @@
 ---
-title: "Azure PowerShell 脚本示例 - 更新 RDP 用户名和密码 | Azure"
-description: "Azure PowerShell 脚本示例 - 更新特定节点类型的所有 Service Fabric 群集节点的 RDP 用户名和密码。"
+title: Azure PowerShell 脚本示例 - 更新 RDP 用户名和密码 | Azure
+description: Azure PowerShell 脚本示例 - 更新特定节点类型的所有 Service Fabric 群集节点的 RDP 用户名和密码。
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 11/17/2017
-ms.date: 01/01/2018
+origin.date: 03/19/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 81a7871bf10c2f0472790c32c802876ae5870ac7
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 9128ad81334a8f3b0780ebb11aba10d35f7b3bc8
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>更新群集中 VM 的管理员用户名和密码
 
-Service Fabric 群集中的每个节点类型是一个虚拟机规模集。 此示例脚本更新特定节点类型中群集虚拟机的管理员用户名和密码。  将 VMAccessAgent 扩展添加到规模集，因为管理员密码是不可修改的规模集属性。  用户名和密码更改将应用到规模集中的所有节点。 根据需要自定义参数。
+Service Fabric 群集中的每个[节点类型](../service-fabric-cluster-nodetypes.md)是一个虚拟机规模集。 此示例脚本更新特定节点类型中群集虚拟机的管理员用户名和密码。  将 VMAccessAgent 扩展添加到规模集，因为管理员密码是不可修改的规模集属性。  用户名和密码更改将应用到规模集中的所有节点。 根据需要自定义参数。
 
 必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell。 
 
@@ -62,4 +62,4 @@ Update-AzureRmVmss -ResourceGroupName $resourceGroup -Name $nodeTypeName -Virtua
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure PowerShell 示例](../service-fabric-powershell-samples.md)中找到 Azure Service Fabric 的其他 Azure Powershell 示例。
-<!-- Update_Description: new articles on changing rdp service fabric user and password with powershell-->
+<!-- Update_Description: update meta properties, wording update -->

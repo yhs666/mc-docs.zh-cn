@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中心从设备到云选项 | Azure"
-description: "开发人员指南 - 指导用户何时使用从设备到云的消息、报告属性或文件上传，以进行从云到设备的通信。"
+title: Azure IoT 中心从设备到云选项 | Azure
+description: 开发人员指南 - 指导用户何时使用从设备到云的消息、报告属性或文件上传，以进行从云到设备的通信。
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
 ms.service: iot-hub
 ms.devlang: multiple
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
-ms.date: 03/19/2018
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: fb68a29598ab268ff5c5e837d15d15b5cc1c0109
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: c4a6bdfe87685af8b6fa60d108a47d5ae147324a
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="device-to-cloud-communications-guidance"></a>从设备到云通信指南
 将信息从设备应用发送到解决方案后端时，IoT 中心会公开三个选项：
@@ -27,6 +27,8 @@ ms.lasthandoff: 03/12/2018
 * [设备到云消息][lnk-d2c]，用于时序遥测和警报。
 * [设备克隆的报告属性][lnk-twins]用于报告设备状态信息，例如可用功能、条件或长时间运行的工作流的状态。 例如，配置和软件更新。
 * [文件上传][lnk-fileupload]，用于由间歇性连接的设备上传的或为了节省带宽而压缩的媒体文件和大型遥测批文件。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 下面是各种设备到云通信选项的详细比较。
 

@@ -1,26 +1,19 @@
 ---
 title: 为 Azure Analysis Services 服务器添加示例表格模型 | Azure
 description: 了解如何在 Azure Analysis Services 中添加示例模型。
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/28/2018
-ms.date: 03/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 568d4a471ebbd01d7b13fee2a5c3fc1851209632
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.reviewer: minewiskan
+ms.openlocfilehash: 2a55f7d5713178f71cf634bd0fe880dd394afa0e
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-add-a-sample-model"></a>教程：添加示例模型
 
@@ -72,5 +65,4 @@ ms.lasthandoff: 03/28/2018
 
 [在 Power BI Desktop 中连接](analysis-services-connect-pbi.md)   
 [管理数据库角色和用户](analysis-services-database-users.md)
-<!-- Update_Description: new articles on analysis services to create sample model -->
-<!--ms.date: 03/26/2018-->
+<!-- Update_Description: udpate meta properties-->

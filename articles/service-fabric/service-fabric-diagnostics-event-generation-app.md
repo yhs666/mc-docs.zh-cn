@@ -1,35 +1,36 @@
 ---
-title: "Azure Service Fabric 应用程序级监视 | Azure"
-description: "了解用于监视和诊断 Azure Service Fabric 群集的应用程序和服务级事件和日志。"
+title: Azure Service Fabric 应用程序级监视 | Azure
+description: 了解用于监视和诊断 Azure Service Fabric 群集的应用程序和服务级事件和日志。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/15/2017
-ms.date: 11/13/2017
+origin.date: 03/20/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8e4ea8dc4cfb47871e269aa378beba8dc8ade77f
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 443ffc4c35594adc4f6ad1b6e461feab06efec58
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="application-and-service-level-event-and-log-generation"></a>应用程序和服务级事件和日志生成
-
-## <a name="instrumenting-the-code-with-custom-events"></a>检测带有自定义事件的代码
+# <a name="application-and-service-level-logging"></a>应用程序和服务级别日志记录
 
 对于服务监视的其他大多数环节，检测代码是一个基本要求。 我们只能通过检测来判断是否出错以及诊断需要解决哪些问题。 尽管在技术上可将调试器连接到生产服务，但这种做法并不常见。 因此，提供详细的检测数据非常重要。
 
 某些产品可自动检测代码。 尽管这些解决方案能够正常运行，但几乎始终都要执行手动检测。 最后，必须提供足够的信息来对应用程序进行取证式的调试。 本文将介绍检测代码的不同方法，以及如何在不同的方法之间做出选择。
 
+有关如何使用这些建议的示例，请参阅[向 Service Fabric 应用程序添加日志记录](service-fabric-how-to-diagnostics-log.md)。
+
 ## <a name="eventsource"></a>EventSource
+
 在 Visual Studio 中通过模板创建 Service Fabric 解决方案时，将生成 **EventSource** 派生类（**ServiceEventSource** 或 **ActorEventSource**）。 将会创建一个模板，可将应用程序或服务的事件添加到其中。 **EventSource** 名称**必须**唯一，应该将它重命名，不要使用默认的模板字符串 MyCompany-&lt;solution&gt;-&lt;project&gt;。 使用多个同名的 **EventSource** 定义会导致运行时出现问题。 每个定义的事件必须具有唯一标识符。 如果标识符不唯一，将发生运行时失败。 某些组织为标识符预先分配了值范围，避免不同的开发团队之间发生冲突。 有关详细信息，请参阅 [Vance 的博客](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)或 [MSDN 文档](https://msdn.microsoft.com/library/dn774985(v=pandp.20).aspx)。
 
 ### <a name="using-structured-eventsource-events"></a>使用结构化 EventSource 事件
@@ -176,6 +177,7 @@ ms.lasthandoff: 11/09/2017
 
 ## <a name="next-steps"></a>后续步骤
 
-选择了用于检测应用程序和服务的日志记录提供程序之后，需要将日志和事件聚合才能将其发送到任何的分析平台。 阅读有关 [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) 和 [WAD](service-fabric-diagnostics-event-aggregation-wad.md) 的信息，更好地了解一些推荐的选项。
+选择了用于检测应用程序和服务的日志记录提供程序之后，需要将日志和事件聚合才能将其发送到任何的分析平台。 阅读有关 [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) 和 [WAD](service-fabric-diagnostics-event-aggregation-wad.md) 的信息，以便更好地了解一些推荐选项。
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update-->
+<!--Notice: We keep the previous code dut to the Application Insights is not support on MC-->

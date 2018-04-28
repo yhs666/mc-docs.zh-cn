@@ -1,26 +1,19 @@
 ---
 title: 使用 PowerShell 创建 Azure Analysis Services 服务器 | Azure
 description: 了解如何使用 PowerShell 创建 Azure Analysis Services 服务器
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-origin.date: 02/14/2018
-ms.date: 03/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 4a8c7587735210a4df05de02f7f543c3976b7006
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.reviewer: minewiskan
+ms.openlocfilehash: 54c116b672e10e616df00820921fab2445108fa6
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>使用 PowerShell 创建 Azure Analysis Services 服务器
 
@@ -46,7 +39,7 @@ Import-Module AzureRM.AnalysisServices
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-使用 [Add-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/add-azurermaccount) 命令登录到 Azure 订阅。 按屏幕指令操作。
+使用 [Add-AzureRmAccount -EnvironmentName AzureChinaCloud](https://docs.microsoft.com/powershell/module/azurerm.profile/add-azurermaccount) 命令登录到 Azure 订阅。 按屏幕说明操作。
 
 ```powershell
 Add-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -65,7 +58,7 @@ New-AzureRmResourceGroup -Name "myResourceGroup" -Location "China North"
 使用 [New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) 命令创建新的服务器。 以下示例在中国北部区域的 myResourceGroup 中的 D1 层创建名为 myServer 的服务器，并指定 philipc@adventureworks.com 为服务器管理员。
 
 ```powershell
-New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myServer" -Location "China North" -Sku D1 -Administrator "philipc@adventure-works.com"
+New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myServer" -Location "chinanorth" -Sku D1 -Administrator "philipc@adventure-works.com"
 ```
 
 ## <a name="clean-up-resources"></a>清理资源

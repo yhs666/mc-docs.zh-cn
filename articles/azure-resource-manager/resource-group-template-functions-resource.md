@@ -13,19 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/22/2018
-ms.date: 03/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9eb753a03bba4c8a373b61a0dd0115423f19d142
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 8156a358737bc1584570e2a8cf237b5f728c024e
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的资源函数
 
 Resource Manager 提供以下用于获取资源值的函数：
 
-* [listKeys 和 list{Value}](#listkeys)
+* [listKeys](#listkeys)
+* [listSecrets](#list)
+* [list*](#list)
 * [providers](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
@@ -34,15 +36,17 @@ Resource Manager 提供以下用于获取资源值的函数：
 
 若要从参数、变量或当前部署获取值，请参阅 [Deployment value functions](resource-group-template-functions-deployment.md)（部署值函数）。
 
-<a id="listkeys" />
-<a id="list" />
+<a name="listkeys" />
+<a name="list" />
 
-## <a name="listkeys-and-listvalue"></a>listKeys 和 list{Value}
+## <a name="listkeys-listsecrets-and-list"></a>listKeys、listSecrets 和 list*
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
+
+`listSecrets(resourceName or resourceIdentifier, apiVersion)`
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion)`
 
-返回支持 list 操作的任何资源类型的值。 最常见的用法是 `listKeys`。 
+返回支持 list 操作的任何资源类型的值。 最常见的用法是 `listKeys` 和 `listSecrets`。 
 
 ### <a name="parameters"></a>parameters
 
@@ -143,7 +147,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storageAccountName <your-storage-account>
 ```
 
-<a id="providers" />
+<a name="providers" />
 
 ## <a name="providers"></a>providers
 `providers(providerNamespace, [resourceType])`
@@ -229,7 +233,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json -providerNamespace Microsoft.Web -resourceType sites
 ```
 
-<a id="reference" />
+<a name="reference" />
 
 ## <a name="reference"></a>reference
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
@@ -438,7 +442,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageAccountName <your-storage-account>
 ```
 
-<a id="resourcegroup" />
+<a name="resourcegroup" />
 
 ## <a name="resourcegroup"></a>resourceGroup
 `resourceGroup()`
@@ -521,7 +525,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json 
 ```
 
-<a id="resourceid" />
+<a name="resourceid" />
 
 ## <a name="resourceid"></a>ResourceId
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
@@ -651,7 +655,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | 值 |
+| Name | Type | 值 |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
@@ -670,7 +674,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json 
 ```
 
-<a id="subscription" />
+<a name="subscription" />
 
 ## <a name="subscription"></a>订阅
 `subscription()`

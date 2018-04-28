@@ -1,6 +1,6 @@
 ---
-title: "为 SQL Server Always On 配置负载均衡器 | Azure"
-description: "介绍如何将负载均衡器配置为适用于 SQL Server Always On，以及如何使用 PowerShell 为 SQL Server 实现创建负载均衡器"
+title: 为 SQL Server Always On 配置负载均衡器 | Azure
+description: 介绍如何将负载均衡器配置为适用于 SQL Server Always On，以及如何使用 PowerShell 为 SQL Server 实现创建负载均衡器
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
@@ -12,17 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 12/25/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 532bbf327084c55db1f279708ec68f3f11f9f69a
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 3cbbf4a2874edd2046069b1470ff472c575a3f84
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-a-load-balancer-for-sql-server-always-on"></a>为 SQL Server Always On 配置负载均衡器
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 SQL Server Always On 可用性组现在可以与内部负载均衡器一起运行。 可用性组是 SQL Server 用于实现高可用性和灾难恢复的旗舰解决方案。 无论配置中的副本数目是多少，可用性组侦听器都可让客户端应用程序无缝连接到主副本。
 
@@ -63,4 +61,4 @@ SQL Server Always On 可用性组现在可以与内部负载均衡器一起运�
 * [开始配置内部负载均衡器](load-balancer-get-started-ilb-arm-ps.md)
 * [配置负载均衡器分发模式](load-balancer-distribution-mode.md)
 * [配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
-<!-- Update_Description: update meta properties, wording update, update link  -->
+<!-- Update_Description: update meta properties  -->

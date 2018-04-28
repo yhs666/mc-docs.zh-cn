@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure 门户管理 Azure 资源 | Azure"
-description: "使用 Azure 门户和 Azure Resource Manager 来管理资源。 说明如何使用仪表板监视资源。"
+title: 使用 Azure 门户管理 Azure 资源 | Azure
+description: 使用 Azure 门户和 Azure Resource Manager 来管理资源。 说明如何使用仪表板监视资源。
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2016
-ms.date: 11/27/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 50a32ed43f00fa26ffd784d6d146c9c3e318e4b2
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 466d2a20ee686f244f2c9f28555e49d521a5bcbf
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-resources-through-portal"></a>通过门户管理 Azure 资源
 
 本文说明如何将 [Azure 门户](https://portal.azure.cn)与 [Azure 资源管理器](resource-group-overview.md)配合使用来管理 Azure 资源。 若要了解如何通过门户部署资源，请参阅[使用资源管理器模板和 Azure 门户部署资源](resource-group-template-deploy-portal.md)。
+
 <a name="create-resource-group-and-resources"></a>
 ##  <a name="manage-resource-groups"></a>管理资源组
 
@@ -125,10 +126,10 @@ ms.lasthandoff: 11/24/2017
 ![删除组](./media/resource-group-portal/delete-group.png)
 
 ## <a name="next-steps"></a>后续步骤
-* 若要查看活动日志，请参阅[使用 Resource Manager 进行审核操作](resource-group-audit.md)。
+* 若要查看活动日志，请参阅[使用 Resource Manager 执行审核操作](resource-group-audit.md)。
 * 若要查看有关部署的详细信息，请参阅[查看部署操作](resource-manager-deployment-operations.md)。
-* 若要通过门户部署资源，请参阅[使用 Resource Manager 模板和 Azure 门户部署资源](resource-group-template-deploy-portal.md)。
-* 若要管理对资源的访问，请参阅[使用角色分配管理对 Azure 订阅资源的访问](../active-directory/role-based-access-control-configure.md)。
+* 若要通过门户部署资源，请参阅[使用资源管理器模板和 Azure 门户部署资源](resource-group-template-deploy-portal.md)。
+* 若要管理对资源的访问，请参阅[使用角色分配管理对 Azure 订阅资源的访问](../role-based-access-control/role-assignments-portal.md)。
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

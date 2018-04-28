@@ -1,26 +1,19 @@
 ---
-title: "在 Azure 门户中创建 Analysis Services 服务器 | Azure"
-description: "了解如何在 Azure 中创建 Analysis Services 服务器实例。"
-services: analysis-services
-documentationcenter: 
+title: 在 Azure 门户中创建 Analysis Services 服务器 | Azure
+description: 了解如何在 Azure 中创建 Analysis Services 服务器实例。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 7f560216-8a9a-4d06-852e-48cf24deab19
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: e96ab42a195a4f1fc18418b50fb0b3a062a4c5fc
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: minewiskan
+ms.openlocfilehash: e3f549eced828c1d018a0f97cf26307bdae2545c
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>在 Azure 门户中创建 Azure Analysis Services 服务器
 本文介绍如何在 Azure 订阅中创建 Analysis Services 服务器资源。
@@ -37,7 +30,7 @@ ms.lasthandoff: 03/08/2018
 > 
 > 
 
-## <a name="to-create-a-server-in-azure-portal"></a>在 Azure 门户中创建服务器
+## <a name="to-create-a-server-in-the-azure-portal"></a>在 Azure 门户中创建服务器
 1. 登录到 [Azure 门户](https://portal.azure.cn)。  
 2. 单击“+ 新建” > “数据 + 分析” > “Analysis Services”。
 3. 在“Analysis Services”边栏选项卡中，填写必填字段，并按“创建”。

@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Site Recovery 针对本地 VMware VM 设置到 Azure 的灾难恢复 | Azure"
-description: "了解如何使用 Azure Site Recovery 针对本地 VMware VM 设置到 Azure 的灾难恢复。"
+title: 使用 Azure Site Recovery 针对本地 VMware VM 设置到 Azure 的灾难恢复 | Azure
+description: 了解如何使用 Azure Site Recovery 针对本地 VMware VM 设置到 Azure 的灾难恢复。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
@@ -10,11 +10,11 @@ origin.date: 01/15/2018
 ms.date: 03/05/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 8a365e70b5f4f2a4db288d84db17ce66930184e3
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: ab4231d4e35364afa30c0c0a584b988e02374a37
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>针对本地 VMware VM 设置到 Azure 的灾难恢复
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 03/02/2018
 4. 下载配置服务器的 OVF 模板。
 
   > [!TIP]
-  可以直接从 [Microsoft 下载中心](https://aka.ms/asrconfigurationserver)下载最新版本的配置服务器模板。
+  可以直接从 [Microsoft 下载中心](http://aka\.ms/asrconfigurationserver_bjb)下载最新版本的配置服务器模板。
 
 ## <a name="import-the-template-in-vmware"></a>在 VMware 中导入模板
 

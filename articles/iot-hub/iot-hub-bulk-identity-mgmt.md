@@ -1,11 +1,11 @@
 ---
-title: "导入和导出 Azure IoT 中心设备标识"
-description: "如何使用 Azure IoT 服务 SDK 针对标识注册表执行批量操作，以导入和导出设备标识。 借助导入操作，可批量创建、更新和删除设备标识。"
+title: 导入和导出 Azure IoT 中心设备标识
+description: 如何使用 Azure IoT 服务 SDK 针对标识注册表执行批量操作，以导入和导出设备标识。 借助导入操作，可批量创建、更新和删除设备标识。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2ade1494-45ea-46a7-ade7-cf6e11ce62da
 ms.service: iot-hub
 ms.devlang: na
@@ -15,21 +15,24 @@ ms.workload: na
 origin.date: 07/03/2017
 ms.author: v-yiso
 ms.date: 03/19/2018
-ms.openlocfilehash: 7331d7de91a88ccf45cc0454450d8a2455c59510
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: f03911ba918b309e7e0274cbc2e6f405b38e9b93
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>批量管理 IoT 中心设备标识
 
 每个 IoT 中心都有一个标识注册表，可以使用该注册表在服务中创建每设备资源。 设备标识注册表还可控制对面向设备的终结点的访问。 本文介绍如何从标识注册表批量导入和导出设备标识。
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 导入和导出操作在 *作业* 的上下文中进行，可让用户对 IoT 中心执行批量服务操作。
 
 **RegistryManager** 类包括使用**作业**框架的 **ExportDevicesAsync** 和 **ImportDevicesAsync** 方法。 这些方法可以导出、导入和同步整个 IoT 中心标识注册表。
 
-本主题讨论如何使用 **RegistryManager** 类和**作业**系统执行设备到 IoT 中心的标识注册表的批量导入，以及从 IoT 中心的标识注册表到设备的批量导出。 
+本主题讨论如何使用 **RegistryManager** 类和**作业**系统执行设备到 IoT 中心的标识注册表的批量导入，以及从 IoT 中心的标识注册表到设备的批量导出。 还可以使用 Azure IoT 中心设备预配服务实现无需人工干预，零接触实时预配到一个或多个 IoT 中心。 
+
 
 ## <a name="what-are-jobs"></a>什么是作业？
 
@@ -194,9 +197,6 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
   }
 }
 ```
-
-> [!NOTE]
->  还可以使用 **RegistryManager** 类的 **GetDevicesAsync** 方法获取设备的列表。 但是，此方法有一个硬性限制，那就是返回的设备对象数最多只能有 1000 个。 **GetDevicesAsync** 方法的预期用例适用于开发方案，其目的是要帮助调试，因此不建议用于生产工作负荷。
 
 ## <a name="import-devices"></a>导入设备
 

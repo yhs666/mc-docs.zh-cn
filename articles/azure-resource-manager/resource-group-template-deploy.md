@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/06/2017
-ms.date: 03/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2b243b7a330fa180f26f0e67b4c4a53e335475e1
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 6d9dd6943990397fc437b594f776feef39b20438
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>使用 Resource Manager 模板和 Azure PowerShell 部署资源
 
@@ -75,7 +75,9 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
 <!-- Not Available on [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)] -->
 ```powershell
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "China East"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile "C:\users\ContainerAdministrator\CloudDrive\templates\azuredeploy.json" -storageAccountType Standard_GRS
+New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateUri <copied URL> `
+  -storageAccountType Standard_GRS
 ```
 
 ## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>部署到多个资源组或订阅
@@ -129,7 +131,7 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
 若要测试模板和参数值而不实际部署任何资源，请使用 [Test-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment)。 
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
 ```
 

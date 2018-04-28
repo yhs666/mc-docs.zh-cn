@@ -1,26 +1,19 @@
 ---
-title: "Azure Analysis Services 教程第 1 课：创建新的表格模型项目 | Azure"
-description: "介绍如何创建新的 Azure Analysis Services 教程项目。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 教程第 1 课：创建新的表格模型项目 | Azure
+description: 介绍如何创建新的 Azure Analysis Services 教程项目。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: bca65af56f03f1e67327ce0c753dd276705ce30c
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.reviewer: minewiskan
+ms.openlocfilehash: 1a7111b867aab897656d63ad39f75b8e43aca09d
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-a-tabular-model-project"></a>创建表格模型项目
 
@@ -81,4 +74,4 @@ ms.lasthandoff: 02/23/2018
 ## <a name="whats-next"></a>后续步骤
 [第 2 课：获取数据](../tutorials/aas-lesson-2-get-data.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

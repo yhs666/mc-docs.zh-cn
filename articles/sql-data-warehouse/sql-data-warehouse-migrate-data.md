@@ -1,11 +1,11 @@
 ---
-title: "将数据迁移到 SQL 数据仓库 | Azure"
-description: "有关在开发解决方案时将数据迁移到 Azure SQL 数据仓库的技巧。"
+title: 将数据迁移到 SQL 数据仓库 | Azure
+description: 有关在开发解决方案时将数据迁移到 Azure SQL 数据仓库的技巧。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: d78f954a-f54c-4aa4-9040-919bc6414887
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: migrate
 origin.date: 06/29/2017
-ms.date: 11/20/2017
+ms.date: 04/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8fbb9a7e118b250ad15c792c6b56fc47955f3fd7
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: ccda9988b466d8937426706ee73e7852232ccaf7
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="migrate-your-data"></a>迁移数据
 数据可以使用各种工具从不同源移动到 SQL 数据仓库中。 SSIS 和 bcp 都可用来实现此目标。 但是，随着数据量的增加，应该考虑将数据迁移过程划分成多个步骤。 这样，便有机会优化每个步骤以提高性能和弹性，确保顺利迁移数据。
@@ -93,7 +93,7 @@ PolyBase 规定要有固定的行终止符 \n 或换行符。 数据文件必须
 
 在 PolyBase 中，必须将文件中的每个列定义为外部表的一部分。 请确保所有导出的列都是必需的，且类型符合所需的标准。
 
-有关支持的数据类型的详细信息，请参阅前面的 [迁移架构] 一文。
+有关支持的数据类型的详细信息，请参阅前面的[迁移架构]一文。
 
 ### <a name="location-of-data-files"></a>数据文件的位置
 SQL 数据仓库只使用 PolyBase 从 Azure Blob 存储加载数据。 因此，数据必须先传输到 Blob 存储。
@@ -160,7 +160,7 @@ PolyBase 可以读取 gzip 压缩数据。 如果可以将数据压缩成 gzip �
 ### <a name="multiple-files"></a>多个文件
 将大型表分割成多个文件不仅有助于改善导出速度，还有助于重新开始传输，以及数据进入 Azure Blob 存储之后的整体易管理性。 PolyBase 的众多优点之一是可以读取文件夹内的所有文件，并将其视为一个表。 因此，最好将每个表的文件隔离到它自身的文件夹中。
 
-PolyBase 还支持名为“递归文件夹遍历”的功能。 可以使用此功能来进一步增强所导出数据的组织方式，以改善数据管理。
+PolyBase 还支持名为“递归文件夹遍历”的功能。 可以使用此功能进一步增强所导出数据的组织方式，以改善数据管理。
 
 要深入了解如何使用 PolyBase 加载数据，请参阅[使用 PolyBase 将数据载入 SQL 数据仓库][Use PolyBase to load data into SQL Data Warehouse]。
 
@@ -176,10 +176,11 @@ PolyBase 还支持名为“递归文件夹遍历”的功能。 可以使用此�
 <!-- Not Available [ADF samples]: ../data-factory/data-factory-samples.md-->
 <!-- Not Available [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md-->
 [development overview]: sql-data-warehouse-overview-develop.md
+[迁移架构]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
-[Use PolyBase to load data into SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
+[Use PolyBase to load data into SQL Data Warehouse]: load-data-wideworldimportersdw.md
 
 <!--MSDN references-->
 

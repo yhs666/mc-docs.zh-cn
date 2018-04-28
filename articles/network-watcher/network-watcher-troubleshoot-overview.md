@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 网络观察程序中进行资源故障排除简介 | Azure"
-description: "此页概述了网络观察程序资源故障排除功能"
+title: 在 Azure 网络观察程序中进行资源故障排除简介 | Azure
+description: 此页概述了网络观察程序资源故障排除功能
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
 ms.service: network-watcher
 ms.devlang: na
@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/19/2017
-ms.date: 11/20/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: b6fd16be4248be1cda0e57a581e85853a1c2fa2a
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 38f9dd898292e1d5762c67262aa902659fd98012
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>在 Azure 网络观察程序中进行资源故障排除简介
 
-虚拟网关在 Azure 中的本地资源和其他虚拟网络之间提供连接。 监视这些网关及其连接对于确保通信不中断至关重要。 网络观察程序提供对虚拟网关和连接进行故障排除的功能。 可通过门户、PowerShell、CLI 或 REST API 进行调用。 调用后，网络观察程序将对虚拟网关或连接的运行状况进行诊断，并返回相应的结果。 该请求是一个长时间运行的事务。一旦诊断完毕，就会返回结果。
+虚拟网关在 Azure 中的本地资源和其他虚拟网络之间提供连接。 监视网关及其连接对于确保通信不中断至关重要。 网络观察程序提供对网关和连接进行故障排除的功能。 可通过门户、PowerShell、Azure CLI 或 REST API 调用该功能。 调用后，网络观察程序将对网关或连接的运行状况进行诊断，并返回相应的结果。 该请求是一个长时间运行的事务。 诊断完成后，将返回结果。
 
-![portal][2]
+![门户][2]
 
 ## <a name="results"></a>结果
 
@@ -51,44 +51,44 @@ ms.lasthandoff: 11/14/2017
 
 | 错误类型 | 原因 | 日志|
 |---|---|---|
-| NoFault | 未检测到任何错误。 |是|
-| GatewayNotFound | 找不到网关，或网关未预配。 |否|
-| PlannedMaintenance |  网关实例处于维护状态。  |否|
-| UserDrivenUpdate | 用户更新正在进行。 可能是正在执行大小调整操作。 | 否 |
-| VipUnResponsive | 无法访问网关的主实例。 运行状况探测失败时会发生这种情况。 | 否 |
+| NoFault | 未检测到任何错误 |是|
+| GatewayNotFound | 无法找到网关，或未预配网关 |否|
+| PlannedMaintenance |  网关实例处于维护状态  |否|
+| UserDrivenUpdate | 用户更新正在进行时发生此故障。 更新可能是重设大小操作。 | 否 |
+| VipUnResponsive | 由于运行状况探测失败导致无法访问网关的主实例时发生此故障。 | 否 |
 | PlatformInActive | 平台出现问题。 | 否|
 | ServiceNotRunning | 底层服务未运行。 | 否|
-| NoConnectionsFoundForGateway | 网关未建立连接。 这只是一条警告。| 否|
-| ConnectionsNotConnected | 未连接任何连接。 这只是一条警告。| 是|
+| NoConnectionsFoundForGateway | 网关未建立连接。 此错误只是一条警告。| 否|
+| ConnectionsNotConnected | 未连接任何连接。 此错误只是一条警告。| 是|
 | GatewayCPUUsageExceeded | 当前网关 CPU 使用率超过 95%。 | 是 |
 
 ### <a name="connection"></a>连接
 
 | 错误类型 | 原因 | 日志|
 |---|---|---|
-| NoFault | 未检测到任何错误。 |是|
-| GatewayNotFound | 找不到网关，或网关未预配。 |否|
-| PlannedMaintenance | 网关实例处于维护状态。  |否|
-| UserDrivenUpdate | 用户更新正在进行。 可能是正在执行大小调整操作。  | 否 |
-| VipUnResponsive | 无法访问网关的主实例。 运行状况探测失败时会发生这种情况。 | 否 |
-| ConnectionEntityNotFound | 缺少连接配置。 | 否 |
-| ConnectionIsMarkedDisconnected | 连接标记为“断开连接”。 |否|
-| ConnectionNotConfiguredOnGateway | 未在底层服务上配置连接。 | 是 |
+| NoFault | 未检测到任何错误 |是|
+| GatewayNotFound | 无法找到网关，或未预配网关 |否|
+| PlannedMaintenance | 网关实例处于维护状态  |否|
+| UserDrivenUpdate | 用户更新正在进行时发生此故障。 更新可能是重设大小操作。  | 否 |
+| VipUnResponsive | 由于运行状况探测失败导致无法访问网关的主实例时发生此故障。 | 否 |
+| ConnectionEntityNotFound | 连接配置缺失 | 否 |
+| ConnectionIsMarkedDisconnected | 连接标记为“断开连接” |否|
+| ConnectionNotConfiguredOnGateway | 未在基础服务上配置连接。 | 是 |
 | ConnectionMarkedStandy | 底层服务标记为备用。| 是|
-| 身份验证 | 预共享密钥不匹配。 | 是|
+| 身份验证 | 预共享密钥不匹配 | 是|
 | PeerReachability | 无法访问对等网关。 | 是|
 | IkePolicyMismatch | 对等网关中的 IKE 策略不受 Azure 支持。 | 是|
 | WfpParse 错误 | 分析 WFP 日志时出错。 |是|
 
 ## <a name="supported-gateway-types"></a>支持的网关类型
 
-下方列表显示网络观察程序故障排除支持的网关和连接。
+下表列出了网络观察程序故障排除支持的网关和连接：
+
 |  |  |
 |---------|---------|
 |网关类型   |         |
 |VPN      | 支持        |
 |ExpressRoute | 不支持 |
-|Hypernet | 不支持|
 |VPN 类型 | |
 |基于路由 | 支持|
 |基于策略 | 不支持|
@@ -96,7 +96,6 @@ ms.lasthandoff: 11/14/2017
 |IPSec| 支持|
 |VNet2Vnet| 支持|
 |ExpressRoute| 不支持|
-|Hypernet| 不支持|
 |VPNClient| 不支持|
 
 ## <a name="log-files"></a>日志文件
@@ -219,4 +218,4 @@ Elapsed Time            330 sec
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
 [2]: ./media/network-watcher-troubleshoot-overview/portal.png
 
-<!--Update_Description: new articles on network watcher troubleshoot overview -->
+<!--Update_Description: update link, wording update  -->

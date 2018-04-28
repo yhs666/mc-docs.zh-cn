@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 07/10/2017
 ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 370f380790373f6d1201cb53cb5b887db7051d96
-ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
+ms.openlocfilehash: e5c1c7e8f417a17d6a6948b089c9afc43a22d889
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>如何创建虚拟机或 VHD 的映像
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 04/18/2018
 ## <a name="step-2-create-vm-image"></a>步骤 2：创建 VM 映像
 使用 Azure CLI 2.0 将 VM 标记为通用化并捕获映像。 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup*、*myVnet* 和 *myVM*。
 
-1. 对使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli//azure/vm?view=azure-cli-latest#deallocate) 取消设置的 VM 解除分配。 以下示例在名为 myResourceGroup 的资源组中解除分配名为 myVM 的 VM：
+1. 对使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#deallocate) 取消设置的 VM 解除分配。 以下示例在名为 myResourceGroup 的资源组中解除分配名为 myVM 的 VM：
 
     ```azurecli
     az vm deallocate \

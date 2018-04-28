@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序对虚拟网关和连接进行故障排除 - REST | Azure"
-description: "本页说明如何在 REST 中使用 Azure 网络观察程序排查虚拟网络网关和连接问题"
+title: 使用 Azure 网络观察程序对虚拟网关和连接进行故障排除 - REST | Azure
+description: 本页说明如何在 REST 中使用 Azure 网络观察程序排查虚拟网络网关和连接问题
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: e4d5f195-b839-4394-94ef-a04192766e55
 ms.service: network-watcher
 ms.devlang: na
@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/19/2017
-ms.date: 11/20/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 91467195839368dc4450ab4463bc23b65d3e6eda
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 234232af434df285f9ad17c3625ecd81fb06a687
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>使用 Azure 网络观察程序排查虚拟网络网关和连接问题
 
 > [!div class="op_single_selector"]
-> - [门户](network-watcher-troubleshoot-manage-portal.md)
+> - [Portal](network-watcher-troubleshoot-manage-portal.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
@@ -37,9 +37,9 @@ ms.lasthandoff: 11/14/2017
 - [排查虚拟网络网关问题](#troubleshoot-a-virtual-network-gateway)
 - [排查连接问题](#troubleshoot-connections)
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
-ARMclient 用于使用 PowerShell 调用 REST API。 根据 [Chocolatey 上的 ARMClient](https://chocolatey.org/packages/ARMClient) 中所述在 chocolatey 上找到 ARMClient
+通过 PowerShell 调用 REST API 时，使用的是 ARMclient。 根据 [Chocolatey 上的 ARMClient](https://chocolatey.org/packages/ARMClient) 中所述在 chocolatey 上找到 ARMClient
 
 此方案假定已按照[创建网络观察程序](network-watcher-create.md)中的步骤创建网络观察程序。
 
@@ -327,6 +327,6 @@ is a transient state while the Azure platform is being updated.",
 
 ## <a name="next-steps"></a>后续步骤
 
-如果停止 VPN 连接的设置已更改，请参阅[管理网络安全组](../virtual-network/virtual-network-manage-nsg-arm-portal.md)找到可能有问题的网络安全组和安全规则。
+如果停止 VPN 连接的设置已更改，请参阅[管理网络安全组](../virtual-network/manage-network-security-group.md)找到可能有问题的网络安全组和安全规则。
 
-<!--Update_Description: new articles on network watcher troubleshoot manage rest -->
+<!--Update_Description: update link -->

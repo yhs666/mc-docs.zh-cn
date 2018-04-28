@@ -1,6 +1,6 @@
 ---
-title: "配置 Azure 负载均衡器分发模式 | Azure"
-description: "如何配置 Azure 负载均衡器的分配模式以支持源 IP 关联。"
+title: 配置 Azure 负载均衡器分发模式 | Azure
+description: 如何配置 Azure 负载均衡器的分配模式以支持源 IP 关联。
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
@@ -12,17 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 12/11/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4308adf45d926b5cbf0a118ddd82ef22ae8df0bd
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 2cb05834fcc3c572a0e01f67b801ecc08825f8bf
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>配置 Azure 负载均衡器的分配模式
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 ## <a name="hash-based-distribution-mode"></a>基于哈希的分发模式
 
@@ -163,4 +161,4 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
 * [开始配置面向 Internet 的负载均衡器](load-balancer-get-started-internet-arm-ps.md)
 * [配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

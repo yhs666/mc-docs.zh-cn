@@ -1,26 +1,26 @@
 ---
-title: "Azure PowerShell 脚本示例 - 更改 RDP 端口范围 | Azure"
-description: "Azure PowerShell 脚本示例 - 更改已部署群集的 RDP 端口范围。"
+title: Azure PowerShell 脚本示例 - 更改 RDP 端口范围 | Azure
+description: Azure PowerShell 脚本示例 - 更改已部署群集的 RDP 端口范围。
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 11/28/2017
-ms.date: 01/01/2018
+origin.date: 03/19/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0c432dfc3c17c28896ad3df65f205405027a80a0
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 0e2189be390191a88adc83d5b51ad5ce7d896a01
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="update-the-rdp-port-range-values"></a>更新 RDP 端口范围值
 
@@ -51,7 +51,7 @@ $lb.Properties.inboundNatPools.properties.frontendPortRangeEnd = $end
 Write-Host ($lb.Properties.inboundNatPools | Format-List | Out-String)
 
 # Update the load balancer
-Set-AzureRmResource -PropertyObject $lb.Properties -ResourceGroupName $groupname -ResourceType Microsoft.Network/loadBalancers -ResourceName $lbname  -Force
+Set-AzureRmResource -PropertyObject $lb.Properties -ResourceGroupName $groupname -ResourceType Microsoft.Network/loadBalancers -ResourceName $lb.name  -Force
 
 ```
 
@@ -70,4 +70,4 @@ Set-AzureRmResource -PropertyObject $lb.Properties -ResourceGroupName $groupname
 
 可以在 [Azure PowerShell 示例](../service-fabric-powershell-samples.md)中找到 Azure Service Fabric 的其他 Azure Powershell 示例。
 
-<!-- Update_Description: new articles on changing service fabric rdp port range with powershell -->
+<!-- Update_Description: update meta propreties, wording update -->

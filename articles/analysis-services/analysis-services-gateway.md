@@ -1,26 +1,19 @@
 ---
-title: "本地数据网关 | Azure"
-description: "如果 Azure 中的 Analysis Services 服务器要连接到本地数据源，则本地网关是必需的。"
-services: analysis-services
-documentationcenter: 
+title: 本地数据网关 | Azure
+description: 如果 Azure 中的 Analysis Services 服务器要连接到本地数据源，则本地网关是必需的。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/02/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: a7682b2492b6deae7d74e773347650e6bac1d002
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: minewiskan
+ms.openlocfilehash: 595b91b6c1e5f460a1236744f486c82e31333755
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>使用 Azure 本地数据网关连接到本地数据源
 本地数据网关的作用好似一架桥，提供本地数据源与云中的 Azure Analysis Services 服务器之间的安全数据传输。 除了在同一区域中使用多个 Azure Analysis Services 服务器，最新版本的网关也适用于 Azure 逻辑应用、Power BI、Power Apps 和 Microsoft Flow。 可将同一区域中的多个服务与单个网关相关联。 
@@ -62,7 +55,7 @@ ms.lasthandoff: 03/08/2018
 我们建议在防火墙中将数据区域的 IP 地址列入允许列表。 可以下载 [Azure 数据中心 IP 列表](https://www.microsoft.com/download/details.aspx?id=42064)。 该列表每周都会进行更新。
 
 > [!NOTE]
-> Azure 数据中心 IP 列表中列出的 IP 地址使用的是 CIDR 表示法。 例如，10.0.0.0/24 并不是指 10.0.0.0 到 10.0.0.24。 深入了解 [CIDR 表示法](http://whatismyipaddress.com/cidr)。
+> Azure 数据中心 IP 列表中列出的 IP 地址使用的是 CIDR 表示法。 若要了解详细信息，请参阅 [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)（无类别域际路由）。
 >
 >
 
@@ -167,6 +160,7 @@ ms.lasthandoff: 03/08/2018
 
 如果尝试在不受支持的域控制器上安装网关，可能会收到此错误。 请确保将网关部署在不是域控制器的计算机上。
 
+<a name="logs"></a>
 ## <a name="logs"></a>日志
 
 进行故障排除时，日志文件是一项重要资源。
@@ -183,6 +177,7 @@ ms.lasthandoff: 03/08/2018
 
 可在“应用程序和服务日志”下找到数据管理网关和 PowerBIGateway 日志。
 
+<a name="telemetry"></a>
 ## <a name="telemetry"></a>遥测
 遥测可用于监视和排错。 默认情况下
 

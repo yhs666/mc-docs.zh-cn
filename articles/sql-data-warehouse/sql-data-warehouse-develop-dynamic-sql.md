@@ -1,29 +1,27 @@
 ---
-title: "SQL 数据仓库中的动态 SQL | Azure"
-description: "有关在开发解决方案时使用 Azure SQL 数据仓库中的动态 SQL 的技巧。"
+title: SQL 数据仓库中的动态 SQL | Azure
+description: 有关在开发解决方案时使用 Azure SQL 数据仓库中的动态 SQL 的技巧。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: jhubbard
-editor: 
-ms.assetid: a948c2c3-3cd1-4373-90a9-79e59414b778
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
-origin.date: 10/31/2016
-ms.date: 01/04/2017
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/12/2018
+ms.date: 04/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: c611cce5625fbaa4810de4976c615a96696cca53
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 8d4f52093c1d1552d3df4cd9b57151360b69b252
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>SQL 数据仓库中的动态 SQL
-在为 SQL 数据仓库开发应用程序代码时，你可能需要使用动态 SQL 来帮助提供灵活、泛型、模块化的解决方案。 SQL 数据仓库目前不支持 Blob 数据类型。 这可能会限制字符串的大小，因为 Blob 类型包括 varchar(max) 和 nvarchar(max) 类型。 如果你在构建极大型字符串时在应用程序代码中使用了这些类型，则需要将代码分解成块，并改用 EXEC 语句。
+有关在开发解决方案时使用 Azure SQL 数据仓库中的动态 SQL 的技巧。
+
+## <a name="dynamic-sql-example"></a>动态 SQL 示例
+
+为 SQL 数据仓库开发应用程序代码时，可能需要使用动态 SQL 来帮助提供灵活、通用且模块化的解决方案。 SQL 数据仓库目前不支持 Blob 数据类型。 不支持 blob 数据类型可能会限制字符串的大小，因为 blob 数据类型包括 varchar(max) 和 nvarchar(max) 类型。 如果已在应用程序代码中使用这些类型构建大型字符串，则需要将代码分解成块，并改用 EXEC 语句。
 
 一个简单的示例：
 
@@ -35,7 +33,7 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-如果字符串较短，则可以像平时一样使用 [sp_executesql][sp_executesql]。
+如果字符串较短，则可以像平时一样使用 [sp_executesql](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql)。
 
 > [!NOTE]
 > 作为动态 SQL 执行的语句仍将遵循所有 TSQL 验证规则。
@@ -43,14 +41,5 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 > 
 
 ## <a name="next-steps"></a>后续步骤
-有关更多开发技巧，请参阅 [开发概述][development overview]。
+有关更多开发技巧，请参阅[开发概述](sql-data-warehouse-overview-develop.md)。
 
-<!--Image references-->
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[sp_executesql]: https://msdn.microsoft.com/library/ms188001.aspx
-
-<!--Other Web references-->

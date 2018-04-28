@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 有状态服务中的可靠集合简介 | Azure"
-description: "Service Fabric 有状态服务提供可靠集合让你编写高度可用、可缩放且低延迟的云应用程序。"
+title: Azure Service Fabric 有状态服务中的可靠集合简介 | Azure
+description: Service Fabric 有状态服务提供可靠集合让你编写高度可用、可缩放且低延迟的云应用程序。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 11/06/2017
-ms.date: 12/04/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: d4443274549fa6960ada1d9673ec3e318eb71ad0
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 167e5da3c017d06426a1c117891ec3eb200323ee
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure Service Fabric 有状态服务中的可靠集合简介
 可靠集合可让你编写高度可用、可缩放且低延迟的云应用程序，就像编写单计算机应用程序一样。 **Microsoft.ServiceFabric.Data.Collections** 命名空间中的类提供一组自动使状态具备高可用性的集合。 开发人员只需面向可靠集合 API 编程，并让可靠集合管理复制状态和本地状态。
@@ -58,7 +58,6 @@ Reliable Collections 提供全新的非常一致保证，使应用程序状态�
 * [Reliable Collection 指导原则和建议](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [使用可靠集合](service-fabric-work-with-reliable-collections.md)
 * [事务和锁](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [可靠状态管理器和 Reliable Collection 的内部结构](service-fabric-reliable-services-reliable-collections-internals.md)
 * 管理数据
   * [备份和还原](service-fabric-reliable-services-backup-restore.md)
   * [通知](service-fabric-reliable-services-notifications.md)
@@ -69,4 +68,4 @@ Reliable Collections 提供全新的非常一致保证，使应用程序状态�
   * [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
   * [Reliable Collections 的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, update link -->

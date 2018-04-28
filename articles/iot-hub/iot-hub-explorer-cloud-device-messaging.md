@@ -1,26 +1,26 @@
 ---
-title: "使用 iothub-explorer 管理 Azure IoT 中心云设备消息传送 | Azure"
-description: "了解如何在 Azure IoT 中心内使用 iothub-explorer CLI 工具监视设备到云 (D2C) 的消息以及发送到云到设备 (C2D) 的消息。"
+title: 使用 iothub-explorer 管理 Azure IoT 中心云设备消息传送 | Azure
+description: 了解如何在 Azure IoT 中心内使用 iothub-explorer CLI 工具监视设备到云 (D2C) 的消息以及发送到云到设备 (C2D) 的消息。
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "iothub explorer, 云设备消息传送, iot 中心云到设备, 云到设备的消息"
+tags: ''
+keywords: iothub explorer, 云设备消息传送, iot 中心云到设备, 云到设备的消息
 ms.assetid: 04521658-35d3-4503-ae48-51d6ad3c62cc
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/24/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 12/18/2017
-ms.openlocfilehash: 193ddd569ea47b2c682123a43519937f64567035
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.date: 05/07/2018
+ms.openlocfilehash: bf9c97b54cba7e118d09a56324c748a5aae553ff
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>使用 iothub-explorer 在设备与 IoT 中心之间发送和接收消息
 
@@ -29,6 +29,8 @@ ms.lasthandoff: 12/08/2017
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 [iothub-explorer](https://github.com/azure/iothub-explorer) 提供一些命令用于简化 IoT 中心的管理。 本教程重点介绍如何使用 iothub-explorer 在设备与 IoT 中心之间发送和接收消息。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="what-you-will-learn"></a>要学习的知识
 
@@ -69,7 +71,7 @@ ms.lasthandoff: 12/08/2017
 1. 运行以下命令，在 IoT 中心内启动一个会话：
 
    ```bash
-   iothub-explorer login <IoTHubConnectionString>
+   iothub-explorer login `<IoTHubConnectionString>`
    ```
 
 1. 运行以下命令，将消息发送到设备：

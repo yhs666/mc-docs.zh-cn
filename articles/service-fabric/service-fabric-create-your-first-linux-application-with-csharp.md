@@ -1,25 +1,25 @@
 ---
-title: "在 Linux 上使用 C# 创建第一个 Azure 微服务应用 | Azure"
-description: "使用 C# 创建和部署 Service Fabric 应用程序"
+title: 在 Linux 上使用 C# 创建第一个 Azure 微服务应用 | Azure
+description: 使用 C# 创建和部署 Service Fabric 应用程序
 services: service-fabric
 documentationcenter: csharp
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
 ms.service: service-fabric
 ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/23/2018
-ms.date: 03/12/2018
+origin.date: 04/11/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 596edd9ed8cebf31ed0b6770a175634d4ba91593
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 86494117c0e58725a672980fa94c07acdcbd57ef
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>创建第一个 Azure Service Fabric 应用程序
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
     ```bash
     sudo npm install -g yo
     ```
-3. 通过 NPM 安装 Service Fabric Yeo Java 应用程序生成器
+3. 通过 NPM 安装 Service Fabric Yeoman C# 应用程序生成器
 
     ```bash
     sudo npm install -g generator-azuresfcsharp

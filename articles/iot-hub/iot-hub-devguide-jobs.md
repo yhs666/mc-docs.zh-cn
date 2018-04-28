@@ -1,11 +1,11 @@
 ---
-title: "了解 Azure IoT 中心作业 | Azure"
-description: "开发人员指南 - 计划要在连接到 IoT 中心的多个设备上运行的作业。 作业可以更新标记和所需属性，并可在多个设备上调用直接方法。"
+title: 了解 Azure IoT 中心作业 | Azure
+description: 开发人员指南 - 计划要在连接到 IoT 中心的多个设备上运行的作业。 作业可以更新标记和所需属性，并可在多个设备上调用直接方法。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
 ms.service: iot-hub
 ms.devlang: multiple
@@ -13,17 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
-ms.date: 03/19/2018
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5ee6e894cccdf994f4da2c5474b13b34cbafec58
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 0b2c07b66bc39489f3349684e642ff4265b7c67f
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>在多个设备上计划作业
 
 Azure IoT 中心可启用多个构建基块（如 [设备孪生属性和标记][lnk-twin-devguide]和[直接方法][lnk-dev-methods]）。  通常情况下，后端应用允许设备管理员和操作员在计划的时间批量更新 IoT 设备并与之交互。  作业在计划的时间针对一组设备执行设备孪生更新和直接方法。  例如，操作员可使用用于启动和跟踪作业的后端应用在不会中断大楼运作的时间重新启动 43 号大楼第 3 层中的一组设备。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 在以下情况下请考虑使用作业：需要计划并跟踪一组设备上的以下任何活动的进度：
 

@@ -1,25 +1,19 @@
 ---
-title: "使用 PowerShell 管理 Azure Analysis Services | Azure"
-description: "使用 PowerShell 管理 Azure Analysis Services。"
-services: analysis-services
-documentationcenter: 
+title: 使用 PowerShell 管理 Azure Analysis Services | Azure
+description: 使用 PowerShell 管理 Azure Analysis Services。
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.topic: reference
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 851cc382658e203a3e28cc02f359fb92fe28a02a
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: minewiskan
+ms.openlocfilehash: 013cb9f0b789e1427697a161aca5121e88bbff61
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>使用 PowerShell 管理 Azure Analysis Services
 
@@ -30,7 +24,7 @@ ms.lasthandoff: 03/08/2018
 ## <a name="permissions"></a>权限
 大多数 PowerShell 任务要求用户在所管理的 Analysis Services 服务器上具有管理员权限。 已计划的 PowerShell 任务是无人参与操作。 运行计划程序的帐户必须对 Analysis Services 服务器具有管理员权限。 
 
-对于使用 AzureRm cmdlet 的服务器操作，你的帐户或运行计划程序的帐户还必须属于 [Azure 基于角色的访问控制 (RBAC)](../active-directory/role-based-access-control-what-is.md) 中资源的所有者角色。 
+对于使用 AzureRm cmdlet 的服务器操作，你的帐户或运行计划程序的帐户还必须属于 [Azure 基于角色的访问控制 (RBAC)](https://docs.microsoft.com/zh-cn/azure/role-based-access-control/overview) 中资源的所有者角色。 
 
 ## <a name="server-operations"></a>服务器操作 
 Azure Analysis Services cmdlet 包含在 [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) 组件模块中。 若要安装 AzureRM cmdlet 模块，请参阅 PowerShell 库中的 [Azure 资源管理器 cmdlet](https://docs.microsoft.com/powershell/azure/overview)。
@@ -72,4 +66,4 @@ SqlServer 模块提供任务特定的数据库管理 cmdlet，以及接受表格
 * [PowerShell 库中的 SqlServer 模块](https://www.powershellgallery.com/packages/SqlServer)    
 * [Tabular Model Programming for Compatibility Level 1200 and higher](https://msdn.microsoft.com/library/mt712541.aspx)（适用于兼容级别 1200 及更高级别的表格模型编程）
 
-<!--Update_Description:Update meta propreties -->
+<!--Update_Description:Update meta propreties, update link -->

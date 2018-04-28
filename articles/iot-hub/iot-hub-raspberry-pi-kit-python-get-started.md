@@ -1,33 +1,33 @@
 ---
-title: "连接到云的 Raspberry Pi (Python) - 将 Raspberry Pi 连接到 Azure IoT 中心 | Microsoft Docs"
-description: "在本教程中了解如何设置 Raspberry Pi 并将其连接到 Azure IoT 中心，使其能够将数据发送到 Azure 云平台。"
+title: 连接到云的 Raspberry Pi (Python) - 将 Raspberry Pi 连接到 Azure IoT 中心 | Microsoft Docs
+description: 在本教程中了解如何设置 Raspberry Pi 并将其连接到 Azure IoT 中心，使其能够将数据发送到 Azure 云平台。
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "Azure IoT Raspberry Pi, Raspberry Pi IoT 中心, Raspberry Pi 将数据发送到云, 连接到云的 Raspberry Pi"
+tags: ''
+keywords: Azure IoT Raspberry Pi, Raspberry Pi IoT 中心, Raspberry Pi 将数据发送到云, 连接到云的 Raspberry Pi
 ms.service: iot-hub
 ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/31/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 10/16/2017
-ms.openlocfilehash: 47066fee12a6b9a69cc3e4d7b37faa470ede5d92
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 05/07/2018
+ms.openlocfilehash: c03308f6f5a2db761838b8bfae65d81ca2af428e
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-python"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (Python)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-在本教程中，用户首先将学习使用运行 Raspbian 的 Raspberry Pi 的基础知识。 然后学习如何使用 [Azure IoT 中心](iot-hub-what-is-iot-hub.md)将设备无缝连接到云。 有关 Windows 10 IoT Core 的示例，请访问 [Windows 开发人员中心](http://www.windowsondevices.com/)。
+在本教程中，首先学习有关使用运行 Raspbian 的 Raspberry Pi 的基础知识。 然后学习如何使用 [Azure IoT 中心](iot-hub-what-is-iot-hub.md)将设备无缝连接到云。 有关 Windows 10 IoT Core 的示例，请访问 [Windows 开发人员中心](http://www.windowsondevices.com/)。
 
-还没有工具包？ 试用 [Raspberry Pi 联机模拟器](iot-hub-raspberry-pi-web-simulator-get-started.md)。 或在[此处](https://www.azure.cn/develop/iot/iot-starter-kits)购买新工具包。
+还没有工具包？ 试用 [Raspberry Pi 联机模拟器](iot-hub-raspberry-pi-web-simulator-get-started.md)。 或在[此处](https://docs.azure.cn/zh-cn/develop/iot/iot-starter-kits)购买新工具包。
 
 ## <a name="what-you-do"></a>准备工作
 
@@ -80,7 +80,7 @@ ms.lasthandoff: 09/29/2017
 
 1. 下载 Raspbian。
    1. [下载 Raspbian Jessie with Desktop](https://www.raspberrypi.org/downloads/raspbian/)（.zip 文件）。
-   1. 将 Raspbian 映像提取到计算机上的一个文件夹中。
+   1. 将 Raspbian 映像解压缩到计算机的某个文件夹中。
 1. 将 Raspbian 安装到 microSD 卡。
    1. [下载并安装 Etcher SD 卡刻录机实用工具](https://etcher.io/)。
    1. 运行 Etcher 并选择已在步骤 1 中解压缩的 Raspbian 映像。
@@ -135,7 +135,7 @@ BME280 传感器可以收集温度和湿度数据。 如果设备和云之间有
 ![已连接到有线网络](./media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
 
 > [!NOTE]
-> 确保 Pi 与计算机连接到同一网络。 例如，如果计算机连接到无线网络，而 Pi 连接到有线网络，则可能看不到 devdisco 输出中的 IP 地址。
+> 确保 Pi 与计算机连接到同一网络。 例如，如果计算机连接到无线网络，而 Pi 连接到有线网络，则在 devdisco 输出中可能看不到 IP 地址。
 
 ## <a name="run-a-sample-application-on-pi"></a>在 Pi 上运行示例应用程序
 
@@ -172,7 +172,7 @@ BME280 传感器可以收集温度和湿度数据。 如果设备和云之间有
 
    此文件中有 5 个可配置的宏。 第一个是 `MESSAGE_TIMESPAN`，它确定发送到云的两条消息之间的时间间隔（以毫秒为单位）。 第二个是 `SIMULATED_DATA`，它是一个布尔值，指示是否使用模拟的传感器数据。 `I2C_ADDRESS` 是 BME280 传感器连接的 I2C 地址。 `GPIO_PIN_ADDRESS` 是 LED 的 GPIO 地址。 最后一个为 `BLINK_TIMESPAN`，它定义打开 LED 的时间跨度（以毫秒为单位）。
 
-   如果没有传感器，请将 `SIMULATED_DATA` 值设置为 `True`，使示例应用程序创建和使用模拟的传感器数据。
+   如果**没有传感器**，请将 `SIMULATED_DATA` 值设置为 `True`，使示例应用程序创建和使用模拟的传感器数据。
 
 1. 通过按“Ctrl-O”>“Enter”>“Ctrl-X”保存并退出。
 
@@ -200,7 +200,7 @@ BME280 传感器可以收集温度和湿度数据。 如果设备和云之间有
    确保将设备连接字符串复制并粘贴到单引号中。 如果使用的是 python 3，则可以使用命令 `python3 app.py '<your Azure IoT hub device connection string>'`。
 
 
-   应看到以下输出，其中显示传感器数据以及发至 IoT 中心的消息。
+   应看到以下输出，其中显示传感器数据以及发送至 IoT 中心的消息。
 
    ![输出 - 从 Raspberry Pi 发送到 IoT 中心的传感器数据](./media/iot-hub-raspberry-pi-kit-c-get-started/success.png
 )

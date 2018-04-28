@@ -1,27 +1,27 @@
 ---
-title: "Intel Edison 到云 (Node.js) - 将 Intel Edison 连接到 Azure IoT 中心 | Azure"
-description: "在本教程中了解如何设置 Intel Edison 并将其连接到 Azure IoT 中心，使 Intel Edison 能够将数据发送到 Azure 云平台。"
+title: Intel Edison 到云 (Node.js) - 将 Intel Edison 连接到 Azure IoT 中心 | Azure
+description: 在本教程中了解如何设置 Intel Edison 并将其连接到 Azure IoT 中心，使 Intel Edison 能够将数据发送到 Azure 云平台。
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "azure iot intel edison, intel edison iot 中心, intel edison 发送数据到云, intel edison 到云"
+tags: ''
+keywords: azure iot intel edison, intel edison iot 中心, intel edison 发送数据到云, intel edison 到云
 ms.assetid: a7c9cf2d-c102-41b0-aa45-41285c6877eb
 ms.service: iot-hub
 ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 6/15/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 08/14/2017
-ms.openlocfilehash: f27b336158d171f8bec9da2ca4930c1315fa64ac
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 05/07/2018
+ms.openlocfilehash: 13149d3371005856a2cf40737e77e3fe09a85c30
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-nodejs"></a>将 Intel Edison 连接到 Azure IoT 中心 (Node.js)
 
@@ -226,7 +226,7 @@ ms.lasthandoff: 08/04/2017
    > [!NOTE] 
    确保将设备连接字符串复制并粘贴到单引号中。
 
-应看到以下输出，其中显示传感器数据以及发送至 IoT 中心的消息。
+应看到以下输出，其中显示传感器数据以及发至 IoT 中心的消息。
 
 ![输出 - 从 Intel Edison 发送到 IoT 中心的传感器数据](./media/iot-hub-intel-edison-kit-node-get-started/15_message_sent.png)
 

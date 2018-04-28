@@ -12,16 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
-ms.date: 03/26/2018
+origin.date: 04/04/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9396aec8ffb683687c7d6c0605053f8cac955d79
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: d9177dba9f06fd236f283906d56f5748030ed494
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>查看活动日志，以便审核对资源的操作
+
 通过活动日志，可以确定：
 
 * 对订阅中的资源执行了什么操作
@@ -30,13 +31,16 @@ ms.lasthandoff: 03/28/2018
 * 操作的状态
 * 其他可能有助于研究操作的属性的值
 
-活动日志包含针对资源执行的所有写入操作（PUT、POST、DELETE）。 它不包含读取操作 (GET)。 有关资源操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)。 在进行故障排除或监视组织中的用户如何修改资源时，可以使用审核日志来查找错误。
+<!--Pending role-based-access-control to Release -->
+活动日志包含针对资源执行的所有写入操作（PUT、POST、DELETE）。 它不包含读取操作 (GET)。 有关资源操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../role-based-access-control/resource-provider-operations.md)。 在进行故障排除或监视组织中的用户如何修改资源时，可以使用审核日志来查找错误。
+<!--Pending role-based-access-control to Release -->
 
 活动日志将保留 90 天。 可以查询任何日期范围，只要开始日期不早于过去 90 天。
 
 可以通过门户、PowerShell、Azure CLI、Insights REST API 或 [Insights .NET 库](https://www.nuget.org/packages/Microsoft.Azure.Insights/)检索活动日志中的信息。
 
 ## <a name="portal"></a>门户
+
 1. 若要通过门户查看活动日志，请选择“监视” 。
 
     ![选择活动日志](./media/resource-group-audit/select-monitor.png)
@@ -67,6 +71,7 @@ ms.lasthandoff: 03/28/2018
     ![查看操作](./media/resource-group-audit/view-operation.png)  
 
 ## <a name="powershell"></a>PowerShell
+
 1. 若要检索日志条目，请运行 **Get-AzureRmLog** 命令。 可以提供附加参数来筛选条目列表。 如果未指定开始和结束时间，则返回最后一个小时的条目。 例如，若要检索过去一小时针对某个资源组的操作，请运行：
 
     ```powershell
@@ -131,22 +136,25 @@ ms.lasthandoff: 03/28/2018
 
         code           message                                                                        
         ----           -------                                                                        
-        DnsRecordInUse DNS record dns.chinanorth.chinacloudapp.cn is already used by another public IP. 
+        DnsRecordInUse DNS record dns.chinanorth.cloudapp.chinacloudapi.cn is already used by another public IP. 
 
 ## <a name="azure-cli"></a>Azure CLI
-* 若要检索日志条目，请运行 **azure group log show** 命令。
+
+若要检索日志条目，请运行 [az monitor activity-log list](https://docs.azure.cn/zh-cn/cli/monitor/activity-log?view=azure-cli-latest#az-monitor-activity-log-list) 命令。
 
     ```azurecli
-    azure group log show ExampleGroup --json
+    az monitor activity-log list --resource-group <group name>
     ```
 
 ## <a name="rest-api"></a>REST API
+
 用于处理活动日志的 REST 操作是 [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx)的一部分。 若要检索活动日志事件，请参阅 [列出订阅中的管理事件](https://msdn.microsoft.com/library/azure/dn931934.aspx)。
 
 ## <a name="next-steps"></a>后续步骤
+
 * Azure 活动日志可以与 Power BI 一起使用，以便更深入地了解在订阅中执行的操作。 请参阅 [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)（在 Power BI 和其他组件中查看和分析 Azure 活动日志）。
-* 若要了解如何设置安全策略，请参阅 [Azure 基于角色的访问控制](../active-directory/role-based-access-control-configure.md)。
+* 若要了解如何设置安全策略，请参阅 [Azure 基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)。
 * 若要了解用于查看部署操作的命令，请参阅[查看部署操作](resource-manager-deployment-operations.md)。
 * 若要了解如何防止对所有用户的资源执行删除操作，请参阅[使用 Azure Resource Manager 锁定资源](resource-group-lock-resources.md)。
-* 若要查看可用于每个 Azure 资源管理器提供程序的操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../active-directory/role-based-access-control-resource-provider-operations.md)
+* 若要查看可用于每个 Azure 资源管理器提供程序的操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../role-based-access-control/resource-provider-operations.md)
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 云服务角色上安装 .NET | Microsoft Docs"
-description: "本文介绍如何在云服务 Web 角色和辅助角色上手动安装 .NET Framework"
+title: 在 Azure 云服务角色上安装 .NET | Microsoft Docs
+description: 本文介绍如何在云服务 Web 角色和辅助角色上手动安装 .NET Framework
 services: cloud-services
-documentationCenter: .net
-authors: thraka
+documentationcenter: .net
+author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8d1243dc-879c-4d1f-9ed0-eecd1f6a6653
 ms.service: cloud-services
 ms.devlang: dotnet
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/31/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 2d31323ca05cbb60d1f7dd79bf4b833d4304ea1f
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 05/07/2018
+ms.openlocfilehash: d8510fea1ac7b6239ea7cc32d0429248b7baea40
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>在 Azure 云服务角色上安装 .NET
 本文介绍如何安装不随 Azure 来宾 OS 一起提供的 .NET Framework 版本。 可使用来宾 OS 上的 .NET 配置云服务 web 角色和辅助角色。
@@ -99,7 +99,7 @@ ms.lasthandoff: 12/01/2017
     REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
     REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
     REM ***** To install .NET 4.7 set the variable netfx to "NDP47" *****
-    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP47" *****
+    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" *****
     set netfx="NDP471"
     
     REM ***** Set script start timestamp *****

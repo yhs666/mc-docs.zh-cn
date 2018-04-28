@@ -1,11 +1,11 @@
 ---
-title: "适用于 C 语言的 Azure IoT 设备 SDK | Azure"
-description: "开始使用适用于 C 语言的 Azure IoT 设备 SDK，并了解如何创建与 IoT 中心通信的设备应用。"
+title: 适用于 C 语言的 Azure IoT 设备 SDK | Azure
+description: 开始使用适用于 C 语言的 Azure IoT 设备 SDK，并了解如何创建与 IoT 中心通信的设备应用。
 services: iot-hub
-documentationcenter: 
-author: olivierbloch
+documentationcenter: ''
+author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e448b061-6bdd-470a-a527-15ec03cca7b9
 ms.service: iot-hub
 ms.devlang: cpp
@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/25/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 20952464cda024d7577193a37f3b7a51510a9115
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 05/07/2018
+ms.openlocfilehash: e8eb0b8d71d4a883e84b48b6a847f0eb340d0f63
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>适用于 C 的 Azure IoT 设备 SDK
 
 **Azure IoT 设备 SDK** 是一个库集，旨在简化从 **Azure IoT 中心**服务发送和接收消息的过程。 有各种不同的 SDK，每个 SDK 都以特定的平台为目标，而本文说明的是**适用于 C 语言的 Azure IoT 设备 SDK**。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 适用于 C 语言的 Azure IoT 设备 SDK 以 ANSI C (C99) 编写，以获得最大可移植性。 此功能使得这些库很适合在多个平台和设备上运行，尤其是在以将磁盘和内存占用量降到最低作为优先考虑的情况下。
 

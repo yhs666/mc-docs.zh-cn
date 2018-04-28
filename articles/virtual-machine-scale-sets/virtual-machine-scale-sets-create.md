@@ -1,13 +1,13 @@
 ---
-title: "创建 Azure 虚拟机规模集 | Azure"
-description: "使用 Azure CLI、PowerShell、模板或 Visual Studio 创建和部署 Linux 或 Windows Azure 虚拟机规模集。"
+title: 创建 Azure 虚拟机规模集 | Azure
+description: 使用 Azure CLI、PowerShell、模板或 Visual Studio 创建和部署 Linux 或 Windows Azure 虚拟机规模集。
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: hayley244
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 07/21/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: bb09dbeafcfb2b4c0525c8d20573112067d1da6d
-ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
+ms.openlocfilehash: ec3c143c8c7a6112c116cdb6da196271df3b969a
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-deploy-a-virtual-machine-scale-set"></a>创建和部署虚拟机规模集
 使用虚拟机规模集可以轻松地将相同的虚拟机作为集来进行部署和管理。 规模集为超大规模应用程序提供高度可缩放且可自定义的计算层，并且它们支持 Windows 平台映像、Linux 平台映像、自定义映像和扩展。 有关规模集的详细信息，请参阅[虚拟机规模集](virtual-machine-scale-sets-overview.md)。
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/06/2017
 本教程介绍如何**不**使用 Azure 门户就创建虚拟机规模集。 有关如何使用 Azure 门户的信息，请参阅[如何使用 Azure 门户创建虚拟机规模集](virtual-machine-scale-sets-portal-create.md)。
 
 >[!NOTE]
->有关 Azure Resource Manager 资源的详细信息，请参阅 [Azure Resource Manager 与经典部署](../azure-resource-manager/resource-manager-deployment-model.md)。
+>有关 Azure 资源管理器资源的详细信息，请参阅 [Azure 资源管理器与经典部署](../azure-resource-manager/resource-manager-deployment-model.md)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -60,7 +60,7 @@ New-AzureRmResourceGroup -Location chinanorth -Name MyResourceGroup1
 
 ## <a name="create-from-azure-cli"></a>从 Azure CLI 创建
 
-使用 Azure CLI，只需最少的工作量就可创建虚拟机规模集。 如果省略默认值，则将为你提供它们。 例如，如果未指定任何虚拟网络信息，将创建一个虚拟网络。 如果省略以下组成部分，系统会自动予以创建： 
+使用 Azure CLI，只需最少的工作量就可创建虚拟机规模集。 如果省略默认值，则将为你提供它们。 例如，如果未指定任何虚拟网络信息，系统会自动创建一个虚拟网络。 如果省略以下组成部分，系统会自动予以创建： 
 - 负载均衡器
 - 虚拟网络
 - 公共 IP 地址
@@ -89,14 +89,14 @@ HTTP URI 的路径：
 若要创建虚拟机规模集，必须指定以下各项：
 
 - 资源组 
-- 名称
+- Name
 - 操作系统映像
 - 身份验证信息 
 
 以下示例创建基本虚拟机规模集（此步骤可能需要几分钟）。
 
 ```azurecli
-az vmss create --resource-group MyResourceGroup1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd!
+az vmss create --resource-group MyResourceGroup1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd! --vm-sku Standard_DS1
 ```
 
 完成该命令后，即已创建虚拟机规模集。 可能需要获取虚拟机的 IP 地址，以便能够与它建立连接。 可以使用以下命令获取有关虚拟机的各种不同信息（包括 IP 地址）。 
@@ -140,7 +140,7 @@ MicrosoftRServer           RServer-WS2016 Enterprise
 4. 配置网络。
 5. 创建规模集。
 
-此示例为安装了 Windows Server 2016 的计算机创建基本 2 实例规模集。
+本示例为装有 Windows Server 2016 的计算机创建一个基本的双实例规模集。
 
 ```powershell
 # Resource group name from above

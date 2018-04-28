@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 02/21/2018
 ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4955ad71af49c18a43aa039f4a8cc3bb8f6ae3db
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: f9edda372ff10ad29b7ba69f93dd3a4a09f80d53
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>使用 Azure CLI 控制虚拟机
 
@@ -146,7 +146,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 <!-- Not Available on ### View costs by tag values -->
 
-[!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
+<!-- Not Available on [!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)] -->
 
 ## <a name="clean-up-resources"></a>清理资源
 

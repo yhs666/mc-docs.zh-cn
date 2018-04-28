@@ -1,11 +1,11 @@
 ---
-title: "Azure 网络观察程序简介 | Azure"
-description: "本页面概述可在 Azure 中监视和可视化联网资源的网络观察程序服务"
+title: Azure 网络观察程序简介 | Azure
+description: 本页面概述可在 Azure 中监视和可视化联网资源的网络观察程序服务
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/11/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2d0b344e2c70425ffa2db8e9b11e60d5d795c8cb
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: d2487d9681e7ed69ddc400884a4f53ea502c8fc6
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Azure 网络监视概述
 
@@ -47,11 +47,12 @@ ms.lasthandoff: 02/13/2018
 * **[虚拟网络网关和连接故障排除](network-watcher-troubleshoot-manage-rest.md)** - 提供排查虚拟网络网关和连接问题的功能。
 * **[网络订阅限制](#network-subscription-limits)** - 用于查看网络资源用量与限制。
 * **[配置诊断日志](#diagnostic-logs)** - 提供单个窗格，为资源组中的网络资源启用或禁用诊断日志。
-* **[连接性（预览）](network-watcher-connectivity-overview.md)**- 验证是否可以建立从虚拟机到给定终结点的直接 TCP 连接。
+* **[连接故障排除](network-watcher-connectivity-overview.md)** - 验证从虚拟机到给定终结点（已使用 Azure 上下文充实）建立直接 TCP 连接的可能性。
+* **[连接监视器](connection-monitor.md)** - 使用源和目标 IP 地址及端口，监视 Azure 虚拟机与 IP 地址之间的延迟和配置问题。
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>网络观察程序中基于角色的访问控制 (RBAC)
 
-网络观察程序使用 [Azure 基于角色的访问控制 (RBAC) 模型](../active-directory/role-based-access-control-what-is.md)。 网络观察程序需要以下权限。 请务必确保用于启动网络观察程序 API 或者在门户中使用网络观察程序的角色具有所需的权限。
+网络观察程序使用 [Azure 基于角色的访问控制 (RBAC) 模型](../role-based-access-control/overview.md)。 网络观察程序需要以下权限。 请务必确保用于启动网络观察程序 API 或者在门户中使用网络观察程序的角色具有所需的权限。
 
 |资源| 权限|
 |---|---| 
@@ -135,4 +136,4 @@ ms.lasthandoff: 02/13/2018
 [metrics]: ./media/network-watcher-monitoring-overview/metrics.png
 [nsl]: ./media/network-watcher-monitoring-overview/nsl.png
 
-<!--Update_Description: new articles on network watcher monitoring overview -->
+<!--Update_Description: update link, wording link -->

@@ -1,29 +1,27 @@
 ---
-title: "SQL 数据仓库中的 Group By 选项 | Azure"
-description: "有关在开发解决方案时实现 Azure SQL 数据仓库中的 Group By 选项的技巧。"
+title: 使用 Azure SQ 数据仓库中的 Group By 选项 | Microsoft Docs
+description: 有关在开发解决方案时实现 Azure SQL 数据仓库中的 Group By 选项的技巧。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: jhubbard
-editor: 
-ms.assetid: f95a1e43-768f-4b7b-8a10-8a0509d0c871
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
+ms.topic: conceptual
+ms.component: implement
 origin.date: 10/31/2016
 ms.date: 01/04/2017
 ms.author: v-yeche
-ms.openlocfilehash: d02f71348b27d731a020fa04a91051dbf7074e97
-ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
+ms.openlocfilehash: 1b1211edf5560ae0f24e8daf2fccbd278f3c468a
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>SQL 数据仓库中的 Group By 选项
-[GROUP BY][GROUP BY] 子句可用于将数据聚合成摘要行集。 它还具有一些扩展其功能的选项，但这些选项需要经过处理，因为 Azure SQL 数据仓库不直接支持这些选项。
+有关在开发解决方案时实现 Azure SQL 数据仓库中的 Group By 选项的技巧。
+
+## <a name="what-does-group-by-do"></a>GROUP BY 的作用是什么？
+
+[GROUP BY](https://docs.microsoft.com/sql/t-sql/queries/select-group-by-transact-sql) T-SQL 子句用于将数据聚合成摘要行集。 GROUP BY 具有 SQL 数据仓库不支持的一些选项。 这些选项都有解决方法。
 
 这些选项包括：
 
@@ -32,10 +30,9 @@ ms.lasthandoff: 06/23/2017
 * 带 CUBE 的 GROUP BY
 
 ## <a name="rollup-and-grouping-sets-options"></a>Rollup 和 grouping sets 选项
-此处最简单的选项是改为使用 `UNION ALL` 来执行汇总，而不是依赖显式语法。 结果应完全相同
+此处最简单的选项是改为使用 UNION ALL 来执行汇总，而不是依赖显式语法。 结果应完全相同
 
-以下是使用 `ROLLUP` 选项的 Group By 语句示例：
-
+下面的示例使用了具有 ROLLUP 选项的 GROUP BY 语句：
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -49,13 +46,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-我们已通过使用 ROLLUP 请求以下聚合：
+通过使用 ROLLUP，前面的示例请求以下聚合：
 
 * 国家/地区和区域
 * 国家/地区
 * 总计
 
-若要替换此语句，需要使用 `UNION ALL`；显式指定所需的聚合以返回相同的结果：
+若要替换 ROLLUP 并返回相同的结果，可以使用 UNION ALL 并显式指定所需的聚合：
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -82,7 +79,7 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-对于 GROUPING SETS，我们需要采用相同的主体，但只创建想要查看的聚合级别的 UNION ALL 部分
+若要替换 GROUPING SETS，示例原则也适用。 只需要为希望查看的聚合级别创建 UNION ALL 部分。
 
 ## <a name="cube-options"></a>Cube 选项
 可以使用 UNION ALL 方法创建 GROUP BY WITH CUBE。 问题在于，代码可能很快就会变得庞大且失控。 若要避免此情况，可以使用这种更高级的方法。
@@ -120,9 +117,9 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-CTAS 的结果如下所示：
+下面显示了 CTAS 的结果：
 
-![][1]
+![按多维数据集分组](media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
 第二步是指定目标表用于存储临时结果：
 
@@ -171,7 +168,7 @@ BEGIN
 END
 ```
 
-最后，我们只需读取 #Results 临时表即可返回结果
+最后，可以通过简单地从 #Results 临时表进行读取来返回结果
 
 ```sql
 SELECT *
@@ -183,15 +180,5 @@ ORDER BY 1,2,3
 通过将代码拆分成不同的部分并生成循环构造，代码将更好管理和维护。
 
 ## <a name="next-steps"></a>后续步骤
-有关更多开发技巧，请参阅 [开发概述][development overview]。
+有关更多开发技巧，请参阅[开发概述](sql-data-warehouse-overview-develop.md)。
 
-<!--Image references-->
-[1]: ./media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[GROUP BY]: https://msdn.microsoft.com/library/ms177673.aspx
-
-<!--Other Web references-->

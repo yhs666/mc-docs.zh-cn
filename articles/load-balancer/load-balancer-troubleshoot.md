@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/20/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 28997879d8a16b4cf8fc2b83c27a33d7204134d5
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 63d4d5848260b5c78a765691091e005132187d5e
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>对 Azure 负载均衡器进行故障排除
 
@@ -55,13 +55,13 @@ ms.lasthandoff: 11/15/2017
 3. 如果端口状态未列为“正在侦听”，请配置适当的端口。 
 4. 或者，选择其他列为“正在侦听”的端口，并相应地更新负载均衡器配置。              
 
-###<a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>原因 3：防火墙或网络安全组阻止负载均衡器后端池 VM 上的端口  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>原因 3：防火墙或网络安全组阻止负载均衡器后端池 VM 上的端口  
 如果 VM 上的防火墙阻止探测端口，或者子网或 VM 上配置的一个或多个网络安全组禁止探测到达端口，VM 将无法响应运行状况探测。          
 
 验证及解决方法
 
 * 如果启用了防火墙，请检查它是否配置为允许探测端口。 如果没有启用防火墙，请将其配置为允许探测端口上的流量并重新测试。 
-* 在网络安全组列表中，检查探测端口上的传入或传出流量是否受到干扰。 
+* 在网络安全组列表中，检查探测端口上的传入或传出流量是否被干扰。 
 * 此外，检查 VM NIC 或子网上是否存在优先级高于允许 LB 探测和流量的默认规则的“全部拒绝”网络安全组规则（网络安全组必须允许负载均衡器 IP 168.63.129.16）。 
 * 如果上述任意规则阻止探测流量，请将其删除并将规则配置为允许探测流量。  
 * 测试 VM 是否现已开始响应运行状况探测。 
@@ -104,11 +104,9 @@ ms.lasthandoff: 11/15/2017
 
 如果子网或 VM 上配置的一个或多个网络安全组阻止源 IP 或端口，此 VM 将无法响应。
 
-* 列出后端 VM 上配置的网络安全组。 有关详细信息，请参阅：
-    -  [使用门户管理网络安全组](../virtual-network/virtual-network-manage-nsg-arm-portal.md)
-    -  [使用 PowerShell 管理网络安全组](../virtual-network/virtual-network-manage-nsg-arm-ps.md)
+* 列出后端 VM 上配置的网络安全组。 有关详细信息，请参阅[管理网络安全组](../virtual-network/manage-network-security-group.md)。
 * 在网络安全组列表中，检查：
-    - 数据端口上的传入或传出流量是否受到干扰。 
+    - 数据端口上的传入或传出流量是否被干扰。 
     - VM NIC 或子网上是否存在优先级高于允许负载均衡探测和流量的默认规则的“全部拒绝”网络安全组规则（网络安全组必须允许负载均衡器 IP 168.63.129.16 - 即探测端口） 
 * 如果某规则阻止流量，请将其删除并将规则重新配置为允许数据流量。  
 * 测试 VM 是否现已开始响应运行状况探测。
@@ -136,4 +134,4 @@ ms.lasthandoff: 11/15/2017
 
 如果上述步骤无法解决问题，请开具[支持票证](https://www.azure.cn/support/contact/)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update link -->

@@ -1,11 +1,11 @@
 ---
-title: "通过 Azure IoT 中心进行设备固件更新 (Python)"
-description: "如何使用 Azure IoT 中心上的设备管理进行设备固件更新。 使用用于 Python 的 Azure IoT SDK 实现模拟设备应用以及触发固件更新的服务应用。"
+title: 通过 Azure IoT 中心进行设备固件更新 (Python)
+description: 如何使用 Azure IoT 中心上的设备管理进行设备固件更新。 使用用于 Python 的 Azure IoT SDK 实现模拟设备应用以及触发固件更新的服务应用。
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
 ms.service: iot-hub
 ms.devlang: multiple
@@ -13,18 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/16/2018
-ms.date: 03/12/2018
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: 96de37536980d57c0e60daf3b574c983c229ea59
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 428f639f400e65d3b1de751c65c2f941ea941735
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-pythonpython"></a>使用设备管理启动设备固件更新 (Python/Python)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 在[设备管理入门][lnk-dm-getstarted]教程中，已了解如何使用[设备孪生][lnk-devtwin]和[直接方法][lnk-c2dmethod]基元来远程重新启动设备。 本教程使用相同的 IoT 中心基元，提供指南，并演示如何进行端到端模拟固件更新。  此模式在用于 Intel Edison 设备示例的固件更新实现中使用。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 本教程演示如何：
 

@@ -1,26 +1,19 @@
 ---
 title: Azure Analysis Services 中支持的数据源 | Azure
 description: 介绍 Azure Analysis Services 中数据模型支持的数据源。
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-ms.assetid: 6ec63319-ff9b-4b01-a1cd-274481dc8995
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/27/2018
-ms.date: 03/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: b60ea348f72e2f84e9394c36c36e711a213d1be6
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.reviewer: minewiskan
+ms.openlocfilehash: 163be8a76b96d50ea71087cd4d3f3a2f70a32e27
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支持的数据源
 
@@ -34,13 +27,11 @@ ms.lasthandoff: 03/28/2018
 |Azure SQL 数据仓库     |   是      |   是       |
 |Azure Blob 存储*     |   是       |    否      |
 |Azure 表存储*    |   是       |    否      |
-|Azure Cosmos DB (Beta)*     |  是        |  否        |
-<!-- 不可用 |Azure Data Lake Store*     |   是       |    否      | -->
+|Azure Cosmos DB*     |  是        |  否        |
 |Azure HDInsight HDFS*     |     是     |   否       |
-|Azure HDInsight Spark (Beta)*     |   是       |   否       |
-|Azure Database for MySQL（预览版）*     |   是       |   否      |
-|Azure Database for PostgreSQL（预览版）*     | 是         |  否       |
+|Azure HDInsight Spark*     |   是       |   否       |
 ||||
+<!-- 不可用 |Azure Data Lake Store*     |   是       |    否      | -->
 
 \* 仅限表格 1400 模型。 
 

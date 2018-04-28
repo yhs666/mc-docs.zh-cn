@@ -1,6 +1,6 @@
 ---
-title: "企业过渡到 Azure 的最佳实践 | Azure"
-description: "本文介绍一个基架，企业可以使用它来确保环境的安全性与可管理性。"
+title: 企业过渡到 Azure 的最佳实践 | Azure
+description: 本文介绍一个基架，企业可以使用它来确保环境的安全性与可管理性。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/31/2017
-ms.date: 12/25/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: b224dff9079d23a593dc173527e1dfa33330c2bc
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: b0a2aa33315e491dbe0c7b366c41f0a60cf80958
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure 企业基架 - 出于合规目的监管订阅
 为了实现敏捷性和灵活性，企业越来越多地采用公有云。 它们利用云的优势来产生营收或优化企业资源。 Azure 提供多种不同的服务，企业可以像构建块一样将它们组合，解决广泛的工作负荷与应用程序需求。 
@@ -249,4 +249,4 @@ Azure 在最初发布时，对订阅的访问控制非常简单：只允许管�
 ## <a name="next-steps"></a>后续步骤
 * 了解订阅监管后，接下来可以了解如何实施这些建议。 请参阅 [Examples of implementing Azure subscription governance](resource-manager-subscription-examples.md)（Azure 订阅监管实施示例）。
 
-<!--Update_Description: wording update, remove the unsuitable Secury Center content.-->
+<!--Update_Description: wording update, update link -->

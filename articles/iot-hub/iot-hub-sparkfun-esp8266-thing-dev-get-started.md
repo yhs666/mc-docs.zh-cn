@@ -1,26 +1,26 @@
 ---
-title: "ESP8266 到云 - 将 Sparkfun ESP8266 Thing Dev 连接到 Azure IoT 中心 | Azure"
-description: "在本教程中了解如何设置 Sparkfun ESP8266 Thing Dev 并将其连接到 Azure IoT 中心，使其能够将数据发送到 Azure 云平台。"
+title: ESP8266 到云 - 将 Sparkfun ESP8266 Thing Dev 连接到 Azure IoT 中心 | Azure
+description: 在本教程中了解如何设置 Sparkfun ESP8266 Thing Dev 并将其连接到 Azure IoT 中心，使其能够将数据发送到 Azure 云平台。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.assetid: 587fe292-9602-45b4-95ee-f39bba10e716
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/16/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 09/25/2017
-ms.openlocfilehash: 4d4e8de99c38a3df93df3ec7cfa16ba5bcbae5bd
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 05/07/2018
+ms.openlocfilehash: ba4acb5a3f5d9119f28ed608f70b16730f14a5cc
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>将 Sparkfun ESP8266 Thing Dev 连接到云中的 Azure IoT 中心
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 09/29/2017
 将 Sparkfun ESP8266 Thing Dev 连接到要创建的 IoT 中心。 然后，在 ESP8266 上运行一个示例应用程序，用于从 DHT22 传感器收集温度和湿度数据。 最后，将传感器数据发送到 IoT 中心。
 
 > [!NOTE]
-> 如果使用其他 ESP8266 开发板，仍可遵循这些步骤将它连接到 IoT 中心。 根据所用的 ESP8266 开发板，可能需要重新配置 `LED_PIN`。 例如，如果使用 AI-Thinker 提供的 ESP8266，可将此参数从 `0` 更改为 `2`。 
+> 如果使用其他 ESP8266 开发板，仍可遵循这些步骤将它连接到 IoT 中心。 根据所用的 ESP8266 开发板，可能需要重新配置 `LED_PIN`。 例如，如果使用 AI-Thinker 提供的 ESP8266，可将此参数从 `0` 更改为 `2`。 没有工具包？请单击[此处](https://docs.azure.cn/zh-cn/develop/iot/iot-starter-kits)
 
 ## <a name="what-you-will-learn"></a>要学习的知识
 

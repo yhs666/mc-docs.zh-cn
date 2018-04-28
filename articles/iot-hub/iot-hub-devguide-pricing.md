@@ -1,11 +1,11 @@
 ---
-title: "了解 Azure IoT 中心定价 | Azure"
-description: "开发人员指南 - 介绍了如何实现 IoT 中心（包括样例）的计数和定价。"
+title: 了解 Azure IoT 中心定价 | Azure
+description: 开发人员指南 - 介绍了如何实现 IoT 中心（包括样例）的计数和定价。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
 ms.service: iot-hub
 ms.devlang: multiple
@@ -13,17 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
-ms.date: 03/19/2018
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: d6943bef29d546113aa2ab1870b7dc526a47232b
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 2689d18b7de8712ccfcbb32728a8cbf4f41feaff
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT 中心定价信息
 
 [Azure IoT 中心定价][lnk-pricing] 概述了 IoT 中心的不同 SKU 和定价。 本文还详述了 IoT 中心如何按消息对各种 IoT 中心功能计费。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="charges-per-operation"></a>每个操作的费用
 

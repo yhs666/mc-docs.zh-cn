@@ -1,26 +1,26 @@
 ---
-title: "将 IoT 中心消息保存到 Azure 数据存储"
-description: "使用 IoT 中心消息路由将 IoT 中心消息保存到 Azure Blob 存储中。 IoT 中心消息包含 IoT 设备发送的传感器数据等信息。"
+title: 将 IoT 中心消息保存到 Azure 数据存储
+description: 使用 IoT 中心消息路由将 IoT 中心消息保存到 Azure Blob 存储中。 IoT 中心消息包含 IoT 设备发送的传感器数据等信息。
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "iot 数据存储, iot 传感器数据存储"
+tags: ''
+keywords: iot 数据存储, iot 传感器数据存储
 ms.assetid: 62fd14fd-aaaa-4b3d-8367-75c1111b6269
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/04/2017
-ms.date: 03/19/2018
+origin.date: 04/11/2018
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: 63196decf4015d7e2889ef8e38ae0e9c2c0fdef9
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 101cec0df795b95d54ea9ef2f40c6edafe77edb1
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>将包含传感器数据的 IoT 中心消息保存到 Azure Blob 存储
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 03/12/2018
 
 ## <a name="prepare-your-iot-hub-to-route-messages-to-storage"></a>准备 IoT 中心，将消息路由到存储
 
-IoT 中心以本机方式支持将消息以 blob 形式路由到 Azure 存储。
+IoT 中心以本机方式支持将消息以 blob 形式路由到 Azure 存储。 若要了解有关 Azure IoT 中心自定义终结点的详细信息，可以参考[内置 IoT 中心终结点列表](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints#custom-endpoints)。
 
 ### <a name="add-storage-as-a-custom-endpoint"></a>将存储添加为自定义终结点
 

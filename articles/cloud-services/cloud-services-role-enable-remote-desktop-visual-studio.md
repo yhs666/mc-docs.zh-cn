@@ -3,8 +3,8 @@ title: 为 Azure 云服务中的角色设置远程桌面连接
 description: 如何配置 Azure 云服务应用程序以允许远程桌面连接
 services: cloud-services
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
 ms.service: multiple
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/06/2018
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3b15c850795404bac27ee1eb55e8e477ba559ae2
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.openlocfilehash: 4baa2b1a59cfe1c1133458c71a2a413b853b0dd4
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>使用 Visual Studio 为 Azure 云服务中的角色启用远程桌面连接
 

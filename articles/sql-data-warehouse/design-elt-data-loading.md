@@ -1,30 +1,24 @@
 ---
-title: "为 Azure SQL 数据仓库设计 ELT | Azure"
-description: "结合可将数据移入 Azure 并将数据载入 SQL 数据仓库的技术，来为 Azure SQL 数据仓库设计提取、加载和转换 (ELT) 过程。"
+title: 为 Azure SQL 数据仓库设计 ELT | Azure
+description: 结合可将数据移入 Azure 并将数据载入 SQL 数据仓库的技术，来为 Azure SQL 数据仓库设计提取、加载和转换 (ELT) 过程。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-origin.date: 12/12/2017
-ms.date: 01/15/2018
+ms.topic: conceptual
+ms.component: design
+origin.date: 04/11/2018
+ms.date: 04/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: deb19ffea8c16a9a6bddf32ec98f50e9f1a46747
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 0747f3d1fd7e0e6d596fb7c1f1b35fc65be18d32
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>为 Azure SQL 数据仓库设计提取、加载和转换 (ELT)
 
-结合可将数据移入 Azure 存储并将数据载入 SQL 数据仓库的技术，来为 Azure SQL 数据仓库设计提取、加载和转换 (ELT) 过程。 本文介绍支持使用 Polybase 进行数据加载的技术，然后重点介绍如何设计一个可以结合使用 PolyBase 和 T-SQL 将数据从 Azure 存储载入 SQL 数据仓库的 ELT 过程。
+设计用于将数据加载到 Azure SQL 数据仓库的提取、加载和转换 (ELT) 过程而非提取、转换和加载 (ETL) 过程。 本文介绍了将数据移动到 Azure 数据仓库的 ELT 过程的设计方法。
 
 ## <a name="what-is-elt"></a>什么是 ELT？
 
@@ -54,7 +48,7 @@ PolyBase 技术可以通过 T-SQL 语言访问数据库外部的数据。 它是
 
 - 如果数据位于 Azure Blob 存储中，则 [PolyBase 与 T-SQL](load-data-from-azure-blob-storage-using-polybase.md) 可以发挥作用。 使用此方法可以获得加载过程的最大控制度，不过同时需要定义外部数据对象。 其他方法在你将源表映射到目标表时，在幕后定义这些对象。  若要安排 T-SQL 加载，可以使用 SSIS。 
 <!-- Not Available on Azure Data Lake Store,Azure Date Factory, Azure Functions-->
-- 如果源数据位于本地 SQL Server 或云中的 SQL Server，则 [PolyBase 与 SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md) 可以发挥作用。 SSIS 定义源到目标表的映射，同时可协调负载。 如果已有 SSIS 包，可将这些包修改为使用新的数据仓库目标。 
+- 如果源数据位于本地 SQL Server 或云中的 SQL Server，则 [PolyBase 与 SSIS](https://docs.microsoft.com/sql/integration-services/load-data-to-sql-data-warehouse) 可以发挥作用。 SSIS 定义源到目标表的映射，同时可协调负载。 如果已有 SSIS 包，可将这些包修改为使用新的数据仓库目标。 
 <!-- Not Available on [PolyBase with Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md)-->
 
 ### <a name="polybase-external-file-formats"></a>PolyBase 外部文件格式
@@ -76,7 +70,7 @@ PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 �
 可使用以下工具和服务将数据移到 Azure 存储。
 
 - [Azure ExpressRoute](../expressroute/expressroute-introduction.md) 服务可以增强网络吞吐量、性能和可预测性。 ExpressRoute 是通过专用连接将数据路由到 Azure 的服务。 ExpressRoute 连接不通过公共 Internet 路由数据。 与基于公共 Internet 的典型连接相比，这些连接提供更高的可靠性、更快的速度、更低的延迟和更高的安全性。
-- [AZCopy 实用工具](../storage/common/storage-use-azcopy.md)可以通过公共 Internet 将数据移到 Azure 存储。 如果数据小于 10 TB，则很适合使用此工具。 若要使用 AZCopy 定期执行加载操作，请测试网络速度是否在可接受的范围内。 
+- [AZCopy 实用工具](../storage/common/storage-moving-data.md)可以通过公共 Internet 将数据移到 Azure 存储。 如果数据小于 10 TB，则很适合使用此工具。 若要使用 AZCopy 定期执行加载操作，请测试网络速度是否在可接受的范围内。 
 <!-- Not Available on [Azure Data Factory (ADF)](../data-factory/introduction.md)-->
 
 有关详细信息，请参阅[将数据移入和移出 Azure 存储](../storage/common/storage-moving-data.md)。

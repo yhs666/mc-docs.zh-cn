@@ -1,11 +1,11 @@
 ---
-title: "了解 Azure IoT 中心直接方法"
-description: "开发人员指南 - 使用直接方法从服务应用调用设备上的代码。"
+title: 了解 Azure IoT 中心直接方法
+description: 开发人员指南 - 使用直接方法从服务应用调用设备上的代码。
 services: iot-hub
 documentationcenter: .net
 author: nberdy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9f0535f1-02e6-467a-9fc4-c0950702102d
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
 ms.custom: H1Hack27Feb2017
-ms.date: 03/19/2018
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: 309123eab65ae1768facc7799e56f0907e09b31c
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: eddfd469fb10eb8056da2f035f6b6f85c23d8a92
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>了解和调用 IoT 中心的直接方法
 借助 IoT 中心，用户可以从云中对设备调用直接方法。 直接方法表示与设备进行的请求-答复式交互，类似于会立即成功或失败（在用户指定的超时时间后）的 HTTP 调用。 此方法用于即时操作过程不同的情况，即时操作的不同取决于设备能否响应。 例如，如果设备处于脱机状态，则向其发送短信唤醒（短信开销比方法调用更大）。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 每个设备方法针对一个设备。 [作业][lnk-devguide-jobs]提供了一种方法，用于对多个设备调用直接方法，并为已断开连接的设备计划方法调用。
 
 只要拥有 IoT 中心的“服务连接”权限，任何人都可以调用设备上的方法。

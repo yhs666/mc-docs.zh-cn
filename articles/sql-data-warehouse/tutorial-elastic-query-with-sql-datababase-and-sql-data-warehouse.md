@@ -1,30 +1,24 @@
 ---
-title: "结合使用弹性查询和 Azure SQL 数据仓库的教程 | Azure"
-description: "了解如何结合使用弹性查询和 Azure SQL 数据仓库"
+title: 教程：使用 Azure SQL 数据仓库进行弹性查询 | Microsoft Docs
+description: 本教程使用弹性查询功能从 Azure SQL 数据库查询 Azure SQL 数据仓库。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67g
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-origin.date: 11/03/2017
-ms.date: 01/15/2018
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/14/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: d0b8607b40f42597fc191abf6b39f7c19c5264cd
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 4d3631829e099188e311fd8fd028308ef80b9808
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="configure-elastic-query-with-sql-data-warehouse"></a>配置结合使用弹性查询和 SQL 数据仓库
+# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>教程：使用弹性查询功能从 Azure SQL 数据库访问 Azure SQL 数据仓库中的数据
 
-本教程将介绍如何使用弹性查询，将查询从 SQL 数据库提交到 SQL 数据仓库。 弹性查询是一种跨 Azure SQL 产品的功能。 若要详细了解弹性查询的概念，请参阅[如何结合使用弹性查询和 SQL 数据仓库][How to use Elastic Query with SQL Data Warehouse]。
+本教程使用弹性查询功能从 Azure SQL 数据库查询 Azure SQL 数据仓库。 
 
 ## <a name="prerequisites-for-the-tutorial"></a>教程先决条件
 
@@ -40,9 +34,9 @@ ms.lasthandoff: 01/11/2018
 
 2. 创建表示 SQL 数据库与数据仓库之间连接的登录用户凭据。
 
-    ```sql
-    CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
-    ```
+   ```sql
+   CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
+   ```
 
 3. 使用 SSMS 或其他查询客户端，在逻辑服务器上对 SQL 数据仓库实例打开新查询。
 
@@ -142,14 +136,5 @@ SELECT * FROM [dbo].[OrderInformation];
 
 恭喜，已设置了非常基础的弹性查询。 
 
-<!--Image references-->
-
-<!--Article references-->
-
-[How to use Elastic Query with SQL Data Warehouse]: ./how-to-use-elastic-query-with-sql-data-warehouse.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-
-<!-- Update_Description: update meta properties, wording update -->
+## <a name="next-steps"></a>后续步骤
+有关建议，请参阅[将弹性查询与 Azure SQL 数据仓库配合使用的最佳做法](how-to-use-elastic-query-with-sql-data-warehouse.md)。

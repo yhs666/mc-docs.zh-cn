@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序“IP 流验证”功能验证流量 - REST | Azure"
-description: "本文介绍如何检查是允许还是拒绝进出虚拟机的流量"
+title: 使用 Azure 网络观察程序“IP 流验证”功能验证流量 - REST | Azure
+description: 本文介绍如何检查是允许还是拒绝进出虚拟机的流量
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 3307a79f-03be-46a0-aaaf-b2079cb5f3b2
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7438a987d56c210d8209ee4c26adcad8087e37a8
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 14f45a585a46b05fb04657e34c23c146a7c447c4
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>使用 Azure 网络观察程序的组件（即“IP 流验证”功能）检查是允许还是拒绝流量
 
@@ -32,9 +32,9 @@ ms.lasthandoff: 11/14/2017
 
 “IP 流验证”是网络观察程序的一项功能，用于验证是否允许流量进出虚拟机。 可以针对传入或传出流量运行验证。 此方案对于获取虚拟机是否可以与外部资源或后端通信的当前状态很有用。 可以使用“IP 流验证”功能验证网络安全组 (NSG) 规则是否正确配置，以及对 NSG 规则所阻止的流进行故障排除。 使用“IP 流验证”功能的另一个原因是确保要阻止的流量已由 NSG 正确阻止。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
-ARMclient 用于使用 PowerShell 调用 REST API。 根据 [Chocolatey 上的 ARMClient](https://chocolatey.org/packages/ARMClient) 中所述在 chocolatey 上找到 ARMClient
+通过 PowerShell 调用 REST API 时，使用的是 ARMclient。 根据 [Chocolatey 上的 ARMClient](https://chocolatey.org/packages/ARMClient) 中所述在 chocolatey 上找到 ARMClient
 
 此方案假定已按照[创建网络观察程序](network-watcher-create.md)中的步骤创建网络观察程序。
 
@@ -165,6 +165,5 @@ armclient post "https://management.chinacloudapi.cn/subscriptions/${subscription
 
 ## <a name="next-steps"></a>后续步骤
 
-如果流量被阻止且不应被阻止，请参阅[管理网络安全组](../virtual-network/virtual-network-manage-nsg-arm-portal.md)了解有关网络安全组的详细信息。
-
-<!--Update_Description: new articles on network watcher check ip flow verify rest -->
+如果流量被阻止且不应被阻止，请参阅[管理网络安全组](../virtual-network/manage-network-security-group.md)了解有关网络安全组的详细信息。
+<!--Update_Description: updata link, wording update -->

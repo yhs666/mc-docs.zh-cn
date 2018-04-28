@@ -1,37 +1,39 @@
 ---
-title: "了解 Azure IoT 中心安全性 | Azure"
-description: "开发人员指南 - 如何控制设备应用和后端应用对 IoT 中心的访问。 其中包括安全令牌和 X.509 证书支持的相关信息。"
+title: 了解 Azure IoT 中心安全性 | Azure
+description: 开发人员指南 - 如何控制设备应用和后端应用对 IoT 中心的访问。 其中包括安全令牌和 X.509 证书支持的相关信息。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 45631e70-865b-4e06-bb1d-aae1175a52ba
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/29/2018
+origin.date: 02/22/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 94f0597755cd6a07fcba96a71ecdfeaacfb45a91
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 05/07/2018
+ms.openlocfilehash: f2263d2979439ad64813f75b66896f6577b6bf45
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="control-access-to-iot-hub"></a>控制对 IoT 中心的访问
 
 本文介绍用于保护 IoT 中心的选项。 IoT 中心使用 *权限* 向每个 IoT 中心终结点授予访问权限。 权限可根据功能限制对 IoT 中心的访问。
 
-本文介绍：
+本文介绍了以下内容：
 
 * 可以向要访问 IoT 中心的设备或后端应用授予的不同权限。
 * 身份验证过程以及它用于验证权限的令牌。
 * 如何限定凭据的作用域，以限制对特定资源的访问。
 * IoT 中心支持 X.509 证书。
 * 使用现有的设备标识注册表或身份验证方案的自定义设备身份验证机制。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 必须具有适当的权限，才能访问任何 IoT 中心终结点。 例如，设备必须随它发送到 IoT 中心的每条消息提供包含安全凭据的令牌。
 
@@ -209,12 +211,12 @@ public static string generateSasToken(string resourceUri, string key, string pol
     TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
     string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
 
-    string stringToSign = WebUtility.UrlEncode(resourceUri).ToLower() + "\n" + expiry;
+    string stringToSign = WebUtility.UrlEncode(resourceUri) + "\n" + expiry;
 
     HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(key));
     string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
 
-    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri).ToLower(), WebUtility.UrlEncode(signature), expiry);
+    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri), WebUtility.UrlEncode(signature), expiry);
 
     if (!String.IsNullOrEmpty(policyName))
     {
@@ -348,13 +350,18 @@ SharedAccessSignature sr=myhub.azure-devices.cn%2fdevices&sig=JdyscqTpXdEJs49elI
 ```
 
 ## <a name="supported-x509-certificates"></a>支持的 X.509 证书
-可以使用任何 X.509 证书通过 IoT 中心对设备进行身份验证。 证书包括：
 
-* **现有的 X.509 证书**。 设备可能已有与之关联的 X.509 证书。 设备可以使用此证书向 IoT 中心进行身份验证。
-* **自行生成和自签名的 X-509 证书**。 设备制造商或内部部署人员可以生成这些证书，并将相应的私钥（和证书）存储在设备上。 可以将工具（如 [OpenSSL][lnk-openssl] 和 [Windows SelfSignedCertificate][lnk-selfsigned] 实用程序）用于此目的。
-* **CA 签名的 X.509 证书**。 若要识别设备并通过 IoT 中心对其进行身份验证，可使用由证书颁发机构 (CA) 生成和签名的 X.509 证书。 IoT 中心仅验证提供的指纹是否与配置的指纹匹配。 IotHub 不会验证证书链。
+可以通过将证书指纹或证书颁发机构 (CA) 上传到 Azure IoT 中心，从而借助 IoT 中心使用任何 X.509 证书对设备进行身份验证。 使用证书指纹的身份验证，仅验证提供的指纹是否与配置的指纹匹配。 使用证书颁发机构的身份验证会验证证书链。 
+
+支持的证书包括：
+
+* **现有的 X.509 证书**。 设备可能已有与之关联的 X.509 证书。 设备可以使用此证书向 IoT 中心进行身份验证。 适用于指纹或 CA 身份验证。 
+* **CA 签名的 X.509 证书**。 若要识别设备并通过 IoT 中心对其进行身份验证，可使用由证书颁发机构 (CA) 生成和签名的 X.509 证书。 适用于指纹或 CA 身份验证。
+* **自行生成和自签名的 X-509 证书**。 设备制造商或内部部署人员可以生成这些证书，并将相应的私钥（和证书）存储在设备上。 可以将工具（如 [OpenSSL][lnk-openssl] 和 [Windows SelfSignedCertificate][lnk-selfsigned] 实用程序）用于此目的。 仅适用于指纹身份验证。 
 
 设备可以使用 X.509 证书或安全令牌进行身份验证，但不能同时使用这两者。
+
+有关使用证书颁发机构进行身份验证的详细信息，请参阅 [对 X.509 CA 证书的概念性理解](iot-hub-x509ca-concept.md)。
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>为设备注册 X.509 证书
 [用于 C# 的 Azure IoT 服务 SDK][lnk-service-sdk]（版本 1.0.8+）支持注册使用 X.509 证书进行身份验证的设备。 其他 API（例如设备的导入/导出）也支持 X.509 证书。
@@ -362,12 +369,7 @@ SharedAccessSignature sr=myhub.azure-devices.cn%2fdevices&sig=JdyscqTpXdEJs49elI
 ### <a name="c-support"></a>C\# 支持
 **RegistryManager** 类提供了用于注册设备的编程方式。 具体而言，使用 **AddDeviceAsync** 和 **UpdateDeviceAsync** 方法，用户可以在 IoT 中心标识注册表中注册和更新设备。 这两种方法均采用 **Device** 实例作为输入。 **Device** 类包括 **Authentication** 属性，允许用户指定主要和次要 X.509 证书指纹。 指纹表示 X.509 证书的 SHA-1 哈希值（使用二进制 DER 编码存储）。 用户可以选择指定主要指纹和/或次要指纹。 为了处理证书滚动更新方案，支持主要和次要指纹。
 
-> [!NOTE]
-> IoT 中心不需要也不存储整个 X.509 证书，它仅存储指纹。
-> 
-> 
-
-下面是使用 X.509 证书注册设备的示例 C\# 代码片段：
+下面是使用 X.509 证书指纹注册设备的示例 C\# 代码片段：
 
 ```csharp
 var device = new Device(deviceId)

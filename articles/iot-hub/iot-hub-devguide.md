@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中心开发人员指南 | Azure"
-description: "Azure IoT 中心开发人员指南讨论了终结点、安全性、标识注册表、设备管理、直接方法、设备孪生、文件上传、作业、IoT 中心查询语言以及消息传送。"
+title: Azure IoT 中心开发人员指南 | Azure
+description: Azure IoT 中心开发人员指南讨论了终结点、安全性、标识注册表、设备管理、直接方法、设备孪生、文件上传、作业、IoT 中心查询语言以及消息传送。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d534ff9d-2de5-4995-bb2d-84a02693cb2e
 ms.service: iot-hub
 ms.devlang: multiple
@@ -13,16 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
-ms.date: 03/19/2018
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: 672205485ff6c7754bf6c6940caca03b7955aaeb
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 5cbd4e5f4072ab4ada1c9e3c99971f3480bfd191
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IoT 中心开发人员指南
 Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备和单个解决方案后端之间实现安全可靠的双向通信。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Azure IoT 中心提供：
 

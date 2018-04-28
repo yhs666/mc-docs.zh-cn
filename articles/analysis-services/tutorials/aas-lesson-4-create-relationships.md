@@ -1,26 +1,19 @@
 ---
-title: "Azure Analysis Services 教程第 4 课：创建关系 | Azure"
-description: "介绍如何在 Azure Analysis Services 教程项目中创建关系。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 教程第 4 课：创建关系 | Azure
+description: 介绍如何在 Azure Analysis Services 教程项目中创建关系。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: e5f44124fc3ece4896ac247bcce010fa31bdf475
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.reviewer: minewiskan
+ms.openlocfilehash: c21fce367c21ba43eb7a1f448dd02bf3286170a4
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-relationships"></a>创建关系
 
@@ -103,4 +96,4 @@ ms.lasthandoff: 02/23/2018
 ## <a name="whats-next"></a>后续步骤
 [第 5 课：创建计算列](../tutorials/aas-lesson-5-create-calculated-columns.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties  -->

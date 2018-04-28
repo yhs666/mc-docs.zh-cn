@@ -1,26 +1,19 @@
 ---
-title: "Azure Analysis Services 教程第 3 课：标记为日期表 | Azure"
-description: "介绍了在 Azure Analysis Services 教程项目中如何标记日期表。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 教程第 3 课：标记为日期表 | Azure
+description: 介绍了在 Azure Analysis Services 教程项目中如何标记日期表。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: b791a1329539b127c32bc7262813b297194ad5f1
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.reviewer: minewiskan
+ms.openlocfilehash: 1d7c47c12b3507b80525df5cb0002fcc89906a06
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mark-as-date-table"></a>标记为日期表
 
@@ -56,4 +49,4 @@ ms.lasthandoff: 02/23/2018
 ## <a name="whats-next"></a>后续步骤
 [第 4 课：创建关系](../tutorials/aas-lesson-4-create-relationships.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

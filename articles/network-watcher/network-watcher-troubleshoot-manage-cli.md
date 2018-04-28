@@ -1,11 +1,11 @@
 ---
-title: "对 Azure 虚拟网关和连接进行故障排除 - Azure CLI 2.0 | Azure"
-description: "此页说明如何使用 Azure 网络观察程序对 Azure CLI 2.0 进行故障排除"
+title: 对 Azure 虚拟网关和连接进行故障排除 - Azure CLI 2.0 | Azure
+description: 此页说明如何使用 Azure 网络观察程序对 Azure CLI 2.0 进行故障排除
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 2838bc61-b182-4da8-8533-27db8fdbd177
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/19/2017
-ms.date: 12/25/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8349f017e600ccd3fc39856ddc663686e3123c02
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 0fbe9b11dc37f9471a3451ca3fbd2a5bbba4d6c4
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-20"></a>使用 Azure 网络观察程序 Azure CLI 2.0 对虚拟网络网关和连接进行故障排除
 
@@ -102,6 +102,6 @@ az network watcher troubleshooting start --resource-group resourceGroupName --re
 
 ## <a name="next-steps"></a>后续步骤
 
-如果停止 VPN 连接的设置已更改，请参阅[管理网络安全组](../virtual-network/virtual-network-manage-nsg-arm-portal.md)找到可能有问题的网络安全组和安全规则。
+如果停止 VPN 连接的设置已更改，请参阅[管理网络安全组](../virtual-network/manage-network-security-group.md)找到可能有问题的网络安全组和安全规则。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update link, wording update -->

@@ -1,31 +1,26 @@
 ---
-title: "表设计简介 - Azure SQL 数据仓库 | Azure"
-description: "有关在 Azure SQL 数据仓库中设计表的简介。"
+title: 设计表 - Azure SQL 数据仓库 | Microsoft Docs
+description: 有关在 Azure SQL 数据仓库中设计表的简介。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-origin.date: 01/18/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/14/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 11efdc3981be59dce81afc6488199a6d8abdc436
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: a50c4b2330572f8e535f117338da72b7b73ce2f9
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="introduction-to-designing-tables-in-azure-sql-data-warehouse"></a>有关在 Azure SQL 数据仓库中设计表的简介
+# <a name="designing-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 数据仓库中设计表
 
 了解有关在 Azure SQL 数据仓库中设计表的重要概念。 
 
-## <a name="determining-table-category"></a>确定表类别 
+## <a name="determine-table-category"></a>确定表类别 
 
 [星型架构](https://en.wikipedia.org/wiki/Star_schema)将数据组织成事实数据表和维度表。 某些表在转移到事实数据表或维度表之前已用于集成或暂存数据。 设计某个表时，请确定该表的数据是属于事实数据表、维度表还是集成表。 此项决策可以明确相应的表结构和分布方式。 
 
@@ -47,9 +42,10 @@ CREATE SCHEMA wwi;
 若要在 SQL 数据仓库中显示表的组织方式，可以使用 fact、dim 和 int 作为表名称的前缀。 下表显示了 WideWorldImportersDW 的一些架构和表名称。 它将 SQL Server 中的名称和 SQL 数据仓库中的名称进行了对比。 
 
 | WideWorldImportersDW 表  | 表类型 | SQL Server | SQL 数据仓库 |
-|:-----|:-----|:------|:----|
+|:-----|:-----|:------|:-----|
 | 城市 | 维度 | Dimension.City | wwi.DimCity |
 | 顺序 | Fact | Fact.Order | wwi.FactOrder |
+
 
 ## <a name="table-persistence"></a>表暂留 
 
@@ -144,7 +140,7 @@ SQL 数据仓库支持其他数据库所提供的许多（但不是全部）表�
 - [用户定义的类型](https://docs.microsoft.com/sql/relational-databases/native-client/features/using-user-defined-types)
 
 ## <a name="table-size-queries"></a>表大小查询
-若要确定这 60 个分布区中每个分布区的表所占用的空间和行，一种简单的方法是使用 [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED]。
+若要确定这 60 个分布中每个分布的表所占用的空间和行，一个简单的方法是使用 [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql)。
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
@@ -343,6 +339,4 @@ ORDER BY    distribution_id
 ```
 
 ## <a name="next-steps"></a>后续步骤
-为数据仓库创建表后，接下来可将数据载入该表。  有关加载教程，请参阅[使用 PolyBase 从 Azure Blob 存储加载数据](load-data-from-azure-blob-storage-using-polybase.md)。
-
-<!--Update_Description: update meta properties, wording update-->
+为数据仓库创建表后，接下来可将数据载入该表。  有关加载教程，请参阅[将数据加载到 SQL 数据仓库](load-data-wideworldimportersdw.md)。

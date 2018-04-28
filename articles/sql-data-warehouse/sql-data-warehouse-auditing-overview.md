@@ -1,35 +1,31 @@
 ---
-title: "Azure SQL 数据仓库中的审核 | Azure"
-description: "Azure SQL 数据仓库中的审核入门"
+title: Azure SQL 数据仓库中的审核 | Azure
+description: Azure SQL 数据仓库中的审核入门
 services: sql-data-warehouse
-documentationcenter: 
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 0e6af148-b218-4b43-bb5f-907917d20330
 ms.service: sql-data-warehouse
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.custom: security
+ms.topic: conceptual
+ms.component: manage
 origin.date: 01/16/2018
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: b5cc6ecbdbb483eef319e7844a6cefda1ecaa0fb
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 1f30fd8b90691f1616dfe3c4eb31da2d2d4172f0
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的审核
 
+了解审核，以及如何设置 Azure SQL 数据仓库中的审核。
+
+## <a name="what-is-auditing"></a>什么是审核？
 SQL 数据仓库审核允许用户将数据库中的事件记录到 Azure 存储帐户中的审核日志。 审核可帮助保持遵从法规、了解数据库活动，以及深入了解可以指明业务考量因素或疑似安全违规的偏差和异常。 SQL 数据仓库审核还与 Microsoft Power BI 集成，用于报告和分析数据。
 
 审核工具有助于遵从法规标准，但不能保证遵从法规。 有关支持标准法规的 Azure 计划的详细信息，请参阅 <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Azure 信任中心</a>。
 
-<a name="subheading-1"></a>
-## <a name="auditing-basics"></a>审核基础知识
+## <a name="subheading-1"></a>审核基础知识
 SQL 数据仓库数据库审核可让你：
 
 * **保留**选定事件的审核痕迹。 可以定义要审核的数据库操作的类别。

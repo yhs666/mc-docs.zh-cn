@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序“IP 流验证”功能验证流量 - Azure CLI | Azure"
-description: "本文介绍如何使用 Azure CLI 检查是允许还是拒绝进出虚拟机的流量"
+title: 使用 Azure 网络观察程序“IP 流验证”功能验证流量 - Azure CLI | Azure
+description: 本文介绍如何使用 Azure CLI 检查是允许还是拒绝进出虚拟机的流量
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 92b857ed-c834-4c1b-8ee9-538e7ae7391d
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: f3b366af7f19999ecdcbb4936c2141e4cd931f63
-ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
+ms.openlocfilehash: 96a03e1ab7b0ad224d7400979367987845022b9c
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-to-or-from-a-vm-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>使用 Azure 网络观察程序的组件（即“IP 流验证”功能）检查是允许还是拒绝进出 VM 的流量
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/10/2017
 
 本文使用适用于 Windows、Mac 和 Linux 的跨平台 Azure CLI 1.0。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 此方案假定用户已按照[创建网络观察程序](network-watcher-create.md)中的步骤创建网络观察程序，或者已经有网络观察程序的实例。 此方案还假定要使用的包含有效虚拟机的资源组已存在。
 
@@ -52,7 +52,7 @@ azure vm show -g resourceGroupName -n virtualMachineName
 
 ## <a name="get-the-nics"></a>获取 NIC
 
-需要虚拟机上的 NIC 的 IP 地址，在此示例中我们会在虚拟机上检索 NIC。 如果已知道要在虚拟机上测试的 IP 地址，则可以跳过此步骤。
+需要虚拟机上的 NIC 的 IP 地址。 使用下面的命令检索虚拟机的 NIC。 如果已知道要在虚拟机上测试的 IP 地址，则可以跳过此步骤。
 
 ```
 azure network nic show -g resourceGroupName -n nicName
@@ -60,7 +60,7 @@ azure network nic show -g resourceGroupName -n nicName
 
 ## <a name="run-ip-flow-verify"></a>运行“IP 流验证”
 
-现在，我们已掌握运行 cmdlet 所需的信息，因此将运行 `network watcher ip-flow-verify` cmdlet 以测试流量。 在此示例中，我们将使用第一个 NIC 上的第一个 IP 地址。
+运行 `network watcher ip-flow-verify` cmdlet 测试流量。 在此示例中，将使用第一个 NIC 的第一个 IP 地址：
 
 ```
 azure network watcher ip-flow-verify -g resourceGroupName -n networkWatcherName -t targetResourceId -d directionInboundorOutbound -p protocolTCPorUDP -o localPort -m remotePort -l localIpAddr -r remoteIpAddr
@@ -81,11 +81,11 @@ info:    network watcher ip-flow-verify command OK
 
 ## <a name="next-steps"></a>后续步骤
 
-如果流量被阻止且不应被阻止，请参阅[管理网络安全组](../virtual-network/virtual-network-manage-nsg-arm-portal.md)找到定义的网络安全组和安全规则。
+如果流量被阻止且不应被阻止，请参阅[管理网络安全组](../virtual-network/manage-network-security-group.md)找到定义的网络安全组和安全规则。
 
 访问[使用网络观察程序审核网络安全组 (NSG)](network-watcher-nsg-auditing-powershell.md)，了解如何审核 NSG 设置。
 
 [1]: ./media/network-watcher-check-ip-flow-verify-portal/figure1.png
 [2]: ./media/network-watcher-check-ip-flow-verify-portal/figure2.png
 
-<!--Update_Description: new articles on network watcher check ip flow verify CLI nodejs-->
+<!--Update_Description: update link, wording update -->

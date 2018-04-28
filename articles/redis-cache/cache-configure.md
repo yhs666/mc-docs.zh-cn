@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 origin.date: 08/22/2017
-ms.date: 03/28/2018
+ms.date: 04/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: c9670d75d3da2e833ead952d55deb6a5ddf36822
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 8021eb59aa362cfd76e9842574602fea87ae916f
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>如何配置 Azure Redis 缓存
 本主题介绍可用于 Azure Redis 缓存实例的配置。 本主题还介绍了适用于 Azure Redis 缓存实例的默认 Redis 服务器配置。
@@ -66,6 +66,7 @@ ms.lasthandoff: 04/09/2018
  - [警报规则](#alert-rules)
  - [诊断](#diagnostics)
 - [支持和故障排除设置](#support-amp-troubleshooting-settings)
+ - [资源运行状况](#resource-health)
  - [新建支持请求](#new-support-request)
 
 
@@ -364,7 +365,16 @@ Redis 密钥空间通知是在“高级设置”边栏选项卡上配置的。 �
 
 ![支持 + 疑难解答](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
+- [资源运行状况](#resource-health)
 - [新建支持请求](#new-support-request)
+
+### <a name="resource-health"></a>资源运行状况
+“资源运行状况”会监视资源，并告知资源是否按预期运行。 有关 Azure 资源运行状况服务的详细信息，请参阅 [Azure 资源运行状况概述](../service-health/resource-health-overview.md)。
+
+> [!NOTE]
+> 资源运行状况当前无法报告在虚拟网络中托管的 Azure Redis 缓存实例的运行状况。 有关详细信息，请参阅[在 VNET 中托管缓存时，是否可以使用所有缓存功能？](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
+> 
+> 
 
 ### <a name="new-support-request"></a>新建支持请求
 单击“新建支持请求”可建立缓存的支持请求。

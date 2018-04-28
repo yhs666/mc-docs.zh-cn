@@ -1,11 +1,11 @@
 ---
-title: "适用于 C 语言的 Azure IoT 设备 SDK - 序列化程序 | Azure"
-description: "如何使用 Azure IoT 设备 SDK 中面向 C 语言的序列化程序库创建与 IoT 中心通信的设备应用。"
+title: 适用于 C 语言的 Azure IoT 设备 SDK - 序列化程序 | Azure
+description: 如何使用 Azure IoT 设备 SDK 中面向 C 语言的序列化程序库创建与 IoT 中心通信的设备应用。
 services: iot-hub
-documentationcenter: 
-author: olivierbloch
+documentationcenter: ''
+author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
 ms.service: iot-hub
 ms.devlang: cpp
@@ -13,17 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/06/2016
-ms.date: 12/18/2017
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: abe9492e443a786dcb07a1c5d0d083b7e2f135e1
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 91015a38e1939db512a378dba1058c02f7b4c3f0
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>适用于 C 语言的 Azure IoT 设备 SDK - 有关序列化程序的详细信息
 
 此系列中的[第一篇文章](./iot-hub-device-sdk-c-intro.md)介绍了**适用于 C 语言的 Azure IoT 设备 SDK**。下一篇文章中提供了 [**IoTHubClient**](./iot-hub-device-sdk-c-iothubclient.md) 的更详细说明。 此文章通过提供其余组件（**序列化程序**库）的更详细说明来完成 SDK 的覆盖范围。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 该介绍性文章描述了如何使用**序列化程序**库将事件发送到 IoT 中心和从该中心接收消息。 在此文章中，通过提供如何使用**序列化程序**宏语言对数据建模的更完整说明，扩展了这个讨论。 本文还包含更多有关该库如何序列化消息（以及在某些情况下，如何控制序列化行为）的详细信息。 此外还会说明某些可以修改的参数，这些参数决定所要创建的模型大小。
 

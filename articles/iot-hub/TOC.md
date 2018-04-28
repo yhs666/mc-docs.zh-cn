@@ -41,7 +41,7 @@
 # 操作指南
 ## 计划
 ### [比较 IoT 中心与事件中心](iot-hub-compare-event-hubs.md)
-### [缩放解决方案](iot-hub-scaling.md)
+### [选择适当的层](iot-hub-scaling.md)
 ### [高可用性和灾难恢复](iot-hub-ha-dr.md)
 ### [支持其他协议](iot-hub-protocol-gateway.md)
 ## [开发](iot-hub-how-to.md)
@@ -136,6 +136,7 @@
 #### [使用 Azure 门户](iot-hub-configure-file-upload.md)
 #### [使用 Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
 #### [使用 Azure CLI](iot-hub-configure-file-upload-cli.md)
+#### [操作监视](iot-hub-operations-monitoring.md)
 ### [使用指标](iot-hub-metrics.md)
 ### [批量管理 IoT 设备](iot-hub-bulk-identity-mgmt.md)
 ### [配置 IP 筛选](iot-hub-ip-filtering.md)

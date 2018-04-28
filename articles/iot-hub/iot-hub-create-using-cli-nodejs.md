@@ -3,7 +3,7 @@ title: 使用 Azure CLI (azure.js) 创建 IoT 中心 | Azure
 description: 如何使用跨平台的 Azure CLI (azure.js) 创建 Azure IoT 中心。
 services: iot-hub
 documentationcenter: .net
-author: BeatriceOltean
+author: kgremban
 manager: timlt
 editor: ''
 ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/04/2017
+origin.date: 04/01/2018
 ms.author: v-yiso
-ms.date: 04/09/2018
-ms.openlocfilehash: 5f82fd80705b8db1f1145a8d84403406ed53af7e
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.date: 05/07/2018
+ms.openlocfilehash: 57c91f31a34e618ad1722f119ab7c143f3fe383a
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>使用 Azure CLI 创建 IoT 中心
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -91,8 +91,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **resource-group**。 资源组名称。 格式为 1-64 位长度不区分大小写的字母数字、下划线和连字符。
 * **name**。 要创建的 IoT 中心的名称。 格式为 3-50 位长度不区分大小写的字母数字和连字符。
 * **location**。 要预配 IoT 中心的位置（Azure 区域/数据中心）。
-* **sku-name**。 sku 的名称，以下值之一：[F1, S1, S2, S3]。 有关最新的完整列表，请参阅 IoT 中心的定价页。
-* **units**。 预配的单位数。 范围：F1 [1-1]: S1、S2 [1-200] : S3 [1-10]。 IoT Hub 单位数基于总消息计数和要连接的设备数。
+* **sku-name**。 sku 的名称，以下值之一：[F1, S1, S2, S3]。 有关每个 sku 的详细信息，请参阅 [Azure IoT 中心定价](https://www.azure.cn/pricing/details/iot-hub/)。 当前，仅通过门户提供了基本层。 
+* **units**。 预配的单位数。 有关单位限制的详细信息，请参阅 [Azure IoT 中心定价](https://azure.microsoft.com/pricing/details/iot-hub/)。
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 

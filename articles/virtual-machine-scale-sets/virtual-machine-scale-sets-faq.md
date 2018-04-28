@@ -1,11 +1,11 @@
 ---
-title: "Azure 虚拟机规模集常见问题解答 | Microsoft Docs"
-description: "获取有关虚拟机规模集常见问题的解答。"
+title: Azure 虚拟机规模集常见问题解答 | Microsoft Docs
+description: 获取有关虚拟机规模集常见问题的解答。
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -14,18 +14,57 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/12/2017
-ms.date: 01/30/2018
+ms.date: 04/26/2018
 ms.author: v-junlch
 ms.custom: na
-ms.openlocfilehash: c2c7a52966021f90f2d5ceda3813fd0e23070a0e
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: bcbce2b44c38dd297174efaa4cdd9cbcafc7183a
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虚拟机规模集常见问题解答
 
 获取有关 Azure 虚拟机规模集常见问题的解答。
+
+## <a name="top-frequently-asked-questions-for-scale-sets"></a>有关规模集的热门常见问题解答
+**问：** 可在规模集中包含多少个 VM？
+
+**A.** 一个规模集可以包含 0 到 1,000 个基于平台映像的 VM，或者 0 到 300 个基于自定义映像的 VM。 
+
+**问：** 规模集是否支持数据磁盘？
+
+**A.** 是的。 规模集可以定义适用于集中所有 VM 的附加数据磁盘配置。 有关详细信息，请参阅 [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md)（Azure 规模集和附加的数据磁盘）。 可用于存储数据的其他选项包括：
+
+- Azure 文件（SMB 共享驱动器）
+- OS 驱动器
+- 临时驱动器（本地，不是以 Azure 存储为基础）
+- Azure 数据服务（例如 Azure 表、Azure Blob）
+- 外部数据服务（例如远程数据库）
+
+**问：** 哪些 Azure 区域支持规模集？
+
+**A.** 所有区域都支持规模集。
+
+**问：** 如何使用自定义映像创建规模集？
+
+**A.** 根据自定义映像 VHD 创建托管磁盘，并在规模集模板中引用该磁盘。 [下面是一个示例](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os)。
+
+**问：** 如果我将规模集容量从 20 减少到 15，将删除哪些 VM？
+
+**A.** 将从跨更新域和容错域的规模集中均匀地删除虚拟机，以最大限度地提高可用性。 首先删除 ID 最大的 VM。
+
+**问：** 如果将容量从 15 增加到 18，会发生什么情况？
+
+**A.** 如果将容量增加到 18，则创建 3 个新 VM。 每增加容量一次，VM 实例 ID 就会从以前的最高值（例如 20、21、22）递增。 容错域与和更新域中的 VM 是均衡的。
+
+**问：** 在一个规模集中使用多个扩展时，是否可以强制规定执行序列？
+
+**A.** 不能直接强制执行，但对于 customScript 扩展，脚本可以等待另一个扩展来完成。 在 [Extension Sequencing in Azure virtual machine scale sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)（Azure 虚拟机规模集中的扩展序列）博客文章中可以获取有关扩展序列的其他指导。
+
+**问：** 规模集是否适用于 Azure 可用性集？
+
+**A.** 地区（非区域性）规模集使用*放置组*，其中每个放置组可以配置为充当具有五个容错域和五个更新域的隐式可用性集。 VM 多于 100 个的规模集跨多个放置组。 有关位置组的详细信息，请参阅[使用大型虚拟机规模集](virtual-machine-scale-sets-placement-groups.md)。 由 VM 组成的可用性集可以与由 VM 组成的规模集位于相同的虚拟网络中。 常见的配置是将控件节点 VM（经常需要独特的配置）放在可用性集中，将数据节点放在规模集中。
 
 ## <a name="autoscale"></a>自动缩放
 
@@ -65,6 +104,12 @@ ms.lasthandoff: 02/13/2018
 可以在 VM 上创建自动缩放设置，以使用主机级指标或基于来宾 OS 的指标。
 
 关于受支持的指标列表，请参阅 [Azure Monitor 自动缩放常用指标](/monitoring-and-diagnostics/insights-autoscale-common-metrics)。 
+
+关于虚拟机规模集的完整示例，请参阅[使用虚拟机规模集的 Resource Manager 模板的高级自动缩放配置](/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets)。 
+
+此示例使用主机级 CPU 指标和消息计数指标。
+
+
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>如何对虚拟机规模集设置警报规则？
 
@@ -348,10 +393,6 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 可以在 `$vmss` 中找到 extensionName 值。
    
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-operations-management-suite"></a>与 Operations Management Suite 集成的虚拟机规模集模板是否有任何示例可供参考？
-
-有关与 Operations Management Suite 集成的虚拟机规模集模板示例，请参阅[部署 Azure Service Fabric 群集，并通过使用 Log Analytics 来启用监视](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric)中的第二个示例。
-   
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>扩展似乎在虚拟机规模集上并行运行。 这导致我的自定义脚本扩展失败。 如何进行修复？
 
 若要了解虚拟机规模集中的扩展序列，请参阅 [Extension sequencing in Azure virtual machine scale sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)（Azure 虚拟机规模集中的扩展序列）。
@@ -499,7 +540,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>如何针对同一订阅和同一区域中的虚拟机规模集执行 VIP 交换？
 
-如果有两个包含 Azure 负载均衡器前端的虚拟机规模集，并且它们位于同一订阅和区域中，可以解除分配它们的公共 IP 地址，并将公共 IP 地址分配给其他资源。 有关示例，请参阅 [VIP 交换：Azure Resource Manager 中的蓝绿部署](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/)。 但这确实意味着延迟，因为要在网络一级解除分配/分配资源。 更快的做法是将 Azure 应用程序网关与两个后端池和路由规则结合使用。 也可以使用支持快速切换暂存槽和生产槽的 [Azure 应用服务](/app-service/)托管应用程序。
+如果有两个包含 Azure 负载均衡器前端的虚拟机规模集，并且它们位于同一订阅和区域中，可以解除分配它们的公共 IP 地址，并将公共 IP 地址分配给其他资源。 有关示例，请参阅 [VIP 交换：Azure Resource Manager 中的蓝绿部署](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/)。 但这确实意味着延迟，因为要在网络一级解除分配/分配资源。 更快的做法是将 Azure 应用程序网关与两个后端池和路由规则结合使用。 也可以使用支持快速切换暂存槽和生产槽的 [Azure 应用服务](https://www.azure.cn/home/features/app-service/)托管应用程序。
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>如何为静态专用 IP 地址分配指定专用 IP 地址范围？
 
@@ -548,7 +589,7 @@ IP 地址是从指定的子网中选择的。
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>如何将规模集配置为向每个 VM 分配公共 IP 地址？
 
-若要创建向每个 VM 分配公共 IP 地址的虚拟机规模集，请确保 Microsoft.Compute/virtualMAchineScaleSets 资源的 API 版本为 2017-03-30，并将 _publicipaddressconfiguration JSON_ 数据包添加到规模集的 ipConfigurations 部分中。 示例：
+要创建向每个 VM 分配公共 IP 地址的虚拟机规模集，请确保 Microsoft.Compute/virtualMachineScaleSets 资源的 API 版本为 2017-03-30，并将 publicipaddressconfiguration JSON 数据包添加到规模集的 ipConfigurations 部分中。 示例：
 
 ```json
     "publicipaddressconfiguration": {
@@ -639,15 +680,6 @@ IP 地址是从指定的子网中选择的。
 
 有关详细信息，请参阅[管理虚拟机规模集中的所有 VM](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set)。
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>是否可以将规模集与 Azure OMS (Operations Management Suite) 集成？
-
-可以，可在规模集 VM 上安装 OMS 扩展。 Azure CLI 示例如下：
-```
-az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
-```
-可在 OMS 门户中查找所需的 workspaceId 和 workspaceKey。 在“概述”页面上，单击“设置”磁贴。 单击顶部的“相连的源”选项卡。
-
-注意：如果规模集 _upgradePolicy_ 设置为“手动”，则需要通过对 VM 调用升级将扩展应用到集中的所有 VM。 在 CLI 中，这将为“az vmss update-instances”。
 
 ## <a name="troubleshooting"></a>故障排除
 

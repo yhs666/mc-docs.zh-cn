@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure IoT 中心管理设备 | Azure"
-description: "概述 Azure IoT 中心中的设备管理：企业设备生命周期和设备管理模式，例如重启、恢复出厂设置、固件更新、配置、设备孪生、查询以及作业。"
+title: 使用 Azure IoT 中心管理设备 | Azure
+description: 概述 Azure IoT 中心中的设备管理：企业设备生命周期和设备管理模式，例如重启、恢复出厂设置、固件更新、配置、设备孪生、查询以及作业。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: bzurcher
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a367e715-55f6-4593-bd68-7863cbf0eb81
 ms.service: iot-hub
 ms.devlang: na
@@ -15,15 +15,17 @@ ms.workload: na
 origin.date: 08/24/2017
 ms.date: 12/18/2017
 ms.author: v-yiso
-ms.openlocfilehash: d1a5bb99d839bebac71200bcdffa04306dd9968b
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 5eada9d977266d83ee1bcaf7e06e1118c6964930
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>使用 IoT 中心进行设备管理的概述
-## <a name="introduction"></a>介绍
+
 Azure IoT 中心提供功能和可扩展性模型，使设备和后端开发人员可以构建功能强大的设备管理解决方案。 设备范围扩大，从受约束的传感器和单一用途微控制器变为功能强大的可路由设备组通信的网关。  此外，在不同行业中，IoT 操作员的用例和要求也显著不同。  尽管有此不同，但使用 IoT 中心进行设备管理提供了功能、模式和代码库，以满足不同设备和最终用户的需要。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 创建成功的企业 IoT 解决方案的一个重要部分，是提供操作员如何处理其设备集合的日常管理的策略。 IoT 操作员需要简单且可靠的工具和应用程序，使他们能够重点处理其工作的更具战略意义方面。 本文提供：
 

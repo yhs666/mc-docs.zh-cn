@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/06/2017
-ms.date: 04/09/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 24b8be3d363b93a648b689dcd08a51dacc736769
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: bc7cb4e292e5a5fec3fae16e2c8c01379300a6e9
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>执行组件生命周期、自动垃圾回收和手动删除
 首次调用执行组件的任何方法时即可激活该执行组件。 如果在可配置的一段时间内未使用执行组件，则此执行组件将停用（执行组件运行时对其进行垃圾回收）。 还可以在任何时候手动删除执行组件及其状态。
@@ -113,37 +113,8 @@ public class Program
 
 当执行组件正在执行它的一个方法时，无论执行该方法用了多少时间，始终不会对此执行组件进行垃圾回收。 前面曾提到，执行执行组件接口方法和提醒回调可以防止通过将执行组件的空闲时间重置为 0 进行垃圾回收。 执行计时器回调不会将空闲时间重置为 0。 但是，执行组件的垃圾回收会推迟到计时器回调执行完毕。
 
-## <a name="deleting-actors-and-their-state"></a>删除执行组件及其状态
-对已停用的执行组件进行垃圾回收只会清除该执行组件对象，但是存储在执行组件的状态管理器中的数据不会被删除。 重新激活执行组件后，可通过状态管理器再次使用其数据。 如果执行组件将数据存储在状态管理器，并且已停用且始终不激活该执行组件，那么可能需要清理其数据。
-
-[执行组件服务](service-fabric-reliable-actors-platform.md)提供了一个函数，用于从远程调用方删除执行组件：
-
-```csharp
-ActorId actorToDelete = new ActorId(id);
-
-IActorService myActorServiceProxy = ActorServiceProxy.Create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
-```
-```Java
-ActorId actorToDelete = new ActorId(id);
-
-ActorService myActorServiceProxy = ActorServiceProxy.create(
-    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-
-myActorServiceProxy.deleteActorAsync(actorToDelete);
-```
-
-删除一个执行组件将出现以下结果，具体取决于当前执行组件是否处于活动状态：
-
-* **活动执行组件**
-  * 执行组件从活动的执行组件列表中删除并停用。
-  * 该执行组件的状态会被永久删除。
-* **非活动执行组件**
-  * 该执行组件的状态会被永久删除。
-
-请注意，执行组件无法使用其任何一个执行组件方法对其自身调用删除，因为在执行组件调用时执行删除无法删除该执行组件，在此过程中，运行时已获取该执行组件的锁，用于强制实施单线程访问。
+## <a name="manually-deleting-actors-and-their-state"></a>手动删除执行组件及其状态
+对已停用的执行组件进行垃圾回收只会清除该执行组件对象，但是存储在执行组件的状态管理器中的数据不会被删除。 重新激活执行组件后，可通过状态管理器再次使用其数据。 如果执行组件将数据存储在状态管理器，并且已停用且始终不激活该执行组件，那么可能需要清理其数据。  有关如何删除执行组件的示例，请阅读[删除执行组件及其状态](service-fabric-reliable-actors-delete-actors.md)。
 
 ## <a name="next-steps"></a>后续步骤
 * [执行组件计时器和提醒](service-fabric-reliable-actors-timers-reminders.md)
@@ -157,4 +128,4 @@ myActorServiceProxy.deleteActorAsync(actorToDelete);
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, wording update, update link -->

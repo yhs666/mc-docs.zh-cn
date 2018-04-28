@@ -1,12 +1,12 @@
 ---
-title: "Intel Edison 到云 (C) - 将 Intel Edison 连接到 Azure IoT 中心 | Azure"
-description: "在本教程中了解如何设置 Intel Edison 并将其连接到 Azure IoT 中心，使 Intel Edison 能够将数据发送到 Azure 云平台。"
+title: Intel Edison 到云 (C) - 将 Intel Edison 连接到 Azure IoT 中心 | Azure
+description: 在本教程中了解如何设置 Intel Edison 并将其连接到 Azure IoT 中心，使 Intel Edison 能够将数据发送到 Azure 云平台。
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "azure iot intel edison, intel edison iot 中心, intel edison 发送数据到云, intel edison 到云"
+tags: ''
+keywords: azure iot intel edison, intel edison iot 中心, intel edison 发送数据到云, intel edison 到云
 ms.assetid: 4885fa2c-c2ee-4253-b37f-ccd55f92b006
 ms.service: iot-hub
 ms.devlang: c
@@ -16,11 +16,11 @@ ms.workload: na
 origin.date: 04/17/2017
 ms.author: v-yiso
 ms.date: 08/14/2017
-ms.openlocfilehash: 55ab7bde7cf7287338d2e6178d17db00f1987405
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: e03198e7b87ff61ca629b3c209af68ad738c95c0
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>将 Intel Edison 连接到 Azure IoT 中心 (C)
 
@@ -230,7 +230,7 @@ ms.lasthandoff: 08/04/2017
    > [!NOTE] 
    确保将设备连接字符串复制并粘贴到单引号中。
 
-应看到以下输出，其中显示传感器数据以及发送至 IoT 中心的消息。
+应看到以下输出，其中显示传感器数据以及发至 IoT 中心的消息。
 
 ![输出 - 从 Intel Edison 发送到 IoT 中心的传感器数据](./media/iot-hub-intel-edison-kit-c-get-started/15_message_sent.png)
 

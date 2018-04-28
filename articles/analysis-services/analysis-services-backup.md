@@ -1,25 +1,19 @@
 ---
-title: "Azure Analysis Services 数据库备份和还原 | Azure"
-description: "介绍如何备份和还原 Azure Analysis Services 数据库。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 数据库备份和还原 | Azure
+description: 介绍如何备份和还原 Azure Analysis Services 数据库。
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7cd495d1faadb8fdaf5b37ad1ce2f8325ce3cfe9
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: minewiskan
+ms.openlocfilehash: 32a2c14ece99ba2d3d13d48e204c194048e0ce0a
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="backup-and-restore"></a>备份和还原
 
