@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 origin.date: 02/06/2018
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: 54cb5f7f4b0b48eb7270c6511e61d47c86e5606b
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 04/30/2018
+ms.openlocfilehash: 4bf3df080c66071c7bac2f40d34e15eab8efa825
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="send-and-receive-messages-with-the-azure-service-bus-connector"></a>使用 Azure 服务总线连接器发送和接收消息
 
@@ -66,6 +66,10 @@ ms.lasthandoff: 03/22/2018
 
    ![选择服务总线触发器](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
+   > [!NOTE]
+   > 某些触发器会返回一条或多条消息，例如“服务总线 - 一条或多条消息抵达队列(自动完成)”触发器。
+   > 当这些触发器触发时，它们会返回一定数目的消息，消息数介于 1 和由触发器的**最大消息计数**属性指定的数目之间。
+
    1. 如果还没有到服务总线命名空间的连接，则会提示你立即创建该连接。 为连接提供一个名称，然后选择要使用的服务总线命名空间。
 
       ![创建服务总线连接](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
@@ -80,6 +84,11 @@ ms.lasthandoff: 03/22/2018
 4. 选择要使用的服务总线队列，并针对何时检查队列设置间隔和频率。
 
    ![选择服务总线队列，设置轮询间隔](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
+
+   > [!NOTE]
+   > 所有服务总线触发器都是**长轮询**触发器，这意味着当触发器触发时，触发器将处理所有消息，然后等待 30 秒，以等待更多消息出现在队列或主题订阅中。
+   > 如果在 30 秒内未收到消息，则会跳过触发器运行。 否则，该触发器将继续读取消息，直到队列或主题订阅为空。
+   > 下一次触发器轮询将基于在触发器的属性中指定的重复周期间隔。
 
 5. 保存逻辑应用。 在设计器工具栏上，选择“保存”。
 

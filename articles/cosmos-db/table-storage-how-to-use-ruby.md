@@ -12,28 +12,35 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-origin.date: 02/27/2018
-ms.date: 03/26/2018
+origin.date: 04/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: a46abca128a9e7aa072ecd2e4cda70e3e1ec131d
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 4defd3e8a7a5d779ca02243fddf2f5c430e306c5
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-ruby"></a>如何通过 Ruby 使用 Azure 表存储或 Azure Cosmos DB 表 API
+# <a name="how-to-use-azure-table-storage-with-ruby"></a>如何配合使用 Ruby 和 Azure 表存储
+<!-- Not Available on Azure Cosmos DB Table API -->
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>概述
-本指南介绍了如何使用 Azure 表服务和 Azure Cosmos DB 表 API 执行常见方案。 示例是采用 Ruby 编写的，并使用了[用于 Ruby 的 Azure 存储表客户端库](https://github.com/azure/azure-storage-ruby/tree/master/table)。 涉及的方案包括创建和删除表、在表中插入和查询条目。
+本指南演示如何使用 Azure 表服务执行常见任务。 示例是采用 Ruby 编写的，并使用了[用于 Ruby 的 Azure 存储表客户端库](https://github.com/azure/azure-storage-ruby/tree/master/table)。 涉及的方案包括创建和删除表、在表中插入和查询条目。
+<!-- Not Available on Azure Cosmos DB Table API -->
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## <a name="create-an-azure-service-account"></a>创建 Azure 服务帐户
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+### <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-## <a name="add-access-to-storage-or-azure-cosmos-db"></a>添加对存储或 Azure Cosmos DB 的访问权限
-要使用 Azure 存储或 Azure Cosmos DB，必须下载和使用 Ruby azure 包，其中包括一组便于与表 REST 服务进行通信的库。
+<!-- Not Avaiable on ### Create an Azure Cosmos DB Table API account -->
+
+## <a name="add-access-to-storage"></a>添加对存储的访问权限
+<!-- Not Available on Azure Cosmos DB -->
+若要使用 Azure 存储，必须下载和使用 Ruby Azure 包，其中包括一组便于与表 REST 服务进行通信的库。
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>使用 RubyGems 获取该程序包
 1. 使用命令行接口，例如 **PowerShell** (Windows)、**Terminal** (Mac) 或 **Bash** (Unix)。
@@ -64,13 +71,7 @@ Azure.config.storage_endpoint_suffix = "core.chinacloudapi.cn"
 4. 在显示的“访问密钥”边栏选项卡中，可看到访问密钥 1 和访问密钥 2。 可以使用其中任意一个密钥。
 5. 单击复制图标以将密钥复制到剪贴板。
 
-## <a name="add-an-azure-cosmos-db-connection"></a>添加 Azure Cosmos DB 连接
-要连接到 Azure Cosmos DB，请从 Azure 门户中复制主连接字符串，并使用复制的连接字符串创建 Client 对象：  创建 TableService 对象时，可以传递 Client 对象：
-
-```ruby
-common_client = Azure::Storage::Common::Client.create(storage_account_name:'myaccount', storage_access_key:'mykey', storage_table_host:'mycosmosdb_endpoint')
-table_client = Azure::Storage::Table::TableService.new(client: common_client)
-```
+<!-- Not Available on ## Add an Azure Cosmos DB connection -->
 
 ## <a name="create-a-table"></a>创建表
 使用 Azure::Storage::Table::TableService 对象可以对表和实体进行操作。 要创建表，请使用 create_table() 方法。 以下示例创建表或输出存在的错误。

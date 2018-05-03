@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: article
-origin.date: 11/13/2017
-ms.date: 12/11/2017
+origin.date: 04/10/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 ms.reviewer: douglasl
-ms.openlocfilehash: 69ecac10e74c4cfbbad535f03968cf6aa55d89f0
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 2f73a9415cef74ad99993962d4deba14e62b33b8
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>设置 SQL 数据同步（预览版）
 本教程将介绍如何创建包含 Azure SQL 数据库和 SQL Server 实例的混合同步组，从而设置 Azure SQL 数据同步。 新的同步组进行了全面配置，可根据所设定的计划进行同步。
@@ -39,6 +39,8 @@ ms.lasthandoff: 04/08/2018
     ![Azure SQL 数据库列表](media/sql-database-get-started-sql-data-sync/datasync-preview-sqldbs.png)
 
 3.  在“SQL 数据库”页中，选择要用作数据同步的中心数据库的现有 SQL 数据库。“SQL 数据库”页随即打开。
+
+    中心数据库是同步拓扑的中央终结点，在同步拓扑中，一个同步组具有多个数据库终结点。 同一同步组中的所有其他数据库终结点（即所有成员数据库）将与中心数据库进行同步。
 
 4.  在选定数据库的“SQL 数据库”页中，选择“同步到其他数据库”。 “数据同步”页随即打开。
 
@@ -68,6 +70,8 @@ ms.lasthandoff: 04/08/2018
         ![指定同步频率](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
 
     4.  在“冲突解决”部分中，选择“中心胜出”或“成员胜出”。
+
+        “中心胜出”意味着，当发生冲突时，中心数据库中的数据将覆盖成员数据库中的冲突数据。 “成员胜出”意味着，当发生冲突时，成员数据库中的数据将覆盖中心数据库中的冲突数据。 
 
         ![指定如何解决冲突](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
 
@@ -148,7 +152,7 @@ ms.lasthandoff: 04/08/2018
         ![输入代理密钥和服务器凭据](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
         >   [!NOTE] 
-        >   如果在此时看到防火墙错误消息，必须在 Azure 上创建防火墙规则，以允许来自 SQL Server 计算机的传入流量。 可以在门户中手动创建此规则，但在 SQL Server Management Studio (SSMS) 中创建更容易。 在 SSMS 中，尝试连接到 Azure 上的中心数据库。 输入 \<hub_database_name\>.database.chinacloudapi.cn 作为名称。 按照对话框中的步骤操作，配置 Azure 防火墙规则。 再返回到客户端同步代理应用程序。
+        >   如果在此时看到防火墙错误消息，必须在 Azure 上创建防火墙规则，以允许来自 SQL Server 计算机的传入流量。 可以在门户中手动创建此规则，但在 SQL Server Management Studio (SSMS) 中创建更容易。 在 SSMS 中，尝试连接到 Azure 上的中心数据库。 输入 <中心数据库名称>.database.chinacloudapi.cn 作为名称。 按照对话框中的步骤操作，配置 Azure 防火墙规则。 再返回到客户端同步代理应用程序。
 
     9.  在客户端同步代理应用程序中，单击“注册”，向代理注册 SQL Server 数据库。 此时，“SQL Server 数据库配置”对话框打开。
 
@@ -222,7 +226,16 @@ ms.lasthandoff: 04/08/2018
 
 ### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>如何将架构更改应用到同步组？
 
-必须手动执行架构更改。
+必须手动进行所有架构更改并对其进行传播。
+1. 将架构更改手动复制到中心以及所有同步成员。
+2. 更新同步架构。
+
+**添加新的表和列**。 新的表和列不影响当前的同步。数据同步会忽略新的表和列，除非将它们添加到同步架构。 添加新的数据库对象时，需要遵循的最佳顺序如下：
+1. 将新的表或列添加到中心，然后添加到所有同步成员。
+2. 将新的表或列添加到同步架构。
+3. 开始向新的表和列插入值。
+
+**更改列的数据类型**。 更改现有列的数据类型时，数据同步会继续运行，前提是新值属于在同步架构中定义的原始数据类型。 例如，如果在源数据库中将类型从 **int** 更改为 **bigint**，则数据同步会继续运行，除非插入的值对于 **int** 数据类型来说过大。 若要完成此更改，请将架构更改手动复制到中心以及所有同步成员，然后更新同步架构。
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>如何使用数据同步导出和导入数据库？
 将数据库导出为 `.bacpac` 文件，并导入文件来新建数据库后，必须执行以下两步操作，才能在新数据库中使用数据同步：

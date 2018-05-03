@@ -1,11 +1,11 @@
 ---
-title: "适用于 Azure Cosmos DB 的 C++ 教程 | Azure"
-description: "本 C++ 教程使用 Azure Cosmos DB 认可的 C++ SDK 创建 C++ 数据库和控制台应用程序。 Azure Cosmos DB 是全球规模的数据库服务。"
+title: 适用于 Azure Cosmos DB 的 C++ 教程 | Azure
+description: 本 C++ 教程使用 Azure Cosmos DB 认可的 C++ SDK 创建 C++ 数据库和控制台应用程序。 Azure Cosmos DB 是多区域规模的数据库服务。
 services: cosmos-db
 documentationcenter: cpp
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: b8756b60-8d41-4231-ba4f-6cfcfe3b4bab
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
 origin.date: 12/25/2016
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7115771e738eaa546198d0aea54806542aa6da2e
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: b0cf27c9552137d1752bf5115130eb45ccb66145
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的 C++ 控制台 应用程序教程
 > [!div class="op_single_selector"]
@@ -31,8 +31,6 @@ ms.lasthandoff: 03/02/2018
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 欢迎使用 Azure Cosmos DB SQL API 认可的 C++ SDK 的 C++ 教程！ 完成本教程后，会获得一个可以创建并查询 Azure Cosmos DB 资源（包括 C++ 数据库）的控制台应用程序。
 
@@ -53,7 +51,7 @@ ms.lasthandoff: 03/02/2018
 现在，让我们开始吧！
 
 ## <a name="prerequisites-for-the-c-tutorial"></a>C++ 教程的先决条件
-请确保具有以下内容：
+请确保具有以下资源：
 
 * 有效的 Azure 帐户。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
 

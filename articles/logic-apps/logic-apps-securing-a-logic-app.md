@@ -1,11 +1,11 @@
 ---
-title: "安全访问 Azure 逻辑应用"
-description: "添加安全机制来保护对 Azure 逻辑应用中工作流使用的触发器、输入和输出、操作参数以及服务的访问。"
+title: 安全访问 Azure 逻辑应用
+description: 添加安全机制来保护对 Azure 逻辑应用中工作流使用的触发器、输入和输出、操作参数以及服务的访问。
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 origin.date: 11/22/2016
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 18738b36b36576749c530bcc775b291448dcea9c
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 04/30/2018
+ms.openlocfilehash: 675d2e87f46eda76bde95dd5783af995a2eb4d4a
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="secure-access-to-your-logic-apps"></a>安全访问逻辑应用
 
@@ -78,7 +78,7 @@ POST
 可在逻辑应用设置中配置此项设置：
 
 1. 在 Azure 门户中，打开要添加 IP 地址限制的逻辑应用
-1. 单击“设置”下面的“访问控制配置”菜单项
+1. 单击“设置”下的“工作流设置”菜单项
 1. 指定触发器接受的 IP 地址范围列表
 
 有效的 IP 范围采用 `192.168.1.1/255` 格式。 如果希望逻辑应用只作为嵌套逻辑应用触发，请选择“仅限其他逻辑应用”选项。 此选项将一个空数组写入资源，意味着只有来自服务本身（父逻辑应用）的调用才能成功触发。

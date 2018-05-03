@@ -14,13 +14,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 12/04/2017
+ms.date: 04/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: cc81d017688a444348e2348eba9e8d17c22afb48
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: c3806780dbe704890f010f74f4e427840782e4b8
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure Web 应用配置及管理常见问题解答
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/24/2017
 2. 在“应用设置”下，添加此设置：
     * 键 = WEBSITE_TIME_ZONE
     * 值 = *所需时区*
-3. 选择“保存”。
+3. 选择“其他安全性验证” 。
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>为什么连续 Web 作业有时会失败？
 
@@ -128,7 +128,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ### <a name="resolution"></a>解决方法
 
-我们正在努力更新混合连接管理器以修复此问题。 有关解决方法，请参阅[与 SQL Server 的混合连接错误：System.OverflowException: 算术运算导致溢出](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/)。
+该异常是由于混合连接管理器存在问题而导致，该问题现已修复。 请务必[更新混合连接管理器](https://go.microsoft.com/fwlink/?LinkID=841308)以解决此问题。
 
 ## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>如何添加或编辑 URL 重写规则？
 
@@ -162,7 +162,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 3. 确认已选中“网络”选项卡，然后选中绿色“播放”按钮。
 4. 执行可重现问题的步骤。
 5. 选择红色“停止”按钮。
-6. 选择“保存”按钮（磁盘图标），保存 HAR 文件（在 Internet Explorer 和 Microsoft Edge 中）*或者*右键单击 HAR 文件，然后选择“内容另存为 HAR”（在 Chrome 中）。
+6. 选择“保存”按钮（磁盘图标），保存 HAR 文件（在 Internet Explorer 和 Edge 中）*或者*右键单击 HAR 文件，然后选择“内容另存为 HAR”（在 Chrome 中）。
 
 ### <a name="f12-console-output"></a>F12 控制台输出
 
@@ -204,7 +204,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>如何对应用服务应用执行渗透测试？
 
-若要执行渗透测试，请[提交请求](https://security-forms.azure.com/penetration-testing/terms)。
+若要执行渗透测试，请[提交请求](https://portal.msrc.microsoft.com/en-us/engage/pentest)。
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>如何为使用流量管理器的应用服务 Web 应用配置自定义域名？
 
@@ -245,9 +245,9 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>为什么自动缩放不按预期方式工作？
 
-如果 Azure 自动缩放未按预期方式缩放 web 应用，可能会陷入一种困境，在这种情况下，建议主动选择不进行缩放以避免由“不稳定”引起的无限循环。 这种情况通常是因扩展阈值和缩小阈值之间的差值不足所致。
+如果 Azure 自动缩放未按预期方式缩放 web 应用，可能会陷入一种困境，在这种情况下，建议主动选择不进行缩放以避免由“不稳定”引起的无限循环。 当扩大与缩小阈值之间没有足够空间时，通常会发生这种情况。 若要了解如何避免“波动”以及如何了解其他自动缩放最佳做法，请参阅[自动缩放最佳做法](../monitoring-and-diagnostics/insights-autoscale-best-practices.md#autoscale-best-practices)。
 
-## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>为什么自动缩放有时仅进行部分缩放？
+## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>为何自动缩放有时只部分缩放？
 
 当指标超过预配置的限值时，将触发自动缩放。 有时可能会发现，与预期相比，仅填充了部分容量。 当所需的实例数无法实现时，则可能会发生这种情况。 在这种情况下，自动缩放使用可用的实例数进行部分填充。 然后，自动缩放运行重新平衡逻辑，以获取更多容量。 它会分配剩余实例。 请注意，这可能需要几分钟的时间。
 
@@ -265,6 +265,8 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 < /system.webServer>
 ```
 
-还可以指定要压缩的特定动态和静态 MIME 类型。 有关详细信息，请参阅[简单 Azure 网站上的 httpCompression 设置](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview)，查看我们对一个论坛问题的回复。
+还可以指定要压缩的特定动态和静态 MIME 类型。 有关详细信息，请参阅我们在[简单 Azure 网站上的 httpCompression 设置](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview)中对论坛问题的回复。
 
-<!--Update_Description: update meta data-->
+## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>如何从本地环境迁移到应用服务？
+
+若要将站点从 Windows Web 服务器迁移到应用服务，可以使用 Azure 应用服务迁移助手。 该迁移工具会根据需要在 Azure 中创建 Web 应用和数据库，然后发布内容。 有关详细信息，请参阅 [Azure App Service 迁移助手](https://www.migratetoazure.net/)。

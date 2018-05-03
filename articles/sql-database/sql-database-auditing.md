@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-origin.date: 06/07/2017
-ms.date: 2/28/2018
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 82d3affbcdad594fb5bd38a7555028cd2721893b
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 1ea5a0937fe66be3dd2aca50c30e19dce9df93c9
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 数据库审核入门
 Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储帐户中的审核日志。 审核还可：
@@ -119,7 +119,7 @@ Blob 审核日志以 blob 文件集合的形式保存在名为 **sqldbauditlogs*
 
     4. 合并的文件会在 SSMS 中打开，可在其中进行查看和分析，以及将其作为 XEL 或 CSV 文件导出或导出到表中。
 
-* 使用创建的[同步应用程序](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)。 该应用程序在 Azure 中运行，并利用 Operations Management Suite (OMS) Log Analytics 公共 API 将 SQL 审核日志推送到 OMS 中。 同步应用程序通过 OMS Log Analytics 仪表板将 SQL 审核日志推送到 OMS Log Analytics 中以供使用。
+* 使用创建的[同步应用程序](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)。 该应用程序在 Azure 中运行，并利用 Log Analytics 公共 API 将 SQL 审核日志推送到 Log Analytics 中。 同步应用程序通过 Log Analytics 仪表板将 SQL 审核日志推送到 Log Analytics 中以供使用。
 
 * 使用 Power BI。 可在 Power BI 中查看和分析审核日志数据。 详细了解 [Power BI 及如何访问可下载的模板](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/)。
 
@@ -165,6 +165,17 @@ Blob 审核日志以 blob 文件集合的形式保存在名为 **sqldbauditlogs*
     ![导航窗格][6]
 3. 返回“审核配置”边栏选项卡，将“存储访问密钥”从“辅助”切换为“主要”，然后单击“确定”。 然后单击“审核配置”边栏选项卡顶部的“保存”。
 4. 返回“存储配置”边栏选项卡并重新生成辅助访问密钥（为下一个密钥刷新周期做好准备）。
+
+## <a name="additional-information"></a>其他信息
+
+* 有关日志格式、存储文件夹的层次结构和命名约定的详细信息，请参阅 [Blob 审核日志格式参考](https://go.microsoft.com/fwlink/?linkid=829599)。
+
+   > [!IMPORTANT]
+   > Azure SQL 数据库审核在审核记录中存储字符字段的 4000 个字符的数据。 当可审核操作返回的**语句**或 **data_sensitivity_information** 值包含超过 4000 个的字符时，超出前 4000 个字符的任何数据将**被截去不进行审核**。
+
+* 审核日志会写入 Azure 订阅的 Azure Blob 存储中的追加 Blob。
+   * 追加 Blob 目前不支持高级存储。
+   * 目前不支持 VNet 中的存储。
 
 ## <a name="manage-sql-database-auditing-using-azure-powershell"></a>使用 Azure PowerShell 管理 SQL 数据库审核
 

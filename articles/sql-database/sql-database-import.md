@@ -6,15 +6,15 @@ author: yunan2016
 manager: digimobile
 ms.service: sql-database
 ms.custom: load & move data
-origin.date: 01/29/2018
+origin.date: 04/10/2018
 ms.date: 02/28/2018
 ms.author: v-nany
 ms.topic: article
-ms.openlocfilehash: c48da551e0819801b2fc259e709db038d4343a06
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: c007de6cb3fa45aaa6086606799230b18d15940d
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>将 BACPAC 文件导入到新的 Azure SQL 数据库
 
@@ -32,6 +32,9 @@ ms.lasthandoff: 04/08/2018
    ![数据库导入](./media/sql-database-import/import.png)
 
 若要监视导入操作的进度，请打开包含待导入数据库的逻辑服务器的相应页面。 向下滚动到“操作”，并单击“导入/导出”历史记录。
+
+> [!NOTE]
+> [Azure SQL 数据库托管实例](sql-database-managed-instance.md)支持使用本文中的其他方法从 BACPAC 文件导入，但目前不支持使用 Azure 门户迁移。
 
 ### <a name="monitor-the-progress-of-an-import-operation"></a>监视导入操作的进度
 
@@ -99,6 +102,13 @@ $importStatus
 
 > [!TIP]
 有关另一个脚本示例，请参阅[从 BACPAC 文件导入数据库](scripts/sql-database-import-from-bacpac-powershell.md)。
+
+## <a name="import-using-other-methods"></a>使用其他方法导入
+
+还可以使用以下向导：
+
+- [SQL Server Management Studio 中的导入数据层应用程序向导](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database#using-the-import-data-tier-application-wizard)。
+- [SQL Server 导入和导出向导](https://docs.microsoft.com/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard)。
 
 ## <a name="next-steps"></a>后续步骤
 * 若要了解如何连接到导入的 SQL 数据库并对其进行查询，请参阅[使用 SQL Server Management Studio 连接到 SQL 数据库并执行示例 T-SQL 查询](sql-database-connect-query-ssms.md)。

@@ -1,37 +1,24 @@
 ---
-title: "从 Azure blob 加载到 Azure 数据仓库 | Azure"
-description: "了解如何使用 PolyBase 将数据从 Azure Blob 存储载入 SQL 数据仓库。 将公共数据中的一些表载入 Contoso 零售数据仓库架构。"
+title: 从 Azure blob 加载到 Azure 数据仓库 | Azure
+description: 了解如何使用 PolyBase 将数据从 Azure Blob 存储载入 SQL 数据仓库。 将公共数据中的一些表载入 Contoso 零售数据仓库架构。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: faca0fe7-62e7-4e1f-a86f-032b4ffcb06e
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
+ms.topic: conceptual
+ms.component: implement
 origin.date: 10/31/2016
 ms.date: 12/11/2017
 ms.author: v-yeche
-ms.openlocfilehash: 7df420ff72e5e00901b4853a273b8ac2a3faa9c2
-ms.sourcegitcommit: b2ece7a9542b90975f154d29b1127c10a3cdb22d
+ms.openlocfilehash: 43be4e7d04d8daeaa6953b8af5270922cca21ba3
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a>将数据从 Azure Blob 存储加载到 SQL 数据仓库 (PolyBase)
-> [!div class="op_single_selector"]
-> * [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-> 
-> 
-<!-- Not Available [Data Factory](/documentation/articles/sql-data-warehouse-load-from-azure-blob-storage-with-data-factory/) -->
+# <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>将 Contoso 零售数据加载到 Azure SQL 数据仓库
 
-使用 PolyBase 和 T-SQL 命令将数据从 Azure Blob 存储加载到 Azure SQL 数据仓库。 
-
-为简单起见，本教程会将两个表从公共 Azure 存储 Blob 加载到 Contoso 零售数据仓库架构。 若要加载完整的数据集，请运行 Microsoft SQL Server 示例存储库中的 [Load the full Contoso Retail Data Warehouse][Load the full Contoso Retail Data Warehouse] （加载完整的 Contoso 零售数据仓库）示例。
+使用 PolyBase 和 T-SQL 命令可将两张表从 Contoso 零售数据加载到 Azure SQL 数据仓库。 若要加载完整的数据集，请运行 Microsoft SQL Server 示例存储库中的 [Load the full Contoso Retail Data Warehouse](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md)（加载完整的 Contoso 零售数据仓库）示例。
 
 在本教程中，你会：
 
@@ -40,8 +27,7 @@ ms.lasthandoff: 02/27/2018
 3. 完成加载后执行优化。
 
 ## <a name="before-you-begin"></a>准备阶段
-若要运行本教程，需要一个已包含 SQL 数据仓库数据库的 Azure 帐户。 
-<!-- Not Avaiable on If you don't already have this, see [Create a SQL Data Warehouse][Create a SQL Data Warehouse] -->
+若要运行本教程，需要一个已包含 SQL 数据仓库数据库的 Azure 帐户。 如果没有此帐户，请参阅[创建 SQL 数据仓库][创建 SQL 数据仓库]。
 
 ## <a name="1-configure-the-data-source"></a>1.配置数据源
 PolyBase 使用 T-SQL 外部对象来定义外部数据的位置和属性。 外部对象定义存储在 SQL 数据仓库中。 数据本身存储在外部。

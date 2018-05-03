@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager 模板的结构和语法 | Azure
-description: 使用声明性 JSON 语法描述 Azure Resource Manager 模板的结构和属性。
+title: Azure 资源管理器模板资源 | Azure
+description: 介绍了使用声明性 JSON 语法的 Azure 资源管理器模板的 resources 节。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/13/2017
-ms.date: 03/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: f2f02be9e1dfefd326f47d63ee59c703b490e6e5
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 0cdeccb1b34fb15aeaf4fc4e6b60c83b0ad109e6
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure 资源管理器模板的 Resources 节
 
@@ -43,9 +43,9 @@ ms.lasthandoff: 03/28/2018
       "comments": "<your-reference-notes>",
       "copy": {
           "name": "<name-of-copy-loop>",
-          "count": "<number-of-iterations>",
+          "count": <number-of-iterations>,
           "mode": "<serial-or-parallel>",
-          "batchSize": "<number-to-deploy-serially>"
+          "batchSize": <number-to-deploy-serially>
       },
       "dependsOn": [
           "<array-of-related-resource-names>"
@@ -59,6 +59,21 @@ ms.lasthandoff: 03/28/2018
                   "input": {}
               }
           ]
+      },
+      "sku": {
+          "name": "<sku-name>",
+          "tier": "<sku-tier>",
+          "size": "<sku-size>",
+          "family": "<sku-family>",
+          "capacity": <sku-capacity>
+      },
+      "kind": "<type-of-resource>",
+      "plan": {
+          "name": "<plan-name>",
+          "promotionCode": "<plan-promotion-code>",
+          "publisher": "<plan-publisher>",
+          "product": "<plan-product>",
+          "version": "<plan-version>"
       },
       "resources": [
           "<array-of-child-resources>"
@@ -79,11 +94,14 @@ ms.lasthandoff: 03/28/2018
 | 复制 |否 |如果需要多个实例，则为要创建的资源数。 默认模式为并行。 如果你不希望同时部署所有资源，请指定串行模式。 有关详细信息，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。 |
 | dependsOn |否 |部署此资源之前必须部署的资源。 Resource Manager 评估资源之间的依赖关系，并根据正确顺序进行部署。 如果资源不相互依赖，则可并行部署资源。 该值可以是资源名称或资源唯一标识符的逗号分隔列表。 在此模板中仅部署列出的资源。 此模板中未定义的资源必须已存在。 避免添加不必要的依赖项，因为这些依赖项可能会降低部署速度并创建循环依赖项。 有关设置依赖项的指导，请参阅[在 Azure Resource Manager 模板中定义依赖项](resource-group-define-dependencies.md)。 |
 | properties |否 |特定于资源的配置设置。 properties 的值与创建资源时，在 REST API 操作（PUT 方法）的请求正文中提供的值相同。 还可以指定 copy 数组来创建属性的多个实例。 |
+| sku | 否 | 某些资源接受定义了要部署的 SKU 的值。 例如，可以为存储帐户指定冗余类型。 |
+| kind | 否 | 某些资源接受定义了你部署的资源类型的值。 例如，可以指定要创建的 Cosmos DB 的类型。 |
+| 计划 | 否 | 某些资源接受定义了要部署的计划的值。 例如，可以为虚拟机指定 Marketplace 映像。 | 
 | 资源 |否 |依赖于所定义的资源的子资源。 只能提供父资源的架构允许的资源类型。 子资源的完全限定类型包含父资源类型，例如 **Microsoft.Web/sites/extensions**。 不隐式表示对父资源的依赖。 必须显式定义该依赖关系。 |
 
 ## <a name="resource-specific-values"></a>特定于资源的值
 
-每个资源类型的 **apiVersion**、**类型**和**属性**是不同的。 若要确定这些属性的值，请参阅[模板参考](https://docs.microsoft.com/en-us/azure/templates/)。
+每种资源类型的 **apiVersion**、**type** 和 **properties** 均不同。 **sku**、**kind** 和 **plan** 元素可用于某些资源类型，但非全部。 若要确定这些属性的值，请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/)。
 
 ## <a name="resource-names"></a>资源名称
 通常，会在 Resource Manager 中使用三种类型的资源名称：

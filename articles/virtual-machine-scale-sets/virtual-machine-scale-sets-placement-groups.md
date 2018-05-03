@@ -1,11 +1,11 @@
 ---
-title: "使用大型 Azure 虚拟机规模集 | Microsoft 文档"
-description: "使用大型 Azure 虚拟机规模集需要了解的事项"
+title: 使用大型 Azure 虚拟机规模集 | Microsoft 文档
+description: 使用大型 Azure 虚拟机规模集需要了解的事项
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 origin.date: 11/09/2017
 ms.date: 01/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: 90c3a61fcf40f965456e5a1d147126b5497af9d8
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: f6309b3deb5c0fc277d7a65a6aa8e8330ba2fb8e
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>使用大型的虚拟机规模集
 用户现在可以创建容量高达 1,000 台 VM 的 Azure [虚拟机规模集](/virtual-machine-scale-sets/)。 在本文档中， _大型虚拟机规模集_ 定义为能够扩展到超过 100 个 VM 的规模集。 此功能通过规模集属性 (_singlePlacementGroup=False_) 设置。 
@@ -54,7 +54,7 @@ _大型_规模集之所以特别，不是因为 VM 数，而是因为其包含�
 
 ```bash
 az group create -l chinanorth -n biginfra
-az vmss create -g biginfra -n bigvmss --image ubuntults --instance-count 1000
+az vmss create -g biginfra -n bigvmss --image ubuntults --instance-count 1000 --vm-sku Standard_DS1
 ```
 _vmss create_ 命令会对某些配置值进行默认设置（如果用户未指定这些值）。 若要查看可以重写的可用选项，请尝试：
 ```bash
@@ -78,7 +78,7 @@ az vmss create --help
       "mode": "Automatic"
     }
 ```
-对于大型规模集模板的完整示例，请参阅 [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json)。
+如需大型规模集模板的完整示例，请参阅 [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json)。
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>转换现有的规模集以跨多个放置组
 若要使现有的虚拟机规模集能够扩展到 100 台以上的 VM，需在规模集模型中将 _singplePlacementGroup_ 属性更改为 _false_。 找到现有的规模集，选择“编辑”，然后更改 _singlePlacementGroup_ 属性。 如果看不到该属性，则可能是在使用旧版 Microsoft.Compute API 查看规模集。

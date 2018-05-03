@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: 02get-started-article
 origin.date: 02/27/2018
-ms.date: 03/22/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: hector.linares
-ms.openlocfilehash: d9a2bc2171b9faa5397f825b75fdeb25c28fa086
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 9e505315d0db02875e02e605fdf0036302763492
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>保护在 Azure Stack 上部署的虚拟机
 
@@ -69,8 +69,8 @@ RTO 和 RPO 属于业务要求。 开展风险评估的目的是定义应用程�
  
 恢复应用程序时，需要将一个或多个 VM 还原到相同的云或新的云。 可以将数据中心的云或公有云作为目标。 将哪个云作为目标完全由你来控制，并且取决于数据隐私和自主性要求。 
  
- - RTO：以秒衡量的停机时间 
- - RPO：最少数据丢失量
+ - RTO：以小时计量的停机时间 
+ - RPO：可变数据丢失（取决于备份频率）
  - 部署拓扑：主动/被动 
 
 #### <a name="planning-your-backup-strategy"></a>规划备份策略
@@ -96,8 +96,8 @@ RTO 和 RPO 属于业务要求。 开展风险评估的目的是定义应用程�
 
 ![复制-手动故障转移](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
 
- - RTO：以分钟计的停机时间 
- - RPO：可变数据丢失量
+ - RTO：以分钟计量的停机时间 
+ - RPO：可变数据丢失（取决于复制频率）
  - 部署拓扑：主动/被动备用
  
 ### <a name="high-availabilityautomatic-failover"></a>高可用性/自动故障转移

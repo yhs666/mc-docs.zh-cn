@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 应用服务 Web 应用中配置 PHP"
-description: "了解如何在 Azure 应用服务中为 Web 应用配置默认 PHP 安装或添加自定义 PHP 安装。"
+title: 在 Azure 应用服务 Web 应用中配置 PHP
+description: 了解如何在 Azure 应用服务中为 Web 应用配置默认 PHP 安装或添加自定义 PHP 安装。
 services: app-service
 documentationcenter: php
-author: rmcmurray
-manager: erikre
-editor: 
+author: cephalin
+manager: cfowler
+editor: ''
 ms.assetid: 95c4072b-8570-496b-9c48-ee21a223fb60
 ms.service: app-service
 ms.workload: web
@@ -13,33 +13,35 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 03/12/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: cef248b0a275ca5ab6ba67638388fc88b4938c9e
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 7d2b012925b06aedf439489b2e99b0779673d77d
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>在 Azure 应用服务 Web 应用中配置 PHP
 ## <a name="introduction"></a>简介
-本指南演示如何执行以下操作：在 [Azure 应用服务](app-service-web-overview.md) 中配置 Web 应用的内置 PHP 运行时，提供自定义 PHP 运行时，并启用扩展。 若要使用应用服务，请注册 [试用版]。 要充分利用本指南，应先在应用服务中创建一个 PHP Web 应用。
+本指南演示如何执行以下操作：在 [Azure 应用服务](app-service-web-overview.md)中配置 Web 应用的内置 PHP 运行时，提供自定义 PHP 运行时，并启用扩展。 若要使用应用服务，请注册 [试用版]。 要充分利用本指南，应先在应用服务中创建一个 PHP Web 应用。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="how-to-change-the-built-in-php-version"></a>如何：更改内置 PHP 版本
 默认情况下，将安装 PHP 5.6 并且在创建应用服务 Web 应用时立即可用。 查看可用发行版、其默认配置以及已启用的扩展的最佳方式是部署一个调用 [phpinfo()] 函数的脚本。
 
-PHP 5.6 和 PHP 7.0 也可用，但它们在默认情况下不启用。 若要更新 PHP 版本，请使用下列方法之一：
+PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要更新 PHP 版本，请使用下列方法之一：
 
 ### <a name="azure-portal"></a>Azure 门户
 1. 在 [Azure 门户](https://portal.azure.cn)中浏览到 Web 应用，然后单击“设置”按钮。
 
     ![Web 应用设置][settings-button]
-2. 在“设置”边栏选项卡中选择“应用程序设置”，并选择新的 PHP 版本。
+    
+1. 在“设置”边栏选项卡中选择“应用程序设置”，并选择新的 PHP 版本。
 
     ![应用程序设置][application-settings]
-3. 单击“Web 应用设置”边栏选项卡顶部的“保存”按钮。
+    
+1. 单击“Web 应用设置”边栏选项卡顶部的“保存”按钮。
 
     ![保存配置设置][save-button]
 
@@ -50,42 +52,39 @@ PHP 5.6 和 PHP 7.0 也可用，但它们在默认情况下不启用。 若要�
     
 2. 设置 Web 应用的 PHP 版本。
 
-        PS C:\> Set-AzureWebsite -PhpVersion {5.5 | 5.6 | 7.0} -Name {app-name}
+        PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}
+    
 3. 现已设置 PHP 版本。 可以确认这些设置：
 
         PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
-### <a name="azure-command-line-interface-linux-mac-windows"></a>Azure 命令行界面（Linux、Mac、Windows）
-若要使用 Azure 命令行界面，必须已在计算机上安装 **Node.js**。
+### <a name="azure-cli-20-linux-mac-windows"></a>Azure CLI 2.0（Linux、Mac、Windows）
+
+若要使用 Azure 命令行接口，必须已在计算机上[安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 1. 打开终端，并登录到帐户。
 
-        azure login -e AzureChinaCloud
-2. 设置 Web 应用的 PHP 版本。
+    az cloud set -n AzureChinaCloud      az login
 
-        azure site set --php-version {5.5 | 5.6 | 7.0} {app-name}
+1. 检查受支持运行时的列表。
 
-3. 现已设置 PHP 版本。 可以确认以下设置：
+        az webapp list-runtimes | grep php
 
-        azure site show {app-name}
+1. 设置 Web 应用的 PHP 版本。
 
-> [!NOTE] 
-> 等效于上述设置的 [Azure CLI 2.0 ](https://github.com/Azure/azure-cli)命令为：
->
->
+        az webapp config set --php-version {5.6 | 7.0 | 7.1 | 7.2} --name {app-name} --resource-group {resource-group-name}
 
-    az login
-    az appservice web config update --php-version {5.5 | 5.6 | 7.0} -g {resource-group-name} -n {app-name}
-    az appservice web config show -g {resource-group-name} -n {app-name}
+1. 现已设置 PHP 版本。 可以确认这些设置：
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+        az webapp show --name {app-name} --resource-group {resource-group-name}
 
 ## <a name="how-to-change-the-built-in-php-configurations"></a>如何：更改内置 PHP 配置
+
 对于任何内置 PHP 运行时，都可以通过执行以下步骤更改任何配置选项。 （有关 php.ini 指令的信息，请参阅 [php.ini 指令的列表]。）
 
 ### <a name="changing-phpiniuser-phpiniperdir-phpiniall-configuration-settings"></a>更改 PHP\_INI\_USER、PHP\_INI\_PERDIR、PHP\_INI\_ALL 配置设置
 1. 将 [.user.ini] 文件添加到根目录。
-2. 使用会在 `php.ini` 文件中使用的语法，将配置设置添加到 `.user.ini` 文件。 例如，如果希望启用 `display_errors` 设置，并将 `upload_max_filesize` 设置设为 10 分钟，则 `.user.ini` 文件应包含以下文本：
+1. 使用会在 `php.ini` 文件中使用的语法，将配置设置添加到 `.user.ini` 文件。 例如，如果希望启用 `display_errors` 设置，并将 `upload_max_filesize` 设置设为 10 分钟，则 `.user.ini` 文件应包含以下文本：
 
         ; Example Settings
         display_errors=On
@@ -93,6 +92,7 @@ PHP 5.6 和 PHP 7.0 也可用，但它们在默认情况下不启用。 若要�
 
         ; OPTIONAL: Turn this on to write errors to d:\home\LogFiles\php_errors.log
         ; log_errors=On
+    
 3. 部署 Web 应用。
 4. 重新启动 Web 应用。 （需要进行重新启动，因为 PHP 读取 `.user.ini` 文件的频率受 `user_ini.cache_ttl` 设置的约束，该设置是一个系统级别设置且默认值为 300 秒（5 分钟）。 重新启动 Web 应用会强制 PHP 读取 `.user.ini` 文件中的新设置。）
 
@@ -106,9 +106,10 @@ PHP 5.6 和 PHP 7.0 也可用，但它们在默认情况下不启用。 若要�
         ; Example Settings
         curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
         wincache.maxfilesize=512
-4. 重新启动 Web 应用以加载更改。
+1. 重启 Web 应用以重载更改。
 
 ## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>如何：在默认 PHP 运行时中启用扩展
+
 如上一部分所述，查看默认 PHP 版本、其默认配置以及已启用的扩展的最佳方式是部署一个调用 [phpinfo()] 的脚本。 若要启用其他扩展，请执行下列步骤：
 
 ### <a name="configure-via-ini-settings"></a>通过 ini 设置进行配置
@@ -121,6 +122,7 @@ PHP 5.6 和 PHP 7.0 也可用，但它们在默认情况下不启用。 若要�
         ; Enable Extensions
         extension=d:\home\site\ext\php_mongo.dll
         zend_extension=d:\home\site\ext\php_xdebug.dll
+    
 6. 重新启动 Web 应用以加载更改。
 
 ### <a name="configure-via-app-setting"></a>通过应用设置进行配置
@@ -130,7 +132,7 @@ PHP 5.6 和 PHP 7.0 也可用，但它们在默认情况下不启用。 若要�
 4. 在 Azure 门户中浏览到 Web 应用，然后单击“设置”按钮。
 
     ![Web 应用设置][settings-button]
-5. 在“设置”边栏选项卡中选择“应用程序设置”，并滚动到“应用设置”部分。
+1. 在“设置”边栏选项卡中选择“应用程序设置”，并滚动到“应用设置”部分。
 6. 在“应用设置”部分中，创建 **PHP_EXTENSIONS** 键。 此键的值将是相对于网站根目录的一个路径：**bin\your-ext-file**。
 
     ![启用应用程序设置中的扩展][php-extensions]
@@ -141,20 +143,22 @@ PHP 5.6 和 PHP 7.0 也可用，但它们在默认情况下不启用。 若要�
 通过使用 **PHP_ZENDEXTENSIONS** 键，还可以支持 Zend 扩展。 若要启用多个扩展，请包括应用设置值的 `.dll` 文件的逗号分隔列表。
 
 ## <a name="how-to-use-a-custom-php-runtime"></a>如何：使用自定义 PHP 运行时
+
 应用服务 Web 应用可以使用提供的 PHP 运行时（而非默认 PHP 运行时）来执行 PHP 脚本。 提供的运行时可由 `php.ini` 文件（也是你提供的）配置。 若要在 Web 应用中使用自定义 PHP 运行时，请执行下列步骤。
 
-1. 获取非线程安全、VC9 或 VC11 兼容版本的 PHP for Windows。 可在此处找到 PHP for Windows 最新版本： [http://windows.php.net/download/]。 较旧发行版位于以下位置中的存档中：[http://windows.php.net/downloads/releases/archives/]。
-2. 修改运行时的 `php.ini` 文件。 请注意，Web 应用将忽略作为任何仅在系统级别使用的指令的配置设置。 （有关仅在系统级别使用的指令的信息，请参阅 [php.ini 指令的列表]）。
-3. （可选）将扩展添加到 PHP 运行时并在 `php.ini` 文件中启用这些扩展。
-4. 将 `bin` 目录添加到根目录，并将包含 PHP 运行时的目录置于该目录中（例如 `bin\php`）。
-5. 部署 Web 应用。
-6. 在 Azure 门户中浏览到 Web 应用，然后单击“设置”按钮。
+1. 获取非线程安全、VC9 或 VC11 兼容版本的 PHP for Windows。 可在此处找到 PHP for Windows 最新版本：[http://windows.php.net/download/]。 可在此处的存档中找到旧版本：[http://windows.php.net/downloads/releases/archives/]。
+1. 修改运行时的 `php.ini` 文件。 Web 应用将忽略作为任何仅在系统级别使用的指令的配置设置。 （有关仅在系统级别使用的指令的信息，请参阅 [php.ini 指令的列表]）。
+1. （可选）将扩展添加到 PHP 运行时并在 `php.ini` 文件中启用这些扩展。
+1. 将 `bin` 目录添加到根目录，并将包含 PHP 运行时的目录置于该目录中（例如 `bin\php`）。
+1. 部署 Web 应用。
+1. 在 Azure 门户中浏览到相应的 Web 应用，并单击“设置”按钮。
 
     ![Web 应用设置][settings-button]
-7. 从“设置”边栏选项卡选择“应用程序设置”并滚动到“处理程序映射”部分。 将 `*.php` 添加到扩展字段，并将路径添加到 `php-cgi.exe` 可执行文件。 如果将 PHP 运行时放在应用程序根目录中的 `bin` 目录下，路径将为 `D:\home\site\wwwroot\bin\php\php-cgi.exe`。
+1. 从“设置”边栏选项卡选择“应用程序设置”并滚动到“处理程序映射”部分。 将 `*.php` 添加到扩展字段，并将路径添加到 `php-cgi.exe` 可执行文件。 如果将 PHP 运行时放在应用程序根目录中的 `bin` 目录下，路径将为 `D:\home\site\wwwroot\bin\php\php-cgi.exe`。
 
     ![指定处理程序映射中的处理程序][handler-mappings]
-8. 单击“Web 应用设置”边栏选项卡顶部的“保存”按钮。
+    
+1. 单击“Web 应用设置”边栏选项卡顶部的“保存”按钮。
 
     ![保存配置设置][save-button]
 
@@ -165,8 +169,7 @@ PHP 5.6 和 PHP 7.0 也可用，但它们在默认情况下不启用。 若要�
 
 > [!NOTE]
 > 可以 [在这里为应用服务中的一流编辑器支持投票](https://feedback.azure.com/forums/169385-web-apps-formerly-websites/suggestions/6477437-first-class-support-for-composer-and-pip)！
-> 
-> 
+>
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，在 PHP Web 应用的边栏选项卡中，单击“工具” > “扩展”。
 
@@ -176,9 +179,9 @@ PHP 5.6 和 PHP 7.0 也可用，但它们在默认情况下不启用。 若要�
     ![添加编辑器扩展，以在 Azure 中启用编辑器自动化](./media/web-sites-php-configure/composer-extension-add.png)
 3. 单击“确定”  接受法律条款。 再次单击“确定”  以添加该扩展。
 
-    “已安装扩展”边栏选项卡现在将显示“编辑器”扩展。  
+    “已安装扩展”边栏选项卡将显示编辑器扩展。
     ![接受法律条款以在 Azure 中启用编辑器自动化](./media/web-sites-php-configure/composer-extension-view.png)
-4. 现在，如上一节所示，执行 `git add`、`git commit` 和 `git push`。 现在会看到编辑器正在安装在 composer.json 中定义的依赖项。
+4. 现在，在本地计算机上的终端窗口中，对 Web 应用执行 `git add`、`git commit` 和 `git push`。 请注意，编辑器正在安装在 composer.json 中定义的依赖项。
 
     ![在 Azure 中使用编辑器自动化的 Git 部署](./media/web-sites-php-configure/composer-extension-success.png)
 

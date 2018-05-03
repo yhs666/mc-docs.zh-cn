@@ -1,6 +1,6 @@
 ---
-title: "创建 Azure 面向 Internet 的负载均衡器 - PowerShell | Azure"
-description: "了解如何使用 PowerShell 在 Resource Manager 中创建面向 Internet 的负载均衡器"
+title: 创建公共负载均衡器 - PowerShell | Azure
+description: 了解如何使用 PowerShell 在资源管理器中创建公共负载均衡器
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
@@ -13,15 +13,16 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 12/25/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6f4505031afa2698401476379b7fa5d50f07e4fd
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 07466eb9ab5a9caae2b9a069386ade38eddfb986
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="get-started"></a>使用 PowerShell 在 Resource Manager 中创建面向 Internet 的负载均衡器
+<a name="get-started"></a>
+# <a name="creating-a-public-load-balancer-in-resource-manager-by-using-powershell"></a>使用 PowerShell 在资源管理器中创建公共负载均衡器
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -29,15 +30,13 @@ ms.lasthandoff: 12/22/2017
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [模板](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
-
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="deploying-the-solution-by-using-azure-powershell"></a>使用 Azure PowerShell 部署解决方案
 
-以下过程介绍如何使用 Azure Resource Manager 和 PowerShell 创建面向 Internet 的负载均衡器。 借助 Azure Resource Manager，可单独创建和配置每个资源，并将其放在一起用于创建负载均衡器。
+以下过程说明如何使用 Azure 资源管理器和 PowerShell 创建公共负载均衡器。 借助 Azure Resource Manager，可单独创建和配置每个资源，并将其放在一起用于创建负载均衡器。
 
 需要创建和配置以下对象才能部署负载均衡器：
 
@@ -88,7 +87,7 @@ ms.lasthandoff: 12/22/2017
     New-AzureRmvirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location 'China North' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. 使用 DNS 名称 **loadbalancernrp.chinanorth.chinacloudapp.cn** 创建要由前端 IP 池使用的名为 **PublicIP** 的 Azure 公共 IP 地址资源。 以下命令使用静态分配类型。
+2. 使用 DNS 名称 **loadbalancernrp.chinanorth.cloudapp.chinacloudapi.cn** 创建由前端 IP 池使用的名为 **PublicIP** 的 Azure 公共 IP 地址资源。 以下命令使用静态分配类型。
 
     ```powershell
     $publicIP = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location 'China North' -AllocationMethod Static -DomainNameLabel loadbalancernrp
@@ -96,7 +95,7 @@ ms.lasthandoff: 12/22/2017
 
     > [!IMPORTANT]
     > 负载均衡器将公共 IP 的域标签用作 FQDN 的前缀。 这与经典部署模型不同，后者使用云服务作为负载均衡器 FQDN。
-    > 在此实例中，FQDN 是 **loadbalancernrp.chinanorth.chinacloudapp.cn**。
+    > 在此实例中，FQDN 是 **loadbalancernrp.chinanorth.cloudapp.chinacloudapi.cn**。
 
 ## <a name="create-a-front-end-ip-pool-and-a-back-end-address-pool"></a>创建前端 IP 池和后端地址池
 

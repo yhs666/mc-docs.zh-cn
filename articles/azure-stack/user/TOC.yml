@@ -27,6 +27,8 @@
   items:
     - name: 使用 Azure Stack 门户
       href: azure-stack-use-portal.md
+    - name: 使用 Azure Stack API
+      href: azure-stack-rest-api-use.md
     - name: 安全性和遵从性
       items:
         - name: 管理 RBAC
@@ -97,12 +99,19 @@
               href: azure-stack-powershell-download.md
             - name: 配置 PowerShell - 用户
               href: azure-stack-powershell-configure-user.md
-            - name: 安装和配置 Azure Stack CLI
-              href: azure-stack-connect-cli.md
             - name: 安装 Visual Studio
               href: azure-stack-install-visual-studio.md
-            - name: 管理 API 版本配置文件
+            - name: 使用 API 版本配置文件
               href: azure-stack-version-profiles.md
+              items:
+                - name: PowerShell
+                  href: azure-stack-version-profiles-powershell.md
+                - name: Azure CLI 2.0
+                  href: azure-stack-version-profiles-azurecli2.md
+                - name: 前往
+                  href: azure-stack-version-profiles-go.md
+                - name: 配置文件支持的资源提供程序 API
+                  href: azure-stack-profiles-azure-resource-manager-versions.md
         - name: 使用策略模块
           href: azure-stack-policy-module.md
         - name: 使用模板

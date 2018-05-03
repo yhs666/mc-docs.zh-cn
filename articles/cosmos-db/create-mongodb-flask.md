@@ -1,35 +1,33 @@
 ---
-title: "Azure Cosmos DB：使用 Python 和 Azure Cosmos DB MongoDB API 构建 Flask Web 应用 | Azure"
-description: "演示可用来连接到 Azure Cosmos DB MongoDB API 并进行查询的 Python Flask 代码示例"
+title: Azure Cosmos DB：使用 Python 和 Azure Cosmos DB MongoDB API 构建 Flask Web 应用 | Azure
+description: 演示可用来连接到 Azure Cosmos DB MongoDB API 并进行查询的 Python Flask 代码示例
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 10/02/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2875136af1e36f95388a178ac9b736737065903b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 941f7e361c1f54e39a50c8c002b1c21212889f46
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB：借助 MongoDB API 构建 Flask 应用
 
-Azure Cosmos DB 是 Azure 的多区域分布式多模型数据库服务。 可快速创建和查询文档、键/值，所有这些都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
 <!-- NOTICE: globally TO multiple-region  -->
 
-
-本快速入门指南使用以下 [Flask 示例](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample)并演示如何借助 [Azure Cosmos DB 模拟器](/local-emulator.md) 而不是 MongoDB 构建简单的待办事项 Flask 应用。
+本快速入门指南使用以下 [Flask 示例](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample)并演示如何借助 [Azure Cosmos DB 模拟器](/local-emulator.md)和 Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 而不是 MongoDB 构建简单的待办事项 Flask 应用。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -41,15 +39,25 @@ Azure Cosmos DB 是 Azure 的多区域分布式多模型数据库服务。 可�
     1. 选择扩展。
     2. 通过在命令面板 `Ctrl+Shift+P` 中键入 `ext install` 来安装扩展。
 
-    本文档中的示例使用 Don Jayamanne 的常用全功能型 Python 扩展。
-<!-- Not Available on [Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) -->
+    本文档中的示例使用 Don Jayamanne 的常用、全功能型 [Python 扩展](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python)。
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
 现在，请从 github 克隆 Flask-MongoDB API 应用、设置连接字符串并运行。 你会看到以编程方式处理数据是多么容易。
 
-1. 打开 git 终端窗口（例如 git bash）并使用 `cd` 切换到工作目录。
-2. 运行下列命令，克隆示例存储库。
+1. 打开命令提示符，新建一个名为“git-samples”的文件夹，然后关闭命令提示符。
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. 打开诸如 git bash 之类的 git 终端窗口，并使用 `cd` 命令更改为要安装示例应用的新文件夹。
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample.git
@@ -63,7 +71,9 @@ Azure Cosmos DB 是 Azure 的多区域分布式多模型数据库服务。 可�
 
 ## <a name="review-the-code"></a>查看代码
 
-快速查看应用中发生的情况。 打开根目录下的 app.py 文件，会发现以下代码行创建 Azure Cosmos DB 连接。 以下代码使用适用于本地 Azure Cosmos DB 模拟器的连接字符串。 密码需要进行拆分（如下所示）以适应在其他方面无法解析的正斜杠。
+此步骤是可选的。 如果有意了解如何使用代码创建数据库资源，可以查看下面的代码段。 否则，可以跳到[运行 Web 应用](#run-the-web-app)。 
+
+以下代码片段全部摘自 app.py 文件，并对本地 Azure Cosmos DB 模拟器使用连接字符串。 密码需要进行拆分（如下所示）以适应在其他方面无法解析的正斜杠。
 
 * 初始化 MongoDB 客户端、检索数据库，并进行身份验证。
 
@@ -133,6 +143,8 @@ Azure Cosmos DB 是 Azure 的多区域分布式多模型数据库服务。 可�
 
 然后需要将 MONGOURL、MONGO_PASSWORD 和 MONGO_USERNAME 添加到应用程序设置中。 可参阅此[教程](/app-service/web-sites-configure#application-settings)了解有关 Azure Web 应用中应用程序设置的详细信息。
 <!-- Redirect /app-service-web/web-sites-configure TO /app-service/web-sites-configure -->
+
+如果不想创建此存储库的分支，也可单击下方的“部署到 Azure”按钮。 然后应转到 Azure，就可使用 Cosmos DB 的帐户信息设置应用程序设置。
 <!-- Not Available on <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank"> -->
 
 > [!NOTE]
@@ -144,10 +156,7 @@ Azure Cosmos DB 是 Azure 的多区域分布式多模型数据库服务。 可�
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不打算继续使用此应用，请删除本快速入门教程在 Azure 门户中创建的所有资源，步骤如下：
-
-1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。
-2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，并单击“删除”。
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -156,4 +165,4 @@ Azure Cosmos DB 是 Azure 的多区域分布式多模型数据库服务。 可�
 > [!div class="nextstepaction"]
 > [将 MongoDB API 的数据导入 Azure Cosmos DB](mongodb-migrate.md)
 
-<!-- Update_Description: new articles on create mongodb flask application -->
+<!-- Update_Description: update meta properties, wording update, update link  -->

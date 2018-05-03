@@ -1,25 +1,25 @@
 ---
-title: "部署使用 MongoDB 的 Node.js 应用程序 | Azure"
-description: "演练如何打包多个来宾可执行文件以部署到 Azure Service Fabric 群集"
+title: 将使用 MongoDB 的 Node.js 应用程序部署到 Azure Service Fabric | Azure
+description: 演练如何打包多个来宾可执行文件以部署到 Azure Service Fabric 群集
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/02/2017
-ms.date: 12/04/2017
+origin.date: 02/23/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5d59e693857ce050c2ee405cbfa938b0b46840a5
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 3edf307365a35be46f74251d46865458569e4c6f
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-multiple-guest-executables"></a>部署多个来宾可执行文件
 本文介绍如何打包多个来宾可执行文件并部署到 Azure Service Fabric。 要生成并部署单个 Service Fabric 包，请参阅如何[将来宾可执行文件部署到 Service Fabric](service-fabric-deploy-existing-app.md)。
@@ -33,10 +33,10 @@ ms.lasthandoff: 12/01/2017
 * [使用 REST 通过命名服务进行通信的两种来宾可执行文件（C# 和 nodejs）示例](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>手动打包多个来宾可执行文件应用程序
-或者可以手动打包来宾可执行文件。 对于手动打包，本文使用 Service Fabric 打包工具，它位于 [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool)。
+或者可以手动打包来宾可执行文件。 对于手动打包，本文将使用位于 [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool) 的 Service Fabric 打包工具。
 
 ### <a name="packaging-the-nodejs-application"></a>打包 Node.js 应用程序
-本文假设 Service Fabric 群集中的节点上未安装 Node.js。 因此，需要在打包之前，先将 Node.exe 添加到节点应用程序的根目录中。 Node.js 应用程序（使用 Express Web 框架和 Jade 模板引擎）的目录结构看起来应该与以下类似：
+本文假设 Service Fabric 群集中的节点上未安装 Node.js。 因此，你需要在打包之前，先将 Node.exe 添加到节点应用程序的根目录中。 Node.js 应用程序（使用 Express Web 框架和 Jade 模板引擎）的目录结构看起来应该与以下类似：
 
 ```
 |-- NodeApplication
@@ -206,8 +206,7 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 
 将应用程序成功发布到本地群集之后，便可以在我们在 Node.js 应用程序的服务清单中输入的端口（例如 http://localhost:3000）上访问 Node.js 应用程序。
 
-在本教程中，学习了如何轻松地将两个现有应用程序打包成一个 Service Fabric 应用程序。 还已了解如何将其部署到 Service Fabric，以便它能够从一些 Service Fabric 功能（例如高可用性和运行状况系统集成）中获益。
-
+在本教程中，你学习了如何轻松地将两个现有应用程序打包成一个 Service Fabric 应用程序。 还已了解如何将其部署到 Service Fabric，以便它能够从一些 Service Fabric 功能（例如高可用性和运行状况系统集成）中获益。
 
 ## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>在 Linux 上使用 Yeoman 将更多来宾可执行文件添加到现有应用程序
 
@@ -220,4 +219,4 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 * [打包和部署来宾可执行文件的示例](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [使用 REST 通过命名服务进行通信的两种来宾可执行文件（C# 和 nodejs）示例](https://github.com/Azure-Samples/service-fabric-containers)
 
-<!--Update_Description: update link -->
+<!--Update_Description: update meta propreties -->

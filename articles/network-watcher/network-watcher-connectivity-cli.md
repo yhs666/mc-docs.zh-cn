@@ -1,77 +1,43 @@
 ---
-title: "通过 Azure 网络观察程序检查连接性 - Azure CLI 2.0 | Azure"
-description: "本页说明了如何使用 Azure CLI 2.0 通过网络观察程序使用连接监视"
+title: 使用 Azure 网络观察程序排查连接问题 - Azure CLI 2.0 | Azure
+description: 了解如何通过 Azure CLI 2.0 使用 Azure 网络观察程序的排查连接问题功能。
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/11/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3fd4deb3e3f8ce0c0edf5389c683935ffa7e1801
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 4f6235ff0d47ea70aa688cce36e143c0d740e1bb
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>使用 Azure CLI 2.0 通过 Azure 网络观察程序检查连接性
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli-20"></a>通过 Azure CLI 2.0 使用 Azure 网络观察程序排查连接问题
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-了解如何使用连接来验证是否可以建立从虚拟机到给定终结点的直接 TCP 连接。
+了解如何使用排查连接问题来验证是否可以建立从虚拟机到给定终结点的直接 TCP 连接。
 
 ## <a name="before-you-begin"></a>准备阶段
 
 本文假定你拥有以下资源：
 
-* 要检查连接性的区域中的网络观察程序实例。
-
-* 用于检查连接性的虚拟机。
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+* 要排查连接问题的区域中的网络观察程序实例。
+* 用以排查连接问题的虚拟机。
 
 > [!IMPORTANT]
-> 连接监视需要虚拟机扩展 `AzureNetworkWatcherExtension`。 有关在 Windows VM 上安装扩展的信息，请访问“适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展”；有关 Linux VM 的信息，请访问“适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展”。
-
-## <a name="register-the-preview-capability"></a>注册预览版功能 
-
-连接监视目前以公共预览版提供，使用此功能之前需要注册。 为此，请运行以下 CLI 示例
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
-```azurecli 
-az feature register --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck
-
-az provider register --namespace Microsoft.Network 
-``` 
-
-若要验证注册是否成功，请运行以下 CLI 命令：
-
-```azurecli
-az feature show --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck 
-```
-
-如果该功能已正确注册，输出应匹配以下内容： 
-
-```json
-{
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowNetworkWatcherConnectivityCheck",
-  "name": "Microsoft.Network/AllowNetworkWatcherConnectivityCheck",
-  "properties": {
-    "state": "Registered"
-  },
-  "type": "Microsoft.Features/providers/features"
-}
-``` 
+> 连接故障排除需要从中进行故障排除的 VM 安装了 `AzureNetworkWatcherExtension` VM 扩展。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json)。 在目标终结点上不需要该扩展。
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>检查与虚拟机的连接
 
@@ -309,6 +275,4 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 访问[查看“IP 流验证”](network-watcher-check-ip-flow-verify-portal.md)，了解是否允许某些流量传入和传出 VM
 
-<!--Update_Description: new articles on network watcher connectivity CLI -->
-<!--Not Available the parent file of includes file of network-watcher-public-preview-notice.md-->
-<!--ms.date:11/13/2017-->
+<!-- Update_Description: update link, wording update -->

@@ -5,32 +5,37 @@ services: cosmos-db
 documentationcenter: nodejs
 author: rockboyfor
 manager: digimobile
-editor: tysonn
 ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 03/06/2018
-ms.date: 03/26/2018
+origin.date: 04/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: f528b51baaa79322bd2209a730746fc3e7b51a09
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 029ad09cb014cf209b419055645137a55aa117e5
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>如何通过 Node.js 使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>概述
-本文演示如何使用 Node.js 应用程序中的 Azure 存储表服务或 Azure Cosmos DB 执行常见方案。
+本文介绍如何使用 Node.js 应用程序中的 Azure 存储表服务或 Azure Cosmos DB 执行常见任务。
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## <a name="create-an-azure-service-account"></a>创建 Azure 服务帐户
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
+
+### <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
+
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+<!-- Not Available on ### Create an Azure Cosmos DB Table API account-->
 
 ## <a name="configure-your-application-to-access-azure-storage"></a>创建用于访问 Azure 存储的应用程序
 若要使用 Azure 存储，需要用于 Node.js 的 Microsoft Azure 存储 SDK，其中包括一组便于与存储 REST 服务进行通信的库。
@@ -62,15 +67,10 @@ var azure = require('azure-storage');
 Azure 模块读取环境变量 AZURE_STORAGE_ACCOUNT 和 AZURE_STORAGE_ACCESS_KEY 或 AZURE_STORAGE_CONNECTION_STRING 以获取连接到 Azure 存储器帐户所需的信息。 如果未设置这些环境变量，则必须在调用 **TableService**时指定帐户信息。 例如，以下代码创建 TableService 对象：
 
 ```nodejs
-var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
+var tableSvc = azure.createTableService('myconnectionstring');
 ```
 
-## <a name="add-an-azure-comsos-db-connection"></a>添加 Azure Cosmos DB 连接
-要添加 Azure Cosmos DB 连接，创建 TableService 对象并指定帐户名称、主键和终结点。 可以从 Cosmos DB 帐户的 Azure 门户中的“设置” > “连接字符串”中复制这些值。 例如：
-
-```nodejs
-var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
-```  
+<!--Not Avaiable on ## Add an Azure Comsos DB connection -->
 
 ## <a name="create-a-table"></a>创建表
 下面的代码创建 **TableService** 对象并使用它来创建一个新表。 
@@ -363,8 +363,6 @@ dc.table.queryEntities(tableName,
 
 如果检查 `continuationToken` 对象，就会发现 `nextPartitionKey`、`nextRowKey` 和 `targetLocation` 等属性可用于循环访问所有结果。
 
-GitHub 上的 [azure-storage-node 存储库](https://github.com/Azure/azure-storage-node/tree/master/examples/samples)中还存在继续样本 (continuationsample.js)。 
-
 ## <a name="work-with-shared-access-signatures"></a>使用共享访问签名
 共享访问签名 (SAS) 是一种安全的方法，用于对表进行细致访问而无需提供存储帐户名或密钥。 通常使用 SAS 来提供对数据的有限访问权限，例如允许移动应用查询记录。
 
@@ -456,7 +454,7 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是免费的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
 <!-- Notice: Remove from Microsoft -->
 * GitHub 上的[用于 Node.js 的 Microsoft Azure 存储 SDK](https://github.com/Azure/azure-storage-node) 存储库。
-* [Node.js 开发人员中心](https://docs.azure.cn/zh-cn/develop/nodejs)
+* [面向 Node.js 开发人员的 Azure](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)
 * [在 Azure 中创建 Node.js Web 应用](../app-service/app-service-web-get-started-nodejs.md)
 * [构建 Node.js 应用程序并将其部署到 Azure 云服务](../cloud-services/cloud-services-nodejs-develop-deploy-app.md)（使用 Windows PowerShell）
 <!--Update_Description: update meta properties, wording update, update link -->

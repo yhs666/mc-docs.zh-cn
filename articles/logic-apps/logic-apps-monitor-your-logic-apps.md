@@ -1,11 +1,11 @@
 ---
-title: "检查状态、设置日志记录并获取警报 - Azure 逻辑应用"
-description: "监视逻辑应用的状态和性能，记录诊断数据并设置警报"
+title: 检查状态、设置日志记录并获取警报 - Azure 逻辑应用
+description: 监视逻辑应用的状态和性能，记录诊断数据并设置警报
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
 ms.workload: integration
@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 origin.date: 07/21/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 889907703792ff5d8ef48ab3878c21fb9557380d
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 04/30/2018
+ms.openlocfilehash: 45b0067c8982f62f66bfd220ebfded7cc57ddd8c
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>针对 Azure 逻辑应用监视状态、设置诊断日志记录，并启用警报
 
@@ -77,9 +77,9 @@ ms.lasthandoff: 03/12/2018
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>为逻辑应用启用诊断日志记录
 
-对于针对运行时详细信息和事件的更丰富调试，可以使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 设置诊断日志记录。 Log Analytics 是 [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 中的一项服务，用于监视云和本地环境，有助于保持其较高的可用性和性能。 
+对于针对运行时详细信息和事件的更丰富调试，可以使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 设置诊断日志记录。 Log Analytics 是 Azure 中的一个服务，用于监视云和本地环境，帮助使其保持较高的可用性和性能。 
 
-在开始之前，需要具有 OMS 工作区。 了解[如何创建 OMS 工作区](../log-analytics/log-analytics-get-started.md).
+在开始之前，需要具有 Log Analytics 工作区。 了解[如何创建 Log Analytics 工作区](../log-analytics/log-analytics-quick-create-workspace.md)。
 
 1. 在 [Azure 门户](https://portal.azure.cn)中，查找并选择“逻辑应用”。 
 
@@ -91,16 +91,16 @@ ms.lasthandoff: 03/12/2018
 
    ![启用诊断日志](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. 现在选择日志记录的 OMS 工作区和事件类别，如下所示：
+4. 现在选择用于日志记录的 Log Analytics 工作区和事件类别，如下所示：
 
    1. 选择“发送到 Log Analytics”。 
    2. 在“Log Analytics”下，选择“配置”。 
-   3. 在“OMS 工作区”下，选择要用于日志记录的 OMS 工作区。
+   3. 在“OMS 工作区”下，选择要用于日志记录的 Log Analytics 工作区。
    4. 在“日志”下，选择“WorkflowRuntime”类别。
    5. 选择指标间隔。
    6. 完成后，选择“保存”。
 
-   ![选择 OMS 工作区和数据进行日志记录](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+   ![选择用于日志记录的 Log Analytics 工作区和数据](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
 现在可以为触发事件、运行事件和操作事件查找事件和其他数据。
 
@@ -114,25 +114,25 @@ ms.lasthandoff: 03/12/2018
 
    ![选择“Log Analytics”](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
-2. 在“Log Analytics”下，查找并选择“OMS 工作区”。 
+2. 在“Log Analytics”下，查找并选择你的 Log Analytics 工作区。 
 
-   ![选择你的 OMS 工作区](media/logic-apps-monitor-your-logic-apps/selectla.png)
+   ![选择你的 Log Analytics 工作区](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
 3. 在“管理”下，选择“OMS 门户”。
 
    ![选择“OMS 门户”](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
 
-4. 在 OMS 主页上，选择“日志搜索”。
+4. 在主页上，选择“日志搜索”。
 
-   ![在 OMS 主页上，选择“日志搜索”](media/logic-apps-monitor-your-logic-apps/logsearch.png)
+   ![在主页上，选择“日志搜索”](media/logic-apps-monitor-your-logic-apps/logsearch.png)
 
    -或-
 
-   ![在 OMS 菜单上，选择“日志搜索”](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
+   ![在菜单上，选择“日志搜索”](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
 
-5. 在搜索框中，指定要查找的字段，然后按下 Enter 键。 开始输入时，OMS 会显示你可以使用的可能的匹配和操作。 
+5. 在搜索框中，指定要查找的字段，然后按下 Enter 键。 开始输入时，会显示可能的匹配和可以使用的操作。 
 
-   例如，要查找发生的前 10 个事件，请输入并选择以下搜索查询：Category=WorkflowRuntime |top 10
+   例如，要查找发生的前 10 个事件，请输入并选择此搜索查询：search Category == "WorkflowRuntime" | limit 10
 
    ![输入搜索字符串](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 

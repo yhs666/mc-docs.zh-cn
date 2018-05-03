@@ -1,31 +1,28 @@
 ---
-title: "Azure Cosmos DB 简介 | Azure"
-description: "了解 Azure Cosmos DB。 此多区域分布式多模型数据库是为了实现低延迟、弹性的可伸缩性和高可用性而构建的。"
+title: Azure Cosmos DB 简介 | Azure
+description: 了解 Azure Cosmos DB。 此多区域分布式多模型数据库是为了实现低延迟、弹性的可伸缩性和高可用性而构建的。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-origin.date: 12/15/2017
-ms.date: 12/25/2017
+origin.date: 04/08/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: cd789b83f58fe424a22695f3bed8833dc0b070e8
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 634d590c16537ff6820b2f2b19936129498a1465
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 <!-- Notice in meta : 全球 to 多个区域 -->
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库。 只需单击一个按钮，即可通过 Azure Cosmos DB 跨任意数量的 Azure 地理区域弹性且独立地缩放吞吐量和存储。 它通过综合[服务级别协议](https://www.azure.cn/support/sla/documentdb/) (SLA) 提供吞吐量、延迟、可用性和一致性保证，这是其他数据库服务无法提供的。
 
@@ -43,18 +40,18 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库。 �
 * **统包式多区域分布**
     * [单击按钮](tutorial-global-distribution-sql-api.md)即可将[数据分配](distribute-data-globally.md)到任意数目的 [Azure 区域](https://www.azure.cn/support/service-dashboard/)。 这样就可以将数据置于用户所在的位置，确保将客户可能会遇到到的延迟降至最低。 
     * 使用 Azure Cosmos DB 的多宿主 API，应用始终能够知道最近的区域在哪里，于是就会将请求发送到最近的数据中心。 所有这些无需更改任何配置即可实现。 只需设置写入区域并根据需要设置尽可能多的读取区域即可。
-    * 有了多宿主 API 功能，在添加和删除 Cosmos DB 数据库的区域时，不需重新部署应用程序即可让其保持高可用性。
+    * 有了多宿主 API 功能，在添加和删除 Azure Cosmos DB 数据库的区域时，不需重新部署应用程序即可让其保持高可用性。
 
 * 多个数据模型和用于访问及查询数据的常用 API
-    * Azure Cosmos DB 本身所基于的数据模型以 Atom 记录序列 (ARS) 为基础，该模型支持多个数据模型，包括但不限于文档、键-值、表以及列系列数据模型。
-<!--Not Available on Graph -->
+    * Azure Cosmos DB 本身所基于的数据模型以 Atom 记录序列 (ARS) 为基础，该模型支持多个数据模型，包括但不限于文档、键-值和列系列数据模型。
+    <!--Not Available on Table and Graph -->
     * 多种语言的 SDK 均支持以下数据模型的 API：
         * [SQL API](sql-api-introduction.md)：使用丰富的 SQL 查询功能的无架构 JSON 数据库引擎。
         * [MongoDB API](mongodb-introduction.md)：一种可大规模缩放的服务型 MongoDB，由 Azure Cosmos DB 平台提供支持。 与现有 MongoDB 库、驱动程序、工具和应用程序兼容。
-        * [表 API](table-introduction.md)：一种键值对型数据库服务，可以在不进行应用更改的情况下，为现有的 Azure 表存储应用程序提供高级功能（例如，自动索引、低延迟保证、多区域分布）。
-<!--Not Available * [Cassandra API](cassandra-introduction.md)-->
-<!--Not Available * [Graph (Gremlin) API](graph-introduction.md)-->
-        * Additional data models coming soon!
+        * 即将推出其他数据模型！
+    <!--Not Available * [Table API](table-introduction.md)-->
+    <!--Not Available * [Cassandra API](cassandra-introduction.md)-->
+        <!--Not Available * [Graph (Gremlin) API](graph-introduction.md)-->
 
 * **在全球范围内按需求灵活且独立地缩放吞吐量和存储**
     * 以[秒](request-units.md)为时间粒度轻松缩放数据库吞吐量，并随时对其进行更改。 
@@ -87,11 +84,11 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库。 �
 
 ## <a name="capability-comparison"></a>功能比较
 
-Azure Cosmos DB 提供关系数据库和非关系数据库的最佳功能。
+Azure Cosmos DB 提供传统关系数据库和非关系数据库的最佳功能。
 
 | 功能 | 关系数据库   | 非关系 (NoSQL) 数据库 |    Azure Cosmos DB |
 | --- | --- | --- | --- |
-| 多区域分布 | 否 | 否 | 是的，可以在 30 多个区域通过多宿主 API 实现统包式分布|
+| 多区域分布 | 否 | 否 | 是的，可以在 30 多个区域通过多宿主 API 实现统包式分发|
 | 横向缩放 | 否 | 是 | 是的，可以独立缩放存储和吞吐量 | 
 | 延迟保证 | 否 | 是 | 是的，99% 的情况下可以确保读取延迟低于 10 毫秒，写入延迟低于 15 毫秒 | 
 | 高可用性 | 否 | 是 | 是的，Azure Cosmos DB 始终可用，实施定义完善的 PACELC 权衡，并提供自动和手动故障转移选项|
@@ -110,5 +107,5 @@ Azure Cosmos DB 提供关系数据库和非关系数据库的最佳功能。
 * [Azure Cosmos DB MongoDB API 入门](create-mongodb-nodejs.md)
 <!--Not Available on * [Get started with Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md) -->
 <!--Not Available on * [Get started with Azure Cosmos DB Graph API](create-graph-dotnet.md) -->
-* [Azure Cosmos DB 表 API 入门](create-table-dotnet.md)
+<!--Not Available on * [Get started with Azure Cosmos DB Table API](create-table-dotnet.md) -->
 <!--Update_Description: update meta properties, update link, wording update-->

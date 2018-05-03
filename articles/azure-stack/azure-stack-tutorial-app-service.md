@@ -3,7 +3,7 @@ title: 将 Web 和 API 应用提供给 Azure Stack 用户使用 | Microsoft Docs
 description: 有关安装应用服务资源提供程序并创建产品/服务，使 Azure Stack 用户能够创建 Web 和 API 应用的教程。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,24 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 07/03/2017
-ms.date: 03/04/2018
+origin.date: 03/22/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: da273aed673cd6b8c488661dd93e472f5f2de9e5
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 5b985522e604beecaac8757fbd9982a252bb6392
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>将 Web 和 API 应用提供给 Azure Stack 用户使用
-
 Azure Stack 云管理员可以创建产品/服务，使用户（租户）能够创建 Azure Functions、Web 和 API 应用程序。 通过向用户提供这些基于云的按需应用程序的访问权限，可以节省用户的时间和资源。 若要设置此功能，需要：
 
 > [!div class="checklist"]
 > * 部署应用服务资源提供程序
-> * 创建产品/服务
+> * 创建产品
 > * 测试产品/服务
 
 ## <a name="deploy-the-app-service-resource-provider"></a>部署应用服务资源提供程序
@@ -40,7 +39,7 @@ Azure Stack 云管理员可以创建产品/服务，使用户（租户）能够�
 4. [安装应用服务资源提供程序](azure-stack-app-service-deploy.md)（需要在数小时之后才能安装完资源提供程序并显示所有辅助角色）。
 5. [验证安装](azure-stack-app-service-deploy.md#validate-the-app-service-on-azure-stack-installation)。
 
-## <a name="create-an-offer"></a>创建产品/服务
+## <a name="create-an-offer"></a>创建产品
 
 例如，可以创建一个产品/服务来让用户创建 DNN Web 内容管理系统。 这需要用到已通过安装 SQL Server 资源提供程序启用的 SQL Server 服务。
 
@@ -87,7 +86,7 @@ Azure Stack 云管理员可以创建产品/服务，使用户（租户）能够�
 
 > [!div class="checklist"]
 > * 部署应用服务资源提供程序
-> * 创建产品/服务
+> * 创建产品
 > * 测试产品/服务
 
 转到下一教程，了解如何执行以下操作：
@@ -95,3 +94,4 @@ Azure Stack 云管理员可以创建产品/服务，使用户（租户）能够�
 > [!div class="nextstepaction"]
 > [将应用部署到 Azure 和 Azure Stack](user/azure-stack-solution-pipeline.md)
 
+<!-- Update_Description: update metedata properties -->

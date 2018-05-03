@@ -8,16 +8,16 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-origin.date: 03/13/2018
-ms.date: 03/22/2018
+origin.date: 04/06/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
 ms.reviewer: anajod
 keywords: ''
-ms.openlocfilehash: d7e13b2f644a6f49b86da3036eb0999fccccfcbe
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: db32f0f56731ec8e1ee0cf0edcbd764474eb9522
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虚拟机规模集
 
@@ -44,7 +44,10 @@ Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 
 
 - **操作系统映像**
 
+   如果尚未将操作系统映像添加到 Azure Stack 应用商店，请参阅[将 Windows Server 2016 VM 映像添加到 Azure Stack 应用商店](azure-stack-add-default-image.md)。
+
    若要支持 Linux，请下载 Ubuntu Server 16.04 并使用带以下参数的 ```Add-AzsVMImage``` 添加它：```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```。
+
 
 ## <a name="add-the-virtual-machine-scale-set"></a>添加虚拟机规模集
 
@@ -71,6 +74,38 @@ Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
 ```
+
+## <a name="update-images-in-a-virtual-machine-scale-set"></a>更新虚拟机规模集中的映像 
+创建虚拟机规模集之后，用户无需重新创建规模集即可更新规模集中的映像。 更新映像的过程取决于以下场景：
+
+1. 虚拟机规模集部署模板为 *version* 指定了 **latest**：  
+
+   如果规模集模板 *imageReference* 节中的 *version* 设置为 **latest**，则对规模集执行的纵向扩展操作将会针对规模集实例使用映像的最新可用版本。 完成纵向扩展后，可以删除旧的虚拟机规模集实例。  （*publisher*、*offer* 和 *sku* 的值保持不变）。 
+
+   下面是指定 *latest* 的示例：  
+
+          "imageReference": {
+             "publisher": "[parameters('osImagePublisher')]",
+             "offer": "[parameters('osImageOffer')]",
+             "sku": "[parameters('osImageSku')]",
+             "version": "latest"
+             }
+
+   必须先下载新映像，然后纵向扩展才能使用新映像：  
+
+   - 当 Marketplace 中的映像版本比规模集中的映像要新时：下载新映像来替换旧映像。 替换映像后，用户可以继续纵向扩展。 
+
+   - 当 Marketplace 中的映像版本与规模集中的映像相同时：删除规模集中使用的映像，然后下载新映像。 在删除原始映像之后、下载新映像之前，无法执行纵向扩展。 
+      
+     需要执行此过程以重新合成利用稀疏文件格式（在版本 1803 中引入）的映像。 
+ 
+
+2. 虚拟机规模集部署模板不会为 *version* 指定 **latest**，而是改为指定版本号：  
+
+     如果下载较新版本的映像（会更改可用版本），则无法纵向扩展规模集。 这是设计使然，因为规模集模板中指定的映像版本必须可用。  
+
+有关详细信息，请参阅[操作系统磁盘和映像](user/azure-stack-compute-overview.md#operating-system-disks-and-images)。  
+
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>删除虚拟机规模集
 

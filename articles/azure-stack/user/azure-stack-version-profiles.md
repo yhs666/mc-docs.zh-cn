@@ -1,120 +1,85 @@
 ---
 title: 管理 Azure Stack 中的 API 版本配置文件 | Microsoft Docs
-description: 了解 Azure Stack 中的 API 版本配置文件
+description: 了解 Azure Stack 中的 API 版本配置文件。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 6B749785-DCF5-4AD8-B808-982E7C6BBA0E
+ms.assetid: 8A336052-8520-41D2-AF6F-0CCE23F727B4
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/21/2017
-ms.date: 03/09/2018
+origin.date: 03/27/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: f80f84d2904dc76d8da8b90bb7de37e9ef2a72a4
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.reviewer: sijuman
+ms.openlocfilehash: 5fd0acee91166472fb1bb90b1c4e080961597a16
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>管理 Azure Stack 中的 API 版本配置文件
 
-Azure 应用服务版本配置文件的 API 功能提供一种管理 Azure 与 Azure Stack 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本 AzureRM PowerShell 模块。 每个云平台都有一组支持的 API 版本配置文件。 例如，Azure Stack 支持特定日期的配置文件版本（例如 **2017-03-09-profile**），而 Azure 则支持*最新的* API 版本配置文件。 安装配置文件时，会安装与指定的配置文件对应的 AzureRM PowerShell 模块。
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-## <a name="install-the-powershell-module-required-to-use-api-version-profiles"></a>安装使用 API 版本配置文件所需的 PowerShell 模块
+API 配置文件指定 Azure 资源提供程序和 Azure REST 终结点的 API 版本。 可以使用 API 配置文件以不同的语言创建自定义客户端。 每个客户端使用 API 配置文件来与 Azure Stack 的适当资源提供程序和 API 版本通信。 
 
-可通过 PowerShell 库获得的 **AzureRM.Bootstrapper** 模块会提供使用 API 版本配置文件所需的 PowerShell cmdlet。 使用以下 cmdlet 安装 **AzureRM.Bootstrapper** 模块：
+可以创建一个应用来与 Azure 资源提供程序配合运行，而无需明确区分与 Azure Stack 兼容的每个资源提供程序 API 的版本。 只需将应用程序对应到配置文件，SDK 就能还原到适当的 API 版本。
 
-```PowerShell
-Install-Module -Name AzureRm.BootStrapper
-```
-**AzureRM.Bootstrapper** 模块目前为预览版，因此详细信息和功能可能会有所更改。 若要从 PowerShell 库下载并安装此模块的最新版本，请运行以下 cmdlet：
 
-```PowerShell
-Update-Module -Name "AzureRm.BootStrapper"
-```
+本主题帮助读者了解：
+ - Azure Stack 的 API 配置文件。
+ - 如何使用 API 配置文件来开发解决方案。
+ - 在何处找到代码特定的指导。
 
-## <a name="install-a-profile"></a>安装配置文件
+## <a name="summary-of-api-profiles"></a>API 配置文件的摘要
 
-使用 **Install-AzureRmProfile** cmdlet 搭配 **2017-03-09-profile** API 版本配置文件，以安装 Azure Stack 所需的 AzureRM 模块。 
+- API 配置文件用于表示一组 Azure 资源提供程序及其 API 版本。
+- API 配置文件是为了让开发人员创建跨多个 Azure 云的模板而创建的。 API 配置文件旨在满足接口兼容且稳定的需求。
+- 配置文件每年发布四次。
+- 配置文件的三项命名约定如下：
+    - **latest**  
+        Azure 中发布的最新 API 版本。
+    - **yyyy-mm-dd-hybrid**  
+    每两年发布一次，此版本注重于跨多个云的一致性和稳定性。
+    - **yyyy-mm-dd-profile**  
+    介于最佳稳定性和最新功能之间。
 
->[!NOTE]
->Azure Stack 云管理员模块并不会随此 API 版本配置文件一起安装。 应该如[安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md) 一文的步骤 3 中所指定，单独安装管理员模块。
+## <a name="azure-resource-manager-api-profiles"></a>Azure 资源管理器 API 配置文件
 
-```PowerShell 
-Install-AzureRMProfile -Profile 2017-03-09-profile
-```
-## <a name="install-and-import-modules-in-a-profile"></a>安装并导入配置文件中的模块
+Azure Stack 不使用全球 Azure 中提供的最新版 API。 在创建自己的解决方案时，需要在 Azure 中找到与 Azure Stack 兼容的每个资源提供程序的 API 版本。
 
-使用 **Use-AzureRmProfile** cmdlet 安装并导入与 API 版本配置文件关联的模块。 在一个 PowerShell 会话中只能导入一个 API 版本配置文件。 若要导入不同的 API 版本配置文件，必须打开新的 PowerShell 会话。 **Use-AzureRMProfile** cmdlet 会运行以下任务：  
-1. 查看当前范围中是否已安装与所指定 API 版本配置文件关联的 PowerShell 模块。  
-2. 下载并安装这些模块（如果尚未安装）。   
-3. 将模块导入到当前的 PowerShell 会话中。 
+无需研究 Azure Stack 支持的每个资源提供程序和特定版本，而可以直接使用 API 配置文件。 配置文件会指定一组资源提供程序和 API 版本。 SDK 或者使用 SDK 生成的工具将还原到配置文件中指定的目标 api-version。 使用 API 配置文件可以指定应用到整个模板的配置文件版本，在运行时，Azure 资源管理器会选择正确的资源版本。
 
-```PowerShell
-# Installs and imports the specified API version profile into the current PowerShell session.
-Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser
+API 配置文件可与使用 Azure 资源管理器的工具（例如 PowerShell、Azure CLI、SDK 中提供的代码，以及 Microsoft Visual Studio）配合运行。 工具和 SDK 可以使用配置文件来读取生成应用程序时要包含的模块和库的版本。
 
-# Installs and imports the specified API version profile into the current PowerShell session without any prompts.
-Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser -Force
-```
+例如，如果使用 PowerShell 以支持 api-version 2016-03-30 的 **Microsoft.Storage** 资源提供程序创建存储帐户，并使用 api-version 为 2015-12-01 的 Microsoft.Compute 资源提供程序创建 VM，则需要查看哪个 PowerShell 模块支持将 2016-03-30 用于存储，以及哪个模块支持将 2015-02-01 用于计算，然后安装这两个模块。 可以改用配置文件。 使用 cmdlet **Install-Profile *profilename***，然后 PowerShell 会加载正确的模块版本。
 
-若要从某个 API 版本配置文件安装并导入选定的 AzureRM 模块，请搭配 *Module* 参数运行 **Use-AzureRMProfile** cmdlet：
+同样，在使用 Python SDK 生成基于 Python 的应用程序时，可以指定配置文件。 SDK 将为脚本中指定的资源提供程序加载正确的模块。
 
-```PowerShell
-# Installs and imports the Compute, Storage, and Network modules from the specified API version profile into your current PowerShell session.
-Use-AzureRmProfile -Profile 2017-03-09-profile -Module AzureRM.Compute, AzureRM.Storage, AzureRM.Network
-```
+开发人员可以专注于编写解决方案。 无需研究哪个 api-version、资源提供程序和云可一起运行，而可以使用配置文件，确定代码可跨所有支持该配置文件的云运行。
 
-## <a name="get-the-installed-profiles"></a>获取已安装的配置文件
+## <a name="api-profile-code-samples"></a>API 配置文件代码示例
 
-使用 **Get-AzureRmProfile** cmdlet 获取可用的 API 版本配置文件列表： 
+可以借助代码示例，通过配置文件将采用偏好语言的解决方案与 Azure Stack 相集成。 目前可以找到以下语言的指导和示例：
 
-```PowerShell
-# Lists all API version profiles provided by the AzureRM.BootStrapper module.
-Get-AzureRmProfile -ListAvailable 
-
-# Lists the API version profiles that are installed on your machine.
-Get-AzureRmProfile
-```
-## <a name="update-profiles"></a>更新配置文件
-
-使用 **Update-AzureRmProfile** cmdlet 将 API 版本配置文件中的模块更新为 PowerShell 库中可用的最新版模块。 我们建议在导入模块时，在新的 PowerShell 会话中运行 **Update-AzureRmProfile** cmdlet，以避免发生冲突。 **Update-AzureRmProfile** cmdlet 会运行以下任务：
-
-1. 查看当前范围的给定 API 版本配置文件中是否已安装最新版模块。  
-2. 提示你安装这些模块（如果尚未安装）。  
-3. 将已更新的模块安装并导入到当前的 PowerShell 会话中。  
-
-```PowerShell
-Update-AzureRmProfile -Profile 2017-03-09-profile
-```
-
-若要在更新成最新可用版本之前，先删除先前安装的模块版本，请搭配 *-RemovePreviousVersions* 参数使用 **Update-AzureRmProfile** cmdlet：
-
-```PowerShell 
-Update-AzureRmProfile -Profile 2017-03-09-profile -RemovePreviousVersions
-```
-
-此 cmdlet 会运行以下任务：  
-
-1. 查看当前范围的给定 API 版本配置文件中是否已安装最新版模块。  
-2. 从当前的 API 版本配置文件和当前 PowerShell 会话中删除旧版模块。  
-3. 提示你安装模块的最新版本。  
-4. 将已更新的模块安装并导入到当前的 PowerShell 会话中。  
- 
-## <a name="uninstall-profiles"></a>卸载配置文件
-
-使用 **Uninstall-AzureRmProfile** cmdlet 卸载指定的 API 版本配置文件：
-
-```PowerShell 
-Uninstall-AzureRmProfile -Profile 2017-03-09-profile
-```
+- **PowerShell**  
+可以使用通过 PowerShell 库提供的 **AzureRM.Bootstrapper** 模块来获取使用 API 版本配置文件所需的 PowerShell cmdlet。  
+有关信息，请参阅[使用适用于 PowerShell 的 API 版本配置文件](azure-stack-version-profiles-powershell.md)。
+- **Azure CLI 2.0**  
+可将环境配置更新为使用 Azure Stack 特定的 API 版本配置文件。  
+有关信息，请参阅[使用适用于 Azure CLI 2.0 的 API 版本配置文件](azure-stack-version-profiles-azurecli2.md)。
+- **GO**  
+在 GO SDK 中，配置文件结合了不同服务的不同版本的不同资源类型。 配置文件在 profiles/ 路径下提供，其版本采用 **YYYY-MM-DD** 格式。  
+有关信息，请参阅[使用适用于 GO 的 API 版本配置文件](azure-stack-version-profiles-go.md)。
 
 ## <a name="next-steps"></a>后续步骤
 - [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
-- [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)  
+- [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)
+- [查看配置文件支持的资源提供程序 API 版本的详细信息](azure-stack-profiles-azure-resource-manager-versions.md)。
 
+<!-- Update_Description: wording update -->

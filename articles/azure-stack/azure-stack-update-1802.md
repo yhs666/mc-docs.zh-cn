@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/20/2018
-ms.date: 03/22/2018
+origin.date: 04/06/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: justini
-ms.openlocfilehash: 82820504bc0d322afe6abb7d9bf59ab3024951ee
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: a82ca08bd3b5abfea5274685df8ec556720e7da5
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure Stack 1802 更新
 
@@ -37,7 +37,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 
 ## <a name="before-you-begin"></a>准备阶段    
 > [!IMPORTANT]    
-> 在安装此更新的过程中，请勿尝试创建虚拟机。 有关如何管理更新的详细信息，请参阅[在 Azure Stack 中管理更新的概述](azure-stack-updates#plan-for-updates)。
+> 在安装此更新的过程中，请勿尝试创建虚拟机。 有关如何管理更新的详细信息，请参阅[在 Azure Stack 中管理更新的概述](/azure-stack/azure-stack-updates#plan-for-updates)。
 
 
 ### <a name="prerequisites"></a>先决条件
@@ -57,7 +57,9 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 
 
 ### <a name="post-update-steps"></a>更新后步骤
-更新 1802 没有更新后步骤。
+安装 1802 之后，请安装任何适用的修补程序。 有关详细信息，请查看以下知识库文章，以及我们的[服务策略](azure-stack-servicing-policy.md)。  
+- [KB 4103348 - 尝试安装 Azure Stack 更新时，网络控制器 API 服务崩溃](https://support.microsoft.com/help/4103348)
+
 
 
 ### <a name="new-features-and-fixes"></a>新功能和修复
@@ -131,6 +133,8 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 
   解决方法是使用 PowerShell 运行 **Start-ResourceSynchronization.ps1** 脚本，以便重新可以访问存储帐户详细信息。 [GitHub 中提供了该脚本]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts)，必须在特权终结点上使用服务管理员凭据运行该脚本。 
 
+- “服务运行状况”边栏选项卡无法加载。 在管理员或用户门户中打开“服务运行状况”边栏选项卡时，Azure Stack 显示错误且不加载信息。 这是预期的行为。 尽管可以选择并打开“服务运行状况”，但此功能目前不可用，将来的 Azure Stack 版本中会实现此功能。
+
 
 #### <a name="health-and-monitoring"></a>运行状况和监视
 更新到 1802 后没有任何已知问题。
@@ -140,6 +144,10 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 
 #### <a name="compute"></a>计算
 - 无法在门户中使用虚拟机规模集的缩放设置。 解决方法是使用 [Azure PowerShell](/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)。 由于 PowerShell 版本差异，必须使用 `-Name` 参数，而不是 `-VMScaleSetName`。
+
+- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+
+  版本 1803 中已解决此问题。 若要在版本 1802 中解决此问题，请安装 Azure Stack 修补程序 **1.0.180302.4**。 有关详细信息，请参阅 [KB 4131152：现有虚拟机规模集可能不可用]( https://support.microsoft.com/help/4131152)。 
 
 - Azure Stack 支持只使用固定类型的 VHD。 某些通过 Azure Stack 上的商城提供的映像使用动态 VHD，但这些映像已删除。 重设附加了动态磁盘的虚拟机 (VM) 的大小会导致该 VM 处于故障状态。
 

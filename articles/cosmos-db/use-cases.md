@@ -1,11 +1,9 @@
 ---
-title: "Azure Cosmos DB 的常见用例和方案 | Azure"
-description: "了解 Azure Cosmos DB 最常见的五个用例：用户生成的内容、事件日志记录、目录数据、用户首选项数据和物联网 (IoT)。"
+title: Azure Cosmos DB 的常见用例和方案 | Azure
+description: 了解 Azure Cosmos DB 最常见的五个用例：用户生成的内容、事件日志记录、目录数据、用户首选项数据和物联网 (IoT)。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: 
-documentationcenter: 
 ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2590070915643d7aebd1db737d9c3e94d6a525c1
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 41d6edb029f2b5df791ef5dc8bca5f85fdacb6e8
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Azure Cosmos DB 常见用例
 本文概述了 Azure Cosmos DB 的几个常见用例。  本文中的建议可以作为使用 Cosmos DB 开发应用程序的一个起点。   
@@ -35,8 +33,9 @@ ms.lasthandoff: 02/13/2018
 [Azure Cosmos DB](../cosmos-db/introduction.md) 是 21Vianet 提供的多区域分布式数据库服务。 该服务允许客户跨数目不限的地理区域弹性（独立）缩放吞吐量与存储。 Azure Cosmos DB 是当前市场中提供的第一个多区域分布式数据库服务，提供了综合[服务级别协议](https://www.azure.cn/support/sla/cosmos-db/)，包含吞吐量、延迟、可用性和一致性。 
 <!-- Notice: 全球 to 多个区域 -->
 
-Azure Cosmos DB 是在各种应用程序和用例中广泛使用的多区域分布式多模型数据库。 它以可扩展的方式本机支持多种数据模型（键值、文档和纵栏式）和许多用于数据访问的 API，包括 [MongoDB API](mongodb-introduction.md)、[SQL API](documentdb-introduction.md) 和[表 API](table-introduction.md)。 
+Azure Cosmos DB 是在各种应用程序和用例中广泛使用的多区域分布式多模型数据库。 它以可扩展的方式原生支持多种数据模型（键值、文档和纵栏式）和许多用于数据访问的 API，包括 [MongoDB API](mongodb-introduction.md) 和 [SQL API](documentdb-introduction.md)。 
 <!--Not Available on [Graph API (Gremlin)](graph-introduction.md) -->
+<!--Not Available on  [Tables API](table-introduction.md) -->
 <!-- Notice: 全球 to 多个区域 -->
 <!--Not Available on [serverless](http://azure.com/serverless) -->
 
@@ -64,7 +63,7 @@ IoT 用例在引入、处理和存储数据方法方面通常具有相同的模�
 <!-- URL is NOT correct on  [Create the Internet of Your Things](http://www.microsoft.com/zh-cn/server-cloud/internet-of-things.aspx) -->
 
 ## <a name="retail-and-marketing"></a>零售和营销
-Azure Cosmos DB 广泛用于 Microsoft 旗下运行 Windows 应用商店和 XBox Live 的电子商务平台。 它还在零售业中用于存储目录数据，以及在订单处理管道中用于事件寻源。
+Azure Cosmos DB 广泛用于世纪互联旗下运行 Windows 应用商店和 XBox Live 的电子商务平台。 它还在零售业中用于存储目录数据，以及在订单处理管道中用于事件寻源。
 
 目录数据使用方案涉及存储和查询人员、地点、产品等实体的一组属性。 目录数据的部分示例包括用户帐户、产品目录、IoT 设备注册表和物料系统清单。 此数据的属性可能会随时间的推移而发生变化和更改以满足应用程序要求。
 
@@ -72,7 +71,7 @@ Azure Cosmos DB 广泛用于 Microsoft 旗下运行 Windows 应用商店和 XBox
 
 ![Azure Cosmos DB 零售目录参考体系结构](./media/use-cases/product-catalog.png)
 
-Azure Cosmos DB 通常用于事件寻源，可使用其[更改源](change-feed.md)功能为事件驱动的体系结构提供动力。 更改源使下游微服务能够可靠地以增量方式读取针对 Azure Cosmos DB 所做的插入和更新（例如订单事件）。 
+Azure Cosmos DB 通常用于事件寻源，可使用其[更改源](change-feed.md)功能为事件驱动的体系结构提供动力。 更改源使下游微服务能够可靠地以增量方式读取针对 Azure Cosmos DB 所做的插入和更新（例如订单事件）。 利用此功能可以提供一个持久性的事件存储作为状态不断变化的事件的消息中转站，并驱动许多微服务之间的订单处理工作流（可实现为[无服务器 Azure Functions](http://azure.com/serverless)）。
 <!-- Not Available  [serverless Azure Functions](http://azure.com/serverless)). -->
 
 ![Azure Cosmos DB 订单管道参考体系结构](./media/use-cases/event-sourcing.png)
@@ -100,7 +99,7 @@ Azure Cosmos DB 的一个常见用例就是存储和查询 Web、移动和社交
 
 与第三方社交网络集成的应用程序必须响应这些网络中不断更改的架构。 由于 Cosmos DB 中的数据默认自动编制索引，因此可以随时查询数据。 因此，这些应用程序可以根据其各自的需求灵活地检索投影。
 
-许多社交应用程序在全球范围内运行并表现出不可预测的使用模式。 因此，应用程序层能根据用量需求缩放时，缩放数据存储的灵活性至关重要。  可通过在 Cosmos DB 帐户之下添加额外的数据分区来进行扩大。  也可在多个区域中创建额外的 Cosmos DB 帐户。 有关 Cosmos DB 服务区域可使用性的信息，请参阅 [Azure 区域](https://www.azure.cn/support/service-dashboard)。
+许多社交应用程序在全球范围内运行并表现出不可预测的使用模式。 因此，应用程序层能根据用量需求缩放时，缩放数据存储的灵活性至关重要。  可通过在 Cosmos DB 帐户之下添加额外的数据分区来进行扩大。  也可在多个区域中创建额外的 Cosmos DB 帐户。 有关 Cosmos DB 服务区域可使用性的信息，请参阅 [Azure 区域](https://www.azure.cn/support/service-dashboard/#services)。
 
 ![Azure Cosmos DB Web 应用参考体系结构](./media/use-cases/apps-with-global-reach.png)
 
@@ -125,7 +124,7 @@ Cosmos DB 支持的 JSON 格式是一种用于呈现 UI 布局数据的有效格
 * [Domino's Pizza](https://www.dominos.com)。 Domino's Pizza Inc. 是美国的一家披萨连锁餐馆。
 * [Johnson Controls](http://www.johnsoncontrols.com)。 Johnson Controls 是一家全球性多元化科技公司，在多个行业占据领先地位，为 150 多个国家或地区的大量用户提供服务。
 * [Microsoft Windows、通用应用商店、Azure IoT 中心、Xbox Live 和其他 Internet 级服务](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/)。 Microsoft 如何使用 Azure Cosmos DB 构建高度可缩放的服务。
-* [Microsoft 数据和分析团队](https://customers.microsoft.com/story/microsoftdataandanalytics)。 Microsoft 数据和分析团队使用 Azure Cosmos DB 实现全球规模的大数据收集
+<!-- Not Available on * [Microsoft Data and Analytics team](https://customers.microsoft.com/story/microsoftdataandanalytics). Microsoft's Data and Analytics team achieves planet-scale big-data collection with Azure Cosmos DB-->
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india)。Sulekha 使用 Azure Cosmos DB 连接整个印度的客户和企业。
 * [NewOrbit](https://customers.microsoft.com/story/neworbit-takes-flight-with-azure-documentdb)。 NewOrbit 使用了 Azure Cosmos DB。
 * [Affinio](https://customers.microsoft.com/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale)。 Affinio 从 AWS 改用 Azure Cosmos DB 以大规模处理社交数据。

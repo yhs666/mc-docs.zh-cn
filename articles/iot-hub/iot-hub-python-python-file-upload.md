@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/05/2018
-ms.date: 04/09/2018
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: 531209caa6da9e545e8cdf23d4e43d2b8426b69f
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.openlocfilehash: 33205a4b91def33dade49726fb1c460710d28748
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/30/2018
 - 安全地提供存储容器用于文件上传。
 - 使用 Python 客户端通过 IoT 中心上传文件。
 
-[IoT 中心入门](iot-hub-node-node-getstarted.md)和[使用 IoT 中心发送云到设备的消息](iot-hub-node-node-c2d.md)教程介绍了 IoT 中心提供的基本的设备到云和云到设备的消息传送功能。 但是，在某些情况下，无法轻松地将设备发送的数据映射为 IoT 中心接受的相对较小的设备到云消息。 需要从设备上传文件时，仍可以使用 IoT 中心的安全性和可靠性。
+[IoT 中心入门](iot-hub-node-node-getstarted.md)教程展示了 IoT 中心基本的设备到云消息功能。 但是，在某些情况下，无法轻松地将设备发送的数据映射为 IoT 中心接受的相对较小的设备到云消息。 需要从设备上传文件时，仍可以使用 IoT 中心的安全性和可靠性。
 
 > [!NOTE]
 > IoT 中心 Python SDK 目前仅支持上传基于字符的文件，如 .txt 文件。
@@ -77,10 +77,11 @@ ms.lasthandoff: 03/30/2018
     import os
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError
 
-    CONNECTION_STRING = "{deviceConnectionString}"
+    CONNECTION_STRING = "[Device Connection String]"
     PROTOCOL = IoTHubTransportProvider.HTTP
 
-    FILENAME = 'sample.txt'
+    PATHTOFILE = "[Full path to file]"
+    FILENAME = "[File name on storage after upload]"
     ```
 
 1. 针对 upload_blob 函数创建一个回调：
@@ -102,8 +103,11 @@ ms.lasthandoff: 03/30/2018
         
             client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
 
-            client.upload_blob_async(FILENAME, FILENAME, os.path.getsize(FILENAME), blob_upload_conf_callback, 0)
-        
+            f = open(PATHTOFILE, "r")
+            content = f.read()
+
+            client.upload_blob_async(FILENAME, content, len(content), blob_upload_conf_callback, 0)
+
             print ( "" )
             print ( "File upload initiated..." )
         

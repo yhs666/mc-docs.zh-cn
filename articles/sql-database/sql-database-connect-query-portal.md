@@ -1,10 +1,10 @@
 ---
 title: 'Azure 门户：使用查询编辑器查询 Azure SQL 数据库 | Azure description: 了解如何使用 SQL 查询编辑器在 Azure 门户中连接到 SQL 数据库。 然后，通过运行 Transact-SQL (T-SQL) 语句来查询和编辑数据。
-keywords: 连接到 sql 数据库, azure 门户, 门户, 查询编辑器 services: sql-database author: yunan2016 manager: digimobile ms.service: sql-database ms.custom: mvc,DBs & servers ms.topic: quickstart origin.date: 01/10/2018 ms.date: 2/28/2018 ms.author: v-nany
+keywords: connect to sql database,azure portal, portal, query editor services: sql-database author: yunan2016 manager: digimobile ms.service: sql-database ms.custom: mvc,DBs & servers ms.topic: quickstart origin.date: 01/10/2018 ms.date: 4/17/2018 ms.author: v-nany
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure 门户：使用 SQL 查询编辑器进行连接并查询数据
 
-SQL 查询编辑器是一款浏览器查询工具，可以轻松有效地在 Azure SQL 数据库或 Azure SQL 数据仓库中执行 SQL 查询，不需离开 Azure 门户。 本快速入门演示了如何使用查询编辑器连接到 SQL 数据库，然后使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。
+SQL 查询编辑器是一款浏览器查询工具，可以轻松有效地在 Azure SQL 数据库或 Azure SQL 数据仓库中执行 SQL 查询，不需离开 Azure 门户。 此快速入门教程演示如何使用查询编辑器连接到 SQL 数据库，然后使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -128,19 +128,25 @@ SQL 查询编辑器是一款浏览器查询工具，可以轻松有效地在 Azu
 
 ## <a name="query-editor-considerations"></a>查询编辑器注意事项
 
-在使用仍为“预览版”状态的查询编辑器时，需要知道一些事项：
+使用查询编辑器时，需要注意以下要点：
 
 1. 确保在 Azure SQL Server 防火墙设置中将“允许访问 Azure 服务”选项设置为“打开”。 此选项允许 SQL 查询编辑器访问 SQL 数据库和数据仓库。
 
-2. Azure Active Directory 管理员登录不适用于已启用双重身份验证的帐户。
+2. 如果 SQL Server 位于虚拟网络中，则无法使用查询编辑器来查询该服务器中的数据库。
 
-3. 目前尚不允许使用电子邮件帐户（例如 outlook.com、hotmail.com、live.com、gmail.com、yahoo.com）作为 Active Directory 管理员。 在选择用户时，请确保该用户原本就是在 Azure Active Directory 中创建的，或者是通过联合方式进入 Azure Active Directory 中的。
+3. 按 F5 键会刷新查询编辑器页面，丢失正在处理的查询。 请使用工具栏上的“运行”按钮来执行查询。
 
-4. 查询编辑器目前不支持空间数据类型查询。 查询空间列会导致“System.IO.FileNotFoundException”错误。
+4. 查询编辑器不支持连接到 master 数据库
 
-5. 不支持适用于数据库表和视图的 IntelliSense。 但是，此编辑器支持针对已键入的名称启用自动完成功能。
+5. 查询执行的超时为 5 分钟。
 
-6. 按 F5 键会刷新查询编辑器页面，丢失正在处理的查询。 请使用工具栏上的“运行”按钮来执行查询。
+6. Azure Active Directory 管理员登录不适用于已启用双重身份验证的帐户。
+
+7. 目前尚不允许使用电子邮件帐户（例如 outlook.com、hotmail.com、live.com、gmail.com、yahoo.com）作为 Active Directory 管理员。 在选择用户时，请确保该用户原本就是在 Azure Active Directory 中创建的，或者是通过联合方式进入 Azure Active Directory 中的。
+
+8. 查询编辑器仅支持地理数据类型的柱面投影。
+
+9. 不支持适用于数据库表和视图的 IntelliSense。 但是，此编辑器支持针对已键入的名称启用自动完成功能。
 
 
 ## <a name="next-steps"></a>后续步骤

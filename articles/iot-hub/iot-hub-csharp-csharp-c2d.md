@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure IoT 中心发送云到设备消息 (.NET) | Azure"
-description: "如何使用用于 .NET 的 Azure IoT SDK 将云到设备消息从 Azure IoT 中心发送到设备。 修改设备应用以接收云到设备消息，并修改后端应用以发送云到设备消息。"
+title: 使用 Azure IoT 中心发送云到设备消息 (.NET) | Azure
+description: 如何使用用于 .NET 的 Azure IoT SDK 将云到设备消息从 Azure IoT 中心发送到设备。 修改设备应用以接收云到设备消息，并修改后端应用以发送云到设备消息。
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a31c05ed-6ec0-40f3-99ab-8fdd28b1a89a
 ms.service: iot-hub
 ms.devlang: dotnet
@@ -13,21 +13,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/24/2017
-ms.date: 11/20/2017
+ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7883640663c30edc59e741c736947ce0a3dbfe3d
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.openlocfilehash: 6cb8fa236ba7e7f3bc8937804bea8cbc772c58e8
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>使用 IoT 中心 (.NET) 将消息从云发送到设备
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备和单个解决方案后端之间实现安全可靠的双向通信。 [Get started with IoT Hub]教程演示了如何创建 IoT 中心、在其中预配设备标识，以及编写用来发送设备到云消息的设备应用。
 
-本教程是在 [Get started with IoT Hub]（IoT 中心入门）的基础上编写的。 其中了说明了如何：
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
+本教程是在 [Get started with IoT Hub]的基础上制作的。 其中了说明了如何：
 
 * 通过 IoT 中心，将云到设备的消息从解决方案后端发送到单个设备。
 * 在设备上接收云到设备的消息。
@@ -182,8 +184,8 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
     ```
     commandMessage.Ack = DeliveryAcknowledgement.Full;
     ```
-4. 按 **F5**运行应用。 应会看到三个应用程序都会启动。 选择“**SendCloudToDevice**”窗口并按 **Enter**。 **SendCloudToDevice** 应用程序会收到反馈消息。
-
+4. 按 **F5**运行应用。 应会看到三个应用程序都会启动。 选择“**SendCloudToDevice**”窗口并按 **Enter**。 应会看到设备应用正在接收的消息，几秒钟后，**SendCloudToDevice** 应用程序将收到反馈消息。
+   
    ![应用接收消息][22]
 
 > [!NOTE]

@@ -5,7 +5,6 @@ keywords: nosql 数据库安全性, 信息安全性, 数据安全性, 数据库�
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: mimig
 documentationcenter: ''
 ms.assetid: a02a6a82-3baf-405c-9355-7a00aaa1a816
 ms.service: cosmos-db
@@ -14,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 286265ddcf5af692fa3b211458de03a0497096b9
-ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
+ms.openlocfilehash: 63bb4acef3387ca61f81727b6e70f79388e23d9a
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 数据库安全性
 
@@ -77,7 +76,7 @@ ms.lasthandoff: 04/09/2018
 |自动联机备份|Azure Cosmos DB 数据库定期备份并存储在异地冗余的存储中。 <br><br>可以在[使用 Azure Cosmos DB 进行自动联机备份和还原](online-backup-and-restore.md)中了解详细信息。|
 |还原已删除的数据|可以使用自动联机备份来恢复大约 30 天内意外删除的数据。 <br><br>可以在[使用 Azure Cosmos DB 进行自动联机备份和还原](online-backup-and-restore.md)中了解详细信息|
 |保护和隔离敏感数据|[新增功能？](#whats-new)中列出的区域中的所有数据现已处于静态加密状态。<br><br>可将 PII 和其他机密数据隔离到特定的集合，并限制为只能由特定的用户进行读写或只读访问。|
-<!-- Line: 78 Not Available on [audit logging and activity logs](logging.md) -->
+<!-- Line: 76 Not Available on [audit logging and activity logs](logging.md) -->
 |响应攻击|联系 Azure 支持部门举报潜在的攻击行为后，将启动由 5 个步骤构成的事件响应过程。 该 5 步骤过程的目的是在检测到问题并启动调查后，尽快将服务安全性和操作恢复正常。<br><br>在 [Azure Security Response in the Cloud](https://aka.ms/securityresponsepaper)（云中的 Azure 安全响应）中了解详情。| |地理围栏|Azure Cosmos DB 确保符合主权区域（例如德国、中国和美国政府）的数据监管与符合性要求。| |受保护设施|Azure Cosmos DB 中的数据存储在 Azure 的受保护数据中心的 SSD 上。<br><br> | |HTTPS/SSL/TLS 加密|从客户端到服务的所有 Azure Cosmos DB 交互都会实施 SSL/TLS 1.2。 此外，所有数据中心内部和跨数据中心的复制都会实施 SSL/TLS 1.2。| |静态加密|所有存储到 Azure Cosmos DB 中的数据都进行静态加密。 在 [Azure Cosmos DB 静态加密](.\database-encryption-at-rest.md)中了解详情| |修补的服务器|Azure Cosmos DB 是一种托管的数据库，不需管理和修补服务器，这是由系统自动完成的。| |使用强密码的管理帐户|难以相信，我们竟然还要提到这项要求。但与我们的某些竞争产品不同，在 Azure Cosmos DB 中，不带密码的管理帐户是根本不允许的。<br><br> 默认融入了基于 SSL 和 HMAC 机密的身份验证安全性。| |安全性和数据保护认证|Azure Cosmos DB 已通过 [ISO 27001](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-IEC-27001)、[欧洲示范条款 (EUMC)](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses) 和 [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) 认证。 其他认证正在审批中。|
 
 <!-- Line: 72 Notice: 全球分布 to 多个区域分布 -->

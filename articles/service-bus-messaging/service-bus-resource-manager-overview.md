@@ -1,25 +1,25 @@
 ---
-title: "使用 Azure Resource Manager 模板创建 Azure 服务总线资源 | Azure"
-description: "使用 Azure Resource Manager 模板自动创建服务总线资源"
+title: 使用资源管理器模板创建 Azure 服务总线资源
+description: 使用 Azure Resource Manager 模板自动创建服务总线资源
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
 ms.service: service-bus
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 11/10/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: a0a3e36270b814656732c3b836389b107b22ae03
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 04/30/2018
+ms.openlocfilehash: 48b259bde9a393415cbb56764c7ec4df2b8c2928
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 模板创建服务总线资源
 
@@ -61,7 +61,7 @@ Azure Resource Manager 模板可帮助你定义要为解决方案部署的资源
 
 ### <a name="create-a-template"></a>创建模板
 
-从 GitHub 克隆或复制 [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) 模板：
+从 GitHub 克隆存储库或复制 [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) 模板：
 
 ```json
 {

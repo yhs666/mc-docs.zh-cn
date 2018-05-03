@@ -1,27 +1,27 @@
 ---
-title: "Azure CLI 脚本示例 - 使用 VHD 创建 VM | Azure"
-description: "Azure CLI 脚本示例 - 使用虚拟硬盘创建 VM。"
+title: Azure CLI 脚本示例 - 使用 VHD 创建 VM | Azure
+description: Azure CLI 脚本示例 - 使用虚拟硬盘创建 VM。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/09/2017
-ms.date: 10/16/2017
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 961de47f41327782c7b48eb003bd879689dea4c8
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: 74d0ac41b12ca0412b38f60552e5afd70327c297
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>使用虚拟硬盘创建 VM
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/10/2017
 本示例将 ssh 公钥替换为用户的公钥，因此用户可以访问 VM。
 
 用户需要可引导 VHD。
-可以从 https://azclisamples.blob.core.chinacloudapi.cn/vhds/sample.vhd 下载我们所使用的 VHD，也可以使用自己的 VHD。 脚本会查找 `~/sample.vhd`。
+可以从 https://azclisamples.blob.core.chinacloudapi.cn/vhds/sample.vhd 下载本文使用的 VHD，或使用自己的 VHD。 脚本会查找 `~/sample.vhd`。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -82,7 +82,7 @@ az group delete -n az-cli-vhd
 
 此脚本使用以下命令创建资源组、虚拟机、可用性集、负载均衡器和所有相关资源。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
 | [az storage account list](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az_storage_account_list) | 列出存储帐户 |

@@ -5,37 +5,42 @@ services: cosmos-db
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: tysonn
 ms.assetid: f191f308-e4b2-4de9-85cb-551b82b1ea7c
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/12/2018
-ms.date: 03/26/2018
+origin.date: 04/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8363ae87d6d914bef6c04b8d873ebbf687e5e5ec
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 66471548ba723c9f677b91252b5eb13154b4da6c
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>如何通过 C++ 使用 Azure 表存储或 Azure Cosmos DB 表 API
+# <a name="how-to-use-azure-table-storage-with-c"></a>如何配合使用 C++ 和 Azure 表存储
+<!-- Not Available on Azure Cosmos DB Table API -->
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>概述
-本指南演示如何使用 Azure 表存储服务或 Azure Cosmos DB 表 API 执行常见方案。 示例采用 C++ 编写，并使用了[适用于 C++ 的 Azure 存储客户端库](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 涉及的方案包括**创建和删除表**以及**使用表实体**。
+本指南将演示如何使用 Azure 表存储服务执行常见方案。 示例采用 C++ 编写，并使用了[适用于 C++ 的 Azure 存储客户端库](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 涉及的方案包括**创建和删除表**以及**使用表实体**。
+<!-- Not Available on Azure Cosmos DB Table API -->
 
 > [!NOTE]
 > 本指南主要面向适用于 C++ 的 Azure 存储客户端库 1.0.0 版及更高版本。 推荐版本：存储客户端库 2.2.0（可通过 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp/) 获得）。
 > 
-> 
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## <a name="create-an-azure-service-account"></a>创建 Azure 服务帐户
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+### <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+<!-- Not Available on ### Create an Azure Cosmos DB Table API account -->
+
 
 ## <a name="create-a-c-application"></a>创建 C++ 应用程序
 本指南会使用可在 C++ 应用程序内运行的存储功能。 为此，需要安装适用于 C++ 的 Azure 存储客户端库，并在 Azure 订阅中创建 Azure 存储帐户。  
@@ -65,24 +70,8 @@ Azure 存储客户端或 Cosmos DB 客户端使用连接字符串来存储用于
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key;EndpointSuffix=core.chinacloudapi.cn"));
 ```
 
-## <a name="set-up-an-azure-cosmos-db-connection-string"></a>设置 Azure Cosmos DB 连接字符串
-使用 [Azure 门户](https://portal.azure.cn)中列出的 Azure Cosmos DB 帐户名称、主密钥和终结点作为*帐户名称*、*主密钥*和*终结点*值。 此示例演示如何声明一个静态字段以保存 Azure Cosmos DB 连接字符串：
-
-```cpp
-// Define the Azure Cosmos DB connection string with your values.
-const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_cosmos_db_account;AccountKey=your_cosmos_db_account_key;TableEndpoint=your_cosmos_db_endpoint"));
-```
-
-若要在基于 Windows 的本地计算机中测试应用程序，可以使用随 [Azure SDK](/downloads/) 一起安装的 Azure [存储模拟器](../storage/common/storage-use-emulator.md)。 存储模拟器是一种用于模拟本地开发计算机上提供的 Azure Blob、队列和表服务的实用程序。 以下示例演示如何声明一个静态字段以将连接字符串保存到本地存储模拟器：  
-
-```cpp
-// Define the connection string with Azure storage emulator.
-const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
-```
-
-若要启动 Azure 存储模拟器，请单击“开始”按钮或按 Windows 键。 开始键入“Azure 存储模拟器”，然后从应用程序列表中选择“Azure 存储模拟器”。  
-
-下面的示例假定使用了这两个方法之一来获取存储连接字符串。  
+<!-- Not Available on ## Set up an Azure Cosmos DB connection string -->
+以下示例假设已使用此方法获取存储连接字符串。  
 
 ## <a name="retrieve-your-connection-string"></a>检索连接字符串
 可使用 **cloud_storage_account** 类来表示存储帐户信息。 要从存储连接字符串中检索存储帐户信息，可以使用 **parse** 方法。
@@ -473,9 +462,10 @@ if (table.delete_table_if_exists())
   - 将“符合模式”设置为“否”。
 
 ## <a name="next-steps"></a>后续步骤
-请打开以下链接了解有关 Azure 存储和 Azure Cosmos DB 中的表 API 的详细信息： 
+单击以下链接详细了解 Azure Cosmos DB 中的 Azure 存储： 
+<!-- Not Avaiable on Table API -->
 
-* [表 API 简介](table-introduction.md)
+<!-- Not Available on * [Introduction to the Table API](table-introduction.md) -->
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是免费的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
 <!-- Notice: Remove from Microsoft -->
 * [使用 C++ 列出 Azure 存储资源](../storage/common/storage-c-plus-plus-enumeration.md)

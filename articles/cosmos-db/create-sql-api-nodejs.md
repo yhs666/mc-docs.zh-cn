@@ -1,37 +1,34 @@
 ---
-title: "Azure Cosmos DB：使用 Node.js 和 SQL API 构建应用 | Azure"
-description: "演示了一个可以用来连接到 Azure Cosmos DB SQL API 并进行查询的 Node.js 代码示例"
+title: Azure Cosmos DB：使用 Node.js 和 SQL API 构建应用 | Azure
+description: 演示了一个可以用来连接到 Azure Cosmos DB SQL API 并进行查询的 Node.js 代码示例
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
 ms.assetid: 9c0f033c-240e-4fee-8421-08907231087f
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-origin.date: 11/29/2017
-ms.date: 12/25/2017
+origin.date: 04/10/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 609a4a6ab500b5bd246e14337975942c7a64cf01
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: ab0bee65d0ddd84fafc809ab4136f2e77269d568
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB：使用 Node.js 和 Azure 门户构建 SQL API 应用
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
-
-Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档及键/值，所有这些都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可以快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
 <!-- NOTICE: globally TO multiple-region  -->
 <!-- Not Available on Graph databases -->
 
-本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户、文档数据库和集合。 然后将构建并运行基于 [SQL Node.js API](sql-api-sdk-node.md) 构建的控制台应用。
+本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帐户、文档数据库和集合。 然后将构建并运行基于 [SQL Node.js API](sql-api-sdk-node.md) 构建的控制台应用。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -50,13 +47,31 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
+## <a name="add-sample-data"></a>添加示例数据
+
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
+
+## <a name="query-your-data"></a>查询数据
+
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
+
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
 现在，请克隆 GitHub 中的 SQL API 应用，设置连接字符串，并运行该应用。 你会看到以编程方式处理数据是多么容易。 
 
-1. 打开 git 终端窗口（例如 git bash）并使用 `CD` 切换到工作目录。  
+1. 打开命令提示符，新建一个名为“git-samples”的文件夹，然后关闭命令提示符。
 
-2. 运行下列命令，克隆示例存储库。 
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. 打开诸如 git bash 之类的 git 终端窗口，并使用 `cd` 命令更改为要安装示例应用的新文件夹。
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-nodejs-getting-started.git
@@ -64,7 +79,9 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 ## <a name="review-the-code"></a>查看代码
 
-快速查看应用中发生的情况。 打开 `app.js` 文件，会发现以下代码行创建 Azure Cosmos DB 资源。 
+此步骤是可选的。 如果有意了解如何使用代码创建数据库资源，可以查看下面的代码段。 否则，可以直接跳转到[更新连接字符串](#update-your-connection-string)。 
+
+以下代码片段全部摘自 app.js 文件。
 
 * 对 `documentClient` 进行初始化。
 
@@ -149,10 +166,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不打算继续使用此应用，请删除本快速入门教程在 Azure 门户中创建的所有资源，步骤如下：
-
-1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。 
-2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，并单击“删除”。
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -160,4 +174,4 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 > [!div class="nextstepaction"]
 > [将数据导入 Azure Cosmos DB](import-data.md)
-<!-- Update_Description: new articles on create SQL api nodejs application-->
+<!-- Update_Description: update meta properties, wording update -->

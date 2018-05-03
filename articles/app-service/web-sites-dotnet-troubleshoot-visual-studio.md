@@ -1,11 +1,11 @@
 ---
-title: "使用 Visual Studio 对 Azure 应用服务中的 Web 应用进行故障排除"
-description: "了解如何通过内置于 Visual Studio 2013 的远程调试、 跟踪和日志记录工具排除 Azure Web 应用的故障。"
+title: 使用 Visual Studio 对 Azure 应用服务中的 Web 应用进行故障排除
+description: 了解如何通过内置于 Visual Studio 2013 的远程调试、 跟踪和日志记录工具排除 Azure Web 应用的故障。
 services: app-service
 documentationcenter: .net
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/29/2016
-ms.date: 03/12/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: df674102cfa08e99ce3bb856a1d8873bb655fa92
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 95766eac5fd9c07a8761157b5d5a9ede2ff21f5c
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 对 Azure 应用服务中的 Web 应用进行故障排除
 
@@ -130,12 +130,14 @@ ms.lasthandoff: 03/02/2018
 2. 打开 *Controllers\HomeController.cs*。
 3. 删除 `About()` 方法并在其位置插入以下代码。
 
-        public ActionResult About()
-        {
-            string currentTime = DateTime.Now.ToLongTimeString();
-            ViewBag.Message = "The current time is " + currentTime;
-            return View();
-        }
+``` c#
+public ActionResult About()
+{
+    string currentTime = DateTime.Now.ToLongTimeString();
+    ViewBag.Message = "The current time is " + currentTime;
+    return View();
+}
+```
 4. 在 `ViewBag.Message` 行上[设置一个断点](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)。
 5. 在“解决方案资源管理器”中，右键单击该项目并单击“发布”。
 
@@ -232,10 +234,13 @@ ms.lasthandoff: 03/02/2018
 * 进行调试的时候，服务器会向 Visual Studio 发送数据，这可能会影响到带宽费用。 有关带宽费率的信息，请参阅 [Azure 定价](https://www.azure.cn/pricing/calculator/)。
 * 请确保 *Web.config* 文件中 `compilation` 元素的 `debug` 属性设置为 true。 在发布调试版本配置时，默认设置为 true。
 
-        <system.web>
-          <compilation debug="true" targetFramework="4.5" />
-          <httpRuntime targetFramework="4.5" />
-        </system.web>
+``` xml
+<system.web>
+  <compilation debug="true" targetFramework="4.5" />
+  <httpRuntime targetFramework="4.5" />
+</system.web>
+```
+
 * 如果发现调试程序没有针对希望调试的代码展开行动，可能需要更改“仅我的代码”设置。  有关详细信息，请参阅[限制为仅逐行调试我的代码](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code)。
 * 启用远程调试功能时，服务器上会出现一个计时器，48 小时后该功能自动关闭。 这一 48 小时的限制是出于安全性与性能的考虑。 可以根据需要轻松地多次重启该功能。 我们建议，在不主动进行调试的时候，保持其处于禁用状态。
 * 可以手动将调试器附加到任何进程，而不仅仅是 Web 应用进程 (w3wp.exe)。 有关如何在 Visual Studio 中使用调试模式的信息，请参阅[在 Visual Studio 中进行调试](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)。
@@ -268,32 +273,35 @@ ms.lasthandoff: 03/02/2018
 ### <a name="add-tracing-statements-to-the-application"></a>向应用程序添加跟踪语句
 1. 打开 *Controllers\HomeController.cs* 并将 `Index`、`About` 和 `Contact` 方法替换为以下代码，以便为 `System.Diagnostics` 添加 `Trace` 语句和 `using` 语句：
 
-        public ActionResult Index()
-        {
-            Trace.WriteLine("Entering Index method");
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Index method");
-            return View();
-        }
+```c#
+public ActionResult Index()
+{
+    Trace.WriteLine("Entering Index method");
+    ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+    Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Index method");
+    return View();
+}
 
-        public ActionResult About()
-        {
-            Trace.WriteLine("Entering About method");
-            ViewBag.Message = "Your app description page.";
-            Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
-            Trace.WriteLine("Leaving About method");
-            return View();
-        }
+public ActionResult About()
+{
+    Trace.WriteLine("Entering About method");
+    ViewBag.Message = "Your app description page.";
+    Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
+    Trace.WriteLine("Leaving About method");
+    return View();
+}
 
-        public ActionResult Contact()
-        {
-            Trace.WriteLine("Entering Contact method");
-            ViewBag.Message = "Your contact page.";
-            Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Contact method");
-            return View();
-        }        
+public ActionResult Contact()
+{
+    Trace.WriteLine("Entering Contact method");
+    ViewBag.Message = "Your contact page.";
+    Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Contact method");
+    return View();
+}        
+```
+
 2. 将 `using System.Diagnostics;` 语句添加到文件顶部。
 
 ### <a name="view-the-tracing-output-locally"></a>本地查看跟踪输出
@@ -306,25 +314,30 @@ ms.lasthandoff: 03/02/2018
     以下步骤介绍如何在网页中查看跟踪输出而无需在调试模式下进行编译。
 2. 打开应用程序 Web.config 文件（位于项目文件夹中），将 `<system.diagnostics>` 元素添加到文件末尾的关闭 `</configuration>` 元素之前：
 
-          <system.diagnostics>
-            <trace>
-              <listeners>
-                <add name="WebPageTraceListener"
-                    type="System.Web.WebPageTraceListener,
-                    System.Web,
-                    Version=4.0.0.0,
-                    Culture=neutral,
-                    PublicKeyToken=b03f5f7f11d50a3a" />
-              </listeners>
-            </trace>
-          </system.diagnostics>
+``` xml
+<system.diagnostics>
+<trace>
+  <listeners>
+    <add name="WebPageTraceListener"
+        type="System.Web.WebPageTraceListener,
+        System.Web,
+        Version=4.0.0.0,
+        Culture=neutral,
+        PublicKeyToken=b03f5f7f11d50a3a" />
+  </listeners>
+</trace>
+</system.diagnostics>
+```
 
-    `WebPageTraceListener` 允许通过浏览至 `/trace.axd` 查看跟踪输出。
+    The `WebPageTraceListener` lets you view trace output by browsing to `/trace.axd`.
 3. 将<a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">跟踪元素</a>添加到 Web.config file 文件中的 `<system.web>` 下面，如下所示：
 
-        <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+``` xml
+<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+```       
+
 4. 按 Ctrl+F5 运行应用程序。
-5. 在浏览器窗口的地址栏中，将 trace.axd 添加到 URL，然后按 Enter 键（URL 类似于 http://localhost:53370/trace.axd）。
+5. 在浏览器窗口的地址栏中，将 trace.axd 添加到 URL，然后按 Enter（URL 类似于 http://localhost:53370/trace.axd)）。
 6. 在“应用程序跟踪”页面上，单击第一行中（非浏览器链接中）的“查看详细信息”。
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -454,47 +467,47 @@ Web 服务器日志将记录 Web 应用上所有的 HTTP 活动。 若要在“�
 
      （*deployments* 文件夹内是由源代码管理发布创建的文件；其中没有任何有关 Visual Studio 发布的内容。 *Git* 文件夹内是与源代码管理发布以及日志文件流式传输服务相关的跟踪。）  
 
-## <a name="storagelogs"></a>查看存储日志
-也可将应用程序跟踪日志发送至 Azure 存储帐户，可通过 Visual Studio 进行查看。 为此，需要创建一个存储帐户，在 Azure 门户中启用存储日志，并在“Azure Web 应用”窗口的“日志”选项卡中对其进行查看。
+<!-- ## <a name="storagelogs"></a>View storage logs
+Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the Azure portal, and view them in the **Logs** tab of the **Azure Web App** window.
 
-可以将日志发送到以下所有目的地或其中之一：
+You can send logs to any or all of three destinations:
 
-* 文件系统。
-* 存储帐户表。
-* 存储帐户 Blob。
+* The file system.
+* Storage account tables.
+* Storage account blobs.
 
-可以为每个目的地指定不同的严重级别。
+You can specify a different severity level for each destination.
 
-表易于在线查看日志详细信息并且其支持流式传输；可在表中查询日志并在新日志创建的同时进行查看。 Blob 易于下载文件中的日志并使用 HDInsight 对其进行分析，因为 HDInsight 知晓如何与 Blob 存储协同运作。 有关详细信息，请参阅[数据存储选项（使用 Azure 生成实际的云应用）](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options)中的 **Hadoop 和 MapReduce**。
+Tables make it easy to view details of logs online, and they support streaming; you can query logs in tables and see new logs as they are being created. Blobs make it easy to download logs in files and to analyze them using HDInsight, because HDInsight knows how to work with blob storage. For more information, see **Hadoop and MapReduce** in [Data Storage Options (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options).
 
-目前，将文件系统日志设置为“详细”；从设置信息级日志到存储帐户表，以下将分别介绍。 信息级意味着所有通过调用 `Trace.TraceInformation`、`Trace.TraceWarning` 以及 `Trace.TraceError` 创建的日志都会显示，但调用 `Trace.WriteLine` 创建的日志不包括在内。
+You currently have file system logs set to verbose level; the following steps walk you through setting up information level logs to go to storage account tables. Information level means all logs created by calling `Trace.TraceInformation`, `Trace.TraceWarning`, and `Trace.TraceError` will be displayed, but not logs created by calling `Trace.WriteLine`.
 
-与文件系统相比，存储帐户可为日志提供更大的存储空间以及更长的保留期。 将应用程序跟踪日志发送到存储的另一个优势是，可以从每个日志获得一些无法从文件系统日志获得的其他信息。
+Storage accounts offer more storage and longer-lasting retention for logs compared to the file system. Another advantage of sending application tracing logs to storage is that you get some additional information with each log that you don't get from file system logs.
 
-1. 在 Azure 节点下右键单击“存储”，并单击“创建存储帐户”。
+1. Right-click **Storage** under the Azure node, and then click **Create Storage Account**.
 
-![创建存储帐户](./media/web-sites-dotnet-troubleshoot-visual-studio/createstor.png)
+![Create Storage Account](./media/web-sites-dotnet-troubleshoot-visual-studio/createstor.png)
 
-1. 在“创建存储帐户”对话框中，输入存储帐户的名称。
+1. In the **Create Storage Account** dialog, enter a name for the storage account.
 
-    该名称必须唯一（其他 Azure 存储帐户不能使用该名称）。 如果输入的名称已被使用，可以进行更改。
+    The name must be must be unique (no other Azure storage account can have the same name). If the name you enter is already in use you'll get a chance to change it.
 
-    用于访问存储帐户的 URL 为 *{名称}*.core.chinacloudapi.cn。
-2. 将“区域或地缘组”下拉列表设置为离你最近的区域。
+    The URL to access your storage account will be *{name}*.core.chinacloudapi.cn.
+2. Set the **Region or Affinity Group** drop-down list to the region closest to you.
 
-    此设置指定托管存储帐户的 Azure 数据中心。 对于本教程，所做的选择不会带来明显的差异；但是，对于生产 Web 应用，希望 Web 服务器和存储帐户处于同一区域，以最大程度减少延迟和数据传出费用。 Web 应用（稍后创建）应在与访问 Web 应用的浏览器尽可能靠近的区域中运行，以最大程度地减少延迟。
-3. 将“复制”下拉列表设置为“本地冗余”。
+    This setting specifies which Azure datacenter will host your storage account. For this tutorial your choice won't make a noticeable difference, but for a production web app you want your web server and your storage account to be in the same region to minimize latency and data egress charges. The web app (which you'll create later) should run in a region as close as possible to the browsers accessing your web app in order to minimize latency.
+3. Set the **Replication** drop-down list to **Locally redundant**.
    
-    为存储帐户启用异地复制时，会将存储内容复制到辅助数据中心，这样就能够在主要位置发生重大灾难时将故障转移到该位置。 异地复制可能会产生额外的成本。 对于测试和开发帐户，你通常不希望因为异地复制而付款。 有关详细信息，请参阅[创建、管理或删除存储帐户](../storage/common/storage-create-storage-account.md)。
-4. 单击“创建”。
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-create-storage-account.md).
+4. Click **Create**.
 
-    ![新的存储帐户](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)    
-5. 在 Visual Studio 的“Azure Web 应用”窗口中，单击“日志”选项卡，并单击“在管理门户中配置日志记录”。
+    ![New storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)    
+5. In the Visual Studio **Azure Web App** window, click the **Logs** tab, and then click **Configure Logging in Management Portal**.
 
     <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
-    ![配置日志记录](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    ![Configure logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
-    这会在门户中为 Web 应用打开“配置”选项卡。
+    This opens the **Configure** tab in the portal for your web app.
 6. 在门户的“配置”选项卡中，向下滚动至应用程序诊断部分，然后将“应用程序日志记录(表存储)”更改为“启用”。
 7. 将“日志记录级别”更改为“信息”。
 8. 单击“管理表存储”。
@@ -532,7 +545,7 @@ Web 服务器日志将记录 Web 应用上所有的 HTTP 活动。 若要在“�
 14. 要查看单个行的详细信息，请双击其中一行。
 
      ![服务器资源管理器中的跟踪表](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
-
+ -->
 ## <a name="failedrequestlogs"></a>查看失败请求跟踪日志
 在出现诸如 URL 重写或身份验证问题之类的情况下，需要详细了解 IIS 如何处理 HTTP 请求时可求助于失败请求跟踪日志。
 
@@ -628,15 +641,18 @@ Internet 上对于 ASP.NET 跟踪没有全面且最新的介绍。 最佳做法�
 * [在 ASP.NET MVC Razor 视图中进行跟踪](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   除了在 Razor 视图中进行跟踪，文章还介绍了如何创建错误筛选器以便在 MVC 应用程序中记录所有未经处理的异常。 有关如何在 Web 窗体应用程序中记录所有未经处理的异常，请参阅 MSDN 上的[错误处理程序的完整示例](http://msdn.microsoft.com/library/bb397417.aspx)中的 Global.asax 示例。 在 MVC 或 Web 窗体中，如果希望记录特定异常但想让默认框架对其进行处理，可捕获并重新引发异常，如下例所示：
 
-        try
-        {
-           // Your code that might cause an exception to be thrown.
-        }
-        catch (Exception ex)
-        {
-            Trace.TraceError("Exception: " + ex.ToString());
-            throw;
-        }
+``` c#
+try
+{
+   // Your code that might cause an exception to be thrown.
+}
+catch (Exception ex)
+{
+    Trace.TraceError("Exception: " + ex.ToString());
+    throw;
+}
+```
+
 * [从 Azure 命令行流式传输诊断跟踪日志记录（加上 Glimpse！）](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   如何使用命令行实现本教程中通过 Visual Studio 完成的任务。 [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) 是一个用于调试 ASP.NET 应用程序的工具。
 

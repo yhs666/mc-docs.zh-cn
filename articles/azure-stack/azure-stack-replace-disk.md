@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 03/04/2018
+origin.date: 03/30/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: 541364eb2e2d654a7dcc1830c5a0f3e5510f720e
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: c04b8fe27706aefa1da17c821365826b48fce606
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>更换 Azure Stack 中的物理磁盘
 
@@ -41,6 +41,9 @@ ms.lasthandoff: 03/08/2018
  ## <a name="replace-the-disk"></a>更换磁盘
 
 请按照 OEM 硬件供应商的 FRU 说明来实际更换磁盘。
+
+> [!note]
+> 每次更换一个缩放单位节点的磁盘。 等待虚拟磁盘修复作业完成，然后移到下一个缩放单位节点
 
 为了防止在集成系统中使用不支持的磁盘，系统会阻止供应商不支持的磁盘。 如果尝试使用不支持的磁盘，则会有新警报通知你因为不支持该磁盘的型号或固件，所以已将该磁盘隔离。
 
@@ -76,3 +79,4 @@ ms.lasthandoff: 03/08/2018
   Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
   ```` 
 
+<!-- Update_Description: wording update -->

@@ -1,26 +1,19 @@
 ---
-title: "使用 Excel 连接到 Azure Analysis Services | Azure"
-description: "了解如何使用 Excel 连接到 Azure Analysis Services 服务器。"
-services: analysis-services
-documentationcenter: 
+title: 使用 Excel 连接到 Azure Analysis Services | Azure
+description: 了解如何使用 Excel 连接到 Azure Analysis Services 服务器。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: cc3e2a86bc8a6dfdc02f7d39a574d16667ae7c7f
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: minewiskan
+ms.openlocfilehash: 92002b103b00d06632c8867fa60eab4e44549347
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-with-excel"></a>使用 Excel 进行连接
 
@@ -36,6 +29,10 @@ ms.lasthandoff: 03/08/2018
 
 2. 在“数据连接向导”的“服务器名称”中，输入服务器名称，包括协议和 URI。 然后，在“登录凭据”中，选择“使用以下用户名和密码”，并键入组织的用户名（例如 nancy@adventureworks.com）和密码。
 
+    > [!NOTE]
+    > 如果使用 Microsoft 帐户、Live ID、Yahoo 等登录或被要求使用多重身份验证登录，请将密码字段留空。 单击“下一步”后，系统会提示输入密码。
+    <!--Not Available on Gmail -->
+
     ![“从 Excel 中连接”登录](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 
 3. 在“选择数据库和表”中，选择数据库和模型或透视，并单击“完成”。
@@ -46,4 +43,4 @@ ms.lasthandoff: 03/08/2018
 [客户端库](analysis-services-data-providers.md)   
 [管理服务器](analysis-services-manage.md)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

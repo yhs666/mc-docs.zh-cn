@@ -1,6 +1,6 @@
 ---
-title: "在 Azure Service Fabric 中帮助保护服务的通信 | Azure"
-description: "概述如何帮助保护在 Azure Service Fabric 群集中运行的 Reliable Services 的通信。"
+title: 在 Azure Service Fabric 中保护服务远程处理通信 | Azure
+description: 了解如何保护 Azure Service Fabric 群集中运行的 Reliable Services 的基于服务远程处理的通信。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,24 +13,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 04/20/2017
-ms.date: 01/01/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: c870910171f88cdcb48a5deff707efaee5f4585b
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 50c381c45c9f052a4fd8087e8c319f7634846c12
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>在 Azure Service Fabric 中帮助保护服务的通信
+# <a name="secure-service-remoting-communications-for-a-service"></a>保护服务的服务远程处理通信
 > [!div class="op_single_selector"]
 > * [Windows 上的 C#](service-fabric-reliable-services-secure-communication.md)
 > * [Linux 上的 Java](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-安全是通信最为重视的要素之一。 Reliable Services 应用程序框架提供了一些预先生成的通信堆栈和工具供你用来提高安全性。 本文介绍如何在使用服务远程处理和 Windows Communication Foundation (WCF) 通信堆栈时提高安全性。
+安全是通信最为重视的要素之一。 Reliable Services 应用程序框架提供了一些预先生成的通信堆栈和工具供你用来提高安全性。 本文介绍如何在使用服务远程处理时提高安全性。
 
-## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>使用服务远程处理时帮助保护服务
 我们将使用一个现有[示例](service-fabric-reliable-services-communication-remoting.md)来解释如何为 Reliable Services 设置远程处理。 若要在使用服务远程处理时帮助保护服务，请遵循以下步骤：
 
 1. 创建接口 `IHelloWorldStateful`，用于定义可供服务的远程过程调用使用的方法。 服务将使用 `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` 命名空间中声明的 `FabricTransportServiceRemotingListener`。 这是可以提供远程处理功能的 `ICommunicationListener` 实现。
@@ -204,112 +203,5 @@ ms.lasthandoff: 12/29/2017
 
     ```
 
-## <a name="help-secure-a-service-when-youre-using-a-wcf-based-communication-stack"></a>使用基于 WCF 的通信堆栈时帮助保护服务
-我们将使用一个现有[示例](service-fabric-reliable-services-communication-wcf.md)来解释如何为 Reliable Services 设置基于 WCF 的通信堆栈。 若要在使用基于 WCF 的通信堆栈时帮助保护服务，请遵循以下步骤：
-
-1. 对于服务，需要帮助保护创建的 WCF 通信侦听器 (`WcfCommunicationListener`)。 为此，请修改 `CreateServiceReplicaListeners` 方法。
-
-    ```csharp
-    protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
-    {
-        return new[]
-        {
-            new ServiceReplicaListener(
-                this.CreateWcfCommunicationListener)
-        };
-    }
-
-    private WcfCommunicationListener<ICalculator> CreateWcfCommunicationListener(StatefulServiceContext context)
-    {
-       var wcfCommunicationListener = new WcfCommunicationListener<ICalculator>(
-            serviceContext:context,
-            wcfServiceObject:this,
-            // For this example, we will be using NetTcpBinding.
-            listenerBinding: GetNetTcpBinding(),
-            endpointResourceName:"WcfServiceEndpoint");
-
-        // Add certificate details in the ServiceHost credentials.
-        wcfCommunicationListener.ServiceHost.Credentials.ServiceCertificate.SetCertificate(
-            StoreLocation.LocalMachine,
-            StoreName.My,
-            X509FindType.FindByThumbprint,
-            "9DC906B169DC4FAFFD1697AC781E806790749D2F");
-        return wcfCommunicationListener;
-    }
-
-    private static NetTcpBinding GetNetTcpBinding()
-    {
-        NetTcpBinding b = new NetTcpBinding(SecurityMode.TransportWithMessageCredential);
-        b.Security.Message.ClientCredentialType = MessageCredentialType.Certificate;
-        return b;
-    }
-    ```
-2. 在客户端中，在前面[示例](service-fabric-reliable-services-communication-wcf.md)中创建的 `WcfCommunicationClient` 类保持不变。 但是，需要重写 `WcfCommunicationClientFactory` 的 `CreateClientAsync` 方法：
-
-    ```csharp
-    public class SecureWcfCommunicationClientFactory<TServiceContract> : WcfCommunicationClientFactory<TServiceContract> where TServiceContract : class
-    {
-        private readonly Binding clientBinding;
-        private readonly object callbackObject;
-        public SecureWcfCommunicationClientFactory(
-            Binding clientBinding,
-            IEnumerable<IExceptionHandler> exceptionHandlers = null,
-            IServicePartitionResolver servicePartitionResolver = null,
-            string traceId = null,
-            object callback = null)
-            : base(clientBinding, exceptionHandlers, servicePartitionResolver,traceId,callback)
-        {
-            this.clientBinding = clientBinding;
-            this.callbackObject = callback;
-        }
-
-        protected override Task<WcfCommunicationClient<TServiceContract>> CreateClientAsync(string endpoint, CancellationToken cancellationToken)
-        {
-            var endpointAddress = new EndpointAddress(new Uri(endpoint));
-            ChannelFactory<TServiceContract> channelFactory;
-            if (this.callbackObject != null)
-            {
-                channelFactory = new DuplexChannelFactory<TServiceContract>(
-                this.callbackObject,
-                this.clientBinding,
-                endpointAddress);
-            }
-            else
-            {
-                channelFactory = new ChannelFactory<TServiceContract>(this.clientBinding, endpointAddress);
-            }
-            // Add certificate details to the ChannelFactory credentials.
-            // These credentials will be used by the clients created by
-            // SecureWcfCommunicationClientFactory.  
-            channelFactory.Credentials.ClientCertificate.SetCertificate(
-                StoreLocation.LocalMachine,
-                StoreName.My,
-                X509FindType.FindByThumbprint,
-                "9DC906B169DC4FAFFD1697AC781E806790749D2F");
-            var channel = channelFactory.CreateChannel();
-            var clientChannel = ((IClientChannel)channel);
-            clientChannel.OperationTimeout = this.clientBinding.ReceiveTimeout;
-            return Task.FromResult(this.CreateWcfCommunicationClient(channel));
-        }
-    }
-    ```
-
-    使用 `SecureWcfCommunicationClientFactory` 创建 WCF 通信客户端 (`WcfCommunicationClient`)。 使用客户端调用服务方法。
-
-    ```csharp
-    IServicePartitionResolver partitionResolver = ServicePartitionResolver.GetDefault();
-
-    var wcfClientFactory = new SecureWcfCommunicationClientFactory<ICalculator>(clientBinding: GetNetTcpBinding(), servicePartitionResolver: partitionResolver);
-
-    var calculatorServiceCommunicationClient =  new WcfCommunicationClient(
-        wcfClientFactory,
-        ServiceUri,
-        ServicePartitionKey.Singleton);
-
-    var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
-        client => client.Channel.Add(2, 3)).Result;
-    ```
-
-## <a name="next-steps"></a>后续步骤
-* [Reliable Services 中使用 OWIN 的 Web API](service-fabric-reliable-services-communication-webapi.md)
+有关后续步骤，请阅读 [Reliable Services 中使用 OWIN 的 Web API](service-fabric-reliable-services-communication-webapi.md)。
 <!-- Update_Description: update meta properties, wording update -->

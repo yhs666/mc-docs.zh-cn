@@ -1,9 +1,9 @@
 ---
-title: "SQL API 的 Azure Cosmos DB 全局分发教程 | Azure"
-description: "了解如何使用 SQL API 设置 Azure Cosmos DB 全局分发。"
+title: SQL API 的 Azure Cosmos DB 多区域分发教程 | Azure
+description: 了解如何使用 SQL API 设置 Azure Cosmos DB 多区域分发。
 services: cosmos-db
-keywords: "全局分发"
-documentationcenter: 
+keywords: 多区域分布
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
@@ -13,33 +13,31 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 623457c1d587c2e8ab76f7dda33ee18df0a018c7
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 55076aed2ef07255c662513b6dd0ad039f8fd421
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>如何使用 SQL API 设置 Azure Cosmos DB 全局分发
+# <a name="how-to-setup-azure-cosmos-db-multiple-region-distribution-using-the-sql-api"></a>如何使用 SQL API 设置 Azure Cosmos DB 多区域分发。
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
-本文介绍了如何使用 Azure 门户设置 Azure Cosmos DB 全局分发，然后使用 SQL API 进行连接。
+本文介绍如何使用 Azure 门户设置 Azure Cosmos DB 多区域分发，然后使用 SQL API 进行连接。
 
 本文涵盖以下任务： 
 
 > [!div class="checklist"]
-> * 使用 Azure 门户配置全局分发
-> * 使用 [SQL API](sql-api-introduction.md) 配置全局分发
+> * 使用 Azure 门户配置多区域分发
+> * 使用 [SQL API](sql-api-introduction.md) 配置多区域分发
 
-<a id="portal"></a>
+<a name="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 ## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>使用 SQL API 连接到首选区域
 
-为了利用[全局分发](distribute-data-globally.md)，客户端应用程序可以指定要用于执行文档操作的区域优先顺序列表。 可通过设置连接策略来实现此目的。 SQL SDK 根据 Azure Cosmos DB 帐户配置、当前区域可用性和指定的优先顺序列表，选择最佳的终结点来执行写入和读取操作。
+为了利用[多区域分发](distribute-data-globally.md)，客户端应用程序可以指定要用于执行文档操作的区域优先顺序列表。 可通过设置连接策略来实现此目的。 SQL SDK 根据 Azure Cosmos DB 帐户配置、当前区域可用性和指定的优先顺序列表，选择最佳的终结点来执行写入和读取操作。
 
 此优先顺序列表是在使用 SQL SDK 初始化连接时指定的。 SDK 接受可选参数“PreferredLocations”，这是 Azure 区域的顺序列表。
 
@@ -166,8 +164,8 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 在本教程中已完成以下操作：
 
 > [!div class="checklist"]
-> * 使用 Azure 门户配置全局分发
-> * 使用 SQL API 配置全局分发
+> * 使用 Azure 门户配置多区域分发
+> * 使用 SQL API 配置多区域分发
 
 现可继续学习下一个教程，了解如何使用 Azure Cosmos DB 本地模拟器在本地开发。
 
@@ -175,4 +173,4 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 > [通过模拟器在本地开发](local-emulator.md)
 
 [regions]: https://www.azure.cn/support/service-dashboard/
-<!-- Update_Description: new articles on tutorial global distributyion sql api -->
+<!-- Update_Description: update meta propreties, wording update -->

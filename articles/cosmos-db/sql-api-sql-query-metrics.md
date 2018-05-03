@@ -1,12 +1,11 @@
 ---
-title: "Azure Cosmos DB SQL API 的 SQL 查询指标 | Azure"
-description: "了解如何检测和调试 Azure Cosmos DB 请求的 SQL 查询性能。"
-keywords: "sql 语法, sql 查询, sql 查询, json 查询语言, 数据库概念和 sql 查询, 聚合函数"
+title: Azure Cosmos DB SQL API 的 SQL 查询指标 | Azure
+description: 了解如何检测和调试 Azure Cosmos DB 请求的 SQL 查询性能。
+keywords: sql 语法, sql 查询, sql 查询, json 查询语言, 数据库概念和 sql 查询, 聚合函数
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: monicar
 ms.assetid: b2fa8e8f-7291-45a3-9bd1-7284ed9077f8
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,17 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/02/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 415eebcb19e5d19d7dcc004bf35c6d4b7f7799b3
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: f3021b401da08033fe90c4e0c359e245cbb1fc29
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>优化 Azure Cosmos DB 的查询性能
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB 提供了一个[用于查询数据的 SQL API](sql-api-sql-query.md)，不需要使用架构或辅助索引。 本文为开发者提供了以下信息：
 
@@ -141,7 +138,7 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 | `x-ms-documentdb-query-metrics` | 执行的查询统计信息。 这是一个经分隔的字符串，其中包含在执行查询的各个阶段中花费的时间的统计信息。 如果 `x-ms-documentdb-populatequerymetrics` 设置为 `True`，则会返回。 | 
 | `x-ms-request-charge` | 查询使用的[请求单位](request-units.md)数。 | 
 
-有关 REST API 请求标头和选项的详细信息，请参阅[使用 REST API 查询资源](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api)。
+有关 REST API 请求标头和选项的详细信息，请参阅[使用 REST API 查询资源](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api)。
 
 ## <a name="best-practices-for-query-performance"></a>有关查询性能的最佳做法
 下面是影响 Azure Cosmos DB 查询性能的最常见因素。 本文深入探讨了其中的每一个主题。
@@ -218,7 +215,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 有关 SDK 发行说明和已实现的类和方法的详细信息，请参阅 [SQL SDK](sql-api-sdk-dotnet.md)
 
 ### <a name="network-latency"></a>网络延迟
-请参阅 [Azure Cosmos DB 全局分发](tutorial-global-distribution-sql-api.md)来了解如何设置全局分发以及如何连接到最近到区域。 当需要进行多次往返或需要通过查询检索大型结果集时，网络延迟对查询性能有显著影响。 
+请参阅 [Azure Cosmos DB 多区域分发](tutorial-global-distribution-sql-api.md)，了解如何设置多区域分发以及如何连接到最近的区域。 当需要进行多次往返或需要通过查询检索大型结果集时，网络延迟对查询性能有显著影响。 
 
 有关查询执行指标的部分介绍如何检索查询的服务器执行时间 ( `totalExecutionTimeInMs`)，以便可区分查询执行和网络传输所用的时间。
 
@@ -282,4 +279,4 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 * 若要了解请求单位，请参阅[请求单位](request-units.md)。
 * 若要了解索引编制策略，请参阅[索引编制策略](indexing-policies.md)
 
-<!-- Update_Description: new articles on SQL api query metrics -->
+<!-- Update_Description: update meta properties, update link -->

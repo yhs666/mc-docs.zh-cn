@@ -1,25 +1,25 @@
 ---
-title: "使用 Linux Azure 诊断聚合 Azure Service Fabric 事件 | Azure"
-description: "了解如何使用 LAD 聚合和收集事件，以便对 Azure Service Fabric 群集进行监视和诊断。"
+title: 使用 Linux Azure 诊断聚合 Azure Service Fabric 事件 | Azure
+description: 了解如何使用 LAD 聚合和收集事件，以便对 Azure Service Fabric 群集进行监视和诊断。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/02/2017
-ms.date: 12/04/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6008f4fe876ad1d5acd551ea87ad8ce24cf537f5
-ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
+ms.openlocfilehash: afb17c428e7d029e77266040e69be094da668fc8
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>使用 Linux Azure 诊断聚合和收集事件
 > [!div class="op_single_selector"]
@@ -30,8 +30,9 @@ ms.lasthandoff: 01/19/2018
 
 当你运行 Azure Service Fabric 群集时，最好是从一个中心位置的所有节点中收集日志。 将日志放在中心位置可帮助分析和排查群集中的问题，或该群集中运行的应用程序与服务的问题。
 
-上传和收集日志的方式之一是使用可将日志上传到 Azure 存储、也能选择将日志发送到 Azure Application Insights 或事件中心的 Linux Azure 诊断 (LAD) 扩展。 也可以使用外部进程读取存储中的事件，并将它们放在分析平台产品（例如其他日志分析解决方案）中。
-<!-- Not Available [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) -->
+若要上传和收集日志，一种方式是使用可将日志上传到 Azure 存储并能选择将日志发送到事件中心的 Linux Azure 诊断 (LAD) 扩展。 也可以使用外部进程读取存储中的事件，并将它们放在分析平台产品中。
+<!-- Not Available [Log Analytics](../log-analytics/log-analytics-service-fabric.md) -->
+<!-- Not Available on Azure Application Insights -->
 
 ## <a name="log-and-event-sources"></a>日志和事件源
 
@@ -53,6 +54,6 @@ Service Fabric 通过 [LTTng](http://lttng.org) 发出几个现成可用的日�
 ## <a name="next-steps"></a>后续步骤
 
 1. 若要更详细了解在排查问题时应检查哪些事件，请参阅 [LTTng 文档](http://lttng.org/docs)和[使用 LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)。
-<!-- Not Available on 2. [Set up the OMS agent](service-fabric-diagnostics-event-analysis-oms.md) to help gather metrics, monitor Containers deployed on your cluster, and visualize your logs -->
+<!-- Not Available on 2. [Set up the Log Analytics agent](service-fabric-diagnostics-event-analysis-oms.md) to help gather metrics, monitor Containers deployed on your cluster, and visualize your logs -->
 
 <!--Update_Description: update meta properties -->

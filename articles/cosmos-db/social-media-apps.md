@@ -1,12 +1,11 @@
 ---
-title: "Azure Cosmos DB 设计模式：社交媒体应用 | Azure"
-description: "利用 Azure Cosmos DB 的存储灵活性和其他 Azure 服务了解社交网络的设计模式。"
-keywords: "社交媒体应用"
+title: Azure Cosmos DB 设计模式：社交媒体应用 | Azure
+description: 利用 Azure Cosmos DB 的存储灵活性和其他 Azure 服务了解社交网络的设计模式。
+keywords: 社交媒体应用
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: 
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 483a66d47263bf03b0dd11a1bd33dd321dcf3fba
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: c547f2e8e668852554bab54c36c7faa257ccb0b4
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行社交
 生活在大规模互连的社会中，这意味着有时候你也成了社交网络中的一部分。 我们使用社交网络与朋友、同事和家人保持联系，有时还会与有共同兴趣的人分享我们的激情。
@@ -207,14 +206,15 @@ Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，�
 
 由于想要深入了解，你可能会认为自己需要更多数学科学方面的知识才能从简单数据库和文件中提取出这些模式和信息，其实不然。
 
-[Azure 机器学习](https://www.azure.cn/home/features/machine-learning/)（Cortana Intelligence Suite 的一部分）是一项全面托管的云服务，使你可以在简单的拖放界面中使用算法创建工作流、为 [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) 中自己的算法进行编码，或使用部分已生成的马上可以使用的 API（如[文本分析](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2)、[内容审查器](https://www.microsoft.com/moderator)或[建议](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2)）。
+Azure 机器学习（Cortana Intelligence Suite 的一部分）是一项全面托管的云服务，使你可以在简单的拖放界面中使用算法创建工作流、为 [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) 中自己的算法进行编码，或使用部分已生成的马上可以使用的 API（如[文本分析](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2)、[内容审查器](https://www.microsoft.com/moderator)或[建议](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2)）。
+<!-- Not Available on [Azure Machine Learning](https://www.azure.cn/home/features/machine-learning/)-->
 <!-- URL is not Correct on  [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx) -->
 
 <!-- Not Available  [Azure Data Lake](https://www.azure.cn/home/features/data-lake-store/) -->
 
 另一个可用的选项是使用 [Microsoft 认知服务](https://www.microsoft.com/cognitive-services) 分析用户内容：不仅可以更好地理解它们（通过分析使用 [文本分析 API](https://www.microsoft.com/cognitive-services/text-analytics-api)编写的内容），而且还可以检测不需要或不成熟的内容，并使用[计算机构想 API](https://www.microsoft.com/cognitive-services/computer-vision-api)解决相关问题。 认知服务包括大量不需要使用任何一种机器学习知识的现成的可用解决方案。
 
-## <a name="a-planet-scale-social-experience"></a>全球范围内的社交体验
+## <a name="a-multiple-region-scale-social-experience"></a>多区域缩放社交体验
 最后，还必须说明一个非常重要的主题：**可伸缩性**。 在设计体系结构时，因为需要处理更多的数据和/或希望拥有更大的地理覆盖范围，所以每个组件的自行可伸缩性至关重要。 幸运的是，通过使用 Cosmos DB 完成此类复杂任务是一种**统包体验**。
 <!-- Notice: 全球 to 多个区域 -->
 
@@ -222,7 +222,7 @@ Cosmos DB 根据给定的**分区键**（定义为文档中的一个属性）自
 
 值得一提的有趣的一点是，Cosmos DB 以透明方式在所有分区中运行查询（包括[聚合](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)），无需在数据增长过程中添加任何逻辑。
 
-一段时间后，最终流量会增加，资源消耗（通过 [RU](request-units.md) 即“请求单位”进行度量）也会增加。 随着用户群的增长，读取和写入操作会更加频繁，用户将开始创建和读取更多内容；**缩放吞吐量**的能力至关重要。 增加 RU 非常容易，可以通过在 Azure 门户中单击几次或[通过 API 发出命令](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer)来实现。
+一段时间后，最终流量会增加，资源消耗（通过 [RU](request-units.md) 即“请求单位”进行度量）也会增加。 随着用户群的增长，读取和写入操作会更加频繁，用户将开始创建和读取更多内容；**缩放吞吐量**的能力至关重要。 增加 RU 非常容易，可以通过在 Azure 门户中单击几次或[通过 API 发出命令](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer)来实现。
 
 ![扩展和定义分区键](./media/social-media-apps/social-media-apps-scaling.png)
 

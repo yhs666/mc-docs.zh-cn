@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/06/2018
-ms.date: 03/02/2018
+origin.date: 04/09/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
-ms.openlocfilehash: 22695fb351e29ae2ac1f6c5cf95b423e6ec5644e
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 09c528d73239ed98af90e725dd355410a3562e1e
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack 集成系统的 Azure 断开连接部署计划决策
 在决定[如何将 Azure Stack 集成到混合云环境](azure-stack-connection-models.md)后，可以完成你的 Azure Stack 部署决策。
@@ -46,7 +46,7 @@ Azure Stack 设计为在连接到 Azure 的情况下功能最佳，因此请务�
 |VM 部署（带有用于运行 Docker 命令的 Docker 扩展）|被削弱 - Docker 将检查 Internet 来查找最新版本并且此检查将失败。|
 |Azure Stack 门户中的文档链接|不可用 - 诸如“提供反馈”、“帮助”、“快速入门”之类的使用 Internet URL 的链接将不起作用。|
 |引用联机修正指南的警报修正/缓解|不可用 - 使用 Internet URL 的任何警报修正链接都不起作用。|
-|Marketplace 联合 - 直接从 Azure Marketplace 中选择并添加库包的能力|不可用 - 此功能要求连接到 Azure 和 Azure Active Directory 帐户。|
+|Marketplace 联合 - 直接从 Azure Marketplace 中选择并添加库包的能力|限制 - 在离线模式下（没有任何 Internet 连接）部署 Azure Stack 时，不能通过 Azure Stack 门户下载 Marketplace 项。 但是，可以使用 [Marketplace 联合工具](/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity)将 Marketplace 项下载到有 Internet 连接的计算机，然后再将这些项转移到 Azure Stack 环境。|
 |使用 Azure Active Directory 联合身份验证帐户管理 Azure Stack 部署|不可用 - 此功能要求连接到 Azure。 必须改用具有本地 Active Directory 实例的 AD FS。|
 |诸如 WebApps 和 SQL 的资源提供程序|不可用 - 诸如 WebApps 和 SQL 的资源提供程序要求通过 Internet 访问内容。|
 |命令行界面 (CLI)|被削弱 - CLI 在对服务主体进行身份验证和预配方面的功能已减弱。|
@@ -58,9 +58,10 @@ Azure Stack 设计为在连接到 Azure 的情况下功能最佳，因此请务�
 
 ## <a name="learn-more"></a>了解详细信息
 - 有关用例、购买、合作伙伴和 OEM 硬件供应商的信息，请参阅 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 产品页。
-- 有关 Azure Stack 集成系统的路线图和地区可用性的信息，请参阅白皮书 - [Azure Stack: An extension of Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)（Azure Stack：Azure 的一个扩展）。 
-- 若要了解有关 Azure Stack 打包和定价的详细信息，请[下载 .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)。 
+- 有关 Azure Stack 集成系统的路线图和上市区域的信息，请参阅白皮书：[Azure Stack: An extension of Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)（Azure Stack：Azure 的扩展）。 
+- 若要了解有关 Azure Stack 打包和定价的详细信息，请[下载此 .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)。 
 
 ## <a name="next-steps"></a>后续步骤
 [数据中心网络集成](azure-stack-network.md)
 
+<!-- Update_Description: wording update -->

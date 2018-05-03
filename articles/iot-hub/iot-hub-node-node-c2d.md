@@ -1,31 +1,33 @@
 ---
-title: "Azure IoT 中心的云到设备消息 (Node) | Azure"
-description: "如何使用 Azure IoT SDK for Node.js 将云到设备消息从 Azure IoT 中心发送到设备。 修改模拟设备应用以接收云到设备消息，并修改后端应用以发送云到设备消息。"
+title: Azure IoT 中心的云到设备消息 (Node) | Azure
+description: 如何使用 Azure IoT SDK for Node.js 将云到设备消息从 Azure IoT 中心发送到设备。 修改模拟设备应用以接收云到设备消息，并修改后端应用以发送云到设备消息。
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3ca8a78f-ade2-46e8-8a49-d5d599cdf1f1
 ms.service: iot-hub
 ms.devlang: javascript
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/20/2017
+ms.date: 04/30/2017
 origin.author: v-yiso
-ms.openlocfilehash: 8acd88f836f3be030cbf3066578de18381de4646
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.openlocfilehash: e206aa9b35ece85d0995a1b78fdb5de06cadf5cb
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>使用 IoT 中心发送云到设备消息 (Node)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备和单个解决方案后端之间实现安全可靠的双向通信。 [Get started with IoT Hub] 教程介绍了如何创建 IoT 中心和在其中预配设备标识，并介绍了如何编写用于发送设备到云消息的模拟设备应用。
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 本教程是在 [Get started with IoT Hub]（IoT 中心入门）的基础上编写的。 其中了说明了如何：
 
@@ -49,7 +51,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 
 * Node.js 版本 4.0.x 或更高版本。
 
-+ 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
+* 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>在模拟设备应用上接收消息
 本部分介绍如何修改在 [Get started with IoT Hub]中创建的模拟设备应用，以接收来自 IoT 中心的“云到设备”消息。
@@ -87,7 +89,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
    > 
 
 ## <a name="send-a-cloud-to-device-message"></a>发送云到设备的消息
-在本部分中，你创建一个 Node.js 控制台应用，用于将云到设备的消息发送到模拟设备应用。 需要使用 [Get started with IoT Hub]教程中添加的设备的设备 ID。 还需要中心的 IoT 中心连接字符串（位于 [Azure 门户]）。
+在本部分中，会创建一个 Node.js 控制台应用，用于将云到设备的消息发送到模拟设备应用。 需要使用 [Get started with IoT Hub]教程中添加的设备的设备 ID。 还需要中心的 IoT 中心连接字符串（位于 [Azure 门户]）。
 
 1. 创建名为 **sendcloudtodevicemessage**的空文件夹。 在命令提示符处，使用以下命令在 **sendcloudtodevicemessage** 文件夹中创建一个 package.json 文件。 接受所有默认值：
    
@@ -99,7 +101,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
     ```shell
     npm install azure-iothub --save
     ```
-3. 通过文本编辑器，在 **sendcloudtodevicemessage** 文件夹中创建一个 **SendCloudToDeviceMessage.js** 文件。
+3. 通过文本编辑器，在 **sendcloudtodevicemessage**文件夹中创建一个 **SendCloudToDeviceMessage.js** 文件。
 4. 在 **SendCloudToDeviceMessage.js** 文件的开头添加以下 `require` 语句：
    
     ```javascript

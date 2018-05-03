@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/22/2018
-ms.date: 03/26/2018
+origin.date: 03/30/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: d1e4c66f5697e9a4ca700a18f1b1f4f63c74369a
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 5281d58ae6aef60721a03c0dced280ec0b0ad4a2
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>在 Azure Stack 中使用 PowerShell 启动并运行
 
@@ -33,9 +33,6 @@ ms.lasthandoff: 03/28/2018
 ## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>设置 PowerShell 进行基于 Azure Active Directory 的部署
 
 登录到 Azure Stack 开发工具包；如果已通过 VPN 建立连接，请登录到基于 Windows 的外部客户端。 打开权限提升的 PowerShell ISE 会话，然后运行以下脚本。 确保根据需要更新环境配置的 **TenantName**、**ArmEndpoint** 和 **GraphAudience** 变量：
-
-> [!IMPORTANT]
-> AzureRM 1.2.11 PowerShell 模块版本随附了重大更改列表。 
 
 ```powershell
 # Specify Azure Active Directory tenant name.
@@ -175,18 +172,15 @@ Login-AzureRmAccount `
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
+> [!note]  
+> 若要指定资源组，订阅中需有一个资源组。 有关订阅的详细信息，请参阅[计划、产品/服务、配额和订阅概述](azure-stack-plan-offer-quota-overview.md)
+
 创建资源组后，“Provisioning state”属性会设置为“Succeeded”。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [安装和配置 CLI](azure-stack-connect-cli.md)
+- [安装和配置 CLI](user/azure-stack-connect-cli.md)
 
 - [开发模板](user/azure-stack-develop-templates.md)
 
-
 <!-- Update_Description: wording update -->
-
-
-
-
-

@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中创建 PHP Web 应用"
-description: "数分钟内在 Azure 应用服务 Web 应用中部署首个 PHP Hello World。"
+title: 在 Azure 中创建 PHP Web 应用
+description: 数分钟内在 Azure 应用服务 Web 应用中部署首个 PHP Hello World。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
 ms.workload: web
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 12/13/2017
-ms.date: 03/12/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 00ca0ac0bafb006d5de4bb615862e99ce95c9d7f
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 6871e6bea83278831b7d49bc84fc17ae6b15bff7
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-a-php-web-app-in-azure"></a>在 Azure 中创建 PHP Web 应用
 
-[Azure Web 应用](./app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门教程演示如何将 PHP 应用部署到 Azure Web 应用。 在 Cloud Shell 中使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 创建 Web 应用，并使用 Git 将示例 PHP 代码部署到 Web 应用。
+[Azure Web 应用](app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门教程演示如何将 PHP 应用部署到 Azure Web 应用。 在 Cloud Shell 中使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 创建 Web 应用，并使用 Git 将 PHP 代码示例部署到 Web 应用。
 
-![在 Azure 中运行的示例应用]](media/app-service-web-get-started-php/hello-world-in-browser.png)
+![在 Azure 中运行的示例应用](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
 可以在 Mac、Windows 或 Linux 计算机上执行此处的步骤。 安装先决条件后，大约需要五分钟完成这些步骤。
 
@@ -36,7 +36,8 @@ ms.lasthandoff: 03/02/2018
 
 若要完成本快速入门教程，需先执行以下操作：
 
-* <a href="https://php.net" target="_blank">安装 PHP</a>
+* <a href="https://git-scm.com/" target="_blank">安装 Git</a>
+* <a href="http://php.net/manual/install.php" target="_blank">安装 PHP</a>
 
 ## <a name="download-the-sample-locally"></a>将示例下载到本地
 
@@ -55,7 +56,7 @@ cd php-docs-hello-world
 php -S localhost:8080
 ```
 
-打开 Web 浏览器并导航到 http://localhost:8080 处的示例应用。
+打开 Web 浏览器并导航到 `http://localhost:8080` 处的示例应用。
 
 此时会看到“Hello World!” 消息（来自页面中显示的示例应用）。
 
@@ -73,13 +74,37 @@ php -S localhost:8080
 
 ## <a name="create-a-web-app"></a>创建 Web 应用
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-php-no-h.md)]
+使用 [`az webapp create`](/cli/webapp?view=azure-cli-latest#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 Web 应用。 
+
+在以下示例中，将 `<app_name>` 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 运行时设置为 `PHP|7.0`。 若要查看所有受支持的运行时，请运行 [`az webapp list-runtimes`](/cli/webapp?view=azure-cli-latest#az_webapp_list_runtimes)。 
+
+```azurecli
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git
+```
+
+创建 Web 应用后，Azure CLI 会显示类似于以下示例的输出：
+
+```json
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.chinacloudapi.cn",
+  "enabled": true,
+  < JSON data removed for brevity. >
+}
+```
 
 浏览到新建的 Web 应用。 将 _&lt;应用名称>_ 替换为唯一的应用名称。
 
 ```bash
 http://<app name>.chinacloudsites.cn
 ```
+
+新 Web 应用应该如下所示：
 
 ![空 Web 应用页](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
@@ -114,7 +139,7 @@ To https://<app_name>.scm.chinacloudsites.cn/<app_name>.git
 
 使用 Web 浏览器浏览到已部署的应用程序。
 
-```bash
+```
 http://<app_name>.chinacloudsites.cn
 ```
 
@@ -139,7 +164,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-切换回在“浏览到应用”步骤中打开的浏览器窗口，然后刷新页面。
+完成部署后，切换回**浏览到应用**步骤中打开的浏览器窗口，然后刷新页面。
 
 ![已更新的在 Azure 中运行的示例应用](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 

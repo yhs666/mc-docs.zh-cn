@@ -1,56 +1,52 @@
 ---
-title: "如何通过 PHP 使用 Azure 存储表服务或 Azure Cosmos DB 表 API | Azure"
-description: "了解如何通过 PHP 使用表服务 API 来创建和删除表以及插入、删除和查询表。"
+title: 如何通过 PHP 使用 Azure 存储表服务或 Azure Cosmos DB 表 API | Azure
+description: 了解如何通过 PHP 使用表服务 API 来创建和删除表以及插入、删除和查询表。
 services: cosmos-db
 documentationcenter: php
 author: rockboyfor
 manager: digimobile
-editor: tysonn
 ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-origin.date: 02/22/2018
-ms.date: 03/05/2018
+origin.date: 04/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: c2bd85f4773a6e54ccf305c61f749d13d0f0a6ae
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: a1aa172b7bd933cb02663759fc06951a73fbbaa8
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>如何通过 PHP 使用 Azure 存储表服务或 Cosmos DB 表 API
+# <a name="how-to-use-azure-storage-table-service-from-php"></a>如何通过 PHP 使用 Azure 存储表服务
+<!-- Not Available on  Cosmos DB Table API -->
+
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>概述
-本指南演示如何使用 Azure 存储表服务和 Azure Cosmos DB 表 API 执行常见方案。 示例采用 PHP 编写，并使用了 [Azure 存储表 PHP 客户端库][download]。 涉及的方案包括**创建和删除表**以及**在表中插入、删除和查询实体**。 有关 Azure 表服务的详细信息，请参阅[后续步骤](#next-steps)部分。
-
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+本指南介绍如何使用 Azure 存储表服务执行常见任务。 示例采用 PHP 编写，并使用了 [Azure 存储表 PHP 客户端库][download]。 涉及的方案包括**创建和删除表**以及**在表中插入、删除和查询实体**。 有关 Azure 表服务的详细信息，请参阅[后续步骤](#next-steps)部分。
+<!-- Not Available on Azure Cosmos DB Table API -->
 
 ## <a name="create-an-azure-service-account"></a>创建 Azure 服务帐户
 
-可以通过 Azure 表存储或 Azure Cosmos DB 表 API 使用表。 可以阅读[表产品](table-introduction.md#table-offerings)来详细了解服务之间的差别。 需要为所要使用的服务创建一个帐户。 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
 
-创建第一个存储帐户的最简单方法是使用 [Azure 门户](https://portal.azure.cn)。 若要了解更多信息，请参阅 [创建存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-也可以使用 [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) 或 [Azure CLI](../storage/common/storage-azure-cli.md) 创建存储帐户。
-
-如果暂时不想创建存储帐户，也可以使用 Azure 存储模拟器在本地环境中运行和测试代码。 有关详细信息，请参阅[使用 Azure 存储模拟器进行开发和测试](../storage/common/storage-use-emulator.md)。
-
-### <a name="create-an-azure-cosmos-db-account"></a>创建 Azure Cosmos DB 帐户
-
-有关创建 Azure Cosmos DB 帐户的说明，请参阅[创建表 API 帐户](create-table-dotnet.md#create-a-database-account)。
+<!-- Not Available on  ### Create an Azure Cosmos DB account -->
 
 ## <a name="create-a-php-application"></a>创建 PHP 应用程序
 
-创建可访问存储表服务或 Azure Cosmos DB 表 API 的 PHP 应用程序的唯一要求是在代码中引用用于 PHP 的 Azure 存储表 SDK 中的类。 可以使用任何开发工具（包括“记事本”）创建应用程序。
+创建可访问存储表服务的 PHP 应用程序的唯一要求是在代码中引用用于 PHP 的 Azure 存储表 SDK 中的类。 可以使用任何开发工具（包括“记事本”）创建应用程序。
+<!-- Not Available on Azure Cosmos DB Table API -->
 
-本指南涉及使用存储表服务或 Azure Cosmos DB 功能，可在 PHP 应用程序中本地调用，或在 Azure Web 角色、辅助角色或网站中运行的代码内调用这些功能。
+在本指南中，我们将使用可在 PHP 应用程序中本地调用，或在 Azure Web 角色、辅助角色或网站中运行的代码中调用的存储表服务。
+<!-- Not Available on  Azure Cosmos DB features -->
 
 ## <a name="get-the-client-library"></a>获取客户端库
 
@@ -70,7 +66,8 @@ php composer.phar install
 或者转到 GitHub 上的 [Azure 存储表 PHP 客户端库](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table)，然后克隆源代码。
 
 ## <a name="add-required-references"></a>添加所需引用
-若要使用存储表服务或 Azure Cosmos DB API，必须：
+若要使用存储表服务，必须：
+<!-- Not Available on Azure Cosmos DB APIs -->
 
 * 使用 [require_once][require_once]语句引用 autoloader 文件，并
 * 引用所用的任何类。
@@ -88,15 +85,10 @@ use MicrosoftAzure\Storage\Table\TableRestProxy;
 若要实例化存储表服务客户端，必须首先具有有效的连接字符串。 存储表服务连接字符串的格式如下：
 
 ```php
-$connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey];TableEndpoint=https://<yourstoragename>.table.core.chinacloudapi.cn/"
+$connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey];EndpointSuffix=core.chinacloudapi.cn"
 ```
 
-## <a name="add-an-azure-cosmos-db-connection"></a>添加 Azure Cosmos DB 连接
-若要实例化 Azure Cosmos DB 表客户端，必须首先具有有效的连接字符串。 Azure Cosmos DB 连接字符串的格式为：
-
-```php
-$connectionString = "DefaultEndpointsProtocol=[https];AccountName=[myaccount];AccountKey=[myaccountkey];TableEndpoint=[https://myaccount.documents.azure.cn]";
-```
+<!-- Not Available on ## Add an Azure Cosmos DB connection -->
 
 ## <a name="add-a-storage-emulator-connection"></a>添加存储模拟器连接
 若要访问模拟器存储，请执行以下操作：
@@ -105,7 +97,8 @@ $connectionString = "DefaultEndpointsProtocol=[https];AccountName=[myaccount];Ac
 UseDevelopmentStorage = true
 ```
 
-若要创建 Azure 表服务客户端或 Azure Cosmos DB 客户端，需要使用 **TableRestProxy** 类。 方法：
+若要创建 Azure 表服务客户端，需要使用 **TableRestProxy** 类。 方法：
+<!-- Not Available on  Azure Cosmos DB client -->
 
 * 将连接字符串直接传递给此类或
 * 使用 CloudConfigurationManager (CCM) 检查多个外部源以获取连接字符串：
@@ -436,8 +429,6 @@ catch(ServiceException $e){
 
 下面的示例演示了如何通过单个请求执行 **insertEntity** 和 **deleteEntity** 操作。 
 
-> [!NOTE]
-> Azure Cosmos DB 尚不支持对表进行批处理操作。 
 ```php
 require_once 'vendor/autoload.php';
 
@@ -448,7 +439,7 @@ use MicrosoftAzure\Storage\Table\Models\EdmType;
 use MicrosoftAzure\Storage\Table\Models\BatchOperations;
 
 // Configure a connection string for Storage Table service.
-$connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey];TableEndpoint=https://<yourstoragename>.table.core.chinacloudapi.cn/"
+$connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey];EndpointSuffix=core.chinacloudapi.cn"
 
 // Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);

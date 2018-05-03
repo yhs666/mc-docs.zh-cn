@@ -1,26 +1,19 @@
 ---
-title: "Azure Analysis Services 教程第 2 课：获取数据 | Azure"
-description: "介绍如何在 Azure Analysis Services 教程项目中获取和导入数据。"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services 教程第 2 课：获取数据 | Azure
+description: 介绍如何在 Azure Analysis Services 教程项目中获取和导入数据。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 01/08/2018
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 64803712cf6cf89111a483f48a7fd619647c2f9d
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.reviewer: minewiskan
+ms.openlocfilehash: bb0c8487d413bd303e1c3da678a7bd8c3a75d97a
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-data"></a>获取数据
 
@@ -136,7 +129,8 @@ AdventureWorksDW2014 示例数据库中的表具有不需要包括在模型中�
 
       不删除任何列。
 
-## <a name="Import"></a>导入所选的表和列数据  
+<a name="Import"></a>
+## <a name="import-the-selected-tables-and-column-data"></a>导入所选的表和列数据  
 现在，已预览并筛选掉了不需要的数据，可以导入确实需要的剩余数据了。 向导将导入表数据以及各个表之间的关系。 将在模型中创建新的表和列，并且不会导入已筛选掉的数据。  
 
 #### <a name="to-import-the-selected-tables-and-column-data"></a>导入所选的表和列数据  
@@ -157,4 +151,4 @@ AdventureWorksDW2014 示例数据库中的表具有不需要包括在模型中�
 ## <a name="whats-next"></a>后续步骤
 [第 3 课：标记为日期表](../tutorials/aas-lesson-3-mark-as-date-table.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

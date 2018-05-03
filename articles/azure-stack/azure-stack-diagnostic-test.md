@@ -11,14 +11,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/26/2018
-ms.date: 03/22/2018
+origin.date: 04/06/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 81f3d3f510419ca6493a333d5782669315fb01cf
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: ce90132995b29b4c1c7b676c526499b4bb93d14e
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>为 Azure Stack 运行验证测试
 
@@ -34,7 +34,8 @@ ms.lasthandoff: 03/23/2018
 2. 联系 Microsoft 客户服务支持。
 3. 从特权终结点运行 **Test-AzureStack**。
     1. 访问特权终结点。 有关说明，请参阅[使用 Azure Stack 中的特权终结点](azure-stack-privileged-endpoint.md)。 
-    2. 在管理主机上以 **AzureStack\CloudAdmin** 身份登录。
+    2. 在 ASDK 上，以 **AzureStack\CloudAdmin** 身份登录到管理主机。  
+    在集成系统上，需要使用 OEM 硬件供应商为管理特权终结点提供的 IP 地址。
     3. 以管理员身份打开 PowerShell。
     4. 运行： `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
     5. 运行： `Test-AzureStack`
@@ -173,4 +174,3 @@ Test-AzureStack cmdlet 支持以下通用参数：Verbose、Debug、ErrorAction�
  - 若要详细了解 Azure Stack 诊断工具和问题日志记录，请参阅 [Azure Stack 诊断工具](azure-stack-diagnostics.md)。
  - 若要了解有关故障排除的详细信息，请参阅 [Azure Stack 故障排除](azure-stack-troubleshooting.md)
 
-<!-- Update_Description: wording update -->

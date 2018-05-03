@@ -1,26 +1,25 @@
 ---
-title: "使用 Azure Cosmos DB 中的更改源支持 | Azure"
-description: "使用 Azure Cosmos DB 的更改源支持跟踪文档中发生的更改，执行基于事件的处理（例如触发器），使缓存和分析系统保持最新状态。"
-keywords: "更改源"
+title: 使用 Azure Cosmos DB 中的更改源支持 | Azure
+description: 使用 Azure Cosmos DB 的更改源支持跟踪文档中发生的更改，执行基于事件的处理（例如触发器），使缓存和分析系统保持最新状态。
+keywords: 更改源
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-origin.date: 01/29/2018
-ms.date: 03/05/2018
+origin.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8bacc58c6e738c2d359dcad4e09948dd17622b9d
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: c3ca42627d104e6bf0024780bae8dcfb21ac9d88
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的更改源支持
 
@@ -35,8 +34,9 @@ ms.lasthandoff: 03/02/2018
 ![使用 Azure Cosmos DB 更改源促成实时分析和事件驱动的计算方案](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> 为 Azure Cosmos DB 中的所有数据模型和容器提供更改源支持。 但是，更改源是使用 SQL 客户端读取的，并将项目序列化为 JSON 格式。 由于 JSON 格式化，MongoDB 客户端会体验到 BSON 格式文档和 JSON 格式更改源之间的不匹配。 
+> 为 Azure Cosmos DB 中的所有数据模型和容器提供更改源支持。 但是，更改源是使用 SQL 客户端读取的，并将项目序列化为 JSON 格式。 由于 JSON 格式化，MongoDB 客户端会体验到 BSON 格式文档和 JSON 格式更改源之间的不匹配。
 
+<!-- Not Available on https://www.youtube.com/embed/mFnxoxeXlaU -->
 ## <a name="how-does-change-feed-work"></a>更改源工作原理
 
 Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB 集合中出现的任何更改， 然后会输出一个排序的列表，其中包含已更改的文档，其顺序与修改顺序一样。 所做的更改会持久保存，并能够以异步和增量方式进行处理，而且输出可以分发到一个或多个使用者进行并行处理。 
@@ -151,6 +151,11 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
             }
     }
     ```
+
+> [!NOTE]
+> 可以使用 `ChangeFeedOptions.PartitionKey`（而不是 `ChangeFeedOptions.PartitionKeyRangeId`）指定要为其获取更改源的单个分区键。 例如，`PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`。
+> 
+>
 
 如果有多个读取器，则可使用 ChangeFeedOptions 将读取负载分发到不同的线程或客户端。
 
@@ -283,4 +288,4 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 
 * [SDK 信息页](sql-api-sdk-dotnet.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, Update link -->

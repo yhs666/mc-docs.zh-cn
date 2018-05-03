@@ -1,10 +1,10 @@
 ---
-title: "Azure Cosmos DB：MongoDB API 文章 | Azure"
-description: "特定于使用 Azure Cosmos DB 中的 MongoDB API 创建文档数据库的所有文章列表。"
+title: Azure Cosmos DB：MongoDB API 文章 | Azure
+description: 特定于使用 Azure Cosmos DB 中的 MongoDB API 创建文档数据库的所有文章列表。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 0ee5b7f8-cda9-41a1-b7f0-f6a97e58c4da
 ms.service: cosmos-db
 ms.workload: data-services
@@ -12,20 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/12/2017
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: aa2af75c32859266ba65dd33ef373df282820953
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 904ab4b06c78f54886ca996459b3372d8e9d908f
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure Cosmos DB：MongoDB API 文档
 
 本文提供指向特定于 MongoDB API 的所有 Azure Cosmos DB 内容的链接。
 
-这些文章不适用于 SQL API 或表 API。 
+这些文章不适用于 SQL API。 
 <!-- Not Available on Graph API -->
+<!-- Not Available on Table API -->
 
 ## <a name="introduction-and-concepts"></a>简介和概念
 
@@ -73,4 +74,4 @@ ms.lasthandoff: 03/02/2018
 - [使用 Studio 3T (MongoChef)](mongodb-mongochef.md)
 - [使用 Robomongo](mongodb-robomongo.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties -->

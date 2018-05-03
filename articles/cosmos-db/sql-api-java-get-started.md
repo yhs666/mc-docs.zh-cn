@@ -1,12 +1,11 @@
 ---
-title: "NoSQL 教程：适用于 Azure Cosmos DB Java SDK 的 SQL API | Azure"
-description: "一个 NoSQL 教程，介绍了如何使用适用于 Azure Cosmos DB 的 SQL API 创建联机数据库和 Java 控制台应用程序。 Azure SQL 是用于 JSON 的 NoSQL 数据库。"
-keywords: "nosql 教程, 联机数据库, java 控制台应用程序"
+title: NoSQL 教程：适用于 Azure Cosmos DB Java SDK 的 SQL API | Azure
+description: 一个 NoSQL 教程，介绍了如何使用适用于 Azure Cosmos DB 的 SQL API 创建联机数据库和 Java 控制台应用程序。 Azure SQL 是用于 JSON 的 NoSQL 数据库。
+keywords: nosql 教程, 联机数据库, java 控制台应用程序
 services: cosmos-db
 documentationcenter: Java
 author: rockboyfor
 manager: digimobile
-editor: monicar
 ms.assetid: 75a9efa1-7edd-4fed-9882-c0177274cbb2
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 05/22/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0404f400c0d0f4acb118879f15b76fc7031a23bf
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 9f6cf34239106441c2f4711a20e4b2c2b47ede74
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 教程：构建 SQL API Java 控制台应用程序
 > [!div class="op_single_selector"]
@@ -32,8 +31,6 @@ ms.lasthandoff: 12/22/2017
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 欢迎使用适用于 Azure Cosmos DB Java SDK 的 SQL API 的 NoSQL 教程！ 学习本教程后，将拥有一个可创建并查询 Azure Cosmos DB 资源的控制台应用程序。
 
@@ -69,7 +66,8 @@ ms.lasthandoff: 12/22/2017
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="GitClone"></a>步骤 2：克隆 GitHub 项目
+<a name="GitClone"></a>
+## <a name="step-2-clone-the-github-project"></a>步骤 2：克隆 GitHub 项目
 首先，可以根据 [Get Started with Azure Cosmos DB and Java](https://github.com/Azure-Samples/documentdb-java-getting-started)（Azure Cosmos DB 和 Java 入门）中所述克隆 GitHub 存储库。 例如，从本地目录运行以下命令，在本地检索示例项目。
 
     git clone git@github.com:Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
@@ -84,7 +82,8 @@ ms.lasthandoff: 12/22/2017
         <version>LATEST</version>
     </dependency>
 
-## <a id="Connect"></a>步骤 3：连接到 Azure Cosmos DB 帐户
+<a name="Connect"></a>
+## <a name="step-3-connect-to-an-azure-cosmos-db-account"></a>步骤 3：连接到 Azure Cosmos DB 帐户
 接下来，回到 [Azure 门户](https://portal.azure.cn) ，检索终结点和主要主密钥。 Azure Cosmos DB 终结点和主密钥是必需的，可让应用程序知道要连接的对象，使 Azure Cosmos DB 信任应用程序的连接。
 
 在 Azure 门户中，导航到 Azure Cosmos DB 帐户，并单击“密钥”。 从门户复制 URI，并将其粘贴到 Program.java 文件的 `https://FILLME.documents.azure.cn` 中。 然后从门户中复制“主密钥”并将它粘贴到 `FILLME`。
@@ -104,7 +103,8 @@ ms.lasthandoff: 12/22/2017
     database.setId("familydb");
     this.client.createDatabase(database, null);
 
-## <a id="CreateColl"></a>步骤 5：创建集合
+<a name="CreateColl"></a>
+## <a name="step-5-create-a-collection"></a>步骤 5：创建集合
 > [!WARNING]
 > 
             **createCollection** 创建一个具有保留吞吐量的新集合，它牵涉定价。 有关详细信息，请访问[定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
@@ -123,7 +123,8 @@ ms.lasthandoff: 12/22/2017
 
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
-## <a id="CreateDoc"></a>步骤 6：创建 JSON 文档
+<a name="CreateDoc"></a>
+## <a name="step-6-create-json-documents"></a>步骤 6：创建 JSON 文档
 可以使用 **DocumentClient** 类的 [createDocument](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.createdocument) 方法创建[文档](sql-api-resources.md#documents)。 文档是用户定义的（任意）JSON 内容。 现在，我们可以插入一个或多个文档。 如果已有要在数据库中存储的数据，则可以使用 Azure Cosmos DB 的[数据迁移工具](import-data.md)将数据导入数据库。
 
     // Insert your Java objects as documents 
@@ -146,8 +147,9 @@ ms.lasthandoff: 12/22/2017
 
 ![说明 NoSQL 教程创建 Java 控制台应用程序所用帐户、联机数据库、集合和文档的层次关系的图表](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>步骤 7：查询 Azure Cosmos DB 资源
-Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行[各种查询](sql-api-sql-query.md)。  以下示例代码展示了如何将 SQL 语法与 [queryDocuments](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.querydocuments) 方法一起使用来查询 Azure Cosmos DB 中的文档。
+<a name="Query"></a>
+## <a name="step-7-query-azure-cosmos-db-resources"></a>步骤 7：查询 Azure Cosmos DB 资源
+Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行各种[查询](sql-api-sql-query.md)。  以下示例代码展示了如何将 SQL 语法与 [queryDocuments](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.querydocuments) 方法一起使用来查询 Azure Cosmos DB 中的文档。
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
         "/dbs/familydb/colls/familycoll",
@@ -159,7 +161,8 @@ Azure Cosmos DB 支持对存储在每个集合中的 JSON 文档进行[各种查
         System.out.println(String.format("\tRead %s", family));
     }
 
-## <a id="ReplaceDocument"></a>步骤 8：替换 JSON 文档
+<a name="ReplaceDocument"></a>
+## <a name="step-8-replace-json-document"></a>步骤 8：替换 JSON 文档
 Azure Cosmos DB 支持使用 [replaceDocument](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.replacedocument) 方法更新 JSON 文档。
 
     // Update a property
@@ -170,17 +173,20 @@ Azure Cosmos DB 支持使用 [replaceDocument](https://docs.azure.cn/java/api/co
         andersenFamily,
         null);
 
-## <a id="DeleteDocument"></a>步骤 9：删除 JSON 文档
+<a name="DeleteDocument"></a>
+## <a name="step-9-delete-json-document"></a>步骤 9：删除 JSON 文档
 Azure Cosmos DB 支持使用 [deleteDocument](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.deletedocument) 方法更新 JSON 文档。  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
-## <a id="DeleteDatabase"></a>步骤 10：删除数据库
-删除已创建的数据库会删除该数据库及其所有子资源（集合、文档等）。
+<a name="DeleteDatabase"></a>
+## <a name="step-10-delete-the-database"></a>步骤 10：删除数据库
+删除已创建的数据库将删除该数据库及其所有子资源（集合、文档等）。
 
     this.client.deleteDatabase("/dbs/familydb", null);
 
-## <a id="Run"></a>步骤 11：运行整个 Java 控制台应用程序！
+<a name="Run"></a>
+## <a name="step-11-run-your-java-console-application-all-together"></a>步骤 11：运行整个 Java 控制台应用程序！
 若要从控制台运行应用程序，请导航到项目文件夹，然后使用 Maven 进行编译：
 
     mvn package
@@ -197,4 +203,4 @@ Azure Cosmos DB 支持使用 [deleteDocument](https://docs.azure.cn/java/api/com
 * 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
 
 [keys]: media/sql-api-get-started/nosql-tutorial-keys.png
-<!-- Update_Description: new articles on SQL api java get started -->
+<!-- Update_Description: update meta properties, wording update -->

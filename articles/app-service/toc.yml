@@ -43,6 +43,8 @@
       href: app-service-web-tutorial-custom-domain.md
     - name: 3 - 绑定 SSL 证书
       href: app-service-web-tutorial-custom-ssl.md
+    - name: 4 - 对用户进行身份验证
+      href: app-service-web-tutorial-auth-aad.md
 - name: 示例
   items:
     - name: Azure CLI

@@ -14,11 +14,11 @@ ms.workload: na
 origin.date: 03/12/2018
 ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2a8ea2c20dac7b16f66310ee68b39935ac8d89e0
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: a86e72fbb29ee92d5c00f5d591d531b07ac76c11
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体
 
@@ -114,8 +114,7 @@ ms.lasthandoff: 03/28/2018
     ![保存密钥](./media/resource-group-create-service-principal-portal/save-key.png)
 
     保存密钥后，密钥的值显示。 复制此值，因为稍后不能检索密钥。 提供密钥值及应用程序 ID 登录为该应用程序。 将密钥值存储在应用程序可检索的位置。
-
-    ![保存的密钥](./media/resource-group-create-service-principal-portal/copy-key.png)
+    <a name="log-in-as-the-application"></a> ![保存的密钥](./media/resource-group-create-service-principal-portal/copy-key.png)
 
 ## <a name="get-tenant-id"></a>获取租户 ID
 

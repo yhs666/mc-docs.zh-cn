@@ -4,7 +4,6 @@ description: 了解 Azure Cosmos DB MongoDB API 为 MongoDB 3.4 提供的功能�
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: ''
 documentationcenter: ''
 ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
@@ -13,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: f90ebaf21e26783394d192c5498b7e07ca9f8a2c
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: f81750492f3e4971360e727e11347bf78b8b2250
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB API 对 MongoDB 功能和语法的支持
 
 Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可通过任何开源 MongoDB 客户端[驱动程序](https://docs.mongodb.org/ecosystem/drivers)与数据库的 MongoDB API 通信。 MongoDB API 允许按照 MongoDB [线路协议](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)使用现有的客户端驱动程序。
 <!-- Notice: globally to multiple-region -->
 
-可以通过 Azure Cosmos DB MongoDB API 享受你所习惯的 MongoDB API 优势，并使用 Azure Cosmos DB 的所有企业功能：[全局分发](distribute-data-globally.md)、[自动分片](partition-data.md)、可用性和延迟保证、自动为每个字段建立索引、静态加密、备份等。
+通过使用 Azure Cosmos DB MongoDB API，可以像以往一样从 MongoDB API 中受益，并且可使用 Azure Cosmos DB 提供的所有企业功能：[多区域分发](distribute-data-globally.md)、[自动分片](partition-data.md)、可用性和延迟保证、自动编制每个字段的索引、静态加密和备份等。
 
 ## <a name="mongodb-query-language-support"></a>MongoDB 查询语言支持
 
@@ -93,6 +92,7 @@ Azure Cosmos DB 在公共预览版中支持聚合管道。 请参阅 [Azure 博�
 - $lookup
 - $out
 - $count
+- $addFields
 
 ### <a name="aggregation-expressions"></a>聚合表达式
 

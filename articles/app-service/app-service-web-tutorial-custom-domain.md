@@ -1,11 +1,11 @@
 ---
-title: "将现有的自定义 DNS 名称映射到 Azure Web 应用 | Azure"
-description: "了解如何在 Azure 应用服务中向 Web 应用、移动应用后端或 API 应用添加现有的自定义 DNS 域名（虚域）。"
+title: 将现有的自定义 DNS 名称映射到 Azure Web 应用 | Azure
+description: 了解如何在 Azure 应用服务中向 Web 应用、移动应用后端或 API 应用添加现有的自定义 DNS 域名（虚域）。
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.service: app-service-web
 ms.workload: web
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 06/23/2017
-ms.date: 01/29/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 780f62f5bf945f5214ca6634cb037302f81ba6ce
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.openlocfilehash: f49495593d349df83076e0ac7671cae8c5b08e0d
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>将现有的自定义 DNS 名称映射到 Azure Web 应用
 
@@ -289,7 +289,7 @@ ms.lasthandoff: 01/22/2018
 
 ![自定义虚拟目录](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-操作完成后，应用应返回根路径的正确页面（例如，http://contoso.com）。
+操作完成后，应用会返回根路径的正确页面（例如，http://contoso.com)。
 
 ## <a name="automate-with-scripts"></a>使用脚本自动执行
 

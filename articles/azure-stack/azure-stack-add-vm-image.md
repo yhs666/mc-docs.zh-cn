@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 01/17/2018
-ms.date: 03/01/2018
+origin.date: 04/05/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: 04424f2fb786dd255187c4f0c5a80c0d624e6549
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 7f814c6f9df6391d5d4e9fc31da2949114e331b0
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>在 Azure Stack 中提供自定义虚拟机映像
 
@@ -134,9 +134,9 @@ ms.lasthandoff: 03/02/2018
     - 将 VM 映像添加到 VM 映像存储库。
     - 创建 Marketplace 项。
 
-    若要验证命令是否已成功运行，请在门户中转到 Marketplace。 验证 VM 映像在“虚拟机”类别中是否可用。
+    若要验证命令是否已成功运行，请在门户中转到 Marketplace。 验证 VM 映像在“计算”类别中是否可用。
 
-    ![VM 映像已成功添加](./media/azure-stack-add-vm-image/image5.PNG)
+    ![VM 映像已成功添加](./media/azure-stack-add-vm-image/verify-vm.png)
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>使用 PowerShell 删除 VM 映像
 
@@ -208,3 +208,4 @@ Remove-AzsVMImage `
 
 [预配虚拟机](azure-stack-provision-vm.md)
 
+<!-- Update_Description: wording update -->

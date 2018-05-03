@@ -1,11 +1,11 @@
 ---
-title: "Azure AD 中的证书凭据 | Microsoft Docs"
-description: "本文介绍如何注册和使用用于应用程序身份验证的证书凭据"
+title: Azure AD 中的证书凭据 | Microsoft Docs
+description: 本文介绍如何注册和使用用于应用程序身份验证的证书凭据
 services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
 ms.workload: identity
@@ -16,15 +16,15 @@ origin.date: 06/02/2017
 ms.author: v-junlch
 ms.custom: aaddev
 ms.date: 06/21/2017
-ms.openlocfilehash: 63ce7559e46af02db5aed0919ed907a4e41cc757
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 7df6a367afd61f513788243bf94eb1f45be4dcd7
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>用于应用程序身份验证的证书凭据
 
-Azure Active Directory 允许应用程序使用自身的凭据进行身份验证（例如，在 OAuth 2.0 客户端凭据授予流和代理流中）。
+Azure Active Directory 允许应用程序使用自己的凭据进行身份验证，例如，在 OAuth 2.0 客户端凭据授予流 ([v1](active-directory-protocols-oauth-service-to-service.md)) 和代理流 ([v1](active-directory-protocols-oauth-on-behalf-of.md)) 中就是如此。
 可以使用的凭据格式之一是使用应用程序拥有的证书签名的 JSON Web 令牌 (JWT) 断言。
 
 ## <a name="format-of-the-assertion"></a>断言的格式
@@ -33,7 +33,7 @@ Azure Active Directory 允许应用程序使用自身的凭据进行身份验证
 #### <a name="header"></a>标头
 
 | 参数 |  备注 |
-| --- | --- | --- |
+| --- | --- |
 | `alg` | 应为 **RS256** |
 | `typ` | 应为 **JWT** |
 | `x5t` | 应为 X.509 证书 SHA-1 指纹 |
@@ -41,8 +41,8 @@ Azure Active Directory 允许应用程序使用自身的凭据进行身份验证
 #### <a name="claims-payload"></a>声明（有效负载）
 
 | 参数 |  备注 |
-| --- | --- | --- |
-| `aud` | 受众：应为 **https://login.partner.microsoftonline.cn/*tenant_Id*/oauth2/token** |
+| --- | --- |
+| `aud` | 受众：应为 **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | 过期日期：令牌过期的日期。 该时间表示为自 1970 年 1 月 1 日 (1970-01-01T0:0:0Z) UTC 至令牌失效时间的秒数。|
 | `iss` | 颁发者：应为 client_id（客户端服务的应用程序 ID） |
 | `jti` | GUID：JWT ID |
@@ -87,7 +87,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 - `$base64Thumbprint`，证书哈希的 base64 编码
 - `$base64Value`，证书原始数据的 base64 编码
 
-还需要提供 GUID 来标识应用程序清单中的密钥 (`$keyId`)
+还需要提供 GUID 来标识应用程序清单中的密钥 (`$keyId`)。
 
 在客户端应用程序的 Azure 门户应用注册中打开应用程序清单，并使用以下架构将 *keyCredentials* 属性替换为新的证书信息：
 ```

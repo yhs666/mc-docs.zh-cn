@@ -109,7 +109,7 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 否。 无法更新计算机名称属性。 新 VM 从创建操作系统磁盘时所用的父 VM 继承该属性。 
 
 在哪里可找到用于使用托管磁盘创建 VM 的示例 Azure 资源管理器模板？
-* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)（使用托管磁盘的模板列表）
+* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list)（使用托管磁盘的模板列表）
 * https://github.com/chagarw/MDPP
 
 ## <a name="migrate-to-managed-disks"></a>迁移到托管磁盘 
@@ -140,7 +140,7 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 
 **迁移是否影响 Azure Site Recovery (ASR) 通过 Azure 到 Azure 复制保护的 Azure VM？**
 
-是的。 包含托管磁盘的 VM 不支持 ASR Azure 到 Azure 保护。 2018 日历年第一季度末将会支持这种保护。 
+是的。 目前，对包含托管磁盘的 VM 的 ASR Azure 到 Azure 保护仅以公共预览版服务的形式提供。
 
 **是否可以迁移位于存储帐户中现在或以前已加密的 VM 的非托管磁盘迁移到托管磁盘？**
 
@@ -154,7 +154,8 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 
 **加密密钥由谁管理？**
 
-21 Vianet 管理加密密钥。
+世纪互联将管理加密密钥。
+<!-- Notice: Change Microsoft to 21Vianet -->
 
 是否可以为托管磁盘禁用存储服务加密？
 
@@ -255,9 +256,9 @@ Azure 支持的最大页 blob 大小是 8 TB (8,191 GB)。 我们不支持将大
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>如果未在此处找到相关问题怎么办？
 
-如果未在此处找到相关问题，请联系我们获取帮助。 可以在本文末尾的评论中发布问题。 若要与 Azure 存储团队和其他社区成员就本文进行沟通，请使用 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
+如果未在此处找到相关问题，请联系我们获取帮助。 可以在本文末尾的评论中发布问题。 若要与 Azure 存储团队和其他社区成员就本文进行沟通，请使用 MSDN [Azure 存储论坛](https://www.azure.cn/support/contact/)。
 
-<!--Not Available on [Azure feedback forum](https://feedback.azure.com/forums/217298-storage).-->
+若要提出功能请求，请将请求和想法提交到 [Azure 存储反馈论坛](https://www.azure.cn/support/support-azure/)。
 
-<!--Update_Description: add question and answer content of Migrate to Managed Disks -->
-<!--ms.date: 01/29/2018-->
+<!--Update_Description: update meta properties, wording update -->
+<!--ms.date: 04/16/2018-->

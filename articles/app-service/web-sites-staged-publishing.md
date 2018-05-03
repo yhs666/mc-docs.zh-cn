@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/16/2016
-ms.date: 04/02/2018
+ms.date: 04/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: 205ba673c3c994f35686b88e3358c71cad7f1a69
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 47179907f8ae086f048964f8c7520aef10666c3a
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>设置 Azure 应用服务中的过渡环境
 <a name="Overview"></a>
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/23/2018
 * 首先将应用部署到槽，然后将其交换到生产，这确保槽的所有实例都已准备好，并交换到生产。 部署应用时，这样可避免停机。 流量重定向是无缝的，且不会因交换操作而删除任何请求。 当不需要预交换验证时，可以通过配置[自动交换](#Auto-Swap)来自动化这整个工作流。
 * 交换后，具有以前分阶段应用的槽现在具有以前的生产应用。 如果交换到生产槽的更改与预期不同，可以立即执行同一交换来收回“上一已知的良好站点”。
 
-每种应用服务计划模式支持不同数量的部署槽。 要了解应用层支持的槽数，请参阅[应用服务定价](https://www.azure.cn/pricing/details/app-service/)。
+每种应用服务计划层支持不同数量的部署槽。 若要了解应用层支持的槽数，请参阅[应用服务限制](https://www.azure.cn/pricing/details/app-service/)。
 
 * 如果应用具有多个槽，则无法更改层。
 * 缩放不适用于非生产槽。
@@ -62,6 +62,7 @@ ms.lasthandoff: 03/23/2018
 4. 在应用的资源边栏选项卡中，单击“部署槽”，并单击部署槽打开该槽的资源边栏选项卡，它包含一组度量值和配置（类似任何其他应用）。 槽的名称将出现在边栏选项卡顶部，提醒你正在查看部署槽。
 
     ![部署槽标题][StagingTitle]
+    
 5. 单击此槽边栏选项卡中的应用 URL。 请注意，部署槽有其自己的主机名，同时它也是动态应用。 若要限制对部署槽的公共访问权限，请参阅 [应用服务 Web 应用 – 阻止对非生产部署槽的 Web 访问](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)。
 
 创建部署槽后没有任何内容。 可以从其他存储库分支或完全不同的存储库部署到槽。 还可以更改此槽的配置。 使用与内容更新部署槽关联的发布配置文件或部署凭证。  例如，可以[使用 git 发布到此槽](app-service-deploy-local-git.md)。

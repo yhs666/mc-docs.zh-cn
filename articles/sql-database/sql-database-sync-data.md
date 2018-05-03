@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: article
-origin.date: 11/13/2017
-ms.date: 12/11/2017
+origin.date: 04/10/2018
+ms.date: 04/17/2018
 ms.author: v-nany
 ms.reviewer: douglasl
-ms.openlocfilehash: e7ed358fc385a0b3498237666999693589c00572
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 27bb449a2a528451f53a692f1bfbc42ef06e1b5d
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>使用 SQL 数据同步（预览版）跨多个云和本地数据库同步数据
 
@@ -93,6 +93,8 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 
 -   表不能包含非主键标识列。
 
+-   主键不能有 datetime 数据类型。
+
 -   对象（数据库、表和列）的名称不能包含可打印字符句点 (.)、左方括号 ([) 或右方括号 (])。
 
 -   不支持 Azure Active Directory 身份验证。
@@ -137,6 +139,11 @@ SQL 数据同步（预览版）适用于所有公共云区域。
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>数据同步是否可以用于只在 SQL Server 本地数据库之间同步？ 
 无法直接配合使用。 但是，可以间接地在 SQL Server 本地数据库之间同步，方法是在 Azure 中创建一个中心数据库，然后将本地数据库添加到同步组。
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>是否可以使用“数据同步”在属于不同订阅的 SQL 数据库之间进行同步？
+是的。 可以在由不同订阅拥有的资源组中的 SQL 数据库之间进行同步。
+-   如果订阅属于同一租户，并且你对所有订阅都有权限，则可以在 Azure 门户中配置同步组。
+-   否则，必须使用 PowerShell 来添加属于不同订阅的同步成员。
    
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>是否可以将生产数据库中的数据种子植入到空数据库，然后使它们保持同步？ 
 是的。 通过从原始数据库编写脚本，在新数据库中手动创建架构。 创建架构后，将表添加到同步组以复制数据并使其同步。
@@ -146,6 +153,12 @@ SQL 数据同步（预览版）适用于所有公共云区域。
 不建议使用 SQL 数据同步（预览版）创建数据备份。 由于 SQL 数据同步（预览版）的同步没有版本控制，因此无法备份和还原到特定时间点。 此外，SQL 数据同步（预览版）不会备份其他 SQL 对象（如存储过程），并且不会快速执行还原操作的等效操作。
 
 对于推荐的备份技术，请参阅[复制 Azure SQL 数据库](sql-database-copy.md)。
+
+### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>数据同步是否可以同步加密的表或列？
+
+-   如果数据库使用了 Always Encrypted，则只能同步未加密的表和列。 无法同步加密的列，因为数据同步无法对数据进行解密。
+
+-   如果某个列使用了列级加密 (CLE)，则可以对该列进行同步，只要行大小小于最大大小 24 MB。 数据同步将密钥 (CLE) 加密的列视为普通的二进制数据。 若要解密其他同步成员上的数据，则需要具有相同的证书。
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>SQL 数据同步是否支持排序规则？
 

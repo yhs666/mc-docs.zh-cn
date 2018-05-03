@@ -1,26 +1,27 @@
 ---
-title: "预配 Azure Cosmos DB 的吞吐量 | Azure"
-description: "了解如何为 Azure Cosmos DB 容器、集合和表设置预配吞吐量。"
+title: 预配 Azure Cosmos DB 的吞吐量 | Azure
+description: 了解如何为 Azure Cosmos DB 容器和集合设置预配吞吐量。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: 
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f98def7f-f012-4592-be03-f6fa185e1b1e
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/02/2018
-ms.date: 03/05/2018
+origin.date: 03/23/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: b5be510febd3642c277c98252f1cea9f341f3fb5
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 6535d8af9d12d88c79889fab29ed3bc3241afe3a
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
+<!-- Notice: Meta Not Available on graphs, and tables -->
+
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>设置 Azure Cosmos DB 容器的吞吐量
 
 可在 Azure 门户中或通过使用客户端 SDK 设置 Azure Cosmos DB 容器的吞吐量。 
@@ -60,6 +61,8 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>使用用于 .NET 的 SQL API 设置吞吐量
 
+下面的代码片段检索当前吞吐量并将其更改为 500 RU/s。 若要查看完整的代码示例，请参阅 GitHub 上的 [CollectionManagement](https://github.com/Azure/azure-documentdb-dotnet/blob/95521ff51ade486bb899d6913880995beaff58ce/samples/code-samples/CollectionManagement/Program.cs#L188-L216) 项目。
+
 ```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
@@ -67,8 +70,8 @@ Offer offer = client.CreateOfferQuery()
     .AsEnumerable()
     .SingleOrDefault();
 
-// Set the throughput to the new value, for example 12,000 request units per second
-offer = new OfferV2(offer, 12000);
+// Set the throughput to the new value, for example 500 request units per second
+offer = new OfferV2(offer, 500);
 
 // Now persist these changes to the collection by replacing the original offer resource
 await client.ReplaceOfferAsync(offer);
@@ -78,7 +81,7 @@ await client.ReplaceOfferAsync(offer);
 
 ## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>使用 SQL API for Java 设置吞吐量
 
-此代码片段取自 [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) 存储库中的 OfferCrudSamples.java 文件。 
+下面的代码片段检索当前吞吐量并将其更改为 500 RU/s。 若要查看完整的代码示例，请参阅 GitHub 上的 [OfferCrudSamples.java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) 文件。 
 
 ```Java
 // find offer associated with this collection
@@ -91,7 +94,7 @@ assertThat(offer.getString("offerResourceId"), equalTo(collectionResourceId));
 assertThat(offer.getContent().getInt("offerThroughput"), equalTo(throughput));
 
 // update the offer
-int newThroughput = 10300;
+int newThroughput = 500;
 offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```

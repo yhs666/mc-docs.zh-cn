@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/20/2018
-ms.date: 04/09/2018
+origin.date: 03/29/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: ff2ddf59cf081ecf3ec19e88e6c4b7bab6ffe833
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: 35877105d95811d4e270b3896fba816c8951d20a
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上准备开发环境
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/05/2018
 > 
 > 
 
- 若要在 Windows 开发计算机上构建并运行 Azure Service Fabric 应用程序，请安装运行时、SDK 和工具。 此外，还需执行 SDK 中包含的 Windows PowerShell 脚本。
+ 若要在 Windows 开发计算机上生成并运行 Azure Service Fabric 应用程序，请安装 Service Fabric 运行时、SDK 和工具。 此外，还需要启用 SDK 中包含的 [Windows PowerShell 脚本执行](#enable-powershell-script-execution)。
 <!-- Not Available on [Azure Service Fabric applications][1] -->
 
 ## <a name="prerequisites"></a>先决条件
@@ -56,7 +56,7 @@ Service Fabric 工具是 Visual Studio 2017 中 Azure 开发工作负荷的一�
 * [安装 Azure Service Fabric SDK][core-sdk]
 
 ### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>使用 Visual Studio 2015（需要安装 Visual Studio 2015 Update 2 或更高版本）
-对于 Visual Studio 2015，使用 Web 平台安装程序将 Service Fabric 工具和 SDK 一起安装：
+对于 Visual Studio 2015，Service Fabric 工具是使用 Web 平台安装程序与 SDK 和运行时 一起安装的：
 
 * [安装 Azure Service Fabric SDK 和工具][full-bundle-vs2015]
 
@@ -65,14 +65,14 @@ Service Fabric 工具是 Visual Studio 2017 中 Azure 开发工作负荷的一�
 * [安装 Azure Service Fabric SDK][core-sdk]
 
 当前版本包括：
-* Service Fabric SDK and Tools 3.0.467
-* Service Fabric 运行时 6.1.467
+* Service Fabric SDK and Tools 3.0.480
+* Service Fabric 运行时 6.1.480
 * Service Fabric Tools for Visual Studio 2015 2.0.10124.2
 * Visual Studio 2017 15.5.6 包括 Service Fabric Tools for Visual Studio 2.0.20180124.2  
 
 有关支持的版本列表，请参阅 [Service Fabric 支持](service-fabric-support.md)
 
-## <a name="enable-powershell-script-execution"></a>启用 PowerShell 脚本执行
+## <a name="enable-powershell-script-execution"></a> 允许执行 PowerShell 脚本
 Service Fabric 使用 Windows PowerShell 脚本创建本地开发群集和部署 Visual Studio 中的应用程序。 默认情况下，Windows 会阻止这些脚本运行。 要启用它们，必须修改 PowerShell 执行策略。 以管理员身份打开 PowerShell 并输入以下命令：
 
 ```powershell

@@ -1,29 +1,26 @@
 ---
-title: "Azure Cosmos DB：SQL 语法查询参考 | Azure"
-description: "Azure Cosmos DB SQL 查询语言的参考文档。"
+title: Azure Cosmos DB：SQL 语法查询参考 | Azure
+description: Azure Cosmos DB SQL 查询语言的参考文档。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: mimig
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 origin.date: 10/18/2017
-ms.date: 01/29/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: c853afd70feaa2d4f24121aae40232559039d884
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 0cbb4071834c95a8e42e9f0bf0f05c8fccda3b16
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL 语法参考
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB 支持使用熟悉的 SQL（结构化查询语言）风格的语法对分层 JSON 文档执行文档查询，不需要使用显式架构或创建辅助索引。 本主题提供与 SQL API 帐户兼容的 SQL 查询语言的参考文档。
 
@@ -79,7 +76,8 @@ SELECT 语句中的子句必须按照以上所示进行排序。 任何可选子
 
 虽然空格字符和注释在语法中没有任何意义，但必须使用它们来分隔标记。 例如：`-1e5` 是一个单一数字标记，而 `: - 1 e5` 是一个减号标记，后跟数字 1 和标识符 e5。  
 
-##  <a name="bk_select_query"></a> SELECT 子句  
+<a name="bk_select_query"></a>
+##  <a name="select-clause"></a>SELECT 子句  
 SELECT 语句中的子句必须采用上面显示的顺序。 任何可选子句都可以省略。 但是当使用可选子句时，它们必须按正确的顺序显示。  
 
 **语法**  
@@ -141,7 +139,8 @@ SELECT <select_specification>
 [标量表达式](#bk_scalar_expressions)  
 [SELECT 子句](#bk_select_query)  
 
-##  <a name="bk_from_clause"></a> FROM 子句  
+<a name="bk_from_clause"></a>
+##  <a name="from-clause"></a>FROM 子句  
 指定源或联接的源。 FROM 子句是可选的。 如果未指定，其他子句仍然会执行，就像 FROM 子句提供了单个文档一样。  
 
 **语法**  
@@ -320,7 +319,8 @@ AS `input_alias`
 
  [SELECT 子句](#bk_select_query)  
 
-##  <a name="bk_where_clause"></a> WHERE 子句  
+<a name="bk_where_clause"></a>
+##  <a name="where-clause"></a>WHERE 子句  
  指定查询返回的文档的搜索条件。  
 
  **语法**  
@@ -345,7 +345,8 @@ WHERE <filter_condition>
 
  指定为筛选条件的表达式的求值结果必须为 true，才会返回文档。 只有布尔值 true 满足条件，任何其他值（undefined、null、false、数字、数组或对象）都不满足条件。  
 
-##  <a name="bk_orderby_clause"></a> ORDER BY 子句  
+<a name="bk_orderby_clause"></a>
+##  <a name="order-by-clause"></a>ORDER BY 子句  
  指定查询返回的结果的排序顺序。  
 
  **语法**  
@@ -383,7 +384,8 @@ ORDER BY <sort_specification>
 
  虽然查询语法支持多个排序依据属性，但Azure Cosmos DB 查询运行时仅支持依据单个属性进行排序，并且仅支持依据属性名称进行排序，也就是说，不支持依据计算属性进行排序。 排序还要求索引策略针对该属性和指定类型包括具有最高精度的范围索引。 有关详细信息，请参阅索引策略文档。  
 
-##  <a name="bk_scalar_expressions"></a> 标量表达式  
+<a name="bk_scalar_expressions"></a>
+##  <a name="scalar-expressions"></a>标量表达式  
  标量表达式是符号和运算符的组合，可以对该组合进行计算来获得单个值。 简单表达式可以是常量、属性引用、数组元素引用、别名引用或函数调用。 可以使用运算符将简单表达式组合成复杂表达式。  
 
  有关标量表达式可以具有的值的详细信息，请参阅[常量](#bk_constants)部分。  
@@ -476,7 +478,8 @@ ORDER BY <sort_specification>
 
  在创建数组时，将跳过任何分配有 **undefined** 值的元素值并且不会将其包括在创建的对象中。 这将导致下一个已定义元素取代其位置，这样，创建的数组将不会具有跳过的索引。  
 
-##  <a name="bk_operators"></a> 运算符  
+<a name="bk_operators"></a>
+##  <a name="operators"></a>运算符  
  本部分介绍了支持的运算符。 每个运算符都只能分配到一个类别。  
 
  有关如何处理 **undefined** 值、对输入值的类型要求以及如何处理类型不匹配的值等方面的详细信息，请参阅**运算符类别**。  
@@ -539,7 +542,8 @@ ORDER BY <sort_specification>
 
  如果两个对象定义了相同的属性并且匹配属性的值也相等，则这两个对象相等。 如果对任何属性值对进行比较时导致 undefined，则对象比较结果为 undefined。  
 
-##  <a name="bk_constants"></a> 常量  
+<a name="bk_constants"></a>
+##  <a name="constants"></a>常量  
  常量也称为文本或标量值，是一个表示特定数据值的符号。 常量的格式取决于它表示的值的数据类型。  
 
  **支持的标量数据类型：**  
@@ -641,7 +645,8 @@ ORDER BY <sort_specification>
 |\t|tab 键|U+0009|  
 |\uXXXX|由 4 个十六进制数位定义的 Unicode 字符。|U+XXXX|  
 
-##  <a name="bk_query_perf_guidelines"></a> 查询性能准则  
+<a name="bk_query_perf_guidelines"></a>
+##  <a name="query-performance-guidelines"></a>查询性能准则  
  对于大型集合，为了使查询高效执行，应当使用可通过一个或多个索引来发挥作用的筛选器。  
 
  对于索引查找，将考虑以下筛选器：  
@@ -683,7 +688,8 @@ ORDER BY <sort_specification>
     |[ ,...n ]|表示前面的项可以重复 n 次。 各个实例以逗号分隔。|  
     |[ ...n ]|表示上述项可重复 n 次。 各个实例以空格分隔。|  
 
-##  <a name="bk_built_in_functions"></a> 内置函数  
+<a name="bk_built_in_functions"></a>
+##  <a name="built-in-functions"></a>内置函数  
  Azure Cosmos DB 提供了许多内置 SQL 函数。 下面列出了内置函数的类别。  
 
 |函数|说明|  
@@ -694,7 +700,8 @@ ORDER BY <sort_specification>
 |[数组函数](#bk_array_functions)|数组函数对数组输入值执行运算，并返回数值、布尔值或数组值。|  
 |[空间函数](#bk_spatial_functions)|空间函数对空间对象输入值执行运算，并返回数值或布尔值。|  
 
-###  <a name="bk_mathematical_functions"></a> 数学函数  
+<a name="bk_mathematical_functions"></a>
+###  <a name="mathematical-functions"></a>数学函数  
  以下函数每个均执行一个计算（通常基于作为参数提供的输入值）并返回数值。  
 
 ||||  
@@ -708,7 +715,8 @@ ORDER BY <sort_specification>
 |[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
 |[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
 
-####  <a name="bk_abs"></a> ABS  
+<a name="bk_abs"></a>
+####  <a name="abs"></a>ABS  
  返回指定数值表达式的绝对（正）值。  
 
  **语法**  
@@ -741,7 +749,8 @@ SELECT ABS(-1), ABS(0), ABS(1)
 [{$1: 1, $2: 0, $3: 1}]  
 ```  
 
-####  <a name="bk_acos"></a> ACOS  
+<a name="bk_acos"></a>
+####  <a name="acos"></a>ACOS  
  返回角度（弧度），其余弦是指定的数值表达式；也被称为反余弦。  
 
  **语法**  
@@ -774,7 +783,8 @@ SELECT ACOS(-1)
 [{"$1": 3.1415926535897931}]  
 ```  
 
-####  <a name="bk_asin"></a> ASIN  
+<a name="bk_asin"></a>
+####  <a name="asin"></a>ASIN  
  返回角度（弧度），其正弦是指定的数值表达式。 也被称为反正弦。  
 
  **语法**  
@@ -807,7 +817,8 @@ SELECT ASIN(-1)
 [{"$1": -1.5707963267948966}]  
 ```  
 
-####  <a name="bk_atan"></a> ATAN  
+<a name="bk_atan"></a>
+####  <a name="atan"></a>ATAN  
  返回角度（弧度），其正切是指定的数值表达式。 这也被称为反正切。  
 
  **语法**  
@@ -840,7 +851,8 @@ SELECT ATAN(-45.01)
 [{"$1": -1.5485826962062663}]  
 ```  
 
-####  <a name="bk_atn2"></a> ATN2  
+<a name="bk_atn2"></a>
+####  <a name="atn2"></a>ATN2  
  返回 y/x 的反正切的主体值，以弧度表示。  
 
  **语法**  
@@ -873,7 +885,8 @@ SELECT ATN2(35.175643, 129.44)
 [{"$1": 1.3054517947300646}]  
 ```  
 
-####  <a name="bk_ceiling"></a> CEILING  
+<a name="bk_ceiling"></a>
+####  <a name="ceiling"></a>CEILING  
  返回大于或等于指定数值表达式的最小整数值。  
 
  **语法**  
@@ -906,7 +919,8 @@ SELECT CEILING(123.45), CEILING(-123.45), CEILING(0.0)
 [{$1: 124, $2: -123, $3: 0}]  
 ```  
 
-####  <a name="bk_cos"></a> COS  
+<a name="bk_cos"></a>
+####  <a name="cos"></a>COS  
  返回指定表达式中指定角度的三角余弦（弧度）。  
 
  **语法**  
@@ -939,7 +953,8 @@ SELECT COS(14.78)
 [{"$1": -0.59946542619465426}]  
 ```  
 
-####  <a name="bk_cot"></a> COT  
+<a name="bk_cot"></a>
+####  <a name="cot"></a>COT  
  返回指定数值表达式中指定角度的三角余切。  
 
  **语法**  
@@ -972,7 +987,8 @@ SELECT COT(124.1332)
 [{"$1": -0.040311998371148884}]  
 ```  
 
-####  <a name="bk_degrees"></a> DEGREES  
+<a name="bk_degrees"></a>
+####  <a name="degrees"></a>DEGREES  
  返回指定角度（弧度）的相应角度（度）。  
 
  **语法**  
@@ -1005,7 +1021,8 @@ SELECT DEGREES(PI()/2)
 [{"$1": 90}]  
 ```  
 
-####  <a name="bk_floor"></a> FLOOR  
+<a name="bk_floor"></a>
+####  <a name="floor"></a>FLOOR  
  返回小于或等于指定数值表达式的最大整数。  
 
  **语法**  
@@ -1038,7 +1055,8 @@ SELECT FLOOR(123.45), FLOOR(-123.45), FLOOR(0.0)
 [{$1: 123, $2: -124, $3: 0}]  
 ```  
 
-####  <a name="bk_exp"></a> EXP  
+<a name="bk_exp"></a>
+####  <a name="exp"></a>EXP  
  返回指定数值表达式的指数值。  
 
  **语法**  
@@ -1091,7 +1109,8 @@ SELECT EXP(LOG(20)), LOG(EXP(20))
 [{$1: 19.999999999999996, $2: 20}]  
 ```  
 
-####  <a name="bk_log"></a> LOG  
+<a name="bk_log"></a>
+####  <a name="log"></a>LOG  
  返回指定数值表达式的自然对数。  
 
  **语法**  
@@ -1148,7 +1167,8 @@ SELECT EXP(LOG(10))
 [{$1: 10.000000000000002}]  
 ```  
 
-####  <a name="bk_log10"></a> LOG10  
+<a name="bk_log10"></a>
+####  <a name="log10"></a>LOG10  
  返回指定数值表达式以 10 为底的对数。  
 
  **语法**  
@@ -1185,7 +1205,8 @@ SELECT LOG10(100)
 [{$1: 2}]  
 ```  
 
-####  <a name="bk_pi"></a> PI  
+<a name="bk_pi"></a>
+####  <a name="pi"></a>PI  
  返回 PI 的常数值。  
 
  **语法**  
@@ -1218,7 +1239,8 @@ SELECT PI()
 [{"$1": 3.1415926535897931}]  
 ```  
 
-####  <a name="bk_power"></a> POWER  
+<a name="bk_power"></a>
+####  <a name="power"></a>POWER  
  返回指定表达式的指定幂的值。  
 
  **语法**  
@@ -1255,7 +1277,8 @@ SELECT POWER(2, 3), POWER(2.5, 3)
 [{$1: 8, $2: 15.625}]  
 ```  
 
-####  <a name="bk_radians"></a> RADIANS  
+<a name="bk_radians"></a>
+####  <a name="radians"></a>RADIANS  
  返回输入的数值表达式（度）的弧度。  
 
  **语法**  
@@ -1294,7 +1317,8 @@ SELECT RADIANS(-45.01), RADIANS(-181.01), RADIANS(0), RADIANS(0.1472738), RADIAN
    }]  
 ```  
 
-####  <a name="bk_round"></a> ROUND  
+<a name="bk_round"></a>
+####  <a name="round"></a>ROUND  
  返回一个数值，四舍五入到最接近的整数值。  
 
  **语法**  
@@ -1327,7 +1351,8 @@ SELECT ROUND(2.4), ROUND(2.6), ROUND(2.5), ROUND(-2.4), ROUND(-2.6)
 [{$1: 2, $2: 3, $3: 3, $4: -2, $5: -3}]  
 ```  
 
-####  <a name="bk_sign"></a> SIGN  
+<a name="bk_sign"></a>
+####  <a name="sign"></a>SIGN  
  返回指定数值表达式的正数 (+1)、零 (0) 或负数 (-1)。  
 
  **语法**  
@@ -1360,7 +1385,8 @@ SELECT SIGN(-2), SIGN(-1), SIGN(0), SIGN(1), SIGN(2)
 [{$1: -1, $2: -1, $3: 0, $4: 1, $5: 1}]  
 ```  
 
-####  <a name="bk_sin"></a> SIN  
+<a name="bk_sin"></a>
+####  <a name="sin"></a>SIN  
  返回指定表达式中指定角度的三角正弦（弧度）。  
 
  **语法**  
@@ -1387,13 +1413,14 @@ SIN(<numeric_expression>)
 SELECT SIN(45.175643)  
 ```  
 
- 结果集如下。  
+ 下面是结果集。  
 
 ```  
 [{"$1": 0.929607286611012}]  
 ```  
 
-####  <a name="bk_sqrt"></a> SQRT  
+<a name="bk_sqrt"></a>
+####  <a name="sqrt"></a>SQRT  
  返回指定数值的平方根。  
 
  **语法**  
@@ -1426,7 +1453,8 @@ SELECT SQRT(1), SQRT(2.0), SQRT(3)
 [{$1: 1, $2: 1.4142135623730952, $3: 1.7320508075688772}]  
 ```  
 
-####  <a name="bk_square"></a> SQUARE  
+<a name="bk_square"></a>
+####  <a name="square"></a>SQUARE  
  返回指定数字值的平方。  
 
  **语法**  
@@ -1459,7 +1487,8 @@ SELECT SQUARE(1), SQUARE(2.0), SQUARE(3)
 [{$1: 1, $2: 4, $3: 9}]  
 ```  
 
-####  <a name="bk_tan"></a> TAN  
+<a name="bk_tan"></a>
+####  <a name="tan"></a>TAN  
  返回在指定表达式中以弧度表示的指定角度的正切。  
 
  **语法**  
@@ -1492,7 +1521,8 @@ SELECT TAN(PI()/2);
 [{"$1": 16331239353195370 }]  
 ```  
 
-####  <a name="bk_trunc"></a> TRUNC  
+<a name="bk_trunc"></a>
+####  <a name="trunc"></a>TRUNC  
  返回一个数值，截断到最接近的整数值。  
 
  **语法**  
@@ -1525,7 +1555,8 @@ SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)
 [{$1: 2, $2: 2, $3: 2, $4: -2, $5: -2}]  
 ```  
 
-###  <a name="bk_type_checking_functions"></a> 类型检查函数  
+<a name="bk_type_checking_functions"></a>
+###  <a name="type-checking-functions"></a>类型检查函数  
  以下函数支持针对输入值执行类型检查，并且每个函数将返回一个布尔值。  
 
 ||||  
@@ -1534,7 +1565,8 @@ SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)
 |[IS_NULL](#bk_is_null)|[IS_NUMBER](#bk_is_number)|[IS_OBJECT](#bk_is_object)|  
 |[IS_PRIMITIVE](#bk_is_primitive)|[IS_STRING](#bk_is_string)||  
 
-####  <a name="bk_is_array"></a> IS_ARRAY  
+<a name="bk_is_array"></a>
+####  <a name="isarray"></a>IS_ARRAY  
  返回一个布尔值，指示指定表达式类型是否为数组。  
 
  **语法**  
@@ -1574,7 +1606,8 @@ SELECT
 [{$1: false, $2: false, $3: false, $4: false, $5: false, $6: true}]  
 ```  
 
-####  <a name="bk_is_bool"></a> IS_BOOL  
+<a name="bk_is_bool"></a>
+####  <a name="isbool"></a>IS_BOOL  
  返回一个布尔值，指示指定表达式的类型是否为布尔表达式。  
 
  **语法**  
@@ -1614,7 +1647,8 @@ SELECT
 [{$1: true, $2: false, $3: false, $4: false, $5: false, $6: false}]  
 ```  
 
-####  <a name="bk_is_defined"></a> IS_DEFINED  
+<a name="bk_is_defined"></a>
+####  <a name="isdefined"></a>IS_DEFINED  
  返回一个布尔，它指示属性是否已经分配了值。  
 
  **语法**  
@@ -1650,7 +1684,8 @@ SELECT IS_DEFINED({ "a" : 5 }.a), IS_DEFINED({ "a" : 5 }.b)
    }]  
 ```  
 
-####  <a name="bk_is_null"></a> IS_NULL  
+<a name="bk_is_null"></a>
+####  <a name="isnull"></a>IS_NULL  
  返回一个布尔值，指示指定表达式的类型是否为 null。  
 
  **语法**  
@@ -1690,7 +1725,8 @@ SELECT
 [{$1: false, $2: false, $3: false, $4: true, $5: false, $6: false}]  
 ```  
 
-####  <a name="bk_is_number"></a> IS_NUMBER  
+<a name="bk_is_number"></a>
+####  <a name="isnumber"></a>IS_NUMBER  
  返回一个布尔值，指示指定表达式的类型是否为数字。  
 
  **语法**  
@@ -1730,7 +1766,8 @@ SELECT
 [{$1: false, $2: true, $3: false, $4: false, $5: false, $6: false}]  
 ```  
 
-####  <a name="bk_is_object"></a> IS_OBJECT  
+<a name="bk_is_object"></a>
+####  <a name="isobject"></a>IS_OBJECT  
  返回一个布尔值，指示指定表达式的类型是否为 JSON 对象。  
 
  **语法**  
@@ -1770,7 +1807,8 @@ SELECT
 [{$1: false, $2: false, $3: false, $4: false, $5: true, $6: false}]  
 ```  
 
-####  <a name="bk_is_primitive"></a> IS_PRIMITIVE  
+<a name="bk_is_primitive"></a>
+####  <a name="isprimitive"></a>IS_PRIMITIVE  
  返回一个布尔值，指示指定表达式的类型是否为基元（字符串、布尔值、数字或 null）。  
 
  **语法**  
@@ -1810,7 +1848,8 @@ SELECT
 [{"$1": true, "$2": true, "$3": true, "$4": true, "$5": false, "$6": false, "$7": false}]  
 ```  
 
-####  <a name="bk_is_string"></a> IS_STRING  
+<a name="bk_is_string"></a>
+####  <a name="isstring"></a>IS_STRING  
  返回一个布尔值，指示指定表达式的类型是否为字符串。  
 
  **语法**  
@@ -1850,7 +1889,8 @@ SELECT
 [{$1: false, $2: false, $3: true, $4: false, $5: false, $6: false}]  
 ```  
 
-###  <a name="bk_string_functions"></a> 字符串函数  
+<a name="bk_string_functions"></a>
+###  <a name="string-functions"></a>字符串函数  
  下面的标量函数对字符串输入值执行操作，并返回字符串、数值或布尔值。  
 
 ||||  
@@ -1862,7 +1902,8 @@ SELECT
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBSTRING](#bk_substring)|  
 |[UPPER](#bk_upper)|||  
 
-####  <a name="bk_concat"></a> CONCAT  
+<a name="bk_concat"></a>
+####  <a name="concat"></a>CONCAT  
  返回一个字符串，该字符串是连接两个或多个字符串值的结果。  
 
  **语法**  
@@ -1895,7 +1936,8 @@ SELECT CONCAT("abc", "def")
 [{"$1": "abcdef"}  
 ```  
 
-####  <a name="bk_contains"></a> CONTAINS  
+<a name="bk_contains"></a>
+####  <a name="contains"></a>CONTAINS  
  返回一个布尔值，该值指示第一个字符串表达式是否包含第二个字符串表达式。  
 
  **语法**  
@@ -1928,7 +1970,8 @@ SELECT CONTAINS("abc", "ab"), CONTAINS("abc", "d")
 [{"$1": true, "$2": false}]  
 ```  
 
-####  <a name="bk_endswith"></a> ENDSWITH  
+<a name="bk_endswith"></a>
+####  <a name="endswith"></a>ENDSWITH  
  返回一个布尔值，指示第一个字符串表达式是否以第二个字符串表达式结尾。  
 
  **语法**  
@@ -1961,7 +2004,8 @@ SELECT ENDSWITH("abc", "b"), ENDSWITH("abc", "bc")
 [{"$1": false, "$2": true}]  
 ```  
 
-####  <a name="bk_index_of"></a> INDEX_OF  
+<a name="bk_index_of"></a>
+####  <a name="indexof"></a>INDEX_OF  
  返回第一个指定的字符串表达式中第一次出现第二个字符串表达式的起始位置，如果未找到字符串，则返回 -1。  
 
  **语法**  
@@ -1994,7 +2038,8 @@ SELECT INDEX_OF("abc", "ab"), INDEX_OF("abc", "b"), INDEX_OF("abc", "c")
 [{"$1": 0, "$2": 1, "$3": -1}]  
 ```  
 
-####  <a name="bk_left"></a> LEFT  
+<a name="bk_left"></a>
+####  <a name="left"></a>LEFT  
  返回具有指定字符数的字符串的左侧部分。  
 
  **语法**  
@@ -2031,7 +2076,8 @@ SELECT LEFT("abc", 1), LEFT("abc", 2)
 [{"$1": "a", "$2": "ab"}]  
 ```  
 
-####  <a name="bk_length"></a> LENGTH  
+<a name="bk_length"></a>
+####  <a name="length"></a>LENGTH  
  返回指定字符串表达式的字符数。  
 
  **语法**  
@@ -2064,7 +2110,8 @@ SELECT LENGTH("abc")
 [{"$1": 3}]  
 ```  
 
-####  <a name="bk_lower"></a> LOWER  
+<a name="bk_lower"></a>
+####  <a name="lower"></a>LOWER  
  返回在将大写字符数据转换为小写后的字符串表达式。  
 
  **语法**  
@@ -2098,7 +2145,8 @@ SELECT LOWER("Abc")
 
 ```  
 
-####  <a name="bk_ltrim"></a> LTRIM  
+<a name="bk_ltrim"></a>
+####  <a name="ltrim"></a>LTRIM  
  返回删除前导空格后的字符串表达式。  
 
  **语法**  
@@ -2131,7 +2179,8 @@ SELECT LTRIM("  abc"), LTRIM("abc"), LTRIM("abc   ")
 [{"$1": "abc", "$2": "abc", "$3": "abc   "}]  
 ```  
 
-####  <a name="bk_replace"></a> REPLACE  
+<a name="bk_replace"></a>
+####  <a name="replace"></a>REPLACE  
  将出现的所有指定字符串值替换为另一个字符串值。  
 
  **语法**  
@@ -2164,7 +2213,8 @@ SELECT REPLACE("This is a Test", "Test", "desk")
 [{"$1": "This is a desk"}]  
 ```  
 
-####  <a name="bk_replicate"></a> REPLICATE  
+<a name="bk_replicate"></a>
+####  <a name="replicate"></a>REPLICATE  
  将一个字符串值重复指定的次数。  
 
  **语法**  
@@ -2201,7 +2251,8 @@ SELECT REPLICATE("a", 3)
 [{"$1": "aaa"}]  
 ```  
 
-####  <a name="bk_reverse"></a> REVERSE  
+<a name="bk_reverse"></a>
+####  <a name="reverse"></a>REVERSE  
  返回字符串值的逆序排序形式。  
 
  **语法**  
@@ -2234,7 +2285,8 @@ SELECT REVERSE("Abc")
 [{"$1": "cbA"}]  
 ```  
 
-####  <a name="bk_right"></a> RIGHT  
+<a name="bk_right"></a>
+####  <a name="right"></a>RIGHT  
  返回具有指定字符数的字符串的右侧部分。  
 
  **语法**  
@@ -2271,7 +2323,8 @@ SELECT RIGHT("abc", 1), RIGHT("abc", 2)
 [{"$1": "c", "$2": "bc"}]  
 ```  
 
-####  <a name="bk_rtrim"></a> RTRIM  
+<a name="bk_rtrim"></a>
+####  <a name="rtrim"></a>RTRIM  
  返回删除尾随空格后的字符串表达式。  
 
  **语法**  
@@ -2304,7 +2357,8 @@ SELECT RTRIM("  abc"), RTRIM("abc"), RTRIM("abc   ")
 [{"$1": "   abc", "$2": "abc", "$3": "abc"}]  
 ```  
 
-####  <a name="bk_startswith"></a> STARTSWITH  
+<a name="bk_startswith"></a>
+####  <a name="startswith"></a>STARTSWITH  
  返回一个布尔值，指示第一个字符串表达式是否以第二个字符串表达式开头。  
 
  **语法**  
@@ -2337,7 +2391,8 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
 [{"$1": false, "$2": true}]  
 ```  
 
-####  <a name="bk_substring"></a> SUBSTRING  
+<a name="bk_substring"></a>
+####  <a name="substring"></a>SUBSTRING  
  返回字符串表达式的部分内容，该内容起于指定字符从零开始的位置，继续到指定长度或字符串结尾。  
 
  **语法**  
@@ -2374,7 +2429,8 @@ SELECT SUBSTRING("abc", 1, 1)
 [{"$1": "b"}]  
 ```  
 
-####  <a name="bk_upper"></a> UPPER  
+<a name="bk_upper"></a>
+####  <a name="upper"></a>UPPER  
  返回在将小写字符数据转换为大写后的字符串表达式。  
 
  **语法**  
@@ -2407,7 +2463,8 @@ SELECT UPPER("Abc")
 [{"$1": "ABC"}]  
 ```  
 
-###  <a name="bk_array_functions"></a> 数组函数  
+<a name="bk_array_functions"></a>
+###  <a name="array-functions"></a>数组函数  
  下面的标量函数对数组输入值执行运算，并返回数值、布尔值或数组值  
 
 ||||  
@@ -2415,7 +2472,8 @@ SELECT UPPER("Abc")
 |[ARRAY_CONCAT](#bk_array_concat)|[ARRAY_CONTAINS](#bk_array_contains)|[ARRAY_LENGTH](#bk_array_length)|  
 |[ARRAY_SLICE](#bk_array_slice)|||  
 
-####  <a name="bk_array_concat"></a> ARRAY_CONCAT  
+<a name="bk_array_concat"></a>
+####  <a name="arrayconcat"></a>ARRAY_CONCAT  
  返回一个数组，该数组是连接两个或更多数组值的结果。  
 
  **语法**  
@@ -2448,7 +2506,8 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 [{"$1": ["apples", "strawberries", "bananas"]}]  
 ```  
 
-####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
+<a name="bk_array_contains"></a>
+####  <a name="arraycontains"></a>ARRAY_CONTAINS  
 返回一个布尔，它指示数组是否包含指定的值。 可以指定是要执行完全还是部分匹配。 
 
  **语法**  
@@ -2510,7 +2569,8 @@ SELECT
 }] 
 ```  
 
-####  <a name="bk_array_length"></a> ARRAY_LENGTH  
+<a name="bk_array_length"></a>
+####  <a name="arraylength"></a>ARRAY_LENGTH  
  返回指定数组表达式的元素数。  
 
  **语法**  
@@ -2543,7 +2603,8 @@ SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])
 [{"$1": 3}]  
 ```  
 
-####  <a name="bk_array_slice"></a> ARRAY_SLICE  
+<a name="bk_array_slice"></a>
+####  <a name="arrayslice"></a>ARRAY_SLICE  
  返回部分数组表达式。
 
  **语法**  
@@ -2585,7 +2646,8 @@ SELECT
        }]  
 ```  
 
-###  <a name="bk_spatial_functions"></a> 空间函数  
+<a name="bk_spatial_functions"></a>
+###  <a name="spatial-functions"></a>空间函数  
  下面的标量函数对空间对象输入值执行运算，并返回数值或布尔值。  
 
 ||||  
@@ -2593,7 +2655,8 @@ SELECT
 |[ST_DISTANCE](#bk_st_distance)|[ST_WITHIN](#bk_st_within)|[ST_INTERSECTS](#bk_st_intersects)|[ST_ISVALID](#bk_st_isvalid)|  
 |[ST_ISVALIDDETAILED](#bk_st_isvaliddetailed)|||  
 
-####  <a name="bk_st_distance"></a> ST_DISTANCE  
+<a name="bk_st_distance"></a>
+####  <a name="stdistance"></a>ST_DISTANCE  
  返回两个 GeoJSON 点、多边形或 LineString 表达式之间的距离。  
 
  **语法**  
@@ -2630,7 +2693,8 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 }]  
 ```  
 
-####  <a name="bk_st_within"></a> ST_WITHIN  
+<a name="bk_st_within"></a>
+####  <a name="stwithin"></a>ST_WITHIN  
  返回一个布尔表达式，指示在第一个参数中指定的 GeoJSON 对象（点、多边形或 LineString）是否位于第二个参数中的 GeoJSON（点、多边形或 LineString）内。  
 
  **语法**  
@@ -2672,7 +2736,8 @@ WHERE ST_WITHIN(f.location, {
 [{ "id": "WakefieldFamily" }]  
 ```  
 
-####  <a name="bk_st_intersects"></a> ST_INTERSECTS  
+<a name="bk_st_intersects"></a>
+####  <a name="stintersects"></a>ST_INTERSECTS  
  返回一个布尔表达式，指示在第一个参数中指定的 GeoJSON 对象（点、多边形或 LineString）是否与第二个参数中的 GeoJSON（点、多边形或 LineString）相交。  
 
  **语法**  
@@ -2714,7 +2779,8 @@ WHERE ST_INTERSECTS(a.location, {
 [{ "id": "IntersectingPolygon" }]  
 ```  
 
-####  <a name="bk_st_isvalid"></a> ST_ISVALID  
+<a name="bk_st_isvalid"></a>
+####  <a name="stisvalid"></a>ST_ISVALID  
  返回一个布尔值，该值指示指定的 GeoJSON 点、多边形或 LineString 表达式是否有效。  
 
  **语法**  
@@ -2751,7 +2817,8 @@ SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 [{ "$1": false }]  
 ```  
 
-####  <a name="bk_st_isvaliddetailed"></a> ST_ISVALIDDETAILED  
+<a name="bk_st_isvaliddetailed"></a>
+####  <a name="stisvaliddetailed"></a>ST_ISVALIDDETAILED  
  如果指定的 GeoJSON 点、多边形或 LineString 表达式有效，则返回包含布尔值的 JSON 值；如果无效，则额外加上作为字符串值的原因。  
 
  **语法**  

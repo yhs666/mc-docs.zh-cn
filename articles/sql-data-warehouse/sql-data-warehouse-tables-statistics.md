@@ -2,43 +2,29 @@
 title: 管理 SQL 数据仓库中表的统计信息 | Azure
 description: Azure SQL 数据仓库中表的统计信息入门。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-origin.date: 11/06/2017
-ms.date: 03/12/2018
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/14/2018
+ms.date: 04/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 515e42d02cfa1bfb422b4d3124c3dfae568b3b39
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: dbf931502246dc7842e8406d76547c382a66b0c1
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>管理 SQL 数据仓库中表的统计信息
-> [!div class="op_single_selector"]
-> * [概述][Overview]
-> * [数据类型][Data Types]
-> * [分布][Distribute]
-> * [索引][Index]
-> * [分区][Partition]
-> * [统计信息][Statistics]
-> * [临时][Temporary]
-> 
-> 
+# <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>创建、更新 Azure SQL 数据仓库中表的统计信息
+用于创建和更新 Azure SQL 数据仓库中表的查询优化统计信息的建议和示例。
 
+## <a name="why-use-statistics"></a>为何使用统计信息？
 Azure SQL 数据仓库对数据了解得越多，其针对数据执行查询的速度就越快。 收集有关数据的统计信息，然后将其载入 SQL 数据仓库是优化查询时能够做的最重要事情之一。 这是因为，SQL 数据仓库查询优化器是基于成本的优化器。 此优化器会对各种查询计划的成本进行比较，并选择成本最低的计划，该计划也应该是执行速度最快的计划。 例如，如果优化器估计你在查询中筛选的日期会返回一行数据，则与该优化器估计你选择的日期会返回 1 百万行数据的情况相比，其选择的计划可能会有很大的不同。
 
 目前，创建和更新统计信息只能手动进行，但操作起来很简单。  不仅之后，我们就能基于单个列和索引自动创建和更新统计信息。  使用以下信息可大大加强数据统计信息的自动化管理。 
 
-## <a name="getting-started-with-statistics"></a>统计信息入门
+## <a name="scenarios"></a>方案
 创建每个列的模板统计信息是入门的简单方式。 过期的统计信息会导致查询性能欠佳。 但是，随着数据的增长，基于所有列更新统计信息可能会消耗内存。 
 
 下面是针对不同方案的一些建议：
@@ -95,7 +81,7 @@ WHERE
 
 例如，数据仓库中的**日期列**往往需要经常更新统计信息。 每次有新行载入数据仓库时，就会添加新的加载日期或事务日期。 这些操作会更改数据分布情况并使统计信息过时。  相反地，客户表上性别列的统计信息可能永远不需要更新。 假设客户间的分布固定不变，将新行添加到表变化并不会改变数据分布情况。 不过，如果数据仓库只包含一种性别，而新的要求导致多种性别，则需要更新性别列的统计信息。
 
-有关更多说明，请参阅 MSDN 上的[统计信息][Statistics]。
+有关详细信息，请参阅[统计信息](https://docs.microsoft.com/sql/relational-databases/statistics/statistics)的通用指南。
 
 ## <a name="implementing-statistics-management"></a>实施统计信息管理
 扩展数据加载过程通常是个不错的想法，可确保在加载结束时更新统计信息。 当表更改其大小和/或其值分布时，数据加载最为频繁。 因此，这是实施某些管理过程的合理位置。
@@ -108,7 +94,7 @@ WHERE
 * 考虑较不经常更新静态分布列。
 * 请记住，每个统计信息对象是按顺序更新的。 仅实现 `UPDATE STATISTICS <TABLE_NAME>` 不一定总很理想 - 尤其是对包含许多统计信息对象的宽型表而言。
 
-有关更多说明，请参阅 MSDN 上的[基数估计][Cardinality Estimation]。
+有关详细信息，请参阅[基数估计](https://docs.microsoft.com/sql/relational-databases/performance/cardinality-estimation-sql-server)。
 
 ## <a name="examples-create-statistics"></a>示例：创建统计信息
 以下示例演示如何使用各种选项来创建统计信息。 用于每个列的选项取决于数据特征以及在查询中使用列的方式。
@@ -173,7 +159,7 @@ CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-有关完整参考，请参阅 MSDN 上的 [CREATE STATISTICS][CREATE STATISTICS] 。
+有关完整参考，请参阅 [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql)。
 
 ### <a name="create-multi-column-statistics"></a>创建多列统计信息
 若要创建多列统计信息对象，只需使用上述示例，但要指定更多的列。
@@ -363,9 +349,9 @@ UPDATE STATISTICS dbo.table1;
 > 
 > 
 
-有关 `UPDATE STATISTICS` 过程的实现，请参阅[临时表][Temporary]。 实现方法与上述 `CREATE STATISTICS` 过程略有不同，但最终结果相同。
+有关 `UPDATE STATISTICS` 过程的实现，请参阅[临时表](sql-data-warehouse-tables-temporary.md)。 实现方法与上述 `CREATE STATISTICS` 过程略有不同，但最终结果相同。
 
-有关完整语法，请参阅 MSDN 上的 [更新统计信息][Update Statistics] 。
+有关完整语法，请参阅[更新统计信息](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql)。
 
 ## <a name="statistics-metadata"></a>统计信息元数据
 可以使用多个系统视图和函数来查找有关统计信息的信息。 例如，使用 stats-date 函数查看上次创建或更新统计信息的时间，即可了解统计信息对象是否可能已过时。
@@ -375,21 +361,21 @@ UPDATE STATISTICS dbo.table1;
 
 | 目录视图 | 说明 |
 |:--- |:--- |
-| [sys.columns][sys.columns] |针对每个列提供一行。 |
-| [sys.objects][sys.objects] |针对数据库中的每个对象提供一行。 |
-| [sys.schemas][sys.schemas] |针对数据库中的每个架构提供一行。 |
-| [sys.stats][sys.stats] |针对每个统计信息对象提供一行。 |
-| [sys.stats_columns][sys.stats_columns] |针对统计信息对象中的每个列提供一行。 链接回到 sys.columns。 |
-| [sys.tables][sys.tables] |针对每个表（包括外部表）提供一行。 |
-| [sys.table_types][sys.table_types] |针对每个数据类型提供一行。 |
+| [sys.columns](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |针对每个列提供一行。 |
+| [sys.objects](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |针对数据库中的每个对象提供一行。 |
+| [sys.schemas](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |针对数据库中的每个架构提供一行。 |
+| [sys.stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |针对每个统计信息对象提供一行。 |
+| [sys.stats_columns](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |针对统计信息对象中的每个列提供一行。 链接回到 sys.columns。 |
+| [sys.tables](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |针对每个表（包括外部表）提供一行。 |
+| [sys.table_types](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |针对每个数据类型提供一行。 |
 
 ### <a name="system-functions-for-statistics"></a>统计信息的系统函数
 这些系统函数适合用于处理统计信息：
 
 | 系统函数 | 说明 |
 |:--- |:--- |
-| [STATS_DATE][STATS_DATE] |上次更新统计信息对象的日期。 |
-| [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] |有关统计信息对象识别的值分布的摘要级别和详细信息。 |
+| [STATS_DATE](https://docs.microsoft.com/sql/t-sql/functions/stats-date-transact-sql) |上次更新统计信息对象的日期。 |
+| [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |有关统计信息对象识别的值分布的摘要级别和详细信息。 |
 
 ### <a name="combine-statistics-columns-and-functions-into-one-view"></a>将统计信息列和函数合并成一个视图
 此视图将统计信息相关的列以及 STATS_DATE() 函数的结果合并在一起。
@@ -477,38 +463,5 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 - 不支持自定义错误 2767。
 
 ## <a name="next-steps"></a>后续步骤
-有关详细信息，请参阅 MSDN 上的 [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS]。
+有关进一步提升查询性能的信息，请参阅[监视工作负荷](sql-data-warehouse-manage-monitor.md)
 
-   要了解详细信息，请参阅有关[表概述][Overview]、[表数据类型][Data Types]、[分布表][Distribute]、[为表编制索引][Index]、[将表分区][Partition]和[临时表][Temporary]的文章。
-
-   有关最佳实践的详细信息，请参阅 [SQL 数据仓库最佳实践][SQL Data Warehouse Best Practices]。  
-
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->  
-[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
-[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
-[sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
-[sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
-[sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
-
-<!--Other Web references-->
-<!-- Update_Description: update meta properties, wording update -->

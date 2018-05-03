@@ -1,37 +1,34 @@
 ---
-title: "使用 Java 创建 Azure Cosmos DB 文档数据库 | Azure"
-description: "演示了一个可以用来连接到 Azure Cosmos DB SQL API 并进行查询的 Java 代码示例"
+title: 使用 Java 创建 Azure Cosmos DB 文档数据库 | Azure
+description: 演示了一个可以用来连接到 Azure Cosmos DB SQL API 并进行查询的 Java 代码示例
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-origin.date: 12/15/2017
-ms.date: 12/25/2017
+origin.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3877a4f7bcfd7f5c9c0801748616422ae5111885
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: da1e7faa07832ea3193ff041102098d99f31a070
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB：使用 Java 和 Azure 门户创建文档数据库
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
-
-Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 使用 Azure Cosmos DB，可以快速创建和查询托管文档和表。
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 使用 Azure Cosmos DB，可以快速创建和查询托管文档数据库。
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
 <!-- NOTICE: globally TO multiple-region  -->
-<!-- Not Available on Graph databases-->
+<!-- Not Available on Key/Value and Graph databases-->
 
-本快速入门通过适用于 Azure Cosmos DB 的 Azure 门户工具创建文档数据库。 本快速入门还介绍了如何使用 [SQL Java API](sql-api-sdk-java.md) 快速创建 Java 控制台应用。 本快速入门中的说明适用于任何能够运行 Java 的操作系统。 通过完成本快速入门，可以熟悉如何通过 UI 或编程方式（以首选方式为准）创建和修改文档数据库资源。
+本快速入门通过适用于 Azure Cosmos DB [SQL API](sql-api-introduction.md) 的 Azure 门户工具创建文档数据库。 本快速入门还介绍了如何使用 [SQL Java API](sql-api-sdk-java.md) 快速创建 Java 控制台应用。 本快速入门中的说明适用于任何能够运行 Java 的操作系统。 通过完成本快速入门，可以熟悉如何通过 UI 或编程方式（以首选方式为准）创建和修改文档数据库资源。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -50,7 +47,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 ## <a name="create-a-database-account"></a>创建数据库帐户
 
-在创建文档数据库之前，需通过 Azure Cosmos DB 创建 SQL 数据库帐户。
+在创建文档数据库之前，需通过 Azure Cosmos DB 创建 SQL API 帐户。
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -58,46 +55,14 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-<a id="add-sample-data"></a>
+<a name="add-sample-data"></a>
 ## <a name="add-sample-data"></a>添加示例数据
 
-现在可以使用数据资源管理器将数据添加到新集合。
-
-1. 展开“项”集合，依次单击“文档” > “新建文档”。
-
-   ![在 Azure 门户的数据资源管理器中创建新文档](./media/create-sql-api-java/azure-cosmosdb-data-explorer-new-document.png)
-
-2. 现在，采用以下结构将文档添加到集合中，再单击“保存”。
-
-     ```json
-     {
-         "id": "1",
-         "category": "personal",
-         "name": "groceries",
-         "description": "Pick up apples and strawberries.",
-         "isComplete": false
-     }
-     ```
-
-    ![通过复制添加 json 数据，然后在 Azure 门户的数据资源管理器中单击“保存”](./media/create-sql-api-java/azure-cosmosdb-data-explorer-save-document.png)
-
-3.  再创建并保存一个文档，将 `id` 更改为 2，并将其他属性更改为自己认为适当的值。 新文档可以具有所需的任何结构，因为 Azure Cosmos DB 不对数据施加任何架构。
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
 ## <a name="query-your-data"></a>查询数据
 
-现在可以在数据资源管理器中使用查询来检索和筛选数据。
-
-1. 请注意，查询默认设置为 `SELECT * FROM c`。 此默认查询检索并显示集合中的所有文档。 
-
-    ![数据资源管理器中的默认查询是“SELECT * FROM c”](./media/create-sql-api-java/azure-cosmosdb-data-explorer-query.png)
-
-2. 单击“编辑筛选器”按钮，将 `ORDER BY c._ts DESC` 添加到查询谓词框中，再单击“应用筛选器”，从而更改查询。
-
-    ![添加“ORDER BY c._ts DESC”并单击“应用筛选器”，更改默认查询](./media/create-sql-api-java/azure-cosmosdb-data-explorer-edit-query.png)
-
-此修改后的查询根据文档的时间戳按降序列出文档，所以现在最先列出的是第二个文档。 如果熟悉 SQL 语法，可以在此框中输入任何受支持的 [SQL 查询](sql-api-sql-query.md)。 
-
-数据资源管理器中的工作到此结束。 继续处理代码前，请注意，还可以使用数据资源管理器创建存储过程、UDF 和触发器，实现服务器端业务逻辑和缩放吞吐量。 数据资源管理器公开 API 中提供的所有内置编程数据访问，但你可以使用它轻松访问 Azure 门户中的数据。
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
@@ -123,9 +88,11 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 ## <a name="review-the-code"></a>查看代码
 
-此步骤是可选的。 如果有意了解如何使用代码创建数据库资源，可以查看下面的代码段。 这些代码段全部取自 C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted 文件夹中安装的 `Program.java` 文件。 否则，可以直接跳转到[更新连接字符串](#update-your-connection-string)。 
+此步骤是可选的。 如果有意了解如何使用代码创建数据库资源，可以查看下面的代码段。 否则，可以直接跳转到[更新连接字符串](#update-your-connection-string)。 
 
-* `DocumentClient` 初始化。 [DocumentClient](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client) 为 Azure Cosmos DB 数据库服务提供客户端逻辑表示。 此客户端用于对服务配置和执行请求。
+以代码片段全部摘自 C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted\Program.java 文件。
+
+* `DocumentClient` 初始化。 [DocumentClient](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client) 为 Azure Cosmos DB 数据库服务提供客户端逻辑表示。 此客户端用于对服务配置和执行请求。 本快速入门稍后将会更新此代码的 `FILLME` 部分。
 
     ```java
     this.client = new DocumentClient("https://FILLME.documents.azure.cn",
@@ -235,13 +202,15 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
     此时，终端窗口显示通知，提示 FamilyDB 数据库已创建。 
 
-4. 按任意键创建集合。 
+4. 按下某个键创建数据库，然后按下另一个键创建集合。 
 
-5. 切换到数据资源管理器，此时会看到其中包含 FamilyDB 数据库。
+    程序结束时会删除所有资源。在浏览器中切换回到数据资源管理器，可以看到，帐户中现在包含 FamilyDB 数据库和 FamilyCollection 集合。
 
-6. 继续在控制台窗口中按键以使代码创建文档并执行查询。
+5. 切换到控制台窗口，按下某个键创建第一个文档，再按下另一个键创建第二个文档。 然后切换回到数据资源管理器以查看这些资源。 
 
-    在程序结束时，此应用程序的所有资源都会从帐户中删除，这样便不会产生任何费用。 
+6. 按下某个键运行查询，并在控制台窗口中查看输出。 
+
+7. 按下下一个键会删除资源。 如果想要保留资源，可以在控制台窗口中按 CTRL+C 结束程序。 否则，请按任意键从帐户中删除资源，以免产生费用。 
 
     ![控制台输出](./media/create-sql-api-java/console-output.png)
 
@@ -260,4 +229,4 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 > [!div class="nextstepaction"]
 > [将数据导入 Azure Cosmos DB](import-data.md)
 
-<!-- Update_Description: new articles on create SQL api java application-->
+<!-- Update_Description: update meta properties, update link, wording update -->

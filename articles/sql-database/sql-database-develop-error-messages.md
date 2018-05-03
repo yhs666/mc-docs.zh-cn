@@ -8,14 +8,14 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-origin.date: 09/28/2017
-ms.date: 11/06/2017
+origin.date: 04/01/2018
+ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: eac0164abd59779af2b72faa972aa38892fe5366
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: bd71454c4a3c3f3fe45a2190b3844fb0c4d5b53b
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL 数据库客户端应用程序的 SQL 错误代码：数据库连接错误和其他问题
 
@@ -91,8 +91,8 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 
 | 错误代码 | 严重性 | 说明 |
 | ---:| ---:|:--- |
-| 10928 |20 个 |资源 ID：%d。 数据库的 %s 限制是 %d 且已达到该限制。 有关详细信息，请参阅 [sql-database-resource-limits](sql-database-resource-limits.md)。<br/><br/>资源 ID 指示已达到限制的资源。 对于工作线程，资源 ID = 1。 对于会话，资源 ID = 2。<br/><br/>有关此错误以及如何解决此错误的详细信息，请参阅：<br/>• [Azure SQL 数据库资源限制](sql-database-service-tiers.md)。 |
-| 10929 |20 个 |资源 ID：%d。 %s 最小保证为 %d，最大限制为 %d，数据库的当前使用率为 %d。 但是，服务器当前太忙，无法支持针对该数据库的数目大于 %d 的请求。 有关详细信息，请参阅 [sql-database-resource-limits](sql-database-resource-limits.md)。 否则，请稍后再试。<br/><br/>资源 ID 指示已达到限制的资源。 对于工作线程，资源 ID = 1。 对于会话，资源 ID = 2。<br/><br/>有关此错误以及如何解决此错误的详细信息，请参阅：<br/>• [Azure SQL 数据库资源限制](sql-database-service-tiers.md)。 |
+| 10928 |20 个 |资源 ID：%d。 数据库的 %s 限制是 %d 且已达到该限制。 有关详细信息，请参阅 [sql-database-dtu-resource-limits](sql-database-dtu-resource-limits.md)。<br/><br/>资源 ID 指示已达到限制的资源。 对于工作线程，资源 ID = 1。 对于会话，资源 ID = 2。<br/><br/>有关此错误以及如何解决此错误的详细信息，请参阅：<br/>• [Azure SQL 数据库资源限制](sql-database-service-tiers.md)。 |
+| 10929 |20 个 |资源 ID：%d。 %s 最小保证为 %d，最大限制为 %d，数据库的当前使用率为 %d。 但是，服务器当前太忙，无法支持针对该数据库的数目大于 %d 的请求。 有关详细信息，请参阅 [sql-database-dtu-resource-limits](sql-database-dtu-resource-limits.md)。 否则，请稍后再试。<br/><br/>资源 ID 指示已达到限制的资源。 对于工作线程，资源 ID = 1。 对于会话，资源 ID = 2。<br/><br/>有关此错误以及如何解决此错误的详细信息，请参阅：<br/>• [Azure SQL 数据库资源限制](sql-database-service-tiers.md)。 |
 | 40544 |20 个 |数据库已达到大小配额。 请将数据分区或删除、删除索引或查阅文档以找到可能的解决方案。 |
 | 40549 |16 |由于有长时间运行的事务，已终止会话。 请尝试缩短事务运行时间。 |
 | 40550 |16 |由于会话获取的锁过多，已终止该会话。 请尝试在单个事务中读取或修改更少的行。 |
@@ -105,14 +105,14 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| 1132 |EX_RESOURCE |弹性池已达到其存储限制。 弹性池的存储使用不能超过 (%d) MB。 |弹性池空间限制 (MB)。 |到达弹性池的存储限制时，尝试向数据库写入数据。 |在可能的情况下，考虑增加弹性池的 DTU 数，以便提高其存储限制、降低弹性池中各数据库使用的存储，或者从弹性池中删除数据库。 |
-| 10929 |EX_USER |%s 最小保证为 %d，最大限制为 %d，数据库的当前使用率为 %d。 但是，服务器当前太忙，无法支持针对该数据库的数目大于 %d 的请求。 请参阅 [sql-database-resource-limits](sql-database-resource-limits.md) 获取帮助。 否则，请稍后再试。 |每个数据库的 DTU 最小值；每个数据库的 DTU 最大值 |弹性池中所有数据库上尝试的并发辅助进程（请求）总数超过池限制。 |在可能的情况下，考虑增加弹性池的 DTU 数，以便提高其辅助角色限制，或者从弹性池中删除数据库。 |
+| 1132 |EX_RESOURCE |弹性池已达到其存储限制。 弹性池的存储使用不能超过 (%d) MB。 |弹性池空间限制 (MB)。 |到达弹性池的存储限制时，尝试向数据库写入数据。 |在可能的情况下，考虑增加弹性池的 DTU 数并/或将存储添加到弹性池，以便提高其存储限制、减少弹性池中各数据库使用的存储，或者从弹性池中删除数据库。 |
+| 10929 |EX_USER |%s 最小保证为 %d，最大限制为 %d，数据库的当前使用率为 %d。 但是，服务器当前太忙，无法支持针对该数据库的数目大于 %d 的请求。 请参阅 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) 以获取帮助。 否则，请稍后再试。 |每个数据库的 DTU/vCore 最小值；每个数据库的 DTU/vCore 最大值 |弹性池中所有数据库上尝试的并发辅助进程（请求）总数超过池限制。 |在可能的情况下，考虑增加弹性池的 DTU 数或 vCores 数，以便提高其辅助角色限制，或者从弹性池中删除数据库。 |
 | 40844 |EX_USER |弹性池中数据库“%ls”（位于服务器“%ls”上）是“%ls”版本的数据库，不能有连续的复制关系。 |数据库名称, 数据库版本, 服务器名称 |针对弹性池中非高级数据库发出 StartDatabaseCopy 命令。 |即将支持 |
 | 40857 |EX_USER |找不到服务器“%ls”的弹性池，弹性池名称:“%ls”。 |服务器名称；弹性池名称 |指定的弹性池在指定的服务器中不存在。 |提供有效的弹性池名称。 |
 | 40858 |EX_USER |弹性池“%ls”已存在于服务器“%ls”中 |弹性池名称, 服务器名称 |指定的弹性池已存在于指定的逻辑服务器中。 |提供新弹性池名称。 |
 | 40859 |EX_USER |弹性池不支持服务层“%ls”。 |弹性池服务层 |进行弹性池预配时，不支持指定服务层。 |提供正确的版本，或者将服务层留空以使用默认服务层。 |
 | 40860 |EX_USER |弹性池“%ls”和服务目标“%ls”的组合无效。 |弹性池名称；服务级别目标名称 |仅当服务目标指定为 ‘ElasticPool’ 的情况下，才能一起指定弹性池和服务目标。 |指定正确的弹性池和服务目标组合。 |
-| 40861 |EX_USER |数据库版本“%.*ls”必须与弹性池服务层“%.*ls”相同。 |数据库版本、弹性池服务层 |数据库版本不同于弹性池服务层。 |请勿指定不同于弹性池服务层的数据库版本。  请注意，数据库版本不需要指定。 |
+| 40861 |EX_USER |数据库版本“%.*ls”必须与弹性池服务层“%.* ls”相同。 |数据库版本、弹性池服务层 |数据库版本不同于弹性池服务层。 |请勿指定不同于弹性池服务层的数据库版本。  请注意，数据库版本不需要指定。 |
 | 40862 |EX_USER |如果指定了弹性池服务目标，则必须指定弹性池名称。 |无 |弹性池服务目标没有唯一地标识弹性池。 |如果使用弹性池服务目标，则指定弹性池名称。 |
 | 40864 |EX_USER |对于服务层“%.*ls”来说，弹性池的 DTU 数必须至少为 (%d) 个 DTU。 |弹性池的 DTU 数；弹性池服务层。 |尝试将弹性池的 DTU 数设置为最小限制以下。 |重新尝试将弹性池的 DTU 数至少设置为最小限制。 |
 | 40865 |EX_USER |对于服务层“%.*ls”来说，弹性池的 DTU 数不能超过 (%d) 个 DTU。 |弹性池的 DTU 数；弹性池服务层。 |尝试将弹性池的 DTU 数设置为高出最大限制。 |重新尝试将弹性池的 DTU 数设置为不超过最大限制。 |
@@ -200,7 +200,7 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 | 40652 |16 |无法移动或创建服务器。 订阅 (subscription-id) 将超过服务器配额。 |
 | 40671 |17 |网关与管理服务之间的通信失败。 请稍后重试。 |
 | 40852 |16 |无法在服务器“%.\*ls”中打开登录请求的数据库“%.\*ls”。 仅允许使用已启用安全性的连接字符串访问数据库。 若要访问此数据库，请将连接字符串修改为在服务器 FQDN 中包含“secure”。也就是说，'server name'.database.chinacloudapi.cn 应修改为 'server name'.database.`secure`.chinacloudapi.cn。 |
-| 40914 | 16 | 无法打开登录时请求的服务器‘[服务器-名称]’。 不允许客户端访问服务器。|
+| 40914 | 16 | 无法打开登录时请求的服务器‘[服务器-名称]’。 不允许客户端访问服务器。<br /><br />若要修复，请考虑添加[虚拟网络规则](sql-database-vnet-service-endpoint-rule-overview.md)。 |
 | 45168 |16 |SQL Azure 系统负载过小，正在设置单个服务器的并发数据库 CRUD 操作（例如创建数据库）数的上限。 在错误消息中指定的服务器已超过最大并发连接数。 请稍后重试。 |
 | 45169 |16 |SQL Azure 系统负载过小，正在设置单个订阅的并发服务器 CRUD 操作（例如创建服务器）数的上限。 在错误消息中指定的订阅已超过最大并发连接数，已拒绝请求。 请稍后重试。 |
 

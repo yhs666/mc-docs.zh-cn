@@ -1,11 +1,11 @@
 ---
-title: "Azure 中 Linux VM 的概述 | Azure"
-description: "介绍 Linux 虚拟机上的 Azure 计算、存储和网络服务。"
+title: Azure 中 Linux VM 的概述 | Azure
+description: 介绍 Linux 虚拟机上的 Azure 计算、存储和网络服务。
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/29/2017
-ms.date: 01/08/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 61f8131a8a53f49cdf516f54deccf3a63bd169f2
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 53d245a0a5a034960a26ba97442bd2c0e91f9f25
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
 Azure 正在不断集结各种集成的公有云服务，包括分析、虚拟机、数据库、移动、网络、存储和 Web，因此很适合用于托管解决方案。  Azure 提供可缩放的计算平台，允许即用即付，而无需投资购买本地硬件。  Azure 允许根据客户端所需的任何规模，随时扩展和缩减解决方案。
@@ -29,7 +29,7 @@ Azure 正在不断集结各种集成的公有云服务，包括分析、虚拟�
 <!-- redirect https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/ to https://docs.microsoft.com/zh-cn/azure/architecture/aws-professional/services-->
 
 ## <a name="regions"></a>区域
-Azure 资源分布在世界各地的多个地理区域。  一个“区域”代表位于单个地理区域的多个数据中心。  在中国周围已有两个区域可用。 
+Azure 资源分布在世界各地的多个地理区域。  一个“区域”代表位于单个地理区域的多个数据中心。  Azure 目前（截至 2017 年 11 月）在中国正式推出了 2 个区域。 
 
 * [Azure 中国区域](https://www.azure.cn/support/service-dashboard/)
 
@@ -38,7 +38,7 @@ Azure 资源分布在世界各地的多个地理区域。  一个“区域”代
 
 ## <a name="managed-disks"></a>托管磁盘
 
-托管磁盘为用户在后台处理 Azure 存储帐户的创建和管理，确保用户无需担心存储帐户的可伸缩性限制。 在添加磁盘或向上和向下缩放 VM 时，你指定磁盘大小和性能层（标准或高级），Azure 将创建并管理磁盘，你无需担心所使用的存储。 如果要创建新的 VM，请[使用 Azure CLI 2.0](quick-create-cli.md) 或 Azure 门户，通过托管 OS 和数据磁盘创建 VM。 如果 VM 具有非托管磁盘，则可以[将 VM 转换为由托管磁盘支持](convert-unmanaged-to-managed-disks.md)。
+托管磁盘为用户在后台处理 Azure 存储帐户的创建和管理，确保用户无需担心存储帐户的可伸缩性限制。 只需指定磁盘大小和性能层（标准或高级），Azure 就会自动创建和管理磁盘。 在添加磁盘或者扩展和缩减 VM 时，无需考虑所用的存储。 如果要创建新的 VM，请[使用 Azure CLI 2.0](quick-create-cli.md) 或 Azure 门户，通过托管 OS 和数据磁盘创建 VM。 如果 VM 具有非托管磁盘，则可以[将 VM 转换为由托管磁盘支持](convert-unmanaged-to-managed-disks.md)。
 
 用户还可以按 Azure 区域在一个存储帐户中管理自定义映像，并使用这些映像在同一订阅中创建数百台 VM。 有关托管磁盘的详细信息，请参阅[托管磁盘概述](../linux/managed-disks-overview.md)。
 
@@ -74,13 +74,17 @@ Azure 正在支持它的大多数 Linux 发行版中推出 [cloud-init](http://c
 我们与合作伙伴紧密合作，以确保可用映像进行更新并针对 Azure 运行时进行优化。  有关 Azure 合作伙伴的详细信息，请参阅以下链接：
 
 * Azure 上的 Linux - [认可的分发](endorsed-distros.md)
-* SUSE - [Azure 应用商店 - SUSE Linux Enterprise Server](https://portal.azure.cn/#create/SUSE.SUSELinuxEnterpriseServer12SP2)
-<!-- Not Avaialbe * Redhat -->
-* Canonical - [Azure 应用商店 - Ubuntu Server 16.04 LTS](https://portal.azure.cn/#create/Canonical.UbuntuServer1604LTS)
-* Debian - [Azure 应用商店 - Debian 8 "Jessie"](https://portal.azure.cn/#create/credativ.Debian8)
-* FreeBSD - [Azure 应用商店 - FreeBSD 10.3](https://portal.azure.cn/#create/Microsoft.FreeBSD103-ARM)
-* CoreOS - [Azure 应用商店 - CoreOS (Stable)](https://portal.azure.cn/#create/CoreOS.CoreOSStable)
-<!-- Not Avaialbe * RancherOS -->
+* SUSE - [Azure 应用商店 - SUSE Linux Enterprise Server](https://market.azure.cn/zh-cn/marketplace/apps?search=%27SUSE%27)
+<!-- Not Available * Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://market.azure.cn/zh-cn/marketplace/partners/redhat/redhatenterpriselinux72/)-->
+* Canonical - [Azure 应用商店 - Ubuntu Server 16.04 LTS](https://market.azure.cn/zh-cn/marketplace/partners/canonical/ubuntuserver1604lts/)
+* Debian - [Azure 应用商店 - Debian 8 "Jessie"](https://market.azure.cn/zh-cn/marketplace/partners/credativ/debian8/)
+* FreeBSD - [Azure 应用商店 - FreeBSD 10.3](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.FreeBSD)
+* CoreOS - [Azure 应用商店 - CoreOS (Stable)](https://market.azure.cn/zh-cn/marketplace/partners/coreos/coreosstable/)
+<!-- Not Avaialbe * RancherOS - [Azure Marketplace - RancherOS](https://market.azure.cn/zh-cn/marketplace/partners/rancher/rancheros/)-->
+* Bitnami - [Bitnami Library for Azure](https://azure.bitnami.com/)
+<!-- Not Avaialbe * Mesosphere - [Azure Marketplace - Mesosphere DC/OS on Azure](https://market.azure.cn/zh-cn/marketplace/partners/mesosphere/dcosdcos/)-->
+<!-- Not Avaialbe * Docker - [Azure Marketplace - Azure Container Service with Docker Swarm](https://market.azure.cn/zh-cn/marketplace/partners/microsoft/acsswarms/)-->
+* Jenkins - [Azure Marketplace - Jenkins Platform](https://market.azure.cn/zh-cn/marketplace/apps?search=jenkins)
 
 ## <a name="getting-started-with-linux-on-azure"></a>开始在 Azure 中使用 Linux
 若要开始使用 Azure，需要 Azure 帐户、已安装 Azure CLI 和一对 SSH 公钥和私钥。

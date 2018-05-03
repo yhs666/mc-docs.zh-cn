@@ -1,35 +1,39 @@
 ---
-title: "了解 Azure IoT 中心消息格式 | Azure"
-description: "开发人员指南 - 描述 IoT 中心消息的格式和预期内容。"
+title: 了解 Azure IoT 中心消息格式 | Azure
+description: 开发人员指南 - 描述 IoT 中心消息的格式和预期内容。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/29/2018
+origin.date: 03/20/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 7735aaa38a3d998aa5560abe9c0d8e396c433af3
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 05/07/2018
+ms.openlocfilehash: a986df34ad4ceccb06477161ed0830279a5083f7
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>创建和读取 IoT 中心消息
 
-为了支持无缝的跨协议互操作性，IoT 中心为所有面向设备的协议定义了通用消息格式。 此消息格式可用于[设备到云][lnk-d2c]和[云到设备][lnk-c2d]的消息。 [IoT 中心消息][lnk-messaging]由以下部分组成：
+为了支持无缝的跨协议互操作性，IoT 中心为所有面向设备的协议定义了通用消息格式。 此消息格式可用于[设备到云][lnk-d2c]和[云到设备][lnk-c2d]的消息。 
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+[IoT 中心消息][lnk-messaging]由以下部分组成：
 
 * 一组 *系统属性*。 IoT 中心解释或设置的属性。 此集合是预先确定的。
 * 一组 *应用程序属性*。 应用程序可以定义的字符串属性字典，而不需将消息正文反序列化即可进行访问。 IoT 中心永不修改这些属性。
 * 不透明的二进制正文。
 
-以下情况下，属性名称和值只能包含 ASCII 字母数字字符加上 ``{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``：  
+以下情况下，属性名称和值只能包含 ASCII 字母数字字符加上 ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}```：  
 
 * 使用 HTTPS 协议发送设备到云的消息。
 * 发送云到设备的消息。
@@ -51,6 +55,7 @@ ms.lasthandoff: 03/12/2018
 | ConnectionDeviceId |IoT 中心对设备到云的消息设置的 ID。 它包含发送消息的设备的 **deviceId** 。 |
 | ConnectionDeviceGenerationId |IoT 中心对设备到云的消息设置的 ID。 它包含发送消息的设备的 generationId（根据[设备标识属性][lnk-device-properties]）。 |
 | ConnectionAuthMethod |由 IoT 中心对设备到云的消息设置的身份验证方法。 此属性包含用于验证发送消息的设备的身份验证方法的相关信息。 有关详细信息，请参阅[设备到云的反欺骗技术][lnk-antispoofing]。 |
+| CreationTimeUtc | 在设备上创建消息的日期和时间。 设备必须显式设置此值。 |
 
 ## <a name="message-size"></a>消息大小
 

@@ -1,32 +1,26 @@
 ---
-title: "连接到 Azure SQL 数据仓库 | Azure"
-description: "如何查找连接到 Azure SQL 数据仓库所需的服务器名称和连接字符串"
+title: 连接到 Azure SQL 数据仓库 | Azure
+description: 如何查找连接到 Azure SQL 数据仓库所需的服务器名称和连接字符串
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: e52872ca-ae74-4e25-9c56-d49c85c8d0f0
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
+ms.topic: conceptual
+ms.component: implement
 origin.date: 12/14/2017
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 495b747d1a39ec1574f81d17679abaaa8719f58c
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 92bf710f35fdbd18b09ebb3db386e8e540e2b624
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>连接到 Azure SQL 数据仓库
-本文介绍首次连接到 SQL 数据仓库的操作方法。
+连接到 Azure SQL 数据仓库。
 
 ## <a name="find-your-server-name"></a>查找服务器名称
-连接到 SQL 数据仓库时，第一步是了解如何查找服务器名称。  例如，以下示例中的服务器名称是 samplesvr.database.chinacloudapi.cn。 若要查找完全限定的服务器名称，请执行以下操作：
+以下示例中的服务器名称是 samplesvr.database.chinacloudapi.cn。 若要查找完全限定的服务器名称，请执行以下操作：
 
 1. 转到 [Azure 门户][Azure portal]。
 2. 单击“SQL 数据仓库”。

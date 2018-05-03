@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 开发工具包基础知识 | Microsoft Docs
-description: 介绍如何对 Azure Stack 开发工具包执行基本的管理。
+description: 介绍如何对 Azure Stack 开发工具包 (ASDK) 执行基本的管理任务。
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/16/2018
-ms.date: 03/22/2018
+origin.date: 03/30/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: ef041eec9a857ed5c3373f21921dddaf677a789e
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: ca5727f77f1acf43ed9ec9d640abd09445366897
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="asdk-administration-basics"></a>ASDK 管理基础知识 
 如果你不熟悉 Azure Stack 开发工具包 (ASDK) 的管理，请参考本文。 本指南概述评估环境中 Azure Stack 操作员的角色，以及如何确保测试用户快速提高工作效率。
@@ -28,6 +28,17 @@ ms.lasthandoff: 03/23/2018
 首先请查看[什么是 Azure Stack 开发工具包？](asdk-what-is.md)一文，确保了解 ASDK 的用途和限制。 应该将开发工具包作为“沙盒”使用，在其中对 Azure Stack 进行评估，并在非生产环境中开发和测试应用。 
 
 与 Azure 类似，Azure Stack 会快速推出创新，因此我们会定期发布 ASDK 的新版本。 但是，无法像升级 Azure Stack 集成系统部署一样升级 ASDK。 因此，若要过渡到最新版本，必须彻底[重新部署 ASDK](asdk-redeploy.md)。 不能应用更新包。 此过程需要一定的时间，但好处是可以在最新功能可用时立即试用。 
+
+## <a name="what-account-should-i-use"></a>我应使用什么帐户?
+管理 Azure Stack 时，应该注意帐户方面的几个事项， 尤其是在使用 Windows Server Active Directory 联合身份验证服务 (AD FS) 而不是 Azure Active Directory (Azure AD) 作为标识提供者的部署中。 以下帐户注意事项同时适用于 Azure Stack 集成系统和 ASDK 部署：
+
+|帐户|Azure AD|AD FS|
+|-----|-----|-----|
+|本地管理员 (.\Administrator)|ASDK 主机管理员|ASDK 主机管理员|
+|AzureStack\AzureStackAdmin|ASDK 主机管理员<br><br>可用于登录到 Azure Stack 管理门户<br><br>拥有查看和管理 Service Fabric 环的访问权限|ASDK 主机管理员<br><br>没有 Azure Stack 管理门户的访问权限<br><br>拥有查看和管理 Service Fabric 环的访问权限<br><br>不再是默认提供程序订阅 (DPS) 的所有者|
+|AzureStack\CloudAdmin|可在特权终结点中访问和运行允许的命令|可在特权终结点中访问和运行允许的命令<br><br>无法登录到 ASDK 主机<br><br>默认提供程序订阅 (DPS) 的所有者|
+|Azure AD 全局管理员|安装期间使用<br><br>默认提供程序订阅 (DPS) 的所有者|不适用|
+|
 
 ## <a name="what-tools-do-i-use-to-manage"></a>使用哪些工具进行管理？
 可以使用 [Azure Stack 管理员门户](https://adminportal.local.azurestack.external)或 PowerShell 来管理 Azure Stack。 若要了解基本概念，最简单的方式是使用门户。 若要使用 PowerShell，需要安装[适用于 Azure Stack 的 PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) 并[从 GitHub 下载 Azure Stack 工具](asdk-post-deploy.md#download-the-azure-stack-tools)。
@@ -48,7 +59,7 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 - 更换有故障的开发工具包主机硬件 
 
 ## <a name="where-to-get-support"></a>从何处获取支持
-对于开发工具包，只能在 [Azure Stack 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中咨询有关支持的问题。 如果单击管理员门户右上角的“帮助和支持”图标（问号），然后单击“新建支持请求”，则会直接打开论坛站点。 我们会定期关注这些论坛。 
+对于开发工具包，只能在 [Azure Stack 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中咨询有关支持的问题。 单击管理员门户右上角的“帮助和支持”图标（问号），然后单击“新建支持请求”，则会直接打开论坛网站。 我们会定期关注这些论坛。 
 
 > [!IMPORTANT]
 > 由于 ASDK 是一个评估环境，因此我们不会通过 Microsoft 客户支持服务 (CSS) 提供官方支持。
@@ -57,3 +68,4 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 [部署 ASDK](asdk-deploy.md)
 
 
+<!-- Update_Description: wording update -->

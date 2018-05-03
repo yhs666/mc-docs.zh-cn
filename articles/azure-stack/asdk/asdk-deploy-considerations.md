@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/16/2018
-ms.date: 03/22/2018
+origin.date: 03/21/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: 9f4a75f8ed69673bdfc5abf37df9740764d5d72e
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: adab9c21c94a508a3c238b3790faf33a242ec314
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 部署规划注意事项
 在部署 Azure Stack 开发工具包 (ASDK) 之前，请确保开发工具包主机满足本文中所述的要求。
@@ -35,7 +35,7 @@ ms.lasthandoff: 03/23/2018
 | 计算：内存 |96 GB RAM |128 GB RAM（这是支持 PaaS 资源提供程序所需的最低设置。）|
 | 计算：BIOS |Hyper-V 已启用（提供 SLAT 支持） |Hyper-V 已启用（提供 SLAT 支持） |
 | 网络：NIC |NIC 必须经过 Windows Server 2012 R2 认证，此外在功能上没有特定要求 |NIC 必须经过 Windows Server 2012 R2 认证，此外在功能上没有特定要求 |
-| 硬件徽标认证 |[针对 Windows Server 2012 R2 的认证](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[针对 Windows Server 2012 R2 的认证](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
+| 硬件徽标认证 |[Windows Server 2012 R2 认证](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Windows Server 2016 认证](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup>如果计划从 Azure 添加多个 [Marketplace 项](asdk-marketplace-item.md)，则需要的容量比这个建议的容量要大。
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/23/2018
    | 具有有效的美国政府版 Azure 订阅的工作或学校帐户 |是 |
 
 ## <a name="network"></a>网络
-### <a name="switch"></a>交换机
+### <a name="switch"></a>Switch
 交换机上的一个可用于开发工具包计算机的端口。  
 
 开发工具包计算机支持连接到交换机访问端口或 Trunk 端口。 交换机上不要求使用专用功能。 若要使用 Trunk 端口，或者需要配置 VLAN ID，则需以部署参数的形式提供 VLAN ID。
@@ -125,3 +125,4 @@ Azure Stack 需要访问 Internet，可以直接访问，也可以通过透明�
 ## <a name="next-steps"></a>后续步骤
 [下载 ASDK 部署包](asdk-download.md)
 
+<!-- Update_Description: wording update -->

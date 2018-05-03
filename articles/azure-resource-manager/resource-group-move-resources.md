@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/15/2018
-ms.date: 03/26/2018
+origin.date: 04/11/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: c4732730139a45e9b2221bbbb7b967417a3aca24
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 3aff77b265a52b1fc21481da1b21575eac386b59
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
@@ -89,6 +89,11 @@ ms.lasthandoff: 04/16/2018
     az provider register --namespace Microsoft.Batch
     ```
 
+4. 移动资源的帐户至少需要具备下列权限：
+
+    * 源资源组上的 Microsoft.Resources/subscriptions/resourceGroups/moveResources/action 权限。
+    * 目标资源组上的 Microsoft.Resources/subscriptions/resourceGroups/write 权限。
+
 ## <a name="when-to-call-support"></a>致电支持人员的时机
 
 可以通过本文中所述的自助服务操作移动大部分资源。 使用自助服务操作：
@@ -96,7 +101,7 @@ ms.lasthandoff: 04/16/2018
 * 移动 Resource Manager 资源。
 * 根据 [经典部署限制](#classic-deployment-limitations)移动经典资源。
 
-有以下需要时，请联系[支持人员](https://www.azure.cn/support/support-azure/)：
+有以下需要时，请联系[支持人员](https://www.azure.cn/support/support-ticket-form)：
 
 * 将资源移到新的 Azure 帐户（和 Azure Active Directory 租户），并且对于上一部分中的说明需要帮助。
 * 移动经典资源，但遇到限制问题。
@@ -140,6 +145,7 @@ ms.lasthandoff: 04/16/2018
 
 <a name="services-that-do-not-enable-move"></a>
 ## <a name="services-that-cannot-be-moved"></a>无法移动的服务
+
 目前不支持移动资源的服务包括：
 
 * AD 混合运行状况服务
@@ -166,6 +172,8 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="virtual-networks-limitations"></a>虚拟网络限制
 
+移动虚拟网络时，还必须移动其从属资源。 例如，必须随虚拟网络一起移动网关。
+
 若要移动对等的虚拟网络，必须首先禁用虚拟网络对等互连。 在禁用后，可以移动虚拟网络。 在移动后，重新启用虚拟网络对等互连。
 
 如果虚拟网络的任何子网包含资源导航链接，则无法将虚拟网络移动到其他订阅。 例如，如果 Redis 缓存资源部署到某个子网，则该子网具有资源导航链接。
@@ -173,6 +181,7 @@ ms.lasthandoff: 04/16/2018
 ## <a name="app-service-limitations"></a>应用服务限制
 
 移动通过经典模型部署的资源时，其选项各不相同，具体取决于是在订阅内移动资源，还是将应用服务资源移到新的订阅。
+这些部分中所述的限制适用于已上传的证书，不适用于应用服务证书。 可将应用服务证书移动到新的资源组或订阅，且不会存在任何限制。 如果你有多个使用相同应用服务证书的 Web 应用，请先移动所有这些 Web 应用，然后再移动证书。
 
 ### <a name="moving-within-the-same-subscription"></a>在同一订阅中移动
 
@@ -299,12 +308,14 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 将 HDInsight 群集移至新订阅时，请先移动其他资源（例如存储帐户）。 然后移动 HDInsight 群集本身。
 
 <!--Not Available ## Search limitations-->
-## <a name="lb-limitations"></a> 负载均衡器限制
+<a name="lb-limitations"></a>
+## 负载均衡器限制
 
 可以移动基本 SKU 负载均衡器。
 不能移动标准 SKU 负载均衡器。
 
-## <a name="pip-limitations"></a> 公共 IP 限制
+<a name="pip-limitations"></a>
+##  <a name="public-ip-limitations"></a>公共 IP 限制
 
 可以移动基本 SKU 公共 IP。
 不能移动标准 SKU 公共 IP。

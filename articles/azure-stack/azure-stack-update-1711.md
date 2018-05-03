@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/31/2018
-ms.date: 03/04/2018
+origin.date: 03/22/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3bf579327ff5c04b35009fab122797e6ad4a79ac
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: justini
+ms.openlocfilehash: 362ec28f317294a58632a419802ae04be47b6bcb
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure Stack 1711 更新
 
@@ -38,7 +39,13 @@ Azure Stack 1711 更新内部版本号为 **171201.3**。
 
 ### <a name="prerequisites"></a>先决条件
 
-在应用此更新之前，必须先安装 Azure Stack [1710 更新](/azure-stack/azure-stack-update-1710)。
+- 在应用此更新之前，必须先安装 Azure Stack [1710 更新](/azure-stack/azure-stack-update-1710)。
+
+- 安装更新 1711 之前，检查是否已将 **CloudAdmin** 用作帐户名。 从版本 1711 开始，*CloudAdmin* 是保留的帐户名，不应手动指定。 更新到版本 1711 时，更新过程会删除部署帐户（通常名为 AzureStackAdmin）的现有实例。 如果已命名部署帐户 *CloudAdmin*，则更新到 1711 会删除该帐户。 
+
+  *CloudAdmin* 是用于连接到[*特权终结点*](azure-stack-privileged-endpoint.md) (PEP) 的内置帐户。 删除此帐户可能导致 PEP 锁定，除非已有另一个属于 CloudAdmin 组成员的用户帐户。 
+
+  如果使用 CloudAdmin 作为部署帐户的名称，请在开始更新到 1711 之前，将新的 CloudAdmin 用户添加到 PEP，以免锁定在 Azure Stack 之外。 若要添加新的 CloudAdmin 用户，请在 PEP 中运行 cmdlet **New-CloudAdminUser**。
 
 ### <a name="new-features-and-fixes"></a>新功能和修复
 
@@ -77,7 +84,7 @@ Azure Stack 1711 更新内部版本号为 **171201.3**。
     1. **原因：**此问题的原因是通过门户恢复某项以前已使用特权结束点 (PEP) 恢复的更新。
     2. **解决方法：**请联系 Microsoft 客户服务和支持 (CSS) 寻求帮助。
 <br><br>
-3. **症状：**Azure Stack 操作员在更新过程中可能会看到以下错误：*“角色 'VirtualMachines' 的类型 'CheckHealth' 引发了异常:\n\n<machineName>-ACS01 的虚拟机运行状况检查生成了以下错误。\n从主机获取 VM 信息时出错。异常详细信息:\nGet-VM: 计算机 'Node03' 上的操作失败: WS-Management 服务无法处理请求。WMI \nservice 或 WMI 提供程序返回了未知的错误: HRESULT 0x8004106c”。*
+3. **症状：**Azure Stack 操作员在更新过程中可能会看到以下错误：*"Type 'CheckHealth' of Role 'VirtualMachines' raised an exception:\n\nVirtual Machine health check for <machineName>-ACS01 produced the following errors.\nThere was an error getting VM information from hosts.异常详细信息:\nGet-VM: 计算机 'Node03' 上的操作失败: WS-Management 服务无法处理请求。WMI \nservice 或 WMI 提供程序返回了未知的错误: HRESULT 0x8004106c”。*
     1. **原因：**此问题是由某个 Windows Server 问题造成的，后续的 Windows Server 更新中会解决此问题。
     2. **解决方法：**请联系 Microsoft 客户服务和支持 (CSS) 寻求帮助。
 <br><br>
@@ -105,6 +112,7 @@ Azure Stack 1711 更新内部版本号为 **171201.3**。
 
 - 删除用户订阅生成孤立的资源。 解决方法是先删除用户资源或整个资源组，然后再删除用户订阅。
 - 无法使用 Azure Stack 门户查看订阅的权限。 解决方法是使用 PowerShell 验证权限。
+- “服务运行状况”边栏选项卡无法加载。 在管理员或用户门户中打开“服务运行状况”边栏选项卡时，Azure Stack 显示错误且不加载信息。 这是预期的行为。 尽管可以选择并打开“服务运行状况”，但此功能目前不可用，将来的 Azure Stack 版本中会实现此功能。
 
 #### <a name="health-and-monitoring"></a>运行状况和监视
 
@@ -160,10 +168,11 @@ Azure Stack 1711 更新内部版本号为 **171201.3**。
 
 Microsoft 已提供某种方式让用户使用装有 1711 更新的特权终结点 (PEP) 来监视和恢复更新。
 
-- 请参阅文档[使用特权终结点监视 Azure Stack 中的更新](/azure-stack/azure-stack-monitor-update)。 
+- 请参阅文档：[使用特权终结点监视 Azure Stack 中的更新](/azure-stack/azure-stack-monitor-update)。 
 
 ## <a name="see-also"></a>另请参阅
 
 - 有关 Azure Stack 中的更新管理的概述，请参阅[有关在 Azure Stack 中管理更新的概述](azure-stack-updates.md)。
 - 有关如何在 Azure Stack 中应用更新的详细信息，请参阅[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)。
 
+<!-- Update_Description: wording update -->

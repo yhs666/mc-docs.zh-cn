@@ -1,26 +1,19 @@
 ---
 title: 连接到 Azure Analysis Services 所需的客户端库 | Azure
 description: 介绍了客户端应用程序和工具连接 Azure Analysis Services 时所需的客户端库
-services: analysis-services
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/27/2018
-ms.date: 03/26/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4265c610e0f750e2c445665c9ce7367999747c04
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.reviewer: minewiskan
+ms.openlocfilehash: ff0dd4674648dcb5868f8b3e024508ef0232429e
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>用于连接到 Azure Analysis Services 的客户端库
 
@@ -74,7 +67,8 @@ Microsoft 客户端应用程序（例如 Power BI Desktop 和 Excel）会安装�
 
  连接到数据库时，所有三个库的连接字符串属性相似。 使用 [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://msdn.microsoft.com/library/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring.aspx) 为 ADOMD.NET 定义的几乎任何连接字符串同样适用于 AMO 和 Analysis Services OLE DB 提供程序 (MSOLAP)。 若要了解详细信息，请参阅[连接字符串属性 &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services)。  
 
-##  <a name="bkmk_LibUpdate"></a>如何确定客户端库版本   
+<a name="bkmk_LibUpdate"></a>
+##  <a name="how-to-determine-client-library-version"></a>如何确定客户端库版本   
 
 ### <a name="oleddb-msolap"></a>OLEDDB (MSOLAP)  
 
@@ -98,4 +92,4 @@ Microsoft 客户端应用程序（例如 Power BI Desktop 和 Excel）会安装�
 [使用 Excel 进行连接](analysis-services-connect-excel.md)    
 [使用 Power BI 进行连接](analysis-services-connect-pbi.md)
 
-<!--Update_Description: update meta properties, wording update,  -->
+<!--Update_Description: update meta properties, wording update  -->

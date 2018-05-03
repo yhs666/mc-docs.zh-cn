@@ -1,31 +1,30 @@
 ---
-title: "将 Mongoose 框架与 Azure Cosmos DB 配合使用 | Azure"
-description: "了解如何将 Node.js Mongoose 应用连接到 Azure Cosmos DB"
+title: 将 Mongoose 框架与 Azure Cosmos DB 配合使用 | Azure
+description: 了解如何将 Node.js Mongoose 应用连接到 Azure Cosmos DB
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
 ms.assetid: de5eea58-ee7c-4609-b1c9-4af3e61a5883
 ms.service: cosmos-db
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 01/08/2018
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: a4988e3d943c546b465c6dbe44142f06bb82b2ca
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 1c54f0ba14f8bbac6646d2d0d3d9f0e05546bd72
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB：将 Mongoose 框架与 Azure Cosmos DB 配合使用
 
 本教程演示在 Azure Cosmos DB 中存储数据时如何使用 [Mongoose 框架](http://mongoosejs.com/)。 本演练针对 Azure Cosmos DB 使用 MongoDB API。 不熟悉该接口的读者应知道，Mongoose 是 Node.js 中适用于 MongoDB 的对象建模框架，提供简单直接的、基于架构的解决方案来为应用程序数据建模。
 
-Azure Cosmos DB 由 21Vianet 提供，是全球分布的多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Azure Cosmos DB 核心的全球分布和水平缩放功能。
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -67,9 +66,6 @@ Azure Cosmos DB 由 21Vianet 提供，是全球分布的多模型数据库服务
     ```
 
 1. 将 Cosmos DB 连接字符串和 Cosmos DB 名称添加到 ```.env``` 文件。
-    
-    > [!Note]
-    > 请转换连接字符串中所有非法的非转义字符，例如，将 = 转换为 %3D。 否则，在打开某个连接时会遇到错误，例如，<错误: 密码包含非法的非转义字符>。
 
     ```JavaScript
     COSMOSDB_CONNSTR={Your MongoDB Connection String Here}
@@ -314,4 +310,4 @@ Mongoose 还存在称作[鉴别器](http://mongoosejs.com/docs/discriminators.ht
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
 [mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

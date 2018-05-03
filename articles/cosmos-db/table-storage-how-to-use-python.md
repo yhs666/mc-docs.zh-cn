@@ -5,21 +5,20 @@ services: cosmos-db
 documentationcenter: python
 author: rockboyfor
 manager: digimobile
-editor: tysonn
 ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-origin.date: 02/08/2018
-ms.date: 03/26/2018
+origin.date: 04/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 57f555900e50f9db9269f6f5da601bf77f301615
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: fef29ed391c2746a875463c9a17497ef9abe041e
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>通过 Python 开始使用 Azure 表存储
 
@@ -43,26 +42,18 @@ Azure 表存储是一项用于在云中存储结构化 NoSQL 数据的服务，�
 若要成功完成本教程，需要具备以下先决条件：
 
 - [Python](https://www.python.org/downloads/) 2.7、3.3、3.4、3.5 或 3.6
-- [用于 Python 的 Azure Cosmos DB 表 SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/)。 此 SDK 同时与 Azure 表存储和 Azure Cosmos DB 表 API 连接。
+- [用于 Python 的 Azure Cosmos DB 表 SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/)。 此 SDK 连接到 Azure 表存储。
+<!-- Not Available on Azure Cosmos DB Table API -->
 - [Azure 存储帐户](/storage/common/storage-create-storage-account#create-a-storage-account)
 <!-- Not Avaiable on  [Azure Cosmos DB account](https://www.azure.cn/try/cosmosdb/) -->
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
-
 ## <a name="create-an-azure-service-account"></a>创建 Azure 服务帐户
-
-可以通过 Azure 表存储或 Azure Cosmos DB 使用表。 可以阅读[表产品](table-introduction.md#table-offerings)来详细了解服务之间的差别。 需要为所要使用的服务创建一个帐户。 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
-创建第一个 Azure 存储帐户的最简单方法是使用 [Azure 门户](https://portal.azure.cn)。 若要了解更多信息，请参阅 [创建存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-也可以使用 [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) 或 [Azure CLI](../storage/common/storage-azure-cli.md) 创建 Azure 存储帐户。
-
-如果暂时不想创建存储帐户，也可以使用 Azure 存储模拟器在本地环境中运行和测试代码。 有关详细信息，请参阅 [使用 Azure 存储模拟器进行开发和测试](../storage/common/storage-use-emulator.md)。
-
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>创建 Azure Cosmos DB 表 API 帐户
-
-有关创建 Azure Cosmos DB 表 API 帐户的说明，请参阅[创建表 API 帐户](create-table-dotnet.md#create-a-database-account)。
+<!--Not Avaiable on Cosmos DB Table API ### Create an Azure Cosmos DB Table API account -->
 
 ## <a name="install-the-azure-cosmos-db-table-sdk-for-python"></a>安装用于 Python 的 Azure Cosmos DB 表 SDK
 
@@ -86,13 +77,7 @@ table_service = TableService(account_name='myaccount', account_key='mykey',endpo
 ```
 <!-- Add the endpoint_suffix configuration -->
 
-## <a name="connect-to-azure-cosmos-db"></a>连接到 Azure Cosmos DB
-
-若要连接到 Azure Cosmos DB，请从 Azure 门户中复制主连接字符串，并使用复制的连接字符串创建 [TableService](https://azure.github.io/azure-cosmosdb-python/ref/azure.cosmosdb.table.tableservice.html) 对象：
-
-```python
-table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=https://myaccount.documents.azure.cn')
-```
+<!-- Not Avaiable on ## Connect to Azure Cosmos DB -->
 
 ## <a name="create-a-table"></a>创建表
 
@@ -235,7 +220,7 @@ table_service.delete_table('tasktable')
 
 ## <a name="next-steps"></a>后续步骤
 
-* [常见问题解答 - 使用表 API 进行开发](/cosmos-db/faq#develop-with-the-table-api)
+<!-- Not Available on  [FAQ - Develop with the Table API](/cosmos-db/faq#develop-with-the-table-api) -->
 * [用于 Python API 的 Azure Cosmos DB SDK 参考](https://azure.github.io/azure-cosmosdb-python/)
 * [Python 开发人员中心](/develop/python/)
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)：一款跨平台的免费应用程序，用于直观处理 Windows、MacOS 和 Linux 上的 Azure 存储数据。

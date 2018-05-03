@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/11/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: 79a6f8be0547b0ced314138bde9fe25b1d256c3b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 05/07/2018
+ms.openlocfilehash: 8402aa70f08c8e8d859dcd2587e678bda0588c8f
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的配置和管理问题：常见问题解答 (FAQ)
 
@@ -179,13 +179,15 @@ Windows 10 和 Windows Server 2016 随附了对客户端和服务器端上的 HT
 3. 创建名为 **DuoEnabled** 的新 DWORD 值。
 4. 将其值设置为 1。
 5. 重启服务器。
-6. 转到“默认网站”，在“绑定”下，使用刚刚创建的自签名证书创建新的 TLS 绑定。 可通过启动任务自动完成这些步骤，这样，每次创建新的 PaaS 实例后，都可以在系统注册表中执行上述更改。 有关详细信息，请参阅[如何配置和运行云服务的启动任务](cloud-services-startup-tasks.md)。
+6. 转到“默认网站”，在“绑定”下，使用刚刚创建的自签名证书创建新的 TLS 绑定。 有关详细信息，请参阅：
+
+- [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2)（IIS 上的 HTTP/2） 可通过启动任务自动完成这些步骤，这样，每次创建新的 PaaS 实例后，都可以在系统注册表中执行上述更改。 有关详细信息，请参阅[如何配置和运行云服务的启动任务](cloud-services-startup-tasks.md)。
 
  
 完成此过程后，可使用以下方法之一验证是否已启用 HTTP/2：
 
 - 在 IIS 日志中启用协议版本，并查看 IIS 日志。 日志中会显示 HTTP/2。 
-- 在 Internet Explorer/Microsoft Edge 中启用 F12 开发人员工具，并切换到“网络”选项卡来验证协议。 
+- 在 Internet Explorer/Edge 中启用 F12 开发人员工具，并切换到“网络”选项卡来验证协议。 
 
 有关详细信息，请参阅 [IIS 上的 HTTP/2](https://blogs.iis.net/davidso/http2)。
 

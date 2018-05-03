@@ -1,26 +1,19 @@
 ---
-title: "管理 Azure Analysis Services | Azure"
-description: "了解如何在 Azure 中管理 Analysis Services 服务器。"
-services: analysis-services
-documentationcenter: 
+title: 管理 Azure Analysis Services | Azure
+description: 了解如何在 Azure 中管理 Analysis Services 服务器。
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 79491d0b-b00d-4e02-9ca7-adc99bc02fdb
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: c58059f107a1b626bfda558f71cda8a579744be9
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.reviewer: minewiskan
+ms.openlocfilehash: d0ab2a720c2c244644ae8fa696ee52c5ee869f9f
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-analysis-services"></a>管理 Analysis Services
 在 Azure 中创建 Analysis Services 服务器后，可能会有一些需要立即执行或在稍后操作期间执行的管理任务。 例如，处理刷新数据、控制谁有权访问服务器上的模型，或者监视服务器的运行状况。 某些管理任务仅可在 Azure 门户中执行，而其他一些可在 SQL Server Management Studio (SSMS) 中执行，还有部分在两者中均可执行。
@@ -47,13 +40,19 @@ ms.lasthandoff: 03/08/2018
 
     ![在 Azure 中获取服务器名称](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. 在 SSMS >“对象资源管理器”中，单击“连接” > “Analysis Services”。
-3. 在“连接到服务器”对话框中，粘贴服务器名称，并在“身份验证”中选择以下身份验证类型之一：
+3. 在“连接到服务器”对话框中，粘贴服务器名称，并在“身份验证”中选择以下身份验证类型之一：   
+    > [!NOTE]
+    > 建议选择“Active Directory - 通用且具有 MFA 支持”身份验证类型。
 
+    > [!NOTE]
+    > 如果使用 Microsoft 帐户、Live ID、Yahoo 等登录，请将密码字段留空。 单击“连接”后，系统将提示你输入密码。
+    <!-- Not Available on Gmail-->
+    
     选择“Windows 身份验证”，以使用 Windows 域\用户名和密码凭据。
 
     **Active Directory 密码身份验证**，其使用组织帐户。 例如，从未加入域的计算机进行连接时。
 
-    选择“Active Directory 通用身份验证”，以使用[非交互式或多重身份验证](../sql-database/sql-database-ssms-mfa-authentication.md)。 
+    选择“Active Directory - 通用且具有 MFA 支持”，以使用[非交互式或多重身份验证](../sql-database/sql-database-ssms-mfa-authentication.md)。 
 
     ![在 SSMS 中连接](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 

@@ -1,30 +1,29 @@
 ---
-title: "Azure Cosmos DB：使用 Golang 和 Azure 门户生成 MongoDB API 控制台应用 | Azure"
-description: "演示一个可以用来连接和查询 Azure Cosmos DB 的 Golang 代码示例"
+title: Azure Cosmos DB：使用 Golang 和 Azure 门户生成 MongoDB API 控制台应用 | Azure
+description: 演示一个可以用来连接和查询 Azure Cosmos DB 的 Golang 代码示例
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: mimig1
 ms.service: cosmos-db
 ms.topic: quickstart
 origin.date: 07/21/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 75851a8cf735e9de0666f42ea27fe728428befbd
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 163a430eec8597aa1f58316d3f3b70a4df51defa
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB：使用 Golang 和 Azure 门户生成 MongoDB API 控制台应用
 
-Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档、键/值，所有这些都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可以快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。
 <!-- Notice: 全球分布 to 多个区域分布 -->
 <!-- Notice: global to multiple-region -->
-<!-- Not Available on Graph -->
+<!-- Not Available on key/value an dGraph -->
 
-本快速入门演示如何使用以 [Golang](https://golang.org/) 编写的现有 [MongoDB](/cosmos-db/mongodb-introduction) 应用，并将其连接到支持 MongoDB 客户端连接的 Azure Cosmos DB 数据库。
+本快速入门演示如何使用以 [Golang](https://golang.org/) 编写的现有 MongoDB 应用，并使用 [MongoDB API](mongodb-introduction.md) 将其连接到支持 MongoDB 客户端连接的 Azure Cosmos DB 数据库。
 
 换而言之，Golang 应用程序仅知道它要使用 MongoDB API 连接到某个数据库。 应用程序完全知道数据存储在 Azure Cosmos DB 中。
 
@@ -37,7 +36,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 - [Go](https://golang.org/dl/) 以及 [Go](https://golang.org/) 语言的基础知识。
 - IDE — [Gogland](https://www.jetbrains.com/go/)（由 Jetbrains 开发）、[Visual Studio Code](https://code.visualstudio.com/)（由 Microsoft 开发）或 [Atom](https://atom.io/)。 本教程使用 Goglang。
 
-<a id="create-account"></a>
+<a name="create-account"></a>
 ## <a name="create-a-database-account"></a>创建数据库帐户
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
@@ -60,7 +59,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 [mgo](http://labix.org/mgo)（发音同 *mango*）驱动程序是适用于 [Go 语言](http://golang.org/)的 [MongoDB](http://www.mongodb.org/) 驱动程序，该语言采用很简单的 API 和标准的 Go 惯用语，实现了多种经过严格测试的精选功能。
 
-<a id="connection-string"></a>
+<a name="connection-string"></a>
 
 ## <a name="update-your-connection-string"></a>更新连接字符串
 
@@ -84,7 +83,9 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 ## <a name="review-the-code"></a>查看代码
 
-让我们快速查看一下 main.go 文件中的情况。 
+此步骤是可选的。 如果有意了解如何使用代码创建数据库资源，可以查看下面的代码段。 否则，可以跳到[运行应用](#run-the-app)。 
+
+以下代码片段全部摘自 main.go 文件。
 
 ### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>将 Go 应用连接到 Azure Cosmos DB
 
@@ -132,7 +133,7 @@ session.SetSafe(&mgo.Safe{})
 collection := session.DB("database").C("package")
 ```
 
-<a id="create-document"></a>
+<a name="create-document"></a>
 
 ### <a name="create-a-document"></a>创建文档
 
@@ -238,10 +239,7 @@ if err != nil {
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不打算继续使用此应用，请删除本快速入门教程在 Azure 门户中创建的所有资源，步骤如下：
-
-1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。 
-2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，并单击“删除”。
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -250,4 +248,4 @@ if err != nil {
 > [!div class="nextstepaction"]
 > [将 MongoDB API 的数据导入 Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

@@ -1,11 +1,10 @@
 ---
-title: "停用的 Azure Cosmos DB 性能级别 | Azure"
-description: "了解 Azure Cosmos DB 中以前提供的 S1、S2 和 S3 性能级别。"
+title: 停用的 Azure Cosmos DB 性能级别 | Azure
+description: 了解 Azure Cosmos DB 中以前提供的 S1、S2 和 S3 性能级别。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,22 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 03/05/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3433c146649e931fa9f81fbc1ba141b0855b690a
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 3716d04f48eaf164c618a411ff2410dbbb0345c2
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>停用 S1、S2 和 S3 性能级别
 
 > [!IMPORTANT] 
 > 本文所述的 S1、S2 和 S3 性能级别即将停用，在新的 Azure Cosmos DB 帐户中将不再提供。
 >
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 本文概述 S1、S2 和 S3 性能级别，并介绍在 2017 年下旬如何将使用这些性能级别的集合迁移到单分区集合。 阅读本文后，可以回答以下问题：
 
@@ -41,7 +38,7 @@ ms.lasthandoff: 03/02/2018
 - [在计划的迁移期限之前，是否可以在 S1、S2 和 S3 性能级别之间切换？](#change-before)
 - [如何了解集合已迁移？](#when-migrated)
 - [如何自行从 S1、S2、S3 性能级别迁移到单区集合？](#migrate-diy)
-<!-- Not Available- [How am I impacted if I'm an EA customer?](#ea-customer)-->
+[EA 客户会受到怎样的影响？](#ea-customer)
 
 <a name="why-retired"></a>
 
@@ -62,7 +59,7 @@ S1、S2 和 S3 性能级别无法提供标准 Azure Cosmos DB 产品提供的灵
 |最大存储|无限制|10 GB|10 GB|10 GB|10 GB|
 <!-- 不可用 |价格|吞吐量：6 美元/100 RU/秒<br><br>存储：0.25 美元/GB|吞吐量：6 美元/100 RU/s<br><br>存储：0.25 美元/GB|25 美元|50 美元|100 美元|-->
 
-<!-- Not Avaialbel Are you an EA customer? If so, see [How am I impacted if I'm an EA customer?](#ea-customer) -->
+是 EA 客户吗？ 如果是，请参阅 [如果我是 EA 客户，我会受到怎样的影响？](#ea-customer)
 
 <a name="uninterrupted-access"></a>
 
@@ -168,8 +165,9 @@ S1、S2 和 S3 性能级别无法提供标准 Azure Cosmos DB 产品提供的灵
 
 <a name="ea-customer"></a>
 
-<!-- Not Available ## How am I impacted if I'm an EA customer?-->
+## <a name="how-am-i-impacted-if-im-an-ea-customer"></a>EA 客户会受到怎样的影响？
 
+EA 客户在当前合同到期之前，价格将受到保护。
 
 ## <a name="next-steps"></a>后续步骤
 若要了解更多有关 Azure Cosmos DB 的定价和管理数据的信息，请浏览以下资源：

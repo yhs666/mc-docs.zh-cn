@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/25/2018
-ms.date: 04/09/2018
+origin.date: 03/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 701dae93fdb68e93257a8fcbbb18354125d8b1e2
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: 3e79694e2fac8261a5ab618d6d6a79d91f6c5e43
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>快速入门：在 Azure 中创建 .NET Service Fabric 应用程序
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。 
@@ -30,14 +30,14 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 ![应用程序屏幕截图](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
 通过此应用程序，将了解如何：
-> [!div class="checklist"]
-> * 使用 .NET 和 Service Fabric 创建应用程序
-> * 将 ASP.NET Core 用作 Web 前端
-> * 将应用程序数据存储到有状态服务中
-> * 在本地调试应用程序
-> * 将应用程序部署到 Azure 中的群集
-> * 跨多个节点横向扩展应用程序
-> * 执行应用程序滚动升级
+
+* 使用 .NET 和 Service Fabric 创建应用程序
+* 将 ASP.NET Core 用作 Web 前端
+* 将应用程序数据存储到有状态服务中
+* 在本地调试应用程序
+* 将应用程序部署到 Azure 中的群集
+* 跨多个节点横向扩展应用程序
+* 执行应用程序滚动升级
 
 ## <a name="prerequisites"></a>先决条件
 若要完成本快速入门教程，需先执行以下操作：
@@ -92,7 +92,8 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 3. 后端服务接收传入请求，并将更新后的结果存储在可靠字典中（结果复制到群集内的多个节点，并保留在磁盘上）。 应用程序的所有数据都存储在群集中，因此无需使用数据库。
 
 ## <a name="debug-in-visual-studio"></a>在 Visual Studio 中进行调试
-在 Visual Studio 中调试应用程序时，使用的是本地 Service Fabric 开发群集。 可以根据需要针对自己的方案调整调试体验。 在此应用程序中，数据将使用可靠的字典存储到后端服务中。 停止调试程序时，Visual Studio 会默认删除应用程序。 删除应用程序后，后端服务中的数据也会随之一起删除。 若要跨调试会话保留数据，可以将“应用程序调试模式”作为 Visual Studio 中“投票”项目的属性进行更改。
+
+此应用程序应该正常运行，不过，你可以使用调试程序来了解应用程序关键部分的运行情况。 在 Visual Studio 中调试应用程序时，使用的是本地 Service Fabric 开发群集。 可以根据需要针对自己的方案调整调试体验。 在此应用程序中，数据将使用可靠的字典存储到后端服务中。 停止调试程序时，Visual Studio 会默认删除应用程序。 删除应用程序后，后端服务中的数据也会随之一起删除。 若要跨调试会话保留数据，可以将“应用程序调试模式”作为 Visual Studio 中“投票”项目的属性进行更改。
 
 若要查看代码，请完成以下步骤：
 1. 打开 /VotingWeb/Controllers/VotesController.cs 文件，并在 Web API 的 Put 方法（第 69 行）中设置一个断点。可以在 Visual Studio 的解决方案资源管理器中搜索此文件。
@@ -129,7 +130,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 1. 在解决方案资源管理器中，右键单击“投票”，再选择“发布”。 此时，“发布”对话框显示。
 
-2. 将 Party 群集页面中的“连接终结点”复制到“连接终结点”字段。 例如，`zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19000`。
+2. 将“连接终结点”复制到“连接终结点”字段中。 例如，`zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19000`。
     <!-- Not Available on  Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in a previous step. -->
 
     ![“发布”对话框](./media/service-fabric-quickstart-dotnet/publish-app.png)
@@ -150,8 +151,8 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 <!-- Not Available on Certificate -->
 若要缩放 Web 前端服务，请按照以下步骤操作：
 
-1. 在群集中打开 Service Fabric Explorer（例如，`http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19080`）。
-2. 单击树视图中 fabric:/Voting/VotingWeb 节点旁边的省略号（三个点），再选择“缩放服务”。
+1. 在群集中打开 Service Fabric Explorer（例如，`http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19080`）。 
+2. 在树状视图中，展开“应用程序”->“VotingType”->“fabric:/Voting”。 单击树视图中 fabric:/Voting/VotingWeb 节点旁边的省略号（三个点），再选择“缩放服务”。
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
 
@@ -182,25 +183,25 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 7. 在“发布 Service Fabric 应用程序”对话框中，选中“升级应用程序”复选框，再单击“发布”。
 
     ![“发布”对话框中的升级设置](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
+
+    运行升级期间，仍可以使用应用程序。 由于在群集中运行的服务有两个实例，因此一些请求可能会获取升级版应用程序，另一些请求可能仍获取旧版应用程序。
+
 8. 打开浏览器，并转到端口 19080 上的群集地址（例如，`http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19080`）。
 9. 单击树视图中的“应用程序”节点，再单击右侧窗格中的“进行中的升级”。 可以了解如何通过群集中的升级域滚动升级，同时确保在继续执行下一步之前每个域都能够正常运行。 在验证域运行状况后，进度栏中的升级域将显示为绿色。
     ![Service Fabric Explorer 中的升级视图](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     Service Fabric 在升级群集中每个节点上的服务后等待两分钟，从而确保升级安全性。 预计整个更新大约需要 8 分钟的时间。
 
-10. 运行升级期间，仍可以使用应用程序。 由于在群集中运行的服务有两个实例，因此一些请求可能会获取升级版应用程序，另一些请求可能仍获取旧版应用程序。
-
 ## <a name="next-steps"></a>后续步骤
 在此快速入门中，读者学习了如何：
 
-> [!div class="checklist"]
-> * 使用 .NET 和 Service Fabric 创建应用程序
-> * 将 ASP.NET Core 用作 Web 前端
-> * 将应用程序数据存储到有状态服务中
-> * 在本地调试应用程序
-> * 将应用程序部署到 Azure 中的群集
-> * 跨多个节点横向扩展应用程序
-> * 执行应用程序滚动升级
+* 使用 .NET 和 Service Fabric 创建应用程序
+* 将 ASP.NET Core 用作 Web 前端
+* 将应用程序数据存储到有状态服务中
+* 在本地调试应用程序
+* 将应用程序部署到 Azure 中的群集
+* 跨多个节点横向扩展应用程序
+* 执行应用程序滚动升级
 
 若要详细了解 Service Fabric 和 .NET，请查看以下教程：
 > [!div class="nextstepaction"]

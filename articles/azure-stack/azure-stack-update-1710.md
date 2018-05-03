@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/09/2017
-ms.date: 03/04/2018
+ms.date: 04/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: 16eae1ebf22bc616c69db6810aa067f7f7b8796f
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 89312bdf1113b95773d67eab440e32f7f50ecb2f
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Azure Stack 1710 更新（内部版本 20171020.1）
 
@@ -86,7 +86,9 @@ ms.lasthandoff: 03/08/2018
    若要解决后两个问题，可以输入订阅或资源组的名称（如果知道），或者可以改用 PowerShell。
 - 删除用户订阅生成孤立的资源。 解决方法是先删除用户资源或整个资源组，然后再删除用户订阅。
 - 无法使用 Azure Stack 门户查看订阅的权限。 解决方法是使用 PowerShell 验证权限。
-  
+- “服务运行状况”边栏选项卡无法加载。 在管理员或用户门户中打开“服务运行状况”边栏选项卡时，Azure Stack 显示错误且不加载信息。 这是预期的行为。 尽管可以选择并打开“服务运行状况”，但此功能目前不可用，将来的 Azure Stack 版本中会实现此功能。
+ 
+
 ### <a name="backup"></a>Backup
 
 - 请不要在“基础架构备份”边栏选项卡上启用基础结构备份。
@@ -130,3 +132,4 @@ ms.lasthandoff: 03/08/2018
 - 有关 Azure Stack 中的更新管理的概述，请参阅[有关在 Azure Stack 中管理更新的概述](azure-stack-updates.md)。
 - 有关如何应用更新的信息，请参阅[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)。
 
+<!-- Update_Description: wording update -->

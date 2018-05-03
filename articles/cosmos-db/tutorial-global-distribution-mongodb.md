@@ -1,12 +1,11 @@
 ---
-title: "MongoDB API 的 Azure Cosmos DB 全局分发教程 | Azure"
-description: "了解如何使用 MongoDB API 设置 Azure Cosmos DB 全局分发。"
+title: MongoDB API 的 Azure Cosmos DB 多区域分发教程 | Azure
+description: 了解如何使用 MongoDB API 设置 Azure Cosmos DB 多区域分发。
 services: cosmos-db
-keywords: "全局分发, MongoDB"
-documentationcenter: 
+keywords: 多区域分发, MongoDB
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a196045bfad6db8fa5b449340f8deee4ea4aa8d6
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 007024f713aa21da29d52672012989fe77578000
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>如何使用 MongoDB API 设置 Azure Cosmos DB 全局分发
+# <a name="how-to-setup-azure-cosmos-db-multiple-region-distribution-using-the-mongodb-api"></a>如何使用 MongoDB API 设置 Azure Cosmos DB 多区域分发
 
-本文介绍了如何使用 Azure 门户设置 Azure Cosmos DB 全局分发，然后使用 MongoDB API 进行连接。
+本文介绍如何使用 Azure 门户设置 Azure Cosmos DB 多区域分发，然后使用 MongoDB API 进行连接。
 
 本文涵盖以下任务： 
 
 > [!div class="checklist"]
-> * 使用 Azure 门户配置全局分发
-> * 使用 [MongoDB API](mongodb-introduction.md) 配置全局分发
+> * 使用 Azure 门户配置多区域分发
+> * 使用 [MongoDB API](mongodb-introduction.md) 配置多区域分发
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
@@ -71,7 +70,7 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="connecting-to-a-preferred-region-using-the-mongodb-api"></a>使用 MongoDB API 连接到首选区域
 
-使用 MongoDB API，可以为全局分布式数据库指定集合的读取首选项。 为实现低延迟读取和全局高可用性，建议将集合的读取首选项设置为“就近”。 当读取首选项配置为“就近”时，将从最近的区域进行读取。
+使用 MongoDB API，可以为多区域分布式数据库指定集合的读取首选项。 为实现低延迟读取和全局高可用性，建议将集合的读取首选项设置为“就近”。 当读取首选项配置为“就近”时，将从最近的区域进行读取。
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
@@ -100,8 +99,8 @@ collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode
 在本教程中已完成以下操作：
 
 > [!div class="checklist"]
-> * 使用 Azure 门户配置全局分发
-> * 使用 SQL API 配置全局分发
+> * 使用 Azure 门户配置多区域分发
+> * 使用 SQL API 配置多区域分发
 
 现可继续学习下一个教程，了解如何使用 Azure Cosmos DB 本地模拟器在本地开发。
 

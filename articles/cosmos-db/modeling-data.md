@@ -1,12 +1,11 @@
 ---
-title: "为 NoSQL 数据库的文档数据建模 | Azure"
-description: "了解如何为 NoSQL 数据库的数据建模"
-keywords: "数据建模"
+title: 为 NoSQL 数据库的文档数据建模 | Azure
+description: 了解如何为 NoSQL 数据库的数据建模
+keywords: 数据建模
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: mimig1
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 69521eb9-590b-403c-9b36-98253a4c88b5
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2016
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: e9f6222dacf1f166619feaa5452c0635318a0682
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: a96e10f7f5ea9717a3fb90cbde1720f5f64395fb
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>为 NoSQL 数据库的文档数据建模
 尽管无架构的数据库（如 Azure Cosmos DB）能够非常容易地接受对数据模型的更改，但用户仍需花一些时间来研究数据。 
@@ -182,7 +181,8 @@ ms.lasthandoff: 12/22/2017
 
 在一天时间里股票 *zaza* 可能交易成百上千次，并且数以千计的用户可能在其投资组合中拥有股票 *zaza*。 使用类似上面的数据模型，我们需要每天更新成千上万的投资组合文档许多次，导致系统无法很好地扩展。 
 
-## <a id="Refer"></a>引用数据
+<a name="Refer"></a>
+## <a name="referencing-data"></a>引用数据
 因此，嵌入式数据在很多情况下都可以很好运作，但很明显在一些情况下，非规范化数据会导致更多问题而得不偿失。 因此我们现在该怎么办？ 
 
 关系数据库不是可以在实体之间创建关系的唯一数据库。 在文档数据库中，一个文档中的信息实际与其他文档中的数据相关。 现在，我甚至一分钟也不提倡在 Azure Cosmos DB 或任何其他文档数据库中生成可以更好地适应关系数据库的系统，但是简单关系是可以的，并且还非常有用。 
@@ -328,7 +328,8 @@ ms.lasthandoff: 12/22/2017
 
 现在，如果有作者的姓名，可以立即知道他们写了哪些书；相反，如果加载了书籍文档，则可以知道作者的 ID。 这可以省去对联接表的中间查询，从而减少了应用程序需要往返访问服务器的次数。 
 
-## <a id="WrapUp"></a>混合数据模型
+<a name="WrapUp"></a>
+## <a name="hybrid-data-models"></a>混合数据模型
 现在已经看了嵌入数据（或非规范化）和引用数据（或规范化）的示例，正如所看到的那样，每种方法都有其优缺点。 
 
 不需要始终只使用其中一种方法，可以大胆地将这两种方法结合使用。 
@@ -388,7 +389,8 @@ ms.lasthandoff: 12/22/2017
 
 因为 Azure Cosmos DB 支持**多文档事务**，所以构建一个具有预先计算字段的模型是可能的。 许多 NoSQL 存储无法跨文档执行事务，正是因为该限制，所以提倡诸如“始终嵌入所有数据”的设计决策。 在 Azure Cosmos DB 中，可以使用服务器端触发器或存储过程在一个 ACID 事务中插入书籍和更新作者信息等。 现在你**无需**将所有数据嵌入一个文档，只需确保你的数据保持一致性。
 
-## <a name="NextSteps"></a>后续步骤
+<a name="NextSteps"></a>
+## <a name="next-steps"></a>后续步骤
 本文最大的要点在于了解无架构环境下的数据建模的重要性一如既往。 
 
 就像有多种方法可在屏幕上表示一个数据片段一样，数据的建模方法也不会只有一种。 需要了解应用程序以及它如何生成、使用和处理数据。 然后，通过应用此处提供的一些准则，用户可以开始创建可满足应用程序当前需求的模型。 当应用程序需要进行更改时，可以利用无架构数据库的灵活性欣然接受更改，并轻松改进数据模型。 

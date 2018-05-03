@@ -3,7 +3,7 @@ title: 将 SQL 数据库提供给 Azure Stack 用户使用 | Microsoft Docs
 description: 有关安装 SQL Server 资源提供程序并创建产品/服务，使 Azure Stack 用户能够创建 SQL 数据库的教程。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,24 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 07/03/2017
-ms.date: 03/04/2018
+origin.date: 03/22/2017
+ms.date: 04/20/2018
 ms.author: v-junlch
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 08fc952b21488242f31ef2a367c5ee6ba0eee136
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 3f09d87340ee839c3534101200dc3ff4e012cfdf
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>将 SQL 数据库提供给 Azure Stack 用户使用
-
 Azure Stack 云管理员可以创建产品/服务，使用户（租户）能够创建 SQL 数据库，以配合其云原生应用、网站和工作负荷使用。 通过向用户提供这些基于云的按需自定义数据库的访问权限，可以节省用户的时间和资源。 若要设置此功能，需要：
 
 > [!div class="checklist"]
 > * 部署 SQL Server 资源提供程序
-> * 创建产品/服务
+> * 创建产品
 > * 测试产品/服务
 
 ## <a name="deploy-the-sql-server-resource-provider"></a>部署 SQL Server 资源提供程序
@@ -40,7 +39,7 @@ Azure Stack 云管理员可以创建产品/服务，使用户（租户）能够�
 2. [验证部署]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal)。
 3. 通过连接到宿主 SQL 服务器来提供容量。
 
-## <a name="create-an-offer"></a>创建产品/服务
+## <a name="create-an-offer"></a>创建产品
 
 1.  [设置配额](azure-stack-setting-quotas.md)并将其命名为 *SQLServerQuota*。 在“命名空间”字段中选择“Microsoft.SQLAdapter”。
 2.  [创建计划](azure-stack-create-plan.md)。 将计划命名为 *TestSQLServerPlan*，并选择“Microsoft.SQLAdapter”服务和“SQLServerQuota”配额。
@@ -81,7 +80,7 @@ Azure Stack 云管理员可以创建产品/服务，使用户（租户）能够�
 
 > [!div class="checklist"]
 > * 部署 SQL Server 资源提供程序
-> * 创建产品/服务
+> * 创建产品
 > * 测试产品/服务
 
 转到下一教程，了解如何执行以下操作：
@@ -90,3 +89,4 @@ Azure Stack 云管理员可以创建产品/服务，使用户（租户）能够�
 > [将 Web、移动和 API 应用提供给用户使用]( azure-stack-tutorial-app-service.md)
 
 
+<!-- Update_Description: update metedata properties -->

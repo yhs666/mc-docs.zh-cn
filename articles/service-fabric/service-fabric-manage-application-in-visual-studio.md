@@ -1,25 +1,25 @@
 ---
-title: "在 Visual Studio 中管理应用程序 | Azure"
-description: "使用 Visual Studio 创建、开发、打包、部署和调试 Service Fabric 应用程序和服务。"
+title: 在 Visual Studio 中管理 Azure Servic Fabric 应用程序 | Azure
+description: 使用 Visual Studio 来创建、开发、打包、部署和调试 Azure Service Fabric 应用程序和服务。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/07/2017
-ms.date: 12/04/2017
+origin.date: 03/26/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: ebe73c9fa0541e9be5bfc38f8ee042b6b2a01f07
-ms.sourcegitcommit: 1fb5f5438975a4901c35b6b95cbb190a08570a9b
+ms.openlocfilehash: 0e0e8ebc922a44799758b10c12ba334be1f81bef
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>使用 Visual Studio 简化 Service Fabric 应用程序的编写和管理
 可以通过 Visual Studio 管理 Azure Service Fabric 应用程序和服务。 [设置开发环境](service-fabric-get-started.md)后，可以使用 Visual Studio 创建 Service Fabric 应用程序、添加服务，或在本地开发群集中打包、注册和部署应用程序。
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/14/2018
 4. 删除任何正在运行的应用程序实例
 5. 删除应用程序实例
 
-在 Visual Studio 中，按 **F5** 部署应用程序，然后将调试程序附加到所有应用程序实例。 可以使用 **Ctrl + F5** 部署应用程序而不进行调试，或者使用发布配置文件将应用程序发布到本地或远程群集。 
+在 Visual Studio 中，按 **F5** 部署应用程序，然后将调试程序附加到所有应用程序实例。 可以使用 **Ctrl + F5** 部署应用程序而不进行调试，或者使用发布配置文件将应用程序发布到本地或远程群集。
 
 ### <a name="application-debug-mode"></a>应用程序调试模式
 Visual Studio 提供一个名为“应用程序调试模式”的属性，它控制 Visual Studio 在调试时如何处理应用程序部署。
@@ -42,11 +42,11 @@ Visual Studio 提供一个名为“应用程序调试模式”的属性，它控
 1. 在 Service Fabric 应用程序项目 (*.sfproj) 的快捷菜单上，选择“属性”（或按 **F4** 键）。
 2. 在“属性”窗口中，设置“应用程序调试模式”属性。
 
-    ![设置“应用程序调试模式”属性][debugmodeproperty]
+![设置“应用程序调试模式”属性][debugmodeproperty]
 
 #### <a name="application-debug-modes"></a>应用程序调试模式
 
-1. **刷新应用程序**此模式能快速更改和调试代码并支持调试时编辑静态 Web 文件。 此模式只能在本地开发群集处于 [1 节点模式](../service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode)下时有效。
+1. **刷新应用程序**此模式能快速更改和调试代码并支持调试时编辑静态 Web 文件。 此模式只能在本地开发群集处于 [1 节点模式](./service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode)下时有效。 这是默认的应用程序调试模式。
 <!-- URL should be Add . [1-Node mode](./service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode) -->
 2. **删除应用程序** 会在调试会话结束时删除应用程序。
 3. **自动升级**调试会话结束时，应用程序继续运行。 下一个调试会话将部署视为升级。 此升级过程会保留你在上一个调试会话中输入的任何数据。
@@ -55,7 +55,7 @@ Visual Studio 提供一个名为“应用程序调试模式”的属性，它控
 对于**自动升级**，数据是通过应用 Service Fabric 的应用程序升级功能予以保留。 若要详细了解如何升级应用程序，以及如何在真实环境中执行升级，请参阅 [Service Fabric 应用程序升级](service-fabric-application-upgrade.md)。
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>向 Service Fabric 应用程序添加服务
-可以向应用程序中添加新服务以扩展其功能。  若要确保应用程序包中包含该服务，请通过“新建 Fabric 服务...”  菜单项添加服务。
+可以向应用程序中添加新服务以扩展其功能。 若要确保应用程序包中包含该服务，请通过“新建 Fabric 服务...”  菜单项添加服务。
 
 ![添加新的 Service Fabric 服务][newservice]
 

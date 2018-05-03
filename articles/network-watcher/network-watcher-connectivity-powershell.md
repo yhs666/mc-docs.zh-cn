@@ -1,26 +1,26 @@
 ---
-title: "通过 Azure 网络观察程序检查连接性 - PowerShell | Azure"
-description: "此页说明如何使用 PowerShell 通过网络观察程序测试连接性"
+title: 使用 Azure 网络观察程序排查连接问题 - PowerShell | Azure
+description: 了解如何通过 PowerShell 使用 Azure 网络观察程序的排查连接问题功能。
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/11/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: cc828a09d9868cb49fe6521df1134e1cb6e4eb23
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 4b4d15af979fe7813b1c6a5586575ebe6859baea
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>使用 PowerShell 通过 Azure 网络观察程序检查连接性
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>通过 PowerShell 使用 Azure 网络观察程序排查连接问题
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -28,43 +28,15 @@ ms.lasthandoff: 01/19/2018
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-了解如何使用连接来验证是否可以建立从虚拟机到给定终结点的直接 TCP 连接。
+了解如何使用排查连接问题来验证是否可以建立从虚拟机到给定终结点的直接 TCP 连接。
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文假定你拥有以下资源：
-
-* 要检查连接性的区域中的网络观察程序实例。
-
-* 用于检查连接性的虚拟机。
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+* 要排查连接问题的区域中的网络观察程序实例。
+* 用以排查连接问题的虚拟机。
 
 > [!IMPORTANT]
-> 连接监视需要虚拟机扩展 `AzureNetworkWatcherExtension`。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md)。
-
-## <a name="register-the-preview-capability"></a>注册预览版功能
-
-连接性目前以公共预览版提供，使用此功能之前需要注册。 为此，请运行以下 PowerShell 示例：
-
-```powershell
-Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-若要验证注册是否成功，请运行以下 Powershell 示例：
-
-```powershell
-Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
-```
-
-如果该功能已正确注册，输出应匹配以下内容：
-
-```
-FeatureName         ProviderName      RegistrationState
------------         ------------      -----------------
-AllowNetworkWatcherConnectivityCheck  Microsoft.Network Registered
-```
+> 连接故障排除需要从中进行故障排除的 VM 安装了 `AzureNetworkWatcherExtension` VM 扩展。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json)。 在目标终结点上不需要该扩展。
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>检查与虚拟机的连接
 
@@ -279,7 +251,7 @@ Hops             : [
 
 ## <a name="check-connectivity-to-a-storage-endpoint"></a>检查与存储终结点的连接
 
-以下示例测试从虚拟机到博客存储帐户的连接。 此示例要求在包含源 VM 的区域中启用网络观察程序。  
+以下示例检查从虚拟机到博客存储帐户的连接。 此示例要求在包含源 VM 的区域中启用网络观察程序。  
 
 ### <a name="example"></a>示例
 
@@ -301,7 +273,7 @@ Test-AzureRmNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId
 
 以下 json 是运行前面 cmdlet 的示例响应。 因为目标可访问，`ConnectionStatus` 属性显示为“可以访问”。  提供了有关到达存储 blob 所需的跃点数和延迟的详细信息。
 
-```
+```json
 ConnectionStatus : Reachable
 AvgLatencyInMs   : 1
 MinLatencyInMs   : 0
@@ -332,10 +304,7 @@ Hops             : [
 
 ## <a name="next-steps"></a>后续步骤
 
-访问[查看“IP 流验证”](network-watcher-check-ip-flow-verify-portal.md)，了解是否允许某些流量传入和传出 VM
+访问[查看“IP 流验证”](network-watcher-check-ip-flow-verify-portal.md)，确定是否允许某些流量传入和传出 VM。
 
-如果流量不应被阻止但却被阻止，请参阅[管理网络安全组](../virtual-network/virtual-network-manage-nsg-arm-portal.md)，查找已定义的网络安全组和安全规则。
-
-<!-- Image references -->
-
-<!--Update_Description: new articles on network watcher connectivity powershell -->
+如果流量不应被阻止但却被阻止，请参阅[管理网络安全组](../virtual-network/manage-network-security-group.md)，查找已定义的网络安全组和安全规则。
+<!-- Update_Description: update link, wording update  -->

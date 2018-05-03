@@ -1,9 +1,9 @@
 ---
-title: "Azure Cosmos DB 资源模型和概念 | Azure"
-description: "了解 Azure Cosmos DB 的数据库、集合、用户自定义函数 (UDF)、文档、管理资源的权限等的分层模型。"
-keywords: "分层模型, cosmosdb, azure, Microsoft azure"
+title: Azure Cosmos DB 资源模型和概念 | Azure
+description: 了解 Azure Cosmos DB 的数据库、集合、用户自定义函数 (UDF)、文档、管理资源的权限等的分层模型。
+keywords: 分层模型, cosmosdb, azure, Azure 世纪互联
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
@@ -12,19 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/24/2017
-ms.date: 12/25/2017
+origin.date: 03/26/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 55cdbe5284711ec5affdbcc6fd1264aeb69b9c3d
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 86b769781e24cfb8e9a2aef242fe8c86e7b03dc2
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB 分层资源模型和核心概念
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB 管理的数据库实体被称为**资源**。 每个资源都通过逻辑 URI 进行唯一标识。 可以使用标准 HTTP 谓词、请求/响应标头和状态代码与资源交互。 
 
@@ -35,6 +33,7 @@ Azure Cosmos DB 管理的数据库实体被称为**资源**。 每个资源都�
 * 如何对资源进行寻址？
 * 如何使用集合？
 * 如何使用存储过程、触发器和用户自定义函数 (UDF)？
+<!-- Not Available on [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4] -->
 
 ## <a name="hierarchical-resource-model"></a>分层资源模型
 如下面的关系图所示，Azure Cosmos DB 分层资源模型由一个数据库帐户下的多组资源构成，每个资源可通过一个稳定的逻辑 URI 进行寻址。 本文将一组资源称为一个**源**。 
@@ -155,7 +154,7 @@ REST API 支持资源寻址和由 ID 和 _rid 属性提出的请求路由。
     </tbody>
 </table>
 
-除了从 Azure 门户预配、配置和管理数据库帐户，还可以通过使用 [Azure Cosmos DB REST API](https://docs.microsoft.com/rest/api/documentdb/) 和[客户端 SDK](sql-api-sdk-dotnet.md)，以编程方式创建和管理 Cosmos DB 数据库帐户。  
+除了从 Azure 门户预配、配置和管理数据库帐户，还可以通过使用 [Azure Cosmos DB REST API](https://docs.microsoft.com/rest/api/cosmos-db/) 和[客户端 SDK](sql-api-sdk-dotnet.md)，以编程方式创建和管理 Cosmos DB 数据库帐户。  
 
 ## <a name="databases"></a>数据库
 Cosmos DB 数据库是一个或多个集合和用户的逻辑容器，如下面的关系图中所示。 可以使用 Cosmos DB 数据库帐户创建任意数量的数据库（取决于产品/服务限制）。  
@@ -174,7 +173,7 @@ Cosmos DB 数据库默认情况下是弹性的 - SSD 支持的文档存储和预
 
 Azure Cosmos DB 数据库也是用户的容器。 反过来，用户是一组权限的逻辑命名空间，可提供对集合、文档和附件的精细授权和访问权限。  
 
-与 Azure Cosmos DB 资源模型中的其他资源一样，可以使用 [REST API](https://docs.microsoft.com/rest/api/documentdb/) 或任一[客户端 SDK](sql-api-sdk-dotnet.md) 轻松创建、替换、删除、读取或枚举数据库。 Azure Cosmos DB 确保数据库资源的元数据读取或查询操作的高度一致性。 自动删除数据库，确保不能访问任何集合或它所包含的用户。   
+与 Azure Cosmos DB 资源模型中的其他资源一样，可以使用 [REST API](https://docs.microsoft.com/rest/api/cosmos-db/) 或任一[客户端 SDK](sql-api-sdk-dotnet.md) 轻松创建、替换、删除、读取或枚举数据库。 Azure Cosmos DB 确保数据库资源的元数据读取或查询操作的高度一致性。 自动删除数据库，确保不能访问任何集合或它所包含的用户。   
 
 ## <a name="collections"></a>集合
 Cosmos DB 集合是 JSON 文档的一个容器。 
@@ -192,7 +191,7 @@ Azure Cosmos DB 是真正无架构的数据库系统。 无需为 JSON 文档假
 * 选择是否要在索引中包括特定的路径或文档中的模式或从索引中将其排除。 可以通过分别设置集合中的 indexingPolicy 上的 includedPaths 和 excludedPaths 来实现这一点。 还可以配置用于特定路径模式的存储和性能权衡的范围和哈希查询。 
 * 在同步（一致）和异步（延迟）索引更新之间进行选择。 默认情况下，每次在集合中插入、替换或删除文档时同步更新索引。 这个行为让查询能够使用与文档读取相同的一致性级别。 虽然 Azure Cosmos DB 针对写入进行了优化，支持文档持续写入和同步索引维护，并且保障一致的查询，还是可以配置某些集合，使其索引延迟更新。 延迟索引编制可大大提高写入性能，非常适合主要具有大量读取操作的集合的批量引入方案。
 
-可以通过对集合执行 PUT 更改索引策略。 这可以通过[客户端 SDK](sql-api-sdk-dotnet.md)、[Azure 门户](https://portal.azure.cn)或 [REST API](https://docs.microsoft.com/rest/api/documentdb/) 来实现。
+可以通过对集合执行 PUT 更改索引策略。 这可以通过[客户端 SDK](sql-api-sdk-dotnet.md)、[Azure 门户](https://portal.azure.cn)或 [REST API](https://docs.microsoft.com/rest/api/cosmos-db/) 来实现。
 
 ### <a name="querying-a-collection"></a>查询集合
 集合中的文档可以具有任意的数据库架构，而无需提前提供任何架构或辅助索引，就可以查询集合中的文档。 可以使用 [Azure Cosmos DB SQL 语法参考](../cosmos-db/documentdb-sql-query-reference.md)查询集合，该语法通过基于 JavaScript 的 UDF 提供丰富的分层运算符、关系运算符和空间运算符以及扩展性。 JSON 语法允许将 JSON 文档建模为树，其中标签作为树节点。 SQL API 的自动索引编制技术和 Azure Cosmos DB 的 SQL 方言都利用了此语法。 SQL 查询语言包含三个主要方面：   
@@ -201,7 +200,7 @@ Azure Cosmos DB 是真正无架构的数据库系统。 无需为 JSON 文档假
 2. 一小部分关系操作，包括组合、筛选、投影、聚合和自联接。 
 3. 基于纯 JavaScript 且结合 (1) 和 (2) 使用的 UDF。  
 
-Azure Cosmos DB 查询模型尝试在功能、效率和简单性之间取得平衡。 Azure Cosmos DB 数据库引擎在本机上编译和执行 SQL 查询语句。 可以使用 [REST API](https://docs.microsoft.com/rest/api/documentdb/) 或任一[客户端 SDK](sql-api-sdk-dotnet.md) 查询集合。 .NET SDK 附带了 LINQ 提供程序。
+Azure Cosmos DB 查询模型尝试在功能、效率和简单性之间取得平衡。 Azure Cosmos DB 数据库引擎在本机上编译和执行 SQL 查询语句。 可以使用 [REST API](https://docs.microsoft.com/rest/api/cosmos-db/) 或任一[客户端 SDK](sql-api-sdk-dotnet.md) 查询集合。 .NET SDK 附带了 LINQ 提供程序。
 
 > [!TIP]
 > 可以在[查询板块](https://www.documentdb.com/sql/demo)中尝试 SQL API 并对数据集运行 SQL 查询。
@@ -223,7 +222,7 @@ Azure Cosmos DB 查询模型尝试在功能、效率和简单性之间取得平�
 
 直接在与缓冲池位于相同地址空间内的数据库引擎中执行 JavaScript 的能力可实现针对集合的文档的数据库操作的高性能和事务性执行。 此外，Cosmos DB 数据库引擎还致力于针对 JSON 和 JavaScript 消除应用程序和数据库类型系统之间的任何阻抗失配。   
 
-创建集合之后即可使用 [REST API](https://docs.microsoft.com/rest/api/documentdb/)或任一[客户端 SDK](sql-api-sdk-dotnet.md) 向集合注册存储过程、触发器和 UDF。 注册后，可以引用并执行它们。 请考虑以下完全使用 JavaScript 编写的存储过程，此代码采用两个参数（书名和作者姓名），并创建了一个新文档，对文档进行查询，并更新文档 — 所有这些操作都是在一个隐式的 ACID 事务内完成。 在执行期间的任何时刻，如果引发 JavaScript 异常，则中止整个事务。
+创建集合之后即可使用 [REST API](https://docs.microsoft.com/rest/api/cosmos-db/)或任一[客户端 SDK](sql-api-sdk-dotnet.md) 向集合注册存储过程、触发器和 UDF。 注册后，可以引用并执行它们。 请考虑以下完全使用 JavaScript 编写的存储过程，此代码采用两个参数（书名和作者姓名），并创建了一个新文档，对文档进行查询，并更新文档 — 所有这些操作都是在一个隐式的 ACID 事务内完成。 在执行期间的任何时刻，如果引发 JavaScript 异常，则中止整个事务。
 
     function businessLogic(name, author) {
         var context = getContext();
@@ -275,10 +274,10 @@ Azure Cosmos DB 查询模型尝试在功能、效率和简单性之间取得平�
 
 存储过程和触发器与集合和集合中的文档通过一个明确定义的对象模型进行交互，该模型可公开当前集合的上下文。  
 
-可以使用 [REST API](https://docs.microsoft.com/rest/api/documentdb/) 或任一[客户端 SDK](sql-api-sdk-dotnet.md) 轻松创建、删除、读取或枚举 SQL API 中的集合。 SQL API 始终确保为读取或查询集合的元数据提供高度一致性。 自动删除数据库，确保不能访问任何文档、附件、存储过程、触发器和其中包含的 UDF。   
+可以使用 [REST API](https://docs.microsoft.com/rest/api/cosmos-db/) 或任一[客户端 SDK](sql-api-sdk-dotnet.md) 轻松创建、删除、读取或枚举 SQL API 中的集合。 SQL API 始终确保为读取或查询集合的元数据提供高度一致性。 自动删除数据库，确保不能访问任何文档、附件、存储过程、触发器和其中包含的 UDF。   
 
 ## <a name="stored-procedures-triggers-and-user-defined-functions-udf"></a>存储过程、触发器和用户自定义函数 (UDF)
-如前一节中所述，可以编写应用程序逻辑以直接在数据库引擎内部的某个事务中运行。 应用程序逻辑可以完全用 JavaScript 编写，并且可以作为存储过程、触发器或 UDF 来建模。 存储过程或触发器内的 JavaScript 代码可以插入、替换、删除、读取或查询集合中的文档。 但是，UDF 中的 JavaScript 却无法插入、替换或删除文档。 UDF 可以枚举查询的结果集的文档，并生成另一个结果集。 对于多租户，Azure Cosmos DB 将强制实施严格的基于保留项的资源调控。 每个存储过程、触发器或 UDF 都可以获取固定量的操作系统资源来完成其工作。 此外，存储过程、触发器或 UDF 不能针对外部 JavaScript 库进行链接，并且如果它们超出了分配给它们的资源预算，则被列入方块列表。 可以通过使用 REST API 为集合注册存储过程、触发器或 UDF，也可以取消注册。  注册时将预编译存储过程、触发器或 UDF，并将其存储为字节代码，以供以后执行。 下一节说明如何使用 Azure Cosmos DB JavaScript SDK 注册、执行和注销存储过程、触发器和 UDF。 JavaScript SDK 是一个比 [REST API](https://docs.microsoft.com/rest/api/documentdb/) 更简单的包装器。 
+如前一节中所述，可以编写应用程序逻辑以直接在数据库引擎内部的某个事务中运行。 应用程序逻辑可以完全用 JavaScript 编写，并且可以作为存储过程、触发器或 UDF 来建模。 存储过程或触发器内的 JavaScript 代码可以插入、替换、删除、读取或查询集合中的文档。 但是，UDF 中的 JavaScript 却无法插入、替换或删除文档。 UDF 可以枚举查询的结果集的文档，并生成另一个结果集。 对于多租户，Azure Cosmos DB 将强制实施严格的基于保留项的资源调控。 每个存储过程、触发器或 UDF 都可以获取固定量的操作系统资源来完成其工作。 此外，存储过程、触发器或 UDF 不能针对外部 JavaScript 库进行链接，并且如果它们超出了分配给它们的资源预算，则被列入方块列表。 可以通过使用 REST API 为集合注册存储过程、触发器或 UDF，也可以取消注册。  注册时将预编译存储过程、触发器或 UDF，并将其存储为字节代码，以供以后执行。 下一节说明如何使用 Azure Cosmos DB JavaScript SDK 注册、执行和注销存储过程、触发器和 UDF。 JavaScript SDK 是一个比 [REST API](https://docs.microsoft.com/rest/api/cosmos-db/) 更简单的包装器。 
 
 ### <a name="registering-a-stored-procedure"></a>注册存储过程
 注册存储过程会通过 HTTP POST 在集合上创建新的存储过程资源。  
@@ -405,7 +404,7 @@ Azure Cosmos DB 查询模型尝试在功能、效率和简单性之间取得平�
             console.log("Error");
         });
 
-尽管上面的代码段演示了通过 [JavaScript SDK](https://github.com/Azure/azure-documentdb-js) 注册 (POST)、取消注册 (PUT)、读取/列出 (GET) 和执行 (POST)，但也可以使用 [REST API](https://docs.microsoft.com/rest/api/documentdb/) 或其他[客户端 SDK](sql-api-sdk-dotnet.md)。 
+尽管上面的代码段演示了通过 [JavaScript SDK](https://github.com/Azure/azure-documentdb-js) 注册 (POST)、取消注册 (PUT)、读取/列出 (GET) 和执行 (POST)，但也可以使用 [REST API](https://docs.microsoft.com/rest/api/cosmos-db/) 或其他[客户端 SDK](sql-api-sdk-dotnet.md)。 
 
 ## <a name="documents"></a>文档
 可以插入、替换、删除、读取、枚举和查询集合中的任意 JSON 文档。 Azure Cosmos DB 不强制要求任何架构，并且对集合中的文档进行查询也不需要辅助索引的支持。 文档的最大大小为 2 MB。   
@@ -461,4 +460,4 @@ Azure Cosmos DB 用户是指对权限进行分组的逻辑命名空间。 Azure 
 [1]: media/sql-api-resources/resources1.png
 [2]: media/sql-api-resources/resources2.png
 [3]: media/sql-api-resources/resources3.png
-<!-- Update_Description: new articles on SQL api resources -->
+<!-- Update_Description: update meta properties, update link  -->

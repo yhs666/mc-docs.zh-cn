@@ -12,37 +12,46 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/03/2018
-ms.date: 04/08/2018
+origin.date: 04/09/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8f96d56ac422ed12ea99b87f30bedc521a49f6af
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.reviewer: harik
+ms.openlocfilehash: 16dc27252e527562054fbef6ffcf02f5aceb35c6
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服务策略
 本文介绍 Azure Stack 集成系统的服务策略，以及必须如何做才能使系统保持在受支持的状态。 
 
 ## <a name="update-package-types"></a>更新包类型
 
-集成系统有两种类型的的更新包：Microsoft 软件更新，以及特定于原始设备制造商 (OEM) 硬件供应商的更新，例如驱动程序和固件。 这些更新是以单独的 Azure Stack 更新包提供，而且独立管理。
+集成系统有两种类型的更新包： 
 
 - **Microsoft 软件更新**。 Microsoft 会负责 Microsoft 软件更新包的端到端服务生命周期。 这些包可以包括最新的 Windows Server 安全更新、非安全更新和 Azure Stack 功能更新。 可以直接从 Microsoft 下载这些更新包。
+
 - **OEM 硬件供应商提供的更新**。 Azure Stack 硬件合作伙伴负责硬件相关固件和驱动程序更新包的端到端服务生命周期（包括指导）。 此外，对于硬件生命周期主机上的所有软件和硬件，Azure Stack 硬件合作伙伴拥有并维护指导。 OEM 硬件供应商在自己的下载站点上托管这些更新包。
 
+
 ## <a name="update-package-release-cadence"></a>更新包发布频率
+Microsoft 预期每月发布软件更新包。 但是，可能一个月内发布多个更新或没有任何更新。 OEM 硬件供应商会根据需要发布更新。 
 
-Microsoft 预期每月发布软件更新包。 但是，可能一个月内发布多个更新或没有任何更新。 OEM 硬件供应商会根据需要发布更新。
+在[管理更新概述](azure-stack-updates.md)文档中，可以了解如何规划和管理更新，以及如何确定当前版本。 有关特定更新（包括其下载方法）的信息，请参阅该更新的发行说明： 
+- [Azure Stack 1803 更新](azure-stack-update-1803.md)
+- [Azure Stack 1802 更新](azure-stack-update-1802.md)
+- [Azure Stack 1712 更新](azure-stack-update-1712.md)
 
-Microsoft 更新包具有以下命名约定，可帮助你轻松识别发布日期：
 
-*MajorProductVersion.MinorProductVersion.YYMMDD.BuildNumber*
 
-例如，2017 年 6 月 15 日发布的 Microsoft 软件更新是版本“1.0.170615.1”。
+## <a name="hotfixes"></a>修补程序
+Microsoft 偶尔会提供 Azure Stack 的修补程序（通常是预防性或时效性的程序）来解决具体的问题。  发布的每个修补程序都附带相应的 Microsoft 知识库文章，其中详细描述了问题、原因和解决方法。 
+
+可以像下载和安装普通的 Azure Stack 完整更新包一样下载和安装修补程序。 但是，与完整更新不同，修补程序在几分钟内即可完成安装。 我们建议 Azure Stack 操作员在安装修补程序时设置维护时段。 修补程序会更新 Azure Stack 云的版本，使你可以轻松确定是否已应用该修补程序。 对于仍在支持期内的每个 Azure Stack 版本，将单独提供修补程序。 特定迭代的每个修复程序是累积性的，包含同一版本的以往更新。 可以在相应的知识库文章中详细了解特定修补程序的适用性。  
+
 
 ## <a name="keep-your-system-under-support"></a>保持系统受支持
-必须不断更新 Azure Stack 部署才能持续获得支持。 针对延迟更新的策略是，若要确保 Azure Stack 始终获得支持，必须运行最近发布的更新版本，或者运行以前发布的两个主要更新版本之一。  修补程序不属于主要更新版本。  如果缺少至少两个更新，Azure Stack 云会被视为不合规，必须至少更新到最低的受支持版本才能获得支持。 
+必须不断更新 Azure Stack 部署才能持续获得支持。 更新的延期策略是：为了确保 Azure Stack 部署始终获得支持，必须运行最近发布的更新版本，或者运行以前发布的两个更新版本之一。 修补程序不属于主要更新版本。 如果缺少至少两个更新，Azure Stack 云会被视为不合规，必须至少更新到最低的受支持版本才能获得支持。 
 
 例如，如果最新发布的更新版本为 1805，在此之前的两个更新包为版本 1804 和 1803，则 1803 和 1804 仍受支持， 但 1802 不受支持。 即使最近一到两个月没有发布任何版本，此策略也有效。 例如，如果最新版本为 1805，但没有版本 1804，则此前的两个更新包（1803 和 1802）仍可获得支持。
 

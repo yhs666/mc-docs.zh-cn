@@ -5,23 +5,21 @@ services: cosmos-db
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-tags: ''
 ms.assetid: ''
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-origin.date: 03/16/2018
-ms.date: 03/26/2018
+origin.date: 03/29/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e9458fd61efaace99a41978ff7886777fc53dbba
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: a57ce95f36f62a0ea3c2ccc4686b2995fc837ac5
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>教程：使用 MongoDB API 查询 Azure Cosmos DB
 
@@ -31,6 +29,7 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
 
 > [!div class="checklist"]
 > * 使用 MongoDB 查询数据
+<!-- Not Avaiable on [!VIDEO https://www.youtube.com/tVk8S7lFWMA] -->
 
 ## <a name="sample-document"></a>示例文档
 
@@ -64,7 +63,8 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
   "isRegistered": false
 }
 ```
-## <a id="examplequery1"></a>示例查询 1 
+<a name="examplequery1"></a>
+##  <a name="example-query-1"></a>示例查询 1 
 
 在上述家庭示例文档中，以下查询返回其 ID 字段匹配 `WakefieldFamily` 的文档。
 
@@ -114,7 +114,8 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
     "isRegistered": false
     }
 
-## <a id="examplequery2"></a>示例查询 2 
+<a name="examplequery2"></a>
+## <a name="example-query-2"></a>示例查询 2 
 
 下一个查询返回该家庭中的所有子女。 
 
@@ -146,7 +147,8 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
     ]
     }
 
-## <a id="examplequery3"></a>示例查询 3 
+<a name="examplequery3"></a>
+## <a name="example-query-3"></a>示例查询 3 
 
 下一个查询返回所有已注册的家庭。 
 
@@ -155,7 +157,8 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
     db.families.find( { "isRegistered" : true })
 **结果**不返回任何文档。 
 
-## <a id="examplequery4"></a>示例查询 4
+<a name="examplequery4"></a>
+## <a name="example-query-4"></a>示例查询 4
 
 下一个查询返回所有未注册的家庭。 
 
@@ -199,7 +202,8 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
     "isRegistered": false
 }
 
-## <a id="examplequery5"></a>示例查询 5
+<a name="examplequery5"></a>
+## <a name="example-query-5"></a>示例查询 5
 
 下一个查询返回所有未注册且所在州为纽约 (NY) 的家庭。 
 
@@ -244,7 +248,8 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
     "isRegistered": false
 }
 
-## <a id="examplequery6"></a>示例查询 6
+<a name="examplequery6"></a>
+## <a name="example-query-6"></a>示例查询 6
 
 下一个查询返回子女读 8 年级的所有家庭。
 
@@ -289,7 +294,8 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
     "isRegistered": false
 }
 
-## <a id="examplequery7"></a>示例查询 7
+<a name="examplequery7"></a>
+## <a name="example-query-7"></a>示例查询 7
 
 下一个查询返回有 3 个子女的家庭。
 
@@ -299,7 +305,7 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
 
 **结果**
 
-不返回任何结果，因为子女数不超过 2。 仅当参数为 2 时此查询才能成功，并返回完整的文档。
+将不返回任何结果，因为没有任何家庭的子女数超过 2。 仅当参数为 2 时此查询才能成功，并返回完整的文档。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -313,4 +319,4 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
 > [!div class="nextstepaction"]
 > [全局分发数据](tutorial-global-distribution-sql-api.md)
 
-<!-- Update_Description: update link -->
+<!-- Update_Description: update link, wording update -->

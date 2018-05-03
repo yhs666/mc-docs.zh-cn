@@ -5,7 +5,6 @@ services: cosmos-db
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
 ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc, devcenter
@@ -13,26 +12,23 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-origin.date: 12/15/2017
-ms.date: 03/26/2018
+origin.date: 04/10/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9a918efe040f433aadaebe5460af2fda5865e4f9
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 1166d3f73e90f1a4e292e2867f0aa66db2272131
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>快速入门：使用 SQL API 和 Azure 门户生成包含 Azure Cosmos DB 的 .NET Web 应用
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
-
-Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档及键/值，所有这些都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
 <!-- NOTICE: globally TO multiple-region  -->
-<!-- Not Available on Graph databases -->
+<!-- Not Available on Key/Value and Graph databases -->
 
-
-本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB 帐户、文档数据库和集合。 然后，将构建并部署基于 [SQL .NET API](sql-api-sdk-dotnet.md) 构建的“待办事项列表”Web 应用，如以下屏幕截图中所示。 
+本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帐户、文档数据库和集合。 然后，将构建并部署基于 [SQL .NET API](sql-api-sdk-dotnet.md) 构建的“待办事项列表”Web 应用，如以下屏幕截图中所示。 
 
 ![包含示例数据的待办事项应用](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
 
@@ -43,64 +39,54 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
-<a id="create-account"></a>
+<a name="create-account"></a>
 ## <a name="create-a-database-account"></a>创建数据库帐户
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-<a id="create-collection"></a>
+<a name="create-collection"></a>
 ## <a name="add-a-collection"></a>添加集合
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-<a id="add-sample-data"></a>
+<a name="add-sample-data"></a>
 ## <a name="add-sample-data"></a>添加示例数据
 
-现在可以使用数据资源管理器将数据添加到新集合。
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
-1. 在数据资源管理器中，新数据库会显示在“集合”窗格中。 展开 **Tasks** 数据库，展开 **Items** 集合，单击“文档”，然后单击“新建文档”。 
+## <a name="query-your-data"></a>查询数据
 
-   ![在 Azure 门户的数据资源管理器中创建新文档](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-
-2. 现在，将文档添加到具有以下结构的集合。
-
-     ```json
-     {
-         "id": "1",
-         "category": "personal",
-         "name": "groceries",
-         "description": "Pick up apples and strawberries.",
-         "isComplete": false
-     }
-     ```
-
-3. 将 json 添加到“文档”选项卡以后，单击“保存”。
-
-    ![通过复制添加 json 数据，然后在 Azure 门户的数据资源管理器中单击“保存”](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-save-document.png)
-
-4.  再创建并保存一个文档，在其中插入 `id` 属性的唯一值，并将其他属性更改为适当值。 新文档可以具有所需的任何结构，因为 Azure Cosmos DB 不对数据施加任何架构。
-
-     现在可以在数据资源管理器中使用查询来检索数据。 默认情况下，数据资源管理器使用 `SELECT * FROM c` 来检索集合中的所有文档，但可以将其更改为其他 [SQL 查询](sql-api-sql-query.md)（例如 `SELECT * FROM c ORDER BY c._ts DESC`），根据时间戳按升序返回所有文档。
-
-     还可以使用数据资源管理器创建存储过程、UDF 和触发器以执行服务器端业务逻辑和缩放吞吐量。 数据资源管理器公开 API 中提供的所有内置编程数据访问，但你可以使用它轻松访问 Azure 门户中的数据。
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
 现在，让我们转到如何使用代码上来。 接下来，克隆 GitHub 中的一个 SQL API 应用，设置连接字符串，并运行该应用。 会看到以编程方式处理数据是多么容易。 
 
-1. 打开 git 终端窗口（例如 git bash）并使用 `CD` 切换到工作目录。  
+1. 打开命令提示符，新建一个名为“git-samples”的文件夹，然后关闭命令提示符。
 
-2. 运行下列命令，克隆示例存储库。 
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. 打开诸如 git bash 之类的 git 终端窗口，并使用 `cd` 命令更改为要安装示例应用的新文件夹。
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/Azure-Samples/documentdb-dotnet-todo-app.git
     ```
 
-3. 然后在 Visual Studio 中打开 todo 解决方案文件。 
+4. 然后在 Visual Studio 中打开 todo 解决方案文件。 
 
 ## <a name="review-the-code"></a>查看代码
 
-快速查看应用中发生的情况。 打开 DocumentDBRepository.cs 文件，会发现以下代码行创建 Azure Cosmos DB 资源。 
+此步骤是可选的。 如果有意了解如何使用代码创建数据库资源，可以查看下面的代码段。 否则，可以直接跳转到[更新连接字符串](#update-your-connection-string)。 
+
+以下代码片段全部摘自 DocumentDBRepository.cs 文件。
 
 * 在第 76 行对 DocumentClient 进行初始化。
 
@@ -166,10 +152,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不打算继续使用此应用，请删除本快速入门教程在 Azure 门户中创建的所有资源，步骤如下：
-
-1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。 
-2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，并单击“删除”。
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -179,3 +162,20 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 > [将数据导入 Azure Cosmos DB](import-data.md)
 
 <!-- Update_Description: wording update, update link-->
+<!--The parent file of includes file of cosmos-db-create-sql-api-query-data.md-->
+<!--ms.date:04/23/2018-->
+<!--The parent file of includes file of cosmos-db-create-dbaccount.md-->
+<!--ms.date:04/23/2018-->
+<!--The parent file of includes file of cosmos-db-create-sql-api-add-sample-data.md-->
+<!--ms.date:04/23/2018-->
+<!--The parent file of includes file of cosmos-db-emulator-docdb-api.md-->
+<!--ms.date:04/23/2018-->
+<!--The parent file of includes file of cosmos-db-create-sql-api-add-sample-data.md-->
+<!--ms.date:04/23/2018-->
+<!--The parent file of includes file of cosmos-db-create-sql-api-query-data.md-->
+<!--ms.date:04/23/2018-->
+
+<!--The parent file of includes file of cosmos-db-create-dbaccount.md-->
+<!--ms.date:04/23/2018-->
+<!--The parent file of includes file of cosmos-db-emulator-docdb-api.md-->
+<!--ms.date:04/23/2018-->

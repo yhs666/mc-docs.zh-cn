@@ -3,7 +3,7 @@ title: 为 Azure Stack 集成系统部署生成 Azure Stack 公钥基础结构�
 description: 介绍 Azure Stack 集成系统的 Azure Stack PKI 证书部署过程。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,69 +12,108 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2018
-ms.date: 03/02/2018
+origin.date: 04/11/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: ppacent
-ms.openlocfilehash: 6253d1d0d1c85bca4f8161e2d7ffb4baa59d4730
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 5e4903d5583d1edc081e455ab3b7bebfda06017e
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="generate-pki-certificates-for-azure-stack-deployment"></a>为 Azure Stack 部署生成 PKI 证书
-既然已了解 Azure Stack 部署的 [PKI 证书要求](azure-stack-pki-certs.md)，需要从所选证书颁发机构 (CA) 获取这些证书。 
+# <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 证书签名请求生成
 
-## <a name="request-certificates-using-an-inf-file"></a>使用 INF 文件请求证书
-从公共 CA 或内部 CA 请求证书的一种方法是使用 INF 文件。 Windows 内置 certreq.exe 实用程序可使用指定证书详细信息的 INF 文件生成请求文件，如本部分中所述。 
+可[从 PowerShell 库](https://aka.ms/AzsReadinessChecker)获取本文所述的 Azure Stack 就绪性检查器工具。 该工具可创建适用于 Azure Stack 部署的证书签名请求 (CSR)。 应该花费足够的时间来请求、生成并验证证书，以便在部署之前进行测试。 
 
-### <a name="sample-inf-file"></a>示例 INF 文件 
-示例证书请求 INF 文件可用于创建要提交到 CA（内部或公共）的脱机证书请求文件。 INF 在单个通配符证书中涵盖所有所需的终结点（包括可选的 PaaS 服务）。 
+Azure Stack 就绪性检查器工具 (AzsReadinessChecker) 执行以下证书请求：
 
-示例 INF 文件假定区域等于 **sea**，外部 FQDN 值为 **sea&#46;contoso&#46;com**。生成用于部署的 .INF 文件前，请更改这些值以符合你的环境。 
+ - **标准证书请求**  
+    根据[为 Azure Stack 部署生成 PKI 证书](azure-stack-get-pki-certs.md)执行请求。 
+ - **请求类型**  
+    请求多通配符 SAN 证书、多域证书和单通配符证书。
+ - **平台即服务**  
+    （可选）根据 [Azure Stack 公钥基础结构证书要求 - 可选的 PaaS 证书](azure-stack-pki-certs.md#optional-paas-certificates)中的规定，请求证书的平台即服务 (PaaS) 名称。
 
-    
-    [Version] 
-    Signature="$Windows NT$"
+## <a name="prerequisites"></a>先决条件
 
-    [NewRequest] 
-    Subject = "C=US, O=Microsoft, L=Redmond, ST=Washington, CN=portal.sea.contoso.com"
+在为 Azure Stack 部署生成 PKI 证书的 CSR 之前，系统应符合以下先决条件：
 
-    Exportable = TRUE                   ; Private key is not exportable 
-    KeyLength = 2048                    ; Common key sizes: 512, 1024, 2048, 4096, 8192, 16384 
-    KeySpec = 1                         ; AT_KEYEXCHANGE 
-    KeyUsage = 0xA0                     ; Digital Signature, Key Encipherment 
-    MachineKeySet = True                ; The key belongs to the local computer account 
-    ProviderName = "Microsoft RSA SChannel Cryptographic Provider" 
-    ProviderType = 12 
-    SMIME = FALSE 
-    RequestType = PKCS10
-    HashAlgorithm = SHA256
+ - Azure Stack 就绪性检查器
+ - 证书属性：
+    - 区域名称
+    - 外部完全限定的域名 (FQDN)
+    - 使用者
+ - Windows 10 或 Windows Server 2016
 
-    ; At least certreq.exe shipping with Windows Vista/Server 2008 is required to interpret the [Strings] and [Extensions] sections below
+## <a name="generate-certificate-signing-requests"></a>生成证书签名请求
 
-    [Strings] 
-    szOID_SUBJECT_ALT_NAME2 = "2.5.29.17" 
-    szOID_ENHANCED_KEY_USAGE = "2.5.29.37" 
-    szOID_PKIX_KP_SERVER_AUTH = "1.3.6.1.5.5.7.3.1" 
-    szOID_PKIX_KP_CLIENT_AUTH = "1.3.6.1.5.5.7.3.2"
+使用以下步骤来准备和验证 Azure Stack PKI 证书： 
 
-    [Extensions] 
-    %szOID_SUBJECT_ALT_NAME2% = "{text}dns=*.sea.contoso.com&dns=*.blob.sea.contoso.com&dns=*.queue.sea.contoso.com&dns=*.table.sea.contoso.com&dns=*.vault.sea.contoso.com&dns=*.adminvault.sea.contoso.com&dns=*.dbadapter.sea.contoso.com&dns=*.appservice.sea.contoso.com&dns=*.scm.appservice.sea.contoso.com&dns=api.appservice.sea.contoso.com&dns=ftp.appservice.sea.contoso.com&dns=sso.appservice.sea.contoso.com&dns=adminportal.sea.contoso.com&dns=management.sea.contoso.com&dns=adminmanagement.sea.contoso.com" 
-    %szOID_ENHANCED_KEY_USAGE% = "{text}%szOID_PKIX_KP_SERVER_AUTH%,%szOID_PKIX_KP_CLIENT_AUTH%"
+1.  在 PowerShell 提示符（5.1 或更高版本）下，运行以下 cmdlet 安装 AzsReadinessChecker：
 
-    [RequestAttributes]
-    
+    ````PowerShell  
+    Install-Module Microsoft.AzureStack.ReadinessChecker
+    ````
 
-## <a name="generate-and-submit-request-to-the-ca"></a>生成请求并将其提交到 CA
-以下工作流介绍如何自定义先前生成的示例 INF 文件并使用它从 CA 请求证书：
+2.  将**使用者**声明为有序字典。 例如： 
 
-1. **编辑并保存 INF 文件**。 复制所提供的示例，并将其保存到一个新文本文件中。 将使用者名称和外部 FQDN 替换为匹配你的部署的值，并将该文件另存为 .INF 文件。
-2. **使用 certreq 生成请求**。 使用 Windows 计算机，以管理员身份启动命令提示符并运行以下命令生成请求 (.req) 文件：`certreq -new <yourinffile>.inf <yourreqfilename>.req`。
-3. **提交到 CA**。 将生成的 .REQ 文件提交到 CA（可以是内部 CA 或公共 CA）。
-4. **导入 .CER**。 CA 将返回一个 .CER 文件。 使用从中生成请求文件的同一 Windows 计算机，将返回的 .CER 文件导入到计算机/个人存储。 
-5. **导出 .PFX 并将其复制到部署文件夹**。 将证书（包括私钥）导出为 .PFX 文件，并将该 .PFX 文件复制到 [Azure Stack 部署 PKI 要求](azure-stack-pki-certs.md)中所述的部署文件夹。
+    ````PowerShell  
+    $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
+    ````
+    > [!note]  
+    > 如果提供公用名 (CN)，此值将被证书请求的第一个 DNS 名称覆盖。
+
+3.  声明已存在的输出目录：
+
+    ````PowerShell  
+    $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
+    ````
+
+4. 声明用于 Azure Stack 部署的**区域名称**和**外部 FQDN**。
+
+    ```PowerShell  
+    $regionName = 'east'
+    $externalFQDN = 'azurestack.contoso.com'
+    ````
+
+    > [!note]  
+    > `<regionName>.<externalFQDN>` 构成了 Azure Stack 中所有外部 DNS 名称创建位置的基础，在此示例中，门户是 `portal.east.azurestack.contoso.com`。
+
+5. 若要使用多个使用者可选名称（包括 PaaS 服务所需的名称）生成单个证书请求：
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleSAN -OutputRequestPath $OutputDirectory -IncludePaaS
+    ````
+
+6. 若要为每个 DNS 名称生成单个证书签名请求且不使用 PaaS 服务：
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleSAN -OutputRequestPath $OutputDirectory
+    ````
+
+7. 查看输出：
+
+    ````PowerShell  
+    AzsReadinessChecker v1.1803.405.3 started
+    Starting Certificate Request Generation
+
+    CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
+    oso.com&dns=*.vault.east.azurestack.contoso.com&dns=*.adminvault.east.azurestack.contoso.com&dns=portal.east.azurestack.contoso.com&dns=adminportal.east.azurestack.contoso.com&dns=ma
+    nagement.east.azurestack.contoso.com&dns=adminmanagement.east.azurestack.contoso.com
+    Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\username\Documents\AzureStackCSR\wildcard_east_azurestack_contoso_com_CertRequest_20180405233530.req
+    Certreq.exe output: CertReq: Request Created
+
+    Finished Certificate Request Generation
+
+    AzsReadinessChecker Log location: C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\1.1803.405.3\AzsReadinessChecker.log
+    AzsReadinessChecker Completed
+    ````
+
+8.  将生成的 **.REQ** 文件提交到 CA（内部或公共 CA）。  **Start-AzsReadinessChecker** 的输出目录包含提交到证书颁发机构时所需的 CSR。  它还包含一个子目录，其中包含生成证书请求期间用作参考的 INF 文件。 请确保 CA 使用符合 [Azure Stack PKI 要求](azure-stack-pki-certs.md)的生成请求来生成证书。
 
 ## <a name="next-steps"></a>后续步骤
-[准备 Azure Stack PKI 证书](prepare-pki-certs.md)
+
+[准备 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md)
+
 

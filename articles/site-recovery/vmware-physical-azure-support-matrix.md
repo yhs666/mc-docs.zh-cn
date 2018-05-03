@@ -9,11 +9,11 @@ ms.topic: article
 origin.date: 03/15/2018
 ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: abcdb1ab2e815d8c81362d233714bf5daca887e2
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: b5ef984e0796320ac299e1a5d8f6904f8fbe50ca
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware 和物理服务器到 Azure 的复制支持矩阵
 
@@ -41,8 +41,8 @@ VMware | vCenter Server 6.5、6.0、5.5 或 vSphere 6.5、6.0、5.5 | 建议使�
 --- | ---
 计算机设置 | 复制到 Azure 的计算机必须满足 [Azure 要求](#azure-vm-requirements)。
 Windows 操作系统 | 64 位 Windows Server 2016（服务器核心，带桌面体验的服务器）、Windows Server 2012 R2、Windows Server 2012、带 SP1（或更高版本）的 Windows Server 2008 R2。 不支持 Windows 2016 Nano Server。
-Linux 操作系统 | CentOS：5.2 到 5.11、6.1 到 6.9、7.0 到 7.4 <br/><br/>Ubuntu 14.04 LTS 服务器[（支持的内核版本）](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Ubuntu 16.04 LTS 服务器[（支持的内核版本）](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7/Debian 8<br/><br/>SUSE Linux Enterprise Server 11 SP3、SUSE Linux Enterprise Server 11 SP4 <br/><br/>不支持将复制计算机从 SP3 升级到 SP4。 若要升级，请禁用复制并在升级后重新启用它。
-
+Linux 操作系统 | CentOS：5.2 到 5.11、6.1 到 6.9、7.0 到 7.4 <br/><br/>Ubuntu 14.04 LTS 服务器[（支持的内核版本）](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 服务器[（支持的内核版本）](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8<br/><br/>SUSE Linux Enterprise Server 11 SP3、SUSE Linux Enterprise Server 11 SP4 <br/><br/>不支持将复制计算机从 SP3 升级到 SP4。 若要升级，请禁用复制并在升级后重新启用它。
+<!-- Notice: Anchor should be #ubuntu-kernel-versions to replace #supported-ubuntu-kernel-versions-for-vmwarephysical-servers -->
 <!-- Not Available on Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/> -->
 <!-- Not Available on Oracle Enterprise Linux 6.4, 6.5 running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> -->
 >[!NOTE]
@@ -168,17 +168,11 @@ HUB | 是
 
 **组件** | **要求** | **详细信息**
 --- | --- | ---
-来宾操作系统 | 验证[支持的操作系统](#replicated machines)。 | 如果不支持，检查会失败。 
-来宾操作系统体系结构 | 64 位。 | 如果不支持，检查会失败。 
-操作系统磁盘大小 | 最大 2,048 GB。 | 如果不支持，检查会失败。 
-操作系统磁盘计数 | 1 | 如果不支持，检查会失败。  
+来宾操作系统 | 验证[支持的操作系统](#replicated-machines)。 | 如果不支持，检查会失败。 
+<!-- Notice: Anchor should be ##replicated-machines-->
+来宾操作系统体系结构 | 64 位。 | 如果不支持，检查会失败。 操作系统磁盘大小 | 最大 2,048 GB。 | 如果不支持，检查会失败。 操作系统磁盘计数 | 1 | 如果不支持，检查会失败。  
 数据磁盘计数 | 64 或更少。 | 如果不支持，检查会失败。  
-数据磁盘 VHD 大小 | 最大 4,095 GB | 如果不支持，检查会失败。 
-网络适配器 | 支持多个适配器。 | 
-共享 VHD | 不支持。 | 如果不支持，检查会失败。 
-FC 磁盘 | 不支持。 | 如果不支持，检查会失败。 
-BitLocker | 不支持。 | 为计算机启用复制之前，必须先禁用 BitLocker。 | 
-VM 名称 | 1 到 63 个字符。<br/><br/> 限制为字母、数字和连字符。<br/><br/> 计算机名称必须以字母或数字开头和结尾。 |  请在 Site Recovery 中的计算机属性中更新该值。
+数据磁盘 VHD 大小 | 最大 4,095 GB | 如果不支持，检查会失败。 网络适配器 | 支持多个适配器。 | 共享 VHD | 不支持。 | 如果不支持，检查会失败。 FC 磁盘 | 不支持。 | 如果不支持，检查会失败。 BitLocker | 不支持。 | 为计算机启用复制之前，必须先禁用 BitLocker。 | VM 名称 | 1 到 63 个字符。<br/><br/> 限制为字母、数字和连字符。<br/><br/> 计算机名称必须以字母或数字开头和结尾。 | 请在 Site Recovery 中的计算机属性中更新该值。
 
 ## <a name="vault-tasks"></a>保管库任务
 

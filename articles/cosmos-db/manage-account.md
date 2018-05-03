@@ -1,9 +1,9 @@
 ---
-title: "通过 Azure 门户管理 Azure Cosmos DB 帐户 | Azure"
-description: "了解如何通过 Azure 门户管理 Azure Cosmos DB 帐户。 查找有关使用 Azure 门户查看、复制、删除和访问帐户的指南。"
-keywords: "Azure 门户, azure, 21Vianet azure"
+title: 通过 Azure 门户管理 Azure Cosmos DB 帐户 | Azure
+description: 了解如何通过 Azure 门户管理 Azure Cosmos DB 帐户。 查找有关使用 Azure 门户查看、复制、删除和访问帐户的指南。
+keywords: Azure 门户, azure, Azure 世纪互联
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: cgronlun
@@ -14,18 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: c8f33fcb98d21f19f42528f81aa48e50cc6d7e2b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 193da196b4f11f3237fc5093ddb3a5d229257241
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>如何管理 Azure Cosmos DB 帐户
 了解如何在 Azure 门户中设置全局一致性、使用密钥，以及删除 Azure Cosmos DB 帐户。
 
-## <a id="consistency"></a>管理 Azure Cosmos DB 一致性设置
+<a name="consistency"></a>
+## <a name="manage-azure-cosmos-db-consistency-settings"></a>管理 Azure Cosmos DB 一致性设置
 根据应用程序的语义选择正确的一致性级别。 通过阅读[使用一致性级别最大限度地提高 Azure Cosmos DB 中的可用性和性能][consistency]，自行熟悉 Azure Cosmos DB 中提供的一致性级别。 Azure Cosmos DB 在适用于数据库帐户的每个一致性级别提供一致性、可用性和性能保证。 使用“强”一致性级别配置数据库帐户需要将数据局限在单个 Azure 区域，而不能使其全局可用。 另一方面，宽松的一致性级别 - 使用有限过期、会话或最终一致性可将任意数量的 Azure 区域与数据库帐户相关联。 以下简单步骤说明如何为数据库帐户选择默认的一致性级别。
 
 ### <a name="to-specify-the-default-consistency-for-an-azure-cosmos-db-account"></a>指定 Azure Cosmos DB 帐户的默认一致性
@@ -34,7 +35,8 @@ ms.lasthandoff: 02/13/2018
 3. 在“默认一致性”页中，选择新的一致性级别并单击“保存”。
     ![默认一致性会话][5]
 
-## <a id="keys"></a>查看、复制和重新生成访问密钥与密码
+<a name="keys"></a>
+## <a name="view-copy-and-regenerate-access-keys-and-passwords"></a>查看、复制和重新生成访问密钥与密码
 创建 Azure Cosmos DB 帐户时，服务生成两个主访问密钥（或 MongoDB API 帐户的两个密码），可用于访问 Azure Cosmos DB 帐户时的身份验证。 Azure Cosmos DB 提供两个访问密钥是为了让你在不中断 Azure Cosmos DB 帐户连接的情况下重新生成密钥。 
 
 在 [Azure 门户](https://portal.azure.cn/)中，从“Azure Cosmos DB 帐户”页上的资源菜单访问“密钥”页，查看、复制和再生成用于访问 Azure Cosmos DB 帐户的访问密钥。 对于 MongoDB API 帐户，请从资源菜单访问**连接字符串**页，以查看、复制和重新生成用于访问帐户的密码。
@@ -65,7 +67,7 @@ ms.lasthandoff: 02/13/2018
 
 1. 更新应用程序代码中的访问密钥以引用 Azure Cosmos DB 帐户的辅助访问密钥。
 2. 为 Azure Cosmos DB 帐户重新生成主访问密钥。 在 [Azure 门户](https://portal.azure.cn/)中访问 Azure Cosmos DB 帐户。
-3. 在“Azure Cosmos DB 帐户”页上，单击“密钥”（或 MongoDB 帐户的“连接字符串”**）。
+3. 在“Azure Cosmos DB 帐户”页上，单击“密钥”（或 MongoDB 帐户的“连接字符串”\**）。
 4. 在“密钥”/“连接字符串”页上，单击“重新生成”按钮，并单击“确定”确认要生成新密钥。
     ![重新生成访问密钥](./media/manage-account/regenerate-keys.png)
 5. 确认新的密钥可供使用后（大约在重新生成后的五分钟），请更新应用程序代码中的访问密钥以引用新的主访问密钥。
@@ -87,7 +89,8 @@ ms.lasthandoff: 02/13/2018
 
 如果在 [Azure Cosmos DB 数据库迁移工具](import-data.md)中使用连接字符串，将数据库名称追加到连接字符串的末尾。 `AccountEndpoint=< >;AccountKey=< >;Database=< >`。
 
-## <a id="delete"></a> 删除 Azure Cosmos DB 帐户
+<a name="delete"></a>
+##  <a name="delete-an-azure-cosmos-db-account"></a>删除 Azure Cosmos DB 帐户
 要从 Azure 门户中删除不再使用的 Azure Cosmos DB 帐户，请右键单击该帐户名称，并单击“删除帐户”。
 
 ![如何在 Azure 门户中删除 Azure Cosmos DB 帐户](./media/manage-account/deleteaccount.png)
@@ -99,7 +102,8 @@ ms.lasthandoff: 02/13/2018
 
 ![如何在 Azure 门户中删除 Azure Cosmos DB 帐户](./media/manage-account/delete-account-confirm.png)
 
-## <a id="next"></a>后续步骤
+<a name="next"></a>
+## <a name="next-steps"></a>后续步骤
 了解如何[开始使用 Azure Cosmos DB 帐户](http://go.microsoft.com/fwlink/p/?LinkId=402364)。
 
 <!--Image references-->

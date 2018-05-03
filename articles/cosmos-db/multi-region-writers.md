@@ -1,11 +1,10 @@
 ---
-title: "使用 Azure Cosmos DB 的多主数据库体系结构 | Azure"
-description: "了解如何使用 Azure Cosmos DB 来设计可实现跨多个地理区域进行本地读取和写入的应用程序结构。"
+title: 使用 Azure Cosmos DB 的多主数据库体系结构 | Azure
+description: 了解如何使用 Azure Cosmos DB 来设计可实现跨多个地理区域进行本地读取和写入的应用程序结构。
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
 ms.assetid: 706ced74-ea67-45dd-a7de-666c3c893687
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -13,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/23/2017
-ms.date: 12/25/2017
+ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e5b9ce36b8d71953e554fd2488650c324154f8a
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 66865746f9f98767d57ec6f534ed5cdeb45b5104
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 多主机全局复制数据库体系结构
 Azure Cosmos DB 支持统包的[全球复制](distribute-data-globally.md)，允许在工作负荷中的任意位置以低延迟的访问将数据分配到多个区域。 此模型常用于发布者/使用者工作负荷。在这些工作负荷中，单个地理区域包含一个作者，其他（读取）区域包含分布于多个区域的读者。 
@@ -29,10 +28,10 @@ Azure Cosmos DB 支持统包的[全球复制](distribute-data-globally.md)，允
 还可以使用 Azure Cosmos DB 的多区域复制支持来构建作者和读者分布于多个区域的应用程序。 本文档概述一种使用 Azure Cosmos DB 为全球分布的作者实现本地写入和本地读取访问的模式。
 <!-- Notice: 全球 to 多个区域 -->
 
-## <a id="ExampleScenario"></a>内容发布 - 示例方案
-让我们借助一个真实的方案，介绍如何在 Azure Cosmos DB 中使用全球分布式多区域/多主读写模式。 假设已在 Azure Cosmos DB 上构建一个内容发布平台。 为了向发布者和使用者提供良好的用户体验，此平台必须满足一些要求。
+<a name="ExampleScenario"></a>
+## 内容发布 - 示例场景：让我们借助一个真实的场景，介绍如何在 Azure Cosmos DB 中使用多区域分布式多区域/多主读写模式。 假设已在 Azure Cosmos DB 上构建一个内容发布平台。 为了向发布者和使用者提供良好的用户体验，此平台必须满足以下要求。
 
-* 作者和订户遍布多个区域 
+* 作者和订户遍布全球 
 * 作者必须将文章发布（写入）到本地（最近的）区域
 * 作者的文章拥有遍布多个区域的读者/订户。 
 * 新文章发布时，订户应会收到通知。
@@ -44,7 +43,8 @@ Azure Cosmos DB 支持统包的[全球复制](distribute-data-globally.md)，允
 
 若要了解有关分区和分区键的详细信息，请参阅 [Azure Cosmos DB 中的分区和缩放](partition-data.md)。
 
-## <a id="ModelingNotifications"></a>为通知建模
+<a name="ModelingNotifications"></a>
+## <a name="modeling-notifications"></a>为通知建模
 通知是特定于用户的数据馈送。 因此，通知文档的访问模式始终发生在单个用户的上下文中。 例如，可以“向某个用户发布通知”或“为某个给定用户获取所有通知”。 因此，对于此类型，分区键的最佳选择是 `UserId`。
 
     class Notification 
@@ -71,7 +71,8 @@ Azure Cosmos DB 支持统包的[全球复制](distribute-data-globally.md)，允
         public string ArticleId { get; set; } 
     }
 
-## <a id="ModelingSubscriptions"></a>为订阅建模
+<a name="ModelingSubscriptions"></a>
+## <a name="modeling-subscriptions"></a>为订阅建模
 订阅可以根据各种标准创建，如感兴趣的特定类别的文章或特定的发布者。 因此， `SubscriptionFilter` 是很好的分区键选择。
 
     class Subscriptions 
@@ -94,7 +95,8 @@ Azure Cosmos DB 支持统包的[全球复制](distribute-data-globally.md)，允
         } 
     }
 
-## <a id="ModelingArticles"></a>为文章建模
+<a name="ModelingArticles"></a>
+## <a name="modeling-articles"></a>为文章建模
 通过通知标识一篇文章后，后续查询通常基于 `Article.Id`。 选择 `Article.Id` 作为分区键可为在 Azure Cosmos DB 集合内存储文章提供最佳分布。 
 
     class Article 
@@ -125,7 +127,8 @@ Azure Cosmos DB 支持统包的[全球复制](distribute-data-globally.md)，允
         //... 
     }
 
-## <a id="ModelingReviews"></a>为评论建模
+<a name="ModelingReviews"></a>
+## <a name="modeling-reviews"></a>为评论建模
 和文章一样，评论通常在文章上下文中写入和读取。 选择 `ArticleId` 作为分区键可为与文章相关的评论提供最佳分布和高效访问。 
 
     class Review 
@@ -151,7 +154,8 @@ Azure Cosmos DB 支持统包的[全球复制](distribute-data-globally.md)，允
         public int Rating { get; set; } }
     }
 
-## <a id="DataAccessMethods"></a>数据访问层方法
+<a name="DataAccessMethods"></a>
+## <a name="data-access-layer-methods"></a>数据访问层方法
 现在让我们看看需要实现的主要数据访问方法。 以下是 `ContentPublishDatabase` 需要的方法列表：
 
     class ContentPublishDatabase 
@@ -167,13 +171,15 @@ Azure Cosmos DB 支持统包的[全球复制](distribute-data-globally.md)，允
         public async Task<IEnumerable<Review>> ReadReviewsAsync(string articleId); 
     }
 
-## <a id="Architecture"></a>Azure Cosmos DB 帐户配置
+<a name="Architecture"></a>
+## <a name="azure-cosmos-db-account-configuration"></a>Azure Cosmos DB 帐户配置
 若要保证本地读取和写入，数据分区不仅要基于分区键，还要基于不同区域的地理访问模式。 该模型依赖于每个区域具有异地复制的 Azure Cosmos DB 数据库帐户。 例如，对于两个区域，具有针对多区域写入的设置：
 
 | 帐户名 | 写入区域 | 读取区域 |
 | --- | --- | --- |
 | `contentpubdatabase-chinanorth.documents.azure.cn` | `China North` |`China East` |
 | `contentpubdatabase-chinaeast.documents.azure.cn` | `China East` |`China North` |
+<!-- Notice: Write and Read Region is CORRECT -->
 
 下图显示了如何在使用此设置的典型应用程序中执行读取和写入：
 
@@ -206,7 +212,8 @@ Azure Cosmos DB 支持统包的[全球复制](distribute-data-globally.md)，允
 | `contentpubdatabase-chinanorth.documents.azure.cn` | `China North` |`China East` |
 | `contentpubdatabase-chinaeast.documents.azure.cn` | `China East` |`China North` |
 
-## <a id="DataAccessImplementation"></a>数据访问层实现
+<a name="DataAccessImplementation"></a>
+## <a name="data-access-layer-implementation"></a>数据访问层实现
 现在让我们看一下如何实现具有两个可写区域的应用程序的数据访问层 (DAL)。 DAL 必须执行以下步骤：
 
 * 为每个帐户创建多个 `DocumentClient` 实例。 在两个区域的情况下，每个 DAL 实例具有 1 个 `writeClient` 和 1 个 `readClient`。 
@@ -315,13 +322,14 @@ Azure Cosmos DB 支持统包的[全球复制](distribute-data-globally.md)，允
 
 因此，通过选择合适的分区键和静态的基于帐户的分区，可以使用 Azure Cosmos DB 实现多区域本地写入和读取。
 
-## <a id="NextSteps"></a>后续步骤
-本文以内容发布作为示例方案，介绍如何通过 Azure Cosmos DB 使用全球分布式多区域读写模式。
+<a name="NextSteps"></a>
+## <a name="next-steps"></a>后续步骤
+本文以内容发布作为示例方案，介绍如何通过 Azure Cosmos DB 使用多区域分布式多区域读写模式。
 
-* 了解 Azure Cosmos DB 如何支持[全球分布](distribute-data-globally.md)
+* 了解 Azure Cosmos DB 如何支持[多区域分发](distribute-data-globally.md)
 * 了解 [Azure Cosmos DB 中的自动和手动故障转移](regional-failover.md)
 * 了解 [Azure Cosmos DB 的全局一致性](consistency-levels.md)
 * 使用 [Azure Cosmos DB - SQL API](tutorial-global-distribution-sql-api.md) 在使用多个区域的情况下进行开发
 * 使用 [Azure Cosmos DB - MongoDB API](tutorial-global-distribution-MongoDB.md) 通过多个区域进行开发
-* 使用 [Azure Cosmos DB - 表 API](tutorial-global-distribution-table.md) 通过多个区域进行开发
+<!-- Not Available on [Azure Cosmos DB - Table API](tutorial-global-distribution-table.md) -->
 <!-- Update_Description: update meta properties, wording update, update link -->

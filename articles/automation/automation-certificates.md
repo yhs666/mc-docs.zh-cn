@@ -10,11 +10,11 @@ ms.topic: article
 origin.date: 09/14/2017
 ms.date: 01/15/2018
 ms.author: v-nany
-ms.openlocfilehash: 1d7a29b2cebfa9b7e9c7930d3087b0d0bad3fabd
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: bf768ca39755a63d9ed2737145472158d0a0d574
+ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure 自动化中的证书资产
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 03/29/2018
 |Get-AutomationCertificate|在 Runbook 中获取要使用的证书。 返回一个 [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate2.aspx) 对象。|
 
 > [!NOTE] 
-> 应避免在 Runbook 或 DSC 配置中的 Get-AutomationCertificate 的 Name 参数中使用变量，因为这可能会使设计时发现 Runbook 或 DSC 配置与自动化变量之间的依赖关系变得复杂化。
+> 应避免在 Runbook 或 DSC 配置中的 **Get-AutomationCertificate** 的 - Name 参数中使用变量，因为这可能会使设计时发现 Runbook 或 DSC 配置与自动化变量之间的依赖关系变得复杂化。
 
 ## <a name="python2-functions"></a>Python2 函数
 
@@ -78,7 +78,7 @@ $certPath = '.\MyCert.pfx'
 $certPwd = ConvertTo-SecureString -String 'P@$$w0rd' -AsPlainText -Force
 $ResourceGroup = "ResourceGroup01"
 
-New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath �Password $certPwd -Exportable -ResourceGroupName $ResourceGroup
+New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath -Password $certPwd -Exportable -ResourceGroupName $ResourceGroup
 ```
 
 ## <a name="using-a-certificate"></a>使用证书
@@ -93,7 +93,7 @@ New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -N
 $serviceName = 'MyCloudService'
 $cert = Get-AutomationCertificate -Name 'MyCertificate'
 $certPwd = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" `
-�AutomationAccountName "MyAutomationAccount" �Name 'MyCertPassword'
+-AutomationAccountName "MyAutomationAccount" -Name 'MyCertPassword'
 Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 ```
 

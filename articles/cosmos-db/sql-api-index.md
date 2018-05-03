@@ -1,10 +1,10 @@
 ---
-title: "Azure Cosmos DB：SQL API 文章 | Azure"
-description: "关于如何在 Azure Cosmos DB 中使用 SQL API 创建文档数据库的所有文章的列表。"
+title: Azure Cosmos DB：SQL API 文章 | Azure
+description: 关于如何在 Azure Cosmos DB 中使用 SQL API 创建文档数据库的所有文章的列表。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 82bec99a-ac2b-474e-b41f-d2fb296c8feb
 ms.service: cosmos-db
 ms.workload: data-services
@@ -12,22 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/25/2017
-ms.date: 01/29/2018
+ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: d373ad178f0086d350c81d72a5f0dda8523c8284
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 2f69038cccb3fa8f9829f6e5ff274680e92386f5
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB：SQL API 文档
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
 本文提供了特定于 SQL API 的所有 Azure Cosmos DB 内容的链接。
 
-这些文章不适用于表 API 或 MongoDB API。 
+这些文章不适用于 MongoDB API。 
 <!--Not Available on Graph API -->
+<!--Not Available on Table API -->
 
 ## <a name="introduction-and-concepts"></a>简介和概念
 
@@ -36,7 +35,7 @@ ms.lasthandoff: 02/13/2018
 - [SQL API 简介](sql-api-introduction.md)
 - [数据库资源模型](sql-api-resources.md)
 - 网站：[查询板块](https://www.documentdb.com/sql/demo)
-- 备忘单：[SQL 语法](sql-api-sql-query-cheat-sheet.md)
+- 备忘单：[SQL 语法](query-cheat-sheet.md)
 
 ## <a name="quickstarts"></a>快速入门
 
@@ -104,8 +103,8 @@ Azure Cosmos DB 提供许多 SDK 来支持客户端应用程序开发。
 
 ## <a name="reference"></a>参考
 
-- [REST](https://docs.microsoft.com/rest/api/documentdb/)
-- [REST 资源提供程序](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+- [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+- [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 - [SQL 查询参考](sql-api-sql-query-reference.md)
 <!-- Not Availalbe on - [Azure Functions reference](../azure-functions/functions-bindings-cosmosdb.md) -->
 

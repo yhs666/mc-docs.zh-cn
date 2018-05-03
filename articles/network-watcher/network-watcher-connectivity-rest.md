@@ -1,26 +1,26 @@
 ---
-title: "使用 Azure 网络观察程序检查连接性 - Azure 门户 | Azure"
-description: "此页说明如何在 Azure 门户中使用网络观察程序检查连接性"
+title: 使用 Azure 网络观察程序排查连接问题 - Azure REST API | Azure
+description: 了解如何通过 Azure REST API 使用 Azure 网络观察程序的排查连接问题功能。
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/02/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: cda29976047e6e30a02f36803762083ea543aec6
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 0cef3a1c9f9844815c4bc99f5a0cde449fab3073
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>使用 Azure 门户通过 Azure 网络观察程序检查连接性
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>通过 Azure REST API 使用 Azure 网络观察程序排查连接问题
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -28,47 +28,17 @@ ms.lasthandoff: 02/13/2018
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-了解如何使用连接来验证是否可以建立从虚拟机到给定终结点的直接 TCP 连接。
+了解如何使用排查连接问题来验证是否可以建立从虚拟机到给定终结点的直接 TCP 连接。
 
 ## <a name="before-you-begin"></a>准备阶段
 
 本文假定你拥有以下资源：
 
-* 要检查连接性的区域中的网络观察程序实例。
-
-* 用于检查连接性的虚拟机。
-
-通过 PowerShell 调用 REST API 时，使用的是 ARMclient。 根据 [Chocolatey 上的 ARMClient](https://chocolatey.org/packages/ARMClient) 中所述在 chocolatey 上找到 ARMClient。
-
-此方案假定已按照[创建网络观察程序](network-watcher-create.md)中的步骤创建网络观察程序。
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+* 要排查连接问题的区域中的网络观察程序实例。
+* 用以排查连接问题的虚拟机。
 
 > [!IMPORTANT]
-> 连接监视需要虚拟机扩展 `AzureNetworkWatcherExtension`。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md)。
-
-## <a name="register-the-preview-capability"></a>注册预览版功能
-
-连接监视目前以公共预览版提供，使用此功能之前需要注册。 为此，请运行以下 PowerShell 示例：
-
-```powershell
-Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-若要验证注册是否成功，请运行以下 Powershell 示例：
-
-```powershell
-Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
-```
-
-如果该功能已正确注册，输出应匹配以下内容：
-
-```
-FeatureName                             ProviderName      RegistrationState
------------                             ------------      -----------------
-AllowNetworkWatcherConnectivityCheck    Microsoft.Network Registered
-```
+> 连接故障排除需要从中进行故障排除的 VM 安装了 `AzureNetworkWatcherExtension` VM 扩展。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md?toc=%2fnetwork-watcher%2ftoc.json)。 在目标终结点上不需要该扩展。
 
 ## <a name="log-in-with-armclient"></a>使用 ARMClient 登录
 
@@ -498,8 +468,6 @@ null
 ## <a name="next-steps"></a>后续步骤
 
 <!--Not Available [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
-访问[查看“IP 流验证”](network-watcher-check-ip-flow-verify-portal.md)，了解是否允许某些流量传入和传出 VM
+访问[查看“IP 流验证”](network-watcher-check-ip-flow-verify-portal.md)，了解是否允许某些流量传入和传出 VM。
 
-<!-- Image references -->
-
-<!--Update_Description: new articles on network watcher connectivity rest -->
+<!--Update_Description: update link, wording update -->

@@ -1,25 +1,25 @@
 ---
-title: "Azure Service Fabric 性能监视 | Azure"
-description: "了解用于监视和诊断 Azure Service Fabric 群集的性能计数器。"
+title: Azure Service Fabric 性能监视 | Azure
+description: 了解用于监视和诊断 Azure Service Fabric 群集的性能计数器。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/15/2017
-ms.date: 11/13/2017
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9f61b59c1cf449ad6272459b3eeb76c101e33da4
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 1205bdfbcee9aca25af87cf79dc306841e305999
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="performance-metrics"></a>性能指标
 
@@ -76,7 +76,7 @@ Service Fabric 生成大量自定义性能计数器。 如果已安装 SDK，可
 
 在要部署到群集的应用程序中，如果使用的是 Reliable Actors，请添加 `Service Fabric Actor` 和 `Service Fabric Actor Method` 类别的计数器（请参阅 [Service Fabric Reliable Actors 诊断](service-fabric-reliable-actors-diagnostics.md)）。
 
-如果使用 Reliable Services，同样可以添加 `Service Fabric Service` 和 `Service Fabric Service Method` 计数器类别来收集计数器。 
+如果使用服务远程处理，同样可以添加 `Service Fabric Service` 和 `Service Fabric Service Method` 计数器类别来收集计数器。 
 
 如果使用 Reliable Collections，建议通过 `Service Fabric Transactional Replicator` 添加 `Avg. Transaction ms/Commit`，以收集每个事务指标的平均提交延迟。
 
@@ -85,4 +85,4 @@ Service Fabric 生成大量自定义性能计数器。 如果已安装 SDK，可
 * 详细了解 Service Fabric 中的[平台级事件生成情况](service-fabric-diagnostics-event-generation-infra.md)
 * 通过 [Azure 诊断](service-fabric-diagnostics-event-aggregation-wad.md)收集性能指标
 
-<!--Update_Description: update meta properties, add Network Interface evelate factors -->
+<!--Update_Description: update meta properties  -->

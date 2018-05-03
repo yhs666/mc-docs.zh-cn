@@ -34,9 +34,10 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 下面是高级存储的一些功能：
 
 * **高级存储磁盘**
-
-    高级存储支持可附加到特定大小系列 VM 的 VM 磁盘。 高级存储支持 DS 系列、DSv2 系列和 Fs 系列 VM。 可以选择七个磁盘大小：P4 (32GB)、P6 (64GB)、P10 (128GB)、P20 (512GB)、P30 (1024GB)、P40 (2048GB)、P50 (4095GB)。 P4 和 P6 磁盘大小目前只能用于托管磁盘。 每种磁盘大小都有自身的性能规范。 根据应用程序的要求，可将一个或多个磁盘附加到 VM。 [高级存储的可伸缩性和性能目标](#scalability-and-performance-targets)中更详细介绍了规范。
-<!-- Not Available on GS Series LS Series-->
+    <!-- Pending the Ev3, Esv3 GA Anounce -->
+    高级存储支持可附加到特定大小系列 VM 的 VM 磁盘。 高级存储支持 DS 系列、DSv2 系列、Fs 系列和 Esv3 系列 VM。 可以选择七个磁盘大小：P4 (32GB)、P6 (64GB)、P10 (128GB)、P20 (512GB)、P30 (1024GB)、P40 (2048GB)、P50 (4095GB)。 P4 和 P6 磁盘大小目前只能用于托管磁盘。 每种磁盘大小都有自身的性能规范。 根据应用程序的要求，可将一个或多个磁盘附加到 VM。 [高级存储的可伸缩性和性能目标](#scalability-and-performance-targets)中更详细介绍了规范。
+    <!-- Pending the Ev3, Esv3 GA Anounce -->
+    <!-- Not Available on GS Series LS Series-->
 * **高级页 Blob**
 
     高级存储支持页 Blob。 使用页 Blob 可在高级存储中存储 VM 的持久性非托管磁盘。 与标准 Azure 存储不同，高级存储不支持块 Blob、追加 Blob、文件、表或队列。 高级页 Blob 支持从 P10 至 P50 和 P60 (8191GiB) 这六种大小。 不支持将 P60 高级页 Blob 作为 VM 磁盘进行连接。 
@@ -50,21 +51,21 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
     * [服务管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)（版本 2014-10-01 或更高；适用于 Azure 经典部署）
     * [Azure 存储资源提供程序 REST API](https://docs.microsoft.com/rest/api/storagerp)（适用于 Azure Resource Manager 部署）
     * [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)（版本 0.8.10 或更高）
-<!-- URL is not contains the .md postfix in https://docs.microsoft.com/powershell/azureps-cmdlets-docs-->
 
-    To learn about premium storage account limits, see [Premium Storage scalability and performance targets](#premium-storage-scalability-and-performance-targets).
+    若要了解高级存储帐户的限制，请参阅[高级存储的可伸缩性和性能目标](#premium-storage-scalability-and-performance-targets)。
 
 * **高级本地冗余存储**
 
     高级存储帐户仅支持使用本地冗余存储作为复制选项。 本地冗余存储在单个区域中保留三个数据副本。 对于区域性灾难恢复，必须使用 [Azure 备份](../articles/backup/backup-introduction-to-azure-backup.md)在不同区域中备份 VM 磁盘。 此外，必须使用异地冗余存储 (GRS) 帐户作为备份保管库。 
 
-    Azure 使用存储帐户作为非托管磁盘的容器。 如果使用非托管磁盘创建 Azure DS、DSv2 或 Fs 系列 VM 并选择高级存储帐户，操作系统和数据磁盘会存储在该存储帐户中。
-<!-- Not Available on GS Series -->
+    Azure 使用存储帐户作为非托管磁盘的容器。 如果使用非托管磁盘创建支持高级存储的 Azure VM 并选择高级存储帐户，则操作系统和数据磁盘会存储在该存储帐户中。
+
 <a name="premium-storage-supported-vms"></a>
-## 支持的 VM <!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-高级存储支持 DS 系列、DSv2 系列、Fs 系列和 B 系列 VM。 可将标准和高级存储磁盘用于这些 VM 类型。 不能在不兼容高级存储的 VM 系列中使用高级存储磁盘。
+## <a name="supported-vms"></a>支持的 VM
 <!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-<!-- Not Available on GS Series LS Series -->
+高级存储支持 B 系列、DS 系列、DSv2 系列、DSv3 系列和 Fs 系列 VM。 可将标准和高级存储磁盘用于这些 VM 类型。 不能在不兼容高级存储的 VM 系列中使用高级存储磁盘。
+<!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
+<!-- Not Available on GS Series LS Series M-series -->
 
 有关 Azure 中适用于 Windows 的 VM 类型和大小的信息，请参阅 [Windows VM 大小](../articles/virtual-machines/windows/sizes.md)。 有关 Azure 中适用于 Linux 的 VM 类型和大小的信息，请参阅 [Linux VM 大小](../articles/virtual-machines/linux/sizes.md)。
 
@@ -313,4 +314,3 @@ sudo yum install microsoft-hyper-v
 
 <!--Update_Description: wording update-->
 <!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-<!--ms.date: 03/19/2018-->

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure CLI 选择 Linux VM 映像 | Azure"
-description: "了解如何使用 Azure CLI 确定发布服务器、产品/服务、SKU 和 Marketplace VM 映像的版本。"
+title: 使用 Azure CLI 选择 Linux VM 映像 | Azure
+description: 了解如何使用 Azure CLI 确定发布服务器、产品/服务、SKU 和 Marketplace VM 映像的版本。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7a858e38-4f17-4e8e-a28a-c7f801101721
 ms.service: virtual-machines-linux
@@ -13,31 +13,22 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 08/24/2017
-ms.date: 03/19/2018
+origin.date: 02/28/2018
+ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2fb42fbb8c45a0df4a29d39381ed1c4b66f6f3d
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: f744b1775471ba3939504547391210b976e6f291
+ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Marketplace 中查找 Linux VM 映像
-本主题介绍如何使用 Azure CLI 2.0 在 Azure Marketplace 中查找 VM 映像。 创建 Linux VM 时使用此信息来指定 Marketplace 映像。
+本主题介绍如何使用 Azure CLI 2.0 在 Azure Marketplace 中查找 VM 映像。 使用 CLI、资源管理器模板或其他工具以编程方式创建 VM 时，使用此信息指定 Marketplace 映像。
 
 确保已安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已登录到 Azure 帐户 (`az login`)。
 
-## <a name="terminology"></a>术语
-
-CLI 和其他 Azure 工具中根据层次结构标识 Marketplace 映像：
-
-* 发布者 - 创建映像的组织。 示例：Canonical
-* 产品/服务 - 发布者创建的一组相关映像。 示例：Ubuntu 服务器
-* SKU - 产品/服务的实例，例如分发的主要版本。 示例：16.04-LTS
-* 版本 - 映像 SKU 的版本号。 指定映像时，可将版本号替换为“latest”，这会选择最新的分发版本。
-
-若要指定 Marketplace 映像，通常使用 URN 映像。 URN 将这些值合并，值之间用冒号 (:) 字符隔开：*发布者*:*产品/服务*:*Sku*:*版本*。 
+[!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -49,7 +40,7 @@ CLI 和其他 Azure 工具中根据层次结构标识 Marketplace 映像：
 az vm image list --output table
 ```
 
-输出包括用以指定映像的 URN（Urn 列中的值）。 使用其中一个常用 Marketplace 映像创建 VM 时，可选择指定 URN 别名，如 UbuntuLTS。
+输出包括映像 URN（Urn 列中的值）。 使用其中一个常用 Marketplace 映像创建 VM 时，可选择指定 *UrnAlias*（一种简短格式，如 *UbuntuLTS*）。
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -59,7 +50,7 @@ CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
 openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42.2:latest                                  openSUSE-Leap        latest
-RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest
+<!-- Not Available on RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest-->
 SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
 UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
 ...
@@ -73,6 +64,7 @@ UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServe
 
 ```azurecli
 az vm image list --offer Debian --all --output table 
+
 ```
 
 部分输出： 
@@ -105,9 +97,9 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201708040        
 
 通过 `--location`、`--publisher` 和 `--sku` 选项应用类似的筛选器。 甚至可以在筛选器上执行部分匹配，如搜索 `--offer Deb` 以查找所有 Debian 映像。
 
-如果没有使用 `--location` 选项指定一个特定位置，则会默认返回 `chinanorth` 的值。 （通过运行 `az configure --defaults location=<location>` 设置不同默认位置。）
+如果没有使用 `--location` 选项指定一个特定位置，则将返回默认位置的值。 （通过运行 `az configure --defaults location=<location>` 设置不同默认位置。）
 
-例如，以下命令列出了 `chinanorth` 中的所有 Debian 8 SKU：
+例如，以下命令列出了“中国北部”位置中的所有 Debian 8 SKU：
 
 ```azurecli
 az vm image list --location chinanorth --offer Deb --publisher credativ --sku 8 --all --output table
@@ -141,6 +133,8 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 2. 对于给定的发布者，列出其产品。
 3. 对于给定的产品，列出其 SKU。
 
+然后，对于所选 SKU，可以选择要部署的版本。
+
 例如，以下命令列出了中国北部位置的映像发布者：
 
 ```azurecli
@@ -166,7 +160,7 @@ chinanorth      activeeon
 chinanorth      adatao
 ...
 ```
-使用此信息可以从特定发布者找到产品/服务。 例如，如果 Canonical 是中国北部位置的映像发布者，可通过运行 `azure vm image list-offers` 查找其产品/服务。 传递位置和发布者，如以下示例中所示：
+使用此信息可以从特定发布者找到产品/服务。 例如，如果 *Canonical* 是中国北部位置的映像发布者，可通过运行 `azure vm image list-offers` 查找其产品/服务。 传递位置和发布者，如以下示例中所示：
 
 ```azurecli
 az vm image list-offers --location chinanorth --publisher Canonical --output table
@@ -185,7 +179,7 @@ chinanorth      Ubuntu_Core
 chinanorth      Ubuntu_Snappy_Core
 chinanorth      Ubuntu_Snappy_Core_Docker
 ```
-可以看到，在中国北部区域，Canonical 在 Azure 上发布了 **UbuntuServer** 产品。 但是，有哪些 SKU 呢？ 要获取这些值，请运行 `azure vm image list-skus`，并对找到的位置、发布者和产品/服务进行设置：
+可以看到，在中国北部区域，Canonical 在 Azure 上发布了 *UbuntuServer* 产品。 但是，有哪些 SKU 呢？ 要获取这些值，请运行 `azure vm image list-skus`，并对找到的位置、发布者和产品/服务进行设置：
 
 ```azurecli
 az vm image list-skus --location chinanorth --publisher Canonical --offer UbuntuServer --output table
@@ -256,7 +250,40 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708110  16.04.201708110
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
-## <a name="next-steps"></a>后续步骤
-现在，可通过记下 URN 值准确地选择想要使用的映像。 通过 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 命令创建 VM 时，可将此值与 `--image` 参数一起传递。 记住，可选择将 URN 中的版本号替换为“latest”。 此版本始终是分发的最新版本。 若要使用 URN 信息快速创建虚拟机，请参阅[使用 Azure CLI 创建和管理 Linux VM](tutorial-manage-vm.md)。
 
-<!--Update_Description: update meta properties, update link -->
+现在，可通过记下 URN 值准确地选择想要使用的映像。 通过 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 命令创建 VM 时，可将此值与 `--image` 参数一起传递。 记住，可选择将 URN 中的版本号替换为“latest”。 此版本始终是映像的最新版本。 
+
+如果使用资源管理器模板部署 VM，请在 `imageReference` 属性中单独设置映像参数。 请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)。
+
+[!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
+
+### <a name="view-plan-properties"></a>查看计划属性
+若要查看映像的购买计划信息，请运行 [az vm image show](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#az_image_show) 命令。 如果输出中的 `plan` 属性不是 `null`，则映像有条款，在以编程方式部署前需要接受该条款。
+
+例如，Canonical Ubuntu Server 16.04 LTS 映像没有附加条款，因为 `plan` 信息为 `null`：
+
+```azurecli
+az vm image show --location chinanorth --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --version 16.04.201801260
+```
+
+输出：
+
+```
+{
+  "dataDiskImages": [],
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/chinanorth/Publishers/Canonical/ArtifactTypes/VMImage/Offers/UbuntuServer/Skus/16.04-LTS/Versions/16.04.201801260",
+  "location": "chinanorth",
+  "name": "16.04.201801260",
+  "osDiskImage": {
+    "operatingSystem": "Linux"
+  },
+  "plan": null,
+  "tags": null
+}
+```
+<!-- Not Available on Bitnami image on Mooncake -->
+<!-- Not Available on Bitnami ### Accept the terms -->
+<!-- Not Available on Bitnami ### Deploy using purchase plan parameters -->
+## <a name="next-steps"></a>后续步骤
+若要使用映像信息快速创建虚拟机，请参阅[使用 Azure CLI 创建和管理 Linux VM](tutorial-manage-vm.md)。
+<!--Update_Description: update meta properties, update link, wording update -->

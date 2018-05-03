@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-origin.date: 03/20/2018
-ms.date: 03/26/2018
+origin.date: 04/06/2018
+ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: cffb971b5f9cc999fea730f9ad8b834901b709b8
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 7b9c9940a397c3c791ebbb54db9094b92fa5eed8
+ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 数据中心集成 - 标识
 可以使用 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 作为标识提供者来部署 Azure Stack。 必须在部署 Azure Stack 之前做出选择。 使用 AD FS 的部署也称为在断开连接模式下部署 Azure Stack。
@@ -263,6 +263,9 @@ Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的�
    > 使用 Windows Server 2012 或 2012 R2 AD FS 时，必须使用 AD FS MMC 管理单元来配置颁发授权规则。
 
 4. 使用 Internet Explorer 或 Edge 浏览器访问 Azure Stack 时，必须忽略令牌绑定。 否则登录尝试会失败。 在 AD FS 实例或场成员上运行以下命令：
+
+   > [!note]  
+   > 使用 Windows Server 2012 或 2012 R2 AD FS 时，此步骤不适用。 可以放心跳过此命令并继续集成。
 
    ```powershell
    Set-AdfsProperties -IgnoreTokenBinding $true

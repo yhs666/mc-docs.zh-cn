@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/06/2018
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: fc4fbabd5a317abd94ad4072734343581c248c44
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 04/30/2018
+ms.openlocfilehash: 801049fefd8a1dbc567763fd43f76f59b15c7cc2
+ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>通过事件中心连接器监视、接收和发送事件
 
@@ -77,11 +77,28 @@ ms.lasthandoff: 03/22/2018
 3. 选择要监视的事件中心，并针对何时检查事件中心设置时间间隔和频率。
 
     ![指定事件中心或使用者组](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
+    
+    > [!NOTE]
+    > 所有事件中心触发器都是长轮询触发器，这意味着当触发器触发时，触发器将处理所有事件，然后等待 30 秒，以等待更多事件出现在事件中心。
+    > 如果在 30 秒内未收到事件，则会跳过触发器运行。 否则，该触发器将继续读取事件，直到事件中心为空。
+    > 下一次触发器轮询将基于在触发器的属性中指定的重复周期间隔。
 
-    > [!TIP]
-    > （可选）若要选择一个用于读取事件的使用者组，请选择“显示高级选项”。
 
-4. 保存逻辑应用。 在设计器工具栏上，选择“保存”。
+4. （可选）若要选择部分高级的触发器选项，请选择“显示高级选项”。
+
+    ![触发高级选项](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-advanced.png)
+
+    | 属性 | 详细信息 |
+    | --- | --- |
+    | 内容类型  |从下拉列表中选择事件的内容类型。 默认已选择 application/octet-stream。 |
+    | 内容架构 |对于从事件中心读取的事件，请输入 JSON 格式的内容架构。 |
+    | 使用者组名称 |若要读取事件，请输入事件中心[使用者组名称](../event-hubs/event-hubs-features.md#consumer-groups)。 如果未指定使用者组名称，则会使用默认的使用者组。 |
+    | 最小分区键 |输入要读取的最小[分区](../event-hubs/event-hubs-features.md#partitions) ID。 默认读取所有分区。 |
+    | 最大分区键 |输入要读取的最大[分区](../event-hubs/event-hubs-features.md#partitions) ID。 默认读取所有分区。 |
+    | 最大事件计数 |输入一个表示最大事件数的值。 触发器返回的事件数至少为 1，至多为此属性指定的事件数。 |
+    |||
+
+5. 保存逻辑应用。 在设计器工具栏上，选择“保存”。
 
 现在，当逻辑应用检查所选事件中心并查找新事件时，触发器将针对找到的事件运行逻辑应用中的操作。
 
