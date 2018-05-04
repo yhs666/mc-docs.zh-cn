@@ -9247,6 +9247,16 @@
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-create-powershell.md",
       "redirect_url": "/virtual-machine-scale-sets/quick-create-powershell",
       "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization.md",
+      "redirect_url": "/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization.md",
+      "redirect_url": "/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization",
+      "redirect_document_id": false
   }
     
 
