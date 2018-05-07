@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 06/17/2017
 ms.date: 08/07/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 6f1940fa4a3b9b0647a08f3ca3a9183546668d7f
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: a6c72b255f6852f8a7c87c78a190e8f2084ff21a
+ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>使用 Azure AD 身份验证通过 .NET 访问 Azure 媒体服务 API
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/08/2018
 - **服务主体身份验证**：对服务进行身份验证。 通常使用此身份验证方法的应用程序是运行守护程序服务、中间层服务或计划作业的应用：如 Web 应用、函数应用、逻辑应用、 API 或微服务。
 
 >[!IMPORTANT]
->Azure 媒体服务目前支持 Azure 访问控制服务身份验证模型。 但是，访问控制授权将于 2018 年 6 月 1 日弃用。 建议尽快迁移到 Azure Active Directory 身份验证模型。
+>Azure 媒体服务目前支持 Azure 访问控制服务身份验证模型。 但是，访问控制授权将于 2018 年 6 月 22 日弃用。 建议尽快迁移到 Azure Active Directory 身份验证模型。
 
 ## <a name="get-an-azure-ad-access-token"></a>获取 Azure AD 访问令牌
 

@@ -6,7 +6,7 @@
 # 快速入门
 ## [在 Azure 门户中创建](quick-create-portal.md)
 ## [使用 Azure CLI 2.0 创建](quick-create-cli.md)
-## [使用 Azure PowerShell 创建](virtual-machine-scale-sets-create-powershell.md)
+## [使用 Azure PowerShell 创建](quick-create-powershell.md)
 ## 使用模板创建
 ### [Linux 规模集](quick-create-template-linux.md)
 ### [Windows 规模集](quick-create-template-windows.md)
@@ -14,19 +14,25 @@
 # 教程
 ## 1 - 创建/管理规模集
 ### [Azure CLI 2.0](tutorial-create-and-manage-cli.md)
+### [Azure PowerShell](tutorial-create-and-manage-powershell.md)
 ## 2 - 使用数据磁盘
 ### [Azure CLI 2.0](tutorial-use-disks-cli.md)
+### [Azure PowerShell](tutorial-use-disks-powershell.md)
 ## 3 - 使用自定义 VM 映像
 ### [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
+### [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 ## 4 - 将应用部署到规模集
 ### [Azure CLI 2.0](tutorial-install-apps-cli.md)
+### [Azure PowerShell](tutorial-install-apps-powershell.md)
 ### [模板](tutorial-install-apps-template.md)
 ## 5 - 自动缩放规模集
 ### [Azure CLI 2.0](tutorial-autoscale-cli.md)
+### [Azure PowerShell](tutorial-autoscale-powershell.md)
 ### [模板](tutorial-autoscale-template.md)
 
 # 示例
 ## [Azure CLI 2.0](cli-samples.md)
+## [PowerShell](powershell-samples.md)
 
 # 如何
 ## 规划和设计

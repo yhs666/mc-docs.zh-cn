@@ -1,13 +1,13 @@
 ---
-title: "使用 Azure PowerShell 创建虚拟机规模集 | Microsoft Docs"
-description: "了解如何使用 Azure PowerShell 快速创建虚拟机规模集"
+title: 使用 Azure PowerShell 创建虚拟机规模集 | Microsoft Docs
+description: 了解如何使用 Azure PowerShell 快速创建虚拟机规模集
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 origin.date: 12/19/2017
 ms.date: 01/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: d2b25873f0a77183bbe099644e48be8b9a63484c
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 71d79dc817a973fe6af5b9eaec72e17baf18eddd
+ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-azure-powershell"></a>使用 Azure PowerShell 创建虚拟机规模集
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则，以便根据资源使用情况（如 CPU 使用率、内存需求或网络流量）进行自动缩放。 在此入门文章中，可以使用 Azure PowerShell 创建虚拟机规模集。 也可使用 [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) 或 [Azure 门户](virtual-machine-scale-sets-create-portal.md)创建规模集。
@@ -220,4 +220,4 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 此快速入门文章介绍了如何创建基本的规模集，以及如何使用自定义脚本扩展在 VM 实例上安装基本的 IIS Web 服务器。 若要改进可伸缩性和自动化，请阅读以下操作指南文章，了解如何扩展规模集：
 
 - [在虚拟机规模集上部署应用程序](virtual-machine-scale-sets-deploy-app.md)
-- 通过 [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md) 或 [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md) 自动进行缩放
+- 通过 [Azure PowerShell](tutorial-autoscale-powershell.md) 或 [Azure CLI](virtual-machine-scale-sets-autoscale-cli.md) 自动进行缩放

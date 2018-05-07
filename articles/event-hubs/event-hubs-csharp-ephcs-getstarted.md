@@ -1,8 +1,8 @@
 ---
 redirect_url: /azure/event-hubs/event-hubs-dotnet-standard-getstarted-send
-ms.openlocfilehash: b3de2ec3f9eb2c19aac36a7b84378accbe9a3deb
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 8b89968a8e28b71474356d241a3554f800faa9e8
+ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 05/03/2018
 ---

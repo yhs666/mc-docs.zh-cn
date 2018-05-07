@@ -17,11 +17,11 @@ origin.date: 03/27/2018
 ms.date: 04/24/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 67fdef141a24922e856ec8f5d7db65e562f73ef0
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 8241f43db51235a116494d13a7adc410871a5cd3
+ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-cli-20-samples-for-virtual-machine-scale-sets"></a>用于虚拟机规模集的 Azure CLI 2.0 示例
 
@@ -37,7 +37,5 @@ ms.lasthandoff: 04/28/2018
 | [创建规模集并向其附加磁盘](scripts/cli-sample-attach-disks.md?toc=%2fcli%2fmodule%2ftoc.json) | 创建附加了数据磁盘的虚拟机规模集。 |
 |**管理缩放和冗余**||
 | [启用基于主机的自动缩放](scripts/cli-sample-enable-autoscale.md?toc=%2fcli%2fazure%2ftoc.json) | 创建配置为基于 CPU 使用情况自动缩放的虚拟机规模集。 |
-| [创建单区域规模集](scripts/cli-sample-single-availability-zone-scale-set.md?toc=%2fcli%2fazure%2ftoc.json) | 创建使用单个可用性区域的虚拟机规模集。 |
-| [创建区域冗余规模集](scripts/cli-sample-zone-redundant-scale-set.md?toc=%2fcli%2fazure%2ftoc.json) | 创建跨多个可用性区域的虚拟机规模集。 |
 | | |
 

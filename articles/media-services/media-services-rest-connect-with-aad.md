@@ -1,11 +1,11 @@
 ---
-title: "通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API | Microsoft Docs"
-description: "了解如何通过 Azure Active Directory 身份验证使用 REST 访问 Azure 媒体服务 API。"
+title: 通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API | Microsoft Docs
+description: 了解如何通过 Azure Active Directory 身份验证使用 REST 访问 Azure 媒体服务 API。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 12/26/2017
 ms.date: 01/18/2018
 ms.author: v-nany
-ms.openlocfilehash: ac87fb9ce16c4ae58e315ec91db562f33a58af60
-ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
+ms.openlocfilehash: 145497c6632c289226cb3408f7e752b454d09629
+ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API
 
@@ -47,8 +47,8 @@ ms.lasthandoff: 01/19/2018
 
 - 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - [使用 Azure 门户创建 Azure 媒体服务帐户](media-services-portal-create-account.md)。
-- 查看文章[通过 AAD 身份验证访问 Azure 媒体服务 API 概述](media-services-use-aad-auth-to-access-ams-api.md)。
-- 安装 [Postman](https://www.getpostman.com/) REST 客户端，以便执行本文介绍的 REST API。 
+- 查看[通过 ADD 身份验证访问 Azure 媒体服务 API 概述](media-services-use-aad-auth-to-access-ams-api.md)一文。
+- 安装 [Postman](https://www.getpostman.com/) REST 客户端以执行本文所示的 REST API。 
 
     在本教程中，我们使用的是 **Postman**，但任何 REST 工具都适用。 其他可使用的工具有：具有 REST 插件的 **Visual Studio Code** 或 **Telerik Fiddler**。 
 
@@ -60,10 +60,10 @@ ms.lasthandoff: 01/19/2018
 
 |设置|示例|说明|
 |---|-------|-----|
-|Azure Active Directory 租户域|microsoft.partner.onmschina.cn|充当安全令牌服务 (STS) 终结点的 Azure AD 使用以下格式创建：https://login.partner.microsoftonline.cn/{your-aad-tenant-name.partner.onmschina.cn}/oauth2/token。 Azure AD 颁发用于访问资源的 JWT（一种访问令牌）。|
-|REST API 终结点|https://amshelloworld.restv2.chinanorth.media.chinacloudapi.cn/api/|这是应用程序中发出的所有媒体服务 REST API 调用所针对的终结点。|
-|客户端 ID（应用程序 ID）|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 应用程序（客户端）ID。 需要提供客户端 ID 才能获取访问令牌。 |
-|客户端机密|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 应用程序密钥（客户端机密）。 需要提供客户端机密才能获取访问令牌。|
+|Azure Active Directory 租户域|testazure11.partner.onmschina.cn|作为安全令牌服务 (STS) 终结点的 Azure AD 是使用以下格式创建的：https://login.partner.microsoftonline.cn/{your-aad-tenant-name.partner.onmschina.cn}/oauth2/token。 Azure AD 颁发用于访问资源的 JWT（一种访问令牌）。|
+|REST API 终结点|https://jasonms.restv2.chinanorth.media.chinacloudapi.cn/api/|这是应用程序中发出的所有媒体服务 REST API 调用所针对的终结点。|
+|客户端 ID（应用程序 ID）|4c9b254b-43f9-41be-8504-0e35333dcbf2|Azure AD 应用程序（客户端）ID。 需要提供客户端 ID 才能获取访问令牌。 |
+|客户端机密|104XwlvmQLqEk9wcavmYGxrRwET3uGMxKvHyflN6BtM=|Azure AD 应用程序密钥（客户端机密）。 需要提供客户端机密才能获取访问令牌。|
 
 ### <a name="get-aad-auth-info-from-the-azure-portal"></a>从 Azure 门户获取 AAD 身份验证信息
 
@@ -101,11 +101,13 @@ ms.lasthandoff: 01/19/2018
 
 7.  获取应用程序的“密钥”（客户端机密）。 
 
-    1. 单击“管理应用程序”按钮（请注意，客户端 ID 信息位于“应用程序 ID”下）。 
-    2. 按“密钥”。
+    1. 单击“Azure Active Directory”按钮。 
+    2. 按“应用注册”。
+    3. 按“testapp”。
+    4. 按“密钥”（请注意，客户端 ID 信息位于“应用程序 ID”下）。
     
         ![API 访问](./media/connect-with-rest/manage-app.png)
-    3. 生成应用密钥（客户端机密），方法是：填充“说明”和“过期时间”，然后按“保存”。
+    5. 生成应用密钥（客户端机密），方法是：填充“说明”和“过期时间”，然后按“保存”。
     
         按下“保存”按钮后，密钥值就会显示。 在离开边栏选项卡之前复制密钥值。
 
@@ -160,7 +162,7 @@ ms.lasthandoff: 01/19/2018
 
 1. 打开 **Postman**。
 2. 选择“GET” 。
-3. 粘贴 REST API 终结点（例如 https://amshelloworld.restv2.chinanorth.media.chinacloudapi.cn/api/Assets）
+3. 粘贴 REST API 终结点（例如，https://amshelloworld.restv2.chinanorth.media.chinacloudapi.cn/api/Assets)
 4. 选择“授权”选项卡。 
 5. 选择“持有者令牌”。
 6. 粘贴在上一节创建的令牌。

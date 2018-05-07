@@ -16,11 +16,11 @@ ms.topic: get-started-article
 origin.date: 04/25/2017
 ms.date: 04/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: c01d80dd35b665429fdae6d69753af2640a02e6a
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: e4c29882d1c2399202e84e21e75f78b23b0f8dbb
+ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure 虚拟机规模集和附加数据磁盘
 为了扩展可用存储，Azure [虚拟机规模集](/virtual-machine-scale-sets/)支持包含附加数据磁盘的 VM 实例。 可以在创建规模集时附加数据磁盘，也可以将数据磁盘附加到现有规模集。
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/28/2018
 有关如何创建包含附加数据磁盘的规模集、准备和格式化或添加和删除数据磁盘的详细信息，请参阅以下教程之一：
 
 - [Azure CLI 2.0](tutorial-use-disks-cli.md)
-- [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+- [Azure PowerShell](quick-create-powershell.md)
 
 本文的余下内容概述具体的用例，例如，需要数据磁盘的 Service Fabric 群集，或者将包含内容的现有数据磁盘附加到规模集。
 

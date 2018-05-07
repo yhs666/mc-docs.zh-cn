@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 03/15/2018
 ms.date: 04/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 23406df4bc94d17e33255cb2eb2c190d4fef0f25
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 3d62afa4f5b83fdd40ae1c0099a22c55c3c512ae
+ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>规模集中的低优先级 VM（预览版）
 
@@ -65,7 +65,7 @@ az vmss create `
 
 ## <a name="use-azure-powershell"></a>使用 Azure PowerShell
 
-创建包含低优先级 VM 的规模集的过程与[入门文章](virtual-machine-scale-sets-create-powershell.md)中详述的过程相同。
+创建包含低优先级 VM 的规模集的过程与[入门文章](quick-create-powershell.md)中详述的过程相同。
 只需将“--Priority”参数添加到 [New-AzureRmVmssConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmssconfig) 并将其设置为 *Low*，如以下示例所示：
 
 ```powershell
