@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2a37fbf544dbbdab4526c960d41faf5ef1fa657e
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 86b1aee553ee6318c0a1357017eb18ba39bc1c2c
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>创建、更改或删除公共 IP 地址
 
@@ -35,8 +35,8 @@ ms.lasthandoff: 03/28/2018
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
-- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。 本教程需要 Azure PowerShell 模块 5.2.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
-- 如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.26 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
+- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.2.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.26 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 <!-- Not Available on Azure Cloud Shell -->
 
 公共 IP 地址会产生少许费用。 若要查看定价，请参阅 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。 
@@ -61,7 +61,7 @@ ms.lasthandoff: 03/28/2018
 <!-- Not Available on two version for IPv4 and IPv6 -->
 |工具|命令|
 |---|---|
-|CLI|[az network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_public_ip_create)|
+|CLI|[az network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az-network-public-ip-create)|
 |PowerShell|[New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 <a name="change"></a>
@@ -82,10 +82,9 @@ ms.lasthandoff: 03/28/2018
 
 |工具|命令|
 |---|---|
-|CLI|[az network public-ip-list](https://docs.azure.cn/zh-cn/cli/network/public-ip?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_public_ip_list) 用于列出公共 IP 地址；[az network public-ip-show](https://docs.azure.cn/zh-cn/cli/network/public-ip?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_public_ip_show) 用于显示设置；[az network public-ip update](https://docs.azure.cn/zh-cn/cli/network/public-ip?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_public_ip_update) 用于更新；[az network public-ip delete](https://docs.azure.cn/zh-cn/cli/network/public-ip?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_network_public_ip_delete) 用于删除|
+|CLI|[az network public-ip-list](https://docs.azure.cn/zh-cn/cli/network/public-ip?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az-network-public-ip-list) 用于列出公共 IP 地址；[az network public-ip-show](https://docs.azure.cn/zh-cn/cli/network/public-ip?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az-network-public-ip-show) 用于显示设置；[az network public-ip update](https://docs.azure.cn/zh-cn/cli/network/public-ip?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az-network-public-ip-update) 用于更新；[az network public-ip delete](https://docs.azure.cn/zh-cn/cli/network/public-ip?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az-network-public-ip-delete) 用于删除|
 |PowerShell|[Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?toc=%2fvirtual-network%2ftoc.json) 用于检索公共 IP 地址对象并查看其设置；[Set-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress?toc=%2fvirtual-network%2ftoc.json) 用于更新设置；[Remove-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermpublicipaddress) 用于删除|
 
-<!-- Not Available on 20171206 ## Register for the standard SKU preview -->
 ## <a name="next-steps"></a>后续步骤
 创建以下 Azure 资源时，将分配公共 IP 地址：
 

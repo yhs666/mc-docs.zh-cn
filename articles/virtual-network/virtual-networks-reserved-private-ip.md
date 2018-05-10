@@ -1,10 +1,10 @@
 ---
-title: "静态内部专用 IP - Azure VM - 经典"
-description: "了解静态内部 IP (DIP) 以及如何对其进行管理"
+title: 静态内部专用 IP - Azure VM - 经典
+description: 了解静态内部 IP (DIP) 以及如何对其进行管理
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
 ms.service: virtual-network
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/22/2016
-ms.date: 12/12/2016
-ms.author: v-dazen
-ms.openlocfilehash: 4f0074d2360848a98eab63603f649fac1e2de24a
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 05/07/2018
+ms.author: v-yeche
+ms.openlocfilehash: 271b58103b79844c38aaa76f42923c0804dd5e99
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>如何使用 PowerShell（经典）设置静态内部专用 IP 地址
-大多数情况下，不需要指定虚拟机的静态内部 IP 地址。 虚拟网络中的 VM 将自动从指定的范围接收内部 IP 地址。 但在某些情况下，需要为特定 VM 指定静态 IP 地址。 例如，在 VM 需要运行 DNS 或将要成为域控制器的情况下。 静态内部 IP 地址会始终与 VM 关联在一起，即使经历“停止/取消预配”状态变化。 
+大多数情况下，不需要指定虚拟机的静态内部 IP 地址。 虚拟网络中的 VM 自动从指定的范围接收内部 IP 地址。 但在某些情况下，需要为特定 VM 指定静态 IP 地址。 例如，在你的 VM 需要运行 DNS 或将要成为域控制器的情况下。 静态内部 IP 地址会始终与 VM 关联在一起，即使经历“停止/取消预配”状态变化。 
 
 > [!IMPORTANT]
 > Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 [Resource Manager 部署模型](virtual-networks-static-private-ip-arm-ps.md)。
@@ -108,3 +108,4 @@ ms.lasthandoff: 07/28/2017
 [实例层级公共 IP (ILPIP)](virtual-networks-instance-level-public-ip.md)
 
 [保留 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+<!-- Update_Description: update meta properties -->

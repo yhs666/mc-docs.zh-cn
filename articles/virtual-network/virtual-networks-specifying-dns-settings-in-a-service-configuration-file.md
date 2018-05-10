@@ -1,10 +1,10 @@
 ---
-title: "在服务配置文件中指定 DNS 设置 | Azure"
-description: "使用虚拟网络的服务配置文件指定自定义 DNS 设置"
+title: 在服务配置文件中指定 DNS 设置 | Azure
+description: 使用虚拟网络的服务配置文件指定自定义 DNS 设置
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 467a4b99-8691-40b3-b640-e25e49675c71
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/24/2016
-ms.date: 04/26/2016
-ms.author: v-dazen
-ms.openlocfilehash: 5bb97419ec104867ebc2351c5d9c4595133e83e9
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 05/07/2018
+ms.author: v-yeche
+ms.openlocfilehash: 6a6e289505d208c4b4c4bc96fd39d81c5812c956
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>在服务配置文件中指定 DNS 设置
 ## <a name="dns-elements"></a>DNS 元素
@@ -44,3 +44,5 @@ ms.lasthandoff: 07/14/2017
 [Azure 虚拟网络配置架构](http://go.microsoft.com/fwlink/?LinkId=248093)
 
 [使用网络配置文件配置虚拟网络](/virtual-network/virtual-networks-create-vnet-classic-portal)
+<!-- Not Available on [About Virtual Network settings in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=248092) -->
+<!-- Update_Description: update meta properties -->

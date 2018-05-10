@@ -1,12 +1,13 @@
 ---
 title: 路由网络流量 - Azure CLI | Azure
-description: 了解如何使用 Azure CLI 通过路由表路由网络流量。
+description: 本文介绍如何使用 Azure CLI 通过路由表路由网络流量。
 services: virtual-network
 documentationcenter: virtual-network
 author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -14,38 +15,36 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/13/2018
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 71086977fd5aa93b2e409bb2b1e43090238c8e9a
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 4565b2465ccc1323512e653743e07bbd291d7e4a
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>使用 Azure CLI 通过路由表路由网络流量
 
-默认情况下，Azure 自动在虚拟网络中的所有子网之间路由流量。 可以创建自己的路由来覆盖 Azure 的默认路由。 创建自定义路由的功能非常有用，例如，可以通过网络虚拟设备 (NVA) 在子网之间路由流量。 本文介绍如何执行以下操作：
+默认情况下，Azure 自动在虚拟网络中的所有子网之间路由流量。 可以创建自己的路由来覆盖 Azure 的默认路由。 创建自定义路由的功能非常有用，例如，可以通过网络虚拟设备 (NVA) 在子网之间路由流量。 在本文中，学习如何：
 
-> [!div class="checklist"]
-> * 创建路由表
-> * 创建路由
-> * 创建包含多个子网的虚拟网络
-> * 将路由表关联到子网
-> * 创建用于流量路由的 NVA
-> * 将虚拟机 (VM) 部署到不同子网
-> * 通过 NVA 将从一个子网的流量路由到另一个子网
+* 创建路由表
+* 创建路由
+* 创建包含多个子网的虚拟网络
+* 将路由表关联到子网
+* 创建用于流量路由的 NVA
+* 将虚拟机 (VM) 部署到不同子网
+* 通过 NVA 将从一个子网的流量路由到另一个子网
 
-如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter]($2includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.28 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
-
 ## <a name="create-a-route-table"></a>创建路由表
 
-在创建路由表之前，请使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 针对本文中创建的所有资源创建一个资源组。 
+在创建路由表之前，请使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 针对本文中创建的所有资源创建一个资源组。 
 
 ```azurecli
 # Create a resource group.
@@ -54,7 +53,7 @@ az group create \
   --location chinaeast
 ``` 
 
-使用 [az network route-table create](https://docs.azure.cn/zh-cn/cli/network/route?view=azure-cli-latest#az_network_route_table_create) 创建路由表。 以下示例创建名为 *myRouteTablePublic* 的路由表。 
+使用 [az network route-table create](https://docs.azure.cn/zh-cn/cli/network/route?view=azure-cli-latest#az-network-route-table-create) 创建路由表。 以下示例创建名为 *myRouteTablePublic* 的路由表。 
 
 ```azurecli 
 # Create a route table
@@ -65,7 +64,7 @@ az network route-table create \
 
 ## <a name="create-a-route"></a>创建路由
 
-使用 [az network route-table route create](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create) 在路由表中创建路由。 
+使用 [az network route-table route create](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-create) 在路由表中创建路由。 
 
 ```azurecli
 az network route-table route create \
@@ -79,7 +78,7 @@ az network route-table route create \
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>将路由表关联到子网
 
-将路由表关联到子网之前，必须先创建虚拟网络和子网。 使用 [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az_network_vnet_create) 创建包含一个子网的虚拟网络。
+将路由表关联到子网之前，必须先创建虚拟网络和子网。 使用 [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create) 创建包含一个子网的虚拟网络。
 
 ```azurecli
 az network vnet create \
@@ -90,7 +89,7 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-使用 [az network vnet subnet create](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_create) 创建两个附加的子网。
+使用 [az network vnet subnet create](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create) 创建两个附加的子网。
 
 ```azurecli
 # Create a private subnet.
@@ -108,7 +107,7 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 ```
 
-使用 [az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update) 将 *myRouteTablePublic* 路由表关联到公共子网。
+使用 [az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) 将 *myRouteTablePublic* 路由表关联到公共子网。
 
 ```azurecli
 az network vnet subnet update \
@@ -122,7 +121,7 @@ az network vnet subnet update \
 
 NVA 是执行网络功能（如路由、防火墙或 WAN 优化）的 VM。
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 在 *DMZ* 子网中创建 NVA。 创建 VM 时，Azure 默认会创建一个公共 IP 地址并将其分配到该 VM。 `--public-ip-address ""` 参数指示 Azure 不要创建公共 IP 地址并将其分配到该 VM，因为不需要从 Internet 连接到该 VM。 如果默认密钥位置中尚不存在 SSH 密钥，该命令会创建它们。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。
+使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 在 *DMZ* 子网中创建 NVA。 创建 VM 时，Azure 默认会创建一个公共 IP 地址并将其分配到该 VM。 `--public-ip-address ""` 参数指示 Azure 不要创建公共 IP 地址并将其分配到该 VM，因为不需要从 Internet 连接到该 VM。 如果默认密钥位置中尚不存在 SSH 密钥，该命令会创建它们。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。
 
 ```azure-cli-interactive
 az vm create \
@@ -137,7 +136,7 @@ az vm create \
 
 创建 VM 需要几分钟时间。 在 Azure 完成创建 VM 并返回有关 VM 的输出之前，请不要继续下一步。 
 
-要使网络接口能够转发发送给它的、而不是发往其自身 IP 地址的网络流量，必须为该网络接口启用 IP 转发。 使用 [az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az_network_nic_update) 为网络接口启用 IP 转发。
+要使网络接口能够转发发送给它的、而不是发往其自身 IP 地址的网络流量，必须为该网络接口启用 IP 转发。 使用 [az network nic update](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-update) 为网络接口启用 IP 转发。
 
 ```azurecli
 az network nic update \
@@ -146,7 +145,7 @@ az network nic update \
   --ip-forwarding true
 ```
 
-在 VM 中，VM 中运行的操作系统或应用程序也必须能够转发网络流量。 使用 [az vm extension set](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az_vm_extension_set) 在 VM 的操作系统中启用 IP 转发：
+在 VM 中，VM 中运行的操作系统或应用程序也必须能够转发网络流量。 使用 [az vm extension set](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az-vm-extension-set) 在 VM 的操作系统中启用 IP 转发：
 
 ```azurecli
 az vm extension set \
@@ -162,7 +161,7 @@ az vm extension set \
 
 在虚拟网络中创建两个 VM，以便可以在后续步骤中验证来自公共子网的流量是否通过 NVA 路由到专用子网。 
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 在公共子网中创建一个 VM。 `--no-wait` 参数支持 Azure 在后台中执行命令，因此可以继续执行下一个命令。 为了简化本文的内容，此处使用了密码。 在生产部署中通常使用密钥。 如果使用密钥，还必须配置 SSH 代理转发。 有关详细信息，请参阅 SSH 客户端的文档。 将以下命令中的 `<replace-with-your-password>` 替换为所选的密码。
+使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 在公共子网中创建一个 VM。 `--no-wait` 参数支持 Azure 在后台中执行命令，因此可以继续执行下一个命令。 为了简化本文的内容，此处使用了密码。 在生产部署中通常使用密钥。 如果使用密钥，还必须配置 SSH 代理转发。 有关详细信息，请参阅 SSH 客户端的文档。 将以下命令中的 `<replace-with-your-password>` 替换为所选的密码。
 
 ```azurecli
 adminPassword="<replace-with-your-password>"
@@ -205,7 +204,7 @@ az vm create \
   "resourceGroup": "myResourceGroup"
 }
 ```
-记下 publicIpAddress。 在稍后的步骤中会使用此地址通过 Internet 访问 VM。
+记下 publicIpAddress。 在后面的步骤中会使用此地址通过 Internet 访问 VM。
 
 ## <a name="route-traffic-through-an-nva"></a>通过 NVA 路由流量
 
@@ -217,7 +216,7 @@ ssh azureuser@<publicIpAddress>
 
 当系统提示输入密码时，请输入在[创建虚拟机](#create-virtual-machines)中选择的密码。
 
-使用以下命令在 *myVmPrivate* VM 上安装 traceroute：
+使用以下命令在 *myVmPrivate* VM 上安装跟踪路由：
 
 ```bash 
 sudo apt-get install traceroute
@@ -244,7 +243,7 @@ traceroute to myVmPublic (10.0.0.4), 30 hops max, 60 byte packets
 ssh azureuser@myVmPublic
 ```
 
-使用以下命令在 *myVmPublic* VM 上安装 traceroute：
+使用以下命令在 *myVmPublic* VM 上安装跟踪路由：
 
 ```bash 
 sudo apt-get install traceroute
@@ -269,7 +268,7 @@ traceroute to myVmPrivate (10.0.1.4), 30 hops max, 60 byte packets
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要资源组及其包含的所有资源，可以使用 [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_delete) 将其删除。
+如果不再需要资源组及其包含的所有资源，可以使用 [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) 将其删除。
 
 ```azurecli 
 az group delete --name myResourceGroup --yes
@@ -277,12 +276,8 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>后续步骤
 
-在本文中，我们创建了一个路由表并将其关联到了某个子网。 还创建了一个简单 NVA，用于将流量从公共子网路由到专用子网。 从 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking) 部署各种执行网络功能（例如防火墙和 WAN 优化）的预配置 NVA。 在部署用于生产的路由表之前，建议全面了解 [Azure 中的路由](virtual-networks-udr-overview.md)、[管理路由表](manage-route-table.md)和 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
+在本文中，我们创建了一个路由表并将其关联到了某个子网。 还创建了一个简单 NVA，用于将流量从公共子网路由到专用子网。 从 [Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/apps/category/networking) 部署各种执行网络功能（例如防火墙和 WAN 优化）的预配置 NVA。 若要了解有关路由的详细信息，请参阅[路由概述](virtual-networks-udr-overview.md)和[管理路由表](manage-route-table.md)。
 
-尽管可以在一个虚拟网络中部署多个 Azure 资源，但无法将某些 Azure PaaS 服务的资源部署到虚拟网络。 不过，仍可以限制为只允许来自某个虚拟网络子网的流量访问某些 Azure PaaS 服务的资源。 请继续学习下一篇教程，了解如何限制 Azure PaaS 资源的网络访问。
+尽管可以在一个虚拟网络中部署多个 Azure 资源，但无法将某些 Azure PaaS 服务的资源部署到虚拟网络。 不过，仍可以限制为只允许来自某个虚拟网络子网的流量访问某些 Azure PaaS 服务的资源。 若要了解如何操作，请参阅[限制对 PaaS 资源的网络访问](tutorial-restrict-network-access-to-resources-cli.md)。
 
-> [!div class="nextstepaction"]
-> [限制 PaaS 资源的网络访问](virtual-network-service-endpoints-configure.md#azure-cli)
-
-<!-- Update_Description: new articles on tutorial create route table cli  -->
-<!--ms.date: 04/02/2018-->
+<!-- Update_Description: wording update, update link  -->

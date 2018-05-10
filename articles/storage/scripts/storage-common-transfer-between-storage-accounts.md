@@ -1,24 +1,24 @@
 ---
-title: "Azure PowerShell 脚本示例 - 使用 Windows 版 AzCopy 跨存储帐户迁移 blob | Microsoft Docs"
-description: "使用 AzCopy，将一个 Azure 存储帐户的 blob 内容复制到另一个。"
+title: Azure PowerShell 脚本示例 - 使用 Windows 版 AzCopy 跨存储帐户迁移 blob | Microsoft Docs
+description: 使用 AzCopy，将一个 Azure 存储帐户的 blob 内容复制到另一个。
 services: storage
 documentationcenter: na
-author: yunan2016
-manager: digimobile
+author: forester123
+manager: josefree
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
-origin.date: 01/03/2018
-ms.date: 01/22/2018
-ms.author: v-nany
-ms.openlocfilehash: fa7df9831f1a30b90db80918f971719449ea5003
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+origin.date: 02/01/2018
+ms.date: 05/07/2018
+ms.author: v-johch
+ms.openlocfilehash: 0e08e1114c965e16b3ed75ed948ab9663f1ffb93
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>使用 Windows 版 AzCopy 跨存储帐户迁移 blob
 
@@ -60,13 +60,13 @@ AzCopyPath: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe
 
 ## <a name="sample-script"></a>示例脚本
 
-```Powershell
+```powershell
 # Run the script in a new open Powershell window, which has not run other cmdlets, or AzCopy performance could suffer .
-# Install Azure PowerShell before runing the script: https://github.com/Azure/azure-powershell/releases
-# Install AzCopy before runing the script: https://docs.microsoft.com/azure/storage/common/storage-use-azcopy
-# Do not modify the Source or Destination accounts while the script is running
+# Need install Azure PowerShell before runing the script: https://github.com/Azure/azure-powershell/releases
+# Need install AzCopy before runing the script: https://docs.azure.cn/storage/common/storage-use-azcopy
+# Do not modify the Source or Destination accounts while the copy is running
 
- param (
+param (
     [Parameter(Mandatory = $true, 
     HelpMessage= "Source Storage account name.")]
     [ValidatePattern("^[a-z0-9`]{3,24}$")]
@@ -221,7 +221,7 @@ do{
 
         # Get AzCopy command for transfer one container
         $destContainer = $destCtx.StorageAccount.CreateCloudBlobClient().GetContainerReference($container.Name)
-        $azCopyCmd = [string]::Format("""{0}"" /source:{1} /dest:{2} /sourcekey:""{3}"" /destkey:""{4}"" /snapshot /y /s",$AzCopyPath, $container.CloudBlobContainer.Uri.AbsoluteUri, $destContainer.Uri.AbsoluteUri, $srcStorageAccountKey, $DestStorageAccountKey)
+        $azCopyCmd = [string]::Format("""{0}"" /source:{1} /dest:{2} /sourcekey:""{3}"" /destkey:""{4}"" /snapshot /y /s /synccopy",$AzCopyPath, $container.CloudBlobContainer.Uri.AbsoluteUri, $destContainer.Uri.AbsoluteUri, $srcStorageAccountKey, $DestStorageAccountKey)
     
         # Execute the AzCopy command first time
         Write-Host "$azCopyCmd"

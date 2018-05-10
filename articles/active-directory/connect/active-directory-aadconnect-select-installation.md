@@ -1,25 +1,25 @@
 ---
-title: "Azure AD Connect：选择安装类型 | Microsoft 文档"
-description: "本主题逐步讲解如何选择 Azure AD Connect 使用的安装类型"
+title: Azure AD Connect：选择安装类型 | Microsoft 文档
+description: 本主题逐步讲解如何选择 Azure AD Connect 使用的安装类型
 services: active-directory
-documentationcenter: 
-author: alexchen2016
-manager: digimobile
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: billmath
+manager: mtillman
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 05/02/2018
 ms.author: v-junlch
-ms.openlocfilehash: b35642845b87de3f0aa41dfca32ab53d30929e71
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 956cc3c6951ee42816baedaffb8cb83dc17ed36f
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>选择用于 Azure AD Connect 的安装类型
 进行全新安装时，AD Connect 有两种安装类型：快速安装和自定义安装。 本主题有助于用户确定安装过程中使用的具体选项。
@@ -35,20 +35,20 @@ ms.lasthandoff: 08/04/2017
 
 用户可以获得：
 
-- 建立从本地到 Azure AD 的[密码同步](active-directory-aadconnectsync-implement-password-synchronization.md)，实现单一登录。
+- 建立从本地到 Azure AD 的[密码哈希同步](active-directory-aadconnectsync-implement-password-hash-synchronization.md)，实现单一登录。
 - 可同步[用户、组、联系人和 Windows 10 计算机](active-directory-aadconnectsync-understanding-default-configuration.md)的配置。
 - 同步所有域和所有 OU 中所有符合条件的对象。
 - 启用[自动升级](active-directory-aadconnect-feature-automatic-upgrade.md)，确保始终使用最新的可用版本。
 
 仍可使用“快速”选项的场合：
 
-- 如果不想要同步所有 OU，仍可使用“快速”选项。请在最后一页上取消选择“启动同步过程...”*。 然后再次运行安装向导，更改[配置选项](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options)中的 OU 并启用计划同步。
+- 如果不想要同步所有 OU，仍可使用“快速”选项。请在最后一页上取消选择“启动同步过程...”。 然后再次运行安装向导，更改[配置选项](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options)中的 OU 并启用计划同步。
 - 想要启用 Azure AD Premium 中的某个功能，例如密码写回。 首先请通过“快速”安装完成初始安装。 然后再次运行安装向导并更改[配置选项](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options)。
 
 ## <a name="custom"></a>“自定义”
 与“快速”安装相比，自定义的路径允许更多选项。 此安装适用于上述针对“快速”安装的配置对组织来说不具代表性的所有情况。
 
-使用条件如下：
+使用时机：
 
 - 无法访问 Active Directory 中的企业管理员帐户。
 - 有多个林，或者计划在将来同步多个林。
@@ -75,4 +75,4 @@ ms.lasthandoff: 08/04/2017
 ## <a name="next-steps"></a>后续步骤
 根据已选定使用的选项，使用左侧的目录查找包含详细步骤的文章。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: wording update -->

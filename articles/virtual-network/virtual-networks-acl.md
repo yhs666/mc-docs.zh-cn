@@ -1,11 +1,11 @@
 ---
-title: "什么是 Azure 网络访问控制列表？"
-description: "了解 Azure 中的访问控制列表"
+title: 什么是 Azure 网络访问控制列表？
+description: 了解 Azure 中的访问控制列表
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-service-management
 ms.assetid: 83d66c84-8f6b-4388-8767-cd2de3e72d76
 ms.service: virtual-network
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: b9258c33002b1eb79f60a580cf4544d4baae2f61
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.date: 05/07/2018
+ms.author: v-yeche
+ms.openlocfilehash: 55ac29b536ccf063a10bb4c85291368554863102
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>什么是终结点访问控制列表？
 
@@ -39,10 +39,12 @@ ms.lasthandoff: 11/28/2017
 * 使用规则排序可确保将一组正确的规则应用于给定的虚拟机终结点（最低到最高）
 * 为特定远程子网 IPv4 地址指定 ACL。
 
+有关 ACL 限制的信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#networking-limits)一文。
+
 ## <a name="how-acls-work"></a>ACL 的工作原理
 ACL 是包含规则列表的对象。 创建 ACL 并将其应用于虚拟机终结点时，数据包筛选会在 VM 的主机节点上发生。 这意味着，来自远程 IP 地址的流量将通过主机节点筛选以匹配 ACL 规则，而不是在 VM 上进行筛选。 这可以防止 VM 将宝贵的 CPU 周期耗费在数据包筛选上。
 
-创建虚拟机时，会设置一个默认 ACL 来阻止所有传入流量。 但是，如果创建了一个终结点（针对端口 3389），则会修改默认 ACL 以允许该终结点的所有入站流量。 随后，将允许来自任何远程子网的传入流量流向该终结点，而且不需要配置防火墙。 除非为这些端口创建了终结点，否则将阻止所有其他端口的传入流量。 默认情况下允许出站流量。
+创建虚拟机时，会设置一个默认 ACL 来阻止所有传入流量。 但是，如果创建了一个终结点（针对端口 3389），则会修改默认 ACL 以允许该终结点的所有入站流量。 随后，将允许来自任何远程子网的传入流量流向该终结点，而且不需要配置防火墙。 除非为这些端口创建了终结点，否则阻止所有其他端口的传入流量。 默认情况下允许出站流量。
 
 **默认 ACL 表示例**
 
@@ -63,10 +65,10 @@ ACL 是包含规则列表的对象。 创建 ACL 并将其应用于虚拟机终�
 4. **允许和拒绝的组合** - 要指定允许或拒绝的特定 IP 范围时，可结合使用“允许”和“拒绝”。
 
 ## <a name="rules-and-rule-precedence"></a>规则和规则优先顺序
-可对特定虚拟机终结点设置网络 ACL。 例如，可为在虚拟机上创建的 RDP 终结点指定一个网络 ACL，它将锁定对某些 IP 地址的访问。 下表显示了如何为某个范围的公共虚拟 IP (VIP) 授予访问权限以允许访问 RDP。 会拒绝所有其他远程 IP。 我们采用*越小越优先*的规则顺序。
+可对特定虚拟机终结点设置网络 ACL。 例如，可为在虚拟机上创建的 RDP 终结点指定一个网络 ACL，它将锁定对某些 IP 地址的访问。 下表显示了如何为某个范围的公共虚拟 IP (VIP) 授予访问权限以允许访问 RDP。 将拒绝所有其他远程 IP。 我们采用*越小越优先*的规则顺序。
 
 ### <a name="multiple-rules"></a>多个规则
-在以下示例中，如果你希望仅允许两个公共 IPv4 地址范围（65.0.0.0/8 和 159.0.0.0/8）内的 IP 访问 RDP 终结点，则可以通过指定两个“*允许*”规则来实现。 在这种情况下，由于系统会默认为虚拟机创建 RDP，你可能希望基于远程子网锁定对 RDP 端口的访问。 下述示例显示了如何为某个范围的公共虚拟 IP (VIP) 授予访问权限以允许访问 RDP。 将拒绝所有其他远程 IP。 由于可为特定虚拟机终结点设置网络 ACL 访问且在默认情况下访问会被拒绝，因此这种方法很有用。
+在以下示例中，如果你希望仅允许两个公共 IPv4 地址范围（65.0.0.0/8 和 159.0.0.0/8）内的 IP 访问 RDP 终结点，则可以通过指定两个“*允许*”规则来实现。 在这种情况下，由于系统会默认为虚拟机创建 RDP，你可能希望基于远程子网锁定对 RDP 端口的访问。 下述示例显示了如何为某个范围的公共虚拟 IP (VIP) 授予访问权限以允许访问 RDP。 会拒绝所有其他远程 IP。 由于可为特定虚拟机终结点设置网络 ACL 访问且在默认情况下访问会被拒绝，因此这种方法很有用。
 
 **示例 - 多个规则**
 
@@ -93,4 +95,4 @@ ACL 是包含规则列表的对象。 创建 ACL 并将其应用于虚拟机终�
 ## <a name="next-steps"></a>后续步骤
 [使用 PowerShell 管理终结点的访问控制列表](virtual-networks-acl-powershell.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

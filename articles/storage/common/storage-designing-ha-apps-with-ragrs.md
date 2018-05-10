@@ -1,10 +1,10 @@
 ---
-title: "使用 Azure 读取访问异地冗余存储 (RA-GRS) 设计高度可用的应用程序 | Microsoft Docs"
-description: "如何使用 Azure RA-GRS 存储构建足以灵活处理中断的高度可用的应用程序。"
+title: 使用 Azure 读取访问异地冗余存储 (RA-GRS) 设计高度可用的应用程序 | Microsoft Docs
+description: 如何使用 Azure RA-GRS 存储构建足以灵活处理中断的高度可用的应用程序。
 services: storage
 documentationcenter: .net
-author: yunan2016
-manager: digimobile
+author: forester123
+manager: josefree
 editor: tysonn
 ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
 ms.service: storage
@@ -12,25 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 1/22/2018
-ms.date: 01/01/2018
+origin.date: 03/21/2018
+ms.date: 05/07/2018
 ms.author: v-johch
-ms.openlocfilehash: 786521108ad05b1578968e05b5cd47eb28865885
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: d373e282ff7a51a0cd9683a4d9bdc3673cc4af7c
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 设计高度可用的应用程序
 
 基于云的基础结构（如 Azure 存储）的一个常见功能是提供用于托管应用程序的高度可用平台。 基于云的应用程序开发人员必须仔细考虑如何利用此平台为其用户提供高度可用的应用程序。 本文重点介绍开发人员如何使用读取访问异地冗余存储 (RA-GRS) 确保其 Azure 存储应用程序高度可用。
 
-Azure 存储为存储帐户中的数据冗余提供四个选项：
-
-- LRS（本地冗余存储）
-- ZRS（区域冗余存储空间） 
-- GRS（异地冗余存储）
-- RA-GRS（读取访问异地冗余存储）。 
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 本文重点介绍 GRS 和 RA-GRS。 使用 GRS 选项，设置存储帐户时，数据的三个副本将保留在所选的主要区域。 其他三个副本会异步保留在 Azure 指定的次要区域中。 RA-GRS 与 GRS 相同，但前者具有对次要副本的读取权限。 有关不同 Azure 存储冗余选项的详细信息，请参阅 [Azure 存储复制](storage-redundancy.md)。 有关复制的文章中还介绍了配对的主要和次要区域。
 
@@ -244,4 +239,4 @@ static function OnBeforeResponse(oSession: Session) {
 * 有关读取访问异地冗余的详细信息及如何设置 LastSyncTime 的另一示例，请参阅 [Windows Azure Storage Redundancy Options and Read Access Geo-Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)（Windows Azure 存储冗余选项和读取访问异地冗余存储）。
 
 * 有关如何在主终结点和辅助终结点之间来回切换的完整示例，请参阅 [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs)（Azure 示例 - 将断路器模式与 RA-GRS 存储配合使用）。
-<!--Update_Description:wording udpate-->
+<!--Update_Description:update storage redundancy options-->

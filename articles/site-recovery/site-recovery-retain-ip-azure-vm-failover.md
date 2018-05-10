@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/27/2018
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: dda6e9bca492cd71644575423388cbb20fe8bf2b
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 94b56a9dd72dbc2ec8a1875c8d4a74f738895d13
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>为 Azure 虚拟机故障转移保留 IP 地址
 
@@ -85,11 +85,7 @@ Azure Site Recovery 支持对 Azure VM 进行灾难恢复。 在从一个 Azure 
 
 ### <a name="further-considerations"></a>其他注意事项
 
-VPN 网关利用公共 IP 地址和网关跃点建立连接。 如果不想要使用公共 IP 和/或想要避免额外的跃点，可以使用全局 VNet 对等互连在 Azure 区域之间建立虚拟网络对等互连。
-
-此功能目前以公共预览版提供，正在扩展到更多支持区域 - 它可以实现直接的 VM 到 VM 连接，且无需任何公共 Internet 或额外的跃点。
-
-有关详细信息，请参阅[对等互连文档](../virtual-network/tutorial-connect-virtual-networks-portal.md#register)和[定价](https://www.azure.cn/pricing/details/networking/)。
+VPN 网关利用公共 IP 地址和网关跃点建立连接。 如果不想使用公用 IP 并/或希望避免额外的跃点，可以使用 Azure [虚拟网络对等互连](../virtual-network/virtual-network-peering-overview.md)在[受支持的 Azure 区域](../virtual-network/virtual-network-manage-peering.md#cross-region)之间将虚拟网络对等互连。
 
 ## <a name="on-premises-to-azure-connectivity"></a>本地到 Azure 的连接
 

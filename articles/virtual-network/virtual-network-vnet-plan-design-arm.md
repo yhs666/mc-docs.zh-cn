@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/08/2016
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 947750792e8978c51b9539ae7b56d0cac3d50a38
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 3528a97522f2c6497e3b1c270118e9b2452da9a5
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>规划和设计 Azure 虚拟网络
 创建要用于试验的 VNet 非常简单，但却可能是，你将在一段时间内部署多个 VNet 以支持组织的生产需要。 通过进行一些规划和设计，你将能够更有效地部署 VNet 和连接所需的资源。 如果你不熟悉 VNet，我们建议你先[了解 VNet](virtual-networks-overview.md) 以及[如何部署](quick-create-portal.md) VNet，然后再继续阅读本文。
@@ -90,12 +90,12 @@ VNet 包含以下属性。
 请查看 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文中的网络限制，确保你的设计不会与任何限制相互冲突。 可以通过开具支持票证增加某些限制。
 
 ### <a name="role-based-access-control-rbac"></a>基于角色的访问控制 (RBAC)
-可以使用 [Azure RBAC](../active-directory/role-based-access-built-in-roles.md) 来控制不同用户可能对 Azure 中的不同资源拥有的访问权限级别。 这样就可以根据团队的需要分隔团队完成的工作。
+可以使用 [Azure RBAC](../role-based-access-control/built-in-roles.md) 来控制不同用户可能对 Azure 中的不同资源拥有的访问权限级别。 这样就可以根据团队的需要分隔团队完成的工作。
 
 就虚拟网络而言，拥有**网络参与者**角色的用户可以完全控制 Azure Resource Manager 虚拟网络资源。 同样，拥有**经典网络参与者**角色的用户可以完全控制经典虚拟网络资源。
 
 > [!NOTE]
-> 还可以[创建你自己的角色](../active-directory/role-based-access-control-configure.md)来区分管理需求。
+> 还可以[创建你自己的角色](../role-based-access-control/role-assignments-portal.md)来区分管理需求。
 >
 >
 

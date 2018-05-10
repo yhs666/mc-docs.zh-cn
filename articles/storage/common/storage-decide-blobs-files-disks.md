@@ -1,25 +1,19 @@
 ---
-title: "确定何时使用 Azure Blob、Azure 文件或 Azure 数据磁盘"
-description: "了解在 Azure 中存储和访问数据的不同方式有助于决定要使用的技术。"
+title: 确定何时使用 Azure Blob、Azure 文件或 Azure 磁盘
+description: 了解在 Azure 中存储和访问数据的不同方式有助于决定要使用的技术。
 services: storage
-documentationcenter: 
-author: yunan2016
-manager: digimobile
-editor: tysonn
-ms.assetid: 
+author: forester123
+manager: josefree
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 06/13/2017
-ms.date: 3/5/2018
-ms.author: v-nany
-ms.openlocfilehash: c10ec18de5eee4438d5a2e898db2bc5921b66394
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+origin.date: 03/28/2018
+ms.date: 05/07/2018
+ms.author: v-johch
+ms.openlocfilehash: b4dd92d6ad513706a0c48b0856a2693f8bbb11fb
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>确定何时使用 Azure Blob、Azure 文件或 Azure 磁盘
 
@@ -48,9 +42,9 @@ Azure 在 Azure 存储中提供多种功能，用于在云中存储和访问数�
 |终结点|`http://myaccount.blob.core.chinacloudapi.cn/mycontainer/myblob`|`\\myaccount.file.core.chinacloudapi.cn\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.chinacloudapi.cn/myshare/myfile.txt`|  
 |目录|平面命名空间|真正的目录对象|  
 |名称区分大小写|区分大小写|不区分大小写，但保留大小写|  
-|容量|最多 500 TB 容器|5 TB 文件共享|  
-|吞吐量|每个块 blob 最高 60 MB/秒|每个共享最高 60 MB/秒|  
-|对象大小|最多 200 GB/块 blob|最多 1 TB/文件|  
+|容量|最多 500 TiB 容器|5 TiB 文件共享|  
+|吞吐量|每个块 Blob 高达 60 MiB/秒|每个共享高达 60 MiB/秒|  
+|对象大小|每个块 blob 最多大约 4.75 TiB|每个文件最多为 1 TiB|  
 |计费容量|基于写入的字节数|基于文件大小|  
 |客户端库|多种语言|多种语言|  
   
@@ -69,9 +63,9 @@ Azure 文件是对 Azure 磁盘的补充。 一个磁盘每次只能附加到一
 |身份验证|内置|使用 net use 设置|  
 |清理|自动|手动|  
 |使用 REST 访问|无法访问 VHD 中的文件|可访问存储在共享中的文件|  
-|最大大小|4 TB 磁盘|5 TB 文件共享，共享内 1 TB 的文件|  
+|最大大小|4 TiB 磁盘|5 TiB 文件共享，共享中可保存 1 TiB 文件|  
 |最大 8KB IOps|500 IOps|1000 IOps|  
-|吞吐量|每个磁盘最高 60 MB/秒|每个文件共享最高 60 MB/秒|  
+|吞吐量|每个磁盘高达 60 MiB/秒|每个文件共享高达 60 MiB/秒|  
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -81,4 +75,4 @@ Azure 文件是对 Azure 磁盘的补充。 一个磁盘每次只能附加到一
 
 有关磁盘的详细信息，请参阅[管理磁盘和映像](../../virtual-machines/windows/about-disks-and-vhds.md)以及[如何将数据磁盘附加到 Windows 虚拟机](../../virtual-machines/windows/attach-managed-disk-portal.md)。
 
-<!--Update_Description: update "Data Disk" to "Disk"; update Max disk size from 1TB to 4 TB-->
+<!--Update_Description: wording update-->

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 11/03/2017
+origin.date: 03/28/2018
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: febb9b81d3c5edce75dad31d952d51da25ba2c81
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 05/14/2018
+ms.openlocfilehash: 59e36ebd462c60adab625c6219667ca2680038ff
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由要求
 若要使用 ExpressRoute 连接到 Microsoft 云服务，需要设置并管理路由。 某些连接服务提供商以托管服务形式提供路由的设置和管理。 请咨询连接服务提供商，以确定他们是否提供此类服务。 如果不提供，则必须遵守以下要求：
@@ -106,7 +106,7 @@ Microsoft 对等互连路径用于连接到不支持通过 Azure 公共对等互
 
 如果没有在前述注册表中为你分配前缀和 AS 编号，需开立一个支持案例，以便手动验证前缀和 ASN。 支持需要文档，例如证明你有权使用相关资源的授权书。
 
-专用 AS 编号可以用于 Microsoft 对等互连，但也需手动验证。
+专用 AS 编号可以用于 Microsoft 对等互连，但也需手动验证。 此外，对于收到的前缀，我们会删除 AS PATH 中的专用 AS 数字。 因此，无法在 AS PATH 中追加专用 AS 数字来[影响 Microsoft 对等互连的路由](expressroute-optimize-routing.md)。 
 
 > [!IMPORTANT]
 > 通过 ExpressRoute 播发到 Microsoft 的公共 IP 地址不得播发到 Internet。 这会中断其他 Microsoft 服务的连接。 但是，用户网络中与 Microsoft 内的 O365 终结点通信的服务器使用的公共 IP 地址可通过 ExpressRoute 播发。 
@@ -118,7 +118,7 @@ Microsoft 对等互连路径用于连接到不支持通过 Azure 公共对等互
 路由交换将通过 eBGP 协议进行。 在 MSEE 与路由器之间建立 EBGP 会话。 不要求对 BGP 会话进行身份验证。 如果需要，可以配置 MD5 哈希。 有关配置 BGP 会话的信息，请参阅[配置路由](./expressroute-howto-routing-classic.md)及[线路预配工作流和线路状态](./expressroute-workflows.md)。
 
 ## <a name="autonomous-system-numbers"></a>自治系统编号
-Microsoft 使用 AS 12076 进行 Azure 公共、Azure 专用和 Microsoft 对等互连。 我们保留了 ASN 65515-65520 供内部使用。 支持 16 和 32 位 AS 编号。 我们需要公开注册的 ASN 只是为了进行 Microsoft 对等互连。 专用和公共对等互连都可以使用专用 ASN。
+Microsoft 使用 AS 12076 进行 Azure 公共、Azure 专用和 Microsoft 对等互连。 我们保留了 ASN 65515-65520 供内部使用。 支持 16 和 32 位 AS 编号。
 
 数据传输对称没有相关要求。 转发与返回路径可以遍历不同的路由器对。 相同的路由必须从所属的多个线路对的任何一端播发。 路由指标不需要完全相同。
 
@@ -183,8 +183,10 @@ ExpressRoute 不能配置为传输路由器。 必须依赖连接服务提供商
 | 日本东部 |12076:51012 |
 | 日本西部 |12076:51013 |
 | **澳大利亚** | |
-| 澳大利亚东部 |12076:51015 |
-| 澳大利亚东南部 |12076:51016 |
+| 澳大利亚中部 | 12076:51032 |
+| 澳大利亚中部 2 | 12076:51033 |
+| 澳大利亚东部 | 12076:51015 |
+| 澳大利亚东南部 | 12076:51016 |
 | **印度** | |
 | 印度南部 |12076:51019 |
 | 印度西部 |12076:51018 |
@@ -195,8 +197,8 @@ ExpressRoute 不能配置为传输路由器。 必须依赖连接服务提供商
 
 所有 Microsoft 播发的路由都标有适当的社区值。 
 
->[!IMPORTANT]
-> 全局前缀将使用相应的社区值进行标记，并且仅当已启用 ExpressRoute 高级版附加组件时才会播发。
+> [!IMPORTANT]
+> 全局前缀将使用相应的社区值进行标记。
 > 
 > 
 

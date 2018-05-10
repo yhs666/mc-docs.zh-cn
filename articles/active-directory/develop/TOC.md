@@ -6,9 +6,9 @@
 ### [概述](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
-### [.NET](active-directory-devquickstarts-dotnet.md)
-### [Windows](active-directory-devquickstarts-windowsstore.md)
-### [Xamarin](active-directory-devquickstarts-xamarin.md)
+### [.NET (Windows Desktop)](active-directory-devquickstarts-dotnet.md)
+### [.NET (Windows Universal)](active-directory-devquickstarts-windowsstore.md)
+### [.NET (Xamarin)](active-directory-devquickstarts-xamarin.md)
 ### [Cordova](active-directory-devquickstarts-cordova.md)
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
 ## Web 应用
@@ -40,7 +40,7 @@
 ### [调试基于 SAML 的 SSO](active-directory-saml-debugging.md)
 ### [单一登录 SAML 协议](active-directory-single-sign-on-protocol-reference.md)
 ### [单一注销 SAML 协议](active-directory-single-sign-out-protocol-reference.md)
-### [创建租户](active-directory-howto-tenant.md)
+## [创建租户](active-directory-howto-tenant.md)
 ## [品牌准则](active-directory-branding-guidelines.md)
 ## 移动 SSO 和桌面 SSO
 ### [在 Android 上启用 SSO](active-directory-sso-android.md)

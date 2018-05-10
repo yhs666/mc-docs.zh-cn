@@ -1,26 +1,20 @@
 ---
-title: "用于 Azure 流分析的 Management .NET SDK v1.x | Azure"
-description: "流分析管理 .NET SDK 入门。 了解如何设置和运行分析作业。 创建项目、输入、输出和转换。"
-keywords: ".net SDK、分析 API"
+title: 用于 Azure 流分析的管理 .NET SDK v1.x
+description: 流分析管理 .NET SDK 入门。 了解如何设置和运行分析作业。 创建项目、输入、输出和转换。
 services: stream-analytics
-documentationcenter: 
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: 5e93de87-0c6f-4f4b-be98-08d63f832897
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 03/06/2017
-ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: ca3442c82d03c9fcd134460535f7941bf52969f1
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 03/06/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: 395f204d1e914ec8dcb08e8a432a9623ca47e55a
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="management-net-sdk-v1x-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK v1.x：使用用于 .NET 的 Azure 流分析 API 设置和运行分析作业
 了解如何通过 Management .NET SDK 使用用于 .NET 的流分析 API 设置和运行分析作业。 设置项目、创建输入和输出源、转换，以及开始和停止作业。 就分析作业来说，可以从 Blob 存储或事件中心流式传输数据。
@@ -95,42 +89,23 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
 2. 添加一个身份验证帮助器方法：
 
     ```   
-    public static string GetAuthorizationHeader()
-        {
+    private static async Task<string> GetAuthorizationHeader()
+    {
+       var context = new AuthenticationContext(
+           ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
+           ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
 
-            AuthenticationResult result = null;
-            var thread = new Thread(() =>
-            {
-                try
-                {
-                    var context = new AuthenticationContext(
-                        ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
-                        ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+        AuthenticationResult result = await context.AcquireTokenASync(
+           resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+           clientId: ConfigurationManager.AppSettings["AsaClientId"],
+           redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
+           promptBehavior: PromptBehavior.Always);
 
-                    result = context.AcquireToken(
-                        resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-                        clientId: ConfigurationManager.AppSettings["AsaClientId"],
-                        redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-                        promptBehavior: PromptBehavior.Always);
-                }
-                catch (Exception threadEx)
-                {
-                    Console.WriteLine(threadEx.Message);
-                }
-            });
+        if (result != null)
+            return result.AccessToken;
 
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Name = "AcquireTokenThread";
-            thread.Start();
-            thread.Join();
-
-            if (result != null)
-            {
-                return result.AccessToken;
-            }
-
-            throw new InvalidOperationException("Failed to acquire token");
-        }
+       throw new InvalidOperationException("Failed to acquire token");
+    }
     ```  
 
 ## <a name="create-a-stream-analytics-management-client"></a>创建流分析管理客户端
@@ -320,7 +295,7 @@ resourceGroupName 变量的值应该与你在先决条件步骤中创建或选�
     LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
 
 ## <a name="get-support"></a>获取支持
-如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://www.azure.cn/support/forums/)。
+如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
 
 ## <a name="next-steps"></a>后续步骤
 现已学习了使用 .NET SDK 创建和运行分析作业的基础知识。 若要了解更多信息，请参阅下列文章：
@@ -354,4 +329,4 @@ resourceGroupName 变量的值应该与你在先决条件步骤中创建或选�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update meta properties -->

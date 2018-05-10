@@ -1,26 +1,20 @@
 ---
-title: "了解流分析作业监视 | Azure"
-description: "了解流分析作业监视"
-keywords: "查询监视器"
+title: 了解 Azure 流分析中的作业监视
+description: 本文介绍如何在 Azure 流分析中监视作业
 services: stream-analytics
-documentationcenter: 
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 03/28/2017
-ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: dafbaaf1935f9705c15e8d1e60162a5a50d64d14
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 03/28/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: 3c86ce76896528a51f0131f708d744a1bab6eefb
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>了解流分析作业监视以及如何监视查询
 
@@ -58,7 +52,7 @@ Azure 门户提供了可用于监视和排查查询和作业性能问题的关�
 此时间是作业的最新输出的应用程序时间（即，使用来自事件数据的时间戳的时间）。
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://www.azure.cn/support/forums/)
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)
@@ -67,4 +61,4 @@ Azure 门户提供了可用于监视和排查查询和作业性能问题的关�
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: wording update, update meta properties -->
+<!--Update_Description: update meta properties, update link -->

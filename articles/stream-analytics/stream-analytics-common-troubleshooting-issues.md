@@ -1,25 +1,20 @@
 ---
-title: 对 Azure 流分析中格式不正确的输入事件进行故障排除 | Azure
+title: 对 Azure 流分析中格式不正确的输入事件进行故障排除
 description: 如何知道输入数据中的哪个事件导致了流分析作业中的问题
-keywords: ''
-documentationcenter: ''
 services: stream-analytics
 author: rockboyfor
 manager: digimobile
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 03/05/2018
-ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: d99b7215035dab4a29ec5c94ed7012cceaa63b43
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 03/05/2018
+ms.date: 05/07/2018
+ms.openlocfilehash: a3a299e4d8e0e5374bcc1a1c40384ec829864974
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>流分析的常见问题以及故障排除的步骤
 
@@ -58,5 +53,4 @@ ms.lasthandoff: 04/08/2018
 
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-<!-- Update_Description: new articles on stream analytics common troubleshooting issues  -->
-<!--ms.date: 04/09/2018-->
+<!-- Update_Description: update meta properties  -->

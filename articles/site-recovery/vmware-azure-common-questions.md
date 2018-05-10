@@ -7,17 +7,17 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 03/15/2018
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 83ef2abf804932e93cdb094fcb9c08287094c4cc
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: f5211ee1fd9b39e0b80d0b17bc67ff71ef1f2fbe
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常见问题 - VMware 到 Azure 的复制
 
-本文提供将本地 VMware VM 复制到 Azure 时可能遇到的常见问题的解答。 如果在阅读本文后有任何问题，请在 [Azure 恢复服务论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=hypervrecovmgr)上发布这些问题。
+本文提供将本地 VMware VM 复制到 Azure 时可能遇到的常见问题的解答。 如果在阅读本文后有任何问题，请在 [Azure 恢复服务论坛](https://www.azure.cn/support/contact/)上发布这些问题。
 
 ## <a name="general"></a>常规
 ### <a name="how-is-site-recovery-priced"></a>Site Recovery 如何计费？
@@ -44,6 +44,13 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="what-do-i-need-on-premises"></a>需要在本地做好哪些准备？
 在本地，需要在单个 VMware VM 上安装 Site Recovery 组件。 还需要至少包含一台 ESXi 主机的 VMware 基础结构。我们建议使用 vCenter 服务器。 此外，需要提供一个或多个可供复制的 VMware VM。 [详细了解](vmware-azure-architecture.md) VMware 到 Azure 复制体系结构。
+
+本地配置服务器可通过以下两种方式之一进行部署
+
+1. 使用预先安装了配置服务器的 VM 模板进行部署。 在[此处](vmware-azure-tutorial.md#download-the-vm-template)了解详细信息。
+2. 使用选定的 Windows Server 2016 计算机上的安装程序进行部署。 在[此处](physical-azure-disaster-recovery.md#set-up-the-source-environment)了解详细信息。
+
+若要了解在自己的 Windows Server 计算机上部署配置服务器的入门步骤，请在“启用保护”的保护目标中，选择“转到 Azure”>“不虚拟化/其他”。
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>本地 VM 将复制到哪个位置？
 数据将复制到 Azure 存储。 运行故障转移时，Site Recovery 会自动从存储帐户创建 Azure VM。
@@ -182,5 +189,4 @@ Azure 具有复原能力。 Site Recovery 能够根据 Azure SLA 故障转移到
 * [查看](vmware-physical-azure-support-matrix.md)支持要求。
 * [设置](vmware-azure-tutorial.md) VMware 到 Azure 的复制。
 
-<!-- Update_Description: new articles on vmware azure common questions -->
-<!--ms.date: 04/02/2018-->
+<!-- Update_Description: update meta properties; wording update -->

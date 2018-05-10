@@ -1,6 +1,6 @@
 ---
-title: "如何通过 PHP 使用队列存储 | Azure"
-description: "了解如何使用 Azure 队列存储服务创建和删除队列，以及插入、获取和删除消息。 示例用 PHP 编写。"
+title: 如何通过 PHP 使用队列存储 | Azure
+description: 了解如何使用 Azure 队列存储服务创建和删除队列，以及插入、获取和删除消息。 示例用 PHP 编写。
 documentationcenter: php
 services: storage
 author: forester123
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-origin.date: 12/08/2016
-ms.date: 10/30/2017
+origin.date: 01/11/2018
+ms.date: 05/07/2017
 ms.author: v-johch
-ms.openlocfilehash: cbe4375d233188f7a870af6e0c3bd8c1255d89f0
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: ae3c0c9be30fb74ef5621dcc56121e3b3a1c0fad
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>如何通过 PHP 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -159,7 +159,6 @@ $queueClient = QueueRestProxy::createQueueService($connectionString);
 
 try    {
     // Create message.
-    $builder = new ServicesBuilder();
     $queueClient->createMessage("myqueue", "Hello World!");
 }
 catch(ServiceException $e){
@@ -427,4 +426,4 @@ catch(ServiceException $e){
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.cn
 [composer-phar]: http://getcomposer.org/composer.phar
-<!--Update_Description:update code namespace from "WindowsAzure" to "MicrosoftAzure"-->
+<!--Update_Description:remove unuseful code-->

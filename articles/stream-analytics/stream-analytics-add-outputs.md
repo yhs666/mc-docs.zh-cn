@@ -1,26 +1,20 @@
 ---
-title: "如何配置流分析作业的数据输出 | Azure"
-description: "配置流分析作业的输出 | 学习路径段。"
-keywords: "数据输出、数据移动"
-documentationcenter: 
+title: 如何配置 Azure 流分析作业的数据输出
+description: 配置流分析作业的输出 | 学习路径段。
 services: stream-analytics
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: 3bbea3da-bfce-4af1-a15e-d4b23874034f
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 04/26/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: a4dd4f74c5167cf90ad697830883bda6acc4b694
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 04/26/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: 143c19b34642ad3f1cbd85325347802ddffc255a
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-configure-data-outputs-for-stream-analytics-jobs"></a>如何配置流分析作业的数据输出
 
@@ -50,7 +44,7 @@ Azure 流分析作业可以连接到一个或多个数据输出，这些数据�
 > 
 
 ## <a name="get-help"></a>获取帮助
-若需进一步的帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)
@@ -59,4 +53,4 @@ Azure 流分析作业可以连接到一个或多个数据输出，这些数据�
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update link -->

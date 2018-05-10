@@ -1,25 +1,25 @@
 ---
-title: "Azure 流量管理器文档 - 教程和 API 参考 | Azure"
-description: "了解如何管理传入流量，以获得最佳应用程序性能。 文档说明如何将流量分发到 Azure 或外部服务终结点。"
+title: Azure 流量管理器文档 - 教程和 API 参考 | Azure
+description: 了解如何管理传入流量，以获得最佳应用程序性能。 文档说明如何将流量分发到 Azure 或外部服务终结点。
 services: traffic-manager
 author: rockboyfor
 manager: digimobile
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: traffic-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 01/23/2017
-ms.date: 09/25/2017
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7028afef540cfc896307f1a23cafb62181e27a2b
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 5e1b86bd0ea160bea92483645d651bc59f082a7a
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 05/07/2018
 ---
-#<a name="traffic-manager-documentation"></a>流量管理器文档
+# <a name="traffic-manager-documentation"></a>流量管理器文档
 
 了解如何使用流量管理器来路由传入流量，以获得最佳应用程序性能和可靠性。 教程、API 参考以及其他文档说明如何管理 Azure 或外部服务终结点的流量。
 

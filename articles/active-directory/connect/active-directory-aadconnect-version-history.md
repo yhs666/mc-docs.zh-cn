@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 12/14/2017
-ms.date: 01/17/2018
+origin.date: 02/16/2018
+ms.date: 05/03/2018
 ms.author: v-junlch
-ms.openlocfilehash: ba49a202a1725129964d8d71ea86ff28cad661d2
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: e625d474852611d49536947432195dc77dcab292
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本发布历史记录
 Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特性和功能。 并非所有的新增内容都适用于所有受众。
@@ -38,14 +38,19 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 下载 | [下载 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)。
 
 ## <a name="117500"></a>1.1.750.0
-状态：已分发给选定客户。此版本当前已分发给启用了自动升级的一小部分随机 AADConnect 租户。 在未来几周内我们将扩大这组租户，直到 100% 的自动升级客户收到此版本。 在此之后，我们会在上面的下载链接中发布此版本供一般下载。
+状态 3/22/2018：已发布，用于自动升级和下载。
 >[!NOTE]
 >完成到此新版本的升级以后，将会自动触发针对 Azure AD 连接器的完全同步和完全导入，以及针对 AD 连接器的完全同步。 由于这可能需要一些时间（具体取决于 Azure AD Connect 环境的大小），因此请确保已采取必要的支持措施，否则需推迟升级，直至找到合适的升级时间。
+
+>[!NOTE]
+>“对于部署了高于 1.1.524.0 的版本的部分租户，自动升级功能错误地被禁用了。 若要确保你的 Azure AD Connect 实例依然可以进行自动升级，请运行以下 PowerShell cmdlet：“Set-ADSyncAutoUpgrade -AutoupGradeState Enabled”
+
 
 ### <a name="azure-ad-connect"></a>具有 Azure AD Connect
 #### <a name="fixed-issues"></a>修复的问题
 
-* 如果自动升级状态设置为“已暂停”，则 Set-ADSyncAutoUpgrade cmdlet 以前会阻止自动升级。 现在已对此进行更改，使其不会阻止未来版本的自动升级。
+- 如果自动升级状态设置为“已暂停”，则 Set-ADSyncAutoUpgrade cmdlet 以前会阻止自动升级。 现在已对此进行更改，使其不会阻止未来版本的自动升级。
+- 将“用户登录”页选项“密码同步”更改为了“密码哈希同步”。  Azure AD Connect 同步密码哈希值（而不是密码），因此这与实际发生的情况一致。  有关详细信息，请参阅[使用 Azure AD Connect 同步实现密码哈希同步](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 
 ## <a name="117490"></a>1.1.749.0
 状态：已分发给选定客户
@@ -55,8 +60,7 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 
 ### <a name="azure-ad-connect"></a>具有 Azure AD Connect
 #### <a name="fixed-issues"></a>修复的问题
-* 修复了“分区筛选”页的后台任务的计时窗口问题
-* 修复了在切换到下一页时，“分区筛选”页的后台任务的计时窗口问题。
+- 修复了在切换到下一页时，“分区筛选”页的后台任务的计时窗口问题。
 
 * 修复了在 ConfigDB 自定义操作过程中导致访问冲突的 Bug
 
@@ -548,11 +552,11 @@ Azure AD Connect 同步
   - 如果属性有 15 个以上的值，更新的默认同步规则设置为不导出属性 **userCertificate** 和 **userSMIMECertificate**。
   - AD 属性 **employeeID** 和 **msExchBypassModerationLink** 现在包含在默认同步规则集中。
   - AD 属性 **photo** 已从默认同步规则集中删除。
-  - 已将 **preferredDataLocation** 添加到 Metaverse 架构和 AAD 连接器架构。 想要在 Azure AD 中更新任一属性的客户可以实现自定义同步规则。 若要了解有关该属性的详细信息，请参阅文章部分 [Azure AD Connect 同步：如何更改默认配置 - 启用 PreferredDataLocation 同步](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation)。
+  - 已将 **preferredDataLocation** 添加到 Metaverse 架构和 AAD 连接器架构。 想要在 Azure AD 中更新任一属性的客户可以实现自定义同步规则。 
   - 已将 **userType** 添加到 Metaverse 架构和 AAD 连接器架构。 客户想要在 Azure AD 中更新任一属性可以实现自定义同步规则，可以这样做。
 
 - Azure AD Connect 现在会自动启用 ConsistencyGuid 属性作为本地 AD 对象的源定位点属性。 此外，Azure AD Connect 会使用 objectGuid 属性值填充 ConsistencyGuid 属性（如果为空）。 此功能仅适用于新部署。 若要了解有关此功能的详细信息，请参阅文章部分 [Azure AD Connect：设计概念 - 将 msDS-ConsistencyGuid 用作 sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor)。
-- 已添加新的故障排除 cmdlet Invoke-ADSyncDiagnostics，以帮助诊断密码哈希同步相关的问题。 有关使用该 cmdlet 的信息，请参阅[排查 Azure AD Connect 同步的密码同步问题](/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization)一文。
+- 已添加新的故障排除 cmdlet Invoke-ADSyncDiagnostics，以帮助诊断密码哈希同步相关的问题。 有关使用此 cmdlet 的信息，请参阅[使用 Azure AD Connect 同步排查密码哈希同步问题](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md)。
 - Azure AD Connect 现在支持将启用邮件的公共文件夹对象从本地 AD 同步到 Azure AD。 可以使用 Azure AD Connect 向导中的“可选功能”启用该功能。 若要了解有关此功能的详细信息，请参阅[基于 Office 365 目录的边缘阻止对启用邮件的本地公共文件夹的支持](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders)一文。
 - Azure AD Connect 要求从本地 AD 同步 AD DS 帐户。 以前，如果使用“快速”模式安装了 Azure AD Connect，则可以提供企业管理员帐户的凭据，Azure AD Connect 会创建所需的 AD DS 帐户。 但是，对于自定义安装以及要将林添加到现有部署的情况，必须提供 AD DS 帐户。 现在，还可以在自定义安装过程中选择提供企业管理员帐户的凭据，并让 Azure AD Connect 创建所需的 AD DS 帐户。
 - Azure AD Connect 现在支持 SQL AOA。 安装 Azure AD Connect 之前，必须启用 SQL AOA。 在安装期间，Azure AD Connect 会检测是否为 SQL AOA 启用了提供的 SQL 实例。 如果启用了 SQL AOA，Azure AD Connect 会进一步判断 SQL AOA 是配置为使用同步复制还是异步复制。 设置可用性组侦听器时，我们建议将 RegisterAllProvidersIP 属性设置为 0。 这是因为，Azure AD Connect 目前使用 SQL Native Client 连接到 SQL，而 SQL Native Client 不支持使用 MultiSubNetFailover 属性。
@@ -742,7 +746,7 @@ AD FS 管理
 **已解决的问题和改进：**
 
 - Azure AD Connect 现在可以安装于符合 FIPS 的服务器上。
-  - 有关密码同步，请参阅[密码同步和 FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips)。
+  - 有关密码同步，请参阅[密码哈希同步和 FIPS](active-directory-aadconnectsync-implement-password-hash-synchronization.md#password-hash-synchronization-and-fips)。
 - 已修复下列问题：NetBIOS 名称无法解析为 Active Directory 连接器中的 FQDN。
 
 ## <a name="111800"></a>1.1.180.0

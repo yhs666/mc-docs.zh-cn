@@ -1,11 +1,11 @@
 ---
-title: "Azure API 管理高级策略"
-description: "了解可在 Azure API 管理中使用的高级策略。"
+title: Azure API 管理高级策略
+description: 了解可在 Azure API 管理中使用的高级策略。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
 ms.date: 02/26/2018
-ms.openlocfilehash: 6edae3e8234021240641193f75419419b523435c
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: cee7e1706e065a90e1b8867de5f731701de6f639
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="api-management-advanced-policies"></a>API 管理高级策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -530,6 +530,7 @@ status code and media type. If no example or schema found, the content is empty.
   <method>...</method>  
   <header name="" exists-action="override | skip | append | delete">...</header>  
   <body>...</body>  
+  <authentication-certificate thumbprint="thumbprint" />
 </send-one-way-request>  
   
 ```  
@@ -572,6 +573,7 @@ status code and media type. If no example or schema found, the content is empty.
 |method|用于请求的 HTTP 方法。|如果 mode=copy，则为否；否则为是。|  
 |标头的值开始缓存响应|请求标头。 将多个标头元素用于多个请求标头。|否|  
 |body|请求正文。|否|  
+|authentication-certificate|[用于客户端身份验证的证书](api-management-authentication-policies.md#ClientCertificate)|否|
   
 ### <a name="attributes"></a>属性  
   
@@ -600,6 +602,7 @@ status code and media type. If no example or schema found, the content is empty.
   <set-method>...</set-method>  
   <set-header name="" exists-action="override|skip|append|delete">...</set-header>  
   <set-body>...</set-body>  
+  <authentication-certificate thumbprint="thumbprint" />
 </send-request>  
   
 ```  
@@ -651,6 +654,7 @@ status code and media type. If no example or schema found, the content is empty.
 |method|用于请求的 HTTP 方法。|如果 mode=copy，则为否；否则为是。|  
 |标头的值开始缓存响应|请求标头。 将多个标头元素用于多个请求标头。|否|  
 |body|请求正文。|否|  
+|authentication-certificate|[用于客户端身份验证的证书](api-management-authentication-policies.md#ClientCertificate)|否|
   
 ### <a name="attributes"></a>属性  
   

@@ -1,9 +1,9 @@
 ---
-title: "为 Azure 服务创建警报 - 跨平台 CLI | Azure"
-description: "满足指定的条件时，触发电子邮件、通知、调用网站 URL (webhook) 或自动执行。"
+title: 为 Azure 服务创建警报 - 跨平台 CLI | Azure
+description: 满足指定的条件时，触发电子邮件、通知、调用网站 URL (webhook) 或自动执行。
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 5c6a2d27-7dcc-4f89-8752-9bb31b05ff35
@@ -14,23 +14,28 @@ ms.devlang: na
 ms.topic: article
 origin.date: 10/24/2016
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 1b07798a007089d0b4763d99a207c3f893b66370
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 05/14/2018
+ms.openlocfilehash: e9b43c9614393f9d9a6048f3f6d86d22d1a469fe
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>在 Azure Monitor 中为 Azure 服务创建指标警报 - 跨平台 CLI
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>在 Azure Monitor 中为 Azure 服务创建经典指标警报 - 跨平台 CLI
 > [!div class="op_single_selector"]
-> * [门户](./insights-alerts-portal.md)
+> * [Portal](./insights-alerts-portal.md)
 > * [PowerShell](./insights-alerts-powershell.md)
 > * [CLI](./insights-alerts-command-line-interface.md)
 >
 >
 
 ## <a name="overview"></a>概述
-本文说明如何使用跨平台命令行界面 (CLI) 设置 Azure 指标警报。
+> [!NOTE]
+> 本文介绍了如何创建旧式经典指标警报。 Azure Monitor 现在支持[较新、更好的指标警报](monitoring-near-real-time-metric-alerts.md)。 这些警报可监视多个指标，并允许对维度指标发出警报。 即将推出支持较新指标警报的 CLI。
+>
+>
+
+本文介绍了如何使用跨平台命令行接口 (CLI) 设置 Azure 经典指标警报。
 
 > [!NOTE]
 > “Azure Insights”在 2016 年 9 月 25 日后称为 Azure Monitor。 但是，命名空间和以下命令中仍然包含“insights”。
@@ -40,16 +45,16 @@ ms.lasthandoff: 12/01/2017
 可以根据监控指标或事件接收 Azure 服务的警报。
 
 - **指标值** - 指定指标的值超过在任一方向分配的阈值时，将触发警报。 也就是说，当条件先是满足以及之后不再满足该条件时，警报都会触发。    
-* **活动日志事件** - 警报可以在发生每个事件时都触发，也可以仅在发生特定数量的事件时触发。 若要详细了解活动日志警报，请[单击此处](./monitoring-activity-log-alerts.md)
+* **活动日志事件** - 发生每个事件，或仅当出现特定事件时触发警报。 若要详细了解活动日志警报，请[单击此处](./monitoring-activity-log-alerts.md)
 
-可以配置指标警报，在其触发时执行以下操作：
+可配置经典指标警报，使警报触发时执行以下操作：
 
 * 向服务管理员和共同管理员发送电子邮件通知
 * 向指定的其他电子邮件地址发送电子邮件。
 * 调用 Webhook
 * 开始执行 Azure Runbook（目前仅在 Azure 门户中可行）
 
-可以使用以下工具配置和获取关于指标警报的信息：
+可使用以下项配置和获取有关经典指标警报规则的信息
 
 - [Azure 门户](./insights-alerts-portal.md)
 - [PowerShell](./insights-alerts-powershell.md) 
@@ -107,7 +112,7 @@ azure insights alerts actions email create -help
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
 
     ```
-5. 若要在指标警报触发时创建 Webhook 或发送电子邮件，请首先创建电子邮件和/或 Webhook。 然后紧随其后创建规则。 无法使用 CLI 将 Webhook 或电子邮件与已创建的规则相关联。
+5. 若要在经典指标警报触发时创建 webhook 或发送电子邮件，首先要创建电子邮件和/或 webhook。 然后紧随其后创建规则。 无法使用 CLI 将 Webhook 或电子邮件与已创建的规则相关联。
 
     ```console
     azure insights alerts actions email create --customEmails myemail@contoso.com
@@ -141,5 +146,4 @@ azure insights alerts actions email create -help
 * 详细了解[针对活动日志事件配置警报](./monitoring-activity-log-alerts.md)。
 * 了解关于 [Azure 自动化 Runbook](../automation/automation-starting-a-runbook.md) 的详细信息。
 * 获取[收集诊断日志概述](monitoring-overview-of-diagnostic-logs.md)以收集有关服务的详细高频率指标。
-* 
-            [大致了解指标收集](insights-how-to-customize-monitoring.md)以确保服务可用且响应迅速。
+* 获取[指标集合概述](insights-how-to-customize-monitoring.md)以确保服务可用且响应迅速。

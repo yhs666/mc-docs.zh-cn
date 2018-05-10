@@ -1,26 +1,20 @@
 ---
-title: "使用 PowerShell 监视和管理流分析作业 | Azure"
-description: "了解如何使用 Azure PowerShell 和 cmdlet 监视和管理流分析作业。"
-keywords: "azure powershell、azure powershell cmdlet、powershell 命令、powershell 脚本"
+title: 使用 PowerShell 监视和管理 Azure 流分析作业
+description: 本文说明如何使用 Azure PowerShell 和 cmdlet 监视和管理 Azure 流分析作业。
 services: stream-analytics
-documentationcenter: 
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: 514f454e-d18c-4081-8304-ab48577e15e8
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 03/28/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8b8c8ebcbf2fa9701b4b49586132c82bdf284e14
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 03/28/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: f3696a40e76e54a2c5bbc99ffbb375866d363013
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>使用 Azure PowerShell cmdlet 监视和管理流分析作业
 了解如何使用可执行基本流分析任务的 Azure PowerShell cmdlet 和 PowerShell 脚本来监视和管理流分析资源。
@@ -155,7 +149,6 @@ Azure PowerShell 0.9.8：
 Azure PowerShell 1.0：  
 
     Get-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-East-CN -JobName StreamingJob -Name Output
-
 
 此 PowerShell 命令返回在作业 StreamingJob 中定义的名为 Output 的输出的相关信息。
 
@@ -409,7 +402,7 @@ Azure PowerShell 1.0：
 此 PowerShell 命令启动作业 StreamingJob，并将自定义输出开始时间设置为 2012 年 12 月 12 日 12:12:12（UTC）。
 
 ### <a name="stop-azurestreamanalyticsjob--stop-azurermstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
-以异步方式停止流分析作业在 Azure 中的运行，并取消分配所使用的资源。 在订阅中，始终可以通过 Azure 门户和管理 API 来使用作业定义和元数据，以便编辑和重启该作业。 处于停止状态的作业不收费。
+以异步方式停止流分析作业在 Azure 中的运行，并取消分配所使用的资源。 通过 Azure 门户和管理 API，仍可获取订阅中的作业定义和元数据，因此作业可以编辑和重启。 处于停止状态的作业不收费。
 
 **示例 1**
 
@@ -454,7 +447,7 @@ Azure PowerShell 1.0：
 此 PowerShell 命令测试 StreamingJob 中输出 Output 的连接状态。  
 
 ## <a name="get-support"></a>获取支持
-如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。 
+如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。 
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)
@@ -477,4 +470,4 @@ Azure PowerShell 1.0：
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update link, wording update -->

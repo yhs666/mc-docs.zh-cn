@@ -1,23 +1,20 @@
 ---
-title: "Azure 流分析文档 - 教程和 API 参考 | Azure"
-description: "了解如何通过完全托管的事件处理在云中运行 IoT 分析。 实时分析来自应用程序、传感器和设备等的数据。"
+title: Azure 流分析文档 - 教程和 API 参考
+description: 了解如何通过完全托管的事件处理在云中运行 IoT 分析。 实时分析来自应用程序、传感器和设备等的数据。
 services: stream-analytics
 author: rockboyfor
+ms.author: v-yeche
 manager: digimobile
 layout: LandingPage
-ms.assetid: 
 ms.service: stream-analytics
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 origin.date: 05/23/2017
-ms.date: 01/15/2018
-ms.author: v-yeche
-ms.openlocfilehash: 42d432623f59aeb5e9145d3f4d45e51417a013fa
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.date: 05/07/2018
+ms.openlocfilehash: cf5744e7af7750be8699e1394a1b9712d2f2d096
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="stream-analytics-documentation"></a>流分析文档
 
@@ -83,4 +80,4 @@ ms.lasthandoff: 01/11/2018
     <!-- Not Available /Stream-Analytics/stream-analytics-machine-learning-integration-tutorial-->
 </ul>
 <!-- Not Available on Reference -->
-<!-- ms.date: 01/15/2018 -->
+<!-- ms.date: 05/07/2018 -->

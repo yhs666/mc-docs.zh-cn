@@ -1,26 +1,20 @@
 ---
-title: "以编程方式监视流分析中的作业 | Azure"
-description: "了解如何以编程方式监视通过 REST API、Azure SDK 或 PowerShell 创建的流分析作业。"
-keywords: ".net 监视器, 作业监视器, 监视应用"
+title: 以编程方式监视和管理 Azure 流分析作业
+description: 本文说明如何以编程方式监视通过 REST API、Azure SDK 或 PowerShell 创建的流分析作业。
 services: stream-analytics
-documentationcenter: 
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: 2ec02cc9-4ca5-4a25-ae60-c44be9ad4835
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 04/20/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 20689a33b7ceb6ffb455e7931478a81297f8b6f1
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 04/20/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: 0ff64bd02cae465e5956a81bc71791e519b6cde2
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>以编程方式创建流分析作业监视器
 
@@ -177,7 +171,7 @@ ms.lasthandoff: 01/25/2018
 
 ## <a name="get-support"></a>获取支持
 
-若需进一步的帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
+如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -187,4 +181,4 @@ ms.lasthandoff: 01/25/2018
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update meta properties -->

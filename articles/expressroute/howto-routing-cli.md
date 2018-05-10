@@ -1,13 +1,13 @@
 ---
-title: "如何为 Azure ExpressRoute 线路配置路由：CLI | Microsoft Docs"
-description: "本文介绍如何创建和预配 ExpressRoute 线路的专用、公共和 Microsoft 对等互连。 本文还介绍了如何检查状态，以及如何更新或删除线路的对等互连。"
+title: 如何为 Azure ExpressRoute 线路配置路由：CLI | Microsoft Docs
+description: 本文介绍如何创建和预配 ExpressRoute 线路的专用、公共和 Microsoft 对等互连。 本文还介绍如何检查状态，以及如何更新或删除线路的对等互连。
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/11/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: abb4d830df58023697053e299321ddc90841e982
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 05/07/5018
+ms.openlocfilehash: 6718d1a17997e70aa5f3b14defdc3c1f298495c8
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>使用 CLI 为 ExpressRoute 线路创建和修改路由
 
@@ -60,15 +60,15 @@ ms.lasthandoff: 12/01/2017
   ```azurecli
   az account set --subscription "<subscription ID>"
   ```
-2. 创建 ExpressRoute 线路。 请按说明创建 [ExpressRoute 线路](howto-circuit-cli.md) ，并由连接服务提供商进行预配。
-  如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 专用对等互连。 在此情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不为你管理路由，请在创建线路后按照后续步骤继续配置。
+2. 创建 ExpressRoute 线路。 请按说明创建 [ExpressRoute 线路](howto-circuit-cli.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 专用对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不为你管理路由，请在创建线路后按照后续步骤继续配置。
+
 3. 检查 ExpressRoute 线路以确保它已预配并已启用。 使用以下示例：
 
   ```azurecli
   az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
   ```
 
-  响应类似于以下示例：
+  其响应类似于如下示例：
 
   ```azurecli
   "allowClassicOperations": false,
@@ -198,15 +198,15 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
   ```azurecli
   az account set --subscription "<subscription ID>"
   ```
-2. 创建 ExpressRoute 线路。  请按说明创建 [ExpressRoute 线路](howto-circuit-cli.md) ，并由连接服务提供商进行预配。
-  如果连接服务提供商提供第 3 层托管服务，则可以请求连接服务提供商为你启用 Azure 专用对等互连。 在此情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不为你管理路由，请在创建线路后按照后续步骤继续配置。
+2. 创建 ExpressRoute 线路。  请按说明创建 [ExpressRoute 线路](howto-circuit-cli.md) ，并由连接服务提供商进行预配。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 公共对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果连接服务提供商不为你管理路由，请在创建线路后按照后续步骤继续配置。
+
 3. 检查 ExpressRoute 线路以确保它已预配并已启用。 使用以下示例：
 
   ```azurecli
   az network express-route list
   ```
 
-  响应类似于以下示例：
+  其响应类似于如下示例：
 
   ```azurecli
   "allowClassicOperations": false,

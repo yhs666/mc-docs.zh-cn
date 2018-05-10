@@ -1,25 +1,25 @@
 ---
-title: "什么是 Azure 服务运行状况通知？"
-description: "借助服务运行状况通知，可以查看由 Microsoft Azure 发布的服务运行状况消息。"
-author: anirudhcavale
-manager: orenr
-editor: 
+title: 什么是 Azure 服务运行状况通知？
+description: 借助服务运行状况通知，可以查看由 Microsoft Azure 发布的服务运行状况消息。
+author: dkamstra
+manager: chrad
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/31/2017
-ms.date: 02/26/2018
+origin.date: 04/12/2018
+ms.date: 05/14/2018
 ms.author: v-yiso
-ms.openlocfilehash: ee2f167d5f9aa5a9c6066bd11d7498ae15dfd007
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 2d388d16b5d69118d14aea29e7d12e2df6877d67
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>使用 Azure 门户查看服务运行状况通知
 
@@ -42,7 +42,7 @@ channels | 以下值之一：“Admin”、“Operation”。
 correlationId | 通常为字符串格式的 GUID。 属于同一操作的事件通常共享相同的 correlationId。
 eventDataId | 事件的唯一标识符。
 eventName | 事件的标题。
-级别 | 事件的级别。 以下值之一：“Critical”、“Error”、“Warning”或“Informational”。
+级别 | 事件的级别
 resourceProviderName | 受影响资源的资源提供程序的名称。
 resourceType| 受影响资源的资源类型。
 subStatus | 通常为响应 REST 调用的 HTTP 状态码，但还可以包含其他用于描述子状态的字符串。 例如：OK（HTTP 状态代码：200）、Created（HTTP 状态代码：201）、Accepted（HTTP 状态代码：202）、No Content（HTTP 状态代码：204）、Bad Request（HTTP 状态代码：400）、Not Found（HTTP 状态代码：404）、Conflict（HTTP 状态代码：409）、Internal Server Error（HTTP 状态代码：500）、Service Unavailable（HTTP 状态代码：503）和 Gateway Timeout（HTTP 状态代码：504）。
@@ -55,14 +55,52 @@ category | 此属性始终为 ServiceHealth。
 ResourceId | 受影响的资源的资源 ID。
 Properties.title | 此通信的本地化标题。 默认为英语。
 Properties.communication | 带 HTML 标记的通信的经过本地化的详细信息。 默认为英语。
-Properties.incidentType | 后列值之一：AssistedRecovery、ActionRequired、Information、Incident、Maintenance、Security。
+Properties.incidentType | 下列值之一：**ActionRequired**、**Information**、**Incident**、**Maintenance** 或 **Security**。
 Properties.trackingId | 与此事件关联的事件。 使用此属性将与某一事件相关的事件关联起来。
 Properties.impactedServices | 转义 JSON blob，描述受事件影响的服务和区域。 属性包括服务列表，每个服务具有一个 ServiceName，以及一个 受影响区域的列表，其中每个区域具有一个 RegionName。
 Properties.defaultLanguageTitle | 英语通信。
 Properties.defaultLanguageContent | HTML 标记或纯文本格式的英语通信。
-Properties.stage | 对于 AssistedRecovery、ActionRequired、Information、Incident 以及 Security，可能的值为：Active、Resolved。 对于 Maintenance，可能值为：Active、Planned、InProgress、Canceled、Rescheduled、Resolved 或 Complete。
+Properties.stage | **Incident** 和 **Security** 的可能值为 **Active**、**Resolved** 或 **RCA**。 对于 **ActionRequired** 或 **Information**，唯一的值为 **Active**。 对于 **Maintenance**，可能值为：**Active**、**Planned**、**InProgress**、**Canceled**、**Rescheduled**、**Resolved** 或 **Complete**。
 Properties.communicationId | 与此事件关联的通信。
 
+### <a name="details-on-service-health-level-information"></a>服务运行状况级别信息的详细信息
+  <ul>
+    <li><b>需要采取操作</b> (properties.incidentType == ActionRequired) <dl>
+            <dt>信息</dt>
+            <dd>需要管理员采取操作来防止影响现有服务</dd>
+        </dl>
+    </li>
+    <li><b>维护</b> (properties.incidentType == Maintenance) <dl>
+            <dt>警告</dt>
+            <dd>紧急维护<dd>
+            <dt>信息</dt>
+            <dd>标准计划内维护</dd>
+        </dl>
+    </li>
+    <li><b>信息</b> (properties.incidentType == Information) <dl>
+            <dt>信息</dt>
+            <dd>可能需要管理员采取操作来防止影响现有服务</dd>
+        </dl>
+    </li>
+    <li><b>安全性</b> (properties.incidentType == Security) <dl>
+            <dt>错误</dt>
+            <dd>访问多个区域中的多项服务时普遍出现的问题影响大批客户。</dd>
+            <dt>警告</dt>
+            <dd>访问特定服务和/或特定区域时出现的问题影响一部分客户。</dd>
+            <dt>信息</dt>
+            <dd>出现了影响管理操作和/或延迟，但不影响服务可用性的问题。</dd>
+        </dl>
+    </li>
+    <li><b>服务问题</b> (properties.incidentType == Incident) <dl>
+            <dt>错误</dt>
+            <dd>访问多个区域中的多项服务时普遍出现的问题影响大批客户。</dd>
+            <dt>警告</dt>
+            <dd>访问特定服务和/或特定区域时出现的问题影响一部分客户。</dd>
+            <dt>信息</dt>
+            <dd>出现了影响管理操作和/或延迟，但不影响服务可用性的问题。</dd>
+        </dl>
+    </li>
+  </ul>
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>在 Azure 门户中查看服务运行状况通知
 1. 在 [Azure 门户](https://portal.azure.com)中，选择“监视”。

@@ -1,20 +1,20 @@
 ---
-title: Azure 快速入门 - 使用 Node.js 在 Azure 存储中上传、下载和列出 Blob | Microsoft Docs
-description: 在本快速入门中，请创建存储帐户和容器。 然后，使用适用于 Node.js 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
+title: Azure 快速入门 - 使用 Node.js 在对象存储中创建 blob | Microsoft Docs
+description: 本快速入门将在对象 (Blob) 存储中创建存储帐户和容器。 然后，使用适用于 Node.js 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
-author: yunan2016
-manager: digimobile
+author: forester123
+manager: josefree
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 03/15/2018
-ms.date: 03/20/2018
-ms.author: v-nany
-ms.openlocfilehash: 72adcbec739233b65a9c4e9902a8aed50da592e4
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+origin.date: 04/09/2018
+ms.date: 05/07/2018
+ms.author: v-johch
+ms.openlocfilehash: 108379570ff9b0aebafc5e35ff72d812fbe8cd12
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>快速入门：使用 Node.js 上传、下载和列出 Blob
 
@@ -33,6 +33,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
 ```
 
 若要打开应用程序，请找到 *storage-blobs-node-quickstart* 文件夹，然后在最常用的代码编辑环境中将其打开。
+
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>配置存储连接字符串
 
@@ -81,7 +83,7 @@ const storage = require('azure-storage');
 - *dotenv* 将 *.env* 文件中定义的环境变量加载到当前的执行上下文中
 - 若要确定要上传到 Blob 存储的文件的绝对路径，*path* 是必需的
 - *yargs* 可以公开一个简单的接口，用于访问命令行参数
-- *azure-storage* 是适用于 Node.js 的 [Azure 存储 SDK](https://github.com/Azure/azure-storage-node) 模块
+- *azure-storage* 是适用于 Node.js 的 [Azure 存储 SDK](https://docs.microsoft.com/javascript/api/azure-storage) 模块
 
 接下来是初始化一系列变量：
 
@@ -291,6 +293,6 @@ try {
 本快速入门介绍了如何使用 Node.js 将文件从本地磁盘上传到 Azure Blob 存储。 要深入了解如何使用 Blob 存储，请继续学习 Blob 存储操作说明。
 
 > [!div class="nextstepaction"]
+> [Blob 存储操作说明](storage-nodejs-how-to-use-blob-storage.md)
 
-有关 Azure 存储的 Node.js 参考，请参阅 [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest)。
-
+有关 Azure 存储的 Node.js 参考，请参阅 [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage)。

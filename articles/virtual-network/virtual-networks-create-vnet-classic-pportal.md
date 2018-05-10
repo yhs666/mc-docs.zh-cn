@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 51d3564b0ab590d0f99aa9720516e1a33c1d9496
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: b43b6873ea9d88f5a58785cb42253765e3aa552b
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-a-virtual-network-classic-by-using-the-azure-portal"></a>使用 Azure 门户创建虚拟网络（经典）
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
@@ -35,3 +35,5 @@ ms.lasthandoff: 03/28/2018
 
 [!INCLUDE [virtual-networks-create-vnet-classic-pportal-include](../../includes/virtual-networks-create-vnet-classic-pportal-include.md)]
 <!-- Update_Description: wording update, update link -->
+<!--The parent file of includes file of virtual-networks-create-vnet-classic-pportal-include.md-->
+<!--ms.date:05/07/2018-->

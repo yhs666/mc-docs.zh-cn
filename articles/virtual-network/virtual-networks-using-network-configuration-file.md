@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/23/2017
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: c30ddf4e7dc3461cb6a48e156424955fa4e9fdff
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 9c288d373b042fde324e4db08cce371fc7d6b091
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>使用网络配置文件配置虚拟网络（经典）
 > [!IMPORTANT]
@@ -31,7 +31,8 @@ ms.lasthandoff: 03/28/2018
 
 使用网络配置文件创建和配置虚拟网络（经典）需要导出、更改和导入该文件。
 
-## <a name="export"></a>导出网络配置文件
+<a name="export"></a>
+## <a name="export-a-network-configuration-file"></a>导出网络配置文件
 
 可以使用 PowerShell 或 Azure CLI 导出网络配置文件。 PowerShell 导出 XML 文件，而 Azure CLI 导出 json 文件。
 
@@ -120,7 +121,8 @@ ms.lasthandoff: 03/28/2018
 
 如果导出的网络配置文件不包含任何内容，则可以复制上述示例中的 json，并将其粘贴到新文件中。
 
-## <a name="import"></a>导入网络配置文件
+<a name="import"></a>
+## <a name="import-a-network-configuration-file"></a>导入网络配置文件
 
 可以使用 PowerShell 或 Azure CLI 导入网络配置文件。 PowerShell 导入 XML 文件，而 Azure CLI 导入 json 文件。 如果导入失败，请确认该文件是否符合[网络配置架构](https://msdn.microsoft.com/library/azure/jj157100.aspx)。 
 

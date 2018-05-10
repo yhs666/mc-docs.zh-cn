@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/10/2016
 ms.author: v-yiso
-ms.date: ''
-ms.openlocfilehash: fb114dcb80a1bc76a5074ea4ec12765fa313478a
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 05/14/2018
+ms.openlocfilehash: b9acd1068bcd33d587f323e8b60d7c2efebcc5cc
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>适用于云解决方案提供商 (CSP) 的 ExpressRoute
 

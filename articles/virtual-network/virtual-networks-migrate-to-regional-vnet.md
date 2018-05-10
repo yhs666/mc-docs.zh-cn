@@ -1,11 +1,11 @@
 ---
-title: "将 Azure 虚拟网络（经典）从地缘组迁移到区域 | Azure"
-description: "了解如何将虚拟网络（经典）从地缘组迁移到区域。"
+title: 将 Azure 虚拟网络（经典）从地缘组迁移到区域 | Azure
+description: 了解如何将虚拟网络（经典）从地缘组迁移到区域。
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-service-management
 ms.assetid: 84febcb9-bb8b-4e79-ab91-865ad9de41cb
 ms.service: virtual-network
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 07/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: a91dbb8a669af4e0de74ae308b1f4ffd3e856da0
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.date: 05/07/2018
+ms.author: v-yeche
+ms.openlocfilehash: 6fa41aec996c3921c74cf37c0b9c49c99101852e
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>将虚拟网络（经典）从地缘组迁移到区域
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 07/28/2017
 ## <a name="edit-the-network-configuration-file"></a>编辑网络配置文件
 
 1. 导出网络配置文件。 若要了解如何使用 PowerShell 或 Azure 命令行接口 (CLI) 1.0 导出网络配置文件，请参阅[使用网络配置文件配置虚拟网络](virtual-networks-using-network-configuration-file.md#export)。
-2. 编辑网络配置文件，并将 **AffinityGroup** 替换为 **Location**。 为 **Location** 指定一个 Azure 区域。
+2. 编辑网络配置文件，并将 **AffinityGroup** 替换为 **Location**。 为 **Location** 指定一个 Azure [区域](https://azure.microsoft.com/regions)。
 
    > [!NOTE]
    > **Location** 是已为与虚拟网络（经典）关联的地缘组指定的区域。 例如，如果虚拟网络（经典）与位于中国北部的地缘组关联，则在迁移时，**Location** 必须指向中国北部。 
@@ -63,4 +63,4 @@ ms.lasthandoff: 07/28/2017
 ## <a name="what-to-do-if-you-have-a-vm-classic-in-an-affinity-group"></a>如果在地缘组中有一个 VM（经典）该怎么办
 当前位于地缘组中的 VM（经典）不需要从地缘组中删除。 在 VM 部署后，系统会将其部署到单个缩放单位。 地缘组可以限制可用于新 VM 部署的 VM 大小集，但是部署的任何现有 VM 已限制为在其中部署该 VM 的缩放单位中可用的 VM 大小集。 由于该 VM 已部署到缩放单位，因此，从地缘组中删除该 VM 不会对 VM 产生影响。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update link -->

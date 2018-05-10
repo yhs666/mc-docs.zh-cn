@@ -1,11 +1,11 @@
 ---
-title: "Azure API 管理转换策略 | Azure"
-description: "了解可在 Azure API 管理中使用的转换策略。"
+title: Azure API 管理转换策略 | Azure
+description: 了解可在 Azure API 管理中使用的转换策略。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: miaojiang
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 11/27/2017
 ms.author: v-yiso
 ms.date: 02/26/2018
-ms.openlocfilehash: e5c80600434320feb845b0d4b19e1447c6d821fe
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 8cbf123f566be98ca21413e29c4e723fe7932c88
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="api-management-transformation-policies"></a>API 管理转换策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -51,7 +51,7 @@ ms.lasthandoff: 02/13/2018
 ### <a name="policy-statement"></a>策略语句  
   
 ```xml  
-<json-to-xml apply="always | content-type-json" consider-accept-header="true | false"/>  
+<json-to-xml apply="always | content-type-json" consider-accept-header="true | false" parse-date="true | false"/>
 ```  
   
 ### <a name="example"></a>示例  
@@ -63,7 +63,7 @@ ms.lasthandoff: 02/13/2018
     </inbound>  
     <outbound>  
         <base />  
-        <json-to-xml apply="always" consider-accept-header="false" />  
+        <json-to-xml apply="always" consider-accept-header="false" parse-date="false"/>
     </outbound>  
 </policies>  
 ```  
@@ -79,7 +79,8 @@ ms.lasthandoff: 02/13/2018
 |Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |apply|属性必须设置为以下值之一。<br /><br /> -   always - 始终应用转换。<br />-   content-type-json - 仅在响应的 Content-Type 标头指示存在 JSON 的情况下进行转换。|是|不适用|  
-|consider-accept-header|属性必须设置为以下值之一。<br /><br /> -   true - 如果在请求的 Accept 标头中请求了 JSON，则应用转换。<br />-   false - 始终应用转换。|否|true|  
+|consider-accept-header|属性必须设置为以下值之一。<br /><br /> -   true - 如果在请求的 Accept 标头中请求了 JSON，则应用转换。<br />-   false - 始终应用转换。|否|是|  
+|parse-date|设为 `false` 时，转换时则只是简单地复制日期值|否|true|
   
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  

@@ -1,9 +1,9 @@
 ---
-title: 如何使用 Azure Active Directory 连接向导诊断错误
-description: Active Directory 连接向导检测到不兼容的身份验证类型
+title: 如何使用 Azure Active Directory 连接服务诊断错误
+description: Active Directory 连接服务可检测到不兼容的身份验证类型
 services: active-directory
 documentationcenter: ''
-author: TomArcher
+author: ghogen
 manager: douge
 editor: ''
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 origin.date: 03/12/2018
-ms.date: 04/9/2018
+ms.date: 05/04/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 5652bf84a8d1e399d8a5910d6ca360814120ea98
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: e6edda05bbc5168cec33d1fd7c76b1facce2d72f
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>使用 Azure Active Directory 连接服务诊断错误
 
@@ -98,3 +98,5 @@ ms.lasthandoff: 04/16/2018
 若要更改身份验证类型，请删除不兼容的身份验证类型，并尝试重新添加连接服务。
 
 有关详细信息，请参阅 [Azure AD 的身份验证方案](active-directory-authentication-scenarios.md)。
+
+<!-- Update_Description: update metedata properties -->

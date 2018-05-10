@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/24/2018
-ms.date: 04/16/2018
+origin.date: 04/12/2018
+ms.date: 05/14/2018
 ms.author: v-yiso
-ms.openlocfilehash: ceef1262b300c9cc4be7241b56cd5e5012315e6e
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 5c186dd89ae622b47349bcded3e8a9c82b4bffcc
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 诊断日志支持的服务、架构和类别
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/09/2018
 | Azure 自动化 |[Azure 自动化的 Log Analytics](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 诊断日志记录](../batch/batch-diagnostics.md) |
 | Customer Insights | 架构不可用。 |
-| 内容传送网络 | 架构不可用。 |
+| 内容分发网络 | 架构不可用。 |
 | CosmosDB | [Azure Cosmos DB 日志记录](../cosmos-db/logging.md) |
 | 事件中心 |[Azure 事件中心诊断日志](../event-hubs/event-hubs-diagnostic-logs.md) |
 | IoT 中心 | [IoT 中心操作](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
@@ -73,6 +73,7 @@ ms.lasthandoff: 04/09/2018
 |Microsoft.Devices/IotHubs|TwinQueries|孪生查询|
 |Microsoft.Devices/IotHubs|JobsOperations|作业操作|
 |Microsoft.Devices/IotHubs|DirectMethods|直接方法|
+|Microsoft.Devices/IotHubs|E2EDiagnostics|E2E 诊断（预览版）|
 |Microsoft.Devices/provisioningServices|DeviceOperations|设备操作|
 |Microsoft.Devices/provisioningServices|ServiceOperations|服务操作|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -83,7 +84,6 @@ ms.lasthandoff: 04/09/2018
 |Microsoft.KeyVault/vaults|AuditEvent|审核日志|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|网络安全组事件|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|网络安全组规则计数器|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|网络安全组规则流事件|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|负载均衡器警报事件|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|负载均衡器探测运行状况|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS 保护通知|
@@ -94,6 +94,8 @@ ms.lasthandoff: 04/09/2018
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|网关诊断日志|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|隧道诊断日志|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|路由诊断日志|
+|Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|IKE 诊断日志|
+|Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2S 诊断日志|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|流量管理器探测运行状况结果事件|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|GWM 计数器表|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure 备份报告数据|
@@ -114,6 +116,7 @@ ms.lasthandoff: 04/09/2018
 |Microsoft.Sql/servers/databases|块|块|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
 |Microsoft.Sql/servers/databases|审核|审核日志|
+|Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|SQL 安全审核事件|
 |Microsoft.StreamAnalytics/streamingjobs|执行|执行|
 |Microsoft.StreamAnalytics/streamingjobs|创作|创作|
 

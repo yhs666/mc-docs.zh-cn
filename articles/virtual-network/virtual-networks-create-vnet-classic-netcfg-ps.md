@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: c7f4019fa07715ab464863ffbeafc0e60ef2901d
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 166b127ee601dd2fe1f5c57adce045494e83d120
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-a-virtual-network-classic-using-a-network-configuration-file-with-powershell"></a>在 PowerShell 中使用网络配置文件创建虚拟网络（经典）
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
@@ -34,4 +34,6 @@ ms.lasthandoff: 03/28/2018
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-classic-netcfg-ps-include](../../includes/virtual-networks-create-vnet-classic-netcfg-ps-include.md)]
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties -->
+<!--The parent file of includes file of virtual-networks-create-vnet-classic-netcfg-ps-include.md-->
+<!--ms.date:05/07/2018-->

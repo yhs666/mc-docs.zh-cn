@@ -1,11 +1,11 @@
 ---
-title: "Azure 中的 IP 地址类型 | Azure"
-description: "了解 Azure 中的公共 IP 地址和专用 IP 地址。"
+title: Azure 中的 IP 地址类型 | Azure
+description: 了解 Azure 中的公共 IP 地址和专用 IP 地址。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 610b911c-f358-4cfe-ad82-8b61b87c3b7e
 ms.service: virtual-network
@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/16/2017
-ms.date: 01/15/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: cf9884f4fe4e2aed3bc76ebfde5ca7531ff9e807
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: b1c6b7679afe40a83d302f398a2dc3c00577e7eb
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 地址类型和分配方法
 
@@ -183,14 +183,13 @@ ms.lasthandoff: 02/13/2018
 | 应用程序网关 |前端配置 |是 |是 |
 
 ## <a name="limits"></a>限制
-Azure 中全面指定了对 IP 寻址施加的限制。 这些限制根据区域和订阅设置。 可以[与支持人员联系](https://www.azure.cn/support/support-azure/)，根据业务需求将默认限制提高到最大限制。
+Azure 中的[网络限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#networking-limits)全面阐述了对 IP 寻址施加的限制。 这些限制根据区域和订阅设置。 可以[与支持人员联系](https://www.azure.cn/support/support-azure/)，根据业务需求将默认限制提高到最大限制。
 
 ## <a name="pricing"></a>定价
 公共 IP 地址可能会产生少许费用。 有关 Azure 中 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。
 
 ## <a name="next-steps"></a>后续步骤
 * [使用 Azure 门户通过静态公共 IP 部署 VM](virtual-network-deploy-static-pip-arm-portal.md)
-* [使用模板通过静态公共 IP 部署 VM](virtual-network-deploy-static-pip-arm-template.md)
 * [通过 Azure 门户使用静态专用 IP 地址部署 VM](virtual-networks-static-private-ip-arm-pportal.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update link -->

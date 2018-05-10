@@ -2,17 +2,16 @@
 title: Azure Site Recovery 中的 VMware 到 Azure 复制体系结构 | Azure
 description: 本文概述了使用 Azure Site Recovery 将本地 VMware VM 复制到 Azure 时使用的组件和体系结构
 author: rockboyfor
-manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/27/2018
-ms.date: 04/02/2018
+origin.date: 03/19/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5c45f29e1d5e4932078445f443bb8d43a8f37055
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 272e7fa7ec25aaa6f2a49508e5b95b73dbf0bbfe
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware 到 Azure 复制体系结构
 
@@ -33,26 +32,35 @@ ms.lasthandoff: 03/28/2018
 
 ![组件](./media/vmware-azure-architecture/arch-enhanced.png)
 
+## <a name="configuration-steps"></a>配置步骤
+
+设置 VMware 到 Azure 的灾难恢复或迁移的大致步骤如下：
+
+1. **设置 Azure 组件**。 需要一个拥有适当权限的 Azure 帐户、Azure 存储帐户、Azure 虚拟网络和恢复服务保管库。 [了解详细信息](tutorial-prepare-azure.md)。
+2. **本地设置**。 这包括：在 VMware 服务器上设置一个帐户，使 Site Recovery 能够自动发现要复制的 VM；设置一个可用于在要复制的 VM 上安装移动服务组件的帐户；验证 VMware 服务器和 VM 是否符合先决条件。 （可选）也可以准备在故障转移后连接到这些 Azure VM。 运行到 Azure 的故障转移时，Site Recovery 会将 VM 数据复制到 Azure 存储帐户，并使用这些数据创建 Azure VM。 [了解详细信息](vmware-azure-tutorial-prepare-on-premises.md)。
+3. **设置复制**。 选择要复制到的位置。 通过设置单个本地 VMware VM（配置服务器）来配置源复制环境，该 VM 运行所需的所有本地 Site Recovery 组件。 设置后，将配置服务器注册到恢复服务保管库中。 然后，选择目标设置。 [了解详细信息](vmware-azure-tutorial.md)。
+4. **创建复制策略**。 创建一个复制策略用于指定复制的发生方式。 
+    - **RPO 阈值**：此监视设置指明如果在指定的时间内未发生复制，则发出警报（和可选的电子邮件）。 例如，如果 RPO 阈值设置为 30 分钟，而某个问题导致 30 分钟内未发生复制，则会生成一个事件。 此设置不影响复制。 复制将持续进行，并且每隔几分钟会创建恢复点
+    - **保留期**：恢复点保留期指定应在 Azure 中保留恢复点多长时间。 对于高级存储，可以指定介于 0 和 24 小时之间的值；对于标准存储，最长可以指定 72 小时。 如果设置大于零的值，则可以故障转移到最新恢复点或存储的某个恢复点。 保留期限过后，将清除恢复点。
+    - **崩溃一致的快照**：默认情况下，Site Recovery 每隔几分钟就会创建崩溃一致的快照，并使用这些快照创建恢复点。 如果所有相关数据组件的写入顺序一致（如同它们是在创建恢复点的那一刻创建的），则恢复点就是崩溃一致的。 为便于理解，请想像一下发生断电或类似事件后，电脑硬盘上的数据状态。 如果应用程序设计为从崩溃恢复时保持数据一致，则崩溃一致的恢复点足以满足需求。
+    - **应用一致的快照**：如果此值不为零，则 VM 上运行的移动服务会尝试生成文件系统一致的快照和恢复点。 完成初始复制后，将创建第一个快照。 然后，按指定的频率创建快照。 如果正在运行的应用程序除了写入顺序一致，还完成了所有操作，并已将其缓存区刷新到磁盘（应用程序静止），则恢复点是应用程序一致的。 建议对 SQL、Oracle 和 Exchange 等数据库应用程序使用应用一致的恢复点。 如果崩溃一致的快照足以满足需求，则此值可设置为 0。  
+    - **多 VM 一致性**：可以选择性地创建复制组。 然后，在启用复制时，可将 VM 收集到该组中。 复制组中的 VM 将一起复制，并在故障转移时共享崩溃一致和应用一致的恢复点。 应慎重使用此选项，因为这需要跨多个计算机收集快照，因此可能会影响工作负荷的性能。 仅当 VM 运行相同的工作负荷且需要保持一致，而 VM 的数据变动率类似时，才执行此操作。 最多可将 8 个 VM 添加到一个组。 
+5. **启用 VM 复制**。 最后，为本地 VMware VM 启用复制。 如果创建了一个帐户用于安装移动服务，并指定 Site Recovery 应执行推送安装，则会在启用复制的每个 VM 上安装移动服务。 [了解详细信息](vmware-azure-tutorial.md#enable-replication)。 如果出于 VM 一致性目的创建了复制组，可将 VM 添加到该组。
+6. **测试故障转移**。 完成所有设置后，可以执行测试故障转移，检查 VM 是否按预期方式故障转移到 Azure。 [了解详细信息](tutorial-dr-drill-azure.md)。
+7. **故障转移**。 如果只需将 VM 迁移到 Azure，可以运行完整故障转移。 若要设置灾难恢复，可以根据需要运行完整故障转移。 对于完整灾难恢复，在故障转移到 Azure 之后，可以故障回复到本地站点（如果可用）。 [了解详细信息](vmware-azure-tutorial-failover-failback.md)。
+
 ## <a name="replication-process"></a>复制过程
 
-1. 准备 Azure 资源和本地组件。
-2. 在恢复服务保管库中指定源复制设置。 在此过程中，设置本地配置服务器。 若要将此服务器部署为 VMware VM，请下载准备好的 OVF 模板并将其导入到 VMware 以创建 VM。
-3. 指定目标复制设置、创建复制策略并启用 VMware VM 复制。
-4. 计算机根据复制策略进行复制，初始 VM 数据副本将复制到 Azure 存储中。
-5. 完成初始复制后，开始将增量更改复制到 Azure。 计算机的受跟踪更改保存在 .hrl 文件中。
+1. 为 VM 启用复制后，将会根据复制策略开始复制。 
+2. 流量通过 Internet 复制到 Azure 存储公共终结点。 或者，可以结合使用 Azure ExpressRoute 和[公共对等互连](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)。 不支持通过站点到站点虚拟专用网络 (VPN) 将流量从本地站点复制到 Azure。
+3. VM 数据的初始副本将复制到 Azure 存储。
+4. 完成初始复制后，开始将增量更改复制到 Azure。 计算机的受跟踪更改保存在 .hrl 文件中。
+5. 通信按如下方式发生：
 
-    * 计算机通过 HTTPS 443 入站端口与配置服务器通信，进行复制管理。
-
-    * 计算机通过 HTTPS 9443 入站端口（可修改）将复制数据发送到进程服务器。
-
-    * 配置服务器通过 HTTPS 443 出站端口来与 Azure 协调复制管理。
-
-    * 进程服务器从源计算机接收数据、优化和加密数据，然后通过 443 出站端口将其发送到 Azure 存储。
-
-    * 如果启用了多 VM 一致性，则复制组中的计算机将通过端口 20004 相互通信。 如果将多台计算机分组到复制组，并且这些组在故障转移时共享崩溃一致且应用一致的恢复点，请使用多 VM 方案。 如果计算机运行相同的工作负荷并需要保持一致，此方法非常有用。
-
-6. 流量通过 Internet 复制到 Azure 存储公共终结点。 或者，可以使用 Azure ExpressRoute [公共对等互连](../expressroute/expressroute-circuit-peerings.md#public-peering)。 不支持通过站点到站点虚拟专用网络 (VPN) 将流量从本地站点复制到 Azure。
-<!-- Sync late on azure-public-peering-->
+    - VM 通过 HTTPS 443 入站端口与本地配置服务器通信，进行复制管理。
+    - 配置服务器通过 HTTPS 443 出站端口来与 Azure 协调复制。
+    - VM 将复制数据发送到 HTTPS 9443 入站端口上的进程服务器（在配置服务器计算机上运行）。 可以修改此端口。
+    - 进程服务器接收复制数据、优化和加密数据，然后通过 443 出站端口将其发送到 Azure 存储。
 
 **VMware 到 Azure 的复制过程**
 
@@ -62,29 +70,21 @@ ms.lasthandoff: 03/28/2018
 
 在设置复制并运行故障恢复演练（测试故障转移）来检查是否一切都按预期工作后，可以根据需要运行故障转移和故障回复。
 
-1. 可以故障转移单台计算机，或创建恢复计划来故障转移多个 VM。
-
-2. 运行故障转移时，使用 Azure 存储中复制的数据创建 Azure VM。
-
-3. 触发初始故障转移之后，可提交它来开始访问 Azure VM 中的工作负荷。
-
-当本地主站点再次可用时，便可以故障回复。
-1. 需要设置故障回复基础结构，包括：
+1. 可以针对一台计算机运行故障转移，或创建恢复计划来同时故障转移多个 VM。 相比单计算机故障转移，恢复计划的优势包括：
+    - 可以通过在单个恢复计划中包含整个应用的所有 VM，为应用依赖关系建模。
+    - 可以添加脚本、Azure Runbook 和暂停手动操作。
+2. 触发初始故障转移之后，可提交它来开始访问 Azure VM 中的工作负荷。
+3. 当本地主站点再次可用时，可以准备故障回复。 若要故障回复，需要设置故障回复基础结构，包括：
 
     * **Azure 中的临时进程服务器**：若要从 Azure 进行故障回复，需要设置用作进程服务器的 Azure VM，以处理从 Azure 进行的复制。 故障回复完成后，可以删除此 VM。
-
     * **VPN 连接**：若要进行故障回复，需要设置从 Azure 网络到本地站点的 VPN 连接（或 ExpressRoute）。
-
     * **单独的主目标服务器**：默认情况下，在本地 VMware VM 上与配置服务器一起安装的主目标服务器用于处理故障回复。 如果对大量流量进行故障回复，应创建专用于此目的的独立本地主目标服务器。
-
     * **故障回复策略**：若要复制回到本地站点，需要创建故障回复策略。 此策略是在创建从本地到 Azure 的复制策略时自动创建的。
-2. 所有组件均就位后，故障回复分三个阶段进行：
+4. 所有组件均就位后，故障回复通过三个操作进行：
 
-    a. 第 1 阶段：重新保护 Azure VM，以便它们可以从 Azure 复制回本地 VMware VM。
-
-    b. 第 2 阶段：运行到本地站点的故障转移。
-
-    c. 第 3 阶段：在工作负荷进行故障回复后，为本地 VM 重新启用复制。
+    - 第 1 阶段：重新保护 Azure VM，以便它们可以从 Azure 复制回本地 VMware VM。
+    -  第 2 阶段：运行到本地站点的故障转移。
+    - 第 3 阶段：在工作负荷进行故障回复后，为本地 VM 重新启用复制。
 
 **从 Azure 进行 VMware 故障回复**
 
@@ -93,4 +93,4 @@ ms.lasthandoff: 03/28/2018
 ## <a name="next-steps"></a>后续步骤
 
 根据[此教程](vmware-azure-tutorial.md)启用 VMware 到 Azure 复制。
-<!-- Update_Description: update meta properties， update link -->
+<!-- Update_Description: update meta properties， update link, wording update -->

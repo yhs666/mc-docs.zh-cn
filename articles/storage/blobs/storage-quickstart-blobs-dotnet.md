@@ -1,20 +1,20 @@
 ---
-title: Azure 快速入门 - 使用 .NET 在 Azure 存储中上传、下载和列出 Blob | Microsoft Docs
-description: 在本快速入门中，请创建存储帐户和容器。 然后，使用适用于 .NET 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
+title: Azure 快速入门 - 使用 .NET 在对象存储中创建 blob | Microsoft Docs
+description: 本快速入门将在对象 (Blob) 存储中创建存储帐户和容器。 然后，使用适用于 .NET 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
-author: yunan2016
-manager: digimobile
+author: forester123
+manager: josefree
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 03/15/2018
-ms.date: 03/20/2018
-ms.author: v-nany
-ms.openlocfilehash: 55b84901f3eb37d150f7d23c46120b88c8d99dd4
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+origin.date: 04/09/2018
+ms.date: 05/07/2018
+ms.author: v-johch
+ms.openlocfilehash: ca7b36cf50e8ffcd1c5451e1b70b628ce45944b7
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>快速入门：使用 .NET 上传、下载和列出 Blob
 
@@ -57,11 +57,15 @@ ms.lasthandoff: 03/23/2018
 git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 ```
 
-此命令会将存储库克隆到本地 git 文件夹。 若要打开 Visual Studio 解决方案，请找到 storage-blobs-dotnet-quickstart 文件夹并打开，然后双击 storage-blobs-dotnet-quickstart.sln。 
+此命令会将存储库克隆到本地 git 文件夹。 若要打开 Visual Studio 解决方案，请找到 *storage-blobs-dotnet-quickstart* 文件夹并将其打开，然后双击 *storage-blobs-dotnet-quickstart.sln*。 
+
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>配置存储连接字符串
 
-若要运行应用程序，必须为存储帐户提供连接字符串。 可以将此连接字符串存储在运行应用程序的本地计算机的环境变量中。 使用以下某个命令创建环境变量，具体取决于操作系统。 将 `<yourconnectionstring>` 替换为实际的连接字符串。
+若要运行应用程序，必须为存储帐户提供连接字符串。 此示例应用程序从环境变量中读取连接字符串，并使用它对 Azure 存储请求进行身份验证。
+
+复制连接字符串以后，请将其写入运行应用程序的本地计算机的新环境变量中。 若要设置环境变量，请打开控制台窗口，并遵照适用于操作系统的说明。 将 `<yourconnectionstring>` 替换为实际的连接字符串：
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -69,21 +73,25 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
+添加环境变量后，可能需要重启任何正在运行的、需要读取环境变量的程序（包括控制台窗口）。 例如，如果使用 Visual Studio 作为编辑器，请在运行示例之前重启 Visual Studio。 
+
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```bash
 export storageconnectionstring=<yourconnectionstring>
 ```
 
+添加环境变量后，请从控制台窗口运行 `source ~/.bashrc`，使更改生效。
+
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
 编辑 .bash_profile，然后添加环境变量：
 
-```
-export STORAGE_CONNECTION_STRING=
+```bash
+export STORAGE_CONNECTION_STRING=<yourconnectionstring>
 ```
 
-添加环境变量后，请先注销，然后再登录回来，使更改生效。 也可通过终端键入“source .bash_profile”。
+添加环境变量后，请从控制台窗口运行 `source .bash_profile`，使更改生效。
 
 ---
 
@@ -91,23 +99,50 @@ export STORAGE_CONNECTION_STRING=
 
 此示例在本地 **MyDocuments** 文件夹中创建一个测试文件，然后将其上传到 Blob 存储。 此示例然后会列出容器中的 Blob，并使用新名称下载文件，以便对旧文件和新文件进行比较。 
 
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+如果使用 Visual Studio 作为编辑器，可以按 **F5** 运行应用程序。 
+
+否则，请导航到应用程序目录，并使用 `dotnet run` 命令运行应用程序。
+
+```
+dotnet run
+```
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
 导航到你的应用程序目录并使用 `dotnet run` 命令运行应用程序。
 
 ```
 dotnet run
 ```
 
-显示的输出类似于以下示例：
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+导航到你的应用程序目录并使用 `dotnet run` 命令运行应用程序。
 
 ```
-Azure Blob storage quick start sample
-Temp file = /home/admin/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt
-Uploading to Blob storage as blob 'QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt'
-List blobs in container.
-https://mystorageaccount.blob.core.chinacloudapi.cn/quickstartblobs/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt
-Downloading blob to /home/admin/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374_DOWNLOADED.txt
-The program has completed successfully.
-Press the 'Enter' key while in the console to delete the sample files, example container, and exit the application.
+dotnet run
+```
+
+---
+
+示例应用程序的输出类似于以下示例：
+
+```
+Azure Blob storage - .NET Quickstart sample
+
+Created container 'quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f'
+
+Temp file = C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+Uploading to Blob storage as blob 'QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt'
+
+Listing blobs in container.
+https://storagesamples.blob.core.chinacloudapi.cn/quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f/QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+
+Downloading blob to C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db_DOWNLOADED.txt
+
+Press any key to delete the sample files and example container.
 ```
 
 按 **Enter** 键时，应用程序会删除存储容器和文件。 在删除之前，请在 **MyDocuments** 文件夹中查看这两个文件。 可以打开它们，然后就会观察到它们完全相同。 从控制台窗口复制 Blob 的 URL，将其粘贴到浏览器中，查看 Blob 的内容。
@@ -126,8 +161,8 @@ Press the 'Enter' key while in the console to delete the sample files, example c
 // Retrieve the connection string for use with the application. The storage connection string is stored
 // in an environment variable on the machine running the application called storageconnectionstring.
 // If the environment variable is created after the application is launched in a console or with Visual
-// Studio, the shell needs to be closed and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring", EnvironmentVariableTarget.User);
+// Studio, the shell or application needs to be closed and reloaded to take the environment variable into account.
+string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
 
 // Check whether the connection string can be parsed.
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
@@ -270,7 +305,9 @@ File.Delete(destinationFile);
 
 若要了解如何创建一个 Web 应用，以便将映像上传到 Blob 存储，请继续学习[使用 Azure 存储将映像数据上传到云中](storage-upload-process-images.md)。
 
+> [!div class="nextstepaction"]
+> [Blob 存储操作说明](storage-dotnet-how-to-use-blobs.md)
 
 - 若要了解可以通过用于 Windows 的 Visual Studio 部署的示例应用程序，请参阅 [.NET Photo Gallery Web Application Sample with Azure Blob Storage](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)（.NET 照片库 Web 应用程序示例与 Azure Blob 存储）。
- 
+<!--Update_Description: add environment variable related information-->
 

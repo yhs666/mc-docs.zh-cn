@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步：理解和自定义同步 | Microsoft Docs"
-description: "介绍 Azure AD Connect 同步的工作原理以及如何自定义。"
+title: Azure AD Connect 同步：理解和自定义同步 | Microsoft Docs
+description: 介绍 Azure AD Connect 同步的工作原理以及如何自定义。
 services: active-directory
-documentationcenter: 
-author: alexchen2016
-manager: digimobile
-editor: 
+documentationcenter: ''
+author: billmath
+manager: mtillman
+editor: ''
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/08/2017
-ms.date: 11/22/2017
+ms.date: 05/03/2018
 ms.author: v-junlch
-ms.openlocfilehash: aa529183b82b959ec085a4bd3c2420f8d62d2c08
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 97a2e15560a7f01e7cb9c8992a5c35171b98a279
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect 同步：理解和自定义同步
 Azure Active Directory Connect 同步服务（Azure AD Connect 同步）是 Azure AD Connect 的一个主要组件。 它负责在本地环境与 Azure AD 之间同步标识数据的所有相关操作。 Azure AD Connect 同步是 DirSync、Azure AD Sync 和 Forefront Identity Manager 的后继版本，同时配置了 Azure Active Directory 连接器。
@@ -47,7 +47,7 @@ Azure Active Directory Connect 同步服务（Azure AD Connect 同步）是 Azur
 | **功能和方案** | |
 | [防止意外删除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |介绍 *防止意外删除* 功能以及如何配置该功能。 |
 | [计划程序](active-directory-aadconnectsync-feature-scheduler.md) |介绍导入、同步和导出数据的内置计划程序。 |
-| [实现密码同步](active-directory-aadconnectsync-implement-password-synchronization.md) |介绍密码同步的工作原理、实现方式，及其操作与故障排除方法。 |
+| [实现密码哈希同步](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |介绍密码同步的工作原理、实现方式，及其操作与故障排除方法。 |
 | [目录扩展](active-directory-aadconnectsync-feature-directory-extensions.md) |介绍如何使用自己的自定义属性扩展 Azure AD 架构。 |
 | **同步服务** | |
 | [Azure AD Connect 同步服务功能](active-directory-aadconnectsyncservice-features.md) |介绍同步服务端，以及如何在 Azure AD 中更改同步设置。 |

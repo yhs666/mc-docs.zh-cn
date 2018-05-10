@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/19/2017
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 560013a9e68152d9da99624b9d8b9773c4438365
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: fd7f23e41b2ea724cab6a740c6799c01e23f5efe
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="network-security"></a>网络安全性
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/28/2018
 - **入站流量**：首先评估与网络接口所在子网关联的网络安全组。 然后，与网络接口关联的网络安全组会评估允许通过与子网相关联的网络安全组的所有流量。 例如，我们可能要求通过 Internet 在端口 80 上对某个虚拟机进行入站访问。 如果将网络安全组同时关联到网络接口以及该网络接口所在的子网，则与子网和网络接口关联的网络安全组必须允许端口 80。 如果只允许端口 80 上的流量通过与子网或该子网所在的网络接口相关联的网络安全组，则会由于默认安全规则方面的原因而导致通信失败。 有关详细信息，请参阅[默认安全规则](#default-security-rules)。 如果只将网络安全组应用到子网或网络接口，并且该网络安全组包含允许入站端口 80 流量的规则，则通信会成功。 
 - **出站流量**：首先评估与网络接口关联的网络安全组。 然后，与子网关联的网络安全组会评估允许通过与网络接口相关联的网络安全组的所有流量。
 
-将网络安全组同时应用到网络接口和子网时，你不一定总能察觉得到。 可以通过查看网络接口的[有效安全规则](virtual-network-manage-nsg-arm-portal.md)，轻松查看已应用到网络接口的聚合规则。 还可以使用 Azure 网络观察程序中的 [IP 流验证](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fvirtual-network%2ftoc.json)功能来确定是否允许发往或发自网络接口的通信。 该工具会告知通信是否受允许，以及哪个网络安全规则允许或拒绝流量。
+将网络安全组同时应用到网络接口和子网时，你不一定总能察觉得到。 可以通过查看网络接口的[有效安全规则](virtual-network-network-interface.md#view-effective-security-rules)，轻松查看已应用到网络接口的聚合规则。 还可以使用 Azure 网络观察程序中的 [IP 流验证](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fvirtual-network%2ftoc.json)功能来确定是否允许发往或发自网络接口的通信。 该工具会告知通信是否受允许，以及哪个网络安全规则允许或拒绝流量。
 
 > [!NOTE]
 > 网络安全组关联到子网或关联到部署经典部署模型的虚拟机和云服务，而不是关联到资源管理器部署模型中的网络接口。 若要详细了解 Azure 部署模型，请参阅[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)。
@@ -121,8 +121,8 @@ ms.lasthandoff: 03/28/2018
 * **AzureLoadBalancer** (Resource Manager)（如果是经典部署模型，则为 **AZURE_LOADBALANCER**）：此标记表示 Azure 的基础结构负载均衡器。 此标记将转换为 [Azure 数据中心 IP 地址](https://www.microsoft.com/download/details.aspx?id=42064)，Azure 的运行状况探测源于该 IP。 如果不使用 Azure 负载均衡器，则可替代此规则。
 * **Internet**（资源管理器）（如果是经典部署模型，则为 **INTERNET**）：此标记表示虚拟网络外部的 IP 地址空间，可以通过公共 Internet 进行访问。 地址范围包括 [Azure 拥有的公共 IP 地址空间](https://www.microsoft.com/download/details.aspx?id=42064)。
 * **AzureTrafficManager**（仅限资源管理器）：此标记表示 Azure 流量管理器探测 IP 的 IP 地址空间。 有关流量管理器探测 IP 的详细信息，请参阅 [Azure 流量管理器常见问题解答](/traffic-manager/traffic-manager-faqs)。
-* **Storage**（仅限资源管理器）：此标记表示 Azure 存储服务的 IP 地址空间。 如果指定 *Storage* 作为值，则会允许或拒绝发往存储的流量。 如果只想允许对某个特定[区域](https://www.azure.cn/support/service-dashboard/)中的存储进行访问，可以指定该区域。 例如，如果希望只允许访问中国东部区域中的 Azure 存储，可以指定 *Storage.ChinaEast* 作为服务标记。 标记表示服务而不是服务的特定实例。 例如，标记可表示 Azure 存储服务，但不能表示特定的 Azure 存储帐户。
-* **Sql**（仅限资源管理器）：此标记表示 Azure SQL 数据库和 Azure SQL 数据仓库服务的地址前缀。 如果指定 *Sql* 作为值，则会允许或拒绝发往 Sql 的流量。 如果只想允许对某个特定[区域](https://www.azure.cn/support/service-dashboard/)中的 Sql 进行访问，可以指定该区域。 例如，如果希望只允许访问中国东部区域中的 Azure SQL 数据库，可以指定 *Sql.ChinaEast* 作为服务标记。 标记表示服务而不是服务的特定实例。 例如，标记可表示 Azure SQL 数据库服务，但不能表示特定的 SQL 数据库或服务器。
+* **Storage**（仅限资源管理器）：此标记表示 Azure 存储服务的 IP 地址空间。 如果指定 *Storage* 作为值，则会允许或拒绝发往存储的流量。 如果只想允许对某个特定[区域](https://azure.microsoft.com/regions)中的存储进行访问，可以指定该区域。 例如，如果希望只允许访问中国东部区域中的 Azure 存储，可以指定 *Storage.ChinaEast* 作为服务标记。 标记表示服务而不是服务的特定实例。 例如，标记可表示 Azure 存储服务，但不能表示特定的 Azure 存储帐户。
+* **Sql**（仅限资源管理器）：此标记表示 Azure SQL 数据库和 Azure SQL 数据仓库服务的地址前缀。 如果指定 *Sql* 作为值，则会允许或拒绝发往 Sql 的流量。 如果只想允许对某个特定[区域](https://azure.microsoft.com/regions)中的 Sql 进行访问，可以指定该区域。 例如，如果希望只允许访问中国东部区域中的 Azure SQL 数据库，可以指定 *Sql.ChinaEast* 作为服务标记。 标记表示服务而不是服务的特定实例。 例如，标记可表示 Azure SQL 数据库服务，但不能表示特定的 SQL 数据库或服务器。
 
 > [!NOTE]
 > 如果为某个服务（例如 Azure 存储或 Azure SQL 数据库）实现了[虚拟网络服务终结点](virtual-network-service-endpoints-overview.md)，Azure 会将路由添加到该服务的虚拟网络子网。 路由中的地址前缀与相应服务标记的地址前缀或 CIDR 范围相同。
@@ -142,7 +142,7 @@ ms.lasthandoff: 03/28/2018
 
 若要了解创建应用程序安全组以及在安全规则中指定应用程序安全组时的相关限制，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
-应用程序安全组以预览版提供。 预览版功能的可用性和可靠性级别与正式版不同。 在使用应用程序安全组之前，必须先完成[创建包含应用程序安全组的网络安全组](create-network-security-group-preview.md)的 Azure 或 PowerShell 部分中的步骤 1-5 来进行注册以使用这些功能。 应用程序安全组具有以下约束：
+应用程序安全组具有以下约束：
 
 -   一个应用程序安全组中的所有网络接口必须存在于同一虚拟网络中。 不能向同一应用程序安全组添加来自不同虚拟网络的网络接口。 第一个分配给应用程序安全组的网络接口所在的虚拟网络定义所有后续分配的网络接口必须存在于其中的虚拟网络。
 - 如果在安全规则中将应用程序安全组指定为源和目标，则两个应用程序安全组中的网络接口必须存在于同一虚拟网络中。 例如，如果 ASG1 包含来自 VNet1 的网络接口，ASG2 包含来自 VNet2 的网络接口，则不能在一项规则中将 ASG1 分配为源，将 ASG2 分配为目标，所有网络接口需存在于 VNet1 中。
@@ -165,8 +165,5 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="next-steps"></a>后续步骤
 
-* 完成[创建网络安全组](virtual-networks-create-nsg-arm-pportal.md)教程
-<!-- Not Available * Complete the [Create a network security group with application security groups](create-network-security-group-preview.md) -->
-
-
+* 连接如何[创建网络安全组](tutorial-filter-network-traffic.md)。
 <!--Update_Description: update meta properties, wording update, update link -->

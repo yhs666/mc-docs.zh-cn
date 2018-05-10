@@ -5,15 +5,15 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 02/27/2018
-ms.date: 04/02/2018
+origin.date: 03/24/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 3ac841469654959f0ac2e5f2d2ac109518feb880
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: e5d8fcf0562326679f78394e342134d2a1203310
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>将 Azure VM 迁移到另一区域
 
@@ -34,7 +34,13 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程，要从中进行迁移的 Azure 区域中需要存在 Azure VM。 此外，在开始迁移之前，应当对许多设置进行验证。
+- 请确保在迁移的源 Azure 区域中创建了 Azure VM。
+- 请确保了解[方案体系结构和组件](azure-to-azure-architecture.md)。
+- 查看[支持限制和要求](azure-to-azure-support-matrix.md)。
+
+## <a name="before-you-start"></a>开始之前
+
+在设置复制之前，请完成以下步骤。
 
 ### <a name="verify-target-resources"></a>验证目标资源
 
@@ -100,10 +106,6 @@ Site Recovery 会检索与订阅和资源组关联的 VM 列表。
 6. 单击“启用复制”。 这将启动用于为 VM 启用复制的作业。
 
     ![启用复制](media/tutorial-migrate-azure-to-azure/settings.png)
-
->[!NOTE]
-  >
-  > 当前不支持复制具有托管磁盘的 Azure VM。 
 
 ## <a name="run-a-failover"></a>运行故障转移
 

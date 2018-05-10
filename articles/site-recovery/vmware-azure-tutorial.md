@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 02/27/2018
-ms.date: 04/02/2018
+origin.date: 04/08/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: e8e8c8e8be0ca3bde9287ed41ac9218a72f89698
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 25e145955f732380ecb89b6811b0c85f954602e0
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>针对本地 VMware VM 设置到 Azure 的灾难恢复
 
@@ -28,8 +28,8 @@ ms.lasthandoff: 04/28/2018
 
 本教程为系列教程中的第三个教程。 本教程假设你已完成前面教程中的以下任务：
 
-* [准备 Azure](tutorial-prepare-azure.md)
-* [准备本地 VMware](vmware-azure-tutorial-prepare-on-premises.md)
+* [准备 Azure](tutorial-prepare-azure.md)。 本教程介绍如何设置 Azure 存储帐户和网络、确保 Azure 帐户具有适当的权限，以及如何创建恢复服务保管库。
+* [准备本地 VMware](vmware-azure-tutorial-prepare-on-premises.md)。 在本教程中将准备帐户，以便 Site Recovery 可以访问 VMware 服务器以发现 VM，并在为 VM 启用复制时，可以选择执行 Site Recovery 移动服务组件的推送安装。 还需确保 VMware 服务器和 VM 符合 Site Recovery 要求。
 
 在开始之前，[查看灾难恢复方案的体系结构](vmware-azure-architecture.md)会有所帮助。
 
@@ -43,9 +43,6 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="set-up-the-source-environment"></a>设置源环境
 
-> [!TIP]
-> 部署配置服务器来保护 VMware 虚拟机时，建议的方法是使用基于 OVF 的部署模型，就像本文中建议的这样。 如果组织中有限制，不允许部署 OVF 模板，则可使用[用于安装配置服务器的 UnifiedSetup.exe](physical-manage-configuration-server.md)。
-
 若要设置源环境，需要部署一台高度可用的本地计算机来托管本地 Site Recovery 组件。 组件包括配置服务器、进程服务器和主目标服务器：
 
 - 配置服务器在本地和 Azure 之间协调通信并管理数据复制。
@@ -53,6 +50,9 @@ ms.lasthandoff: 04/28/2018
 - 主目标服务器处理从 Azure 进行故障回复期间产生的复制数据。
 
 若要将配置服务器设置为高度可用的 VMware VM，请下载一个已准备好的开放虚拟化格式 (OVF) 模板，并将该模板导入 VMware 以创建 VM。 在设置配置服务器以后，请将它注册到保管库中。 注册后，Site Recovery 可发现本地 VMware VM。
+
+> [!TIP]
+> 本教程使用 OVF 模板创建配置服务器 VMware VM。 如果无法执行此操作，可以运行[手动设置](physical-manage-configuration-server.md)来执行此操作。 
 
 ### <a name="download-the-vm-template"></a>下载 VM 模板
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 04/28/2018
 4. 下载配置服务器的 OVF 模板。
 
   > [!TIP]
-  可以直接从 [Microsoft 下载中心](http://aka\.ms/asrconfigurationserver_bjb)下载最新版本的配置服务器模板。
+  可以直接从 [Microsoft 下载中心](https://aka.ms/asrconfigurationserver_bjb)下载最新版本的配置服务器模板。
 
 ## <a name="import-the-template-in-vmware"></a>在 VMware 中导入模板
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 04/28/2018
 7. 该工具将执行一些配置任务，然后重新启动。
 8. 再次登录到计算机。 配置服务器管理向导会自动启动。
 
-### <a name="configure-settings-and-connect-to-vmware"></a>配置设置并连接到 VMware
+### <a name="configure-settings-and-add-the-vmware-server"></a>配置设置并添加 VMware 服务器
 
 1. 在配置服务器管理向导中选择“设置连接”，然后选择要接收复制流量的 NIC。 再选择“保存”。 配置后无法更改此设置。
 2. 在“选择恢复服务保管库”中，选择自己的 Azure 订阅以及相关的资源组和保管库。

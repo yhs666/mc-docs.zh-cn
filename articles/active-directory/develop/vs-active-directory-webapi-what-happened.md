@@ -1,10 +1,10 @@
 ---
-title: 连接到 Azure AD 时对 WebApi 项目所做的更改 | Microsoft 文档
-description: 介绍使用 Visual Studio 连接到 Azure AD 时，WebApi 项目会发生什么情况
+title: 连接到 Azure AD 时对 WebAPI 项目所做的更改 | Microsoft Docs
+description: 介绍使用 Visual Studio 连接到 Azure AD 时，WebAPI 项目会发生什么情况
 services: active-directory
 documentationcenter: ''
-author: kraigb
-manager: mtillman
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
 origin.date: 03/12/2018
-ms.date: 04/9/2018
+ms.date: 05/04/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 1c476a0e8ecc237b537094026029be27451d01a8
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 88078508c4b27be78bc88ec03de5303b9f8b91a9
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>我的 WebAPI 项目（Visual Studio Azure Active Directory 连接服务）发生了什么情况
 
@@ -134,3 +134,5 @@ ms.lasthandoff: 04/16/2018
 
 - [Azure Active Directory 的身份验证方案](active-directory-authentication-scenarios.md)
 - [向 ASP.NET Web 应用添加 Microsoft 登录功能](guidedsetups/active-directory-aspnetwebapp-v1.md)
+
+<!-- Update_Description: update metedata properties -->

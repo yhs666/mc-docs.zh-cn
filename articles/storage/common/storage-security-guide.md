@@ -3,17 +3,16 @@ title: Azure 存储安全指南 | Microsoft Docs
 description: 详细介绍保护 Azure 存储的多种方法，包括但不限于 RBAC、存储服务加密、客户端加密、SMB 3.0 和 Azure 磁盘加密。
 services: storage
 author: forester123
-manager: digimobile
+manager: josefree
 ms.service: storage
 ms.topic: article
-origin.date: 12/08/2016
-ms.date: 10/30/2017
+ms.date: 05/07/2018
 ms.author: v-johch
-ms.openlocfilehash: 621101c6bf0be0ed022a40c52da3d09cb485a801
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 095ec9ef3f832d3a47f79fd9e146b8bf90854b9e
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure 存储安全指南
 ## <a name="overview"></a>概述
@@ -57,7 +56,7 @@ Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助�
 本指南着重于资源管理器模型，即创建存储帐户的建议方法。 使用 Resource Manager 存储帐户而不是提供整个订阅的访问权限，可以使用基于角色的访问控制 (RBAC) 以更高的限制级别来控制对管理平面的访问。
 
 ### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>如何使用基于角色的访问控制 (RBAC) 来保护存储帐户
-接下来，我们将讨论什么是 RBAC 以及如何使用它。 每个 Azure 订阅都有一个 Azure Active Directory。 可以为来自该目录的用户、组和应用程序授予访问权限，以便在使用 Resource Manager 部署模型的 Azure 订阅中管理资源。 这称为基于角色的访问控制 (RBAC)。 若要管理此访问权限，可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure CLI 工具](../../cli-install-nodejs.md)、[PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 或 [Azure 存储资源提供程序 REST API](https://msdn.microsoft.com/library/azure/mt163683.aspx)。
+接下来，我们将讨论什么是 RBAC 以及如何使用它。 每个 Azure 订阅都有一个 Azure Active Directory。 可以向该目录中的用户、组和应用程序授予访问权限，以便其管理使用 Resource Manager 部署模型的 Azure 订阅中的资源。 此类型的安全性称为基于角色的访问控制 (RBAC)。 若要管理此访问权限，可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure CLI 工具](../../cli-install-nodejs.md)、[PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 或 [Azure 存储资源提供程序 REST API](https://msdn.microsoft.com/library/azure/mt163683.aspx)。
 
 使用资源管理器模型可以将存储帐户放在资源组中，并使用 Azure Active Directory 来控制对该特定存储帐户的管理平面的访问。 例如，可以授权特定用户访问存储帐户密钥，而其他用户可以查看有关存储帐户的信息，但无法访问存储帐户密钥。
 
@@ -85,16 +84,16 @@ Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助�
 * 可以创建一份报告，描述哪个用户使用了 PowerShell 或 Azure CLI 在哪个范围为哪些对象授予/撤销哪种类型的访问权限。
 
 #### <a name="resources"></a>资源
-* [Azure Active Directory 基于角色的访问控制](../../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory 基于角色的访问控制](../../role-based-access-control/role-assignments-portal.md)
 
   此文解释了 Azure Active Directory 基于角色的访问控制及其工作原理。
-* [RBAC：内置角色](../../active-directory/role-based-access-built-in-roles.md)
+* [RBAC：内置角色](../../role-based-access-control/built-in-roles.md)
 
   此文详细说明了 RBAC 中所有可用的内置角色。
 * [了解 Resource Manager 部署和经典部署](../../azure-resource-manager/resource-manager-deployment-model.md)
 
   本文介绍了 Resource Manager 部署和经典部署模型，并阐释了使用 Resource Manager 和资源组的优点。 本文介绍了 Azure 计算、网络和存储提供程序在 Resource Manager 模式下的工作方式。
-* [使用 REST API 管理基于角色的访问控制](../../active-directory/role-based-access-control-manage-access-rest.md)
+* [使用 REST API 管理基于角色的访问控制](../../role-based-access-control/role-assignments-rest.md)
 
   此文说明如何使用 REST API 来管理 RBAC。
 * [Azure 存储资源提供程序 REST API 参考](https://msdn.microsoft.com/library/azure/mt163683.aspx)
@@ -164,6 +163,9 @@ Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助�
 
 此外，对于 Blob 存储，可以通过对保存 Blob 的容器的访问级别进行相应设置，来允许对 Blob 进行公共访问。 如果将容器的访问权限设置为“Blob”或“容器”，则允许该容器中 Blob 的公共读取访问权限。 这意味着 URL 指向该容器中 Blob 的任何人都可以在浏览器中打开它，而不需要使用共享访问签名或拥有存储帐户密钥。
 
+除通过授权限制访问外，还可使用[防火墙和虚拟网络](storage-network-security.md)来根据网络规则限制对存储帐户的访问。  通过此方法，可拒绝对公共 Internet 流量的访问，并仅向特定 Azure 虚拟网络或公共 Internet IP 地址范围授予访问权限。
+
+
 ### <a name="storage-account-keys"></a>存储帐户密钥
 存储帐户密钥是由 Azure 创建的 512 位字符串，配合存储帐户名称用于访问存储于存储帐户中的数据对象。
 
@@ -222,7 +224,7 @@ http://mystorage.blob.core.chinacloudapi.cn/mycontainer/myblob.txt (URL to the b
 #### <a name="revocation"></a>吊销
 假设 SAS 已泄露，或者要基于公司安全或法规遵循要求更改 SAS。 如何使用该 SAS 撤销对资源的访问权限？ 这取决于 SAS URI 的创建方式。
 
-如果使用即席 URI，将有三个选项。 可以颁发具有短期过期策略的 SAS 令牌，然后只需等待 SAS 过期。 可以重命名或删除资源（假设令牌范围只限于单个对象）。 可以更改存储帐户密钥。 根据使用该存储帐户的服务数目而定，最后一个选项可能造成很大的影响，而且在没有任何规划的情况下可能达不到想要的效果。
+如果使用即席 URI，将有三个选项。 可以颁发具有短期过期策略的 SAS 令牌，然后等待 SAS 过期。 可以重命名或删除资源（假设令牌范围只限于单个对象）。 可以更改存储帐户密钥。 根据使用该存储帐户的服务数目而定，最后一个选项可能造成很大的影响，而且在没有任何规划的情况下可能达不到想要的效果。
 
 如果使用派生自存储访问策略的 SAS，可以通过撤销存储访问策略来删除访问权限 – 只能在其过期后进行更改，或者完全删除它。 这会立即生效，并使每个使用该存储访问策略创建的 SAS 失效。 更新或删除存储访问策略可能将影响通过 SAS 访问该特定容器、文件共享、表或队列的用户，但如果要写入客户端，使得他们可在旧的 SAS 变成无效时请求一个新的 SAS，则这将可正常运行。
 
@@ -354,7 +356,7 @@ Azure 磁盘加密是一项新功能。 此功能允许加密 IaaS 虚拟机使�
 
 #### <a name="iaas-vms-and-their-vhd-files"></a>IaaS VM 及其 VHD 文件
 
-对于 IaaS VM 使用的数据磁盘，建议使用 Azure 磁盘加密。 如果使用 Azure 应用商店创中的映像建 VM，Azure 将在 Azure 存储中对存储帐户执行映像的[浅层复制](https://en.wikipedia.org/wiki/Object_copying) ，并且即使已启用 SSE，也不会将其加密。 创建 VM 并启动更新映像后，SSE 将开始加密数据。 出于此原因，如果你想要将它们完全加密，最好是在通过 Azure Marketplace 中的映像创建的 VM 上使用 Azure 磁盘加密。
+对于 IaaS VM 使用的数据磁盘，建议使用 Azure 磁盘加密。 如果使用 Azure Marketplace 中的映像创建包含非托管磁盘的 VM，Azure 会在 Azure 存储中[浅层复制](https://en.wikipedia.org/wiki/Object_copying)存储帐户中的映像；即使已启用 SSE，也不会加密。 创建 VM 并启动更新映像后，SSE 开始加密数据。 出于此原因，如果想要将它们完全加密，最好在通过 Azure Marketplace 中的映像创建的包含非托管磁盘的 VM 上使用 Azure 磁盘加密。 如果创建包含托管磁盘的 VM，则 SSE 默认情况下会使用平台管理的密钥加密所有数据。 
 
 如果从本地将预先加密的 VM 带入 Azure 中，就能将加密密钥上传到 Azure Key Vault，并继续针对本地使用的 VM 使用加密。 启用 Azure 磁盘加密即可处理此方案。
 

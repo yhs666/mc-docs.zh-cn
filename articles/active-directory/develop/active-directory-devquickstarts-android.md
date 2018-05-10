@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 origin.date: 11/30/2017
-ms.date: 01/17/2018
+ms.date: 05/04/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 8cd34603372bdff0e5338c984a3d074de541a28d
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: 99da7306694fb19b54ef5a67015df55844bd91fc
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-ad-android-getting-started"></a>Azure AD Android 入门
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -82,8 +82,8 @@ Active Directory 支持添加两种类型的应用程序：
 
 1. 将此存储库克隆到选择的目录：
 
-  `$ git clone git@github.com:AzureADSamples/NativeClient-Android.git`  
-2. 遵循[先决条件部分中的步骤为 Android 设置 Maven 环境](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android)。
+  `$ git clone https://github.com/Azure-Samples/active-directory-android.git`  
+2. 遵循[先决条件部分中的步骤为 Android 设置 Maven 环境](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Maven)。
 3. 使用 SDK 19 设置模拟器。
 4. 转到存储库克隆到的根文件夹。
 5. 运行以下命令：`mvn clean install`
@@ -102,12 +102,12 @@ Active Directory 支持添加两种类型的应用程序：
 - 如果使用的是 Android Studio，则可以使用 AAR 包格式并引用二进制文件。
 
 ### <a name="option-1-source-zip"></a>选项 1：源 Zip
-若要下载源代码副本，请单击页面右侧的单击“下载 ZIP”。 也可以[从 GitHub 下载](https://github.com/AzureAD/azure-activedirectory-library-for-android/archive/v1.0.9.tar.gz)。
+若要下载源代码副本，请单击页面右侧的单击“下载 ZIP”。 也可以[从 GitHub 下载](https://github.com/AzureAD/azure-activedirectory-library-for-android/releases)。
 
 ### <a name="option-2-source-via-git"></a>选项 2：通过 Git 获取源代码
 若要通过 Git 获取 SDK 的源代码，请键入：
 
-    git clone git@github.com:AzureAD/azure-activedirectory-library-for-android.git
+    git clone https://github.com/AzureAD/azure-activedirectory-library-for-android.git
     cd ./azure-activedirectory-library-for-android/src
 
 ### <a name="option-3-binaries-via-gradle"></a>选项 3：通过 Gradle 获取二进制文件
@@ -148,7 +148,7 @@ dependencies {
 可以从 maven 存储库获取 JAR 文件并将其放入项目的 **libs** 文件夹中。 同样，还需要将所需资源复制到项目，因为 JAR 包未包括它们。
 
 ## <a name="step-5-add-references-to-android-adal-to-your-project"></a>步骤 5：在项目中添加对 Android ADAL 的引用
-1. 添加对项目的引用，并将其指定为 Android 库。 如果不确定如何执行此操作，可以在 [Android Studio 站点](http://developer.android.com/tools/projects/projects-eclipse.html)上获取详细信息。
+1. 添加对项目的引用，并将其指定为 Android 库。 
 2. 在项目设置中添加用于调试的项目依赖关系。
 3. 更新项目的 AndroidManifest.xml 文件以包括：
 
@@ -168,7 +168,7 @@ dependencies {
             ....
         <application/>
 
-4. 在主要活动中创建 AuthenticationContext 的实例。 有关此调用的详细信息不在本主题的范围内，但可以通过查看 [Android 本机客户端示例](https://github.com/AzureADSamples/NativeClient-Android)来快速入门。 在下面的示例中，SharedPreferences 是默认缓存，机构采用 `https://login.partner.microsoftonline.cn/yourtenant.partner.onmschina.cn` 形式：
+4. 在主要活动中创建 AuthenticationContext 的实例。 有关此调用的详细信息不在本主题的范围内，但可以通过查看 [Android 本机客户端示例](https://github.com/AzureAD/azure-activedirectory-library-for-android)来快速入门。 在下面的示例中，SharedPreferences 是默认缓存，机构采用 `https://login.partner.microsoftonline.cn/yourtenant.partner.onmschina.cn` 形式：
 
     `mContext = new AuthenticationContext(MainActivity.this, authority, true); // mContext is a field in your activity`
 
@@ -233,27 +233,11 @@ dependencies {
 使用本演练后，应该会获得与 Azure Active Directory 成功集成所需的项目。 有关此工作的更多示例，请访问 GitHub 上的 AzureADSamples/ 存储库。
 
 ## <a name="important-information"></a>重要信息
-### <a name="customization"></a>自定义
-应用程序资源可以覆盖库项目资源。 这是在构建应用程序时发生的。 因此，可以使用所需的方式自定义身份验证活动布局。 务必要保留 ADAL 使用的控件的 ID (Webview)。
 
 ### <a name="broker"></a>代理
-Microsoft Intune 公司门户应用提供了代理组件。 帐户是在 AccountManager 中创建的。 帐户类型为“com.microsoft.workaccount”。 AccountManager 仅允许单个 SSO 帐户。 针对其中一个应用完成设备质询后，它会为此用户创建一个 SSO Cookie。
+Intune 公司门户或 Microsoft Authenticator 应用提供了代理组件。 帐户是在 AccountManager 中创建的。 帐户类型为“com.microsoft.workaccount”。 AccountManager 仅允许单个 SSO 帐户。 针对其中一个应用完成设备质询后，它会为此用户创建一个 SSO Cookie。
 
-如果在此验证器中创建了一个用户帐户并且你选择不跳过代理帐户，则 ADAL 将使用代理帐户。 可以使用以下方法跳过代理用户：
-
-   `AuthenticationSettings.Instance.setSkipBroker(true);`
-
-需要注册一个特殊的 RedirectUri 供代理使用。 RedirectUri 的格式为 `msauth://packagename/Base64UrlencodedSignature`。 可以使用脚本 brokerRedirectPrint.ps1 或者使用 API 调用 mContext.getBrokerRedirectUri 获取应用的 RedirectUri。 签名与签名证书相关。
-
-当前代理模型是针对单个用户的。 AuthenticationContext 提供了用于获取代理用户的 API 方法。
-
-   `String brokerAccount =  mContext.getBrokerUser(); //Broker user is returned if account is valid.`
-
-应用清单应当具有以下权限才能使用 AccountManager 帐户。 有关详细信息，请参阅 [Android 站点上的 AccountManager 信息](http://developer.android.com/reference/android/accounts/AccountManager.html)。
-
-- GET_ACCOUNTS
-- USE_CREDENTIALS
-- MANAGE_ACCOUNTS
+若要详细了解如何使用代理进行配置，请查看[代理 wiki 文章](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Broker)。 
 
 ### <a name="authority-url-and-ad-fs"></a>机构 URL 和 AD FS
 Active Directory 联合身份验证服务 (AD FS) 不会识别为生产 STS，因此，需要关闭实例发现，并在 AuthenticationContext 构造函数中传递 false。
@@ -288,69 +272,15 @@ ADAL 提供了用于指定提示行为的选项。 如果刷新令牌无效并�
 
 请注意，相关性 ID 是在库中进行诊断的关键所在。 如果想要在代码中将 ADAL 请求关联到其他操作，可以基于每个请求设置相关性 ID。 如果未设置相关性 ID，则 ADAL 将生成一个随机相关性 ID。 然后，会为所有日志消息和网络调用标上该相关性 ID。 每发出一个请求，自我生成的 ID 都会更改。
 
-#### <a name="exceptions"></a>异常
+#### <a name="errors--exceptions"></a>错误和异常
 异常是首选的诊断信息。 我们将尝试提供有用的错误消息。 如果发现某个错误消息没有作用，请记录相应的问题并告诉我们。 请提供设备信息，例如型号和 SDK 编号。
+
+若要详细了解你的应用应当处理哪些错误，请查看[错误处理最佳做法](/active-directory/develop/active-directory-devhowto-adal-error-handling)。 
 
 #### <a name="logs"></a>日志
 可以将库配置为生成有助于诊断问题的日志消息。 要配置日志记录，可以执行以下调用以配置一个回调，ADAL 将使用该回调来移交它所生成的每条日志消息。
 
-    Logger.getInstance().setExternalLogger(new ILogger() {
-        @Override
-        public void Log(String tag, String message, String additionalMessage, LogLevel level, ADALError errorCode) {
-        ...
-        // You can write this to log file depending on level or error code.
-        writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
-        }
-    }
-
-可以将消息写入到自定义日志文件，如以下代码所示。 遗憾的是，没有标准的方法可从设备中获取日志。 有些服务可帮助你实现此目的。 也可以创造自己的方法，例如，将文件发送到服务器。
-
-    private syncronized void writeToLogFile(Context ctx, String msg) {
-       File directory = ctx.getDir(ctx.getPackageName(), Context.MODE_PRIVATE);
-       File logFile = new File(directory, "logfile");
-       FileOutputStream outputStream = new FileOutputStream(logFile, true);
-       OutputStreamWriter osw = new OutputStreamWriter(outputStream);
-       osw.write(msg);
-       osw.flush();
-       osw.close();
-    }
-
-下面是日志记录级别：
-- Error（异常）
-- Warn（警告）
-- Info（信息用途）
-- Verbose（更多详细信息）
-
-可按如下所述设置日志级别：
-
-    Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
-
- 除了发送到任何自定义日志回调以外，所有日志消息还会发送到 logcat。
-可以如下所示将日志从 logcat 写入到文件中：
-
-    adb logcat > "C:\logmsg\logfile.txt"
-
- 有关 adb 命令的详细信息，请参阅 [Android 站点上的 logcat 信息](https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat)。
-
-#### <a name="network-traces"></a>网络跟踪
-可以使用各种工具来捕获 ADAL 生成的 HTTP 流量。  如果熟悉 OAuth 协议或者需要向 Microsoft 或其他支持渠道提供诊断信息，这会十分有用。
-
-Fiddler 是最方便的 HTTP 跟踪工具。 可以使用以下链接设置该工具以正确记录 ADAL 网络流量。 要使 Fiddler 或 Charles 之类的跟踪工具发挥作用，必须对其进行配置以记录未加密的 SSL 流量。  
-
-> [!NOTE]
-> 以这种方式生成的跟踪可能包含高特权信息，例如访问令牌、用户名和密码。 如果使用的是生产帐户，请不要与第三方共享这些跟踪。 如果需要向某人提供跟踪以便获得支持，请使用一个临时帐户再现问题，临时帐户包含你不介意共享的用户名和密码。
-
-- 从 Telerik 网站：[为 Android 设置 Fiddler](http://docs.telerik.com/fiddler/configure-fiddler/tasks/ConfigureForAndroid)
-- 从 GitHub：[为 ADAL 配置 Fiddler 规则](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/How-to-listen-to-httpUrlConnection-in-Android-app-from-Fiddler)
-
-### <a name="dialog-mode"></a>对话模式
-无活动的 acquireToken 方法支持对话提示。
-
-### <a name="encryption"></a>Encryption
-默认情况下，ADAL 会加密令牌并将其存储在 SharedPreferences 中。 可以查看 StorageHelper 类以了解详细信息。 Android 引入了 Android Keystore for 4.3 (API 18) 来安全地存储私钥。 ADAL 为 API 18 和更高版本使用该组件。 如果希望将 ADAL 用于较低的 SDK 版本，需要在 AuthenticationSettings.INSTANCE.setSecretKey 中提供一个密钥。
-
-### <a name="oauth2-bearer-challenge"></a>OAuth2 持有者质询
-AuthenticationParameters 类提供了通过 OAuth2 持有者质询获取 authorization_uri 的功能。
+若要启用日志记录，请查看[日志记录 wiki 文章](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/Logging)。
 
 ### <a name="session-cookies-in-webview"></a>WebView 中的会话 Cookie
 关闭应用后，Android WebView 不会清除会话 cookie。 可以使用以下示例代码处理此 cookie：
@@ -359,19 +289,6 @@ AuthenticationParameters 类提供了通过 OAuth2 持有者质询获取 authori
     CookieManager cookieManager = CookieManager.getInstance();
     cookieManager.removeSessionCookie();
     CookieSyncManager.getInstance().sync();
-
-有关 cookie 的详细信息，请参阅 [Android 站点上的 CookieSyncManager 信息](http://developer.android.com/reference/android/webkit/CookieSyncManager.html)。
-
-### <a name="resource-overrides"></a>资源重写
-ADAL 库包含以下 ProgressDialog 消息的英文字符串。 如果需要本地化的字符串，应用程序应覆盖这些英文字符串。
-
-     <string name="app_loading">Loading...</string>
-     <string name="broker_processing">Broker is processing</string>
-     <string name="http_auth_dialog_username">Username</string>
-     <string name="http_auth_dialog_password">Password</string>
-     <string name="http_auth_dialog_title">Sign In</string>
-     <string name="http_auth_dialog_login">Login</string>
-     <string name="http_auth_dialog_cancel">Cancel</string>
 
 ### <a name="ntlm-dialog-box"></a>NTLM 对话框
 ADAL 版本 1.1.0 支持通过 WebViewClient 中的 onReceivedHttpAuthRequest 事件处理的 NTLM 对话框。 可以为该对话框自定义布局和字符串。

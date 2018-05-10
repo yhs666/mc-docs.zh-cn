@@ -1,19 +1,20 @@
 ---
-title: Azure 快速入门 - 使用 Ruby 在 Azure 存储中上传、下载和列出 Blob | Azure
-description: 在本快速入门中，请创建存储帐户和容器。 然后，使用适用于 Ruby 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
+title: Azure 快速入门 - 使用 Ruby 在对象存储中创建 blob | Microsoft Docs
+description: 本快速入门将在对象 (Blob) 存储中创建存储帐户和容器。 然后，使用适用于 Ruby 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
-author: yunan2016
-manager: digimobile
+author: forester123
+manager: josefree
+ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 02/22/2018
-ms.date: 03/05/2018
-ms.author: v-nany
-ms.openlocfilehash: 53ecef621e45e3ab070427164d5f6bfd95b1a827
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+origin.date: 04/09/2018
+ms.date: 05/07/2018
+ms.author: v-johch
+ms.openlocfilehash: 3223b542a5408068390a170097293b0003889cf0
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>快速入门：使用 Ruby 上传、下载和列出 Blob
 
@@ -44,8 +45,10 @@ git clone https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git
 
 此命令会将存储库克隆到本地 git 文件夹。 若要打开 Ruby 示例应用程序，请查找 storage-blobs-ruby-quickstart 文件夹，然后打开 example.rb 文件。  
 
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
+
 ## <a name="configure-your-storage-connection-string"></a>配置存储连接字符串
-在应用程序中，必须提供存储帐户名称和帐户密钥，以创建应用程序的 `Client` 实例。 从 IDE 中的解决方案资源管理器打开 `example.rb` 文件。 将 accountname 和 accountkey 值分别替换为帐户名称和密钥。 
+在应用程序中，必须提供存储帐户名称和帐户密钥，以创建应用程序的 `BlobService` 实例。 从 IDE 中的解决方案资源管理器打开 `example.rb` 文件。 将 accountname 和 accountkey 值分别替换为帐户名称和密钥。 
 
 ```ruby 
 blob_client = Azure::Storage::Blob::BlobService.create(
@@ -195,3 +198,4 @@ File.delete(full_path_to_file2)
 
 
 若要详细了解存储资源管理器和 Blob，请参阅[使用存储资源管理器管理 Azure Blob 存储资源](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fstorage%2fblobs%2ftoc.json)。
+<!--Update_Description: add copy key in portal guide-->

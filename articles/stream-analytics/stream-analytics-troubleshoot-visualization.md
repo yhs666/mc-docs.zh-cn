@@ -1,26 +1,20 @@
 ---
-title: "流分析作业的可视化和故障排除 | Azure"
-description: "了解如何使用诊断关系图功能对自助服务的流分析作业管道的故障排除进行可视化。"
-keywords: 
-documentationcenter: 
+title: Azure 流分析作业的可视化和故障排除
+description: 本文介绍如何使用诊断关系图功能直观显示流分析作业、执行自助服务故障排除。
 services: stream-analytics
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: d87841cd-c59f-4a46-b46e-8b904fdc12e9
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 03/28/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3739d2cbf15440f47c0e430df3a88927381ddfc9
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 03/28/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: 9855ba85b70741ecccebfd2b120c1f5977c5bf49
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>流分析作业的可视化和故障排除
 与其他基于云的技术一样，在流分析中，故障排除有时需要深入了解作业没有生成预期的输出（或者是该问题的任何输出）的原因。 考虑到这一点，流分析提供了可视化流作业的功能。 该功能作为建模工具使用起来也很方便，并且对需要其工作文档的人员来说具有附带好处。
@@ -47,4 +41,4 @@ ms.lasthandoff: 09/28/2017
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties -->

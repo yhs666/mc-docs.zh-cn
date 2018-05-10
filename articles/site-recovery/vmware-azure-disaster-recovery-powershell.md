@@ -8,13 +8,13 @@ editor: raynew
 ms.service: site-recovery
 ms.topic: article
 origin.date: 03/05/2018
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: da8a162993eac54d0d3fa27c45608389805275c8
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: c7ee1d9d8e18f285dc1f27f4f5359750dbced487
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>使用 PowerShell 将 VMware VM 复制和故障转移到 Azure
 
@@ -116,6 +116,18 @@ ResourceName      ResourceGroupName ResourceNamespace          ResouceType
 ------------      ----------------- -----------------          -----------
 VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
 ```
+
+> [!TIP]
+> 除了使用 Set-ASRVaultContext cmdlet 之外，还可以使用 Import-AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet 设置保管库上下文。 将保管库注册密钥文件所在位置的路径指定为 Import-AzureRmRecoveryServicesAsrVaultSettingsFile cmdlet 的路径参数。
+>
+>例如：
+>
+>```azurepowershell
+>Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
+>
+>Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials"
+>```
+>
 
 本文的后续部分假设已为 Azure Site Recovery 操作设置保管库上下文。
 

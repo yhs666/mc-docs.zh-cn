@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/26/2017
-ms.date: 01/18/2018
+ms.date: 05/07/2018
 ms.author: v-nany
-ms.openlocfilehash: 145497c6632c289226cb3408f7e752b454d09629
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.openlocfilehash: 7a5fe8ca6f52de9fc78f0bac3f2d305592a7c273
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API
 
@@ -60,10 +60,10 @@ ms.lasthandoff: 05/03/2018
 
 |设置|示例|说明|
 |---|-------|-----|
-|Azure Active Directory 租户域|testazure11.partner.onmschina.cn|作为安全令牌服务 (STS) 终结点的 Azure AD 是使用以下格式创建的：https://login.partner.microsoftonline.cn/{your-aad-tenant-name.partner.onmschina.cn}/oauth2/token。 Azure AD 颁发用于访问资源的 JWT（一种访问令牌）。|
-|REST API 终结点|https://jasonms.restv2.chinanorth.media.chinacloudapi.cn/api/|这是应用程序中发出的所有媒体服务 REST API 调用所针对的终结点。|
-|客户端 ID（应用程序 ID）|4c9b254b-43f9-41be-8504-0e35333dcbf2|Azure AD 应用程序（客户端）ID。 需要提供客户端 ID 才能获取访问令牌。 |
-|客户端机密|104XwlvmQLqEk9wcavmYGxrRwET3uGMxKvHyflN6BtM=|Azure AD 应用程序密钥（客户端机密）。 需要提供客户端机密才能获取访问令牌。|
+|Azure Active Directory 租户域|microsoft.partner.onmschina.cn|作为安全令牌服务 (STS) 终结点的 Azure AD 是使用以下格式创建的：https://login.partner.microsoftonline.cn/{your-aad-tenant-name.partner.onmschina.cn}/oauth2/token。 Azure AD 颁发用于访问资源的 JWT（一种访问令牌）。|
+|REST API 终结点|https://amshelloworld.restv2.chinanorth.media.chinacloudapi.cn/api/|这是应用程序中发出的所有媒体服务 REST API 调用所针对的终结点。|
+|客户端 ID（应用程序 ID）|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 应用程序（客户端）ID。 需要提供客户端 ID 才能获取访问令牌。 |
+|客户端机密|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 应用程序密钥（客户端机密）。 需要提供客户端机密才能获取访问令牌。|
 
 ### <a name="get-aad-auth-info-from-the-azure-portal"></a>从 Azure 门户获取 AAD 身份验证信息
 

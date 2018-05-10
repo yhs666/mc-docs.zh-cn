@@ -1,25 +1,25 @@
 ---
-title: "使用 Azure Site Recovery 复制多层 SharePoint 应用程序 | Azure"
-description: "本文介绍如何使用 Azure Site Recovery 功能复制多层 SharePoint 应用程序。"
+title: 使用 Azure Site Recovery 复制多层 SharePoint 应用程序 | Azure
+description: 本文介绍如何使用 Azure Site Recovery 功能复制多层 SharePoint 应用程序。
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/23/2017
-ms.date: 03/05/2018
+origin.date: 04/09/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: a9e4c6da70e5ed05023d2ab9e77844c3bfbdb38c
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: eda81f8b931b8e4a748bc81e4d452968f6393d86
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 复制多层 SharePoint 应用程序以实现灾难恢复
 
@@ -203,4 +203,4 @@ Microsoft SharePoint 是一个功能强大的应用程序，可帮助小组或�
 ## <a name="next-steps"></a>后续步骤
 详细了解如何使用 Site Recovery [复制其他应用程序](site-recovery-workload.md)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

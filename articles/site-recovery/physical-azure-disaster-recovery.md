@@ -7,13 +7,13 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 03/08/2018
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: fa1b46372659a02759cbda1e8ae3ed5cddde940b
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 78d02b88d904d3f55b2696984cf102b26b34ea07
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>针对本地物理服务器设置到 Azure 的灾难恢复
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 03/28/2018
 请确保 Azure 帐户具有将 VM 复制到 Azure 的权限。
 
 - 查看将计算机复制到 Azure 所需的[权限](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)。
-- 验证和修改[基于角色的访问](../active-directory/role-based-access-control-configure.md)权限。 
+- 验证和修改[基于角色的访问](../role-based-access-control/role-assignments-portal.md)权限。 
 
 ### <a name="set-up-an-azure-network"></a>设置 Azure 网络
 
@@ -169,5 +169,4 @@ ms.lasthandoff: 03/28/2018
 ## <a name="next-steps"></a>后续步骤
 
 [运行灾难恢复演练](tutorial-dr-drill-azure.md)。
-<!-- Update_Description: new articles on physical azure disaster recovery  -->
-<!--ms.date: 04/02/2018-->
+<!-- Update_Description: update link, wording update -->

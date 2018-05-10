@@ -3,8 +3,8 @@ title: Azure AD Connect：支持的拓扑 | Microsoft Docs
 description: 本主题详细说明 Azure AD Connect 的受支持和不受支持的拓扑
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 11/22/2017
+origin.date: 02/27/2018
+ms.date: 05/03/2018
 ms.author: v-junlch
-ms.openlocfilehash: e71443d4c258cb67f5ccfe63397992488c9d9e3a
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 495910ef185ab334b97a5f59d28474bf2435d374
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓扑
 本文介绍了使用 Azure AD Connect 同步作为关键集成解决方案的各种本地拓扑和 Azure Active Directory (Azure AD) 拓扑。 此外，介绍支持和不支持的配置。
@@ -36,6 +36,11 @@ ms.lasthandoff: 04/16/2018
 | Azure AD Connect 同步服务器（详细说明） |![Azure AD Connect 同步服务器，详细说明](./media/active-directory-aadconnect-topologies/LegendSync4.png) |
 | Azure AD |![Azure Active Directory](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
 | 不支持的方案 |![不支持的方案](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
+
+
+> [!IMPORTANT]
+> Microsoft 不支持在正式记录的配置或操作之外修改或操作 Azure AD Connect 同步。 其中的任何配置或操作都可能会导致 Azure AD Connect 同步出现不一致或不受支持状态。因此，Microsoft 无法提供这种部署的技术支持。
+
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>单个林，单个 Azure AD 租户
 ![单个林和单个租户的拓扑](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)

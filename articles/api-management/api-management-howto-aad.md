@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Active Directory 授权开发人员帐户 - Azure API 管理"
-description: "了解如何在 API 管理中使用 Azure Active Directory 授权用户。"
+title: 使用 Azure Active Directory 授权开发人员帐户 - Azure API 管理
+description: 了解如何在 API 管理中使用 Azure Active Directory 授权用户。
 services: api-management
 documentationcenter: API Management
-author: juliako
+author: miaojiang
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/16/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: de46965d38f7b53e6162cc929b68b2263364a548
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 05/14/2018
+ms.openlocfilehash: 7cbd116e6e4c4c956bf921f421d9f69b4a05b4f2
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 授权开发人员帐户
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 03/12/2018
     此时将在右侧显示“创建”窗格。 可以在其中输入 Azure AD 应用相关信息。
 17. 输入应用程序的名称。
 18. 对于应用程序类型，选择“Web 应用/API”。
-19. 对于“登录 URL”，输入开发人员门户的登录 URL。 在此示例中，登录 URL 是：https://apimwithaad.portal.azure-api.cn/signin。
+19. 对于“登录 URL”，输入开发人员门户的登录 URL。 在此示例中，“登录 URL”为 https://apimwithaad.portal.azure-api.cn/signin。
 20. 选择“创建”以创建应用程序。
 21. 若要查找应用，请选择“应用注册”并按名称搜索。
 
@@ -107,7 +107,7 @@ ms.lasthandoff: 03/12/2018
 
     可在“允许的租户”部分中指定多个域。 在任何用户可以从注册应用程序的原始域以外的其他域登录之前，不同域的全局管理员必须先授予权限以使应用程序访问目录数据。 若要授予权限，全局管理员应：
     
-    a. 转到 `https://<URL of your developer portal>/aadadminconsent`（例如 https://contoso.portal.azure-api.cn/aadadminconsent）。
+    a. 转到 `https://<URL of your developer portal>/aadadminconsent`（例如，https://contoso.portal.azure-api.cn/aadadminconsent)。
     
     b. 键入他们想要授权访问的 Azure AD 租户域名。
     

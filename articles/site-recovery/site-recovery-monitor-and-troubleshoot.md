@@ -1,25 +1,25 @@
 ---
-title: "对 Azure Site Recovery 进行监视和故障排除 | Azure"
-description: "使用门户监视和排查 Azure Site Recovery 复制问题与操作"
+title: 对 Azure Site Recovery 进行监视和故障排除 | Azure
+description: 使用门户监视和排查 Azure Site Recovery 复制问题与操作
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: raynew
-ms.assetid: 
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 02/22/2018
-ms.date: 03/05/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1d9af7c02c67b213409550711321bec4db658222
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 5f1d52d4ae2b859baa53f55090a58a4ad43e1d96
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>对 Azure Site Recovery 进行监视和故障排除
 
@@ -244,5 +244,4 @@ Azure Site Recovery 以异步方式执行指定的操作。 可以执行的操�
 2. 在打开的事件页顶部的菜单中选择“电子邮件通知”。
 3. 使用电子邮件通知向导打开或关闭电子邮件通知，并选择通知收件人。 可以指定向所有订阅管理员发送通知，和/或提供要将通知发送到的电子邮件地址列表。
 
-<!-- Update_Description: new articles on site recovery monitor and troubleshoot -->
-<!--ms.date: 03/05/2018-->
+<!-- Update_Description: wording update, update meta propreties -->

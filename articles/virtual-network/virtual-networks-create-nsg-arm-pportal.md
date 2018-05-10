@@ -1,10 +1,10 @@
 ---
-title: "创建网络安全组 - Azure 门户 | Azure"
-description: "了解如何使用 Azure 门户创建和部署网络安全组。"
+title: 创建网络安全组 - Azure 门户 | Azure
+description: 了解如何使用 Azure 门户创建和部署网络安全组。
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 5bc8fc2e-1e81-40e2-8231-0484cd5605cb
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/04/2016
-ms.date: 12/16/2016
-ms.author: v-dazen
+ms.date: 05/07/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0a7794c339977d9a79a89d2b7bd24b25bf751e81
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: e462971538038ad34da8a46b96a88d50a3a81ac2
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-portal"></a>使用 Azure 门户创建网络安全组
 
@@ -35,12 +35,12 @@ ms.lasthandoff: 11/02/2017
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-以下示例 PowerShell 命令需要基于以上方案创建的简单环境。 要运行本文档中所显示的命令，请首先通过部署[此模板](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd)构建测试环境，单击“**部署至 Azure**”，根据需要替换默认参数值，然后按照门户中的说明进行操作。 下面的步骤使用 **RG-NSG** 作为模板部署到的资源组的名称。
+以下示例 PowerShell 命令需要基于以上方案创建的简单环境。 如果要运行本文档中所显示的命令，请首先通过部署[此模板](https://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd)构建测试环境，单击“**部署至 Azure**”，根据需要替换默认参数值，并按照门户中的说明进行操作。 下面的步骤使用 **RG-NSG** 作为模板部署到的资源组的名称。
 
 ## <a name="create-the-nsg-frontend-nsg"></a>创建 NSG-FrontEnd NSG
 若要如上述方案所示创建 **NSG-FrontEnd** NSG，请按照以下步骤进行操作。
 
-1. 从浏览器导航到 http://portal.azure.cn，并在必要时用 Azure 帐户登录。
+1. 在浏览器中导航到 http://portal.azure.cn，并在必要时使用 Azure 帐户登录。
 2. 单击“浏览” > “网络安全组”。
 
     ![Azure 门户 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
@@ -54,7 +54,7 @@ ms.lasthandoff: 11/02/2017
 ## <a name="create-rules-in-an-existing-nsg"></a>在现有 NSG 中创建规则
 若要通过 Azure 门户在现有 NSG 中创建规则，请按照以下步骤进行操作。
 
-1. 单击“浏览” > “网络安全组”。
+1. 单击“**浏览**” > “**网络安全组**”。
 2. 在 NSG 列表中，单击“NSG-FrontEnd” > “入站安全规则”
 
     ![Azure 门户 - NSG-FrontEnd](./media/virtual-networks-create-nsg-arm-pportal/figure2.png)
@@ -95,3 +95,5 @@ ms.lasthandoff: 11/02/2017
 ## <a name="next-steps"></a>后续步骤
 * 了解如何[管理现有 NSG](virtual-network-manage-nsg-arm-portal.md)
 <!--Not Available * [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.-->
+<!--The parent file of includes file of virtual-networks-create-nsg-intro-include.md-->
+<!--ms.date:05/07/2018-->

@@ -1,26 +1,20 @@
 ---
-title: "使用作业关系图进行 Azure 流分析数据驱动调试 | Azure"
-description: "使用作业关系图和指标进行流分析作业故障排除。"
-keywords: 
-documentationcenter: 
+title: Azure 流分析中的数据驱动调试
+description: 本文介绍如何使用 Azure 门户中的作业关系图和指标对 Azure 流分析作业进行故障排除。
 services: stream-analytics
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 05/01/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: b5ec51e331f41c1214eac16f2219ff0e1cfb1348
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 05/01/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: 2beb0361aade0d29c708b47bc4339b3fe50e3de5
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>使用作业关系图进行数据驱动调试
 
@@ -86,7 +80,7 @@ QueryLastProcessedTime 指标指示特定步骤收到数据的时间。 通过�
 *   **InputEventsSourcesBackloggedTotal** 告知还需要为事件中心和 Azure IoT 中心输入读取多少条消息。
 
 ## <a name="get-help"></a>获取帮助
-若需更多帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
+若要获取更多帮助，请访问我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
 
 ## <a name="next-steps"></a>后续步骤
 * [流分析简介](stream-analytics-introduction.md)
@@ -95,4 +89,4 @@ QueryLastProcessedTime 指标指示特定步骤收到数据的时间。 通过�
 * [流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

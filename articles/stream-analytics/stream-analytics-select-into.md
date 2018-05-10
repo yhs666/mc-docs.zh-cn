@@ -1,26 +1,20 @@
 ---
-title: "使用 SELECT INTO 调试 Azure 流分析查询 | Azure"
-description: "在流分析中使用 SELECT INTO 语句进行数据中间查询的示例"
-keywords: 
+title: 使用 SELECT INTO 调试 Azure 流分析查询
+description: 本文介绍如何通过在查询语法中使用 SELECT INTO 语句，在 Azure 流分析作业中抽样中间查询数据。
 services: stream-analytics
-documentationcenter: 
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: 9952e2cf-b335-4a5c-8f45-8d3e1eda2e20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 04/20/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: e3a6a4d120f4686971c8b73ba44e74ccc5ca4832
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 04/20/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: b2f3ec386cb6042dab37a431e24c3955509b2551
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="debug-queries-by-using-select-into-statements"></a>使用 SELECT INTO 语句调试查询
 
@@ -74,7 +68,7 @@ ms.lasthandoff: 09/28/2017
 
 ## <a name="get-help"></a>获取帮助
 
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
 
 ## <a name="next-steps"></a>后续步骤
 

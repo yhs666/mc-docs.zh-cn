@@ -3,8 +3,8 @@ title: 在 Visual Studio 中使用连接服务添加 Azure Active Directory | Mi
 description: 使用 Visual Studio 中的“添加连接服务”对话框添加 Azure Active Directory
 services: visual-studio-online
 documentationcenter: na
-author: yunan2016
-manager: digimobile
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/12/2018
-ms.date: 04/09/2018
-ms.author: v-nany
-ms.openlocfilehash: f8dbfc06b4abc154e13b75003c09ae92b409c9d2
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.date: 05/04/2018
+ms.author: v-junlch
+ms.openlocfilehash: b2ca2474d1de1ce67e1b5a7525395ce67c293164
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>在 Visual Studio 中使用连接服务添加 Azure Active Directory
 
@@ -77,3 +77,5 @@ ms.lasthandoff: 04/16/2018
 
 - [Azure Active Directory 的身份验证方案](active-directory-authentication-scenarios.md)
 - [向 ASP.NET Web 应用添加 Microsoft 登录功能](guidedsetups/active-directory-aspnetwebapp-v1.md)
+
+<!-- Update_Description: update metedata properties -->

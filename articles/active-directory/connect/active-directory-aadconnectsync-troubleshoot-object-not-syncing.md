@@ -3,8 +3,8 @@ title: 针对对象无法同步到 Azure AD 进行故障排除 | Microsoft Docs
 description: 针对对象无法同步到 Azure AD 进行故障排除。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 3/5/2018
+ms.date: 05/03/2018
 ms.author: v-junlch
-ms.openlocfilehash: 452d3c9341a08f9dbd3345835108e8a33e6fdbee
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: 358361c6ffa58365c5dfac0fcad080dbd3476245
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>对未同步到 Azure AD 的对象进行故障排除
 
-如果某个对象没有按预期同步到 Azure AD，则可能有多种原因。 如果从 Azure AD 收到错误电子邮件或者在 Azure AD Connect Health 中看到错误，请改为阅读[排查导出错误](active-directory-aadconnect-troubleshoot-sync-errors.md)。 但如果是要排查不在 Azure AD 中的对象的问题，则本主题适用于你。 它介绍了如何在本地组件 Azure AD Connect 同步中查找错误。
+如果某个对象没有按预期同步到 Azure AD，则可能有多种原因。 如果从 Azure AD 收到错误电子邮件，请改为阅读[排查导出错误](active-directory-aadconnect-troubleshoot-sync-errors.md)。 但如果是要排查不在 Azure AD 中的对象的问题，则本主题适用于你。 它介绍了如何在本地组件 Azure AD Connect 同步中查找错误。
 
 >[!IMPORTANT]
 >对于 <verison> 或更高版本的 Azure Active Directory (AAD) Connect 部署，请使用向导中的[故障排除任务](active-directory-aadconnect-troubleshoot-objectsync.md)来排查对象同步问题。 
@@ -60,7 +60,7 @@ ms.lasthandoff: 03/19/2018
 
 首先单击错误字符串（图中的 **sync-rule-error-function-triggered**）。 随后会先看到对象概述。 若要查看实际的错误，可单击“堆栈跟踪”按钮。 此跟踪提供错误的调试级别信息。
 
-可以在“调用堆栈信息”框中单击右键，然后依次选择“全选”、“复制”。 接着可以复制堆栈，并在最喜爱的编辑器（例如记事本）中查看此错误。
+可以在**调用堆栈信息**框中单击右键，然后依次选择**全选**、**复制**。 接着可以复制堆栈，并在最喜爱的编辑器（例如记事本）中查看此错误。
 
 - 如果错误来自 **SyncRulesEngine**，则调用堆栈信息首先会列出对象上的所有属性。 向下滚动，直到看到 **InnerException =>** 标题为止。  
   ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/errorinnerexception.png)  
@@ -82,7 +82,7 @@ ms.lasthandoff: 03/19/2018
 
 另一种有用的搜索是选择 Azure AD 连接器，在“作用域”中，选择“挂起的导入”，然后选中“添加”复选框。 此搜索提供 Azure AD 中不能与本地对象相关联的所有已同步对象。  
 ![连接器空间搜索孤立](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
-这些对象已由其他同步引擎或具有不同筛选配置的同步引擎创建。 此视图是不再托管的**孤立**对象的列表。 应查看此列表并考虑使用 [Azure AD PowerShell](http://aka.ms/aadposh) cmdlet 删除这些对象。
+这些对象已由其他同步引擎或具有不同筛选配置的同步引擎创建。 此视图是不再托管的**孤立**对象的列表。 应查看此列表并考虑使用 [Azure AD PowerShell](https://aka.ms/aadposh) cmdlet 删除这些对象。
 
 ### <a name="cs-import"></a>CS 导入
 打开 cs 对象时，顶端会出现数个选项卡。 “导入”选项卡显示导入后暂存的数据。  
@@ -100,7 +100,7 @@ ms.lasthandoff: 03/19/2018
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cslineageout.png)  
 在“PasswordSync”列中，还会发现入站连接器空间可进行密码更改，因为有一个同步规则的值为 **True**。 此密码接着会通过出站规则发送到 Azure AD。
 
-从“沿袭”选项卡中，可以单击[Metaverse 对象属性](#mv-attributes)转到 Metaverse。
+从“沿袭”选项卡中，可以单击[Metaverse 对象属性”转到 Metaverse](#mv-attributes)。
 
 所有选项卡的底部都有两个按钮：“预览”和“日志”。
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 03/19/2018
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
 
 ### <a name="log"></a>日志
-“日志”页用来查看密码同步状态和历史记录。 有关详细信息，请参阅[排查密码同步问题](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)。
+“日志”页用来查看密码同步状态和历史记录。 有关详细信息，请参阅[排查密码哈希同步问题](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md)。
 
 ## <a name="metaverse-object-properties"></a>Metaverse 对象属性
 通常，最好从源 Active Directory [连接器空间](#connector-space)开始搜索。 但是也可以从 metaverse 开始搜索。
@@ -149,3 +149,4 @@ ms.lasthandoff: 03/19/2018
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
+<!-- Update_Description: wording update -->

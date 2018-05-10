@@ -12,15 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/04/2017
-ms.date: 03/05/2018
+ms.date: 05/04/2018
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: 41cbf5adaaf1dd21e3628636bca6e623ba396e3d
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: 3264ef1fe7831425d5d402ce8b6e803dc9a6154a
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>将应用程序与 Azure Active Directory 集成
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]

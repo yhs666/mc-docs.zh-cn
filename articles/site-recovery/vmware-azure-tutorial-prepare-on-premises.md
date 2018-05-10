@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 03/15/2018
-ms.date: 04/02/2018
+origin.date: 04/08/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: fbbeda676eefb3b4ab462c0b3122992a551e634d
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: d212028187e7b3332c48d19780b47b27a0507d25
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>准备本地 VMware 服务器用于灾难恢复到 Azure
 
@@ -26,9 +26,11 @@ ms.lasthandoff: 03/28/2018
 > * 查看 VMware 服务器要求
 > * 查看 VMware VM 要求
 
-在本教程系列中，我们演示如何使用 Azure Site Recovery 备份单个 VM。 如果你计划保护多个 VMware VM，则应下载[部署规划器工具](https://aka.ms/asr-deployment-planner)用于 VMware 复制。 此工具可以收集有关 VM 兼容性、每个 VM 的磁盘以及每个磁盘数据变化的信息。 该工具还介绍了成功复制和测试故障转移的网络带宽要求，以及所需的 Azure 基础结构。 [详细了解](site-recovery-deployment-planner.md)如何运行此工具。
+在本教程系列中，我们演示如何使用 Azure Site Recovery 复制单个 VM。 
 
 这是教程系列中的第二个教程。 请确保你已[设置 Azure 组件](tutorial-prepare-azure.md)，如上一个教程中所述。
+
+如果要复制多个 VM，请下载[部署规划器工具](https://aka.ms/asr-deployment-planner)，以便进行 VMware 复制。 [了解详细信息](site-recovery-deployment-planner.md)。
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>为自动发现准备帐户
 
@@ -92,4 +94,4 @@ Site Recovery 需要访问 VMware 服务器，才能够：
 > [!div class="nextstepaction"]
 > [针对 VMware VM 设置到 Azure 的灾难恢复](vmware-azure-tutorial.md)
 
-<!-- Update_Description: wording update, update link, update link -->
+<!-- Update_Description: wording update, update link -->

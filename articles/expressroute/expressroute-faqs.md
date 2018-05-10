@@ -4,7 +4,7 @@ description: ExpressRoute 常见问题包含有关支持的 Azure 服务、费�
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/17/2018
+origin.date: 04/09/2018
 ms.author: v-yiso
-ms.date: 03/12/2018
-ms.openlocfilehash: 3948e123e80d1d29e72f3bcc82fb98424d3e7d80
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 05/14/2018
+ms.openlocfilehash: df57c77c67bce0f603b3bf82862831cb65592af1
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -61,13 +61,19 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 * 虚拟网络，包括所有虚拟机和云服务
 
 ### <a name="public-peering"></a>公共对等互连
+
+>[!NOTE]
+>Microsoft 对等互连是访问 Azure 上托管的所有服务的首选方式。
+>
+
 * Power BI
 * Dynamics 365 for Finance and Operations（以前称为 Dynamics AX Online）
-* 大多数 Azure 服务，但存在以下几种例外情况：
-  * CDN
-  * Visual Studio Team Services 负载测试
-  * 多重身份验证
-  * 流量管理器
+* 支持大多数 Azure 服务。 请直接对要使用的服务进行确认来验证是否支持。<br>
+  不支持以下服务：
+    * CDN
+    * Visual Studio Team Services 负载测试
+    * 多重身份验证
+    * 流量管理器
 
 ### <a name="microsoft-peering"></a>Microsoft 对等互连
 
@@ -80,7 +86,8 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 * 使用[路由筛选器](#route-filters-for-microsoft-peering)，可以访问与使用 Microsoft 对等互连时相同的公共服务：
   * Power BI
   * Dynamics 365 for Finance and Operations
-  * 大多数 Azure 服务，但存在以下几种例外情况：
+  * 支持大多数 Azure 服务。 请直接对要使用的服务进行确认来验证是否支持。<br>
+  不支持以下服务：
     * CDN
     * Visual Studio Team Services 负载测试
     * 多重身份验证
@@ -200,7 +207,7 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>为什么有一个公共 IP 地址与虚拟网络上的 ExpressRoute 网关相关联？
 
-公共 IP 地址仅用于内部管理。 此公共 IP 地址不会在 Internet 上公开，因此不会给虚拟网络带来安全隐患。
+此公共 IP 地址仅用于内部管理，不会给虚拟网络带来安全隐患。
 
 ### <a name="what-do-i-need-to-connect-to-azure-storage-over-expressroute"></a>通过 ExpressRoute 连接到 Azure 存储需要执行哪些操作？
 必须建立 ExpressRoute 线路并为公共对等互连配置路由。

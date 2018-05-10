@@ -5,21 +5,16 @@ services: site-recovery
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-origin.date: 02/27/2018
-ms.date: 04/02/2018
+origin.date: 03/24/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 576058b36ed8a57fa97e5da3129d359c2f9f1f40
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 11e573611cdedf6d80f7ff97d83a83ed3d0a9dd2
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>设置在故障转移到 Azure 后要连接的 IP 地址
 
@@ -49,7 +44,7 @@ Site Recovery 支持在通过子网故障转移到 Azure 时保留固定的 IP �
 
 ### <a name="failover-example"></a>故障转移示例
 
-我们来看一个使用虚构公司 Woodgrove Bank 故障转移到 Azure 的示例。
+我们来看一个故障转移到 Azure 的示例，这里采用一个虚构的公司：Woodgrove Bank。
 
 - Woodgrove Bank 在本地站点中托管商业应用程序。 它们在 Azure 上托管其移动应用。
 - 其本地边缘网络和 Azure 虚拟网络之间存在 VPN 站点到站点连接。 由于存在 VPN 连接，Azure 中的虚拟网络显示为本地网络的扩展。
@@ -85,4 +80,4 @@ Site Recovery 支持在通过子网故障转移到 Azure 时保留固定的 IP �
 ## <a name="next-steps"></a>后续步骤
 [运行故障转移](site-recovery-failover.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

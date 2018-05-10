@@ -1,10 +1,10 @@
 ---
-title: "Azure AD Connect：用户登录 | Microsoft Docs"
-description: "Azure AD Connect 用户登录的自定义设置。"
+title: Azure AD Connect：用户登录 | Microsoft Docs
+description: Azure AD Connect 用户登录的自定义设置。
 services: active-directory
-documentationcenter: 
-author: alexchen2016
-manager: digimobile
+documentationcenter: ''
+author: billmath
+manager: mtillman
 editor: curtand
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2017
-ms.date: 12/25/2017
+ms.date: 05/03/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9c81270bd59bc9ac9028218a89dcdc617113bce4
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 7313c29d1e855f5a271b46d67f3e005bd29c4662
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 用户登录选项
 Azure Active Directory (Azure AD) Connect 可让用户使用同一组密码登录云和本地资源。 本文介绍每个标识模型的重要概念，以帮助你选择登录到 Azure AD 时想要使用的标识。
@@ -50,7 +50,7 @@ Azure Active Directory (Azure AD) Connect 可让用户使用同一组密码登�
 凭借密码哈希同步，可将用户密码的哈希从本地 Active Directory 同步到 Azure AD。 当在本地更改或重置密码时，新密码哈希将立即同步到 Azure AD，以便用户始终可用相同密码访问云资源与本地资源。 密码绝不会被发送到 Azure AD，也不会以明文的形式存储在 Azure AD 中。 你可将密码哈希同步与密码写回一起使用，以在 Azure AD 中启用自助密码重置。
 ![密码哈希同步](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-有关详细信息，请参阅[密码哈希同步](active-directory-aadconnectsync-implement-password-synchronization.md)一文。
+有关详细信息，请参阅[密码哈希同步](active-directory-aadconnectsync-implement-password-hash-synchronization.md)一文。
 
 ### <a name="federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2"></a>在 Windows Server 2012 R2 中使用新的或现有 AD FS 场进行联合身份验证
 凭借联合登录，用户可以使用其本地密码登录到 Azure 基于 AD 的服务。 当用户处于企业网络上时，他们甚至无需输入其密码。 使用 AD FS 的联合身份验证选项，可在 Windows Server 2012 R2 中部署新的或现有的 AD FS 场。 如果选择指定现有场，Azure AD Connect 将在场与 Azure AD 之间配置信任，使你的用户能够登录。

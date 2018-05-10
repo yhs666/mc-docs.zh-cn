@@ -1,3 +1,5 @@
+# [移动应用文档](index.md)
+
 # 概述
 ## [什么是移动应用？](app-service-mobile-value-prop.md)
 ## [应用服务计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fapp-service-mobile%2ftoc.json)
@@ -84,7 +86,7 @@
 
 ### [克隆现有应用](../app-service/app-service-web-app-cloning.md?toc=%2fapp-service-mobile%2ftoc.json)
 ### [Azure 虚拟网络](../app-service/web-sites-integrate-with-vnet.md?toc=%2fapp-service-mobile%2ftoc.json)
-### [资源组](../app-service/app-service-move-resources.md?toc=%2fapp-service-mobile%2ftoc.json)
+### [资源组](../azure-resource-manager/resource-group-move-resources.md?toc=%2fapp-service-mobile%2ftoc.json#app-service-limitations)
 #### [使用 Web 作业运行后台任务](../app-service/web-sites-create-web-jobs.md?toc=%2fapp-service-mobile%2ftoc.json)
 ## 迁移
 ### [应用服务与移动服务相比如何？](app-service-mobile-value-prop-migration-from-mobile-services.md)
@@ -94,7 +96,6 @@
 #### [Node.js backend](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
 ## 安全
-### [身份验证和授权](../app-service/app-service-authentication-overview.md?toc=%2fapp-service-mobile%2ftoc.json)
 ### 使用标识提供者进行身份验证
 #### [Azure Active Directory 身份验证](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fapp-service-mobile%2ftoc.json)
 #### [Microsoft 帐户身份验证](../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fapp-service-mobile%2ftoc.json)
@@ -104,7 +105,7 @@
 #### [使用在其他位置获取的 SSL 证书](../app-service/app-service-web-tutorial-custom-ssl.md?toc=%2fapp-service-mobile%2ftoc.json)
 
 
-## 备份
+## Backup
 ### [在 Azure 中备份应用](../app-service/web-sites-backup.md?toc=%2fapp-service-mobile%2ftoc.json)
 ### [在 Azure 中还原应用](../app-service/web-sites-restore.md?toc=%2fapp-service-mobile%2ftoc.json)
 
@@ -119,6 +120,7 @@
 ### 移动应用常规故障排除
 #### [.NET 后端](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-debug-and-troubleshoot-the-net-server-sdk)
 #### [Node.JS 后端](app-service-mobile-node-backend-how-to-use-server-sdk.md#Debugging)
+### [启用诊断日志记录](../app-service/web-sites-enable-diagnostic-log.md?toc=%2fapp-service-mobile%2ftoc.json)
 ### [使用 Visual Studio 排除故障](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fapp-service-mobile%2ftoc.json)
 
 # 参考
@@ -135,8 +137,8 @@
 # 资源
 ## [应用服务最佳实践](../app-service/app-service-best-practices.md?toc=%2fapp-service-mobile%2ftoc.json)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
-## [定价](https://azure.microsoft.com/en-us/pricing/details/app-service/)
-## [服务更新](https://azure.microsoft.com/updates/?product=mobile-services)
+## [价格](https://www.azure.cn/zh-cn/pricing/details/app-service/)
+## [定价计算器](https://www.azure.cn/zh-cn/pricing/calculator/)
 
 ## 示例
 ### [Field Engineer](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)

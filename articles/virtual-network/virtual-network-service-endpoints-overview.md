@@ -1,26 +1,26 @@
 ---
-title: "Azure 虚拟网络服务终结点 | Azure"
-description: "了解如何使用服务终结点通过虚拟网络直接访问 Azure 资源。"
+title: Azure 虚拟网络服务终结点 | Azure
+description: 了解如何使用服务终结点通过虚拟网络直接访问 Azure 资源。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/07/2018
-ms.date: 03/12/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.custom: 
-ms.openlocfilehash: 3f0764bd277b6c712bc34d88afbb3efb07eee3fc
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.custom: ''
+ms.openlocfilehash: 41d059b14645f5e5abb33d87467e926d21ae8b87
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>虚拟网络服务终结点
 
@@ -30,6 +30,7 @@ ms.lasthandoff: 03/12/2018
 
 - **Azure 存储**：已正式发布。 Azure 公有云和 Azure 政府中的所有区域。
 - **Azure SQL 数据库**：在所有 Azure 区域正式发布。 
+<!-- Not Available on - **Azure SQL Data Warehouse**: Preview. All regions in the Azure public cloud. -->
 
 有关预览版的最新通知，请查看 [Azure 虚拟网络更新](https://www.azure.cn/what-is-new/)页。
 
@@ -90,6 +91,7 @@ ms.lasthandoff: 03/12/2018
 - **对等互连的、连接的或多个虚拟网络**：若要在一个虚拟网络中的多个子网内或者跨多个虚拟网络保护 Azure 服务，可以针对每个子网单独启用服务终结点，在所有子网中保护 Azure 服务资源。
 - **筛选从虚拟网络发往 Azure 服务的出站流量**：如果想要检查或筛选从虚拟网络发往 Azure 服务的流量，可在该虚拟网络中部署网络虚拟设备。 然后，可将服务终结点应用到部署了网络虚拟设备的子网，只在该子网中保护 Azure 服务资源。 如果希望使用网络虚拟设备筛选将从虚拟网络发起的 Azure 服务访问限制为特定的 Azure 资源，此方案可能很有帮助。 有关详细信息，请阅读[网络虚拟设备出口](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fvirtual-network%2ftoc.json)一文。
 - **在直接部署到虚拟网络的服务中保护 Azure 资源**：可将各种 Azure 服务直接部署到虚拟网络中的特定子网。 可以通过在托管服务子网上设置服务终结点，在[托管服务](virtual-network-for-azure-services.md)子网中保护 Azure 服务资源。
+- **来自 Azure 虚拟机的磁盘流量**：托管/非托管磁盘的虚拟机磁盘流量（包括装载和卸载 diskIO），不受路由 Azure 存储更改的服务终结点影响。 可以通过服务终结点和 [Azure 存储网络规则](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json)限制对页 blob 的 REST 访问以选择网络。 
 
 ### <a name="logging-and-troubleshooting"></a>日志记录和故障排除
 
@@ -108,7 +110,7 @@ ms.lasthandoff: 03/12/2018
 
 对虚拟网络拥有写入访问权限的用户可在虚拟网络上单独配置服务终结点。 若要在 VNet 中保护 Azure 服务资源，用户必须对所添加的子网拥有 *Microsoft.Network/JoinServicetoaSubnet* 权限。 此权限默认包含在内置的服务管理员角色中，可以通过创建自定义角色进行修改。
 
-详细了解[内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json)以及将特定的权限分配到[自定义角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
+详细了解[内置角色](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json)以及将特定的权限分配到[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 
 虚拟网络和 Azure 服务资源可以位于相同或不同的订阅中。 如果虚拟网络和 Azure 服务资源位于不同的订阅中，资源必须在相同的 Active Directory (AD) 租户下。 
 
@@ -122,7 +124,7 @@ ms.lasthandoff: 03/12/2018
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解如何[配置虚拟网络服务终结点](virtual-network-service-endpoints-configure.md)
+- 了解如何[配置虚拟网络服务终结点](tutorial-restrict-network-access-to-resources.md)
 - 了解如何[在虚拟网络中保护 Azure 存储帐户](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json)
 - 了解如何[在虚拟网络中保护 Azure SQL 数据库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)
 - 了解[虚拟网络中的 Azure 服务集成](virtual-network-for-azure-services.md)

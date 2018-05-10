@@ -1,25 +1,25 @@
 ---
-title: "使用 Azure Site Recovery 复制采用 SQL Server 的应用程序 | Microsoft Docs"
-description: "本文介绍了如何使用针对 SQL Server 的 Azure Site Recovery 灾难功能来复制 SQL Server。"
+title: 使用 Azure Site Recovery 复制采用 SQL Server 的应用程序 | Microsoft Docs
+description: 本文介绍了如何使用针对 SQL Server 的 Azure Site Recovery 灾难功能来复制 SQL Server。
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/13/2017
-ms.date: 01/22/2018
+origin.date: 04/09/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: dba8e6bf240de76c3da1f65899f1fdcc3faba494
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+ms.openlocfilehash: 2e59cfa73d494353476089bf744abd824f010f13
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>使用 SQL Server 灾难恢复和 Azure Site Recovery 来保护 SQL Server
 
@@ -200,4 +200,4 @@ SQL Always On 无法原生支持测试性故障转移。 因此，我们建议�
 ## <a name="next-steps"></a>后续步骤
 [详细了解](site-recovery-components.md) Site Recovery 体系结构。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

@@ -2,36 +2,37 @@
 
 # 概述
 ## [什么是流分析？](stream-analytics-introduction.md)
-## [Storm 与流分析的比较](stream-analytics-comparison-storm.md)
 
-# 入门
-## [处理 IoT 流式处理数据](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
-## [实时欺诈检测](stream-analytics-real-time-fraud-detection.md)
-<!-- Not Available ## [Analyze data with Power BI](stream-analytics-power-bi-dashboard.md) -->
+# 快速入门
+<!-- Not Available on ## [Create a job - Azure portal](stream-analytics-quick-create-portal.md) -->
+## [创建作业 - PowerShell](stream-analytics-quick-create-powershell.md)
+
+<!-- Not Available on # Tutorials -->
+<!-- Not Available on ## [1 - Create / manage a job](stream-analytics-manage-job.md) -->
+<!-- Not Available on ## [2 - Run Azure Functions](stream-analytics-with-azure-functions.md) -->
+<!-- Not Available on ## [Analyze data with Power BI](stream-analytics-power-bi-dashboard.md) -->
+
+<!-- Not Available on # Samples-->
 
 # 概念
-## 作业的输入类型
+## [作业的输入类型](stream-analytics-add-inputs.md)
 ### [流式数据输入](stream-analytics-define-inputs.md)
 ### [参考数据输入](stream-analytics-use-reference-data.md)
 ## [作业的输出类型](stream-analytics-define-outputs.md)
+<!-- Not Available on ### [Output to Cosmos DB](stream-analytics-documentdb-output.md)-->
 ## [窗口函数](stream-analytics-window-functions.md)
-<!-- Not Avaialable ## [Compatibility level](stream-analytics-compatibility-level.md) -->
+<!-- Not Available on ## [Compatibility level](stream-analytics-compatibility-level.md) -->
 ## [通用查询模式](stream-analytics-stream-analytics-query-patterns.md)
 ## [事件排序注意事项](stream-analytics-out-of-order-and-late-events.md)
 
 # 操作方法指南
 
-## 创建作业
-### [测试查询和示例输入数据](stream-analytics-sample-data-input.md)
-### [测试查询](stream-analytics-test-query.md)
-### [运行 JavaScript UDF](stream-analytics-javascript-user-defined-functions.md)
-<!-- Not Available ### [Output to Data Lake Store](stream-analytics-data-lake-output.md) -->
-<!-- Not Available ### [Output to Cosmos DB](stream-analytics-documentdb-output.md) -->
-<!-- Not Available ### [Configure alerts](stream-analytics-set-up-alerts.md) -->
-
 ## 管理
 <!-- Not Available ### [Update a job](stream-analytics-job-reliability.md) -->
 ### [更新凭据](stream-analytics-login-credentials-inputs-outputs.md)
+<!-- Not Available ### [Configure alerts](stream-analytics-set-up-alerts.md) -->
+### [测试作业](stream-analytics-test-query.md)
+<!-- Not Available ### [View results on a dashboard](stream-analytics-power-bi-dashboard.md) -->
 
 ## 构建解决方案
 <!-- Not Available ### [Twitter sentiment analysis](stream-analytics-twitter-sentiment-analysis-trends.md) -->

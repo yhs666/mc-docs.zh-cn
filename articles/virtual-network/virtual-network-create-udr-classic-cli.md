@@ -14,20 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2dcf0611bf43763a36d6cefa9eb67c5d98da89c4
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: aec4df7795c62490f20cabf72de1effb1c163058
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>使用 Azure CLI 控制路由和使用虚拟设备（经典）
 
 > [!div class="op_single_selector"]
 > * [PowerShell](tutorial-create-route-table-powershell.md)
 > * [Azure CLI](tutorial-create-route-table-cli.md)
-> * [模板](virtual-network-create-udr-arm-template.md)
 > * [PowerShell（经典）](virtual-network-create-udr-classic-ps.md)
 > * [CLI（经典）](virtual-network-create-udr-classic-cli.md)
 
@@ -138,4 +137,6 @@ ms.lasthandoff: 03/28/2018
     ```azurecli
     azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
     ```
-<!-- Update_Description: update meta properties, wording update, update link -->
+
+<!--The parent file of includes file of virtual-network-create-udr-scenario-include.md-->
+<!--ms.date:05/07/2018-->

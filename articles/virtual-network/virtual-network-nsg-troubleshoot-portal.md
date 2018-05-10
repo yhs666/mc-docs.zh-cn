@@ -1,11 +1,11 @@
 ---
-title: "排查网络安全组问题 - 门户 | Azure"
-description: "了解如何使用 Azure 门户在 Azure Resource Manager 部署模型中排查网络安全组问题。"
+title: 排查网络安全组问题 - 门户 | Azure
+description: 了解如何使用 Azure 门户在 Azure Resource Manager 部署模型中排查网络安全组问题。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/23/2016
-ms.date: 03/12/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 035cced6db2635ae7e560945a2a02a92b7e363cb
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 27c3fe41923d03bb88cbcdc83680e83ebde11517
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>使用 Azure 门户排查网络安全组问题
 > [!div class="op_single_selector"]
@@ -42,12 +42,13 @@ ms.lasthandoff: 03/12/2018
 
 尽管本示例使用 TCP 端口 3389，但可以使用以下步骤在任何端口上判断入站和出站连接失败情况。
 
-### <a name="vm"></a>查看虚拟机的有效安全规则
+<a name="vm"></a>
+### <a name="view-effective-security-rules-for-a-virtual-machine"></a>查看虚拟机的有效安全规则
 完成以下步骤排查 VM 的 NSG 问题：
 
 可以从 VM 本身查看 NIC 上的完整有效安全规则列表。 如果有相应的权限，也可以从有效规则的边栏选项卡添加、修改和删除 NIC 与子网的 NSG 规则。
 
-1. 在 https://portal.azure.cn 上使用 Azure 帐户登录到 Azure 门户。 你的帐户必须有权对网络接口执行 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 操作。 若要了解如何向帐户分配操作，请参阅[创建用于 Azure 基于角色的访问控制的自定义角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fvirtual-network%2ftoc.json#actions)。
+1. 在 https://portal.azure.cn 上使用 Azure 帐户登录到 Azure 门户。 你的帐户必须有权对网络接口执行 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 操作。 若要了解如何向帐户分配操作，请参阅[创建用于 Azure 基于角色的访问控制的自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json#actions)。
 2. 单击“所有服务”，然后在显示的列表中单击“虚拟机”。
 3. 在显示的列表中选择要进行故障排除的 VM，随后会显示一个包含选项的 VM 边栏选项卡。
 4. 单击“诊断和解决问题”，然后选择一个常见问题。 本示例选择了“无法连接到 Windows VM”。 
@@ -93,7 +94,8 @@ ms.lasthandoff: 03/12/2018
 
     打开与 VM 的 RDP 连接或使用 PsPing 工具，确认 TCP 端口 3389 是否已打开。 有关 PsPing 的详细信息，请阅读 [PsPing 下载页](https://technet.microsoft.com/sysinternals/psping.aspx)。
 
-### <a name="nic"></a>查看网络接口的有效安全规则
+<a name="nic"></a>
+### <a name="view-effective-security-rules-for-a-network-interface"></a>查看网络接口的有效安全规则
 如果特定的 NIC 影响了 VM 流量流，可以完成以下步骤，从网络接口上下文查看 NIC 的完整有效规则列表：
 
 1. 登录到位于 https://portal.azure.cn 的 Azure 门户。

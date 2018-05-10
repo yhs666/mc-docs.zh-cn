@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/12/2018
 ms.author: v-yiso
-ms.date: 04/02/2018
-ms.openlocfilehash: 80947edde5928decff55b6bfeb6e4f543d5a5b62
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.date: 05/14/2018
+ms.openlocfilehash: be0b55afe5b51fc09b8afd69c3b4d039a62fbf48
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>将公共对等互连移动到 Microsoft 对等互连
 
@@ -28,8 +28,6 @@ ExpressRoute 支持将 Microsoft 对等互连与 Azure PaaS 服务的路由筛�
 
 本文可帮助你在不停机的情况下将公共对等互连配置移动到 Microsoft 对等互连。 有关路由域和对等互连的详细信息，请参阅 [ExpressRoute 线路和路由域](expressroute-circuit-peerings.md)。
 
-> [!IMPORTANT]
-> 必须安装 ExpressRoute 高级版附加组件才能使用 Microsoft 对等互连。 有关高级版附加组件的详细信息，请参阅 [ExpressRoute 常见问题解答](expressroute-faqs.md#expressroute-premium)。
 
 ## <a name="before"></a>准备工作
 

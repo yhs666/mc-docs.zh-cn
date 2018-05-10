@@ -1,26 +1,20 @@
 ---
-title: "数据连接：事件流中的数据流输入 | Azure"
-description: "了解如何设置连接到流分析的名为“输入”的数据连接。 输入包括来自事件的数据流，也包括引用数据。"
-keywords: "数据流, 数据连接, 事件流"
+title: 从 Azure 流分析中的事件流的数据流输入
+description: 了解如何在 Azure 流分析中设置数据连接。 输入包括来自事件的数据流，也包括引用数据。
 services: stream-analytics
-documentationcenter: 
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 12/11/2017
-ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8db1c4ef5eb555c46956449b80f2eaaebcd21fb8
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 12/11/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: 1b7274ab05a7641e15a4b55aa60b546674fe9c8a
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>数据连接：了解从事件到流分析的数据流输入
 与流分析作业的数据连接是数据源提供的事件流，这称为“输入”。 流分析与包括 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)、[Azure IoT 中心](https://www.azure.cn/home/features/iot-hub/)和 [Azure Blob 存储](https://www.azure.cn/home/features/storage/)在内的 Azure 数据流源具有一流的集成。 这些输入源可以来自与分析作业相同的 Azure 订阅，也可以来自其他订阅。
@@ -136,6 +130,8 @@ Azure Iot 中心是已针对 IoT 进行优化，具有高度伸缩性的发布-�
 
 CSV 格式的输入需要标头行，以便为数据集定义字段。 此外，所有标头行字段都必须唯一。
 
+如果原始消息（JSON、 CSV 或 AVRO）已经以 AVRO 格式从 IoT 或事件中心路由到 Blob 存储，流分析将无法从 Blob 存储反序列化这种输入。
+
 > [!NOTE]
 > 流分析不支持将内容添加到现有 blob 文件。 流分析将仅查看每个文件一次，并且在作业读取数据后对文件所做的任何更改都不会得到处理。 最佳做法是立即上传 blob 文件的全部数据，然后将其他较新的事件添加到其他全新的 blob 文件中。
 > 
@@ -177,7 +173,7 @@ FROM Input
 ```
 
 ## <a name="get-help"></a>获取帮助
-如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://www.azure.cn/support/forums/)。
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
 
 ## <a name="next-steps"></a>后续步骤
 已经了解了 Azure 中针对流分析作业的数据连接选项。 若要了解有关流分析的详细信息，请参阅：

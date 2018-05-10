@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/02/2017
+ms.date: 05/03/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.date: 06/21/2017
-ms.openlocfilehash: 7df6a367afd61f513788243bf94eb1f45be4dcd7
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: d29ccddce6b0cd32c2728a0c92686a7a4b1b9c02
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>用于应用程序身份验证的证书凭据
 
@@ -28,7 +28,7 @@ Azure Active Directory 允许应用程序使用自己的凭据进行身份验证
 可以使用的凭据格式之一是使用应用程序拥有的证书签名的 JSON Web 令牌 (JWT) 断言。
 
 ## <a name="format-of-the-assertion"></a>断言的格式
-若要计算断言，需使用选择的语言中的其中一个 [JSON Web 令牌](https://jwt.io/)库。 令牌附带的信息包括：
+若要计算断言，需使用选择的语言中的其中一个 [JSON Web 令牌](https://jwt.ms/)库。 令牌附带的信息包括：
 
 #### <a name="header"></a>标头
 
@@ -82,7 +82,14 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
 ### <a name="register-your-certificate-with-azure-ad"></a>向 Azure AD 注册证书
-若要将 Azure AD 中的证书凭据与客户端应用程序相关联，则需要编辑应用程序清单。
+可以使用以下任意方法通过 Azure 门户将证书凭据与 Azure AD 中的客户端应用程序相关联：
+
+**上传证书文件**
+
+在客户端应用程序的 Azure 应用注册中，依次单击“设置”、“密钥”和“上传公钥”。 选择要上传的证书文件并单击“保存”。 保存后，证书将上传并显示指纹、开始日期和过期值。 
+
+**更新应用程序清单**
+
 拥有证书后需计算：
 - `$base64Thumbprint`，证书哈希的 base64 编码
 - `$base64Value`，证书原始数据的 base64 编码
@@ -104,3 +111,4 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 将所做编辑保存到应用程序清单，并上传到 Azure AD。 keyCredentials 属性具有多个值，因此可上传多个证书实现更丰富的密钥管理。
 
+<!-- Update_Description: wording update -->

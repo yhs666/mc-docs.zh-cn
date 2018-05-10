@@ -1,20 +1,20 @@
 ---
-title: "Azure 快速入门 - 使用 Azure CLI 在 Azure 存储中上传、下载和列出 Blob | Microsoft Docs"
-description: "在本快速入门中，请使用 Azure CLI 来创建存储帐户和容器。 然后，使用该 CLI 将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。"
+title: Azure 快速入门 - 使用 Azure CLI 在对象存储中创建 blob | Microsoft Docs
+description: 本快速入门将在对象 (Blob) 存储中使用 Azure CLI。 然后，使用该 CLI 将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
-author: yunan2016
-manager: digimobile
+author: forester123
+manager: josefree
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 02/22/2018
-ms.date: 03/05/2018
-ms.author: v-nany
-ms.openlocfilehash: aaf7aead535f3b1d3f06f113efb5db16f85c4a20
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+origin.date: 04/09/2018
+ms.date: 05/07/2018
+ms.author: v-johch
+ms.openlocfilehash: 1bb551cedfd37e4d35dc9887923efd82d5836cf5
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>快速入门：使用 Azure CLI 上传、下载和列出 Blob
 
@@ -24,7 +24,7 @@ Azure CLI 是 Azure 的命令行体验，用于管理 Azure 资源。 可以在�
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果选择在本地安装并使用 CLI，此快速入门教程要求运行 Azure CLI 2.0.4 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli)。
+如果选择在本地安装并使用 CLI，此快速入门教程要求运行 Azure CLI 2.0.4 版或更高版本。 运行 `az --version` 即可确定你的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-cli](../../../includes/storage-quickstart-tutorial-intro-include-cli.md)]
 
@@ -116,3 +116,4 @@ az group delete --name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [如何通过 Azure CLI 对 Blob 存储执行操作](storage-how-to-use-blobs-cli.md)
+<!--Update_Description: wording update-->

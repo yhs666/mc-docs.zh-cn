@@ -1,4 +1,4 @@
-用户必须先创建 VNet 和网关子网，再处理以下任务。 有关详细信息，请参阅 [Configure a Virtual Network using the classic portal](../articles/expressroute/expressroute-howto-vnet-portal-classic.md)（使用经典门户配置虚拟网络）一文。   
+用户必须先创建 VNet 和网关子网，再处理以下任务。
 
 > [!NOTE]
 > 这些示例不适用于 S2S/ExpressRoute 共存配置。
@@ -25,7 +25,7 @@ Get-AzureVNetGateway
 有许多[网关 SKU](../articles/expressroute/expressroute-about-virtual-network-gateways.md)。 可以使用以下命令随时更改网关 SKU。
 
 >[!IMPORTANT]
-> 此命令对 UltraPerformance 网关不起作用。 如果要将网关更改为 UltraPerformance 网关，首先要删除现有的 ExpressRoute 网关，然后创建新的 UltraPerformance 网关。 如果要将网关从 UltraPerformance 网关降级，首先要删除 UltraPerformance 网关，然后创建新网关。 
+> 此命令对 UltraPerformance 网关不起作用。 要将网关更改为 UltraPerformance 网关，首先要删除现有的 ExpressRoute 网关，然后创建新的 UltraPerformance 网关。 要将网关从 UltraPerformance 网关降级，首先要删除 UltraPerformance 网关，然后创建新网关。 
 >
 >
 

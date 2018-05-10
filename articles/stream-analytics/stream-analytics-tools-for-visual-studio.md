@@ -1,26 +1,20 @@
 ---
-title: 使用用于 Visual Studio 的 Azure 流分析工具 | Azure
-description: 用于 Visual Studio 的 Azure 流分析工具入门教程
-keywords: visual studio
-documentationcenter: ''
+title: 使用用于 Visual Studio 的 Azure 流分析工具
+description: 本文介绍如何开始使用适用于 Visual Studio 的 Azure 流分析工具。
 services: stream-analytics
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 03/05/2018
-ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: e4a48867b65a73cf45d8a195b948148fc31ea88a
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 03/05/2018
+ms.date: 05/07/2018
+ms.openlocfilehash: b30d344c8c671ea6a98c7c4e545e34fed3155023
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>使用用于 Visual Studio 的 Azure 流分析工具
 用于 Visual Studio 的 Azure 流分析工具现已推出正式版。 这些工具为流分析用户带来了更丰富的体验，可让他们进行故障排除以及编写复杂的查询，甚至可以在本地编写查询。 还可将流分析作业导出到 Visual Studio 项目中。
@@ -265,4 +259,4 @@ ms.lasthandoff: 04/08/2018
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update link  -->

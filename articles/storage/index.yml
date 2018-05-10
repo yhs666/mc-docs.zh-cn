@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Azure 存储文档"
+title: Azure 存储文档
 metadata:
-  title: "Azure 存储文档 - 教程和 API 参考 | Microsoft 文档"
-  description: "Azure 存储是 Microsoft 托管的云服务，其所提供存储的可用性、安全性、持久性、可伸缩性和冗余性都很高。 Azure 存储包括 Blob 存储、文件存储和队列存储。"
+  title: Azure 存储文档 - 教程和 API 参考 | Microsoft 文档
+  description: Azure 存储是 Microsoft 托管的云服务，其所提供存储的可用性、安全性、持久性、可伸缩性和冗余性都很高。 Azure 存储包括 Blob 存储、文件存储和队列存储。
   services: storage
   author: forester123
   manager: digimobile
@@ -11,27 +11,27 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  origin.date: 09/20/2017
-  ms.date: 10/23/2017
+  origin.date: 12/08/2017
+  ms.date: 05/07/2018
   ms.author: v-johch
-  ms.openlocfilehash: b221dcfc7bc1da48bbb07047ea5532f8a662f446
-  ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+  ms.openlocfilehash: 098c254a3da3037723ad4246140c545f141ffa2e
+  ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 02/13/2018
+  ms.lasthandoff: 05/07/2018
 abstract:
-  description: "Azure 存储是 Microsoft 托管的云服务，其所提供存储的可用性、安全性、持久性、可伸缩性和冗余性都很高。 Azure 存储包括 Blob 存储、文件存储和队列存储。  使用快速入门和教程了解如何在应用程序中利用 Azure 存储。"
+  description: Azure 存储是 Microsoft 托管的云服务，其所提供存储的可用性、安全性、持久性、可伸缩性和冗余性都很高。 Azure 存储包括 Blob 存储、文件存储和队列存储。  使用快速入门和教程了解如何在应用程序中利用 Azure 存储。
 sections:
-- title: "5 分钟快速入门"
+- title: 5 分钟快速入门
   items:
   - type: paragraph
-    text: "通过浏览这些快速入门了解如何使用 Azure 存储。"
+    text: 通过浏览这些快速入门了解如何使用 Azure 存储。
   - type: table
     style: dataMatrix
     columns:
     - image:
         src: media/index/portal.svg
-        text: "门户"
+        text: 门户
     - image:
         src: media/index/logo_powershell.svg
         text: Powershell
@@ -47,7 +47,7 @@ sections:
     - image:
         src: media/index/logo_nodejs.svg
     rows:
-    - title: "创建存储帐户"
+    - title: 创建存储帐户
       values:
       - href: /storage/common/storage-quickstart-create-account?tabs=portal
       - href: /storage/common/storage-quickstart-create-account?tabs=powershell
@@ -56,7 +56,7 @@ sections:
       - href: 
       - href: 
       - href: 
-    - title: "Blob 快速入门"
+    - title: Blob 快速入门
       values:
       - href: /storage/blobs/storage-quickstart-blobs-portal
       - href: /storage/blobs/storage-quickstart-blobs-powershell
@@ -65,30 +65,32 @@ sections:
       - href: /storage/blobs/storage-quickstart-blobs-java
       - href: /storage/blobs/storage-quickstart-blobs-python
       - href: /storage/blobs/storage-quickstart-blobs-nodejs
-- title: "分步教程"
+- title: 分步教程
   items:
   - type: paragraph
-    text: "了解如何在云中上传和处理图像数据。"
+    text: 了解如何在云中上传和处理图像数据。
   - type: list
     style: unordered
     items:
-    - html: "<a href=\"/storage/blobs/storage-upload-process-images\">上传和检索云中的图像数据</a>"
+    - html: <a href="/storage/blobs/storage-upload-process-images">上传和检索云中的图像数据</a>
+    - html: <a href="/storage/blobs/storage-secure-access-application">保护应用程序数据</a>
+    - html: <a href="/storage/blobs/storage-monitor-troubleshoot-storage-application">监视存储和排查其问题</a>
   - type: paragraph
-    text: "了解如何在 Azure 存储中设计可用性高的应用程序。"
+    text: 了解如何在 Azure 存储中设计可用性高的应用程序。
   - type: list
     style: unordered
     items:
-    - html: "<a href=\"/storage/blobs/storage-create-geo-redundant-storage\">使应用程序数据的可用性高</a>"
-    - html: "<a href=\"/storage/blobs/storage-simulate-failure-ragrs-account-app\">模拟访问读取访问冗余存储时发生的故障</a>"
-- title: "示例"
+    - html: <a href="/storage/blobs/storage-create-geo-redundant-storage">使应用程序数据的可用性高</a>
+    - html: <a href="/storage/blobs/storage-simulate-failure-ragrs-account-app">模拟访问读取访问冗余存储时发生的故障</a>
+- title: 示例
   items:
   - type: paragraph
-    text: "查找常见管理任务的脚本。"
+    text: 查找常见管理任务的脚本。
   - type: list
     style: unordered
     className: spaced noBullet
     items:
-    - html: ".NET &#58; <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=dotnet\">Blob</a> | <a     href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=dotnet\">文件</a> | <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=dotnet\">队列</a>"
-    - html: "Java &#58; <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java\">Blob</a> | <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java\">文件</a> | <a href=\"https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java\">队列</a>"
+    - html: .NET &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=dotnet">Blob</a> | <a     href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=dotnet">文件</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=dotnet">队列</a>
+    - html: Java &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java">Blob</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java">文件</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java">队列</a>
     - html: <a href="/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
     - html: <a href="/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>

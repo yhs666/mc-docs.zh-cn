@@ -3,28 +3,28 @@ title: Azure AD Connect：排查对象同步错误 | Microsoft Docs
 description: 本主题按步骤介绍了如何使用故障排除任务来排查对象同步问题。
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: curtand
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/15/2018
-ms.date: 03/05/2018
-ms.author: v-nany
-ms.openlocfilehash: 7ea2a53f81b825a81a148ad217075768fd97ef1e
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+origin.date: 03/19/2018
+ms.date: 05/03/2018
+ms.author: v-junlch
+ms.openlocfilehash: a7c43e891126c5402af936445b0e3e52a2f3b87f
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步排查对象同步问题
 本文档按步骤介绍了如何使用故障排除任务来排查对象同步问题。
 
 ## <a name="troubleshooting-task"></a>故障排除任务
-对于 <verison> 或更高版本的 Azure Active Directory (AAD) Connect 部署，请使用向导中的故障排除任务来排查对象同步问题。 对于早期版本，请手动进行故障排除，如[此文](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)所述。
+对于 1.1.749.0 或更高版本的 Azure Active Directory (AAD) Connect 部署，请使用向导中的故障排除任务来排查对象同步问题。 对于早期版本，请手动进行故障排除，如[此文](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)所述。
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>在向导中运行故障排除任务
 若要在向导中运行故障排除任务，请执行以下步骤：
@@ -89,3 +89,4 @@ Azure Active Directory 不允许将 UserPrincipalName (UPN)/备用登录 ID 后�
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
+<!-- Update_Description: wording update -->

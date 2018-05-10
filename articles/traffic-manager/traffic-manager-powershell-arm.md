@@ -1,6 +1,6 @@
 ---
-title: "使用 PowerShell 管理 Azure 中的流量管理器 | Azure"
-description: "将适用于流量管理器的 PowerShell 与 Azure Resource Manager 配合使用"
+title: 使用 PowerShell 管理 Azure 中的流量管理器 | Azure
+description: 将适用于流量管理器的 PowerShell 与 Azure Resource Manager 配合使用
 services: traffic-manager
 documentationcenter: na
 author: rockboyfor
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/11/2017
-ms.date: 09/11/2017
+origin.date: 03/16/2017
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: dfb291a52f185d79eee04de4f10a854d85980b9b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 3941305446a56e41df4fb9a496d43ddbbd0a688d
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>使用 PowerShell 管理流量管理器
 
@@ -152,7 +152,7 @@ New-AzureRmTrafficManagerEndpoint -Name MyIpEndpoint -ProfileName MyProfile -Res
 指定外部终结点时：
 
 * 必须使用“Target”参数指定终结点域名
-* 如果使用“性能”流量路由方法，则需要“EndpointLocation”。 否则，该参数是可选的。 该值必须是有效的 Azure 区域名称。
+* 如果使用“性能”流量路由方法，则需要“EndpointLocation”。 否则，该参数是可选的。 该值必须是 [有效的 Azure 区域名称](https://www.azure.cn/support/service-dashboard/)。
 * “加权”和“优先级”是可选项。
 
 ### <a name="example-1-adding-external-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>示例 1：使用 `Add-AzureRmTrafficManagerEndpointConfig` 和 `Set-AzureRmTrafficManagerProfile` 添加外部终结点
@@ -205,6 +205,18 @@ Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```powershell
 $child = Get-AzureRmTrafficManagerEndpoint -Name child -ResourceGroupName MyRG
 New-AzureRmTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceGroupName MyRG -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "China North" -MinChildEndpoints 2
+```
+
+## <a name="adding-endpoints-from-another-subscription"></a>从其他订阅添加终结点
+
+流量管理器可以使用不同订阅中的终结点。 需要使用要添加的终结点切换到订阅，以检索所需的流量管理器输入。 然后，需要使用流量管理器配置文件切换到订阅，并向其中添加终结点。 下面的示例演示如何使用公共 IP 地址执行此操作。
+
+```powershell
+Set-AzureRmContext -SubscriptionId $EndpointSubscription
+$ip = Get-AzureRmPublicIpAddress -Name $IpAddresName -ResourceGroupName $EndpointRG
+
+Set-AzureRmContext -SubscriptionId $trafficmanagerSubscription
+New-AzureRmTrafficManagerEndpoint -Name $EndpointName -ProfileName $ProfileName -ResourceGroupName $TrafficManagerRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
 ```
 
 ## <a name="update-a-traffic-manager-endpoint"></a>更新流量管理器终结点
@@ -315,4 +327,4 @@ Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remov
 [流量管理器性能注意事项](traffic-manager-performance-considerations.md)
 
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

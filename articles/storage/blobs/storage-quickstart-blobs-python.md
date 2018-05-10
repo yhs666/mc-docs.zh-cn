@@ -1,20 +1,20 @@
 ---
-title: Azure 快速入门 - 使用 Python 在 Azure 存储中上传、下载和列出 Blob | Azure
-description: 在本快速入门中，请创建存储帐户和容器。 然后，使用适用于 Python 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
+title: Azure 快速入门 - 使用 Python 在对象存储中创建 blob | Microsoft Docs
+description: 本快速入门将在对象 (Blob) 存储中创建存储帐户和容器。 然后，使用适用于 Python 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
-author: yunan2016
-manager: digimobile
+author: forester123
+manager: josefree
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 02/22/2018
-ms.date: 03/05/2018
-ms.author: v-nany
-ms.openlocfilehash: 06aa34f9610e6cb921d2d12f7bab7c3503bbaa89
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+origin.date: 04/09/2018
+ms.date: 05/07/2018
+ms.author: v-johch
+ms.openlocfilehash: a927965fd02d67487f504f3aa5e9f22aed8abbed
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>快速入门：使用 Python 上传、下载和列出 Blob
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 03/23/2018
 
 若要完成本快速入门教程，需先执行以下操作： 
 * [安装 Python](https://www.python.org/downloads/)
-* 下载和安装[适用于 Python 的 Azure 存储 SDK](storage-python-how-to-use-blob-storage.md)。 
+* 下载和安装[适用于 Python 的 Azure 存储 SDK](https://github.com/Azure/azure-sdk-for-python)。 
 
 如果没有 Azure 订阅，可以在开始前创建一个 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
@@ -40,6 +40,8 @@ git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git
 ```
 
 此命令会将存储库克隆到本地 git 文件夹。 若要打开 Python 程序，请查找 storage-blobs-python-quickstart 文件夹和 example.py 文件。  
+
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>配置存储连接字符串
 在应用程序中，必须提供存储帐户名称和帐户密钥，以创建 `BlockBlobService` 对象。 从 IDE 中的解决方案资源管理器打开 `example.py` 文件。 连接到中国云时，将 **accountname** 和 **accountkey** 值替换为自己的帐户名称和密钥，并添加 **endpoint_suffix** 值。 
@@ -183,3 +185,4 @@ os.remove(full_path_to_file2)
  
 
 若要详细了解存储资源管理器和 Blob，请参阅[使用存储资源管理器管理 Azure Blob 存储资源](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+<!--Update_Description: add quick start guide for creating storage account in portal-->

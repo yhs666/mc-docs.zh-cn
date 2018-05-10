@@ -1,26 +1,20 @@
 ---
-title: "分析平台：Apache Storm 与流分析之间的比较 | Azure"
-description: "使用 Apache Storm 与流分析之间的比较获取有关选择云分析平台的指导。 了解功能和区别。"
-keywords: "分析平台, 分析平台, 云分析平台, storm 比较"
+title: 分析平台：Apache Storm 与 Azure 流分析之间的比较
+description: 使用 Apache Storm 与流分析之间的比较选择云分析平台的指导。 了解功能和区别。
 services: stream-analytics
-documentationcenter: 
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-origin.date: 06/27/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0b7b23901ace0b110018844c91c3dfb0be2e8f06
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 06/27/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: f05042c62806a7164ce697b1f2195419d455d878
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>选择流分析平台：Apache Storm 与 Azure 流分析的比较
 Azure 提供了多种用于流数据分析的解决方案：[Azure 流分析](/stream-analytics/)和 Azure HDInsight 上的 Apache Storm。 这两个分析平台都具备 PaaS 解决方案的优势。 但这些平台的功能以及配置和管理方式却存在一些显著差异。 
@@ -57,7 +51,7 @@ Azure 提供了多种用于流数据分析的解决方案：[Azure 流分析](/s
             </td>
             <td width="204" valign="top">
                 <p>
-否。 Azure 流分析是一种 Microsoft 专有产品/服务。
+不可以。 Azure 流分析是一种 Microsoft 专有产品/服务。
                 </p>
             </td>
             <td width="246" valign="top">
@@ -310,7 +304,7 @@ Avro、JSON、CSV </p>
             </td>
             <td width="204" valign="top">
                 <p>
-流式处理作业可以有多个输出。 支持的输出包括 Azure 事件中心、Azure Blob 存储、Azure 表存储和 Azure SQL 数据库。
+流式处理作业可以有多个输出。 支持的输出：Azure 事件中心、Azure Blob 存储、Azure 表存储、Azure SQL DB 和 Power BI。
                 </p>
             </td>
             <td width="246" valign="top">
@@ -562,4 +556,4 @@ Azure Blob 存储提供引用数据，内存中缓存最大大小为 100 MB。 �
     </tbody>
 </table>
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties-->

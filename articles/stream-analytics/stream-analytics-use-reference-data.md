@@ -1,28 +1,22 @@
 ---
-title: 在流分析中使用引用数据和查找表 | Azure
-description: 在流分析查询中使用引用数据
-keywords: 查找表, 引用数据
+title: 使用参考数据在 Azure 流分析中查找
+description: 本文介绍如何使用参考数据在 Azure 流分析作业的查询设计中查找或关联数据。
 services: stream-analytics
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: 06103be5-553a-4da1-8a8d-3be9ca2aff54
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 03/28/2017
-ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: e73ca1e0c537d4dd1e075c753e81d4ab847f300f
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 03/28/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: 779c8611bf4f1d26dd4d401cfbf961549b776187
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="using-reference-data-or-lookup-tables-in-a-stream-analytics-input-stream"></a>在流分析的输入流中使用引用数据或查找表
+# <a name="using-reference-data-for-lookups-in-stream-analytics"></a>使用参考数据在流分析中查找
 引用数据（也称为查找表）是一个静态的或本质上缓慢变化的有限数据集，用于执行查找或与数据流相关联。 为了在 Azure 流分析作业中利用引用数据，通常会在查询中使用[引用数据联合](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 流分析使用 Azure Blob 存储作为引用数据的存储层。 引用数据建模为 blob 序列（在输入配置中定义），这些 blob 按blob 名称中指定的日期/时间顺序升序排列。 它**仅**支持使用**大于**序列中最后一个 blob 指定的日期/时间的日期/时间添加到序列的末尾。
 <!-- Not Available [any number of cloud-based and on-premises data stores](../data-factory/data-factory-data-movement-activities.md) -->
 
@@ -116,4 +110,4 @@ ms.lasthandoff: 04/08/2018
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

@@ -13,41 +13,42 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/23/2016
-ms.date: 12/11/2017
+ms.date: 05/14/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0af2e8afc34a9164449db7b48a3f65f6c665d34f
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: ccdc8c24a754d243f7b18b319352fb05dd649a88
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>在 Azure Monitor 中为 Azure 服务创建指标警报 - Azure 门户
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>在 Azure Monitor 中为 Azure 服务创建经典指标警报 - Azure 门户
 > [!div class="op_single_selector"]
 >- [Portal](./insights-alerts-portal.md)
 >- [PowerShell](./insights-alerts-powershell.md)
 >- [CLI](./insights-alerts-command-line-interface.md) 
 
 ## <a name="overview"></a>概述
-本文演示如何使用 Azure 门户设置 Azure 指标警报。   
+
+> [!NOTE]
+> 本文介绍了如何创建旧式经典指标警报。 Azure Monitor 现在支持[较新的指标警报](monitoring-near-real-time-metric-alerts.md)。 
+>
+>
+
+本文展示了如何使用 Azure 门户设置 Azure 经典指标警报。 
 
 可以根据监控指标或事件接收 Azure 服务的警报。
 
 * **指标值** - 指定指标的值超过在任一方向分配的阈值时，将触发警报。 也就是说，当条件先是满足以及之后不再满足该条件时，警报都会触发。    
 * **活动日志事件** - 发生每个事件，或仅当出现特定事件时可触发警报。 详细了解[活动日志警报](monitoring-activity-log-alerts.md)。
 
-可以配置指标警报，在其触发时执行以下操作：
+可配置经典指标警报，使警报触发时执行以下操作：
 
-- 向服务管理员和共同管理员发送电子邮件通知
-- 向指定的其他电子邮件地址发送电子邮件。
-- 调用 Webhook
-- 开始执行 Azure Runbook（仅在 Azure 门户中可行） 
+* 向服务管理员和共同管理员发送电子邮件通知
+* 向指定的其他电子邮件地址发送电子邮件。
+* 调用 Webhook
+* 开始执行 Azure Runbook（仅在 Azure 门户中可行）
 
-> [!NOTE]
-> Azure Monitor 现在支持公共预览版中的近实时指标警报。 这些警报使用操作组。 详细了解[近实时指标警报](monitoring-near-real-time-metric-alerts.md)。
->
->
-
-可以使用以下工具配置和获取关于指标警报的信息：
+可使用以下项配置和获取有关经典指标警报规则的信息
 
 - [Azure 门户](./insights-alerts-portal.md)
 - [PowerShell](./insights-alerts-powershell.md) 
@@ -58,11 +59,11 @@ ms.lasthandoff: 04/09/2018
 
 1. 在此[门户](https://portal.azure.cn/)，查找想要监视的资源并选中它。
 
-2. 在“监视”部分下，选择“警报”或“警报规则”。 对于不同的资源，文本和图标可能会略有不同。  
+2. 在“监视”部分下，选择“警报(经典)”。 对于不同的资源，文本和图标可能会略有不同。 如果未找到“警报(经典)”，则它们可能位于“警报”或“警报规则”中
 
     ![监视](./media/insights-alerts-portal/AlertRulesButton.png)
 
-3. 选择“添加通知”命令，并填写字段。
+3. 选择“添加指标警报(经典)”命令，并填写字段。
 
     ![添加警报](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 
@@ -92,7 +93,7 @@ ms.lasthandoff: 04/09/2018
 
 ## <a name="next-steps"></a>后续步骤
 * [获取 Azure 监视概述](monitoring-overview.md)，包括可收集和监视的信息的类型。
-* 详细了解新的[近实时指标警报（预览）](monitoring-near-real-time-metric-alerts.md)
+* 了解有关[较新指标警报](monitoring-near-real-time-metric-alerts.md)的详细信息
 * 了解[在警报中配置 Webhook](./insights-webhooks-alerts.md)的详细信息。
 * 详细了解[针对活动日志事件配置警报](./monitoring-activity-log-alerts.md)。
 * 了解关于 [Azure 自动化 Runbook](../automation/automation-starting-a-runbook.md) 的详细信息。

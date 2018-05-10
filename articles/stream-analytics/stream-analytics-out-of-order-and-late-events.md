@@ -1,34 +1,28 @@
 ---
-title: "通过 Azure 流分析处理事件顺序和延迟 | Azure"
-description: "了解流分析如何处理数据流中的无序事件或延迟事件。"
-keywords: "无序, 延迟, 事件"
-documentationcenter: 
+title: 在 Azure 流分析中处理事件顺序和延迟
+description: 本文介绍流分析如何处理数据流中的无序事件或延迟事件。
 services: stream-analytics
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 04/20/2017
-ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: c255edd3149a153e1955fae6c34aba337d82cf44
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 04/20/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: 5d5fe473baa5e288c30aa06922fea3f0f317a773
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure 流分析事件顺序注意事项
 
 ## <a name="arrival-time-and-application-time"></a>到达时间和应用程序时间
 
-在事件的时态数据流中，每个事件都分配有一个时间戳。 Azure 流分析使用到达时间或应用程序时间向每个事件分配一个时间戳。 **System.Timestamp** 列包含已分配给事件的时间戳。 
+在事件的时态数据流中，每个事件都分配有一个时间戳。 Azure 流分析使用到达时间或应用程序时间向每个事件分配一个时间戳。 “System.Timestamp”列包含已分配给事件的时间戳。 
 
-当事件抵达源时，会在输入源中分配到达时间。 可以使用事件中心的 **EventEnqueuedTime** 属性以及 Blob 输入的 [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) 属性来访问到达时间。 
+当事件抵达源时，会在输入源中分配到达时间。 可以使用事件中心的 **EventEnqueuedTime** 属性以及 Blob 输入的 [BlobProperties.LastModified](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azure-dotnet?view=azurestorage-8.1.3) 属性来访问到达时间。 
 
 生成事件时，会分配应用程序时间。应用程序时间是有效负载的一部分。 若要按应用程序时间处理事件，可在 select 查询中使用 **Timestamp by** 子句。 如果缺少 **Timestamp by** 子句，则会按到达时间处理事件。 
 
@@ -36,19 +30,19 @@ Azure 流分析按时间戳顺序生成输出，并提供设置来处理无序�
 
 ## <a name="handling-of-multiple-streams"></a>处理多个流
 
-在如下所述的情况下，Azure 流分析作业合并来自多个时间线的事件：
+在某些情况下，Azure 流分析作业将合并来自多个时间线的事件，如下所示：
 
-* 从多个分区生成输出。 未显式指定 **Partition by PartitionId** 子句的查询必须合并来自所有分区的事件。
+* 从多个分区生成输出。 未显式指定“Partition by PartitionId”子句的查询必须合并来自所有分区的事件。
 * 两个或更多个不同输入源的联合。
 * 联接输入源。
 
-在合并多个时间线的情况下，只有在合并的所有源都至少位于时间点 *t1* 之后，Azure 流分析才生成时间戳 *t1* 的输出。 例如，假设查询从包含两个分区的事件中心分区读取数据。 其中一个分区 *P1* 包含时间点 *t1* 之前的事件。 另一个分区 *P2* 包含时间点 *t1 + x* 之前的事件。 那么，只有到达时间点 *t1* 时，才生成输出。 但是，如果显式指定了 **Partition by PartitionId** 子句，这两个分区会独立地继续运行。
+在合并多个时间线的情况下，只有在合并的所有源都至少位于时间点 t1 之后，Azure 流分析才生成时间戳 t1 的输出。 例如，假设查询从包含两个分区的事件中心分区读取数据。 其中一个分区 *P1* 包含时间点 *t1* 之前的事件。 另一个分区 *P2* 包含时间点 *t1 + x* 之前的事件。 那么，只有到达时间点 *t1* 时，才生成输出。 但是，如果显式指定了 **Partition by PartitionId** 子句，这两个分区会独立地继续运行。
 
 延迟到达容错设置用于处理某些分区中缺少数据的情况。
 
 ## <a name="configuring-late-arrival-tolerance-and-out-of-order-tolerance"></a>配置延迟到达容错和无序容错
 无序输入流包括：
-* 排序（因此会延迟）
+* 已排序（因此已延迟）
 * 由系统根据用户指定的策略进行调整
 
 按应用程序时间进行处理时，流分析可以容许延迟事件和无序事件。 Azure 门户中的“事件顺序”选项提供以下设置： 
@@ -65,11 +59,14 @@ Azure 流分析按时间戳顺序生成输出，并提供设置来处理无序�
 首先根据延迟到达容错执行调整。 然后根据无序容错执行调整。 **System.Timestamp** 列包含已分配给事件的最终时间戳。
 
 ### <a name="out-of-order-tolerance"></a>无序容错
-对于以无序方式到达、但在无序容错时段范围内的事件，会按时间戳重新排序。 对于到达时间晚于容错时段的事件，将会：
-* **调整**：调整为在最晚的可接受时间到达。 
-* **删除**：丢弃。
+对于以无序方式到达、但在无序容错时段范围内的事件，会按时间戳重新排序。 晚于容错时段的事件以如下方式处理：
+* 已调整：调整为在最晚的可接受时间到达。 
+* 已删除：已放弃。
 
 当流分析对无序容错时段范围内收到的事件重新排序时，查询的输出会根据无序容错时段延迟。
+
+### <a name="early-events"></a>早期事件
+按应用程序时间进行处理时，其应用程序时间早于其到达时间超过 5 分钟的事件将被删除或根据所选的配置选项进行调整。
 
 ### <a name="example"></a>示例
 
@@ -77,11 +74,11 @@ Azure 流分析按时间戳顺序生成输出，并提供设置来处理无序�
 * 无序容错 = 3 分钟<br/>
 * 按应用程序时间进行处理<br/>
 * 事件：
-   1. **应用程序时间** = 00:00:00，**到达时间** = 00:10:01，**System.Timestamp** = 00:00:01，经过调整，因为 (**到达时间 - 应用程序时间**) 大于延迟到达容错。
+   1. 应用程序时间 = 00:00:00，到达时间 = 00:10:01，System.Timestamp = 00:00:01，经过调整，因为“(到达时间 - 应用程序时间)”大于延迟到达容错。
    2. **应用程序时间** = 00:00:01，**到达时间** = 00:10:01，**System.Timestamp** = 00:00:01，未经过调整，因为应用程序时间在延迟到达时段范围内。
    3. **应用程序时间** = 00:10:00，**到达时间** = 00:10:02，**System.Timestamp** = 00:10:00，未经过调整，因为应用程序时间在延迟到达时段范围内。
    4. **应用程序时间** = 00:09:00，**到达时间** = 00:10:03，**System.Timestamp** = 00:09:00，已根据原始时间戳接受，因为应用程序时间在无序容错范围内。
-   5. **应用程序时间** = 00:06:00，**到达时间** = 00:10:04，**System.Timestamp** = 00:07:00，经过调整，因为应用程序时间早于无序容错。
+   5. 应用程序时间 = 00:06:00，到达时间 = 00:10:04，System.Timestamp = 00:07:00，经过调整，因为应用程序时间早于无序容错。
 
 ### <a name="practical-considerations"></a>实际考虑因素
 如前所述，延迟到达容错是应用程序时间与到达时间之间的最大差。 在按应用程序时间进行处理时，会在应用无序容错设置之前，调整比配置的延迟到达容错更晚的事件。 因此，有效的无序是延迟到达容错与无序容错中的最小值。
@@ -99,17 +96,17 @@ Azure 流分析按时间戳顺序生成输出，并提供设置来处理无序�
 下面是几个示例。
 
 #### <a name="example-1"></a>示例 1 
-查询包含 **Partition by PartitionId** 子句。 在单个分区中，事件是使用同步发送方法发送的。 在发送事件之前，同步发送方法一直阻塞。
+查询具有“Partition by PartitionId”子句。 在单个分区中，事件都同步发送。 在发送事件之前，同步发送方法一直阻塞。
 
-在这种情况下，无序为零，因为事件是按顺序发送的，只有在显式确认后才发送下一个事件。 延迟到达时间是事件生成时间与事件发送时间之间的最大延迟加上发送者与输入源之间的最大延迟。
+在这种情况下，无序为零，因为事件是按顺序发送的，只有在显式确认后才发送下一个事件。 延迟到达时间是事件生成时间与事件发送时间之间的最大延迟，与发送者与输入源之间的最大延迟之和。
 
 #### <a name="example-2"></a>示例 2
-查询包含 **Partition by PartitionId** 子句。 在单个分区中，事件是使用异步发送方法发送的。 异步发送方法可以同时启动多个发送操作，这可能导致事件无序。
+查询具有“Partition by PartitionId”子句。 在单个分区中，事件是使用异步发送方法发送的。 异步发送方法可以同时启动多个发送操作，这可能导致事件无序。
 
-在这种情况下，无序时间和延迟到达时间至少是事件生成时间与事件发送时间之间的最大延迟加上发送者与输入源之间的最大延迟。
+在这种情况下，无序时间和延迟到达时间至少是事件生成时间与事件发送时间之间的最大延迟 + 发送者与输入源之间的最大延迟。
 
 #### <a name="example-3"></a>示例 3
-查询不包含 **Partition by PartitionId** 子句，并且至少有两个分区。
+查询不包含“Partition by PartitionId”子句，并且至少有两个分区。
 
 配置与示例 2 相同。 但是，如果一个分区中缺少数据，可能会按照额外的延迟到达容错时限将输出延迟。
 
@@ -118,19 +115,19 @@ Azure 流分析按时间戳顺序生成输出，并提供设置来处理无序�
 
 Azure 流分析提供了常规机制用于处理失序事件。 此类机制会导致处理延迟（因为要等待散乱的事件到达系统）和/或事件被删除或调整。
 
-不过，在许多情况下，所需的查询是独立处理来自不同事件生成者的事件。 例如，该查询可能是按时段聚合每个设备的事件。 在这种情况下，在等待捕获其他事件生成者时，无需延迟对应于一个事件生成者的输出。 换而言之，不需要处理生成者之间的时间偏差。 可将其忽略。
+不过，在许多情况下，所需的查询是独立处理来自不同事件生成者的事件。 例如，该查询可能是按时段聚合每个设备的事件。 在这种情况下，在等待捕获其他事件生成者时，无需延迟对应于一个事件生成者的输出。 换言之，无需处理生成者之间的时间偏差。 可将其忽略。
 
-当然，这意味着输出事件本身的时间戳已失序。 下游使用者必须能够处理此类行为。 但输出中的每个事件正确。
+当然，这即意味着，输出事件本身在其时间戳方面就是无序的。 下游使用者必须能够处理此类行为。 但输出中的每个事件正确。
 
-Azure 流分析使用 [TIMESTAMP BY OVER](https://msdn.microsoft.com/library/azure/mt573293.aspx) 子句实现此功能。
+Azure 流分析使用 [TIMESTAMP BY OVER](https://msdn.microsoft.com/library/azure/mt573293.aspx) 子句来实现此功能。
 
 ## <a name="summary"></a>摘要
-* 应该根据正确性和延迟要求配置延迟到达容错和无序时限。 此外应考虑到事件发送方式。
+* 根据正确性和延迟需求配置延迟到达容错和无序窗口。 此外应考虑到事件发送方式。
 * 我们建议将无序容错设置得比延迟到达容错更小。
 * 在合并多个时间线时，如果一个源或分区中缺少数据，可能会按照额外的延迟到达容错时限将输出延迟。
 
 ## <a name="get-help"></a>获取帮助
-若要获取更多帮助，请访问 [Azure 流分析论坛](https://www.azure.cn/support/forums/)。
+若要获取更多帮助，请访问 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
 
 ## <a name="next-steps"></a>后续步骤
 * [流分析简介](stream-analytics-introduction.md)
@@ -139,4 +136,4 @@ Azure 流分析使用 [TIMESTAMP BY OVER](https://msdn.microsoft.com/library/azu
 * [流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update meta properties, update link -->

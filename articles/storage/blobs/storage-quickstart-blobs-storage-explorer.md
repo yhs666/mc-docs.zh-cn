@@ -1,21 +1,20 @@
 ---
-title: "Azure 快速入门 - 使用 Azure 存储资源管理器在 Azure 存储中上传、下载和列出 Blob | Azure"
-description: "在本快速入门中，请使用 Azure 存储资源管理器来创建存储帐户和容器。 然后，使用该存储资源管理器将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。"
+title: Azure 快速入门 - 使用 Azure 存储资源管理器在对象存储中创建 blob | Microsoft Docs
+description: 本快速入门将在对象 (Blob) 存储中使用 Azure 存储资源管理器。 然后，使用该存储资源管理器将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
-documentationcenter: storage
-author: yunan2016
-manager: digimobile
+author: forester123
+manager: josefree
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 02/22/2018
-ms.date: 03/05/2018
-ms.author: v-nany
-ms.openlocfilehash: f54aad73c7101ca3babadf7f9f9046e9726722d7
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+origin.date: 04/09/2018
+ms.date: 05/07/2018
+ms.author: v-johch
+ms.openlocfilehash: dee277239f4e26468324aa633d78ec8d6779edd0
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>快速入门：使用 Azure 存储资源管理器上传、下载和列出 Blob
 
@@ -41,7 +40,7 @@ ms.lasthandoff: 03/12/2018
 
 ![“Microsoft Azure 存储资源管理器 - 连接”窗口](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
-完成连接后，将会加载 Azure 存储资源管理器并显示“资源管理器”选项卡。 在此视图中可以查看所有 Azure 存储帐户，以及通过 [Azure 存储模拟器](../common/storage-use-emulator.md?toc=%2fstorage%2fblobs%2ftoc.json)和 [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fstorage%2fblobs%2ftoc.json) 帐户配置的本地存储
+完成连接以后，Azure 存储资源管理器会进行加载并显示“资源管理器”选项卡。 以下视图可以查看通过 [Azure 存储模拟器](../common/storage-use-emulator.md?toc=%2fstorage%2fblobs%2ftoc.json)、[Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fstorage%2fblobs%2ftoc.json) 帐户或 [Azure Stack](../../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fstorage%2fblobs%2ftoc.json) 环境配置的所有 Azure 存储帐户和本地存储。
 
 ![“Microsoft Azure 存储资源管理器 - 连接”窗口](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
@@ -49,7 +48,7 @@ ms.lasthandoff: 03/12/2018
 
 始终将 Blob 上传到容器中。 这样，就能够整理 blob 组，就像在计算机的文件夹中整理文件一样。
 
-若要创建容器，请展开在前一步骤中创建的存储帐户。 选择并右键单击“Blob 容器”，然后选择“创建 Blob 容器”。 输入 Blob 容器的名称。 请参阅[容器命名规则](storage-dotnet-how-to-use-blobs.md#create-a-container)部分，查看有关命名 Blob 容器的规则和限制列表。 完成后，请按 **Enter** 创建 Blob 容器。 成功创建 Blob 容器后，该容器将显示在所选存储帐户的“Blob 容器”文件夹下。
+若要创建容器，请展开在前一步骤中创建的存储帐户。 选择并右键单击“Blob 容器”，然后选择“创建 Blob 容器”。 输入 Blob 容器的名称。 参阅[创建容器和设置权限](storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions)部分，获取有关 Blob 容器命名规则和限制的列表。 完成后，请按 **Enter** 创建 Blob 容器。 成功创建 Blob 容器后，该容器将显示在所选存储帐户的“Blob 容器”文件夹下。
 
 ## <a name="upload-blobs-to-the-container"></a>将 blob 上传到容器
 
@@ -101,3 +100,4 @@ Azure 存储资源管理器提供创建和管理 Blob [快照](storage-blob-snap
 
 > [!div class="nextstepaction"]
 > [Blob 存储操作说明](storage-how-to-use-blobs-powershell.md)
+<!--Update_Description: add azure stack related info-->

@@ -1,20 +1,20 @@
 ---
-title: Azure 快速入门 - 使用 Java 在 Azure 存储中上传、下载和列出 Blob | Microsoft Docs
-description: 在本快速入门中，请创建存储帐户和容器。 然后，使用适用于 Java 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
+title: Azure 快速入门 - 使用 Java 在对象存储中创建 blob | Microsoft Docs
+description: 本快速入门将在对象 (Blob) 存储中创建存储帐户和容器。 然后，使用适用于 Java 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
-author: yunan2016
-manager: digimobile
+author: forester123
+manager: josefree
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 02/22/2018
-ms.date: 03/05/2018
-ms.author: v-nany
-ms.openlocfilehash: 75c1ae0353d2b3cc63ca186f83817cdefba89231
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+origin.date: 04/09/2018
+ms.date: 05/07/2018
+ms.author: v-johch
+ms.openlocfilehash: 660d2d10f9c65c198b1a1c940c7a45d388c685de
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>快速入门：使用 Java 上传、下载和列出 Blob
 
@@ -47,11 +47,12 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 此命令会将存储库克隆到本地 git 文件夹。 要打开项目，请启动 Eclipse 并关闭欢迎屏幕。 选择“文件”，然后选择“从文件系统打开项目...”。请确保已选中“检测并配置项目性质”。 选择“目录”，然后导航到存储克隆存储库的位置，在该位置中选择 javaBlobsQuickstart 文件夹。 请确保 javaBlobsQuickstarts 项目显示为 Eclipse 项目，然后选择“完成”。
 
 完成项目导入后，打开 AzureApp.java（位于 src/main/java 内的 blobQuickstart.blobAzureApp 中），并替换 `storageConnectionString` 字符串中的 `accountname` 和 `accountkey`。 然后运行应用程序。
-     
+
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]   
 
 ## <a name="configure-your-storage-connection-string"></a>配置存储连接字符串
     
-在应用程序中，必须为存储帐户提供连接字符串。 打开 AzureApp.Java 文件。 查找 `storageConnectionString` 变量。 将连接字符串中的 `AccountName` 和 `AccountKey` 值替换为从 Azure 门户保存的值。 `storageConnectionString` 应如下图所示：
+在应用程序中，必须为存储帐户提供连接字符串。 打开 AzureApp.Java 文件。 找到 `storageConnectionString` 变量，然后粘贴在上一部分复制的连接字符串值。 `storageConnectionString` 变量看起来应该类似于：
 
 ```java
 public static final String storageConnectionString =
@@ -228,3 +229,4 @@ sourceFile.deleteOnExit();
 若要详细了解存储资源管理器和 Blob，请参阅[使用存储资源管理器管理 Azure Blob 存储资源](../../vs-azure-tools-storage-explorer-blobs.md)。
 
 如需更多的 Java 示例，请参阅[使用 Java 的 Azure 存储示例](../common/storage-samples-java.md)。
+<!--Update_Description: wording update-->

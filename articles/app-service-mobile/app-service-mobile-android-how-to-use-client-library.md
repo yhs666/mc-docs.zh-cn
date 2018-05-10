@@ -1,6 +1,6 @@
 ---
-title: "如何使用用于 Android 的 Azure 移动应用 SDK"
-description: "如何使用用于 Android 的 Azure 移动应用 SDK"
+title: 如何使用用于 Android 的 Azure 移动应用 SDK
+description: 如何使用用于 Android 的 Azure 移动应用 SDK
 services: app-service\mobile
 documentationcenter: android
 author: conceptdev
@@ -13,21 +13,21 @@ ms.devlang: java
 ms.topic: article
 origin.date: 11/16/2017
 ms.author: v-yiso
-ms.date: 01/29/2018
-ms.openlocfilehash: cb097f0ec64d0f758c4d042bf075915ec6bb4b8f
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.date: 05/14/2018
+ms.openlocfilehash: 2f46de058d0fce91b12a3f5abd95d9ea79497942
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用用于 Android 的 Azure 移动应用 SDK
 
 本指南说明如何使用用于移动应用的 Android 客户端 SDK 来实现常见方案，例如：
 
-- 查询数据（插入、更新和删除）。
-- 身份验证。
-- 处理错误。
-- 自定义客户端。 
+* 查询数据（插入、更新和删除）。
+* 身份验证。
+* 处理错误。
+* 自定义客户端。
 
 本指南侧重于客户端 Android SDK。  若要详细了解移动应用的服务器端 SDK，请参阅 [Work with .NET backend SDK][10]（使用 .NET 后端）或 [How to use the Node.js backend SDK][11]（如何使用 Node.js 后端 SDK）。
 
@@ -225,8 +225,8 @@ public class ToDoItem
 
     @com.google.gson.annotations.SerializedName("createdAt")
     private DateTimeOffset mCreatedAt;
-    public DateTimeOffset getUpdatedAt() { return mCreatedAt; }
-    protected DateTimeOffset setUpdatedAt(DateTimeOffset createdAt) { mCreatedAt = createdAt; }
+    public DateTimeOffset getCreatedAt() { return mCreatedAt; }
+    protected DateTimeOffset setCreatedAt(DateTimeOffset createdAt) { mCreatedAt = createdAt; }
 
     @com.google.gson.annotations.SerializedName("updatedAt")
     private DateTimeOffset mUpdatedAt;
@@ -1068,15 +1068,13 @@ MobileServiceUser user = mClient
 
     repositories {      mavenCentral()      flatDir {          dirs 'libs'      }      maven {          url "YourLocalMavenRepoPath\\.m2\\repository"      }  }  packagingOptions {      exclude 'META-INF/MSFTSIG.RSA'      exclude 'META-INF/MSFTSIG.SF'  }  dependencies {      compile fileTree(dir: 'libs', include: ['*.jar'])      compile('com.microsoft.aad:adal:1.1.1') {          exclude group: 'com.android.support'      } // Recent version is 1.1.1      compile 'com.android.support:support-v4:23.0.0'  }
 
-3. 将以下代码添加到应用程序并进行以下替换：
+1. 将以下代码添加到应用程序并进行以下替换：
 
-* 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。 
-
+* 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.microsoftonline.com/contoso.onmicrosoft.com。
 * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取此客户端 ID。
-
 * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
 
-* 使用 HTTPS 方案将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点。 此值应类似于 _https://contoso.azurewebsites.cn/.auth/login/done_。
+* 使用 HTTPS 方案将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点。 此值应类似于 _https://contoso.chinacloudsites.cn/.auth/login/done_。
 
 ```java
 private AuthenticationContext mContext;

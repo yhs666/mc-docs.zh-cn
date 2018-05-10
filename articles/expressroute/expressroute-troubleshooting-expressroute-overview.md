@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/26/2017
 ms.author: v-yiso
-ms.date: 03/12/2018
-ms.openlocfilehash: bf37a68fb83282b5ecc0fa12eee9da960d775404
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 05/14/2018
+ms.openlocfilehash: 967a58d9e0e5d1df3980b0da7b1858ae26ffe796
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="verifying-expressroute-connectivity"></a>验证 ExpressRoute 连接
 ExpressRoute 可以通过经连接提供商加速的专用连接将本地网络扩展到 Microsoft 云中，涉及以下三个不同的网络区域：
@@ -447,6 +447,6 @@ At line:1 char:1
 [Support]: https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [CreateCircuit]: ./expressroute-howto-circuit-portal-resource-manager.md 
 [CreatePeering]: ./expressroute-howto-routing-portal-resource-manager.md
-[OldPortal]: https://manage.windowsazure.cn
 [ARP]: ./expressroute-troubleshooting-arp-resource-manager.md
+[OldPortal]: https://manage.windowsazure.cn
 <!--Update_Description:update meta properties and wording-->

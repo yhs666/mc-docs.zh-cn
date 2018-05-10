@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步服务功能和配置 | Microsoft Docs"
-description: "介绍 Azure AD Connect 同步服务的服务端功能。"
+title: Azure AD Connect 同步服务功能和配置 | Microsoft Docs
+description: 介绍 Azure AD Connect 同步服务的服务端功能。
 services: active-directory
-documentationcenter: 
-author: alexchen2016
-manager: digimobile
-editor: 
+documentationcenter: ''
+author: billmath
+manager: mtillman
+editor: ''
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 05/03/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8170d4fa98b9b047d23d6a664f29a9b0281a27c2
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: 173a75885af358f586a5d9d30dc8aac1134c36c1
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 同步服务功能
 Azure AD Connect 的同步功能有两个组件：
@@ -29,7 +29,7 @@ Azure AD Connect 的同步功能有两个组件：
 
 本主题说明以下 **Azure AD Connect 同步服务** 功能的工作原理，以及如何使用 Windows PowerShell 来配置这些功能。
 
-这些设置通过 [用于 Windows PowerShell 的 Azure Active Directory 模块](http://aka.ms/aadposh)进行配置。 请从 Azure AD Connect 单独下载并安装此模块。 [2016 年 3 月版（内部版本 9031.1）](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1)中引入了本主题所述的 cmdlet。 如果没有本主题中所述的 cmdlet，或者它们不生成相同的结果，请确保运行最新的版本。
+这些设置通过 [用于 Windows PowerShell 的 Azure Active Directory 模块](https://aka.ms/aadposh)进行配置。 请从 Azure AD Connect 单独下载并安装此模块。 [2016 年 3 月版（内部版本 9031.1）](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1)中引入了本主题所述的 cmdlet。 如果没有本主题中所述的 cmdlet，或者它们不生成相同的结果，请确保运行最新的版本。
 
 若要查看 Azure AD 目录中的配置，请运行 `Get-MsolDirSyncFeatures`。  
 ![Get-MsolDirSyncFeatures 结果](./media/active-directory-aadconnectsyncservice-features/getmsoldirsyncfeatures.png)
@@ -56,7 +56,7 @@ Azure AD Connect 的同步功能有两个组件：
 | --- | --- |
 | DirectoryExtensions |[Azure AD Connect 同步：目录扩展](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |如果某个属性是另一个对象的副本而不会在导出期间导致整个对象失败，则允许隔离该属性。 |
-| PasswordSync |[使用 Azure AD Connect 同步实现密码同步](active-directory-aadconnectsync-implement-password-synchronization.md) |
+| PasswordSync |[使用 Azure AD Connect 同步实现密码同步](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
 | UnifiedGroupWriteback |[预览：组写回](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |目前不支持。 |
 
@@ -88,7 +88,7 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 
 有关详细信息，请参阅 [Office 365、Azure 或 Intune 中的用户名与本地 UPN 或备用登录 ID 不匹配](https://support.microsoft.com/kb/2523192)。
 
-当本地的 userPrincipalName 发生更改并且你在使用密码同步时，启用此功能可允许同步引擎更新该元素。 如果使用联合身份验证，此功能不受支持。
+当本地的 userPrincipalName 发生更改并且你在使用密码同步时，启用此功能可允许同步引擎更新该元素。如果使用联合身份验证，此功能不受支持。
 
 在新建的 Azure AD 目录中，默认已打开此功能。 可以运行以下命令查看是否已启用此功能：  
 

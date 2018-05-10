@@ -1,26 +1,20 @@
 ---
-title: "Azure 流分析故障排除指南 | Azure"
-description: "如何对流分析作业进行故障排除"
-keywords: "故障排除指南"
-documentationcenter: 
+title: Azure 流分析故障排除指南
+description: 本文介绍对 Azure 流分析作业、连接、输入、输出、查询和数据进行故障排除的技巧。
 services: stream-analytics
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 04/20/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 6b8fdbdf427be3e643385d59b5937352f1428381
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 04/20/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: d04c2ef09ba2b9fbf0adf4fa77400edfa4f8a86e
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Azure 流分析故障排除指南
 
@@ -89,7 +83,7 @@ Azure 流分析故障排除可能看上去是一项复杂的工作。 与大量�
 
 ## <a name="get-help"></a>获取帮助
 
-若需进一步的帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
 
 ## <a name="next-steps"></a>后续步骤
 

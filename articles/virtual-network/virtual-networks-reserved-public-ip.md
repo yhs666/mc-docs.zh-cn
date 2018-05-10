@@ -1,10 +1,10 @@
 ---
-title: "使用 PowerShell 管理 Azure 保留 IP 地址（经典）| Azure"
-description: "了解保留 IP 地址（经典）以及如何使用 PowerShell 管理它们。"
+title: 使用 PowerShell 管理 Azure 保留 IP 地址（经典）| Azure
+description: 了解保留 IP 地址（经典）以及如何使用 PowerShell 管理它们。
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 34652a55-3ab8-4c2d-8fb2-43684033b191
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/10/2016
-ms.date: 05/02/2017
-ms.author: v-dazen
-ms.openlocfilehash: b7a826f5d4d605a5659b58747a093331b356c020
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.date: 05/07/2018
+ms.author: v-yeche
+ms.openlocfilehash: fcf0f839970c12d72c9e5b0d4762cec87dd17b3e
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="reserved-ip-addresses-classic"></a>保留 IP 地址（经典）
 
@@ -27,7 +27,6 @@ ms.lasthandoff: 11/28/2017
 > * [Azure 门户](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-> * [模板](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell（经典）](virtual-networks-reserved-public-ip.md)
 
 Azure 中的 IP 地址分为两类：动态 IP 地址和保留 IP 地址。 由 Azure 管理的公共 IP 地址默认为动态 IP 地址。 这意味着，用于给定云服务的 IP 地址 (VIP) 或用于直接访问 VM 或角色实例的 IP 地址 (ILPIP) 可能会在关闭资源或停止（释放）资源的情况下不时进行更改。
@@ -46,13 +45,15 @@ Azure 中的 IP 地址分为两类：动态 IP 地址和保留 IP 地址。 由 
 
 ## <a name="faq"></a>常见问题
 1. 可以将保留 IP 用于所有 Azure 服务吗？ <br>
-    不可以。 保留 IP 只能用于通过 VIP 公开的 VM 和云服务实例角色。
-2. 保留 IP 是否收费？ <br>
+    否。 保留 IP 只能用于通过 VIP 公开的 VM 和云服务实例角色。
+2. 我可以有多少个保留 IP？ <br>
+    有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文。
+3. 保留 IP 是否收费？ <br>
     有时需要关闭。 有关定价详细信息，请参阅[保留 IP 地址定价详细信息](https://www.azure.cn/pricing/details/reserved-ip-addresses/)。
-3. 如何保留某个 IP 地址？ <br>
+4. 如何保留某个 IP 地址？ <br>
     可以使用 PowerShell、[Azure 管理 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx) 或 [Azure 门户](https://portal.azure.cn)在 Azure 区域中保留 IP 地址。 保留 IP 地址将关联到订阅。
-4. 我是否可将保留 IP 用于基于地缘组的 VNet？ <br>
-    不可以。 仅区域 VNet 支持保留 IP。 与地缘组关联的 VNet 不支持保留 IP。 有关如何将 VNet 与区域或地缘组关联的详细信息，请参阅[关于区域 VNet 和地缘组](virtual-networks-migrate-to-regional-vnet.md)一文。
+5. 我是否可将保留 IP 用于基于地缘组的 VNet？ <br>
+    否。 仅区域 VNet 支持保留 IP。 与地缘组关联的 VNet 不支持保留 IP。 有关如何将 VNet 与区域或地缘组关联的详细信息，请参阅[关于区域 VNet 和地缘组](virtual-networks-migrate-to-regional-vnet.md)一文。
 
 ## <a name="manage-reserved-vips"></a>管理保留 VIP
 
@@ -166,3 +167,4 @@ Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestSer
 * 了解 [IP 寻址](virtual-network-ip-addresses-overview-classic.md)在经典部署模型中的工作原理。
 * 了解[保留专用 IP 地址](virtual-networks-reserved-private-ip.md)。
 * 了解[实例层级公共 IP (ILPIP) 地址](virtual-networks-instance-level-public-ip.md)。
+<!-- Update_Description: update meta properties, wording update, update link -->

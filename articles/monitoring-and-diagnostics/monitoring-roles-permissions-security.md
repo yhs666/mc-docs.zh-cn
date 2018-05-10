@@ -1,9 +1,9 @@
 ---
-title: "Azure Monitor 的角色、权限和安全入门 | Microsoft Docs"
-description: "了解如何使用 Azure Monitor 的内置角色和权限限制对监视资源的访问。"
+title: Azure Monitor 的角色、权限和安全入门 | Microsoft Docs
+description: 了解如何使用 Azure Monitor 的内置角色和权限限制对监视资源的访问。
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 2686e53b-72f0-4312-bcd3-3dc1b4a9b912
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/27/2017
-ms.date: 12/11/2017
+ms.date: 05/14/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4287f721b380e2b36b20daec7f3427e2ab8684ca
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: bfe99a9b85b016b2f129614ab9ae7b0d8f1d3578
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor 的角色、权限和安全入门
-很多团队需要严格控制对监视数据和设置的访问。 例如，如果有专门负责监视的团队成员（支持工程师、DevOps 工程师），或者使用托管服务提供程序，则可能希望向他们授予仅访问监视数据的权限，同时限制其创建、修改或删除资源的能力。 本文介绍如何快速地将内置监视 RBAC 角色应用到 Azure 中的用户，或者为需要有限的监视权限的用户构建自己的自定义角色。 然后讨论与 Azure Monitor 相关资源的安全注意事项，以及如何限制对它们所含数据的访问。
+很多团队需要严格控制对监视数据和设置的访问。 例如，如果有专门负责监视的团队成员（支持工程师、DevOps 工程师），或者使用托管服务提供程序，则可能希望向他们授予仅访问监视数据的权限，同时限制其创建、修改或删除资源的能力。 本文说明如何在 Azure 中快速将内置监视 RBAC 角色应用到用户，或针对需要有限监视权限的用户构建自己的自定义角色。 然后讨论与 Azure Monitor 相关资源的安全注意事项，以及如何限制对它们所含数据的访问。
 
 ## <a name="built-in-monitoring-roles"></a>内置监视角色
 Azure 监视器的内置角色旨在帮助限制对订阅中资源的访问，同时仍然允许负责监视基础结构的人员获取和配置他们所需的数据。 Azure 监视器提供两个现成的角色：“监视读取者”和“监视参与者”。
@@ -70,17 +70,17 @@ Azure 监视器的内置角色旨在帮助限制对订阅中资源的访问，�
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |读取/写入/删除操作组。 |
 | Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |读取/写入/删除活动日志警报。 |
-| Microsoft.Insights/AlertRules/[Read, Write, Delete] |读取/写入/删除警报规则（指标警报）。 |
+| Microsoft.Insights/AlertRules/[Read, Write, Delete] |（从经典警报）读取/写入/删除警报规则。 |
 | Microsoft.Insights/AlertRules/Incidents/Read |列出警报规则的事件（触发警报规则的历史记录）。 仅适用于门户。 |
 | Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |读取/写入/删除自动调整规模设置。 |
 | Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |读取/写入/删除诊断设置。 |
 | Microsoft.Insights/EventCategories/Read |枚举活动日志中所有可能的类别。 由 Azure 门户使用。 |
-| Microsoft.Insights/eventtypes/digestevents/Read |需要通过门户访问活动日志的用户必须拥有此权限。 |
+| Microsoft.Insights/eventtypes/digestevents/Read |此权限对于需要通过门户访问活动日志的用户是必需的。 |
 | Microsoft.Insights/eventtypes/values/Read |列出订阅中的活动日志事件（管理事件）。 此权限适用于以编程方式和通过门户访问活动日志。 |
 | Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | 读取/写入/删除网络流日志的诊断设置。 |
 | Microsoft.Insights/LogDefinitions/Read |需要通过门户访问活动日志的用户必须拥有此权限。 |
 | Microsoft.Insights/LogProfiles/[Read, Write, Delete] |读取/写入/删除日志配置文件（将活动日志流式传输到事件中心或存储帐户）。 |
-| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |读取/写入/删除准实时指标警报（公开预览版）。 |
+| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |读取/写入/删除准实时指标警报 |
 | Microsoft.Insights/MetricDefinitions/Read |读取指标定义（资源的可用指标类型的列表）。 |
 | Microsoft.Insights/Metrics/Read |读取资源的指标。 |
 | Microsoft.Insights/Register/Action |注册 Azure Monitor 资源提供程序。 |
@@ -112,10 +112,10 @@ New-AzureRmRoleDefinition -Role $role
 2. 资源发出的诊断日志。
 3. 资源发出的指标。
 
-这三种类型的数据都可以存储在存储帐户中或流式传输到事件中心，存储帐户和事件中心属于通用 Azure 资源。 由于它们是通用资源，因此其创建、删除和访问权限往往保留给管理员。 我们建议对监视相关的资源使用以下做法，以防止误用：
+这三种类型的数据都可以存储在存储帐户中或流式传输到事件中心，存储帐户和事件中心属于通用 Azure 资源。 由于这些是通用的资源，因此创建、删除和访问它们是一项预留给管理员的权限操作。 我们建议对监视相关的资源采取以下做法，防止不当使用：
 
-* 使用单个、专用存储帐户来监视数据。 如果需要将监视数据划分到多个存储帐户，那么请勿在监视数据和非监视数据之间共享存储帐户的使用，因为这可能会无意中给予那些仅需要访问监视数据（例如 第三方 SIEM）的人员非监视数据的访问权限。
-* 与上述原因相同，请对所有诊断设置使用单个、专用的服务总线或事件中心命名空间。
+* 使用单个、专用存储帐户来监视数据。 如果需要将监视数据划分到多个存储帐户，那么请勿在监视数据和非监视数据之间共享存储帐户的使用，因为这可能会无意中给予那些仅需要访问监视数据（例如第三方 SIEM）的人访问非监控数据的权限。
+* 为所有诊断设置专门使用一个服务总线或事件中心命名空间，原因同上。
 * 通过将监视相关的存储帐户或事件中心保存在单独的资源组中来限制对它们的访问，并对监视角色[使用范围](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure)以限制仅访问该资源组。
 * 当用户只需访问监视数据时，请勿授予订阅范围内的存储帐户或事件中心的 ListKeys 权限。 取而代之的是给予用户资源或资源组（如果有专用的监视资源组）范围的权限。
 
@@ -152,7 +152,7 @@ New-AzureRmRoleDefinition -Role $role
 ### <a name="limiting-access-to-monitoring-related-event-hubs"></a>限制对监视相关的事件中心的访问权限
 可对事件中心采用类似的模式，但首先需要创建专用的侦听授权规则。 如果想要将访问权限授予只需侦听与监视相关的事件中心的应用程序，请执行以下操作：
 
-1. 为事件中心创建共享访问策略，该事件中心是为传输仅包含侦听声明的监视数据而创建的。 可以在门户中完成此操作。 例如，可以称它为“monitoringReadOnly”。 如果可以，会希望将密钥直接提供给用户，并跳过下一步。
+1. 为事件中心创建共享访问策略，该事件中心是为传输仅包含侦听声明的监视数据而创建的。 可以在门户中完成此操作。 例如，可以称它为“monitoringReadOnly”。 如果可能，可以直接将该密钥提供给使用者，并跳过下一步骤。
 2. 如果使用者必须能够临时获取密钥，请向用户授予对该事件中心执行 ListKeys 操作的权限。 需要指定诊断设置或者要设置可流式传输到事件中心的日志配置文件的用户必须拥有此权限。 例如，可以创建一条 RBAC 规则：
    
    ```powershell

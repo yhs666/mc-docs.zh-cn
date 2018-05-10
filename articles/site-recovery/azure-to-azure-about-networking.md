@@ -6,14 +6,14 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/08/2018
-ms.date: 03/05/2018
+origin.date: 03/26/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: e87da25395d8da3689e09b964171231c908ecb36
-ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
+ms.openlocfilehash: 96b3b5b44bbd7d4dc65b464a8ce533031d9cc462
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>关于 Azure 到 Azure 复制的网络
 
@@ -75,18 +75,17 @@ This example shows how to configure NSG rules for a VM to replicate.
 - If you're using NSG rules to control outbound connectivity, use "Allow HTTPS outbound" rules for all the required IP address ranges.
 - The example presumes that the VM source location is "China East" and the target location is "China North.
 
+### NSG rules - China East
 
-* Create rules that correspond to [China East IP ranges](https://www.microsoft.com/download/details.aspx?id=42064). This is required so that data can be written to the cache storage account from the VM.
+1. Create rules that correspond to [China East IP address ranges](https://www.microsoft.com/download/details.aspx?id=42064). This is required so that data can be written to the cache storage account from the VM.
+2. Create rules for all IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+3. Create rules that correspond to the target location:
 
-* Create rules for all IP ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-
-* Create rules that correspond to the target location:
-
-   **Location** | **Site Recovery service IPs** |  **Site Recovery monitoring IP**
+   **Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address**
     --- | --- | ---
    China North | 40.69.144.231 | 52.165.34.144
 
-### NSG rules on the China North network security group
+### NSG rules - China North 
 
 These rules are required so that replication can be enabled from the target region to the source region post-failover:
 
@@ -122,9 +121,9 @@ These rules are required so that replication can be enabled from the target regi
 ### <a name="expressroute-configuration"></a>ExpressRoute 配置
 请遵从以下 ExpressRoute 配置最佳做法：
 
-- 需要在源区域和目标区域中分别创建 ExpressRoute 线路。 然后需要在以下对象之间创建连接：
-  - 源虚拟网络和 ExpressRoute 线路。
-  - 目标虚拟网络和 ExpressRoute 线路。
+- 在源区域和目标区域中创建 ExpressRoute 线路。 然后需要在以下对象之间创建连接：
+    - 源虚拟网络和本地虚拟网络（通过源区域中的 ExpressRoute 线路）。
+    - 目标虚拟网络和本地虚拟网络（通过目标区域中的 ExpressRoute 线路）。
 
 - ExpressRoute 标准规定，可以在同一地缘政治区域创建线路。 若要在不同的地缘政治区域创建 ExpressRoute 线路，则需使用 Azure ExpressRoute 高级版，这会增加成本。 （如果已在使用 ExpressRoute 高级版，则不必支付额外费用。）有关更多详细信息，请参阅 [ExpressRoute 位置文档](../expressroute/expressroute-locations.md)和 [ExpressRoute 定价](https://www.azure.cn/pricing/details/expressroute/)。
 <!-- Archor is not Exist on #azure-regions-to-expressroute-locations-within-a-geopolitical-region -->

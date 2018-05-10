@@ -1,26 +1,20 @@
 ---
-title: "流分析：实时检测欺诈行为 | Azure"
-description: "了解如何通过流分析创建实时欺诈行为检测解决方案。 使用事件中心进行实时事件处理。"
-keywords: "异常检测, 欺诈行为检测, 实时异常检测"
+title: 使用 Azure 流分析实时检测欺诈行为
+description: 了解如何通过流分析创建实时欺诈行为检测解决方案。 使用事件中心进行实时事件处理。
 services: stream-analytics
-documentationcenter: 
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 03/28/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 0f4f97b08443bec18269c2bebaa5a87d3339d76d
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 03/28/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: a8a571b142359e273fe6c0474c02aaf288047822
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure 流分析入门：实时检测欺诈行为
 
@@ -62,7 +56,7 @@ ms.lasthandoff: 01/25/2018
 ### <a name="create-a-namespace-and-event-hub"></a>创建命名空间和事件中心
 在此过程中，首先创建事件中心命名空间，然后将事件中心添加到该命名空间。 事件中心命名空间用于逻辑分组相关的事件总线实例。 
 
-1. 登录 Azure 门户，然后单击“新建” > “物联网” > “事件中心”。 
+1. 登录 Azure 门户，然后依次单击“创建资源” > “物联网” > “事件中心”。 
 
 2. 在“创建命名空间”窗格中，输入命名空间名称，例如 `<yourname>-eh-ns-demo`。 可以对命名空间使用任何名称，但该名称必须对 URL 有效，并且在 Azure 中必须唯一。 
 
@@ -164,7 +158,7 @@ ms.lasthandoff: 01/25/2018
 
 ### <a name="create-the-job"></a>创建作业 
 
-1. 在 Azure 门户中，单击“新建” > “物联网” > “流分析作业”。
+1. 在 Azure 门户中，单击“创建资源” > “物联网” > “流分析作业”。
 
 2. 将作业命名为 `sa_frauddetection_job_demo`，然后指定订阅、资源组和位置。
 
@@ -404,7 +398,7 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 ## <a name="get-support"></a>获取支持
 
-若需进一步的帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
+如需更多帮助，请尝试访问我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -416,4 +410,4 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link, wording update-->
+<!--Update_Description: update link, wording update, update link-->

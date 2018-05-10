@@ -1,19 +1,19 @@
 ---
-title: "使用 Azure Site Recovery 运行将 Hyper-V VM 灾难恢复到辅助站点的演练 | Azure"
-description: "了解如何使用 Azure Site Recovery 运行将 VMM 云中的 Hyper-V VM 灾难恢复到辅助数据中心的演练。"
+title: 使用 Azure Site Recovery 运行将 Hyper-V VM 灾难恢复到辅助站点的演练 | Azure
+description: 了解如何使用 Azure Site Recovery 运行将 VMM 云中的 Hyper-V VM 灾难恢复到辅助数据中心的演练。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 02/12/2018
-ms.date: 03/05/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 532e5e4cdfd4e98409442b1a2175fed58efdb3eb
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: dc94f543165195a29aaba7ba694641ffe111fd77
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>运行将 Hyper-V VM 灾难恢复到辅助站点的演练
 
@@ -50,9 +50,15 @@ ms.lasthandoff: 03/02/2018
 ### <a name="best-practices"></a>最佳实践
 
 - 测试生产网络会导致生产工作负荷出现停机。 灾难恢复演练进行期间，要求用户不要使用相关应用。
-- 测试网络无需与用于测试故障转移的 VMM 逻辑网络类型匹配。 但是，某些组件不起作用：- 如果副本使用 DHCP 和基于 VLAN 的隔离，则副本的 VM 网络不需要静态 IP 地址池。 因此，无法为测试故障转移使用 Windows 网络虚拟化，因为没有任何可用的地址池。 
-        - 如果副本网络使用“无隔离”并且测试网络使用“Windows 网络虚拟化”，则测试故障转移不起作用。 因为无隔离网络不具备创建 Windows 网络虚拟化网络所需的子网。
+
+- 测试网络无需与用于测试故障转移的 VMM 逻辑网络类型匹配。 但是，某些组合不起作用：
+
+    - 如果副本使用 DHCP 和基于 VLAN 的隔离，则副本的 VM 网络不需要静态 IP 地址池。 因此，无法为测试故障转移使用 Windows 网络虚拟化，因为没有任何可用的地址池。 
+
+    - 如果副本网络使用“无隔离”并且测试网络使用“Windows 网络虚拟化”，则测试故障转移不起作用。 因为无隔离网络不具备创建 Windows 网络虚拟化网络所需的子网。
+
 - 我们建议不要将所选的网络用于网络映射、测试故障转移。
+
 - 故障转移后副本虚拟机连接到映射 VM 网络的方式取决于 VMM 控制台中 VM 网络的配置方式。
 
 ### <a name="vm-network-configured-with-no-isolation-or-vlan-isolation"></a>使用无隔离或 VLAN 隔离配置的 VM 网络

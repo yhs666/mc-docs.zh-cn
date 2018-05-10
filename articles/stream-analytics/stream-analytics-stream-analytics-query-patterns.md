@@ -1,26 +1,20 @@
 ---
-title: 流分析中常用使用模式的查询示例 | Azure
-description: 常见的 Azure 流分析查询模式
-keywords: 查询示例
+title: Azure 流分析中的常见查询模式
+description: 本文介绍了在 Azure 流分析作业中很有用的多个常见查询模式和设计。
 services: stream-analytics
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: cgronlun
-ms.assetid: 6b9a7d00-fbcc-42f6-9cbb-8bbf0bbd3d0e
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-origin.date: 08/08/2017
-ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 16c8bb3da4ee0109114db0bc15080d7da80c0490
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 08/08/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: efd150312570fb1359e3c960fe92eefe6f61f1e2
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>常用流分析使用模式的查询示例
 ## <a name="introduction"></a>简介
@@ -587,4 +581,4 @@ WHERE
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties, add content of correlate two event types within the same stream -->
+<!--Update_Description: update meta properties, wording update -->

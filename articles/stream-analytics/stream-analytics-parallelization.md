@@ -1,26 +1,20 @@
 ---
-title: "利用 Azure 流分析中的查询并行化 | Azure"
-description: "了解如何通过配置输入分区、优化查询定义和设置作业流式处理单位扩展流分析作业。"
-keywords: "数据流式处理, 流式数据处理, 优化分析"
+title: 在 Azure 流分析中使用查询并行化和缩放功能
+description: 本文介绍如何通过配置输入分区、优化查询定义和设置作业流单元来缩放流分析作业。
 services: stream-analytics
-documentationcenter: 
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 06/22/2017
-ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6e674d89989433b08c37565e3f53c413a0e3567a
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 06/22/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: 78625a88ae79d4983342d9b9e65190c2ab9f01ee
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>利用 Azure 流分析中的查询并行化
 本文说明了如何利用 Azure 流分析中的并行化。 了解如何通过配置输入分区和调整分析查询定义来缩放流分析作业。
@@ -44,15 +38,15 @@ ms.lasthandoff: 01/25/2018
 
 处理流分析时，可利用输出中的分区：
 <!--Not Available - Azure Data Lake Storage-->
-<!--Not Available - Azure Functions -->
+-   Azure Functions 
 -   Azure 表
 -   Blob 存储
-<!--Not Available - CosmosDB  (need to set the partition key explicitly) -->
+-   CosmosDB（需显式设置分区键）
 -   EventHub（需显式设置分区键）
 <!--Not Available - IoT Hub  (need to set the partition key explicitly)-->
 -   服务总线
 
-PowerBI、SQL 和 SQL 数据仓库的输出不支持分区。 但仍可对输入进行分区，如[本节](#multi-step-query-with-a-grouping-key)中所述 
+PowerBI、SQL 和 SQL 数据仓库的输出不支持分区。 但仍可对输入进行分区，如[本节](#multi-step-query-with-different-partition-by-values)中所述 
 
 若要深入了解分区，请参阅以下文章：
 
@@ -66,7 +60,7 @@ PowerBI、SQL 和 SQL 数据仓库的输出不支持分区。 但仍可对输入
 
 2. 在输入端布置数据后，务必确保查询已进行分区。 这需要在所有步骤中使用 PARTITION BY。 允许采用多个步骤，但必须使用相同的键对其进行分区。 目前，必须将分区键设置为 **PartitionId** 才能实现完全并行作业。  
 
-3. 大多数输出都可以利用分区，但如果使用不支持分区的输出类型，作业将不会实现完全并行。 有关详细信息，请参阅[输出部分](#Outputs)。
+3. 大多数输出都可以利用分区，但如果使用不支持分区的输出类型，作业将不会实现完全并行。 有关详细信息，请参阅[输出部分](#outputs)。
 
 4. 输入分区数必须等于输出分区数。 Blob 存储输出当前不支持分区。 不过没关系，因为它会继承上游查询的分区方案。 下面是允许完全并行作业的分区值示例：  
 
@@ -218,7 +212,7 @@ PowerBI 输出当前不支持分区。 因此，此方案不易并行。
 > 
 
 ## <a name="get-help"></a>获取帮助
-若需进一步的帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

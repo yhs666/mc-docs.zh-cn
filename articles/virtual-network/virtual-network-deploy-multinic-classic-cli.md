@@ -1,11 +1,11 @@
 ---
-title: "创建具有多个 NIC 的 VM（经典）- Azure CLI 1.0 | Azure"
-description: "了解如何使用 Azure 命令行接口 (CLI) 1.0 创建具有多个 NIC 的 VM（经典）。"
+title: 创建具有多个 NIC 的 VM（经典）- Azure CLI 1.0 | Azure
+description: 了解如何使用 Azure 命令行接口 (CLI) 1.0 创建具有多个 NIC 的 VM（经典）。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: b436e41e-866c-439f-a7c7-7b4b041725ef
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 01/22/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1c58071041ce7e2e0d44ea87c3836b24cf910916
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 2dddf7e9cffec74f2eb016c6fad9f744c1613d81
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建具有多个 NIC 的 VM（经典）
 
@@ -51,8 +51,8 @@ ms.lasthandoff: 02/13/2018
 ### <a name="step-1---start-your-script"></a>步骤 1 - 启动脚本
 可在 [此处](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh)下载所用的完整 bash 脚本。 完成以下步骤，更改脚本，以便用于具体环境：
 
-1. 根据在上述 [先决条件](#prerequisites)中部署的现有资源组，更改以下变量的值。
-<!-- Archor is Correct on #prerequisites -->
+1. 根据在上述 [先决条件](#Prerequisites)中部署的现有资源组，更改以下变量的值。
+    <!-- Archor is Correct on #prerequisites -->
 
     ```azurecli
     location="chinaeast"
@@ -195,4 +195,6 @@ ms.lasthandoff: 02/13/2018
 
 Azure DHCP 会将默认网关分配给附加到虚拟机的第一个（主）网络接口。 Azure 不会将默认网关分配给附加到虚拟机的其他（辅助）网络接口。 因此，默认情况下无法与辅助网络接口所在子网的外部资源进行通信。 但是，辅助网络接口可以与其子网之外的资源进行通信。 若要为辅助网络接口配置路由，请参阅[在具有多个网络接口的虚拟机操作系统中进行路由选择](virtual-network-network-interface-vm.md)。
 
+<!--The parent file of includes file of virtual-network-deploy-multinic-classic-selectors-include.md-->
+<!--ms.date:05/07/2018-->
 <!-- Update_Description: update link -->

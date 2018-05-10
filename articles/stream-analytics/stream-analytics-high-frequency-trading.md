@@ -1,26 +1,20 @@
 ---
-title: "使用流分析进行高频交易模拟 | Azure"
-description: "如何在同一流分析作业中进行线性回归模型训练和评分"
-keywords: "机器学习, 高级分析, 线性回归, 模拟, UDA, 用户定义函数"
-documentationcenter: 
+title: 使用 Azure 流分析进行高频交易模拟
+description: 如何在 Azure 流分析作业中进行线性回归模型训练和评分。
 services: stream-analytics
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: 997ccfc1-abaf-4c12-bef2-632481140f05
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 11/05/2017
-ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: f798769ba57e2ba8bda349df841404f37fb6f585
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: get-started-article
+origin.date: 11/05/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: cd496924b027a97f415689d0f39215dca976edb7
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>使用流分析进行高频交易模拟
 用户可以在 Azure 流分析中结合使用 SQL 语言和 JavaScript 的用户定义函数 (UDF) 与用户定义聚合 (UDA) 进行高级分析。 高级分析可能包括在线机器学习训练和评分，以及有状态过程模拟。 本文介绍如何在 Azure 流分析作业中执行线性回归操作，该作业在高频交易方案中进行持续的训练和评分。
@@ -452,4 +446,4 @@ JavaScript UDA 在 `init` 函数中初始化所有累加器，在计算状态转
 目前，UDA 不能在 Visual Studio 中调试。 我们正在努力实现该功能，希望能够对 JavaScript 代码进行单步调试。 另请注意，进入 UDA 的字段的名称为小写。 在查询测试过程中，这并没有引起注意。 但在兼容性级别为 1.1 的 Azure 流分析中，我们保留字段名称的大小写，这样更显自然。
 
 我希望本文能够激发所有 Azure 流分析用户的热情，促使他们使用我们的服务在近实时环境中持续进行高级分析。 如果你有任何反馈，请告知我们，以便我们改进高级分析方案的查询实现。
-<!-- Update_Description: new articles on stream analytics high frequency trading -->
+<!-- Update_Description: update meta properties -->

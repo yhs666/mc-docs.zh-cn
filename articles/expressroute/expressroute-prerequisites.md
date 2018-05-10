@@ -1,25 +1,25 @@
 ---
-title: "采用 Azure ExpressRoute 所要满足的先决条件 | Azure"
-description: "本页提供了在订购 Azure ExpressRoute 线路之前需要满足的要求列表。"
+title: 采用 Azure ExpressRoute 所要满足的先决条件 | Azure
+description: 本页提供了在订购 Azure ExpressRoute 线路之前需要满足的要求列表。
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/30/2017
-ms.date: 
+origin.date: 03/28/2018
+ms.date: ''
 ms.author: v-yiso
-ms.openlocfilehash: 2de1d0595ded91a98d88f17eb765d2fa07e6d478
-ms.sourcegitcommit: ffdf0916d06aa2c6f6e2af49fb49cafb381ace2c
+ms.openlocfilehash: 16e94fe2feea0f8bd4323a2fbc453d6d11eee0ee
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 先决条件和清单  
 

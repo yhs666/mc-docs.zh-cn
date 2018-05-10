@@ -1,9 +1,9 @@
 ---
-title: "为 Azure 服务创建警报 - PowerShell | Azure"
-description: "满足指定的条件时，触发电子邮件、通知、调用网站 URL (webhook) 或自动执行。"
+title: 为 Azure 服务创建警报 - PowerShell | Azure
+description: 满足指定的条件时，触发电子邮件、通知、调用网站 URL (webhook) 或自动执行。
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d26ab15b-7b7e-42a9-81c8-3ce9ead5d252
@@ -12,46 +12,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/20/2016
+origin.date: 03/28/2018
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 226d309982df1b7c8748f23be069e81807a19231
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 05/14/2018
+ms.openlocfilehash: a0933cc397492c8a2f469a2913ccb0397587521f
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>在 Azure Monitor 中为 Azure 服务创建指标警报 - PowerShell
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>在 Azure Monitor 中为 Azure 服务创建经典指标警报 - PowerShell
 > [!div class="op_single_selector"]
-> * [门户](insights-alerts-portal.md)
+> * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
 > * [CLI](insights-alerts-command-line-interface.md)
 >
 >
 
 ## <a name="overview"></a>概述
-本文展示如何使用 PowerShell 设置 Azure 指标警报。  
+
+> [!NOTE]
+> 本文介绍了如何创建旧式经典指标警报。 Azure Monitor 现在支持[较新、更好的指标警报](monitoring-near-real-time-metric-alerts.md)。 这些警报可监视多个指标，并允许对维度指标发出警报。 即将推出对较新指标警报的 Powershell 支持。
+>
+>
+
+本文展示了如何使用 PowerShell 设置 Azure 经典指标警报。  
 
 可以根据监控指标或事件接收 Azure 服务的警报。
 
 * **指标值** - 指定指标的值超过在任一方向分配的阈值时，将触发警报。 也就是说，当条件先是满足以及之后不再满足该条件时，警报都会触发。    
-* **活动日志事件** - 警报可以在发生每个事件时都触发，也可以仅在发生特定数量的事件时触发。 若要详细了解活动日志警报，请[单击此处](./monitoring-activity-log-alerts.md)
+* **活动日志事件** - 发生每个事件，或仅当出现特定事件时触发警报。 若要详细了解活动日志警报，请[单击此处](monitoring-activity-log-alerts.md)
 
-可以配置指标警报，在其触发时执行以下操作：
+可配置经典指标警报，使警报触发时执行以下操作：
 
-- 向服务管理员和共同管理员发送电子邮件通知
-- 向指定的其他电子邮件地址发送电子邮件。
-- 调用 Webhook
-- 开始执行 Azure Runbook（仅在 Azure 门户中可行） 
+* 向服务管理员和共同管理员发送电子邮件通知
+* 向指定的其他电子邮件地址发送电子邮件。
+* 调用 Webhook
+* 开始执行 Azure Runbook（仅从 Azure 门户）
 
 可使用以下项配置并获取有关警报规则的信息 
 
-- [Azure 门户](./insights-alerts-portal.md)
-- [PowerShell](./insights-alerts-powershell.md) 
-- [命令行接口 (CLI)](./insights-alerts-command-line-interface.md) 
-- [Azure 监视器 REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931945.aspx)
+* [Azure 门户](insights-alerts-portal.md)
+* [PowerShell](insights-alerts-powershell.md)
+* [命令行接口 (CLI)](insights-alerts-command-line-interface.md)
+* [Azure 监视器 REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-如果要获得更多信息，始终可以通过键入 ```get-help``` 并键入希望获取其帮助信息的 PowerShell 命令来实现此目的。 
+如果要获得更多信息，始终可以通过键入 ```Get-Help``` 并键入希望获取其帮助信息的 PowerShell 命令来实现此目的。
 
 ## <a name="create-alert-rules-in-powershell"></a>在 PowerShell 中创建警报规则
 
@@ -124,8 +130,7 @@ ms.lasthandoff: 12/01/2017
 
     Get-AzureRmAlertRule -Name myLogAlertRule -ResourceGroup myresourcegroup -DetailedOutput
     ```
-
-9. 删除警报。 这些命令将删除本文中前面创建的规则。
+8. 删除警报。 这些命令将删除本文中前面创建的规则。
 
     ```PowerShell
     Remove-AzureRmAlertRule -ResourceGroup myresourcegroup -Name myrule
@@ -134,11 +139,9 @@ ms.lasthandoff: 12/01/2017
     ```
 
 ## <a name="next-steps"></a>后续步骤
-
-* [获取 Azure 监视概述](./monitoring-overview.md)，包括可收集和监视的信息的类型。
-* 了解[在警报中配置 Webhook](./insights-webhooks-alerts.md)的详细信息。
-* 详细了解[针对活动日志事件配置警报](./monitoring-activity-log-alerts.md)。
+* [获取 Azure 监视概述](monitoring-overview.md)，包括可收集和监视的信息的类型。
+* 了解如何[在警报中配置 Webhook](insights-webhooks-alerts.md)。
+* 了解[针对活动日志事件配置警报](monitoring-activity-log-alerts.md)。
 * 了解关于 [Azure 自动化 Runbook](../automation/automation-starting-a-runbook.md) 的详细信息。
 * 获取[收集诊断日志概述](monitoring-overview-of-diagnostic-logs.md)以收集有关服务的详细高频率指标。
-* 
-            [大致了解指标收集](./insights-how-to-customize-monitoring.md)以确保服务可用且响应迅速。
+* 获取[指标集合概述](insights-how-to-customize-monitoring.md)以确保服务可用且响应迅速。

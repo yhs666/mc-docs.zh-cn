@@ -1,26 +1,20 @@
 ---
-title: "使用事件中心接收器调试 Azure 流分析 | Azure"
-description: "考虑到流分析作业中的事件中心使用者组时的查询最佳做法。"
-keywords: "事件中心限制, 使用者组"
+title: 在 Azure 流分析中对事件中心接收器进行故障排除
+description: 考虑到流分析作业中的事件中心使用者组时的查询最佳做法。
 services: stream-analytics
-documentationcenter: 
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 04/20/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 9b8265807619f1db585dc5386a6cb46dea4f6b79
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 04/20/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: d0dc1715b4d8ac899507b234f93d813e1d8de7ae
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>使用事件中心接收器调试 Azure 流分析
 
@@ -61,9 +55,9 @@ FROM inputEventHub
 不如使用此查询：
 
 ```
-WITH input (
+WITH data AS (
    SELECT * FROM inputEventHub
-) as data
+)
 
 SELECT foo
 INTO output1
@@ -80,7 +74,7 @@ FROM data
 对于有三个或三个以上输入连接到同一事件中心的查询，请创建单独的使用者组。 这需要创建额外的流分析输入。
 
 ## <a name="get-help"></a>获取帮助
-若要获取更多帮助，请访问我们的 [Azure 流分析论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
+若要获取更多帮助，请访问我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
 
 ## <a name="next-steps"></a>后续步骤
 * [流分析简介](stream-analytics-introduction.md)
@@ -89,4 +83,4 @@ FROM data
 * [流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update, update link -->

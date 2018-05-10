@@ -1,11 +1,11 @@
 ---
-title: "排查路由问题 - 门户 | Azure"
-description: "了解如何使用 Azure 门户在 Azure Resource Manager 部署模型中排查路由问题。"
+title: 排查路由问题 - 门户 | Azure
+description: 了解如何使用 Azure 门户在 Azure Resource Manager 部署模型中排查路由问题。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bdd8b6dc-02fb-4057-bb23-8289caa9de89
 ms.service: virtual-network
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/23/2016
-ms.date: 03/12/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2c15531f4c4522b77925ef66769e694ccc4c5451
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: cf3deafa5c577476a6cfc07679757265eb0ef3e5
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>使用 Azure 门户排查路由问题
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.lasthandoff: 03/12/2018
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>查看虚拟机的有效路由
 若要查看应用到 VM 的聚合路由，请完成以下步骤：
 
-1. 登录到位于 https://portal.azure.cn 的 Azure 门户。 你的帐户必须有权对网络接口执行 *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* 操作。 若要了解如何向帐户分配操作，请参阅[创建用于 Azure 基于角色的访问控制的自定义角色](../active-directory/role-based-access-control-custom-roles.md?toc=%2fvirtual-network%2ftoc.json#actions)。
+1. 登录到位于 https://portal.azure.cn 的 Azure 门户。 你的帐户必须有权对网络接口执行 *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* 操作。 若要了解如何向帐户分配操作，请参阅[创建用于 Azure 基于角色的访问控制的自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json#actions)。
 2. 单击“所有服务”，然后在显示的列表中单击“虚拟机”。
 3. 在显示的列表中选择要进行故障排除的 VM，随后会显示一个包含选项的 VM 边栏选项卡。
 4. 单击“诊断和解决问题”，然后选择一个常见问题。 本示例选择了“无法连接到 Windows VM”。

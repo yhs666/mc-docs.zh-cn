@@ -1,10 +1,10 @@
 ---
-title: "将 VM（经典）或云服务角色实例移动到其他子网 - Azure PowerShell | Azure"
-description: "了解如何使用 PowerShell 将 VM（经典）和云服务角色实例移动到其他子网。"
+title: 将 VM（经典）或云服务角色实例移动到其他子网 - Azure PowerShell | Azure
+description: 了解如何使用 PowerShell 将 VM（经典）和云服务角色实例移动到其他子网。
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: de4135c7-dc5b-4ffa-84cc-1b8364b7b427
 ms.service: virtual-network
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/22/2016
-ms.date: 03/31/2017
-ms.author: v-dazen
+ms.date: 05/07/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20ed45378a48a78fe59b2f5ab557a9f43c3700c1
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: c681d79f2ecaa085a0016dc0c479dda1ba3ffba0
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>使用 PowerShell 将 VM（经典）或云服务角色实例移动到其他子网
-可以使用 PowerShell 将 VM（经典）从一个子网移动到同一虚拟网络 (VNet) 中的另一个子网。 可通过编辑 CSCFG 文件（而非使用 PowerShell）移动角色实例。
+可以使用 PowerShell 将 VM（经典）从一个子网移动到同一虚拟网络 (VNet) 中的另一个子网。 可以通过编辑 CSCFG 文件（而不是使用 PowerShell）移动角色实例。
 
 > [!NOTE]
 > 本文介绍如何仅通过经典部署模型移动部署后的 VM。
@@ -39,7 +39,7 @@ ms.lasthandoff: 06/21/2017
     | Set-AzureSubnet -SubnetNames Subnet-2 `
     | Update-AzureVM
 
-如果为 VM 指定了静态内部专用 IP，则必须清除该设置，然后才能将 VM 移到新的子网。 在这种情况下，请使用以下代码：
+如果为 VM 指定了静态内部专用 IP，则必须清除该设置，才能将 VM 移到新的子网。 在这种情况下，请使用以下代码：
 
     Get-AzureVM -ServiceName TestVMCloud -Name TestVM `
     | Remove-AzureStaticVNetIP `
@@ -59,3 +59,4 @@ ms.lasthandoff: 06/21/2017
            </InstanceAddress>
         </AddressAssignments>
     </NetworkConfiguration>
+<!-- Update_Description: update meta properties -->

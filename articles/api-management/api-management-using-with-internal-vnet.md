@@ -1,11 +1,11 @@
 ---
-title: "如何在内部虚拟网络中使用 Azure API 管理"
-description: "了解如何在内部虚拟网络中设置和配置 Azure API 管理"
+title: 如何在内部虚拟网络中使用 Azure API 管理
+description: 了解如何在内部虚拟网络中设置和配置 Azure API 管理
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: kjoshi
-editor: 
+editor: ''
 ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
 ms.service: api-management
 ms.workload: mobile
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/29/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 3394e0b730eed1bec9a057214aad11b5a77047fc
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 05/14/2018
+ms.openlocfilehash: dd0d393a810808cbc5daca74e0aa3f8961ba5f81
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>在内部虚拟网络中使用 Azure API 管理服务
 使用 Azure 虚拟网络，Azure API 管理可以管理无法通过 Internet 访问的 API。 可以使用多种 VPN 技术建立连接。 可在虚拟网络中通过两种主要模式部署 API 管理：
@@ -73,7 +73,7 @@ ms.lasthandoff: 03/12/2018
 如果 API 管理采用外部虚拟网络模式，则 DNS 由 Azure 管理。 使用内部虚拟网络模式时，必须管理自己的路由。
 
 > [!NOTE]
-> API 管理服务不会侦听来自 IP 地址的请求， 它只响应到发往其服务终结点上配置的主机名的请求。 这些终结点包括网关、开发人员门户、Azure 门户、直接管理终结点和 Git。
+> API 管理服务不会侦听来自 IP 地址的请求， 它只响应到发往其服务终结点上配置的主机名的请求。 这些终结点包括网关、Azure 门户和开发人员门户、直接管理终结点和 Git。
 
 ### <a name="access-on-default-host-names"></a>基于默认主机名的访问权限
 创建 API 管理服务（例如“contoso”）时，将默认配置以下服务终结点：

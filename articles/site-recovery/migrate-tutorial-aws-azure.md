@@ -7,20 +7,21 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
 origin.date: 02/27/2018
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 5d0e46cccc4c29e83535bfee0761c66000872b2d
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 210f3684553a2e4352553918312d4ee5a75dab5a
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>将 Amazon Web Services (AWS) VM 迁移到 Azure
 
 本教程介绍如何使用 Site Recovery 将 Amazon Web Services (AWS) 虚拟机 (VM) 迁移到 Azure VM。 将 EC2 实例迁移到 Azure 之后，VM 会被视作本地物理计算机。 本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
+> * 验证先决条件
 > * 准备 Azure 资源
 > * 为迁移准备 AWS EC2 实例
 > * 部署配置服务器
@@ -29,6 +30,23 @@ ms.lasthandoff: 03/28/2018
 > * 面向 Azure 运行一次性故障转移
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+
+## <a name="prerequisites"></a>先决条件
+- 确保要迁移的 VM 正在运行支持的 OS 版本，这包括 
+    - 64 位版本的 Windows Server 2008 R2 SP1 或更高版本、 
+    - Windows Server 2012、
+    - Windows Server 2012 R2、 
+    - Windows Server 2016
+<!-- Not Available on     - Red Hat Enterprise Linux 6.7 (HVM virtualized instances only) and  must have only Citrix PV or AWS PV drivers. Instances running RedHat PV drivers **aren't** supported.-->
+
+- 必须在要复制的每个 VM 上安装 Mobility Service。 
+
+> [!IMPORTANT]
+> 为 VM 启用复制后，Site Recovery 会自动安装此服务。 若要进行自动安装，需在 EC2 实例上准备一个帐户，Site Recovery 将使用该帐户访问 VM。 可以使用域帐户或本地帐户。 
+> - 对于 Linux VM，该帐户应是源 Linux 服务器上的根帐户。 
+> - 对于 Windows VM，如果使用的不是域帐户，请在本地计算机上禁用远程用户访问控制：在注册表的 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** 下，添加 DWORD 项 **LocalAccountTokenFilterPolicy** 并将值设为 1。
+
+- 需要一个单独的 EC2 实例，以便用作 Site Recovery 配置服务器。 此实例必须运行 Windows Server 2012 R2。
 
 ## <a name="prepare-azure-resources"></a>准备 Azure 资源
 
@@ -74,20 +92,6 @@ ms.lasthandoff: 03/28/2018
 8. 保留“子网”的“名称”和“IP 范围”默认值。
 9. 保留“服务终结点”的禁用状态。
 10. 完成后，单击“创建”。
-
-## <a name="prepare-the-ec2-instances"></a>准备 EC2 实例
-
-需要一个或多个要迁移的 VM。 这些 EC2 实例应运行 64 位版本的 Windows Server 2008 R2 SP1 或更高版本、Windows Server 2012、Windows Server 2012 R2、Windows Server 2016。 服务器上只能有 Citrix PV 或 AWS PV 驱动程序。
-<!-- Not Avaiable on Red Hat Enterprise Linux 6.7 (HVM virtualized instances only) -->
-<!-- Not Avaiable on Instances running RedHat PV drivers aren't supported -->
-
-必须在要复制的每个 VM 上安装 Mobility Service。 为 VM 启用复制后，Site Recovery 会自动安装此服务。 若要进行自动安装，需在 EC2 实例上准备一个帐户，Site Recovery 将使用该帐户访问 VM。
-
-可以使用域帐户或本地帐户。 对于 Linux VM，该帐户应是源 Linux 服务器上的根帐户。 对于 Windows VM，如果使用的不是域帐户，则在本地计算机上禁用远程用户访问控制：
-
-  - 在注册表的 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** 下，添加 DWORD 项 **LocalAccountTokenFilterPolicy** 并将值设为 1。
-
-还需要一个单独的 EC2 实例，以便用作 Site Recovery 配置服务器。 此实例必须运行 Windows Server 2012 R2。
 
 ## <a name="prepare-the-infrastructure"></a>准备基础结构
 

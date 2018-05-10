@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure API 管理转换和保护 API"
-description: "了解如何使用配额和限制（速率限制）策略保护 API。"
+title: 使用 Azure API 管理转换和保护 API
+description: 了解如何使用配额和限制（速率限制）策略保护 API。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 11/19/2017
-ms.date: 02/26/2018
+ms.date: 05/14/2018
 ms.author: v-yiso
-ms.openlocfilehash: fca645ba20e63af758f17953024262a7423c6777
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 2dda6387daa800673848aefa02e3d6377a7ad11d
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="transform-and-protect-your-api"></a>转换和保护 API 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 02/13/2018
     
      ![编辑策略](./media/set-edit-policies/set-edit-policies01.png)
      
-9. 将光标置于 **<outbound>** 元素内。
+9. 将光标置于 **&lt;outbound&gt;** 元素内。
 10. 在右侧窗口中的“转换策略”下面，单击“+ 设置 HTTP 标头”两次（以插入两个策略代码片段）。
 
     ![策略](./media/transform-api/transform-api.png)
@@ -114,7 +114,7 @@ ms.lasthandoff: 02/13/2018
 5. 选择屏幕顶部的“设计”选项卡。
 6. 在“出站处理”窗口中，单击三角形（铅笔旁边）。
 7. 选择“代码编辑器”。
-8. 将光标置于 **<outbound>** 元素内。
+8. 将光标置于 **&lt;outbound&gt;** 元素内。
 9. 在右侧窗口中的“转换策略”下面，单击“+ 查找并替换正文中的字符串”。
 10. 修改 **<find-and-replace** 代码（在 **<outbound>** 元素中）以替换 URL，使之与 APIM 网关匹配。 例如：
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 02/13/2018
 5. 选择屏幕顶部的“设计”选项卡。
 6. 在“入站处理”窗口中，单击三角形（铅笔旁边）。
 7. 选择“代码编辑器”。
-8. 将光标置于 **<inbound>** 元素内。
+8. 将光标置于 **&lt;inbound&gt;** 元素内。
 9. 在右侧窗口中的“访问限制策略”下面，单击“+ 限制每个键的调用速率”。
 10. 将 **<rate-limit-by-key** 代码（在 **<inbound>** 元素中）修改为以下代码：
 

@@ -6,7 +6,7 @@ documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: ''
-tags: azure-resource-manager
+tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/31/2017
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: d97146a85905a165f063e2a7b076268fd5cae391
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: f9ad109f438dfde8cef6e30547fc069bcdb67b6d
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>创建包含多个子网的虚拟网络（经典）
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 03/28/2018
     |资源组|保留选中“新建”，输入 **myResourceGroup**。|
     |订阅和位置|选择订阅和位置。
 
-    如果你不熟悉 Azure，请详细了解[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)、[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和[位置](https://www.azure.cn/support/service-dashboard/)（也称为“区域”）。
+    如果你不熟悉 Azure，请详细了解[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)、[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和[位置](https://azure.microsoft.com/regions)（也称为“区域”）。
 4. 在门户中创建虚拟网络时，只能创建一个子网。 在本教程中，将在创建虚拟网络之后创建第二个子网。 随后可在“公共”子网中创建可通过 Internet 访问的资源。 还可以在“专用”子网中创建无法通过 Internet 访问的资源。 若要创建第二个子网，请在页面顶部的“搜索资源”框中输入 **myVnet**。 单击显示在搜索结果中的“myVnet”。
 5. 在显示的“创建虚拟网络(经典)”窗格中单击“子网”（在“设置”部分中）。
 6. 在显示的“myVnet - 子网”窗格中单击“+添加”。

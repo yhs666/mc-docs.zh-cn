@@ -1,34 +1,39 @@
 ---
-title: "将 Active Directory 与 Azure Active Directory 连接。 | Microsoft 文档"
-description: "Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样便可以为集成到 Azure AD 的 Office 365、Azure 和 SaaS 应用程序提供一个通用标识。"
-keywords: "Azure AD Connect 介绍, Azure AD Connect 概述, 什么是 Azure AD Connect, 安装 active directory"
+title: 将 Active Directory 与 Azure Active Directory 连接。 | Microsoft 文档
+description: Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样便可以为集成到 Azure AD 的 Office 365、Azure 和 SaaS 应用程序提供一个通用标识。
+keywords: Azure AD Connect 介绍, Azure AD Connect 概述, 什么是 Azure AD Connect, 安装 active directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 10/02/2017
-ms.date: 01/17/2018
+origin.date: 03/19/2018
+ms.date: 05/03/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5618c0242910f24f2afb483b8b19caac54912431
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: c7d24a7be4f989e08717a201c05f0ccaf8063137
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>将本地目录与 Azure Active Directory 集成
 Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样便可以为集成到 Azure AD 的 Office 365、Azure 和 SaaS 应用程序的用户提供一个通用标识。 本主题指导用户完成规划、部署和操作步骤。 其中统合了与这些操作相关的主题的链接。
 
 > [!IMPORTANT]
-> [Azure AD Connect 是连接本地目录与 Azure AD 和 Office 365 的最佳方式。这是从 Azure Active Directory Sync (DirSync) 或 Azure AD Sync 升级到 Azure AD Connect 的最佳时机，因为这些工具现已弃用，从 2017 年 4 月 13 日起不再受支持。](active-directory-aadconnect-dirsync-deprecated.md)
+> [Azure AD Connect 是连接本地目录与 Azure AD 和 Office 365 的最佳方式。这是从 Azure Active Directory Sync (DirSync) 或 Azure AD Sync 升级到 Azure AD Connect 的最佳时机，因为这些工具现已弃用，从 2017 年 4 月 13 日起不再受支持。](active-directory-aadconnect-dirsync-deprecated.md)  此外：
+
+
+
 > 
-> 
+> - 将用户同步到 Azure AD 是一项**免费功能**，不需要客户付费购买任何订阅。
+>- 同步的用户**不会自动获得***任何*许可证。 管理员仍对许可证分配拥有总体控制权。 
+> - Microsoft 建议让 IT 管理员同步其所有用户。 这不仅可以解除阻止用户访问任何 Azure AD 集成资源，而且还能为 IT 管理员提供更宽广的视图，让他们查看其用户正在访问哪些应用程序。 
 
 ![什么是 Azure AD Connect](./media/active-directory-aadconnect/arch.png)
 
@@ -48,6 +53,10 @@ Azure Active Directory Connect 由三个主要组件构成：同步服务、可�
 - AD FS - 联合身份验证是 Azure AD Connect 的可选部件，可用于使用本地 AD FS 基础结构配置混合环境。 组织可以使用此部件来解决复杂的部署，例如域加入 SSO、实施 AD 登录策略以及智能卡或第三方 MFA。
 
 ## <a name="install-azure-ad-connect"></a>安装 Azure AD Connect
+
+> [!IMPORTANT]
+> Microsoft 不支持在正式记录的这些操作之外修改或操作 Azure AD Connect 同步。 其中的任何操作都可能会导致 Azure AD Connect 同步出现不一致或不受支持状态。因此，Microsoft 无法提供这种部署的技术支持。
+
 可以在 [Microsoft 下载中心](http://go.microsoft.com/fwlink/?LinkId=615771)找到 Azure AD Connect 的下载文件。
 
 | 解决方案 | 方案 |
@@ -70,7 +79,7 @@ Azure Active Directory Connect 由三个主要组件构成：同步服务、可�
 |安装后 | [验证安装并分配许可证 ](active-directory-aadconnect-whats-next.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>了解有关安装 Azure AD Connect 的详细信息
-还要预先了解 [操作](active-directory-aadconnectsync-operations.md) 注意事项。 可能要部署一台待机服务器，以便在发生[灾难](active-directory-aadconnectsync-operations.md#disaster-recovery)时轻松故障转移。 如果要频繁进行配置更改，应该计划部署一台[暂存模式](active-directory-aadconnectsync-operations.md#staging-mode)服务器。
+还要预先了解 [操作](active-directory-aadconnectsync-operations.md) 注意事项。 可能要部署一台待机服务器，以便在发生[灾难](active-directory-aadconnectsync-operations.md#disaster-recovery)时轻松进行故障转移。 如果要频繁进行配置更改，应该计划部署一台[暂存模式](active-directory-aadconnectsync-operations.md#staging-mode)服务器。
 
 |主题 |链接|  
 | --- | --- |
@@ -85,7 +94,7 @@ Azure AD Connect 随附了多个可以选择启用或已按默认启用的功能
 
 如果要限制同步到 Azure AD 的对象，可以使用[筛选](active-directory-aadconnectsync-configure-filtering.md)。 默认同步所有用户、联系人、组和 Windows 10 计算机。 可以根据域、OU 或属性更改筛选设置。
 
-[密码同步](active-directory-aadconnectsync-implement-password-synchronization.md) 可将 Active Directory 中的密码哈希同步到 Azure AD。 最终用户可以在本地与云中使用相同的密码，且只需在一个位置管理此密码。 由于它使用本地 Active Directory，因此用户还可以使用自己的密码策略。
+[密码哈希同步](active-directory-aadconnectsync-implement-password-hash-synchronization.md) 可将 Active Directory 中的密码哈希同步到 Azure AD。 最终用户可以在本地与云中使用相同的密码，且只需在一个位置管理此密码。 由于它使用本地 Active Directory，因此用户还可以使用自己的密码策略。
 
 [防止意外删除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)功能默认处于打开状态，它可以保护云目录，避免同时进行多次删除。 默认情况下，每运行一次可以进行 500 次删除。 可以根据组织大小更改此设置。
 
@@ -95,7 +104,7 @@ Azure AD Connect 随附了多个可以选择启用或已按默认启用的功能
 |主题 |链接|  
 | --- | --- |
 |配置筛选 | [Azure AD Connect 同步：配置筛选](active-directory-aadconnectsync-configure-filtering.md)|
-|密码同步 | [Azure AD Connect 同步：实现密码同步](active-directory-aadconnectsync-implement-password-synchronization.md)|
+|密码哈希同步 | [Azure AD Connect 同步：实现密码哈希同步](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
 |防止意外删除 | [Azure AD Connect 同步：防止意外删除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |自动升级 | [Azure AD Connect：自动升级](active-directory-aadconnect-feature-automatic-upgrade.md)|
 

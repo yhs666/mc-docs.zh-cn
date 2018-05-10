@@ -1,10 +1,10 @@
 ---
-title: "在虚拟网络配置文件中指定 DNS 设置 | Azure"
-description: "在经典部署模型中，如何使用虚拟网络配置文件更改虚拟网络中的 DNS 服务器设置"
+title: 在虚拟网络配置文件中指定 DNS 设置 | Azure
+description: 在经典部署模型中，如何使用虚拟网络配置文件更改虚拟网络中的 DNS 服务器设置
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
 ms.assetid: a8905927-92ac-42b5-8c33-8e42c000692c
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/23/2016
-ms.date: 12/16/2016
-ms.author: v-dazen
-ms.openlocfilehash: 83665e1c260ad18f7e86508de793b9444cb419a6
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.date: 05/07/2018
+ms.author: v-yeche
+ms.openlocfilehash: 5c88d251f342435c2d5ef1697d9defb7edcee9d2
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>在虚拟网络配置文件中指定 DNS 设置
-网络配置文件有两个可用于指定域名系统 (DNS) 设置的元素：**DnsServers** 和 **DnsServerRef**。 可以通过指定服务器的 IP 地址和 **DnsServers** 元素的引用名添加 DNS 服务器列表。 然后可以使用 **DnsServerRef** 元素指定 DnsServers 元素中的哪些 DNS 服务器实体用于虚拟网络内的不同网络站点。
+网络配置文件有两个可用于指定域名系统 (DNS) 设置的元素：**DnsServers** 和 **DnsServerRef**。 可以通过指定服务器的 IP 地址和 **DnsServers** 元素的引用名添加 DNS 服务器列表。 然后可以使用 **DnsServerRef** 元素指定 DnsServers 元素中的哪些 DNS 服务器条目用于虚拟网络中的不同网络站点。
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
@@ -68,3 +68,4 @@ ms.lasthandoff: 07/14/2017
 * 了解 [Azure 虚拟网络配置架构](http://go.microsoft.com/fwlink/?LinkId=248093)。
 * 了解 [Azure 服务配置架构](https://msdn.microsoft.com/library/azure/ee758710)。
 * [使用网络配置文件配置虚拟网络](virtual-networks-using-network-configuration-file.md)。
+<!-- Update_Description: update meta properties -->

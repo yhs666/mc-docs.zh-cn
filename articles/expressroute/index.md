@@ -1,23 +1,23 @@
 ---
-title: "Azure ExpressRoute 文档 - 教程和 API 参考 | Azure"
-description: "了解如何配置和管理专用 ExpressRoute 连接，从本地基础结构或共置设施连接到 Microsoft 云服务。"
+title: Azure ExpressRoute 文档 - 教程和 API 参考 | Azure
+description: 了解如何配置和管理专用 ExpressRoute 连接，从本地基础结构或共置设施连接到 Microsoft 云服务。
 services: expressroute
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-origin.date: 01/23/2017
-ms.date: 06/20/2017
+origin.date: 01/23/2018
+ms.date: 05/14/2018
 ms.author: v-yiso
-ms.openlocfilehash: dd7d4ffafcf00e7107f07edda394da884ec1339b
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: db85291a8ed0627ddeb778335ba5642905c3b708
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 05/07/2018
 ---
 #<a name="expressroute-documentation"></a>ExpressRoute 文档
 

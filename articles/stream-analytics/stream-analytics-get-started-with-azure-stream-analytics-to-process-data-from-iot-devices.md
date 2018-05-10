@@ -1,26 +1,20 @@
 ---
-title: "IoT 实时数据流和 Azure 流分析 | Azure"
-description: "带流分析和实时数据处理的 IoT 传感器标记和数据流"
-keywords: "iot 解决方案, iot 入门"
+title: 使用 Azure 流分析的 IoT 实时数据流
+description: 带流分析和实时数据处理的 IoT 传感器标记和数据流
 services: stream-analytics
-documentationcenter: 
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 03/28/2017
-ms.date: 01/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 39433b90380724f7373a59928f8d0e7e38afcbd5
-ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: hero-article
+origin.date: 03/28/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: 8fc4a4a91964b44a9b0d7040600c1b7cb9388dc7
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>开始使用 Azure 流分析处理来自 IoT 设备的数据
 在本教程中，会学习如何创建流处理逻辑，以从物联网 (IoT) 设备收集数据。 我们会使用真实的物联网 (IoT) 用例来演示如何经济实惠地快速生成解决方案。
@@ -118,4 +112,4 @@ Contoso 是一家工业自动化公司，该公司已将其制造流程完全自
 
 <!--Not Available on https://azure.microsoft.com/en-us/documentation/learning-paths/stream-analytics/ -->
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update meta propreties -->

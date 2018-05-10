@@ -1,20 +1,20 @@
 ---
-title: "Azure Site Recovery 中的 Azure 到 Azure 复制体系结构 | Azure"
-description: "本文概述使用 Azure Site Recovery 服务在 Azure 区域之间复制 Azure VM 时所用的组件和体系结构。"
+title: Azure Site Recovery 中的 Azure 到 Azure 复制体系结构 | Azure
+description: 本文概述使用 Azure Site Recovery 服务在 Azure 区域之间复制 Azure VM 时所用的组件和体系结构。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 02/07/2018
-ms.date: 03/05/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 3bda9d27a9e70e99137c99f2ba4eb0affad18574
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: fcec5ba21e7d897c97b636937742e227cb652673
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure 到 Azure 复制体系结构
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/02/2018
 ## <a name="architectural-components"></a>体系结构组件
 
 下面的概要视图展示了某个特定区域（在此示例中为“中国东部”位置）中的 Azure VM 环境。 在 Azure VM 环境中：
-- 应用可在包含的磁盘分布于多个存储帐户中 VM 上运行。
+- 应用可在托管磁盘或非托管磁盘跨存储帐户分布的 VM 上运行。
 - VM 可以包含在虚拟网络中的一个或多个子网中。
 
 **Azure 到 Azure 复制**
@@ -46,7 +46,8 @@ ms.lasthandoff: 03/02/2018
 目标资源组 | 故障转移后复制的 VM 所属的资源组。
 目标虚拟网络 | 故障转移后复制的 VM 所在的虚拟网络。 创建源虚拟网络与目标虚拟网络之间的网络映射，反之亦然。
 缓存存储帐户 | 在源 VM 更改复制到目标存储帐户前，系统会跟踪这些更改并将更改发送到源位置中的缓存存储帐户。 此步骤可最大限度地降低对在 VM 上运行的生产应用程序的影响。
-目标存储帐户  | 目标位置中的存储帐户，将向其中复制数据。
+**目标存储帐户（如果源 VM 不使用托管磁盘）**  | 目标位置中的存储帐户，将向其中复制数据。
+**副本托管磁盘（如果源 VM 在托管磁盘上）**  | 向其复制数据的目标位置的托管磁盘。
 目标可用性集  | 故障转移后复制的 VM 所在的可用性集。
 
 ### <a name="step-2"></a>步骤 2
@@ -72,7 +73,7 @@ ms.lasthandoff: 03/02/2018
 
 ### <a name="step-3"></a>步骤 3
 
-正在连续复制时，磁盘写入内容会立即传输到缓存存储帐户。 Site Recovery 处理数据，并将其发送到目标存储帐户。 处理数据后，每隔几分钟就会在目标存储帐户中生成恢复点。
+正在连续复制时，磁盘写入内容会立即传输到缓存存储帐户。 Site Recovery 处理数据，并将其发送到目标存储帐户或副本托管磁盘。 处理数据后，每隔几分钟就会在目标存储帐户中生成恢复点。
 
 ## <a name="failover-process"></a>故障转移过程
 
@@ -83,4 +84,4 @@ ms.lasthandoff: 03/02/2018
 ## <a name="next-steps"></a>后续步骤
 
 将 Azure VM [快速复制](azure-to-azure-quickstart.md)到次要区域。
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -1,0 +1,104 @@
+---
+title: 在 Azure 中监视云存储应用程序并排查其问题 | Microsoft Docs
+description: 利用诊断工具、指标和警报来排查云应用程序问题和监视云应用程序。
+services: storage
+author: forester123
+manager: josefree
+ms.service: storage
+ms.workload: web
+ms.devlang: csharp
+ms.topic: tutorial
+origin.date: 02/20/2018
+ms.date: 05/07/2018
+ms.author: v-johch
+ms.custom: mvc
+ms.openlocfilehash: 78b9887de4103364fa82e061d3d44f837c300c31
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 05/07/2018
+---
+# <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>监视云存储应用程序并排查其问题
+
+本教程是一个系列的第 4 部分，也是该系列的最后一部分。 本教程介绍如何监视云存储应用程序并排查其问题。
+
+该系列的第 4 部分中介绍了如何：
+
+> [!div class="checklist"]
+> * 启用日志记录和指标
+> * 启用授权错误警报
+> * 使用错误的 SAS 令牌运行测试流量
+> * 下载和查看日志
+
+[Azure 存储分析](../common/storage-analytics.md)为存储帐户提供日志记录和指标数据。 此数据提供对存储帐户运行状况的见解。 需要先设置数据收集才可直观查看存储帐户。 此过程包括启用日志记录、配置指标和启用警报。
+
+可从 Azure 门户中的“诊断”选项卡启用日志记录和指标。 有两种类型的指标。 “聚合”指标收集入口/出口、可用性、延迟和成功百分比。 系统将聚合 Blob、队列、表和文件服务的这些指标。 “按 API”在 Azure 存储服务 API 中为每项存储操作收集一组相同的指标。 存储日志记录可用于记录存储帐户中成功和失败请求的相关详细信息。 使用这些日志，可以查看针对 Azure 表、队列和 Blob 的读取、写入和删除操作的详细信息。 它们还可用于查看失败请求的原因，如超时、限制和授权错误。
+
+## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
+
+登录到 [Azure 门户](https://portal.azure.cn)
+
+## <a name="turn-on-logging-and-metrics"></a>启用日志记录和指标
+
+在左侧菜单中，依次选择“资源组”、“myResourceGroup”，然后在资源列表中选择存储帐户。
+
+在“诊断”下，将“状态”设置为“开”。 确保“Blob 属性”下的所有选项均已启用。
+
+完成后，单击“保存”
+
+![“诊断”窗格](media/storage-monitor-troubleshoot-storage-application/contoso.png)
+
+## <a name="enable-alerts"></a>启用警报
+
+警报可提供一种方法，根据违反阈值的指标向管理员发送电子邮件或触发 Webhook。 此示例启用 `SASClientOtherError` 指标的警报。
+
+### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>导航到 Azure 门户中的存储帐户
+
+在左侧菜单中，依次选择“资源组”、“myResourceGroup”，然后在资源列表中选择存储帐户。
+
+在“监视”部分下，选择“警报规则”。
+
+在“添加警报规则”下选择“+ 添加警报”，并填写所需的信息。 从“指标”下拉列表中选择 `SASClientOtherError`。
+
+![“诊断”窗格](media/storage-monitor-troubleshoot-storage-application/figure2.png)
+
+## <a name="simulate-an-error"></a>模拟错误
+
+要模拟一个有效的警报，可尝试从存储帐户中请求不存在的 blob。 为此，请将 `<incorrect-blob-name>` 值替换为不存在的值。 多次运行以下代码示例，模拟失败的 blob 请求。
+
+```azurecli
+sasToken=$(az storage blob generate-sas \
+    --account-name <storage-account-name> \
+    --account-key <storage-account-key> \
+    --container-name <container> \
+    --name <incorrect-blob-name> \
+    --permissions r \
+    --expiry `date --date="next day" +%Y-%m-%d` \
+    --output tsv)
+
+curl https://<storage-account-name>.blob.core.chinacloudapi.cn/<container>/<incorrect-blob-name>?$sasToken
+```
+
+下图的示例警报基于上述示例运行的模拟故障。
+
+ ![示例警报](media/storage-monitor-troubleshoot-storage-application/alert.png)
+
+## <a name="download-and-view-logs"></a>下载和查看日志
+
+存储日志将数据存储在存储帐户下名为 $logs 的 blob 容器内的一组 blob 中。 如果列出帐户中的所有 blob 容器，则不会显示该容器，但如果直接访问它，则可查看其内容。
+
+
+## <a name="next-steps"></a>后续步骤
+
+在该系列的第 4 部分也是最后一部分中，可了解如何监视存储帐户并排查其问题，例如，如何：
+
+> [!div class="checklist"]
+> * 启用日志记录和指标
+> * 启用授权错误警报
+> * 使用错误的 SAS 令牌运行测试流量
+> * 下载和查看日志
+
+请访问以下链接，查看预先生成的存储示例。
+
+> [!div class="nextstepaction"]
+> [Azure 存储脚本示例](storage-samples-blobs-cli.md)

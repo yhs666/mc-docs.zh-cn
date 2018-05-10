@@ -1,17 +1,17 @@
 ---
-title: "Azure Site Recovery 中的 Hyper-V 到 Azure 复制体系结构 | Azure"
-description: "本文概述通过 Azure Site Recovery 服务将本地 Hyper-V VM（不带 VMM）复制到 Azure 时所用的组件和体系结构。"
+title: Azure Site Recovery 中的 Hyper-V 到 Azure 复制体系结构 | Azure
+description: 本文概述通过 Azure Site Recovery 服务将本地 Hyper-V VM（不带 VMM）复制到 Azure 时所用的组件和体系结构。
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/14/2018
-ms.date: 03/05/2018
+origin.date: 03/194/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 43c9b8ef0d080eca30c47ee2e2d4be26745cbc9d
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: cb36ada9b52307ae8a4a55a4e896ca3a30c0551d
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V 到 Azure 复制体系结构
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/02/2018
 **组件** | **要求** | **详细信息**
 --- | --- | ---
 **Azure** | Azure 订阅、Azure 存储帐户和 Azure 网络。 | 从本地 VM 工作负载复制的数据存储在存储帐户中。 从本地站点运行故障转移时，使用复制的工作负载数据创建 Azure VM。<br/><br/> 创建 Azure VM 后，它们将连接到 Azure 虚拟网络。
-**Hyper-V** | 在 Site Recovery 部署期间，将 Hyper-V 主机和群集收集到 Hyper-V 站点。 在每个 Hyper-V 虚拟机上安装 Azure Site Recovery 提供程序和恢复服务代理。 | 提供程序通过 Internet 使用 Site Recovery 来安排复制。 恢复服务代理处理数据复制。<br/><br/> 来自提供程序和代理的通信都是安全且经过加密的。 Azure 存储中的复制数据也已加密。
+**Hyper-V** | 在 Site Recovery 部署期间，将 Hyper-V 主机和群集收集到 Hyper-V 站点。 在每个独立 Hyper-V 主机或每个 Hyper-V 群集节点上安装 Azure Site Recovery 提供程序和恢复服务代理。 | 提供程序通过 Internet 使用 Site Recovery 来安排复制。 恢复服务代理处理数据复制。<br/><br/> 来自提供程序和代理的通信都是安全且经过加密的。 Azure 存储中的复制数据也已加密。
 **Hyper-V VM** | 一个或多个在 Hyper-V 上运行的 VM。 | 不需在 VM 上显式安装任何内容。
 
 **Hyper-V 到 Azure 体系结构（不使用 VMM）**
@@ -41,7 +41,7 @@ ms.lasthandoff: 03/02/2018
 --- | --- | ---
 **Azure** | Azure 订阅、Azure 存储帐户和 Azure 网络。 | 从本地 VM 工作负载复制的数据存储在存储帐户中。 从本地站点进行故障转移时，使用复制的数据创建 Azure VM。<br/><br/> 创建 Azure VM 后，它们将连接到 Azure 虚拟网络。
 **VMM 服务器** | VMM 服务器上有一个或多个包含 Hyper-V 主机的云。 | 在 VMM 服务器上安装 Site Recovery 提供程序，以便协调通过 Site Recovery 进行的复制，并在恢复服务保管库中注册服务器。
-**Hyper-V 主机** | 一个或多个由 VMM 管理的 Hyper-V 主机/群集。 |  在每个主机或群集成员上安装恢复服务代理。
+**Hyper-V 主机** | 一个或多个由 VMM 管理的 Hyper-V 主机/群集。 |  在每个 Hyper-V 主机或群集节点上安装恢复服务代理。
 **Hyper-V VM** | 一个或多个在 Hyper-V 主机服务器上运行的 VM。 | 不需在 VM 上显式安装任何内容。
 **联网** | 在 VMM 服务器上设置的逻辑网络和 VM 网络。 VM 网络应链接到与云关联的逻辑网络。 | VM 网络将映射到 Azure 虚拟网络。 如果在故障转移后创建 Azure VM，它们会添加到已映射至 VM 网络的 Azure 网络。
 
@@ -126,5 +126,4 @@ ms.lasthandoff: 03/02/2018
 ## <a name="next-steps"></a>后续步骤
 
 根据[此教程](tutorial-prepare-azure.md)开始使用 Hyper-V 到 Azure 复制。
-<!-- Update_Description: new articles on hyper-v to azure architecture -->
-<!--ms.date: 03/05/2018-->
+<!-- Update_Description: update meta propreties, wording update -->

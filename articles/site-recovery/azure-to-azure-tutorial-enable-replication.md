@@ -5,19 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-origin.date: 03/16/2018
-ms.date: 04/02/2018
+ms.topic: tutorial
+origin.date: 04/08/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 03270dddc45508174290a28ae7cef36eab4654a1
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 2ce4503a784c1d6764260f4ab7e01d364195964f
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>为 Azure VM 设置到辅助 Azure 区域的灾难恢复（预览版）
 
@@ -78,7 +75,7 @@ ms.lasthandoff: 03/28/2018
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 地址范围的出站连接
 
-当使用任何基于 IP 的防火墙、 代理或 NSG 规则来控制出站连接时，需要将以下 IP 地址范围列入白名单。 从以下链接下载范围列表：
+如果想要使用 IP 地址而不是 URL 控制出站连接，请将相应的数据中心范围、Office 365 地址和服务终结点地址加入到基于 IP 的防火墙、代理或 NSG 规则的允许列表。
 
   - [Azure 数据中心 IP 范围](http://www.microsoft.com/download/details.aspx?id=42064)
   - [德国的 Windows Azure 数据中心 IP 范围](http://www.microsoft.com/download/details.aspx?id=54770)
@@ -86,7 +83,7 @@ ms.lasthandoff: 03/28/2018
   - [Office 365 URL 和 IP 地址范围](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery 服务终结点 IP 地址](https://aka.ms/site-recovery-public-ips)
 
-使用这些列表配置网络中的网络访问控制。 可以使用此[脚本](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702)创建所需的 NSG 规则。
+可以使用此[脚本](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702)创建所需的 NSG 规则。
 
 ## <a name="verify-azure-vm-certificates"></a>验证 Azure VM 证书
 
@@ -106,7 +103,7 @@ Azure Site Recovery 提供了三个用于控制 Site Recovery 管理操作的内
 
 - **Site Recovery 读者** - 此角色有权查看所有 Site Recovery 管理操作。 此角色最适合分配给 IT 监视主管，这样他们就可以监视当前保护状态并创建支持票证。
 
-详细了解 [Azure RBAC 内置角色](../active-directory/role-based-access-built-in-roles.md)
+详细了解 [Azure RBAC 内置角色](../role-based-access-control/built-in-roles.md)
 
 ## <a name="enable-replication"></a>启用复制
 
@@ -144,7 +141,9 @@ Site Recovery 会针对目标区域创建默认设置和复制策略。 你可�
 
 - **缓存存储帐户**：Site Recovery 使用源区域中的一个存储帐户。 复制到目标位置之前，对源 VM 的更改将发送到此帐户。
 
-- **目标存储帐户**：默认情况下，Site Recovery 会在目标区域中创建新存储帐户，从而形成源 VM 存储帐户的镜像。
+- **目标存储帐户（如果源 VM 不使用托管磁盘）**：默认情况下，Site Recovery 会在目标区域中创建新存储帐户，从而形成源 VM 存储帐户的镜像。
+
+- **托管磁盘副本（如果源 VM 使用托管磁盘）**：默认情况下，Site Recovery 在目标区域新建托管磁盘副本，以生成和源 VM 的托管磁盘存储类型一致（标准或高级）的镜像磁盘。
 
 - **目标可用性集**：默认情况下，Site Recovery 会在目标区域中创建一个带有“asr”后缀的新可用性集。 如果 VM 是源区域中一个集的一部分，则仅可添加可用性集。
 
@@ -181,4 +180,4 @@ Site Recovery 会针对目标区域创建默认设置和复制策略。 你可�
 > [!div class="nextstepaction"]
 > [运行灾难恢复演练](azure-to-azure-tutorial-dr-drill.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

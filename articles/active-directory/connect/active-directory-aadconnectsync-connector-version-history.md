@@ -1,25 +1,25 @@
 ---
-title: "连接器版本发行历史记录 | Microsoft Docs"
-description: "本主题列出了 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接器的所有版本"
+title: 连接器版本发行历史记录 | Microsoft Docs
+description: 本主题列出了 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接器的所有版本
 services: active-directory
-documentationcenter: 
-author: alexchen2016
-manager: digimobile
-editor: 
+documentationcenter: ''
+author: billmath
+manager: mtillman
+editor: ''
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/06/2017
-ms.date: 12/25/2017
+origin.date: 03/22/2018
+ms.date: 05/03/2018
 ms.author: v-junlch
-ms.openlocfilehash: 20fb5b9f6b6b59a98d98c4fe53b2775ccad5b3fc
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 6476e1df98ea2231f30bf39ace634123114eb078
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="connector-version-release-history"></a>连接器版本发行历史记录
 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接器会经常更新。
@@ -35,9 +35,26 @@ Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接�
 - [下载最新连接器](http://go.microsoft.com/fwlink/?LinkId=717495)
 - [泛型 LDAP 连接器](active-directory-aadconnectsync-connector-genericldap.md)参考文档
 - [泛型 SQL 连接器](active-directory-aadconnectsync-connector-genericsql.md)参考文档
-- [Web 服务连接器](http://go.microsoft.com/fwlink/?LinkID=226245) 参考文档
+- [Web 服务连接器](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) 参考文档
 - [PowerShell 连接器](active-directory-aadconnectsync-connector-powershell.md)参考文档
 - [Lotus Domino 连接器](active-directory-aadconnectsync-connector-domino.md)参考文档
+
+
+## <a name="118300"></a>1.1.830.0
+
+### <a name="fixed-issues"></a>已解决的问题：
+- 已解析的 ConnectorsLog System.Diagnostics.EventLogInternal.InternalWriteEvent（消息：连接到系统的设备无法运行）
+- 在此版本的连接器中，需要在 miiserver.exe.config 中将绑定重定向从 3.3.0.0-4.1.3.0 更新到 4.1.4.0
+- 泛型 Web 服务：
+    - 无法在配置工具中保存已解析的有效 JSON 响应
+- 泛型 SQL：
+    - 导出操作始终仅为删除操作生成更新查询。 添加以生成删除查询
+    - 如果“增量策略”为“更改跟踪”，则为“增量导入”操作获取对象的 SQL 查询已修复。 在此实现中已知的限制：带有“更改跟踪”模式的“增量导入”操作不会跟踪多值属性中的更改
+    - 当需要删除多值属性的最后一个值且此行不包含除必须删除的值以外的任何其他数据时，会增加为事例生成删除查询的可能性。
+    - 通过 SP 实现 OUTPUT 参数时，执行 System.ArgumentException 处理操作 
+    - 不正确的查询，导致导出至 varbinary(max) 类型的字段
+    - parameterList 变量的问题已初始化两次（在函数 ExportAttributes 和 GetQueryForMultiValue 中）
+
 
 ## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
 
@@ -81,6 +98,8 @@ Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接�
   - Wsconfig 工具未正确转换 REST 服务方法的“示例请求”中的 Json 数组。 这导致序列化 REST 请求的此 Json 数组时出现问题。
   - Web 服务连接器配置工具不支持在 JSON 属性名称中使用空间符号 
     - 可将替换模式手动添加到 WSConfigTool.exe.config 文件，例如 ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+> [!NOTE]
+> 导出时需要 JSONSpaceNamePattern 密钥，会收到以下错误：消息: 空名称无效。 
 
 - Lotus Notes：
   - 选项“允许组织/组织单位的自定义认证者”处于禁用状态时，导出（更新）期间连接将失败。导出流后，将所有属性导出到 Domino，但在导出时，KeyNotFoundException 会返回到同步。 
@@ -250,3 +269,4 @@ Lotus：
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
+<!-- Update_Description: wording update -->

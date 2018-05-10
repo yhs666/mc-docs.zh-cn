@@ -7,13 +7,13 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 03/05/2018
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: e6e5265860eca45e32bc5c579e741c99536940d6
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 4d2c4c5e42c1e5156bd57db7127f9c25c7354209
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>为 VMware VM 启用到 Azure 的复制
 
@@ -51,6 +51,7 @@ ms.lasthandoff: 03/28/2018
 7. 选择要用于复制数据的 Azure 存储帐户。 
 
     > [!NOTE]
+
     >   * 可以选择高级或标准存储帐户。 如果选择高级帐户，则需要为正在进行的复制日志指定其他标准存储帐户。 这些帐户必须位于与恢复服务保管库相同的区域中。
     >   * 如果要使用不同的存储帐户，可以[创建一个](../storage/common/storage-create-storage-account.md)。 若要使用资源管理器创建存储帐户，请单击“新建”。 
 
@@ -109,12 +110,12 @@ ms.lasthandoff: 03/28/2018
     例如，如果源计算机有两个网络适配器，而目标计算机大小支持四个，则目标计算机有两个适配器。 如果源虚拟机有两个适配器，但支持的目标大小只支持一个，则目标虚拟机只有一个适配器。
     - 如果虚拟机有多个网络适配器，它们会全部连接到同一网络。 另外，列表中显示的第一个适配器会成为 Azure 虚拟机中的默认网络适配器。
 
-### <a name="azure-hybrid-use-benefit"></a>Azure 混合使用权益
+### <a name="azure-hybrid-benefit"></a>Azure 混合权益
 
-Microsoft 软件保障客户可以使用 Azure 混合使用权益来节省迁移到 Azure 的 Windows Server 虚拟机的许可成本，或将 Azure 用于灾难恢复。 如果有资格使用 Azure 混合使用权益，则可以指定如果发生故障转移，分配到此权益的虚拟机是 Azure Site Recovery 创建的虚拟机。 为此，请按以下步骤操作：
+Microsoft 软件保障客户可以使用 Azure 混合权益来节省迁移到 Azure 的 Windows Server 计算机的许可成本，或将 Azure 用于灾难恢复。 如果有资格使用 Azure 混合权益，则可以指定如果发生故障转移，分配到此权益的虚拟机是 Azure Site Recovery 创建的虚拟机。 为此，请按以下步骤操作：
 - 转到复制的虚拟机的“计算”和“网络”属性部分。
-- 回答此问题：你是否具有可使你有资格使用 Azure 混合使用权益的 Windows Server 许可证。
-- 选中复选框，确认你具有含软件保障的符合条件的 Windows Server 许可证，可用于对在故障转移时创建的虚拟机应用混合使用权益。
+- 回答此问题：你是否具有可使你有资格使用 Azure 混合权益的 Windows Server 许可证。
+- 选中复选框，确认你具有含软件保障的符合条件的 Windows Server 许可证，可用于对在故障转移时创建的虚拟机应用 Azure 混合权益。
 - 保存复制的计算机的设置。
 
 <!-- Not Available on [Azure Hybrid Use Benefit](https://aka.ms/azure-hybrid-use-benefit-pricing). -->
@@ -132,4 +133,4 @@ Microsoft 软件保障客户可以使用 Azure 混合使用权益来节省迁移
 
 如果要禁用保护，请了解如何[清理注册和保护设置](site-recovery-manage-registration-and-protection.md)。
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

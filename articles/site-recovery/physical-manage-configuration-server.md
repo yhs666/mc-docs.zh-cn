@@ -5,14 +5,14 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/05/2018
-ms.date: 04/02/2018
+origin.date: 04/11/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: e27469018127288638c145e411004c069b151160
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 7a3ffd8272d8474c93c9eb31a0e86a3b821c18cf
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>为物理服务器灾难恢复管理配置服务器
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/28/2018
 | **组件** | **要求** |
 | --- |---|
 | CPU 核心数| 8 |
-| RAM | 12 GB|
+| RAM | 16 GB|
 | 磁盘数目 | 3，包括操作系统磁盘、进程服务器缓存磁盘和用于故障回复保留驱动器 |
 | 磁盘可用空间（进程服务器缓存） | 600 GB
 | 磁盘可用空间（保留磁盘） | 600 GB|

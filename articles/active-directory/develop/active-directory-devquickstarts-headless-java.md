@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 01/09/2018
+ms.date: 05/03/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 1df2f8b16857d102f13359df9c2f8873796d6b3d
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: 52a45baed1cb5c82c47bf249417e8303e1965941
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>通过 Azure AD 使用 Java 命令行应用访问 API
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -252,7 +252,7 @@ ms.lasthandoff: 03/19/2018
 `http://localhost:8080/adal4jsample/`
 
 > [!NOTE]
-> 使用最新的 Tomcat 服务器部署 WAR 非常容易。 只需导航到 `http://localhost:8080/manager/` 并遵循有关上传“adal4jsample.war”文件的说明即可。 它会自动部署正确的终结点。
+> 使用最新的 Tomcat 服务器部署 WAR 非常容易。 只需导航到 `http://localhost:8080/manager/` 并按照有关上传 `adal4jsample.war` 文件的说明操作即可。 它会自动部署正确的终结点。
 > 
 > 
 

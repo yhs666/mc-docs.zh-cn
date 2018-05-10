@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 04/05/2018
 ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1018c7f452eceb13a324013c303e39bb8fa9ed0a
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: a866faa473151f640106bf34df4da7efdcae0691
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>创建、更改或删除网络安全组
 
@@ -235,5 +235,4 @@ ms.lasthandoff: 04/28/2018
 |Microsoft.Network/networkWatchers/nextHop/action                |   从 VM 获取下一跃点                  |
 
 将网络安全组与子网关联需要“联接网络安全组”操作。
-<!-- Update_Description: new articles on managed network security group  -->
-<!--ms.date: 04/30/2018-->
+<!-- Update_Description: update meta properties  -->

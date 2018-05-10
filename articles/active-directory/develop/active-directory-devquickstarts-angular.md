@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 origin.date: 11/30/2017
-ms.date: 01/17/2018
+ms.date: 05/04/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 291706b796f507583ba703bba6e2216ff1ae72b2
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: 86b6e549015cabd5fa0c957ca333180b03208066
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Azure AD AngularJS 入门
 
@@ -52,14 +52,14 @@ ms.lasthandoff: 03/19/2018
 3. 在左窗格中，单击“所有服务”，并选择“Azure Active Directory”。
 4. 单击“应用注册”，并选择“添加”。
 5. 根据提示创建一个新的 Web 应用程序和/或 Web API：
-  * **名称**向用户描述应用程序。
-  * “重定向 URI”是 Azure AD 要将令牌返回到的位置。 本示例的默认位置是 `https://localhost:44326/`。
+  - **名称**向用户描述应用程序。
+  - “登录 URL”是 Azure AD 要将令牌返回到的位置。 本示例的默认位置是 `https://localhost:44326/`。
 6. 完成注册后，Azure AD 将向应用分配唯一应用程序 ID。  在后面的部分中会用到此值，因此，请从应用程序选项卡中复制此值。
 7. Adal.js 使用 OAuth 隐式流来与 Azure AD 通信。 必须为应用程序启用隐式流：
   1. 单击应用程序，并选择“清单”打开内联清单编辑器。
   2. 找到 `oauth2AllowImplicitFlow` 属性。 将其值设置为 `true`。
   3. 单击“保存”以保存清单。
-8. 针对应用程序，在租户中授予权限。 转到“设置” > “属性” > “所需的权限”，并单击顶部栏上的“授予权限”按钮。 单击“是”确认。
+8. 针对应用程序，在租户中授予权限。 转到“设置” > “所需的权限”，并单击顶部栏上的“授予权限”按钮。 单击“是”确认。
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>步骤 2：安装 ADAL 并配置单页面应用
 将应用程序注册到 Azure AD 后，可以安装 adal.js 并编写标识相关的代码。

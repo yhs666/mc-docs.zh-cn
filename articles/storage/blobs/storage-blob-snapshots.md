@@ -2,18 +2,18 @@
 title: 在 Azure 存储中创建 Blob 的只读快照 | Azure
 description: 了解如何在指定时刻及时创建 blob 的快照以备份 blob 数据。 了解如何对快照计费，以及如何使用快照最大程度地减少容量费用。
 services: storage
-author: mmacy
-manager: timlt
+author: forester123
+manager: josefree
 ms.service: storage
 ms.topic: article
-origin.date: 04/11/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 6e1c737896e24f2e5228f09cd7548658f5ecadba
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+origin.date: 03/06/2018
+ms.date: 05/07/2018
+ms.author: v-johch
+ms.openlocfilehash: 1a73a527f5f54fbca196e056ec57386e4ab1b576
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-a-blob-snapshot"></a>创建 Blob 快照
 
@@ -180,5 +180,3 @@ Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 [dotnet_UploadFromFile]: https://msdn.microsoft.com/library/azure/mt705654.aspx
 [dotnet_UploadFromStream]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstream.aspx
 [dotnet_UploadText]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.uploadtext.aspx
-
-<!--Update_Description: update snapshots link & add a code examples-->

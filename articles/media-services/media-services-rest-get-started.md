@@ -1,25 +1,25 @@
 ---
-title: "开始使用 REST 按需传送内容 | Azure"
-description: "本教程介绍了使用 Azure 媒体服务和 REST API 实现点播内容传送应用程序的步骤。"
+title: 开始使用 REST 按需传送内容 | Azure
+description: 本教程介绍了使用 Azure 媒体服务和 REST API 实现点播内容传送应用程序的步骤。
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 88194b59-e479-43ac-b179-af4f295e3780
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/07/2017
-ms.date: 12/25/2017
+origin.date: 04/13/2018
+ms.date: 05/07/2017
 ms.author: v-nany
-ms.openlocfilehash: e96a34ad1bb1005a8a48c9443160fd270b79edfd
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: c3594fb4f73d05252683959fd73e087cccd74184
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>开始使用 REST 传送点播内容
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -346,7 +346,7 @@ Date: Mon, 19 Jan 2015 03:01:29 GMT
 设置 AccessPolicy 和定位符后，即可使用 Azure 存储 REST API 将具体的文件上传到 Azure Blob 存储容器。 必须以块 blob 形式上传文件。 Azure 媒体服务不支持页 blob。  
 
 >[!NOTE]
-> 必须将要上传的文件的文件名添加到上一部分中收到的定位符 **Path** 值中。 例如，https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 上获取。 上获取。 上获取。 
+> 必须将要上传的文件的文件名添加到上一部分中收到的定位符 **Path** 值中。 例如： https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 上获取。 上获取。 上获取。 
 
 有关使用 Azure 存储 blob 的详细信息，请参阅 [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)。
 
@@ -615,7 +615,7 @@ Date: Mon, 19 Jan 2015 08:04:35 GMT
 有关详细信息，请参阅[使用媒体服务 REST API 创建编码作业](media-services-rest-encode-asset.md)。
 
 ### <a name="monitor-processing-progress"></a>监视处理进度
-如以下示例所示，可以使用状态属性检索作业状态。
+如以下示例所示，可以使用状态属性检索作业状态：
 
 **HTTP 请求**
 
@@ -866,7 +866,7 @@ Date: Mon, 14 May 2012 21:41:32 GMT
 设置 AccessPolicy 和定位符后，可以使用 Azure 存储 REST API 下载文件。  
 
 >[!NOTE]
-> 必须将要下载的文件的文件名添加到在上一部分收到的 Locator **Path** 值中。 例如，https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 上获取。 上获取。 上获取。 
+> 必须将要下载的文件的文件名添加到在上一部分收到的 Locator **Path** 值中。 例如： https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 上获取。 上获取。 上获取。 
 
 有关使用 Azure 存储 Blob 的详细信息，请参阅 [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)。
 
