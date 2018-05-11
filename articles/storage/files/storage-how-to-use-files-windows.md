@@ -1,25 +1,25 @@
 ---
-title: "在 Windows 中装载 Azure 文件共享并对其进行访问 | Microsoft Docs"
-description: "在 Windows 中装载 Azure 文件共享并对其进行访问。"
+title: 在 Windows 中装载 Azure 文件共享并对其进行访问 | Microsoft Docs
+description: 在 Windows 中装载 Azure 文件共享并对其进行访问。
 services: storage
 documentationcenter: na
 author: forester123
-manager: digimobile
+manager: josefree
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/19/2017
-ms.date: 10/30/2017
+origin.date: 04/11/2018
+ms.date: 05/07/2018
 ms.author: v-johch
-ms.openlocfilehash: d875f71b5732a90a411023f163e7e8dda85e1484
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: cfeb514f0acfec143067710a97f74279148e9931
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>在 Windows 中装载 Azure 文件共享并对其进行访问
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows 和 Windows Server 中装载 Azure 文件共享。 本文介绍了三种在 Windows 中装载 Azure 文件共享的不同方式：使用文件资源管理器 UI、通过 PowerShell，以及通过命令提示符。 
@@ -30,7 +30,8 @@ ms.lasthandoff: 10/23/2017
 
 | Windows 版本        | SMB 版本 | 可以在 Azure VM 中装载 | 可以在本地装载 |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows 10<sup>1</sup>  | SMB 3.0 | 是 | 是 |
+| Windows Server 半年通道<sup>1</sup> | SMB 3.0 | 是 | 是 |
+| Windows 10<sup>2</sup>  | SMB 3.0 | 是 | 是 |
 | Windows Server 2016    | SMB 3.0     | 是                   | 是                  |
 | Windows 8.1            | SMB 3.0     | 是                   | 是                  |
 | Windows Server 2012 R2 | SMB 3.0     | 是                   | 是                  |
@@ -38,7 +39,8 @@ ms.lasthandoff: 10/23/2017
 | Windows 7              | SMB 2.1     | 是                   | 否                   |
 | Windows Server 2008 R2 | SMB 2.1     | 是                   | 否                   |
 
-<sup>1</sup>Windows 10 版本 1507、1511、1607、1703 和 1709。
+<sup>1</sup>Windows Server 版本 1709。  
+<sup>2</sup>Windows 10 版本 1507、1607、1703、1709。
 
 > [!Note]  
 > 我们始终建议使用相对于 Windows 版本来说最新的 KB。
@@ -48,7 +50,41 @@ ms.lasthandoff: 10/23/2017
 
 * **存储帐户密钥**：若要装载 Azure 文件共享，需要主（或辅助）存储密钥。 目前不支持使用 SAS 密钥进行装载。
 
-* **确保端口 445 处于打开状态**：Azure 文件使用 SMB 协议。 SMB 通过 TCP 端口 445 通信 - 请查看防火墙是否未阻止 TCP 端口 445 与客户端计算机通信。
+* **确保端口 445 处于打开状态**：Azure 文件使用 SMB 协议。 SMB 通过 TCP 端口 445 通信 - 请查看防火墙是否未阻止 TCP 端口 445 与客户端计算机通信。 可以使用 Portqry 检查 TCP 端口 445 是否处于打开状态。 如果 TCP 端口 445 显示为“已筛选”，则 TCP 端口被阻止。 示例查询如下：
+
+    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.chinacloudapi.cn -p TCP -e 445`
+
+    如果 TCP 端口 445 受到网络路径中的规则阻止，将显示以下输出：
+
+    `TCP port 445 (Microsoft-ds service): FILTERED`
+
+    若要详细了解如何使用 Portqry，请参阅 [Portqry.exe 命令行实用工具说明](https://support.microsoft.com/help/310099)。
+
+
+## <a name="persisting-connections-across-reboots"></a>重新启动后保持连接
+### <a name="cmdkey"></a>CmdKey
+建立持久连接的最简便方法是使用“CmdKey”命令行实用工具在 Windows 中保存存储帐户凭据。 以下示例命令行可在 VM 中保存存储帐户凭据：
+```
+C:\>cmdkey /add:<yourstorageaccountname>.file.core.chinacloudapi.cn /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
+```
+> [!Note]
+> 此处的域名是“AZURE”。
+
+CmdKey 还允许列出它存储的凭据：
+
+```
+C:\>cmdkey /list
+```
+输出如下所示：
+
+```
+Currently stored credentials:
+
+Target: Domain:target=<yourstorageaccountname>.file.core.chinacloudapi.cn
+Type: Domain Password
+User: AZURE\<yourstorageaccountname>
+```
+持久保存凭据后，在连接到共享时不再需要提供这些凭据。 无需指定任何凭据即可建立连接。
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>使用文件资源管理器装载 Azure 文件共享
 > [!Note]  
@@ -60,7 +96,7 @@ ms.lasthandoff: 10/23/2017
 
     ![“映射网络驱动器”下拉菜单的屏幕截图](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. **在 Azure 门户中从“连接”窗格复制 UNC 路径**：有关如何查找此信息的详细说明，请参阅[此文](storage-how-to-use-files-portal.md#connect-to-file-share)。
+3. **从 Azure 门户的“连接”窗格中复制 UNC 路径。** 
 
     ![Azure 文件“连接”窗格中的 UNC 路径](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
@@ -141,6 +177,7 @@ ms.lasthandoff: 10/23/2017
 * [Introducing Azure File Service（Azure 文件服务简介）](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [将数据迁移到 Azure 文件](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 
-### <a name="reference"></a>引用
+### <a name="reference"></a>参考
 * [.NET 存储客户端库参考](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [文件服务 REST API 参考](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+<!--Update_Description: update supported os version table; add "Persisting connections across reboots" section-->

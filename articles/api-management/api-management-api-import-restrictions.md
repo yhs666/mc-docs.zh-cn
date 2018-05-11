@@ -1,11 +1,11 @@
 ---
-title: "Azure API 管理 API 导入中的限制和已知问题"
-description: "有关使用 Open API、WSDL 或 WADL 格式导入到 Azure API 管理的已知问题和限制的详细信息。"
+title: Azure API 管理 API 导入中的限制和已知问题
+description: 有关使用 Open API、WSDL 或 WADL 格式导入到 Azure API 管理的已知问题和限制的详细信息。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: vlvinogr
-editor: 
+editor: ''
 ms.assetid: 7a5a63f0-3e72-49d3-a28c-1bb23ab495e2
 ms.service: api-management
 ms.workload: mobile
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/29/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: 8a6c6a39e2439f2bca4da1f0d501a8df1c94a095
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 05/14/2018
+ms.openlocfilehash: 1177b5907e2e0d1b75de49f160d2075950508e35
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 导入限制和已知问题
 ## <a name="about-this-list"></a>关于此列表
@@ -28,18 +28,23 @@ ms.lasthandoff: 02/13/2018
 ## <a name="open-api"> </a>Open API/Swagger
 如果在导入 Open API 文档时遇到错误，请确保已通过使用 Azure 门户中的设计器（设计 - 前端 - Open API 规范编辑器）或使用第三方工具（例如 <a href="http://www.swagger.io">Swagger 编辑器</a>）对其进行了验证。
 
-* **主机名** APIM 需要主机名属性。
-* **基路径** APIM 需要基路径属性。
-* **方案** APIM 需要方案数组。 
+* 仅支持 JSON 格式的 OpenAPI。
+* 使用 **$ref** 属性引用的架构不能包含其他 **$ref** 属性。
+* **$ref** 指针不能引用外部文件。
+* 仅支持 **x-ms-paths** 和 **x-servers** 扩展。
+* 自定义扩展在导入时将被忽略，并且不会为导出保存或保留。
+
+> [!IMPORTANT]
+> 如需与 OpenAPI 导入相关的重要信息和提示，请参阅此[文档](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/)。
 
 ## <a name="wsdl"> </a>WSDL
 WSDL 文件用于生成 SOAP 直通 API，或用作 SOAP 到 REST API 的后端。
-
-* **WSDL:Import** - 目前 APIM 不支持使用该属性的 API。 客户应将导入的元素合并到一个文档中。
-* **包含多个部分的消息** - 目前 APIM 不支持这些类型的消息。
-* **WCF wsHttpBinding** 使用 Windows Communication Foundation 创建的 SOAP 服务应使用 basicHttpBinding - 不支持 wsHttpBinding。
-* **MTOM** 使用 MTOM 的服务<em>可能</em>工作。 目前暂未提供官方支持。
-* APIM 不支持以递归方式定义的**递归**类型（例如，引用这些类型本身的数组）。
+* **SOAP 绑定** - 仅支持样式“文档”和“文本”编码的 SOAP 绑定。 不支持“rpc”样式或 SOAP 编码。
+* **WSDL:Import** - 不支持此属性。 客户应将导入项合并到一个文档中。
+* **包含多个部分的消息** - 不支持这些类型的消息。
+* **WCF wsHttpBinding** - 使用 Windows Communication Foundation 创建的 SOAP 服务应使用 basicHttpBinding - 不支持 wsHttpBinding。
+* **MTOM** - 使用 MTOM 的服务<em>可能</em>正常工作。 目前暂未提供官方支持。
+* **递归** - APIM 不支持以递归方式定义的类型（例如，引用这些类型本身的数组）。
 
 ## <a name="wadl"> </a>WADL
 目前没有已知的 WADL 导入问题。

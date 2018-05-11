@@ -14,17 +14,17 @@ ms.workload: na
 origin.date: 03/26/2018
 ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: a5217d50677949d74d0a037cae8c5096cfd9751b
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: d0348c666f9ffec26902fa0aa5381d90cc4f917b
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 <!-- Notice in meta: 全球分布 to 多个区域分布 -->
 <!-- Notice in meta: 全球范围 to 多个数据中心范围 -->
 
 # <a name="how-to-distribute-data-multiple-region-with-azure-cosmos-db"></a>如何使用 Azure Cosmos DB 在多个区域分配数据
-Azure 无所不在 - 遍布多个区域（跨中国的多个地理区域）并且仍在持续扩展中。 遍及全球的 Azure 为开发人员提供一种差异化功能，让他们轻松构建、部署和管理多区域分布的应用程序。 
+Azure 无所不在 - 遍布多个区域（跨中国的多个地理区域）并且仍在持续扩展中。 遍及中国的 Azure 为开发人员提供一种差异化功能，让他们可以轻松构建、部署和管理多区域分布的应用程序。 
 <!-- Notice: 全球 to 多个区域分布 -->
 
 [Azure Cosmos DB](../cosmos-db/introduction.md) 是 21Vianet 针对任务关键型应用程序提供的多区域分布式多模型数据库服务。 Azure Cosmos DB 在多个区域内提供统包数据分发、[吞吐量和存储空间弹性缩放](../cosmos-db/partition-data.md)、99% 情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](consistency-levels.md)，以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档和列式数据模型。 作为一种基于云的服务，Azure Cosmos DB 通过多租户和多区域分发获得了全面彻底的精心设计。
@@ -45,7 +45,7 @@ Azure 无所不在 - 遍布多个区域（跨中国的多个地理区域）并�
 <!-- Notice: 全球分布 to 多个区域分布 -->
 
 <a name="EnableGlobalDistribution"></a>
-## 实现全方位的多区域分发：Azure Cosmos DB 提供以下功能让你轻松编写全球规模的应用程序。 可以通过 Azure Cosmos DB 的基于资源提供程序的 [REST API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) 以及 Azure 门户来获取这些功能。
+## 实现统包多区域分发：Azure Cosmos DB 提供以下功能让你轻松编写多区域规模的应用程序。 可以通过 Azure Cosmos DB 的基于资源提供程序的 [REST API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) 以及 Azure 门户来获取这些功能。
 <!-- Notice: 全球分布 to 多个区域分布 -->
 <!-- Not Available on https://www.youtube.com/embed/1D06yjTVxt8 -->
 <a name="RegionalPresence"></a>
@@ -64,7 +64,7 @@ Azure Cosmos DB 在设计上提供基于策略的地域隔离功能。 地域隔
 
 <a name="DynamicallyAddRegions"></a>
 ### <a name="dynamically-add-and-remove-regions"></a>动态添加和删除区域
-Azure Cosmos DB 允许在任何时间点向数据库帐户添加（关联）或删除（取消关联）区域（请参阅[前图](#UnlimitedRegionsPerAccount)）。 通过跨分区并行复制数据，Azure Cosmos DB 可确保新的区域上线后 30 分钟内即可在全球任何位置使用 Azure Cosmos DB（最多 100 TB）。 
+Azure Cosmos DB 允许在任何时间点向数据库帐户添加（关联）或删除（取消关联）区域（请参阅[前图](#UnlimitedRegionsPerAccount)）。 通过跨分区并行复制数据，Azure Cosmos DB 可确保新的区域上线后 30 分钟内即可在中国的任何位置使用 Azure Cosmos DB（最多 100 TB）。 
 <!-- Notice: 全球任何位置 to 多个区域任何位置 -->
 
 <a name="FailoverPriorities"></a>
@@ -92,7 +92,7 @@ Azure Cosmos DB 允许将区域配置为“读取”、“写入”或“读/写
 
 <a name="GeoLocalReadsAndWrites"></a>
 ### <a name="geo-local-reads-and-writes"></a>异地-本地读取和写入
-多区域分布式数据库的主要优势是能够在世界各地以较低的延迟访问数据。 Azure Cosmos DB 针对各种数据库操作提供 P99 的低延迟保证。 它确保所有读取都会路由到最靠近的本地读取区域。 为服务于读取请求，会使用特定于发出读取操作的区域的本地仲裁；这同样适用于写入。 只有在大多数副本已在本地持久提交写入但没有针对远程副本（用于确认写入）限制写入确认时，才会确认写入。 换言之，Azure Cosmos DB 复制协议是根据以下假设运行的：读取和写入仲裁始终分别位于发出请求的读取和写入区域的本地。
+多区域分布式数据库的主要优势是能够在中国的任意位置以较低的延迟访问数据。 Azure Cosmos DB 针对各种数据库操作提供 P99 的低延迟保证。 它确保所有读取都会路由到最靠近的本地读取区域。 为服务于读取请求，会使用特定于发出读取操作的区域的本地仲裁；这同样适用于写入。 只有在大多数副本已在本地持久提交写入但没有针对远程副本（用于确认写入）限制写入确认时，才会确认写入。 换言之，Azure Cosmos DB 复制协议是根据以下假设运行的：读取和写入仲裁始终分别位于发出请求的读取和写入区域的本地。
 <!-- Notice: 全球分布 to 多个区域分布 -->
 <!-- Notice: 世界各地 to 中国各地 -->
 
@@ -119,7 +119,7 @@ Azure Cosmos DB 允许将区域配置为“读取”、“写入”或“读/写
 ### 综合 SLA（不只是高可用性）：作为一种多区域分布式数据库服务，无论与数据库关联的区域数量是多少，Azure Cosmos DB 都可为整个数据库提供针对**数据丢失**、**可用性**、**P99 的延迟**、**吞吐量**和**一致性**的定义完善的 SLA。  
 
 <a name="LatencyGuarantees"></a>
-## 延迟保证：Azure Cosmos DB 等多区域分布式数据库服务的主要优势是能够在世界各地以较低的延迟访问数据。 Azure Cosmos DB 针对各种数据库操作提供 P99 的低延迟保证。 Azure Cosmos DB 采用的复制协议确保数据库操作（理想情况下，读取和写入均适用）始终在客户端的本地区域执行。 Azure Cosmos DB 的延迟 SLA 包括对读取、（同步）索引写入和各种大小的请求和响应的查询均实现 P99。 写入的延迟保证包括持久的本地数据中心内的大多数仲裁提交。
+## 延迟保证：Azure Cosmos DB 等多区域分布式数据库服务的主要优势是能够在中国的任意位置以较低的延迟访问数据。 Azure Cosmos DB 针对各种数据库操作提供 P99 的低延迟保证。 Azure Cosmos DB 采用的复制协议确保数据库操作（理想情况下，读取和写入均适用）始终在客户端的本地区域执行。 Azure Cosmos DB 的延迟 SLA 包括对读取、（同步）索引写入和各种大小的请求和响应的查询均实现 P99。 写入的延迟保证包括持久的本地数据中心内的大多数仲裁提交。
 <!-- Notice: 全球分布 to 多个区域分布 -->
 <!-- Notice: 世界各地 to 中国各地 -->
 
