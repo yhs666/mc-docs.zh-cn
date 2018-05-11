@@ -1,11 +1,11 @@
 ---
-title: "如何在 Azure API 管理中使用基于角色的访问控制"
-description: "了解如何在 Azure API 管理中使用内置角色和创建自定义角色"
+title: 如何在 Azure API 管理中使用基于角色的访问控制
+description: 了解如何在 Azure API 管理中使用内置角色和创建自定义角色
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
@@ -15,14 +15,14 @@ ms.topic: article
 origin.date: 11/27/2017
 ms.author: v-yiso
 ms.date: 02/26/2018
-ms.openlocfilehash: b365ff0ccb54aa02dd119b6358c96d5a87afcae6
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 428585175e0fe3a4070f06b7a5acdac3368f818c
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>如何在 Azure API 管理中使用基于角色的访问控制
-Azure API 管理依赖于 Azure 基于角色的访问控制 (RBAC) 来为 API 管理服务和实体（例如 API、策略）启用精细访问管理。 本文概述 API 管理中的内置角色和自定义角色。 如需有关 Azure 门户中的访问管理的详细信息，请参阅 [Azure 门户中的访问管理入门](../active-directory/role-based-access-control-what-is.md)
+Azure API 管理依赖于 Azure 基于角色的访问控制 (RBAC) 来为 API 管理服务和实体（例如，API 和策略）启用精细访问管理。 本文概述 API 管理中的内置角色和自定义角色。 有关 Azure 门户中的访问管理的详细信息，请参阅 [Azure 门户中的访问管理入门](../active-directory/role-based-access-control-what-is.md)
 
 ## <a name="built-in-roles"></a>内置角色
 API 管理目前提供了三个内置角色，不久之后会再添加两个角色。 可在不同的范围（包括订阅、资源组和单个 API 管理实例）分配这些角色。 例如，如果在资源组级别将“Azure API 管理服务读取者”角色分配给某个用户，则该用户将对该资源组中的所有 API 管理实例拥有读取访问权限。 

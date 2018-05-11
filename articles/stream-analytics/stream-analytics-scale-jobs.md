@@ -1,28 +1,22 @@
 ---
-title: "扩展流分析作业以增加吞吐量 | Azure"
-description: "了解如何通过配置输入分区、优化查询定义和设置作业流式处理单位扩展流分析作业。"
-keywords: "数据流式处理, 流式数据处理, 优化分析"
+title: Azure 流分析作业的纵向扩展和横向扩展
+description: 本文介绍如何通过分布输入数据、优化查询以及设置作业流单元来缩放流分析作业。
 services: stream-analytics
-documentationcenter: 
 author: rockboyfor
-manager: digimobile
-editor: cgronlun
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 06/22/2017
-ms.date: 01/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: d7239623063324630d23f92d880ea3cfa91cf864
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+manager: digimobile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 06/22/2017
+ms.date: 05/07/2018
+ms.openlocfilehash: 1f547081bb8b9a69e8585011a8a7f57e023d4c68
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>扩展 Azure 流分析作业以增加吞吐量
+# <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>扩展 Azure 流分析作业以增加吞吐量
 本文介绍如何优化流分析查询，增加流分析作业的吞吐量。 可以使用以下指南来扩展作业，以便处理较高负载并充分利用更多的系统资源（如更多带宽、更多 CPU 资源、更多内存）。
 作为先决条件，你可能需要阅读以下文章：
 -   [了解和调整流式处理单元](stream-analytics-streaming-unit-consumption.md)
@@ -32,17 +26,17 @@ ms.lasthandoff: 02/13/2018
 ## <a name="case-1---your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>案例 1 - 在各个输入分区中，查询本质上是完全可并行的
 如果在各个输入分区中，查询本质上是完全可并行的，则可以按照以下步骤操作：
 1.  通过使用 PARTITION BY 关键字来创作查询使之易并行。 请参阅[此页](stream-analytics-parallelization.md)易并行作业部分中的更多详细信息。
-2.  根据查询中使用的输出类型，某些输出可能是不可并行的，或者需要进一步配置来实现易并行。 例如，SQL、SQL DW 输出是不可并行的。 请始终先合并输出，然后再将其发送到输出接收器。 Blob、表、ADLS 和服务总线会自动并行化。 事件中心需要设置 PartitionKey 配置，使之匹配 PARTITION BY 字段（通常为 PartitionId）。 对于事件中心，还要格外注意匹配所有输入和所有输出的分区数量，以避免分区之间的交叉。 
-<!-- Not Available on PowerBI, Azure Funtion, Cosmos DB-->
+2.  根据查询中使用的输出类型，某些输出可能是不可并行的，或者需要进一步配置来实现易并行。 例如，SQL 和 SQL DW 输出是不可并行的。 请始终先合并输出，然后再将其发送到输出接收器。 Blob、表、ADLS 和服务总线会自动并行化。 CosmosDB 和事件中心都需要设置 PartitionKey 配置来匹配 PARTITION BY 字段（通常是 PartitionId）。 对于事件中心，还要格外注意匹配所有输入和所有输出的分区数量，以避免分区之间的交叉。 
+<!-- Not Available on PowerBI, Azure Funtion-->
 3.  使用 6 SU（即单个计算节点的全部容量）来运行查询，以度量最大可实现的吞吐量，如果你使用的是 GROUP BY，则度量作业能处理的组数（基数）。 达到系统资源限制的作业，一般症状将如下所示。
     - SU 利用率指标超过 80%。 该指示内存使用率较高。 [此处](stream-analytics-streaming-unit-consumption.md)描述了导致此指标增加的因素。 
     -   输出时间戳滞后于时钟时间。 根据查询逻辑，输出时间戳可能与时钟时间之间存在一个逻辑偏差。 但是，它们应该以大致相同的速度增进。 如果输出时间戳进一步滞后，则指示系统工作时间过长。 它可能是由于下游输出接收器限制，或高 CPU 利用率所致。 我们目前没有提供 CPU 利用率指标，因此很难区分两者。
-        - 如果该问题是由接收器限制所导致，则可能需要增加输出分区数（以及输入分区数，使作业保持完全可并行化）。
+        - 如果该问题是由接收器限制导致，则可能需要增加输出分区数（以及输入分区，以此使作业保持完全可并行化），或增加接收器的资源量（例如，CosmosDB 的请求单位数）。
     - 在作业关系图中，每个输出都有一个分区积压工作 (backlog) 事件指标。 如果积压工作事件指标持续增加，则同样表示系统资源受到约束（由于输出接收器限制或 CPU 使用率过高）。
 4.  在确定 6 SU 作业可以达到的上限之后，可以在添加更多的 SU 时线性推断出作业的处理容量，前提是没有任何使某些分区“紧迫”的数据倾斜。
-    >[!Note]
-    > 选择适当数量的流单元：由于流分析为每个添加的 6 SU 创建一个处理节点，因此最好将节点数作为输入分区数的除数，使分区可以均匀分布在各节点上。
-    > 例如，你已经度量出 6 SU 作业可以实现 4 MB/秒的处理速率，且输入分区计数为 4。 可以选择使用 12 SU 来运行作业，以达到大约 8 MB/秒的处理速率，或使用 24 SU 来实现 16 MB/秒的处理速率。 然后，你可以决定何时增加作业的 SU 数量以及增加至多少，以作为输入速率的一个函数。
+>[!Note]
+> 选择适当数量的流单元：由于流分析为每个添加的 6 SU 创建一个处理节点，因此最好将节点数作为输入分区数的除数，使分区可以均匀分布在各节点上。
+> 例如，你已经度量出 6 SU 作业可以实现 4 MB/秒的处理速率，且输入分区计数为 4。 可以选择使用 12 SU 来运行作业，以达到大约 8 MB/秒的处理速率，或使用 24 SU 来实现 16 MB/秒的处理速率。 然后，你可以决定何时增加作业的 SU 数量以及增加至多少，以作为输入速率的一个函数。
 
 ## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>案例 2 - 如果查询不是易并行。
 如果查询不是易并行，则可以执行以下步骤。
@@ -150,7 +144,7 @@ ms.lasthandoff: 02/13/2018
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>获取帮助
-若需进一步的帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
+如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析简介](stream-analytics-introduction.md)

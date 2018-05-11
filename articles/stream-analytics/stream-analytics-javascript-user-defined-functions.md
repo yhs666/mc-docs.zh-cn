@@ -1,28 +1,37 @@
 ---
-title: "Azure 流分析 JavaScript 用户定义的函数 | Azure"
-description: "使用 JavaScript 用户定义的函数执行高级查询机制"
-keywords: "javascript, 用户定义的函数, udf"
+title: '教程：Azure 流分析 JavaScript 用户定义的函数 | Azure '
+description: 在本教程中，将使用 JavaScript 用户定义的函数执行高级查询机制
+keywords: javascript, 用户定义的函数, udf
 services: stream-analytics
 author: rockboyfor
 manager: digimobile
-editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
+ms.reviewer: jasonh
+ms.custom: mvc
+origin.date: 04/01/2018
+ms.date: 05/07/2018
 ms.workload: data-services
-origin.date: 03/28/2017
-ms.date: 10/02/2017
 ms.author: v-yeche
-ms.openlocfilehash: 1413fc660645c2c085f42518c46684ffa99f7e2b
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: edde8d3498b289ef4743c8d2a56c82bd25889fd8
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Azure 流分析 JavaScript 用户定义的函数
+# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>教程：Azure 流分析 JavaScript 用户定义的函数
+
 Azure 流分析支持以 JavaScript 编写的用户定义的函数。 利用 JavaScript 提供的丰富 **String**、**RegExp**、**Math**、**Array** 和 **Date** 方法，可以更轻松地创建包含流分析作业的复杂数据转换。
+
+本教程介绍如何执行下列操作：
+
+> [!div class="checklist"]
+> * 定义 JavaScript 用户定义的函数
+> * 将函数添加到门户
+> * 定义运行函数的查询
+
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="javascript-user-defined-functions"></a>JavaScript 用户定义的函数
 JavaScript 用户定义的函数支持仅用于计算的且不需要外部连接的无状态标量函数。 函数的返回值只能是标量（单个）值。 将某个 JavaScript 用户定义的函数添加到作业后，可在查询中的任意位置使用该函数，如同内置标量函数一样。
@@ -135,14 +144,19 @@ FROM
     input PARTITION BY PARTITIONID
 ```
 
+## <a name="clean-up-resources"></a>清理资源
+
+若不再需要资源组、流式处理作业以及所有相关资源，请将其删除。 删除作业可避免对作业使用的流单元进行计费。 如果计划在将来使用该作业，可以先停止该作业，以后在需要时再重启该作业。 如果不打算继续使用该作业，请按照以下步骤删除本快速入门创建的所有资源：
+
+1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。  
+2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，并单击“删除”。
+
 ## <a name="get-help"></a>获取帮助
-若需更多帮助，请尝试使用我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。
+如需更多帮助，请访问我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
 
 ## <a name="next-steps"></a>后续步骤
-* [Azure 流分析简介](stream-analytics-introduction.md)
-* [Azure 流分析入门](stream-analytics-real-time-fraud-detection.md)
-* [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties -->
+在本教程中，创建了一个运行简单的 JavaScript 用户定义函数的流分析作业。
+<!-- Not Available on [Real-time Twitter sentiment analysis in Azure Stream Analytics](stream-analytics-twitter-sentiment-analysis-trends.md)-->
+
+<!--Update_Description: update meta properties, wording update -->

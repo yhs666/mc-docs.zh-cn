@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/17/2017
-ms.date: 11/06/2017
+ms.date: 05/07/2018
 ms.author: v-johch
-ms.openlocfilehash: d82ca0452fdabd577252459e924813da71b586b0
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: 4355b40e82cc0750a7371af75445e6d555dd7c83
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>使用 CLI 2.0 创建 AAD 应用，并将它配置为访问 Azure 媒体服务 API
 
@@ -32,10 +32,9 @@ ms.lasthandoff: 03/29/2018
 ## <a name="use-the-azure-cloud-shell"></a>使用 Azure Cloud Shell
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 在门户的顶部导航窗格中启动 Cloud Shell。
+2. 启动 Cloud Shell。
 
-    ![Cloud Shell](./media/media-services-cli-create-and-configure-aad-app/media-services-cli-create-and-configure-aad-app01.png) 
-
+    
 
 ## <a name="create-an-azure-ad-app-and-configure-access-to-the-media-account-with-cli-20"></a>使用 CLI 2.0 创建 Azure AD 应用并配置对媒体帐户的访问权限
 

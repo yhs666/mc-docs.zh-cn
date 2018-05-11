@@ -1,47 +1,35 @@
 ---
-title: "如何通过 C++ 使用 Blob 存储（对象存储）| Azure"
-description: "使用 Azure Blob 存储（对象存储）将非结构化数据存储在云中。"
+title: 如何通过 C++ 使用对象 (Blob) 存储 - Azure | Microsoft Docs
+description: 使用 Azure Blob（对象）存储将非结构化数据存储在云中。
 services: storage
-documentationcenter: .net
-author: hayley244
-manager: vamshik
-editor: tysonn
-ms.assetid: 53844120-1c48-4e2f-8f77-5359ed0147a4
+author: forester123
+manager: josefree
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 0fa5d447f9fb0b07a66e4eecb51e50f14ce67b36
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+origin.date: 03/21/2018
+ms.date: 05/07/2018
+ms.author: v-johch
+ms.openlocfilehash: c4b1a65e1cc79274ce7043fd6d4682ddc78cbcaa
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>如何通过 C++ 使用 Blob 存储
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
-
-## <a name="overview"></a>概述
-Azure Blob 存储是一种将非结构化数据作为对象/Blob 存储在云中的服务。 Blob 存储可以存储任何类型的文本或二进制数据，例如文档、媒体文件或应用程序安装程序。 Blob 存储也称为对象存储。
-
-本指南将演示如何使用 Azure Blob 存储服务执行常见方案。 示例采用 C++ 编写，并使用了[适用于 C++ 的 Azure 存储客户端库](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 涉及的任务包括上传、列出、下载和删除 Blob。  
+本指南演示如何使用 Azure Blob 存储服务执行常见方案。 示例采用 C++ 编写，并使用了[适用于 C++ 的 Azure 存储客户端库](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 涉及的任务包括上传、列出、下载和删除 Blob。  
 
 > [!NOTE]
-> 本指南主要面向适用于 C++ 的 Azure 存储客户端库 1.0.0 版及更高版本。 推荐版本：存储客户端库 2.2.0（可通过 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 获得）。
-> 
-> 
+> 本指南主要面向适用于 C++ 的 Azure 存储客户端库 1.0.0 版及更高版本。 我们建议使用最新版本的适用于 C++ 的存储客户端库（通过 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 提供）。
+
+## <a name="what-is-blob-storage"></a>什么是 Blob 存储？
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-c-application"></a>创建 C++ 应用程序
-本指南会使用存储功能，这些功能可以在 C++ 应用程序中运行。  
+在本指南中，将使用存储功能，这些功能可以在 C++ 应用程序中运行。  
 
 为此，需要安装适用于 C++ 的 Azure 存储客户端库，并在 Azure 订阅中创建 Azure 存储帐户。   
 
@@ -58,6 +46,8 @@ Azure Blob 存储是一种将非结构化数据作为对象/Blob 存储在云中
 ```cpp
 #include <was/storage_account.h>
 #include <was/blob.h>
+#include <cpprest/filestream.h>  
+#include <cpprest/containerstream.h> 
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>设置 Azure 存储连接字符串
@@ -80,14 +70,14 @@ const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;
 下面的示例假定使用了这两个方法之一来获取存储连接字符串。  
 
 ## <a name="retrieve-your-connection-string"></a>检索连接字符串
-可使用 **cloud_storage_account** 类来表示存储帐户信息。 若要从存储连接字符串中检索存储帐户信息，可以使用 **parse** 方法。  
+可使用 **cloud_storage_account** 类来表示存储帐户信息。 要从存储连接字符串中检索存储帐户信息，可以使用 **parse** 方法。  
 
 ```cpp
 // Retrieve storage account from connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-其次，获取对 cloud_blob_client 类的引用，因为它允许用户检索表示存储在 Blob 存储服务中的容器和 Blob 的对象。 以下代码使用我们在上面检索到的存储帐户对象创建 cloud_blob_client 对象：  
+接下来，获取对 **cloud_blob_client** 类的引用，因为它允许用户检索表示存储在 Blob 存储中的容器和 Blob 的对象。 以下代码使用我们在上面检索到的存储帐户对象创建 cloud_blob_client 对象：  
 
 ```cpp
 // Create the blob client.
@@ -132,7 +122,7 @@ container.upload_permissions(permissions);
 Internet 中的所有人都可以查看公共容器中的 Blob，但是，仅在具有相应的访问密钥时，才能修改或删除它们。  
 
 ## <a name="how-to-upload-a-blob-into-a-container"></a>如何：将 Blob 上传到容器
-Azure Blob 存储支持块 Blob 和页 Blob。 大多数情况下，推荐使用块 Blob。  
+Azure Blob 存储支持块 Blob 和页 Blob。 大多数情况下，推荐使用的类型是块 Blob。  
 
 要将文件上传到块 Blob，请获取容器引用，并使用它获取块 Blob 引用。 获取 Blob 引用后，可以通过调用 upload_from_stream 方法将任何数据流上传到其中。 如果之前不存在 Blob，此操作会创建一个；如果存在 Blob，此操作将覆盖它。 下面的示例演示了如何将 Blob 上传到容器中，并假定已创建容器。  
 
@@ -274,4 +264,4 @@ blockBlob.delete_blob();
 * [Azure 存储文档](/storage/)
 * [使用 AzCopy 命令行实用程序传输数据](../storage-use-azcopy.md)
 
-<!--Update_Description: update link -->
+<!--Update_Description: wording update -->

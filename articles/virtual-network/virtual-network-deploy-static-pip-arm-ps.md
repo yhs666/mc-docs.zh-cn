@@ -1,11 +1,11 @@
 ---
-title: "创建具有静态公共 IP 地址的 VM - Azure PowerShell | Azure"
-description: "了解如何使用 PowerShell 创建具有静态公共 IP 地址的 VM。"
+title: 创建具有静态公共 IP 地址的 VM - Azure PowerShell | Azure
+description: 了解如何使用 PowerShell 创建具有静态公共 IP 地址的 VM。
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-resource-manager
 ms.assetid: ad975ab9-d69f-45c1-9e45-0d3f0f51e87e
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 12/26/2016
-ms.author: v-dazen
+ms.date: 05/07/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 60d0ce6f989aef3725086c217717d767f0fe3d70
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: f5c1148cc4a0e16f281c91d5888884761d54caed
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>使用 PowerShell 创建具有静态公共 IP 地址的 VM
 
@@ -29,7 +29,6 @@ ms.lasthandoff: 06/23/2017
 > * [Azure 门户](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-> * [模板](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell（经典）](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
@@ -41,8 +40,8 @@ ms.lasthandoff: 06/23/2017
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="step-1---start-your-script"></a>步骤 1 - 启动脚本
-可在 [此处](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1)下载所用的完整 PowerShell 脚本。 按照以下步骤更改脚本，以便用于具体环境。
+## <a name="start-your-script"></a>启动脚本
+可在 [此处](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1)下载所用的完整 PowerShell 脚本。 请按以下步骤更改要在环境中使用的脚本。
 
 根据需要用于部署的值更改以下变量的值。 以下值映射到本文中使用的方案：
 
@@ -75,8 +74,8 @@ $pipName               = "PIPWEB1"
 $dnsName               = "iaasstoryws1"
 ```
 
-## <a name="step-2---create-the-necessary-resources-for-your-vm"></a>步骤 2 - 为你的 VM 创建必要的资源
-在创建 VM 之前，你需要可供 VM 使用的资源组、VNet、公共 IP 和 NIC。
+## <a name="create-the-necessary-resources-for-your-vm"></a>为 VM 创建必要的资源
+在创建 VM 之前，需要可供 VM 使用的资源组、VNet、公共 IP 和 NIC。
 
 1. 创建新的资源组。
 
@@ -120,8 +119,8 @@ $dnsName               = "iaasstoryws1"
     -ResourceGroupName $rgName -Type Standard_LRS -Location $location
     ```
 
-## <a name="step-3---create-the-vm"></a>步骤 3 - 创建 VM
-现在，所有必需的资源均已就绪，你可以创建新的 VM 了。
+## <a name="create-the-vm"></a>创建 VM
+现在，所有必需的资源均已就绪，可以创建新的 VM 了。
 
 1. 创建 VM 配置对象。
 
@@ -170,80 +169,15 @@ $dnsName               = "iaasstoryws1"
 
 8. 保存脚本文件。
 
-## <a name="step-4---run-the-script"></a>步骤 4 - 运行脚本
-进行必要的更改并理解上面显示的脚本以后，可运行该脚本。 
+## <a name="run-the-script"></a>运行脚本
 
-1. 在 PowerShell 控制台或 PowerShell ISE 中，运行上述脚本。
-2. 几分钟后，应显示以下输出：
+进行任何必要的更改后，运行前面的脚本。 几分钟后会创建虚拟机。
 
-        ResourceGroupName : IaaSStory
-        Location          : chinanorth
-        ProvisioningState : Succeeded
-        Tags              : 
-        ResourceId        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory
+## <a name="set-ip-addresses-within-the-operating-system"></a>在操作系统中设置 IP 地址
 
-        AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
-        DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
-        Subnets           : {FrontEnd}
-        ProvisioningState : Succeeded
-        AddressSpaceText  : {
-                              "AddressPrefixes": [
-                                "192.168.0.0/16"
-                              ]
-                            }
-        DhcpOptionsText   : {}
-        SubnetsText       : [
-                              {
-                                "Name": "FrontEnd",
-                                "AddressPrefix": "192.168.1.0/24"
-                              }
-                            ]
-        ResourceGroupName : IaaSStory
-        Location          : chinanorth
-        ResourceGuid      : [Id]
-        Tag               : {}
-        TagsTable         : 
-        Name              : WTestVNet
-        Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        Id                : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
+切勿在虚拟机的操作系统中手动分配已分配给 Azure 虚拟机的公共 IP 地址。 我们建议，除非有必要（例如，[为 一个 Windows VM 分配多个 IP 地址](virtual-network-multiple-ip-addresses-powershell.md)时），否则不要以静态方式在 VM 的操作系统中分配已分配给 Azure 虚拟机的专用 IP。 如果确实需要在操作系统中手动设置该专用 IP 地址，请确保它与分配给 Azure [网络接口](virtual-network-network-interface-addresses.md#change-ip-address-settings)的专用 IP 地址是同一地址，否则可能会丢失与虚拟机的连接。 详细了解[专用 IP 地址](virtual-network-network-interface-addresses.md#private)设置。
 
-        AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
-        DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
-        Subnets           : {FrontEnd}
-        ProvisioningState : Succeeded
-        AddressSpaceText  : {
-                              "AddressPrefixes": [
-                                "192.168.0.0/16"
-                              ]
-                            }
-        DhcpOptionsText   : {
-                              "DnsServers": []
-                            }
-        SubnetsText       : [
-                              {
-                                "Name": "FrontEnd",
-                                "Etag": [Id],
-                                "Id": "/subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/FrontEnd",
-                                "AddressPrefix": "192.168.1.0/24",
-                                "IpConfigurations": [],
-                                "ProvisioningState": "Succeeded"
-                              }
-                            ]
-        ResourceGroupName : IaaSStory
-        Location          : chinanorth
-        ResourceGuid      : [Id]
-        Tag               : {}
-        TagsTable         : 
-        Name              : WTestVNet
-        Etag              : [Id]
-        Id                : /subscriptions/[Subscription Id]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
+## <a name="next-steps"></a>后续步骤
 
-        TrackingOperationId : [Id]
-        RequestId           : [Id]
-        Status              : Succeeded
-        StatusCode          : OK
-        Output              : 
-        StartTime           : [Subscription Id]
-        EndTime             : [Subscription Id]
-        Error               : 
-        ErrorText           :
+任何网络流量都可流入和流出本文中创建的 VM。 可以在网络安全组中定义入站和出站安全规则，以限制可以流入和流出网络接口和/或子网的流量。 若要深入了解网络安全组，请参阅[网络安全组概述](security-overview.md)。
+<!-- Update_Description: wording update, update link -->

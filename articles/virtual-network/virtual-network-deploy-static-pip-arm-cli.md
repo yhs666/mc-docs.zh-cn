@@ -1,11 +1,11 @@
 ---
-title: "创建具有静态公共 IP 地址的 VM - Azure CLI | Azure"
-description: "了解如何使用 Azure 命令行接口 (CLI) 创建具有静态公共 IP 地址的 VM。"
+title: 创建具有静态公共 IP 地址的 VM - Azure CLI | Azure
+description: 了解如何使用 Azure 命令行接口 (CLI) 创建具有静态公共 IP 地址的 VM。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 12/11/2017
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dbbe5e9d40e65aa052fc5f5436839bb537c63332
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 07ffff727a37faa926521461068e3e6aa9d3be5a
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>使用 Azure CLI 创建具有静态公共 IP 地址的 VM
 
@@ -29,7 +29,6 @@ ms.lasthandoff: 12/08/2017
 > * [Azure 门户](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-> * [模板](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell（经典）](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
@@ -44,7 +43,7 @@ Azure 具有用于创建和处理资源的两个不同的部署模型：[Resourc
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. 安装 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) （若尚未安装）。
+1. 安装 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)（如果尚未安装）。
 2. 通过完成[为 Linux VM 创建 SSH 公钥和私钥对](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fvirtual-network%2ftoc.json)中的步骤创建适用于 Linux VM 的 SSH 公钥和私钥对。
 3. 从命令行界面，使用 `az login`命令登录。
 4. 执行 Linux 或 Mac 计算机上的脚本进行 VM 创建。 Azure 公共 IP 地址、虚拟网络、网络接口和 VM 资源必须存在于同一位置。 虽然资源并非都必须位于同一资源组，但在以下脚本中如此。
@@ -149,8 +148,12 @@ az vm create \
 2. 请确认在资源组中除了本文中脚本创建的资源外没有其他资源。 
 3. 若要删除本练习中创建的所有资源，请运行 `az group delete -n IaaSStory` 命令。 该命令会删除资源组及其包含的所有资源。
 
+## <a name="set-ip-addresses-within-the-operating-system"></a>在操作系统中设置 IP 地址
+
+切勿在虚拟机的操作系统中手动分配已分配给 Azure 虚拟机的公共 IP 地址。 我们建议，除非有必要（例如，[为 一个 Windows VM 分配多个 IP 地址](virtual-network-multiple-ip-addresses-cli.md)时），否则不要以静态方式在 VM 的操作系统中分配已分配给 Azure 虚拟机的专用 IP。 如果确实需要在操作系统中手动设置该专用 IP 地址，请确保它与分配给 Azure [网络接口](virtual-network-network-interface-addresses.md#change-ip-address-settings)的专用 IP 地址是同一地址，否则可能会丢失与虚拟机的连接。 详细了解[专用 IP 地址](virtual-network-network-interface-addresses.md#private)设置。
+
 ## <a name="next-steps"></a>后续步骤
 
-任何网络流量都可流入和流出本文中创建的 VM。 可以在 NSG 中定义入站和出站规则，以限制可以流入和流出网络接口和/或子网的流量。 若要了解有关 NSG 的详细信息，请阅读 [NSG 概述](virtual-networks-nsg.md)一文。
+任何网络流量都可流入和流出本文中创建的 VM。 可以在网络安全组中定义入站和出站安全规则，以限制可以流入和流出网络接口和/或子网的流量。 若要深入了解网络安全组，请参阅[网络安全组概述](security-overview.md)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

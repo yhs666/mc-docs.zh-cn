@@ -1,19 +1,19 @@
 ---
-title: 使用 Azure 导入/导出将数据传入/传出 Blob 存储 | Azure
-description: 了解如何在 Azure 门户中创建导入和导出作业，以便将数据传入/传出 Blob 存储。
-author: yunan2016
-manager: digimobile
+title: 使用 Azure 导入/导出将数据传入/传出 Azure 存储 | Microsoft Docs
+description: 了解如何在 Azure 门户中创建导入和导出作业，以便将数据传入/传出到 Azure 存储。
+author: forester123
+manager: josefree
 services: storage
 ms.service: storage
 ms.topic: article
-origin.date: 10/03/2017
-ms.date: 3/5/2018
-ms.author: v-nany
-ms.openlocfilehash: ad4d4b4aec7317bd48b21e126e23c6265c6af8da
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+origin.date: 03/22/2018
+ms.date: 05/07/2018
+ms.author: v-johch
+ms.openlocfilehash: 345314c6ba1bdfa29ab0e0348f409880940e876d
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-the-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Azure 导入/导出服务将数据传输到 Azure 存储
 本文分步介绍如何使用 Azure 导入/导出服务将磁盘驱动器寄送到 Azure 数据中心，从而安全地将大量数据传输到 Azure Blob 存储和 Azure 文件。 此外，还可以使用此服务将数据从 Azure 存储传输到硬盘驱动器，然后再寄送到本地站点。 可将单个内部 SATA 磁盘驱动器中的数据导入 Azure Blob 存储或 Azure 文件。 
@@ -152,7 +152,7 @@ WAImportExport 工具仅兼容 64 位 Windows 操作系统。 请参阅 [操作�
 ### <a name="operating-system"></a>操作系统
 在将驱动器寄送到 Azure 之前，可以使用下述 64 位操作系统之一通过 WAImportExport 工具准备硬盘驱动器：
 
-Windows 7 Enterprise、Windows 7 Ultimate、Windows 8 Pro、Windows 8 Enterprise、Windows 8.1 Pro、Windows 8.1 Enterprise、Windows 10<sup>1</sup>、Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2。 所有这些操作系统都支持 BitLocker 驱动器加密。
+Windows 7 Enterprise、Windows 7 Ultimate、Windows 8 Pro、Windows 8 Enterprise、Windows 8.1 Pro、Windows 8.1 Enterprise、Windows 10、Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2。 所有这些操作系统都支持 BitLocker 驱动器加密。
 
 ### <a name="locations"></a>位置
 Azure 导入/导出服务支持将数据复制到所有公共 Azure 存储帐户，以及从后者进行复制。 可以将硬盘驱动器寄送到列出的其中一个位置。 如果存储帐户所在的公共 Azure 位置没有在这里指定，则使用 Azure 门户或导入/导出 REST API 创建作业时，会提供备用的寄送位置。
@@ -172,7 +172,7 @@ Azure 导入/导出服务支持将数据复制到所有公共 Azure 存储帐户
 
 创建导入或导出作业时，必须提供回寄地址，以便 21Vainet 在作业完成后使用该地址寄回驱动器。 请确保提供有效的回寄地址，以免延误对驱动器的处理。
 
-该承运人商应提供相应的跟踪号来维护监护链。 此外，还必须提供有效的中国邮政服务帐号，以便 Microsoft 寄回驱动器。 如果已经有了一个快递商帐户号码，请确保其有效。
+该承运人商应提供相应的跟踪号来维护监护链。 此外，还必须提供有效的中国邮政服务帐号，以便我们寄回驱动器。 如果已经有了一个快递商帐户号码，请确保其有效。
 
 寄送包裹时，必须遵循 [Azure 服务条款](https://www.azure.cn/support/legal/services-terms/)中的条款。
 
@@ -262,7 +262,7 @@ Azure 门户中的此映像会显示示例作业的驱动器状态：
 | 不适用 | 不属于任何作业的驱动器会作为其他作业的一部分送至数据中心。 | 完成与原始包裹关联的作业后，驱动器会标记为额外驱动器并寄回给客户。 |
 
 ### <a name="time-to-process-job"></a>处理作业的时间
-处理导入/导出作业的时间各不相同，取决于不同的因素，例如寄送时间、作业类型、要复制的数据的类型和大小，以及所提供磁盘的大小。 导入/导出服务没有 SLA，但在收到磁盘之后，服务力求在 7 到 10 天内完成复制。 可以通过 REST API 更密切地跟踪作业进度。 在“列出作业”操作中有一个完成百分比参数，该参数指示复制进度。 如果需要估算何时才能完成时间要求紧的导入/导出作业，请联系我们。
+处理导入/导出作业的时间各不相同，取决于很多因素，例如寄送时间、数据中心的加载、要复制的数据的作业类型和大小，以及作业中的磁盘数量。 导入/导出服务没有 SLA，但在收到磁盘之后，服务力求在 7 到 10 天内完成复制。 除了在 Azure 门户上发布的状态以外，REST API 还可用于跟踪作业进度。 作业操作 API 调用的列表中的完成百分比参数提供了复制进度的百分比。
 
 ### <a name="pricing"></a>定价
 **驱动器处理费用**
@@ -514,7 +514,7 @@ Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果�
 
 请参阅 [Azure 备份中的脱机备份工作流](../../backup/backup-azure-backup-import-export.md)。
 
-**一次寄送中 HDD 的最大数量是多少？**
+**一次装运的最大 HDD数量是多少？**
 
 一次寄送中可以有任何数量 HDD，并且如果磁盘属于多个作业，建议：a) 使用对应的作业名称标记磁盘。 b) 使用后缀为 -1、-2 等的跟踪号码更新作业。
   
@@ -527,7 +527,7 @@ Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果�
 
 默认情况下，Azure 导入/导出服务使用 AES 128 BitLocker 加密进行加密，但在复制数据前，可以使用 BitLocker 进行手动加密，从而将加密提升为 AES 256。 
 
-如果使用的是 [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)，请参阅下面的示例命令
+如果使用的是 [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)，下面展示了示例命令
 ```
 WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
 ```
@@ -536,7 +536,6 @@ WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <Targ
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
 ```
-
 ## <a name="next-steps"></a>后续步骤
 
 * [设置 WAImportExport 工具](storage-import-export-tool-how-to.md)

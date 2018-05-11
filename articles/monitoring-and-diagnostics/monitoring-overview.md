@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 03/05/2018
 ms.author: v-yiso
 ms.date: 04/16/2018
-ms.openlocfilehash: 1360e1018657c32320e4aef35b8554164711781b
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 4034b702376412650fba13381067713b3f15fe2f
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>监视 Azure 应用程序和资源
 
@@ -60,6 +60,8 @@ Azure 包括多项可以在监视空间单独执行特定角色或任务的服�
 使用 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) 可收集[指标](../monitoring-and-diagnostics/monitoring-overview-metrics.md)、[活动日志](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)和[诊断日志](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)，为 Azure 服务启用核心监视。 例如，可以通过活动日志了解新资源的创建或修改时间。 
 
 可通过指标获取不同资源（甚至包括虚拟机中的操作系统）的性能统计信息。 可以使用 Azure 门户中的某个资源管理器查看此数据，还可以基于这些指标创建警报。 Azure Monitor 提供最快的指标管道（5 分钟乃至 1 分钟），因此应将其用于时间关键型警报和通知。 
+### <a name="azure-advisor"></a>Azure 顾问
+[Azure 顾问]可持续监视资源配置和使用情况遥测数据。 然后，它会根据最佳做法提供个性化的建议。 采纳这些建议有助于改善支持应用程序的资源的性能、安全性和可用性。
 ### <a name="service-health"></a>服务运行状况
 应用程序的运行状况取决于其所依赖的 Azure 服务。 [Azure 服务运行状况](../service-health/service-health-overview.md)可以标识 Azure 服务存在的可能影响应用程序的任何问题。 服务运行状况还有助于对计划性维护进行计划。
 
@@ -73,6 +75,16 @@ Azure 包括多项可以在监视空间单独执行特定角色或任务的服�
 在 Azure 门户中，可以在特定资源的页面上查看该资源的日志。 也可在活动日志资源管理器中查看多个资源提供的日志。 
 ## <a name="deep-monitoring-services"></a>深度监视服务
 下列 Azure 服务提供丰富的功能，用于在更深的层次收集和分析监视数据。 这些服务基于核心监视功能构建，并可利用 Azure 中的常用功能。 它们可以对收集的数据进行深入的分析，并提供有关应用程序和基础结构的独特见解。 它们在面向不同受众的方案上下文中呈现数据。
+
+## <a name="deep-infrastructure-monitoring"></a>深度基础结构监视
+### <a name="network-monitoring"></a>网络监视
+有几种工具可协同工作监视网络（无论在 Azure 中还是在本地）的各个方面。  
+
+[网络观察程序](../network-watcher/network-watcher-monitoring-overview.md)为 Azure 中的不同网络方案提供基于方案的监视和诊断。 它将数据存储在 Azure 指标和诊断中，供将来进行分析。 它可以与以下解决方案配合使用，监视网络的各个方面。
+
+[网络性能监视器 (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) 是一种基于云的网络监视解决方案，用于监视公有云、数据中心和本地环境之间的连接。
+
+[ExpressRoute 监视器](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/)是一种 NPM 功能，用于通过 Azure ExpressRoute 线路监视端到端连接和性能。
 
 ## <a name="example-scenarios"></a>示例方案
 以下是高级示例，介绍如何在 Azure 中针对不同的方案使用相应的监视工具。

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/23/2017
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: bf7ff84661ff525833622a72f956b4566630f2ba
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 0788924319bc0df2d2ebbcbfdcf39f8d9f2ca6f5
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>使用动态 DNS 在自己的 DNS 服务器中注册主机名
 [Azure 为虚拟机 (VM) 和角色实例提供名称解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)。 但是，如果需要 Azure 所提供的名称解析之外的名称解析，则可以提供自己的 DNS 服务器。 这样可以量身定制 DNS 解决方案以满足自己的特定需求。 例如，可能需要通过 Active Directory 域控制器来访问本地资源。
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/28/2018
 将自定义 DNS 服务器作为 Azure VM 托管时，可将针对同一 VNet 的主机名查询转发到 Azure 以解析主机名。 如果不希望使用此路由，可使用动态 DNS 在 DNS 服务器中注册 VM 主机名。  Azure 不具备直接在 DNS 服务器中创建记录的功能（如凭据），因此通常需要替代方案。 以下是一些常见的替代方案。
 
 ## <a name="windows-clients"></a>Windows 客户端
-在启动时或其 IP 地址更改时，未加入域的 Windows 客户端将尝试不安全的动态 DNS (DDNS) 更新。 DNS 名称为主机名加上的主 DNS 后缀。 Azure 保留主 DNS 后缀为空，但你可以通过 [UI](https://technet.microsoft.com/library/cc794784.aspx) 或[使用此处所述的自动化](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix)在 VM 中对其进行设置。
+在启动时或其 IP 地址更改时，未加入域的 Windows 客户端将尝试不安全的动态 DNS (DDNS) 更新。 DNS 名称为主机名加上的主 DNS 后缀。 Azure 保留主 DNS 后缀为空，但可以通过[用户界面](https://technet.microsoft.com/library/cc794784.aspx)或 [PowerShell](https://docs.microsoft.com/powershell/module/dnsclient/set-dnsclient) 在 VM 中对此后缀进行设置。
 
 已加入域的 Windows 客户端通过使用安全的动态 DNS 将其 IP 地址注册到域控制器。 域加入过程在客户端上设置主 DNS 后缀并创建和维护信任关系。
 

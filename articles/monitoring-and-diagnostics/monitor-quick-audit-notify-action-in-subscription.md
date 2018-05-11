@@ -1,6 +1,6 @@
 ---
-title: "审核和接收关于 Azure 订阅中重要操作的通知 | Microsoft Docs"
-description: "在活动日志中了解资源管理、服务运行状况和其他订阅活动的历史记录，然后在订阅中执行高特权操作时，使用活动日志警报接收电子邮件通知。"
+title: 审核和接收关于 Azure 订阅中重要操作的通知 | Microsoft Docs
+description: 在活动日志中了解资源管理、服务运行状况和其他订阅活动的历史记录，然后在订阅中执行高特权操作时，使用活动日志警报接收电子邮件通知。
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -8,14 +8,14 @@ documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: quickstart
 origin.date: 09/25/2017
-ms.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: abea5b836bf2f7d8308ff34538d7a5521637afed
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: e57e35cf0f274c00f08992a29fbfaa0e9184d7c2
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>审核和接收关于 Azure 订阅中重要操作的通知
 
@@ -75,7 +75,7 @@ Azure 活动日志提供 Azure 中订阅级别事件的历史记录。 它提供
 
 5. 在“警报方式”下，选择“新建”操作组，并为操作组提供“名称”和“短名称”。 操作组定义警报被激活（如果条件匹配新事件）时采取的一系列操作。
 
-6. 在“操作”下，通过提供操作的“名称”、“操作类型”（例如，电子邮件或短信）和该特定操作类型的“详细信息”（例如，webhook URL、电子邮件地址或短信号码）来添加一个或多个操作。
+6. 在“操作”下，通过提供操作的“名称”、“操作类型”（例如，电子邮件或 webhook）和该特定操作类型的“详细信息”（例如，webhook URL 或电子邮件地址）来添加一个或多个操作。
 
     ![在门户中创建网络安全组](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
 
@@ -84,7 +84,7 @@ Azure 活动日志提供 Azure 中订阅级别事件的历史记录。 它提供
 ## <a name="test-the-activity-log-alert"></a>测试活动日志警报
 
 > [!NOTE]
-> 需要大约 10 分钟才能完全启用活动日志警报。 在活动日志警报完全启用之前发生的新事件不会生成通知。
+> 需要大约 5 分钟才能完全启用活动日志警报。 在活动日志警报完全启用之前发生的新事件不会生成通知。
 >
 >
 

@@ -15,18 +15,18 @@ ms.topic: get-started-article
 origin.date: 05/22/2017
 ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: a64c17328105449891c1a533762b89083ec32d52
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 070e8bc95ad69ea1e091182e453a1eca3ef45c79
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Azure Cosmos DB：SQL API 简介
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-[Azure Cosmos DB](introduction.md) 是 21Vianet 针对任务关键型应用程序提供的多区域分布式多模型数据库服务。 Azure Cosmos DB 在多个区域内提供[统包式数据分发](distribute-data-globally.md)、[吞吐量和存储空间弹性缩放](partition-data.md)、99% 情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](consistency-levels.md)，以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档、键/值和列式数据模型。
-<!-- Not Available on Graph -->
+[Azure Cosmos DB](introduction.md) 是 21Vianet 针对任务关键型应用程序提供的多区域分布式多模型数据库服务。 Azure Cosmos DB 在多个区域内提供[统包式数据分发](distribute-data-globally.md)、[吞吐量和存储空间弹性缩放](partition-data.md)、99% 情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](consistency-levels.md)，以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档和列式数据模型。
+<!-- Not Available on Graph, Key/Value -->
 <!-- Notice in meta: 全球范围 to 多个数据中心范围 -->
 
 ![Azure SQL API](./media/sql-api-introduction/cosmosdb-sql-api.png) 

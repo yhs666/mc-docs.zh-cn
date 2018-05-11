@@ -13,11 +13,11 @@ ms.topic: article
 origin.date: 11/15/2017
 ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 41d6edb029f2b5df791ef5dc8bca5f85fdacb6e8
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 38697b53eebaf1054755256ec2c4ae110fa3f880
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Azure Cosmos DB 常见用例
 本文概述了 Azure Cosmos DB 的几个常见用例。  本文中的建议可以作为使用 Cosmos DB 开发应用程序的一个起点。   
@@ -99,7 +99,7 @@ Azure Cosmos DB 的一个常见用例就是存储和查询 Web、移动和社交
 
 与第三方社交网络集成的应用程序必须响应这些网络中不断更改的架构。 由于 Cosmos DB 中的数据默认自动编制索引，因此可以随时查询数据。 因此，这些应用程序可以根据其各自的需求灵活地检索投影。
 
-许多社交应用程序在全球范围内运行并表现出不可预测的使用模式。 因此，应用程序层能根据用量需求缩放时，缩放数据存储的灵活性至关重要。  可通过在 Cosmos DB 帐户之下添加额外的数据分区来进行扩大。  也可在多个区域中创建额外的 Cosmos DB 帐户。 有关 Cosmos DB 服务区域可使用性的信息，请参阅 [Azure 区域](https://www.azure.cn/support/service-dashboard/#services)。
+许多社交应用程序以多区域规模运行并表现出不可预测的使用模式。 因此，应用程序层能根据用量需求缩放时，缩放数据存储的灵活性至关重要。  可通过在 Cosmos DB 帐户之下添加额外的数据分区来进行扩大。  也可在多个区域中创建额外的 Cosmos DB 帐户。 有关 Cosmos DB 服务区域可使用性的信息，请参阅 [Azure 区域](https://www.azure.cn/support/service-dashboard/#services)。
 
 ![Azure Cosmos DB Web 应用参考体系结构](./media/use-cases/apps-with-global-reach.png)
 

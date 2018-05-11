@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/15/2017
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: cfb127af8728dc1aef6d031f895ac54c90890f9b
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 5efbc512fd5bb0b49112f45b2fdda4d5f17e2091
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>在虚拟机中添加或删除网络接口。
 
@@ -35,8 +35,8 @@ ms.lasthandoff: 03/28/2018
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
-- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。 本教程需要 Azure PowerShell 模块 5.2.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
-- 如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.26 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
+- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.2.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.26 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 <!--Not Available on Cloud Shell Introduction -->
 
 <a name="vm-create"></a>
@@ -50,10 +50,11 @@ ms.lasthandoff: 03/28/2018
 
 |工具|命令|
 |---|---|
-|CLI|[az vm create](https://docs.azure.cn/zh-cn/cli/vm?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_vm_create)|
+|CLI|[az vm create](https://docs.azure.cn/zh-cn/cli/vm?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az-vm-create)|
 |PowerShell|[New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?toc=%2fvirtual-network%2ftoc.json)|
 
-## <a name="vm-add-nic"></a>将网络接口添加到现有 VM
+<a name="vm-add-nic"></a>
+## <a name="add-a-network-interface-to-an-existing-vm"></a>将网络接口添加到现有 VM
 
 1. 登录到 Azure 门户。
 2. 在门户顶部的搜索框中，键入要添加网络接口的 VM 名称，或依次选择“所有服务”、“虚拟机”以浏览 VM。 找到 VM 后，选择它。 该 VM 必须支持要添加的网络接口的数量。 若要了解每个 VM 大小支持的网络接口数量，请参阅 [Azure 中 Linux 虚拟机的大小](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json)或 [Azure 中 Windows 虚拟机的大小](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fvirtual-network%2ftoc.json)。  
@@ -72,7 +73,7 @@ ms.lasthandoff: 03/28/2018
 
 |工具|命令|
 |---|---|
-|CLI|[az vm nic add](https://docs.azure.cn/zh-cn/cli/vm/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_vm_nic_add)（引用）或[详细步骤](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
+|CLI|[az vm nic add](https://docs.azure.cn/zh-cn/cli/vm/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az-vm-nic-add)（引用）或[详细步骤](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
 |PowerShell|[Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fvirtual-network%2ftoc.json)（参考）或[详细步骤](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 <a name="vm-view-nic"></a>
@@ -80,7 +81,7 @@ ms.lasthandoff: 03/28/2018
 
 可以查看当前附加到 VM 的网络接口，了解每个网络接口的配置，以及分配给每个网络接口的 IP 地址。 
 
-1. 使用分配有订阅“所有者”、“参与者”或“网络参与者”角色的帐户登录到 [Azure 门户](https://portal.azure.cn)。 若要详细了解如何向帐户分配角色，请参阅[针对 Azure 基于角色的访问控制的内置角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)。
+1. 使用分配有订阅“所有者”、“参与者”或“网络参与者”角色的帐户登录到 [Azure 门户](https://portal.azure.cn)。 若要详细了解如何向帐户分配角色，请参阅[针对 Azure 基于角色的访问控制的内置角色](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)。
 2. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“虚拟机”。 当“虚拟机”出现在搜索结果中时，请选择它。
 3. 选择单击想要查看其网络接口的 VM 的名称。
 4. 在所选 VM 的“设置”部分，选择“网络”。 若要了解网络接口的设置及其更改方法，请参阅[管理网络接口](virtual-network-network-interface.md)。 若要了解如何添加、更改或删除分配到网络接口的 IP 地址，请参阅[管理网络接口 IP 地址](virtual-network-network-interface-addresses.md)。
@@ -109,7 +110,7 @@ ms.lasthandoff: 03/28/2018
 
 |工具|命令|
 |---|---|
-|CLI|[az vm nic remove](https://docs.azure.cn/zh-cn/cli/vm/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az_vm_nic_remove)（引用）或[详细步骤](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
+|CLI|[az vm nic remove](https://docs.azure.cn/zh-cn/cli/vm/nic?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest#az-vm-nic-remove)（引用）或[详细步骤](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
 |PowerShell|[Remove-AzureRMVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fvirtual-network%2ftoc.json)（参考）或[详细步骤](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="constraints"></a>约束

@@ -1,11 +1,11 @@
 ---
-title: "创建具有静态公共 IP 地址的 VM - Azure 门户 | Azure"
-description: "了解如何使用 Azure 门户创建具有静态公共 IP 地址的 VM。"
+title: 创建具有静态公共 IP 地址的 VM - Azure 门户 | Azure
+description: 了解如何使用 Azure 门户创建具有静态公共 IP 地址的 VM。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e9546bcc-f300-428f-b94a-056c5bd29035
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/04/2016
-ms.date: 03/12/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44532bf78a2f4296427060d314440607371e5301
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 103cb01e455b5900f804f3854e1fd674a525507c
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>使用 Azure 门户创建具有静态公共 IP 地址的 VM
 
@@ -29,7 +29,6 @@ ms.lasthandoff: 03/12/2018
 > * [Azure 门户](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
-> * [模板](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell（经典）](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
@@ -66,4 +65,11 @@ ms.lasthandoff: 03/12/2018
 
     ![Azure 门户 - 创建公共 IP 地址](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!-- Update_Description: update meta properties, wording update -->
+## <a name="set-ip-addresses-within-the-operating-system"></a>在操作系统中设置 IP 地址
+
+切勿在虚拟机的操作系统中手动分配已分配给 Azure 虚拟机的公共 IP 地址。 我们建议，除非有必要（例如，[为一个 Windows VM 分配多个 IP 地址](virtual-network-multiple-ip-addresses-portal.md)时），否则不要以静态方式在 VM 的操作系统中分配已分配给 Azure 虚拟机的专用 IP。 如果确实需要在操作系统中手动设置该专用 IP 地址，请确保它与分配给 Azure [网络接口](virtual-network-network-interface-addresses.md#change-ip-address-settings)的专用 IP 地址是同一地址，否则可能会丢失与虚拟机的连接。 详细了解[专用 IP 地址](virtual-network-network-interface-addresses.md#private)设置。
+
+## <a name="next-steps"></a>后续步骤
+
+任何网络流量都可流入和流出本文中创建的 VM。 可以在网络安全组中定义入站和出站安全规则，以限制可以流入和流出网络接口和/或子网的流量。 若要深入了解网络安全组，请参阅[网络安全组概述](security-overview.md)。
+<!-- Update_Description: update meta properties, wording update, update link -->

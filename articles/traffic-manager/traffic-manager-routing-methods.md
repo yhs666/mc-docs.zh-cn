@@ -1,11 +1,11 @@
 ---
-title: "Azure 流量管理器 - 流量路由方法 | Azure"
-description: "本文帮助你了解流量管理器使用的各种流量路由方法。"
+title: Azure 流量管理器 - 流量路由方法 | Azure
+description: 本文帮助你了解流量管理器使用的各种流量路由方法。
 services: traffic-manager
-documentationcenter: 
-author: KumudD
-manager: timlt
-editor: 
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
+editor: ''
 ms.assetid: db1efbf6-6762-4c7a-ac99-675d4eeb54d0
 ms.service: traffic-manager
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/13/2017
-ms.date: 07/31/2017
-ms.author: v-dazen
-ms.openlocfilehash: 23d2f056c97ab274b1541205a2d41425be8d83ea
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 05/07/2018
+ms.author: v-yeche
+ms.openlocfilehash: 1f95c4c569706d5b446c2c9d4f766201c27bfd73
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="traffic-manager-routing-methods"></a>流量管理器路由方法
 
@@ -51,7 +51,7 @@ Azure 流量管理器支持使用四种流量路由方法来确定如何将网�
 
 ![Azure 流量管理器的“加权”流量路由方法][2]
 
-在“加权”流量路由方法中，需要为流量管理器配置文件中的每个终结点分配一个权重。 该权重是从 1 到 1000 的整数。 此参数是可选的。 如果省略此参数，流量管理器会使用默认权重“1”。
+在“加权”流量路由方法中，需要为流量管理器配置文件中的每个终结点分配一个权重。 该权重是从 1 到 1000 的整数。 此参数是可选的。 如果省略此参数，流量管理器会使用默认权重“1”。 权重越高，优先级就越高。
 
 对于收到的每个 DNS 查询，流量管理器会随机选择一个可用终结点。 选择哪个终结点取决于分配到所有可用终结点的权重。 对所有终结点使用相同的权重会导致均匀分布流量。 对特定的终结点使用较高或较低的权重会导致这些终结点在 DNS 响应中的返回次数较多或较少。
 
@@ -75,7 +75,7 @@ Resource Manager Azure 门户支持加权流量路由的配置。  也可以使�
 
 ## <a name="performance"></a>“性能”流量路由方法
 
-在全国两个位置部署终结点，将流量路由到“最靠近”用户的位置，即可改善许多应用程序的响应能力。 “性能”流量路由方法提供这种能力。
+在国家/地区的两个或更多位置部署终结点，将流量路由到“最靠近”用户的位置，即可改善许多应用程序的响应能力。 “性能”流量路由方法提供这种能力。
 
 ![Azure 流量管理器的“性能”流量路由方法][3]
 

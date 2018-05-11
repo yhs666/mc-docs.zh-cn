@@ -1,34 +1,35 @@
 ---
-title: 创建 Azure 虚拟网络 - PowerShell | Azure
-description: 快速了解如何使用 PowerShell 创建虚拟网络 虚拟网络能让 Azure 资源（例如虚拟机）彼此之间私下通信以及与 Internet 进行通信。
+title: 创建虚拟网络 - 快速入门 - Azure PowerShell | Azure
+description: 本快速入门介绍如何使用 Azure 门户创建虚拟网络。 虚拟网络能让 Azure 资源（例如虚拟机）彼此之间私下通信以及与 Internet 进行通信。
 services: virtual-network
 documentationcenter: virtual-network
 author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: ''
+ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/09/2018
-ms.date: 04/02/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.custom: ''
-ms.openlocfilehash: 5eba8e131ee7c383daece9ca34b2ae207732c5f3
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.custom: mvc
+ms.openlocfilehash: a2f0f97e14ddddaa9c8e51ccbd09dc1cacf2ad86
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="create-a-virtual-network-using-powershell"></a>使用 PowerShell 创建虚拟网络
+# <a name="quickstart-create-a-virtual-network-using-powershell"></a>快速入门：使用 PowerShell 创建虚拟网络
 
-虚拟网络能让 Azure 资源（例如虚拟机 (VM)）彼此之间私下通信以及与 Internet 进行通信。 本文将介绍如何创建虚拟网络。 创建虚拟网络后，将两个 VM 部署到该虚拟网络中。 然后从 Internet 连接到其中一个 VM，并在两个 VM 之间进行私下通信。
+虚拟网络能让 Azure 资源（例如虚拟机 (VM)）彼此之间私下通信以及与 Internet 进行通信。 本快速入门介绍如何创建虚拟网络。 创建虚拟网络后，将两个 VM 部署到该虚拟网络中。 然后从 Internet 连接到其中一个 VM，并在两个 VM 之间进行私下通信。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-如果选择在本地安装并使用 PowerShell，则本文需要 AzureRM PowerShell 模块 5.4.1 或更高版本。 要查找已安装的版本，请运行 ` Get-Module -ListAvailable AzureRM`。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本快速入门需要 AzureRM PowerShell 模块 5.4.1 或更高版本。 要查找已安装的版本，请运行 ` Get-Module -ListAvailable AzureRM`。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
 
@@ -122,7 +123,7 @@ mstsc /v:<publicIpAddress>
 
 此时会创建远程桌面协议 (.rdp) 文件，并下载到计算机。 打开下载的 rdp 文件。 出现提示时，选择“连接”。 输入在创建 VM 时指定的用户名和密码。 可能需要选择“更多选择”，然后选择“使用其他帐户”，以指定在创建 VM 时输入的凭据。 选择“确定” 。 你可能会在登录过程中收到证书警告。 如果收到警告，请选择“是”或“继续”以继续连接。
 
-## <a name="communicate-privately-between-vms"></a>VM 之间进行私下通信
+## <a name="communicate-between-vms"></a>VM 之间进行通信
 
 从 *myVm1* VM 上的 PowerShell，输入 `ping myvm2`。 Ping 会失败，因为 ping 使用 Internet 控制消息协议 (ICMP)，而默认情况下不允许 ICMP 通过 Windows 防火墙。
 
@@ -152,10 +153,8 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>后续步骤
 
-在本文中，已创建了默认虚拟网络和两个 VM。 你从 Internet 连接到了其中一个 VM，然后该 VM 与另一个 VM 之间进行了私下通信。 若要了解有关虚拟网络设置的详细信息，请参阅[管理虚拟网络](manage-virtual-network.md)。 
+在本快速入门中，你创建了默认的虚拟网络和两个 VM。 你从 Internet 连接到了其中一个 VM，然后该 VM 与另一个 VM 进行了私下通信。 若要了解有关虚拟网络设置的详细信息，请参阅[管理虚拟网络](manage-virtual-network.md)。 
 
-默认情况下，Azure 允许虚拟机之间进行不受限制的私下通信，但仅允许从 Internet 到 Windows VM 的入站远程桌面连接。 若要了解如何允许或限制进出 VM 的不同类型的网络通信，请转到下一个教程。
+默认情况下，Azure 允许虚拟机之间进行不受限制的私下通信，但仅允许从 Internet 到 Windows VM 的入站远程桌面连接。 若要了解如何允许或限制进出 VM 的不同类型的网络通信，请转到[筛选网络流量](tutorial-filter-network-traffic.md)教程。
 
-> [!div class="nextstepaction"]
-> [筛选网络流量](virtual-networks-create-nsg-arm-ps.md)
 <!-- Update_Description: update meta properties, wording update, wording update -->

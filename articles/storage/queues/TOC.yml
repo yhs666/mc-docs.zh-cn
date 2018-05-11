@@ -28,8 +28,14 @@
   items:
     - name: 规划和设计
       items:
-        - name: 复制
-          href: ../common/storage-redundancy.md?toc=%2fstorage%2fqueues%2ftoc.json
+        - name: 数据冗余
+          items:
+            - name: 冗余概述
+              href: ../common/storage-redundancy.md?toc=%2fstorage%2fqueues%2ftoc.json
+            - name: 本地冗余存储
+              href: ../common/storage-redundancy-lrs.md?toc=%2fstorage%2fqueues%2ftoc.json
+            - name: 异地冗余存储
+              href: ../common/storage-redundancy-grs.md?toc=%2fstorage%2fqueues%2ftoc.json
         - name: 使用 RA-GRS 设计 HA 应用
           href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fstorage%2fqueues%2ftoc.json
         - name: 可伸缩性和性能目标
@@ -54,14 +60,20 @@
           href: ../common/storage-use-emulator.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: 管理
       items:
-        - name: PowerShell
+        - name: 将 PowerShell 用于 Azure 队列
+          href: storage-powershell-how-to-use-queues.md
+        - name: 将 PowerShell 用于 Azure 存储
           href: ../common/storage-powershell-guide-full.md?toc=%2fstorage%2fqueues%2ftoc.json
+        - name: 将 PowerShell 用于中国
+          href: ../common/storage-powershell-independent-clouds.md?toc=%2fstorage%2fqueues%2ftoc.json
         - name: Azure 自动化
           href: ../common/storage-manage-with-automation.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: 安全
       items:
         - name: 安全指南
           href: ../common/storage-security-guide.md?toc=%2fstorage%2fqueues%2ftoc.json
+        - name: 配置防火墙和虚拟网络
+          href: ../common/storage-network-security.md?toc=%2fstorage%2fqueues%2ftoc.json
         - name: 客户端加密
           items:
             - name: .NET

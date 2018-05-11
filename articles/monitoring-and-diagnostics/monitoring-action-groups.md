@@ -1,25 +1,25 @@
 ---
-title: "在 Azure 门户中创建和管理器操作组"
-description: "了解如何在 Azure 门户中创建和管理操作组。"
+title: 在 Azure 门户中创建和管理器操作组
+description: 了解如何在 Azure 门户中创建和管理操作组。
 author: dkamstra
 manager: chrad
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/16/2017
-ms.date: 03/19/2018
+origin.date: 04/12/2018
+ms.date: 05/14/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9ac03d1c465ec2f4b214b1682b0e88ec69eac357
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 4f914ce087959b426e393dff1fd0eeba6d7a981d
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
 ## <a name="overview"></a>概述
@@ -27,10 +27,10 @@ ms.lasthandoff: 03/12/2018
 
 通过操作组可以配置操作列表。 之后，这些组可由你定义的每个警报使用，从而确保每次触发警报时采取相同的操作。
 
-操作组可以具有最多 10 种不同的操作类型。 每个操作包含以下属性：
+每个操作包含以下属性：
 
 * 名称：操作组中的唯一标识符。  
-* **操作类型**：发送短信、发送电子邮件、调用 Webhook、将数据发送到 ITSM 工具、调用 Azure 应用或运行自动化 runbook。
+* **操作类型**：发送语音呼叫或短信、发送电子邮件、调用 Webhook、将数据发送到 ITSM 工具、调用逻辑应用、向 Azure 应用发送推送通知，或者运行自动化 Runbook。
 * **详细信息**：相应电话号码、电子邮件地址、webhook URI 或 ITSM 连接详细信息。
 
 有关如何使用 Azure 资源管理器模板以配置操作组的信息，请参阅[操作组资源管理器模板](monitoring-create-action-group-with-resource-manager-template.md)。
@@ -60,14 +60,24 @@ ms.lasthandoff: 03/12/2018
 
     a. 名称：输入此操作的唯一标识符。
 
-    b. **操作类型**：选择电子邮件/短信/Azure 应用、Webhook、ITSM 或自动化 Runbook。
+    b. **操作类型**：选择电子邮件、Webhook 或自动化 Runbook。
 
-    c. **详细信息**：根据操作类型，输入电话号码、电子邮件地址、webhook URI、Azure 应用、ITSM 连接或自动化 runbook。 对于 ITSM 操作，另外指定 ITSM 工具需要的“工作项”和其他字段。
+    c. **详细信息**：根据操作类型，输入电子邮件地址、Webhook URI 或自动化 Runbook。 
 
 8. 选择“确定”创建操作组。
 
-## <a name="manage-your-action-groups"></a>管理操作组
-创建操作组后，它会在“监视器”边栏选项卡的“操作组”部分显示。 选择要管理的操作组：
+## <a name="action-specific-information"></a>特定于操作的信息
+<dl>
+<dt>电子邮件</dt>
+<dd>一个操作组中最多可以有 50 个电子邮件操作</dd>
+<dd>请参阅[速率限制信息](./monitoring-alerts-rate-limiting.md)一文</dd>
+<dt>Runbook</dt>
+<dd>一个操作组中最多可以有 10 个 Runbook 操作</dd>
+<dt>Webhook</dt>
+<dd>一个操作组中最多可以有 10 个 Webhook 操作
+<dd>重试逻辑 - 返回的 HTTP 状态代码为 408、429、503、504 时，最多可以重试 3 次 Webhook 调用</dd>
+</dl>
+## 管理操作组 创建操作组后，它会在“监视器”**** 边栏选项卡的“操作组”**** 部分显示。 选择要管理的操作组：
 
 * 添加、编辑或删除操作。
 * 删除操作组。

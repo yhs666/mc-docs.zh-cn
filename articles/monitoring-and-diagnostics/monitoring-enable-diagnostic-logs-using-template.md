@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/13/2018
-ms.date: 04/16/2018
+origin.date: 03/26/2018
+ms.date: 05/14/2018
 ms.author: v-yiso
-ms.openlocfilehash: bb465c769fef4c97dbf262b64fe2aeadc4297781
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: af6af597d537c1a9ba51eba04f00a85c0b0322d6
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>在创建资源时使用 Resource Manager 模板自动启用诊断设置
 本文介绍如何使用 [Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)在创建资源时配置资源的诊断设置。 这样可以让用户在创建资源时自动将诊断日志和指标流式传输到事件中心、将其存档在存储帐户中，或者发送到 Log Analytics。
@@ -41,13 +41,13 @@ ms.lasthandoff: 04/09/2018
 ## <a name="non-compute-resource-template"></a>非计算资源模板
 对于非计算资源，需要做两件事：
 
-1. 根据存储帐户名称、事件中心授权规则 ID 和/或 OMS Log Analytics 工作区 ID 向参数 blob 添加参数（允许在存储帐户中存档诊断日志、将日志流式传输到事件中心和/或将日志发送到 Log Analytics）。
+1. 根据存储帐户名称或事件中心授权规则 ID 向参数 Blob 添加参数（允许在存储帐户中存档诊断日志、将日志流式传输到事件中心）。
    
     ```json
     "settingName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the setting."
+        "description": "Name for the diagnostic setting resource. Eg. 'archiveToStorage' or 'forSecurityTeam'."
       }
     },
     "storageAccountName": {
@@ -118,6 +118,139 @@ ms.lasthandoff: 04/09/2018
     ```
 
 诊断设置的属性 blob 遵循[此文所述的格式](https://docs.microsoft.com/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate)。 添加 `metrics` 属性还可将资源指标发送到这些相同输出，前提是[该资源支持 Azure Monitor 指标](monitoring-supported-metrics.md)。
+
+下面是一个完整的示例，说明了如何创建逻辑应用，以及如何启用流式传输到事件中心和在存储帐户中进行存储的功能。
+
+```json
+
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "logicAppName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Logic App that will be created."
+      }
+    },
+    "testUri": {
+      "type": "string",
+      "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
+    },
+    "settingName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the setting. Name for the diagnostic setting resource. Eg. 'archiveToStorage' or 'forSecurityTeam'."
+      }
+    },
+    "storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
+      }
+    },
+    "eventHubAuthorizationRuleId": {
+      "type": "string",
+      "metadata": {
+        "description": "Resource ID of the event hub authorization rule for the Event Hubs namespace in which the event hub should be created or streamed to."
+      }
+    },
+    "eventHubName": {
+      "type": "string",
+      "metadata": {
+        "description": "Optional. Name of the event hub within the namespace to which logs are streamed. Without this, an event hub is created for each log category."
+      }
+    },
+    "workspaceId": {
+      "type": "string",
+      "metadata": {
+        "description": "Log Analytics workspace ID for the Log Analytics workspace to which logs will be sent."
+      }
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Logic/workflows",
+      "name": "[parameters('logicAppName')]",
+      "apiVersion": "2016-06-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "definition": {
+          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "testURI": {
+              "type": "string",
+              "defaultValue": "[parameters('testUri')]"
+            }
+          },
+          "triggers": {
+            "recurrence": {
+              "type": "recurrence",
+              "recurrence": {
+                "frequency": "Hour",
+                "interval": 1
+              }
+            }
+          },
+          "actions": {
+            "http": {
+              "type": "Http",
+              "inputs": {
+                "method": "GET",
+                "uri": "@parameters('testUri')"
+              },
+              "runAfter": {}
+            }
+          },
+          "outputs": {}
+        },
+        "parameters": {}
+      },
+      "resources": [
+        {
+          "type": "providers/diagnosticSettings",
+          "name": "Microsoft.Insights/[parameters('settingName')]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
+          ],
+          "apiVersion": "2017-05-01-preview",
+          "properties": {
+            "name": "[parameters('settingName')]",
+            "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+            "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+            "eventHubName": "[parameters('eventHubName')]",
+            "workspaceId": "[parameters('workspaceId')]",
+            "logs": [
+              {
+                "category": "WorkflowRuntime",
+                "enabled": true,
+                "retentionPolicy": {
+                  "days": 0,
+                  "enabled": false
+                }
+              }
+            ],
+            "metrics": [
+              {
+                "timeGrain": "PT1M",
+                "enabled": true,
+                "retentionPolicy": {
+                  "enabled": false,
+                  "days": 0
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "dependsOn": []
+    }
+  ]
+}
+
+```
 
 ## <a name="compute-resource-template"></a>计算资源模板
 若要允许对计算资源（例如虚拟机或 Service Fabric 群集）进行诊断，需执行以下操作：

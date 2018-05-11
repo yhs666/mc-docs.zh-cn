@@ -1,39 +1,33 @@
 ---
-title: "如何通过 iOS 使用 Azure Blob 存储 | Azure"
-description: "使用 Azure Blob 存储（对象存储）将非结构化数据存储在云中。"
+title: 如何通过 iOS 使用对象 (Blob) 存储 - Azure | Microsoft Docs
+description: 使用 Azure Blob 存储（对象存储）将非结构化数据存储在云中。
 services: storage
 documentationcenter: ios
 author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: df188021-86fc-4d31-a810-1b0e7bcd814b
+manager: josefree
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: objective-c
 ms.topic: article
-origin.date: 05/11/2017
-ms.date: 10/16/2017
+origin.date: 03/21/2018
+ms.date: 05/07/2018
 ms.author: v-johch
-ms.openlocfilehash: 698b7888380155904855d4f8161ae1cace0f88ee
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: 42720c685d2271a636ab0a375d0c940f988e4fd9
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>如何通过 iOS 使用 Blob 存储
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
+本文演示如何使用 Azure Blob 存储执行常见任务。 示例是用 Objective-C 编写的，并使用了 [用于 iOS 的 Azure 存储客户端库](https://github.com/Azure/azure-storage-ios)。 涉及的任务包括上传、列出、下载和删除 Blob。 有关 Blob 的详细信息，请参阅[后续步骤](#next-steps)部分。 也可下载 [示例应用](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) ，快速了解如何在 iOS 应用程序中使用 Azure 存储。
 
-## <a name="overview"></a>概述
-本文介绍如何使用 Azure Blob 存储执行常见任务。 示例是用 Objective-C 编写的，并使用了 [用于 iOS 的 Azure 存储客户端库](https://github.com/Azure/azure-storage-ios)。 涉及的任务包括上传、列出、下载和删除 Blob。 有关 Blob 的详细信息，请参阅[后续步骤](#next-steps)部分。 也可下载 [示例应用](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) ，快速了解如何在 iOS 应用程序中使用 Azure 存储。
+## <a name="what-is-blob-storage"></a>什么是 Blob 存储？
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="import-the-azure-storage-ios-library-into-your-application"></a>将 Azure 存储空间 iOS 库导入到应用程序中
+## <a name="import-the-azure-storage-ios-library-into-your-application"></a>将 Azure 存储 iOS 库导入到应用程序
 可使用 [Azure 存储 CocoaPod](https://cocoapods.org/pods/AZSClient) 或导入 **Framework** 文件，将 Azure 存储 iOS 库导入到应用程序。 CocoaPod 是推荐方式，因为它使集成更容易，但是通过框架文件导入对现有项目侵入性更低。
 
 若要使用此库，需要以下各项：
@@ -71,16 +65,16 @@ ms.lasthandoff: 10/09/2017
 1. 首先，下载或克隆 [azure-storage-ios repo](https://github.com/azure/azure-storage-ios)。
 2. 转到“azure-storage-ios” -> “Lib” -> “Azure 存储客户端库”，并在 Xcode 中打开 `AZSClient.xcodeproj`。
 3. 在 Xcode 的左上方，将活动方案从“Azure 存储客户端库”更改为“Framework”。
-4. 生成项目 (⌘+B)。 这会在桌面上创建 `AZSClient.framework` 文件。
+4. 生成项目 (⌘+B)。 这将在桌面上创建 `AZSClient.framework` 文件。
 
 可以通过执行以操作将框架文件导入到应用程序：
 
 1. 在 Xcode 中创建一个新项目或打开现有项目。
 2. 将 `AZSClient.framework` 拖放到 Xcode 项目导航器中。
-3. 选择“需要时复制项”，并单击“完成”。
+3. 选择“需要时复制项”，然后单击“完成”。
 4. 单击左侧导航栏中的项目，并在项目编辑器顶部，单击“常规”选项卡。
 5. 在“链接的框架和库”部分下，单击“添加”按钮 (+)。
-6. 在已提供的库的列表中，搜索 `libxml2.2.tbd` 并将其添加到项目。
+6. 在已提供的库列表中，搜索 `libxml2.2.tbd` 并将其添加到项目中。
 
 ## <a name="import-the-library"></a>导入该库 
 ```objc
@@ -91,7 +85,7 @@ ms.lasthandoff: 10/09/2017
 如果使用 Swift，则需要创建桥接头并在该位置导入 <AZSClient/AZSClient.h>：
 
 1. 创建标头文件 `Bridging-Header.h`，并添加上述导入语句。
-2. 转到“生成设置”选项卡，并搜索“Objective-C 桥接头文件”。
+2. 转到“生成设置”选项卡，然后搜索 Objective-C 桥接头。
 3. 双击“Objective-C 桥接头”字段并添加标头文件的路径：`ProjectName/Bridging-Header.h`
 4. 生成项目 (⌘+B)，确认 Xcode 选取了该桥接头。
 5. 开始在任何 Swift 文件中直接使用库，无需导入语句。
@@ -142,7 +136,7 @@ Azure 存储中的每个 Blob 都必须驻留在一个容器中。 以下示例�
 * **Blob**：可以通过匿名请求读取此容器中的 Blob 数据，但容器数据不可用。 客户端无法通过匿名请求枚举容器中的 Blob。
 * **容器**：可通过匿名请求读取容器和 Blob 数据。 客户端可以通过匿名请求枚举容器中的 Blob，但无法枚举存储帐户中的容器。
 
-以下示例演示如何创建一个具有**容器**访问权限的容器，这会允许 Internet 上的所有用户对其进行公共只读访问：
+下面的示例演示了如何创建一个具有容器访问权限的容器，这将允许 Internet 上的所有用户对其进行公共只读访问：
 
 ```objc
 -(void)createContainerWithPublicAccess{
@@ -221,7 +215,7 @@ Azure 存储中的每个 Blob 都必须驻留在一个容器中。 以下示例�
 ## <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 以下示例演示如何列出容器中的所有 Blob。 执行此操作时，应注意以下参数：     
 
-* **continuationToken** - 继续标记表示列出操作应开始的位置。 如果未提供标记，它将从开头列出 blob。 可以列出任意数目的 Blob，从零到最大集。 即使此方法返回零个结果，如果 `results.continuationToken` 不为空，则服务中也可能存在更多 blob 未列出。
+* **continuationToken** - 继续标记表示列出操作应开始的位置。 如果未提供标记，它会从开头列出 Blob。 可以列出任意数目的 Blob，从零到最大集。 即使此方法返回零个结果，如果 `results.continuationToken` 不为空，则服务中也可能存在更多 blob 未列出。
 * 
             **prefix** - 可以指定用于 blob 列出的前缀。 将仅列出以该前缀开头的 blob。
 * 
@@ -291,7 +285,7 @@ Azure 存储中的每个 Blob 都必须驻留在一个容器中。 以下示例�
 ```
 
 ## <a name="download-a-blob"></a>下载 Blob
-以下示例演示如何将 blob 下载到 NSString 对象中。
+以下示例演示如何将 Blob 下载到 NSString 对象。
 
 ```objc
 -(void)downloadBlobToString{
@@ -396,4 +390,4 @@ Azure 存储中的每个 Blob 都必须驻留在一个容器中。 以下示例�
 
 如果对此库有任何疑问，可随时将问题发布到我们的 [MSDN Azure 论坛](https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=windowsazurezhchs&filter=alltypes&sort=lastpostdesc)或 [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)。
 
-<!--Update_Description: update link-->
+<!--Update_Description: wording update-->

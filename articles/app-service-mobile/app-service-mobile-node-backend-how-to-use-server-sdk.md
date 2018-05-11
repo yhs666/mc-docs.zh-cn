@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 origin.date: 10/01/2016
 ms.author: v-yiso
-ms.date: 03/12/2018
-ms.openlocfilehash: bcc47ddbbf96b950c8ffe0c0f8ba12e8e05dd92a
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 05/14/2018
+ms.openlocfilehash: e062f73b6850adbe2d9161e7204d2dcf87054266
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>如何使用移动应用 Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -47,30 +47,30 @@ Azure 移动应用 Node.js SDK 支持两个数据库驱动程序：
 ### <a name="howto-cmdline-basicapp"></a>使用命令行创建基本 Node.js 后端
 每个移动应用 Node.js 后端都以 ExpressJS 应用程序的形式启动。 在适用于 Node.js 的 Web 服务框架中，ExpressJS 最广为使用。 可按以下方式创建基本的 [Express] 应用程序：
 
-1. 在命令窗口或 PowerShell 窗口中，为项目创建目录。
+1. 在命令窗口或 PowerShell 窗口中，为项目创建目录：
 
     ```
     mkdir basicapp
     ```
 
-2. 运行 npm init 初始化包结构。
+2. 运行 `npm init` 初始化包结构：
 
     ```
     cd basicapp
     npm init
     ```
 
-    npm init 命令将提出一系列问题以初始化项目。  查看示例输出：
+   `npm init` 命令将提出一系列问题以初始化项目。 查看示例输出：
 
     ![npm init 输出][0]
 
-3. 从 npm 存储库安装 express 和 azure-mobile-apps 库。
+3. 从 npm 存储库安装 `express` 和 `azure-mobile-apps` 库：
 
     ```
     npm install --save express azure-mobile-apps
     ```
 
-4. 创建 app.js 文件，实现基本移动服务器。
+4. 创建 app.js 文件，实现基本移动服务器：
 
     ```
     var express = require('express'),
@@ -136,7 +136,7 @@ Visual Studio 2015 需要使用一个扩展在 IDE 中开发 Node.js 应用程�
 
     保存文件。
 
-10. 在本地运行应用程序（API 将在 http://localhost:3000 上提供），或发布到 Azure。
+10. 在本地运行应用程序（API 会在 http://localhost:3000) 上提供），或发布到 Azure。
 
 ### <a name="create-node-backend-portal"></a>使用 Azure 门户创建 Node.js 后端
 可以在 [Azure 门户]中直接创建移动应用后端。 可以完成以下步骤，或根据[创建移动应用](app-service-mobile-ios-get-started.md)教程同时创建客户端和服务器。 本教程包含以下说明的简化版本，最适合用于概念认证项目。
@@ -152,7 +152,7 @@ Visual Studio 2015 需要使用一个扩展在 IDE 中开发 Node.js 应用程�
 以下过程使用 Git 存储库下载快速入门项目代码：
 
 1. 安装 Git（如果尚未安装）。 安装 Git 所需的步骤因操作系统的不同而异。 有关操作系统特定的分发和安装指南，请参阅[安装 Git](http://git-scm.com/book/en/Getting-Started-Installing-Git)。
-2. 根据[启用应用服务应用存储库](../app-service/app-service-deploy-local-git.md#Step3)中的步骤为后端站点启用 Git 存储库。 记下部署用户名和密码。
+2. 若要启用后端站点的 GIT 存储库，请参阅[准备存储库](../app-service/app-service-deploy-local-git.md#prepare-your-repository)。 记下部署用户名和密码。
 3. 在移动应用后端的窗格中，记下“Git 克隆 URL”设置。
 4. 使用 Git 克隆 URL 执行 `git clone` 命令。 根据需要输入密码，如以下示例所示：
 
@@ -187,7 +187,7 @@ Azure 应用服务提供有关 Node.js 应用程序的具体建议，请在发�
 var mobile = azureMobileApps({ homePage: true });
 ```
 
-如果想要让此选项仅在本地开发时可供使用，可以将此设置添加到 `azureMobile.js` 文件。
+如果想要让此选项仅在本地开发时可供使用，可以将此设置添加到 azureMobile.js 文件。
 
 ## <a name="TableOperations"></a>表操作
 azure-mobile-apps Node.js Server SDK 提供将存储在 Azure SQL 数据库中的表公开为 Web API 的机制。 它提供五个操作：
@@ -290,11 +290,11 @@ module.exports = table;
 
    c. 右键单击“TCP/IP”，然后选择“启用”。 在弹出对话框中选择“确定”。
 
-   d.单击“验证存储凭据”以验证存储帐户。 右键单击“TCP/IP”，然后选择“属性”。
+   d. 右键单击“TCP/IP”，然后选择“属性”。
 
-   e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 选择“IP 地址”选项卡。
+   e. 选择“IP 地址”选项卡。
 
-   f.单击“保存”以保存设置。 找到“IPAll”节点。 在“TCP 端口”字段中输入 1433。
+   f. 找到“IPAll”节点。 在“TCP 端口”字段中输入 1433。
 
       ![配置 SQL Server Express 的 TCP/IP][3]
 
@@ -408,9 +408,9 @@ azureMobile.js 文件中的大多数设置在 [Azure 门户]中都有对等的�
    
    c. 选择适当的服务定价层。 选择“全部查看”以查看其他定价选项，例如“免费”和“共享”。 
    
-   d.单击“验证存储凭据”以验证存储帐户。 单击“选择”按钮。 
+   d. 单击“选择”按钮。 
    
-   e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 返回“应用服务计划”窗格，选择“确定”。
+   e. 返回“应用服务计划”窗格，选择“确定”。
 5. 选择“创建” 。 
 
 预配移动应用后端可能需要几分钟时间。 预配移动应用后端后，门户将打开移动应用后端的“设置”窗格。
@@ -739,8 +739,8 @@ if (context.push) {
 
 若要将应用服务身份验证与自定义 API 配合使用，必须先在 [Azure 门户]中配置应用服务身份验证。 有关详细信息，请参阅要使用的标识提供者的配置指南：
 
-- [如何配置 Azure Active Directory 身份验证]
-- [如何配置 Microsoft 身份验证]
+* [配置 Azure Active Directory 身份验证]
+* [配置 Microsoft 身份验证]
 
 定义自定义 API 的方法与表 API 大致相同：
 

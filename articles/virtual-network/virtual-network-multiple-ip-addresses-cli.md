@@ -1,26 +1,26 @@
 ---
-title: "使用 Azure CLI 分配多个 IP 地址的 VM | Azure"
-description: "了解如何使用 Azure 命令行接口 (CLI) 将多个 IP 地址分配给虚拟机。"
+title: 使用 Azure CLI 分配多个 IP 地址的 VM | Azure
+description: 了解如何使用 Azure 命令行接口 (CLI) 将多个 IP 地址分配给虚拟机。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/17/2016
-ms.date: 01/29/2018
+ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 012c9b39effb54e447cb0c6b43cc4407304780f6
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 6da58f894524eb927a876c6624ca6fa8577b4f64
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>使用 Azure CLI 将多个 IP 地址分配给虚拟机
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/23/2018
 
 本文介绍如何使用 Azure CLI 通过 Azure 资源管理器部署模型创建虚拟机 (VM)。 无法将多个 IP 地址分配到通过经典部署模型创建的资源。 若要详细了解 Azure 部署模型，请阅读 [Understand deployment models](../resource-manager-deployment-model.md)（了解部署模型）一文。
 
-[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>创建具有多个 IP 地址的 VM
 
@@ -162,15 +162,16 @@ az vm create \
 - 单个高级托管磁盘（默认情况下），但对于可以创建的磁盘类型，可以有其他选择。 有关详细信息，请阅读[使用 Azure CLI 2.0 创建 Linux VM](../virtual-machines/linux/quick-create-cli.md?toc=%2fvirtual-network%2ftoc.json) 一文。
 - 一个包含 1 个子网和 2 个公共 IP 地址的虚拟网络。 或者，可以使用*现有*虚拟网络、子网、NIC 或公共 IP 地址资源。 若要了解如何使用现有网络资源，而不是创建其他资源，请输入 `az vm create -h`。
 
-公共 IP 地址会产生少许费用。 有关 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。 可在一个订阅中使用的公共 IP 地址数有限制。
+公共 IP 地址会产生少许费用。 有关 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。 可在一个订阅中使用的公共 IP 地址数有限制。 有关限制的详细信息，请阅读 [Azure limits](../azure-subscription-service-limits.md#networking-limits)（Azure 限制）一文。
 
 创建 VM 后，输入 `az network nic show --name MyNic1 --resource-group myResourceGroup` 命令查看 NIC 配置。 输入 `az network nic ip-config list --nic-name MyNic1 --resource-group myResourceGroup --output table` ，查看与 NIC 关联的 IP 配置的列表。
 
 将专用 IP 地址添加到 VM 操作系统，只需完成本文[将 IP 地址添加到 VM 操作系统](#os-config)部分针对操作系统的步骤即可。
 
-## <a name="add"></a>将 IP 地址添加到 VM
+<a name="add"></a>
+## <a name="add-ip-addresses-to-a-vm"></a>将 IP 地址添加到 VM
 
-完成以下步骤，可将其他专用和公共 IP 地址添加到现有 NIC。 这些示例是基于本文中所述的[方案](#Scenario)制作的。
+完成以下步骤可将其他专用和公共 IP 地址添加到现有 Azure 网络接口。 示例根据本文所述的 [方案](#Scenario) 生成。
 
 1. 打开命令行界面，并在单个会话中完成本部分的剩余步骤。 如果尚未安装并配置 Azure CLI，请完成 [Azure CLI 2.0 安装](https://docs.azure.cn/zh-cn/cli/install-az-cli2?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest)一文中的步骤，并使用 `az-login` 命令登录到 Azure 帐户。
 
@@ -194,7 +195,7 @@ az vm create \
 
     将公共 IP 地址关联到新 IP 配置或现有 IP 配置即可添加它。 根据需要，完成以下任一部分中的步骤。
 
-    公共 IP 地址会产生少许费用。 有关 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。 可在一个订阅中使用的公共 IP 地址数有限制。 有关限制的详细信息，请阅读“Azure 限制”一文。
+    公共 IP 地址会产生少许费用。 有关 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。 可在一个订阅中使用的公共 IP 地址数有限制。 有关限制的详细信息，请阅读 [Azure limits](../azure-subscription-service-limits.md#networking-limits)（Azure 限制）一文。
 
     - **将资源关联到新的 IP 配置**
 
@@ -278,5 +279,5 @@ az vm create \
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
 <!--The parent file of includes file of virtual-network-multiple-ip-addresses-os-config.md-->
-<!--ms.date:01/29/2018-->
-<!-- Update_Description: update meta properties wording update -->
+<!--ms.date:05/07/2018-->
+<!-- Update_Description: update meta properties, wording update -->
