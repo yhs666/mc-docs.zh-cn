@@ -1,11 +1,11 @@
 ---
-title: "将 Azure 虚拟网络连接到另一 VNet：门户 | Microsoft 文档"
-description: "使用 Resource Manager 和 Azure 门户创建 VNet 之间的 VPN 网关连接。"
+title: 将 Azure 虚拟网络连接到另一 VNet：门户 | Microsoft 文档
+description: 使用 Resource Manager 和 Azure 门户创建 VNet 之间的 VPN 网关连接。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
 ms.service: vpn-gateway
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/14/2018
-ms.date: 03/12/2018
+origin.date: 03/21/2018
+ms.date: 05/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 64f181dbe799f581c615d76ae38f873ad58b46f1
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 96f6fb4b4ab65b030daa130a51bedf24c73633f2
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>使用 Azure 门户配置 VNet 到 VNet VPN 网关连接
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 03/16/2018
 
 ### <a name="vnet-peering"></a>VNet 对等互连
 
-可以考虑使用 VNet 对等互连来连接 VNet。 VNet 对等互连不使用 VPN 网关，并且有不同的约束。 另外，[VNet 对等互连定价](https://www.azure.cn/pricing/details/networking)的计算不同于 [VNet 到 VNet VPN 网关定价](https://www.azure.cn/pricing/details/vpn-gateway)的计算。 有关详细信息，请参阅 [VNet 对等互连](../virtual-network/virtual-network-peering-overview.md)。
+可以考虑使用 VNet 对等互连来连接 VNet。 VNet 对等互连不使用 VPN 网关，并且有不同的约束。 另外，[VNet 对等互连定价](https://www.azure.cn/pricing/details/virtual-network)的计算不同于 [VNet 到 VNet VPN 网关定价](https://www.azure.cn/pricing/details/vpn-gateway)的计算。 有关详细信息，请参阅 [VNet 对等互连](../virtual-network/virtual-network-peering-overview.md)。
 
 ## <a name="why"></a>为何创建 VNet 到 VNet 连接？
 
@@ -128,7 +128,7 @@ ms.lasthandoff: 03/16/2018
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="gatewaysubnet"></a>3.创建网关子网
-将虚拟网络连接到网关之前，必须先创建要连接的虚拟网络的网关子网。 在可能的情况下，最好是使用 CIDR 块 /28 或 /27 创建网关子网，以便提供足够的 IP 地址，满足将来的其他配置要求。
+为虚拟网络创建虚拟网络网关前，需要先创建网关子网。 网关子网包含虚拟网络网关使用的 IP 地址。 在可能的情况下，最好是使用 CIDR 块 /28 或 /27 创建网关子网，以便提供足够的 IP 地址，满足将来的其他配置要求。
 
 如果要练习创建此配置，请在创建网关子网时引用这些 [示例设置](#values) 。
 

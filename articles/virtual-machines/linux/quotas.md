@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/05/2016
-ms.date: 4/10/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: d77ba7d1f586d61bb1503a2849f1dcafc2f6aadd
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 9ae2275c5b40e1dc33f0e7046095036a301655b3
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>虚拟机 vCPU 配额
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/09/2018
 
 ## <a name="check-usage"></a>检查用量
 
-可以使用 [az vm list-usage](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list_usage) 检查配额用量。
+可以使用 [az vm list-usage](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-usage) 检查配额用量。
 
 ```azurecli
 az vm list-usage --location "China East"
@@ -77,4 +77,3 @@ az vm list-usage --location "China East"
 
 有关计费和配额的详细信息，请参阅 [Azure 订阅和服务限制、配额与约束](/azure-subscription-service-limits?toc=/azure/billing/TOC.json)。
 <!-- Update_Description: update meta propertiessss -->
-<!-- ms.date: 04/10/2018 -->

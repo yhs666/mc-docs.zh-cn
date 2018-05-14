@@ -1,10 +1,10 @@
 ---
-title: 在 Azure Active Directory 中向企业应用分配用户或组 | Azure
+title: 在 Azure Active Directory 中向企业应用分配用户或组 | Microsoft Docs
 description: 如何选择企业应用，在 Azure Active Directory 中向其分配用户或组
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
+author: MarkusVi
+manager: mtillman
 editor: ''
 ms.assetid: 5817ad48-d916-492b-a8d0-2ade8c50a224
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/30/2017
-ms.date: 03/05/2018
-ms.author: v-nany
+ms.date: 05/07/2018
+ms.author: v-junlch
 ms.reviewer: luleon
-ms.openlocfilehash: 34f2801348b1b7eedae223495368f549b367aa0d
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: 92959f4d992a901f7f9e0ad7ba23440c10040ceb
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中向企业应用分配用户或组
 若要将用户或组分配到企业应用，必须具有适当的权限才能管理企业应用，并且必须是目录的全局管理员。
@@ -102,6 +102,7 @@ ms.lasthandoff: 03/19/2018
     ```powershell
     # Assign the values to the variables
     $app_role_name = "Analyst (Limited access)"
+    $appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
     ```
 
 5. 运行以下命令，将用户分配到应用角色：
@@ -116,3 +117,5 @@ ms.lasthandoff: 03/19/2018
 * [删除企业应用的用户或组分配](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [禁用企业应用的用户登录](active-directory-coreapps-disable-app-azure-portal.md)
 * [更改企业应用的名称或徽标](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+
+<!-- Update_Description: code update -->

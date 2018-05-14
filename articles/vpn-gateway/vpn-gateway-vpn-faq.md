@@ -1,25 +1,25 @@
 ---
-title: "Azure VPN 网关常见问题 | Microsoft 文档"
-description: "VPN 网关常见问题。 Azure 虚拟网络跨界连接、混合配置连接和 VPN 网关的常见问题。"
+title: Azure VPN 网关常见问题 | Microsoft 文档
+description: VPN 网关常见问题。 Azure 虚拟网络跨界连接、混合配置连接和 VPN 网关的常见问题。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/20/2017
-ms.date: 01/23/2018
+origin.date: 04/05/2018
+ms.date: 05/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 128d4f11a0911d7bc7899bfaef0aac4255e9f28a
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 018aa5562807727a7bdc4bb66ab325aeaa3704d3
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="vpn-gateway-faq"></a>VPN 网关常见问题
 
@@ -246,4 +246,4 @@ VPN 网关基本上是一个多宿主设备，其中一个 NIC 进入客户专�
 - 有关 VPN 网关的详细信息，请参阅[关于 VPN 网关](vpn-gateway-about-vpngateways.md)。
 - 有关 VPN 网关配置设置的详细信息，请参阅[关于 VPN 网关配置设置](vpn-gateway-about-vpn-gateway-settings.md)。
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: update metedata properties -->

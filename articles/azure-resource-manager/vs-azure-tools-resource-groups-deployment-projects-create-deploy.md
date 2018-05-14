@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 04/09/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 44c5615b4b77a4fd0aefbd77d67b8d1a1740ac64
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 136cdd183e4b0a419cc865b468a999bd526a3db8
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>通过 Visual Studio 创建和部署 Azure 资源组
 使用 Visual Studio 和 [Azure SDK](https://www.azure.cn/downloads/) 可以创建一个项目，用于将基础结构和代码部署到 Azure。 例如，可以为应用定义 Web 主机、网站和数据库，然后将该基础结构与代码一起部署。 或者，用户可以定义虚拟机、虚拟网络和存储帐户，并连同虚拟机上执行的脚本一起部署该基础结构。 **Azure 资源组**部署项目允许通过单个可重复的的操作部署全部所需的资源。 有关部署和管理资源的详细信息，请参阅 [Azure Resource Manager 概述](resource-group-overview.md)。
@@ -305,8 +305,9 @@ Visual Studio 还提供了 Intellisense 来帮助你了解编辑模板时可以�
     ![自定义仪表板](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
 
    > [!NOTE] 
-   > 可以使用 RBAC 组管理对仪表板的访问权限，部署资源后可以将自定义项发布到资源。 请注意，重新部署资源组时，会将其重置回模板中的默认值。 应考虑使用自定义项更新模板。 有关如何执行此操作的帮助，请参阅[以编程方式创建 Azure 仪表板](../azure-portal/azure-portal-dashboards-create-programmatically.md)
+   > 可以使用 RBAC 组管理对仪表板的访问权限，部署资源后可以将自定义项发布到资源。 请注意，重新部署资源组时，会将其重置回模板中的默认值。 应考虑使用自定义项更新模板。 
 
+    <!-- Not Available on [Programmatically create Azure Dashboards](../azure-portal/azure-portal-dashboards-create-programmatically.md) -->
     ![自定义仪表板](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
 ## <a name="next-steps"></a>后续步骤

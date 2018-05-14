@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中的 Linux VM 上通过策略强制执行安全措施 | Azure"
-description: "如何向 Azure Resource Manager Linux 虚拟机应用策略"
+title: 在 Azure 中的 Linux VM 上通过策略强制执行安全措施 | Azure
+description: 如何向 Azure Resource Manager Linux 虚拟机应用策略
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 06778ab4-f8ff-4eed-ae10-26a276fc3faa
 ms.service: virtual-machines-linux
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 12/18/2017
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: 538aede98e42b52f05c57cfe4c6a2f3f73c73e3f
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 2d9e640886bbe7e0931cb2062fd57c3cb9205518
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>使用 Azure 资源管理器向 Linux VM 应用策略
 通过使用策略，组织可以在整个企业中强制实施各种约定和规则。 强制实施所需行为有助于消除风险，同时为组织的成功做出贡献。 本文介绍如何使用 Azure 资源管理器策略，为组织中的虚拟机定义所需的行为。
@@ -212,4 +212,4 @@ ms.lasthandoff: 12/15/2017
 <!-- Not Available on azure-policy/* -->
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](../../azure-resource-manager/resource-manager-subscription-governance.md)。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties, wording update -->

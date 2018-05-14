@@ -8,14 +8,14 @@ editor: tysonn
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-origin.date: 09/29/2017
-ms.date: 01/15/2018
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-nany
-ms.openlocfilehash: 7d681161c9bfc62656fc7ea21525198f5c421f58
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: c87b7fd8665880b03c187033fce8ff3118d107af
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>在 Azure 自动化中计划 Runbook
 要将 Azure 自动化中的 Runbook 计划为在指定的时间启动，可以将它链接到一个或多个计划。 可以在 Azure 门户中为 runbook 配置计划，使其运行一次或者每小时或每日定期运行。 还可以将它们计划为每周、每月、每周的特定几天或每月的特定几天或每月的特定一天运行。  可将一个 Runbook 链接到多个计划，一个计划可以链接多个 Runbook。
@@ -52,7 +52,7 @@ ms.lasthandoff: 03/29/2018
 
 > [!NOTE]
 > 当运行新的计划作业时，Azure 自动化将在自动化帐户中使用最新模块。  若要避免影响 Runbook 以及其自动执行进程，应首先使用测试专用自动化帐户测试已链接计划的任何 Runbook。  这将验证计划的 runbook 是否继续正常运行，如果没有，则可以进一步排除故障并在将更新的 runbook 版本迁移到生产之前应用所需的任何更改。  
->  上获取。 
+>  自动化帐户不会自动获取模块的任何新版本，除非你通过从“模块”中选择[更新 Azure 模块](automation-update-azure-modules.md)选项来手动更新它们。 
 >  
 
 ### <a name="to-create-a-new-schedule-in-the-azure-portal"></a>在 Azure 门户中创建新计划

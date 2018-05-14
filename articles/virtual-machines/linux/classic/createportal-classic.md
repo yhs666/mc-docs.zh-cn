@@ -1,8 +1,8 @@
 ---
-title: "创建自定义 Linux 虚拟机 | Azure"
-description: "了解如何从 Azure 门户使用经典部署模型创建自定义 Linux 虚拟机。"
+title: 创建自定义 Linux 虚拟机 | Azure
+description: 了解如何从 Azure 门户使用经典部署模型创建自定义 Linux 虚拟机。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 01/29/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: bdf1fbd525b2cf6d5e4a373f92e3597370a1d499
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 6a6ee935ad6c4c03c5a9f9e9a32ce7fc018549d7
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-a-custom-virtual-machine-running-linux"></a>创建运行 Linux 的自定义虚拟机
 > [!IMPORTANT] 
@@ -31,5 +31,4 @@ ms.lasthandoff: 01/25/2018
 [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-common-classic-createportal.md)]
 
 [!INCLUDE [virtual-machines-create-linuxvm](../../../../includes/virtual-machines-create-linuxvm.md)]
-<!-- Update_Description: new articles on create portal for Linux VM -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

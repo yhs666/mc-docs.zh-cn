@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 中创建和上传 Linux VHD | Azure"
-description: "使用经典部署模型创建和上传包含 Linux 操作系统的 Azure 虚拟硬盘 (VHD)"
+title: 在 Azure 中创建和上传 Linux VHD | Azure
+description: 使用经典部署模型创建和上传包含 Linux 操作系统的 Azure 虚拟硬盘 (VHD)
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2016
-ms.date: 01/29/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7e5799958a4a6338f1691fed430a521bee08d939
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: fcd1ad085a8896a5e0599308dcd532015a4db0c7
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>创建并上传包含 Linux 操作系统的虚拟硬盘
 > [!IMPORTANT] 
@@ -41,7 +41,7 @@ ms.lasthandoff: 01/25/2018
 
 * **Azure 命令行接口** - 安装最新的 [Azure 命令行接口](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)以上传 VHD。
 
-<a id="prepimage"> </a>
+<a name="prepimage"> </a>
 
 ## <a name="step-1-prepare-the-image-to-be-uploaded"></a>步骤 1：准备要上传的映像
 Azure 支持各种 Linux 分发（请参阅[认可的分发](../endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)）。 以下文章指导用户如何准备 Azure 上支持的各种 Linux 分发。 完成以下指南中的步骤后，返回到此处，应该有了一个可以上传到 Azure 的 VHD 文件：
@@ -61,7 +61,7 @@ Azure 支持各种 Linux 分发（请参阅[认可的分发](../endorsed-distros
 
 另请参阅 **[Linux 安装说明](../create-upload-generic.md#general-linux-installation-notes)**，以获取更多有关如何为 Azure 准备 Linux 映像的一般提示。
 
-<a id="connect"> </a>
+<a name="connect"> </a>
 
 ## <a name="step-2-prepare-the-connection-to-azure"></a>步骤 2：准备连接到 Azure
 请确保在经典部署模型中使用 Azure CLI (`azure config mode asm`)，然后登录帐户：
@@ -70,7 +70,7 @@ Azure 支持各种 Linux 分发（请参阅[认可的分发](../endorsed-distros
 azure login -e AzureChinaCloud
 ```
 
-<a id="upload"> </a>
+<a name="upload"> </a>
 
 ## <a name="step-3-upload-the-image-to-azure"></a>步骤 3：向 Azure 上传映像
 需要一个存储帐户，以便向其上传 VHD 文件。 可以选取现有存储帐户，也可以[创建新的存储帐户](../../../storage/common/storage-create-storage-account.md)。
@@ -114,5 +114,5 @@ azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh `
 [Step 1: Prepare the image to be uploaded]:#prepimage
 [Step 2: Prepare the connection to Azure]:#connect
 [Step 3: Upload the image to Azure]:#upload
-<!-- Update_Description: new articles on create upload vhd classic for Linux VM -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->
+

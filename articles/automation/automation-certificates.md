@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-origin.date: 09/14/2017
-ms.date: 01/15/2018
+origin.date: 03/15/2018
+ms.date: 05/14/2018
 ms.author: v-nany
-ms.openlocfilehash: bf768ca39755a63d9ed2737145472158d0a0d574
-ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
+ms.openlocfilehash: 60d07c209752333fdf7bbc207710e4c732d4f6cb
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure 自动化中的证书资产
 

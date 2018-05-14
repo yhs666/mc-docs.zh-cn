@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 10/05/2017
-ms.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b3bf068c375325270116b0252d03d1db14f3a6f3
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 620b99eaff578c0ae3192c02cfadd8259578dd51
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-use-availability-sets"></a>如何使用可用性集
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="create-an-availability-set"></a>创建可用性集
 
-可使用 [az vm availability-set create](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az_vm_availability_set_create) 创建可用性集。 在本示例中，将 myResourceGroupAvailability 资源组中名为 myAvailabilitySet 的可用性集的更新域数和容错域数均设置为 2。
+可使用 [az vm availability-set create](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create) 创建可用性集。 在本示例中，将 myResourceGroupAvailability 资源组中名为 myAvailabilitySet 的可用性集的更新域数和容错域数均设置为 2。
 
 创建资源组。
 
@@ -70,7 +70,7 @@ az vm availability-set create \
 
 必须在可用性集中创建 VM，确保它们正确地分布在硬件中。 创建后，无法将现有 VM 添加到可用性集中。 
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 创建 VM 时，利用 `--availability-set` 参数指定可用性集，以指定该可用性集的名称。
+使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM 时，利用 `--availability-set` 参数指定可用性集，以指定该可用性集的名称。
 
 ```azurecli 
 for i in `seq 1 2`; do
@@ -94,8 +94,8 @@ done
 
 ## <a name="check-for-available-vm-sizes"></a>检查可用的 VM 大小 
 
-稍后可向可用性集添加更多 VM，但需了解在硬件上可用的 VM 大小。  使用 [az vm availability-set list-sizes](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az_vm_availability_set_list_sizes) 列出可用性集的硬件群集上所有可用的大小。
-<!-- URL SHOULD BE https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az_vm_availability_set_list_sizes -->
+稍后可向可用性集添加更多 VM，但需了解在硬件上可用的 VM 大小。  使用 [az vm availability-set list-sizes](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-list-sizes) 列出可用性集的硬件群集上所有可用的大小。
+<!-- URL SHOULD BE https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-list-sizes -->
 
 ```azurecli 
 az vm availability-set list-sizes \
@@ -118,4 +118,4 @@ az vm availability-set list-sizes \
 > [!div class="nextstepaction"]
 > [创建虚拟机规模集](tutorial-create-vmss.md)
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties, wording update, update link -->

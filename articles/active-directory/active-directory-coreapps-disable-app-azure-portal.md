@@ -1,10 +1,10 @@
 ---
-title: 在 Azure Active Directory 中对企业应用禁用用户登录 | Azure
+title: 在 Azure Active Directory 中对企业应用禁用用户登录 | Microsoft Docs
 description: 如何禁用企业应用程序，防止用户在 Azure Active Directory 中登录该程序
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
+author: MarkusVi
+manager: mtillman
 editor: ''
 ms.assetid: a27562f9-18dc-42e8-9fee-5419566f8fd7
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/28/2017
-ms.date: 03/05/2018
-ms.author: v-nany
+ms.date: 05/07/2018
+ms.author: v-junlch
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 3e2895fbc756881a93e483a6caa16e3996debbc4
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: d599320aff3af2e236ff9de8c577c4061c614023
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中对企业应用禁用用户登录
 可以轻松地禁用企业应用程序，防止用户在 Azure Active Directory (Azure AD) 中登录该程序。 必须具有适当的权限才能管理企业应用，并且必须是目录的全局管理员。
@@ -41,7 +41,9 @@ ms.lasthandoff: 03/19/2018
 8. 选择“保存”命令。
 
 ## <a name="next-steps"></a>后续步骤
-* [查看所有组](active-directory-groups-view-azure-portal.md)
-* [向企业应用分配用户或组](active-directory-coreapps-assign-user-azure-portal.md)
-* [删除企业应用的用户或组分配](active-directory-coreapps-remove-assignment-azure-portal.md)
-* [更改企业应用的名称或徽标](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+- [查看所有组](active-directory-groups-view-azure-portal.md)
+- [向企业应用分配用户或组](active-directory-coreapps-assign-user-azure-portal.md)
+- [删除企业应用的用户或组分配](active-directory-coreapps-remove-assignment-azure-portal.md)
+- [更改企业应用的名称或徽标](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+
+<!-- Update_Description: update metedata properties -->

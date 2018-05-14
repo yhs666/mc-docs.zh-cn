@@ -1,26 +1,27 @@
 ---
-title: "Azure 门户支持的浏览器和设备 | Microsoft Docs"
-description: "介绍适合运行 Azure 门户的浏览器和设备。"
-services: 
-documentationcenter: 
-author: alexchen2016
+title: Azure 门户支持的浏览器和设备 | Microsoft Docs
+description: 介绍适合运行 Azure 门户的浏览器和设备。
+services: ''
+documentationcenter: ''
+author: flanakin
 writer: flanakin
-manager: digimobile
-editor: 
+manager: lwelicki
+editor: ''
 ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+origin.date: 04/02/2018
+ms.date: 05/11/2018
 ms.author: v-junlch
 ms.custom: accessibility
-ms.openlocfilehash: f04a90b7f9d19b33b691d1a65b902d045e76951a
-ms.sourcegitcommit: 84df30a673f9929f92d18c8f8b42b6b1f9e936b1
+ms.openlocfilehash: b127cea8ee9a72e0609a39ad0e20ca11b6bb8b5f
+ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Azure 门户支持的浏览器和设备
 可在所有新式台式机、平板电脑设备和浏览器上运行 [Azure 门户](https://portal.azure.cn)。
@@ -37,3 +38,4 @@ Azure 门户可在新式电脑、Mac 和平板电脑上平稳运行。
 * Chrome（最新版本）
 * Firefox（最新版本）
 
+<!-- Update_Description: update metedata properties -->

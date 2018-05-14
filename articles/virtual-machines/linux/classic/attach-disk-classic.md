@@ -1,8 +1,8 @@
 ---
-title: "将磁盘附加到 Azure 中的 Linux VM | Azure"
-description: "了解如何使用经典部署模型将数据磁盘附加到 Linux VM 上并初始化磁盘，使其可供使用"
+title: 将磁盘附加到 Azure 中的 Linux VM | Azure
+description: 了解如何使用经典部署模型将数据磁盘附加到 Linux VM 上并初始化磁盘，使其可供使用
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/09/2017
-ms.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: b6c9a6553110c52f5b1b03c2a8f9235af7d7d5c2
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 48972b5945d302a481e3275ef7f68e7ffd188d9a
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>如何将数据磁盘附加到 Linux 虚拟机
 > [!IMPORTANT] 
@@ -236,5 +236,5 @@ ms.lasthandoff: 03/17/2018
 [Agent]:../agent-user-guide.md
 [Logon]:../mac-create-ssh-keys.md
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties -->
 

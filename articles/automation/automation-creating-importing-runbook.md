@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-origin.date: 09/29/2017
-ms.date: 01/15/2018
+origin.date: 03/15/2018
+ms.date: 05/14/2018
 ms.author: v-nany
-ms.openlocfilehash: 345e5dafd25fe42a4fef06881846b29f431812f0
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: 3581aeaa70318fbd6acdc5e64d482db2e9630e98
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>在 Azure 自动化中创建或导入 Runbook
 可以通过[新建 Runbook](#creating-a-new-runbook) 将 Runbook 添加到 Azure 自动化。

@@ -2,8 +2,8 @@
 title: 使用 VM 扩展监视 Linux VM | Azure
 description: 了解如何使用 Linux 诊断扩展监视 Azure 中 Linux VM 的性能和诊断数据。
 services: virtual-machines-linux
-author: hayley244
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-service-management
 ms.assetid: f54a11c5-5a0e-40ff-af6c-e60bd464058b
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2015
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: c3ed590f144ff2727f0392d02254110b401b765d
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.date: 05/14/2018
+ms.author: v-yeche
+ms.openlocfilehash: 8c3aee69767ac657ca82ea12fb20ec98d8098d3f
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>使用 Linux 诊断扩展监视 Linux VM 的性能和诊断数据
 
@@ -165,4 +165,4 @@ Linux 诊断扩展可帮助用户监视 Azure 上运行的 Linux VM。 它具有
 ## <a name="known-issues"></a>已知问题
 
 * 只能通过脚本访问 Rsyslog 信息和客户指定日志文件。
-<!--Update_Description: update storage table link to cosmosdb link-->
+<!--Update_Description: update meta properties-->

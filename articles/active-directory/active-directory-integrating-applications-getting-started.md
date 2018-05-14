@@ -1,26 +1,26 @@
 ---
-title: "将 Azure AD 与应用集成入门 | Microsoft Docs"
-description: "本文是一篇入门指南，介绍如何将 Azure Active Directory (AD) 与本地应用程序和云应用程序集成。"
+title: 将 Azure AD 与应用集成入门 | Microsoft Docs
+description: 本文是一篇入门指南，介绍如何将 Azure Active Directory (AD) 与本地应用程序和云应用程序集成。
 services: active-directory
-documentationcenter: 
-author: alexchen2016
-manager: digimobile
-editor: 
+documentationcenter: ''
+author: MarkusVi
+manager: mtillman
+editor: ''
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 10/21/2017
-ms.date: 11/22/2017
+origin.date: 01/15/2018
+ms.date: 05/07/2018
 ms.author: v-junlch
 ms.reviewer: asteen
-ms.openlocfilehash: 15c3babe9e83aeb388ccaae71d6987c3990ae582
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 7b88ee6583580ef79025db03db4c44e412df3682
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>将 Azure Active Directory 与应用程序集成入门指南
 ## <a name="overview"></a>概述
@@ -52,7 +52,7 @@ ms.lasthandoff: 02/13/2018
 - 是否需要在集成之前清理用户/组数据库？  （垃圾的进出是一个 相当重要的问题。）
 
 ### <a name="access-management-inventory"></a>访问管理盘点
-- 当前如何管理用户对应用程序的访问？ 是否需要做出更改？  是否考虑过使用其他方式来管理访问，例如使用 [RBAC](role-based-access-control-configure.md)？
+- 当前如何管理用户对应用程序的访问？ 是否需要做出更改？  是否考虑过使用其他方式来管理访问，例如使用 [RBAC](../role-based-access-control/role-assignments-portal.md)？
 - 谁需要访问哪些应用程序？
 
 也许你最初无法回答所有这些问题，但没有关系。  本指南可帮助你回答其中一些问题并做出明智的决策。
@@ -89,4 +89,4 @@ ms.lasthandoff: 02/13/2018
 - [有关 Azure Active Directory 中应用程序管理的文章索引](active-directory-apps-index.md)
 
 
-<!--Update_Description: update metadata properties -->
+<!-- Update_Description: link update -->

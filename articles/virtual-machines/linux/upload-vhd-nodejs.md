@@ -1,9 +1,9 @@
 ---
-title: "使用 Azure CLI 1.0 上传自定义 Linux 映像 | Azure"
-description: "使用 Resource Manager 部署模型和 Azure CLI 1.0 创建包含自定义 Linux 映像的虚拟硬盘 (VHD) 并将其上传到 Azure。"
+title: 使用 Azure CLI 1.0 上传自定义 Linux 映像 | Azure
+description: 使用 Resource Manager 部署模型和 Azure CLI 1.0 创建包含自定义 Linux 映像的虚拟硬盘 (VHD) 并将其上传到 Azure。
 services: virtual-machines-linux
-documentationcenter: 
-author: hayley244
+documentationcenter: ''
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 10/10/2016
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: a9716d2f74e26e60b6e07fc3222cda1f98e0dc0a
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 05/14/2018
+ms.author: v-yeche
+ms.openlocfilehash: 24a8272b19c7ed631bf3665ad8cb6a2d44629506
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 上传自定义磁盘映像并从其创建 Linux VM
 本文说明如何使用 Resource Manager 部署模型将虚拟硬盘 (VHD) 上传到 Azure，并从此自定义映像创建 Linux VM。 此功能可让用户安装并配置 Linux 分发以满足用户的需求，并使用该 VHD 快速创建 Azure 虚拟机 (VM)。
@@ -75,7 +75,7 @@ azure storage blob upload --blobtype page --account-name mystorageaccount \
     --account-key key1 --container myimages /path/to/disk/mydisk.vhd
 ```
 
-现在，可以[使用 Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd)从上传的虚拟磁盘创建 VM。 也可以使用 CLI 指定磁盘的 URI (`--image-urn`)。 以下示例使用前面上载的虚拟磁盘创建名为 `myVM` 的 VM：
+现在，可以[使用 Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd)从上传的虚拟磁盘创建 VM。 也可以使用 CLI 指定磁盘的 URI (`--image-urn`)。 以下示例使用前面上载的虚拟磁盘创建名为 `myVM` 的 VM：
 
 ```azurecli
 azure vm create myVM -l "ChinaNorth" --resource-group myResourceGroup \
@@ -108,7 +108,7 @@ azure config mode arm
 
 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 `myResourceGroup`、`mystorageaccount` 和 `myimages`。
 
-<a id="prepimage"> </a>
+<a name="prepimage"> </a>
 
 ## <a name="prepare-the-image-to-be-uploaded"></a>准备要上传的映像
 Azure 支持各种 Linux 分发（请参阅[认可的分发](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)）。 以下文章指导用户准备 Azure 上支持的各种 Linux 分发版：
@@ -243,3 +243,4 @@ azure group deployment create --resource-group myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 准备好并上传自定义虚拟磁盘之后，可以阅读有关[使用 Resource Manager 和模板](../../azure-resource-manager/resource-group-overview.md)的详细信息。 可能还需要向新 VM [添加数据磁盘](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 如果需要访问在 VM 上运行的应用程序，请务必[打开端口和终结点](nsg-quickstart.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+<!-- Update_Description: update meta properties -->

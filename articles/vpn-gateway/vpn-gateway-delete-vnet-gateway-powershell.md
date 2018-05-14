@@ -1,26 +1,26 @@
 ---
-title: "删除虚拟网络网关：PowerShell：Azure Resource Manager | Azure"
-description: "在 Resource Manager 部署模型中使用 PowerShell 删除虚拟网络网关。"
+title: 删除虚拟网络网关：PowerShell：Azure 资源管理器 | Microsoft Docs
+description: 在 Resource Manager 部署模型中使用 PowerShell 删除虚拟网络网关。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: ''
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/20/2017
-ms.date: 08/07/2017
-ms.author: v-dazen
-ms.openlocfilehash: ebd12cdd0eb55e63d8aaddd0560ac6cb178ccc4f
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+origin.date: 03/26/2018
+ms.date: 05/08/2018
+ms.author: v-junlch
+ms.openlocfilehash: 9c2499ce71ba27c25fc04e0be54c4f1530333342
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>使用 PowerShell 删除虚拟网络网关
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ VNet 名称：VNet1<br>
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1.单击要删除的虚拟网络网关。
 
 ```powershell
-$Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### <a name="2-check-to-see-if-the-virtual-network-gateway-has-any-connections"></a>2.检查该虚拟网络网关是否已建立任何连接。
@@ -95,7 +95,7 @@ $Conns | ForEach-Object {Remove-AzureRmVirtualNetworkGatewayConnection -Name $_.
 
 ### <a name="4-delete-the-virtual-network-gateway"></a>4.删除虚拟网络网关。
 
-系统可能会提示确认是否要删除该网关。 除了 S2S 配置，如果你还有此 VNet 的 P2S 配置，则删除虚拟网络网关自动断开所有 P2S 客户端且不发出警告。
+系统可能会提示确认是否要删除该网关。 除了 S2S 配置，如果还有此 VNet 的 P2S 配置，则删除虚拟网络网关会自动断开所有 P2S 客户端且不发出警告。
 
 ```powershell
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
@@ -157,7 +157,7 @@ VNet 名称：VNet1<br>
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1.单击要删除的虚拟网络网关。
 
 ```powershell
-$Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### <a name="2-check-to-see-if-the-virtual-network-gateway-has-any-connections"></a>2.检查该虚拟网络网关是否已建立任何连接。
@@ -250,7 +250,7 @@ VNet 名称：VNet1<br>
 ### <a name="1-get-the-virtual-network-gateway-that-you-want-to-delete"></a>1.单击要删除的虚拟网络网关。
 
 ```powershell
-$Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
+$GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
 ### <a name="2-delete-the-virtual-network-gateway"></a>2.删除虚拟网络网关。
@@ -261,7 +261,7 @@ $Gateway=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 Remove-AzureRmVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-此时，虚拟网络网关已删除。 可以使用后续步骤删除不再使用的任何资源。
+此时，虚拟网络网关已被删除。 可以使用后续步骤删除不再使用的任何资源。
 
 ### <a name="3-delete-the-public-ip-address-resources"></a>3.删除公共 IP 地址资源
 
@@ -332,8 +332,8 @@ Get-AzureRmResourceGroup -ResourceGroupName RG1
 
 ```
 ResourceGroupName : RG1
-Location          : chinaeast
+Location          : chinanorth
 ProvisioningState : Succeeded
 ```
 
-<!--Update_Description: wording update-->
+<!--Update_Description: code update-->

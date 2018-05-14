@@ -1,11 +1,11 @@
 ---
-title: "使用 Windows PowerShell 脚本发布到开发和测试环境 | Microsoft Docs"
-description: "了解如何使用 Windows PowerShell 脚本通过 Visual Studio 发布到开发和测试环境。"
+title: 使用 Windows PowerShell 脚本发布到开发和测试环境 | Microsoft Docs
+description: 了解如何使用 Windows PowerShell 脚本通过 Visual Studio 发布到开发和测试环境。
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
+author: ghogen
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 5fff1301-5469-4d97-be88-c85c30f837c1
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 11/11/2016
-ms.date: 12/28/2017
+ms.date: 05/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8e35959ca07879883b8c6aa76621eddee0ec1cfd
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 227f4b4ccdbbeb2a54c587e7767bdaf2f9157233
+ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>使用 Windows PowerShell 脚本发布到开发和测试环境
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/28/2017
 ## <a name="prerequisites"></a>先决条件
 
 - Azure SDK 2.3 或更高版本。 请参阅 [Visual Studio 下载](http://go.microsoft.com/fwlink/?LinkID=624384)。 （无需使用 Azure SDK 就能为 Web 项目生成脚本。 此功能适用于 Web 项目，而不适用于云服务中的 Web 角色。）
-- Azure PowerShell 0.7.4 或更高版本。 请参阅[如何安装和配置 Azure PowerShell](powershell-install-configure.md)。
+- Azure PowerShell 0.7.4 或更高版本。 请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 - [Windows PowerShell 3.0](http://go.microsoft.com/?linkid=9811175) 或更高版本。
 
 ## <a name="additional-tools"></a>其他工具
@@ -51,7 +51,7 @@ Visual Studio 会生成名为 **PublishScripts** 的解决方案级文件夹，�
 
 ### <a name="windows-powershell-module"></a>Windows PowerShell 模块
 
-Visual Studio 生成的 Windows PowerShell 模块包含发布脚本使用的函数。 不应修改这些 Azure PowerShell 函数。 请参阅[如何安装和配置 Azure PowerShell](powershell-install-configure.md)。
+Visual Studio 生成的 Windows PowerShell 模块包含发布脚本使用的函数。 不应修改这些 Azure PowerShell 函数。 请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
 ### <a name="json-configuration-file"></a>JSON 配置文件
 JSON 文件是在 **Configurations** 文件夹中创建的，其中包含的配置数据用于确切指定要将哪些资源部署到 Azure。 Visual Studio 生成的文件的名称为 project-name-WAWS-dev.json（如果创建的是网站），或 project name-VM-dev.json（如果创建的是虚拟机）。 以下是创建网站时生成的 JSON 配置文件的示例。 大多数值的含义都一目了然。 网站名称由 Azure 生成，因此，它可能与项目名称不匹配。
@@ -156,9 +156,9 @@ JSON 文件是在 **Configurations** 文件夹中创建的，其中包含的配�
 
 1. 为项目创建 Web 部署包。 Web 部署包是一个压缩的存档（.zip 文件），包含你要复制到网站或虚拟机的文件。 可以在 Visual Studio 中为任何 Web 应用程序创建 Web 部署包。
 
-![创建 Web 部署包](./media/vs-azure-tools-publishing-using-powershell-scripts/IC767885.png)
+    ![创建 Web 部署包](./media/vs-azure-tools-publishing-using-powershell-scripts/IC767885.png)
 
-有关详细信息，请参阅 [如何：在 Visual Studio 中创建 Web 部署包](https://msdn.microsoft.com/library/dd465323.aspx)。 也可以自动创建 Web 部署包，如[自定义和扩展发布脚本](#customizing-and-extending-publish-scripts)中所述。
+    有关详细信息，请参阅 [如何：在 Visual Studio 中创建 Web 部署包](https://msdn.microsoft.com/library/dd465323.aspx)。 也可以自动创建 Web 部署包，如[自定义和扩展发布脚本](#customizing-and-extending-publish-scripts)中所述。
 
 1. 在“解决方案资源管理器”中打开脚本的上下文菜单，然后选择“使用 PowerShell ISE 打开”。
 2. 如果首次在此计算机上运行 Windows PowerShell 脚本，请使用管理员权限打开命令提示窗口并键入以下命令：
@@ -175,7 +175,7 @@ JSON 文件是在 **Configurations** 文件夹中创建的，其中包含的配�
 
     出现提示时，请提供用户名和密码。
 
-    请注意，当自动编写脚本时，这一提供 Azure 凭据的方法不起作用， 而是应使用 `.publishsettings` 文件来提供凭据。 仅限一次使用 Get-AzurePublishSettingsFile 命令从 Azure 下载文件，此后则使用 Import-AzurePublishSettingsFile 导入该文件。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](powershell-install-configure.md)。
+    请注意，当自动编写脚本时，这一提供 Azure 凭据的方法不起作用， 而是应使用 `.publishsettings` 文件来提供凭据。 仅限一次使用 Get-AzurePublishSettingsFile 命令从 Azure 下载文件，此后则使用 Import-AzurePublishSettingsFile 导入该文件。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
 4. （可选）如果希望创建虚拟机、数据库和网站等 Azure 资源，而不发布 Web 应用程序，请使用 Publish-WebApplication.ps1 命令以及设置为 JSON 配置文件的 -Configuration 参数。 此命令行使用 JSON 配置文件来确定要创建的资源。 由于它的其他命令行参数使用默认设置，因此它会创建资源，但不发布 Web 应用程序。 -Verbose 选项可提供有关运行情况的详细信息。
 
@@ -252,7 +252,7 @@ JSON 文件是在 **Configurations** 文件夹中创建的，其中包含的配�
         #Write a function to build and package your web application
     ```
 
-    若要生成 Web 应用程序，请使用 MsBuild.exe。 有关帮助，请参阅以下网页中的 MSBuild 命令行参考：[http://go.microsoft.com/fwlink/?LinkId=391339](http://go.microsoft.com/fwlink/?LinkId=391339)
+    若要生成 Web 应用程序，请使用 MsBuild.exe。 有关帮助，请参阅位于以下页面的 MSBuild 命令行参考：[http://go.microsoft.com/fwlink/?LinkId=391339](http://go.microsoft.com/fwlink/?LinkId=391339)
 
     ```powershell
     Write-VerboseWithTime 'Build-WebDeployPackage: Start'
@@ -270,11 +270,8 @@ $job = Start-Process cmd.exe -ArgumentList('/C "' + $msbuildCmd + '"') -WindowSt
 if ($job.ExitCode -ne 0) {
     throw('MsBuild exited with an error. ExitCode:' + $job.ExitCode)
 }
-```
 
-#<a name="obtain-the-project-name"></a>获取项目名称
-
-```powershell
+#Obtain the project name
 $projectName = (Get-Item $ProjectFile).BaseName
 
 #Construct the path to web deploy zip package
@@ -353,6 +350,6 @@ return $WebDeployPackage
 | Test-WebApplication |未实现此函数。 可以在此函数中添加命令以测试应用程序。 |
 
 ## <a name="next-steps"></a>后续步骤
-请阅读[使用 Windows PowerShell 编写脚本](https://technet.microsoft.com/library/bb978526.aspx)以详细了解 PowerShell 脚本功能，并参阅[脚本中心](/automation/automation-runbook-gallery)内的其他 Azure PowerShell 脚本。
+请阅读[使用 Windows PowerShell 编写脚本](https://technet.microsoft.com/library/bb978526.aspx)以详细了解 PowerShell 脚本功能，并参阅[脚本中心](/automation/automation-runbook-gallery/)内的其他 Azure PowerShell 脚本。
 
 <!--Update_Description: wording update -->

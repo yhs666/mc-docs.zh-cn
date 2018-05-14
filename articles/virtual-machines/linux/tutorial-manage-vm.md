@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 05/02/2017
-ms.date: 04/16/2018
+origin.date: 03/23/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f9abca6b93c0d4579ff9fece27abfcc69ac451f7
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 0c970d4c6068c4d0ca4ac51efcff47ad1616ae7a
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>使用 Azure CLI 创建和管理 Linux VM
 
@@ -40,7 +40,7 @@ Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azu
 
 ## <a name="create-resource-group"></a>创建资源组
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 命令创建资源组。 
+使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 
 
 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 必须在创建虚拟机前创建资源组。 在此示例中，在“chinaeast”区域中创建了名为“myResourceGroupVM”的资源组。 
 
@@ -52,7 +52,7 @@ az group create --name myResourceGroupVM --location chinaeast
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 命令创建虚拟机。 
+使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建虚拟机。 
 
 创建虚拟机时，可使用多个选项，例如操作系统映像、磁盘大小调整和管理凭据。 在此示例中，创建了一个名为“myVM”的运行 Ubuntu Server 的虚拟机。 
 
@@ -91,9 +91,9 @@ exit
 
 ## <a name="understand-vm-images"></a>了解 VM 映像
 
-Azure 应用商店包括许多可用于创建 VM 的映像。 在之前的步骤中，使用 Ubuntu 映像创建了虚拟机。 在此步骤中，Azure CLI 用于在应用商店中搜索 CentOS 映像，此映像稍后将用于部署第二个虚拟机。  
+Azure 应用商店包括许多可用于创建 VM 的映像。 在之前的步骤中，使用 Ubuntu 映像创建了虚拟机。 在此步骤中，Azure CLI 用于在应用商店中搜索 CentOS 映像，此映像稍后将用于部署第二个虚拟机。 
 
-若要查看最常用映像的列表，请使用 [az vm image list](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az_vm_image_list) 命令。
+若要查看最常用映像的列表，请使用 [az vm image list](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list) 命令。
 
 ```azurecli 
 az vm image list --output table
@@ -136,7 +136,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-若要使用特定映像部署 VM，请记下“Urn”列中的值。 指定映像时，可将映像版本号替换为“latest”，这会选择最新的发行版。 在此示例中，`--image` 参数用于指定最新版本的 CentOS 6.5 映像。  
+若要使用特定的映像部署 VM，请记下“Urn”列中的值，包括发布者、产品/服务、SKU，以及用于[标识](cli-ps-findimage.md#terminology)映像的版本号（可选）。 指定映像时，可将映像版本号替换为“latest”，这会选择最新的发行版。 在此示例中，`--image` 参数用于指定最新版本的 CentOS 6.5 映像。  
 
 ```azurecli 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -161,7 +161,7 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 ### <a name="find-available-vm-sizes"></a>查找可用的 VM 大小
 
-若要查看在特定区域可用的 VM 大小的列表，请使用 [az vm list-sizes](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list_sizes) 命令。 
+若要查看在特定区域可用的 VM 大小的列表，请使用 [az vm list-sizes](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-sizes) 命令。 
 
 ```azurecli 
 az vm list-sizes --location chinaeast --output table
@@ -192,7 +192,7 @@ az vm list-sizes --location chinaeast --output table
 
 ### <a name="create-vm-with-specific-size"></a>创建具有特定大小的 VM
 
-在前面的 VM 创建示例中未提供大小，因此会使用默认大小。 可以在创建时使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 和 `--size` 参数选择 VM 大小。 
+在前面的 VM 创建示例中未提供大小，因此会使用默认大小。 可以在创建时使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 和 `--size` 参数选择 VM 大小。 
 
 ```azurecli 
 az vm create \
@@ -205,24 +205,24 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>调整 VM 的大小
 
-部署 VM 后，可调整其大小以增加或减少资源分配。 可通过 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_show) 查看 VM 的当前大小：
+部署 VM 后，可调整其大小以增加或减少资源分配。 可通过 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-show) 查看 VM 的当前大小：
 
 ```azurecli
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
 ```
 
-调整 VM 大小之前，请检查所需的大小在当前 Azure 群集上是否可用。 [az vm list-vm-resize-options](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list_vm_resize_options) 命令返回大小列表。 
+调整 VM 大小之前，请检查所需的大小在当前 Azure 群集上是否可用。 [az vm list-vm-resize-options](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-vm-resize-options) 命令返回大小列表。 
 
 ```azurecli 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-如果所需大小可用，则可从开机状态调整 VM 大小，但需在此操作期间重启 VM。 使用 [az vm resize](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_resize) 命令执行大小调整。
+如果所需大小可用，则可从开机状态调整 VM 大小，但需在此操作期间重启 VM。 使用 [az vm resize](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-resize) 命令执行大小调整。
 
 ```azurecli 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-如果所需大小在当前群集上不可用，则需解除分配 VM，然后才能执行调整大小操作。 使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_deallocate) 命令停止和解除分配 VM。 请注意，重新打开 VM 的电源时，可能会删除临时磁盘上的所有数据。 除非使用静态 IP 地址，否则公共 IP 地址也会更改。 
+如果所需大小在当前群集上不可用，则需解除分配 VM，然后才能执行调整大小操作。 使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 命令停止和解除分配 VM。 请注意，重新打开 VM 的电源时，可能会删除临时磁盘上的所有数据。 除非使用静态 IP 地址，否则公共 IP 地址也会更改。 
 
 ```azurecli 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
@@ -258,7 +258,7 @@ Azure VM 可能会处于多种电源状态之一。 从虚拟机监控程序的�
 
 ### <a name="find-power-state"></a>查找电源状态
 
-若要检索特定 VM 的状态，请使用 [az vm get instance-view](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_get_instance_view) 命令。 请确保为虚拟机和资源组指定有效的名称。 
+若要检索特定 VM 的状态，请使用 [az vm get-instance-view](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-get-instance-view) 命令。 请确保为虚拟机和资源组指定有效的名称。 
 
 ```azurecli 
 az vm get-instance-view \
@@ -323,5 +323,5 @@ az group delete --name myResourceGroupVM --no-wait --yes
 > [!div class="nextstepaction"]
 > [创建和管理 VM 磁盘](./tutorial-manage-disks.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update links -->
 <!--PENDING FOR Ev3, Dv3 GA ANOUNCEMENT -->

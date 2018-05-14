@@ -1,8 +1,8 @@
 ---
-title: "管理 Azure 自动化数据 | Azure"
-description: "本文包含有关管理 Azure 自动化环境的多个主题。  Azure 自动化目前包括数据保留和备份 Azure 自动化灾难恢复。"
+title: 管理 Azure 自动化数据 | Azure
+description: 本文包含有关管理 Azure 自动化环境的多个主题。  Azure 自动化目前包括数据保留和备份 Azure 自动化灾难恢复。
 services: automation
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: stevenka
 editor: tysonn
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/02/2017
-ms.date: 07/10/2017
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-dazen
-ms.openlocfilehash: 21f1595054bc0b6723784007373001216bb6cc64
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 3de7a3579fec0cc47f622546f76935ee4182a6ca
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="managing-azure-automation-data"></a>管理 Azure 自动化数据
 本文包含有关管理 Azure 自动化环境的多个主题。

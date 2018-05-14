@@ -1,12 +1,12 @@
 ---
-title: "Azure 词汇表 - Azure 字典 | Microsoft Docs"
-description: "使用 Azure 词汇表来理解 Azure 平台上的云术语。 这份简短的 Azure 字典提供 Azure 通用云术语的定义。"
-keywords: "Azure 字典, 云术语, Azure 词汇表, 术语定义, 云名词"
+title: Azure 词汇表 - Azure 字典 | Microsoft Docs
+description: 使用 Azure 词汇表来理解 Azure 平台上的云术语。 这份简短的 Azure 字典提供 Azure 通用云术语的定义。
+keywords: Azure 字典, 云术语, Azure 词汇表, 术语定义, 云名词
 services: na
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
-editor: 
+author: MonicaRush
+manager: jhubbard
+editor: ''
 ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
 ms.service: multiple
 ms.workload: na
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/16/2017
-ms.date: 08/29/2017
+ms.date: 05/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3de03592615d09ee90c1fbcfa45236ec76c34e83
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: e85afbcad2b27e71397ef57aac034e185d7492c9
+ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Azure 词汇表：Azure 平台上的云术语字典
 
@@ -101,7 +101,7 @@ Resource Manager 中的容器，用于保存应用程序的相关资源。 资�
 
 ## <a name="role"></a>角色
 用于控制可分配给用户、组和服务的访问权限的方式。 角色能够对 Azure 资源执行创建、管理和读取等操作。  
-请参阅 [RBAC：内置角色](active-directory/role-based-access-built-in-roles.md)
+请参阅 [RBAC：内置角色](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>服务级别协议 (SLA)
 用于描述 Microsoft 在运行时间和连接性方面所做承诺的协议。 每个 Azure 服务都有具体的 SLA。  
@@ -115,7 +115,7 @@ Resource Manager 中的容器，用于保存应用程序的相关资源。 资�
 请参阅[关于 Azure 存储帐户](storage/common/storage-create-storage-account.md)
 
 ## <a name="subscription"></a>订阅
-客户与 Microsoft 之间的协议，可让客户获取 Azure 服务。 订阅的定价和相关条款由为订阅选择的产品/服务控制。
+客户与 Microsoft 之间的协议，可让客户获取 Azure 服务。 订阅定价和相关条款受为订阅选择的产品/服务约束。
 请参阅 [Microsoft 在线订阅协议](https://www.azure.cn/support/legal/subscription-agreement/)和 [Azure 订阅与 Azure Active Directory 的关联方式](active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 ## <a name="tag"></a>标记
@@ -145,4 +145,4 @@ Resource Manager 中的容器，用于保存应用程序的相关资源。 资�
 
 - [Azure 入门](https://www.azure.cn/pricing/1rmb-trial/)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

@@ -8,14 +8,14 @@ editor: tysonn
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-origin.date: 12/14/2016
-ms.date: 01/25/2017
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-dazen
-ms.openlocfilehash: 9ea450a009da6bd793a5bf588dba0ee2f32b05f3
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: 8d11728bdd33ca273f77ee50cd142677736faf7c
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure 自动化的 Runbook 和模块库
 无需在 Azure 自动化中创建自己的 Runbook 和模块，即可访问 Microsoft 和社区构建的各种方案。  可以在不加以修改的情况下直接使用这些方案，或者使用它们作为起点并根据具体的要求进行编辑。
@@ -45,7 +45,7 @@ ms.lasthandoff: 03/29/2018
 7. 可选择更改 Runbook 的名称，并单击“确定”导入该 Runbook。
 8. Runbook 将出现在自动化帐户的“Runbook”选项卡中。
 
-###<a name="AddRunbook"></a> 将 Runbook 添加到 Runbook 库
+### <a name="adding-a-runbook-to-the-runbook-gallery"></a>将 Runbook 添加到 Runbook 库
 Microsoft 建议你将 Runbook 添加到你认为对其他客户有用的 Runbook 库中。  可以通过连同以下详细信息[将 Runbook 上传到脚本中心](http://gallery.technet.microsoft.com/site/upload)，来添加 Runbook。
 
 * 必须为向导中要显示的 Runbook 指定“Microsoft Azure”作为“类别”，指定“自动化”作为“子类别”。  

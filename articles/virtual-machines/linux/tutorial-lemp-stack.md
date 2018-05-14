@@ -1,26 +1,26 @@
 ---
-title: "在 Azure 中的 Linux 虚拟机上部署 LEMP | Azure"
-description: "教程 - 在 Azure 中的 Linux VM上安装 LEMP 堆栈"
+title: 在 Azure 中的 Linux 虚拟机上部署 LEMP | Azure
+description: 教程 - 在 Azure 中的 Linux VM上安装 LEMP 堆栈
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 11/27/2017
-ms.date: 01/08/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: f676aa532513344c8b76e9cfa74fa567d6f205de
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 7b42d00fda9fa87a273d4f036efa4a0fb947dff7
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="install-a-lemp-web-server-on-an-azure-vm"></a>在 Azure VM 上安装 LEMP Web 服务器
 本文逐步讲解如何在 Azure 中的 Ubuntu VM 上部署 NGINX Web 服务器、MySQL 和 PHP（LEMP 堆栈）。 LEMP 堆栈可以替代常用的 [LAMP 堆栈](tutorial-lamp-stack.md)，可安装在 Azure 中。 若要了解 LEMP 服务器的运作情况，可以选择性地安装并配置 WordPress 站点。 本教程介绍如何执行下列操作：
@@ -174,4 +174,4 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties-->

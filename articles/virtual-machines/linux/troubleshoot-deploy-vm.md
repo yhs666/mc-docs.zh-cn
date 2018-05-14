@@ -1,11 +1,11 @@
 ---
-title: "排查 Azure 中的 Linux 虚拟机部署问题 | Azure"
-description: "排查 Azure 资源管理器部署模型中的 Linux 虚拟机部署问题。"
+title: 排查 Azure 中的 Linux 虚拟机部署问题 | Azure
+description: 排查 Azure 资源管理器部署模型中的 Linux 虚拟机部署问题。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6ee95f13c5e6bbc06e8e8e8b85ebc1dff450bec3
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: e7f8f9c74a184a32c0b5434834019b040024b299
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Linux 虚拟机部署问题
 

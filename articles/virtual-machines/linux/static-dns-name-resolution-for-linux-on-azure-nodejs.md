@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/05/2016
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: a6249ca982afbe3ef6d222eaa7df4656f47e2bdc
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 4dc1e94f8a8fc584fd70a7ad3a85545443c7c9c9
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>在 Azure 上使用内部 DNS 进行 VM 名称解析
 
@@ -105,7 +105,7 @@ azure network vnet create myVNet \
 
 ## <a name="create-the-nsg"></a>创建 NSG
 
-子网在现有网络安全组后面构建，因此我们在构建子网之前先构建 NSG。  Azure NSG 相当于网络层防火墙。  有关 Azure NSG 的详细信息，请参阅[如何在 Azure CLI 中创建 NSG](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+子网在现有网络安全组后面构建，因此我们在构建子网之前先构建 NSG。  Azure NSG 相当于网络层防火墙。  有关 Azure NSG 的详细信息，请参阅[如何在 Azure CLI 中创建 NSG](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```azurecli
 azure network nsg create myNSG \

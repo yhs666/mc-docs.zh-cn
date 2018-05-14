@@ -2,23 +2,23 @@
 title: 了解 Azure 标识 | Microsoft Docs
 description: 大致了解 Azure 标识解决方案的术语、概念和建议，以便为组织做出最明智的标识监管决策。
 keywords: ''
-author: alexchen2016
-manager: digimobile
+author: jeffgilb
+manager: mtillman
 ms.reviewer: jsnow
 ms.author: v-junlch
 origin.date: 07/17/2017
-ms.date: 10/18/2017
+ms.date: 05/07/2018
 ms.topic: article
 ms.prod: ''
 ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 3dcdb264f47e0552e0e1bceca2fc8f3801f6e878
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: 579d085af8f7b580861f4203ecf44c45c796809d
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>了解 Azure 标识解决方案
 Azure Active Directory (Azure AD) 是一个标识和访问管理云解决方案，它提供目录服务、标识监管和应用程序访问管理功能。 Azure AD 可以快速启用到 [Azure AD 应用程序库](https://azure.microsoft.com/marketplace/active-directory/all/)中的 1,000 个预先集成的商业和自定义应用的单一登录 (SSO)。 你可能已在使用其中的许多应用，例如 Office 365、Salesforce.com、Box、ServiceNow 和 Workday。
@@ -53,7 +53,7 @@ Azure 根据每个组织的需求提供复杂程度不一的多种方式来利�
 |要理解的概念 |说明|
 |-----|-----|
 |[Azure 订阅与 Azure Active Directory 的关联方式](/active-directory/active-directory-how-subscriptions-associated-directory) |每个 Azure 订阅都与 Azure AD 目录建立了信任关系，以便对用户、服务和设备进行身份验证。 *多个订阅可以信任同一个 Azure AD 目录，但订阅始终只会信任单个 Azure AD 目录*。 这种信任关系不同于订阅与其他 Azure 资源（网站、数据库等）之间的信任关系，在后一种关系中，这些资源更像是订阅的子资源。 如果某个订阅过期，则对该订阅关联的非 Azure AD 资源的访问权限也将终止。 但是，Azure AD 目录将保留在 Azure 中，并且你可以将另一个订阅与该目录相关联，然后继续管理租户资源。|
-|[Azure 门户中基于角色的访问控制](/active-directory/role-based-access-control-what-is)|Azure 基于角色的访问控制 (RBAC) 可帮助为 Azure 资源提供精细的访问管理。 权限过多，可能会向攻击者公开帐户。 权限太少，员工无法有效完成其工作。 使用 RBAC，可以根据应用到所有资源组的以下三个基本角色为员工分配所需的确切权限：所有者、参与者、读取者。 此外，还可以根据具体的需求，最多创建 2,000 个自己的[自定义 RBAC 角色](/active-directory/role-based-access-control-custom-roles)。 |
+|[Azure 门户中基于角色的访问控制](/role-based-access-control/overview)|Azure 基于角色的访问控制 (RBAC) 可帮助为 Azure 资源提供精细的访问管理。 权限过多，可能会向攻击者公开帐户。 权限太少，员工无法有效完成其工作。 使用 RBAC，可以根据应用到所有资源组的以下三个基本角色为员工分配所需的确切权限：所有者、参与者、读取者。 此外，还可以根据具体的需求，最多创建 2,000 个自己的[自定义 RBAC 角色](/role-based-access-control/custom-roles)。 |
 
 
 ### <a name="the-difference-between-windows-server-ad-ds-and-azure-ad"></a>Windows Server AD DS 与 Azure AD 之间的差别

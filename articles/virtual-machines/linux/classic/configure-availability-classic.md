@@ -1,11 +1,11 @@
 ---
-title: "经典 Linux VM 的可用性集 |Azure"
-description: "在经典部署模型中，使用 Azure 门户和 Azure PowerShell，为新的或现有的 Linux 虚拟机配置可用性集。"
+title: 经典 Linux VM 的可用性集 |Azure
+description: 在经典部署模型中，使用 Azure 门户和 Azure PowerShell，为新的或现有的 Linux 虚拟机配置可用性集。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: b8624315-beca-4ec7-8441-2e98b166b548
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2016
-ms.date: 01/29/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7e3c1e0a0a8639a71cc6aca55221113dd6dcb13e
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 036e8bab3aee7c692e85495bc744657a631cfeb2
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-configure-an-availability-set-for-linux-virtual-machines-in-the-classic-deployment-model"></a>如何在经典部署模型中为 Linux 虚拟机配置可用性集
 > [!IMPORTANT] 
@@ -29,5 +29,4 @@ ms.lasthandoff: 01/25/2018
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [!INCLUDE [virtual-machines-common-classic-configure-availability](../../../../includes/virtual-machines-common-classic-configure-availability.md)]
-<!-- Update_Description: new articles on configure availability classic for Linux VM -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

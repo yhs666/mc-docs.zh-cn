@@ -1,24 +1,24 @@
 ---
-title: "将 Linux 故障排除 VM 与 Azure CLI 1.0 配合使用 | Azure"
-description: "了解如何通过使用 Azure CLI 1.0 将 OS 磁盘连接到恢复 VM 来排查 Linux VM 问题"
+title: 将 Linux 故障排除 VM 与 Azure CLI 1.0 配合使用 | Azure
+description: 了解如何通过使用 Azure CLI 1.0 将 OS 磁盘连接到恢复 VM 来排查 Linux VM 问题
 services: virtual-machines-linux
-documentationCenter: 
-authors: iainfoulds
-manager: timlt
-editor: 
+documentationCenter: ''
+author: rockboyfor
+manager: digimobile
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/09/2017
-ms.date: 04/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 860dbd69105c9fce6d80fc0574a42fc84da3fd8b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 05/14/2018
+ms.author: v-yeche
+ms.openlocfilehash: b66025819352539803ecc525739b00085552a041
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-cli-10"></a>通过使用 Azure CLI 1.0 将 OS 磁盘附加到恢复 VM 来对 Linux VM 进行故障排除
 如果 Linux 虚拟机 (VM) 遇到启动或磁盘错误，则可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是 `/etc/fstab` 中存在无效条目，使 VM 无法成功启动。 本文详细介绍如何使用 Azure CLI 1.0 将虚拟硬盘连接到另一个 Linux VM，以修复任何错误，并重新创建原始 VM。
@@ -229,3 +229,4 @@ azure vm enable-diag --resource-group myResourceGroup --name myDeployedVM
 
 ## <a name="next-steps"></a>后续步骤
 如果在连接到 VM 时遇到问题，请参阅[排查 Azure VM 的 SSH 连接问题](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 如果在访问 VM 上运行的应用时遇到问题，请参阅[排查 Linux VM 上的应用程序连接问题](../windows/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+<!-- Update_Description: update meta properties -->

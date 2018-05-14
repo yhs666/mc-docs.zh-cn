@@ -53,6 +53,8 @@
           href: automation-child-runbooks.md
         - name: Runbook 输出
           href: automation-runbook-output-and-messages.md
+        - name: 源代码管理集成
+          href: automation-source-control-integration.md
     - name: 自动化
       items:
         - name: 启动 Runbook
@@ -115,3 +117,7 @@
       href: 'https://docs.microsoft.com/rest/api/automation'
     - name: REST（经典）
       href: 'https://msdn.microsoft.com/library/azure/mt163781'
+    - name: 定价
+      href: 'https://www.azure.cn/zh-cn/pricing/details/automation/'
+    - name: 定价计算器
+      href: 'https://www.azure.cn/zh-cn/pricing/calculator/automation/'

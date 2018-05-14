@@ -1,26 +1,26 @@
 ---
-title: "处理 Azure 中 Linux VM 的维护通知 | Azure"
-description: "查看 Azure 中运行的 Linux 虚拟机的维护通知并开始自助式维护。"
+title: 处理 Azure 中 Linux VM 的维护通知 | Azure
+description: 查看 Azure 中运行的 Linux 虚拟机的维护通知并开始自助式维护。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2017
-ms.date: 01/29/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: df3909778032bf31bf4b899e0a4afadf439bfbd3
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 45f59864aea1f326c3f306638dd7a00a1c64a563
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>处理 Linux 虚拟机的计划内维护通知
 
@@ -71,7 +71,7 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 
 ## <a name="find-vms-scheduled-for-maintenance-using-cli"></a>使用 CLI 查找计划用于维护的 VM
 
-可以使用 [azure vm get-instance-view](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_get_instance_view) 查看计划内维护信息。
+可以使用 [azure vm get-instance-view](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-get-instance-view) 查看计划内维护信息。
 
 仅当有计划内维护时，才会返回维护信息。 如果未计划任何影响 VM 的维护，该命令不返回任何维护信息。 
 
@@ -181,7 +181,4 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 了解如何使用[计划事件](scheduled-events.md)从 VM 内注册维护事件。
 
-<!--The parent file of includes file of virtual-machines-common-maintenance-notifications.md-->
-<!--ms.date:01/29/2018-->
-<!--Update_Description: wording update -->
-<!--01/29/2018 PLEASE FOLLOW THE MC_DOCS_PR-ZH.CN REPOSITORY CONTENT-->
+<!--Update_Description: wording update, update meta properties -->

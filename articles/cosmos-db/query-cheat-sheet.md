@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 03/20/2018
 ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2e362ef67e62607041c33eaad1badc4582002277
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: f6f6fe7d44a3dd5647d2533c9416409582f3b18e
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB 查询备忘单
 
@@ -43,7 +43,8 @@ Azure Cosmos DB 查询备忘单通过在易于打印的 PDF 参考单中显示�
 如需查询编写的相关帮助，请参阅以下文章：
 * 有关 SQL API 查询，请参阅[使用 SQL API 的查询](tutorial-query-sql-api.md)、[Azure Cosmos DB 的 SQL 查询](sql-api-sql-query.md)和 [SQL 语法参考](sql-api-sql-query-reference.md)
 * 有关 MongoDB 查询，请参阅[使用 MongoDB API 的查询](tutorial-query-mongodb.md)和[针对 MongoDB 功能和语法的 MongoDB API 支持](mongodb-feature-support.md)
-<!-- Not Avaiable on * For Graph API queries, see [Query using the Graph API](tutorial-query-graph.md) and [Azure Cosmos DB Gremlin graph support](gremlin-support.md)-->
+<!-- Not Avaiable on * For Graph API queries, see [Query using the Graph API](tutorial-query-graph.md) -->
+<!-- Not Avaiable on [Azure Cosmos DB Gremlin graph support](gremlin-support.md)-->
 <!-- Not Avaiable on * For Table API queries, see [Query using the Table API](tutorial-query-table.md)-->
 
 <!-- Update_Description: new articles on cosmos db query cheat sheet  -->

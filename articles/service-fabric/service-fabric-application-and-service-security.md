@@ -15,11 +15,11 @@ ms.workload: NA
 origin.date: 03/16/2018
 ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 98da491604d74d6d5d10637e58bd3ae3676c2af9
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: b3dc4ffe3018474e1d23c4119185812d09ce56fd
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 应用程序和服务安全性
 微服务体系结构可以带来[诸多好处](service-fabric-overview-microservices.md)。 但是，管理微服务的安全性有一定的难度，比管理传统单体式应用程序的安全性更复杂。 
@@ -36,14 +36,15 @@ ms.lasthandoff: 04/23/2018
 
 如果可以直接访问服务，则可以使用某个身份验证服务（例如 Azure Active Directory，或充当安全令牌服务 (STS) 的专用身份验证微服务）对用户进行身份验证。 信任决策在包含安全令牌或 Cookie 的服务之间共享。 
 
-对于 ASP.NET Core，用于[对用户进行身份验证](https://docs.azure.cn/zh-cn/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/?view=azure-dotnet)的主要机制是 ASP.NET Core 标识成员身份系统。 ASP.NET Core 标识在开发人员配置的数据存储中存储用户信息（包括登录信息、角色和声明）。 ASP.NET Core 标识支持双重身份验证。  也支持外部身份验证提供程序，因此，用户可以使用 Microsoft 等提供程序中的现有身份验证过程登录。
+对于 ASP.NET Core，用于[对用户进行身份验证](https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/)的主要机制是 ASP.NET Core 标识成员身份系统。 ASP.NET Core 标识在开发人员配置的数据存储中存储用户信息（包括登录信息、角色和声明）。 ASP.NET Core 标识支持双重身份验证。  也支持外部身份验证提供程序，因此，用户可以使用 Microsoft 等提供程序中的现有身份验证过程登录。
 <!-- Not Available on , Google, Facebook, or Twitter -->
-
+<!-- URL is Correct on https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/-->
 
 ### <a name="authorization"></a>授权
 完成身份验证后，服务需要为用户访问授权，或确定哪些用户可以访问。 此过程可让服务将 API 提供给某些经过身份验证的用户使用，而不是提供给所有用户使用。 授权是正交性的，它独立于身份验证，是认定用户身份的过程。 身份验证可为当前用户创建一个或多个标识。
 
-可以根据用户的角色或者根据自定义策略（可能包括检查声明或其他试探方法）实现 [ASP.NET Core 授权](https://docs.azure.cn/zh-cn/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications?view=azure-dotnet)。
+可以根据用户的角色或者根据自定义策略（可能包括检查声明或其他试探方法）实现 [ASP.NET Core 授权](https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications)。
+<!--URL is Correct on https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications) -->
 
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>使用 API 网关限制和保护访问
 云应用程序通常都需要使用前端网关，为用户、设备或其他应用程序提供同一个入口点。 [API 网关](https://docs.microsoft.com/azure/architecture/microservices/gateway)位于客户端与服务之间，是应用程序提供的所有服务的入口点。 它充当反向代理，将来自客户端的请求路由到服务。 它还可以执行各种横切任务，例如身份验证和授权、SSL 终止与速率限制。 如果未部署网关，则客户端必须直接向前端服务发送请求。
@@ -99,7 +100,8 @@ Service Fabric 提供一种机制，供容器内服务访问在 Windows 或 Linu
 Reliable Services 应用程序框架提供了一些预先生成的通信堆栈和工具供你用来提高安全性。 了解如何在使用服务远程处理（在 [C#](service-fabric-reliable-services-secure-communication.md) 或 [Java](service-fabric-reliable-services-secure-communication-java.md) 中）或 [WCF](service-fabric-reliable-services-secure-communication-wcf.md) 时提高安全性。
 
 ## <a name="encrypt-application-data-at-rest"></a>加密应用程序的静态数据
-在 Azure 中运行的 Service Fabric 群集中的每个[节点类型](service-fabric-cluster-nodetypes.md)都受[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)的支持。 可以使用 Azure 资源管理器模板将数据磁盘附加到组成 Service Fabric 群集的规模集。  如果服务将数据保存到附加的数据磁盘，则你可以[加密这些数据磁盘](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md)，以保护应用程序数据。
+在 Azure 中运行的 Service Fabric 群集中的每个[节点类型](service-fabric-cluster-nodetypes.md)都受[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)的支持。 可以使用 Azure 资源管理器模板将数据磁盘附加到组成 Service Fabric 群集的规模集。
+<!-- Not Available on [encrypt those data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md)-->
 
 <!--TO DO: Enable BitLocker on Windows standalone clusters?
 TO DO: Encrypt disks on Linux clusters?-->

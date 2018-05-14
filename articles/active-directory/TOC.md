@@ -34,8 +34,7 @@
 ### [管理组成员](active-directory-groups-members-azure-portal.md)
 ### [管理组成员身份](active-directory-groups-membership-azure-portal.md)
 ### [查看所有组](active-directory-groups-view-azure-portal.md)
-### 管理组设置
-#### [Azure 门户](active-directory-groups-settings-azure-portal.md)
+### [管理组设置](active-directory-groups-settings-azure-portal.md)
 
 
 ## 管理密码

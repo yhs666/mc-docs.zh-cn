@@ -16,11 +16,11 @@ origin.date: 03/22/2018
 ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: 9eddc2f92dbef1d9479b8173d57962d21192beea
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: 7e7f37c798dc28f78141d9596ada6728a21a1f46
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>安装 Azure Stack 开发工具包 (ASDK)
 [准备 ASDK 主机](asdk-prepare-host.md)后，可以使用本文中的以下步骤将 ASDK 部署到 CloudBuilder.vhdx 映像中。
@@ -91,10 +91,10 @@ ms.lasthandoff: 04/23/2018
 
 如果部署出于某种原因失败，可以从头[重新部署](asdk-redeploy.md)，也可以在同一个权限提升的 PowerShell 窗口中使用以下 PowerShell 命令，从最后一个成功步骤重新开始部署：
 
-    ```powershell
-    cd C:\CloudDeployment\Setup
-    .\InstallAzureStackPOC.ps1 -Rerun
-    ```
+```powershell
+cd C:\CloudDeployment\Setup
+.\InstallAzureStackPOC.ps1 -Rerun
+```
 
 ## <a name="next-steps"></a>后续步骤
 [部署后的配置](asdk-post-deploy.md)

@@ -1,34 +1,34 @@
 ---
-title: "Azure 自动化常见问题解答 | Azure"
-description: "本文介绍如何排查并解决常见的 Azure 自动化错误。"
+title: Azure 自动化常见问题解答 | Azure
+description: 本文介绍如何排查并解决常见的 Azure 自动化错误。
 services: automation
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
 editor: tysonn
 tags: top-support-issue
-keywords: "自动化错误, 故障排除, 问题"
+keywords: 自动化错误, 故障排除, 问题
 ms.assetid: 5f3cfe61-70b0-4e9c-b892-d02daaeee07d
 ms.service: automation
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/22/2017
-ms.date: 01/22/2018
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-nany
-ms.openlocfilehash: 35008c405d4cc05583af43ae6a419579fef9ff8d
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 5baac37080f1b360b0165461f77f96b54c35ecbb
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Azure 自动化中的常见问题解答 
 本文介绍如何排除 Azure 自动化中遇到的常见错误，并提供可能的解决方案建议。
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>使用 Azure 自动化 Runbook 时遇到的身份验证错误
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>场景：登录 Azure 帐户失败
-错误：使用 Add-AzureAccount 或 Login-AzureRmAccount cmdlet 时收到“Unknown_user_type: 用户类型未知”错误。
+**错误：**使用 Add-AzureAccount 或 Connect-AzureRmAccount cmdlet 时收到“Unknown_user_type: 用户类型未知”错误。
 
 **错误原因：**如果凭据资产名称无效或者用于设置自动化凭据资产的用户名和密码无效，则会出现此错误。
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 03/02/2018
         #Using Azure Service Management   
         Add-AzureAccount �Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount �Credential $Cred
+        Connect-AzureRmAccount �Credential $Cred
 3. 如果本地身份验证失败，则意味着你尚未正确设置 Azure Active Directory 凭据。 请参阅 [使用 Azure Active Directory 向 Azure 进行身份验证](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) 博客文章，了解如何正确设置 Azure Active Directory 帐户。  
 
 ### <a name="scenario-unable-to-find-the-azure-subscription"></a>场景：无法找到 Azure 订阅
@@ -71,7 +71,7 @@ ms.lasthandoff: 03/02/2018
 
 **错误原因：**此错误可能由以下原因导致：  
 
-1. 内存限制。  我们对分配给沙盒自动化服务限制的内存进行了限制，因此，如果使用超过 400 MB 的内存，作业可能会失败。 
+1. 内存限制。 [自动化服务限制](../azure-subscription-service-limits.md#automation-limits)中规定了对可以分配给沙盒的内存量的限制，因此，如果使用超过 400 MB 的内存，作业可能会失败。 
 
 2. 模块不兼容。 如果模块依赖关系不正确，则可能会发生这种情况，并且如果它们不正确，则 runbook 通常会返回“找不到命令”或“无法绑定参数”消息。 
 

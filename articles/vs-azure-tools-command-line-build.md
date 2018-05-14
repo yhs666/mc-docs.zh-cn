@@ -1,11 +1,11 @@
 ---
-title: "为 Azure 构建的命令行 | Microsoft Docs"
-description: "为 Azure 构建的命令行"
+title: 为 Azure 构建的命令行 | Microsoft Docs
+description: 为 Azure 构建的命令行
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 94b35d0d-0d35-48b6-b48b-3641377867fd
 ms.service: multiple
 ms.devlang: multiple
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/05/2017
-ms.date: 03/16/2018
+ms.date: 05/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: d3e0a2d3bbed86d781bececbc7cd3a54e42eb89f
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 01cc2dd9927c004d079e15cd24257d6d0aeecc2f
+ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="building-azure-projects-from-the-command-line"></a>通过命令行生成 Azure 项目
 通过使用 Microsoft 生成引擎 (MSBuild)，可以在未安装 Visual Studio 的生成实验室环境中生成产品。 MSBuild 对可扩展且 Microsoft 完全支持的项目文件使用 XML 格式。 通过使用 MSBuild 文件格式，可以描述必须为一个或多个平台和配置生成的项目。
@@ -39,4 +39,4 @@ ms.lasthandoff: 03/17/2018
 ## <a name="next-steps"></a>后续步骤
 生成包后，即可将其部署到 Azure。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

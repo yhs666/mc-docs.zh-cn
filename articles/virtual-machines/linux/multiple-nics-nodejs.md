@@ -1,25 +1,25 @@
 ---
-title: "在 Azure 中创建具有多个 NIC 的 Linux VM | Azure"
-description: "了解如何使用 Azure CLI 或 Resource Manager 模板创建附有多个 NIC 的 Linux VM。"
+title: 在 Azure 中创建具有多个 NIC 的 Linux VM | Azure
+description: 了解如何使用 Azure CLI 或 Resource Manager 模板创建附有多个 NIC 的 Linux VM。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/11/2017
-ms.date: 10/30/2017
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7607599019e3208706ac5704315cec973daa1798
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: b2564f6ab55611d22431d8fe5214d4f27a4fa903
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建具有多个 NIC 的 Linux 虚拟机
 可以在 Azure 中创建附有多个虚拟网络接口 (NIC) 的虚拟机 (VM)。 一种常见方案是为前端和后端连接使用不同子网，或为监视或备份解决方案使用一个专用网络。 本文提供用于创建附有多个 NIC 的 VM 的快速命令。 不同的 [VM 大小](sizes.md)支持不同数目的 NIC，因此请相应地调整 VM 的大小。
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/27/2017
 > 必须在创建 VM 时附加多个 NIC - 不能使用 Azure CLI 1.0 将 NIC 添加到现有 VM。 可[使用 Azure CLI 2.0 将 NIC 添加到现有 VM](multiple-nics.md)。 还可[基于原始虚拟磁盘创建 VM](copy-vm.md)，并在部署 VM 时创建多个 NIC。
 
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
-可使用以下 CLI 版本之一完成任务：
+可以使用以下 CLI 版本之一完成任务：
 
 - [Azure CLI 1.0](#create-supporting-resources) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
 - [Azure CLI 2.0](multiple-nics.md) - 适用于资源管理部署模型的下一代 CLI
@@ -142,8 +142,10 @@ azure vm create \
     --ssh-publickey-file ~/.ssh/id_rsa.pub
 ```
 
+将多个 NIC 添加到一个 Linux VM 时，需要创建路由规则。 这些规则允许此 VM 发送和接收属于特定 NIC 的流量。 否则，定义的默认路由无法正确处理属于 eth1 等的流量。 若要更正此路由问题，请参阅[为多个 NIC 配置来宾 OS](multiple-nics.md#configure-guest-os-for-multiple-nics)。
+
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>使用 Resource Manager 模板创建多个 NIC
-Azure Resource Manager 模板使用声明性 JSON 文件来定义环境。 可以阅读 [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)。 Resource Manager 模板可让你在部署期间创建资源的多个实例，例如，创建多个 NIC。 使用 *copy* 指定要创建的实例数：
+Azure 资源管理器模板使用声明性 JSON 文件来定义环境。 可以阅读 [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)。 Resource Manager 模板可让你在部署期间创建资源的多个实例，例如，创建多个 NIC。 使用 *copy* 指定要创建的实例数：
 
 ```json
 "copy": {
@@ -160,7 +162,9 @@ Azure Resource Manager 模板使用声明性 JSON 文件来定义环境。 可�
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-可以阅读[使用 Resource Manager 模板创建多个 NIC](../../virtual-network/virtual-network-deploy-multinic-arm-template.md) 的完整示例。
+可以阅读[使用 Resource Manager 模板创建多个 NIC](../../virtual-network/template-samples.md) 的完整示例。
+
+将多个 NIC 添加到一个 Linux VM 时，需要创建路由规则。 这些规则允许此 VM 发送和接收属于特定 NIC 的流量。 否则，定义的默认路由无法正确处理属于 eth1 等的流量。 若要更正此路由问题，请参阅[为多个 NIC 配置来宾 OS](multiple-nics.md#configure-guest-os-for-multiple-nics)。
 
 ## <a name="next-steps"></a>后续步骤
 尝试创建具有多个 NIC 的 VM 时，请务必查看 [Linux VM 大小](sizes.md)。 注意每个 VM 大小支持的 NIC 数目上限。 

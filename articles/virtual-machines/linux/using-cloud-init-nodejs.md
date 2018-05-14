@@ -1,26 +1,26 @@
 ---
-title: "创建期间使用 cloud-init 在 Azure 中自定义 Linux VM | Azure"
-description: "如何通过 Azure CLI 1.0 使用 cloud-init 在创建期间自定义 Linux VM"
+title: 创建期间使用 cloud-init 在 Azure 中自定义 Linux VM | Azure
+description: 如何通过 Azure CLI 1.0 使用 cloud-init 在创建期间自定义 Linux VM
 services: virtual-machines-linux
-documentationcenter: 
-author: vlivech
-manager: timlt
-editor: 
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 10/26/2016
-ms.date: 04/17/2017
-ms.author: v-dazen
-ms.openlocfilehash: 315bb7c7cce31a54aa5ec0bc8c2d4746d510a328
-ms.sourcegitcommit: 7d2235bfc3dc1e2f64ed8beff77e87d85d353c4f
+ms.date: 05/14/2018
+ms.author: v-yeche
+ms.openlocfilehash: cd221168eae73919e2e4f5d04f53ed4e8e9c7538
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-during-creation-with-the-azure-cli-10"></a>通过 Azure CLI 1.0 使用 cloud-init 在创建期间自定义 Linux VM
 本文说明如何制作 cloud-init 脚本来设置主机名、更新已安装的包及管理用户帐户。  在 VM 创建期间可以从 Azure CLI 调用 cloud-init 脚本。  本文需要以下条件：
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/06/2017
 * Azure CLI *必须处于* Azure Resource Manager 模式`azure config mode arm`。
 
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
-可使用以下 CLI 版本之一完成任务：
+可以使用以下 CLI 版本之一完成任务：
 
 - [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
 - [Azure CLI 2.0](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
@@ -76,8 +76,8 @@ azure vm create \
 ```
 
 ## <a name="detailed-walkthrough"></a>详细演练
-### <a name="introduction"></a>介绍
-启动新 Linux VM 时，将获得一个未经过任何自定义或者不能够现成地满足需求的标准 Linux VM。 [Cloud-init](https://cloudinit.readthedocs.org) 是在首次启动 Linux VM 时在其中注入脚本或配置设置的标准方法。
+### <a name="introduction"></a>简介
+启动新 Linux VM 时，获得一个未经过任何自定义或者不能够现成地满足需求的标准 Linux VM。 [Cloud-init](https://cloudinit.readthedocs.org) 是在首次启动 Linux VM 时在其中注入脚本或配置设置的标准方法。
 
 Azure 有三种不同的方法可在部署或启动 Linux VM 时对其进行更改。
 
@@ -106,7 +106,7 @@ Azure 有三种不同的方法可在部署或启动 Linux VM 时对其进行更�
 | openSUSE |SUSE |openSUSE |13.2 |最新 |否 |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |最新 |是 |
 
-Microsoft 正在与合作伙伴合作，将 cloud-init 包含在用户向 Azure 提供的映像中并让它在其中正常工作。
+Microsoft 正在与合作伙伴协作将 cloud-init 包含在用户向 Azure 提供的映像中并让它在其中正常工作。
 
 ## <a name="adding-a-cloud-init-script-to-the-vm-creation-with-the-azure-cli"></a>将 cloud-init 脚本添加到使用 Azure CLI 创建 VM 的操作中
 在 Azure 中创建 VM 时，若要启动 cloud-init 脚本，请使用 Azure CLI `--custom-data` 开关来指定 cloud-init 文件。
@@ -181,7 +181,7 @@ myservername
 apt_upgrade: true
 ```
 
-Linux 启动后，所有已安装的包将通过 `apt-get`进行更新。
+Linux 启动后，所有已安装的包都会通过 `apt-get` 进行更新。
 
 ```azurecli
 azure vm create \
@@ -271,3 +271,4 @@ Cloud-init 正成为在 Linux VM 启动时对其进行修改的一种标准方�
 [关于虚拟机扩展和功能](../windows/extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [管理用户、SSH，并使用 VMAccess 扩展检查或修复 Azure Linux VM 上的磁盘](using-vmaccess-extension.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+<!-- Update_Description: update meta properties -->

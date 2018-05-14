@@ -85,7 +85,7 @@
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/#network_watcher)
 ## [Java](https://docs.azure.cn/java/api/com.microsoft.azure.management.network)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2016_09_01/Models/NetworkWatcher) 
-## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.html#azure.mgmt.network.NetworkManagementClient.network_watchers)
+<!--Not Available ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.html#azure.mgmt.network.NetworkManagementClient.network_watchers)-->
 
 ## [.NET](https://docs.microsoft.com/dotnet/api)
 ## [REST](https://docs.microsoft.com/rest/api/networkwatcher/)

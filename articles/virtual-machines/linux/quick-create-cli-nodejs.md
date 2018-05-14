@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure CLI 1.0 创建 Linux VM | Azure"
-description: "使用 Azure CLI 1.0 在 Azure 上创建 Linux VM"
+title: 使用 Azure CLI 1.0 创建 Linux VM | Azure
+description: 使用 Azure CLI 1.0 在 Azure 上创建 Linux VM
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/15/2016
-ms.date: 12/18/2017
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: 828d64cfea3d35cf142a8613a2f2b3b9c4b83eb7
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 47b8d97de8dcf826ebc18b1d8529f108013b14ae
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-a-linux-vm-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建 Linux VM
 
-本文说明如何使用 Azure 命令行接口 (LI ) 中的 `azure vm quick-create` 命令在 Azure 上快速部署 Linux 虚拟机 (VM)。 `quick-create` 命令可将 VM 部署在基本且安全的基础结构内，可让你快速构建原型或测试概念。
+本文说明如何使用 Azure 命令行接口 (LI ) 中的 `azure vm quick-create` 命令在 Azure 上快速部署 Linux 虚拟机 (VM)。 ph x="1" /> 命令可将 VM 部署在基本且安全的基础结构内，可让你快速构建原型或测试概念。
 
 > [!NOTE]
 若要使用 Azure CLI 2.0 创建 VM，请参阅[使用 Azure CLI 创建 VM](../windows/quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -48,7 +48,7 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 
 ## <a name="vm-quick-create-aliases"></a>VM quick-create 别名
 
-选择分发的便捷方法是使用映射到最常见 OS 分发的 Azure CLI 别名。 下表列出了别名（截止到 Azure 0.10 版）。 使用 `quick-create` 的所有部署默认为部署到由固态硬盘 (SSD) 存储提供支持的 VM，这些 VM 提供更快的预配性能和高性能磁盘访问。 （这些别名表示 Azure 上的一小部分可用分发。 在 Azure 应用商店中查找更多映像（可以[在 PowerShell 中搜索映像](../windows/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，或者[在 Web 上](https://portal.azure.cn/#blade/Microsoft_Azure_Marketplace/GalleryFeaturedMenuItemBlade/selectedMenuItemId/Compute_MP/resetMenuId/)搜索），或者[上传自己的自定义映像](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。）
+选择分发的便捷方法是使用映射到最常见 OS 分发的 Azure CLI 别名。 下表列出了别名（截止到 Azure 0.10 版）。 使用 `quick-create` 的所有部署默认为部署到由固态硬盘 (SSD) 存储提供支持的 VM，这些 VM 提供更快的预配性能和高性能磁盘访问。 （这些别名表示 Azure 上的一小部分可用分发。 在 Azure 应用商店中查找更多映像（可以[在 PowerShell 中搜索映像](../windows/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，或者[在 Web 上](https://market.azure.cn/zh-cn/marketplace/virtual-machines/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)搜索），或者[上传自己的自定义映像](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。）
 
 | 别名 | 发布者 | 产品 | SKU | 版本 |
 |:--- |:--- |:--- |:--- |:--- |
@@ -150,7 +150,7 @@ data:          Provisioning State        :Succeeded
 data:          Name                      :examp-chinanorth-1633070839-nic
 data:          Location                  :chinanorth
 data:            Public IP address       :138.91.247.29
-data:            FQDN                    :examp-chinanorth-1633070839-pip.chinanorth.chinacloudapp.cn
+data:            FQDN                    :examp-chinanorth-1633070839-pip.chinanorth.cloudapp.chinacloudapi.cn
 data:
 data:    Diagnostics Profile:
 data:      BootDiagnostics Enabled       :true

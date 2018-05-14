@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 自动化中测试 Runbook | Azure"
-description: "在 Azure 自动化中发布某个 Runbook 之前，可以对它进行测试，以确保它按预期工作。  本文介绍如何测试 Runbook 并查看其输出。"
+title: 在 Azure 自动化中测试 Runbook | Azure
+description: 在 Azure 自动化中发布某个 Runbook 之前，可以对它进行测试，以确保它按预期工作。  本文介绍如何测试 Runbook 并查看其输出。
 services: automation
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: jwhit
 editor: tysonn
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/12/2016
-ms.date: 01/09/2017
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-dazen
-ms.openlocfilehash: e80967699e3d71ecf05cd229dc0b0a8bf2386ba5
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 105a8ddc9aa2f3594f3ea6ecce09df1edb0b5d38
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>在 Azure 自动化中测试 Runbook
 测试 Runbook 时，将执行[草稿版](automation-creating-importing-runbook.md#publishing-a-runbook)，并会完成其执行的任何操作。 不会创建作业历史记录，但会在“测试输出”窗格中显示[“输出”](automation-runbook-output-and-messages.md#output-stream)与[“警告和错误”](automation-runbook-output-and-messages.md#message-streams)流。 仅当 [$VerbosePreference 变量](automation-runbook-output-and-messages.md#preference-variables)设置为 Continue 时，才会在“输出”窗格中显示发送到[详细流](automation-runbook-output-and-messages.md#message-streams)的消息。

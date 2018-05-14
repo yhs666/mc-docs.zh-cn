@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/08/2017
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: afb16678c51956d4eac3d09b7fb8a51819a50a26
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: a16bb481b85e96683753a0d6486fa672f82c1bcf
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>内存优化虚拟机大小
 
@@ -40,3 +40,4 @@ ms.lasthandoff: 04/16/2018
 
 <!--The parent file of includes file of virtual-machines-common-sizes-memory.md-->
 <!--ms.date:04/16/2019-->
+<!-- Update_Description: update meta properties -->

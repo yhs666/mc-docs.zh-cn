@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/16/2018
-ms.date: 03/12/2018
+origin.date: 03/20/2018
+ms.date: 05/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: d241d8d8fe9bacaefcc1bd526d56301a08123508
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 78b29bf0b299d8d2deb360d704c04f050fe30bb7
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="about-vpn-gateway"></a>关于 VPN 网关
 
@@ -54,12 +54,15 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 
 下表可帮助选择最适合解决方案的连接选项。
 
-[!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
-
+[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## <a name="gwsku"></a>网关 SKU
 
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+创建虚拟网络网关时，需指定要使用的网关 SKU。 请根据工作负荷、吞吐量、功能和 SLA 的类型，选择满足需求的 SKU。 有关网关 SKU 的详细信息（包括支持的功能、生产和开发测试以及配置步骤），请参阅[网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
+
+### <a name="benchmark"></a>按隧道、连接和吞吐量列出的网关 SKU
+
+[!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ## <a name="diagrams"></a>连接拓扑图
 
@@ -87,7 +90,7 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 
 ### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>适用于站点到站点和多站点的部署模型和方法
 
-[!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
+[!INCLUDE [site-to-site and multi-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 ## <a name="P2S"></a>点到站点（基于 IKEv2 或 SSTP 的 VPN）
 

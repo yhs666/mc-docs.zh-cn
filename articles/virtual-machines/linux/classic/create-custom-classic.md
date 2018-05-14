@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure CLI 1.0 创建经典 Linux VM | Azure"
-description: "了解如何通过 Azure CLI 1.0 使用经典部署模型创建 Linux 虚拟机"
+title: 使用 Azure CLI 1.0 创建经典 Linux VM | Azure
+description: 了解如何通过 Azure CLI 1.0 使用经典部署模型创建 Linux 虚拟机
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/09/2017
-ms.date: 01/29/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: 79d79781ac60569a1e2663c4b02931488cad258f
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 9e13bd3a09a3bdf5efa95f9ecb461126b9d9a772
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-create-a-classic-linux-vm-with-the-azure-cli-10"></a>如何使用 Azure CLI 1.0 创建经典 Linux VM
 > [!IMPORTANT] 
@@ -41,5 +41,4 @@ ms.lasthandoff: 01/25/2018
 
 ## <a name="how-to-create-a-linux-vm-using-the-classic-deployment-model"></a>如何使用经典部署模型创建 Linux VM
 [!INCLUDE [virtual-machines-create-LinuxVM](../../../../includes/virtual-machines-create-linuxvm.md)]
-<!-- Update_Description: new articles on create custom classic for Linux VM -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

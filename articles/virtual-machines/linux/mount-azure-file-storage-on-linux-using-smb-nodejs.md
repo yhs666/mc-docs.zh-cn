@@ -1,25 +1,25 @@
 ---
-title: "通过 Azure CLI 1.0 使用 SMB 在 Linux VM 上装载 Azure 文件存储 | Azure"
-description: "如何使用 SMB 在 Linux VM 上装载 Azure 文件存储"
+title: 通过 Azure CLI 1.0 使用 SMB 在 Linux VM 上装载 Azure 文件存储 | Azure
+description: 如何使用 SMB 在 Linux VM 上装载 Azure 文件存储
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: vlivech
-manager: timlt
-editor: 
-ms.assetid: 
+author: rockboyfor
+manager: digimobile
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/07/2016
-ms.date: 04/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 40489ddcbae3900286c7be0720007408f92c8b58
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 05/14/2018
+ms.author: v-yeche
+ms.openlocfilehash: 99afdd6f51949e6db869fa7101c1eefe95c5e40d
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-by-using-smb-with-azure-cli-10"></a>通过 Azure CLI 1.0 使用 SMB 在 Linux VM 上装载 Azure 文件存储
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 06/21/2017
 - [Azure CLI 2.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="quick-commands"></a>快速命令
-若要快速完成任务，请按照本部分的步骤执行操作。 如下更多详细信息和上下文，请从[“详细演练”](#detailed-walkthrough)部分开始。
+若要快速完成任务，请按照本部分的步骤执行操作。 如下更多详细信息和上下文，请从[“详细演练”](mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough)部分开始。
 
 ### <a name="prerequisites"></a>先决条件
 * 资源组
@@ -47,7 +47,7 @@ ms.lasthandoff: 06/21/2017
 * 一个 Azure 文件存储共享
 * 一个 Linux VM
 
-将任何示例替换为你自己的设置。
+将任何示例替换成自己的设置。
 
 ### <a name="create-a-directory-for-the-local-mount"></a>为本地装载创建目录
 
@@ -88,7 +88,7 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 
 2. 显示存储帐户密钥。
 
-    创建存储帐户时，帐户密钥是成对创建的，这样是为了不中断任何服务就可轮换密钥。 轮换到密钥对中的第二个密钥后，将创建新的密钥对。 新的存储帐户密钥始终成对创建，可确保始终至少有一个未使用的存储密钥可以轮换到。 若要显示存储帐户密钥，请使用以下代码：
+    创建存储帐户时，帐户密钥是成对创建的，这样是为了不中断任何服务就可轮换密钥。 轮换到密钥对中的第二个密钥后，创建新的密钥对。 新的存储帐户密钥始终成对创建，可确保始终至少有一个未使用的存储密钥可以轮换到。 若要显示存储帐户密钥，请使用以下代码：
 
     ```azurecli
     azure storage account keys list myStorageAccount \
@@ -107,7 +107,7 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 
 4. 创建装载点目录。
 
-    必须在 Linux 文件系统中创建将 SMB 共享装载到其中的本地目录。 写入到本地装载目录或从本地装载目录读取的任何内容都将转发到文件存储上托管的 SMB 共享。 若要创建该目录，请使用以下代码：
+    必须在 Linux 文件系统中创建本地目录，用于装载 SMB 共享。 写入到本地装载目录或从本地装载目录读取的任何内容都会转发到文件存储上托管的 SMB 共享。 若要创建该目录，请使用以下代码：
 
     ```bash
     sudo mkdir -p /mnt/mymountdirectory
@@ -132,3 +132,4 @@ sudo mount -t cifs //myaccountname.file.core.chinacloudapi.cn/mysharename /mymou
 - [在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 - [将磁盘添加到 Linux VM](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 - [使用 Azure CLI 加密 Linux VM 上的磁盘](encrypt-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+<!-- Update_Description: update meta properties, update link -->

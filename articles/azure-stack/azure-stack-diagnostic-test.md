@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 04/06/2018
 ms.date: 04/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: ce90132995b29b4c1c7b676c526499b4bb93d14e
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: fcea1c14ddb494701c6fb5f5af39fbed8b78deb9
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>为 Azure Stack 运行验证测试
 
@@ -66,7 +66,6 @@ ms.lasthandoff: 04/23/2018
 | ServiceAdminCredentials | PSCredential    | 否       | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | 否       | FALSE   |
 | AdminCredential         | PSCredential    | 否       | 不可用      |
-<!-- | StorageConnectionString | String          | 否       | 不可用      | 在 1802 中不受支持 -->
 | 列出                    | SwitchParameter | 否       | FALSE   |
 | 忽略                  | String          | 否       | 不可用      |
 | 包括                 | String          | 否       | 不可用      |

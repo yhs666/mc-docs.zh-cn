@@ -3,8 +3,8 @@ title: 使用 Visual Studio“发布 Azure 应用程序”向导 | Microsoft Doc
 description: 了解如何在 Visual Studio“发布 Azure 应用程序”向导中配置各种设置
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: 7d8f1ac9-e439-47e0-a183-0642c4ea1920
 ms.service: multiple
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/21/2017
-ms.date: 04/04/2018
+ms.date: 05/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: 781d378c5886b98400eb7298e1f4544cda436b2b
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 415277ff0fd51f19f82d364d7af6f8988203697d
+ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="using-the-visual-studio-publish-azure-application-wizard"></a>使用 Visual Studio“发布 Azure 应用程序”向导 | Microsoft Docs
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 04/09/2018
 
 **服务配置** - 选择“云”或“本地”。
 
-**为所有角色启用远程桌面** - 如果希望能够远程连接到服务，请选中此选项。 此选项主要用于故障排除。 
+**为所有角色启用远程桌面** - 如果希望能够远程连接到服务，请选中此选项。 此选项主要用于故障排除。 有关详细信息，请参阅[使用 Visual Studio 为 Azure 云服务中的角色启用远程桌面连接](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md)。
 
 **为所有 Web 角色启用 Web 部署** - 选中此选项为服务启用 Web 部署。 还必须选择“为所有角色启用远程桌面”选项才能使用此功能。 有关详细信息，请参阅[使用 Visual Studio 发布云服务](vs-azure-tools-publishing-a-cloud-service.md)。
 

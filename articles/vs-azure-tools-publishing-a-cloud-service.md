@@ -3,8 +3,8 @@ title: 使用 Azure Tools 发布云服务 | Microsoft Docs
 description: 了解如何使用 Visual Studio 发布 Azure 云服务项目。
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: 1a07b6e4-3678-4cbf-b37e-4520b402a3d9
 ms.service: multiple
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 11/11/2017
-ms.date: 04/04/2018
+ms.date: 05/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7fdc43126494708adbb34b503333baccd8be952b
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: c9d5f0771a89132de9c6d13e07e2268560642996
+ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publishing-a-cloud-service-using-visual-studio"></a>使用 Visual Studio 发布云服务
 
@@ -50,7 +50,7 @@ Visual Studio 可以将应用程序直接发布到 Azure，同时支持云服务
 
    b. 在“打包 Azure 应用程序”对话框中，选择要为其创建包的服务配置，然后选择生成配置。
 
-   c. （可选）要在云服务发布之后为它启用远程桌面，请选择“为所有角色启用远程桌面”，然后选择“设置”以配置远程桌面凭据。 
+   c. （可选）要在云服务发布之后为它启用远程桌面，请选择“为所有角色启用远程桌面”，然后选择“设置”以配置远程桌面凭据。 有关详细信息，请参阅[使用 Visual Studio 为 Azure 云服务中的角色启用远程桌面连接](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md)。
 
       如果要在发布云服务之后对其进行调试，请选中“为所有角色启用远程调试器”以启用远程调试。
 
@@ -84,7 +84,7 @@ Visual Studio 可以将应用程序直接发布到 Azure，同时支持云服务
 
 ### <a name="enable-web-deploy-when-you-publish-your-application"></a>发布应用程序时启用 Web 部署
 
-1. 若要启用“为所有 Web 角色启用 Web 部署”选项，必须先配置远程桌面连接。 为所有角色选择“启用远程桌面”，然后在出现的“远程桌面配置”框中提供用于远程连接的凭据。 
+1. 若要启用“为所有 Web 角色启用 Web 部署”选项，必须先配置远程桌面连接。 为所有角色选择“启用远程桌面”，然后在出现的“远程桌面配置”框中提供用于远程连接的凭据。 请参阅[使用 Visual Studio 为 Azure 云服务中的角色启用远程桌面连接](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md)。
 
 1. 若要为应用程序中的所有 Web 角色启用 Web 部署，请选择“为所有 Web 角色启用 Web 部署” 。
 
@@ -123,7 +123,7 @@ Visual Studio 可以将应用程序直接发布到 Azure，同时支持云服务
 
 1. 要将受信任的 SSL 证书添加到 IIS 以用于远程连接，请遵循以下步骤：
 
-   a. 若要连接到正在运行 Web 角色的虚拟机，请单击“云资源管理器”或“服务器资源管理器”中的 Web 角色实例，然后选择“使用远程桌面连接”。 你的浏览器会提示下载 `.rdp` 文件。
+   a. 若要连接到正在运行 Web 角色的虚拟机，请单击“云资源管理器”或“服务器资源管理器”中的 Web 角色实例，然后选择“使用远程桌面连接”。 有关如何连接到虚拟机的详细步骤，请参阅[使用 Visual Studio 为 Azure 云服务中的角色启用远程桌面连接](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md)。 你的浏览器会提示下载 `.rdp` 文件。
 
    b. 若要添加 SSL 证书，请在 IIS 管理器中打开管理服务。 在 IIS 管理器中，通过在“操作”窗格中打开“绑定”链接来启用 SSL。 此时会显示“添加站点绑定”  对话框。 选择“添加”，然后在“类型”下拉列表中选择 HTTPS。 在“SSL 证书” 列表中，选择已由 CA 签名并上传到 Azure 门户的 SSL 证书。 有关详细信息，请参阅 [Configure Connection Settings for the Management Service](http://go.microsoft.com/fwlink/?LinkId=215824)（配置管理服务的连接设置）。
 

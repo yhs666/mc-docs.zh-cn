@@ -1,26 +1,26 @@
 ---
-title: "安装 P2S 客户端证书 | Azure"
-description: "安装用于 P2S 证书身份验证的 Mac 或 Windows 客户端证书。"
+title: 安装 P2S 客户端证书 | Azure
+description: 安装用于 P2S 证书身份验证的 Mac 或 Windows 客户端证书。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager, azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/12/2018
-ms.date: 03/12/2018
+origin.date: 04/02/2018
+ms.date: 05/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0200917f86b7aaf6ec4bc12701959246aa1a9288
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 866efae76a0bd1c48288b0c40968569a96abc8ea
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="install-a-client-certificate-for-point-to-site-azure-certificate-authentication-connections"></a>为点到站点 Azure 证书身份验证连接安装客户端证书
 
@@ -30,17 +30,13 @@ ms.lasthandoff: 03/16/2018
 
 可以基于使用企业 CA 解决方案生成的根证书来生成客户端证书，也可以生成自签名证书。 有关步骤，请参阅 [PowerShell](vpn-gateway-certificates-point-to-site.md) 或 [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) 说明。 生成客户端证书后，将其导出为 .pfx 文件。 在导出时，请确保包括整个证书链。
 
-## <a name="installwin"></a>在 Windows 客户端上安装证书
+## <a name="installwin"></a>安装证书 - Windows
 
 [!INCLUDE [Install on Windows](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
-## <a name="installmac"></a>在 Mac 客户端上安装证书
+## <a name="installmac"></a>安装证书 - Mac
 
 Mac VPN 客户端仅在资源管理器部署模型中受支持。 经典部署模型不支持它们。
-
-> [!NOTE]
->  IKEv2 目前以预览版提供。
->
 
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
 
@@ -52,4 +48,4 @@ Mac VPN 客户端仅在资源管理器部署模型中受支持。 经典部署�
 - [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Azure 门户（经典）](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 
-<!--Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

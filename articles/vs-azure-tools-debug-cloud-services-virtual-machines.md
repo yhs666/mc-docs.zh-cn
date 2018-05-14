@@ -4,7 +4,7 @@ description: 在 Visual Studio 中调试云服务或虚拟机
 services: visual-studio-online
 documentationcenter: na
 author: mikejo
-manager: ghogen
+manager: douge
 editor: ''
 ms.assetid: 945e06e0-2100-41af-b218-72347367ddab
 ms.service: visual-studio-online
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 11/11/2016
-ms.date: 04/04/2018
+ms.date: 05/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4ab5540358e9db4640dd2171a0b64e491a5212e9
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: f186319c7c3236a8bfcd4bdcb7911da6d07fa060
+ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>在 Visual Studio 中调试云服务或虚拟机
 
@@ -192,4 +192,4 @@ Visual Studio ASP.NET 项目提供了一个选项，可创建用于应用程序�
 
 - 使用“Azure 诊断”  以记录在角色内运行的代码的详细信息，角色是否在开发环境或 Azure 中运行。 请参阅 [使用 Azure 诊断收集日志记录数据](/cloud-services/cloud-services-dotnet-diagnostics)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

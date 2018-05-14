@@ -3,8 +3,8 @@ title: 从服务器资源管理器访问 Azure 虚拟机 | Microsoft Docs
 description: 概述如何在 Visual Studio 的服务器资源管理器中查看、创建和管理 Azure 虚拟机 (VM)。
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: eb3afde6-ba90-4308-9ac1-3cc29da4ede0
 ms.service: multiple
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 08/31/2017
-ms.date: 04/04/2018
+ms.date: 05/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: d7b0c60c9ab4f0c27eac65bb533fb654d04aad16
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 2f9f6258eb2afb1e3cb8adf6d79814837f155450
+ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="accessing-azure-virtual-machines-from-server-explorer"></a>从服务器资源管理器访问 Azure 虚拟机
 
@@ -47,4 +47,4 @@ ms.lasthandoff: 04/09/2018
    | 协议 |此终结点的传输层使用的协议：TCP 或 UDP。 |
    | 公用端口 |用于公开访问应用程序的端口。 |
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: update metedata properties -->

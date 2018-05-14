@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 中的可靠并发队列"
-description: "可靠并发队列是一种高吞吐量队列，适用于并行排队和取消排队。"
+title: Azure Service Fabric 中的可靠并发队列
+description: 可靠并发队列是一种高吞吐量队列，适用于并行排队和取消排队。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -15,11 +15,11 @@ ms.workload: required
 origin.date: 05/01/2017
 ms.date: 07/17/2017
 ms.author: v-yeche
-ms.openlocfilehash: 2d0a804645d9b6d0b9707c2727c4c6b49fb9640e
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.openlocfilehash: f5b37fae75863b89f5f9b45e1c5e27f92bad9fa0
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service Fabric 中的可靠并发队列简介
 可靠并发队列是一种异步的、事务性的已复制队列，其特点是排队和取消排队操作的高并发性。 它旨在降低[可靠队列](https://msdn.microsoft.com/library/azure/dn971527.aspx)提供的严格的 FIFO 排序要求，代之以“尽力排序”要求，从而提高吞吐量并降低延迟。
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/14/2017
 
 可靠并发队列作为[可靠队列](https://msdn.microsoft.com/library/azure/dn971527.aspx)的替代推出， 其使用范围局限于不需要严格 FIFO 排序的情况，这种情况下，在尽量保证 FIFO 的同时，还需要考虑到并发性。  [可靠队列](https://msdn.microsoft.com/library/azure/dn971527.aspx)以锁定方式强制实施 FIFO 排序，一次只允许一个事务排队，一个事务取消排队。 相对而言，可靠并发队列对排序的要求较松，允许任意数目的并发事务交叉进行排队和取消排队操作。 可靠并发队列的原则是“尽力排序”，但无法保证两个值的相对顺序。
 
-在任何有多个执行排队和/或取消排队操作的并发事务的情况下，可靠并发队列相对于[可靠队列](https://msdn.microsoft.com/library/azure/dn971527.aspx)而言都可以提高吞吐量并降低延迟。
+在有多个并发事务需要执行排队和/或取消排队操作的情况下，可靠并发队列相对于[可靠队列](https://msdn.microsoft.com/library/azure/dn971527.aspx)而言可以提高吞吐量并降低延迟。
 
 可靠并发队列的一个示例用例是[消息队列](https://en.wikipedia.org/wiki/Message_queue)方案。 在该方案中，一个或多个消息生成者会创建项并将其添加到队列中，同时还会有一个或多个消息使用者从队列拉取消息并对其进行处理。 多个生成者和使用者可以独立操作，使用并发事务来处理队列。
 
@@ -95,10 +95,10 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-假定任务已成功完成且是以并行方式运行的，同时没有其他并发事务在修改队列。 那么，队列中项的顺序将无法推断。 就此代码片段来说，项的显示顺序可能是 4! 个 可能的顺序之一。  队列会尝试让项保持原有的（排队）顺序，但在出现并发操作或错误的情况下，也可能会强制其重新排序。
+假定任务已成功完成且是以并行方式运行的，同时没有其他并发事务在修改队列。 那么，队列中项的顺序将无法推断。 就此代码片段来说，项的显示顺序可能是 4! 种 可能的顺序之一。  队列会尝试让项保持原有的（排队）顺序，但在出现并发操作或错误的情况下，也可能会强制其重新排序。
 
 ### <a name="dequeueasync"></a>DequeueAsync
-下面是使用 TryDequeueAsync 的一些代码片段，后跟预期的输出。 假定已在队列中填充以下项：
+下面是使用 TryDequeueAsync 的一些代码片段及预期输出。 假定已在队列中填充以下项：
 > 10, 20, 30, 40, 50, 60
 
 - 案例 1：单个取消排队任务
@@ -342,4 +342,4 @@ using (var txn = this.StateManager.CreateTransaction())
 * [可靠状态管理器配置](service-fabric-reliable-services-configuration.md)
 * [Service Fabric Web API 服务入门](service-fabric-reliable-services-communication-webapi.md)
 * [Reliable Services 编程模型的高级用法](service-fabric-reliable-services-advanced-usage.md)
-* [Reliable Collections 的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+<!-- Not Available on * [Developer Reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)-->

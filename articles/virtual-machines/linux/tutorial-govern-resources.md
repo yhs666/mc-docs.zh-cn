@@ -12,13 +12,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2018
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: f9edda372ff10ad29b7ba69f93dd3a4a09f80d53
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 251fee455e1a5fe802cd5b99cd24a80e114c5942
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>使用 Azure CLI 控制虚拟机
 
@@ -44,15 +44,15 @@ az group create --name myResourceGroup --location "China East"
 
 ## <a name="role-based-access-control"></a>基于角色的访问控制
 
-你希望确保你的组织中的用户对这些资源具有合适级别的访问权限。 你不希望向用户授予不受限的访问权限，但还需要确保他们可以执行其工作。 使用[基于角色的访问控制](../../active-directory/role-based-access-control-what-is.md)，你可以管理哪些用户有权在某个范围内完成特定操作。
+你希望确保你的组织中的用户对这些资源具有合适级别的访问权限。 你不希望向用户授予不受限的访问权限，但还需要确保他们可以执行其工作。 使用[基于角色的访问控制](../../role-based-access-control/overview.md)，你可以管理哪些用户有权在某个范围内完成特定操作。
 
 若要创建和删除角色分配，用户必须具有 `Microsoft.Authorization/roleAssignments/*` 访问权限。 此访问权限是通过“所有者”或“用户访问”管理员角色授权的。
 
 若要管理虚拟机解决方案，可以使用三种特定于资源的角色来进行通常所需的访问：
 
-* [虚拟机参与者](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [网络参与者](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [存储帐户参与者](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [网络参与者](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [存储帐户参与者](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 通常情况下，与其向单个用户分配角色，不如为需要进行相似操作的用户[创建一个 Azure Active Directory 组](../../active-directory/active-directory-groups-create-azure-portal.md)， 然后向该组分配相应的角色。 为了简单起见，本文创建一个没有成员的 Azure Active Directory 组。 仍然可以为该组分配一个负责某个范围的角色。 
 
@@ -89,7 +89,7 @@ az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --ge
 
 若要创建或删除管理锁，必须有权执行 `Microsoft.Authorization/locks/*` 操作。 在内置角色中，只有“所有者”和“用户访问管理员”有权执行这些操作。
 
-若要锁定虚拟机和网络安全组，请使用 [az lock create](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#az_lock_create) 命令：
+若要锁定虚拟机和网络安全组，请使用 [az lock create](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#az-lock-create) 命令：
 
 ```azurecli
 # Add CanNotDelete lock to the VM
@@ -121,7 +121,7 @@ az group delete --name myResourceGroup
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-若要将标记应用于虚拟机，请使用 [az resource tag](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az_resource_tag) 命令。 资源上的任何现有标记都不会保留。
+若要将标记应用于虚拟机，请使用 [az resource tag](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az-resource-tag) 命令。 资源上的任何现有标记都不会保留。
 
 ```azurecli
 az resource tag -n myVM \
@@ -132,7 +132,7 @@ az resource tag -n myVM \
 
 ### <a name="find-resources-by-tag"></a>按标记查找资源
 
-若要通过标记名称和值查找资源，请使用 [az resource list](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az_resource_list) 命令：
+若要通过标记名称和值查找资源，请使用 [az resource list](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az-resource-list) 命令：
 
 ```azurecli
 az resource list --tag Environment=Test --query [].name
@@ -150,7 +150,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 ## <a name="clean-up-resources"></a>清理资源
 
-在解除锁定之前，不能删除锁定的网络安全组。 若要删除锁，请检索锁的 ID，并将其提供给 [az lock delete](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#az_lock_delete) 命令：
+在解除锁定之前，不能删除锁定的网络安全组。 若要删除锁，请检索锁的 ID，并将其提供给 [az lock delete](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#az-lock-delete) 命令：
 
 ```azurecli
 vmlock=$(az lock show --name LockVM \
@@ -164,7 +164,7 @@ nsglock=$(az lock show --name LockNSG \
 az lock delete --ids $vmlock $nsglock
 ```
 
-如果不再需要资源组、VM 和所有相关的资源，可以使用 [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_delete) 命令将其删除。 退出 SSH 会话，返回 VM，然后删除资源，如下所示：
+如果不再需要资源组、VM 和所有相关的资源，可以使用 [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) 命令将其删除。 退出 SSH 会话，返回 VM，然后删除资源，如下所示：
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -185,5 +185,4 @@ az group delete --name myResourceGroup
 > [!div class="nextstepaction"]
 > [监视虚拟机](tutorial-monitoring.md)
 
-<!--The parent file of includes file of resource-manager-governance-tags-cli.md-->
-<!--ms.date: 04/16/2018-->
+<!-- Update_Description: update meta properties, update links -->

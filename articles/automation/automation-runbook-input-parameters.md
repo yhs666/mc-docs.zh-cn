@@ -8,14 +8,14 @@ editor: tysonn
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-origin.date: 10/11/2016
-ms.date: 03/28/2017
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-dazen
-ms.openlocfilehash: aaccbe78b998df6738ff6abbf5f6ee3102604787
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: 097d66116dc15b8b0b654636082dfda1e674a064
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="runbook-input-parameters"></a>Runbook 输入参数
 
@@ -44,10 +44,10 @@ PowerShell 工作流 Runbook 中的参数定义采用以下常规格式，其中
      Param
      (
          [Parameter (Mandatory= $true/$false)]
-         [Type] Name1 = <Default value>,
+         [Type] $Name1 = <Default value>,
 
          [Parameter (Mandatory= $true/$false)]
-         [Type] Name2 = <Default value>
+         [Type] $Name2 = <Default value>
      )
    ```
 
@@ -76,6 +76,7 @@ PowerShell 工作流 Runbook 中的参数定义采用以下常规格式，其中
 
 为了使用输入参数[配置图形 Runbook](automation-first-runbook-graphical.md)，让我们创建输出有关虚拟机（可以是单个 VM 或资源组中的所有 VM）的详细信息的图形 Runbook。 配置 Runbook 包括两个主要活动，如下所述。
 
+[使用 Azure 运行方式帐户进行 Runbook 身份验证](automation-create-runas-account.md)，以便与 Azure 进行身份验证。
 
 通过 [**Get-AzureRmVm**](https://msdn.microsoft.com/library/mt603718.aspx) 获取虚拟机属性。
 
@@ -270,7 +271,7 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
 
 ![创建 webhook 并分配参数](media/automation-runbook-input-parameters/automation-08-createwebhookandassignparameters.png)
 
-使用 Webhook 执行 Runbook 时，会发送预定义的输入参数 **[Webhookdata](automation-webhooks.md#details-of-a-webhook)**定义的输入参数。 可单击 **WebhookData** 参数将它展开，以查看更多详细信息。
+使用 Webhook 执行 Runbook 时，会发送预定义的输入参数 **[Webhookdata](automation-webhooks.md#details-of-a-webhook)** 定义的输入参数。 可单击 **WebhookData** 参数将它展开，以查看更多详细信息。
 
 ![WebhookData 参数](media/automation-runbook-input-parameters/automation-09-webhook-data-parameters.png)
 

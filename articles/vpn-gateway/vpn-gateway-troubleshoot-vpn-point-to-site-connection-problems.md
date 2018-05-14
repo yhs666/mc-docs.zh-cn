@@ -13,13 +13,13 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/23/2018
-ms.date: 03/28/2018
+ms.date: 05/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 61404fdb045c6a0f978827e81abc048aa7913442
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: d337da91ca7d2df672005d69d494f95b2b75f94c
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>故障排除：Azure 点到站点连接问题
 
@@ -290,7 +290,7 @@ SMB 协议用于文件共享访问。 连接启动时，VPN 客户端添加了�
 
 ### <a name="solution"></a>解决方案
 
-若要解决此问题，请确保在 Azure 虚拟网络上使用的 Azure DNS 服务器可以解析本地资源的 DNS 记录。 为此，可以使用 DNS 转发器或条件转发器。 有关详细信息，请参阅[使用自己的 DNS 服务器进行名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)。
+若要解决此问题，请确保在 Azure 虚拟网络上使用的 Azure DNS 服务器可以解析本地资源的 DNS 记录。 为此，可以使用 DNS 转发器或条件转发器。 有关详细信息，请参阅[使用自己的 DNS 服务器进行名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。
 
 ## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>点到站点 VPN 连接已建立，但仍然无法连接到 Azure 资源 
 
@@ -359,4 +359,4 @@ Azure VPN 网关类型必须是 VPN，VPN 类型必须是 RouteBased。
 
 在 VPN 客户端运行的计算机中检查睡眠和休眠设置。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: link update -->

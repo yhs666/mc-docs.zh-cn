@@ -8,14 +8,14 @@ keywords: powershell, runbook, json, azure 自动化
 ms.service: automation
 ms.devlang: NA
 ms.topic: article
-origin.date: 07/09/2017
-ms.date: 01/11/2018
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-nany
-ms.openlocfilehash: 490ff3217910dbcf70ba1ba6bb8c7b6209fcb62e
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: 1d329f7b004a1653331dfe7e07b8d8fdc114928a
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>在 Azure 自动化 PowerShell Runbook 中部署 Azure 资源管理器模板
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/29/2018
 要完成本教程，需要以下各项：
 
 * Azure 订阅。 如果没有订阅，可[注册试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-* 自动化帐户，用来保存 Runbook 以及向 Azure 资源进行身份验证。  此帐户必须有权启动和停止虚拟机。
+* [自动化帐户](automation-create-runas-account.md) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。  此帐户必须有权启动和停止虚拟机。
 * 要在其中存储资源管理器模板的 [Azure 存储帐户](../storage/common/storage-create-storage-account.md)
 * 在本地计算机上安装的 Azure Powershell。 若要详细了解如何获得 Azure PowerShell，请参阅 [Install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0)（安装和配置 Azure PowerShell）。
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 03/29/2018
 
 ```powershell
 # Login to Azure
-Login-AzureRmAccount -Environment "AzureChinaCloud"
+Connect-AzureRmAccount -Environment "AzureChinaCloud"
 
 # Get the access key for your storage account
 $key = Get-AzureRmStorageAccountKey -ResourceGroupName 'MyAzureAccount' -Name 'MyStorageAccount'
@@ -142,7 +142,7 @@ param (
 
 # Authenticate to Azure if running from Azure Automation
 $ServicePrincipalConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
-Add-AzureRmAccount `
+Connect-AzureRmAccount `
     -ServicePrincipal `
     -TenantId $ServicePrincipalConnection.TenantId `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `

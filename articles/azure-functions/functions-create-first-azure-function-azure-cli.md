@@ -13,11 +13,11 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 9d12e9fdd4e68544431ae72ef45adcec609306d1
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 17ea9bbb19587882d68ab8b02d7c6dfe9a5d5dc3
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-your-first-function-using-the-azure-cli"></a>使用 Azure CLI 创建第一个函数
 
@@ -48,11 +48,11 @@ ms.lasthandoff: 04/16/2018
 在以下命令中，请将 `<app_name>` 占位符替换成唯一函数应用名称，将 `<storage_name>` 替换为存储帐户名。 `<app_name>` 将用作 Function App 的默认 DNS 域，因此，该名称需要在 Azure 中的所有应用之间保持唯一。 _deployment-source-url_ 参数是 GitHub 中包含“Hello World”HTTP 触发函数的示例存储库。
 
 ```azurecli
-az functionapp create --deployment-source-url https://github.com/Azure-Samples/functions-quickstart  \
---resource-group myResourceGroup --consumption-plan-location chinanorth \
+az functionapp create --deployment-source-url https://github.com/Azure-Samples/functions-quickstart  `
+--resource-group myResourceGroup --plan <App Service plan> chinanorth `
 --name <app_name> --storage-account  <storage_name>  
 ```
-设置 _consumption-plan-location_ 参数意味着函数应用将在消耗托管计划中托管。 在此计划中，将根据函数需要动态添加资源，你只在函数运行时付费。 有关详细信息，请参阅[选择适当的托管计划](functions-scale.md)。 
+在此计划中，将根据函数需要动态添加资源，你只在函数运行时付费。 有关详细信息，请参阅[选择适当的托管计划](functions-scale.md)。 
 
 创建 Function App 后，Azure CLI 会显示类似于以下示例的信息：
 

@@ -1,11 +1,11 @@
 ---
-title: "使用多种服务配置来配置 Azure 项目 | Microsoft Docs"
-description: "了解如何通过更改 ServiceDefinition.csdef、ServiceConfiguration.Local.cscfg 和 ServiceConfiguration.Cloud.cscfg 文件来配置 Azure 云服务项目。"
+title: 使用多种服务配置来配置 Azure 项目 | Microsoft Docs
+description: 了解如何通过更改 ServiceDefinition.csdef、ServiceConfiguration.Local.cscfg 和 ServiceConfiguration.Cloud.cscfg 文件来配置 Azure 云服务项目。
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: a4fb79ed-384f-4183-9f74-5cac257206b9
 ms.service: multiple
 ms.devlang: multiple
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/11/2017
-ms.date: 01/25/2018
+ms.date: 05/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: 469db1a56c50f17aa8aa85f663c5e6d2e343cf56
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 7e252dbb3c873ea93a50802651ad553aea1a5911
+ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>使用多种服务配置来配置 Visual Studio 中的 Azure 项目
 
@@ -110,4 +110,4 @@ Web 角色通常在端口 80 上具有单个 HTTP 终结点。 另一方面，�
 
 仅当服务在云中运行时，与该服务关联的所有管理证书才会应用到该服务。 当服务在本地开发环境中运行时，它使用由计算模拟器管理的标准证书。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

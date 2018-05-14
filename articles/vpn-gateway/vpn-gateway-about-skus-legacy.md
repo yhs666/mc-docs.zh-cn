@@ -1,26 +1,26 @@
 ---
-title: "传统 Azure 虚拟网关 SKU | Microsoft Docs"
-description: "旧版虚拟网关 SKU。"
+title: 旧式 Azure 虚拟网络 VPN 网关 SKU | Microsoft Docs
+description: 如何使用旧式虚拟网络网关 SKU；“基本”、“标准”和“高性能”。
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
-editor: 
+author: cherylmc
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/31/2017
-ms.date: 12/11/2017
+origin.date: 03/20/2018
+ms.date: 05/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: f750349a5458cea9dffaa49587a10c90145de775
-ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
+ms.openlocfilehash: b1aee8166b471bf754d4eb008d7d3195026aa8b6
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>使用虚拟网关 SKU（传统 SKU）
 
@@ -38,33 +38,27 @@ ms.lasthandoff: 12/12/2017
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## <a name="resize"></a>重设网关大小（更改网关 SKU）
+## <a name="resize"></a>重设网关大小
 
-可以在同一 SKU 系列内重设网关 SKU 大小。 例如，如果具有标准 SKU，则可重设大小为高性能 SKU。 不能在旧的 SKU 和新的 SKU 系列之间重设 VPN 网关大小。 例如，不能从标准 SKU 调整为 VpnGw2 SKU。
+可以在同一 SKU 系列内将网关大小重设到某个网关 SKU。 例如，如果具有标准 SKU，则可重设大小为高性能 SKU。 但不能在旧式 SKU 和新式 SKU 系列之间重设 VPN 网关大小。 例如，不能从标准 SKU 调整为 VpnGw2 SKU 或从标准 SKU 调整为 VpnGw1。
 
->[!IMPORTANT]
->调整网关时，该网关将有 20-30 分钟的故障时间。
->
->
-
-若要重设经典部署模型的网关 SKU 大小，请使用以下命令：
+若要重设经典部署模型的网关大小，请使用以下命令：
 
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
-若要重设资源管理器部署模型的网关 SKU 大小，请使用以下命令：
+若要使用 PowerShell 重设资源管理器部署模型的网关大小，请使用以下命令：
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
+还可以在 Azure 门户中重设网关大小。
 
-## <a name="migrate"></a>迁移到新式网关 SKU
+## <a name="change"></a>更改到新式网关 SKU
 
-如果使用的是资源管理器部署模型，则可迁移到新式网关 SKU。 如果在使用经典部署模型，则无法迁移到新式 SKU，必须继续使用旧式 SKU。
-
-[!INCLUDE [Migrate SKU](../../includes/vpn-gateway-migrate-legacy-sku-include.md)]
+[!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 12/15/2017
-ms.date: 03/19/2018
+origin.date: 03/27/2017
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2cd647450d5978a0fa869cafbf3f3bc5a5c92fa2
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: c75f7289c4ce9a6387ddbbc9ea82054030e458b7
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>如何使用 Jenkins、GitHub 和 Docker 在 Azure 中的 Linux VM 上创建开发基础结构
 若要将应用程序开发的生成和测试阶段自动化，可以使用持续集成和部署 (CI/CD) 管道。 本教程介绍如何在 Azure VM 上创建 CI/CD 管道，包括如何：
@@ -65,19 +65,18 @@ runcmd:
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
   - usermod -aG docker jenkins
-  - touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
   - service jenkins restart
 ```
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 创建资源组，然后才能创建 VM。 以下示例在 *chinaeast* 位置创建名为 *myResourceGroupJenkins* 的资源组：
+使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组，然后才能创建 VM。 以下示例在 *chinaeast* 位置创建名为 *myResourceGroupJenkins* 的资源组：
 
 ```azurecli 
 az group create --name myResourceGroupJenkins --location chinaeast
 ```
 
-现在，请使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 创建 VM。 使用 `--custom-data` 参数传递到 cloud-init 配置文件中。 如果已将 *cloud-init-jenkins.txt* 文件保存在现有工作目录的外部，请提供该文件的完整路径。
+现在，请使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 使用 `--custom-data` 参数传递到 cloud-init 配置文件中。 如果已将 *cloud-init-jenkins.txt* 文件保存在现有工作目录的外部，请提供该文件的完整路径。
 
 ```azurecli 
 az vm create --resource-group myResourceGroupJenkins \
@@ -90,7 +89,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 创建并配置 VM 需要几分钟的时间。
 
-若要允许 Web 流量抵达 VM，请使用 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_open_port) 为 Jenkins 流量打开端口 *8080*，并为用于运行示例应用的 Node.js 应用打开端口 *1337*：
+若要允许 Web 流量抵达 VM，请使用 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-open-port) 为 Jenkins 流量打开端口 *8080*，并为用于运行示例应用的 Node.js 应用打开端口 *1337*：
 
 ```azurecli 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
@@ -120,10 +119,13 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 现在，请打开 Web 浏览器并转到 `http://<publicIps>:8080`。 按如下所示完成初始 Jenkins 安装：
 
-- 输入用户名“admin”，然后提供在上一步骤从 VM 获取的 initialAdminPassword。
-- 依次选择“管理 Jenkins”、“管理插件”。
-- 选择“可用”，然后在顶部文本框中搜索 GitHub。 选中“GitHub 插件”框，然后选择“立即下载并在重启后安装”。
-- 选中“安装完成并且没有作业运行时重启 Jenkins”框，然后等待插件安装过程完成。
+- 选择“选择要安装的插件”
+- 在顶部的文本框中搜索 *GitHub*。 选中“GitHub”对应的框，然后选择“安装”
+- 创建第一个管理用户。 输入用户名（例如 **admin**），然后提供自己的安全密码。 最后，键入全名和电子邮件地址。
+- 选择“保存并完成”
+- 准备好 Jenkins 后，选择“开始使用 Jenkins”
+  - 如果开始使用 Jenkins 时 Web 浏览器显示空白页，请重启 Jenkins 服务。 在 SSH 会话中键入 `sudo service jenkins restart`，然后刷新 Web 浏览器。
+- 使用创建的用户名和密码登录到 Jenkins。
 
 ## <a name="create-github-webhook"></a>创建 GitHub Webhook
 若要配置与 GitHub 的集成，请从 Azure 示例存储库中打开 [Node.js Hello World 示例应用](https://github.com/Azure-Samples/nodejs-docs-hello-world)。 若要将存储库分叉到自己的 GitHub 帐户，请选择右上角的“分叉”按钮。
@@ -139,12 +141,12 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ![将 GitHub Webhook 添加到分叉的存储库](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
 ## <a name="create-jenkins-job"></a>创建 Jenkins 作业
-若要让 Jenkins 对 GitHub 中的事件（例如提交代码）做出响应，请创建 Jenkins 作业。 
+若要让 Jenkins 对 GitHub 中的事件（例如提交代码）做出响应，请创建 Jenkins 作业。 为自己的 GitHub 分叉使用 URL。
 
 在 Jenkins 网站中的主页上，选择“创建新作业”：
 
 - 输入 *HelloWorld* 作为作业名称。 选择“自由风格项目”，然后选择“确定”。
-- 在“常规”部分下，选择“GitHub”项目并输入分支存储库 URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world*
+- 在“常规”部分下面，选择“GitHub”项目并输入分叉的存储库的 URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world*
 - 在“源代码管理”部分下，选择“Git”并输入分支存储库 *.git* 的 URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - 在“生成触发器”部分下面，选择“用于 GITscm 轮询的 GitHub 挂钩触发器”。
 - 在“生成”部分下面，选择“添加生成步骤”。 选择“执行 shell”，并在命令窗口中输入 `echo "Testing"`。

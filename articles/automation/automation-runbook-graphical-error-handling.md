@@ -1,25 +1,25 @@
 ---
-title: "Azure 自动化图形 Runbook 中的错误处理 | Microsoft 文档"
-description: "本文介绍如何在 Azure 自动化图形 Runbook 中实现错误处理逻辑。"
+title: Azure 自动化图形 Runbook 中的错误处理 | Microsoft 文档
+description: 本文介绍如何在 Azure 自动化图形 Runbook 中实现错误处理逻辑。
 services: automation
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/26/2016
-ms.date: 01/15/2018
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-nany
-ms.openlocfilehash: c77fdd22f3117687f54ff8b0d1b0eb1a5623468f
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 3f77fda9a94087c9b371e14c39f446ba219fbcdb
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Azure 自动化图形 Runbook 中的错误处理
 

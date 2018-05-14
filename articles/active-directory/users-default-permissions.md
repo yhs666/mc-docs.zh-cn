@@ -3,8 +3,8 @@ title: 比较 Azure Active Directory 中的默认用户权限 | Microsoft Docs
 description: 比较成员、来宾、应用所有者和组所有者的权限
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
+author: curtand
+manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
 origin.date: 01/29/2018
-ms.date: 03/05/2018
-ms.author: v-nany
+ms.date: 05/07/2018
+ms.author: v-junlch
 ms.reviewer: vincesm
-ms.openlocfilehash: f413bf8326f2040e10b3da11cde1c2adc05cf3d8
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: 369db5c4850c9ee06b4c5e4c63f66f0f9197442a
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的默认用户权限
 
-在 Azure Active Directory (Azure AD) 中，所有用户都被授予一组默认权限。 用户的访问权限由用户的类型、其[角色成员身份](active-directory-users-assign-role-azure-portal.md)及其对单个对象的所有权构成。 本文将会介绍这些默认权限，并将成员和来宾用户的默认权限进行比较。
+在 Azure Active Directory (Azure AD) 中，所有用户都被授予一组默认权限。 用户的访问权限由用户的类型、其[角色成员身份](/active-directory/active-directory-users-assign-role-azure-portal)及其对单个对象的所有权构成。 本文将会介绍这些默认权限，并将成员和来宾用户的默认权限进行比较。
 
 ## <a name="member-and-guest-users"></a>成员和来宾用户
 获得的默认权限集取决于该用户是否为租户的本机成员（成员用户）。默认情况下，来宾的默认权限受到限制。 可将来宾添加到管理员角色，从而向他们授予角色中包含的完全读取和写入权限。 此外还有一条限制，即来宾邀请其他来宾的能力。 将“来宾可邀请”设置为“否”会阻止来宾邀请其他来宾。  若要向来宾用户授予成员用户默认拥有的权限，请将“来宾用户权限处于限制状态”设置为“否”。 此设置向来宾用户授予默认的成员用户权限，并允许将来宾添加到管理角色。
@@ -68,5 +68,8 @@ When a user adds a new enterprise application, they are automatically added as a
 
 ## <a name="next-steps"></a>后续步骤
 
-* 若要了解有关如何在 Microsoft Azure 中控制资源访问的详细信息，请参阅 [了解 Azure 中的资源访问权限](active-directory-understanding-resource-access.md)
-* [管理用户](active-directory-create-users.md)
+- 若要了解有关如何在 Azure 中控制资源访问的详细信息，请参阅[了解 Azure 中的资源访问权限](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- 有关 Azure Active Directory 如何与 Azure 订阅相关联的详细信息，请参阅 [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)（Azure 订阅与 Azure Active Directory 的关联方式）
+- [管理用户](active-directory-create-users.md)
+
+<!-- Update_Description: wording update -->

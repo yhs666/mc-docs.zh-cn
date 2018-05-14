@@ -1,11 +1,11 @@
 ---
-title: "使用 Visual Studio 配置 Azure 云服务项目 | Microsoft Docs"
-description: "了解如何根据你对该项目的要求在 Visual Studio 中配置 Azure 云服务项目。"
+title: 使用 Visual Studio 配置 Azure 云服务项目 | Microsoft Docs
+description: 了解如何根据你对该项目的要求在 Visual Studio 中配置 Azure 云服务项目。
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
+author: ghogen
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 609d6965-05cc-47b1-82dc-c76a92d4f295
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 03/06/2017
-ms.date: 05/22/2017
+ms.date: 05/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: 273ed4ea1ef11d92be2c4c213cf273df297e253b
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: ced0af3e66b6cfe754a802bfb4230a17a45ea5c1
+ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>使用 Visual Studio 配置 Azure 云服务项目
 可根据你对 Azure 云服务项目的要求来对其进行配置。 可针对以下类别设置项目的属性：
@@ -31,7 +31,7 @@ ms.lasthandoff: 06/21/2017
 ## <a name="steps-to-configure-an-azure-cloud-service-project"></a>配置 Azure 云服务项目的步骤
 1. 在 Visual Studio 中打开或创建 Azure 云服务项目
 
-2. 在“解决方案资源管理器”中右键单击项目，然后从上下文菜单中选择“属性”。
+2. 在“解决方案资源管理器”中右键单击项目，并从上下文菜单中选择“属性”。
    
 3. 在项目的属性页中，选择“开发”选项卡。
 
@@ -41,11 +41,11 @@ ms.lasthandoff: 06/21/2017
 
 5. 若要指示在本地运行或调试云服务时要使用的服务配置，请选择所需**服务配置**。 有关如何修改角色的服务配置的详细信息，请参阅[如何使用 Visual Studio 配置 Azure 云服务的角色](./vs-azure-tools-configure-roles-for-cloud-service.md)。
 
-6. 若要在本地运行或调试云服务时启动 Azure 存储模拟器，请将“启动 Azure 存储模拟器”设为“True”。
+6. 要在本地运行或调试云服务时启动 Azure 存储模拟器，请将“启动 Azure 存储模拟器”设为“True”。
 
-7. 若要确保在出现包验证错误时无法发布，请将“将警告视为错误”设为“True”。
+7. 要确保在出现包验证错误时无法发布，请将“将警告视为错误”设为“True”。
 
-8. 若要确保 Web 角色每次在 IIS Express 中本地启动时都使用同一端口，请将“使用 Web 项目端口”设为“True”。
+8. 要确保 Web 角色每次在 IIS Express 中本地启动时都使用同一端口，请将“使用 Web 项目端口”设为“True”。
 
 9. 从 Visual Studio 工具栏中，选择“保存”。
 
@@ -53,3 +53,4 @@ ms.lasthandoff: 06/21/2017
 - [使用多种服务配置来配置 Azure 项目](vs-azure-tools-multiple-services-project-configurations.md)
 
 
+<!-- Update_Description: update metedata properties -->

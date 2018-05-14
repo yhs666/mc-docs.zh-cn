@@ -1,11 +1,11 @@
 ---
-title: "从 Azure 的 Linux VM 中分离磁盘 | Azure"
-description: "了解如何从使用经典部署模型创建的 Azure 虚拟机分离数据磁盘。"
+title: 从 Azure 的 Linux VM 中分离磁盘 | Azure
+description: 了解如何从使用经典部署模型创建的 Azure 虚拟机分离数据磁盘。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: 8433affa-376b-4c22-863a-40488adda486
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/09/2017
-ms.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: eb4cab35299d6ef0f23eb928952dffb6473bd57e
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 715da4b189adf7816f75e6bd2dc57bb53af48971
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-detach-a-disk-from-a-linux-virtual-machine"></a>如何从 Linux 虚拟机分离磁盘
 > [!IMPORTANT] 
@@ -35,5 +35,4 @@ ms.lasthandoff: 03/17/2018
 * [如何将数据磁盘附加到 Linux 虚拟机](attach-disk-classic.md)
 * [将 Azuer CLI 与经典部署模型搭配使用](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)
 
-<!--The parent file of includes file of howto-detach-disk-linux.md-->
-<!--ms.date:03/19/2018-->
+<!-- Update_Description: update meta properties -->

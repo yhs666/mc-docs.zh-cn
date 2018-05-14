@@ -78,6 +78,8 @@
               href: constrained-vcpu.md
         - name: Azure 计算单元 (ACU)
           href: acu.md
+        - name: 基准评分
+          href: compute-benchmark-scores.md
     - name: 认可的发行版
       href: endorsed-distros.md
     - name: 维护和更新
@@ -130,7 +132,7 @@
         - name: 加密
           href: encrypt-disks.md
         - name: 使用访问控制
-          href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
+          href: ../../role-based-access-control/overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
         - name: 使用策略
           href: policy.md
         - name: 创建密钥保管库

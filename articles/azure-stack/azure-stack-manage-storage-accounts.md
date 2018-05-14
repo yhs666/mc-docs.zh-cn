@@ -16,11 +16,11 @@ origin.date: 02/22/2018
 ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: anirudha
-ms.openlocfilehash: f55d05c2efd20f5e31a290183ce8a86f2079024f
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: 071891a4ba55487c4e10d08e53eae7056957ddee
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>管理 Azure Stack 中的存储帐户
 了解如何管理 Azure Stack 中的存储帐户，以根据业务需求查找、恢复和回收存储容量。
@@ -142,15 +142,15 @@ OR
    有关 Azure 资源管理器 cmdlet 的详细信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](/azure-resource-manager/powershell-azure-resource-manager)
 2. 运行以下 cmdlet：
 
-> [!NOTE]
-> 如果运行此 cmdlet，将会永久删除帐户及其内容。 它不可恢复。 请慎用此 cmdlet。
+    > [!NOTE]
+    > 如果运行此 cmdlet，将会永久删除帐户及其内容。 它不可恢复。 请慎用此 cmdlet。
 
 
-        Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
+            Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
 
 
-有关详细信息，请参阅 [Azure Stack PowerShell 文档](https://msdn.microsoft.com/library/mt637964.aspx)。
- 
+    有关详细信息，请参阅 [Azure Stack PowerShell 文档](https://msdn.microsoft.com/library/mt637964.aspx)。
+    
 
 ## <a name="migrate-a-container"></a>迁移容器
 由于租户的存储用量不平均，因此云操作员可能发现一个或多个基础租户共享使用的空间比其他租户要多。 如果发生这种情况，云操作员可以尝试将部分 Blob 容器手动迁移到另一个共享，为用量较大的共享释放一些空间。 

@@ -1,27 +1,27 @@
 ---
-title: "备份 Azure Linux VM | Azure"
-description: "使用 Azure 备份来备份 Linux VM，从而为其提供保护。"
+title: 备份 Azure Linux VM | Azure
+description: 使用 Azure 备份来备份 Linux VM，从而为其提供保护。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 07/27/2017
-ms.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: eb146b0231864562cab32fb78a862d61aae98b63
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 48f07b328a5368aaff02ef5e3e7aab1831c10582
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>在 Azure 中备份 Linux 虚拟机
 

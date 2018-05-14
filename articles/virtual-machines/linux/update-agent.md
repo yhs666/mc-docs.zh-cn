@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6aef08d482182a7a767b750422e71da64367b4b8
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 2a63163dc748db97343391d29fa2f135ca97d3d0
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>如何更新 VM 上的 Azure Linux 代理
 
@@ -74,7 +74,7 @@ AutoUpdate.Enabled=y
 若要允许运行：
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 ### <a name="restart-the-waagent-service"></a>重新启动 waagent 服务
@@ -121,7 +121,7 @@ sudo apt-get install waagent
 #### <a name="check-your-current-package-version"></a>检查当前程序包的版本
 
 ```bash
-apt list --installed | grep walinuxagent
+apt list --installed | grep waagent
 ```
 
 #### <a name="update-package-cache"></a>更新程序包缓存
@@ -153,7 +153,7 @@ AutoUpdate.Enabled=y
 若要允许运行：
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 ### <a name="restart-the-waagent-service"></a>重新启动 waagent 服务
@@ -202,7 +202,7 @@ AutoUpdate.Enabled=y
 若要允许运行：
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/\# AutoUpdate.Enabled=y/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 ### <a name="restart-the-waagent-service"></a>重新启动 waagent 服务
@@ -249,7 +249,7 @@ AutoUpdate.Enabled=y
 若要允许运行：
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 ### <a name="restart-the-waagent-service"></a>重新启动 waagent 服务
@@ -296,7 +296,7 @@ AutoUpdate.Enabled=y
 若要允许运行：
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 ### <a name="restart-the-waagent-service"></a>重新启动 waagent 服务
@@ -341,7 +341,7 @@ AutoUpdate.Enabled=y
 若要允许运行：
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 ### <a name="restart-the-waagent-service"></a>重新启动 waagent 服务
@@ -381,7 +381,7 @@ name=Oracle Linux $releasever Add ons ($basearch)
 baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
-enabled=0
+enabled=1
 ```
 
 然后键入：
@@ -402,7 +402,7 @@ sudo yum update WALinuxAgent
 #### <a name="for-version-22x-or-later-type"></a>对于 2.2.x 或更高版本，请键入：
 ```bash
 wget https://github.com/Azure/WALinuxAgent/archive/v2.2.x.zip
-unzip v2.2.x.zip.zip
+unzip v2.2.x.zip
 cd WALinuxAgent-2.2.x
 ```
 
@@ -441,7 +441,7 @@ AutoUpdate.Enabled=y
 若要启用运行：
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 ### <a name="3-restart-the-waagent-service"></a>3.重新启动 waagent 服务
@@ -474,4 +474,4 @@ waagent -version
 会看到 Linux 代理版本已更新为新版本。
 
 有关 Azure Linux 代理的详细信息，请参阅 [Azure Linux 代理自述文件](https://github.com/Azure/WALinuxAgent)。
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

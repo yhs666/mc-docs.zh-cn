@@ -1,26 +1,26 @@
 ---
-title: "Azure 自动化中的身份验证简介 | Azure"
-description: "本文概述了 Azure 自动化中自动化帐户的自动化安全性以及可供使用的不同身份验证方法。"
+title: Azure 自动化中的身份验证简介 | Azure
+description: 本文概述了 Azure 自动化中自动化帐户的自动化安全性以及可供使用的不同身份验证方法。
 services: automation
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: jwhit
 editor: tysonn
-keywords: "自动化安全性, 安全的自动化; 自动化身份验证"
+keywords: 自动化安全性, 安全的自动化; 自动化身份验证
 ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
 ms.service: automation
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/01/2017
-ms.date: 04/27/2017
+origin.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-dazen
-ms.openlocfilehash: bd6fad5aaf59df0e947473857f76629567e31df4
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 7d664695cb9a4633f5f4e520e38962b3e5ce5609
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Azure 自动化中的身份验证简介  
 Azure 自动化让可以通过其他云提供程序（如 Amazon Web Services (AWS)）针对 Azure、本地中的资源来自动执行任务。  为了使 Runbook 执行所需操作，Runbook 必须有权使用订阅中所需的最小权限来安全地访问资源。
@@ -49,5 +49,5 @@ Azure 自动化让可以通过其他云提供程序（如 Amazon Web Services (A
 | 方法 | 环境 | 文章 |
 | --- | --- | --- |
 | Azure AD 用户帐户 |Azure 资源管理器和 Azure 经典 |[使用 Azure AD 用户帐户进行 Runbook 身份验证](automation-create-aduser-account.md) |
-| Azure 运行方式帐户 |Azure Resource Manager | 无 |
-| Azure 经典运行方式帐户 |Azure 服务管理 | 无 |
+| Azure 运行方式帐户 |Azure 资源管理器 |[Authenticate Runbooks with Azure Run As account（使用 Azure 运行方式帐户进行 Runbook 身份验证）](automation-create-runas-account.md) |
+| Azure 经典运行方式帐户 |Azure 经典 |[Authenticate Runbooks with Azure Run As account（使用 Azure 运行方式帐户进行 Runbook 身份验证）](automation-create-runas-account.md) |

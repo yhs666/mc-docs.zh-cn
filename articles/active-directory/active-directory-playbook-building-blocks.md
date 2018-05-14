@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 origin.date: 05/04/2017
 ms.author: v-junlch
-ms.date: 06/12/2017
-ms.openlocfilehash: edfd300be94acca9569198c5e33c91926fb60cef
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.date: 05/07/2018
+ms.openlocfilehash: 319dc4ea4ae545c24c76f374cafd92c226b88cac
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念证明操作手册：构建基块
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 03/19/2018
 
 ### <a name="considerations"></a>注意事项
 
-1. 在[此处](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)查看密码哈希同步的安全注意事项。  如果试点生产用户的密码哈希同步明显不是一个选项，请考虑以下替代方法：
+1. 在[此处](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)查看密码哈希同步的安全注意事项。  如果试点生产用户的密码哈希同步明显不是一个选项，请考虑以下替代方法：
    * 在生产域中创建测试用户。 确保不要同步任何其他帐户
    * 移到 UAT 环境
 2.  如果想要追求联合，有必要了解使用本地标识提供者关联联合解决方案以及 POC 的成本，并根据想要获得的优势权衡这种做法：

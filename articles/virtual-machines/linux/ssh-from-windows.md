@@ -1,11 +1,11 @@
 ---
-title: "在 Windows 中对 Linux VM 使用 SSH 密钥 | Azure"
-description: "了解如何在 Windows 计算机上生成和使用 SSH 密钥连接到 Azure 上的 Linux 虚拟机。"
+title: 在 Windows 中对 Linux VM 使用 SSH 密钥 | Azure
+description: 了解如何在 Windows 计算机上生成和使用 SSH 密钥连接到 Azure 上的 Linux 虚拟机。
 services: virtual-machines-linux
-documentationcenter: 
-author: dlepow
-manager: timlt
-editor: 
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2cacda3b-7949-4036-bd5d-837e8b09a9c8
 ms.service: virtual-machines-linux
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/08/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 4b9480972ef6bb37ace017515f5a3b24f584471b
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 05/14/2018
+ms.author: v-yeche
+ms.openlocfilehash: b43d29068caa82c8dd4b185f3b41b4e60b69cd69
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>如何在 Azure 上的 Windows 中使用 SSH 密钥
 > [!div class="op_single_selector"]
@@ -37,14 +37,14 @@ ms.lasthandoff: 08/07/2017
 * **公钥**放置在 Linux VM 上或者要对其使用公钥加密的任何其他服务中。
 * **私钥**是在登录时要向 Linux VM 提供的内容，用于验证你的身份。 请保护好私钥， 不要透露给其他人。
 
-可以在多个 VM 和服务中使用这些公钥与私钥。 不需要针对想要访问的每个 VM 或服务提供一对密钥。 有关更详细的概述，请参阅 [公钥加密](https://wikipedia.org/wiki/Public-key_cryptography)。
+可以在多个 VM 和服务上使用这些公钥和私钥。 不需要针对想要访问的每个 VM 或服务提供一对密钥。 有关更详细的概述，请参阅 [公钥加密](https://wikipedia.org/wiki/Public-key_cryptography)。
 
-SSH 是一种加密的连接协议，可用于通过不安全的连接进行安全登录。 它是适用于 Azure 中托管的 Linux VM 的默认连接协议。 尽管 SSH 本身提供加密的连接，但如果结合使用密码和 SSH 连接，VM 仍然容易受到暴力破解攻击，或者密码被猜出。 使用 SSH 连接到 VM 的更安全且首选的方法是使用这些公钥和私钥，也称为 SSH 密钥。
+SSH 是一种加密的连接协议，可用于通过不安全的连接进行安全登录。 它是适用于 Azure 中托管的 Linux VM 的默认连接协议。 虽然 SSH 本身提供加密连接，但是将密码用于 SSH 连接仍使 VM 易受到强力破解攻击或猜测密码。 使用 SSH 连接到 VM 的更安全且首选的方法是使用这些公钥和私钥，也称为 SSH 密钥。
 
 如果不希望使用 SSH 密钥，可以仍使用密码登录到 Linux VM。 如果 VM 未向 Internet 公开，使用密码可能已足够。 但是，仍然需要管理每个 Linux VM 的密码，维护并定期更新健全的密码策略和实践（例如最小密码长度）。 使用 SSH 密钥可以简化多个 VM 中的凭据的管理。
 
 ## <a name="windows-packages-and-ssh-clients"></a>Windows 程序包和 SSH 客户端
-可使用 **SSH 客户端**连接到 Azure 中的 Linux VM，并对其进行管理。 Windows 计算机通常未安装 SSH 客户端。 Windows 10 周年更新已添加 Bash for Windows，而最新版 Windows 10 创意者更新提供其他更新。 通过此适用于 Linux 的 Windows 子系统，可在 Bash shell 中以本机方式运行并访问 SSH 客户端等实用工具。 然后可以按照任何 Linux 文档（例如[如何为 Linux 生成 SSH 密钥对](mac-create-ssh-keys.md)）进行操作。 Bash for Windows 仍在开发中，目前被视为一个 beta 版本。 有关 Bash for Windows 的详细信息，请参阅 [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about)（Windows 上的 Ubuntu Bash）。
+可使用 **SSH 客户端**连接到 Azure 中的 Linux VM，并对其进行管理。 Windows 计算机通常未安装 SSH 客户端。 Windows 10 周年更新已添加 Bash for Windows，而最新版 Windows 10 创意者更新提供其他更新。 通过此适用于 Linux 的 Windows 子系统，可在 Bash shell 中以本机方式运行并访问 SSH 客户端等实用工具。 然后可以按照任何 Linux 文档（例如[如何为 Linux 生成 SSH 密钥对](mac-create-ssh-keys.md)）进行操作。 Bash for Windows 仍在开发中，目前被视为一个 beta 版本。 有关 Bash for Windows 的详细信息，请参阅 [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about)（Windows 上的 Bash on Ubuntu）。
 
 如果不希望使用 Bash for Windows，以下包中包含可安装的常见 Windows SSH 客户端：
 
@@ -61,12 +61,12 @@ Azure 需要至少 2048 位采用 **ssh-rsa** 格式的公钥和私钥。 如果
 1. **ssh-rsa** 密钥是使用 [Azure 门户](https://portal.azure.cn)进行任何部署所必需的，并且是使用 [Azure CLI](../../cli-install-nodejs.md) 进行 Resource Manager 部署所必需的。
    * 几乎所有部署人员都需要这些密钥。
 2. 使用经典部署创建 VM 时需要 `.pem` 文件。 使用 [Azure 门户](https://portal.azure.cn)或 [Azure CLI](../../cli-install-nodejs.md) 时，经典部署支持这些密钥。
-   * 仅要管理使用经典部署模型创建的资源时，才需要创建这些附加密钥和证书。
+   * 如果要管理使用经典部署模型创建的资源，只需创建这些附加密钥和证书。
 
 ## <a name="install-git-for-windows"></a>安装 Git For Windows
 上一部分列出了包含适用于 Windows 的 `openssl` 工具的多个包。 需要使用此工具来创建公钥和私钥。 以下示例详细说明了如何安装和使用 **Git for Windows**，但可以选择所喜欢的任何程序包。 使用 **Git for Windows**，可以访问某些其他开放源代码软件 ([OSS](https://en.wikipedia.org/wiki/Open-source_software))，使用 Linux VM 时这些工具和实用程序可能会很有用。
 
-1. 从以下位置下载并安装 **Git for Windows**：[https://git-for-windows.github.io/](https://git-for-windows.github.io/)。
+1. 从以下位置下载并安装**适用于 Windows 的 Git**：[https://git-for-windows.github.io/](https://git-for-windows.github.io/)。
 2. 在安装过程中，除非特别需要更改选项，否则请接受默认选项。
 3. 从“开始”菜单 > “Git” > “Git Bash”运行“Git Bash”。 控制台与以下示例类似：
 
@@ -101,7 +101,7 @@ Azure 需要至少 2048 位采用 **ssh-rsa** 格式的公钥和私钥。 如果
    如果 bash 报告错误，请尝试使用提升的权限打开一个新 **Git Bash** 窗口。 然后，重新运行 `openssl` 命令。
 
 2. 应答国家/地区名称、位置、组织名称等提示。
-3. 会在当前工作目录中创建新的私钥和证书。 为了安全起见，应在私钥上设置权限，以便只有可以访问它：
+3. 将在当前工作目录中创建新的私钥和证书。 为了安全起见，应在私钥上设置权限，以便只有可以访问它：
 
     ```bash
     chmod 0600 myPrivateKey.key
@@ -113,7 +113,7 @@ Azure 需要至少 2048 位采用 **ssh-rsa** 格式的公钥和私钥。 如果
     openssl.exe rsa -pubout -in myPrivateKey.key -out myPublicKey.key
     ```
 
-5. 如果还需要管理经典资源，请将 `myCert.pem` 转换为 `myCert.cer`（DER 编码的 X509 证书）。 仅当需要专门管理旧的经典资源时，才执行这个可选步骤。
+5. 如果还需要管理经典资源，请将 `myCert.pem` 转换为 `myCert.cer`（DER 编码的 X509 证书）。 仅当需要专门管理较旧的经典资源时，才执行此可选步骤。
 
     使用以下命令转换证书：
 
@@ -122,7 +122,7 @@ Azure 需要至少 2048 位采用 **ssh-rsa** 格式的公钥和私钥。 如果
     ```
 
 ## <a name="create-a-private-key-for-putty"></a>为 PuTTY 创建私钥
-PuTTY 是适用于 Windows 的常用 SSH 客户端。 不过，可以根据需要使用任意 SSH 客户端。 若要使用 PuTTY，需要创建一种附加密钥类型 - PuTTY 私钥 (PPK)。 如果不想要使用 PuTTY，请跳过本部分。
+PuTTY 是适用于 Windows 的常见 SSH 客户端。 不过，可以根据需要使用任意 SSH 客户端。 若要使用 PuTTY，需要创建一种附加密钥类型 - PuTTY 私钥 (PPK)。 如果不希望使用 PuTTY，请跳过此部分。
 
 以下示例创建这个附加私钥，专门供 PuTTY 使用：
 
@@ -158,7 +158,7 @@ PuTTY 是适用于 Windows 的常用 SSH 客户端。 不过，可以根据需�
     ![保存 PuTTY 私钥文件](./media/ssh-from-windows/save-ppk-file.png)
 
    > [!WARNING]
-   > 会显示一个提示，询问是否想要继续，而不输入密钥的通行短语。 通行短语类似于附加到私钥的密码。 即使有人获取了私钥，但如果单纯使用该密钥，他们也无法进行身份验证， 必须获得通行短语才行。 如果有人获取了私钥但没有通行短语，他们可以登录到使用该密钥的任何 VM 或服务。 我们建议创建一个通行短语。 但是，如果忘记了通行短语，将没有办法恢复它。
+   > 会显示一个提示，询问是否想要继续，而不输入密钥的通行短语。 通行短语类似于附加到私钥的密码。 即使有人获取了私钥，但如果单纯使用该密钥，他们也无法进行身份验证， 必须获得通行短语才行。 如果有人获取了私钥但没有通行短语，他们可以登录到使用该密钥的任何 VM 或服务。 我们建议创建一个通行短语。 但是，如果你忘记了通行短语，将没有办法恢复它。
    >
    >
 
@@ -172,7 +172,7 @@ PuTTY 是适用于 Windows 的常用 SSH 客户端。 不过，可以根据需�
 2. 在 Azure 门户中填写 VM 的主机名或 IP 地址：
 
     ![打开新的 PuTTY 连接](./media/ssh-from-windows/putty-new-connection.png)
-3. 在选择“打开”之前，单击“连接” > “SSH” > “身份验证”选项卡。 浏览到私钥并选择它：
+3. 在选择“打开”之前，单击“连接” > “SSH” > “身份验证”选项卡。浏览到私钥并选择它：
 
     ![选择用于身份验证的 PuTTY 私钥文件](./media/ssh-from-windows/putty-auth-dialog.png)
 4. 单击“打开”以连接到虚拟机
@@ -183,3 +183,4 @@ PuTTY 是适用于 Windows 的常用 SSH 客户端。 不过，可以根据需�
 有关 Bash for Windows 的详细信息以及在 Windows 计算机上提前准备好 OSS 工具的好处，请参阅 [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about)（Windows 上的 Ubuntu Bash）。
 
 如果在使用 SSH 连接到 Linux VM 时遇到问题，请参阅 [Troubleshoot SSH connections to an Azure Linux VM](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（通过 SSH 连接到 Azure Linux VM 故障排除）。
+<!-- Update_Description: update meta properties -->

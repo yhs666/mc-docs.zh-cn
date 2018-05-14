@@ -1,26 +1,26 @@
 ---
-title: 在 Azure Active Directory 中分配管理员角色 | Azure
-description: 管理员角色可以创建或编辑用户、向其他用户分配管理角色、重置用户密码、管理用户许可证，或者管理域。 分配为管理员角色的用户在组织已订阅的所有云服务中具有相同的权限。
+title: 在 Azure Active Directory 中分配管理员角色 | Microsoft Docs
+description: 管理员角色可以添加用户、分配管理角色、重置用户密码、管理用户许可证，或者管理域。 分配为管理员角色的用户在组织已订阅的所有云服务中具有相同的权限。
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
+author: curtand
+manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-origin.date: 02/07/2018
-ms.date: 03/05/2018
-ms.author: v-nany
+origin.date: 03/15/2018
+ms.date: 05/07/2018
+ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 833dcf62c86be7f86baa7d4907a50588489677e4
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 17610ed83a1b38df858519e513824db37a249a0e
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中分配管理员角色
 
@@ -158,5 +158,10 @@ ms.lasthandoff: 04/16/2018
 ## <a name="next-steps"></a>后续步骤
 
 
-* 有关 Azure Active Directory 如何与 Azure 订阅相关联的详细信息，请参阅 [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)（Azure 订阅与 Azure Active Directory 的关联方式）
+- 若要了解有关如何在 Azure 中控制资源访问的详细信息，请参阅[了解 Azure 中的资源访问权限](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- 有关 Azure Active Directory 如何与 Azure 订阅相关联的详细信息，请参阅 [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)（Azure 订阅与 Azure Active Directory 的关联方式）
+- [管理用户](add-users-azure-active-directory.md)
+- [管理密码](active-directory-passwords-update-your-own-password.md)
+- [管理组](active-directory-manage-groups.md)
 
+<!-- Update_Description: wording update -->

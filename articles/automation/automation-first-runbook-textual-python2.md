@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-origin.date: 07/25/2017
-ms.date: 01/11/2018
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-nany
-ms.openlocfilehash: ec2e8cfa8ef427fd698daba67a5a915dda6ed712
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: b496fb76397a55cff8b8b35bbda880571fda4cb2
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="my-first-python-runbook"></a>我的第一个 Python Runbook
 

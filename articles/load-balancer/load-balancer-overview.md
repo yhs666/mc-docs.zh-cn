@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 03/21/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: c37b8d38ff1d8095b4ce7ea7d644f95cbb1d0438
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: ff5b4413875349ed468b5bef7351b4c3053195fc
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-load-balancer-overview"></a>Azure 负载均衡器概述
 
@@ -142,10 +142,10 @@ Azure 负载均衡器可用于：
 <!-- Not Available on ## SLA-->
 ## <a name="next-steps"></a>后续步骤
 
-- 查看[有关标准负载均衡器的更多详细信息](load-balancer-standard-overview.md)
-- 了解如何使用[标准负载均衡器和可用性区域](load-balancer-standard-availability-zones.md)
+<!-- Not Available on - Review [Standard Load Balancer in more detail](load-balancer-standard-overview.md)-->
+<!-- Not Available on - Learn about using [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md)-->
 - 了解如何[对出站连接使用负载均衡器](load-balancer-outbound-connections.md)
-- 了解[负载均衡器高可用性端口](load-balancer-ha-ports-overview.md)
+<!-- Not Available on - Learn about [Load Balancer HA Ports](load-balancer-ha-ports-overview.md)-->
 - 了解如何[对多个前端使用负载均衡器](load-balancer-multivip-overview.md)
 - 了解 [VNet 服务终结点](../virtual-network/virtual-network-service-endpoints-overview.md)
 - 了解如何创建[基本的公共负载均衡器](load-balancer-get-started-internet-portal.md)

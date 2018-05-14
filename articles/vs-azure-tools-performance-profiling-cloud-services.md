@@ -1,11 +1,11 @@
 ---
-title: "测试云服务的性能 | Microsoft Docs"
-description: "使用 Visual Studio 探查器测试云服务的性能"
+title: 测试云服务的性能 | Microsoft Docs
+description: 使用 Visual Studio 探查器测试云服务的性能
 services: visual-studio-online
 documentationcenter: n/a
-author: TomArcher
+author: mikejo
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 7a5501aa-f92c-457c-af9b-92ea50914e24
 ms.service: visual-studio-online
 ms.devlang: multiple
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 11/11/2016
-ms.date: 12/28/2017
+ms.date: 05/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: ce18d4ea27b0fb0452a71c9e702891f5c06220cd
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 3463650f905411796ec7c6ca9533acea722f6e96
+ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service"></a>测试云服务的性能
 ## <a name="overview"></a>概述
@@ -115,4 +115,4 @@ ms.lasthandoff: 12/28/2017
 
 [从 Visual Studio 发布到 Azure 云服务](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!--Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

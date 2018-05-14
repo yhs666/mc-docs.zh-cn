@@ -1,25 +1,25 @@
 ---
-title: "自动删除资源组 | Microsoft Docs"
-description: "Azure 自动化方案的 PowerShell 工作流版本，包括用于删除订阅中所有资源组的 Runbook。"
+title: 自动删除资源组 | Microsoft Docs
+description: Azure 自动化方案的 PowerShell 工作流版本，包括用于删除订阅中所有资源组的 Runbook。
 services: automation
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/26/2016
-ms.date: 01/22/2018
+origin.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-nany
-ms.openlocfilehash: 846da8674c6cb44d441d86d6ea7bf6e120c81fa5
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: dfcc7443715fa20828816395cfafc3770c550d09
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Azure 自动化方案 - 自动删除资源组
 许多客户会创建多个资源组。 有些资源组专门用于管理生产应用程序，还有一些资源组可能用于开发、测试和过渡环境。 自动部署这些资源是一回事，但按一下鼠标就能取消配置资源组则是另一回事。 使用 Azure 自动化可以简化这种常见的管理任务。 如果使用的 Azure 订阅由于会员优惠制度（例如 MSDN 或 Microsoft Partner Network Cloud Essentials 计划）而实施支出限制，则使用自动化就很有帮助。
@@ -27,18 +27,7 @@ ms.lasthandoff: 03/02/2018
 此方案基于某个 PowerShell Runbook，旨在删除订阅中指定的一个或多个资源组。 该 Runbook 的默认设置为先测试再继续。 这可以确保在准备完成此过程之前不会意外删除资源组。   
 
 ## <a name="getting-the-scenario"></a>获取方案
-此方案包括可从 [PowerShell 库](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript)下载的 PowerShell Runbook。 下载脚本文件后，将其打开并将 `Add-AzureRmAccount` 命令修改为：
-
-```powershell
-$null = Add-AzureRmAccount `
-  -ServicePrincipal `
-  -TenantId $conn.TenantId `
-  -ApplicationId $conn.ApplicationId `
-  -CertificateThumbprint $conn.CertificateThumbprint -EnvironmentName AzureChinaCloud
- ```
-  
-也可以直接在 Azure 门户中从 [Runbook 库](automation-runbook-gallery.md)导入该 Runbook。<br><br>
-
+此方案包括可从 [PowerShell 库](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript)下载的 PowerShell Runbook。 <br><br>
 
 | Runbook | 说明 |
 | --- | --- |
@@ -54,7 +43,7 @@ $null = Add-AzureRmAccount `
 
 ## <a name="install-and-configure-this-scenario"></a>安装和配置此方案
 ### <a name="prerequisites"></a>先决条件
-此 Runbook 使用 Azure 运行方式帐户进行身份验证。    
+此 Runbook 使用 [Azure 运行方式帐户](automation-create-runas-account.md)进行身份验证。    
 
 ### <a name="install-and-publish-the-runbooks"></a>安装和发布 Runbook
 下载 Runbook 后，可以使用[导入 Runbook 过程](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation)中的过程导入它。 在成功将该 Runbook 导入自动化帐户后，请发布该 Runbook。

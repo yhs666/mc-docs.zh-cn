@@ -1,11 +1,11 @@
 ---
-title: "规划从经典部署模型到 Azure Resource Manager 部署模型的 IaaS 资源迁移 | Azure"
-description: "规划将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager"
+title: 规划从经典部署模型到 Azure Resource Manager 部署模型的 IaaS 资源迁移 | Azure
+description: 规划将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-linux
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 04/01/2017
-ms.date: 01/08/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: c8164cae4d41fbc4d89750070ab69a09f709fa3f
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 5a1f8fd8eec259a2370229e6489055a40edf8d52
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>规划将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager
 尽管 Azure Resource Manager 提供了大量令人惊叹的功能，但规划好迁移过程以确保一切顺利仍至关重要。 花时间进行规划可确保执行迁移活动时不会遇到问题。 

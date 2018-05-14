@@ -1,25 +1,25 @@
 ---
-title: "管理 Azure 自动化帐户 | Azure"
-description: "本文介绍如何管理自动化帐户的配置，例如证书的续订、删除和错误配置。"
+title: 管理 Azure 自动化帐户 | Azure
+description: 本文介绍如何管理自动化帐户的配置，例如证书的续订、删除和错误配置。
 services: automation
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 04/13/2017
-ms.date: 01/15/2018
+origin.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-nany
-ms.openlocfilehash: f7c3378d123911038cebe3c9ba75713a80846134
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: cb09536b91952d9fb2e5ec40f321061489ec6f67
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="manage-azure-automation-account"></a>管理 Azure 自动化帐户
 在自动化帐户过期之前的某个时间点，需要续订证书。 如果认为运行方式帐户已遭到入侵，可以删除然后重新创建它。 本部分介绍如何执行这些操作。

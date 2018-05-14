@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中的 Linux 虚拟机上部署 LAMP | Azure"
-description: "教程 - 在 Azure 中的 Linux VM上安装 LAMP 堆栈"
+title: 在 Azure 中的 Linux 虚拟机上部署 LAMP | Azure
+description: 教程 - 在 Azure 中的 Linux VM上安装 LAMP 堆栈
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 6c12603a-e391-4d3e-acce-442dd7ebb2fe
 ms.service: virtual-machines-linux
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 11/27/2017
-ms.date: 01/08/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8ffab7f6645aafe73bd260a4bd14ed77abc15ea8
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 639aaefdb700d09a4f35dc48052df0e1caa0e791
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>在 Azure VM 上安装 LAMP Web 服务器
 本文逐步讲解如何在 Azure 中的 Ubuntu VM 上部署 Apache Web 服务器、MySQL 和 PHP（LAMP 堆栈）。 如果想要部署 NGINX Web 服务器，请参阅 [LEMP 堆栈](tutorial-lemp-stack.md)教程。 若要了解 LAMP 服务器的运作情况，可以选择性地安装并配置 WordPress 站点。 本教程介绍如何执行下列操作：
@@ -129,8 +129,4 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png
 
-<!--Not Available the parent file of includes file of virtual-machines-linux-tutorial-stack-intro.md-->
-<!--ms.date:01/08/2018-->
-<!--Not Available the parent file of includes file of virtual-machines-linux-tutorial-wordpress.md-->
-<!--ms.date:01/08/2018-->
 <!--Update_Description: update meta properties, wording update-->

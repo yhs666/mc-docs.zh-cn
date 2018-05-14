@@ -1,11 +1,11 @@
 ---
-title: "设置命名的身份验证凭据 | Microsoft Docs"
-description: "了解如何提供 Visual Studio 可用于验证对 Azure 的请求的凭据，以便从 Visual Studio 将应用程序发布到 Azure 或者监视现有云服务。"
+title: 设置命名的身份验证凭据 | Microsoft Docs
+description: 了解如何提供 Visual Studio 可用于验证对 Azure 的请求的凭据，以便从 Visual Studio 将应用程序发布到 Azure 或者监视现有云服务。
 services: visual-studio-online
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 61570907-42a1-40e8-bcd6-952b21a55786
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 11/11/2017
-ms.date: 12/28/2017
+ms.date: 05/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: f500dad12e9f7ac7368ab67d33f7632aec0137ae
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 842b3085b7bb80022e7cafc6edc86ab7dc6c46f4
+ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="set-up-named-authentication-credentials"></a>设置命名的身份验证凭据
 
@@ -47,4 +47,4 @@ ms.lasthandoff: 12/28/2017
 - [使用 Visual Studio 部署 Web 作业](/app-service/websites-dotnet-deploy-webjobs)
 - [创建和部署云服务](/cloud-services/cloud-services-how-to-create-deploy-portal)
 
-<!--Update_Description: wording update -->  
+<!-- Update_Description: update metedata properties -->

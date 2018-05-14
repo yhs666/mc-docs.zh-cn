@@ -3,8 +3,8 @@ title: 有关 Azure Active Directory 中应用程序管理的文章索引 | Azur
 description: 了解如何自定义联合证书的到期日期，以及如何续订即将过期的证书。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: MarkusVi
+manager: mtillman
 ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
 ms.service: active-directory
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/26/2018
-ms.date: 03/05/2018
+ms.date: 05/07/2018
 ms.author: v-junlch
 ms.reviewer: asteen
-ms.openlocfilehash: 5f0b70e53be38ddf6028abf7bea38ccbf2658f30
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: c82f1980455753d009d73972ebb5d53cb84da890
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>有关 Azure Active Directory 中应用程序管理的文章索引
 本页提供了一份完整列表，列出编写的 Azure Active Directory (Azure AD) 中各种应用程序相关功能的所有文章。
@@ -43,7 +43,7 @@ ms.lasthandoff: 03/19/2018
 |:---:| --- |
 | 联合单一登录 |[排查基于 SAML 的单一登录问题](./develop/active-directory-saml-debugging.md) |
 | 基于密码的单一登录 | Internet Explorer 访问面板扩展疑难解答 |
-| 本地 AD 与 Azure AD 之间的单一登录 |[排查密码同步问题](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)|
+| 本地 AD 与 Azure AD 之间的单一登录 |[排查密码哈希同步问题](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)|
 
 ## <a name="single-sign-on-sso"></a>单一登录 (SSO)
 ### <a name="federated-single-sign-on-sign-into-many-apps-using-one-identity"></a>联合单一登录：使用一个标识登录多个应用程序
@@ -78,7 +78,7 @@ ms.lasthandoff: 03/19/2018
 |:---:| --- |
 | Azure AD Connect 中提供的单一登录选项概述，以及管理混合环境的相关信息 |[Azure AD Connect 中的用户登录选项](./connect/active-directory-aadconnect-user-signin.md) |
 | 同时使用本地 Active Directory 和 Azure Active Directory 管理环境的一般指导 | [将本地标识与 Azure Active Directory 集成](./connect/active-directory-aadconnect.md) |
-| 有关使用密码同步启用 SSO 的指导 |[实现与 Azure AD Connect 的密码同步](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[密码同步疑难解答](https://support.microsoft.com/zh-cn/kb/2855271) |
+| 有关使用密码同步启用 SSO 的指导 |[实现与 Azure AD Connect 的密码同步](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[密码同步疑难解答](https://support.microsoft.com/zh-cn/kb/2855271) |
 | 有关使用第三方标识提供程序启用 SSO 的指南 |[可用于启用单一登录的兼容第三方标识提供程序列表](https://aka.ms/ssoproviders) |
 
 Azure AD Connect 适用于[所有版本的 Azure Active Directory](https://www.azure.cn/pricing/details/identity/)。 Azure AD 自助密码重置适用于 [Azure AD Basic](https://www.azure.cn/pricing/details/identity/) 和 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/)。 对本地 AD 进行密码写回是一项 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) 功能。

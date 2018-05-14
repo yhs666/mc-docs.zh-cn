@@ -1,8 +1,8 @@
 ---
-title: "捕获 Linux VM 的映像 | Azure"
-description: "了解如何使用经典部署模型捕获基于 Linux 的 Azure 虚拟机 (VM) 的映像。"
+title: 捕获 Linux VM 的映像 | Azure
+description: 了解如何使用经典部署模型捕获基于 Linux 的 Azure 虚拟机 (VM) 的映像。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2017
-ms.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: 90974bca1de9c172dc90bb2cbee4e580da6efeb6
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 03569d44f4b4600bdc672eb24672e9944d5578ff
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>如何捕获经典 Linux 虚拟机以用作映像
 > [!IMPORTANT]
@@ -115,4 +115,4 @@ Azure 在“映像”下存储映像 ，以及任何已上传的映像。 有关
 [How to Attach a Data Disk to a Virtual Machine]:attach-disk-classic.md
 [How to Create a Linux Virtual Machine]:create-custom-classic.md
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties  -->

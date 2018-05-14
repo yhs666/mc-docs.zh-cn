@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/13/2017
-ms.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f4471446bb00962cae52872523cd7661b3d2d154
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 24e5ec81ffc843b85f70b06409ed9d2b64e33fde
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>如何在 Azure 中均衡 Linux 虚拟机负载以创建高可用性应用程序
 负载均衡通过将传入请求分布到多个虚拟机来提供更高级别的可用性。 本教程介绍了 Azure 负载均衡器的不同组件，这些组件用于分发流量和提供高可用性。 你将学习如何执行以下操作：
@@ -51,14 +51,14 @@ Azure 负载均衡器是位于第 4 层（TCP、UDP）的负载均衡器，通�
 如果遵循了前面的教程来[创建虚拟机规模集](tutorial-create-vmss.md)，则已创建负载均衡器。 所有这些组件都已配置为规模集的一部分。
 
 ## <a name="create-azure-load-balancer"></a>创建 Azure 负载均衡器
-本部分详细介绍如何创建和配置负载均衡器的每个组件。 创建负载均衡器之前，需使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 创建资源组。 以下示例在 chinaeast 位置创建名为 myResourceGroupLoadBalancer 的资源组：
+本部分详细介绍如何创建和配置负载均衡器的每个组件。 创建负载均衡器之前，需使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在 chinaeast 位置创建名为 myResourceGroupLoadBalancer 的资源组：
 
 ```azurecli 
 az group create --name myResourceGroupLoadBalancer --location chinaeast
 ```
 
 ### <a name="create-a-public-ip-address"></a>创建公共 IP 地址
-若要通过 Internet 访问应用，需要负载均衡器的一个公共 IP 地址。 使用 [az network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az_network_public_ip_create) 创建公共 IP 地址。 以下示例在 myResourceGroupLoadBalancer 资源组中创建名为 myPublicIP 的公共 IP 地址：
+若要通过 Internet 访问应用，需要负载均衡器的一个公共 IP 地址。 使用 [az network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 创建公共 IP 地址。 以下示例在 myResourceGroupLoadBalancer 资源组中创建名为 myPublicIP 的公共 IP 地址：
 
 ```azurecli 
 az network public-ip create \
@@ -67,7 +67,7 @@ az network public-ip create \
 ```
 
 ### <a name="create-a-load-balancer"></a>创建负载均衡器
-使用 [az network lb create](https://docs.azure.cn/zh-cn/cli/network/lb?view=azure-cli-latest#az_network_lb_create) 创建负载均衡器。 以下示例创建名为“myLoadBalancer”的负载均衡器，并将“myPublicIP”地址分配到前端 IP 配置：
+使用 [az network lb create](https://docs.azure.cn/zh-cn/cli/network/lb?view=azure-cli-latest#az-network-lb-create) 创建负载均衡器。 以下示例创建名为“myLoadBalancer”的负载均衡器，并将“myPublicIP”地址分配到前端 IP 配置：
 
 ```azurecli 
 az network lb create \
@@ -83,7 +83,7 @@ az network lb create \
 
 以下示例创建一个 TCP 探测器。 还可创建自定义 HTTP 探测，以便执行更精细的运行状况检查。 使用自定义 HTTP 探测时，必须创建运行状况检查页，例如 healthcheck.js。 探测必须为负载均衡器返回 HTTP 200 OK 响应，以保持主机处于旋转状态。
 
-若要创建 TCP 运行状况探测，请使用 [az network lb probe create](https://docs.azure.cn/zh-cn/cli/network/lb/probe?view=azure-cli-latest#az_network_lb_probe_create)。 以下示例创建名为“myHealthProbe”的运行状况探测：
+若要创建 TCP 运行状况探测，请使用 [az network lb probe create](https://docs.azure.cn/zh-cn/cli/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create)。 以下示例创建名为“myHealthProbe”的运行状况探测：
 
 ```azurecli 
 az network lb probe create \
@@ -97,7 +97,7 @@ az network lb probe create \
 ### <a name="create-a-load-balancer-rule"></a>创建负载均衡器规则
 负载均衡器规则用于定义将流量分配给 VM 的方式。 定义传入流量的前端 IP 配置和后端 IP 池以接收流量，同时定义所需源和目标端口。 若要确保仅正常运行的 VM 接收流量，还需定义要使用的运行状况探测。
 
-使用 [az network lb rule create](https://docs.azure.cn/zh-cn/cli/network/lb/rule?view=azure-cli-latest#az_network_lb_rule_create) 创建负载均衡器规则。 以下示例创建名为“myLoadBalancerRule”的规则、使用“myHealthProbe”运行状况探测并平衡端口 80 上的流量：
+使用 [az network lb rule create](https://docs.azure.cn/zh-cn/cli/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create) 创建负载均衡器规则。 以下示例创建名为“myLoadBalancerRule”的规则、使用“myHealthProbe”运行状况探测并平衡端口 80 上的流量：
 
 ```azurecli 
 az network lb rule create \
@@ -116,7 +116,7 @@ az network lb rule create \
 需要先创建提供支持的虚拟网络资源，然后才能部署某些 VM 并测试均衡器。 有关虚拟网络的详细信息，请参阅[管理 Azure 虚拟网络](tutorial-virtual-network.md)教程。
 
 ### <a name="create-network-resources"></a>创建网络资源
-使用 [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az_network_vnet_create) 创建虚拟网络。 以下示例创建名为“myVnet”的虚拟网络和一个名为“mySubnet”的子网：
+使用 [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create) 创建虚拟网络。 以下示例创建名为“myVnet”的虚拟网络和一个名为“mySubnet”的子网：
 
 ```azurecli 
 az network vnet create \
@@ -125,7 +125,7 @@ az network vnet create \
     --subnet-name mySubnet
 ```
 
-若要添加网络安全组，请使用 [az network nsg create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az_network_nsg_create)。 以下示例创建名为“myNetworkSecurityGroup”的网络安全组：
+若要添加网络安全组，请使用 [az network nsg create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-create)。 以下示例创建名为“myNetworkSecurityGroup”的网络安全组：
 
 ```azurecli 
 az network nsg create \
@@ -133,7 +133,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-使用 [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az_network_nsg_rule_create) 创建网络安全组规则。 以下示例创建名为“myNetworkSecurityGroupRule”的网络安全组规则：
+使用 [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) 创建网络安全组规则。 以下示例创建名为“myNetworkSecurityGroupRule”的网络安全组规则：
 
 ```azurecli 
 az network nsg rule create \
@@ -145,7 +145,7 @@ az network nsg rule create \
     --destination-port-range 80
 ```
 
-使用 [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az_network_nic_create) 创建虚拟 NIC。 以下示例创建三个虚拟 NIC。 （在以下步骤中针对为应用创建的每个 VM 各使用一个虚拟 NIC）。 可随时创建其他虚拟 NIC 和 VM，并将其添加到负载均衡器：
+使用 [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-create) 创建虚拟 NIC。 以下示例创建三个虚拟 NIC。 （在以下步骤中针对为应用创建的每个 VM 各使用一个虚拟 NIC）。 可随时创建其他虚拟 NIC 和 VM，并将其添加到负载均衡器：
 
 ```bash
 for i in `seq 1 3`; do
@@ -214,7 +214,7 @@ runcmd:
 ### <a name="create-virtual-machines"></a>创建虚拟机
 若要提高应用的高可用性，请将 VM 放置在可用性集中。 有关可用性集的详细信息，请参阅前面的[如何创建高可用性虚拟机](tutorial-availability-sets.md)教程。
 
-使用 [az vm availability-set create](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az_vm_availability_set_create) 创建可用性集。 以下示例创建名为“myAvailabilitySet”的可用性集：
+使用 [az vm availability-set create](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create) 创建可用性集。 以下示例创建名为“myAvailabilitySet”的可用性集：
 
 ```azurecli 
 az vm availability-set create \
@@ -222,7 +222,7 @@ az vm availability-set create \
     --name myAvailabilitySet
 ```
 
-现在，可使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 创建 VM。 以下示例创建三个 VM，并生成 SSH 密钥（如果它们尚不存在）：
+现在，可使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 以下示例创建三个 VM，并生成 SSH 密钥（如果它们尚不存在）：
 
 ```bash
 for i in `seq 1 3`; do
@@ -242,7 +242,7 @@ done
 在 Azure CLI 返回提示之后，仍然存在继续运行的后台任务。 `--no-wait` 参数不会等待所有任务完成。 可能还需等待几分钟才能访问应用。 在每个 VM 上运行应用时，负载均衡器运行状况探测器会自动检测。 应用运行后，负载均衡器规则将开始分布流量。
 
 ## <a name="test-load-balancer"></a>测试负载均衡器
-使用 [az network public-ip show](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az_network_public_ip_show) 获取负载均衡器的公共 IP 地址。 以下示例获取前面创建的“myPublicIP”的 IP 地址：
+使用 [az network public-ip show](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-show) 获取负载均衡器的公共 IP 地址。 以下示例获取前面创建的“myPublicIP”的 IP 地址：
 
 ```azurecli 
 az network public-ip show \
@@ -262,7 +262,7 @@ az network public-ip show \
 建议对运行应用的 VM 执行维护，例如安装 OS 更新。 若要应对应用增加的流量，建议添加更多 VM。 本部分演示了如何在负载均衡器中删除或添加 VM。
 
 ### <a name="remove-a-vm-from-the-load-balancer"></a>从负载均衡器中删除 VM
-可使用 [az network nic ip-config address-pool remove](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config/address-pool?view=azure-cli-latest#az_network_nic_ip_config_address_pool_remove) 从后端地址池中删除 VM。 以下示例从“myLoadBalancer”中删除“myVM2”的虚拟 NIC：
+可使用 [az network nic ip-config address-pool remove](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-remove) 从后端地址池中删除 VM。 以下示例从“myLoadBalancer”中删除“myVM2”的虚拟 NIC：
 
 ```azurecli 
 az network nic ip-config address-pool remove \
@@ -275,7 +275,7 @@ az network nic ip-config address-pool remove \
 
 若要查看负载均衡器如何在运行应用的其余两个 VM 之间分发流量，可强制刷新 Web 浏览器。 现在可以对 VM 执行维护，例如安装 OS 更新或执行 VM 重新启动。
 
-若要查看包含与负载均衡器连接的虚拟 NIC 的 VM 列表，请使用 [az network lb address-pool show](https://docs.azure.cn/zh-cn/cli/network/lb/address-pool?view=azure-cli-latest#az_network_lb_address_pool_show)。 如下所示根据虚拟 NIC 的 ID 进行查询和筛选：
+若要查看包含与负载均衡器连接的虚拟 NIC 的 VM 列表，请使用 [az network lb address-pool show](https://docs.azure.cn/zh-cn/cli/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-show)。 如下所示根据虚拟 NIC 的 ID 进行查询和筛选：
 
 ```azurecli
 az network lb address-pool show \
@@ -294,7 +294,7 @@ az network lb address-pool show \
 ```
 
 ### <a name="add-a-vm-to-the-load-balancer"></a>将 VM 添加到负载均衡器
-可以在执行 VM 维护后或需要扩展容量的情况下，使用 [az network nic ip-config address-pool add](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config/address-pool?view=azure-cli-latest#az_network_nic_ip_config_address_pool_add) 将 VM 添加到后端地址池。 以下示例将“myVM2”的虚拟 NIC 添加到“myLoadBalancer”：
+可以在执行 VM 维护后或需要扩展容量的情况下，使用 [az network nic ip-config address-pool add](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add) 将 VM 添加到后端地址池。 以下示例将“myVM2”的虚拟 NIC 添加到“myLoadBalancer”：
 
 ```azurecli 
 az network nic ip-config address-pool add \
@@ -305,7 +305,7 @@ az network nic ip-config address-pool add \
     --address-pool myBackEndPool
 ```
 
-若要验证虚拟 NIC 是否已连接到后端地址池，请再次使用上一步骤中所示的 [az network lb address-pool show](https://docs.azure.cn/zh-cn/cli/network/lb/address-pool?view=azure-cli-latest#az_network_lb_address_pool_show)。
+若要验证虚拟 NIC 是否已连接到后端地址池，请再次使用上一步骤中所示的 [az network lb address-pool show](https://docs.azure.cn/zh-cn/cli/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-show)。
 
 ## <a name="next-steps"></a>后续步骤
 在本教程中，你已创建了一个负载均衡器并已将 VM 附加到它。 你已了解如何：

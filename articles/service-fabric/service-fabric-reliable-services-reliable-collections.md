@@ -15,11 +15,11 @@ ms.workload: required
 origin.date: 11/06/2017
 ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 167e5da3c017d06426a1c117891ec3eb200323ee
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: e2ea8d840ad7053b9144eb6e821a6a8a35ba233c
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure Service Fabric 有状态服务中的可靠集合简介
 可靠集合可让你编写高度可用、可缩放且低延迟的云应用程序，就像编写单计算机应用程序一样。 **Microsoft.ServiceFabric.Data.Collections** 命名空间中的类提供一组自动使状态具备高可用性的集合。 开发人员只需面向可靠集合 API 编程，并让可靠集合管理复制状态和本地状态。
@@ -50,8 +50,8 @@ Reliable Collections 提供全新的非常一致保证，使应用程序状态�
 
 目前，**Microsoft.ServiceFabric.Data.Collections** 包含三个集合：
 
-* [Reliable Dictionary](https://msdn.microsoft.com/library/azure/dn971511.aspx)：表示可复制、事务性和异步的键/值对集合。 类似于 **ConcurrentDictionary**，键和值都可以是任何类型。
-* [可靠队列](https://msdn.microsoft.com/library/azure/dn971527.aspx)：表示可复制、事务性和异步的严格先进先出 (FIFO) 队列。 类似于 **ConcurrentQueue**，值可以是任何类型。
+<!-- Not Available on * [Reliable Dictionary](https://msdn.microsoft.com/library/azure/dn971511.aspx) -->
+<!-- Not Available on * [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx)-->
 * [可靠的并发队列](service-fabric-reliable-services-reliable-concurrent-queue.md)：表示用于实现高吞吐量的可复制、事务性和异步的“尽力排序”队列。 它与 **ConcurrentQueue** 类似，值可以是任意类型。
 
 ## <a name="next-steps"></a>后续步骤
@@ -66,6 +66,6 @@ Reliable Collections 提供全新的非常一致保证，使应用程序状态�
   * [可靠状态管理器和配置](service-fabric-reliable-services-configuration.md)
 * 其他
   * [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
-  * [Reliable Collections 的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+<!-- Not Available on   * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)-->
 
 <!-- Update_Description: update meta properties, update link -->

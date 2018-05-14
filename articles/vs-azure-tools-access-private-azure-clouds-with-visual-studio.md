@@ -1,11 +1,11 @@
 ---
-title: "使用 Visual Studio 访问私有 Azure 云 | Microsoft Docs"
-description: "了解如何通过使用 Visual Studio 访问私有云资源。"
+title: 使用 Visual Studio 访问私有 Azure 云 | Microsoft Docs
+description: 了解如何通过使用 Visual Studio 访问私有云资源。
 services: visual-studio-online
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 9d733c8d-703b-44e7-a210-bb75874c45c8
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 11/13/2017
-ms.date: 12/28/2017
+ms.date: 05/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: fec8c83346f3863451a231432c02ddf16ce393ee
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 7631620099b843caca251bb2c3afb049bbddcba9
+ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="accessing-private-azure-clouds-with-visual-studio"></a>使用 Visual Studio 访问私有 Azure 云
 
@@ -50,4 +50,4 @@ ms.lasthandoff: 12/28/2017
     证书已从发布设置文件导入到 Visual Studio 中，现可与私有云资源进行交互。
 
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

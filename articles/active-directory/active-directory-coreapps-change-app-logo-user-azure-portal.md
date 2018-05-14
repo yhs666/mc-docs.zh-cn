@@ -1,10 +1,10 @@
 ---
-title: 在 Azure Active Directory 中更改企业应用的名称或徽标 | Azure
+title: 在 Azure Active Directory 中更改企业应用的名称或徽标 | Microsoft Docs
 description: 如何在 Azure Active Directory 中更改自定义企业应用的名称或徽标
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
+author: MarkusVi
+manager: mtillman
 editor: ''
 ms.assetid: d01303ce-e6cb-4f3b-a4d6-ec29dfd68146
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/28/2017
-ms.date: 03/05/2018
-ms.author: v-nany
+ms.date: 05/07/2018
+ms.author: v-junlch
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 8332853e1815f040bc1a633947887ca280825fac
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: 3d8ab10bbf083c58a992e43eca90ed2bfbcb210f
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中更改企业应用的名称或徽标
 在 Azure Active Directory (Azure AD) 中更改自定义企业应用程序的名称或徽标很容易。 必须具有适当的权限才能进行这些更改，并且必须是自定义应用的创建者。
@@ -43,7 +43,9 @@ ms.lasthandoff: 03/19/2018
 8. 选择“保存”命令。
 
 ## <a name="next-steps"></a>后续步骤
-* [查看所有组](active-directory-groups-view-azure-portal.md)
-* [向企业应用分配用户或组](active-directory-coreapps-assign-user-azure-portal.md)
-* [删除企业应用的用户或组分配](active-directory-coreapps-remove-assignment-azure-portal.md)
-* [禁用企业应用的用户登录](active-directory-coreapps-disable-app-azure-portal.md)
+- [查看所有组](active-directory-groups-view-azure-portal.md)
+- [向企业应用分配用户或组](active-directory-coreapps-assign-user-azure-portal.md)
+- [删除企业应用的用户或组分配](active-directory-coreapps-remove-assignment-azure-portal.md)
+- [禁用企业应用的用户登录](active-directory-coreapps-disable-app-azure-portal.md)
+
+<!-- Update_Description: update metedata properties -->

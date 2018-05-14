@@ -1,11 +1,11 @@
 ---
-title: "使用服务器资源管理器浏览和管理存储资源 | Microsoft Docs"
-description: "使用服务器资源管理器浏览和管理存储资源"
+title: 使用服务器资源管理器浏览和管理存储资源 | Microsoft Docs
+description: 使用服务器资源管理器浏览和管理存储资源
 services: visual-studio-online
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 658dc064-4a4e-414b-ae5a-a977a34c930d
 ms.service: storage
 ms.devlang: multiple
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/24/2017
-ms.date: 12/28/2017
+ms.date: 05/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: fcb6901dbe6a5772cf19edc2b4b6bd643d7e3da0
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 12480708d6da299d059c3a10caaa8a0fa86d7063
+ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>使用服务器资源管理器浏览和管理存储资源
 
@@ -300,4 +300,4 @@ Azure 表存储可存储大量结构化数据。 该服务是一个 NoSQL 数据
 
 若要详细了解如何使用 Azure 存储服务，请参阅[访问 Azure 存储服务](https://msdn.microsoft.com/library/azure/ee405490.aspx)。
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: update metedata properties -->

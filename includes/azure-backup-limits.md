@@ -1,19 +1,19 @@
 ---
-title: "include 文件"
-description: "include 文件"
+title: include 文件
+description: include 文件
 services: backup
 author: markgalioto
 ms.service: backup
 ms.topic: include
 origin.date: 02/07/2018
-ms.date: 03/16/2018
+ms.date: 05/08/2018
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 9781f3cbe208d7a587abcad060810b55e2cd6ac6
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 802ada888ece55c134c94e8565f5eb09438a2c20
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/10/2018
 ---
 以下限制适用于 Azure 备份。
 
@@ -24,10 +24,9 @@ ms.lasthandoff: 03/17/2018
 | 可在每个 Azure 订阅中创建的备份保管库的数目 |每个区域 25 个恢复服务保管库 |
 | 每天计划备份的次数 |对于 Windows Server/客户端为每天 3 个 <br/> 对于 SCDPM 为每天 2 个 <br/> 对于 IaaS Vm 为每天 1 个 |
 | 将数据磁盘附加到 Azure 虚拟机进行备份 |16 |
-| 附加到 Azure 虚拟机以进行备份的单个数据磁盘的大小| 1024 GB <sup>2</sup>|
+| 附加到 Azure 虚拟机以进行备份的单个数据磁盘的大小| 4095 GB <sup>2</sup>|
 
 - <sup>1</sup>54400 GB 限制不适用于 IaaS VM 备份。
-- <sup>2</sup> 我们提供了[个人预览版](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0)，最多可支持 4TB 的磁盘。 
+ 
 
-
-<!-- ms.date: 03/16/2018 -->
+<!-- ms.date: 05/08/2018 -->

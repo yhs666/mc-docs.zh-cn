@@ -1,24 +1,25 @@
 ---
-title: "在 Visual Studio 中使用连接服务添加 Azure 存储 | Microsoft Docs"
-description: "使用 Visual Studio 的“添加连接服务”对话框将 Azure 存储添加到您的应用"
+title: 在 Visual Studio 中使用连接服务添加 Azure 存储 | Microsoft Docs
+description: 使用 Visual Studio 的“添加连接服务”对话框将 Azure 存储添加到你的应用
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
+author: ghogen
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 521ec044-ad4b-4828-8864-01decde2e758
 ms.service: storage
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2017
+origin.date: 03/26/2017
+ms.date: 05/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: 328a614f093f56860867030d035235f4a61473c0
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 16cca24bf0bec7571d41dab08310db4506418e66
+ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>使用 Visual Studio 连接服务添加 Azure 存储
 在 Visual Studio 中，通过使用“添加连接服务”对话框可将以下任何服务连接到 Azure 存储：
@@ -36,7 +37,7 @@ ms.lasthandoff: 06/21/2017
 ## <a name="connect-to-azure-storage-using-the-connected-services-dialog"></a>使用“连接服务”对话框连接到 Azure 存储
 1. 在 Visual Studio 中打开项目
 
-1. 在“解决方案资源管理器”中，右键单击“连接服务”节点，然后在上下文菜单中选择“添加连接服务”。
+1. 在“解决方案资源管理器”中，右键单击“连接服务”节点，并在上下文菜单中选择“添加连接服务”。
    
     ![添加 Azure 连接服务](./media/vs-azure-tools-connected-services-storage/IC796702.png)
 
@@ -44,7 +45,7 @@ ms.lasthandoff: 06/21/2017
    
     ![添加 Azure 存储](./media/vs-azure-tools-connected-services-storage/add-azure-storage.png)
 
-1. 在“Azure 存储”对话框中，选择一个现有的存储帐户，然后选择“添加”。
+1. 在“Azure 存储”对话框中，选择一个现有的存储帐户，并选择“添加”。
    
     如果需要创建存储帐户，请转到下一步。 否则，请跳到步骤 6。
     
@@ -54,16 +55,16 @@ ms.lasthandoff: 06/21/2017
    
    1. 选择对话框底部的“创建新存储帐户”。
 
-   1. 填写“创建存储帐户”对话框，然后选择“创建”。
+   1. 填写“创建存储帐户”对话框，并选择“创建”。
       
-        ![新的 Azure 存储帐户](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
+       ![新的 Azure 存储帐户](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
       
-   1. 显示“Azure 存储”对话框时，新的存储帐户会显示在列表中。 在列表中选择新存储帐户，然后选择“添加”。
+   1. 显示“Azure 存储”对话框时，新的存储帐户会显示在列表中。 在列表中选择新存储帐户，并选择“添加”。
 
-1. 该存储连接服务将显示在项目的“服务引用”节点下。
+1. 该存储连接服务会显示在项目的“服务引用”节点下。
    
-## <a name="how-your-project-is-modified"></a>您的项目的修改情况
-完成该对话框后，Visual Studio 将添加引用并修改特定配置文件。 具体更改情况取决于项目类型： 
+## <a name="how-your-project-is-modified"></a>项目的修改情况
+完成该对话框后，Visual Studio 会添加引用并修改特定配置文件。 具体更改情况取决于项目类型： 
 
 - ASP.NET 项目 - [完成的操作 - ASP.NET 项目](http://go.microsoft.com/fwlink/p/?LinkId=513126)
 - ASP.NET Core 项目 - [完成的操作 - ASP.NET 5 项目](http://go.microsoft.com/fwlink/p/?LinkId=513124) 
@@ -75,3 +76,4 @@ ms.lasthandoff: 06/21/2017
 - [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Azure 存储文档](/storage/)
 
+<!-- Update_Description: update metedata properties -->

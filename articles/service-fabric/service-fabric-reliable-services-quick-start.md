@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 03/16/2018
 ms.date: 04/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: d3fe198ec4343877e12cd041a35992cb6838b835
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: 713c86efe0c4da971259c62722342e01ffedbff5
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services 入门
 > [!div class="op_single_selector"]
@@ -177,7 +177,8 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) 是一种字典实现，可用于将状态可靠地存储在服务中。 利用 Service Fabric 和可靠集合，可以将数据直接存储在服务中而无需外部持久性存储。 可靠集合可让数据具备高可用性。 Service Fabric 通过创建和管理服务的多个 *副本* 来实现此目的。 它还提供一个抽象 API，消除了管理这些副本及其状态转换所存在的复杂性。
+利用 Service Fabric 和可靠集合，可以将数据直接存储在服务中而无需外部持久性存储。 可靠集合可让数据具备高可用性。 Service Fabric 通过创建和管理服务的多个 *副本* 来实现此目的。 它还提供一个抽象 API，消除了管理这些副本及其状态转换所存在的复杂性。
+<!-- Not Available on [IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) -->
 
 可靠集合可以存储任何 .NET 类型（包括自定义类型），但需要注意以下几点：
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 03/21/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: fd917ff5a526d1f3c4faea36169a5a4b8bee2d99
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: e3a0f702e0dda172b724d49fcab35623c75cc90d
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的出站连接
 
@@ -78,6 +78,7 @@ SNAT 端口是根据[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的�
 若要监视负载均衡器基本版的出站连接运行状况，可以使用[用于负载均衡器的 Log Analytics](load-balancer-monitor-log.md) 和用于监视 SNAT 端口耗尽消息的[警报事件日志](load-balancer-monitor-log.md#alert-event-log)。
 
 <a name="defaultsnat"></a>
+<a name="multivipsnat"></a>
 ### <a name="scenario-3-standalone-vm-without-an-instance-level-public-ip-address"></a>方案 3：无实例级公共 IP 地址的独立 VM
 
 在此场景中，VM 不是公共负载均衡器池的一部分（也不是内部标准负载均衡器池的一部分），并且没有分配给它的 ILPIP 地址。 当 VM 创建出站流时，Azure 将此出站流的专用源 IP 地址转换为公共源 IP 地址。 用于此出站流的公共 IP 地址是不可配置的，并且不会影响订阅的公共 IP 资源限制。
@@ -133,7 +134,8 @@ SNAT 端口是根据[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的�
 >[!IMPORTANT]
 >标准 SKU SNAT 编程依据 IP 传输协议并且派生自负载均衡规则。  如果只存在一个 TCP 负载均衡规则，则 SNAT 仅可用于 TCP。 如果只有一个 TCP 负载均衡规则并且 UDP 需要出站 SNAT，请创建从同一个前端到同一个后端池的 UDP 负载均衡规则。  这将触发针对 UDP 的 SNAT 编程。  不需要采用工作规则或运行状况探测。  无论在负载均衡规则中指定了什么传输协议，基本 SKU SNAT 都始终针对 IP 传输协议编写 SNAT 程序。
 
-Azure 向每个 VM 的 NIC IP 配置预先分配 SNAT 端口。 将 IP 配置添加到池后，将会根据后端池的大小预先分配此 IP 配置的 SNAT 端口。 创建出站流后，当流关闭或[空闲超时](#ideltimeout)时，[PAT](#pat) 动态使用（不超过预先分配的限制）和释放这些端口。
+Azure 向每个 VM 的 NIC IP 配置预先分配 SNAT 端口。 将 IP 配置添加到池后，将会根据后端池的大小预先分配此 IP 配置的 SNAT 端口。 创建出站流后，当流关闭或[空闲超时](#idletimeout)时，[PAT](#pat) 动态使用（不超过预先分配的限制）和释放这些端口。
+<!-- Should be #idletimeout -->
 
 下表显示了针对后端池大小层的 SNAT 端口预分配：
 
@@ -248,5 +250,5 @@ SNAT 端口分配特定于 IP 传输协议（TCP 和 UDP 是分别维护的）�
 - 详细了解[负载均衡器](load-balancer-overview.md)。
 <!-- Not Avaiable on - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md) -->
 - 详细了解[网络安全组](../virtual-network/virtual-networks-nsg.md)。
-- 了解 Azure 的部分其他关键[网络功能](../networking/networking-overview.md)。
+<!-- Not Avaiable on  [networking capabilities](../networking/networking-overview.md) -->
 <!--Update_Description: update meta properties, wording update, update link -->

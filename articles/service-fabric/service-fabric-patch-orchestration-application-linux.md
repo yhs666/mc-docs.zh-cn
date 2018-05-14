@@ -1,11 +1,11 @@
 ---
-title: "适用于 Linux 的 Azure Service Fabric 修补业务流程应用程序 | Azure"
-description: "用于在 Linux Service Fabric 群集中自动修补操作系统的应用程序。"
+title: 适用于 Linux 的 Azure Service Fabric 修补业务流程应用程序 | Azure
+description: 用于在 Linux Service Fabric 群集中自动修补操作系统的应用程序。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 01/22/2018
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 25c5dadab41e51bb2097cd8f28a776bf8a8a97df
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: ae69eb86b812d5135898651bc5df5d797ed8583e
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>在 Service Fabric 群集中修补 Linux 操作系统
 
@@ -241,7 +241,8 @@ RejectedList | 默认值为 "" | 此更新拒绝的修补程序列表
 
 修补业务流程应用日志是作为 Service Fabric 运行日志的一部分进行收集的。
 
-在想要通过所选的诊断工具/管道捕获日志的情况下使用。 修补业务流程应用程序使用以下固定的提供程序 ID 通过 [eventsource](https://docs.azure.cn/zh-cn/dotnet/api/system.diagnostics.tracing.eventsource?view=azure-dotnet?view=netstandard-2.0) 记录事件
+在想要通过所选的诊断工具/管道捕获日志的情况下使用。
+<!-- Not Available on [eventsource](https://docs.azure.cn/zh-cn/dotnet/api/system.diagnostics.tracing.eventsource?view=azure-dotnet?view=netstandard-2.0) -->
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
