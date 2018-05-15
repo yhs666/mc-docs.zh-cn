@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 03/09/2018
-ms.date: 04/16/2018
+ms.date: 05/14/2017
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 19dfdb576897ae8dddd3237d94e19cfc3777d17f
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 0897ad7a2addafb24f057bff2028502cc407c45b
+ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 <!-- A-series, Av2-series, D-series, Dv2-series, DS-series*, DSv2-series* -->
 <!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
@@ -104,16 +104,15 @@ ACU：210-250
 
 ACU：210-250
 
-| 大小              | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 临时存储的最大吞吐量：IOPS/读取 MBps/写入 MBps | 最大的数据磁盘/吞吐量：IOPS | 最大 NIC 数/预期网络带宽 (MBps) |
-|-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1_v2    | 1         | 3.5         | 50             | 3000/46/23                                           | 4/4x500                         | 2 / 750                 |
-| Standard_D2_v2    | 2         | 7           | 100            | 6000/93/46                                           | 8/8x500                         | 2 / 1500                     |
-| Standard_D3_v2    | 4         | 14          | 200            | 12000/187/93                                         | 16/16x500                         | 4 / 3000                     |
-| Standard_D4_v2    | 8         | 28          | 400            | 24000/375/187                                        | 32/32x500                       | 8 / 6000                     |
-| Standard_D5_v2    | 16        | 56          | 800            | 48000/750/375                                        | 64/64x500                       | 8 / 12000  |
+| 大小           | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 临时存储的最大吞吐量：IOPS/读取 MBps/写入 MBps | 最大数据磁盘数 | 吞吐量：IOPS | 最大 NIC 数/预期网络带宽 (MBps) |
+|----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
+| Standard_D1_v2 | 1    | 3.5         | 50                     | 3000/46/23                                             | 4              | 4x500            | 2 / 750                                      |
+| Standard_D2_v2 | 2    | 7           | 100                    | 6000/93/46                                             | 8              | 8x500            | 2 / 1500                                     |
+| Standard_D3_v2 | 4    | 14          | 200                    | 12000/187/93                                           | 16             | 16x500           | 4 / 3000                                       |
+| Standard_D4_v2 | 8    | 28          | 400                    | 24000/375/187                                          | 32             | 32x500           | 8 / 6000                                       |
+| Standard_D5_v2 | 16   | 56          | 800                    | 48000/750/375                                          | 64             | 64x500           | 8 / 12000                                    |
 <!-- Please acknowledge that the Max Data Disks are 4,8,16,32,64 for DV2-series-->
 
-<br>
 
 ## <a name="ds-series"></a>DS 系列
 
@@ -191,7 +190,7 @@ ACU：50-100
 
 ## <a name="basic-a"></a>基本 A
 
-|大小 - 大小\名称 | vCPU |内存|NIC 数（最大值）|最大临时磁盘大小 |每个  数据磁盘（每个 1023 GB）|最大 IOPS（每个磁盘 300 次）|
+|大小 - 大小\名称 | vCPU |内存|NIC 数（最大值）|最大临时磁盘大小 |最大 数据磁盘（每个 1023 GB）|最大 IOPS（每个磁盘 300 次）|
 |---|---|---|---|---|---|---|
 |A0\Basic_A0|1|768 MB|2| 20 GB|1|1x300|
 |A1\Basic_A1|1|1.75 GB|2| 40 GB |2|2x300|
@@ -201,5 +200,7 @@ ACU：50-100
 <!-- Correct, No need to update-->
 <!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
 
+注意，经典 VM 的数据磁盘数可能会低于资源管理器 VM 的数据磁盘数。
 <!--Update_Description: wording update-->
+<!--ms.date: 05/14/2018-->
 <!--PENDING TO Dv3-series, Dsv3-series, B-series -->

@@ -1,26 +1,26 @@
 ---
-title: "Azure Linux VM 大小 - 计算优化 | Azure"
-description: "列出 Azure 中适用于 Linux 虚拟机的各种计算优化大小。 针对此系列中的大小列出了 vCPU、数据磁盘和 NIC 的数量，以及存储吞吐量和网络带宽。"
+title: Azure Linux VM 大小 - 计算优化 | Azure
+description: 列出 Azure 中适用于 Linux 虚拟机的各种计算优化大小。 针对此系列中的大小列出了 vCPU、数据磁盘和 NIC 的数量，以及存储吞吐量和网络带宽。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 11/08/2017
-ms.date: 01/29/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2da4ed9a71fe485294dedfb9daa0d477f7681748
-ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
+ms.openlocfilehash: 86bbcc6c2868d048d9c3f67cc10ac407b7ccb232
+ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>计算优化虚拟机大小
 
@@ -39,5 +39,5 @@ ms.lasthandoff: 01/23/2018
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
 <!--The parent file of includes file of virtual-machines-common-sizes-compute.md-->
-<!--ms.date:01/29/2018-->
+<!--ms.date:05/14/2018-->
 <!-- Update_Description: update meta properties -->

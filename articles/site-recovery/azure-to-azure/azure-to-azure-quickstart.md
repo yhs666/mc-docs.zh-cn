@@ -1,6 +1,6 @@
 ---
-title: "将 Azure VM 复制到另一个 Azure 区域（预览）"
-description: "本快速入门提供将一个 Azure 区域中的 Azure VM 复制到其他区域所需的步骤。"
+title: 将 Azure VM 复制到另一个 Azure 区域（预览）
+description: 本快速入门提供将一个 Azure 区域中的 Azure VM 复制到其他区域所需的步骤。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
@@ -13,11 +13,11 @@ origin.date: 11/01/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 67565eed23a63e8dab174830447cd40cd3bc9aaa
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 79aa8fa0e18aa618dc786781e35750c7ac1fde7d
+ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>将 Azure VM 复制到另一个 Azure 区域（预览）
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/29/2017
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-通过 http://portal.azure.cn 登录到 Azure 门户。
+在 http://portal.azure.cn 登录 Azure 门户。
 
 ## <a name="enable-replication-for-the-azure-vm"></a>为 Azure VM 启用复制
 
@@ -71,5 +71,6 @@ ms.lasthandoff: 12/29/2017
 在本快速入门中，将单个 VM 复制到了次要区域。
 
 > [!div class="nextstepaction"]
-> [为 Azure VM 配置灾难恢复](azure-to-azure-tutorial-enable-replication.md)
+> [为 Azure VM 配置灾难恢复](../azure-to-azure-tutorial-enable-replication.md)
+<!-- URL is Correct to Add ../ forazure-to-azure-tutorial-enable-replication.md -->
 <!-- Update_Description: new articles on azure to azure quickstart -->

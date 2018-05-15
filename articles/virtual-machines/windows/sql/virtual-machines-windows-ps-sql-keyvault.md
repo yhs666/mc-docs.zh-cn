@@ -1,11 +1,11 @@
 ---
-title: "将 Key Vault 与 Azure 中 Windows VM 上的 SQL Server 集成 (Resource Manager) | Azure"
-description: "了解如何自动配置用于 Azure 密钥保管库的 SQL Server 加密。 本主题说明如何将 Azure 密钥保管库集成用于通过 Resource Manager 创建的 SQL Server 虚拟机。"
+title: 将 Key Vault 与 Azure 中 Windows VM 上的 SQL Server 集成 (Resource Manager) | Azure
+description: 了解如何自动配置用于 Azure 密钥保管库的 SQL Server 加密。 本主题说明如何将 Azure 密钥保管库集成用于通过 Resource Manager 创建的 SQL Server 虚拟机。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: cd66dfb1-0e9b-4fb0-a471-9deaf4ab4ab8
 ms.service: virtual-machines-sql
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/23/2017
-ms.date: 03/19/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: a88efbeda4f867ef5de266c7b756c522ecac385e
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: d971d38fd27616a88c0b1c593e13e49db0d25d1e
+ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>在 Azure 虚拟机上配置 SQL Server 的 Azure Key Vault 集成 (Resource Manager)
 > [!div class="op_single_selector"]
@@ -58,10 +58,17 @@ SQL Server 加密功能多种多样，包括[透明数据加密 (TDE)](https://m
 完成后，单击“SQL Server 配置”边栏选项卡底部的“确定”按钮保存更改。
 
 > [!NOTE]
+> 我们在此处创建的凭据名称将在稍后映射到 SQL 登录名。 这允许 SQL 登录名访问密钥保管库。 
+>
+>
+
+> [!NOTE]
 > 还可以使用模板配置 AKV 集成。 有关详细信息，请参阅 [Azure quickstart template for Azure Key Vault integration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update)（用于 Azure 密钥保管库集成的 Azure 快速入门模板）。
 > 
 > 
 
 [!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
+<!--The parent file of includes file of virtual-machines-sql-server-akv-next-steps.md-->
+<!--ms.date:05/14/2018-->
 <!--Update_Description: update meta data, update link -->

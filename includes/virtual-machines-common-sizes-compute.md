@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 03/09/2018
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: f565cdf1dac86ab14580cb9c0438439edb56d149
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 7cf5c9f3b44568c391b6086fc1ac390d6dd1b21a
+ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 <!-- F-series, Fs-series* -->
 

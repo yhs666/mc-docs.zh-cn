@@ -42,7 +42,7 @@
 
 客户使用托管磁盘是否存在任何规模限制？
 
-托管磁盘取消了与存储帐户相关的限制。 但是，每个订阅的托管磁盘数默认限制为 2,000 个。 可以致电支持人员增加此限制数。
+托管磁盘取消了与存储帐户相关的限制。 但是，订阅的最大限制（也是默认限制）为每个区域、每个磁盘类型 10,000 个托管磁盘。
 
 **是否可以创建托管磁盘的增量快照？**
 
@@ -260,5 +260,5 @@ Azure 支持的最大页 blob 大小是 8 TB (8,191 GB)。 我们不支持将大
 
 若要提出功能请求，请将请求和想法提交到 [Azure 存储反馈论坛](https://www.azure.cn/support/support-azure/)。
 
-<!--Update_Description: update meta properties, wording update -->
-<!--ms.date: 04/16/2018-->
+<!--Update_Description: wording update, update link-->
+<!--ms.date: 05/14/2018-->

@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 中管理 Linux VM 的可用性 | Azure"
-description: "了解如何使用多个虚拟机来确保 Linux 应用程序在 Azure 中的高可用性"
+title: 在 Azure 中管理 Linux VM 的可用性 | Azure
+description: 了解如何使用多个虚拟机来确保 Linux 应用程序在 Azure 中的高可用性
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 12/06/2017
-ms.date: 01/08/2018
+origin.date: 03/27/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 557ddbb19ae35bc972901a0507a4c4d104788c9a
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 96b7ea8fd3aad9732985143dd21bd72b63df1c5e
+ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>管理 Linux 虚拟机的可用性
 
@@ -35,5 +35,5 @@ ms.lasthandoff: 01/05/2018
 若要了解对虚拟机进行负载均衡的详细信息，请参阅[对虚拟机进行负载均衡](../virtual-machines-linux-load-balance.md)。
 
 <!--The parent file of includes file of virtual-machines-common-manage-availability.md-->
-<!--ms.date:01/08/2018-->
+<!--ms.date:05/14/2017-->
 <!--Update_Description: update meta properties -->

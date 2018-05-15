@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 origin.date: 11/21/2017
 ms.date: 01/01/2018
 ms.author: v-yeche
-ms.openlocfilehash: c5e905f3598b8f8ba85dda25ee7944aad8c9a940
-ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
+ms.openlocfilehash: 9169001aebb4dc619b5600a081fc1b1cc8cdb324
+ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 到 Azure VM 复制问题故障排除
 
@@ -110,15 +110,15 @@ ms.lasthandoff: 04/18/2018
 
 错误代码 | 可能的原因 | 建议
 --- | --- | ---
-150039<br></br>**消息**：逻辑单元号 (LUN) 为 (LUNValue) 的 Azure 数据磁盘 (DiskName) (DiskURI) 未映射到具有相同 LUN 值的 VM 报告的相应磁盘。 | - 新的数据磁盘已附加到 VM，但未初始化。</br></br>- VM 中的数据磁盘未正确报告附加到 VM 的磁盘的 LUN 值。| 确保数据磁盘已初始化，然后重试该操作。</br></br>对于 Windows：[附加并初始化新磁盘](/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk)。</br></br>对于 Linux：[在 Linux 中初始化新数据磁盘](/virtual-machines/linux/classic/add-disk)。
+150039<br></br>**消息**：逻辑单元号 (LUN) 为 (LUNValue) 的 Azure 数据磁盘 (DiskName) (DiskURI) 未映射到具有相同 LUN 值的 VM 报告的相应磁盘。 | - 新的数据磁盘已附加到 VM，但未初始化。</br></br>- VM 中的数据磁盘未正确报告附加到 VM 的磁盘的 LUN 值。| 确保数据磁盘已初始化，然后重试该操作。</br></br>对于 Windows：[附加并初始化新磁盘](/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk)。</br></br>对于 Linux：[在 Linux 中初始化新数据磁盘](/virtual-machines/linux/add-disk)。
 <!-- URL is correct on add-disk.md -->
 
 ### <a name="fix-the-problem"></a>解决问题
 确保数据磁盘已初始化，然后重试该操作：
 
 - 对于 Windows：[附加并初始化新磁盘](/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk)。
-- 对于 Linux：[在 Linux 中初始化新数据磁盘](/virtual-machines/linux/classic/add-disk)。
-<!-- URL is CORRECT on add-disk.md -->
+- 对于 Linux：[在 Linux 中初始化新数据磁盘](/virtual-machines/linux/add-disk)。
+<!-- URL is CORRECT WITHOUT CLASSIC on add-disk.md -->
 
 如果问题仍然存在，请联系支持部门。
 

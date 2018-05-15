@@ -9,11 +9,11 @@ ms.topic: conceptual
 origin.date: 04/08/2018
 ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 54dc860af45f3c049b3e0a73d5e3a501a90e0e85
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: d2f4f961d2c8e71554bdc0bb2c947c13dc5b6a77
+ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware 和物理服务器到 Azure 的复制支持矩阵
 
@@ -136,6 +136,7 @@ IPv4 | 是
 保留源 IP 地址 | 是
 Azure 虚拟网络服务终结点<br/><br/> （Azure 存储防火墙和虚拟网络） | 否
 
+<a name="support-for-storage"></a>
 ## <a name="storage"></a>存储
 **组件** | **支持**
 --- | ---
@@ -190,6 +191,7 @@ Azure 虚拟网络服务终结点<br/><br/> （Azure 存储防火墙和虚拟网
 HUB | 是
 托管磁盘 | 是
 
+<a name="failed-over-azure-vm-requirements"></a>
 ## <a name="azure-vm-requirements"></a>Azure VM 要求
 
 复制到 Azure 的本地 VM 必须满足此表中汇总的 Azure VM 要求。 Site Recovery 运行先决条件检查时，如果不符合某些要求，该检查将失败。

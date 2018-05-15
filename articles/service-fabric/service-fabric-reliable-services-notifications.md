@@ -1,6 +1,6 @@
 ---
-title: "Reliable Services 通知 | Azure"
-description: "Service Fabric Reliable Services 通知的概念文档"
+title: Reliable Services 通知 | Azure
+description: Service Fabric Reliable Services 通知的概念文档
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 06/29/2017
 ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: dd9d49d2a3c878ee8ec1e7c8a03665eaadc31519
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 8f866de34c00efaebb21e9e4b672171bbbb46bf4
+ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services 通知
 通知可让客户端跟踪对它们感兴趣的对象所进行的更改。 两种类型的对象支持通知：*可靠状态管理器*和*可靠字典*。
@@ -219,6 +219,6 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 * [Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services 备份和还原（灾难恢复）](service-fabric-reliable-services-backup-restore.md)
-* [Reliable Collections 的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+<!-- Not Available on * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)-->
 
 <!--Update_Description: update meta properties, wording update -->

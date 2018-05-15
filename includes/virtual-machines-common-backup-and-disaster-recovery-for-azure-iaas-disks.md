@@ -81,7 +81,7 @@ IaaS 应用程序数据问题是另一种可能的情况。 假设有一个应�
 
 ## <a name="disaster-recovery-solution-azure-backup"></a>灾难恢复解决方案：Azure 备份 
 
-[Azure 备份服务](https://www.azure.cn/home/features/backup/)用于备份和 DR，适用于[托管磁盘](../articles/virtual-machines/windows/managed-disks-overview.md)和[非托管磁盘](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks)。 可以创建备份作业，其中包含基于时间的备份、VM 轻松还原和备份保留策略。 
+[Azure 备份服务](https://www.azure.cn/home/features/back-up/)用于备份和 DR，适用于[托管磁盘](../articles/virtual-machines/windows/managed-disks-overview.md)和[非托管磁盘](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks)。 可以创建备份作业，其中包含基于时间的备份、VM 轻松还原和备份保留策略。 
 
 如果将[高级存储磁盘](../articles/virtual-machines/windows/premium-storage.md)、[托管磁盘](../articles/virtual-machines/windows/managed-disks-overview.md)或其他类型磁盘与[本地冗余存储](../articles/storage/common/storage-redundancy.md#locally-redundant-storage)选项结合使用，请务必创建定期 DR 备份。 Azure 备份将数据存储到恢复服务保管库中，以供长期保留。 对备份恢复服务保管库选择[异地冗余存储](../articles/storage/common/storage-redundancy.md#geo-redundant-storage)选项。 该选项可确保将备份复制到其他 Azure 区域，以免受到区域灾难影响。
 
@@ -250,5 +250,6 @@ IaaS 应用程序数据问题是另一种可能的情况。 假设有一个应�
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png
-<!--Update_Description: update link -->
-<!--ms.date: 01/29/2018-->
+<!--Update_Description: update link, wording update -->
+<!--Notice: We keep the original link due to the new articles is not releasement --> 
+<!--ms.date: 05/14/2018-->

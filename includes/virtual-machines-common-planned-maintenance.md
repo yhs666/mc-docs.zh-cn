@@ -6,18 +6,18 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 03/09/2018
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: ddb02663f8e2d88d437bbe8165493fa000174472
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 12a4d1075530efbb394967a6df6f38031656bff7
+ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性、性能及安全性。 此类更新包括修补宿主环境（例如操作系统、虚拟机监控程序以及主机上部署的各种代理）中的软件组件、升级网络组件以及硬件解除授权等多项内容。 大多数此类更新在执行时不会影响托管的虚拟机。 但是，也会存在更新产生影响的情况：
 
-- 如果维护不需重新启动，Azure 会在更新主机时使用就地迁移来暂停 VM。
+- 如果可进行无需重启的更新，则在更新主机或虚拟机完全移动到已更新主机时，Azure 会使用内存保留维护来暂停 VM。
 
 - 如果维护需重新启动，系统会告知计划维护的时间。 在这种情况下，系统还会提供一个时间范围，方便在合适的时间自行启动维护。
 
@@ -27,13 +27,13 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 
 有关管理计划维护的“操作说明”信息，请参阅 [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) 或 [Windows](../articles/virtual-machines/windows/maintenance-notifications.md) 的“处理计划维护通知”。
 
-## <a name="in-place-vm-migration"></a>就地 VM 迁移
+## <a name="memory-preserving-maintenance"></a>内存保留维护
 
-如果更新后不需要完全重新启动，可以使用就地实时迁移。 在更新过程中，虚拟机会暂停约 30 秒，在 RAM 中预留内存，而宿主环境则会应用所需的更新和修补程序。 然后，虚拟机会进行恢复，其时钟会自动同步。
+如果更新不需要完全重新启动，则会使用内存保留维护机制来限制对虚拟机的影响。 虚拟机会暂停最多 30 秒，保留在 RAM 中的内存，而宿主环境则会应用必需的更新和修补程序，或将 VM 移动到已更新的主机。 然后，虚拟机会进行恢复，其时钟会自动同步。 
 
 对于可用性集中的 VM，一次更新一个更新域。 一个更新域 (UD) 中的所有 VM 都会进行暂停、更新和恢复，然后计划内维护就会转到下一 UD。
 
-这些类型的更新可能会影响某些应用程序。 执行实时事件处理（例如媒体流或转码）或高吞吐量网络方案的应用程序可能无法容忍暂停 30 秒钟。 <!-- sooooo, what should they do? --> 
+这些类型的更新可能会影响某些应用程序。 执行实时事件处理（例如媒体流或转码）或高吞吐量网络方案的应用程序可能无法容忍暂停 30 秒钟。 <!-- sooooo, what should they do? --> 如果将 VM 移动到不同的主机，则某些敏感的工作负荷可能会在导致虚拟机暂停的几分钟内出现略微的性能下降。 
 
 ## <a name="maintenance-requiring-a-reboot"></a>需要重新启动的维护
 
@@ -47,9 +47,11 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 
 自助式维护时段过后，就会开始**计划维护时段**。 在这段时间内，仍可以查询维护时段，但不能再自行启动维护。
 
+有关管理需要重启的维护的信息，请参阅 [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) 或 [Windows](../articles/virtual-machines/windows/maintenance-notifications.md)的“处理计划维护通知”。 
+
 ## <a name="availability-considerations-during-planned-maintenance"></a>计划内维护期间的可用性注意事项 
 
-如果决定一直等到计划内维护时段，则为了保持 VM 的最高可用性，需注意一些事项。 
+如果你决定一直等到计划内维护时段，则为了保持 VM 的最高可用性，需注意一些事项。 
 
 ### <a name="paired-regions"></a>配对区域
 
@@ -66,4 +68,4 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 
 有关配置虚拟机以实现高可用性的详细信息，请参阅“管理 [Windows](../articles/virtual-machines/windows/manage-availability.md) 或 [Linux](../articles/virtual-machines/linux/manage-availability.md) 虚拟机的可用性”。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update, update link -->

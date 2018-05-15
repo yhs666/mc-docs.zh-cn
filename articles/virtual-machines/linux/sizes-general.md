@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 11/08/2017
-ms.date: 4/10/2018
+origin.date: 04/10/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: 181536a0d976833edfdfe9f11ef97ab040eddac2
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: b155ebdf3f912d5587f3eee9123bcde996e053a7
+ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>常规用途虚拟机大小
 
@@ -39,4 +39,5 @@ ms.lasthandoff: 04/09/2018
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
 <!--The parent file of includes file of virtual-machines-common-sizes-general.md-->
-<!--ms.date:04/10/2018-->
+<!--ms.date:05/14/2018-->
+<!-- Update_Description: update meta properties -->

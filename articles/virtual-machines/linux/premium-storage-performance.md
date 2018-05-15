@@ -1,6 +1,6 @@
 ---
-title: "Azure 高级存储：针对 Windows VM 的性能进行设计 | Azure"
-description: "使用 Azure 高级存储设置高性能应用程序。 高级存储为 Azure 虚拟机上运行的 I/O 密集型工作负载提供高性能、低延迟的磁盘支持。"
+title: Azure 高级存储：针对 Windows VM 的性能进行设计 | Azure
+description: 使用 Azure 高级存储设置高性能应用程序。 高级存储为 Azure 虚拟机上运行的 I/O 密集型工作负载提供高性能、低延迟的磁盘支持。
 services: virtual-machines-windows
 documentationcenter: na
 author: rockboyfor
@@ -13,18 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 11/27/2017
+ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: ba138cf170fd3f62f2bf01fe6788476b9b1ecc59
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 5492d291350f7eeee42e6b103528f0ef819de3fe
+ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 05/11/2018
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]
 
-<!--Not Available the parent file of includes file of virtual-machines-common-premium-storage-performance.md-->
-<!--ms.date:11/27/2017-->
-
-<!--Not Available the parent file of includes file of virtual-machines-common-premium-storage-performance.md-->
-<!--ms.date:11/27/2017-->
+<!--The parent file of includes file of virtual-machines-common-premium-storage-performance.md-->
+<!--ms.date:05/14/2017-->
+<!-- Update_Description: update meta properties -->

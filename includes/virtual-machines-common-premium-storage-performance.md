@@ -94,12 +94,12 @@ PerfMon 计数器适用于处理器、内存以及服务器的每个逻辑磁盘
 | **最大内存** |顺利运行应用程序所需的内存量 |提交的在用字节数百分比 |使用 vmstat |
 | **最大CPU** |顺利运行应用程序所需的 CPU 速度 |处理器时间百分比 |%util |
 
-详细了解 [iostat](http://linuxcommand.org/man_pages/iostat1.html) 和 [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx)。
+详细了解 [iostat](https://linux.die.net/man/1/iostat) 和 [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx)。
 
 ## <a name="optimizing-application-performance"></a>优化应用程序性能
 影响运行在高级存储上的应用程序的性能的主要因素包括：IO 请求的性质、VM 大小、磁盘大小、磁盘数目、磁盘缓存、多线程处理和队列深度。 可使用系统提供的设置来控制其中部分因素。 大多数应用程序可能不提供直接更改 IO 大小和队列深度的选项。 例如，如果使用 SQL Server，则不能选择 IO 大小和队列深度。 SQL Server 会选择最佳 IO 大小和队列深度值以获取最大性能。 必须了解两类因素对应用程序性能的影响，以便根据性能需要预配相应的资源。
 
-此部分从始至终都需要参考所创建的应用程序要求清单，以便确定需要将应用程序性能优化到何种程度。 据此，可确定此部分中需要调整的因素。 若要了解每个因素对应用程序性能的影响，可在应用程序安装以后运行基准测试工具。 请参阅本文末尾的 [基准测试](#benchmarking) 部分，了解需要执行哪些步骤才能在 Windows 和 Linux VM 上运行常见的基准测试工具。
+此部分从始至终都需要参考所创建的应用程序要求清单，以便确定需要将应用程序性能优化到何种程度。 据此，可确定此部分中需要调整的因素。 若要了解每个因素对应用程序性能的影响，可在应用程序安装以后运行基准测试工具。 请参阅本文末尾的 [基准测试](#Benchmarking) 部分，了解需要执行哪些步骤才能在 Windows 和 Linux VM 上运行常见的基准测试工具。
 
 ### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>迅速优化 IOPS、吞吐量和延迟
 下表汇总了所有性能因素以及进行 IOPS、吞吐量和延迟优化所需的步骤。 此汇总以后的部分将更深入地介绍每个因素。
@@ -152,7 +152,7 @@ IO 大小是较为重要的因素之一。 IO 大小是由应用程序生成的�
 >
 >
 
-若要了解 IO 大小对应用程序性能的影响，可在 VM 和磁盘上运行基准测试工具。 创建多个测试运行并对每个运行使用不同的 IO 大小，即可观察相应的影响。 如需更多详细信息，请参阅本文末尾的 [基准测试](#benchmarking) 部分。
+若要了解 IO 大小对应用程序性能的影响，可在 VM 和磁盘上运行基准测试工具。 创建多个测试运行并对每个运行使用不同的 IO 大小，即可观察相应的影响。 如需更多详细信息，请参阅本文末尾的 [基准测试](#Benchmarking) 部分。
 
 ## <a name="high-scale-vm-sizes"></a>大型 VM 大小
 开始设计应用程序时，首要操作之一是选择用于承载应用程序的 VM。 高级存储提供高规格 VM 大小，可以运行需要更高计算能力和高的本地磁盘 I/O 性能的应用程序。 这些 VM 为本地磁盘提供更快的处理器、更高的内存内核比和固态驱动器 (SSD)。 DS、DSv2 和 GS 系列 VM 都是支持高级存储的高规格 VM 的例子。
@@ -410,7 +410,7 @@ Iometer 使用一个测试文件，该文件存储在将要运行基准测试的
 ![](media/premium-storage-performance/image10.png)
 
 ### <a name="fio"></a>FIO
-FIO 是一种常用工具，可以在 Linux VM 上对存储进行基准测试。 它可以灵活地选择不同的 IO 大小、顺序或随机读取和写入。 它生成的工作线程或进程可以执行指定的 I/O 操作。 可以使用作业文件指定每个工作线程必须执行的 I/O 操作类型。 我们根据以下示例所描述的方案创建了一个作业文件。 可以更改这些作业文件中的规范，以便对在高级存储上运行的不同工作负荷进行基准测试。 在这些示例中，我们使用运行 **Ubuntu** 的标准 DS 14 VM。 运行基准测试之前，请使用 [基准测试部分](#benchmarking) 开头所述的相同设置来预热缓存。
+FIO 是一种常用工具，可以在 Linux VM 上对存储进行基准测试。 它可以灵活地选择不同的 IO 大小、顺序或随机读取和写入。 它生成的工作线程或进程可以执行指定的 I/O 操作。 可以使用作业文件指定每个工作线程必须执行的 I/O 操作类型。 我们根据以下示例所描述的方案创建了一个作业文件。 可以更改这些作业文件中的规范，以便对在高级存储上运行的不同工作负荷进行基准测试。 在这些示例中，我们使用运行 **Ubuntu** 的标准 DS 14 VM。 运行基准测试之前，请使用 [基准测试部分](#Benchmarking) 开头所述的相同设置来预热缓存。
 
 开始之前，请 [下载 FIO](https://github.com/axboe/fio) 并在虚拟机上安装它。
 
@@ -571,3 +571,4 @@ SQL Server 用户请阅读有关 SQL Server 性能最佳实践的文章：
 
 * [Azure 虚拟机中 SQL Server 的性能最佳做法](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
 * [Azure 高级存储为 Azure VM 中的 SQL Server 提供最高性能](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
+<!-- Update_Description: wording update, update link -->
