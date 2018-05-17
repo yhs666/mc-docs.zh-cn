@@ -13,20 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/21/2018
-ms.date: 03/28/2018
+origin.date: 03/29/2018
+ms.date: 05/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: e713474ba49fcf454c3665eaf668862c2b060e3a
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: a72c1f70f428be4dff9fdd6708f8ca482f6526a9
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>下载用于 S2S VPN 连接的 VPN 设备配置脚本
 
 本文逐步讲解如何使用 Azure 资源管理器下载采用 Azure VPN 网关的 S2S VPN 连接的 VPN 设备配置脚本。 下图展示了概要工作流。
 
 ![download-script](./media/vpn-gateway-download-vpndevicescript/downloaddevicescript.png)
+
+以下设备具有可用的脚本：
+
+[!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
 ## <a name="about"></a>关于 VPN 设备配置脚本
 
@@ -83,27 +87,24 @@ ms.lasthandoff: 04/09/2018
 也可以使用 Azure PowerShell 下载配置脚本，如以下示例中所示：
 
 ```powershell
-$Sub         = "<YourSubscriptionName>"
 $RG          = "TestRG1"
 $GWName      = "VNet1GW"
-$Connection  = "VNet1toSite5"
+$Connection  = "VNet1toSite1"
+```
 
-Login-AzureRmAccount -environmentName AzureChinaCloud
-Set-AzureRmContext -Subscription $Sub
-
-# List the available VPN device models and versions
+# <a name="list-the-available-vpn-device-models-and-versions"></a>列出可用的 VPN 设备型号和版本
 Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice -Name $GWName -ResourceGroupName $RG
 
-# Download the configuration script for the connection
+# <a name="download-the-configuration-script-for-the-connection"></a>下载适用于连接的配置脚本
 Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -ResourceGroupName $RG -DeviceVendor Juniper -DeviceFamily Juniper_SRX_GA -FirmwareVersion Juniper_SRX_12.x_GA
 ```
 
-## <a name="apply-the-configuration-script-to-your-vpn-device"></a>将配置脚本应用到 VPN 设备
+## Apply the configuration script to your VPN device
 
-下载并验证配置脚本后，下一步是将脚本应用到 VPN 设备。 实际过程根据 VPN 设备的品牌和型号而有所不同。 请查阅 VPN 设备的操作手册或说明书。
+After you have downloaded and validated the configuration script, the next step is to apply the script to your VPN device. The actual procedure varies based on your VPN device makes and models. Consult the operation manuals or the instruction pages for your VPN devices.
 
-## <a name="next-steps"></a>后续步骤
+## Next steps
 
-继续配置[站点到站点连接](vpn-gateway-howto-site-to-site-resource-manager-portal.md)。
+Continue configuring your [Site-to-Site connection](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 <!-- Update_Description: wording update -->

@@ -23,14 +23,14 @@
 
 ## <a name="policies"></a>策略
 
-可以使用 [Azure 资源管理器策略](../articles/azure-resource-manager/resource-manager-policy.md)为组织的 [Windows VM](../articles/virtual-machines/windows/policy.md) 和 [Linux VM](../articles/virtual-machines/linux/policy.md) 定义所需行为。 通过使用策略，组织可以在整个企业中强制实施各种约定和规则。 强制实施所需行为有助于消除风险，同时为组织的成功做出贡献。
-
+可以使用 Azure 策略为组织的 [Windows VM](../articles/virtual-machines/windows/policy.md) 和 [Linux VM](../articles/virtual-machines/linux/policy.md) 定义所需行为。 通过使用策略，组织可以在整个企业中强制实施各种约定和规则。 强制实施所需行为有助于消除风险，同时为组织的成功做出贡献。
+<!-- Not Available on [Azure policies](../articles/azure-policy/azure-policy-introduction.md)-->
 ## <a name="role-based-access-control"></a>基于角色的访问控制
 
-使用[基于角色的访问控制 (RBAC)](../articles/active-directory/role-based-access-control-what-is.md)，可以在团队中对职责进行分配，仅向 VM 上的用户授予执行作业所需的访问权限。 可以仅允许某些操作，而不是向 VM 上的每个人授予不受限制的权限。 可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/role) 或 [Azure PowerShell](../articles/active-directory/role-based-access-control-manage-access-powershell.md) 为 [Azure 门户](../articles/active-directory/role-based-access-control-configure.md)中的 VM 配置访问控制。
+使用[基于角色的访问控制 (RBAC)](../articles/role-based-access-control/overview.md)，可以在团队中对职责进行分配，仅向 VM 上的用户授予执行作业所需的访问权限。 可以仅允许某些操作，而不是向 VM 上的每个人授予不受限制的权限。 可以使用 [Azure CLI](https://docs.azure.cn/zh-cn/cli/role?view=azure-cli-latest) 或 [Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md) 为 [Azure 门户](../articles/role-based-access-control/role-assignments-portal.md)中的 VM 配置访问控制。
 
 ## <a name="next-steps"></a>后续步骤
 <!-- Not Avaiable on - Walk through the steps to monitor virtual machine security by using Azure Security Center for [Linux](../articles/virtual-machines/linux/tutorial-azure-security.md) or [Windows](../articles/virtual-machines/windows/tutorial-azure-security.md). -->
 
-<!--Update_Description: new articles on VM security policy -->
-<!--ms.date: 10/16/2017-->
+<!--Update_Description: wording update, update link-->
+<!--ms.date: 05/14/2018-->

@@ -1,6 +1,10 @@
+---
+ title: include 文件 description: include 文件 services: billing author: rothja ms.service: billing ms.topic: include origin.date: 03/30/2018 ms.date: 05/08/2018 ms.author: v-junlch ms.custom: include file
+---
+
 | 资源 | 默认限制 | 最大限制 |
 | --- | --- | --- |
-| 每个订阅的[存储帐户数](../articles/storage/common/storage-create-storage-account.md)<sup>2</sup> |200 |250 |
+| 每个订阅在每个区域中的[存储帐户数](../articles/storage/common/storage-create-storage-account.md)<sup>2</sup> |200 |250 |
 | 每个订阅的[云服务数](../articles/cloud-services/cloud-services-choose-me.md) |20 个 |200 |
 | 每个订阅的[本地网络数](http://msdn.microsoft.com/library/jj157100.aspx) |10 个 |500 |
 | 每个订阅的 SQL 数据库服务器数 |6 |150 |
@@ -12,7 +16,7 @@
 
 <sup>1</sup>特小实例作为一项核心至核心限制计数，即使使用了部分核心。
 
-<sup>2</sup>这包括标准和高级存储帐户。 如果需要的存储帐户超过 200 个，请通过 [Azure 支持](https://www.azure.cn/support/contact/)提出请求。 Azure 存储团队将评审你的业务案例，最多可以批准 250 个存储帐户。 
+<sup>2</sup>此存储帐户限制包括标准和高级存储帐户。 如果在单个区域中需要的存储帐户多于 200 个，请通过 [Azure 支持](https://www.azure.cn/support/faq/)提出请求。 Azure 存储团队将评审你的业务案例，最多可以批准 250 个存储帐户。 
 
 
-<!-- ms.date: 04/08/2018 -->
+<!-- ms.date: 05/08/2018 -->

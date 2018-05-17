@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 origin.date: 07/11/2017
 ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: d2487d9681e7ed69ddc400884a4f53ea502c8fc6
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 0f1e730c36919abdcb657ff111f290ecac3feff6
+ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Azure 网络监视概述
 
@@ -52,7 +52,8 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>网络观察程序中基于角色的访问控制 (RBAC)
 
-网络观察程序使用 [Azure 基于角色的访问控制 (RBAC) 模型](../role-based-access-control/overview.md)。 网络观察程序需要以下权限。 请务必确保用于启动网络观察程序 API 或者在门户中使用网络观察程序的角色具有所需的权限。
+网络观察程序使用 [Azure 基于角色的访问控制 (RBAC) 模型](../active-directory/role-based-access-control-what-is.md)。 网络观察程序需要以下权限。 请务必确保用于启动网络观察程序 API 或者在门户中使用网络观察程序的角色具有所需的权限。
+<!-- Pending to (../role-based-access-control/overview.md)-->
 
 |资源| 权限|
 |---|---| 
@@ -98,10 +99,12 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="diagnostic-logs"></a>诊断日志
 
-定期和自发性事件由网络资源创建，记录在存储帐户中并发送到事件中心或 Log Analytics。 这些日志提供资源运行状况的见解。 可在 Power BI 和 Log Analytics 等工具中查看这些日志。
+定期的和自发性的事件由网络资源创建，记录在存储帐户中并发送到事件中心。 这些日志提供资源运行状况的见解。 可在 Power BI 之类的工具中查看这些日志。
+<!-- Not Available on Log Analytics -->
 <!-- Not Available on [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) -->
 
-诊断日志适用于[负载均衡器](../load-balancer/load-balancer-monitor-log.md)、路由和[应用程序网关](../application-gateway/application-gateway-diagnostics.md)。
+诊断日志适用于路由和[应用程序网关](../application-gateway/application-gateway-diagnostics.md)。
+<!-- Not Available on [Load Balancer](../load-balancer/load-balancer-monitor-log.md) -->
 <!-- Not Available on [Network Security Groups](../virtual-network/virtual-network-nsg-manage-log.md) -->
 
 网络观察程序提供诊断日志视图。 此视图包含所有支持诊断日志记录的网络资源。 从此视图中，可以快速方便地启用和禁用网络资源。

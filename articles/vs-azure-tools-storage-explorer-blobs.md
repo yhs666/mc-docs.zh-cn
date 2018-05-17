@@ -1,10 +1,10 @@
 ---
-title: 使用存储资源管理器（预览版）管理 Azure Blob 存储资源 | Azure
+title: 使用存储资源管理器（预览版）管理 Azure Blob 存储资源 | Microsoft Docs
 description: 使用存储资源管理器（预览版）管理 Azure Blob 容器和 Blob
 services: storage
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: cawa
+manager: paulyuk
 editor: ''
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
 ms.service: storage
@@ -13,24 +13,24 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/18/2016
-ms.date: 03/30/2017
+ms.date: 05/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: 07c6f5710c1e7b05b95de6ec290a5b94e7ab80c8
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: ed09a82836d73e8232e62ddf7baa76837c6f4fdf
+ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>使用存储资源管理器（预览版）管理 Azure Blob 存储资源
 ## <a name="overview"></a>概述
-[Azure Blob 存储](./storage/blobs/storage-dotnet-how-to-use-blobs.md)是用于存储大量非结构化数据（例如文本或二进制数据）的服务，这些数据可通过 HTTP 或 HTTPS 从世界各地进行访问。
+[Azure Blob 存储](storage/blobs/storage-dotnet-how-to-use-blobs.md)是用于存储大量非结构化数据（例如文本或二进制数据）的服务，这些数据可通过 HTTP 或 HTTPS 从世界各地进行访问。
 可以使用 Blob 存储向外公开数据，或者私下存储应用程序数据。 本文将介绍如何使用适合 Blob 容器和 Blob 的存储资源管理器（预览版）。
 
 ## <a name="prerequisites"></a>先决条件
 若要完成本文中的步骤，需要满足以下先决条件：
 
 - [下载并安装存储资源管理器（预览版）](http://www.storageexplorer.com)
-- [连接到 Azure 存储帐户或服务](./vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+- [连接到 Azure 存储帐户或服务](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>创建 Blob 容器
 所有 Blob 都必须驻留在 Blob 容器中。简单说来，该容器就是对 Blob 进行逻辑分组。 一个帐户可以包含无限数量的容器，一个容器可以存储无限数量的 Blob。
@@ -42,7 +42,7 @@ ms.lasthandoff: 04/09/2018
 3. 右键单击“Blob 容器”，然后从上下文菜单中选择“创建 Blob 容器”。
 
    ![“创建 Blob 容器”上下文菜单][0]
-4. 此时会在“Blob 容器”文件夹下显示一个文本框。 输入 Blob 容器的名称。 要查看 Blob 容器命名规则和限制列表，请参阅[容器命名规则](./storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions)部分。
+4. 此时会在“Blob 容器”文件夹下显示一个文本框。 输入 Blob 容器的名称。 有关 Blob 容器命名规则和限制的信息，请参阅[创建容器和设置权限](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions)。
 
    ![“创建 Blob 容器”文本框][1]
 5. 完成时按 **Enter** 可创建 Blob 容器，按 **Esc** 可取消相关操作。 成功创建 Blob 容器后，该容器将显示在所选存储帐户的“Blob 容器”文件夹下。
@@ -97,7 +97,7 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
    ![“粘贴 Blob 容器”上下文菜单][7]
 
 ## <a name="get-the-sas-for-a-blob-container"></a>获取 Blob 容器的 SAS
-[共享访问签名 (SAS)](./storage/common/storage-dotnet-shared-access-signature-part-1.md) 用于对存储帐户中的资源进行委托访问。
+[共享访问签名 (SAS)](storage/common/storage-dotnet-shared-access-signature-part-1.md) 用于对存储帐户中的资源进行委托访问。
 这意味着可以授权客户端在指定时间段内，以一组指定权限有限地访问存储帐户中的对象，而不必共享帐户访问密钥。
 
 以下步骤演示了如何为 Blob 容器创建 SAS：
@@ -175,7 +175,7 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
      2. 在“上传文件”对话框中，选择“文件”文本框右侧的省略号 (**…**) 按钮，以选择要上传的文件。
 
         ![“上传文件”选项][16]
-     3. 将类型指定为“Blob 类型”。 [通过 .NET 开始使用 Azure Blob 存储](./storage/blobs/storage-dotnet-how-to-use-blobs.md)一文说明了不同 Blob 类型的区别。
+     3. 将类型指定为“Blob 类型”。 有关详细信息，请参阅[创建容器和设置权限](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container)。
      4. （可选）指定要将选定文件上传到其中的目标文件夹。 如果目标文件夹不存在，系统会创建一个。
      5. 选择“上传”。
    - **将文件夹上传到 Blob 容器**
@@ -186,7 +186,7 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
      2. 在“上传文件夹”对话框中，选择“文件夹”文本框右侧的省略号 (**…**) 按钮，以选择要上传其内容的文件夹。
 
         ![“上传文件夹”选项][18]
-     3. 将类型指定为“Blob 类型”。 [通过 .NET 开始使用 Azure Blob 存储](./storage/blobs/storage-dotnet-how-to-use-blobs.md)一文说明了不同 Blob 类型的区别。
+     3. 将类型指定为“Blob 类型”。 有关详细信息，请参阅[创建容器和设置权限](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container)。
      4. （可选）指定要将选定文件夹的内容上传到其中的目标文件夹。 如果目标文件夹不存在，系统会创建一个。
      5. 选择“上传”。
    - **将 Blob 下载到本地计算机**
@@ -236,3 +236,5 @@ Blob 容器包含 Blob 和文件夹（其中也可能包含 Blob）。
 [17]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-menu.png
 [18]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-options.png
 [19]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-open-editor-context-menu.png
+
+<!-- Update_Description: wording update -->

@@ -1,11 +1,38 @@
+---
+title: include 文件
+description: include 文件
+services: virtual-machines
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 03/27/2018
+ms.date: 05/14/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: 59d96ea853a9f41b2015d923712bc93730acbc72
+ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 05/11/2018
+---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure 中虚拟机的区域和可用性
 Azure 在中国的两个数据中心运行。 这些数据中心分组到地理区域，让用户可灵活选择构建应用程序的位置。 请务必了解 Azure 中虚拟机 (VM) 运行的方式和位置，以及最大化性能、可用性和冗余的选项。 本文提供了 Azure 的可用性和冗余功能的概述。
 <!--Notice: multiple TO two -->
-<!--Notice: around the world TO in china -->
+<!--Notice: around the world TO China -->
 
 ## <a name="what-are-azure-regions"></a>什么是 Azure 区域？
 可以在规定的地理区域（例如“中国北部”或“中国东部”）创建 Azure 资源。 可查看[区域及其位置的列表](https://www.azure.cn/support/service-dashboard/)。 为了提供冗余和可用性，每个区域都设有多个数据中心。 这样，便可灵活设计应用程序，创建距离用户最近的 VM，满足任何法律、符合性或税务要求。
-这些区域在 Microsoft 和 21Vianet 达成唯一合作关系之后可供用户使用，有了这种关系，Microsoft 就不需直接维护相关数据中心。 请参阅有关[中国区 Azure](http://www.azure.cn/) 的详细信息。
+
+## <a name="special-azure-regions"></a>特殊 Azure 区域
+在构建应用程序时，出于符合性或法律方面的考虑，可能需要使用某些特殊的 Azure 区域。 这些特殊区域包括：
+
+* **美国弗吉尼亚州政府**和**美国爱荷华州政府**
+  * 适用于美国政府代理和合作伙伴的 Azure 物理和逻辑网络隔离实例，由甄选出来的美国公民操作。 包括其他合规认证，例如 [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) 和 [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA)。 详细了解 [Azure Government](https://www.azure.cn/features/gov/)。
+* **中国东部**和**中国北部**
+  * 这些区域在 Microsoft 和 21Vianet 达成唯一合作关系之后可供用户使用，有了这种关系，Microsoft 就不需直接维护相关数据中心。 请参阅有关[中国区 Azure](http://www.windowsazure.cn/) 的详细信息。
+* **德国中部**和**德国东北部**
+  * 用户可以通过数据信托模式来使用这些区域。这种方式将客户数据保留在德国，由 T-Systems（一家德国电信公司）充当德国的数据受托方来控制数据。
+
 ## <a name="region-pairs"></a>区域对
 每个 Azure 区域都与同一地理位置内的另一区域配对。 此方法适用于跨地域复制资源（例如 VM 存储），降低因自然灾害、社会动乱、电力中断或物理网络中断而同时影响两个区域的可能性。 区域对的其他优点包括：
 

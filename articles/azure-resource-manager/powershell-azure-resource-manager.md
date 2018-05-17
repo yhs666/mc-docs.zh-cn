@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 02/16/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 665149671a31cf76a8a710db93dd5f84d876e8c4
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 540376af83bd6c4c5c78e9ab5de58e79f451c9cd
+ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>使用 Azure PowerShell 管理资源
 
@@ -60,8 +60,8 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 
 通常情况下，与其向单个用户分配角色，不如为需要进行相似操作的用户[创建一个 Azure Active Directory 组](../active-directory/active-directory-groups-create-azure-portal.md)， 然后向该组分配相应的角色。 为了简单起见，本文创建一个没有成员的 Azure Active Directory 组。 仍然可以为该组分配一个负责某个范围的角色。 
 
-以下示例创建一个组，然后为其分配了资源组的“虚拟机参与者”角色。 若要运行 `New-AzureAdGroup` 命令，必须使用 [Azure Cloud Shell](/cloud-shell/overview) 或[下载 Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)。
-
+以下示例创建一个组，然后为其分配了资源组的“虚拟机参与者”角色。 若要运行 `New-AzureAdGroup` 命令，必须[下载 Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)。
+<!-- Not Available on [Azure Cloud Shell](/cloud-shell/overview)-->
 ```azurepowershell-interactive
 $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
   -MailNickName vmDemoGroup `
@@ -147,19 +147,7 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
-### <a name="view-costs-by-tag-values"></a>按标记值查看成本
-
-对资源应用标记以后，即可使用这些标记查看资源的成本。 成本分析显示最新使用情况需要一定的时间，因此可能还看不到这些成本。 成本可用以后，即可在订阅中跨资源组查看资源的成本。 用户必须具有[计费信息的订阅级别访问权限](../billing/billing-manage-access.md)才能查看这些成本。
-
-若要在门户中按标记查看成本，请先选择订阅，然后选择“成本分析”。
-
-![成本分析](./media/powershell-azure-resource-manager/select-cost-analysis.png)
-
-然后，按标记值进行筛选并选择“应用”。
-
-![按标记查看成本](./media/powershell-azure-resource-manager/view-costs-by-tag.png)
-
-也可使用 [Azure 计费 API](../billing/billing-usage-rate-card-overview.md) 以编程方式查看成本。
+<!-- Not Available on ### View costs by tag values -->
 
 ## <a name="clean-up-resources"></a>清理资源
 

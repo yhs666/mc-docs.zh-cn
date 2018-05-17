@@ -1,9 +1,9 @@
 ---
-title: "使用 Azure CLI 将磁盘添加到 Linux VM | Azure"
-description: "了解如何使用 Azure CLI 1.0 and Azure CLI 2.0 将持久性磁盘添加到 Linux VM。"
-keywords: "linux 虚拟机,添加资源磁盘"
+title: 使用 Azure CLI 将磁盘添加到 Linux VM | Azure
+description: 了解如何使用 Azure CLI 1.0 and Azure CLI 2.0 将持久性磁盘添加到 Linux VM。
+keywords: linux 虚拟机,添加资源磁盘
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 origin.date: 02/02/2017
-ms.date: 10/30/2017
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1250a6a0270d99b3c5e0c385c12d08fb516ad2fe
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 91833588350365576ef0860370ddc7386856e1ae
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>将磁盘添加到 Linux VM
 本文介绍了如何将持久性磁盘附加到 VM 以便持久保存数据 - 即使 VM 由于维护或调整大小而重新预配。 
@@ -33,7 +33,7 @@ ms.lasthandoff: 02/13/2018
 Azure 托管磁盘通过管理与 VM 磁盘关联的存储帐户简化了 Azure VM 的磁盘管理。 你只需指定所需的类型（“高级”或“标准”）和磁盘大小，Azure 将创建和管理磁盘。 有关详细信息，请参阅[托管磁盘概述](managed-disks-overview.md)。
 
 ### <a name="attach-a-new-disk-to-a-vm"></a>将新磁盘附加到 VM
-如果只需要 VM 上的新磁盘，请使用 [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az_vm_disk_attach) 命令以及 `--new` 参数。 如果 VM 位于某个可用性区域中，则会自动在与 VM 相同的区域中创建磁盘。 以下示例创建一个名为 *myDataDisk* 且大小为 *50* GB 的磁盘：
+如果只需要 VM 上的新磁盘，请使用 [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-attach) 命令以及 `--new` 参数。 如果 VM 位于某个可用性区域中，则会自动在与 VM 相同的区域中创建磁盘。 以下示例创建一个名为 *myDataDisk* 且大小为 *50* GB 的磁盘：
 <!-- Not Available on [Overview of Availability Zones](../../availability-zones/az-overview.md) -->
 
 ```azurecli
@@ -42,7 +42,7 @@ az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
 ```
 
 ### <a name="attach-an-existing-disk"></a>附加现有磁盘 
-在许多情况下， 你会附加已创建的磁盘。 若要附加现有磁盘，请查找磁盘 ID 并将该 ID 传递到 [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az_vm_disk_attach) 命令。 以下示例查询 *myResourceGroup* 中名为 *myDataDisk* 的磁盘，然后将其附加到名为 *myVM* 的 VM：
+在许多情况下， 你会附加已创建的磁盘。 若要附加现有磁盘，请查找磁盘 ID 并将该 ID 传递到 [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-attach) 命令。 以下示例查询 *myResourceGroup* 中名为 *myDataDisk* 的磁盘，然后将其附加到名为 *myVM* 的 VM：
 
 ```azurecli
 # find the disk id
@@ -78,7 +78,7 @@ az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
 ```
 
 ## <a name="use-unmanaged-disks"></a>使用非托管磁盘
-非托管磁盘需要额外的开销来创建和管理基础存储帐户。 非托管磁盘是在与 OS 磁盘相同的存储帐户中创建的。 若要创建并附加非托管磁盘，请使用 [az vm unmanaged-disk attach](https://docs.azure.cn/zh-cn/cli/vm/unmanaged-disk?view=azure-cli-latest#az_vm_unmanaged_disk_attach) 命令。 以下示例将一个 *50*GB 的非托管磁盘附加到名为 *myResourceGroup* 的资源组中名为 *myVM* 的 VM：
+非托管磁盘需要额外的开销来创建和管理基础存储帐户。 非托管磁盘是在与 OS 磁盘相同的存储帐户中创建的。 若要创建并附加非托管磁盘，请使用 [az vm unmanaged-disk attach](https://docs.azure.cn/zh-cn/cli/vm/unmanaged-disk?view=azure-cli-latest#az-vm-unmanaged-disk-attach) 命令。 以下示例将一个 *50*GB 的非托管磁盘附加到名为 *myResourceGroup* 的资源组中名为 *myVM* 的 VM：
 
 ```azurecli
 az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
@@ -86,10 +86,10 @@ az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM
 ```
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>连接到 Linux VM 以装入新磁盘
-若要对新磁盘进行分区、格式化和装载，以便 Linux VM 可以使用它，请通过 SSH 登录到 Azure VM。 有关详细信息，请参阅[如何在 Azure 中将 SSH 用于 Linux](mac-create-ssh-keys.md)。 以下示例使用公共 DNS 条目 *mypublicdns.chinanorth.chinacloudapp.cn* 和用户名 *azureuser* 连接到一个 VM： 
+若要对新磁盘进行分区、格式化和装载，以便 Linux VM 可以使用它，请通过 SSH 登录到 Azure VM。 有关详细信息，请参阅[如何在 Azure 中将 SSH 用于 Linux](mac-create-ssh-keys.md)。 以下示例使用公共 DNS 条目 *mypublicdns.chinanorth.cloudapp.chinacloudapi.cn* 和用户名 *azureuser* 连接到一个 VM： 
 
 ```bash
-ssh azureuser@mypublicdns.chinanorth.chinacloudapp.cn
+ssh azureuser@mypublicdns.chinanorth.cloudapp.chinacloudapi.cn
 ```
 
 连接到 VM 后就可以附加磁盘了。 首先，使用 `dmesg` 来查找磁盘（用于发现新磁盘的方法可能各不相同）。 以下示例使用 dmesg 来筛选 *SCSI* 磁盘：
@@ -269,4 +269,4 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 * 为确保正确配置 Linux VM，请查看有关[优化 Linux 计算机性能](optimization.md)的建议。
 * 可以添加更多的磁盘来扩展存储容量，[配置 RAID](configure-raid.md) 来提高性能。
 
-<!--Update_Description: update meta properties, add managed disk cmdlet-->
+<!--Update_Description: update meta properties, update link -->

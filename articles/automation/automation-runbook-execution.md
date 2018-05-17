@@ -8,14 +8,14 @@ editor: tysonn
 ms.service: automation
 ms.devlang: na
 ms.topic: article
-origin.date: 11/15/2017
-ms.date: 01/15/2018
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-nany
-ms.openlocfilehash: 33dd3b1d437ee2f8b3abe83dc47d749083a5f897
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: 707582578b1c64f49564e679dcf1a185f0a02898
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>在 Azure 自动化中执行 Runbook
 在 Azure 自动化中启动 Runbook 时，会创建一个作业。 作业是 Runbook 的单一执行实例。 分配一个 Azure 自动化工作线程来运行每个作业。 尽管工作线程由多个 Azure 帐户共享，但不同自动化帐户中的作业是相互独立的。 无法控制要由哪个工作线程为作业的请求提供服务。 一个 Runbook 可以同时运行多个作业。  可以重用同一自动化帐户中的作业的执行环境。 在 Azure 门户中查看 Runbook 列表时，列表中会列出为每个 Runbook 启动的所有作业的状态。 可以查看每个 Runbook 的作业列表以跟踪每个作业的状态。 有关不同作业状态的说明，请参阅[作业状态](#job-statuses)。
@@ -56,7 +56,17 @@ ms.lasthandoff: 03/29/2018
 
 单击该磁贴会显示“作业”边栏选项卡，其中包括所有已执行作业的摘要列表，含有状态、作业执行以及开始时间和完成时间。<br><br> ![自动化帐户作业边栏选项卡](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)<br><br>  可以通过选择“筛选作业”来筛选作业列表并筛选特定的 Runbook 和作业状态，或从下拉列表中的日期/时间范围中进行搜索。<br><br> ![筛选作业状态](./media/automation-runbook-execution/automation-account-jobs-filter.png)
 
-或者，可通过从自动化帐户中的“Runbook”边栏选项卡上选择特定的 Runbook，并选择“作业”磁贴，以查看该 Runbook 的作业摘要详情。  这将显示“作业”边栏选项卡，在此可以单击作业记录，查看作业详细信息和输出。<br><br> ![自动化帐户作业边栏选项卡](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)<br> 
+单击该磁贴会显示“作业”边栏选项卡，其中包括所有已执行作业的摘要列表，含有状态、作业执行以及开始时间和完成时间。
+
+![自动化帐户作业边栏选项卡](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
+
+可以通过选择“筛选作业”来筛选作业列表并筛选特定的 Runbook 和作业状态，或从下拉列表中的日期/时间范围中进行搜索。
+
+![筛选作业状态](./media/automation-runbook-execution/automation-account-jobs-filter.png)
+
+或者，可通过从自动化帐户中的“Runbook”边栏选项卡上选择特定的 Runbook，并选择“作业”磁贴，以查看该 Runbook 的作业摘要详情。 这将显示“作业”边栏选项卡，在此可以单击作业记录，查看作业详细信息和输出。
+
+![自动化帐户作业边栏选项卡](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)
 
 ### <a name="job-summary"></a>作业摘要
 可以查看为特定 Runbook 创建的所有作业的列表及其最新状态。 可以按作业状态以及上次对作业进行更改的日期范围筛选此列表。 若要查看作业的详细信息和输出，请单击其名称。 作业的详细视图包括提供给该作业的 Runbook 参数值。
@@ -80,10 +90,42 @@ ms.lasthandoff: 03/29/2018
     Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
     �AutomationAccountName "MyAutomationAcct" -Id $job.JobId �Stream Output
 
-## <a name="fair-share"></a>公平共享
-为了在云中的所有 Runbook 之间共享资源，Azure 自动化在任何作业运行三小时后都会将其暂时卸载。  在此期间，[基于 PowerShell 的 Runbook](automation-runbook-types.md#powershell-runbooks) 作业都将停止且不能重新启动。  作业状态显示“已停止”。  此类型的 Runbook 始终从头开始重新启动，因为它们不支持检查点。  
+以下示例检索特定作业的输出并返回每个记录。 如果某个记录存在异常，则会写出该异常而不是记录的值。 这很有用，因为异常可能提供其他信息，而这些信息在正常情况下是不会在输出过程中记录的。
 
-[基于 PowerShell 工作流的 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 会从上一个[检查点](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints)进行恢复。  运行三小时后，Runbook 作业将由服务挂起，且其状态显示为“正在运行等待资源”。  沙盒变为可用时，Runbook 将通过自动化服务自动重新启动，并从上一个检查点恢复。  这是实现挂起/重新启动的正常 PowerShell 工作流行为。  如果 Runbook 再次超过三小时的运行时，将重复该过程，最多三次。  在第三次重新启动后，如果 Runbook 仍未在三小时内完成，则 Runbook 作业将失败，且作业状态显示为“失败，正在等待资源”。  在此情况下，会收到以下异常和失败。
+```azurepowershell-interactive
+$output = Get-AzureRmAutomationJobOutput -AutomationAccountName <AutomationAccountName> -Id <jobID> -ResourceGroupName <ResourceGroupName> -Stream "Any"
+foreach($item in $output)
+{
+    $fullRecord = Get-AzureRmAutomationJobOutputRecord -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -JobId <jobID> -Id $item.StreamRecordId
+    if ($fullRecord.Type -eq "Error")
+    {
+        $fullRecord.Value.Exception
+    }
+    else
+    {
+    $fullRecord.Value
+    }
+}
+```
+
+## <a name="get-details-from-activity-log"></a>从活动日志中获取详细信息
+
+可以从自动化帐户的活动日志中检索其他详细信息，例如启动了 Runbook 的人员或帐户。 以下 PowerShell 示例提供运行相关 Runbook 的最后一个用户：
+
+```powershell-interactive
+$SubID = "00000000-0000-0000-0000-000000000000"
+$rg = "ResourceGroup01"
+$AutomationAccount = "MyAutomationAccount"
+$RunbookName = "Test-Runbook"
+$JobResourceID = "/subscriptions/$subid/resourcegroups/$rg/providers/Microsoft.Automation/automationAccounts/$AutomationAccount/jobs"
+
+Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
+```
+
+## <a name="fair-share"></a>公平共享
+为了在云中的所有 Runbook 之间共享资源，Azure 自动化在任何作业运行三小时后都会将其暂时卸载。 在此期间，[基于 PowerShell 的 Runbook](automation-runbook-types.md#powershell-runbooks) 的作业都将停止且不会重新启动。 作业状态显示“已停止”。 此类型的 Runbook 始终从头开始重新启动，因为它们不支持检查点。
+
+[基于 PowerShell 工作流的 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 会从最后一个[检查点](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints)进行恢复。 运行三小时后，Runbook 作业将由服务挂起，且其状态显示为“正在运行等待资源”。 沙盒变得可用时，Runbook 将通过自动化服务自动重新启动，并从最后一个检查点进行恢复。 这是实现挂起/重新启动的正常 PowerShell 工作流行为。 如果 Runbook 再次超过三小时的运行时，将重复该过程，最多三次。 在第三次重新启动后，如果 Runbook 仍未在三小时内完成，则 Runbook 作业将失败，且作业状态显示为“失败，正在等待资源”。 在此情况下，会收到以下异常和失败。
 
 *该作业无法继续运行，因为它已反复被系统从同一个检查点逐出。请确保 Runbook 在未保持其状态的情况下没有执行冗长的操作。*
 

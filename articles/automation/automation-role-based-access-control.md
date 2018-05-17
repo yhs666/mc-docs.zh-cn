@@ -8,14 +8,14 @@ editor: tysonn
 keywords: 自动化 rbac, 基于角色的访问控制, azure rbac
 ms.service: automation
 ms.devlang: na
-origin.date: 02/05/2018
-ms.date: 2/27/2018
+origin.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-nany
-ms.openlocfilehash: ea8bccd288bcc699255b4fb4d5be7632a13a2277
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: b45ece1f672e058be38e76d323915c305368389a
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自动化中基于角色的访问控制
 
@@ -30,6 +30,8 @@ ms.lasthandoff: 03/29/2018
 | 参与者 |“参与者”角色允许管理所有事项，修改其他用户对自动化帐户的访问权限除外。 |
 | 读取器 |“读者”角色允许查看自动化帐户中的所有资源，但不能进行任何更改。 |
 | 自动化运算符 |“自动化操作员”角色允许执行作业的启动、停止、暂停、恢复和计划等操作任务。 如果想要防止他人查看或修改自动化帐户资源（例如凭据资产和 Runbook），但仍允许所在组织的成员执行这些 Runbook，则可使用此角色。 |
+|自动化作业操作员|自动化作业操作员角色允许针对某个自动化帐户中的所有 Runbook 创建和管理作业。|
+|自动化 Runbook 操作员|可以通过自动化 Runbook 操作员角色读取 Runbook 属性 - 适用于创建 Runbook 的作业。|
 | 用户访问管理员 |“用户访问管理员”角色允许管理用户对 Azure 自动化帐户的访问。 |
 
 ## <a name="role-permissions"></a>角色权限
@@ -83,7 +85,48 @@ ms.lasthandoff: 03/29/2018
 |Microsoft.Insights/alertRules/*      | 创建和管理警报规则。        |
 |Microsoft.Support/* |创建和管理支持票证。|
 
+### <a name="automation-runbook-operator"></a>自动化 Runbook 操作员
 
+自动化 Runbook 操作员角色在 Runbook 范围授予。 自动化 Runbook 操作员可以查看 Runbook 的属性。  将此角色与“自动化作业操作员”角色组合使用时，操作员也可创建 Runbook 的作业。 下表显示了授予角色的权限：
+
+> [!NOTE]
+> 除非希望向操作员授予为帐户中的所有 Runbook 创建和管理作业的能力，否则不要设置“自动化操作员”角色。
+
+|**操作**  |**说明**  |
+|---------|---------|
+|Microsoft.Automation/automationAccounts/runbooks/read     | 列出 runbook。        |
+|Microsoft.Authorization/*/read      | 读取授权。        |
+|Microsoft.Resources/subscriptions/resourceGroups/read      |读取角色和角色分配。         |
+|Microsoft.Resources/deployments/*      | 创建和管理资源组部署。         |
+|Microsoft.Insights/alertRules/*      | 创建和管理警报规则。        |
+|Microsoft.Support/*      | 创建和管理支持票证。        |
+### <a name="automation-job-operator"></a>自动化作业操作员
+
+自动化作业操作员角色是在自动化帐户范围内授予的。 这将向操作员授予权限来为帐户中的所有 Runbook 创建和管理作业。 下表显示了授予角色的权限：
+
+
+|**操作**  |**说明**  |
+|---------|---------|
+|Microsoft.Authorization/*/read|读取授权。|
+|Microsoft.Automation/automationAccounts/jobs/read|列出 runbook 的作业。|
+|Microsoft.Automation/automationAccounts/jobs/resume/action|恢复已暂停的作业。|
+|Microsoft.Automation/automationAccounts/jobs/stop/action|取消正在进行的作业。|
+|Microsoft.Automation/automationAccounts/jobs/streams/read|读取作业流和输出。|
+|Microsoft.Automation/automationAccounts/jobs/suspend/action|暂停正在进行的作业。|
+|Microsoft.Automation/automationAccounts/jobs/write|创建作业。|
+|Microsoft.Resources/subscriptions/resourceGroups/read      |读取角色和角色分配。         |
+|Microsoft.Resources/deployments/*      |创建和管理资源组部署。         |
+|Microsoft.Insights/alertRules/*      | 创建和管理警报规则。        |
+|Microsoft.Support/* |创建和管理支持票证。|
+### <a name="user-access-administrator"></a>用户访问管理员
+
+用户访问管理员可管理 Azure 资源的用户访问权限。 下表显示了授予角色的权限：
+
+|**操作**  |**说明**  |
+|---------|---------|
+|*/read|读取所有资源。|
+|Microsoft.Authorization/*|管理授权|
+|Microsoft.Support/*|创建和管理支持票证|
 ## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>使用 Azure 门户为自动化帐户配置 RBAC
 1. 登录到 [Azure 门户](https://portal.azure.cn/)，然后从“自动化帐户”页打开自动化帐户。  
 2. 单击右上角的“访问控制(IAM)”控件。 此时会打开“访问控制(IAM)”页，可以在其中添加新的用户、组和应用程序，以便管理自动化帐户并查看可以为自动化帐户配置的现有角色。
@@ -179,7 +222,7 @@ ObjectType         : User
 ```
 
 • [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) 为特定范围的用户、组和应用程序分配访问权限。  
-    **示例：**使用以下命令为“自动化帐户”范围中的用户分配“自动化操作员”角色。
+    **示例：** 使用以下命令为“自动化帐户”范围中的用户分配“自动化操作员”角色。
 
 ```powershell-interactive
 New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -200,7 +243,7 @@ ObjectType         : User
 ```
 
 • 使用 [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) 从特定范围中删除指定用户、组或应用程序的访问权限。  
-    **示例：**使用以下命令从“自动化帐户”范围的“自动化操作员”角色中删除用户。
+    **示例：** 使用以下命令从“自动化帐户”范围的“自动化操作员”角色中删除用户。
 
 ```powershell-interactive
 Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'

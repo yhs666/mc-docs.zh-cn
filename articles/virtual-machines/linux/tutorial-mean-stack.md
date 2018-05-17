@@ -1,27 +1,27 @@
 ---
-title: "在 Azure 中的 Linux VM 上创建 MEAN 堆栈 | Azure"
-description: "了解如何在 Azure 中的 Linux VM 上创建 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆栈。"
+title: 在 Azure 中的 Linux VM 上创建 MEAN 堆栈 | Azure
+description: 了解如何在 Azure 中的 Linux VM 上创建 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆栈。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
-editor: tysonn
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 08/08/2017
-ms.date: 10/16/2017
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 13211772472bd94f49cb558dc0b8da3dfe5b030a
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 05c79b2cbf3eecd20a2774aafcd962f6219fa6b0
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>在 Azure 中的 Linux VM 上创建 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆栈
 
@@ -41,12 +41,12 @@ ms.lasthandoff: 11/09/2017
 
 ## <a name="create-a-linux-vm"></a>创建 Linux VM
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 命令创建资源组，并使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 命令创建 Linux VM。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
+使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组，并使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建 Linux VM。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
-以下示例使用 Azure CLI 在“中国北部”位置创建名为 *myResourceGroupMEAN* 的资源组。 将会创建一个包含 SSH 密钥（如果默认密钥位置不存在这些密钥）的、名为 *myVM* 的 VM。 若要使用一组特定的密钥，请使用 --ssh-key-value 选项。
+以下示例使用 Azure CLI 在“chinanorth”位置创建名为 *myResourceGroupMEAN* 的资源组。 将会创建一个包含 SSH 密钥（如果默认密钥位置不存在这些密钥）的、名为 *myVM* 的 VM。 若要使用一组特定的密钥，请使用 --ssh-key-value 选项。
 
 ```azurecli
-az group create --name myResourceGroupMEAN --location "China North"
+az group create --name myResourceGroupMEAN --location chinanorth
 az vm create \
     --resource-group myResourceGroupMEAN \
     --name myVM \
@@ -63,7 +63,7 @@ az vm open-port --port 3300 --resource-group myResourceGroupMEAN --name myVM
 {
   "fqdns": "",
   "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroupMEAN/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "China North",
+  "location": "chinanorth",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
@@ -323,7 +323,7 @@ sudo apt-get install -y nodejs
     nodejs server.js
     ```
 
-2. 打开 Web 浏览器并导航到针对 VM 记录的地址。 例如 *http://13.72.77.9:3300*。 应显示以下页面所示的内容：
+2. 打开 Web 浏览器并导航到针对 VM 记录的地址。 例如，*http://13.72.77.9:3300*。 应显示以下页面所示的内容：
 
     ![书籍记录](media/tutorial-mean/meanstack-init.png)
 
@@ -354,4 +354,4 @@ sudo apt-get install -y nodejs
 > [!div class="nextstepaction"]
 > [使用 SSL 保护 Web 服务器](tutorial-secure-web-server.md)
 
-<!--Update_Description: update meta properties， wording update, update link-->
+<!--Update_Description: update meta properties， wording upsssdate, update link-->

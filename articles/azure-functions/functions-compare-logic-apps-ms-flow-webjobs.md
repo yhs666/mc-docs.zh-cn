@@ -16,19 +16,18 @@ origin.date: 03/20/2018
 ms.date: 04/10/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 13a882813d49524b483f77a89ccea6b01d38279f
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: c275b1e0dd84d3d2a4153b19943a903c53060cbb
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>在流、逻辑应用、函数和 WebJobs 之间进行选择
 
 本文对 Azure 云中的以下服务进行对比：
 
 - [Microsoft Flow](https://flow.microsoft.com/)
-- [Azure 逻辑应用](https://azure.microsoft.com/services/logic-apps/)
-- [Azure Functions](https://azure.microsoft.com/services/functions/)
+- [Azure Functions](/azure-functions/)
 - [Azure 应用服务 WebJobs](../app-service/web-sites-create-web-jobs.md)
 
 所有这些服务都可以解决集成问题并自动化业务流程。 它们都可以定义输入、操作、条件和输出。 可以在日程安排或触发器中运行其中一个。 但是，每个服务都有其独特的优点，本文将介绍这些差异。
@@ -70,9 +69,9 @@ Azure Functions 是在 WebJobs SDK 上构建的，因此共享许多相同的事
 
 |  | 函数 | 带 WebJobs SDK 的 WebJobs |
 | --- | --- | --- |
-|使用[自动缩放](functions-scale.md#how-the-consumption-plan-works)的[无服务器应用模型](https://azure.microsoft.com/overview/serverless-computing/)|✔||
+|使用自动缩放的[无服务器应用模型](https://azure.microsoft.com/overview/serverless-computing/) |✔||
 |[在浏览器中进行开发和测试](functions-create-first-azure-function.md) |✔||
-|[按使用付费定价](functions-scale.md#consumption-plan)|✔||
+|按使用付费定价 |✔||
 | 与逻辑应用集成 |✔||
 | 触发事件 |[计时器](functions-bindings-timer.md)<br>[Azure 存储队列和 Blob](functions-bindings-storage-blob.md)<br>[Azure 服务总线队列和主题](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure 事件中心](functions-bindings-event-hubs.md)<br>[HTTP/WebHook（GitHub、Slack）](functions-bindings-http-webhook.md)|[计时器](functions-bindings-timer.md)<br>[Azure 存储队列和 Blob](functions-bindings-storage-blob.md)<br>[Azure 服务总线队列和主题](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure 事件中心](functions-bindings-event-hubs.md)<br>[文件系统](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
 | 支持的语言  |C#<br>F#<br>Javascript<br>Java（预览版） |C#<sup>1</sup>|

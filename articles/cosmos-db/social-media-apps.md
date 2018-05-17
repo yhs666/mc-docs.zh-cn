@@ -15,11 +15,11 @@ ms.topic: article
 origin.date: 05/29/2017
 ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: c547f2e8e668852554bab54c36c7faa257ccb0b4
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: f84a5229e9b9c93aaea84f87752f70ef65bf9892
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行社交
 生活在大规模互连的社会中，这意味着有时候你也成了社交网络中的一部分。 我们使用社交网络与朋友、同事和家人保持联系，有时还会与有共同兴趣的人分享我们的激情。
@@ -206,7 +206,8 @@ Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，�
 
 由于想要深入了解，你可能会认为自己需要更多数学科学方面的知识才能从简单数据库和文件中提取出这些模式和信息，其实不然。
 
-Azure 机器学习（Cortana Intelligence Suite 的一部分）是一项全面托管的云服务，使你可以在简单的拖放界面中使用算法创建工作流、为 [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) 中自己的算法进行编码，或使用部分已生成的马上可以使用的 API（如[文本分析](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2)、[内容审查器](https://www.microsoft.com/moderator)或[建议](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2)）。
+Azure 机器学习（Cortana Intelligence Suite 的一部分）是一项全面托管的云服务，可以在简单的拖放界面中使用算法创建工作流、为你自己在 [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) 中的算法编码，或使用部分已生成的就绪型 API（如[文本分析](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2)或[内容审查器](https://www.microsoft.com/moderator)）。
+<!-- Not Available on [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2) -->
 <!-- Not Available on [Azure Machine Learning](https://www.azure.cn/home/features/machine-learning/)-->
 <!-- URL is not Correct on  [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx) -->
 

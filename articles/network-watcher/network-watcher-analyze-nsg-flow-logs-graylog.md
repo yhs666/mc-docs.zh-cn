@@ -1,13 +1,13 @@
 ---
-title: "分析 Azure 网络安全组流日志 - Graylog | Azure"
-description: "了解如何在 Azure 中使用网络观察程序与 Graylog 来管理和分析网络安全组流日志。"
+title: 分析 Azure 网络安全组流日志 - Graylog | Azure
+description: 了解如何在 Azure 中使用网络观察程序与 Graylog 来管理和分析网络安全组流日志。
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 09/19/2017
 ms.date: 12/25/2017
 ms.author: v-yeche
-ms.openlocfilehash: 3171b2a67ed918f1b366d8ee9dcd0ed4c6dd0dfe
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: 13c0e9480a0131363c47c0e144ce7202767e3040
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>在 Azure 中使用网络观察程序与 Graylog 来管理和分析网络安全组流日志
 
@@ -47,7 +47,8 @@ ms.lasthandoff: 12/22/2017
 - 请参阅 Graylog 提供的[文档](http://docs.graylog.org/en/2.2/pages/installation/os/ubuntu.html)，获取有关在 Ubuntu 上进行安装的分步说明。
 - 另请确保遵循[文档](http://docs.graylog.org/en/2.2/pages/configuration/web_interface.html#configuring-webif)配置 Graylog Web 界面。
 
-本示例使用 Graylog 最低安装要求（即 单个 Graylog 实例），但可将 Graylog 构建为根据系统和生产需求跨资源进行缩放。 有关体系结构注意事项的详细信息或体系结构深入指南，请参阅 Graylog 的[文档](http://docs.graylog.org/en/2.2/pages/architecture.html)和[体系结构指南](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture)。
+本示例使用 Graylog 最低安装要求（即 单个 Graylog 实例），但可将 Graylog 构建为根据系统和生产需求跨资源进行缩放。 有关体系结构注意事项的详细信息或体系结构深入指南，请参阅 Graylog 的[文档](http://docs.graylog.org/en/2.2/pages/architecture.html)。
+<!-- Not Available on [architectural guide](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture)-->
 
 可根据平台和偏好，以多种方式安装 Graylog。 有关可能的安装方法的完整列表，请参阅 Graylog 的官方[文档](http://docs.graylog.org/en/2.2/pages/installation.html)。 Graylog 服务器应用程序在 Linux 分发版上运行，附带以下先决条件：
 

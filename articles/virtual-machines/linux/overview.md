@@ -13,14 +13,14 @@ ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/29/2017
-ms.date: 04/16/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 53d245a0a5a034960a26ba97442bd2c0e91f9f25
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 186276bfbe59fdad464e6fd97a83f7263de35653
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
 Azure 正在不断集结各种集成的公有云服务，包括分析、虚拟机、数据库、移动、网络、存储和 Web，因此很适合用于托管解决方案。  Azure 提供可缩放的计算平台，允许即用即付，而无需投资购买本地硬件。  Azure 允许根据客户端所需的任何规模，随时扩展和缩减解决方案。
@@ -29,12 +29,12 @@ Azure 正在不断集结各种集成的公有云服务，包括分析、虚拟�
 <!-- redirect https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/ to https://docs.microsoft.com/zh-cn/azure/architecture/aws-professional/services-->
 
 ## <a name="regions"></a>区域
-Azure 资源分布在世界各地的多个地理区域。  一个“区域”代表位于单个地理区域的多个数据中心。  Azure 目前（截至 2017 年 11 月）在中国正式推出了 2 个区域。 
+Azure 资源分布在世界各地的多个地理区域。  一个“区域”代表位于单个地理区域的多个数据中心。  Azure 目前（截至 2017 年 11 月）在中国正式推出了 2 个区域。 可在以下页面上找到现有区域和新宣布推出区域的更新列表：
 
 * [Azure 中国区域](https://www.azure.cn/support/service-dashboard/)
 
 ## <a name="availability"></a>可用性
-我们宣布了行业领先的单实例虚拟机服务级别协议：可用性达到 99.9%（前提是为所有磁盘使用高级存储部署 VM）。  为了使部署符合标准 99.95% 的 VM 服务级别协议，仍需要在可用性集中部署两个或更多个运行工作负荷的 VM。 可用性集可确保 VM 分布在 Azure 数据中心内的多个容错域，并使用不同的维护时段部署到主机。 完整 [Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) 说明了 Azure 作为整体的保证可用性。
+Azure 宣布了行业领先的单实例虚拟机服务级别协议：可用性达到 99.9%（前提是为所有磁盘使用高级存储部署 VM）。  为了使部署符合标准 99.95% 的 VM 服务级别协议，仍需要在可用性集中部署两个或更多个运行工作负荷的 VM。 可用性集可确保 VM 分布在 Azure 数据中心内的多个容错域，并使用不同的维护时段部署到主机。 完整 [Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) 说明了 Azure 作为整体的保证可用性。
 
 ## <a name="managed-disks"></a>托管磁盘
 
@@ -78,7 +78,7 @@ Azure 正在支持它的大多数 Linux 发行版中推出 [cloud-init](http://c
 <!-- Not Available * Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://market.azure.cn/zh-cn/marketplace/partners/redhat/redhatenterpriselinux72/)-->
 * Canonical - [Azure 应用商店 - Ubuntu Server 16.04 LTS](https://market.azure.cn/zh-cn/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Azure 应用商店 - Debian 8 "Jessie"](https://market.azure.cn/zh-cn/marketplace/partners/credativ/debian8/)
-* FreeBSD - [Azure 应用商店 - FreeBSD 10.3](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.FreeBSD)
+* FreeBSD - [Azure 应用商店 - FreeBSD 10.3](https://portal.azure.cn/#create/Microsoft.FreeBSD103-ARM)
 * CoreOS - [Azure 应用商店 - CoreOS (Stable)](https://market.azure.cn/zh-cn/marketplace/partners/coreos/coreosstable/)
 <!-- Not Avaialbe * RancherOS - [Azure Marketplace - RancherOS](https://market.azure.cn/zh-cn/marketplace/partners/rancher/rancheros/)-->
 * Bitnami - [Bitnami Library for Azure](https://azure.bitnami.com/)
@@ -129,4 +129,4 @@ VM 现在正在 Azure 上运行，用户可以登录。  通过 SSH 使用密码
 
 * [通过 Azure CLI 浏览不断增多的常见任务的示例脚本列表](cli-samples.md)
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta properties, wording update, update link -->

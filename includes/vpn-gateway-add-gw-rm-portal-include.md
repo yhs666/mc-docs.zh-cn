@@ -1,3 +1,6 @@
+---
+ title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 03/21/2018 ms.date: 05/08/2018 ms.author: v-junlch ms.custom: include file
+---
 1. 在门户左侧单击 **+**，并在搜索框中键入“虚拟网关”。 在搜索返回结果中找到“虚拟网络网关”，并单击该条目。 在“虚拟网关”页上，单击底部的“创建”打开“创建虚拟网关”页。
 2. 在“创建虚拟网关”页中，填写虚拟网关的值。
 
@@ -16,11 +19,11 @@
       - 首先，请单击“创建网关 IP 配置”打开“选择公共 IP 地址”页，然后单击“+新建”打开“创建公共 IP 地址”页。
       - 接下来，输入公共 IP 地址的**名称**。 将 SKU 保留为“基本”（除非有特殊原因要将其更改为其他内容），然后在此页底部单击“确定”以保存所做的更改。
 
-        ![创建公共 IP](./media/vpn-gateway-add-gw-s2s-rm-portal-include/gwip.png "创建 PIP")
+        ![创建公共 IP](./media/vpn-gateway-add-gw-rm-portal-include/gwip.png "创建 PIP")
 
 4. 验证设置。 如果希望网关显示在仪表板上，可以在页底部选择“固定到仪表板”。 
 5. 单击“创建”开始创建 VPN 网关。 将会验证这些设置，并会在仪表板上看到“正在部署虚拟网络网关”磁贴。 创建网关最多可能需要 45 分钟。 可能需要刷新门户页才能看到完成状态。
 
 创建网关后，即可在门户中查看虚拟网络，从而查看分配给网关的 IP 地址。 网关显示为连接的设备。 可以单击连接的设备（虚拟网络网关），查看详细信息。
 
-<!-- ms.date: 12/12/2017 -->
+<!-- ms.date: 05/08/2018 -->

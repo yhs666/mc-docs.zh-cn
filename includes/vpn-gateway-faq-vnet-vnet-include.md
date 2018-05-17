@@ -1,3 +1,6 @@
+---
+ title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 04/05/2018 ms.date: 05/08/2018 ms.author: v-junlch ms.custom: include file
+---
 VNet 到 VNet 连接常见问题解答适用于 VPN 网关连接。 若要了解 VNet 对等互连，请参阅[虚拟网络对等互连](../articles/virtual-network/virtual-network-peering-overview.md)
 
 ### <a name="does-azure-charge-for-traffic-between-vnets"></a>Azure 会对 VNet 之间的流量收费吗？
@@ -7,6 +10,10 @@ VNet 到 VNet 连接常见问题解答适用于 VPN 网关连接。 若要了解
 ### <a name="does-vnet-to-vnet-traffic-travel-across-the-internet"></a>VNet 到 VNet 流量是否会通过 Internet？
 
 否。 VNet 到 VNet 流量会流经 Azure 主干，而非 Internet。
+
+### <a name="can-i-establish-a-vnet-to-vnet-connection-across-aad-tenants"></a>是否可以跨 AAD 租户建立 VNet 到 VNet 连接？
+
+是的。可以使用 Azure VPN 网关跨 AAD 租户进行 VNet 到 VNet 连接。
 
 ### <a name="is-vnet-to-vnet-traffic-secure"></a>VNet 到 VNet 流量是否安全？
 
@@ -22,11 +29,11 @@ VNet 到 VNet 连接常见问题解答适用于 VPN 网关连接。 若要了解
 
 ### <a name="if-the-vnets-are-not-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-ad-tenant"></a>如果 VNet 不在同一订阅中，订阅是否需要与相同的 AD 租户相关联？
 
-不可以。
+否。
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>能否在单独的 Azure 实例中使用 VNet 到 VNet 通信来连接虚拟网络？ 
 
-不可以。 VNet 到 VNet 通信支持在同一 Azure 实例中连接虚拟网络。 例如，不能在公共 Azure 和中国/德国/美国政府 Azure 实例之间创建连接。 对于上述情形，可考虑使用站点到站点 VPN 连接。
+否。 VNet 到 VNet 通信支持在同一 Azure 实例中连接虚拟网络。 例如，不能在公共 Azure 和中国/德国/美国政府 Azure 实例之间创建连接。 对于上述情形，可考虑使用站点到站点 VPN 连接。
 
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>能否将 VNet 到 VNet 连接与多站点连接一起使用？
 
@@ -68,6 +75,6 @@ VNet 到 VNet 连接常见问题解答适用于 VPN 网关连接。 若要了解
 
 否。 不能有重叠的 IP 地址范围。
 
-<!-- ms.date: 10/10/2017 -->
+<!-- ms.date: 05/08/2018 -->
 
 

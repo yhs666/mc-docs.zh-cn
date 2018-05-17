@@ -3,8 +3,8 @@ title: 在 Azure 虚拟机中部署 Windows Server Active Directory 的准则 | 
 description: 如果知道如何在本地部署 AD 域服务和 AD 联合身份验证服务，则就了解这些服务在 Azure 虚拟机上的工作方式。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: femila
+manager: mtillman
 editor: ''
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/26/2017
-ms.date: 3/5/2018
+origin.date: 03/20/2018
+ms.date: 05/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 156125cbfbd66a685386e0f0cec12228d70a37ee
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: dc05af334955b055c4f08ef1b4ef6b0a0cd64bf4
+ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>有关在 Azure 虚拟机上部署 Windows Server Active Directory 的指导
 本文阐述在本地部署 Windows Server Active Directory 域服务 (AD DS) 和 Active Directory 联合身份验证服务 (AD FS) 与在 Azure 虚拟机上部署这些服务的重要区别。
@@ -43,7 +43,7 @@ ms.lasthandoff: 04/16/2018
 
 1. 使用 Azure 将本地数据中心扩展到云中时，可能在云中 Azure 虚拟机上运行 Windows Server AD DS。
 2. 可以通过 Azure AD 允许用户单一登录到软件即服务 (SaaS) 应用程序。 例如，Microsoft Office 365 使用此项技术，并且在 Azure 或其他云平台上运行的应用程序也可使用它。
-3. 可以通过 Azure AD（其访问控制服务）让用户使用来自 Facebook、Google、Microsoft 或其他标识提供者的身份登录到在云中或本地托管的应用程序。
+3. 可以使用 Azure AD（其访问控制服务），让用户通过来自 Microsoft 和其他标识提供者的标识登录到在云中或本地托管的应用程序。
 
 有关这些区别的详细信息，请参阅 [Azure 标识](fundamentals-identity.md)。
 
@@ -69,8 +69,10 @@ ms.lasthandoff: 04/16/2018
 > 
 > 
 
-### <a name="static-ip-addresses-must-be-configured-with-azure-powershell"></a>必须使用 Azure PowerShell 配置静态 IP 地址。
-默认情况下分配动态地址，但可改用 Set-AzureStaticVNetIP cmdlet 分配静态 IP 地址。 这会设置静态 IP 地址，该地址会通过服务修复和 VM 关闭/重新启动而持久保留。 有关详细信息，请参阅 [Static internal IP address for virtual machines](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/)（虚拟机的静态内部 IP 地址）。
+### <a name="static-ip-addresses-can-be-configured-with-azure-powershell"></a>可使用 Azure PowerShell 配置静态 IP 地址
+默认情况下分配动态地址，如果想分配静态 IP 地址，可改用 Set-AzureStaticVNetIP cmdlet。 该 cmdlet 设置静态 IP 地址，该地址将通过服务修复和 VM 关闭/重新启动而持久保留。 有关详细信息，请参阅 [Static internal IP address for virtual machines](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/)（虚拟机的静态内部 IP 地址）。 还可在 Azure 门户中创建 VM 的过程中配置静态 IP 地址，如下所示。 有关详细信息，请参阅[使用 Azure 门户创建具有静态公共 IP 地址的 VM](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md)。
+
+![创建 VM 时添加静态 IP 地址这一步骤的屏幕截图](./media/active-directory-deploying-ws-ad-guidelines/static-ip.png)
 
 ## <a name="BKMK_Glossary"></a>术语和定义
 下面是本文中所述各种 Azure 技术的术语的不完整列表。

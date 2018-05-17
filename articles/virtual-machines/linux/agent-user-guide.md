@@ -1,11 +1,11 @@
 ---
-title: "Azure Linux VM 代理概述 | Azure"
-description: "了解如何安装和配置 Linux 代理 (waagent) 以管理虚拟机与 Azure 结构控制器的交互。"
+title: Azure Linux VM 代理概述 | Azure
+description: 了解如何安装和配置 Linux 代理 (waagent) 以管理虚拟机与 Azure 结构控制器的交互。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 10/17/2016
-ms.date: 01/08/2018
+ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c715e806d4231c18ca6eda813b77689c4c2b946
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: b79219a33a4f3a681a0956cc46923b20728bf666
+ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>了解和使用 Azure Linux 代理
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -33,6 +33,7 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 > 有关其他详细信息，请参阅 Azure Linux 代理的 [自述文件](https://github.com/Azure/WALinuxAgent/blob/master/README.md) 。
 > 
 > 
+<!-- Notice: URL contains .md in link of Https://github.com/.../read.md -->
 
 * **映像设置**
 
@@ -63,7 +64,7 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 * **VM 扩展**
 
   * 将 Microsoft 和合作伙伴授权的组件注入 Linux VM (IaaS)，以便实现软件和配置的自动化
-  * [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions) 上的 VM 扩展参考实现
 
 ## <a name="communication"></a>通信
 从平台到代理的信息流通过两个通道进行：
@@ -75,7 +76,7 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 以下系统已经过测试并确认兼容 Azure Linux 代理：
 
 > [!NOTE]
-> 此列表可能不同于 Azure Platform 所支持系统的官方列表，详见以下网页：[http://docs.azure.cn/virtual-machines/linux/endorsed-distros](/virtual-machines/linux/endorsed-distros)
+> 此列表可能不同于 Azure 平台所支持系统的官方列表，如以下文章所述：[http://docs.azure.cn/virtual-machines/linux/endorsed-distros](/virtual-machines/linux/endorsed-distros)
 > 
 > 
 
@@ -317,4 +318,4 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 
   * [Ubuntu Wiki：配置交换分区](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [将自定义数据注入到 Azure 虚拟机中](../windows/classic/inject-custom-data.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update meta properties -->

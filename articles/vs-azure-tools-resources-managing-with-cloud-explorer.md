@@ -1,33 +1,34 @@
 ---
-title: "使用 Cloud Explorer 管理 Azure 资源 | Microsoft Docs"
-description: "了解如何使用云资源管理器来浏览和管理 Visual Studio 中的 Azure 资源。"
+title: 使用 Cloud Explorer 管理 Azure 资源 | Microsoft Docs
+description: 了解如何使用云资源管理器来浏览和管理 Visual Studio 中的 Azure 资源。
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
+author: ghogen
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 6347dc53-f497-49d5-b29b-e8b9f0e939d7
 ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 03/25/2017
+origin.date: 03/25/2017
+ms.date: 05/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: 03446b9a391374d6db579ec2a88f4bdc16899850
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 424cd0dc955e5b86b4afe47eaa2401d565ded178
+ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>在 Visual Studio Cloud Explorer 中管理与 Azure 帐户关联的资源
 通过 Cloud Explorer，可在 Visual Studio 中查看 Azure 资源和资源组、检查其属性，以及执行重要的开发人员诊断操作。 
 
-与 [Azure 门户](https://portal.azure.cn)一样，Cloud Explorer 基于 Azure Resource Manager 堆栈。 因此，Cloud Explorer 可以识别 Azure 资源组等资源，以及逻辑应用和 API 应用等 Azure 服务，并支持[基于角色的访问控制](active-directory/role-based-access-control-configure.md) (RBAC)。 
+与 [Azure 门户](https://portal.azure.cn)一样，Cloud Explorer 基于 Azure Resource Manager 堆栈。 因此，Cloud Explorer 可以识别 Azure 资源组等资源，以及逻辑应用和 API 应用等 Azure 服务，并支持[基于角色的访问控制](role-based-access-control/role-assignments-portal.md) (RBAC)。 
 
 ## <a name="prerequisites"></a>先决条件
 - 已选择 **Azure 工作负荷**的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)，或者包含[用于 .NET 2.9 的 Azure SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51657) 的 Visual Studio 早期版本。
-- Azure 帐户 - 如果没有帐户，可以[注册试用帐户](http://go.microsoft.com/fwlink/?LinkId=623901)，或者[激活 Visual Studio 订户权益](http://go.microsoft.com/fwlink/?LinkId=623901)。
+- Azure 帐户 - 如果没有帐户，可以[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 > [!NOTE]
 > 若要查看 Cloud Explorer，请选择菜单栏上的“视图” > “Cloud Explorer”。   
@@ -35,7 +36,7 @@ ms.lasthandoff: 06/21/2017
 > 
 
 ## <a name="add-an-azure-account-to-cloud-explorer"></a>将 Azure 帐户添加到 Cloud Explorer
-若要查看与 Azure 帐户关联的资源，必须先将帐户添加到 Cloud Explorer。 
+要查看与 Azure 帐户关联的资源，必须先将帐户添加到 Cloud Explorer。 
 
 1. 在 **Cloud Explorer** 中，选择“Azure 帐户设置”。
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 06/21/2017
 
 1. 登录到要浏览其资源的 Azure 帐户。 
 
-1. 登录到 Azure 帐户以后，会显示与该帐户关联的订阅。 选中要浏览的帐户订阅的复选框，然后选择“应用”。 
+1. 登录到 Azure 帐户以后，会显示与该帐户关联的订阅。 选中要浏览的帐户订阅的复选框，并选择“应用”。 
  
     ![Cloud Explorer：选择要显示的 Azure 订阅](./media/vs-azure-tools-resources-managing-with-cloud-explorer/select-subscriptions.png)
 
@@ -82,7 +83,7 @@ ms.lasthandoff: 06/21/2017
     ![Cloud Explorer 资源视图比较](./media/vs-azure-tools-resources-managing-with-cloud-explorer/resource-views-comparison.png)
 
 ## <a name="view-and-navigate-resources-in-cloud-explorer"></a>在 Cloud Explorer 中查看和导航资源
-若要在 Cloud Explorer 中导航到 Azure 资源并查看其信息，请展开项的类型或关联的资源组，然后选择该资源。 当选择资源时，信息将显示在 Cloud Explorer 底部的两个选项卡（“操作”和“属性”）中。 
+如果要在 Cloud Explorer 中导航到 Azure 资源并查看其信息，请展开项的类型或关联的资源组，并选择该资源。 当选择资源时，信息会显示在 Cloud Explorer 底部的两个选项卡（“操作”和“属性”）中。 
 
 - “操作”选项卡 - 列出了用户可以在 Cloud Explorer 中针对所选资源执行的操作。 还可以通过右键单击资源来查看其上下文菜单，从而查看这些选项。
 
@@ -103,3 +104,4 @@ ms.lasthandoff: 06/21/2017
 
 在“搜索”框中输入字符时，只有符合这些字符的资源才会显示在资源树中。
 
+<!-- Update_Description: link update -->
