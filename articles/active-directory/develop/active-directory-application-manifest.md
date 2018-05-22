@@ -17,11 +17,11 @@ ms.date: 05/03/2018
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: 03bbd12ab1ee56b4266130a149d8643079a51972
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: b394c82769c9babd2cfdf6a5eb2bfeda6a5497c2
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-active-directory-application-manifest"></a>Azure Active Directory 应用程序清单
 与 Azure AD 集成的应用必须向 Azure AD 租户注册。 可以在 [Azure 门户](https://portal.azure.cn)中使用应用清单（在“Azure AD”边栏选项卡下）配置此应用。
@@ -73,12 +73,10 @@ ms.lasthandoff: 05/07/2018
 [APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type
 [APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type
 [AZURE-PORTAL]: https://portal.azure.cn
-[DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
 [IMPLICIT-GRANT]: active-directory-dev-understanding-oauth2-implicit-grant.md
 [INTEGRATING-APPLICATIONS-AAD]: active-directory-integrating-applications.md
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
-[RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
 <!--Update_Description: wording update -->

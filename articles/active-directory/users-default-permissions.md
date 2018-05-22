@@ -16,10 +16,10 @@ ms.date: 05/07/2018
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.openlocfilehash: 369db5c4850c9ee06b4c5e4c63f66f0f9197442a
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的默认用户权限
 

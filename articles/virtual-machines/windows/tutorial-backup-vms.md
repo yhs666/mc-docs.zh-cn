@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 07/27/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 5811e76978c4d224bd91e3f791ff49abec0efb0d
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: cbe70a6d80a40d30c3f338e685ca5798c093bc2b
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>在 Azure 中备份 Windows 虚拟机
 
@@ -101,5 +101,4 @@ ms.lasthandoff: 03/17/2018
 
 > [!div class="nextstepaction"]
 > [控制虚拟机](tutorial-govern-resources.md)
-<!-- Update_Description: new articles on tutorial backup vms -->
-<!--ms.date: 03/19/2018-->
+<!-- Update_Description: update meta properties -->

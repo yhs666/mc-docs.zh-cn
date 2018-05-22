@@ -1,27 +1,27 @@
 ---
-title: "Azure 虚拟机 PowerShell 示例 | Azure"
-description: "Azure 虚拟机 PowerShell 示例"
+title: Azure 虚拟机 PowerShell 示例 | Azure
+description: Azure 虚拟机 PowerShell 示例
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/30/2017
-ms.date: 01/15/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ec1f0c9c257675199b1d3c9abb8c32d5870901b0
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: f1050272903849cd63aaa41ff7f729704fd9b458
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure 虚拟机 PowerShell 示例
 
@@ -49,4 +49,4 @@ ms.lasthandoff: 01/05/2018
 | [加密 VM 和数据磁盘](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | 创建 Azure Key Vault、加密密钥和服务主体，然后对 VM 进行加密。 |
 <!-- 不可用 |**监视虚拟机**||-->
 | | |
-<!--Update_Description: update VM scripts links-->
+<!--Update_Description: update mets properties -->

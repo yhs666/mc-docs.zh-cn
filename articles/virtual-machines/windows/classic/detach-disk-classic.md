@@ -1,11 +1,11 @@
 ---
-title: "从 Windows VM 分离磁盘 | Azure"
-description: "了解如何从使用经典部署模型的 Azure 虚拟机分离磁盘。"
+title: 从 Windows VM 分离磁盘 | Azure
+description: 了解如何从使用经典部署模型的 Azure 虚拟机分离磁盘。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: b6406768-1726-41bb-9451-1fda0905cc24
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/24/2017
-ms.date: 01/29/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 72e452914a7f72358a563f504b2ac87a8155999a
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 7cef492a8c98156490c2cc5debfc72cb951ebdd1
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="how-to-detach-a-disk-from-a-windows-virtual-machine"></a>如何从 Windows 虚拟机分离磁盘
 > [!IMPORTANT]
@@ -34,5 +34,4 @@ ms.lasthandoff: 01/25/2018
 
 [如何将数据磁盘附加到 Windows 虚拟机](attach-disk.md)
 
-<!-- Update_Description: update meta properties, rename the article -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

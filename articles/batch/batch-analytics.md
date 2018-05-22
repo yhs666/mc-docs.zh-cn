@@ -1,23 +1,23 @@
 ---
-title: "Azure Batch 分析 | Microsoft Docs"
-description: "Azure Batch 分析参考。"
+title: Azure Batch 分析 | Microsoft Docs
+description: Azure Batch 分析参考。
 services: batch
-author: alexchen2016
-manager: digimobile
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/20/2017
-ms.date: 07/03/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: d59d2bba942ea7075cf3ab4fe89566fdadfa49f7
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: f72a418f0140383b129d31c71861288ce15b88d2
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="batch-analytics"></a>批处理分析
 批处理分析中的主题包含可用于批处理服务资源的事件和警报的参考信息。
@@ -38,3 +38,4 @@ Azure Batch 服务会在某些批处理资源的生命周期内生成以下诊�
 - [任务完成](batch-task-complete-event.md)
 - [任务失败](batch-task-fail-event.md)
 
+<!-- Update_Description: update metedata properties -->

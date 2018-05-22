@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 06/02/2017
-ms.date: 04/16/2018
+origin.date: 03/23/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4dcb5fe45f685b02205ae678cd1d3a0e98b14eb0
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 31d187a511704ad264104af4af1e2f449e49004f
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server 的安全注意事项
 
@@ -45,7 +45,7 @@ Azure 遵守多个行业法规和标准，使用户能够使用虚拟机中运�
 
 ![SQL Server 连接](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
-为了达到最佳安全性，请为方案选择最严格的选项。 例如，如果正在运行访问同一 VM 上的 SQL Server 的应用程序，则“本地”选项最安全。 如果正在运行需要访问 SQL Server 的 Azure 应用程序，选择“专用”选项可确保与 SQL Server 的通信仅在指定的 [Azure 虚拟网络](../../../virtual-network/virtual-networks-overview.md)内安全进行。 如果需要对 SQL Server VM 的“公共” (internest) 访问权限，请确保遵循本主题中的其他最佳做法，降低受到攻击的可能性。
+为了达到最佳安全性，请为方案选择最严格的选项。 例如，如果正在运行访问同一 VM 上的 SQL Server 的应用程序，则“本地”选项最安全。 如果正在运行需要访问 SQL Server 的 Azure 应用程序，选择“专用”选项可确保与 SQL Server 的通信仅在指定的 [Azure 虚拟网络](../../../virtual-network/virtual-networks-overview.md)内安全进行。 如果需要使用“公共(Internet)”选项访问 SQL Server VM，请确保遵照本主题中的其他最佳做法，以减小受攻击面。
 
 门户中选定的选项对 VM [网络安全组](../../../virtual-network/virtual-networks-nsg.md) (NSG) 使用入站安全规则，允许或拒绝到虚拟机的网络流量。 可修改或创建新的入站 NSG 规则，允许到 SQL Server 端口（默认为 1433）的流量。 还可指定允许通过此端口进行通信的特定 IP 地址。
 
@@ -100,4 +100,4 @@ SQL Server 侦听非默认端口时，必须在连接时指定该端口。 例�
 如果还对性能最佳做法感兴趣，请参阅 [Azure 虚拟机中 SQL Server 的性能最佳做法](virtual-machines-windows-sql-performance.md)。
 
 若要了解与在 Azure VM 中运行 SQL Server 相关的其他主题，请参阅 [Azure 虚拟机上的 SQL Server 概述](virtual-machines-windows-sql-server-iaas-overview.md)。 如果对 SQL Server 虚拟机有任何疑问，请参阅[常见问题解答](virtual-machines-windows-sql-server-iaas-faq.md)。
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: wording update, update link, update meta properties -->

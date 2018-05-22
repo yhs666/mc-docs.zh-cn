@@ -18,10 +18,10 @@ ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: c53ebc8fc806f1ed67262d868076728bcd2d10b2
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>使用 PowerShell 创建 Linux 虚拟机
 

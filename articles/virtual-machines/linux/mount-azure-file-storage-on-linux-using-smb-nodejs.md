@@ -16,10 +16,10 @@ origin.date: 12/07/2016
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: 99afdd6f51949e6db869fa7101c1eefe95c5e40d
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-by-using-smb-with-azure-cli-10"></a>通过 Azure CLI 1.0 使用 SMB 在 Linux VM 上装载 Azure 文件存储
 

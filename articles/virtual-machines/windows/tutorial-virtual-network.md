@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
-editor: tysonn
+editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/27/2018
-ms.date: 04/16/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c721bf5ce152d87984a2f18fc55ef5ccfab52f36
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: cdd8e8e047a70312a97e28de55bfca9fd3bc3d0c
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 虚拟网络和 Windows 虚拟机
 
@@ -286,4 +286,4 @@ New-AzureRmVM `
 > [!div class="nextstepaction"]
 > [在 Azure 中备份 Windows 虚拟机](./tutorial-backup-vms.md)
 
-<!--Update_Description: update meta properties, wording update, update cmdlet code -->
+<!--Update_Description: update meta properties, wording update-->

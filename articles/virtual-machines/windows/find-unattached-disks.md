@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 01/10/2017
-ms.date: 03/19/2018
+origin.date: 03/30/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: adabb8d8b87df5918aaa4973cf160035691fe75b
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 66adde4df081b4e188a0ff05625a074ff6299978
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>查找并删除未连接的 Azure 托管和非托管磁盘
 删除 Azure 中的虚拟机 (VM) 时，默认不删除附加到 VM 的任何磁盘。 此功能可帮助防止意外删除 VM 而导致的数据丢失。 删除 VM 后，可继续支付未附加的磁盘。 本文演示了如何查找并删除任何未附加的磁盘，以及如何减少不必要的成本。 
@@ -90,7 +90,7 @@ foreach($storageAccount in $storageAccounts){
 
     $storageKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.StorageAccountName)[0].Value
 
-    $context = New-AzureStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageKey
+    $context = New-AzureStorageContext -Environment AzureChinaCloud -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageKey
 
     $containers = Get-AzureStorageContainer -Context $context
 
@@ -129,6 +129,5 @@ foreach($storageAccount in $storageAccounts){
 
 ## <a name="next-steps"></a>后续步骤
 
-[删除存储帐户](../../storage/common/storage-create-storage-account.md)
-<!-- Update_Description: new articles on find unattached disks on windows server -->
-<!--ms.date: 03/19/2018-->
+有关详细信息，请参阅[删除存储帐户](../../storage/common/storage-create-storage-account.md)和[使用 PowerShell 标识孤立磁盘](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)
+<!-- Update_Description: update meta properties, wording update -->

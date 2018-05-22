@@ -16,10 +16,10 @@ origin.date: 11/18/2016
 ms.date: 05/11/2018
 ms.author: v-junlch
 ms.openlocfilehash: ed07f4b6150b6ff60e4a9e7c89a508456168b4ad
-ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="how-to-upgrade-projects-to-the-current-version-of-the-azure-tools-for-visual-studio"></a>如何将项目升级到最新版本的 Azure Tools for Visual Studio
 ## <a name="overview"></a>概述

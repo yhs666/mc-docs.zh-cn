@@ -16,10 +16,10 @@ origin.date: 03/29/2018
 ms.date: 05/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: c956ef9e637b1f3379a30ce4b9163e70f4bad0c1
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>故障排除：Azure 站点到站点 VPN 连接无法建立连接并停止工作
 

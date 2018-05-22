@@ -1,11 +1,11 @@
 ---
-title: "使用负载均衡集组建 MySQL 的群集 | Azure"
-description: "在 Azure 上设置使用经典部署模型创建的负载均衡且高度可用的 Linux MySQL 群集"
+title: 使用负载均衡集组建 MySQL 的群集 | Azure
+description: 在 Azure 上设置使用经典部署模型创建的负载均衡且高度可用的 Linux MySQL 群集
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 6c413a16-e9b5-4ffe-a8a3-ae67046bbdf3
 ms.service: virtual-machines-linux
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 04/14/2015
-ms.date: 01/08/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: a2e6ae37c68f288cf59760125c7369a6da861eba
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 76ad6d249c16b57dad81fdf637c7cd5ae4cea834
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>使用负载均衡的集来群集化 Linux 上的 MySQL
 > [!IMPORTANT]
@@ -28,7 +28,7 @@ ms.lasthandoff: 01/05/2018
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 本文探讨并演示在 Microsoft Azure 上部署基于 Linux 的高度可用服务时可用的不同方法，并在 MySQL Server 高可用性方面提供入门性的探讨。
-<!-- Not Available on  A video illustrating this approach is available on [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL). -->
+<!-- Not Available on  [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL). -->
 
 我们将基于 DRBD、Corosync 和 Pacemaker 概述无共享双节点单主机 MySQL 高可用性解决方案。 一次只有一个节点运行 MySQL。 读取和写入 DRBD 资源也限制为一次只有一个节点。
 
@@ -344,4 +344,4 @@ Pacemaker 使用群集监视资源、定义主节点何时停机，并将这些�
 * 有必要进行 MySQL 优化，确保以受控的速度完成写入，并且尽可能频繁地将缓存刷新到磁盘。
 * 写入性能依赖于虚拟交换机中的 VM 互连，因为这是 DRBD 用于复制设备的机制。
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties -->

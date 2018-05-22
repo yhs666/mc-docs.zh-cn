@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中使用 PowerShell 调整 Windows VM 的大小 | Azure"
-description: "使用 Azure Powershell 调整在 Resource Manager 部署模型中创建的 Windows 虚拟机的大小。"
+title: 在 Azure 中使用 PowerShell 调整 Windows VM 的大小 | Azure
+description: 使用 Azure Powershell 调整在 Resource Manager 部署模型中创建的 Windows 虚拟机的大小。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 057ff274-6dad-415e-891c-58f8eea9ed78
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/19/2016
-ms.date: 02/05/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4e4013d9ad81c7fea29f2bf6e4849cae34506257
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: f7f4022931bc2c5657129cfe564d4dc8eafa39ff
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="resize-a-windows-vm"></a>调整 Windows VM 的大小
 本文说明如何使用 Azure Powershell 调整在 Resource Manager 部署模型中创建的 Windows VM 的大小。
@@ -103,7 +103,7 @@ ms.lasthandoff: 02/13/2018
    ```
 
 ## <a name="next-steps"></a>后续步骤
-* 若要提高可伸缩性，请运行多个 VM 实例并进行横向扩展。有关详细信息，请参阅[自动缩放虚拟机规模集中的 Windows 计算机](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md)。
+* 若要提高可伸缩性，请运行多个 VM 实例并进行横向扩展。有关详细信息，请参阅[自动缩放虚拟机规模集中的 Windows 计算机](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)。
 
 <!-- Update_Description: update meta properties, update link -->
 <!-- REDIRECT virtual-machine-scale-sets-windows-autoscale.md to virtual-machine-scale-sets-autoscale-powershell.md -->

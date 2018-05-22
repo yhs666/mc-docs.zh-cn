@@ -18,10 +18,10 @@ origin.date: 09/06/2016
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: 32f42c3121c545179bcfb54dca47713093003904
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>在 Azure 上优化 Linux VM
 通过命令行或门户创建运行 Linux 虚拟机 (VM) 是一项很简单的操作。 本教程说明如何在 Azure 平台上设置 VM 以确保优化其性能。 本主题使用 Ubuntu Server VM，不过也可以[将自己的映像作为模板](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)来创建 Linux 虚拟机。  

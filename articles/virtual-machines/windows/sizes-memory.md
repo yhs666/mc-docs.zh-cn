@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/08/2017
-ms.date: 04/16/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 530b1ae288437672ad2e673e853a203bf7734492
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: adb09d1a1f9b48630d910e145f73dd8b78fd17a2
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>内存优化虚拟机大小
 
@@ -38,4 +38,4 @@ ms.lasthandoff: 04/16/2018
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties  -->

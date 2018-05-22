@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/01/2018
-ms.date: 04/16/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7ab329b960df6f579775a538387afd0effed04a4
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 167fa90db8a890c348a2f716a90cddd0e351f25c
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
@@ -57,6 +57,10 @@ ms.lasthandoff: 04/16/2018
 
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
+## <a name="benchmark-scores"></a>基准评分
+
+使用 [CoreMark 基准测试分数](compute-benchmark-scores.md)，详细了解 Windows VM 的计算性能。
+
 ## <a name="next-steps"></a>后续步骤
 
 了解关于可用的各种 VM 大小的详细信息：
@@ -67,5 +71,5 @@ ms.lasthandoff: 04/16/2018
 <!-- Not Available on - [GPU optimized](sizes-gpu.md) -->
 <!-- Not Available on - [High performance compute](sizes-hpc.md)-->
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, update link, add benchmark scores -->
 <!--PENDING FOR Dv3, Ev3 and B-SERIES GA ANOUNCEMENT -->

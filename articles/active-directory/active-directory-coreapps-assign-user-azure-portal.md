@@ -17,10 +17,10 @@ ms.date: 05/07/2018
 ms.author: v-junlch
 ms.reviewer: luleon
 ms.openlocfilehash: 92959f4d992a901f7f9e0ad7ba23440c10040ceb
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中向企业应用分配用户或组
 若要将用户或组分配到企业应用，必须具有适当的权限才能管理企业应用，并且必须是目录的全局管理员。

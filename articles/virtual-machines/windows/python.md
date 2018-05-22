@@ -1,26 +1,26 @@
 ---
-title: "在 Azure 中使用 Python 创建和管理 Windows VM | Azure"
-description: "了解如何使用 Python 在 Azure 中创建和管理 Windows VM。"
+title: 在 Azure 中使用 Python 创建和管理 Windows VM | Azure
+description: 了解如何使用 Python 在 Azure 中创建和管理 Windows VM。
 services: virtual-machines-windows
-documentationcenter: 
-author: hayley244
+documentationcenter: ''
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/22/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 512490230e5068ff2637569188042ef88afd47ff
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 05/21/2018
+ms.author: v-yeche
+ms.openlocfilehash: 2693adfddc65dba05f7278c00e526e05fc8c508d
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>在 Azure 中使用 Python 创建和管理 Windows VM
 
@@ -49,11 +49,11 @@ ms.lasthandoff: 08/29/2017
 2. 在“添加虚拟环境”屏幕上，接受默认名称“env”，确保已选择“Python 3.6（64 位）”作为基础解释器，然后单击“创建”。
 3. 右键单击所创建的 env 环境，然后单击“安装 Python 包”，并在搜索框中输入“azure”，然后按 Enter 键。
 
-应在输出窗口中看到 azure 包已成功安装。 
+会在输出窗口中看见 Azure 包已成功安装。 
 
 ## <a name="create-credentials"></a>创建凭据
 
-在开始此步骤前，请确保具有 [Active Directory 服务主体](../../azure-resource-manager/resource-group-create-service-principal-portal.md)。 此外，应记下应用程序 ID、身份验证密钥和租户 ID，以便在后面的步骤中使用。
+在开始此步骤之前，请确保拥有 [Active Directory 服务主体](../../azure-resource-manager/resource-group-create-service-principal-portal.md)。 此外，应记下应用程序 ID、身份验证密钥和租户 ID，以便在后面的步骤中使用。
 
 1. 打开创建的 myPythonProject.py 文件，然后添加此代码，使应用程序运行：
 
@@ -95,7 +95,8 @@ ms.lasthandoff: 08/29/2017
 
         return credentials
     ```
-
+    <!-- Notice: Add China = True -->
+    
     将 application-id、authentication-key 和 tenant-id 替换为前面在创建 Azure Active Directory 服务主体时收集的值。
 
 5. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
@@ -345,12 +346,12 @@ compute_client = ComputeManagementClient(
             VM_NAME, 
             vm_parameters
         )
-    
+
         return creation_result.result()
     ```
 
     > [!NOTE]
-    > 本教程创建运行 Windows Server 操作系统版本的虚拟机。 若要详细了解如何选择其他映像，请参阅[使用 Windows PowerShell 和 Azure CLI 来导航和选择 Azure 虚拟机映像](../linux/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+    > 本教程创建运行 Windows Server 操作系统版本的虚拟机。 若要详细了解如何选择其他映像，请参阅 [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../linux/cli-ps-findimage.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（使用 Windows PowerShell 和 Azure CLI 来导航和选择 Azure 虚拟机映像）。
     > 
     > 
 
@@ -432,7 +433,7 @@ compute_client = ComputeManagementClient(
 
 ### <a name="stop-the-vm"></a>停止 VM
 
-可停止虚拟机并保留其所有设置，但需继续付费；还可停止虚拟机并解除分配。 解除分配某个虚拟机也会解除分配与其关联的所有资源，并停止该虚拟机的计费。
+可停止虚拟机并保留其所有设置，但需继续付费；还可停止虚拟机并解除分配。 解除分配虚拟机时，也会解除分配与其关联的所有资源并将停止计费。
 
 1. 若要停止虚拟机但不解除分配，请在 .py 文件中将此函数添加在变量之后：
 
@@ -463,7 +464,7 @@ compute_client = ComputeManagementClient(
         compute_client.virtual_machines.start(GROUP_NAME, VM_NAME)
     ```
 
-2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+2. 若要调用先前添加的函数，请将此代码添加在 .py 文件末尾的 if 语句下：
 
     ```python
     start_vm(compute_client)
@@ -576,4 +577,4 @@ compute_client = ComputeManagementClient(
 - 如果部署出现问题，请查看[使用 Azure 门户对资源组部署进行故障排除](../../resource-manager-troubleshoot-deployments-portal.md)
 - 了解有关 [Azure Python 库](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)的详细信息
 
-<!--Update_Description: update storage links-->
+<!--Update_Description: update meta properties, update storage links-->

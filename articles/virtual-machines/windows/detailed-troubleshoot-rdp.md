@@ -1,13 +1,13 @@
 ---
-title: "在 Azure 中对远程桌面进行详细故障排除 | Azure"
-description: "查看详细的疑难解答步骤，了解如何处理无法在 Azure 中连接到 Windows 虚拟机的远程桌面问题"
+title: 在 Azure 中对远程桌面进行详细故障排除 | Azure
+description: 查看详细的疑难解答步骤，了解如何处理无法在 Azure 中连接到 Windows 虚拟机的远程桌面问题
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
-keywords: "无法连接到远程桌面, 远程桌面故障排除, 远程桌面无法连接, 远程桌面错误, 远程桌面故障排除, 远程桌面问题"
+keywords: 无法连接到远程桌面, 远程桌面故障排除, 远程桌面无法连接, 远程桌面错误, 远程桌面故障排除, 远程桌面问题
 ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 09/06/2017
-ms.date: 10/30/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 151f43a4066c40c80f2ae4ac39995aad98c844a9
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 5d21d3a842128f2a740744c74c7073395377d810
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>详细故障排除步骤：针对 Azure 中到 Windows VM 的远程桌面连接问题
 本文提供详细的故障排除步骤，用于为基于 Windows 的 Azure 虚拟机诊断和修复复杂的远程桌面错误。
@@ -90,7 +90,7 @@ ms.lasthandoff: 10/27/2017
 * 代理服务器阻止远程桌面连接。
 * 边缘网络设备上运行的入侵检测或网络监视软件阻止远程桌面连接。
 
-与网络管理员合作更正组织 Intranet 边缘设备的设置，以允许与 Internet 建立基于 HTTPS 的远程桌面连接。
+与网络管理员协作，更正组织 Intranet 边缘设备的设置，以允许与 Internet 建立基于 HTTPS 的远程桌面连接。
 
 ## <a name="source-3-cloud-service-endpoint-and-acl"></a>来源 3：云服务终结点和 ACL
 对于使用经典部署模型创建的 VM，验证同一云服务或虚拟网络中的其他 Azure VM 能否与 Azure VM 建立远程桌面连接。
@@ -110,10 +110,9 @@ ms.lasthandoff: 10/27/2017
 要检查终结点是否是问题的源，删除当前终结点，创建新终结点，并选择范围 49152-65535 中的随机端口作为外部端口号。 有关详细信息，请参阅[如何对虚拟机设置终结点](classic/setup-endpoints.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
 ## <a name="source-4-network-security-groups"></a>来源 4：网络安全组
-使用网络安全组可以对允许的入站和出站流量进行更好的控制。 可以创建跨 Azure 虚拟网络中的子网和云服务的规则。
+使用网络安全组可以对允许的入站和出站流量进行更精细的控制。 可以创建跨 Azure 虚拟网络中的子网和云服务的规则。
 
-可以查看生效的安全组规则，确保入站“允许”NSG 规则存在并已针对 RDP 端口（默认为 3389）设置优先级。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow)。
-<!-- Not Available [IP flow verify](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) -->
+使用 [IP 流验证](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)来确认网络安全组中的规则是否阻止了传入或传出虚拟机的流量。 还可以查看有效的安全组规则，确保入站“允许”NSG 规则存在并已针对 RDP 端口（默认值 3389）进行优化。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow)。
 
 ## <a name="source-5-windows-based-azure-vm"></a>来源 5：基于 Windows 的 Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
@@ -134,7 +133,7 @@ ms.lasthandoff: 10/27/2017
 
 接下来，安装 Azure PowerShell（如果尚未安装）。 请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
-接下来，打开 Azure PowerShell 命令提示符，将当前文件夹更改为 **InstallWinRMCertAzureVM.ps1** 脚本文件所在的位置。 若要运行 Azure PowerShell 脚本，必须设置正确的执行策略。 运行 **Get-ExecutionPolicy** 命令，以确定当前的策略级别。 有关设置相应级别的信息，请参阅 [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx)。
+接下来，打开 Azure PowerShell 命令提示符，并将当前文件夹更改为 **InstallWinRMCertAzureVM.ps1** 脚本文件所在的位置。 若要运行 Azure PowerShell 脚本，必须设置正确的执行策略。 运行 **Get-ExecutionPolicy** 命令，以确定当前的策略级别。 有关设置相应级别的信息，请参阅 [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx)。
 
 接下来，填写你的 Azure 订阅名称、云服务名称和虚拟机名称（删除 < 和 > 字符），然后运行这些命令。
 
@@ -147,7 +146,7 @@ $vmName="<Name of the target virtual machine>"
 
 可以从 **Get-AzureSubscription** 命令显示的 *SubscriptionName* 属性获取正确的订阅名称。 可以从 **Get-AzureVM** 命令显示的 *ServiceName* 列中获取虚拟机的云服务名称。
 
-检查是否有新的证书。 打开当前用户的“证书”管理单元，然后在“受信任的根证书颁发机构\证书”文件夹中查找。 应会看到在“颁发给”列中具有你的云服务的 DNS 名称的证书（示例：cloudservice4testing.chinacloudapp.cn）。
+检查是否有新证书。 打开当前用户的“证书”管理单元，然后在“受信任的根证书颁发机构\证书”文件夹中查找。 应会看到在“颁发给”列中具有你的云服务的 DNS 名称的证书（示例：cloudservice4testing.chinacloudapp.cn）。
 
 接下来，使用以下命令启动远程 Azure PowerShell 会话。
 
@@ -201,4 +200,4 @@ Exit-PSSession
 
 [对在 Azure 虚拟机上运行的应用程序的访问进行故障排除](../linux/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

@@ -11,10 +11,10 @@ origin.date: 03/16/2018
 ms.date: 05/14/2018
 ms.author: v-nany
 ms.openlocfilehash: 1007f0934977a2c5b2637baf9fb7d7a59af6adf7
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure 自动化中的凭据资产
 自动化凭据资产包含 [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) 对象，该对象包含用户名和密码等安全凭据。 Runbook 和 DSC 配置可能会使用在身份验证时接受 PSCredential 对象的 cmdlet，也可能会提取 PSCredential 对象的用户名和密码，以便提供给需要进行身份验证的某些应用程序或服务。 在 Azure 自动化中安全地存储凭据的属性，并可以在 Runbook 或 DSC 配置中通过 [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) 活动访问这些属性。

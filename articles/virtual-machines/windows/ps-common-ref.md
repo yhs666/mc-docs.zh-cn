@@ -1,9 +1,9 @@
 ---
-title: "适用于 Azure 虚拟机的常用 PowerShell 命令 | Azure"
-description: "帮助你开始在 Azure 中创建和管理 Windows VM 的常用 PowerShell 命令"
+title: 适用于 Azure 虚拟机的常用 PowerShell 命令 | Azure
+description: 帮助你开始在 Azure 中创建和管理 Windows VM 的常用 PowerShell 命令
 services: virtual-machines-windows
-documentationcenter: 
-author: hayley244
+documentationcenter: ''
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/17/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 6ab8b9ec9414692095c09d713f099ca70c7a57b0
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 05/21/2018
+ms.author: v-yeche
+ms.openlocfilehash: 0fcbbe84f1ca5561a57ee45a6793a3f351416994
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>用于创建和管理 Azure 虚拟机的常用 PowerShell 命令
 
@@ -73,4 +73,4 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="next-steps"></a>后续步骤
 * 请参阅[使用 Resource Manager 和 PowerShell 创建 Windows VM](../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 中有关创建虚拟机的基本步骤。
-<!--Update_Description: update the links of PowerShell commands-->
+<!--Update_Description: update meta properties, update link -->

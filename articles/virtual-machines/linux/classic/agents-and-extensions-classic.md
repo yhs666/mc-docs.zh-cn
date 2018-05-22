@@ -19,10 +19,10 @@ ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d52ad9d2cfcbaf68d549b7e1f59687a4b0a8bf0e
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="about-the-virtual-machine-agent-and-extensions-for-linux"></a>关于适用于 Linux 的虚拟机代理和扩展
 > [!IMPORTANT]

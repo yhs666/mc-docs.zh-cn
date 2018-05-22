@@ -15,11 +15,11 @@ ms.topic: hero-article
 origin.date: 03/09/2018
 ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 13c4facf82e95331a9791ca7de396800139705db
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 5e20a183af9cf1ab6c87913ce4fda985820b5011
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>运行适用于 VMware 到 Azure 部署的 Azure Site Recovery 部署规划器
 本文为适用于 VMware 到 Azure 生产部署的 Azure Site Recovery Deployment Planner 用户指南。
@@ -165,7 +165,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 | -GrowthFactor | （可选）增长系数，以百分比表示。 默认值为 30%。 |
 | -UseManagedDisks | （可选）UseManagedDisks - 是/否。 默认值为“是”。 计算可放置到单个存储帐户中的虚拟机数量时要考虑到：对虚拟机进行的故障转移/测试性故障转移是在托管磁盘而不是非托管磁盘上完成的。 |
 |-SubscriptionId |（可选）订阅 GUID。 可以根据订阅、与订阅相关联的产品/服务、特定的目标 Azure 区域和指定的货币，按照最新的价格使用此参数生成成本估算报表。|
-|-TargetRegion|（可选）充当复制目标的 Azure 区域。 由于 Azure 的成本因区域而异，因此可使用此参数来生成特定目标 Azure 区域的报表。<br>默认值为 ChinaNorth 或上次使用的目标区域。<br>请参阅[支持的目标区域](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions)的列表。|
+|-TargetRegion|（可选）充当复制目标的 Azure 区域。 由于 Azure 的成本因区域而异，因此可使用此参数来生成特定目标 Azure 区域的报表。<br>默认值为 ChinaNorth 或上次使用的目标区域。|
 |-OfferId|（可选）与给定订阅关联的产品/服务。 默认值为 MS-AZR-0003P（即用即付）。|
 |-Currency|（可选）在生成的报表中显示的成本所采用的货币。|
 <!-- Not Avaiable on [supported target regions](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) -->

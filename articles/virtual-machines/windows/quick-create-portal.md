@@ -14,14 +14,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/11/2017
-ms.date: 04/16/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 13d4e88995b0c7859f058f6464318594520c5079
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 0490a91ec6c9173d851d4b794d6bf226f0c4cfa3
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>使用 Azure 门户创建 Windows 虚拟机
 
@@ -105,4 +105,4 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 > [!div class="nextstepaction"]
 > [Azure Windows 虚拟机教程](./tutorial-manage-vm.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

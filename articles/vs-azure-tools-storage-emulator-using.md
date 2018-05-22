@@ -16,10 +16,10 @@ origin.date: 08/17/2017
 ms.date: 05/11/2018
 ms.author: v-junlch
 ms.openlocfilehash: 4efa4cfa2055e12734213054aae840bd8335ae7b
-ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>在 Visual Studio 中配置和使用存储模拟器
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]

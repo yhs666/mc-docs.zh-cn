@@ -18,10 +18,10 @@ ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 8236477a9dfbec61231615afa5b1030b10785dd7
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB：数据迁移工具
 

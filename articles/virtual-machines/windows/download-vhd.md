@@ -1,26 +1,26 @@
 ---
-title: "从 Azure 下载 Windows VHD | Azure"
-description: "使用 Azure 门户下载 Windows VHD。"
+title: 从 Azure 下载 Windows VHD | Azure
+description: 使用 Azure 门户下载 Windows VHD。
 services: virtual-machines-windows
-documentationcenter: 
-author: hayley244
+documentationcenter: ''
+author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: da9e232668597d363fc39ec28dab306901118997
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 05/21/2018
+ms.author: v-yeche
+ms.openlocfilehash: 0718fe82478c876e3ec2a71bcb3d69a803072b96
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>从 Azure 下载 Windows VHD
 
@@ -80,3 +80,4 @@ Azure 中的虚拟机 (VM) 将[磁盘](managed-disks-overview.md?toc=%2fvirtual-
 - 了解如何[将 VHD 文件上传到 Azure](upload-generalized-managed.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
 - [从存储帐户中的非托管磁盘创建托管磁盘](attach-disk-ps.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 - [使用 PowerShell 管理 Azure 磁盘](tutorial-manage-data-disk.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+<!-- Update_Description: update meta properties， wording update -->

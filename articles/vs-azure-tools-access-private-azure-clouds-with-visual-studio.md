@@ -16,10 +16,10 @@ origin.date: 11/13/2017
 ms.date: 05/09/2018
 ms.author: v-junlch
 ms.openlocfilehash: 7631620099b843caca251bb2c3afb049bbddcba9
-ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="accessing-private-azure-clouds-with-visual-studio"></a>使用 Visual Studio 访问私有 Azure 云
 

@@ -1,26 +1,26 @@
 ---
-title: "在 Azure 的 Windows VM 上重置密码或远程桌面配置 | Azure"
-description: "了解如何使用 Azure 门户或 Azure PowerShell 在通过经典部署模型创建的 Windows VM 上重置帐户密码或远程桌面服务。"
+title: 在 Azure 的 Windows VM 上重置密码或远程桌面配置 | Azure
+description: 了解如何使用 Azure 门户或 Azure PowerShell 在通过经典部署模型创建的 Windows VM 上重置帐户密码或远程桌面服务。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: b03d99183f6d52d8480262dd21654b7f6de75f7a
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 17e85067ffe71d499f32cee14fccca56a8ccd3b7
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>如何在使用经典部署模型创建的 Windows VM 中重置远程桌面服务或其登录密码
 > [!IMPORTANT]
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/15/2017
 - [使用 Azure PowerShell 进行重置](#vmaccess-extension-and-powershell)
 
 ## <a name="azure-portal"></a>Azure 门户
-可使用 [Azure 门户](https://portal.azure.cn)重置远程桌面服务。 要展开门户菜单，请单击左上角的三栏，并单击“虚拟机(经典)”：
+可使用 [Azure 门户](https://portal.azure.cn)重置远程桌面服务。 如果要展开门户菜单，请单击左上角的三栏，并单击“虚拟机(经典)”：
 
 ![浏览 Azure VM](./media/reset-rdp/Portal-Select-Classic-VM.png)
 
@@ -110,4 +110,4 @@ Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' 
 [使用 RDP 或 SSH 连接到 Azure 虚拟机](/virtual-machines/linux/overview)
 
 [对与基于 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除](../troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
-<!-- Update_Description: add classic portal migration notice. -->
+<!-- Update_Description: update meta properties -->

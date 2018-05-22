@@ -18,10 +18,10 @@ origin.date: 11/03/2017sss
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: 9a197a3a0e10a3600f94a2de382590d8be5268d9
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-a-linux-virtual-machine-in-azure"></a>排查 Azure 中 Linux 虚拟机上的应用程序连接问题
 [!INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../../includes/virtual-machines-common-troubleshoot-app-connection.md)]

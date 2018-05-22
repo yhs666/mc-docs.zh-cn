@@ -17,10 +17,10 @@ ms.date: 04/23/2018
 ms.author: v-junlch
 ms.reviewer: misainat
 ms.openlocfilehash: 7e7f37c798dc28f78141d9596ada6728a21a1f46
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>安装 Azure Stack 开发工具包 (ASDK)
 [准备 ASDK 主机](asdk-prepare-host.md)后，可以使用本文中的以下步骤将 ASDK 部署到 CloudBuilder.vhdx 映像中。
@@ -60,7 +60,7 @@ ms.lasthandoff: 05/11/2018
       > [!TIP]
       > 若要查找时间服务器 IP 地址，请访问 [pool.ntp.org](http:\\pool.ntp.org) 或 ping time.windows.com。 
 
-    - **（可选）**设置以下值：
+    - **（可选）** 设置以下值：
         - **VLAN ID**：设置 VLAN ID。 仅当主机和 AzS-BGPNAT01 必须通过配置 VLAN ID 来访问物理网络（和 Internet）时，才使用此选项。 
         - **DNS 转发器**：在 Azure Stack 部署过程中会创建 DNS 服务器。 若要允许解决方案中的计算机解析标记外部的名称，请提供现有的基础结构 DNS 服务器。 标记内 DNS 服务器将未知的名称解析请求转发至此服务器。
 

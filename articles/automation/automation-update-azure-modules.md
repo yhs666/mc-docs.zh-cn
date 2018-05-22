@@ -16,10 +16,10 @@ origin.date: 03/16/2018
 ms.date: 05/14/2018
 ms.author: v-nany
 ms.openlocfilehash: 8480e2a600710b97a1d4dbecfa192c414e78f909
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>如何在 Azure 自动化中更新 Azure PowerShell 模块
 

@@ -1,28 +1,28 @@
 ---
-title: "Azure Batch 计算节点环境变量 | Microsoft Docs"
-description: "Azure Batch 分析的计算节点环境变量参考。"
+title: Azure Batch 计算节点环境变量 | Microsoft Docs
+description: Azure Batch 分析的计算节点环境变量参考。
 services: batch
-author: alexchen2016
-manager: digimobile
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 origin.date: 05/05/2017
-ms.date: 07/03/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: a019ae7fad8744430d49cd6c756b4c351934c6d4
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 616974848395c0254cf4992c03b716f9ea85cfb1
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch 计算节点环境变量
 [Azure Batch 服务](https://azure.microsoft.com/services/batch/)在计算节点上设置以下环境变量。 可以在任务命令行中引用这些环境变量，也可在命令行运行的程序和脚本中引用它们。
 
-有关将环境变量用于批处理的其他信息，请参阅[任务的环境设置](/batch/batch-api-basics#environment-settings-for-tasks/)。
+有关将环境变量用于批处理的其他信息，请参阅[任务的环境设置](/batch/batch-api-basics#environment-settings-for-tasks)。
 
 ## <a name="environment-variable-visibility"></a>环境变量的可见性
 
@@ -65,3 +65,5 @@ ms.lasthandoff: 07/14/2017
 [multi_instance]: batch-mpi.md
 [coord_cmd]: batch-mpi.md#coordination-command
 [app_cmd]: batch-mpi.md#application-command
+
+<!-- Update_Description: update metedata properties -->

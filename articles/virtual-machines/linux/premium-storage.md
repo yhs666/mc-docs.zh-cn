@@ -16,10 +16,10 @@ origin.date: 03/30/2018
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: cc54ddaf975b258c3ad019cda7d3f0be61ca2e74
-ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]
 

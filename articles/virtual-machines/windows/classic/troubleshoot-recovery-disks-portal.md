@@ -1,24 +1,24 @@
 ---
-title: "通过将 OS 磁盘附加到恢复 VM 对 Azure Windows 经典 VM 进行故障排除 | Azure"
-description: "了解如何通过将 OS 磁盘附加到恢复 VM 对 Azure Windows 经典 VM 进行故障排除"
+title: 通过将 OS 磁盘附加到恢复 VM 对 Azure Windows 经典 VM 进行故障排除 | Azure
+description: 了解如何通过将 OS 磁盘附加到恢复 VM 对 Azure Windows 经典 VM 进行故障排除
 services: virtual-machines-windows
-documentationCenter: 
+documentationCenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 07/21/2017
-ms.date: 10/30/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0025d72de0076a14c29cd45e2a76699eea39718b
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: bab1772a259bc955a319de48dddb278e68593365
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="troubleshoot-a-windows-classic-vm-by-attaching-the-os-disk-to-a-recovery-vm"></a>通过将 OS 磁盘附加到恢复 VM 对 Windows 经典 VM 进行故障排除
 

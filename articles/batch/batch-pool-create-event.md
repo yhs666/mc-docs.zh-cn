@@ -1,27 +1,27 @@
 ---
-title: "Azure Batch 池创建事件 | Microsoft Docs"
-description: "Batch 池创建事件参考。"
+title: Azure Batch 池创建事件 | Microsoft Docs
+description: Batch 池创建事件参考。
 services: batch
-author: alexchen2016
-manager: digimobile
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/20/2017
-ms.date: 07/03/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 22b113b1c784380be2339a166d3c29801112bb12
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: ad3ebece5c2f558ebf8b9546d97f062412c77f5b
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="pool-create-event"></a>池创建事件
 
- 池创建后，会发出此事件。 日志内容将公开有关池的常规信息。 请注意，如果池的目标大小大于 0 个计算节点，则池调整大小启动事件将在此事件之后立即发生。
+ 池创建后，会发出此事件。 日志内容会公开有关池的常规信息。 请注意，如果池的目标大小大于 0 个计算节点，则池调整大小启动事件会在此事件之后立即发生。
 
  以下示例显示了使用 CloudServiceConfiguration 属性所创建池的池创建事件的正文。
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 07/14/2017
 }
 ```
 
-|元素|类型|说明|
+|元素|类型|注释|
 |-------------|----------|-----------|
 |id|String|池的 id。|
 |displayName|String|池的显示名称。|
@@ -65,14 +65,14 @@ ms.lasthandoff: 07/14/2017
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
-|元素名称|类型|说明|
+|元素名称|类型|注释|
 |------------------|----------|-----------|
 |osFamily|String|要安装在池中虚拟机上的 Azure 来宾 OS 系列。<br /><br /> 可能的值包括：<br /><br /> **2** - OS 系列 2，等效于 Windows Server 2008 R2 SP1。<br /><br /> **3** - OS 系列 3，等效于Windows Server 2012。<br /><br /> **4** - OS 系列 4，等效于 Windows Server 2012 R2。<br /><br /> 有关详细信息，请参阅 [Azure 来宾 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)。|
 |targetOSVersion|String|要安装在池中虚拟机上的 Azure 来宾 OS 版本。<br /><br /> 默认值为 **\***，用于指定特定系列的最新操作系统版本。<br /><br /> 有关其他允许的值的信息，请参阅 [Azure 来宾 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)。|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
-|元素名称|类型|说明|
+|元素名称|类型|注释|
 |------------------|----------|-----------|
 |[imageReference](#bk_imgref)|复杂类型|指定关于要使用的平台或应用商店映像的信息。|
 |nodeAgentSKUId|String|在计算节点上预配的批处理节点代理的 SKU。|
@@ -80,7 +80,7 @@ ms.lasthandoff: 07/14/2017
 
 ###  <a name="bk_imgref"></a> imageReference
 
-|元素名称|类型|说明|
+|元素名称|类型|注释|
 |------------------|----------|-----------|
 |发布者|String|映像的发布者。|
 |offer|String|映像的产品/服务。|
@@ -89,13 +89,14 @@ ms.lasthandoff: 07/14/2017
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 
-|元素名称|类型|说明|
+|元素名称|类型|注释|
 |------------------|----------|-----------|
 |enableAutomaticUpdates|布尔|指示是否对虚拟机启用自动更新。 如果未指定此属性，则默认值为 true。|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 
-|元素名称|类型|说明|
+|元素名称|类型|注释|
 |------------------|--------------|----------|
 |subnetId|String|指定创建池计算节点的子网的资源标识符。|
 
+<!-- Update_Description: update metedata properties -->

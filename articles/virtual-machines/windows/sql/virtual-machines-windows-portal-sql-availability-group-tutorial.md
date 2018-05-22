@@ -1,6 +1,6 @@
 ---
-title: "SQL Server 可用性组 - Azure 虚拟机 - 教程 | Azure"
-description: "本教程说明如何在 Azure 虚拟机上创建 SQL Server Always On 可用性组。"
+title: SQL Server 可用性组 - Azure 虚拟机 - 教程 | Azure
+description: 本教程说明如何在 Azure 虚拟机上创建 SQL Server Always On 可用性组。
 services: virtual-machines
 documentationCenter: na
 author: rockboyfor
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/09/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: fc7101f2908eaf7825eb372a67c6ce907f9271a4
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: c8cd2067c45dc936b28534e02cf44045fc5746c0
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>在 Azure VM 中手动配置 Always On 可用性组
 
@@ -85,9 +85,10 @@ ms.lasthandoff: 03/17/2018
    ![群集属性](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
 3. 选择“静态 IP 地址”，并在“地址”文本框中指定 SQL Server 所在子网中可用的地址。 然后单击“确定”。
-4. 在“群集核心资源”部分中，右键单击群集名称，并单击“联机”。 然后等待两个资源都已联机。 当该群集名称资源联机时，它会用新的 AD 计算机帐户更新 DC 服务器。 稍后需使用此 AD 帐户运行可用性组群集服务。
+4. 在“群集核心资源”部分中，右键单击群集名称，并单击“联机”。 然后等待两个资源都已联机。 当该群集名称资源联机时，它会用新的 AD 计算机帐户更新 DC 服务器。 稍后使用此 AD 帐户来运行可用性组群集服务。
 
-### <a name="addNode"></a>将另一个 SQL Server 添加到群集
+<a name="addNode"></a>
+### <a name="add-the-other-sql-server-to-cluster"></a>将另一个 SQL Server 添加到群集
 
 将另一个 SQL Server 添加到群集。
 
@@ -192,7 +193,8 @@ ms.lasthandoff: 03/17/2018
 对另一个 SQL Server 重复上述步骤。
 
 <!-----------------
-## <a name="endpoint-firewall"></a>Open firewall for the database mirroring endpoint
+<a name="endpoint-firewall"></a>
+## Open firewall for the database mirroring endpoint
 
 Each instance of SQL Server that participates in an Availability Group requires a database mirroring endpoint. This endpoint is a TCP port for the instance of SQL Server that is used to synchronize the database replicas in the Availability Groups on that instance.
 
@@ -220,7 +222,8 @@ Repeat these steps on the second SQL Server.
 7. 在“对象资源管理器”中，右键单击“数据库”，并单击“新建数据库”。
 8. 在“数据库名称”中，键入 **MyDB1**，并单击“确定”。
 
-### <a name="backupshare"></a>创建备份共享
+<a name="backupshare"></a>
+###  <a name="create-a-backup-share"></a>创建备份共享
 
 1. 在“服务器管理器”中的第一个 SQL Server 上，单击“工具”。 打开“计算机管理”。
 
@@ -355,7 +358,7 @@ Repeat these steps on the second SQL Server.
    | **虚拟网络** |使用虚拟网络的名称。 |
    | **子网** |使用虚拟机所在的子网的名称。  |
    | **IP 地址分配** |静态 |
-   | **IP 地址** |使用子网中的可用地址。 |
+   | **IP 地址** |使用子网中的可用地址。 请注意，这不同于群集 IP 地址 |
    | **订阅** |使用虚拟机所在的同一个订阅。 |
    | **位置** |使用虚拟机所在的同一个位置。 |
 
@@ -373,22 +376,14 @@ Repeat these steps on the second SQL Server.
 
    ![在资源组中找到负载均衡器](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. 单击负载均衡器，单击“后端池”，并单击“+ 添加”。 对后端池进行如下设置：
+1. 单击负载均衡器，单击“后端池”，并单击“+ 添加”。 
 
-   | 设置 | 说明 | 示例
-   | --- | --- |---
-   | **名称** | 键入文本名称 | SQLLBBE
-   | **关联到** | 从列表中选取 | 可用性集
-   | **可用性集** | 使用 SQL Server VM 所在的可用性集的名称 | sqlAvailabilitySet |
-   | **虚拟机** |两个 Azure SQL Server VM 名称 | sqlserver-0、sqlserver-1
+1. 将该后端池与包含 VM 的可用性集进行关联。
 
-1. 键入后端池的名称。
+1. 在“目标网络 IP 配置”下，选中“虚拟机”并选择将托管可用性组副本的这两个虚拟机。 不要包含文件共享见证服务器。
 
-1. 单击“+ 添加虚拟机”。
-
-1. 关于可用性集，请选择 SQL Server 所在的可用性集。
-
-1. 对于虚拟机，请包含这两个 SQL Server。 不要包含文件共享见证服务器。
+   >[!NOTE]
+   >如果未指定这两个虚拟机，则仅与主要副本的连接会成功。
 
 1. 单击“确定”创建后端池。
 
@@ -430,7 +425,8 @@ Repeat these steps on the second SQL Server.
 
 1. 单击“确定”以设置负载均衡规则。
 
-## <a name="configure-listener"></a>配置侦听器
+<a name="configure-listener"></a>
+##  <a name="configure-the-listener"></a>配置侦听器
 
 下一步是在故障转移群集上配置可用性组侦听器。
 
@@ -495,4 +491,4 @@ SQLCMD 连接自动连接到托管主副本的 SQL Server 实例。
 ## <a name="next-steps"></a>后续步骤
 
 - [将 IP 地址添加到第二个可用性组的负载均衡器](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP)。
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update meta properties -->

@@ -1,25 +1,25 @@
 ---
-title: "安全地保存 Web 应用的密钥应用程序设置 | Microsoft 文档"
-description: "如何使用 ASP.NET Core 密钥保管库提供程序、用户密钥或 .NET 4.7.1 配置生成器来安全地保存密钥应用程序设置（如 Azure 凭据或第三方 API 密钥）"
+title: 安全地保存 Web 应用的密钥应用程序设置 | Microsoft 文档
+description: 如何使用 ASP.NET Core 密钥保管库提供程序、用户密钥或 .NET 4.7.1 配置生成器来安全地保存密钥应用程序设置（如 Azure 凭据或第三方 API 密钥）
 services: visualstudio
-documentationcenter: 
-author: alexchen2016
-manager: digimobile
-editor: 
-ms.assetid: 
-ms.service: 
+documentationcenter: ''
+author: cawa
+manager: paulyuk
+editor: ''
+ms.assetid: ''
+ms.service: ''
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 origin.date: 11/09/2017
-ms.date: 12/22/2017
+ms.date: 05/16/2018
 ms.author: v-junlch
-ms.openlocfilehash: f79b60c63894410e298da6ae0f372aee812617cd
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 53d22c6cfefdc30fa3c866256b4dc3eff8419ea9
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地保存 Web 应用的密钥应用程序设置
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/22/2017
 如果正在运行 .NET Core 控制台应用程序，请使用密钥保管库来安全地保存你的密钥。
 
 ### <a name="save-secret-settings-in-azure-key-vault"></a>在 Azure 密钥保管库中保存密钥设置
-如果正在开发一个团队项目，并需要安全地共享源代码，请使用 [Azure Key Vault](/key-vault/)。
+如果正在开发一个团队项目，并需要安全地共享源代码，请使用 [Azure Key Vault](https://www.azure.cn/home/features/key-vault/)。
 
 1. 在 Azure 订阅中创建密钥保管库。 填写 UI 上的所有必填字段，然后单击边栏选项卡底部的“创建”
 
@@ -146,7 +146,7 @@ ms.lasthandoff: 12/22/2017
 
 1. 将以下 NuGet 包安装到你的项目
 ```
-Microsoft.Configuration.ConfigurationBuilders.Azure.1.0.0-alpha1.nupkg
+Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
 ```
 
 2. 定义 Web.config 中的密钥保管库配置生成器。将该部分置于 appSettings 部分前。 如果密钥保管库位于公共 Azure 中，则将 vaultName 替换为密钥保管库名称，如果正在使用 Sovereign 云，则将其替换为完整的 URI。
@@ -175,4 +175,4 @@ Microsoft.Configuration.ConfigurationBuilders.Azure.1.0.0-alpha1.nupkg
 
 4. 开始调试项目。 它应已成功运行。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: code and link update -->

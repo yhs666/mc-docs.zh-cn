@@ -1,23 +1,23 @@
 ---
-title: "使用 Azure Batch 服务 API 将作业和任务输出持久保存到 Azure 存储 | Microsoft Docs"
-description: "了解如何使用 Batch 服务 API 将 Batch 任务和作业输出持久保存到 Azure 存储。"
+title: 使用 Azure Batch 服务 API 将作业和任务输出持久保存到 Azure 存储 | Microsoft Docs
+description: 了解如何使用 Batch 服务 API 将 Batch 任务和作业输出持久保存到 Azure 存储。
 services: batch
-author: alexchen2016
-manager: digimobile
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 06/16/2017
-ms.date: 07/03/2017
+ms.date: 05/15/2018
 ms.author: v-junlch
-ms.openlocfilehash: 838c945fdee78a689635faba4eb1cc5ac617b479
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: 7bc0647da2f95cc7dfed6fb3ae869e89406d2eba
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>使用 Batch 服务 API 将任务数据持久保存到 Azure 存储
 
@@ -36,7 +36,7 @@ Azure Batch 提供多种持久保存任务输出的方式。 使用 Batch 服务
 - 需要将输出持久保存到使用任意名称的 Azure 存储容器。
 - 需要将输出持久保存到根据 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions)命名的 Azure 存储容器。 
 
-如果你的情形不同于上面列出的情形，则可能需要考虑其他方式。 例如，Batch 服务 API 目前不支持在任务正运行时将输出流式传输到 Azure 存储。 若要流式传输输出，请考虑使用适用于 .NET 的 Batch 文件约定库。 对于其他语言，需实现你自己的解决方案。 若要详细了解持久保存任务输出的其他选项，请参阅[将作业和任务输出持久保存到 Azure 存储](batch-task-output.md)。 
+如果你的情况与上面不同，可能需要考虑不同的方法。 例如，Batch 服务 API 目前不支持在任务正运行时将输出流式传输到 Azure 存储。 若要流式传输输出，请考虑使用适用于 .NET 的 Batch 文件约定库。 对于其他语言，需实现你自己的解决方案。 有关保存任务输出的其他选项的详细信息，请参阅[将作业和任务输出保存到 Azure 存储](batch-task-output.md)。 
 
 ## <a name="create-a-container-in-azure-storage"></a>在 Azure 存储中创建容器
 
@@ -69,7 +69,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 ## <a name="specify-output-files-for-task-output"></a>指定任务输出的输出文件
 
-若要指定任务的输出文件，请在创建任务时创建 [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile?view=azure-dotnet) 对象的集合，然后将其分配给 [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles?view=azure-dotnet#Microsoft_Azure_Batch_CloudTask_OutputFiles) 属性。 
+若要指定任务的输出文件，请在创建任务时创建 [OutputFile](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.outputfile) 对象的集合，然后将其分配给 [CloudTask.OutputFiles](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) 属性。 
 
 以下 .NET 代码示例创建一个任务，以便将随机数字写入名为 `output.txt` 的文件。 该示例创建一个输出文件，以便将 `output.txt` 写入容器。 对于符合文件模式 `std*.txt` 的日志文件（例如 `stdout.txt` 和 `stderr.txt`），该示例也创建输出文件。 容器 URL 需要此前为容器创建的 SAS。 Batch 服务使用 SAS 来验证容器访问权限： 
 
@@ -99,7 +99,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 ### <a name="specify-a-file-pattern-for-matching"></a>指定要匹配的文件模式
 
-指定输出文件时，可以使用 [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern?view=azure-dotnet#Microsoft_Azure_Batch_OutputFile_FilePattern) 属性来指定要匹配的文件模式。 在通过任务创建的文件中，文件模式匹配的可能有零个文件、一个文件或一组文件。
+指定输出文件时，可以使用 [OutputFile.FilePattern](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) 属性来指定要匹配的文件模式。 在通过任务创建的文件中，文件模式匹配的可能有零个文件、一个文件或一组文件。
 
 FilePattern 属性支持文件系统通配符，例如 `*`（适用于非递归匹配）和 `**`（适用于递归匹配）。 例如，上面的代码示例指定以非递归方式与 `std*.txt` 匹配的文件模式： 
 
@@ -111,19 +111,19 @@ FilePattern 属性支持文件系统通配符，例如 `*`（适用于非递归�
 
 ### <a name="specify-an-upload-condition"></a>指定上传条件
 
-[OutputFileUploadOptions.UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition?view=azure-dotnet#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) 属性允许对输出文件进行条件性上传。 常见方案是在任务成功时上传一组文件，失败时上传另一组文件。 例如，可以只在任务失败且退出时的退出代码非零的情况下，才上传详细的日志文件。 同样，可以只在任务成功的情况下，才上传结果文件，因为这些文件在任务失败时可能会缺失或不完整。
+[OutputFileUploadOptions.UploadCondition](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) 属性允许对输出文件进行条件性上传。 常见方案是在任务成功时上传一组文件，失败时上传另一组文件。 例如，可以只在任务失败且退出时的退出代码非零的情况下，才上传详细的日志文件。 同样，可以只在任务成功的情况下，才上传结果文件，因为这些文件在任务失败时可能会缺失或不完整。
 
 上面的代码示例将 UploadCondition 属性设置为 TaskCompletion。 该设置指定在任务完成后上传文件，不管退出代码的值如何。 
 
 `uploadCondition: OutputFileUploadCondition.TaskCompletion`
 
-有关其他设置，请参阅 [OutputFileUploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.outputfileuploadcondition?view=azure-dotnet) 枚举。
+有关其他设置，请参阅 [OutputFileUploadCondition](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.common.outputfileuploadcondition) 枚举。
 
 ### <a name="disambiguate-files-with-the-same-name"></a>区分名称相同的文件
 
 作业中的任务可能生成名称相同的文件。 例如，系统会为在作业中运行的每个任务创建 `stdout.txt` 和 `stderr.txt`。 由于每个任务在自身上下文中运行，这些文件在节点的文件系统中并不发生冲突。 但是，将多个任务的文件上传到共享容器时，需区分名称相同的文件。
 
-[OutputFileBlobContainerDestination.Path](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path?view=azure-dotnet#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) 属性指定输出文件的目标 Blob 或虚拟目录。 可以使用 Path 属性来命名 Blob 或虚拟目录，使名称相同的输出文件在 Azure 存储中具有唯一的名称。 在路径中使用任务 ID 可以很好地确保名称的唯一性，并且可以轻松地标识文件。
+[OutputFileBlobContainerDestination.Path](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) 属性指定输出文件的目标 Blob 或虚拟目录。 可以使用 Path 属性来命名 Blob 或虚拟目录，使名称相同的输出文件在 Azure 存储中具有唯一的名称。 在路径中使用任务 ID 可以很好地确保名称的唯一性，并且可以轻松地标识文件。
 
 如果将 FilePattern 属性设置为通配符表达式，则会将符合模式的所有文件上传到通过 Path 属性指定的虚拟目录。 例如，如果容器为 `mycontainer`，任务 ID 为 `mytask`，文件模式为 `..\std*.txt`，则 Azure 存储中输出文件的绝对 URI 将类似于：
 
@@ -143,12 +143,12 @@ https://myaccount.blob.core.chinacloudapi.cn/mycontainer/task1/output.txt
 https://myaccount.blob.core.chinacloudapi.cn/mycontainer/task2/output.txt
 ```
 
-有关 Azure 存储中虚拟目录的详细信息，请参阅[列出容器中的 Blob](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container)。
+有关 Azure 存储中虚拟目录的详细信息，请参阅[列出容器中的 Blob](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container)。
 
 
 ## <a name="diagnose-file-upload-errors"></a>诊断文件上传错误
 
-如果上传输出文件到 Azure 存储失败，则任务会转为“已完成”状态，并会设置 [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation?view=azure-dotnet#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) 属性。 通过检查 FailureInformation 属性来确定所发生的具体错误。 例如，下面是在找不到容器的情况下，在文件上传时发生的错误： 
+如果上传输出文件到 Azure 存储失败，则任务会转为“已完成”状态，并会设置 [TaskExecutionInformation.FailureInformation](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) 属性。 通过检查 FailureInformation 属性来确定所发生的具体错误。 例如，下面是在找不到容器的情况下，在文件上传时发生的错误： 
 
 ```
 Category: UserError
@@ -172,13 +172,13 @@ Message: One of the specified Azure container(s) was not found while attempting 
 string containerName = job.OutputStorageContainerName();
 ```
 
-可以使用 [CloudJobExtensions.GetOutputStorageContainerUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.getoutputstoragecontainerurl?view=azure-dotnet) 方法，以便返回用于向容器写入数据的共享访问签名 (SAS) URL。 然后即可将该 SAS 传递给 [OutputFileBlobContainerDestination](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination?view=azure-dotnet) 构造函数。
+可以使用 [CloudJobExtensions.GetOutputStorageContainerUrl](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.conventions.files.cloudjobextensions.getoutputstoragecontainerurl) 方法，以便返回用于向容器写入数据的共享访问签名 (SAS) URL。 然后即可将该 SAS 传递给 [OutputFileBlobContainerDestination](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination) 构造函数。
 
 如果使用 C# 之外的语言进行开发，则需自行实现文件约定标准。
 
 ## <a name="code-sample"></a>代码示例
 
-[PersistOutputs][github_persistoutputs] 示例项目是 GitHub 上的 [Azure Batch 代码示例][github_samples] 之一。 此 Visual Studio 解决方案演示如何使用适用于 .NET 的 Batch 客户端库将任务输出持久保存到持久性存储。 若要运行该示例，请遵循以下步骤：
+[PersistOutputs][github_persistoutputs] 示例项目是 GitHub 上的 [Azure Batch 代码示例][github_samples]之一。 此 Visual Studio 解决方案演示如何使用适用于 .NET 的 Batch 客户端库将任务输出保存到持久性存储。 若要运行该示例，请遵循以下步骤：
 
 1. 在 **Visual Studio 2015 或更新版本**中打开该项目。
 2. 将 Batch 和存储**帐户凭据**添加到 Microsoft.Azure.Batch.Samples.Common 项目中的 **AccountSettings.settings**。
@@ -190,7 +190,10 @@ string containerName = job.OutputStorageContainerName();
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要详细了解如何使用适用于 .NET 的文件约定库来持久保存任务输出，请参阅[使用适用于 .NET 的 Batch 文件约定库将作业和任务数据持久保存到 Azure 存储](batch-task-output-file-conventions.md)。
+- 有关使用适用于 .NET 的文件约定库保存任务输出的详细信息，请参阅[使用适用于 .NET 的 Batch 文件约定库将作业和任务数据保存到 Azure 存储](batch-task-output-file-conventions.md)。
 - 若要了解在 Azure Batch 中持久保存输出数据的其他方法，请参阅[将作业和任务输出持久保存到 Azure 存储](batch-task-output.md)。
 
+[github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
+[github_samples]: https://github.com/Azure/azure-batch-samples
 
+<!-- Update_Description: link update -->

@@ -1,24 +1,24 @@
 ---
-title: "在创建过程中启用 Azure VM 备份 | Microsoft Docs"
-description: "查看在创建过程中启用 Azure 虚拟机备份的步骤。"
+title: 在创建过程中启用 Azure VM 备份 | Microsoft Docs
+description: 查看在创建过程中启用 Azure 虚拟机备份的步骤。
 services: backup, virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: article
 ms.workload: storage-backup-recovery
 origin.date: 01/08/2018
-ms.date: 02/27/2018
+ms.date: 05/15/2018
 ms.author: v-junlch
-ms.openlocfilehash: 07246f34696d9dd9f71e824978d68ffad95e3855
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 9c37e02e7f6dab50a25b2c7af1bef98ef96dc68c
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="enable-backup-during-azure-virtual-machine-creation"></a>在 Azure 虚拟机创建过程中启用备份 
 
@@ -58,6 +58,10 @@ Azure 备份服务提供创建备份并将其配置到云的接口。 通过定�
 ## <a name="initiate-a-backup-after-creating-the-vm"></a>在创建 VM 后启动备份 
 
 虽然已创建备份策略，但是最好创建一个初始备份。 要在 VM 创建模板完成后查看虚拟机的备份详细信息，请在左侧菜单上的“操作”设置中单击“备份”。 可通过此操作触发按需备份、还原完整 VM 或所有磁盘、从 VM 备份还原文件，或更改与虚拟机关联的备份策略。  
+
+## <a name="using-a-resource-manager-template-to-deploy-a-protected-vm"></a>使用资源管理器模板部署一个受保护的 VM
+
+前面的步骤说明了如何使用 Azure 门户来创建虚拟机，以及使用恢复服务保管库来保护该虚拟机。 如果希望快速部署一台或多台虚拟机，并使用恢复服务保管库来保护它们，请参阅模板[部署 Windows VM 并启用备份](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/)。
 
 ## <a name="frequently-asked-questions"></a>常见问题 
 
@@ -100,3 +104,4 @@ Azure 备份服务提供创建备份并将其配置到云的接口。 通过定�
 - [管理和监视虚拟机](backup-azure-manage-vms.md) 
 - [恢复虚拟机](backup-azure-arm-restore-vms.md) 
 
+<!-- Update_Description: wording update -->

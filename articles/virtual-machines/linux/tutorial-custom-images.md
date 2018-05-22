@@ -18,10 +18,10 @@ ms.date: 05/14/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 6359303dea9a9bc0d76cdb67fdb08dc59ac17a5d
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>使用 CLI 创建 Azure VM 的自定义映像
 

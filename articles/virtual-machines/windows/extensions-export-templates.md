@@ -1,11 +1,11 @@
 ---
-title: "导出包含 VM 扩展的 Azure 资源组 | Azure"
-description: "导出包含虚拟机扩展的 Resource Manager 模板。"
+title: 导出包含 VM 扩展的 Azure 资源组 | Azure
+description: 导出包含虚拟机扩展的 Resource Manager 模板。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7f4e2ca6-f1c7-4f59-a2cc-8f63132de279
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 12/05/2016
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: febaba7c78371527ad952681b1eba849ec0f6228
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 524010e751c0b6de624e30dc43c9bb630e8f6ac7
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>导出包含 VM 扩展的资源组
 
@@ -160,4 +160,4 @@ Azure Resource Manager 自动化脚本生成一个 Resource Manager 模板、一
 ```
 
 目前可以使用任何模板部署方法部署此模板。
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

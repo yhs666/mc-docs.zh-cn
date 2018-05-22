@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 门户中创建 VM | Azure"
-description: "在 Azure 门户中创建 Windows 虚拟机。"
+title: 在 Azure 门户中创建 VM | Azure
+description: 在 Azure 门户中创建 Windows 虚拟机。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: 1871f823-ebd7-4eff-9a22-8e2411555595
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 01/29/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: f47874d073d162e2d09e69f36666545711471ae5
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 86380dd64d5c4900e3238154b0396538b87afcb0
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>在 Azure 门户中创建运行 Windows 的虚拟机
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.lasthandoff: 01/25/2018
 
 也可以使用 [自己的映像](createupload-vhd.md)创建 VM。 若要了解此方法和其他方法，请参阅[创建 Windows 虚拟机的不同方式](../../virtual-machines-windows-creation-choices.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-## <a id="createvirtualmachine"> </a>创建虚拟机
+## <a name="createvirtualmachine"> </a>创建虚拟机
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]
 
 ## <a name="next-steps"></a>后续步骤
@@ -50,5 +50,4 @@ ms.lasthandoff: 01/25/2018
 * 登录到虚拟机。 有关说明，请参阅[登录到运行 Windows Server 的虚拟机](connect-logon.md)。
 * 附加磁盘以存储数据。 可以附加空磁盘和包含数据的磁盘。 有关说明，请参阅[将数据磁盘附加到使用经典部署模型创建的 Windows 虚拟机](attach-disk.md)。
 
-<!-- Update_Description: update meta properties, rename the article -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

@@ -1,12 +1,13 @@
 ---
-title: "管理基于 Linux 的虚拟机扩展 | Azure"
-description: "介绍如何在经典部署模型中添加、查找、更新和删除 Azure 虚拟机的扩展。"
+title: 管理基于 Linux 的虚拟机扩展 | Azure
+description: 介绍如何在经典部署模型中添加、查找、更新和删除 Azure 虚拟机的扩展。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
+ROBOTS: NOINDEX
 ms.assetid: 1dd06f8a-96d7-4c8c-8a74-ad2c553a5f2a
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -14,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 08/29/2016
-ms.date: 01/29/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4d058dd4af0c0905a8c23e99529f92d349d9e54e
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: afbf415a972f55ce8d2c9a943c4a7d82b3c562ea
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="manage-virtual-machine-extensions"></a>管理虚拟机扩展
 介绍如何在 Azure 上查找、添加、修改或删除 Windows 或 Linux 虚拟机的 VM 扩展。
@@ -29,5 +30,4 @@ ms.lasthandoff: 01/25/2018
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 有关将 VM 扩展与 Resource Manager 模型配合使用的信息，请参阅[此处](../extensions-features.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 [!INCLUDE [virtual-machines-common-classic-manage-extensions](../../../../includes/virtual-machines-common-classic-manage-extensions.md)]
-<!-- Update_Description: new articles on manage extensions classic for Linux VM -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

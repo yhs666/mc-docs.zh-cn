@@ -16,10 +16,10 @@ origin.date: 03/21/2017
 ms.date: 05/11/2018
 ms.author: v-junlch
 ms.openlocfilehash: 415277ff0fd51f19f82d364d7af6f8988203697d
-ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="using-the-visual-studio-publish-azure-application-wizard"></a>使用 Visual Studio“发布 Azure 应用程序”向导 | Microsoft Docs
 

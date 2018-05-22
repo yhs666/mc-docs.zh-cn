@@ -16,10 +16,10 @@ origin.date: 05/04/2017
 ms.author: v-junlch
 ms.date: 05/07/2018
 ms.openlocfilehash: 319dc4ea4ae545c24c76f374cafd92c226b88cac
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念证明操作手册：构建基块
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 05/10/2018
 
 | 先决条件 | 资源 |
 | --- | --- |
-| 使用有效 Azure 订阅定义的 Azure AD 租户 | [如何获取 Azure Active Directory 租户](./develop/active-directory-howto-tenant.md)<br/>**注意：**如果已创建一个具有 Azure AD Premium 许可证的环境，可以导航到 https://aka.ms/accessaad 获取一个没有上限的订阅 <br/>在 https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ 和 https://technet.microsoft.com/library/dn832618.aspx 中了解详细信息 |
+| 使用有效 Azure 订阅定义的 Azure AD 租户 | [如何获取 Azure Active Directory 租户](./develop/active-directory-howto-tenant.md)<br/>**注意：** 如果已创建一个具有 Azure AD Premium 许可证的环境，可以导航到 https://aka.ms/accessaad 获取一个没有上限的订阅 <br/>在 https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ 和 https://technet.microsoft.com/library/dn832618.aspx 中了解详细信息 |
 | Azure AD 全局管理员凭据 | 在 Azure Active Directory 中分配管理员角色 |
 | 可选但强烈建议：用作应急措施的并行实验室环境 | [Azure AD Connect 的先决条件](./connect/active-directory-aadconnect-prerequisites.md) |
 

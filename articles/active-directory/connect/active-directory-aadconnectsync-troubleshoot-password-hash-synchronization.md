@@ -16,10 +16,10 @@ origin.date: 03/13/2017
 ms.date: 05/03/2018
 ms.author: v-junlch
 ms.openlocfilehash: b3efb0ddbed4891511bbaeb7ba6e1fdbd0ce22cf
-ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步解决密码哈希同步问题
 本主题提供解决密码哈希同步问题的步骤。 如果密码未按预期同步，请区分该密码是一部分用户的密码还是所有用户的密码。
@@ -271,7 +271,7 @@ ms.lasthandoff: 05/11/2018
 
 9. 在列表中，输入应由 Connect 用于密码同步的域控制器。同一列表也用于导入和导出。 对所有域执行这些步骤。
 
-10. 如果脚本显示没有检测信号，请运行“触发所有密码的完全同步”中的脚本[](#trigger-a-full-sync-of-all-passwords)。
+10. 如果脚本显示没有检测信号，请运行[触发所有密码的完全同步](#trigger-a-full-sync-of-all-passwords)中的脚本。
 
 ## <a name="one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps"></a>一个对象未同步密码：手动排查问题的步骤
 可以通过检查对象的状态，轻松排查密码哈希同步问题。

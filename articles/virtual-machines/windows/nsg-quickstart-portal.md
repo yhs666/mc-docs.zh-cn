@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 门户打开 VM 的端口 | Azure"
-description: "了解如何在 Azure 门户中使用 Resource Manager 部署模型为 Windows VM 打开端口/创建终结点"
+title: 使用 Azure 门户打开 VM 的端口 | Azure
+description: 了解如何在 Azure 门户中使用 Resource Manager 部署模型为 Windows VM 打开端口/创建终结点
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 12/13/2017
-ms.date: 01/08/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 079d972da6c61e3e5958db486210e53ecc83486e
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 4985c56a86b893e0897b4d15e8dd3a5d60f2384b
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>如何使用 Azure 门户打开虚拟机端口
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -59,7 +59,7 @@ ms.lasthandoff: 01/05/2018
 现在，已经创建了网络安全组、创建了允许端口 80 上的流量的入站规则，并将网关安全组与子网进行了关联。 可以通过端口 80 访问与该子网连接的任何 VM。
 
 ## <a name="more-information-on-network-security-groups"></a>有关网络安全组的详细信息
-利用此处的快速命令，可以让流向 VM 的流量开始正常运行。 网络安全组提供许多出色的功能和粒度来控制资源的访问。 可以[在此处详细了解如何创建网络安全组和 ACL 规则](../../virtual-network/virtual-networks-create-nsg-arm-ps.md)。
+利用此处的快速命令，可以让流向 VM 的流量开始正常运行。 网络安全组提供许多出色的功能和粒度来控制资源的访问。 可以[在此处详细了解如何创建网络安全组和 ACL 规则](../../virtual-network/tutorial-filter-network-traffic.md)。
 
 对于高可用性 Web 应用程序，应将 VM 放置在 Azure 负载均衡器后。 当负载均衡器向 VM 分配流量时，网络安全组可以筛选流量。 有关详细信息，请参阅[如何在 Azure 中均衡 Linux 虚拟机负载以创建高可用性应用程序](tutorial-load-balancer.md)。
 
@@ -69,4 +69,4 @@ ms.lasthandoff: 01/05/2018
 * [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)
 * [什么是网络安全组 (NSG)？](../../virtual-network/virtual-networks-nsg.md)
 
-<!--Update_Description: update meta properties, add content on creating rule which allow traffic -->
+<!--Update_Description: update meta properties, update link -->

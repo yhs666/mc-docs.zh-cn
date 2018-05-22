@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中使用模板创建 Windows VM | Azure"
-description: "将 Resource Manager 模板与 PowerShell 配合使用，轻松创建新的 Windows VM。"
+title: 在 Azure 中使用模板创建 Windows VM | Azure
+description: 将 Resource Manager 模板与 PowerShell 配合使用，轻松创建新的 Windows VM。
 services: virtual-machines-windows
-documentationcenter: 
-author: hayley244
+documentationcenter: ''
+author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 19129d61-8c04-4aa9-a01f-361a09466805
 ms.service: virtual-machines-windows
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
+ms.date: 05/21/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e5a104c430b1556f1e47372516e70bafc442cbe
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.openlocfilehash: 753245facf2fc5a61dcef9c97a931bd26dc6d5e0
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>通过 Resource Manager 模板创建 Windows 虚拟机
 
-本文介绍如何使用 PowerShell 部署 Azure Resource Manager 模板。 创建的模板会在包含单个子网的新虚拟网络中部署运行 Windows Server 的单个虚拟机。
+本文介绍如何使用 PowerShell 部署 Azure 资源管理器模板。 创建的模板会在包含单个子网的新虚拟网络上部署运行 Windows Server 的单个虚拟机。
 
 有关虚拟机资源的详细说明，请参阅 [Azure Resource Manager 模板中的虚拟机](template-description.md)。 有关模板中所有资源的详细信息，请参阅 [Azure Resource Manager 模板演练](../../azure-resource-manager/resource-manager-template-walkthrough.md)。
 
 执行本文中的步骤大约需要 5 分钟时间。
 
-## <a name="install-azure-powershell"></a>安装 Azure PowerShell
+<!--[!INCLUDE [cloud-shell-try-it.md|cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 
-有关安装最新版 Azure PowerShell、选择订阅和登录到帐户的信息，请参阅[如何安装和配置 Azure PowerShell](../../powershell-install-configure.md)。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.3 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="create-the-files"></a>创建文件
 
-此步骤将创建一个用于部署资源的模板文件和一个用于向模板提供参数值的参数文件。 还会创建用于执行 Azure 资源管理器操作的授权文件。
+此步骤将创建一个用于部署资源的模板文件和一个用于向模板提供参数值的参数文件。 还创建用于执行 Azure 资源管理器操作的授权文件。
 
 1. 创建一个名为 *CreateVMTemplate.json* 的文件，并向其中添加此 JSON 代码：
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 08/29/2017
       },
       "variables": {
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks','myVNet')]", 
-        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]", 
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]" 
       },
       "resources": [
         {
@@ -179,7 +179,7 @@ ms.lasthandoff: 08/29/2017
     $storageName = "st" + (Get-Random)
     New-AzureRmStorageAccount -ResourceGroupName "myResourceGroup" -AccountName $storageName -Location "China North" -SkuName "Standard_LRS" -Kind Storage
     $accountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName myResourceGroup -Name $storageName).Value[0]
-    $context = New-AzureStorageContext -StorageAccountName $storageName -StorageAccountKey $accountKey 
+    $context = New-AzureStorageContext -Environment AzureChinaCloud -StorageAccountName $storageName -StorageAccountKey $accountKey 
     New-AzureStorageContainer -Name "templates" -Context $context -Permission Container
     ```
 
@@ -209,4 +209,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "m
 
 - 如果部署出现问题，可以参阅[排查使用 Azure 资源管理器时的常见 Azure 部署错误](../../resource-manager-common-deployment-errors.md)。
 - 通过查看[使用 Azure PowerShell 模块创建和管理 Windows VM](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，了解如何创建和管理虚拟机。
-<!--Update_Description: add section "Create the files"-->
+<!--Update_Description: update meta properties, wording update -->

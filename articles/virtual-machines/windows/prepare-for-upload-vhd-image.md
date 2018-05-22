@@ -1,11 +1,11 @@
 ---
-title: "准备好要上传到 Azure 的 Windows VHD | Azure"
-description: "上传到 Azure 前如何准备 Windows VHD 或 VHDX"
+title: 准备好要上传到 Azure 的 Windows VHD | Azure
+description: 上传到 Azure 前如何准备 Windows VHD 或 VHDX
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3b711af1ca23875ae55ff0f3c4efefe752092dd4
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: a7e947e8bf3de2d389161c72f83b0d14ba652b6e
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>准备好要上传到 Azure 的 Windows VHD 或 VHDX
 在将 Windows 虚拟机 (VM) 从本地上传到 Azure 之前，必须准备好虚拟硬盘（VHD 或 VHDX）。 Azure 仅支持采用 VHD 文件格式且具有固定大小磁盘的第 1 代 VM。 VHD 允许的最大大小为 1,023 GB。 可以将第 1 代 VM 从 VHDX 文件系统转换成 VHD 文件系统，以及从动态扩展磁盘转换成固定大小磁盘， 但无法更改 VM 的代次。 有关详细信息，请参阅 [Should I create a generation 1 or 2 VM in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)（应该在 Hyper-V 中创建第 1 代还是第 2 代 VM？）。
@@ -68,7 +68,7 @@ Convert-VHD -Path c:\test\MY-VM.vhdx -DestinationPath c:\test\MY-NEW-VM.vhd -VHD
 
    * 若要查看路由表，请在命令提示符处运行 `route print`。
    * 请查看 **持久性路由** 部分。 如果有持久性路由，请使用 route delete 将它删除。
-<!-- Not Available on [route delete](https://technet.microsoft.com/library/cc739598.apx) -->
+   <!-- Not Available on [route delete](https://technet.microsoft.com/library/cc739598.apx) -->
 2. 删除 WinHTTP 代理：
 
     ```PowerShell
@@ -358,7 +358,8 @@ Set-Service -Name RemoteRegistry -StartupType Auto
 |                         |                   | KB4012215                          | KB4012214                                   | KB4012216                            | KB4013429                            | KB4013429                  |
 |                         |                   |                                    | KB4012217                                   |                                      | KB4013429                            | KB4013429                  |
 
-### 何时使用 sysprep <a id="step23"></a>    
+<a name="step23"></a>  
+### <a name="when-to-use-sysprep"></a>何时使用 sysprep
 
 Sysprep 是一个可以在 Windows 安装过程中运行的进程，它会重置系统安装，并会删除所有个人数据和重置多个组件，从而为你提供“全新安装体验”。 通常情况下，这样做的前提是，需要创建一个模板，以便通过该模板部署多个具有特定配置的其他 VM。 这称为“通用化映像”。
 

@@ -1,27 +1,27 @@
 ---
-title: "Azure CLI 示例 - Batch | Microsoft Docs"
-description: "适用于 Batch 服务的 Azure CLI 示例"
-services: virtual-machines-linux
+title: Azure CLI 示例 - Batch | Microsoft Docs
+description: 适用于 Batch 服务的 Azure CLI 示例
+services: batch
 documentationcenter: batch
 author: dlepow
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 origin.date: 01/29/2018
-ms.date: 03/07/2018
+ms.date: 05/15/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: ace60eea802e3fe534c60f31108c1bc197dd2e02
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 3f9d9fc3bb50ef50dab1d4a308161f47e2bfd329
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="azure-cli-examples-for-azure-batch"></a>适用于 Azure Batch 的 Azure CLI 示例
 
@@ -41,3 +41,4 @@ ms.lasthandoff: 03/08/2018
 | [使用批处理运行作业和任务](./scripts/batch-cli-sample-run-job.md) | 演示如何运行作业和添加任务。 |
 
 
+<!-- Update_Description: update metedata properties -->

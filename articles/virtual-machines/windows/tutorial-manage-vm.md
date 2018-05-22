@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 02/09/2018
-ms.date: 04/10/2018
+origin.date: 03/23/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 738510ecc4973396ee7d51dd240978105148df61
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 9b080b949fe559c05092fc6c81587384ef6104ca
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>使用 Azure PowerShell 模块创建和管理 Windows VM
 
@@ -89,6 +89,8 @@ Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroupVM"  | Select IpAd
 mstsc /v:<publicIpAddress>
 ```
 
+在“Windows 安全性”窗口中，依次选择“更多选择”、“使用其他帐户”。 键入针对虚拟机创建的用户名和密码，然后单击“确定”。
+
 ## <a name="understand-vm-images"></a>了解 VM 映像
 
 Azure 应用商店包括许多可用于新建虚拟机的虚拟机映像。 在之前的步骤中，使用 Windows Server 2016 Datacenter 映像创建了虚拟机。 在此步骤中，使用 PowerShell 模块在应用商店搜索其他 Windows 映像，这些映像也可充当新 VM 的基础。 此过程包括查找发布者、产品/服务和映像名称 (Sku)。 
@@ -134,7 +136,7 @@ Skus                            Offer         PublisherName          Location
 2016-Nano-Server                WindowsServer MicrosoftWindowsServer ChinaEast
 ```
 
-此信息可用于部署具有特定映像的 VM。 此示例通过将 Windows Server 2016 与容器映像配合使用来部署虚拟机。
+此信息可用于部署具有特定映像的 VM。 此示例通过将最新版本的 Windows Server 2016 与容器映像配合使用来部署虚拟机。
 
 ```powershell
 New-AzureRmVm `

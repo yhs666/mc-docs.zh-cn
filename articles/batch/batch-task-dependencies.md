@@ -1,26 +1,26 @@
 ---
-title: "使用任务依赖关系来基于其他任务的完成情况运行任务 - Azure Batch | Microsoft 文档"
-description: "在 Azure Batch 中创建依赖于其他任务的完成的任务，以处理 MapReduce 样式和类似的大数据工作负荷。"
+title: 使用任务依赖关系来基于其他任务的完成情况运行任务 - Azure Batch | Microsoft 文档
+description: 在 Azure Batch 中创建依赖于其他任务的完成的任务，以处理 MapReduce 样式和类似的大数据工作负荷。
 services: batch
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 05/22/2017
-ms.date: 07/03/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce980676838138a6d8f54923b006289c004cb5ff
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: f2094f974058cffb6f60c4f29cd111afe41c1c02
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>创建任务依赖关系，以运行依赖于其他任务的任务
 
@@ -35,13 +35,13 @@ ms.lasthandoff: 07/14/2017
 
 默认情况下，依赖任务计划为仅在成功完成父任务后执行。 可以指定一个依赖关系操作来重写默认行为，并在父任务失败时运行任务。 有关详细信息，请参阅[依赖关系操作](#dependency-actions)部分。  
 
-用户可以创建依赖于一对一或一对多关系中其他任务的任务。 甚至可以创建一个范围依赖关系，使其中一项任务依赖于特定任务 ID 范围内一组任务的完成。 你可以组合这三种基本方案，以创建多对多关系。
+用户可以创建依赖于一对一或一对多关系中其他任务的任务。 甚至可以创建一个范围依赖关系，使其中一项任务依赖于特定任务 ID 范围内一组任务的完成。 可以组合这三种基本方案，以创建多对多关系。
 
 ## <a name="task-dependencies-with-batch-net"></a>Batch .NET 的任务依赖关系
-本文讨论如何使用 [Batch .NET][net_msdn] 库配置任务依赖关系。 本文首先说明如何为作业[启用任务依赖关系](#enable-task-dependencies)，然后演示如何[为任务配置依赖关系](#create-dependent-tasks)。 本文还将介绍如何指定一个依赖关系操作，以便在父任务失败时运行依赖任务。 最后介绍 Batch 支持的[依赖关系方案](#dependency-scenarios)。
+本文讨论如何使用 [Batch .NET][net_msdn] 库配置任务依赖关系。 本文首先说明如何为作业[启用任务依赖关系](#enable-task-dependencies)，然后演示如何[为任务配置依赖关系](#create-dependent-tasks)。 本文还会介绍如何指定一个依赖关系操作，以便在父任务失败时运行依赖任务。 最后介绍 Batch 支持的[依赖关系方案](#dependency-scenarios)。
 
 ## <a name="enable-task-dependencies"></a>启用任务依赖关系
-若要在批处理应用程序中使用任务依赖关系，必须先将作业配置为使用任务依赖关系。 在 Batch .NET 中，为 [CloudJob][net_cloudjob] 启用任务依赖关系的方法是将其 [UsesTaskDependencies][net_usestaskdependencies] 属性设置为 `true`：
+要在批处理应用程序中使用任务依赖关系，必须先将作业配置为使用任务依赖关系。 在 Batch .NET 中，为 [CloudJob][net_cloudjob] 启用任务依赖关系的方法是将其 [UsesTaskDependencies][net_usestaskdependencies] 属性设置为 `true`：
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -223,9 +223,9 @@ new CloudTask("B", "cmd.exe /c echo B")
 [net_cloudtask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 [net_dependson]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.dependson.aspx
 [net_exitcode]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskexecutioninformation.exitcode.aspx
-[net_exitconditions]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.exitconditions
-[net_exitoptions]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.exitoptions
-[net_dependencyaction]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.exitoptions#Microsoft_Azure_Batch_ExitOptions_DependencyAction
+[net_exitconditions]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.exitconditions
+[net_exitoptions]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.exitoptions
+[net_dependencyaction]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.exitoptions#Microsoft_Azure_Batch_ExitOptions_DependencyAction
 [net_msdn]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_onid]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onid.aspx
 [net_onids]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onids.aspx
@@ -239,3 +239,4 @@ new CloudTask("B", "cmd.exe /c echo B")
 [2]: ./media/batch-task-dependency/02_one_to_many.png "关系图：一对多依赖关系"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Diagram: task id range dependency"
 
+<!-- Update_Description: link update -->

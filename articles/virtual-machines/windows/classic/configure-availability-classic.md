@@ -1,11 +1,11 @@
 ---
-title: "Windows 经典 VM 的可用性集 | Azure"
-description: "在经典部署模型中，使用 Azure 门户和 Azure PowerShell，为新的或现有的 Windows 虚拟机配置可用性集。"
+title: Windows 经典 VM 的可用性集 | Azure
+description: 在经典部署模型中，使用 Azure 门户和 Azure PowerShell，为新的或现有的 Windows 虚拟机配置可用性集。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: c3b7fdec-fb59-4412-a4f4-f3a0b9c62e93
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 09/27/2016
-ms.date: 01/29/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 80fc167b2be12a7810533ee417ae5ba75a0fae11
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: fc427e4a29322eb7afe2843c05f1afd3c44f8a04
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="how-to-configure-an-availability-set-for-windows-virtual-machines-in-the-classic-deployment-model"></a>如何在经典部署模型中为 Windows 虚拟机配置可用性集
 > [!IMPORTANT] 
@@ -29,5 +29,4 @@ ms.lasthandoff: 01/25/2018
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [!INCLUDE [virtual-machines-common-classic-configure-availability](../../../../includes/virtual-machines-common-classic-configure-availability.md)]
-<!-- Update_Description: update meta properties, rename the article -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

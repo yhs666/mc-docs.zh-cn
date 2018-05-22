@@ -1,26 +1,25 @@
 ---
-title: "使用多实例任务运行 MPI 应用程序 - Azure Batch | Microsoft Docs"
-description: "了解如何在 Azure Batch 中使用多实例任务类型执行消息传递接口 (MPI) 应用程序。"
+title: 使用多实例任务运行 MPI 应用程序 - Azure Batch | Microsoft Docs
+description: 了解如何在 Azure Batch 中使用多实例任务类型执行消息传递接口 (MPI) 应用程序。
 services: batch
-documentationcenter: .net
-author: alexchen2016
-manager: digimobile
-editor: 
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 origin.date: 05/22/2017
-ms.date: 12/04/2017
-ms.workload: 5/22/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8c6e8c9d05d84a8947a719277b71dee5f30a90e
-ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
+ms.openlocfilehash: ae3dde033b778790e481b1170e7c0e2eb05488f8
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>在 Batch 中使用多实例任务来运行消息传递接口 (MPI) 应用程序
 
@@ -50,7 +49,11 @@ ms.lasthandoff: 12/07/2017
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>多实例任务的要求
-多实例任务需要有**已启用节点间通信**和**已禁用并发任务执行**的池。 若要禁用并发任务执行，请将 [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) 属性设置为 1。
+多实例任务需要有**已启用节点间通信**和**已禁用并发任务执行**的池。 若要禁用并发任务执行，请将 [CloudPool.MaxTasksPerComputeNode](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) 属性设置为 1。
+
+> [!NOTE]
+> Batch [限制](batch-quota-limit.md#other-limits)已启用节点间通信的池的大小。
+
 
 此代码片段演示如何使用 Batch.NET 库为多实例任务创建池。
 
@@ -76,7 +79,7 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 >
 
 ### <a name="use-a-starttask-to-install-mpi"></a>使用 StartTask 安装 MPI
-若要通过多实例任务运行 MPI 应用程序，首先需在池中的计算节点上安装 MPI 实现（例如 MS-MPI 或 Intel MPI）。 这是使用 [StartTask][net_starttask] 的好时机，每当节点加入池或重新启动时，它就会执行。 此代码片段创建一个 StartTask，将 MS-MPI 安装程序包指定为[资源文件][net_resourcefile]。 资源文件下载到节点之后，将执行启动任务的命令行。 在本示例中，命令行执行 MS-MPI 的无人参与安装。
+若要通过多实例任务运行 MPI 应用程序，首先需在池中的计算节点上安装 MPI 实现（例如 MS-MPI 或 Intel MPI）。 这是使用 [StartTask][net_starttask] 的好时机，每当节点加入池或重新启动时，它就会执行。 此代码片段创建一个 StartTask，将 MS-MPI 安装程序包指定为[资源文件][net_resourcefile]。 资源文件下载到节点之后，会执行启动任务的命令行。 在本示例中，命令行执行 MS-MPI 的无人参与安装。
 
 ```csharp
 // Create a StartTask for the pool which we use for installing MS-MPI on
@@ -107,8 +110,7 @@ await myCloudPool.CommitAsync();
   - [Azure 中虚拟机的大小](../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> 若要充分利用 [Linux 计算节点](batch-linux-nodes.md)上的 RDMA，必须使用节点上的 **Intel MPI**。 有关 CloudServiceConfiguration 和 VirtualMachineConfiguration 池的详细信息，请参阅[批处理功能概述](batch-api-basics.md)的“池”部分。
->
+> 若要充分利用 [Linux 计算节点](batch-linux-nodes.md)上的 RDMA，必须使用节点上的 **Intel MPI**。 
 >
 
 ## <a name="create-a-multi-instance-task-with-batch-net"></a>使用 Batch .NET 创建多实例任务
@@ -283,7 +285,7 @@ GitHub 上的 [MultiInstanceTasks][github_mpi] 代码示例演示了如何通过
 2. 在 Visual Studio 2015 或更新版本中，打开 MultiInstanceTasks **解决方案**。 `MultiInstanceTasks.sln` 解决方案文件位于：
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
-3. 将批处理和存储帐户凭据输入 **Microsoft.Azure.Batch.Samples.Common** 项目中的 `AccountSettings.settings`。
+3. 将 Batch 和存储帐户凭据输入到 **Microsoft.Azure.Batch.Samples.Common** 项目中的 `AccountSettings.settings`。
 4. **生成并运行** MultiInstanceTasks 解决方案，在批处理池中的计算节点上执行 MPI 示例应用程序。
 5. 可选：通过 [Azure 门户][portal]或 [BatchLabs][batch_labs] 检查示例池、作业和任务（“MultiInstanceSamplePool”、“MultiInstanceSampleJob”、“MultiInstanceSampleTask”），再删除这些资源。
 

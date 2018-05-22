@@ -16,10 +16,10 @@ origin.date: 11/18/2016
 ms.date: 05/11/2018
 ms.author: v-junlch
 ms.openlocfilehash: a09a185007e51e73d6d70450c6581552971eefb5
-ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>为表设计器构造筛选字符串
 ## <a name="overview"></a>概述

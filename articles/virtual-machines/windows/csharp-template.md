@@ -1,8 +1,8 @@
 ---
-title: "使用 C# 和 Resource Manager 模板部署 VM | Azure"
-description: "了解如何使用 C# 和 Resource Manager 模板部署 Azure VM。"
+title: 使用 C# 和 Resource Manager 模板部署 VM | Azure
+description: 了解如何使用 C# 和 Resource Manager 模板部署 Azure VM。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/14/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4a8835b4453a13f65a98394a2c9be0011b683945
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 7d557ffcae7370352650d5fecbf04c1d12e87a80
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>使用 C# 和 Resource Manager 模板部署 Azure 虚拟机
-本文介绍如何使用 C# 部署 Azure Resource Manager 模板。 创建的模板会在包含单个子网的新虚拟网络中部署运行 Windows Server 的单个虚拟机。
+本文介绍如何使用 C# 部署 Azure 资源管理器模板。 创建的模板会在包含单个子网的新虚拟网络中部署运行 Windows Server 的单个虚拟机。
 
 有关虚拟机资源的详细说明，请参阅 [Azure Resource Manager 模板中的虚拟机](template-description.md)。 有关模板中所有资源的详细信息，请参阅 [Azure 资源管理器模板演练](../../azure-resource-manager/resource-manager-template-walkthrough.md)。
 
@@ -167,7 +167,7 @@ ms.lasthandoff: 03/17/2018
 
 若要为模板中定义的资源参数指定值，请创建包含值的参数文件。
 
-1. 在解决方案资源管理器中，右键单击“myDotnetProject” > “添加” > “新建项”，然后在“Visual C# 项”中选择“文本文件”。 将文件命名为 Parameters.json，然后单击“添加”。
+1. 在解决方案资源管理器中，右键单击*myDotnetProject* > **，单击“添加** > **新建项**，然后在**Visual C# 项**中选择*文本文件*。 将文件命名为 Parameters.json，然后单击“添加”。
 2. 将此 JSON 代码添加到创建的文件中：
 
     ```json
@@ -187,7 +187,7 @@ ms.lasthandoff: 03/17/2018
 
 在部署模板之前，请先确保能够访问 [Active Directory 服务主体](../../resource-group-authenticate-service-principal.md)。 从服务主体中，会获取对 Azure Resource Manager 请求进行身份验证的令牌。 还应记录授权文件中所需的应用程序 ID、身份验证密钥和租户 ID。
 
-1. 在解决方案资源管理器中，右键单击*myDotnetProject* > **，单击** > 添加**新建项**，然后在**Visual C# 项**中选择*文本文件*。 将文件命名为 azureauth.properties，然后单击“添加”。
+1. 在解决方案资源管理器中，右键单击*myDotnetProject* > **，单击“添加** > **新建项**，然后在**Visual C# 项**中选择*文本文件*。 将文件命名为 azureauth.properties，然后单击“添加”。
 2. 添加这些授权属性：
 
     ```
@@ -325,10 +325,10 @@ azure.ResourceGroups.DeleteByName(groupName);
 
 1. 若要运行控制台应用程序，请单击“启动”。
 
-2. 在按 **Enter** 开始删除资源之前，可能需要在 Azure 门户中花几分钟时间来验证这些资源是否已创建。 单击部署状态以查看有关部署的信息。
+2. 在按 **Enter** 开始删除资源之前，可能需要在 Azure 门户中花几分钟时间来验证资源的创建。 单击部署状态以查看有关部署的信息。
 
 ## <a name="next-steps"></a>后续步骤
-* 如果部署出现问题，后续措施是参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](../../azure-resource-manager/resource-manager-common-deployment-errors.md)。
+* 如果部署出现问题，后续措施是参阅[排查使用 Azure 资源管理器时的常见 Azure 部署错误](../../azure-resource-manager/resource-manager-common-deployment-errors.md)。
 * 若要了解如何部署虚拟机及其支持的资源，请查看[使用 C# 部署 Azure 虚拟机](csharp.md)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update meta properties -->

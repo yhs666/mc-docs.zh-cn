@@ -1,12 +1,12 @@
 ---
-title: "将 Windows 文件和文件夹备份到 Azure (Resource Manager) | Microsoft Docs"
-description: "了解如何在 Resource Manager 部署中将 Windows 文件和文件夹备份到 Azure。"
+title: 将 Windows 文件和文件夹备份到 Azure (Resource Manager) | Microsoft Docs
+description: 了解如何在 Resource Manager 部署中将 Windows 文件和文件夹备份到 Azure。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "如何备份; 备份文件和文件夹"
+editor: ''
+keywords: 如何备份; 备份文件和文件夹
 ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 08/15/2017
-ms.date: 02/27/2018
+ms.date: 05/15/2018
 ms.author: v-junlch
-ms.openlocfilehash: cf1374195a0c429634c562b19eb33f7711175279
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 7adaccbe40833e492436978ab153518ae584ef5c
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>初步了解：在 Resource Manager 部署中备份文件和文件夹
 本文介绍如何通过 Resource Manager 部署将 Windows Server（或 Windows 计算机）文件和文件夹备份到 Azure。 本教程旨在引导完成基本操作。 如果想要开始使用 Azure 备份，本文的内容非常合适。
@@ -34,7 +34,7 @@ ms.lasthandoff: 03/02/2018
 
 ### <a name="to-create-a-recovery-services-vault"></a>创建恢复服务保管库
 1. 若尚未登录 [Azure 门户](https://portal.azure.cn/) ，请使用 Azure 订阅登录。
-2. 在“中心”菜单中，单击“更多服务”，并在资源列表中，键入“恢复服务”并单击“恢复服务保管库”。
+2. 在“中心”菜单中单击“所有服务”，然后在资源列表中键入“恢复服务”并单击“恢复服务保管库”。
 
     ![创建恢复服务保管库步骤 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -88,7 +88,7 @@ ms.lasthandoff: 03/02/2018
 
     ![存储配置选项](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    默认情况下，保管库具有异地冗余存储。 如果使用 Azure 作为主要备份存储终结点，请继续使用“异地冗余” 。 如果不使用 Azure 作为主要的备份存储终结点，则请选择“本地冗余”，减少 Azure 存储费用。 请在此[存储冗余概述](../storage/common/storage-redundancy.md)中深入了解[异地冗余](../storage/common/storage-redundancy.md#geo-redundant-storage)和[本地冗余](../storage/common/storage-redundancy.md#locally-redundant-storage)存储选项。
+    默认情况下，保管库具有异地冗余存储。 如果使用 Azure 作为主要备份存储终结点，请继续使用“异地冗余” 。 如果不使用 Azure 作为主要的备份存储终结点，则请选择“本地冗余”，减少 Azure 存储费用。 请在此[存储冗余概述](../storage/common/storage-redundancy.md)中深入了解[异地冗余](../storage/common/storage-redundancy-grs.md)和[本地冗余](../storage/common/storage-redundancy-lrs.md)存储选项。
 
 创建保管库以后，即可对其进行配置，以便备份文件和文件夹。
 
@@ -230,4 +230,4 @@ ms.lasthandoff: 03/02/2018
 - 备份文件和文件夹后，可以 [管理保管库和服务器](backup-azure-manage-windows-server.md)。
 - 如果需要还原备份，请参阅[将文件还原到 Windows 计算机](backup-azure-restore-windows-server.md)一文。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: link update -->

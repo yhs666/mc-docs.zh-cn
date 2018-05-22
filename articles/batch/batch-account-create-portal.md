@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 门户中创建批处理帐户 | Microsoft Docs"
-description: "了解如何在 Azure 门户中创建 Azure Batch 帐户，以便在云中运行大规模并行工作负荷"
+title: 在 Azure 门户中创建批处理帐户 | Microsoft Docs
+description: 了解如何在 Azure 门户中创建 Azure Batch 帐户，以便在云中运行大规模并行工作负荷
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
 ms.workload: big-compute
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 11/14/2017
-ms.date: 03/07/2018
+ms.date: 05/15/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e35526a36abc8f6c8bb635f79fc085189e8a77f1
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 3395a107c37627233b29b332d6de24e23bceafb8
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 门户创建 Batch 帐户
 
@@ -57,9 +57,9 @@ ms.lasthandoff: 03/08/2018
 
     c. **资源组**：为新批处理帐户选择现有的资源组，或选择创建一个新组。
 
-    d.单击“验证存储凭据”以验证存储帐户。 **位置**：要在其中创建批处理帐户的 Azure 区域。 只有订阅和资源组支持的区域显示为选项。
+    d. **位置**：要在其中创建批处理帐户的 Azure 区域。 只有订阅和资源组支持的区域显示为选项。
 
-    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 **存储帐户**（可选）：与批处理帐户关联的通用 Azure 存储帐户。 建议大多数批处理帐户采用此设置。 如需详细信息，请参阅本文后面的[关联的 Azure 存储帐户](#linked-azure-storage-account)。
+    e. **存储帐户**（可选）：与 Batch 帐户关联的 Azure 存储帐户。 建议大多数批处理帐户采用此设置。 如需详细信息，请参阅本文后面的[关联的 Azure 存储帐户](#linked-azure-storage-account)。
 
 4. 单击“创建”  以创建帐户。
 
@@ -86,11 +86,11 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="linked-azure-storage-account"></a>链接的 Azure 存储帐户
 
-可以将通用 Azure 存储帐户关联到 Batch 帐户，这适用于很多情况。 与[批处理文件约定 .NET](batch-task-output.md) 库一样，批处理的[应用程序包](batch-application-packages.md)功能使用 Azure Blob 存储。 这些可选功能可用于部署批处理任务运行的应用程序，以及保存它们生成的数据。
+可以将 Azure 存储帐户关联到 Batch 帐户，这适用于很多情况。 与[批处理文件约定 .NET](batch-task-output.md) 库一样，批处理的[应用程序包](batch-application-packages.md)功能使用 Azure Blob 存储。 这些可选功能可用于部署批处理任务运行的应用程序，以及保存它们生成的数据。
 
-建议创建批处理帐户专用的新存储帐户。 Azure Batch 目前仅支持常规用途的存储帐户类型。 有关此帐户类型，请参见[关于 Azure 存储帐户](../storage/common/storage-create-storage-account.md)的步骤 5：[创建存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
+有关 Batch 中的存储帐户选项，请参阅 [Batch 功能概述](batch-api-basics.md#azure-storage-account)。
 
-![创建通用存储帐户][storage_account]
+![创建存储帐户][storage_account]
 
 > [!NOTE]
 > 重新生成链接存储帐户的访问密钥时，请多加小心。 只重新生成一个存储帐户密钥，并单击“链接的存储帐户”页上的“同步密钥”。 等待五分钟，让密钥传播到池中的计算节点，并重新生成并同步其他密钥（如有必要）。 如果同时重新生成这两个密钥，计算节点会无法同步任何一个密钥，并且无法访问存储帐户。

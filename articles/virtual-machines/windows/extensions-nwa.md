@@ -1,11 +1,11 @@
 ---
-title: "适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展 | Azure"
-description: "使用虚拟机扩展在 Windows 虚拟机上部署网络观察程序代理。"
+title: 适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展 | Azure
+description: 使用虚拟机扩展在 Windows 虚拟机上部署网络观察程序代理。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 27e46af7-2150-45e8-b084-ba33de8c5e3f
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 02/14/2017
-ms.date: 02/05/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: e07fb8a76bbc54f63fb388d0ce320ed9736602bf
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 7b895f6e8e5def6cc3f3ab39fda0bd1fad6aa262
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>适用于 Windows 的网络观察程序代理虚拟机扩展
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/13/2018
 
 [Azure 网络观察程序](../../network-watcher/network-watcher-monitoring-overview.md)是一项网络性能监视、诊断和分析服务，可以对 Azure 网络进行监视。 网络观察程序代理虚拟机扩展是按需捕获网络流量和运行 Azure 虚拟机上的其他高级功能所必需的。
 
-本文档详细介绍适用于 Windows 的网络观察程序代理虚拟机扩展支持的平台和部署选项。
+本文档详细介绍适用于 Windows 的网络观察程序代理虚拟机扩展支持的平台和部署选项。 安装代理时不会中断，也不会需要重新启动虚拟机。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -110,4 +110,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentW
 
 如果对本文中的任何内容不了解，可以参阅网络观察程序用户指南文档或联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
-<!-- Update_Description: new articles on linux extensions network watcher agent -->
+<!-- Update_Description: update meta properties, wording update -->

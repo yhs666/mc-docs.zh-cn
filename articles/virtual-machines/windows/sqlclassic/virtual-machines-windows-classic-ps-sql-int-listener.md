@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中配置 AlwaysOn 可用性组的 ILB 侦听程序 | Azure"
-description: "本教程使用通过经典部署模型创建的资源，并使用内部负载均衡器在 Azure 中创建 AlwaysOn 可用性组侦听程序。"
+title: 在 Azure 中配置 AlwaysOn 可用性组的 ILB 侦听程序 | Azure
+description: 本教程使用通过经典部署模型创建的资源，并使用内部负载均衡器在 Azure 中创建 AlwaysOn 可用性组侦听程序。
 services: virtual-machines-windows
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 291288a0-740b-4cfa-af62-053218beba77
 ms.service: virtual-machines-sql
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/02/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8b5174eb760e6dce4ef12aa2dfa32272dd825a3d
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 8bcf1ef7acbf4e694c63c5e78cb3665671f76f80
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>在 Azure 中配置 AlwaysOn 可用性组的 ILB 侦听程序
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ ms.lasthandoff: 03/17/2018
 5. 启动 Azure PowerShell。  
     将打开新的 PowerShell 会话，其中加载了 Azure 管理模块。
 
-6. 运行 `Get-AzurePublishSettingsFile`。 此 cmdlet 将你定向到浏览器，以将发布设置文件下载到本地目录。 系统可能会提示输入 Azure 订阅的登录凭据。
+6. 运行 `Get-AzurePublishSettingsFile -Environment AzureChinaCloud `。 此 cmdlet 将你定向到浏览器，以将发布设置文件下载到本地目录。 系统可能会提示输入 Azure 订阅的登录凭据。
 
 7. 结合下载的发布设置文件的路径运行以下 `Import-AzurePublishSettingsFile` 命令：
 
@@ -167,4 +167,4 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="next-steps"></a>后续步骤
 [!INCLUDE [Listener-Next-Steps](../../../../includes/virtual-machines-ag-listener-next-steps.md)]
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: wording update, update link, update meta properties -->

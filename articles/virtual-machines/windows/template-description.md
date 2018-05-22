@@ -1,11 +1,11 @@
 ---
-title: "Azure Resource Manager 模板中的虚拟机 | Azure"
-description: "详细了解如何在 Azure Resource Manager 模板中定义虚拟机资源。"
+title: Azure Resource Manager 模板中的虚拟机 | Azure
+description: 详细了解如何在 Azure Resource Manager 模板中定义虚拟机资源。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 10/30/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 976869d89d8fb6bc8ed58fa9863af4552c16684b
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 994a30203ef7095e4ef02d4c10e9232d6db99a43
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 模板中的虚拟机
 
@@ -164,7 +164,7 @@ ms.lasthandoff: 10/27/2017
 
 - REST API - [列出所有资源提供程序](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell - [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI 2.0 - [az provider show](https://docs.azure.cn/zh-cn/cli/provider?view=azure-cli-latest#az_provider_show)
+- Azure CLI 2.0 - [az provider show](https://docs.azure.cn/zh-cn/cli/provider?view=azure-cli-latest#az-provider-show)
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -219,7 +219,7 @@ ms.lasthandoff: 10/27/2017
 
 ## <a name="resource-loops"></a>资源循环
 
-如果需要为应用程序创建多个虚拟机，可在模板中使用 copy 元素。 此可选元素会根据以参数形式指定的数目反复创建 VM：
+如果需要为应用程序创建多个虚拟机，可在模板中使用 copy 元素。 此可选元素根据以参数形式指定的数目反复创建 VM：
 
 ```
 "copy": {
@@ -327,7 +327,7 @@ Resource Manager 将同时部署所有不依赖于其他所要部署的资源的
 
 ### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>从现有托管磁盘创建新虚拟机
 
-要从现有磁盘创建虚拟机，请删除 imageReference 和 osProfile 元素，并定义以下磁盘设置：
+如果要从现有磁盘创建虚拟机，请删除 imageReference 和 osProfile 元素，并定义以下磁盘设置：
 
 ```
 "osDisk": { 
@@ -342,7 +342,7 @@ Resource Manager 将同时部署所有不依赖于其他所要部署的资源的
 
 ### <a name="create-new-virtual-machines-from-a-managed-image"></a>从托管映像创建新虚拟机
 
-要从托管映像创建虚拟机，请更改 imageReference 元素，并定义以下磁盘设置：
+如果要从托管映像创建虚拟机，请更改 imageReference 元素，并定义以下磁盘设置：
 
 ```
 "storageProfile": { 
@@ -376,7 +376,7 @@ Resource Manager 将同时部署所有不依赖于其他所要部署的资源的
 
 ## <a name="extensions"></a>扩展
 
-尽管[扩展](extensions-features.md)是独立的资源，但它们与 VM 密切相关。 可将扩展添加为 VM 的子资源，或添加为独立的资源。 本示例显示要将[诊断扩展](extensions-diagnostics-template.md)添加到 VM：
+尽管[扩展](extensions-features.md)是独立的资源，但它们与 VM 密切相关。 可将扩展添加为 VM 的子资源，或添加为独立的资源。 本示例显示添加到 VM 的[诊断扩展](extensions-diagnostics-template.md)：
 
 ```
 { 

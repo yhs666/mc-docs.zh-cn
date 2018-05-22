@@ -1,26 +1,26 @@
 ---
-title: "使用 Java 创建和管理 Azure 虚拟机 | Azure"
-description: "使用 Java 和 Azure 资源管理器部署虚拟机及其所有支持资源。"
+title: 使用 Java 创建和管理 Azure 虚拟机 | Azure
+description: 使用 Java 和 Azure 资源管理器部署虚拟机及其所有支持资源。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 01/08/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6acbbba0d2a9d5347aa6784a2af5285824626591
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 9deeaf8e13daf73822a5ca6be128c374614f1543
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>使用 Java 创建和管理 Azure 中的 Windows VM
 

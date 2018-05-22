@@ -1,6 +1,6 @@
 ---
-title: "Azure 虚拟机代理概述 | Azure"
-description: "Azure 虚拟机代理概述"
+title: Azure 虚拟机代理概述 | Azure
+description: Azure 虚拟机代理概述
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 11/17/2016
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 34bc4ed8423dd4df7a5091ad4f03a2025b47e0c6
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: a36affe5aecbc4374b44b512c13e451630af444b
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure 虚拟机代理概述
 
@@ -83,4 +83,4 @@ foreach ($vm in $vms) {
 ## <a name="upgrade-the-vm-agent"></a>升级 VM 代理
 
 适用于 Windows 的 Azure VM 代理会自动升级。 新虚拟机在部署到 Azure 后会获得最新 VM 代理。 应手动更新自定义 VM 映像，使之包括新的 VM 代理。
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

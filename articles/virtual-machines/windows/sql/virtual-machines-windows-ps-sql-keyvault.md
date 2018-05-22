@@ -17,10 +17,10 @@ origin.date: 06/23/2017
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: d971d38fd27616a88c0b1c593e13e49db0d25d1e
-ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>在 Azure 虚拟机上配置 SQL Server 的 Azure Key Vault 集成 (Resource Manager)
 > [!div class="op_single_selector"]

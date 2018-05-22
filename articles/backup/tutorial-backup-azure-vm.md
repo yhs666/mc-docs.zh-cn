@@ -1,27 +1,27 @@
 ---
-title: "在 Azure 中大规模备份 Azure VM | Microsoft Docs"
-description: "本教程详细介绍了如何将多个 Azure 虚拟机备份到恢复服务保管库。"
+title: 在 Azure 中大规模备份 Azure VM | Microsoft Docs
+description: 本教程详细介绍了如何将多个 Azure 虚拟机备份到恢复服务保管库。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "虚拟机备份; 备份虚拟机; 备份和灾难恢复"
-ms.assetid: 
+editor: ''
+keywords: 虚拟机备份; 备份虚拟机; 备份和灾难恢复
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 09/06/2017
-ms.date: 01/08/2018
+ms.date: 05/15/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 14a3bf76252f85bc946cfc0fdf53e7bad8088d2d
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 62f0a4248b8247b539d79072de6659929ae08800
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>在 Azure 中大规模备份 Azure 虚拟机
 
@@ -44,10 +44,10 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
 使用 **New-AzureRmRecoveryServicesVault** 创建恢复服务保管库。 请确保指定在配置要备份的虚拟机时使用的资源组名称和位置。 
 
 ```powershell
-New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "chinanorth"
+New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "ChinaNorth"
 ```
 
-许多 Azure 备份 cmdlet 要求使用恢复服务保管库对象作为输入。 因此，在变量中存储备份恢复服务保管库对象可提供方便。 然后，使用 **Set-AzureRmRecoveryServicesBackupProperties** 将 **-BackupStorageRedundancy** 选项设置为[异地冗余存储 (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage)。 
+许多 Azure 备份 cmdlet 要求使用恢复服务保管库对象作为输入。 因此，在变量中存储备份恢复服务保管库对象可提供方便。 然后，使用 **Set-AzureRmRecoveryServicesBackupProperties** 将 **-BackupStorageRedundancy** 选项设置为[异地冗余存储 (GRS)](../storage/common/storage-redundancy-grs.md)。 
 
 ```powershell
 $vault1 = Get-AzureRmRecoveryServicesVault -Name myRSVault
@@ -95,4 +95,4 @@ Remove-AzureRmRecoveryServicesVault -Vault $vault1
 - [管理和监视虚拟机](backup-azure-manage-vms.md)
 - [恢复虚拟机](backup-azure-arm-restore-vms.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

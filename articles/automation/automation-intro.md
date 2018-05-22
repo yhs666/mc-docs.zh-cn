@@ -16,10 +16,10 @@ ms.date: 05/14/2018
 ms.author: v-nany
 ms.custom: mvc
 ms.openlocfilehash: 4c338730f8cb1198feb20380275554c581d275a5
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure 自动化简介
 

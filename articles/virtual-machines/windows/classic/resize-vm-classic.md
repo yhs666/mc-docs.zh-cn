@@ -1,11 +1,11 @@
 ---
-title: "调整经典部署模型中 Windows VM 的大小 - Azure | Azure"
-description: "使用 Azure Powershell 调整在经典部署模型中创建的 Windows 虚拟机的大小。"
+title: 调整经典部署模型中 Windows VM 的大小 - Azure | Azure
+description: 使用 Azure Powershell 调整在经典部署模型中创建的 Windows 虚拟机的大小。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: e3038215-001c-406e-904d-e0f4e326a4c7
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/19/2016
-ms.date: 02/05/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 22ebff2accce97ec488d73ef596140a0a8bf1cbe
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 402916bbb60b490ae32273c3a1486dd80d059ee2
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="resize-a-windows-vm-created-in-the-classic-deployment-model"></a>调整在经典部署模型中创建的 Windows VM 的大小
 本文说明如何使用 Azure Powershell 调整在经典部署模型中创建的 Windows VM 的大小。
@@ -33,7 +33,7 @@ ms.lasthandoff: 01/25/2018
 ## <a name="add-your-account"></a>添加帐户
 必须配置 Azure PowerShell 才能处理经典 Azure 资源。 按照下面的步骤配置 Azure PowerShell 以管理经典资源。
 
-1. 在 PowerShell 命令提示符处，键入 `Add-AzureAccount -Environment AzureChinaCloud` 并单击“Enter”。 
+1. 在 PowerShell 命令提示符处，键入 `Add-AzureAccount -Environment AzureChinaCloud ` 并单击“Enter”。 
 2. 键入与 Azure 订阅相关联的电子邮件地址并单击“继续”。 
 3. 键入帐户的密码。 
 4. 单击“登录” 。 
@@ -70,5 +70,4 @@ ms.lasthandoff: 01/25/2018
 ## <a name="next-steps"></a>后续步骤
 * [调整在 Resource Manager 部署模型中创建的 VM 的大小](../resize-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-<!-- Update_Description: update meta properties, rename the article -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

@@ -17,10 +17,10 @@ origin.date: 04/02/2018
 ms.date: 05/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: 866efae76a0bd1c48288b0c40968569a96abc8ea
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="install-a-client-certificate-for-point-to-site-azure-certificate-authentication-connections"></a>为点到站点 Azure 证书身份验证连接安装客户端证书
 

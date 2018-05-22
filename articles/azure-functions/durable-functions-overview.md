@@ -16,10 +16,10 @@ origin.date: 09/29/2017
 ms.date: 04/12/2018
 ms.author: v-junlch
 ms.openlocfilehash: 0648a10d7f519671df6bbd5d9478cdaeed45fc9b
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="durable-functions-overview-preview"></a>Durable Functions 概述（预览版）
 

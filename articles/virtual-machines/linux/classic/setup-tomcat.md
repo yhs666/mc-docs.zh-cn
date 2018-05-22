@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2015
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: fdb6ef5b39d4ebca41d33d43222e9ffaa3697f13
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: e30b7a6be6a94e64750544306f3d6f650b70e1b2
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>使用 Azure 在 Linux 虚拟机上设置 Tomcat7
 Apache Tomcat（简称 Tomcat，以前也称为 Jakarta Tomcat）是由 Apache Software Foundation (ASF) 开发的一个开源 Web 服务器和 servlet 容器。 Tomcat 实现了 Sun Microsystems 提出的 Java Servlet 和 JavaServer Pages (JSP) 规范。 Tomcat 提供用于运行 Java 代码的纯 Java HTTP Web 服务器环境。 在最简单的配置中，Tomcat 在单个操作系统进程中运行。 此进程运行 Java 虚拟机 (JVM)。 浏览器向 Tomcat 发出的每个 HTTP 请求在 Tomcat 进程中作为单独线程进行处理。  
@@ -244,18 +244,18 @@ Tomcat 是用 Java 编写的。 有两种类型的 Java 开发工具包 (JDK)：
      检查公用端口和专用端口终结点设置，确保专用端口与 Tomcat 侦听端口相同。 有关如何为虚拟机配置终结点的说明，请参阅本文的“阶段 1：创建映像”部分。  
 
      若要确定 Tomcat 侦听端口，请打开 /etc/httpd/conf/httpd.conf（CentOS 发行版）或 /etc/tomcat7/server.xml（Debian 发行版）。 默认情况下，Tomcat 侦听端口为 8080。 以下是示例：  
-<!-- Change Red Hat to CentOS -->
+     <!-- Change Red Hat to CentOS -->
 
         <Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"   URIEncoding="UTF-8"            redirectPort="8443" />  
 
-     If you are using a virtual machine like Debian or Ubuntu and you want to change the default port of Tomcat Listen (for example 8081), you should also open the port for the operating system. First, open the profile:  
+     如果要使用 Debian 或 Ubuntu 等虚拟机并且要更改 Tomcat 侦听的默认端口（例如 8081），则还应为操作系统打开该端口。 首先打开配置文件：  
 
         sudo vi /etc/default/tomcat7  
 
-     Then uncomment the last line and change "no" to "yes".  
+     然后，取消注释最后一行并将“no”更改为“yes”。  
 
         AUTHBIND=yes
-  2. 防火墙已禁用 Tomcat 的侦听端口。
+  * 防火墙已禁用 Tomcat 的侦听端口。
 
      只能在本地主机上看到 Tomcat 默认页。 问题的原因很可能是 Tomcat 侦听的端口被防火墙阻止。 可以使用 w3m 工具来浏览网页。 以下命令安装 w3m 并浏览到 Tomcat 默认页面：  
 
@@ -326,4 +326,4 @@ Tomcat 是用 Java 编写的。 有两种类型的 Java 开发工具包 (JDK)：
 [17]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]:media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!-- Update_Description: update meta properties, update link, wording update -->
+<!-- Update_Description: update meta properties, wording update -->

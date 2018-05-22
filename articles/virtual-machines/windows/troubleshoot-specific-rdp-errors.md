@@ -1,12 +1,12 @@
 ---
-title: "Azure VM 的特定 RDP 错误消息 | Azure"
-description: "了解在尝试使用远程桌面连接到 Azure 中的 Windows 虚拟机时可能会收到的特定错误消息"
-keywords: "远程桌面错误,远程桌面连接错误,无法连接到 VM,远程桌面故障排除"
+title: Azure VM 的特定 RDP 错误消息 | Azure
+description: 了解在尝试使用远程桌面连接到 Azure 中的 Windows 虚拟机时可能会收到的特定错误消息
+keywords: 远程桌面错误,远程桌面连接错误,无法连接到 VM,远程桌面故障排除
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 5feb1d64-ee6f-4907-949a-a7cffcbc6153
 ms.service: virtual-machines-windows
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 02/05/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: aa0f8e49f8e09dddf4947a93e35f468eb6f3e38f
-ms.sourcegitcommit: 2c6591b24e8ccb1c1b9a56738049b99f5785b833
+ms.openlocfilehash: 5018b493df7651662a8878a3c5f5f644f70f4f8f
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>排查发送到 Azure 中 Windows VM 的特定 RDP 错误消息
 使用远程桌面连接到 Azure 中的 Windows 虚拟机 (VM) 时，可能会收到特定错误消息。 本文详细介绍遇到的一些更常见的错误消息，以及解决这些错误消息的故障排除步骤。 如果在使用 RDP 连接到 VM 时出现问题，但没有收到特定错误消息，请参阅[远程桌面故障排除指南](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/24/2018
 * [Windows 安全性错误：凭据无效](#wincred)。
 * [此计算机无法连接到远程计算机。](#rdpconnect)
 
-<a id="rdplicense"></a>
+<a name="rdplicense"></a>
 
 ## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>由于没有可用于提供许可证的远程桌面许可证服务器，远程会话已断开连接。
 原因：用于远程桌面服务器角色的 120 天许可宽限期已过期，需要安装许可证。
@@ -47,7 +47,7 @@ ms.lasthandoff: 02/24/2018
 
 有关详细信息，请参阅博客文章 [Azure VM fails with "No Remote Desktop License Servers available"](https://blogs.msdn.microsoft.com/mast/2014/01/21/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available/)（Azure VM 失败并出现“没有可用的远程桌面许可证服务器”）。
 
-<a id="rdpname"></a>
+<a name="rdpname"></a>
 
 ## <a name="remote-desktop-cant-find-the-computer-name"></a>远程桌面找不到计算机“名称”。
 原因：计算机的远程桌面客户端无法解析 RDP 文件设置中的计算机名称。
@@ -67,7 +67,7 @@ ms.lasthandoff: 02/24/2018
 <!-- DNS cloudapp.net SHOULD BE chinacloudapp.cn -->
 * 远程桌面流量终结点的外部 TCP 端口 (55919)。
 
-<a id="rdpauth"></a>
+<a name="rdpauth"></a>
 
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>发生身份验证错误。 无法联系本地安全机构。
 原因：目标 VM 在凭据的用户名部分找不到安全机构。
@@ -80,7 +80,7 @@ ms.lasthandoff: 02/24/2018
 * 如果帐户在 Active Directory 域上，请检查域名拼写是否正确。
 * 如果帐户是 Active Directory 域帐户且域名拼写正确，请验证域控制器在该域中是否可用。 此问题在包含域控制器的 Azure 虚拟网络中很常见，域控制器由于未启动而无法使用。 解决方法是，可以使用本地管理员帐户而不是域帐户。
 
-<a id="wincred"></a>
+<a name="wincred"></a>
 
 ## <a name="windows-security-error-your-credentials-did-not-work"></a>Windows 安全性错误：凭据无效。
 原因：目标 VM 无法验证帐户名和密码。
@@ -98,7 +98,7 @@ ms.lasthandoff: 02/24/2018
 
 如果需要更改本地管理员帐户的密码，请参阅[如何为 Windows 虚拟机重置密码或远程桌面服务](reset-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-<a id="rdpconnect"></a>
+<a name="rdpconnect"></a>
 
 ## <a name="this-computer-cant-connect-to-the-remote-computer"></a>此计算机无法连接到远程计算机。
 原因：用于连接的帐户没有远程桌面登录权限。

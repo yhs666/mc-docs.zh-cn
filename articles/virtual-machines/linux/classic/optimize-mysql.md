@@ -1,11 +1,11 @@
 ---
-title: "优化 Linux 上的 MySQL 性能 | Azure"
-description: "了解如何优化运行 Linux 的 Azure 虚拟机 (VM) 上运行的 MySQL。"
+title: 优化 Linux 上的 MySQL 性能 | Azure
+description: 了解如何优化运行 Linux 的 Azure 虚拟机 (VM) 上运行的 MySQL。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0c1c7fc5-a528-4d84-b65d-2df225f2233f
 ms.service: virtual-machines-linux
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 457b2f43f69c267a2dc8215ed84d71a6fb7764f5
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 01d76b4f901a196760477488ed029543ffc54f20
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>优化 Azure Linux VM 上的 MySQL 性能
 影响 Azure 上 MySQL 性能的因素有很多，主要体现在虚拟硬件选择和软件配置两个方面。 本文重点介绍如何通过存储、系统和数据库配置优化性能。
@@ -247,7 +247,8 @@ MySQL 慢查询日志有助于识别 MySQL 的慢查询。 在启用 MySQL 慢�
 ## <a name="appendices"></a>附录
 以下为在目标实验室环境中生成的性能测试数据示例。 这些数据提供了在使用不同性能调优方法的情况下，性能数据趋势的常规背景。 结果可能因环境或产品版本而异。
 
-### <a name="AppendixA"></a>附录 A  
+<a name="AppendixA"></a>
+### <a name="appendix-a"></a>附录 A  
 **不同 RAID 级别的磁盘性能 (IOPS)**
 
 ![不同 RAID 级别的磁盘 IOPS][9]
@@ -261,7 +262,8 @@ MySQL 慢查询日志有助于识别 MySQL 的慢查询。 在启用 MySQL 慢�
 >
 >
 
-### <a name="AppendixB"></a>附录 B  
+<a name="AppendixB"></a>
+### <a name="appendix-b"></a>附录 B  
 **不同 RAID 级别的 MySQL 性能（吞吐量）比较**   
 （XFS 文件系统）
 
@@ -279,7 +281,8 @@ MySQL 慢查询日志有助于识别 MySQL 的慢查询。 在启用 MySQL 慢�
 
     time sysbench --test=oltp --db-driver=mysql --mysql-user=root --mysql-password=0ps.123  --mysql-table-engine=innodb --mysql-host=127.0.0.1 --mysql-port=3306 --mysql-socket=/var/run/mysqld/mysqld.sock --mysql-db=test --oltp-table-size=1000000 prepare
 
-### <a name="AppendixC"></a>附录 C   
+<a name="AppendixC"></a>
+### <a name="appendix-c"></a>附录 C   
 **不同区块大小的磁盘性能 (IOPS) 比较**  
 （XFS 文件系统）
 
@@ -292,7 +295,8 @@ MySQL 慢查询日志有助于识别 MySQL 的慢查询。 在启用 MySQL 慢�
 
 用于此测试的文件大小分别为 30 GB 和 1 GB，并且使用的是 RAID 0（4 个磁盘）XFS 文件系统。
 
-### <a name="AppendixD"></a>附录 D  
+<a name="AppendixD"></a>
+### <a name="appendix-d"></a>附录 D  
 **优化前和优化后的 MySQL 性能（吞吐量）比较**  
 （XFS 文件系统）
 
@@ -340,4 +344,4 @@ MySQL 慢查询日志有助于识别 MySQL 的慢查询。 在启用 MySQL 慢�
 [13]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]:media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!-- Update_Description: add classic portal migrate notice -->
+<!-- Update_Description: update meta properties, wording update -->

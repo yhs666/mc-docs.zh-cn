@@ -16,10 +16,10 @@ origin.date: 03/16/2018
 ms.date: 05/14/2018
 ms.author: v-dazen
 ms.openlocfilehash: 3de7a3579fec0cc47f622546f76935ee4182a6ca
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="managing-azure-automation-data"></a>管理 Azure 自动化数据
 本文包含有关管理 Azure 自动化环境的多个主题。

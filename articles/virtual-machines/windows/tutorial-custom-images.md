@@ -1,27 +1,27 @@
 ---
-title: "使用 Azure PowerShell 创建自定义 VM 映像 | Azure"
-description: "教程 - 使用 Azure PowerShell 创建自定义 VM 映像。"
+title: 使用 Azure PowerShell 创建自定义 VM 映像 | Azure
+description: 教程 - 使用 Azure PowerShell 创建自定义 VM 映像。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 12/07/2017
-ms.date: 01/08/2018
+origin.date: 03/27/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 40af3f7dfcb6dab5ca730f969f5975a4c523f34e
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 0dcb3bf3e2d797689b311aa5efbfda05d05670cf
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>使用 PowerShell 创建 Azure VM 的自定义映像
 
@@ -34,13 +34,15 @@ ms.lasthandoff: 01/05/2018
 > * 列出订阅中的所有映像
 > * 删除映像
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 ` Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
-
 ## <a name="before-you-begin"></a>准备阶段
 
 下列步骤详细说明了如何将现有 VM 转换为可重用自定义映像，用于创建新的 VM 实例。
 
 若要完成本教程中的示例，必须现有一个虚拟机。 如果需要，此[脚本示例](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)可为你创建一个虚拟机。 按照教程进行操作时，请根据需要替换资源组和 VM 名称。
+
+<!--[!INCLUDE [cloud-shell-try-it.md|cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
+
+如果选择在本地安装并使用 PowerShell，则本教程需要 AzureRM 模块 5.6.0 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
 
 ## <a name="prepare-vm"></a>准备 VM
 
@@ -96,80 +98,21 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
 
 ## <a name="create-vms-from-the-image"></a>从映像创建 VM
 
-现在，你已有了一个映像，可以从该映像创建一个或多个新 VM。 从自定义映像创建 VM 与使用应用商店映像创建 VM 非常相似。 如果使用 Marketplace 映像，需提供有关映像、映像提供程序、产品/服务、SKU 和版本的信息。 如果使用自定义映像，则仅需提供自定义映像资源的 ID。 
+现在，你已有了一个映像，可以从该映像创建一个或多个新 VM。 从自定义映像创建 VM 与使用应用商店映像创建 VM 非常相似。 如果使用 Marketplace 映像，需提供有关映像、映像提供程序、产品/服务、SKU 和版本的信息。 使用为 [New-AzureRMVM]() cmdlet 设置的简化参数时，如果自定义映像位于同一资源组中，则只需提供该映像的名称。 
 
-在以下脚本中，我们使用 [Get-AzureRmImage](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermimage) 创建变量 $image 来存储自定义映像的相关信息，然后使用 [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage) 并通过刚创建的 $image 变量指定 ID。 
-
-此脚本使用自定义映像在 China North 位置中名为 myResourceGroupFromImage 的新资源组中创建名为 myVMfromImage 的 VM。
+本示例从“myResourceGroup”中的“myImage”创建名为“myVMfromImage”的 VM。
 
 ```powershell
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
-
-New-AzureRmResourceGroup -Name myResourceGroupFromImage -Location ChinaEast
-
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-
-$vnet = New-AzureRmVirtualNetwork `
-    -ResourceGroupName myResourceGroupFromImage `
-    -Location ChinaEast `
-    -Name MYvNET `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-
-$pip = New-AzureRmPublicIpAddress `
-    -ResourceGroupName myResourceGroupFromImage `
-    -Location ChinaEast `
-    -Name "mypublicdns$(Get-Random)" `
-    -AllocationMethod Static `
-    -IdleTimeoutInMinutes 4
-
-  $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleRDP `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-  $nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroupFromImage `
-    -Location ChinaEast `
-    -Name myNetworkSecurityGroup `
-    -SecurityRules $nsgRuleRDP
-
-$nic = New-AzureRmNetworkInterface `
-    -Name myNic `
-    -ResourceGroupName myResourceGroupFromImage `
-    -Location ChinaEast `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $pip.Id `
-    -NetworkSecurityGroupId $nsg.Id
-
-$vmConfig = New-AzureRmVMConfig `
-    -VMName myVMfromImage `
-    -VMSize Standard_D1 | Set-AzureRmVMOperatingSystem -Windows `
-        -ComputerName myComputer `
-        -Credential $cred 
-
-# Here is where we create a variable to store information about the image 
-$image = Get-AzureRmImage `
-    -ImageName myImage `
-    -ResourceGroupName myResourceGroup
-
-# Here is where we specify that we want to create the VM from and image and provide the image ID
-$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -Id $image.Id
-
-$vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
-
-New-AzureRmVM `
-    -ResourceGroupName myResourceGroupFromImage `
-    -Location ChinaEast `
-    -VM $vmConfig
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myVMfromImage" `
+    -ImageName "myImage" `
+    -Location "China East" `
+    -VirtualNetworkName "myImageVnet" `
+    -SubnetName "myImageSubnet" `
+    -SecurityGroupName "myImageNSG" `
+    -PublicIpAddressName "myImagePIP" `
+    -OpenPorts 3389
 ```
 
 ## <a name="image-management"></a>映像管理 

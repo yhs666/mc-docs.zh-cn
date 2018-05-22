@@ -17,10 +17,10 @@ origin.date: 10/25/2016
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: f775c152592de2b6c7ed216293d530fabb64e6bd
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="manage-users-ssh-and-check-or-repair-disks-on-azure-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-10"></a>配合使用 VMAccess 扩展和 Azure CLI 1.0，管理用户、SSH 以及检查或修复 Azure Linux VM 上的磁盘
 本文说明如何使用 Azure VMAcesss 扩展检查或修复磁盘、重置用户访问权限、管理用户帐户，或重置 Linux 上的 SSHD 配置。 本文需要以下条件：

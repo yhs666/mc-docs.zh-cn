@@ -10,10 +10,10 @@ ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: e4d87f784e5201b5dc49b79d05453932149bf39a
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/15/2018
 ---
 ## <a name="scenario"></a>方案
 

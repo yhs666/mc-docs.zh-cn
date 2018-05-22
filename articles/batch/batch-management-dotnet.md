@@ -1,27 +1,27 @@
 ---
-title: "使用适用于 .NET 的客户端库管理 Batch 帐户资源 - Azure | Microsoft Docs"
-description: "使用 Batch Management .NET 库创建、删除和修改 Azure Batch 帐户资源。"
+title: 使用适用于 .NET 的客户端库管理 Batch 帐户资源 - Azure | Microsoft Docs
+description: 使用 Batch Management .NET 库创建、删除和修改 Azure Batch 帐户资源。
 services: batch
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 16279b23-60ff-4b16-b308-5de000e4c028
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/24/2017
-ms.date: 07/03/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee793996bff0b37469b76ab3f637a1bc44ffcbc7
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.openlocfilehash: 0e1cca158039ec4762e196ac0e1d47865bfb0f42
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>通过用于 .NET 的 Batch Management 客户端库管理 Batch 帐户和配额
 
@@ -96,7 +96,7 @@ BatchAccountRegenerateKeyResponse newKeys =
 > 
 
 ## <a name="check-azure-subscription-and-batch-account-quotas"></a>检查 Azure 订阅和 Batch 帐户配额
-Azure 订阅和类似于 Batch 的各个 Azure 服务均有默认配额，用于限制其中特定实体的数目。 有关 Batch 服务的默认配额，请参阅 [Azure Batch 服务的配额和限制](batch-quota-limit.md)。 使用 Batch 管理 .NET 库可以在应用程序中检查这些配额。 这样，便可以在添加帐户或计算资源（如池和计算节点）之前做出分配决策。
+Azure 订阅和类似于 Batch 的各个 Azure 服务均有默认配额，用于限制其中特定实体的数目。 有关 Azure 订阅的默认配额，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。 有关 Batch 服务的默认配额，请参阅 [Azure Batch 服务的配额和限制](batch-quota-limit.md)。 使用 Batch 管理 .NET 库可以在应用程序中检查这些配额。 这样，便可以在添加帐户或计算资源（如池和计算节点）之前做出分配决策。
 
 ### <a name="check-an-azure-subscription-for-batch-account-quotas"></a>检查 Azure 订阅和 Batch 帐户配额
 在区域中创建 Batch 帐户之前，可以检查 Azure 订阅，看是否能将帐户添加到该区域中。
@@ -149,7 +149,7 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 
 ## <a name="use-azure-ad-with-batch-management-net"></a>将 Azure AD 和 Batch 管理 .NET 配合使用
 
-Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource Manager][resman_overview] 配合使用以编程方式管理帐户资源。 Azure AD 需要对通过任何 Azure 资源提供程序客户端（包括 Batch 管理 .NET 库）和 [Azure Resource Manager][resman_overview] 发出的请求进行身份验证。 
+Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource Manager][resman_overview] 配合使用以编程方式管理帐户资源。 Azure AD 需要对通过任何 Azure 资源提供程序客户端（包括 Batch 管理 .NET 库）和 [Azure 资源管理器][resman_overview]发出的请求进行身份验证。 有关将 Azure AD 和 Batch 管理 .NET 库配合使用的信息，请参阅[使用 Azure Active Directory 对 Batch 解决方案进行身份验证](batch-aad-auth.md)。 
 
 ## GitHub 上的示例项目 <a name="sample"></a>
 
@@ -173,14 +173,18 @@ Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource
 
 删除新建的 Batch 帐户和资源组之前，可以在 [Azure 门户][azure_portal]中查看它们：
 
-[aad_about]:../active-directory/active-directory-whatis.md
+要成功运行示例应用程序，必须首先在 Azure 门户中将其注册到 Azure AD 租户，并向 Azure Resource Manager API 授予权限。 按照[使用 Azure AD 对 Batch 管理应用程序进行验证](batch-aad-auth-management.md)中提供的步骤操作。
+
+
+[aad_about]: ../active-directory/active-directory-whatis.md
 [aad_adal]:../active-directory/develop/active-directory-authentication-libraries.md
 [aad_auth_scenarios]:../active-directory/develop/active-directory-authentication-scenarios.md
+[aad_integrate]: ../active-directory/develop/active-directory-integrating-applications.md
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_mgmt_net]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [azure_portal]: http://portal.azure.cn
-[azure_storage]: /storage/
+[azure_storage]: https://www.azure.cn/home/features/storage/
 [azure_tokencreds]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.tokencloudcredentials.aspx
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
@@ -192,7 +196,6 @@ Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource
 [net_mgmt_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.batchmanagementclient.aspx
 [net_mgmt_subscriptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.batchmanagementclient.subscriptions.aspx
 [net_mgmt_listaccounts]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.iaccountoperations.listasync.aspx
-[resman_api]: https://msdn.microsoft.com/library/azure/mt418626.aspx
 [resman_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx
 [resman_subclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.subscriptions.subscriptionclient.aspx
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md
@@ -201,3 +204,4 @@ Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
 
+<!-- Update_Description: wording update -->

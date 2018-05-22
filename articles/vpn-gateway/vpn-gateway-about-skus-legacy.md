@@ -17,10 +17,10 @@ origin.date: 03/20/2018
 ms.date: 05/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: b1aee8166b471bf754d4eb008d7d3195026aa8b6
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>使用虚拟网关 SKU（传统 SKU）
 

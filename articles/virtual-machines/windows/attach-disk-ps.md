@@ -1,26 +1,26 @@
 ---
-title: "使用 PowerShell 将数据磁盘附加到 Azure 中的 Windows VM | Azure"
-description: "如何通过 Resource Manager 部署模型使用 PowerShell 将新磁盘或现有数据磁盘附加到 Windows VM。"
+title: 使用 PowerShell 将数据磁盘附加到 Azure 中的 Windows VM | Azure
+description: 如何通过 Resource Manager 部署模型使用 PowerShell 将新磁盘或现有数据磁盘附加到 Windows VM。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/11/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: ec5e0675c1a2848c2aa6c61b678d1f618ecbac9b
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: fb9a60704ad979779f809d0da3c877820499c1e3
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>使用 PowerShell 将数据磁盘附加到 Windows VM
 
@@ -47,7 +47,7 @@ $location = 'China East'
 $storageType = 'PremiumLRS'
 $dataDiskName = $vmName + '_datadisk1'
 
-$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
+$diskConfig = New-AzureRmDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
 $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
 $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
@@ -66,7 +66,7 @@ $location = 'China East 2'
 $storageType = 'PremiumLRS'
 $dataDiskName = $vmName + '_datadisk1'
 
-$diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Empty -DiskSizeGB 128 -Zone 1
+$diskConfig = New-AzureRmDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128 -Zone 1
 $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
 
 $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
@@ -77,7 +77,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="initialize-the-disk"></a>初始化磁盘
 
-添加空磁盘后，需要对其进行初始化。 如果要初始化磁盘，可以登录到 VM，并使用磁盘管理进行初始化。 如果在创建 VM 时在其上启用了 WinRM 和证书，则可以通过远程 PowerShell 初始化该磁盘。 还可以使用自定义脚本扩展： 
+添加空磁盘后，需要对其进行初始化。 要初始化该磁盘，可以登录到一个 VM，并使用磁盘管理进行初始化。 如果在创建 VM 时在其上启用了 WinRM 和证书，则可以通过远程 PowerShell 初始化该磁盘。 还可以使用自定义脚本扩展： 
 
 ```azurepowershell-interactive
     $location = "location-name"
@@ -126,4 +126,4 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ## <a name="next-steps"></a>后续步骤
 
 创建[快照](snapshot-copy-managed-disk.md)。
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, wording update -->

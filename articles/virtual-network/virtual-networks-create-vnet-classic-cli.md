@@ -17,10 +17,10 @@ origin.date: 03/15/2016
 ms.date: 05/07/2018
 ms.author: v-yeche
 ms.openlocfilehash: 5a6deaa118d1098e99a73fcdd3449028f3b4251e
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="create-a-virtual-network-classic-by-using-the-azure-cli"></a>使用 Azure CLI 创建虚拟网络（经典）
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]

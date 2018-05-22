@@ -18,10 +18,10 @@ ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: e4797e6058928e2cd96ee8e1b6574fe2ba00a852
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>如何将 Azure 订阅关联或添加到 Azure Active Directory
 

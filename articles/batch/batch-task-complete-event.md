@@ -1,23 +1,23 @@
 ---
-title: "Azure Batch 任务完成事件 | Microsoft Docs"
-description: "Batch 任务完成事件参考。"
+title: Azure Batch 任务完成事件 | Microsoft Docs
+description: Batch 任务完成事件参考。
 services: batch
-author: alexchen2016
-manager: digimobile
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/20/2017
-ms.date: 07/03/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 77f93803a3c04956c13cc80906f9a01aa7766642
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: e5b169554c23b4baec7c53de9f55927aca2c1957
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="task-complete-event"></a>任务完成事件
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 07/14/2017
 }
 ```
 
-|元素名称|类型|说明|
+|元素名称|类型|注释|
 |------------------|----------|-----------|
 |jobId|String|包含任务的作业的 id。|
 |id|String|任务的 id。|
@@ -65,26 +65,26 @@ ms.lasthandoff: 07/14/2017
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
-|元素名称|类型|说明|
+|元素名称|类型|注释|
 |------------------|----------|-----------|
 |poolId|String|运行任务的池的 id。|
 |nodeId|String|运行任务的节点的 id。|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
-|元素名称|类型|说明|
+|元素名称|类型|注释|
 |------------------|----------|-----------|
 |numberOfInstances|Int32|任务所需的计算节点数。|
 
 ###  <a name="constraints"></a> constraints
 
-|元素名称|类型|说明|
+|元素名称|类型|注释|
 |------------------|----------|-----------|
-|maxTaskRetryCount|Int32|可以重试任务的最大次数。 批处理服务在其退出代码非零时重试任务。<br /><br /> 请注意，此值专门用于控制重试的次数。 批处理服务将尝试任务一次，然后重试，直至达到此上限为止。 例如，如果最大重试计数为 3，则批处理任务最多尝试任务 4 次（一次是初始尝试，其余 3 次是重试）。<br /><br /> 如果最大重试计数为 0，则批处理服务不会重试任务。<br /><br /> 如果最大重试计数为 -1，则批处理服务会无限制地重试任务。<br /><br /> 默认值为 0（不重试）。|
+|maxTaskRetryCount|Int32|可以重试任务的最大次数。 批处理服务在其退出代码非零时重试任务。<br /><br /> 请注意，此值专门用于控制重试的次数。 批处理服务将尝试任务一次，并重试，直至达到此上限为止。 例如，如果最大重试计数为 3，则批处理任务最多尝试任务 4 次（一次是初始尝试，其余 3 次是重试）。<br /><br /> 如果最大重试计数为 0，则批处理服务不会重试任务。<br /><br /> 如果最大重试计数为 -1，则批处理服务会无限制地重试任务。<br /><br /> 默认值为 0（不重试）。|
 
 ###  <a name="executionInfo"></a> executionInfo
 
-|元素名称|类型|说明|
+|元素名称|类型|注释|
 |------------------|----------|-----------|
 |startTime|DateTime|任务开始运行的时间。 “Running”对应于**正在运行**状态，因此如果任务指定资源文件或应用程序包，则开始时间反映了任务开始下载或部署这些内容的时间。  如果任务已重启或重试，该时间是任务开始运行的最近时间。|
 |endTime|DateTime|任务完成的时间。|
@@ -92,3 +92,4 @@ ms.lasthandoff: 07/14/2017
 |retryCount|Int32|批处理服务重试任务的次数。 如果任务使用非零退出代码退出，该任务会重试，直至达到指定的 MaxTaskRetryCount。|
 |requeueCount|Int32|批处理服务因用户请求而对任务进行重新排队的次数。<br /><br /> 当用户从池中删除节点（通过调整池的大小或缩小池）或作业已禁用时，用户可以指定节点上运行的任务重新排队等待执行。 此计数跟踪由于这些原因而重新排队任务的次数。|
 
+<!-- Update_Description: update metedata properties -->

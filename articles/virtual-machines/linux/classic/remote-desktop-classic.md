@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3ea233d7590e208ef8c959f699c1380571675f7f
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 0ebd7f6303da8524a1dd7271f6fb416f9a2c7274
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="using-remote-desktop-to-connect-to-a-azure-linux-vm"></a>使用远程桌面连接到 Azure Linux VM
 > [!IMPORTANT] 

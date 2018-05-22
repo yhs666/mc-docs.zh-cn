@@ -1,11 +1,11 @@
 ---
-title: "排查 Azure 虚拟机备份错误 | Microsoft 文档"
-description: "Azure 虚拟机备份和还原疑难解答"
+title: 排查 Azure 虚拟机备份错误 | Microsoft 文档
+description: Azure 虚拟机备份和还原疑难解答
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -13,39 +13,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/21/2018
-ms.date: 02/27/2018
+ms.date: 05/16/2018
 ms.author: v-junlch
-ms.openlocfilehash: f7fae43a70d732d07551bc11b38cf120690302bd
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 788fa5aa9f4f3bfc7c9b0e9ce804d546060f3420
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虚拟机备份疑难解答
 可参考下表中所列的信息，排查使用 Azure 备份时遇到的错误。
 
-## <a name="backup"></a>Backup
-
-### <a name="error-the-specified-disk-configuration-is-not-supported"></a>错误：不支持指定的磁盘配置
-
-> [!NOTE]
-> 我们提供了个人预览版以支持带有 >1TB 磁盘的 VM 的备份。 有关详细信息，请参阅[支持大型磁盘 VM 备份的专用预览版](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
->
->
-
-当前 Azure 备份不支持[大于 1023GB](/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm) 的磁盘大小。 
-- 如果有大于 1 TB 的磁盘，请[附加小于 1 TB 的新磁盘](/virtual-machines/windows/attach-managed-disk-portal) <br>
-- 然后，将大于 1TB 的磁盘中的数据复制到新创建的小于 1TB 的磁盘。 <br>
-- 确保已复制所有数据并删除大于 1 TB 的磁盘
-- 启动备份。
-
 | 错误详细信息 | 解决方法 |
 | --- | --- |
-| 无法执行该操作，因为 VM 已不存在。 - 停止保护虚拟机，无需删除备份数据。 在 http://go.microsoft.com/fwlink/?LinkId=808124 获取更多详细信息 |当主 VM 已删除，而备份策略仍继续查找用于备份的 VM 时，会发生这种情况。 若要修复此错误，请执行以下操作： <ol><li> 使用相同的名称和相同的资源组名称 [云服务名称] 重新创建虚拟机，<br>（或者）</li><li> 停止保护虚拟机，删除或不删除备份数据。 [更多详细信息](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
-| 由于虚拟机上无网络连接，快照操作失败 - 请确保 VM 具有网络访问权限。 要成功进行快照操作，请将 Azure 数据中心 IP 范围加入允许列表，或设置代理服务器用于网络访问。 有关更多详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=800034。 如果已经在使用代理服务器，请确保代理服务器设置配置正确 | 拒绝虚拟机上的出站 Internet 连接时，会引发此错误。 VM 快照扩展需要 Internet 连接才可拍摄虚拟机基础磁盘的快照。 [详细了解](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine)如何解决由阻止网络访问引起的快照操作问题。 |
-| VM 代理无法与 Azure 备份服务进行通信。 - 确保 VM 具有网络连接、VM 代理为最新版且正常运行。 有关更多详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=800034 |如果 VM 代理出现问题，或以某种方式阻止了对 Azure 基础结构的网络访问，则会引发此错误。 [详细了解](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup)如何调试 VM 快照问题。<br> 如果 VM 代理未导致任何问题，则重启 VM。 有时，VM 状态不正确可能会导致问题，而重启 VM 则会重置此“错误状态”。 |
+| 无法执行该操作，因为 VM 已不存在。 - 停止保护虚拟机，无需删除备份数据。 有关详细信息，请访问 http://go.microsoft.com/fwlink/?LinkId=808124 |当主 VM 已删除，而备份策略仍继续查找用于备份的 VM 时，会发生这种情况。 若要修复此错误，请执行以下操作： <ol><li> 使用相同的名称和相同的资源组名称 [云服务名称] 重新创建虚拟机，<br>（或者）</li><li> 停止保护虚拟机，删除或不删除备份数据。 [更多详细信息](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
+| 由于虚拟机上无网络连接，快照操作失败 - 请确保 VM 具有网络访问权限。 要成功进行快照操作，请将 Azure 数据中心 IP 范围加入允许列表，或设置代理服务器用于网络访问。 有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=800034。 如果已经在使用代理服务器，请确保代理服务器设置配置正确 | 拒绝虚拟机上的出站 Internet 连接时，会引发此错误。 VM 快照扩展需要 Internet 连接才可拍摄虚拟机基础磁盘的快照。 [详细了解](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine)如何解决由阻止网络访问引起的快照操作问题。 |
+| VM 代理无法与 Azure 备份服务进行通信。 - 确保 VM 具有网络连接、VM 代理为最新版且正常运行。 有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=800034 |如果 VM 代理出现问题，或以某种方式阻止了对 Azure 基础结构的网络访问，则会引发此错误。 [详细了解](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup)如何调试 VM 快照问题。<br> 如果 VM 代理未导致任何问题，则重启 VM。 有时，VM 状态不正确可能会导致问题，而重启 VM 则会重置此“错误状态”。 |
 | VM 处于失败预配状态 - 请重启 VM，并确保 VM 正在运行，或处于关闭状态等待备份 | 当一个扩展失败导致 VM 状态为失败预配状态时，会发生这种情况。 转到扩展列表，查看是否有失败的扩展，将其删除并尝试重启虚拟机。 如果所有扩展的状态都为正在运行，请检查 VM 代理服务是否正在运行。 如果未运行，请重启 VM 代理服务。 | 
-| 托管磁盘的 VMSnapshot 扩展操作失败 - 请重试备份操作。 如果重复发生此问题，请按照 http://go.microsoft.com/fwlink/?LinkId=800034 中提供的说明进行操作。 如果仍然失败，请联系 Microsoft 支持部门 | Azure 备份服务未能触发快照时，会发生此错误。 [详细了解](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed)如何调试 VM 快照问题。 |
+| 托管磁盘的 VMSnapshot 扩展操作失败 - 请重试备份操作。 如果问题仍然存在，请按照“http://go.microsoft.com/fwlink/?LinkId=800034”处的说明进行操作。 如果仍然失败，请联系 Microsoft 支持部门 | Azure 备份服务未能触发快照时，会发生此错误。 [详细了解](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed)如何调试 VM 快照问题。 |
 | 由于存储帐户可用空间不足，无法复制虚拟机快照 - 请确保存储帐户的可用空间等效于附加到虚拟机的高级存储磁盘上存在的数据 | 对于高级 VM，我们将快照复制到存储帐户。 这是为了确保适用于快照的备份管理流量不会限制使用高级磁盘的应用程序可用的 IOPS 数。 Microsoft 建议仅分配总存储帐户空间的 50%，以便 Azure 备份服务可以将快照复制到存储帐户，并将数据从存储帐户中的复制位置传输到保管库。 | 
 | 无法执行操作，因为 VM 代理没有响应 |如果 VM 代理出现问题，或以某种方式阻止了对 Azure 基础结构的网络访问，则会引发此错误。 对于 Windows VM，请检查服务中的 VM 代理服务状态，以及代理是否显示在控制面板的程序中。 尝试从控制面板中删除程序，再重新安装代理，[如下](#vm-agent)所述。 重新安装代理后，将触发临时备份进行验证。 |
 | 恢复服务扩展操作失败。 - 确保虚拟机上有最新的虚拟机代理，并且代理服务正在运行。 请重试备份操作，如果失败，请与 Microsoft 支持部门联系。 |VM 代理过期会引发此错误。 请参阅以下“更新 VM 代理”部分，更新 VM 代理。 |
@@ -61,11 +46,10 @@ ms.lasthandoff: 03/02/2018
 | 虚拟机上不存在虚拟机代理 - 请安装任何必备组件和 VM 代理，并重启操作。 |[详细了解](#vm-agent) 如何安装 VM 代理以及如何验证 VM 代理安装。 |
 | 快照操作失败，因为 VSS 编写器处于错误状态 |需重新启动处于错误状态的 VSS（卷影复制服务）编写器。 为此，请在提升权限的命令提示符处运行 _vssadmin list writers_。 输出包含所有 VSS 编写器及其状态。 对于每个状态不为“[1] 稳定”的 VSS 编写器，请在提升权限的命令提示符处运行以下命令，以便重启 VSS 编写器：<br> _net stop serviceName_ <br> _net start serviceName_|
 | 快照操作失败，因为对配置进行分析失败 |发生这种情况是因为以下 MachineKeys 目录的权限已更改：_%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br>请运行以下命令，验证 MachineKeys 目录的权限是否为默认权限：<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> 默认权限为：<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>如果看到 MachineKeys 目录的权限不同于默认权限，请执行以下步骤来更正权限、删除证书以及触发备份。<ol><li>修复 MachineKeys 目录上的权限。<br>通过目录的“浏览器安全属性”和“高级安全设置”将权限重置回默认值，从目录中删除任何多余的（相对于默认设置）用户对象，确保“Everyone”权限具有下述特殊访问权限：<br>-列出文件夹/读取数据 <br>-读取属性 <br>-读取扩展的属性 <br>-创建文件/写入数据 <br>-创建文件夹/追加数据<br>-写入属性<br>-写入扩展的属性<br>-读取权限<br><br><li>删除“颁发对象”字段为“Azure Service Management for Extensions”或“Azure CRP Certificate Generator”的所有证书。<ul><li>[打开证书（本地计算机）控制台](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>删除“颁发对象”字段为“Azure Service Management for Extensions”或“Azure CRP Certificate Generator”的所有证书（在“个人”->“证书”下）。</ul><li>触发 VM 备份。 </ol>|
-| 验证失败，因为虚拟机仅使用 BEK 进行加密。 仅可为同时使用 BEK 和 KEK 进行加密的虚拟机启用备份。 |虚拟机应同时使用 BitLocker 加密密钥和密钥加密密钥进行加密。 之后，应启用备份。 |
 | Azure 备份服务对 Key Vault 没有足够的权限，无法备份加密的虚拟机。 |应在 PowerShell 中使用 [PowerShell 文档](backup-azure-vms-automation.md)的**启用备份**部分中所述的步骤向备份服务提供这些权限。 |
 |快照扩展安装失败，出现错误“COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator”（COM+ 无法与 Microsoft 分布式事务处理协调器通信） | 请尝试启动 Windows 服务“COM + 系统应用程序”（通过权限提升的命令提示符：_net start COMSysApp_）。 <br>如果启动失败，请执行以下步骤：<ol><li> 验证服务“分布式事务处理协调器”的登录帐户是否为“网络服务”。 如果不是，请将其更改为“网络服务”，重启此服务，并尝试启动服务“COM + 系统应用程序”。<li>如果仍然无法启动，请通过以下步骤卸载/安装服务“分布式事务处理协调器”：<br> - 停止 MSDTC 服务<br> - 打开命令提示符 (cmd) <br> - 运行命令“msdtc -uninstall” <br> - 运行命令“msdtc -install” <br> - 启动 MSDTC 服务<li>启动 Windows 服务“COM + 系统应用程序”，启动后，从门户触发备份。</ol> |
 |  由于 COM + 错误导致快照操作失败 | 建议措施是，重启 Windows 服务“COM + 系统应用程序”（通过提升的命令提示符运行 _net start COMSysApp_）。 如果此问题一再出现，请重启 VM。 如果重启 VM 不起作用，请尝试[删除 VMSnapshot 扩展](/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load)并手动触发备份。 |
-| 未能冻结一个或多个 VM 装入点来获取文件系统一致快照 | 使用以下步骤： <ol><li>使用_“tune2fs”_命令检查所有装入设备的文件系统状态。<br> 例如：tune2fs -l /dev/sdb1 \| grep "Filesystem state" <li>使用_“umount”_命令卸载文件系统状态不是干净状态的设备 <li> 使用_“fsck”_命令在这些设备上运行 FileSystemConsistency 检查 <li> 再次装入设备，并尝试备份。</ol> |
+| 未能冻结一个或多个 VM 装入点来获取文件系统一致快照 | 使用以下步骤： <ol><li>使用 _“tune2fs”_ 命令检查所有装入设备的文件系统状态。<br> 例如：tune2fs -l /dev/sdb1 \| grep "Filesystem state" <li>使用 _“umount”_ 命令卸载文件系统状态不是干净状态的设备 <li> 使用 _“fsck”_ 命令在这些设备上运行 FileSystemConsistency 检查 <li> 再次装入设备，并尝试备份。</ol> |
 | 快照操作失败，因为创建安全网络通信通道失败 | <ol><Li> 在权限提升模式下运行 regedit.exe，打开注册表编辑器。 <li> 标识系统中存在的所有 .NetFramework 版本。 它们位于注册表项“HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft”的层次结构下 <li> 为注册表项中存在的每个 .NetFramework 添加以下键： <br> "SchUseStrongCrypto"=dword:00000001 </ol>|
 | 快照操作失败，因为安装 Visual C++ Redistributable for Visual Studio 2012 失败 | 导航到 C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion and install vcredist2012_x64。 确保允许安装此服务的注册表项值设置为正确的值，即注册表项 _HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver_ 的值设置为 3，而不是 4。 如果仍然遇到安装问题，请通过权限提升的命令提示符运行 _MSIEXEC /UNREGISTER_，并运行 _MSIEXEC /REGISTER_，重启安装服务。  |
 
@@ -126,7 +110,7 @@ ms.lasthandoff: 03/02/2018
 如何检查 Windows VM 上的 VM 代理版本：
 
 1. 登录 Azure 虚拟机并导航到 *C:\WindowsAzure\Packages* 文件夹。 应会发现 WaAppAgent.exe 文件已存在。
-2. 右键单击该文件，转到“属性”，并选择“详细信息”选项卡。“产品版本”字段应为 2.6.1198.718 或更高
+2. 右键单击该文件，转到“**属性**”，并选择“**详细信息**”选项卡。“产品版本”字段应为 2.6.1198.718 或更高
 
 ## <a name="troubleshoot-vm-snapshot-issues"></a>排查 VM 快照问题
 VM 备份依赖于向底层存储发出快照命令。 如果无法访问存储或者快照任务执行延迟，则可能会导致备份作业失败。 以下因素可能会导致快照任务失败。

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.workload: storage-backup-recovery
 origin.date: 03/08/2018
-ms.date: 04/08/2018
+ms.date: 05/16/2018
 ms.author: v-junlch
-ms.openlocfilehash: fb46708a2c60eb33952b7ad0f7265c1661467403
-ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
+ms.openlocfilehash: ee8b8bc17f0cbd45cf3176cf06e8d741bb3a7471
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="upgrade-to-vm-backup-stack-v2"></a>升级到 VM 备份堆栈 V2
 虚拟机 (VM) 备份堆栈 V2 升级提供以下功能增强：
@@ -50,7 +50,9 @@ ms.lasthandoff: 04/09/2018
 - 这是 VM 备份堆栈的单向升级。 因此，将来的所有备份都要经历此工作流。 由于**此功能是在订阅级别启用的，所有 VM 都要经历此工作流**。 所有新功能补充都基于同一个堆栈。 将来的版本将会支持在策略级别控制此功能。 
 - 对于包含高级磁盘的 VM，在首次备份期间，请确保在首次备份完成之前，存储帐户中能够提供与 VM 大小相当的存储空间。 
 - 由于快照存储在本地以便大幅提升恢复点创建速度和加速还原速度，因此，在七天期限内，可以看到对应于快照的存储成本。
+- 增量快照作为页 blob 存储。 将对所有使用非托管磁盘的客户收取快照存储在客户本地存储帐户 7 天的费用。 根据当前定价模型，不对托管磁盘上的客户收费。
 - 如果从快照恢复点执行高级 VM 还原，在还原过程中创建 VM 时，会看到使用了一个临时存储位置。 
+- 对于高级存储帐户，即时恢复所用的快照将占用高级存储帐户中分配的 10TB 空间。
 
 ## <a name="how-to-upgrade"></a>如何升级？
 ### <a name="the-azure-portal"></a>Azure 门户
@@ -64,19 +66,19 @@ ms.lasthandoff: 04/09/2018
 
 ### <a name="powershell"></a>PowerShell
 从权限提升的 PowerShell 终端执行以下 cmdlet：
-1.  登录到 Azure 帐户。 
+1. 登录到 Azure 帐户。 
 
     ```
     PS C:> Login-AzureRmAccount -EnvironmentName AzureChinaCloud
     ```
 
-2.  选择要注册其预览版的订阅：
+2. 选择要注册其预览版的订阅：
 
     ```
     PS C:>  Get-AzureRmSubscription -SubscriptionName "Subscription Name" | Select-AzureRmSubscription
     ```
 
-3.  注册此订阅的个人预览版：
+3. 注册此订阅的个人预览版：
 
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName “InstantBackupandRecovery” -ProviderNamespace Microsoft.RecoveryServices
@@ -94,3 +96,4 @@ Get-AzureRmProviderFeature -FeatureName “InstantBackupandRecovery” -Provider
 
 
 
+<!-- Update_Description: wording update -->

@@ -14,14 +14,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 09/26/2017
-ms.date: 03/19/2018
+origin.date: 13/22/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: f8d5724eb15f8a32381b67d474660b73b0b12559
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 85ec5f1e00ae83393790667abc1990f8fcecc886
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虚拟机上配置 SQL Server 故障转移群集实例
 
@@ -47,6 +47,18 @@ ms.lasthandoff: 03/17/2018
 有关 S2D 的详细信息，请参阅 [Windows Server 2016 Datacenter Edition 存储空间直通 \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)。
 
 S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述的体系结构为超聚合。 超聚合基础结构将存储放置在托管群集应用程序的相同服务器上。 在此体系结构中，存储位于每个 SQL Server FCI 节点上。
+
+## <a name="licensing-and-pricing"></a>许可与定价
+
+在 Azure 虚拟机上，可按即付即用 (PAYG) 方式许可 SQL Server 或自带许可证 (BYOL) VM 映像。 选择的映像类型会影响收费方式。
+
+使用 PAYG 许可，Azure 虚拟机上的 SQL Server 的故障转移群集实例 (FCI) 会对 FCI 的所有节点（包括被动节点）收取费用。 有关详细信息，请参阅 [SQL Server Enterprise 虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/sql-server-enterprise/)。 
+
+与软件保障达成企业协议的客户有权为每个活动节点使用一个免费的被动 FCI 节点。 要在 Azure 中利用此优势，请使用 BYOL VM 映像，然后在 FCI 的主动节点和被动节点上使用相同的许可证。 有关详细信息，请参阅[企业协议](http://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx)。
+
+如需比较 Azure 虚拟机中 SQL Server 的 PAYG 和 BYOL 许可，请参阅 [SQL VM 入门](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms)。
+
+有关许可 SQL Server 的完整信息，请参阅[定价](http://www.microsoft.com/sql-server/sql-server-2017-pricing)。
 
 ### <a name="example-azure-template"></a>示例 Azure 模板
 
@@ -124,7 +136,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 
    根据 SQL Server 许可证的付费方式选择正确的映像：
 
-   - **按使用量付费许可方式**：这些映像的每分钟费用包括 SQL Server 许可费：
+   - **按使用量付费许可方式**：这些映像的每秒费用包括 SQL Server 许可费：
       - **Windows Server Datacenter 2016 上的 SQL Server 2016 Enterprise**
       - **Windows Server Datacenter 2016 上的 SQL Server 2016 Standard**
       - **Windows Server Datacenter 2016 上的 SQL Server 2016 Developer**
@@ -133,7 +145,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 
       - **{BYOL} Windows Server 2016 上的 SQL Server 2016 SP1 Enterprise**
       - **{BYOL} Windows Server 2016 上的 SQL Server 2016 SP1 Standard**
-<!-- Notice: SHOUD be SP1 and Windows Sever 2016 -->      
+      <!-- Notice: SHOUD be SP1 and Windows Sever 2016 -->      
 
    >[!IMPORTANT]
    >创建虚拟机后，请删除预装的独立 SQL Server 实例。 配置故障转移群集和 S2D 之后，使用预装的 SQL Server 媒体创建 SQL Server FCI。
@@ -368,27 +380,13 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 
 1. 返回到虚拟机所在的 Azure 资源组，找到新的负载均衡器。 可能需要在资源组中刷新视图。 单击该负载均衡器。
 
-1. 在负载均衡器边栏选项卡中，单击“后端池”。
+1. 单击“后端池”并单击“+ 添加”来添加后端池。
 
-1. 单击“+ 添加”添加后端池。
+1. 将该后端池与包含 VM 的可用性集进行关联。
 
-1. 键入后端池的名称。
+1. 在“目标网络 IP 配置”下，选中“虚拟机”并选择将作为群集节点参与操作的虚拟机。 请务必包括将承载 FCI 的所有虚拟机。 
 
-1. 单击“添加虚拟机”。
-
-1. 在“选择虚拟机”边栏选项卡中，单击“选择可用性集”。
-
-1. 选择 SQL Server 虚拟机所放到的可用性集。
-
-1. 在“选择虚拟机”边栏选项卡中，单击“选择虚拟机”。
-
-   Azure 门户应如下图所示：
-
-   ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-load-balancer-back-end.png)
-
-1. 在“选择虚拟机”边栏选项卡中单击“选择”。
-
-1. 单击“确定”两次。
+1. 单击“确定”创建后端池。
 
 ### <a name="configure-a-load-balancer-health-probe"></a>配置负载均衡器运行状况探测
 
@@ -433,9 +431,9 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 若要设置群集探测端口参数，请使用环境中的值更新以下脚本中的变量。 从脚本中删除尖括号 `<>`。 
 
    ```PowerShell
-   $ClusterNetworkName = "<Cluster Network Name>" 
-   $IPResourceName = "<SQL Server FCI IP Address Resource Name>"
-   $ILBIP = "<10.0.0.x>"
+   $ClusterNetworkName = "<Cluster Network Name>"
+   $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
+   $ILBIP = "<n.n.n.n>" 
    [int]$ProbePort = <nnnnn>
 
    Import-Module FailoverClusters

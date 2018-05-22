@@ -16,10 +16,10 @@ origin.date: 03/19/2018
 ms.date: 05/14/2018
 ms.author: v-nany
 ms.openlocfilehash: cb09536b91952d9fb2e5ec40f321061489ec6f67
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="manage-azure-automation-account"></a>管理 Azure 自动化帐户
 在自动化帐户过期之前的某个时间点，需要续订证书。 如果认为运行方式帐户已遭到入侵，可以删除然后重新创建它。 本部分介绍如何执行这些操作。

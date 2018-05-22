@@ -1,27 +1,27 @@
 ---
-title: "在 Azure 中使用 Team Services 创建 CI/CD 管道 | Azure"
-description: "了解如何创建 Visual Studio Team Services 管道，用于将 Web 应用部署到 Windows VM 上的 IIS，实现持续集成和持续交付"
+title: 在 Azure 中使用 Team Services 创建 CI/CD 管道 | Azure
+description: 了解如何创建 Visual Studio Team Services 管道，用于将 Web 应用部署到 Windows VM 上的 IIS，实现持续集成和持续交付
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/12/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: bf541dc5459415d5a35a042badde2b60a713ab36
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 5e297a7922e459f00be53d4beacdb2c3a621826a
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>使用 Visual Studio Team Services 和 IIS 创建持续集成管道
 若要将应用程序开发的生成、测试和部署阶段自动化，可以使用持续集成和部署 (CI/CD) 管道。 本教程介绍如何在 Azure 中使用 Visual Studio Team Services 和 Windows 虚拟机 (VM) 创建一个运行 IIS 的 CI/CD 管道。 你将学习如何执行以下操作：
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/15/2017
 > * 创建发布定义，用于将新的 Web 部署包发布到 IIS
 > * 测试 CI/CD 管道
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
+本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 `Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
 
 ## <a name="create-project-in-team-services"></a>在 Team Services 中创建项目
 使用 Visual Studio Team Services 可以轻松进行协作和开发，而无需维护本地代码管理解决方案。 Team Services 提供云代码测试、生成和应用程序见解信息。 可以选择最适合用于代码开发的版本控制存储库和 IDE。 对于本教程，可以使用试用帐户来创建基本的 ASP.NET Web 应用和 CI/CD 管道。 如果还没有 Team Services 帐户，请[创建一个](http://go.microsoft.com/fwlink/?LinkId=307137)。
@@ -225,4 +225,4 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 
 > [!div class="nextstepaction"]
 > [SQL&#92;IIS&#92;.NET 堆栈](tutorial-iis-sql.md)
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties  -->

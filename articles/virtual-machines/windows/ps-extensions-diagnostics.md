@@ -1,11 +1,11 @@
 ---
-title: "在 Windows VM 上使用 Azure PowerShell 启用诊断 | Azure"
+title: 在 Windows VM 上使用 Azure PowerShell 启用诊断 | Azure
 services: virtual-machines-windows
-documentationcenter: 
-description: "了解如何使用 PowerShell 在运行 Windows 的虚拟机中启用 Azure 诊断"
-author: sbtron
-manager: timlt
-editor: 
+documentationcenter: ''
+description: 了解如何使用 PowerShell 在运行 Windows 的虚拟机中启用 Azure 诊断
+author: rockboyfor
+manager: digimobile
+editor: ''
 ms.assetid: 2e6d88f2-1980-4a24-827e-a81616a0d247
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2015
-ms.date: 08/21/2017
-ms.author: v-dazen
-ms.openlocfilehash: 7e974baf8ed23898d0348879768ec4141cf73b9e
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.date: 05/21/2018
+ms.author: v-yeche
+ms.openlocfilehash: c82dcde95c1fcad3a9245fd57c4dc524fa7542b7
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>使用 PowerShell 在运行 Windows 的虚拟机中启用 Azure 诊断
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -43,7 +43,7 @@ Azure 诊断是 Azure 中可对部署的应用程序启用诊断数据收集的�
 
 如果未在诊断配置中指定 **StorageAccount**，需要将 *StorageAccountName* 参数传递给 cmdlet。 如果指定了 *StorageAccountName* 参数，则 cmdlet 会始终使用该参数中指定的存储帐户，而不使用诊断配置文件中指定的存储帐户。
 
-如果诊断存储帐户与 VM 属于不同的订阅，则必须将 *StorageAccountName* 和 *StorageAccountKey* 参数显式传递给 cmdlet。 当诊断存储帐户在同一订阅中时，不需要 *StorageAccountKey* 参数，因为 cmdlet 可以在启用诊断扩展时自动查询和设置密钥值。 但是，如果诊断存储帐户在不同的订阅中，则 cmdlet 可能无法自动获取密钥，需要通过 *StorageAccountKey* 参数显式指定该密钥。  
+如果诊断存储帐户与 VM 属于不同的订阅，则必须将 *StorageAccountName* 和 *StorageAccountKey* 参数显式传递给 cmdlet。 当诊断存储帐户属于同一订阅时，不需要 *StorageAccountKey* 参数，因为在启用诊断扩展的情况下，cmdlet 可以自动查询和设置密钥值。 但是，如果诊断存储帐户在不同的订阅中，则 cmdlet 可能无法自动获取密钥，需要通过 *StorageAccountKey* 参数显式指定该密钥。  
 
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 
@@ -51,7 +51,7 @@ Azure 诊断是 Azure 中可对部署的应用程序启用诊断数据收集的�
 
     Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name
 
-该 cmdlet 返回 *PublicSettings*，其中包含诊断配置。 支持两种类型的配置：WadCfg 和 xmlCfg。 WadCfg 是 JSON 配置，而 xmlCfg 是 Base64 编码格式的 XML 配置。 若要读取该 XML，需将其解码。
+该 cmdlet 返回 PublicSettings，其中包含诊断配置。 支持两种类型的配置：WadCfg 和 xmlCfg。 WadCfg 是 JSON 配置，而 xmlCfg 是 Base64 编码格式的 XML 配置。 若要读取该 XML，需将其解码。
 
     $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
@@ -198,4 +198,4 @@ Azure 诊断是 Azure 中可对部署的应用程序启用诊断数据收集的�
 * 有关使用 Azure 诊断功能和其他方法排查问题的详细说明，请参阅 [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../../cloud-services/cloud-services-dotnet-diagnostics.md)（在 Azure 云服务和虚拟机中启用诊断）。
 * [Diagnostics configurations schema](https://msdn.microsoft.com/library/azure/mt634524.aspx)（诊断配置架构）解释了诊断扩展的各种 XML 配置选项。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties  -->

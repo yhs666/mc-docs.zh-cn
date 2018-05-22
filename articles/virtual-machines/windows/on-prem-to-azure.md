@@ -1,27 +1,27 @@
 ---
-title: "从 AWS 和其他平台迁移到 Azure 中的托管磁盘 | Azure"
-description: "在 Azure 中使用从其他云（如 AWS 或其他虚拟化平台）上传的 VHD 并利用 Azure 托管磁盘创建 VM。"
+title: 从 AWS 和其他平台迁移到 Azure 中的托管磁盘 | Azure
+description: 在 Azure 中使用从其他云（如 AWS 或其他虚拟化平台）上传的 VHD 并利用 Azure 托管磁盘创建 VM。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/07/2017
-ms.date: 01/08/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8019ca692143fe965302437ddc5b7f1e5876fbae
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: d461071374d35619763a3de187a85a96b7188131
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>从 Amazon Web Services (AWS) 和其他平台迁移到 Azure 中的托管磁盘
 
@@ -53,6 +53,8 @@ Azure 托管磁盘无需管理存储帐户，从而简化了 VM 管理。 托管
 ## <a name="plan-for-the-migration-to-managed-disks"></a>计划迁移到托管磁盘
 
 本部分可帮助你针对 VM 和磁盘类型做出最佳决策。
+
+如果打算从非托管磁盘迁移到托管磁盘，则应注意具有[虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)角色的用户不能更改 VM 大小（因为它们可以预转换）。 这是因为包含托管磁盘的 VM 要求用户对 OS 磁盘具有 Microsoft.Compute/disks/write 权限。
 
 ### <a name="location"></a>位置
 
@@ -93,7 +95,7 @@ Azure 托管磁盘无需管理存储帐户，从而简化了 VM 管理。 托管
 
 ### <a name="pricing"></a>定价
 
-查看[托管磁盘定价](https://www.azure.cn/pricing/details/managed-disks/)。 高级托管磁盘的定价与高级非托管磁盘相同。 但标准托管磁盘的定价与标准非托管磁盘不同。
+查看[托管磁盘定价](https://www.azure.cn/pricing/details/storage/)。 高级托管磁盘的定价与高级非托管磁盘相同。 但标准托管磁盘的定价与标准非托管磁盘不同。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,27 +1,27 @@
 ---
-title: "Azure 快速入门 - 创建 Windows VM CLI | Azure"
-description: "快速了解如何使用 Azure CLI 创建 Windows 虚拟机。"
+title: Azure 快速入门 - 创建 Windows VM CLI | Azure
+description: 快速了解如何使用 Azure CLI 创建 Windows 虚拟机。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/11/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9dfaa6afcda435c0e7e78adbb04855e69b387579
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 0ff8b9722bb4de8991acde3366cceaa02f1ea717
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 创建 Windows 虚拟机
 
@@ -35,7 +35,7 @@ Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速�
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
+使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
 
 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
 
@@ -45,7 +45,7 @@ az group create --name myResourceGroup --location chinaeast
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 创建 VM。 
+使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 
 
 以下示例创建一个名为 myVM 的 VM。 此示例使用 azureuser 作为管理用户名，使用 myPassword12 作为密码。 更新这些值，使其适用于环境。 创建与虚拟机的连接时，需要这些值。
 
@@ -70,7 +70,7 @@ az vm create --resource-group myResourceGroup --name myVM --image win2016datacen
 
 ## <a name="open-port-80-for-web-traffic"></a>为 Web 流量打开端口 80 
 
-默认情况下，仅允许通过 RDP 连接登录到 Azure 中部署的 Windows 虚拟机。 如果此 VM 会用作 Web 服务器，则需要从 Internet 打开端口 80。 使用 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_open_port) 命令打开所需端口。  
+默认情况下，仅允许通过 RDP 连接登录到 Azure 中部署的 Windows 虚拟机。 如果此 VM 会用作 Web 服务器，则需要从 Internet 打开端口 80。 使用 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-open-port) 命令打开所需端口。  
 
  ```azurecli  
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -100,7 +100,7 @@ IIS 已安装，并且现在已从 Internet 打开 VM 上的端口 80 - 可以�
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要资源组、VM 和所有相关的资源，可以使用 [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_delete) 命令将其删除。
+如果不再需要资源组、VM 和所有相关的资源，可以使用 [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) 命令将其删除。
 
 ```azurecli 
 az group delete --name myResourceGroup
@@ -113,4 +113,4 @@ az group delete --name myResourceGroup
 > [!div class="nextstepaction"]
 > [Azure Windows 虚拟机教程](./tutorial-manage-vm.md)
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: wording update, update link, update meta properties -->

@@ -1,8 +1,8 @@
 ---
-title: "创建运行 MySQL 的经典 Azure VM | Azure"
-description: "使用经典部署模型创建运行 Windows Server 2012 R2 和 MySQL 数据库的 Azure 虚拟机。"
+title: 创建运行 MySQL 的经典 Azure VM | Azure
+description: 使用经典部署模型创建运行 Windows Server 2012 R2 和 MySQL 数据库的 Azure 虚拟机。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: f864adb465432c81e8f45863c559323f91e5ac94
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 23275bb7eedf3199a8499dec12d1eae14ee8faae
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>在使用经典部署模型创建的运行 Windows Server 2016 的虚拟机上安装 MySQL
 [MySQL](https://www.mysql.com) 是一种常用的开源 SQL 数据库。 本教程说明如何安装并运行 **MySQL 5.7.18 社区版**作为运行 **Windows Server 2016** 的虚拟机上的 MySQL 服务器。 其他版本的 MySQL 或 Windows Server 所带来的体验可能略有不同。
@@ -110,7 +110,7 @@ ms.lasthandoff: 12/15/2017
 若要测试运行 MySQL 服务器服务的 Azure VM 的远程连接，必须提供包含 VN 的云服务的 DNS 名称。
 
 1. 在 Azure 门户中，单击“虚拟机(经典)”、单击 MySQL 服务器虚拟机的名称，然后单击“概述”。
-2. 从虚拟机仪表板中，记下“DNS 名称”值。 下面是一个示例：
+2. 从虚拟机仪表板中，记下“DNS 名称”值。 以下是示例：
 
    ![](media/mysql-2008r2/MySQL_DNSName.png)
 3. 从运行 MySQL 的本地计算机或 MySQL 客户端上，运行以下命令，以便以 MySQL 用户身份登录。
@@ -123,4 +123,4 @@ ms.lasthandoff: 12/15/2017
 
 ## <a name="next-steps"></a>后续步骤
 若要了解有关运行 MySQL 的详细信息，请参阅 [MySQL 文档](http://dev.mysql.com/doc/)。
-<!-- Update_Description: add classic portal migration notice. -->
+<!-- Update_Description: update meta properties -->

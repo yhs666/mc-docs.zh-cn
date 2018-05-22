@@ -12,10 +12,10 @@ origin.date: 03/16/2018
 ms.date: 05/14/2018
 ms.author: v-dazen
 ms.openlocfilehash: 097d66116dc15b8b0b654636082dfda1e674a064
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="runbook-input-parameters"></a>Runbook 输入参数
 
@@ -171,7 +171,7 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
 
 #### <a name="start-a-runbook-by-using-an-sdk-and-assign-parameters"></a>使用 SDK 启动 Runbook 并分配参数
 
-* **Azure 资源管理器方法：**可使用编程语言的 SDK 来启动 Runbook。 以下 C# 代码片段用于在自动化帐户中启动 Runbook。 可以在 [GitHub 存储库](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)中查看完整代码。  
+* **Azure 资源管理器方法：** 可使用编程语言的 SDK 来启动 Runbook。 以下 C# 代码片段用于在自动化帐户中启动 Runbook。 可以在 [GitHub 存储库](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)中查看完整代码。  
   
   ```
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -190,7 +190,7 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
       return response.Job;
       }
   ```
-* **Azure 经典部署模型方法：**可使用编程语言的 SDK 启动 Runbook。 以下 C# 代码片段用于在自动化帐户中启动 Runbook。 可以在 [GitHub 存储库](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)中查看完整代码。
+* **Azure 经典部署模型方法：** 可使用编程语言的 SDK 启动 Runbook。 以下 C# 代码片段用于在自动化帐户中启动 Runbook。 可以在 [GitHub 存储库](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)中查看完整代码。
   
   ```      
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)

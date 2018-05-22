@@ -16,10 +16,10 @@ origin.date: 04/09/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 136cdd183e4b0a419cc865b468a999bd526a3db8
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>通过 Visual Studio 创建和部署 Azure 资源组
 使用 Visual Studio 和 [Azure SDK](https://www.azure.cn/downloads/) 可以创建一个项目，用于将基础结构和代码部署到 Azure。 例如，可以为应用定义 Web 主机、网站和数据库，然后将该基础结构与代码一起部署。 或者，用户可以定义虚拟机、虚拟网络和存储帐户，并连同虚拟机上执行的脚本一起部署该基础结构。 **Azure 资源组**部署项目允许通过单个可重复的的操作部署全部所需的资源。 有关部署和管理资源的详细信息，请参阅 [Azure Resource Manager 概述](resource-group-overview.md)。
@@ -56,7 +56,7 @@ Azure 资源组项目包含 Azure Resource Manager JSON 模板，用于定义部
 
     | 文件名 | 说明 |
     | --- | --- |
-    | Deploy-AzureResourceGroup.ps1 |一个 PowerShell 脚本，调用 PowerShell 命令以部署到 Azure Resource Manager。<br />**注意：**Visual Studio 使用此 PowerShell 脚本部署模板。 对此脚本进行任何更改都会影响 Visual Studio 中的部署，因此请务必小心。 |
+    | Deploy-AzureResourceGroup.ps1 |一个 PowerShell 脚本，调用 PowerShell 命令以部署到 Azure Resource Manager。<br />**注意：** Visual Studio 使用此 PowerShell 脚本部署模板。 对此脚本进行任何更改都会影响 Visual Studio 中的部署，因此请务必小心。 |
     | WebSiteSQLDatabase.json |Resource Manager 模板，定义要部署到 Azure 的基础结构，以及在部署期间可以提供的参数。 它还定义各资源之间的依赖关系，以便 Resource Manager 按正确的顺序部署资源。 |
     | WebSiteSQLDatabase.parameters.json |包含模板所需值的参数文件。 需要传入这些参数值来自定义每个部署。 |
 

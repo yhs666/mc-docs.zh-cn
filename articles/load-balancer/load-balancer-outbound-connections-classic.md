@@ -16,10 +16,10 @@ origin.date: 03/22/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: fc74a358a69728aa7dd40a569b9ae3f3d6f89a8a
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="outbound-connections-classic"></a>出站连接（经典）
 

@@ -10,11 +10,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/16/2018
 ms.date: 05/07/2018
-ms.openlocfilehash: 9e4eeed903259138822043421b94f04e864926d2
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 5a1bb488cba83ecdfda8bac924aefc845e4a721f
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>流分析输出：存储和分析选项
 创作流分析作业时，需考虑如何使用生成的数据。 如何查看流分析作业的结果？流分析作业的结果存储在何处？
@@ -182,7 +182,7 @@ Blob 存储提供了一种经济高效且可缩放的解决方案，用于在云
 | 分隔符 |仅适用于 CSV 序列化。 流分析支持大量的常见分隔符以对 CSV 格式的数据进行序列化。 支持的值为逗号、分号、空格、制表符和竖线。 |
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) 是一种多区域分布的多模型数据库服务，它提供全球范围内不设限的弹性缩放、丰富查询和自动索引（经由与架构无关的数据模型）、可靠的低延迟及行业领先的综合 SLA。 若要了解流分析的 Cosmos DB 集合选项，请参阅[将 Cosmos DB 用作输出的流分析](stream-analytics-documentdb-output.md)一文。
+[Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) 是一种多区域分布的多模型数据库服务，它提供中国范围内不设限的弹性缩放、丰富查询和自动索引（经由与架构无关的数据模型）、可靠的低延迟及行业领先的综合 SLA。 若要了解流分析的 Cosmos DB 集合选项，请参阅[将 Cosmos DB 用作输出的流分析](stream-analytics-documentdb-output.md)一文。
 
 > [!Note]
 > 目前，Azure 流分析仅支持使用 SQL API 连接到 CosmosDB。

@@ -1,11 +1,11 @@
 ---
-title: "在 VM 上安装 Trend Micro Deep Security | Azure"
-description: "本文介绍如何在 Azure 中使用经典部署模型创建的 VM 上安装和配置 Trend Micro Deep Security。"
+title: 在 VM 上安装 Trend Micro Deep Security | Azure
+description: 本文介绍如何在 Azure 中使用经典部署模型创建的 VM 上安装和配置 Trend Micro Deep Security。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: e991b635-f1e2-483f-b7ca-9d53e7c22e2a
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 01/08/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 02856cf769ecbfa2974f523e1e9e5c29947cab13
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 66be7838419bf8b1e25ebea92a9d3a733f405203
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>如何在 Windows VM 上安装和配置 Trend Micro Deep Security 即服务
 > [!IMPORTANT]
@@ -29,7 +29,9 @@ ms.lasthandoff: 01/05/2018
 
 本文演示了如何在运行 Windows Server 的新的或现有虚拟机 (VM) 上安装和配置 Trend Micro Deep Security 即服务。 Deep Security 即服务包括反恶意软件保护、防火墙、入侵防御系统和完整性监视。
 
-该客户端通过 VM 代理作为安全扩展插件进行安装。 在新虚拟机上，可随 Deep Security Agent 一起安装 VM 代理。 在未安装 VM 代理的现有虚拟机上，需要先下载并安装 VM 代理。 本文介绍这两种情况。
+该客户端通过 VM 代理作为安全扩展插件进行安装。 在新虚拟机上安装 Deep Security Agent，因为 VM 代理由 Azure 门户自动创建。
+
+使用 Azure 门户、Azure CLI 或 PowerShell 创建的现有 VM 可能不具有 VM 代理。 对于未安装 VM 代理的现有虚拟机，需要先下载并安装 VM 代理。 本文介绍这两种情况。
 
 如果已经有针对本地解决方案的 Trend Micro 当前订阅，则可用它来帮助保护 Azure 虚拟机。 如果还不是客户，则可注册试用订阅。 有关此解决方案的详细信息，请参阅 Trend Micro 博客文章 [Azure VM Agent Extension For Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945)（用于 Deep Security 的 Azure VM 代理扩展）。
 
@@ -39,7 +41,7 @@ ms.lasthandoff: 01/05/2018
 ## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>在现有 VM 上安装 Deep Security Agent
 若要在现有 VM 上安装代理，需要以下各项：
 
-* 在本地计算机上安装 Azure PowerShell 模块 0.8.2 版或更高版本。 可以使用 **Get-Module azure | format-table version** 命令查看已安装的 Azure PowerShell 的版本。 有关说明以及指向最新版本的链接，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 使用 `Add-AzureAccount -Environment AzureChinaCloud` 登录到 Azure 订阅。
+* 在本地计算机上安装 Azure PowerShell 模块 0.8.2 版或更高版本。 可以使用 **Get-Module azure | format-table version** 命令查看已安装的 Azure PowerShell 的版本。 有关说明以及指向最新版本的链接，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 使用 `Add-AzureAccount -Environment AzureChinaCloud ` 登录到 Azure 订阅。
 * 在目标虚拟机上安装 VM 代理。
 
 首先，请验证是否已安装 VM 代理。 填写云服务名称和虚拟机名称，并在管理员级别的 Azure PowerShell 命令提示符下运行以下命令。 替换引号内的所有内容，包括 < and > 字符。
@@ -79,4 +81,4 @@ ms.lasthandoff: 01/05/2018
 <!-- Link references -->
 [如何登录到运行 Windows Server 的虚拟机]:connect-logon.md
 [Azure VM 扩展和功能]: /virtual-machines/windows/extensions-features
-<!-- Update_Description: remove the content of install Trend on portal -->
+<!-- Update_Description: update meta properties, wording update-->

@@ -1,11 +1,11 @@
 ---
-title: "在 Azure VM 中创建 HPC Pack 头节点 | Azure"
-description: "了解如何使用 Azure 门户和 Resource Manager 部署模型在 Azure VM 中创建 Microsoft HPC Pack 2012 R2 头节点。"
+title: 在 Azure VM 中创建 HPC Pack 头节点 | Azure
+description: 了解如何使用 Azure 门户和 Resource Manager 部署模型在 Azure VM 中创建 Microsoft HPC Pack 2012 R2 头节点。
 services: virtual-machines-windows
-documentationcenter: 
-author: dlepow
-manager: timlt
-editor: 
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-resource-manager,hpc-pack
 ms.assetid: e6a13eaf-9124-47b4-8d75-2bc4672b8f21
 ms.service: virtual-machines-windows
@@ -14,16 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 origin.date: 12/29/2016
-ms.date: 02/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 31121530f28562e59e3eab668879cea3d45283b8
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 05/21/2018
+ms.author: v-yeche
+ms.openlocfilehash: 3435120594c0a5604a26c34b63ed7f92222ebffd
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="create-the-head-node-of-an-hpc-pack-cluster-in-an-azure-vm-with-a-marketplace-image"></a>在 Azure VM 中使用应用商店映像创建 HPC Pack 群集的头节点
 使用 Azure 应用商店和 Azure 门户中的 [Microsoft HPC Pack 2012 R2 虚拟机映像](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)创建 HPC 群集的头节点。 此 HPC Pack VM 映像基于预安装了 HPC Pack 2012 R2 Update 3 的 Windows Server 2012 R2 Datacenter。 使用此头节点在 Azure 中进行 HPC Pack 的概念证明部署。 然后，可以向该群集添加计算节点，以运行 HPC 工作负荷。
+<!-- Notice: URL is not Correct on https://market.azure.cn/zh-cn/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/-->
 
 > [!TIP]
 > 若要在 Azure 中部署完整的 HPC Pack 2012 R2 群集（包括头节点和计算节点），建议使用自动化方法。 选项包括 [HPC Pack IaaS 部署脚本](classic/hpcpack-cluster-powershell-script.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)和 Resource Manager 模板，如[适用于 Windows 工作负荷的 HPC Pack 群集](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/)。 Resource Manager 模板也可用于 [Microsoft HPC Pack 2016 群集](https://github.com/MsHpcPack/HPCPack2016/tree/master/newcluster-templates)。 
@@ -35,7 +36,7 @@ ms.lasthandoff: 06/23/2017
 
 ![HPC Pack 头节点][headnode]
 
-* **Active Directory 域**：必须先将 HPC Pack 2012 R2 头节点加入到 Azure 中的 Active Directory 域，再在 VM 上启动 HPC 服务。 如本文所示，若要进行概念证明部署，可以先将为头节点创建的 VM 提升为域控制器，然后再启动 HPC 服务。 另一种方法是在 Azure 中部署单独的域控制器和林，并将头节点 VM 加入到该域林。
+* **Active Directory 域**：必须先将 HPC Pack 2012 R2 头节点加入到 Azure 中的 Active Directory 域，再在 VM 上启动 HPC 服务。 如本文所示，如果要进行概念证明部署，可以先将为头节点创建的 VM 提升为域控制器，再启动 HPC 服务。 另一种方法是在 Azure 中部署单独的域控制器和林，并将头节点 VM 加入到该域林。
 
 * **部署模板**：对于大多数新部署，Azure 建议使用 Resource Manager 部署模型。 本文假定你使用这种部署模型。
 
@@ -44,8 +45,8 @@ ms.lasthandoff: 06/23/2017
 ## <a name="steps-to-create-the-head-node"></a>创建头节点的步骤
 以下是概略性步骤，说明了如何通过 Azure 门户使用 Resource Manager 部署模型为 HPC Pack 头节点创建 Azure VM。 
 
-1. 如果希望使用单独的域控制器 VM 在 Azure 中创建新的 Active Directory 林，其中一种方法是使用 [Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc)。 对于简单的概念验证部署，可以忽略此步骤，将头节点 VM 本身配置为域控制器。 此选项将在本文后面介绍。
-2. 在 Azure 应用商店的“Windows Server 2012 R2 上的 HPC Pack 2012 R2”[](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)页上，单击“创建虚拟机”。 
+1. 如果希望使用单独的域控制器 VM 在 Azure 中创建新的 Active Directory 林，其中一种方法是使用 [Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc)。 对于简单的概念验证部署，可以忽略此步骤，将头节点 VM 本身配置为域控制器。 此选项在本文后面介绍。
+2. 在 Azure 应用商店的 [Windows Server 2012 R2 上的 HPC Pack 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) 页上，单击**创建虚拟机**。 
 3. 在门户的“Windows Server 2012 R2 上的 HPC Pack 2012 R2”页上，选择“Resource Manager”部署模型，然后单击“创建”。
 
     ![HPC Pack 映像][marketplace]
@@ -62,9 +63,9 @@ ms.lasthandoff: 06/23/2017
    * 如果在新的虚拟网络中创建 VM（未使用现有域林），则将该 VM 提升为域控制器。 使用标准步骤安装和配置头节点上的 Active Directory 域服务角色。 有关详细步骤，请参阅[安装新的 Windows Server 2012 Active Directory 林](https://technet.microsoft.com/library/jj574166.aspx)。
 7. 在 VM 运行并加入到 Active Directory 林后启动 HPC Pack 服务，如下所示：
 
-    a.将新的虚拟硬盘附加到 VM。 使用一个属于本地管理员组的域帐户连接到头节点 VM。 例如，可以使用创建头节点 VM 时设置的管理员帐户。
+    a. 使用一个属于本地管理员组的域帐户连接到头节点 VM。 例如，可以使用创建头节点 VM 时设置的管理员帐户。
 
-    b.保留“数据库类型”设置，即设置为“共享”。 对于默认头节点配置，以管理员身份启动 Windows PowerShell 并键入以下命令：
+    b. 对于默认头节点配置，以管理员身份启动 Windows PowerShell 并键入以下命令：
 
     ```PowerShell
     & $env:CCP_HOME\bin\HPCHNPrepare.ps1 -DBServerInstance ".\ComputeCluster"
@@ -82,3 +83,4 @@ ms.lasthandoff: 06/23/2017
 <!--Image references-->
 [headnode]: ./media/hpcpack-cluster-headnode/headnode.png
 [marketplace]: ./media/hpcpack-cluster-headnode/marketplace.png
+<!-- Update_Description: update meta properties -->

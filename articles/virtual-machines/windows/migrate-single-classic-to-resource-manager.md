@@ -1,30 +1,30 @@
 ---
-title: "将经典 VM 迁移到 ARM 托管磁盘 VM | Azure"
-description: "将单个 Azure VM 从经典部署模型迁移到 Resource Manager 部署模型中的托管磁盘。"
+title: 将经典 VM 迁移到 ARM 托管磁盘 VM | Azure
+description: 将单个 Azure VM 从经典部署模型迁移到 Resource Manager 部署模型中的托管磁盘。
 services: virtual-machines-windows
-documentationcenter: 
-author: hayley244
+documentationcenter: ''
+author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/15/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: d761e60960cc03a48cdb5a1663c6f5d19323fc43
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 05/21/2018
+ms.author: v-yeche
+ms.openlocfilehash: a8d6b0540223f4a38b155c78d1ddb88da63da797
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>手动将经典 VM 从 VHD 迁移到新的 ARM 托管磁盘 VM 
 
-本部分有助于将现有 Azure VM 从经典部署模型迁移到资源管理器部署模型中的[托管磁盘](managed-disks-overview.md)。
+本部分有助于将现有 Azure VM 从经典部署模型迁移到 Resource Manager 部署模型中的[托管磁盘](managed-disks-overview.md)。
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>计划迁移到托管磁盘
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 08/29/2017
 
 ### <a name="location"></a>位置
 
-选取 Azure 托管磁盘可用位置。 如果要迁移到高级托管磁盘，还应确保高级存储在计划迁移到的目标区域中可用。
+选取 Azure 托管磁盘可用位置。 如果要迁移到高级托管磁盘，还应确保高级存储在计划迁移到的目标区域中可用。 有关可用位置的最新信息，请参阅 [Azure 服务（按区域）](https://www.azure.cn/support/service-dashboard/) 。
 
 ### <a name="vm-sizes"></a>VM 大小
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 08/29/2017
 
 ### <a name="pricing"></a>定价
 
-查看[托管磁盘定价](https://www.azure.cn/pricing/details/managed-disks/)。 高级托管磁盘的定价与高级非托管磁盘相同。 但标准托管磁盘的定价与标准非托管磁盘不同。
+查看[托管磁盘定价](https://www.azure.cn/pricing/details/storage/)。 高级托管磁盘的定价与高级非托管磁盘相同。 但标准托管磁盘的定价与标准非托管磁盘不同。
 
 ## <a name="checklist"></a>清单
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 08/29/2017
 
 2.  决定要使用的新 VM 系列。 如果要迁移到高级托管磁盘，则应支持高级存储。
 
-3.  确定要使用的确切 VM 大小，将迁移到的区域应支持此大小。 VM 大小需要足够大以支持所拥有的数据磁盘数。 例如，如果有四个数据磁盘，则 VM 必须至少有两个核心。 此外，还应考虑处理能力、内存和网络带宽需求。
+3.  确定将使用的确切 VM 大小，将迁移到的区域应支持此大小。 VM 大小需要足够大以支持所拥有的数据磁盘数。 例如，如果有四个数据磁盘，则 VM 必须至少有两个核心。 此外，还应考虑处理能力、内存和网络带宽需求。
 
 4.  手边具备当前 VM 详细信息，包括磁盘和对应的 VHD blob 的列表。
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 08/29/2017
     -StorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
     ```
 
-4.  基于数据 VHD 文件创建托管数据磁盘，并将其添加到新 VM。
+4.  从数据 VHD 文件中创建托管数据磁盘，并将其添加到新的 VM。
 
     ```powershell
     $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig '
@@ -167,3 +167,4 @@ ms.lasthandoff: 08/29/2017
 ## <a name="next-steps"></a>后续步骤
 
 - 连接到虚拟机。 有关说明，请参阅[如何连接并登录到运行 Windows 的 Azure 虚拟机](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+<!-- Update_Description: update meta properties, wording update -->

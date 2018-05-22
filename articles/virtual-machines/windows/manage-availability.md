@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 中管理 Windows VM 的可用性 | Azure"
-description: "了解如何使用多个虚拟机确保 Azure 中 Windows 应用程序的高可用性"
+title: 在 Azure 中管理 Windows VM 的可用性 | Azure
+description: 了解如何使用多个虚拟机确保 Azure 中 Windows 应用程序的高可用性
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 12/06/2017
-ms.date: 03/19/2018
+origin.date: 03/27/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b3de087a1fbbfa9ea014751ac556484a49f9684
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: cafbaab410d405b05c5aee8703775a79f6f68932
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>在 Azure 中管理 Windows 虚拟机的可用性 
 
@@ -33,4 +33,4 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="next-steps"></a>后续步骤
 若要了解对虚拟机进行负载均衡的详细信息，请参阅[对虚拟机进行负载均衡](tutorial-load-balancer.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties  -->

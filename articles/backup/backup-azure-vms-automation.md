@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 12/20/2017
-ms.date: 04/08/2018
+ms.date: 05/15/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b2b60592ee90937d0036fb7b5dd587b7b4e3fddf
-ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
+ms.openlocfilehash: 4d58a0cb97e617eca4980a6e41ee8afced7fd465
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>使用 AzureRM.RecoveryServices.Backup cmdlet 来备份虚拟机
 
@@ -363,7 +363,7 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
 还原磁盘以后，即可通过以下步骤从磁盘创建和配置虚拟机。
 
 > [!NOTE]
-> 若要使用已还原的磁盘创建加密 VM，则 Azure 角色必须有权执行 **Microsoft.KeyVault/vaults/deploy/action** 操作。 如果用户角色不具有此权限，请创建具有此操作的自定义角色。 有关详细信息，请参阅 [Custom Roles in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md)（Azure RBAC 中的自定义角色）。
+> 若要使用已还原的磁盘创建加密 VM，则 Azure 角色必须有权执行 **Microsoft.KeyVault/vaults/deploy/action** 操作。 如果用户角色不具有此权限，请创建具有此操作的自定义角色。 有关详细信息，请参阅 [Custom Roles in Azure RBAC](../role-based-access-control/custom-roles.md)（Azure RBAC 中的自定义角色）。
 >
 >
 
@@ -592,4 +592,4 @@ PS C:\> Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 ## <a name="next-steps"></a>后续步骤
 如果你更愿意使用 PowerShell 来处理 Azure 资源，请查看 PowerShell 文章：[为 Windows Server 部署和管理备份](backup-client-automation.md)。 如果管理 DPM 备份，请参阅[为 DPM 部署和管理备份](backup-dpm-automation.md)。 这两篇文章都为 Resource Manager 部署和经典部署提供了一个版本。  
 
-<!--Update_Description: wording update-->
+<!--Update_Description: link update-->

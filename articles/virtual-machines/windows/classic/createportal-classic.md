@@ -1,8 +1,8 @@
 ---
-title: "创建自定义 Windows 虚拟机 | Azure"
-description: "了解如何从 Azure 门户使用经典部署模型创建自定义 Windows 虚拟机。"
+title: 创建自定义 Windows 虚拟机 | Azure
+description: 了解如何从 Azure 门户使用经典部署模型创建自定义 Windows 虚拟机。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 11/03/2017
-ms.date: 01/29/2018
+origin.date: 11/03/17
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: f7d8c1012c4fd79cd46cb3f4cf6283bf916ac3f9
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 8413ee6ae377673dbd9cb4338082f81513114f6c
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="create-a-custom-virtual-machine-running-windows-using-the-classic-deployment-model"></a>使用经典部署模型创建运行 Windows 的自定义虚拟机
 > [!IMPORTANT]
@@ -37,5 +37,4 @@ ms.lasthandoff: 01/25/2018
 ## <a name="next-steps"></a>后续步骤 
 还可[创建运行 Linux 的自定义虚拟机](../../linux/classic/createportal-classic.md)。
 
-<!-- Update_Description: update meta properties, rename the article, update link -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

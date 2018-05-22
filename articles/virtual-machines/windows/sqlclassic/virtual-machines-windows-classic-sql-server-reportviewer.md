@@ -1,6 +1,6 @@
 ---
-title: "在网站中使用 ReportViewer | Azure"
-description: "本主题介绍如何使用 Visual Studio ReportViewer 控件构建 Azure 网站，该控件用于显示 Azure 虚拟机上存储的报表。"
+title: 在网站中使用 ReportViewer | Azure
+description: 本主题介绍如何使用 Visual Studio ReportViewer 控件构建 Azure 网站，该控件用于显示 Azure 虚拟机上存储的报表。
 services: virtual-machines-windows
 documentationcenter: na
 author: rockboyfor
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/11/2017
-ms.date: 10/30/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2b10147b920a874bfe00b7375baf58796f29aa4a
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 4786cb8e20b55a3dd044bd3fe13297a23183891a
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>在 Azure 中托管的网站中使用 ReportViewer
 > [!IMPORTANT] 
@@ -79,7 +79,7 @@ ms.lasthandoff: 10/27/2017
 ReportViewer 需要使用正确的凭据向报表服务器进行身份验证，并且凭据必须经报表服务器授权才能访问所需的报表。 有关身份验证的信息，请参阅白皮书 [Reporting Services 报表查看器控件和基于 Azure 虚拟机的报表服务器](https://msdn.microsoft.com/library/azure/dn753698.aspx)。
 
 ## <a name="publish-the-aspnet-web-application-to-azure"></a>发布 ASP.NET Web 应用程序到 Azure
-有关将 ASP.NET Web 应用程序发布到 Azure 的说明，请参阅[如何：从 Visual Studio 将 Web 应用程序迁移和发布到 Azure](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) 和 [Web 应用和 ASP.NET 入门](../../../app-service-web/app-service-web-get-started-dotnet.md)。
+有关将 ASP.NET Web 应用程序发布到 Azure 的说明，请参阅[如何：从 Visual Studio 将 Web 应用程序迁移和发布到 Azure](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) 和 [Web 应用和 ASP.NET 入门](../../../app-service/app-service-web-get-started-dotnet.md)。
 
 > [!IMPORTANT]
 > 如果在解决方案资源管理器中的快捷菜单中未显示添加Azure 部署项目或添加 Azure 云服务项目命令，可能需要将该项目的目标框架更改为 .NET Framework 4。
@@ -94,4 +94,4 @@ ReportViewer 需要使用正确的凭据向报表服务器进行身份验证，�
 [Azure 虚拟机中的 SQL Server Business Intelligence](../classic/ps-sql-bi.md)
 
 [使用 PowerShell 创建运行本机模式报表服务器的 Azure VM](../classic/ps-sql-report.md)
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update link -->

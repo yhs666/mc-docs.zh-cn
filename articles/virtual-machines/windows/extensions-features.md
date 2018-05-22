@@ -1,11 +1,11 @@
 ---
-title: "Azure 中适用于 Windows 的虚拟机扩展和功能 | Azure"
-description: "了解可为 Azure 虚拟机提供的扩展，这些虚拟机扩展按它们提供或改进的功能进行分组。"
+title: Azure 中适用于 Windows 的虚拟机扩展和功能 | Azure
+description: 了解可为 Azure 虚拟机提供的扩展，这些虚拟机扩展按它们提供或改进的功能进行分组。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/06/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 013ff184b6cb8af7935a47eca21f2c7500246e53
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: ed2e2ddfc643f935166ae49ce056b9d689784a61
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>适用于 Windows 的虚拟机扩展和功能
 
@@ -38,7 +38,7 @@ Azure 虚拟机扩展是小型应用程序，可在Azure 虚拟机上提供部�
 - 使用 Datadog 扩展配置 Azure 基础结构监视功能。 有关详细信息，请参阅 [Datadog 博客](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)。
 - 使用 Chef 配置 Azure 虚拟机。 有关详细信息，请参阅[使用 Chef 自动执行 Azure 虚拟机部署](chef-automation.md)。
 
-除了进程特定的扩展外，自定义脚本扩展也可用于 Windows 和 Linux 虚拟机。 适用于 Windows 的自定义脚本扩展允许在虚拟机上运行任何 PowerShell 脚本。 在设计需要本机 Azure 工具无法提供的配置的 Azure 部署时，这很有用。 有关详细信息，请参阅 [Windows VM 自定义脚本扩展](extensions-customscript.md)。
+除了进程特定的扩展外，“自定义脚本”扩展也可用于 Windows 和 Linux 虚拟机。 适用于 Windows 的自定义脚本扩展允许在虚拟机上运行任何 PowerShell 脚本。 在设计需要本机 Azure 工具无法提供的配置的 Azure 部署时，这很有用。 有关详细信息，请参阅 [Windows VM 自定义脚本扩展](extensions-customscript.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -91,7 +91,7 @@ Cmdlet          Set-AzureRmVMExtension                             2.2.0      Az
 Cmdlet          Set-AzureRmVMSqlServerExtension                    2.2.0      AzureRM.Compute
 ```
 
-以下示例使用自定义脚本扩展从 GitHub 存储库将脚本下载到目标虚拟机上，然后运行该脚本。 有关自定义脚本扩展的详细信息，请参阅[自定义脚本扩展概述](extensions-customscript.md)。
+以下示例使用自定义脚本扩展从 GitHub 存储库将脚本下载到目标虚拟机上，并运行该脚本。 有关自定义脚本扩展的详细信息，请参阅[自定义脚本扩展概述](extensions-customscript.md)。
 
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
@@ -114,7 +114,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
 
 ### <a name="azure-portal"></a>Azure 门户
 
-可通过 Azure 门户将 VM 扩展应用到现有虚拟机。 为此，请选择要使用的虚拟机，选择“扩展”，然后单击“添加”。 这会提供可用扩展的列表。 选择所需的扩展，并按照向导中的步骤进行操作。
+可通过 Azure 门户将 VM 扩展应用到现有虚拟机。 为此，请选择要使用的虚拟机，选择“扩展”，然后单击“添加”。 这会提供可用扩展的列表。 选择所需的扩展并按照向导中的步骤进行操作。
 
 下图显示了从 Azure 门户安装 Microsoft 反恶意软件扩展。
 
@@ -122,7 +122,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 模板
 
-VM 扩展可添加到 Azure Resource Manager 模板，并在部署模板的过程中执行。 使用模板部署扩展对于创建完全配置的 Azure 部署很有用。 例如，以下 JSON 取自一个 Resource Manager 模板，该模板会在每个 VM 上部署一组负载均衡的虚拟机、一个 Azure SQL 数据库，然后安装一个 .NET Core 应用程序。 VM 扩展负责安装软件。
+VM 扩展可添加到 Azure Resource Manager 模板，并在部署模板的过程中执行。 使用模板部署扩展对于创建完全配置的 Azure 部署很有用。 例如，以下 JSON 取自一个 Resource Manager 模板，该模板会在每个 VM 上部署一组负载均衡虚拟机和一个 Azure SQL 数据库，然后安装一个 .NET Core 应用程序。 VM 扩展负责安装软件。
 
 有关详细信息，请参阅完整的 [Resource Manager 模板](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)。
 
@@ -259,7 +259,7 @@ AutoUpgradeMinorVersion : False
 ForceUpdateTag          :
 ```
 
-此外，还可以在 Azure 门户中找到扩展执行状态。 要查看扩展的状态，请选择虚拟机，选择“扩展”，并选择所需的扩展。
+此外，还可以在 Azure 门户中找到扩展执行状态。 如果要查看扩展的状态，请选择虚拟机，选择“扩展” ，并选择所需的扩展。
 
 ### <a name="rerun-vm-extensions"></a>重新运行 VM 扩展
 
@@ -271,7 +271,7 @@ Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name 
 
 此外，还可以使用 Azure 门户删除扩展。 为此，请执行以下操作：
 
-1. 选择虚拟机。
+1. 选择一个虚拟机。
 2. 选择“扩展” 。
 3. 选择所需的扩展。
 4. 选择“卸载” 。

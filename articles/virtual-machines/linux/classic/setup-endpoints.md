@@ -1,11 +1,11 @@
 ---
-title: "在经典 Linux VM 上设置终结点 | Azure"
-description: "了解如何在 Azure 门户中为 Linux VM 设置终结点，以便能够与 Azure 中的 Linux 虚拟机通信。"
+title: 在经典 Linux VM 上设置终结点 | Azure
+description: 了解如何在 Azure 门户中为 Linux VM 设置终结点，以便能够与 Azure 中的 Linux 虚拟机通信。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: f3749738-1109-4a1d-8635-40e4bd220e91
 ms.service: virtual-machines-linux
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 06/09/2017
-ms.date: 01/08/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8b212595aaf34a40474c62f48f06d09d4072e300
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: c4ebae1aef8cd093d34bd2d57f499fb34939b559
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="how-to-set-up-endpoints-on-a-linux-classic-virtual-machine-in-azure"></a>如何在 Azure 中的 Linux 经典虚拟机上设置终结点
 在 Azure 中使用经典部署模型创建的所有 Linux 虚拟机都可以通过专用网络通道与同一云服务或虚拟网络中的其他虚拟机自动通信。 但是，Internet 上的计算机或其他虚拟网络需要终结点才能定向虚拟机的入站网络流量。 本文也适用于 [Windows 虚拟机](../../windows/classic/setup-endpoints.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
@@ -37,6 +37,6 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="next-steps"></a>后续步骤
 * 也可以使用 [Azure 命令行接口](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)创建 VM 终结点。 运行 **azure vm endpoint create** 命令。
-* 如果已在 Resource Manager 部署模型中创建虚拟机，可以在 Resource Manager 模式下使用 Azure CLI [创建网络安全组](../../../virtual-network/virtual-networks-create-nsg-arm-cli.md)，控制发往 VM 的流量。
+* 如果已在 Resource Manager 部署模型中创建虚拟机，可以在 Resource Manager 模式下使用 Azure CLI [创建网络安全组](../../../virtual-network/tutorial-filter-network-traffic-cli.md)，控制发往 VM 的流量。
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, update link -->

@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 上运行 MariaDB (MySQL) 群集 | Azure"
-description: "在 Azure 虚拟机上创建 MariaDB + Galera MySQL 群集"
+title: 在 Azure 上运行 MariaDB (MySQL) 群集 | Azure
+description: 在 Azure 虚拟机上创建 MariaDB + Galera MySQL 群集
 services: virtual-machines-linux
-documentationcenter: 
-author: sabbour
-manager: timlt
-editor: 
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-service-management
 ms.assetid: d0d21937-7aac-4222-8255-2fdc4f2ea65b
 ms.service: virtual-machines-linux
@@ -14,17 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/15/2015
-ms.date: 03/28/2017
-ms.author: v-dazen
-ms.openlocfilehash: f5697e5458a7b48d3d703e3f4cfdcad47406332c
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 05/21/2018
+ms.author: v-yeche
+ms.openlocfilehash: 1c29a1de609f6fb909d6a6f1fa8956161c9553f7
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB (MySQL) 群集：Azure 教程
 > [!IMPORTANT]
 > Azure 提供了用于创建和处理资源的两个不同部署模型：[Azure Resource Manager](../../../resource-manager-deployment-model.md) 模型和经典模型。 本文介绍经典部署模型。 Azure 建议大多数新部署使用 Azure Resource Manager 模型。
+<!-- Not Available on MariaDB Enterprise cluster-->
 
 本文说明了如何创建 [MariaDBs](https://mariadb.org/en/about/) 的多主机 [Galera](http://galeracluster.com/products/) 群集（MySQL 的嵌入式替代版本，具有稳健性、可伸缩性和可靠性），可在 Azure 虚拟机上的高度可用环境中使用。
 
@@ -58,12 +59,12 @@ ms.lasthandoff: 02/13/2018
 4. 查找 CentOS 7 虚拟机映像的名称。
 
         azure vm image list | findstr CentOS
-   输出类似于 `f1179221e23b4dbb89e39d70e5bc9e72__OpenLogic-CentOS-70-20160329`。
+   输出类似于 `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926`。
 
    在以下步骤中使用该名称。
 5. 创建 VM 模板，将 /path/to/key.pem 替换为生成的 .pem SSH 密钥的存储路径。
 
-        azure vm create --virtual-network-name mariadbvnet --subnet-names mariadb --blob-url "http://mariadbstorage.blob.core.chinacloudapi.cn/vhds/mariadbhatemplate-os.vhd" --vm-size Medium --ssh 22 --ssh-cert "/path/to/key.pem" --no-ssh-password mariadbtemplate f1179221e23b4dbb89e39d70e5bc9e72__OpenLogic-CentOS-70-20160329 azureuser
+        azure vm create --virtual-network-name mariadbvnet --subnet-names mariadb --blob-url "http://mariadbstorage.blob.core.chinacloudapi.cn/vhds/mariadbhatemplate-os.vhd" --vm-size Medium --ssh 22 --ssh-cert "/path/to/key.pem" --no-ssh-password mariadbtemplate 5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926 azureuser
 6. 将 4 个 500 GB 的数据磁盘附加到 VM，以便在 RAID 配置中使用。
 
         FOR /L %d IN (1,1,4) DO azure vm disk attach-new mariadbhatemplate 512 http://mariadbstorage.blob.core.chinacloudapi.cn/vhds/mariadbhatemplate-data-%d.vhd
@@ -88,13 +89,13 @@ ms.lasthandoff: 02/13/2018
     c. 创建装入点目录。
 
               mkdir /mnt/data
-    d.单击“验证存储凭据”以验证存储帐户。 检索新创建的 RAID 设备的 UUID。
+    d. 检索新创建的 RAID 设备的 UUID。
 
               blkid | grep /dev/md0
     e. 编辑 /etc/fstab。
 
               vi /etc/fstab
-    f.单击“保存”以保存设置。 添加设备，以便在重新启动时自动装载，并将 UUID 替换为前面从 **blkid** 命令获取的值。
+    f. 添加设备，以便在重新启动时自动装载，并将 UUID 替换为前面从 **blkid** 命令获取的值。
 
               UUID=<UUID FROM PREVIOUS>   /mnt/data ext4   defaults,noatime   1 2
     g. 装载新分区。
@@ -154,7 +155,7 @@ ms.lasthandoff: 02/13/2018
            GRANT ALL PRIVILEGES ON *.* TO 'cluster'@'%' IDENTIFIED BY 'p@ssw0rd' WITH GRANT OPTION; FLUSH PRIVILEGES;
            exit
 
-   d.单击“验证存储凭据”以验证存储帐户。 停止 MySQL。
+   d. 停止 MySQL。
 
             service mysql stop
 7. 创建配置占位符。
@@ -360,3 +361,4 @@ CLI 将负载均衡器探测间隔设置为 15 秒，这可能有点太长。 �
 [MariaDBs]:https://mariadb.org/en/about/
 [创建用于身份验证的 SSH 密钥]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
+<!-- Update_Description: update meta properties, wording update -->

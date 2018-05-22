@@ -1,6 +1,6 @@
 ---
-title: "在 Azure DNS 中管理 DNS 区域 - PowerShell | Azure"
-description: "可以使用 Azure PowerShell 管理 DNS 区域。 本文介绍如何在 Azure DNS 上更新、删除和创建 DNS 区域"
+title: 在 Azure DNS 中管理 DNS 区域 - PowerShell | Azure
+description: 可以使用 Azure PowerShell 管理 DNS 区域。 本文介绍如何在 Azure DNS 上更新、删除和创建 DNS 区域
 services: dns
 documentationcenter: na
 author: yunan2016
@@ -11,24 +11,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/22/2016
-ms.date: 12/18/2017
+origin.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-nany
-ms.openlocfilehash: 0a89cd69dc8ba2a023a0b7af420a1be814bd855c
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: 8e21e0b5dd95c4b6df081c7372a70e56f9e7b026
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>如何使用 PowerShell 管理 DNS 区域
 
 > [!div class="op_single_selector"]
-> * [门户](dns-operations-dnszones-portal.md)
+> * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
 > * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 本文介绍如何使用 Azure PowerShell 管理 DNS 区域。 也可使用跨平台的 [Azure CLI](dns-operations-dnszones-cli.md) 或 Azure 门户管理 DNS 区域。
+
+本指南专门介绍公共 DNS 区域。 有关使用 Azure PowerShell 管理 Azure DNS 中专用区域的详细信息，请参阅[通过 Azure PowerShell 开始使用 Azure DNS 专用区域](private-dns-getstarted-powershell.md)。
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -51,7 +53,7 @@ New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
 
-Azure DNS 现在还支持专用 DNS 区域（当前为预览功能）。  有关如何创建专用 DNS 区域的示例，请参阅 [Azure DNS 专用区域入门（使用 PowerShell）](./private-dns-getstarted-powershell.md)。
+Azure DNS 现在还支持专用 DNS 区域（当前为公开预览版）。  若要详细了解专用 DNS 区域，请参阅[将 Azure DNS 用于专用域](private-dns-overview.md)。 有关如何创建专用 DNS 区域的示例，请参阅 [Azure DNS 专用区域入门（使用 PowerShell）](./private-dns-getstarted-powershell.md)。
 
 ## <a name="get-a-dns-zone"></a>获取 DNS 区域
 

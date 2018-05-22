@@ -1,26 +1,26 @@
 ---
-title: "将 Azure VM 迁移到托管磁盘 | Azure"
-description: "迁移使用存储帐户中的非托管磁盘创建的 Azure 虚拟机以使用托管磁盘。"
+title: 将 Azure VM 迁移到托管磁盘 | Azure
+description: 迁移使用存储帐户中的非托管磁盘创建的 Azure 虚拟机以使用托管磁盘。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 01/03/2018
-ms.date: 02/05/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: afde32eed3d933523a3f0d6db09f5f42e12750e1
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 2671a2a224ece7e294614c6122b07657c497b6af
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>将 Azure VM 迁移到 Azure 中的托管磁盘
 
@@ -87,4 +87,4 @@ Azure 托管磁盘无需单独管理存储帐户，从而简化了存储管理�
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解[托管磁盘](managed-disks-overview.md)
-<!-- Update_Description: add P15 and S15 disk size content -->
+<!-- Update_Description: update meta properties -->

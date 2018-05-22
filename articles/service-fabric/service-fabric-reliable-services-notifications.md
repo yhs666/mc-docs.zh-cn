@@ -16,10 +16,10 @@ origin.date: 06/29/2017
 ms.date: 03/12/2018
 ms.author: v-yeche
 ms.openlocfilehash: 8f866de34c00efaebb21e9e4b672171bbbb46bf4
-ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services 通知
 通知可让客户端跟踪对它们感兴趣的对象所进行的更改。 两种类型的对象支持通知：*可靠状态管理器*和*可靠字典*。

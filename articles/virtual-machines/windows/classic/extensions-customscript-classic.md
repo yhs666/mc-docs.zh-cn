@@ -1,11 +1,11 @@
 ---
-title: "Windows VM 上的自定义脚本扩展 | Azure"
-description: "通过使用自定义脚本扩展在远程 Windows VM 上运行 PowerShell 脚本自动执行 Azure VM 配置任务"
+title: Windows VM 上的自定义脚本扩展 | Azure
+description: 通过使用自定义脚本扩展在远程 Windows VM 上运行 PowerShell 脚本自动执行 Azure VM 配置任务
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: ebb7340a-8f61-4d3c-a290-d7bf8de2d0bd
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 01/17/2017
-ms.date: 02/05/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 56c2c91b6383a7a3d5ae1cd9b5e8c3c7bafc438d
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 497cf2ccbf0060b675e9a7b83ba4f8bdd814e9b1
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>使用经典部署模型完成的适用于 Windows 的自定义脚本扩展
 
@@ -128,5 +128,4 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads
 
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
-<!-- Update_Description: update meta properties, rename the article -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

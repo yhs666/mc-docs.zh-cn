@@ -11,10 +11,10 @@ origin.date: 03/15/2018
 ms.date: 05/14/2018
 ms.author: v-nany
 ms.openlocfilehash: 3581aeaa70318fbd6acdc5e64d482db2e9630e98
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>在 Azure 自动化中创建或导入 Runbook
 可以通过[新建 Runbook](#creating-a-new-runbook) 将 Runbook 添加到 Azure 自动化。

@@ -1,6 +1,6 @@
 ---
-title: "恢复服务保管库概述 | Microsoft Docs"
-description: "恢复服务保管库和 Azure 备份保管库的概述和比较。"
+title: 恢复服务保管库概述 | Microsoft Docs
+description: 恢复服务保管库和 Azure 备份保管库的概述和比较。
 services: backup
 documentationcenter: " "
 author: markgalioto
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 10/15/2017
-ms.date: 01/05/2018
+ms.date: 05/15/2018
 ms.author: v-junlch
-ms.openlocfilehash: fb25dee3edfdfbbdd9febfd8c2dc1a2b8360d7c2
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: ae992061a438d294473cd60109b76ba78dadb0ee
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="recovery-services-vaults-overview"></a>恢复服务保管库概述
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/11/2018
 
 - **针对混合 IT 环境进行集中监视**：使用恢复服务保管库时，可以通过中心门户监视 [Azure IaaS VM](backup-azure-manage-vms.md) 和[本地资产](backup-azure-manage-windows-server.md#manage-backup-items)。 [了解详细信息](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
-- **基于角色的访问控制 (RBAC)**：RBAC 在 Azure 中提供精细的访问管理控制。 [Azure 提供各种内置角色](../active-directory/role-based-access-built-in-roles.md)，而 Azure 备份具有三个[用于管理恢复点的内置角色](backup-rbac-rs-vault.md)。 恢复服务保管库与 RBAC 兼容，后者会限制对已定义用户角色集的备份和还原访问权限。 [了解详细信息](backup-rbac-rs-vault.md)
+- **基于角色的访问控制 (RBAC)**：RBAC 在 Azure 中提供精细的访问管理控制。 [Azure 提供各种内置角色](../role-based-access-control/built-in-roles.md)，而 Azure 备份具有三个[用于管理恢复点的内置角色](backup-rbac-rs-vault.md)。 恢复服务保管库与 RBAC 兼容，后者会限制对已定义用户角色集的备份和还原访问权限。 [了解详细信息](backup-rbac-rs-vault.md)
 
 - **保护 Azure 虚拟机的所有配置**：恢复服务保管库保护基于 Resource Manager 的 VM，其中包括高级磁盘、托管磁盘和加密 VM。 将备份保管库升级到恢复服务保管库以后，即可将基于 Service Manager 的 VM 升级到基于 Resource Manager 的 VM。 在升级保管库的同时，可以保留基于 Service Manager 的 VM 恢复点，并为已升级（已启用 Resource Manager）的 VM 配置保护。 [了解详细信息](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 
@@ -76,4 +76,4 @@ ms.lasthandoff: 01/11/2018
 [备份 Azure 备份服务器](backup-azure-microsoft-azure-backup.md)</br>
 [备份 Windows Server](backup-configure-vault.md)
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: link update -->

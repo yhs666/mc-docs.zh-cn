@@ -10,13 +10,13 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.workload: big-compute
 origin.date: 05/22/2017
-ms.date: 04/09/2018
+ms.date: 05/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: cc339284c839331d0a031464488e5314d1b1f65b
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 38e0cea521b9fc3534b4f083fb1f4bab8dfbf099
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>用于 Node.js 的 Batch SDK 入门
 
@@ -48,6 +48,13 @@ node.js 客户端通过一个准备任务（稍后详细介绍）和一系列其
 - [准备任务 shell 脚本](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
 - [将 Python csv 转换为 JSON 的处理程序](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
 
+> [!TIP]
+> 指定链接中的 Node.js 客户端不包含可部署为 Azure Function App 的特定代码。 如需创建该应用的说明，可参阅以下链接。
+> - [创建 Function App](../azure-functions/functions-create-first-azure-function.md)
+> - [创建计时器触发器函数](../azure-functions/functions-bindings-timer.md)
+>
+>
+
 ## <a name="build-the-application"></a>构建应用程序
 
 现在，让我们一步步按过程来构建 Node.js 客户端：
@@ -60,9 +67,14 @@ node.js 客户端通过一个准备任务（稍后详细介绍）和一系列其
 
 该命令安装最新版的 azure-batch Node SDK。
 
+>[!Tip]
+> 在 Azure 函数应用中，若要运行 npm install 命令，可以转到 Azure Function 的“设置”选项卡中的“Kudu 控制台”。 在此示例中，目的是安装用于 Node.js 的 Azure Batch SDK。
+>
+>
+
 ### <a name="step-2-create-an-azure-batch-account"></a>步骤 2：创建 Azure Batch 帐户
 
-可以通过 [Azure 门户](batch-account-create-portal.md)或命令行 ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](/cli/overview)) 创建该帐户。
+可以通过 [Azure 门户](batch-account-create-portal.md)或命令行 ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](/cli)) 创建该帐户。
 
 下面是通过 Azure CLI 创建该帐户的命令。
 

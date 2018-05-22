@@ -1,26 +1,26 @@
 ---
-title: "使用适用于 .NET 的文件约定库将作业和任务输出持久保存到 Azure 存储 - Azure Batch | Microsoft Docs"
-description: "了解如何在 Azure 门户中使用适用于 .NET 的 Azure Batch 文件约定库将 Batch 任务和作业输出持久保存到 Azure 存储，并查看持久保存的输出。"
+title: 使用适用于 .NET 的文件约定库将作业和任务输出持久保存到 Azure 存储 - Azure Batch | Microsoft Docs
+description: 了解如何在 Azure 门户中使用适用于 .NET 的 Azure Batch 文件约定库将 Batch 任务和作业输出持久保存到 Azure 存储，并查看持久保存的输出。
 services: batch
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 06/16/2017
-ms.date: 07/03/2017
+ms.date: 05/15/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f4200d4795fc2cb0bd66c5ae142bb604c4bb025
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: 671d027660df6807164791438b4e37a0ec19ce37
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net-to-persist"></a>使用适用于 .NET 的 Batch 文件约定库将作业和任务数据持久保存到 Azure 存储 
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 09/15/2017
 Azure Batch 提供多种持久保存任务输出的方式。 文件约定库最适合以下情形：
 
 - 可以轻松地修改任务正在运行的应用程序的代码，以便使用文件约定库来持久保存文件。
-- 需要在任务仍运行的情况下，将数据流式传输到 Azure 存储。
+- 希望在任务仍然运行时，将数据流式传输到 Azure 存储。
 - 需要在使用云服务配置或虚拟机配置创建的池中持久保存数据。
 - 客户端应用程序或作业中的其他任务需按 ID 或用途找出并下载任务输出文件。 
 - 需在 Azure 门户中查看任务输出。
@@ -227,9 +227,9 @@ Azure 门户显示使用 [Batch 文件约定标准](https://github.com/Azure/azu
 
 ### <a name="get-the-batch-file-conventions-library-for-net"></a>获取适用于 .NET 的 Batch 文件约定库
 
-[NuGet][nuget_package] 上提供适用于 .NET 的 Batch 文件约定库。 该库使用新方法扩展 [CloudJob][net_cloudjob] 和 [CloudTask][net_cloudtask] 类。 
+[NuGet][nuget_package] 上提供适用于 .NET 的 Batch 文件约定库。 该库使用新方法扩展了 [CloudJob][net_cloudjob] 和 [CloudTask][net_cloudtask] 类。 另请参阅文件约定库的[参考文档](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.batch.conventions.files)。
 
-GitHub 的用于 .NET 的 Azure SDK 存储库提供文件约定库的 [源代码][github_file_conventions]。
+GitHub 的用于 .NET 的 Azure SDK 存储库提供文件约定库的 [源代码][github_file_conventions]。 
 
 ### <a name="explore-other-approaches-for-persisting-output-data"></a>了解持久保存输出数据的其他方法
 
@@ -263,3 +263,4 @@ GitHub 的用于 .NET 的 Azure SDK 存储库提供文件约定库的 [源代码
 [1]: ./media/batch-task-output/task-output-01.png "门户中“保存的输出文件”和“保存的日志”选择器"
 [2]: ./media/batch-task-output/task-output-02.png "Azure 门户中的“任务输出”边栏选项卡"
 
+<!-- Update_Description: wording update -->

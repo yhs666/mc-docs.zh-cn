@@ -1,8 +1,8 @@
 ---
-title: "登录到经典 Azure VM | Azure"
-description: "使用 Azure 门户登录到使用经典部署模型创建的 Windows 虚拟机。"
+title: 登录到经典 Azure VM | Azure
+description: 使用 Azure 门户登录到使用经典部署模型创建的 Windows 虚拟机。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 01/29/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 94489ab6c3a41de788a63ed6d88d7d459b47bdeb
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: c83a8d15811ba7289068b97e186f1f8986feebc3
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>使用 Azure 门户登录到 Windows 虚拟机
 在 Azure 门户中，使用“连接”按钮启动远程桌面会话，然后登录到 Windows VM。
@@ -69,5 +69,4 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 
 如果这些提示不起作用或不是所需的内容，请参阅[对与基于 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除](../troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 此文指导完成诊断和解决常见问题。
 
-<!-- Update_Description: update meta properties, rename the article -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

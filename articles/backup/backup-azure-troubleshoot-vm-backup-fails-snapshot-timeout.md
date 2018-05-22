@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 01/09/2018
-ms.date: 04/08/2018
+ms.date: 05/15/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2ef1ba024e7211b9c62b0ab4ff75d565f8c2256d
-ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
+ms.openlocfilehash: 6c66aa5e29445e685ed5d082b1f1afa19364f994
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure 备份故障排除：代理或扩展的问题
 
@@ -30,7 +30,8 @@ ms.lasthandoff: 04/09/2018
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM 代理无法与 Azure 备份进行通信
 
-错误消息：“VM 代理无法与 Azure 备份进行通信”
+错误消息：“VM 代理无法与 Azure 备份进行通信”<br>
+错误代码：“UserErrorGuestAgentStatusUnavailable”
 
 注册并计划备份服务的 VM 后，备份将通过与 VM 代理进行通信获取时间点快照，从而启动作业。 以下任何条件都可能阻止快照的触发。 如果未触发快照，则备份可能失败。 请按所列顺序完成以下故障排除步骤，然后重试操作：
 
@@ -42,7 +43,8 @@ ms.lasthandoff: 04/09/2018
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>由于虚拟机未连接到网络，快照操作失败
 
-错误消息：“由于虚拟机未建立网络连接，快照操作失败”
+错误消息：“由于虚拟机未建立网络连接，快照操作失败”<br>
+错误代码：“ExtensionSnapshotFailedNoNetwork”
 
 注册和计划 Azure 备份服务的 VM 后，备份会通过与 VM 备份扩展通信来获取时间点快照，从而启动作业。 以下任何条件都可能阻止快照的触发。 如果未触发快照，则备份可能失败。 请按所列顺序完成以下故障排除步骤，然后重试操作：    
 **原因 1：[VM 无法访问 Internet](#the-vm-has-no-internet-access)**  
@@ -51,7 +53,8 @@ ms.lasthandoff: 04/09/2018
 
 ## <a name="vmsnapshot-extension-operation-failed"></a>VMSnapshot 扩展操作失败
 
-错误消息：“VMSnapshot 扩展操作失败”
+错误消息：“VMSnapshot 扩展操作失败”<br>
+错误代码：“ExtentionOperationFailed”
 
 注册和计划 Azure 备份服务的 VM 后，备份会通过与 VM 备份扩展通信来获取时间点快照，从而启动作业。 以下任何条件都可能阻止快照的触发。 如果未触发快照，则备份可能失败。 请按所列顺序完成以下故障排除步骤，然后重试操作：  
 **原因 1：[无法检索快照状态或无法创建快照](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -178,6 +181,8 @@ VM 备份依赖于向基础存储帐户发出快照命令。 备份失败的原�
 3. 选择“扩展” 。
 4. 选择“Vmsnapshot 扩展”。
 5. 选择“卸载” 。
+
+对于 Linux VM，如果 VMSnapshot 扩展未显示在 Azure 门户中，请[更新 Azure Linux 代理](../virtual-machines/linux/update-agent.md)，然后运行备份。 
 
 完成这些步骤可在下一次备份期间重新安装扩展。
 

@@ -17,10 +17,10 @@ origin.date: 04/01/2017
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: 5a1f8fd8eec259a2370229e6489055a40edf8d52
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>规划将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager
 尽管 Azure Resource Manager 提供了大量令人惊叹的功能，但规划好迁移过程以确保一切顺利仍至关重要。 花时间进行规划可确保执行迁移活动时不会遇到问题。 
@@ -96,7 +96,7 @@ ms.lasthandoff: 05/11/2018
 - **Express Route 线路和 VPN**。 当前含授权链接的快速路由网关不能在不停机的情况下集成。 有关解决方法，请参阅[将 ExpressRoute 线路和关联的虚拟网络从经典部署模型迁移到 Resource Manager 部署模型](../../expressroute/expressroute-migration-classic-resource-manager.md)。
 
 - **VM 扩展** - 虚拟机扩展可能是迁移正在运行的 VM 的最大障碍之一。 VM 扩展修正可能需要 1-2 天，因此请相应进行规划。  一个有效的 Azure 代理是报告正在运行的 VM 的 VM 扩展状态所需的。 如果正在运行的 VM 返回的状态为不佳，这会暂停迁移。 代理本身无需处于正常运行状态即可启用迁移，但如果 VM 上存在扩展，则同时需要正常运行的代理和出站 Internet 连接（含 DNS）才能使迁移继续。
-  - 如果在迁移过程中与 DNS 服务器的连接丢失，除 BGInfo v1.\* 外的所有 VM 扩展在迁移准备前需要先从每个 VM 中删除，随后在 Azure Resource Manager 迁移后重新添加回 VM。  **这仅适用于正在运行的 VM。**  如果已停止解除分配 VM，则无需删除 VM 扩展。 **注意：**Azure 诊断和安全中心监视等诸多扩展在迁移后将重新安装，因此删除它们没有问题。
+  - 如果在迁移过程中与 DNS 服务器的连接丢失，除 BGInfo v1.\* 外的所有 VM 扩展在迁移准备前需要先从每个 VM 中删除，随后在 Azure Resource Manager 迁移后重新添加回 VM。  **这仅适用于正在运行的 VM。**  如果已停止解除分配 VM，则无需删除 VM 扩展。 **注意：** Azure 诊断和安全中心监视等诸多扩展在迁移后将重新安装，因此删除它们没有问题。
   - 此外，确保网络安全组不限制出站 Internet 访问权限。 这可能针对某些网络安全组配置。 若要使 VM 扩展迁移到 Azure Resource Manager，出站 Internet 访问权限（和 DNS）是必需的。 
   - BGInfo 扩展有两个版本：v1 和 v2。  如果 VM 是通过使用 Azure 门户或 PowerShell 创建的，则该 VM 上可能具有 v1 扩展。 此扩展无需删除且会被迁移 API 跳过（即不迁移）。 但是，如果经典 VM 是使用新的 Azure 门户创建的，它很可能具有基于 JSON 的 v2 版本的 BGInfo，该版本可迁移到 Azure Resource Manager，只要代理正常运行且具有出站 Internet 访问权限（和 DNS）。 
   - **补救选项 1**。 如果用户知道 VM 不会有出站 Internet 访问权限、正常运行的 DNS 服务和 VM 上正常运行的 Azure 代理，则在准备前在迁移期间卸载所有 VM 扩展，并在迁移后重新安装这些 VM 扩展。 
@@ -109,7 +109,7 @@ ms.lasthandoff: 05/11/2018
 
 - **Web/辅助角色部署** - 包含 Web 和辅助角色的云服务无法迁移到 Azure Resource Manager。 必须先从虚拟网络中删除 Web/辅助角色，才能开始迁移。  典型的解决方案只是将 Web/辅助角色实例移到单独的经典虚拟网络中，该网络也链接到了 ExpressRoute 回路，或者将代码迁移到较新的 PaaS 应用服务（此讨论已超出本文范围）中。 在前一个重新部署用例中，创建了新的经典虚拟网络，将该 Web/辅助角色移动/重新部署到该新虚拟网络，并从正在删除的虚拟网络中删除这些部署。 无需更改代码。 新的[虚拟网络对等互连](../../virtual-network/virtual-network-peering-overview.md)功能可以用来使包含 Web/辅助角色的经典虚拟网络和同一 Azure 区域中的其他虚拟网络（如正在迁移的虚拟网络）通力合作（**虚拟网络迁移完成后，对等虚拟网络无法迁移**），从而提供没有性能损失和延迟/带宽损失的相同功能。 鉴于增加了[虚拟网络对等互连](../../virtual-network/virtual-network-peering-overview.md)，现可轻易缓解 Web/辅助角色部署，且不会阻止到 Azure Resource Manager 的迁移。
 
-- **Azure Resource Manager 配额** - 对于经典部署模型和 Azure Resource Manager 部署模型，Azure 区域都有单独的配额/限制。 即使在不使用新硬件的迁移方案中*（我们正在将现有的 VM 从经典部署模型切换到 Azure 资源管理器部署模型）*，Azure 资源管理器配额仍需处于容量充足的位置，然后才能开始迁移。 下面列出了我们已知的导致问题的主要限制。  开具配额支持票证来提高限制。 
+- **Azure Resource Manager 配额** - 对于经典部署模型和 Azure Resource Manager 部署模型，Azure 区域都有单独的配额/限制。 即使在不使用新硬件的迁移方案中 *（我们正在将现有的 VM 从经典部署模型切换到 Azure 资源管理器部署模型）*，Azure 资源管理器配额仍需处于容量充足的位置，然后才能开始迁移。 下面列出了我们已知的导致问题的主要限制。  开具配额支持票证来提高限制。 
 
     > [!NOTE]
     > 需要在与要迁移的当前环境所处的同一区域中提高这些限制。
@@ -147,7 +147,7 @@ ms.lasthandoff: 05/11/2018
 
 - **预配超时 VM 状态** - 如果任何 VM 具有状态“预配超时”，则需要在迁移前解决此问题。 执行此操作的唯一方法是通过取消预配/重新预配 VM（删除、保留磁盘并重新创建 VM）来使用停机时间。 
 
-- **RoleStateUnknown VM 状态** - 如果迁移因“角色状态未知”错误消息暂停，请使用门户检查 VM 并确保其正常运行。 此错误通常数分钟后会自行消失（无需修正），通常属于虚拟机**启动**、**停止**、**重启**操作期间经常看到的过渡类型。 **建议做法：**数分钟后尝试再次迁移。 
+- **RoleStateUnknown VM 状态** - 如果迁移因“角色状态未知”错误消息暂停，请使用门户检查 VM 并确保其正常运行。 此错误通常数分钟后会自行消失（无需修正），通常属于虚拟机**启动**、**停止**、**重启**操作期间经常看到的过渡类型。 **建议做法：** 数分钟后尝试再次迁移。 
 
 - **Fabric 群集不存在** - 在某些情况下，由于各种原因，某些 VM 无法迁移。 已知情况之一是当 VM 创建于最近（过去一周左右），且碰巧获得尚未为 Azure Resource Manager 工作负荷配备的 Azure 群集。  将收到一条错误消息，指出“Fabric 群集不存在”并且无法迁移 VM。 等待数天通常可解决此特殊问题，因为群集会很快启用 Azure Resource Manager。 但是，一个直接的解决方法是对 VM 执行 `stop-deallocate`，然后继续迁移，并在迁移后在 Azure 资源管理器中开始 VM 备份。
 
@@ -166,7 +166,7 @@ ms.lasthandoff: 05/11/2018
 
 1. 使用递增的优先级规划和安排虚拟网络（迁移的最小单位）。  首先处理简单的虚拟网络，并循序渐进到更复杂的虚拟网络。
 2. 大多数客户都有非生产环境和生产环境。  最后安排生产。
-3. **（可选）**安排具有足够缓冲区的维护停机时间，以防出现意外。
+3. **（可选）** 安排具有足够缓冲区的维护停机时间，以防出现意外。
 4. 出现问题时，与支持团队沟通并保持一致。
 
 ### <a name="patterns-of-success"></a>成功模式

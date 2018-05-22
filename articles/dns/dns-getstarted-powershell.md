@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/10/2017
-ms.date: 12/18/2017
+ms.date: 05/21/2018
 ms.author: v-nany
-ms.openlocfilehash: 38122c23879cb8db9be8251167523f7214c4f703
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: d87c6c26e0ec3c3eaefbe293782962bb0af1dfe1
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="get-started-with-azure-dns-using-powershell"></a>通过 PowerShell 开始使用 Azure DNS
 
@@ -51,6 +51,7 @@ New-AzureRMResourceGroup -name MyResourceGroup -location "chinaeast"
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 ```
+Azure DNS 现在还支持专用 DNS 区域（当前为公开预览版）。  若要详细了解专用 DNS 区域，请参阅[将 Azure DNS 用于专用域](private-dns-overview.md)。 有关如何创建专用 DNS 区域的示例，请参阅 [Azure DNS 专用区域入门（使用 PowerShell）](./private-dns-getstarted-powershell.md)。
 
 ## <a name="create-a-dns-record"></a>创建 DNS 记录
 

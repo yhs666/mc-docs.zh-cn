@@ -7,6 +7,7 @@
 ## [使用 Azure DNS 进行 DNS 委派](dns-domain-delegation.md)
 ## [DNS 常见问题](dns-faq.md)
 ## [使用专用 DNS 区域](private-dns-overview.md)
+## [专用 DNS 方案](private-dns-scenarios.md)
 
 # 入门
 
@@ -17,6 +18,7 @@
 
 ## 创建专用 DNS 区域和记录
 ### [PowerShell](private-dns-getstarted-powershell.md)
+### [Azure CLI](private-dns-getstarted-cli.md)
 ## [将域委托给 Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [为 Web 应用创建自定义 DNS 记录](dns-web-sites-custom-domain.md)
 
@@ -66,3 +68,5 @@
 ## [Web 应用](/app-service/)
 
 
+## [价格](https://www.azure.cn/zh-cn/pricing/details/dns/)
+## [定价计算器](https://www.azure.cn/zh-cn/pricing/calculator/)

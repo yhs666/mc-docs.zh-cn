@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/21/2017
-ms.date: 04/08/2018
+origin.date: 04/11/2018
+ms.date: 05/15/2018
 ms.author: v-junlch
-ms.openlocfilehash: 058bbf2ddf5394f26aa32eef35adb2c52333212c
-ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
+ms.openlocfilehash: 27541706524787ba1d29757d72eda7e763a7607b
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>有关 Azure 备份服务的问题
 本文解答有关 Azure 备份组件的常见问题。 某些答案提供内含全面信息的文章的链接。 单击“评论”（右侧）即可提问有关 Azure 备份的问题。 评论显示在本文末尾。 需要使用 Livefyre 帐户发表评论。 还可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
@@ -82,13 +82,13 @@ ms.lasthandoff: 04/09/2018
 如果取消 Azure VM 的备份作业，则会忽略任何已传输的数据。 下次备份作业将传输上次成功的备份作业之后的增量数据。
 
 ### <a name="are-there-limits-on-when-or-how-many-times-a-backup-job-can-be-scheduledbr"></a>备份作业可计划的时间或次数是否有限制？<br/>
-是的。 一天可以在 Windows Server 或 Windows 工作站上运行备份操作最多三次。 一天可以在 System Center DPM 上运行备份操作最多两次。 一天可以运行 IaaS VM 的备份作业一次。 可以将计划策略用于 Windows Server 或 Windows 工作站，以便指定每日或每周计划。 使用 System Center DPM 时，可以指定每日、每周、每月和每年计划。
+是的。 一天可以在 Windows Server 或 Windows 工作站上运行备份操作最多三次。 一天可以在 System Center DPM 上运行备份操作最多两次。 一天可以运行 IaaS VM 的备份作业一次。 将计划策略用于 Windows Server 或 Windows 工作站，以便指定每日或每周计划。 通过 System Center DPM，可以指定每日、每周、每月和每年计划。
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>为什么传输到恢复服务保管库的数据的大小小于我备份的数据？<br/>
  从 Azure 备份代理、SCDPM 或 Azure 备份服务器备份的所有数据都会在传输之前进行压缩和加密。 应用压缩和加密后，恢复服务保管库中的数据减少 30-40%。
 
 ## <a name="what-can-i-back-up"></a>我能够备份的内容
-### <a name="which-operating-systems-do-azure-backup-support-br"></a>Azure 备份支持哪些操作系统？ <br/>
+### <a name="which-operating-systems-does-azure-backup-support-br"></a>Azure 备份支持哪些操作系统？ <br/>
 Azure 备份支持以下列表中的操作系统使用 Azure 备份服务器和 System Center Data Protection Manager (DPM) 对文件和文件夹以及受保护的工作负荷应用程序进行备份。
 
 | 操作系统 | 平台 | SKU |
@@ -113,7 +113,7 @@ Azure 备份支持以下列表中的操作系统使用 Azure 备份服务器和 
 
 
 ### <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>要备份的每个数据源的大小是否有限制？ <br/>
-可以备份到保管库的数据量没有限制。 Azure 备份限制数据源的大小上限，但是这些上限很高。 截至 2015 年 8 月，受支持操作系统的数据源大小上限为：
+虽然 Azure 备份针对数据源强制设定了最大大小，但源的上限值很大。 截至 2015 年 8 月，受支持操作系统的数据源大小上限为：
 
 | S.No | 操作系统 | 数据源的最大大小 |
 |:---:|:--- |:--- |
@@ -133,13 +133,16 @@ Azure 备份支持以下列表中的操作系统使用 Azure 备份服务器和 
 | Microsoft Exchange |所备份 Exchange 服务器中所有 Exchange 数据库的总和 |
 | BMR/系统状态 |所备份计算机的 BMR 或系统状态的每个副本 |
 
-就 Azure VM 备份来说，每个 VM 最多可以有 16 个数据磁盘，每个数据磁盘的大小不得超出 4095GB。 <br>
+如果是 Azure IaaS VM 备份，则每个 VM 最多具有 16 个数据磁盘，而每个数据磁盘存储空间最大为 4095 GB。
+
+### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>恢复服务保管库中备份的数据量是否有限制？
+对可以备份到恢复服务保管库的数据量没有限制。
 
 ## <a name="retention-policy-and-recovery-points"></a>保留策略和恢复点
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>DPM 和 Windows Server/客户端（即，在不带 DPM 的 Windows Server 上）的保留策略是否有差别？<br/>
 否，DPM 和 Windows Server/客户端都有每日、每周、每月和每年保留策略。
 
-### <a name="can-i-configure-my-retention-policies-selectively---ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>是否可以选择性地配置我的保留策略 - 例如，配置每周和每日保留策略，但不配置每年和每月保留策略？<br/>
+### <a name="can-i-configure-my-retention-policies-selectively---that-is-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>是否可以选择性地配置我的保留策略 - 即配置每周和每日保留策略，但不配置每年和每月保留策略？<br/>
 是的，Azure 备份保留结构允许根据自己的要求十分灵活地定义保留策略。
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>我是否可以计划下午 6 点的备份，同时指定不同时间的保留策略？<br/>

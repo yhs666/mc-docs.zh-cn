@@ -72,6 +72,8 @@
           href: sizes-memory.md
         - name: Azure 计算单元 (ACU)
           href: acu.md
+        - name: 基准评分
+          href: compute-benchmark-scores.md
     - name: 维护和更新
       href: maintenance-and-updates.md
     - name: 磁盘存储
@@ -140,7 +142,7 @@
         - name: 使用 WinRM
           href: winrm.md
         - name: 使用访问控制
-          href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
+          href: ../../role-based-access-control/overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
         - name: 使用策略
           href: policy.md
         - name: 创建密钥保管库
@@ -303,13 +305,20 @@
         - name: Azure 日志收集器扩展
           href: log-collector-extension.md
         - name: Azure 诊断扩展
-          href: ps-extensions-diagnostics.md
+          href: extensions-diagnostics.md
+          items:
+            - name: 扩展架构
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
+            - name: 使用 PowerShell 进行启用
+              href: ps-extensions-diagnostics.md
+            - name: 使用模板进行启用
+              href: extensions-diagnostics-template.md
+            - name: 故障排除
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
         - name: 导出 VM 扩展
           href: extensions-export-templates.md
         - name: 排查扩展问题
           href: extensions-troubleshoot.md
-        - name: 监视和诊断扩展
-          href: extensions-diagnostics-template.md
         - name: 网络观察程序代理
           href: extensions-nwa.md
     - name: 迁移 VM
@@ -357,6 +366,8 @@
           href: reset-network-interface.md
         - name: 启动诊断
           href: boot-diagnostics.md
+        - name: 串行控制台
+          href: serial-console.md
         - name: 创建 VM
           href: troubleshoot-deployment-new-vm.md
         - name: 部署问题
@@ -369,6 +380,8 @@
           href: troubleshoot-activation-problems.md
         - name: 分配失败
           href: allocation-failure.md
+        - name: 分配失败 - 经典 VM
+          href: allocation-failure-classic.md
         - name: 重新部署 VM
           href: redeploy-to-new-node.md
         - name: 常见错误消息

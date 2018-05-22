@@ -10,13 +10,13 @@ ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 origin.date: 02/28/2018
-ms.date: 04/16/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 520103d8807ae065b76c4dad95ab28da541118a3
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: e83677a2ecff753db57a1a78f02875fe4965635e
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-attached-vhds-on-azure-windows-virtual-machines"></a>Azure Windows 虚拟机上的附加 VHD 故障排除
 
@@ -39,7 +39,7 @@ Azure 虚拟机依赖于 OS 磁盘和任何附加数据磁盘的虚拟硬盘 (VH
 
 借助本部分的故障排除指南，可以了解在 Azure 资源管理器部署中尝试删除 Azure 存储帐户、容器或 blob 时，如何排查出现的下列错误之一。
 
->未能删除存储帐户 "StorageAccountName"。错误: 正在使用存储帐户的项目，因此无法删除该存储帐户。
+>未能删除存储帐户 "StorageAccountName"。错误: 正在使用存储帐户的项目，因此无法删除该存储帐户。**
 
 >**无法删除 # 个容器(共 # 个):<br>vhds:目前容器上有租用，但请求中未指定任何租用 ID。**
 
@@ -120,5 +120,4 @@ Azure VM 中使用的 VHD 是在 Azure 的标准或高级存储帐户中作为�
 [附加 VHD 的 VM 意外重新启动]: #you-are-experiencing-unexpected-reboots
 [资源管理器部署中的存储删除错误]: #storage-delete-errors-in-rm
 
-<!-- Update_Description: new articles on troubleshoot for vhds on windows VM -->
-<!--ms.date: 04/16/2018-->
+<!-- Update_Description: update meta properties -->

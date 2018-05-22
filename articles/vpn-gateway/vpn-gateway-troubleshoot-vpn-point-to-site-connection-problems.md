@@ -16,10 +16,10 @@ origin.date: 02/23/2018
 ms.date: 05/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: d337da91ca7d2df672005d69d494f95b2b75f94c
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>故障排除：Azure 点到站点连接问题
 

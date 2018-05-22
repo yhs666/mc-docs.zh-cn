@@ -16,10 +16,10 @@ origin.date: 11/11/2016
 ms.date: 05/11/2018
 ms.author: v-junlch
 ms.openlocfilehash: 227f4b4ccdbbeb2a54c587e7767bdaf2f9157233
-ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>使用 Windows PowerShell 脚本发布到开发和测试环境
 
@@ -324,7 +324,7 @@ return $WebDeployPackage
 | Find-AzureVM |获取指定的 Azure 虚拟机。 |
 | Format-DevTestMessageWithTime |在消息的前面添加日期和时间。 此函数适用于写入到错误流和详细流的消息。 |
 | Get-AzureSQLDatabaseConnectionString |汇编一个连接字符串以连接到 Azure SQL 数据库。 |
-| Get-AzureVMStorage |返回指定的位置或地缘组中名称模式为“devtest”*（不区分大小写）的第一个存储帐户的名称。如果“devtest”*存储帐户与该位置或地缘组不匹配，该函数将忽略该帐户。 指定一个位置或地缘组。 |
+| Get-AzureVMStorage |返回指定的位置或地缘组中名称模式为“devtest”*（不区分大小写）的第一个存储帐户的名称。如果“devtest”* 存储帐户与该位置或地缘组不匹配，该函数将忽略该帐户。 指定一个位置或地缘组。 |
 | Get-MSDeployCmd |返回一个用于运行 MsDeploy.exe 工具的命令。 |
 | New-AzureVMEnvironment |在订阅中查找或创建与 JSON 配置文件中的值匹配的虚拟机。 |
 | Publish-WebPackage |使用 MsDeploy.exe 和 Web 发布包 .Zip 文件将资源部署到网站。 此函数不生成任何输出。 如果调用 MSDeploy.exe 失败，该函数会引发异常。 若要获取更详细的输出，请使用 **-Verbose** 选项。 |

@@ -1,11 +1,11 @@
 ---
-title: "Windows VM 的计算基准测试分数 | Azure"
-description: "比较运行 Windows Server 的 Azure VM 的 SPECint 计算基准测试分数"
+title: Azure Windows VM 的计算基准测试分数 | Azure
+description: 比较运行 Windows Server 的 Azure VM 的 SPECint 计算基准测试分数。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
 ms.service: virtual-machines-windows
@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 05/11/2017
-ms.date: 12/18/2017
+origin.date: 04/09/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3921c275c455425c62b9990601c7a385b7cf4891
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: e496250283c9503bc07637975eb79d8ac0b427b9
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Windows VM 的计算基准测试分数
-以下 SPECInt 基准测试分数显示运行 Windows Server 的 Azure 高性能 VM 产品阵容的计算性能。 此外，还提供了 [Linux VM](../linux/compute-benchmark-scores.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 的计算基准测试分数。
+以下 SPECInt 基准测试分数显示运行 Windows Server 的 Azure 高性能 VM 产品阵容的计算性能。 此外，还提供了 [Linux VM](../linux/compute-benchmark-scores.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 的计算基准测试分数。 
+
+> [!NOTE]
+> Linux 数字最近已更新，并包含了一组更全面的 VM。
 <!-- Not Available A8-A11 ## A-series - compute-intensive -->
 
 ## <a name="dv2-series"></a>Dv2 系列
@@ -44,4 +47,4 @@ Windows 分数是通过在 Windows Server 上运行 [SPECint 2006](https://www.s
 
 ## <a name="next-steps"></a>后续步骤
 * 有关存储容量、磁盘详细信息以及选择 VM 大小的注意事项，请参阅 [Sizes for virtual machines](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（虚拟机的大小）。
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update meta properties -->

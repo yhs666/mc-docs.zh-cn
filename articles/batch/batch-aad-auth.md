@@ -1,26 +1,26 @@
 ---
-title: "使用 Azure Active Directory 对 Azure Batch 服务解决方案进行身份验证 | Microsoft Docs"
-description: "Batch 支持 Azure AD 在 Batch 服务中进行身份验证。"
+title: 使用 Azure Active Directory 对 Azure Batch 服务解决方案进行身份验证 | Microsoft Docs
+description: Batch 支持 Azure AD 在 Batch 服务中进行身份验证。
 services: batch
 documentationcenter: .net
 author: dlepow
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 09/28/2017
-ms.date: 03/07/2018
+ms.date: 05/15/2018
 ms.author: v-junlch
-ms.openlocfilehash: b98f9530a228bb590e02101d063fcfbd2f15ca30
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 07fb8a9b2fcf66ecc7f9c8c68c99b9ea8698cfa1
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 服务解决方案进行身份验证
 
@@ -140,7 +140,7 @@ Azure Batch 资源终结点用于获取对 Batch 服务的请求进行身份验�
 1. 在 Azure 门户中，导航到应用程序使用的 Batch 帐户。
 2. 在 Batch 帐户的“设置”边栏选项卡中，选择“访问控制(IAM)”。
 3. 单击“添加”按钮。 
-4. 在“角色”下拉列表中，为应用程序选择参与者或读者角色。 有关这些角色的详细信息，请参阅 [Azure 门户中基于角色的访问控制入门](../active-directory/role-based-access-control-what-is.md)。  
+4. 在“角色”下拉列表中，为应用程序选择参与者或读者角色。 有关这些角色的详细信息，请参阅 [Azure 门户中基于角色的访问控制入门](../role-based-access-control/overview.md)。  
 5. 在“选择”字段中，输入应用程序的名称。 从列表中选择你的应用程序，并单击“保存”。
 
 现在，应用程序应出现在访问控制设置中，同时已分配有 RBAC 角色。 
@@ -313,13 +313,13 @@ public static async Task PerformBatchOperations()
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure AD 的详细信息，请阅读 [Azure Active Directory 文档](/active-directory/)。 演示如何使用 [Azure 代码示例](https://azure.microsoft.com/resources/samples/?service=active-directory)库中提供的 ADAL 的深度讲解示例。
+- 有关 Azure AD 的详细信息，请阅读 [Azure Active Directory 文档](/active-directory/)。 演示如何使用 [Azure 代码示例](https://azure.microsoft.com/resources/samples/?service=active-directory)库中提供的 ADAL 的深度讲解示例。
 
-若要了解关于服务主体的详细信息，请参阅 [Azure Active Directory 中的应用程序和服务主体对象](../active-directory/develop/active-directory-application-objects.md)。 若要使用 Azure 门户创建服务主体，请参阅[使用门户创建可访问资源的 Active Directory 应用程序和服务主体](../resource-group-create-service-principal-portal.md)。 也可使用 PowerShell 或 Azure CLI 创建服务主体。
+- 若要了解关于服务主体的详细信息，请参阅 [Azure Active Directory 中的应用程序和服务主体对象](../active-directory/develop/active-directory-application-objects.md)。 若要使用 Azure 门户创建服务主体，请参阅[使用门户创建可访问资源的 Active Directory 应用程序和服务主体](../resource-group-create-service-principal-portal.md)。 也可使用 PowerShell 或 Azure CLI 创建服务主体。
 
-若要使用 Azure AD 对 Batch 应用程序进行验证，请参阅[使用 Active Directory 对 Batch 管理解决方案进行验证](batch-aad-auth-management.md)。
+- 若要使用 Azure AD 对 Batch 应用程序进行验证，请参阅[使用 Active Directory 对 Batch 管理解决方案进行验证](batch-aad-auth-management.md)。
 
-有关如何使用 Azure AD 令牌创建已验证 Batch 客户端的 Python 示例，请参阅 Azure SDK for Python 文档中的 [Azure Active Directory Authentication](http://azure-sdk-for-python.readthedocs.io/en/latest/batch.html#azure-active-directory-authentication)（Azure Active Directory 身份验证）示例。
+- 有关如何创建使用 Azure AD 令牌进行身份验证的 Batch 客户端的 Python 示例，请参阅[使用 Python 脚本部署 Azure Batch 自定义映像](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md)示例。
 
 [aad_about]: ../active-directory/active-directory-whatis.md
 [aad_adal]: ../active-directory/develop/active-directory-authentication-libraries.md

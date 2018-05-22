@@ -1,11 +1,11 @@
 ---
-title: "连接云服务中的 Windows VM | Azure"
-description: "将使用经典部署模型创建的 Windows 虚拟机连接到 Azure 云服务或虚拟网络。"
+title: 连接云服务中的 Windows VM | Azure
+description: 将使用经典部署模型创建的 Windows 虚拟机连接到 Azure 云服务或虚拟网络。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: c1cbc802-4352-4d2e-9e49-4ccbd955324b
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2017
-ms.date: 01/29/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: c3ef783bc1cdf796ed2778d290d9e14f1faf6012
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 4a5affda67e31f266477f530e58dea9f7fec2421
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="connect-windows-virtual-machines-created-with-the-classic-deployment-model-with-a-virtual-network-or-cloud-service"></a>将使用经典部署模型创建的 Windows 虚拟机连接到虚拟网络或云服务
 > [!IMPORTANT]
@@ -38,5 +38,4 @@ ms.lasthandoff: 01/25/2018
 ## <a name="next-steps"></a>后续步骤
 创建虚拟机后，建议[添加数据磁盘](attach-disk.md)，以便服务和工作负荷有地方存储数据。
 
-<!-- Update_Description: update meta properties, rename the article -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

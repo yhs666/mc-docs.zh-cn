@@ -16,10 +16,10 @@ origin.date: 08/11/2017
 ms.date: 05/11/2018
 ms.author: v-junlch
 ms.openlocfilehash: 8c0be8691368d5ca88626a21d8cb3e4da4eb4217
-ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="how-to-manage-service-configurations-and-profiles"></a>如何管理服务配置和配置文件
 ## <a name="overview"></a>概述

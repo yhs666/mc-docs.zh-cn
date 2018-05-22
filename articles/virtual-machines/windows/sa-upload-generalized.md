@@ -1,27 +1,27 @@
 ---
-title: "上传通用化 VHD 以在 Azure 中创建多个 VM | Azure"
-description: "将通用化 VHD 上传到 Azure 存储帐户，创建要用于资源管理器部署模型的 Windows VM。"
+title: 上传通用化 VHD 以在 Azure 中创建多个 VM | Azure
+description: 将通用化 VHD 上传到 Azure 存储帐户，创建要用于资源管理器部署模型的 Windows VM。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2017
-ms.date: 02/05/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: d3aceb4283132bbf4e10dad77ef6a737d1c82099
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: b15b9dbcd47881207fbaf6e3325bbb72406c16eb
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>将通用化 VHD 上传到 Azure 以创建新 VM
 

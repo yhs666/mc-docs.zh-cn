@@ -1,25 +1,25 @@
 ---
-title: "在 Azure Batch 中的用户帐户下运行任务 | Microsoft Docs"
-description: "配置用于在 Azure Batch 中运行任务的用户帐户"
+title: 在 Azure Batch 中的用户帐户下运行任务 | Microsoft Docs
+description: 配置用于在 Azure Batch 中运行任务的用户帐户
 services: batch
-author: alexchen2016
-manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 05/22/2017
-ms.date: 07/03/2017
+ms.date: 05/15/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8edc66f9b28ac4afb4cfb84a6fa9fbcf1655b35b
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: d56c447ad9007bc262924d3c5a2ed32568ec00f4
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>在 Batch 中的用户帐户下运行任务
 
@@ -58,8 +58,8 @@ Azure Batch 提供两种类型的用户帐户来运行任务：
 
 用户帐户的提升级别指示任务是否可以使用提升的访问权限运行。 自动用户帐户和命名用户帐户都可以使用提升的访问权限运行。 提升级别的两个选项为：
 
-- **NonAdmin：**任务以没有提升访问权限的标准用户身份运行。 Batch 用户帐户的默认提升级别始终为 **NonAdmin**。
-- **Admin：**任务以拥有提升访问权限的用户身份运行，以完全管理员权限操作。 
+- **NonAdmin：** 任务以没有提升访问权限的标准用户身份运行。 Batch 用户帐户的默认提升级别始终为 **NonAdmin**。
+- **Admin：** 任务以拥有提升访问权限的用户身份运行，以完全管理员权限操作。 
 
 ## <a name="auto-user-accounts"></a>自动用户帐户
 
@@ -95,7 +95,7 @@ Azure Batch 提供两种类型的用户帐户来运行任务：
 
 以下代码片段演示如何配置自动用户规范。 这些示例将提升级别设置为 `Admin`，将范围设置为 `Task`。 任务范围是默认设置，但此处出于示范目的包含了此设置。
 
-#### <a name="batch-net"></a>Batch .NET
+#### <a name="batch-net"></a>批处理 .NET
 
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin, scope: AutoUserScope.Task));
@@ -111,7 +111,7 @@ taskToAdd.withId(taskId)
         .withCommandLine("cmd /c echo hello");                        
 ```
 
-#### <a name="batch-python"></a>Batch Python
+#### <a name="batch-python"></a>批处理 Python
 
 ```python
 user = batchmodels.UserIdentity(
@@ -338,3 +338,4 @@ Batch 服务版本 2017-01-01.4.0 引入了一项重大更改，已将早期版�
 
 MSDN 上的 [Azure Batch 论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch)是探讨 Batch 服务以及咨询相关问题的一个好去处。 欢迎前往浏览这些精华贴子，并发布你在构建 Batch 解决方案时遇到的问题。
 
+<!-- Update_Description: update metedata properties -->

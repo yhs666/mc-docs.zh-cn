@@ -1,10 +1,10 @@
 ---
-title: "如何在 Azure 中标记 Windows VM 资源 | Azure"
-description: "了解如何标记使用 Resource Manager 部署模型在 Azure 中创建的 Windows 虚拟机。"
+title: 如何在 Azure 中标记 Windows VM 资源 | Azure
+description: 了解如何标记使用 Resource Manager 部署模型在 Azure 中创建的 Windows 虚拟机。
 services: virtual-machines-windows
-documentationcenter: 
-author: mmccrory
-manager: timlt
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 56d17f45-e4a7-4d84-8022-b40334ae49d2
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/05/2016
-ms.date: 08/23/2016
-ms.author: v-dazen
-ms.openlocfilehash: 4eff54ba0c9259da98db17b3ee8a2bc583425232
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 05/21/2018
+ms.author: v-yeche
+ms.openlocfilehash: 2cf0d020e35ebcea46c5f1113393267920298de3
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>如何在 Azure 中标记 Windows 虚拟机
 本文介绍了在 Azure 中通过 Resource Manager 部署模型标记 Windows 虚拟机的不同方式。 标记是用户定义的键/值对，可直接放置在资源或资源组中。 针对每个资源和资源组，Azure 当前支持最多 15 个标记。 标记可以在创建时放置在资源中或添加到现有资源中。 请注意，只有通过 Resource Manager 部署模型创建的资源支持标记。 如果想要标记 Linux 虚拟机，请参阅[如何在 Azure 中标记 Linux 虚拟机](../linux/tag.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -34,7 +34,7 @@ ms.lasthandoff: 06/21/2017
 
         PS C:\> Get-AzureRmVM -ResourceGroupName "MyResourceGroup" -Name "MyTestVM"
 
-如果虚拟机已包含标记，你将在资源中看到所有标记：
+如果虚拟机已包含标记，会在资源中看到所有标记：
 
         Tags : {
                 "Application": "MyApp1",
@@ -49,7 +49,7 @@ ms.lasthandoff: 06/21/2017
 
         PS C:\> $tags = (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
-第二个命令可显示给定变量的标记。
+第二个命令显示给定变量的标记。
 
         PS C:\> $tags
 
@@ -95,8 +95,12 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="next-steps"></a>后续步骤
 * 若要详细了解如何标记 Azure 资源，请参阅 [Azure Resource Manager 概述][Azure Resource Manager Overview]和[使用标记来组织 Azure 资源][Using Tags to organize your Azure Resources]。
+<!-- Not Available on [Understanding your Azure Bill][Understanding your Azure Bill] and [Gain insights into your Azure resource consumption][Gain insights into your Azure resource consumption]-->
 
 [PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/powershell-azure-resource-manager.md
 [Azure Resource Cmdlets]: https://msdn.microsoft.com/library/azure/dn757692.aspx
 [Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
+<!-- Not Available on [Understanding your Azure Bill]: ../../billing/billing-understand-your-bill.md -->
+<!-- Not Available on [Gain insights into your Azure resource consumption]: ../../billing/billing-usage-rate-card-overview.md-->
+<!-- Update_Description: wording update, update link -->

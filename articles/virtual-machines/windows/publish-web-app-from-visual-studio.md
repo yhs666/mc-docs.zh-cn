@@ -1,11 +1,11 @@
 ---
-title: "通过 Visual Studio 将 Web 应用发布到 Azure VM | Azure"
-description: "通过 Visual Studio 将 ASP.NET Web 应用程序发布到 Azure 虚拟机"
+title: 通过 Visual Studio 将 Web 应用发布到 Azure VM | Azure
+description: 通过 Visual Studio 将 ASP.NET Web 应用程序发布到 Azure 虚拟机
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 01/08/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0cd54f87e692863f31858a1c79dd2f7a6d34ee90
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 76f402783653791858bb4282e465987ac6372bcf
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>通过 Visual Studio 将 ASP.NET Web 应用发布到 Azure VM
 
@@ -133,5 +133,4 @@ ms.lasthandoff: 02/13/2018
 [发布页-“设置”按钮]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png
 [发布设置 -“连接”页]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png
 [发布设置 -“设置”页]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsSettingsPage.png
-<!--Update_Description: new articles on publish web app from visual studio -->
-<!--ms.date: 01/08/2018-->
+<!-- Update_Description: update meta properties, update link -->

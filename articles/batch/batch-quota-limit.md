@@ -1,26 +1,26 @@
 ---
-title: "Azure Batch 服务配额和限制 | Microsoft Docs"
-description: "了解默认的 Azure Batch 配额、限制和约束，以及如何请求提高配额"
+title: Azure Batch 服务配额和限制 | Microsoft Docs
+description: 了解默认的 Azure Batch 配额、限制和约束，以及如何请求提高配额
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/21/2018
-ms.date: 03/07/2018
+origin.date: 03/16/2018
+ms.date: 05/14/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2bf2f6d35de14dabfe492bdc1da5db2de43858e8
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 4310fe165b4099326ed4e6f92acdd7f0800a7cd9
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
 
@@ -54,6 +54,7 @@ ms.lasthandoff: 03/08/2018
 | 应用程序包大小（每个） |约 195GB<sup>1</sup> |
 | 启动任务最大大小 | 32,768 个字符<sup>2</sup> |
 | 最长任务生存期 | 7 天<sup>3</sup> |
+| 计算启用了节点间通信的池中的节点 | 100 |
 
 <sup>1</sup> 最大的块 Blob 大小的 Azure 存储限制<br />
 <sup>2</sup> 包括资源文件和环境变量<br />
@@ -86,11 +87,11 @@ ms.lasthandoff: 03/08/2018
    
     c. 选择订阅。
    
-    d.单击“验证存储凭据”以验证存储帐户。 “配额类型” > “Batch”
+    d. “配额类型” > “Batch”
    
-    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 输入“支持问题标题”
+    e. 输入“支持问题标题”
    
-    f.单击“保存”以保存设置。 在“详细信息”中，指定想要更改的每个配额、Batch 帐户名和新限制。
+    f. 在“详细信息”中，指定想要更改的每个配额、Batch 帐户名和新限制。
    
     g. 上传附件。
     

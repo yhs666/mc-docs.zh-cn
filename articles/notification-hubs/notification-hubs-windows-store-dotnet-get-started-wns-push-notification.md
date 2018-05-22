@@ -1,11 +1,11 @@
 ---
-title: "适用于通用 Windows 平台应用的 Azure 通知中心入门 | Microsoft Docs"
-description: "在本教程中，可以学习如何使用 Azure 通知中心将通知推送到 Windows 通用平台应用程序。"
+title: 适用于通用 Windows 平台应用的 Azure 通知中心入门 | Microsoft Docs
+description: 在本教程中，可以学习如何使用 Azure 通知中心将通知推送到 Windows 通用平台应用程序。
 services: notification-hubs
 documentationcenter: windows
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 12/22/2017
-ms.date: 01/23/2018
+ms.date: 05/16/2018
 ms.author: v-junlch
-ms.openlocfilehash: 379ac773debfad09eff8a25ca37099e996defaa7
-ms.sourcegitcommit: c0a9889921cd1ee52d58255a5a2db5e7930c4a4b
+ms.openlocfilehash: 147fe0515341f89743f4ed256ccb71ba36bd3f8e
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>适用于通用 Windows 平台应用的通知中心入门
 
@@ -97,11 +97,11 @@ ms.lasthandoff: 01/23/2018
 1. 在 Visual Studio 中，右键单击该解决方案，并选择“管理 NuGet 包”。  
     此时会打开“管理 NuGet 包”窗口。
 
-2. 在搜索框中，输入 **WindowsAzure.Messaging.Managed**，选择“安装”，并接受使用条款。
+2. 在搜索框中输入 **Microsoft.Azure.NotificationHubs**，选择“安装”，并接受使用条款。
    
     ![“管理 NuGet 包”窗口][20]
    
-    此操作会使用 [WindowsAzure.Messaging.Managed NuGet 包](http://nuget.org/packages/WindowsAzure.Messaging)下载、安装用于 Windows 的 Azure 消息传送库，并添加对该传送库的引用。
+    此操作使用 [Microsoft.Azure.NotificationHubs NuGet 包](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs)下载、安装并添加对 Azure 通知中心库的引用。
 
 3. 打开 App.xaml.cs 项目文件并添加以下 `using` 语句： 
    
@@ -159,7 +159,6 @@ ms.lasthandoff: 01/23/2018
 - **Azure 通知中心 .NET SDK**：在 Visual Studio 的 NuGet 包管理器中，运行 [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
 
 - **Node.js**：请参阅[如何通过 Node.js 使用通知中心](notification-hubs-nodejs-push-notification-tutorial.md)。
-- **Azure 移动应用**：有关如何从通知中心集成的 Azure 移动应用发送通知的示例，请参阅[为移动应用添加推送通知](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md)。
 
 - **Java 或 PHP**：有关如何使用 REST API 发送通知的示例，请参阅：
     - [Java](notification-hubs-java-push-notification-tutorial.md)

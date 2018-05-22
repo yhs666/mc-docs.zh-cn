@@ -16,10 +16,10 @@ origin.date: 04/05/2018
 ms.date: 05/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: 018aa5562807727a7bdc4bb66ab325aeaa3704d3
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="vpn-gateway-faq"></a>VPN 网关常见问题
 

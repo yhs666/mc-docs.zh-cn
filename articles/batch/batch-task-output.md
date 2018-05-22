@@ -1,25 +1,25 @@
 ---
-title: "将已完成作业和任务的结果或日志持久保存到数据存储 - Azure Batch | Microsoft Docs"
-description: "了解如何通过不同的选项来持久保存 Batch 任务和作业的输出数据。 可以将数据持久保存到 Azure 存储或其他数据存储。"
+title: 将已完成作业和任务的结果或日志持久保存到数据存储 - Azure Batch | Microsoft Docs
+description: 了解如何通过不同的选项来持久保存 Batch 任务和作业的输出数据。 可以将数据持久保存到 Azure 存储或其他数据存储。
 services: batch
-author: alexchen2016
-manager: digimobile
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 06/16/2017
-ms.date: 07/03/2017
+ms.date: 05/15/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b64eaf0b8b8432d1a9e0970b1f61fce4df1bdac
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 16574e708e8175b06943ed6f6c633e6489d9a46d
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="persist-job-and-task-output"></a>持久保存作业和任务输出
 
@@ -54,7 +54,7 @@ Batch 定义了一组可选的约定，用于命名 Azure 存储中的任务输�
 
 - 输出检索：可以直接从池中的计算节点检索任务输出，也可以从从 Azure 存储或其他数据存储检索，前提是已持久保存任务输出。 若要直接从计算节点检索任务输出，需要获取文件名及其在节点上的输出位置。 如果将任务输出持久保存到 Azure 存储，则需获得 Azure 存储中文件的完整路径，然后才能使用 Azure 存储 SDK 下载输出文件。
 
-- **查看输出**：导航到 Azure 门户中的某个 Batch 任务并选择“节点上的文件”时，将看到与该任务关联的所有文件，而不仅仅是想要查看的输出文件。 同样，计算节点上的文件仅在该节点存在时才可用，并且仅在你为任务设置的文件保留时间范围内才可用。 若要查看已持久保存到 Azure 存储的任务输出，可以使用 Azure 门户，也可以使用 Azure 存储客户端应用程序，例如 [Azure 存储资源管理器][storage_explorer]。 若要使用门户或其他工具查看 Azure 存储中的输出数据，必须知道文件的位置，然后直接导航到该位置。
+- **查看输出**：导航到 Azure 门户中的某个 Batch 任务并选择“节点上的文件”时，将看到与该任务关联的所有文件，而不仅仅是想要查看的输出文件。 同样，计算节点上的文件仅在该节点存在时才可用，并且仅在为任务设置的文件保留时间范围内才可用。 若要查看已持久保存到 Azure 存储的任务输出，可以使用 Azure 门户，也可以使用 Azure 存储客户端应用程序，例如 [Azure 存储资源管理器][storage_explorer]。 若要使用门户或其他工具查看 Azure 存储中的输出数据，必须知道文件的位置，然后直接导航到该位置。
 
 ## <a name="options-for-persisting-output"></a>持久保存输出的选项
 
@@ -97,7 +97,7 @@ Batch 服务 API 允许从使用虚拟机配置创建的池将任务数据持久
 - 需要在任务仍运行的情况下，将数据流式传输到 Azure 存储。
 - 需要在使用云服务配置或虚拟机配置创建的池中持久保存数据。
 - 客户端应用程序或作业中的其他任务需按 ID 或用途找出并下载任务输出文件。 
-- 需对初始结果执行检查点或提前上传操作。
+- 想要执行检查点或初始结果的早期上传。
 - 需在 Azure 门户中查看任务输出。
 
 若要详细了解如何使用适用于 .NET 的文件约定库来持久保存任务输出，请参阅[使用适用于 .NET 的 Batch 文件约定库将作业和任务数据持久保存到 Azure 存储](batch-task-output-file-conventions.md)。 另请参阅 GitHub 上的 [PersistOutputs][github_persistoutputs] 示例项目，了解如何使用适用于 .NET 的文件约定库将任务输出持久保存到持久性存储。
@@ -128,3 +128,4 @@ GitHub 上的 [PersistOutputs][github_persistoutputs] 示例项目演示了如�
 [portal]: https://portal.azure.cn
 [storage_explorer]: http://storageexplorer.com/
 
+<!-- Update_Description: update metedata properties -->

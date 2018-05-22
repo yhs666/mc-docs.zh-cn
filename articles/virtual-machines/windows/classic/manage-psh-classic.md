@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure PowerShell 管理虚拟机 | Azure"
-description: "了解可用于在虚拟机管理过程中自动执行任务的命令。"
+title: 使用 Azure PowerShell 管理虚拟机 | Azure
+description: 了解可用于在虚拟机管理过程中自动执行任务的命令。
 services: virtual-machines-windows
 documentationcenter: windows
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: 7cdf9bd3-6578-4069-8a95-e8585f04a394
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 10/12/2016
-ms.date: 01/29/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 85c0731dbf17d112ed7d0b7d0de0d37f576fec54
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 3f39e79d28418e5f87c6d32b8175bd0afbd03839
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="manage-your-virtual-machines-by-using-azure-powershell"></a>使用 Azure PowerShell 管理虚拟机
 > [!IMPORTANT] 
@@ -101,5 +101,4 @@ ms.lasthandoff: 01/25/2018
 * 作为现有负载均衡集的成员。
 * 使用静态 IP 地址。
 
-<!-- Update_Description: update meta properties, rename the article -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

@@ -17,10 +17,10 @@ origin.date: 03/01/2017
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: b31a90d6e08cf269e9dba44a24f521c834d6e175
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure 虚拟机 PowerShell 示例
 

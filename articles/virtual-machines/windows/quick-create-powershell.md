@@ -1,27 +1,27 @@
 ---
-title: "Azure 快速入门 - 创建 Windows VM PowerShell | Azure"
-description: "快速了解如何使用 PowerShell 创建 Windows 虚拟机"
+title: Azure 快速入门 - 创建 Windows VM PowerShell | Azure
+description: 快速了解如何使用 PowerShell 创建 Windows 虚拟机
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/12/2018
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c458f7b6f899113b258579805b0d9edca96e93ce
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: f5e0fa18a533ab3e71117dcc137027c332e5548a
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell"></a>使用 PowerShell 创建 Windows 虚拟机
 
@@ -103,4 +103,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [Azure Windows 虚拟机教程](./tutorial-manage-vm.md)
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

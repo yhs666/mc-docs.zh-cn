@@ -16,10 +16,10 @@ origin.date: 03/16/2018
 ms.date: 04/09/2018
 ms.author: v-yeche
 ms.openlocfilehash: 713c86efe0c4da971259c62722342e01ffedbff5
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services 入门
 > [!div class="op_single_selector"]

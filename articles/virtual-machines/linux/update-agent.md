@@ -17,10 +17,10 @@ origin.date: 08/02/2017
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: 2a63163dc748db97343391d29fa2f135ca97d3d0
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>如何更新 VM 上的 Azure Linux 代理
 

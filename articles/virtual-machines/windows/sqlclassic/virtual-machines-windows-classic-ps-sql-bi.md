@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/30/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: c9ed3fa2e6f35f20d30ec1c2c7a52d050f099086
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 3d2726943e1f4eb65021d21e32db754f88e8e77d
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server Business Intelligence
 > [!IMPORTANT] 
@@ -33,6 +33,7 @@ Azure 虚拟机库包括含有 SQL Server 安装的映像。 库映像中支持�
 
 1. 属于软件保障的许可证移动性权益。 有关详细信息，请参阅 [Azure 上通过软件保障实现的许可移动性](https://www.azure.cn/pricing/license-mobility/)。
 2. 已安装 SQL Server 的 Azure 虚拟机按小时付费。 请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)中的“SQL Server”部分。
+<!-- Not Available on [Virtual Machines Licensing FAQ](https://www.azure.cn/pricing/licensing-faq/%20/)-->
 
 ## <a name="sql-server-images-available-in-azure-virtual-machine-gallery"></a>在 Azure 虚拟机库中提供的 SQL Server 映像
 Azure 虚拟机库包括多个内含 Microsoft SQL Server 的映像。 虚拟机映像上安装的软件根据操作系统版本和 SQL Server 版本而有所不同。 Azure 虚拟机库中提供的映像列表频繁更改。
@@ -216,7 +217,7 @@ SQL Server 的虚拟机库映像包括安装的 Reporting Services 本机模式�
 1. 在 VM 中，使用管理员权限启动 Internet Explorer。
 2. 在 VM 上浏览到 http://localhost/reports。
 
-### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>连接到适用于 2014 和 2012 的远程 Web 门户或报表管理器
+### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>连接到 2012 和 2014 版的远程 Web 门户或报表管理器
 如果想要从远程计算机连接到虚拟机上的 2012 和 2014 版 Web 门户或报表管理器，请创建新的虚拟机 TCP 终结点。 默认情况下，报表服务器侦听“端口 80”上的 HTTP 请求。 如果将报表服务器 URL 配置为使用其他端口，必须在下面的说明中指定该端口号。
 
 1. 为虚拟机创建终结点 TCP 端口 80。 有关详细信息，请参阅本文档中的 [虚拟机终结点以及防火墙端口](#virtual-machine-endpoints-and-firewall-ports) 部分。

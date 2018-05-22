@@ -1,26 +1,26 @@
 ---
-title: "设计有效的列表查询 - Azure Batch | Microsoft Docs"
-description: "在请求批处理资源（例如池、作业、任务和计算节点）的相关信息时对查询进行筛选可提高性能。"
+title: 设计有效的列表查询 - Azure Batch | Microsoft Docs
+description: 在请求批处理资源（例如池、作业、任务和计算节点）的相关信息时对查询进行筛选可提高性能。
 services: batch
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 08/02/2017
-ms.date: 09/06/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 456f3819d14510bcaa7b01cc720af2af99d315d1
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: f3dc18a264209b3175034bd0651d9bde90b7db76
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>创建可高效列出 Batch 资源的查询
 
@@ -84,7 +84,7 @@ select 字符串用于限制为每个项返回的属性值。 可以指定属性
 - 此示例性的 select 字符串指定每个任务只应返回三项属性值： `id, state, stateTransitionTime`。
 
 ### <a name="expand"></a>展开
-expand 字符串用于减少获取特定信息所需的 API 调用数。 使用 expand 字符串时，单次 API 调用可以获取每个项目的更多信息。 不必先获取实体的列表，然后请求列表中每个项目的信息。用户可以使用 expand 字符串通过单次 API 调用获取相同的信息。 API 调用数较少意味着性能较高。
+expand 字符串用于减少获取特定信息所需的 API 调用数。 使用 expand 字符串时，单次 API 调用可以获取每个项目的更多信息。 不必首先获取实体的列表，然后请求列表中每个项目的信息。可以使用 expand 字符串通过单次 API 调用获取相同的信息。 API 调用数较少意味着性能较高。
 
 - 与 select 字符串类似，expand 字符串用于控制是否允许某些数据包括在列表查询结果中。
 - expand 字符串在列出作业、作业计划、任务和池中使用时才受支持。 目前仅支持统计信息。
@@ -194,7 +194,7 @@ filter、select 和 expand 字符串中的属性名称 *必须* 反映其 REST A
 ## <a name="example-construct-a-select-string"></a>示例：构造 select 字符串
 若要构造 [ODATADetailLevel.SelectClause][odata_select]，请查阅上表，在“select 字符串的映射”下导航到与所列实体类型相对应的 REST API 页。 会在该页第一个多行表中找到可选择属性及其支持的运算符。 例如，如果希望仅检索列表中每个任务的 ID 和命令行，则可在[获取有关任务的信息][rest_get_task]的相应表中找到这些行：
 
-| 属性 | 类型 | 说明 |
+| 属性 | 类型 | 注释 |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |
@@ -250,7 +250,7 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 [通过并发节点任务最大限度提高 Azure Batch 计算资源的使用率](batch-parallel-node-tasks.md)是另一篇与批处理应用程序性能相关的文章。 在数量较少但规模更大的计算节点上执行并行任务适合某些类型的工作负荷。 若需详细了解此类方案，请查看文章中的[示例方案](batch-parallel-node-tasks.md#example-scenario)。
 
 ### <a name="batch-forum"></a>Batch 论坛
-MSDN 上的 [Azure Batch 论坛][forum] 是探讨 Batch 服务以及咨询其相关问题的不错场所。 欢迎前往浏览这些帮忙解决“棘手问题”的贴子，并发布你在构建 Batch 解决方案时遇到的问题。
+MSDN 上的 [Azure Batch 论坛][forum]是探讨 Batch 服务以及咨询相关问题的一个好去处。 欢迎前往浏览这些帮忙解决“棘手问题”的贴子，并发布在构建 Batch 解决方案时遇到的问题。
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
@@ -303,4 +303,4 @@ MSDN 上的 [Azure Batch 论坛][forum] 是探讨 Batch 服务以及咨询其相
 
 [rest_get_task_counts]: https://docs.microsoft.com/rest/api/batchservice/get-the-task-counts-for-a-job
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

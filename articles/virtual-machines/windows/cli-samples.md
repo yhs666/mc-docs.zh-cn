@@ -1,27 +1,27 @@
 ---
-title: "Azure CLI 示例 Windows | Azure"
-description: "Azure CLI 示例 Windows"
+title: Azure CLI 示例 Windows | Azure
+description: Azure CLI 示例 Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/27/2017
-ms.date: 07/10/2017
-ms.author: v-dazen
+ms.date: 05/21/2018
+ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a4d9854c52de1ec4d3b5d23a0f9c8658f2c3f037
-ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
+ms.openlocfilehash: 97061bf8717c13846e8611f400f1c189f3432ff8
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>适用于 Windows 虚拟机的 Azure CLI 示例
 
@@ -37,6 +37,8 @@ ms.lasthandoff: 06/30/2017
 | [创建 VM 并运行 DSC 配置](./../scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md?toc=%2fcli%2fazure%2ftoc.json) | 创建一个虚拟机，并使用 Azure Desired State Configuration (DSC) 扩展来安装 IIS。 |
 |**网络虚拟机**||
 | [保护虚拟机之间的网络流量](./../scripts/virtual-machines-windows-cli-sample-create-vm-nsg.md?toc=%2fcli%2fazure%2ftoc.json) | 创建两个虚拟机、所有相关资源以及内部和外部网络安全组 (NSG)。 |
-|**保护虚拟机安全**||
+|**保护虚拟机**||
 | [加密 VM 和数据磁盘](./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md?toc=%2fcli%2fazure%2ftoc.json) | 创建 Azure Key Vault、加密密钥和服务主体，然后对 VM 进行加密。 |
 | | |
+<!-- Not Available on OMS -->
+<!-- Update_Description: wording update, update link -->

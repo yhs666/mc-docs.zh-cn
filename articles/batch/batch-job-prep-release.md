@@ -1,26 +1,26 @@
 ---
-title: "创建任务以在计算节点上准备作业并完成作业 - Azure Batch | Microsoft 文档"
-description: "使用作业级准备任务最大程度地减少 Azure Batch 计算节点的数据传输，在完成作业时执行释放任务来清理节点。"
+title: 创建任务以在计算节点上准备作业并完成作业 - Azure Batch | Microsoft 文档
+description: 使用作业级准备任务最大程度地减少 Azure Batch 计算节点的数据传输，在完成作业时执行释放任务来清理节点。
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 02/27/2017
-ms.date: 01/08/2018
+ms.date: 05/14/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09cb330c6ff1869b09858ecbffb5c2c58214b660
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: c20b184e747a53556d64feb2030f1da1b2c77c0e
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>在 Batch 计算节点上运行作业准备和作业发布任务
 
@@ -198,7 +198,7 @@ Sample complete, hit ENTER to exit...
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[azure_storage]: /storage/
+[azure_storage]: https://www.azure.cn/home/features/storage/
 [portal]: https://portal.azure.cn
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
@@ -226,4 +226,4 @@ Sample complete, hit ENTER to exit...
 
 [1]: ./media/batch-job-prep-release/portal-jobprep-01.png
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

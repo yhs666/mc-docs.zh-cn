@@ -1,6 +1,6 @@
 ---
-title: "使用 PowerShell 创建具有本机模式报表服务器的 VM | Azure"
-description: "本主题说明并指导完成 SQL Server Reporting Services 本机模式报表服务器在 Azure 虚拟机中的部署和配置。 "
+title: 使用 PowerShell 创建具有本机模式报表服务器的 VM | Azure
+description: '本主题说明并指导完成 SQL Server Reporting Services 本机模式报表服务器在 Azure 虚拟机中的部署和配置。 '
 services: virtual-machines-windows
 documentationcenter: na
 author: rockboyfor
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/11/2017
-ms.date: 01/15/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0ac5c9d3a7bd474fe14f5e4918d22d03da5fcba0
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: e158a6eebecc95da5b3ba48328eb3df92f64a222
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>使用 PowerShell 创建运行本机模式报表服务器的 Azure VM
 > [!IMPORTANT] 

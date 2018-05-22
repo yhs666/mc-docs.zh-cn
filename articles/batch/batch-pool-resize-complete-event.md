@@ -1,23 +1,23 @@
 ---
-title: "Azure Batch 池调整大小完成事件 | Microsoft Docs"
-description: "Batch 池调整大小完成事件参考。"
+title: Azure Batch 池调整大小完成事件 | Microsoft Docs
+description: Batch 池调整大小完成事件参考。
 services: batch
-author: alexchen2016
-manager: digimobile
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/20/2017
-ms.date: 07/03/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 09e708fea6ad9699391634f8522c6c41b4c00691
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 865a1039d32f19ecf869ca5f0a63809fc53a8e35
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="pool-resize-complete-event"></a>池调整大小完成事件
 
@@ -40,10 +40,11 @@ ms.lasthandoff: 07/14/2017
 }
 ```
 
-|元素|类型|说明|
+|元素|类型|注释|
 |-------------|----------|-----------|
 |id|String|池的 id。|
-|nodeDeallocationOption|String|指定何时从池中删除节点（如果池的大小正在减小）。<br /><br /> 可能的值包括：<br /><br /> **requeue** - 终止正在运行的任务并将其重新排队。 当作业启用时，任务将再次运行。 一旦任务终止，便会立即删除节点。<br /><br /> **terminate** - 终止正在运行的任务。 任务将不会再次运行。 一旦任务终止，便会立即删除节点。<br /><br /> **taskcompletion** - 允许完成当前正在运行的任务。 等待时不计划任何新任务。 在所有任务完成时，删除节点。<br /><br /> **Retaineddata** - 允许完成当前正在运行的任务，然后等待所有任务数据保留期到期。 等待时不计划任何新任务。 在所有任务保留期都已过期时，删除节点。<br /><br /> 默认值为 requeue。<br /><br /> 如果池的大小正在增加，该值将设置为**无效**。|
+|nodeDeallocationOption|String|指定何时从池中删除节点（如果池的大小正在减小）。<br /><br /> 可能的值包括：<br /><br /> **requeue** - 终止正在运行的任务并将其重新排队。 当作业启用时，任务会再次运行。 一旦任务终止，便会立即删除节点。<br /><br /> **terminate** - 终止正在运行的任务。 任务不会再次运行。 一旦任务终止，便会立即删除节点。<br /><br /> **taskcompletion** - 允许完成当前正在运行的任务。 等待时不计划任何新任务。 在所有任务完成时，删除节点。<br /><br /> 
+            **Retaineddata** - 允许完成当前正在运行的任务，并等待所有任务数据保留期到期。 等待时不计划任何新任务。 在所有任务保留期都已过期时，删除节点。<br /><br /> 默认值为 requeue。<br /><br /> 如果池的大小正在增加，该值会设置为**无效**。|
 |currentDedicated|Int32|当前分配到池的计算节点数。|
 |targetDedicated|Int32|池请求的计算节点数。|
 |enableAutoScale|Bool|指定池大小是否随时间自动调整。|
@@ -53,3 +54,4 @@ ms.lasthandoff: 07/14/2017
 |resultCode|String|调整大小的结果。|
 |resultMessage|String|调整大小错误包括结果的详细信息。<br /><br /> 如果调整大小已成功完成，则表示操作成功。|
 
+<!-- Update_Description: update metedata properties -->

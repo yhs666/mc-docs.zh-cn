@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/01/2018
-ms.date: 04/08/2018
+ms.date: 05/15/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4a0c6f4cf6b9440837a87d5e6259f4f9dd7d63b9
-ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
+ms.openlocfilehash: 853f7b75262b14e6cc2d854e8e70b6c4906d2151
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>准备环境以备份 Resource Manager 部署的虚拟机
 
@@ -52,11 +52,11 @@ ms.lasthandoff: 04/09/2018
 - 不支持备份拥有 16 个以上数据磁盘的虚拟机。
 - 不支持备份使用保留 IP 地址且未定义终结点的虚拟机。
 - 不支持备份通过 Linux 统一密钥设置 (LUKS) 加密法加密的 Linux VM。
-- 不建议备份包含群集共享卷 (CSV) 或横向扩展文件服务器配置的 VM。 这些操作涉及到在执行快照任务执行期间包含在群集配置中的所有 VM。 Azure 备份不支持多 VM 一致性。 
+- 不建议备份包含群集共享卷 (CSV) 或横向扩展文件服务器配置的 VM。 如果已备份，会造成 CSV 编写器故障。 这些操作涉及到在执行快照任务执行期间包含在群集配置中的所有 VM。 Azure 备份不支持多 VM 一致性。 
 - 备份数据不包括连接到 VM 的网络挂载驱动器。
 - 不支持在还原过程中替换现有虚拟机。 如果在 VM 存在时尝试还原 VM，还原操作会失败。
 - 不支持跨区域备份和还原。
-- 不支持在应用了网络规则的存储帐户中备份和还原使用非托管磁盘的虚拟机。 
+- 如果客户使用旧的 VM 备份堆栈，则不支持在应用了网络规则的存储帐户中备份和还原使用非托管磁盘的虚拟机。 
 - 配置备份时，请确保“防火墙和虚拟网络”存储帐户设置允许从“所有网络”进行访问。
 - 可以在 Azure 的所有公共区域中备份虚拟机。 （请参阅支持区域的[清单](https://azure.microsoft.com/regions/#services)。）在创建保管库期间，如果要寻找的区域目前不受支持，则不会在下拉列表中显示它。
 - 仅支持通过 PowerShell 还原属于多 DC 配置的域控制器 (DC) VM。 有关详细信息，请参阅[还原多 DC 域控制器](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)。
@@ -183,7 +183,7 @@ ms.lasthandoff: 04/09/2018
 | --- | --- | --- |
 | 安装 VM 代理 |下载并安装 [代理 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 需要管理员权限才能完成安装。 |安装最新的 [Linux 代理](../virtual-machines/linux/agent-user-guide.md)。 需要管理员权限才能完成安装。 我们建议从分发存储库安装代理。 我们*不建议*直接从 GitHub 安装 Linux VM 代理。  |
 | 更新 VM 代理 |更新 VM 代理与重新安装 [VM 代理二进制文件](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)一样简单。 <br><br>确保在更新 VM 代理时，没有任何正在运行的备份操作。 |按照[更新 Linux VM 代理](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的说明进行操作。 我们建议从分发存储库更新代理。 我们不建议直接从 GitHub 更新 Linux VM 代理。<br><br>确保在更新 VM 代理时，没有任何正在运行的备份操作。 |
-| 验证 VM 代理安装 |1.浏览到 Azure VM 中的 C:\WindowsAzure\Packages 文件夹。 <br><br>2.找到 WaAppAgent.exe 文件。 <br><br>3.右键单击该文件，转到“属性”，并选择“详细信息”选项卡。“产品版本”字段应为 2.6.1198.718 或更高版本。 |不适用 |
+| 验证 VM 代理安装 |1.浏览到 Azure VM 中的 C:\WindowsAzure\Packages 文件夹。 <br><br>2.找到 WaAppAgent.exe 文件。 <br><br>3.右键单击该文件，转到“**属性**”，并选择“**详细信息**”选项卡。“产品版本”字段应为 2.6.1198.718 或更高版本。 |不适用 |
 
 ### <a name="backup-extension"></a>备份扩展
 在虚拟机上安装 VM 代理后，Azure 备份服务会将备份扩展安装到 VM 代理上。 备份服务会无缝升级和修补备份扩展。
@@ -299,7 +299,7 @@ Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
 Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
 ```
 
-## <a name="questions"></a>有疑问？
+## <a name="questions"></a>存在疑问？
 如有疑问或希望包含某种功能，请[向我们发送反馈](http://aka.ms/azurebackup_feedback)。
 
 ## <a name="next-steps"></a>后续步骤

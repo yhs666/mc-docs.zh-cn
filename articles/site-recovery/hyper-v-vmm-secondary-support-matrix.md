@@ -10,10 +10,10 @@ origin.date: 03/05/2018
 ms.date: 04/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: f1249c0909dfa20536afa6c0e9bc08a564f811a8
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="support-matrix-for-replication-of-hyper-v-vms-to-a-secondary-site"></a>将 Hyper-V VM 复制到辅助站点时的支持矩阵
 

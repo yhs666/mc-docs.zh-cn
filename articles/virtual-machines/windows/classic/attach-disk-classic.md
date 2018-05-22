@@ -1,8 +1,8 @@
 ---
-title: "将磁盘附加到经典 Azure VM | Azure"
-description: "将数据磁盘附加到使用经典部署模型创建的 Windows 虚拟机并进行初始化。"
+title: 将磁盘附加到经典 Azure VM | Azure
+description: 将数据磁盘附加到使用经典部署模型创建的 Windows 虚拟机并进行初始化。
 services: virtual-machines-windows, storage
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2017
-ms.date: 01/29/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6ed21a33e3601d5c5427235de841f0298aaca01a
-ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
+ms.openlocfilehash: 14dd166e7e12732b4c72190296a67905e9855575
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>将数据磁盘附加到使用经典部署模型创建的 Windows 虚拟机
 
@@ -113,5 +113,4 @@ fsutil behavior set DisableDeleteNotify 0
 
 ## <a name="additional-resources"></a>其他资源
 [关于虚拟机的磁盘和 VHD](../../virtual-machines-linux-about-disks-vhds.md)
-<!-- Update_Description: update meta properties, rename the article -->
-<!--ms.date: 01/29/2018-->
+<!-- Update_Description: update meta properties -->

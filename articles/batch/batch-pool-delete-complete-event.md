@@ -1,23 +1,23 @@
 ---
-title: "Azure Batch 池删除完成事件 | Microsoft Docs"
-description: "Batch 池删除完成事件参考。"
+title: Azure Batch 池删除完成事件 | Microsoft Docs
+description: Batch 池删除完成事件参考。
 services: batch
-author: alexchen2016
-manager: digimobile
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/20/2017
-ms.date: 07/03/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: c376bcfdb67b8a9fbde876cfd6113e27332d039f
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 65d6c2fcf4308d95b96522c8816ef17c36f483f5
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="pool-delete-complete-event"></a>池删除完成事件
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 07/14/2017
 }
 ```
 
-|元素|类型|说明|
+|元素|类型|注释|
 |-------------|----------|-----------|
 |id|String|池的 id。|
 |startTime|DateTime|池删除开始的时间。|
@@ -42,3 +42,4 @@ ms.lasthandoff: 07/14/2017
 ## <a name="remarks"></a>备注
 有关池调整大小操作的状态和错误代码的详细信息，请参阅[从帐户中删除池](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account)。
 
+<!-- Update_Description: update metedata properties -->

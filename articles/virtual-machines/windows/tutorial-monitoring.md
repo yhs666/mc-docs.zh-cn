@@ -1,27 +1,27 @@
 ---
-title: "Azure 监视与更新和 Windows 虚拟机 | Azure"
-description: "教程 - 使用 Azure PowerShell 监视和更新 Windows 虚拟机"
+title: Azure 监视与更新和 Windows 虚拟机 | Azure
+description: 教程 - 使用 Azure PowerShell 监视和更新 Windows 虚拟机
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
-editor: tysonn
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/04/2017
-ms.date: 10/30/2017
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 746178e309abfd0b71fc6355c9959f6eae0e3a1b
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: b61506082dd12ec0adeb14996701595805fc32c1
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>使用 Azure PowerShell 监视和更新 Windows 虚拟机
 
@@ -35,15 +35,15 @@ Azure 监视使用代理从 Azure VM 收集启动和性能数据，将此数据�
 > * 安装诊断扩展
 > * 创建警报
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 `Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
 
 若要完成本教程中的示例，必须具备现有虚拟机。 如果需要，此[脚本示例](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)可为你创建一个虚拟机。 根据教程进行操作时，请根据需要替换资源组、VM 名称和位置。
 
 ## <a name="view-boot-diagnostics"></a>查看启动诊断
 
-当 Windows 虚拟机启动时，启动诊断代理将捕获屏幕输出，可以使用该输出进行故障排除。 此功能是默认启用的。 捕获的屏幕截图存储在一个 Azure 存储帐户中，该帐户也是默认创建的。 
+当 Windows 虚拟机启动时，启动诊断代理将捕获屏幕输出，可以使用该输出进行故障排除。 此功能是默认启用的。 捕获的屏幕截图存储在一个 Azure 存储帐户中，该帐户也是默认创建的。
 
-可以使用 [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) 命令获取启动诊断数据。 在下面的示例中，启动诊断下载到了 *c:\* 驱动器的根目录中。 
+可以使用 [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) 命令获取启动诊断数据。 在下面的示例中，启动诊断下载到了 *c:\* 驱动器的根目录中。
 
 ```powershell
 Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -Windows -LocalPath "c:\"
@@ -73,7 +73,7 @@ Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -
 7. 单击“确定”按钮。
 
 ## <a name="next-steps"></a>后续步骤
-在本教程中，你已使用 Azure 安全中心配置并查看了 VM。 已了解如何：
+在本教程中，你已使用 Azure 安全中心配置并查看了 VM。 你已了解如何：
 
 > [!div class="checklist"]
 > * 创建虚拟网络

@@ -1,26 +1,26 @@
 ---
-title: "使用 Azure Active Directory 对 Batch 管理解决方案进行身份验证 | Microsoft Docs"
-description: "通过 Azure Resource Manager 和 Batch 资源提供程序生成的应用程序使用 Azure AD 进行身份验证。"
+title: 使用 Azure Active Directory 对 Batch 管理解决方案进行身份验证 | Microsoft Docs
+description: 通过 Azure Resource Manager 和 Batch 资源提供程序生成的应用程序使用 Azure AD 进行身份验证。
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/27/2017
-ms.date: 03/07/2018
+ms.date: 05/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 89a9f6939ad6ed1059ce3e681a13a9fbd2e5c219
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: c22c9f6ea7f00ea1599d057799df75e4d66071ed
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 管理解决方案进行身份验证
 
@@ -140,4 +140,4 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 [azure_portal]: http://portal.azure.cn
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

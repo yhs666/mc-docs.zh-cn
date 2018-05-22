@@ -14,100 +14,122 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-origin.date: 02/02/2018
-ms.date: 03/19/2018
+origin.date: 03/22/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: d9a676162ed4822d3efe6061da25589d612ed33b
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: e12a6eaf3493d8cd3f572370428fda3e8935bef2
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration 扩展与 Azure 资源管理器模板
 
-本文介绍 [Desired State Configuration (DSC) 扩展处理程序](extensions-dsc-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)的 Azure 资源管理器模板。 
+本文介绍 [Desired State Configuration (DSC) 扩展处理程序](extensions-dsc-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)的 Azure 资源管理器模板。
 
 > [!NOTE]
 > 你可能会遇到略有不同的架构示例。 2016 年 10 月发行版中发生了架构更改。 有关详细信息，请参阅[从以前的格式更新](#update-from-the-previous-format)。
 
 ## <a name="template-example-for-a-windows-vm"></a>Windows VM 模板示例
 
-将以下代码片段放入模板的 **Resource** 节。 DSC 扩展继承默认扩展属性。 有关详细信息，请参阅 [VirtualMachineExtension 类](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.)。
+将以下代码片段放入模板的 **Resource** 节。
+DSC 扩展继承默认扩展属性。
+有关详细信息，请参阅 [VirtualMachineExtension 类](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.)。
 
 ```json
-            "name": "Microsoft.Powershell.DSC",
-            "type": "extensions",
-             "location": "[resourceGroup().location]",
-             "apiVersion": "2015-06-15",
-             "dependsOn": [
-                  "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-              ],
-              "properties": {
-                  "publisher": "Microsoft.Powershell",
-                  "type": "DSC",
-                  "typeHandlerVersion": "2.72",
-                  "autoUpgradeMinorVersion": true,
-                  "forceUpdateTag": "[parameters('dscExtensionUpdateTagVersion')]",
-                  "settings": {
-                    "configurationArguments": {
-                        {
-                            "Name": "RegistrationKey",
-                            "Value": {
-                                "UserName": "PLACEHOLDER_DONOTUSE",
-                                "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                            },
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+    "apiVersion": "2017-12-01",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "2.75",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "protectedSettings": {
+            "Items": {
+                        "registrationKeyPrivate": "registrationKey"
+            }
+            },
+            "publicSettings": {
+                "configurationArguments": [
+                    {
+                        "Name": "RegistrationKey",
+                        "Value": {
+                            "UserName": "PLACEHOLDER_DONOTUSE",
+                            "Password": "PrivateSettingsRef:registrationKeyPrivate"
                         },
-                        "RegistrationUrl" : "[parameters('registrationUrl1')]",
-                        "NodeConfigurationName" : "nodeConfigurationNameValue1"
-                        }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
-                                    }
-                        }
+                    },
+                    {
+                        "RegistrationUrl" : "registrationUrl",
+                    },
+                    {
+                        "NodeConfigurationName" : "nodeConfigurationName"
                     }
+                ]
+            }
+        },
+    }
+}
 ```
 
 ## <a name="template-example-for-windows-virtual-machine-scale-sets"></a>Windows 虚拟机规模集的模板示例
 
-虚拟机规模集节点具有 **properties** 节，其中包含 **VirtualMachineProfile, extensionProfile** 属性。 在 **extensions** 下面添加 DSC。
+虚拟机规模集节点具有 **properties** 节，其中包含 **VirtualMachineProfile, extensionProfile** 属性。
+在“扩展”下，添加 DSC 扩展的详细信息。
 
-DSC 扩展继承默认扩展属性。 有关详细信息，请参阅 [VirtualMachineScaleSetExtension 类](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet)。
+DSC 扩展继承默认扩展属性。
+有关详细信息，请参阅 [VirtualMachineScaleSetExtension 类](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet)。
 
 ```json
 "extensionProfile": {
-            "extensions": [
-                {
-                    "name": "Microsoft.Powershell.DSC",
-                    "properties": {
-                        "publisher": "Microsoft.Powershell",
-                        "type": "DSC",
-                        "typeHandlerVersion": "2.72",
-                        "autoUpgradeMinorVersion": true,
-                        "forceUpdateTag": "[parameters('DscExtensionUpdateTagVersion')]",
-                        "settings": {
-                            "configurationArguments": {
-                                {
-                                    "Name": "RegistrationKey",
-                                    "Value": {
-                                        "UserName": "PLACEHOLDER_DONOTUSE",
-                                        "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                                    },
-                                },
-                                "RegistrationUrl" : "[parameters('registrationUrl1')]",
-                                "NodeConfigurationName" : "nodeConfigurationNameValue1"
-                        }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
-                                    }
-                        }
+    "extensions": [
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+            "apiVersion": "2017-12-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Powershell",
+                "type": "DSC",
+                "typeHandlerVersion": "2.75",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "protectedSettings": {
+                    "Items": {
+                                "registrationKeyPrivate": "registrationKey"
                     }
-                ]
+                    },
+                    "publicSettings": {
+                        "configurationArguments": [
+                            {
+                                "Name": "RegistrationKey",
+                                "Value": {
+                                    "UserName": "PLACEHOLDER_DONOTUSE",
+                                    "Password": "PrivateSettingsRef:registrationKeyPrivate"
+                                },
+                            },
+                            {
+                                "RegistrationUrl" : "registrationUrl",
+                            },
+                            {
+                                "NodeConfigurationName" : "nodeConfigurationName"
+                            }
+                        ]
+                    }
+                },
             }
         }
+    ]
+}
 ```
 
 ## <a name="detailed-settings-information"></a>详细设置信息
@@ -176,7 +198,8 @@ DSC 扩展继承默认扩展属性。 有关详细信息，请参阅 [VirtualMac
 
 ## <a name="default-configuration-script"></a>默认配置脚本
 
-有关以下值的详细信息，请参阅[本地配置管理器基本设置](https://docs.microsoft.com/powershell/dsc/metaconfig#basic-settings)。 使用 DSC 扩展默认配置脚本只能配置下表中列出的 LCM 属性。
+有关以下值的详细信息，请参阅[本地配置管理器基本设置](https://docs.microsoft.com/powershell/dsc/metaconfig#basic-settings)。
+使用 DSC 扩展默认配置脚本只能配置下表中列出的 LCM 属性。
 
 | 属性名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -192,7 +215,10 @@ DSC 扩展继承默认扩展属性。 有关详细信息，请参阅 [VirtualMac
 
 ## <a name="settings-vs-protectedsettings"></a>Settings 与ProtectedSettings
 
-所有设置保存在 VM 上的 settings 文本文件中。 **settings** 下面列出的属性是公共属性。 公共属性未在 settings 文本文件中加密。 **protectedSettings** 下面列出的属性已使用证书加密，因此不会在 VM 上的 settings 文件中以明文显示。
+所有设置保存在 VM 上的 settings 文本文件中。
+**settings** 下面列出的属性是公共属性。
+公共属性未在 settings 文本文件中加密。
+**protectedSettings** 下面列出的属性已使用证书加密，因此不会在 VM 上的 settings 文件中以明文显示。
 
 如果配置需要凭据，可将凭据包含在 **protectedSettings** 中：
 
@@ -209,7 +235,9 @@ DSC 扩展继承默认扩展属性。 有关详细信息，请参阅 [VirtualMac
 
 ## <a name="example-configuration-script"></a>示例配置脚本
 
-以下示例演示 DSC 扩展的默认行为，其目的是为 LCM 提供元数据设置，并注册到 Automation DSC 服务。 必须指定配置参数。  将配置参数传递给默认配置脚本以设置 LCM 元数据。
+以下示例演示 DSC 扩展的默认行为，其目的是为 LCM 提供元数据设置，并注册到 Automation DSC 服务。
+必须指定配置参数。
+将配置参数传递给默认配置脚本以设置 LCM 元数据。
 
 ```json
 "settings": {
@@ -234,7 +262,10 @@ DSC 扩展继承默认扩展属性。 有关详细信息，请参阅 [VirtualMac
 
 ## <a name="example-using-the-configuration-script-in-azure-storage"></a>在 Azure 存储中使用配置脚本的示例
 
-以下示例摘自 [DSC 扩展处理程序概述](extensions-dsc-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 此示例使用 Resource Manager 模板而不是cmdlet 来部署该扩展。 保存 IisInstall.ps1 配置，将它放在 .zip 文件中，并将该文件上传到可访问的 URL 中。 此示例使用 Azure Blob 存储，但可以从任意位置下载 .zip 文件。
+以下示例摘自 [DSC 扩展处理程序概述](extensions-dsc-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+此示例使用 Resource Manager 模板而不是cmdlet 来部署该扩展。
+保存 IisInstall.ps1 配置，将它放在 .zip 文件中，并将该文件上传到可访问的 URL 中。
+此示例使用 Azure Blob 存储，但可以从任意位置下载 .zip 文件。
 
 在资源管理器模板中，以下代码指示 VM 下载正确的文件并运行适当的 PowerShell 函数：
 
@@ -253,7 +284,8 @@ DSC 扩展继承默认扩展属性。 有关详细信息，请参阅 [VirtualMac
 
 ## <a name="update-from-a-previous-format"></a>从以前的格式更新
 
-以前的扩展格式中的所有设置（包含 **ModulesUrl**、**ConfigurationFunction**、**SasToken** 或 **Properties** 公共属性）会自动调整为当前扩展格式。 它们按以前的相同方式运行。
+以前的扩展格式中的所有设置（包含 **ModulesUrl**、**ConfigurationFunction**、**SasToken** 或 **Properties** 公共属性）会自动调整为当前扩展格式。
+它们按以前的相同方式运行。
 
 以下架构显示了以前的 settings 架构的大致形式：
 
@@ -291,8 +323,8 @@ DSC 扩展继承默认扩展属性。 有关详细信息，请参阅 [VirtualMac
 | --- | --- |
 | settings.wmfVersion |settings.wmfVersion |
 | settings.configuration.url |settings.ModulesUrl |
-| settings.configuration.script |settings.ConfigurationFunction 的第 1 个部分（在 '\\\\' 前面） |
-| settings.configuration.function |settings.ConfigurationFunction 的第 2 个部分（在 '\\\\' 后面） |
+| settings.configuration.script |settings.ConfigurationFunction 的第 1 个部分（在 \\\\ 前面） |
+| settings.configuration.function |settings.ConfigurationFunction 的第 2 个部分（在 \\\\ 后面） |
 | settings.configurationArguments |settings.Properties |
 | settings.configurationData.url |protectedSettings.DataBlobUri（没有 SAS 令牌） |
 | settings.privacy.dataEnabled |settings.privacy.dataEnabled |
@@ -303,26 +335,30 @@ DSC 扩展继承默认扩展属性。 有关详细信息，请参阅 [VirtualMac
 
 ## <a name="troubleshooting---error-code-1100"></a>故障排除 - 错误代码 1100
 
-错误代码 1100 指示 DSC 扩展中的用户输入有问题。 这些错误的文本是可变的，将来可能会更改。 下面是可能会遇到的一些错误及其解决方法。
+错误代码 1100 指示 DSC 扩展中的用户输入有问题。
+这些错误的文本是可变的，将来可能会更改。
+下面是可能会遇到的一些错误及其解决方法。
 
 ### <a name="invalid-values"></a>无效值
 
-“Privacy.dataCollection 为‘{0}’。
+“Privacy.dataCollection 为 '{0}'。
 可能的值只有 ''、'Enable' 和 'Disable'”。
-“WmfVersion 为 ‘{0}’。
+“WmfVersion 为 '{0}'。
 唯一的可能值为 ... 和 'latest'”。
 
 **问题**：不允许使用提供的值。
 
-**解决方法**：将无效值更改为有效值。 有关详细信息，请参阅[详细信息](#details)中的表格。
+**解决方法**：将无效值更改为有效值。
+有关详细信息，请参阅[详细信息](#details)中的表格。
 
 ### <a name="invalid-url"></a>无效的 URL
 
-“ConfigurationData.url 为‘{0}’。 这不是有效的 URL”。“DataBlobUri 为‘{0}’。 这不是有效的 URL”。“Configuration.url 为‘{0}’。 这不是有效的 URL”
+“ConfigurationData.url 为 '{0}'。 这不是有效的 URL”。“DataBlobUri 为 '{0}'。 这不是有效的 URL”。“Configuration.url 为 '{0}'。 这不是有效的 URL”
 
 **问题**：提供的 URL 无效。
 
-**解决方法**：检查提供的所有 URL。 确保所有 URL 都解析为扩展可在远程计算机上访问的有效位置。
+**解决方法**：检查提供的所有 URL。
+确保所有 URL 都解析为扩展可在远程计算机上访问的有效位置。
 
 ### <a name="invalid-configurationargument-type"></a>无效的 ConfigurationArgument 类型
 
@@ -330,11 +366,12 @@ DSC 扩展继承默认扩展属性。 有关详细信息，请参阅 [VirtualMac
 
 **问题**：*ConfigurationArguments* 属性无法解析为 **Hashtable** 对象。
 
-**解决方法**：将 *ConfigurationArguments* 属性设置为 **Hashtable**。 遵循上述示例中提供的格式。 请注意引号、逗号和括号。
+**解决方法**：将 *ConfigurationArguments* 属性设置为 **Hashtable**。
+遵循上述示例中提供的格式。 请注意引号、逗号和括号。
 
 ### <a name="duplicate-configurationarguments"></a>重复的 ConfigurationArguments
 
-“在公共和受保护的 configurationArguments 中找到重复的参数‘{0}’”
+“在公共和受保护的 configurationArguments 中找到重复的参数 '{0}'”
 
 **问题**：公共设置中的 *ConfigurationArguments* 和受保护设置中的 *ConfigurationArguments* 包含同名属性。
 

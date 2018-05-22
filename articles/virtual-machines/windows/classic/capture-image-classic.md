@@ -1,8 +1,8 @@
 ---
-title: "捕获 Azure Windows VM 的映像| Azure"
-description: "捕获使用经典部署模型创建的 Azure Windows 虚拟机的映像。"
+title: 捕获 Azure Windows VM 的映像| Azure
+description: 捕获使用经典部署模型创建的 Azure Windows 虚拟机的映像。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: d50415c977f7d4bd2e4182ced97618dff8b072fc
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 74e43a98bb72d7e94fd02f2ddd39dd8954051b54
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>捕获使用经典部署模型创建的 Azure Windows 虚拟机的映像
 > [!IMPORTANT]
@@ -87,4 +87,4 @@ Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure �
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

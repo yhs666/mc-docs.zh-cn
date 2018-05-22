@@ -16,10 +16,10 @@ origin.date: 03/21/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: e3a0f702e0dda172b724d49fcab35623c75cc90d
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的出站连接
 

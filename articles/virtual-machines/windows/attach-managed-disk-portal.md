@@ -1,26 +1,26 @@
 ---
-title: "将托管数据磁盘附加到 Windows VM - Azure | Azure"
-description: "如何使用资源管理器部署模型在 Azure 门户中将新的托管数据磁盘附加到 Windows VM。"
+title: 将托管数据磁盘附加到 Windows VM - Azure | Azure
+description: 如何使用资源管理器部署模型在 Azure 门户中将新的托管数据磁盘附加到 Windows VM。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 12/13/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5421460b7c0db369171ff85c9f9ad0c0ffbd6c03
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 9c2f755ea5c05bd3257a419eb88fb6dec2a20301
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>如何在 Azure 门户中将托管数据磁盘附加到 Windows VM
 
@@ -80,4 +80,4 @@ defrag.exe <volume:> -l
 
 ## <a name="next-steps"></a>后续步骤
 如果应用程序需要使用 D: 盘存储数据，可以[更改 Windows 临时磁盘的驱动器号](change-drive-letter.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

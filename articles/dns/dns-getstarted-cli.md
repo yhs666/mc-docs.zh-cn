@@ -1,11 +1,11 @@
 ---
-title: "通过 Azure CLI 2.0 开始使用 Azure DNS | Azure"
-description: "了解如何在 Azure DNS 中创建 DNS 区域和记录。 这是有关使用 Azure CLI 2.0 创建和管理第一个 DNS 区域和记录的分步指南。"
+title: 通过 Azure CLI 2.0 开始使用 Azure DNS | Azure
+description: 了解如何在 Azure DNS 中创建 DNS 区域和记录。 这是有关使用 Azure CLI 2.0 创建和管理第一个 DNS 区域和记录的分步指南。
 services: dns
 documentationcenter: na
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
 ms.service: dns
@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/10/2017
-ms.date: 01/01/2018
+ms.date: 05/21/2018
 ms.author: v-nany
-ms.openlocfilehash: 58b0bec621367b3fbe562353f1060908cb08b644
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 98d29e3b0d2d25d72eaf1ea487de78a1236019af
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>通过 Azure CLI 2.0 开始使用 Azure DNS
 
@@ -34,6 +34,8 @@ ms.lasthandoff: 12/29/2017
 DNS 区域用来托管某个特定域的 DNS 记录。 若要开始在 Azure DNS 中托管域，需要为该域名创建 DNS 区域。 随后会在此 DNS 区域内为每个 DNS 记录创建域。 最后，要将 DNS 区域发布到 Internet，需要为域配置名称服务器。 以下描述了上述每一个步骤。
 
 这些说明假设已安装并登录到 Azure CLI 2.0。 若需帮助，请参阅[如何使用 Azure CLI 2.0 管理 DNS 区域](dns-operations-dnszones-cli.md)。
+
+Azure DNS 现在还支持专用 DNS 区域（当前为公开预览版）。 若要详细了解专用 DNS 区域，请参阅[将 Azure DNS 用于专用域](private-dns-overview.md)。 有关如何创建专用 DNS 区域的示例，请参阅[通过 CLI 开始使用 Azure DNS 专用区域](./private-dns-getstarted-cli.md)。
 
 ## <a name="create-the-resource-group"></a>创建资源组
 

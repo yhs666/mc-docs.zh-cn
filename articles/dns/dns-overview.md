@@ -1,11 +1,11 @@
 ---
-title: "Azure DNS 概述 | Azure"
-description: "Microsoft Azure 上的 DNS 托管服务概述。 在 Microsoft Azure 上托管域。"
+title: Azure DNS 概述 | Azure
+description: Microsoft Azure 上的 DNS 托管服务概述。 在 Microsoft Azure 上托管域。
 services: dns
 documentationcenter: na
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 68747a0d-b358-4b8e-b5e2-e2570745ec3f
 ms.service: dns
 ms.devlang: na
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/18/2017
-ms.date: 01/01/2018
+ms.date: 05/21/2018
 ms.author: v-nany
-ms.openlocfilehash: 25f2154b2d87b1a6dbdff6f4b8015ce3860e3f8a
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 2d979d94e4127198b9741ab76d108472ea886211
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="azure-dns-overview"></a>Azure DNS 概述
 
-域名系统或 DNS 负责将网站或服务名称转换（或解析）为它的 IP 地址。 Azure DNS 是 DNS 域的托管服务，它使用 Azure 基础结构提供名称解析。 通过在 Azure 中托管域，可以使用与其他 Azure 服务相同的凭据、API、工具和计费来管理 DNS 记录。 Azure DNS 现在也支持 DNS 专用域。 有关详细信息，请参阅[在专用域中使用 Azure DNS](private-dns-overview.md)。
+域名系统或 DNS 负责将网站或服务名称转换（或解析）为它的 IP 地址。 Azure DNS 是 DNS 域的托管服务，它使用 Microsoft Azure 基础结构提供名称解析。 通过在 Azure 中托管域，可以使用与其他 Azure 服务相同的凭据、API、工具和计费来管理 DNS 记录。 Azure DNS 现在也支持 DNS 专用域。 有关详细信息，请参阅[在专用域中使用 Azure DNS](private-dns-overview.md)。
 
 ![DNS 概述](./media/dns-overview/scenario.png)
 

@@ -1,31 +1,29 @@
 ---
-title: "排查 Azure 文件备份问题"
-description: "本文提供在 Azure 中保护 Azure 文件（文件共享）时所发生问题的故障排除信息。"
+title: 排查 Azure 文件备份问题
+description: 本文提供在保护 Azure 文件共享时所发生的问题的故障排除信息。
 services: backup
 ms.service: backup
-keywords: "未咨询 SEO 专家的情况下，请不要添加或编辑关键字。"
 author: markgalioto
 ms.author: v-junlch
 origin.date: 02/21/2018
-ms.date: 02/27/2018
+ms.date: 05/16/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 25f28d3ab7a69a554c44cbde11404a45abe2fae9
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: ab913521ca7c1a261f6a7ea2e1aabe5452e05e79
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>排查 Azure 文件备份问题
-
 可参考下表中所列信息，排查使用 Azure 文件备份时遇到的问题和错误。
 
 ## <a name="preview-boundaries"></a>预览版边界
-Azure 文件备份为预览版。 Azure 文件共享不支持以下备份方案：
-- 在存储帐户中使用[区域冗余存储](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) 或[读取访问权限异地冗余存储](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) 复制保护文件共享。
-- 保护已启用虚拟网络的存储帐户中的文件共享。
-- 使用 PowerShell 或 CLI 备份 Azure 文件。
+Azure 文件备份为预览版。 Azure 文件共享不支持以下备份场景：
+- 在存储帐户中使用区域冗余存储 (ZRS) 或[读取访问权限异地冗余存储](../storage/common/storage-redundancy-grs.md) (RA-GRS) 复制保护 Azure 文件共享。
+- 保护已启用虚拟网络的存储帐户中的 Azure 文件共享。
+- 使用 PowerShell 或 CLI 备份 Azure 文件共享。
 
 ### <a name="limitations"></a>限制
 - 每天的最大计划内备份数为 1。
@@ -62,6 +60,7 @@ Azure 文件备份为预览版。 Azure 文件共享不支持以下备份方案�
 | 还原失败，因为源中的某个文件不存在。 | <ul><li> 所选项不在恢复点数据中。 若要恢复这些文件，请提供正确的文件列表。 <li> 与恢复点对应的文件共享快照已手动删除。 请选择另一恢复点，然后重试还原操作。 |
 | 正在进行恢复到同一目标的恢复作业。 | <ul><li>文件共享备份不支持并行恢复到同一目标文件共享。 <li>等待现有恢复完成，然后再试一次。 如果在恢复服务保管库中找不到恢复作业，请查看同一订阅中的其他恢复服务保管库。 |
 | 还原操作失败，因为目标文件共享已满。 | 增加目标文件共享大小配额，使之能够容纳还原数据，然后重试该操作。 |
+| 由于对与目标文件共享关联的文件同步服务资源执行预还原操作时出错，还原操作失败。 | 请稍后重试，如果问题仍然存在，请联系 Microsoft 支持部门。 |
 | 一个或多个文件无法成功恢复。 有关详细信息，请查看上面给出的路径中的故障文件列表。 | <ul> <li> 恢复失败原因已在文件中列出（作业详细信息中提供了路径），请针对原因解决相关问题，只对故障文件重试还原操作。 <li> 文件还原失败的常见原因如下： <br/> - 确保目前没有在使用故障文件。 <br/> - 父目录中存在其名称与故障文件名称相同的目录。 |
 
 ## <a name="see-also"></a>另请参阅
@@ -69,3 +68,4 @@ Azure 文件备份为预览版。 Azure 文件共享不支持以下备份方案�
 - [备份 Azure 文件共享](backup-azure-files.md)
 - [备份 Azure 文件共享常见问题解答](backup-azure-files-faq.md)
 
+<!-- Update_Description: wording update -->

@@ -1,6 +1,6 @@
 ---
-title: "在 Azure DNS 中管理 DNS 区域 - Azure CLI 2.0 | Azure"
-description: "可以使用 Azure CLI 2.0 管理 DNS 区域。 本文介绍如何在 Azure DNS 上更新、删除和创建 DNS 区域。"
+title: 在 Azure DNS 中管理 DNS 区域 - Azure CLI 2.0 | Azure
+description: 可以使用 Azure CLI 2.0 管理 DNS 区域。 本文介绍如何在 Azure DNS 上更新、删除和创建 DNS 区域。
 services: dns
 documentationcenter: na
 author: yunan2016
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/27/2017
-ms.date: 01/01/2018
+ms.date: 05/21/2018
 ms.author: v-nany
-ms.openlocfilehash: 3f4f255983e600c66c3d8392eda6531d2e0f39be
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: c668fdd80fa7ff0cd21d4f6da4104ed654707597
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>如何使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 区域
 
@@ -29,6 +29,8 @@ ms.lasthandoff: 12/29/2017
 
 
 本指南介绍如何通过使用适用于 Windows、Mac 和 Linux 的跨平台 Azure CLI 管理 DNS 区域。 也可以使用 [Azure PowerShell](dns-operations-dnszones.md) 或 Azure 门户管理 DNS 记区域。
+
+本指南专门介绍公共 DNS 区域。 有关使用 Azure CLI 管理 Azure DNS 中专用区域的详细信息，请参阅[使用 Azure CLI 2.0 开始使用 Azure DNS 专用区域](private-dns-getstarted-cli.md)。
 
 ## <a name="introduction"></a>简介
 
@@ -46,7 +48,7 @@ ms.lasthandoff: 12/29/2017
 
 ### <a name="sign-in-to-your-azure-account"></a>登录到 Azure 帐户
 
-打开控制台窗口并使用凭据进行身份验证。 有关详细信息，请参见“从 Azure CLI 登录 Azure”
+打开控制台窗口并使用凭据进行身份验证。 有关详细信息，请阅读[从 Azure CLI 登录 Azure](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ```
 az login
@@ -65,6 +67,12 @@ az account list
 ```azurecli
 az account set --subscription "subscription name"
 ```
+
+### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>可选：安装/使用 Azure DNS 专用区域功能（公共预览版）
+通过 Azure CLI 的扩展发布 Azure DNS 专用区域功能的公共预览版。 安装“dns”Azure CLI 扩展 
+```
+az extension add --name dns
+``` 
 
 ### <a name="create-a-resource-group"></a>创建资源组
 

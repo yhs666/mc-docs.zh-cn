@@ -1,11 +1,11 @@
 ---
-title: "社区工具 - 将经典资源迁移到 Azure Resource Manager | Azure"
-description: "本文编录了社区提供的工具，这些工具可帮助将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型。"
+title: 社区工具 - 将经典资源迁移到 Azure Resource Manager | Azure
+description: 本文编录了社区提供的工具，这些工具可帮助将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型。
 services: virtual-machines-windows
-documentationcenter: 
-author: singhkays
-manager: timlt
-editor: 
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 228b697b-3950-49f5-84bb-283bb56621b1
 ms.service: virtual-machines-windows
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 09/04/2017
-ms.author: v-dazen
-ms.openlocfilehash: b80e935f0bcd26572f467a430c411d44d09a0802
-ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
+ms.date: 05/21/2018
+ms.author: v-yeche
+ms.openlocfilehash: bce4992307af1dc2157f62335ec9c2964c9d92b1
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 05/18/2018
 ---
-# <a name="community-tools-to-migrate-iaas-resources-from-classic-to-azure-resource-manager"></a>用于将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型的社区工具
+# <a name="community-tools-to-migrate-iaas-resources-from-classic-to-azure-resource-manager"></a>使用社区工具将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器
 本文编录了社区提供的工具，这些工具可帮助将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型。
 
 > [!NOTE]
@@ -32,9 +32,10 @@ ms.lasthandoff: 08/29/2017
 > 
 >   * [平台支持从经典部署模型迁移到 Azure Resource Manager 堆栈的 IaaS 资源](migration-classic-resource-manager-overview.md)
 >   * [有关平台支持的从经典部署模型到 Azure Resource Manager 的迁移的技术深入探讨](migration-classic-resource-manager-deep-dive.md)
->   * [使用 Azure PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型](migration-classic-resource-manager-ps.md)
+>   * [使用 Azure PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器](migration-classic-resource-manager-ps.md)
 > 
 > 
+<!-- Notice: Azure changed to Azure.cn-->
 
 ## <a name="asmmetadataparser"></a>AsmMetadataParser
 这是一个帮助程序工具集合，它是在从 Azure 服务管理到 Azure Resource Manager 的企业迁移过程中创建的。 借助此工具，可将基础结构复制到另一个订阅，可将其用于在生产订阅中运行迁移前测试迁移并消除所有问题。
@@ -55,3 +56,4 @@ migAz 是另一选项，用于将整套经典 IaaS 资源迁移到 Azure Resourc
 * [使用 CLI 将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器](../linux/migration-classic-resource-manager-cli.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看最常见的迁移错误](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看有关将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的最常见问题](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+<!-- Update_Description: update meta properties -->

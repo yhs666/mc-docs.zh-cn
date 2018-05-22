@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: tysonn
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
 ms.service: virtual-machines-windows
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ceb221aae131bc7d38e13abf7ab1edb0369b4f86
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 67367a659605f76b5993270d7c68193eb265d231
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虚拟机概述
 
-Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源](../../app-service-web/choose-web-site-cloud-service-vm.md)之一。 通常情况下，如果需要以更大的力度（相对于其他控制选项）控制计算环境，则应选择 VM。 本文介绍创建 VM 之前的注意事项，以及 VM 的创建方法和管理方式。
+Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源](../../app-service/choose-web-site-cloud-service-vm.md)之一。 通常情况下，如果需要以更大的力度（相对于其他控制选项）控制计算环境，则应选择 VM。 本文介绍创建 VM 之前的注意事项，以及 VM 的创建方法和管理方式。
 
 使用 Azure VM 可以灵活进行虚拟化，而无需购买和维护运行 VM 的物理硬件。 不过，仍然需要通过执行任务来维护 VM，例如，配置、修补和安装在 VM 上运行的软件。
 
@@ -55,6 +55,7 @@ Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源
 
 ### <a name="locations"></a>位置
 在 Azure 中创建的所有资源分布在中国的多个[地理区域](https://www.azure.cn/support/service-dashboard/)。 创建 VM 时，区域通常称为 **位置** 。 位置指定 VM 虚拟硬盘的存储位置。
+<!-- Notice: Change around the world to China -->
 
 下表显示了获取可用位置列表的一些方法。
 
@@ -63,7 +64,7 @@ Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源
 | Azure 门户 |创建 VM 时，可从列表中选择位置。 |
 | Azure PowerShell |使用 [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation) 命令。 |
 | REST API |使用[列出位置](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations)操作。 |
-| Azure CLI |使用 [az account list-locations](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az_account_list_locations) 操作。 |
+| Azure CLI |使用 [az account list-locations](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-list-locations) 操作。 |
 
 ### <a name="vm-size"></a>VM 大小
 VM 的[大小](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)由所要运行的工作负荷决定。 然后，选择的大小决定了处理能力、内存和存储容量等因素。 Azure 提供各种大小来支持多种类型的用途。
@@ -72,6 +73,7 @@ Azure 根据 VM 的大小和操作系统[按小时进行收费](https://www.azur
 
 ### <a name="vm-limits"></a>VM 限制
 订阅附带默认的[配额限制](../../azure-subscription-service-limits.md)，在为项目部署大量 VM 时，这些限制可能会造成影响。 每个订阅的当前限制是每区域 20 个 VM。 可以开具支持票证来请求提高限制。
+<!-- Not Available on [filing a support ticket requesting an increase](../../azure-supportability/resource-manager-core-quotas-request.md)-->
 
 ### <a name="operating-system-disks-and-images"></a>操作系统磁盘和映像
 虚拟机使用[虚拟硬盘 (VHD)](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 来存储其操作系统 (OS) 和数据。 VHD 还可用于存储映像，可以选择某个映像来安装 OS。 
@@ -85,7 +87,7 @@ Azure 提供许多[应用商店映像](https://market.azure.cn/zh-cn/marketplace
 | Azure 门户 |选择要使用的映像时，系统会自动指定值。 |
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | REST API |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[列出映像产品](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[az vm image list-publishers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
+| Azure CLI |[az vm image list-publishers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-publishers) --location "location"<BR>[az vm image list-offers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-skus) --location "location" --publisher "publisherName" --offer "offerName"|
 
 可以选择[上传并使用自己的映像](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account)，在这种情况下，无需使用发布者名称、产品和 SKU。
 

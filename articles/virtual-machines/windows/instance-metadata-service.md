@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 10/10/2017
-ms.date: 04/16/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 94c0418742f03b5d4b575975f37bb562255734e6
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: dac420eefa73f9f444ab3875f00de99b7ccf1d9c
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -216,13 +216,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 **请求**
 
-可以通过 Powershell 实用工具 `curl` 在 Windows 中检索实例元数据： 
+可通过 `curl` 程序在 Windows 中检索实例元数据： 
 
 ```bash
 curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
 ```
 
-或通过 `Invoke-RestMethod`cmdlet：
+还可以通过 `Invoke-RestMethod` PowerShell cmdlet 检索：
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get 
@@ -414,4 +414,4 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解[计划事件](scheduled-events.md)
-<!--Update_Description: update meta properties, wording update  -->
+<!--Update_Description: update meta properties, wording update, update link  -->

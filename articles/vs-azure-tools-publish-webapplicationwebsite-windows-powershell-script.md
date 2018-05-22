@@ -16,10 +16,10 @@ origin.date: 11/11/2016
 ms.date: 05/11/2018
 ms.author: v-junlch
 ms.openlocfilehash: 0ee964db33e731636096aac3e6de1294ce2243d9
-ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="publish-webapplicationwebsite-windows-powershell-script"></a>Publish-WebApplicationWebSite（Windows PowerShell 脚本）
 ## <a name="syntax"></a>语法

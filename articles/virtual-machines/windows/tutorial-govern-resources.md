@@ -12,13 +12,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2018
-ms.date: 04/16/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0654da57676cb8410e96c3e485a743dd9a21926e
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 193c29779400abd40d7881e16295473c5aba77ce
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="virtual-machine-governance-with-azure-powershell"></a>使用 Azure PowerShell 控制虚拟机
 
@@ -44,15 +44,15 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 
 ## <a name="role-based-access-control"></a>基于角色的访问控制
 
-你希望确保你的组织中的用户对这些资源具有合适级别的访问权限。 你不希望向用户授予不受限的访问权限，但还需要确保他们可以执行其工作。 使用[基于角色的访问控制](../../active-directory/role-based-access-control-what-is.md)，你可以管理哪些用户有权在某个范围内完成特定操作。
+你希望确保你的组织中的用户对这些资源具有合适级别的访问权限。 你不希望向用户授予不受限的访问权限，但还需要确保他们可以执行其工作。 使用[基于角色的访问控制](../../role-based-access-control/overview.md)，你可以管理哪些用户有权在某个范围内完成特定操作。
 
 若要创建和删除角色分配，用户必须具有 `Microsoft.Authorization/roleAssignments/*` 访问权限。 此访问权限是通过“所有者”或“用户访问”管理员角色授权的。
 
 若要管理虚拟机解决方案，可以使用三种特定于资源的角色来进行通常所需的访问：
 
-* [虚拟机参与者](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [网络参与者](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [存储帐户参与者](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [虚拟机参与者](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [网络参与者](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [存储帐户参与者](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 通常情况下，与其向单个用户分配角色，不如为需要进行相似操作的用户[创建一个 Azure Active Directory 组](../../active-directory/active-directory-groups-create-azure-portal.md)， 然后向该组分配相应的角色。 为了简单起见，本文创建一个没有成员的 Azure Active Directory 组。 仍然可以为该组分配一个负责某个范围的角色。 
 
@@ -196,4 +196,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [监视虚拟机](tutorial-monitoring.md)
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, update link -->

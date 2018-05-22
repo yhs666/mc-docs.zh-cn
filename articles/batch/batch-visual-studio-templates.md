@@ -1,32 +1,33 @@
 ---
-title: "开始使用 Visual Studio 项目模板生成 Batch 解决方案 - Azure | Microsoft 文档"
-description: "了解 Visual Studio 项目模板如何帮助在 Azure Batch 上实现和运行计算密集型工作负荷。"
+title: 使用 Visual Studio 模板生成 Batch 解决方案 - Azure | Microsoft Docs
+description: 了解 Visual Studio 项目模板如何帮助在 Azure Batch 上实现和运行计算密集型工作负荷。
 services: batch
 documentationcenter: .net
-author: fayora
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 02/27/2017
+origin.date: 02/27/2017
+ms.date: 05/15/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 826f19810ccc0362914be52ab3db041f0d368f31
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.openlocfilehash: 05f835d6268739d35d623685c22de30a34cf9ad0
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>使用 Visual Studio 项目模板快速启动 Batch 解决方案
 
 Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代码，从而帮助以最少的精力在 Batch 上实现并运行计算密集型工作负荷。 本文档介绍这些模板，并提供其用法指导。
 
 > [!IMPORTANT]
-> 本文只介绍适用于这两个模板的信息，假设读者熟悉与其相关的 Batch 服务和重要概念：池、计算节点、作业和任务、作业管理器任务、环境变量和其他相关信息。 可以在 [Azure Batch 基础知识](./batch-technical-overview.md)、[面向开发人员的 Batch 功能概述](./batch-api-basics.md)和[用于 .NET 的 Azure Batch 库入门](./batch-dotnet-get-started.md)中找到更多信息。
+> 本文只介绍适用于这两个模板的信息，假设读者熟悉与其相关的 Batch 服务和重要概念：池、计算节点、作业和任务、作业管理器任务、环境变量和其他相关信息。 可以在 [Azure Batch 基础知识](batch-technical-overview.md)、[面向开发人员的 Batch 功能概述](batch-api-basics.md)和[用于 .NET 的 Azure Batch 库入门](batch-dotnet-get-started.md)中找到更多信息。
 > 
 > 
 
@@ -54,7 +55,7 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
 ## <a name="prerequisites"></a>先决条件
 若要使用 Batch 模板，需要满足以下条件：
 
-- 已安装 Visual Studio 2015 或更高版本的计算机。
+- 安装有 Visual Studio 2015 的一台计算机。 Batch 模板当前仅支持 Visual Studio 2015。
 - Batch 模板，可从 [Visual Studio 库][vs_gallery]以 Visual Studio 扩展的形式获取。 有两种方式可获取模板：
   
   - 使用 Visual Studio 中的“扩展和更新”对话框安装模板（有关详细信息，请参阅[查找和使用 Visual Studio 扩展][vs_find_use_ext]）。 在“扩展和更新”对话框中，搜索并下载以下两个扩展：
@@ -62,13 +63,13 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
     - 随附作业拆分器的 Azure Batch 作业管理器
     - Azure Batch 任务处理器
   - 从 Visual Studio 的联机库下载模板： [Azure Batch 项目模板][vs_gallery_templates]
-- 如果打算使用[应用程序包](./batch-application-packages.md)功能将作业管理器和任务处理器部署到 Batch 计算节点，需要将存储帐户链接到 Batch 帐户。
+- 如果打算使用[应用程序包](batch-application-packages.md)功能将作业管理器和任务处理器部署到 Batch 计算节点，需要将存储帐户链接到 Batch 帐户。
 
 ## <a name="preparation"></a>准备工作
 建议创建可在其中包含作业管理器和任务处理器的解决方案，因为这样可以更轻松地在作业管理器和任务处理器程序之间共享代码。 若要创建此解决方案，请遵循以下步骤：
 
-1. 打开 Visual Studio，然后选择“文件” > “新建” > “项目”。
-2. 在“模板”下展开“其他项目类型”，单击“Visual Studio 解决方案”，然后选择“空白解决方案”。
+1. 打开 Visual Studio，并选择“文件” > “新建” > “项目”。
+2. 在“模板”下展开“其他项目类型”，单击“Visual Studio 解决方案”，并选择“空白解决方案”。
 3. 键入用于描述应用程序和此解决方案用途的名称（例如，“LitwareBatchTaskPrograms”）。
 4. 若要创建新解决方案，请单击“确定”。
 
@@ -79,7 +80,7 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
 - 提交这些任务以在 Batch 上运行。
 
 > [!NOTE]
-> 有关作业管理器任务的详细信息，请参阅[面向开发人员的 Batch 功能概述](./batch-api-basics.md#job-manager-task)。
+> 有关作业管理器任务的详细信息，请参阅[面向开发人员的 Batch 功能概述](batch-api-basics.md#job-manager-task)。
 > 
 > 
 
@@ -87,8 +88,8 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
 若要在前面创建的解决方案中添加作业管理器，请遵循以下步骤：
 
 1. 在 Visual Studio 中打开现有解决方案。
-2. 在解决方案资源管理器中，右键单击解决方案，然后单击“添加” > “新建项目”。
-3. 在“Visual C#”下单击“云”，然后单击“随附作业拆分器的 Azure Batch 作业管理器”。
+2. 在解决方案资源管理器中，右键单击解决方案，并单击“添加” > “新建项目”。
+3. 在“Visual C#”下单击“云”，并单击“随附作业拆分器的 Azure Batch 作业管理器”。
 4. 键入用于描述应用程序并将此项目标识为作业管理器的名称（例如“LitwareJobManager”）。
 5. 若要创建项目，请单击“确定”。
 6. 最后，生成项目来强制 Visual Studio 加载所有引用的 NuGet 包，并验证项目是否有效以便能开始对其进行修改。
@@ -118,7 +119,7 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
 
 **作业拆分器**
 
-`JobSplitter.cs`：此类包含用于将作业拆分为多个任务的应用程序特定逻辑。 框架调用 JobSplitter.Split 方法以获取一连串的任务，并在方法返回任务时将方法添加到作业中。 这是将在其中注入作业逻辑的类。 实现拆分方法，返回一连串代表要将作业拆分成的任务的 CloudTask 实例。
+`JobSplitter.cs`：此类包含用于将作业拆分为多个任务的应用程序特定逻辑。 框架调用 JobSplitter.Split 方法以获取一连串的任务，并在方法返回任务时将方法添加到作业中。 这是会在其中注入作业逻辑的类。 实现拆分方法，返回一连串代表要将作业拆分成的任务的 CloudTask 实例。
 
 **标准 .NET 命令行项目文件**
 
@@ -198,18 +199,18 @@ Split() 实现具有以下项的访问权限：
 
 在作业管理器任务失败的情况下，某些任务可能仍在错误发生之前就已添加到服务中。 这些任务将正常运行。 请参阅上面的“作业拆分器失败”，获取有关此代码路径的介绍。
 
-异常返回的所有信息已写入 stdout.txt 和 stderr.txt 文件。 有关详细信息，请参阅[错误处理](./batch-api-basics.md#error-handling)。
+异常返回的所有信息已写入 stdout.txt 和 stderr.txt 文件。 有关详细信息，请参阅[错误处理](batch-api-basics.md#error-handling)。
 
 ### <a name="client-considerations"></a>客户端注意事项
 本部分说明在根据此模板调用作业管理器时的一些客户端实现要求。 请参阅 [How to pass parameters and environment variables from the client code](#pass-environment-settings) （如何从客户端代码传递参数和环境变量），获取有关传递参数和环境设置的详细信息。
 
 **必需的凭据**
 
-若要将任务添加到 Azure Batch 作业，作业管理器任务需要 Azure Batch 帐户 URL 和密钥。 必须在名为 YOUR_BATCH_URL 和 YOUR_BATCH_KEY 的环境变量中传递这些凭据。 可以在作业管理器任务的环境设置中设置这些变量。 例如，在 C# 客户端中：
+要将任务添加到 Azure Batch 作业，作业管理器任务需要 Azure Batch 帐户 URL 和密钥。 必须在名为 YOUR_BATCH_URL 和 YOUR_BATCH_KEY 的环境变量中传递这些凭据。 可以在作业管理器任务的环境设置中设置这些变量。 例如，在 C# 客户端中：
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
-    new EnvironmentSetting("YOUR_BATCH_URL", "https://account.region.batch.azure.com"),
+    new EnvironmentSetting("YOUR_BATCH_URL", "https://account.region.batch.chinacloudapi.cn"),
     new EnvironmentSetting("YOUR_BATCH_KEY", "{your_base64_encoded_account_key}"),
 };
 ```
@@ -227,7 +228,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 **作业管理器任务设置**
 
-客户端应该将作业管理器的 *killJobOnCompletion* 标志设置为 **false**。
+客户端应该将作业管理器的 killJobOnCompletion 标志设置为 false。
 
 客户端通常可以安全地将 runExclusive 设置为 false。
 
@@ -239,7 +240,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 如果作业拆分器发出具有依赖项的任务，客户端必须将作业的 usesTaskDependencies 设置为 true。
 
-在作业拆分器模型中，除了作业拆分器所创建的任务外，客户端通常不需要将任务添加到作业中。 因此一般而言，客户端应该将作业的 *onAllTasksComplete* 设置为 **terminatejob**。
+在作业拆分器模型中，除了作业拆分器所创建的任务外，客户端通常不需要将任务添加到作业中。 因此一般而言，客户端应该将作业的 onAllTasksComplete 设置为 terminatejob。
 
 ## <a name="task-processor-template"></a>任务处理器模板
 任务处理器模板可帮助实现任务处理器来执行以下操作：
@@ -256,8 +257,8 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 若要在前面创建的解决方案中添加任务处理器，请遵循以下步骤：
 
 1. 在 Visual Studio 中打开现有解决方案。
-2. 在解决方案资源管理器中，右键单击解决方案，单击“添加”，然后单击“新建项目”。
-3. 在“Visual C#”下单击“云”，然后单击“Azure Batch 任务处理器”。
+2. 在解决方案资源管理器中，右键单击解决方案，单击“添加”，并单击“新建项目”。
+3. 在“Visual C#”下单击“云”，并单击“Azure Batch 任务处理器”。
 4. 键入用于描述应用程序并将此项目标识为任务处理器的名称（例如“LitwareTaskProcessor”）。
 5. 若要创建项目，请单击“确定”。
 6. 最后，生成项目来强制 Visual Studio 加载所有引用的 NuGet 包，并验证项目是否有效以便能开始对其进行修改。
@@ -285,7 +286,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 **任务处理器**
 
-- `TaskProcessor.cs`：运行任务。 框架调用 TaskProcessor.Run 方法。 这是将在其中注入任务的应用程序特定逻辑的类。 实现 Run 方法以便：
+- `TaskProcessor.cs`：运行任务。 框架调用 TaskProcessor.Run 方法。 这是会在其中注入任务的应用程序特定逻辑的类。 实现 Run 方法以便：
   - 分析和验证任何任务参数
   - 针对要调用的任何外部程序编写命令行
   - 记录为了调试所可能需要的任何诊断信息
@@ -436,10 +437,10 @@ parameters.json 的资源文件，如果找到，则将它加载为参数字典�
 
 ## <a name="next-steps"></a>后续步骤
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>将作业和任务输出保存到 Azure 存储
-在开发 Batch 解决方案时的另一个有用工具是 [Azure Batch 文件约定][nuget_package]。 在 Batch .NET 应用程序中使用此 .NET 类库（目前以预览版提供）可在 Azure 存储中轻松存储和检索任务输出。 [保存 Azure Batch 作业和任务输出](./batch-task-output.md)包含该库及其用法的完整介绍。
+在开发 Batch 解决方案时的另一个有用工具是 [Azure Batch 文件约定][nuget_package]。 在 Batch .NET 应用程序中使用此 .NET 类库（目前以预览版提供）可在 Azure 存储中轻松存储和检索任务输出。 [保存 Azure Batch 作业和任务输出](batch-task-output.md)包含该库及其用法的完整介绍。
 
 ### <a name="batch-forum"></a>Batch 论坛
-MSDN 上的 [Azure Batch 论坛][forum] 是探讨 Batch 服务以及咨询其相关问题的不错场所。 欢迎前往浏览这些帮忙解决“棘手问题”的贴子，并发布你在构建 Batch 解决方案时遇到的问题。
+MSDN 上的 [Azure Batch 论坛][forum]是探讨 Batch 服务以及咨询相关问题的一个好去处。 欢迎前往浏览这些帮忙解决“棘手问题”的贴子，并发布在构建 Batch 解决方案时遇到的问题。
 
 [forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
@@ -453,3 +454,5 @@ MSDN 上的 [Azure Batch 论坛][forum] 是探讨 Batch 服务以及咨询其相
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
+
+<!-- Update_Description: wording update -->

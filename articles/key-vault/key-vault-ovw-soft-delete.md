@@ -1,17 +1,17 @@
 ---
-ms.assetid: 
-title: "Azure Key Vault 软删除 | Microsoft Docs"
+ms.assetid: ''
+title: Azure Key Vault 软删除 | Microsoft Docs
 ms.service: key-vault
-author: alexchen2016
+author: lleonard-msft
 ms.author: v-junlch
-manager: digimobile
+manager: mbaldwin
 origin.date: 09/25/2017
-ms.date: 11/30/2017
-ms.openlocfilehash: 9306e4413110e74fb5a0d49a2350d4b47d71b514
-ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
+ms.date: 05/16/2018
+ms.openlocfilehash: 6904c90647308621257e8fe13a053cd72f5bc1ec
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 软删除概述
 
@@ -46,13 +46,13 @@ Azure Key Vault 是由 Azure Resource Manager 管理的跟踪资源。 Azure Res
 
 ### <a name="key-vault-object-recovery"></a>Key Vault 对象恢复
 
-删除 Key Vault 对象（如密钥）后，服务会将该对象置于已删除状态，从而使其对任何检索操作均不可访问。 在此状态下，只能列出、恢复或强制/永久删除 Key Vault 对象。 
+删除 Key Vault 对象（例如密钥）时，服务会将该对象置于已删除状态，从而使其不可供任何检索操作访问。 在此状态下，只能列出、恢复或强制/永久删除 Key Vault 对象。 
 
-同时，Key Vault 将计划在预定的保留间隔后删除对应于已删除 Key Vault 或 Key Vault 对象的基础数据。 在保留间隔内，还会保留与该保管库相对应的 DNS 记录。
+同时，Key Vault 将计划在预设的保留间隔后删除与已删除 Key Vault 或 Key Vault 对象对应的基础数据。 在保留间隔内，还会保留与该保管库相对应的 DNS 记录。
 
 ### <a name="soft-delete-retention-period"></a>软删除保留期
 
-软删除的资源将保留一段时间（90 天）。 以下项在软删除保留间隔期间适用：
+软删除的资源将保留设定的一段时间（90 天）。 以下项在软删除保留间隔期间适用：
 
 - 可以列出订阅中处于软删除状态的所有 Key Vault 和 Key Vault 对象，并可访问与这些对象有关的删除和恢复信息。
     - 只有具有特殊权限的用户才能列出已删除的保管库。 我们建议用户创建一个具有这些特殊权限的自定义角色来处理已删除的保管库。
@@ -61,13 +61,19 @@ Azure Key Vault 是由 Azure Resource Manager 管理的跟踪资源。 Azure Res
     - 有权在资源组下创建 key vault 的用户（自定义角色的成员）可以还原该保管库。
 - 只有特权用户可以强制删除 Key Vault 或 Key Vault 对象，方法是对相应的代理资源发出删除命令。
 
-除非恢复 Key Vault 或 Key Vault 对象，否则在保留间隔结束时，服务将清除已软删除的 Key Vault 或 Key Vault 对象及其内容。 可能无法重新计划资源删除操作。
+除非恢复 Key Vault 或 Key Vault 对象，否则在保留间隔结束时，服务将清除已软删除的 Key Vault 或 Key Vault 对象及其内容。 资源删除不可重新计划。
 
 ### <a name="permitted-purge"></a>允许的清除
 
-可通过代理资源上的 POST 操作永久删除、清除 Key Vault，但此操作需要特殊权限。 通常，只有订阅所有者才能清除 Key Vault。 POST 操作可触发立即删除该保管库，且此删除不可恢复。 
+可通过对代理资源执行 POST 操作永久删除、清除 Key Vault，但此操作需要特殊权限。 通常，只有订阅所有者才能清除 Key Vault。 POST 操作可触发立即删除该保管库，且此删除不可恢复。 
 
-一种例外情况是，Azure 订阅已被标记为“不可删除”。 在这种情况下，只有服务可以执行实际删除，并且将作为计划的进程执行此操作。 
+但是，Azure 订阅已被标记为“不可删除”时例外。 在这种情况下，只有服务可以执行实际删除，并且将作为计划的进程执行此操作。 
+
+### <a name="billing-implications"></a>计费影响
+
+一般情况下，如果对象（密钥保管库或密钥或机密）处于已删除状态，仅可执行两个操作：“清除”和“恢复”。 所有其他操作都会失败。 因此，即使对象存在，也不可执行任何操作，因此不会出现使用情况，也不会计费。 但是存在以下例外：
+
+- “清除”和“恢复”操作计为正常密钥保管库操作并收费。
 
 ## <a name="next-steps"></a>后续步骤
 

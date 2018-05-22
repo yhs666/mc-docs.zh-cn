@@ -17,10 +17,10 @@ origin.date: 03/08/2017
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: b43d29068caa82c8dd4b185f3b41b4e60b69cd69
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>如何在 Azure 上的 Windows 中使用 SSH 密钥
 > [!div class="op_single_selector"]

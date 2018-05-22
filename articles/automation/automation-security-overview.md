@@ -17,10 +17,10 @@ origin.date: 03/19/2018
 ms.date: 05/14/2018
 ms.author: v-dazen
 ms.openlocfilehash: 7d664695cb9a4633f5f4e520e38962b3e5ce5609
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Azure 自动化中的身份验证简介  
 Azure 自动化让可以通过其他云提供程序（如 Amazon Web Services (AWS)）针对 Azure、本地中的资源来自动执行任务。  为了使 Runbook 执行所需操作，Runbook 必须有权使用订阅中所需的最小权限来安全地访问资源。

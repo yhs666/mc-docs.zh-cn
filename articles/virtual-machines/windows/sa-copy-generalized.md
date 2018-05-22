@@ -1,27 +1,27 @@
 ---
-title: "在 Azure 中创建通用化 VM 的非托管映像 | Azure"
-description: "创建通用化 Windows VM 的非托管映像，用于在 Azure 中创建 VM 的多个副本。"
+title: 在 Azure 中创建通用化 VM 的非托管映像 | Azure
+description: 创建通用化 Windows VM 的非托管映像，用于在 Azure 中创建 VM 的多个副本。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 02/05/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5358d0a3136bcde62e8ff957f9ed18a5102a71b1
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: f065e3b35fd7badb60d5ca696b91acf9c3aa5eac
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>如何从 Azure VM 创建非托管 VM 映像
 

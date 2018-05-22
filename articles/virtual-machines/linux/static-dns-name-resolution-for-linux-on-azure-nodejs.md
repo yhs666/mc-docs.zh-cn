@@ -17,10 +17,10 @@ origin.date: 12/05/2016
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: 4dc1e94f8a8fc584fd70a7ad3a85545443c7c9c9
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>在 Azure 上使用内部 DNS 进行 VM 名称解析
 

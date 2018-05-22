@@ -1,11 +1,11 @@
 ---
-title: "管理 HPC Pack 群集计算节点 | Azure"
-description: "了解 PowerShell 脚本工具如何添加、删除、启动和停止 Azure 的 HPC Pack 2012 R2 群集计算节点"
+title: 管理 HPC Pack 群集计算节点 | Azure
+description: 了解 PowerShell 脚本工具如何添加、删除、启动和停止 Azure 的 HPC Pack 2012 R2 群集计算节点
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 4193f03b-94e9-4704-a7ad-379abde063a9
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 origin.date: 12/29/2016
-ms.date: 01/08/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 48bf21a50638696c1fadcdb5676c3f9851b3add6
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 0528620ca6c36ef9d0edac29dc5afbcb639c6ddf
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>管理 Azure 的 HPC Pack 群集中计算节点的数量和可用性
 如果在 Azure VM 中创建了一个 HPC Pack 2012 R2 群集，可能希望有轻松添加、删除、启动（预配）或停止（取消预配）群集中一些计算节点 VM 的方法。 若要执行这些任务，请运行头节点 VM 中安装的 Azure PowerShell 脚本。 这些脚本可帮助你控制 HPC Pack 群集资源的数量和可用性，以便可以控制成本。
@@ -38,7 +38,7 @@ ms.lasthandoff: 01/05/2018
   * **导入 Azure 发布设置文件**。 为此，在头节点上运行以下 Azure PowerShell cmdlet：
 
     ```PowerShell
-    Get-AzurePublishSettingsFile
+    Get-AzurePublishSettingsFile -Environment AzureChinaCloud 
 
     Import-AzurePublishSettingsFile -PublishSettingsFile <publish settings file>
     ```
@@ -120,7 +120,7 @@ Start-HPCIaaSNode.ps1 -Node <Object> [<CommonParameters>]
 * **Node**：要启动的节点的 HpcNode 对象，可以通过 HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx) 获得。 参数集名称是“节点”。 不能同时指定 **Name** 和 **Node** 参数。
 
 ### <a name="example"></a>示例
-下面的示例启动名称以 *HPCNode-CN-*开头的节点。
+下面的示例启动名称以 *HPCNode-CN-* 开头的节点。
 
 ```PowerShell
 Start-HPCIaaSNode.ps1 -Name HPCNodeCN-*

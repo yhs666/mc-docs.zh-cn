@@ -16,10 +16,10 @@ origin.date: 08/31/2017
 ms.date: 05/11/2018
 ms.author: v-junlch
 ms.openlocfilehash: 2f9f6258eb2afb1e3cb8adf6d79814837f155450
-ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/15/2018
 ---
 # <a name="accessing-azure-virtual-machines-from-server-explorer"></a>从服务器资源管理器访问 Azure 虚拟机
 

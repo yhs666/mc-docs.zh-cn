@@ -1,11 +1,11 @@
 ---
-title: "在 Windows VM 上重置密码或远程桌面配置 | Azure"
-description: "了解如何使用 Azure 门户或 Azure PowerShell 在 Windows VM 上重置帐户密码或远程桌面服务。"
+title: 在 Windows VM 上重置密码或远程桌面配置 | Azure
+description: 了解如何使用 Azure 门户或 Azure PowerShell 在 Windows VM 上重置帐户密码或远程桌面服务。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 45c69812-d3e4-48de-a98d-39a0f5675777
 ms.service: virtual-machines-windows
@@ -13,17 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 12/06/2017
-ms.date: 03/19/2018
+origin.date: 03/23/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2c23209a80cc9fe36798cf5db63228267eb6f900
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 533269a9cf80e0c1bde13dba772f81bc8468fe44
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>如何在 Windows VM 中重置远程桌面服务或其登录密码
-如果无法连接到 Windows 虚拟机 (VM)，可以重置本地管理员密码或重置远程桌面服务配置（Windows 域控制器上不支持）。 可以使用 Azure 门户或 Azure PowerShell 中的 VM 访问扩展重置密码。 如果使用 PowerShell，请务必[安装和配置最新的 PowerShell 模块](https://docs.microsoft.com/powershell/azure/overview)，并登录到 Azure 订阅。 也可以对[使用经典部署模型创建的 VM 执行这些步骤](/virtual-machines/windows/classic/reset-rdp)。
+如果无法连接到 Windows 虚拟机 (VM)，可以重置本地管理员密码或重置远程桌面服务配置（Windows 域控制器上不支持）。 可以使用 Azure 门户或 Azure PowerShell 中的 VM 访问扩展重置密码。 登录到 VM 后，应重置该用户的密码。  
+如果使用 PowerShell，请务必[安装和配置最新的 PowerShell 模块](https://docs.microsoft.com/powershell/azure/overview)，并登录到 Azure 订阅。 也可以对[使用经典部署模型创建的 VM 执行这些步骤](/virtual-machines/windows/classic/reset-rdp)。
 
 ## <a name="ways-to-reset-configuration-or-credentials"></a>重置配置或凭据的方式
 可以根据需要，通过多种不同的方式重置远程桌面服务和凭据：

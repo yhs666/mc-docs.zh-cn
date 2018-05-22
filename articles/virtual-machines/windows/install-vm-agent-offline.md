@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 01/26/2018
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8fb5b11818dac6b53b1523dda43016780ef0f196
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 01a37dc5d98476429cd2cdef08f5565926b0abe0
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>在脱机模式下安装 Azure 虚拟机代理 
 
@@ -132,5 +132,4 @@ Azure 虚拟机代理（VM 代理）可提供多种有用的功能，例如本�
 
 - [Azure 虚拟机代理概述](agent-user-guide.md)
 - [适用于 Windows 的虚拟机扩展和功能](extensions-features.md)
-<!-- Update_Description: new articles on install VM agent offline -->
-<!--ms.date: 03/19/2018-->
+<!-- Update_Description: update meta properties -->

@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Resource Manager 中为 Windows VM 设置 Key Vault | Azure"
-description: "如何设置与 Azure Resource Manager 虚拟机搭配使用的密钥保管库。"
+title: 在 Azure Resource Manager 中为 Windows VM 设置 Key Vault | Azure
+description: 如何设置与 Azure Resource Manager 虚拟机搭配使用的密钥保管库。
 services: virtual-machines-windows
-documentationcenter: 
-author: singhkays
-manager: timlt
-editor: 
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 33a483e2-cfbc-4c62-a588-5d9fd52491e2
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 01/24/2017
-ms.date: 03/28/2017
-ms.author: v-dazen
-ms.openlocfilehash: 71f961c5a9c9eb78cc54d743e76df9afb9008eff
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 05/21/2018
+ms.author: v-yeche
+ms.openlocfilehash: 4b692fe717a5a960337188929b760f66bc9198f4
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>在 Azure Resource Manager 中为虚拟机设置密钥保管库
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 06/21/2017
 在 Azure Resource Manager 堆栈中，密码/证书被建模为密钥保管库资源提供程序所提供的资源。 若要了解有关 Key Vault 的详细信息，请参阅[什么是 Azure Key Vault？](../../key-vault/key-vault-whatis.md)
 
 > [!NOTE]
-> 1. 为了让密钥保管库能与 Azure Resource Manager 虚拟机搭配使用，必须将密钥保管库上的 **EnabledForDeployment** 属性设置为 true。 你可以在各种客户端中执行此操作。
+> 1. 为了让密钥保管库能与 Azure 资源管理器虚拟机搭配使用，必须将密钥保管库上的 **EnabledForDeployment** 属性设置为 true。 可以在各种客户端中执行此操作。
 > 2. 需要在与虚拟机相同的订阅和位置中创建 Key Vault。
 >
 >
@@ -70,4 +70,6 @@ ms.lasthandoff: 06/21/2017
 有关使用模板创建密钥保管库时可以配置的其他选项，请参阅 [Create a key vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create/)（创建密钥保管库）。
 
 >[!NOTE]
-> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
+> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“cloudapp.chinacloudapi.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
+
+<!-- Update_Description: update meta properties -->

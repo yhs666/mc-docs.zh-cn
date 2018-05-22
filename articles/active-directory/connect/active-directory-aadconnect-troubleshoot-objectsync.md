@@ -14,11 +14,11 @@ ms.topic: article
 origin.date: 03/19/2018
 ms.date: 05/03/2018
 ms.author: v-junlch
-ms.openlocfilehash: a7c43e891126c5402af936445b0e3e52a2f3b87f
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: ecd6e7fa570b5e20ab8ca4ebeae6687ca85ec13c
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步排查对象同步问题
 本文档按步骤介绍了如何使用故障排除任务来排查对象同步问题。
@@ -75,10 +75,12 @@ Azure Active Directory 不允许将 UserPrincipalName (UPN)/备用登录 ID 后�
 
 ### <a name="domain-is-configured-to-sync-but-is-missing-run-profilesrun-steps"></a>域已配置为同步，但缺少运行配置文件/运行步骤
 对象不在范围内，因为域缺少运行配置文件/运行步骤。 在下面的示例中，对象不在范围内，因为其所属的域缺少“完全导入”运行配置文件的运行步骤。
+
 ![](./media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch6.png)
 
 ### <a name="object-is-filtered-due-to-ou-filtering"></a>对象已因 OU 筛选而被筛选出来
 对象因 OU 筛选配置而不在同步范围内。 在下面的示例中，对象属于 OU=NoSync,DC=bvtadwbackdc,DC=com。此 OU 不包括在同步范围内。
+
 ![](./media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
 
 ## <a name="html-report"></a>HTML 报表

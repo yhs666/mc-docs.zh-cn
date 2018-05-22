@@ -1,11 +1,11 @@
 ---
-title: "排查 Azure 中的 Windows 虚拟机部署问题 | Azure"
-description: "排查在 Azure 资源管理器部署模型中部署 Windows 虚拟机时遇到的问题。"
+title: 排查 Azure 中的 Windows 虚拟机部署问题 | Azure
+description: 排查在 Azure 资源管理器部署模型中部署 Windows 虚拟机时遇到的问题。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/03/2017
-ms.date: 03/19/2018
+ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: afc88b96d1787dd40ff0eccc16839f9c475a9b33
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 1697f3eeea003597ac4a74de3603839ece955bf9
+ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Windows 虚拟机部署问题
 
@@ -103,4 +103,4 @@ productPesIds="1234, 5678"
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)上的 Azure 专家。
 
 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择 **获取支持**。
-<!--Update_Description: update link -->
+<!--Update_Description: update link, update meta properties -->
