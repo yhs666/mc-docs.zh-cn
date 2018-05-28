@@ -1,12 +1,12 @@
 ---
-title: "Azure Resource Manager 模板函数 - 数值 | Azure"
-description: "介绍可在 Azure Resource Manager 模板中使用的用于处理数值的函数。"
+title: Azure Resource Manager 模板函数 - 数值 | Azure
+description: 介绍可在 Azure Resource Manager 模板中使用的用于处理数值的函数。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 11/08/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
-ms.openlocfilehash: c9636b6004ded7b3b6f92d110f4c379d43cfc8ac
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 5a62cdaaf59b063715fa3f6db37843a7ecd12e12
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的数值函数
 
@@ -43,9 +43,9 @@ Resource Manager 提供以下用于处理整数的函数：
 
 返回提供的两个整数的总和。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- | 
 |operand1 |是 |int |被加数。 |
 |operand2 |是 |int |加数。 |
@@ -91,13 +91,13 @@ Resource Manager 提供以下用于处理整数的函数：
 
 上述示例中使用默认值的输出为：
 
-| 名称 | 类型 | 值 |
+| Name | Type | 值 |
 | ---- | ---- | ----- |
 | addResult | int | 8 |
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```azurecli
+```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json
 ```
 
@@ -112,14 +112,14 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="copyindex"></a>copyIndex
 `copyIndex(loopName, offset)`
 
-返回迭代循环的索引。 
+返回一个迭代循环的索引。 
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | loopName | 否 | 字符串 | 用于获取迭代的循环的名称。 |
-| offset |否 |int |要添加到的从零开始的迭代值的数字。 |
+| offset |否 |int |要添加到从零开始的迭代值的数。 |
 
 ### <a name="remarks"></a>备注
 
@@ -160,9 +160,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 返回提供的两个整数在整除后的商。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | operand1 |是 |int |被除数。 |
 | operand2 |是 |int |除数。 不能为 0。 |
@@ -208,13 +208,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| 名称 | 类型 | 值 |
+| Name | Type | 值 |
 | ---- | ---- | ----- |
 | divResult | int | 2 |
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```azurecli
+```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json
 ```
 
@@ -231,9 +231,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 将值转换为浮点数。 仅当将自定义参数传递给应用程序（例如，逻辑应用）时，才使用此函数。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |字符串或整数 |要转换为浮点数的值。 |
 
@@ -265,11 +265,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 将指定的值转换为整数。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |是 |字符串或整数 |要转换为整数的值。 |
+| valueToConvert |是 |string 或 int |要转换为整数的值。 |
 
 ### <a name="return-value"></a>返回值
 
@@ -302,13 +302,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| 名称 | 类型 | 值 |
+| Name | Type | 值 |
 | ---- | ---- | ----- |
 | intResult | int | 4 |
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```azurecli
+```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
 ```
 
@@ -325,9 +325,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 返回整数数组或逗号分隔的整数列表中的最大值。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |整数数组或逗号分隔的整数列表 |要获取最大值的集合。 |
 
@@ -365,14 +365,14 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| 名称 | 类型 | 值 |
+| Name | Type | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```azurecli
+```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
@@ -389,9 +389,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 返回整数数组或逗号分隔的整数列表中的最小值。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |整数数组或逗号分隔的整数列表 |要获取最小值的集合。 |
 
@@ -429,14 +429,14 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| 名称 | 类型 | 值 |
+| Name | Type | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```azurecli
+```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
@@ -453,9 +453,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 返回使用提供的两个整数整除后的余数。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | operand1 |是 |int |被除数。 |
 | operand2 |是 |int |除数，不能为 0。 |
@@ -500,13 +500,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| 名称 | 类型 | 值 |
+| Name | Type | 值 |
 | ---- | ---- | ----- |
 | modResult | int | 1 |
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```azurecli
+```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
 ```
 
@@ -523,9 +523,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 返回提供的两个整数的积。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | operand1 |是 |int |被乘数。 |
 | operand2 |是 |int |乘数。 |
@@ -571,13 +571,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| 名称 | 类型 | 值 |
+| Name | Type | 值 |
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```azurecli
+```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
 ```
 
@@ -594,9 +594,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 返回提供的两个整数在相减后的结果。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 
-| 参数 | 必选 | 类型 | 说明 |
+| 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
 | operand1 |是 |int |被减数。 |
 | operand2 |是 |int |减数。 |
@@ -641,13 +641,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| 名称 | 类型 | 值 |
+| Name | Type | 值 |
 | ---- | ---- | ----- |
 | subResult | int | 4 |
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```azurecli
+```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
 ```
 

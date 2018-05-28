@@ -1,25 +1,25 @@
 ---
-title: "Azure 服务总线和事件中心内的 AMQP 1.0 协议指南 | Azure"
-description: "Azure 服务总线和事件中心内 AMQP 1.0 协议的表达与描述指南"
+title: Azure 服务总线和事件中心内的 AMQP 1.0 协议指南 | Azure
+description: Azure 服务总线和事件中心内 AMQP 1.0 协议的表达与描述指南
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/08/2017
+origin.date: 04/30/2018
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: e5c426b39e7cf398e2bfab4ce224223920a48fdc
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 06/04/2018
+ms.openlocfilehash: 10949e87685d06fa3fb122ba0595d043f6210979
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure 服务总线和事件中心内的 AMQP 1.0 协议指南
 
@@ -71,7 +71,7 @@ Azure 服务总线随时都需要使用 TLS。 它支持通过 TCP 端口 5671 �
 
 * 当客户端想要使用稍后所述的基于声明的安全 (CBS) 模型时，SASL ANONYMOUS 可用于绕过 SASL 授权。 使用此选项，即可以匿名方式创建短期的客户端连接，在此连接期间，客户端只能与 CBS 终结点交互，并且 CBS 握手必须完成。
 
-创建传输连接之后，容器各自声明它们愿意处理的帧大小上限；在空闲超时后，如果连接上没有任何活动，它们将单方面断开连接。
+创建传输连接之后，容器各自声明它们愿意处理的帧大小上限；在空闲超时后，如果连接上没有任何活动，它们会单方面断开连接。
 
 它们也声明支持的并发通道数量。 通道是基于连接的单向出站虚拟传输路径。 会话从每个互连的容器获取通道，以形成双向通信路径。
 
@@ -135,7 +135,7 @@ AMQP 1.0 规范定义进一步的处置状态（称为“已接收”），其�
 
 当传输进入“已接受”、“已拒绝”或“已解除”终端状态的其中一种时，消息锁定就会解除。 终端的状态为“已接受”时，将从服务总线中删除消息。 它保留在服务总线中，并会在传输达到任何其他状态时传递给下一个接收者。 服务总线在因为重复拒绝或解除而达到实体所允许的最大传递计数时，自动将消息转到实体死信队列中。
 
-即使是服务总线 API 现今也不直接公开这种选项，较低级别的 AMQP 协议客户端可以使用链接信用额度模型，通过核发大量的链接信用额度，将针对每个接收请求核发一单位信用额度的“提取式”模型变成“推送式”模型，并接收可用的消息，而不需要任何进一步的交互。 通过 [MessagingFactory.PrefetchCount](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) 或 [MessageReceiver.PrefetchCount](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) 属性设置来支持推送。 如果两者均不为零，则 AMQP 客户端使用它作为链接信用额度。
+即使是服务总线 API 现今也不直接公开这种选项，较低级别的 AMQP 协议客户端可以使用链接信用额度模型，通过核发大量的链接信用额度，将针对每个接收请求核发一单位信用额度的“提取式”模型变成“推送式”模型，并接收可用的消息，而不需要任何进一步的交互。 通过 [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) 或 [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) 属性设置来支持推送。 如果两者均不为零，则 AMQP 客户端使用它作为链接信用额度。
 
 在此内容中，务必了解实体内消息锁定的过期时钟在从实体获取消息时启动，而不是在消息放在网络上时启动。 每当客户端通过颁发链接信用额度来表示接收消息的整备性，因此预期主动提取网络上的消息并准备好处理它们。 否则消息锁定可能在消息传递之前过期。 使用链接信用流量控制应直接反映出可立即准备处理分派给接收者的可用消息。
 
@@ -207,33 +207,109 @@ AMQP 1.0 规范定义进一步的处置状态（称为“已接收”），其�
 
 以下部分说明服务总线使用标准 AMQP 消息部分中的哪些属性，以及它们如何映射到服务总线 API 集。
 
+任何应用程序需要定义的属性都应映射至 AMQP 的 `application-properties` 映射。
+
 #### <a name="header"></a>标头的值开始缓存响应
 
 | 字段名称 | 使用情况 | API 名称 |
 | --- | --- | --- |
 | durable |- |- |
 | priority |- |- |
-| ttl |消息生存时间 |[TimeToLive](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
+| ttl |消息生存时间 |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
 | first-acquirer |- |- |
-| delivery-count |- |[DeliveryCount](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
+| delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
 
 #### <a name="properties"></a>properties
 
 | 字段名称 | 使用情况 | API 名称 |
 | --- | --- | --- |
-| message-id |应用程序为此消息定义的自由格式标识符。 用于重复检测。 |[MessageId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
+| message-id |应用程序为此消息定义的自由格式标识符。 用于重复检测。 |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
 | user-id |应用程序定义的用户标识符，服务总线无法进行解释。 |无法通过服务总线 API 访问。 |
-| to |应用程序定义的目标标识符，服务总线无法进行解释。 |[To](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
-| subject |应用程序定义的消息用途标识符，服务总线无法进行解释。 |[Label](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
-| reply-to |应用程序定义的回复路径指示符，服务总线无法进行解释。 |[ReplyTo](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
-| correlation-id |应用程序定义的相关性标识符，服务总线无法进行解释。 |[CorrelationId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
-| content-type |应用程序定义的内容类型指示符，服务总线无法进行解释。 |[ContentType](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
+| to |应用程序定义的目标标识符，服务总线无法进行解释。 |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
+| subject |应用程序定义的消息用途标识符，服务总线无法进行解释。 |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
+| reply-to |应用程序定义的回复路径指示符，服务总线无法进行解释。 |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
+| correlation-id |应用程序定义的相关性标识符，服务总线无法进行解释。 |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
+| content-type |应用程序定义的内容类型指示符，服务总线无法进行解释。 |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
 | content-encoding |应用程序定义的内容编码指示符，服务总线无法进行解释。 |无法通过服务总线 API 访问。 |
-| absolute-expiry-time |声明消息过期的绝对时刻。 在输入时忽略（观察到标头 TTL），在输出时授权具权威性。 |[ExpiresAtUtc](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
+| absolute-expiry-time |声明消息过期的绝对时刻。 在输入时忽略（观察到标头 TTL），在输出时授权具权威性。 |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
 | creation-time |声明消息的创建时间。 不由服务总线使用 |无法通过服务总线 API 访问。 |
-| group-id |应用程序为相关的消息集定义的标识符。 用于服务总线会话。 |[SessionId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
+| group-id |应用程序为相关的消息集定义的标识符。 用于服务总线会话。 |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | group-sequence |用于标识消息在会话内的相对序列号的计数器。 服务总线会将其忽略。 |无法通过服务总线 API 访问。 |
-| reply-to-group-id |- |[ReplyToSessionId](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+
+#### <a name="message-annotations"></a>消息注释
+
+存在几个不属于 AMQP 消息属性的其他服务总线消息属性，且它们在消息上作为 `MessageAnnotations` 传递。
+
+| 注释映射键 | 使用情况 | API 名称 |
+| --- | --- | --- |
+| x-opt-scheduled-enqueue-time | 声明消息应于何时出现在实体上 |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
+| x-opt-partition-key | 应用程序定义的键，指示消息应进入哪个分区。 | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
+| x-opt-via-partition-key | 应用程序定义的分区键值，指示某个事务在何时用于通过传输队列发送消息。 | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
+| x-opt-enqueued-time | 服务定义的 UTC 时间，代表将消息加入队列的实际时间。 输入时忽略。 | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
+| x-opt-sequence-number | 服务定义的唯一编号，用于分配给消息。 | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
+| x-opt-offset | 服务定义的消息的排队序列号。 | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
+| x-opt-locked-until | 服务定义。 日期和时间，在此之前消息将在队列/订阅中被锁定。 | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
+| x-opt-deadletter-source | 服务定义。 原始消息的来源，前提是从死信队列中接收消息。 | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+
+### <a name="transaction-capability"></a>事务功能
+
+一个事务将两个或更多操作组合成执行作用域。 就本质而言，此类事务必须确保所有操作属于给定的操作组，无论联合成功还是失败。
+操作按标识符 `txn-id` 分组。
+
+对于事务性交互，客户端充当 `transaction controller`，控制着应该一起被分组的操作。 服务总线服务充当 `transactional resource` 并根据 `transaction controller` 的请求执行工作。
+
+客户端和服务通过该客户端建立的 `control link` 进行通信。 `declare` 和 `discharge` 消息由控制器通过控制链接发送，从而各自分配并完成事务（它们不代表事务性工作的划分）。 实际的发送/接收工作并不是在此链接上执行的。 所请求的每个事务性操作通过所需 `txn-id` 显式标识，因此可能出现于连接上的任何链接。 如果关闭了控制链接，但是还存在它所创建的未释放事务，则所有此类事务都将立即回滚，且针对它们执行进一步的事务性工作的尝试都将导致失败。 不能预先确定控制链接上的消息。
+
+每个连接都需要启动自己的控制链接，才能开始并结束事务。 该服务定义一个充当 `coordinator` 的特殊目标。 客户端/控制器建立了指向该目标的控制链接。 控制链接不受单个实体限制，即同样的控制链接可用于启动并释放多个实体的事务。
+
+#### <a name="starting-a-transaction"></a>启动事务
+
+开始事务性工作。 控制器必须从协调器获取一个 `txn-id`。 通过发送 `declare` 类型消息完成此操作。 如果声明成功，协调器会响应一个 `declared` 的处置结果，其中包含分配的 `txn-id`。
+
+| 客户端（控制器） | | 服务总线（协调器） |
+| --- | --- | --- |
+| attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
+|  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={transaction id}<br/>))|
+
+#### <a name="discharging-a-transaction"></a>释放事务
+
+控制器会通过向协调器发送 `discharge` 消息来推断事务性工作。 控制器通过在释放正文上设置 `fail` 标志，指示它希望提交或回滚该事务性工作。 如果协调器无法完成释放操作，消息将被拒绝且结果中带有 `transaction-error`。
+
+> 请注意：fail=true 表示事务回滚，fail=false 表示提交。
+
+| 客户端（控制器） | | 服务总线（协调器） |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+| | 上获取。 上获取。 上获取。 <br/>其他链接上的<br/>事务性工作<br/> 上获取。 上获取。 上获取。 |
+| transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}| ------> |  |
+| | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)|
+
+#### <a name="sending-a-message-in-a-transaction"></a>在事务中发送消息
+
+所有事务性工作都是通过包含 txn-id 的事务性传递状态 `transactional-state` 完成的。在发送消息时，transactional-state 位于消息的传输框架中。 
+
+| 客户端（控制器） | | 服务总线（协调器） |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+| transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
+| | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
+
+#### <a name="disposing-a-message-in-a-transaction"></a>在事务中处置消息
+
+消息处置包括类似 `Complete` / `Abandon` / `DeadLetter` / `Defer` 的操作。 若要在事务中执行这些操作，请通过 disposition 传递 `transactional-state`。
+
+| 客户端（控制器） | | 服务总线（协调器） |
+| --- | --- | --- |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+| | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
+| disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
+
 
 ## <a name="advanced-service-bus-capabilities"></a>高级服务总线功能
 
@@ -288,12 +364,12 @@ CBS 定义由消息传送基础结构所提供的虚拟管理节点（名为 $cb
 | --- | --- | --- | --- |
 | operation |否 |字符串 |**put-token** |
 | type |否 |字符串 |正在放置的令牌类型。 |
-| 名称 |否 |字符串 |令牌应用到的“受众”。 |
+| name |否 |字符串 |令牌应用到的“受众”。 |
 | expiration |是 |timestamp |令牌过期时间。 |
 
 name 属性标识应与此令牌关联的实体。 在服务总线中，这是队列或主题/订阅的路径。 type 属性标识令牌类型：
 
-| 令牌类型 | 令牌说明 | 正文类型 | 说明 |
+| 令牌类型 | 令牌说明 | 正文类型 | 注释 |
 | --- | --- | --- | --- |
 | amqp:jwt |JSON Web 令牌 (JWT) |AMQP 值（字符串） |尚不可用。 |
 | amqp:swt |简单 Web 令牌 (SWT) |AMQP 值（字符串） |仅支持 AAD/ACS 颁发的 SWT 令牌 |
@@ -317,6 +393,19 @@ name 属性标识应与此令牌关联的实体。 在服务总线中，这是�
 创建连接和会话后，将链接附加到 $cbs 节点和发送 put-token 请求是唯一允许的操作。 必须在创建连接后的 20 秒内使用对某个实体节点的 put-token 请求成功创建有效的令牌，否则服务总线将单方面断开连接。
 
 客户端后续负责跟踪令牌过期时间。 令牌过期时，服务总线将立即删除相应实体连接上的所有链接。 若要避免这种情况，客户端随时可以通过具有相同 put-token 手势的虚拟 $cbs 管理节点，使用新的令牌来替换节点的令牌，且不干扰在不同链接上流动的有效负载流量。
+
+### <a name="send-via-functionality"></a>发送方式功能
+
+[发送方式/传输发送者](service-bus-transactions.md#transfers-and-send-via)功能让服务总线能通过另一个实体将给定消息转发到目标实体。 这主要用于在单个事务中执行跨实体的操作。
+
+借助此项功能，可以创建发送程序并建立指向 `via-entity` 的链接。 在建立链接时，会传递其他信息以建立此链接上的消息/传输的正确目标。 附加成功后，此链接上发送的所有消息都将自动通过 via-entity 转发到 destination-entity。 
+
+> 请注意：在建立此链接前，via-entity 和 destination-entity 都需要通过身份验证。
+
+| 客户端 | | 服务总线 |
+| --- | --- | --- |
+| attach(<br/>name={link name},<br/>role=sender,<br/>source={client link id},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
+| | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link id},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
 ## <a name="next-steps"></a>后续步骤
 

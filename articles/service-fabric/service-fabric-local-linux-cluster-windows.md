@@ -1,25 +1,25 @@
 ---
-title: "设置 Windows 上的 Azure Service Fabric Linux 群集 | Azure"
-description: "本文介绍如何设置在 Windows 开发计算机上运行的 Service Fabric Linux 群集。 这对于跨平台开发尤其有用。"
+title: 设置 Windows 上的 Azure Service Fabric Linux 群集 | Azure
+description: 本文介绍如何设置在 Windows 开发计算机上运行的 Service Fabric Linux 群集。 这对于跨平台开发尤其有用。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/20/2017
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8c95892196f3f004a324aa7d38a475685275045d
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 07426bc2fde20ed41e421a002769041b17c5938a
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>设置 Windows 开发人员计算机上的 Linux Service Fabric 群集
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 03/08/2018
 > * 安装完以后，请按照[此处](https://docs.docker.com/docker-for-windows/#check-versions-of-docker-engine-compose-and-machine)提到的步骤验证其是否已正确安装。
 
 ## <a name="create-a-local-container-and-setup-service-fabric"></a>创建本地容器和设置 Service Fabric
-要设置本地 Docker 容器并在其上运行 Service Fabric 群集，请执行以下步骤：
+若要设置本地 Docker 容器并在其上运行 Service Fabric 群集，请在 PowerShell 执行以下步骤：
 
 1. 从 Docker 中心存储库拉取映像：
 
@@ -89,4 +89,4 @@ ms.lasthandoff: 03/08/2018
 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]:./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
-<!-- Update_Description: update meta properties, update cmdlet -->
+<!-- Update_Description: update meta properties, wording update -->

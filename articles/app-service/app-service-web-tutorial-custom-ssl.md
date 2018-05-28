@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 11/30/2017
-ms.date: 04/30/2017
+ms.date: 06/04/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 8791e81c05498d5f1d18fca0a811dfaf7cdab85d
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 775945eb0ec999c7899000953b9b961808276f78
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/26/2018
 ---
-# <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>将现有的自定义 SSL 证书绑定到 Azure Web 应用
+# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>教程：将现有的自定义 SSL 证书绑定到 Azure Web 应用
 
 Azure Web 应用提供高度可缩放、自修补的 Web 托管服务。 本教程介绍如何将从受信任证书颁发机构那里购买的自定义 SSL 证书绑定到 [Azure Web 应用](app-service-web-overview.md)。 完成本教程后，你便可以访问自定义 DNS 域的 HTTPS 终结点上的 Web 应用。
 
@@ -152,7 +152,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ### <a name="upload-your-ssl-certificate"></a>上传 SSL 证书
 
-若要上传 SSL 证书，请在 Web 应用的左侧导航窗格中单击“SSL 证书”。
+若要上传 SSL 证书，请在 Web 应用的左侧导航窗格中单击“SSL 设置”。
 
 单击“上传证书”。 
 
@@ -162,7 +162,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ![上传证书](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
-应用服务上传完证书后，该证书将显示在“SSL 证书”页中。
+应用服务上传完证书后，该证书会显示在“SSL 设置”页中。
 
 ![上传的证书](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
 
@@ -219,7 +219,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 默认情况下，任何人都仍可使用 HTTP 访问 Web 应用。 可以将所有 HTTP 请求都重定向到 HTTPS 端口。
 
-在 Web 应用页的左侧导航窗格中，选择“自定义域”。 然后，在“仅 HTTPS”中，选择“启用”。
+在 Web 应用页的左侧导航窗格中，选择“SSL 设置”。 然后，在“仅 HTTPS”中，选择“启用”。
 
 ![实施 HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
@@ -228,6 +228,24 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 - `http://<app_name>.chinacloudapi.cn`
 - `http://contoso.com`
 - `http://www.contoso.com`
+
+## <a name="enforce-tls-1112"></a>强制实施 TLS 1.1/1.2
+
+你的应用默认情况下允许 [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0，但后者已不再被行业标准（如 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)）视为安全。 若要强制实施更高的 TLS 版本，请按照下列步骤操作：
+
+在 Web 应用页的左侧导航窗格中，选择“SSL 设置”。 然后，在“TLS 版本”中，选择所需的最低 TLS 版本。
+
+![强制实施 TLS 1.1 或 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
+
+该操作完成后，你的应用将拒绝使用更低 TLS 版本的所有连接。
+
+## <a name="renew-certificates"></a>续订证书
+
+在删除某个绑定时，即使该绑定是基于 IP 的，入站 IP 地址也可能会更改。 在续订已进行基于 IP 的绑定的证书时，了解这一点尤为重要。 若要避免应用的 IP 地址更改，请按顺序执行以下步骤：
+
+1. 上传新证书。
+2. 将新证书绑定到所需的自定义域，不要删除旧证书。 此操作替换而不是删除旧的绑定。
+3. 删除旧证书。 
 
 ## <a name="automate-with-scripts"></a>使用脚本自动执行
 
@@ -271,7 +289,7 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>公用证书（可选）
-可向自己的 Web 应用上传[公用证书](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)。 还可以对应用服务环境中的应用使用公用证书。 若要将证书存储在 LocalMachine 证书存储中，需要在应用服务环境中使用 Web 应用。 有关详细信息，请参阅[如何将公用证书配置到 Web 应用](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)。
+可以将[公用证书](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/)上传到 Web 应用，使该应用能够访问需要证书身份验证的外部服务。  若要更详细地了解如何在应用中加载和使用公用证书，请参阅[在 Azure 应用服务的应用程序代码中使用 SSL 证书](/app-service/app-service-web-ssl-cert-load)。  还可以对应用服务环境中的应用使用公用证书。 若要将证书存储在 LocalMachine 证书存储中，需要在应用服务环境中使用 Web 应用。 有关详细信息，请参阅[如何将公用证书配置到 Web 应用](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer)。
 
 ![上传公用证书](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
@@ -285,9 +303,3 @@ New-AzureRmWebAppSSLBinding `
 > * 为应用实施 HTTPS
 > * 使用脚本自动执行 SSL 证书绑定
 
-继续学习下一教程，了解如何使用 Azure 内容交付网络。
-
-> [!div class="nextstepaction"]
-> [向 Azure 应用服务添加内容交付网络 (CDN)](app-service-web-tutorial-content-delivery-network.md)
-
-有关详细信息，请参阅[在 Azure 应用服务的应用程序代码中使用 SSL 证书](app-service-web-ssl-cert-load.md)。

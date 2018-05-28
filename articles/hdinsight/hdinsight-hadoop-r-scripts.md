@@ -1,8 +1,8 @@
 ---
-title: "在 HDInsight 中使用 R 来自定义群集 - Azure | Azure"
-description: "了解如何通过脚本操作安装 R，以及如何在 HDInsight 群集上使用 R。"
+title: 在 HDInsight 中使用 R 来自定义群集 - Azure | Azure
+description: 了解如何通过脚本操作安装 R，以及如何在 HDInsight 群集上使用 R。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,17 +17,17 @@ origin.date: 05/25/2017
 ms.date: 12/25/2017
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: c430fe726b2ab2ef79f61dd9d330434908d9ef81
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: e02a6884c46d4bc30139f7f5e7b57f22fb08c28e
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="install-and-use-r-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 R
 
 了解如何使用 R 通过脚本操作来自定义基于 Windows 的 HDInsight 群集，以及如何在 HDInsight 群集上使用 R。
 
-可以使用脚本操作在 Azure HDInsight 上任何类型的群集（Hadoop、Storm、HBase、Spark）上安装 R。 用于在 HDInsight 群集上安装 R 的示例脚本可通过 [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1)上的只读 Azure 存储 Blob 获得。
+可以使用脚本操作在 Azure HDInsight 上任何类型的群集（Hadoop、Storm、HBase、Spark）上安装 R。 用于在 HDInsight 群集上安装 R 的示例脚本可从只读 Azure 存储 Blob ([https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1)) 获得。
 
 **相关文章**
 
@@ -56,14 +56,14 @@ R 与 Azure Blob 存储 (WASB) 兼容，这样，存储在此的数据可以在 
 
     <table border='1'>
         <tr><th>属性</th><th>值</th></tr>
-        <tr><td>名称</td>
+        <tr><td>Name</td>
             <td>指定脚本操作的名称，例如 Install R<b></b>。</td></tr>
         <tr><td>脚本 URI</td>
-            <td>指定调用其对应脚本可自定义群集的 URI，例如 https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1<i></i></td></tr>
+            <td>指定要调用以自定义群集的脚本的 URI，例如 <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
         <tr><td>节点类型</td>
             <td>指定在其上运行自定义脚本的节点。 可以选择“所有节点”、“仅限头节点”或“仅限辅助角色节点”<b></b><b></b><b></b>。
-        <tr><td>Parameters</td>
-            <td>根据脚本的需要，请指定参数。 但是，用于安装 R 的脚本不需要任何参数，因此，可以将此项保留为空。</td></tr>
+        <tr><td>parameters</td>
+            <td>根据脚本的需要，指定参数。 但是，用于安装 R 的脚本不需要任何参数，因此，可以将此项保留为空。</td></tr>
     </table>
 
     可以添加多个脚本操作，以在群集上安装多个组件。 在添加了脚本后，单击复选标记以开始创建群集。
@@ -97,10 +97,10 @@ R 与 Azure Blob 存储 (WASB) 兼容，这样，存储在此的数据可以在 
     [100,] 100 200
 
 ## <a name="install-r-using-aure-powershell"></a>使用 Azure PowerShell 安装 R
-请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。  此示例演示如何使用 Azure PowerShell 安装 Spark。 需要自定义要使用的脚本 [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1)。
+请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。  此示例演示如何使用 Azure PowerShell 安装 Spark。 需要自定义脚本以使用 [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1)。
 
 ## <a name="install-r-using-net-sdk"></a>使用 .NET SDK 安装 R
-请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。 此示例演示如何使用 .NET SDK 安装 Spark。 需要自定义脚本以使用 [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1)。
+请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。 此示例演示如何使用 .NET SDK 安装 Spark。 需要自定义脚本以使用 [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps11)。
 
 ## <a name="see-also"></a>另请参阅
 * [在 HDinsight Hadoop 群集 (Linux) 上安装并使用 R](hdinsight-hadoop-r-scripts-linux.md)

@@ -1,26 +1,24 @@
 ---
-title: "使用 Azure HDInsight 对 Storm 进行故障排除 | Microsoft Docs"
-description: "获取有关在 Azure HDInsight 中使用 Apache Storm 时遇到的常见问题的解答。"
-keywords: "Azure HDInsight, Storm, 常见问题解答, 故障排除指南, 常见问题"
+title: 使用 Azure HDInsight 对 Storm 进行故障排除 | Microsoft Docs
+description: 获取有关在 Azure HDInsight 中使用 Apache Storm 时遇到的常见问题的解答。
+keywords: Azure HDInsight, Storm, 常见问题解答, 故障排除指南, 常见问题
 services: Azure HDInsight
 documentationcenter: na
 author: raviperi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 origin.date: 11/02/2017
-ms.date: 12/25/2017
+ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: e3ced3b064bc3a31947ef0a70635ce9369e27e27
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: b81ecd2488371dc4216d6e48a44858560563b5ea
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Storm 进行故障排除
 
@@ -72,7 +70,7 @@ lib 文件夹中有一些 .Jar 文件，其中包含导出/导入操作的实现
     ```
 
 #### <a name="import-offset-metadata"></a>导入偏移元数据
-1. 使用 SSH 在需要从中导出检查点偏移数据的群集上转到 ZooKeeper 群集。
+1. 使用 SSH 转到需要从中导入检查点偏移数据的群集上的 ZooKeeper 群集。
 2. （更新 HDP 版本字符串之后）运行以下命令，将 ZooKeeper 偏移数据从 HDFS 路径 /stormmetadata/zkdata 导入到目标群集上的 ZooKeeper 服务器：
 
     ```apache
@@ -80,7 +78,7 @@ lib 文件夹中有一些 .Jar 文件，其中包含导出/导入操作的实现
     ```
    
 #### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>删除偏移元数据，使拓扑能够从头开始或者从用户所选的时间戳开始处理数据
-1. 使用 SSH 在需要从中导出检查点偏移数据的群集上转到 ZooKeeper 群集。
+1. 使用 SSH 转到需要从中删除检查点偏移数据的群集上的 ZooKeeper 群集。
 2. （更新 HDP 版本字符串之后）运行以下命令，删除当前群集中的所有 ZooKeeper 偏移数据：
 
 ```apache

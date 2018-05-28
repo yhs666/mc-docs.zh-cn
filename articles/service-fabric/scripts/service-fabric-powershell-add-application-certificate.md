@@ -1,39 +1,39 @@
 ---
-title: "Azure PowerShell 脚本示例 - 将应用程序证书添加到群集 | Azure"
-description: "Azure PowerShell 脚本示例 - 将应用程序证书添加到 Service Fabric 群集。"
+title: Azure PowerShell 脚本示例 - 将应用程序证书添加到群集 | Azure
+description: Azure PowerShell 脚本示例 - 将应用程序证书添加到 Service Fabric 群集。
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 origin.date: 01/18/2018
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6ac21ff48512bb9bea5ead82f34a0f335675a2f7
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 4c257accb7dda4e94c47631fbe72fb4103ca5f9f
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>将应用程序证书添加到 Service Fabric 群集
 
 此示例脚本在指定的 Azure Key Vault 中创建一个自签名证书，并将它安装到 Service Fabric 群集的所有节点上。 该证书还会下载到本地文件夹。 已下载证书的名称与 Key Vault 中证书的名称相同。 根据需要自定义参数。
 
-必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 创建与 Azure 的连接。 
+必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 创建与 Azure 的连接。 
 
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
 
 # Variables for common values.
-$clusterloc="ChinaEast"
+$clusterloc="chinaeast"
 $groupname="mysfclustergroup"
 $clustername = "mysfcluster"
 $vaultname = "mykeyvault"
@@ -62,4 +62,4 @@ Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Na
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure PowerShell 示例](../service-fabric-powershell-samples.md)中找到 Azure Service Fabric 的其他 Azure Powershell 示例。
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update link, wording update -->

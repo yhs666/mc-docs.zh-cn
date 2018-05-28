@@ -1,31 +1,31 @@
 ---
-title: "将 Java 应用程序添加到 Azure 应用服务 Web 应用"
-description: "本教程介绍如何将页面或应用程序添加到已配置为使用 Java 的 Azure 应用服务 Web 应用实例。"
+title: 将 Java 应用程序添加到 Azure 应用服务 Web 应用
+description: 本教程介绍如何将页面或应用程序添加到已配置为使用 Java 的 Azure 应用服务 Web 应用实例。
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
-manager: erikre
-editor: 
+manager: mbaldwin
 ms.assetid: 9b46528b-e2d0-4f26-b8d7-af94bd8c31ef
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-origin.date: 04/25/2017
-ms.date: 10/30/2017
+origin.date: 04/11/2018
+ms.date: 06/04/2018
 ms.author: v-yiso
-ms.openlocfilehash: c7f59558ee661381cdb7be4b2aeacf0ba1acd9d7
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: f8cea9821581c7e9ba02e57fbec2f8d5a2b1af91
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="add-a-java-application-to-azure-app-service-web-apps"></a>将 Java 应用程序添加到 Azure 应用服务 Web 应用
 按照[在 Azure 应用服务中创建 Java Web 应用](app-service-web-get-started-java.md)中的说明初始化 [Azure 应用服务][Azure App Service]中的 Java Web 应用后，可通过将 WAR 放置在 **webapps** 文件夹上传应用程序。
 
 **webapps** 文件夹的导航路径因用户设置 Web 应用实例的方式而异。
 
+* 如果使用 Azure Marketplace 设置 Web 应用，则 **webapps** 文件夹的路径格式为 **d:\home\site\wwwroot\bin\application\_server\webapps**，其中 **application\_server** 是对 Web 应用实例起作用的应用服务器的名称。 
 * 如果使用 Azure 配置 UI 设置 Web 应用，则 **webapps** 文件夹的路径格式为 **d:\home\site\wwwroot\webapps**。 
 
 请注意，可使用源代码管理上传应用程序或网页，即使在[连续集成方案](app-service-continuous-deployment.md)中亦是如此。 还可以选择 FTP 上传应用程序或网页；有关通过 FTP 部署应用程序的详细信息，请参阅[使用 FTP 部署应用](app-service-deploy-ftp.md)。

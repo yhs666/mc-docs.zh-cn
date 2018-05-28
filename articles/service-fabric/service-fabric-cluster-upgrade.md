@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/10/2017
-ms.date: 04/30/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1eed8df44b037dbd8b796d0badec131c8c358a31
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: ec0d33ce7e125acfba0708d6f477adaf427c2ad4
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>升级 Azure Service Fabric 群集
 > [!div class="op_single_selector"]
@@ -33,6 +33,7 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>控制群集中运行的结构版本
 可以将群集设置为 21ViaNet 发布自动结构升级时接收该升级，也可以选择想要群集安装的受支持结构版本。
+<!-- Notice: Change Microsoft to 21ViaNet -->
 
 为此，请门户上设置“upgradeMode”群集配置，或者在创建时或稍后在实时群集上使用 Resource Manager 进行设置。 
 

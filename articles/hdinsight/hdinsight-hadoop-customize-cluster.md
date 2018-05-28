@@ -1,8 +1,8 @@
 ---
-title: "使用脚本操作自定义 HDInsight 群集 - Azure | Azure"
-description: "了解如何使用脚本操作自定义 HDInsight 群集。"
+title: 使用脚本操作自定义 HDInsight 群集 - Azure | Azure
+description: 了解如何使用脚本操作自定义 HDInsight 群集。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,16 +12,16 @@ ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 10/05/2016
 ms.date: 12/25/2017
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 759fd872eae0342aa3138c2f6a51fbea2bd87f69
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 5fbf8025cfedc778bbaef298745668994596cf0f
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>使用脚本操作自定义基于 Windows 的 HDInsight 群集
 在创建群集的过程中，可以使用脚本操作来调用[自定义脚本](hdinsight-hadoop-script-actions.md)，以便在群集上安装其他软件。
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/15/2017
 本文中的信息特定于基于 Windows 的 HDInsight 群集。 有关基于 Linux 的群集，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 也可以使用多种其他方法来自定义 HDInsight 群集，例如包含其他 Azure 存储帐户、更改 Hadoop 配置文件（core-site.xml、hive-site.xml 等），或者将共享库（例如 Hive、Oozie）添加到群集中的共同位置。 这些自定义可以通过使用 Azure PowerShell、Azure HDInsight .NET SDK 或 Azure 门户来完成。 有关详细信息，请参阅 [在 HDInsight 中创建 Hadoop 群集][hdinsight-provision-cluster]。
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 12/15/2017
 >
 >
 
-脚本的输出以及错误日志文件存储在为群集指定的默认存储帐户中。 这些日志存储在名为 u<\cluster-name-fragment><\time-stamp>setuplog 的表中。 这是从群集中所有节点上（头节点和辅助节点）运行的脚本聚合的日志文件。
+脚本的输出以及错误日志文件存储在为群集指定的默认存储帐户中。 这些日志存储在名为 **u<\cluster-name-fragment><\time-stamp>setuplog** 的表中。 这是从群集中所有节点上（头节点和辅助节点）运行的脚本聚合的日志文件。
 
 每个群集可接受多个脚本操作，这些脚本依其指定顺序被调用。 脚本可在头节点和/或辅助节点上运行。
 
 HDInsight 提供了多个脚本用于在 HDInsight 群集上安装以下组件：
 
-| 名称 | 脚本 |
+| Name | 脚本 |
 | --- | --- |
 | **安装 Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1。 请参阅 [在 HDInsight 群集上安装并使用 Spark][hdinsight-install-spark]。 |
 | **安装 R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1。 请参阅 [在 HDInsight 群集上安装并使用 R][hdinsight-install-r]。 |
@@ -71,13 +71,13 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装以下组件�
 
     <table border='1'>
         <tr><th>属性</th><th>值</th></tr>
-        <tr><td>名称</td>
+        <tr><td>Name</td>
             <td>指定脚本操作的名称。</td></tr>
         <tr><td>脚本 URI</td>
             <td>指定要调用来自定义群集的脚本的 URI。 s</td></tr>
         <tr><td>头节点/辅助节点</td>
             <td>指定在其上运行自定义脚本的节点（头节点或辅助角色节点）</b>。
-        <tr><td>Parameters</td>
+        <tr><td>parameters</td>
             <td>根据脚本的需要，请指定参数。</td></tr>
     </table>
 
@@ -290,7 +290,8 @@ Azure HDInsight 服务是一个弹性平台，可让你使用围绕着 Hadoop �
 HDInsight 服务中有两种类型的开放源代码组件：
 
 * **内置组件** - 这些组件预先安装在 HDInsight 群集上，并提供在群集的核心功能。 例如，Yarn ResourceManager、Hive 查询语言 (HiveQL) 及 Mahout 库均属于此类别。 [HDInsight 提供的 Hadoop 群集版本有哪些新功能？](hdinsight-component-versioning.md)</a>中提供了群集组件的完整列表。
-* **自定义组件** - 作为群集用户，可以安装，或者在工作负荷中使用由社区提供或自己创建的任何组件。
+* 
+            **自定义组件** - 作为群集用户，可以安装，或者在工作负荷中使用由社区提供的或自己创建的任何组件。
 
 完全支持内置组件，Azure 支持部门帮助找出并解决与这些组件相关的问题。
 

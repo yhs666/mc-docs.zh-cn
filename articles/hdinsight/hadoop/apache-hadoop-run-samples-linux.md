@@ -1,9 +1,9 @@
 ---
-title: "运行 HDInsight 上的 Hadoop MapReduce 示例 - Azure | Azure"
-description: "开始使用 HDInsight 包含的 jar 文件中的 MapReduce 示例。 使用 SSH 连接到群集，然后使用 Hadoop 命令运行示例作业。"
-keywords: "hadoop 示例 jar,hadoop 示例 jar,hadoop mapreduce 示例,mapreduce 示例"
+title: 运行 HDInsight 上的 Hadoop MapReduce 示例 - Azure | Azure
+description: 开始使用 HDInsight 包含的 jar 文件中的 MapReduce 示例。 使用 SSH 连接到群集，然后使用 Hadoop 命令运行示例作业。
+keywords: hadoop 示例 jar,hadoop 示例 jar,hadoop mapreduce 示例,mapreduce 示例
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -14,15 +14,15 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 12/01/2017
-ms.date: 12/18/2017
+ms.topic: conceptual
+origin.date: 02/20/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0ae6fa899b7413139075498fda4779f54070d6ec
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: e42a26d2e59161edc2aa3dd4ea8b5065b3f8479c
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>运行 HDInsight 包含的 MapReduce 示例
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/08/2017
 * **HDInsight 群集**：请参阅[在 Linux 上的 HDInsight 中开始将 Hadoop 与 Hive 配合使用](apache-hadoop-linux-tutorial-get-started.md)
 
     > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+    > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * **SSH 客户端**：有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 12/08/2017
     hdfs dfs -cat /example/data/davinciwordcount/*
     ```
 
-    此命令将连接通过该作业生成的所有输出文件。 它将输出显示到控制台。 输出与以下文本类似：
+    此命令连接通过该作业生成的所有输出文件。 它将输出显示到控制台。 输出与以下文本类似：
 
         zum     1
         zur     1
@@ -188,7 +188,7 @@ GraySort 是一种基准排序。 该指标是在给大量数据（通常至少 
 
 * **TeraValidate**：一个 MapReduce 程序，用于验证输出是否已全局排序
 
-    它在输出目录中对于每个文件创建一个映射，每个映射都确保每个键均小于或等于前一个键。 此映射函数生成每个文件第一个和最后一个键的记录。 化简函数确保文件 i 的第一个键大于文件 i-1 的最后一个键。 任何问题都会报告为包含故障键的化简阶段的输出结果。
+    它在输出目录中为每个文件创建一个映射，每个映射都确保每个键均小于或等于前一个键。 此映射函数生成每个文件第一个和最后一个键的记录。 化简函数确保文件 i 的第一个键大于文件 i-1 的最后一个键。 任何问题都会报告为包含故障键的化简阶段的输出结果。
 
 使用以下步骤来生成数据，排序，并对输出进行验证：
 

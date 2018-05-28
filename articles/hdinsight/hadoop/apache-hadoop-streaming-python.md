@@ -1,28 +1,28 @@
 ---
-title: "使用 HDInsight 开发 Python 流式处理 MapReduce 作业 - Azure | Azure"
-description: "了解如何在流式处理 MapReduce 作业中使用 Python。 Hadoop 为 MapReduce 提供了流式处理 API，以便用 Java 以外的语言编写。"
+title: 使用 HDInsight 开发 Python 流式处理 MapReduce 作业 - Azure | Azure
+description: 了解如何在流式处理 MapReduce 作业中使用 Python。 Hadoop 为 MapReduce 提供了流式处理 API，以便用 Java 以外的语言编写。
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/23/2017
-ms.date: 12/18/2017
+origin.date: 04/10/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: 97557e6416919f34041cb8aa1a6a79cfdcf28936
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 4734f85f0d2c4eba582310d2012cfc1a73d98e5e
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>为 HDInsight 开发 Python 流式处理 MapReduce 程序
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/08/2017
 * 基于 Linux 的 HDInsight 上的 Hadoop 群集
 
   > [!IMPORTANT]
-  > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+  > 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * 文本编辑器
 
@@ -260,7 +260,7 @@ switch ($defaultStoreageType)
 
     将 `username` 替换为群集的 SSH 用户名，并将 `clustername` 替换为群集的名称。
 
-    此命令会将两个文件从本地系统复制到头节点。
+    此命令会将文件从本地系统复制到头节点。
 
     > [!NOTE]
     > 如果使用了密码来保护 SSH 帐户，系统会提示输入密码。 如果使用了 SSH 密钥，可能必须使用 `-i` 参数和私钥的路径。 例如，`scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.cn:`。
@@ -302,11 +302,8 @@ switch ($defaultStoreageType)
 
     当 MapReduce 作业运行时，将以百分比形式显示进程。
 
-    ```
-    15/02/05 19:01:04 INFO mapreduce.Job:  map 0% reduce 0%
-    15/02/05 19:01:16 INFO mapreduce.Job:  map 100% reduce 0%
-    15/02/05 19:01:27 INFO mapreduce.Job:  map 100% reduce 100%
-    ```
+        15/02/05 19:01:04 INFO mapreduce.Job:  映射 0% 化简 0%    15/02/05 19:01:16 INFO mapreduce.Job:  映射 100% 化简 0%    15/02/05 19:01:27 INFO mapreduce.Job:  映射 100% 化简 100%
+
 
 5. 若要查看输出，请使用以下命令：
 

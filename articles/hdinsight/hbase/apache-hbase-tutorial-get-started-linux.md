@@ -1,27 +1,25 @@
 ---
-title: "HDInsight 上的 HBase 入门示例"
-description: "按照此 Apache HBase 示例，开始在 HDInsight 上使用 Hadoop。 从 HBase shell 创建表，并使用 Hive 查询这些表。"
-keywords: "hbasecommand,hbase 示例"
+title: HDInsight 上的 HBase 入门示例
+description: 按照此 Apache HBase 示例，开始在 HDInsight 上使用 Hadoop。 从 HBase shell 创建表，并使用 Hive 查询这些表。
+keywords: hbasecommand,hbase 示例
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 11/03/2017
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 02/22/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: 519377d6c6634f2bd5394da493e5bc0d49a1e3e7
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: 27220c742727df699f118daa7b321b45c1a48a5c
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight 中的 Apache HBase 入门示例
 

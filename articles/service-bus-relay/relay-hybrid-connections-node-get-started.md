@@ -1,30 +1,31 @@
 ---
-title: "Node 中的 Azure 中继混合连接入门"
-description: "为 Azure 中继混合连接编写 Node.js 控制台应用程序。"
+title: 开始在 Node 中使用 Azure 中继混合连接 Websocket | Microsoft Docs
+description: 为 Azure 中继混合连接 Websocket 编写 Node.js 控制台应用程序
 services: service-bus-relay
 documentationcenter: node
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e44e4867-3cf3-46be-8f8a-7671e2013bc4
 ms.service: service-bus-relay
 ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
-origin.date: 12/20/2017
+origin.date: 05/02/2018
 ms.author: v-yiso
-ms.date: 02/05/2018
-ms.openlocfilehash: aa052e5dce5ce3851e98fbc9af136a5773b4c65f
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 06/04/2018
+ms.openlocfilehash: 069a980b366c0527cc727b81f1d365d1fb78704b
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/26/2018
 ---
-# <a name="get-started-with-relay-hybrid-connections"></a>中继混合连接入门
+# <a name="get-started-with-relay-hybrid-connections-websockets-in-node"></a>开始在 Node 中使用中继混合连接 Websocket
+
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-本教程简单介绍了 [Azure 中继混合连接](relay-what-is-it.md#hybrid-connections)，同时介绍了如何使用 Node.js 创建客户端应用程序，以便将消息发送到相应的侦听器应用程序。 
+本教程简单介绍了 [Azure 中继混合连接](relay-what-is-it.md#hybrid-connections) Websocket 功能，同时介绍了如何使用 Node.js 创建客户端应用程序，以便将 Websocket 消息发送到相应的侦听器应用程序。
 
 ## <a name="what-will-be-accomplished"></a>要完成的任务
 
@@ -47,12 +48,14 @@ ms.lasthandoff: 02/13/2018
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-##<a name="2-create-a-hybrid-connection-using-the-azure-portal"></a> 2.使用 Azure 门户创建混合连接
+## <a name="2-create-a-hybrid-connection-using-the-azure-portal"></a>2.使用 Azure 门户创建混合连接
+
 如果已创建混合连接，请跳转到[创建服务器应用程序](#3-create-a-server-application-listener)部分。
 
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
-##<a name="3-create-a-server-application-listener"></a> 3.创建服务器应用程序（侦听程序）
+## <a name="3-create-a-server-application-listener"></a>3.创建服务器应用程序（侦听程序）
+
 若要侦听和接收来自中继的消息，请编写 Node.js 控制台应用程序。
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]

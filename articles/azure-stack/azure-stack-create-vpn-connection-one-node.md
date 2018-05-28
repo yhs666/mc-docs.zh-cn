@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/10/2017
-ms.date: 04/20/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: scottnap
-ms.openlocfilehash: 3a461e976c05c323d518aca665edcad041aaf851
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: 24fca040d90cc75cb35d47dda7df44903b562ea3
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>在不同 Azure Stack 开发工具包环境中的两个虚拟网络之间创建站点到站点 VPN 连接
 ## <a name="overview"></a>概述
@@ -35,7 +35,7 @@ ms.lasthandoff: 04/23/2018
 若要完成连接配置，请确保在开始之前准备好以下各项：
 
 - 满足[快速入门：评估 Azure Stack 开发工具包](azure-stack-deploy-overview.md)中所述 Azure Stack 开发工具包硬件要求的两台服务器和其他必备组件。 
-- [Azure Stack 开发工具包](https://azure.microsoft.com/en-us/overview/azure-stack/try/)部署包。
+- [Azure Stack 开发工具包](https://azure.microsoft.com/overview/azure-stack/try/)部署包。
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>部署 Azure Stack 开发工具包环境
 若要完成连接配置，必须部署两个 Azure Stack 开发工具包环境。

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 10/15/2017
-ms.date: 04/30/2018
+origin.date: 04/16/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1205bdfbcee9aca25af87cf79dc306841e305999
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 976903e609f78a44ec5cf5ca515a57a16b57b636
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="performance-metrics"></a>性能指标
 
@@ -76,13 +76,13 @@ Service Fabric 生成大量自定义性能计数器。 如果已安装 SDK，可
 
 在要部署到群集的应用程序中，如果使用的是 Reliable Actors，请添加 `Service Fabric Actor` 和 `Service Fabric Actor Method` 类别的计数器（请参阅 [Service Fabric Reliable Actors 诊断](service-fabric-reliable-actors-diagnostics.md)）。
 
-如果使用服务远程处理，同样可以添加 `Service Fabric Service` 和 `Service Fabric Service Method` 计数器类别来收集计数器。 
+如果使用 Reliable Services，同样可以添加 `Service Fabric Service` 和 `Service Fabric Service Method` 计数器类别来收集计数器。 
 
 如果使用 Reliable Collections，建议通过 `Service Fabric Transactional Replicator` 添加 `Avg. Transaction ms/Commit`，以收集每个事务指标的平均提交延迟。
 
 ## <a name="next-steps"></a>后续步骤
 
 * 详细了解 Service Fabric 中的[平台级事件生成情况](service-fabric-diagnostics-event-generation-infra.md)
-* 通过 [Azure 诊断](service-fabric-diagnostics-event-aggregation-wad.md)收集性能指标
+<!-- Not Available on [OMS Agent](service-fabric-diagnostics-oms-agent.md)-->
 
-<!--Update_Description: update meta properties  -->
+<!--Update_Description: update meta properties, update link  -->

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 299d1f97-1ca9-440d-9f81-d1d0dd2bf4df
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/07/2017
-ms.date: 04/09/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: df8b234c23e0f382b3ad2690c08c030141efab2b
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: d04623537da7d8f378a2bc574f4a6960e7b80970
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Service Fabric 应用程序和后续步骤
 已创建 Azure Service Fabric 应用程序。 本指南介绍一些可以尝试阅读的教程、项目构成、你可能感兴趣的其他信息，以及可能的后续步骤。
@@ -72,4 +72,4 @@ Service Fabric 应用程序由不同的服务组成，其中每个服务执行�
 - [在 Azure 中创建 Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
 - 使用 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 可视化群集，包括已部署的应用程序和物理布局。
 - [对服务进行版本控制和升级](service-fabric-application-upgrade-tutorial.md)
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update meta properties  -->

@@ -1,23 +1,23 @@
 ---
-title: "如何在 Azure Service Fabric 中使用参数来指定服务的端口号 | Azure"
-description: "演示如何在 Service Fabric 中使用参数来指定应用程序的端口"
+title: 如何在 Azure Service Fabric 中使用参数来指定服务的端口号 | Azure
+description: 演示如何在 Service Fabric 中使用参数来指定应用程序的端口
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/06/2017
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: daabcec2d689fb434714d24e38aef8d13bb7fdb7
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 5cb20e5709a69b3e6553ab22319a7bdf25c3230c
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>如何在 Service Fabric 中使用参数来指定服务的端口号
 
@@ -92,5 +92,4 @@ ms.lasthandoff: 03/08/2018
 若要详细了解本文中讨论的一些核心概念，请参阅文章[管理多个环境的应用程序](service-fabric-manage-multiple-environment-app-configuration.md)。
 
 有关 Visual Studio 中其他可用应用管理功能的信息，请参阅[在 Visual Studio 中管理 Service Fabric 应用程序](service-fabric-manage-application-in-visual-studio.md)。
-<!-- Update_Description: new articles on service fabric how to specify port number using parameters  -->
-<!--ms.date: 03/12/2018-->
+<!-- Update_Description: update meta properties -->

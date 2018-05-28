@@ -1,26 +1,26 @@
 ---
-title: "Service Fabric CLI 脚本示例 - 列出群集上的应用程序"
-description: "Service Fabric CLI 脚本示例 - 列出 Service Fabric 群集上预配的应用程序。"
+title: Service Fabric CLI 脚本示例 - 列出群集上的应用程序
+description: Service Fabric CLI 脚本示例 - 列出 Service Fabric 群集上预配的应用程序。
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 origin.date: 12/06/2017
-ms.date: 01/01/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.custom: 
-ms.openlocfilehash: 0e79f08a68dde85e36d315973d20207316356106
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.custom: ''
+ms.openlocfilehash: 45835bc712f37179c827da8a3e7ff28d3882014f
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="list-applications-running-in-a-service-fabric-cluster"></a>列出在 Service Fabric 群集中运行的应用程序
 
@@ -46,4 +46,4 @@ sfctl application list
 有关详细信息，请参阅 [Service Fabric CLI 文档](../service-fabric-cli.md)。
 
 在 [Service Fabric CLI 示例](../samples-cli.md)中可找到 Azure Service Fabric 的其他 Service Fabric CLI 示例。
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

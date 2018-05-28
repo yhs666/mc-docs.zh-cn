@@ -1,24 +1,24 @@
 ---
-title: "Azure 应用服务中的 OS 和运行时修补"
-description: "介绍 Azure 应用服务如何更新 OS 和运行时，以及如何获取更新公告。"
+title: Azure 应用服务中的 OS 和运行时修补
+description: 介绍 Azure 应用服务如何更新 OS 和运行时，以及如何获取更新公告。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/02/2018
-ms.date: 03/12/2018
+ms.date: 06/04/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6adf50f12e37dc79fc5f24aad6fc40f0f0e704b7
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 9afa6bba3b23f0e0d5bfebc22231ef43310b93cb
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure 应用服务中的 OS 和运行时修补
 
@@ -94,7 +94,7 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 | Python 版本 | 在 `https://<appname>.scm.azurewebsites.net/DebugConsole` 中的命令提示符下运行以下命令： <br> `python --version` |
 
 > [!NOTE]
-> 访问注册表位置 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`，其中存储了有关[“KB”修补]((https://technet.microsoft.com/security/bulletins.aspx))的信息。该位置已被锁定。
+> 访问注册表位置 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`，其中存储了有关[“KB”修补]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins))的信息。该位置已被锁定。
 >
 >
 

@@ -1,8 +1,8 @@
 ---
-title: "在已加入域的 HDInsight 中配置 Hive 策略 - Azure"
-description: "了解..."
+title: 在已加入域的 HDInsight 中配置 Hive 策略 - Azure
+description: 了解...
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: saurinsh
 manager: jhubbard
 editor: cgronlun
@@ -11,17 +11,17 @@ ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 10/25/2016
-ms.date: 03/12/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3681fe6ad68295c42a74ef391ea1abcdde94b94b
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 6099f6921728b246bf4792b168f760a51f48ab2e
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>在已加入域的 HDInsight 中配置 Hive 策略
 了解如何为 Hive 配置 Apache Ranger 策略。 本文涉及创建两个 Ranger 策略来限制对 hivesampletable 的访问。 hivesampletable 随 HDInsight 群集提供。 配置这些策略后，可以使用 Excel 和 ODBC 驱动程序连接到 HDInsight 中的 Hive 表。
@@ -46,10 +46,10 @@ ms.lasthandoff: 03/02/2018
     目前，Ranger 仅适用于 Yarn 和 Hive。
 
 ## <a name="create-domain-users"></a>创建域用户
-在 [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md#optional-create-ad-users-and-groups)（配置已加入域的 HDInsight 群集）教程中，已创建 hiveruser1 和 hiveuser2。 本教程会使用这两个用户帐户。
+请参阅[创建已加入域的 HDInsight 群集](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster)，了解如何创建 hiveruser1 和 hiveuser2。 本教程会使用这两个用户帐户。
 
 ## <a name="create-ranger-policies"></a>创建 Ranger 策略
-本部分将创建用于访问 hivesampletable 的两个 Ranger 策略。 提供对不同列组的 select 权限。 这两个用户是在 [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md#optional-create-ad-users-and-groups)（配置已加入域的 HDInsight 群集）教程中创建的。  在下一部分中，会在 Excel 中测试这两个策略。
+本部分将创建用于访问 hivesampletable 的两个 Ranger 策略。 提供对不同列组的 select 权限。 这两个用户是在[创建已加入域的 HDInsight 群集](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster)教程中创建的。 在下一部分中，会在 Excel 中测试这两个策略。
 
 **创建 Ranger 策略**
 

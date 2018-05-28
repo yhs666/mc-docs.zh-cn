@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/23/2018
-ms.date: 04/23/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 76c76aebbb7dfb5ab88837588bcdd47c1af43017
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 2c7665f641f5c34eb84c087993b6d79e458a48f9
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>远程连接到虚拟机规模集实例或群集节点
 在 Azure 中运行的 Service Fabric 群集中，定义的每个群集节点类型都会[设置虚拟机单独规模](service-fabric-cluster-nodetypes.md)。  可以远程连接到特定规模集实例（或群集节点）。  不同于单实例 VM，规模集实例本身没有虚拟 IP 地址。 可能很难找到可用来远程连接到特定实例的 IP 地址和端口。
@@ -69,5 +69,4 @@ ms.lasthandoff: 04/23/2018
 [LBBlade]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/LBBlade.png
 [NATRules]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/NATRules.png
 [RDP]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/RDP.png
-<!-- Update_Description: new articles on service fabric remote connect to azure cluster node -->
-<!--ms.date: 04/23/2018-->
+<!-- Update_Description: update meta properties -->

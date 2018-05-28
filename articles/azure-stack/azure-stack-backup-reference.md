@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/15/2017
-ms.date: 03/01/2018
+origin.date: 04/20/2017
+ms.date: 05/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: b08b5cbb895ab6f25bf168113d7fe8635d9c4d86
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.reviewer: hectorl
+ms.openlocfilehash: f5c9eb2e29b1d3e49b2f8721b0d52bd1862886e5
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="infrastructure-backup-service-reference"></a>基础结构备份服务参考
 
@@ -120,3 +121,4 @@ Azure Stack 由许多服务构成，其中包括门户、Azure 资源管理器�
 
  - 若要详细了解基础结构备份服务，请参阅[使用基础结构备份服务对 Azure Stack 进行备份和数据恢复](azure-stack-backup-infrastructure-backup.md)。
 
+<!-- Update_Description: update metedata properties -->

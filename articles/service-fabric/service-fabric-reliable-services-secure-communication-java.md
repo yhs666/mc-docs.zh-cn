@@ -1,24 +1,24 @@
 ---
-title: "在 Azure Service Fabric 中帮助保护服务的通信 | Azure"
-description: "概述如何帮助保护在 Azure Service Fabric 群集中运行的 Reliable Services 的通信。"
+title: 在 Azure Service Fabric 中帮助保护服务的通信 | Azure
+description: 概述如何帮助保护在 Azure Service Fabric 群集中运行的 Reliable Services 的通信。
 services: service-fabric
 documentationcenter: java
 author: rockboyfor
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 06/30/2017
-ms.date: 01/01/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: e4c39a7b62fdff164f341ce94cea7c896b142b59
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 1894331ab2772262b93d56fb1cdfe58e7a66ca78
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>在 Azure Service Fabric 中帮助保护服务的通信
 > [!div class="op_single_selector"]

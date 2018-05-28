@@ -1,8 +1,8 @@
 ---
-title: "优化 Azure HDInsight 中的 Hive 查询 | Azure"
-description: "了解如何为 HDInsight 中的 Hadoop 优化 Hive 查询。"
+title: 优化 Azure HDInsight 中的 Hive 查询 | Azure
+description: 了解如何为 HDInsight 中的 Hadoop 优化 Hive 查询。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,17 +11,17 @@ ms.assetid: d6174c08-06aa-42ac-8e9b-8b8718d9978e
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/03/2016
-ms.date: 12/25/2017
+origin.date: 02/22/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
-ms.openlocfilehash: f313a778f90467711723ee77bcf8cc3001912fed
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 74f0f405519e37d1505c320259760e529b591487
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>优化 Azure HDInsight 中的 Hive 查询
 
@@ -90,7 +90,8 @@ Hive 分区的实现方法是将原始数据刷新成新的目录，而每个分
 
 创建分区表后，可以创建静态分区或动态分区。
 
-* **静态分区**表示已在相应目录中创建了分片数据，可以请求根据目录位置在 Hive 中手动分区。 以下代码片段是一个示例。
+* 
+            **静态分区** 表示已在相应目录中创建了分片数据，可以请求根据目录位置在 Hive 中手动分区。 以下代码片段是一个示例。
 
         INSERT OVERWRITE TABLE lineitem_part
         PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM')
@@ -99,7 +100,8 @@ Hive 分区的实现方法是将原始数据刷新成新的目录，而每个分
 
         ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM'))
         LOCATION 'wasb://sampledata@ignitedemo.blob.core.chinacloudapi.cn/partitions/5_23_1996/'
-* **动态分区**表示希望 Hive 自动创建分区。 由于已基于暂存表创建了分区表，因此需要做的就是将数据插入分区表：
+* 
+            **动态分区** 表示希望 Hive 自动创建分区。 由于已基于暂存表创建了分区表，因此需要做的就是将数据插入分区表：
 
         SET hive.exec.dynamic.partition = true;
         SET hive.exec.dynamic.partition.mode = nonstrict;
@@ -164,7 +166,7 @@ ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。 与其�
 
 向量化可让 Hive 以批的形式同时处理 1024 行，而不是一次处理一行。 这意味着，简单的操作可以更快地完成，因为需要运行的内部代码更少。
 
-要启用向量化，请在 Hive 查询的前面加上以下设置作为前缀：
+若要启用向量化，请在 Hive 查询的前面加上以下设置作为前缀：
 
     set hive.vectorized.execution.enabled = true;
 
@@ -173,12 +175,12 @@ ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。 与其�
 ## <a name="other-optimization-methods"></a>其他优化方法
 还可以考虑使用其他一些高级优化方法，例如：
 
-* **Hive 存储桶：**将大型数据集群集化或分段以优化查询性能的技术。
+* **Hive 存储桶：** 将大型数据集群集化或分段以优化查询性能的技术。
 * **联接优化：** Hive 的查询执行计划优化，可改善联接的效率并减少用户提示的需要。 有关详细信息，请参阅 [联接优化](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization)。
 * **增加化简器**。
 
 ## <a name="next-steps"></a>后续步骤
-在本文中，已学习了几种常见的 Hive 查询优化方法。 要了解更多信息，请参阅下列文章：
+在本文中，学习了几种常见的 Hive 查询优化方法。 要了解更多信息，请参阅下列文章：
 
 * [使用 HDInsight 中的 Apache Hive](hadoop/hdinsight-use-hive.md)
 * [使用 HDInsight 中的 Hive 分析航班延误数据](hdinsight-analyze-flight-delay-data.md)

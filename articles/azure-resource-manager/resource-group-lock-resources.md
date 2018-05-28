@@ -3,7 +3,7 @@ title: 锁定 Azure 资源以防止更改 | Azure
 description: 通过对所有用户和角色应用锁，来防止用户更新或删除关键 Azure 资源。
 services: azure-resource-manager
 documentationcenter: ''
-author: rockboyfor
+author: luanmafeng
 manager: digimobile
 editor: tysonn
 ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2018
-ms.date: 04/30/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 208eeabcc2be9bbaa6475f864e3b13c47e3e4e28
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 22d3d8fdcd9f14edfd5ba1c6d64dc3dd753f123c
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>锁定资源，以防止意外更改 
 
@@ -49,7 +49,7 @@ Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "hostingPlanName": {

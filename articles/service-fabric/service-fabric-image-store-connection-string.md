@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 00f8059d-9d53-4cb8-b44a-b25149de3030
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/27/2018
-ms.date: 04/09/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: e27a4f030b3402c84a476be9072072b18e6ec4ca
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: 2b29e8290afecc45ab36ca8426feedbad72b4841
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>了解 ImageStoreConnectionString 设置
 
@@ -62,4 +62,4 @@ Service Fabric 一开始被许多不同的团队用作 Microsoft 内部消耗平
 [11]: service-fabric-cluster-creation-via-portal.md
 [12]: service-fabric-package-apps.md#create-an-sfpkg
 
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update meta properties  -->

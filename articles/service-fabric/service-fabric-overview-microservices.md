@@ -1,25 +1,25 @@
 ---
-title: "Azure 微服务简介 | Azure"
-description: "概述了为何使用微服务方法生成云应用程序对于开发现代应用程序非常重要，以及 Azure Service Fabric 如何提供一个平台来实现此目的。"
+title: Azure 微服务简介 | Azure
+description: 概述了为何使用微服务方法生成云应用程序对于开发现代应用程序非常重要，以及 Azure Service Fabric 如何提供一个平台来实现此目的。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/02/2017
-ms.date: 12/04/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: ec299c67e3bb27bb8c9e01884e811b9194dfc085
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 3759a54ecac1a8e5ca87f2ab4c7db2deedebcb03
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>为什么通过微服务的方法生成应用程序？
 作为软件开发人员，我们已知道思考如何将应用程序因数分解成组件部分。 这是对象导向、软件抽象和组件化的中心模式。 现在，这种因数分解往往以共享库和技术层之间的类与接口呈现。 后端存储、中间层业务逻辑和前端用户界面 (UI) 通常采用一种分层方法。 过去几年来 *的* 变化是身为开发人员的我们开始为业务驱动的云生成分布式应用程序。
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/01/2017
 
 简而言之，微服务设计方法是分离的服务联合，各自独立更改，并达成一致的通信标准。
 
-随着越来越多云应用的生成，人们发现从长远来看，这种将整体应用分解成独立、方案焦点式服务的做法是较好的方法。
+随着越来越多云应用的生成，人们发现这种将整体应用分解成独立、方案焦点式服务的做法，在长期上是较好的方法。
 
 ## <a name="comparison-between-application-development-approaches"></a>应用程序开发方法的比较
 ![Service Fabric 平台应用程序开发][Image1]
@@ -62,11 +62,11 @@ ms.lasthandoff: 12/01/2017
 
 2) 单一式应用可通过复制到多个服务器/虚拟机/容器上进行扩展。
 
-3) 微服务应用程序将单个功能分隔成单个较小的服务。
+3) 微服务应用程序将单独功能分隔成单独的较小服务。
 
 4) 微服务方法可通过独立部署每个服务而扩大，跨服务器/虚拟机/容器创建这些服务的实例。
 
-使用微服务方法进行设计并非所有项目的灵丹妙药，但确实更符合前面所述的业务目标。 如果确定以后有机会根据微服务设计重写代码，可以从单一式方法入手。 更常见的是，从单一式应用程序入手，分阶段慢慢分解它（从需要提高可缩放性或敏捷性的功能区域开始）。
+使用微服务方法进行设计并非适用于所有项目，但确实更符合前面所述的业务目标。 如果确定以后有机会根据微服务设计重写代码，可以从单一式方法入手。 更常见的是，从单一式应用程序入手，分阶段慢慢分解它（从需要提高可缩放性或敏捷性的功能区域开始）。
 
 总而言之，微服务方法是以许多小服务来组成应用程序。 这些服务在部署于计算机群集上的容器中运行。 较小的团队可针对方案来开发服务，且每个服务独立进行测试、版本控制、部署和缩放，因此整个应用程序可以不断改进。
 
@@ -93,7 +93,7 @@ ms.lasthandoff: 12/01/2017
 选择技术之后，接下来的课题就是服务的操作或生命周期管理和缩放。
 
 ### <a name="allows-code-and-state-to-be-independently-versioned-deployed-and-scaled"></a>允许独立控制版本、部署及缩放的代码和状态
-无论选择何种方式编写微服务，代码和（可选）状态都应该独立部署、升级和缩放。 这确实是更难以解决的一项问题，因为这归根到底是技术选择问题。 在缩放方面，难以了解如何分区（或分片）代码和状态。 当代码和状态使用不同的技术时（目前的普遍情况），微服务的部署脚本必须能够妥善缩放两者。 这也关乎到灵活性和弹性，以便可以升级某些微服务，而无需一次性全部升级。
+无论选择何种方式编写微服务，代码和（可选）状态都应该独立部署、升级和缩放。 这确实是难以解决的问题之一，因为这涉及到所选的技术。 在缩放方面，难以了解如何分区（或分片）代码和状态。 当代码和状态使用不同的技术时（目前的普遍情况），微服务的部署脚本必须能够妥善缩放两者。 这也关乎到灵活性和弹性，以便可以升级某些微服务，而无需一次性全部升级。
 
 暂时回到单一式方法和微服务方法的比较，下图显示了状态存储方法的差异。
 
@@ -114,7 +114,7 @@ ms.lasthandoff: 12/01/2017
 本主题无需花费太多时间，因为过去 10 年来发布了大量关于面向服务的体系结构的文献，其中对通信模式进行了介绍。 一般而言，服务通信使用 REST 方法，并配合 HTTP 与 TCP 协议及 XML 或 JSON 作为序列化格式。 从接口观点来看，这涉及到采用 Web 设计方法。 但是，用户仍然可以使用二进制协议或自己的数据格式。 如果这些协议和格式非公开可用，微服务使用起来就很难，因此要有心理准备。
 
 ### <a name="has-a-unique-name-url-used-to-resolve-its-location"></a>具有用来解析位置的唯一名称 (URL) 
-记得我们一直在说，微服务方法与 Web 有点类似吗？ 就像 Web 一样，微服务无论在何处运行，都必须可寻址。 若要在计算机上运行特定微服务，很快就会陷入困境。 
+记得我们一直在说，微服务与 Web 有点类似吗？ 就像 Web 一样，微服务无论在何处运行，都必须可寻址。 若要在计算机上运行特定微服务，很快就会陷入困境。 
 
 就像 DNS 解析特定计算机的特定 URL 一样，微服务需要有唯一的名称来发现它目前所在的位置。 微服务需要有可寻址的名称才能独立于它们运行所在的基础结构之外。 这意味着服务的部署和发现方式之间互相影响，因为需要有服务注册表。 同样地，当计算机发生故障时，注册服务必须指出服务现在的运行位置。 
 
@@ -176,7 +176,7 @@ Service Fabric 的关键方法是重用现有代码，可以通过新的微服�
 ### <a name="are-microservices-right-for-my-application"></a>微服务适合我的应用程序吗？
 也许。 根据我们的经验，随着 Microsoft 中越来越多团队开始出于商业理由而以云为目标来生成，有许多团队都了解到采用类似微服务的方法所带来的优点。 例如，多年以来，必应一直在搜索方面开发微服务。 微服务方法对于其他团队而言相当新颖。 团队发现需要解决一些疑难问题，但这并非他们的强项。 这就是为什么 Service Fabric 受到重视而成为生成服务的最佳技术。
 
-Service Fabric 的目标是将使用微服务方法构建应用程序时的复杂性降低，使不需要经历许多耗费成本的重新设计工作。 方法是：从小规模开始，按需缩放，淘汰过时服务，添加新服务，根据客户使用情况而不断改进。 我们也知道，还需要解决许多其他问题，才能让微服务更易为大部分开发人员所接受。 容器和执行组件编程模型都是朝此目标前进的一小步，我们确信将涌现出更多的创新来轻松实现目标。
+Service Fabric 的目标是将使用微服务方法生成应用程序时的复杂性降低，使你不需要经历许多耗费成本的重新设计工作。 方法是：从小规模开始，按需缩放，淘汰过时服务，添加新服务，根据客户使用情况而不断改进。 我们也知道，还需要解决许多其他问题，才能让微服务更易为大部分开发人员所接受。 容器和执行组件编程模型都是朝此目标前进的一小步，我们确信将涌现出更多的创新来轻松实现目标。
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
@@ -188,4 +188,4 @@ Service Fabric 的目标是将使用微服务方法构建应用程序时的复�
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 [Image3]: media/service-fabric-overview-microservices/microservices-migration.png
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties -->

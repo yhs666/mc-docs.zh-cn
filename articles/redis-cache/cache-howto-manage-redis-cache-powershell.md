@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure PowerShell 管理 Azure Redis 缓存 | Microsoft Docs"
-description: "了解如何使用 Azure PowerShell 对 Azure Redis 缓存执行管理任务。"
+title: 使用 Azure PowerShell 管理 Azure Redis 缓存 | Microsoft Docs
+description: 了解如何使用 Azure PowerShell 对 Azure Redis 缓存执行管理任务。
 services: redis-cache
-documentationcenter: 
-author: alexchen2016
-manager: digimobile
-editor: 
+documentationcenter: ''
+author: wesmc7777
+manager: cfowler
+editor: ''
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
 ms.workload: tbd
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 12/11/2017
+ms.date: 05/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 94144ccd5a0ceeab013758c79b4e8412f4c17dcb
-ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
+ms.openlocfilehash: 5105e4e293115b276464a652ca693cdecbcc9c32
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Redis 缓存
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/12/2017
 
 首先，必须使用以下命令登录到 Azure。
 
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -Environment AzureChinaCloud
 
 在 Azure 登录对话框中指定 Azure 帐户的电子邮件地址及其密码。
 
@@ -66,14 +66,6 @@ ms.lasthandoff: 12/12/2017
 
     Get-Help New-AzureRmRedisCache -Detailed
 
-### <a name="to-connect-to-the-azure-china-cloud"></a>连接到 Azure 中国云
-若要连接到 Azure 中国云，请使用以下命令之一。
-
-    Add-AzureRMAccount -EnvironmentName AzureChinaCloud
-
-或
-
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
 
 若要在 Azure 中国云中创建缓存，请使用以下位置之一。
 
@@ -87,7 +79,7 @@ ms.lasthandoff: 12/12/2017
 
 | 参数 | 说明 | 默认 |
 | --- | --- | --- |
-| 名称 |缓存的名称 | |
+| Name |缓存的名称 | |
 | 位置 |缓存的位置 | |
 | ResourceGroupName |将在其中创建缓存的资源组名称 | |
 | 大小 |缓存的大小。 有效值为：P1、P2、P3、P4、C0、C1、C2、C3、C4、C5、C6、250MB、1GB、2.5GB、6GB、13GB、26GB、53GB |1GB |
@@ -127,7 +119,7 @@ ms.lasthandoff: 12/12/2017
 > 
 > 
 
-若要查看 `New-AzureRmRedisCache` 的可用参数列表及其说明，请运行以下命令。
+若要查看 `New-AzureRmRedisCache`的可用参数列表及其说明，请运行以下命令。
 
     PS C:\> Get-Help New-AzureRmRedisCache -detailed
 
@@ -462,7 +454,7 @@ ms.lasthandoff: 12/12/2017
 ## <a name="to-regenerate-access-keys-for-your-redis-cache"></a>重新生成 Redis 缓存的访问密钥
 若要重新生成缓存的访问密钥，可以使用 [New-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634512.aspx) cmdlet。
 
-若要查看 `New-AzureRmRedisCacheKey` 的可用参数列表及其说明，请运行以下命令。
+若要查看 `New-AzureRmRedisCacheKey`的可用参数列表及其说明，请运行以下命令。
 
     PS C:\> Get-Help New-AzureRmRedisCacheKey -detailed
 

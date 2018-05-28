@@ -13,13 +13,13 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2018
-ms.date: 04/20/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5281d58ae6aef60721a03c0dced280ec0b0ad4a2
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: a7891dc4187e12360fc554744254eeecb1e512c7
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>在 Azure Stack 中使用 PowerShell 启动并运行
 
@@ -93,7 +93,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
     -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
-  Login-AzureRmAccount `
+  Add-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
     -TenantId $TenantID 
 ```
@@ -159,7 +159,7 @@ $TenantID = Get-AzsDirectoryTenantId `
     -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
-Login-AzureRmAccount `
+Add-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
     -TenantId $TenantID
 ```
@@ -183,4 +183,4 @@ New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 
 - [开发模板](user/azure-stack-develop-templates.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

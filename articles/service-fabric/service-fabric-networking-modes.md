@@ -1,25 +1,25 @@
 ---
-title: "配置 Azure Service Fabric 容器服务的网络模式 | Azure"
-description: "了解如何设置 Azure Service Fabric 支持的不同网络模式。"
+title: 配置 Azure Service Fabric 容器服务的网络模式 | Azure
+description: 了解如何设置 Azure Service Fabric 支持的不同网络模式。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: d39c19543c4b06203ead8e35355ab2c1c85a870c
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: e88cce31dfdda3d350de2075da18cb3ca3c2ccbe
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器网络模式
 

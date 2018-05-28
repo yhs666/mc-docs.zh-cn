@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 的体系结构 | Azure"
-description: "Service Fabric 是一个分布式系统平台，可用于生成面向云的可缩放、易管理的可靠应用程序。 本文介绍 Service Fabric 的体系结构。"
+title: Azure Service Fabric 的体系结构 | Azure
+description: Service Fabric 是一个分布式系统平台，可用于生成面向云的可缩放、易管理的可靠应用程序。 本文介绍 Service Fabric 的体系结构。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -9,17 +9,17 @@ editor: rishirsinha
 ms.assetid: 6b554243-70cb-4c22-9b28-1a8b4703f45e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/12/2017
-ms.date: 12/04/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4a23eaed9b8e7a6de61486fd4c879821ba43a0cf
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: c7be305935fae4cc8f7fc5f6e82228b9304adac9
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="service-fabric-architecture"></a>Service Fabric 体系结构
 Service Fabric 是利用分层子系统而生成的。 这些子系统让你能够编写这样的应用程序：

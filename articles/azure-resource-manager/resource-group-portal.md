@@ -3,7 +3,7 @@ title: 使用 Azure 门户管理 Azure 资源 | Azure
 description: 使用 Azure 门户和 Azure Resource Manager 来管理资源。 说明如何使用仪表板监视资源。
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
-author: rockboyfor
+author: luanmafeng
 manager: digimobile
 editor: tysonn
 ms.assetid: 0725bbf2-5913-4c07-af6e-24e11d957fbc
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/15/2016
-ms.date: 04/30/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 466d2a20ee686f244f2c9f28555e49d521a5bcbf
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 28f0905304c5baf0e4a2908e5884ef412e92957b
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="manage-azure-resources-through-portal"></a>通过门户管理 Azure 资源
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 04/28/2018
 
     若要了解如何使用仪表板，请参阅[在 Azure 门户中创建和共享仪表板](../azure-portal/azure-portal-dashboards.md)。
 
-## <a name="manage-resources"></a> 管理资源
+## <a name="manage-resources"></a>管理资源
 在门户中查看某一资源时，可以看到用于管理该特定资源的选项。
 
 ![管理资源](./media/resource-group-portal/manage-resources.png)

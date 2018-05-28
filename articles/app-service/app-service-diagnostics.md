@@ -1,25 +1,25 @@
 ---
-title: "Azure 应用服务诊断概述"
-description: "了解如何使用应用服务诊断排查 Web 应用的问题。"
-keywords: "应用服务, azure 应用服务, 诊断, 支持, web 应用, 故障排除, 自助服务"
+title: Azure 应用服务诊断概述
+description: 了解如何使用应用服务诊断排查 Web 应用的问题。
+keywords: 应用服务, azure 应用服务, 诊断, 支持, web 应用, 故障排除, 自助服务
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: jen7714
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/10/2017
-ms.date: 03/12/2018
+ms.date: 06/04/2018
 ms.author: v-yiso
-ms.openlocfilehash: b2ff824257e4d021553fdb96cea5b37b6dda9d81
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 7492fc51e57dc2f7a981f34591c5b9363bf4e8bf
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure 应用服务诊断概述 
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 03/02/2018
 
 若要访问应用服务诊断，请在 [Azure 门户](https://portal.azure.cn)中导航到自己的应用服务 Web 应用。 
 
-在左侧导航栏中，单击“诊断并解决问题”。
+对于 Azure Functions，请导航到你的函数应用，在顶部的导航栏中，单击“平台功能”并从“监视”部分中选择“诊断并解决问题”。 
 
 ![主页](./media/app-service-diagnostics/Homepage1.png)
 
@@ -47,13 +47,13 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="tile-shortcuts"></a>磁贴快捷方式
 
-如果你确切地知道需要查找哪种类型的故障排除信息，磁贴快捷方式会将你直接转到所需问题类别的完整诊断报告。 与运行状况检查相比，磁贴快捷方式更直接，但访问诊断指标时，其引导性较差。  
+如果你确切地知道需要查找哪种类型的故障排除信息，磁贴快捷方式会将你直接转到所需问题类别的完整诊断报告。 与运行状况检查相比，磁贴快捷方式更直接，但访问诊断指标时，其引导性较差。 作为磁贴快捷方式的一部分，还可以在此处找到**诊断工具**，它们是更高级的工具，可帮助调查与应用程序代码问题、速度缓慢、连接字符串以及其他内容相关的问题。 
 
 ![磁贴快捷方式](./media/app-service-diagnostics/TileShortcuts4.png)
 
 ## <a name="diagnostic-report"></a>诊断报告
 
-无论是在运行[运行状况检查](#health-checkup)之后想要查看详细信息，还是单击了某个[磁贴快捷方式](#tile-shortcuts)，完整诊断报告都会显示过去 24 小时内的相关图形化指标。 如果应用出现任何停机，时间线下面将以橙色条形的方式呈现此故障。 可以选择某个停机故障，获取有关该故障的分析观测值以及建议的解决方法。 
+无论是在运行[运行状况检查](#health-checkup)之后想要查看详细信息，还是单击了某个[磁贴快捷方式](#tile-shortcuts)，完整诊断报告都会显示过去 24 小时内的相关图形化指标。 如果应用出现任何停机，时间线下面将以橙色条形的方式呈现此故障。 可以选择橙色条形之一来选择故障时间以查看与该故障时间相关的观测数据以及建议的故障排除步骤。 
 
 ![诊断报告](./media/app-service-diagnostics/DiagnosticReport5.png)
 

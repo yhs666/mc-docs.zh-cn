@@ -11,17 +11,17 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-origin.date: 01/23/2018
-ms.date: 04/02/2018
+origin.date: 04/11/2018
+ms.date: 06/04/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 674b4f2844a6883e85f7f9e916ecff90df8c9b60
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 2369ac4957da355de7a6873a6729b811e830030c
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/26/2018
 ---
-# <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>在 Azure 应用服务中生成 .NET Core 和 SQL 数据库 Web 应用
+# <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>教程：在 Azure 应用服务中生成 .NET Core 和 SQL 数据库 Web 应用
 
 
 [应用服务](app-service-web-overview.md)在 Azure 中提供高度可缩放、自修补的 Web 托管服务。 本教程演示如何创建 .NET Core Web 应用，并将其连接至 SQL 数据库。 完成操作后，将拥有一个在应用服务中运行的 .NET Core MVC 应用。
@@ -44,8 +44,8 @@ ms.lasthandoff: 04/23/2018
 
 完成本教程：
 
-1. [安装 Git](https://git-scm.com/)
-1. [安装 .NET Core SDK 1.1.2](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
+* [安装 Git](https://git-scm.com/)
+* [安装 .NET Core](https://www.microsoft.com/net/core/)
 
 ## <a name="create-local-net-core-app"></a>创建本地 .NET Core 应用
 
@@ -130,9 +130,13 @@ az sql server create --name <server_name> --resource-group myResourceGroup --loc
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
+> [!TIP] 
+> 甚至可以让防火墙规则更严格，即[只使用应用所使用的出站 IP 地址](app-service-ip-addresses.md#find-outbound-ips)。
+>
+
 ### <a name="create-a-database"></a>创建数据库
 
-使用 [`az sql db create`](/cli/sql/db?view=azure-cli-latest#az_sql_db_create) 命令在服务器中创建 [S0 性能级别](../sql-database/sql-database-service-tiers.md)的数据库。
+使用 [`az sql db create`](/cli/sql/db?view=azure-cli-latest#az_sql_db_create) 命令在服务器中创建 [S0 性能级别](../sql-database/sql-database-service-tiers-dtu.md)的数据库。
 
 ```azurecli
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -291,7 +295,7 @@ dotnet ef database update
 
 打开 _Controllers\TodosController.cs_。
 
-找到 `Create()` 方法，并将 `Done` 添加到 `Bind` 属性中的属性列表。 完成后，`Create()` 方法签名如以下代码所示：
+找到 `Create([Bind("ID,Description,CreatedDate")] Todo todo)` 方法，并将 `Done` 添加到 `Bind` 属性中的属性列表。 完成后，`Create()` 方法签名如以下代码所示：
 
 ```csharp
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)

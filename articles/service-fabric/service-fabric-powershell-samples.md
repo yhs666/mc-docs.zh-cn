@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
 origin.date: 04/09/2018
-ms.date: 04/30/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a7cb7f392aad7b5328a5934ca971f47c3a4f6e3f
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: b88a9e520cb7ebcd086f5b3594b21d3e2599758d
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 示例
 

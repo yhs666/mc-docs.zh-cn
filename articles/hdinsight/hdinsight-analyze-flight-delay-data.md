@@ -1,8 +1,8 @@
 ---
-title: "使用 HDInsight 中的 Hadoop 分析航班延误数据 - Azure | Azure"
-description: "了解如何使用单个 Windows PowerShell 脚本来创建 HDInsight 群集、运行 Hive 作业、运行 Sqoop 作业和删除群集。"
+title: 使用 HDInsight 中的 Hadoop 分析航班延误数据 - Azure | Azure
+description: 了解如何使用单个 Windows PowerShell 脚本来创建 HDInsight 群集、运行 Hive 作业、运行 Sqoop 作业和删除群集。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,16 @@ ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 12/25/2017
-ms.author: v-dazen
+ms.date: 05/28/2018
+ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4e76633bd2941b3a402c391bbebaa5ab078fd267
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: efd81b051c47a6102b621854ad57d1a013ca5b69
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>使用 HDInsight 中的 Hive 分析航班延误数据
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/15/2017
 Hive 提供了通过类似 SQL 的脚本语言（称为 [HiveQL][hadoop-hiveql]）运行 Hadoop MapReduce 作业的方法，此方法可用于对大量数据进行汇总、查询和分析。
 
 > [!IMPORTANT]
-> 本文档中的步骤要求使用基于 Windows 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 有关适用于基于 Linux 的群集的步骤，请参阅[在 HDInsight (Linux) 中使用 Hive 分析航班延误数据](hdinsight-analyze-flight-delay-data-linux.md)。
+> 本文档中的步骤要求使用基于 Windows 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 有关适用于基于 Linux 的群集的步骤，请参阅[在 HDInsight (Linux) 中使用 Hive 分析航班延误数据](hdinsight-analyze-flight-delay-data-linux.md)。
 
 Azure HDInsight 的主要优势之一就是隔离数据存储和计算。 HDInsight 将 Azure Blob 存储用于数据存储。 典型的作业包含三部分：
 
@@ -261,7 +261,7 @@ Hadoop MapReduce 属于批处理。 运行 Hive 作业时，最具成本效益�
 2. 在该页面上，选择以下值：
 
     <table border="1">
-    <tr><th>名称</th><th>值</th></tr>
+    <tr><th>Name</th><th>值</th></tr>
     <tr><td>筛选年份</td><td>2013 </td></tr>
     <tr><td>筛选期间</td><td>1 月</td></tr>
     <tr><td>字段</td><td>Year、FlightDate、UniqueCarrier、Carrier、FlightNum、OriginAirportID、Origin、OriginCityName、OriginState、DestAirportID、Dest、DestCityName、DestState、DepDelayMinutes、ArrDelay、ArrDelayMinutes、CarrierDelay、WeatherDelay、NASDelay、SecurityDelay 、LateAircraftDelay（清除其他所有字段）</td></tr>
@@ -276,7 +276,7 @@ Hadoop MapReduce 属于批处理。 运行 Hive 作业时，最具成本效益�
 1. 准备参数：
 
     <table border="1">
-    <tr><th>变量名</th><th>说明</th></tr>
+    <tr><th>变量名</th><th>注释</th></tr>
     <tr><td>$storageAccountName</td><td>数据上传的目标 Azure 存储帐户。</td></tr>
     <tr><td>$blobContainerName</td><td>数据上传的目标 Blob 容器。</td></tr>
     </table>
@@ -362,17 +362,17 @@ Hadoop MapReduce 属于批处理。 运行 Hive 作业时，最具成本效益�
 > [!NOTE]
 > 必须更新 Hive 查询，才能从新位置进行读取。
 >
-> 必须配置容器访问权限，使其成为公用，或者将存储帐户绑定到 HDInsight 群集。 否则，Hive 查询字符串将无法访问数据文件。
+> 必须配置容器访问权限，使其成为公用，或者将存储帐户绑定到 HDInsight 群集。 否则，Hive 查询字符串无法访问数据文件。
 
 - - -
 
 ## <a id="appendix-b"></a>附录 B - 创建并上传 HiveQL 脚本
-使用 Azure PowerShell，可一次运行多个 HiveQL 语句，或者将 HiveQL 语句打包到一个脚本文件中。 本部分说明如何创建 HiveQL 脚本，以及使用 Azure PowerShell 将脚本上传到 Azure Blob 存储。 Hive 要求 HiveQL 脚本必须存储在 Azure Blob 存储中。
+使用 Azure PowerShell，可一次运行多个 HiveQL 语句，或者将 HiveQL 语句打包到一个脚本文件中。 本部分说明如何创建 HiveQL 脚本，以及如何使用 Azure PowerShell 将脚本上传到 Azure Blob 存储。 Hive 要求 HiveQL 脚本必须存储在 Azure Blob 存储中。
 
-HiveQL 脚本将执行以下操作：
+HiveQL 脚本执行以下操作：
 
 1. 删除 delays_raw 表（如果该表已存在）。
-2. 创建 delays_raw 外部 Hive 表，并将该表指向航班延误文件所在的 Blob 存储位置。 此查询指定用“,”分隔字段并用“\n”终止行。 这在字段值包含逗号时将导致出现问题，因为 Hive 无法区分逗号是字段分隔符还是字段值的一部分（在 ORIGIN\_CITY\_NAME 和 DEST\_CITY\_NAME 的字段值中属于此情况）。 为了解决此问题，此查询将创建 TEMP 列来保存未正确拆分到列中的数据。
+2. 创建 delays_raw 外部 Hive 表，并将该表指向航班延误文件所在的 Blob 存储位置。 此查询指定用“,”分隔字段并用“\n”终止行。 这在字段值包含逗号时将导致出现问题，因为 Hive 无法区分逗号是字段分隔符还是字段值的一部分（在 ORIGIN\_CITY\_NAME 和 DEST\_CITY\_NAME 的字段值中属于此情况）。 为了解决此问题，此查询创建 TEMP 列来保存未正确拆分到列中的数据。
 3. **删除 delays 表**（如果该表已存在）。
 4. **创建 delays 表**。 这适用于在进一步处理前清理数据。 此查询将从 delays_raw 表创建一个新表 delays。 请注意，将不会复制 TEMP 列（如前所述），并且将使用 substring 函数从数据中删除引号标记。
 5. **计算平均天气延迟，并按城市名对结果进行分组。** 它还会将结果输出到 Blob 存储。 请注意，查询将从数据中删除撇号，并且将排除 weather_delay 的值为 null 的行。 由于本教程中稍后使用的 Sqoop 在默认情况下无法适当地处理这些值，因此这是必要的。
@@ -384,7 +384,7 @@ HiveQL 脚本将执行以下操作：
 1. 准备参数：
 
     <table border="1">
-    <tr><th>变量名</th><th>说明</th></tr>
+    <tr><th>变量名</th><th>注释</th></tr>
     <tr><td>$storageAccountName</td><td>HiveQL 脚本上传的目标 Azure 存储帐户。</td></tr>
     <tr><td>$blobContainerName</td><td>HiveQL 脚本上传的目标 Blob 容器。</td></tr>
     </table>
@@ -571,7 +571,7 @@ HiveQL 脚本将执行以下操作：
 1. 准备参数：
 
     <table border="1">
-    <tr><th>变量名</th><th>说明</th></tr>
+    <tr><th>变量名</th><th>注释</th></tr>
     <tr><td>$sqlDatabaseServerName</td><td>Azure SQL 数据库服务器的名称。 不输入任何值会创建新的服务器。</td></tr>
     <tr><td>$sqlDatabaseUsername</td><td>Azure SQL 数据库服务器登录名。 如果 $sqlDatabaseServerName 是现有的服务器，登录名和登录密码将用来向服务器进行身份验证。 否则将其用于创建新的服务器。</td></tr>
     <tr><td>$sqlDatabasePassword</td><td>Azure SQL 数据库服务器登录密码。</td></tr>
@@ -704,11 +704,11 @@ HiveQL 脚本将执行以下操作：
     ```
 
    > [!NOTE]
-   > 该脚本使用表述性状态转移 (REST) 服务 (http://bot.whatismyipaddress.com) 来检索外部 IP 地址。 IP 地址用于创建 SQL 数据库服务器的防火墙规则。
+   > 该脚本使用具象状态传输 (REST) 服务 http://bot.whatismyipaddress.com 来检索外部 IP 地址。 IP 地址用于创建 SQL 数据库服务器的防火墙规则。
 
     该脚本中使用的某些变量：
 
-   * $ipAddressRestService - 默认值是 http://bot.whatismyipaddress.com。这是用来获取外部 IP 地址的公共 IP 地址 REST 服务。 可根据需要使用其他服务。 使用此服务检索的外部 IP 地址将用于创建 Azure SQL 数据库服务器的防火墙规则，使用户能够从工作站访问数据库（通过 Windows PowerShell 脚本）。
+   * **$ipAddressRestService** - 默认值为 http://bot.whatismyipaddress.com。这是用来获取外部 IP 地址的公共 IP 地址 REST 服务。 可根据需要使用其他服务。 使用此服务检索的外部 IP 地址将用于创建 Azure SQL 数据库服务器的防火墙规则，使用户能够从工作站访问数据库（通过 Windows PowerShell 脚本）。
    * **$fireWallRuleName** - 这是 Azure SQL 数据库服务器的防火墙规则名称。 默认名称为 <u>FlightDelay</u>。 可根据需要对其进行重命名。
    * **$sqlDatabaseMaxSizeGB** - 只有在创建新的 Azure SQL 数据库服务器时才会使用此值。 默认值为 10GB。 10GB 对于本教程来说已足够。
    * **$sqlDatabaseName** - 只有在创建新的 Azure SQL 数据库时才会使用此值。 默认值为 HDISqoop。 如果将它重命名，则必须相应地更新 Sqoop Windows PowerShell 脚本。
@@ -716,7 +716,7 @@ HiveQL 脚本将执行以下操作：
 5. 验证脚本输出。 确保已成功运行脚本。
 
 ## <a id="nextsteps"></a> 后续步骤
-现在你已了解如何执行以下操作：将文件上传到 Azure Blob 存储、使用 Azure Blob 存储中的数据填充 Hive 表、运行 Hive 查询以及使用 Sqoop 将数据从 HDFS 导出到 Azure SQL 数据库。 若要了解更多信息，请参阅下列文章：
+现在你已了解如何执行以下操作：将文件上传到 Azure Blob 存储、使用 Azure Blob 存储中的数据填充 Hive 表、运行 Hive 查询以及使用 Sqoop 将数据从 HDFS 导出到 Azure SQL 数据库。 要了解更多信息，请参阅下列文章：
 
 * [开始使用 HDInsight][hdinsight-get-started]
 * [将 Hive 与 HDInsight 配合使用][hdinsight-use-hive]

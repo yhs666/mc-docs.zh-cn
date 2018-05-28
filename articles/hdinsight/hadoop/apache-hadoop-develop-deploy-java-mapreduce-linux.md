@@ -1,27 +1,25 @@
 ---
-title: "为 Hadoop 创建 Java MapReduce - Azure HDInsight | Azure"
-description: "了解如何使用 Apache Maven 创建基于 Java 的 MapReduce 应用程序，然后使用 Azure HDInsight 中的 Hadoop 运行它。"
+title: 为 Hadoop 创建 Java MapReduce - Azure HDInsight | Azure
+description: 了解如何使用 Apache Maven 创建基于 Java 的 MapReduce 应用程序，然后使用 Azure HDInsight 中的 Hadoop 运行它。
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: Blackmist
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: Java
-ms.topic: article
-origin.date: 11/03/2017
-ms.date: 12/18/2017
+ms.topic: conceptual
+origin.date: 01/25/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: 93da7d491faea9e81649eb1fb82f629629467e5c
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 4b5497a8a0ea7b034e4f0673e208a220d9dadb46
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>为 HDInsight 上的 Hadoop 开发 Java MapReduce 程序
 
@@ -41,7 +39,7 @@ ms.lasthandoff: 12/08/2017
 
 ## <a name="configure-development-environment"></a>配置开发环境
 
-可以在安装 Java 和 JDK 时设置以下环境变量。 但应检查其是否存在并且包含相关系统的适当值。
+可以在安装 Java 和 JDK 时设置以下环境变量。 不过，应该检查它们是否存在并且包含系统的正确值。
 
 * `JAVA_HOME` - 应该指向已安装 Java 运行时环境 (JRE) 的目录。 例如，在 OS X、Unix 或 Linux 系统上，它的值应该类似于 `/usr/lib/jvm/java-7-oracle`。 在 Windows 中，它的值类似于 `c:\Program Files (x86)\Java\jre1.7`
 
@@ -103,7 +101,7 @@ ms.lasthandoff: 12/08/2017
 
     这会定义具有特定版本（在 &lt;version\> 中列出）的库（在 &lt;artifactId\> 中列出）。 在编译时，会从默认 Maven 存储库下载这些依赖项。 可以使用 [Maven 存储库搜索](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) 来查看详细信息。
 
-    `<scope>provided</scope>` 会告知 Maven 这些依赖项不应与此应用程序一起打包，因为它们在运行时由 HDInsight 群集提供。
+    `<scope>provided</scope>` 告诉 Maven 这些依赖关系不应与此应用程序一起打包，因为它们会在运行时由 HDInsight 群集提供。
 
     > [!IMPORTANT]
     > 使用的版本应与群集上存在的 Hadoop 版本匹配。 有关版本的详细信息，请参阅 [HDInsight 组件版本控制](../hdinsight-component-versioning.md)文档。
@@ -245,7 +243,7 @@ ms.lasthandoff: 12/08/2017
    mvn clean package
    ```
 
-    此命令将清除任何以前构建的项目，下载任何尚未安装的依赖项，并生成并打包应用程序。
+    该指令会清除任何以前构建的项目，下载任何尚未安装的依赖项，并构建和打包应用程序。
 
 3. 命令完成后，`wordcountjava/target` 目录包含一个名为 `wordcountjava-1.0-SNAPSHOT.jar` 的文件。
 
@@ -262,7 +260,7 @@ scp target/wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsigh
 
 将 __USERNAME__ 替换为群集的 SSH 用户名。 将“CLUSTERNAME”替换为 HDInsight 群集名。
 
-此命令会将文件从本地系统复制到头节点。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+此命令会将文件从本地系统复制到头节点。 有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
 ## <a name="run"></a>在 Hadoop 上运行 MapReduce 作业
 

@@ -1,8 +1,8 @@
 ---
-title: "将 Ambari Tez 视图与 HDInsight 配合使用 - Azure | Azure"
-description: "了解如何使用 Ambari Tez 视图来调试 HDInsight 上的 Tez 作业。"
+title: 将 Ambari Tez 视图与 HDInsight 配合使用 - Azure | Azure
+description: 了解如何使用 Ambari Tez 视图来调试 HDInsight 上的 Tez 作业。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,17 @@ ms.assetid: 9c39ea56-670b-4699-aba0-0f64c261e411
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/05/2017
-ms.date: 01/15/2018
+origin.date: 02/27/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
-ms.openlocfilehash: e653bc90beec2b549aa93ad504989df1bd4755dc
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 1288b955aa2530d5c20b7585b1fbb3473fc6ce37
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>使用 Ambari 视图来调试 HDInsight 上的 Tez 作业
 

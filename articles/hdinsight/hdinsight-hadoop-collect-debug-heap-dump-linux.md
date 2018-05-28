@@ -1,8 +1,8 @@
 ---
-title: "在 HDInsight 上为 Hadoop 服务启用堆转储 - Azure | Azure"
-description: "为基于 Linux 的 HDInsight 群集中的 Hadoop 服务启用堆转储，以便进行调试和分析。"
+title: 在 HDInsight 上为 Hadoop 服务启用堆转储 - Azure | Azure
+description: 为基于 Linux 的 HDInsight 群集中的 Hadoop 服务启用堆转储，以便进行调试和分析。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -13,15 +13,15 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 12/05/2017
-ms.date: 01/15/2018
+ms.topic: conceptual
+origin.date: 02/27/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3370ab220b9a49dc31f75c86337f85c1607264f1
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 7517c4522ccbc1a8bb09631341157824a0daf191
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上为 Hadoop 服务启用堆转储
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 01/12/2018
 
 若要修改服务配置，请使用以下步骤：
 
-1. 打开群集的 Ambari Web UI。 URL 为 https://YOURCLUSTERNAME.azurehdinsight.cn。
+1. 打开群集的 Ambari Web UI。 该 URL 为 https://YOURCLUSTERNAME.azurehdinsight.cn。
 
     出现提示时，在该站点中使用群集的 HTTP 帐户名（默认为 admin）和密码进行身份验证。
 

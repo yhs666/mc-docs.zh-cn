@@ -1,25 +1,25 @@
 ---
-title: "Azure 服务总线基于请求/响应的操作中的 AMQP 1.0"
-description: "Microsoft Azure 服务总线基于请求/响应的操作的列表。"
+title: Azure 服务总线基于请求/响应的操作中的 AMQP 1.0
+description: Microsoft Azure 服务总线基于请求/响应的操作的列表。
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 102/22/2018
+origin.date: 02/22/2018
 ms.author: v-yiso
-ms.date: 03/12/2018
-ms.openlocfilehash: 6efa2a263b527a1bf0eba93397f9121612cfc8a6
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.date: 06/04/2018
+ms.openlocfilehash: 0b03b7b8173b3ab6ed32ae8720c9ccd1c202b361
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure 服务总线中的 AMQP 1.0：基于请求/响应的操作
 
@@ -70,6 +70,7 @@ role: RECEIVER,
 ### <a name="transfer-a-request-message"></a>传输请求消息  
 
 传输请求消息。  
+对于支持事务的操作，可以选择添加事务状态。
 
 ```  
 requestLink.sendTransfer(  
@@ -80,8 +81,12 @@ requestLink.sendTransfer(
                 },  
                 application-properties: {  
                         "operation" -> "<operation>",  
-                },  
-        )  
+                }
+        ),
+        [Optional] State = transactional-state: {
+                txn-id: <txn-id>
+        }
+)
 ```  
 
 ### <a name="receive-a-response-message"></a>接收响应消息  
@@ -196,8 +201,8 @@ properties: {
 
 ### <a name="schedule-message"></a>计划消息  
 
-计划消息。  
-
+计划消息。 此操作支持事务。
+  
 #### <a name="request"></a>请求  
 
 请求消息必须包含以下应用程序属性：  
@@ -218,8 +223,9 @@ properties: {
 |键|值类型|必须|值内容|  
 |---------|----------------|--------------|--------------------|  
 |message-id|字符串|是|`amqpMessage.Properties.MessageId` 为字符串|  
-|session-id|字符串|是|`amqpMessage.Properties.GroupId as string`|  
-|partition-key|字符串|是|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|  
+|session-id|字符串|否|`amqpMessage.Properties.GroupId as string`|  
+|partition-key|字符串|否|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
+|via-partition-key|字符串|否|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
 |message|字节的数组|是|AMQP 1.0 连线编码消息。|  
 
 #### <a name="response"></a>响应  
@@ -495,7 +501,7 @@ correlation-filter 映射至少必须包含以下条目之一：
 |session-id|字符串|否||  
 |reply-to-session-id|字符串|否||  
 |content-type|字符串|否||  
-|properties|映射|否|映射到服务总线 [BrokeredMessage.Properties](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties)。|  
+|properties|映射|否|映射到服务总线 [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties)。|  
   
 sql-rule-action 映射必须包含以下条目：  
   
@@ -537,6 +543,85 @@ sql-rule-action 映射必须包含以下条目：
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|是|HTTP 响应代码 [RFC2616]<br /><br /> 200: 正常 – 成功，其他表示失败|  
 |statusDescription|字符串|否|状态的说明。|  
+  
+### <a name="get-rules"></a>获取规则
+
+#### <a name="request"></a>请求
+
+请求消息必须包含以下应用程序属性：
+
+|键|值类型|必须|值内容|  
+|---------|----------------|--------------|--------------------|  
+|operation|字符串|是|`com.microsoft:enumerate-rules`|  
+|`com.microsoft:server-timeout`|uint|否|操作服务器超时以毫秒为单位。|  
+
+请求消息正文必须包含 amqp-value 部分，其中所含映射必须包括以下条目：  
+  
+|键|值类型|必须|值内容|  
+|---------|----------------|--------------|--------------------|  
+|top|int|是|要在页面中提取的规则数量。|  
+|skip|int|是|要跳过的规则数量。 定义规则列表中的起始索引 (+1)。 | 
+
+#### <a name="response"></a>响应
+
+响应消息包含以下属性：
+
+|键|值类型|必须|值内容|  
+|---------|----------------|--------------|--------------------|  
+|statusCode|int|是|HTTP 响应代码 [RFC2616]<br /><br /> 200：确定 - 成功，否则失败|  
+|规则| 映射数组|是|规则数组。 每个规则均由一个映射表示。|
+
+数组中的每个映射条目都包含以下属性：
+
+|键|值类型|必须|值内容|  
+|---------|----------------|--------------|--------------------|  
+|rule-description|所描述对象的数组|是|带有 AMQP 的 `com.microsoft:rule-description:list` 描述了代码 0x0000013700000004| 
+
+`com.microsoft.rule-description:list` 是所描述对象的数组。 此数组包括以下内容：
+
+|索引|值类型|必须|值内容|  
+|---------|----------------|--------------|--------------------|  
+| 0 | 所描述对象的数组 | 是 | `filter` 如下所述。 |
+| 1 | 所描述对象的数组 | 是 | `ruleAction` 如下所述。 |
+| 2 | 字符串 | 是 | 规则名称。 |
+
+`filter` 可以是以下任一类型：
+
+| 描述符名称 | 描述符代码 | 值 |
+| --- | --- | ---|
+| `com.microsoft:sql-filter:list` | 0x000001370000006 | SQL 筛选器 |
+| `com.microsoft:correlation-filter:list` | 0x000001370000009 | 关联筛选器 |
+| `com.microsoft:true-filter:list` | 0x000001370000007 | True 筛选器表示 1=1 |
+| `com.microsoft:false-filter:list` | 0x000001370000008 | False 筛选器表示 1=0 |
+
+`com.microsoft:sql-filter:list` 是描述数组，它包括：
+
+|索引|值类型|必须|值内容|  
+|---------|----------------|--------------|--------------------|  
+| 0 | 字符串 | 是 | SQL 筛选表达式 |
+
+`com.microsoft:correlation-filter:list` 是描述数组，它包括：
+
+|索引（如果存在）|值类型|值内容|  
+|---------|----------------|--------------|--------------------|  
+| 0 | 字符串 | 相关性 ID |
+| 1 | 字符串 | 消息 ID |
+| 2 | 字符串 | 如果 |
+| 3 | 字符串 | 回复 |
+| 4 | 字符串 | 标签 |
+| 5 | 字符串 | 会话 ID |
+| 6 | 字符串 | 会话 ID 回复|
+| 7 | 字符串 | 内容类型 |
+| 8 | 映射 | 定义属性的应用程序的映射 |
+
+`ruleAction` 可以是以下任一类型：
+
+| 描述符名称 | 描述符代码 | 值 |
+| --- | --- | ---|
+| `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | 空规则操作 - 不存在任何规则操作 |
+| `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | SQL 规则操作 |
+
+`com.microsoft:sql-rule-action:list` 是一个所描述对象的数组，其第一个条目是包含 SQL 规则操作表达式的字符串。
 
 ## <a name="deferred-message-operations"></a>延迟的消息操作  
 
@@ -584,8 +669,8 @@ sql-rule-action 映射必须包含以下条目：
 
 ### <a name="update-disposition-status"></a>更新处置状态  
 
-更新延迟消息的处置状态。  
-
+更新延迟消息的处置状态。 该操作支持事务。
+  
 #### <a name="request"></a>请求  
 
 请求消息必须包含以下应用程序属性：  

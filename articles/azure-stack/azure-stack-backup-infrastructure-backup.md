@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/15/2017
-ms.date: 03/01/2018
+origin.date: 04/20/2017
+ms.date: 05/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: cfbbc9aa3ad30a05910377436791b9555f7ace84
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.reviewer: hectorl
+ms.openlocfilehash: dc15a679296306f19804aab7632b2be3d752cac7
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>使用基础结构备份服务对 Azure Stack 进行备份和数据恢复
 
@@ -62,3 +63,4 @@ ms.lasthandoff: 03/02/2018
 - 了解如何[备份 Azure Stack](azure-stack-backup-back-up-azure-stack.md )
 - 了解如何[从灾难性数据丢失中恢复](azure-stack-backup-recover-data.md)
 
+<!-- Update_Description: update metedata properties -->

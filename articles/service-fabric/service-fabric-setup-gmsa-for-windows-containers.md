@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/23/2018
-ms.date: 04/23/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: bb3b861a971039e86c799731a0b1d4b711214c65
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: f8629cbda3e0d74c3793ada5703a17996df19aa5
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>设置 gMSA 用于在 Service Fabric 上运行的 Windows 容器
 
@@ -36,5 +36,4 @@ ms.lasthandoff: 04/23/2018
 
 * [将 Windows 容器部署到 Windows Server 2016 上的 Service Fabric](service-fabric-get-started-containers.md)
 * [将 Docker 容器部署到 Linux 上的 Service Fabric](service-fabric-get-started-containers-linux.md)
-<!-- Update_Description: new articles on service fabric setup gmsa for windows contains -->
-<!--ms.date: 04/23/2018-->
+<!-- Update_Description: update meta properties -->

@@ -1,25 +1,25 @@
 ---
-title: "打包 Azure Service Fabric 应用 | Azure"
-description: "如何打包 Service Fabric 应用程序后将其部署到群集。"
+title: 打包 Azure Service Fabric 应用 | Azure
+description: 如何打包 Service Fabric 应用程序后将其部署到群集。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
 editor: mani-ramaswamy
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4bbb9af28a5848b6239178ed60cff86ea18c6677
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 1cc05b9b0d5b012c1b1b0981e65113698e8520a5
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="package-an-application"></a>打包应用程序
 本文介绍如何打包 Service Fabric 应用程序并为部署做好准备。
@@ -57,7 +57,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 有关如何配置 **SetupEntryPoint** 的详细信息，请参阅[配置服务设置入口点的策略](service-fabric-application-runas-security.md)
 
 <a name="Package-App"></a>
-## <a name="configure"></a>配置 
+## <a name="configure"></a>配置
 ### <a name="build-a-package-by-using-visual-studio"></a>使用 Visual Studio 生成包
 如果使用 Visual Studio 2015 创建应用程序，可以使用 Package 命令自动创建符合上述布局的包。
 

@@ -1,8 +1,8 @@
 ---
-title: "将 Java 用户定义函数 (UDF) 与 HDInsight 中的 Hive 配合使用 - Azure | Azure"
-description: "了解如何创建可用于 Hive 的基于 Java 的用户定义的函数 (UDF)。 此示例 UDF 将文本字符串表转换为小写。"
+title: 将 Java 用户定义函数 (UDF) 与 HDInsight 中的 Hive 配合使用 - Azure | Azure
+description: 了解如何创建可用于 Hive 的基于 Java 的用户定义的函数 (UDF)。 此示例 UDF 将文本字符串表转换为小写。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,17 @@ ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/01/2017
-ms.date: 12/18/2017
+origin.date: 02/20/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: c27254d726d17d3948fa05eae652ae15619682dd
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: a18067515cbda1062eca533443948f3e631daf45
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>在 HDInsight 中通过 Hive 使用 Java UDF
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/08/2017
 * HDInsight 群集 
 
     > [!IMPORTANT]
-    > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+    > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
     本文档中的大多数步骤同时适用于基于 Windows 和基于 Linux 的群集。 但是，用于将已编译的 UDF 上传到群集并运行的步骤特定于基于 Linux 的群集。 提供可用于基于 Windows 的群集的信息的链接。
 
@@ -197,7 +197,7 @@ ms.lasthandoff: 12/08/2017
 
     有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
-4. 从 SSH 会话中，将 jar 文件复制到 HDInsight 存储。
+4. 从 SSH 会话将 jar 文件复制到 HDInsight 存储。
 
     ```bash
     hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars

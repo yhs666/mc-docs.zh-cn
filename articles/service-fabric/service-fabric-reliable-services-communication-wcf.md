@@ -1,25 +1,25 @@
 ---
-title: "Reliable Services WCF 通信堆栈 | Azure"
-description: "Service Fabric 中的内置 WCF 通信堆栈为 Reliable Services 提供客户端到服务的 WCF 通信。"
+title: Reliable Services WCF 通信堆栈 | Azure
+description: Service Fabric 中的内置 WCF 通信堆栈为 Reliable Services 提供客户端到服务的 WCF 通信。
 services: service-fabric
 documentationcenter: .net
-author: BharatNarasimman
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: vturecek
 ms.assetid: 75516e1e-ee57-4bc7-95fe-71ec42d452b2
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-origin.date: 01/25/2017
-ms.date: 03/15/2017
-ms.author: v-johch
-ms.openlocfilehash: 62762241208a6f39bed9e864ea5fdf00d275cb8d
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+origin.date: 06/07/2017
+ms.date: 05/28/2018
+ms.author: v-yeche
+ms.openlocfilehash: e4aafefc431715189a4b6cfad964a383d6e1a342
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>Reliable Services 基于 WCF 的通信堆栈
 Reliable services 框架使服务创作者能够选择要用于其服务的通信堆栈。 他们可以通过从 [CreateServiceReplicaListeners or CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) 方法返回的 ICommunicationListener 来插入所选的通信堆栈。 对于想要使用基于 Windows Communication Foundation (WCF) 的通信的服务创作者，该框架提供了基于 WCF 的通信堆栈实现。
@@ -118,12 +118,13 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
                 client => client.Channel.Add(2, 3)).Result;
 
 ```
->[!NOTE]
+> [!NOTE]
 > 默认 ServicePartitionResolver 假设客户端正在与服务相同的群集中运行。 如果不是这样，请创建 ServicePartitionResolver 对象，并传入群集连接终结点。
+> 
+> 
 
 ## <a name="next-steps"></a>后续步骤
-* [使用 Reliable Services 远程控制执行远程过程调用](./service-fabric-reliable-services-communication-remoting.md)
-
-* [Reliable Services 中使用 OWIN 的 Web API](./service-fabric-reliable-services-communication-webapi.md)
-
-* [确保 Reliable Services 的通信安全](./service-fabric-reliable-services-secure-communication.md)
+* [使用 Reliable Services 远程控制执行远程过程调用](service-fabric-reliable-services-communication-remoting.md)
+* [Reliable Services 中使用 OWIN 的 Web API](service-fabric-reliable-services-communication-webapi.md)
+* [确保 Reliable Services 的通信安全](service-fabric-reliable-services-secure-communication.md)
+<!-- Update_Description: update meta properties -->

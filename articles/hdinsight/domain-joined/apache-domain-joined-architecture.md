@@ -1,8 +1,8 @@
 ---
-title: "已加入域的 Azure HDInsight 体系结构"
-description: "了解如何规划已加入域的 HDInsight。"
+title: 已加入域的 Azure HDInsight 体系结构
+description: 了解如何规划已加入域的 HDInsight。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bhanupr
 manager: jhubbard
 editor: cgronlun
@@ -11,17 +11,15 @@ ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-origin.date: 12/14/2017
-ms.date: 03/12/2018
+ms.topic: conceptual
+origin.date: 03/20/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5c93492e15ab51f6352a642633bf3e0c6fec546f
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 82294d75e6105763de111a990ec82553b2f93320
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>在 HDInsight 中规划加入 Azure 域的 Hadoop 群集
 
@@ -48,16 +46,14 @@ HDInsight 不构建自己的多用户身份验证和授权，而是依赖于最�
 
 ![已加入域的 HDInsight 群集 OU](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png)上获取。
 
-### <a name="two-ways-of-bringing-your-own-active-directory-domain-controllers"></a>自带 Active Directory 域控制器的两种方式
-
-可以通过两种方式自带 Active Directory 域控制器来创建已加入域的 HDInsight 群集。 
+### <a name="the-way-of-bringing-your-own-active-directory-domain-controllers"></a>自带 Active Directory 域控制器的方式
 
 - **Azure Active Directory 域服务**：此服务提供的托管 Active Directory 域与 Windows Server Active Directory 完全兼容。 Microsoft 负责管理、修补和监视 AD 域。 你可以部署群集，而不用担心如何维护域控制器。 将从 Azure Active Directory 同步用户、组和密码，使用户能够使用其公司凭据登录到群集。 有关详细信息，请参阅[使用 Azure Active Directory 域服务配置已加入域的 HDInsight 群集](./apache-domain-joined-configure-using-azure-adds.md)。
 
-- **Azure IaaS VM 上的 Active Directory**：在此选项中，你将在 Azure IaaS VM 上部署和管理你自己的 Windows Server Active Directory 域。 有关详细信息，请参阅[配置已加入域的沙盒环境](./apache-domain-joined-configure.md)。
+> [!NOTE]
+> 不再支持 Azure IaaS VM 上 的 Active Directory。
 
 ## <a name="next-steps"></a>后续步骤
-* 若要配置已加入域的 HDInsight 群集，请参阅 [Configure domain-joined HDInsight clusters](apache-domain-joined-configure.md)（配置已加入域的 HDInsight 群集）。
 * 若要管理已加入域的 HDInsight 群集，请参阅 [Manage domain-joined HDInsight clusters](apache-domain-joined-manage.md)（管理已加入域的 HDInsight 群集）。
 * 若要配置 Hive 策略和运行 Hive 查询，请参阅 [Configure Hive policies for domain-joined HDInsight clusters](apache-domain-joined-run-hive.md)（为已加入域的 HDInsight 群集配置 Hive 策略）。
 * 要在已加入域的 HDInsight 群集上使用 SSH 运行 Hive 查询，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。

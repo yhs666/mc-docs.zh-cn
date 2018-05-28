@@ -1,23 +1,23 @@
 ---
-title: "如何在 Azure Service Fabric 中指定服务的环境变量 | Azure"
-description: "演示如何在 Service Fabric 中使用应用程序的环境变量"
+title: 如何在 Azure Service Fabric 中指定服务的环境变量 | Azure
+description: 演示如何在 Service Fabric 中使用应用程序的环境变量
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/06/2017
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 098cf43b168e37a0406391ebc50cf4c96feaa8ad
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: c7ab32615a0c63b2d20784f925334b328aa0ebae
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>如何在 Service Fabric 中指定服务的环境变量
 
@@ -57,5 +57,4 @@ ms.lasthandoff: 03/08/2018
 若要详细了解本文中讨论的一些核心概念，请参阅文章[管理多个环境的应用程序](service-fabric-manage-multiple-environment-app-configuration.md)。
 
 有关 Visual Studio 中其他可用应用管理功能的信息，请参阅[在 Visual Studio 中管理 Service Fabric 应用程序](service-fabric-manage-application-in-visual-studio.md)。
-<!-- Update_Description: new articles on service fabric how to specify environment variables  -->
-<!--ms.date: 03/12/2018-->
+<!-- Update_Description: update meta properties -->

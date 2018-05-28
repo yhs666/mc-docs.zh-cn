@@ -1,8 +1,8 @@
 ---
-title: "使用 Ambari API 在 HDInsight 中监视 Hadoop 群集 - Azure | Azure"
-description: "使用 Apache Ambari API 创建、管理和监视 Hadoop 群集。 直观的操作员工具和 API 消除了 Hadoop 的复杂性。"
+title: 使用 Ambari API 在 HDInsight 中监视 Hadoop 群集 - Azure | Azure
+description: 使用 Apache Ambari API 创建、管理和监视 Hadoop 群集。 直观的操作员工具和 API 消除了 Hadoop 的复杂性。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 editor: cgronlun
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/07/2017
-ms.date: 12/25/2017
+ms.date: 05/28/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3232367c52728e2d13bb6bff34468731c0567a9d
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 584af9b7f2da09b9a17d848dcd6900eeb3a39408
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>使用 Ambari API 在 HDInsight 中监视 Hadoop 群集
 了解如何使用 Ambari API 监视 HDInsight 群集。
@@ -144,7 +144,7 @@ HDInsight 目前仅支持 Ambari 监视功能。 Ambari API 1.0 受 HDInsight �
 | 获取配置信息 |`/api/v1/clusters/<ClusterName>.azurehdinsight.cn/configurations?type=<ConfigType>&tag=<VersionName>` |配置类型：core-site、hdfs-site、mapred-site、hive-site |
 
 ## <a name="next-steps"></a>后续步骤
-现在已经学习了如何使用 Ambari 监视 API 调用。 要了解更多信息，请参阅以下文章：
+现在已经学习了如何使用 Ambari 监视 API 调用。 若要了解更多信息，请参阅以下文章：
 
 * [使用 Azure 门户管理 HDInsight 群集][hdinsight-admin-portal]
 * [使用 Azure PowerShell 管理 HDInsight 群集][hdinsight-admin-powershell]
@@ -161,7 +161,7 @@ HDInsight 目前仅支持 Ambari 监视功能。 Ambari API 1.0 受 HDInsight �
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [powershell-install]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[powershell-script]: http://msdn.microsoft.com/powershell/scripting/getting-started/fundamental/using-windows-powershell
+[powershell-script]: https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-powershell-1.0/ee176949(v=technet.10)
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md

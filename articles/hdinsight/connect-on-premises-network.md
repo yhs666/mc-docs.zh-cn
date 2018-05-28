@@ -1,24 +1,24 @@
 ---
-title: "将 HDInsight 连接到本地网络 - Azure HDInsight | Azure"
-description: "了解如何在 Azure 虚拟网络中创建 HDInsight 群集，然后将其连接到本地网络。 了解如何使用自定义 DNS 服务器在 HDInsight 和本地网络之间配置名称解析。"
-documentationcenter: 
+title: 将 HDInsight 连接到本地网络 - Azure HDInsight | Azure
+description: 了解如何在 Azure 虚拟网络中创建 HDInsight 群集，然后将其连接到本地网络。 了解如何使用自定义 DNS 服务器在 HDInsight 和本地网络之间配置名称解析。
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/01/2017
-ms.date: 12/25/2017
+origin.date: 02/23/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
-ms.openlocfilehash: 13e7041ee538fdb5f71e811fbedeacf9e17cfb52
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 70e77b2dc414f761b29df699794d97aa87d2f203
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>将 HDInsight 连接到本地网络
 
@@ -128,7 +128,7 @@ ms.lasthandoff: 12/15/2017
     > * [Git (https://git-scm.com/)](https://git-scm.com/)
     > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
 
-2. 若要安装 Bind，请从 SSH 会话中使用以下命令：
+2. 若要安装 Bind，请通过 SSH 会话使用以下命令：
 
     ```bash
     sudo apt-get update -y
@@ -273,13 +273,13 @@ nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn 196.16
 
 > [!WARNING]
 > HDInsight 要求从 Azure 云中的特定 IP 地址进行入站访问，以及进行不受限制的出站访问。 使用 NSG 或 UDR 控制流量时，必须执行以下步骤：
->
-> 1. 找到虚拟网络所在位置的 IP 地址。 如需按位置列出的必需 IP，请参阅[必需 IP 地址](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)。
->
-> 2. 允许来自 IP 地址的入站流量。
->
->    * NSG：在端口 443 上允许来自 Internet 的入站流量。
->    * UDR：将路由的“下一跃点”类型设置为“Internet”。
+
+1. 找到虚拟网络所在位置的 IP 地址。 如需按位置列出的必需 IP，请参阅[必需 IP 地址](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)。
+
+2. 对于步骤 1 中确定的 IP 地址，允许该 IP 地址的入站流量。
+
+   * 如果使用 NSG：在端口 443上允许该 IP地址的入站流量。
+   * 如果使用 UDR：为该 IP 地址将路由的下一个跃点类型设置为“Internet”。
 
 如需使用 Azure PowerShell 或 Azure CLI 来创建 NSG 的示例，请参阅[使用 Azure 虚拟网络扩展 HDInsight](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) 文档。
 
@@ -297,7 +297,7 @@ nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn 196.16
 
 ## <a name="connecting-to-hdinsight"></a>连接到 HDInsight
 
-HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 例如，这些文档假定你可以连接到 https://CLUSTERNAME.azurehdinsight.cn 上的群集。 此地址使用公共网关，如果你使用了 NSG 或 UDR 限制来自 Internet 的访问，则该网关不可用。
+HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 例如，可以通过 https://CLUSTERNAME.azurehdinsight.cn 连接到该群集。 此地址使用公共网关，如果你使用了 NSG 或 UDR 限制来自 Internet 的访问，则该网关不可用。
 一些文档在通过 SSH 会话连接到群集时还引用了 `headnodehost`。 该地址仅可在群集中的节点上使用，在通过虚拟网络连接的客户端上不可用。
 
 若要通过虚拟网络直接连接到 HDInsight，请使用以下步骤：
@@ -324,7 +324,7 @@ HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 �
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-2. 若要确定在其上提供服务的端口，请参阅[由 HDInsight 上的 Hadoop 服务使用的端口](./hdinsight-hadoop-port-settings-for-services.md)文档。
+2. 若要确定服务的可用端口，请参阅 [HDInsight 的 Hadoop 服务所用的端口](./hdinsight-hadoop-port-settings-for-services.md)文档。
 
     > [!IMPORTANT]
     > 托管在头节点上的某些服务一次只能在一个节点上处于活动状态。 如果在一个头节点上尝试访问服务并失败，请切换到其他头节点。

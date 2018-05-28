@@ -1,8 +1,8 @@
 ---
-title: "以编程方式访问 Hadoop YARN 应用程序日志 - Azure | Azure"
-description: "以编程方式访问 HDInsight 中 Hadoop 群集上的应用程序日志。"
+title: 以编程方式访问 Hadoop YARN 应用程序日志 - Azure | Azure
+description: 以编程方式访问 HDInsight 中 Hadoop 群集上的应用程序日志。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -12,22 +12,22 @@ ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 12/25/2017
+ms.date: 05/28/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1f345dd8cd8e40b332232cdbec91c18ef283eda9
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 36ff4adabc9444a9104ba3ef1f4ab7f86956b7c9
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>在基于 Windows 的 HDInsight 上访问 YARN 应用程序日志
-本主题说明如何访问 Azure HDInsight 中基于 Windows 的 Hadoop 群集上已完成的 YARN (Yet Another Resource Negotiator) 应用程序的日志
+本文档介绍了如何访问 Azure HDInsight 中基于 Windows 的 Hadoop 群集上已完成的 YARN 应用程序的日志。
 
 > [!IMPORTANT]
-> 本文档中的信息仅适用于基于 Windows 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 有关在基于 Linux 的 HDInsight 群集上访问 YARN 日志的信息，请参阅[在 HDInsight 上基于 Linux 的 Hadoop 中访问 YARN 应用程序日志](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+> 本文档中的信息仅适用于基于 Windows 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 有关在基于 Linux 的 HDInsight 群集上访问 YARN 日志的信息，请参阅[在 HDInsight 上基于 Linux 的 Hadoop 中访问 YARN 应用程序日志](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 ### <a name="prerequisites"></a>先决条件
@@ -46,16 +46,21 @@ ms.lasthandoff: 12/15/2017
 * 尝试完成应用程序的相关信息
 * 任何给定应用程序尝试所用的容器
 
-在 HDInsight 群集上，由 Azure 资源管理器将这项信息存储到默认 Azure 存储帐户的默认容器中的历史记录存储中。 可以通过 REST API 检索有关完成应用程序的此类通用数据：
+在 HDInsight 群集中，此信息是由 Azure 资源管理器存储的。 信息将保存到群集的默认存储中的历史记录存储区。 可以通过 REST API 检索有关完成应用程序的此类通用数据：
 
     GET on https://<cluster-dns-name>.azurehdinsight.cn/ws/v1/applicationhistory/apps
 
 ## <a name="yarn-applications-and-logs"></a>YARN 应用程序和日志
-YARN 通过将资源管理与应用程序计划/监视相分离，来支持多种编程模型（MapReduce 就是其中之一）。 这是通过全局 *ResourceManager* (RM)、按辅助角色节点 *NodeManagers* (NM) 和按应用程序 *ApplicationMasters* (AM) 来实现的。 按应用程序 AM 与 RM 协商用于运行应用程序的资源（CPU、内存、磁盘、网络）。 RM 与 NM 合作来授予这些资源（以容器的形式授予）。 AM 负责跟踪 RM 为其分配容器的进度。 根据应用程序性质，应用程序可能需要多个容器。
+YARN 通过将资源管理与应用程序计划/监视相分离，来支持多种编程模型。 YARN 使用全局 *ResourceManager* (RM)、按辅助角色节点 *NodeManagers* (NM) 和按应用程序 *ApplicationMasters* (AM)。 按应用程序 AM 与 RM 协商用于运行应用程序的资源（CPU、内存、磁盘、网络）。 RM 与 NM 合作来授予这些资源（以容器的形式授予）。 AM 负责跟踪 RM 为其分配容器的进度。 根据应用程序性质，应用程序可能需要多个容器。
 
-此外，每个应用程序可能包含多个 *应用程序尝试* ，以便在应用程序崩溃或因 AM 与 RM 之间通信中断时完成应用程序。 因此，容器是授予应用程序的特定尝试。 在某种意义上，容器提供 YARN 应用程序运行的基本工作单位的内容，而在容器的上下文中完成的所有工作都在分配给该容器的单个辅助节点上运行。 请参阅 [YARN 的概念][YARN-concepts]，以获取更多参考信息。
+* 每个应用程序可能包含多个 *应用程序尝试*。 
+* 容器授予给应用程序的特定尝试。 
+* 容器为基本工作单元提供了上下文。 
+* 在容器的上下文中执行的工作是在容器分配到的单个工作节点上执行的。 
 
-应用程序日志（和关联的容器日志）在对有问题的 Hadoop 应用程序进行调试上相当重要。 YARN 提供一个良好的框架，通过使用[日志聚合][log-aggregation]功能收集、聚合和储应用程序日志。 日志聚合功能让访问应用程序日志更具确定性，因为它会聚合辅助节点上所有容器的日志，并在应用程序完成之后，将它们按每个辅助节点一个聚合日志的方式存储在默认文件系统上。 应用程序可能使用数百或数千个容器，但在单个辅助节点上运行的所有容器的日志将一律聚合成单个文件，也就是为应用程序所用的每个辅助节点生成一个日志。 默认情况下，日志聚合已在 HDInsight 群集（3.0 和更高版本）上启用，在群集的默认容器中，可以找到聚合的日志，位置如下：
+有关详细信息，请参阅 [YARN 概念][YARN-concepts]。
+
+应用程序日志（和关联的容器日志）在对有问题的 Hadoop 应用程序进行调试上相当重要。 YARN 提供一个良好的框架，通过使用[日志聚合][log-aggregation]功能收集、聚合和存储应用程序日志。 日志聚合功能让访问应用程序日志更具确定性，因为该功能可聚合辅助节点上所有容器的日志，并在应用程序完成后，将它们按每个辅助节点一个聚合日志的方式存储在默认文件系统上。 应用程序可能使用数百或数千个容器，但在单个工作节点上运行的所有容器的日志将聚合成单个文件，也就是为应用程序所用的每个工作节点生成一个文件。 默认情况下，日志聚合已在 HDInsight 群集（3.0 和更高版本）上启用，在群集的默认容器中，可以找到聚合的日志，位置如下：
 
     wasb:///app-logs/<user>/logs/<applicationId>
 
@@ -71,7 +76,7 @@ YARN ResourceManager UI 在群集头节点上运行，可以通过 Azure 门户�
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 在左侧菜单中，依次单击“浏览”、“HDInsight 群集”和要在其上访问 YARN 应用程序日志的基于 Windows 的群集。
-3. 在顶部菜单中，单击“仪表板” 。 将看到在新的浏览器选项卡上打开名为“HDInsight 查询控制台”页面。
+3. 在顶部菜单中，单击“仪表板” 。 将会看到在新的浏览器选项卡上打开名为“HDInsight 查询控制台”页面。
 4. 在“HDInsight 查询控制台”中单击“Yarn UI”。
 
 [YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html

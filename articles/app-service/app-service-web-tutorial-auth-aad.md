@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 04/03/2018
-ms.date: 04/30/2018
+ms.date: 06/04/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0a5516d14431ef65a2df0590ba78431aa9d53ea0
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 51ff4026278b98ecc18d451cdabb2e432e2ce7ad
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>教程：在 Azure 应用服务中对用户进行端到端身份验证和授权
 
@@ -273,7 +273,7 @@ git push frontend master
 
 ![在 Azure 应用服务中运行的 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/resources-enable-write.png)
 
-在左侧浏览器中，单击“订阅” > **_&lt;your\_subscription>_** > “resourceGroups” > “myAuthResourceGroup” > “提供程序” > “Microsoft.Web” > “站点” > **_&lt;back\_end\_app\_name>_** > “配置” > “authsettings”。
+在左侧浏览器中，单击“订阅” > **_&lt;your\_subscription>_** > “resourceGroups” > “myAuthResourceGroup” > “提供程序” > “Microsoft.Web” > “站点” > **_\<front\_end\_app\_name>_** > “配置” > “authsettings”。
 
 在“authsettings”视图中，单击“编辑”。 将 `additionalLoginParams` 设置为以下 JSON 字符串，使用复制的应用程序 ID。 
 

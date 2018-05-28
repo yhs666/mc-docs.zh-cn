@@ -1,8 +1,8 @@
 ---
-title: "使用 Power Query 将 Excel 连接到 Hadoop"
-description: "了解如何利用商业智能组件和使用 Power Query for Excel 访问 HDInsight 上的 Hadoop 中存储的数据。"
+title: 使用 Power Query 将 Excel 连接到 Hadoop
+description: 了解如何利用商业智能组件和使用 Power Query for Excel 访问 HDInsight 上的 Hadoop 中存储的数据。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -13,15 +13,15 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 11/03/2017
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 02/22/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: ecc61b290fad75e98ae1edfed32811fc61720409
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: ecb9a28dc5a2eb24b737ca1687ea3e8a9b494713
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="connect-excel-to-hadoop-by-using-power-query"></a>使用 Power Query 将 Excel 连接到 Hadoop
 

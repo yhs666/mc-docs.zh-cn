@@ -13,13 +13,13 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 05/15/2017
-ms.date: 03/28/2018
+ms.date: 05/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7eb4b73824a3f8aaecc32ba0f1ccbacd5647ef17
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 4cbeb315080eeacd364abd2b8d47b4871e14e358
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>如何为高级 Azure Redis 缓存配置虚拟网络支持
 Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚拟网络支持等高级层功能），使缓存大小和功能的选择更加灵活。 VNet 是云中的专用网络。 为 Azure Redis 缓存实例配置了 VNet 后，该实例不可公开寻址，而只能从 VNet 中的虚拟机和应用程序进行访问。 本文说明如何为高级 Azure Redis 缓存实例配置虚拟网络支持。
@@ -39,7 +39,7 @@ Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚�
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
-选择高级定价层后，可以通过选择与缓存相同的订阅和位置的 VNet 来配置 Redis VNet 集成。 若要使用新 VNet，请先创建 VNet，方法是遵循[使用 Azure 门户创建虚拟网络](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)或[使用 Azure 门户创建虚拟网络（经典）](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)中的步骤，然后返回“新建 Redis 缓存”边栏选项卡来创建和配置高级缓存。
+选择高级定价层后，可以通过选择与缓存相同的订阅和位置的 VNet 来配置 Redis VNet 集成。 若要使用新 VNet，请先创建 VNet，方法是遵循[使用 Azure 门户创建虚拟网络](../virtual-network/manage-virtual-network.md#create-a-virtual-network)或[使用 Azure 门户创建虚拟网络（经典）](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)中的步骤，然后返回“新建 Redis 缓存”边栏选项卡来创建和配置高级缓存。
 
 如果要为新缓存配置 VNet，请单击“新建 Redis 缓存”边栏选项卡上的“虚拟网络”，并从下拉列表中选择所需的 VNet。
 
@@ -85,12 +85,13 @@ Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚�
 
 - [Azure Redis 缓存和 VNet 有哪些常见的错误配置问题？](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
 - [如何验证缓存是否在 VNET 中正常工作？](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
+- [尝试连接到 VNET 中的 Redis 缓存时，为何会收到指出远程证书无效的错误？](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
 - [是否可以对标准或基本缓存使用 VNet？](#can-i-use-vnets-with-a-standard-or-basic-cache)
 - [为什么在某些子网中创建 Redis 缓存失败，而在其他子网中不会失败？](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
 - [子网地址空间的要求是什么？](#what-are-the-subnet-address-space-requirements)
 - [在 VNET 中托管缓存时，是否可以使用所有缓存功能？](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 
-## <a name="what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets"></a>Azure Redis 缓存和 VNet 有哪些常见的错误配置问题？
+### <a name="what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets"></a>Azure Redis 缓存和 VNet 有哪些常见的错误配置问题？
 在 VNet 中托管 Azure Redis 缓存时，会使用下表中的端口。 
 
 >[!IMPORTANT]
@@ -101,7 +102,7 @@ Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚�
 - [出站端口要求](#outbound-port-requirements)
 - [入站端口要求](#inbound-port-requirements)
 
-### <a name="outbound-port-requirements"></a>出站端口要求
+#### <a name="outbound-port-requirements"></a>出站端口要求
 
 出站端口有七个要求。
 
@@ -121,7 +122,7 @@ Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚�
 | 6379-6380 |出站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
 
 
-### <a name="inbound-port-requirements"></a>入站端口要求
+#### <a name="inbound-port-requirements"></a>入站端口要求
 
 入站端口范围有八个要求。 这些范围中的入站请求从同一 VNET 中托管的其他服务入站，或者是 Redis 子网通信的内部请求。
 
@@ -136,12 +137,12 @@ Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚�
 | 16001 |入站 |TCP/UDP |Azure 负载均衡 | （Redis 子网） |Azure 负载均衡器 |
 | 20226 |入站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
 
-### <a name="additional-vnet-network-connectivity-requirements"></a>其他 VNET 网络连接要求
+#### <a name="additional-vnet-network-connectivity-requirements"></a>其他 VNET 网络连接要求
 
 在虚拟网络中，可能一开始不符合 Azure Redis 缓存的网络连接要求。 在虚拟网络中使用时，Azure Redis 缓存需要以下所有项才能正常运行。
 
 - 与全球 Azure 存储终结点建立的出站网络连接。 这包括位于与 Azure Redis 缓存实例相同区域中的终结点，以及位于 **其他** Azure 区域的存储终结点。 Azure 存储终结点在以下 DNS 域之下解析：*table.core.chinacloudapi.cn*、*blob.core.chinacloudapi.cn*、*queue.core.chinacloudapi.cn* 和 *file.core.chinacloudapi.cn*。 
-- 与 *ocsp.msocsp.com*、*mscrl.microsoft.com* 和 *crl.microsoft.com* 建立的出站网络连接。需要此连接才能支持 SSL 功能。
+- 与 *ocsp.msocsp.com*、*mscrl.microsoft.com* 和 *crl.microsoft.com* 建立的出站网络连接。 需要此连接才能支持 SSL 功能。
 - 虚拟网络的 DNS 设置必须能够解析前面几点所提到的所有终结点和域。 确保已针对虚拟网络配置并维护有效的 DNS 基础结构即可符合这些 DNS 要求。
 - 与以下 Azure 监视终结点（在下列 DNS 域下进行解析）的出站网络连接：shoebox2-black.shoebox2.metrics.nsatc.net、north-prod2.prod2.metrics.nsatc.net、azglobal-black.azglobal.metrics.nsatc.net、shoebox2-red.shoebox2.metrics.nsatc.net、east-prod2.prod2.metrics.nsatc.net、azglobal-red.azglobal.metrics.nsatc.net。
 
@@ -165,6 +166,24 @@ Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚�
   - 另一种测试方法是创建一个与缓存连接的测试缓存客户端（可以是使用 StackExchange.Redis 的简单控制台应用程序），然后在缓存中添加和检索一些项。 将示例客户端应用程序安装到缓存所在的同一个 VNET 中的某个 VM，然后运行该应用程序来验证与缓存之间的连接。
 
 
+### <a name="when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid"></a>尝试连接到 VNET 中的 Redis 缓存时，为何会收到指出远程证书无效的错误？
+
+尝试连接到 VNET 中的 Redis 缓存时，会收到类似于以下内容的证书验证错误：
+
+`{"No connection is available to service this operation: SET mykey; The remote certificate is invalid according to the validation procedure.; …"}`
+
+这可能是因为你在通过 IP 地址来连接主机。 建议使用主机名。 换而言之，请使用以下方法：     
+
+`[mycachename].redis.chinacloudapi.cn:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
+
+避免使用类似于以下连接字符串的 IP 地址：
+
+`10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
+
+如果无法解析 DNS 名称，某些客户端库包括了 `sslHost`（这是由 StackExchange.Redis 客户端提供的）之类的配置选项。 这允许你替代用于证书验证的主机名。 例如：
+
+`10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.chinacloudapi.cn`
+
 ### <a name="can-i-use-vnets-with-a-standard-or-basic-cache"></a>是否可以对标准或基本缓存使用 VNet？
 只能对高级缓存使用 VNet。
 
@@ -183,7 +202,9 @@ Azure 会保留每个子网中的某些 IP 地址，但是这些地址不能使�
 
 - Redis 控制台 - 由于 Redis 控制台在本地浏览器中运行（这在 VNET 的外部），因此它无法连接到缓存。
 
+
 ## <a name="use-expressroute-with-azure-redis-cache"></a>将 ExpressRoute 用于 Azure Redis 缓存
+
 客户可以将 [Azure ExpressRoute](https://www.azure.cn/home/features/expressroute/) 线路连接到虚拟网络基础结构，从而将其本地网络扩展到 Azure。 
 
 默认情况下，新创建的 ExpressRoute 线路不会在 VNET 上执行强制隧道（默认路由播发，0.0.0.0/0）。 因此，允许出站 Internet 连接直接来自 VNET，而且客户端应用程序能够连接到其他 Azure 终结点（包括 Azure Redis 缓存）。

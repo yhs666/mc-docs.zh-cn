@@ -7,14 +7,14 @@ manager: femila
 ms.service: azure-stack
 ms.topic: article
 origin.date: 02/28/2018
-ms.date: 03/27/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 keywords: ''
-ms.openlocfilehash: 2558881ec8fa14a32359d0d9474f0d37034df906
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: a90af20a93d33f26ba4e031decbaee38a3c0dd7d
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="azure-stack-training-and-certification"></a>Azure Stack 培训和认证
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/28/2018
 
 - [课程 20537A：使用 Azure Stack 配置和操作混合云](https://www.microsoft.com/en-us/learning/course.aspx?cid=20537)
 - [edX：Azure Stack 在线培训](https://aka.ms/AzureStackMOOC)
-- [作业角色和学习路径](https://azure.microsoft.com/en-us/training/learning-paths/)
+- [作业角色和学习路径](https://azure.microsoft.com/training/learning-paths/)
 
 ## <a name="certification"></a>认证
 Azure Stack 认证目前正在开发中。 请不时回来查看最新的信息。
@@ -35,4 +35,4 @@ Azure Stack 认证目前正在开发中。 请不时回来查看最新的信息�
 
 [Azure Stack 文档](/azure-stack/)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

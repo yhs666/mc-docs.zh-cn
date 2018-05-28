@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/02/2017
-ms.date: 04/30/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3c67d281a5cc68637d79f91ec8e80c84c057be17
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: ec69e80207f2d7b30098fbd443e0a24c3ebf8362
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="reliable-actors-state-management"></a>Reliable Actors 状态管理
 Reliable Actors 是可封装逻辑与状态的单线程对象。 由于执行组件在 Reliable Services 上运行，因此，它们可以使用相同的持久性和复制机制可靠地维护状态。 这样，执行组件就不会在发生故障之后、在内存回收后重新激活时或者由于资源均衡和升级的原因而在群集中的节点之间移动时丢失其状态。
@@ -29,8 +29,8 @@ Reliable Actors 是可封装逻辑与状态的单线程对象。 由于执行组
 
 即使执行组件被视为有状态，也并不表示它们必须以可靠的方式存储状态。 执行组件可以根据其数据存储要求来选择状态持久性和复制的级别：
 
-* **持久化状态：**状态持久保存到磁盘中，并复制到 3 个或更多个副本。 持久化状态是最持久的状态存储选项，在完全群集中断期间其状态也能持久保留。
-* **易失性状态：**状态被复制到 3 个或更多个副本，且仅保存在内存中。 易失性状态可针对节点故障、执行组件故障，以及在升级和资源均衡过程中提供复原能力。 但是，状态不会保留在磁盘中。 因此，如果同时丢失所有副本，状态也会丢失。
+* **持久化状态：** 状态持久保存到磁盘中，并复制到 3 个或更多个副本。 持久化状态是最持久的状态存储选项，在完全群集中断期间其状态也能持久保留。
+* **易失性状态：** 状态被复制到 3 个或更多个副本，且仅保存在内存中。 易失性状态可针对节点故障、执行组件故障，以及在升级和资源均衡过程中提供复原能力。 但是，状态不会保留在磁盘中。 因此，如果同时丢失所有副本，状态也会丢失。
 * **非持久化状态**：状态不会复制或写入到磁盘，仅用于不需要可靠地维护状态的执行组件。
 
 每个级别的持久性只是服务的不同状态提供程序和复制配置。 是否要将状态写入磁盘取决于状态提供程序（可靠服务中存储状态的组件）。 复制取决于要使用多少个副本来部署服务。 如同 Reliable Services，你可以轻松地手动设置状态提供程序和副本计数。 执行组件框架提供一个属性，对执行组件使用时，该属性会自动选择默认的状态提供程序，并自动生成副本计数的设置，以实现这三种持久性设置中的一个。 StatePersistence 属性不由派生类继承，每个执行组件类型必须提供其 StatePersistence 级别。

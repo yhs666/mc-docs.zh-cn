@@ -1,30 +1,31 @@
 ---
-title: "如何通过 Python 使用 Azure 服务总线队列 | Azure"
-description: "了解如何通过 Python 使用 Azure 服务总线队列。"
+title: 如何通过 Python 使用 Azure 服务总线队列 | Azure
+description: 了解如何通过 Python 使用 Azure 服务总线队列。
 services: service-bus
 documentationCenter: python
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-origin.date: 08/10/2017
+origin.date: 04/30/2018
 ms.author: v-yiso
-ms.date: 09/18/2017
-ms.openlocfilehash: c352747921d6d23c49b9ce541f67f8052ee8e9e7
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.date: 06/04/2018
+ms.openlocfilehash: db7f6d7901b2c46f7e3d0ec31dfab0c872129c24
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 05/26/2018
 ---
-# <a name="how-to-use-service-bus-queues"></a>如何使用服务总线队列
+# <a name="how-to-use-service-bus-queues-with-python"></a>如何通过 Python 使用服务总线队列
+
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-本文介绍了如何使用服务总线队列。 相关示例采用 Python 编写，并使用了 [Python Azure 服务总线包][Python Azure Service Bus package]。 涉及的方案包括“创建队列、发送和接收消息”以及“删除队列”。
+本文介绍了如何使用服务总线队列。 相关示例采用 Python 编写，并使用了 [Python Azure 服务总线包][Python Azure Service Bus package]。 涉及的任务包括**创建队列、发送和接收消息**以及**删除队列**。
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -77,7 +78,7 @@ msg = Message(b'Test Message')
 bus_service.send_queue_message('taskqueue', msg)
 ```
 
-服务总线队列在标准层中支持的最大消息大小为 256 KB。 标头最大为 64 KB，其中包括标准和自定义应用程序属性。 一个队列可包含的消息数不受限制，但消息的总大小受限。 此队列大小在创建时定义，上限为 5 GB。 有关配额的详细信息，请参阅 [服务总线配额][]。
+在标准层，服务总线队列支持的最大消息大小为 256 KB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列中包含的消息数量不受限制，但消息的总大小受限制。 此队列大小在创建时定义，上限为 5 GB。 有关配额的详细信息，请参阅 [服务总线配额][]。
 
 ## <a name="receive-messages-from-a-queue"></a>从队列接收消息
 
@@ -90,7 +91,7 @@ print(msg.body)
 
 “速览”**\_锁定**参数设置为 **False** 时，将在读取消息后将其从队列中删除。 通过将参数 peek\_lock 设置为“True”，可读取（扫视）并锁定消息而不会将其从队列中删除。
 
-在接收过程中读取并删除消息的行为是最简单的模式，并且最适合应用程序允许出现故障时不处理消息的情况。 为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生崩溃。 由于服务总线会将消息标记为“已使用”，因此当应用程序重启并重新开始使用消息时，它会遗漏在发生崩溃前使用的消息。
+在接收过程中读取并删除消息的行为是最简单的模式，并且最适合应用程序允许出现故障时不处理消息的情况。 为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线会将消息标记为“已使用”，因此当应用程序重启并重新开始使用消息时，它会遗漏在发生崩溃前使用的消息。
 
 如果将 peek\_lock 参数设置为“True”，则接收将变成一个两阶段操作，从而可支持无法容忍遗漏消息的应用程序。 当 Service Bus 收到请求时，它会查找下一条要使用的消息，锁定该消息以防其他使用者接收，并将该消息返回到应用程序。 应用程序处理完消息（或安全存储该消息以供将来处理）后，会通过对 **Message** 对象调用“删除”方法来完成接收过程的第二个阶段。 **delete** 方法会将消息标记为“已使用”并将其从队列中删除。
 

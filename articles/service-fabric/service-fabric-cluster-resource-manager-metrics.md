@@ -1,25 +1,25 @@
 ---
-title: "使用指标管理 Azure 微服务负载 | Azure"
-description: "了解如何在 Service Fabric 中配置和使用指标管理服务资源消耗。"
+title: 使用指标管理 Azure 微服务负载 | Azure
+description: 了解如何在 Service Fabric 中配置和使用指标管理服务资源消耗。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 09/11/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: a1ae71fcfa8ac1ab280ed2c38768c72f181bd099
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 74173f1fe7093a5e9c279c96693d674936cd586d
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>在 Service Fabric 中使用指标管理资源消耗和负载
 指标是服务关切的、由群集中的节点提供的资源。 指标是要进行管理以提升或监视服务性能的任何信息。 例如，可能需要监视内存消耗量以了解服务是否过载。 另一个用途是确定服务是否可以移动到内存较少受限的其他位置，以便获得更佳性能。
@@ -33,11 +33,11 @@ ms.lasthandoff: 09/08/2017
   - ReplicaCount - 节点上的有状态副本总计数
   - Count - 节点上的所有服务对象（无状态和有状态）计数
 
-| 指标 | 无状态实例负载 | 有状态辅助负载 | 有状态主要负载 |
-| --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |
-| ReplicaCount |0 |1 |1 |
-| 计数 |1 |1 |1 |
+| 指标 | 无状态实例负载 | 有状态辅助负载 | 有状态主要负载 | 重量 |
+| --- | --- | --- | --- | --- |
+| PrimaryCount |0 |0 |1 |0 |
+| ReplicaCount |0 |1 |1 |0 |
+| 计数 |1 |1 |1 |0 |
 
 对于脚本工作负荷，默认指标实现群集中的适当工作分布。 在以下示例中，让我们看看创建两个服务并依赖默认指标进行均衡时会发生什么情况。 第一个服务是具有 3 个分区的有状态服务，目标副本集大小为 3。 第二个服务是具有 1 个分区的无状态服务，实例数为 3。
 
@@ -238,7 +238,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 让我们查看一个负载报告示例，以及不同的指标权重如何在群集中造成不同的分配。 在此示例中，我们看到切换指标的相对权重会导致群集资源管理器创建不同的服务排列。
 
 <center>
-![指标权重示例及其对均衡解决方案的影响][Image3]
+![指标权重示例及其对平衡解决方案的影响][Image3]
 </center>
 
 此示例中有 4 种不同的服务，所有服务都针对两个不同指标 MetricA 和 MetricB 报告不同的值。 在其中一个用例中，所有服务定义 MetricA 为最重要的指标（权重 = 高），MetricB 为不重要的指标（权重 = 低）。 因此会看到群集资源管理器在放置服务时会采用使得 MetricA 比 MetricB 更均衡的方式。 “更均衡”意味着 MetricA 具有比 MetricB 更小的标准偏差。 在第二个方案中，反转指标权重。 结果，群集资源管理器会交换服务 A 与 B，以产生 MetricB 比 MetricA 更加均衡的分配。
@@ -273,4 +273,5 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 [Image2]:./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png
 [Image3]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
+<!-- Update_Description: update meta properties -->
 

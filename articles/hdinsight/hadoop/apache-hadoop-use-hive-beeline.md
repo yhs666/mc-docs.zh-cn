@@ -12,17 +12,17 @@ ms.assetid: 3adfb1ba-8924-4a13-98db-10a67ab24fca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/02/2018
-ms.date: 03/26/2018
+origin.date: 03/26/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0cc7915cbba9f946505124654add839f0b2675b7
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: cff1721c2c263a47049fc7019c0c5523f97638fa
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>将 Beeline 客户端与 Apache Hive 配合使用
 
@@ -111,7 +111,7 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
         | sessionpagevieworder  | bigint     |          |
         +-----------------------+------------+----------+--+
 
-    此信息描述表中的列。 我们可以对此数据执行某些查询，不过，暂时让我们改为创建全新的表来演示如何将数据载入 Hive 并应用架构。
+    此信息描述表中的列。
 
 4. 输入以下语句，以使用 HDInsight 群集随附的示例数据来创建名为 **log4jLogs** 的表：
 

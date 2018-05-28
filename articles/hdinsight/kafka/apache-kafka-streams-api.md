@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/19/2018
+origin.date: 04/10/2018
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: abccd6ba5fcdc0fe472163bd7f2a9d275a6a4de9
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 05/21/2018
+ms.openlocfilehash: 1f024fdca3414f2b0084e68a85c3044c1385f1ea
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="apache-kafka-streams-api"></a>Apache Kafka Streams API
 

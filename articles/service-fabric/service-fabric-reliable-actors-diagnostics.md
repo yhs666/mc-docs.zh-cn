@@ -1,6 +1,6 @@
 ---
-title: "执行组件诊断和监视 | Azure"
-description: "本文描述了 Service Fabric Reliable Actors 运行时中的诊断和性能监视功能，包括由其发出的事件和性能计数器。"
+title: 执行组件诊断和监视 | Azure
+description: 本文描述了 Service Fabric Reliable Actors 运行时中的诊断和性能监视功能，包括由其发出的事件和性能计数器。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -9,17 +9,17 @@ editor: vturecek
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/26/2017
-ms.date: 12/04/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0d4f748cc7e98de07b63d0ee1c7f979fe2832402
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 8b7ae6ea834324e6735836e73a83c555937f966b
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Reliable Actors 的诊断和性能监视
 Reliable Actors 运行时发出 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 事件和[性能计数器](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)。 这些有助于深入了解运行时的运行状况以及进行故障排除和性能监视。
@@ -52,14 +52,14 @@ Reliable Actors 运行时定义以下性能计数器类别。
 默认情况下在 Windows 操作系统中提供的 [Windows 性能监视器](https://technet.microsoft.com/library/cc749249.aspx) 应用程序可用于收集和查看性能计数器数据。 [Azure 诊断](../cloud-services/cloud-services-dotnet-diagnostics.md)是用于收集性能计数器数据并将其上传到 Azure 表的另一个选项。
 
 ### <a name="performance-counter-instance-names"></a>性能计数器实例名称
-具有大量执行组件服务或执行组件服务分区的群集将具有大量执行组件性能计数器实例。 性能计数器实例名称有助于标识与性能计数器实例相关联的特定[分区](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors)和执行组件方法（如果适用）。
+具有大量执行组件服务或执行组件服务分区的群集具有大量执行组件性能计数器实例。 性能计数器实例名称有助于标识与性能计数器实例相关联的特定[分区](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors)和执行组件方法（如果适用）。
 
 #### <a name="service-fabric-actor-category"></a>Service Fabric 执行组件类别
 对于类别 `Service Fabric Actor`，计数器实例名称采用以下格式：
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* 是与性能计数器实例关联的 Service Fabric 分区 ID 的字符串表示形式。 分区 ID 是 GUID，并且其字符串表示形式通过使用格式说明符“D”的 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 方法生成。
+*ServiceFabricPartitionID* 是与性能计数器实例相关联的 Service Fabric 分区 ID 的字符串表示。 分区 ID 是 GUID，并且其字符串表示形式通过使用格式说明符“D”的 [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) 方法生成。
 
 *ActorRuntimeInternalID* 是由 Fabric 执行组件运行时生成的供其内部使用的 64 位整数的字符串表示形式。 这包括在性能计数器实例名称中，以确保其唯一性并避免与其他性能计数器实例名称发生冲突。 用户不应尝试解释此部分的性能计数器实例名称。
 
@@ -126,7 +126,7 @@ Reliable Actors 运行时发出以下与[执行组件状态管理](service-fabri
 
 | 事件名称 | 事件 ID | 级别 | 关键字 | 说明 |
 | --- | --- | --- | --- | --- |
-| ActorSaveStateStart |10 |详细 |0x4 |执行组件运行时即将保存执行组件状态。 |
+| ActorSaveStateStart |10 个 |详细 |0x4 |执行组件运行时即将保存执行组件状态。 |
 | ActorSaveStateStop |11 |详细 |0x4 |执行组件运行时已完成保存执行组件状态。 |
 
 Reliable Actors 运行时发布与执行组件状态管理相关的以下性能计数器。
@@ -174,4 +174,4 @@ Reliable Actors 运行时发布与执行组件激活和停用相关的以下性�
 * [代码示例](https://github.com/Azure/servicefabric-samples)
 * [PerfView 中的 EventSource 提供程序](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties-->sss

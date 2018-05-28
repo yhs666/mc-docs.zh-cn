@@ -11,17 +11,17 @@ ms.assetid: 6ce18163-63b5-4df6-9bb6-8fcbd4db05d8
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/26/2017
-ms.date: 03/26/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2431d2146c306e211b5ba26ffba8f2a0817bb6b6
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 05cbd1e1de02eecb527df9562867ba6caa0a7544
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>使用 REST 在 HDInsight 中通过 Hadoop 运行 Hive 查询
 
@@ -81,6 +81,7 @@ ms.lasthandoff: 03/22/2018
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/templeton/v1/status" `
        -Credential $creds
+       -UseBasicParsing
     $resp.Content
     ```
 
@@ -104,6 +105,7 @@ ms.lasthandoff: 03/22/2018
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/templeton/v1/version/hive" `
        -Credential $creds
+       -UseBasicParsing
     $resp.Content
     ```
 
@@ -126,6 +128,7 @@ ms.lasthandoff: 03/22/2018
        -Credential $creds `
        -Body $reqParams `
        -Method POST
+       -UseBasicParsing
     $jobID = (ConvertFrom-Json $resp.Content).id
     $jobID
     ```
@@ -166,6 +169,7 @@ ms.lasthandoff: 03/22/2018
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/templeton/v1/jobs/$jobID" `
        -Credential $creds `
        -Body $reqParams
+       -UseBasicParsing
     # ConvertFrom-JSON can't handle duplicate names with different case
     # So change one to prevent the error
     $fixDup=$resp.Content.Replace("jobID","job_ID")

@@ -1,25 +1,25 @@
 ---
-title: "更改 Azure 微服务中的 FabricTransport 设置 | Azure"
-description: "了解如何配置 Azure Service Fabric 执行组件通信设置。"
+title: 更改 Azure 微服务中的 FabricTransport 设置 | Azure
+description: 了解如何配置 Azure Service Fabric 执行组件通信设置。
 services: Service-Fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/20/2017
-ms.date: 01/01/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0fcbc6d5d3f63f226a9b1ed4074ecc588b81b139
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 84f8754243ee1fc43a972c5dc67bc6be0838cb2b
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>配置 Reliable Actors 的 FabricTransport 设置
 
@@ -35,17 +35,17 @@ ms.lasthandoff: 12/29/2017
 
 以下示例演示如何更改 FabricTransport OperationTimeout 设置的默认值：
 
-  ```csharp
+    ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600)]
-  ```
+    ```
 
    第二个示例更改 FabricTransport MaxMessageSize 和 OperationTimeoutInSeconds 的默认值。
 
-   ```csharp
+    ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600,MaxMessageSize = 134217728)]
-   ```
+    ```
 
 ## <a name="config-package"></a>配置包
 
@@ -153,4 +153,4 @@ ms.lasthandoff: 12/29/2017
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
     </Section>
      ```
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties  -->

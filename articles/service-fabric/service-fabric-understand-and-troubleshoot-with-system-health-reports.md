@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 52574ea7-eb37-47e0-a20a-101539177625
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/28/2018
-ms.date: 04/09/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 547b66676ab28721c7ce5ef9138490c73da161c7
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: cd5d41620c3646ab9aa6ec18e1aad9e549197b00
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>使用系统运行状况报告进行故障排除
 Azure Service Fabric 组件提供有关现成群集中所有实体的系统运行状况报告。 [运行状况存储](service-fabric-health-introduction.md#health-store)根据系统报告来创建和删除实体。 它还将这些实体组织为层次结构以捕获实体交互。
@@ -633,14 +633,14 @@ HealthEvents          :
 - **IReplicator.BuildReplica (<Remote ReplicaId>)**：此警告指明生成过程有问题。 有关详细信息，请参阅[副本生命周期](service-fabric-concepts-replica-lifecycle.md)。 这可能是由于复制器地址配置错误所致。 有关详细信息，请参阅[配置有状态可靠服务](service-fabric-reliable-services-configuration.md)和[在服务清单中指定资源](service-fabric-service-manifest-resources.md)。 也可能是远程节点有问题。
 
 ### <a name="replicator-system-health-reports"></a>复制器系统运行状况报告
-**复制队列已满：**如果复制队列已满，则 
+**复制队列已满：** 如果复制队列已满，则 
 System.Replicator 报告警告。 在主要副本上，由于一个或多个次要副本确认操作的速度较慢，复制队列通常会达到已满状态。 辅助副本上服务应用操作的速度较慢时，通常会发生这种情况。 队列不再满时，警告会被清除。
 
 * **SourceId**：System.Replicator
 * **属性**：PrimaryReplicationQueueStatus 或 SecondaryReplicationQueueStatus（视副本角色而定）。
 * **后续步骤**：如果报告位于主要副本上，请检查群集中节点间的连接。 如果所有连接都正常，则可能至少有一个慢速次要副本在应用操作时具有高磁盘延迟。 如果报告位于次要副本上，则先检查节点上的磁盘使用情况和性能。 然后检查从慢速节点到主要副本的传出连接。
 
-**RemoteReplicatorConnectionS状态：**当辅助（远程）复制器的连接不正常时，主要副本上的
+**RemoteReplicatorConnectionS状态：** 当辅助（远程）复制器的连接不正常时，主要副本上的
 **System.Replicator** 会报告警告。 报告的信息中会显示远程复制器的地址，这样可以更方便地检测是否传入了错误的配置，或者复制器之间是否存在网络问题。
 
 * **SourceId**：System.Replicator
@@ -859,4 +859,4 @@ HealthEvents               :
 
 * [Service Fabric 应用程序升级](service-fabric-application-upgrade.md)
 
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update meta properties -->

@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/29/2018
-ms.date: 03/26/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
-ms.openlocfilehash: e566d39f1893d0f622ebe434ef91f5834dd74c24
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 702005e38335f01a892103a4428ea3a006d687f7
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>使用脚本操作自定义基于 Linux 的 HDInsight 群集
 
@@ -204,13 +204,15 @@ HDInsight 提供了脚本用于在 HDInsight 群集上安装以下组件：
 
 在此示例中，使用了以下代码添加脚本操作：
 
-    "scriptActions": [
-        {
-            "name": "setenvironmentvariable",
-            "uri": "[parameters('scriptActionUri')]",
-            "parameters": "headnode"
-        }
-    ]
+```json
+"scriptActions": [
+    {
+        "name": "setenvironmentvariable",
+        "uri": "[parameters('scriptActionUri')]",
+        "parameters": "headnode"
+    }
+]
+```
 
 有关如何部署模板的信息，请参阅以下文档：
 
@@ -396,15 +398,21 @@ Submit-AzureRmHDInsightScriptAction -ClusterName $clusterName `
 
 1. 要切换到 Azure 资源管理器模式，请在命令行中使用以下命令：
 
-        azure config mode arm
+    ```bash
+    azure config mode arm
+    ```
 
 2. 使用以下命令向 Azure 订阅进行身份验证。
 
+    ```bash
         azure login -e AzureChinaCloud
+    ```
 
 3. 使用以下命令将脚本操作应用到正在运行的群集
 
-        azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```bash
+    azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```
 
     如果省略此命令的参数，系统会提示用户指定参数。 如果以 `-u` 指定的脚本接受参数，可以使用 `-p` 参数来指定参数。
 
@@ -600,11 +608,11 @@ Traceback (most recent call list):
 ImportError: cannot import name BlobService
 ```
 
-__原因：__升级随附于 HDInsight 群集的 Python Azure 存储客户端时会出现此错误。 HDInsight 需要 Azure 存储客户端 0.20.0。
+__原因：__ 升级随附于 HDInsight 群集的 Python Azure 存储客户端时会出现此错误。 HDInsight 需要 Azure 存储客户端 0.20.0。
 
 __解决方法__：若要解决此错误，请使用 `ssh` 手动连接到每个群集节点，并使用以下命令重新安装正确的存储客户端版本：
 
-```
+```bash
 sudo pip install azure-storage==0.20.0
 ```
 

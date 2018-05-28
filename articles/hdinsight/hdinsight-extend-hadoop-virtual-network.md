@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/21/2018
-ms.date: 04/16/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
-ms.openlocfilehash: 17d2f1c7cdf4c868d250e3daf94e2f67d1977a60
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 6faf41ac0f59761924670cc31447814983ff1d1b
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 Azure HDInsight
 
@@ -176,7 +176,7 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 
     有关每个配置的示例，请参阅[示例：自定义 DNS](#example-dns) 部分。
 
-有关详细信息，请参阅 [VM 和角色实例的名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)文档。
+有关详细信息，请参阅 [VM 和角色实例的名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文档。
 
 ## <a name="directly-connect-to-hadoop-services"></a>直接连接到 Hadoop 服务
 

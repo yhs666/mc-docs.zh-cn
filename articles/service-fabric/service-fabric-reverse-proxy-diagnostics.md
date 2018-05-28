@@ -8,17 +8,17 @@ manager: digimobile
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 08/08/2017
-ms.date: 04/30/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: a20d60414b3a4f4cca087e107ee36cda94b309f2
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 7a9afb93a347aac856b2f5b64557a445f210e982
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>了解如何监视和诊断在反向代理处处理的请求
 
@@ -202,4 +202,4 @@ ms.lasthandoff: 04/28/2018
 * 请参阅[配置反向代理以连接到安全服务](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services)，获取用于通过不同的服务证书验证选项配置安全反向代理的 Azure Resource Manager 模板示例。
 * 若要了解详细信息，请参阅 [Service Fabric 反向代理](service-fabric-reverseproxy.md)。
 
-<!--Update_Description: update link -->
+<!-- Update_Description: update meta properties -->

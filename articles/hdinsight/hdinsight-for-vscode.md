@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 10/27/2017
-ms.date: 03/26/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5f562938cd35931d08ad72dffd1229342db6ee27
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 4d9d66a402acc198cf556267bee63dc4d23063bc
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用用于 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -70,9 +70,9 @@ ms.lasthandoff: 03/22/2018
 
 4. 从“资源管理器”中打开 **XXXX_hdi_settings.json**，或者右键单击脚本编辑器以选择“设置配置”。 可以配置登录入口、默认群集和作业提交参数，如文件中的示例所示。 还可以将其余参数保留为空。
 
-## <a name="connect-to-azure"></a>连接到 Azure
+## <a name="connect-to-hdinsight-cluster"></a>连接到 HDInsight 群集
 
-需要连接到 Azure 帐户，然后才能从 VSCode 将脚本提交到 HDInsight 群集。
+将脚本从 VS Code 提交到 HDInsight 群集之前，需要连接到 Azure 帐户，或链接群集（使用 Ambari 用户名/密码或已加入域的帐户）。
 
 **连接到 Azure 的方法**
 

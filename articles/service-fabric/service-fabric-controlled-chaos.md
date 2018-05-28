@@ -1,6 +1,6 @@
 ---
-title: "在 Service Fabric 群集中引入混沌测试 | Azure"
-description: "使用故障注入和群集分析服务 API 管理群集中的混沌测试。"
+title: 在 Service Fabric 群集中引入混沌测试 | Azure
+description: 使用故障注入和群集分析服务 API 管理群集中的混沌测试。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -9,17 +9,17 @@ editor: motanv
 ms.assetid: 2bd13443-3478-4382-9a5a-1f6c6b32bfc9
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/05/2018
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3a7f5b5877fd7a15db5645d80cec408d2cf76f06
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 5d75cbde35cab5760d47d762374dca43d0ac7fed
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>在 Service Fabric 群集中引入受控的混沌测试
 大规模分布式系统，例如云基础结构，在本质上都是不可靠的。 Azure Service Fabric 可让开发人员在不可靠的基础结构之上编写可靠的分布式服务。 若要在不可靠的基础结构之上编写可靠的分布式服务，开发人员应能够在不可靠的底层基础结构因故障而进行复杂的状态转换时，测试其服务的稳定性。
@@ -322,4 +322,4 @@ while($true)
 }
 ```
 
-<!--Update_Description: update meta propreties, wording update, add ChaosTargetFilter content block -->
+<!--Update_Description: update meta propreties  -->

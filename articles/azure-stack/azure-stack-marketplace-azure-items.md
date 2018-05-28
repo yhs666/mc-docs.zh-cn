@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/11/2018
-ms.date: 04/23/2018
+origin.date: 05/14/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: 6457fa2c47096803f47806cefc5e009c2d1fe94f
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: 2d74192ab74cb4e6da9fb9ac478a877af263c11f
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>适用于 Azure Stack 的 Azure Marketplace 项
 
@@ -91,4 +91,4 @@ Azure Stack 支持下述 Azure Marketplace 虚拟机和解决方案模板。 请
 | ![SUSE Manager 3.0 Proxy (BYOS)](./media/azure-stack-marketplace-azure-items/suse.png) | SUSE Manager 3.0 Proxy (BYOS) | 同类最佳开源基础结构管理。 | SUSE |
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

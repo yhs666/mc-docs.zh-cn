@@ -27,7 +27,9 @@
           href: service-fabric-tutorial-create-dotnet-app.md
         - name: 2 - 部署应用程序
           href: service-fabric-tutorial-deploy-app-to-party-cluster.md
-        - name: 3 - 配置 CI/CD
+        - name: 3- 启用 HTTPS
+          href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
+        - name: 4- 配置 CI/CD
           href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
     - name: 部署 Java 应用
       items:
@@ -37,7 +39,7 @@
           href: service-fabric-tutorial-debug-log-local-cluster.md
         - name: 3- 部署应用程序
           href: service-fabric-tutorial-java-deploy-azure.md
-        - name: 5- 配置 CI/CD
+        - name: 4- 配置 CI/CD
           href: service-fabric-tutorial-java-jenkins.md
     - name: 将现有 .NET 应用容器化
       items:
@@ -226,11 +228,13 @@
       items:
         - name: 监视概述
           href: service-fabric-diagnostics-overview.md
-        - name: 群集事件
+        - name: 群集监视
           href: service-fabric-diagnostics-event-generation-infra.md
           items:
-            - name: 操作通道
-              href: service-fabric-diagnostics-event-generation-operational.md
+            - name: Service Fabric 事件
+              href: service-fabric-diagnostics-events.md
+            - name: EventStore 概述
+              href: service-fabric-diagnostics-eventstore.md
             - name: Reliable Services 事件
               href: service-fabric-reliable-services-diagnostics.md
             - name: Reliable Actors 事件
@@ -245,8 +249,6 @@
           href: service-fabric-health-introduction.md
         - name: 报告运行状况事件
           href: service-fabric-report-health.md
-        - name: 使用 OMS 进行监视
-          href: service-fabric-diagnostics-event-analysis-oms.md
     - name: 与 API 管理集成
       href: service-fabric-api-management-overview.md
 - name: 操作指南
@@ -387,6 +389,10 @@
               href: service-fabric-securing-containers.md
             - name: 设置 Windows 容器的 gMSA
               href: service-fabric-setup-gmsa-for-windows-containers.md
+        - name: 配置定期备份（Azure 上的群集）
+          href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
+        - name: 配置定期备份（独立群集）
+          href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
         - name: 迁移旧的 Java 应用程序以支持 Maven
           href: service-fabric-migrate-old-javaapp-to-use-maven.md
     - name: 在 Windows/VS 开发环境中工作
@@ -483,6 +489,8 @@
                   href: service-fabric-cluster-creation-via-portal.md
                 - name: Azure Resource Manager
                   href: service-fabric-cluster-creation-via-arm.md
+                - name: 使用证书公用名称的群集
+                  href: service-fabric-create-cluster-using-cert-cn.md
             - name: 缩放
               items:
                 - name: 手动
@@ -495,6 +503,10 @@
               href: service-fabric-cluster-security-roles.md
             - name: 打开负载均衡器的端口
               href: create-load-balancer-rule.md
+            - name: 将群集证书更改为公用名称
+              href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
+            - name: 以手动方式滚动更新群集证书
+              href: service-fabric-cluster-rollover-cert-cn.md
             - name: 管理群集证书
               href: service-fabric-cluster-security-update-certs-azure.md
             - name: Delete
@@ -531,22 +543,26 @@
           href: service-fabric-patch-orchestration-application-linux.md
     - name: 监视和诊断
       items:
-        - name: 聚合事件 - EventFlow
-          href: service-fabric-diagnostics-event-aggregation-eventflow.md
-        - name: 聚合事件 - Azure 诊断
+        - name: 监视应用程序
           items:
-            - name: Windows
+            - name: 将日志记录添加到应用程序
+              href: service-fabric-how-to-diagnostics-log.md
+            - name: 使用 EventFlow 聚合事件
+              href: service-fabric-diagnostics-event-aggregation-eventflow.md
+        - name: 监视群集
+          items:
+            - name: Windows Azure 诊断
               href: service-fabric-diagnostics-event-aggregation-wad.md
-            - name: Linux
+            - name: Linux Azure 诊断
               href: service-fabric-diagnostics-event-aggregation-lad.md
-        - name: 报告并检查运行情况
-          href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-        - name: 将日志记录添加到服务
-          href: service-fabric-how-to-diagnostics-log.md
-        - name: 使用系统运行状况报告进行故障排除
-          href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-        - name: 查看运行状况报告
-          href: service-fabric-view-entities-aggregated-health.md
+        - name: 监视运行状况
+          items:
+            - name: 报告并检查运行情况
+              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+            - name: 使用系统运行状况报告进行故障排除
+              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+            - name: 查看运行状况报告
+              href: service-fabric-view-entities-aggregated-health.md
         - name: 对本地群集进行故障排除
           href: service-fabric-troubleshoot-local-cluster-setup.md
 - name: 参考
@@ -592,6 +608,17 @@
       href: service-fabric-cluster-fabric-settings.md
     - name: 服务模型 XML 架构
       href: service-fabric-service-model-schema.md
+      items:
+        - name: 元素
+          href: service-fabric-service-model-schema-elements.md
+        - name: 复杂类型
+          href: service-fabric-service-model-schema-complex-types.md
+        - name: 特性组
+          href: service-fabric-service-model-schema-attribute-groups.md
+        - name: 简单类型
+          href: service-fabric-service-model-schema-simple-types.md
+        - name: 元素组
+          href: service-fabric-service-model-schema-element-groups.md
     - name: 环境变量
       href: service-fabric-environment-variables-reference.md
 - name: 资源

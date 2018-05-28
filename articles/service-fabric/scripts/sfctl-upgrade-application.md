@@ -1,26 +1,26 @@
 ---
-title: "Service Fabric CLI 脚本示例 - 更新群集上的应用程序"
-description: "Service Fabric CLI 脚本示例 - 使用新版本更新应用程序。 此示例还使用新位升级已部署的应用程序。"
+title: Service Fabric CLI 脚本示例 - 更新群集上的应用程序
+description: Service Fabric CLI 脚本示例 - 使用新版本更新应用程序。 此示例还使用新位升级已部署的应用程序。
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 origin.date: 12/06/2017
-ms.date: 01/01/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.custom: 
-ms.openlocfilehash: 6879be515ad13cf2f28fcbb6945c739d664f925b
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.custom: ''
+ms.openlocfilehash: ec0f3fe9ad8bab0c9dd2f21fc7c4f7826d5e3551
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>将应用程序证书添加到 Service Fabric 群集
 
@@ -52,4 +52,4 @@ sfctl application upgrade --app-id TestApp --app-version 2.0.0 --parameters "{\"
 有关详细信息，请参阅 [Service Fabric CLI 文档](../service-fabric-cli.md)。
 
 在 [Service Fabric CLI 示例](../samples-cli.md)中可找到 Azure Service Fabric 的其他 Service Fabric CLI 示例。
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

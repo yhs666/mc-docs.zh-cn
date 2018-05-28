@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/29/2018
-ms.date: 03/26/2018
+origin.date: 03/28/2018
+ms.date: 05/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 1526e9e9eecad8aafe5fdf9cf49556743d0820a8
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 0bcb65812b136ac922700e6debe6d6283ed483a8
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>使用 HDInsight Spark 群集在 Azure SQL 数据库中读取和写入数据
 
@@ -235,7 +235,7 @@ ms.lasthandoff: 03/22/2018
         
          var streamingQuery = WriteToSQLQuery.start()
 
-6. 运行以下查询，验证数据是否正在流式传输到 **hvactable**。 每次运行该查询时，它都会显示表中的行数已递增。
+6. 通过在 SQL Server Management Studio (SSMS) 中运行以下查询，验证数据是否正在流式传输到 hvactable。 每次运行该查询时，它都会显示表中的行数已递增。
 
         SELECT COUNT(*) FROM hvactable
 

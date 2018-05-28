@@ -12,15 +12,15 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-origin.date: 03/19/2018
-ms.date: 04/30/2018
+origin.date: 05/18/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7c0c6f0e5f42509aa5c888dd2f29e4403e2438e6
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 580e6a29ba7539a414b84db05d793694543bfcfb
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>打开 Azure 负载均衡器中的应用程序端口
 

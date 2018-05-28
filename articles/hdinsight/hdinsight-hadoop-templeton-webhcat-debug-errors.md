@@ -1,8 +1,8 @@
 ---
-title: "了解和解决 HDInsight 上的 WebHCat 错误 - Azure | Azure"
-description: "了解 HDInsight 上的 WebHCat 返回的常见错误以及如何解决它们。"
+title: 了解和解决 HDInsight 上的 WebHCat 错误 - Azure | Azure
+description: 了解 HDInsight 上的 WebHCat 返回的常见错误以及如何解决它们。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/01/2017
-ms.date: 12/25/2017
+origin.date: 02/20/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
-ms.openlocfilehash: 531e37fa67f17f2544244988c9463e9bd449179a
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: ac534c07e8178f52fe731f7ffbf990027433e2ab
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>了解和解决从 HDInsight 上的 WebHCat 收到的错误
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 12/15/2017
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ### <a name="default-configuration"></a>默认配置
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 12/15/2017
 | 设置 | 作用 | 默认值 |
 | --- | --- | --- |
 | [yarn.scheduler.capacity.maximum-applications][maximum-applications] |可以同时处于活动状态（挂起或运行）的最大作业数 |10,000 |
-| [templeton.exec.max-procs][max-procs] |可以同时处理的最大请求数 |20 |
+| [templeton.exec.max-procs][max-procs] |可以同时处理的最大请求数 |20 个 |
 | [mapreduce.jobhistory.max-age-ms][max-age-ms] |作业历史记录保留的天数 |7 天 |
 
 ## <a name="too-many-requests"></a>请求过多

@@ -12,15 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/08/2018
-ms.date: 03/21/2018
+origin.date: 05/18/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: brenduns
-ms.openlocfilehash: 09f9c917a793ae024bf57e41f30ce921611a3e18
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 1a46f24998fa28b0f5c82fce5f37d17a78c93770
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>基于 Azure Stack 的应用服务：添加更多的基础结构或辅助角色
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 03/23/2018
     ##### Scale out the AppService Role instances ######
    
     # Set context to AzureStack admin.
-    Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+    Login-AzureRmAccount -EnvironmentName AzureStackAdmin
                                                  
     ## Name of the Resource group where AppService is deployed.
     $AppServiceResourceGroupName = "AppService.local"
@@ -118,3 +118,4 @@ ms.lasthandoff: 03/23/2018
 
 [配置部署源](azure-stack-app-service-configure-deployment-sources.md)
 
+<!-- Update_Description: update metedata properties -->

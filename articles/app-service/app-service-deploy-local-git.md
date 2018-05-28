@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/05/2018
-ms.date: 04/02/2018
+ms.date: 06/04/2018
 ms.author: v-yiso
-ms.openlocfilehash: ba53c633e9d9a1f47975818a3fed2fcdc3598c4c
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 4d2d7ec6cbdf91666bab514554ca0adb2f11fff6
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
 
@@ -53,6 +53,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 | Python（仅限 Windows） | \*.py、requirements.txt 或 runtime.txt |
 | HTML | default.htm、default.html、default.asp、index.htm、index.html 或 iisstart.htm |
 | Web 作业 | App\_Data/jobs/continuous（适用于连续的 WebJobs）或 App\_Data/jobs/triggered（适用于触发的 WebJobs）下的 \<job_name>/run.\<extension>。 有关详细信息，请参阅 [Kudu WebJobs 文档](https://github.com/projectkudu/kudu/wiki/WebJobs) |
+| 函数 | 请参阅 [Azure Functions 的连续部署](../azure-functions/functions-continuous-deployment.md#continuous-deployment-requirements)。 |
 
 要自定义部署，可以在存储库根路径中添加 .deployment 文件。 有关详细信息，请参阅[自定义部署](https://github.com/projectkudu/kudu/wiki/Customizing-deployments)和[自定义部署脚本](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)。
 

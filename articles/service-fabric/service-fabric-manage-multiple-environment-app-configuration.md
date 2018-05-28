@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 04/30/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 44473baf8b836fc68213c71d3c80ff042d4e4613
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: b49d5a508b3a4d946737303ff2b1cf9f3c755e7a
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>管理多个环境的应用程序
 
@@ -59,5 +59,6 @@ ms.lasthandoff: 04/28/2018
 - [如何在 Service Fabric 中指定服务的环境变量](service-fabric-how-to-specify-environment-variables.md)
 - [如何在 Service Fabric 中使用参数来指定服务的端口号](service-fabric-how-to-specify-port-number-using-parameters.md)
 - [如何参数化配置文件](service-fabric-how-to-parameterize-configuration-files.md)
+
 - [环境变量引用](service-fabric-environment-variables-reference.md)
 <!--Update_Description: update meta properties  -->

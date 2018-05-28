@@ -1,25 +1,25 @@
 ---
-title: "Azure Service Fabric Java 客户端 API | Azure"
-description: "按照 Service Fabric 客户端 REST API 规范生成和使用 Service Fabric Java 客户端 API"
+title: Azure Service Fabric Java 客户端 API | Azure
+description: 按照 Service Fabric 客户端 REST API 规范生成和使用 Service Fabric Java 客户端 API
 services: service-fabric
 documentationcenter: java
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/27/2017
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: f4c4f110a8fec8ff2046304b20eb19d92f618cc6
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 07be63ce78f9650e26081c0d4fc4d851cb3a8d42
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java 客户端 API
 
@@ -133,5 +133,4 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="next-steps"></a>后续步骤
 * 了解 [Service Fabric REST APIs](https://docs.microsoft.com/rest/api/servicefabric/)（Service Fabric REST API）
-<!-- Update_Description: new articles on service fabric java rest api usage -->
-<!--ms.date: 03/12/2018-->
+<!-- Update_Description: update meta properties -->

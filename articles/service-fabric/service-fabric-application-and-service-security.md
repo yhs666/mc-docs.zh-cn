@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/16/2018
-ms.date: 04/23/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: b3dc4ffe3018474e1d23c4119185812d09ce56fd
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 1454e777b4d789dd397c554a0e43b171f23abe11
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 应用程序和服务安全性
 微服务体系结构可以带来[诸多好处](service-fabric-overview-microservices.md)。 但是，管理微服务的安全性有一定的难度，比管理传统单体式应用程序的安全性更复杂。 
@@ -120,5 +120,4 @@ TO DO: Encrypt disks on Linux clusters?-->
 
 <!-- Images -->
 [overview]:./media/service-fabric-application-and-service-security/overview.png
-<!-- Update_Description: new articles on service fabric application and service security -->
-<!--ms.date: 04/23/2018-->
+<!-- Update_Description: update meta properties -->

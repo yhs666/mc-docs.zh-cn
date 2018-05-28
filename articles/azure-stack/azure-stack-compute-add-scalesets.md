@@ -5,19 +5,17 @@ services: azure-stack
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-origin.date: 04/06/2018
-ms.date: 04/20/2018
+origin.date: 05/08/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
-ms.reviewer: anajod
-keywords: ''
-ms.openlocfilehash: db32f0f56731ec8e1ee0cf0edcbd764474eb9522
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.reviewer: kivenkat
+ms.openlocfilehash: 9c487c22b1a1edb93eb115aabfafa069bf2f6927
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虚拟机规模集
 
@@ -39,14 +37,16 @@ Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 
    安装并配置适用于 Azure Stack 的 PowerShell 和 Azure Stack 工具。 请参阅[在 Azure Stack 中启动并运行 PowerShell](azure-stack-powershell-configure-quickstart.md)。
 
    安装 Azure Stack 工具后，请确保导入以下 PowerShell 模块（路径相对于 AzureStack-Tools-master 文件夹中的 .\ComputeAdmin 文件夹）：
-
-        Import-Module .\AzureStack.ComputeAdmin.psm1
+  
+   ```PowerShell
+   Import-Module .\AzureStack.ComputeAdmin.psm1
+   ```
 
 - **操作系统映像**
 
    如果尚未将操作系统映像添加到 Azure Stack 应用商店，请参阅[将 Windows Server 2016 VM 映像添加到 Azure Stack 应用商店](azure-stack-add-default-image.md)。
 
-   若要支持 Linux，请下载 Ubuntu Server 16.04 并使用带以下参数的 ```Add-AzsVMImage``` 添加它：```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```。
+   若要支持 Linux，请下载 Ubuntu Server 16.04 并使用带以下参数的 ```Add-AzsPlatformImage``` 添加它：```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```。
 
 
 ## <a name="add-the-virtual-machine-scale-set"></a>添加虚拟机规模集
@@ -55,7 +55,7 @@ Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 
 
 ``$User`` 是用于连接管理员门户的帐户。 例如，serviceadmin@contoso.partner.onmschina.cn。
 
-```
+```PowerShell  
 $Arm = "https://adminmanagement.local.azurestack.external"
 $Location = "local"
 
@@ -84,12 +84,14 @@ Add-AzsVMSSGalleryItem -Location $Location
 
    下面是指定 *latest* 的示例：  
 
-          "imageReference": {
-             "publisher": "[parameters('osImagePublisher')]",
-             "offer": "[parameters('osImageOffer')]",
-             "sku": "[parameters('osImageSku')]",
-             "version": "latest"
-             }
+    ```Json  
+    "imageReference": {
+        "publisher": "[parameters('osImagePublisher')]",
+        "offer": "[parameters('osImageOffer')]",
+        "sku": "[parameters('osImageSku')]",
+        "version": "latest"
+        }
+    ```
 
    必须先下载新映像，然后纵向扩展才能使用新映像：  
 
@@ -111,14 +113,15 @@ Add-AzsVMSSGalleryItem -Location $Location
 
 若要删除虚拟机规模集库项，请运行以下 PowerShell 命令：
 
-    Remove-AzsVMSSGalleryItem
+```PowerShell  
+Remove-AzsVMSSGalleryItem
+````
 
 > [!NOTE]
 > 库项可能不会立即删除。 可能需要刷新门户几次，该项才会从 Marketplace 中删除。
-
 
 ## <a name="next-steps"></a>后续步骤
 [Azure Stack 常见问题解答](azure-stack-faq.md)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

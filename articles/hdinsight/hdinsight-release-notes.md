@@ -10,18 +10,16 @@ tags: azure-portal
 ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 03/08/2018
-ms.date: 04/16/2018
+ms.topic: conceptual
+origin.date: 03/20/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1877fb8a60dc9bb6a33aca4bd86c60ac07751342
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: b6b6135393de5d62f03de9414b32690d492a0a76
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight 上的 Hadoop 组件发行说明
 
@@ -32,7 +30,7 @@ ms.lasthandoff: 04/09/2018
 > [!IMPORTANT]
 > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 版本控制文章](hdinsight-component-versioning.md)。
 
-## <a name="notes-for-03082018---release-of-spark-22-on-hdinsight-36"></a>2018/03/08 的说明 - 发布 Spark 2.2 on HDInsight 3.6
+## <a name="notes-for-03202018---release-of-spark-22-on-hdinsight-36"></a>2018/03/20 - Spark 2.2 on HDInsight 3.6 版发行说明
 
 - Spark 2.2.0 可跨 Spark Core、SQL、ML 提高稳定性，并使结构化流达到正式发布状态。 Spark 2.2.0 现已在 HDInsight 3.6 上提供。
 

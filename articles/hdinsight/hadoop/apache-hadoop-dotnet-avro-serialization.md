@@ -1,40 +1,38 @@
 ---
-title: "序列化 Hadoop 中的数据 - Microsoft Avro Library - Azure | Azure"
-description: "了解如何使用 Microsoft Avro Library 将 Hadoop on HDInsight 中的数据串行化和反序列化，以将其保留在内存、数据库或文件中。"
+title: 序列化 Hadoop 中的数据 - Microsoft Avro Library - Azure | Azure
+description: 了解如何使用 Microsoft Avro Library 将 Hadoop on HDInsight 中的数据串行化和反序列化，以将其保留在内存、数据库或文件中。
 keywords: avro, hadoop avro
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: c78dc20d-5d8d-4366-94ac-abbe89aaac58
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 11/06/2017
-ms.date: 12/18/2017
+ms.topic: conceptual
+origin.date: 02/22/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 2784e6f9012b22880cbc942cd27539db46242e87
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: f4e63ddc43d3128eb31bc921182ff0d0aea20a7f
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>使用 Microsoft Avro Library 序列化 Hadoop 中的数据
 
 >[!NOTE]
 >Microsoft 不再支持 Avro SDK。 开源社区支持此库。 此库的源位于 [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro)。
 
-本主题介绍如何使用 [Microsoft Avro Library](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) 将对象及其他数据结构串行化为流，以将其保留在内存、数据库或文件中。 它还演示如何对这些流进行反序列化以恢复原始对象。
+本主题演示如何使用 [Microsoft Avro Library](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) 将对象及其他数据结构序列化为流，以便将它们持久保存到内存、数据库或文件中。 它还演示如何对这些流进行反序列化以恢复原始对象。
 
 [!INCLUDE [windows-only](../../../includes/hdinsight-windows-only.md)]
 
 ## <a name="apache-avro"></a>Apache Avro
-<a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> 针对 Microsoft.NET 环境实现了 Apache Avro 数据序列化系统。 Apache Avro 为序列化提供了一种紧凑的二进制数据交换格式。 它使用 <a href="http://www.json.org" target="_blank">JSON</a> 定义与语言无关的架构，以支持语言互操作性。 以一种语言序列化的数据可以用另一种语言读取。 目前支持 C、C++、C#、Java、PHP、Python 和 Ruby。 有关格式的详细信息可以在 <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">Apache Avro 规范</a>中找到。 
+<a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> 针对 Microsoft.NET 环境实现了 Apache Avro 数据序列化系统。 Apache Avro 为序列化提供了一种紧凑的二进制数据交换格式。 它使用 <a href="http://www.json.org" target="_blank">JSON</a> 定义与语言无关的架构，以支持语言互操作性。 以一种语言序列化的数据可以用另一种语言读取。 目前支持 C、C++、C#、Java、PHP、Python 和 Ruby。 可在 <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">Apache Avro 规范</a>中找到有关格式的详细信息。 
 
 >[!NOTE]
 >Microsoft Avro Library 不支持此规范的远程过程调用 (RPC) 部分。
@@ -237,7 +235,7 @@ Microsoft Avro Library 可以使用反射从要序列化的 C# 对象的数据�
     // Press any key to exit.
 
 ## <a name="sample-2-serialization-with-a-generic-record"></a>示例 2：通过通用记录进行序列化
-当数据无法使用具有数据协定的 .NET 类表示而导致不能使用反射时，可以在通用记录中显式指定 JSON 架构。 此方法比使用反射要慢。 在这种情况下，数据架构也可能是动态的，即在编译时是未知的。 以逗号分隔值 (CSV) 文件表示的数据（在运行时转换为 Avro 格式之前，其架构一直是未知的）是这种动态方案的一个示例。
+当数据无法使用具有数据协定的 .NET 类表示而导致不能使用反射时，可以在通用记录中显式指定 JSON 架构。 此方法比使用反射要慢。 在这种情况下，数据架构也可能是动态的，即在编译时它是未知的。 以逗号分隔值 (CSV) 文件表示的数据（在运行时转换为 Avro 格式之前，其架构一直是未知的）是这种动态方案的一个示例。
 
 此示例演示如何创建 [AvroRecord](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) 并使用它显式指定 JSON 架构，如何为其填充数据，然后对其进行序列化和反序列化。 然后，将结果与初始实例进行比较，以确认恢复的记录与原始记录相同。
 
@@ -859,7 +857,7 @@ Microsoft Avro Library 可以使用反射从要序列化的 C# 对象的数据�
 ## <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>示例 5：使用对象容器文件通过自定义压缩编解码器进行序列化
 第五个示例演示如何将自定义压缩编解码器用于 Avro 对象容器文件。 包含此示例代码的样例可以从 [Azure 代码示例](http://code.msdn.microsoft.com/Serialize-data-with-the-67159111)站点下载。
 
-[Avro 规范](http://avro.apache.org/docs/current/spec.html#Required+Codecs)允许使用可选的压缩编解码器（除了 **Null** 和 **Deflate** 默认压缩编解码器外）。 此示例未实现类似 Snappy（在 [Avro 规范](http://avro.apache.org/docs/current/spec.html#snappy)中作为支持的可选编解码器提及）的新编解码器。 它演示如何使用 [Deflate][deflate-110] 编解码器的 .NET Framework 4.5 实现，该编解码器基于 [zlib](http://zlib.net/) 压缩库提供比默认的 .NET Framework 4.0 版本更好的压缩算法。
+[Avro 规范](http://avro.apache.org/docs/current/spec.html#Required+Codecs)允许使用可选的压缩编解码器（除了 Null 和 Deflate 默认压缩编解码器外）。 此示例未实现类似 Snappy（在 [Avro 规范](http://avro.apache.org/docs/current/spec.html#snappy)中作为支持的可选编解码器提及）的新编解码器。 它演示如何使用 [Deflate][deflate-110] 编解码器的 .NET Framework 4.5 实现，该编解码器基于 [zlib](http://zlib.net/) 压缩库提供比默认的 .NET Framework 4.0 版本更好的压缩算法。
 
     //
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
@@ -1362,7 +1360,7 @@ Microsoft Avro Library 可以使用反射从要序列化的 C# 对象的数据�
 * 在 Hive 中创建名为 **Stocks** 的新外部表，并将它链接到前一个步骤中上传的数据。
 * 使用 Hive 对 **Stocks** 表执行查询。
 
-此外，该示例会在执行主要操作之前和之后执行清理过程。 在清理期间，将删除所有相关的 Azure Blob 数据和文件夹，并删除 Hive 表。 也可以从示例命令行调用清理过程。
+此外，该示例在执行主要操作之前和之后执行清理过程。 在清理期间，将删除所有相关的 Azure Blob 数据和文件夹，并删除 Hive 表。 也可以从示例命令行调用清理过程。
 
 该示例要求满足以下先决条件：
 

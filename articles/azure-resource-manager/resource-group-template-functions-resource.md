@@ -15,11 +15,11 @@ ms.workload: na
 origin.date: 01/22/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8156a358737bc1584570e2a8cf237b5f728c024e
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 0aa3a300a2ea4f37ff4270dab72ef3880e6a0cdb
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的资源函数
 
@@ -36,8 +36,8 @@ Resource Manager 提供以下用于获取资源值的函数：
 
 若要从参数、变量或当前部署获取值，请参阅 [Deployment value functions](resource-group-template-functions-deployment.md)（部署值函数）。
 
-<a name="listkeys" />
-<a name="list" />
+<a id="listkeys" />
+<a id="list" />
 
 ## <a name="listkeys-listsecrets-and-list"></a>listKeys、listSecrets 和 list*
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
@@ -137,7 +137,7 @@ ListKeys 返回的对象采用以下格式：
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```azurecli
+```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storageAccountName=<your-storage-account>
 ```
 
@@ -147,7 +147,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storageAccountName <your-storage-account>
 ```
 
-<a name="providers" />
+<a id="providers" />
 
 ## <a name="providers"></a>providers
 `providers(providerNamespace, [resourceType])`
@@ -223,7 +223,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```azurecli
+```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json --parameters providerNamespace=Microsoft.Web resourceType=sites
 ```
 
@@ -233,7 +233,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json -providerNamespace Microsoft.Web -resourceType sites
 ```
 
-<a name="reference" />
+<a id="reference" />
 
 ## <a name="reference"></a>reference
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
@@ -399,7 +399,7 @@ reference 函数从运行时状态派生其值，因此不能在 variables 节�
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```azurecli
+```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json --parameters storageAccountName=<your-storage-account>
 ```
 
@@ -432,7 +432,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```azurecli
+```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json --parameters storageAccountName=<your-storage-account>
 ```
 
@@ -442,7 +442,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageAccountName <your-storage-account>
 ```
 
-<a name="resourcegroup" />
+<a id="resourcegroup" />
 
 ## <a name="resourcegroup"></a>resourceGroup
 `resourceGroup()`
@@ -515,7 +515,7 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```azurecli
+```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json
 ```
 
@@ -525,7 +525,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json 
 ```
 
-<a name="resourceid" />
+<a id="resourceid" />
 
 ## <a name="resourceid"></a>ResourceId
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
@@ -664,7 +664,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```azurecli
+```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json
 ```
 
@@ -674,7 +674,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json 
 ```
 
-<a name="subscription" />
+<a id="subscription" />
 
 ## <a name="subscription"></a>订阅
 `subscription()`
@@ -714,7 +714,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```azurecli
+```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json
 ```
 

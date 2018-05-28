@@ -1,31 +1,31 @@
 ---
-title: "Service Fabric 服务分区 | Azure"
-description: "介绍如何对 Service Fabric 有状态服务进行分区。 使用分区可以将数据存储在本地计算机上，以便数据和计算可以一起扩展。"
+title: Service Fabric 服务分区 | Azure
+description: 介绍如何对 Service Fabric 有状态服务进行分区。 使用分区可以将数据存储在本地计算机上，以便数据和计算可以一起扩展。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 3b7248c8-ea92-4964-85e7-6f1291b5cc7b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/30/2017
-ms.date: 08/14/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5fccc4685b72c5dd13dd78cc4d0ad986e1e335ac
-ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
+ms.openlocfilehash: b37b19fcc1873ea3e39f3dae7815ffd5f0f05eca
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Service Fabric Reliable Services 分区
 本文介绍 Azure Service Fabric Reliable Services 分区的基本概念。 本文中使用的源代码也可以在 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)上获取。
 
 ## <a name="partitioning"></a>分区
-分区并不是 Service Fabric 所独有的。 事实上，它是生成可缩放服务的核心模式。 从更广泛的意义来说，可将分区视为将状态（数据）和计算划分为更小的可访问单元，以提高可伸缩性和性能的一种概念。 一种众所周知的分区形式是 [数据分区][wikipartition]，也称为分片。
+分区并不是 Service Fabric 所独有的。 事实上，它是构建可缩放服务的核心模式。 从更广泛的意义来说，可将分区视为将状态（数据）和计算划分为更小的可访问单元，以提高可伸缩性和性能的一种概念。 一种众所周知的分区形式是 [数据分区][wikipartition]，也称为分片。
 
 ### <a name="partition-service-fabric-stateless-services"></a>Service Fabric 无状态服务分区
 对于无状态服务，可以将分区视为包含服务的一个或多个实例的逻辑单元。 图 1 显示一个无状态服务，其五个实例使用一个分区在群集中分布。
@@ -40,7 +40,7 @@ ms.lasthandoff: 08/11/2017
 
 本演练的其余部分侧重于有状态服务。
 
-### <a name="partition-service-fabric-stateful-services"></a>Service Fabric 有状态服务分区
+### <a name="partition-service-fabric-stateful-services"></a>对 Service Fabric 有状态服务进行分区
 通过 Service Fabric 可以提供到一流的状态（数据）分区方式，从而方便地开发可缩放有状态服务。 从概念上讲，可将有状态服务的分区视为通过在群集中的节点间进行分布和均衡的[副本](service-fabric-availability-services.md)而高度可靠的缩放单位。
 
 在 Service Fabric 有状态服务的上下文中进行分区是指确定特定服务分区负责服务完整状态的某个部分的过程。 （如前所述，分区是一组[副本](service-fabric-availability-services.md)）。 Service Fabric 的一大优点是它将分区置于不同节点上。 这使它们可以按照节点的资源限制增长。 随着数据需求的增长，分区也会增长，Service Fabric 会在节点间重新平衡分区。 这可确保硬件资源的持续高效使用。
@@ -55,7 +55,7 @@ ms.lasthandoff: 08/11/2017
 这样，便因为来自客户端的请求在计算机间进行分布而实现了扩大，提高了应用程序的整体性能，并减少了对数据区块的访问争用。
 
 ## <a name="plan-for-partitioning"></a>规划分区
-实现服务之前，应始终考虑扩大所需的分区策略。 可使用不同方式，但所有方式都注重应用程序需要实现的功能。 由于本文的背景，我们来考虑一些更重要的方面。
+实现服务之前，应始终考虑扩大所需的分区策略。可使用不同方式，但所有方式都注重应用程序需要实现的功能。 由于本文的背景，我们来考虑一些更重要的方面。
 
 一个不错的方法是需要进行分区的状态的结构视为第一步。
 
@@ -130,7 +130,7 @@ Service Fabric 提供了三个分区方案可供选择：
 2. 在“新建项目”对话框中，选择 Service Fabric 应用程序。
 3. 将项目命名为“AlphabetPartitions”。
 4. 在“创建服务”对话框中，选择“有状态”服务并将它称为“Alphabet.Processing”，如下图所示。
-        ![Visual Studio 中的“新建服务”对话框][1]
+    ![Visual Studio 中的“新建服务”对话框][1]
 
 5. 设置分区数。 打开 AlphabetPartitions 项目的 ApplicationPackageRoot 文件夹中的 Applicationmanifest.xml 文件，然后将参数 Processing_PartitionCount 更新为 26，如下所示。
 
@@ -156,10 +156,10 @@ Service Fabric 提供了三个分区方案可供选择：
     现在服务已配置为侦听具有 26 个分区的内部终结点。
 7. 接下来，需要重写 Processing 类的 `CreateServiceReplicaListeners()` 方法。
 
-    >[!NOTE]
-    > 对于此示例，我们假定使用一个简单 HttpCommunicationListener。 有关 Reliable Service 通信的详细信息，请参阅 [Reliable Service 通信模型](./service-fabric-reliable-services-communication.md)。
-    > 
-    > 
+   > [!NOTE]
+   > 对于此示例，我们假定使用一个简单 HttpCommunicationListener。 有关 Reliable Service 通信的详细信息，请参阅 [Reliable Service 通信模型](service-fabric-reliable-services-communication.md)。
+   > 
+   > 
 8. 副本所侦听的 URL 的建议格式为以下格式： `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`。
     因此，要将通信侦听器配置为侦听正确的终结点以及使用此模式。
 
@@ -373,4 +373,4 @@ Service Fabric 提供了三个分区方案可供选择：
 
 [1]: ./media/service-fabric-create-your-first-application-in-visual-studio/new-project-dialog-2.png
 
-<!--Update_Description: update meta properties, update image reference -->
+<!--Update_Description: update meta properties, wording update -->

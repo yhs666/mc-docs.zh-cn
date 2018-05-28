@@ -1,25 +1,25 @@
 ---
-title: "Service Fabric 群集Resource Manager - 相关性 | Azure"
-description: "概述如何为 Service Fabric 服务配置相关性"
+title: Service Fabric 群集Resource Manager - 相关性 | Azure
+description: 概述如何为 Service Fabric 服务配置相关性
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 678073e1-d08d-46c4-a811-826e70aba6c4
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 09/11/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: cb6bea355039c327d6b804409f489c2de3993d32
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 4cab0c5ee1949a60c29fca32dd4a8708fef78e4d
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>在 Service Fabric 中配置和使用服务相关性
 相关性是一个控件，主要用于帮助简化将较大型的单体式应用程序转换到云和微服务领域。 它也可以用作提升服务性能的优化，不过这样做可能会产生副作用。
@@ -84,4 +84,4 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties -->

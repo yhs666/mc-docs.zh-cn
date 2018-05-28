@@ -1,8 +1,8 @@
 ---
-title: "Hadoop 安全性 - 已加入域的 HDInsight 群集 - Azure"
-description: "了解..."
+title: Hadoop 安全性 - 已加入域的 HDInsight 群集 - Azure
+description: 了解...
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: saurinsh
 manager: jhubbard
 editor: cgronlun
@@ -11,17 +11,17 @@ ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 10/31/2016
-ms.date: 03/12/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: ccf2e5f7e1b6dd024171b8d62d22a2f74f12f790
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 10ce8505b06aaa34359ebe8f76f598d500a7ae90
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>已加入域的 HDInsight 群集的 Hadoop 安全性简介
 
@@ -36,9 +36,9 @@ Azure HDInsight 直到今天仅支持单个用户本地管理员。这很适合�
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="benefits"></a>优点
-企业安全性包含四大支柱 – 外围安全性、身份验证、授权和加密。
+企业安全性包含四大支柱 - 外围安全性、身份验证、授权和加密。
 
-![已加入域的 HDInsight 群集可以稳固这些支柱](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png)。
+![已加入域的 HDInsight 群集的效益支柱](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png)。
 
 ### <a name="perimeter-security"></a>外围安全
 HDInsight 中的外围安全性是使用虚拟网络和网关服务实现的。 现在，企业管理员可以在虚拟网络中创建 HDInsight 群集，使用网络安全组（入站或出站防火墙规则）来限制对虚拟网络的访问。 只有入站防火墙规则中定义的 IP 地址才能与 HDInsight 群集通信，从而实现了外围安全性。 另一个外围安全层是使用网关服务实现的。 网关是充当任何传入请求发送到 HDInsight 群集时的第一道防线的服务。 它接受请求，对它进行验证，并直到那时允许请求传递到群集中的其他节点，从而为群集中的其他名称节点和数据节点提供外围安全。

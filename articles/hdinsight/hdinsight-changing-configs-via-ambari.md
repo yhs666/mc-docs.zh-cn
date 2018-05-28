@@ -1,11 +1,11 @@
 ---
-title: "使用 Ambari 优化群集配置"
-description: "使用 Ambari Web UI 来配置和优化 HDInsight 群集。"
-documentationcenter: 
+title: 使用 Ambari 优化群集配置
+description: 使用 Ambari Web UI 来配置和优化 HDInsight 群集。
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: big-data
 origin.date: 01/09/2018
 ms.date: 02/26/2018
 ms.author: ashish
-ms.openlocfilehash: 9b6d678d7a8cc6faf9facf685d01d035c70d9f98
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: e8ea567805745c5eb7cd4936e73ce72ecd29bf28
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>使用 Ambari 优化 HDInsight 群集配置
 
@@ -208,9 +208,9 @@ Hadoop 作业通常会遇到 I/O 瓶颈。 压缩数据能够加快 I/O 和总�
 
     c. 单击“自定义 hive-site”窗格底部的“添加属性”链接。
 
-    d.单击“验证存储凭据”以验证存储帐户。 在“添加属性”窗口中，输入 `mapred.map.output.compression.codec` 作为键，输入 `org.apache.hadoop.io.compress.SnappyCodec` 作为值。
+    d. 在“添加属性”窗口中，输入 `mapred.map.output.compression.codec` 作为键，输入 `org.apache.hadoop.io.compress.SnappyCodec` 作为值。
 
-    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 单击“添加” 。
+    e. 单击“添加” 。
 
     ![Hive 自定义属性](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
@@ -457,7 +457,7 @@ Memstore 本地分配缓冲区使用率由 `hbase.hregion.memstore.mslab.enabled
 ![hbase.hregion.memstore.mslab.enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 
-## <a name="see-also"></a>另请参阅
+## <a name="next-steps"></a>后续步骤
 
 * [使用 Ambari Web UI 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)
 * [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

@@ -1,12 +1,12 @@
 ---
-title: "运行自定义 MapReduce 程序"
-description: "何时以及如何在 HDInsight 中运行自定义的 MapReduce 程序。"
+title: 运行自定义 MapReduce 程序
+description: 何时以及如何在 HDInsight 中运行自定义的 MapReduce 程序。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: big-data
 origin.date: 12/04/2017
 ms.date: 02/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 211f68012b1ac6bfcebddacec4933d5ea215e93d
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: cfe3df5165587bc70d14b231d16b7e6f2b9705b8
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="run-custom-mapreduce-programs"></a>运行自定义 MapReduce 程序
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 02/24/2018
 
     此命令将 MapReduce 作业提交到 YARN。 输入文件是 `/example/data/sample.log`，输出目录是 `/example/data/logoutput`。 输入文件和所有输出文件将存储到群集的默认存储中。
 
-## <a name="see-also"></a>另请参阅
+## <a name="next-steps"></a>后续步骤
 
 * [在 HDInsight 中的 Hadoop 上将 C# 与 MapReduce 流式处理配合使用](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [为 HDInsight 上的 Hadoop 开发 Java MapReduce 程序](apache-hadoop-develop-deploy-java-mapreduce-linux.md)

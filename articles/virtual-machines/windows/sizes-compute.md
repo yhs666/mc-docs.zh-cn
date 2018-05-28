@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 origin.date: 11/08/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 22c55b26ae703c516c341d8d7265d3ea1f0c110e
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 296983ce1fe7adc836a1663b633be24ab5079028
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>计算优化虚拟机大小
 
@@ -35,3 +35,4 @@ ms.lasthandoff: 05/17/2018
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 <!-- Update_Description: update meta properties -->
+<!-- Parents of include files -->

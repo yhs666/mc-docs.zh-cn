@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric 反向代理安全通信 | Azure"
-description: "配置反向代理以启用安全的端到端通信。"
+title: Azure Service Fabric 反向代理安全通信 | Azure
+description: 配置反向代理以启用安全的端到端通信。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 08/10/2017
-ms.date: 09/11/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: a2bd909895cd1c23f19bd0fa511ab947b2cf3f57
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: eb78845d5fb5104eef6059d0bebbcbdf3c847495
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>使用反向代理连接到安全服务
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 09/08/2017
 
 若要指定服务公用名和颁发者指纹的列表，请在 fabricSettings 下面添加 **ApplicationGateway/Http/ServiceCommonNameAndIssuer** 元素，如下所示。 可在 parameters 数组元素中添加多个证书公用名和颁发者指纹对。 
 
-如果反向代理要连接的终结点所提供的证书的公用名和颁发者指纹与此处指定的任何值匹配，则会建立 SSL 通道。 如果无法匹配证书详细信息，则反向代理将无法处理该客户端的请求并返回 502（错误的网关）状态代码。 HTTP 状态行也会包含短语“Invalid SSL Certificate”。 
+如果反向代理要连接的终结点所提供的证书的公用名和颁发者指纹与此处指定的任何值匹配，则会建立 SSL 通道。 如果无法匹配证书详细信息，则反向代理将无法处理该客户端的请求并返回 502（错误的网关）状态代码。 并且 HTTP 状态行还会显示“无效 SSL 证书”短语。 
 
 ```json
 {
@@ -181,7 +181,7 @@ Service Fabric 支持为服务配置多个终结点。 请参阅[在服务清单
 反向代理会发生 SSL 终止，并且所有客户端证书数据都会丢失。 为使服务执行客户端证书身份验证，请在 ApplicationGateway/Http 元素的 parameters 节中指定 **ForwardClientCertificate** 设置。
 
 1. 如果 **ForwardClientCertificate** 设置为 **false**，反向代理在与客户端相互执行 SSL 握手期间不会请求客户端证书。
-这是默认行为。
+此选项为默认行为。
 
 2. 如果 **ForwardClientCertificate** 设置为 **true**，反向代理在与客户端相互执行 SSL 握手期间将会请求客户端的证书。
 然后，将会转发名为 **X-Client-Certificate** 的自定义 HTTP 标头中的客户端证书数据。 标头值是客户端证书的 base64 编码 PEM 格式字符串。 检查证书数据后，服务可能会成功/无法处理请求并返回相应的状态代码。

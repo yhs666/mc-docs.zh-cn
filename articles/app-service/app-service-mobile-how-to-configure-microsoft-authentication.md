@@ -1,25 +1,25 @@
 ---
-title: "如何为应用服务应用程序配置 Microsoft 帐户身份验证"
-description: "了解如何为应用服务应用程序配置 Microsoft 帐户身份验证。"
+title: 如何为应用服务应用程序配置 Microsoft 帐户身份验证
+description: 了解如何为应用服务应用程序配置 Microsoft 帐户身份验证。
 author: mattchenderson
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 10/01/2016
-ms.date: 10/30/2017
+origin.date: 04/19/2018
+ms.date: 06/04/2018
 ms.author: v-yiso
-ms.openlocfilehash: 93db5dbfb9fea48a9001078ffd0f880fcc5b8aa7
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 5a0bfe53975e39ee76fdc0a15119c6c73074be90
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>如何将应用服务应用程序配置为使用 Microsoft 帐户登录
 
@@ -32,9 +32,7 @@ ms.lasthandoff: 10/20/2017
 1. 登录到 [Azure 门户]并导航到应用程序。 复制 **URL**，随后会用于使用 Microsoft 帐户来配置应用。
 
 2. 在 Microsoft 帐户开发人员中心内导航到[我的应用程序]页，然后根据需要使用 Microsoft 帐户登录。
-
-3. 单击“添加应用”，键入应用程序名称，然后单击“创建应用程序”。
-
+3. 单击“添加应用”，键入应用程序名称，并单击“创建”。
 4. 记下“应用程序 ID”，因为稍后将要用到。 
 
 5. 在“平台”下，单击“添加平台”，然后选择“Web”。
@@ -42,7 +40,7 @@ ms.lasthandoff: 10/20/2017
 6. 在“重定向 URI”下，提供应用程序的终结点，然后单击“保存”。 
 
     >[!NOTE]
-    >重定向 URI 是应用程序 URL 加上路径 /.auth/login/microsoftaccount/callback。 例如， `https://contoso.chinacloudsites.cn/.auth/login/microsoftaccount/callback`。   
+    >重定向 URI 是应用程序 URL 加上路径 /.auth/login/microsoftaccount/callback。 例如，`https://contoso.chinacloudsites.cn/.auth/login/microsoftaccount/callback`。   
     >请务必使用 HTTPS 方案。
 
 7. 在“应用程序机密”下，单击“生成新密码”。 请记下显示的值。 关闭页面后，就不再显示该值。

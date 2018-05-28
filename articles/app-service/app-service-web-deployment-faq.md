@@ -1,11 +1,11 @@
 ---
-title: "Azure Web 应用部署常见问题解答 | Azure"
-description: "获取 Azure 应用服务 Web 应用功能的部署相关常见问题解答。"
+title: Azure Web 应用部署常见问题解答 | Azure
+description: 获取 Azure 应用服务 Web 应用功能的部署相关常见问题解答。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-origin.date: 11/03/2017
-ms.date: 12/04/2017
+origin.date: 05/11/2018
+ms.date: 06/04/2018
 ms.author: v-yiso
-ms.openlocfilehash: fa69f2e465f4fcc335e07b661512f915f5c7c6ff
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 6b47060985358647e33f73f5c79b6e7a069e3d67
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的部署常见问题解答
 
@@ -83,7 +83,19 @@ Azure 快速入门旨在帮助用户使用所选的部署堆栈和方法部署�
 
 ## <a name="why-does-my-app-sometimes-restart-after-deployment-to-app-service"></a>为什么应用有时会在部署到应用服务后重启？
 
-若要了解应用程序部署在哪些情况下可能导致重启，请参阅 [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts")（部署与运行时问题）。 如本文所述，应用服务将文件部署到 wwwroot 文件夹。 这决不会直接重启应用。
+若要了解应用程序部署在哪些情况下可能导致重启，请参阅 [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts")（部署与运行时问题）。 如本文所述，应用服务将文件部署到 wwwroot 文件夹。 它绝不会直接重新启动应用。
+
+## <a name="how-do-i-integrate-visual-studio-team-services-code-with-app-service"></a>如何将 Visual Studio Team Services 代码与应用服务集成？
+
+有两个选项可用于将持续部署与 Visual Studio Team Services 一起使用：
+
+*   使用 Git 项目。 使用该存储库的部署选项，通过应用服务进行连接。
+*   使用 Team Foundation 版本控制 (TFVC) 项目。 通过对应用服务使用生成代理来进行部署。
+
+这两个选项的持续代码部署都依赖于现有开发人员工作流和签入过程。 有关详细信息，请参阅以下文章： 
+
+*   [实现应用到 Azure 网站的持续部署](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
+*   [设置 Visual Studio Team Services 帐户，以便它可以部署到 Web 应用](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
 
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>如何使用 FTP 或 FTPS 将应用部署到应用服务？
 

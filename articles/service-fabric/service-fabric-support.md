@@ -1,25 +1,25 @@
 ---
-title: "了解 Azure Service Fabric 支持选项 | Azure"
-description: "支持的 Azure Service Fabric 群集版本，以及文件支持票证的链接"
+title: 了解 Azure Service Fabric 支持选项 | Azure
+description: 支持的 Azure Service Fabric 群集版本，以及文件支持票证的链接
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/26/2018
-ms.date: 03/12/2018
+origin.date: 05/14/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7cee96add0aa336350dfa424fa9fec19b1545952
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: ee3424cd0e84fc35aaf6fb82fc858b14b9fbffbd
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支持选项
 
@@ -81,7 +81,8 @@ ms.lasthandoff: 03/08/2018
 | 5.6.* | 5.4.164.* |低于或等于版本 2.6 |2017 年 10 月 13 日   |
 | 5.7.* | 5.4.164.* |低于或等于版本 2.7 |2017 年 12 月 15 日  |
 | 6.0.* | 5.6.205.* |版本 2.8 或更低版本 |2018 年 3 月 30 日     | 
-| 6.1.* | 5.7.221.* |版本 3.0 或更低版本 |当前版本，因此无结束日期 |
+| 6.1.* | 5.7.221.* |版本 3.0 或更低版本 |2018 年 7 月 15 日      |
+| 6.2.* | 6.0.232.* |版本 3.1 或更低版本 |当前版本，因此无结束日期 |
 
 <a name="previewversion"></a>
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 预览版本 - 不支持在生产环境中使用。
@@ -95,9 +96,9 @@ ms.lasthandoff: 03/08/2018
 - [在单独的 Windows Server 群集上升级 Service Fabric 版本](service-fabric-cluster-upgrade-windows-server.md)
 
 <!--references-->
-[msdn-forum]: https://www.azure.cn/support/forums/
+[msdn-forum]: https://www.azure.cn/support/contact/
 [stackoverflow]: http://stackoverflow.com/questions/tagged/azure-service-fabric
-[uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
+[uservoice-forum]: https://www.azure.cn/support/support-azure/
 <!-- Not Referenced on [acom-docs]: ../service-fabric/index.yml -->
 [sample-repos]: http://aka.ms/servicefabricsamples
 

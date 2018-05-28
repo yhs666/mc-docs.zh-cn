@@ -5,22 +5,20 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/16/2018
-ms.date: 04/23/2018
+origin.date: 04/02/2018
+ms.date: 05/23/2018
 ms.author: v-junlch
 ms.reviewer: sijuman
-ms.openlocfilehash: 0070c04e7f304d8fb95cee6cbf293e2a5b5c7fda
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: 0f3a25307f2629098d83e2d28ffccf34f02e646c
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Azure CLI 2.0 配合使用
 
@@ -187,7 +185,7 @@ az group create \
 - Azure Stack 尚不支持 CLI 交互模式（例如 `az interactive` 命令）。
 - 若要获取 Azure Stack 中可用的虚拟机映像列表，请使用 `az vm images list --all` 命令，而不是 `az vm image list` 命令。 指定 `--all` 选项可确保响应只返回 Azure Stack 环境中可用的映像。 
 - Azure 中可用的虚拟机映像别名可能不适用于 Azure Stack。 使用虚拟机映像时，必须使用整个 URN 参数 (Canonical:UbuntuServer:14.04.3-LTS:1.0.0)，而不是映像别名。 此 URN 必须与派生自 `az vm images list` 命令的映像规范相匹配。
-- 默认情况下，CLI 2.0 使用“Standard_DS1”作为默认的虚拟机映像大小。 但是，此大小目前在 Azure Stack 中不可用，因此，在创建虚拟机时需要显式指定 `--size` 参数。 可以使用 `az vm list-sizes --location <locationName>` 命令获取 Azure Stack 中可用的虚拟机大小列表。
+- 默认情况下，CLI 2.0 使用“Standard_DS1_v2”作为默认的虚拟机映像大小。 但是，此大小目前在 Azure Stack 中不可用，因此，在创建虚拟机时需要显式指定 `--size` 参数。 可以使用 `az vm list-sizes --location <locationName>` 命令获取 Azure Stack 中可用的虚拟机大小列表。
 
 
 ## <a name="next-steps"></a>后续步骤
@@ -196,3 +194,4 @@ az group create \
 
 [管理用户权限](azure-stack-manage-permissions.md)
 
+<!-- Update_Description: wording update -->

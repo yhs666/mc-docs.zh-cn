@@ -1,9 +1,9 @@
 ---
-title: "解决 Azure HDInsight 中的 Hive 内存不足错误 | Azure"
-description: "解决 HDInsight 中的 Hive 内存不足错误。 客户方案为跨多个大型表运行查询。"
-keywords: "内存不足错误, OOM, Hive 设置"
+title: 解决 Azure HDInsight 中的 Hive 内存不足错误 | Azure
+description: 解决 HDInsight 中的 Hive 内存不足错误。 客户方案为跨多个大型表运行查询。
+keywords: 内存不足错误, OOM, Hive 设置
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,17 +11,17 @@ ms.assetid: 7bce3dff-9825-4fa0-a568-c52a9f7d1dad
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/06/2017
-ms.date: 12/25/2017
+origin.date: 02/22/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
-ms.openlocfilehash: b58c871d0af40ed18b18900c59193bc70ee8df10
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 48a678bb41e2e103598db69196f01c21bcf59102
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>解决 Azure HDInsight 中的 Hive 内存不足错误
 

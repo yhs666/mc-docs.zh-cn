@@ -6,23 +6,22 @@ documentationcenter: ''
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/21/2017
-ms.date: 03/01/2018
+origin.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: b5e37573134a6bee9cd9ef9a9bc79e3dca33fab8
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: aea4f41a4db56084f61dce935e860f4c5296c762
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/24/2018
 ---
-# <a name="create-and-publish-a-marketplace-item"></a>创建和发布 Marketplace 项
+# <a name="create-and-publish-a-marketplace-item"></a>创建和发布 Marketplace 项目
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -102,40 +101,40 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="reference-marketplace-item-manifestjson"></a>参考：Marketplace 项 manifest.json
 ### <a name="identity-information"></a>标识信息
-| 名称 | 必需 | 类型 | 约束 | 说明 |
+| Name | 必须 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
 | Name |X |String |[A-Za-z0-9]+ | |
-| Publisher |X |String |[A-Za-z0-9]+ | |
-| Version |X |String |[SemVer v2](http://semver.org/) | |
+| 发布者 |X |String |[A-Za-z0-9]+ | |
+| 版本 |X |String |[SemVer v2](http://semver.org/) | |
 
-### <a name="metadata"></a>元数据
-| 名称 | 必需 | 类型 | 约束 | 说明 |
+### <a name="metadata"></a>Metadata
+| Name | 必须 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |建议不要超过 80 个字符 |如果长度超过 80 个字符，门户可能无法美观地显示项名称。 |
 | PublisherDisplayName |X |String |建议不要超过 30 个字符 |如果长度超过 30 个字符，门户可能无法美观地显示发布者名称。 |
 | PublisherLegalName |X |String |最多 256 个字符 | |
-| Summary |X |String |60 到 100 个字符 | |
+| 摘要 |X |String |60 到 100 个字符 | |
 | LongSummary |X |String |140 到 256 个字符 |在 Azure Stack 中尚不适用。 |
-| Description |X |[HTML](https://auxdocs.chinacloudsites.cn/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 到 5,000 个字符 | |
+| 说明 |X |[HTML](https://auxdocs.chinacloudsites.cn/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 到 5,000 个字符 | |
 
-### <a name="images"></a>图像
+### <a name="images"></a>映像
 Marketplace 使用以下图标：
 
-| 名称 | 宽度 | 高度 | 说明 |
+| Name | 宽度 | 高度 | 注释 |
 | --- | --- | --- | --- |
 | Wide |255 px |115 px |始终必需 |
-| Large |115 px |115 px |始终必需 |
-| Medium |90 px |90 px |始终必需 |
-| Small |40 px |40 px |始终必需 |
-| Screenshot |533 px |32 px |可选 |
+| 大型 |115 px |115 px |始终必需 |
+| 中型 |90 px |90 px |始终必需 |
+| 小型 |40 px |40 px |始终必需 |
+| 屏幕快照 |533 px |32 px |可选 |
 
-### <a name="categories"></a>类别
+### <a name="categories"></a>Categories
 应当为每个 Marketplace 项标记一个类别，该类别标识在门户 UI 中的何处显示该项。 可以选择 Azure Stack 中的现有类别之一（计算、数据 + 存储，等等），也可以选择新建一个。
 
 ### <a name="links"></a>链接
 每个 Marketplace 项可以包括指向其他内容的各种链接。 链接是作为名称和 URI 的列表指定的。
 
-| 名称 | 必需 | 类型 | 约束 | 说明 |
+| Name | 必须 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |最多 64 个字符 | |
 | Uri |X |URI | | |
@@ -143,10 +142,10 @@ Marketplace 使用以下图标：
 ### <a name="additional-properties"></a>其他属性
 除了前面的元数据之外，Marketplace 作者可以采用以下形式提供自定义键/值对数据：
 
-| 名称 | 必需 | 类型 | 约束 | 说明 |
+| Name | 必须 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |最多 25 个字符 | |
-| Value |X |String |最多 30 个字符 | |
+| 值 |X |String |最多 30 个字符 | |
 
 ### <a name="html-sanitization"></a>HTML 清理
 对于允许使用 HTML 的任何字段，将允许使用以下元素和属性：
@@ -163,3 +162,4 @@ h1、h2、h3、h4、h5、p、ol、ul、li、a[target|href]、br、strong、em、
 ![Marketplace 项详细信息边栏选项卡](./media/azure-stack-marketplace-item-ui-reference/image3.png)
 
 
+<!-- Update_Description: update metedata properties -->

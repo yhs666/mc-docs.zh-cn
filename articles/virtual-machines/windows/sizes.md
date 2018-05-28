@@ -16,23 +16,23 @@ ms.workload: infrastructure-services
 origin.date: 03/01/2018
 ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 167fa90db8a890c348a2f716a90cddd0e351f25c
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 63619e76c614691b690d55815de45b28268b249e
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
 本文介绍可用于运行 Windows 应用和工作负荷的 Azure 虚拟机的可用大小和选项。 此外，还提供在计划使用这些资源时要考虑的部署注意事项。  本文也适用于 [Linux 虚拟机](../linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
-<!--PENDING FOR Dv3, Ev3 and B-SERIES GA ANOUNCEMENT -->
+<!--PENDING FOR Dv3, Ev3 and B-SERIES, FSV2 GA ANOUNCEMENT -->
 | 类型                     | 大小           |    说明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [常规用途](sizes-general.md)          | B、Dsv3、Dv3、DSv2、Dv2、DS、D、Av2、A0-7 | CPU 与内存之比平衡。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 |
-| [计算优化](sizes-compute.md)        | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        |
+| [计算优化](sizes-compute.md)        | Fsv2、Fs、F             | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        |
 | [内存优化](../virtual-machines-windows-sizes-memory.md)         | Esv3、Ev3、DSv2、DS、Dv2、D   | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
-<!--PENDING FOR Dv3, Ev3 and B-SERIES GA ANOUNCEMENT -->
+<!--PENDING FOR Dv3, Ev3 and B-SERIES, FSV2 GA ANOUNCEMENT -->
 <!-- Not Available M, Gs, G series -->
 <!-- Not Available [Storage optimized] Ls -->
 <!-- Not Available [GPU] NV, NC, N-series  -->

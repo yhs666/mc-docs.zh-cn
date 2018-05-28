@@ -3,7 +3,7 @@ title: 使用 Azure CLI 和模板部署资源 | Azure
 description: 使用 Azure Resource Manager 和 Azure CLI 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。
 services: azure-resource-manager
 documentationcenter: na
-author: rockboyfor
+author: luanmafeng
 manager: digimobile
 editor: tysonn
 ms.assetid: 493b7932-8d1e-4499-912c-26098282ec95
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/31/2017
-ms.date: 04/30/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: d3bb7abce992a7d62f28d67542eb9accf5327661
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 8770e674ad52c988b2531479be60da8d45a9dafa
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 模板和 Azure CLI 部署资源
 
@@ -30,6 +30,7 @@ ms.lasthandoff: 04/28/2018
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
 <!-- Not Available on Cloud Shell -->
+
 ## <a name="deploy-local-template"></a>部署本地模板
 
 将资源部署到 Azure 时，执行以下操作：
@@ -80,7 +81,7 @@ az group deployment create \
 前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。 但是，如果不希望模板可公开访问，可以通过将其存储在专用存储容器中来保护它。 若要了解如何部署需要共享访问签名 (SAS) 令牌的模板，请参阅[部署具有 SAS 令牌的专用模板](resource-manager-cli-sas-token.md)。
 
 <!-- Not Available on Cloud Shell -->
-```azurecli
+```azurecli-interactive
 az group create --name examplegroup --location "China East"
 az group deployment create --resource-group examplegroup \
   --template-uri <copied URL> \
@@ -242,4 +243,4 @@ az group deployment create \
 * 有关部署需要 SAS 令牌的模板的信息，请参阅[使用 SAS 令牌部署专用模板](resource-manager-cli-sas-token.md)。
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
 
-<!--Update_Description: update meta properties, wording update, update link  -->
+<!--Update_Description: update meta properties, wording update  -->

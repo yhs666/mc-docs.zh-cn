@@ -9,17 +9,17 @@ editor: vturecek
 ms.assetid: fc129c1a-fbe4-4339-83ae-0e69a41654e0
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 04/20/2017
-ms.date: 04/30/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 50c381c45c9f052a4fd8087e8c319f7634846c12
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 28eeb3a6947bbc3fbb6823126c422e3708e7a9de
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="secure-service-remoting-communications-for-a-service"></a>保护服务的服务远程处理通信
 > [!div class="op_single_selector"]
@@ -204,4 +204,4 @@ ms.lasthandoff: 04/28/2018
     ```
 
 有关后续步骤，请阅读 [Reliable Services 中使用 OWIN 的 Web API](service-fabric-reliable-services-communication-webapi.md)。
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/09/2018
-ms.date: 03/21/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: d736840ae2c27f68b00450477497019897786337
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 6191c52f04ec7d977ce4384d22e2781067a959a9
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>如何跨容错域在 Azure Stack 上重新分配 Azure 应用服务
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 03/23/2018
 2. 接下来横向扩展每个规模集。  例如，如果规模集中有 3 个现有实例，则必须横向扩展为 6 个，以便跨容错域预配 3 个新实例。
     a. [在 PowerShell 中设置 Azure Stack 管理环境](azure-stack-powershell-configure-admin.md) b. 使用以下示例来横向扩展规模集：
         ```powershell
-                Login-AzureRMAccount -EnvironmentName AzureStackAdmin 
+                Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
 
                 # Get current scale set
                 $vmss = Get-AzureRmVmss -ResourceGroupName "AppService.local" -VMScaleSetName "SmallWorkerTierScaleSet"
@@ -89,3 +89,4 @@ ms.lasthandoff: 03/23/2018
 [1]: ./media/azure-stack-app-service-fault-domain-update/app-service-scale-sets.png
 [2]: ./media/azure-stack-app-service-fault-domain-update/app-service-roles.png
 
+<!-- Update_Description: code update -->

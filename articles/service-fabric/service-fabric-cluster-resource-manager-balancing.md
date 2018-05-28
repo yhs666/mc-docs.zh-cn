@@ -1,25 +1,25 @@
 ---
-title: "均衡 Azure Service Fabric 群集 | Azure"
-description: "介绍如何使用 Azure Service Fabric 群集 Resource Manager 平衡群集。"
+title: 均衡 Azure Service Fabric 群集 | Azure
+description: 介绍如何使用 Azure Service Fabric 群集 Resource Manager 平衡群集。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 10/02/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: ae57da6d22729ecdc2c13e2fcf52f3b5d9c50528
-ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
+ms.openlocfilehash: 13aba485a444d859a0622546e955d8d252d7c7a4
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>均衡 Service Fabric 群集
 Service Fabric 群集资源管理器支持动态负载更改、对添加或删除节点或服务做出反应。 还会自动更正约束冲突和主动重新均衡群集。 但这些操作的执行频率是多少，又是什么触发了这些操作？
@@ -216,4 +216,4 @@ ClusterManifest.xml
 [Image4]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
 [Image5]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
 
-<!--Update_Description: update meta properties， wording update-->
+<!--Update_Description: update meta properties -->

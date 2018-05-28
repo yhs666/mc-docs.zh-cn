@@ -9,17 +9,17 @@ editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/16/2018
+origin.date: 03/26/2018
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: 07f28db919a32b9bd155553c85cfeb3414814874
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 05/28/2018
+ms.openlocfilehash: 9a95f67370a6fac8fafe87f86e8fdab06f68c956
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>将 Spark 结构化流式处理与 Kafka 和 Azure Cosmos DB 配合使用
 
@@ -30,7 +30,7 @@ Azure Cosmos DB 是一种全球分布式多模型数据库。 此示例使用 SQ
 Spark 结构化流式处理是建立在 Spark SQL 上的流处理引擎。 这允许以与批量计算相同的方式表达针对静态数据的流式计算。 有关结构化流式处理的详细信息，请参阅 Apache.org 上的 [Structured Streaming Programming Guide [Alpha]](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)（结构化流式处理编程指南 [Alpha]）。
 
 > [!IMPORTANT]
-> 此示例使用了 Spark 2.1 on HDInsight 3.6。 结构化流式处理在 Spark 2.1 上被视作“alpha”。
+> 此示例使用了 Spark 2.2 on HDInsight 3.6。
 >
 > 本文档中的步骤创建一个 Azure 资源组，其中同时包含 HDInsight 上的 Spark 和 HDInsight 上的 Kafka 群集。 这些群集都位于一个 Azure 虚拟网络中，这样 Spark 群集便可与 Kafka 群集直接通信。
 >
@@ -49,7 +49,9 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 1. 使用以下按钮登录到 Azure，并在 Azure 门户中打开模板。
     
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-scala-kafka-cosmosdb%2Fmaster%2Fazuredeploy.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/> </a>
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-scala-kafka-cosmosdb%2Fmaster%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+    </a>
 
     Azure 资源管理器模板位于此项目的 GitHub 存储库中 ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb))。
 
@@ -61,6 +63,9 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
     * 包含 HDInsight 群集的 Azure 虚拟网络。
 
+        > [!NOTE]
+        > 通过模板创建的虚拟网络使用 10.0.0.0/16 地址空间。
+
     * Azure Cosmos DB SQL API 数据库。
 
     > [!IMPORTANT]
@@ -68,13 +73,23 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 2. 使用以下信息填充“自定义部署”部分中的条目：
    
-    ![HDInsight 自定义部署](./media/hdinsight-apache-spark-with-kafka/parameters.png)
+    ![HDInsight 自定义部署](./media/apache-kafka-spark-structured-streaming-cosmosdb/parameters.png)
+
+    * 
+            **订阅**：选择 Azure 订阅。
    
     * **资源组**：创建一个组或选择现有组。 此组包含 HDInsight 群集。
 
     * 位置：选择在地理上邻近的位置。
 
-    * **基群集名称**：此值用作 Spark 和 Kafka 群集的基名称。 例如，输入 **hdi** 创建名为 spark-hdi__ 的 Spark 群集和名为 **kafka-hdi** 的 Kafka 群集。
+    * **Cosmos DB 帐户名**：此值用作 Cosmos DB 帐户的名称。
+
+    * **基群集名称**：此值用作 Spark 和 Kafka 群集的基名称。 例如，输入 myhdi 将创建名为 spark-myhdi 的 Spark 群集和名为 kafka-myhdi 的 Kafka 群集。
+
+    * **群集版本**：HDInsight 群集版本。
+
+        > [!IMPORTANT]
+        > 此示例使用 HDInsight 3.6 进行测试，可能不适用于其他群集类型。
 
     * **群集登录用户名**：Spark 和 Kafka 群集的管理员用户名。
 
@@ -88,12 +103,51 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 4. 最后，选中“固定到仪表板”，并选择“购买”。 创建群集大约需要 20 分钟时间。
 
-创建资源后，会显示摘要页面。
+> [!IMPORTANT]
+> 创建群集、虚拟网络和 Cosmos DB 帐户最多可能需要 45 分钟时间。
 
-![VNet 和群集的资源组信息](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+## <a name="create-the-cosmos-db-database-and-collection"></a>创建 Cosmos DB 数据库和集合
+
+本文档使用的项目在 Cosmos DB 中存储数据。 运行代码之前，必须首先在 Cosmos DB 实例中创建数据库和集合。 还必须检索文档终结点，以及用于对 Cosmos DB 的请求进行身份验证的密钥。 
+
+可使用 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 执行此步骤。 以下脚本将创建名为 `kafkadata` 的数据库和名为 `kafkacollection` 的集合。 然后，将返回主键。
+
+```azurecli
+#!/bin/bash
+
+# Replace 'myresourcegroup' with the name of your resource group
+resourceGroupName='myresourcegroup'
+# Replace 'mycosmosaccount' with the name of your Cosmos DB account name
+name='mycosmosaccount'
+
+# WARNING: If you change the databaseName or collectionName
+#          then you must update the values in the Jupyter notebook
+databaseName='kafkadata'
+collectionName='kafkacollection'
+
+# Create the database
+az cosmosdb database create --name $name --db-name $databaseName --resource-group $resourceGroupName
+# Create the collection
+az cosmosdb collection create --collection-name $collectionName --name $name --db-name $databaseName --resource-group $resourceGroupName
+
+# Get the endpoint
+az cosmosdb show --name $name --resource-group $resourceGroupName --query documentEndpoint
+
+# Get the primary key
+az cosmosdb list-keys --name $name --resource-group $resourceGroupName --query primaryMasterKey
+```
+
+文档终结点和主键信息与以下文本类似：
+
+```text
+# endpoint
+"https://mycosmosaccount.documents.azure.com:443/"
+# key
+"YqPXw3RP7TsJoBF5imkYR0QNA02IrreNAlkrUMkL8EW94YHs41bktBhIgWq4pqj6HCGYijQKMRkCTsSaKUO2pw=="
+```
 
 > [!IMPORTANT]
-> 请注意，HDInsight 群集的名称为 spark-BASENAME 和 kafka-BASENAME，其中 BASENAME 是为模板提供的名称。 在连接到群集的后续步骤中，会用到这些名称。
+> 保存终结点和键值，以便用于 Jupyter 笔记本。
 
 ## <a name="get-the-kafka-brokers"></a>获取 Kafka 中转站
 
@@ -102,23 +156,24 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 $clusterName = Read-Host -Prompt "Enter the Kafka cluster name"
-$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
-    -Credential $creds
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
+    -Credential $creds `
+    -UseBasicParsing
 $respObj = ConvertFrom-Json $resp.Content
 $brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
 ($brokerHosts -join ":9092,") + ":9092"
 ```
+
+> [!NOTE]
+> Bash 示例需要 `$CLUSTERNAME` 包含 Kafka 群集的名称。
+>
+> 本示例使用 [jq](https://stedolan.github.io/jq/) 实用程序来分析 JSON 文档外的数据。
 
 ```bash
 curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
 ```
 
 出现提示时，输入群集登录（管理员）帐户的密码
-
-> [!NOTE]
-> 此示例需要 `$CLUSTERNAME` 包含 Kafka 群集的名称。
->
-> 本示例使用 [jq](https://stedolan.github.io/jq/) 实用程序来分析 JSON 文档外的数据。
 
 输出与以下文本类似：
 

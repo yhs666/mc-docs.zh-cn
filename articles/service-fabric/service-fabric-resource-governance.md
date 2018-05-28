@@ -1,25 +1,25 @@
 ---
-title: "Azure Service Fabric 容器和服务的资源调控 | Azure"
-description: "Azure Service Fabric 允许指定在容器内部或外部运行的服务的资源限制。"
+title: Azure Service Fabric 容器和服务的资源调控 | Azure
+description: Azure Service Fabric 允许指定在容器内部或外部运行的服务的资源限制。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3a4a96d8e0693ab8221bd792a1bbe7b724aeae99
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 6220c8b1eedf41a271004f598d30d2b03f13f240
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="resource-governance"></a>资源调控 
 
@@ -211,4 +211,4 @@ Service Fabric 运行时当前不提供资源保留。 当进程或容器打开�
 * 若要详细了解群集资源管理器，请阅读 [Service Fabric 群集资源管理器简介](service-fabric-cluster-resource-manager-introduction.md)。
 * 若要详细了解应用程序模型、服务包、代码包以及如何将副本映射到它们，请阅读 [Service Fabric 中的应用程序建模](service-fabric-application-model.md)。
 
-<!--Update_Description: wording update, add the content of Using application parameters  ->
+<!-- Update_Description: update meta properties -->

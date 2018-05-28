@@ -1,25 +1,25 @@
 ---
-title: "Azure Service Fabric 中的重新配置 | Azure"
-description: "了解 Service Fabric 中的分区重新配置"
+title: Azure Service Fabric 中的重新配置 | Azure
+description: 了解 Service Fabric 中的分区重新配置
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: d5ab75ff-98b9-4573-a2e5-7f5ab288157a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/10/2018
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8ed512937088a65e5c3b4de0696d63c3df7b642c
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: ea4a8d189622cada4cabf8610582bf8544238fd1
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Azure Service Fabric 中的重新配置
 *配置*定义为有状态服务的分区的副本及其角色。

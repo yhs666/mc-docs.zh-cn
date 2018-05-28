@@ -1,27 +1,27 @@
 ---
-title: "使用 PowerShell 管理 HDInsight 中的 Hadoop 群集 - Azure | Azure"
-description: "了解如何使用 Azure PowerShell 对 HDInsight 中的 Hadoop 群集执行管理任务。"
+title: 使用 PowerShell 管理 HDInsight 中的 Hadoop 群集 - Azure | Azure
+description: 了解如何使用 Azure PowerShell 对 HDInsight 中的 Hadoop 群集执行管理任务。
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 tags: azure-portal
 author: mumian
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bfdfa754-18e5-4ef9-b0d6-2dbdcebc0283
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 12/15/2017
 ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9c5ff8545a0c830bf7a277e6779711d9af58cb95
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 8090dce08385f80c23b2226c5607b65f08b3588e
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]

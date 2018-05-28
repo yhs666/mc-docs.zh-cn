@@ -1,8 +1,8 @@
 ---
-title: "使用 bootstrap 自定义 HDInsight 群集"
-description: "了解如何使用 Bootstrap 自定义 HDInsight 群集。"
+title: 使用 bootstrap 自定义 HDInsight 群集
+description: 了解如何使用 Bootstrap 自定义 HDInsight 群集。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/03/2017
-ms.date: 02/26/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
-ms.openlocfilehash: 058ebf9477137572c6140f68bbd17698dfce9b17
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: df527820cc723cc19d7a63642a2711bd5ae22d28
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>使用 Bootstrap 自定义 HDInsight 群集
 
@@ -89,7 +89,7 @@ $hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
 **若要验证更改，请执行以下操作：**
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧菜单中，单击“HDInsight 群集” 。 如果看不到该项，请先单击“更多服务”  。
+2. 在左侧菜单中，单击“HDInsight 群集” 。 如果看不到该群集，请先单击“所有服务”。
 3. 单击刚刚使用 PowerShell 脚本创建的群集。
 4. 单击边栏选项卡顶部的“仪表板”  打开 Ambari UI。
 5. 在左侧菜单中，单击“Hive”。

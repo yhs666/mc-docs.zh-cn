@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/27/2017
-ms.date: 03/01/2018
+origin.date: 04/20/2017
+ms.date: 05/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: f9224750a9241eb8730fc39d5a16b2df21a8513c
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.reviewer: hectorl
+ms.openlocfilehash: f147130bb841b3d58fd7285257f899c0e2813a98
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基础结构备份服务最佳做法
 
@@ -39,7 +40,7 @@ ms.lasthandoff: 03/02/2018
 
 路径的通用命名约定 (UNC) 字符串必须使用完全限定的域名 (FQDN)。 如果无法使用名称解析，可以使用 IP 地址。 UNC 字符串指定资源（例如共享文件或设备）的位置。
 
-### <a name="encryption"></a>加密
+### <a name="encryption"></a>Encryption
 
 加密密钥用来对导出到外部存储的备份数据进行加密。 可以使用 AzureStack-Tools 生成密钥。 
 
@@ -99,3 +100,4 @@ MASBackup 文件夹是 Azure Stack 存储其备份数据的地方。 不应使�
  - 查看[基础结构备份服务](azure-stack-backup-reference.md)的参考资料。  
  - 启用[基础结构备份服务](azure-stack-backup-enable-backup-console.md)。
 
+<!-- Update_Description: update metedata properties -->

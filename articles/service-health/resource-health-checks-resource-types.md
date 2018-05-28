@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 origin.date: 10/09/2017
 ms.author: v-yiso
-ms.date: 04/09/2018
-ms.openlocfilehash: 9a071de24df7e8a23933538797f9499679275a46
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.date: 06/04/2018
+ms.openlocfilehash: b61bb291296e42ed2f67d2dcce1927e723494d42
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure 资源运行状况中的资源类型和运行状况检查
 下面是通过资源运行状况执行的所有检查（按资源类型）的完整列表。
@@ -114,7 +114,7 @@ ms.lasthandoff: 03/30/2018
 ## <a name="microsoftwebserverfarms"></a>Microsoft.web/serverFarms
 |执行的检查|
 |---|
-|<ul><li>主机服务器是否已启动并正在运行？</li><li>Internet 信息服务是否正在运行？</li><li>负载均衡器是否正在运行？</li><li>是否可从数据中心内访问 Web 服务计划？</li><li>为服务器场托管站点内容的存储帐户是否可用？</li></ul>|
+|<ul><li>主机服务器是否已启动并正在运行？</li><li>Internet 信息服务是否正在运行？</li><li>负载均衡器是否正在运行？</li><li>是否可从数据中心内访问应用服务计划？</li><li>为服务器场托管站点内容的存储帐户是否可用？</li></ul>|
 
 ## <a name="microsoftwebsites"></a>Microsoft.web/sites
 |执行的检查|

@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/13/2017
-ms.date: 03/01/2018
+origin.date: 04/20/2017
+ms.date: 05/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 63e51d1ded1a6946c98e6822dea7bf469bd1a2b7
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.reviewer: hectorl
+ms.openlocfilehash: eb7d884ad64823f1dd875fab992b71ad0d5269d8
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>在发生灾难性数据丢失后进行恢复
 
@@ -74,3 +75,4 @@ Azure Stack 支持称为云恢复模式的部署类型。 只有当灾难或产�
 
  - 了解[使用基础结构备份服务](azure-stack-backup-best-practices.md)的最佳做法。
 
+<!-- Update_Description: update metedata properties -->

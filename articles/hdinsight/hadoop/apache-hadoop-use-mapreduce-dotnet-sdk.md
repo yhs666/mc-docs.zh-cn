@@ -1,10 +1,10 @@
 ---
-title: "使用 HDInsight .NET SDK 提交 MapReduce 作业 - Azure | Azure"
-description: "了解如何使用 HDInsight .NET SDK 将 MapReduce 作业提交到 Azure HDInsight Hadoop。"
+title: 使用 HDInsight .NET SDK 提交 MapReduce 作业 - Azure | Azure
+description: 了解如何使用 HDInsight .NET SDK 将 MapReduce 作业提交到 Azure HDInsight Hadoop。
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: c85e44b0-85fd-4185-ad1c-c34a9fe5ef44
@@ -13,20 +13,20 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 11/06/2017
-ms.date: 12/18/2017
+ms.topic: conceptual
+origin.date: 02/22/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: 19e65fe701a9ab45368a3adef9111e46a72a5e11
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: d6db9d09ae20b98ef5e1949433b56c83f848aedd
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK 运行 MapReduce 作业
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-了解如何使用 HDInsight .NET SDK 提交 MapReduce 作业。 HDInsight 群集附带了一个 jar 文件，其中包含一些 MarReduce 示例。 该 jar 文件是 */example/jars/hadoop-mapreduce-examples.jar*。  其中一个示例是 *wordcount*。 开发 C# 控制台应用程序，提交 wordcount 作业。  作业会读取 /example/data/gutenberg/davinci.txt 文件，并将结果输出到 /example/data/davinciwordcount。  如果要重新运行该应用程序，必须清理输出文件夹。
+了解如何使用 HDInsight .NET SDK 提交 MapReduce 作业。 HDInsight 群集附带了一个 jar 文件，其中包含一些 MarReduce 示例。 该 jar 文件是 */example/jars/hadoop-mapreduce-examples.jar*。  其中一个示例是 *wordcount*。 开发 C# 控制台应用程序，提交 wordcount 作业。  作业会读取 /example/data/gutenberg/davinci.txt 文件，并将结果输出到 /example/data/davinciwordcount。  如果想要重新运行该应用程序，必须清理输出文件夹。
 
 > [!NOTE]
 > 必须从 Windows 客户端执行本文中的步骤。 有关使用 Linux、OS X 或 Unix 客户端处理 Hive 的信息，请使用本文顶部显示的选项卡选择器。
@@ -50,6 +50,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. 使用以下代码：
 
+    ```csharp
         using System.Collections.Generic;
         using System.IO;
         using System.Text;
@@ -165,6 +166,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
                 }
             }
         }
+    ```
 4. 按 **F5** 运行应用程序。
 
 若要重新运行该作业，必须更改作业输出文件夹名称，在此示例中，它是“/example/data/davinciwordcount”。
@@ -172,7 +174,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
 作业成功完成后，应用程序将打印输出文件的内容“part-r-00000”。
 
 ## <a name="next-steps"></a>后续步骤
-在本文中，已经学习了几种创建 HDInsight 群集的方法。 若要了解更多信息，请参阅下列文章：
+在本文中，已经学习了几种创建 HDInsight 群集的方法。 要了解更多信息，请参阅下列文章：
 
 * 有关提交 Hive 作业，请参阅[使用 HDInsight .NET SDK 运行 Hive 查询](apache-hadoop-use-hive-dotnet-sdk.md)。
 * 有关创建 HDInsight 群集，请参阅[在 HDInsight 中创建基于 Linux 的 Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)。

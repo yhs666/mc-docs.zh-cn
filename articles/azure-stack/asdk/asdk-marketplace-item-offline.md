@@ -10,18 +10,18 @@ ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: tutorial
 ms.custom: mvc
-origin.date: 03/16/2018
-ms.date: 03/22/2018
+origin.date: 04/20/2018
+ms.date: 05/23/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: 33833c8c8104e53ff578547441adabd36e4575d0
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 66716b8c39b043219b7c6dc0b870607981c1467e
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="tutorial-add-an-azure-stack-marketplace-item-from-a-local-source"></a>教程：从本地源添加 Azure Stack Marketplace项
 
@@ -138,7 +138,7 @@ ms.lasthandoff: 03/23/2018
 
 3. 验证是否已成功添加 Windows Server 2016 Datacenter VM 映像。
 
-   ![已从 Azure 下载映像](./media/asdk-marketplace-item/azs-marketplace-ws2016.png)
+   ![从 Azure 下载的映像](./media/asdk-marketplace-item/azs-marketplace-ws2016.png)
 
 ## <a name="test-the-vm-image"></a>测试 VM 映像
 Azure Stack 操作员可以使用[管理员门户](https://adminportal.local.azurestack.external)来创建测试 VM，以验证是否已成功提供映像。 
@@ -190,3 +190,4 @@ Azure Stack 操作员可以使用[管理员门户](https://adminportal.local.azu
 > [!div class="nextstepaction"]
 > [提供 Azure Stack IaaS 服务](asdk-offer-services.md)
 
+<!-- Update_Description: update metedata properties -->

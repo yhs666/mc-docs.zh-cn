@@ -1,19 +1,19 @@
 ---
-title: "使用 Azure Service Fabric CLI 管理 Azure Service Fabric 应用程序"
-description: "了解如何使用 Azure Service Fabric CLI 在 Azure Service Fabric 群集中部署和删除应用程序"
+title: 使用 Azure Service Fabric CLI 管理 Azure Service Fabric 应用程序
+description: 了解如何使用 Azure Service Fabric CLI 在 Azure Service Fabric 群集中部署和删除应用程序
 services: service-fabric
 author: rockboyfor
 manager: digimobile
 ms.service: service-fabric
-ms.topic: article
+ms.topic: conceptual
 origin.date: 08/22/2017
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1d056c196129b7ab6fcbce2fb70f8d973168f266
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 3af9029b57f692ed7fe8e2a917c1aa805c1e73ed
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>使用 Azure Service Fabric CLI 管理 Azure Service Fabric 应用程序
 

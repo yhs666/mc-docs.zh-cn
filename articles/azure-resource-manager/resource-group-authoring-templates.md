@@ -1,9 +1,9 @@
 ---
-title: "Azure Resource Manager 模板的结构和语法 | Azure"
-description: "使用声明性 JSON 语法描述 Azure Resource Manager 模板的结构和属性。"
+title: Azure Resource Manager 模板的结构和语法 | Azure
+description: 使用声明性 JSON 语法描述 Azure Resource Manager 模板的结构和属性。
 services: azure-resource-manager
 documentationcenter: na
-author: rockboyfor
+author: luanmafeng
 manager: digimobile
 editor: tysonn
 ms.assetid: 19694cb4-d9ed-499a-a2cc-bcfc4922d7f5
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/14/2017
-ms.date: 12/25/2017
+origin.date: 05/01/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 671d7d60bb7c2c7a7867d45e3195dea3ee20d39c
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 0818b07336f24cc5f7fc52032ac26b571bc818bc
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 模板的结构和语法
 本文介绍 Azure 资源管理器模板的结构。 演示了模板的不同部分，以及可在相应部分使用的属性。 模板中包含可用于为部署构造值的 JSON 和表达式。 有关创建模板的分步教程，请参阅[创建第一个 Azure Resource Manager 模板](resource-manager-create-first-template.md)。
@@ -33,6 +33,7 @@ ms.lasthandoff: 02/13/2018
     "contentVersion": "",
     "parameters": {  },
     "variables": {  },
+    "functions": {  },
     "resources": [  ],
     "outputs": {  }
 }
@@ -45,6 +46,7 @@ ms.lasthandoff: 02/13/2018
 | contentVersion |是 |模板的版本（例如 1.0.0.0）。 可为此元素提供任意值。 使用模板部署资源时，此值可用于确保使用正确的模板。 |
 | 参数 |否 |执行部署以自定义资源部署时提供的值。 |
 | variables |否 |在模板中用作 JSON 片段以简化模板语言表达式的值。 |
+| functions |否 |可在模板中使用的用户定义函数。 |
 | 资源 |是 |已在资源组中部署或更新的资源类型。 |
 | outputs |否 |部署后返回的值。 |
 
@@ -94,6 +96,25 @@ ms.lasthandoff: 02/13/2018
             }
         ]
     },
+    "functions": [
+      {
+        "namespace": "<namespace-for-your-function>",
+        "members": {
+          "<function-name>": {
+            "parameters": [
+              {
+                "name": "<parameter-name>",
+                "type": "<type-of-parameter-value>"
+              }
+            ],
+            "output": {
+              "type": "<type-of-output-value>",
+              "value": "<function-expression>"
+            }
+          }
+        }
+      }
+    ],
     "resources": [
       {
           "condition": "<boolean-value-whether-to-deploy>",
@@ -156,7 +177,7 @@ ms.lasthandoff: 02/13/2018
 
 有关模板函数的完整列表，请参阅 [Azure Resource Manager 模板函数](resource-group-template-functions.md)。 
 
-## <a name="parameters"></a>参数
+## <a name="parameters"></a>parameters
 在模板的 parameters 节中，可以指定在部署资源时能够输入的值。 提供针对特定环境（例如开发、测试和生产环境）定制的参数值可以自定义部署。 无需在模板中提供参数，但如果没有参数，模板始终部署具有相同名称、位置和属性的相同资源。
 
 以下示例展示了一个简单的参数定义：
@@ -186,6 +207,59 @@ ms.lasthandoff: 02/13/2018
 ```
 
 有关定义变量的信息，请参阅 [Azure 资源管理器模板的 Variables 节](resource-manager-templates-variables.md)。
+
+## <a name="functions"></a>函数
+
+在模板中，可以创建自己的函数。 这些函数可在模板中使用。 通常，定义不想要在整个模板中重复执行的复杂表达式。 从模板中支持的表达式和[函数](resource-group-template-functions.md)创建用户定义函数。
+
+定义用户函数时，存在一些限制：
+
+* 该函数不能访问变量。
+* 该函数不能使用[引用函数](resource-group-template-functions-resource.md#reference)。
+* 该函数的参数不能具有默认值。
+
+函数需要一个命名空间值以避免命名与模板函数发生冲突。 下面的示例演示一个返回存储帐户名称的函数：
+
+```json
+"functions": [
+  {
+    "namespace": "contoso",
+    "members": {
+      "uniqueName": {
+        "parameters": [
+          {
+            "name": "namePrefix",
+            "type": "string"
+          }
+        ],
+        "output": {
+          "type": "string",
+          "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]"
+        }
+      }
+    }
+  }
+],
+```
+
+可以使用以下代码调用该函数：
+
+```json
+"resources": [
+  {
+    "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2016-01-01",
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "location": "China East",
+    "tags": {},
+    "properties": {}
+  }
+]
+```
 
 ## <a name="resources"></a>资源
 在 resources 节，可以定义部署或更新的资源。 此节可能比较复杂，因为用户必须了解要部署哪些类型才能提供正确的值。

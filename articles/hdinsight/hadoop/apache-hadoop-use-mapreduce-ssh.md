@@ -4,24 +4,24 @@ description: 了解如何在 HDInsight 上的 Hadoop 中使用 SSH 运行 MapRed
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlunb
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 844678ba-1e1f-4fda-b9ef-34df4035d547
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/17/2018
-ms.date: 03/26/2018
+origin.date: 04/10/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: bd111c80c1f6f8c79d143a3034953cdb1882ce5c
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: c8d616bfa564c97eec98e5618d9c14942246e667
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>通过 SSH 将 MapReduce 与 HDInsight 上的 Hadoop 配合使用
 
@@ -43,16 +43,16 @@ ms.lasthandoff: 03/22/2018
 
 ## <a id="ssh"></a>使用 SSH 进行连接
 
-使用 SSH 连接到群集。 例如，以下命令将连接到名为 **myhdinsight** 的群集：
+使用 SSH 连接到群集。 例如，以下命令将以 **sshuser** 帐户身份连接到名为 **myhdinsight** 的群集：
 
 ```bash
-ssh admin@myhdinsight-ssh.azurehdinsight.cn
+ssh sshuser@myhdinsight-ssh.azurehdinsight.cn
 ```
 
 **如果使用用于 SSH 身份验证的证书密钥**，则可能需要指定客户端系统上的私钥位置，例如：
 
 ```bash
-ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.cn
+ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.cn
 ```
 
 **如果使用用于 SSH 身份验证的密码**，则需要根据提示提供密码。

@@ -25,7 +25,7 @@
       href: app-service-web-get-started-html.md
 - name: 教程
   items:
-    - name: 1 - 将应用与 DB 配合使用
+    - name: 将应用与 DB 配合使用
       items:
         - name: 将 .NET Core 与 SQL DB 配合使用
           href: app-service-web-tutorial-dotnetcore-sqldb.md
@@ -37,13 +37,13 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: 将 Java 与 MySQL 配合使用
           href: app-service-web-tutorial-java-mysql.md
-    - name: 1 - 托管 RESTful API
+    - name: 托管 RESTful API
       href: app-service-web-tutorial-rest-api.md
-    - name: 2 - 映射自定义域
+    - name: 映射自定义域
       href: app-service-web-tutorial-custom-domain.md
-    - name: 3 - 绑定 SSL 证书
+    - name: 绑定 SSL 证书
       href: app-service-web-tutorial-custom-ssl.md
-    - name: 4 - 对用户进行身份验证
+    - name: 对用户进行身份验证
       href: app-service-web-tutorial-auth-aad.md
 - name: 示例
   items:
@@ -61,6 +61,8 @@
       href: azure-web-sites-web-hosting-plans-in-depth-overview.md
     - name: OS 功能
       href: web-sites-available-operating-system-functionality.md
+    - name: 入站和出站 IP
+      href: app-service-ip-addresses.md
     - name: 身份验证和授权
       href: app-service-authentication-overview.md
     - name: 混合连接
@@ -91,6 +93,8 @@
       items:
         - name: 部署应用
           items:
+            - name: 部署 ZIP 或 WAR
+              href: app-service-deploy-zip.md
             - name: 通过 FTP 部署
               href: app-service-deploy-ftp.md
             - name: 通过云同步进行部署
@@ -121,6 +125,10 @@
               href: app-service-mobile-how-to-configure-active-directory-authentication.md
             - name: 使用 Microsoft 帐户进行身份验证
               href: app-service-mobile-how-to-configure-microsoft-authentication.md
+        - name: 自定义身份验证
+          href: app-service-authentication-how-to.md
+        - name: 限制 IP
+          href: app-service-ip-restrictions.md
         - name: 使用托管服务标识
           href: app-service-managed-service-identity.md
         - name: 配置 TLS 相互身份验证
@@ -147,6 +155,8 @@
           href: web-sites-backup.md
         - name: 还原备份
           href: web-sites-restore.md
+        - name: 还原快照
+          href: app-service-web-restore-snapshots.md
         - name: 克隆应用
           href: app-service-web-app-cloning.md
         - name: 移动资源
@@ -157,6 +167,10 @@
           href: web-sites-create-web-jobs.md
         - name: 使用 VS 开发 WebJobs
           href: websites-dotnet-deploy-webjobs.md
+        - name: WebJobs SDK 入门
+          href: webjobs-sdk-get-started.md
+        - name: 使用 WebJobs SDK
+          href: webjobs-sdk-how-to.md
 - name: 参考
   items:
     - name: Azure CLI

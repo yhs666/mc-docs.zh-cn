@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/18/2018
+origin.date: 04/10/2018
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: 28dbc45f10ec6b22c31bec37a0b9d6ea4d46a42e
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 05/21/2018
+ms.openlocfilehash: 0d15be32f41dad5a11f2e513d176359fdf52b989
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="apache-kafka-producer-and-consumer-apis"></a>Apache Kafka 生成者和使用者 API
 

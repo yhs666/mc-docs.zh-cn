@@ -1,11 +1,11 @@
 ---
-title: "针对 Azure web 应用的开源技术常见问题解答 | Azure"
-description: "获取有关 Azure App Service Web 应用功能中开源技术常见问题的解答。"
+title: 针对 Azure web 应用的开源技术常见问题解答 | Azure
+description: 获取有关 Azure App Service Web 应用功能中开源技术常见问题的解答。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -13,22 +13,36 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-origin.date: 11/03/2017
-ms.date: 12/04/2017
+origin.date: 05/11/2018
+ms.date: 06/04/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1525fc57d1a7027593cab931b6e4d09975c2c2fa
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 97d825b14aff07447155fce1ca14b6a9194da1df
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>针对 Azure 中 Web 应用的开源技术常见问题的解答
 
-本文对 [Azure App Service Web 应用功能](https://www.azure.cn/home/features/app-service/web-apps/)开源技术常见问题 (FAQ) 进行了解答。
+本文包含有关针对 [Azure 应用服务的 Web 应用功能](https://www.azure.cn/home/features/app-service/web-apps/)的开放源代码技术问题的常见问题 (FAQ) 解答。
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="how-do-i-turn-on-php-logging-to-troubleshoot-php-issues"></a>如何启用 PHP 日志记录以便对 PHP 问题进行故障排除？
+## <a name="my-cleardb-database-is-down-how-do-i-resolve-this"></a>我的 ClearDB 数据库关闭。 如何解决此问题？
+
+有关数据库相关问题，请联系 [ClearDB 支持人员](https://www.cleardb.com/developers/help/support)。 
+
+有关 ClearDB 常见问题解答，请参阅 [ClearDB 常见问题解答](https://docs.microsoft.com/azure/store-cleardb-faq/)。
+
+## <a name="why-wasnt-my-cleardb-database-migrated-during-my-subscription-migration"></a>为何我的 ClearDB 数据库未在订阅迁移过程中进行迁移？
+
+在订阅间迁移资源时，存在某些限制。 ClearDB MySQL 数据库是第三方服务，因而在 Azure 订阅迁移过程中不会进行迁移。
+
+如果在迁移 Azure 资源之前未管理 MySQL 数据库的迁移，则 ClearDB MySQL 数据库可能不可用。 若要避免此问题，请先手动迁移 ClearDB 数据库，然后迁移 Web 应用的 Azure 订阅。
+
+有关详细信息，请参阅 [ClearDB MySQL 数据库与 Azure 应用服务搭配使用时的常见问题解答](https://docs.microsoft.com/azure/store-cleardb-faq/)。
+
+## <a name="how-do-i-turn-on-php-logging-to-troubleshoot-php-issues"></a>如何打开 PHP 日志记录以对 PHP 问题进行故障排除？
 
 打开 PHP 日志记录：
 
@@ -40,7 +54,7 @@ ms.lasthandoff: 11/24/2017
 6. 将文件名称设置为“.user.ini”。
 7. 选择“.user.ini”旁边的铅笔图标。
 8. 在文件中，添加以下代码：`log_errors=on`
-9. 选择“保存”。
+9. 选择“其他安全性验证” 。
 10. 选择“wp-config.php”旁边的铅笔图标。
 11. 将文本更改为以下代码：
    ```
@@ -123,7 +137,7 @@ ms.lasthandoff: 11/24/2017
 对于 Azure 应用商店和自定义部署：
 
 * 文件夹位置：D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
-* 感兴趣的文件：
+* 相关文件：
     * catalina.*yyyy-mm-dd*.log
     * host-manager.*yyyy-mm-dd*.log
     * localhost.*yyyy-mm-dd*.log

@@ -1,25 +1,25 @@
 ---
-title: "Azure Service Fabric 中的副本和实例 | Azure"
-description: "了解副本和实例 - 其功能和生命周期"
+title: Azure Service Fabric 中的副本和实例 | Azure
+description: 了解副本和实例 - 其功能和生命周期
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: d5ab75ff-98b9-4573-a2e5-7f5ab288157a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/10/2018
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 174df38c68f708cedfb303dfa3deb04e3f3e336b
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 4459c73bc850a230800457eae85b52675f8be3f3
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="replicas-and-instances"></a>副本和实例 
 本文概述了有状态服务副本和无状态服务实例的生命周期。
@@ -145,6 +145,4 @@ InBuild 副本是创建或准备加入副本集的副本。 根据副本角色�
 有关 Service Fabric 概念的详细信息，请参阅以下文章：
 
 [Reliable Services 生命周期 - C#](service-fabric-reliable-services-lifecycle.md)
-
-
 <!--Update_Description: update meta properties -->

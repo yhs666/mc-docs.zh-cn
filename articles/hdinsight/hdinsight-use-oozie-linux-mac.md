@@ -1,8 +1,8 @@
 ---
-title: "在基于 Linux 的 HDInsight 中使用 Hadoop Oozie 工作流 | Azure"
-description: "在基于 Linux 的 HDInsight 中使用 Hadoop Oozie。 了解如何定义 Oozie 工作流，并提交 Oozie 作业。"
+title: 在基于 Linux 的 HDInsight 中使用 Hadoop Oozie 工作流 | Azure
+description: 在基于 Linux 的 HDInsight 中使用 Hadoop Oozie。 了解如何定义 Oozie 工作流，并提交 Oozie 作业。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,18 +10,16 @@ tags: azure-portal
 ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 10/25/2017
-ms.date: 12/25/2017
+ms.topic: conceptual
+origin.date: 01/22/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5620f08f16e049adf76968fa5c2b674b4fff3a0b
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 025c2b0e5a237b5dbae73f81dad72c928c09be88
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在基于 Linux 的 Azure HDInsight 中将 Oozie 与 Hadoop 配合使用以定义和运行工作流
 
@@ -35,6 +33,8 @@ ms.lasthandoff: 12/15/2017
 * Apache Sqoop
 
 还可以使用 Oozie 来计划特定于某系统的作业，例如 Java 程序或 shell 脚本
+> [!IMPORTANT]
+> 在加入域的 HDInsight 上未启用 Oozie。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -233,7 +233,7 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 ### <a name="create-the-table"></a>创建表
 
 > [!NOTE]
-> 有多种方法可连接到 SQL 数据库以创建表。 以下步骤从 HDInsight 群集使用 [FreeTDS](http://www.freetds.org/) 。
+> 有多种方法可连接到 SQL 数据库以创建表。 以下步骤从 HDInsight 群集中使用 [FreeTDS](http://www.freetds.org/)。
 
 
 1. 使用以下命令在 HDInsight 群集上安装 FreeTDS：

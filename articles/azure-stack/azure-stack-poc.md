@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 03/22/2018
-ms.date: 04/20/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: cba87a6598ec80fe0dadbcabb337550567d97f36
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: 32819ff712924511cb8f72ffe9165cfdd26c6785
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="what-is-azure-stack"></a>什么是 Azure Stack？
 
@@ -41,7 +41,7 @@ ASDK 具有以下限制：
 ## <a name="next-steps"></a>后续步骤
 [主要功能和概念](azure-stack-key-features.md)
 
-[Azure Stack：Azure 的扩展 (pdf)](https://azure.microsoft.com/en-us/resources/azure-stack-an-extension-of-azure/)
+[Azure Stack：Azure 的扩展 (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

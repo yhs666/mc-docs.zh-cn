@@ -1,6 +1,6 @@
 ---
-title: "配置安全 Azure Service Fabric 群集连接 | Azure"
-description: "了解如何使用 Visual Studio 来配置 Azure Service Fabric 群集支持的安全连接。"
+title: 配置安全 Azure Service Fabric 群集连接 | Azure
+description: 了解如何使用 Visual Studio 来配置 Azure Service Fabric 群集支持的安全连接。
 services: service-fabric
 documentationcenter: na
 author: rockboyfor
@@ -9,17 +9,17 @@ editor: tglee
 ms.assetid: 80501867-dd7a-4648-8bd6-d4f26b68402d
 ms.service: multiple
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 08/04/2017
-ms.date: 09/11/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7ff92ea6ab5d933a28020b5267506fc22087edae
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: 0d7c1ba86e2acbd27780fce1625cee6e63a70ee4
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>从 Visual Studio 配置与 Service Fabric 群集的安全连接
 
@@ -33,11 +33,11 @@ Visual Studio Service Fabric 工具支持所有用于连接到群集来进行发
 
 ## <a name="configure-cluster-connections-in-publish-profiles"></a>在发布配置文件中配置群集连接
 
-如果从 Visual Studio 发布 Service Fabric 项目，请使用“发布 Service Fabric 应用程序”对话框来选择 Azure Service Fabric 群集。 在“连接终结点”下，选择订阅下的现有群集。
+如果从 Visual Studio 发布 Service Fabric 项目，请使用“发布 Service Fabric 应用程序”对话框来选择 Azure Service Fabric 群集。 在“连接终结点”下，选择你的订阅下的现有群集。
 
-![“发布 Service Fabric 应用程序”对话框用于配置 Service Fabric 连接。][publishdialog]
+![**发布 Service Fabric 应用程序**对话框用于配置 Service Fabric 连接。][publishdialog]
 
-“发布 Service Fabric 应用程序”对话框会自动验证群集连接。 如果出现系统提示，请登录到 Azure 帐户。 如果通过了验证，则表示系统已安装正确的证书，可安全连接到群集。否则即表示群集不安全。 验证失败的原因可能是网络问题，或者系统尚未正确配置为连接到安全群集。
+“发布 Service Fabric 应用程序”对话框会自动验证群集连接。 如果出现系统提示，请登录到你的 Azure 帐户。 如果通过了验证，则表示系统已安装正确的证书，可安全连接到群集。否则即表示群集不安全。 验证失败的原因可能是网络问题，或者系统尚未正确配置为连接到安全群集。
 
 ![“发布 Service Fabric 应用程序”对话框将验证现有的已正确配置的 Service Fabric 群集连接。][selectsfcluster]
 
@@ -47,7 +47,7 @@ Visual Studio Service Fabric 工具支持所有用于连接到群集来进行发
 
 2. 安装受信任的证书。 为此，请双击 .pfx 文件，或使用 PowerShell 脚本 Import-PfxCertificate 来导入证书。 将证书安装到 Cert:\LocalMachine\My。 导入证书时，可以接受所有默认设置。
 
-3. 在项目的快捷菜单上选择“发布...”命令，打开“发布 Azure 应用程序”对话框，然后选择目标群集。 该工具将自动解析连接，并将安全连接参数保存在发布配置文件中。
+3. 在项目的快捷菜单上选择“发布...”命令，打开“发布 Azure 应用程序”对话框，然后选择目标群集。 该工具会自动解析连接，并将安全连接参数保存在发布配置文件中。
 
 4. 可选：可以编辑发布配置文件以指定安全群集连接。
 
@@ -57,21 +57,20 @@ Visual Studio Service Fabric 工具支持所有用于连接到群集来进行发
 
    如果要发布到远程群集，需要指定该特定群集的相应参数。 下面是连接到不安全群集的示例：
 
-   `<ClusterConnectionParameters ConnectionEndpoint="mycluster.chinanorth.chinacloudapp.cn:19000" />`
+   `<ClusterConnectionParameters ConnectionEndpoint="mycluster.chinanorth.cloudapp.chinacloudapi.cn:19000" />`
 
    下面是一个示例，用于连接到基于 x509 证书的安全群集：
 
    ```xml
-    <ClusterConnectionParameters
-    ConnectionEndpoint="mycluster.chinaeast.cloudapp.chinacloudapi.cn:19000"
-    X509Credential="true"
-    ServerCertThumbprint="0123456789012345678901234567890123456789"
-    FindType="FindByThumbprint"
-    FindValue="9876543210987654321098765432109876543210"
-    StoreLocation="CurrentUser"
-    StoreName="My" />
-    ```
-
+   <ClusterConnectionParameters
+   ConnectionEndpoint="mycluster.chinanorth.cloudapp.chinacloudapi.cn:19000"
+   X509Credential="true"
+   ServerCertThumbprint="0123456789012345678901234567890123456789"
+   FindType="FindByThumbprint"
+   FindValue="9876543210987654321098765432109876543210"
+   StoreLocation="CurrentUser"
+   StoreName="My" />
+   ```
 5. 编辑其他任何所需的设置（例如升级参数和应用程序参数文件位置），然后从 Visual Studio 中的“发布 Service Fabric 应用程序”对话框发布应用程序。
 
 ## <a name="next-steps"></a>后续步骤

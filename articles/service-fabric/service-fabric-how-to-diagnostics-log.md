@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/27/2018
-ms.date: 04/23/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: c01bd3167a983fa8b31e63ac7ca870df0ec4bda5
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: a1300c5174db72fb8be9776942b1c00a8013d068
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>向 Service Fabric 应用程序添加日志记录
 
@@ -176,5 +176,4 @@ ASP.NET Core 日志记录（[Microsoft.Extensions.Logging NuGet 包](https://www
 
 - 阅读有关 [Service Fabric 中的应用程序监视](service-fabric-diagnostics-event-generation-app.md)的详细信息。
 - 阅读使用 [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) 和 [Windows Azure 诊断](service-fabric-diagnostics-event-aggregation-wad.md)进行日志记录的相关信息。
-<!-- Update_Description: new articles on service fabric how to diagnostics log  -->
-<!--ms.date: 04/23/2018-->
+<!-- Update_Description: update meta properties -->

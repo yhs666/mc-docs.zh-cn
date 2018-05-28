@@ -3,7 +3,7 @@ title: 使用 Azure 门户部署 Azure 资源 | Azure
 description: 使用 Azure 门户和 Azure Resource Manager 来部署资源。
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
-author: rockboyfor
+author: luanmafeng
 manager: digimobile
 editor: tysonn
 ms.service: azure-resource-manager
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/08/2017
-ms.date: 03/26/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7151c3179feba3c4dc53944f3996a24907499d01
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: f23c4fd7074532b1118976f9f093674762dcc782
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 模板和 Azure 门户部署资源
 
@@ -139,4 +139,4 @@ ms.lasthandoff: 03/28/2018
 * 若要从部署或资源组中检索模板，请参阅[从现有资源导出 Azure Resource Manager 模板](resource-manager-export-template.md)。
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
 
-<!--Update_Description: update meta properties, wording update, update reference link-->
+<!--Update_Description: update meta properties-->

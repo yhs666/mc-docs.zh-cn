@@ -7,17 +7,17 @@ manager: digimobile
 editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/07/2017
-ms.date: 04/09/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9b70751b9580e32e7e2ba98e518aef179b5928b2
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: 7df162129051c58451c035c281dccbfa3c329d09
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="service-fabric-environment-variables"></a>Service Fabric 环境变量
 
@@ -56,4 +56,4 @@ Service Fabric 运行时使用的内部环境变量：
 - FabricActivatorAddress
 - FabricPackageFileName
 - HostedServiceName
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties -->

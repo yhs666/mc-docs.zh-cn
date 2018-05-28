@@ -1,25 +1,25 @@
 ---
-title: "Service Fabric 服务的可用性 | Azure"
-description: "介绍服务的故障检测、故障转移和恢复"
+title: Service Fabric 服务的可用性 | Azure
+description: 介绍服务的故障检测、故障转移和恢复
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 279ba4a4-f2ef-4e4e-b164-daefd10582e4
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 11/13/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 659f77a696407207ebd21cb8ca5285e1375fba5d
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: 6941c7148caeb7d06c72c48e4a6c44065dc9ead6
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="availability-of-service-fabric-services"></a>Service Fabric 服务的可用性
 本文概述 Azure Service Fabric 服务如何保持服务的可用性。
@@ -48,4 +48,4 @@ Service Fabric 服务可以是有状态服务，也可以是无状态服务。 �
 - [定义和管理状态](service-fabric-concepts-state.md)
 - [Reliable Services](service-fabric-reliable-services-introduction.md)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties -->

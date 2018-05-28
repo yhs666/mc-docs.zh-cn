@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: dbb68b10-c721-4188-aa07-584d0cd63138
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2018
-ms.date: 03/02/2018
+origin.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7e727a3389df1a1787204bfa3513f44e1ac8e2c4
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 2f2592535bf4f7c5df8e5fdbae1ecb3486047b71
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的缩放单位节点操作
 

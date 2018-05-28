@@ -1,25 +1,25 @@
 ---
-title: "在 Java 中创建第一个可靠的 Azure 微服务 | Azure"
-description: "介绍如何创建包含无状态服务和有状态服务的 Azure Service Fabric 应用程序。"
+title: 在 Java 中创建第一个可靠的 Azure 微服务 | Azure
+description: 介绍如何创建包含无状态服务和有状态服务的 Azure Service Fabric 应用程序。
 services: service-fabric
 documentationcenter: java
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/02/2017
-ms.date: 02/26/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 64fc529fb302a5e05339ea692b2459997988c784
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 922e03bd1ecec1370c1f037b1edb27df8b3b362b
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services 入门
 > [!div class="op_single_selector"]
@@ -94,6 +94,7 @@ public static void main(String[] args) throws Exception {
 ```
 
 ## <a name="implement-the-service"></a>实现服务
+
 打开 **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**。 此类定义服务类型，可以运行任何代码。 服务 API 为代码提供两个入口点：
 
 * 名为 `runAsync()`的开放式入口点方法，可在其中开始执行任何工作负荷，包括长时间运行的计算工作负荷。
@@ -254,4 +255,4 @@ $ ./install.sh
 
 * [Service Fabric CLI 入门](service-fabric-cli.md)
 
-<!--Update_Description: update meta properties, add content of Service registration and Create a stateful service-->
+<!--Update_Description: update meta properties -->

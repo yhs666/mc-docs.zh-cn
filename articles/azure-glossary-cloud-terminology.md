@@ -16,11 +16,11 @@ ms.topic: article
 origin.date: 08/16/2017
 ms.date: 05/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: e85afbcad2b27e71397ef57aac034e185d7492c9
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 1010a11bb0cac85a8de91e1ff2b76dbfc78f46e8
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Azure 词汇表：Azure 平台上的云术语字典
 
@@ -79,9 +79,6 @@ Azure 应用服务提供的用来托管[网站或 Web 应用程序](app-service-
 ## 产品/服务 <a name="offer"></a>
 适用于 Azure 订阅的定价、信用额度和相关条款。  
 请参阅 [Azure 产品/服务详细信息页](https://www.azure.cn/support/legal/offer-rate-plans/)
-
-## <a name="portal"></a>门户
-用于部署和管理 Azure 服务的安全 Web 门户。  有两个门户：[Azure 门户](http://portal.azure.cn/)和[经典管理门户](http://manage.windowsazure.cn/)。 有些服务可在这两个门户中使用，而有些服务则只能在其中一个部门中使用。 Azure 门户可用性图表列出了哪些服务可在哪个门户中使用。
 
 ## <a name="resource"></a>资源
 属于 Azure 解决方案的一部分的项。 每个 Azure 服务允许部署不同类型的资源，例如数据库或虚拟机。   

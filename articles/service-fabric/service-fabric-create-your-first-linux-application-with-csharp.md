@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/11/2018
-ms.date: 04/30/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 86494117c0e58725a672980fa94c07acdcbd57ef
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: d6498d22902497147c2fb6ece36ec82cfe52e70c
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>创建第一个 Azure Service Fabric 应用程序
 > [!div class="op_single_selector"]
@@ -43,8 +43,8 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
 
    Ubuntu
    ```bash
-   sudo apt-get install npm
-   sudo apt install nodejs-legacy
+   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+   sudo apt-get install -y nodejs 
    ```
 <!-- Not Avaiable on Red Hat Enterprise Linux 7.4 (Service Fabric preview support) -->
 2. 通过 NPM 在计算机上安装 [Yeoman](http://yeoman.io/) 模板生成器
@@ -132,4 +132,4 @@ cd myapp
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-csharp/sfx-primary.png
 
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update meta properties, wording update -->

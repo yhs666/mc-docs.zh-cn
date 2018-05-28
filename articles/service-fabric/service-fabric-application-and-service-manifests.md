@@ -1,6 +1,6 @@
 ---
-title: "描述 Azure Service Fabric 应用和服务 | Azure"
-description: "介绍如何使用清单来描述 Service Fabric 应用程序和服务。"
+title: 描述 Azure Service Fabric 应用和服务 | Azure
+description: 介绍如何使用清单来描述 Service Fabric 应用程序和服务。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -9,17 +9,17 @@ editor: mani-ramaswamy
 ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 26d75c33f39a31452cc2b4f5ff5bbc592d8550dd
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 7b698f358a276ee7a3c49fa2cfbf81a40ab93de0
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 应用程序和服务清单
 本文介绍如何使用 ApplicationManifest.xml 和 ServiceManifest.xml 文件来定义 Service Fabric 应用程序与服务并对其进行版本控制。  [ServiceFabricServiceModel.xsd 架构文档](service-fabric-service-model-schema.md)中阐述了这些清单文件的 XML 架构。

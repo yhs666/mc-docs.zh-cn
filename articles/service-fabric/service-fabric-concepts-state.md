@@ -1,25 +1,25 @@
 ---
-title: "定义和管理 Azure 微服务中的状态 | Azure"
-description: "如何定义和管理 Service Fabric 中的服务状态"
+title: 定义和管理 Azure 微服务中的状态 | Azure
+description: 如何定义和管理 Service Fabric 中的服务状态
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: f5e618a5-3ea3-4404-94af-122278f91652
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 09/11/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: f3a514bfef5642e4d8b0c8b10e83c2e6f6d625ea
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: d92cdb6e522ba6079eff91268a6b974de501b20a
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="service-state"></a>服务状态
 服务状态指的是服务正常运行所需的内存中数据或磁盘上数据。 这包括（例如）服务为正常工作而读取和写入的数据结构和成员变量等。 这可能还包括存储在磁盘上的文件或其他资源，具体取决于服务的体系结构。 例如，数据库用于存储数据和事务日志的文件。
@@ -43,4 +43,4 @@ ms.lasthandoff: 09/08/2017
 * [Service Fabric 服务分区](service-fabric-concepts-partitioning.md)
 * [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md)
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

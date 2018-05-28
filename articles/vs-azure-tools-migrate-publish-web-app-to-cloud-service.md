@@ -15,11 +15,11 @@ ms.workload: multiple
 origin.date: 11/10/2017
 ms.date: 05/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3da2dd47642d8c3325f29e67c9e9bf2cb5f6e8b4
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 9295781e7937e7e7e83f004fc3fc0eca02c88445
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>如何：通过 Visual Studio 将 Web 应用程序迁移和发布到 Azure 云服务
 
@@ -64,7 +64,6 @@ ms.lasthandoff: 05/15/2018
 1. 在出现的“发布 Azure 应用程序”中，使用你的 Azure 订阅帐户登录，然后选择“下一步 >”。
 1. 在“设置 > 通用设置”选项卡中，从“云服务”下拉列表中选择目标云服务以及你选择的环境和配置。 
 1. 在“设置 > 高级设置”中，选择要使用的存储帐户，然后选择“下一步 >”。
-1. 在“诊断”中，选择是否将信息发送至 Application Insights。
 1. 选择“下一步 >”以查看摘要，然后选择“发布”以开始部署。
 1. Visual Studio 将打开一个活动日志窗口，你可以在其中跟踪进度：
 

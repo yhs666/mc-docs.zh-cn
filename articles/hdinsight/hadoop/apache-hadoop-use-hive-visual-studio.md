@@ -1,8 +1,8 @@
 ---
-title: "使用用于 Visual Studio 的 Data Lake (Hadoop) 工具运行 Hive 查询 - Azure HDInsight | Azure"
-description: "了解如何使用用于 Visual Studio 的 Data Lake 工具对 Azure HDInsight 上的 Apache Hadoop 运行 Apache Hive 查询。"
+title: 使用用于 Visual Studio 的 Data Lake (Hadoop) 工具运行 Hive 查询 - Azure HDInsight | Azure
+description: 了解如何使用用于 Visual Studio 的 Data Lake 工具对 Azure HDInsight 上的 Apache Hadoop 运行 Apache Hive 查询。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,17 +11,17 @@ ms.assetid: 2b3e672a-1195-4fa5-afb7-b7b73937bfbe
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/01/2017
-ms.date: 12/18/2017
+origin.date: 02/20/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: e54cae5f4ffe794f47416fd6cd318062221e7c66
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: e5747ca123a253e8460bbb79690fc97ad668ae9c
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>使用用于 Visual Studio 的 Data Lake 工具运行 Hive 查询
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/08/2017
 * Azure HDInsight（HDInsight 上的 Hadoop）群集
 
   > [!IMPORTANT]
-  > Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+  > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * Visual Studio（以下版本之一）：
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 12/08/2017
 
 ## <a id="run"></a> 使用 Visual Studio 运行 Hive 查询
 
-1. 打开“Visual Studio”，选择“新建” > “项目” > “Azure Data Lake” > “HIVE” > “Hive 应用程序”。 为此项目提供一个名称。
+1. 打开“Visual Studio”，选择“新建” > “项目” > “Azure Data Lake” > “HIVE” > “Hive 应用程序”。 提供此项目的名称。
 
 2. 打开在创建此项目时产生的 **Script.hql** 文件，并在其中粘贴以下 HiveQL 语句：
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 12/08/2017
    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
    ```
 
-    这些语句可执行以下操作：
+    这些语句执行以下操作：
 
    * `DROP TABLE`：如果表存在，此语句会将其删除。
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 12/08/2017
      > [!NOTE]
      > 如果希望通过外部源更新基础数据，应使用外部表。 例如，MapReduce 作业或 Azure 服务。
      >
-     > 删除外部表**不会**删除数据，只会删除表定义。
+     > 删除外部表 **不会** 删除数据，只会删除表定义。
 
    * `ROW FORMAT`：告知 Hive 如何设置数据的格式。 在此情况下，每个日志中的字段以空格分隔。
 
@@ -100,10 +100,10 @@ ms.lasthandoff: 12/08/2017
    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
    ```
 
-    这些语句可执行以下操作：
+    这些语句执行以下操作：
 
    * 
-            `CREATE TABLE IF NOT EXISTS`：如果表尚不存在，则创建表。 由于未使用 `EXTERNAL` 关键字，因此此语句会创建内部表。 内部表存储在 Hive 数据仓库中，并由 Hive 托管。
+            `CREATE TABLE IF NOT EXISTS`：如果表尚不存在，则创建表。 由于未使用 `EXTERNAL` 关键字，因此此语句会创建内部表。 内部表存储在 Hive 数据仓库中，由 Hive 管理。
 
      > [!NOTE]
      > 与 `EXTERNAL` 表不同，删除内部表会同时删除基础数据。

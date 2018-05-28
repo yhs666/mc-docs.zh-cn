@@ -1,25 +1,25 @@
 ---
-title: "Azure Service Fabric 灾难恢复 | Azure"
-description: "Azure Service Fabric 提供所需的功能用于应对各种灾难。 本文介绍可能发生的灾难类型，以及如何应对这些灾难。"
+title: Azure Service Fabric 灾难恢复 | Azure
+description: Azure Service Fabric 提供所需的功能用于应对各种灾难。 本文介绍可能发生的灾难类型，以及如何应对这些灾难。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 10/02/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6774041bdf1abcdd7506d3936321ea808743d152
-ms.sourcegitcommit: 0a59a44bdc09a8b5801180996adfdf68131579c0
+ms.openlocfilehash: 061445fba9bc14e59539a231e358825b3e393feb
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure Service Fabric 中的灾难恢复
 提供高可用性的关键一环是确保服务能够经受各种不同类型的故障。 对于计划外和不受控制的故障，这一点尤其重要。 本文介绍一些常见的故障模式，如果未正确建模和管理，这些故障可能成为灾难。 本文还介绍发生灾难时应采取的缓解措施和行动。 目标是在发生计划内或其他故障时，限制或消除停机或数据丢失风险。
@@ -146,11 +146,11 @@ Service Fabric 具有种子节点的概念。 种子节点可以维护基础群�
 
 [repair-partition-ps]: https://msdn.microsoft.com/library/mt163522.aspx
 [azure-status-dashboard]:https://www.azure.cn/support/service-dashboard/
-
+[azure-regions]: https://www.azure.cn/support/service-dashboard/
 [dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
 
 <!-- Images -->
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update link -->

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 26b58724-6a43-4f20-b965-2da3f086cf8a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/07/2017
-ms.date: 04/30/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: afb05e61500d283b6db69cc9bf2b2ed7cc6f2994
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: b82c583646a62ea50aa80c82b44b753f431a1eb9
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric 群集安全方案
 Azure Service Fabric 群集是你拥有的资源。 保护群集以阻止未经授权的用户连接到它们是你的职责。 当在群集上运行生产工作负荷时，安全的群集环境尤为重要。 尽管可以创建不安全的群集，但当该群集向公共 Internet 公开管理终结点时，匿名用户可与它建立连接。 不支持将不安全群集用于生产工作负荷。 
@@ -94,7 +94,7 @@ X.509 数字证书通常用于验证客户端与服务器。 它们还用于对�
 
 要了解如何生成具有 SAN 的证书，请参阅[如何向安全 LDAP 证书添加使用者可选名称](http://support.microsoft.com/kb/931351)。
 
-“使用者”字段可有多个值。 每个值都以名称首字母为前缀，指示值的类型。 常见的名称首字母是“CN”（表示公用名），例如 CN = www.contoso.com。“使用者”字段可为空。 如果可选的“使用者可选名称”字段已填充数据，则此字段必须包含证书的公用名，以及每个 SAN 的一个条目。 这些内容作为“DNS 名称”值输入。
+“使用者”字段可有多个值。 每个值都以名称首字母为前缀，指示值的类型。 常见的名称首字母是“CN”（表示公用名），例如 CN = www.contoso.com。 “使用者”字段可为空。 如果可选的“使用者可选名称”字段已填充数据，则此字段必须包含证书的公用名，以及每个 SAN 的一个条目。 这些内容作为“DNS 名称”值输入。
 
 证书的“预期目的”字段值应包含适当的值，例如“服务器身份验证”或“客户端身份验证”。
 
@@ -112,4 +112,4 @@ X.509 数字证书通常用于验证客户端与服务器。 它们还用于对�
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!--Update_Description: update reference link, wording update-->
+<!--Update_Description: update meta properties -->

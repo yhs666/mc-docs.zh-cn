@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/22/2018
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: ae69eb86b812d5135898651bc5df5d797ed8583e
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: cb7bb0122e1d8a19f85c66f590859ef3335e5e22
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>在 Service Fabric 群集中修补 Linux 操作系统
 
@@ -241,8 +241,8 @@ RejectedList | 默认值为 "" | 此更新拒绝的修补程序列表
 
 修补业务流程应用日志是作为 Service Fabric 运行日志的一部分进行收集的。
 
-在想要通过所选的诊断工具/管道捕获日志的情况下使用。
-<!-- Not Available on [eventsource](https://docs.azure.cn/zh-cn/dotnet/api/system.diagnostics.tracing.eventsource?view=azure-dotnet?view=netstandard-2.0) -->
+在想要通过所选的诊断工具/管道捕获日志的情况下使用。 修补业务流程应用程序使用以下固定的提供程序 ID 通过 [eventsource](https://docs.microsoft.com/zh-cn/dotnet/api/system.diagnostics.tracing.eventsource?view=netstandard-2.0) 记录事件
+<!-- URL is correct on [eventsource](https://docs.microsoft.com/zh-cn/dotnet/api/system.diagnostics.tracing.eventsource?view=netstandard-2.0)-->
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -361,5 +361,4 @@ A. 是的，在执行安装后的步骤期间会执行清理。
 
 ### <a name="version-200-latest"></a>版本 2.0.0（最新版本）
 - 公开发布的版本
-<!-- Update_Description: new articles on service fabric patch orchestration application on Linux -->
-<!--ms.date: 03/12/2018-->
+<!-- Update_Description: update meta properties -->

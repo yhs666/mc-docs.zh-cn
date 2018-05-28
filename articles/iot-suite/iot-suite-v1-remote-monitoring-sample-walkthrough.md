@@ -1,12 +1,12 @@
 ---
-title: "远程监视预配置解决方案演练 | Microsoft Docs"
-description: "介绍 Azure IoT 预配置解决方案远程监视及其体系结构。"
-services: 
+title: 远程监视预配置解决方案演练 | Microsoft Docs
+description: 介绍 Azure IoT 预配置解决方案远程监视及其体系结构。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -14,19 +14,19 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/02/2017
-ms.date: 12/04/2017
+ms.date: 06/04/2018
 ms.author: v-yiso
-ms.openlocfilehash: 81ae8c940451cd7b65d9b330e171e381215690aa
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: e78c133726148280acb463394262009559cea811
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>远程监视预配置解决方案演练
 
 IoT 套件远程监视[预配置解决方案][lnk-preconfigured-solutions]是适用于在远程位置运行的多个计算机的端到端监视解决方案实现。 该解决方案结合了关键 Azure 服务来提供业务方案的通用实现。 可以将其用作自己实现的起点，并可以根据特定的业务要求[自定义][lnk-customize]该解决方案。
 
-本文逐步讲解远程监视解决方案的一些关键要素，以帮助你了解其工作原理。 该知识有助于：
+本文将逐步讲解远程监视解决方案的一些关键要素，以帮助你了解其工作原理。 这一知识有助于：
 
 * 排除解决方案中的问题。
 * 规划如何定制解决方案来满足自身的特定需求。 
@@ -36,7 +36,17 @@ IoT 套件远程监视[预配置解决方案][lnk-preconfigured-solutions]是适
 
 下图概述该预配置解决方案的逻辑组件：
 
-![逻辑体系结构](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
+![逻辑体系结构](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+
+## <a name="microservices--docker-containers"></a>微服务和 Docker 容器
+远程监视是利用微服务体系结构的第一个预配置解决方案。 [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) 和 [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) 中均可使用该解决方案。
+微服务已成为实现缩放和灵活性的一种流行模式（通过允许容器单独缩放），不会影响开发速度。
+微服务可隔离代码并提供定义明确的接口，使解决方案更易于理解并更加淡化整体性。 它还进一步扩大了合作伙伴的选择范围，使他们能够扩展当前的解决方案加速器，构建可货币化的成熟解决方案。
+
+**详细了解 Docker 容器**
+* [安装 Docker](https://docs.docker.com/engine/installation/)
+* [用于远程监视的常见 Docker 命令](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#common-docker-commands)
+* [Docker 入门](https://docs.docker.com/get-started/)
 
 ## <a name="simulated-devices"></a>模拟设备
 
@@ -89,7 +99,7 @@ IoT 套件远程监视[预配置解决方案][lnk-preconfigured-solutions]是适
 在解决方案仪表板中，可以使用*所需的属性*通过[设备孪生][lnk-device-twins]在设备上设置属性。 通常，设备从中心读取所需的属性值来更新其内部状态，并以报告的属性的形式来报告更改。
 
 > [!NOTE]
-> 模拟设备代码仅使用所需的属性 Desired.Config.TemperatureMeanValue 和 Desired.Config.TelemetryInterval 来更新发回给 IoT 中心的报告的属性。 模拟设备中将忽略其他所有所需的属性更改。
+> 模拟设备代码仅使用所需的属性 **Desired.Config.TemperatureMeanValue** 和**Desired.Config.TelemetryInterval** 来更新发回给 IoT 中心的报告的属性。 模拟设备中将忽略其他所有所需的属性更改。
 
 ### <a name="methods"></a>方法
 
@@ -188,7 +198,7 @@ FROM AlarmsData
 
 该作业将其输出发送到事件中心做进一步处理，并将每个警报的详细信息保存到 Blob 存储，解决方案门户可从该位置读取警报信息。
 
-**作业 3：遥测** 会通过两种方法来操作传入设备遥测流。 第一种方法会将设备的所有遥测消息发送到永久性 Blob 存储以进行长期存储。 第二种方法会通过五分钟滑动窗口计算平均值、最小值和最大湿度值，并将此数据发送到 Blob 存储。 解决方案门户从 Blob 存储读取遥测数据来填充图表。 此作业使用下列查询定义：
+**作业 3：遥测** 会通过两种方法来操作传入设备遥测流。 第一种方法会将设备的所有遥测消息发送到永久性 Blob 存储以进行长期存储。 第二种方法会通过五分钟滑动窗口计算平均、最小和最大湿度值，并将此数据发送到 Blob 存储。 解决方案门户从 Blob 存储读取遥测数据来填充图表。 此作业使用下列查询定义：
 
 ```
 WITH 

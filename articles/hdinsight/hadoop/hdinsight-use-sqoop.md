@@ -1,10 +1,10 @@
 ---
-title: "通过 Azure HDInsight (Hadoop) 运行 Apache Sqoop 作业"
-description: "了解如何从工作站使用 Azure PowerShell 在 Hadoop 群集和 Azure SQL 数据库之间运行 Sqoop 导入和导出。"
+title: 通过 Azure HDInsight (Hadoop) 运行 Apache Sqoop 作业
+description: 了解如何从工作站使用 Azure PowerShell 在 Hadoop 群集和 Azure SQL 数据库之间运行 Sqoop 导入和导出。
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: 2fdcc6b7-6ad5-4397-a30b-e7e389b66c7a
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/03/2018
-ms.date: 02/26/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: e568a239ec2a46a5b4dba5e87c1cce1b69f22321
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: f241cb51b87468b37934d0253763d56e21b91c68
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>将 Sqoop 与 HDInsight 中的 Hadoop 配合使用
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -65,7 +65,7 @@ HDInsight 群集带有某些示例数据。 可使用以下两个示例：
 本教程中使用这两个数据集测试 Sqoop 导入和导出。
 
 ## <a name="create-cluster-and-sql-database"></a>创建群集和 SQL 数据库
-本部分演示如何使用 Azure 门户和 Azure Resource Manager 模板创建群集、SQL 数据库和 SQL 数据库架构，以便运行教程。 可以在 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)中找到此模板。 Resource Manager 模板调用 bacpac 包，将表架构部署到 SQL 数据库。  Bacpac 包位于公共 Blob 容器 https://hditutorialdata.blob.core.chinacloudapi.cn/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac 中。 如果想要私有容器用于 bacpac 文件，请使用模板中的以下值：
+本部分演示如何使用 Azure 门户和 Azure Resource Manager 模板创建群集、SQL 数据库和 SQL 数据库架构，以便运行教程。 可以在 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)中找到此模板。 Resource Manager 模板调用 bacpac 包，将表架构部署到 SQL 数据库。  bacpac 包位于公共 blob 容器 https://hditutorialdata.blob.core.chinacloudapi.cn/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac 中。 如果想要私有容器用于 bacpac 文件，请使用模板中的以下值：
    
 ```json
 "storageKeyType": "Primary",
@@ -121,7 +121,7 @@ HDInsight 群集带有某些示例数据。 可使用以下两个示例：
   > 
   > 
   
-  * 若要创建和配置虚拟网络，请参阅[使用 Azure 门户创建虚拟网络](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md)。
+  * 若要创建和配置虚拟网络，请参阅[使用 Azure 门户创建虚拟网络](../../virtual-network/quick-create-portal.md)。
     
     * 在数据中心使用 SQL Server 时，必须将虚拟网络配置为“站点到站点”或“点到站点”。
 

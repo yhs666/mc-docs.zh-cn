@@ -1,9 +1,26 @@
- ---
-title: 用量 API 相关的常见问题解答 | Microsoft Docs description: Azure Stack 计量器列表、与 Azure 用量 API 的比较、使用时间和报告时间、错误代码。
-services: azure-stack documentationcenter: '' author: mattbriggs manager: femila editor: ''
-
-ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071 ms.service: azure-stack ms.workload: na ms.tgt_pltfrm: na ms.devlang: na ms.topic: article origin.date: 03/09/2018 ms.date: 03/22/2018 ms.author: v-junlch ms.reviewer: alfredop
-
+---
+title: 用量 API 相关的常见问题解答 | Microsoft Docs
+description: Azure Stack 计量器列表、与 Azure 用量 API 的比较、使用时间和报告时间、错误代码。
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
+ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 03/09/2018
+ms.date: 05/24/2018
+ms.author: v-junlch
+ms.reviewer: alfredop
+ms.openlocfilehash: 0b46b022ab662a947e95c791e74d17602dde053e
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack 用量 API 的常见问题解答
 此文解答有关 Azure Stack 用量 API 的一些常见问题。
@@ -52,7 +69,7 @@ ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071 ms.service: azure-stack ms.work
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Azure Stack 用量 API 与 [Azure 用量 API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)（目前为公共预览版）有何差别？
 - 租户用量 API 与 Azure API 相同，但有一点除外：Azure Stack 目前不支持 *showDetails* 标志。
 - 提供程序用量 API 只适用于 Azure Stack。
-- 目前，Azure Stack 不提供 Azure 中所提供的[费率卡 API](https://msdn.microsoft.com/en-us/library/azure/mt219004.aspx)。
+- 目前，Azure Stack 不提供 Azure 中所提供的[费率卡 API](https://msdn.microsoft.com/library/azure/mt219004.aspx)。
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>使用时间与报告时间有何差别？
 用量数据报告包含两个主要时间值：
@@ -82,4 +99,4 @@ ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071 ms.service: azure-stack ms.work
 
 [租户资源使用情况 API](azure-stack-tenant-resource-usage-api.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

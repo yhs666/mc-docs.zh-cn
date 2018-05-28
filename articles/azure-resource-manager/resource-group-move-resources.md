@@ -3,7 +3,7 @@ title: 将 Azure 资源移到新的订阅或资源组 | Azure
 description: 使用 Azure Resource Manager 将资源移到新的资源组或订阅。
 services: azure-resource-manager
 documentationcenter: ''
-author: rockboyfor
+author: luanmafeng
 manager: digimobile
 editor: tysonn
 ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/11/2018
-ms.date: 04/30/2018
+origin.date: 05/14/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3aff77b265a52b1fc21481da1b21575eac386b59
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 168d1b50db0e1261f7713ebc0ea24f61a9f0af61
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
@@ -50,10 +50,10 @@ ms.lasthandoff: 04/28/2018
 
     对于 Azure CLI，请使用：
 
-    ```azurecli
-    az account show --subscription <your-source-subscription> --query tenantId
-    az account show --subscription <your-destination-subscription> --query tenantId
-    ```
+  ```azurecli-interactive
+  az account show --subscription <your-source-subscription> --query tenantId
+  az account show --subscription <your-destination-subscription> --query tenantId
+  ```
 
     如果源订阅和目标订阅的租户 ID 不相同，可使用以下方法协调租户 ID： 
 
@@ -78,16 +78,16 @@ ms.lasthandoff: 04/28/2018
 
     对于 Azure CLI，请使用以下命令来获取注册状态：
 
-    ```azurecli
-    az account set -s <destination-subscription-name-or-id>
-    az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
-    ```
+  ```azurecli-interactive
+  az account set -s <destination-subscription-name-or-id>
+  az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
+  ```
 
     若要注册资源提供程序，请使用：
 
-    ```azurecli
-    az provider register --namespace Microsoft.Batch
-    ```
+  ```azurecli-interactive
+  az provider register --namespace Microsoft.Batch
+  ```
 
 4. 移动资源的帐户至少需要具备下列权限：
 
@@ -106,36 +106,53 @@ ms.lasthandoff: 04/28/2018
 * 将资源移到新的 Azure 帐户（和 Azure Active Directory 租户），并且对于上一部分中的说明需要帮助。
 * 移动经典资源，但遇到限制问题。
 
-<a name="services-that-support-move"></a>
-## <a name="services-that-enable-move"></a>可以移动的服务
+## <a name="services-that-can-be-moved"></a>可以移动的服务
+
 支持同时移动到新资源组和订阅的服务包括：
 
 * API 管理
 * 应用服务应用（Web 应用）- 请参阅[应用服务限制](#app-service-limitations)
+* 应用服务证书
+* Application Insights
 * 自动化
 * Azure Cosmos DB
+* Azure 中继
 * 批处理
+* 必应地图
 * CDN
 * 云服务 - 请参阅 [经典部署限制](#classic-deployment-limitations)
 * 认知服务
+* 内容审查器
+* 数据目录
+* 数据工厂 - 可以移动 V1 ，但不支持移动 V2（预览版）
+* Data Lake Analytics
+* Data Lake Store
+* DNS
 * 事件中心
 * HDInsight 群集 - 请参阅 [HDInsight 限制](#hdinsight-limitations)
 * IoT 中心
 * 密钥保管库
 * 负载均衡器 - 请参阅[负载均衡器限制](#lb-limitations)
+* Log Analytics
 * Logic Apps
+* 机器学习 - 机器学习工作室 Web 服务可以移动到同一订阅中的资源组，但不能移动到不同订阅中。 其他机器学习资源可以跨订阅进行移动。
 * 媒体服务
+* Mobile Engagement
 * 通知中心
-* Power BI
+* 操作见解
+* 操作管理
+* Power BI - Power BI Embedded 和 Power BI 工作区集合
 * 公共 IP - 请参阅[公共 IP 限制](#pip-limitations)
 * Redis 缓存
 * 计划程序
+* 搜索
+* 服务器管理
 * 服务总线
 * Service Fabric
 * 存储
 * 存储（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 * 流分析 - 当流分析作业处于运行状态时，则无法进行移动。
-* SQL 数据库服务器 - 数据库和服务器必须位于同一个资源组中。 移动 SQL 服务器时，也会移动其所有数据库。
+* SQL 数据库服务器 - 数据库和服务器必须位于同一个资源组中。 移动 SQL 服务器时，也会移动其所有数据库。 此行为适用于 Azure SQL 数据库和 Azure SQL 数据仓库数据库。 
 * 流量管理器
 * 虚拟机 - 包含托管磁盘的 VM 无法移动。 请参阅[虚拟机限制](#virtual-machines-limitations)
 * 虚拟机（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
@@ -143,18 +160,29 @@ ms.lasthandoff: 04/28/2018
 * 虚拟网络 - 请参阅[虚拟网络限制](#virtual-networks-limitations)
 * VPN 网关
 
-<a name="services-that-do-not-enable-move"></a>
 ## <a name="services-that-cannot-be-moved"></a>无法移动的服务
 
 目前不支持移动资源的服务包括：
 
+* AD 域服务
 * AD 混合运行状况服务
 * 应用程序网关
+* Azure Database for MySQL
+* Azure Database for PostgreSQL
+* Azure Migrate
+* BizTalk 服务
+* 证书 - 应用服务证书可以移动，但上传的证书存在[限制](#app-service-limitations)。
+* 开发测试实验室 - 支持移动到同一订阅中的新资源组，但不支持跨订阅移动。
+* Dynamics LCS
 * Express Route
+* Kubernetes 服务
 * 负载均衡器 - 请参阅[负载均衡器限制](#lb-limitations)
+* 托管应用程序
 * 托管磁盘 - 请参阅[虚拟机限制](#virtual-machines-limitations)
 * 公共 IP - 请参阅[公共 IP 限制](#pip-limitations)
 * 恢复服务保管库：也不会移动与恢复服务保管库关联的计算、网络和存储资源，请参阅 [恢复服务限制](#recovery-services-limitations)。
+* 安全性
+* StorSimple 设备管理器
 * 虚拟网络（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 ## <a name="virtual-machines-limitations"></a>虚拟机限制
 
@@ -165,6 +193,11 @@ ms.lasthandoff: 04/28/2018
 * 基于托管磁盘创建的映像
 * 基于托管磁盘创建的快照
 * 包含托管磁盘的虚拟机的可用性集
+
+虽然不能移动托管磁盘，但可以创建一个副本，然后从现有的托管磁盘创建新的虚拟机。 有关详细信息，请参阅：
+
+* 使用 [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) 或 [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md) 将托管磁盘复制到同一订阅或不同订阅
+* 通过将现有托管 OS 磁盘与 [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) 或 [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md) 配合使用来创建虚拟机。
 
 无法资源组或订阅之间移动基于附加了计划的 Marketplace 资源创建的虚拟机。 在当前订阅中取消预配虚拟机，并在新的订阅中重新部署虚拟机。
 
@@ -177,6 +210,8 @@ ms.lasthandoff: 04/28/2018
 若要移动对等的虚拟网络，必须首先禁用虚拟网络对等互连。 在禁用后，可以移动虚拟网络。 在移动后，重新启用虚拟网络对等互连。
 
 如果虚拟网络的任何子网包含资源导航链接，则无法将虚拟网络移动到其他订阅。 例如，如果 Redis 缓存资源部署到某个子网，则该子网具有资源导航链接。
+
+如果虚拟网络包含自定义 DNS 服务器，则无法将虚拟网络移动到其他订阅。 若要移动虚拟网络，请将它设置为默认的（Azure 提供的）DNS 服务器。 移动以后，请重新配置自定义 DNS 服务器。
 
 ## <a name="app-service-limitations"></a>应用服务限制
 

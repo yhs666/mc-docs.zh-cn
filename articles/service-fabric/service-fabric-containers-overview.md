@@ -9,26 +9,19 @@ editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 09/20/2017
-ms.date: 04/09/2018
+origin.date: 05/21/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6ca47f18d01ca7006564bc692daa131018d10ba3
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: a1c17e3b1939042abe7185166e42cf6598d963da
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 和容器
-> [!NOTE]
-> 不支持将容器部署到 Windows 10 中的 Service Fabric 群集或安装了 Docker CE 的群集。 
->   
-
-> [!NOTE]
-> Service Fabric 版本 6.1 提供对 Windows Server 版本 1709 的预览支持。 不能在 Windows Server 版本 1709 中打开网络和 Service Fabric DNS 服务。 
-> 
 
 ## <a name="introduction"></a>简介
 Azure Service Fabric 是跨计算机群集的服务的[协调器](service-fabric-cluster-resource-manager-introduction.md)，已在 Microsoft 的大规模服务中使用并优化了多年。 开发服务的方式多种多样：从使用 [Service Fabric 编程模型](service-fabric-choose-framework.md)，到部署[来宾可执行文件](service-fabric-guest-executables-introduction.md)，不一而足。 默认情况下，Service Fabric 以进程形式部署和激活这些服务。 进程能够以最快的速度激活、以最高的密度使用群集中的资源。 Service Fabric 还可以部署容器映像中的服务。 重要的是，可以在同一应用程序中混合使用进程中的服务和容器中的服务。   
@@ -45,10 +38,6 @@ Azure Service Fabric 是跨计算机群集的服务的[协调器](service-fabric
 
 ## <a name="container-types-and-supported-environments"></a>容器类型和受支持的环境
 Service Fabric 支持 Linux 和 Windows 上的容器，也支持 Windows 上的 Hyper-V 隔离模式。 
-
-> [!NOTE]
-> 目前尚不支持将容器部署到 Windows 10 中 Service Fabric 群集。 
-> 
 
 ### <a name="docker-containers-on-linux"></a>Linux 上的 Docker 容器
 Docker 提供高级 API 来创建和管理位于 Linux 内核容器顶层的容器。 Docker 中心是一个用于存储和检索容器映像的中心存储库。
@@ -99,4 +88,4 @@ Service Fabric 提供多种容器功能，可帮助用户构建由容器化的�
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
 
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update meta properties, wording update -->

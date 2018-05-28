@@ -1,25 +1,25 @@
 ---
-title: "在 Eclipse 中调试 Azure Service Fabric 应用程序 | Azure"
-description: "通过在本地开发群集上采用 Eclipse 进行开发和调试，来提高服务的可靠性和性能。"
+title: 在 Eclipse 中调试 Azure Service Fabric 应用程序 | Azure
+description: 通过在本地开发群集上采用 Eclipse 进行开发和调试，来提高服务的可靠性和性能。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/02/2017
-ms.date: 12/04/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: fa4f14f0b05fb5e147b3e83e25d3b8d8806bebe8
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: f8def018c97fa2999a03ce356f212af387de5e29
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>使用 Eclipse 调试 Java Service Fabric 应用程序
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/01/2017
     ```sh
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
     ```
-3. 更新应用程序清单，将要调试服务的实例计数或副本计数设置为 1。 此设置可避免用于调试的端口发生冲突。 例如，对于无状态服务，设置 ``InstanceCount="1"``；对于有状态服务，将目标和最小副本集大小设置为 1，如下所示：`` TargetReplicaSetSize="1" MinReplicaSetSize="1"``。
+3. 更新应用程序清单，将要调试服务的实例计数或副本计数设置为 1。 此设置可避免用于调试的端口出现冲突。 例如，对于无状态服务，设置 ``InstanceCount="1"``；对于有状态服务，将目标和最小副本集大小设置为 1，如下所示：`` TargetReplicaSetSize="1" MinReplicaSetSize="1"``。
 
 4. 部署应用程序。
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 12/01/2017
     Host: ipaddress
     Port: 8001
     ```
-6.  在所需点处设置断点并调试应用程序。
+6.  在所需的位置设置断点并调试应用程序。
 
 如果应用程序发生故障，则可能还需要启用 coredump。 在 shell 中执行 ``ulimit -c`` ，如果返回 0，则 coredump 未启用。 若要启用不受限制的 coredump，请执行以下命令： ``ulimit -c unlimited``。 还可以使用命令 ``ulimit -a``验证状态。  若要更新 coredump 生成路径，请执行 ``echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern``。 
 
@@ -53,4 +53,4 @@ ms.lasthandoff: 12/01/2017
 * [使用 Linux Azure 诊断收集日志](service-fabric-diagnostics-how-to-setup-lad.md)。
 * [在本地监视和诊断服务](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties -->

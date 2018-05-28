@@ -3,7 +3,7 @@ title: Azure Stack 服务策略 | Microsoft Docs
 description: 了解 Azure Stack 服务策略，以及如何使集成系统保持在受支持的状态。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.assetid: caac3d2f-11cc-4ff2-82d6-52b58fee4c39
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/09/2018
-ms.date: 04/23/2018
+origin.date: 04/18/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: harik
-ms.openlocfilehash: 16dc27252e527562054fbef6ffcf02f5aceb35c6
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: 3cc1f7f9520ca3cedceb053046b2c05a796fd858
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服务策略
 本文介绍 Azure Stack 集成系统的服务策略，以及必须如何做才能使系统保持在受支持的状态。 
@@ -64,3 +64,4 @@ Microsoft 软件更新包是非累积性的，其先决条件是需要前一个�
 
 <!-- Update_Description: wording update -->
 
+<!-- Update_Description: update metedata properties -->

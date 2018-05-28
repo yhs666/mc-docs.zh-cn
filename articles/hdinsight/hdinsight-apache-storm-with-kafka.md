@@ -16,11 +16,11 @@ ms.workload: big-data
 origin.date: 02/26/2018
 ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7dce19fc4ccadd6bd4e1525e9ff012fcea19f8b6
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: e115428ff1dd4b191dd45d5b553cf1538c7a5310
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>将 Apache Kafka 与 HDInsight 中的 Storm 配合使用
 
@@ -69,7 +69,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
    
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.chinacloudapi.cn%2Farmtemplates%2Fcreate-linux-based-kafka-storm-cluster-in-vnet-v2.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Azure 资源管理器模板位于 **https://hditutorialdata.blob.core.chinacloudapi.cn/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v2.json**。 它创建以下资源：
+    Azure 资源管理器模板位于 **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**。 它创建以下资源：
     
     * Azure 资源组
     * Azure 虚拟网络
@@ -158,7 +158,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 ## <a name="configure-the-topology"></a>配置拓扑
 
-1. 使用以下方法之一发现 Kafka 中转站主机：
+1. 使用以下方法之一发现 HDInsight 群集上的 Kafka 的 Kafka 中转站主机：
 
     ```powershell
     $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -170,12 +170,12 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
     ($brokerHosts -join ":9092,") + ":9092"
     ```
 
+    > [!IMPORTANT]
+    > 以下 Bash 示例假定 `$CLUSTERNAME` 包含 Kafka 群集名的名称。 它还假定安装了 [jq](https://stedolan.github.io/jq/) 1.5 或更高版本。 出现提示时，输入群集登录帐户的密码。
+
     ```bash
     curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
     ```
-
-    > [!IMPORTANT]
-    > Bash 示例假定 `$CLUSTERNAME` 包含 HDInsight 群集的名称。 它还假定安装了 [jq](https://stedolan.github.io/jq/) 1.5 或更高版本。 出现提示时，输入群集登录帐户的密码。
 
     返回的值类似于下文：
 
@@ -184,7 +184,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
     > [!IMPORTANT]
     > 虽然群集可能有两个以上的代理主机，但无需向客户端提供所有主机的完整列表。 只需提供一两个就足够了。
 
-2. 使用以下方法之一发现 Kafka Zookeeper 主机：
+2. 使用以下方法之一发现 HDInsight 群集上的 Kafka 的 Zookeeper 主机：
 
     ```powershell
     $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -196,12 +196,12 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
     ($zookeeperHosts -join ":2181,") + ":2181"
     ```
 
+    > [!IMPORTANT]
+    > 以下 Bash 示例假定 `$CLUSTERNAME` 包含 Kafka 群集的名称。 还假定 [jq](https://stedolan.github.io/jq/) 已安装。 出现提示时，输入群集登录帐户的密码。
+
     ```bash
     curl -su admin -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2
     ```
-
-    > [!IMPORTANT]
-    > Bash 示例假定 `$CLUSTERNAME` 包含 HDInsight 群集的名称。 还假定 [jq](https://stedolan.github.io/jq/) 已安装。 出现提示时，输入群集登录帐户的密码。
 
     返回的值类似于下文：
 
@@ -212,7 +212,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
     保存该值，因为以后会用到。
 
-3. 编辑项目根目录中的 `dev.properties` 文件。 将中转站和 Zookeeper 主机信息添加到此文件中的匹配行。 下面的示例使用前面步骤中的示例值进行配置：
+3. 编辑项目根目录中的 `dev.properties` 文件。 将 Kafka 群集的中转站和 Zookeeper 主机信息添加到此文件中的匹配行。 下面的示例使用前面步骤中的示例值进行配置：
 
         kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.chinacloudapp.cn:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.chinacloudapp.cn:2181
         kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.chinacloudapp.cn:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.chinacloudapp.cn:9092
@@ -226,9 +226,14 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
     将 USERNAME 替换为群集的 SSH 用户名。 将 BASENAME 替换为创建群集时使用的基名称。
 
-## <a name="start-the-writer"></a>启动编写器
+## <a name="start-the-writer"></a>启动写入器
 
-1. 运行以下命令，使用 SSH 连接到 Storm 群集。 用创建群集时使用的 SSH 用户名替换 **USERNAME**。 用创建群集时使用的基名称替换 **BASENAME**。
+> [!IMPORTANT]
+> 此部分中的步骤假定使用了本文档的 Azure 资源管理器模板链接来创建 Storm 和 Kafka 群集。 此模板启用为 Kafka 群集自动创建主题。
+>
+> 默认情况下，HDInsight 上的 Kafka 不允许自动创建主题，所以如果使用了另一种方法来创建 Kafka 群集，则必须手动创建主题。 有关手动创建主题的信息，请参阅[开始使用 HDInsight 上的 Kafka](./kafka/apache-kafka-get-started.md)文档。
+
+1. 使用以下命令通过 SSH 连接到 Storm 群集。 将 USERNAME 替换为创建群集时使用的 SSH 用户名。 用创建群集时使用的基名称替换 **BASENAME**。
 
   ```bash
   ssh USERNAME@storm-BASENAME-ssh.azurehdinsight.cn
@@ -237,14 +242,6 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
     出现提示时，请输入在创建群集时使用的密码。
    
     有关信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
-
-2. 从 SSH 连接使用以下命令，创建拓扑所使用的 Kafka 主题：
-
-    ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic stormtopic --zookeeper $KAFKAZKHOSTS
-    ```
-
-    将 `$KAFKAZKHOSTS` 替换为在上一部分中检索到的 Zookeeper 主机信息。
 
 2. 与 Storm 群集建立 SSH 连接后，使用以下命令启动写入器拓扑：
 
@@ -264,11 +261,12 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 5. 启动拓扑后，使用以下命令验证它是否正将数据写入到 Kafka 主题：
 
+    > [!IMPORTANT]
+    > 使用 Kafka 群集的 Zookeeper 主机信息替换 `$KAFKAZKHOSTS`。
+
   ```bash
   /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --from-beginning --topic stormtopic
   ```
-
-    将 `$KAFKAZKHOSTS` 替换为在上一部分中检索到的 Zookeeper 主机信息。
 
     此命令使用 Kafka 随附的脚本来监视主题。 片刻之后，应开始返回已写入主题的随机句子。 输出类似于以下示例：
 

@@ -9,17 +9,17 @@ editor: amanbha
 ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/19/2018
-ms.date: 04/23/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: c60b90bb0e1b49af958baeafc0306aba5ac90c4d
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 867222d2ae08250a8a9d0c957d8d3a7373ad91e7
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="implementing-service-level-features-in-your-actor-service"></a>在执行组件服务中实现服务级功能
 如[服务分层](service-fabric-reliable-actors-platform.md#service-layering)中所述，执行组件服务本身是一项可靠的服务。  可以编写自己的派生自 `ActorService` 的服务，并且以与继承 StatefulService 时一样的方式实现服务级别的功能，例如：
@@ -190,5 +190,4 @@ public class Program
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
-<!-- Update_Description: new articles on service fabric relibale actors using  -->
-<!--ms.date: 04/23/2018-->
+<!-- Update_Description: update meta properties -->

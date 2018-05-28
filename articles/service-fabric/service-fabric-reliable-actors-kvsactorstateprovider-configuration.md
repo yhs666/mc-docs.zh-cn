@@ -1,25 +1,25 @@
 ---
-title: "更改 Azure 微服务中的 KVSActorStateProvider 设置 | Azure"
-description: "了解有关配置类型为 KVSActorStateProvider 的 Azure Service Fabric 有状态执行组件的信息"
+title: 更改 Azure 微服务中的 KVSActorStateProvider 设置 | Azure
+description: 了解有关配置类型为 KVSActorStateProvider 的 Azure Service Fabric 有状态执行组件的信息
 services: Service-Fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/02/2017
-ms.date: 11/13/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: bf8c34ac59b78e9186db595536faa607173c5456
-ms.sourcegitcommit: 530b78461fda7f0803c27c3e6cb3654975bd3c45
+ms.openlocfilehash: dcbd089c307a9b98ba46bf0cd6e051dc1d6abd0a
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>配置 Reliable Actors - KVSActorStateProvider
 通过更改 Microsoft Visual Studio 程序包根目录下的指定执行组件的 Config 文件夹中生成的 settings.xml 文件，可以修改 KVSActorStateProvider 的默认配置。
@@ -47,9 +47,9 @@ Azure Service Fabric 运行时在 settings.xml 文件中查找预定义的节名
 
 ### <a name="configuration-names"></a>配置名称
 
-| 名称 | 计价单位 | 默认值 | 备注 |
+| Name | 计价单位 | 默认值 | 备注 |
 | --- | --- | --- | --- |
-| BatchAcknowledgementInterval |秒 |0.015 |收到操作后，向主要复制器发回确认之前，辅助复制器等待的时间段。 为在此间隔内处理的操作发送的任何其他确认都作为响应发送。 |
+| BatchAcknowledgementInterval |秒 |0.015 |收到操作后，在向主要复制器送回确认之前，辅助复制器等待的时间段。 为在此间隔内处理的操作发送的任何其他确认都作为响应发送。 |
 | ReplicatorEndpoint |不适用 |无默认值--必选参数 |主要/辅助复制器用于与副本集中其他复制器通信的 IP 地址和端口。 这应该引用服务清单中的 TCP 资源终结点。 若要详细了解如何在服务清单中定义终结点资源，请参阅[服务清单资源](service-fabric-service-manifest-resources.md)。 |
 | RetryInterval |秒 |5 |复制器未收到操作确认，重新传输消息之后的时间段。 |
 | MaxReplicationMessageSize |字节 |50 MB |可以在单个消息中传输的复制数据的最大大小。 |
@@ -65,7 +65,7 @@ Azure Service Fabric 运行时在 settings.xml 文件中查找预定义的节名
 
 ### <a name="configuration-names"></a>配置名称
 
-| 名称 | 计价单位 | 默认值 | 备注 |
+| Name | 计价单位 | 默认值 | 备注 |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |毫秒 |200 |设置持久的本地存储提交的最大批处理间隔。 |
 | MaxVerPages |页数 |16384 |本地存储数据库中的最大版本页数。 它确定未完成事务的最大数目。 |
@@ -96,6 +96,6 @@ Azure Service Fabric 运行时在 settings.xml 文件中查找预定义的节名
 ## <a name="remarks"></a>备注
 
 BatchAcknowledgementInterval 参数用于控制复制延迟。 “0”值导致可能的最低延迟，但代价是牺牲吞吐量（因为必须发送和处理更多确认消息，每个包含较少的确认）。
-BatchAcknowledgementInterval 的值越大，整体复制吞吐量就越高，但代价是会造成更高的操作延迟。 这直接转换为事务提交的延迟。
+BatchAcknowledgementInterval 的值越大，整体复制吞吐量就越高，但代价是导致更高的操作延迟。 这直接转换为事务提交的延迟。
 
 <!--Update_Description: update meta properties-->

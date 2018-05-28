@@ -1,11 +1,11 @@
 ---
-title: "在 Linux 上创建 Azure Service Fabric Reliable Actors Java 应用程序 | Azure"
-description: "了解如何在五分钟内创建并部署一个 Java Service Fabric Reliable Actors 应用程序。"
+title: 在 Linux 上创建 Azure Service Fabric Reliable Actors Java 应用程序 | Azure
+description: 了解如何在五分钟内创建并部署一个 Java Service Fabric Reliable Actors 应用程序。
 services: service-fabric
 documentationcenter: java
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
 ms.service: service-fabric
 ms.devlang: java
@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/27/2018
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: a466ebf838bec427bd49281d922d841fdb024e54
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 9db33023732a34a0a213408a9e56a8e7c74f984f
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>在 Linux 上创建第一个 Java Service Fabric Reliable Actors 应用程序
 > [!div class="op_single_selector"]
@@ -132,7 +132,7 @@ public interface HelloWorldActor extends Actor {
 `HelloWorldActor/src/reliableactor/HelloWorldActorImpl`：
 
 ```java
-@ActorServiceAttribute(name = "HelloWorldActor.HelloWorldActorService")
+@ActorServiceAttribute(name = "HelloWorldActorService")
 @StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
 public class HelloWorldActorImpl extends FabricActor implements HelloWorldActor {
     private Logger logger = Logger.getLogger(this.getClass().getName());
@@ -345,4 +345,4 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
 [sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png
 
-<!--Update_Description: update meta properties, wording update, update cmdlet ->
+<!--Update_Description: update meta properties, wording update ->

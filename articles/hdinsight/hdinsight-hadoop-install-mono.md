@@ -1,26 +1,26 @@
 ---
-title: "在 HDInsight 上安装或更新 Mono - Azure | Azure"
-description: "了解如何将特定版本的 Mono 用于 HDInsight 群集。 Mono 用于在基于 Linux 的 HDInsight 群集上运行 .NET 应用程序。"
+title: 在 HDInsight 上安装或更新 Mono - Azure | Azure
+description: 了解如何将特定版本的 Mono 用于 HDInsight 群集。 Mono 用于在基于 Linux 的 HDInsight 群集上运行 .NET 应用程序。
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
-ms.topic: article
+ms.devlang: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 10/23/2017
-ms.date: 11/25/2017
+origin.date: 04/10/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
 ms.custom: hdinsightactive
-ms.openlocfilehash: 9a698522f5051505db7d9b589342c869773fadb4
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 22b35199cf9e92683a7b9a8d8e2a59bbcb9372e8
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>在 HDInsight 上安装或更新 Mono
 
@@ -32,7 +32,7 @@ Mono 安装在 HDInsight 3.4 及更高版本上，用于运行 .NET 应用程序
 
 此脚本接受以下参数：
 
-* __Mono 版本号__：要安装的 Mono 版本。 版本必须可从 [https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/](https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/) 获得。
+* __Mono 版本号__：要安装的 Mono 版本。 该版本必须从 [https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/](https://download.mono-project.com/repo/debian/dists/wheezy/snapshots/) 获得。
 
 该脚本安装以下 Mono 包：
 

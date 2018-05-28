@@ -1,6 +1,6 @@
 ---
-title: "在 Azure Service Fabric 中与服务建立连接和通信 | Azure"
-description: "了解如何在 Service Fabric 中解析服务、建立连接以及与之通信。"
+title: 在 Azure Service Fabric 中与服务建立连接和通信 | Azure
+description: 了解如何在 Service Fabric 中解析服务、建立连接以及与之通信。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -9,17 +9,17 @@ editor: msfussell
 ms.assetid: 7d1052ec-2c9f-443d-8b99-b75c97266e6c
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/01/2017
-ms.date: 12/04/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6b0d8c8376046231bcbc4fc14316abe0a53da1b4
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: dd91daf04fb9cfc14efbeb61162ea165f6fd4ac6
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>在 Service Fabric 中与服务建立连接和通信
 在 Service Fabric 中，服务在 Service Fabric 群集（通常分布在多个 VM 间）中的某个位置运行。 它可以从一个位置移动到另一个位置（由服务所有者移动或由 Service Fabric 自动移动）。 服务不以静态方式绑定到特定计算机或地址。
@@ -105,7 +105,6 @@ Azure 中的 Service Fabric 群集位于 Azure 负载均衡器之后。 发送�
                 this.httpListener.Start();
 
                 string publishUri = uriPrefix.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
-
                 return Task.FromResult(publishUri);
             }
 
