@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 12/13/2017
-ms.date: 04/30/2018
+ms.date: 06/04/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 6871e6bea83278831b7d49bc84fc17ae6b15bff7
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: a9363637c2c5c60d4ee4cc3214e58e08ad73d254
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="create-a-php-web-app-in-azure"></a>在 Azure 中创建 PHP Web 应用
 
@@ -79,7 +79,10 @@ php -S localhost:8080
 在以下示例中，将 `<app_name>` 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 运行时设置为 `PHP|7.0`。 若要查看所有受支持的运行时，请运行 [`az webapp list-runtimes`](/cli/webapp?view=azure-cli-latest#az_webapp_list_runtimes)。 
 
 ```azurecli
+# Bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git
+# PowerShell
+az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git
 ```
 
 创建 Web 应用后，Azure CLI 会显示类似于以下示例的输出：

@@ -9,17 +9,17 @@ editor: subramar,zhol
 ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/06/2017
-ms.date: 12/04/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4d3b5bbc99e6836397d84e0d0df050fb4be6cab7
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 844f0bbbb09d9483d362dd273320068d61e4ec34
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>备份和还原 Reliable Services 及 Reliable Actors
 Azure Service Fabric 是一个高可用性平台，用于复制多个节点中的状态以维护此高可用性。  因此，即使群集中的一个节点出现故障，服务也将继续可用。 尽管此平台提供的内置冗余对某些情况来说可能已经足够使用，但在特定情况下，仍需要服务备份数据（到外部存储）。
@@ -112,7 +112,7 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, Cancellation
 
   - 服务分区丢失数据。 例如，分区的三个副本中两个副本（包括主副本）的磁盘数据已损坏或被擦除。 新的主副本可能需要从备份中还原数据。
   - 整个服务已丢失。 例如，管理员删除了整个服务，因此需要还原该服务和数据。
-  - 服务复制了损坏的应用程序数据（例如，因应用程序 bug 造成）。 在此情况下，必须升级或还原服务来消除损坏的原因，并还原未损坏的数据。
+  - 服务复制了损坏的应用程序数据（例如，由于应用程序的 bug）。 在此情况下，必须升级或还原服务来消除损坏的原因，并还原未损坏的数据。
 
 虽然有许多恢复方法，但是我们仅针对上述情形提供一些使用 `RestoreAsync` 进行恢复的示例。
 
@@ -178,7 +178,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 
 ## <a name="backup-and-restore-reliable-actors"></a>备份和还原 Reliable Actors
 
-Reliable Actors 框架在 Reliable Services 的基础之上构建。 托管执行组件的 ActorService 是有状态的 reliable service。 因此，Reliable Services 中提供的所有备份和还原功能也可用于 Reliable Actors（状态提供程序特定的行为除外）。 由于会基于每个分区执行备份，因此该分区中所有执行组件的状态都会进行备份（还原也类似，会基于每个分区进行）。 如果要执行备份/还原，服务所有者应创建一个派生自 ActorService 类的自定义执行组件服务类，并像之前部分所述的 Reliable Services 一样进行备份/还原。
+Reliable Actors 框架在 Reliable Services 的基础之上构建。 承载着执行组件的 ActorService 是有状态的可靠服务。 因此，Reliable Services 中提供的所有备份和还原功能也可用于 Reliable Actors（状态提供程序特定的行为除外）。 由于会基于每个分区执行备份，因此该分区中所有执行组件的状态都会进行备份（还原也类似，会基于每个分区进行）。 如果要执行备份/还原，服务所有者应创建一个派生自 ActorService 类的自定义执行组件服务类，并像之前部分所述的 Reliable Services 一样进行备份/还原。
 
 ```csharp
 class MyCustomActorService : ActorService
@@ -244,7 +244,7 @@ class MyCustomActorService : ActorService
 ### <a name="backup"></a>Backup
 可靠性状态管理器具有在不阻止任何读取或写入操作的情况下创建一致的备份的功能。 为了实现此功能，它利用了检查点和日志持久性机制。  可靠性状态管理器在特定时间点采用模糊（轻型）检查点来缓解来自事务日志的压力，并缩短恢复时间。  调用 `BackupAsync` 时，可靠状态管理器指示所有可靠对象将其最新的检查点文件复制到本地备份文件夹。  然后，可靠性状态管理器将复制所有日志记录（从“开始指针”开始到最新的日志记录）到备份文件夹中。  由于所有日志记录直至最新日志记录都包含在备份中，并且可靠状态管理器保留了预写日志记录，因此，可靠状态管理器保证所有提交的事务（`CommitAsync` 已成功返回）都包含在备份中。
 
-在调用 `BackupAsync` 之后提交的任何事务可能在备份中，也可能不在备份中。  一旦平台填充此本地备份文件夹（即由运行时完成本地备份），就会调用此服务的备份回调。  此回调负责将此备份文件夹移至 Azure 存储等外部位置。
+在调用 `BackupAsync` 之后提交的任何事务可能在备份中，也可能不在备份中。  一旦平台填充此本地备份文件夹（也就是说，本地备份是由运行时完成的），就将调用此服务的备份回调。  此回调负责将此备份文件夹移至 Azure 存储等外部位置。
 
 ### <a name="restore"></a>还原
 可靠状态管理器具有使用 `RestoreAsync` API 从备份还原的功能。  
@@ -255,18 +255,13 @@ class MyCustomActorService : ActorService
 然后，会对新的主要副本调用 `OnDataLossAsync`。
 将一次调用一回 API，如此循环，直到服务成功完成此 API（返回 true 或 false），并完成相关的重新配置。
 
-`RestoreAsync` 首先删除调用它的主要副本中的所有现有状态。  
-之后，可靠状态管理器创建备份文件夹中存在的所有可靠对象。  
-接下来，指示可靠对象从备份文件夹中的它们的检查点还原。  
-最后，可靠性状态管理器从备份文件夹中的日志记录中恢复其自己的状态，并执行恢复。  
-作为恢复过程的一部分，将对可靠对象重播从“起始点”开始的操作，该起始点已提交备份文件夹中的日志记录。  
-此步骤可以确保恢复的状态是一致的。
+`RestoreAsync` 首先删除调用它的主要副本中的所有现有状态。 之后，可靠状态管理器创建备份文件夹中存在的所有可靠对象。 接下来，指示可靠对象从备份文件夹中的它们的检查点还原。 最后，可靠性状态管理器从备份文件夹中的日志记录中恢复其自己的状态，并执行恢复。 作为恢复过程的一部分，将对可靠对象重播从“起始点”开始的操作，该起始点已提交备份文件夹中的日志记录。 此步骤可以确保恢复的状态是一致的。
 
 ## <a name="next-steps"></a>后续步骤
   - [Reliable Collections](service-fabric-work-with-reliable-collections.md)
   - [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
   - [Reliable Services 通知](service-fabric-reliable-services-notifications.md)
   - [Reliable Services 配置](service-fabric-reliable-services-configuration.md)
-<!-- Not Available on - [Reliable Collections 的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)-->
-
-<!--Update_Description: update meta properties -->
+  - [Reliable Collections 的开发人员参考](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  - [在 Azure Service Fabric 中定期备份和还原](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
+<!--Update_Description: update meta properties, update link -->

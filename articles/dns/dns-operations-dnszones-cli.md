@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 origin.date: 02/27/2017
 ms.date: 05/21/2018
 ms.author: v-nany
-ms.openlocfilehash: c668fdd80fa7ff0cd21d4f6da4104ed654707597
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 0d971e8a4aec50e19daa64a6d278f7f077d16276
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>如何使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 区域
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 05/15/2018
 
 ### <a name="sign-in-to-your-azure-account"></a>登录到 Azure 帐户
 
-打开控制台窗口并使用凭据进行身份验证。 有关详细信息，请阅读[从 Azure CLI 登录 Azure](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+打开控制台窗口并使用凭据进行身份验证。 有关详细信息，请阅读[从 Azure CLI 登录 Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ```
 az login

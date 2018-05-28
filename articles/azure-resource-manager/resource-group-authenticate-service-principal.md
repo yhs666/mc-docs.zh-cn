@@ -3,7 +3,7 @@ title: 使用 PowerShell 创建 Azure 应用标识 | Azure
 description: 介绍如何使用 Azure PowerShell 创建 Azure Active Directory 应用程序和服务主体，并通过基于角色的访问控制向其授予资源访问权限。 它演示如何使用证书对应用程序进行身份验证。
 services: azure-resource-manager
 documentationcenter: na
-author: rockboyfor
+author: luanmafeng
 manager: digimobile
 editor: tysonn
 ms.assetid: d2caf121-9fbe-4f00-bf9d-8f3d1f00a6ff
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-origin.date: 03/12/2018
-ms.date: 04/30/2018
+origin.date: 05/10/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 876f5863042bd93dc1696f59ba1b1d8a90d2de0d
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: b1040d3d4ed5d19902ef0adcef54670fb5ec2ae0
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>通过 Azure PowerShell 使用证书创建服务主体
 
@@ -30,6 +30,8 @@ ms.lasthandoff: 04/28/2018
 
 <!-- Not Available on MSI(Management Service Identity -->
 本文演示如何创建使用证书进行身份验证的服务主体。 若要使用密码设置服务主体，请参阅[使用 Azure PowerShell 创建 Azure 服务主体](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)。
+
+必须拥有[最新版本](https://docs.microsoft.com/powershell/azure/get-started-azureps) PowerShell 才能演练本文中的示例。
 
 ## <a name="required-permissions"></a>所需的权限
 
@@ -57,61 +59,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName 
 
 该示例休眠 20 秒，让新的服务主体有时间传遍 Azure Active Directory。 如果脚本等待时长不足，会显示错误：“主体 {ID} 不存在于目录 {DIR-ID} 中”。 若要解决此错误，请等待片刻，然后重新运行 **New-AzureRmRoleAssignment** 命令。
 
-下一个示例更为复杂，因为它允许将角色分配的范围设置为不同于当前 Azure 订阅。 仅要将角色分配范围限制为某个资源组时，才需要指定 ResourceGroup 参数。 如果在角色分配过程中发生错误，它会重试分配。 必须在 Windows 10 或 Windows Server 2016 上使用 Azure PowerShell 2.0。
-
-```powershell
-Param (
-
- # Use to set scope to resource group. If no value is provided, scope is set to subscription.
- [Parameter(Mandatory=$false)]
- [String] $ResourceGroup,
-
- # Use to set subscription. If no value is provided, default subscription is used. 
- [Parameter(Mandatory=$false)]
- [String] $SubscriptionId,
-
- [Parameter(Mandatory=$true)]
- [String] $ApplicationDisplayName
- )
-
- Login-AzureRmAccount -EnvironmentName AzureChinaCloud
- Import-Module AzureRM.Resources
-
- if ($SubscriptionId -eq "") 
- {
-    $SubscriptionId = (Get-AzureRmContext).Subscription.Id
- }
- else
- {
-    Set-AzureRmContext -Subscription $SubscriptionId
- }
-
- if ($ResourceGroup -eq "")
- {
-    $Scope = "/subscriptions/" + $SubscriptionId
- }
- else
- {
-    $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
- }
-
- $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleappScriptCert" -KeySpec KeyExchange
- $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
-
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
- Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
-
- $NewRole = $null
- $Retries = 0;
- While ($NewRole -eq $null -and $Retries -le 6)
- {
-    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
-    Sleep 15
-    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
-    $Retries++;
- }
-```
+可以使用 **ResourceGroupName** 参数将角色分配范围限制为特定资源组。 还可以使用 **ResourceType** 和 **ResourceName** 参数将范围限制为特定资源。 
 
 如果**未使用 Windows 10 或 Windows Server 2016**，需要从 Microsoft 脚本中心下载[自签名证书生成器](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/)。 解压其内容，并导入所需的 cmdlet。
 
@@ -124,7 +72,6 @@ Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
 
 ```powershell
 New-SelfSignedCertificateEx -StoreLocation CurrentUser `
-  -StoreName My `
   -Subject "CN=exampleapp" `
   -KeySpec "Exchange" `
   -FriendlyName "exampleapp"
@@ -169,7 +116,7 @@ Param (
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>使用证书颁发机构提供的证书创建服务主体
 
-以下示例使用证书颁发机构颁发的证书创建服务主体。 分配的范围限定为指定的 Azure 订阅。 它将服务主体添加到“参与者”[](../role-based-access-control/built-in-roles.md#contributor)角色。 如果在角色分配过程中发生错误，它会重试分配。
+以下示例使用证书颁发机构颁发的证书创建服务主体。 分配的范围限定为指定的 Azure 订阅。 它将服务主体添加到[“参与者”](../role-based-access-control/built-in-roles.md#contributor)角色。 如果在角色分配过程中发生错误，它会重试分配。
 
 ```powershell
 Param (

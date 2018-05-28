@@ -1,8 +1,8 @@
 ---
-title: "使用 SSH 隧道访问 Azure HDInsight | Azure"
-description: "了解如何使用 SSH 隧道来安全浏览基于 Linux 的 HDInsight 节点上托管的 Web 资源。"
+title: 使用 SSH 隧道访问 Azure HDInsight | Azure
+description: 了解如何使用 SSH 隧道来安全浏览基于 Linux 的 HDInsight 节点上托管的 Web 资源。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/10/2017
-ms.date: 12/25/2017
+origin.date: 02/07/2018
+ms.date: 05/28/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0d23aec6535225d8cf772071570aed45409e65a8
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 4afb8f76486d5a8982a5e9f832617ede649dd811
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>使用 SSH 隧道访问 Ambari Web UI、JobHistory、NameNode、Oozie 和其他 Web UI
 
@@ -116,16 +116,16 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
    > [!NOTE]
    > 通过选择“远程 DNS”，可使用 HDInsight 群集解析域名系统 (DNS) 请求。 此设置使用群集的头节点解析 DNS。
 
-2. 请通过访问某个站点（例如 [http://www.whatismyip.com/](http://www.whatismyip.com/)）来验证隧道的工作状态。 返回的 IP 应是 Azure 数据中心使用的 IP。
+2. 通过访问 [http://www.whatismyip.com/](http://www.whatismyip.com/) 等网站验证隧道是否正常工作。 返回的 IP 应是 Azure 数据中心使用的 IP。
 
 ## <a name="verify-with-ambari-web-ui"></a>Ambari Web UI 访问验证
 
 建立群集后，请通过以下步骤验证是否可以从 Ambari Web 访问服务 Web UI：
 
-1. 在浏览器中，转到 http://headnodehost:8080 。 `headnodehost` 地址通过隧道发送到群集，并解析为运行 Ambari 的头节点。 出现提示时，请输入群集的管理员用户名 (admin) 和密码。 Ambari Web UI 可能会再次出现提示。 如果出现，请重新输入信息。
+1. 在浏览器中转到 http://headnodehost:8080。 `headnodehost` 地址会通过隧道发送到群集，并解析为运行 Ambari 的头节点。 出现提示时，请输入群集的管理员用户名 (admin) 和密码。 Ambari Web UI 可能会再次出现提示。 如果出现，请重新输入信息。
 
    > [!NOTE]
-   > 使用 http://headnodehost:8080 地址连接到群集时，将通过隧道进行连接。 通信是使用 SSH 隧道而不是 HTTPS 保护的。 若要使用 HTTPS 通过 Internet 进行连接，请使用 https://CLUSTERNAME.azurehdinsight.cn，其中 **CLUSTERNAME** 是群集的名称。
+   > 如果使用 http://headnodehost:8080 地址连接到群集，则将通过隧道进行连接。 通信是使用 SSH 隧道而不是 HTTPS 保护的。 若要使用 HTTPS 通过 Internet 进行连接，请使用 https://CLUSTERNAME.azurehdinsight.cn，其中 **CLUSTERNAME** 是群集的名称。
 
 2. 在 Ambari Web UI 中，请选择页面左侧列表中的“HDFS”。
 
@@ -145,7 +145,7 @@ ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
     ![NameNode UI 的截图](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
    > [!NOTE]
-   > 请注意此页的 URL，它应类似于 **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.chinacloudapp.cn:8088/cluster**。 此 URI 使用节点的内部完全限定域名 (FQDN)，只能在使用 SSH 隧道的情况下访问它。
+   > 请注意此页的 URL；它应类似于 **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.chinacloudapp.cn:8088/cluster**。 此 URI 使用节点的内部完全限定域名 (FQDN)，只能在使用 SSH 隧道的情况下访问它。
 
 ## <a name="next-steps"></a>后续步骤
 
