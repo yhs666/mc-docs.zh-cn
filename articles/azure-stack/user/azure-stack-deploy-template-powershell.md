@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Stack 中使用 PowerShell 部署模板 | Microsoft Docs
-description: 了解如何使用资源管理器模板和 PowerShell 部署虚拟机。
+description: 使用 PowerShell 将模板部署到 Azure Stack。
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -13,29 +13,33 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/25/2017
-ms.date: 03/08/2018
+ms.date: 05/23/2018
 ms.author: v-junlch
 ms.reviewer: ''
-ms.openlocfilehash: afe3aac53f1322d52be80c82f030fb09a89ee220
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 7d3ff30dbac8d31d5e3c84f454af8495ac1b0d63
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474912"
 ---
-# <a name="deploy-templates-in-azure-stack-using-powershell"></a>使用 PowerShell 在 Azure Stack 中部署模板
+# <a name="deploy-a-template-to-azure-stack-using-powershell"></a>使用 PowerShell 将模板部署到 Azure Stack
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-使用 PowerShell 可将 Azure 资源管理器模板部署到 Azure Stack 开发工具包。  资源管理器 模板可通过单个协调操作部署和预配应用程序的所有资源。
+可以使用 PowerShell 将 Azure 资源管理器模板部署到 Azure Stack。 本文介绍如何使用 PowerShell 部署模板。
 
 ## <a name="run-azurerm-powershell-cmdlets"></a>运行 AzureRM PowerShell cmdlet
-在此示例中，将会运行脚本，使用资源管理器模板将虚拟机部署到 Azure Stack 开发工具包。  在继续之前，请确保已[配置 PowerShell](azure-stack-powershell-configure-user.md)  
 
-在此示例模板中使用的 VHD 是 WindowsServer-2012-R2-Datacenter。
+此示例使用 AzureRM PowerShell cmdlet 和存储在 GitHub 上的模板。 此模板创建 Windows Server 2012 R2 Datacenter 虚拟机。
 
-1. 前往 <http://aka.ms/AzureStackGitHub>，搜索 **101-simple-windows-vm** 模板，并将其保存到以下位置：c:\\templates\\azuredeploy-101-simple-windows-vm.json。
-2. 在 PowerShell 中，运行以下部署脚本。 将 *username* 和 *password* 替换为你的用户名和密码。 后续使用时，递增 *$myNum* 参数的值，以避免覆盖你的部署。
-   
+>[!NOTE]
+>在尝试此示例之前，请确保已为 Azure Stack 用户[配置了 PowerShell](azure-stack-powershell-configure-user.md)。
+
+1. 转到 <http://aka.ms/AzureStackGitHub> 并找到 **101-simple-windows-vm** 模板。 将该模板保存到此位置：C:\\templates\\azuredeploy-101-simple-windows-vm.json。
+2. 打开权限提升的 PowerShell 命令提示符。
+3. 将以下脚本中的*用户名*和*密码*替换为你的用户名和密码，然后运行脚本。
+
    ```PowerShell
        # Set Deployment Variables
        $myNum = "001" #Modify this per deployment
@@ -57,10 +61,14 @@ ms.lasthandoff: 03/16/2018
            -VmName myVM$myNum `
            -WindowsOSVersion 2012-R2-Datacenter
    ```
-3. 打开 Azure Stack 门户，依次单击“浏览”、“虚拟机”，并查找新虚拟机 (*myDeployment001*)。
 
+   >[!IMPORTANT]
+   >每次运行此脚本时，都应递增“$myNum”参数的值，以避免覆盖你的部署。
+
+4. 打开 Azure Stack 门户，选择“浏览”，然后选择“虚拟机”以查找新虚拟机 (*myDeployment001*)。
 
 ## <a name="next-steps"></a>后续步骤
+
 [通过 Visual Studio 部署模板](azure-stack-deploy-template-visual-studio.md)
 
-
+<!-- Update_Description: wording update -->

@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 12/01/2017
-ms.date: 03/04/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 356b5a53e8bf2d6428f608728677c29b5690607e
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 9019b49e0c2c458f763c4a55064c07f2ebcde37f
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474976"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>关于 Azure Stack 的 VPN 网关
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
@@ -27,11 +28,11 @@ ms.lasthandoff: 03/08/2018
 
 必须先为虚拟网络创建虚拟网络网关，然后才能发送 Azure 虚拟网络和本地站点之间的网络流量。
 
-VPN 网关是一种通过公共连接发送加密流量的虚拟网络网关。 可以使用 VPN 网关安全地发送 Azure Stack 中的虚拟网络与 Azure 中的虚拟网络之间的流量，或虚拟网络与连接到 VPN 设备的另一个网络之间的流量。
+VPN 网关是一种通过公共连接发送加密流量的虚拟网络网关。 可以使用 VPN 网关在 Azure Stack 中的虚拟网络和 Azure 中的虚拟网络之间安全地发送流量。 还可以在虚拟网络和连接到 VPN 设备的另一个网络之间安全地发送流量。
 
 创建虚拟网络网关时，需指定要创建的网关类型。 Azure Stack 支持一种类型的虚拟网络网关：“Vpn”类型。
 
-每个虚拟网络可以拥有两个虚拟网络网关，但只能有一种类型。 根据所选设置，可以创建到单个 VPN 网关的多个连接。 其示例之一是多站点连接配置。
+每个虚拟网络可以拥有两个虚拟网络网关，但只能有一种类型。 根据所选设置，可以创建到单个 VPN 网关的多个连接。 一个示例是多站点连接配置。
 
 > [!NOTE]
 > 在 Azure 中，所选 VPN 网关 SKU 的带宽吞吐量必须分配给连接到它的所有连接。  在 Azure Stack 中，VPN 网关 SKU 的带宽值会应用于连接到它的每个连接资源。     
@@ -47,10 +48,10 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 为每个资源选择的设置对于创建成功的连接至关重要。 有关 VPN 网关的各个资源和设置的信息，请参阅[关于 Azure Stack 的 VPN 网关设置](azure-stack-vpn-gateway-settings.md)。 可查找信息以帮助你了解网关类型、VPN 类型、连接类型、网关子网、本地网络网关以及可能需要考虑的各种其他资源设置。
 
 ### <a name="deployment-tools"></a>部署工具
-开始时可以使用一个配置工具（如 Azure 门户）创建和配置资源。 稍后可以切换到另一种工具（如 PowerShell）来配置其他资源，或者在适当的情况下修改现有资源。 目前，无法在 Azure 门户中配置每个资源和资源设置。 需要使用特定的配置工具时，本文中针对每种连接拓扑提供的说明都有指明。
+可以使用一个配置工具（如 Azure 门户）创建和配置资源。 稍后，可以切换到 PowerShell 等其他工具来配置其他资源或修改现有资源（如果适用）。 目前，无法在 Azure 门户中配置每个资源和资源设置。 需要使用特定的配置工具时，本文中针对每种连接拓扑提供的说明都有指明。
 
 ## <a name="connection-topology-diagrams"></a>连接拓扑图
-必须知道，VPN 网关连接可以使用不同的配置。 必须确定哪种配置最适合自己的需要。 在下面的部分中，可以查看有关以下 VPN 网关连接的信息和拓扑示意图：以下部分包含一些表格，其中列出了：
+必须知道，VPN 网关连接可以使用不同的配置。 确定哪种配置最适合自己的需要。 在下面的部分中，可以查看有关以下 VPN 网关连接的信息和拓扑示意图：以下部分包含一些表格，其中列出了：
 
 - 可用的部署模型
 - 可用的配置工具
@@ -79,7 +80,7 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 
 Azure Stack 不支持专门搭配 Express Route 使用的超性能网关 SKU。
 
-选择 SKU 时，请考虑以下内容：
+选择 SKU 时请考虑以下事项：
 - Azure Stack 不支持基于策略的网关。
 - 基本 SKU 不支持边界网关协议 (BGP)。
 - Azure Stack 不支持 ExpressRoute-VPN 网关共存配置
@@ -88,14 +89,16 @@ Azure Stack 不支持专门搭配 Express Route 使用的超性能网关 SKU。
 ## <a name="estimated-aggregate-throughput-by-sku"></a>按 SKU 列出的估计聚合吞吐量
 下表显示网关类型和预计的网关 SKU 聚合吞吐量。
 
-|   | VPN 网关吞吐量 *(1)* |VPN 网关最大 IPsec 隧道数 |
+|   | VPN 网关吞吐量 *(1)* | VPN 网关最大 IPsec 隧道数 *(2)* |
 |-------|-------|-------|
-|**基本 SKU** ***(2)***    | 100 Mbps  | 10 个    |
+|**基本 SKU** ***(3)***    | 100 Mbps  | 10 个    |
 |**标准 SKU**       | 100 Mbps  | 10 个    |
-|**高性能 SKU** | 200 Mbps    | 30    |
+|**高性能 SKU** | 200 Mbps    | 5 |
 ***(1)*** VPN 吞吐量不是 Internet 上跨界连接的保证吞吐量。 这是可能的最大吞吐量度量。  
-***(2)*** 基本 SKU 不支持 BGP。
+***(2)*** 最大隧道数是所有订阅的每个 Azure Stack 部署总数。  
+***(3)*** 基本 SKU 不支持 BGP。
 
 ## <a name="next-steps"></a>后续步骤
 了解 Azure Stack 的 [VPN 网关设置](azure-stack-vpn-gateway-settings.md)。
 
+<!-- Update_Description: wording update -->

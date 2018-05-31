@@ -6,16 +6,17 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-origin.date: 04/06/2018
-ms.date: 04/23/2018
+origin.date: 05/15/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 7b9c9940a397c3c791ebbb54db9094b92fa5eed8
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: c9305190160435287b6ca36afc9d4e2e290c1772
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475027"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 数据中心集成 - 标识
 可以使用 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 作为标识提供者来部署 Azure Stack。 必须在部署 Azure Stack 之前做出选择。 使用 AD FS 的部署也称为在断开连接模式下部署 Azure Stack。
@@ -61,6 +62,8 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="setting-up-graph-integration"></a>设置 Graph 集成
 
+Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，则仅使用配置中指定的林来提取用户和组。
+
 需要使用以下信息作为自动化参数的输入：
 
 
@@ -96,12 +99,14 @@ ms.lasthandoff: 04/23/2018
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
-   出现提示时，请指定用于 Graph 服务的用户帐户（例如 graphservice）的凭据。
+   出现提示时，请指定用于 Graph 服务的用户帐户（例如 graphservice）的凭据。 Register-DirectoryService cmdlet 的输入必须是林名称/林中的根域，而不是林中的任何其他域。
 
    > [!IMPORTANT]
    > 等待凭据弹出（特权终结点不支持 Get-Credential），然后输入 Graph 服务帐户凭据。
 
 #### <a name="graph-protocols-and-ports"></a>Graph 协议和端口
+
+Azure Stack 中的 Graph 服务使用以下协议和端口与可写入的全局编录服务器 (GC) 和密钥发行中心 (KDC) 进行通信，该中心可以处理目标 Active Directory 林中的登录请求。
 
 Azure Stack 中的 Graph 服务使用以下协议和端口来与目标 Active Directory 通信：
 
@@ -286,6 +291,9 @@ Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的�
 - 使用 AD FS 部署时 Azure Stack 中的资源提供程序
 - 各种应用程序
 - 需要非交互式登录
+
+> [!Important]  
+> AD FS 仅支持交互式登录会话。 如果需要对自动化场景进行非交互式登录，则必须使用 SPN。
 
 有关创建 SPN 的详细信息，请参阅[为 AD FS 创建服务主体](/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs)。
 

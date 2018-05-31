@@ -15,11 +15,12 @@ origin.date: 01/26/2018
 ms.date: 05/07/2018
 ms.author: v-junlch
 ms.reviewer: asteen
-ms.openlocfilehash: c82f1980455753d009d73972ebb5d53cb84da890
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: ba0dd3469c470e64be834d4f8156d3981a4ac85e
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 05/22/2018
+ms.locfileid: "34450059"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>有关 Azure Active Directory 中应用程序管理的文章索引
 本页提供了一份完整列表，列出编写的 Azure Active Directory (Azure AD) 中各种应用程序相关功能的所有文章。
@@ -66,7 +67,7 @@ ms.lasthandoff: 05/15/2018
 |:---:| --- |
 | 基于密码的 SSO 工作原理简介以及简要的技术概述 |[使用 Azure AD 进行基于密码的单一登录](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
 | 与共享帐户相关的方案以及 Azure AD 如何解决这些问题的摘要 |[使用 Azure AD 共享帐户](active-directory-sharing-accounts.md) |
-| 自动定期更改特定应用的密码 |[自动密码滚动更新（预览版）](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
+| 自动定期更改特定应用的密码 | 自动密码滚动更新（预览版）  |
 | Internet Explorer 版本的 Azure AD 密码管理扩展功能的部署和故障排除指南 |如何使用组策略部署 Internet Explorer 的访问面板扩展 <br /><br /> Internet Explorer 访问面板扩展疑难解答  |
 
 基于密码的单一登录适用于所有版本的 Azure AD，每个用户最多十个应用。 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) 支持无限数目的应用程序。 如果组织拥有 [Azure AD Basic](https://www.azure.cn/pricing/details/identity/) 或 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/)，则可以[使用组来分配对应用程序的访问权限](#managing-access-to-applications)。 自动密码滚动更新是一项 [Azure AD Premium](https://www.azure.cn/pricing/details/identity/) 功能。

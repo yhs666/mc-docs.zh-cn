@@ -6,25 +6,24 @@ keywords: ''
 author: mattbriggs
 manager: femila
 ms.author: v-junlch
-origin.date: 02/28/2018
-ms.date: 03/27/2018
+origin.date: 05/14/2018
+ms.date: 05/23/2018
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 0859d93a13fdd5324c0170522657d27c11b4c311
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 471cb433b1c33bbb64088b09bcef58b1d63d99c3
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474902"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack 网络注意事项
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-Azure Stack 中的网络功能提供 Azure 中的许多类似功能，但在开始部署之前，应了解一些差异。
+Azure Stack 网络具有许多由 Azure 网络提供的功能。 但是，在部署 Azure Stack 网络之前，你应该了解一些关键区别。
 
-
-本文概述特定于 Azure Stack 的网络服务及其功能的注意事项。 有关 Azure Stack 与 Azure 之间大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)主题。
-
+本文概述了 Azure Stack 网络及其功能的独特注意事项。 有关 Azure Stack 与 Azure 之间大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)主题。
 
 ## <a name="cheat-sheet-networking-differences"></a>速查表：网络差异
 
@@ -42,7 +41,7 @@ Azure Stack 中的网络功能提供 Azure 中的许多类似功能，但在开�
 | |VPN 网关 SKU|支持基本、GW1、GW2、GW3、标准高性能、超高性能 SKU。 |支持基本、标准和高性能 SKU。|
 |负载均衡器|IPv6 公共 IP 地址|支持将 IPv6 公共 IP 地址分配给负载均衡器。|仅支持 IPv4。|
 |网络观察程序|网络观察程序租户网络监视功能|支持|尚不支持|
-|CDN|内容交付网络配置文件|支持|尚不支持|
+|CDN|内容分发网络配置文件|支持|尚不支持|
 |应用程序网关|7 层负载均衡|支持|尚不支持|
 |流量管理器|路由传入的流量，以获得最佳应用程序性能和可靠性。|支持|尚不支持|
 |Express Route|设置快速专用连接，从本地基础结构或共置设施连接到 Azure 云服务。|支持|支持将 Azure Stack 连接到 Express Route 线路。|
@@ -51,4 +50,4 @@ Azure Stack 中的网络功能提供 Azure 中的许多类似功能，但在开�
 
 [Azure Stack 中的 DNS](azure-stack-dns.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

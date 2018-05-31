@@ -1,10 +1,27 @@
 ---
-title: Azure DNS 专用区域的方案 | Azure description: 使用 Azure DNS 专用区域的常见方案概述。
-services: dns documentationcenter: na author: WenJason manager: digimobile editor: ''
-
-ms.assetid: ms.service: dns ms.devlang: na ms.topic: article ms.tgt_pltfrm: na ms.workload: infrastructure-services origin.date:03/15/2018 ms.date: 05/21/2018 ms.author: v-nany
+title: Azure DNS 专用区域的方案
+description: 使用 Azure DNS 专用区域的常见方案的概述。
+services: dns
+documentationcenter: na
+author: WenJason
+manager: digimobile
+editor: ''
+ms.assetid: ''
+ms.service: dns
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+origin.date: 03/15/2018
+ms.date: 05/21/2018
+ms.author: v-nany
+ms.openlocfilehash: 0a52b157be2c2bc9a4b415ec08f43c0b5f179423
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474996"
 ---
-
 # <a name="azure-dns-private-zones-scenarios"></a>Azure DNS 专用区域方案
 Azure DNS 专用区域在虚拟网络内或虚拟网络之间提供名称解析功能。 在本文中，我们将查看可以使用此功能实现的一些常见方案。 
 

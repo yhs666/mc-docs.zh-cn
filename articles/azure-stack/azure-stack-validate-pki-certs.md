@@ -11,15 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/11/2018
-ms.date: 04/23/2018
+origin.date: 05/18/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: ppacent
-ms.openlocfilehash: 4ce2975a8030e65a37e0dde9fe23b52d7c7d1a38
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: a80f357424895a885849f62ccbe51d1256c2314f
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475083"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>验证 Azure Stack PKI 证书
 
@@ -45,6 +46,8 @@ ms.lasthandoff: 04/23/2018
     检查其他证书的顺序，验证顺序是否正确。
 - **其他证书**  
     确保除了相关叶证书及其链以外，PFX 中未打包其他证书。
+- **无配置文件**  
+    检查新用户是否无需加载用户配置文件即可加载 PFX 数据，可在证书有效期内模拟 gMSA 帐户的行为。
 
 > [!IMPORTANT]  
 > PKI 证书是一个 PFX 文件，其密码应被视为敏感信息。
@@ -58,43 +61,43 @@ ms.lasthandoff: 04/23/2018
 - DeploymentData.json
 - Windows 10 或 Windows Server 2016
 
-## <a name="perform-certificate-validation"></a>执行证书验证
+## <a name="perform-core-services-certificate-validation"></a>执行核心服务证书验证
 
-使用以下步骤来准备和验证 Azure Stack PKI 证书：
+使用以下步骤来准备和验证用于部署和机密轮换的 Azure Stack PKI 证书：
 
-1. 在 PowerShell 提示符（5.1 或更高版本）下，运行以下 cmdlet 安装 AzsReadinessChecker：
+1. 在 PowerShell 提示符（5.1 或更高版本）下，运行以下 cmdlet 安装 **AzsReadinessChecker**：
 
     ````PowerShell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker 
+    Install-Module Microsoft.AzureStack.ReadinessChecker -force 
     ````
 
 2. 创建证书目录结构。 在以下示例中，可将 `<c:\certificates>` 更改为所选的新目录路径。
 
     ````PowerShell  
     New-Item C:\Certificates -ItemType Directory
-
-    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal' 
-
-    $destination = 'c:\certificates' 
-
-    $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}  
+    
+    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal'
+    
+    $destination = 'c:\certificates'
+    
+    $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}
     ````
 
     - 将证书放入上一步骤中创建的相应目录。 例如：  
-        - c:\certificates\ACSBlob\CustomerCertificate.pfx 
-        - c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx 
-        - c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx 
-        - 等等 
+        - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
+        - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx`
+        - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx`
 
-3. 在 PowerShell 窗口中运行：
+3. 在 PowerShell 窗口中，更改 **RegionName** 和 **FQDN** 的值以适用于 Azure Stack 环境，然后运行以下命令：
 
     ````PowerShell  
-    $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString
+    $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
-    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
+    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
+
     ````
 
-4. 检查输出，验证所有证书是否都通过了测试。 例如：
+4. 检查输出和所有证书是否通过所有测试。 例如：
 
     ````PowerShell
     AzsReadinessChecker v1.1803.405.3 started
@@ -126,7 +129,8 @@ ms.lasthandoff: 04/23/2018
     Finished Certificate Validation
 
     AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
-    AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessReport.json
+    AzsReadinessChecker Report location: 
+    C:\AzsReadinessChecker\AzsReadinessReport.json
     AzsReadinessChecker Completed
     ````
 
@@ -163,14 +167,90 @@ ms.lasthandoff: 04/23/2018
 
 **解决方法**：遵循针对每个证书的每组测试下的详细信息部分中的工具指导。
 
+## <a name="perform-platform-as-a-service-certificate-validation"></a>执行平台即服务证书验证
+
+如果计划 SQL/MySQL 或应用程序服务部署，请使用以下步骤准备和验证 Azure Stack PKI 证书以获取平台即服务 (PaaS) 证书。
+
+1.  在 PowerShell 提示符（5.1 或更高版本）下，运行以下 cmdlet 安装 **AzsReadinessChecker**：
+
+    ````PowerShell  
+    Install-Module Microsoft.AzureStack.ReadinessChecker -force
+    ````
+
+2.  为每个需要验证的 PaaS 证书创建一个包含路径和密码的嵌套哈希表。 在 PowerShell 窗口中运行：
+
+    ```PowerShell
+        $PaaSCertificates = @{
+        'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
+        'PaaSDefaultCert' = @{'pfxPath' = '<Path to Default PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
+        'PaaSAPICert' = @{'pfxPath' = '<Path to API PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
+        'PaaSFTPCert' = @{'pfxPath' = '<Path to FTP PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
+        'PaaSSSOCert' = @{'pfxPath' = '<Path to SSO PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
+        }
+    ```
+
+3.  更改 **RegionName** 和 **FQDN** 的值以匹配 Azure Stack 环境来启动验证。 运行：
+
+    ```PowerShell
+    Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
+    ```
+4.  检查输出和所有证书是否通过所有测试。
+
+    ```PowerShell
+    AzsReadinessChecker v1.1805.425.2 started
+    Starting PaaS Certificate Validation
+    
+    Starting Azure Stack Certificate Validation 1.0 
+    Testing: PaaSCerts\wildcard.appservice.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Testing: PaaSCerts\api.appservice.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Testing: PaaSCerts\wildcard.dbadapter.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Testing: PaaSCerts\sso.appservice.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+    ```
+
 ## <a name="using-validated-certificates"></a>使用已验证的证书
 
 通过 AzsReadinessChecker 验证证书后，可在 Azure Stack 部署中使用这些证书，或者将其用于 Azure Stack 机密轮换。 
 
  - 对于部署，请根据 [Azure Stack PKI 要求文档](azure-stack-pki-certs.md)中的规定，安全地将证书传送给部署工程师，使他们能够将其复制到部署主机。
  - 对于机密轮换，可以遵循 [Azure Stack 机密轮换文档](azure-stack-rotate-secrets.md)，使用这些证书来更新 Azure Stack 环境公共基础结构终结点的旧证书。
+ - 对于 PaaS 服务，可以按照[在 Azure Stack 中提供服务概述](azure-stack-offer-services-overview.md)文档，使用证书在 Azure Stack 中安装 SQL、MySQL 和应用程序服务资源提供程序。
 
 ## <a name="next-steps"></a>后续步骤
 
 [数据中心标识集成](azure-stack-integrate-identity.md)
 
+<!-- Update_Description: wording update -->

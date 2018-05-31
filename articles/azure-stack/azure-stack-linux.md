@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2018
-ms.date: 03/02/2018
+origin.date: 05/08/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5e2203968329d86b20d958c7b11fd643f761fb89
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: ecd19b38bf49f687f46a5a95d42edfa080f31b49
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474953"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>将 Linux 映像添加到 Azure Stack
 
@@ -29,57 +30,31 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="marketplace-management"></a>Marketplace 管理
 
-若要从 Azure Marketplace 下载 Linux 映像，请使用以下文章中的过程。 选择要在 Azure Stack 上提供给用户的 Linux 映像。
+若要从 Azure Marketplace 下载 Linux 映像，请使用以下文章中的过程。 选择要在 Azure Stack 上提供给用户的 Linux 映像。 
 
 [将 Marketplace 项从 Azure 下载到 Azure Stack](azure-stack-download-azure-marketplace-item.md)。
 
+请注意，这些映像频繁更新，因此请经常查看 Marketplace 管理以保持最新。
+
 ## <a name="prepare-your-own-image"></a>准备自己的映像
 
-可以按照下列其中一个说明准备自己的 Linux 映像：
+ 只要有可能，请下载通过 Marketplace 管理提供的映像，这些映像已针对 Azure Stack 进行了准备和测试。 
+ 
+ Azure Linux 代理（通常称为 `WALinuxAgent` 或 `walinuxagent`）是必需的，并非所有代理版本都可以在 Azure Stack 上正常工作。 如果创建自己的映像，则应该使用版本 2.2.18 或更高版本。 请注意，目前 Azure Stack 不支持 [cloud-init](https://cloud-init.io/)。
 
-   - [基于 CentOS 的分发版](../virtual-machines/linux/create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-   - [Debian Linux](../virtual-machines/linux/debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-   - [SLES 和 openSUSE](../virtual-machines/linux/suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-   - [Ubuntu](../virtual-machines/linux/create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+ 可以按照以下说明准备自己的 Linux 映像：
 
-1. 下载并安装 [Azure Linux 代理](https://github.com/Azure/WALinuxAgent/)。
+   - [基于 CentOS 的分发版](../virtual-machines/linux/create-upload-centos.md)
+   - [Debian Linux](../virtual-machines/linux/debian-create-upload-vhd.md)
+   - [Red Hat Enterprise Linux](azure-stack-redhat-create-upload-vhd.md)
+   - [SLES 和 openSUSE](../virtual-machines/linux/suse-create-upload-vhd.md)
+   - [Ubuntu Server](../virtual-machines/linux/create-upload-ubuntu.md)
 
-    需要 Azure Linux 代理版本 2.2.2 或更高版本，才能在 Azure Stack 上预配 Linux VM，某些版本无法正常工作（例如，2.2.12 和 2.2.13）。 先前列出的许多发行版已包含代理的版本（通常称为 `WALinuxAgent` 或 `walinuxagent`）。 如果创建自定义映像，必须手动安装代理。 可从包名称或通过在 VM 上运行 `/usr/sbin/waagent -version` 来确定已安装的版本。
+    
+## <a name="add-your-image-to-the-marketplace"></a>将映像添加到 Marketplace
+ 
+按照[将映像添加到 Marketplace](azure-stack-add-vm-image.md) 进行操作。 请确保 `OSType` 参数已设置为 `Linux`。
 
-    按照下面的说明手动安装 Azure Linux 代理：
+将映像添加到 Marketplace 后，便会创建 Marketplace 项，用户就可以部署 Linux 虚拟机了。
 
-   a. 首先，从 [GitHub](https://github.com/Azure/WALinuxAgent/releases) 下载最新的 Azure Linux 代理，例如：
-
-            # wget https://github.com/Azure/WALinuxAgent/archive/v2.2.21.tar.gz
-   b. 解压缩 Azure 代理：
-
-            # tar -vzxf v2.2.21.tar.gz
-   c. 安装 python-setuptools
-
-        **Debian / Ubuntu**
-
-            # sudo apt-get update
-            # sudo apt-get install python-setuptools
-
-        **Ubuntu 16.04+**
-
-            # sudo apt-get install python3-setuptools
-
-        **RHEL / CentOS / Oracle Linux**
-
-            # sudo yum install python-setuptools
-   d. 安装 Azure 代理：
-
-            # cd WALinuxAgent-2.2.21
-            # sudo python3 setup.py install --register-service
-
-     已并行安装 Python 2.x 和 Python 3.x 的系统可能需要运行以下命令：
-
-         sudo python3 setup.py install --register-service
-     有关详细信息，请参阅 Azure Linux 代理[自述文件](https://github.com/Azure/WALinuxAgent/blob/master/README.md)。
-2. [将映像添加到 Marketplace](azure-stack-add-vm-image.md)。 请确保 `OSType` 参数已设置为 `Linux`。
-3. 将映像添加到 Marketplace 后，便会创建 Marketplace 项，用户就可以部署 Linux 虚拟机了。
-
-## <a name="next-steps"></a>后续步骤
-[在 Azure Stack 中提供服务概述](azure-stack-offer-services-overview.md)
-
+<!-- Update_Description: wording update -->

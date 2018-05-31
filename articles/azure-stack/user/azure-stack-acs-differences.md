@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 02/21/2017
-ms.date: 03/27/2018
+origin.date: 05/14/2018
+ms.date: 05/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0e71136126ea3077dc4a475bfd216919adef53cf
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: ede846bfc62ce07f829c1740b591575ec5ec2435
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475076"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 存储：差异和注意事项
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 03/28/2018
 
 Azure Stack 存储是 Azure Stack 中的一组存储云服务。 Azure Stack 存储使用与 Azure 一致的语义来提供 Blob、表、队列和帐户管理功能。
 
-此文汇总了 Azure Stack 存储与 Azure 存储之间的已知差异。 此外，还汇总了部署 Azure Stack 时要注意的其他事项。 有关 Azure Stack 与 Azure 之间大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)主题。
+本文汇总了 Azure Stack 存储与 Azure 存储服务之间的已知差异。 它还列出了部署 Azure Stack 时要考虑的事项。 有关 Azure Stack 与 Azure 之间大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)主题。
 
 ## <a name="cheat-sheet-storage-differences"></a>速查表：存储差异
 
@@ -48,27 +49,30 @@ Azure Stack 存储是 Azure Stack 中的一组存储云服务。 Azure Stack 存
 |页 Blob 大小上限|8 TB|1 TB
 |页 Blob 页面大小|512 字节|4 KB
 |表分区键和行键大小|1,024 个字符（2,048 字节）|400 个字符（800 字节）
+|Blob 快照|一个 blob 的最大快照数不受限制。|一个 blob 的最大快照数为 1,000。|
 
-### <a name="metrics"></a>指标
 存储指标也有一些差异：
+
 - 存储指标中的事务数据不区分内部或外部网络带宽。
 - 存储指标中的事务数据不包含虚拟机对所装载的驱动器的访问。
 
 ## <a name="api-version"></a>API 版本
+
 使用 Azure Stack 存储时支持以下版本：
 
 Azure 存储服务 API：
 
 1802 更新或更高版本：
- - [2017-04-17](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08 ](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
+
+ - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+ - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+ - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+ - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 以前的版本：
- - [2015-04-05](https://docs.microsoft.com/en-us/rest/api/storageservices/version-2015-04-05)
 
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Azure 存储服务管理 API：
 
@@ -78,7 +82,7 @@ Azure 存储服务管理 API：
 
 ## <a name="sdk-versions"></a>SDK 版本
 
-使用 Azure Stack 存储时支持以下客户端库：
+Azure Stack 存储支持以下客户端库：
 
 | 客户端库 | Azure Stack 支持的版本 | 链接                                                                                                                                                                                                                                                                                                                                     | 终结点规范       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|

@@ -7,13 +7,14 @@ manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
 origin.date: 02/28/2018
-ms.date: 03/27/2018
+ms.date: 05/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8243aded6ae33e5953fc41aae19aa56ac131843e
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 2ddcc91409bc7b73c61ae5a050bc8d36218ecf5c
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475052"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 虚拟机简介
 
@@ -22,7 +23,7 @@ ms.lasthandoff: 03/28/2018
 ## <a name="overview"></a>概述
 Azure Stack 虚拟机 (VM) 是 Azure Stack 提供的一种按需、可缩放计算资源。 通常情况下，如果需要以更大的力度（相对于其他控制选项）控制计算环境，则应选择 VM。 本文介绍创建 VM 之前的注意事项，以及 VM 的创建方法和管理方式。
 
-Azure Stack VM 可提供虚拟化的灵活性，你无需管理单个群集或计算机。 不过，仍然需要通过执行任务来维护 VM，例如，配置、修补和安装在 VM 上运行的软件。
+Azure Stack VM 可提供虚拟化的灵活性，而无需管理群集或单个计算机。 不过，仍然需要通过执行任务（例如，配置、修补和安装在 VM 上运行的软件）来维护 VM。
 
 可通过多种方式使用 Azure Stack 虚拟机。 例如：
 
@@ -32,18 +33,18 @@ Azure Stack VM 可提供虚拟化的灵活性，你无需管理单个群集或�
 
 - **扩展的数据中心** - Azure Stack 虚拟网络中的虚拟机可以轻松连接到组织的网络或 Azure。
 
-可以根据需要，将应用程序使用的 VM 纵向和横向扩展为任意数目。
+可以根据需要，将应用程序使用的 VM 纵向或横向扩展为任意数目。
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>在创建 VM 之前需要考虑哪些因素？
 
-在 Azure Stack 中构建应用程序基础结构时，始终要考虑多种设计注意事项。 在开始之前，必须考虑到 VM 的以下重要方面：
+在 Azure Stack 中构建应用程序基础结构时，始终要考虑多种设计注意事项。 在开始创建基础结构之前，必须考虑到 VM 的以下重要方面：
 
-- 应用程序资源的名称
-- VM 的大小
-- 可以创建的 VM 数目上限
-- VM 运行的操作系统
-- VM 在启动后的配置 
-- VM 所需的相关资源
+- 应用程序资源的名称。
+- VM 的大小。
+- 可以创建的 VM 数目上限。
+- VM 运行的操作系统。
+- VM 在启动后的配置。
+- VM 所需的相关资源。
 
 ### <a name="naming"></a>命名
 
@@ -62,10 +63,9 @@ Azure Stack VM 可提供虚拟化的灵活性，你无需管理单个群集或�
 ### <a name="operating-system-disks-and-images"></a>操作系统磁盘和映像
 
 虚拟机使用虚拟硬盘 (VHD) 来存储其操作系统 (OS) 和数据。 VHD 还可用于存储映像，可以选择某个映像来安装 OS。
-Azure Stack 提供一个 Marketplace，适用于各种版本和类型的操作系统。 应用商店映像由映像发布者、产品、SKU 和版本（通常指定为最新版本）标识。
+Azure Stack 提供一个 Marketplace，适用于各种版本和类型的操作系统。 Marketplace 映像由映像发布者、产品/服务、SKU 和版本（通常指定为最新版本）标识。
 
 下表显示了查找映像信息的一些方法：
-
 
 |方法|说明|
 |---------|---------|
@@ -113,7 +113,12 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>如何管理创建的 VM？
 
-可以使用基于浏览器的门户、支持脚本的命令行工具或直接通过 API 管理 VM。 可能要执行的一些常见管理任务包括获取有关 VM 的信息、登录到 VM、管理可用性以及执行备份。
+可以使用基于浏览器的门户、支持脚本的命令行工具或直接通过 API 管理 VM。 可能执行的一些典型管理任务包括：
+
+- 获取有关 VM 的信息
+- 连接到 VM
+- 管理可用性
+- 进行备份
 
 ### <a name="get-information-about-a-vm"></a>获取有关 VM 的信息
 
@@ -131,7 +136,7 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 在 Azure Stack 门户中，可以使用“连接”按钮连接到 VM。
 
 ## <a name="next-steps"></a>后续步骤
+
 - [Azure Stack 中虚拟机的注意事项](azure-stack-vm-considerations.md)
 
-
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/29/2018
-ms.date: 03/21/2018
+origin.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: anwestg
-ms.openlocfilehash: fcdfe6d4956637650d5b1be79f0a3d60a3c6d3ad
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: b27ef021b469be50393ee7c1400ee113cbef260e
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475046"
 ---
 # <a name="configure-deployment-sources"></a>配置部署源
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
@@ -51,8 +52,7 @@ Azure Stack 上的应用服务支持从多个源代码管理提供程序执行�
 2. 输入**应用程序名称**，例如：Azure Stack 上的应用服务。
 3. 输入“主页 URL”。 主页 URL 必须是 Azure Stack 门户地址。 例如，https://portal.local.azurestack.external。
 4. 输入**应用程序说明**。
-5. 输入“授权回调 URL”。  在默认的 Azure Stack 部署中，URL 采用 https://portal.local.azurestack.external/tokenauthorize 格式。如果在不同的域下运行，请将 local.azurestack.external 替换为你的域。
-    ![GitHub - 使用填充的值注册新应用程序][4]
+5. 输入“授权回调 URL”。  在默认的 Azure Stack 部署中，URL 采用 https://portal.local.azurestack.external/TokenAuthorize 格式。如果在不同的域下运行，请将 local.azurestack.external 替换为你的域
 6. 单击“注册应用程序”。  此时会出现一个页面，其中列出了应用程序的“客户端 ID”和“客户端机密”。
     ![GitHub - 已完成应用程序注册][5]
 7.  在新的浏览器标签页或窗口中，以服务管理员身份登录到 Azure Stack 管理员门户 (https://adminportal.local.azurestack.external))。
@@ -100,7 +100,7 @@ Azure Stack 上的应用服务支持从多个源代码管理提供程序执行�
 ![OneDrive 应用程序属性][11]
 5. 在“应用程序机密”下，单击“生成新密码”。 记下**生成的新密码**。 这是应用程序机密，在此阶段单击“确定”后将不可检索。
 6. 在“平台”下，单击“添加平台”，然后选择“Web”。
-7. 输入“重定向 URI”。  在默认的 Azure Stack 部署中，重定向 URI 采用 https://portal.local.azurestack.external/tokenauthorize 格式。如果在不同的域下运行，请将 azurestack.local 替换为你的域。![OneDrive 应用程序 - 添加 Web 平台][12]
+7. 输入“重定向 URI”。  在默认的 Azure Stack 部署中，重定向 URI 采用 https://portal.local.azurestack.external/TokenAuthorize 格式。如果在不同的域下运行，请将 azurestack.local 替换为你的域。![OneDrive 应用程序 - 添加 Web 平台][12]
 8. 添加“Microsoft Graph 权限 - 委派权限”
     - **Files.ReadWrite.AppFolder**
     - **User.Read**  
@@ -128,7 +128,7 @@ Azure Stack 上的应用服务支持从多个源代码管理提供程序执行�
 ![Dropbox 应用程序注册][15]
 6. 单击“创建应用”。  此时会出现一个页面，其中列出了应用的设置，包括**应用密钥**和**应用机密**。
 7. 检查“应用文件夹名称”是否设置为“Azure Stack 上的应用服务”。
-8. 设置“OAuth 2 重定向 URI”，并单击“添加”。  在默认的 Azure Stack 部署中，重定向 URI 采用 https://portal.local.azurestack.external/tokenauthorize 格式。如果在不同的域下运行，请将 azurestack.local 替换为你的域。
+8. 设置“OAuth 2 重定向 URI”，并单击“添加”。  在默认的 Azure Stack 部署中，重定向 URI 采用 https://portal.local.azurestack.external/TokenAuthorize 格式。如果在不同的域下运行，请将 azurestack.local 替换为你的域。
 ![Dropbox 应用程序配置][16]
 9.  在新的浏览器标签页或窗口中，以服务管理员身份登录到 Azure Stack 管理员门户 (https://adminportal.local.azurestack.external))。
 10.  浏览到“资源提供程序”并选择“应用服务资源提供程序管理”。
@@ -157,6 +157,6 @@ Azure Stack 上的应用服务支持从多个源代码管理提供程序执行�
 
 ## <a name="next-steps"></a>后续步骤
 
-用户现在可以使用部署源进行[持续部署](/app-service-web/app-service-continuous-deployment)、[本地 Git 部署](/app-service-web/app-service-deploy-local-git)和[云文件夹同步](/app-service-web/app-service-deploy-content-sync)等操作。
+用户现在可以对[持续部署](/app-service-web/app-service-continuous-deployment)和[本地 Git 部署](/app-service-web/app-service-deploy-local-git)等操作使用部署源。
 
 <!-- Update_Description: wording update -->

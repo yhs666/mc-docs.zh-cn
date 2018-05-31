@@ -12,14 +12,15 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 03/29/2018
-ms.date: 04/30/2018
+origin.date: 05/14/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 35877105d95811d4e270b3896fba816c8951d20a
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 262ccbd74eae598c39d28c6397fa7a99235352ac
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554240"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上准备开发环境
 > [!div class="op_single_selector"]
@@ -30,7 +31,7 @@ ms.lasthandoff: 04/28/2018
 > 
 
  若要在 Windows 开发计算机上生成并运行 Azure Service Fabric 应用程序，请安装 Service Fabric 运行时、SDK 和工具。 此外，还需要启用 SDK 中包含的 [Windows PowerShell 脚本执行](#enable-powershell-script-execution)。
-<!-- Not Available on [Azure Service Fabric applications][1] -->
+<!-- Not Available on [Azure Service Fabric applications][1] Service Fabric campaign page -->
 
 ## <a name="prerequisites"></a>先决条件
 ### <a name="supported-operating-system-versions"></a>支持的操作系统版本
@@ -51,7 +52,7 @@ ms.lasthandoff: 04/28/2018
 ## <a name="install-the-sdk-and-tools"></a>安装 SDK 和工具
 ### <a name="to-use-visual-studio-2017"></a>使用 Visual Studio 2017
 Service Fabric 工具是 Visual Studio 2017 中 Azure 开发工作负荷的一部分。 在 Visual Studio 安装过程中启用此工作负荷。
-此外，需要使用 Web 平台安装程序安装 Azure Service Fabric SDK。
+此外，还需使用 Web 平台安装程序安装 Azure Service Fabric SDK 和运行时。
 
 * [安装 Azure Service Fabric SDK][core-sdk]
 
@@ -65,10 +66,10 @@ Service Fabric 工具是 Visual Studio 2017 中 Azure 开发工作负荷的一�
 * [安装 Azure Service Fabric SDK][core-sdk]
 
 当前版本包括：
-* Service Fabric SDK and Tools 3.0.480
-* Service Fabric 运行时 6.1.480
-* Service Fabric Tools for Visual Studio 2015 2.0.10124.2
-* Visual Studio 2017 15.5.6 包括 Service Fabric Tools for Visual Studio 2.0.20180124.2  
+* Service Fabric SDK and Tools 3.1.274
+* Service Fabric 运行时 6.2.274
+* Service Fabric Tools for Visual Studio 2015 2.1.20180510.2
+* Visual Studio 2017 15.7 包括 Service Fabric Tools for Visual Studio 2.1.20180423.1 
 
 有关支持的版本列表，请参阅 [Service Fabric 支持](service-fabric-support.md)
 
@@ -87,6 +88,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 * [了解如何在本地群集上部署和管理应用程序](service-fabric-get-started-with-a-local-cluster.md)
 * [在 Windows 上准备 Linux 开发环境](service-fabric-local-linux-cluster-windows.md)
 * [了解编程模型：Reliable Services 和 Reliable Actors](service-fabric-choose-framework.md)
+* [在 Azure Service Fabric 中定期备份和还原](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 * [在 GitHub 上检查 Service Fabric 代码示例](https://aka.ms/servicefabricsamples)
 * [使用 Service Fabric 资源管理器可视化群集](service-fabric-visualizing-your-cluster.md)
 <!-- Not Avaialble * [Follow the Service Fabric learning path to get a broad introduction to the platform](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)-->

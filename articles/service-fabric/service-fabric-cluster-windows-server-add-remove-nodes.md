@@ -1,25 +1,26 @@
 ---
-title: "向独立 Service Fabric 群集添加或删除节点 | Azure"
-description: "了解如何向运行 Windows Server 的本地或任意云中物理计算机或虚拟机上的 Azure Service Fabric 群集添加节点。"
+title: 向独立 Service Fabric 群集添加或删除节点 | Azure
+description: 了解如何向运行 Windows Server 的本地或任意云中物理计算机或虚拟机上的 Azure Service Fabric 群集添加节点。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/02/2017
-ms.date: 12/04/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 84de6ae266ecffb8ed2b97a8f95e025755da639d
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 58c90bcb444654807d9d6817a4f0956ed9f456c0
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554607"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>向在 Windows Server 上运行的独立 Service Fabric 群集添加或删除节点
 [在 Windows Server 计算机上创建独立 Service Fabric 群集](service-fabric-cluster-creation-for-windows-server.md)之后，（业务）需求可能发生变化，因此需要向群集添加或删除节点。 本文提供了实现此目标的详细步骤。 请注意，在本地开发群集中不支持添加/删除节点的功能。
@@ -62,13 +63,13 @@ ms.lasthandoff: 12/01/2017
 1. 在现有的任意节点上运行 [Get ServiceFabricClusterConfiguration](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps)，获取最新的配置文件，并在“Nodes”节中添加想要添加的新节点相关详细信息。 请确保新节点属于同一组合托管帐户。 此帐户应当是所有计算机的管理员。
 
     ```
-        {
-            "nodeName": "vm5",
-            "iPAddress": "182.17.34.52",
-            "nodeTypeRef": "NodeType0",
-            "faultDomain": "fd:/dc1/r0",
-            "upgradeDomain": "UD1"
-        }
+    {
+        "nodeName": "vm5",
+        "iPAddress": "182.17.34.52",
+        "nodeTypeRef": "NodeType0",
+        "faultDomain": "fd:/dc1/r0",
+        "upgradeDomain": "UD1"
+    }
     ```
 2. 运行 [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) 开始升级。
 
@@ -87,25 +88,25 @@ ms.lasthandoff: 12/01/2017
 将“NodesToBeRemoved”参数添加到“FabricSettings”节中的“Setup”节。 “value”应是一个逗号分隔列表，其中包含需要删除的节点的节点名称。
 
     ```
-         "fabricSettings": [
+    "fabricSettings": [
+        {
+        "name": "Setup",
+        "parameters": [
             {
-            "name": "Setup",
-            "parameters": [
-                {
-                "name": "FabricDataRoot",
-                "value": "C:\\ProgramData\\SF"
-                },
-                {
-                "name": "FabricLogRoot",
-                "value": "C:\\ProgramData\\SF\\Log"
-                },
-                {
-                "name": "NodesToBeRemoved",
-                "value": "vm0, vm1"
-                }
-            ]
+            "name": "FabricDataRoot",
+            "value": "C:\\ProgramData\\SF"
+            },
+            {
+            "name": "FabricLogRoot",
+            "value": "C:\\ProgramData\\SF\\Log"
+            },
+            {
+            "name": "NodesToBeRemoved",
+            "value": "vm0, vm1"
             }
         ]
+        }
+    ]
     ```
 2. 运行 [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) 开始升级。
 

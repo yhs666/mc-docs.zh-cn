@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/06/2018
-ms.date: 04/23/2018
+origin.date: 05/08/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: justini
-ms.openlocfilehash: 48251dafda41048e26bd5a63cd48a7ac89ff2e98
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: 551cc4a9bde16316c4684af9e3da5d25f1c12307
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475071"
 ---
 # <a name="azure-stack-1803-update"></a>Azure Stack 1803 更新
 
@@ -41,14 +42,25 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
 
 
 ### <a name="prerequisites"></a>先决条件
-- 在应用 Azure Stack 1803 更新之前安装 Azure Stack [1802 更新](azure-stack-update-1802.md)。    
+- 在应用 Azure Stack 1803 更新之前安装 Azure Stack [1802 更新](azure-stack-update-1802.md)。   
 
+- 在应用 Azure Stack 1803 更新之前安装 **AzS 修补程序 - 1.0.180312.1 - 内部版本 20180222.2**。 此修补程序更新了 Windows Defender，在下载 Azure Stack 的更新后即可使用。
+
+  若要安装此修补程序，请执行[安装 Azure Stack 的更新](azure-stack-apply-updates.md)所需的常规过程。 此更新的名称显示为 **AzS 修补程序 - 1.0.180312.1**，包括以下文件： 
+    - PUPackageHotFix_20180222.2-1.exe
+    - PUPackageHotFix_20180222.2-1.bin
+    - Metadata.xml
+
+  将这些文件上传到存储帐户和容器以后，请在管理门户的“更新”磁贴中运行安装。 
+  
+  与 Azure Stack 的更新不同，此更新的安装不更改 Azure Stack 的版本。 若要确认此更新是否已安装，请查看“已安装更新”列表。
 
 ### <a name="post-update-steps"></a>更新后步骤
-安装 1803 之后，请安装任何适用的修补程序。 有关详细信息，请查看以下知识库文章，以及我们的[服务策略](azure-stack-servicing-policy.md)。
+- 安装 1803 之后，请安装任何适用的修补程序。 有关详细信息，请查看以下知识库文章，以及我们的[服务策略](azure-stack-servicing-policy.md)。
 
-- [KB 4103348 - 尝试安装 Azure Stack 更新时，网络控制器 API 服务崩溃](https://support.microsoft.com/help/4103348)
+  - [KB 4294441 - 针对租户资源的操作失败，并且在同一租户或基础结构卷上创建了意外共享](https://support.microsoft.com/help/4294441)
 
+- 安装此更新后，请查看防火墙配置以确保[必需的端口](azure-stack-integrate-endpoints.md)处于打开状态。 例如，此更新引入了 Azure Monitor，其中包括将审核日志更改为活动日志。 由于此更改，端口 13012 现在已使用，并且也必须处于打开状态。  
 
 ### <a name="new-features"></a>新增功能 
 此更新包含以下适用于 Azure Stack 的改进和修复。
@@ -109,8 +121,6 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
 
 - 可能会在门户中看到空白的仪表板。 若要恢复仪表板，请选择门户右上角的齿轮图标，然后选择“还原默认设置”。
 
-- 查看资源或资源组的属性时，发现“移动”按钮已禁用。 这是预期的行为。 目前不支持在资源组或订阅之间移动资源或资源组。
-
 - 删除用户订阅生成孤立的资源。 解决方法是先删除用户资源或整个资源组，然后再删除用户订阅。
 
 - 无法使用 Azure Stack 门户查看订阅的权限。 解决方法是使用 PowerShell 验证权限。
@@ -135,7 +145,7 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
 
 - 通过转到“新建” > “计算” > “可用性集”在门户中创建可用性集时，只能创建一个包含一个容错域和 1 个更新域的可用性集。 解决方法是在创建新的虚拟机时，通过 PowerShell、CLI 或门户来创建可用性集。
 
-- 在 Azure Stack 用户门户中创建虚拟机时，该门户显示的可以附加到 DS 系列 VM 的数据磁盘数不正确。 DS 系列 VM 可以容纳的数据磁盘数取决于 Azure 配置。
+- 在 Azure Stack 用户门户中创建虚拟机时，该门户显示的可以附加到 D 系列 VM 的数据磁盘数不正确。 所有受支持的 D 系列 VM 可以容纳的数据磁盘数取决于 Azure 配置。
 
 - 无法创建 VM 映像时，可能会向 VM 映像计算边栏选项卡添加一个无法删除的故障项。
 
@@ -170,7 +180,7 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
     - *Allow：*
  
       ```powershell    
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Add-AzureRmAccount -EnvironmentName AzureStackAdmin
       
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
       
@@ -200,7 +210,7 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
 
         ```powershell
         
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Add-AzureRmAccount -EnvironmentName AzureStackAdmin
         
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
         
@@ -234,6 +244,7 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
 
 - 只有资源提供程序才能在托管 SQL 或 MySQL 的服务器上创建项目。 如果在不是由资源提供程序创建的主机服务器上创建项目，则此类项目可能导致状态不匹配。  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > 更新到 Azure Stack 1803 以后，可以继续使用以前部署的 SQL 和 MySQL 资源提供程序。  建议在新版本发布后更新 SQL 和 MySQL。 与 Azure Stack 一样，请将更新按顺序应用到 SQL 和 MySQL 资源提供程序。  例如，如果使用版本 1711，请先应用版本 1712，然后应用 1802,，再应用 1803 的更新。      
@@ -274,4 +285,4 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
 - 有关 Azure Stack 中更新管理的概述，请参阅[在 Azure Stack 中管理更新的概述](azure-stack-updates.md)。
 - 有关如何在 Azure Stack 中应用更新的详细信息，请参阅[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

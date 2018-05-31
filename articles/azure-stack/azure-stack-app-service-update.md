@@ -12,21 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/09/2018
-ms.date: 03/21/2018
+origin.date: 05/18/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8ef6df5713081166c5074dd353c2cdf10c516c1a
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 410ab77d29bb8ea4c85f20fe913e1ff9f135a79e
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474949"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>更新 Azure Stack 上的 Azure 应用服务
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!IMPORTANT]
-> 请应用针对 Azure Stack 集成系统的 1802 更新，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务。
+> 请将 1804 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.2。
 >
 >
 
@@ -55,7 +56,7 @@ ms.lasthandoff: 03/23/2018
 
 若要升级 Azure Stack 上的应用服务部署，请遵循以下步骤：
 
-1. 下载[应用服务安装程序](https://aka.ms/appsvcupdate1installer)
+1. 下载[应用服务安装程序](https://aka.ms/appsvcupdate2installer)
 
 2. 以管理员身份运行 appservice.exe
 
@@ -76,7 +77,7 @@ ms.lasthandoff: 03/23/2018
    1. 单击“Azure Stack 订阅”框旁边的“连接”按钮。
         - 如果使用 Azure Active Directory (Azure AD)，请输入在部署 Azure Stack 时提供的 Azure AD 管理员帐户和密码。 单击“登录”。
         - 如果使用 Active Directory 联合身份验证服务 (AD FS)，请提供管理员帐户。 例如，*cloudadmin@azurestack.local*。 输入密码，并单击“登录”。
-   2. 在“Azure Stack 订阅”框中，选择订阅。
+   2. 在“Azure Stack 订阅”框中，选择“默认提供商订阅”。
    3. 在“Azure Stack 位置”框中，选择要部署到的区域所对应的位置。 例如，如果要部署到 Azure Stack 开发工具包，请选择“本地”。
    4. 如果发现了现有的应用服务部署，则资源组和存储帐户将被填充并灰显。
    5. 按“下一步”查看升级摘要。
@@ -110,3 +111,4 @@ ms.lasthandoff: 03/23/2018
 - [SQL Server 资源提供程序](azure-stack-sql-resource-provider-deploy.md)
 - [MySQL 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)
 
+<!-- Update_Description: wording update -->

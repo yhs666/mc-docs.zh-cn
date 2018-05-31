@@ -1,25 +1,26 @@
 ---
-title: "升级 Windows Server 上的独立 Azure Service Fabric 群集 | Azure"
-description: "升级运行独立 Service Fabric 群集的 Azure Service Fabric 代码和/或配置，其中包括设置群集更新模式。"
+title: 升级 Windows Server 上的独立 Azure Service Fabric 群集 | Azure
+description: 升级运行独立 Service Fabric 群集的 Azure Service Fabric 代码和/或配置，其中包括设置群集更新模式。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/15/2017
-ms.date: 12/04/2017
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 08ba3e687934454ea6b9399c9ddd7dc8df5e7343
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 08d5701c9651a8439e9e0ea0efe2431ef663e199
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554203"
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>升级 Windows Server 上的独立 Azure Service Fabric 群集 
 > [!div class="op_single_selector"]
@@ -47,6 +48,7 @@ ms.lasthandoff: 02/13/2018
 如果群集节点可以通过 Internet 连接到 [Microsoft 下载中心](http://download.microsoft.com)，则使用以下步骤将群集升级至支持的版本。
 
 对于可以连接到 [Microsoft 下载中心](http://download.microsoft.com)的群集，我们会定期检查新的 Service Fabric 版本是否已发布。
+<!-- Notice: Change Microsoft to We -->
 
 推出新的 Service Fabric 版本时，相应的包将下载到群集本地，并为升级完成预配。 此外，为了通知客户已推出新版本，系统会明确显示类似于下面的群集运行状况警告：
 
@@ -234,4 +236,4 @@ ms.lasthandoff: 02/13/2018
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update meta properties -->

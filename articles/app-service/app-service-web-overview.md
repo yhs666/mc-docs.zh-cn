@@ -16,11 +16,12 @@ origin.date: 01/04/2017
 ms.date: 04/30/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 3870be679e15fbdfea79c8004518f8eff31b2d11
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: bce0404b1f118246d6e52c7b10c4ba6d04e671aa
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554119"
 ---
 # <a name="web-apps-overview"></a>Web 应用概述
 
@@ -37,8 +38,10 @@ Web 应用不仅可将 Microsoft Azure 的强大功能（例如安全性、负�
 * **多个语言和框架** - Web 应用针对 ASP.NET、ASP.NET Core、Java、Ruby、Node.js、PHP 或 Python 提供一流支持。 我们还能以后台服务的形式运行 [PowerShell 和其他脚本或可执行文件](web-sites-create-web-jobs.md)。
 * **DevOps 优化** — 使用 Visual Studio Team Services、GitHub 或 BitBucket 设置 [持续集成和部署](app-service-continuous-deployment.md) 。 通过 [测试和过渡环境](web-sites-staged-publishing.md)提升更新。 在 Web 应用中使用 [Azure PowerShell](/powershell/azureps-cmdlets-docs) 或[跨平台命令行接口 (CLI)](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 管理应用。
 * **具有高可用性的全局缩放** - 以手动或自动方式进行[增大](web-sites-scale.md)或[扩大](../monitoring-and-diagnostics/insights-how-to-scale.md)。 在 Azure.cn 的全国数据中心基础结构中的任意位置托管应用，并且应用服务 [SLA](https://www.azure.cn/support/sla/app-service/) 承诺高可用性。
+* **安全性和合规性** - 应用服务符合 [ISO、SOC 和 PCI](https://www.microsoft.com/en-us/trustcenter)的要求。 使用 [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) 和 [Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)) 对用户进行身份验证。 创建 [IP 地址限制](app-service-ip-restrictions.md)。
 * **Visual Studio 集成** — Visual Studio 中的专用工具可简化创建、部署和调试工作。
 * **API 和移动功能** - Web 应用针对 RESTful API 方案提供统包式 CORS 支持，通过启用身份验证、脱机数据同步、推送通知等功能简化移动应用方案。
+* **无服务器代码** - 按需运行代码片段或脚本，无需显式预配或管理基础结构，并且只需为代码实际使用的计算时间付费（请参阅 [Azure Functions](/azure-functions/)）。
 
 除了应用服务中的 Web 应用，Azure 还提供可用来托管网站和 Web 应用程序的其他服务。 大多数情况下，Web 应用是最佳选择。  对于微服务体系结构，请考虑使用 [Service Fabric](/service-fabric)。 如果需要更好地控制运行代码的 VM，请考虑使用 [Azure 虚拟机](/virtual-machines/)。 有关如何在这些 Azure 服务之间做出选择的详细信息，请参阅 [Azure 应用服务、虚拟机、Service Fabric 和云服务的比较](choose-web-site-cloud-service-vm.md)。
 
@@ -47,7 +50,10 @@ Web 应用不仅可将 Microsoft Azure 的强大功能（例如安全性、负�
 创建第一个 Web 应用。
 
 > [!div class="nextstepaction"]
-> [ASP.NET](app-service-web-get-started-dotnet.md)
+> [ASP.NET Core](app-service-web-get-started-dotnet.md)
+
+> [!div class="nextstepaction"]
+> [ASP.NET](app-service-web-get-started-dotnet-framework.md)
 
 > [!div class="nextstepaction"]
 > [PHP](app-service-web-get-started-php.md)

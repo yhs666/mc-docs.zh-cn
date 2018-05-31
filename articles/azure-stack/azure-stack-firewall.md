@@ -12,15 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/01/2018
-ms.date: 03/02/2018
+origin.date: 05/09/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
-ms.openlocfilehash: a9eb7291f6c5ace0e561bd695869618a7e29f0fd
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 72f99533954f2fe07b4001026d1e7447e129b53e
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474933"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack 防火墙集成
 建议使用防火墙设备来帮助保护 Azure Stack。 虽然防火墙可以发挥很多作用，例如抵御分布式拒绝服务 (DDOS) 工具、执行入侵检测和内容检查，但是它们也可能会成为 Azure 存储服务（例如 blob、表和队列）的吞吐量瓶颈。
@@ -45,7 +46,7 @@ Azure 资源管理器（管理员）、管理员门户和 Key Vault（管理员�
 当前建议禁用对所有 Azure Stack 流量的 SSL 解密。 如果将来的更新中支持此功能，那时将会提供有关如何为 Azure Stack 启用 SSL 解密的指南。
 
 ## <a name="edge-firewall-scenario"></a>边缘防火墙方案
-在边缘部署中，Azure Stack 直接部署在边缘路由器或防火墙后面。 在这些方案中，如果防火墙支持采用 BGP 或静态路由的等成本多路径 (ECMP)，则支持将防火墙放置在边界上方或用作边界设备。
+在边缘部署中，Azure Stack 直接部署在边缘路由器或防火墙后面。 在这些方案中，支持将防火墙放置在边界上方（例如方案 1，在这种情况下它支持主动-主动和主动-被动防火墙配置）或让防火墙充当边界设备（例如方案 2，在这种情况下它仅支持依赖于等成本多路径 (ECMP) 的主动-主动防火墙配置，并使用 BGP 或静态路由进行故障转移）。
 
 通常情况下，在部署时会为外部网络中的公共 VIP 池指定公共的可路由 IP 地址。 在边缘方案中，出于安全考虑，建议不要在任何其他网络上使用公共的可路由 IP。 与在 Azure 之类的公有云中一样，此方案使得用户能够获得完全的自控云体验。  
 
@@ -67,3 +68,4 @@ Azure 资源管理器（管理员）、管理员门户和 Key Vault（管理员�
 [Azure Stack PKI 要求](azure-stack-pki-certs.md)
 
 
+<!-- Update_Description: wording update -->

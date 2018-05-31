@@ -1,8 +1,8 @@
 ---
-title: "如何将 Azure Redis 缓存与 Node.js 配合使用 | Microsoft Docs"
-description: "开始将 Azure Redis 缓存与 Node.js 和 node_redis 配合使用。"
+title: 如何将 Azure Redis 缓存与 Node.js 配合使用 | Microsoft Docs
+description: 开始将 Azure Redis 缓存与 Node.js 和 node_redis 配合使用。
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
 editor: v-lincan
@@ -13,25 +13,25 @@ ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 origin.date: 02/10/2017
-ms.date: 02/28/2018
+ms.date: 05/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 216084fb1bc1ee8b37c80ff37fbff90dd4f9f5ce
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 9aec880df4d3590d0f2fc5f995deabfbb9f3727f
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554075"
 ---
 # <a name="how-to-use-azure-redis-cache-with-nodejs"></a>如何将 Azure Redis 缓存与 Node.js 配合使用
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+> * [.NET Core](cache-dotnet-core-quickstart.md)
 > * [ASP.NET](cache-web-app-howto.md)
 > * [Node.js](cache-nodejs-get-started.md)
 > * [Java](cache-java-get-started.md)
 > * [Python](cache-python-get-started.md)
 > 
 > 
-
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 Azure Redis 缓存允许访问 Microsoft 管理的安全、专用的 Redis 缓存。 可从 Azure 内部的任何应用程序访问缓存。
 
@@ -64,7 +64,7 @@ Azure Redis 缓存允许访问 Microsoft 管理的安全、专用的 Redis 缓�
 > 
 
 ## <a name="add-something-to-the-cache-and-retrieve-it"></a>在缓存中添加一些内容并检索此内容
-下面的示例展示了如何连接到 Azure Redis 缓存实例，以及如何在缓存中存储和检索项目。 有关将 Redis 与 [node_redis](https://github.com/mranney/node_redis) 客户端一起使用的更多示例，请参阅 [http://redis.js.org/](http://redis.js.org/)。
+以下示例显示了如何连接到 Azure Redis 缓存实例，以及如何在缓存中存储并检索项目。 有关将 Redis 与 [node_redis](https://github.com/mranney/node_redis) 客户端一起使用的更多示例，请参阅 [http://redis.js.org/](http://redis.js.org/)。
 
      var redis = require("redis");
 

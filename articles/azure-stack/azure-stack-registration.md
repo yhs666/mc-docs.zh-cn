@@ -12,21 +12,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/27/2018
-ms.date: 04/20/2018
+origin.date: 05/11/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: avishwan
-ms.openlocfilehash: 52a6d284ec40b25d657cdfdf04a620fe0c218545
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: e559a0a631b342b41bb9454e6a1387eae112be98
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475101"
 ---
 # <a name="register-azure-stack-with-azure"></a>将 Azure Stack 注册到 Azure
 将 [Azure Stack](azure-stack-poc.md) 注册到 Azure 即可从 Azure 下载 Marketplace 项，并设置向 Microsoft 报告商业数据的功能。 注册 Azure Stack 之后，使用情况会报告给 Azure 商业组件，然后你就可以在用于注册的订阅下查看它。 
 
 > [!IMPORTANT]
-> 如果选择即用即付计费模式，则必须注册。 否则，将违反 Azure Stack 部署的许可条款，并且不会报告用量信息。
+> 需要注册才能支持完整的 Azure Stack 功能，包括 Marketplace 联合。 此外，如果你在使用即用即付计费模式时未注册，则将违反 Azure Stack 许可条款。 若要了解有关 Azure Stack 授权模型的详细信息，请参阅[“如何购买”页](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)。
 
 ## <a name="prerequisites"></a>先决条件
 将 Azure Stack 注册到 Azure 之前，必须准备好：
@@ -59,8 +60,8 @@ Azure Stack 工具 GitHub 存储库包含支持 Azure Stack 功能（包括注�
 
 1. 添加用于注册 Azure Stack 的 Azure 帐户。 若要添加该帐户，请运行 **Add-AzureRmAccount** cmdlet。 系统会提示输入 Azure 全局管理员帐户凭据。可能必须使用双重身份验证，具体取决于帐户的配置。
 
-   ```Powershell
-      Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+   ```PowerShell
+   Add-AzureRmAccount -EnvironmentName "<Either AzureCloud or AzureChinaCloud>"
    ```
 
    | 参数 | 说明 |  
@@ -71,7 +72,7 @@ Azure Stack 工具 GitHub 存储库包含支持 Azure Stack 功能（包括注�
 2. 如果有多个订阅，请运行以下命令，选择要使用的那个订阅：  
 
    ```PowerShell
-      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
 3. 运行以下命令，在 Azure 订阅中注册 Azure Stack 资源提供程序：
@@ -92,7 +93,7 @@ Azure Stack 工具 GitHub 存储库包含支持 Azure Stack 功能（包括注�
 2. 接下来，在同一个 PowerShell 会话中，确保已登录到正确的 Azure PowerShell 上下文。 这是用于注册上述 Azure Stack 资源提供程序的 Azure 帐户。 要运行的 Powershell： 
 
     ```powershell 
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Add-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>" 
     ``` 
 
 3. 在同一个 PowerShell 会话中运行 **Set-AzsRegistration** cmdlet。 要运行的 PowerShell：  
@@ -147,7 +148,7 @@ Set-AzsRegistration `
 
     ```Powershell
     $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<your agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
     ```
   
     > [!TIP]  

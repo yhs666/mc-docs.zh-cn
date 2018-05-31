@@ -1,11 +1,11 @@
 ---
-title: "如何将 Azure Redis 缓存与 Java 配合使用 | Microsoft Docs"
-description: "开始将 Azure Redis 缓存与 Java 配合使用"
+title: 如何将 Azure Redis 缓存与 Java 配合使用 | Microsoft Docs
+description: 开始将 Azure Redis 缓存与 Java 配合使用
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 29275a5e-2e39-4ef2-804f-7ecc5161eab9
 ms.service: cache
 ms.devlang: java
@@ -13,17 +13,19 @@ ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 origin.date: 08/31/2017
-ms.date: 02/28/2018
+ms.date: 05/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1ff2ac4e025c1e5858784ab65d855f02e418cbb9
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 4db60f53cca1c59a9b2fadd2bad89c5d4b15b77b
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554201"
 ---
 # <a name="how-to-use-azure-redis-cache-with-java"></a>如何将 Azure Redis 缓存与 Java 配合使用
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+> * [.NET Core](cache-dotnet-core-quickstart.md)
 > * [ASP.NET](cache-web-app-howto.md)
 > * [Node.js](cache-nodejs-get-started.md)
 > * [Java](cache-java-get-started.md)
@@ -40,7 +42,7 @@ Azure Redis 缓存可让你访问 Azure.cn 管理的专用 Redis 缓存。 可�
 ## <a name="prerequisites"></a>先决条件
 [Jedis](https://github.com/xetorthio/jedis) - Redis 的 Java 客户端
 
-本教程使用 Jedis，但可以使用 [http://redis.io/clients](http://redis.io/clients)中列出的任何 Java 客户端。
+本教程使用 Jedis，但你可以使用 [http://redis.io/clients](http://redis.io/clients) 中列出的任何 Java 客户端。
 
 ## <a name="create-a-redis-cache-on-azure"></a>在 Azure 上创建 Redis 缓存
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -82,7 +84,7 @@ Azure Redis 缓存可让你访问 Azure.cn 管理的专用 Redis 缓存。 可�
 
 
 ## <a name="next-steps"></a>后续步骤
-- [启用缓存诊断](/redis-cache/cache-how-to-monitor#EnableDiagnostics)，以便可以[监视](/redis-cache/cache-how-to-monitor)缓存的运行状况。
+- [启用缓存诊断](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics)，以便可以[监视](https://msdn.microsoft.com/library/azure/dn763945.aspx)缓存的运行状况。
 - 阅读官方 [Redis 文档](http://redis.io/documentation)。
 - 了解[如何配置 Spring Initializr 应用，以使用 Redis 缓存](cache-java-spring-boot-initializer-with-redis-cache.md)。
 

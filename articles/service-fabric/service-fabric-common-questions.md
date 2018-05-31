@@ -9,23 +9,30 @@ editor: ''
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/18/2017
-ms.date: 04/30/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9e52806336d566e2fefea3820531409358618d21
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 8a0a8a3d376c2609ddf9590cb2da8ca81df8efc1
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554573"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 常见问题
 
 有许多关于 Service Fabric 可以做些什么以及应该如何使用的常见问题。 本文档介绍其中许多常见问题及其答案。
 
 ## <a name="cluster-setup-and-management"></a>群集设置和管理
+
+### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>如何回退 Service Fabric 群集证书？
+
+回退应用程序的任何升级需要在提交更改的 Service Fabric 群集仲裁前，进行运行状况故障检测；已提交的更改只能前滚。 如果引入了不受监控的重大证书更改，则可能需要呈报工程师的通过客户支持服务才能恢复群集。  [Service Fabric 的应用程序升级](/service-fabric/service-fabric-application-upgrade.md)应用[应用程序升级参数](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)，并提供零停机时间升级承诺。  按照建议的应用程序升级监视模式，更新域上的自动更新进度基于运行状况检查是否通过，如果更新默认服务失败，将自动回退。
+
+如果你的群集仍在利用资源管理器模板中的经典 Certificate Thumbprint 属性，建议你[将群集从证书指纹更改为公用名称](/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn)，以便利用新式机密管理功能。
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>是否可以创建跨越多个 Azure 区域或自己的数据中心的群集？
 
@@ -89,7 +96,7 @@ ms.lasthandoff: 04/28/2018
 <!--Not Available on [Encrypt disks (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) -->
 <!--Not Available on [Encrypt disks (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md)-->
 
-### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster-"></a>在群集中运行防病毒程序时需要排除哪些目录和进程？
+### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>在群集中运行防病毒程序时需要排除哪些目录和进程？
 
 | **防病毒排除目录** |
 | --- |
@@ -167,4 +174,4 @@ Reliable Services 通常已分区，因此，存储量仅受限于群集中的�
 
 <!-- Not Available on  [Learn about core Service Fabric concepts and best practices](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965) -->
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

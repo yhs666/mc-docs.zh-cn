@@ -1,25 +1,26 @@
 ---
-title: "Service Fabric 应用升级教程 | Azure"
-description: "本文逐步指导使用 Visual Studio 部署 Service Fabric 应用程序、更改代码以及推出升级版本。"
+title: Service Fabric 应用升级教程 | Azure
+description: 本文逐步指导使用 Visual Studio 部署 Service Fabric 应用程序、更改代码以及推出升级版本。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: a3181a7a-9ab1-4216-b07a-05b79bd826a4
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: d904e64c6085e7c24896f34298eb9a9011414aee
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 73693b795f38cc4e38e7c84a93bcae94dadd5ba0
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554221"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>使用 Visual Studio 进行 Service Fabric 应用程序升级的教程
 > [!div class="op_single_selector"]
@@ -89,4 +90,4 @@ Azure Service Fabric 确保只升级已更改的服务，并在整个升级过�
 [image3]: media/service-fabric-application-upgrade-tutorial/upgrade5.png
 [image4]: media/service-fabric-application-upgrade-tutorial/upgrade6.png
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties  -->

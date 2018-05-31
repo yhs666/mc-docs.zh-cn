@@ -1,25 +1,26 @@
 ---
-title: "使用 PowerShell 升级 Service Fabric 应用 | Azure"
-description: "本文逐步指导使用 PowerShell 部署 Service Fabric 应用程序、更改代码以及推出升级版本。"
+title: 使用 PowerShell 升级 Service Fabric 应用 | Azure
+description: 本文逐步指导使用 PowerShell 部署 Service Fabric 应用程序、更改代码以及推出升级版本。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 9bc75748-96b0-49ca-8d8a-41fe08398f25
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2e859a49dc6addab1b81340fe88b61862e262b81
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: a4f63e98f2fca2d63144ec915b3dc4ce4e98ae09
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554626"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>使用 PowerShell 升级 Service Fabric 应用程序
 > [!div class="op_single_selector"]
@@ -35,7 +36,7 @@ ms.lasthandoff: 03/08/2018
 可使用托管或本机 API、PowerShell 或 REST 执行应用程序的受监控升级。 有关使用 Visual Studio 执行升级的说明，请参阅[使用 Visual Studio 升级应用程序](service-fabric-application-upgrade-tutorial.md)。
 
 使用 Service Fabric 监视的滚动升级，应用程序管理员可以配置 Service Fabric 用于确定应用程序运行状况是否正常的运行状况评估策略。 此外，管理员还可以配置当运行状况评估失败时要采取的措施（例如，执行自动回滚）。本部分演练使用 PowerShell 对其中一个 SDK 示例进行受监视的升级。
-<!-- Not Avaialble on MVA VEDIO -->
+<!-- Not Avaialble on MVA VEDIO https://mva.microsoft.com/en-US/training-courses/ -->
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>步骤 1：构建和部署视觉对象示例
 单击右键应用程序项目 **VisualObjectsApplication**，并选择“**发布**”命令生成并发布应用程序。  有关详细信息，请参阅 [Service Fabric 应用程序升级教程](service-fabric-application-upgrade-tutorial.md)。  或者，也可以使用 PowerShell 来部署应用程序。
@@ -145,4 +146,4 @@ Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects
 
 参考[对应用程序升级进行故障排除](service-fabric-application-upgrade-troubleshooting.md)中的步骤来解决应用程序升级时的常见问题。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties  -->

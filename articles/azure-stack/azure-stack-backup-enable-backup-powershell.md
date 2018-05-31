@@ -6,85 +6,51 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 7DFEFEBE-D6B7-4BE0-ADC1-1C01FB7E81A6
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/15/2017
-ms.date: 03/01/2018
+origin.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 39751a2911ab378aa2c8a9b5da579121d240bd54
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.reviewer: hectorl
+ms.openlocfilehash: 966fdb6965d966095b88c759079373b3759e532e
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474906"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>使用 PowerShell 为 Azure Stack 启用备份
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-使用 Windows PowerShell 启用基础结构备份服务，以便出现故障时可以还原 Azure Stack。 可以访问 PowerShell cmdlet 以启用备份、启动备份，以及通过操作员管理终结点获取备份信息。
+使用 Windows PowerShell 启用基础结构备份服务，以便定期备份以下内容：
+ - 内部标识服务和根证书
+ - 用户计划、产品/服务、订阅
+ - KeyVault 机密
+ - 用户 RBAC 角色和策略
 
-## <a name="download-azure-stack-tools"></a>下载 Azure Stack 工具
+可以访问 PowerShell cmdlet 以启用备份、启动备份，以及通过操作员管理终结点获取备份信息。
 
-安装并配置适用于 Azure Stack 的 PowerShell 和 Azure Stack 工具。 请参阅[在 Azure Stack 中启动并运行 PowerShell](/azure-stack/azure-stack-powershell-configure-quickstart)。
+## <a name="prepare-powershell-environment"></a>准备 PowerShell 环境
 
-##  <a name="load-the-connect-and-infrastructure-modules"></a>加载连接和基础结构模块
+有关配置 PowerShell 环境的说明，请参阅[安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
 
-使用权限提升的提示符打开 Windows PowerShell，并运行以下命令：
-
-   ```powershell
-    cd C:\tools\AzureStack-Tools-master\Connect
-    Import-Module .\AzureStack.Connect.psm1
-    
-    cd C:\tools\AzureStack-Tools-master\Infrastructure
-    Import-Module .\AzureStack.Infra.psm1 
-    
-   ```
-
-##  <a name="setup-rm-environment-and-log-into-the-operator-management-endpoint"></a>设置 Rm 环境并登录到操作员管理终结点
-
-在同一 PowerShell 会话中，通过添加环境变量编辑以下 PowerShell 脚本。 运行更新的脚本以设置 RM 环境并登录到操作员管理终结点。
-
-| 变量    | 说明 |
-|---          |---          |
-| $TenantName | Azure Active Directory 租户名称。 |
-| 操作员帐户名称        | Azure Stack 操作员帐户名称。 |
-| Azure 资源管理器终结点 | Azure 资源管理器的 URL。 |
-
-   ```powershell
-   # Specify Azure Active Directory tenant name
-    $TenantName = "contoso.partner.onmschina.cn"
-    
-    # Set the module repository and the execution policy
-    Set-PSRepository `
-      -Name "PSGallery" `
-      -InstallationPolicy Trusted
-    
-    Set-ExecutionPolicy RemoteSigned `
-      -force
-    
-    # Configure the Azure Stack operator’s PowerShell environment.
-    Add-AzureRMEnvironment `
-      -Name "AzureStackAdmin" `
-      -ArmEndpoint "https://adminmanagement.seattle.contoso.com"
-    
-    Set-AzureRmEnvironment `
-      -Name "AzureStackAdmin" `
-      -GraphAudience "https://graph.chinacloudapi.cn/"
-    
-    $TenantID = Get-AzsDirectoryTenantId `
-      -AADTenantName $TenantName `
-      -EnvironmentName AzureStackAdmin
-    
-    # Sign-in to the operator's console.
-    Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
-    
-   ```
 ## <a name="generate-a-new-encryption-key"></a>生成新加密密钥
 
+安装并配置适用于 Azure Stack 的 PowerShell 和 Azure Stack 工具。
+ - 请参阅[在 Azure Stack 中启动并运行 PowerShell](/azure-stack/azure-stack-powershell-configure-quickstart)。
+ - 请参阅[从 GitHub 下载 Azure Stack 工具](azure-stack-powershell-download.md)
+
+使用权限提升的提示符打开 Windows PowerShell，并运行以下命令：
+   
+   ```powershell
+    cd C:\tools\AzureStack-Tools-master\Infrastructure
+    Import-Module .\AzureStack.Infra.psm1 
+   ```
+   
 在同一 PowerShell 会话中，运行以下命令：
 
    ```powershell
@@ -100,7 +66,7 @@ ms.lasthandoff: 03/02/2018
 
 | 变量        | 说明   |
 |---              |---                                        |
-| $username       | 使用域和用户名键入共享驱动器位置的**用户名**。 例如，`Contoso\administrator`。 |
+| $username       | 使用共享驱动器位置具有足够访问权限的域和用户名输入**用户名**，以便读取和写入文件。 例如，`Contoso\backupshareuser`。 |
 | $password       | 键入用户的**密码**。 |
 | $sharepath      | 键入**备份存储位置**的路径。 必须使用通用命名约定 (UNC) 字符串表示单独的设备上托管的文件共享的路径。 UNC 字符串指定资源（如共享文件或设备）的位置。 若要确保备份数据的可用性，设备应放置在单独的位置。 |
 
@@ -119,13 +85,13 @@ ms.lasthandoff: 03/02/2018
 在同一 PowerShell 会话中，运行以下命令：
 
    ```powershell
-   Get-AzsBackupLocation | Select-Object -Property Path, UserName, Password | ConvertTo-Json 
+   Get-AzsBackupLocation | Select-Object -ExpandProperty externalStoreDefault | Select-Object -Property Path, UserName, Password | ConvertTo-Json
    ```
 
 结果应类似于下面的 JSON 输出：
 
    ```json
-      {
+   {
     "ExternalStoreDefault":  {
         "Path":  "\\\\serverIP\\AzSBackupStore\\contoso.com\\seattle",
         "UserName":  "domain\backupoadmin",
@@ -137,5 +103,6 @@ ms.lasthandoff: 03/02/2018
 ## <a name="next-steps"></a>后续步骤
 
  - 了解如何运行备份，请参阅[备份 Azure Stack](azure-stack-backup-back-up-azure-stack.md )。  
-- 了解如何验证备份是否已运行，请参阅[在管理门户中确认已完成的备份](azure-stack-backup-back-up-azure-stack.md )。
+ - 了解如何验证备份是否已运行，请参阅[在管理门户中确认已完成的备份](azure-stack-backup-back-up-azure-stack.md )。
 
+<!-- Update_Description: wording update -->

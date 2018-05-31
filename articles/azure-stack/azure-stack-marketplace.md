@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/06/2018
-ms.date: 04/20/2018
+origin.date: 05/16/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: 883e325ca72a18b233078ba1d97e41143b29e1c8
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: 874581c25b0d61faf6fa18d9cf7510ef1a92cc1f
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474884"
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Azure Stack Marketplace 概述
 
@@ -30,7 +31,7 @@ Marketplace 是一组针对 Azure Stack 自定义的服务、应用程序和资�
 
 Azure Stack 操作员可以确定要添加（发布）到 Marketplace 的项。 可以发布数据库、应用服务等项。 发布项可让所有用户看到它们。 可以发布创建的自定义项。 还可以从不断扩充的 [Azure Marketplace 项列表](azure-stack-marketplace-azure-items.md)发布项。 将某个项发布到 Marketplace 后，用户在五分钟内就能看到它。
 
-若要打开 Marketplace，请单击“新建”。
+若要打开 Marketplace，请在管理控制台中选择“新建”。
 
 ![](./media/azure-stack-publish-custom-marketplace-item/image1.png)
 
@@ -48,6 +49,7 @@ Azure Stack Marketplace 项是用户可下载并使用的服务、应用程序�
 在 1803 和更高版本中，从 Azure 下载映像或上传自定义映像时，Azure Stack 会将映像转换为稀疏文件。 此过程会在添加映像时延长时间，但可节省空间并加速这些映像的部署。 转换仅适用于新映像。  现有映像不会更改。 
 
 ## <a name="next-steps"></a>后续步骤
+[下载 Marketplace 项](azure-stack-download-azure-marketplace-item.md)  
 [创建和发布 Marketplace 项](azure-stack-create-and-publish-marketplace-item.md)
 
 <!-- Update_Description: wording update -->

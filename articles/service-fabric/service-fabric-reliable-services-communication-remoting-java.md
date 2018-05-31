@@ -1,24 +1,25 @@
 ---
-title: "Azure Service Fabric 中的服务远程处理 | Azure"
-description: "Service Fabric 远程处理允许客户端和服务使用远程过程调用来与服务进行通信。"
+title: Azure Service Fabric 中的服务远程处理 | Azure
+description: Service Fabric 远程处理允许客户端和服务使用远程过程调用来与服务进行通信。
 services: service-fabric
 documentationcenter: java
 author: rockboyfor
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 06/30/2017
-ms.date: 01/01/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4b3143f366bbc9c59bee5d4596d1f4f0752696b5
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: d4d60c5ef48ff1cc8a88730c257810ef6a2f33fd
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554309"
 ---
 # <a name="service-remoting-with-reliable-services"></a>通过 Reliable Services 进行服务远程处理
 > [!div class="op_single_selector"]
@@ -102,7 +103,7 @@ Factory 是一项高成本操作。 `FabricServiceProxyFactory` 维护通信客�
 ServiceProxy 对为其创建的服务分区，处理所有故障转移异常。 如果存在故障转移异常（非暂时异常），它将重新解析终结点，并通过正确的终结点重试调用。 故障转移异常可无限次重试。
 在 TransientExceptions 情况下，它仅重试调用。
 
-默认重试参数由 [OperationRetrySettings] 提供。 (https://docs.azure.cn/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) 用户可通过将 OperationRetrySettings 对象传递至 ServiceProxyFactory 构造函数来配置这些值。
+默认重试参数由 [OperationRetrySettings] 提供。 (https://docs.azure.cn/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) 用户可以通过将 OperationRetrySettings 对象传递给 ServiceProxyFactory 构造函数配置这些值。
 
 ## <a name="next-steps"></a>后续步骤
 * [确保 Reliable Services 的通信安全](service-fabric-reliable-services-secure-communication.md)

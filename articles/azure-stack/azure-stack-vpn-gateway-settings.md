@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 01/18/2018
-ms.date: 03/04/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 51275ae6f0c83366da64f2e23d35059573c12ee7
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 550034d4690604c41043b321804cf7201435d8c9
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475063"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack 的 VPN 网关配置设置
 
@@ -46,16 +47,13 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 ### <a name="gateway-skus"></a>网关 SKU
 创建虚拟网络网关时，需要指定要使用的网关 SKU。 根据工作负荷、吞吐量、功能和 SLA 的类型，选择满足需求的 SKU。
 
->[!NOTE]
-> 经典虚拟网络应继续使用旧版 SKU。 有关旧版网关 SKU 的详细信息，请参阅[使用虚拟网关 SKU（旧版）](/vpn-gateway/vpn-gateway-about-skus-legacy)。
-
 Azure Stack 提供以下 VPN 网关 SKU：
 
 |   | VPN 网关吞吐量 |VPN 网关最大 IPsec 隧道数 |
 |-------|-------|-------|
 |**基本 SKU**  | 100 Mbps  | 10 个    |
 |**标准 SKU**           | 100 Mbps  | 10 个    |
-|**高性能 SKU** | 200 Mbps    | 30    |
+|**高性能 SKU** | 200 Mbps    | 5 |
 
 ### <a name="resizing-gateway-skus"></a>调整网关 SKU 大小
 Azure Stack 不支持在所支持的旧式 SKU 之间调整 SKU 大小。
@@ -91,11 +89,11 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 为 VPN 网关配置创建虚拟网络网关时，必须指定 VPN 类型。 选择的 VPN 类型取决于要创建的连接拓扑。  VPN 类型还取决于使用的硬件。 S2S 配置需要 VPN 设备。 有些 VPN 设备仅支持特定的 VPN 类型。
 
 > [!IMPORTANT]  
-> 目前，Azure Stack 仅支持基于路由的 VPN 类型。 如果设备仅支持基于策略的 VPN，则不支持从 Azure Stack 连接到这些设备。
+> 目前，Azure Stack 仅支持基于路由的 VPN 类型。 如果设备仅支持基于策略的 VPN，则不支持从 Azure Stack 连接到这些设备。  此外，由于自定义 IPSec/IKE 策略配置尚不受支持，因此 Azure Stack 目前不支持对基于路由的网关使用基于策略的流量选择器。
 
 - **PolicyBased**：（受 Azure 支持，但不受 Azure Stack 支持）基于策略的 VPN 会根据使用本地网络和 Azure Stack VNet 之间的地址前缀的各种组合配置的 IPsec 策略，加密数据包并引导其通过 IPsec 隧道。 通常会在 VPN 设备配置中将策略（或流量选择器）定义为访问列表。
 
-- **RouteBased**：RouteBased VPN 使用 IP 转发或路由表中的“路由”将数据包引导到相应的隧道接口中。 然后，隧道接口会加密或解密出入隧道的数据包。 RouteBased VPN 的策略（或流量选择器）配置为任意到任意（或通配符）。 基于路由的 VPN 类型的值为 RouteBased。
+- **RouteBased**：RouteBased VPN 使用 IP 转发或路由表中的“路由”将数据包引导到相应的隧道接口中。 然后，隧道接口会加密或解密出入隧道的数据包。 RouteBased VPN 的策略（或流量选择器）默认配置为任意到任意（或通配符），且无法更改。 基于路由的 VPN 类型的值为 RouteBased。
 
 以下 PowerShell 示例将 -VpnType 指定为 RouteBased。 在创建网关时，必须确保用于配置的 -VpnType 正确。
 
@@ -111,7 +109,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 |--|--|--|--|--|
 | **站点到站点连接（S2S 连接）** | 不支持 | 基于路由的 VPN 配置 | 基于路由的 VPN 配置 | 基于路由的 VPN 配置 |
 | **身份验证方法**  | 不支持 | S2S 连接的预先共享密钥  | S2S 连接的预先共享密钥  | S2S 连接的预先共享密钥  |   
-| **S2S 连接的最大数目**  | 不支持 | 10 个 | 10 个| 30|
+| **S2S 连接的最大数目**  | 不支持 | 10 个 | 10 个| 5|
 |**活动路由支持 (BGP)** | 不支持 | 不支持 | 支持 | 支持 |
 
 ### <a name="gateway-subnet"></a>网关子网
@@ -161,8 +159,9 @@ Azure Stack 仅支持一个产品/服务，这与 Azure 不同，后者支持将
 |SDK 版本 |IKEv2 |
 |加密和哈希算法（加密）     | GCMAES256|
 |加密和哈希算法（身份验证） | GCMAES256|
-|SA 生存期（时间）  | 14,400 秒 |
+|SA 生存期（时间）  | 27,000 秒 |
 |SA 生存期（字节数） | 819,200       |
 |完全向前保密 (PFS) |PFS2048 |
 |死对等体检测 | 支持|  
 
+<!-- Update_Description: wording update -->

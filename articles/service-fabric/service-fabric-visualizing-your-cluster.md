@@ -1,25 +1,26 @@
 ---
-title: "使用 Azure Service Fabric Explorer 可视化群集 | Azure"
-description: "Service Fabric Explorer 是一个用于检验和管理 Azure Service Fabric 群集中的云应用程序和节点的应用程序。"
+title: 使用 Azure Service Fabric Explorer 可视化群集 | Azure
+description: Service Fabric Explorer 是一个用于检验和管理 Azure Service Fabric 群集中的云应用程序和节点的应用程序。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/02/2018
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8e158ccd2da73eacbf6459e94c5ce32289c2d8ec
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 523bcdb2b7d3b31152ef80c64246427bb523b38a
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554427"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>使用 Service Fabric Explorer 可视化群集
 
@@ -46,12 +47,12 @@ Service Fabric Explorer (SFX) 是一种用于检验和管理 Azure Service Fabri
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>从群集运行 Service Fabric Explorer
 
-Service Fabric Explorer 同时在 Service Fabric 群集的 HTTP 管理终结点中进行托管。 若要在 Web 浏览器中启动 SFX，则从任意浏览器（如 https://clusterFQDN:19080 ）浏览到群集的 HTTP 管理终结点。
+Service Fabric Explorer 同时在 Service Fabric 群集的 HTTP 管理终结点中进行托管。 若要在 Web 浏览器中启动 SFX，则从任意浏览器（如 https://clusterFQDN:19080）浏览到群集的 HTTP 管理终结点。
 
 对于开发人员工作站设置，可以通过导航到 https://localhost:19080/Explorer 在本地群集上启动 Service Fabric Explorer。 阅读本文，了解如何[准备开发环境](service-fabric-get-started.md)。
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>连接到 Service Fabric 群集
-若要连接到 Service Fabric 群集，需要群集管理终结点 (FQDN/IP) 和 HTTP 管理终结点端口（默认情况下为 19080）。 例如 https://mysfcluster.chinanorth.cloudapp.chinacloudapi.cn:19080。 使用“连接到 localhost”复选框，连接到工作站上的本地群集。
+若要连接到 Service Fabric 群集，需要群集管理终结点 (FQDN/IP) 和 HTTP 管理终结点端口（默认情况下为 19080）。 例如，https://mysfcluster.chinanorth.cloudapp.chinacloudapi.cn:19080。 使用“连接到 localhost”复选框，连接到工作站上的本地群集。
 
 ### <a name="connect-to-a-secure-cluster"></a>连接到安全群集
 可以使用证书或 Azure Active Directory (AAD) 控制客户端对 Service Fabric 群集的访问。
@@ -121,4 +122,4 @@ Service Fabric Explorer 提供用于对群集中的节点、应用程序和服�
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties-->

@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 08/29/2016
-ms.date: 04/30/2018
+ms.date: 06/04/2018
 ms.author: v-yiso
-ms.openlocfilehash: 99f87bb590aee784eef11787f7f20430412cc194
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 3672d3579be5d01bbf80f740fa1e769a5e1d04d8
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554316"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure 应用服务中的身份验证和授权
 
-Azure 应用服务提供内置的身份验证和授权支持。只需在 Web 应用、API 和移动后端中编写少量的代码或根本无需编写代码，就能让用户登录和访问数据。 本文介绍应用服务如何帮助简化应用的身份验证和授权。 
+Azure 应用服务提供内置的身份验证和授权支持。只需在 Web 应用、API、移动后端和 [Azure Functions](../azure-functions/functions-overview.md) 中编写少量的代码或根本无需编写代码，就能让用户登录和访问数据。 本文介绍应用服务如何帮助简化应用的身份验证和授权。 
 
 安全身份验证和授权需要对联合身份验证、加密、[JSON Web 令牌 (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) 管理、[授权类型](https://oauth.net/2/grant-types/)等安全性方面有深度的了解。 应用服务提供这些实用工具，让你将更多的时间和精力花费在为客户提供业务价值上。
 
@@ -52,6 +53,7 @@ Azure 应用服务提供内置的身份验证和授权支持。只需在 Web 应
 
 对于所有语言框架，应用服务通过将用户声明注入请求标头，向代码提供这些声明。 对于 ASP.NET 4.6 应用，应用服务会在 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) 中填充经过身份验证的用户声明，使你能够遵循标准的 .NET 代码模式（包括 `[Authorize]` 属性）。 同样，对于 PHP 应用，应用服务会填充 `_SERVER['REMOTE_USER']` 变量。
 
+对于 [Azure Functions](../azure-functions/functions-overview.md)，.NET 代码的 `ClaimsPrincipal.Current` 不会解冻，但仍可以在请求标头中找到用户声明。
 
 有关详细信息，请参阅[访问用户声明](app-service-authentication-how-to.md#access-user-claims)。
 
@@ -88,7 +90,12 @@ Azure 应用服务提供内置的身份验证和授权支持。只需在 Web 应
 身份验证流对于所有提供程序是相同的，但根据是否要使用提供程序的 SDK 登录而有所差别：
 
 - 不使用提供程序 SDK：应用程序向应用服务委托联合登录。 浏览器应用通常采用此方案，这可以防止向用户显示提供程序的登录页。 服务器代码管理登录过程，因此，此流也称为“服务器导向流”或“服务器流”。 此方案适用于 Web 应用。 它也适用于使用移动应用客户端 SDK 登录用户的本机应用，因为 SDK 会打开 Web 视图，使用应用服务身份验证将用户登录。 
-- 使用提供程序 SDK：应用程序手动将用户登录，然后将身份验证令牌提交给应用服务进行验证。 无浏览器应用通常采用此方案，这可以防止向用户显示提供程序的登录页。 应用程序代码管理登录过程，因此，此流也称为“客户端导向流”或“客户端流”。 此方案适用于 REST API 和 JavaScript 浏览器客户端，以及在登录过程中需要更高灵活性的 Web 应用。 它还适用于使用提供程序 SDK 登录用户的本机移动应用。
+- 使用提供程序 SDK：应用程序手动将用户登录，然后将身份验证令牌提交给应用服务进行验证。 无浏览器应用通常采用此方案，这可以防止向用户显示提供程序的登录页。 应用程序代码管理登录过程，因此，此流也称为“客户端导向流”或“客户端流”。 此方案适用于 REST API、[Azure Functions](../azure-functions/functions-overview.md) 和 JavaScript 浏览器客户端，以及在登录过程中需要更高灵活性的 Web 应用。 它还适用于使用提供程序 SDK 登录用户的本机移动应用。
+
+> [!NOTE]
+> 可以使用服务器导向流，对来自应用服务中受信任浏览器应用的调用，或者来自应用服务或 [Azure Functions](../azure-functions/functions-overview.md) 中另一 REST API 的调用进行身份验证。 有关详细信息，请参阅[使用 Azure 应用服务对用户进行身份验证]()。
+>
+
 下表说明了身份验证流的步骤。
 
 | 步骤 | 不使用提供程序 SDK | 使用提供程序 SDK |
@@ -129,12 +136,13 @@ Azure 应用服务提供内置的身份验证和授权支持。只需在 Web 应
 
 ## <a name="more-resources"></a>更多资源
 
-[教程：在 Azure 应用服务中对用户进行端到端身份验证和授权](app-service-web-tutorial-auth-aad.md)  
+[教程：在 Azure 应用服务 (Windows) 中对用户进行端到端身份验证和授权](app-service-web-tutorial-auth-aad.md)  
 [在应用服务中自定义身份验证和授权](app-service-authentication-how-to.md)
 
 特定于提供程序的操作方法指南：
 * [How to configure your app to use Azure Active Directory login][AAD]
 * [How to configure your app to use Microsoft Account login][MSA]
+* [如何对应用程序使用自定义身份验证][custom-auth]
 
 [AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
 [MSA]: app-service-mobile-how-to-configure-microsoft-authentication.md

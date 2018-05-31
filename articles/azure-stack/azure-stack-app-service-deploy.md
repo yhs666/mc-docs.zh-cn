@@ -12,21 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/09/2018
-ms.date: 03/21/2018
+origin.date: 05/18/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: bcf06ee5bee485c4c95d4eca1aead8775c3b18b9
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 22c353d851039074deda7a0593b3967ebef9ddf9
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475069"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>将应用服务资源提供程序添加到 Azure Stack
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!IMPORTANT]
-> 请应用针对 Azure Stack 集成系统的 1802 更新，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务。
+> 请将 1804 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.2。
 >
 >
 
@@ -71,7 +72,7 @@ ms.lasthandoff: 03/23/2018
 
     ![应用服务安装程序][3]
 
-4. 现在，可以选择部署到通过[此处](azure-stack-app-service-before-you-get-started.md#virtual-network)所述的步骤配置的现有虚拟网络，或者让应用服务安装程序创建虚拟网络和关联的子网。
+7. 现在，可以选择部署到通过[此处](azure-stack-app-service-before-you-get-started.md#virtual-network)所述的步骤配置的现有虚拟网络，或者让应用服务安装程序创建虚拟网络和关联的子网。
     1. 选择“使用默认设置创建 VNet”，接受默认值，然后单击“下一步”，或者
     2. 选择“使用现有的 VNet 和子网”。
         1. 选择包含虚拟网络的**资源组**；
@@ -81,7 +82,7 @@ ms.lasthandoff: 03/23/2018
 
     ![应用服务安装程序][4]
 
-7. 输入文件共享的信息，然后单击“下一步”。 文件共享的地址必须使用文件服务器的完全限定域名或 IP 地址。 例如 \\\appservicefileserver.local.cloudapp.azurestack.external\websites，或 \\\10.0.0.1\websites。
+8. 输入文件共享的信息，然后单击“下一步”。 文件共享的地址必须使用文件服务器的完全限定域名或 IP 地址。 例如 \\\appservicefileserver.local.cloudapp.azurestack.external\websites，或 \\\10.0.0.1\websites。
 
    > [!NOTE]
    > 在继续下一步之前，安装程序会尝试测试与文件共享的连接。  但是，如果前面已选择部署到现有虚拟网络，则安装程序可能无法连接到文件共享，并显示警告来询问是否继续。  请检查文件共享信息，如果正确，则继续。
@@ -90,7 +91,7 @@ ms.lasthandoff: 03/23/2018
 
    ![应用服务安装程序][7]
 
-8. 在下一页上：
+9. 在下一页上：
     1. 在“标识应用程序 ID”框中，输入要用于标识的应用程序 GUID（来自 Azure AD）。
     2. 在“标识应用程序证书文件”框中，输入（或浏览到）证书文件的位置。
     3. 在“标识应用程序证书密码”框中，输入证书的密码。 此密码是在使用脚本创建证书时记下的密码。
@@ -99,7 +100,7 @@ ms.lasthandoff: 03/23/2018
 
     ![应用服务安装程序][9]
 
-9. 对于三个证书文件框的每一个框，单击“浏览”并导航到相应的证书文件。 必须为每个证书提供密码。 这些证书是在[创建所需证书步骤](azure-stack-app-service-before-you-get-started.md#get-certificates)中创建的。 输入所有信息后，单击“下一步”。
+10. 对于三个证书文件框的每一个框，单击“浏览”并导航到相应的证书文件。 必须为每个证书提供密码。 这些证书是在[创建所需证书步骤](azure-stack-app-service-before-you-get-started.md#get-certificates)中创建的。 输入所有信息后，单击“下一步”。
 
     | Box | 证书文件名示例 |
     | --- | --- |
@@ -111,7 +112,7 @@ ms.lasthandoff: 03/23/2018
 
     ![应用服务安装程序][10]
 
-10. 为用于托管应用服务资源提供程序数据库的服务器实例输入 SQL Server 详细信息，然后单击“下一步”。 安装程序将验证 SQL 连接属性。
+11. 为用于托管应用服务资源提供程序数据库的服务器实例输入 SQL Server 详细信息，然后单击“下一步”。 安装程序将验证 SQL 连接属性。
 
     > [!NOTE]
     > 在继续下一步之前，安装程序会尝试测试与 SQL Server 的连接。  但是，如果前面已选择部署到现有虚拟网络，则安装程序可能无法连接到 SQL Server，并显示警告来询问是否继续。  请检查 SQL Server 信息，如果正确，则继续。
@@ -120,7 +121,7 @@ ms.lasthandoff: 03/23/2018
 
     ![应用服务安装程序][11]
 
-11. 查看角色实例和 SKU 选项。 默认设置中填充了 ASDK 部署中每个角色的最小实例数和最低 SKU 层级。 提供 vCPU 和内存要求摘要是为了帮助你规划部署。 进行选择后，单击“下一步”。
+12. 查看角色实例和 SKU 选项。 默认设置中填充了 ASDK 部署中每个角色的最小实例数和最低 SKU 层级。 提供 vCPU 和内存要求摘要是为了帮助你规划部署。 进行选择后，单击“下一步”。
 
     > [!NOTE]
     > 对于生产部署，请按照 [Azure Stack 中 Azure 应用服务服务器角色的容量规划](azure-stack-app-service-capacity-planning.md)中的指南进行操作。
@@ -140,23 +141,23 @@ ms.lasthandoff: 03/23/2018
     > [!NOTE]
     > **不支持将 Windows Server 2016 Core 平台映像与 Azure Stack 上的 Azure 应用服务配合使用。请勿将评估映像用于生产部署。**
 
-12. 在“选择平台映像”框中选择 Windows Server 2016 虚拟机部署映像，该映像是应用服务云的计算资源提供程序提供的映像之一。 单击“下一步”。
+13. 在“选择平台映像”框中选择 Windows Server 2016 虚拟机部署映像，该映像是应用服务云的计算资源提供程序提供的映像之一。 单击“下一步”。
 
-13. 在下一页上执行以下操作：
+14. 在下一页上执行以下操作：
      1. 输入辅助角色虚拟机管理员用户名和密码。
      2. 输入其他角色虚拟机管理员用户名和密码。
      3. 单击“下一步”。
 
     ![应用服务安装程序][15]    
 
-14. 在摘要页上执行以下操作：
+15. 在摘要页上执行以下操作：
     1. 验证所做的选择。 若要进行更改，请使用“上一步”按钮访问前面的页面。
     2. 如果配置正确，则选中此复选框。
     3. 若要开始部署，请单击“下一步”。
 
     ![应用服务安装程序][16]
 
-15. 在下一页上执行以下操作：
+16. 在下一页上执行以下操作：
     1. 跟踪安装进度。 Azure Stack 上的应用服务大约需要 60 分钟才能完成基于默认选择的部署。
     2. 安装程序成功完成后，单击“退出”。
 
@@ -169,6 +170,18 @@ ms.lasthandoff: 03/23/2018
 2. 在状态下的概览中，检查“状态”是否显示“所有角色已就绪”。
 
     ![应用服务管理](./media/azure-stack-app-service-deploy/image12.png)
+    
+> [!NOTE]
+> 如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。  为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
+> * 源：任何
+> * 源端口范围：*
+> * 目标：IP 地址
+> * 目标 IP 地址范围：文件服务器的 IP 范围
+> * 目标端口范围：445
+> * 协议：TCP
+> * 操作：允许
+> * 优先级：700
+> * 名称：Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>体验 Azure Stack 上的应用服务
 

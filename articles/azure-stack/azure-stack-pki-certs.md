@@ -13,14 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/10/2018
-ms.date: 04/23/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: ppacent
-ms.openlocfilehash: 0199bc68ac8b5f8555763128480e705be6b950d0
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: 313e80be1556210b613001081fe6332ed4b3713f
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475054"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公钥基础结构证书要求
 
@@ -36,7 +37,7 @@ Azure Stack 有一个公共基础结构网络，该网络使用分配给少量 A
 ## <a name="certificate-requirements"></a>证书要求
 以下列表描述了部署 Azure Stack 时需要满足的证书要求： 
 - 证书必须由内部证书颁发机构或公共证书颁发机构颁发。 如果使用公共证书颁发机构，它必须作为 Microsoft 信任根颁发机构计划的一部分包含在基础操作系统映像中。 在以下网页中查看完整列表：https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- Azure Stack 基础结构必须能够通过网络访问用于证书签名的证书颁发机构
+- Azure Stack 基础结构必须能够通过网络访问证书中发布的证书颁发机构的证书吊销列表 (CRL) 位置。 此 CRL 必须是 http 终结点
 - 轮换证书时，证书必须由签署部署时提供的证书的同一内部证书颁发机构颁发，或者由上述任何公共证书颁发机构颁发
 - 不支持使用自签名证书
 - 证书可以是单个通配符证书，其中涵盖使用者可选名称 (SAN) 字段中的所有命名空间。 或者，可以针对需要证书的终结点（例如 **acs**和 Key Vault）使用采用通配符的单个证书。 
@@ -46,6 +47,7 @@ Azure Stack 有一个公共基础结构网络，该网络使用分配给少量 A
 - 证书 pfx 文件的“增强型密钥使用”字段中必须包含“服务器身份验证(1.3.6.1.5.5.7.3.1)”和“客户端身份验证(1.3.6.1.5.5.7.3.2)”值。
 - 证书的“颁发给:”字段不能与其“颁发者:”字段相同。
 - 部署时，所有证书 pfx 文件的密码都必须相同
+- 证书 pfx 的密码必须是复杂密码。
 - 确保所有证书的“使用者名称”和“使用者可选名称”匹配本文中所述的规范，以免部署失败。
 
 > [!NOTE]

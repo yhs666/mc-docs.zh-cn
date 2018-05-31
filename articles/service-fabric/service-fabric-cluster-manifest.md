@@ -1,25 +1,26 @@
 ---
-title: "配置 Azure Service Fabric 独立群集 | Azure"
-description: "了解如何配置独立的或本地 Azure Service Fabric 群集。"
+title: 配置 Azure Service Fabric 独立群集 | Azure
+description: 了解如何配置独立的或本地 Azure Service Fabric 群集。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/06/2017
-ms.date: 01/01/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1fd8ede37d4f32657e0108ea40d229d7d4d713e2
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: 4c226d5ab1d20f6b01f4c7e842fa28251e32ac93
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554470"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>独立 Windows 群集的配置设置
 本文介绍如何使用 ClusterConfig.json 文件配置独立的 Azure Service Fabric 群集。 需要使用该文件指定有关群集节点、安全配置以及有关容错域和升级域的网络拓扑信息。
@@ -45,8 +46,8 @@ ms.lasthandoff: 12/29/2017
 
 可为 Service Fabric 群集指定任何友好名称，只需将该名称分配到 name 变量即可。 clusterConfigurationVersion 是群集的版本号。 每次升级 Service Fabric 群集时，都应该递增该编号。 请将 apiVersion 保留为默认值。
 
-<a id="clusternodes"></a>
-##<a name="nodes-on-the-cluster"></a>群集上的节点
+<a name="clusternodes"></a>
+## <a name="nodes-on-the-cluster"></a>群集上的节点
 
 可以使用 nodes 节配置 Service Fabric 群集上的节点，如以下代码片段中所示：
 
@@ -80,10 +81,9 @@ ms.lasthandoff: 12/29/2017
 | faultDomain |容错域可让群集管理员定义可能因共享的物理依赖项而同时发生故障的物理节点。 |
 | upgradeDomain |升级域描述几乎在相同时间关闭以进行 Service Fabric 升级的节点集。 可以选择将哪些节点分配到哪些升级域，因为这不受任何物理要求的限制。 |
 
-##<a name="cluster-properties"></a>群集属性
+## <a name="cluster-properties"></a>群集属性
 ClusterConfig.json 中的属性部分用于配置群集，如下所示：
 
-<a id="reliability"></a>
 ### <a name="reliability"></a>可靠性
 reliabilityLevel 的概念定义可在群集的主节点上运行的 Service Fabric 系统服务副本或实例数。 它确定这些服务以及群集的可靠性。 在群集创建和升级过程中，由系统计算该值。
 
@@ -120,7 +120,7 @@ metadata 用于描述群集诊断，可以根据具体的情况进行设置。 �
 
 metadata 用于描述安全群集，可根据具体的情况进行设置。 ClusterCredentialType 和 ServerCredentialType 确定群集与节点将要实现的安全类型。 可将这两项设置为 *X509* 来实现基于证书的安全性，或者设置为 *Windows* 来实现基于 Azure Active Directory 的安全性。 security 节的余下设置基于安全类型。 若要了解如何填充 security 节的余下设置，请参阅[独立群集中基于证书的安全性](service-fabric-windows-cluster-x509-security.md)，或[独立群集中的 Windows 安全性](service-fabric-windows-cluster-windows-security.md)。
 
-<a id="nodetypes"></a>
+<a name="nodetypes"></a>
 ### <a name="node-types"></a>节点类型
 nodeTypes 节描述群集中的节点类型。 一个群集必须指定至少一个节点类型，如以下代码片段所示： 
 
@@ -198,4 +198,4 @@ name 是此特定节点类型的友好名称。 要创建这种类型的节点�
 ## <a name="next-steps"></a>后续步骤
 根据独立群集设置配置一个完整的 ClusterConfig.json 文件后，可以部署群集。 请遵循[创建独立 Service Fabric 群集](service-fabric-cluster-creation-for-windows-server.md)中所述的步骤。 然后继续[使用 Service Fabric Explorer 可视化群集](service-fabric-visualizing-your-cluster.md)并遵循此文中的步骤操作。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update meta properties -->

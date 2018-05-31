@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT 套件常见问题解答"
-description: "有关 IoT 套件的常见问题"
-services: 
+title: Azure IoT 套件常见问题解答
+description: 有关 IoT 套件的常见问题
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
 ms.service: iot-suite
 ms.devlang: na
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/02/2017
-ms.date: 02/05/2018
+ms.date: 06/04/2018
 ms.author: v-yiso
-ms.openlocfilehash: 83e58c042fd33f1a486a38040a9aa55813cad293
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 4ef5d399150401deb3bdee0b77366e606044a7b6
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554218"
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>有关 IoT 套件的常见问题
 
@@ -55,7 +56,7 @@ ms.lasthandoff: 02/13/2018
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>在一个订阅中可以设置多少个 IoT 中心实例？
 
-默认情况下，可以为每个订阅预配 10 个 IoT 中心。 可以创建 [Azure 支持票证][link-azuresupportticket]以提高此限制。 由于每个预配置的解决方案将预配一个新的 IoT 中心，因此，在给定的订阅中，最多只能预配 10 个预配置的解决方案。 
+默认情况下，可以[为每个订阅预配 10 个 IoT 中心][link-azuresublimits]。 可以创建 [Azure 支持票证][link-azuresupportticket]以提高此限制。 由于每个预配置的解决方案将预配一个新的 IoT 中心，因此，在给定的订阅中，最多只能预配 10 个预配置的解决方案。 
 
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>在订阅中可以预配多少个 Azure Cosmos DB 实例？
 
@@ -111,6 +112,7 @@ ms.lasthandoff: 02/13/2018
 [lnk-security-groundup]: securing-iot-ground-up.md
 
 [link-azuresupportticket]: https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
+[link-azuresublimits]: ../azure-subscription-service-limits.md#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.cn
 [lnk-azureiotsuite]: https://www.azureiotsuite.cn/
 [lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring 

@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/22/2017
-ms.date: 03/02/2018
+origin.date: 04/20/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: ''
-ms.openlocfilehash: 6c84e84a39ca4da47b858cb3b6a8b6a40418611d
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: cfadc518cc0494ba0cb7e7dc2ff7327d860eb4e9
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474969"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>计划、产品/服务、配额和订阅概述
 
@@ -53,17 +54,19 @@ ms.lasthandoff: 03/08/2018
 
 可按区域配置配额。 例如，包含区域 A 中计算服务的计划的配额可能是两个虚拟机、4-GB RAM 和 10 个 CPU 核心。 在 Azure Stack 开发工具包中，只有一个区域（名为 *local*）可用。
 
+详细了解 [Azure Stack 中的配额类型](azure-stack-quota-types.md)。 
+
 ### <a name="base-plan"></a>基本计划
 
 创建产品/服务时，服务管理员可以包含基本计划。 当用户订阅该产品/服务时，默认会包括这些基本计划。 当用户订阅时，即可访问这些基本计划中指定的所有资源提供程序（附带相应的配额）。
 
 ### <a name="add-on-plans"></a>附加计划
 
-还可以在产品/服务中包含可选的附加计划。 默认情况下，订阅中不包含附加计划。 产品/服务中提供的附加计划属于额外的计划（附带配额），订户可将其添加订阅中。 例如，可以提供具有有限资源的基本计划供试用，并为确定采用服务的客户提供具有更多实质资源的附加计划。
+附加计划是添加到产品/服务的可选计划。 默认情况下，订阅中不包含附加计划。 产品/服务中提供的附加计划属于额外的计划（附带配额），订户可将其添加订阅中。 例如，可以提供具有有限资源的基本计划供试用，并为确定采用服务的客户提供具有更多实质资源的附加计划。
 
-## <a name="offers"></a>产品/服务
+## <a name="offers"></a>产品
 
-产品/服务是创建的一个或多个计划的组，使用户能够订阅这些产品/服务。 例如，产品/服务 Alpha 可能包含计划 A 和计划 B，这两个计划分别包含一组计算服务和一组存储与网络服务。 
+产品/服务是创建的一个或多个计划的组，使用户能够订阅这些产品/服务。 例如，产品 Alpha 可能包含计划 A 和计划 B，这两个计划分别包含一组计算服务和一组存储与网络服务。 
 
 [创建产品/服务](azure-stack-create-offer.md)时，必须至少包含一个基本计划，但也可以创建用户可添加到其订阅中的附加计划。
 
@@ -81,3 +84,4 @@ ms.lasthandoff: 03/08/2018
 
 [创建计划](azure-stack-create-plan.md)
 
+<!-- Update_Description: wording update -->

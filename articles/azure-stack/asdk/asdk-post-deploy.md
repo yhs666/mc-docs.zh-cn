@@ -12,15 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/16/2018
-ms.date: 03/22/2018
+origin.date: 05/01/2018
+ms.date: 05/23/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: 9739307109f9dad041b2f4d28d222ec053a153d6
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 093d359713d63f0bb7536ee49a58773e9b7d800a
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474952"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>安装 ASDK 后的配置任务
 [安装 ASDK](asdk-install.md) 之后，我们建议做出一些安装后的配置更改。 
@@ -38,7 +39,10 @@ Set-PSRepository `
 
  通过 API 版本配置文件安装与 Azure Stack 兼容的 AzureRM 模块。 Azure Stack 需要 2017-03-09-profile API 版本配置文件（可通过安装 AzureRM.Bootstrapper 模块获取）。 
  
- 无论是否与 ASDK 主机建立了 Internet 连接，都可以安装 Azure Stack PowerShell：
+ 无论是否与 ASDK 主机建立了 Internet 连接，都可以安装最新 Azure Stack PowerShell 模块：
+
+> [!IMPORTANT]
+> 在安装所需版本之前，请务必[卸载任何现有 Azure PowerShell 模块](../azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell)。
 
 - **已从 ASDK 主机建立 Internet 连接**。 运行以下 PowerShell 脚本，在开发工具包安装中安装以下模块：
 
@@ -165,3 +169,4 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 ## <a name="next-steps"></a>后续步骤
 [将 ASDK 注册到 Azure](asdk-register.md)
 
+<!-- Update_Description: wording update -->

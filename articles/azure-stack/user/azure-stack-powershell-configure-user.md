@@ -12,32 +12,46 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/16/2017
-ms.date: 03/08/2018
+origin.date: 05/15/2018
+ms.date: 05/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 68049e66b310559f6116a10328dd08036512a68b
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.reviewer: Balsu.G
+ms.openlocfilehash: f151323d34efbd88794c56a9f213cfbf6a8f6b81
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475036"
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>配置 Azure Stack 用户的 PowerShell 环境
 
-Azure Stack 用户可以配置 Azure Stack 开发工具包的 PowerShell 环境。 配置后，可以使用 PowerShell 来管理 Azure Stack 资源，例如订阅产品、创建虚拟机、部署 Azure 资源管理器模板，等等。本主题的范围仅限用户环境，若要为云操作员环境设置 PowerShell，请参阅[配置 Azure Stack 操作员的 PowerShell 环境](../azure-stack-powershell-configure-admin.md)一文。 
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-## <a name="prerequisites"></a>先决条件 
+使用本文中的说明为 Azure Stack 用户配置 PowerShell 环境。
+配置环境后，可以使用 PowerShell 来管理 Azure Stack 资源。 例如，可以使用 PowerShell 来订阅产品/服务、创建虚拟机和部署 Azure 资源管理器模板。
 
-如果已[通过 VPN 建立连接](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)，请通过[开发工具包](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)或基于 Windows 的外部客户端运行以下先决条件操作：
+>[!NOTE]
+>本文适用于 Azure Stack 用户环境。 若要为云操作员环境设置 PowerShell，请参阅[配置 Azure Stack 操作员的 PowerShell 环境](../azure-stack-powershell-configure-admin.md)一文。
 
-- 安装 [Azure Stack 兼容的 Azure PowerShell 模块](azure-stack-powershell-install.md)。  
-- 下载[使用 Azure Stack 所需的工具](azure-stack-powershell-download.md)。 
+## <a name="prerequisites"></a>先决条件
+
+如果已[通过 VPN 建立连接](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)，请通过[开发工具包](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)或基于 Windows 的外部客户端配置以下先决条件：
+
+- 安装 [Azure Stack 兼容的 Azure PowerShell 模块](azure-stack-powershell-install.md)。
+- 下载[使用 Azure Stack 所需的工具](azure-stack-powershell-download.md)。
 
 ## <a name="configure-the-user-environment-and-sign-in-to-azure-stack"></a>配置用户环境并登录到 Azure Stack
 
-根据部署类型（Azure AD 或 AD FS），运行以下脚本之一配置适用于 Azure Stack 的 PowerShell（请确保根据自己的环境配置替换 AAD tenantName、GraphAudience 终结点和 ArmEndpoint 的值）：
+根据 Azure Stack 部署的类型（Azure AD 或 AD FS），运行以下脚本之一以配置适用于 Azure Stack 的 PowerShell。
+
+确保将以下脚本变量替换为 Azure Stack 配置中的值：
+
+- AAD tenantName
+- GraphAudience endpoint
+- ArmEndpoint
 
 ### <a name="azure-active-directory-aad-based-deployments"></a>基于 Azure Active Directory (AAD) 的部署
-       
+
   ```powershell
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
   Set-ExecutionPolicy RemoteSigned
@@ -67,11 +81,11 @@ Azure Stack 用户可以配置 Azure Stack 开发工具包的 PowerShell 环境�
   # Sign in to your environment
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
-    -TenantId $TenantID 
+    -TenantId $TenantID
    ```
 
-### <a name="active-directory-federation-services-ad-fs-based-deployments"></a>基于 Active Directory 联合身份验证服务 (AD FS) 的部署 
-          
+### <a name="active-directory-federation-services-ad-fs-based-deployments"></a>基于 Active Directory 联合身份验证服务 (AD FS) 的部署
+
   ```powershell
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
   Set-ExecutionPolicy RemoteSigned
@@ -94,7 +108,7 @@ Azure Stack 用户可以配置 Azure Stack 开发工具包的 PowerShell 环境�
     -GraphAudience $GraphAudience `
     -EnableAdfsAuthentication:$true
 
-  # Get the Active Directory tenantId that is used to deploy Azure Stack     
+  # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `
     -ADFS `
     -EnvironmentName "AzureStackUser"
@@ -102,30 +116,32 @@ Azure Stack 用户可以配置 Azure Stack 开发工具包的 PowerShell 环境�
   # Sign in to your environment
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
-    -TenantId $TenantID 
+    -TenantId $TenantID
   ```
 
 ## <a name="register-resource-providers"></a>注册资源提供程序
 
-当尚未通过门户部署任何资源的新建用户订阅中操作时，不会自动注册资源提供程序。 应使用以下脚本显式注册资源提供程序：
+不会自动为没有通过门户部署任何资源的新用户订阅自动注册资源提供程序。 可以通过运行以下脚本显式注册资源提供程序：
 
 ```powershell
 foreach($s in (Get-AzureRmSubscription)) {
         Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
         Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
 Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -Force
-    } 
+    }
 ```
 
 ## <a name="test-the-connectivity"></a>测试连接
 
-完成所有设置后，让我们使用 PowerShell 在 Azure Stack 中创建资源。 例如，可以为应用程序创建资源组并添加虚拟机。 使用以下命令创建名为“MyResourceGroup”的资源组：
+完成所有设置后，请通过使用 PowerShell 在 Azure Stack 中创建资源来测试连接。 作为测试，为应用程序创建资源组并添加虚拟机。 运行以下命令创建名为“MyResourceGroup”的资源组：
 
 ```powershell
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
 ## <a name="next-steps"></a>后续步骤
+
 - [为 Azure Stack 开发模板](azure-stack-develop-templates.md)
 - [通过 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)
 
+<!-- Update_Description: wording update -->

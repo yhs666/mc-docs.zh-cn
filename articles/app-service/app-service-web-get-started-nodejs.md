@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中创建 Node.js Web 应用 | Azure"
-description: "数分钟内在 Azure 应用服务 Web 应用中部署第一个 Node.js Hello World。"
+title: 在 Azure 中创建 Node.js Web 应用 | Azure
+description: 数分钟内在 Azure 应用服务 Web 应用中部署第一个 Node.js Hello World。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 12/13/2017
-ms.date: 01/02/2018
+ms.date: 06/04/2018
 ms.author: v-yiso
 ms.custom: mvc, devcenter
-ms.openlocfilehash: da2012cad850bab95b398ff7441039c54efb2e0a
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.openlocfilehash: 54182e162362e947f170b6f24cf3670095b36370
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554142"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
@@ -30,27 +31,18 @@ ms.lasthandoff: 12/25/2017
 
 可以在 Mac、Windows 或 Linux 计算机上执行此处的步骤。 安装先决条件后，大约需要五分钟完成这些步骤。   
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 ## <a name="prerequisites"></a>先决条件
 
 若要完成本快速入门教程，需先执行以下操作：
 
 * <a href="https://nodejs.org/" target="_blank">安装 Node.js 和 NPM</a>
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 ## <a name="download-the-sample"></a>下载示例
 
-在终端窗口中，运行以下命令，将示例应用存储库克隆到本地计算机。
+从 [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) 下载示例 Node.js 项目并提取 ZIP 存档。
 
-```bash
-git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
-```
-
-切换到包含示例代码的目录。
-
-```bash
-cd nodejs-docs-hello-world
-```
+在终端窗口中，导航到示例性 Node.js 项目的根目录（包含 _index.js_ 的目录）。
 
 ## <a name="run-the-app-locally"></a>在本地运行应用
 
@@ -60,7 +52,7 @@ cd nodejs-docs-hello-world
 npm start
 ```
 
-打开 Web 浏览器并导航到 http://localhost:1337 处的示例应用。
+打开 Web 浏览器并导航到 `http://localhost:1337` 处的示例应用。
 
 页面中会显示该示例应用发出的 Hello World 消息。
 
@@ -68,7 +60,7 @@ npm start
 
 在终端窗口中，按 **Ctrl+C** 退出 Web 服务器。
 
-[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
+[!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
@@ -76,51 +68,52 @@ npm start
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
+## <a name="create-a-web-app"></a>创建 Web 应用
+
+在终端窗口中，使用 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 Web 应用。 
+
+在以下示例中，将 `<app_name>` 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 运行时设置为 `NODE|6.9`。 若要查看所有受支持的运行时，请运行 [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes)。 
+
+```azurecli
+# Bash
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
+# PowerShell
+az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
+```
+
+创建 Web 应用后，Azure CLI 会显示类似于以下示例的输出：
+
+```json
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.chinacloudsites.cn",
+  "enabled": true,
+  < JSON data removed for brevity. >
+}
+```
+
+浏览到新建的 Web 应用。 将 _&lt;应用名称>_ 替换为唯一的应用名称。
+
+```bash
+http://<app name>.chinacloudsites.cn
+```
+
+新 Web 应用应该如下所示：
 
 ![空 Web 应用页](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
-
-```bash
-Counting objects: 23, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (21/21), done.
-Writing objects: 100% (23/23), 3.71 KiB | 0 bytes/s, done.
-Total 23 (delta 8), reused 7 (delta 1)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'bf114df591'.
-remote: Generating deployment script.
-remote: Generating deployment script for node.js Web Site
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling node.js deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Copying file: 'index.js'
-remote: Copying file: 'package.json'
-remote: Copying file: 'process.json'
-remote: Deleting file: 'hostingstart.html'
-remote: Ignoring: .git
-remote: Using start-up script index.js from package.json.
-remote: Node.js versions available on the platform are: 4.4.7, 4.5.0, 6.2.2, 6.6.0, 6.9.1.
-remote: Selected node.js version 6.9.1. Use package.json file to choose a different version.
-remote: Selected npm version 3.10.8
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://<app_name>.scm.chinacloudsites.cn:443/<app_name>.git
- * [new branch]      master -> master
-```
+[!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
 ## <a name="browse-to-the-app"></a>浏览到应用
 
 使用 Web 浏览器浏览到已部署的应用程序。
 
-```bash
+```
 http://<app_name>.chinacloudsites.cn
 ```
 
@@ -138,12 +131,17 @@ Node.js 示例代码正在 Azure 应用服务 Web 应用中运行。
 response.end("Hello Azure!");
 ```
 
-在本地终端窗口中，提交在 Git 中所做的更改，然后将代码更改推送到 Azure。
+在本地终端窗口中，导航到应用程序的根目录，为更新的项目创建新的 ZIP 文件。
 
-```bash
-git commit -am "updated output"
-git push azure master
 ```
+# Bash
+zip -r myUpdatedAppFiles.zip .
+
+# PowerShell
+Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
+``` 
+
+将此新的 ZIP 文件部署到应用服务，使用的步骤与[上传 ZIP 文件](#upload-the-zip-file)中的相同。
 
 切换回在“浏览到应用”步骤中打开的浏览器窗口，然后刷新页面。
 

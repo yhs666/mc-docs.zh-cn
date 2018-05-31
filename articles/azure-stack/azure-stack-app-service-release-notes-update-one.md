@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2018
-ms.date: 03/21/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: brenduns
-ms.openlocfilehash: f0a6288e42ef5a55e8eeb0d7a86a633bae6ea9dd
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 708373947bbd2e9d58c657f09c55e75558c3db9f
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475058"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>基于 Azure Stack 的应用服务 Update 1 发行说明
 
@@ -40,7 +41,7 @@ ms.lasthandoff: 03/23/2018
 ### <a name="prerequisites"></a>先决条件
 
 > [!IMPORTANT]
-> 基于 Azure Stack 的 Azure 应用服务的新部署现在要求提供[三使用者通配型证书](azure-stack-app-service-before-you-get-started.md#get-certificates)，因为目前在 Azure 应用服务中处理适用于 Kudu 的 SSO 的方式已改进。  新使用者为 ** *.sso.appservice.<region>.<domainname>.<extension>**
+> 基于 Azure Stack 的 Azure 应用服务的新部署现在要求提供[三使用者通配型证书](azure-stack-app-service-before-you-get-started.md#get-certificates)，因为目前在 Azure 应用服务中处理适用于 Kudu 的 SSO 的方式已改进。 新的使用者是 **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>**
 >
 >
 
@@ -50,11 +51,11 @@ ms.lasthandoff: 03/23/2018
 
 基于 Azure Stack 的 Azure 应用服务 Update 1 包含以下改进和修复：
 
-- **Azure 应用服务的高可用性** - Azure Stack 1802 更新允许跨容错域部署工作负荷。  因此，应用服务基础结构能够容错，因为可以跨容错域进行部署。  默认情况下，Azure 应用服务的所有全新部署都会有这个功能，但如果是在应用 Azure Stack 1802 更新之前完成的部署，请参阅[应用服务容错域文档](azure-stack-app-service-fault-domain-update.md)
+- **Azure 应用服务的高可用性** - Azure Stack 1802 更新允许跨容错域部署工作负荷。 因此，应用服务基础结构能够容错，因为可以跨容错域进行部署。 默认情况下，Azure 应用服务的所有全新部署都会有这个功能，但如果是在应用 Azure Stack 1802 更新之前完成的部署，请参阅[应用服务容错域文档](azure-stack-app-service-fault-domain-update.md)
 
-- **在现有的虚拟网络中进行部署** - 客户现在可以在现有的虚拟网络中部署基于 Azure Stack 的应用服务。  在现有的虚拟网络中进行部署以后，客户就可以通过专用端口连接到 Azure 应用服务所需的 SQL Server 和文件服务器。  在部署过程中，客户可以选择在现有的虚拟网络中进行部署，但在部署之前，[必须创建供应用服务使用的子网](azure-stack-app-service-before-you-get-started.md#virtual-network)。
+- **在现有的虚拟网络中进行部署** - 客户现在可以在现有的虚拟网络中部署基于 Azure Stack 的应用服务。 在现有的虚拟网络中进行部署以后，客户就可以通过专用端口连接到 Azure 应用服务所需的 SQL Server 和文件服务器。 在部署过程中，客户可以选择在现有的虚拟网络中进行部署，但在部署之前，[必须创建供应用服务使用的子网](azure-stack-app-service-before-you-get-started.md#virtual-network)。
 
-- 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。  与 Azure Stack 门户 SDK 版本一致。
+- 针对**应用服务租户、管理员、函数门户和 Kudu 工具**的更新。 与 Azure Stack 门户 SDK 版本一致。
 
 - **针对以下应用程序框架和工具的更新**：
     - 增加了 **.Net Core 2.0** 支持
@@ -106,11 +107,11 @@ ms.lasthandoff: 03/23/2018
 
 - 证书验证错误
 
-如果在集成的系统中进行部署，则某些客户会在向应用服务安装程序提供证书时遇到问题，因为安装程序中的验证限制性太强。  应用服务安装程序已重新发布，客户应[下载更新的安装程序](https://aka.ms/appsvconmasinstaller)。  如果在使用更新的安装程序验证证书时仍然遇到问题，请与支持部门联系。
+如果在集成的系统中进行部署，则某些客户会在向应用服务安装程序提供证书时遇到问题，因为安装程序中的验证限制性太强。 应用服务安装程序已重新发布，客户应[下载更新的安装程序](https://aka.ms/appsvconmasinstaller)。 如果在使用更新的安装程序验证证书时仍然遇到问题，请与支持部门联系。
 
 - 从集成的系统中检索 Azure Stack 根证书时遇到问题。
 
-Get-AzureStackRootCert.ps1 出错，导致客户在尚未安装 Azure Stack 根证书的计算机上执行此脚本时无法检索该根证书。  解决此问题的脚本现在也已重新发布，请要求客户[下载更新的帮助程序脚本](https://aka.ms/appsvconmashelpers)。  如果在使用更新的脚本检索根证书时仍然遇到问题，请与支持部门联系。
+Get-AzureStackRootCert.ps1 出错，导致客户在尚未安装 Azure Stack 根证书的计算机上执行此脚本时无法检索该根证书。 解决此问题的脚本现在也已重新发布，请要求客户[下载更新的帮助程序脚本](https://aka.ms/appsvconmashelpers)。 如果在使用更新的脚本检索根证书时仍然遇到问题，请与支持部门联系。
 
 ### <a name="known-issues-with-the-update-process"></a>更新过程的已知问题
 
@@ -120,12 +121,12 @@ Get-AzureStackRootCert.ps1 出错，导致客户在尚未安装 Azure Stack 根�
 
 - 槽交换不正常
 
-此版本中的站点槽交换功能无法使用。  若要还原功能，请完成以下步骤：
+此版本中的站点槽交换功能无法使用。 若要还原功能，请完成以下步骤：
 
-1. 将 ControllersNSG 网络安全组的设置修改为 **Allow**，允许通过远程桌面连接到应用服务控制器实例。  将 AppService.local 替换为部署应用服务时所在资源组的名称。
+1. 将 ControllersNSG 网络安全组的设置修改为 **Allow**，允许通过远程桌面连接到应用服务控制器实例。 将 AppService.local 替换为部署应用服务时所在资源组的名称。
 
     ```powershell
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Add-AzureRmAccount -EnvironmentName AzureStackAdmin
 
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
@@ -147,7 +148,7 @@ Get-AzureStackRootCert.ps1 出错，导致客户在尚未安装 Azure Stack 根�
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
       ```
 
-2. 浏览到 Azure Stack 管理员门户中“虚拟机”下的 **CN0-VM**，单击“连接”，以便通过控制器实例打开远程桌面会话。  使用在部署应用服务期间指定的凭据。
+2. 浏览到 Azure Stack 管理员门户中“虚拟机”下的 **CN0-VM**，单击“连接”，以便通过控制器实例打开远程桌面会话。 使用在部署应用服务期间指定的凭据。
 3. 以管理员身份启动 **PowerShell** 并执行以下脚本
 
     ```powershell
@@ -172,11 +173,11 @@ Get-AzureStackRootCert.ps1 出错，导致客户在尚未安装 Azure Stack 根�
     ```
 
 4. 关闭远程桌面会话。
-5. 将 ControllersNSG 网络安全组的设置还原为 **Deny**，拒绝通过远程桌面连接到应用服务控制器实例。  将 AppService.local 替换为部署应用服务时所在资源组的名称。
+5. 将 ControllersNSG 网络安全组的设置还原为 **Deny**，拒绝通过远程桌面连接到应用服务控制器实例。 将 AppService.local 替换为部署应用服务时所在资源组的名称。
 
     ```powershell
 
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Add-AzureRmAccount -EnvironmentName AzureStackAdmin
 
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
@@ -197,6 +198,18 @@ Get-AzureStackRootCert.ps1 出错，导致客户在尚未安装 Azure Stack 根�
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
+- 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。
+ 
+如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
+ - 源：任何
+ - 源端口范围：*
+ - 目标：IP 地址
+ - 目标 IP 地址范围：文件服务器的 IP 范围
+ - 目标端口范围：445
+ - 协议：TCP
+ - 操作：允许
+ - 优先级：700
+ - 名称：Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>云管理员在操作基于 Azure Stack 的 Azure 应用服务时的已知问题
 
@@ -207,3 +220,4 @@ Get-AzureStackRootCert.ps1 出错，导致客户在尚未安装 Azure Stack 根�
 - 有关 Azure 应用服务的概述，请参阅[基于 Azure Stack 的 Azure 应用服务概述](azure-stack-app-service-overview.md)。
 - 若要详细了解如何完成基于 Azure Stack 的应用服务的部署准备，请参阅[基于 Azure Stack 的应用服务的准备工作](azure-stack-app-service-before-you-get-started.md)。
 
+<!-- Update_Description: wording update -->

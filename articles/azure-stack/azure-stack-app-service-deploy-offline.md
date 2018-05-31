@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Stack 离线环境中部署应用服务 | Microsoft Docs
-description: 有关如何在受 AD FS 保护的离线 Azure Stack 环境中部署应用服务的详细指南。
+description: 有关如何在受 AD FS 保护且已断开连接的 Azure Stack 环境中部署应用服务的详细指南。
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -12,21 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/09/2018
-ms.date: 03/21/2018
+origin.date: 05/18/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: c13e7bddf17f58515d415b0b9a553eba0e72756b
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 67d05ce2b45940e7ddb1bfcaf6dac362ccbc2aaf
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475070"
 ---
-# <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>将应用服务资源提供程序添加到受 AD FS 保护的离线 Azure Stack 环境
+# <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>将应用服务资源提供程序添加到受 AD FS 保护且已断开连接的 Azure Stack 环境
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!IMPORTANT]
-> 请应用针对 Azure Stack 集成系统的 1802 更新，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务。
+> 请将 1804 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.2。
 >
 >
 
@@ -44,7 +45,7 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="create-an-offline-installation-package"></a>创建脱机安装包
 
-若要在离线环境中部署应用服务，必须先在连接到 Internet 的计算机上创建脱机安装包。
+若要在断开连接的环境中部署应用服务，必须先在连接到 Internet 的计算机上创建脱机安装包。
 
 1. 在连接到 Internet 的计算机上运行 AppService.exe 安装程序。
 
@@ -81,7 +82,7 @@ ms.lasthandoff: 03/23/2018
 7. 在下一页上执行以下操作：
     1. 单击“Azure Stack 订阅”框旁边的“连接”按钮。
         - 提供管理员帐户。 例如，cloudadmin@azurestack.local。 输入密码，并单击“登录”。
-    2. 在“Azure Stack 订阅”框中，选择订阅。
+    2. 在“Azure Stack 订阅”框中，选择“默认提供商订阅”。
     3. 在“Azure Stack 位置”框中，选择要部署到的区域所对应的位置。 例如，如果要部署到 Azure Stack 开发工具包，请选择“本地”。
     4. 单击“下一步”。
 
@@ -127,7 +128,7 @@ ms.lasthandoff: 03/23/2018
 
     ![应用服务安装程序][11]
 
-12. 为用于托管应用服务资源提供程序数据库的服务器实例输入 SQL Server 详细信息，然后单击“下一步”。 安装程序将验证 SQL 连接属性。
+12. 为用于托管应用服务资源提供程序数据库的服务器实例输入 SQL Server 详细信息，然后单击“下一步”。 安装程序将验证 SQL 连接属性。 **必须**输入内部 IP 或完全限定域名作为 SQL Server 名称。
 
 > [!NOTE]
 > 在继续下一步之前，安装程序会尝试测试与 SQL Server 的连接。  但是，如果前面已选择部署到现有虚拟网络，则安装程序可能无法连接到 SQL Server，并显示警告来询问是否继续。  请检查 SQL Server 信息，如果正确，则继续。
@@ -185,6 +186,19 @@ ms.lasthandoff: 03/23/2018
 2. 在状态下的概览中，检查“状态”是否显示“所有角色已就绪”。
 
     ![应用服务管理](./media/azure-stack-app-service-deploy/image12.png)
+    
+> [!NOTE]
+> 如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。  为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
+> * 源：任何
+> * 源端口范围：*
+> * 目标：IP 地址
+> * 目标 IP 地址范围：文件服务器的 IP 范围
+> * 目标端口范围：445
+> * 协议：TCP
+> * 操作：允许
+> * 优先级：700
+> * 名称：Outbound_Allow_SMB445
+>
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>体验 Azure Stack 上的应用服务
 

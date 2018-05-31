@@ -13,14 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/22/2018
-ms.date: 04/20/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: ppacent
-ms.openlocfilehash: a8cf2b4cbb196858c088e4bc6271d77fbc4723fd
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: 7b21454af488dbda41011aac399c21116af814a2
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474890"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>为部署准备 Azure Stack PKI 证书
 必须使用与 Azure Stack的证书要求匹配的属性导入和导出[从所选 CA 获取](azure-stack-get-pki-certs.md)的证书文件。
@@ -29,56 +30,60 @@ ms.lasthandoff: 04/23/2018
 ## <a name="prepare-certificates-for-deployment"></a>为部署准备证书
 使用以下步骤来准备和验证 Azure Stack PKI 证书： 
 
-1.  将[从所选 CA 获取](azure-stack-get-pki-certs.md)的原始证书版本复制到部署主机上的目录。 
+### <a name="import-the-certificate"></a>导入证书
+
+1. 将[从所选 CA 获取](azure-stack-get-pki-certs.md)的原始证书版本复制到部署主机上的目录。 
     > [!WARNING]
     > 如果已以任何方式导入、导出或更改直接由 CA 提供的文件，请勿复制该文件。
 
-2.  将证书导入到本地计算机证书存储：
+2. 右键单击证书并选择“安装证书”或“安装PFX”，具体取决于从 CA 传送证书的方式。
 
-    a.  右键单击证书并选择“安装 PFX”。
+3. 在**证书导入向导**中，选择“本地计算机”作为导入位置。 选择“**下一步**”。 在下一个屏幕上，再次单击“下一步”。
 
-    b.  在**证书导入向导**中，选择“本地计算机”作为导入位置。 选择“**下一步**”。
+    ![本地计算机导入位置](.\media\prepare-pki-certs\1.png)
 
-    ![本地计算机导入位置](./media/prepare-pki-certs/1.png)
+4. 选择“将所有证书放在以下存储中”，然后选择“企业信任”作为位置。 单击“确定”以关闭“证书存储选择”对话框，然后单击“下一步”。
 
-    c.  在“选择要导入的文件”页上选择“下一步”。
+    ![配置证书存储](.\media\prepare-pki-certs\3.png)
 
-    d.  在“私钥保护”页上，输入证书文件的密码，然后启用“将此密钥标记为可导出。这可让你在稍后备份或传输密钥”选项。 选择“**下一步**”。
+    a. 如果要导入 PFX，将看到其他对话框。 在“私钥保护”页上，输入证书文件的密码，然后启用“将此密钥标记为可导出。这可让你在稍后备份或传输密钥”选项。 选择“**下一步**”。
 
-    ![将密钥标记为可导出](./media/prepare-pki-certs/2.png)
+    ![将密钥标记为可导出](.\media\prepare-pki-certs\2.png)
 
-    e.  选择“将所有证书放在以下存储中”，然后选择“企业信任”作为位置。 单击“确定”以关闭“证书存储选择”对话框，然后单击“下一步”。
+5. 单击“完成”以完成导入。
 
-    ![配置证书存储](./media/prepare-pki-certs/3.png)
+### <a name="export-the-certificate"></a>导出证书
 
-    f.  单击“完成”以完成证书导入向导。
+打开证书管理员 MMC 控制台并连接到本地计算机证书存储。
 
-    g.  针对为部署提供的所有证书重复此过程。
+1. 打开 Microsoft 管理控制台，在 Windows 10 中右键单击“开始”菜单，然后单击“运行”。 键入 **mmc**，单击“确定”。
 
-3. 按照 Azure Stack 的需求将证书导出为 PFX 文件格式：
+2. 单击“文件”、“添加/删除管理单元”，然后选择“证书”，单击“添加”。
 
-    a.  打开证书管理员 MMC 控制台并连接到本地计算机证书存储。
+    ![“添加证书”管理单元](.\media\prepare-pki-certs\mmc-2.png)
+ 
+3. 选择“计算机帐户”，单击“下一步”，选择“本地计算机”，然后单击“完成”。 单击“确定”以关闭“添加/删除管理单元”页。
 
-    b.  转到“企业信任”目录。
+    ![“添加证书”管理单元](.\media\prepare-pki-certs\mmc-3.png)
 
-    c.  选择在前面的步骤 2 中导入的其中一个证书。
+4. 浏览到“证书”>“企业信任”>“证书位置”。 确认在右侧看到你的证书。
 
-    d.  从证书管理员控制台的任务栏中，选择“操作” > “所有任务” > “导出”。
+5. 从证书管理员控制台的任务栏中，选择“操作” > “所有任务” > “导出”。 选择“**下一步**”。
 
-    e.  选择“**下一步**”。
+    > [!NOTE]
+    > 根据你拥有 Azure Stack 证书的数量，可能需要多次完成此过程。
 
-    f.  选择“是，导出私钥”，并单击“下一步”。
+4. 选择“是，导出私钥”，并单击“下一步”。
 
-    g.  在“导出文件格式”部分中，选择“导出所有扩展属性”，然后单击“下一步”。
+5. 在“导出文件格式”部分中，选择“导出所有扩展属性”，然后单击“下一步”。
 
-    h.如果该值不存在，请单击“添加行”。  选择“密码”并为证书提供密码。 请记住此密码，因为它将用作部署参数。 选择“**下一步**”。
+6. 选择“密码”并为证书提供密码。 请记住此密码，因为它将用作部署参数。 选择“**下一步**”。
 
-    i.  选择要导出的 pfx 文件的文件名和位置。 选择“**下一步**”。
+7. 选择要导出的 pfx 文件的文件名和位置。 选择“**下一步**”。
 
-    j.  选择“完成”。
-
-    k.  针对在前面的步骤 2 中为部署导入的所有证书重复此过程。
+8. 选择“完成”。
 
 ## <a name="next-steps"></a>后续步骤
 [验证 PKI 证书](azure-stack-validate-pki-certs.md)
 
+<!-- Update_Description: wording update -->

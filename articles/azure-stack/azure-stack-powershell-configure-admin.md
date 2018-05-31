@@ -1,38 +1,39 @@
 ---
-title: 配置 Azure Stack 操作员的 PowerShell 环境 | Microsoft Docs
-description: 了解如何配置 Azure Stack 操作员的 PowerShell 环境。
+title: 配置 Azure Stack PowerShell 环境 | Microsoft Docs
+description: 了解如何配置 Azure Stack PowerShell 环境。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 37D9CAC9-538B-4504-B51B-7336158D8A6B
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-origin.date: 03/05/2018
-ms.date: 03/26/2018
+origin.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8a46f7a7b31842e0a39c18badf1c342f51405fc3
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.reviewer: thoroet
+ms.openlocfilehash: b1daf5fae0449ca839be3df836e2d6249d02dad0
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474918"
 ---
-# <a name="configure-the-azure-stack-operators-powershell-environment"></a>配置 Azure Stack 操作员的 PowerShell 环境
+# <a name="configure-the-azure-stack-powershell-environment"></a>配置 Azure Stack PowerShell 环境
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-可以将 Azure Stack 配置为使用 PowerShell 来管理资源，例如创建产品/服务、计划、配额以及警报。 本主题有助于配置操作员环境 若需为用户环境配置 PowerShell，请参阅[配置 Azure Stack 用户的 PowerShell 环境](user/azure-stack-powershell-configure-user.md)一文。
+可以将 Azure Stack 配置为使用 PowerShell 来管理资源，例如创建产品/服务、计划、配额以及警报。 本主题有助于配置操作员环境
 
 ## <a name="prerequisites"></a>先决条件
 
 如果已[通过 VPN 建立连接](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)，请通过[开发工具包](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)或基于 Windows 的外部客户端运行以下先决条件操作： 
 
-- 安装 [Azure Stack 兼容的 Azure PowerShell 模块](azure-stack-powershell-install.md)。  
-- 下载[使用 Azure Stack 所需的工具](azure-stack-powershell-download.md)。  
+ - 安装 [Azure Stack 兼容的 Azure PowerShell 模块](azure-stack-powershell-install.md)。  
+ - 下载[使用 Azure Stack 所需的工具](azure-stack-powershell-download.md)。  
 
 ## <a name="configure-the-operator-environment-and-sign-in-to-azure-stack"></a>配置操作员环境并登录到 Azure Stack
 
@@ -40,31 +41,25 @@ ms.lasthandoff: 03/28/2018
 
 ### <a name="azure-active-directory-azure-ad-based-deployments"></a>基于 Azure Active Directory (Azure AD) 的部署
 
-````powershell  
+````PowerShell  
 #  Create an administrator environment
 Add-AzureRMEnvironment -Name AzureStackAdmin -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
-# Get the value of your Directory Tenant ID
-$TenantID = Get-AzsDirectoryTenantId -AADTenantName "<mydirectorytenant>.partner.onmschina.cn" -EnvironmentName AzureStackAdmin
-
 # After registering the AzureRM environment, cmdlets can be 
 # easily targeted at your Azure Stack instance.
-Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
+Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
 ````
 
 
 ### <a name="active-directory-federation-services-ad-fs-based-deployments"></a>基于 Active Directory 联合身份验证服务 (AD FS) 的部署
 
-````powershell  
+````PowerShell  
 #  Create an administrator environment
 Add-AzureRMEnvironment -Name AzureStackAdmin -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
-# Get the value of your Directory Tenant ID
-$TenantID = Get-AzsDirectoryTenantId -ADFS -EnvironmentName AzureStackAdmin
-
 # After registering the AzureRM environment, cmdlets can be 
 # easily targeted at your Azure Stack instance.
-Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
+Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
 ````
 
 ## <a name="test-the-connectivity"></a>测试连接
@@ -76,7 +71,7 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
 ## <a name="next-steps"></a>后续步骤
-- [为 Azure Stack 开发模板](user/azure-stack-develop-templates.md)
-- [通过 PowerShell 部署模板](user/azure-stack-deploy-template-powershell.md)
+ - [为 Azure Stack 开发模板](user/azure-stack-develop-templates.md)
+ - [通过 PowerShell 部署模板](user/azure-stack-deploy-template-powershell.md)
 
 <!-- Update_Description: wording update -->

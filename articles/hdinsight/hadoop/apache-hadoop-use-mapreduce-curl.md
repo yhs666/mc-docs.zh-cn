@@ -1,8 +1,8 @@
 ---
-title: "将 MapReduce 和 Curl 与 HDInsight 中的 Hadoop 配合使用 - Azure | Azure"
-description: "了解如何使用 Curl 在 HDInsight 的 Hadoop 上远程运行 MapReduce 作业。"
+title: 将 MapReduce 和 Curl 与 HDInsight 中的 Hadoop 配合使用 - Azure | Azure
+description: 了解如何使用 Curl 在 HDInsight 的 Hadoop 上远程运行 MapReduce 作业。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,17 +11,18 @@ ms.assetid: bc6daf37-fcdc-467a-a8a8-6fb2f0f773d1
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/04/2017
-ms.date: 01/15/2018
+origin.date: 02/27/2018
+ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: e9b2eca9f76ee844439168729703a2e929fc5b21
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: a1d1ee9c179d8ca941a338356ec9de7f4c24890b
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/22/2018
+ms.locfileid: "34449931"
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>使用 REST 在 HDInsight 上通过 Hadoop 运行 MapReduce 作业
 
@@ -34,22 +35,46 @@ ms.lasthandoff: 01/12/2018
 ## <a id="prereq"></a>先决条件
 
 * HDInsight 群集上的 Hadoop
-* [Curl](http://curl.haxx.se/)
-* [jq](http://stedolan.github.io/jq/)
+* Windows PowerShell 或 [Curl](http://curl.haxx.se/) 和 [jq](http://stedolan.github.io/jq/)
 
-## <a id="curl"></a>使用 Curl 运行 MapReduce 作业
+## <a id="curl"></a>运行 MapReduce 作业
 
 > [!NOTE]
 > 使用 Curl 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须通过提供 HDInsight 群集管理员用户名和密码对请求进行身份验证。 必须使用群集名称作为用来向服务器发送请求的 URI 的一部分。
 >
-> 对本部分中的命令，请将“admin”替换为要向群集进行身份验证的用户。 将 **CLUSTERNAME** 替换为群集名称。 出现提示时，请提供用户帐户的密码。
->
 > REST API 使用 [基本访问身份验证](http://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 应该始终通过使用 HTTPS 来发出请求，以确保安全地将凭据发送到服务器。
 
-1. 在命令行中，使用以下命令验证你是否可以连接到 HDInsight 群集。
+1. 若要设置本文档中的脚本使用的群集登录名，请使用下列命令之一：
 
     ```bash
-    curl -u admin -G https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/status
+    read -p "Enter your cluster login account name: " LOGIN
+    ```
+
+    ```powershell
+    $creds = Get-Credential -UserName admin -Message "Enter the cluster login name and password"
+    ```
+
+2. 若要设置群集名称，请使用下列命令之一：
+
+    ```bash
+    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
+    ```
+
+    ```powershell
+    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+    ```
+
+3. 在命令行中，使用以下命令验证你是否可以连接到 HDInsight 群集。
+
+    ```bash
+    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.cn/templeton/v1/status
+    ```
+
+    ```powershell
+    $resp = Invoke-WebRequest -Uri "https://$clustername.azurehdinsight.cn/templeton/v1/status" `
+        -Credential $creds `
+        -UseBasicParsing
+    $resp.Content
     ```
 
     将收到类似于以下 JSON 的响应：
@@ -61,12 +86,30 @@ ms.lasthandoff: 01/12/2018
    * **-u**：指示用来对请求进行身份验证的用户名和密码
    * **-G**：指示此操作是 GET 请求。
 
-     所有请求的 URI 开头都是 **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**。
+     URI 的开头 (**https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**) 对于所有请求都是相同的。
 
-2. 要提交 MapReduce 作业，请使用以下命令：
+4. 要提交 MapReduce 作业，请使用以下命令：
 
     ```bash
-    curl -u admin -d user.name=admin -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/mapreduce/jar
+    JOBID=`curl -u $LOGIN -d user.name=$LOGIN -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/output https://$CLUSTERNAME.azurehdinsight.cn/templeton/v1/mapreduce/jar | jq .id`
+    echo $JOBID
+    ```
+
+    ```powershell
+    $reqParams = @{}
+    $reqParams."user.name" = "admin"
+    $reqParams.jar = "/example/jars/hadoop-mapreduce-examples.jar"
+    $reqParams.class = "wordcount"
+    $reqParams.arg = @()
+    $reqParams.arg += "/example/data/gutenberg/davinci.txt"
+    $reqparams.arg += "/example/data/output"
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/templeton/v1/mapreduce/jar" `
+       -Credential $creds `
+       -Body $reqParams `
+       -Method POST `
+       -UseBasicParsing
+    $jobID = (ConvertFrom-Json $resp.Content).id
+    $jobID
     ```
 
     URI 的末尾 (/mapreduce/jar) 告知 WebHCat，此请求从 jar 文件中的类启动 MapReduce 作业。 此命令中使用的参数如下：
@@ -79,15 +122,25 @@ ms.lasthandoff: 01/12/2018
 
      此命令应返回可用来检查作业状态的作业 ID：
 
-       {"id":"job_1415651640909_0026"}
+       job_1415651640909_0026
 
-3. 若要检查作业的状态，请使用以下命令：
+5. 若要检查作业的状态，请使用以下命令：
 
     ```bash
-    curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/jobs/JOBID | jq .status.state
+    curl -G -u $LOGIN -d user.name=$LOGIN https://$CLUSTERNAME.azurehdinsight.cn/templeton/v1/jobs/$JOBID | jq .status.state
     ```
 
-    将 **JOBID** 替换为上一步骤中返回的值。 例如，如果返回值为 `{"id":"job_1415651640909_0026"}`，则 JOBID 将是 `job_1415651640909_0026`。
+    ```powershell
+    $reqParams=@{"user.name"="admin"}
+    $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/templeton/v1/jobs/$jobID" `
+       -Credential $creds `
+       -Body $reqParams `
+       -UseBasicParsing
+    # ConvertFrom-JSON can't handle duplicate names with different case
+    # So change one to prevent the error
+    $fixDup=$resp.Content.Replace("jobID","job_ID")
+    (ConvertFrom-Json $fixDup).status.state
+    ```
 
     如果作业已完成，返回的状态是 `SUCCEEDED`。
 

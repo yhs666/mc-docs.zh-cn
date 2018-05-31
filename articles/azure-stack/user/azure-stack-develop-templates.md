@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/20/2018
-ms.date: 03/08/2018
+origin.date: 05/16/2018
+ms.date: 05/23/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: ddffecb58f032b4d668bd1a281e3e0529f505113
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: f1209a8cbf2cbcf49b1fd80a8f4ca453471836f2
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474917"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Azure 资源管理器模板注意事项
 
@@ -29,17 +30,20 @@ ms.lasthandoff: 03/16/2018
 开发应用程序时，请务必确保模板可在 Azure 和 Azure Stack 之间移植。 本文提供有关开发 Azure 资源管理器[模板](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)的注意事项，以便用户可以为应用程序创建原型以及在 Azure 中测试部署而无需访问 Azure Stack 环境。
 
 ## <a name="resource-provider-availability"></a>资源提供程序可用性
-你计划部署的模板必须仅使用已可用或在 Azure Stack 中为预览版的 Azure 服务。
+
+你计划部署的模板只能使用已在 Azure Stack 中可用或预览的 Azure 服务。
 
 ## <a name="public-namespaces"></a>公共命名空间
-由于 Azure Stack 托管在数据中心中，它的服务终结点命名空间与 Azure 公有云不同。 因此，如果尝试将 Azure 资源管理器模板部署到 Azure Stack，这些模板中的硬编码公共终结点会失败。 但是，可以使用 *reference* 和 *concatenate* 函数基于在部署过程中从资源提供程序检索到的值动态构建服务终结点。 例如，无需在模板中指定 *blob.core.chinacloudapi.cn*，检索 primaryEndpoints.blob 可动态设置 *osDisk.URI* 终结点：
 
-     "osDisk": {"name": "osdisk","vhd": {"uri": 
+由于 Azure Stack 托管在数据中心中，它的服务终结点命名空间与 Azure 公有云不同。 因此，如果尝试将 Azure 资源管理器模板部署到 Azure Stack，这些模板中的硬编码公共终结点会失败。 可以使用 *reference* 和 *concatenate* 函数动态构建服务终结点，以便在部署期间从资源提供程序检索值。 例如，不需要在模板中硬编码 *blob.core.chinacloudapi.cn*，检索 **primaryEndpoints.blob** 即可动态设置 *osDisk.URI* 终结点：
+
+     "osDisk": {"name": "osdisk","vhd": {"uri":
      "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
       '/',variables('OSDiskName'),'.vhd')]"}}
 
 ## <a name="api-versioning"></a>API 版本控制
-Azure 服务版本在 Azure 和 Azure Stack 之间可能有所不同。 每个资源都需要有 apiVersion 属性，用于定义所提供的功能。 若要确保 API 版本在 Azure Stack 中兼容，以下是每个资源提供程序的有效 API 版本：
+
+Azure 服务版本在 Azure 和 Azure Stack 之间可能有所不同。 每个资源都需要有 **apiVersion** 属性，用于定义所提供的功能。 若要确保 API 版本在 Azure Stack 中兼容，以下 API 版本适用于每个资源提供程序：
 
 | 资源提供程序 | apiVersion |
 | --- | --- |
@@ -50,11 +54,12 @@ Azure 服务版本在 Azure 和 Azure Stack 之间可能有所不同。 每个�
 | 应用服务 |`'2015-08-01'` |
 
 ## <a name="template-functions"></a>模板函数
+
 Azure 资源管理器[函数](../../azure-resource-manager/resource-group-template-functions.md)提供生成动态模板所需的功能。 例如，可以对如下任务使用函数：
 
-- 串联或者修整字符串 
-- 引用其他资源的值
-- 对资源进行迭代以部署多个实例 
+- 连接或修整字符串。
+- 引用其他资源的值。
+- 对资源进行迭代以部署多个实例。
 
 以下函数在 Azure Stack 中不可用：
 
@@ -62,6 +67,7 @@ Azure 资源管理器[函数](../../azure-resource-manager/resource-group-templa
 - Take
 
 ## <a name="resource-location"></a>资源位置
+
 在部署过程中，Azure 资源管理器模板使用位置属性来放置资源。 在 Azure 中，位置是指中国北部等区域。 在 Azure Stack 中，位置有所不同，因为 Azure Stack 在数据中心内。 若要确保模板可在 Azure 和 Azure Stack 之间转移，在部署单个资源时应引用资源组位置。 可以使用 `[resourceGroup().Location]` 执行此操作，以确保所有资源均继承资源组位置。 以下摘录是在部署存储帐户时使用此函数的示例：
 
     "resources": [
@@ -78,8 +84,9 @@ Azure 资源管理器[函数](../../azure-resource-manager/resource-group-templa
     ]
 
 ## <a name="next-steps"></a>后续步骤
+
 - [通过 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)
 - [使用 Azure CLI 部署模板](azure-stack-deploy-template-command-line.md)
 - [通过 Visual Studio 部署模板](azure-stack-deploy-template-visual-studio.md)
 
-
+<!-- Update_Description: wording update -->

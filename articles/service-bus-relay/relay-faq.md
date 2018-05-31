@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/27/2018
+origin.date: 05/21/2018
 ms.author: v-yiso
-ms.date: 02/05/2018
-ms.openlocfilehash: 5184edec68800a297a5a4cf6890f7306c0f2831a
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.date: 06/04/2018
+ms.openlocfilehash: ed2443eb00a436b7dfeca440a77901b9bbba9824
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554499"
 ---
 # <a name="azure-relay-faqs"></a>Azure 中继常见问题解答
 
-本文解答一些关于 [Azure 中继](/service-bus-messaging/)的常见问题 (FAQ)。 若要了解一般的 Azure 定价和支持信息，请参阅 [Azure 支持常见问题](http://go.microsoft.com/fwlink/?LinkID=185083)。
+本文解答一些关于 [Azure 中继](/service-bus-messaging/)的常见问题 (FAQ)。 若要了解一般的 Azure 定价和支持信息，请参阅 [Azure 支持常见问题解答](http://go.microsoft.com/fwlink/?LinkID=185083)。
 
 ## <a name="general-questions"></a>一般问题
 ### <a name="what-is-azure-relay"></a>什么是 Azure 中继？
@@ -36,7 +37,7 @@ ms.lasthandoff: 03/23/2018
 以前命名的服务总线中继服务现在称为 [WCF 中继](relay-wcf-dotnet-get-started.md)。 可以继续照常使用此服务。 混合连接功能是一种更新版的服务，从 Azure BizTalk 服务移植过来。 将继续支持 WCF 中继和混合连接。
 
 ## <a name="pricing"></a>定价
-本部分回答了一些关于中继定价结构的常见问题。 若要了解一般的 Azure 定价信息，还可以参阅 [Azure 支持常见问题](http://go.microsoft.com/fwlink/?LinkID=185083)。 有关中继定价的完整信息，请参阅[服务总线定价详细信息](https://www.azure.cn/pricing/details/messaging/)。
+本部分回答了一些关于中继定价结构的常见问题。 若要了解一般的 Azure 定价信息，还可以参阅 [Azure 支持常见问题解答](http://go.microsoft.com/fwlink/?LinkID=185083)。 有关中继定价的完整信息，请参阅[服务总线定价详细信息](https://www.azure.cn/pricing/details/messaging/)。
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>如何对混合连接和 WCF 中继收费？
 有关中继定价的完整信息，请参阅服务总线定价详细信息页上的[混合连接和 WCF 中继][Pricing overview]表。 除该页上标示的价格外，还需为在其中部署应用程序的数据中心之外的相关数据输出支付费用。
@@ -83,8 +84,8 @@ WCF 中继仅适用于标准层命名空间。 其他中继的定价和[连接�
 | 中继上的并发侦听器数 |实体 |系统会拒绝后续的附加连接请求，且调用代码会收到异常。 |25 |
 | 服务命名空间中所有中继终结点的并发中继连接数 |命名空间 |- |5,000 |
 | 每个服务命名空间的中继终结点数 |命名空间 |- |10,000 |
-| [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) 和 [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) 中继的消息大小 |命名空间 |会拒绝超过这些配额的传入消息，且调用代码会收到异常。 |64 KB |
-| [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) 和 [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) 中继的消息大小 |命名空间 |对消息大小没有限制。 |无限制 |
+| [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) 和 [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) 中继的消息大小 |命名空间 |会拒绝超过这些配额的传入消息，且调用代码会收到异常。 |64 KB |
+| [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) 和 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) 中继的消息大小 |命名空间 |对消息大小没有限制。 |无限制 |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>中继是否具有任何使用率配额？
 默认情况下，对于任何云服务，Microsoft 设置聚合的每月使用配额，通过对所有的客户订阅计算得到。 我们了解，有时候，你的需求可能会超过这些限制。 你可以随时联系客户服务人员，以便我们了解你的需求并相应地调整这些限制。 对于服务总线，聚合的使用率配额为如下所示：

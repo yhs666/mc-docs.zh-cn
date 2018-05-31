@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 03/14/2018
-ms.date: 04/30/2018
+ms.date: 06/04/2018
 ms.author: v-yiso
-ms.openlocfilehash: 64bf986683064bde364b2672b614030abd91944d
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 9e568684adc2ca55efa09b86627221f92123003c
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554393"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>在 Azure 应用服务中自定义身份验证和授权
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/23/2018
 
 若要快速入门，请参阅以下教程之一：
 
-* [教程：在 Azure 应用服务中对用户进行端到端身份验证和授权](app-service-web-tutorial-auth-aad.md)
+* [教程：在 Azure 应用服务 (Windows) 中对用户进行端到端身份验证和授权](app-service-web-tutorial-auth-aad.md)
 * [How to configure your app to use Azure Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [How to configure your app to use Microsoft Account login](app-service-mobile-how-to-configure-microsoft-authentication.md)
 
@@ -137,4 +138,4 @@ Microsoft 帐户和 Azure Active Directory 都允许从多个域登录。 例如
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [教程：对用户进行端到端身份验证和授权](app-service-web-tutorial-auth-aad.md)
+> [教程：对用户进行端到端身份验证和授权 (Windows)](app-service-web-tutorial-auth-aad.md)

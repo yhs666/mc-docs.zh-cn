@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/06/2018
-ms.date: 04/23/2018
+origin.date: 05/08/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: justini
-ms.openlocfilehash: a82ca08bd3b5abfea5274685df8ec556720e7da5
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: 87e16bf60f06539d6c8b30f8b7c41c292f6968ed
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475064"
 ---
 # <a name="azure-stack-1802-update"></a>Azure Stack 1802 更新
 
@@ -57,9 +58,10 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 
 
 ### <a name="post-update-steps"></a>更新后步骤
-安装 1802 之后，请安装任何适用的修补程序。 有关详细信息，请查看以下知识库文章，以及我们的[服务策略](azure-stack-servicing-policy.md)。  
-- [KB 4103348 - 尝试安装 Azure Stack 更新时，网络控制器 API 服务崩溃](https://support.microsoft.com/help/4103348)
+安装 1802 之后，请安装任何适用的修补程序。 有关详细信息，请查看以下知识库文章，以及我们的[服务策略](azure-stack-servicing-policy.md)。 
+- Azure Stack 修补程序 **1.0.180302.4**。 [KB 4131152 - 现有虚拟机规模集可能不可用](https://support.microsoft.com/help/4131152) 
 
+  此修补程序还可解决 [KB 4103348 - 尝试安装 Azure Stack 更新时，网络控制器 API 服务崩溃](https://support.microsoft.com/help/4103348)中详述的问题。
 
 
 ### <a name="new-features-and-fixes"></a>新功能和修复
@@ -73,7 +75,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
     
     有关详细信息，请参阅 [Azure Stack 存储：差异和注意事项](/azure-stack/user/azure-stack-acs-differences)。
 
-- **对更大型[块 Blob](azure-stack-acs-differences.md) 的支持**：
+- **对更大型[块 Blob](user/azure-stack-acs-differences.md) 的支持**：
     - 允许的最大块大小从 4 MB 增至 100 MB。
     - 最大 Blob 大小从 195 GB 增至 4.75 TB。  
 
@@ -84,6 +86,8 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 - **基于角色的访问控制 (RBAC) 改进** - 现在，当 Azure Stack 通过 AD FS 进行部署时，可以使用 RBAC 将权限委托给通用用户组。 若要详细了解 RBAC，请参阅[管理 RBAC](azure-stack-manage-permissions.md)。
 
 - **增加了对多个容错域的支持**。  有关详细信息，请参阅 [Azure Stack 的高可用性](azure-stack-key-features.md#high-availability-for-azure-stack)。
+
+- **支持物理内存升级** - 现在可以在初始部署后扩展 Azure Stack 集成系统的内存容量。 有关详细信息，请参阅[管理 Azure Stack 的物理内存容量](azure-stack-manage-storage-physical-memory-capacity.md)。
 
 - 针对性能、稳定性、安全性以及 Azure Stack 所用操作系统的**各种修复**。
 
@@ -113,8 +117,6 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 - 无法在管理员门户中查看计算或存储资源。 此问题的原因是更新安装过程中出错，导致系统错误地将更新报告为成功。 如果发生此问题，请联系 Microsoft 客户支持服务部门以寻求帮助。
 
 - 可能会在门户中看到空白的仪表板。 若要恢复仪表板，请选择门户右上角的齿轮图标，然后选择“还原默认设置”。
-
-- 查看资源或资源组的属性时，发现“移动”按钮已禁用。 这是预期的行为。 目前不支持在资源组或订阅之间移动资源或资源组。
 
 - 删除用户订阅生成孤立的资源。 解决方法是先删除用户资源或整个资源组，然后再删除用户订阅。
 
@@ -155,7 +157,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 
 - 通过转到“新建” > “计算” > “可用性集”在门户中创建可用性集时，只能创建一个包含一个容错域和 1 个更新域的可用性集。 解决方法是在创建新的虚拟机时，通过 PowerShell、CLI 或门户来创建可用性集。
 
-- 在 Azure Stack 用户门户中创建虚拟机时，该门户显示的可以附加到 DS 系列 VM 的数据磁盘数不正确。 DS 系列 VM 可以容纳的数据磁盘数取决于 Azure 配置。
+- 在 Azure Stack 用户门户中创建虚拟机时，该门户显示的可以附加到 D 系列 VM 的数据磁盘数不正确。 所有受支持的 D 系列 VM 可以容纳的数据磁盘数取决于 Azure 配置。
 
 - 无法创建 VM 映像时，可能会向 VM 映像计算边栏选项卡添加一个无法删除的故障项。
 
@@ -260,6 +262,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 
 - 只有资源提供程序才能在托管 SQL 或 MySQL 的服务器上创建项目。 如果在不是由资源提供程序创建的主机服务器上创建项目，则此类项目可能导致状态不匹配。  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > 更新到 Azure Stack 1802 以后，可以继续使用以前部署的 SQL 和 MySQL 资源提供程序。  建议在新版本发布后更新 SQL 和 MySQL。 与 Azure Stack 一样，请将更新按顺序应用到 SQL 和 MySQL 资源提供程序。  例如，如果使用版本 1710，请先应用版本 1711，然后应用 1712，再应用 1802 的更新。      

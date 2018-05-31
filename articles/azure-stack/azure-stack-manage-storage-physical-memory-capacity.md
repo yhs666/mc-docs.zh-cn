@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 04/03/2018
-ms.date: 04/20/2018
+origin.date: 05/08/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: 5f0669119b30e1e10798706110c3328b2facfb07
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: d5af2781f8e2b9d8c773ed63554b19f9bad4ef0c
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474900"
 ---
+<!---Loc Comment: Please, check the comment in coversation section---> 
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>管理 Azure Stack 的物理内存容量
 
 *适用于：Azure Stack 集成系统*
@@ -53,3 +55,4 @@ ms.lasthandoff: 04/23/2018
  - 若要了解如何管理 Azure 中的存储帐户，以根据业务需求查找、恢复和回收存储容量，请参阅[管理 Azure Stack 中的存储帐户](azure-stack-manage-storage-accounts.md)。
  - 若要了解 Azure Stack 云操作员如何监视和管理其 Azure Stack 部署的存储容量，请参阅[管理 Azure Stack 的存储容量](azure-stack-manage-storage-shares.md)。 
 
+<!-- Update_Description: wording update -->

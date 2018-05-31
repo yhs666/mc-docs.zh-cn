@@ -7,20 +7,19 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-origin.date: 12/15/2017
-ms.date: 03/02/2018
+origin.date: 04/27/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: adshar
-ms.openlocfilehash: d659589570c90e2a83a4e4b0aa5ee0bcd811f33f
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 0c0aaecf1d0e48a208fa3b48bc9e5b1b28cd003e
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475087"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack 诊断工具
 
-适用于：Azure Stack 集成系统和 Azure Stack 开发工具包
- 
 Azure Stack 是一个大型集合，其中的组件可以一起工作并互相交互。 所有这些组件会生成自己独特的日志。 这样一来，问题可能就难以诊断，尤其是在错误来自多个交互的 Azure Stack 组件的情况下。 
 
 我们的诊断工具有助于确保日志收集机制易用且高效。 下图演示了如何在 Azure Stack 中使用日志收集工具：
@@ -40,7 +39,7 @@ Azure Stack 是一个大型集合，其中的组件可以一起工作并互相�
 > 这些日志文件可能包含个人身份信息 (PII)。 在公开发布任何日志文件之前，请考虑到这一因素。
  
 下面是一些收集的示例日志类型：
-*   **Azure Stack 部署日志**
+-   **Azure Stack 部署日志**
 *   **Windows 事件日志**
 *   **Panther 日志**
 *   **群集日志**
@@ -80,7 +79,36 @@ Azure Stack 是一个大型集合，其中的组件可以一起工作并互相�
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-### <a name="to-run-get-azurestacklog-on-an-azure-stack-integrated-system"></a>在 Azure Stack 集成系统上运行 Get-AzureStackLog
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1804-and-later"></a>在 Azure Stack 集成系统版本 1804 及更高版本上运行 Get-AzureStackLog
+
+若要在集成系统上运行日志收集工具，需访问特权终结点 (PEP)。 下面是一个可以通过 PEP 来运行的示例脚本，用于在集成系统上收集日志：
+
+```powershell
+$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
+ 
+$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
+ 
+$shareCred = Get-Credential
+ 
+$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+
+$fromDate = (Get-Date).AddHours(-8)
+$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+ 
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+
+if($s)
+{
+    Remove-PSSession $s
+}
+```
+
+- 参数 **OutputSharePath** 和 **OutputShareCredential** 用于将日志上传到外部共享文件夹。
+- 如上一示例所示，可以使用 **FromDate** 和 **ToDate** 参数来收集特定时间段的日志。 在某些情况下（例如，在集成系统上应用更新包以后收集日志），可以使用这种方法。
+
+
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1803-and-earlier"></a>在 Azure Stack 集成系统版本 1803 及更低版本上运行 Get-AzureStackLog
 
 若要在集成系统上运行日志收集工具，需访问特权终结点 (PEP)。 下面是一个可以通过 PEP 来运行的示例脚本，用于在集成系统上收集日志：
 
@@ -109,6 +137,7 @@ if($s)
 - 参数 **OutputSharePath** 和 **OutputShareCredential** 为可选参数，在将日志上传到外部共享文件夹时使用。 请在 **OutputPath** 的基础上使用这些参数。 如果 **OutputPath** 未指定，日志收集工具会使用 PEP VM 的系统驱动器进行存储。 这可能导致脚本故障，因为驱动器空间有限。
 - 如上一示例所示，可以使用 **FromDate** 和 **ToDate** 参数来收集特定时间段的日志。 在某些情况下（例如，在集成系统上应用更新包以后收集日志），可以使用这种方法。
 
+
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>ASDK 系统和集成系统的参数考虑事项
 
 - 如果未指定 **FromDate** 和 **ToDate** 参数，则默认收集过去四小时的日志。
@@ -118,26 +147,35 @@ if($s)
 
    |   |   |   |
    | - | - | - |
-   | ACSMigrationService     | ACSMonitoringService   | ACSSettingsService |
-   | ACS                     | ACSFabric              | ACSFrontEnd        |
-   | ACSTableMaster          | ACSTableServer         | ACSWac             |
-   | ADFS                    | ASAppGateway           | BareMetal          |
-   | BRP                     | CA                     | CPI                |
-   | CRP                     | DeploymentMachine      | DHCP               |
-   | 域                  | ECE                    | ECESeedRing        | 
-   | FabricRing              | FabricRingServices     | FRP                |
-   | 网关                 | HealthMonitoring       | HRP                |   
-   | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
-   | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
-   | NonPrivilegedAppGateway | NRP                    | SeedRing           |
-   | SeedRingServices        | SLB                    | SQL                |   
-   | SRP                     | 存储                | StorageController  |
-   | URP                     | UsageBridge            | VirtualMachines    |  
-   | WAS                     | WASPUBLIC              | WDS                |
-
+   | ACS                    | DeploymentMachine                | NC                         |
+   | ACSBlob                | DiskRP                           | 网络                    |
+   | ACSFabric              | 域                           | NonPrivilegedAppGateway    |
+   | ACSFrontEnd            | ECE                              | NRP                        |
+   | ACSMetrics             | ExternalDNS                      | OEM                        |
+   | ACSMigrationService    | Fabric                           | PXE                        |
+   | ACSMonitoringService   | FabricRing                       | SeedRing                   | 
+   | ACSSettingsService     | FabricRingServices               | SeedRingServices           |
+   | ACSTableMaster         | FRP                              | SLB                        |   
+   | ACSTableServer         | 库                          | SlbVips                    |
+   | ACSWac                 | 网关                          | SQL                        |   
+   | ADFS                   | HealthMonitoring                 | SRP                        |
+   | ASAppGateway           | HRP                              | 存储                    |   
+   | NCAzureBridge          | IBC                              | 存储帐户            |    
+   | AzurePackConnector     | IdentityProvider                 | StorageController          |  
+   | AzureStackBitlocker    | iDns                             | 租户                     |
+   | BareMetal              | InfraServiceController           | TraceCollector             |
+   | BRP                    | 基础结构                   | URP                        |
+   | CA                     | KeyVaultAdminResourceProvider    | UsageBridge                |
+   | 云                  | KeyVaultControlPlane             | VirtualMachines            |
+   | 群集                | KeyVaultDataPlane                | WAS                        |
+   | 计算                | KeyVaultInternalControlPlane     | WASBootstrap               |
+   | CPI                    | KeyVaultInternalDataPlane        | WASPUBLIC                  |
+   | CRP                    | KeyVaultNamingService            |                            |
+   | DatacenterIntegration  | MonitoringAgent                  |                            |
+   |                        |                                  |                            |
 
 ### <a name="bkmk_gui"></a>使用图形用户界面收集日志
-也可利用在主 Azure Stack 工具 GitHub 工具存储库 (http://aka.ms/AzureStackTools) 中提供的开源 Azure Stack 工具，不必为 Get-AzureStackLog cmdlet 提供所需的参数来检索 Azure Stack 日志。
+也可利用在主 Azure Stack 工具 GitHub 工具存储库 http://aka.ms/AzureStackTools 中提供的开源 Azure Stack 工具，而不必为 Get-AzureStackLog cmdlet 提供所需的参数来检索 Azure Stack 日志。
 
 **ERCS_AzureStackLogs.ps1** PowerShell 脚本存储在 GitHub 工具存储库中，并定期进行更新。 若要确保使用发布的最新版本，应直接从 http://aka.ms/ERCS 下载该版本。 从 PowerShell 管理会话启动以后，此脚本会连接到特权终结点并使用提供的参数运行 Get-AzureStackLog。 如果未提供参数，此脚本会默认通过图形用户界面提示你提供参数。
 
@@ -146,7 +184,7 @@ if($s)
 ### <a name="additional-considerations"></a>其他注意事项
 
 - 此命令需要一些时间来运行，具体取决于日志所收集的角色。 影响因素还包括指定用于日志收集的时限，以及 Azure Stack 环境中的节点数。
-- 日志收集完成后，请查看在 **OutputPath** 参数（在命令中指定）中创建的新文件夹。
+- 当日志收集运行时，请查看在 **OutputSharePath** 参数（在命令中指定）中创建的新文件夹。
 - 每个角色的日志位于各个 zip 文件中。 根据所收集日志的大小，一个角色的日志可能会拆分成多个 zip 文件。 对于此类角色，如果需要将所有日志文件解压缩到单个文件夹中，请使用可以批量解压缩的工具（例如 7zip）。 选择角色的所有压缩文件，然后选择“解压缩到此处”。 这样就会将该角色的所有日志文件解压缩到单个合并的文件夹中。
 - 在压缩的日志文件所在的文件夹中，还会创建名为 **Get-AzureStackLog_Output.log** 的文件。 此文件是一个命令输出日志，可以用来排查日志收集过程中的问题。
 - 调查某个特定的故障时，可能需要多个组件中的日志。
@@ -162,3 +200,4 @@ if($s)
 [Azure Stack 故障排除](azure-stack-troubleshooting.md)
 
 
+<!-- Update_Description: wording update -->

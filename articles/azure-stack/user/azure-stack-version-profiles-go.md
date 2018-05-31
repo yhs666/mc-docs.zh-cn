@@ -5,22 +5,21 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 84475302-EFC2-4C35-B4CF-60C857A96345
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/27/2018
-ms.date: 04/23/2018
+origin.date: 05/10/2018
+ms.date: 05/23/2018
 ms.author: v-junlch
 ms.reviewer: sijuman
-ms.openlocfilehash: 67dc09e6df9469d2ee63f0440f66c212dc258727
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: b4e7b6f539a3d148f64bcfb86369203580c9b57a
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475067"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Go 配合使用
 
@@ -36,7 +35,7 @@ ms.lasthandoff: 04/23/2018
 在 Go SDK 中，配置文件在 profiles/ 路径下提供，其版本采用 **YYYY-MM-DD** 格式。 目前，最新的 Azure Stack 配置文件版本为 **2017-03-09**。 若要从配置文件导入给定的服务，需要从配置文件导入其相应的模块。 例如，若要从 **2017-03-09** 配置文件导入**计算**服务：
 
 ````go
-import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/compute/mgmt/compute" 
+import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute" 
 ````
 
 ## <a name="install-azure-sdk-for-go"></a>安装 Azure SDK for Go
@@ -130,7 +129,7 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
 
 本部分介绍一种使用客户端凭据在 Azure Stack 上获取授权者令牌的常用方法：
 
-  1. 如果可以使用订阅中具有所有者角色的某个服务主体，请跳过此步骤。 否则，请创建服务主体[说明]( /azure-stack/azure-stack-create-service-principals)，并为其分配范围限定于订阅[说明]( /azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal)的“所有者”角色。 保存服务主体应用程序 ID 和机密。 
+  1. 如果可以使用订阅中具有所有者角色的某个服务主体，请跳过此步骤。 否则，请创建服务主体[说明](/azure-stack/azure-stack-create-service-principals)，并为其分配范围限定于订阅[说明](/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal)的“所有者”角色。 保存服务主体应用程序 ID 和机密。 
 
   2. 在代码中从 Go-AutoRest 导入 **adal** 包。 
   
@@ -179,7 +178,8 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
 ## <a name="example"></a>示例
 
 本部分演示用于在 Azure Stack 中创建虚拟网络的 Go 代码示例。 有关 Go SDK 的完整示例，请参阅 [Azure Go SDk 示例存储库](https://github.com/Azure-Samples/azure-sdk-for-go-samples)。 可从该存储库的服务文件夹中的 hybrid/ 路径下获取 Azure Stack 示例。
-> [!note]  
+
+> [!Note]  
 > 若要运行此示例中的代码，请验证使用的订阅是否具有列为“已注册”的“网络”资源提供程序。 若要验证，请在 Azure Stack 门户中找到该订阅，然后单击“资源提供程序”。
 
 1. 在代码中导入所需的包。 应该使用 Azure Stack 上最新的可用配置文件来导入网络模块。 
@@ -197,7 +197,7 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
       )
       ````
 
-2. 定义环境变量。 请注意，若要创建虚拟网络，需有一个资源组。 
+2. 定义环境变量。 若要创建虚拟网络，需要有一个资源组。 
 
       ````go
       var (
@@ -302,3 +302,4 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
 - [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
 - [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)  
 
+<!-- Update_Description: wording update -->

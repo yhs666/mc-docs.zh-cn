@@ -9,17 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 03/19/2018
-ms.date: 04/30/2018
+origin.date: 04/03/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: e905154763361e9c296a54e6b755888e4df6a511
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 25c9b41dead3f55c4b9d651bea01e36b76257e0e
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554432"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>使用 Windows Azure 诊断聚合和集合事件
 > [!div class="op_single_selector"]
@@ -34,45 +35,43 @@ ms.lasthandoff: 04/28/2018
 <!-- Not Available [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) -->
 
 ## <a name="prerequisites"></a>先决条件
-以下工具可用于执行本文档中的某些操作：
+本文中使用了以下工具：
 
-* [Azure 诊断](../cloud-services/cloud-services-dotnet-diagnostics.md)（与 Azure 云服务相关，但包含有用的信息和示例）
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-* [Azure Resource Manager 客户端](https://github.com/projectkudu/ARMClient)
 * [Azure Resource Manager 模板](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="log-and-event-sources"></a>日志和事件源
-
-### <a name="service-fabric-platform-events"></a>Service Fabric 平台事件
-如[本文](service-fabric-diagnostics-event-generation-infra.md)所述，可使用一些现成的日志通道设置 Service Fabric，下列通道能轻松配置 WAD，发送监视和诊断数据到存储表或其他位置：
-  * 操作事件：Service Fabric 平台执行的更高水平操作。 示例包括创建应用程序和服务、节点状态更改和升级信息。 这些会以 Windows 事件跟踪 (ETW) 日志的形式发出
+## <a name="service-fabric-platform-events"></a>Service Fabric 平台事件
+Service Fabric 提供了一些[现成的日志记录通道](service-fabric-diagnostics-event-generation-infra.md)，该扩展预配置了其中的以下通道来将监视和诊断数据发送到存储表或其他位置：
+  * [操作事件](service-fabric-diagnostics-event-generation-operational.md)：Service Fabric 平台执行的较高级别的操作。 示例包括创建应用程序和服务、节点状态更改和升级信息。 这些会以 Windows 事件跟踪 (ETW) 日志的形式发出
   * [Reliable Actors 编程模型事件](service-fabric-reliable-actors-diagnostics.md)
   * [Reliable Services 编程模型事件](service-fabric-reliable-services-diagnostics.md)
 
-### <a name="application-events"></a>应用程序事件
- 从应用程序和服务代码发出，使用 Visual Studio 模板提供的 EventSource 帮助器类写出的事件。 有关如何从应用程序写入 EventSource 日志的详细信息，请参阅[在本地计算机开发设置中监视和诊断服务](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)。
-
-## <a name="deploy-the-diagnostics-extension"></a>部署诊断扩展
-收集日志的第一个步骤是将诊断扩展部署在 Service Fabric 群集中的每个 VM 上。 诊断扩展会收集每个 VM 上的日志，并将它们上传到指定的存储帐户。 根据使用的是 Azure 门户还是 Azure Resource Manager，步骤稍有不同。 另外，根据扩展是在创建群集时部署，还是针对现有群集部署，步骤也有所不同。 让我们看看每个方案的步骤。
+## <a name="deploy-the-diagnostics-extension-through-the-portal"></a>通过门户部署诊断扩展
+收集日志的第一个步骤是将诊断扩展部署在 Service Fabric 群集中的每个虚拟机规模集节点上。 诊断扩展会收集每个 VM 上的日志，并将它们上传到指定的存储帐户。 以下步骤概述了如何通过 Azure 门户和 Azure 资源管理器模板为新的和现有的群集完成此操作。
 
 ### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-through-azure-portal"></a>在通过 Azure 门户创建群集过程中部署诊断扩展
-若要在创建群集过程中将诊断扩展部署到群集中的 VM，需使用下图所示的“诊断设置”面板 - 请确保诊断设置为“打开”（默认设置）。 创建群集后，无法使用门户更改这些设置。
+创建群集时，在群集配置步骤中，展开可选设置并确保将“诊断”设置为“打开”（默认设置）。
 
-![门户中有关创建群集的 Azure 诊断设置](media/service-fabric-diagnostics-event-aggregation-wad/azure-enable-diagnostics.png)
+![门户中有关创建群集的 Azure 诊断设置](media/service-fabric-diagnostics-event-aggregation-wad/azure-enable-diagnostics-new.png)
 
-使用门户创建群集时，我们强烈建议先下载模板， **并单击“确定”** 创建群集。 有关详细信息，请参阅[使用 Azure Resource Manager 模板设置 Service Fabric 群集](service-fabric-cluster-creation-via-arm.md)。 以后，需要通过模板进行更改，因为无法使用门户进行某些更改。
+强烈建议在最终步骤中**单击“创建”之前**下载模板。 有关详细信息，请参阅[使用 Azure Resource Manager 模板设置 Service Fabric 群集](service-fabric-cluster-creation-via-arm.md)。 需要使用该模板来更改要从（上面列出的）哪些通道来收集数据。
 
-### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 在创建群集过程中部署诊断扩展
-要使用 Resource Manager 创建群集，需要在创建群集之前，将诊断配置 JSON 添加到整个群集 Resource Manager 模板。 我们将在 Resource Manager 模板示例中提供包含五个 VM 的群集 Resource Manager 模板，并在演示 Resource Manager 模板示例的过程中添加诊断配置。 可以在 Azure 示例库中的以下位置找到该示例： [包含五节点群集的诊断 Resource Manager 模板示例](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)。
+![群集模板](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
+
+<!-- Not Available on [set up Log Analytics](service-fabric-diagnostics-oms-setup.md)-->
+## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>通过 Azure 资源管理器部署诊断扩展
+
+### <a name="create-a-cluster-with-the-diagnostics-extension"></a>创建包含诊断扩展的群集
+若要使用资源管理器创建群集，需要在创建群集之前，将诊断配置 JSON 添加到整个资源管理器模板。 我们会在 Resource Manager 模板示例中提供包含五个 VM 的群集 Resource Manager 模板，并在演示 Resource Manager 模板示例的过程中添加诊断配置。 可以在 Azure 示例库中的以下位置找到该示例： [包含五节点群集的诊断 Resource Manager 模板示例](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)。
 <!--URL should be https://azure.microsoft.com/en-in/resources/templates/ -->
 
 若要查看 Resource Manager 模板中的诊断设置，请打开 azuredeploy.json 文件并搜索 **IaaSDiagnostics**。 若要使用此模板创建群集，请选择在上面的链接中提供的“部署到 Azure”  按钮。
 
 或者，也可以下载 Resource Manager 示例，进行更改，并在 Azure PowerShell 窗口中输入 `New-AzureRmResourceGroupDeployment` 命令，使用修改后的模板创建群集。 有关要在命令中传入的参数，请参阅以下代码。 有关如何使用 PowerShell 部署资源组的详细信息，请参阅[使用 Azure Resource Manager 模板部署资源组](../azure-resource-manager/resource-group-template-deploy.md)一文。
 
-### <a name="deploy-the-diagnostics-extension-to-an-existing-cluster"></a>将诊断扩展部署到现有群集
-如果现有的群集上未部署诊断或者要修改现有配置，可以添加或更新配置。 修改用于创建现有群集的 Resource Manager 模板，或者如前所述从门户下载该模板。 执行以下任务可修改 template.json 文件。
+### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>向现有群集添加诊断扩展
+如果存在尚未部署诊断的现有群集，可以通过群集模板来添加或更新该扩展。 修改用于创建现有群集的 Resource Manager 模板，或者如前所述从门户下载该模板。 执行以下任务来修改 template.json 文件：
 
 通过将新存储资源添加到 resources 节将其添加到模板。
 
@@ -82,7 +81,7 @@ ms.lasthandoff: 04/28/2018
   "type": "Microsoft.Storage/storageAccounts",
   "name": "[parameters('applicationDiagnosticsStorageAccountName')]",
   "location": "[parameters('computeLocation')]",
-  "properties": {
+  "sku": {
     "accountType": "[parameters('applicationDiagnosticsStorageAccountType')]"
   },
   "tags": {
@@ -92,7 +91,7 @@ ms.lasthandoff: 04/28/2018
 },
 ```
 
- 接下来，将该资源添加到存储帐户定义后面的 `supportLogStorageAccountName` 与 `vmNodeType0Name` 之间的参数部分。 将占位符文本 *storage account name goes here* 替换为存储帐户的名称。
+ 接下来，将该资源添加到存储帐户定义后面与 `supportLogStorageAccountName` 之间的 parameters 节中。 将占位符文本 *storage account name goes here* 替换为所需的存储帐户的名称。
 
 ```json
     "applicationDiagnosticsStorageAccountType": {
@@ -108,7 +107,7 @@ ms.lasthandoff: 04/28/2018
     },
     "applicationDiagnosticsStorageAccountName": {
       "type": "string",
-      "defaultValue": "storage account name goes here",
+      "defaultValue": "**STORAGE ACCOUNT NAME GOES HERE**",
       "metadata": {
         "description": "Name for the storage account that contains application diagnostics data from the cluster"
       }
@@ -185,6 +184,14 @@ ms.lasthandoff: 04/28/2018
 >},
 >```
 
+### <a name="update-storage-quota"></a>更新存储配额
+
+由于由该扩展填充的表不断增长，直至达到配额，因此可能需要考虑减小配额大小。 默认值为 50 GB，可以在模板中在 `DiagnosticMonitorConfiguration` 下的 `overallQuotainMB` 字段下进行配置。
+
+```json
+"overallQuotaInMB": "50000",
+```
+
 ## <a name="log-collection-configurations"></a>日志收集配置
 其他通道的日志也可供收集，下面是你可以在 Azure 中运行的群集的模板中进行的一些最常见配置。
 
@@ -199,7 +206,7 @@ ms.lasthandoff: 04/28/2018
       scheduledTransferKeywordFilter: "4611686018427387912"
   ```
 
-* 数据和消息通道 - 基本：消息（当前仅限 ReverseProxy）和数据路径中生成的关键日志和事件，以及详细操作通道日志。 这些事件是处理失败的请求和 ReverseProxy 中的其他关键问题以及已处理的请求。 **这是我们针对全面日志记录的建议**。 若要在 Visual Studio 的诊断事件查看器中查看这些事件，请将“Microsoft-ServiceFabric:4:0x4000000000000010”添加到 ETW 提供程序列表。
+* 数据和消息通道 - 基本：消息（当前仅限 ReverseProxy）和数据路径中生成的关键日志和事件，以及详细操作通道日志。 这些事件是请求处理失败和 ReverseProxy 中的其他严重问题以及已处理的请求。 **这是我们针对全面日志记录的建议**。 若要在 Visual Studio 的诊断事件查看器中查看这些事件，请将“Microsoft-ServiceFabric:4:0x4000000000000010”添加到 ETW 提供程序列表。
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387928"
@@ -284,7 +291,7 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="next-steps"></a>后续步骤
 
-正确配置 Azure 诊断后，将看到来自 ETW 和 EventSource 日志的存储表中的数据。 如果选择使用 OMS、Kibana 或其他不在 Resource Manager 模板中直接配置的任何数据分析和可视化平台，请确保设置所选平台以读入这些存储表中的数据。
+正确配置 Azure 诊断后，将看到来自 ETW 和 EventSource 日志的存储表中的数据。 如果选择使用 Kibana 或其他不在资源管理器模板中直接配置的任何数据分析和可视化平台，请确保设置所选平台以读入这些存储表中的数据。
 <!-- Not Available on [Event and log analysis through OMS](service-fabric-diagnostics-event-analysis-oms.md) -->
 <!-- Not Available on [appropriate article](service-fabric-diagnostics-event-analysis-appinsights.md) -->
 
@@ -293,6 +300,6 @@ ms.lasthandoff: 04/28/2018
 
 * [了解如何使用诊断扩展收集性能计数器或日志](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 <!-- Not Available on * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
-<!-- Not Available on * [Event Analysis and Visualization with OMS](service-fabric-diagnostics-event-analysis-oms.md) -->
+<!-- Not Available on * [Event Analysis and Visualization with Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) -->
 
 <!--Update_Description: update meta propreties, update link, wording update -->

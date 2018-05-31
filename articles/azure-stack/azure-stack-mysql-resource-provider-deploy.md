@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/27/2018
-ms.date: 04/20/2018
+origin.date: 04/24/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: 9258ed85aa775db7ef4bb0b10a996540cd855e6e
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: effb8e667311cd90f416c8ad62ef756166c3ccb3
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475091"
 ---
 # <a name="use-mysql-databases-on-azure-stack"></a>在 Azure Stack 上使用 MySQL 数据库
 
@@ -118,7 +119,7 @@ ms.lasthandoff: 04/23/2018
 下面是可从 PowerShell 命令提示符运行的示例命令。 请务必根据需要更改帐户信息和密码：
 
 
-```
+```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
@@ -180,6 +181,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 | **DebugMode** | 防止在失败时自动清除。 | 否 |
 | **AcceptLicense** | 跳过接受 GPL 许可条款的提示。  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
+>[!NOTE]
+> SKU 最长可能需要在一小时后才显示在门户中。 在创建 SKU 之前，无法创建数据库。
 
 ## <a name="verify-the-deployment-by-using-the-azure-stack-portal"></a>使用 Azure Stack 门户验证部署
 
@@ -213,6 +216,10 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
     - 数据库容量
     - 自动备份
     - 为各个部门保留高性能服务器
+
+
+  > [!IMPORTANT]
+  > 不能在同一 SKU 中混合使用独立服务器与 Always On 实例。 尝试在添加第一个托管服务器后混合类型会导致错误。
  
 
 SKU 名称应反映属性，使租户能够适当地放置其数据库。 SKU 中的所有宿主服务器应有相同的功能。
@@ -220,8 +227,7 @@ SKU 名称应反映属性，使租户能够适当地放置其数据库。 SKU �
 ![创建 MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
->[!NOTE]
-> SKU 最长可能需要在一小时后才显示在门户中。 在创建 SKU 之前，无法创建数据库。
+
 
 
 ## <a name="test-your-deployment-by-creating-your-first-mysql-database"></a>创建第一个 MySQL 数据库以测试部署

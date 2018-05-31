@@ -13,13 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/17/2017
-ms.date: 04/30/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: d37e6a9b894a6f34bc6a344a0f4d7bccd4798023
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 93845484a489dcaf76a6b87cfa02042dc88020ae
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554520"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上设置开发环境
 > [!div class="op_single_selector"]
@@ -63,7 +64,7 @@ Azure Service Fabric 不在 Mac OS X 本机上运行。为了运行本地 Servic
     >
     >测试大型应用程序时，我们建议增加分配给 Docker 的资源。 为此，可以选择 **Docker 图标**，然后选择“高级”来调整核心数量和内存量。
 
-2. 在新目录中创建名为 `.Dockerfile` 的文件，以生成 Service Fabric 映像：
+2. 在新目录中创建名为 `Dockerfile` 的文件，以生成 Service Fabric 映像：
 
     ```dockerfile
     FROM microsoft/service-fabric-onebox
@@ -87,7 +88,7 @@ Azure Service Fabric 不在 Mac OS X 本机上运行。为了运行本地 Servic
     >[!TIP]
     > 默认情况下，这样会拉取具有最新 Service Fabric 版本的映像。 如需特定的修订版本，请访问 [Docker 中心](https://hub.docker.com/r/microsoft/service-fabric-onebox/)页。
 
-3. 若要通过 `.Dockerfile` 生成可重用的映像，请打开终端并运行 `cd` 切换到 `.Dockerfile` 所在的目录，然后运行：
+3. 若要通过 `Dockerfile` 生成可重用的映像，请打开终端并运行 `cd` 切换到 `Dockerfile` 所在的目录，然后运行：
 
     ```bash 
     docker build -t mysfcluster .
@@ -121,6 +122,12 @@ Azure Service Fabric 不在 Mac OS X 本机上运行。为了运行本地 Servic
     ```bash 
     docker rm -f sftestcluster
     ```
+
+### <a name="known-limitations"></a>已知限制 
+
+ 以下是在 Mac 的容器中运行的本地群集的已知限制： 
+
+ * DNS 服务无法运行且不受支持 [问题 #132](https://github.com/Microsoft/service-fabric/issues/132)
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>在 Mac 上设置 Service Fabric CLI (sfctl)
 

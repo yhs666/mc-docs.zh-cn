@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/28/2018
-ms.date: 03/22/2018
+origin.date: 05/17/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: f9ef5e1eeadb0ec5d4bba564d65e9f0f3788974a
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 073b2f72136c30a4bca512d4445068ed4f000122
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475005"
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>在 Azure Stack 中启用多租户
 
@@ -76,7 +77,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 完成 Azure Stack 目录中的步骤后，Mary 必须允许 Azure Stack 访问来宾目录，并将 Azure Stack 注册到来宾目录。 
 
 ### <a name="registering-azure-stack-with-the-guest-directory"></a>将 Azure Stack 注册到来宾目录
-来宾目录管理员允许 Azure Stack 访问 Fabrikam 的目录后，他们必须将 Azure Stack 注册到 Fabrikam 的目录租户。
+来宾目录管理员允许 Azure Stack 访问 Fabrikam 的目录后，Mary 必须将 Azure Stack 注册到 Fabrikam 的目录租户。
 
 ````PowerShell
 $tenantARMEndpoint = "https://management.local.azurestack.external"
@@ -92,12 +93,11 @@ Register-AzSWithMyDirectoryTenant `
 ## <a name="direct-users-to-sign-in"></a>指导用户登录
 现在，你和 Mary 已完成到加入 Mary 目录的步骤，Mary 可以指导 Fabrikam 用户登录。  Fabrikam 用户（即，具有 fabrikam.partner.onmschina.cn 后缀的用户）通过访问 https://portal.local.azurestack.external 登录。  
 
-Mary 将指导 Fabrikam 目录中的任何[外部主体](../active-directory/active-directory-understanding-resource-access.md)（即，Fabrikam 目录中没有 fabrikam.partner.onmschina.cn 后缀的用户）使用 https://portal.local.azurestack.external/fabrikam.partner.onmschina.cn 登录。  如果他们不使用此 URL，则将被发送到其默认目录 (Fabrikam)，并收到一个错误，指出其管理员未许可。
+Mary 将指导 Fabrikam 目录中的任何[外部主体](../role-based-access-control/rbac-and-directory-admin-roles.md)（即，Fabrikam 目录中没有 fabrikam.partner.onmschina.cn 后缀的用户）使用 https://portal.local.azurestack.external/fabrikam.partner.onmschina.cn 登录。  如果他们不使用此 URL，则将被发送到其默认目录 (Fabrikam)，并收到一个错误，指出其管理员未许可。
 
 ## <a name="next-steps"></a>后续步骤
 
 - [管理委派提供程序](azure-stack-delegated-provider.md)
 - [Azure Stack 关键概念](azure-stack-key-features.md)
 
-
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

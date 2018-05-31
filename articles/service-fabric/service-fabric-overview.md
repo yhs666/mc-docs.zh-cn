@@ -13,14 +13,15 @@ ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/20/2017
-ms.date: 04/09/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4c32606f38c44fb8d6f14d9c2fe2585f816475d1
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: e2b1d1696d887746d38863934635f4beb1734d10
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554459"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric 概述
 Azure Service Fabric 是一款分布式系统平台，可方便用户轻松打包、部署和管理可缩放的可靠微服务和容器。 Service Fabric 还解决了开发和管理云本机应用程序面临的重大难题。 开发人员和管理员不仅可以避免复杂的基础结构问题，而且可以专注于实现可缩放、可靠且可管理的要求苛刻的任务关键型工作负荷。 Service Fabric 代表了下一代平台，用于生成和管理在容器中运行的企业级单层云规模应用程序。
@@ -40,7 +41,7 @@ Service Fabric 为由这些微服务组成的应用程序提供全面的运行�
 有关微服务方法的详细信息，请阅读[微服务方法为什么可以生成应用程序？](service-fabric-overview-microservices.md)
 
 ## <a name="container-deployment-and-orchestration"></a>容器部署和业务流程
-Service Fabric 是 Azure 推出的跨计算机群集部署微服务的[容器 Orchestrator](service-fabric-cluster-resource-manager-introduction.md)。 微服务的开发方法有多种，包括使用 [Service Fabric 编程模型](service-fabric-choose-framework.md)、[ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) 或部署[任意选定代码](service-fabric-guest-executables-introduction.md)。 重要的是，可以在同一应用程序中混合使用进程中的服务和容器中的服务。 如果只需要[部署和管理容器](service-fabric-containers-overview.md)，Service Fabric 是容器 Orchestrator 理想之选。
+Service Fabric 是 21Vianet 推出的跨计算机群集部署微服务的[容器业务流程协调程序](service-fabric-cluster-resource-manager-introduction.md)。 微服务的开发方法有多种，包括使用 [Service Fabric 编程模型](service-fabric-choose-framework.md)、[ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) 或部署[任意选定代码](service-fabric-guest-executables-introduction.md)。 重要的是，可以在同一应用程序中混合使用进程中的服务和容器中的服务。 如果只需要[部署和管理容器](service-fabric-containers-overview.md)，Service Fabric 是容器 Orchestrator 理想之选。
 
 ## <a name="any-os-any-cloud"></a>不限 OS 和云
 Service Fabric 可以在所有环境中运行。 可在许多环境（包括在 Azure 中或本地、在 Windows Server 或 Linux 上）中创建 Service Fabric 群集。 甚至可以在其他公有云上创建群集。 此外，SDK 中的开发环境与生产环境完全相同，都不涉及模拟器。 也就是说，在本地开发群集上运行的内容会部署到其他环境中的群集。
@@ -93,4 +94,4 @@ Service Fabric 与 [Visual Studio Team Services](https://www.visualstudio.com/te
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties -->

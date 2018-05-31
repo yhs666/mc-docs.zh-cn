@@ -12,15 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/02/2018
-ms.date: 03/22/2018
+origin.date: 05/01/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
-ms.openlocfilehash: 1d977aa735988b18f9c8ab8e2858459f13f9c99a
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 77b0f95304a57bd57b5eba53adac30f0081acd19
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475103"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>有关 Azure Stack 集成系统的数据中心集成注意事项
 如果你对 Azure Stack 集成系统感兴趣，应了解一些有关部署的重要规划注意事项，及系统如何融入数据中心。 本文提供这些注意事项的综合概述，帮助你在 Azure Stack 多节点系统方面做出重要的基础结构决策。 配合 OEM 硬件供应商将 Azure Stack 部署到数据中心时，了解这些注意事项会有所帮助。  
@@ -51,7 +52,8 @@ Azure Stack 是一个密封的系统，从权限和网络角度来看，其基�
 ## <a name="identity-considerations"></a>标识注意事项
 
 ### <a name="choose-identity-provider"></a>选择标识提供者
-需要考虑用于 Azure Stack 部署的标识提供者：Azure AD 或 AD FS。 部署之后无法切换标识提供者，除非重新部署整个系统。
+需要考虑用于 Azure Stack 部署的标识提供者：Azure AD 或 AD FS。 部署之后无法切换标识提供者，除非重新部署整个系统。 如果你未拥有 Azure AD 帐户且使用的是云服务提供商提供给你的帐户，并且你决定切换提供商并使用其他 Azure AD 帐户，则此时你必须联系解决方案提供商让其根据你的成本为你重新部署解决方案。
+
 
 标识提供者选项与租户虚拟机、标识系统及其使用的帐户、它们能否加入 Active Directory 域等因素无关。两者是彼此独立的。
 
@@ -109,7 +111,7 @@ Azure Stack 是一个密封的系统，从权限和网络角度来看，其基�
 ## <a name="time-synchronization"></a>时间同步
 必须选择用于同步 Azure Stack 的特定时间服务器。  时间符号化对于 Azure Stack 及其基础结构角色而言很重要，因为它用于生成 Kerberos 票证，而这些票证用于内部服务的相互身份验证。
 
-必须指定时间同步服务器的 IP，不过，基础结构中的大多数组件都可以解析 URL，而有些组件只支持 IP 地址。 如果使用“离线”部署选项，必须在企业网络中指定时间服务器，并确保可从 Azure Stack 中的基础结构网络访问该服务器。
+必须指定时间同步服务器的 IP，不过，基础结构中的大多数组件都可以解析 URL，而有些组件只支持 IP 地址。 如果使用“断开连接”部署选项，必须在企业网络中指定时间服务器，并确保可从 Azure Stack 中的基础结构网络访问该服务器。
 
 ## <a name="connect-azure-stack-to-azure"></a>将 Azure Stack 连接到 Azure
 
@@ -181,7 +183,7 @@ Azure Stack 解决方案随附的硬件生命周期主机是 Azure Stack 外部�
 - 在现有的基于 Windows 的文件服务器或第三方设备上需有外部 SMB 文件共享。
 - 应将此同一共享用于网络交换机与硬件生命周期主机的备份。 OEM 硬件供应商会帮助提供这些组件的备份和还原指导，因为这些操作在 Azure Stack 外部进行。 你要负责根据 OEM 供应商的建议来运行备份工作流。
 
-如果发生重大数据丢失，可以使用基础结构备份来重新植入部署数据，例如部署输入和标识符、服务帐户、CA 根证书、联合资源（在离线部署中）、计划、产品/服务、订阅、配额、RBAC 策略与角色分配，以及 Key Vault 机密。
+如果发生重大数据丢失，可以使用基础结构备份来重新植入部署数据，例如部署输入和标识符、服务帐户、CA 根证书、联合资源（在断开连接部署中）、计划、产品、订阅、配额、RBAC 策略与角色分配，以及 Key Vault 机密。
  
 ### <a name="protect-tenant-applications-on-iaas-virtual-machines"></a>保护 IaaS 虚拟机上的租户应用程序
 

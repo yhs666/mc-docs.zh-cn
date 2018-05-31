@@ -23,6 +23,10 @@
   items:
     - name: 将应用部署到 Azure 和 Azure Stack
       href: azure-stack-solution-pipeline.md
+    - name: 配置混合云标识
+      href: azure-stack-solution-hybrid-identity.md
+    - name: 配置混合云连接
+      href: azure-stack-solution-hybrid-connectivity.md
 - name: 操作指南
   items:
     - name: 使用 Azure Stack 门户
@@ -87,6 +91,12 @@
               href: azure-stack-kv-push-secret-into-vm.md
             - name: KeyVault 示例应用
               href: azure-stack-kv-sample-app.md
+        - name: 解决方案模板
+          items:
+            - name: 部署 Service Fabric 群集
+              href: azure-stack-solution-template-service-fabric-cluster.md
+            - name: 部署 Kubernetes 群集
+              href: azure-stack-solution-template-kubernetes-deploy.md
     - name: 生成应用
       items:
         - name: 为 Azure Stack 进行开发
@@ -110,6 +120,10 @@
                   href: azure-stack-version-profiles-azurecli2.md
                 - name: 前往
                   href: azure-stack-version-profiles-go.md
+                - name: Ruby
+                  href: azure-stack-version-profiles-ruby.md
+                - name: Python
+                  href: azure-stack-version-profiles-python.md
                 - name: 配置文件支持的资源提供程序 API
                   href: azure-stack-profiles-azure-resource-manager-versions.md
         - name: 使用策略模块

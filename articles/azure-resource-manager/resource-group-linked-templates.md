@@ -3,7 +3,7 @@ title: 用于 Azure 部署的链接模板 | Azure
 description: 介绍如何使用 Azure Resource Manager 模板中的链接模板创建一个模块化的模板的解决方案。 演示如何传递参数值、指定参数文件和动态创建的 URL。
 services: azure-resource-manager
 documentationcenter: na
-author: rockboyfor
+author: luanmafeng
 manager: digimobile
 editor: tysonn
 ms.assetid: 27d8c4b2-1e24-45fe-88fd-8cf98a6bb2d2
@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/17/2018
-ms.date: 04/30/2018
+origin.date: 05/17/2018
+ms.date: 05/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0e83b8b8859519e2add6e8907e032da0bfdd666d
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 6de9c4cc26b9cd8e872d5cc0cf02431a55fafc27
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554535"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 资源时使用链接模版和嵌套模版
 
@@ -149,7 +150,7 @@ ms.lasthandoff: 04/28/2018
 }
 ```
 
-还可以使用 [deployment()](resource-group-template-functions-deployment.md#deployment) 获取当前模板的基 URL，并使用该 URL 来获取同一位置其他模板的 URL。 如果模板位置发生变化（原因可能是版本控制）或者想要避免对模板文件中的 URL 进行硬编码，则此方法非常有用。
+还可以使用 [deployment()](resource-group-template-functions-deployment.md#deployment) 获取当前模板的基 URL，并使用该 URL 来获取同一位置其他模板的 URL。 如果模板位置发生变化（原因可能是版本控制）或者想要避免对模板文件中的 URL 进行硬编码，则此方法非常有用。 仅当链接到带有 URL 的远程模板时，才会返回 templateLink 属性。 如果使用的是本地模板，该属性不可用。
 
 ```json
 "variables": {
@@ -210,7 +211,7 @@ ms.lasthandoff: 04/28/2018
 }
 ```
 
-链接模板与其他资源类型相似，也可在它与其他资源之间设置依赖关系。 因此，其他资源需要从链接的模板获取输出值时，可确保在其之前部署链接的模板。 如果链接模板依赖于其他资源，也可以确保在部署链接模板前部署其他资源。
+链接模板与其他资源类型相似，也可在它与其他资源之间设置依赖关系。 因此，当其他资源需要链接模板的输出值时，请确保在部署这些资源之前部署链接模板。 或者，当链接模板依赖于其他资源时，请确保在部署链接模板之前部署其他资源。
 
 以下示例演示一个部署公共 IP 地址并返回资源 ID 的模板：
 

@@ -12,15 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/09/2018
-ms.date: 04/23/2018
+origin.date: 04/26/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
-ms.openlocfilehash: 09c528d73239ed98af90e725dd355410a3562e1e
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: 0ebe9f5338c24f1716895aaaad5e68d14e9ca980
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475045"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack 集成系统的 Azure 断开连接部署计划决策
 在决定[如何将 Azure Stack 集成到混合云环境](azure-stack-connection-models.md)后，可以完成你的 Azure Stack 部署决策。
@@ -48,7 +49,7 @@ Azure Stack 设计为在连接到 Azure 的情况下功能最佳，因此请务�
 |引用联机修正指南的警报修正/缓解|不可用 - 使用 Internet URL 的任何警报修正链接都不起作用。|
 |Marketplace 联合 - 直接从 Azure Marketplace 中选择并添加库包的能力|限制 - 在离线模式下（没有任何 Internet 连接）部署 Azure Stack 时，不能通过 Azure Stack 门户下载 Marketplace 项。 但是，可以使用 [Marketplace 联合工具](/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity)将 Marketplace 项下载到有 Internet 连接的计算机，然后再将这些项转移到 Azure Stack 环境。|
 |使用 Azure Active Directory 联合身份验证帐户管理 Azure Stack 部署|不可用 - 此功能要求连接到 Azure。 必须改用具有本地 Active Directory 实例的 AD FS。|
-|诸如 WebApps 和 SQL 的资源提供程序|不可用 - 诸如 WebApps 和 SQL 的资源提供程序要求通过 Internet 访问内容。|
+|应用服务|被损坏 - WebApps 可能需要访问 Internet 以获取更新的内容。|
 |命令行界面 (CLI)|被削弱 - CLI 在对服务主体进行身份验证和预配方面的功能已减弱。|
 |Visual Studio - Cloud discovery|被削弱 - Cloud Discovery 将发现不同的云或根本不工作。|
 |Visual Studio - AD FS|被削弱 - 只有 Visual Studio Enterprise 支持 AD FS。

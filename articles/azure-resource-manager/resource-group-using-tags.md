@@ -15,11 +15,12 @@ ms.topic: article
 origin.date: 01/19/2018
 ms.date: 03/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0577df949bc1755068e545cb779cc98e2cd458c1
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 77abc4a3bf3887f81bf62f88550d1a4c320e266a
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554265"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用标记整理 Azure 资源
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="powershell"></a>PowerShell
 
-本文中的示例需要 Azure PowerShell 版本 3.0 或更高版本。 如果没有版本 3.0 或更高版本，请使用 PowerShell 库或 Web 平台安装程序[更新版本](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)。
+本文中的示例需要版本 6.0 或更高版本的 Azure PowerShell。 如果没有版本 3.0 或更高版本，请[更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
 若要查看*资源组*的现有标记，请使用：
 

@@ -12,21 +12,32 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/10/2017
-ms.date: 03/08/2018
+origin.date: 05/15/2018
+ms.date: 05/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 665ff072723ae6747757e2727fede72b3341eb28
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 888241670ea19b973dbeb8be490d2d23ece308ed
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474895"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>从 GitHub 下载 Azure Stack 工具
 
-AzureStack-Tools 是托管 PowerShell 模块的 GitHub 存储库，可用于管理资源并将其部署到 Azure Stack。 如果你打算建立 VPN 连接，则可将这些 PowerShell 模块下载到 Azure Stack 开发工具包或基于 Windows 的外部客户端。 若要获取这些工具，请克隆 GitHub 存储库，或运行以下脚本来下载 AzureStack-Tools 文件夹：
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+
+AzureStack-Tools 是托管 PowerShell 模块的 GitHub 存储库，可用于管理资源并将其部署到 Azure Stack。
+
+## <a name="download-targets"></a>下载目标
+
+可以将这些 PowerShell 模块下载到 Azure Stack 开发工具包或使用 VPN 连接的基于 Windows 的外部客户端，并加以使用。
+
+## <a name="how-to-get-the-tools"></a>如何获取工具
+
+若要获取这些工具，请克隆 AzureStack-Tools GitHub 存储库，或运行以下脚本来下载 AzureStack-Tools 文件夹：
 
 ```PowerShell
-# Change directory to the root directory 
+# Change directory to the root directory
 cd \
 
 # Download the tools archive
@@ -46,7 +57,7 @@ cd AzureStack-Tools-master
 
 ## <a name="functionalities-provided-by-the-modules"></a>模块提供的功能
 
-AzureStack-Tools 存储库包含支持以下 Azure Stack 功能的 PowerShell 模块：  
+AzureStack-Tools 存储库包含支持以下 Azure Stack 功能的 PowerShell 模块：
 
 | 功能 | 说明 | 谁可以使用此模块？ |
 | --- | --- | --- |
@@ -55,8 +66,9 @@ AzureStack-Tools 存储库包含支持以下 Azure Stack 功能的 PowerShell �
 | [连接到 Azure Stack](azure-stack-connect-azure-stack.md) | 使用此模块可通过 PowerShell 连接到 Azure Stack 实例，并配置与 Azure Stack 的 VPN 连接。 | 云管理员和用户 |
 | [模板验证程序](azure-stack-validate-templates.md) | 使用此模块可以验证是否可将现有或新的模板部署到 Azure Stack。 | 云管理员和用户 |
 
-
 ## <a name="next-steps"></a>后续步骤
-- [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)   
-- [通过 VPN 连接到 Azure Stack 开发工具包](azure-stack-connect-azure-stack.md)  
 
+- [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)
+- [通过 VPN 连接到 Azure Stack 开发工具包](azure-stack-connect-azure-stack.md)
+
+<!-- Update_Description: wording update -->

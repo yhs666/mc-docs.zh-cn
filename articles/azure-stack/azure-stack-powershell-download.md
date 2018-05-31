@@ -6,20 +6,21 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: E4DF77FA-F468-42B5-B44F-F10ED8049171
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-origin.date: 02/27/2018
-ms.date: 03/26/2018
+origin.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 01fae70376882bd0fb1ee856fa2158d03cff8ec9
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.reviewer: thoroet
+ms.openlocfilehash: 1d6332015d7758344d7a952a3cf3a1d7285e5ada
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474909"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>从 GitHub 下载 Azure Stack 工具
 
@@ -54,13 +55,10 @@ cd AzureStack-Tools-master
 | 功能 | 说明 | 谁可以使用此模块？ |
 | --- | --- | --- |
 | [云功能](user/azure-stack-validate-templates.md) | 使用此模块可获取云的云功能。 例如，可以使用此模块来获取 API 版本和 Azure 资源管理器资源等云功能。 还可以使用此模块获取 Azure Stack 和 Azure 云的 VM 扩展。 | 云操作员和用户 |
-| [Azure Stack 计算管理](azure-stack-add-vm-image.md) | 使用此模块可在 Azure Stack Marketplace 中添加或删除 VM 映像。 | 云操作员 |
-| [Azure Stack 基础结构管理](https://github.com/Azure/AzureStack-Tools/blob/master/Infrastructure/README.md) | 使用此模块可管理 Azure Stack 基础结构 VM、警报、更新等。 |  云操作员|
 | [Azure Stack 的资源管理器策略](user/azure-stack-policy-module.md) | 使用此模块可以配置版本和服务可用性与 Azure Stack 相同的 Azure 订阅或 Azure 资源组。 | 云操作员和用户 |
 | [注册到 Azure](azure-stack-register.md) | 使用此模块可将开发工具包实例注册到 Azure。 注册后，可从 Azure 下载 Marketplace 项，并在 Azure Stack 中使用它们。 | 云操作员 |
 | [Azure Stack 部署](azure-stack-run-powershell-script.md) | 使用此模块可通过 Azure Stack 虚拟硬盘 (VHD) 映像来准备用于部署和重新部署的 Azure Stack 主计算机。 | 云操作员|
-| [连接到 Azure Stack](azure-stack-connect-powershell.md) | 使用此模块可通过 PowerShell 连接到 Azure Stack 实例，并配置与 Azure Stack 的 VPN 连接。 | 云操作员和用户 |
-| [Azure Stack 服务管理](azure-stack-create-offer.md) | 使用此模块可创建默认租户产品/服务，该产品/服务通过不同的计算、Azure 存储、网络和 Key Vault 服务提供无限配额。   | 云操作员|
+| [连接到 Azure Stack](azure-stack-connect-powershell.md) | 使用此模块配置与 Azure Stack 的 VPN 连接。 | 云操作员和用户 |
 | [模板验证程序](user/azure-stack-validate-templates.md) | 使用此模块可以验证是否可将现有或新的模板部署到 Azure Stack。 | 云操作员和用户|
 
 
@@ -68,4 +66,3 @@ cd AzureStack-Tools-master
 - [配置 Azure Stack 用户的 PowerShell 环境](user/azure-stack-powershell-configure-user.md)   
 - [通过 VPN 连接到 Azure Stack 开发工具包](azure-stack-connect-azure-stack.md)  
 
-<!-- Update_Description: code update -->

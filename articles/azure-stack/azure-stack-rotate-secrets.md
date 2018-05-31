@@ -6,21 +6,21 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 49071044-6767-4041-9EDD-6132295FA551
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/27/2018
-ms.date: 04/20/2018
+origin.date: 05/15/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: ppacent
-ms.openlocfilehash: 60db18e12b1ce429cefaf05ba53607b20ed51039
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: ddef05d9fa412858f54678cae37937bc9740cbd8
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474965"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中轮换机密
 
@@ -49,6 +49,24 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
 > 其他所有安全密钥和字符串（包括 BMC 和交换密码以及用户和管理员帐户密码）仍然由管理员手动更新。 
 
 为保持 Azure Stack 基础结构的完整性，操作员需要能够定期轮换其基础结构的机密，轮换频率应与其组织的安全要求一致。
+
+### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>使用新证书颁发机构颁发的外部证书轮换机密
+
+在以下上下文中，Azure Stack 支持使用新证书颁发机构 (CA) 颁发的外部证书进行机密轮换：
+
+|已安装的证书 CA|要轮换到的 CA|支持|支持的 Azure Stack 版本|
+|-----|-----|-----|-----|-----|
+|从自签名|到企业|不支持||
+|从自签名|到自签名|不支持||
+|从自签名|到公共<sup>*</sup>|支持|1803 和更高版本|
+|从企业|到企业|只要客户使用与在部署时使用的相同的企业 CA，就可以支持|1803 和更高版本|
+|从企业|到自签名|不支持||
+|从企业|到公共<sup>*</sup>|支持|1803 和更高版本|
+|从公共<sup>*</sup>|到企业|不支持|1803 和更高版本|
+|从公共<sup>*</sup>|到自签名|不支持||
+|从公共<sup>*</sup>|到公共<sup>*</sup>|支持|1803 和更高版本|
+
+<sup>*</sup> 这里的公共证书颁发机构属于 Windows 受信任根计划。 可以找到完整列表 [Microsoft 受信任根证书计划：参与者（截至 2017 年 6 月 27 日）](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)。
 
 ## <a name="alert-remediation"></a>警报修正
 
@@ -106,9 +124,9 @@ $PEPCreds = Get-Credential
 $PEPsession = New-PSSession -computername <IPofERCSMachine> -Credential $PEPCreds -ConfigurationName PrivilegedEndpoint 
 
 #Run Secret Rotation
-$CertPassword = "CertPasswordHere" | ConvertTo-SecureString
+$CertPassword = ConvertTo-SecureString "Certpasswordhere" -AsPlainText -Force
 $CertShareCred = Get-Credential 
-$CertSharePath = <NetworkPathofCertShare>   
+$CertSharePath = "<NetworkPathofCertShare>"
 Invoke-Command -session $PEPsession -ScriptBlock { 
 Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }
 Remove-PSSession -Session $PEPSession
