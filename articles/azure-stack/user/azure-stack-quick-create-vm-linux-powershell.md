@@ -12,47 +12,54 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 09/25/2017
-ms.date: 03/08/2018
+origin.date: 04/24/2018
+ms.date: 05/23/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: e430f3f4bb325e934ec0262534c902b26b487825
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: eba8c7031d3d5d8b8d23c4540dcb4976a4586051
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475002"
 ---
-# <a name="create-a-linux-virtual-machine-by-using-powershell-in-azure-stack"></a>在 Azure Stack 中使用 PowerShell 创建 Linux 虚拟机 
+# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 PowerShell 创建 Linux 服务器虚拟机
 
-*适用于：Azure Stack 集成系统*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-Azure PowerShell 用于通过命令行或脚本在 Azure Stack 中创建和管理资源。  本指南详细介绍如何使用 PowerShell 在 Azure Stack 中创建运行 Ubuntu 服务器的虚拟机。
+可以使用 Azure Stack PowerShell 创建 Ubuntu Server 16.04 LTS 虚拟机。 请按照本文中的步骤创建和使用虚拟机。  本文还提供了执行以下操作的步骤：
 
-## <a name="prerequisites"></a>先决条件 
+- 通过远程客户端连接到虚拟机。
+- 安装 NGINX Web 服务器并查看默认主页。
+- 清理未使用的资源。
 
-- 确保 Azure Stack 运营商已将“Ubuntu Server 16.04 LTS”映像添加到 Azure Stack Marketplace。  
+## <a name="prerequisites"></a>先决条件
 
-- Azure Stack 需要使用特定版本的 Azure PowerShell 来创建和管理资源。 如果尚未针对 Azure Stack 配置 PowerShell，请登录到[开发工具包](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)，或登录到基于 Windows 的外部客户端（如果[通过 VPN 建立了连接](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)），遵循相应的步骤[安装](azure-stack-powershell-install.md)并[配置](azure-stack-powershell-configure-user.md) PowerShell。    
+- **Azure Stack Marketplace 中的 Linux 映像**
 
-- 应在 Windows 用户配置文件的 .ssh 目录中创建名为 id_rsa.pub 的 SSH 公钥。 有关创建 SSH 密钥的详细信息，请参阅[在 Windows 上创建 SSH 密钥](../../virtual-machines/linux/ssh-from-windows.md)。  
+   默认情况下，Azure Stack Marketplace 不包含 Linux 映像。 让 Azure Stack 操作员提供你需要的 **Ubuntu Server 16.04 LTS** 映像。 操作员可以使用[将 Marketplace 项从 Azure 下载到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 一文中介绍的步骤。
+
+- Azure Stack 需要使用特定版本的 Azure PowerShell 来创建和管理资源。 如果尚未针对 Azure Stack 配置 PowerShell，请登录到[开发工具包](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)，或登录到基于 Windows 的外部客户端（如果[通过 VPN 建立了连接](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)），遵循相应的步骤[安装](azure-stack-powershell-install.md)并[配置](azure-stack-powershell-configure-user.md) PowerShell。
+
+- Windows 用户配置文件的 .ssh 目录中保存的名为 id_rsa.pub 的 SSH 公钥。 有关创建 SSH 密钥的详细信息，请参阅[在 Windows 上创建 SSH 密钥](../../virtual-machines/linux/ssh-from-windows.md)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-资源组是在其中部署和管理 Azure Stack 资源的逻辑容器。 在开发工具包或 Azure Stack 集成系统中，运行以下代码块创建资源组。 我们已为本文档中的所有变量赋值，可以按原样使用这些值，或分配不同的值。
+资源组是一个逻辑容器，可以在其中部署和管理 Azure Stack 资源。 在开发工具包或 Azure Stack 集成系统中，运行以下代码块创建资源组。 本文档中为所有变量都分配了值，你可以使用这些值或分配新值。
 
 ```powershell
 # Create variables to store the location and resource group names.
 $location = "local"
-$ResourceGroupName = "myResourceGroup" 
+$ResourceGroupName = "myResourceGroup"
 
 New-AzureRmResourceGroup `
   -Name $ResourceGroupName `
-  -Location $location 
+  -Location $location
 ```
 
 ## <a name="create-storage-resources"></a>创建存储资源
 
-创建存储帐户和存储容器用于存储 Ubuntu Server 16.04 LTS 映像。
+创建一个存储帐户，然后创建 Ubuntu Server 16.04 LTS 映像的存储容器。
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information
@@ -74,7 +81,7 @@ Set-AzureRmCurrentStorageAccount `
 $containerName = 'osdisks'
 $container = New-AzureStorageContainer `
   -Name $containerName `
-  -Permission Blob 
+  -Permission Blob
 ```
 
 ## <a name="create-networking-resources"></a>创建网络资源
@@ -107,7 +114,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>创建网络安全组和网络安全组规则
 
-网络安全组使用入站和出站规则保护虚拟机。 让我们创建端口 22 的入站规则以允许传入的远程桌面连接，并创建端口 80 的入站规则以允许传入的 Web 流量。
+网络安全组使用入站和出站规则保护虚拟机。 为端口 3389 创建一个入站规则来允许传入的远程桌面连接，为端口 80 创建一个入站规则来允许传入的 Web 流量。
 
 ```powershell
 # Create an inbound network security group rule for port 22
@@ -126,6 +133,7 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Locat
 ```
 
 ### <a name="create-a-network-card-for-the-virtual-machine"></a>为虚拟机创建网卡
+
 网卡将虚拟机连接到子网、网络安全组和公共 IP 地址。
 
 ```powershell
@@ -136,11 +144,12 @@ $nic = New-AzureRmNetworkInterface `
   -Location $location `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id `
-  -NetworkSecurityGroupId $nsg.Id 
+  -NetworkSecurityGroupId $nsg.Id
 ```
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
-创建虚拟机配置。 此配置包括部署虚拟机时使用的设置，例如虚拟机映像、大小和身份验证配置。
+
+创建虚拟机配置。 此配置包括了部署虚拟机时使用的设置。 例如：用户凭据、大小和虚拟机映像。
 
 ```powershell
 # Define a credential object.
@@ -153,13 +162,13 @@ $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_D1"
 $VirtualMachine = New-AzureRmVMConfig `
   -VMName $VmName `
-  -VMSize $VmSize 
+  -VMSize $VmSize
 
 $VirtualMachine = Set-AzureRmVMOperatingSystem `
   -VM $VirtualMachine `
   -Linux `
   -ComputerName "MainComputer" `
-  -Credential $cred 
+  -Credential $cred
 
 $VirtualMachine = Set-AzureRmVMSourceImage `
   -VM $VirtualMachine `
@@ -174,13 +183,13 @@ $osDiskUri = '{0}vhds/{1}-{2}.vhd' -f `
   $vmName.ToLower(), `
   $osDiskName
 
-# Sets the operating system disk properties on a virtual machine. 
+# Sets the operating system disk properties on a virtual machine.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
   -Name $osDiskName `
   -VhdUri $OsDiskUri `
   -CreateOption FromImage | `
-  Add-AzureRmVMNetworkInterface -Id $nic.Id 
+  Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 # Configure SSH Keys
 $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
@@ -190,31 +199,52 @@ Add-AzureRmVMSshPublicKey -VM $VirtualMachine `
  -KeyData $sshPublicKey `
  -Path "/home/azureuser/.ssh/authorized_keys"
 
-#Create the virtual machine.
+# Create the virtual machine.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
  -Location $location `
-  -VM $VirtualMachine 
+  -VM $VirtualMachine
 ```
 
 ## <a name="connect-to-the-virtual-machine"></a>连接到虚拟机
 
-完成部署后，请与虚拟机建立 SSH 连接。 使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) 命令返回虚拟机的公共 IP 地址。
+部署虚拟机后，为虚拟机配置一个 SSH 连接。 使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) 命令返回虚拟机的公共 IP 地址。
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-在装有 SSH 的系统中，使用以下命令连接到虚拟机。 如果在 Windows 上操作，可以使用 [Putty](http://www.putty.org/) 创建连接。
+从安装有 SSH 的客户端系统中，使用以下命令连接到虚拟机。 如果在 Windows 上操作，可以使用 [Putty](http://www.putty.org/) 创建连接。
 
 ```
 ssh <Public IP Address>
 ```
 
-出现提示时，请输入登录用户名 azureuser。 如果在创建 SSH 密钥时输入了密码，还需要输入此密码。
+出现提示时，输入 azureuser 作为登录用户名。 如果在创建 SSH 密钥时使用了通行短语，则必须提供该通行短语。
+
+## <a name="install-the-nginx-web-server"></a>安装 NGINX Web 服务器
+
+若要更新包源并安装最新的 NGINX 包，请运行以下脚本：
+
+```bash
+#!/bin/bash
+
+# update package source
+apt-get -y update
+
+# install NGINX
+apt-get -y install nginx
+```
+
+## <a name="view-the-nginx-welcome-page"></a>查看 NGINX 欢迎页
+
+在虚拟机上安装 NGINX 并打开端口 80 后，可通过虚拟机的公用 IP 地址访问 Web 服务器。 打开 Web 浏览器，并浏览到 ```http://<public IP address>```。
+
+![NGINX Web 服务器欢迎页](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>清理资源
-如果不再需要资源组、VM 和所有相关的资源，可以使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) 命令将其删除。
+
+清理不再需要的资源。 可以使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) 命令删除这些资源。 若要删除资源组及其所有资源，请运行以下命令：
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -222,5 +252,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，我们部署了一个简单的 Linux 虚拟机。 有关 Azure Stack 虚拟机的详细信息，请转到 [Azure Stack 中虚拟机的注意事项](azure-stack-vm-considerations.md)。
+在本快速入门中，你已部署了一台基本的 Linux 服务器虚拟机。 若要了解 Azure Stack 虚拟机的详细信息，请转到 [Azure Stack 中虚拟机的注意事项](azure-stack-vm-considerations.md)。
 
+<!-- Update_Description: wording update -->

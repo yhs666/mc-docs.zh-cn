@@ -12,20 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/23/2018
-ms.date: 03/27/2018
+origin.date: 05/10/2018
+ms.date: 05/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 423e8672e4068633d91286b9d00d8a7367e7d9da
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: ae80aa229bd6276ffd729dd1a7e0b00c9c591b24
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475053"
 ---
-# <a name="considerations-for-virtual-machines-in-azure-stack"></a>Azure Stack 中虚拟机的注意事项
+# <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>在 Azure Stack 中使用虚拟机时的注意事项
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-虚拟机是 Azure Stack 提供的按需可缩放计算资源。 使用虚拟机时，必须了解 Azure 与 Azure Stack 中所提供的功能之间的差异。 本文概述特定于 Azure Stack 中的虚拟机及其功能的注意事项。 有关 Azure Stack 与 Azure 之间的大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)一文。
+Azure Stack 虚拟机提供可按需缩放的计算资源。 在部署虚拟机 (VM) 之前，必须了解 Azure Stack 与 Azure 中提供的虚拟机功能之间的差异。 本文介绍了这些差异，并指明了计划虚拟机部署时的主要注意事项。 有关 Azure Stack 与 Azure 之间的大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)一文。
 
 ## <a name="cheat-sheet-virtual-machine-differences"></a>速查表：虚拟机的差异
 
@@ -42,9 +43,11 @@ ms.lasthandoff: 03/28/2018
 |虚拟机规模集|支持自动缩放|不支持自动缩放<br>使用门户、资源管理器模板或 PowerShell 将更多实例添加到规模集。
 
 ## <a name="virtual-machine-sizes"></a>虚拟机大小
-Azure 以多种方式施加资源限制，以避免资源（服务器本地和服务级别）的过度消耗。 如果未对租户施加一些资源消耗限制，当干扰性邻居过度消耗资源时，租户体验就会变差。 
-- VM 的网络出口有带宽上限。 Azure Stack 中的上限与 Azure 中的上限匹配。  
-- 对于存储资源，Azure Stack 实施存储 IOPs 限制，以避免租户为了访问存储而造成资源过度消耗。 
+
+Azure Stack 施加了一些资源限制，以避免资源（服务器本地和服务级别）的过度消耗。这些限制降低了其他租户消耗资源所带来的影响，从而改进了租户体验。
+
+- VM 的网络出口有带宽上限。 Azure Stack 中的上限与 Azure 中的上限相同。
+- 对于存储资源，Azure Stack 实施存储 IOPS 限制，以避免租户为了访问存储而造成资源过度消耗。
 - 对于附加了多个数据磁盘的 VM，每个数据磁盘的最大吞吐量为 500 IOPS（适用于 HHD）和 2300 IOPS（适用于 SSD）。
 
 下表列出了 Azure Stack 支持的 VM 及其配置：
@@ -62,7 +65,7 @@ Azure 以多种方式施加资源限制，以避免资源（服务器本地和�
 |内存优化|Dv2 系列     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
 |内存优化|DSv2 系列 -  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
-Azure Stack 与 Azure 之间的虚拟机大小及其关联资源数量是一致的。 例如，这种一致性包括内存量、核心数，以及可创建的数据磁盘的数量/大小。 但是，Azure Stack 中相同 VM 大小的性能取决于特定 Azure Stack 环境的基础特征。
+虚拟机大小及其关联的资源数量在 Azure Stack 与 Azure 之间是一致的。 这包括内存量、核心数，以及可创建的数据磁盘的数量/大小。 但是，大小相同的 VM 的性能取决于特定 Azure Stack 环境的基础特征。
 
 ## <a name="virtual-machine-extensions"></a>虚拟机扩展
 
@@ -93,7 +96,17 @@ Get-AzureRmResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
+
 如果云运营商将 Azure Stack 环境更新为较新版本，则支持的资源类型和 API 版本列表可能有所不同。
+
+## <a name="windows-activation"></a>Windows 激活
+
+必须根据产品使用权利和 Microsoft 许可条款使用 Windows 产品。 Azure Stack 使用[自动 VM 激活](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) 来激活 Windows Server 虚拟机 (VM)。
+
+- Azure Stack 主机使用 Windows Server 2016 的 AVMA 密钥激活 Windows。 运行 Windows Server 2012 或更高版本的所有 VM 都将自动激活。
+- 运行 Windows Server 2008 R2 的 VM 不会自动激活，必须使用 [MAK 激活](https://technet.microsoft.com/library/ff793438.aspx)进行激活。
+
+Azure 使用 KMS 激活来激活 Windows VM。 如果将 VM 从 Azure Stack 移动到 Azure 并且遇到了激活问题，请参阅[排查 Azure Windows 虚拟机激活问题](/virtual-machines/windows/troubleshoot-activation-problems)。 可以在 Azure 支持团队博客文章 [Troubleshooting Windows activation failures on Azure VMs](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/)（排查 Azure VM 上的 Windows 激活故障）中找到其他信息。
 
 ## <a name="next-steps"></a>后续步骤
 

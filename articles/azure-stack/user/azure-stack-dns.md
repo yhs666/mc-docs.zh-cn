@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 中的 DNS | Microsoft Docs
-description: Azure Stack 中的 DNS
+description: 使用 Azure Stack 中的 DNS
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,56 +11,63 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/28/2018
-ms.date: 03/22/2018
+origin.date: 05/15/2018
+ms.date: 05/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 601977fdb1a3123e5d986416afc412207cb19798
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 99e4206c7ead122c6f2d03dc683781cac22febeb
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475023"
 ---
-# <a name="dns-in-azure-stack"></a>Azure Stack 中的 DNS
+# <a name="using-dns-in-azure-stack"></a>使用 Azure Stack 中的 DNS
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-Azure Stack 包括以下 DNS 功能：
-- 支持 DNS 主机名解析
+Azure Stack 支持以下域名系统 (DNS) 功能：
+
+- DNS 主机名解析
 - 使用 API 创建和管理 DNS 区域和记录
 
 ## <a name="support-for-dns-hostname-resolution"></a>支持 DNS 主机名解析
-可以为公共 IP 资源指定一个 DNS 域名标签，以创建 *domainnamelabel.location*.cloudapp.azurestack.external 到 Azure Stack 托管的 DNS 服务器中公共 IP 地址的映射。  
 
-例如，如果创建公共 IP 资源并以 **contoso** 作为本地 Azure Stack 位置的域名标签，则完全限定域名 (FQDN) **contoso.local.cloudapp.azurestack.external** 会解析为资源的公共 IP 地址。 可以使用此 FQDN 创建自定义域 CNAME 记录，该记录指向 Azure Stack 中的公共 IP 地址。
+可以为公用 IP 资源指定一个 DNS 域名标签。 Azure Stack 使用 *domainnamelabel.location*.cloudapp.azurestack.external 作为标签名称并将其映射到 Azure Stack 托管 DNS 服务器的公用 IP 地址。
+
+例如，如果创建一个公用 IP 资源并以 **contoso** 作为本地 Azure Stack 位置中的域名标签，则[完全限定域名](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN) **contoso.local.cloudapp.azurestack.external** 会解析为资源的公用 IP 地址。 可以使用此 FQDN 创建自定义域 CNAME 记录，该记录指向 Azure Stack 中的公共 IP 地址。
 
 > [!IMPORTANT]
-> 所创建的每个域名标签在其 Azure Stack 位置中必须是唯一的。
+> 创建的每个域名标签在其 Azure Stack 位置中必须是唯一的。
 
-如果使用门户创建公共 IP 地址，它如下所示：
+下面的屏幕捕获显示了使用门户创建公用 IP 地址时的“创建公用 IP 地址”对话框。
 
-![创建公共 IP 地址](./media/azure-stack-whats-new-dns/image01.png)
+![创建公用 IP 地址](./media/azure-stack-whats-new-dns/image01.png)
 
-如果想要将公共 IP 地址与负载均衡资源相关联，此配置会很有用。 例如，你可能有负载均衡器来处理来自 Web 应用程序的请求。 在负载均衡器的背后，是位于一个或多个虚拟机上的网站。 现在可以通过 DNS 名称来访问负载均衡网站，而不必通过 IP 地址。
+**示例方案**
 
-## <a name="create-and-manage-dns-zones-and-records-using-api"></a>使用 API 创建和管理 DNS 区域和记录
-可以在 Azure Stack 中创建和管理 DNS 区域和记录。  
+你有一个用于处理来自 Web 应用程序的请求的负载均衡器。 负载均衡器的后面是一个在一台或多台虚拟机上运行的网站。 可以使用 DNS 名称而非 IP 地址来访问进行了负载均衡的网站。
 
-Azure Stack 使用与 Azure DNS API 一致的 API 提供与 Azure 类似的 DNS 服务。  通过在 Azure Stack DNS 中托管域，用户可以使用与其他 Azure 服务相同的凭据、API、工具、计费方式和支持来管理 DNS 记录。 
+## <a name="create-and-manage-dns-zones-and-records-using-the-api"></a>使用 API 创建和管理 DNS 区域和记录
 
-由于很明显的原因，Azure Stack DNS 的基础结构会比 Azure 的更为精简。 因此，范围、规模和性能会取决于 Azure Stack 部署的规模和其部署环境。  所以，像性能、可用性、全局分发和高可用性 (HA) 等指标可能因部署而异。
+可以在 Azure Stack 中创建和管理 DNS 区域和记录。
+
+Azure Stack 使用与 Azure DNS API 一致的 API 提供与 Azure 类似的 DNS 服务。  通过将域托管在 Azure Stack DNS 中，可以使用相同的凭据、API 和工具来管理 DNS 记录。 还可以使用与其他 Azure 服务相同的计费和支持功能。
+
+Azure Stack DNS 的基础结构比 Azure 的更为精简。 Azure Stack 部署的大小和位置将影响 DNS 的作用域、规模和性能。 这还意味着性能、可用性、全局分发和高可用性等可能会因部署而异。
 
 ## <a name="comparison-with-azure-dns"></a>与 Azure DNS 比较
-Azure Stack 中的 DNS 与 Azure 中的 DNS 类似，但主要有两个例外情况：
+
+Azure Stack 中的 DNS 类似于 Azure 中的 DNS，但有几个重要例外，你需要了解它们。
+
 - **不支持 AAAA 记录**
 
     Azure Stack 不支持 AAAA 记录，因为 Azure Stack 不支持 IPv6 地址。  这是 Azure DNS 与 Azure Stack DNS 之间的主要差异。
 - **不是多租户**
 
-    与 Azure 不同，Azure Stack 中的 DNS 服务不是多租户。 因此每个租户不能创建相同的 DNS 区域。 仅首个订阅尝试创建区域会成功，后续请求都会失败。  这是已知问题，也是 Azure DNS 和 Azure Stack DNS 之间的主要差异。 此问题将在未来版本中解决。
+    Azure Stack 中的 DNS 服务不是多租户的。 各个租户不能创建相同的 DNS 区域。 仅首个订阅尝试创建区域会成功，后续请求都会失败。  这是已知问题，也是 Azure DNS 和 Azure Stack DNS 之间的主要差异。 此问题将在未来版本中解决。
+- **标记、元数据和 Etag**
 
-此外，Azure Stack DNS 在实现标记、元数据、Etag 和限制的方式方面也有一些细微差异。
-
-以下信息仅适用于 Azure Stack DNS，并会与 Azure DNS 稍有不同。 
+    Azure Stack DNS 在处理标记、元数据、Etag 和限制的方式方面也有一些细微差异。
 
 ### <a name="tags-metadata-and-etags"></a>标记、元数据和 Etag
 
@@ -100,6 +107,7 @@ Etag 是在 Azure Stack DNS REST API 级别使用 HTTP 标头指定的。 下表
 | 每个记录集的记录数| 20 个|
 
 ## <a name="next-steps"></a>后续步骤
+
 [适用于 Azure Stack 的 iDNS 简介](azure-stack-understanding-dns.md)
 
 <!-- Update_Description: wording update -->

@@ -1,116 +1,123 @@
 ---
-title: 将存储资源管理器连接到 Azure Stack 订阅
+title: 将存储资源管理器连接到 Azure Stack 订阅或存储帐户 | Microsoft Docs
 description: 了解如何将存储资源管理器连接到 Azure Stack 订阅
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 02/28/2018
-ms.date: 03/27/2018
+origin.date: 05/14/2018
+ms.date: 05/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7ad9429c86371eaaac13b4a75eafbc907a23b4f8
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.reviewer: xiaofmao
+ms.openlocfilehash: c77cecb51475e234733e66bbff4f5f53662002cf
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34474960"
 ---
-# <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>将存储资源管理器连接到 Azure Stack 订阅
+# <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>将存储资源管理器连接到 Azure Stack 订阅或存储帐户
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-Azure 存储资源管理器（预览版）是一款独立应用，可用于在 Windows、macOS 和 Linux 上轻松处理 Azure Stack 存储数据。 有几个工具可用于将数据移进/移出 Azure Stack 存储。 有关详细信息，请参阅[适用于 Azure Stack 存储的数据传输工具](azure-stack-storage-transfer.md)。
+本文将介绍如何使用存储资源管理器连接到 Azure Stack 订阅和存储帐户。 Azure 存储资源管理器是一款独立应用，可用于在 Windows、macOS 和 Linux 上轻松处理 Azure Stack 存储数据。
 
-本文介绍如何使用存储资源管理器连接到 Azure Stack 存储帐户。 
+>[!NOTE]
+>有几个工具可用于将数据移进/移出 Azure Stack 存储。 有关详细信息，请参阅[适用于 Azure Stack 存储的数据传输工具](azure-stack-storage-transfer.md)。
 
-如果尚未安装存储资源管理器，请[下载](http://www.storageexplorer.com/)并安装它。
+如果尚未安装存储资源管理器，请[下载存储资源管理器](http://www.storageexplorer.com/)并安装它。
 
-连接到 Azure Stack 订阅后，可以使用 [Azure 存储资源管理器文章](../../vs-azure-tools-storage-manage-with-storage-explorer.md)处理 Azure Stack 数据。 
+连接到 Azure Stack 订阅或存储帐户后，可以使用 [Azure 存储资源管理器文章](../../vs-azure-tools-storage-manage-with-storage-explorer.md)处理 Azure Stack 数据。 
 
-## <a name="prepare-an-azure-stack-subscription"></a>准备 Azure Stack 订阅
+## <a name="prepare-for-connecting-to-azure-stack"></a>为连接到 Azure Stack 做准备
 
-需要可以访问 Azure Stack 主机桌面或建立 VPN 连接，存储资源管理器才能访问 Azure Stack 订阅。 若要了解如何设置到 Azure Stack 的 VPN 连接，请参阅[使用 VPN 连接到 Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)。
+需要可以直接访问 Azure Stack 或 VPN 连接，存储资源管理器才能访问 Azure Stack 订阅。 若要了解如何设置到 Azure Stack 的 VPN 连接，请参阅[使用 VPN 连接到 Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)。
 
 若是 Azure Stack 开发工具包，需要导出 Azure Stack 颁发机构根证书。
 
-### <a name="to-export-and-then-import-the-azure-stack-certificate"></a>导出 Azure Stack 证书后再导入
+### <a name="export-and-then-import-the-azure-stack-certificate"></a>导出然后导入 Azure Stack 证书
 
 1. 在 Azure Stack 主机或已与 Azure Stack 建立 VPN 连接的本地计算机上打开 `mmc.exe`。 
 
 2. 在“文件”中选择“添加/删除管理单元”，并添加“证书”以管理“我的用户帐户”。
 
-
-
 3. 在 **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** 下查找 **AzureStackSelfSignedRootCert**。
 
-    ![通过 mmc.exe 加载 Azure Stack 根证书][25]
+    ![通过 mmc.exe 加载 Azure Stack 根证书](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
-4. 右键单击该证书，选择“所有任务” > “导出”，并按说明导出 **Base-64 编码 X.509 (.CER)** 证书。  
+4. 右键单击该证书，选择“所有任务” > “导出”，并按说明导出 **Base-64 编码 X.509 (.CER)** 证书。
 
     导出的证书会在下一步使用。
-5. 启动存储资源管理器（预览版），如果看到“连接到 Azure 存储”对话框，请将其取消。
 
-6. 在“编辑”菜单上，指向“SSL 证书”，并单击“导入证书”。 通过文件选取器对话框找到并打开在上一步导出的证书。
+5. 启动存储资源管理器，如果看到“连接到 Azure 存储”对话框，请将其取消。
 
-    导入后，系统会提示重新启动存储资源管理器。
+6. 在“编辑”菜单上，指向“SSL 证书”，然后选择“导入证书”。 通过文件选取器对话框找到并打开在上一步导出的证书。
 
-    ![将证书导入存储资源管理器（预览版）][27]
+    导入证书后，系统会提示重新启动存储资源管理器。
 
-现在已准备就绪，可以将存储资源管理器连接到 Azure Stack 订阅。
+    ![将证书导入到存储资源管理器](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-### <a name="to-connect-an-azure-stack-subscription"></a>连接 Azure Stack 订阅
+7. 在存储资源管理器重新启动后，选择“编辑”菜单，并检查是否选择了“目标 Azure Stack”。 如果没有，请选择“目标 Azure Stack”，然后重新启动存储资源管理器，使更改生效。 此配置是必需的，否则无法与 Azure Stack 环境兼容。
 
+    ![确保选中“目标 Azure Stack”](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
-1. 存储资源管理器（预览版）重新启动以后，即可选择“编辑”菜单，确保选中“目标 Azure Stack”。 如果尚未选中，请将其选中，然后重新启动存储资源管理器，使更改生效。 此配置是必需的，否则无法与 Azure Stack 环境兼容。
+## <a name="connect-to-an-azure-stack-subscription"></a>连接到 Azure Stack 订阅
 
-    ![确保选中“目标 Azure Stack”][28]
+使用以下步骤将存储资源管理器连接到 Azure Stack 订阅。
 
-7. 在左窗格中，选择“管理帐户”。  
-    此时会显示已登录的所有 Microsoft 帐户。
+1. 在存储资源管理器的左窗格中，选择“管理帐户”。 
+    此时会显示你登录的所有 Microsoft 订阅。
 
-8. 若要连接到 Azure Stack 帐户，请选择“添加帐户”。
+2. 若要连接到 Azure Stack 订阅，请选择“添加帐户”。
 
-    ![添加 Azure Stack 帐户][29]
+    ![添加 Azure Stack 帐户](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-9. 在“连接到 Azure 存储”对话框的“Azure 环境”下，选择“使用 Azure Stack 环境”，然后单击“下一步”。
+3. 在“连接到 Azure 存储”对话框中，在“Azure 环境”下，选择“Azure”或“Azure 中国”，具体取决于你使用的 Azure Stack 帐户。 选择“登录”以登录到至少与一个活动 Azure Stack 订阅关联的 Azure Stack 帐户。
 
-10. 若要使用至少与一个活动 Azure Stack 订阅关联的 Azure Stack 帐户登录，请填写“登录 Azure Stack 环境”对话框。  
+    ![连接到 Azure 存储](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 
-    每个字段的详细信息如下所示：
+4. 使用 Azure Stack 帐户成功登录后，左窗格将填充与该帐户关联的 Azure Stack 订阅。 选择要使用的 Azure Stack 订阅，并选择“应用”。 （选择或清除“所有订阅”复选框会选择所有列出的 Azure Stack 订阅，或者一个都不选。）
 
-    - **环境名称**：用户可以自定义此字段。
-    - **ARM 资源终结点**：Azure 资源管理器资源终结点的示例：
+    ![填充“自定义云环境”对话框后，选择 Azure Stack 订阅](./media/azure-stack-storage-connect-se/select-accounts-azure-stack.png)
 
-        - 对于云操作员：<br> https://adminmanagement.local.azurestack.external   
-        - 对于租户：<br> https://management.local.azurestack.external
- 
-    - **租户 ID**：可选。 只有在必须指定目录的情况下，才提供此值。
-
-12. 使用 Azure Stack 帐户成功登录后，左窗格将填充与该帐户关联的 Azure Stack 订阅。 选择要使用的 Azure Stack 订阅，并选择“应用”。 （选择或清除“所有订阅”复选框会选择所有列出的 Azure Stack 订阅，或者一个都不选。）
-
-    ![填充“自定义云环境”对话框后，选择 Azure Stack 订阅][30]  
     左窗格会显示与所选 Azure Stack 订阅关联的存储帐户。
 
-    ![存储帐户列表，其中包括 Azure Stack 订阅帐户][31]
+    ![存储帐户列表，其中包括 Azure Stack 订阅帐户](./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png)
+
+## <a name="connect-to-an-azure-stack-storage-account"></a>连接到 Azure Stack 存储帐户
+
+还可以使用存储帐户名称和密钥对连接到 Azure Stack 存储帐户。
+
+1. 在存储资源管理器的左窗格中，选择“管理帐户”。 此时会显示你登录的所有 Microsoft 帐户。
+
+    ![添加帐户](./media/azure-stack-storage-connect-se/azure-stack-sub-add-an-account.png)
+
+2. 若要连接到 Azure Stack 订阅，请选择“添加帐户”。
+
+    ![添加帐户](./media/azure-stack-storage-connect-se/azure-stack-use-a-storage-and-key.png)
+
+3. 在“连接到 Azure 存储”对话框中，选择“使用存储帐户名称和密钥”。
+
+4. 在“帐户名称”中输入帐户名称，将帐户密钥粘贴到“帐户密钥”文本框中，在“存储终结点域”中选择“其他(在下面输入)”，并输入 Azure Stack 终结点。
+
+    Azure Stack 终结点包含两个部分：区域的名称和 Azure Stack 域。 在 Azure Stack 开发工具包中，默认终结点是 **local.azurestack.external**。 如果不确定你的终结点，请与云管理员联系。
+
+    ![附加名称和密钥](./media/azure-stack-storage-connect-se/azure-stack-attach-name-and-key.png)
+
+5. 选择“连接”。
+6. 成功附加存储帐户后，会显示该存储帐户，其名称后面追加了“(外部、其他)”字样。
+
+    ![VMWINDISK](./media/azure-stack-storage-connect-se/azure-stack-vmwindisk.png)
 
 ## <a name="next-steps"></a>后续步骤
-- [存储资源管理器（预览版）入门](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+
+- [存储资源管理器入门](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 - [Azure Stack 存储：差异和注意事项](azure-stack-acs-differences.md)
-
-
 - 若要了解有关 Azure 存储的详细信息，请参阅 [Azure 存储简介](../../storage/common/storage-introduction.md)
 
-[25]: ./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png
-[26]: ./media/azure-stack-storage-connect-se/export-root-cert-azure-stack.png
-[27]: ./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png
-[28]: ./media/azure-stack-storage-connect-se/select-target-azure-stack.png
-[29]: ./media/azure-stack-storage-connect-se/add-azure-stack-account.png
-[30]: ./media/azure-stack-storage-connect-se/select-accounts-azure-stack.png
-[31]: ./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png
-
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/27/2018
-ms.date: 03/26/2018
+origin.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: ''
-ms.openlocfilehash: 9a6112fae6b45f1a5145ea90e67326fe56ec3b59
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 07183c64b4769a85a83987e563a48f7d252b6f45
+ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475107"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Azure Stack 中的重要功能和概念
 如果你不太熟悉 Azure Stack，本文的术语和功能说明可能会有所帮助。
@@ -87,14 +88,15 @@ Azure Stack 区域是规模与管理的基本要素。 组织可以创建多个�
 
 订阅可帮助提供者组织和访问云资源与服务。
 
-对于管理员而言，默认提供程序订阅是在部署期间创建的。 此订阅可用于管理 Azure Stack、部署其他资源提供程序，以及为租户创建计划和产品。 不应使用此订阅来运行客户工作负荷和应用程序。 
-
+对于管理员而言，默认提供程序订阅是在部署期间创建的。 此订阅可用于管理 Azure Stack、部署其他资源提供程序，以及为租户创建计划和产品。 不应使用此订阅来运行客户工作负荷和应用程序。 从版本 1804 开始，两个额外的订阅对默认提供程序订阅进行了补充；它们是计量订阅和消耗订阅。 这些附加项有助于将核心基础结构的管理与其他资源提供程序和工作负荷隔离开来。  
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 借助 Azure 资源管理器，可在基于模板的声明性模型中使用基础结构资源。   资源管理器提供单个界面用于部署和管理解决方案组件。 有关完整信息和指南，请参阅 [Azure 资源管理器概述](../azure-resource-manager/resource-group-overview.md)。
 
 ### <a name="resource-groups"></a>资源组
 资源组是资源、服务和应用程序的集合 — 每个资源都有一种类型，例如虚拟机、虚拟网络、公共 IP、存储帐户和网站。 每个资源必须在资源组中，因此，资源组有助于以逻辑方式组织资源，例如，按工作负荷或位置进行组织。  在 Azure Stack 中，计划和产品等资源也在资源组中管理。
+
+与 [Azure](../azure-resource-manager/resource-group-move-resources.md) 不同，无法在资源组之间移动资源。 在 Azure Stack 管理门户中查看资源或资源组的属性时，“移动”按钮是灰显的并且不可用。 
  
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 模板
 使用 Azure 资源管理器可以创建一个模板（采用 JSON 格式），用于定义应用程序的部署和配置。 此模板称为 Azure 资源管理器模板，让你以声明性方式定义部署。 使用模板可以在整个应用程序生命周期内反复部署该应用程序，并确保以一致的状态部署资源。
@@ -134,7 +136,7 @@ KeyVault RP 针对密码和证书等机密提供管理与审核。 例如，在 
 
   ![Azure Stack 高可用性](./media/azure-stack-key-features/high-availability.png)
 
-### <a name="availablity-sets-in-azure-stack"></a>Azure Stack 中的可用性集
+### <a name="availability-sets-in-azure-stack"></a>Azure Stack 中的可用性集
 在发生硬件故障时，虽然 Azure Stack 的基础结构已具备故障还原能力，但基础技术（故障转移群集功能）的局限仍会导致受影响物理服务器上的 VM 出现停机。 为了与 Azure 保持一致，Azure Stack 支持的可用性集最多有三个容错域。
 
 - **容错域**。 置于可用性集中的 VM 在物理上是彼此隔离的，换句话说，会尽可能均衡地让其分散到多个容错域（Azure Stack 节点）中。 出现硬件故障时，发生故障的容错域中的 VM 会在其他容错域中重启，但在将其置于容错域中时，会尽可能让其与同一可用性集中的其他 VM 隔离。 当硬件重新联机时，会对 VM 重新进行均衡操作，以维持高可用性。 
@@ -144,7 +146,7 @@ KeyVault RP 针对密码和证书等机密提供管理与审核。 例如，在 
 ### <a name="upgrade-scenarios"></a>升级方案 
 在 Azure Stack 版本 1802 之前创建的可用性集中的 VM 有一个默认的容错域和升级域数目（分别为 1 和 1）。 对于这些预先存在的可用性集中的 VM，若要实现高可用性，必须先删除现有的 VM，然后使用正确的容错域和更新域计数将其重新部署到新的可用性集中，如[更改 Windows VM 的可用性集](/virtual-machines/windows/change-availability-set)中所述。 
 
-对于 VM 规模集，将会在内部使用默认的容错域和更新域计数（分别为 3 和 5）创建可用性集。 在 1802 更新之前创建的任何 VM 规模集都会置于具有默认容错域和更新域计数（分别为 1 和 1）的可用性集中。 若要更新这些 VM 规模集实例，以便让其重新进行分布，请按 1802 更新之前存在的实例数对 VM 规模集进行横向扩展，然后删除较旧的 VM 规模集实例。 
+对于虚拟机规模集，将会在内部使用默认的容错域和更新域计数（分别为 3 和 5）创建可用性集。 在 1802 更新之前创建的任何虚拟机规模集都会置于具有默认容错域和更新域计数（分别为 1 和 1）的可用性集中。 若要更新这些虚拟机规模集实例，以便让其重新进行分布，请按 1802 更新之前存在的实例数对虚拟机规模集进行横向扩展，然后删除较旧的虚拟机规模集实例。 
 
 ## <a name="role-based-access-control-rbac"></a>基于角色的访问控制 (RBAC)
 可以使用 RBAC 向已获授权的用户、组和服务授予系统访问权限：在订阅、资源组或单个资源的级别为其分配角色即可。 每个角色定义了用户、组或服务对 Azure Stack 资源拥有的访问级别。
