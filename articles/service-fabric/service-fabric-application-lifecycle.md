@@ -1,32 +1,33 @@
 ---
-title: "Service Fabric 中的应用程序生命周期 | Azure"
-description: "介绍了如何开发、部署、测试、升级、维护和删除 Service Fabric 应用程序。"
+title: Service Fabric 中的应用程序生命周期 | Azure
+description: 介绍了如何开发、部署、测试、升级、维护和删除 Service Fabric 应用程序。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 08837cca-5aa7-40da-b087-2b657224a097
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/19/2018
-ms.date: 03/12/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 176d4f001be6f9068aa83bb6bc272ce357c8b25f
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: e0e9805ace1d4f826ff28404e3e7a706df3b0ae4
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554616"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Service Fabric 应用程序生命周期
 与其他平台一样，Azure Service Fabric 上的应用程序通常经历以下几个阶段：设计、开发、测试、部署、升级、维护和删除。 Service Fabric 为云应用程序的整个应用程序生命周期提供一流的支持：从开发到部署、到日常管理和维护，再到最终解除授权。 服务模型使多个不同角色可以独立参与到应用程序生命周期中。 本文提供了有关 API 的概述，以及不同角色在 Service Fabric 应用程序生命周期的各个阶段如何使用它们。
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-以下 Microsoft Virtual Academy 视频介绍了如何管理应用程序生命周期： <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
+以下 Microsoft Virtual Academy 视频介绍了如何管理应用程序生命周期：<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-application-lifecycle/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -103,4 +104,4 @@ ms.lasthandoff: 03/08/2018
 * [应用程序升级](service-fabric-application-upgrade.md)
 * [可测试性概述](service-fabric-testability-overview.md)
 
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update meta properties -->

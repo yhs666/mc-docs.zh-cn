@@ -3,7 +3,7 @@ title: Azure Resource Manager 概述 | Azure
 description: 介绍如何使用 Azure Resource Manager 在 Azure 上部署和管理资源以及对其进行访问控制。
 services: azure-resource-manager
 documentationcenter: na
-author: rockboyfor
+author: luanmafeng
 manager: digimobile
 editor: tysonn
 ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961
@@ -13,13 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/30/2018
-ms.date: 04/30/2018
+ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 446cfc016ed13a483f642e5275c60cd0dfd96013
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: a4320e47e5c22f5e87ccddbb5ebd6509d2abb2ca
+ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554632"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概述
 应用程序的基础结构通常由许多组件构成：可能有虚拟机、存储帐户和虚拟网络，或 Web 应用、数据库、数据库服务器和第三方服务。 这些组件不会以独立的实体出现，而是以单个实体的相关部件和依赖部件出现。 如果希望以组的方式部署、管理和监视这些这些组件， 那么，可以使用 Azure 资源管理器以组的方式处理解决方案中的资源。 可以通过一个协调的操作为解决方案部署、更新或删除所有资源。 可以使用一个模板来完成部署，该模板适用于不同的环境，例如测试、过渡和生产。 资源管理器提供安全、审核和标记功能，以帮助你在部署后管理资源。 
@@ -48,7 +49,7 @@ Resource Manager 提供多种优势：
 Resource Manager 提供了一种新方法来部署和管理解决方案。 如果使用早期的部署模型并想要了解这些更改，请参阅[了解 Resource Manager 部署和经典部署](resource-manager-deployment-model.md)。
 
 ## <a name="consistent-management-layer"></a>一致的管理层
-Resource Manager 针对通过 Azure PowerShell、Azure CLI、Azure 门户、REST API 和开发工具执行的任务提供一致的管理层。 所有工具使用一组通用操作。 可以使用最合适的工具，并且可以换用这些工具而不发生混淆。 
+Resource Manager 提供一致的管理层，用于管理通过 Azure PowerShell、Azure CLI、Azure 门户、REST API 和开发工具执行的任务。 所有工具使用一组通用操作。 可以使用最合适的工具，并且可以换用这些工具而不发生混淆。 
 
 下图显示了这些工具如何与同等的 Azure Resource Manager API 交互。 API 将请求传递给 Resource Manager 服务，后者对请求进行身份验证和授权。 Resource Manager 随后将请求路由到相应的资源提供程序。
 
@@ -85,7 +86,7 @@ Resource Manager 针对通过 Azure PowerShell、Azure CLI、Azure 门户、REST
 开始部署资源之前，应了解可用的资源提供程序。 了解资源提供程序和资源的名称可帮助定义想要部署到 Azure 的资源。 此外，还需要知道每种资源类型的有效位置和 API 版本。 有关详细信息，请参阅[资源提供程序和类型](resource-manager-supported-services.md)。
 
 ## <a name="template-deployment"></a>模板部署
-使用 Resource Manager 可以创建一个模板（采用 JSON 格式），用于定义 Azure 解决方案的基础结构和配置。 使用模板，可以在解决方案的整个生命周期内重复部署该解决方案，确保以一致的状态部署资源。 从门户创建解决方案时，该解决方案会自动包含部署模板。 无需从头开始创建模板，因为可以从解决方案的模板着手，并根据特定需求自定义该模板。 可以通过导出资源组的当前状态或查看特定部署所用的模板，来检索现有资源组的模板。 查看[导出的模板](resource-manager-export-template.md)是了解模板语法的有用方法。
+使用 Resource Manager 可以创建（JSON 格式的）模板，用于定义 Azure 解决方案的基础结构和配置。 使用模板，可以在解决方案的整个生命周期内重复部署该解决方案，确保以一致的状态部署资源。 从门户创建解决方案时，该解决方案会自动包含部署模板。 无需从头开始创建模板，因为可以从解决方案的模板着手，并根据特定需求自定义该模板。 可以通过导出资源组的当前状态或查看特定部署所用的模板，来检索现有资源组的模板。 查看[导出的模板](resource-manager-export-template.md)是了解模板语法的有用方法。
 
 若要了解模板的格式及其构造方法，请参阅[创建第一个 Azure 资源管理器模板](resource-manager-create-first-template.md)。 若要查看资源类型的 JSON 语法，请参阅[定义 Azure Resource Manager 模板中的资源](https://docs.microsoft.com/zh-cn/azure/templates/)。
 
@@ -143,7 +144,7 @@ Azure Resource Manager 会分析依赖关系，以确保按正确的顺序创建
 
 还可以使用模板对基础结构进行更新。 例如，可以将新的资源添加到应用程序，并为已部署的资源添加配置规则。 如果模板指定要创建资源，但该资源已存在，则 Azure Resource Manager 会执行更新而不是创建新资产。 Azure Resource Manager 会将现有资产更新到相同状态，就如同该资产是新建的一样。  
 
-如果需要其他操作（例如，安装未包含在安装程序中的特定软件）时，Resource Manager 可提供所需的扩展。 如果已在使用配置管理服务（如 DSC、Chef 或 Puppet），则可以使用扩展来继续处理该服务。 有关虚拟机扩展的信息，请参阅[关于虚拟机扩展和功能](../virtual-machines/windows/extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
+如果需要其他操作（例如，安装未包含在安装程序中的特定软件）时，Resource Manager 可提供所需的扩展。 如果已在使用配置管理服务（如 DSC、Chef 或 Puppet），则可以使用扩展来继续处理该服务。 有关虚拟机扩展的信息，请参阅[关于虚拟机扩展和功能](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
 
 最后，该模板成为应用程序源代码的一部分。 可以将它签入源代码存储库，并随着应用程序的发展更新该模板。 可以通过 Visual Studio 编辑模板。
 
@@ -220,7 +221,7 @@ Azure 还提供资源特定的多种角色。 一些常见的角色包括：
 
 有关角色及允许操作的完整列表，请参阅 [RBAC：内置角色](../role-based-access-control/built-in-roles.md)。 有关基于角色的访问控制的详细信息，请参阅 [Azure 基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)。 
 
-在某些情况下，可能需要运行访问资源的代码或脚本，但不是希望在用户的凭据下运行它。 在某些情况下，我们想要为应用程序创建名为服务主体的标识，并为该服务主体分配适当的角色。 在 Resource Manager 中可为应用程序创建凭据，以编程方式对应用程序进行身份验证。 若要了解如何创建服务主体，请参阅以下主题之一：
+在某些情况下，可能需要运行访问资源的代码或脚本，但不希望在用户的凭据下运行它。 在某些情况下，我们想要为应用程序创建名为服务主体的标识，并为该服务主体分配适当的角色。 在 Resource Manager 中可为应用程序创建凭据，以编程方式对应用程序进行身份验证。 若要了解如何创建服务主体，请参阅以下主题之一：
 
 * [使用 Azure PowerShell 创建服务主体来访问资源](resource-group-authenticate-service-principal.md)
 * [使用 Azure CLI 创建服务主体来访问资源](resource-group-authenticate-service-principal-cli.md)

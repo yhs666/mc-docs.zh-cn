@@ -1,8 +1,8 @@
 ---
-title: "将 ScaleR 和 SparkR 与 Azure HDInsight 配合使用 | Azure"
-description: "将 ScaleR 和 SparkR 与 R Server 和 HDInsight 配合使用"
+title: 将 ScaleR 和 SparkR 与 Azure HDInsight 配合使用 | Azure
+description: 将 ScaleR 和 SparkR 与 R Server 和 HDInsight 配合使用
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -10,38 +10,39 @@ tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 06/19/2017
-ms.date: 12/25/2017
+ms.date: 05/28/2018
 ms.author: v-yiso
-ms.openlocfilehash: afc9db570100fe7866366f0cb7cc476719db3812
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: eb865c76c3260be215663795f2248663f6d5ddea
+ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/22/2018
+ms.locfileid: "34450053"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>在 HDInsight 中将 ScaleR 和 SparkR 配合使用
 
-本文展示了如何使用 **ScaleR** 逻辑回归模型基于通过 **SparkR** 联接的航班延迟和天气数据来预测航班抵达延迟。 本方案演示了如何将用于在 Spark 中处理数据的 ScaleR 功能与 Microsoft R Server 配合使用来进行分析。 使用这些技术组合，可以在分布式处理中应用最新功能。
+本文档演示如何使用 **ScaleR** 逻辑回归模型来预测航班抵达延误时间。 此示例使用通过 **SparkR** 联接的航班延误数据和天气数据。
 
 虽然这两个程序包都在 Hadoop 的 Spark 执行引擎上运行，但是会阻止它们共享内存中数据，因为它们各自需要使用其自己的 Spark 会话。 在此问题在将来的 R Server 版本中得到解决之前，解决方法是保留非重叠的 Spark 会话，并通过中间文件交换数据。 此处的说明表明这些要求很容易实现。
 
-此处，我们使用最初由 Mario Inchiosa 和 Roni Burd 在 Strata 2016 研讨会中分享的一个示例，网络研讨会 [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio)（使用 R 构建可缩放的数据科研平台）中也提供了此示例。该示例使用 SparkR 来将知名航班的抵达延迟数据集与起飞机场和降落机场的天气数据联接起来。 然后，它将联接后的数据用作 ScaleR 逻辑回归模型的输入来预测航班抵达延迟。
+此示例最初由 Mario Inchiosa 和 Roni Burd 在 Strata 2016 研讨会中分享。 也可在 [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio)（使用 R 构建可缩放的数据科学平台）中找到此研讨会。
 
-我们演练的代码最初是针对在 Azure 上的 HDInsight 群集中的 Spark 上运行的 R Server 编写的。 但是，在本地环境的上下文中，在同一脚本中混合使用 SparkR 和 ScaleR 的概念仍然有效。 下面，我们假设读者对 R 以及 R Server 的 [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) 库有一个中等水平的了解。 在演练本方案时，我们还使用了 [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html)。
+此代码原本是针对 Azure 上 HDInsight 群集中的 Spark 上运行的 R Server 编写的。 但是，在本地环境的上下文中，在同一脚本中混合使用 SparkR 和 ScaleR 的概念仍然有效。 
+
+本文档中的步骤假定你对 R 和 R Server 的 [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) 库有中等水平的了解。 在演练此方案时还会介绍 [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html)。
 
 ## <a name="the-airline-and-weather-datasets"></a>航班和天气数据集
 
-**AirOnTime08to12CSV** 航空公司公用数据集包含美国境内从 1987 年 10 月到 2012 年 12 月所有商务航班的抵达和出发详细信息。 这是一个大型数据集：总共有大约 1.5 亿条记录， 解压缩后略小于 4 GB。 可从[美国政府存档](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236)获取该数据集。 为了方便使用，它以 zip 文件的形式 (AirOnTimeCSV.zip) 提供，其中包含 [Revolution Analytics 数据集存储库](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/)中的 303 个单独的每月 CSV 文件
+航班数据是从[美国政府存档](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236)获取的。 也可从 [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip) 获取 zip 文件形式的该数据。
 
-为了查看天气对航班延迟的影响，我们还需要获取每个机场的天气数据。 可以从[美国海洋与大气管理存储库](http://www.ncdc.noaa.gov/orders/qclcd/)下载原始格式的该数据的 zip 文件。 为了演示此示例，我们提取了 2007 年 5 月到 2012 年 12 月的天气数据，并使用了 68 个月的 zip 天气数据文件中，每个文件内的每小时数据文件。 每月 zip 文件还包含气象台 ID (WBAN)、关联的机场 (CallSign) 与机场时区与 UTC 的偏差 (TimeZone) 之间的映射 (YYYYMMstation.txt)。 联接航班延迟和天气数据时需要用到所有这些信息。
+可以从[美国海洋与大气管理存储库](http://www.ncdc.noaa.gov/orders/qclcd/)下载原始格式的每月天气数据 zip 文件。 就此示例来说，请下载 2007 年 5 月 - 2012 年 12 月期间的数据。 使用每个 zip 中的每小时数据文件和 `YYYYMMMstation.txt` 文件。 
 
 ## <a name="setting-up-the-spark-environment"></a>设置 Spark 环境
 
-第一步是设置 Spark 环境。 首先，我们指向包含输入数据目录的目录，创建 Spark 计算上下文，并创建一个日志记录函数用于在控制台上记录参考信息：
+请使用以下代码设置 Spark 环境：
 
 ```
 workDir        <- '~'  
@@ -86,7 +87,7 @@ logmsg('Start')
 logmsg(paste('Number of task nodes=',length(trackers)))
 ```
 
-接下来，将“Spark_Home”添加到 R 包的搜索路径以便可以使用 SparkR，并初始化 SparkR 会话：
+接下来，请将 `Spark_Home` 添加到 R 包的搜索路径。 将其添加到搜索路径即可使用 SparkR 并初始化 SparkR 会话：
 
 ```
 #..setup for use of SparkR  
@@ -109,7 +110,7 @@ sqlContext <- sparkRSQL.init(sc)
 
 ## <a name="preparing-the-weather-data"></a>准备天气数据
 
-为了准备天气数据，我们将其集合到建模所需的各个列中： 
+为了准备天气数据，请将这些数据放入建模时所需的列： 
 
 - “Visibility”
 - “DryBulbCelsius”
@@ -118,17 +119,9 @@ sqlContext <- sparkRSQL.init(sc)
 - “WindSpeed”
 - “Altimeter”
 
-然后，我们添加一个与气象站关联的机场代码，并将测量值从本地时间转换为 UTC。
+然后添加与气象站关联的机场代码，将测量值从当地时间转换为 UTC。
 
-先创建一个文件，用于将气象站 (WBAN) 信息映射到机场代码。 我们可以从随天气数据包括的映射文件中获取此关联。 通过将天气数据文件中的 *CallSign*（例如 LAX）字段映射到航班数据中的 *Origin*。 不过，我们手头恰好有另一个映射，它将 *WBAN* 映射到 *AirportID*（例如，代表 LAX 的 12892）并包括了已保存到我们可以使用的名为“wban-to-airport-id-tz.CSV” CSV 文件中的 *TimeZone*。 例如：
-
-| AirportID | WBAN | TimeZone
-|-----------|------|---------
-| 10685 | 54831 | -6
-| 14871 | 24232 | -8
-| .. | .. | ..
-
-以下代码将读取每小时原始天气数据文件、将文件放入我们需要的列、合并气象站映射文件、将测量值的日期时间调整为 UTC，并写出文件的新版本：
+先创建一个文件，用于将气象站 (WBAN) 信息映射到机场代码。 以下代码将读取每小时原始天气数据文件、将文件放入我们需要的列、合并气象站映射文件、将测量值的日期时间调整为 UTC，并写出文件的新版本：
 
 ```
 # Look up AirportID and Timezone for WBAN (weather station ID) and adjust time
