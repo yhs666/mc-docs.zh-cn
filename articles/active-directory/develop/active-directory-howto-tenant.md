@@ -21,9 +21,10 @@ ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33815019"
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>如何获取 Azure Active Directory 租户
-在 Azure Active Directory (Azure AD) 中，[租户](https://msdn.microsoft.com/library/azure/jj573650.aspx#Anchor_0)表示组织。  它是组织在与 Microsoft 建立关系（例如，通过注册 Azure、Microsoft Intune 或 Office 365等 Azure 云服务）时接收并拥有的 Azure AD 服务专用实例。  每个 Azure AD 租户都是独特的，独立于其他 Azure AD 租户。  
+在 Azure Active Directory (Azure AD) 中，[租户](https://msdn.microsoft.com/library/azure/jj573650.aspx#Anchor_0)表示组织。  它是组织通过注册 Azure、Microsoft Intune 或 Office 365 等 Microsoft 云服务，进而与 Microsoft 建立关系时接收并拥有的 Azure AD 服务专用实例。  每个 Azure AD 租户都是独特的，独立于其他 Azure AD 租户。  
 
 租户包含公司中的用户以及有关这些用户的信息 - 他们的密码、用户配置文件数据、权限，等等。  它还包含与某家组织及其安全性相关的组、应用程序和其他信息。
 
