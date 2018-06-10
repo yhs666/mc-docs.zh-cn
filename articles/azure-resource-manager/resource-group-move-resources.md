@@ -15,11 +15,12 @@ ms.topic: article
 origin.date: 05/14/2018
 ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 168d1b50db0e1261f7713ebc0ea24f61a9f0af61
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: b1e559040f3a6f883b51dc11a70fd0c873e917ca
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867483"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
@@ -50,7 +51,7 @@ ms.lasthandoff: 05/26/2018
 
     对于 Azure CLI，请使用：
 
-  ```azurecli-interactive
+  ```cli
   az account show --subscription <your-source-subscription> --query tenantId
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
@@ -78,14 +79,14 @@ ms.lasthandoff: 05/26/2018
 
     对于 Azure CLI，请使用以下命令来获取注册状态：
 
-  ```azurecli-interactive
+  ```cli
   az account set -s <destination-subscription-name-or-id>
   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
   ```
 
     若要注册资源提供程序，请使用：
 
-  ```azurecli-interactive
+  ```cli
   az provider register --namespace Microsoft.Batch
   ```
 
@@ -113,40 +114,40 @@ ms.lasthandoff: 05/26/2018
 * API 管理
 * 应用服务应用（Web 应用）- 请参阅[应用服务限制](#app-service-limitations)
 * 应用服务证书
-* Application Insights
+<!-- Not Available * Application Insights-->
 * 自动化
 * Azure Cosmos DB
-* Azure 中继
+<!-- Not Available * Azure Relay -->
 * 批处理
-* 必应地图
+<!-- Not Available * Bing Maps -->
 * CDN
 * 云服务 - 请参阅 [经典部署限制](#classic-deployment-limitations)
 * 认知服务
-* 内容审查器
-* 数据目录
-* 数据工厂 - 可以移动 V1 ，但不支持移动 V2（预览版）
-* Data Lake Analytics
-* Data Lake Store
-* DNS
+<!-- Not Available * Content Moderator-->
+<!-- Not Available * Data Catalog-->
+<!-- Not Available * Data Factory - V1 can be moved, but moving V2 (preview) is not supported-->
+<!-- Not Available * Data Lake Analytics-->
+<!-- Not Available * Data Lake Store-->
+<!-- Not Available * DNS-->
 * 事件中心
 * HDInsight 群集 - 请参阅 [HDInsight 限制](#hdinsight-limitations)
 * IoT 中心
 * 密钥保管库
 * 负载均衡器 - 请参阅[负载均衡器限制](#lb-limitations)
-* Log Analytics
+<!-- Not Available * Log Analytics-->
 * Logic Apps
-* 机器学习 - 机器学习工作室 Web 服务可以移动到同一订阅中的资源组，但不能移动到不同订阅中。 其他机器学习资源可以跨订阅进行移动。
+<!-- Not Available * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.-->
 * 媒体服务
-* Mobile Engagement
+<!-- Not Available * Mobile Engagement-->
 * 通知中心
-* 操作见解
-* 操作管理
+<!-- Not Available * Operational Insights-->
+<!-- Not Available * Operations Management-->
 * Power BI - Power BI Embedded 和 Power BI 工作区集合
 * 公共 IP - 请参阅[公共 IP 限制](#pip-limitations)
 * Redis 缓存
 * 计划程序
-* 搜索
-* 服务器管理
+<!-- Not Available * Search-->
+<!-- Not Available * Server Management-->
 * 服务总线
 * Service Fabric
 * 存储
@@ -164,25 +165,25 @@ ms.lasthandoff: 05/26/2018
 
 目前不支持移动资源的服务包括：
 
-* AD 域服务
+<!-- Not Available * AD Domain Services-->
 * AD 混合运行状况服务
 * 应用程序网关
 * Azure Database for MySQL
-* Azure Database for PostgreSQL
-* Azure Migrate
-* BizTalk 服务
+<!-- Not Available * Azure Database for PostgreSQL-->
+<!-- Not Available * Azure Migrate-->
+<!-- Not Available * BizTalk Services-->
 * 证书 - 应用服务证书可以移动，但上传的证书存在[限制](#app-service-limitations)。
-* 开发测试实验室 - 支持移动到同一订阅中的新资源组，但不支持跨订阅移动。
-* Dynamics LCS
+<!-- Not Available * DevTest Labs - move to new resource group in same subscription is enabled, but cross subscription move is not enabled.-->
+<!-- Not Available * Dynamics LCS-->
 * Express Route
-* Kubernetes 服务
+<!-- Not Available * Kubernetes Service-->
 * 负载均衡器 - 请参阅[负载均衡器限制](#lb-limitations)
-* 托管应用程序
+<!-- Not Available * Managed Applications-->
 * 托管磁盘 - 请参阅[虚拟机限制](#virtual-machines-limitations)
 * 公共 IP - 请参阅[公共 IP 限制](#pip-limitations)
 * 恢复服务保管库：也不会移动与恢复服务保管库关联的计算、网络和存储资源，请参阅 [恢复服务限制](#recovery-services-limitations)。
 * 安全性
-* StorSimple 设备管理器
+<!-- Not Available * StorSimple Device Manager-->
 * 虚拟网络（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 ## <a name="virtual-machines-limitations"></a>虚拟机限制
 

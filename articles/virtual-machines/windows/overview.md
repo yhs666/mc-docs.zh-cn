@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 67367a659605f76b5993270d7c68193eb265d231
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 03f5228870f94cb5fcc33363794de0695da5d148
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867635"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虚拟机概述
 
@@ -157,4 +158,4 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 * 如果打算使用 Linux VM，请查看 [Azure 和 Linux](../linux/overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 * 若要深入了解有关设置基础结构的指导，请参阅[示例 Azure 基础结构演练](infrastructure-example.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties -->

@@ -3,7 +3,7 @@ title: 在 Azure API 管理中导入和发布第一个 API
 description: 了解如何在 API 管理中导入和发布第一个 API。
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -13,13 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 11/15/2017
-ms.date: 02/26/2018
+ms.date: 06/18/2018
 ms.author: v-yiso
-ms.openlocfilehash: 16930e0b1eac5ad5c1a12f3c370b210fef2cf0a4
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 61f97ee441e7b616e69be43d309e614638efaf5a
+ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855407"
 ---
 # <a name="import-and-publish-your-first-api"></a>导入和发布第一个 API 
 

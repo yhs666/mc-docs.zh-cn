@@ -12,13 +12,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/16/2018
-ms.date: 04/23/2018
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1b7f31ee0c854fc6f9a0bb661389ddbac74c9154
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 51575615339a6da17826e24e2508ff3fc16986bc
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855772"
 ---
 # <a name="web-application-firewall-waf"></a>Web 应用程序防火墙 (WAF)
 

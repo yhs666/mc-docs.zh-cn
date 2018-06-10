@@ -15,11 +15,12 @@ ms.topic: article
 origin.date: 02/16/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 540376af83bd6c4c5c78e9ab5de58e79f451c9cd
-ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
+ms.openlocfilehash: 891259016dc4eef3cf66c20784cc7ddc793ed33a
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867491"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>使用 Azure PowerShell 管理资源
 
@@ -37,7 +38,7 @@ ms.lasthandoff: 05/11/2018
 
 让我们创建该资源组。
 
-```azurepowershell-interactive
+```powershell
 Set-AzureRmContext -Subscription <subscription-name>
 New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 ```
@@ -62,7 +63,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 
 以下示例创建一个组，然后为其分配了资源组的“虚拟机参与者”角色。 若要运行 `New-AzureAdGroup` 命令，必须[下载 Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)。
 <!-- Not Available on [Azure Cloud Shell](/cloud-shell/overview)-->
-```azurepowershell-interactive
+```powershell
 $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
   -MailNickName vmDemoGroup `
   -MailEnabled $false `
@@ -80,7 +81,7 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 分配角色和策略以后，即可部署解决方案。 默认大小为 Standard_DS1_v2，这是允许的 SKU 之一。 运行此步骤时，会提示输入凭据。 你输入的值将配置为用于虚拟机的用户名和密码。
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmVm -ResourceGroupName "myResourceGroup" `
      -Name "myVM" `
      -Location "China East" `
@@ -101,7 +102,7 @@ New-AzureRmVm -ResourceGroupName "myResourceGroup" `
 
 若要锁定虚拟机和网络安全组，请使用：
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmResourceLock -LockLevel CanNotDelete `
   -LockName LockVM `
   -ResourceName myVM `
@@ -126,7 +127,7 @@ New-AzureRmResourceLock -LockLevel CanNotDelete `
 
 若要将标记应用到虚拟机，请使用：
 
-```azurepowershell-interactive
+```powershell
 $r = Get-AzureRmResource -ResourceName myVM `
   -ResourceGroupName myResourceGroup `
   -ResourceType Microsoft.Compute/virtualMachines
@@ -137,13 +138,13 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 若要使用标记名称和值来查找资源，请使用：
 
-```azurepowershell-interactive
+```powershell
 (Find-AzureRmResource -TagName Environment -TagValue Test).Name
 ```
 
 可以将返回的值用于管理任务，例如停止带有某个标记值的所有虚拟机。
 
-```azurepowershell-interactive
+```powershell
 Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
@@ -153,7 +154,7 @@ Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.Reso
 
 在解除锁定之前，不能删除锁定的网络安全组。 若要解除锁定，请使用：
 
-```azurepowershell-interactive
+```powershell
 Remove-AzureRmResourceLock -LockName LockVM `
   -ResourceName myVM `
   -ResourceType Microsoft.Compute/virtualMachines `

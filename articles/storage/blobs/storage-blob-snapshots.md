@@ -7,13 +7,14 @@ manager: josefree
 ms.service: storage
 ms.topic: article
 origin.date: 03/06/2018
-ms.date: 05/07/2018
-ms.author: v-johch
-ms.openlocfilehash: 1a73a527f5f54fbca196e056ec57386e4ab1b576
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/11/2018
+ms.author: v-haiqya
+ms.openlocfilehash: a7ec877b83567852759596519d8f77b664d1af62
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867443"
 ---
 # <a name="create-a-blob-snapshot"></a>创建 Blob 快照
 
@@ -168,7 +169,7 @@ Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 
 * 可在[使用递增快照备份 Azure 非托管 VM 磁盘](../../virtual-machines/windows/incremental-snapshots.md)中找到有关使用虚拟机 (VM) 磁盘快照的详细信息
 
-* 有关 Blob 存储使用的其他代码示例，请参阅 [Azure 代码示例](https://github.com/Azure-Samples/?service=storage&term=blob)。 可以下载示例应用程序并运行，或在 GitHub 上浏览代码。
+* 有关 Blob 存储使用的其他代码示例，请参阅 [Azure 代码示例](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)。 可以下载示例应用程序并运行，或在 GitHub 上浏览代码。
 
 [dotnet_AccessCondition]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.accesscondition.aspx
 [dotnet_CloudBlockBlob]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.aspx

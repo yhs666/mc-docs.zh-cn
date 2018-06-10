@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 04/10/2018
-ms.date: 04/23/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1166d3f73e90f1a4e292e2867f0aa66db2272131
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+clicktale: true
+ms.openlocfilehash: dedebaafe765354b2ea0970cb6a9852871857b9b
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867437"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>快速入门：使用 SQL API 和 Azure 门户生成包含 Azure Cosmos DB 的 .NET Web 应用
 
@@ -105,7 +107,6 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
     ```csharp
     await client.CreateDocumentCollectionAsync(
         UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection { Id = CollectionId },
         new DocumentCollection
             {
                Id = CollectionId
@@ -162,20 +163,3 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 > [将数据导入 Azure Cosmos DB](import-data.md)
 
 <!-- Update_Description: wording update, update link-->
-<!--The parent file of includes file of cosmos-db-create-sql-api-query-data.md-->
-<!--ms.date:04/23/2018-->
-<!--The parent file of includes file of cosmos-db-create-dbaccount.md-->
-<!--ms.date:04/23/2018-->
-<!--The parent file of includes file of cosmos-db-create-sql-api-add-sample-data.md-->
-<!--ms.date:04/23/2018-->
-<!--The parent file of includes file of cosmos-db-emulator-docdb-api.md-->
-<!--ms.date:04/23/2018-->
-<!--The parent file of includes file of cosmos-db-create-sql-api-add-sample-data.md-->
-<!--ms.date:04/23/2018-->
-<!--The parent file of includes file of cosmos-db-create-sql-api-query-data.md-->
-<!--ms.date:04/23/2018-->
-
-<!--The parent file of includes file of cosmos-db-create-dbaccount.md-->
-<!--ms.date:04/23/2018-->
-<!--The parent file of includes file of cosmos-db-emulator-docdb-api.md-->
-<!--ms.date:04/23/2018-->

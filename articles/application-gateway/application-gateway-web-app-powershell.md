@@ -1,24 +1,25 @@
 ---
-title: "通过 Azure 应用程序网关保护 Web 应用 - PowerShell | Microsoft Docs"
-description: "本文提供的指南介绍如何在现有的或新的应用程序网关上将 Web应用配置为后端主机。"
+title: 通过 Azure 应用程序网关保护 Web 应用 - PowerShell | Microsoft Docs
+description: 本文提供的指南介绍如何在现有的或新的应用程序网关上将 Web应用配置为后端主机。
 documentationcenter: na
 services: application-gateway
-author: alexchen2016
-manager: digimobile
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/25/2017
-ms.date: 11/10/2017
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: aaa9fb2d9509ea47189ebf3b5ddfe7fa2a132f9e
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: d1106e07e462ebfeb098e985faa149efc06ef75b
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855776"
 ---
 # <a name="configure-app-service-web-apps-with-application-gateway"></a>使用应用程序网关配置应用服务 Web 应用 
 
@@ -162,4 +163,4 @@ DnsSettings              : {
 
 若要了解如何配置重定向，请访问：[使用 PowerShell 在应用程序网关上配置重定向](application-gateway-configure-redirect-powershell.md)。
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: update metedata properties -->

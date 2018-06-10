@@ -15,14 +15,15 @@ ms.topic: article
 origin.date: 04/09/2018
 ms.date: 05/28/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 0ef98b8ac222dd40fb3a4e04470377953908b997
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: e7ea0bf633ae2a36c942effa295b0e0fc361296a
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867423"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>配置内容密钥授权策略
-[!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
+[!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>概述
  可以使用 Azure 媒体服务传送受高级加密标准 (AES)（使用 128 位加密密钥）或受 [PlayReady 数字版权管理 (DRM)](https://www.microsoft.com/playready/overview/) 保护的 MPEG-DASH 流、平滑流式处理流和 HTTP 实时流式处理 (HLS) 流。 PlayReady 是按通用加密 (ISO/IEC 23001-7 CENC) 规范加密的。

@@ -15,14 +15,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/30/2018
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 57db07ef784ff6d76e58d66930d7bac82443cedc
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: b5014d515d4344cdcbabc5fb08ac10a5085dd8c3
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868455"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-powershell"></a>教程：在 PowerShell 中使用网络安全组筛选网络流量
 
@@ -38,9 +39,9 @@ ms.lasthandoff: 05/07/2018
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-<!--[!INCLUDE [cloud-shell-try-it.md|cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
+<!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。 
 
 ## <a name="create-a-network-security-group"></a>创建网络安全组
 
@@ -50,13 +51,13 @@ ms.lasthandoff: 05/07/2018
 
 首先使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 针对本教程中创建的所有资源创建一个资源组。 以下示例在“chinaeast”位置创建一个资源组： 
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location ChinaEast
 ```
 
 使用 [New-AzureRmApplicationSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup) 创建应用程序安全组。 使用应用程序安全组可以分组具有类似端口筛选要求的服务器。 以下示例创建两个应用程序安全组。
 
-```azurepowershell-interactive
+```powershell
 $webAsg = New-AzureRmApplicationSecurityGroup `
   -ResourceGroupName myResourceGroup `
   -Name myAsgWebServers `
@@ -72,7 +73,7 @@ $mgmtAsg = New-AzureRmApplicationSecurityGroup `
 
 使用 [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) 创建安全规则。 以下示例创建一个规则，该规则允许通过端口 80 和 443 将来自 Internet 的入站流量发往 *myWebServers* 应用程序安全组：
 
-```azurepowershell-interactive
+```powershell
 $webRule = New-AzureRmNetworkSecurityRuleConfig `
   -Name "Allow-Web-All" `
   -Access Allow `
@@ -104,7 +105,7 @@ $mgmtRule = New-AzureRmNetworkSecurityRuleConfig `
 
 使用 [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) 创建网络安全组。 以下示例创建名为 *myNsg* 的网络安全组： 
 
-```powershell-interactive
+```powershell
 $nsg = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup `
   -Location chinaeast `
@@ -116,7 +117,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
 
 使用 [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork) 创建虚拟网络。 以下示例创建名为 *myVirtualNetwork* 的虚拟网络：
 
-```azurepowershell-interactive
+```powershell
 $virtualNetwork = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroup `
   -Location ChinaEast `
@@ -126,7 +127,7 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
 
 使用 [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 创建子网配置，然后使用 [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetwork) 将子网配置写入虚拟网络。 以下示例将名为 *mySubnet* 的子网添加到虚拟网络，并将 *myNsg* 网络安全组关联到该虚拟网络：
 
-```azurepowershell-interactive
+```powershell
 Add-AzureRmVirtualNetworkSubnetConfig `
   -Name mySubnet `
   -VirtualNetwork $virtualNetwork `
@@ -139,14 +140,14 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 
 在创建 VM 之前，使用 [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) 检索包含子网的虚拟网络对象：
 
-```powershell-interactive
+```powershell
 $virtualNetwork = Get-AzureRmVirtualNetwork `
  -Name myVirtualNetwork `
  -Resourcegroupname myResourceGroup
 ```
 使用 [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress) 为每个 VM 创建一个公共 IP 地址：
 
-```powershell-interactive
+```powershell
 $publicIpWeb = New-AzureRmPublicIpAddress `
   -AllocationMethod Dynamic `
   -ResourceGroupName myResourceGroup `
@@ -163,7 +164,7 @@ $publicIpMgmt = New-AzureRmPublicIpAddress `
 
 使用 [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface) 创建两个网络接口，并将公共 IP 地址分配到网络接口。 以下示例创建一个网络接口，将 *myVmWeb* 公共 IP 地址关联到该网络接口，并使其成为 *myAsgWebServers* 应用程序安全组的成员：
 
-```powershell-interactive
+```powershell
 $webNic = New-AzureRmNetworkInterface `
   -Location chinaeast `
   -Name myVmWeb `
@@ -175,7 +176,7 @@ $webNic = New-AzureRmNetworkInterface `
 
 以下示例创建一个网络接口，将 *myVmMgmt* 公共 IP 地址关联到该网络接口，并使其成为 *myAsgMgmtServers* 应用程序安全组的成员：
 
-```powershell-interactive
+```powershell
 $mgmtNic = New-AzureRmNetworkInterface `
   -Location chinaeast `
   -Name myVmMgmt `
@@ -189,7 +190,7 @@ $mgmtNic = New-AzureRmNetworkInterface `
 
 使用 [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig) 创建 VM 配置，然后使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建 VM。 以下示例创建充当 Web 服务器的 VM。 `-AsJob` 选项会在后台创建 VM，因此可继续执行下一步： 
 
-```azurepowershell-interactive
+```powershell
 # Create user object
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
@@ -215,7 +216,7 @@ New-AzureRmVM `
 
 创建充当管理服务器的 VM：
 
-```azurepowershell-interactive
+```powershell
 # Create user object
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
@@ -245,7 +246,7 @@ New-AzureRmVM `
 
 使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 返回 VM 的公共 IP 地址。 以下示例返回 *myVmMgmt* VM 的公共 IP 地址：
 
-```azurepowershell-interactive
+```powershell
 Get-AzureRmPublicIpAddress `
   -Name myVmMgmt `
   -ResourceGroupName myResourceGroup `
@@ -284,7 +285,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 在计算机上，在 PowerShell 中输入以下命令，以检索 *myVmWeb* 服务器的公共 IP 地址：
 
-```azurepowershell-interactive
+```powershell
 Get-AzureRmPublicIpAddress `
   -Name myVmWeb `
   -ResourceGroupName myResourceGroup `
@@ -297,7 +298,7 @@ Get-AzureRmPublicIpAddress `
 
 如果不再需要资源组及其包含的所有资源，请使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 将其删除：
 
-```azurepowershell-interactive 
+```powershell 
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
@@ -309,5 +310,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 > [!div class="nextstepaction"]
 > [创建路由表](./tutorial-create-route-table-portal.md)
-<!-- Update_Description: new articles on tutorial filter network traffic  -->
-<!--ms.date: 05/07/2018-->
+<!-- Update_Description: update cmdlet, wording update -->

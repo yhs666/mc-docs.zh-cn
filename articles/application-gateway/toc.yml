@@ -1,0 +1,146 @@
+- name: 应用程序网关文档
+  href: index.yml
+- name: 概述
+  items:
+    - name: 关于应用程序网关
+      href: overview.md
+- name: 快速入门
+  expanded: true
+  items:
+    - name: 管理 Web 流量 - 门户
+      href: quick-create-portal.md
+    - name: 管理 Web 流量 - PowerShell
+      href: quick-create-powershell.md
+    - name: 管理 Web 流量 - Azure CLI
+      href: quick-create-cli.md
+- name: 教程
+  items:
+    - name: 管理 Web 流量
+      href: tutorial-manage-web-traffic-cli.md
+    - name: 启用 Web 应用程序防火墙
+      href: tutorial-restrict-web-traffic-cli.md
+    - name: 使用 SSL 进行保护
+      href: tutorial-ssl-cli.md
+    - name: 托管多个站点
+      href: tutorial-multiple-sites-cli.md
+    - name: 按 URL 路由
+      href: tutorial-url-route-cli.md
+    - name: 重定向 Web 流量
+      href: tutorial-url-redirect-cli.md
+- name: 示例
+  items:
+    - name: Azure PowerShell
+      href: powershell-samples.md
+    - name: Azure CLI
+      href: cli-samples.md
+- name: 概念
+  items:
+    - name: SSL 终止
+      href: ssl-overview.md
+    - name: SSL 策略概述
+      href: application-gateway-ssl-policy-overview.md
+    - name: Web 应用程序防火墙
+      href: waf-overview.md
+    - name: URL 路由
+      href: url-route-overview.md
+    - name: 多站点托管
+      href: multiple-site-overview.md
+    - name: 重定向支持
+      href: redirect-overview.md
+    - name: 多租户支持
+    - name: 运行状况监视
+      href: application-gateway-probe-overview.md
+    - name: WebSocket 支持
+      href: application-gateway-websocket.md
+- name: 操作指南
+  items:
+    - name: 创建应用程序网关
+      items:
+        - name: 模板
+          href: create-vmss-template.md
+        - name: Web 应用 - PowerShell
+          href: create-web-app.md
+        - name: 配置内部负载均衡器
+          href: application-gateway-ilb.md
+    - name: 配置 SSL 终止 - 门户
+      href: create-ssl-portal.md
+    - name: 托管多个站点 - 门户
+      href: create-multiple-sites-portal.md
+    - name: 自定义 WAF 规则
+      items:
+        - name: Azure 门户
+          href: application-gateway-customize-waf-rules-portal.md
+        - name: Azure PowerShell
+          href: application-gateway-customize-waf-rules-powershell.md
+        - name: Azure CLI
+          href: application-gateway-customize-waf-rules-cli.md
+    - name: 重定向外部流量
+      items:
+        - name: Azure PowerShell
+          href: redirect-external-site-powershell.md
+        - name: Azure CLI
+          href: redirect-external-site-cli.md
+    - name: 将 HTTP 重定向到 HTTPS
+      items:
+        - name: Azure CLI
+          href: redirect-http-to-https-cli.md
+    - name: 重定向内部流量
+      items:
+        - name: Azure CLI
+          href: redirect-internal-site-cli.md
+    - name: 限制 Web 流量 - 门户
+      href: create-waf-portal.md
+    - name: 基于 URL 的路由 - 门户
+      href: create-url-route-portal.md
+    - name: 续订证书
+      href: renew-certificates.md
+    - name: 使用 Azure PowerShell 重定向 Web 流量
+      href: tutorial-url-redirect-powershell.md
+    - name: 自定义探测
+      items:
+        - name: 门户
+          href: application-gateway-create-probe-portal.md
+        - name: 经典 PowerShell
+          href: application-gateway-create-probe-classic-ps.md
+        - name: 资源管理器 PowerShell
+          href: application-gateway-create-probe-ps.md
+    - name: 故障排除
+      items:
+        - name: 排查“错误的网关”(502) 错误
+          href: application-gateway-troubleshooting-502.md
+        - name: 诊断
+          href: application-gateway-diagnostics.md
+- name: 参考
+  items:
+    - name: CRS 规则
+      href: application-gateway-crs-rulegroups-rules.md
+    - name: Azure CLI
+      href: /cli/network/application-gateway
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/azure/overview'
+    - name: .NET
+      href: /dotnet/api/overview/
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: '/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: /develop/python/
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/applicationgateway'
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/resource-group-overview.md
+- name: 资源
+  items:
+    - name: 创作模板
+      href: ../azure-resource-manager/resource-group-authoring-templates.md
+    - name: 社区模板
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: 定价
+      href: 'https://www.azure.cn/zh-cn/pricing/details/application-gateway'
+    - name: 区域可用性
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-application-gateway'
+    - name: 常见问题
+      href: application-gateway-faq.md

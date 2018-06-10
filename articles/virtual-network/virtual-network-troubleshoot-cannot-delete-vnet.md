@@ -1,25 +1,26 @@
 ---
-title: "无法在 Azure 中删除虚拟网络 | Azure"
-description: "了解如何排查无法在 Azure 中删除虚拟网络的问题。"
+title: 无法在 Azure 中删除虚拟网络 | Azure
+description: 了解如何排查无法在 Azure 中删除虚拟网络的问题。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/12/2017
-ms.date: 01/15/2018
+origin.date: 05/11/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: c4fa51ba85fb355526807265166924045738aa74
-ms.sourcegitcommit: 60515556f984495cfe545778b2aac1310f7babee
+ms.openlocfilehash: b8374f43820ab5b615e547034ae2d9abcbded515
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868850"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>故障排除：无法在 Azure 中删除虚拟网络
 
@@ -95,4 +96,4 @@ ms.lasthandoff: 01/12/2018
 - [Azure 虚拟网络](virtual-networks-overview.md)
 - [Azure 虚拟网络常见问题解答 (FAQ)](virtual-networks-faq.md)
 
-<!--Update_Description: update meta properties, update wording -->
+<!--Update_Description: update meta properties  -->

@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/12/2018
-ms.date: 05/14/2018
+origin.date: 04/20/2018
+ms.date: 06/18/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4f914ce087959b426e393dff1fd0eeba6d7a981d
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 5e623dff5bc1be2f75be6854ac53bfe1428e61eb
+ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855400"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
 ## <a name="overview"></a>概述
@@ -75,7 +76,7 @@ ms.lasthandoff: 05/07/2018
 <dd>一个操作组中最多可以有 10 个 Runbook 操作</dd>
 <dt>Webhook</dt>
 <dd>一个操作组中最多可以有 10 个 Webhook 操作
-<dd>重试逻辑 - 返回的 HTTP 状态代码为 408、429、503、504 时，最多可以重试 3 次 Webhook 调用</dd>
+<dd>重试逻辑 - 响应的超时期限为 10 秒。 返回的 HTTP 状态代码为 408、429、503、504 时，或者 HTTP 终结点没有响应时，最多可以重试 2 次 Webhook 调用。 首次重试在 10 秒后发生。 第二次（也是最后一次）重试在 100 秒后发生。</dd>
 </dl>
 ## 管理操作组 创建操作组后，它会在“监视器”**** 边栏选项卡的“操作组”**** 部分显示。 选择要管理的操作组：
 

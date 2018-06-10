@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2aec78e7196b45c941f06e9b13e0c05c9731f17c
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 38cfc6a127444fd3f92626c1a690cafb4b779db3
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867631"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>适用于 Azure 虚拟网络的常见 PowerShell 命令
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 05/17/2018
 
 如果运行本文中的多个命令，以下一些变量可能将对你有用：
 
-- $location - 网络资源的位置。 可以使用 [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation) 查找适合你的地理区域。
+- $location - 网络资源的位置。 可以使用 [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation) 查找适合[地理区域](https://www.azure.cn/support/service-dashboard/)。
 - $myResourceGroup - 网络资源所在的资源组名称。
 
 ## <a name="create-network-resources"></a>创建网络资源

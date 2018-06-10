@@ -7,16 +7,17 @@ author: rockboyfor
 manager: digimobile
 ms.author: v-yeche
 origin.date: 10/09/2017
-ms.date: 4/10/2018
+ms.date: 06/04/2018
 ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: a9e455c820db231580e314d93d5ddb7a239e9f5e
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 816a59113beaa7c8a1e78709f6202e1159a0e542
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867596"
 ---
 <!-- Update_Description: new article on nested virtualization on Ev3 and Dv3 -->
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>如何在 Azure VM 中启用嵌套虚拟化
@@ -180,4 +181,4 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
 <!-- Update_Description: new article on nested virtualization on Ev3 and Dv3 -->
-<!--ms.date: 04/10/2018-->
+<!--ms.date: 06/04/2018-->

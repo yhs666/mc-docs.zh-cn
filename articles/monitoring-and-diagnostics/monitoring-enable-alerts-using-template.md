@@ -1,9 +1,9 @@
 ---
-title: "使用 Resource Manager 模板创建指标警报"
-description: "了解如何使用 Resource Manager 模板创建指标警报，以便通过电子邮件或 Webhook 接收通知。"
+title: 在 Azure 中使用资源管理器模板创建经典指标警报 | Microsoft 文档
+description: 了解如何使用资源管理器模板创建经典指标警报，以便通过电子邮件或 Webhook 接收通知。
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 41d62044-6bc5-4674-b277-45b919f58efe
@@ -12,17 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 6/21/2017
-ms.date: 02/26/2018
+origin.date: 04/27/2018
+ms.date: 06/18/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9153e2eb5e80cbdc2352c81f04e77e4ccd96c684
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 6bbf68cfc36a57f046eef46f6e90692e93e5298f
+ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855372"
 ---
-# <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 模板创建指标警报
+# <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>使用资源管理器模板创建经典指标警报
 本文说明如何使用 [Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)配置 Azure 指标警报。 这样，便可以在创建资源时自动对资源设置警报，确保正确监视所有资源。
+
+> [!NOTE]
+> 
+> 本文介绍如何使用资源管理器模板创建经典指标警报。 如果你正在寻找使用模板创建[较新指标警报](monitoring-near-real-time-metric-alerts.md)的方法，那么[本文](monitoring-create-metric-alerts-with-templates.md)可提供详细信息。
+>
+
 
 基本步骤如下所示：
 
@@ -31,7 +38,7 @@ ms.lasthandoff: 02/13/2018
 
 下面我们先单独针对警报，然后针对创建其他资源期间的警报，描述如何创建 Resource Manager 模板。
 
-## <a name="resource-manager-template-for-a-metric-alert"></a>指标警报的 Resource Manager 模板
+## <a name="resource-manager-template-for-a-classic-metric-alert"></a>经典指标警报的资源管理器模板
 若要使用 Resource Manager 模板创建警报，需要创建 `Microsoft.Insights/alertRules` 类型的资源，并填充所有相关属性。 下面是用于创建警报规则的模板。
 
 ```json
@@ -181,7 +188,7 @@ ms.lasthandoff: 02/13/2018
 
 [此处提供](https://msdn.microsoft.com/library/azure/dn933805.aspx)了警报规则的架构和属性说明。
 
-## <a name="resource-manager-template-for-a-resource-with-an-alert"></a>具有警报的资源的 Resource Manager 模板
+## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>具有经典指标警报的资源的资源管理器模板
 在创建的资源过程中创建警报时，Resource Manager 模板上的警报通常很有用。 例如，可能想要确保每次部署虚拟机时均设置了“CPU % > 80”规则。 为此，请在 VM 模板的资源数组中将警报规则添加为资源，使用 `dependsOn` 属性将依赖项添加到 VM 资源 ID。 下面是创建 Windows VM 并在 CPU 利用率高于 80% 时添加警报以通知订阅管理员的完整示例。
 
 ```json
@@ -215,7 +222,7 @@ ms.lasthandoff: 02/13/2018
         }
     },
     "variables": {
-        "location": "China North",
+        "location": "Central US",
         "imagePublisher": "MicrosoftWindowsServer",
         "imageOffer": "WindowsServer",
         "windowsOSVersion": "2012-R2-Datacenter",

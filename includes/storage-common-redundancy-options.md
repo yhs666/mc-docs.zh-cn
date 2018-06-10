@@ -2,18 +2,19 @@
 title: include 文件
 description: include 文件
 services: storage
-author: forester123
+author: WenJason
 ms.service: storage
 ms.topic: include
 origin.date: 03/26/2018
-ms.date: 05/07/2018
-ms.author: v-johch
+ms.date: 06/11/2018
+ms.author: v-nany
 ms.custom: include file
-ms.openlocfilehash: 27c146b7be73aa784e3e1ee2e0d3ec5ec6862b3c
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 4fafa543e331e89c256a0c5ec1b37a4bb07cafdc
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34880842"
 ---
 存储帐户的复制选项包括：
 

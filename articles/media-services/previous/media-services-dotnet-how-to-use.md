@@ -15,14 +15,15 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 9a4ad412628fb2f7be5414b96adf203ba3acfd55
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 962fbad82ce82ef0fbe9d23f6e58310cda359f07
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867401"
 ---
 # <a name="media-services-development-with-net"></a>使用 .NET 进行媒体服务开发
-[!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
+[!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 本文介绍了如何开始使用 .NET 开发媒体服务应用程序。
 

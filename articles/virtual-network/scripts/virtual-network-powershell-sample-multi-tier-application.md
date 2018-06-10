@@ -16,11 +16,12 @@ ms.workload: infrastructure
 origin.date: 03/20/2018
 ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: f1d7d682c6dd2760d8426081ea8995e9f269ad65
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 4fbbfdac70fd9d125adf3939d7b6fca9a8cc0fdb
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868354"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>为多层应用程序创建网络脚本示例
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 05/15/2018
 
 ## <a name="sample-script"></a>示例脚本
 
-```azurepowershell-interactive
+```powershell
 # Variables for common values
 $rgName='MyResourceGroup'
 $location='chinaeast'

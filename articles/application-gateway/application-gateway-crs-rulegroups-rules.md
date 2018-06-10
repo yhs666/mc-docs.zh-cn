@@ -11,13 +11,14 @@ ms.tgt_pltfrm: na
 ms.custom: ''
 ms.workload: infrastructure-services
 origin.date: 04/16/2018
-ms.date: 04/23/2018
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6feb95295ecb9e918b9ce5e44b681b7f1ae8877f
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 1896a1ad5e5c0f3779cacd7a89aa32a80ada3d0e
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855740"
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>提供的 Web 应用程序防火墙 CRS 规则组和规则列表
 
@@ -553,4 +554,5 @@ ms.lasthandoff: 04/28/2018
 访问[自定义 WAF 规则](application-gateway-customize-waf-rules-portal.md)，了解如何禁用 WAF 规则
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
+
 <!-- Update_Description: wording update -->

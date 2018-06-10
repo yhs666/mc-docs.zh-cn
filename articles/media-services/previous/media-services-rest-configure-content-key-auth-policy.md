@@ -15,14 +15,15 @@ ms.topic: article
 origin.date: 12/07/2017
 ms.date: 1/22/2018
 ms.author: v-nany
-ms.openlocfilehash: 41849d12a23732eb1e1d794a4458258f6112d3ba
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 30d8ad3d836873d8360484d5db5f191116014009
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867424"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略
-[!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
+[!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>概述
  可以使用 Azure 媒体服务传送使用高级加密标准 (AES)（使用 128 位加密密钥）以及 PlayReady 或 Widevine 数字版权管理 (DRM) 动态加密的内容。 媒体服务还提供了用于向已授权客户端传送密钥和 PlayReady 许可证的服务。

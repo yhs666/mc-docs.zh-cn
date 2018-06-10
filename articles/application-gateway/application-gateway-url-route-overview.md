@@ -3,8 +3,8 @@ title: 基于 URL 的内容路由概述 | Microsoft Docs
 description: 本页提供基于应用程序网关 URL 的内容路由、UrlPathMap 配置和 PathBasedRouting 规则的概述。
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: ''
 ms.assetid: 4409159b-e22d-4c9a-a103-f5d32465d163
 ms.service: application-gateway
@@ -13,13 +13,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/09/2017
-ms.date: 03/15/2018
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: ece10ee53f7c0ab131459d002c5f0ab8b7957dac
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: b74bee8e9173fed90439b7ffa74770a8a6674aed
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855766"
 ---
 # <a name="url-path-based-routing-overview"></a>基于 URL 路径的路由概述
 
@@ -103,4 +104,4 @@ PathBasedRouting 规则的代码片段：
 
 了解基于 URL 的内容路由之后，请转到[使用基于 URL 的路由创建应用程序网关](application-gateway-create-url-route-portal.md)，使用 URL 路由规则创建应用程序网关。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

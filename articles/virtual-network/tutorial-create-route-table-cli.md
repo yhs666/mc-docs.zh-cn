@@ -18,11 +18,12 @@ origin.date: 03/13/2018
 ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 4565b2465ccc1323512e653743e07bbd291d7e4a
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 5039fee845875594d63db2ef7017e4fd184dd133
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868563"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>使用 Azure CLI 通过路由表路由网络流量
 
@@ -53,7 +54,8 @@ az group create \
   --location chinaeast
 ``` 
 
-使用 [az network route-table create](https://docs.azure.cn/zh-cn/cli/network/route?view=azure-cli-latest#az-network-route-table-create) 创建路由表。 以下示例创建名为 *myRouteTablePublic* 的路由表。 
+使用 [az network route-table create](https://docs.azure.cn/zh-cn/cli/network/route-table?view=azure-cli-latest#az-network-route-table-create) 创建路由表。 以下示例创建名为 *myRouteTablePublic* 的路由表。 
+<!-- URL is correct on https://docs.azure.cn/zh-cn/cli/network/route-table?view=azure-cli-latest#az-network-route-table-create-->
 
 ```azurecli 
 # Create a route table
@@ -123,7 +125,7 @@ NVA 是执行网络功能（如路由、防火墙或 WAN 优化）的 VM。
 
 使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 在 *DMZ* 子网中创建 NVA。 创建 VM 时，Azure 默认会创建一个公共 IP 地址并将其分配到该 VM。 `--public-ip-address ""` 参数指示 Azure 不要创建公共 IP 地址并将其分配到该 VM，因为不需要从 Internet 连接到该 VM。 如果默认密钥位置中尚不存在 SSH 密钥，该命令会创建它们。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。
 
-```azure-cli-interactive
+```cli
 az vm create \
   --resource-group myResourceGroup \
   --name myVmNva \

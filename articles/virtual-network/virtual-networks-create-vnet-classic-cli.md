@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5a6deaa118d1098e99a73fcdd3449028f3b4251e
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 50cd1e5600de1acc12893c9e35c79fdbe11c06d4
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34869064"
 ---
 # <a name="create-a-virtual-network-classic-by-using-the-azure-cli"></a>使用 Azure CLI 创建虚拟网络（经典）
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
@@ -36,5 +37,4 @@ ms.lasthandoff: 05/15/2018
 [!INCLUDE [virtual-networks-create-vnet-classic-cli-include](../../includes/virtual-networks-create-vnet-classic-cli-include.md)]
 
 <!--The parent file of includes file of virtual-networks-create-vnet-classic-cli-include.md-->
-<!--ms.date:05/07/2018-->
-<!-- Update_Description: wording update, update link -->
+<!--ms.date:06/11/2018-->

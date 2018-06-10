@@ -2,20 +2,21 @@
 title: 使用 SSL 终端创建应用程序网关 - Azure CLI | Microsoft Docs
 description: 了解如何使用 Azure CLI 创建应用程序网关并为 SSL 终端添加证书。
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/18/2018
-ms.date: 03/15/2018
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 05098f1afde71bbb59ad6ab2b7d510ac9cc9afef
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: a1e6702cb939f823f0e5c175a8913cf5bc0736f7
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855743"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>通过 Azure CLI 使用 SSL 终端创建应用程序网关
 
@@ -177,3 +178,4 @@ az network public-ip show \
 
 若要详细了解应用程序网关及其关联的资源，请继续阅读操作指南文章。
 
+<!-- Update_Description: update metedata properties -->

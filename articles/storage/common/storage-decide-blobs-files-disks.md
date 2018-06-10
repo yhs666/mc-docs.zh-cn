@@ -7,13 +7,14 @@ manager: josefree
 ms.service: storage
 ms.topic: article
 origin.date: 03/28/2018
-ms.date: 05/07/2018
-ms.author: v-johch
-ms.openlocfilehash: b4dd92d6ad513706a0c48b0856a2693f8bbb11fb
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/11/2018
+ms.author: v-nany
+ms.openlocfilehash: 358c26f5cd5e6af03835b3b104d39cf71aa028a6
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867529"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>确定何时使用 Azure Blob、Azure 文件或 Azure 磁盘
 
@@ -25,9 +26,9 @@ Azure 在 Azure 存储中提供多种功能，用于在云中存储和访问数�
 
 | 功能 | 说明 | 何时使用 |
 |--------------|-------------|-------------|
-| Azure 文件 | 提供 SMB 接口、客户端库和允许从任何位置访问存储文件的 [REST 接口](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api)。 | 希望将应用程序“提升和移动”到已使用本机文件系统 API 的云中，以此在该应用程序和 Azure 中运行的其他应用程序之间共享数据时。<br/><br/>希望存储需要从多个虚拟机访问的开发和调试工具时。 |
-| Azure Blob | 提供客户端库和允许在块 blob 中大规模存储和访问非结构化数据的 [REST 接口](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)。 | 希望应用程序支持流式处理和随机访问方案时。<br/><br/>希望可以从任何位置访问应用程序数据时。 |
-| **Azure 磁盘** | 提供客户端库和允许数据永久存储在附加虚拟硬盘中并可从中进行访问的 [REST 接口](https://docs.microsoft.com/rest/api/compute/manageddisks/disks/disks-rest-api)。 | 希望提升和移动使用本机文件系统 API 将数据读写到永久性磁盘中应用程序时。<br/><br/>希望存储不要求从附加磁盘的虚拟机外进行访问的数据时。 |
+| Azure 文件 | 提供 SMB 接口、客户端库和允许从任何位置访问存储文件的 [REST 接口](/rest/api/storageservices/file-service-rest-api)。 | 希望将应用程序“提升和移动”到已使用本机文件系统 API 的云中，以此在该应用程序和 Azure 中运行的其他应用程序之间共享数据时。<br/><br/>希望存储需要从多个虚拟机访问的开发和调试工具时。 |
+| Azure Blob | 提供客户端库和允许在块 blob 中大规模存储和访问非结构化数据的 [REST 接口](/rest/api/storageservices/blob-service-rest-api)。 | 希望应用程序支持流式处理和随机访问方案时。<br/><br/>希望可以从任何位置访问应用程序数据时。 |
+| **Azure 磁盘** | 提供客户端库和 [REST 接口](/rest/api/compute/manageddisks/disks/disks-rest-api)，借助该接口可通过附加的虚拟硬盘永久地存储和访问数据。 | 希望提升和移动使用本机文件系统 API 将数据读写到永久性磁盘中应用程序时。<br/><br/>希望存储不要求从附加磁盘的虚拟机外进行访问的数据时。 |
 
 ## <a name="comparison-files-and-blobs"></a>比较：文件和 Blob
 
@@ -71,8 +72,7 @@ Azure 文件是对 Azure 磁盘的补充。 一个磁盘每次只能附加到一
 
 决定如何存储和访问数据时，还应考虑涉及的成本。 有关详细信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)。
   
-某些 SMB 功能不适用于云。 有关详细信息，请参阅 [Features not supported by the Azure File service](https://docs.microsoft.com/rest/api/storageservices/features-not-supported-by-the-azure-file-service)（Azure 文件服务不支持的功能）。
-
+某些 SMB 功能不适用于云。 有关详细信息，请参阅 [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service)（Azure 文件服务不支持的功能）。
+  
 有关磁盘的详细信息，请参阅[管理磁盘和映像](../../virtual-machines/windows/about-disks-and-vhds.md)以及[如何将数据磁盘附加到 Windows 虚拟机](../../virtual-machines/windows/attach-managed-disk-portal.md)。
-
-<!--Update_Description: wording update-->
+<!--Update_Description: update "Data Disk" to "Disk"; update Max disk size from 1TB to 4 TB-->

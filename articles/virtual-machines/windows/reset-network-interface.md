@@ -1,25 +1,26 @@
 ---
-title: "如何为 Azure Windows VM 重置网络接口 | Azure"
-description: "介绍如何为 Azure Windows VM 重置网络接口"
+title: 如何为 Azure Windows VM 重置网络接口 | Azure
+description: 介绍如何为 Azure Windows VM 重置网络接口
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 11/03/2017
-ms.date: 02/05/2018
+origin.date: 05/11/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0f2b8b239ae2cdb354d3c4c4402367355c497df9
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 7b00799a290af224a9391085563e70c79e81022b
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867729"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>如何为 Azure Windows VM 重置网络接口 
 

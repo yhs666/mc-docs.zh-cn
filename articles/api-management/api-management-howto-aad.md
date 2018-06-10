@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/16/2018
 ms.author: v-yiso
-ms.date: 05/14/2018
-ms.openlocfilehash: 7cbd116e6e4c4c956bf921f421d9f69b4a05b4f2
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/18/2018
+ms.openlocfilehash: e870948e35d5545edbd0b4113e446d76b44247ea
+ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855380"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 授权开发人员帐户
 
@@ -103,6 +104,12 @@ ms.lasthandoff: 05/07/2018
 31. 切换回 API 管理应用程序。 
 
     在“添加标识提供者”窗口中，将密钥粘贴到“客户端机密”文本框中。
+
+    > [!IMPORTANT]
+    > 请确保在密钥过期前更新“客户端机密”。 
+    >  
+    >
+    
 32. “添加标识提供者”窗口还包含“允许的租户”文本框。 可在此框中指定要授予 API 管理服务实例的 API 对哪些 Azure AD 实例域的访问权限。 可使用换行符、空格或逗号分隔多个域。
 
     可在“允许的租户”部分中指定多个域。 在任何用户可以从注册应用程序的原始域以外的其他域登录之前，不同域的全局管理员必须先授予权限以使应用程序访问目录数据。 若要授予权限，全局管理员应：

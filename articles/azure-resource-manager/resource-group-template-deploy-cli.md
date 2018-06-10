@@ -15,11 +15,12 @@ ms.workload: na
 origin.date: 07/31/2017
 ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8770e674ad52c988b2531479be60da8d45a9dafa
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 81f6b3de6d4ed6a3e09560ed0cde4bc4a6b48f6a
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867397"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 模板和 Azure CLI 部署资源
 
@@ -81,7 +82,7 @@ az group deployment create \
 前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。 但是，如果不希望模板可公开访问，可以通过将其存储在专用存储容器中来保护它。 若要了解如何部署需要共享访问签名 (SAS) 令牌的模板，请参阅[部署具有 SAS 令牌的专用模板](resource-manager-cli-sas-token.md)。
 
 <!-- Not Available on Cloud Shell -->
-```azurecli-interactive
+```cli
 az group create --name examplegroup --location "China East"
 az group deployment create --resource-group examplegroup \
   --template-uri <copied URL> \

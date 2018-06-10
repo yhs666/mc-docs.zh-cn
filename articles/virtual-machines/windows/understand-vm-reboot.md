@@ -1,25 +1,26 @@
 ---
-title: "了解 Azure Windows VM 的系统重启 | Azure"
-description: "列出可能导致 Windows VM 重启的事件"
+title: 了解 Azure Windows VM 的系统重启 | Azure
+description: 列出可能导致 Windows VM 重启的事件
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 11/03/2017
-ms.date: 12/18/2017
+origin.date: 05/11/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: d5c29023bc5571bcb0ff3861f01c1ec6ae143bb0
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: d9d3dec20b457011b74093e8b324509e636647f1
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867793"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>了解 Azure VM 的系统重启
 

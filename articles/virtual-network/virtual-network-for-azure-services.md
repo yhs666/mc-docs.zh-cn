@@ -1,26 +1,27 @@
 ---
-title: "Azure 服务的虚拟网络 | Azure"
-description: "了解向虚拟网络部署资源的好处。 虚拟网络中的资源可以彼此信，也可与本地资源通信，而无需遍历 Internet 的流量。"
+title: Azure 服务的虚拟网络 | Azure
+description: 了解向虚拟网络部署资源的好处。 虚拟网络中的资源可以彼此信，也可与本地资源通信，而无需遍历 Internet 的流量。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 03/12/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: ef23c3fdb447117565cbc8b449bfb1a9502c78cd
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: e45bad9ce6b12abbff1c77579243ab3bf7cdd9b5
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868674"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Azure 服务的虚拟网络集成
 
@@ -57,8 +58,9 @@ ms.lasthandoff: 03/12/2018
 - [API 管理](../api-management/api-management-using-with-vnet.md?toc=%2fvirtual-network%2ftoc.json)
 - [VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json)
 - [应用程序网关（内部）](../application-gateway/application-gateway-ilb-arm.md?toc=%2fvirtual-network%2ftoc.json)
-<!--Not Available - [Azure Container Service Engine](../container-service/container-service-intro.md?toc=%2fvirtual-network%2ftoc.json) -->
-<!--Not Available - [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fvirtual-network%2ftoc.json) -->
+<!--Not Available - [Azure Kubernetes Service (AKS)](../aks/networking-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
+<!--Not Available - [Azure Container Service Engine](https://github.com/Azure/acs-engine) with the Azure Virtual Network CNI [plug-in](https://github.com/Azure/acs-engine/tree/master/examples/vnet)-->
+<!--Not Available - [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fvirtual-network%2ftoc.json): Virtual network (classic) only-->
 - [Azure Batch](../batch/batch-api-basics.md?toc=%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
 - [云服务](https://msdn.microsoft.com/library/azure/jj156091)：仅限虚拟网络（经典）
 
@@ -68,9 +70,9 @@ ms.lasthandoff: 03/12/2018
 
 某些 Azure 服务无法部署在虚拟网络中。 可选择通过启用虚拟网络服务终结点，将某些服务资源的访问限制为仅特定虚拟网络子网。 详细了解[虚拟网络服务终结点](virtual-network-service-endpoints-overview.md)。
 
-<!-- Not Available on Currently, service endpoints are supported for the following services: -->
-<!-- Not Available on - **Azure Storage**: [Securing Azure Storage accounts to Virtual Networks](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json) -->
-<!-- Not Available on - **Azure SQL Database**: [Securing Azure SQL Database to Virtual networks](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
+目前，以下服务支持服务终结点： 
+<!-- Not Available on - **Azure Storage**: [Securing Azure Storage accounts to Virtual Networks](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json)-->
+- Azure SQL 数据库：[在虚拟网络中保护 Azure SQL 数据库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)
 
 ## <a name="virtual-network-integration-across-multiple-azure-services"></a>跨多个 Azure 服务的虚拟网络集成
 

@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: f065e3b35fd7badb60d5ca696b91acf9c3aa5eac
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: c694ed5f9f9096420d4bbc416276c97deeff2442
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867653"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>如何从 Azure VM 创建非托管 VM 映像
 
@@ -62,7 +63,7 @@ ms.lasthandoff: 05/17/2018
 1. 打开 Azure PowerShell 并登录到 Azure 帐户。
 
     ```powershell
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -Environment AzureChinaCloud
     ```
 
     此时会打开一个弹出窗口让输入 Azure 帐户凭据。
@@ -78,6 +79,11 @@ ms.lasthandoff: 05/17/2018
     ```
 
 ## <a name="deallocate-the-vm-and-set-the-state-to-generalized"></a>解除分配 VM 并将状态设置为通用化
+
+> [!IMPORTANT] 
+> 一旦 VM 标为通用，则不能在其中添加、编辑或删除标记。 如果想要将标记添加到 VM，请确保先添加标记，然后再将 VM 标为通用。
+> 
+
 1. 解除分配 VM 资源。
 
     ```powershell
@@ -252,4 +258,4 @@ $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 
 ## <a name="next-steps"></a>后续步骤
 若要使用 Azure PowerShell 管理新虚拟机，请参阅[使用 Azure Resource Manager 与 PowerShell 来管理虚拟机](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

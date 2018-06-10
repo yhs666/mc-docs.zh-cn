@@ -12,24 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/12/2017
-ms.date: 04/23/2018
+origin.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 350be4962860233a26b3faee46d17a4eba87ec33
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: f2214f728c0b426a10b58ad5aed75bb20f157c78
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867416"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB：导入 MongoDB 数据 
 
 若要将数据从 MongoDB 迁移到 Azure Cosmos DB 帐户，以与 MongoDB API 配合使用，必须执行以下操作：
 
 * 从 [MongoDB 下载中心](https://www.mongodb.com/download-center)下载 *mongoimport.exe* 或 *mongorestore.exe*。
-* 获取[适用于 MongoDB 的 API 连接字符串](connect-mongodb-account.md)。
+* 获取 [API for MongoDB 连接字符串](connect-mongodb-account.md)。
 
-如果要从 MongoDB 导入数据，并计划将其与 Azure Cosmos DB 搭配使用，则应使用[数据迁移工具](import-data.md)来导入数据。
+如果要从 MongoDB 导入数据，并计划将其与 Azure Cosmos DB SQL API 搭配使用，则应使用[数据迁移工具](import-data.md)来导入数据。
 
 本教程涵盖以下任务：
 
@@ -40,7 +41,7 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="prerequisites"></a>先决条件
 
-* 增加吞吐量：数据迁移的持续时间取决于为集合设置的吞吐量。 请确保对于较大的数据迁移增加吞吐量。 完成迁移后，减少吞吐量以节约成本。 有关在 [Azure 门户](https://portal.azure.cn)中增加吞吐量的详细信息，请参阅 [Azure Cosmos DB 中的性能级别和定价层](performance-levels.md)。
+* 增加吞吐量：数据迁移的持续时间取决于为单个集合或一组集合设置的吞吐量。 请确保对于较大的数据迁移增加吞吐量。 完成迁移后，减少吞吐量以节约成本。 有关在 [Azure 门户](https://portal.azure.cn)中增加吞吐量的详细信息，请参阅 [Azure Cosmos DB 中的性能级别和定价层](performance-levels.md)。
 
 * 启用 SSL：Azure Cosmos DB 具有严格的安全要求和标准。 请确保在与帐户进行交互时启用 SSL。 本文的其余部分介绍了如何为 mongoimport 和 mongorestore 启用 SSL。
 
@@ -48,8 +49,9 @@ ms.lasthandoff: 04/23/2018
 
 1. 在 [Azure 门户](https://portal.azure.cn)的左侧窗格中，单击“Azure Cosmos DB”条目。
 2. 在“订阅”窗格中，选择帐户名称。
-3. 在“连接字符串”边栏选项卡中，单击“连接字符串”。  
-右侧窗格中包含成功连接到帐户所需的全部信息。
+3. 在“连接字符串”边栏选项卡中，单击“连接字符串”。
+
+    右侧窗格中包含成功连接到帐户所需的全部信息。
 
     ![“连接字符串”边栏选项卡](./media/mongodb-migrate/ConnectionStringBlade.png)
 
@@ -81,9 +83,27 @@ ms.lasthandoff: 04/23/2018
 
 1. 预创建和缩放集合：
 
-    * 默认情况下，Azure Cosmos DB 预配有一个包含 1,000 个请求单位 (RU) 的新 MongoDB 集合。 使用 mongoimport、mongorestore 或 mongomirror 开始迁移之前，通过 [Azure 门户](https://portal.azure.cn)或 MongoDB 驱动程序和工具预创建所有集合。 如果集合大小超过 10 GB，请务必创建包含相应分片键的[分片/分区集合](partition-data.md)。
+    * 默认情况下，Azure Cosmos DB 预配有一个包含 1,000 个请求单位（RU/秒）的新 MongoDB 集合。 使用 mongoimport、mongorestore 或 mongomirror 开始迁移之前，通过 [Azure 门户](https://portal.azure.cn)或 MongoDB 驱动程序和工具预创建所有集合。 如果集合大小超过 10 GB，请务必创建包含相应分片键的[分片/分区集合](partition-data.md)。
 
-    * 在 [Azure 门户](https://portal.azure.cn)中，仅出于迁移目的，提高集合吞吐量，单分区集合的起始吞吐量为 1,000 个 RU，分片集合的起始吞吐量为 2,500 个 RU。 提高吞吐量后，可避免发生限制，并缩短迁移时间。 由于 Azure Cosmos DB 采用按小时计费，因此可以在迁移后立即降低吞吐量，以节省成本。
+    * 在 [Azure 门户](https://portal.azure.cn)中，仅出于迁移目的，提高集合吞吐量，单分区集合的起始吞吐量为 1,000 个 RU/秒，分片集合的起始吞吐量为 2,500 个 RU/秒。 提高吞吐量后，可避免发生限制，并缩短迁移时间。 由于 Azure Cosmos DB 采用按小时计费，因此可以在迁移后立即降低吞吐量，以节省成本。
+
+    * 除了在集合级别预配 RU/秒之外，还可以在父数据库级别为一组集合预配 RU/秒。 这需要预先创建数据库和集合，以及为每个集合定义分片键。
+
+    * 可以通过常用的工具、驱动程序或 SDK 创建分片集合。 此示例使用 Mongo Shell 创建分片集合：
+
+        ```
+        db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
+        ```
+
+        结果：
+
+        ```JSON
+        {
+            "_t" : "ShardCollectionResponse",
+            "ok" : 1,
+            "collectionsharded" : "admin.people"
+        }
+        ```
 
 2. 计算单文档写入的近似 RU 费用：
 
@@ -93,7 +113,7 @@ ms.lasthandoff: 04/23/2018
 
         ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
 
-    c. 运行 ```db.runCommand({getLastRequestStatistics: 1})```，响应如下所示：
+    c. 运行 ```db.runCommand({getLastRequestStatistics: 1})```，响应将如下所示：
 
         ```
         globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
@@ -112,7 +132,7 @@ ms.lasthandoff: 04/23/2018
 
     a. 运行以下命令，通过 MongoDB Shell 启用详细日志记录：```setVerboseShell(true)```
 
-    b. 对数据库运行简单查询：```db.coll.find().limit(1)```。 响应如下所示：
+    b. 对数据库运行简单查询：```db.coll.find().limit(1)```。 响应将如下所示：
 
         ```
         Fetched 1 record(s) in 100(ms)
@@ -153,4 +173,4 @@ ms.lasthandoff: 04/23/2018
 > [!div class="nextstepaction"]
 >[如何查询 MongoDB 数据？](../cosmos-db/tutorial-query-mongodb.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

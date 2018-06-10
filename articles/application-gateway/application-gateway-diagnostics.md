@@ -11,13 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/02/2018
-ms.date: 04/23/2018
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 017dd1d7a7b00cef833328436607d748f22db4ba
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 1e6ccb6098fc11282f78a11152493efd08d45ea4
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855759"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>应用程序网关的后端运行状况、诊断日志和指标
 
@@ -27,8 +28,6 @@ ms.lasthandoff: 04/28/2018
 
 - [日志](#diagnostic-logging)：通过日志记录，可出于监视目的从资源保存或使用性能、访问及其他数据。
 
-- [指标](#metrics)：应用程序网关当前有七个指标可用来查看性能计数器。
-
 ## <a name="back-end-health"></a>后端运行状况
 
 应用程序网关提供通过门户、PowerShell 和 命令行接口 (CLI) 监视后端池各个成员的运行状况的功能。 还可通过性能诊断日志找到后端池的聚合运行状况摘要。 
@@ -37,6 +36,7 @@ ms.lasthandoff: 04/28/2018
 
 > [!IMPORTANT]
 > 如果应用程序网关子网上存在网络安全组 (NSG)，则请在应用程序网关子网上打开端口范围 65503-65534，以便接收入站流量。 这些端口是后端运行状况 API 正常工作所必需的。
+
 
 ### <a name="view-back-end-health-through-the-portal"></a>通过门户查看后端运行状况
 
@@ -126,7 +126,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
     ```powershell
     Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
     ```
-
+    
 > [!TIP] 
 >活动日志不需要单独的存储帐户。 使用存储来记录访问和性能需支付服务费用。
 
@@ -137,6 +137,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 ### <a name="access-log"></a>访问日志
 
 只有按照上述步骤在每个应用程序网关实例上启用了访问日志，才会生成该日志。 数据存储在启用日志记录时指定的存储帐户中。 应用程序网关的每次访问均以 JSON 格式记录下来，如以下示例所示：
+
 
 |值  |说明  |
 |---------|---------|
@@ -218,6 +219,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 只有按照上述步骤为每个应用程序网关启用了防火墙日志，才会生成该日志。 此日志还需要在应用程序网关上配置 Web 应用程序防火墙。 数据存储在启用日志记录时指定的存储帐户中。 将记录以下数据：
 
+
 |值  |说明  |
 |---------|---------|
 |instanceId     | 为其生成了防火墙数据的应用程序网关实例。 对于多实例应用程序网关，一个实例对应于一行。         |
@@ -281,31 +283,6 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 > 
 
 ## <a name="metrics"></a>指标
-
-指标是某些 Azure 资源的一项功能，可在此查看门户中的性能计数器。 应用程序网关支持以下指标：
-
-- **当前连接数**
-- **失败的请求数**
-- **正常的主机计数**
-
-   可以按每个后端池进行筛选来显示特定后端池中正常的/不正常的主机数。
-
-
-- **响应状态**
-
-   可以进一步对响应状态代码分布进行归类来显示 2xx、3xx、4xx 和 5xx 类别的响应。
-
-- **吞吐量**
-- **请求总数**
-- **不正常的主机计数**
-
-   可以按每个后端池进行筛选来显示特定后端池中正常的/不正常的主机数。
-
-浏览到应用程序网关，并在“监视”下单击“指标”。 若要查看可用值，请选择“指标”下拉列表。
-
-在下图中可以看到过去 30 分钟显示的三个指标的示例：
-
-[![](./media/application-gateway-diagnostics/figure5.png "度量值视图")](./media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 若要查看当前的指标列表，请参阅 [Azure Monitor 支持的指标](../monitoring-and-diagnostics/monitoring-supported-metrics.md)。
 

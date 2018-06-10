@@ -2,20 +2,21 @@
 title: 创建支持外部重定向的应用程序网关 - Azure PowerShell | Microsoft Docs
 description: 了解如何创建将 web 流量重定向到外部站点使用 Azure Powershell 的应用程序网关。
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/24/2018
-ms.date: 03/15/2018
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 28ac15b6f85ae7344a3e90858a335d3cb43d1b7c
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: e01db6daef7ccd55e17c5d94858358469a28ca99
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855753"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持外部重定向的应用程序网关
 
@@ -167,3 +168,4 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 > [!div class="nextstepaction"]
 > [详细了解应用程序网关的作用](./application-gateway-introduction.md)
 
+<!-- Update_Description: update metedata properties -->

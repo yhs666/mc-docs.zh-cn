@@ -6,14 +6,15 @@ author: rockboyfor
 ms.service: virtual-network
 ms.topic: include
 origin.date: 04/13/2018
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: c166d67d8f1d2b847bd10abe0df7e624c12e5754
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 984c88ed57a464719b6407f4946361b7f30bb88a
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34881900"
 ---
 ## <a name="scenario"></a>方案
 为了更好地说明如何创建 NSG，本文档使用以下方案：

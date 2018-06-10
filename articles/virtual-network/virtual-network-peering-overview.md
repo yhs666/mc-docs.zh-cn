@@ -12,20 +12,23 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/26/2018
-ms.date: 05/07/2018
+origin.date: 04/17/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: 43026994e5c2a32286bb95ba3a93140224c4ec3d
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 0005caee45560cd765f7565e0a37babe3206bd2d
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868720"
 ---
 # <a name="virtual-network-peering"></a>虚拟网络对等互连
 
-使用虚拟网络对等互连可以无缝连接两个 Azure [虚拟网络](virtual-networks-overview.md)。 建立对等互连后，出于连接目的，两个虚拟网络会显示为一个。 对等虚拟网络中虚拟机之间的流量通过 Microsoft 主干基础结构路由，非常类似于只通过专用 IP 地址在同一虚拟网络中的虚拟机之间路由流量。 
+使用虚拟网络对等互连可以无缝连接两个 Azure [虚拟网络](virtual-networks-overview.md)。 建立对等互连后，出于连接目的，两个虚拟网络会显示为一个。 对等虚拟网络中虚拟机之间的流量通过 Microsoft 主干基础结构路由，非常类似于只通过专用 IP 地址在同一虚拟网络中的虚拟机之间路由流量。 Azure 支持：
+* VNet 对等互连 - 连接同一 Azure 区域中的 VNet
+* 全局 VNet 对等互连 - 跨 Azure 区域连接 VNet
 
-使用虚拟网络对等互连的优点包括：
+使用虚拟网络对等互连（无论本地还是全局）的优点包括：
 
 * 对等虚拟网络之间的网络流量是专用的。 虚拟网络之间的流量仅限于 Microsoft 主干网络。 在虚拟网络之间通信不需公共 Internet、网关或加密。
 * 不同虚拟网络中资源之间的连接延迟低且带宽高。
@@ -43,7 +46,7 @@ ms.lasthandoff: 05/07/2018
 对等互连虚拟网络中虚拟机之间的流量直接通过 Microsoft 主干基础结构路由，而不通过网关或公共 Internet 路由。
 
 可根据需要将网络安全组应用于虚拟网络（阻止访问其他虚拟网络）或子网。
-配置虚拟网络对等互连时，可打开或关闭虚拟网络之间的网络安全组规则。 如果打开对等虚拟网络之间的完全连接（这是默认选项），则可将网络安全组应用到特定子网或虚拟机，以便阻止或拒绝特定访问。 若要深入了解网络安全组，请参阅[网络安全组概述](virtual-networks-nsg.md)。
+配置虚拟网络对等互连时，可打开或关闭虚拟网络之间的网络安全组规则。 如果打开对等虚拟网络之间的完全连接（这是默认选项），则可将网络安全组应用到特定子网或虚拟机，以便阻止或拒绝特定访问。 若要深入了解网络安全组，请参阅[网络安全组概述](security-overview.md)。
 
 ## <a name="service-chaining"></a>服务链
 
@@ -63,7 +66,7 @@ ms.lasthandoff: 05/07/2018
 
 ![虚拟网络对等互连传输](./media/virtual-networks-peering-overview/figure04.png)
 
-通过不同部署模型或不同区域创建的虚拟网络之间的对等互连关系不支持网关传输。 若要使网关传输正常工作，对等互连关系中的两个虚拟网络都必须通过资源管理器创建，并且必须在同一区域中。
+在不同区域中创建的虚拟网络之间的对等互连关系不支持网关传输。 要使用网关传输正常工作，对等互连关系中的两个虚拟网络必须位于同一区域。 仅当网关位于虚拟网络（资源管理器）中时，才支持通过不同部署模型（资源管理器和经典）创建的虚拟网络之间的网关传输。 若要了解有关使用网关进行传输的详细信息，请参阅[配置 VPN 网关以在虚拟网络对等互连中传输](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fvirtual-network%2ftoc.json)。
 
 正在共享单个 Azure ExpressRoute 连接的虚拟网络对等时，它们之间的流量会通过对等关系（即通过 Azure 主干网）流通。 仍可在各个虚拟网络中使用本地网关连接到本地线路。 或者，也可以使用共享网关，并为本地连接配置传输。
 
@@ -89,12 +92,12 @@ ms.lasthandoff: 05/07/2018
 
 * 可在通过相同或不同订阅中的相同或不同部署模型创建的虚拟网络之间创建虚拟网络对等互连。 完成适用于以下方案之一的教程：
 
-    |Azure 部署模型  | 订阅  |
-    |---------|---------|
-    |都是资源管理器模型 |[相同](tutorial-connect-virtual-networks-portal.md)|
-    | |[不同](create-peering-different-subscriptions.md)|
-    |一个是资源管理器模型，一个是经典模型     |[相同](create-peering-different-deployment-models.md)|
-    | |[不同](create-peering-different-deployment-models-subscriptions.md)|
+    |Azure 部署模型             | 订阅  |
+    |---------                          |---------|
+    |都是资源管理器模型              |[相同](tutorial-connect-virtual-networks-portal.md)|
+    |                                   |[不同](create-peering-different-subscriptions.md)|
+    |一个是资源管理器模型，一个是经典模型  |[相同](create-peering-different-deployment-models.md)|
+    |                                   |[不同](create-peering-different-deployment-models-subscriptions.md)|
 
 * 了解如何创建[中心和分支网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#virtual network-peering)。
 * 了解所有[虚拟网络对等互连设置以及如何对其进行更改](virtual-network-manage-peering.md)。

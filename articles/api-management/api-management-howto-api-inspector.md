@@ -1,12 +1,11 @@
 ---
-title: "在 Azure API 管理中使用请求跟踪调试 API"
-description: "遵循本教程的步骤了解如何在 Azure API 管理中检查请求处理步骤。"
+title: 在 Azure API 管理中使用请求跟踪调试 API
+description: 遵循本教程的步骤了解如何在 Azure API 管理中检查请求处理步骤。
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
-ms.assetid: 4b222327-c8a4-4f33-9a06-adff2a9834d9
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,13 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 11/19/2017
-ms.date: 02/26/2018
+ms.date: 06/18/2018
 ms.author: v-yiso
-ms.openlocfilehash: 99ca88056f16d6e614b4840eb9453fbf4d9de31b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 6b04a904afa5917651232af4916adaf06ffbe91c
+ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855386"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>使用请求跟踪调试 API
 
@@ -37,8 +37,6 @@ ms.lasthandoff: 02/13/2018
 
 + 完成以下快速入门：[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 + 此外，请完成以下教程：[导入并发布第一个 API](import-and-publish.md)。
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="trace-a-call"></a>跟踪调用
 

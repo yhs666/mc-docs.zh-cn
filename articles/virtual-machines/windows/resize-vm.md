@@ -14,13 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/19/2016
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: f7f4022931bc2c5657129cfe564d4dc8eafa39ff
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 7ba1a206f36d5d21ad22c3e2d1d2f2c5a652b7bb
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867640"
 ---
 # <a name="resize-a-windows-vm"></a>调整 Windows VM 的大小
 本文说明如何使用 Azure Powershell 调整在 Resource Manager 部署模型中创建的 Windows VM 的大小。

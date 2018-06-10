@@ -15,11 +15,12 @@ ms.workload: NA
 origin.date: 02/09/2018
 ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 20d5ceae375f2f0e535e005afef74af3ecb3d992
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 4dfa0e35cee6cb48b935393a1ff943d45db139f1
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867485"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 门户在 Azure 中创建 Service Fabric 群集
 > [!div class="op_single_selector"]
@@ -120,7 +121,8 @@ ms.lasthandoff: 05/26/2018
 4. 选择节点类型的 VM 数目。 可在以后增加或减少节点类型中的 VM 数目，但对主节点类型，生产工作负荷的最小数是 5。 其他节点类型最少可以拥有一个 VM。主节点类型的 VM 数可促进群集的可靠性。  
 5. **单个节点群集和三个节点群集** - 这些仅用于测试。 它们不支持任何正在运行的生产工作负荷。
 6. 配置自定义终结点。 可在此字段中输入以逗号分隔的端口列表，可以通过 Azure 负载均衡器针对应用程序向公共 Internet 公开这些端口。 例如，如果计划在群集中部署 Web 应用程序，请在此处输入“80”，允许端口 80 的流量进入群集。 有关终结点的详细信息，请参阅 [communicating with applications][service-fabric-connect-and-communicate-with-services]
-7. 配置群集 **诊断**。 默认情况下，已在群集上启用诊断，以帮助排查问题。 若要禁用诊断，请将其“状态”切换为“关”。 **不**建议关闭诊断。 如果已创建 Application Insights 项目，则提供该项目密钥，以便向其路由应用程序跟踪。
+7. 配置群集 **诊断**。 默认情况下，已在群集上启用诊断，以帮助排查问题。 若要禁用诊断，请将其“状态”切换为“关”。 **不**建议关闭诊断。 
+<!-- Not Available on Application Insights -->
 8. 选择要将群集设置到的结构升级模式。 如果希望系统自动选取最新可用版本并尝试将群集升级到该最新版本，则选择“自动”。 如果想要选择受支持的版本，则将模式设置为“手动”。 有关结构升级模式的详细信息，请参阅 [service-fabric-cluster-upgrade 文档][service-fabric-cluster-upgrade]。
 
 > [!NOTE]

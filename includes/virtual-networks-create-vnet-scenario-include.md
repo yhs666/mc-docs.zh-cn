@@ -6,14 +6,15 @@ author: rockboyfor
 ms.service: virtual-network
 ms.topic: include
 origin.date: 04/13/2018
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: e4d87f784e5201b5dc49b79d05453932149bf39a
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 23c513b21f992e364f35f1a8b8269edbf1807476
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34881943"
 ---
 ## <a name="scenario"></a>方案
 

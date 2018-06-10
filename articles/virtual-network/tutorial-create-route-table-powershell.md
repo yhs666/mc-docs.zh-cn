@@ -15,14 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/13/2018
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: e60fd80ae7d100635b745488b4d201bf6b5b2f50
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: f78839cb2a74b9bdf729cdacac42c2814e7c759e
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868376"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>使用 PowerShell 通过路由表路由网络流量
 
@@ -38,21 +39,21 @@ ms.lasthandoff: 05/07/2018
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-<!--[!INCLUDE [cloud-shell-try-it.md|cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
+<!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 
-如果选择在本地安装并使用 PowerShell，则本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 
+如果选择在本地安装并使用 PowerShell，则本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。 
 
 ## <a name="create-a-route-table"></a>创建路由表
 
 创建路由表之前，需使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 创建资源组。 以下示例为本文中创建的所有资源创建名为 *myResourceGroup* 的资源组。 
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location ChinaEast
 ```
 
 使用 [New-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermroutetable) 创建路由表。 以下示例创建名为 *myRouteTablePublic* 的路由表。
 
-```azurepowershell-interactive
+```powershell
 $routeTablePublic = New-AzureRmRouteTable `
   -Name 'myRouteTablePublic' `
   -ResourceGroupName myResourceGroup `
@@ -63,7 +64,7 @@ $routeTablePublic = New-AzureRmRouteTable `
 
 使用 [Get-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermroutetable) 检索路由表对象以创建路由，使用 [Add-AzureRmRouteConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermrouteconfig) 创建路由，然后使用 [Set-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermroutetable) 将路由配置写入路由表。 
 
-```azurepowershell-interactive
+```powershell
 Get-AzureRmRouteTable `
   -ResourceGroupName "myResourceGroup" `
   -Name "myRouteTablePublic" `
@@ -79,7 +80,7 @@ Get-AzureRmRouteTable `
 
 将路由表关联到子网之前，必须先创建虚拟网络和子网。 使用 [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork) 创建虚拟网络。 以下示例使用地址前缀 *10.0.0.0/16* 创建一个名为 *myVirtualNetwork* 的虚拟网络。
 
-```azurepowershell-interactive
+```powershell
 $virtualNetwork = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroup `
   -Location ChinaEast `
@@ -89,7 +90,7 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
 
 使用 [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 创建三个子网配置，以创建三个子网。 以下示例针对公共、专用和外围网络子网创建三个子网配置：
 
-```azurepowershell-interactive
+```powershell
 $subnetConfigPublic = Add-AzureRmVirtualNetworkSubnetConfig `
   -Name Public `
   -AddressPrefix 10.0.0.0/24 `
@@ -108,13 +109,13 @@ $subnetConfigDmz = Add-AzureRmVirtualNetworkSubnetConfig `
 
 使用 [Set-azurermvirtualnetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork) 将子网配置写入虚拟网络，以便在虚拟网络中创建子网：
 
-```azurepowershell-interactive
+```powershell
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
 使用 [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) 将 *myRouteTablePublic* 路由表关联到公共子网，然后使用 [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetwork) 将子网配置写入虚拟网络。
 
-```azurepowershell-interactive
+```powershell
 Set-AzureRmVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork `
   -Name 'Public' `
@@ -133,7 +134,7 @@ NVA 是执行网络功能（如路由、防火墙或 WAN 优化）的 VM。
 
 在创建网络接口之前，必须使用 [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) 检索虚拟网络 ID，然后使用 [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig) 检索子网 ID。 使用 [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface) 在已启用 IP 转发的外围网络子网中创建网络接口。
 
-```azurepowershell-interactive
+```powershell
 # Retrieve the virtual network object into a variable.
 $virtualNetwork=Get-AzureRmVirtualNetwork `
   -Name myVirtualNetwork `
@@ -157,7 +158,7 @@ $nic = New-AzureRmNetworkInterface `
 
 若要创建 VM 并在其上附加现有的网络接口，必须先使用 [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig) 创建 VM 配置。 该配置包含上一步骤中创建的网络接口。 系统提示输入用户名和密码时，请选择用来登录 VM 的用户名和密码。 
 
-```azurepowershell-interactive
+```powershell
 # Create a credential object.
 $cred = Get-Credential -Message "Enter a username and password for the VM."
 
@@ -178,7 +179,7 @@ $vmConfig = New-AzureRmVMConfig `
 
 运行 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 使用 VM 配置创建 VM。 以下示例创建名为 *myVmNva* 的 VM。 
 
-```azurepowershell-interactive
+```powershell
 $vmNva = New-AzureRmVM `
   -ResourceGroupName myResourceGroup `
   -Location ChinaEast `
@@ -194,7 +195,7 @@ $vmNva = New-AzureRmVM `
 
 使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 在公共子网中创建一个 VM。 以下示例在 *myVirtualNetwork* 虚拟网络的公共子网中创建名为 *myVmPublic* 的 VM。 
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmVm `
   -ResourceGroupName "myResourceGroup" `
   -Location "China East" `
@@ -208,7 +209,7 @@ New-AzureRmVm `
 
 在专用子网中创建一个 VM。
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmVm `
   -ResourceGroupName "myResourceGroup" `
   -Location "China East" `
@@ -225,7 +226,7 @@ New-AzureRmVm `
 
 使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 返回 *myVmPrivate* VM 的公共 IP 地址。 以下示例返回 *myVmPrivate* VM 的公共 IP 地址：
 
-```azurepowershell-interactive
+```powershell
 Get-AzureRmPublicIpAddress `
   -Name myVmPrivate `
   -ResourceGroupName myResourceGroup `
@@ -325,7 +326,7 @@ Trace complete.
 
 如果不再需要资源组及其包含的所有资源，请使用 [Remove-AzureRmResourcegroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 将其删除：
 
-```azurepowershell-interactive
+```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 

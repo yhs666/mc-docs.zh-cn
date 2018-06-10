@@ -1,4 +1,22 @@
-尽管使用系统路由可以自动加快通信以方便部署，但在某些情况下，你需要通过虚拟设备来控制数据包的路由。 为此，你可以创建用户定义的路由来指定下一跃点，方便数据包流向特定的子网并转到你的虚拟设备，并可为作为虚拟设备运行的 VM 启用 IP 转发。
+---
+title: include 文件
+description: include 文件
+services: virtual-network
+author: rockboyfor
+ms.service: virtual-network
+ms.topic: include
+origin.date: 04/13/2018
+ms.date: 06/11/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: 47edd018dab4ef84a6a05e3229fb60eb65bd4771
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34881726"
+---
+尽管使用系统路由可以自动加快通信以方便部署，但在某些情况下，需要通过虚拟设备来控制数据包的路由。 为此，可以创建用户定义的路由来指定下一跃点，方便数据包流向特定的子网并转到虚拟设备，并可为作为虚拟设备运行的 VM 启用 IP 转发。
 
 可以使用虚拟设备的一些用例包括：
 

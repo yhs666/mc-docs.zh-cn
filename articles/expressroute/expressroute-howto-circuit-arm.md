@@ -1,11 +1,11 @@
 ---
-title: "创建和修改 ExpressRoute 线路：PowerShell：Azure Resource Manager | Azure"
-description: "本文介绍如何创建、预配、验证、更新、删除和取消预配 ExpressRoute 线路。"
+title: 创建和修改 ExpressRoute 线路：PowerShell：Azure Resource Manager | Azure
+description: 本文介绍如何创建、预配、验证、更新、删除和取消预配 ExpressRoute 线路。
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f997182e-9b25-4a7a-b079-b004221dadcc
 ms.service: expressroute
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/18/2017
-ms.date: 12/11/2017
+ms.date: 06/18/2018
 ms.author: v-yiso
-ms.openlocfilehash: a501eee73509a1e3110e0940b6cb91e3783ff9bc
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 8a0034f3a0fca819b8f17ed398180203a679e94f
+ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855377"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>使用 PowerShell 创建和修改 ExpressRoute 线路
 > [!div class="op_single_selector"]
@@ -31,10 +32,10 @@ ms.lasthandoff: 12/01/2017
 > * [PowerShell（经典）](expressroute-howto-circuit-classic.md)
 >
 >
-本文介绍如何使用 PowerShell cmdlet 和 Azure 资源管理器部署模型创建 Azure ExpressRoute 线路。 本文还介绍如何查看线路状态，以及如何更新、删除和取消预配线路。
+本文介绍如何使用 PowerShell cmdlet 和 Azure Resource Manager 部署模型创建 Azure ExpressRoute 线路。 本文还介绍如何查看线路状态，以及如何更新、删除和取消预配线路。
 
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 * 安装最新版本的 Azure Resource Manager PowerShell cmdlet。 有关详细信息，请参阅 [Azure PowerShell 概述](../powershell-install-configure.md)。
 * 在开始配置之前，请查看[先决条件](./expressroute-prerequisites.md)和[工作流](./expressroute-workflows.md)。
 
@@ -70,7 +71,7 @@ Get-AzureRmExpressRouteServiceProvider
 
 检查连接服务提供商是否已在该处列出。 请记下以下信息，稍后在创建线路时需要用到：
 
-* 名称
+* Name
 * PeeringLocations
 * BandwidthsOffered
 
@@ -383,7 +384,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 
-将在 Microsoft 端调整线路的大小。 然后，必须联系连接提供商，让他们在那一边根据此更改更新配置。 在发出此通知后，我们将开始向你计收更新后的带宽选项费用。
+会在 Microsoft 端调整线路的大小。 然后，必须联系连接提供商，让他们在那一边根据此更改更新配置。 在你发出此通知后，我们开始向你计收更新后的带宽选项费用。
 
 ### <a name="to-move-the-sku-from-metered-to-unlimited"></a>将 SKU 从按流量计费转为不受限制
 通过使用下面的 PowerShell 代码片段，可以更改 ExpressRoute 线路的 SKU：
@@ -407,7 +408,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 * 如果 ExpressRoute 线路服务提供商预配状态为“正在预配”或“已预配”，则必须与服务提供商合作，在他们一端取消预配线路。 在服务提供商取消对线路的预配并通知我们之前，我们会继续保留资源并收费。
 * 如果服务提供商已取消设置线路（服务提供商预配状态设置为“未预配”），可以删除线路。 这样就会停止对线路的计费。
 
-可以通过运行以下命令来删除 ExpressRoute 线路：
+可以通过运行以下命令删除 ExpressRoute 线路：
 
 ```powershell
 Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"

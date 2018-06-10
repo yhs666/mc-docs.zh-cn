@@ -7,13 +7,14 @@ manager: josefree
 ms.service: storage
 ms.topic: article
 origin.date: 01/21/2018
-ms.date: 05/07/2018
-ms.author: v-johch
-ms.openlocfilehash: 922a4de849cdeb0a9d16db52046b4ecf23cbeed3
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/11/2018
+ms.author: v-nany
+ms.openlocfilehash: 10b5ee59faad10ac5dad634b300211e4f0385cb1
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867521"
 ---
 # <a name="azure-storage-replication"></a>Azure 存储复制
 
@@ -28,8 +29,6 @@ ms.lasthandoff: 05/07/2018
 * [本地冗余存储 (LRS)](storage-redundancy-lrs.md)
 * [异地冗余存储 (GRS)](storage-redundancy-grs.md)
 * [读取访问异地冗余存储 (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
-
-下表简要概述了每种复制策略为给定类型的事件（或具有类似影响性的事件）提供的持久性和可用性范围。
 
 | 方案 | LRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |

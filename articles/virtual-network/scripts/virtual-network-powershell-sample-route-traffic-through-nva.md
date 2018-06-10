@@ -16,11 +16,12 @@ ms.workload: infrastructure
 origin.date: 03/20/2018
 ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: e9d176ad77ab4f73c15fd1a47f365278c5d8d38f
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: fdc4a036df7956a0b7fe0d6f69eb1cd1a39975a5
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868517"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>通过网络虚拟设备脚本示例路由流量
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 05/07/2018
 
 ## <a name="sample-script"></a>示例脚本
 
-```azurepowershell-interactive
+```powershell
 # Variables for common values
 $rgName='MyResourceGroup'
 $location='chinaeast'

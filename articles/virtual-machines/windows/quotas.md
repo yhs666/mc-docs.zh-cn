@@ -14,13 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 12/05/2016
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2ff7c9eb45d2befc9dd5ca95544414dfee34530b
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: d1de86b109fe891396a0c79c0b0ce7db399f569c
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867675"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>虚拟机 vCPU 配额
 
@@ -30,12 +31,14 @@ ms.lasthandoff: 05/22/2018
 
 可以使用 [Get-AzureRmVMUsage](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmusage) cmdlet 检查配额使用情况。
 
-```azurepowershell-interactive
+```powershell
 Get-AzureRmVMUsage -Location "China East"
 ```
 
 输出类似于以下内容：
 
+<!-- Pending the B Series, EV3, DV3, and FSV2 Releasement-->
+<!-- Pending the B Series, EV3, DV3, and FSV2 Releasement-->
 ```
 Name                             Current Value Limit  Unit
 ----                             ------------- -----  ----
@@ -43,9 +46,7 @@ Availability Sets                            0  2000 Count
 Total Regional vCPUs                         4   260 Count
 Virtual Machines                             4 10000 Count
 Virtual Machine Scale Sets                   1  2000 Count
-<!-- Pending the B Series, EV3, DV3, and FSV2 Releasement-->
 Standard B Family vCPUs                      1    10 Count
-<!-- Pending the B Series, EV3, DV3, and FSV2 Releasement-->
 Standard DSv2 Family vCPUs                   1   100 Count
 Standard Dv2 Family vCPUs                    2   100 Count
 Basic A Family vCPUs                         0   100 Count
@@ -59,27 +60,26 @@ Standard LS Family vCPUs                     0   100 Count
 Standard Dv2 Promo Family vCPUs              0   100 Count
 Standard DSv2 Promo Family vCPUs             0   100 Count
 Standard MS Family vCPUs                     0     0 Count
-<!-- Pending the B Series, EV3, DV3, and FSV2 Releasement-->
 Standard Dv3 Family vCPUs                    0   100 Count
 Standard DSv3 Family vCPUs                   0   100 Count
 Standard Ev3 Family vCPUs                    0   100 Count
 Standard ESv3 Family vCPUs                   0   100 Count
-<!-- Pending the B Series, EV3, DV3, and FSV2 Releasement-->
 Standard FSv2 Family vCPUs                   0   100 Count
 Standard LSv2 Family vCPUs                   0     0 Count
 Standard Storage Managed Disks               2 10000 Count
 Premium Storage Managed Disks                1 10000 Count
 
 ```
+<!-- Pending the B Series, EV3, DV3, and FSV2 Releasement-->
+<!-- Pending the B Series, EV3, DV3, and FSV2 Releasement-->
 <!-- Not Available on Standard A8-A11 -->
 <!-- Not Available on Standard G, GS -->
 <!-- Not Available on Standard NV, NC -->
 <!-- Not Available on Standard H -->
 <!-- Not Available on Standard ND, NCV2,NCV3 -->
 
-
-## <a name="reserved-vm-instances"></a>保留 VM 实例
-保留 VM 实例对应于单个订阅，会给 vCPU 配额造成新的影响。 这些值描述订阅中必须可以部署的规定大小的实例数。 它们在配额系统中用作占位符，确保保留该配额，以便能够在订阅中部署保留的实例。 例如，如果特定订阅包含 10 个 Standard_D1 保留实例，则 Standard_D1 保留实例的用量限制将是 10。 这样，Azure 便可以确保“区域 vCPU 总数”配额中始终至少有 10 个 vCPU 可用于 Standard_D1 实例，并且“标准 D 系列 vCPU”配额中至少有 10 个 vCPU 可用于 Standard_D1 实例。
+## <a name="reserved-vm-instances"></a>虚拟机预留实例
+虚拟机预留实例对应于单个订阅，会给 vCPU 配额造成新的影响。 这些值描述订阅中必须可以部署的规定大小的实例数。 它们在配额系统中用作占位符，确保预留该配额，以便能够在订阅中部署预留的实例。 例如，如果特定订阅包含 10 个 Standard_D1 预留实例，则 Standard_D1 预留实例的用量限制将是 10。 这样，Azure 便可以确保“区域 vCPU 总数”配额中始终至少有 10 个 vCPU 可用于 Standard_D1 实例，并且“标准 D 系列 vCPU”配额中至少有 10 个 vCPU 可用于 Standard_D1 实例。
 
 如果需要增加配额来购买单个订阅 RI，则可以在订阅上[请求增加配额](https://support.windowsazure.cn/support/support-azure)。
 

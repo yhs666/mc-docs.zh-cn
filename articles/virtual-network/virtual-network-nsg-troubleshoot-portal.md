@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/23/2016
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: 27c3fe41923d03bb88cbcdc83680e83ebde11517
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: e663b4d02149d96999a486e6d128280aa2746806
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868719"
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>使用 Azure 门户排查网络安全组问题
 > [!div class="op_single_selector"]
@@ -31,9 +32,9 @@ ms.lasthandoff: 05/07/2018
 
 如果在虚拟机 (VM) 上配置网络安全组 (NSG) 时遇到 VM 连接问题，可以借助本文中概述的 NSG 诊断功能进行进一步故障排除。
 
-使用 NSG 可以控制流入和流出虚拟机 (VM) 的流量类型。 可对 Azure 虚拟网络 (VNet) 中的子网和/或网络接口 (NIC) 应用 NSG。 对 NIC 应用的有效规则是对 NIC 应用的 NSG 以及对 NIC 所连接到的子网应用的 NSG 的规则聚合。 这些 NSG 的规则有时互相冲突，影响 VM 的网络连接。  
+使用 NSG 可以控制流入和流出虚拟机 (VM) 的流量类型。 可对 Azure 虚拟网络 (VNet) 中的子网和/或网络接口 (NIC) 应用 NSG。 对 NIC 应用的有效规则是对 NIC 应用的 NSG 以及对 NIC 所连接到的子网应用的 NSG 的规则聚合。 这些 NSG 的规则有时互相冲突，影响 VM 的网络连接。
 
-可以查看 NSG 中对 VM NIC 应用的所有有效安全规则。 本文说明如何在 Azure 资源管理器部署模型中使用这些规则来排查 VM 连接问题。 如果不熟悉 VNet 与 NSG 的概念，请参阅[虚拟网络](virtual-networks-overview.md)和[网络安全组](virtual-networks-nsg.md)概述文章。
+可以查看 NSG 中对 VM NIC 应用的所有有效安全规则。 本文说明如何在 Azure Resource Manager 部署模型中使用这些规则来排查 VM 连接问题。 如果不熟悉 VNet 与 NSG 的概念，请参阅[虚拟网络概述](virtual-networks-overview.md)和[网络安全组概述](security-overview.md)。
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>使用有效的安全规则排查 VM 流量流问题
 以下情景是常见连接问题的示例：
@@ -48,7 +49,7 @@ ms.lasthandoff: 05/07/2018
 
 可以从 VM 本身查看 NIC 上的完整有效安全规则列表。 如果有相应的权限，也可以从有效规则的边栏选项卡添加、修改和删除 NIC 与子网的 NSG 规则。
 
-1. 在 https://portal.azure.cn 上使用 Azure 帐户登录到 Azure 门户。 你的帐户必须有权对网络接口执行 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 操作。 若要了解如何向帐户分配操作，请参阅[创建用于 Azure 基于角色的访问控制的自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json#actions)。
+1. 在 https://portal.azure.cn 上使用 Azure 帐户登录到 Azure 门户。 你的帐户必须有权对网络接口执行 *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* 操作。 若要了解如何向帐户分配操作，请参阅[创建用于 Azure 基于角色的访问控制的自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 2. 单击“所有服务”，然后在显示的列表中单击“虚拟机”。
 3. 在显示的列表中选择要进行故障排除的 VM，随后会显示一个包含选项的 VM 边栏选项卡。
 4. 单击“诊断和解决问题”，然后选择一个常见问题。 本示例选择了“无法连接到 Windows VM”。 
@@ -68,9 +69,9 @@ ms.lasthandoff: 05/07/2018
    * **范围：** 设置为 *VM1*，即步骤 3 中选择的 VM。
    * **网络接口：** *VM1-NIC1* 。 一个 VM 可以有多个网络接口 (NIC)。 每个 NIC 可以使用唯一的有效安全规则。 进行故障排除时，可能需要查看每个 NIC 的有效安全规则。
    * **关联的 NSG：** 可同时对 NIC 和 NIC 连接到的子网应用 NSG。 在图中，已同时对 NIC 及其连接到的子网应用 NSG。 可以单击 NSG 名称直接修改 NSG 中的规则。
-   * **VM1-nsg 选项卡：** 图中显示的规则列表是对 NIC 应用的 NSG。 每当创建 NSG 时，Azure 就会创建几个默认的规则。 无法删除默认规则，但可以使用更高优先级的规则将其覆盖。 有关默认规则的详细信息，请阅读 [NSG 概述](virtual-networks-nsg.md#default-rules)一文。
-   * **DESTINATION 列：**该列中的某些规则带有文本，还有一些规则带有地址前缀。 这些文本是创建安全规则时应用的默认标记的名称。 标记是系统提供的标识符，代表多个前缀。 选择带有标记的规则，例如 *AllowInternetOutBound*，在“地址前缀”边栏选项卡中列出前缀。
-   * **下载：**规则的列表可能很长。 可以单击“下载”并保存文件，下载规则的 .csv 文件供脱机分析。
+   * **VM1-nsg 选项卡：** 图中显示的规则列表是对 NIC 应用的 NSG。 每当创建 NSG 时，Azure 就会创建几个默认的规则。 无法删除默认规则，但可以使用更高优先级的规则将其覆盖。 详细了解[默认安全规则](security-overview.md#default-security-rules)。
+   * **DESTINATION 列：** 该列中的某些规则带有文本，还有一些规则带有地址前缀。 这些文本是创建安全规则时应用的默认标记的名称。 标记是系统提供的标识符，代表多个前缀。 选择带有标记的规则，例如 *AllowInternetOutBound*，在“地址前缀”边栏选项卡中列出前缀。
+   * **下载：** 规则的列表可能很长。 可以单击“下载”并保存文件，下载规则的 .csv 文件供脱机分析。
    * **AllowRDP** 入站规则：此规则允许通过 RDP 连接到 VM。
 7. 单击“Subnet1-NSG”选项卡可查看对子网应用的 NSG 有效规则，如下图所示：  
 

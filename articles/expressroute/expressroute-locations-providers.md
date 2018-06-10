@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/13/2018
+origin.date: 05/15/2018
 ms.author: v-yiso
-ms.date: 05/14/2018
-ms.openlocfilehash: fea323adff32d270445545ff45ae8c11d356febe
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/18/2018
+ms.openlocfilehash: b8f2dd299bde6c2370efc507fdf7a80b66823dd9
+ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855382"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作伙伴和对等位置
 
 > [!div class="op_single_selector"]
->- [按提供商列出的位置](./expressroute-locations.md)
->- [按位置列出的提供商](./expressroute-locations-providers.md)
+> * [按提供商列出的位置](expressroute-locations.md)
+> * [按位置列出的提供商](expressroute-locations-providers.md)
+
 
 本文中的表格提供有关 ExpressRoute 连接提供商、ExpressRoute 地理覆盖范围、通过 ExpressRoute 支持的 Microsoft 云服务以及 ExpressRoute 系统集成商 (SI) 的信息。
 

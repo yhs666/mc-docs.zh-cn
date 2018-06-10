@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/09/2018
+origin.date: 05/14/2018
 ms.author: v-yiso
-ms.date: 05/14/2018
-ms.openlocfilehash: df57c77c67bce0f603b3bf82862831cb65592af1
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/18/2018
+ms.openlocfilehash: 6ae0140a20876ea9b0d185022485d5145607de81
+ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855371"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -271,7 +272,7 @@ ExpressRoute 高级版是以下功能的集合：
 
 下表显示了 ExpressRoute 限制和每条 ExpressRoute 线路的 VNet 数：
 
-[!INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
+[!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 
 ### <a name="how-do-i-enable-expressroute-premium"></a>如何启用 ExpressRoute 高级版？
 
@@ -325,7 +326,7 @@ Office 365 服务和 Dynamics 365 要求启用高级版外接程序。 有关费
 有关信息，请参阅 [ExpressRoute 合作伙伴和位置](expressroute-locations.md)。
 
 ### <a name="can-i-access-office-365-over-the-internet-even-if-expressroute-was-configured-for-my-organization"></a>即使为组织配置了 ExpressRoute，是否也可以通过 Internet 访问 Office 365？
-是的。 即使为网络配置了 ExpressRoute，也可以通过 Internet 访问 Office 365 服务终结点。 如果所在位置已配置为通过 ExpressRoute 连接到 Office 365 服务，则通过 ExpressRoute 进行连接。
+是的。 即使为网络配置了 ExpressRoute，也可以通过 Internet 访问 Office 365 服务终结点。 如果你所在位置的网络配置为通过 ExpressRoute 连接到 Office 365 服务，请咨询组织的网络团队。
 
 
 

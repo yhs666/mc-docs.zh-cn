@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2018
-ms.date: 05/14/2018
+ms.date: 06/18/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6ca703d85d0a7ada055a8e34b946cb332443ec62
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 7d3e69908f1afa264cbefcfb4f761517921fdd1b
+ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855397"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure 监视器支持的指标
 Azure 监视器提供多种方式来与指标交互，包括在门户中制作指标图表、通过 REST API 访问指标，或者使用 PowerShell 或 CLI 查询指标。 下面是目前可在 Azure 监视器的指标管道中使用的完整指标列表。 其他指标可在门户或旧版 API 中使用。 下面的此列表仅包含可以通过合并的 Azure Monitor 指标管道使用的指标。 若要查询和访问这些指标，请使用 [2018-01-01 API 版本](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -53,7 +54,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |MemoryLimitHigh|内存: 内存上限|字节|平均值|内存上限，来自配置文件。|ServerResourceType|
 |MemoryLimitLow|内存: 内存下限|字节|平均值|内存下限，来自配置文件。|ServerResourceType|
 |MemoryLimitVertiPaq|内存: 内存 VertiPaq 限制|字节|平均值|内存中限制，来自配置文件。|ServerResourceType|
-|Quota|内存: 配额|字节|平均值|当前内存配额（字节）。 内存配额也称为内存授予或内存预留。|ServerResourceType|
+|Quota|内存: 配额|字节|平均值|当前内存配额（字节）。 内存配额也称为内存授予或内存保留。|ServerResourceType|
 |QuotaBlocked|内存: 阻止的配额|计数|平均值|在其他内存配额被释放之前已阻止的当前的配额请求数。|ServerResourceType|
 |VertiPaqNonpaged|内存: VertiPaq 未分页|字节|平均值|工作集中被锁定的供内存中引擎使用的内存字节数。|ServerResourceType|
 |VertiPaqPaged|内存: VertiPaq 已分页|字节|平均值|用于内存中数据的已分页内存字节数。|ServerResourceType|
@@ -89,13 +90,13 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |FailedRequests|失败的网关请求数|计数|总计|失败的网关请求数|位置、主机名|
 |OtherRequests|其他网关请求数|计数|总计|其他网关请求数|位置、主机名|
 |持续时间|网关请求的总持续时间|毫秒|平均值|网关请求的总持续时间，以毫秒为单位|位置、主机名|
-|容量|容量（预览）|百分比|最大值|ApiManagement 服务的利用率指标|位置|
+|容量|容量（预览）|百分比|平均值|ApiManagement 服务的利用率指标|位置|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
 |指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
-|TotalJob|作业总数|计数|总计|作业总数|RunbookName，状态|
+|TotalJob|作业总数|计数|总计|作业总数|Runbook、状态|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
@@ -361,6 +362,16 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |磁盘写入操作次数/秒|磁盘写入操作次数/秒|每秒计数|平均值|磁盘写入 IOPS|无维度|
 |剩余 CPU 信用额度|剩余 CPU 信用额度|计数|平均值|可用来集中使用的总信用点数|无维度|
 |已用 CPU 信用额度|已用 CPU 信用额度|计数|平均值|虚拟机使用的总信用点数|无维度|
+|每磁盘读取字节数/秒|数据磁盘读取字节数/秒（预览版）|每秒计数|平均值|监视期间每秒从单个磁盘读取的总字节数|SlotId|
+|每磁盘写入字节数/秒|数据磁盘写入字节数/秒（预览版）|每秒计数|平均值|监视期间每秒写入到单个磁盘的总字节数|SlotId|
+|每磁盘读取操作数/秒|数据磁盘读取操作数/秒（预览版）|每秒计数|平均值|监视期间从单个磁盘读取时完成的总 IOPS|SlotId|
+|每磁盘写入操作数/秒|数据磁盘写入操作数/秒（预览版）|每秒计数|平均值|监视期间写入单个磁盘时完成的总 IOPS|SlotId|
+|每磁盘 QD|数据磁盘 QD（预览版）|计数|平均值|数据磁盘队列深度(或队列长度)|SlotId|
+|OS 每磁盘读取字节数/秒|OS 磁盘读取字节数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间每秒从单个磁盘读取的总字节数|无维度|
+|OS 每磁盘写入字节数/秒|OS 磁盘写入字节数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间每秒写入到单个磁盘的总字节数|无维度|
+|OS 每磁盘读取操作数/秒|OS 磁盘读取操作数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间从单个磁盘读取时完成的总 IOPS|无维度|
+|OS 每磁盘写入操作数/秒|OS 磁盘写入操作数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间写入单个磁盘时完成的总 IOPS|无维度|
+|OS 每磁盘 QD|OS 磁盘 QD（预览版）|计数|平均值|OS 磁盘队列深度(或队列长度)|无维度|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
@@ -375,6 +386,16 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |磁盘写入操作次数/秒|磁盘写入操作次数/秒|每秒计数|平均值|磁盘写入 IOPS|无维度|
 |剩余 CPU 信用额度|剩余 CPU 信用额度|计数|平均值|可用来集中使用的总信用点数|无维度|
 |已用 CPU 信用额度|已用 CPU 信用额度|计数|平均值|虚拟机使用的总信用点数|无维度|
+|每磁盘读取字节数/秒|数据磁盘读取字节数/秒（预览版）|每秒计数|平均值|监视期间每秒从单个磁盘读取的总字节数|SlotId|
+|每磁盘写入字节数/秒|数据磁盘写入字节数/秒（预览版）|每秒计数|平均值|监视期间每秒写入到单个磁盘的总字节数|SlotId|
+|每磁盘读取操作数/秒|数据磁盘读取操作数/秒（预览版）|每秒计数|平均值|监视期间从单个磁盘读取时完成的总 IOPS|SlotId|
+|每磁盘写入操作数/秒|数据磁盘写入操作数/秒（预览版）|每秒计数|平均值|监视期间写入单个磁盘时完成的总 IOPS|SlotId|
+|每磁盘 QD|数据磁盘 QD（预览版）|计数|平均值|数据磁盘队列深度(或队列长度)|SlotId|
+|OS 每磁盘读取字节数/秒|OS 磁盘读取字节数/秒|每秒计数|平均值|OS 磁盘监视期间每秒从单个磁盘读取的总字节数|无维度|
+|OS 每磁盘写入字节数/秒|OS 磁盘写入字节数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间每秒写入到单个磁盘的总字节数|无维度|
+|OS 每磁盘读取操作数/秒|OS 磁盘读取操作数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间从单个磁盘读取时完成的总 IOPS|无维度|
+|OS 每磁盘写入操作数/秒|OS 磁盘写入操作数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间写入单个磁盘时完成的总 IOPS|无维度|
+|OS 每磁盘 QD|OS 磁盘 QD（预览版）|计数|平均值|OS 磁盘队列深度(或队列长度)|无维度|
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
@@ -389,6 +410,16 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |磁盘写入操作次数/秒|磁盘写入操作次数/秒|每秒计数|平均值|磁盘写入 IOPS|无维度|
 |剩余 CPU 信用额度|剩余 CPU 信用额度|计数|平均值|可用来集中使用的总信用点数|无维度|
 |已用 CPU 信用额度|已用 CPU 信用额度|计数|平均值|虚拟机使用的总信用点数|无维度|
+|每磁盘读取字节数/秒|数据磁盘读取字节数/秒（预览版）|每秒计数|平均值|监视期间每秒从单个磁盘读取的总字节数|SlotId|
+|每磁盘写入字节数/秒|数据磁盘写入字节数/秒（预览版）|每秒计数|平均值|监视期间每秒写入到单个磁盘的总字节数|SlotId|
+|每磁盘读取操作数/秒|数据磁盘读取操作数/秒（预览版）|每秒计数|平均值|监视期间从单个磁盘读取时完成的总 IOPS|SlotId|
+|每磁盘写入操作数/秒|数据磁盘写入操作数/秒（预览版）|每秒计数|平均值|监视期间写入单个磁盘时完成的总 IOPS|SlotId|
+|每磁盘 QD|数据磁盘 QD（预览版）|计数|平均值|数据磁盘队列深度(或队列长度)|SlotId|
+|OS 每磁盘读取字节数/秒|OS 磁盘读取字节数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间每秒从单个磁盘读取的总字节数|无维度|
+|OS 每磁盘写入字节数/秒|OS 磁盘写入字节数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间每秒写入到单个磁盘的总字节数|无维度|
+|OS 每磁盘读取操作数/秒|OS 磁盘读取操作数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间从单个磁盘读取时完成的总 IOPS|无维度|
+|OS 每磁盘写入操作数/秒|OS 磁盘写入操作数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间写入单个磁盘时完成的总 IOPS|无维度|
+|OS 每磁盘 QD|OS 磁盘 QD（预览版）|计数|平均值|OS 磁盘队列深度(或队列长度)|无维度|
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
@@ -396,6 +427,16 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |---|---|---|---|---|---|
 |CpuUsage|CPU 使用率|计数|平均值|所有核心的 CPU 使用率（以 millicore 为单位）。|containerName|
 |MemoryUsage|内存用量|字节|平均值|总内存使用量（以字节为单位）。|containerName|
+
+## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
+
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
+|---|---|---|---|---|---|
+|kube_node_status_allocatable_cpu_cores|托管群集中可用 CPU 内核的总数|计数|总计|托管群集中可用 CPU 内核的总数|无维度|
+|kube_node_status_allocatable_memory_bytes|托管群集中可用内存的总量|字节|总计|托管群集中可用内存的总量|无维度|
+|kube_pod_status_ready|就绪状态下的 Pod 数|计数|总计|就绪状态下的 Pod 数|命名空间、Pod|
+|kube_node_status_condition|各种节点条件的状态|计数|总计|各种节点条件的状态|条件、状态、节点|
+|kube_pod_status_phase|依据阶段的 Pod 数|计数|总计|依据阶段的 Pod 数|阶段、命名空间、Pod|
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
@@ -503,76 +544,6 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |DeviceAssignments|已分配设备|计数|总计|已分配给 IoT 中心的设备数|ProvisioningServiceName、IotHubName|
 |AttestationAttempts|证明尝试次数|计数|总计|已尝试的设备证明次数|ProvisioningServiceName、Status、Protocol|
 
-## <a name="microsoftdeviceselasticpools"></a>Microsoft.Devices/ElasticPools
-
-|指标|指标显示名称|计价单位|聚合类型|说明|维度|
-|---|---|---|---|---|---|
-|elasticPool.requestedUsageRate|请求的使用率|百分比|平均值|请求的使用率|无维度|
-
-## <a name="microsoftdeviceselasticpoolsiothubtenants"></a>Microsoft.Devices/ElasticPools/IotHubTenants
-
-|指标|指标显示名称|计价单位|聚合类型|说明|维度|
-|---|---|---|---|---|---|
-|tenantHub.requestedUsageRate|请求的使用率|百分比|平均值|请求的使用率|无维度|
-|deviceDataUsage|总 devicedata 使用情况|计数|总计|从与 IotHub 相连的任意设备传出的字节，以及传入到与 IotHub 相连的任意设备的字节|无维度|
-|d2c.telemetry.ingress.allProtocol|遥测消息发送尝试次数|计数|总计|尝试发送到 IoT 中心的、设备到云的遥测消息数|无维度|
-|d2c.telemetry.ingress.success|发送的遥测消息数|计数|总计|成功发送到 IoT 中心的、设备到云的遥测消息数|无维度|
-|c2d.commands.egress.complete.success|完成的命令数|计数|总计|设备已成功完成的云到设备命令数目|无维度|
-|c2d.commands.egress.abandon.success|放弃的命令数|计数|总计|设备放弃的云到设备命令数目|无维度|
-|c2d.commands.egress.reject.success|拒绝的命令数|计数|总计|设备拒绝的云到设备命令数目|无维度|
-|devices.totalDevices|设备总数|计数|总计|已注册到 IoT 中心的设备数目|无维度|
-|devices.connectedDevices.allProtocol|连接的设备数|计数|总计|已连接到 IoT 中心的设备数目|无维度|
-|d2c.telemetry.egress.success|发送的遥测消息数|计数|总计|已成功将消息写入到终结点的次数（总数）|无维度|
-|d2c.telemetry.egress.dropped|丢弃的消息数|计数|总计|由于传递终结点已死而丢弃的消息数|无维度|
-|d2c.telemetry.egress.orphaned|孤立的消息数|计数|总计|不匹配任何路由（包括回退路由）的消息计数|无维度|
-|d2c.telemetry.egress.invalid|无效的消息数|计数|总计|由于与终结点不兼容而未传递的消息计数|无维度|
-|d2c.telemetry.egress.fallback|符合回退条件的消息数|计数|总计|已写入到回退终结点的消息数|无维度|
-|d2c.endpoints.egress.eventHubs|已传递到事件中心终结点的消息数|计数|总计|已成功将消息写入到事件中心终结点的次数|无维度|
-|d2c.endpoints.latency.eventHubs|事件中心终结点的消息延迟|毫秒|平均值|消息进入 IoT 中心与进入事件中心终结点之间的平均延迟（毫秒）|无维度|
-|d2c.endpoints.egress.serviceBusQueues|已传递到服务总线队列终结点的消息数|计数|总计|已成功将消息写入到服务总线队列终结点的次数|无维度|
-|d2c.endpoints.latency.serviceBusQueues|服务总线队列终结点的消息延迟|毫秒|平均值|消息进入 IoT 中心与进入服务总线队列终结点之间的平均延迟（毫秒）|无维度|
-|d2c.endpoints.egress.serviceBusTopics|已传递到服务总线主题终结点的消息数|计数|总计|已成功将消息写入到服务总线主题终结点的次数|无维度|
-|d2c.endpoints.latency.serviceBusTopics|服务总线主题终结点的消息延迟|毫秒|平均值|消息进入 IoT 中心与进入服务总线主题终结点之间的平均延迟（毫秒）|无维度|
-|d2c.endpoints.egress.builtIn.events|已传递到内置终结点的消息数（消息/事件）|计数|总计|已成功将消息写入到内置终结点的次数（消息/事件）|无维度|
-|d2c.endpoints.latency.builtIn.events|内置终结点的消息延迟（消息/事件）|毫秒|平均值|消息进入 IoT 中心与进入内置终结点（消息/事件）之间的平均延迟（毫秒） |无维度|
-|d2c.endpoints.egress.storage|传递到存储终结点的消息数|计数|总计|成功将消息写入存储终结点的次数|无维度|
-|d2c.endpoints.latency.storage|存储终结点的消息延迟|毫秒|平均值|消息进入 IoT 中心与进入存储终结点之间的平均延迟（毫秒）|无维度|
-|d2c.endpoints.egress.storage.bytes|写入存储的数据量|字节|总计|写入存储终结点的数据量，以字节为单位|无维度|
-|d2c.endpoints.egress.storage.blobs|写入存储的 Blob 数|计数|总计|写入存储终结点的 Blob 数|无维度|
-|d2c.twin.read.success|设备的成功孪生读取数|计数|总计|由设备发起的所有成功孪生读取的计数。|无维度|
-|d2c.twin.read.failure|设备的失败孪生读取数|计数|总计|由设备发起的所有失败孪生读取的计数。|无维度|
-|d2c.twin.read.size|设备的孪生读取的响应大小|字节|平均值|由设备发起的所有成功的孪生读取的平均、最小和最大大小。|无维度|
-|d2c.twin.update.success|设备的成功孪生更新数|计数|总计|由设备发起的所有成功的孪生更新的计数。|无维度|
-|d2c.twin.update.failure|设备的失败孪生更新数|计数|总计|由设备发起的所有失败的孪生更新的计数。|无维度|
-|d2c.twin.update.size|设备的孪生更新的大小|字节|平均值|由设备发起的所有成功孪生更新的平均、最小和最大大小。|无维度|
-|c2d.methods.success|成功的直接方法调用数|计数|总计|所有成功的直接方法调用的计数。|无维度|
-|c2d.methods.failure|失败的直接方法调用数|计数|总计|所有失败直接方法调用的计数。|无维度|
-|c2d.methods.requestSize|直接方法调用的请求大小|字节|平均值|所有成功直接方法请求的平均、最小和最大大小。|无维度|
-|c2d.methods.responseSize|直接方法调用的响应大小|字节|平均值|所有成功直接方法响应的平均、最小和最大大小。|无维度|
-|c2d.twin.read.success|后端的成功孪生读取数|计数|总计|由后端发起的所有成功孪生读取的计数。|无维度|
-|c2d.twin.read.failure|后端的失败孪生读取数|计数|总计|由后端发起的所有失败孪生读取的计数。|无维度|
-|c2d.twin.read.size|后端的孪生读取的响应大小|字节|平均值|由后端发起的所有成功的孪生读取的平均、最小和最大大小。|无维度|
-|c2d.twin.update.success|后端的成功孪生更新数|计数|总计|由后端发起的所有成功孪生更新的计数。|无维度|
-|c2d.twin.update.failure|后端的失败孪生更新数|计数|总计|由后端发起的所有失败孪生更新的计数。|无维度|
-|c2d.twin.update.size|后端的失败孪生更新大小|字节|平均值|由后端发起的所有成功孪生更新的平均、最小和最大大小。|无维度|
-|twinQueries.success|成功的孪生查询数|计数|总计|所有成功孪生查询的计数。|无维度|
-|twinQueries.failure|失败的孪生查询数|计数|总计|所有失败孪生查询的计数。|无维度|
-|twinQueries.resultSize|孪生查询结果大小|字节|平均值|所有成功孪生查询的结果大小的平均值、最小值和最大值。|无维度|
-|jobs.createTwinUpdateJob.success|孪生更新作业创建成功数|计数|总计|孪生更新作业创建成功的所有次数。|无维度|
-|jobs.createTwinUpdateJob.failure|孪生更新作业创建失败数|计数|总计|孪生更新作业创建失败的所有次数。|无维度|
-|jobs.createDirectMethodJob.success|方法调用作业的创建成功数|计数|总计|直接方法调用作业创建成功的所有次数。|无维度|
-|jobs.createDirectMethodJob.failure|方法调用作业的创建失败数|计数|总计|直接方法调用作业创建失败的所有次数。|无维度|
-|jobs.listJobs.success|对列出作业的成功调用数|计数|总计|对列出作业的所有成功调用的计数。|无维度|
-|jobs.listJobs.failure|对列出作业的失败调用数|计数|总计|对列出作业的所有失败调用的计数。|无维度|
-|jobs.cancelJob.success|成功的作业取消数|计数|总计|用来取消作业的调用成功的次数。|无维度|
-|jobs.cancelJob.failure|失败的作业取消数|计数|总计|用来取消作业的调用失败的次数。|无维度|
-|jobs.queryJobs.success|成功的作业查询数|计数|总计|对查询作业的所有成功调用的计数。|无维度|
-|jobs.queryJobs.failure|失败的作业查询数|计数|总计|对查询作业的所有失败调用的计数。|无维度|
-|jobs.completed|已完成的作业|计数|总计|所有已完成的作业的计数。|无维度|
-|jobs.failed|失败的作业数|计数|总计|所有失败的作业的计数。|无维度|
-|d2c.telemetry.ingress.sendThrottle|限制错误数|计数|总计|由于设备吞吐量限制而导致的限制错误数|无维度|
-|dailyMessageQuotaUsed|已使用的消息总数|计数|平均值|今天使用的消息总数。 这是累积值，每日 00:00 UTC 重置为零。|无维度|
-
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
 |指标|指标显示名称|计价单位|聚合类型|说明|维度|
@@ -663,6 +634,14 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |PacketCount|数据包计数|计数|总计|时间段内传输的数据包总数|VipAddress、VipPort、Direction|
 |SYNCount|SYN 计数|计数|总计|时间段内传输的 SYN 数据包总数|VipAddress、VipPort、Direction|
 |SnatConnectionCount|SNAT 连接计数|计数|总计|时间段内创建的新 SNAT 连接的总数|VipAddress、DipAddress、ConnectionState|
+
+## <a name="microsoftnetworkdnszones"></a>Microsoft.Network/dnszones
+
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
+|---|---|---|---|---|---|
+|QueryVolume|查询量|计数|总计|为 DNS 区域提供服务的查询数|无维度|
+|RecordSetCount|记录集计数|计数|最大值|DNS 区域中的记录集数|无维度|
+|RecordSetCapacityUtilization|记录集容量使用率|百分比|最大值|DNS 区域利用的记录集容量的百分比|无维度|
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
@@ -807,13 +786,6 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |incoming.all.requests|所有传入请求数|计数|总计|通知中心的传入的请求数总计|无维度|
 |incoming.all.failedrequests|所有传入的失败请求数|计数|总计|通知中心的传入的失败请求数总计|无维度|
 
-## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
-
-|指标|指标显示名称|计价单位|聚合类型|说明|维度|
-|---|---|---|---|---|---|
-|QueryDuration|查询持续时间|毫秒|平均值|上一个间隔的 DAX 查询持续时间|无维度|
-|QueryPoolJobQueueLength|线程: 查询池作业队列长度|计数|平均值|查询线程池队列中的作业数。|无维度|
-
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
 （公共预览版）
 
@@ -890,6 +862,16 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |检测信号|检测信号|计数|平均值|检测信号|Computer、OSType、Version、SourceComputerId|
 |更新|更新|计数|平均值|更新|Computer、Product、Classification、UpdateState、Optional、Approved|
 
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
+
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
+|---|---|---|---|---|---|
+|QueryDuration|查询持续时间|毫秒|平均值|上一个间隔的 DAX 查询持续时间|无维度|
+|QueryPoolJobQueueLength|线程: 查询池作业队列长度|计数|平均值|查询线程池队列中的作业数。|无维度|
+|qpu_high_utilization_metric|QPU 高利用率|计数|总计|最后一分钟内 QPU 高利用率，1 为高 QPU 利用率，反之为 0|无维度|
+|memory_metric|内存|字节|平均值|内存。 A1 的范围为 0-3 GB，A2 为 0-5 GB，A3 为 0-10 GB，A4 为 0-25 GB，A5 为 0-50 GB，A6 为 0-100 GB|无维度|
+|memory_thrashing_metric|内存抖动|百分比|平均值|平均内存抖动。|无维度|
+
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
 |指标|指标显示名称|计价单位|聚合类型|说明|维度|
@@ -933,6 +915,20 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |ActiveMessages|队列/主题中的活动消息计数。 （预览版）|计数|平均值|队列/主题中的活动消息计数。 （预览版）|EntityName|
 |CPUXNS|每个命名空间的 CPU 使用率|百分比|最大值|服务总线高级命名空间 CPU 使用率指标|无维度|
 |WSXNS|每个命名空间的内存使用量|百分比|最大值|服务总线高级命名空间内存使用率指标|无维度|
+
+## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
+
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
+|---|---|---|---|---|---|
+|ConnectionCount|连接计数|计数|最大值|用户连接量。|无维度|
+|ConnectionCountPerSecond|每秒连接计数|每秒计数|平均值|每秒平均连接计数。|无维度|
+|MessageCount|消息计数|计数|最大值|本月消息总量|无维度|
+|MessageCountPerSecond|每秒消息计数|每秒计数|平均值|消息平均计数|无维度|
+|MessageUsed|已用的消息|百分比|最大值|消息的百分比已在本月使用|无维度|
+|ConnectionUsed|已用的连接|百分比|最大值|连接的百分比已使用|无维度|
+|UserErrors|用户错误数|百分比|最大值|用户错误数的百分比|无维度|
+|SystemErrors|系统错误数|百分比|最大值|系统错误数的百分比|无维度|
+|SystemLoad|系统负载|百分比|最大值|系统负载的百分比|无维度|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
@@ -1069,6 +1065,30 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |DeserializationError|输入反序列化错误|计数|总计|输入反序列化错误|无维度|
 |EarlyInputEvents|应用时间早于其到达时间的事件。|计数|总计|应用时间早于其到达时间的事件。|无维度|
 
+## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
+
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
+|---|---|---|---|---|---|
+|IngressReceivedMessages|入口收到的消息数|计数|总计|从所有事件中心或 IoT 中心事件源读取的消息的计数|无维度|
+|IngressReceivedInvalidMessages|入口收到的无效消息数|计数|总计|从所有事件中心或 IoT 中心事件源读取的无效消息的计数|无维度|
+|IngressReceivedBytes|入口收到的字节数|字节|总计|从所有事件源读取的字节数的计数|无维度|
+|IngressStoredBytes|入口存储的字节数|字节|总计|已成功处理且可用于查询的事件的总大小|无维度|
+|IngressStoredEvents|入口存储的事件数|计数|总计|已成功处理并可供查询的平展事件的计数|无维度|
+|IngressReceivedMessagesTimeLag|入口收到的消息数时间延迟|秒|最大值|消息在事件源中排队与消息在入口中处理之间的时间差异|无维度|
+|IngressReceivedMessagesCountLag|入口收到的消息数计数延迟|计数|平均值|上次排队的消息在事件源分区中的序列号与在入口中进行处理的消息的序列号之间的差异|无维度|
+
+## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/environments/eventsources
+
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
+|---|---|---|---|---|---|
+|IngressReceivedMessages|入口收到的消息数|计数|总计|从事件源中读取的消息的计数|无维度|
+|IngressReceivedInvalidMessages|入口收到的无效消息数|计数|总计|从事件源中读取的无效消息的计数|无维度|
+|IngressReceivedBytes|入口收到的字节数|字节|总计|从事件源读取的字节数的计数|无维度|
+|IngressStoredBytes|入口存储的字节数|字节|总计|已成功处理且可用于查询的事件的总大小|无维度|
+|IngressStoredEvents|入口存储的事件数|计数|总计|已成功处理并可供查询的平展事件的计数|无维度|
+|IngressReceivedMessagesTimeLag|入口收到的消息数时间延迟|秒|最大值|消息在事件源中排队与消息在入口中处理之间的时间差异|无维度|
+|IngressReceivedMessagesCountLag|入口收到的消息数计数延迟|计数|平均值|上次排队的消息在事件源分区中的序列号与在入口中进行处理的消息的序列号之间的差异|无维度|
+
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
 |指标|指标显示名称|计价单位|聚合类型|说明|维度|
@@ -1103,6 +1123,44 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |AppConnections|连接|计数|平均值|连接|实例|
 |句柄数|句柄计数|计数|平均值|句柄计数|实例|
 |线程数|线程计数|计数|平均值|线程计数|实例|
+|IoReadBytesPerSecond|IO 每秒读取字节数|每秒字节数|总计|IO 每秒读取字节数|实例|
+|IoWriteBytesPerSecond|IO 每秒写入字节数|每秒字节数|总计|IO 每秒写入字节数|实例|
+|IoOtherBytesPerSecond|IO 每秒其他字节数|每秒字节数|总计|IO 每秒其他字节数|实例|
+|IoReadOperationsPerSecond|IO 每秒读取操作数|每秒字节数|总计|IO 每秒读取操作数|实例|
+|IoWriteOperationsPerSecond|IO 每秒写入操作数|每秒字节数|总计|IO 每秒写入操作数|实例|
+|IoOtherOperationsPerSecond|IO 每秒其他操作数|每秒字节数|总计|IO 每秒其他操作数|实例|
+|RequestsInApplicationQueue|应用程序队列中的请求数|计数|平均值|应用程序队列中的请求数|实例|
+|CurrentAssemblies|当前程序集|计数|平均值|当前程序集|实例|
+|TotalAppDomains|应用程序域总数|计数|平均值|应用程序域总数|实例|
+|TotalAppDomainsUnloaded|卸载的应用程序域总数|计数|平均值|卸载的应用程序域总数|实例|
+|Gen0Collections|第 0 代垃圾回收|计数|总计|第 0 代垃圾回收|实例|
+|Gen1Collections|第 1 代垃圾回收|计数|总计|第 1 代垃圾回收|实例|
+|Gen2Collections|第 2 代垃圾回收|计数|总计|第 2 代垃圾回收|实例|
+
+## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (Functions)
+
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
+|---|---|---|---|---|---|
+|BytesReceived|数据输入|字节|总计|数据输入|实例|
+|BytesSent|数据输出|字节|总计|数据输出|实例|
+|Http5xx|Http 服务器错误|计数|总计|Http 服务器错误|实例|
+|MemoryWorkingSet|内存工作集|字节|平均值|内存工作集|实例|
+|AverageMemoryWorkingSet|平均内存工作集|字节|平均值|平均内存工作集|实例|
+|FunctionExecutionUnits|函数执行单位数|计数|总计|函数执行单位数|实例|
+|FunctionExecutionCount|函数执行计数|计数|总计|函数执行计数|实例|
+|IoReadBytesPerSecond|IO 每秒读取字节数|每秒字节数|总计|IO 每秒读取字节数|实例|
+|IoWriteBytesPerSecond|IO 每秒写入字节数|每秒字节数|总计|IO 每秒写入字节数|实例|
+|IoOtherBytesPerSecond|IO 每秒其他字节数|每秒字节数|总计|IO 每秒其他字节数|实例|
+|IoReadOperationsPerSecond|IO 每秒读取操作数|每秒字节数|总计|IO 每秒读取操作数|实例|
+|IoWriteOperationsPerSecond|IO 每秒写入操作数|每秒字节数|总计|IO 每秒写入操作数|实例|
+|IoOtherOperationsPerSecond|IO 每秒其他操作数|每秒字节数|总计|IO 每秒其他操作数|实例|
+|RequestsInApplicationQueue|应用程序队列中的请求数|计数|平均值|应用程序队列中的请求数|实例|
+|CurrentAssemblies|当前程序集|计数|平均值|当前程序集|实例|
+|TotalAppDomains|应用程序域总数|计数|平均值|应用程序域总数|实例|
+|TotalAppDomainsUnloaded|卸载的应用程序域总数|计数|平均值|卸载的应用程序域总数|实例|
+|Gen0Collections|第 0 代垃圾回收|计数|总计|第 0 代垃圾回收|实例|
+|Gen1Collections|第 1 代垃圾回收|计数|总计|第 1 代垃圾回收|实例|
+|Gen2Collections|第 2 代垃圾回收|计数|总计|第 2 代垃圾回收|实例|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
@@ -1129,6 +1187,19 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |AppConnections|连接|计数|平均值|连接|实例|
 |句柄数|句柄计数|计数|平均值|句柄计数|实例|
 |线程数|线程计数|计数|平均值|线程计数|实例|
+|IoReadBytesPerSecond|IO 每秒读取字节数|每秒字节数|总计|IO 每秒读取字节数|实例|
+|IoWriteBytesPerSecond|IO 每秒写入字节数|每秒字节数|总计|IO 每秒写入字节数|实例|
+|IoOtherBytesPerSecond|IO 每秒其他字节数|每秒字节数|总计|IO 每秒其他字节数|实例|
+|IoReadOperationsPerSecond|IO 每秒读取操作数|每秒字节数|总计|IO 每秒读取操作数|实例|
+|IoWriteOperationsPerSecond|IO 每秒写入操作数|每秒字节数|总计|IO 每秒写入操作数|实例|
+|IoOtherOperationsPerSecond|IO 每秒其他操作数|每秒字节数|总计|IO 每秒其他操作数|实例|
+|RequestsInApplicationQueue|应用程序队列中的请求数|计数|平均值|应用程序队列中的请求数|实例|
+|CurrentAssemblies|当前程序集|计数|平均值|当前程序集|实例|
+|TotalAppDomains|应用程序域总数|计数|平均值|应用程序域总数|实例|
+|TotalAppDomainsUnloaded|卸载的应用程序域总数|计数|平均值|卸载的应用程序域总数|实例|
+|Gen0Collections|第 0 代垃圾回收|计数|总计|第 0 代垃圾回收|实例|
+|Gen1Collections|第 1 代垃圾回收|计数|总计|第 1 代垃圾回收|实例|
+|Gen2Collections|第 2 代垃圾回收|计数|总计|第 2 代垃圾回收|实例|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 

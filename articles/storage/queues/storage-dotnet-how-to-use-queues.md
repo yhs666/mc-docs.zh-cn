@@ -8,13 +8,14 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 04/16/2018
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: 2830f58842363beeeb840e6008ee9458d23b1763
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 54a3d2e1b0be2078f33f2236dfebc9641c43b7c4
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867577"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>通过 .NET 开始使用 Azure 队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -73,7 +74,7 @@ using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 ```csharp
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 ```
-
+    
 现在，已准备好编写从队列存储读取数据并将数据写入队列存储的代码。
 
 ## <a name="create-a-queue"></a>创建队列
@@ -209,7 +210,7 @@ Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsStr
 await queue.DeleteMessageAsync(retrievedMessage);
 Console.WriteLine("Deleted message");
 ```
-
+    
 ## <a name="leverage-additional-options-for-de-queuing-messages"></a>使用其他方法取消对消息的排队
 可通过两种方式自定义队列中消息的检索。
 首先，可获取一批消息（最多 32 条）。 其次，可以设置更长或更短的不可见超时时间，从而允许代码使用更多或更少时间来完全处理每个消息。 以下代码示例使用 **GetMessages** 方法在一次调用中获取 20 条消息。 然后，它使用 **foreach** 循环处理每条消息。 它还将每条消息的不可见超时时间设置为 5 分钟。 请注意，5 分钟超时时间对于所有消息都是同时开始的，因此在调用 **GetMessages**5 分钟后，尚未删除的任何消息都会再次变得可见。
@@ -273,6 +274,7 @@ CloudQueue queue = queueClient.GetQueueReference("myqueue");
 // Delete the queue.
 queue.Delete();
 ```
+    
 
 ## <a name="next-steps"></a>后续步骤
 现在，了解了有关队列存储的基础知识，可单击下面的链接来了解更复杂的存储任务。

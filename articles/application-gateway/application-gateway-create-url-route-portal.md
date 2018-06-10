@@ -9,13 +9,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 03/26/2018
-ms.date: 04/23/2018
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 884ba289d4a7191cfeda6f8480d13c02e94220df
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 785e8f0363fd0aec9ebd15f4063ee6bcd43c1dfd
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855777"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>通过 Azure 门户使用基于路径的路由规则创建应用程序网关
 
@@ -89,7 +90,7 @@ ms.lasthandoff: 04/28/2018
     - 选择“使用现有资源组”，然后选择“myResourceGroupAG”。
 
 4. 单击 **“确定”**。
-5. 选择“Standard_DS1”作为虚拟机的大小，然后单击“选择”。
+5. 选择“DS1_V2”作为虚拟机的大小，然后单击“选择”。
 6. 请确保选择 **myVNet** 作为虚拟网络，子网是 **myBackendSubnet**。 
 7. 单击“禁用”以禁用启动诊断。
 8. 创建“确定”，检查“摘要”页上的设置，然后单击“创建”。

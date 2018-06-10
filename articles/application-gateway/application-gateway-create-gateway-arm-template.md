@@ -1,10 +1,10 @@
 ---
-title: "创建 Azure 应用程序网关 - 模板 | Microsoft Docs"
-description: "本页提供有关使用 Azure 资源管理器模板创建 Azure 应用程序网关的说明"
+title: 创建 Azure 应用程序网关 - 模板 | Microsoft Docs
+description: 本页提供有关使用 Azure 资源管理器模板创建 Azure 应用程序网关的说明
 documentationcenter: na
 services: application-gateway
-author: alexchen2016
-manager: digimobile
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/31/2017
-ms.date: 12/29/2017
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 93b120d397cfd5e55ca7bb3a78990e7ad005b9e1
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: 2f9c3b2b9e13ad1dcdef8665ef616e78e4e89405
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855739"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建应用程序网关
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 01/04/2018
 > * [Azure 资源管理器模板](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure 应用程序网关是第 7 层负载均衡器。 它可在云端或本地​​的服务器间提供故障转移和性能路由 HTTP 请求。 应用程序网关提供许多应用程序传送控制器 (ADC) 功能，包括 HTTP 负载均衡、基于 Cookie 的会话相关性、安全套接字层 (SSL) 卸载、自定义运行状况探测、多站点支持，以及许多其他功能。 若要查找支持功能的完整列表，请参阅[应用程序网关概述](application-gateway-introduction.md)。
+Azure 应用程序网关是第 7 层负载均衡器。 它可在云端或本地​​的服务器间提供故障转移和性能路由 HTTP 请求。 应用程序网关提供许多应用程序传送控制器 (ADC) 功能，包括 HTTP 负载均衡、基于 Cookie 的会话相关性、安全套接字层 (SSL) 卸载、自定义运行状况探测、多站点支持，以及许多其他功能。 若要查找受支持功能的完整列表，请访问[应用程序网关概述](application-gateway-introduction.md)
 
 本文介绍如何从 GitHub 下载并修改现有 [Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)，以及如何通过 GitHub、PowerShell 和 Azure CLI 部署该模板。
 
@@ -171,9 +172,9 @@ Azure 应用程序网关是第 7 层负载均衡器。 它可在云端或本地�
     ```azurecli
     az group create --location chinanorth --name appgatewayRG
     ```
-
+    
     **-n（或 --name）**。 新资源组的名称。 在本方案中为 *appgatewayRG*。
-
+    
     **-l（或 --location）**。 会创建新资源组的 Azure 区域。 在本方案中为 *chinanorth*。
 
 1. 运行 `az group deployment create` cmdlet，使用上述步骤中下载并修改的模板和参数文件部署新虚拟网络。 在输出后显示的列表说明了所使用的参数。
@@ -229,7 +230,6 @@ Remove-AzureRmResourceGroup -Name appgatewayRG
 
 ```azurecli
 az group delete --name appgatewayRG
-
 ```
 
 ## <a name="next-steps"></a>后续步骤
@@ -240,7 +240,7 @@ az group delete --name appgatewayRG
 
 如需大体上更详细地了解负载均衡选项，请访问：
 
-* [Azure 负载均衡器](/load-balancer/)
-* [Azure 流量管理器](/traffic-manager/)
+- [Azure 负载均衡器](https://www.azure.cn/home/features/load-balancer/)
+- [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: link update-->

@@ -15,14 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/14/2018
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 25f7d52b53b9c36c5473d7a272a4199d7b57887a
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 3cbc32d2b759ae56d47ebf5f3d674bc23f511e63
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868564"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>使用 PowerShell 通过虚拟网络服务终结点限制对 PaaS 资源的网络访问
 
@@ -37,21 +38,21 @@ ms.lasthandoff: 05/07/2018
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-<!--[!INCLUDE [cloud-shell-try-it.md|cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
+<!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 
-如果选择在本地安装并使用 PowerShell，则本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
 
 创建虚拟网络之前，必须为虚拟网络创建资源组以及本文中创建的所有其他资源。 使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 创建资源组。 以下示例创建名为 *myResourceGroup* 的资源组： 
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location ChinaEast
 ```
 
 使用 [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork) 创建虚拟网络。 以下示例使用地址前缀 *10.0.0.0/16* 创建一个名为 *myVirtualNetwork* 的虚拟网络。
 
-```azurepowershell-interactive
+```powershell
 $virtualNetwork = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroup `
   -Location ChinaEast `
@@ -61,7 +62,7 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
 
 使用 [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 创建子网配置。 以下示例为名为 *Public* 的子网创建子网配置：
 
-```azurepowershell-interactive
+```powershell
 $subnetConfigPublic = Add-AzureRmVirtualNetworkSubnetConfig `
   -Name Public `
   -AddressPrefix 10.0.0.0/24 `
@@ -70,7 +71,7 @@ $subnetConfigPublic = Add-AzureRmVirtualNetworkSubnetConfig `
 
 通过使用 [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork) 将子网配置写入虚拟网络，在虚拟网络中创建子网：
 
-```azurepowershell-interactive
+```powershell
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
@@ -78,13 +79,13 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 
 只能为支持服务终结点的服务启用服务终结点。 使用 [Get-AzureRmVirtualNetworkAvailableEndpointService](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkavailableendpointservice) 查看某个 Azure 位置中可用的启用了服务终结点的服务。 以下示例返回 *chinaeast* 区域中可用的启用了服务终结点的服务列表。 随着更多的 Azure 服务启用服务终结点，返回的服务列表将随时间增大。
 
-```azurepowershell-interactive
+```powershell
 Get-AzureRmVirtualNetworkAvailableEndpointService -Location chinaeast | Select Name
 ``` 
 
 在虚拟网络中创建另一个子网。 在此示例中，将创建一个包含用于 *Microsoft.Storage* 的服务终结点且名为 *Private* 的子网： 
 
-```azurepowershell-interactive
+```powershell
 $subnetConfigPrivate = Add-AzureRmVirtualNetworkSubnetConfig `
   -Name Private `
   -AddressPrefix 10.0.1.0/24 `
@@ -98,7 +99,7 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 
 使用 [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) 创建网络安全组安全规则。 以下规则允许对分配给 Azure 存储服务的公用 IP 地址进行出站访问： 
 
-```azurepowershell-interactive
+```powershell
 $rule1 = New-AzureRmNetworkSecurityRuleConfig `
   -Name Allow-Storage-All `
   -Access Allow `
@@ -113,7 +114,7 @@ $rule1 = New-AzureRmNetworkSecurityRuleConfig `
 
 以下规则拒绝对所有公用 IP 地址的访问。 上一个规则将替代此规则，因为它的优先级更高，上一个规则允许对 Azure 存储的公用 IP 地址进行访问。
 
-```azurepowershell-interactive
+```powershell
 $rule2 = New-AzureRmNetworkSecurityRuleConfig `
   -Name Deny-Internet-All `
   -Access Deny `
@@ -128,7 +129,7 @@ $rule2 = New-AzureRmNetworkSecurityRuleConfig `
 
 以下规则允许从任何位置到该子网的远程桌面协议 (RDP) 入站流量。 将允许到该子网的远程桌面连接，以便你可以在后面的步骤中确认对资源的网络访问。
 
-```azurepowershell-interactive
+```powershell
 $rule3 = New-AzureRmNetworkSecurityRuleConfig `
   -Name Allow-RDP-All `
   -Access Allow `
@@ -143,7 +144,7 @@ $rule3 = New-AzureRmNetworkSecurityRuleConfig `
 
 使用 [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) 创建网络安全组。 以下示例创建名为 *myNsgPrivate* 的网络安全组。
 
-```azurepowershell-interactive
+```powershell
 $nsg = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup `
   -Location ChinaEast `
@@ -153,7 +154,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
 
 使用 [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) 将该网络安全组添加到 *Private* 子网，然后将子网配置写入到虚拟网络。 以下示例将 *myNsgPrivate* 网络安全组关联到 *Private* 子网：
 
-```azurepowershell-interactive
+```powershell
 Set-AzureRmVirtualNetworkSubnetConfig `
   -VirtualNetwork $VirtualNetwork `
   -Name Private `
@@ -172,7 +173,7 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 
 使用 [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccount) 创建 Azure 存储帐户。 将 `<replace-with-your-unique-storage-account-name>` 替换为在所有 Azure 位置中唯一的、长度为 3-24 个字符且仅使用数字和小写字母的名称。
 
-```azurepowershell-interactive
+```powershell
 $storageAcctName = '<replace-with-your-unique-storage-account-name>'
 
 New-AzureRmStorageAccount `
@@ -185,7 +186,7 @@ New-AzureRmStorageAccount `
 
 创建存储帐户后，使用 [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) 将存储帐户的密钥检索到一个变量中：
 
-```azurepowershell-interactive
+```powershell
 $storageAcctKey = (Get-AzureRmStorageAccountKey `
   -ResourceGroupName myResourceGroup `
   -AccountName $storageAcctName).Value[0]
@@ -197,7 +198,7 @@ $storageAcctKey = (Get-AzureRmStorageAccountKey `
 
 使用 [New-AzureStorageContext -Environment AzureChinaCloud](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) 为存储帐户和密钥创建上下文。 该上下文封装了存储帐户名称和帐户密钥：
 
-```azurepowershell-interactive
+```powershell
 $storageContext = New-AzureStorageContext -Environment AzureChinaCloud $storageAcctName $storageAcctKey
 ```
 
@@ -209,7 +210,7 @@ $share = New-AzureStorageShare my-file-share -Context $storageContext
 
 默认情况下，存储帐户接受来自任何网络中的客户端的网络连接。 若要仅允许所选的网络进行访问，请使用 [Update-AzureRmStorageAccountNetworkRuleSet](https://docs.microsoft.com/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset) 将默认操作更改为 *Deny*。 在拒绝网络访问后，将无法从任何网络访问存储帐户。
 
-```azurepowershell-interactive
+```powershell
 Update-AzureRmStorageAccountNetworkRuleSet  `
   -ResourceGroupName "myresourcegroup" `
   -Name $storageAcctName `
@@ -220,7 +221,7 @@ Update-AzureRmStorageAccountNetworkRuleSet  `
 
 使用 [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) 检索所创建的虚拟网络，然后使用 [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig) 将专用子网对象检索到一个变量中：
 
-```azurepowershell-interactive
+```powershell
 $privateSubnet = Get-AzureRmVirtualNetwork `
   -ResourceGroupName "myResourceGroup" `
   -Name "myVirtualNetwork" `
@@ -230,7 +231,7 @@ $privateSubnet = Get-AzureRmVirtualNetwork `
 
 使用 [Add-AzureRmStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermnetworksecurityruleconfig) 允许从 *Private* 子网对存储帐户进行网络访问。
 
-```azurepowershell-interactive
+```powershell
 Add-AzureRmStorageAccountNetworkRule `
   -ResourceGroupName "myresourcegroup" `
   -Name $storageAcctName `
@@ -245,7 +246,7 @@ Add-AzureRmStorageAccountNetworkRule `
 
 使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 在公共子网中创建虚拟机。 运行以下命令时，会提示输入凭据。 输入的值将配置为用于 VM 的用户名和密码。 `-AsJob` 选项会在后台创建 VM，因此可继续执行下一步。
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
     -Location "China East" `
@@ -267,7 +268,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 在 *Private* 子网中创建一台虚拟机：
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
     -Location "China East" `
@@ -282,7 +283,7 @@ Azure 需要花费几分钟时间来创建 VM。 在 Azure 完成创建 VM 并�
 
 使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 返回 VM 的公共 IP 地址。 以下示例返回 *myVmPrivate* VM 的公共 IP 地址：
 
-```azurepowershell-interactive
+```powershell
 Get-AzureRmPublicIpAddress `
   -Name myVmPrivate `
   -ResourceGroupName myResourceGroup `
@@ -328,7 +329,7 @@ ping bing.com
 
 获取 *myVmPublic* VM 的公用 IP 地址：
 
-```azurepowershell-interactive
+```powershell
 Get-AzureRmPublicIpAddress `
   -Name myVmPublic `
   -ResourceGroupName myResourceGroup `
@@ -355,7 +356,7 @@ New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.
 
 从计算机中，尝试使用以下命令查看存储帐户中的文件共享：
 
-```powershell-interactive
+```powershell
 Get-AzureStorageFile `
   -ShareName my-file-share `
   -Context $storageContext
@@ -367,7 +368,7 @@ Get-AzureStorageFile `
 
 如果不再需要资源组及其包含的所有资源，请使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 将其删除：
 
-```azurepowershell-interactive 
+```powershell 
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
@@ -376,5 +377,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 在本文中，已为虚拟网络子网启用了服务终结点。 我们已了解，可为通过多个 Azure 服务部署的资源启用服务终结点。 我们创建了一个 Azure 存储帐户并将该存储帐户限制为仅可供某个虚拟网络子网中的资源进行网络访问。 若要详细了解服务终结点，请参阅[服务终结点概述](virtual-network-service-endpoints-overview.md)和[管理子网](virtual-network-manage-subnet.md)。
 
 如果帐户中有多个虚拟网络，可将两个虚拟网络连接到一起，使每个虚拟网络中的资源可以相互通信。 若要了解如何操作，请参阅[连接虚拟网络](tutorial-connect-virtual-networks-powershell.md)。
-<!-- Update_Description: new articles on restrict network access to resources with powershell -->
-<!--ms.date: 05/07/2018-->
+<!-- Update_Description: wording update, update link -->

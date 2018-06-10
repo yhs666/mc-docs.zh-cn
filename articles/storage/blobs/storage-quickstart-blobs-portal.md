@@ -8,13 +8,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 04/09/2018
-ms.date: 05/07/2018
-ms.author: v-johch
-ms.openlocfilehash: 7021db33cc80d78075b7490348c8a675a8d053c3
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/11/2018
+ms.author: v-nany
+ms.openlocfilehash: 64c7d0a6c4902007f2d858af7e329cabd074db45
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867438"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-portal"></a>快速入门：使用 Azure 门户上传、下载和列出 Blob
 
@@ -37,7 +38,7 @@ ms.lasthandoff: 05/07/2018
 5. 设置容器的公共访问权限级别。 默认级别为“专用(禁止匿名访问)”。
 6. 单击“确定”，创建该容器。
 
-    ![显示如何在 Azure 门户中创建容器的屏幕截图](./media/storage-quickstart-blobs-portal/create-container.png)
+    ![显示如何在 Azure 门户中创建容器的屏幕截图](media/storage-quickstart-blobs-portal/create-container.png)
 
 ## <a name="upload-a-block-blob"></a>上传块 Blob
 
@@ -50,11 +51,11 @@ ms.lasthandoff: 05/07/2018
 3. 单击“上传”按钮将 Blob 上传到容器。
 4. 浏览本地文件系统，找到一个可作为块 Blob 上传的文件，然后单击“上传”。
      
-    ![显示如何将 Blob 从本地驱动器上传的屏幕截图](./media/storage-quickstart-blobs-portal/upload-blob.png)
+    ![显示如何将 Blob 从本地驱动器上传的屏幕截图](media/storage-quickstart-blobs-portal/upload-blob.png)
 
 5. 以这种方式根据需要上传相应数量的 Blob。 可以看到新的 Blob 现已列在容器中。
 
-    ![显示容器中 Blob 的列表的屏幕截图](./media/storage-quickstart-blobs-portal/list-blobs.png)
+    ![显示容器中 Blob 的列表的屏幕截图](media/storage-quickstart-blobs-portal/list-blobs.png)
 
 ## <a name="download-a-block-blob"></a>下载块 Blob
 
@@ -64,7 +65,7 @@ ms.lasthandoff: 05/07/2018
 2. 选择要下载的 Blob。
 3. 右键单击“更多”按钮 (**...**)，然后选择“下载”。 
 
-![显示如何在 Azure 门户中下载 Blob 的屏幕截图](./media/storage-quickstart-blobs-portal/download-blob.png)
+![显示如何在 Azure 门户中下载 Blob 的屏幕截图](media/storage-quickstart-blobs-portal/download-blob.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -77,7 +78,7 @@ ms.lasthandoff: 05/07/2018
 3. 右键单击“更多”按钮 (**...**)，然后选择“删除”。
 4. 确认要删除该容器。
 
-    ![显示如何在 Azure 门户中删除容器的屏幕截图](./media/storage-quickstart-blobs-portal/delete-container.png)   
+    ![显示如何在 Azure 门户中删除容器的屏幕截图](media/storage-quickstart-blobs-portal/delete-container.png)   
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -85,5 +86,4 @@ ms.lasthandoff: 05/07/2018
 
 > [!div class="nextstepaction"]
 > [Blob 存储操作说明](storage-dotnet-how-to-use-blobs.md)
-
 

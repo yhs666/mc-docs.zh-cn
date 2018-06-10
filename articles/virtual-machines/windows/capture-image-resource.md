@@ -14,13 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 04/10/2018
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: d48170e6a9a7deff71a948585e21403675810069
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 8df5ad169bfacd865466a43d46529ee1e4015f72
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867564"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中创建通用 VM 的托管映像
 
@@ -63,13 +64,13 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
 
 直接从 VM 创建映像可确保映像中包含与 VM 关联的所有磁盘，包括 OS 磁盘和任何数据磁盘。 本示例演示如何从使用托管磁盘的 VM 创建托管映像。
 
-在开始之前，请确保有最新版本的 AzureRM.Compute PowerShell 模块。 本文需要 5.7.0 版本或更高版本的 AzureRM 模块。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+在开始之前，请确保有最新版本的 AzureRM.Compute PowerShell 模块。 本文需要 5.7.0 版本或更高版本的 AzureRM 模块。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。
 
 <!--Not Available on [availability zones](../../availability-zones/az-overview.md)-->
 
 1. 创建一些变量。
 
-    ```azurepowershell-interactive
+    ```powershell
     $vmName = "myVM"
     $rgName = "myResourceGroup"
     $location = "ChinaEast"
@@ -77,30 +78,30 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
     ```
 2. 确保 VM 已解除分配。
 
-    ```azurepowershell-interactive
+    ```powershell
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
 
 3. 将虚拟机的状态设置为“通用化”。 
 
-    ```azurepowershell-interactive
+    ```powershell
     Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized
     ```
 
 4. 获取虚拟机。 
 
-    ```azurepowershell-interactive
+    ```powershell
     $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName
     ```
 
 5. 创建映像配置。
 
-    ```azurepowershell-interactive
+    ```powershell
     $image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.ID 
     ```
 6. 创建映像。
 
-    ```azurepowershell-interactive
+    ```powershell
     New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
     ``` 
 ## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>使用 PowerShell 从托管磁盘创建映像
@@ -109,7 +110,7 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
 
 1. 创建一些变量。 
 
-    ```azurepowershell-interactive
+    ```powershell
     $vmName = "myVM"
     $rgName = "myResourceGroup"
     $location = "ChinaEast"
@@ -119,26 +120,26 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
 
 2. 获取 VM。
 
-   ```azurepowershell-interactive
+   ```powershell
    $vm = Get-AzureRmVm -Name $vmName -ResourceGroupName $rgName
    ```
 
 3. 获取托管磁盘的 ID。
 
-    ```azurepowershell-interactive
+    ```powershell
     $diskID = $vm.StorageProfile.OsDisk.ManagedDisk.Id
     ```
 
 3. 创建映像配置。
 
-    ```azurepowershell-interactive
+    ```powershell
     $imageConfig = New-AzureRmImageConfig -Location $location
     $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
     ```
 
 4. 创建映像。
 
-    ```azurepowershell-interactive
+    ```powershell
     New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
@@ -148,7 +149,7 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
 
 1. 创建一些变量。 
 
-    ```azurepowershell-interactive
+    ```powershell
     $rgName = "myResourceGroup"
     $location = "ChinaEast"
     $snapshotName = "mySnapshot"
@@ -157,19 +158,19 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
 
 2. 获取快照。
 
-   ```azurepowershell-interactive
+   ```powershell
    $snapshot = Get-AzureRmSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
    ```
 
 3. 创建映像配置。
 
-    ```azurepowershell-interactive
+    ```powershell
     $imageConfig = New-AzureRmImageConfig -Location $location
     $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
     ```
 4. 创建映像。
 
-    ```azurepowershell-interactive
+    ```powershell
     New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
@@ -179,7 +180,7 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
 
 1.  首先，设置通用参数：
 
-    ```azurepowershell-interactive
+    ```powershell
     $vmName = "myVM"
     $rgName = "myResourceGroup"
     $location = "ChinaEast"
@@ -188,18 +189,18 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
     ```
 2. 停止\解除分配 VM。
 
-    ```azurepowershell-interactive
+    ```powershell
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
 
 3. 将 VM 标记为通用。
 
-    ```azurepowershell-interactive
+    ```powershell
     Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
     ```
 4.  使用通用 OS VHD 创建映像。
 
-    ```azurepowershell-interactive
+    ```powershell
     $imageConfig = New-AzureRmImageConfig -Location $location
     $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
     $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig

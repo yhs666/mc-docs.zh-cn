@@ -16,11 +16,12 @@ ms.workload: infrastructure
 origin.date: 03/20/2018
 ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 21287211d6024514dd9f46b95ef21788bf1f1d84
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: d8bae1a064e91197d063cd02aef414e665b0f996
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868479"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>筛选入站和出站 VM 网络流量脚本示例
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 05/15/2018
 
 ## <a name="sample-script"></a>示例脚本
 
-```azurepowershell-interactive
+```powershell
 # Variables for common values
 $rgName='MyResourceGroup'
 $location='chinaeast'

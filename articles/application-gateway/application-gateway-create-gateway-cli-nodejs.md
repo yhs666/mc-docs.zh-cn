@@ -1,11 +1,11 @@
 ---
-title: "创建 Azure 应用程序网关 - Azure CLI 1.0 | Microsoft 文档"
-description: "了解如何在资源管理器中使用 Azure CLI 1.0 创建应用程序网关"
+title: 创建 Azure 应用程序网关 - Azure CLI 1.0 | Microsoft 文档
+description: 了解如何在资源管理器中使用 Azure CLI 1.0 创建应用程序网关
 services: application-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/31/2017
-ms.date: 12/29/2017
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: a60cada14a2bb74d2a29b3d5deec9d0772f0f0cf
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.openlocfilehash: 2da3ea52191722581cab53f549fbdff9e272f794
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855733"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>使用 Azure CLI 创建应用程序网关
 
@@ -162,4 +163,4 @@ azure network application-gateway create \
 [2]: ./media/application-gateway-create-gateway-cli-nodejs/figure2.png
 [3]: ./media/application-gateway-create-gateway-cli-nodejs/figure3.png
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: update metedata properties -->

@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 12/13/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4985c56a86b893e0897b4d15e8dd3a5d60f2384b
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: d85c25fd54258b3e56ec179ea7799fbcf7732d67
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867637"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>如何使用 Azure 门户打开虚拟机端口
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -67,6 +68,7 @@ ms.lasthandoff: 05/17/2018
 在本示例中，创建了简单的规则来允许 HTTP 流量。 下列文章更介绍了有关创建更详细环境的信息：
 
 * [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)
-* [什么是网络安全组 (NSG)？](../../virtual-network/virtual-networks-nsg.md)
+* [什么是网络安全组？](../../virtual-network/security-overview.md)
 
-<!--Update_Description: update meta properties, update link -->
+<!--The parent file of includes file of virtual-machines-common-nsg-quickstart.md-->
+<!--ms.date:06/04/2018-->

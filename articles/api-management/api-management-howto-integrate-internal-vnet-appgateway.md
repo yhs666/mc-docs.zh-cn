@@ -1,8 +1,8 @@
 ---
-title: "如何在包含应用程序网关的虚拟网络中使用 Azure API 管理"
-description: "了解如何在使用应用程序网关 (WAF) 作为前端的内部虚拟网络中设置和配置 Azure API 管理"
+title: 如何在包含应用程序网关的虚拟网络中使用 Azure API 管理
+description: 了解如何在使用应用程序网关 (WAF) 作为前端的内部虚拟网络中设置和配置 Azure API 管理
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: solankisamir
 manager: kjoshi
 editor: antonba
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2017
 ms.author: sasolank
-ms.date: 02/29/2018
-ms.openlocfilehash: 78499ec40f783b2026d66677e962cde93c9de206
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 06/18/2018
+ms.openlocfilehash: 2141db0c7532dae1229eeae4cd32235108f7ff83
+ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855415"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>在包含应用程序网关的内部 VNET 中集成 API 管理 
 
@@ -58,13 +59,13 @@ ms.lasthandoff: 02/13/2018
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>在 API 管理与应用程序网关之间创建集成需要做好哪些准备？
 
-* **后端服务器池：**API 管理服务的内部虚拟 IP 地址。
+* **后端服务器池：** API 管理服务的内部虚拟 IP 地址。
 * **后端服务器池设置：** 每个池都有一些设置，例如端口、协议和基于 cookie 的关联性。 这些设置将应用到池中的所有服务器。
-* **前端端口：**此端口是应用程序网关上打开的公共端口。 抵达此端口的流量将重定向到后端服务器之一。
-* **侦听器：**侦听器具有前端端口、协议（Http 或 Https，这些值区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。
-* **规则：**规则将侦听器绑定到后端服务器池。
-* **自定义运行状况探测：**默认情况下，应用程序网关使用基于 IP 地址的探测来判断 BackendAddressPool 中的哪些服务器处于活动状态。 API 管理服务只响应包含正确主机标头的请求，因此默认的探测会失败。 需要定义一个自定义运行状况探测，帮助应用程序网关确定服务处于活动状态，应该转发该请求。
-* **自定义域证书：**若要从 Internet 访问 API 管理，需要创建从服务主机名到应用程序网关前端 DNS 名称的 CNAME 映射。 这可以确保发送到应用程序网关，并转发到 API 管理的主机名标头和证书是 APIM 可以识别为有效的对象。
+* **前端端口：** 此端口是应用程序网关上打开的公共端口。 抵达此端口的流量将重定向到后端服务器之一。
+* **侦听器：** 侦听器具有前端端口、协议（Http 或 Https，这些值区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。
+* **规则：** 规则将侦听器绑定到后端服务器池。
+* **自定义运行状况探测：** 默认情况下，应用程序网关使用基于 IP 地址的探测来判断 BackendAddressPool 中的哪些服务器处于活动状态。 API 管理服务只响应包含正确主机标头的请求，因此默认的探测会失败。 需要定义一个自定义运行状况探测，帮助应用程序网关确定服务处于活动状态，应该转发该请求。
+* **自定义域证书：** 若要从 Internet 访问 API 管理，需要创建从服务主机名到应用程序网关前端 DNS 名称的 CNAME 映射。 这可以确保发送到应用程序网关，并转发到 API 管理的主机名标头和证书是 APIM 可以识别为有效的对象。
 
 ## <a name="overview-steps"></a>集成 API 管理和应用程序网关所需执行的步骤 
 
@@ -277,7 +278,7 @@ $apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "a
 $dummyBackendSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "dummySetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
-配置虚拟后端“dummyBackendPool”，它指向 FQDN 地址“dummybackend.com”。虚拟网络中不存在此 FQDN 地址。
+配置虚拟后端“dummyBackendPool”，它指向 FQDN 地址“dummybackend.com”。 虚拟网络中不存在此 FQDN 地址。
 
 ```powershell
 $dummyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "dummyBackendPool" -BackendFqdns "dummybackend.com"
@@ -299,7 +300,7 @@ $dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistenta
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 ```
 
-如果路径不符合我们希望从 API 管理中启用的路径规则，那么规则路径映射配置也会配置一个名为“dummyBackendPool”的默认后端地址池。 例如，http://api.contoso.net/calc/* 将转到 dummyBackendPool，因为它被定义为非匹配流量的默认池。
+如果路径不符合我们希望从 API 管理中启用的路径规则，那么规则路径映射配置也会配置一个名为“dummyBackendPool”的默认后端地址池。 例如，http://api.contoso.net/calc/sum 将转到 dummyBackendPool，因为它被定义为非匹配流量的默认池。
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting

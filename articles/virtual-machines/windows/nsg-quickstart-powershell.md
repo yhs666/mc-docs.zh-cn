@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure PowerShell 打开 VM 的端口 | Azure"
-description: "了解如何使用 Azure Resource Manager 部署模型和 Azure PowerShell 在 Windows VM 上打开端口/创建终结点"
+title: 使用 Azure PowerShell 打开 VM 的端口 | Azure
+description: 了解如何使用 Azure Resource Manager 部署模型和 Azure PowerShell 在 Windows VM 上打开端口/创建终结点
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: cf45f7d8-451a-48ab-8419-730366d54f1e
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 12/13/2017
-ms.date: 01/08/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: ba7115ff1c64ea845feeba9f7c5db39f49b19e0e
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: db2b81aef854c9e7d4e7f7fbdb2f3c9b5d44b1e6
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867563"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>如何在 Azure 中使用 PowerShell 打开 VM 的端口和终结点
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -30,7 +31,7 @@ ms.lasthandoff: 01/05/2018
 登录 Azure 帐户：
 
 ```powershell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
 
 在以下示例中，请将参数名称替换成自己的值。 示例参数名称包括了 myResourceGroup、myNetworkSecurityGroup 和 myVnet。
@@ -96,7 +97,7 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 在本示例中，创建了简单的规则来允许 HTTP 流量。 下列文章更介绍了有关创建更详细环境的信息：
 
 * [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)
-* [什么是网络安全组 (NSG)？](../../virtual-network/virtual-networks-nsg.md)
+* [什么是网络安全组？](../../virtual-network/security-overview.md)
 * [Azure Resource Manager 中负载均衡器的概述](../../load-balancer/load-balancer-arm.md)
 
-<!--Update_Description: wording update, update meta properties -->
+<!--Update_Description: update link , update meta properties -->

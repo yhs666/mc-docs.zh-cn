@@ -13,14 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.prod: vs-devops-alm
 origin.date: 03/02/2018
-ms.date: 04/16/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 keywords: visualstudio
-ms.openlocfilehash: e4efe571cf7f83fc7ad42e65ef4567d7a1d49a2e
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: a2749f4399bf29b1a3950f998551650e1a192ed7
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867866"
 ---
 <a name="top"></a>
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
@@ -32,12 +33,13 @@ ms.lasthandoff: 04/16/2018
 ## <a name="what-configurations-and-versions-are-available"></a>提供了哪些配置和版本？
 在 Azure Marketplace 中，可找到最新主版本的映像：Visual Studio 2017 和 Visual Studio 2015。 对于每个主版本，可看到最初发布的 (RTW) 版本和最新更新版本。 其中每个版本都提供 Visual Studio Enterprise 和 Visual Studio Community 版本。 这些映像至少每个月更新一次，以包括最新的 Visual Studio 和 Windows 更新。 尽管映像的名称保持不变，但每个映像的说明包括已安装的产品版本和映像的截止日期。
 
-| 发行版本              | 版本            | 产品版本     |
-|:-----------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017：最新（版本 15.5） |    Enterprise、Community     |      版本 15.6.0     |
-|         Visual Studio 2017：RTW           |    Enterprise、Community     |      版本 15.0.10    |
-|   Visual Studio 2015：最新 (Update 3)   |    Enterprise、Community     |  版本 14.0.25431.01  |
-|         Visual Studio 2015：RTW           |              无            | （已过期，无法进行维护） |
+| 发行版本                                              | 版本                     |     产品版本     |
+|:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
+| Visual Studio 2017：最新（版本 15.7）                    |    Enterprise、Community     |      版本 15.7.0     |
+| Visual Studio 2017：最新预览（版本 15.8，预览 1） |    Enterprise、Community     |      版本 15.8.1     |
+|         Visual Studio 2017：RTW                              |    Enterprise、Community     |      版本 15.0.13    |
+|   Visual Studio 2015：最新 (Update 3)                      |    Enterprise、Community     |  版本 14.0.25431.01  |
+|         Visual Studio 2015：RTW                              |             无             | （已过期，无法进行维护） |
 
 > [!NOTE]
 > 根据 Microsoft 服务策略，Visual Studio 2015 最初发布的 (RTW) 版本已过期，无法提供服务。 Visual Studio 2015 Update 3 是为 Visual Studio 2015 产品线提供的唯一剩余版本。
@@ -89,7 +91,7 @@ Visual Studio 遵循 Azure 中的“自带许可”模式。 与专有硬件上�
 - 使用与 Visual Studio 订阅关联的 Microsoft 帐户登录 
 - 使用最初购买附带的产品密钥解锁 Visual Studio
 
-有关详细信息，请参阅[登录 Visual Studio](https://docs.microsoft.com/visualstudio/ide/signing-in-to-visual-studio) 和[如何解锁 Visual Studio](https://docs.microsoft.com/visualstudio/ide/how-to-unlock-visual-studio)。
+有关详细信息，请参阅[登录 Visual Studio](https://docs.microsoft.com/zh-cn/visualstudio/ide/signing-in-to-visual-studio) 和[如何解锁 Visual Studio](https://docs.microsoft.com/zh-cn/visualstudio/ide/how-to-unlock-visual-studio)。
 
 ## <a name="how-do-i-save-the-development-vm-for-future-or-team-use"></a>如何保存开发 VM 供将来使用或供团队使用？
 
@@ -115,4 +117,4 @@ Visual Studio 遵循 Azure 中的“自带许可”模式。 与专有硬件上�
 
 * [通过 Azure 门户创建 VM](quick-create-portal.md)
 * [Windows 虚拟机概述](overview.md)
-<!-- Update_Description: update link, wording update sss -->
+<!-- Update_Description: update link, wording update-->

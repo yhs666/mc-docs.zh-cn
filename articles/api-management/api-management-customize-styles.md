@@ -1,11 +1,11 @@
 ---
-title: "在 Azure API 管理开发人员门户中自定义页面样式"
-description: "遵循本快速入门中的步骤，在 Azure API 管理开发人员门户中自定义元素的样式。"
+title: 在 Azure API 管理开发人员门户中自定义页面样式
+description: 遵循本快速入门中的步骤，在 Azure API 管理开发人员门户中自定义元素的样式。
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,13 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 11/19/2017
-ms.date: 02/26/2018
+ms.date: 06/18/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0d0ad07aa3bbca5d170f5ad75df45402e3dbf196
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: e89e44e9b449192ffad04a8076422e5eada5806f
+ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855389"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>自定义开发人员门户页面的样式
 
@@ -41,8 +42,6 @@ ms.lasthandoff: 02/13/2018
 
 + 完成以下快速入门：[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 + 此外，请完成以下教程：[导入并发布第一个 API](import-and-publish.md)。
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="customize-the-developer-portal"></a>自定义开发人员门户
 

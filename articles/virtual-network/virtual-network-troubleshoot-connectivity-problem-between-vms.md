@@ -1,25 +1,26 @@
 ---
-title: "排查 Azure VM 间的连接问题 | Azure"
-description: "了解如何排查 Azure VM 间的连接问题。"
+title: 排查 Azure VM 间的连接问题 | Azure
+description: 了解如何排查 Azure VM 间的连接问题。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/25/2017
-ms.date: 11/06/2017
+origin.date: 05/11/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: cce21161cd0cb85ee516f3f45caf8b0c9f722d35
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: 8b7a631b26ac70e1616ec797bfcdef422897e766
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868990"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>排查 Azure VM 间的连接问题
 
@@ -67,9 +68,7 @@ Azure 虚拟机 (VM) 间可能出现连接问题。 本文提供解决此问题�
 
 ### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>步骤 2：检查网络流量是否被 NSG 或 UDR 阻止
 
-使用网络观察程序 IP 流验证和 NSG 流日志记录确定是否存在干扰流量流的网络安全组 (NSG) 或用户定义的路由 (UDR)。
-<!-- Not Available (../network-watcher/network-watcher-ip-flow-verify-overview.md)-->
-<!-- Not Available (../network-watcher/network-watcher-nsg-flow-logging-overview.md)-->
+使用[网络观察程序 IP 流验证](../network-watcher/network-watcher-ip-flow-verify-overview.md)和 [NSG 流日志记录](../network-watcher/network-watcher-nsg-flow-logging-overview.md)确定是否存在干扰流量流的网络安全组 (NSG) 或用户定义的路由 (UDR)。
 
 ### <a name="step-3-check-whether-network-traffic-is-blocked-by-vm-firewall"></a>步骤 3：检查网络流量是否被 VM 防火墙阻止
 
@@ -109,9 +108,9 @@ Azure 虚拟机 (VM) 间可能出现连接问题。 本文提供解决此问题�
 
 ### <a name="step-9-check-inter-vnet-connectivity"></a>步骤 9：检查 Vnet 间连接
 
-使用网络观察程序 IP 流验证和 NSG 流日志记录确定是否存在干扰流量流的 NSG 或 UDR。 还可在[此处](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)验证 Vnet 间配置。
+使用[网络观察程序 IP 流验证](../network-watcher/network-watcher-ip-flow-verify-overview.md)和 [NSG 流日志记录](../network-watcher/network-watcher-nsg-flow-logging-overview.md)确定是否存在干扰流量流的 NSG 或 UDR。 还可在[此处](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)验证 Vnet 间配置。
 
 ### <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
 如果仍需要帮助，可 [联系支持人员](https://www.azure.cn/support/support-azure/) 来快速解决问题。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: wording update, update links-->

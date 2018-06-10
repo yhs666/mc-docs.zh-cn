@@ -1,8 +1,8 @@
 ---
-title: "使用 Linux 上的 AzCopy 将数据复制或移动到 Azure 存储 | Microsoft Docs"
-description: "使用 Linux 上的 AzCopy 实用程序将数据移动或复制到 blob 和文件内容或从中移动或复制数据。 从本地文件将数据复制到 Azure 存储，或者在存储帐户中或存储帐户之间复制数据。 轻松地将数据迁移到 Azure 存储。"
+title: 使用 Linux 上的 AzCopy 将数据复制或移动到 Azure 存储 | Azure
+description: 使用 Linux 上的 AzCopy 实用程序将数据移动或复制到 blob 和文件内容或从中移动或复制数据。 从本地文件将数据复制到 Azure 存储，或者在存储帐户中或存储帐户之间复制数据。 轻松地将数据迁移到 Azure 存储。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
 editor: tysonn
@@ -12,48 +12,49 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/11/2017
-ms.date: 01/01/2018
+origin.date: 04/26/2018
+ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: bb146e897b8cd5f6ff82298036e97b99614a3c1f
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 8c848e59444f2916ae8b698f382b686e57a7bcd7
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867569"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 Linux 上的 AzCopy 传输数据
 
 AzCopy 是一个命令行实用程序，专用于使用旨在实现最佳性能的简单命令将数据复制到 Microsoft Azure Blob、文件和表存储以及从这些位置复制数据。 可在文件系统和存储帐户之间或在存储帐户之间复制数据。  
 
-有两个版本的 AzCopy 可下载。 Linux 上的 AzCopy 使用 .NET Core Framework 构建而成，以提供 POSIX 样式的命令行选项的 Linux 平台为目标。 [Windows 上的 AzCopy](../storage-use-azcopy.md) 使用 .NET Framework 构建而成，提供 Windows 样式的命令行选项。 本文介绍 Linux 上的 AzCopy。
+有两个版本的 AzCopy 可下载。 AzCopy on Linux 面向 Linux 平台，它提供 POSIX 样式的命令行选项。 [AzCopy on Windows](../storage-use-azcopy.md) 提供 Windows 样式的命令行选项。 本文介绍 Linux 上的 AzCopy。 
+
+> [!NOTE]  
+> 从 AzCopy 7.2 版本开始，.NET Core 依赖项随 AzCopy 包打包在一起。 如果使用的是 7.2 版或更高版本，则安装 .NET Core 不再是先决条件。
 
 ## <a name="download-and-install-azcopy"></a>下载并安装 AzCopy
+
 ### <a name="installation-on-linux"></a>Linux 上的安装
 
-本文包括各种版本 Ubuntu 的命令。  使用 `lsb_release -a` 命令确认分发版本和代码名称。 
+> [!NOTE]
+> 可能需要安装此 [.NET Core 先决条件文章](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)中重点介绍的 .NET Core 2.1 依赖项，具体取决于你的发行版。 对于 Ubuntu 16.04 和 RHEL 7 等主流发行版，通常不需要执行此操作。
 
-AzCopy on Linux 要求在平台上安装 .NET Core 框架（2.0 版）。 请参阅 [.NET Core](https://www.microsoft.com/net/download/linux) 页面上的安装说明。
+安装 AzCopy on Linux（v7.2 或更高版本）很简单，只需要提取一个 tar 包并运行安装脚本。 
 
-例如，在 Ubuntu 16.04 上安装 .NET Core。 有关最新的安装指南，请访问 [Linux 上的 .NET Core](https://www.microsoft.com/net/download/linux) 安装页面。
-
-
+**基于 RHEL 6 的发行版**：[下载链接](https://aka.ms/downloadazcopylinuxrhel6)
 ```bash
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
-sudo apt-get install dotnet-sdk-2.0.2
-```
-
-安装 .NET Core 后，下载并安装 AzCopy。
-
-```bash
-wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinuxrhel6
 tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-在 Linux 上安装 AzCopy 后，可以删除提取的文件。 或者如果没有超级用户权限，还可以使用提取的文件夹中的 shell 脚本“azcopy”运行 AzCopy。 
+**所有其他 Linux 发行版**：[下载链接](https://aka.ms/downloadazcopylinux64)
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
+tar -xf azcopy.tar.gz
+sudo ./install.sh
+```
+
+在 Linux 上安装 AzCopy 后，可以删除提取的文件。 另外，如果你没有超级用户特权，也可以在提取的文件夹中使用 shell 脚本 azcopy 运行 `azcopy`。
 
 
 ## <a name="writing-your-first-azcopy-command"></a>编写第一条 AzCopy 命令
@@ -207,7 +208,15 @@ azcopy \
 
 如果指定的虚拟目录不存在，AzCopy 将上传文件以在其 blob 名称中包括虚拟目录（例如，上述示例中的 `vd/abc.txt`）。
 
-### <a name="upload-all-files"></a>上传所有文件
+### <a name="redirect-from-stdin"></a>从 stdin 重定向
+
+```azcopy
+gzip myarchive.tar -c | azcopy \
+    --destination https://myaccount.blob.core.chinacloudapi.cn/mycontainer/mydir/myarchive.tar.gz \
+    --dest-key <key>
+```
+
+### <a name="upload-all-files"></a>上传全部文件
 
 ```azcopy
 azcopy \
@@ -599,13 +608,34 @@ azcopy \
 ### <a name="specify-the-number-of-concurrent-operations-to-start"></a>指定要启动的并发操作的数量
 选项 `--parallel-level` 指定并发复制操作的数量。 默认情况下，AzCopy 会启动一定数量的并发操作以提高数据传输吞吐量。 并发操作的数量是所拥有处理器数量的 8 倍。 如果正在低带宽网络中运行 AzCopy，则可为 --parallel-level 指定较低的数量以避免由于资源争用所导致的故障。
 
-> [!TIP]
-> 若要查看 AzCopy 参数的完整列表，请查看“azcopy --help”菜单。
+>[!TIP]
+>若要查看 AzCopy 参数的完整列表，请查看“azcopy --help”菜单。
+
+## <a name="installation-steps-for-azcopy-71-and-earlier-versions"></a>AzCopy 7.1 和更低版本的安装步骤
+
+AzCopy on Linux（仅限 v7.1 和更低版本）需要 .NET Core 框架。 [.NET Core 安装](https://www.microsoft.com/net/core#linuxubuntu)页上提供了安装说明。
+
+例如，首先在 Ubuntu 16.10 上安装 .NET Core。 有关最新的安装指南，请访问 [Linux 上的 .NET Core](https://www.microsoft.com/net/core#linuxubuntu) 安装页面。
+
+
+```bash
+sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+sudo apt-get update
+sudo apt-get install dotnet-sdk-2.0.0
+```
+
+安装 .NET Core 后，下载并安装 AzCopy。
+
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
+tar -xf azcopy.tar.gz
+sudo ./install.sh
+```
+
+在 Linux 上安装 AzCopy 后，可以删除提取的文件。 另外，如果你没有超级用户特权，也可以在提取的文件夹中使用 shell 脚本 azcopy 运行 `azcopy`。
 
 ## <a name="known-issues-and-best-practices"></a>已知问题和最佳做法
-### <a name="error-net-sdk-20-is-not-found-in-the-system"></a>错误: 系统中找不到 .NET SDK 2.0。
-AzCopy 依赖于 .NET SDK 2.0（从 AzCopy 7.0 版开始）。 此版本之前，AzCopy 使用 .NET Core 1.1。 如果遇到一个错误，指出系统中未安装 .NET Core 2.0，则可能需要根据 [.NET Core 安装说明](https://www.microsoft.com/net/learn/get-started/linuxredhat)进行安装或升级。
-
 ### <a name="error-installing-azcopy"></a>安装 AzCopy 时出错
 如果遇到 AzCopy 安装问题，可尝试使用提取的 `azcopy` 文件夹中的 bash 脚本运行 AzCopy。
 
@@ -619,8 +649,26 @@ cd azcopy
 
 如果在复制 blob 或文件时无法阻止其他应用程序向其进行写入，请记住，在作业完成时，复制的资源可能不再与源资源完全相同。
 
-### <a name="run-one-azcopy-instance-on-one-machine"></a>在一台计算机上运行一个 AzCopy 实例。
-AzCopy 旨在最大程度上利用计算机资源来加快数据传输，如果需要更多的并发操作，我们建议在一台计算机上只运行一个 AzCopy 实例并指定选项 `--parallel-level` 。 有关详细信息，请在命令行中键入 `AzCopy --help parallel-level`。
+### <a name="running-multiple-azcopy-processes"></a>运行多个 AzCopy 进程
+如果你使用不同的日志文件夹，则可以在单个客户端上运行多个 AzCopy 进程。 不支持将单个日志文件夹用于多个 AzCopy 进程。
+
+第 1 个进程：
+```azcopy
+azcopy \
+    --source /mnt/myfiles1 \
+    --destination https://myaccount.blob.core.chinacloudapi.cn/mycontainer/myfiles1 \
+    --dest-key <key> \
+    --resume "/mnt/myazcopyjournal1"
+```
+
+第 2 个进程：
+```azcopy
+azcopy \
+    --source /mnt/myfiles2 \
+    --destination https://myaccount.blob.core.chinacloudapi.cn/mycontainer/myfiles2 \
+    --dest-key <key> \
+    --resume "/mnt/myazcopyjournal2"
+```
 
 ## <a name="next-steps"></a>后续步骤
 有关 Azure 存储和 AzCopy 的更多信息，请参阅以下资源：
@@ -628,7 +676,7 @@ AzCopy 旨在最大程度上利用计算机资源来加快数据传输，如果�
 ### <a name="azure-storage-documentation"></a>Azure 存储文档：
 * [Azure 存储简介](../storage-introduction.md)
 * [创建存储帐户](../storage-create-storage-account.md)
-* [使用存储资源管理器管理 Blob](/vs-azure-tools-storage-explorer-blobs)
+* [使用存储资源管理器管理 Blob](https://docs.azure.cn/vs-azure-tools-storage-explorer-blobs)
 * [将 Azure CLI 2.0 用于 Azure 存储](../storage-azure-cli.md)
 * [如何通过 C++ 使用 Blob 存储](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [如何通过 Java 使用 Blob 存储](../blobs/storage-java-how-to-use-blob-storage.md)

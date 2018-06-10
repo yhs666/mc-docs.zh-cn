@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/29/2017
-ms.date: 04/23/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: 65c15773e56b02f27b928fc5ed28156e9569d843
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 09a131a394ad6db760d69b078db36f7bff1ebda4
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867418"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>利用生存时间使 Azure Cosmos DB 集合中的数据自动过期
 应用程序可以生成和存储大量数据。 其中的某些数据（如计算机生成的事件数据、日志和用户会话信息）仅在有限的一段时间内才有用。 当数据变得多余，应用程序不再需要时，可以安全地清除这些数据并减少应用程序的存储需求。
@@ -123,7 +124,7 @@ TTL 功能在两个级别受 TTL 属性控制 - 集合级别和文档级别。 �
     Document readDocument = response.Resource;
     readDocument.TimeToLive = 60 * 30 * 30; // update time to live
 
-    response = await client.ReplaceDocumentAsync(salesOrder);
+    response = await client.ReplaceDocumentAsync(readDocument);
 
 ## <a name="removing-ttl-from-a-document"></a>从文档中移除 TTL
 如果已在文档上设置 TTL，并且不再想要该文档过期，则可以检索文档，移除 TTL 字段并替换服务器上的文档。 当从文档中移除 TTL 字段时，会应用集合的默认值。 要阻止文档过期并且不从集合继承，则需要将 TTL 值设置为 -1。
@@ -135,7 +136,7 @@ TTL 功能在两个级别受 TTL 属性控制 - 集合级别和文档级别。 �
     Document readDocument = response.Resource;
     readDocument.TimeToLive = null; // inherit the default TTL of the collection
 
-    response = await client.ReplaceDocumentAsync(salesOrder);
+    response = await client.ReplaceDocumentAsync(readDocument);
 
 ## <a name="disabling-ttl"></a>禁用 TTL
 若要在集合上完全禁用 TTL 并阻止后台进程查找过期文档，应删除集合上的 DefaultTTL 属性。 删除此属性不同于将其设置为 -1。 设置为 -1 表示添加到集合中的新文档永久保存，但可以替代此集合中的特定文档。 完全从集合中移除该属性意味着文档不会过期，即使有的文档已显示替代以前的默认值。
@@ -178,4 +179,4 @@ TTL 应用于整个文档。 如果只是想要使文档的一部分过期，则
 ## <a name="next-steps"></a>后续步骤
 若要了解有关 Azure Cosmos DB 的详细信息，请参阅服务的[*文档*](/cosmos-db/)页。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: update meta properties, wording update-->

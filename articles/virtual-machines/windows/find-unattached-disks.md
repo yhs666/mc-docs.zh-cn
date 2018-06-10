@@ -16,11 +16,12 @@ ms.topic: article
 origin.date: 03/30/2018
 ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 66adde4df081b4e188a0ff05625a074ff6299978
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 7ce8d36d8a26e94b4d47d93f5ff68d79b77a6a74
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867565"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>查找并删除未连接的 Azure 托管和非托管磁盘
 删除 Azure 中的虚拟机 (VM) 时，默认不删除附加到 VM 的任何磁盘。 此功能可帮助防止意外删除 VM 而导致的数据丢失。 删除 VM 后，可继续支付未附加的磁盘。 本文演示了如何查找并删除任何未附加的磁盘，以及如何减少不必要的成本。 
@@ -35,7 +36,7 @@ ms.lasthandoff: 05/18/2018
 >在检查所有未附加磁盘后，再次运行脚本并将 deleteUnattachedDisks 变量设置为 1。 通过此操作可删除所有未附加的托管磁盘。
 >
 
-```azurepowershell-interactive
+```powershell
 
 # Set deleteUnattachedDisks=1 if you want to delete unattached Managed Disks
 # Set deleteUnattachedDisks=0 if you want to see the Id of the unattached Managed Disks
@@ -78,7 +79,7 @@ foreach ($md in $managedDisks) {
 >在检查所有未附加磁盘后，再次运行脚本并将 deleteUnattachedVHDs 变量设置为 1。 通过此操作可删除所有未附加的非托管 VHD。
 >
 
-```azurepowershell-interactive
+```powershell
 
 # Set deleteUnattachedVHDs=1 if you want to delete unattached VHDs
 # Set deleteUnattachedVHDs=0 if you want to see the Uri of the unattached VHDs

@@ -12,23 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/08/2017
-ms.date: 08/28/2017
+origin.date: 05/17/2018
+ms.date: 06/11/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 357f0bc9589be7250c8121d387fd443e92633965
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 2951ea7507038f5d0240e5b8ce59141f85eac460
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867561"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 存储模拟器进行开发和测试
 
 Azure 存储模拟器提供了一个针对开发目的模拟 Azure Blob、队列和表服务的本地环境。 使用存储模拟器，可以在本地针对存储服务测试应用程序，而无需创建 Azure 订阅且不会产生任何费用。 如果对应用程序在模拟器中的工作情况感到满意，则可以切换到在云中使用 Azure 存储帐户。
 
 ## <a name="get-the-storage-emulator"></a>获取存储模拟器
-存储模拟器作为 [Azure SDK](/downloads/) 的一部分提供。 此外，还可使用[独立安装程序](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409)（直接下载）来安装存储模拟器。 若要安装存储模拟器，必须在计算机上具有管理权限。
+存储模拟器作为 [Azure SDK](https://azure.microsoft.com/downloads/) 的一部分提供。 此外，还可使用[独立安装程序](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409)（直接下载）来安装存储模拟器。 若要安装存储模拟器，必须在计算机上具有管理权限。
 
-存储模拟器目前仅在 Windows 上运行。 若考虑使用 Linux 的存储模拟器，一个选择是使用由社区维护的开源存储模拟器 [Azurite](https://github.com/arafato/azurite)。
+存储模拟器目前仅在 Windows 上运行。 若考虑使用 Linux 的存储模拟器，一个选择是使用由社区维护的开源存储模拟器 [Azurite](https://github.com/azure/azurite)。
 
 > [!NOTE]
 > 在一个版本的存储模拟器中创建的数据不保证在使用不同版本时可以访问。 如果需要长期保存数据，建议将该数据存储在 Azure 存储帐户中，而不是存储在存储模拟器中。
@@ -45,17 +46,10 @@ Azure 存储模拟器提供了一个针对开发目的模拟 Azure Blob、队列
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>启动并初始化存储模拟器
 
-### <a name="run-the-azure-storage-emulator-in-dockerhttpshubdockercomrmicrosoftazure-storage-emulator"></a>[在 Docker 中运行 Azure 存储模拟器](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
-```
-docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
-```
-
-### <a name="using-sdk"></a>使用 SDK
-
 若要启动 Azure 存储模拟器：
 1. 选择“开始”按钮或按 Windows 键。
-1. 开始键入 `Azure Storage Emulator`。
-1. 从所示应用程序的列表中选择该模拟器。
+2. 开始键入 `Azure Storage Emulator`。
+3. 从所示应用程序的列表中选择该模拟器。
 
 存储模拟器启动时，会显示“命令提示符”窗口。 可使用此控制台窗口启动和停止存储模拟器、清除数据、获取状态和初始化模拟器。 有关详细信息，请参阅本文后面的[存储模拟器命令行工具参考](#storage-emulator-command-line-tool-reference)部分。
 
@@ -72,6 +66,7 @@ docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>初始化存储模拟器以使用其他的 SQL 数据库
+
 可以使用存储模拟器命令行工具初始化存储模拟器，使其指向默认 LocalDB 实例以外的其他 SQL 数据库实例：
 
 1. 如[启动和初始化存储模拟器](#start-and-initialize-the-storage-emulator)部分中所述，打开“存储模拟器”控制台窗口。
@@ -90,7 +85,7 @@ docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-
 有关这些命令的详细信息，请参阅[存储模拟器命令行工具参考](#storage-emulator-command-line-tool-reference)。
 
 > [!TIP]
-> 可使用 [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 管理 SQL Server 实例，包括 LocalDB 安装。 在 SMSS“连接到服务器”对话框的“服务器名称:”字段中，指定 `(localdb)\MSSQLLocalDb` 以连接到 LocalDB 实例。
+> 可使用 [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 管理 SQL Server 实例，包括 LocalDB 安装。 在 SMSS“连接到服务器”对话框的“服务器名称:”字段中，指定 `(localdb)\MSSQLLocalDb` 以连接到 LocalDB 实例。
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>针对存储模拟器的请求进行身份验证
 安装并启动存储模拟器后，可针对此模拟器测试代码。 与云端的 Azure 存储一样，针对存储模拟器的每个请求都必须进行身份验证，除非它是匿名请求。 可以使用共享密钥身份验证或使用共享访问签名 (SAS) 针对存储模拟器的请求进行身份验证。
@@ -105,7 +100,7 @@ docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-
 
 还可使用 Azure PowerShell 来生成 SAS 令牌。 以下示例会生成可完全访问 blob 容器的 SAS 令牌：
 
-1. 若尚未安装 Azure PowerShell，请进行安装（建议使用最新版 Azure PowerShell cmdlet 安装）。 有关安装说明，请参阅 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装和配置 Azure PowerShell）。
+1. 若尚未安装 Azure PowerShell，请进行安装（建议使用最新版 Azure PowerShell cmdlet 安装）。 有关安装说明，请参阅 [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps)（安装和配置 Azure PowerShell）。
 2. 打开 Azure PowerShell 并运行以下命令，将 `ACCOUNT_NAME` 和 `ACCOUNT_KEY==` 替换为自己的凭据，将 `CONTAINER_NAME` 替换为所选名称：
 
 ```powershell
@@ -183,7 +178,8 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 | **停止** |停止存储模拟器。 |`AzureStorageEmulator.exe stop` | |
 | **状态** |打印存储模拟器的状态。 |`AzureStorageEmulator.exe status` | |
 | **清除** |清除命令行上指定的所有服务中的数据。 |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*blob*：清除 Blob 数据。 <br/>*queue*：清除队列数据。 <br/>*table*：清除表数据。 <br/>*all*：清除所有服务中的所有数据。 |
-| **Init** |执行一次性初始化以设置模拟器。 |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*：指定托管 SQL 实例的服务器。 <br/>*-sqlinstance instanceName*：指定要在默认服务器实例中使用的 SQL 实例的名称。 <br/>*-forcecreate*：强制创建 SQL 数据库，即使该数据库已经存在。 <br/>*-skipcreate*：跳过创建 SQL 数据库的步骤。 此命令优先于 -forcecreate。<br/>*-reserveports*：尝试保留与服务关联的 HTTP 端口。<br/>*-unreserveports*：尝试取消保留与服务关联的 HTTP 端口。 此命令优先于 -reserveports。<br/>*-inprocess*：在当前进程而不是生成新的进程中执行初始化。 如果更改端口保留设置，必须使用提升的权限启动当前进程。 |
+| **Init** |执行一次性初始化以设置模拟器。 |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*：指定托管 SQL 实例的服务器。 <br/>*-sqlinstance instanceName*：指定要在默认服务器实例中使用的 SQL 实例的名称。 <br/>*-forcecreate*：强制创建 SQL 数据库，即使该数据库已经存在。 <br/>*-skipcreate*：跳过创建 SQL 数据库的步骤。 此命令优先于 -forcecreate。<br/>*-reserveports*：尝试保留与服务关联的 HTTP 端口。<br/>
+  *-unreserveports*：尝试取消保留与服务关联的 HTTP 端口。 此命令优先于 -reserveports。<br/>*-inprocess*：在当前进程而不是生成新的进程中执行初始化。 如果更改端口保留设置，必须使用提升的权限启动当前进程。 |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>存储模拟器与 Azure 存储之间的差异
 因为存储模拟器是在本地的 SQL 实例中运行的模拟环境，所以模拟器与云中的 Azure 存储帐户之间存在功能差异：
@@ -259,7 +255,7 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 * 存储模拟器可执行文件已重命名为 *AzureStorageEmulator.exe*。
 
 ### <a name="version-32"></a>版本 3.2
-* 存储模拟器现在支持 Blob、队列和表服务终结点上的 2014-02-14 版本的存储服务。 文件服务终结点目前在存储模拟器中不受支持。 请参阅 [Versioning for the Azure Storage Services](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services)（Azure 存储服务的版本控制），了解有关 2014-02-14 版本的详细信息。
+* 存储模拟器现在支持 Blob、队列和表服务终结点上的 2014-02-14 版本的存储服务。 文件服务终结点目前在存储模拟器中不受支持。 请参阅 [Versioning for the Azure Storage Services](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services)（Azure 存储服务的版本控制），了解有关 2014-02-14 版本的详细信息。
 
 ### <a name="version-31"></a>版本 3.1
 * 在存储模拟器中现在支持读取访问异地冗余存储 (RA-GRS)。 获取 Blob 服务统计信息、获取队列服务统计信息和获取表服务统计信息 API 在帐户辅助副本上受支持，并且将始终根据基础 SQL 数据库返回 LastSyncTime 响应元素的值作为当前时间。 若要使用存储模拟器以编程方式访问次要副本，请使用 Storage Client Library for .NET 3.2 版或更高版本。 有关详细信息，请参阅用于 .NET 的 Azure 存储客户端库。
@@ -274,5 +270,4 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 * 评估跨平台的、由社区维护的开源存储模拟器 [Azurite](https://github.com/arafato/azurite)。 
 * [使用 .NET 的 Azure 存储示例](../storage-samples-dotnet.md)包含开发应用程序时可使用的多个代码示例的链接。
 * 可使用 [Azure 存储资源管理器](http://storageexplorer.com)处理云存储帐户和存储模拟器中的资源。
-
 <!--Update_Description: update link-->

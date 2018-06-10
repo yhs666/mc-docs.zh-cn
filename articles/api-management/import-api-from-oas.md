@@ -3,7 +3,7 @@ title: 使用 Azure 门户导入 OpenAPI 规范
 description: 了解如何使用 API 管理导入 OpenAPI 规范。
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -12,20 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 11/22/2017
-ms.date: 05/14/2018
+ms.date: 06/18/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3bf0ad6649b17414c77f136da00047279ee634a4
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: a7f0c0a333047b20c6008317f9a5ac2fd7c48909
+ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855370"
 ---
 # <a name="import-an-openapi-specification"></a>导入 OpenAPI 规范
 
 本文介绍如何导入 http://conferenceapi.azurewebsites.cn?format=json 中的“OpenAPI 规范”后端 API。 此后端 API 由 Microsoft 提供并托管在 Azure 上。 此外，介绍如何测试 APIM API。
 
 > [!IMPORTANT]
-> 如需与 OpenAPI 导入相关的重要信息和提示，请参阅此[文档](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/)。
+> 如需与 OpenAPI 导入相关的重要信息和提示，请参阅此[文档](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/)。
 
 在本文中，学习如何：
 

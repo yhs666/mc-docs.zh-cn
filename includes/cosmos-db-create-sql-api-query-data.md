@@ -6,14 +6,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: include
 origin.date: 04/13/2018
-ms.date: 04/23/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 405633704db79c7981503ceef3f581e8ced234e0
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 0ab6b4c3dce7f6ce2d54e7d210f8096f2f0e85b0
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34880589"
 ---
 现在可以在数据资源管理器中使用查询来检索和筛选数据。
 
@@ -28,5 +29,4 @@ ms.lasthandoff: 04/23/2018
 此修改后的查询根据文档的时间戳按降序列出文档，所以现在最先列出的是第二个文档。 如果熟悉 SQL 语法，可以在此框中输入任何受支持的 [SQL 查询](../articles/cosmos-db/sql-api-sql-query.md)。 
 
 数据资源管理器中的工作到此结束。 继续处理代码前，请注意，还可以使用数据资源管理器创建存储过程、UDF 和触发器，实现服务器端业务逻辑和缩放吞吐量。 数据资源管理器公开 API 中提供的所有内置编程数据访问，但你可以使用它轻松访问 Azure 门户中的数据。
-<!-- Update_Description: new articles on cosmos db create sql api query data -->
-<!--ms.date: 04/23/2018-->
+<!-- Update_Description: update meta properties -->

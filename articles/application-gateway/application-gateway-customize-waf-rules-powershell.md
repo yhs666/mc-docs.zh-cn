@@ -1,25 +1,26 @@
 ---
-title: "自定义 Azure 应用程序网关的 Web 应用程序防火墙规则 - PowerShell | Microsoft Docs"
-description: "本文将介绍如何使用 PowerShell 自定义应用程序网关的 Web 应用程序防火墙规则。"
+title: 自定义 Azure 应用程序网关的 Web 应用程序防火墙规则 - PowerShell | Microsoft Docs
+description: 本文将介绍如何使用 PowerShell 自定义应用程序网关的 Web 应用程序防火墙规则。
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.custom: 
+ms.custom: ''
 ms.workload: infrastructure-services
 origin.date: 07/26/2017
-ms.date: 01/17/2018
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 79a4e79796226cf7dd7a551e4ac83401efe33e5d
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: 5fca732b2d008005c149d094dcb1c350a009037e
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855726"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>通过 PowerShell 自定义 Web 应用程序防火墙规则
 
@@ -98,4 +99,4 @@ Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGat
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

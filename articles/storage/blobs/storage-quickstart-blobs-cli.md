@@ -8,13 +8,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 04/09/2018
-ms.date: 05/07/2018
-ms.author: v-johch
-ms.openlocfilehash: 1bb551cedfd37e4d35dc9887923efd82d5836cf5
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/11/2018
+ms.author: v-nany
+ms.openlocfilehash: a6717f1e9847c41731af44ecfdd8a9ae1f018c24
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867426"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>快速入门：使用 Azure CLI 上传、下载和列出 Blob
 
@@ -24,7 +25,7 @@ Azure CLI 是 Azure 的命令行体验，用于管理 Azure 资源。 可以在�
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果选择在本地安装并使用 CLI，此快速入门教程要求运行 Azure CLI 2.0.4 版或更高版本。 运行 `az --version` 即可确定你的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
+如果选择在本地安装并使用 CLI，此快速入门教程要求运行 Azure CLI 2.0.4 版或更高版本。 运行 `az --version` 即可确定你的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli)。
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-cli](../../../includes/storage-quickstart-tutorial-intro-include-cli.md)]
 
@@ -34,7 +35,7 @@ Azure CLI 是 Azure 的命令行体验，用于管理 Azure 资源。 可以在�
 
 可以使用 [az storage container create](https://docs.azure.cn/cli/storage/container#az_storage_container_create) 命令创建用于存储 blob 的容器。
 
-```azurecli-interactive
+```azurecli
 az storage container create --name mystoragecontainer
 ```
 
@@ -47,7 +48,7 @@ Blob 存储支持块 blob、追加 blob 和页 blob。 存储在 Blob 存储中�
 
 此示例使用 [az storage blob upload](https://docs.azure.cn/cli/storage/blob#az_storage_blob_upload) 命令将 Blob 上传到在上一个步骤中创建的容器中。
 
-```azurecli-interactive
+```azurecli
 az storage blob upload \
     --container-name mystoragecontainer \
     --name blobName \
@@ -56,7 +57,7 @@ az storage blob upload \
 
 如果使用了前述方法在 Azure Cloud Shell 中创建文件，则可改用此 CLI 命令（请注意，不需指定路径，因为此文件是在基目录创建的，而通常是需要指定路径的）：
 
-```azurecli-interactive
+```azurecli
 az storage blob upload \
     --container-name mystoragecontainer \
     --name helloworld
@@ -71,7 +72,7 @@ az storage blob upload \
 
 使用 [az storage blob list](https://docs.azure.cn/cli/storage/blob#az_storage_blob_list) 命令列出容器中的 blob。
 
-```azurecli-interactive
+```azurecli
 az storage blob list \
     --container-name mystoragecontainer \
     --output table
@@ -81,7 +82,7 @@ az storage blob list \
 
 使用 [az storage blob download](https://docs.azure.cn/cli/storage/blob#az_storage_blob_download) 命令下载之前上传的 Blob。
 
-```azurecli-interactive
+```azurecli
 az storage blob download \
     --container-name mystoragecontainer \
     --name blobName \
@@ -90,7 +91,7 @@ az storage blob download \
 
 ## <a name="data-transfer-with-azcopy"></a>使用 AzCopy 传输数据
 
-若要按可编写脚本的方式高性能地传输 Azure 存储中的数据，还可使用 [AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 实用工具。 可使用 AzCopy 将数据传输到 Blob、文件和表存储或将数据从中传出。
+若要按可编写脚本的方式高性能地传输 Azure 存储中的数据，还可使用 [AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fstorage%2fblobs%2ftoc.json) 实用工具。 可使用 AzCopy 将数据传输到 Blob、文件和表存储或将数据从中传出。
 
 作为一个快速示例，下面是用于将名为 myfile.txt 的文件上传到 mystoragecontainer 容器中的 AzCopy 命令。
 
@@ -106,7 +107,7 @@ azcopy \
 
 如果不再需要你的资源组中的任何一个资源（包括使用本教程创建的存储帐户），可使用 [az group delete](https://docs.azure.cn/cli/group#az_group_delete) 命令删除该资源组。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 

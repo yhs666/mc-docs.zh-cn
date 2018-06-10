@@ -1,59 +1,76 @@
 ---
-title: "自定义 Azure 应用程序网关的 Web 应用程序防火墙规则 - 门户 | Azure"
-description: "此页提供有关如何使用门户自定义应用程序网关的 Web 应用程序防火墙规则的信息。"
+title: 自定义 Azure 应用程序网关的 Web 应用程序防火墙规则 - Azure 门户 | Microsoft 文档
+description: 本文将介绍如何使用 Azure 门户自定义应用程序网关的 Web 应用程序防火墙规则。
 documentationcenter: na
 services: application-gateway
-author: georgewallace
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.assetid: 1159500b-17ba-41e7-88d6-b96986795084
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.custom: 
+ms.custom: ''
 ms.workload: infrastructure-services
 origin.date: 03/28/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 043eb625c0dbe69833b996e0f7aa7149037b4b2c
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.date: 06/07/2018
+ms.author: v-junlch
+ms.openlocfilehash: cbcd219981f1bcf61ab989bd4a87e0b955e4db4f
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855706"
 ---
-# <a name="customize-web-application-firewall-rules-through-the-portal"></a>通过门户自定义 Web 应用程序防火墙规则
+# <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>通过 Azure 门户自定义 Web 应用程序防火墙规则
 
-应用程序网关 Web 应用程序防火墙可为 Web 应用程序提供保护。 这些保护由 OWASP CRS 规则集提供。 某些规则可能会导致误报，并会阻止实际流量。  出于此原因，应用程序网关在启用了 Web 应用程序防火墙的应用程序网关上提供了自定义规则组和规则的功能。 有关特定规则组和规则的详细信息，请访问 [Web 应用程序防火墙 CRS 规则组和规则](application-gateway-crs-rulegroups-rules.md)
+> [!div class="op_single_selector"]
+> * [Azure 门户](application-gateway-customize-waf-rules-portal.md)
+> * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
+> * [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
+
+Azure 应用程序网关 Web 应用程序防火墙 (WAF) 可为 Web 应用程序提供保护。 这些保护通过打开 Web 应用程序安全性项目 (OWASP) 核心规则集 (CRS) 来提供。 某些规则可能会导致误报，并会阻止实际流量。 出于此原因，应用程序网关提供了自定义规则组和规则的功能。 有关特定规则组和规则的详细信息，请参阅 [Web 应用程序防火墙 CRS 规则组和规则列表](application-gateway-crs-rulegroups-rules.md)。
 
 >[!NOTE]
-> 如果应用程序网关未使用 WAF 层，将显示“将应用程序网关升级到 WAF 层”选项，如下图所示：
+> 如果应用程序网关未使用 WAF 层，会在右侧窗格中显示“将应用程序网关升级到 WAF 层”选项。 
 
-![启用 waf][fig1]
+![启用 WAF][fig1]
 
 ## <a name="view-rule-groups-and-rules"></a>查看规则组和规则
 
-导航到应用程序网关并选择“Web 应用程序防火墙”。  单击“高级规则配置”。  这将在随所选规则集提供的所有规则组页上显示一个表。
+**查看规则组和规则**
+   1. 浏览到应用程序网关并选择“Web 应用程序防火墙”。  
+   2. 选择“高级规则配置”。  
+   此视图会在随所选规则集提供的所有规则组页上显示一个表。 已选中所有规则的复选框。
 
 ![配置已禁用的规则][1]
 
 ## <a name="search-for-rules-to-disable"></a>搜索要禁用的规则
 
-“Web 应用程序防火墙设置”边栏选项卡提供通过文本搜索筛选规则的功能。 结果仅显示包含所搜索的文本的规则组和规则。
+“Web 应用程序防火墙设置”边栏选项卡提供了通过文本搜索筛选规则的功能。 结果仅显示包含所搜索的文本的规则组和规则。
 
 ![搜索规则][2]
 
 ## <a name="disable-rule-groups-and-rules"></a>禁用规则组和规则
 
-禁用规则时可以禁用整个规则组，也可以禁用一个或多个规则组下的特定规则。  取消选中要禁用的规则后，请单击“保存”。  这会将更改保存到应用程序网关。
+禁用规则时可以禁用整个规则组，也可以禁用一个或多个规则组下的特定规则。 
+
+**禁用规则组或特定规则**
+
+   1. 搜索想要禁用的规则或规则组。
+   2. 取消选中与要禁用的规则对应的复选框。 
+   2. 选择“其他安全性验证” 。 
 
 ![保存更改][3]
 
 ## <a name="next-steps"></a>后续步骤
 
-配置已禁用的规则后，可通过访问[应用程序网关诊断](application-gateway-diagnostics.md#diagnostic-logs)来了解如何查看 WAF 日志
+配置你禁用的规则后，可以了解如何查看 WAF 日志。 有关详细信息，请参阅[应用程序网关诊断](application-gateway-diagnostics.md#diagnostic-logging)。
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
+
+<!-- Update_Description: wording update -->

@@ -2,8 +2,8 @@
 title: 创建应用程序网关 - Azure PowerShell | Microsoft Docs
 description: 了解如何使用 Azure PowerShell 创建应用程序网关。
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
@@ -11,13 +11,14 @@ ms.devlang: azurepowershell
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/25/2018
-ms.date: 03/15/2018
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: d980ed2db6a464d3dbd38b881f653aaa847abda4
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: aa990506e339a9c7d3a1fb7dc88c1a133881632b
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855741"
 ---
 # <a name="create-an-application-gateway-using-azure-powershell"></a>使用 Azure PowerShell 创建应用程序网关
 
@@ -213,3 +214,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 在本快速入门中，创建了资源组、网络资源和后端服务器。 然后可以使用这些资源来创建应用程序网关。 若要了解有关应用程序网关及其关联资源的详细信息，请继续阅读操作指南文章。
 
 
+<!-- Update_Description: update metedata properties -->

@@ -1,11 +1,11 @@
 ---
-title: "Azure 应用程序网关的重定向概述 | Microsoft Docs"
-description: "了解 Azure 应用程序网关中的重定向功能"
+title: Azure 应用程序网关的重定向概述 | Microsoft Docs
+description: 了解 Azure 应用程序网关中的重定向功能
 services: application-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
-editor: 
+author: amsriva
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.devlang: na
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/18/2017
-ms.date: 09/14/2017
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 115e16122f18b82afa448201b633452a9eccba15
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: 7d27e8395905f670e24af57ea43c1ec63a344a16
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855745"
 ---
 # <a name="application-gateway-redirect-overview"></a>应用程序网关重定向概述
 
@@ -37,3 +38,4 @@ ms.lasthandoff: 09/15/2017
 
 [在应用程序网关上配置 URL 重定向](application-gateway-configure-redirect-powershell.md)
 
+<!-- Update_Description: update metedata properties -->

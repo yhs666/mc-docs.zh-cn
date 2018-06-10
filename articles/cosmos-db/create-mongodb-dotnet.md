@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 03/19/2018
-ms.date: 04/23/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9feb6d5af620e85daa9abf9b72193bb31484aa12
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: d7fe6e86cfd78f8657dd016df7bdfdc31d5c95a9
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867386"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB：使用 .NET 和 Azure 门户生成 MongoDB API Web 应用
 
@@ -107,6 +108,24 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
     collection.Find(new BsonDocument()).ToList();
     ```
 
+* 创建任务并将其插入到 MongoDB 集合
+
+   ```csharp
+    public void CreateTask(MyTask task)
+    {
+        var collection = GetTasksCollectionForEdit();
+        try
+        {
+            collection.InsertOne(task);
+        }
+        catch (MongoCommandException ex)
+        {
+            string msg = ex.Message;
+        }
+    }
+   ```
+   同样，可以使用 [collection.UpdateOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/index.html) 和 [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html) 方法更新和删除文档。 
+
 ## <a name="update-your-connection-string"></a>更新连接字符串
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
@@ -151,6 +170,3 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 > [将 MongoDB API 的数据导入 Azure Cosmos DB](mongodb-migrate.md)
 
 <!--Update_Description: update meta properties, update link, wording update -->
-
-<!--The parent file of includes file of cosmos-db-create-dbaccount-mongodb.md-->
-<!--ms.date:04/23/2018-->

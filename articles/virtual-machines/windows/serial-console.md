@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/05/2018
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: fd1ab573f0f64330e6f023aedb187832bbf14dc8
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 3d07b0ada8e89dc5107aaa0ad8d1d6bfe43e3865
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867834"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>虚拟机串行控制台（预览版） 
 
@@ -577,7 +578,8 @@ VM 处于已停止/已解除分配状态。 启动 VM，然后重试串行控制
 ## <a name="frequently-asked-questions"></a>常见问题 
 **问：如何发送反馈？**
 
-A. 可以访问 https://aka.ms/serialconsolefeedback 来提供问题反馈。 也可以通过 azserialhelp@microsoft.com，或者 https://www.azure.cn/support/contact/ 上的虚拟机类别发送反馈（不太建议） 
+A. 可以访问 https://www.azure.cn/support/contact/ 来提供问题反馈。
+<!-- Notice: Remove the Alternatively feedback -->
 
 **问：我遇到了错误“现有控制台的 OS 类型‘Windows’与请求的 OS 类型‘Linux’相冲突”，为什么？**
 
@@ -591,5 +593,4 @@ A. 此预览功能遵守 Azure 预览条款。 最好是通过上面所述的渠
 * 串行控制台也适用于 [Linux](../linux/serial-console.md) VM
 * 详细了解[启动诊断](boot-diagnostics.md)
 
-<!-- Update_Description: new articles on serial console for windows server -->
-<!--ms.date: 05/21/2018-->
+<!-- Update_Description: update meta properties -->

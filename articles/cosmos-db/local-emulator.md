@@ -13,14 +13,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/27/2018
-ms.date: 04/23/2018
+origin.date: 04/20/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9a38ada75128f099ba1b971f79da66007998144d
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 7fe8f0a39a93fa9736083c8764db4f5b20f92a9c
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867504"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>将 Azure Cosmos DB 模拟器用于本地开发和测试
 
@@ -136,7 +137,7 @@ Azure Cosmos DB 模拟器启动时，会在浏览器中自动打开 Azure Cosmos
 首次启用网络访问时，用户应关闭模拟器，并删除模拟器的数据目录 (C:\Users\user_name\AppData\Local\CosmosDBEmulator)。
 
 ## <a name="developing-with-the-emulator"></a>通过模拟器进行开发
-在桌面上运行 Azure Cosmos DB 模拟器以后，可以使用任何支持的 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 或 [Azure Cosmos DB REST API](https://docs.microsoft.com/rest/api/documentdb/) 与模拟器进行交互。 Azure Cosmos DB 模拟器还包括内置数据资源管理器，可以利用它在不编写任何代码的情况下为 SQL 和 MongoDB API 创建集合，以及查看和编辑文档。   
+在桌面上运行 Azure Cosmos DB 模拟器以后，可以使用任何支持的 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 或 [Azure Cosmos DB REST API](https://docs.microsoft.com/rest/api/cosmos-db/) 与模拟器进行交互。 Azure Cosmos DB 模拟器还包括内置数据资源管理器，可以利用它在不编写任何代码的情况下为 SQL 和 MongoDB API 创建集合，以及查看和编辑文档。   
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
@@ -314,7 +315,7 @@ Azure Cosmos DB 模拟器启动时，会在浏览器中自动打开 Azure Cosmos
     Sorry, we are currently experiencing high demand in this region, 
     and cannot fulfill your request at this time. We work continuously 
     to bring more and more capacity online, and encourage you to try again. 
-    Please do not hesitate to email docdbswat@microsoft.com at any time or 
+    Please do not hesitate to email askcosmosdb@microsoft.com at any time or
     for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
 
 若要更改 Azure Cosmos DB 模拟器可用的集合数，请执行以下操作：
@@ -481,6 +482,10 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 ## <a name="change-list"></a>更改列表
 
 可以通过右键单击任务栏上的本地模拟器图标并单击“关于”菜单项来查看版本号。
+
+### <a name="1220-released-on-april-20-2018"></a>1.22.0。 2018 年 4 月 20 日发布
+
+除了更新与 Cosmos DB 云服务配套的模拟器服务之外，我们还在其中包括了改进的 PowerShell 文档和其他一些 bug 修复。
 
 ### <a name="12106-released-on-march-27-2018"></a>2018 年 3 月 27 日发布的 1.21.0.6 版
 

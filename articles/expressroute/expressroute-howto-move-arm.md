@@ -1,11 +1,11 @@
 ---
-title: "将 ExpressRoute 线路从经典部署模型移动到 Resource Manager 部署模型：PowerShell | Azure"
-description: "本页面介绍如何使用 PowerShell 将经典线路移动到 Resource Manager 部署模型。"
+title: 将 ExpressRoute 线路从经典部署模型移动到 Resource Manager 部署模型：PowerShell | Azure
+description: 本页面介绍如何使用 PowerShell 将经典线路移动到 Resource Manager 部署模型。
 documentationCenter: na
 services: expressroute
-authors: ganesr
+author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
 ms.service: expressroute
@@ -14,23 +14,24 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/03/2017
-ms.date: 
+ms.date: 06/18/2018
 ms.author: v-yiso
-ms.openlocfilehash: 27f46c2ea190bf9b7829c79a5f602f8ebafbf15a
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: a18479606b8c8aab59f30dc9f868434e43bcedf4
+ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855387"
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>使用 PowerShell 将 ExpressRoute 线路从经典部署模型移动到 Resource Manager 部署模型
 
-若要将 ExpressRoute 线路同时用于经典部署模型和 Resource Manager 部署模型，必须将该线路移动到 Resource Manager 部署模型中。 以下部分介绍使用 PowerShell 移动线路的步骤。
+要将 ExpressRoute 线路同时用于经典部署模型和 Resource Manager 部署模型，必须将该线路移动到 Resource Manager 部署模型中。 以下部分可帮助使用 PowerShell 转移线路。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 * 确认具有最新版本的 Azure PowerShell 模块（至少 1.0 版）。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](../powershell-install-configure.md)。
 * 在开始配置之前，请务必查看[先决条件](./expressroute-prerequisites.md)、[路由要求](./expressroute-routing.md)和[工作流](./expressroute-workflows.md)。
-* 查看[将 ExpressRoute 线路从经典部署模型转移到 Resource Manager 部署模型](./expressroute-move.md)中提供的信息。 请确保对限制和局限性有全面的了解。
+* 查看[将 ExpressRoute 线路从经典部署模型转移到资源管理器部署模型](./expressroute-move.md)中提供的信息。 请确保对限制和局限性有全面的了解。
 * 验证线路在经典部署模型中可完全正常运行。
 * 确保拥有一个在 Resource Manager 部署模型中创建的资源组。
 
@@ -39,7 +40,7 @@ ms.lasthandoff: 07/14/2017
 ### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>步骤 1：从经典部署模型收集线路详细信息
 登录 Azure 经典环境并收集服务密钥。
 
-1. 登录到你的 Azure 帐户。
+1. 登录到 Azure 帐户。
 
   ```powershell
   Add-AzureAccount
@@ -147,7 +148,7 @@ Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -L
   $ckt.AllowClassicOperations = $false
   ```
 
-3. 更新线路。 成功完成此操作后，你将无法在经典部署模型中查看线路。
+3. 更新线路。 成功完成此操作后，你无法在经典部署模型中查看线路。
 
   ```powershell
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt

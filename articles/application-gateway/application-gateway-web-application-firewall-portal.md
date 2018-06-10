@@ -2,21 +2,22 @@
 title: 创建具有 Web 应用程序防火墙的应用程序网关 - Azure 门户 | Microsoft Docs
 description: 了解如何使用 Azure 门户创建具有 Web 应用程序防火墙的应用程序网关。
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/26/2018
-ms.date: 03/15/2018
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3c17190d9a7eb444e9f015077a2064be7355cb7f
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 0d7f59fb50a15fb2da8a4bb561b0512281f92dd3
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855771"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>使用 Azure 门户创建具有 Web 应用程序防火墙的应用程序网关
 
@@ -89,7 +90,7 @@ ms.lasthandoff: 03/17/2018
     - 选择“使用现有资源组”，然后选择“myResourceGroupAG”。
 
 4. 单击 **“确定”**。
-5. 选择“Standard_DS1”作为虚拟机的大小，然后单击“选择”。
+5. 选择“DS1_V2”作为虚拟机的大小，然后单击“选择”。
 6. 请确保选择 **myVNet** 作为虚拟网络，子网是 **myBackendSubnet**。 
 7. 单击“禁用”以禁用启动诊断。
 8. 创建“确定”，检查“摘要”页上的设置，然后单击“创建”。
@@ -171,3 +172,4 @@ ms.lasthandoff: 03/17/2018
 
 若要了解有关应用程序网关及其关联资源的详细信息，请继续阅读操作指南文章。
 
+<!-- Update_Description: code update -->

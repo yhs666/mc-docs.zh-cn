@@ -1,11 +1,11 @@
 ---
-title: "创建自定义探测 - Azure 应用程序网关 - Azure 门户 | Azure"
-description: "了解如何使用门户创建应用程序网关的自定义探测"
+title: 创建自定义探测 - Azure 应用程序网关 - Azure 门户 | Microsoft Docs
+description: 了解如何使用门户创建应用程序网关的自定义探测
 services: application-gateway
 documentationcenter: na
-author: georgewallace
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 33fd5564-43a7-4c54-a9ec-b1235f661f97
 ms.service: application-gateway
@@ -14,24 +14,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/26/2017
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: 1c4f127bcc0ba63c48f5c4b9a61065c687f7de44
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.date: 06/07/2018
+ms.author: v-junlch
+ms.openlocfilehash: eb29d3218c7a6ad12c4a697bc59e19d354f1977b
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855732"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>使用门户创建应用程序网关的自定义探测
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](application-gateway-create-probe-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
+> * [Azure 资源管理器 PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure 经典 PowerShell](application-gateway-create-probe-classic-ps.md)
 
 本文介绍如何通过 Azure 门户向现有应用程序网关添加自定义探测。 如果应用程序包含特定运行状况检查页面。或者未在默认 Web 应用程序上提供成功的响应，那么它们非常适合使用自定义探测。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 如果还没有应用程序网关，请访问[创建应用程序网关](application-gateway-create-gateway-portal.md)，创建要使用的应用程序网关。
 
@@ -51,12 +52,12 @@ ms.lasthandoff: 08/04/2017
 
   |**设置** | **值** | **详细信息**|
   |---|---|---|
-  |**Name**|customProbe|此值是可在门户中访问的探测的友好名称。|
+  |**名称**|customProbe|此值是可在门户中访问的探测的友好名称。|
   |**协议**|HTTP 或 HTTPS | 运行状况探测使用的协议。|
   |**主机**|例如 contoso.com|此值是用于探测的主机名。 仅在应用程序网关上配置了多站点的情况下适用，否则使用“127.0.0.1”。 此值与 VM 主机名不同。|
-  |**路径**|/ 或另一个路径|自定义探测的完整 URL 的其余部分。 有效路径以“/”开头。 对于 http://contoso.com 的默认路径，只需使用“/” |
+  |**路径**|/ 或另一个路径|自定义探测的完整 URL 的其余部分。 有效路径以“/”开头。 默认路径 http://contoso.com 只需使用“/” |
   |**间隔(秒)**|30|运行探测来检查运行状况的频率。 建议不要将时间间隔设置为短于 30 秒。|
-  |**超时(秒)**|30|超时之前探测的等待时间。 超时间隔必须足够长，以便进行 http 调用，确保后端运行状况页可用。|
+  |**超时(秒)**|30|超时之前探测的等待时间。超时间隔必须足够长，以便进行 http 调用，确保后端运行状况页可用。|
   |**不正常阈值**|3|系统认为不正常的失败尝试次数。 阈值为 0 意味着，如果运行状况检查失败，则会立即将后端确定为不正常。|
 
   > [!IMPORTANT]
@@ -81,3 +82,7 @@ ms.lasthandoff: 08/04/2017
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png
+
+
+
+<!-- Update_Description: update metedata properties -->

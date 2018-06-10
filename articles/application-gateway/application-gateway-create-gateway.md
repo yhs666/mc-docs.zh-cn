@@ -1,10 +1,10 @@
 ---
-title: "创建、启动或删除应用程序网关 | Microsoft Docs"
-description: "此页提供有关创建、配置、启动和删除 Azure 应用程序网关的说明"
+title: 创建、启动或删除应用程序网关 | Microsoft Docs
+description: 此页提供有关创建、配置、启动和删除 Azure 应用程序网关的说明
 documentationcenter: na
 services: application-gateway
-author: alexchen2016
-manager: digimobile
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
 ms.service: application-gateway
@@ -14,28 +14,29 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 origin.date: 07/31/2017
-ms.date: 09/13/2017
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 957dccaded0fdfb60423f0740a0aee5ab14ad74f
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: 746745d42630e5af8b36b21d6a01299db486df2b
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855757"
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>使用 PowerShell 创建、启动或删除应用程序网关 
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](application-gateway-create-gateway-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+> * [Azure 资源管理器 PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure 经典 PowerShell](application-gateway-create-gateway.md)
-> * [Azure Resource Manager 模板](application-gateway-create-gateway-arm-template.md)
+> * [Azure 资源管理器模板](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
 Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之间提供故障转移和性能路由 HTTP 请求，而不管它们是在云中还是本地。 应用程序网关提供许多应用程序传送控制器 (ADC) 功能，包括 HTTP 负载均衡、基于 Cookie 的会话相关性、安全套接字层 (SSL) 卸载、自定义运行状况探测、多站点支持，以及许多其他功能。 若要查找支持的功能的完整列表，请参阅[应用程序网关概述](application-gateway-introduction.md)
 
-本文指导你完成创建、配置、启动和删除应用程序网关的步骤。
+本文指导完成创建、配置、启动和删除应用程序网关的步骤。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 1. 使用 Web 平台安装程序安装最新版本的 Azure PowerShell cmdlet。 可以从[下载页](/downloads/)的“Windows PowerShell”部分下载并安装最新版本。
 2. 如果有现有的虚拟网络，请选择现有一个空子网，或者在现有虚拟网络中创建一个新子网，专门供应用程序网关使用。 应用程序网关部署到的虚拟网络必须与要部署在应用程序网关后面的资源相同，除非使用 vnet 对等互连。 若要了解详细信息，请访问 [Vnet 对等互连](../virtual-network/virtual-network-peering-overview.md)
@@ -51,7 +52,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 - **后端服务器池：** 后端服务器的 IP 地址列表。 列出的 IP 地址应属于虚拟网络子网，或者是公共 IP/VIP。
 - **后端服务器池设置：** 每个池都有一些设置，例如端口、协议和基于 Cookie 的关联性。 这些设置绑定到池，并会应用到池中的所有服务器。
 - **前端端口：** 此端口是应用程序网关上打开的公共端口。 流量将抵达此端口，并重定向到后端服务器之一。
-- **侦听器：**侦听器具有前端端口、协议（Http 或 Https，这些值区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。
+- **侦听器：** 侦听器具有前端端口、协议（Http 或 Https，这些值区分大小写）和 SSL 证书名称（如果要配置 SSL 卸载）。
 - 
             **规则：** 规则会绑定侦听器和后端服务器池，并定义当流量抵达特定侦听器时应定向到的后端服务器池。
 
@@ -250,7 +251,7 @@ $fep.Port = 80
 
 创建后端服务器池。
 
-按以下示例中所示定义要添加到后端服务器池的 IP 地址。
+定义要添加到后端服务器池的 IP 地址（如下个示例所示）。
 
 ```powershell
 $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
@@ -441,11 +442,11 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 如果要将应用程序网关配置为与内部负载均衡器配合使用，请参阅[创建具有内部负载均衡器 (ILB) 的应用程序网关](application-gateway-ilb.md)。
 
-如需大体上更详细地了解负载均衡选项，请参阅：
+如需负载均衡选项的其他常规信息，请参阅：
 
-* [Azure 负载均衡器](/load-balancer/)
-* [Azure 流量管理器](/traffic-manager/)
+- [Azure 负载均衡器](https://www.azure.cn/home/features/load-balancer/)
+- [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)
 
 [scenario]: ./media/application-gateway-create-gateway/scenario.png
 
-<!--Update_Description: metadata properties update-->
+<!--Update_Description: link update-->

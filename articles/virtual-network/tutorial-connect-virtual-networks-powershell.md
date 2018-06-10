@@ -15,14 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/13/2018
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: d27eae5392b8db6b26c291d4e663b26f7b20207b
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: d098cffa32db2c145fe15bba117f953335506d29
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868717"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>通过 PowerShell 使用虚拟网络对等互连连接虚拟网络
 
@@ -35,21 +36,21 @@ ms.lasthandoff: 05/07/2018
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-<!--[!INCLUDE [cloud-shell-try-it.md|cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
+<!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 
-如果选择在本地安装并使用 PowerShell，则本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 
+如果选择在本地安装并使用 PowerShell，则本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。 
 
 ## <a name="create-virtual-networks"></a>创建虚拟网络
 
 创建虚拟网络之前，必须为虚拟网络创建资源组以及本文中创建的所有其他资源。 使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location ChinaEast
 ```
 
 使用 [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork) 创建虚拟网络。 以下示例创建地址前缀为 *10.0.0.0/16* 且名为 *myVirtualNetwork1* 的虚拟网络。
 
-```azurepowershell-interactive
+```powershell
 $virtualNetwork1 = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroup `
   -Location ChinaEast `
@@ -59,7 +60,7 @@ $virtualNetwork1 = New-AzureRmVirtualNetwork `
 
 使用 [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 创建子网配置。 以下示例创建地址前缀为 10.0.0.0/24 的子网配置：
 
-```azurepowershell-interactive
+```powershell
 $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
   -Name Subnet1 `
   -AddressPrefix 10.0.0.0/24 `
@@ -68,13 +69,13 @@ $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
 
 使用 [Set-azurermvirtualnetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork) 将子网配置写入虚拟网络，从而创建子网：
 
-```azurepowershell-interactive
+```powershell
 $virtualNetwork1 | Set-AzureRmVirtualNetwork
 ```
 
 创建地址前缀为 10.1.0.0/16 的虚拟网络和一个子网：
 
-```azurepowershell-interactive
+```powershell
 # Create the virtual network.
 $virtualNetwork2 = New-AzureRmVirtualNetwork `
   -ResourceGroupName myResourceGroup `
@@ -96,7 +97,7 @@ $virtualNetwork2 | Set-AzureRmVirtualNetwork
 
 使用 [Add-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering) 创建对等互连。 以下示例将 *myVirtualNetwork1* 对等互连到 *myVirtualNetwork2*。
 
-```azurepowershell-interactive
+```powershell
 Add-AzureRmVirtualNetworkPeering `
   -Name myVirtualNetwork1-myVirtualNetwork2 `
   -VirtualNetwork $virtualNetwork1 `
@@ -105,7 +106,7 @@ Add-AzureRmVirtualNetworkPeering `
 
 在上一个命令执行后返回的输出中，可以看到 **PeeringState** 为 *Initiated*。 对等互连将保持 *Initiated* 状态，直到你创建从 *myVirtualNetwork2* 到 *myVirtualNetwork1* 的对等互连。 创建从 *myVirtualNetwork2* 到 *myVirtualNetwork1* 的对等互连。 
 
-```azurepowershell-interactive
+```powershell
 Add-AzureRmVirtualNetworkPeering `
   -Name myVirtualNetwork2-myVirtualNetwork1 `
   -VirtualNetwork $virtualNetwork2 `
@@ -114,7 +115,7 @@ Add-AzureRmVirtualNetworkPeering `
 
 在上一个命令执行后返回的输出中，可以看到 **peeringState** 为 *Connected*。 Azure 还将 *myVirtualNetwork1-myVirtualNetwork2* 对等互连的对等互连状态更改为 *Connected*。 使用 [Get-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering) 确认 *myVirtualNetwork1-myVirtualNetwork2* 对等互连的对等互连状态是否已更改为 *Connected*。
 
-```azurepowershell-interactive
+```powershell
 Get-AzureRmVirtualNetworkPeering `
   -ResourceGroupName myResourceGroup `
   -VirtualNetworkName myVirtualNetwork1 `
@@ -131,7 +132,7 @@ Get-AzureRmVirtualNetworkPeering `
 
 使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建 VM。 以下示例在 *myVirtualNetwork1* 虚拟网络中创建一个名为 *myVm1* 的 VM。 `-AsJob` 选项会在后台创建 VM，因此可继续执行下一步。 系统提示时，请输入想要用来登录到 VM 的用户名和密码。
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmVm `
   -ResourceGroupName "myResourceGroup" `
   -Location "China East" `
@@ -145,7 +146,7 @@ New-AzureRmVm `
 
 ### <a name="create-the-second-vm"></a>创建第二个 VM
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmVm `
   -ResourceGroupName "myResourceGroup" `
   -Location "China East" `
@@ -162,7 +163,7 @@ New-AzureRmVm `
 
 可以从 Internet 连接到 VM 的公用 IP 地址。 使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 返回 VM 的公共 IP 地址。 以下示例返回 myVm1 VM 的公共 IP 地址：
 
-```azurepowershell-interactive
+```powershell
 Get-AzureRmPublicIpAddress `
   -Name myVm1 `
   -ResourceGroupName myResourceGroup | Select IpAddress
@@ -202,7 +203,7 @@ ping 10.0.0.4
 
 如果不再需要资源组及其包含的所有资源，请使用 [Remove-AzureRmResourcegroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 将其删除：
 
-```azurepowershell-interactive
+```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
@@ -217,4 +218,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 在本文中，你已学习了如何使用虚拟网络对等互连来连接同一 Azure 区域中的两个网络。 还可以将不同[受支持的区域](virtual-network-manage-peering.md#cross-region)、[不同 Azure 订阅](create-peering-different-subscriptions.md#powershell)中的虚拟网络对等互连，并且可以使用对等互连创建[中心辐射型网络设计](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering)。 若要详细了解虚拟网络对等互连，请参阅[虚拟网络对等互连概述](virtual-network-peering-overview.md)和[管理虚拟网络对等互连](virtual-network-manage-peering.md)。
 
 可以通过 VPN [将自己的计算机连接到虚拟网络](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md?toc=%2fvirtual-network%2ftoc.json)，并可与虚拟网络或对等虚拟网络中的资源进行交互。 有关用来完成虚拟网络文章中涉及的许多任务的可重用脚本，请参阅[脚本示例](powershell-samples.md)。
-<!-- Update_Description: wording update, update meta properties -->
+<!-- Update_Description: wording update, update meta properties,update cmdlet -->

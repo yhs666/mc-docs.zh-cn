@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 读取访问异地冗余存储 (RA-GRS) 设计高度可用的应用程序 | Microsoft Docs
+title: 使用 Azure 读取访问异地冗余存储 (RA-GRS) 设计高度可用的应用程序 | Azure
 description: 如何使用 Azure RA-GRS 存储构建足以灵活处理中断的高度可用的应用程序。
 services: storage
 documentationcenter: .net
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/21/2018
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: d373e282ff7a51a0cd9683a4d9bdc3673cc4af7c
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: d36abf56fe9abebcb83233a75fd6d30e0494c210
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867605"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 设计高度可用的应用程序
 
@@ -27,9 +28,10 @@ ms.lasthandoff: 05/07/2018
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-本文重点介绍 GRS 和 RA-GRS。 使用 GRS 选项，设置存储帐户时，数据的三个副本将保留在所选的主要区域。 其他三个副本会异步保留在 Azure 指定的次要区域中。 RA-GRS 与 GRS 相同，但前者具有对次要副本的读取权限。 有关不同 Azure 存储冗余选项的详细信息，请参阅 [Azure 存储复制](storage-redundancy.md)。 有关复制的文章中还介绍了配对的主要和次要区域。
+本文重点介绍 GRS 和 RA-GRS。 使用 GRS 选项，设置存储帐户时，数据的三个副本将保留在所选的主要区域。 其他三个副本会异步保留在 Azure 指定的次要区域中。 RA-GRS 与 GRS 相同，但前者具有对次要副本的读取权限。 有关不同 Azure 存储冗余选项的详细信息，请参阅 [Azure 存储复制](https://docs.azure.cn/storage/storage-redundancy)。 有关复制的文章中还介绍了配对的主要和次要区域。
 
 本文包含代码片段，末尾有完成示例的链接，可以下载并运行。
+
 
 ## <a name="key-features-of-ra-grs"></a>RA-GRS 的主要功能
 
@@ -45,7 +47,7 @@ ms.lasthandoff: 05/07/2018
 
 * 如果存在影响主要区域中的数据可访问性的主要问题，Azure 团队可能会触发异地故障转移，此时指向主要区域的 DNS 条目将更改为指向次要区域。
 
-* 如果发生异地故障转移，Azure 将选择新的次要位置并将数据复制到该位置，并将次要 DNS 条目指向该位置。 存储帐户复制完成之前，辅助终结点都不可用。 有关详细信息，请参阅 [What to do if an Azure Storage outage occurs](storage-disaster-recovery-guidance.md)（Azure 存储中断时应采取什么操作）。
+* 如果发生异地故障转移，Azure 将选择新的次要位置并将数据复制到该位置，并将次要 DNS 条目指向该位置。 存储帐户复制完成之前，辅助终结点都不可用。 有关详细信息，请参阅 [What to do if an Azure Storage outage occurs](https://docs.azure.cn/storage/storage-disaster-recovery-guidance)（Azure 存储中断时应采取什么操作）。
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>使用 RA-GRS 时的应用程序设计注意事项
 

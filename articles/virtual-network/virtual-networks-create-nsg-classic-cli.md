@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: d869d77b9ee927ff88554352691113921b6bfe1d
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 44a9e7fe8df8d1dc3a78f11d06a439266a38702a
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34869249"
 ---
 # <a name="create-a-network-security-group-classic-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建网络安全组（经典）
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
@@ -96,4 +97,4 @@ ms.lasthandoff: 05/07/2018
 
 <!-- Update_Description: wording update, update link -->
 <!--The parent file of includes file of virtual-networks-create-nsg-selectors-classic-include.md-->
-<!--ms.date:05/07/2018-->
+<!--ms.date:06/11/2018-->

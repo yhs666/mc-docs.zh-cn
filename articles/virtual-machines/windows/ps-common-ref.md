@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/17/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0fcbbe84f1ca5561a57ee45a6793a3f351416994
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 5d7bd2bd723ac48aa89a1233f3c32f6961f715dd
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867620"
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>用于创建和管理 Azure 虚拟机的常用 PowerShell 命令
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 05/17/2018
 
 如果在本文运行多个命令，以下变量可能对你有用：
 
-- $location - 虚拟机的位置。 可以使用 [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation) 查找适合你的地理区域。
+- $location - 虚拟机的位置。 可以使用 [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation) 查找适合[地理区域](https://www.azure.cn/support/service-dashboard/)。
 - $myResourceGroup - 包含虚拟机的资源组的名称。
 - $myVM - 虚拟机的名称。
 
@@ -47,6 +48,7 @@ ms.lasthandoff: 05/17/2018
 | 设置要使用一般化映像的操作系统磁盘 |$vm = Set-AzureRmVMOSDisk -VM $vm -Name "myOSDisk" -SourceImageUri "https://mystore1.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/myimages/myprefix-osDisk.{guid}.vhd" -VhdUri "https://mystore1.blob.core.chinacloudapi.cn/vhds/disk_name.vhd" -CreateOption FromImage -Windows<BR></BR><BR></BR>操作系统磁盘的名称、源映像的位置，以及磁盘在[存储](../../storage/common/storage-powershell-guide-full.md)中的位置会添加到以前创建的配置对象。 |
 | 设置要使用特殊化映像的操作系统磁盘 |$vm = Set-AzureRmVMOSDisk -VM $vm -Name "myOSDisk" -VhdUri "http://mystore1.blob.core.chinacloudapi.cn/vhds/" -CreateOption Attach -Windows |
 | 创建 VM |[New-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.4.0/new-azurermvm) -ResourceGroupName $myResourceGroup -Location $location -VM $vm<BR></BR><BR></BR>所有资源在[资源组](../../azure-resource-manager/powershell-azure-resource-manager.md)中创建。 运行此命令之前，请运行 New-AzureRmVMConfig、Set-AzureRmVMOperatingSystem、Set-AzureRmVMSourceImage、Add-AzureRmVMNetworkInterface 和 Set-AzureRmVMOSDisk。 |
+<!-- URL is correct on [New-AzureRmVM](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.4.0/new-azurermvm) -->
 
 ## <a name="get-information-about-vms"></a>获取有关 VM 的信息
 

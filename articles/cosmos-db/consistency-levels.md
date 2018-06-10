@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/27/2018
-ms.date: 04/23/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3042d5e14fce621a5f41e53c7fa61d7cdc1ad23b
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 2a66e11aef484b5a55bd25ba304834d8dfe1a24f
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867370"
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的可优化数据一致性级别
 Azure Cosmos DB 是从无到有开发出来的，其设计考虑到了每个数据模型的多区域分发。 它旨在提供可预测的低延迟保证以及多个完善定义的宽松一致性模型。 目前，Azure Cosmos DB 提供五种一致性级别：非常一致性、有限过期一致性、会话一致性、一致前缀一致性和最终一致性。 有限过期、会话、一致性前缀和最终级别称为“宽松一致性模型”，因为它们提供的一致性比非常一致性更差，后者是可用的最高一致性模型。 
@@ -42,7 +43,7 @@ Azure Cosmos DB 是从无到有开发出来的，其设计考虑到了每个数�
 | 一致性级别 | 保证 |
 | --- | --- |
 | 强 | 可线性化。 保证读取操作返回项的最新版本。|
-| 有限过期 | 一致前缀。 读取操作落后写入操作 k 个前缀或 t 时间间隔 |
+| 有限过期 | 一致前缀。 读取操作落后写入操作最多 k 个前缀或 t 时间间隔 |
 | 会话   | 一致前缀。 单调读取、单调写入、读取写入、写入跟随读取 |
 | 一致前缀 | 返回的更新是全部更新的某些前缀，不带间隔 |
 | 最终  | 失序读取 |
@@ -140,4 +141,4 @@ Azure Cosmos DB 当前实现了 MongoDB 3.4 版，其中具有两个一致性设
 * [Line-up: a complete and automatic linearizability checker, Proceedings of the 2010 ACM SIGPLAN conference on Programming language design and implementation](http://dl.acm.org/citation.cfm?id=1806634)（Line-up：完整而自动的可线性化检查器, 2010 ACM SIGPLAN 编程语言设计和实现大会会议记录）
 * [Probabilistic bounded staleness (PBS) for practical partial quorums](http://dl.acm.org/citation.cfm?id=2212359)（实用部分仲裁的概率有限过期性 (PBS)）
 
-<!--Update_Description: update meta properties， wording update, update link -->
+<!--Update_Description: update meta properties -->

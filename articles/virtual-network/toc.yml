@@ -5,6 +5,7 @@
     - name: 关于虚拟网络
       href: virtual-networks-overview.md
 - name: 快速入门
+  expanded: true
   items:
     - name: 创建虚拟网络 - 门户
       href: quick-create-portal.md
@@ -30,6 +31,8 @@
       href: powershell-samples.md
     - name: Resource Manager 模板
       href: template-samples.md
+    - name: Azure 策略模板
+      href: policy-samples.md
 - name: 概念
   items:
     - name: 安全性
@@ -42,8 +45,6 @@
       href: virtual-network-peering-overview.md
     - name: Azure 服务的虚拟网络
       href: virtual-network-for-azure-services.md
-    - name: 容器网络
-      href: container-networking.md
     - name: 业务连续性
       href: virtual-network-disaster-recovery-guidance.md
     - name: IP 寻址
@@ -58,12 +59,10 @@
           href: virtual-networks-acl.md
 - name: 操作指南
   items:
-    - name: 规划和设计
+    - name: 计划
       items:
         - name: 虚拟网络
           href: virtual-network-vnet-plan-design-arm.md
-        - name: 网络安全组
-          href: virtual-networks-nsg.md
     - name: 部署
       items:
         - name: 网络安全组
@@ -181,12 +180,6 @@
               href: virtual-network-manage-subnet.md
             - name: 对等互连
               href: virtual-network-manage-peering.md
-            - name: DDOS 保护
-              items:
-                - name: Azure 门户
-                  href: ddos-protection-manage-portal.md
-                - name: Azure PowerShell
-                  href: ddos-protection-manage-ps.md
         - name: 网络安全组
           href: manage-network-security-group.md
           items:
@@ -331,7 +324,5 @@
       href: 'https://www.azure.cn/pricing/calculator/'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-network'
-    - name: 网络资源提供程序
-      href: resource-groups-networking.md
     - name: 常见问题
       href: virtual-networks-faq.md

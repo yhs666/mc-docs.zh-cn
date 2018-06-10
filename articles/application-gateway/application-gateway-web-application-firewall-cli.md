@@ -2,20 +2,21 @@
 title: 创建具有 Web 应用程序防火墙的应用程序网关 - Azure CLI | Microsoft Docs
 description: 了解如何使用 Azure CLI 创建具有 Web 应用程序防火墙的应用程序网关。
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/25/2018
-ms.date: 03/15/2018
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 693be10229b2847a8ec327bd70b79fab908bd77a
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: a999b6aef0e793c28832a9827412f80786d7a2d8
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855738"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-cli"></a>使用 Azure CLI 创建具有 Web 应用程序防火墙的应用程序网关
 
@@ -187,3 +188,4 @@ az network public-ip show \
 
 若要了解有关应用程序网关及其关联资源的详细信息，请继续阅读操作指南文章。
 
+<!-- Update_Description: update metedata properties -->

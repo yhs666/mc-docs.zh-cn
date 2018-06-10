@@ -15,11 +15,12 @@ ms.topic: article
 origin.date: 03/27/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 81b1901be216775564d0e8e7cb1fbc87c768366f
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 08911d5db60c73a5491b90697bb8bb4ca1576487
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867603"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>从托管映像创建 VM
 
@@ -48,7 +49,7 @@ New-AzureRmVm 的简化参数集只需要你提供名称、资源组和映像名
 
 以下示例在“myResourceGroup”资源组中从名为“myImage”的映像创建名为“myVMFromImage”的 VM。 
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `

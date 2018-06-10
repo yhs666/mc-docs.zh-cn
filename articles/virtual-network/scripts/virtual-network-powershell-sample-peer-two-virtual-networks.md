@@ -16,11 +16,12 @@ ms.workload: infrastructure
 origin.date: 03/20/2018
 ms.date: 05/07/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5985bf51567ff688dfbba39109e216583cda9912
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 542df961c50a71ddbb67e99e83480b2a72d1c8e5
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868516"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>将两个虚拟网络脚本示例对等互连
 
@@ -33,7 +34,7 @@ ms.lasthandoff: 05/07/2018
 
 ## <a name="sample-script"></a>示例脚本
 
-```azurepowershell-interactive
+```powershell
 # Variables for common values
 $rgName='MyResourceGroup'
 $location='chinaeast'

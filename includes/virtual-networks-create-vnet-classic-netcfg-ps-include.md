@@ -1,3 +1,21 @@
+---
+title: include 文件
+description: include 文件
+services: virtual-network
+author: rockboyfor
+ms.service: virtual-network
+ms.topic: include
+origin.date: 04/13/2018
+ms.date: 06/11/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: 970e8d0b6be279d594ec0a91cdb942cc8c7b4463
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34881945"
+---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>如何通过 PowerShell 使用网络配置文件创建虚拟网络
 Azure 使用 xml 文件定义适用于订阅的所有虚拟网络。 可以下载此文件并进行编辑，以修改或删除现有虚拟网络并创建新的虚拟网络。 通过本教程，可了解如何下载此文件（称为网络配置（或 netcgf）文件），并进行编辑，创建新的虚拟网络。 若要深入了解网络配置文件，请参阅 [Azure 虚拟网络配置架构](https://msdn.microsoft.com/library/azure/jj157100.aspx)。
 
@@ -22,19 +40,26 @@ Azure 使用 xml 文件定义适用于订阅的所有虚拟网络。 可以下�
 4. 若要创建此方案中所述的虚拟网络，请在 **<VirtualNetworkSites>** 元素的正下方添加以下 XML：
 
    ```xml
-        <VirtualNetworkSite name="TestVNet" Location="China East">
-          <AddressSpace>
-            <AddressPrefix>192.168.0.0/16</AddressPrefix>
-          </AddressSpace>
-          <Subnets>
-            <Subnet name="FrontEnd">
-              <AddressPrefix>192.168.1.0/24</AddressPrefix>
-            </Subnet>
-            <Subnet name="BackEnd">
-              <AddressPrefix>192.168.2.0/24</AddressPrefix>
-            </Subnet>
-          </Subnets>
-        </VirtualNetworkSite>
+         <?xml version="1.0" encoding="utf-8"?>
+         <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+           <VirtualNetworkConfiguration>
+             <VirtualNetworkSites>
+                 <VirtualNetworkSite name="TestVNet" Location="China East">
+                   <AddressSpace>
+                     <AddressPrefix>192.168.0.0/16</AddressPrefix>
+                   </AddressSpace>
+                   <Subnets>
+                     <Subnet name="FrontEnd">
+                       <AddressPrefix>192.168.1.0/24</AddressPrefix>
+                     </Subnet>
+                     <Subnet name="BackEnd">
+                       <AddressPrefix>192.168.2.0/24</AddressPrefix>
+                     </Subnet>
+                   </Subnets>
+                 </VirtualNetworkSite>
+             </VirtualNetworkSites>
+           </VirtualNetworkConfiguration>
+         </NetworkConfiguration>
    ```
 
 5. 保存网络配置文件。

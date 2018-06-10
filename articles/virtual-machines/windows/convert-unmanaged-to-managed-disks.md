@@ -16,11 +16,12 @@ ms.topic: article
 origin.date: 01/03/2018
 ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5ecb368c848b355a59c942274838f56f49bcd66a
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 7355cb5fac10e7a1b3dc0b16fc4d17bd3cc98fd8
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867588"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>将 Windows 虚拟机从非托管磁盘转换为托管磁盘
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 04/16/2018
 
 1. 使用 [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm) cmdlet 解除分配 VM。 以下示例在名为 `myResourceGroup` 的资源组中解除分配名为 `myVM` 的 VM： 
 
-  ```azurepowershell-interactive
+  ```powershell
   $rgName = "myResourceGroup"
   $vmName = "myVM"
   Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
@@ -49,7 +50,7 @@ ms.lasthandoff: 04/16/2018
 
 2. 使用 [ConvertTo-AzureRmVMManagedDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) cmdlet 将 VM 转换为托管磁盘。 以下过程转换之前的 VM，包括 OS 磁盘和任何数据磁盘，并启用虚拟机：
 
-  ```azurepowershell-interactive
+  ```powershell
   ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
   ```
 
@@ -59,7 +60,7 @@ ms.lasthandoff: 04/16/2018
 
 1. 使用 [Update-AzureRmAvailabilitySet](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermavailabilityset) cmdlet 转换可用性集。 以下示例在名为 `myResourceGroup` 的资源组中更新名为 `myAvailabilitySet` 的可用性集：
 
-  ```azurepowershell-interactive
+  ```powershell
   $rgName = 'myResourceGroup'
   $avSetName = 'myAvailabilitySet'
 
@@ -69,14 +70,14 @@ ms.lasthandoff: 04/16/2018
 
   如果可用性集所在的区域只有 2 个托管容错域，但却有 3 个非托管容错域，则此命令会显示类似于“指定的容错域计数 3 必须在 1 到 2 这个范围内”的错误消息。 若要解决此错误，请将容错域更新为 2，并按如下所示将 `Sku` 更新为 `Aligned`：
 
-  ```azurepowershell-interactive
+  ```powershell
   $avSet.PlatformFaultDomainCount = 2
   Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
   ```
 
 2. 解除分配 VM，并转换可用性集中的 VM。 以下脚本使用 [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm) cmdlet 解除分配每个 VM，使用 [ConvertTo-AzureRmVMManagedDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) 进行转换，并在转换进程结束后自动将其重启：
 
-  ```azurepowershell-interactive
+  ```powershell
   $avSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
 
   foreach($vmInfo in $avSet.VirtualMachinesReferences)

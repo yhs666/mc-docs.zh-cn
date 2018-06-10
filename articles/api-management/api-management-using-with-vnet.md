@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/05/2017
 ms.author: v-yiso
-ms.date: 05/14/2018
-ms.openlocfilehash: 0677600bcda43f78cdf5d8e9e0beed31a9902e44
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/18/2018
+ms.openlocfilehash: dcb22f074169eeb647b7a2b8604dac5be044b851
+ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855417"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何将 Azure API 管理与虚拟网络配合使用
 使用 Azure 虚拟网络 (VNET) 可将你的任何 Azure 资源置于可以控制其访问权限但无法通过 Internet 路由的网络中。 然后，可以使用各种 VPN 技术将这些网络连接到本地网络。 若要了解有关 Azure 虚拟网络的详细信息，请先了解以下信息：[Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
@@ -124,7 +125,7 @@ ms.lasthandoff: 05/07/2018
 >[!IMPORTANT]
 > * “用途”为**粗体**的端口是成功部署 API 管理服务所必需的。 不过，阻止其他端口将导致使用和监视运行中服务的能力降级。
 
-* **SSL 功能**：若要启用 SSL 证书链构建和验证，API 管理服务需要使用与 ocsp.msocsp.com、mscrl.microsoft.com 和 crl.microsoft.com 之间的出站网络连接。如果上传到 API 管理的任何证书包含指向 CA 根的完整链，则此依赖项不是必需的。
+* **SSL 功能**：若要启用 SSL 证书链构建和验证，API 管理服务需要使用与 ocsp.msocsp.com、mscrl.microsoft.com 和 crl.microsoft.com 之间的出站网络连接。 如果上传到 API 管理的任何证书包含指向 CA 根的完整链，则此依赖项不是必需的。
 
 * **DNS 访问**：需要端口 53 上的出站访问权限才能与 DNS 服务器通信。 如果 VPN 网关的另一端存在自定义 DNS 服务器，则该 DNS 服务器必须可从承载 API 管理的子网访问。
 
@@ -171,6 +172,7 @@ Azure 会保留每个子网中的某些 IP 地址，不可以使用这些地址�
 * 子网和 API 管理服务必须在同一个订阅中。
 * 包含 API 管理实例的子网不能在订阅之间移动。
 * 对于在内部虚拟网络模式下配置的多区域 API 管理部署，用户负责管理多个区域之间的负载均衡，因为路由归他们拥有。
+* 由于平台限制，从另一个区域中的全局对等互连 VNET 中的资源到内部模式下的 API 管理服务的连接将不起作用。 有关详细信息，请参阅[一个虚拟网络中的资源无法与对等互连虚拟网络中 Azure 内部负载均衡器通信](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)
 
 
 ## <a name="related-content"> </a>相关内容
@@ -191,4 +193,4 @@ Azure 会保留每个子网中的某些 IP 地址，不可以使用这些地址�
 [Related content]: #related-content
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
-[Network Security Group]: ../virtual-network/virtual-networks-nsg.md
+[Network Security Group]: ../virtual-network/security-overview.md

@@ -1,11 +1,11 @@
 ---
-title: "Azure API 管理访问限制策略"
-description: "了解可在 Azure API 管理中使用的访问限制策略。"
+title: Azure API 管理访问限制策略
+description: 了解可在 Azure API 管理中使用的访问限制策略。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.workload: mobile
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: a766f5245eb3efeadf3b67885a83b3f94fb2aba8
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 06/18/2018
+ms.openlocfilehash: 0c82a0765b8d71d233c8b20a033b3ce68b58c94d
+ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855412"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理访问限制策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -79,9 +80,9 @@ ms.lasthandoff: 03/12/2018
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站、出站  
+-   **策略节：** 入站、出站  
   
--   **策略范围：**全局、产品、API、操作  
+-   **策略范围：** 全局、产品、API、操作  
   
 ##  <a name="LimitCallRate"></a>按订阅限制调用速率  
  `rate-limit` 策略可以对调用速率进行限制，使每个指定时段的调用不超出指定的数目，避免单个订阅的 API 使用量暴增。 触发此策略时，调用方会收到 `429 Too Many Requests` 响应状态代码。  
@@ -95,8 +96,8 @@ ms.lasthandoff: 03/12/2018
   
 ```xml  
 <rate-limit calls="number" renewal-period="seconds">  
-    <api name="name" calls="number" renewal-period="seconds">  
-        <operation name="name" calls="number" renewal-period="seconds" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </rate-limit>  
 ```  
@@ -120,8 +121,8 @@ ms.lasthandoff: 03/12/2018
 |Name|说明|必须|  
 |----------|-----------------|--------------|  
 |set-limit|根元素。|是|  
-|api|添加一个或多个此类元素，对产品中的 API 施加调用速率限制。 产品和 API 的调用速率限制是分别应用的。|否|  
-|operation|添加一个或多个此类元素，对 API 中的操作施加调用速率限制。 产品、API 和操作的调用速率限制是分别应用的。|否|  
+|api|添加一个或多个此类元素，对产品中的 API 施加调用速率限制。 产品和 API 的调用速率限制是各自独立应用的。 可以通过 `name` 或 `id` 引用 API。 如果同时提供了这两个属性，则将使用 `id` 并忽略 `name`。|否|  
+|operation|添加一个或多个此类元素，对 API 中的操作施加调用速率限制。 产品、API 和操作的调用速率限制是各自独立应用的。 可以通过 `name` 或 `id` 引用 Operation。 如果同时提供了这两个属性，则将使用 `id` 并忽略 `name`。|否|  
   
 ### <a name="attributes"></a>属性  
   
@@ -134,9 +135,9 @@ ms.lasthandoff: 03/12/2018
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略段：**入站  
+-   **策略段：** 入站  
   
--   **策略范围：**产品  
+-   **策略范围：** 产品  
   
 ##  <a name="LimitCallRateByKey"></a>按密钥限制调用速率  
  `rate-limit-by-key` 策略可以对调用速率进行限制，使每个指定时段的调用不超出指定的数目，避免单个密钥的 API 使用量暴增。 密钥的值可以是任意字符串，通常使用策略表达式来提供密钥。 可以添加可选增量条件，指定在判断请求数是否达到限制时应计入哪些请求。 触发此策略时，调用方会收到`429 Too Many Requests`响应状态代码。  
@@ -192,9 +193,9 @@ ms.lasthandoff: 03/12/2018
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站  
+-   **策略节：** 入站  
   
--   **策略范围：**全局、产品、API、操作  
+-   **策略范围：** 全局、产品、API、操作  
   
 ##  <a name="RestrictCallerIPs"></a>限制调用方 IP  
  `ip-filter` 策略筛选（允许/拒绝）来自特定 IP 地址和/或地址范围的调用。  
@@ -235,9 +236,9 @@ ms.lasthandoff: 03/12/2018
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站  
+-   **策略节：** 入站  
   
--   **策略范围：**全局、产品、API、操作  
+-   **策略范围：** 全局、产品、API、操作  
   
 ##  <a name="SetUsageQuota"></a>按订阅设置使用量配额  
  `quota` 策略允许根据订阅强制实施可续订或有生存期的调用量和/或带宽配额。  
@@ -251,8 +252,8 @@ ms.lasthandoff: 03/12/2018
   
 ```xml  
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">  
-    <api name="name" calls="number" bandwidth="kilobytes">  
-        <operation name="name" calls="number" bandwidth="kilobytes" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </quota>  
 ```  
@@ -276,8 +277,8 @@ ms.lasthandoff: 03/12/2018
 |Name|说明|必须|  
 |----------|-----------------|--------------|  
 |quota|根元素。|是|  
-|api|添加一个或多个此类元素，对产品中的 API 设置配额。 产品和 API 的配额是分别应用的。|否|  
-|operation|添加一个或多个此类元素，对 API 中的操作设置配额。 产品、API 和操作的配额是分别应用的。|否|  
+|api|添加一个或多个此类元素，对产品中的 API 设置调用配额。 产品和 API 的调用配额是分别应用的。 可以通过 `name` 或 `id` 引用 API。 如果同时提供了这两个属性，则将使用 `id` 并忽略 `name`。|否|  
+|operation|添加一个或多个此类元素，对 API 中的操作设置调用配额。 产品、API 和操作的调用配额是分别应用的。 可以通过 `name` 或 `id` 引用 Operation。 如果同时提供了这两个属性，则将使用 `id` 并忽略 `name`。|否|  
   
 ### <a name="attributes"></a>属性  
   
@@ -291,9 +292,9 @@ ms.lasthandoff: 03/12/2018
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略段：**入站  
+-   **策略段：** 入站  
   
--   **策略范围：**产品  
+-   **策略范围：** 产品  
   
 ##  <a name="SetUsageQuotaByKey"></a>按密钥设置使用量配额  
  `quota-by-key` 策略允许根据密钥强制实施可续订或有生存期的调用量和/或带宽配额。 密钥的值可以是任意字符串，通常使用策略表达式来提供密钥。 可以添加可选增量条件，指定在判断请求数是否达到配额时应计入哪些请求。  
@@ -352,9 +353,9 @@ ms.lasthandoff: 03/12/2018
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站  
+-   **策略节：** 入站  
   
--   **策略范围：**全局、产品、API、操作  
+-   **策略范围：** 全局、产品、API、操作  
   
 ##  <a name="ValidateJWT"></a>验证 JWT  
  `validate-jwt` 策略强制从指定 HTTP 标头或指定查询参数提取的 JWT 必须存在且有效。  
@@ -523,8 +524,8 @@ ms.lasthandoff: 03/12/2018
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站  
--   **策略范围：**全局、产品、API、操作  
+-   **策略节：** 入站  
+-   **策略范围：** 全局、产品、API、操作  
   
 ## <a name="next-steps"></a>后续步骤
 
