@@ -13,12 +13,13 @@ ms.devlang: java
 ms.topic: article
 origin.date: 11/16/2017
 ms.author: v-yiso
-ms.date: 05/14/2018
-ms.openlocfilehash: 2f46de058d0fce91b12a3f5abd95d9ea79497942
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/18/2018
+ms.openlocfilehash: 3948373a3a7e001806418b48680a92885f3b91e6
+ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855402"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用用于 Android 的 Azure 移动应用 SDK
 
@@ -226,12 +227,12 @@ public class ToDoItem
     @com.google.gson.annotations.SerializedName("createdAt")
     private DateTimeOffset mCreatedAt;
     public DateTimeOffset getCreatedAt() { return mCreatedAt; }
-    protected DateTimeOffset setCreatedAt(DateTimeOffset createdAt) { mCreatedAt = createdAt; }
+    protected void setCreatedAt(DateTimeOffset createdAt) { mCreatedAt = createdAt; }
 
     @com.google.gson.annotations.SerializedName("updatedAt")
     private DateTimeOffset mUpdatedAt;
     public DateTimeOffset getUpdatedAt() { return mUpdatedAt; }
-    protected DateTimeOffset setUpdatedAt(DateTimeOffset updatedAt) { mUpdatedAt = updatedAt; }
+    protected void setUpdatedAt(DateTimeOffset updatedAt) { mUpdatedAt = updatedAt; }
 
     @com.google.gson.annotations.SerializedName("version")
     private String mVersion;
@@ -908,7 +909,7 @@ public void completeItem(View view) {
 - 限制只有应用服务后端上经过身份验证的用户才能拥有表权限。
 - 将身份验证代码添加到应用。
 
-可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以使用已经过身份验证的用户的 SID 来修改请求。  有关详细信息，请查看 [Get started with authentication] 和服务器 SDK 操作方法文档。
+可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以使用已经过身份验证的用户的 SID 来修改请求。  有关详细信息，请查看 [身份验证入门] 和服务器 SDK 操作方法文档。
 
 ### <a name="caching"></a>身份验证：服务器流
 
@@ -991,7 +992,7 @@ dependencies {
 }
 ```
 
-可以使用 **getUserId** 方法从 **MobileServiceUser** 获取已登录用户的 ID。 有关如何使用 Futures 调用异步登录 API 的示例，请参阅 [Get started with authentication]（身份验证入门）。
+可以使用 **getUserId** 方法从 **MobileServiceUser** 获取已登录用户的 ID。 有关如何使用 Futures 调用异步登录 API 的示例，请参阅 [身份验证入门]。
 
 > [!WARNING]
 > 所述的 URL 方案区分大小写。  请确保出现的所有 `{url_scheme_of_you_app}` 的大小写匹配。
@@ -1262,7 +1263,7 @@ client.setGsonBuilder(
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: http://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.cn
-[Get started with authentication]: ./app-service-mobile-android-get-started-users.md
+[身份验证入门]: ./app-service-mobile-android-get-started-users.md
 [2]: http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
 [4]: http://go.microsoft.com/fwlink/p/?LinkId=296840
 [5]: ./app-service-mobile-android-get-started-push.md

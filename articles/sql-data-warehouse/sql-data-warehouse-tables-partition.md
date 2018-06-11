@@ -11,10 +11,11 @@ origin.date: 04/14/2018
 ms.date: 04/25/2018
 ms.author: v-yeche
 ms.openlocfilehash: 3d25e6e441d1301a991896d2b1da040f27d84d07
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867436"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>对 SQL 数据仓库中的表进行分区
 在 Azure SQL 数据仓库中使用表分区的建议和示例。
