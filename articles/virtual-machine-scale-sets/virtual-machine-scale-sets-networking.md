@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 01/31/2018
+ms.date: 06/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: bd036f70488b9c30773615e161ccf12d2801c19e
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 572ff100d3ac0c6dcfb21a93d6fc6f948f602668
+ms.sourcegitcommit: a63d392037f3eca3196026c500ac7d2d26d85a7c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35253168"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 虚拟机规模集的网络
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/28/2018
 可以使用 Azure Resource Manager 模板配置本文介绍的所有功能。 此外，还为选定功能提供了 Azure CLI 和 PowerShell 示例。 使用 CLI 2.10 和 PowerShell 4.2.0 或更高版本。
 
 ## <a name="accelerated-networking"></a>加速网络
-Azure 加速网络可以实现对虚拟机的单根 I/O 虚拟化 (SR-IOV)，从而提升网络性能。 若要详细了解如何使用加速网络，请查看适用于 [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) 或 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) 虚拟机的加速网络。 若要对规模集使用加速网络，请在规模集的 networkInterfaceConfigurations 设置中将 enableAcceleratedNetworking 设置为 true。 例如：
+Azure 加速网络可以实现对虚拟机的单根 I/O 虚拟化 (SR-IOV)，从而提升网络性能。 若要对规模集使用加速网络，请在规模集的 networkInterfaceConfigurations 设置中将 enableAcceleratedNetworking 设置为 true。 例如：
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -52,13 +53,32 @@ Azure 加速网络可以实现对虚拟机的单根 I/O 虚拟化 (SR-IOV)，从
 ```bash
 az network lb create -g lbtest -n mylb --vnet-name myvnet --subnet mysubnet --public-ip-address-allocation Static --backend-pool-name mybackendpool
 
-az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username negat --ssh-key-value /home/myuser/.ssh/id_rsa.pub --upgrade-policy-mode Automatic --instance-count 3 --vnet-name myvnet --subnet mysubnet --lb mylb --backend-pool-name mybackendpool --vm-sku Standard_DS1
+az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username negat --ssh-key-value /home/myuser/.ssh/id_rsa.pub --upgrade-policy-mode Automatic --instance-count 3 --vnet-name myvnet --subnet mysubnet --lb mylb --backend-pool-name mybackendpool
 
 ```
 
+## <a name="create-a-scale-set-that-references-an-application-gateway"></a>创建引用应用程序网关的规模集
+若要创建使用应用程序网关的规模集，请在规模集的 ipConfigurations 节中引用应用程序网关的后端地址池，如此 ARM 模板配置所示：
+```json
+"ipConfigurations": [{
+  "name": "{config-name}",
+  "properties": {
+  "subnet": {
+    "id": "{subnet-id}"
+  },
+  "ApplicationGatewayBackendAddressPools": [{
+    "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/applicationGateways/{gateway-name}/backendAddressPools/{pool-name}"
+  }]
+}]
+```
+
+>[!NOTE]
+> 请注意，应用程序网关必须与规模集在同一虚拟网络中，但必须与规模集在不同子网中。
+
+
 ## <a name="configurable-dns-settings"></a>可配置的 DNS 设置
 默认情况下，规模集采用其创建时所在的 VNET 和子网的特定 DNS 设置。 但是，可以直接配置规模集的 DNS 设置。
-~
+
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>通过可配置的 DNS 服务器创建规模集
 若要通过 CLI 2.0 使用自定义 DNS 配置创建规模集，请将 **--dns-servers** 参数添加到 **vmss create** 命令中，后接空格分隔的服务器 IP 地址。 例如：
 ```bash
@@ -147,7 +167,7 @@ PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 使用 **2017-03-30** 版或更高版 Azure REST API 查询分配到规模集虚拟机的公共 IP 地址。
 
 ## <a name="multiple-ip-addresses-per-nic"></a>每个 NIC 多个 IP 地址
-在规模集中，附加到 VM 的每个 NIC 可以有一个或多个关联的 IP 配置。 每个配置分配有一个专用 IP 地址。 每个配置还可以有一个关联的公共 IP 地址资源。 若要了解可以为一个 NIC 分配多少个 IP 地址，以及可以在一个 Azure 订阅中使用多少个公共 IP 地址，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
+在规模集中，附加到 VM 的每个 NIC 可以有一个或多个关联的 IP 配置。 每个配置分配有一个专用 IP 地址。 每个配置还可以有一个关联的公共 IP 地址资源。 若要了解可以为一个 NIC 分配多少个 IP 地址，以及可以在一个 Azure 订阅中使用多少个公共 IP 地址，请参阅 [Azure 限制](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)。
 
 ## <a name="multiple-nics-per-virtual-machine"></a>每个虚拟机多个 NIC
 每个虚拟机最多可以有 8 个 NIC，具体取决于虚拟机大小。 若要了解每个虚拟机的最大 NIC 数，请参阅 [VM 大小](../virtual-machines/windows/sizes.md)一文。 以下示例为规模集网络配置文件，显示每个虚拟机有多个 NIC 条目和多个公共 IP：
@@ -265,4 +285,3 @@ PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ## <a name="next-steps"></a>后续步骤
 有关 Azure 虚拟网络的详细信息，请参阅 [Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
 
-<!-- Update_Description: wording update -->

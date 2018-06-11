@@ -16,11 +16,12 @@ ms.topic: article
 origin.date: 10/13/2017
 ms.date: 04/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 72584c81226e15ab8eedf391656c34cf6f13024b
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.openlocfilehash: 944b9185d16b3dce39379b5cf7e4d07c86600fa5
+ms.sourcegitcommit: a63d392037f3eca3196026c500ac7d2d26d85a7c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35253161"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>在虚拟机规模集上部署应用程序
 若要在规模集中的虚拟机 (VM) 实例上运行应用程序，首先需要安装应用程序组件和所需文件。 本文介绍如何为规模集中的实例生成自定义 VM 映像，或在现有 VM 实例上自动运行安装脚本。 本文还将介绍如何跨规模集管理应用程序或 OS 更新。
@@ -32,18 +33,18 @@ ms.lasthandoff: 05/03/2018
 若要减少配置管理和预配 VM 的时间，可以创建自定义 VM 映像，使其在规模集中预配实例后立即准备好运行应用程序。 若要深入了解如何通过规模集创建和使用自定义 VM 映像，请参阅以下教程：
 
 - [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
-- [Azure PowerShell](quick-create-powershell.md)
+- [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="already-provisioned"></a>使用自定义脚本扩展安装应用
 自定义脚本扩展在 Azure VM 上下载和执行脚本。 此扩展适用于部署后配置、软件安装或其他任何配置/管理任务。 可以从 Azure 存储或 GitHub 下载脚本，或者在扩展运行时将脚本提供给 Azure 门户。 若要深入了解如何通过规模集创建和使用自定义 VM 映像，请参阅以下教程：
 
 - [Azure CLI 2.0](tutorial-install-apps-cli.md)
-- [Azure PowerShell](quick-create-powershell.md)
+- [Azure PowerShell](tutorial-install-apps-powershell.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>使用 PowerShell DSC 将应用安装到 Windows VM
-[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) 是一个管理平台，用于定义目标计算机的配置。 DSC 配置定义要在计算机上安装的内容，以及如何配置主机。 本地配置管理器 (LCM) 引擎在每个目标节点上运行，此类节点根据推送的配置处理请求的操作。
+[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/powershell/dsc/overview) 是一个管理平台，用于定义目标计算机的配置。 DSC 配置定义要在计算机上安装的内容，以及如何配置主机。 本地配置管理器 (LCM) 引擎在每个目标节点上运行，此类节点根据推送的配置处理请求的操作。
 
 通过 PowerShell DSC 扩展，可使用 PowerShell 在规模集中自定义 VM 实例。 以下示例：
 
@@ -119,4 +120,4 @@ az vmss create \
 ## <a name="next-steps"></a>后续步骤
 生成应用程序并将其部署到规模集时，可参阅[规模集设计概述](virtual-machine-scale-sets-design-overview.md)。 若要深入了解如何管理规模集，请参阅[使用 PowerShell 管理规模集](virtual-machine-scale-sets-windows-manage.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

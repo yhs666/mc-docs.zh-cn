@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 11/20/2017
-ms.date: 05/16/2018
+origin.date: 05/10/2018
+ms.date: 06/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: ea8ed304731694755ee0c4310408fe0c54beefb4
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 1f69ebe3824a6da45e78efcfa9821d5ac80999e6
+ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35253369"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure 密钥保管库入门
 本文有助于使用 PowerShell 完成 Azure Key Vault 入门，并详细介绍如何完成以下活动：
@@ -50,10 +51,10 @@ ms.lasthandoff: 05/17/2018
 Get-Help <cmdlet-name> -Detailed
 ```
     
-例如，若要获取有关 **Login-AzureRmAccount** cmdlet 的帮助，请输入：
+例如，若要获取有关 **Connect-AzureRmAccount** cmdlet 的帮助，请键入：
 
 ```PowerShell
-Get-Help Login-AzureRmAccount -Detailed
+Get-Help Connect-AzureRmAccount -Detailed
 ```
 
 还可阅读以下文章，熟悉 Azure PowerShell 中的 Azure 资源管理器部署模型：
@@ -65,7 +66,7 @@ Get-Help Login-AzureRmAccount -Detailed
 启动 Azure PowerShell 会话，并使用以下命令登录用户的 Azure 帐户：  
 
 ```PowerShell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
 
 
@@ -290,6 +291,5 @@ Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 - 有关在 web 应用程序中使用 Azure Key Vault 的后续教程，请参阅[从 Web 应用程序使用 Azure Key Vault](key-vault-use-from-web-application.md)。
 - 有关编程参考，请参阅 [Azure 密钥保管库开发人员指南](key-vault-developers-guide.md)。
 - 有关 Azure Key Vault 的最新 Azure PowerShell cmdlet 列表，请参阅 [Azure Key Vault Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.keyvault/#key_vault)。
-<!-- Update_Description: wording update -->
 
 <!-- Update_Description: wording update -->

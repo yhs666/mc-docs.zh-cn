@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/12/2017
-ms.date: 04/26/2018
+ms.date: 06/08/2018
 ms.author: v-junlch
 ms.custom: na
-ms.openlocfilehash: bcbce2b44c38dd297174efaa4cdd9cbcafc7183a
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: c4a7a319ad18a5592946e67235605cbeeaaa298c
+ms.sourcegitcommit: a63d392037f3eca3196026c500ac7d2d26d85a7c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35253186"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虚拟机规模集常见问题解答
 
@@ -437,9 +438,9 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
 
 如果对现有 VM 执行服务修复，这种行为类似于重新启动，因此不会重新运行扩展。 如果重置映像，则类似于将 OS 驱动器替换为源映像。 在这种情况下，将运行最新模型中的任何专用设置（如扩展）。
  
-### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-azure-ad-domain"></a>如何将虚拟机规模集加入到 Azure AD 域？
+### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>如何将虚拟机规模集加入到 Active Directory 域？
 
-要将虚拟机规模集加入到 Azure Active Directory (Azure AD) 域，可以定义一个扩展。 
+若要将虚拟机规模集加入到 Active Directory (AD) 域，可以定义扩展。 
 
 若要定义扩展，请使用 JsonADDomainExtension 属性：
 

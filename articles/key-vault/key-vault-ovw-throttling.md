@@ -1,17 +1,24 @@
 ---
-ms.assetid: 
-title: "Azure Key Vault 限制指南 | Microsoft Docs"
-ms.service: key-vault
+title: Azure Key Vault 限制指南
+description: Key Vault 限制可限制并发调用数，以防止过度使用资源。
+services: key-vault
+documentationcenter: ''
 author: lleonard-msft
-ms.author: v-junlch
 manager: mbaldwin
-origin.date: 06/21/2017
-ms.date: 03/04/2018
-ms.openlocfilehash: 8bbb6ded7267718976c7f5e02e4ccbbdb45a20c4
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+tags: ''
+ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
+ms.service: key-vault
+ms.workload: identity
+ms.topic: article
+origin.date: 05/10/2018
+ms.date: 06/11/2018
+ms.author: v-junlch
+ms.openlocfilehash: e562cd82b74377efa582fc3bd666640cca7999ec
+ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35253372"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 限制指南
 
@@ -48,8 +55,4 @@ Key Vault 中的服务限制用于防止资源滥用，确保所有 Key Vault �
 
 此时，应不会收到 HTTP 429 响应代码。
 
-## <a name="see-also"></a>另请参阅
-
-若要深入了解 Microsoft 云中的限制，请参阅[限制模式](https://docs.microsoft.com/azure/architecture/patterns/throttling)。
-
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

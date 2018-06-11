@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 01/07/2017
-ms.date: 05/16/2018
+origin.date: 05/10/2017
+ms.date: 06/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: b6be28940056ded0a538ad16485937155df6882a
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 503331ebc3689279b94e8e30ff48c39faa737ca5
+ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35253376"
 ---
 # <a name="secure-your-key-vault"></a>保护密钥保管库
 Azure Key Vault 是一种云服务，用于保护云应用程序的加密密钥和机密（例如证书、连接字符串、密码）。 因为此数据是敏感数据和业务关键数据，会希望保护对密钥保管库的访问，以便只有得到授权的应用程序和用户可以访问密钥保管库。 本文概述密钥保管库访问模型，介绍身份验证和授权，并举例说明如何保护对云应用程序密钥保管库的访问。
@@ -198,7 +199,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 
 具有“部署/操作”权限的开发人员/操作员的自定义角色分配的范围限定为资源组。 这样，只有在资源组 "ContosoAppRG" 中创建的 VM 才能获取机密（SSL 证书和启动证书）。 开发/操作团队成员在其他资源组中创建的任何 VM 都无法获取这些机密，即使它们知道机密 URI。
 
-本示例描绘了一个简单方案。 现实的方案可能更复杂，需要你根据需求调整对密钥保管库的权限。 例如，在本示例中，假设安全团队将提供开发人员/操作员团队需要用来在其应用程序中进行引用的密钥和机密引用（URI 和指纹）。 这样，它们便无需向开发人员/操作员授予任何数据平面访问权限。 此外，还请注意本示例重点介绍对密钥保管库的保护。 应对类似的情形予以考虑，以保护 [VM](/virtual-machines)、[存储帐户](../storage/common/storage-security-guide.md)和其他 Azure 资源。
+本示例描绘了一个简单方案。 现实的方案可能更复杂，需要你根据需求调整对密钥保管库的权限。 例如，在本示例中，假设安全团队将提供开发人员/操作员团队需要用来在其应用程序中进行引用的密钥和机密引用（URI 和指纹）。 这样，它们便无需向开发人员/操作员授予任何数据平面访问权限。 此外，还请注意本示例重点介绍对密钥保管库的保护。 应对类似的情形予以考虑，以保护 [VM](https://www.azure.cn/home/features/virtual-machines/)、[存储帐户](../storage/common/storage-security-guide.md)和其他 Azure 资源。
 
 > [!NOTE]
 > 注意：本示例演示如何在生产环境中锁定密钥保管库访问权限。 开发人员应该获取自己的、拥有完全权限的订阅或资源组，以便能够管理用于开发应用程序的保管库、VM 和存储帐户。
@@ -251,4 +252,4 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 如果在密钥保管库方面有任何问题，请访问 [Azure 密钥保管库论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

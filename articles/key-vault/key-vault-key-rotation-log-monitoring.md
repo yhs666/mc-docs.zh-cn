@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/01/2018
-ms.date: 04/02/2018
+ms.date: 06/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: e5f785595faa588e38142529fca6b0757af76818
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 5ef0b4c7f807a2a1d7a763f144d44a78669c8d30
+ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35253365"
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>使用端到端密钥轮替和审核设置 Azure Key Vault
 ## <a name="introduction"></a>简介
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/09/2018
 要使应用程序能够从 Key Vault 检索机密，必须先创建机密并将其上传到保管库。 可通过以下方式实现此目的：启动 Azure PowerShell 会话，并使用以下命令登录用户的 Azure 帐户：
 
 ```powershell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
 
 在弹出的浏览器窗口中，输入 Azure 帐户用户名和密码。 PowerShell 会获取与此帐户关联的所有订阅。 PowerShell 默认使用第一个订阅。
@@ -192,7 +193,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Add-AzureRmAccount -EnvironmentName AzureChinaCloud `
+    Connect-AzureRmAccount -Environment AzureChinaCloud`
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -227,4 +228,4 @@ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Secre
 
 在编辑器窗格中，选择“测试窗格”测试脚本。 正常运行脚本后，可以选择“发布”，并返回 Runbook 的配置窗格以应用 Runbook 的计划。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

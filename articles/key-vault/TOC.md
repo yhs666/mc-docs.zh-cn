@@ -1,27 +1,29 @@
-# [Key Vault 文档](index.md)
+# [Key Vault 文档](index.yml)
 
 # 概述
-## [什么是 Key Vault？](key-vault-whatis.md)
-## [服务概述](https://www.azure.cn/home/features/key-vault/)
+## [关于 Key Vault](key-vault-overview.md)
 
-# 入门
+# 快速入门
+## [创建 Key Vault - CLI](quick-create-cli.md)
+## [创建 Key Vault - PowerShell](quick-create-powershell.md)
+## [创建 Key Vault - 门户](quick-create-portal.md)
+
+# 教程
+## [从 Key Vault 读取机密](tutorial-web-application-keyvault.md)
 ## [Key Vault 入门](key-vault-get-started.md)
 ## [设置密钥轮换和审核](key-vault-key-rotation-log-monitoring.md)
 ## [从 Web 应用使用 Key Vault](key-vault-use-from-web-application.md)
+# 示例
+## [代码示例](https://azure.microsoft.com/resources/samples/?service=key-vault)
+# 概念
+## [什么是 Key Vault？](key-vault-whatis.md)
+## [安全体系](key-vault-ovw-security-worlds.md)
+## [软删除](key-vault-ovw-soft-delete.md)
+## [存储帐户密钥](key-vault-ovw-storage-keys.md)
+## [限制](key-vault-ovw-throttling.md)
 
-# 如何
-## 开发
-### [Key Vault 开发人员指南](key-vault-developers-guide.md)
-### [服务限制](key-vault-service-limits.md)
-### [迁移到 .NET 2.0](key-vault-dotnet2api-release-notes.md)
-### [保存 Web 应用机密](vs-secure-secret-appsettings.md)
 
-### 概述
-#### [安全体系](key-vault-ovw-security-worlds.md)
-#### [软删除](key-vault-ovw-soft-delete.md)
-#### [存储帐户密钥](key-vault-ovw-storage-keys.md)
-#### [限制](key-vault-ovw-throttling.md)
-
+# 操作指南
 ## 管理
 ### [防火墙后的访问](key-vault-access-behind-firewall.md)
 ### [可用性和冗余性](key-vault-disaster-recovery-guidance.md)
@@ -45,18 +47,32 @@
 ### [保管库管理](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 ### [保管库内容管理](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
 ## [REST](https://docs.microsoft.com/rest/api/keyvault)
-
-# 相关内容
-## [Azure Active Directory](/active-directory/)
-## [Azure Rights Management](https://technet.microsoft.com/en-US/dn175750)
-## [Extensible key management using Key Vault](https://msdn.microsoft.com/en-us/library/azure/dn198405)
-## [多重身份验证](/multi-factor-authentication/)
+## 开发
+### [开发人员快速入门视频](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)
+### [Key Vault 开发人员指南](key-vault-developers-guide.md)
+### [服务限制](key-vault-service-limits.md)
+### [迁移到 .NET 2.0](key-vault-dotnet2api-release-notes.md)
+### [保存 Web 应用机密](vs-secure-secret-appsettings.md)
+### 使用 Visual Studio
+#### [使用 Key Vault 连接服务](vs-key-vault-add-connected-service.md)
+#### [ASP.NET 项目入门](vs-key-vault-aspnet-get-started.md)
+#### [我的 ASP.NET 项目发生了什么情况？](vs-key-vault-aspnet-what-happened.md)
+#### [ASP.NET Core 项目入门](vs-key-vault-aspnet-core-get-started.md)
+#### [我的 ASP.NET Core 项目发生了什么情况？](vs-key-vault-aspnet-core-what-happened.md)
 
 # 资源
-## [关于键、密钥和证书](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
+## [服务概述](https://www.azure.cn/home/features/key-vault/)
+## [关于键、机密和证书](about-keys-secrets-and-certificates.md)
+### [证书入门](certificate-scenarios.md)
+### [证书创建方法](create-certificate.md)
+### [监视和管理证书创建](create-certificate-scenarios.md)
+## [身份验证、请求和响应](authentication-requests-and-responses.md)
+## [客户数据功能](key-vault-customer-data.md)
+## [常见参数和标头](common-parameters-and-headers.md)
+## [Key Vault 版本](key-vault-versions.md)
 ## [博客](http://blogs.technet.com/b/kv/)
-## [代码示例](https://www.microsoft.com/download/details.aspx?id=45343)
-## [论坛](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
+## [代码示例](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault&type=&language=)
+## [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 ## [价格](https://www.azure.cn/pricing/details/key-vault/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 

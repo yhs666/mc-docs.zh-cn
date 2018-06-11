@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/14/2018
-ms.date: 04/26/2018
+ms.date: 06/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3d5e0ed6670d544bed1a1fde0bf449349c40949c
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 0a6ffe6691ef30a25e680319ce2c71b7ddee55a2
+ms.sourcegitcommit: a63d392037f3eca3196026c500ac7d2d26d85a7c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35253179"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>修改虚拟机规模集
 在应用程序的整个生命周期内，你可能需要修改或更新你的虚拟机规模集。 这些更新可能包括更新规模集的配置，或更改应用程序配置。 本文介绍了如何使用 REST API、Azure PowerShell 或 Azure CLI 2.0 修改现有规模集。
@@ -62,7 +63,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
   "sku": {
     "additionalProperties": {},
     "capacity": 1,
-    "name": "Standard_DS1",
+    "name": "Standard_D2_v2",
     "tier": "Standard"
   },
 }
@@ -156,7 +157,7 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
   "location": "chinanorth",
   "name": "{name}",
   "sku": {
-    "name": "Standard_DS1",
+    "name": "Standard_D2_v2",
     "tier": "Standard"
   },
 }
@@ -374,12 +375,12 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 通过自定义映像来部署应用程序也很常见。 以下部分介绍此情景。
 
 ### <a name="os-updates"></a>操作系统更新
-如果使用 Azure 平台映像，可以通过修改 *imageReference* 来更新映像（有关详细信息，请参阅 [REST API 文档](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)）。
+如果使用 Azure 平台映像，可以通过修改 *imageReference* 来更新映像（有关详细信息，请参阅 [REST API 文档](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)）。
 
 >[!NOTE]
 > 使用平台映像时，通常指定 "latest" 作为映像引用版本。 在你执行创建、横向扩展和重置映像操作时，将使用最新发布的脚本创建 VM。 但是，这**并不**意味着 OS 映像会随新映像版本的发布自动进行更新。 当前处于预览版状态的一个独立功能提供了自动 OS 升级功能。
 
-如果使用自定义映像，可以通过更新 *imageReference* ID 来更新映像（有关详细信息，请参阅 [REST API 文档](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)）。
+如果使用自定义映像，可以通过更新 *imageReference* ID 来更新映像（有关详细信息，请参阅 [REST API 文档](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)）。
 
 ## <a name="examples"></a>示例
 
@@ -438,4 +439,4 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 ## <a name="next-steps"></a>后续步骤
 还可以使用 [Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md) 或 [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md) 对规模集执行常见管理任务。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

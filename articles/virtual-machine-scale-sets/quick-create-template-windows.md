@@ -15,20 +15,21 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 03/27/18
-ms.date: 04/24/2018
+ms.date: 06/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8f3bb1ad59f951f97cf70b15fa857b476c215c86
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 4598703b49d52a75600a839332bf7796f0f763f9
+ms.sourcegitcommit: a63d392037f3eca3196026c500ac7d2d26d85a7c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35253180"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>快速入门：使用 Azure 模板创建 Windows 虚拟机规模集
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则，以便根据资源使用情况（如 CPU 使用率、内存需求或网络流量）进行自动缩放。 然后，Azure 负载均衡器会将流量分配到规模集中的 VM 实例。 在本快速入门中，我们将使用 Azure 资源管理器模板创建虚拟机规模集并部署一个示例应用程序。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块版本 5.5.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块版本 5.5.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
 
 
 ## <a name="define-a-scale-set-in-a-template"></a>在模板中定义规模集
@@ -186,3 +187,4 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 > [!div class="nextstepaction"]
 > [创建和管理 Azure 虚拟机规模集](tutorial-create-and-manage-powershell.md)
 
+<!-- Update_Description: code update -->

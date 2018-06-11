@@ -13,17 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 03/27/2018
-ms.date: 04/24/2018
+origin.date: 05/18/2018
+ms.date: 06/11/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 62bba2c55fa7abc71e29ca2aa21c870ac6df01b0
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 832a20dd080e38ce78bd76e41b5f398afccd131c
+ms.sourcegitcommit: a63d392037f3eca3196026c500ac7d2d26d85a7c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35253178"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>教程：使用 Azure CLI 2.0 自动缩放虚拟机规模集
+
 创建规模集时，可定义想运行的 VM 实例数。 若应用程序需要更改，可自动增加或减少 VM 实例数。 通过自动缩放功能，可随客户需求的改变而进行调整，或在应用的整个生命周期内响应应用程序性能更改。 本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
@@ -34,210 +36,82 @@ ms.lasthandoff: 04/28/2018
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-如果选择在本地安装和使用 CLI，本教程要求运行 Azure CLI 2.0.29 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
-
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.32 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
 
 ## <a name="create-a-scale-set"></a>创建规模集
-为了更好地创建自动缩放规则，可以为订阅 ID、资源组和规模集名称以及位置定义一些参数：
-
-```azurecli
-sub=$(az account show --query id -o tsv)
-resourcegroup_name="myResourceGroup"
-scaleset_name="myScaleSet"
-location_name="chinanorth"
-```
 
 使用 [az group create](/cli/group#create) 创建资源组，如下所示：
 
 ```azurecli
-az group create --name $resourcegroup_name --location $location_name
+az group create --name myResourceGroup --location chinanorth
 ```
 
 现在，使用 [az vmss create](/cli/vmss#create) 创建虚拟机规模集。 以下示例创建实例计数为 *2* 的规模集，并生成 SSH 密钥（如果不存在）：
 
 ```azurecli
 az vmss create `
-  --resource-group $resourcegroup_name `
-  --name $scaleset_name `
+  --resource-group myResourceGroup `
+  --name myScaleSet `
   --image UbuntuLTS `
   --upgrade-policy-mode automatic `
   --instance-count 2 `
   --admin-username azureuser `
-  --generate-ssh-keys `
-  --vm-sku Standard_DS1
+  --generate-ssh-keys
 ```
-
 
 ## <a name="define-an-autoscale-profile"></a>定义自动缩放配置文件
-使用 Azure CLI 2.0 将自动缩放规则部署为 JSON（JavaScript 对象表示法）。 让我们看看此自动缩放配置文件的每个部分，然后创建一个完整的示例。
 
-自动缩放配置文件开头定义了默认值、最小规模集容量和最大规模集容量。 以下示例设置了默认值，以及最小容量 2 个 VM 实例、最大容量 10 个 VM：
-
-```json
-{
-  "name": "autoscale rules",
-  "capacity": {
-    "minimum": "2",
-    "maximum": "10",
-    "default": "2"
-  }
-}
-```
-
-
-## <a name="create-a-rule-to-autoscale-out"></a>创建规则，以便自动横向扩展
-如果应用程序需求提高，规模集中 VM 实例上的负载将会增大。 如果这种负载增大持续稳定，而不只是短暂的需求，那么可以配置自动缩放规则来增加规模集中的 VM 实例数。 创建这些 VM 实例及部署应用程序后，规模集会开始通过负载均衡器将流量分配到这些实例和应用程序。 可以控制要监视的指标（例如 CPU 或磁盘）、应用程序负载必须处于给定阈值内的时间，以及要添加到规模集的 VM 实例数。
-
-当平均 CPU 负载在 5 分钟内均超过 70% 时，请创建规则以增加规模集中的 VM 实例数。 触发规则时，VM 实例数增加 3。
-
-此规则使用以下参数：
-
-| 参数         | 说明                                                                                                         | 值           |
-|-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
-| *metricName*      | 监视和应用规模集操作的性能指标。                                                   | CPU 百分比  |
-| *timeGrain*       | 为进行而收集指标分析的频率。                                                                   | 1 分钟        |
-| *timeAggregation* | 定义如何聚合已收集的指标以便分析。                                                | 平均值         |
-| *timeWindow*      | 比较指标与阈值之前监视的时长。                                   | 5 分钟       |
-| *operator*        | 用于比较指标数据和阈值的运算符。                                                     | 大于    |
-| *threshold*       | 使自动缩放规则触发操作的值。                                                      | 70%             |
-| direction       | 定义在应用规则的情况下，规模集应横向缩减还是扩展。                                              | 增加        |
-| *类型*            | 表明 VM 实例数应该根据特定值进行更改。                                    | 更改计数    |
-| value           | 应用规则时应减少或增加多少 VM 实例。                                             | 3               |
-| *cooldown*        | 为使自动缩放操作有时间生效，再次应用规则前需要等待的时间。 | 5 分钟       |
-
-以下示例定义增加 VM 实例数的规则。 metricResourceUri 使用以前为订阅 ID、资源组名称和规模集名称定义的变量：
-
-```json
-{
-  "metricTrigger": {
-    "metricName": "Percentage CPU",
-    "metricNamespace": "",
-    "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'",
-    "metricResourceLocation": "'$location_name'",
-    "timeGrain": "PT1M",
-    "statistic": "Average",
-    "timeWindow": "PT5M",
-    "timeAggregation": "Average",
-    "operator": "GreaterThan",
-    "threshold": 70
-  },
-  "scaleAction": {
-    "direction": "Increase",
-    "type": "ChangeCount",
-    "value": "3",
-    "cooldown": "PT5M"
-  }
-}
-```
-
-
-## <a name="create-a-rule-to-autoscale-in"></a>创建规则，以便自动横向缩减
-在夜间或周末，应用程序需求可能会降低。 如果这种负载降低在一段时间内持续稳定，可以配置自动缩放规则来减少规模集中的 VM 实例数。 这种横向缩减操作可以减少运行规模集所需的成本，因为只运行满足当前需求所需的实例数。
-
-平均 CPU 负载小于 30% 持续了 5 分钟时，请创建另一个规则来减少规模集中的 VM 实例数。 以下示例定义将 VM 实例数减 1 的规则。 metricResourceUri 使用以前为订阅 ID、资源组名称和规模集名称定义的变量：
-
-```json
-{
-  "metricTrigger": {
-    "metricName": "Percentage CPU",
-    "metricNamespace": "",
-    "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'",
-    "metricResourceLocation": "'$location_name'",
-    "timeGrain": "PT1M",
-    "statistic": "Average",
-    "timeWindow": "PT5M",
-    "timeAggregation": "Average",
-    "operator": "LessThan",
-    "threshold": 30
-  },
-  "scaleAction": {
-    "direction": "Decrease",
-    "type": "ChangeCount",
-    "value": "1",
-    "cooldown": "PT5M"
-  }
-}
-```
-
-
-## <a name="apply-autoscale-rules-to-a-scale-set"></a>将自动缩放规则应用于规模集
-最后一步是将自动缩放配置文件和规则应用于规模集。 随后，规模集便能根据应用程序需求自动进行横向扩展或缩减。 按照如下所示，使用 [az monitor autoscale-settings create](/cli/monitor/autoscale-settings#az_monitor_autoscale_settings_create) 应用自动缩放配置文件。 下述完整的 JSON 使用的是先前提到的配置文件和规则：
+若要在规模集上启用自动缩放，首先要定义自动缩放配置文件。 此配置文件定义默认、最小和最大规模集容量。 这些限制可让你通过不继续创建 VM 实例来控制成本，并可使用缩小事件中保留的最小数量的实例均衡可接受的性能。 使用 [az monitor autoscale create](https://docs.microsoft.com/en-us/cli/azure/monitor/autoscale#az-monitor-autoscale-create) 创建自动缩放配置文件。 以下示例设置了默认值，以及最小容量 2 个 VM 实例、最大容量 10 个 VM：
 
 ```azurecli
-az monitor autoscale-settings create \
-    --resource-group $resourcegroup_name \
-    --name autoscale \
-    --parameters '{"autoscale_setting_resource_name": "autoscale",
-      "enabled": true,
-      "location": "'$location_name'",
-      "notifications": [],
-      "profiles": [
-        {
-          "name": "autoscale by percentage based on CPU usage",
-          "capacity": {
-            "minimum": "2",
-            "maximum": "10",
-            "default": "2"
-          },
-          "rules": [
-            {
-              "metricTrigger": {
-                "metricName": "Percentage CPU",
-                "metricNamespace": "",
-                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'",
-                "metricResourceLocation": "'$location_name'",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT5M",
-                "timeAggregation": "Average",
-                "operator": "GreaterThan",
-                "threshold": 70
-              },
-              "scaleAction": {
-                "direction": "Increase",
-                "type": "ChangeCount",
-                "value": "3",
-                "cooldown": "PT5M"
-              }
-            },
-            {
-              "metricTrigger": {
-                "metricName": "Percentage CPU",
-                "metricNamespace": "",
-                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'",
-                "metricResourceLocation": "'$location_name'",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT5M",
-                "timeAggregation": "Average",
-                "operator": "LessThan",
-                "threshold": 30
-              },
-              "scaleAction": {
-                "direction": "Decrease",
-                "type": "ChangeCount",
-                "value": "1",
-                "cooldown": "PT5M"
-              }
-            }
-          ]
-        }
-      ],
-      "tags": {},
-      "target_resource_uri": "/subscriptions/'$sub'/resourceGroups/'$resourcegroup_name'/providers/Microsoft.Compute/virtualMachineScaleSets/'$scaleset_name'"
-    }'
+az monitor autoscale create `
+  --resource-group myResourceGroup `
+  --resource myScaleSet `
+  --resource-type Microsoft.Compute/virtualMachineScaleSets `
+  --name autoscale `
+  --min-count 2 `
+  --max-count 10 `
+  --count 2
 ```
 
+## <a name="create-a-rule-to-autoscale-out"></a>创建规则，以便自动横向扩展
+
+如果应用程序需求提高，规模集中 VM 实例上的负载将会增大。 如果这种负载增大持续稳定，而不只是短暂的需求，那么可以配置自动缩放规则来增加规模集中的 VM 实例数。 创建这些 VM 实例及部署应用程序后，规模集会开始通过负载均衡器将流量分配到这些实例和应用程序。 可以控制要监视的指标（例如 CPU 或磁盘）、应用程序负载必须处于给定阈值内的时间，以及要添加到规模集的 VM 实例数。
+
+让我们使用 [az monitor autoscale rule create](https://docs.microsoft.com/en-us/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create) 创建一个规则，当平均 CPU 负载在 5 分钟内超过 70% 时，该规则会增加规模集中的 VM 实例数。 触发规则时，VM 实例数增加 3。
+
+```azurecli
+az monitor autoscale rule create `
+  --resource-group myResourceGroup `
+  --autoscale-name autoscale `
+  --condition "Percentage CPU > 70 avg 5m" `
+  --scale out 3
+```
+
+## <a name="create-a-rule-to-autoscale-in"></a>创建规则，以便自动横向缩减
+
+在夜间或周末，应用程序需求可能会降低。 如果这种负载降低在一段时间内持续稳定，可以配置自动缩放规则来减少规模集中的 VM 实例数。 这种横向缩减操作可以减少运行规模集所需的成本，因为只运行满足当前需求所需的实例数。
+
+让我们使用 [az monitor autoscale rule create](https://docs.microsoft.com/en-us/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create) 创建另一个规则，当平均 CPU 负载随后在 5 分钟内低于 30% 时，该规则会减少规模集中的 VM 实例数。 以下示例定义将 VM 实例数减 1 的规则：
+
+```azurecli
+az monitor autoscale rule create `
+  --resource-group myResourceGroup `
+  --autoscale-name autoscale `
+  --condition "Percentage CPU < 30 avg 5m" `
+  --scale in 1
+```
 
 ## <a name="generate-cpu-load-on-scale-set"></a>在规模集上生成 CPU 负载
+
 若要测试自动缩放规则，请在规模集的 VM 实例上生成一些 CPU 负载。 这种模拟的 CPU 负载会导致自动缩放以横向扩展的方式增加 VM 实例数。 随着模拟的 CPU 负载下降，自动缩放规则会进行横向缩减，减少 VM 实例数。
 
 首先，请使用 [az vmss list-instance-connection-info](/cli/vmss#az_vmss_list_instance_connection_info) 列出用于连接到规模集中的 VM 实例的地址和端口：
 
 ```azurecli
-az vmss list-instance-connection-info \
-  --resource-group $resourcegroup_name \
-  --name $scaleset_name
+az vmss list-instance-connection-info `
+  --resource-group myResourceGroup `
+  --name myScaleSet
 ```
 
 以下示例输出显示了实例名称、负载均衡器的公共 IP 地址，以及可以通过网络地址转换 (NAT) 规则将流量转发到的端口号：
@@ -299,12 +173,13 @@ exit
 ```
 
 ## <a name="monitor-the-active-autoscale-rules"></a>监视活动的自动缩放规则
+
 若要监视规模集中的 VM 实例数，请使用 **watch**。 自动缩放规则需要 5 分钟的时间才能开始横向扩展过程，以便响应由每个 VM 实例上的 **stress** 生成的 CPU 负载：
 
 ```azurecli
-watch az vmss list-instances \
-  --resource-group $resourcegroup_name \
-  --name $scaleset_name \
+watch az vmss list-instances `
+  --resource-group myResourceGroup `
+  --name myScaleSet `
   --output table
 ```
 
@@ -315,31 +190,31 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
 
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
 ------------  --------------------  ----------  ------------  -------------------  ---------------  ------------------------------------
-           1  True                  chinanorth      myScaleSet_1  Succeeded            MYRESOURCEGROUP  4f92f350-2b68-464f-8a01-e5e590557955
-           2  True                  chinanorth      myScaleSet_2  Succeeded            MYRESOURCEGROUP  d734cd3d-fb38-4302-817c-cfe35655d48e
-           4  True                  chinanorth      myScaleSet_4  Creating             MYRESOURCEGROUP  061b4c90-0d73-49fc-a066-19eab0b3d95c
-           5  True                  chinanorth      myScaleSet_5  Creating             MYRESOURCEGROUP  4beff8b9-4e65-40cb-9652-43899309da27
-           6  True                  chinanorth      myScaleSet_6  Creating             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
+           1  True                  chinanorth      myScaleSet_1  Succeeded            myResourceGroup  4f92f350-2b68-464f-8a01-e5e590557955
+           2  True                  chinanorth      myScaleSet_2  Succeeded            myResourceGroup  d734cd3d-fb38-4302-817c-cfe35655d48e
+           4  True                  chinanorth      myScaleSet_4  Creating             myResourceGroup  061b4c90-0d73-49fc-a066-19eab0b3d95c
+           5  True                  chinanorth      myScaleSet_5  Creating             myResourceGroup  4beff8b9-4e65-40cb-9652-43899309da27
+           6  True                  chinanorth      myScaleSet_6  Creating             myResourceGroup  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
 当 **stress** 在初始 VM 实例上停止后，平均 CPU 负载会回到正常。 另一个 5 分钟后，自动缩放规则会缩减 VM 实例数。 横向缩减操作会首先删除 ID 值最高的 VM 实例。 如果规模集使用可用性集或可用性区域，则缩减操作将均匀分布到这些 VM 实例上。 以下示例输出显示，在规模集进行自动横向缩减时删除了一个 VM 实例：
 
 ```bash
-           6  True                  chinanorth      myScaleSet_6  Deleting             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
+           6  True                  chinanorth      myScaleSet_6  Deleting             myResourceGroup  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
 使用 `Ctrl-c` 退出 *watch*。 规模集继续每 5 分钟横向缩减一次，每次删除一个 VM 实例，直至达到最小实例计数 2。
 
-
 ## <a name="clean-up-resources"></a>清理资源
+
 若要删除规模集和其他资源，请使用 [az group delete](/cli/group#az_group_delete) 删除资源组及其所有资源。 `--no-wait` 参数会使光标返回提示符处，不会等待操作完成。 `--yes` 参数将确认是否希望删除资源，不会显示询问是否删除的额外提示。
 
 ```azurecli
-az group delete --name $resourcegroup_name --yes --no-wait
+az group delete --name myResourceGroup --yes --no-wait
 ```
 
-
 ## <a name="next-steps"></a>后续步骤
+
 本教程介绍了如何使用 Azure CLI 2.0 自动进行规模集的横向缩减或扩展：
 
 > [!div class="checklist"]
@@ -353,3 +228,4 @@ az group delete --name $resourcegroup_name --yes --no-wait
 > [!div class="nextstepaction"]
 > [适用于 Azure CLI 2.0 的规模集脚本示例](cli-samples.md)
 
+<!-- Update_Description: wording update -->

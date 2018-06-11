@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 03/27/2018
-ms.date: 04/28/2018
+ms.date: 06/08/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 0416d8ed30a91e86dec1531e18d832d6202e308e
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.openlocfilehash: 10298b3966919aca46d35598ce56f748a927c5f3
+ms.sourcegitcommit: a63d392037f3eca3196026c500ac7d2d26d85a7c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35253183"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>教程：通过 Azure PowerShell 对虚拟机规模集创建和使用磁盘
 虚拟机规模集使用磁盘来存储 VM 实例的操作系统、应用程序和数据。 创建和管理规模集时，请务必选择适用于所需工作负荷的磁盘大小和配置。 本教程介绍如何创建和管理 VM 磁盘。 本教程介绍如何执行下列操作：
@@ -35,7 +36,7 @@ ms.lasthandoff: 05/03/2018
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.6.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 6.0.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。 
 
 
 ## <a name="default-azure-disks"></a>默认 Azure 磁盘
@@ -89,7 +90,7 @@ Azure 提供两种类型的磁盘。
 ### <a name="attach-disks-at-scale-set-creation"></a>创建规模集时附加磁盘
 使用 [New-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmss) 创建虚拟机规模集。 出现提示时，请提供 VM 实例的用户名和密码。 若要将流量分配到单独的 VM 实例，则还要创建负载均衡器。 负载均衡器包含的规则可在 TCP 端口 80 上分配流量，并允许 TCP 端口 3389 上的远程桌面流量，以及 TCP 端口 5985 上的 PowerShell 远程流量。
 
-两个磁盘都是 `-DataDiskSizeGb` 参数创建的。 第一个磁盘的大小为 *64* GB，第二个磁盘的大小为 *128* GB：
+两个磁盘都是 `-DataDiskSizeGb` 参数创建的。 第一个磁盘的大小为 *64* GB，第二个磁盘的大小为 *128* GB。 出现提示时，请针对规模集中的 VM 实例提供自己的所需管理凭据：
 
 ```azurepowershell
 New-AzureRmVmss `
@@ -100,8 +101,8 @@ New-AzureRmVmss `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
   -LoadBalancerName "myLoadBalancer" `
-  -UpgradePolicy "Automatic" `
-  -DataDiskSizeGb 64,128
+  -UpgradePolicyMode "Automatic" `
+  -DataDiskSizeInGb 64,128
 ```
 
 创建和配置所有的规模集资源和 VM 实例需要几分钟时间。
@@ -166,7 +167,7 @@ Update-AzureRmVmss `
 
 若要确认磁盘是否已正确地准备好，请通过 RDP 连接到某个 VM 实例。 
 
-首先，使用 [Get-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer) 获取负载均衡器对象。 然后使用 [Get-AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig) 查看入站 NAT 规则： NAT 规则列出了 RDP 侦听的每个 VM 实例的 *FrontendPort*。 最后，使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress) 获取负载均衡器的公共 IP 地址：
+首先，使用 [Get-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer) 获取负载均衡器对象。 然后使用 *Get-AzureRmLoadBalancerInboundNatRuleConfig* 查看入站 NAT 规则： NAT 规则列出了 RDP 侦听的每个 VM 实例的 *FrontendPort*。 最后，使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress) 获取负载均衡器的公共 IP 地址：
 
 ```azurepowershell
 # Get the load balancer object
@@ -315,3 +316,4 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 > [!div class="nextstepaction"]
 > [对规模集 VM 实例使用自定义映像](tutorial-use-custom-image-powershell.md)
 
+<!-- Update_Description: wording update -->

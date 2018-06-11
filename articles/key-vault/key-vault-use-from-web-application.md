@@ -9,14 +9,15 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: article
-origin.date: 09/15/2017
-ms.date: 05/16/2018
+origin.date: 05/10/2018
+ms.date: 06/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: 235f1b274cec2d90a5cc3f29c8b6224a569f2abb
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 13d1e0a40c91da1e194480da3322b16cb3adaf98
+ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35253366"
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>从 Web 应用程序使用 Azure 密钥保管库
 
@@ -154,7 +155,7 @@ pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 
 ### <a name="associate-the-certificate-with-an-azure-ad-application"></a>将证书与 Azure AD 应用程序相关联
 
-现在你已有一个证书，需要将其与 Azure AD 应用程序相关联。 目前，Azure 门户不支持此工作流；可通过 PowerShell 完成此操作。 使用 Azure AD 应用程序运行以下命令，以便关联证书：
+现在你已有一个证书，需要将其与 Azure AD 应用程序相关联。 目前，Azure 门户不支持此工作流；可通过 PowerShell 完成此操作。 运行以下命令，将该证书与 Azure AD 应用程序相关联：
 
 ```ps
 $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
