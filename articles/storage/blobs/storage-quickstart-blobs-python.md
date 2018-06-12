@@ -1,5 +1,5 @@
 ---
-title: Azure 快速入门 - 使用 Python 在对象存储中创建 blob | Microsoft Docs
+title: Azure 快速入门 - 使用 Python 在对象存储中创建 Blob | Azure
 description: 本快速入门将在对象 (Blob) 存储中创建存储帐户和容器。 然后，使用适用于 Python 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
 author: forester123
@@ -8,13 +8,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 04/09/2018
-ms.date: 05/07/2018
-ms.author: v-johch
-ms.openlocfilehash: a927965fd02d67487f504f3aa5e9f22aed8abbed
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/11/2018
+ms.author: v-nany
+ms.openlocfilehash: 07d5972e89a2a8ccd8cfddaf975025dc33495f88
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867449"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>快速入门：使用 Python 上传、下载和列出 Blob
 
@@ -183,6 +184,5 @@ os.remove(full_path_to_file2)
 > [!div class="nextstepaction"]
 > [Blob 存储操作说明](./storage-python-how-to-use-blob-storage.md)
  
-
-若要详细了解存储资源管理器和 Blob，请参阅[使用存储资源管理器管理 Azure Blob 存储资源](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+若要详细了解存储资源管理器和 Blob，请参阅[使用存储资源管理器管理 Azure Blob 存储资源](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fstorage%2fblobs%2ftoc.json)。
 <!--Update_Description: add quick start guide for creating storage account in portal-->

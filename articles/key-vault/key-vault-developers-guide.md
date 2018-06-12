@@ -1,6 +1,6 @@
 ---
-title: "Azure 密钥保管库开发人员指南"
-description: "开发人员可以使用 Azure 密钥保管库来管理 Azure 环境中的加密密钥。"
+title: Azure 密钥保管库开发人员指南
+description: 开发人员可以使用 Azure 密钥保管库来管理 Azure 环境中的加密密钥。
 services: key-vault
 author: lleonard-msft
 manager: mbaldwin
@@ -8,13 +8,14 @@ ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 origin.date: 10/12/2017
-ms.date: 03/04/2018
+ms.date: 06/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7f759679bb8374b79ad94aa5934d1176b51941cc
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: b1b148c5021acdc9b9c374c82b3947e846d7ad15
+ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35253378"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 密钥保管库开发人员指南
 
@@ -40,6 +41,17 @@ ms.lasthandoff: 03/08/2018
 
 有关新存储帐户密钥功能的详细信息，请参阅 [Azure Key Vault 存储帐户密钥概述](key-vault-ovw-storage-keys.md)。
 
+## <a name="videos"></a>视频
+
+此视频介绍如何创建自己的密钥保管库以及如何使用从“Hello Key Vault”示例应用程序使用它。
+
+- [Key Vault 开发人员 - 快速入门指南](https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player)
+
+上述视频中提到的资源：
+
+- [Azure PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
+- [Azure 密钥保管库代码示例](http://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
+
 ## <a name="creating-and-managing-key-vaults"></a>创建和管理密钥保管库
 
 虽然 Azure Key Vault 可用于安全存储凭据以及其他密钥和机密，但代码需要通过 Key Vault 的身份验证才能检索它们。  
@@ -50,7 +62,7 @@ ms.lasthandoff: 03/08/2018
 
 - [使用 CLI 创建和管理 Key Vault](key-vault-manage-with-cli2.md)
 - [使用 PowerShell 创建和管理 Key Vault](key-vault-get-started.md)
-- [通过 Azure Resource Manager 模板创建密钥保管库并添加机密](../azure-resource-manager/resource-manager-template-keyvault.md)
+- 通过 Azure 资源管理器模板创建密钥保管库并添加机密
 - [使用 REST 创建和管理 Key Vault](https://docs.microsoft.com/rest/api/keyvault/)
 
 
@@ -97,7 +109,7 @@ ms.lasthandoff: 03/08/2018
 ### <a name="quick-start-guides"></a>快速入门指南
 
 - [Create Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)（创建 Key Vault）
-- [Getting started with Key Vault in Node.js](https://azure.microsoft.com/en-us/resources/samples/key-vault-node-getting-started/)（Node.js 中的 Key Vault 入门）
+- [Getting started with Key Vault in Node.js](https://azure.microsoft.com/resources/samples/key-vault-node-getting-started/)（Node.js 中的 Key Vault 入门）
 
 ### <a name="code-examples"></a>代码示例
 
@@ -145,6 +157,6 @@ ms.lasthandoff: 03/08/2018
 - [Azure Key Vault 核心库](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core)提供 IKey 和 IKeyResolver 接口，用于通过标识符查找密钥，以及使用密钥执行操作。
 - [Azure 密钥保管库扩展](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) 为 Azure 密钥保管库提供了扩展功能。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->
 
 

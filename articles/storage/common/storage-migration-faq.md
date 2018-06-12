@@ -1,6 +1,6 @@
 ---
-title: "Azure 存储迁移常见问题解答 | Microsoft 文档"
-description: "有关迁移 Azure 存储的常见问题解答"
+title: Azure 存储迁移常见问题解答 | Azure
+description: 有关迁移 Azure 存储的常见问题解答
 services: storage
 documentationcenter: na
 author: yunan2016
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-origin.date: 11/16/2017
-ms.date: 3/5/2018
+origin.date: 05/11/2018
+ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: dd8bcaf7257117dda700be70efc158bfec75e136
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 595ff609aaa5728f613780ff4a132e00a8987a4a
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867518"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>有关 Azure 存储迁移的常见问题
 
@@ -76,7 +77,7 @@ AzCopy 将使用[复制 Blob API](https://docs.microsoft.com/rest/api/storageser
 
 1.  在目标 blob 中创建容器（文件夹）。
 
-2.  使用 [Azcopy](https://azure.microsoft.com/en-us/blog/azcopy-5-1-release/) 将原始 Blob 容器中的内容复制到不同的 Blob 容器。
+2.  使用 [Azcopy](https://azure.microsoft.com/blog/azcopy-5-1-release/) 将原始 Blob 容器中的内容复制到不同的 Blob 容器。
 
 **如何实现创建 PowerShell 脚本以将数据从一个 Azure 文件共享移动到 Azure 存储中的另一个？**
 
@@ -86,7 +87,7 @@ AzCopy 将使用[复制 Blob API](https://docs.microsoft.com/rest/api/storageser
 
 使用 AzCopy 将大型 .csv 文件上传到 Azure 存储。 有关详细信息，请参阅[使用 AzCopy on Windows 传输数据](storage-use-azcopy.md)和[使用 AzCopy on Linux 传输数据](storage-use-azcopy-linux.md)。
 
-**我必须每天将驱动器 D 中的日志移动到我的 Azure 存储帐户。**如何自动执行该操作？
+**我必须每天将驱动器 D 中的日志移动到我的 Azure 存储帐户。** 如何自动执行该操作？
 
 你可以使用 AzCopy，并在任务计划程序中创建任务。 使用 AzCopy 批处理脚本将文件上传到 Azure 存储帐户。 有关详细信息，请参阅[如何配置和运行云服务的启动任务](../../cloud-services/cloud-services-startup-tasks.md)。
 
@@ -129,7 +130,7 @@ AzCopy 将使用[复制 Blob API](https://docs.microsoft.com/rest/api/storageser
 2.  通过运行以下 Azure PowerShell 脚本，将托管磁盘 VHD 从一个区域复制到另一个区域：
 
     ```
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 
     Select-AzureRmSubscription -SubscriptionId <ID>
 
@@ -168,7 +169,7 @@ AzCopy 将使用[复制 Blob API](https://docs.microsoft.com/rest/api/storageser
 
 如何将存储帐户的辅助位置更改为欧洲区域？
 
-创建存储帐户时，可以为帐户选择主要区域。 选择次要区域是根据主要区域确定的且无法更改。 有关详细信息，请参阅 [Azure 存储复制](storage-redundancy.md)。
+创建存储帐户时，可以为帐户选择主要区域。 选择次要区域是根据主要区域确定的且无法更改。 有关详细信息，请参阅[异地冗余存储 (GRS)：Azure 存储的跨区域复制](storage-redundancy.md)。
 
 我在哪里可以获得有关 Azure 存储服务加密 (SSE) 的更多信息？  
   
@@ -298,3 +299,7 @@ AzCopy 安装在什么位置？
 **如何将 Blob 从一个存储帐户复制到另一个存储帐户？**
 
  可以使用我们的 [Blob 迁移脚本](../scripts/storage-common-transfer-between-storage-accounts.md)。
+
+## <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
+
+如果仍需要帮助，可 [联系支持人员](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 来快速解决问题。

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure PowerShell 创建自定义 VM 映像 | Azure
-description: 教程 - 使用 Azure PowerShell 创建自定义 VM 映像。
+title: 教程 - 使用 Azure PowerShell 创建自定义 VM 映像 | Azure
+description: 本教程介绍如何使用 Azure PowerShell 在 Azure 中创建自定义虚拟机映像
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -10,20 +10,21 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 03/27/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0dcb3bf3e2d797689b311aa5efbfda05d05670cf
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 13c9fcd5d31e480680c852ace691cfe4e249ceff
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867797"
 ---
-# <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>使用 PowerShell 创建 Azure VM 的自定义映像
+# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建 Azure VM 的自定义映像
 
 自定义映像类似于应用商店映像，不同的是自定义映像的创建者是你自己。 自定义映像可用于启动配置，例如预加载应用程序、应用程序配置和其他 OS 配置。 在本教程中，你将创建自己的 Azure 虚拟机自定义映像。 你将学习如何：
 
@@ -41,8 +42,7 @@ ms.lasthandoff: 05/17/2018
 若要完成本教程中的示例，必须现有一个虚拟机。 如果需要，此[脚本示例](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)可为你创建一个虚拟机。 按照教程进行操作时，请根据需要替换资源组和 VM 名称。
 
 <!--[!INCLUDE [cloud-shell-try-it.md|cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
-
-如果选择在本地安装并使用 PowerShell，则本教程需要 AzureRM 模块 5.6.0 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
+如果选择在本地安装并使用 PowerShell，则本教程需要 AzureRM 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
 
 ## <a name="prepare-vm"></a>准备 VM
 
@@ -98,7 +98,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
 
 ## <a name="create-vms-from-the-image"></a>从映像创建 VM
 
-现在，你已有了一个映像，可以从该映像创建一个或多个新 VM。 从自定义映像创建 VM 与使用应用商店映像创建 VM 非常相似。 如果使用 Marketplace 映像，需提供有关映像、映像提供程序、产品/服务、SKU 和版本的信息。 使用为 [New-AzureRMVM]() cmdlet 设置的简化参数时，如果自定义映像位于同一资源组中，则只需提供该映像的名称。 
+现在，你已有了一个映像，可以从该映像创建一个或多个新 VM。 从自定义映像创建 VM 与使用 Marketplace 映像创建 VM 很相似。 如果使用 Marketplace 映像，需提供有关映像、映像提供程序、产品/服务、SKU 和版本的信息。 使用为 [New-AzureRMVM]() cmdlet 设置的简化参数时，如果自定义映像位于同一资源组中，则只需提供该映像的名称。 
 
 本示例从“myResourceGroup”中的“myImage”创建名为“myVMfromImage”的 VM。
 

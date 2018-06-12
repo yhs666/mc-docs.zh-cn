@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 11/16/2017
-ms.date: 05/07/2018
+origin.date: 05/02/2017
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: b1c6b7679afe40a83d302f398a2dc3c00577e7eb
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: e385ab3a1aa9becb24fc6ec5ebdb49e7aaabd5c6
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868958"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 地址类型和分配方法
 
@@ -55,11 +56,15 @@ ms.lasthandoff: 05/07/2018
 
 使用以下 SKU 之一创建公共 IP 地址：
 
+>[!IMPORTANT]
+> 必须为负载均衡器和公用 IP 资源使用匹配的 SKU。 不能混合使用基本 SKU 资源和标准 SKU 资源。 无法将独立的虚拟机、可用性集资源中的虚拟机或虚拟机规模集资源同时附加到两个 SKU。  新的设计应当考虑使用标准 SKU 资源。  有关详细信息，请查看[标准负载均衡器](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json)。
+
 #### <a name="basic"></a>基本
 
 推出 SKU 之前创建的所有公共 IP 地址为基本 SKU 公共 IP 地址。 随着 SKU 的推出，可以选择指定公共 IP 地址要采用的 SKU。 基本 SKU 地址为：
 
 - 使用静态或动态分配方法分配。
+- 默认情况下处于打开状态。  建议使用网络安全组来对入站或出站流量进行限制，但这是可选的。
 - 分配到可以采用公共 IP 地址的任何 Azure 资源，例如网络接口、VPN 网关、应用程序网关和面向 Internet 的负载均衡器。
 - 可以分配到特定的区域。
 - 非区域冗余。
@@ -70,7 +75,7 @@ ms.lasthandoff: 05/07/2018
 标准 SKU 公共 IP 地址为：
 
 - 只能使用静态分配方法分配。
-- 分配到网络接口或面向 Internet 的标准负载均衡器。
+- 默认情况下为安全的，并且对入站流量关闭。 必须使用[网络安全组](security-overview.md#network-security-groups)将允许的入站流量显式列入白名单中。
 <!--Not Available - [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
 <!--Not Available - Zone redundant by default. Can be created zonal and guaranteed in a specific availability zone.  To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
 
@@ -81,9 +86,9 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="allocation-method"></a>分配方法
 
-将 IP 地址分配到公共 IP 地址资源有两种方法 - 动态或静态。 默认分配方法为 *动态*，即 **不** 在创建时分配 IP 地址。 公共 IP 地址是在启动（或创建）关联的资源（例如 VM 或负载均衡器）时分配的。 停止（或删除）该资源时，就会释放该 IP 地址。 例如，从资源 A 中释放后，可将该 IP 地址分配到不同的资源。 如果在停止资源 A 的情况下将 IP 地址分配到不同的资源，则重启资源 A 时，会分配一个不同的 IP 地址。
+基本 SKU 公共 IP 地址支持“静态”分配方法。  在创建资源时会为其分配 IP 地址，在删除资源时将释放 IP 地址。
 
-要确保所关联资源的 IP 地址保持不变，可将分配方法显式设置为*静态*。 静态 IP 地址是立即分配的。 只有在删除该资源或将其分配方法更改为“动态”时，才会释放该地址。
+基本 SKU 公用 IP 地址还支持“动态”分配方法，这是未指定分配方法时将采用的默认方法。  为基本的公用 IP 地址资源选择“动态”分配方法意味着在创建资源时“不”分配 IP 地址。  将公用 IP 地址与虚拟机进行关联时或者将第一个虚拟机实例放置到基本负载均衡器的后端池中时，将分配公用 IP 地址。   停止（或删除）该资源时，就会释放该 IP 地址。  例如，从资源 A 中释放后，可将该 IP 地址分配到不同的资源。 如果在停止资源 A 的情况下将 IP 地址分配到不同的资源，则重启资源 A 时，会分配一个不同的 IP 地址。 如果将基本的公用 IP 地址资源的分配方法从“静态”更改为“动态”，则会释放地址。 要确保所关联资源的 IP 地址保持不变，可将分配方法显式设置为*静态*。 静态 IP 地址是立即分配的。
 
 > [!NOTE]
 > 即使将分配方法设置为“静态”，也无法通过指定方式将实际 IP 地址分配到公共 IP 地址资源。 Azure 会从创建资源时所在的 Azure 位置的可用 IP 地址池中分配 IP 地址。
@@ -118,11 +123,11 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="vpn-gateways"></a>VPN 网关
 
-[Azure VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json)将 Azure 虚拟网络连接到其他 Azure 虚拟网络或本地网络。 需将公共 IP 地址分配到 VPN 网关才能与远程网络通信。 只能向 VPN 网关分配动态公共 IP 地址。
+[Azure VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json)将 Azure 虚拟网络连接到其他 Azure 虚拟网络或本地网络。 需将公共 IP 地址分配到 VPN 网关才能与远程网络通信。 只能向 VPN 网关分配”动态”基本的公用 IP 地址。
 
 ### <a name="application-gateways"></a>应用程序网关
 
-将公共 IP 地址分配给网关的**前端**配置可以将其与 Azure [应用程序网关](../application-gateway/application-gateway-introduction.md?toc=%2fvirtual-network%2ftoc.json)相关联。 此公共 IP 地址充当负载均衡型 VIP。 只能将动态公共 IP 地址分配给应用程序网关前端配置。
+将公共 IP 地址分配给网关的**前端**配置可以将其与 Azure [应用程序网关](../application-gateway/application-gateway-introduction.md?toc=%2fvirtual-network%2ftoc.json)相关联。 此公共 IP 地址充当负载均衡型 VIP。 只能将“动态”基本的公用 IP 地址分配给应用程序网关前端配置。
 
 ### <a name="at-a-glance"></a>概览
 下表显示了将公共 IP 地址关联到顶级资源时所依据的特定属性，以及能够使用的可能分配方法（动态或静态）。

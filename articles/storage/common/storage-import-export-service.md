@@ -1,19 +1,20 @@
 ---
-title: 使用 Azure 导入/导出将数据传入/传出 Azure 存储 | Microsoft Docs
+title: 使用 Azure 导入/导出将数据传入/传出 Azure 存储 | Azure
 description: 了解如何在 Azure 门户中创建导入和导出作业，以便将数据传入/传出到 Azure 存储。
-author: forester123
-manager: josefree
+author: yunan2016
+manager: digimobile
 services: storage
 ms.service: storage
 ms.topic: article
 origin.date: 03/22/2018
-ms.date: 05/07/2018
-ms.author: v-johch
-ms.openlocfilehash: 345314c6ba1bdfa29ab0e0348f409880940e876d
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/11/2018
+ms.author: v-nany
+ms.openlocfilehash: 97e44cba953ead8b5c5e2d08e627b005b5ebefa5
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867575"
 ---
 # <a name="use-the-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Azure 导入/导出服务将数据传输到 Azure 存储
 本文分步介绍如何使用 Azure 导入/导出服务将磁盘驱动器寄送到 Azure 数据中心，从而安全地将大量数据传输到 Azure Blob 存储和 Azure 文件。 此外，还可以使用此服务将数据从 Azure 存储传输到硬盘驱动器，然后再寄送到本地站点。 可将单个内部 SATA 磁盘驱动器中的数据导入 Azure Blob 存储或 Azure 文件。 
@@ -30,7 +31,7 @@ ms.lasthandoff: 05/07/2018
 2.  根据数据的总大小，采购所需数目的 2.5 英寸 SSD 或者 2.5/3.5 英寸 SATA II 或 III 硬盘驱动器。
 3.  直接使用 SATA 或通过外部 USB 适配器将硬盘驱动器附加到 Windows 计算机。
 1.  在每个硬盘驱动器上创建一个 NTFS 卷，并向该卷分配一个驱动器号。 没有装入点。
-2.  若要在 Windows 计算机上启用加密，请启用 NTFS 卷上的 bit locker 加密。 请使用 https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx 中的说明。
+2.  若要在 Windows 计算机上启用加密，请启用 NTFS 卷上的 bit locker 加密。 请使用 https://technet.microsoft.com/library/cc731549(v=ws.10).aspx 中的说明。
 3.  使用复制粘贴或拖放操作，或使用 RoboCopy 或任何类似的工具将数据完全复制到磁盘上这些加密的 NTFS 卷。
 7.  从 https://www.microsoft.com/en-us/download/details.aspx?id=42659 下载 WAImportExport V1
 8.  解压缩到默认文件夹 waimportexportv1。 例如，C:\WaImportExportV1  
@@ -64,7 +65,7 @@ ms.lasthandoff: 05/07/2018
 3. 在“作业详细信息”部分中，上传在驱动器准备步骤中获取的驱动器日志文件。 如果使用了 waimportexport.exe version1，需要为已准备好的每个驱动器上传一个文件。 在“导入目标”存储帐户部分中，选择要将数据导入哪个存储帐户。 “放置位置”根据选定存储帐户所属的区域自动进行填充。
    
    ![创建导入作业 - 步骤 3](./media/storage-import-export-service/import-job-03.png)
-4. 在“回寄信息”部分中，从下拉列表中选择快递商，并输入已通过此快递商创建的有效快递商帐号。 导入作业完成后，Microsoft 使用此帐户寄回驱动器。 输入完整、有效的联系人姓名、电话号码、电子邮件地址、街道地址、城市、邮政编码、州/省/自治区/直辖市和国家/地区。
+4. 在“回寄信息”部分中，从下拉列表中选择快递商，并输入已通过此快递商创建的有效快递商帐号。 当导入作业完成后，我们使用此帐户寄回驱动器。 输入完整、有效的联系人姓名、电话号码、电子邮件地址、街道地址、城市、邮政编码、州/省/自治区/直辖市和国家/地区。
    
 5. 在“摘要”部分中，输入 Azure 数据中心寄送地址是为了将磁盘寄送到 Azure 数据中心。 请确保寄送标签上标明了作业名称和完整地址。 
 
@@ -111,7 +112,7 @@ ms.lasthandoff: 05/07/2018
 * 对于导出作业，需要寄送空硬盘驱动器。
 * 每个作业最多可以寄送 10 个硬盘驱动器。
 
-可以使用 Azure 门户或 [Azure 存储导入/导出 REST API](https://docs.microsoft.com/rest/api/storageimportexport) 创建导入或导出作业。
+可以使用 Azure 门户或 [Azure 存储导入/导出 REST API](/rest/api/storageimportexport) 创建导入或导出作业。
 
 > [!Note]
 > 自 2018 年 2 月 28 日起将不再支持 RDFE API。 若要继续使用此服务，请迁移到 [ARM 导入/导出 REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/storageimportexport/resource-manager/Microsoft.ImportExport/stable/2016-11-01/storageimportexport.json)。 
@@ -159,7 +160,9 @@ Azure 导入/导出服务支持将数据复制到所有公共 Azure 存储帐户
 
 支持的寄送位置：
 - 中国东部
+- 中国东部 2
 - 中国北部
+- 中国北部 2
 
 ### <a name="shipping"></a>装运
 **将驱动器寄送到数据中心：**
@@ -176,8 +179,10 @@ Azure 导入/导出服务支持将数据复制到所有公共 Azure 存储帐户
 
 寄送包裹时，必须遵循 [Azure 服务条款](https://www.azure.cn/support/legal/services-terms/)中的条款。
 
-> [!IMPORTANT] 
-> 在寄送物理介质之前，请咨询顾问以验证介质和数据是否可以合法地寄送到所确定的数据中心。 这有助于确保它可以及时到达 Microsoft。 
+> [!IMPORTANT]
+> 请注意，发运的物理介质可能需要穿越国界。 应当负责确保物理介质和数据是遵照适用的法律导入和/或导出的。 在寄送物理介质之前，请咨询顾问以验证介质和数据是否可以合法地寄送到所确定的数据中心。 这有助于确保它可以及时到达 Microsoft。 例如，任何跨国界的包裹都需要附上商业发票（除非在欧盟内跨越国界）。 可从快递商网站打印填写好的商业发票的副本。 比如，商业发票可以是 [FedEx 商业发票](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf)。 请确保 Microsoft 未被指定为导出者。
+> 
+> 
 
 ## <a name="how-does-the-azure-importexport-service-work"></a>Azure 导入/导出服务是如何工作的？
 可以使用 Azure 导入/导出服务在本地站点和 Azure 存储之间传输数据，只需创建作业，然后将硬盘驱动器寄送到 Azure 数据中心即可。 寄送的每个硬盘驱动器都与单个作业相关联。 每个作业都与单个存储帐户相关联。 请仔细查看[先决条件](#pre-requisites)部分，以了解此服务的具体情况，例如支持的数据类型、磁盘类型、位置和寄送方式。

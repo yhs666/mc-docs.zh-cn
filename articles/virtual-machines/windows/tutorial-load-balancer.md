@@ -1,29 +1,30 @@
 ---
-title: "如何在 Azure 中均衡 Windows 虚拟机负载 | Azure"
-description: "了解如何使用 Azure 负载均衡器在三个 Windows VM 之间创建具有高可用性和安全性的应用程序"
+title: 教程 - 在 Azure 中均衡 Windows 虚拟机负载 | Azure
+description: 本教程介绍如何使用 Azure PowerShell 创建负载均衡器，以实现在三个 Windows 虚拟机上高度可用且安全的应用程序
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/09/2018
-ms.date: 03/19/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 56985b3a2c5cdb8d37261d4c1808a848b09bce7a
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: cdb228d6a633ced8e17a3aa9a09ce1175be48222
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868073"
 ---
-# <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>如何在 Azure 中均衡 Windows 虚拟机负载以创建具有高可用性的应用程序
+# <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>教程：在 Azure 中使用 Azure PowerShell 均衡 Windows 虚拟机负载以创建高可用性应用程序
 负载均衡通过将传入请求分布到多个虚拟机来提供更高级别的可用性。 本教程介绍了 Azure 负载均衡器的不同组件，这些组件用于分发流量和提供高可用性。 你将学习如何执行以下操作：
 
 > [!div class="checklist"]
@@ -37,7 +38,7 @@ ms.lasthandoff: 03/17/2018
 
 <!-- Not Avaiable on  [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)] -->
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.3 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。
 
 ## <a name="azure-load-balancer-overview"></a>Azure 负载均衡器概述
 Azure 负载均衡器是位于第 4 层（TCP、UDP）的负载均衡器，通过在正常运行的 VM 之间分发传入流量提供高可用性。 负载均衡器运行状况探测器监视每个 VM 上的给定端口，仅将流量分发给正常运行的 VM。
@@ -103,7 +104,7 @@ $lb = New-AzureRmLoadBalancer `
 
 ```powershell
 Add-AzureRmLoadBalancerProbeConfig `
-  -Name myHealthProbe `
+  -Name "myHealthProbe" `
   -LoadBalancer $lb `
   -Protocol tcp `
   -Port 80 `
@@ -198,7 +199,7 @@ $availabilitySet = New-AzureRmAvailabilitySet `
 $cred = Get-Credential
 ```
 
-现在，可使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建 VM。 下例创建三个 VM：
+现在，可使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建 VM。 以下示例创建三个 VM 和所需的虚拟网络组件（如果它们尚不存在）：
 
 ```powershell
 for ($i=1; $i -le 3; $i++)

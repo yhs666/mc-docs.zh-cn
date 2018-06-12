@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 04/23/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: a1df7e5207ce938ac08c6e7326d56f01a82bdeca
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 8f3049d9195740fc3be6e5dc308a2babac9d0fec
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867440"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行自动联机备份和还原
 Azure Cosmos DB 可以定期自动备份所有数据。 自动备份不会影响数据库操作的性能或可用性。 所有备份单独存储在另一个存储服务中并在全球复制，针对区域性的灾难提供复原能力。 如果意外删除了 Cosmos DB 容器并且之后需要数据恢复或灾难恢复解决方案，那么自动备份将是合适的方案。  
@@ -45,7 +46,11 @@ Cosmos DB 旨在实现数据[多区域分发](distribute-data-globally.md) - 它
 ## <a name="backup-retention-period"></a>备份保留期
 如上所述，Azure Cosmos DB 在分区级别每四小时创建一次数据快照。 在任何给定时间，只保留最后两个快照。 但是，如果删除了集合/数据库，我们将保留给定集合/数据库中所有已删除分区的现有快照 30 天。
 
-若要保留自己的快照，可以使用 Azure Cosmos DB [数据迁移工具](import-data.md#export-to-json-file)中的“导出到 JSON”选项，计划其他备份。
+对于 SQL API，若要保留自己的快照，可以使用 Azure Cosmos DB [数据迁移工具](import-data.md#export-to-json-file)中的“导出到 JSON”选项，计划其他备份。
+
+> [!NOTE]
+> 如果“在数据库级别为一组容器预配吞吐量”，请记得在整个数据库帐户级别进行还原操作。 如果无意中使用此新功能删除了容器（集合），还需确保在 8 小时内联系我们的支持部门。 
+<!-- Not Available on table/graph -->
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>从联机备份还原数据库
 如果意外删除了数据库或集合，可以[提交支持票证](https://www.azure.cn/support/support-azure/)或[联系 Azure 支持](https://www.azure.cn/support/contact/)，从上一次自动备份中还原数据。 如果由于数据损坏（包括删除了集合中的文档）而需要还原数据库，请参阅[处理数据损坏](#handling-data-corruption)，因为需要采取额外步骤，防止损坏的数据覆盖现有备份。 对于要还原备份的特定快照，Cosmos DB 要求数据在该快照的备份周期的持续时间内可用。

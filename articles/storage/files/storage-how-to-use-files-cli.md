@@ -3,8 +3,8 @@ title: 使用 Azure CLI 管理 Azure 文件共享
 description: 了解如何使用 Azure CLI 管理 Azure 文件。
 services: storage
 documentationcenter: na
-author: forester123
-manager: josefree
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: storage
 ms.workload: storage
@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 03/26/2018
-ms.date: 05/07/2018
-ms.author: v-johch
-ms.openlocfilehash: d1b1c8562ccb6ae5cf3d6c5f09f9451b3b448280
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/11/2018
+ms.author: v-nany
+ms.openlocfilehash: 8321e5a1bfcbb76a00e59ed39826eb4684bf4f8e
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867538"
 ---
 # <a name="manage-azure-file-shares-using-azure-cli"></a>使用 Azure CLI 管理 Azure 文件共享
 [Azure 文件](storage-files-introduction.md)是 Microsoft 推出的易于使用的云文件系统。 可以在 Windows、Linux 和 macOS 中装载 Azure 文件共享。 本文介绍通过 Azure CLI 来使用 Azure 文件共享的基本知识。 了解如何： 
@@ -31,37 +32,39 @@ ms.lasthandoff: 05/07/2018
 > * 下载文件
 > * 创建和使用共享快照
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可以在开始前创建一个 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-如果决定在本地安装并使用 Azure CLI，则必须运行 Azure CLI 2.0.4 或更高版本才能执行本文中的步骤。 若要查找 Azure CLI 版本，请运行 **az --version**。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
+
+
+如果决定在本地安装并使用 Azure CLI，则必须运行 Azure CLI 2.0.4 或更高版本才能执行本文中的步骤。 若要查找 Azure CLI 版本，请运行 **az --version**。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/azure/install-azure-cli)。 
 
 默认情况下，Azure CLI 命令返回 JavaScript 对象表示法 (JSON)。 JSON 是通过 REST API 发送和接收消息的标准方式。 为了便于处理 JSON 响应，本文中的某些示例使用基于 Azure CLI 命令的 *query* 参数。 该参数使用 [JMESPath 查询语言](http://jmespath.org/)来分析 JSON。 若要详细了解如何按照 JMESPath 查询语言的规范来使用 Azure CLI 命令的结果，请参阅 [JMESPath tutorial](http://jmespath.org/tutorial.html)（JMESPath 教程）。
 
 ## <a name="create-a-resource-group"></a>创建资源组
-资源组是在其中部署和管理 Azure 资源的逻辑容器。 如果还没有 Azure 资源组，可以使用 [az group create](/cli/group#create) 命令创建一个。 
+资源组是在其中部署和管理 Azure 资源的逻辑容器。 如果还没有 Azure 资源组，可以使用 [az group create](/cli/azure/group#create) 命令创建一个。 
 
-以下示例在“美国东部”位置创建名为“myResourceGroup”的资源组：
+以下示例在“中国东部”位置创建名为 *myResourceGroup* 的资源组：
 
-```azurecli
-az group create --name myResourceGroup --location chinanorth
+```azurecli 
+az group create --name myResourceGroup --location chinaeast
 ```
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
 存储帐户是一个存储共享池，在其中可以部署 Azure 文件共享或其他存储资源，例如 Blob 或队列。 一个存储帐户可以包含无数个文件共享。 一个共享可以存储无数个文件，直到达到存储帐户的容量限制为止。
 
-以下示例使用 [az storage account create](/cli/storage/account#create) 命令创建名为 mystorageaccount\<随机数字\> 的存储帐户，然后将该存储帐户的名称置于 `$STORAGEACCT` 变量中。 存储帐户名称必须唯一。 使用 `$RANDOM` 将一个数字追加到存储帐户名称末尾即可使之变得唯一。 
+以下示例使用 [az storage account create](/cli/azure/storage/account#create) 命令创建名为 mystorageaccount\<随机数字\> 的存储帐户，然后将该存储帐户的名称置于 `$STORAGEACCT` 变量中。 存储帐户名称必须唯一。 使用 `$RANDOM` 将一个数字追加到存储帐户名称末尾即可使之变得唯一。 
 
-```azurecli
+```azurecli 
 STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
     --name "mystorageacct$RANDOM" \
-    --location chinanorth \
+    --location chinaeast \
     --sku Standard_LRS \
     --query "name" | tr -d '"')
 ```
 
 ### <a name="get-the-storage-account-key"></a>获取存储帐户密钥
-存储帐户密钥控制对存储帐户中资源的访问。 这些密钥是在创建存储帐户时自动创建的。 可以使用 [az storage account keys list](/cli/storage/account/keys#list) 命令获取存储帐户的存储帐户密钥： 
+存储帐户密钥控制对存储帐户中资源的访问。 这些密钥是在创建存储帐户时自动创建的。 可以使用 [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#list) 命令获取存储帐户的存储帐户密钥： 
 
 ```azurecli 
 STORAGEKEY=$(az storage account keys list \
@@ -71,7 +74,7 @@ STORAGEKEY=$(az storage account keys list \
 ```
 
 ## <a name="create-an-azure-file-share"></a>创建 Azure 文件共享
-现在可以创建第一个 Azure 文件共享了。 请使用 [az storage share create](/cli/storage/share#create) 命令创建文件共享。 以下示例创建名为 *myshare* 的 Azure 文件共享： 
+现在可以创建第一个 Azure 文件共享了。 请使用 [az storage share create](/cli/azure/storage/share#create) 命令创建文件共享。 以下示例创建名为 *myshare* 的 Azure 文件共享： 
 
 ```azurecli
 az storage share create \
@@ -91,7 +94,7 @@ az storage share create \
 - 某个解决方案（例如 [Azure Functions](../../azure-functions/functions-overview.md)）中的无服务器方案
 
 ### <a name="create-a-directory"></a>创建目录
-若要在 Azure 文件共享的根目录中创建名为 *myDirectory* 的新目录，请使用 [`az storage directory create`](/cli/storage/directory#az_storage_directory_create) 命令：
+若要在 Azure 文件共享的根目录中创建名为 *myDirectory* 的新目录，请使用 [`az storage directory create`](https://docs.azure.cn/cli/storage/directory#az_storage_directory_create) 命令：
 
 ```azurecli
 az storage directory create \
@@ -102,7 +105,7 @@ az storage directory create \
 ```
 
 ### <a name="upload-a-file"></a>上传文件
-若要演示如何使用 [`az storage file upload`](/cli/storage/file#az_storage_file_upload) 命令来上传文件，请首先在 Cloud Shell 暂存驱动器上创建要上传的文件。 以下示例创建并上传该文件：
+若要演示如何使用 [`az storage file upload`](https://docs.azure.cn/cli/storage/file#az_storage_file_upload) 命令来上传文件，请首先在 Cloud Shell 暂存驱动器上创建要上传的文件。 以下示例创建并上传该文件：
 
 ```azurecli
 date > ~/clouddrive/SampleUpload.txt
@@ -117,7 +120,7 @@ az storage file upload \
 
 如果在本地运行 Azure CLI，请将 `~/clouddrive` 替换为计算机上的现有路径。
 
-上传文件以后，即可使用 [`az storage file list`](/cli/storage/file#az_storage_file_list) 命令，确保文件已上传到 Azure 文件共享：
+上传文件以后，即可使用 [`az storage file list`](https://docs.azure.cn/cli/storage/file#az_storage_file_list) 命令，确保文件已上传到 Azure 文件共享：
 
 ```azurecli
 az storage file list \
@@ -129,7 +132,7 @@ az storage file list \
 ```
 
 ### <a name="download-a-file"></a>下载文件
-可以使用 [`az storage file download`](/cli/storage/file#az_storage_file_download) 命令下载已上传到 Cloud Shell 暂存驱动器的文件的副本：
+可以使用 [`az storage file download`](https://docs.azure.cn/cli/storage/file#az_storage_file_download) 命令下载已上传到 Cloud Shell 暂存驱动器的文件的副本：
 
 ```azurecli
 # Delete an existing file by the same name as SampleDownload.txt, if it exists, because you've run this example before
@@ -144,7 +147,7 @@ az storage file download \
 ```
 
 ### <a name="copy-files"></a>复制文件
-一项常见的任务是将文件从一个文件共享复制到另一个文件共享，或者将文件在文件共享和 Azure Blob 存储容器之间来回复制。 为了演示此功能，请创建一个新的共享。 请使用 [az storage file copy](/cli/storage/file/copy) 命令将上传的文件复制到该新共享： 
+一项常见的任务是将文件从一个文件共享复制到另一个文件共享，或者将文件在文件共享和 Azure Blob 存储容器之间来回复制。 为了演示此功能，请创建一个新的共享。 请使用 [az storage file copy](https://docs.azure.cn/cli/storage/file/copy) 命令将上传的文件复制到该新共享： 
 
 ```azurecli
 az storage share create \
@@ -177,15 +180,15 @@ az storage file list \
     --output table
 ```
 
-虽然 `az storage file copy start` 命令可以方便地用于 Azure 文件共享和 Azure Blob 存储容器之间的文件移动，但我们仍建议你使用 AzCopy 进行较大型 （就要移动的文件的数量或大小而言）的移动。详细了解 [Linux 版 AzCopy](../common/storage-use-azcopy-linux.md) 和 [Windows 版 AzCopy](../common/storage-use-azcopy.md)。 AzCopy 必须安装在本地。
+虽然 `az storage file copy start` 命令可以方便地用于 Azure 文件共享和 Azure Blob 存储容器之间的文件移动，但我们仍建议你使用 AzCopy 进行较大型 （就要移动的文件的数量或大小而言）的移动。详细了解 [Linux 版 AzCopy](../common/storage-use-azcopy-linux.md) 和 [Windows 版 AzCopy](../common/storage-use-azcopy.md)。 AzCopy 必须安装在本地。 AzCopy 在 Cloud Shell 中不可用。 
 
 ## <a name="create-and-modify-share-snapshots"></a>创建和修改共享快照
 可以通过 Azure 文件共享执行的另一项有用的任务是创建共享快照。 快照保存 Azure 文件共享在某个时间点的副本。 共享快照类似于你可能已经熟悉的某些操作系统技术：
 - 适用于 Linux 系统的[逻辑卷管理器 (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 快照。
 - 适用于 macOS 的 [Apple 文件系统 (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 快照
-- 适用于 Windows 文件系统（例如 NTFS 和 ReFS）的[卷影复制服务 (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636)
+- 适用于 Windows 文件系统（例如 NTFS 和 ReFS）的[卷影复制服务 (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349801)
 
-可以使用 [`az storage share snapshot`](/cli/storage/share#az_storage_share_snapshot) 命令创建共享快照：
+可以使用 [`az storage share snapshot`](https://docs.azure.cn/cli/storage/share#az_storage_share_snapshot) 命令创建共享快照：
 
 ```azurecli
 SNAPSHOT=$(az storage share snapshot \
@@ -247,7 +250,7 @@ az storage file copy start \
 ```
 
 ### <a name="delete-a-share-snapshot"></a>删除共享快照
-可以使用 [`az storage share delete`](/cli/storage/share#az_storage_share_delete) 命令删除共享快照。 所使用的变量包含对 `--snapshot` 参数的 `$SNAPSHOT` 引用：
+可以使用 [`az storage share delete`](https://docs.azure.cn/cli/storage/share#az_storage_share_delete) 命令删除共享快照。 所使用的变量包含对 `--snapshot` 参数的 `$SNAPSHOT` 引用：
 
 ```azurecli
 az storage share delete \
@@ -258,7 +261,7 @@ az storage share delete \
 ```
 
 ## <a name="clean-up-resources"></a>清理资源
-完成后，可以使用 [`az group delete`](/cli/group#delete) 命令删除资源组和所有相关的资源： 
+完成后，可以使用 [`az group delete`](https://docs.azure.cn/cli/group#delete) 命令删除资源组和所有相关的资源： 
 
 ```azurecli 
 az group delete --name "myResourceGroup"
@@ -293,5 +296,4 @@ az group delete --name "myResourceGroup"
 ## <a name="next-steps"></a>后续步骤
 - [使用 Azure 门户管理文件共享](storage-how-to-use-files-portal.md)
 - [使用 Azure PowerShell 管理文件共享](storage-how-to-use-files-powershell.md)
-- [使用存储资源管理器管理文件共享](storage-how-to-use-files-storage-explorer.md)
 - [规划 Azure 文件部署](storage-files-planning.md)

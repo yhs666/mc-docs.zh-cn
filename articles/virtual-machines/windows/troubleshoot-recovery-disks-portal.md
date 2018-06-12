@@ -11,14 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 11/03/2017
-ms.date: 05/21/2018
+origin.date: 05/07/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3b69adba343dc39807e7d8a55486436c39778f9b
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: bea63ad32b37b80675a8a6439a2ead692bdbfdb1
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867655"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>通过使用 Azure 门户将 OS 磁盘附加到恢复 VM，对 Windows VM 进行故障排除
 如果 Windows 虚拟机 (VM) 在 Azure 中遇到启动或磁盘错误，可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是应用程序更新失败，使 VM 无法成功启动。 本文详细介绍如何使用 Azure 门户将虚拟硬盘连接到另一个 Windows VM 来修复所有错误，然后重新创建原始 VM。
@@ -31,6 +32,8 @@ ms.lasthandoff: 05/17/2018
 3. 连接到故障排除 VM。 编辑文件或运行任何工具以修复原始虚拟硬盘上的问题。
 4. 从故障排除 VM 卸载并分离虚拟硬盘。
 5. 使用原始虚拟硬盘创建 VM。
+
+有关使用托管磁盘的 VM，请参阅[通过附加新的操作系统磁盘对托管磁盘 VM 进行故障排除](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk)。
 
 ## <a name="determine-boot-issues"></a>确定启动问题
 若要确定 VM 不能正常启动的原因，请检查启动诊断 VM 屏幕截图。 一个常见的例子是应用程序更新失败，或底层虚拟硬盘已删除或移动。
@@ -138,8 +141,15 @@ ms.lasthandoff: 05/17/2018
 
 ![更新启动诊断设置](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
 
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>通过附加新的 OS 磁盘对托管磁盘 VM 进行故障排除
+1. 停止受影响的托管磁盘 Windows VM。
+2. [创建托管磁盘 VM 的操作系统磁盘的托管磁盘快照](snapshot-copy-managed-disk.md)。
+3. [从快照创建托管磁盘](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)。
+4. [将托管磁盘附加为 VM 的数据磁盘](attach-disk-ps.md)。
+5. [将步骤 4 中的数据磁盘更改为操作系统磁盘](os-disk-swap.md)。
+
 ## <a name="next-steps"></a>后续步骤
 如果在连接到 VM 时遇到问题，请参阅[对 Azure VM 的 RDP 连接进行故障排除](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 如果在访问 VM 上运行的应用程序时遇到问题，请参阅[对 Windows VM 上的应用程序连接问题进行故障排除](troubleshoot-app-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 有关资源组的详细信息，请参阅 [Azure 资源管理器概述](../../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

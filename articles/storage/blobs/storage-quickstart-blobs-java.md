@@ -1,5 +1,5 @@
 ---
-title: Azure 快速入门 - 使用 Java 在对象存储中创建 blob | Microsoft Docs
+title: Azure 快速入门 - 使用 Java 在对象存储中创建 Blob | Azure
 description: 本快速入门将在对象 (Blob) 存储中创建存储帐户和容器。 然后，使用适用于 Java 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
 author: forester123
@@ -8,13 +8,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 04/09/2018
-ms.date: 05/07/2018
-ms.author: v-johch
-ms.openlocfilehash: 660d2d10f9c65c198b1a1c940c7a45d388c685de
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/11/2018
+ms.author: v-nany
+ms.openlocfilehash: 04019d0356ce6e263b4917400f73f98e1a3d8c0d
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867467"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>快速入门：使用 Java 上传、下载和列出 Blob
 
@@ -87,7 +88,7 @@ Deleting the source, and downloaded files
 
  检查这两个文件的默认目录（对于 windows 用户，为“我的文档”），再继续操作。 可以打开它们，并看到它们完全相同。 从控制台窗口复制 blob 的 URL，将其粘贴到浏览器，查看 Blob 存储中的文件的内容。 按 Enter 时，会删除存储容器和文件。
 
-还可以使用工具（如 [Azure 存储资源管理器](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)）查看 Blob 存储中的文件。 Azure 存储资源管理器是免费的跨平台工具，可用于访问存储帐户信息。 
+还可以使用工具（如 [Azure 存储资源管理器](http://storageexplorer.com/?toc=%2fstorage%2fblobs%2ftoc.json)）查看 Blob 存储中的文件。 Azure 存储资源管理器是免费的跨平台工具，可用于访问存储帐户信息。 
 
 验证文件后，按 Enter 键可完成演示并删除测试文件。 现在已了解此示例的用途，打开 AzureApp.java 文件可查看代码。 
 

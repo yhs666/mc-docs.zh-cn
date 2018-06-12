@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中使用 Team Services 创建 CI/CD 管道 | Azure
-description: 了解如何创建 Visual Studio Team Services 管道，用于将 Web 应用部署到 Windows VM 上的 IIS，实现持续集成和持续交付
+title: 教程 - 在 Azure 中使用 Team Services 创建 CI/CD 管道 | Azure
+description: 本教程介绍如何创建 Visual Studio Team Services 管道，用于将 Web 应用部署到 Azure 中 Windows VM 上的 IIS，实现持续集成和持续交付。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -14,16 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/12/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 5e297a7922e459f00be53d4beacdb2c3a621826a
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: cea0012074992b3e3175913436a42d84e9facfbd
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868008"
 ---
-# <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>使用 Visual Studio Team Services 和 IIS 创建持续集成管道
+# <a name="tutorial-create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>教程：使用 Visual Studio Team Services 和 IIS 创建持续集成管道
 若要将应用程序开发的生成、测试和部署阶段自动化，可以使用持续集成和部署 (CI/CD) 管道。 本教程介绍如何在 Azure 中使用 Visual Studio Team Services 和 Windows 虚拟机 (VM) 创建一个运行 IIS 的 CI/CD 管道。 你将学习如何执行以下操作：
 
 > [!div class="checklist"]
@@ -34,7 +35,7 @@ ms.lasthandoff: 05/17/2018
 > * 创建发布定义，用于将新的 Web 部署包发布到 IIS
 > * 测试 CI/CD 管道
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 `Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
+本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
 
 ## <a name="create-project-in-team-services"></a>在 Team Services 中创建项目
 使用 Visual Studio Team Services 可以轻松进行协作和开发，而无需维护本地代码管理解决方案。 Team Services 提供云代码测试、生成和应用程序见解信息。 可以选择最适合用于代码开发的版本控制存储库和 IDE。 对于本教程，可以使用试用帐户来创建基本的 ASP.NET Web 应用和 CI/CD 管道。 如果还没有 Team Services 帐户，请[创建一个](http://go.microsoft.com/fwlink/?LinkId=307137)。
@@ -91,29 +92,30 @@ ms.lasthandoff: 05/17/2018
 ## <a name="create-virtual-machine"></a>创建虚拟机
 若要提供一个平台来运行 ASP.NET Web 应用，需要一个运行 IIS 的 Windows 虚拟机。 提交代码和触发生成时，Team Services 使用代理与 IIS 实例交互。
 
-使用[此脚本示例](../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json)创建 Windows Server 2016 VM。 该脚本需要花费几分钟来运行和创建 VM。 创建 VM 后，请使用 [Add-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 为 Web 流量打开端口 80，如下所示：
+使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建 Windows Server 2016 VM。 以下示例在“中国东部”位置创建名为 myVM 的 VM。 此外，还会创建资源组 myResourceGroupVSTS 和受支持的网络资源。 要允许 Web 流量，可向虚拟机打开 TCP 端口 80。 出现提示时，请提供用作 VM 登录凭据的用户名和密码：
 
 ```powershell
-Get-AzureRmNetworkSecurityGroup `
-  -ResourceGroupName $resourceGroup `
-  -Name "myNetworkSecurityGroup" | `
-Add-AzureRmNetworkSecurityRuleConfig `
-  -Name "myNetworkSecurityGroupRuleWeb" `
-  -Protocol "Tcp" `
-  -Direction "Inbound" `
-  -Priority "1001" `
-  -SourceAddressPrefix "*" `
-  -SourcePortRange "*" `
-  -DestinationAddressPrefix "*" `
-  -DestinationPortRange "80" `
-  -Access "Allow" | `
-Set-AzureRmNetworkSecurityGroup
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a virtual machine
+New-AzureRmVM `
+  -ResourceGroupName "myResourceGroupVSTS" `
+  -Name "myVM" `
+  -Location "China East" `
+  -ImageName "Win2016Datacenter" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -SecurityGroupName "myNetworkSecurityGroup" `
+  -PublicIpAddressName "myPublicIp" `
+  -Credential $cred `
+  -OpenPorts 80
 ```
 
 若要连接到 VM，请使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 获取公共 IP 地址，如下所示：
 
 ```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup | Select IpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroupVSTS" | Select IpAddress
 ```
 
 与 VM 建立远程桌面会话：
@@ -225,4 +227,4 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 
 > [!div class="nextstepaction"]
 > [SQL&#92;IIS&#92;.NET 堆栈](tutorial-iis-sql.md)
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update  -->

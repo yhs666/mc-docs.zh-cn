@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中使用 SSL 证书保护 IIS | Azure
-description: 了解如何在 Azure 中的 Windows VM 上使用 SSL 证书保护 IIS Web 服务器
+title: 教程 - 在 Azure 中使用 SSL 证书保护 Windows Web 服务器 | Azure
+description: 本教程介绍如何通过 Azure PowerShell 使用 Azure Key Vault 中存储的 SSL 证书来保护运行 IIS Web 服务器的 Windows 虚拟机。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -14,16 +14,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/09/2018
-ms.date: 04/16/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e6d939b8dec71ee62b79cd9c49abd00d04b96e4d
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: b92d04aa32b6ad63645150c55e447721771ae5a5
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867819"
 ---
-# <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>在 Azure 中的 Windows 虚拟机上使用 SSL 证书保护 IIS Web 服务器
+# <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>教程：在 Azure 中使用 Key Vault 中存储的 SSL 证书保护 Windows 虚拟机上的 Web 服务器
+
 若要保护 Web 服务器，可以使用安全套接字层 (SSL) 证书来加密 Web 流量。 这些 SSL 证书可存储在 Azure Key Vault 中，并可安全部署到 Azure 中的 Windows 虚拟机 (VM)。 本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
@@ -34,7 +36,7 @@ ms.lasthandoff: 04/16/2018
 
 <!-- Not Avaiablable [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)] -->
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.3 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。
 
 ## <a name="overview"></a>概述
 Azure Key Vault 保护加密密钥和机密、此类证书或密码。 Key Vault 有助于简化证书管理过程，让我们持续掌控用于访问这些证书的密钥。 可以在 Key Vault 中创建自签名证书，或者上传已拥有的现有受信任证书。
@@ -172,4 +174,4 @@ Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAd
 
 > [!div class="nextstepaction"]
 > [Windows 虚拟机脚本示例](./powershell-samples.md)
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties  -->

@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/05/2018
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: a866faa473151f640106bf34df4da7efdcae0691
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 7722c88696e8e1f8a83b3d8de580927d52900d9c
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34868640"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>创建、更改或删除网络安全组
 
@@ -32,8 +33,10 @@ ms.lasthandoff: 05/07/2018
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
-- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。
 - 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.28 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
+
+必须将登录或连接到 Azure 所用的帐户分配给[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或分配有“[权限](#permissions)”中所列适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 
 ## <a name="work-with-network-security-groups"></a>使用网络安全组
 
@@ -45,7 +48,7 @@ ms.lasthandoff: 05/07/2018
 
 1. 在门户左上角选择“+ 创建资源”。
 2. 依次选择“网络”、“网络安全组”。
-3. 输入网络资源组的“名称”，选择自己的“订阅”，创建新的“资源组”或选择现有的资源组，选择一个“位置”，然后选择“创建”。 
+3. 输入网络资源组的“名称”，选择自己的“订阅”，创建新的“资源组”或选择现有的资源组，选择一个“位置”，然后选择“创建”。
 
 命令
 
@@ -64,11 +67,12 @@ ms.lasthandoff: 05/07/2018
 ### <a name="view-details-of-a-network-security-group"></a>查看网络安全组的详细信息
 
 1. 在门户顶部的搜索框中，输入“网络安全组”。 “网络安全组”出现在搜索结果中时，将其选中。
-2. 在列表中选择要查看其详细信息的网络安全组。 在“设置”下，可查看“入站安全规则”和“出站安全规则”以及与网络安全组相关联的“网络接口”和“子网”。 也可启用或禁用“诊断日志”和查看“有效的安全规则”。 要了解详细信息，请参阅[诊断日志](virtual-network-nsg-manage-log.md)和[查看有效的安全规则](virtual-network-nsg-troubleshoot-portal.md)。
+2. 在列表中选择要查看其详细信息的网络安全组。 在“设置”下，可查看“入站安全规则”和“出站安全规则”以及与网络安全组相关联的“网络接口”和“子网”。 也可启用或禁用“诊断日志”和查看“有效的安全规则”。 若要了解详细信息，请参阅[查看有效的安全规则](virtual-network-nsg-troubleshoot-portal.md)。
+<!-- Not Available on [Diagnostic logs](virtual-network-nsg-manage-log.md)-->
 3. 要了解有关列出的常见 Azure 设置的详细信息，请参阅以下文章：
     *   [活动日志](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#activity-logs)
     *   [访问控制 (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#access-control)
-    *   [标记](../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-network%2ftoc.json#tags)
+    *   [标记](../azure-resource-manager/resource-group-using-tags.md?toc=%2fvirtual-network%2ftoc.json)
     *   [锁](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fvirtual-network%2ftoc.json)
     *   [自动化脚本](../azure-resource-manager/resource-manager-export-template.md?toc=%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
@@ -80,7 +84,7 @@ ms.lasthandoff: 05/07/2018
 ### <a name="change-a-network-security-group"></a>更改网络安全组
 
 1. 在门户顶部的搜索框中，输入“网络安全组”。 “网络安全组”出现在搜索结果中时，将其选中。
-2. 选择要更改的网络安全组。 最常见的更改是[添加](#create-a-security-rule)或[删除](#delete-a-security-rule)安全规则以及[将网络安全组关联到子网或网络接口或从其中取消关联](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource)。
+2. 选择要更改的网络安全组。 最常见的更改是[添加](#create-a-security-rule)或[删除](#delete-a-security-rule)安全规则以及[将网络安全组关联到子网或网络接口或从其中取消关联](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface)。
 
 命令
 
@@ -102,7 +106,8 @@ ms.lasthandoff: 05/07/2018
 命令
 
 - Azure CLI: [az network nsg delete](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-delete)
-- PowerShell: [Remove-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermnetworksecuritygroupp) 
+- PowerShell: [Remove-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermnetworksecuritygroup) 
+<!-- URL should be azurermnetworksecuritygroup -->
 
 ## <a name="work-with-security-rules"></a>使用安全规则
 
@@ -211,7 +216,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="delete-an-application-security-group"></a>删除应用程序安全组
 
-如果应用程序安全组中有任何网络接口，则不能将其删除。 必须通过更改网络接口设置或删除网络接口，从应用程序安全组中删除所有网络接口。 有关详细信息，请参阅[在应用程序安全组中添加或删除网络接口](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups)或[删除网络接口](virtual-network-network-interface.md#delete-a-network-interface)。
+如果应用程序安全组中有任何网络接口，则不能将其删除。 通过更改网络接口设置或删除网络接口，从应用程序安全组中移除所有网络接口。 有关详细信息，请参阅[在应用程序安全组中添加或删除网络接口](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups)或[删除网络接口](virtual-network-network-interface.md#delete-a-network-interface)。
 
 命令
 
@@ -220,19 +225,35 @@ ms.lasthandoff: 05/07/2018
 
 ## <a name="permissions"></a>权限
 
-为了对网络安全组、安全规则和应用程序安全组执行任务，必须将帐户分配到[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或分配到下表中列出相应权限的[自定义](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)角色：
+若要在网络安全组、安全规则和应用程序安全组上执行任务，必须将你的帐户分配给[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或分配有下表中所列相应权限的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)：
 
-|操作                                                       |   操作名称                               |
-|--------------------------------------------------------------  |   -------------------------------------------  |
-|Microsoft.Network/ruleTables/read                              |   获取网络安全组                              |
-|Microsoft.Network/ruleTables/write                             |   创建或更新网络安全组                 |
-|Microsoft.Network/ruleTables/delete                            |   删除网络安全组                           |
-|Microsoft.Network/ruleTables/join/action                       |   联接网络安全组                             |
-|Microsoft.Network/ruleTables/rules/read                       |   获取规则                                    |
-|Microsoft.Network/ruleTables/rules/write                      |   创建或更新规则                       |
-|Microsoft.Network/ruleTables/rules/delete                     |   删除规则                                 |
-|Microsoft.Network/networkInterfaces/effectiveruleTable/action  |   获取网络接口有效的网络安全组  | 
-|Microsoft.Network/networkWatchers/nextHop/action                |   从 VM 获取下一跃点                  |
+### <a name="network-security-groups"></a>网络安全组
 
-将网络安全组与子网关联需要“联接网络安全组”操作。
-<!-- Update_Description: update meta properties  -->
+| 操作                                                        |   Name                                                                |
+|-------------------------------------------------------------- |   -------------------------------------------                         |
+| Microsoft.Network/ruleTables/read                             |   获取网络安全组                                          |
+| Microsoft.Network/ruleTables/write                            |   创建或更新网络安全组                             |
+| Microsoft.Network/ruleTables/delete                           |   删除网络安全组                                       |
+| Microsoft.Network/ruleTables/join/action                      |   将网络安全组与子网或网络接口关联 |
+| Microsoft.Network/ruleTables/rules/read                       |   获取规则                                                            |
+| Microsoft.Network/ruleTables/rules/write                      |   创建或更新规则                                               |
+| Microsoft.Network/ruleTables/rules/delete                     |   删除规则                                                         |
+| Microsoft.Network/networkInterfaces/effectiveruleTable/action |   获取网络接口有效的网络安全组              |
+| Microsoft.Network/networkWatchers/nextHop/action              |   从 VM 获取下一跃点                                         |
+
+### <a name="application-security-groups"></a>应用程序安全组
+
+| 操作                                                                     | Name                                                     |
+| --------------------------------------------------------------             | -------------------------------------------              |
+| Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | 将 IP 配置加入到应用程序安全组中|
+| Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | 将安全规则加入到应用程序安全组中    |
+| Microsoft.Network/applicationSecurityGroups/read                           | 获取应用程序安全组                        |
+| Microsoft.Network/applicationSecurityGroups/write                          | 创建或更新应用程序安全组           |
+| Microsoft.Network/applicationSecurityGroups/delete                         | 删除应用程序安全组                     |
+
+## <a name="next-steps"></a>后续步骤
+
+- 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 示例脚本或使用 Azure [资源管理器模板](template-samples.md)创建网络或应用程序安全组
+- 为虚拟网络创建并应用 [Azure 策略](policy-samples.md)
+
+<!-- Update_Description: add content of application security groups  -->

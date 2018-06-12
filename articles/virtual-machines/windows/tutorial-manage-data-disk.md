@@ -1,29 +1,30 @@
 ---
-title: "使用 Azure PowerShell 管理 Azure 磁盘 | Azure"
-description: "教程 - 使用 Azure PowerShell 管理 Azure 磁盘"
+title: 教程 - 使用 Azure PowerShell 管理 Azure 磁盘 | Azure
+description: 本教程介绍如何使用 Azure PowerShel 为虚拟机创建和管理 Azure 磁盘
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/09/2018
-ms.date: 03/19/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d4a4cfae08190042e1dd9c87b71c650590d6d4f8
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 95545a515aa62abc31352bdfc91a755f0298bd06
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867795"
 ---
-# <a name="manage-azure-disks-with-powershell"></a>使用 PowerShell 管理 Azure 磁盘
+# <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>教程 - 使用 Azure PowerShell 管理 Azure 磁盘
 
 Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 创建 VM 时，请务必选择适用于所需工作负荷的磁盘大小和配置。 本教程介绍如何部署和管理 VM 磁盘。 学习内容：
 
@@ -35,7 +36,7 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 > * 附加和准备数据磁盘
 
 <!--Not Available [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]-->
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.3 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。
 
 ## <a name="default-azure-disks"></a>默认 Azure 磁盘
 
@@ -47,11 +48,14 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 
 ### <a name="temporary-disk-sizes"></a>临时磁盘大小
 
+<!-- Pending B series and E series disk size-->
 | 类型 | 常见大小 | 临时磁盘大小上限 (GiB) |
 |----|----|----|
-| [常规用途](sizes-general.md) | A 和 D 系列 | 1600 |
+| [常规用途](sizes-general.md) | A、B、D 系列 | 1600 |
 | [计算优化](sizes-compute.md) | F 系列 | 576 |
-| [内存优化](sizes-memory.md) | D 系列 | 6144 |
+| [内存优化](sizes-memory.md) | D 和 E 系列 | 6144 |
+<!-- Pending B series and E series disk size-->
+<!--Not Available on E,G, and M series-->
 <!--Not Available on L,N, A and H series-->
 
 ## <a name="azure-data-disks"></a>Azure 数据磁盘
@@ -60,11 +64,15 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 
 ### <a name="max-data-disks-per-vm"></a>每个 VM 的最大数据磁盘数
 
+<!-- Pending B series and E series disk size-->
 | 类型 | 常见大小 | 每个 VM 的最大数据磁盘数 |
 |----|----|----|
-| [常规用途](sizes-general.md) | A 和 D 系列 | 64 |
+| [常规用途](sizes-general.md) | A、B、D 系列 | 64 |
 | [计算优化](sizes-compute.md) | F 系列 | 64 |
-| [内存优化](sizes-memory.md) | D 系列 | 64 |
+| [内存优化](sizes-memory.md) | D 和 E 系列 | 64 |
+<!-- Pending B series and E series disk size-->
+<!--Not Available on E,G, and M series-->
+<!--Not Available on L,N, A and H series-->
 
 ## <a name="vm-disk-types"></a>VM 磁盘类型
 
@@ -76,7 +84,7 @@ Azure 提供两种类型的磁盘。
 
 ### <a name="premium-disk"></a>高级磁盘
 
-高级磁盘由基于 SSD 的高性能、低延迟磁盘提供支持。 完美适用于运行生产工作负荷的 VM。 高级存储支持 DS 系列、DSv2 系列和 FS 系列 VM。 高级磁盘分为五种类型（P10、P20、P30、P40、P50），磁盘大小决定了磁盘类型。 选择时，磁盘大小值舍入为下一类型。 例如，对于大小 128 GB、129 和 512 GB 之间、512 GB 以上、2 TB 和 4 TB，磁盘类型分别为 P10、P20、P30、P40 和 P50。 
+高级磁盘由基于 SSD 的高性能、低延迟磁盘提供支持。 完美适用于运行生产工作负荷的 VM。 高级存储支持 DS 系列、DSv2 系列和 FS 系列 VM。 高级磁盘分为五种类型（P10、P20、P30、P40、P50），磁盘大小决定了磁盘类型。 选择时，磁盘大小值舍入为下一类型。 例如，如果大小不到 128 GB，则磁盘类型为 P10；如果大小在 129 GB 到 512 GB 之间，则磁盘类型为 P20。
 <!-- Not Available on GS Series -->
 ### <a name="premium-disk-performance"></a>高级磁盘性能
 
@@ -94,13 +102,13 @@ Azure 提供两种类型的磁盘。
 
 使用 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置虚拟机上管理员帐户所需的用户名和密码：
 
-```azurepowershell-interactive
+```powershell
 $cred = Get-Credential
 ```
 
 使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建虚拟机。
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroupDisk" `
     -Name "myVM" `
@@ -117,7 +125,7 @@ New-AzureRmVm `
 
 使用 [New-AzureRmDiskConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdiskconfig) 创建初始配置。 以下示例配置大小为 128 GB 的磁盘。
 
-```azurepowershell-interactive
+```powershell
 $diskConfig = New-AzureRmDiskConfig `
     -Location "ChinaEast" `
     -CreateOption Empty `
@@ -126,7 +134,7 @@ $diskConfig = New-AzureRmDiskConfig `
 
 使用 [New-AzureRmDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk) 命令创建数据磁盘。
 
-```azurepowershell-interactive
+```powershell
 $dataDisk = New-AzureRmDisk `
     -ResourceGroupName "myResourceGroupDisk" `
     -DiskName "myDataDisk" `
@@ -135,13 +143,13 @@ $dataDisk = New-AzureRmDisk `
 
 使用 [Get-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) 命令获取要向其添加数据磁盘的虚拟机。
 
-```azurepowershell-interactive
+```powershell
 $vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupDisk" -Name "myVM"
 ```
 
 使用 [Add-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk) 命令向虚拟机配置添加数据磁盘。
 
-```azurepowershell-interactive
+```powershell
 $vm = Add-AzureRmVMDataDisk `
     -VM $vm `
     -Name "myDataDisk" `
@@ -152,7 +160,7 @@ $vm = Add-AzureRmVMDataDisk `
 
 使用 [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk) 命令更新虚拟机。
 
-```azurepowershell-interactive
+```powershell
 Update-AzureRmVM -ResourceGroupName "myResourceGroupDisk" -VM $vm
 ```
 
@@ -164,7 +172,7 @@ Update-AzureRmVM -ResourceGroupName "myResourceGroupDisk" -VM $vm
 
 创建与虚拟机的 RDP 连接。 打开 PowerShell 并运行此脚本。
 
-```azurepowershell-interactive
+```powershell
 Get-Disk | Where partitionstyle -eq 'raw' | `
 Initialize-Disk -PartitionStyle MBR -PassThru | `
 New-Partition -AssignDriveLetter -UseMaximumSize | `

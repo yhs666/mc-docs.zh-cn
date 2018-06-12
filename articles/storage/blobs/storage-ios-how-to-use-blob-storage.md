@@ -1,5 +1,5 @@
 ---
-title: 如何通过 iOS 使用对象 (Blob) 存储 - Azure | Microsoft Docs
+title: 如何通过 iOS 使用对象 (Blob) 存储 - Azure | Azure
 description: 使用 Azure Blob 存储（对象存储）将非结构化数据存储在云中。
 services: storage
 documentationcenter: ios
@@ -9,17 +9,18 @@ ms.service: storage
 ms.devlang: objective-c
 ms.topic: article
 origin.date: 03/21/2018
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: 42720c685d2271a636ab0a375d0c940f988e4fd9
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 9f417425d7fa5d30be7df4b8cd417def8cfdda4a
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867460"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>如何通过 iOS 使用 Blob 存储
 
-本文演示如何使用 Azure Blob 存储执行常见任务。 示例是用 Objective-C 编写的，并使用了 [用于 iOS 的 Azure 存储客户端库](https://github.com/Azure/azure-storage-ios)。 涉及的任务包括上传、列出、下载和删除 Blob。 有关 Blob 的详细信息，请参阅[后续步骤](#next-steps)部分。 也可下载 [示例应用](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) ，快速了解如何在 iOS 应用程序中使用 Azure 存储。
+本文演示如何使用 Microsoft Azure Blob 存储执行常见任务。 示例是用 Objective-C 编写的，并使用了 [用于 iOS 的 Azure 存储客户端库](https://github.com/Azure/azure-storage-ios)。 涉及的任务包括上传、列出、下载和删除 Blob。 有关 Blob 的详细信息，请参阅[后续步骤](#next-steps)部分。 也可下载 [示例应用](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) ，快速了解如何在 iOS 应用程序中使用 Azure 存储。
 
 ## <a name="what-is-blob-storage"></a>什么是 Blob 存储？
 
@@ -36,7 +37,7 @@ ms.lasthandoff: 05/07/2018
 
 ## <a name="cocoapod"></a>CocoaPod
 1. 如果尚未在计算机上 [安装 CocoaPods](https://guides.cocoapods.org/using/getting-started.html#toc_3) ，请打开终端窗口并运行以下命令，以实现此操作
-
+    
     ```shell   
     sudo gem install cocoapods
     ```

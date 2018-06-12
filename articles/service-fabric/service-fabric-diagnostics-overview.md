@@ -15,11 +15,12 @@ ms.workload: NA
 origin.date: 04/25/2018
 ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4a00d0e9efa0ee4d710d77667ad6a791d6f12e9c
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 5e5c357aca97546d6d0a08ee26cba8b42fb61baa
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867481"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 的监视和诊断
 
@@ -59,7 +60,8 @@ Service Fabric 提供了一组现成的综合事件。 可以通过 EventStore A
 
 可以在[性能指标](service-fabric-diagnostics-event-generation-perf.md)中找到应在基础结构级别收集的性能计数器列表。 
 
-Service Fabric 为 Reliable Services 和 Reliable Actors 编程模型提供了一组性能计数器。 如果使用其中的任一模型，这些性能计数器可以提供 KPI 来帮助确保执行组件正常启动和停止，或者以足够快的速度处理可靠服务请求。 有关详细信息，请参阅 [Reliable Services 远程处理的监视](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters)和 [Reliable Actors 的性能监视](service-fabric-reliable-actors-diagnostics.md#performance-counters)。 除此之外，如果已在应用程序中进行相应的配置，Application Insights 还会提供它所要收集的一组性能指标。
+Service Fabric 为 Reliable Services 和 Reliable Actors 编程模型提供了一组性能计数器。 如果使用其中的任一模型，这些性能计数器可以提供 KPI 来帮助确保执行组件正常启动和停止，或者以足够快的速度处理可靠服务请求。 有关详细信息，请参阅 [Reliable Services 远程处理的监视](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters)和 [Reliable Actors 的性能监视](service-fabric-reliable-actors-diagnostics.md#performance-counters)。
+<!-- Not Available on Application Insights -->
 
 <!-- Not Available on [OMS agent](service-fabric-diagnostics-oms-agent.md)-->
 
@@ -68,8 +70,8 @@ Service Fabric 平台包含运行状况模型，针对群集中的实体状态�
 
 ![SFX 运行状况仪表板](media/service-fabric-diagnostics-overview/sfx-healthstatus.png)
 
-除了在 SFX 中查看最新的运行状况报告以外，还能以事件的形式查看每份报告。 可以通过操作通道收集运行状况事件（请参阅[使用 Azure 诊断聚合事件](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)），这些事件存储在 Log Analytics 中，供将来进行警报和查询。 这有助于检测可能影响应用程序可用性的问题，因此，我们建议针对相应的故障情景设置警报（通过 Log Analytics 创建自定义警报）。
-
+除了在 SFX 中查看最新的运行状况报告以外，还能以事件的形式查看每份报告。 可以通过操作通道收集运行状况事件（请参阅[使用 Azure 诊断聚合事件](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)）。
+<!-- Not Available on Log Analytics -->
 ## <a name="other-logging-solutions"></a>其他日志记录解决方案
 
 许多事件会通过 etw 提供程序写出，并且可随其他日志记录解决方案一起扩展。 此外，还应考虑 [Elastic Stack](https://www.elastic.co/products)（尤其是考虑在脱机环境中运行群集时）、[Splunk](https://www.splunk.com/)、[Dynatrace](https://www.dynatrace.com/) 或其他任何偏好的平台。 

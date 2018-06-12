@@ -1,29 +1,30 @@
 ---
-title: 在 Azure 中为 Windows 创建虚拟机规模集 | Azure
-description: 使用虚拟机规模集在 Windows VM 上创建和部署高度可用的应用程序
+title: 教程 - 在 Azure 中为 Window 创建虚拟机规模集 | Azure
+description: 本教程介绍如何通过 Azure PowerShell 使用虚拟机规模集在 Windows VM 上创建和部署高度可用的应用程序
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: ''
-tags: ''
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: ''
-ms.topic: article
+ms.topic: tutorial
 origin.date: 03/29/2018
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f17afc02dc20032364af29facff294ad25e47cba
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 71d5f4e4e3e739b3284e4d9ebf3e1953a0114422
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867833"
 ---
-# <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>在 Windows 上创建虚拟机规模集和部署高度可用的应用
+# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>教程：使用 Azure PowerShell 在 Windows 上创建虚拟机规模集和部署高度可用的应用
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则，以便根据资源使用情况（如 CPU 使用率、内存需求或网络流量）进行自动缩放。 在本教程中，将在 Azure 中部署虚拟机规模集。 你将学习如何执行以下操作：
 
 > [!div class="checklist"]
@@ -33,7 +34,7 @@ ms.lasthandoff: 05/17/2018
 > * 增加或减少规模集中的实例数
 > * 创建自动缩放规则
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.6 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。
 
 ## <a name="scale-set-overview"></a>规模集概述
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 规模集中的 VM 将分布在逻辑容错域和更新域的一个或多个*放置组*中。 这些放置组由配置类似的 VM 组成，与[可用性集](tutorial-availability-sets.md)相似。
@@ -45,7 +46,7 @@ ms.lasthandoff: 05/17/2018
 ## <a name="create-a-scale-set"></a>创建规模集
 使用 [New-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmss) 创建虚拟机规模集。 以下示例创建名为 *myScaleSet* 且使用 *Windows Server 2016 Datacenter* 平台映像的规模集。 虚拟网络、公共 IP 地址和负载均衡器的 Azure 网络资源均会自动创建。 出现提示时，请针对规模集中的 VM 实例提供自己的所需管理凭据：
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmVmss `
   -ResourceGroupName "myResourceGroupScaleSet" `
   -Location "ChinaEast" `
@@ -64,7 +65,7 @@ New-AzureRmVmss `
 
 使用自定义脚本扩展安装基本的 IIS Web 服务器。 应用可安装 IIS 的自定义脚本扩展，如下所示：
 
-```azurepowershell-interactive
+```powershell
 # Define the script for your Custom Script Extension to run
 $publicSettings = @{
     "fileUris" = (,"https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate-iis.ps1");
@@ -94,7 +95,7 @@ Update-AzureRmVmss `
 ## <a name="test-your-scale-set"></a>测试规模集
 若要查看运行中的规模集，请使用 [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 获取负载均衡器的公共 IP 地址。 以下示例获取作为规模集的一部分创建的 myPublicIP 的 IP 地址：
 
-```azurepowershell-interactive
+```powershell
 Get-AzureRmPublicIPAddress `
     -ResourceGroupName "myResourceGroupScaleSet" `
     -Name "myPublicIPAddress" | select IpAddress
@@ -112,7 +113,7 @@ Get-AzureRmPublicIPAddress `
 ### <a name="view-vms-in-a-scale-set"></a>查看规模集中的 VM
 若要在规模集中查看 VM 实例的列表，请使用 [Get-AzureRmVmssVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm)，如下所示：
 
-```azurepowershell-interactive
+```powershell
 Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet"
 ```
 
@@ -127,14 +128,14 @@ MYRESOURCEGROUPSCALESET   myScaleSet_1   chinaeast Standard_DS1_v2          1   
 
 若要查看特定 VM 实例的其他信息，请将 `-InstanceId` 参数添加到 [Get-AzureRmVmssVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm)。 以下示例查看 VM 实例 *1* 的相关信息：
 
-```azurepowershell-interactive
+```powershell
 Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
 
 ### <a name="increase-or-decrease-vm-instances"></a>增加或减少 VM 实例
 若要查看规模集中当前包含的实例数，请使用 [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) 并查询 sku.capacity：
 
-```azurepowershell-interactive
+```powershell
 Get-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
     -VMScaleSetName "myScaleSet" | `
     Select -ExpandProperty Sku
@@ -142,7 +143,7 @@ Get-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
 
 然后，可以使用 [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) 手动增加或减少规模集中虚拟机的数目。 以下示例将规模集中 VM 的数目设置为 *3*：
 
-```azurepowershell-interactive
+```powershell
 # Get current scale set
 $scaleset = Get-AzureRmVmss `
   -ResourceGroupName "myResourceGroupScaleSet" `
@@ -211,6 +212,8 @@ Add-AzureRmAutoscaleSetting `
   -AutoscaleProfiles $myScaleProfile
 ```
 
+有关使用自动缩放的详细设计信息，请参阅[自动缩放最佳做法](https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling)。
+
 ## <a name="next-steps"></a>后续步骤
 在本教程中，你已创建了一个虚拟机规模集。 你已学习了如何执行以下操作：
 
@@ -226,4 +229,4 @@ Add-AzureRmAutoscaleSetting `
 > [!div class="nextstepaction"]
 > [对虚拟机进行负载均衡](tutorial-load-balancer.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

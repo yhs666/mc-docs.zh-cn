@@ -1,6 +1,6 @@
 ---
 title: 使用 Xamarin 和 Azure Cosmos DB 生成移动应用程序 | Azure
-description: 介绍如何使用 Azure Cosmos DB 创建 Xamarin iOS、Android 或 Forms 应用程序的教程。 Azure Cosmos DB 是适用于移动应用且速度极快、规模达全球的云数据库。
+description: 介绍如何使用 Azure Cosmos DB 创建 Xamarin iOS、Android 或 Forms 应用程序的教程。 Azure Cosmos DB 是适用于移动应用且速度极快、规模达多个区域的云数据库。
 services: cosmos-db
 documentationcenter: .net
 author: rockboyfor
@@ -12,17 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 04/23/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5ed6eea098ac2742b34b29bcc1157314c4d8a5bd
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 31f435a454f7d32d0e48c679d0defbbd0690dedf
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867406"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>使用 Xamarin 和 Azure Cosmos DB 生成移动应用程序
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 大多数移动应用需要在云中存储数据，而 Azure Cosmos DB 正是适用于移动应用的云数据库。 该产品提供移动开发人员所需的一切功能。 它是一个完全托管的数据库即服务，可按需缩放。 它能够以应用程序完全可见的方式存放全球各地用户的数据。 使用 [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md)，可让 Xamarin 移动应用直接与 Azure Cosmos DB 交互，无需中间层。
 
@@ -35,8 +34,8 @@ Azure Cosmos DB 为移动应用开发人员提供以下重要功能：
 
 * 针对无架构数据的丰富查询。 Azure Cosmos DB 将数据以无架构 JSON 文档的形式存储在异构集合中。 它提供[丰富的快速查询](sql-api-sql-query.md)，无需担心架构或索引问题。
 * 快速吞吐量。 使用 Azure Cosmos DB 时，只需几毫秒就能读取和写入文档。 开发人员可以指定所需的吞吐量，Azure Cosmos DB 对所有单区域帐户和具有松散一致性的所有多区域帐户采用 99.99% 的可用性 SLA，对所有多区域数据库帐户采用 99.999% 的读取可用性。
-* 无限规模。 Azure Cosmos DB 集合[随着应用的增长而增长](partition-data.md)。 一开始可以处理较小规模的数据和每秒几百个请求的吞吐量。 集合可以扩展到每秒几亿个请求的任意大型吞吐量，处理 PB 量级的数据。
-* 多区域分布。 移动应用的用户特点是经常在全球不同的地点漫游。 Azure Cosmos DB 是[多区域分布式数据库](distribute-data-globally.md)。 单击地图即可让用户访问数据。
+* 无限规模。 Azure Cosmos DB 集合[随着应用的增长而增长](partition-data.md)。 一开始可以处理较小规模的数据和每秒几百个请求的吞吐量。 集合或数据库可以增长到 PB 量级的数据和每秒几亿个请求的任意大的吞吐量。
+* 多区域分布。 移动应用用户的特点是经常在中国不同的地点漫游。 Azure Cosmos DB 是[多区域分布式数据库](distribute-data-globally.md)。 单击地图即可让用户访问数据。
 <!-- Notice: 全球 to 多个区域 -->
 * 内置丰富授权。 有了 Azure Cosmos DB，无需使用复杂的自定义授权代码，就能轻松实现常用的模式，例如，[每个用户的数据](https://aka.ms/documentdb-xamarin-todouser)，或者多个共享用户的数据。
 * 地理空间查询。 许多移动应用现在可以提供区分地理环境的体验。 凭借对[地理空间类型](geospatial.md)的一流支持，Azure Cosmos DB 可轻松创建这些体验。
@@ -95,8 +94,8 @@ Azure Cosmos DB 是托管型数据库即服务。 随着用户群体的扩大，
 
 ![Azure Cosmos DB 可按需缩放吞吐量](media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png)
 
-### <a name="go-planet-scale"></a>全球规模
-在应用受到广泛欢迎后，可以获得多个区域的用户。 或许需要针对一些不可预见的事件做好准备。 转到 Azure 门户，并打开 Azure Cosmos DB 帐户。 单击地图即可将数据持续复制到全球任意数目的区域。 此功能可向任意位置的用户提供数据。 还可以添加故障转移策略，针对意外状况做好准备。
+### <a name="go-multiple-region-scale"></a>达到多区域规模
+在应用受到广泛欢迎后，可以获得多个区域的用户。 或许需要针对一些不可预见的事件做好准备。 转到 Azure 门户，并打开 Azure Cosmos DB 帐户。 单击地图即可将数据持续复制到中国任意数目的区域。 此功能可向任意位置的用户提供数据。 还可以添加故障转移策略，针对意外状况做好准备。
 <!-- Notice: 全球 to 多个区域 -->
 <!-- Notice: 全球各地 to 中国各地 -->
 <!-- Notice: 全球 to 中国 -->

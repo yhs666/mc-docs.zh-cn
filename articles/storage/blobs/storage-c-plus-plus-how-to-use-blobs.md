@@ -1,26 +1,27 @@
 ---
-title: 如何通过 C++ 使用对象 (Blob) 存储 - Azure | Microsoft Docs
+title: 如何通过 C++ 使用对象 (Blob) 存储 - Azure | Azure
 description: 使用 Azure Blob（对象）存储将非结构化数据存储在云中。
 services: storage
-author: forester123
-manager: josefree
+author: WenJason
+manager: digimobile
 ms.service: storage
 ms.topic: article
 origin.date: 03/21/2018
-ms.date: 05/07/2018
-ms.author: v-johch
-ms.openlocfilehash: c4b1a65e1cc79274ce7043fd6d4682ddc78cbcaa
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/11/2018
+ms.author: v-nany
+ms.openlocfilehash: 0102aa2542480536f252e2731063946c9efc2785
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867431"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>如何通过 C++ 使用 Blob 存储
 
 本指南演示如何使用 Azure Blob 存储服务执行常见方案。 示例采用 C++ 编写，并使用了[适用于 C++ 的 Azure 存储客户端库](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 涉及的任务包括上传、列出、下载和删除 Blob。  
 
 > [!NOTE]
-> 本指南主要面向适用于 C++ 的 Azure 存储客户端库 1.0.0 版及更高版本。 我们建议使用最新版本的适用于 C++ 的存储客户端库（通过 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 提供）。
+> 本指南主要面向适用于 C++ 的 Azure 存储客户端库 1.0.0 版及更高版本。 建议使用最新版本的用于 C++ 的存储客户端库（通过 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 提供）。
 
 ## <a name="what-is-blob-storage"></a>什么是 Blob 存储？
 
@@ -35,8 +36,8 @@ ms.lasthandoff: 05/07/2018
 
 若要安装适用于 C++ 的 Azure 存储客户端库，可使用以下方法：
 
-* **Linux：**按照[适用于 C++ 的 Azure 存储客户端库自述文件](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)页中提供的说明操作。  
-* **Windows：**在 Visual Studio 中，单击“工具”>“NuGet 包管理器”>“程序包管理器控制台”。 在 [NuGet 包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中，键入以下命令，并按 **ENTER**。  
+* **Linux：** 按照[适用于 C++ 的 Azure 存储客户端库自述文件](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)页中提供的说明操作。  
+* **Windows：** 在 Visual Studio 中，单击“工具”>“NuGet 包管理器”>“程序包管理器控制台”。 在 [NuGet 包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中，键入以下命令，并按 **ENTER**。  
   
      Install-Package wastorage
 
@@ -51,7 +52,7 @@ ms.lasthandoff: 05/07/2018
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>设置 Azure 存储连接字符串
-Azure 存储客户端使用存储连接字符串来存储用于访问数据管理服务的终结点和凭据。 在客户端应用程序中运行时，必须提供以下格式的存储连接字符串，并对 AccountName 和 AccountKey 值使用 [Azure 门户](https://portal.azure.cn)中列出的存储帐户的名称和存储帐户的存储访问密钥。 有关存储帐户和访问密钥的信息，请参阅[关于 Azure 存储帐户](../common/storage-create-storage-account.md?toc=%2fstorage%2fblobs%2ftoc.json)。 此示例演示如何声明一个静态字段以保存连接字符串：  
+Azure 存储客户端使用存储连接字符串来存储用于访问数据管理服务的终结点和凭据。 在客户端应用程序中运行时，必须提供以下格式的存储连接字符串，并对 AccountName 和 AccountKey 值使用 [Azure 门户](https://portal.azure.com)中列出的存储帐户的名称和存储帐户的存储访问密钥。 有关存储帐户和访问密钥的信息，请参阅[关于 Azure 存储帐户](../common/storage-create-storage-account.md?toc=%2fstorage%2fblobs%2ftoc.json)。 此示例演示如何声明一个静态字段以保存连接字符串：  
 
 ```cpp
 // Define the connection-string with your values.

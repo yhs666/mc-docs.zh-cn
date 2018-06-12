@@ -10,14 +10,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/15/2017
-ms.date: 04/23/2018
+origin.date: 05/07/2017
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: 38697b53eebaf1054755256ec2c4ae110fa3f880
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: aee7ce4f4aa5e39f4b45df7dfdb35c84111cb7cd
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867410"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Azure Cosmos DB 常见用例
 本文概述了 Azure Cosmos DB 的几个常见用例。  本文中的建议可以作为使用 Cosmos DB 开发应用程序的一个起点。   
@@ -33,7 +34,7 @@ ms.lasthandoff: 05/07/2018
 [Azure Cosmos DB](../cosmos-db/introduction.md) 是 21Vianet 提供的多区域分布式数据库服务。 该服务允许客户跨数目不限的地理区域弹性（独立）缩放吞吐量与存储。 Azure Cosmos DB 是当前市场中提供的第一个多区域分布式数据库服务，提供了综合[服务级别协议](https://www.azure.cn/support/sla/cosmos-db/)，包含吞吐量、延迟、可用性和一致性。 
 <!-- Notice: 全球 to 多个区域 -->
 
-Azure Cosmos DB 是在各种应用程序和用例中广泛使用的多区域分布式多模型数据库。 它以可扩展的方式原生支持多种数据模型（键值、文档和纵栏式）和许多用于数据访问的 API，包括 [MongoDB API](mongodb-introduction.md) 和 [SQL API](documentdb-introduction.md)。 
+Azure Cosmos DB 是在各种应用程序和用例中广泛使用的多区域分布式多模型数据库。 它以可扩展的方式原生支持多种数据模型（文档和纵栏式）和许多用于数据访问的 API，包括 [MongoDB API](mongodb-introduction.md) 和 [SQL API](documentdb-introduction.md)。 
 <!--Not Available on [Graph API (Gremlin)](graph-introduction.md) -->
 <!--Not Available on  [Tables API](table-introduction.md) -->
 <!-- Notice: 全球 to 多个区域 -->
@@ -116,16 +117,16 @@ Cosmos DB 支持的 JSON 格式是一种用于呈现 UI 布局数据的有效格
 
 或者，如果想要了解有关使用 Cosmos DB 的客户的详细信息，可参阅以下客户案例：
 
-* [Jet.com](https://jet.com)。电子商务挑战者利用 Microsoft 云中运行全球规模服务 Cosmos DB 争取冠军宝座。
-* [Asos.com](http://www.asos.com/)。Asos.com 是英国的一家在线时尚与美容商店。 Asos 的产品主要面向年轻的成年人，销售 850 多个品牌，以及自营的一系列服装和饰品。
+* [Jet.com](https://jet.com)。 电子商务挑战者的目标是占领最高位置，即在 Microsoft 云端运行并在多区域范围内利用 Cosmos DB。
+* [Asos.com](http://www.asos.com/)。 Asos.com 是英国的一家在线时尚与美容商店。 Asos 的产品主要面向年轻的成年人，销售 850 多个品牌，以及自营的一系列服装和饰品。
 * [Toyota](https://www.toyota.com/)。 Toyota Motor Corporation 是一家日本汽车制造商。 Toyota 对全球 IoT 应用利用 Cosmos DB。
 * [Citrix](https://customers.microsoft.com/story/citrix)。 Citrix 使用 Azure Service Fabric 和 Azure Cosmos DB 开发单一登录解决方案
 * [TEXA](https://customers.microsoft.com/story/texaspa) TEXA 的革新性 IoT 解决方案可帮助车主节省时间、资金和燃气 - 同时有助于保护其安全。
 * [Domino's Pizza](https://www.dominos.com)。 Domino's Pizza Inc. 是美国的一家披萨连锁餐馆。
 * [Johnson Controls](http://www.johnsoncontrols.com)。 Johnson Controls 是一家全球性多元化科技公司，在多个行业占据领先地位，为 150 多个国家或地区的大量用户提供服务。
 * [Microsoft Windows、通用应用商店、Azure IoT 中心、Xbox Live 和其他 Internet 级服务](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/)。 Microsoft 如何使用 Azure Cosmos DB 构建高度可缩放的服务。
-<!-- Not Available on * [Microsoft Data and Analytics team](https://customers.microsoft.com/story/microsoftdataandanalytics). Microsoft's Data and Analytics team achieves planet-scale big-data collection with Azure Cosmos DB-->
-* [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india)。Sulekha 使用 Azure Cosmos DB 连接整个印度的客户和企业。
+* [Microsoft 数据和分析团队](https://customers.microsoft.com/story/microsoftdataandanalytics)。 21Vianet 的数据和分析团队使用 Azure Cosmos DB 实现多区域规模的大数据收集
+* [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india)。 Sulekha 使用 Azure Cosmos DB 连接整个印度的客户和企业。
 * [NewOrbit](https://customers.microsoft.com/story/neworbit-takes-flight-with-azure-documentdb)。 NewOrbit 使用了 Azure Cosmos DB。
 * [Affinio](https://customers.microsoft.com/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale)。 Affinio 从 AWS 改用 Azure Cosmos DB 以大规模处理社交数据。
 * [Next Games](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/)。 “行尸走肉：无人之地”游戏在 Azure Cosmos DB 的支持下飙升至排行榜第 1 名。

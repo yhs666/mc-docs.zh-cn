@@ -1,6 +1,6 @@
 ---
-title: Azure 虚拟网络和 Windows 虚拟机 | Azure
-description: 教程 - 使用 Azure PowerShell 管理 Azure 虚拟网络和 Windows 虚拟机
+title: 教程 - 为 Windows VM 创建和管理 Azure 虚拟网络 | Azure
+description: 本教程介绍如何使用 Azure PowerShell 为 Windows 虚拟机创建和管理 Azure 虚拟网络
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -10,20 +10,21 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/27/2018
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: cdd8e8e047a70312a97e28de55bfca9fd3bc3d0c
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 50eeb175aee9a7f2d10b33debad6582ca53428f3
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867794"
 ---
-# <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 虚拟网络和 Windows 虚拟机
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>教程：使用 Azure PowerShell 为 Windows 虚拟机创建和管理 Azure 虚拟网络
 
 Azure 虚拟机使用 Azure 网络进行内部和外部网络通信。 本教程将指导读者部署两个虚拟机，并为这些 VM 配置 Azure 网络。 本教程中的示例假设 VM 将要托管包含数据库后端的 Web 应用程序，但本教程并不介绍如何部署应用程序。 本教程介绍如何执行下列操作：
 
@@ -34,7 +35,7 @@ Azure 虚拟机使用 Azure 网络进行内部和外部网络通信。 本教程
 > * 安全的网络流量
 > * 创建后端 VM
 
-本教程需要 AzureRM.Compute 模块 4.3.1 或更高版本。 运行 `Get-Module -ListAvailable AzureRM.Compute` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。
 
 ## <a name="vm-networking-overview"></a>VM 网络概述
 
@@ -255,7 +256,7 @@ $backendNic = New-AzureRmNetworkInterface `
 $cred = Get-Credential
 ```
 
-创建 myBackendVM：
+创建 myBackendVM。
 
 ```powershell
 New-AzureRmVM `
@@ -264,7 +265,7 @@ New-AzureRmVM `
    -ImageName "MicrosoftSQLServer:SQL2016SP1-WS2016:Enterprise:latest" `
    -ResourceGroupName myRGNetwork `
    -Location "ChinaEast" `
-   -SubnetName myFrontendSubnet `
+   -SubnetName MyBackendSubnet `
    -VirtualNetworkName myVNet
 ```
 

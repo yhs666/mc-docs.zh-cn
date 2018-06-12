@@ -1,6 +1,6 @@
 ---
-title: 使应用程序数据在 Azure 中高度可用 | Microsoft Docs
-description: 使用读取访问异地冗余存储实现应用程序数据的高可用性
+title: 使应用程序数据在 Azure 中高度可用 | Azure
+description: 利用读取访问异地冗余存储，使应用程序数据高度可用
 services: storage
 author: forester123
 manager: josefree
@@ -8,18 +8,19 @@ ms.service: storage
 ms.workload: web
 ms.topic: tutorial
 origin.date: 03/26/2018
-ms.date: 05/07/2018
-ms.author: v-johch
+ms.date: 06/11/2018
+ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 157d41c163aef9791bdc949ad7376cc8702c4c4a
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: ebfdab4b3b7e54c7830f6c78663da251e5d28dc9
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867471"
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>使应用程序数据在 Azure 存储中高度可用
 
-本教程是一个教程系列的第一部分，介绍了如何在 Azure 中实现应用程序数据的高可用性。 完成后，你会有一个控制台应用程序，用于将 blob 上传到[读取访问异地冗余](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) 存储帐户并对其进行检索。 RA-GRS 的工作方式是将事务从主要区域复制到次要区域。 此复制过程可确保次要区域中的数据最终一致。 应用程序使用[断路器](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker)模式来确定要连接到的终结点。 对故障进行模拟时，应用程序切换到辅助终结点。
+本教程是一个教程系列的第一部分，介绍了如何在 Azure 中实现应用程序数据的高可用性。 完成后，你会有一个控制台应用程序，用于将 blob 上传到[读取访问异地冗余](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) 存储帐户并对其进行检索。 RA-GRS 的工作方式是将事务从主要区域复制到次要区域。 此复制过程可确保次要区域中的数据最终一致。 应用程序使用[断路器](/azure/architecture/patterns/circuit-breaker)模式来确定要连接到的终结点。 对故障进行模拟时，应用程序切换到辅助终结点。
 
 在该系列的第一部分中，你将学习如何：
 
@@ -135,7 +136,7 @@ setx storageconnectionstring "\<yourconnectionstring\>"
 
 ![正在运行的控制台应用](media/storage-create-geo-redundant-storage/figure3.png)
 
-在示例代码中，`Program.cs` 文件中的 `RunCircuitBreakerAsync` 任务用于通过 [DownloadToFileAsync](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.downloadtofileasync?view=azure-dotnet) 方法下载存储帐户中的图像。 在下载之前，会定义 [OperationContext](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet)。 操作上下文定义事件处理程序，此类程序在下载成功完成时或者下载失败并重试时触发。
+在示例代码中，`Program.cs` 文件中的 `RunCircuitBreakerAsync` 任务用于通过 [DownloadToFileAsync](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet) 方法下载存储帐户中的图像。 下载前，将会先定义 [OperationContext](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet)。 操作上下文定义事件处理程序，此类程序在下载成功完成时或者下载失败并重试时触发。
 
 # <a name="python-tabpython"></a>[Python] (#tab/python) 
 若要在终端或命令提示符处运行应用程序，请转到 **circuitbreaker.py** 目录，然后输入 `python circuitbreaker.py`。 应用程序将 HelloWorld.png 图像从解决方案上传到存储帐户。 应用程序会进行检查，确保图像已复制到辅助 RA-GRS 终结点， 然后开始下载图像（最多 999 次）。 每次读取都用 P 或 S 来表示。其中，P 表示主终结点，S 表示辅助终结点。
@@ -146,7 +147,12 @@ setx storageconnectionstring "\<yourconnectionstring\>"
 
 存储对象重试函数设置为线性重试策略。 重试函数决定了是否重试某个请求，并指定了在重试该请求之前需要等待的秒数。 如果应该在针对主终结点的初始请求失败以后重试针对次要终结点的请求，请将 **retry\_to\_secondary** 值设置为 true。 在示例应用程序的存储对象的 `retry_callback` 函数中，定义了自定义重试策略。
  
-在下载之前，定义了服务对象的 [retry_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 和 [response_callback](https://docs.microsoft.com/en-us/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 函数。 这些函数定义了在下载成功完成或下载失败并重试时触发的事件处理程序。  
+在下载之前，定义了服务对象的 [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 和 [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 函数。 这些函数定义了在下载成功完成或下载失败并重试时触发的事件处理程序。  
+
+# <a name="java-tabjava"></a>[Java] (#tab/java)
+若要运行应用程序，可以打开一个终端或命令提示符，其作用域为下载的应用程序所在的文件夹。 在该处输入 `mvn compile exec:java` 即可运行应用程序。 然后，应用程序会将 **HelloWorld.png** 映像从该目录上传到存储帐户并进行检查，确保映像已复制到辅助 RA-GRS 终结点。 检查完成以后，应用程序就会开始重复下载该映像，同时会将从其下载映像的终结点报告回来。
+
+存储对象重试函数设置为使用线性重试策略。 重试函数决定了是否重试某个请求，并指定了在每次重试之前需要等待的秒数。 **BlobRequestOptions** 的 **LocationMode** 属性设置为 **PRIMARY\_THEN\_SECONDARY**。 这样，如果应用程序在尝试下载 **HelloWorld.png** 时无法访问主位置，则会自动将其切换到辅助位置。
 
 # <a name="java-tabjava"></a>[Java] (#tab/java)
 若要运行应用程序，可以打开一个终端或命令提示符，其作用域为下载的应用程序所在的文件夹。 在该处输入 `mvn compile exec:java` 即可运行应用程序。 然后，应用程序会将 **HelloWorld.png** 映像从该目录上传到存储帐户并进行检查，确保映像已复制到辅助 RA-GRS 终结点。 检查完成以后，应用程序就会开始重复下载该映像，同时会将从其下载映像的终结点报告回来。
@@ -161,7 +167,7 @@ setx storageconnectionstring "\<yourconnectionstring\>"
 
 ### <a name="retry-event-handler"></a>Retry 事件处理程序
 
-当映像下载失败并设置为重试时，将调用 `OperationContextRetrying` 事件处理程序。 如果达到应用程序中定义的重试次数上限，请求的 [LocationMode](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) 会变为 `SecondaryOnly`。 此设置强制应用程序从辅助终结点尝试下载该图像。 此配置可减少请求图像所花的时间，因为不会无限重试主终结点。
+当映像下载失败并设置为重试时，将调用 `OperationContextRetrying` 事件处理程序。 如果达到应用程序中定义的重试次数上限，请求的 [LocationMode](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) 会变为 `SecondaryOnly`。 此设置强制应用程序从辅助终结点尝试下载该图像。 此配置可减少请求图像所花的时间，因为不会无限重试主终结点。
  
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -212,7 +218,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 
 ### <a name="retry-event-handler"></a>Retry 事件处理程序
 
-当映像下载失败并设置为重试时，将调用 `retry_callback` 事件处理程序。 如果达到应用程序中定义的重试次数上限，请求的 [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) 会变为 `SECONDARY`。 此设置强制应用程序从辅助终结点尝试下载该图像。 此配置可减少请求图像所花的时间，因为不会无限重试主终结点。  
+当映像下载失败并设置为重试时，将调用 `retry_callback` 事件处理程序。 如果达到应用程序中定义的重试次数上限，请求的 [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python) 会变为 `SECONDARY`。 此设置强制应用程序从辅助终结点尝试下载该图像。 此配置可减少请求图像所花的时间，因为不会无限重试主终结点。  
 
 ```python
 def retry_callback(retry_context):
@@ -235,7 +241,7 @@ def retry_callback(retry_context):
 
 ### <a name="request-completed-event-handler"></a>RequestCompleted 事件处理程序
 
-当图像下载成功时，会调用 `response_callback` 事件处理程序。 如果应用程序使用的是辅助终结点，则应用程序会继续使用该终结点，最多 20 次。 20 次以后，应用程序会将 [LocationMode](https://docs.microsoft.com/en-us/python/api/azure.storage.common.models.locationmode?view=azure-python) 重新设置为 `PRIMARY` 并重试主终结点。 如果请求成功，应用程序会继续从主终结点读取。
+当图像下载成功时，会调用 `response_callback` 事件处理程序。 如果应用程序使用的是辅助终结点，则应用程序会继续使用该终结点，最多 20 次。 20 次以后，应用程序会将 [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python) 重新设置为 `PRIMARY` 并重试主终结点。 如果请求成功，应用程序会继续从主终结点读取。
 
 ```python
 def response_callback(response):

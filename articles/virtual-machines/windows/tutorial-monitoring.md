@@ -1,6 +1,6 @@
 ---
-title: Azure 监视与更新和 Windows 虚拟机 | Azure
-description: 教程 - 使用 Azure PowerShell 监视和更新 Windows 虚拟机
+title: 教程 - 监视和更新 Azure 中的 Windows 虚拟机 | Azure
+description: 本教程介绍如何在 Windows 虚拟机上监视启动诊断和性能指标，以及管理程序包更新
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -10,20 +10,21 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/04/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b61506082dd12ec0adeb14996701595805fc32c1
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 33d06037fecd5260f26da061bcc604387ee24782
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867831"
 ---
-# <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>使用 Azure PowerShell 监视和更新 Windows 虚拟机
+# <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>教程：监视和更新 Azure 中的 Windows 虚拟机
 
 Azure 监视使用代理从 Azure VM 收集启动和性能数据，将此数据存储在 Azure 存储中，并使其可供通过门户、Azure PowerShell 模块和 Azure CLI 进行访问。 使用更新管理可以管理 Azure Windows VM 的更新和修补程序。
 
@@ -33,11 +34,34 @@ Azure 监视使用代理从 Azure VM 收集启动和性能数据，将此数据�
 > * 在 VM 上启用启动诊断
 > * 查看启动诊断
 > * 安装诊断扩展
-> * 创建警报
+<!-- Not Available on> * View VM host metrics -->
+<!-- Not Available on> * View VM metrics -->
+<!-- Not Available on> * Create an alert -->
+<!-- Not Available on> * Manage Windows updates -->
+<!-- Not Available on> * Monitor changes and inventory -->
+<!-- Not Available on> * Set up advanced monitoring -->
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 `Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
+本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
 
-若要完成本教程中的示例，必须具备现有虚拟机。 如果需要，此[脚本示例](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)可为你创建一个虚拟机。 根据教程进行操作时，请根据需要替换资源组、VM 名称和位置。
+## <a name="create-virtual-machine"></a>创建虚拟机
+
+若要在本教程中配置 Azure 监视和更新管理，需要 Azure 中的 Windows VM。 首先，使用 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置 VM 的管理员用户名和密码：
+
+```powershell
+$cred = Get-Credential
+```
+
+现在，使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建 VM。 以下示例在“ChinaEast”位置创建一个名为 myVM 的 VM。 如果资源组 *myResourceGroupMonitorMonitor* 和支持的网络资源不存在，则会创建它们：
+
+```powershell
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupMonitor" `
+    -Name "myVM" `
+    -Location "China East" `
+    -Credential $cred
+```
+
+创建资源和 VM 需要几分钟的时间。
 
 ## <a name="view-boot-diagnostics"></a>查看启动诊断
 
@@ -46,43 +70,42 @@ Azure 监视使用代理从 Azure VM 收集启动和性能数据，将此数据�
 可以使用 [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) 命令获取启动诊断数据。 在下面的示例中，启动诊断下载到了 *c:\* 驱动器的根目录中。
 
 ```powershell
-Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -Windows -LocalPath "c:\"
+Get-AzureRmVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
 ```
 
+<!-- Not Available on ## View host metrics-->
 ## <a name="install-diagnostics-extension"></a>安装诊断扩展
 
 可以使用基本的主机指标，但若要查看更详细的指标和 VM 特定的指标，需在 VM 上安装 Azure 诊断扩展。 使用 Azure 诊断扩展可从 VM 检索其他监视数据和诊断数据。 可以查看这些性能指标，并根据 VM 的性能情况创建警报。 诊断扩展是通过 Azure 门户安装的，如下所述：
 
-1. 在 Azure 门户中，单击“资源组”，选择“myResourceGroup”，然后在资源列表中选择“myVM”。
+1. 在 Azure 门户中单击“资源组”，选择“myResourceGroupMonitor”，并在资源列表中选择“myVM”。
 2. 单击“诊断设置”。 列表中将显示已在上一部分中启用的“启动诊断”。 单击“基本指标”对应的复选框。
 3. 单击“启用来宾级监视”按钮。
 
     ![查看诊断指标](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
-## <a name="create-alerts"></a>创建警报
+<!-- Not Available on ## View VM metrics -->
+<!-- Not Available on ## Create alerts -->
 
-可以根据特定的性能指标创建警报。 例如，当平均 CPU 使用率超过特定的阈值或者可用磁盘空间低于特定的空间量时，警报可用于发出通知。 警报显示在 Azure 门户中，也可以通过电子邮件发送。 还可以触发 Azure 自动化 Runbook 或 Azure 逻辑应用来响应生成的警报。
 
-以下示例针对平均 CPU 使用率创建警报。
-
-1. 在 Azure 门户中，单击“资源组”，选择“myResourceGroup”，然后在资源列表中选择“myVM”。
-2. 在 VM 边栏选项卡上单击“警报规则”，然后单击警报边栏选项卡顶部的“添加指标警报”。
-4. 为警报提供**名称**，例如 *myAlertRule*
-5. 若要在 CPU 百分比持续 5 分钟超过 1.0 时触发警报，请选中其他所有默认值。
-6. （可选）选中“电子邮件所有者、参与者和读者”对应的框，以便向他们发送电子邮件通知。 默认操作是在门户中显示通知。
-7. 单击“确定”按钮。
-
+<!-- Not Available on ## Manage Windows updates -->
+<!-- Not Available on ## Monitor changes and inventory-->
+<!-- Not Availabel on(Log Analytics) ## Advanced monitoring-->
 ## <a name="next-steps"></a>后续步骤
 在本教程中，你已使用 Azure 安全中心配置并查看了 VM。 你已了解如何：
 
 > [!div class="checklist"]
 > * 创建虚拟网络
-> * 创建资源组和 VM 
+> * 创建资源组和 VM
 > * 在 VM 上启用启动诊断
 > * 查看启动诊断
-
 > * 安装诊断扩展
+<!-- Not Available on > * View host metrics -->
+<!-- Not Available on > * View VM metrics -->
+<!-- Not Available on > * Create an alert -->
+<!-- Not Available on > * Manage Windows updates -->
+<!-- Not Available on > * Monitor changes and inventory -->
+<!-- Not Available on > * Set up advanced monitoring -->
 
-> * 创建警报
 <!--Update_Description: update meta properties, wording update-->
 

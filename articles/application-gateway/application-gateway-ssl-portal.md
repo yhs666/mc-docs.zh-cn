@@ -2,21 +2,22 @@
 title: 使用 SSL 终端创建应用程序网关 - Azure 门户 | Microsoft Docs
 description: 了解如何使用 Azure 门户创建应用程序网关并为 SSL 终端添加证书。
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/26/2018
-ms.date: 03/15/2018
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 59a4993fe1d55b1e26f912feedf1b69fbc26984a
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 59d8ceb21149c4c389470ac762dd0dada0a94083
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855742"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>通过 Azure 门户使用 SSL 终端创建应用程序网关
 
@@ -119,14 +120,19 @@ Export-PfxCertificate \
     - 选择“使用现有资源组”，然后选择“myResourceGroupAG”。
 
 4. 单击 **“确定”**。
-5. 选择“Standard_DS1”作为虚拟机的大小，然后单击“选择”。
+5. 选择“DS1_V2”作为虚拟机的大小，然后单击“选择”。
 6. 请确保选择 **myVNet** 作为虚拟网络，子网是 **myBackendSubnet**。 
 7. 单击“禁用”以禁用启动诊断。
 8. 创建“确定”，检查“摘要”页上的设置，然后单击“创建”。
 
 ### <a name="install-iis"></a>安装 IIS
 
-1. 在 powershell 中运行命令 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+1. 在 PowerShell 中使用以下命令登录到 Azure 门户：
+
+    ```powershell
+    Login-azureRmAccount -EnvironmentName AzureChinaCloud
+    ```
+
 
 2. 运行以下命令以在虚拟机上安装 IIS： 
 
@@ -179,3 +185,4 @@ Export-PfxCertificate \
 
 若要了解有关应用程序网关及其关联资源的详细信息，请继续阅读操作指南文章。
 
+<!-- Update_Description: wording update -->

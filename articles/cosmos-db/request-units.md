@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/09/2018
-ms.date: 04/23/2018
+origin.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: ad64f410107f2a440b1f73a7bf25ba46dc96bd39
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 48eec493b0fc0eb259a5f36e5492aafc0e6bbc4c
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867496"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位
 
@@ -39,9 +40,9 @@ Azure Cosmos DB 的货币是**请求单位 (RU)**。 借助 RU，无需保留读
 阅读本文后，可以回答以下问题：  
 
 * Azure Cosmos DB 中的请求单位和请求费用是什么？
-* 如何在 Azure Cosmos DB 中指定容器的请求单位容量？
+* 如何在 Azure Cosmos DB 中指定一个或一组容器的请求单位容量？
 * 如何评估应用程序的请求单位需求？
-* 如果 Azure Cosmos DB 中超过容器的请求单位容量会发生什么情况？
+* 如何在 Azure Cosmos DB 中指定一个或一组容器的请求单位容量？
 
 由于 Azure Cosmos DB 是多模型数据库，因此请务必注意，本文针对 Azure Cosmos DB 中的所有数据模型和 API。 本文使用“容器”等通用术语和“项”来分别泛指集合，以及文档、节点或实体。
 <!-- Not Available on Graph API-->
@@ -53,61 +54,20 @@ Azure Cosmos DB 通过*保留*资源提供快速且可预测的性能，以满�
 通过 Azure Cosmos DB，可根据每秒处理的请求单位指定保留的吞吐量。 可以将请求单位视为吞吐量货币，因此，可以*保留*每秒可用于你的应用程序的定量有保障请求单位。  Azure Cosmos DB 中的每个操作（编写文档、执行查询、更新文档）都会消耗 CPU、内存和 IOPS。  也就是说，每个操作都会产生请求费用（用请求单位表示）。  要了解影响请求单位费用的因素，以及应用程序吞吐量要求，才能尽可能有效地运行应用程序。 Azure 门户中的数据资源管理器也是一个可以测试查询核心的强大工具。
 <!-- Not Available > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]-->
 
-## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>指定 Azure Cosmos DB 中的请求单位容量
-启用新容器时，指定希望保留的每秒请求单位数（每秒 RU 数）。 Azure Cosmos DB 会根据预配的吞吐量分配物理分区来托管容器，并拆分/重新均衡分区中不断增长的数据。
-
-可以“固定”或“无限制”模式创建 Azure Cosmos DB 容器。 固定大小的容器上限为 10 GB，10,000 RU/s 吞吐量。 若要创建无限制容器，必须指定最低 1,000 RU/秒的吞吐量和一个[分区键](partition-data.md)。 由于数据可能需要跨多个分区拆分，因此需要选择一个基数较高（一百到几百万个非重复值）的分区键。 通过选择具有大量非重复值的分区键，可以确保 Azure Cosmos DB 能够统一缩放容器与请求。 
-<!-- Not Available on table/graph -->
-
-> [!NOTE]
-> 分区键是一个逻辑边界而不是物理边界。 因此，不需要限制非重复分区键值的数目。 事实上，分区键值宁多勿少，因为 Azure Cosmos DB 提供的负载均衡选项较多。
-
-以下代码片段使用 .NET SDK 创建每秒 3,000 个请求单位的容器：
-
-```csharp
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "coll";
-myCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("db"),
-    myCollection,
-    new RequestOptions { OfferThroughput = 3000 });
-```
-
-Azure Cosmos DB 运行一个保留模型来预配吞吐量。 也就是说，用户需要根据*保留的*吞吐量付费，不管实际*使用的*吞吐量是多少。 随着应用程序的负载、数据和使用情况模式的更改，可以通过 SDK 或使用 [Azure 门户](https://portal.azure.cn)轻松扩展和缩减保留的 RU 数量。
-
-将每个容器映射到 Azure Cosmos DB 中的 `Offer` 资源，该资源包含有关预配吞吐量的元数据。 可以通过查找容器的相应服务资源，并使用新的吞吐量值来对它进行更新，来更改分配的吞吐量。 以下代码片段使用 .NET SDK 将容器的吞吐量更改为每秒 5,000 个请求单位：
-
-```csharp
-// Fetch the resource to be updated
-Offer offer = client.CreateOfferQuery()
-                .Where(r => r.ResourceLink == collection.SelfLink)    
-                .AsEnumerable()
-                .SingleOrDefault();
-
-// Set the throughput to 5000 request units per second
-offer = new OfferV2(offer, 5000);
-
-// Now persist these changes to the database by replacing the original resource
-await client.ReplaceOfferAsync(offer);
-```
-
-更改吞吐量不会影响容器的可用性。 通常，新的保留吞吐量在几秒内就会在应用程序上生效。
 
 ## <a name="throughput-isolation-in-multiple-region-distributed-databases"></a>多区域分布式数据库中的吞吐量隔离
 
-将数据库复制到多个区域后，Azure Cosmos DB 将提供吞吐量隔离，以确保一个区域中的 RU 使用不会影响另一个区域中的 RU 使用。 例如，如果将数据写入到一个区域，并从另一个区域读取数据，用于在区域 *A* 中执行写入操作的 RU 不会减损用于区域 *B* 中读取操作的 RU。RU 不会拆分到已部署的所有区域中。 数据库所复制到的每个区域预配了全部数量的 RU。 有关全局复制的详细信息，请参阅[如何使用 Azure Cosmos DB 进行多区域数据分配](distribute-data-globally.md)。
+将数据库复制到多个区域后，Azure Cosmos DB 将提供吞吐量隔离，以确保一个区域中的 RU 使用不会影响另一个区域中的 RU 使用。 例如，如果将数据写入到一个区域，并从另一个区域读取数据，用于在区域 *A* 中执行写入操作的 RU 不会减损用于区域 *B* 中读取操作的 RU。RU 不会拆分到已部署的所有区域中。 数据库复制时所在的每个区域都预配了全部数量的 RU。 有关多区域复制的详细信息，请参阅[如何使用 Azure Cosmos DB 进行多区域数据分配](distribute-data-globally.md)。
 
 ## <a name="request-unit-considerations"></a>请求单位注意事项
-在估算要为 Azure Cosmos DB 容器预配的请求单位数时，请务必考虑以下变量：
+在估算要预配的请求单位数时，务必考虑以下变量：
 
 * **项大小**。 随着大小的增加，用来读取或写入数据的请求单位数也随之增加。
 * **项属性计数**。 假设默认为所有属性创建索引，用于写入文档/节点/实体的单位数将随着属性计数的增加而增加。
 * **数据一致性**。 当使用“强”或“有限过期”的数据一致性级别时，读取项会占用更多单位数。
-* **已创建索引的属性**。 每个容器的索引策略都可确定默认情况下要进行索引的属性类别。 通过限制已创建索引的属性数目或通过启用延迟索引编制，可以减少请求单位消耗。
+* **已创建索引的属性**。 每个容器的索引策略都可确定默认情况下要进行索引的属性类别。 可以通过限制已创建索引的属性数目或启用延迟索引编制，减少写入操作的请求单位消耗。
 * **文档索引**。 默认情况下会自动为每个项创建索引。 如果选择不为某些项创建索引，则使用的请求单位数将会减少。
-* **查询模式**。 查询的复杂性会影响操作使用的请求单位数量。 谓词数、谓词性质、投影、UDF 数和源数据集的大小都会影响查询操作的成本。
+* **查询模式**。 查询的复杂性会影响操作使用的请求单位数量。 查询结果数、谓词数、谓词性质、投影、UDF 数和源数据集的大小都会影响查询操作的成本。
 * **脚本使用情况**。  正如查询一样，存储过程和触发器也是根据所执行的操作的复杂性来使用请求单位的。 在开发应用程序时，检查请求费用标头，以更好地了解每个操作消耗请求单位容量的方式。
 
 ## <a name="estimating-throughput-needs"></a>估计吞吐量需求
@@ -182,9 +142,9 @@ await client.ReplaceOfferAsync(offer);
 1. 上传一个或多个有代表性的项（例如某个示例 JSON 文档）。
 
     ![将项上传到请求单位计算器][2]
-2. 若要估算数据存储要求，请输入预期要存储的项（例如文档）总数。
+2. 若要预估数据存储需求，请输入预期要存储的项（例如文档、行或顶点）的总数。
 <!-- Not Available on tables or graphs -->
-3. 输入所需的创建、读取、更新和删除操作数目（以秒为单位）。 若要估计项更新操作的请求单位费用，请上传上述步骤 1 中包含典型字段更新的示例项的副本。  例如，如果项更新通常会修改名为 *lastLogin* 和 *userVisits* 的两个属性，则只要复制示例项、更新这两个属性的值，并上传复制的项。
+3. 输入所需的创建、读取、更新和删除操作数目（以秒为单位）。 若要估计项更新操作的请求单位费用，请上传上述步骤 1 中包含典型字段更新的示例项的副本。  例如，如果项更新通常会修改名为 *lastLogin* 和 *userVisits* 的两个属性，则请复制示例项，更新这两个属性的值，并上传复制的项。
 
     ![在请求单位计算器中输入吞吐量要求][3]
 4. 单击“计算”，并查看结果。
@@ -214,39 +174,6 @@ await client.ReplaceOfferAsync(offer);
 4. 记录典型、常见项查询的请求单位费用。
 5. 记录应用程序使用的任何自定义脚本（存储过程、触发器、用户定义的函数）的请求单位费用。
 6. 根据给定的预计每秒运行的操作估计数计算所需的请求单位。
-
-<a name="GetLastRequestStatistics"></a>
-## <a name="use-mongodb-api-getlastrequeststatistics-command"></a>使用 MongoDB API GetLastRequestStatistics 命令
-MongoDB API 支持使用自定义命令 *getLastRequestStatistics* 来检索给定操作的请求费用。
-
-例如，在 Mongo Shell 中，执行所需的操作来验证请求费用。
-```
-> db.sample.find()
-```
-
-接下来，执行命令 *getLastRequestStatistics*。
-```
-> db.runCommand({getLastRequestStatistics: 1})
-{
-    "_t": "GetRequestStatisticsResponse",
-    "ok": 1,
-    "CommandName": "OP_QUERY",
-    "RequestCharge": 2.48,
-    "RequestDurationInMilliSeconds" : 4.0048
-}
-```
-
-基于这一点，有一种方法可以估计应用程序所需的保留的吞吐量：记录与针对应用程序所使用的代表性项运行典型操作相关联的请求单位费用，并估计预计每秒执行的操作数。
-
-> [!NOTE]
-> 如果有多种项类型，它们的索引属性大小和数目截然不同，则记录与每种*类型*的典型项相关联的适用操作请求单位费用。
-> 
-> 
-
-## <a name="use-mongodb-api-portal-metrics"></a>使用 MongoDB API 门户指标
-准确估算 MongoDB API 数据库请求单位费用的最简单方法是使用 [Azure 门户](https://portal.azure.cn)指标。 使用“请求数”和“请求费用”图表，可以估算每个操作消耗的请求单位数，以及每个操作相对于其他操作消耗的请求单位数。
-
-![MongoDB API 门户指标][6]
 
 ## <a name="a-request-unit-estimate-example"></a>请求单位估计示例
 请考虑以下 ~1 KB 文档：
@@ -338,7 +265,7 @@ MongoDB API 支持使用自定义命令 *getLastRequestStatistics* 来检索给�
 | 按食品组进行选择 |10 个 |700 |
 | 选择前 10 个 |15 |总计 150 |
 
-在此示例中，预计的平均吞吐量需求为 1,275 RU/s。  舍入到最接近的百位数，我们会将此应用程序的容器设置为 1,300 RU/s。
+在此示例中，预计的平均吞吐量需求为 1,275 RU/s。  如果舍入到最接近的百位数，请将此应用程序的一个（或一组）容器的吞吐量预配为 1,300 RU/秒。
 
 <a name="RequestRateTooLarge"></a>
 ##  <a name="exceeding-reserved-throughput-limits-in-azure-cosmos-db"></a>超过 Azure Cosmos DB 中的保留吞吐量限制
@@ -350,13 +277,14 @@ MongoDB API 支持使用自定义命令 *getLastRequestStatistics* 来检索给�
 
 如果使用 .NET 客户端 SDK 和 LINQ 查询，则多数情况下无需处理此异常，因为 .NET 客户端 SDK 的当前版本会隐式捕获此响应，遵循服务器指定的 retry-after 标头，然后自动重试请求。 除非多个客户端同时访问帐户，否则下次重试就会成功。
 
-如果存在多个高于请求速率的请求操作，则默认重试行为可能无法满足需要，这时客户端就会向应用程序引发 `DocumentClientException`，其状态代码为 429。 在这种情况下，可以考虑处理重试行为和应用程序错误处理例程中的逻辑，或为容器增加预配的吞吐量。
-
-<a name="RequestRateTooLargeAPIforMongoDB"></a>
-##  <a name="exceeding-reserved-throughput-limits-in-the-mongodb-api"></a>超过 MongoDB API 中保留的吞吐量限制
-如果应用程序超出针对某个容器预配的吞吐量，则会对该应用程序进行速率限制，直到使用速率降至预配的吞吐量速率。 进行速率限制时，后端会提前结束请求并返回 `16500` 错误代码 -`Too Many Requests`。 默认情况下，在返回 `Too Many Requests` 错误代码之前，MongoDB API 会自动重试最多 10 次。 如果收到大量的 `Too Many Requests` 错误代码，可能需要考虑在应用程序的错误处理例程中添加重试逻辑，或者[提高容器的预配吞吐量](set-throughput.md)。
+如果存在多个高于请求速率的请求操作，则默认重试行为可能无法满足需要，这时客户端就会向应用程序引发 `DocumentClientException`，其状态代码为 429。 在这种情况下，可以考虑处理应用程序错误处理例程中的重试行为和逻辑，或为一个（或一组）容器增加预配的吞吐量。
 
 ## <a name="next-steps"></a>后续步骤
+
+若要了解如何使用 Azure 门户和 SDK 设置和获取吞吐量，请参阅：
+
+* [在 Azure Cosmos DB 中设置和获取吞吐量](set-throughput.md)
+
 若要了解有关 Azure Cosmos DB 数据库的保留吞吐量的详细信息，请浏览以下资源：
 
 * [Azure Cosmos DB 定价](https://www.azure.cn/pricing/details/cosmos-db/)
@@ -370,6 +298,5 @@ MongoDB API 支持使用自定义命令 *getLastRequestStatistics* 来检索给�
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
-[6]: ./media/request-units/api-for-mongodb-metrics.png
 
 <!--Update_Description: update link, wording update -->

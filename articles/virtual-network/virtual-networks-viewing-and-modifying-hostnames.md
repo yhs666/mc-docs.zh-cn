@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/27/2016
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: 508f77b3c1e70f6a6f1c1656ca0a21344b44fdd9
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 7f26d9e409d5021fccccf77f7baa703909a81a9a
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34869350"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>查看和修改主机名
 若要允许通过主机名引用角色实例，必须在服务配置文件中为每个角色设置主机名的值。 可以通过将所需主机名添加到 **Role** 元素的 **vmName** 属性来执行该操作。 
@@ -48,7 +49,7 @@ ms.lasthandoff: 05/07/2018
 
 1. 确保有用于连接到 Azure 门户的客户端证书。 若要获取客户端证书，请执行[如何：下载和导入发布设置和订阅信息](https://msdn.microsoft.com/library/dn385850.aspx)中呈现的步骤。 
 2. 使用值 2013-11-01 设置名为 x-ms-version 的标头条目。
-3. 使用以下格式发送请求：https://management.core.chinacloudapi.cn/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
+3. 发送以下格式的请求：https://management.core.chinacloudapi.cn/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
 4. 在 **HostName** 元素中查找每个 **RoleInstance** 元素。
 
 > [!WARNING]

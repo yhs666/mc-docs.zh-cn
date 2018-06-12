@@ -1,6 +1,6 @@
 ---
-title: 备份 Azure Windows VM | Azure
-description: 使用 Azure 备份来备份 Windows VM，从而为其提供保护。
+title: 教程 - 在 Azure 门户中备份 Windows 虚拟机 | Azure
+description: 本教程介绍如何在 Azure 门户中使用 Azure 备份保护 Windows 虚拟机。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -10,20 +10,21 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 07/27/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: cbe70a6d80a40d30c3f338e685ca5798c093bc2b
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 51969b1ec14fd426d10c78fe15a4870d587525c4
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867651"
 ---
-# <a name="back-up-windows-virtual-machines-in-azure"></a>在 Azure 中备份 Windows 虚拟机
+# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>教程：在 Azure 中备份和还原 Windows 虚拟机的文件
 
 可以通过定期创建备份来保护数据。 Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复保管库中。 从恢复点还原时，可以还原整个 VM，也可以仅还原特定的文件。 本文介绍了如何将单个文件还原到运行 Windows Server 和 IIS 的 VM。 如果尚没有 VM 可使用，可以参考 [Windows 快速入门](quick-create-portal.md)创建一个 VM。 本教程介绍如何执行下列操作：
 
@@ -60,7 +61,7 @@ ms.lasthandoff: 05/17/2018
 
 ## <a name="recover-a-file"></a>恢复文件
 
-如果意外删除或更改了某个文件，可以使用文件恢复从备份保管库恢复该文件。 文件恢复使用一个在 VM 上运行的脚本将恢复点装载为本地驱动器。 这些驱动器将保持装载 12 小时，以便可以从恢复点复制文件并将其还原到 VM。  
+如果意外删除或更改了某个文件，可以使用文件恢复从备份保管库恢复该文件。 文件恢复使用一个在 VM 上运行的脚本将恢复点装载为本地驱动器。 这些驱动器会保持装载 12 小时，以便可以从恢复点复制文件并将其还原到 VM。  
 
 本示例展示了如何恢复在 IIS 的默认网页中使用的图像文件。 
 
@@ -80,7 +81,7 @@ ms.lasthandoff: 05/17/2018
 9. 在边栏选项卡顶部的菜单中，选择“文件恢复”。 此时会打开“文件恢复”边栏选项卡。
 10. 在“步骤 1: 选择恢复点”中，从下拉列表中选择恢复点。
 11. 在“步骤 2: 下载脚本以浏览并恢复文件”中，单击“下载可执行文件”按钮。 将文件保存到**下载**文件夹。
-12. 在本地计算机上，打开**文件资源管理器**，导航到**下载**文件夹并复制所下载的 .exe 文件。 文件名以 VM 名称作为前缀。 
+12. 在本地计算机上，打开**文件资源管理器**，导航到**下载**文件夹并复制所下载的 .exe 文件。 该文件名以 VM 名称作为前缀。 
 13. 在 VM 上（通过 RDP 连接），将该 .exe 文件粘贴到 VM 的桌面。 
 14. 导航到 VM 的桌面并双击该 .exe 文件。 这会启动一个命令提示符，然后将恢复点装载为可以访问的文件共享。 完成该共享创建时，键入 **q** 以关闭命令提示符。
 15. 在 VM 上，打开**文件资源管理器**，导航到用于该文件共享的驱动器号。

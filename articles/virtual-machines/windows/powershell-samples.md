@@ -14,14 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/30/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f1050272903849cd63aaa41ff7f729704fd9b458
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: ae2429eb50b3914f34faf4b819f94d5813710931
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867634"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure 虚拟机 PowerShell 示例
 
@@ -47,6 +48,7 @@ ms.lasthandoff: 05/17/2018
 | [将快照复制到相同或不同订阅](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 将快照复制到相同或不同的订阅，但与父级快照位于同一区域。 |
 |**保护虚拟机安全**||
 | [加密 VM 和数据磁盘](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | 创建 Azure Key Vault、加密密钥和服务主体，然后对 VM 进行加密。 |
-<!-- 不可用 |**监视虚拟机**||-->
 | | |
-<!--Update_Description: update mets properties -->
+<!-- 在第 45 行不可用  |**监视虚拟机**||-->
+
+<!--Update_Description: update meta properties -->

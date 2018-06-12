@@ -2,20 +2,21 @@
 title: include 文件
 description: include 文件
 services: storage
-author: forester123
+author: WenJason
 ms.service: storage
 ms.topic: include
 origin.date: 04/09/2018
-ms.date: 05/07/2018
-ms.author: v-johch
+ms.date: 06/11/2018
+ms.author: v-nany
 ms.custom: include file
-ms.openlocfilehash: 66d7417fb7c2614080532f8cc0a2da3061f49b9c
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 039fb5fcfd9baeb4a1d39e2e5aaf752b12861f59
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34880610"
 ---
-Azure Blob 存储是 Azure 的适用于云的对象存储解决方案。 Blob 存储最适合存储巨量的非结构化数据，例如文本或二进制数据。
+Azure Blob 存储是 Microsoft 提供的适用于云的对象存储解决方案。 Blob 存储最适合存储巨量的非结构化数据，例如文本或二进制数据。
 
 Blob 存储最适合用于：
 
@@ -56,3 +57,20 @@ Azure 存储提供三种类型的 Blob：块 Blob、追加 Blob 和[页 Blob](..
   
 有关命名容器和 Blob 的详细信息，请参阅 [命名和引用容器、Blob 和元数据](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)。
 
+### <a name="container"></a>容器
+
+容器对一组 blob 进行组织，类似于文件系统中的文件夹。 所有 Blob 都驻留在容器中。 一个存储帐户可以包含无限数量的容器，一个容器可以存储无限数量的 Blob。 请注意，容器名称必须小写。
+
+### <a name="blob"></a>Blob
+ 
+Azure 存储提供三种类型的 Blob：块 Blob、追加 Blob 和[页 Blob](../articles/storage/blobs/storage-blob-pageblob-overview.md)（用于 VHD 文件）。
+
+* 块 Blob 存储文本和二进制数据，最多约为 4.7 TB。 块 Blob 由可以分别管理的数据块构成。
+* 与块 Blob 一样，追加 Blob 也由块构成，但针对追加操作进行了优化。 追加 Blob 非常适用于诸如记录来自虚拟机的数据之类的场景。
+* 页 Blob 用于存储最大 8 TB 的随机访问文件。 页 Blob 存储着为 VM 提供支撑的 VHD 文件。
+
+所有 Blob 都驻留在容器中。 容器类似于文件系统中的文件夹。 你可以进一步将 Blob 组织到虚拟目录中，并遍历它们，就像对待文件系统一样。 
+
+如果使用的是极大型数据集，并且因网络限制而无法通过网络向 Blob 存储上传数据或从其下载数据，则可将一组硬盘驱动器寄送给我们，以便直接通过数据中心导入或导出数据。 有关详细信息，请参阅[使用 Microsoft Azure 导入/导出服务将数据传输到 Blob 存储中](../articles/storage/common/storage-import-export-service.md)。
+  
+有关命名容器和 Blob 的详细信息，请参阅 [命名和引用容器、Blob 和元数据](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)。

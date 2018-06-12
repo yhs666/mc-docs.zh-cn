@@ -12,18 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/24/2017
-ms.date: 04/23/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea67205400c558c8e9293c559273aaad649ba17b
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: caa35172e0615f1a9766bacc3c9b62d0b9b62765
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867390"
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>使用 SQL API 在 Azure Cosmos DB 中进行分区
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是一个全局分布式多模型数据库服务，旨在帮助实现快速、可预测的性能并且随着应用程序的增长无缝扩展。 
+[Azure Cosmos DB](../cosmos-db/introduction.md) 是一项多区域分布式多模型数据库服务，旨在帮助你实现快速、可预测的性能并根据应用程序的增长情况进行无缝扩展。 
 
 本文概述了如何使用 SQL API 处理对 Cosmos DB 容器的分区。 请参阅[分区和水平缩放](../cosmos-db/partition-data.md)，大致了解使用任何 Azure Cosmos DB API 进行分区的概念和最佳做法。 
 
@@ -44,7 +45,7 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="partition-keys"></a>分区键
 
-在 SQL API 中，可以通过 JSON 路径形式指定分区键定义。 下表显示分区键定义以及与每个定义相对应的值的示例。 分区键指定为路径，例如，`/department` 表示物业部门。 
+在 SQL API 中，可以通过 JSON 路径形式指定分区键定义。 下表显示分区键定义以及与每个定义相对应的值的示例。 分区键指定为路径，例如 `/department` 表示属性 department。 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -82,9 +83,9 @@ ms.lasthandoff: 04/23/2018
 Azure Cosmos DB 增加了对 [REST API 版本 2015-12-16](https://docs.microsoft.com/rest/api/cosmos-db/) 的自动分区支持。 为了创建已分区容器，必须在支持的 SDK 平台之一（.NET、Node.js、Java、Python、MongoDB）下载 SDK 版本 1.6.0 或更高版本。 
 
 ### <a name="creating-containers"></a>创建容器
-下面的示例演示的 .NET 代码片段用于创建容器，以存储吞吐量为 20,000 个请求单位/秒的设备遥测数据。 SDK 将设置 OfferThroughput 值（从而设置 REST API 中的 `x-ms-offer-throughput` 请求标头）。 这里，我们将 `/deviceId` 设为分区键。 所选分区键随容器元数据（如名称和索引策略）的其余部分一起保存。
+下面的示例演示的 .NET 代码片段用于创建容器，以存储吞吐量为 20,000 个请求单位/秒的设备遥测数据。 SDK 将设置 OfferThroughput 值（从而设置 REST API 中的 `x-ms-offer-throughput` 请求标头）。 在这里，请将 `/deviceId` 设为分区键。 所选分区键随容器元数据（如名称和索引策略）的其余部分一起保存。
 
-对于此示例，我们选取了 `deviceId`，因为我们知道：(a) 由于存在大量的设备，写入可以跨分区均匀地分步并且我们可以扩展数据库以引入海量数据，(b) 许多请求（如提取设备最近读取内容）仅限于单个 deviceId，并且可以从单个分区进行检索。
+对于此示例，你选取了 `deviceId`，因为你知道：(a) 由于存在大量的设备，写入可以跨分区均匀地分步并且你可以扩展数据库以引入海量数据，(b) 许多请求（如提取设备最近读取内容）仅限于单个 deviceId，并且可以从单个分区进行检索。
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
@@ -103,10 +104,10 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 20000 });
 ```
 
-此方法可对 Cosmos DB 进行 REST API 调用，且该服务基于所请求的吞吐量预配分区数。 随着性能需求的变化，可以更改容器的吞吐量。 
+此方法可对 Cosmos DB 进行 REST API 调用，且该服务基于所请求的吞吐量预配分区数。 根据性能需求的变化，可以更改一个或一组容器的吞吐量。 
 
-### <a name="reading-and-writing-items"></a>读取和写入项目
-现在，让我们将数据插入 Cosmos DB。 以下示例类包含设备读取和对 CreateDocumentAsync 的调用，目的是将新设备读数插入到容器中。 这是一个利用 SQL API 的示例：
+### <a name="reading-and-writing-items"></a>读取和写入项
+现在，让我们将数据插入 Cosmos DB。 以下示例类包含设备读取和对 CreateDocumentAsync 的调用，目的是将新设备读数插入到容器中。 下面是一个使用 SQL API 的示例代码块：
 
 ```csharp
 public class DeviceReading
@@ -145,7 +146,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-请按分区键和 ID 读取项，对其进行更新，最后通过分区键和 ID 将其删除。请注意，读取包括 PartitionKey 值（对应 REST API 中的 `x-ms-documentdb-partitionkey` 请求标头）。
+请按分区键和 ID 读取项，对其进行更新，最后通过分区键和 ID 将其删除。读取包括 PartitionKey 值（对应 REST API 中的 `x-ms-documentdb-partitionkey` 请求标头）。
 
 ```csharp
 // Read document. Needs the partition key and the ID to be specified
@@ -179,7 +180,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
     .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
 ```
 
-下面的查询在分区键 (DeviceId) 上没有筛选器，并且以扇形展开到针对分区索引执行该查询的所有分区。 请注意，必须指定 EnableCrossPartitionQuery（REST API 中的 `x-ms-documentdb-query-enablecrosspartition`）以使 SDK 跨分区执行查询。
+下面的查询在分区键 (DeviceId) 上没有筛选器，并且以扇形展开到针对分区索引执行该查询的所有分区。 必须指定 EnableCrossPartitionQuery（REST API 中的 `x-ms-documentdb-query-enablecrosspartition`）以使 SDK 跨分区执行查询。
 
 ```csharp
 // Query across partition keys
@@ -205,13 +206,13 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 
 可以通过调整以下参数来管理并行查询执行：
 
-* 通过设置 `MaxDegreeOfParallelism`，可以控制并行度，即，与容器的分区同时进行的网络连接的最大数量。 如果将此参数设置为 -1，则由 SDK 管理并行度。 如果 `MaxDegreeOfParallelism` 未指定或设置为 0（默认值），则与容器的分区的网络连接只有一个。
-* 通过设置 `MaxBufferedItemCount`，可以权衡查询延迟和客户端内存使用率。 如果省略此参数或将此参数设置为 -1，则由 SDK 管理并行查询执行过程中缓冲的项目数。
+* 通过设置 `MaxDegreeOfParallelism`，可以控制并行度，即，与容器的分区同时进行的网络连接的最大数量。 如果将此属性设置为 -1，则由 SDK 管理并行度。 如果 `MaxDegreeOfParallelism` 未指定或设置为 0（默认值），则与容器的分区的网络连接只有一个。
+* 通过设置 `MaxBufferedItemCount`，可以权衡查询延迟和客户端内存使用率。 如果省略此参数或将此属性设置为 -1，则由 SDK 管理并行查询执行过程中缓冲的项目数。
 
 如果给定相同状态的集合，并行查询会以与串行执行相同的顺序返回结果。 执行包含排序（ORDER BY 和/或 TOP）的跨分区查询时，Azure Cosmos DB SDK 跨分区发出并行查询，并合并客户端中的部分排序结果，以生成全局范围内有序的结果。
 
 ### <a name="executing-stored-procedures"></a>执行存储过程
-还可以对具有相同设备 ID 的文档执行原子事务，例如，如果要在单个项中维护聚合或设备的最新状态，则可以执行该操作。 
+还可以对具有相同设备 ID 的文档执行原子事务，例如，如果要在单个项目中维护聚合或设备的最新状态。 
 
 ```csharp
 await client.ExecuteStoredProcedureAsync<DeviceReading>(
@@ -220,7 +221,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
     "XMS-001-FE24C");
 ```
 
-在下一部分，介绍如何从单分区容器移动到已分区容器。
+下一节介绍如何从单分区容器移动到已分区容器。
 
 ## <a name="next-steps"></a>后续步骤
 本文概述了如何使用 SQL API 对 Azure Cosmos DB 容器进行分区。 另请参阅[分区和水平缩放](../cosmos-db/partition-data.md)，大致了解使用任何 Azure Cosmos DB API 进行分区的概念和最佳做法。 

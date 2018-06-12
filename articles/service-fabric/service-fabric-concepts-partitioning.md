@@ -15,11 +15,12 @@ ms.workload: NA
 origin.date: 06/30/2017
 ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: b37b19fcc1873ea3e39f3dae7815ffd5f0f05eca
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: f2cbdb5365d620bf8ae72702ebfd9d9529dfd50b
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867464"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Service Fabric Reliable Services 分区
 本文介绍 Azure Service Fabric Reliable Services 分区的基本概念。 本文中使用的源代码也可以在 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)上获取。
@@ -41,7 +42,7 @@ ms.lasthandoff: 05/26/2018
 本演练的其余部分侧重于有状态服务。
 
 ### <a name="partition-service-fabric-stateful-services"></a>对 Service Fabric 有状态服务进行分区
-通过 Service Fabric 可以提供到一流的状态（数据）分区方式，从而方便地开发可缩放有状态服务。 从概念上讲，可将有状态服务的分区视为通过在群集中的节点间进行分布和均衡的[副本](service-fabric-availability-services.md)而高度可靠的缩放单位。
+通过 Service Fabric 可以提供到一流的状态（数据）分区方式，从而方便地开发可缩放有状态服务。 从概念上讲，可以将有状态服务的分区视为使用在群集中的节点间进行分布和平衡的[副本](service-fabric-availability-services.md)而具有高度可靠性的缩放单元。
 
 在 Service Fabric 有状态服务的上下文中进行分区是指确定特定服务分区负责服务完整状态的某个部分的过程。 （如前所述，分区是一组[副本](service-fabric-availability-services.md)）。 Service Fabric 的一大优点是它将分区置于不同节点上。 这使它们可以按照节点的资源限制增长。 随着数据需求的增长，分区也会增长，Service Fabric 会在节点间重新平衡分区。 这可确保硬件资源的持续高效使用。
 
@@ -63,7 +64,8 @@ ms.lasthandoff: 05/26/2018
 
 ![简单分区](./media/service-fabric-concepts-partitioning/cities.png)
 
-因为城市的人口差别很大，所以最后可能有一些分区包含大量数据（例如西雅图），而其他分区包含非常少的状态（例如柯克兰）。 那么分区具有不均匀的状态数量会有什么影响呢？
+因为城市的人口差别很大，所以最后可能出现一些分区包含大量数据而另一些分区包含非常少的数据这样一种状态。 那么分区具有不均匀的状态数量会有什么影响呢？
+<!-- Not Available on Seattle and Kirkland-->
 
 如果再次考虑该示例，便可以很容易地发现为西雅图保存投票的分区获得的流量会多于柯克兰的相应分区。 默认情况下，Service Fabric 可确保每个节点上的主副本和辅助副本数量大致相同。 因此，最后可能节点容纳的一些副本处理较多流量，而其他副本处理较少流量。 会倾向于避免群集中出现类似于这种情况的热点和冷点。
 

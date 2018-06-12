@@ -1,6 +1,6 @@
 ---
-title: Azure 中 Windows VM 的可用性集教程 | Azure
-description: 了解 Azure 中 Windows VM 的可用性集。
+title: 教程 - Azure 中 Windows VM 的高可用性 | Azure
+description: 本教程介绍如何使用 Azure PowerShell 在可用性集中部署高度可用的虚拟机
 documentationcenter: ''
 services: virtual-machines-windows
 author: rockboyfor
@@ -14,18 +14,19 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 02/09/2018
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 77e8da49b0538e60840b19ac9e046e1de59cd430
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: b84e7e2e47be0faad0972b85672fa68452e7b203
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867673"
 ---
-# <a name="how-to-use-availability-sets"></a>如何使用可用性集
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和部署高度可用的虚拟机
 
-本教程介绍如何使用称作“可用性集”的功能提高 Azure 上虚拟机解决方案的可用性和可靠性。 可用性集可确保在 Azure 上部署的 VM 能够跨群集中多个隔离的硬件节点分布。 这样，就可以确保当 Azure 中发生硬件或软件故障时，只有一部分 VM 会受到影响，整体解决方案仍可使用和操作。 
+本教程介绍如何使用称作“可用性集”的功能提高 Azure 上虚拟机解决方案的可用性和可靠性。 可用性集可确保在 Azure 上部署的 VM 能够跨群集中多个隔离的硬件节点分布。 这样，就可以确保当 Azure 中发生硬件或软件故障时，只有一部分 VM 会受到影响，整体解决方案仍可使用和操作。
 
 本教程介绍如何执行下列操作：
 
@@ -36,7 +37,7 @@ ms.lasthandoff: 05/17/2018
 > * 检查 Azure 顾问
 
 <!-- Not Avaiable on [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)] -->
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.3 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。
 
 ## <a name="availability-set-overview"></a>可用性集概述
 
@@ -54,13 +55,13 @@ ms.lasthandoff: 05/17/2018
 
 创建资源组。
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmResourceGroup -Name myResourceGroupAvailability -Location ChinaEast
 ```
 
 使用 `-sku aligned` 参数通过 [New-AzureRmAvailabilitySet](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermavailabilityset) 创建托管的可用性集。
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmAvailabilitySet `
    -Location "ChinaEast" `
    -Name "myAvailabilitySet" `
@@ -79,13 +80,13 @@ New-AzureRmAvailabilitySet `
 
 首先，使用 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置 VM 的管理员用户名和密码：
 
-```azurepowershell-interactive
+```powershell
 $cred = Get-Credential
 ```
 
 现在，请在可用性集中使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建两个 VM。
 
-```azurepowershell-interactive
+```powershell
 for ($i=1; $i -le 2; $i++)
 {
     New-AzureRmVm `
@@ -111,7 +112,7 @@ for ($i=1; $i -le 2; $i++)
 
 稍后可向可用性集添加更多 VM，但需了解在硬件上可用的 VM 大小。 使用 [Get-AzureRMVMSize](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmsize) 列出可用性集的硬件群集上所有可用的大小。
 
-```azurepowershell-interactive
+```powershell
 Get-AzureRmVMSize `
    -ResourceGroupName "myResourceGroupAvailability" `
    -AvailabilitySetName "myAvailabilitySet"

@@ -1,5 +1,5 @@
 ---
-title: Azure 快速入门 - 使用 Azure 存储资源管理器在对象存储中创建 blob | Microsoft Docs
+title: Azure 快速入门 - 使用 Azure 存储资源管理器在对象存储中创建 Blob | Azure
 description: 本快速入门将在对象 (Blob) 存储中使用 Azure 存储资源管理器。 然后，使用该存储资源管理器将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
 author: forester123
@@ -8,13 +8,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 04/09/2018
-ms.date: 05/07/2018
-ms.author: v-johch
-ms.openlocfilehash: dee277239f4e26468324aa633d78ec8d6779edd0
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/11/2018
+ms.author: v-nany
+ms.openlocfilehash: 6cefb9c65956a2fb59c9c00efbbf548fde6d291f
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867506"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>快速入门：使用 Azure 存储资源管理器上传、下载和列出 Blob
 

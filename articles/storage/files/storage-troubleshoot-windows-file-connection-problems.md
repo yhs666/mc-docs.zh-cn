@@ -1,8 +1,8 @@
 ---
-title: "在 Windows 中排查 Azure 文件问题 | Microsoft Docs"
-description: "在 Windows 中排查 Azure 文件问题"
+title: 在 Windows 中排查 Azure 文件问题 | Azure
+description: 在 Windows 中排查 Azure 文件问题
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: forester123
 manager: digimobile
 editor: na
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/19/2017
-ms.date: 3/5/2018
+origin.date: 05/11/2018
+ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: 926d1e6ca2e9df034a2aff2ccd2f6508f1e75f85
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 27359ce0748672f69684951b3dd4b94de40388cf
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867548"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>在 Windows 中排查 Azure 文件问题
 
@@ -37,7 +38,7 @@ ms.lasthandoff: 03/12/2018
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>原因 1：通信通道未加密
 
-出于安全原因，如果信道未加密，且未从 Azure 文件共享所在的数据中心尝试连接，则到 Azure 文件共享的连接将受阻。 仅当用户的客户端 OS 支持 SMB 加密时，才会提供信道加密。
+出于安全原因，如果信道未加密，且未从 Azure 文件共享所驻留的数据中心尝试连接，则到 Azure 文件共享的连接将受阻。 仅当用户的客户端 OS 支持 SMB 加密时，才会提供信道加密。
 
 Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其包含支持加密的 SMB 3.0。
 
@@ -64,7 +65,7 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 
 ### <a name="solution-for-cause-2"></a>原因 2 的解决方案
 
-与 IT 部门配合，向 [Azure IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)开放端口 445 出站通信。
+与 IT 部门配合，向 [Azure IP 范围](https://www.microsoft.com/download/details.aspx?id=41653)开放端口 445 出站通信。
 
 ### <a name="cause-3-ntlmv1-is-enabled"></a>原因 3：NTLMv1 已启用
 
@@ -99,7 +100,7 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 尝试将文件传输到 Azure 文件服务时，可能会出现性能下降的情况。
 
 - 如果没有特定的 I/O 大小下限要求，建议使用 1 MB 的 I/O 大小获得最佳性能。
--   如果知道要通过写入进行扩展的文件的最终大小，并且软件在文件上未写入的尾部包含零时尚未出现兼容性问题，请提前设置文件大小，而不是使每次写入都成为扩展写入。
+-   如果知道使用写入进行扩展的文件的最终大小，并且当尚未在文件上写入的尾部包含零时软件没有兼容性问题，请提前设置文件大小，而不是使每次写入都成为扩展写入。
 -   使用正确的复制方法：
     -   为两个文件共享之间的任何传输使用 [AzCopy](../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json)。
     -   在本地计算机上的文件共享之间使用 [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/)。
@@ -148,7 +149,7 @@ net use 命令将正斜杠 (/) 解释为命令行选项。 如果用户帐户名
 
   可以在批处理文件中通过以下方式运行该命令：
 
-  `Echo new-smbMapping ... | powershell -command -`
+  `Echo new-smbMapping ... | powershell -command –`
 
 - 将密钥用双引号括起以解决此问题（除非第一个字符是正斜杠）。 如果是，可使用交互模式并单独输入密码，或者重新生成密钥来获取不以正斜杠开头的密钥。
 
@@ -192,6 +193,7 @@ net use 命令将正斜杠 (/) 解释为命令行选项。 如果用户帐户名
   - 名称= CopyFileAllowDecryptedRemoteDestination
   - 值= 1
 
-请注意，设置注册表项会影响所有针对网络共享进行的复制操作。
+请注意，设置注册表项会影响对网络共享进行的所有复制操作。
 
-<!--Update_Description: wording update-->
+## <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
+如果仍需帮助，请[联系支持人员](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)，以快速解决问题。

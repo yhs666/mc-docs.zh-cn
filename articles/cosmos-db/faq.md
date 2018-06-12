@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2018
-ms.date: 04/23/2018
+ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: 34693cf1faa7b3611ccf66b49b16ce1e696a3a47
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: a19437dc867ff20ed9aa323057d33de55309a52f
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867492"
 ---
 <!-- meta.description: GLOBALLY to multiple-region -->
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常见问题解答
@@ -54,13 +55,13 @@ Azure DocumentDB 服务现在是 Azure Cosmos DB 服务的一部分，自身以 
 <!-- Not Available on Table API table, Graph -->
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-columnar-and-document"></a>Azure Cosmos DB 如何支持各种数据模型（例如纵栏表和文档）？
-纵栏表和文档数据模型都是原本就支持的，因为 Azure Cosmos DB 是基于 ARS（原子、记录和序列）设计构建的。 原子、记录和序列可以轻松映射和投影到各种数据模型。 现在提供了适用于一部分模型（SQL 和 MongoDB API）的 API，将来会提供特定于其他数据模型的其他 API。
+纵栏表和文档数据模型都是原本就支持的，因为 Azure Cosmos DB 是基于 ARS（原子、记录和序列）设计构建的。 原子、记录和序列可以轻松映射和投影到各种数据模型。 现在提供了适用于一部分模型的 API（SQL 和 MongoDB API），将来会提供特定于其他数据模型的其他 API。
 <!-- Not Available on Table and Graph -->
 
 Azure Cosmos DB 有一个不受架构影响的索引编制引擎，能够自动为它引入的所有数据编制索引，不会要求开发者提供任何架构或辅助索引。 该引擎依赖于一组逻辑索引布局（倒置、纵栏表、树形），这些布局将存储布局从索引和查询处理子系统中分离出来。 Cosmos DB 还能够以可扩展方式支持一组连网协议和 API 并将它们高效地转换为核心数据模型 (1) 和逻辑索引布局 (2)，这使得它具有原本就支持多个数据模型的独特功能。
 
 ### <a name="is-azure-cosmos-db-hipaa-compliant"></a>Azure Cosmos DB 是否符合 HIPAA？
-是的，Azure Cosmos DB 符合 HIPAA。 HIPAA 针对可识别个人身份的健康信息的使用、泄露与保护制定了要求。 有关详细信息，请参阅 [Microsoft 信任中心](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA)。
+是的，Azure Cosmos DB 符合 HIPAA。 HIPAA 针对可识别个人身份的健康信息的使用、泄露与保护制定了要求。 有关详细信息，请参阅 [Microsoft 信任中心](https://www.trustcenter.cn/)。
 
 ### <a name="what-are-the-storage-limits-of-azure-cosmos-db"></a>Azure Cosmos DB 的存储限制是什么？
 对于容器可以存储在 Azure Cosmos DB 中的数据总量并没有任何限制。
@@ -85,6 +86,7 @@ Azure Cosmos DB 有一个不受架构影响的索引编制引擎，能够自动�
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)。 Stack Overflow 适合编程问题。 请确保提问[切中主题](https://stackoverflow.com/help/on-topic)并[尽可能提供较多的详细信息，使问题清楚明了，便于回答](https://stackoverflow.com/help/how-to-ask)。 
 
 若要请求新功能，请在 [Uservoice](https://www.azure.cn/support/support-azure/) 上提交新的请求。
+
 若要修复帐户问题，请在 Azure 门户中提交[支持请求](https://www.azure.cn/support/support-azure/)。
 <!-- Not Avaiable on newsupportrequest in (https://www.azure.cn/support/support-azure/newsupportrequest) -->
 
@@ -101,11 +103,11 @@ Azure Cosmos DB 有一个不受架构影响的索引编制引擎，能够自动�
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>可以将 PreferredLocations 设置为哪些区域？ 
 可以将 PreferredLocations 值设置为提供 Cosmos DB 的任何 Azure 区域。 有关可用区域的列表，请参阅 [Azure 区域](https://www.azure.cn/support/service-dashboard/)。
 
-### <a name="is-there-anything-i-should-be-aware-of-when-distributing-data-across-the-multiple-region-via-the-azure-datacenters"></a>通过 Azure 数据中心在多个区域分配数据时需要注意什么？ 
+### <a name="is-there-anything-i-should-be-aware-of-when-distributing-data-across-world-via-the-azure-datacenters"></a>通过 Azure 数据中心在全球分配数据时需要注意什么？ 
 Azure Cosmos DB 存在于所有 Azure 区域，详见 [Azure 区域](https://www.azure.cn/support/service-dashboard/)页。 由于 Azure Cosmos DB 是核心服务，每个新数据中心都部署了它。 
-<!-- Notice: WORLD to multiple-region(多个区域分配) -->
 
 设置区域时，请记住，Azure Cosmos DB 遵从主权和政府云的要求。 也就是说，如果你在某个主权区域创建了一个帐户，则不能将数据从该主权区域复制到外部区域。 同样，你不能将数据从外部帐户复制到其他主权位置。 
+<!-- Not Available on [sovereign region](https://www.azure.cn/global-infrastructure/)-->
 
 ## <a name="develop-against-the-sql-api"></a>针对 SQL API 进行开发
 
@@ -161,6 +163,9 @@ SQL API 通过 JavaScript 存储过程和触发器支持语言集成式事务。
 是的。 [Azure Cosmos DB 模拟器](local-emulator.md)提供对 Cosmos DB 服务的高保真模拟。 它支持和 Azure Cosmos DB 相同的功能，包括支持创建和查询 JSON 文档、预配集合和调整集合的规模，以及执行存储过程和触发器。 可以使用 Azure Cosmos DB 模拟器开发和测试应用程序，并通过对 Azure Cosmos DB 的连接终结点进行单一配置更改将其部署到多区域范围的 Azure。
 <!-- Notice: 全球范围 to 多个区域范围 -->
 
+### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>当从门户中的数据资源管理器查看时，为何会对文档中的长浮点值进行舍入？ 
+这是 JavaScript 的限制。 JavaScript 根据 IEEE 754 中的规定使用双精度浮点格式的数字，并且只能安全地呈现 -(253 - 1) 和 253 - 1（即 9007199254740991）之间的数字。
+
 ## <a name="develop-against-the-api-for-mongodb"></a>针对 API for MongoDB 进行开发
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API for MongoDB 是什么？
 Azure Cosmos DB API for MongoDB 是一个兼容层，允许应用程序使用现有的、社区支持的 Apache MongoDB API 和驱动程序轻松、透明地与本机 Azure Cosmos DB 数据库引擎通信。 开发人员现在可以使用现有的 MongoDB 工具链和技术，生成能够充分利用 Azure Cosmos DB 的应用程序。 开发人员可以使用 Azure Cosmos DB 的独特功能，其中包括自动索引、备份维护、获得财务支持的服务级别协议 (SLA) 等。
@@ -177,7 +182,7 @@ Azure Cosmos DB 实施严格的安全要求和标准。 Azure Cosmos DB 帐户�
 
 | 错误               | 代码  | 说明  | 解决方案  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | 使用的请求单位总数超过了集合的预配请求单位比率，已达到限制。 | 请考虑从 Azure 门户缩放集合的吞吐量，或者重试。 |
+| TooManyRequests     | 16500 | 使用的请求单位总数超过了集合的预配请求单位比率，已达到限制。 | 考虑从 Azure 门户中对分配给一个容器或一组容器的吞吐量进行缩放，或者重试。 |
 | ExceededMemoryLimit | 16501 | 作为一种多租户服务，操作已超出客户端的内存配额。 | 通过限制性更强的查询条件缩小操作的作用域，或者通过 [Azure 门户](https://www.azure.cn/support/support-azure/)联系技术支持。 <br><br>示例：*&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 <!-- Not Available ## Develop with the Table API -->

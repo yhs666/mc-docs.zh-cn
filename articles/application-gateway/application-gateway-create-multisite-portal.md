@@ -2,20 +2,21 @@
 title: 创建托管多个站点的应用程序网关 - Azure 门户 | Microsoft Docs
 description: 了解如何使用 Azure 门户创建托管多个站点的应用程序网关。
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/26/2018
-ms.date: 03/15/2018
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: a02432e5a8e735257b01a83e366b201d0ae1c7cb
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 0c3de7e816e40e2af16ad0ecb25e506c75021f76
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855715"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>使用 Azure 门户创建托管多个站点的应用程序网关
 
@@ -89,15 +90,19 @@ ms.lasthandoff: 03/17/2018
     - 选择“使用现有资源组”，然后选择“myResourceGroupAG”。
 
 4. 单击 **“确定”**。
-5. 选择“Standard_DS1”作为虚拟机的大小，然后单击“选择”。
+5. 选择“DS1_V2”作为虚拟机的大小，然后单击“选择”。
 6. 请确保选择 **myVNet** 作为虚拟网络，子网是 **myBackendSubnet**。 
 7. 单击“禁用”以禁用启动诊断。
 8. 创建“确定”，检查“摘要”页上的设置，然后单击“创建”。
 
 ### <a name="install-iis"></a>安装 IIS
-1. 在 powershell 中运行命令 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+1. 在 PowerShell 中使用以下命令登录到 Azure 门户：
 
-2. 运行以下 powershell 命令以在虚拟机上安装 IIS： 
+    ```powershell
+    Login-azureRmAccount -EnvironmentName AzureChinaCloud
+    ```
+
+2. 运行以下命令以在虚拟机上安装 IIS： 
 
     ```azurepowershell
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
@@ -186,3 +191,4 @@ ms.lasthandoff: 03/17/2018
 > [!div class="nextstepaction"]
 > [详细了解应用程序网关的作用](application-gateway-introduction.md)
 
+<!-- Update_Description: wording update -->

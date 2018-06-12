@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
-ms.date: 04/23/2018
+ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 24cbea95fee770c29a94d13ced8887f65f848179
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 8aec9eb49cd278e0c861290745926855b71b6bd5
+ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855705"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>应用程序网关运行状况监视概述
 

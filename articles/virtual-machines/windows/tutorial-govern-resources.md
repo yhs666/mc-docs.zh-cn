@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure PowerShell 控制 Azure 虚拟机 | Azure
-description: 教程 - 通过使用 Azure PowerShell 应用 RBAC、策略、锁和标记管理 Azure 虚拟机
+title: 教程 - 使用 Azure PowerShell 控制 Azure 虚拟机 | Azure
+description: 本教程介绍如何通过使用 Azure PowerShell 应用 RBAC、策略、锁和标记管理 Azure 虚拟机
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -10,23 +10,25 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 origin.date: 02/21/2018
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 193c29779400abd40d7881e16295473c5aba77ce
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.custom: mvc
+ms.openlocfilehash: 80c43d5094ae49555fa68ebeec9506cb11d39142
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867792"
 ---
-# <a name="virtual-machine-governance-with-azure-powershell"></a>使用 Azure PowerShell 控制虚拟机
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-powershell"></a>教程：了解如何使用 Azure PowerShell 控制 Linux 虚拟机
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 
 
-如果选择在本地安装并使用 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 对于本地安装，还必须[下载 Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)来创建新的 Azure Active Directory 组。
+如果选择在本地安装并使用 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。 对于本地安装，还必须[下载 Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)来创建新的 Azure Active Directory 组。
 
 ## <a name="understand-scope"></a>了解范围
 
@@ -36,7 +38,7 @@ ms.lasthandoff: 05/17/2018
 
 让我们创建该资源组。
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 ```
 
@@ -58,7 +60,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 
 以下示例创建一个邮件别名为 *vmDemoGroup* 且名为 *VMDemoContributors* 的 Azure Active Directory 组。 邮件别名用作组的别名。
 
-```azurepowershell-interactive
+```powershell
 $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
   -MailNickName vmDemoGroup `
   -MailEnabled $false `
@@ -67,7 +69,7 @@ $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
 
 在命令提示返回后，组需要花费一段时间来在整个 Azure Active Directory 中传播。 等待 20 或 30 秒后，使用 [New-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroleassignment) 命令将新的 Azure Active Directory 组分配到资源组的“虚拟机参与者”角色。  如果在它已传播之前运行以下命令，则会收到一个错误，指出**主体<guid>在目录中不存在**。 请尝试再次运行命令。
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
   -ResourceGroupName myResourceGroup `
   -RoleDefinitionName "Virtual Machine Contributor"
@@ -75,14 +77,62 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 通常情况下，请对*网络参与者*和*存储帐户参与者*重复执行此过程，确保分配用户来管理已部署的资源。 在本文中，可以跳过这些步骤。
 
-<!-- Not Avaiable on ## Azure policies -->
-<!-- Not Avaiable on ### Apply policies -->
+## <a name="azure-policies"></a>Azure 策略
+
+[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
+
+### <a name="apply-policies"></a>应用策略
+
+订阅已经有多个策略定义。 若要查看可用的策略定义，请使用 [Get-AzureRmPolicyDefinition](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Get-AzureRmPolicyDefinition) 命令：
+
+```powershell
+(Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
+```
+
+可以看到现有的策略定义。 策略类型为“内置”或“自定义”。 在这些定义中查找所述条件正是你要分配的条件的定义。 在本文中，分配的策略要符合以下条件：
+
+* 限制所有资源的位置。
+* 限制虚拟机的 SKU。
+* 审核不使用托管磁盘的虚拟机。
+
+在下面的示例中，你将基于显示名称检索三个策略定义。 并且使用 [New-AzureRMPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicyassignment) 命令将这些定义分配到资源组。 对于某些策略，你将提供参数值来指定允许的值。
+
+```powershell
+# Values to use for parameters
+$locations ="chinaeast", "chinaeast2"
+$skus = "Standard_DS1_v2", "Standard_E2s_v2"
+
+# Get the resource group
+$rg = Get-AzureRmResourceGroup -Name myResourceGroup
+
+# Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
+$locationDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
+$skuDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
+$auditDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
+
+# Assign policy for allowed locations
+New-AzureRMPolicyAssignment -Name "Set permitted locations" `
+  -Scope $rg.ResourceId `
+  -PolicyDefinition $locationDefinition `
+  -listOfAllowedLocations $locations
+
+# Assign policy for allowed SKUs
+New-AzureRMPolicyAssignment -Name "Set permitted VM SKUs" `
+  -Scope $rg.ResourceId `
+  -PolicyDefinition $skuDefinition `
+  -listOfAllowedSKUs $skus
+
+# Assign policy for auditing unmanaged disks
+New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
+  -Scope $rg.ResourceId `
+  -PolicyDefinition $auditDefinition
+```
 
 ## <a name="deploy-the-virtual-machine"></a>部署虚拟机
 
 分配角色和策略以后，即可部署解决方案。 默认大小为 Standard_DS1_v2，这是允许的 SKU 之一。 运行此步骤时，会提示输入凭据。 你输入的值将配置为用于虚拟机的用户名和密码。
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmVm -ResourceGroupName "myResourceGroup" `
      -Name "myVM" `
      -Location "China East" `
@@ -101,7 +151,7 @@ New-AzureRmVm -ResourceGroupName "myResourceGroup" `
 
 若要锁定虚拟机和网络安全组，请使用 [New-AzureRmResourceLock](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcelock) 命令：
 
-```azurepowershell-interactive
+```powershell
 # Add CanNotDelete lock to the VM
 New-AzureRmResourceLock -LockLevel CanNotDelete `
   -LockName LockVM `
@@ -119,7 +169,7 @@ New-AzureRmResourceLock -LockLevel CanNotDelete `
 
 若要测试锁，请尝试运行以下命令：
 
-```azurepowershell-interactive 
+```powershell 
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
@@ -133,7 +183,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 若要将标记应用于虚拟机，请使用 [Set-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermresource) 命令：
 
-```azurepowershell-interactive
+```powershell
 # Get the virtual machine
 $r = Get-AzureRmResource -ResourceName myVM `
   -ResourceGroupName myResourceGroup `
@@ -147,13 +197,13 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 若要通过标记名称和值查找资源，请使用 [Find-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/find-azurermresource) 命令：
 
-```azurepowershell-interactive
+```powershell
 (Find-AzureRmResource -TagName Environment -TagValue Test).Name
 ```
 
 可以将返回的值用于管理任务，例如停止带有某个标记值的所有虚拟机。
 
-```azurepowershell-interactive
+```powershell
 Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
@@ -165,7 +215,7 @@ Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.Reso
 
 在解除锁定之前，不能删除锁定的网络安全组。 若要删除锁，请使用 [Remove-AzureRmResourceLock](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcelock) 命令：
 
-```azurepowershell-interactive
+```powershell
 Remove-AzureRmResourceLock -LockName LockVM `
   -ResourceName myVM `
   -ResourceType Microsoft.Compute/virtualMachines `
@@ -178,7 +228,7 @@ Remove-AzureRmResourceLock -LockName LockNSG `
 
 如果不再需要资源组、VM 和所有相关的资源，可以使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令将其删除。
 
-```azurepowershell-interactive
+```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
@@ -196,4 +246,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [监视虚拟机](tutorial-monitoring.md)
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties, update link, add the content of Azure Policy  -->
