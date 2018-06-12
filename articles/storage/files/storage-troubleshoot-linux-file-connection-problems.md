@@ -1,8 +1,8 @@
 ---
-title: "在 Linux 中排查 Azure 文件问题 | Microsoft Docs"
-description: "在 Linux 中排查 Azure 文件问题"
+title: 在 Linux 中排查 Azure 文件问题 | Azure
+description: 在 Linux 中排查 Azure 文件问题
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: forester123
 manager: digimobile
 editor: na
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/19/2017
-ms.date: 01/01/2018
+origin.date: 05/11/2018
+ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: f8e21c23ee50a7e9560be724a2febae22fe3af77
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: ea16e99f4b9df301d234341930a6c57382b7b588
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867578"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>在 Linux 中排查 Azure 文件问题
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 12/29/2017
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>在 Linux 中将文件复制到 Azure 文件以及从中复制文件时速度缓慢
 
--   如果没有特定的 I/O 大小下限要求，建议使用 1 MB 的 I/O 大小获得最佳性能。
+-   如果没有特定的 I/O 大小下限要求，建议使用 1 MB 的 I/O 大小以获得最佳性能。
 -   如果知道要通过写入扩展的最终文件大小，并且文件上尚未写入的结尾包含零时软件不会出现兼容性问题，请提前设置文件大小，而不是使每次写入都成为扩展写入。
 -   使用正确的复制方法：
     -   为两个文件共享之间的任何传输使用 [AzCopy](../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json)。
@@ -58,7 +59,7 @@ ms.lasthandoff: 12/29/2017
 
 连接可能由于以下原因而处于空闲状态：
 
--   网络通信发生故障，导致使用默认的“soft”装载选项时阻止 TCP 与服务器重新建立连接
+-   网络通信发生故障，导致使用默认的“soft”装载选项时 TCP 与服务器无法重新建立连接
 -   最近的重新连接修复，较旧的内核中未提供这些修复
 
 ### <a name="solution"></a>解决方案
@@ -74,7 +75,7 @@ Linux 内核中的此重新连接问题现已在以下更改中进行了修复�
 
 ### <a name="workaround"></a>解决方法
 
-可以通过指定硬装载来解决此问题。 这会强制客户端等到建立连接或者显式中断为止，可用于避免由于网络超时而引起的错误。 但是，此解决方法可能会导致无限期等待。 请准备好根据需要停止连接。
+可以通过指定硬装载来解决此问题。 这会强制客户端等到建立连接或者显式中断为止，可用于避免因网络超时而引起的错误。 但是，此解决方法可能会导致无限期等待。 请准备好根据需要停止连接。
 
 如果无法升级到最新内核版本，可通过将每隔 30 秒或更少的时间间隔便会对其进行写入操作的文件保留在 Azure 文件共享中来解决此问题。 这必须是一个写入操作，例如在文件上重新写入创建或修改日期。 否则，可能会得到缓存的结果，且操作可能不会触发重新连接。
 
@@ -170,3 +171,7 @@ COPYFILE 中的强制标志 **f** 导致在 Unix 上执行 **cp -p -f**。 此�
 - 4.9.48+
 - 4.12.11+
 - 4.13 或更高的所有版本
+
+## <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
+
+如果仍需帮助，请[联系支持人员](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)，以快速解决问题。

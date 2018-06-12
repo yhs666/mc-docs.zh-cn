@@ -20,6 +20,7 @@ ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554329"
 ---
 # <a name="manage-azure-resources-through-portal"></a>通过门户管理 Azure 资源
 
@@ -95,7 +96,7 @@ ms.lasthandoff: 05/26/2018
 如果需要将资源移到另一个资源组或另一个订阅，请参阅[将资源移到新的资源组或订阅](resource-group-move-resources.md)。
 
 ## <a name="lock-resources"></a>锁定资源
-可以锁定订阅、资源组或资源，以防止组织中的其他用户意外删除或修改关键资源。 有关详细信息，请参阅 [使用 Azure Resource Manager 锁定资源](resource-group-lock-resources.md)。
+可以锁定订阅、资源组或资源，以防止组织中的其他用户意外删除或修改关键资源。 更多信息请参阅 [使用 Azure Resource Manager 锁定资源](resource-group-lock-resources.md)。
 
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 

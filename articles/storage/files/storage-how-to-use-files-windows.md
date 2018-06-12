@@ -1,5 +1,5 @@
 ---
-title: 在 Windows 中装载 Azure 文件共享并对其进行访问 | Microsoft Docs
+title: 在 Windows 中装载 Azure 文件共享并对其进行访问 | Azure
 description: 在 Windows 中装载 Azure 文件共享并对其进行访问。
 services: storage
 documentationcenter: na
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 04/11/2018
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: cfeb514f0acfec143067710a97f74279148e9931
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 3374fc78e7b33a6ca550da19de5d0ca5e500b003
+ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34867614"
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>在 Windows 中装载 Azure 文件共享并对其进行访问
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows 和 Windows Server 中装载 Azure 文件共享。 本文介绍了三种在 Windows 中装载 Azure 文件共享的不同方式：使用文件资源管理器 UI、通过 PowerShell，以及通过命令提示符。 
@@ -52,7 +53,7 @@ ms.lasthandoff: 05/07/2018
 
 * **确保端口 445 处于打开状态**：Azure 文件使用 SMB 协议。 SMB 通过 TCP 端口 445 通信 - 请查看防火墙是否未阻止 TCP 端口 445 与客户端计算机通信。 可以使用 Portqry 检查 TCP 端口 445 是否处于打开状态。 如果 TCP 端口 445 显示为“已筛选”，则 TCP 端口被阻止。 示例查询如下：
 
-    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.chinacloudapi.cn -p TCP -e 445`
+    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
 
     如果 TCP 端口 445 受到网络路径中的规则阻止，将显示以下输出：
 
@@ -93,7 +94,7 @@ User: AZURE\<yourstorageaccountname>
 1. **打开文件资源管理器**：可以从“开始”菜单打开，也可以按 Win+E 快捷键打开。
 
 2. **导航到窗口左侧的“此电脑”项。这样会更改功能区中的可用菜单。在“计算机”菜单中，选择“映射网络驱动器”**。
-
+    
     ![“映射网络驱动器”下拉菜单的屏幕截图](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
 3. **从 Azure 门户的“连接”窗格中复制 UNC 路径。** 
@@ -101,18 +102,18 @@ User: AZURE\<yourstorageaccountname>
     ![Azure 文件“连接”窗格中的 UNC 路径](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
 4. **选择驱动器号并输入 UNC 路径。** 
-
+    
     ![“映射网络驱动器”对话框的屏幕截图](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
 5. **使用带 `Azure\` 前缀的存储帐户名称作为用户名，使用存储帐户密钥作为密码。**
-
+    
     ![网络凭据对话框的屏幕快照](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
 
 6. **根据需要使用 Azure 文件共享**。
-
+    
     ![Azure 文件共享现已装载](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-7. **做好卸载（或断开连接）Azure 文件共享的准备后，即可在文件资源管理器中右键单击“网络位置”下对应于共享的条目，并选择“断开连接”**。
+7. 做好卸载（或断开连接）Azure 文件共享的准备以后，即可通过在文件资源管理器中右键单击“网络位置”下对应于共享的条目，然后选择“断开连接”来完成此操作。
 
 ## <a name="mount-the-azure-file-share-with-powershell"></a>使用 PowerShell 装载 Azure 文件共享
 1. **使用以下命令装载 Azure 文件共享**：记得将 `<storage-account-name>`、`<share-name>`、`<storage-account-key>` 和 `<desired-drive-letter>` 替换为适当的信息。
@@ -161,8 +162,8 @@ User: AZURE\<yourstorageaccountname>
 * [常见问题](../storage-files-faq.md)
 * [在 Windows 上进行故障排除](storage-troubleshoot-windows-file-connection-problems.md)      
 
-### <a name="conceptual-article"></a>概念性文章
-
+### <a name="conceptual-articles-and-videos"></a>概念性文章和视频
+* [Azure 文件：适用于 Windows 和 Linux 的顺畅的云 SMB 文件系统](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 * [如何通过 Linux 使用 Azure 文件](../storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-azure-files"></a>Azure 文件的工具支持
