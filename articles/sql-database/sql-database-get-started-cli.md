@@ -12,11 +12,12 @@ ms.topic: quickstart
 origin.date: 03/23/2018
 ms.date: 03/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 49c2c14bb02b2a5aa318e8aa2659850a4596748b
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 8e33587a67583fd4b819a2a07de44c03a0a20672
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324273"
 ---
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>使用 Azure CLI 创建单一 Azure SQL 数据库
 
@@ -31,7 +32,7 @@ Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本指南�
 
 定义在本快速入门的脚本中使用的变量。
 
-```azurecli-interactive
+```azurecli
 # The data center and resource name for your resources
 export resourcegroupname = myResourceGroup
 export location = "China East"
@@ -80,7 +81,7 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 
 使用 [az sql db create](/cli/sql/db#az_sql_db_create) 命令在服务器中创建 [S0 性能级别](sql-database-service-tiers.md)的数据库。 以下示例创建名为 `mySampleDatabase` 的数据库，并将 AdventureWorksLT 示例数据加载到该数据库中。 根据需要替换这些预定义的值（此集合中的其他快速入门教程基于此快速入门中的值）。
 
-```azurecli-interactive
+```azurecli
 az sql db create --resource-group $resourcegroupname --server $servername \
     --name $databasename --sample-name AdventureWorksLT --service-objective S0
 ```
@@ -93,7 +94,7 @@ az sql db create --resource-group $resourcegroupname --server $servername \
 > 如果打算继续使用后续的快速入门教程，请不要清除在本快速入门中创建的资源。 如果不打算继续，请在 Azure 门户中执行以下步骤来删除此快速入门创建的所有资源。
 >
 
-```azurecli-interactive
+```azurecli
 az group delete --name $resourcegroupname
 ```
 

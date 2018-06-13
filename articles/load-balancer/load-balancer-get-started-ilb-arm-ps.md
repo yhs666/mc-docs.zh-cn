@@ -13,13 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 04/30/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 910447d244706a8cee32c16018add9913cf3d82a
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 0704025c219196b7a0b46f773066129ffa32606e
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416762"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>使用 Azure PowerShell 模块创建内部负载均衡器
 
@@ -60,7 +61,7 @@ ms.lasthandoff: 04/28/2018
 启动适用于 Azure 资源管理器的 PowerShell 模块。
 
 ```powershell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud 
 ```
 
 ### <a name="step-2-view-your-subscriptions"></a>步骤 2：查看订阅

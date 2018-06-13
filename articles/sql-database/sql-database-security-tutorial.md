@@ -7,18 +7,26 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-origin.date: 04/01/2018
-ms.date: 01/08/2018
+origin.date: 04/24/2018
+ms.date: 06/18/2018
 ms.author: v-johch
-ms.openlocfilehash: fb3768ca47e6053829bf1ce110ddfec5ff5bd106
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: a6ed51a799016cf5ea122915eac890ee1cd09f0c
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324256"
 ---
 # <a name="secure-your-azure-sql-database"></a>保护 Azure SQL 数据库
 
-SQL 数据库通过限制对数据库的访问来保护数据，具体措施包括：使用防火墙规则，实施要求用户证明其身份的身份验证机制，通过基于角色的成员身份和权限实施数据访问授权，以及使用行级别安全性和动态数据屏蔽。
+SQL 数据库通过以下方式来确保数据的安全： 
+- 使用防火墙规则限制对数据库的访问 
+- 使用需要标识的身份验证机制
+- 通过基于角色的成员身份和权限实现对数据的授权 
+- 行级别安全性
+- 动态数据屏蔽
+
+SQL 数据库还有复杂的监视、审核和威胁检测功能。 
 
 只需几个简单的步骤，即可大大提升数据库抵御恶意用户或未经授权的访问的能力。 本教程介绍以下内容： 
 
@@ -45,7 +53,7 @@ SQL 数据库通过限制对数据库的访问来保护数据，具体措施包�
 
 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-##  <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>在 Azure 门户中创建服务器级别的防火墙规则
+## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>在 Azure 门户中创建服务器级防火墙规则
 
 SQL 数据库受 Azure 中的防火墙保护。 默认情况下，将拒绝与服务器和服务器内数据库的所有连接，连接自其他 Azure 服务的连接除外。 有关详细信息，请参阅 [Azure SQL 数据库服务器级和数据库级防火墙规则](sql-database-firewall-configure.md)。
 
@@ -100,9 +108,9 @@ SQL 数据库受 Azure 中的防火墙保护。 默认情况下，将拒绝与�
 - 请求加密的连接；以及
 - 不信任服务器证书。 
 
-这会使用传输层安全性 (TLS) 建立连接并减少中间人攻击的风险。 可从 Azure 门户为支持的客户端驱动程序的 SQL 数据库获得正确配置的连接字符串，如 ADO.net 的以下屏幕截图所示。
+这会使用传输层安全性 (TLS) 建立连接并减少中间人攻击的风险。 可从 Azure 门户为支持的客户端驱动程序的 SQL 数据库获得正确配置的连接字符串，如 ADO.net 的以下屏幕截图所示。 有关 TLS 和连接的信息，请参阅 [TLS 注意事项](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)。
 
-1. 从左侧菜单中选择“SQL 数据库”，并单击“SQL 数据库”页上的数据库。
+1. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。
 
 2. 在数据库“概述”边栏选项卡上，单击“显示数据库连接字符串”。
 
@@ -156,7 +164,7 @@ Azure SQL 数据库透明数据加密 (TDE) 会自动加密静态数据，无需
 
 3. 必要时，将“数据加密”设置为“启用”，再单击“保存”。
 
-加密进程在后台启动。 可以使用 [SQL Server Management Studio](./sql-database-connect-query-ssms.md) 连接到 SQL 数据库并查询 `sys.dm_database_encryption_keys` 视图的 encryption_state 列，以便监视进度。
+加密进程在后台启动。 若要监视进度，可以使用 [SQL Server Management Studio](./sql-database-connect-query-ssms.md) 连接到 SQL 数据库并查询 [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) 视图的 encryption_state 列。 状态为 3 指示数据库已加密。 
 
 ## <a name="enable-sql-database-auditing-if-necessary"></a>启用 SQL 数据库审核（如有必要）
 
@@ -168,7 +176,7 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 
     ![“审核”边栏选项卡](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 
-3. 若要启用不同于在服务器级别指定的审核类型（或位置），请将“审核”设置为“启用”，再选择“Blob”作为“审核类型”。 如果启用了服务器 Blob 审核，数据库配置的审核会与服务器 Blob 审核并存。
+3. 若要启用不同于在服务器级别指定的审核类型（或位置），请将“审核”设置为“启用”，再选择“Blob”作为“审核类型”。 如果启用了服务器 Blob 审核，数据库配置的审核将与服务器 Blob 审核并存。
 
     ![启用审核](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 

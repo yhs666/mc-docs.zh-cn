@@ -7,20 +7,21 @@ author: forester123
 manager: digimobile
 ms.service: sql-database
 ms.topic: overview
-origin.date: 09/20/2017
-ms.date: 2/28/2018
+origin.date: 03/07/2018
+ms.date: 06/18/2018
 ms.author: v-johch
-ms.openlocfilehash: ffec2c62996a503cf5c7d1bb1c329be4482546d2
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: c809a5c337dca18b6ee5241a74c9d0cc466fc472
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324300"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什么是 Azure SQL 数据库服务？ 
 
-SQL 数据库是 Microsoft Azure 中通用的关系数据库托管服务，支持关系数据、JSON、空间和 XML 等结构。 SQL 数据库提供托管的[单一 SQL 数据库](sql-database-servers-databases.md)、[弹性池](sql-database-elastic-pool.md)中的托管 SQL 数据库，以及 SQL [托管实例](sql-database-managed-instance.md)（公共预览版）。 它提供[动态可缩放性能](sql-database-service-tiers.md)，并提供[列存储索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)（用于极端分析和报告）和[内存中 OLTP](sql-database-in-memory.md)（用于极端事务处理）等选项。 Microsoft 可无缝处理 SQL 代码库的所有修补和更新，并避开底层基础结构的所有管理。 
+SQL 数据库是 Microsoft Azure 中通用的关系数据库托管服务，支持关系数据、JSON、空间和 XML 等结构。 SQL 数据库提供托管的[单一 SQL 数据库](sql-database-servers-databases.md)、[弹性池](sql-database-elastic-pool.md)中的托管 SQL 数据库，以及 SQL [托管实例](sql-database-managed-instance.md)（公共预览版）。 它在两个不同的购买模型（[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)中提供动态可缩放性能。 SQL 数据库还提供[列存储索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)（用于极端分析和报告）和[内存中 OLTP](sql-database-in-memory.md)（用于极端事务处理）等选项。 Microsoft 可无缝处理 SQL 代码库的所有修补和更新，并避开底层基础结构的所有管理。 
 
-SQL 数据库与 [Microsoft SQL Server 数据库引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation)共享其代码库。 利用 Microsoft 的云优先策略，首先将 SQL Server 的最新功能发布到 SQL 数据库，然后再发布到 SQL Server 本身。 此方法可为你提供 SQL Server 的最新功能，这些新功能已经过数百万个数据库的测试且无任何修补或升级开销。 有关公布的新功能信息，请参阅：
+SQL 数据库与 [Microsoft SQL Server 数据库引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation)共享其代码库。 利用 Microsoft 的云优先策略，首先将 SQL Server 的最新功能发布到 SQL 数据库，然后再发布到 SQL Server 本身。 此方法可为你提供 SQL Server 的最新功能，这些新功能已经过数百万个数据库的测试且无任何修补或升级开销。 
 > [!IMPORTANT]
 > 若要了解 SQL 数据库和 SQL Server 的功能差异，请参阅 [SQL 功能](sql-database-features.md)。 SQL 数据库在多个服务级别提供可预测的、动态可缩放的性能，主要表现在：无停机时间、内置智能优化、全局可伸缩性和可用性，以及高级安全选项 - 一切几乎不用人工管理。 凭借这些功能，客户可将注意力集中在如何快速进行应用开发、加快推向市场，而无需将宝贵的时间和资源投入在管理虚拟机和基础结构上。
 
@@ -30,15 +31,15 @@ SQL 数据库与 [Microsoft SQL Server 数据库引擎](https://docs.microsoft.c
 
 ## <a name="scalable-performance-and-pools"></a>可缩放的性能和池
 
-使用 SQL 数据库，每个数据库都彼此独立且可移植，各有其自己的[服务层](sql-database-service-tiers.md)，且服务层具备有保证的性能级别。 SQL 数据库针对不同需求提供不同性能级别，并使数据库可存入池中，以最大化利用资源和节省资金。
+使用 SQL 数据库，每个数据库都彼此独立且可移植，各自在[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)中有其自己的服务层，并具备有保证的性能级别。 SQL 数据库针对不同需求提供不同性能级别，并使数据库可存入池中，以最大化利用资源和节省资金。
 
 使用 SQL 数据库托管实例时，每个实例都独立于其他实例，资源得到保障。 有关详细信息，请参阅 [SQL 数据库托管实例](sql-database-managed-instance.md) 
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>无需停机即可调整性能和规模
 
-SQL 数据库提供[基于 DTU 的购买模型](sql-database-service-tiers.md#dtu-based-purchasing-model)或[基于 vCore 的购买模型（预览版）](sql-database-service-tiers.md#vcore-based-purchasing-model-preview)。 
+SQL 数据库提供[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)。 
 - 基于 DTU 的购买模型在三个服务层中提供包括计算、内存和 IO 资源在内的各种内容，支持轻型到重型数据库工作负荷：基本、标准、高级。 每个层中的不同性能级别提供这些资源的不同组合，你可以向其添加更多的存储资源。
-- 基于 vCore 的购买模型允许选择 vCore 数、内存容量，以及存储的容量和速度。
+- 基于 vCore 的购买模型（预览版）允许选择 vCore 数、内存容量，以及存储的容量和速度。
 
 可以在小型单一数据库中构建第一个应用，每个月只需花费少量资金。然后可以根据解决方案的需要，随时手动或以编程方式更改服务层。 可在不给应用或客户造成停机的情况下调整性能。 动态可伸缩性可让数据库以透明方式响应快速变化的资源要求，使用户只需为用到的资源付费。
 
@@ -63,7 +64,7 @@ SQL 数据库托管实例为预览版，提供单一服务层。 有关详细信
 
 ### <a name="extensive-monitoring-and-alerting-capabilities"></a>集中监视和警报功能
 
-但是，要如何比较单一数据库和弹性池的相对性能呢？ 当调高和调低性能时，如何知道该在何处停止？ 将[内置的性能监视](sql-database-performance.md)和[警报](sql-database-insights-alerts-portal.md)工具与性能等级组合使用。 使用这些工具，可以根据当前需求或项目性能的需求，快速评估调高或调低性能产生的影响。 有关详细信息，请参阅 [SQL 数据库选项和性能：了解每个服务层提供的功能](sql-database-service-tiers.md) 。
+但是，要如何比较单一数据库和弹性池的相对性能呢？ 当调高和调低性能时，如何知道该在何处停止？ 将[内置的性能监视](sql-database-performance.md)和[警报](sql-database-insights-alerts-portal.md)工具与性能等级组合使用。 使用这些工具，可以根据当前需求或项目性能的需求，快速评估调高或调低性能产生的影响。 有关详细信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)。
 
 可配置 SQL 数据库，将资源使用情况、辅助角色和会话以及连接性存储到以下 Azure 资源之一：
 
@@ -95,7 +96,7 @@ SQL 数据库提供针对需要监视的查询的详细见解。 SQL 数据库�
 
 ### <a name="adaptive-query-processing"></a>自适应查询处理
 
-我们还将向 SQL 数据库添加[自适应查询处理](https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing)系列功能，包括交错执行多语句表值函数，批处理模式内存授予反馈和批处理模式自适应联接。 每个自适应查询处理功能均应用类似的“学习和适应”技巧，帮助进一步解决与历史上棘手的查询优化问题相关的性能问题。
+我们还将向 SQL 数据库添加[自适应查询处理](/sql/relational-databases/performance/adaptive-query-processing)系列功能，包括交错执行多语句表值函数，批处理模式内存授予反馈和批处理模式自适应联接。 每个自适应查询处理功能均应用类似的“学习和适应”技巧，帮助进一步解决与历史上棘手的查询优化问题相关的性能问题。
 
 ### <a name="intelligent-threat-detection"></a>智能威胁检测
 
@@ -111,7 +112,7 @@ SQL 数据库提供一系列[内置安全性和符合性功能](sql-database-sec
 
 ### <a name="data-encryption-at-rest"></a>静态数据加密
 
-SQL 数据库[透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)无需更改应用程序，即可对静态的数据库、关联的备份和事务日志文件执行实时加密和解密，帮助防止恶意活动的威胁。 从 2017 年 5 月起，所有新建的 Azure SQL 数据库均通过透明数据加密 (TDE) 进行自动保护。 TDE 是 SQL 经验证的静态加密技术，许多符合性标准都需要它来防止存储介质被盗。 客户可使用 Azure Key Vault 通过安全合规的方式管理 TDE 加密密钥和其他密钥。
+SQL 数据库[透明数据加密](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)无需更改应用程序，即可对静态的数据库、关联的备份和事务日志文件执行实时加密和解密，帮助防止恶意活动的威胁。 从 2017 年 5 月起，所有新建的 Azure SQL 数据库均通过透明数据加密 (TDE) 进行自动保护。 TDE 是 SQL 经验证的静态加密技术，许多符合性标准都需要它来防止存储介质被盗。 客户可使用 Azure Key Vault 通过安全合规的方式管理 TDE 加密密钥和其他密钥。
 
 ### <a name="data-encryption-in-motion"></a>动态数据加密
 
@@ -140,7 +141,7 @@ SQL 数据库让应用程序的构建和维护更加轻松、高效。 SQL 数�
 - **[Azure 门户](https://portal.azure.cn/)**：用于管理所有 Azure 服务的基于 Web 的应用程序 
 - **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)**：用于管理任何 SQL 基础结构（从 SQL Server 到 SQL 数据库，不一而足）的免费可下载客户端应用程序
 - **[Visual Studio 中的 SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)**：用于开发 SQL Server 关系数据库、Azure SQL 数据库、Integration Services 包、Analysis Services 数据模型和 Reporting Services 报表的免费可下载客户端应用程序。
-- **[Visual Studio Code](https://code.visualstudio.com/docs)**：一种免费可下载的开源代码编辑器，适用于 Windows、macOS 和 Linux，并支持各种扩展，其中包括 [mssql 扩展](https://aka.ms/mssql-marketplace)（用于查询 Microsoft SQL Server、Azure SQL 数据库和 SQL 数据仓库）。
+- **[Visual Studio Code](https://code.visualstudio.com/docs)**：一种可免费下载的开源代码编辑器，适用于 Windows、macOS 和 Linux，并支持各种扩展，其中包括 [mssql 扩展](https://aka.ms/mssql-marketplace)（用于查询 Microsoft SQL Server、Azure SQL 数据库和 SQL 数据仓库）。
 
 SQL 数据库支持在 MacOS、Linux 和 Windows 上使用 Python、Java、Node.js、PHP、 Ruby 和 .NET 生成应用程序。 SQL 数据库和 SQL Server 支持相同的[连接库](sql-database-libraries.md)。
 

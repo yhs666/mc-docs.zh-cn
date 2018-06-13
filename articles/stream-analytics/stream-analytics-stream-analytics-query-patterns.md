@@ -9,16 +9,22 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 08/08/2017
-ms.date: 05/07/2018
-ms.openlocfilehash: efd150312570fb1359e3c960fe92eefe6f61f1e2
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/18/2018
+ms.openlocfilehash: 67aa24a3a507424581bc41c1f50db11fdf800cf4
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416807"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>常用流分析使用模式的查询示例
+
 ## <a name="introduction"></a>简介
-Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些查询记录在[流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)指南中。 本文档概述了以真实情况为基础的多个常见查询模式的解决方案。 此项工作仍在进行，将继续使用新的模式不断进行更新。
+Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些语言构造记录在[流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)指南中。 
+
+查询设计可以表达简单的传递逻辑，用于将事件数据从一个输入流移动到另一个输出数据存储中。 或者可以执行丰富的模式匹配和临时分析，以通过各种时间窗口计算聚合，如 TollApp 示例所示。 可以联接多个输入的数据，以合并流事件，并对静态参考数据进行查找，以丰富事件值。 此外，还可以将数据写入到多个输出。
+
+本文档概述了以真实情况为基础的多个常见查询模式的解决方案。 此项工作仍在进行，将继续使用新的模式不断进行更新。
 
 ## <a name="query-example-convert-data-types"></a>查询示例：转换数据类型
 **说明**：定义输入流中的属性类型。

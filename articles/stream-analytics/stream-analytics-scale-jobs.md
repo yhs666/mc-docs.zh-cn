@@ -9,12 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 06/22/2017
-ms.date: 05/07/2018
-ms.openlocfilehash: 1f547081bb8b9a69e8585011a8a7f57e023d4c68
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/18/2018
+ms.openlocfilehash: 824e843943d2cbe62513a359ba7e263c03de8ecd
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416856"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>扩展 Azure 流分析作业以增加吞吐量
 本文介绍如何优化流分析查询，增加流分析作业的吞吐量。 可以使用以下指南来扩展作业，以便处理较高负载并充分利用更多的系统资源（如更多带宽、更多 CPU 资源、更多内存）。
@@ -34,7 +35,8 @@ ms.lasthandoff: 05/07/2018
         - 如果该问题是由接收器限制导致，则可能需要增加输出分区数（以及输入分区，以此使作业保持完全可并行化），或增加接收器的资源量（例如，CosmosDB 的请求单位数）。
     - 在作业关系图中，每个输出都有一个分区积压工作 (backlog) 事件指标。 如果积压工作事件指标持续增加，则同样表示系统资源受到约束（由于输出接收器限制或 CPU 使用率过高）。
 4.  在确定 6 SU 作业可以达到的上限之后，可以在添加更多的 SU 时线性推断出作业的处理容量，前提是没有任何使某些分区“紧迫”的数据倾斜。
->[!Note]
+
+> [!NOTE]
 > 选择适当数量的流单元：由于流分析为每个添加的 6 SU 创建一个处理节点，因此最好将节点数作为输入分区数的除数，使分区可以均匀分布在各节点上。
 > 例如，你已经度量出 6 SU 作业可以实现 4 MB/秒的处理速率，且输入分区计数为 4。 可以选择使用 12 SU 来运行作业，以达到大约 8 MB/秒的处理速率，或使用 24 SU 来实现 16 MB/秒的处理速率。 然后，你可以决定何时增加作业的 SU 数量以及增加至多少，以作为输入速率的一个函数。
 

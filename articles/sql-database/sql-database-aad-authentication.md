@@ -1,27 +1,28 @@
 ---
 title: Azure Active Directory 身份验证 - Azure SQL（概述）| Azure
-description: 了解如何通过 SQL 数据库和 SQL 数据仓库使用 Azure Active Directory 进行身份验证
+description: 了解如何将 Azure Active Directory 身份验证与 SQL 数据库、托管实例和 SQL 数据仓库结合使用
 services: sql-database
 author: forester123
 manager: digimobile
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-origin.date: 09/12/2017
-ms.date: 11/06/2017
+origin.date: 03/07/2018
+ms.date: 06/18/2018
 ms.author: v-johch
-ms.openlocfilehash: cded4fff51d8ef5b35e5fad43c990891ed50bab6
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 86706d4aa50cf43770503a524674c08d23ef9374
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324229"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>将 Azure Active Directory 身份验证与 SQL 数据库、托管实例或 SQL 数据仓库结合使用
 Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) 中的标识连接到 Azure SQL 数据库和 [SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的一种机制。 通过 Azure AD 身份验证，可在一个中心位置中集中管理数据库用户和其他 Microsoft 服务的标识。 集中 ID 管理提供一个单一位置来管理数据库用户，并简化权限管理。 包括如下优点：
 
 * 提供一个 SQL Server 身份验证的替代方法。
 * 帮助阻止用户标识在数据库服务器之间激增。
-* 允许在单一位置中轮换密码
+* 允许在单一位置中轮换密码。
 * 客户可以使用外部 (Azure AD) 组管理数据库权限。
 * 它可以通过启用集成的 Windows 身份验证和 Azure Active Directory 支持的其他形式的身份验证来消除存储密码。
 * Azure AD 身份验证使用包含的数据库用户以数据库级别对标识进行身份验证。
@@ -67,16 +68,16 @@ Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) �
 ## <a name="azure-ad-features-and-limitations"></a>Azure AD 功能和限制
 可以在 Azure SQL Server 或 SQL 数据仓库中预配以下 Azure AD 成员：
 
-* 本机成员：在托管域或客户域中的 Azure AD 中创建的成员。 有关详细信息，请参阅[将自己的域名添加到 Azure AD](../active-directory/active-directory-add-domain.md)。
-* 联合域成员：在联合域的 Azure AD 中创建的成员。 有关详细信息，请参阅 [Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)。
-* 作为本机或联合域成员从其他 Azure AD 导入的成员。
-* 以安全组形式创建的 Active Directory 组。
+- 本机成员：在托管域或客户域中的 Azure AD 中创建的成员。 有关详细信息，请参阅[将自己的域名添加到 Azure AD](../active-directory/add-custom-domain.md)。
+- 联合域成员：在联合域的 Azure AD 中创建的成员。 有关详细信息，请参阅 [Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)。
+- 作为本机或联合域成员从其他 Azure AD 导入的成员。
+- 以安全组形式创建的 Active Directory 组。
 
 与托管实例相关的 Azure AD 限制：
 - 只有 Azure AD 管理员才能创建数据库，Azure AD 用户的作用域为单个数据库，并且不具有此权限
 - 数据库所有权：
   - Azure AD 主体不能更改数据库（更改数据库授权）的所有权，并且不能设为所有者。
-  - 由 Azure AD 管理员创建的数据库不设置所有权（sys.sysdatabases 中的 owner_sid 字段为 0x1）
+  - 由 Azure AD 管理员创建的数据库不设置所有权（sys.sysdatabases 中的 owner_sid 字段为 0x1）。
 - 使用 Azure AD 主体登录时，无法管理 SQL 代理。 
 - 使用 EXECUTE AS 不能模拟 Azure AD 管理员
 - Azure AD 主体不支持 DAC 连接。 
@@ -102,7 +103,7 @@ Azure Active Directory 身份验证支持使用 Azure AD 标识连接到数据�
 * 无论何时都仅可为 Azure SQL 数据库服务器、托管实例或 Azure SQL 数据仓库配置一个 Azure AD 管理员（一个用户或组）。   
 * 只有 SQL Server 的 Azure AD 管理员最初可以使用 Azure Active Directory 帐户连接到 Azure SQL 数据库服务器、托管实例或 Azure SQL 数据仓库。 Active Directory 管理员可以配置后续的 Azure AD 数据库用户。   
 * 我们建议将连接超时值设置为 30 秒。   
-* SQL Server 2016 Management Studio 和 SQL Server Data Tools for Visual Studio 2015（版本 14.0.60311.1（2016 年 4 月）或更高版本）支持 Azure Active Directory 身份验证。 （**用于 SqlServer 的 .NET Framework 数据提供程序**（.NET Framework 4.6 或更高版本）支持 Azure AD 身份验证）。 因此，这些工具和数据层应用程序（DAC 和 .bacpac）的最新版本可以使用 Azure AD 身份验证。   
+* SQL Server 2016 Management Studio 和 SQL Server Data Tools for Visual Studio 2015（版本 14.0.60311.1（2016 年 4 月）或更高版本）支持 Azure Active Directory 身份验证。 （**用于 SqlServer 的 .NET Framework 数据提供程序**（.NET Framework 4.6 或更高版本）支持 Azure AD 身份验证）。 因此，这些工具和数据层应用程序（DAC 和 .BACPAC）的最新版本可以使用 Azure AD 身份验证。   
 * 虽然 [ODBC 版本 13.1](https://www.microsoft.com/download/details.aspx?id=53339) 支持 Azure Active Directory 身份验证，但是 `bcp.exe` 无法使用 Azure Active Directory 身份验证进行连接，因为使用的是旧式 ODBC 提供程序。   
 * `sqlcmd` 从版本 13.1 开始就支持 Azure Active Directory 身份验证，该版本可从 [下载中心](http://go.microsoft.com/fwlink/?LinkID=825643)下载。   
 * SQL Server Data Tools for Visual Studio 2015 至少需要 2016 年 4 月版的 Data Tools（版本 14.0.60311.1）。 目前，Azure AD 用户不会显示在 SSDT 对象资源管理器中。 解决方法是在 [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx) 中查看这些用户。   

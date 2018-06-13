@@ -1,6 +1,6 @@
 ---
-title: "为 Azure 云服务创建面向 Internet 的负载均衡器 | Azure"
-description: "了解如何在经典部署模型中为云服务创建面向 Internet 的负载均衡器"
+title: 为 Azure 云服务创建面向 Internet 的负载均衡器 | Azure
+description: 了解如何在经典部署模型中为云服务创建面向 Internet 的负载均衡器
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
@@ -13,13 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 12/25/2017
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: e3f5f959b171543f48e56d9f30440fc4b944438e
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: b16bedc6bdabf2dfd0726f0a455f98a2be4a152d
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416771"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>开始为云服务创建面向 Internet 的负载均衡器
 
@@ -46,20 +47,20 @@ ms.lasthandoff: 12/22/2017
 ```xml
 <ServiceDefinition name="Tenant">
     <WorkerRole name="FERole" vmsize="Small">
-<Endpoints>
-    <InputEndpoint name="FE_External_Http" protocol="http" port="10000" />
-    <InputEndpoint name="FE_External_Tcp"  protocol="tcp"  port="10001" />
-    <InputEndpoint name="FE_External_Udp"  protocol="udp"  port="10002" />
+        <Endpoints>
+            <InputEndpoint name="FE_External_Http" protocol="http" port="10000" />
+            <InputEndpoint name="FE_External_Tcp"  protocol="tcp"  port="10001" />
+            <InputEndpoint name="FE_External_Udp"  protocol="udp"  port="10002" />
 
-    <InputEndpointname="HTTP_Probe" protocol="http" port="80" loadBalancerProbe="MyProbe" />
+            <InputEndpoint name="HTTP_Probe" protocol="http" port="80" loadBalancerProbe="MyProbe" />
 
-    <InstanceInputEndpoint name="InstanceEP" protocol="tcp" localPort="80">
-        <AllocatePublicPortFrom>
-            <FixedPortRange min="10110" max="10120"  />
-        </AllocatePublicPortFrom>
-    </InstanceInputEndpoint>
-    <InternalEndpoint name="FE_InternalEP_Tcp" protocol="tcp" />
-</Endpoints>
+            <InstanceInputEndpoint name="InstanceEP" protocol="tcp" localPort="80">
+                <AllocatePublicPortFrom>
+                    <FixedPortRange min="10110" max="10120"  />
+                </AllocatePublicPortFrom>
+            </InstanceInputEndpoint>
+            <InternalEndpoint name="FE_InternalEP_Tcp" protocol="tcp" />
+        </Endpoints>
     </WorkerRole>
 </ServiceDefinition>
 ```
@@ -91,4 +92,4 @@ ms.lasthandoff: 12/22/2017
 
 [配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties -->

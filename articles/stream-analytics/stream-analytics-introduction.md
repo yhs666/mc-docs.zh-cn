@@ -3,22 +3,21 @@ title: Azure 流分析的概述
 description: 了解流分析，这是一种托管服务，可以帮助你分析物联网 (IoT) 实时提供的流式数据。
 services: stream-analytics
 author: rockboyfor
-manager: digimobile
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: overview
-ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: data-services
-origin.date: 03/27/2018
-ms.date: 05/07/2018
 ms.author: v-yeche
+manager: digimobile
 ms.reviewer: jasonh
-ms.openlocfilehash: 12412f0878b2dccb0be5664ee5412fba074c7104
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.service: stream-analytics
+ms.topic: overview
+ms.workload: data-services
+ms.custom: mvc
+origin.date: 03/27/2018
+ms.date: 06/18/2018
+ms.openlocfilehash: db74dc388673ca4f34d7595641dd2fd6fb85efd7
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416853"
 ---
 # <a name="what-is-stream-analytics"></a>什么是流分析？
 
@@ -87,9 +86,9 @@ Azure 流分析进行了高性能优化，可以处理流数据，还可以进�
 
 ## <a name="next-steps"></a>后续步骤
 
-现在已大致了解了 Azure 流分析，接下来可以深入了解并使用以下方法之一创建流分析作业：
+你现在已对 Azure 流分析有了一个大致的了解。 接下来，你可以进行深入了解并创建第一个流分析作业：
 
-* [使用 Azure 门户创建流分析作业](stream-analytics-quick-create-portal.md)。
+<!-- Not Available on * [creating a Stream Analytics job by using Azure portal](stream-analytics-quick-create-portal.md)-->
 * [使用 Azure PowerShell 创建流分析作业](stream-analytics-quick-create-powershell.md)。
 
 <!--Update_Description: update meta properties, wording update, update link -->

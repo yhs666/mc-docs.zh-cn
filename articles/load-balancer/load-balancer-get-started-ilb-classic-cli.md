@@ -1,11 +1,11 @@
 ---
-title: "创建内部负载均衡器 - Azure CLI 经典 | Azure"
-description: "了解如何在经典部署模型中使用 Azure CLI 创建内部负载均衡器"
+title: 创建内部负载均衡器 - Azure CLI 经典 | Azure
+description: 了解如何在经典部署模型中使用 Azure CLI 创建内部负载均衡器
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: becbbbde-a118-4269-9444-d3153f00bf34
 ms.service: load-balancer
@@ -14,13 +14,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 11/20/2017
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 07a471a90cb51b19f1ffbe857929895c2aee5271
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 059f598dea1c6c04befaac88e2b53afe50237830
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416777"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>开始使用 Azure CLI 创建内部负载均衡器（经典）
 
@@ -57,9 +58,7 @@ ms.lasthandoff: 11/15/2017
 
     预期输出：
 
-    ```
-    info:    New mode is asm
-    ```
+        info:    New mode is asm
 
 ## <a name="create-endpoint-and-load-balancer-set"></a>创建终结点和负载均衡器集
 
@@ -83,15 +82,13 @@ azure service internal-load-balancer add --serviceName mytestcloud --internalLBN
 
 下面是数据的示例：
 
-```
-azure service internal-load-balancer list my-testcloud
-info:    Executing command service internal-load-balancer list
-+ Getting cloud service deployment
-data:    Name    Type     SubnetName  StaticVirtualNetworkIPAddress
-data:    ------  -------  ----------  -----------------------------
-data:    ilbset  Private  subnet-1    192.168.2.7
-info:    service internal-load-balancer list command OK
-```
+    azure service internal-load-balancer list my-testcloud
+    info:    Executing command service internal-load-balancer list
+    + Getting cloud service deployment
+    data:    Name    Type     SubnetName  StaticVirtualNetworkIPAddress
+    data:    ------  -------  ----------  -----------------------------
+    data:    ilbset  Private  subnet-1    192.168.2.7
+    info:    service internal-load-balancer list command OK
 
 ### <a name="step-2"></a>步骤 2
 
@@ -111,54 +108,52 @@ azure vm show DB1
 
 输出如下所示：
 
-```
-azure vm show DB1
-info:    Executing command vm show
-+ Getting virtual machines
-data:    DNSName "mytestcloud.chinacloudapp.cn"
-data:    Location "China East"
-data:    VMName "DB1"
-data:    IPAddress "192.168.2.4"
-data:    InstanceStatus "ReadyRole"
-data:    InstanceSize "Standard_D1"
-data:    Image "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-20151022-en.us-127GB.vhd"
-data:    OSDisk hostCaching "ReadWrite"
-data:    OSDisk name "db1-DB1-0-201511120457370846"
-data:    OSDisk mediaLink "https://XXXX.blob.core.chinacloudapi.cn/vhd"
-data:    OSDisk sourceImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-20151022-en.us-127GB.vhd"
-data:    OSDisk operatingSystem "Windows"
-data:    OSDisk iOType "Standard"
-data:    ReservedIPName ""
-data:    VirtualIPAddresses 0 address "137.116.64.107"
-data:    VirtualIPAddresses 0 name "db1ContractContract"
-data:    VirtualIPAddresses 0 isDnsProgrammed true
-data:    VirtualIPAddresses 1 address "192.168.2.7"
-data:    VirtualIPAddresses 1 name "ilbset"
-data:    Network Endpoints 0 localPort 5986
-data:    Network Endpoints 0 name "PowerShell"
-data:    Network Endpoints 0 port 5986
-data:    Network Endpoints 0 protocol "tcp"
-data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"
-data:    Network Endpoints 0 enableDirectServerReturn false
-data:    Network Endpoints 1 localPort 3389
-data:    Network Endpoints 1 name "Remote Desktop"
-data:    Network Endpoints 1 port 60173
-data:    Network Endpoints 1 protocol "tcp"
-data:    Network Endpoints 1 virtualIPAddress "137.116.64.107"
-data:    Network Endpoints 1 enableDirectServerReturn false
-data:    Network Endpoints 2 localPort 1433
-data:    Network Endpoints 2 name "tcp-1433-1433"
-data:    Network Endpoints 2 port 1433
-data:    Network Endpoints 2 loadBalancerProbe port 1433
-data:    Network Endpoints 2 loadBalancerProbe protocol "tcp"
-data:    Network Endpoints 2 loadBalancerProbe intervalInSeconds 300
-data:    Network Endpoints 2 loadBalancerProbe timeoutInSeconds 600
-data:    Network Endpoints 2 protocol "tcp"
-data:    Network Endpoints 2 virtualIPAddress "192.168.2.7"
-data:    Network Endpoints 2 enableDirectServerReturn false
-data:    Network Endpoints 2 loadBalancerName "ilbset"
-info:    vm show command OK
-```
+    azure vm show DB1
+    info:    Executing command vm show
+    + Getting virtual machines
+    data:    DNSName "mytestcloud.chinacloudapp.cn"
+    data:    Location "China East"
+    data:    VMName "DB1"
+    data:    IPAddress "192.168.2.4"
+    data:    InstanceStatus "ReadyRole"
+    data:    InstanceSize "Standard_D1"
+    data:    Image "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-20151022-en.us-127GB.vhd"
+    data:    OSDisk hostCaching "ReadWrite"
+    data:    OSDisk name "db1-DB1-0-201511120457370846"
+    data:    OSDisk mediaLink "https://XXXX.blob.core.chinacloudapi.cn/vhd"
+    data:    OSDisk sourceImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-20151022-en.us-127GB.vhd"
+    data:    OSDisk operatingSystem "Windows"
+    data:    OSDisk iOType "Standard"
+    data:    ReservedIPName ""
+    data:    VirtualIPAddresses 0 address "137.116.64.107"
+    data:    VirtualIPAddresses 0 name "db1ContractContract"
+    data:    VirtualIPAddresses 0 isDnsProgrammed true
+    data:    VirtualIPAddresses 1 address "192.168.2.7"
+    data:    VirtualIPAddresses 1 name "ilbset"
+    data:    Network Endpoints 0 localPort 5986
+    data:    Network Endpoints 0 name "PowerShell"
+    data:    Network Endpoints 0 port 5986
+    data:    Network Endpoints 0 protocol "tcp"
+    data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"
+    data:    Network Endpoints 0 enableDirectServerReturn false
+    data:    Network Endpoints 1 localPort 3389
+    data:    Network Endpoints 1 name "Remote Desktop"
+    data:    Network Endpoints 1 port 60173
+    data:    Network Endpoints 1 protocol "tcp"
+    data:    Network Endpoints 1 virtualIPAddress "137.116.64.107"
+    data:    Network Endpoints 1 enableDirectServerReturn false
+    data:    Network Endpoints 2 localPort 1433
+    data:    Network Endpoints 2 name "tcp-1433-1433"
+    data:    Network Endpoints 2 port 1433
+    data:    Network Endpoints 2 loadBalancerProbe port 1433
+    data:    Network Endpoints 2 loadBalancerProbe protocol "tcp"
+    data:    Network Endpoints 2 loadBalancerProbe intervalInSeconds 300
+    data:    Network Endpoints 2 loadBalancerProbe timeoutInSeconds 600
+    data:    Network Endpoints 2 protocol "tcp"
+    data:    Network Endpoints 2 virtualIPAddress "192.168.2.7"
+    data:    Network Endpoints 2 enableDirectServerReturn false
+    data:    Network Endpoints 2 loadBalancerName "ilbset"
+    info:    vm show command OK
 
 ## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>为虚拟机创建远程桌面终结点
 

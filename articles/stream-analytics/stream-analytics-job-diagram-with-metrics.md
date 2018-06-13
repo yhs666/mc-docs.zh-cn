@@ -9,12 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 05/01/2017
-ms.date: 05/07/2018
-ms.openlocfilehash: 2beb0361aade0d29c708b47bc4339b3fe50e3de5
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/18/2018
+ms.openlocfilehash: 41ccdd525c3075a98155840c2765289fee2b4a25
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416775"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>使用作业关系图进行数据驱动调试
 
@@ -77,10 +78,10 @@ QueryLastProcessedTime 指标指示特定步骤收到数据的时间。 通过�
 
 ### <a name="are-we-falling-behind-in-reading-data"></a>在读取数据上是否落后于人？
 
-*   **InputEventsSourcesBackloggedTotal** 告知还需要为事件中心和 Azure IoT 中心输入读取多少条消息。
+*   **囤积的输入事件数(总计)** 告知还需要为事件中心和 Azure IoT 中心输入读取多少条消息。 当此数字大于 0 时，表示作业不能以数据传入速度快速处理数据。 在这种情况下，可能需要增加流单元数和/或确保作业可以并行化。 可以在[查询并行化页](/stream-analytics/stream-analytics-parallelization)上看到有关此内容的更多信息。 
 
 ## <a name="get-help"></a>获取帮助
-若要获取更多帮助，请访问我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
+若要获取更多帮助，请访问我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。 
 
 ## <a name="next-steps"></a>后续步骤
 * [流分析简介](stream-analytics-introduction.md)

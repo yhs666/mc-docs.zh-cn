@@ -1,6 +1,6 @@
 ---
-title: "为 Azure 云服务创建内部负载均衡器 | Azure"
-description: "了解如何在经典部署模型中使用 PowerShell 创建内部负载均衡器"
+title: 为 Azure 云服务创建内部负载均衡器 | Azure
+description: 了解如何在经典部署模型中使用 PowerShell 创建内部负载均衡器
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
@@ -13,13 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 11/20/2017
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: a15b77fa7dce8f1ccf1074d478867eb927720549
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 5217c890e3c4d1609183d0a8339edf87c2b63703
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416747"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>开始为云服务创建内部负载均衡器（经典）
 

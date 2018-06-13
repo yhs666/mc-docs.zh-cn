@@ -5,26 +5,27 @@ author: rockboyfor
 manager: digimobile
 ms.service: analysis-services
 ms.topic: conceptual
-origin.date: 04/12/2018
-ms.date: 04/30/2018
+origin.date: 04/23/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2ed30aa174d48598618feec49fc0cb54e3cc1818
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: fce85336cf3e7d5ce001144209b452b602051dd4
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416817"
 ---
 # <a name="create-a-model-in-azure-portal"></a>在 Azure 门户中创建模型
 
 Azure 门户的 Azure Analysis Services Web 设计器（预览）功能提供一种轻松快捷的方式，用于创建和编辑表格模型以及直接在浏览器中查询模型数据。 
 
-请记住，Web 设计器是**预览版**。 虽然会不断推出新功能，但预览版中的功能会受到限制。 对于更高级的模型开发和测试，最好使用 Visual Studio (SSDT) 和 SQL Server Management Studio (SSMS)。
+请记住，Web 设计器是**预览版**。 功能较为有限。 对于更高级的模型开发和测试，最好使用 Visual Studio (SSDT) 和 SQL Server Management Studio (SSMS)。
 
 ## <a name="before-you-begin"></a>准备阶段
 
 - 位于标准层或开发人员层的 Azure Analysis Services 服务器。 使用 Web 设计器创建的新模型是 DirectQuery，且仅支持上述这些层。
-- 作为数据源的 Azure SQL 数据库、Azure SQL 数据仓库或 Power BI Desktop (.pbix) 文件。 从 Power BI Desktop 文件创建的新模型支持 Azure SQL 数据库、Azure SQL 数据仓库、Oracle 和 Teradata 数据源。
+- 作为数据源的 Azure SQL 数据库、Azure SQL 数据仓库或 Power BI Desktop (.pbix) 文件。 从 Power BI Desktop 文件创建的新模型支持 Azure SQL 数据库和 Azure SQL 数据仓库。
 - 用于连接到 Azure SQL 数据库或 Azure SQL 数据仓库数据源的 SQL Server 帐户和密码。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户

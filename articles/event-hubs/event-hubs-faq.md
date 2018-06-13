@@ -1,11 +1,11 @@
 ---
-title: "Azure 事件中心常见问题解答 | Azure"
-description: "Azure 事件中心常见问题 (FAQ)"
+title: Azure 事件中心常见问题解答 | Azure
+description: Azure 事件中心常见问题 (FAQ)
 services: event-hubs
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
 ms.devlang: na
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/30/2018
-ms.date: 03/12/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 52403b60b143c42dbfd4eb995b08dbd1d8c97e14
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 529946339228e0c110d6462ad8e46dd0787e320e
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416847"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中心常见问题
 
@@ -113,7 +114,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 
 <!-- Not Available ### Diagnostic logs -->
 ### <a name="support-and-sla"></a>支持和 SLA
-事件中心的技术支持可通过 [社区论坛](https://social.msdn.microsoft.com/Forums/azure/home)获得。 计费和订阅管理支持免费提供。
+事件中心的技术支持可通过 [社区论坛](https://www.azure.cn/support/contact/)获得。 计费和订阅管理支持免费提供。
 
 若要详细了解我们的 SLA，请参阅[服务级别协议](https://www.azure.cn/support/legal/sla/)页面。
 

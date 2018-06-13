@@ -6,14 +6,15 @@ manager: digimobile
 ms.service: analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9d5a315db5b28724925965a593c74ea7698a0b05
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 440e47da7b7faf90e9c890e434d508d78bc7f03f
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416835"
 ---
 # <a name="alias-server-names"></a>服务器别名
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/28/2018
 - 在一天的不同时间将用户定向到不同的服务器。 
 - 将不同区域的用户定向到从地理上来说更近的实例，这与使用 Azure 流量管理器时的情况类似。 
 
-任何可以返回有效的 Azure Analysis Services 服务器名称的 HTTP 终结点都可以充当别名。
+任何返回有效的 Azure Analysis Services 服务器名称的 HTTPS 终结点都可以充当别名。 终结点必须通过端口 443 支持 HTTPS，且不得在 URI 中指定端口。
 
 ![使用链接格式的别名](media/analysis-services-alias/aas-alias-browser.png)
 

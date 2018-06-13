@@ -46,7 +46,7 @@
       href: sql-database-design-first-database.md
     - name: 1 - 使用 .NET 设计 DB
       href: sql-database-design-first-database-csharp.md
-    - name: 2 - 迁移到 SQL Server DB
+    - name: 2 - 使用 DMS 迁移到 SQL Server DB
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - 保护 SQL DB
       href: sql-database-security-tutorial.md
@@ -56,6 +56,8 @@
       href: sql-database-managed-instance-create-tutorial-portal.md
     - name: 6 - 将备份还原到托管实例
       href: sql-database-managed-instance-restore-from-backup-tutorial.md
+    - name: 7 - 使用 DMS 迁移到托管实例
+      href: ../dms/tutorial-sql-server-to-managed-instance.md
 - name: 示例
   items:
     - name: 代码示例
@@ -70,8 +72,12 @@
       href: sql-database-servers-databases.md
     - name: 托管实例
       href: sql-database-managed-instance.md
-    - name: 服务层
-      href: sql-database-service-tiers.md
+    - name: 基于 DTU 的服务层
+      href: sql-database-service-tiers-dtu.md
+    - name: 基于 vCore 的服务层
+      href: sql-database-service-tiers-vcore.md
+    - name: 读取横向扩展
+      href: sql-database-read-scale-out.md
     - name: 基于 DTU 的资源限制
       href: sql-database-dtu-resource-limits.md
     - name: 基于虚拟核心的资源限制
@@ -94,6 +100,14 @@
       items:
         - name: 概述
           href: sql-database-security-overview.md
+        - name: 数据发现和分类
+          href: sql-database-data-discovery-and-classification.md
+        - name: 漏洞评估
+          href: sql-vulnerability-assessment.md
+        - name: 威胁检测 - SQL 数据库
+          href: sql-database-threat-detection.md
+        - name: 威胁检测 - 托管实例
+          href: sql-database-managed-instance-threat-detection.md
         - name: 防火墙规则
           href: sql-database-firewall-configure.md
         - name: 防火墙虚拟网络规则
@@ -110,18 +124,10 @@
           href: sql-database-auditing.md
         - name: 审核 - 托管实例
           href: sql-database-managed-instance-auditing.md
-        - name: 威胁检测 - SQL 数据库
-          href: sql-database-threat-detection.md
-        - name: 威胁检测 - 托管实例
-          href: sql-database-managed-instance-threat-detection.md
         - name: 表审核和 TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: 动态数据屏蔽
           href: sql-database-dynamic-data-masking-get-started.md
-        - name: 漏洞评估
-          href: sql-vulnerability-assessment.md
-        - name: 数据发现和分类
-          href: sql-database-data-discovery-and-classification.md
     - name: 业务连续性
       items:
         - name: 概述
@@ -341,9 +347,9 @@
 - name: 参考
   items:
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/azurerm.sql/#sql'
+      href: '/powershell/module/azurerm.sql/#sql'
     - name: PowerShell（弹性 DB）
-      href: 'https://docs.microsoft.com/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'
+      href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'
     - name: Azure CLI 2.0
       href: 'https://docs.azure.cn/cli/sql'
     - name: .NET
@@ -351,40 +357,40 @@
     - name: Java
       href: 'https://docs.azure.cn/java/api/com.microsoft.azure.management.sql'
     - name: Node.js
-      href: 'https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server'
+      href: /sql/connect/node-js/node-js-driver-for-sql-server
     - name: Python
-      href: 'https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server'
+      href: /sql/connect/python/python-driver-for-sql-server
     - name: Ruby
-      href: 'https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server'
+      href: /sql/connect/ruby/ruby-driver-for-sql-server
     - name: PHP
-      href: 'https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server'
+      href: /sql/connect/php/microsoft-php-driver-for-sql-server
     - name: T-SQL
-      href: 'https://docs.microsoft.com/sql/t-sql/language-reference'
+      href: /sql/t-sql/language-reference
     - name: REST
-      href: 'https://docs.microsoft.com/rest/api/sql/'
+      href: /rest/api/sql/
     - name: SQL Server 工具
-      href: 'https://docs.microsoft.com/sql/tools/overview-sql-tools'
+      href: /sql/tools/overview-sql-tools
     - name: SQL Server Management Studio (SSMS)
-      href: 'https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms'
+      href: /sql/ssms/download-sql-server-management-studio-ssms
     - name: SQL Server Data Tools (SSDT)
-      href: 'https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
+      href: /sql/ssdt/download-sql-server-data-tools-ssdt
     - name: BCP
-      href: 'https://docs.microsoft.com/sql/tools/bcp-utility'
+      href: /sql/tools/bcp-utility
     - name: SQLCMD
-      href: 'https://docs.microsoft.com/sql/tools/sqlcmd-utility'
+      href: /sql/tools/sqlcmd-utility
     - name: SqlPackage
       href: 'https://msdn.microsoft.com/hh550080.aspx'
     - name: SQL 数据库管理库包
       href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Sql'
     - name: SQL Server 驱动程序
-      href: 'https://docs.microsoft.com/sql/connect/sql-server-drivers'
+      href: /sql/connect/sql-server-drivers
       items:
         - name: ADO.NET
-          href: 'https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server'
+          href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
         - name: JDBC
-          href: 'https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server'
+          href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
         - name: ODBC
-          href: 'https://docs.microsoft.com/sql/connect/odbc/microsoft-odbc-driver-for-sql-server'
+          href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: 资源
   items:
     - name: 常见问题

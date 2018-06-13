@@ -1,32 +1,33 @@
 ---
-title: "使用 C 将事件发送到 Azure 事件中心 | Azure"
-description: "使用 C 将事件发送到 Azure 事件中心"
+title: 使用 C 将事件发送到 Azure 事件中心 | Azure
+description: 使用 C 将事件发送到 Azure 事件中心
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
 origin.date: 12/04/2017
-ms.date: 01/15/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: b73a129022c4174ef0e11976394a775c6f39f1ff
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.openlocfilehash: 115bf37fe7845171b4199bb72e5f25b45422add5
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416751"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>使用 C 将事件发送到 Azure 事件中心
 
 ## <a name="introduction"></a>简介
 事件中心是一个高度可缩放的引入系统，每秒可引入数百万事件，从而使应用程序能够处理和分析连接的设备和应用程序所产生的海量数据。 将数据采集到事件中心后，可以使用任何实时分析提供程序或存储群集来转换和存储数据。
 
-有关详细信息，请参阅 [事件中心概述][事件中心概述]。
+有关详细信息，请参阅[事件中心概述](/event-hubs/event-hubs-overview)。
 
 本教程介绍如何使用用 C 编写的控制台应用程序将事件发送到事件中心。若要了解如何接收事件，请单击左侧目录中的相应接收语言。
 

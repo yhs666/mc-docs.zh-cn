@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库安全概述 | Microsoft 文档
+title: SQL 数据库安全概述 | Azure
 description: 了解 Azure SQL 数据库和 SQL Server 的安全性，包括云与本地 SQL Server 之间的差异。
 services: sql-database
 author: yunan2016
@@ -8,14 +8,15 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-origin.date: 01/29/2018
-ms.date: 02/28/2018
+origin.date: 04/20/2018
+ms.date: 06/18/2018
 ms.author: v-nany
-ms.openlocfilehash: ef61fdb969cf9d670b6c7fa77909823d9423ea5b
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: f83078d3dbc32be1e939edac0b5cd34a2824e873
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324302"
 ---
 # <a name="securing-your-sql-database"></a>保护 SQL 数据库
 
@@ -26,10 +27,10 @@ ms.lasthandoff: 04/23/2018
 ## <a name="protect-data"></a>保护数据
 
 ### <a name="encryption"></a>Encryption
-SQL 数据库可以保护数据。对于动态数据，它使用[传输层安全性](https://support.microsoft.com/kb/3135244)提供加密；对于静态数据，使用[透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)提供加密；对于使用中的数据，将使用 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) 提供加密。 
+SQL 数据库可以保护数据。对于动态数据，它使用[传输层安全性](https://support.microsoft.com/kb/3135244)提供加密；对于静态数据，使用[透明数据加密](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)提供加密；对于使用中的数据，将使用 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) 提供加密。 
 
 > [!IMPORTANT]
->在与数据库相互“传输”数据时，与 Azure SQL 数据库建立的所有连接都需要经过加密 (SSL/TLS)。 必须在应用程序连接字符串中指定用来加密连接的参数，并且不要信任服务器证书（如果是从 Azure 门户中复制连接字符串，则系统会替你完成此操作），否则，连接将不会验证服务器的身份，并且容易遭受“中间人”攻击。 例如，对于 ADO.NET 驱动程序，这些连接字符串参数为 **Encrypt=True** 和 **TrustServerCertificate=False**。 
+>在与数据库相互“传输”数据时，与 Azure SQL 数据库建立的所有连接都需要经过加密 (SSL/TLS)。 必须在应用程序连接字符串中指定用于加密连接的参数，而不要信任服务器证书（通过将连接字符串复制到 Azure 门户外部来完成此操作），否则，连接不会验证服务器的身份，并且容易受到“中间人”攻击。 例如，对于 ADO.NET 驱动程序，这些连接字符串参数为 **Encrypt=True** 和 **TrustServerCertificate=False**。 有关 TLS 和连接的信息，请参阅 [TLS 注意事项](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)。
 
 若要通过其他方法加密数据，请考虑：
 
@@ -40,7 +41,7 @@ SQL 数据库可以保护数据。对于动态数据，它使用[传输层安全
 数据发现和分类（当前为预览版）提供了内置于 Azure SQL 数据库的高级功能，可用于发现、分类、标记和保护数据库中的敏感数据。 发现最敏感的数据（业务/财务、医疗保健、 PII 等）并进行分类可在组织的信息保护方面发挥关键作用。 它可以作为基础结构，用于：
 
 - 各种安全方案，如监视（审核）并在敏感数据存在异常访问时发出警报。
-- 控制包含高度敏感数据的数据库的访问并增强其安全性。
+- 控制对包含高度敏感数据的数据库的访问并增强其安全性。
 - 帮助满足数据隐私标准和法规符合性要求。
 
 有关详细信息，请参阅 [SQL DB 数据发现和分类入门](sql-database-data-discovery-and-classification.md)。 
@@ -57,7 +58,6 @@ SQL 数据库通过限制对数据库的访问来保护数据，具体措施包�
 
 ### <a name="authentication"></a>身份验证
 SQL 数据库身份验证是指连接到数据库时如何证明用户的身份。 SQL 数据库支持两种类型的身份验证：
-
 * **SQL 身份验证**，使用用户名和密码。 在为数据库创建逻辑服务器时，已指定了一个包含用户名和密码的“服务器管理员”登录名。 通过这些凭据，可以使用数据库所有者（即“dbo”）的身份通过服务器上任何数据库的身份验证。 
 * **Azure Active Directory 身份验证**，使用 Azure Active Directory 管理的标识，并支持托管域和集成域。 请[尽可能](https://msdn.microsoft.com/library/ms144284.aspx)使用 Active Directory 身份验证（集成安全性）。 如果想要使用 Azure Active Directory 身份验证，则必须创建名为“Azure AD 管理员”的另一个服务器管理员，用于管理 Azure AD 用户和组。 此管理员还能执行普通服务器管理员可以执行的所有操作。 有关如何创建 Azure AD 管理员以启用 Azure Active Directory 身份验证的演练，请参阅[通过使用 Azure Active Directory 身份验证连接到 SQL 数据库](sql-database-aad-authentication.md)。
 
@@ -68,7 +68,7 @@ SQL 数据库身份验证是指连接到数据库时如何证明用户的身份�
 行级别安全性使客户能够根据执行查询的用户的特征（例如，组成员身份或执行上下文），控制对数据库表中的行的访问。 有关详细信息，请参阅[行级别安全性](https://msdn.microsoft.com/library/dn765131)。
 
 ### <a name="dynamic-data-masking"></a>动态数据屏蔽 
-SQL 数据库动态数据掩码通过对非特权用户模糊化敏感数据来限制此类数据的泄露。 动态数据掩码可自动发现 Azure SQL 数据库中潜在的敏感数据，提供可行的建议来掩码这些字段，对应用程序层造成的影响可忽略不计。 它的工作原理是在针对指定的数据库字段运行查询后返回的结果集中隐藏敏感数据，同时保持数据库中的数据不变。 有关详细信息，请参阅 [SQL 数据库动态数据掩码入门](sql-database-dynamic-data-masking-get-started.md)，了解如何限制敏感数据的透露。
+SQL 数据库动态数据掩码通过对非特权用户模糊化敏感数据来限制此类数据的泄露。 动态数据掩码可自动发现 Azure SQL 数据库中潜在的敏感数据，提供可行的建议来掩码这些字段，对应用程序层造成的影响可忽略不计。 它的工作原理是在针对指定的数据库字段运行查询后返回的结果集中隐藏敏感数据，同时保持数据库中的数据不变。 有关详细信息，请参阅 [SQL 数据库动态数据掩码入门](sql-database-dynamic-data-masking-get-started.md)。
 
 ## <a name="proactive-monitoring"></a>主动监视
 SQL 数据库通过提供审核和威胁检测功能来保护数据。 

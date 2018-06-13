@@ -7,14 +7,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-origin.date: 01/02/2018
-ms.date: 01/08/2018
+origin.date: 01/24/2018
+ms.date: 06/18/2018
 ms.author: v-nany
-ms.openlocfilehash: 014a75e60452555e3b56675bdc78888eb5b12f14
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 27e20287ffb59b165ce0bae9609996b6b2306c93
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324231"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL 数据库连接体系结构 
 
@@ -60,13 +61,13 @@ ms.lasthandoff: 04/23/2018
 ## <a name="script-to-change-connection-settings-via-powershell"></a>通过 PowerShell 编写脚本以更改连接设置
 
 > [!IMPORTANT]
-> 此脚本需要 [Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+> 此脚本需要 [Azure PowerShell 模块](/powershell/azure/install-azurerm-ps)。
 >
 
 以下 PowerShell 脚本演示如何更改连接策略。
 
 ```powershell
-Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 Select-AzureRmSubscription -SubscriptionName <Subscription Name>
 
 # Azure Active Directory ID
@@ -116,7 +117,7 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.chinacloudapi.cn/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>通过 Azure CLI 2.0 编写脚本以更改连接设置 
+## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>通过 Azure CLI 2.0 编写脚本以更改连接设置
 
 > [!IMPORTANT]
 > 此脚本需要 [Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。

@@ -12,12 +12,12 @@ ms.topic: article
 origin.date: 03/19/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: e8e93c7e5ae01d7c317a08acdb30854b6d91d60b
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 9ddb7b73ddcf7f1229294990a0bc04472590d8de
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475113"
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324301"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>从 HTTP URL 创建作业输入
 
@@ -27,5 +27,40 @@ ms.locfileid: "34475113"
 
 以下代码说明了如何使用 HTTPS URL 输入创建作业。
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-quickstarts/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs#SubmitJob)]
+```C#
+private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
+    string resourceGroup,
+    string accountName,
+    string transformName,
+    string outputAssetName,
+    string jobName)
+{
+    // This example shows how to encode from any HTTPs source URL - a new feature of the v3 API.  
+    // Change the URL to any accessible HTTPs URL or SAS URL from Azure.
+    JobInputHttp jobInput =
+        new JobInputHttp(files: new[] { "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4" });
 
+    JobOutput[] jobOutputs =
+    {
+        new JobOutputAsset(outputAssetName),
+    };
+
+    // In this example, we are assuming that the job name is unique.
+    //
+    // If you already have a job with the desired name, use the Jobs.Get method
+    // to get the existing job. In Media Services v3, Get methods on entities returns null 
+    // if the entity doesn't exist (a case-insensitive check on the name).
+    Job job = await client.Jobs.CreateAsync(
+        resourceGroup,
+        accountName,
+        transformName,
+        jobName,
+        new Job
+        {
+            Input = jobInput,
+            Outputs = jobOutputs,
+        });
+
+    return job;
+}
+```

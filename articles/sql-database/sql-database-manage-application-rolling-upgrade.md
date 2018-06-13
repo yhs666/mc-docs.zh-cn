@@ -7,14 +7,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-origin.date: 07/16/2016
-ms.date: 07/03/2017
+origin.date: 04/01/2018
+ms.date: 06/18/2018
 ms.author: v-johch
-ms.openlocfilehash: fe4e4575a2846f85061740e8a1f03a5f27264338
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: af1b3f44f7030f4435ce4326f69826028ad92b4c
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324285"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>使用 SQL 数据库活动异地复制管理云应用程序的滚动升级
 > [!NOTE]
@@ -74,7 +75,6 @@ ms.lasthandoff: 04/08/2018
 此选项的主要优点是可以使用一系列简单步骤升级单个区域中的应用程序。 此升级的费用成本相对较低。 此方法的主要**缺点**在于，如果在升级过程中发生灾难性故障，那么恢复到升级前的状态将涉及在不同的区域重新部署应用程序，并且使用异地还原从备份中还原数据库。 此过程会导致大量的停机时间。   
 
 ## <a name="upgrading-applications-that-rely-on-database-geo-replication-for-disaster-recovery"></a>升级依赖于数据库异地复制进行灾难恢复的应用程序
-
 如果应用程序利用异地复制来实现业务连续性，那么该应用程序至少部署到两个不同的区域，主要区域为活动部署，备份区域为备用部署。 除了前面提到的各个因素，此升级过程还必须保证：
 
 * 在升级过程的任何时候都保护应用程序免受灾难性故障
@@ -82,15 +82,17 @@ ms.lasthandoff: 04/08/2018
 
 为了实现这些目标，可通过包含一个活动终结点和三个备份终结点的故障转移配置文件来使用 Azure 流量管理器 (WATM)。  下图说明了在升级过程开始前的操作环境。 网站 contoso-1.chinacloudsites.cn<i></i> 和 contoso-dr.chinacloudsites.cn<i></i> 代表具有完全地理冗余的应用程序的生产槽。 若要启用回滚升级功能，需要使用应用程序的完全同步副本创建过渡槽。 你需要确保在升级过程中发生灾难性故障时应用程序可以快速恢复，另外过渡槽必须也是地理冗余。 准备应用程序升级需要执行以下步骤：
 
-1.  为升级创建过渡槽。 要执行此操作，需要在同一 Azure 区域中创建一个辅助数据库 (1)，并部署相同的网站副本。 监视此辅助数据库以查看种子设定过程是否已完成。
-2.  通过将辅助数据库异地复制到备份区域（称为“链接异地复制”），在过渡槽中创建地理冗余的辅助数据库。 监视此备份的辅助数据库以查看种子设定过程是否已完成 (3)。
-3.  在备份区域中创建网站的备用副本，并将其链接到地理冗余的辅助数据库 (4)。  
+1. 为升级创建过渡槽。 要执行此操作需要在同一 Azure 区域中创建一个辅助数据库 (1)，并部署相同的网站副本。 监视此辅助数据库以查看种子设定过程是否已完成。
+2. 通过将辅助数据库异地复制到备份区域（称为“链接异地复制”），在过渡槽中创建地理冗余的辅助数据库。 监视此备份的辅助数据库以查看种子设定过程是否已完成 (3)。
+3. 在备份区域中创建网站的备用副本，并将其链接到地理冗余的辅助数据库 (4)。  
 4.  将额外的终结点 contoso-2.chinacloudsites.cn<i></i> 和 contoso-3.chinacloudsites.cn<i></i> 作为离线终结点添加到 WATM 中的故障转移配置文件 (5)。 
 
 > [!NOTE]
 > 请注意上述准备步骤不会影响生产槽中的应用程序，应用程序可以在完全访问模式下运行。
+> 
+> 
 
-![SQL 数据库异地复制配置。 云灾难恢复。](./media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
+![SQL 数据库异地复制配置。 云灾难恢复。](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
 
 完成上述准备步骤后，就可以将过渡槽用于升级了。 下图显示了升级的步骤。
 
@@ -98,14 +100,14 @@ ms.lasthandoff: 04/08/2018
 2. 使用计划的终止模式断开同一区域中的辅助数据库的连接 (7)。 该操作将创建主数据库的完全同步独立副本，该副本会在终止后自动成为主数据库。 将升级该数据库。
 3. 将过渡槽中的主数据库切换为读写模式，并运行升级脚本 (8)。    
 
-![SQL 数据库异地复制配置。 云灾难恢复。](./media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
+![SQL 数据库异地复制配置。 云灾难恢复。](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
 
 如果升级成功完成，那么你现在可以将最终用户切换到应用程序的 V2 版本。 下图说明了所涉及的步骤。
 
 1. 将 WATM 配置文件中的活动终结点切换为 contoso-2.chinacloudsites.cn<i></i>，该终结点指向网站的 V2 版本 (9)。 现在该网站成为 V2 应用程序的生产槽，最终用户流量会定向到该网站。 
 2. 如果不再需要 V1 应用程序，可以放心删除它（10 和 11）。  
 
-![SQL 数据库异地复制配置。 云灾难恢复。](./media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
+![SQL 数据库异地复制配置。 云灾难恢复。](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
 
 如果升级过程不成功，例如由于升级的脚本中的一个错误，那么过渡槽应被视为已损坏。 要将应用程序回滚到升级前的状态，只需将生产槽中的应用程序还原为完全访问模式。 所涉及的步骤如下图所示。    
 
@@ -116,8 +118,10 @@ ms.lasthandoff: 04/08/2018
 
 > [!NOTE]
 > 回滚操作不需要更改 WATM 配置文件，因为它已指向作为活动终结点的 contoso-1.chinacloudsites.cn<i></i>。
+> 
+> 
 
-![SQL 数据库异地复制配置。 云灾难恢复。](./media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
+![SQL 数据库异地复制配置。 云灾难恢复。](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
 
 此升级方法的主要 **优点** 是可以同时升级应用程序及其地理冗余副本，并且不会在升级过程中破坏业务连续性。 此方法的主要 **缺点** 是它需要每个应用程序组件的双倍冗余，因此会导致更高的费用成本。 它还涉及更复杂的工作流。 
 

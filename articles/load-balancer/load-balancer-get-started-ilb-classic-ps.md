@@ -1,11 +1,11 @@
 ---
-title: "创建 Azure 内部负载均衡器 - PowerShell 经典 | Azure"
-description: "了解如何在经典部署模型中使用 PowerShell 创建内部负载均衡器"
+title: 创建 Azure 内部负载均衡器 - PowerShell 经典 | Azure
+description: 了解如何在经典部署模型中使用 PowerShell 创建内部负载均衡器
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 3be93168-3787-45a5-a194-9124fe386493
 ms.service: load-balancer
@@ -14,13 +14,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 11/20/2017
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7012c8dae98a5794a413add9ab883da6f209fb0e
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: feb039aea6f234a990377bab075d4dc9476d2a0b
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416858"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>开始使用 PowerShell 创建内部负载均衡器（经典）
 
@@ -63,7 +64,7 @@ Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb -
 
 ### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>步骤 2：向内部负载均衡实例添加终结点
 
-下面是一个示例：
+以下是示例：
 
 ```powershell
 $svc="mytestcloud"
@@ -88,7 +89,7 @@ $svc="<Cloud Service Name>"
 Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 ```
 
-若要使用这些命令，请填充值并删除 < 和 >。 下面是一个示例：
+若要使用这些命令，请填充值并删除 < 和 >。 以下是示例：
 
 ```powershell
 $svc="mytestcloud"
@@ -149,7 +150,7 @@ Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname
 
 若要使用这些命令，请填充值并删除 < 和 >。
 
-下面是一个示例：
+以下是示例：
 
 ```powershell
 $svc="mytestcloud"
@@ -167,7 +168,7 @@ Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 若要使用这些命令，请填充值并删除 < 和 >。
 
-下面是一个示例：
+以下是示例：
 
 ```powershell
 $svc="mytestcloud"

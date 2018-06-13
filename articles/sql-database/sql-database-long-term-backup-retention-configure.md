@@ -8,14 +8,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
 origin.date: 04/04/2018
-ms.date: 04/19/2018
+ms.date: 06/18/2018
 ms.author: v-nany
 ms.reviewer: carlrab
-ms.openlocfilehash: 5e13060147904ca5720895e25de5f581ca2eb370
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: e343ad5906fc013fd42d7aaed681a346f17a349e
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324289"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>管理 Azure SQL 数据库长期备份保留
 
@@ -91,7 +92,7 @@ ms.lasthandoff: 04/23/2018
 # $resourceGroup = “{resource-group-name}” 
 # $dbName = ”{database-name}”
 
-Login-AzureRmAccount -Environment AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
 Select-AzureRmSubscription -SubscriptionId $subId
 
 # get the server

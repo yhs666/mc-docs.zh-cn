@@ -12,12 +12,12 @@ ms.topic: article
 origin.date: 03/19/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 9929bce7c76de7198b69ffc94cc3fff4a2200202
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 58d9544f0d65951049c294fb41df446f16ff0f0c
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475153"
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324292"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>从本地文件创建作业输入
 
@@ -31,7 +31,80 @@ ms.locfileid: "34475153"
 * 获取资产的[存储中容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)的可写 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 * 使用 SAS URL 将文件上传到存储中的容器中
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
+```C#
+private static async Task<Asset> CreateInputAssetAsync(
+    IAzureMediaServicesClient client,
+    string resourceGroupName,
+    string accountName,
+    string assetName,
+    string fileToUpload)
+{
+    // In this example, we are assuming that the asset name is unique.
+    //
+    // If you already have an asset with the desired name, use the Assets.Get method
+    // to get the existing asset. In Media Services v3, Get methods on entities returns null 
+    // if the entity doesn't exist (a case-insensitive check on the name).
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#SubmitJob)]
+    // Call Media Services API to create an Asset.
+    // This method creates a container in storage for the Asset.
+    // The files (blobs) associated with the asset will be stored in this container.
+    Asset asset = await client.Assets.CreateOrUpdateAsync(resourceGroupName, accountName, assetName, new Asset());
 
+    // Use Media Services API to get back a response that contains
+    // SAS URL for the Asset container into which to upload blobs.
+    // That is where you would specify read-write permissions 
+    // and the exparation time for the SAS URL.
+    var response = await client.Assets.ListContainerSasAsync(
+        resourceGroupName,
+        accountName,
+        assetName,
+        permissions: AssetContainerPermission.ReadWrite,
+        expiryTime: DateTime.UtcNow.AddHours(4).ToUniversalTime());
+
+    var sasUri = new Uri(response.AssetContainerSasUrls.First());
+
+    // Use Storage API to get a reference to the Asset container
+    // that was created by calling Asset's CreateOrUpdate method.  
+    CloudBlobContainer container = new CloudBlobContainer(sasUri);
+    var blob = container.GetBlockBlobReference(Path.GetFileName(fileToUpload));
+
+    // Use Strorage API to upload the file into the container in storage.
+    await blob.UploadFromFileAsync(fileToUpload);
+
+    return asset;
+}
+```
+
+```C#
+private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
+    string resourceGroupName,
+    string accountName,
+    string transformName,
+    string jobName,
+    JobInput jobInput,
+    string outputAssetName)
+{
+    JobOutput[] jobOutputs =
+    {
+        new JobOutputAsset(outputAssetName),
+    };
+
+    // In this example, we are assuming that the job name is unique.
+    //
+    // If you already have a job with the desired name, use the Jobs.Get method
+    // to get the existing job. In Media Services v3, Get methods on entities returns null 
+    // if the entity doesn't exist (a case-insensitive check on the name).
+    Job job = await client.Jobs.CreateAsync(
+        resourceGroupName,
+        accountName,
+        transformName,
+        jobName,
+        new Job
+        {
+            Input = jobInput,
+            Outputs = jobOutputs,
+        });
+
+    return job;
+}
+```

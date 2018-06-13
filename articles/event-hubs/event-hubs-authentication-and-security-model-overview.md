@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/20/2017
-ms.date: 02/26/2018
+origin.date: 04/30/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 17d3eb8f59277588e14e36ac16f88eb7a9ee4681
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 19a512c997682f56783dd8fbec5759164df329e0
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416784"
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>事件中心身份验证和安全模型概述
 

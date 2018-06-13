@@ -5,15 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: analysis-services
 ms.topic: conceptual
-origin.date: 04/12/2018
-ms.date: 04/30/2018
+origin.date: 05/16/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: ff0dd4674648dcb5868f8b3e024508ef0232429e
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 2623bfb8df6cb0da77977cbf4c1070fe89a342c1
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416800"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>用于连接到 Azure Analysis Services 的客户端库
 
@@ -23,10 +24,10 @@ ms.lasthandoff: 04/28/2018
 
 |下载  |产品版本  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.208      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.208      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2     |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.395      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.395      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.4     |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.4     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO 和 ADOMD（NuGet 包）
 

@@ -1,25 +1,26 @@
 ---
-title: "使用模板创建 Azure 事件中心命名空间和使用者组 | Azure"
-description: "使用 Azure Resource Manager 模板创建包含事件中心和使用者组的事件中心命名空间"
+title: 使用模板创建 Azure 事件中心命名空间和使用者组 | Azure
+description: 使用 Azure Resource Manager 模板创建包含事件中心和使用者组的事件中心命名空间
 services: event-hubs
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 28bb4591-1fd7-444f-a327-4e67e8878798
 ms.service: event-hubs
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 01/30/2018
-ms.date: 03/12/2018
+origin.date: 04/30/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: b708525f546552bc97da4846f00ea75ecfd8775c
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: ab67a5b2191690b08789cfdc5645076c09d02a22
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416833"
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建包含事件中心和使用者组的事件中心命名空间
 

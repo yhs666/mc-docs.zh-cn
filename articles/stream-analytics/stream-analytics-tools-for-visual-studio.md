@@ -9,12 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/05/2018
-ms.date: 05/07/2018
-ms.openlocfilehash: b30d344c8c671ea6a98c7c4e545e34fed3155023
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/18/2018
+ms.openlocfilehash: 355c8ee5c8341b85353c874859dbf2e5ba6b62fe
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416843"
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>使用用于 Visual Studio 的 Azure 流分析工具
 用于 Visual Studio 的 Azure 流分析工具现已推出正式版。 这些工具为流分析用户带来了更丰富的体验，可让他们进行故障排除以及编写复杂的查询，甚至可以在本地编写查询。 还可将流分析作业导出到 Visual Studio 项目中。
@@ -29,6 +30,20 @@ ms.lasthandoff: 05/07/2018
 * 使用本地示例数据在本地测试作业。
 * 使用监视功能排查问题。
 * 将现有作业导出到项目。
+
+>[!IMPORTANT]
+>
+>为新的一般数据保护条例 (GDPR)（于 2018 年 5 月 25 日生效）做准备，建议使用针对 Visual Studio 的 Azure 流分析工具的用户升级到版本 2.3.3000.5 或更高版本。 此版本包括基于最新数据保护要求所做的更改。 请注意，以前的版本不可供下载并将弃用。 
+>
+>**我需要做什么？**
+>
+>1. 检查所用的针对 Visual Studio 的 Azure 流分析工具版本是否低于 2.3.3000.5。 
+>   
+>   ![检查工具版本](./media/stream-analytics-tools-for-vs/about-data-lake.png)
+> 
+>2. 如果版本低于 2.3.3000.5，请访问下载中心，更新针对 Visual Studio 的 Azure Data Lake 工具： 
+>    - [对于 Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
+>    - [对于 Visual Studio 2013 和 Visual Studio 2015](https://www.microsoft.com/download/details.aspx?id=54630)
 
 ## <a name="prerequisites"></a>先决条件
 若要完成本教程，需要具备以下先决条件：
