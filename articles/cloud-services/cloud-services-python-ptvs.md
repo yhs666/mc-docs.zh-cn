@@ -1,11 +1,11 @@
 ---
-title: "Python 和 Azure 云服务入门 | Azure"
-description: "有关使用 Python Tools for Visual Studio 来创建包括 Web 角色和辅助角色的 Azure 云服务的概述。"
+title: Python 和 Azure 云服务入门 | Azure
+description: 有关使用 Python Tools for Visual Studio 来创建包括 Web 角色和辅助角色的 Azure 云服务的概述。
 services: cloud-services
 documentationcenter: python
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,12 +14,13 @@ ms.devlang: python
 ms.topic: hero-article
 origin.date: 07/18/2017
 ms.author: v-yiso
-ms.date: 11/06/2017
-ms.openlocfilehash: fcba013096fa2ee71c9b62608c4ad885cf643e10
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.date: 06/11/2018
+ms.openlocfilehash: af72743ba584e73194c33abe53aca26363ccca2c
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695009"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>用于 Visual Studio 的 Python 工具中的 Python Web 角色和辅助角色
 
@@ -173,6 +174,7 @@ Azure 为运行应用程序提供了三种计算模型：[Azure 应用服务中�
 此脚本安装 Python。 如果 **PYTHON2** 环境变量设置为 **on**，则安装 Python 2.7，否则安装 Python 3.5。
 
 ```powershell
+[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
 $is_emulated = $env:EMULATED -eq "true"
 $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
@@ -342,7 +344,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 - [Blob 服务][]
 - [表服务][]
 - [队列服务][]
-- [Service Bus 队列][]
+- [服务总线队列][]
 - [服务总线主题][]
 
 <!--Link references-->
@@ -356,7 +358,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 [Blob 服务]:../storage/blobs/storage-python-how-to-use-blob-storage.md
 [队列服务]: ../storage/queues/storage-python-how-to-use-queue-storage.md
 [表服务]:../cosmos-db/table-storage-how-to-use-python.md
-[Service Bus 队列]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[服务总线队列]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
 [服务总线主题]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 <!--External Link references-->

@@ -1,11 +1,11 @@
 ---
-title: "Node.js 入门指南 | Microsoft Docs"
-description: "了解如何创建简单的 Node.js Web 应用程序并将其部署到 Azure 云服务。"
+title: Node.js 入门指南 | Microsoft Docs
+description: 了解如何创建简单的 Node.js Web 应用程序并将其部署到 Azure 云服务。
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 50951a87-fed4-48e0-bcfa-453b9e50452e
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 origin.date: 08/17/2017
-ms.date: 12/11/2017
+ms.date: 06/11/2018
 ms.author: v-yiso
-ms.openlocfilehash: 207d80fa968ccd05a7d53ee716336401f6b24c57
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 0df31100206481e21b01d9b710074aa1b44cd2b8
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695108"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>生成 Node.js 应用程序并将其部署到 Azure 云服务
 
@@ -39,7 +40,7 @@ ms.lasthandoff: 12/01/2017
 ## <a name="prerequisites"></a>先决条件
 
 > [!NOTE]
-> 本教程使用 Azure PowerShell，因此要求使用 Windows 系统。
+> 本教程使用 Azure PowerShell，因此需要在 Windows 上运行。
 
 - 安装和配置 [Azure PowerShell]。
 - 下载并安装 [Azure SDK for .NET 2.7]。 在安装设置中，选择：
@@ -48,7 +49,7 @@ ms.lasthandoff: 12/01/2017
 
 ## <a name="create-an-azure-cloud-service-project"></a>创建 Azure 云服务项目
 
-执行以下任务，创建新的 Azure 云服务项目及基本 Node.js 基架：
+执行以下任务可创建一个新的 Azure 云服务项目以及基本的 Node.js 基架：
 
 1. 以管理员身份运行 Windows PowerShell；在“开始”菜单或“开始”屏幕中，搜索 Windows PowerShell。
 
@@ -166,7 +167,7 @@ Publish-AzureServiceProject -ServiceName $ServiceName  -Location "China East" -L
 
 ## <a name="stopping-and-deleting-your-application"></a>停止并删除应用程序
 
-部署应用程序后，可能需要禁用它以免产生额外费用。 Azure 按使用的服务器小时数对 Web 角色实例进行计费。 应用程序部署后即开始使用服务器时间，即使相关实例未运行并处于停止状态。
+部署应用程序后，可能需要禁用它以免产生额外费用。 Azure 将按使用的服务器小时数对 Web 角色实例计费。 应用程序部署后即开始使用服务器时间，即使相关实例未运行并处于停止状态。
 
 1.  在 Windows PowerShell 窗口中，使用以下 cmdlet 以停止上一节中创建的服务部署：
 

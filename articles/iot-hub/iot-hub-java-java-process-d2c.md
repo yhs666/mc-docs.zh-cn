@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure IoT 中心路由消息 (Java)"
-description: "如何使用路由规则和自定义终结点将消息发送到其他后端服务，从而处理 Azure IoT 中心的设备到云消息。"
+title: 使用 Azure IoT 中心路由消息 (Java)
+description: 如何使用路由规则和自定义终结点将消息发送到其他后端服务，从而处理 Azure IoT 中心的设备到云消息。
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bd9af5f9-a740-4780-a2a6-8c0e2752cf48
 ms.service: iot-hub
 ms.devlang: java
@@ -14,24 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/29/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 6cf1be6b79c14b68ecddee86c52b45a8898f7e9b
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 06/11/2018
+ms.openlocfilehash: c651be794478e3968e91b5c6c78d409f8fc1e7ae
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695067"
 ---
 # <a name="routing-messages-with-iot-hub-java"></a>使用 IoT 中心路由消息 (Java)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一个解决方案后端之间实现安全可靠的双向通信。 其他教程（[simulated-device]和[使用 IoT 中心发送“云到设备”消息][lnk-c2d]）介绍了如何使用 IoT 中心的“设备到云”和“云到设备”的基本消息传递功能。
+Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一个解决方案后端之间实现安全可靠的双向通信。 其他教程（[IoT 中心入门]和[使用 IoT 中心发送“云到设备”消息][lnk-c2d]）介绍了如何使用 IoT 中心的“设备到云”和“云到设备”的基本消息传递功能。
 
-本教程以 [simulated-device]教程中所示的代码为基础，说明如何按可缩放的方式通过消息路由处理设备到云的消息。 本教程描述了如何处理需要解决方案后端立即执行操作的消息。 例如，设备可能会发送一条警报消息，触发在 CRM 系统中插入票证。 与此相反，数据点消息仅送入分析引擎。 例如，设备中存储便于日后分析的温度遥测是数据点消息。
+本教程以 [IoT 中心入门]教程中所示的代码为基础，说明如何按可缩放的方式通过消息路由处理设备到云的消息。 本教程描述了如何处理需要解决方案后端立即执行操作的消息。 例如，设备可能会发送一条警报消息，触发在 CRM 系统中插入票证。 与此相反，数据点消息仅送入分析引擎。 例如，设备中存储便于日后分析的温度遥测是数据点消息。
 
 在本教程最后，会运行 3 个 Java 控制台应用：
 
-* **simulated-device**（ [simulated-device] 教程中创建的应用的修改版本）每秒发送一次设备到云的数据点消息，每 10 秒发送一次设备到云的交互式消息。 此应用使用 AMQP 协议实现与 IoT 中心的通信。
+* **simulated-device**（ [IoT 中心入门] 教程中创建的应用的修改版本）每秒发送一次设备到云的数据点消息，每 10 秒发送一次设备到云的交互式消息。 此应用使用 AMQP 协议实现与 IoT 中心的通信。
 * **read-d2c-messages** 显示设备应用发送的遥测数据。
 * **read-critical-queue** 从附加到 IoT 中心的服务总线队列中取消关键消息的排队。
 
@@ -42,7 +43,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 
 要完成本教程，需要以下各项：
 
-* [simulated-device] 教程的完整工作版本。
+* [IoT 中心入门] 教程的完整工作版本。
 * 最新的 [Java SE 开发工具包 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
 + 有效的 Azure 帐户。 <br/>如果没有帐户，可以创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，只需几分钟即可完成。
@@ -50,9 +51,9 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 我们还建议阅读 [Azure 存储]和 [Azure 服务总线]。
 
 ## <a name="send-interactive-messages-from-a-device-app"></a>从设备应用发送交互式消息
-在本部分中，会修改在 [simulated-device]教程中创建的设备应用，不定期发送需要立即处理的消息。
+在本部分中，会修改在 [IoT 中心入门]教程中创建的设备应用，不定期发送需要立即处理的消息。
 
-1. 使用文本编辑器打开 simulated-device\src\main\java\com\mycompany\app\App.java 文件。 本文件包含用于 **IoT 中心入门** 教程中创建的 [simulated-device] 应用的代码。
+1. 使用文本编辑器打开 simulated-device\src\main\java\com\mycompany\app\App.java 文件。 本文件包含用于 [IoT 中心入门] 教程中创建的 **simulated-device** 应用的代码。
 2. 使用以下代码替换 **MessageSender** 类：
 
     ```java
@@ -209,7 +210,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 
 通过[如何使用 IoT 中心发送云到设备的消息][lnk-c2d] ，了解如何将消息从解决方案后端发送到设备。
 
-若要查看使用 IoT 中心完成端到端解决方案的示例，请参阅 [Azure IoT 套件][lnk-suite]。
+若要查看使用 IoT 中心完成端到端解决方案的示例，请参阅 [Azure IoT 远程监视解决方案加速器][lnk-suite]。
 
 若要了解有关使用 IoT 中心开发解决方案的详细信息，请参阅 [IoT 中心开发人员指南]。
 
@@ -235,7 +236,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 
 [IoT 中心开发人员指南]: ./iot-hub-devguide.md
 [lnk-devguide-messaging]: ./iot-hub-devguide-messaging.md
-[simulated-device]: ./iot-hub-java-java-getstarted.md
+[IoT 中心入门]: ./iot-hub-java-java-getstarted.md
 [Azure IoT 开发人员中心]: https://www.azure.cn/develop/iot
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh675232.aspx
 

@@ -1,37 +1,40 @@
 ---
-title: "使用 Azure 备份还原 VM 磁盘 | Microsoft 文档"
-description: "了解如何在 Azure 中使用备份和恢复服务还原磁盘并创建恢复的 VM。"
+title: 使用 Azure 备份还原 VM 磁盘 | Microsoft 文档
+description: 了解如何在 Azure 中使用备份和恢复服务还原磁盘并创建恢复的 VM。
 services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 02/14/2018
-ms.date: 02/27/2018
+origin.date: 04/17/2018
+ms.date: 05/25/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 60b2073364a60ca2fbe231a32384b12015f95c81
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 02a6bd1686532ccc28074b2f1ae941b5071b4840
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559441"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>在 Azure 中还原磁盘并创建恢复的 VM
-Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复保管库中。 从恢复点还原时，可以还原整个 VM，也可以还原单个文件。 本文将介绍如何还原完整的 VM。 本教程介绍如何执行下列操作：
+Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复保管库中。 从恢复点还原时，可以还原整个 VM，也可以还原单个文件。 本文介绍如何使用 CLI 还原完整的 VM。 本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
 > * 列出和选择恢复点
 > * 从恢复点还原磁盘
 > * 从还原的磁盘创建 VM
 
-如果选择在本地安装并使用 CLI，本教程需要你运行 Azure CLI 2.0.18 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli?view=azure-cli-latest)。 
+有关使用 PowerShell 还原磁盘并创建已恢复的 VM 的信息，请参阅[使用 PowerShell 备份和还原 Azure VM](backup-azure-vms-automation.md#restore-an-azure-vm)。
+
+如果选择在本地安装并使用 CLI，本教程需要你运行 Azure CLI 2.0.18 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
 
 
 ## <a name="prerequisites"></a>先决条件
@@ -182,4 +185,4 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
 > [将文件还原到 Azure 中的虚拟机](tutorial-restore-files.md)
 
 
-<!--Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

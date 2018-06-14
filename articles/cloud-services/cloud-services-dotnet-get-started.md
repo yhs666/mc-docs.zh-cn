@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 05/15/2017
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yiso
-ms.openlocfilehash: d5b2c0968c5d5960e4eeabf0e53172e36e4bc785
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: c9e57ff708c99c03cb9508c5b36e0aea91440992
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695043"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure 云服务和 ASP.NET 入门
 
@@ -231,7 +232,7 @@ Web 项目和辅助角色项目自身具有数据库连接字符串，并且当�
 
     ![连接字符串](./media/cloud-services-dotnet-get-started/connstrings.png)
 
-4. 在 *Web.Release.config* 转换文件中，删除 `{connectionstring}` 并在其位置粘贴 Azure 管理门户中的 ADO.NET 连接字符串。
+3. 在 *Web.Release.config* 转换文件中，删除 `{connectionstring}` 并在其位置粘贴 Azure 门户中的 ADO.NET 连接字符串。
 
 5. 在粘贴到 *Web.Release.config* 转换文件的连接字符串中，请用为新的 SQL 数据库创建的密码替换 `{your_password_here}`。
 
@@ -312,7 +313,7 @@ Web 角色项目和辅助角色项目的 azure 存储帐户连接字符串存储
 </Role>
 ```
 
-ph x="1" /> 设置指定 Azure 要在其上运行辅助角色代码的虚拟机的数量。 [后续步骤](#next-steps) 部分包括有关向外缩放云服务的详细信息的链接。
+`<Instances>` 设置指定 Azure 要在其上运行辅助角色代码的虚拟机的数量。 [后续步骤](#next-steps) 部分包括有关向外缩放云服务的详细信息的链接。
 
 ###  <a name="deploy-the-project-to-azure"></a>将项目部署到 Azure
 
@@ -844,7 +845,6 @@ Contoso 广告应用程序有意保持入门教程的简单性。 例如，它�
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31)。 在概念上与 Contoso 广告类似，但实施更多的功能和详细的实际编码做法。
 * [带有表、队列和 Blob 的 Azure 云服务多层应用程序](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)。 引入了 Azure 存储表以及 Blob 和队列。 基于旧版 Azure SDK for .NET，需做一些修改才能配合当前版本。
-* [Azure 中的云服务基础知识](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649)。 一个综合示例，演示各种最佳实践，由 Microsoft 模式和实践组生产。
 
 有关云开发的常规信息，请参阅 [使用 Azure 构建实际的云应用](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction)。
 

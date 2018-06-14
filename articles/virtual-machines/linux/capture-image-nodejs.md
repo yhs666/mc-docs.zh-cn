@@ -1,11 +1,11 @@
 ---
-title: "捕获用作模板的 Azure Linux VM | Azure"
-description: "了解如何捕获并通用化使用 Azure Resource Manager 部署模型创建的、基于 Linux 的 Azure 虚拟机 (VM) 的映像。"
+title: 捕获用作模板的 Azure Linux VM | Azure
+description: 了解如何捕获并通用化使用 Azure Resource Manager 部署模型创建的、基于 Linux 的 Azure 虚拟机 (VM) 的映像。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/09/2017
-ms.date: 01/08/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 34fff457e3dde01f7a8adcceb345a4666d7538ae
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 65e04d09e33c022ebede00cf8fecbe5ed377c271
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702862"
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>捕获在 Azure 上运行的 Linux 虚拟机
 遵循本文中的步骤可在 Resource Manager 部署模型中通用化和捕获 Azure Linux 虚拟机 (VM)。 通用化 VM 时，将删除个人帐户信息，并准备要用作映像的 VM。 然后捕获 OS 的通用化虚拟硬盘 (VHD) 映像、附加的数据磁盘的 VHD，以及新 VM 部署的[资源管理器模板](../../azure-resource-manager/resource-group-overview.md)。 本文详细介绍了如何使用 Azure CLI 1.0 为使用非托管磁盘的 VM 捕获 VM 映像。 也可以[使用 Azure CLI 2.0 捕获使用 Azure 托管磁盘的 VM](capture-image.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 托管磁盘由 Azure 平台处理，无需任何准备或位置来存储它们。 有关详细信息，请参阅 [Azure 托管磁盘概述](../windows/managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 
@@ -45,7 +46,7 @@ ms.lasthandoff: 01/05/2018
 * **Azure CLI** - 在本地计算机上安装 [Azure CLI](../../cli-install-nodejs.md)。
 
 ## <a name="step-1-remove-the-azure-linux-agent"></a>步骤 1：删除 Azure Linux 代理
-首先，在 Linux VM 上使用 **deprovision** 参数运行 **waagent** 命令。 此命令删除文件和数据，使 VM 准备好进行通用化。 有关详细信息，请参阅 [Azure Linux 代理用户指南](../windows/agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+首先，在 Linux VM 上使用 **deprovision** 参数运行 **waagent** 命令。 此命令删除文件和数据，使 VM 准备好进行通用化。 有关详细信息，请参阅 [Azure Linux 代理用户指南](../extensions/agent-windows.md)。
 
 1. 使用 SSH 客户端连接到 Linux VM。
 2. 在 SSH 窗口中，键入以下命令：
