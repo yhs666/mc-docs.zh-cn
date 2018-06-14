@@ -14,14 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/27/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 97061bf8717c13846e8611f400f1c189f3432ff8
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 8998574e1bac9b50c6a9faaa0b22a8038c4e5ccb
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702822"
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>适用于 Windows 虚拟机的 Azure CLI 示例
 

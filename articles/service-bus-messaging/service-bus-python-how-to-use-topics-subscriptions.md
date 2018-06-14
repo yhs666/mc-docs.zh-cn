@@ -15,11 +15,12 @@ ms.topic: article
 origin.date: 04/20/2018
 ms.author: v-yiso
 ms.date: 09/18/2017
-ms.openlocfilehash: a77cc175919d95ab8ebd7d1396fe7e4794f12aec
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 130e1bd411b1bdaf61488aea9262b90a9a04e9f0
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695112"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>如何通过 Python 使用服务总线主题和订阅
 
@@ -134,7 +135,7 @@ for i in range(5):
     bus_service.send_topic_message('mytopic', msg)
 ```
 
-服务总线主题在标准层中支持的最大消息大小为 256 KB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小是在创建时定义的，上限为 5 GB。 有关配额的详细信息，请参阅 [服务总线配额][]。
+服务总线主题在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小是在创建时定义的，上限为 5 GB。 有关配额的详细信息，请参阅 [服务总线配额][]。
 
 ## <a name="receive-messages-from-a-subscription"></a>从订阅接收消息
 对 ServiceBusService 对象使用 receive\_subscription\_message 方法可从订阅接收消息：

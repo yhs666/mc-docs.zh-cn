@@ -1,11 +1,11 @@
 ---
-title: "Azure 服务总线常见问题 (FAQ) | Azure"
-description: "回答了一些关于 Azure 服务总线的常见问题。"
+title: Azure 服务总线常见问题 (FAQ) | Azure
+description: 回答了一些关于 Azure 服务总线的常见问题。
 services: service-bus
 documentationCenter: na
 authors: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cc75786d-3448-4f79-9fec-eef56c0027ba
 ms.service: service-bus
 ms.devlang: na
@@ -15,11 +15,12 @@ ms.workload: na
 origin.date: 11/14/2017
 ms.author: v-yiso
 ms.date: 03/12/2018
-ms.openlocfilehash: d96607fa8a8b12909b00026d74bed19bce29a40b
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 2b3b145b875a1260b4b463c3960c059193b3c862
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695107"
 ---
 # <a name="service-bus-faq"></a>服务总线常见问题解答
 本文讨论了一些关于 Microsoft Azure 服务总线的常见问题解答。 还可以访问 [Azure 支持常见问题解答](http://go.microsoft.com/fwlink/?LinkID=185083)了解常规的 Azure 定价和支持信息。
@@ -120,6 +121,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 ## <a name="next-steps"></a>后续步骤
 若要了解有关服务总线的详细信息，请参阅以下文章：
 
+- [Azure 服务总线高级版简介（博客文章）](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [服务总线概述](./service-bus-messaging-overview.md)
 - [Azure 服务总线体系结构概述](./service-bus-fundamentals-hybrid-solutions.md)
 - [服务总线队列入门](./service-bus-dotnet-get-started-with-queues.md)

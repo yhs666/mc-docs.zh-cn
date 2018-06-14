@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 09/29/2017
-ms.date: 04/11/2018
+ms.date: 05/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: d71c98b2ffe5c1666c3b01dcfec65f8abf49727d
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 330328df0673062bfdcc27e315e43f5ea9065a4d
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567313"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Durable Functions 中的检查点和重播 (Azure Functions)
 
@@ -29,7 +30,9 @@ Durable Functions 的关键属性之一是**可靠执行**。 业务流程协调
 
 ## <a name="orchestration-history"></a>业务流程历史记录
 
-假设存在以下业务流程协调程序函数。
+假设有以下业务流程协调程序函数：
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -47,7 +50,22 @@ public static async Task<List<string>> Run(
 }
 ```
 
-执行到每条 `await` 语句时，Durable Task Framework 会在表存储中创建该函数的执行状态检查点。 此状态称为“业务流程历史记录”。
+#### <a name="javascript-functions-v2-only"></a>JavaScript（仅限 Functions v2）
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const output = [];
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Tokyo"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Seattle"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "London"));
+
+    return output;
+});
+```
+
+执行到每条 `await` (C#) 或 `yield` (JavaScript) 语句时，Durable Task Framework 会在表存储中创建该函数的执行状态检查点。 此状态称为“业务流程历史记录”。
 
 ## <a name="history-table"></a>历史记录表
 
@@ -84,22 +102,22 @@ public static async Task<List<string>> Run(
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     | 
 
 有关列值的一些注释：
-* **PartitionKey**：包含业务流程的实例 ID。
-* **EventType**：表示事件的类型。 可为以下类型之一：
-    * **OrchestrationStarted**：业务流程协调程序函数已从 await（等待）状态恢复，或者正在首次运行。 `Timestamp` 列用于填充 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API 的确定性值。
-    * **ExecutionStarted**：业务流程协调程序函数已开始首次执行。 此事件也包含 `Input` 列中输入的函数。
-    * **TaskScheduled**：已计划活动函数。 `Name` 列中已捕获该活动函数的名称。
-    * **TaskCompleted**：已完成活动函数。 `Result` 列中提供了该函数的结果。
-    * **TimerCreated**：已创建持久计时器。 `FireAt` 列包含计时器过期时的 UTC 计划时间。
-    * **TimerFired**：持久计时器已触发。
-    * **EventRaised**：已将外部事件发送到业务流程实例。 `Name` 列捕获事件的名称，`Input` 列捕获事件的有效负载。
-    * **OrchestratorCompleted**：业务流程协调程序函数处于等待状态。
-    * **ContinueAsNew**：业务流程协调程序函数已完成，并已使用新状态重启自身。 `Result` 列包含用作已重启实例中的输入的值。
-    * **ExecutionCompleted**：业务流程协调程序函数已运行并已完成（或失败）。 该函数的输出或错误详细信息存储在 `Result` 列中。
-* **Timestamp**：历史记录事件的 UTC 时间戳。
-* **Name**：调用的函数的名称。
-* **Input**：函数的 JSON 格式输入。
-* **Result**：函数的输出，即其返回值。
+- **PartitionKey**：包含业务流程的实例 ID。
+- **EventType**：表示事件的类型。 可为以下类型之一：
+    - **OrchestrationStarted**：业务流程协调程序函数已从 await（等待）状态恢复，或者正在首次运行。 `Timestamp` 列用于填充 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API 的确定性值。
+    - **ExecutionStarted**：业务流程协调程序函数已开始首次执行。 此事件也包含 `Input` 列中输入的函数。
+    - **TaskScheduled**：已计划活动函数。 `Name` 列中已捕获该活动函数的名称。
+    - **TaskCompleted**：已完成活动函数。 `Result` 列中提供了该函数的结果。
+    - **TimerCreated**：已创建持久计时器。 `FireAt` 列包含计时器过期时的 UTC 计划时间。
+    - **TimerFired**：持久计时器已触发。
+    - **EventRaised**：已将外部事件发送到业务流程实例。 `Name` 列捕获事件的名称，`Input` 列捕获事件的有效负载。
+    - **OrchestratorCompleted**：业务流程协调程序函数处于等待状态。
+    - **ContinueAsNew**：业务流程协调程序函数已完成，并已使用新状态重启自身。 `Result` 列包含用作已重启实例中的输入的值。
+    - **ExecutionCompleted**：业务流程协调程序函数已运行并已完成（或失败）。 该函数的输出或错误详细信息存储在 `Result` 列中。
+- **Timestamp**：历史记录事件的 UTC 时间戳。
+- **Name**：调用的函数的名称。
+- **Input**：函数的 JSON 格式输入。
+- **Result**：函数的输出，即其返回值。
 
 > [!WARNING]
 > 尽管此表可以用作有效的调试工具，但不要对它有任何依赖。 它可能会随着 Durable Functions 扩展的演变而变化。
@@ -147,3 +165,4 @@ public static async Task<List<string>> Run(
 > [!div class="nextstepaction"]
 > [了解实例管理](durable-functions-instance-management.md)
 
+<!-- Update_Description: code update -->

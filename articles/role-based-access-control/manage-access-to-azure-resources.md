@@ -3,23 +3,25 @@ title: 使用 Azure Active Directory 管理对 Azure 资源的访问权限
 description: 了解如何使用 Azure Active Directory 的各项功能管理 Azure 资源访问权限。
 services: active-directory
 documentationcenter: ''
-author: skwan
+author: rolyon
 manager: mtillman
-editor: bryanla
+editor: skwan
 ms.assetid: f66abf54-3809-436c-92b6-018e1179780e
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/05/2017
-ms.date: 05/02/2018
+ms.date: 05/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: f280d58da23273602af0c49aacf5972531a529e0
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.reviewer: skwan
+ms.openlocfilehash: 798e003c4689ff7f5c43be22f3b88529cc61bee8
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559499"
 ---
 # <a name="manage-access-to-azure-resources-with-azure-active-directory"></a>使用 Azure Active Directory 管理对 Azure 资源的访问权限
 
@@ -35,3 +37,4 @@ Azure AD 就管理 Azure 资源访问权限提供以下功能：
 
  
 
+<!-- Update_Description: update metedata properties -->

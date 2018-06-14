@@ -14,26 +14,22 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 09/25/2016
-ms.date: 04/11/2018
+ms.date: 05/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 865e2d5f95a5d59325c54f5f11b26f6f1616adfa
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: ce9df04957a610ba23ec7d8b7e49c7178bcd78ea
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567306"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure Functions 的连续部署
 使用 Azure Functions，可轻松使用应用服务持续集成部署 Function App。 Functions 可与 BitBucket、Dropbox、GitHub 和 Visual Studio Team Services (VSTS) 集成。 这样，通过使用其中一项集成服务实现的函数代码更新所在的工作流将触发到 Azure 的部署。 如果不熟悉 Azure Functions，请从[Azure Functions 概述](functions-overview.md)开始。
 
 连续部署选项非常适合用于频繁集成多个分发内容的项目。 它还允许保持对函数代码的源控件。 目前支持以下部署源：
 
-- [Bitbucket](https://bitbucket.org/)
-- [Dropbox](https://www.dropbox.com/)
 - 外部存储库（Git 或 Mercurial）
 - [Git 本地存储库](../app-service/app-service-deploy-local-git.md)
-- [GitHub](https://github.com)
-- [OneDrive](https://onedrive.live.com/)
-- [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
 
 在每个 Function App 基础上配置部署。 启用连续部署后，将门户中的函数代码访问设置为*只读*。
 

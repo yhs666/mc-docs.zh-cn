@@ -1,11 +1,11 @@
 ---
-title: "Azure 备份服务器故障排除 | Microsoft Docs"
-description: "排查 Azure 备份服务器的安装和注册以及应用程序工作负荷的备份和还原问题。"
+title: Azure 备份服务器故障排除 | Microsoft Docs
+description: 排查 Azure 备份服务器的安装和注册以及应用程序工作负荷的备份和还原问题。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: pvrk
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 2d73c349-0fc8-4ca8-afd8-8c9029cb8524
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/24/2017
-ms.date: 01/05/2018
+ms.date: 05/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4e2f98f1443fc29585c6197c7ef3eb8792e860c6
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: b27df9f5956b2ad296179a99592194206c4af53a
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559440"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>对 Azure 备份服务器进行故障排除
 
@@ -49,7 +50,7 @@ ms.lasthandoff: 01/11/2018
 ## <a name="registration-and-agent-related-issues"></a>注册和代理相关问题
 | 操作 | 错误详细信息 | 解决方法 |
 | --- | --- | --- |
-| 注册到保管库 | 提供的保管库凭据无效。 该文件已损坏，或者没有与恢复服务关联的最新凭据。 | 若要修复此错误，请执行以下操作： <ul><li> 从保管库中下载最新的凭据文件，并重试。 <br>（或者）</li> <li> 如果上述操作不起作用，请尝试将凭据下载到其他本地目录，或创建新的保管库。 <br>（或者）</li> <li> 根据[此博客](https://azure.microsoft.com/blog/troubleshooting-common-configuration-issues-with-azure-backup/)中所述，尝试更新日期和时间设置。 <br>（或者）</li> <li> 检查 C:\windows\temp 中的文件数是否超过 65000。 将过时文件移到另一位置，或者删除 Temp 文件夹中的项。 <br>（或者）</li> <li> 检查证书的状态。 <br> a. 打开“管理计算机证书”（在控制面板中）。 <br> b. 展开“个人”节点及其子节点“证书”。<br> c.  删除证书“Azure Tools”。 <br> d.单击“验证存储凭据”以验证存储帐户。 重试在 Azure 备份客户端中注册。 <br> （或者） </li> <li> 检查是否部署了任何组策略。 </li></ul> |
+| 注册到保管库 | 提供的保管库凭据无效。 该文件已损坏，或者没有与恢复服务关联的最新凭据。 | 若要修复此错误，请执行以下操作： <ul><li> 从保管库中下载最新的凭据文件，并重试。 <br>（或者）</li> <li> 如果上述操作不起作用，请尝试将凭据下载到其他本地目录，或创建新的保管库。 <br>（或者）</li> <li> 根据[此博客](https://azure.microsoft.com/blog/troubleshooting-common-configuration-issues-with-azure-backup/)中所述，尝试更新日期和时间设置。 <br>（或者）</li> <li> 检查 C:\windows\temp 中的文件数是否超过 65000。 将过时文件移到另一位置，或者删除 Temp 文件夹中的项。 <br>（或者）</li> <li> 检查证书的状态。 <br> a. 打开“管理计算机证书”（在控制面板中）。 <br> b. 展开“个人”节点及其子节点“证书”。<br> c.  删除证书“Azure Tools”。 <br> d. 重试在 Azure 备份客户端中注册。 <br> （或者） </li> <li> 检查是否部署了任何组策略。 </li></ul> |
 | 将代理推送到受保护的服务器 | 代理操作失败，因为 \<ServerName> 上的 DPM 代理协调器服务出现通信错误。 | **如果产品中显示的建议操作不起作用，请执行以下步骤**： <ul><li> 如果是从不可信域附加计算机，请执行[这些步骤](https://technet.microsoft.com/library/hh757801(v=sc.12).aspx)。 <br> （或者） </li><li> 如果是从可信域附加计算机，则可通过[此博客](https://blogs.technet.microsoft.com/dpm/2012/02/06/data-protection-manager-agent-network-troubleshooting/)中所述的步骤进行故障排除。 <br>（或者）</li><li> 尝试禁用防病毒软件以进行故障排除。 如果解决了问题，可根据[此文](https://technet.microsoft.com/library/hh757911.aspx)中的建议修改防病毒软件设置。</li></ul> |
 | 将代理推送到受保护的服务器 | 为服务器指定的凭据无效。 | **如果产品中显示的建议操作不起作用，请执行以下步骤**： <br> 尝试根据[此文](https://technet.microsoft.com/library/hh758186(v=sc.12).aspx#BKMK_Manual)中的说明，在生产服务器上手动安装保护代理。|
 | Azure 备份代理无法连接到 Azure 备份服务 (ID: 100050) | Azure 备份代理无法连接到 Azure 备份服务。 | **如果产品中显示的建议操作不起作用，请执行以下步骤**： <br>1.在权限提升的提示符下运行以下命令：**psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe**。 此命令会打开 Internet Explorer 窗口。 <br/> 2.转到“工具” > “Internet 选项” > “连接” > “局域网设置”。 <br/> 3.验证系统帐户的代理设置。 设置代理 IP 和端口。 <br/> 4.关闭 Internet Explorer。|
@@ -89,6 +90,6 @@ ms.lasthandoff: 01/11/2018
 ## <a name="configure-email-notifications"></a>配置电子邮件通知
 | 操作 | 错误详细信息 | 解决方法 |
 | --- | --- | --- |
-| 使用 Office 365 帐户设置电子邮件通知 |错误 ID：2013| **原因：**<br> 尝试使用 Office 365 帐户 <br>**建议的操作：**<ol><li> 首先确保 Exchange 上已设置用于 DPM 服务器的“在接收连接器上允许匿名中继”。 有关如何配置此功能的详细信息，请参阅 TechNet 上的[在接收连接器上允许匿名中继](http://technet.microsoft.com/en-us/library/bb232021.aspx)。</li> <li> 如果无法使用内部 SMTP 中继并需要使用 Office 365 服务器进行设置，可将 IIS 设置为中继。 将 DPM 服务器配置为[使用 IIS 将 SMTP 中继到 O365](https://technet.microsoft.com/en-us/library/aa995718(v=exchg.65).aspx)。<br><br> **重要说明：**请务必使用 user@domain.com 格式，而不要使用“域\用户”格式。<br><br><li>指示 DPM 将本地服务器名用作 SMTP 服务器，并使用端口 587。 然后将它指向于应从中发送电子邮件的用户电子邮件地址。<li> DPM SMTP 设置页上的用户名和密码应属于 DPM 所在域中的域帐户。 </li><br> **注意**：更改 SMTP 服务器地址时，请对新设置进行更改，关闭设置框，然后重新打开它以确保反映新值。  只是进行更改和测试可能不一定总能让新设置生效，因此最佳做法是通过此方法进行测试。<br><br>在此过程中，可随时清除这些设置，方法是关闭 DPM 控制台，然后编辑以下注册表项：**HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> 删除 SMTPPassword 和 SMTPUserName 项**。 重新启动 UI 时，可将这些设置添加回到 UI。
+| 使用 Office 365 帐户设置电子邮件通知 |错误 ID：2013| **原因：**<br> 尝试使用 Office 365 帐户 <br>**建议的操作：**<ol><li> 首先确保 Exchange 上已设置用于 DPM 服务器的“在接收连接器上允许匿名中继”。 有关如何配置此功能的详细信息，请参阅 TechNet 上的[在接收连接器上允许匿名中继](http://technet.microsoft.com/library/bb232021.aspx)。</li> <li> 如果无法使用内部 SMTP 中继并需要使用 Office 365 服务器进行设置，可将 IIS 设置为中继。 将 DPM 服务器配置为[使用 IIS 将 SMTP 中继到 O365](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx)。<br><br> **重要说明：** 请务必使用 user@domain.com 格式，而不要使用“域\用户”格式。<br><br><li>指示 DPM 将本地服务器名用作 SMTP 服务器，并使用端口 587。 然后将它指向于应从中发送电子邮件的用户电子邮件地址。<li> DPM SMTP 设置页上的用户名和密码应属于 DPM 所在域中的域帐户。 </li><br> **注意**：更改 SMTP 服务器地址时，请对新设置进行更改，关闭设置框，然后重新打开它以确保反映新值。  只是进行更改和测试可能不一定总能让新设置生效，因此最佳做法是通过此方法进行测试。<br><br>在此过程中，可随时清除这些设置，方法是关闭 DPM 控制台，然后编辑以下注册表项：**HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> 删除 SMTPPassword 和 SMTPUserName 项**。 重新启动 UI 时，可将这些设置添加回到 UI。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: link update-->

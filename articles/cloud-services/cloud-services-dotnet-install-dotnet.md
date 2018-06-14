@@ -12,14 +12,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 10/31/2017
+origin.date: 05/10/2018
 ms.author: v-yiso
-ms.date: 05/07/2018
-ms.openlocfilehash: d8510fea1ac7b6239ea7cc32d0429248b7baea40
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.date: 06/11/2018
+ms.openlocfilehash: 572d65063022703042ff1a02cd44eab3cf952401
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695013"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>在 Azure 云服务角色上安装 .NET
 本文介绍如何安装不随 Azure 来宾 OS 一起提供的 .NET Framework 版本。 可使用来宾 OS 上的 .NET 配置云服务 web 角色和辅助角色。
@@ -34,7 +35,7 @@ ms.lasthandoff: 04/28/2018
 ## <a name="add-the-net-installer-to-your-project"></a>将 .NET 安装程序添加到项目
 若要下载 .NET Framework 的 Web 安装程序，请选择想要安装的版本：
 
-* [.NET 4.7.1 Web 安装程序](http://go.microsoft.com/fwlink/?LinkId=852095)
+* [.NET 4.7.2 Web 安装程序](http://go.microsoft.com/fwlink/?LinkId=863262)
 * [.NET 4.6.1 Web 安装程序](http://go.microsoft.com/fwlink/?LinkId=671729)
 
 添加 web 角色的安装程序：
@@ -96,11 +97,12 @@ ms.lasthandoff: 04/28/2018
     REM Set the value of netfx to install appropriate .NET Framework. 
     REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" *****
     REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
-    REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
+    REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" ***** http://go.microsoft.com/fwlink/?LinkId=671729
     REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
-    REM ***** To install .NET 4.7 set the variable netfx to "NDP47" *****
-    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" *****
-    set netfx="NDP471"
+    REM ***** To install .NET 4.7 set the variable netfx to "NDP47" ***** 
+    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" ***** http://go.microsoft.com/fwlink/?LinkId=852095
+    REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** http://go.microsoft.com/fwlink/?LinkId=863262
+    set netfx="NDP472"
     
     REM ***** Set script start timestamp *****
     set timehour=%time:~0,2%
@@ -115,6 +117,7 @@ ms.lasthandoff: 04/28/2018
     set TEMP=%PathToNETFXInstall%
     
     REM ***** Setup .NET filenames and registry keys *****
+    if %netfx%=="NDP472" goto NDP472
     if %netfx%=="NDP471" goto NDP471
     if %netfx%=="NDP47" goto NDP47
     if %netfx%=="NDP462" goto NDP462
@@ -139,7 +142,7 @@ ms.lasthandoff: 04/28/2018
     set netfxregkey="0x60632"
     goto logtimestamp
     
-    :NPD47
+    :NDP47
     set "netfxinstallfile=NDP47-KB3186500-Web.exe"
     set netfxregkey="0x707FE"
     goto logtimestamp
@@ -148,6 +151,12 @@ ms.lasthandoff: 04/28/2018
     set "netfxinstallfile=NDP471-KB4033344-Web.exe"
     set netfxregkey="0x709fc"
     goto logtimestamp
+    
+    :NDP472
+    set "netfxinstallfile=NDP472-NDP472-KB4054531-Web.exe"
+    set netfxregkey="0x70BF6"
+    goto logtimestamp
+    
     
     :logtimestamp
     REM ***** Setup LogFile with timestamp *****

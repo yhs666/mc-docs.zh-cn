@@ -14,14 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/10/2017
-ms.date: 04/16/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22441fc070d765ce8d67c55755e136e9edc4a1ea
-ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
+ms.openlocfilehash: c23229b094b7d8c8a872702aaa3c49eb8c860838
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702874"
 ---
 # <a name="resize-a-linux-virtual-machine-using-cli-20"></a>使用 CLI 2.0 调整 Linux 虚拟机的大小
 
@@ -32,13 +33,13 @@ ms.lasthandoff: 04/18/2018
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. 使用 [az vm list-vm-resize-options](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list_vm_resize_options) 查看托管 VM 的硬件群集上可用的 VM 大小的列表。 以下示例列出资源组 `myResourceGroup` 区域中名为 `myVM` 的 VM 的 VM 大小：
+1. 使用 [az vm list-vm-resize-options](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-vm-resize-options) 查看托管 VM 的硬件群集上可用的 VM 大小的列表。 以下示例列出资源组 `myResourceGroup` 区域中名为 `myVM` 的 VM 的 VM 大小：
 
     ```azurecli
     az vm list-vm-resize-options --resource-group myResourceGroup --name myVM --output table
     ```
 
-2. 如果列出了所需的 VM 大小，则使用 [az vm resize](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_resize) 调整 VM 大小。 以下示例将名为 `myVM` 的 VM 调整为 `Standard_DS3_v2` 大小：
+2. 如果列出了所需的 VM 大小，则使用 [az vm resize](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-resize) 调整 VM 大小。 以下示例将名为 `myVM` 的 VM 调整为 `Standard_DS3_v2` 大小：
 
     ```azurecli
     az vm resize --resource-group myResourceGroup --name myVM --size Standard_DS3_v2
@@ -46,7 +47,7 @@ ms.lasthandoff: 04/18/2018
 
     在此过程中，VM 将重新启动。 重新启动后，现有 OS 和数据磁盘将重新映射。 临时磁盘上的所有内容会丢失。
 
-3. 如果所需的 VM 大小未列出，则需先使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_deallocate)解除分配 VM。 然后，可以通过此过程将 VM 的大小调整为区域支持的任何可用大小，再启动该 VM。 以下步骤会将名为 `myResourceGroup` 的资源组中名为 `myVM` 的 VM 解除分配、调整大小并启动：
+3. 如果所需的 VM 大小未列出，则需先使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-deallocate)解除分配 VM。 然后，可以通过此过程将 VM 的大小调整为区域支持的任何可用大小，再启动该 VM。 以下步骤会将名为 `myResourceGroup` 的资源组中名为 `myVM` 的 VM 解除分配、调整大小并启动：
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM

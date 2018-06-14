@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中心设备孪生入门 (Java) | Microsoft Docs"
-description: "如何使用 Azure IoT 中心设备孪生添加标记，并使用 IoT 中心查询。 使用适用于 Java 的 Azure IoT 设备 SDK 实现设备应用，并使用适用于 Java 的 Azure IoT 服务 SDK 实现可添加标记并运行 IoT 中心查询的服务应用。"
+title: Azure IoT 中心设备孪生入门 (Java) | Microsoft Docs
+description: 如何使用 Azure IoT 中心设备孪生添加标记，并使用 IoT 中心查询。 使用适用于 Java 的 Azure IoT 设备 SDK 实现设备应用，并使用适用于 Java 的 Azure IoT 服务 SDK 实现可添加标记并运行 IoT 中心查询的服务应用。
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: article
@@ -14,11 +14,12 @@ ms.workload: na
 origin.date: 07/04/2017
 ms.author: dobett
 ms.date: 12/18/2017
-ms.openlocfilehash: 0a665eb3e23b0955b13afd0a3051326fb05e56a4
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 89e30d21ae3f537c8061df25264cd033256c69ed
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695078"
 ---
 # <a name="get-started-with-device-twins-java"></a>设备孪生入门 (Java)
 
@@ -41,8 +42,6 @@ ms.lasthandoff: 12/08/2017
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
-
-若要以编程方式创建设备标识，请参阅[使用 Java 将设备连接到 IoT 中心](./iot-hub-java-java-getstarted.md#create-a-device-identity)一文中的相应部分。
 
 ## <a name="create-the-service-app"></a>创建服务应用
 

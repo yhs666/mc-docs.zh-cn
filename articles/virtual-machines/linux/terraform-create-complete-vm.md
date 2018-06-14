@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2017
-ms.date: 05/14/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 59840ae4b2c9e14ad41357591764a1136a67bd0e
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 1e0e122bcce79d8db009e66de24d35e09548c708
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702877"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>在 Azure 中使用 Terraform 创建完整的 Linux 虚拟机基础结构
 
@@ -109,7 +110,7 @@ resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "chinaeast"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
-    ;
+
     security_rule {
         name                       = "SSH"
         priority                   = 1001

@@ -29,6 +29,8 @@
   items:
     - name: Azure PowerShell
       href: powershell-backup-samples.md
+    - name: Resource Manager 模板
+      href: backup-rm-template-samples.md
 - name: 概念
   items:
     - name: 常见问题
@@ -47,6 +49,8 @@
       href: backup-azure-security-feature.md
     - name: 配置脱机备份
       href: backup-azure-backup-import-export.md
+    - name: DPM 和 Azure 备份服务器的脱机备份
+      href: backup-azure-backup-server-import-export-.md
     - name: 更换磁带库
       href: backup-azure-backup-cloud-as-tape.md
 - name: 如何
@@ -67,16 +71,18 @@
               href: backup-mabs-unattended-install.md
         - name: 保护工作负荷
           items:
-            - name: 使用 Azure 备份服务器备份 VMware 服务器
+            - name: VMware 服务器
               href: backup-azure-backup-server-vmware.md
-            - name: 使用 Azure 备份服务器备份 Exchange
+            - name: Exchange
               href: backup-azure-exchange-mabs.md
-            - name: 使用 Azure 备份服务器备份 SharePoint 场
+            - name: SharePoint 场
               href: backup-azure-backup-sharepoint-mabs.md
-            - name: 使用 Azure 备份服务器备份 SQL
+            - name: SQL Server
               href: backup-azure-sql-mabs.md
             - name: 保护系统状态和裸机恢复
               href: backup-mabs-system-state-and-bmr.md
+            - name: Azure Stack 上的文件和应用程序
+              href: backup-mabs-files-applications-azure-stack.md
         - name: 从 Azure 备份服务器恢复数据
           href: backup-azure-alternate-dpm-server.md
     - name: Azure 文件共享
@@ -100,7 +106,7 @@
         - name: 备份 VM
           items:
             - name: 将 Azure VM 备份到恢复服务保管库
-              href: backup-azure-arm-vms.md
+              href: backup-azure-vms-first-look-arm.md
             - name: 备份加密 VM
               href: backup-azure-vms-encryption.md
             - name: 在创建 VM 期间启用 VM 备份

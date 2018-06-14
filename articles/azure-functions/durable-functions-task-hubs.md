@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 09/29/2017
-ms.date: 04/13/2018
+ms.date: 05/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: f75e598be332de2a48b25c47e56614e1cc8a42c2
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: 6707e3479e30dcb4c06ad9a73a4d711096ca7a98
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567288"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Durable Functions 中的任务中心 (Azure Functions)
 
@@ -36,6 +37,7 @@ ms.lasthandoff: 04/19/2018
 - 一个或多个控制队列。
 - 一个工作项队列。
 - 一个历史记录表。
+- 一个实例表。
 - 一个包含一个或多个租用 blob 的存储容器。
 
 当业务流程协调程序或活动函数运行时或调度它们运行时，将自动在默认 Azure 存储帐户中创建所有这些资源。 [性能和缩放](durable-functions-perf-and-scale.md)一文介绍了如何使用这些资源。
@@ -62,3 +64,4 @@ ms.lasthandoff: 04/19/2018
 > [!div class="nextstepaction"]
 > [了解如何处理版本控制](durable-functions-versioning.md)
 
+<!-- Update_Description: wording update -->

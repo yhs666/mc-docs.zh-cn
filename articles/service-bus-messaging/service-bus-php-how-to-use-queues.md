@@ -1,11 +1,11 @@
 ---
-title: "如何通过 PHP 使用服务总线队列 | Azure"
-description: "了解如何在 Azure 中使用服务总线队列。 用 PHP 编写的代码示例。"
+title: 如何通过 PHP 使用服务总线队列 | Azure
+description: 了解如何在 Azure 中使用服务总线队列。 用 PHP 编写的代码示例。
 services: service-bus
 documentationCenter: php
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e29c829b-44c5-4350-8f2e-39e0c380a9f2
 ms.service: service-bus
 ms.workload: na
@@ -15,11 +15,12 @@ ms.topic: article
 origin.date: 08/10/2017
 ms.author: v-yiso
 ms.date: 02/05/2018
-ms.openlocfilehash: 6a18acc5a0e8e31b84dd8c9d7bd342d7f884e8d5
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: bdeec4750365748104135e9afaf86d216d2a209f
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695110"
 ---
 # <a name="how-to-use-service-bus-queues"></a>如何使用服务总线队列
 
@@ -161,9 +162,9 @@ catch(ServiceException $e){
 }
 ```
 
-发送到服务总线（以及从服务总线收到）的消息是 [BrokeredMessage][BrokeredMessage] 类的实例。 [BrokeredMessage][BrokeredMessage] 对象包含一组标准方法、用来保存特定于应用程序的自定义属性的属性，以及大量的任意应用程序数据。
+发送到服务总线（以及从服务总线收到）的消息是 [BrokeredMessage][BrokeredMessage] 类的实例。 [BrokeredMessage][BrokeredMessage] 对象包含一组标准方法和属性，用于保存特定于自定义应用程序的属性，以及大量随机应用程序数据。
 
-在标准层，服务总线队列支持的最大消息大小为 256 KB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列中包含的消息数量不受限制，但消息的总大小受限制。 队列大小的上限为 5 GB。
+服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列中包含的消息数量不受限制，但消息的总大小受限制。 队列大小的上限为 5 GB。
 
 ## <a name="receive-messages-from-a-queue"></a>从队列接收消息
 从队列接收消息的最佳方法是使用 `ServiceBusRestProxy->receiveQueueMessage` 方法。 可通过两种不同的模式接收消息：[ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) 和 [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock)。 **PeekLock** 是默认设置。

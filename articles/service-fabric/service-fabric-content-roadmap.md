@@ -15,11 +15,12 @@ ms.workload: NA
 origin.date: 12/08/2017
 ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: ae38207b60f7747a3a76c4597435be0b17d2e672
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 336c3f52262fce25d1b4ce028d6d19423e08d65a
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34568797"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>想要了解 Service Fabric 吗？
 Service Fabric 是分布式系统平台，可借助它轻松打包、部署和管理可缩放且可靠的微服务。  不过，Service Fabric 的外围应用领域广泛，有很多东西需要学习。  本文简要说明了 Service Fabric，并介绍了核心概念、编程模型、应用程序生命周期、测试、群集和运行状况监视。 请参阅[概述](service-fabric-overview.md)和[什么是微服务？](service-fabric-overview-microservices.md)，概览相关信息，并了解如何使用 Service Fabric 创建微服务。 本文包含的内容列表虽不完整，但确实提供了 Service Fabric 每个应用领域的概述和入门文章链接。 
@@ -180,7 +181,8 @@ Service Fabric 组件报告包含群集中所有实体的运行状况。 [系统
 
 Service Fabric 提供了多种方式查看在运行状况存储中聚合的[运行状况报告](service-fabric-view-entities-aggregated-health.md)：
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 或其他可视化工具。
-* 运行状况查询（通过 [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/)、[CLI](service-fabric-sfctl.md)、[C# FabricClient API](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.healthclient?view=azure-dotnet) 和 [Java FabricClient API](https://docs.azure.cn/java/api/system.fabric._health_client) 或 [REST API](https://docs.microsoft.com/rest/api/servicefabric)）。
+* 运行状况查询（通过 [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/)、[CLI](service-fabric-sfctl.md)、[C# FabricClient API](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.healthclient?view=azure-dotnet) 和 [Java FabricClient API](https://docs.azure.cn/zh-cn/java/api/system.fabric.health) 或 [REST API](https://docs.microsoft.com/rest/api/servicefabric)）。
+<!-- URL is Correct on https://docs.azure.cn/zh-cn/java/api/system.fabric.health -->
 * 常规查询，返回将运行状况作为属性之一的实体的列表（通过 PowerShell、CLI、API 或 REST）。
 
 <!-- Not Available on Microsoft Virtual Academy VIDEO -->

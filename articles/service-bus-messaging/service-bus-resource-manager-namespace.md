@@ -15,11 +15,12 @@ ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
 ms.date: 04/30/2018
-ms.openlocfilehash: 5fa4891d08a3d5b9bd5866d325459992ac656a65
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: ba4bb332d9054bf554055bc28586a8ca4ffa908e
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695109"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建服务总线命名空间
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 04/23/2018
 
 ## <a name="what-will-you-deploy"></a>将部署什么内容？
 
-使用此模板，将部署包含[基本或标准](https://www.azure.cn/pricing/details/messaging/) SKU 的服务总线命名空间。
+使用此模板，可以部署包含[标准或高级](https://www.azure.cn/pricing/details/messaging/) SKU 的服务总线命名空间。
 
 若要自动运行部署，请单击以下按钮：
 
@@ -75,8 +76,8 @@ ms.lasthandoff: 04/23/2018
 "serviceBusSku": { 
     "type": "string", 
     "allowedValues": [ 
-        "Basic", 
-        "Standard"
+        "Standard",
+        "Premium" 
     ], 
     "defaultValue": "Standard", 
     "metadata": { 
@@ -85,7 +86,7 @@ ms.lasthandoff: 04/23/2018
 
 ```
 
-此模板定义该参数允许的值（Basic 或 Standard）。 如果未指定任何值，资源管理器将分配默认值 (Standard)。
+此模板定义该参数允许的值（Standard 或 Premium）。 如果未指定任何值，资源管理器将分配默认值 (Standard)。
 
 有关服务总线定价的详细信息，请参阅[服务总线定价和计费][Service Bus pricing and billing]。
 

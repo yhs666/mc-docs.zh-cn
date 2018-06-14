@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 03/01/2018
-ms.date: 04/08/2018
+ms.date: 05/25/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: b568be21905ac68fc7fe5b6d51f9dc26fa54f18e
-ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
+ms.openlocfilehash: 0de81f688503d9c249b30253442cfe47a2f5db4e
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559431"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 备份功能概述
 Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 Azure 云中的数据。 Azure 备份取代了现有的本地或异地备份解决方案，并且是可靠、安全、高性价比的基于云的解决方案。 Azure 备份提供多个组件，可将其下载并部署到适当的计算机、服务器或云中。 依据要保护的内容选择部署的组件或代理。 无论是保护本地数据还是云中数据，所有 Azure 备份组件均可用于将数据备份到 Azure 的恢复服务保管库中。 请参阅本文稍后部分的 [Azure 备份组件表格](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)，了解保护特定数据、应用程序或工作负荷所用的组件。
@@ -35,7 +36,7 @@ Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 
 
 **多个存储选项** - 高可用性的一个方面是存储复制。 Azure 备份提供两种类型的复制：[本地冗余存储](../storage/common/storage-redundancy-lrs.md)和[异地冗余存储](../storage/common/storage-redundancy-grs.md)。 根据需要选择备份存储选项：
 
-- 本地冗余存储 (LRS) 将数据中心的存储缩放单位中的数据复制三次（创建三个数据副本）。 数据的所有副本存在于同一区域。 LRS 是一个低成本选项，可在本地硬件故障时保护数据。
+- 本地冗余存储 (LRS) 将数据中心的存储缩放单元中的数据复制三次（创建三个数据副本）。 数据的所有副本存在于同一区域。 LRS 是一个低成本选项，可在本地硬件故障时保护数据。
 
 - 异地冗余存储 (GRS) 是默认的和建议的复制选项。 GRS 将数据复制到离源数据主位置数英里之外的次要区域中。 GRS 的成本比 LRS 的高，但 GRS 可让数据更为持久，即使出现区域性中断也是如此。
 
@@ -218,7 +219,7 @@ Azure 备份针对每个受保护实例实施 9999 个恢复点（也称为备�
 
 
 ## <a name="what-is-a-recovery-services-vault"></a>什么是恢复服务保管库？
-恢复服务保管库是 Azure 中的联机存储实体，用于保存备份副本、恢复点、备份策略之类的数据。 可以使用恢复服务保管库，为 Azure 服务以及本地服务器和工作站保存备份数据。 使用恢复服务保管库可以方便地组织备份数据，并将管理开销降至最低。 在每个 Azure 订阅中，每个 Azure 区域最多可以创建 25 个恢复服务保管库。 在考虑存储数据的位置时，并非所有区域都是相同的。 请参阅[异地冗余存储](../storage/common/storage-redundancy-grs.md)，了解区域配对和其他存储注意事项。
+恢复服务保管库是 Azure 中的联机存储实体，用于保存备份副本、恢复点、备份策略之类的数据。 可以使用恢复服务保管库，为 Azure 服务以及本地服务器和工作站保存备份数据。 使用恢复服务保管库可以方便地组织备份数据，并将管理开销降至最低。 在每个 Azure 订阅中，每个 Azure 区域最多可以创建 500 个恢复服务保管库。 在考虑存储数据的位置时，并非所有区域都是相同的。 请参阅[异地冗余存储](../storage/common/storage-redundancy-grs.md)，了解区域配对和其他存储注意事项。
 
 基于 Azure Service Manager 的备份保管库是第一个版本的保管库。 恢复服务保管库增加了 Azure Resource Manager 模型功能，是第二个版本的保管库。 请参阅[恢复服务保管库概述](backup-azure-recovery-services-vault-overview.md)一文，了解对功能差异的完整说明。 无法再创建备份保管库，所有现有的备份保管库都已升级到恢复服务保管库。 可以使用 Azure 门户管理已升级到恢复服务保管库的保管库。
 

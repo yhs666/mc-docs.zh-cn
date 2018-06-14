@@ -15,16 +15,16 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 03/04/2018
-ms.date: 04/16/2018
+ms.date: 05/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: a9534b209970ff08c4eb8ce87929b1ee86f58d93
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: 50236f0d1026acb3aad28d69ee918c59347f9034
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567356"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 开发人员指南
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 Azure Functions 的 JavaScript 体验可以轻松导出一个函数，可以将该函数作为 `context` 对象进行传递，用以与运行时进行通信，以及用以通过绑定来接收和发送数据。
 
@@ -304,7 +304,7 @@ module.exports = function(context) {
 应当在  Function App 的根目录下定义一个 `package.json` 文件。 定义该文件将允许应用中的所有函数共享所缓存的相同包，从而获得最佳性能。 如果发生版本冲突，可以通过在具体函数的文件夹中添加一个 `package.json` 文件来解决冲突。  
 
 ## <a name="environment-variables"></a>环境变量
-若要获取环境变量或应用设置值，请使用 `process.env`，如以下代码示例所示：
+若要获取环境变量或应用设置值，请使用 `process.env`，如此处的 `GetEnvironmentVariable` 函数中所示：
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -328,7 +328,7 @@ function GetEnvironmentVariable(name)
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>选择单 vCPU 应用服务计划
 
-创建使用应用服务计划的函数应用时，建议选择单 vCPU 计划，而不是选择具有多个 vCPU 的计划。 目前，Functions 在单 vCPU VM 上运行 JavaScript 函数更为高效；使用更大的 VM 不会产生预期的性能提高。 需要时，可以通过添加更多单 vCPU VM 实例来手动扩大，也可以启用自动缩放。 有关详细信息，请参阅[手动或自动缩放实例计数](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)。    
+创建使用应用服务计划的函数应用时，建议选择单 vCPU 计划，而不是选择具有多个 vCPU 的计划。 目前，Functions 在单 vCPU VM 上运行 JavaScript 函数更为高效；使用更大的 VM 不会产生预期的性能提高。 需要时，可以通过添加更多单 vCPU VM 实例来手动扩大，也可以启用自动缩放。 有关详细信息，请参阅[手动或自动缩放实例计数](../monitoring-and-diagnostics/insights-how-to-scale.md)。    
 
 ### <a name="typescript-and-coffeescript-support"></a>TypeScript 和 CoffeeScript 支持
 因为目前还不能直接支持通过运行时自动编译 TypeScript 或 CoffeeScript，因此需要在部署时在运行时外部处理此类支持。 
@@ -340,4 +340,4 @@ function GetEnvironmentVariable(name)
 - [Azure Functions 开发人员参考](functions-reference.md)
 - [Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-
+<!-- Update_Description: wording update -->

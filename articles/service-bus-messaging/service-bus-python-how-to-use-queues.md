@@ -15,11 +15,12 @@ ms.topic: article
 origin.date: 04/30/2018
 ms.author: v-yiso
 ms.date: 06/04/2018
-ms.openlocfilehash: db7f6d7901b2c46f7e3d0ec31dfab0c872129c24
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: c8a8f0473db459406e2189ee1bb577b699f114e7
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695113"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>如何通过 Python 使用服务总线队列
 
@@ -78,7 +79,7 @@ msg = Message(b'Test Message')
 bus_service.send_queue_message('taskqueue', msg)
 ```
 
-在标准层，服务总线队列支持的最大消息大小为 256 KB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列中包含的消息数量不受限制，但消息的总大小受限制。 此队列大小在创建时定义，上限为 5 GB。 有关配额的详细信息，请参阅 [服务总线配额][]。
+服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列中包含的消息数量不受限制，但消息的总大小受限制。 此队列大小在创建时定义，上限为 5 GB。 有关配额的详细信息，请参阅 [服务总线配额][]。
 
 ## <a name="receive-messages-from-a-queue"></a>从队列接收消息
 

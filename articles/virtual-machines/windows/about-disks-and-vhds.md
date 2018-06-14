@@ -9,13 +9,14 @@ ms.workload: storage
 ms.tgt_pltfrm: windows
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: a1d2f5dfad7efebf9b577415b9f6584ae4b16e12
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: c667af4cc920414e285fa2e1ebd4eb91780b8144
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702774"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>关于 Azure Windows VM 的磁盘存储
 就像其他任何计算机一样，Azure 中的虚拟机将磁盘用作存储操作系统、应用程序和数据的位置。 所有 Azure 虚拟机都至少有两个磁盘，即 Windows 操作系统磁盘和临时磁盘。 操作系统磁盘基于映像创建，操作系统磁盘和该映像都存储在 Azure 存储帐户中的虚拟硬盘 (VHD) 内。 虚拟机还可以有一个或多个数据磁盘，而这些磁盘也存储为 VHD。 
@@ -61,14 +62,14 @@ ms.lasthandoff: 05/17/2018
 fsutil behavior query DisableDeleteNotify
 ```
 
-如果该命令返回 0，则表示正确启用了 TRIM。 如果该命令返回 1，则运行以下命令以启用 TRIM：
+如果该命令返回 0，则表示正确启用了 TRIM。 如果返回 1，请运行以下命令启用 TRIM：
 
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
 
 > [!NOTE]
-> 注意：从 Windows Server 2012/Windows 8 及更高版本开始支持 Trim，请参阅[New API allows apps to send "TRIM and Unmap" hints to storage media](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints)（新 API 允许应用向存储媒体发发送“TRIM 和 Unmap”提示）。
+> 注意：从 Windows Server 2012/Windows 8 及更高版本开始支持 TRIM，请参阅 [New API allows apps to send "TRIM and Unmap" hints to storage media](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints)（新 API 允许应用向存储媒体发送“TRIM 和 Unmap”提示）。
 > 
 
 <!-- Might want to match next-steps from overview of managed disks -->

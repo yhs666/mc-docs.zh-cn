@@ -5,21 +5,22 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-editor: jeffsta
+editor: ''
 ms.assetid: e6f9e657-8ee3-4eec-a21c-78fe1b52a005
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/04/2017
-ms.date: 05/02/2018
+ms.date: 05/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: ab8c42d7b0a3bda66cc8d348b19480792b33d298
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.openlocfilehash: 88c6f8a9db9279df050b40ca59c31dc865a3e9e7
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559494"
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>在 Azure 门户中查看用户和组的访问权限分配
 > [!div class="op_single_selector"]
@@ -30,8 +31,8 @@ ms.lasthandoff: 05/03/2018
 
 使用 RBAC 分配的访问权限非常精准，因为有两种方法可供你限制权限：
 
-- **作用域：**RBAC 角色分配的作用域为特定订阅、资源组或资源。 授予对单个资源访问权限的用户无法访问同一订阅中的任何其他资源。
-- **角色：**在分配范围内，通过分配角色可进一步收窄访问权限。 角色可以是高级别的（如所有者），也可以是特定的（如虚拟机阅读器）。
+- **作用域：** RBAC 角色分配的作用域为特定订阅、资源组或资源。 授予对单个资源访问权限的用户无法访问同一订阅中的任何其他资源。
+- **角色：** 在分配范围内，通过分配角色可进一步收窄访问权限。 角色可以是高级别的（如所有者），也可以是特定的（如虚拟机阅读器）。
 
 只可以在订阅、资源组或资源（即分配范围）内分配角色。 不过可以在单个位置查看给定用户或组的所有访问权限分配。 每个订阅中最多可以拥有 2000 个角色分配。 
 
@@ -53,9 +54,7 @@ ms.lasthandoff: 05/03/2018
 通过此边栏选项卡，可以删除已直接分配给用户或组的访问权限分配。 如果访问权限分配继承自父组，需要转到资源或订阅，并在该处管理相应的分配。
 
 1. 从用户或组的所有访问权限分配列表中，选择一个要删除的访问权限分配。
-
 2. 选择“删除”，并选择“是”以确认。
-
     ![删除访问权限分配 - 屏幕截图](./media/role-assignments-users/delete_assignment.png)
 
 ## <a name="next-steps"></a>后续步骤
@@ -64,3 +63,4 @@ ms.lasthandoff: 05/03/2018
 - 请参阅 [RBAC 内置角色](built-in-roles.md)
 
 
+<!-- Update_Description: update metedata properties -->

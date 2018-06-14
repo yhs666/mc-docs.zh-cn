@@ -1,26 +1,27 @@
 ---
-title: "Azure PowerShell 脚本示例 - IIS 与 DSC | Azure"
-description: "Azure PowerShell 脚本示例 - IIS 与 DSC"
+title: Azure PowerShell 脚本示例 - IIS 与 DSC | Azure
+description: Azure PowerShell 脚本示例 - IIS 与 DSC
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/12/2017
-ms.date: 01/08/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: e04e2285209fdcdb2ef15cd44795981f79c74b71
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 2af0593657b30d9a8bbfc9fbfb51aac760aab201
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702834"
 ---
 # <a name="create-an-iis-vm-with-powershell"></a>使用 PowerShell 创建 IIS VM
 
@@ -36,7 +37,6 @@ ms.lasthandoff: 01/05/2018
 # Variables for common values
 $resourceGroup = "myResourceGroup"
 $location = "chinanorth"
-$resourceGroup = "myResourceGroup"
 $vmName = "myVM"
 
 # Create a resource group

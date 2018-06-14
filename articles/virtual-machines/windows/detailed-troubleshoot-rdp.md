@@ -14,14 +14,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 09/06/2017
-ms.date: 05/21/2018
+origin.date: 05/11/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5d21d3a842128f2a740744c74c7073395377d810
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: e59e1a2feda3cfc9e7e71e23462faab5a5f3add9
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702808"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>详细故障排除步骤：针对 Azure 中到 Windows VM 的远程桌面连接问题
 本文提供详细的故障排除步骤，用于为基于 Windows 的 Azure 虚拟机诊断和修复复杂的远程桌面错误。

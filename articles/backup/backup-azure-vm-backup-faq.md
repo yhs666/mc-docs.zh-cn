@@ -1,12 +1,12 @@
 ---
-title: "Azure VM 备份常见问题解答 | Microsoft Docs"
-description: "针对下述常见问题的解答：Azure VM 备份原理、限制以及更改策略时会发生什么情况"
+title: Azure VM 备份常见问题解答 | Microsoft Docs
+description: 针对下述常见问题的解答：Azure VM 备份原理、限制以及更改策略时会发生什么情况
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
-keywords: "azure vm 备份, azure vm 还原, 备份策略"
+editor: ''
+keywords: azure vm 备份, azure vm 还原, 备份策略
 ms.assetid: c4cd7ff6-8206-45a3-adf5-787f64dbd7e1
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 02/27/2018
+ms.date: 05/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: 86e379358e72c2652956632ff3a415b5815e7e7c
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 95c4dc8ccc3ae3820e93d45feee44912622dec7f
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559424"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>有关 Azure VM 备份服务的问题
 本文提供常见问题的解答，有助于快速了解 Azure VM 备份组件。 某些答案提供内含全面信息的文章的链接。 还可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
@@ -34,7 +35,7 @@ ms.lasthandoff: 03/02/2018
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>为什么在配置备份向导中看不到我的 VM？
 在配置备份向导中，Azure 备份只列出符合以下条件的 VM：
-  - 尚未进行保护 - 可以验证 VM 的备份状态，方法是：转到 VM 边栏选项卡，从“设置”菜单查看备份状态。 详细了解如何[查看 VM 的备份状态](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade)
+  - 尚未进行保护 - 可以验证 VM 的备份状态，方法是：转到 VM 边栏选项卡，从“设置”菜单查看备份状态。 详细了解如何[查看 VM 的备份状态](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu)
   - 与 VM 属于同一区域
 
 ## <a name="backup"></a>Backup
@@ -55,6 +56,9 @@ ms.lasthandoff: 03/02/2018
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>我在备份的托管磁盘 VM 上启用了资源组锁定。 我的备份是否继续有效？
 如果用户锁定了资源组，则备份服务将无法删除较早的还原点。 由于这一原因，新备份将开始失败，因为从后端施加了最多 18 个还原点的限制。 如果 RG 锁定后备份失败并显示内部错误，请按照以下[删除还原点集合的步骤](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)进行操作。
+
+### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>备份策略是否考虑夏令时 (DST)？
+否。 请注意，本地计算机上的日期和时间会显示当地时间以及当前夏令时偏差。 因此，由于 DST，计划备份的配置时间可能与当地时间不同。
 
 ## <a name="restore"></a>还原
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>如何决定是进行磁盘还原，还是进行完整的 VM 还原？

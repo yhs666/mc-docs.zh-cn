@@ -12,19 +12,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 10/15/2017
-ms.date: 05/15/2018
+ms.date: 05/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: ae992061a438d294473cd60109b76ba78dadb0ee
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 92102f0ec68e37eff67f051df76c164972181485
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559418"
 ---
 # <a name="recovery-services-vaults-overview"></a>恢复服务保管库概述
 
 本文介绍恢复服务保管库的功能。 恢复服务保管库是 Azure 中用于存储数据的存储实体。 数据通常是虚拟机 (VM)、工作负荷、服务器或工作站的数据或配置信息的副本。 可以使用恢复服务保管库为各种 Azure 服务（例如 IaaS VM（Linux 或 Windows））和 Azure SQL 数据库存储备份数据。 恢复服务保管库支持 System Center DPM、Windows Server、Azure 备份服务器等。 使用恢复服务保管库可以方便地组织备份数据，并将管理开销降至最低。 
 
-在 Azure 订阅中，每个区域最多可以创建 25 个恢复服务保管库。
+在 Azure 订阅中，每个区域每个订阅最多可以创建 500 个恢复服务保管库。
 
 ## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>比较恢复服务保管库和备份保管库
 
@@ -76,4 +77,5 @@ ms.lasthandoff: 05/18/2018
 [备份 Azure 备份服务器](backup-azure-microsoft-azure-backup.md)</br>
 [备份 Windows Server](backup-configure-vault.md)
 
-<!-- Update_Description: link update -->
+
+<!-- Update_Description: wording update -->

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 服务总线提高性能的最佳做法"
-description: "介绍如何使用服务总线在交换中转消息时优化性能。"
+title: 使用 Azure 服务总线提高性能的最佳做法
+description: 介绍如何使用服务总线在交换中转消息时优化性能。
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e756c15d-31fc-45c0-8df4-0bca0da10bb2
 ms.service: service-bus
 ms.devlang: na
@@ -15,11 +15,12 @@ ms.workload: na
 origin.date: 01/31/2018
 ms.author: v-yiso
 ms.date: 03/12/2018
-ms.openlocfilehash: 13ef60855f4eb4c0e6fa70b72438f0d93f081dbc
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 8c5072e7be28205f13ce7ca3711837adaa9d5ddd
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695102"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服务总线消息传递改进性能的最佳实践
 本文介绍如何使用 [Azure 服务总线消息传递](index.md)在交换中转消息时优化性能。 本文的第一部分介绍有助于提高性能的各种不同机制。 第二部分指导用户如何针对给定方案以能够提供最佳性能的方式使用服务总线。
@@ -136,7 +137,8 @@ Queue q = namespaceManager.CreateQueue(qd);
 预提取不会影响可计费的消息传送操作的数目，且仅适用于服务总线客户端协议。 HTTP 协议不支持预提取。 预提取可用于同步和异步接收操作。
 
 ## <a name="express-queues-and-topics"></a>Express 队列和主题
-Express 实体可实现高吞吐量并减少延迟，但仅在标准消息传送层中受到支持。 使用快速实体时，如果向队列或主题发送消息，消息不会立即存储在消息传送存储中。 而是在内存中进行缓存。 如果消息在队列中留存的时间超过数秒钟，则会自动写入到稳定的存储内，以避免其因中断而丢失。 将消息写入到内存缓存内会增加吞吐量，减少延迟，因为在消息发送时不存在对稳定存储区的访问。 将在几秒钟内使用的消息不会写入到消息存储中。 以下示例会创建一个快速主题。
+
+Express 实体可实现高吞吐量并减少延迟，但仅在标准消息传递层中受到支持。 在[高级命名空间](service-bus-premium-messaging.md)中创建的实体不支持 express 选项。 使用快速实体时，如果向队列或主题发送消息，消息不会立即存储在消息传送存储中。 而是在内存中进行缓存。 如果消息在队列中留存的时间超过数秒钟，则会自动写入到稳定的存储内，以避免其因中断而丢失。 将消息写入到内存缓存内会增加吞吐量，减少延迟，因为在消息发送时不存在对稳定存储区的访问。 将在几秒钟内使用的消息不会写入到消息存储中。 以下示例会创建一个快速主题。
 
 ```csharp
 TopicDescription td = new TopicDescription(TopicName);

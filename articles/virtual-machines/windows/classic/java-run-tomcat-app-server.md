@@ -1,11 +1,10 @@
 ---
-title: 在经典 Azure VM 上运行 Java 应用程序服务器 | Azure
+title: 在经典 Azure VM 上运行 Java 应用程序服务器
 description: 本教程利用使用经典部署模型创建的资源，显示如何创建 Windows 虚拟机并将其配置为运行 Apache Tomcat 应用程序服务器。
 services: virtual-machines-windows
 documentationcenter: java
 author: rockboyfor
 manager: digimobile
-editor: ''
 tags: azure-service-management
 ms.assetid: d627aa09-f7d6-4239-8110-f8fc5111b939
 ms.service: virtual-machines-windows
@@ -13,14 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-origin.date: 03/16/2017
-ms.date: 03/19/2018
+origin.date: 04/11/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1bad057d1570084e860d9047bb26e406322e9881
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: dc1a2dcda08596adeed89701e51cdb84d263766d
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702796"
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>如何在使用经典部署模型创建的虚拟机上运行 Java 应用程序服务器
 > [!IMPORTANT]

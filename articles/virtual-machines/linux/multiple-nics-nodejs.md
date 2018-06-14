@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/11/2017
-ms.date: 05/14/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: b2564f6ab55611d22431d8fe5214d4f27a4fa903
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 007f3b7bcd0ebe2d231fc03f12b2d002d15afd63
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702888"
 ---
 # <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建具有多个 NIC 的 Linux 虚拟机
 可以在 Azure 中创建附有多个虚拟网络接口 (NIC) 的虚拟机 (VM)。 一种常见方案是为前端和后端连接使用不同子网，或为监视或备份解决方案使用一个专用网络。 本文提供用于创建附有多个 NIC 的 VM 的快速命令。 不同的 [VM 大小](sizes.md)支持不同数目的 NIC，因此请相应地调整 VM 的大小。
@@ -103,7 +104,7 @@ azure network nic create \
     --subnet-name mySubnetBackEnd
 ```
 
-通常，还会创建[网络安全组](../../virtual-network/virtual-networks-nsg.md)或[负载均衡器](../../load-balancer/load-balancer-overview.md)来帮助管理流量以及跨 VM 分布流量。 以下示例创建名为“myNetworkSecurityGroup”的网络安全组：
+通常，还会创建[网络安全组](../../virtual-network/security-overview.md)或[负载均衡器](../../load-balancer/load-balancer-overview.md)来帮助管理流量以及跨 VM 分布流量。 以下示例创建名为“myNetworkSecurityGroup”的网络安全组：
 
 ```azurecli
 azure network nsg create \

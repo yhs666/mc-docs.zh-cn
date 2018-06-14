@@ -1,11 +1,11 @@
 ---
-title: "如何通过 Node.js 使用 Azure 服务总线主题和订阅 | Azure"
-description: "了解如何通过 Node.js 应用在 Azure 中使用服务总线主题和订阅。"
+title: 如何通过 Node.js 使用 Azure 服务总线主题和订阅 | Azure
+description: 了解如何通过 Node.js 应用在 Azure 中使用服务总线主题和订阅。
 services: service-bus
 documentationCenter: nodejs
 authors: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
 ms.service: service-bus
 ms.workload: na
@@ -14,11 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: v-yiso
-ms.openlocfilehash: 809b42ef525fe487a80ba2cad09753eef8ba6ecb
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.openlocfilehash: ef8cab2310f2033c41f2fe3b508ea46e57132aff
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695105"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>如何通过 Node.js 使用服务总线主题和订阅
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="create-a-nodejs-application"></a>创建 Node.js 应用程序
 创建一个空的 Node.js 应用程序。 有关创建 Node.js 应用程序的说明，请参阅[创建 Node.js 应用程序并将其部署到 Azure 网站]、使用 Windows PowerShell [创建 Node.js 云服务][Node.js Cloud Service]或使用 WebMatrix 创建网站。
 
-## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用 Service Bus
+## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
 
 若要使用服务总线，请下载 Node.js Azure 包。 此程序包包括一组用来与服务总线 REST 服务通信的库。
 
@@ -139,7 +140,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>创建具有默认 (MatchAll) 筛选器的订阅
 
-**MatchAll** 筛选器是默认筛选器，在创建新订阅时未指定筛选器的情况下使用。 使用 **MatchAll** 筛选器时，发布到主题的所有消息都会置于订阅的虚拟队列中。 以下示例创建名为“AllMessages”的订阅，并使用默认的 **MatchAll** 筛选器。
+**MatchAll** 筛选器是默认筛选器，在创建新订阅时未指定筛选器的情况下使用。 使用 **MatchAll** 筛选器时，发布到主题的所有消息都将置于订阅的虚拟队列中。 以下示例创建名为“AllMessages”的订阅，并使用默认的 **MatchAll** 筛选器。
 
 ```javascript
 serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
@@ -261,7 +262,7 @@ for (i = 0;i < 5;i++) {
 }
 ```
 
-服务总线主题在标准层中支持的最大消息大小为 256 KB。 标头最大为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小是在创建时定义的，上限为 5 GB。
+服务总线主题在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小是在创建时定义的，上限为 5 GB。
 
 ## <a name="receive-messages-from-a-subscription"></a>从订阅接收消息
 对 ServiceBusService 对象使用 `receiveSubscriptionMessage` 方法可从订阅接收消息。 默认情况下，消息被读取后即从订阅删除；但是可以读取（速览）并锁定消息而不将其从订阅删除，只要将可选参数 `isPeekLock` 设置为“true”即可。

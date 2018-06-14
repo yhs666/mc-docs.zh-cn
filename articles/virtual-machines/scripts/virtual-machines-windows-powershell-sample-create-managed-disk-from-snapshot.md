@@ -1,32 +1,34 @@
 ---
-title: "Azure PowerShell 脚本示例 - 从快照创建托管磁盘 | Azure"
-description: "Azure PowerShell 脚本示例 - 从快照创建托管磁盘"
+title: Azure PowerShell 脚本示例 - 从快照创建托管磁盘 | Azure
+description: Azure PowerShell 脚本示例 - 从快照创建托管磁盘
 services: virtual-machines-windows
 documentationcenter: storage
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 10/30/2017
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: c948d0f58287844aaf9ae34c669e46e8eb06f9c2
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 34f87664bc4789a555b38ecb0d90fc6835279d19
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702734"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>使用 PowerShell 从快照创建托管磁盘
 
 此脚本从快照创建托管磁盘。 使用它从 OS 和数据磁盘的快照还原虚拟机。 从各自的快照创建 OS 和数据托管磁盘，然后通过附加托管磁盘创建新的虚拟机。 还可以通过附加从快照创建的数据磁盘还原现有 VM 的数据磁盘。
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] 如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块版本 4.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块版本 4.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -70,7 +72,7 @@ New-AzureRmDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskNam
 
 此脚本使用以下命令从快照创建托管磁盘。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [Get-AzureRmSnapshot](https://docs.microsoft.com/powershell/module/azurerm.compute/Get-AzureRmSnapshot) | 获取快照属性。  |
 | [New-AzureRmDiskConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/New-AzureRmDiskConfig) | 创建用于磁盘创建的磁盘配置。 包括父快照的资源 ID、与父快照位置相同的位置以及存储类型。  |
@@ -82,6 +84,6 @@ New-AzureRmDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskNam
 
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
-可以在 [Azure Windows VM 文档](../../virtual-machines/windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
+可以在 [Azure Windows VM 文档](../windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
 
 <!--Update_Description: update meta properties, update link-->

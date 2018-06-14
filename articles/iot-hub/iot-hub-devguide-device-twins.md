@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6c31bab2e6df260aea59f25e02e2b0256240f915
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 7dcf4d647620fdab7a508e41be7158f76af3e5d5
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695042"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解并在 IoT 中心内使用设备孪生
 
@@ -350,6 +351,7 @@ IoT 中心开发人员指南中的其他参考主题包括：
 ## <a name="next-steps"></a>后续步骤
 了解设备孪生后，可以根据兴趣参阅以下 IoT 中心开发人员指南主题：
 
+* [在 IoT 中心内了解并使用模块孪生][lnk-module-twins]
 * [在设备上调用直接方法][lnk-methods]
 * [在多台设备上计划作业][lnk-jobs]
 
@@ -383,5 +385,6 @@ IoT 中心开发人员指南中的其他参考主题包括：
 [lnk-twin-metadata]: ./iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: ./iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: ./iot-hub-devguide-device-twins.md#device-reconnection-flow
+[lnk-module-twins]:iot-hub-devguide-module-twins.md
 
 [img-twin]: ./media/iot-hub-devguide-device-twins/twin.png

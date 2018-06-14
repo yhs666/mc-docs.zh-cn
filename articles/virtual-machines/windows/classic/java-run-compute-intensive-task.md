@@ -1,11 +1,10 @@
 ---
-title: "VM 上的计算密集型 Java 应用程序 | Azure"
-description: "了解如何创建运行可由其他 Java 应用程序监视的、计算密集型的 Java 应用程序的 Azure 虚拟机。"
+title: VM 上的计算密集型 Java 应用程序
+description: 了解如何创建运行可由其他 Java 应用程序监视的、计算密集型的 Java 应用程序的 Azure 虚拟机。
 services: virtual-machines-windows
 documentationcenter: java
 author: rockboyfor
 manager: digimobile
-editor: 
 tags: azure-service-management,azure-resource-manager
 ms.assetid: ae6f2737-94c7-4569-9913-d871450c2827
 ms.service: virtual-machines-windows
@@ -13,14 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: Java
 ms.topic: article
-origin.date: 04/25/2017
-ms.date: 03/19/2018
+origin.date: 04/11/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: c49ca0e10427fe54847c566a2d9dfdf1dabf777f
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: c054668ac123bc1a7f5d953c74242d7cf502933d
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702775"
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>如何在虚拟机上通过 Java 运行计算密集型任务
 > [!IMPORTANT] 
@@ -65,7 +65,7 @@ ms.lasthandoff: 03/17/2018
    5. 单击“下一步”。
 6. 在下一个“虚拟机配置”  对话框中：
    1. 对于“云服务”，使用默认的“创建新的云服务”。
-   2. “云服务 DNS 名称”的值在 cloudapp.chinacloudapi.cn 中必须唯一。 如有必要，请修改此值，使 Azure 能够将其指示为唯一值。
+   2. “云服务 DNS 名称”  的值在 chinacloudapp.cn 中必须唯一。 如有必要，请修改此值，使 Azure 能够将其指示为唯一值。
    3. 指定区域、地缘组或虚拟网络。 出于本教程的目的，请指定区域，如**华北**。
    4. 对于“存储帐户”框，请选择“使用自动生成的存储帐户”。
    5. 对于“可用性集”，请选择“(无)”。

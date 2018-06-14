@@ -13,11 +13,12 @@ ms.workload: iaas-sql-server
 origin.date: 04/10/2018
 ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: d95e1c73cf36c071ee22a1b24b8fb18096ce1f17
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 964775b9a2a6f88a6b066aa886a6e242156ab68b
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34568768"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Azure 虚拟机 (Linux) 上的 SQL Server 概述
 
@@ -31,7 +32,7 @@ Azure 虚拟机在中国许多不同的[地理区域](https://www.azure.cn/suppo
 <!--Notice: Change around the world to China -->
 
 <a name="create"></a>
-## SQL VM 入门
+##  <a name="get-started-with-sql-vms"></a>SQL VM 入门
 
 若要开始，请选择一个 SQL Server 虚拟机映像，其中包含所需的版本和操作系统。 下面的各部分针对相关 SQL Server 虚拟机库映像提供了指向 Azure 门户的直接链接。
 
@@ -85,7 +86,7 @@ Azure Linux 虚拟机上的 SQL Server 入门：
 
 * [在 Azure 门户中创建 SQL Server VM](provision-sql-server-linux-virtual-machine.md)
 
-获取有关 Linux 上的 SQL VM 的常见问题解答：
+<!-- Not Available on Get answers to commonly asked questions about SQL VMs on Linux: -->
 
-* [Azure Linux 虚拟机中的 SQL Server 常见问题解答](sql-server-linux-faq.md)
+<!-- Not Available on [SQL Server on Azure Linux Virtual Machines FAQ](sql-server-linux-faq.md)-->
 <!-- Update_Description: update meta properties, wording update, update link -->

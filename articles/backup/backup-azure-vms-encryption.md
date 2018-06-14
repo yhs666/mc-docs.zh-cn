@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 备份来备份和还原已加密的 VM"
-description: "本文介绍如何备份和还原使用 Azure 磁盘加密功能加密的 VM。"
+title: 使用 Azure 备份来备份和还原已加密的 VM
+description: 本文介绍如何备份和还原使用 Azure 磁盘加密功能加密的 VM。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: 8387f186-7d7b-400a-8fc3-88a85403ea63
 ms.service: backup
 ms.devlang: na
@@ -13,14 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 10/13/2017
-ms.date: 02/27/2018
+ms.date: 05/25/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a696977b28b657cc1e006c1ff3bc3d0ea2b70831
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: e4d29bb298ffa5d06f9c08232eef9f6ed3576596
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559436"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>使用 Azure 备份来备份和还原已加密的虚拟机
 本文介绍使用 Azure 备份来备份和还原虚拟机 (VM) 的步骤。 此外，提供有关受支持的方案、先决条件以及针对错误案例的疑难解答步骤的详细信息。
@@ -43,13 +44,13 @@ ms.lasthandoff: 03/02/2018
 
 - 已创建恢复服务保管库，并已遵循[为备份准备环境](backup-azure-arm-vms-prepare.md)中的步骤设置存储复制。
 
-- 备份功能已获得 [Key Vault 的访问权限](#provide-permissions-to-azure-backup)，其中包含加密 VM 的秘钥和机密。
+- 备份功能已获得 [Key Vault 的访问权限](#provide-permissions-to-backup)，其中包含加密 VM 的秘钥和机密。
 
 ## <a name="backup-encrypted-vm"></a>备份加密的 VM
 使用以下步骤设置备份目标、定义策略、配置项目和触发备份。
 
 ### <a name="configure-backup"></a>配置备份
-1. 如果已打开恢复服务保管库，请转到下一步。 如果未打开恢复服务保管库，而是位于 Azure 门户中，请选择“更多服务”。
+1. 如果已打开恢复服务保管库，请转到下一步。 如果未打开恢复服务保管库，而是位于 Azure 门户中，请选择“所有服务”。
 
    a. 在资源列表中，键入“恢复服务”。
 
@@ -62,22 +63,22 @@ ms.lasthandoff: 03/02/2018
      此时会打开选定的保管库仪表板。
 2. 从保管库下显示的项目列表中，选择“备份”开始备份加密的 VM。
 
-      ![“备份”边栏选项卡](./media/backup-azure-vms-encryption/select-backup.png)
+    ![“备份”边栏选项卡](./media/backup-azure-vms-encryption/select-backup.png)
 3. 在“备份”磁贴中，选择“备份目标”。
 
-      ![“方案”边栏选项卡](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
+    ![“方案”边栏选项卡](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 4. 在“工作负荷在哪里运行?”下，选择“Azure”。 在“要备份哪些内容?”下，选择“虚拟机”。 然后选择“确定”。
 
-   ![打开“方案”边栏选项卡](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
+    ![打开“方案”边栏选项卡](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 5. 在“选择备份策略”下，选择要应用到保管库的备份策略。 然后选择“确定”。
 
-      ![选择备份策略](./media/backup-azure-vms-encryption/setting-rs-backup-policy-new.png)
+    ![选择备份策略](./media/backup-azure-vms-encryption/setting-rs-backup-policy-new.png)
 
     将会列出默认策略的详细信息。 如果要创建策略，请从下拉列表中选择“新建”。 选择“确定”后，备份策略将与保管库相关联。
 
 6. 选择要与指定策略关联的已加密 VM，并选择“确定”。
 
-      ![选择加密型 VM](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
+    ![选择加密型 VM](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
 7. 此页面显示与所选加密 VM 相关联的 Key Vault 的消息。 备份需要 Key Vault 中密钥和机密的只读访问权限。 它使用这些权限来备份密钥和机密以及关联的 VM。<br>
     
     如果你是**成员用户**，“启用备份”过程将无缝获得密钥保管库的访问权限，以便备份加密的 VM 而无需任何用户干预。
@@ -100,7 +101,7 @@ ms.lasthandoff: 03/02/2018
 
 ## <a name="provide-permissions-to-backup"></a>为备份提供权限
 使用以下步骤为备份提供相关权限，以访问 Key Vault 并对加密 VM 执行备份。
-1. 选择“更多服务”并搜索“Key Vault”。
+1. 选择“所有服务”并搜索“Key Vault”。
 
     ![Key Vault](./media/backup-azure-vms-encryption/search-key-vault.png)
     

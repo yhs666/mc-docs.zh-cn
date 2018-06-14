@@ -13,14 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/11/2018
-ms.date: 05/15/2018
+origin.date: 05/09/2018
+ms.date: 05/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: 27541706524787ba1d29757d72eda7e763a7607b
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 081ec9a25e0a5240ba3768860e0f90f3cf22b5f6
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559405"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>有关 Azure 备份服务的问题
 本文解答有关 Azure 备份组件的常见问题。 某些答案提供内含全面信息的文章的链接。 单击“评论”（右侧）即可提问有关 Azure 备份的问题。 评论显示在本文末尾。 需要使用 Livefyre 帐户发表评论。 还可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
@@ -31,10 +32,10 @@ ms.lasthandoff: 05/17/2018
 ## <a name="recovery-services-vault"></a>恢复服务保管库
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>在每个 Azure 订阅中可以创建的保管库数量是否有任何限制？ <br/>
-是的。 从 2018 年 1 月开始，在 Azure 备份支持的每个区域中，可以为每个订阅最多创建 25 个恢复服务保管库。 如果需要更多保管库，请创建另一订阅。
+是的。 在 Azure 备份支持的每个区域中，可以为每个订阅创建多达 500 个恢复服务保管库。 如果需要更多保管库，请创建另一订阅。
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>可针对每个保管库注册的服务器/计算机数量是否有限制？ <br/>
-每个保管库最多可以注册 200 个 Azure 虚拟机。 如果使用 MAB 代理，每个保管库最多可以注册 50 个 MAB 代理。 可以将 50 个 MAB 服务器/DPM 服务器注册到一个保管库。
+每个保管库最多可以注册 1000 个 Azure 虚拟机。 如果使用 MAB 代理，每个保管库最多可以注册 50 个 MAB 代理。 可以将 50 个 MAB 服务器/DPM 服务器注册到一个保管库。
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>如果本组织有一个保管库，如何在还原数据时将一个服务器的数据与另一个服务器隔离？<br/>
 注册到同一个保管库的所有服务器都能够恢复由 *使用同一密码*的其他服务器备份的数据。 如果想要隔离服务器中的备份数据与组织中的其他服务器，请对其使用指定通行短语。 例如，人力资源服务器可能使用一个加密通行短语，会计结算服务器使用另一个通行短语，而存储服务器使用第三个通行短语。
@@ -68,12 +69,19 @@ ms.lasthandoff: 05/17/2018
 ### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>是否可以向多个保管库注册 DPM 服务器？ <br/>
 否。 一个 DPM 或 MABS 服务器只能注册到一个保管库。
 
-### <a name="which-version-of-system-center-data-protection-manager-is-supported-br"></a>支持哪个版本的 System Center Data Protection Manager？ <br/>
-建议在适用于 System Center Data Protection Manager (DPM) 的最新更新汇总版本 (UR) 上安装[最新](http://aka.ms/azurebackup_agent)的 Azure 备份代理。 到 2016 年 8 月为止，更新汇总版本 11 是最新的更新。
+### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>支持哪个版本的 System Center Data Protection Manager？
 
-### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-system-center-dpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>我已安装 Azure 备份代理来保护我的文件和文件夹。 现在可以安装 System Center DPM 来与 Azure 备份代理配合使用，以便在 Azure 中保护本地应用程序/VM 工作负荷吗？ <br/>
-要将 Azure 备份与 System Center Data Protection Manager (DPM) 一起使用，请先安装 DPM，然后再安装 Azure 备份代理。 以这种顺序安装 Azure 备份组件可确保 Azure 备份代理与 DPM 配合使用。 不建议也不支持在安装 DPM 之前安装 Azure 备份代理。
+建议在适用于 System Center Data Protection Manager (DPM) 的最新更新汇总版本 (UR) 上安装[最新](http://aka.ms/azurebackup_agent)的 Azure 备份代理。 
+- 对于 System Center DPM 2012 R2，[更新汇总 14](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager) 是最新的更新。
+- 对于 System Center DPM 2016，[更新汇总 2](https://support.microsoft.com/help/3209593) 是最新的更新。
 
+### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>我已安装 Azure 备份代理来保护我的文件和文件夹。 可以安装 System Center DPM 以在 Azure 中保护本地应用程序/VM 工作负荷吗？
+
+是的。 但是，若要将 Azure 备份与 System Center Data Protection Manager (DPM) 一起使用，请先安装 DPM，然后再安装 Azure 备份代理。 以这种顺序安装 Azure 备份组件可确保 Azure 备份代理与 DPM 配合使用。 不建议也不支持在安装 DPM 之前安装 Azure 备份代理。
+
+### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>可以使用 DPM 来备份 Azure Stack 中的应用吗？
+
+否。 虽然你可以使用 Azure 备份来保护 Azure Stack，但 Azure 备份当前不支持使用 DPM 来备份 Azure Stack 中的应用。
 
 ## <a name="how-azure-backup-works"></a>Azure 备份工作原理
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>如果在备份作业开始后取消，是否会删除已传输的备份数据？ <br/>

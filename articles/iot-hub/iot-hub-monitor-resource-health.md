@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/09/2017
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yiso
-ms.openlocfilehash: de2fa824499908de9780c73008aa7d7b7a6038b4
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 9d268f26d20760955d1de255ffbde81fca69e652
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695249"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>监视 Azure IoT 中心的运行状况并快速诊断问题
 
@@ -35,7 +36,7 @@ Azure 资源运行状况有助于在 Azure 问题影响资源时进行诊断和�
 
 Azure Monitor 提供资源级诊断信息，这意味着，可以监视在 IoT 中心内部发生的操作。 
 
-Azure Monitor 的诊断设置会取代 IoT 中心操作监视功能。 如果目前正在使用操作监视，应迁移工作流。 有关详细信息，请参阅[从操作监视迁移到诊断设置][lnk-migrate]。
+Azure Monitor 的诊断设置会取代 IoT 中心操作监视功能。 如果当前正在使用操作监视，应迁移工作流。 有关详细信息，请参阅[从操作监视迁移到诊断设置][lnk-migrate]。
 
 若要详细了解 Azure Monitor 监视的具体指标和事件，请参阅 [Azure Monitor 支持的指标][lnk-AM-metrics]和 [Azure 诊断日志支持的服务、架构和类别][lnk-AM-schemas]。
 
@@ -245,7 +246,7 @@ Azure Monitor 跟踪 IoT 中心内发生的不同操作。 每个类别都有一
 
 通过诊断设置设置事件日志记录后，可以创建应用程序用于读出日志，以便可以根据日志中的信息采取措施。 以下示例代码从事件中心检索日志：
 
-```
+```csharp
 class Program 
 { 
     static string connectionString = "{your AMS eventhub endpoint connection string}"; 

@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/15/2015
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1c29a1de609f6fb909d6a6f1fa8956161c9553f7
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: f1a7fc6cf93e102735a53150c0b5f97edcb3714e
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702838"
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB (MySQL) 群集：Azure 教程
 > [!IMPORTANT]

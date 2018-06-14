@@ -14,13 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 11/21/2017
-ms.date: 04/16/2018
+ms.date: 05/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7eca11b317f52745014334afe37b9fcb26a4f9e3
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: 6e42a68b814bed0e1a37bf566e29cd6e5a73d8ae
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567340"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>适用于 Azure Functions 的 通知中心输出绑定
 
@@ -35,6 +36,8 @@ ms.lasthandoff: 04/19/2018
 [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet 包中提供了通知中心绑定。 
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="example---template"></a>示例 - 模板
 
@@ -309,3 +312,4 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
 
+<!-- Update_Description: wording update -->

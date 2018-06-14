@@ -1,26 +1,27 @@
 ---
-title: "在 Azure 中 Linux 虚拟机的启动诊断 | Microsoft Doc"
-description: "Azure 中的 Linux 虚拟机的两个调试功能概述"
+title: 在 Azure 中 Linux 虚拟机的启动诊断 | Microsoft Doc
+description: Azure 中的 Linux 虚拟机的两个调试功能概述
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 08/21/2017
-ms.date: 02/05/2018
+origin.date: 03/19/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: b066dd1a1d9d8e712e63de62dc4182efeb7e4e91
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: c3e8cda5882581359192a9bf123601c13b498941
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702701"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>如何使用启动诊断排查 Azure 中 Linux 虚拟机的故障
 
@@ -40,20 +41,25 @@ Azure 现在提供对两种调试功能的支持：控制台输出和屏幕截�
 
 ## <a name="common-boot-errors"></a>常见的启动错误
 
-- [文件系统问题](https://blogs.msdn.microsoft.com/linuxonazure/2016/09/13/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes/)
-- [内核问题](https://blogs.msdn.microsoft.com/linuxonazure/2016/10/09/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems/)
-- [FSTAB 错误](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/ )
+- [文件系统问题](https://support.microsoft.com/help/3213321/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck) 
+- [内核问题](https://support.microsoft.com/help/4091524/how-recovery-azure-linux-vm-from-kernel-related-boot-related-issues/) 
+- [FSTAB 错误](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>对新虚拟机启用诊断
-1. 从门户创建新的虚拟机时，请从部署模型下拉列表中选择“Azure Resource Manager”：
+1. 从 Azure 门户创建新的虚拟机时，请从部署模型下拉列表中选择“Azure 资源管理器”：
 
     ![Resource Manager](./media/boot-diagnostics/screenshot3.jpg)
 
-2. 配置“监视”选项，选择要在其中放置这些诊断文件的存储帐户。
+2. 在“设置”中启用“启动诊断”，然后选择要在其中放置这些诊断文件的存储帐户。
 
-    ![创建 VM](./media/boot-diagnostics/screenshot4.jpg)
+    ![创建 VM](./media/boot-diagnostics/create-storage-account.png)
 
-3. 若要从 Azure Resource Manager 模板进行部署，请导航到虚拟机资源，然后追加诊断配置文件部分。 记得使用“2015-06-15”API 版本标头。
+    > [!NOTE]
+    > 启动诊断功能不支持高级存储帐户。 如果使用高级存储帐户进行启动诊断，则可能会在启动 VM 时收到 StorageAccountTypeNotSupported 错误。 
+    >
+    > 
+
+3. 若要从 Azure 资源管理器模板进行部署，请导航到虚拟机资源，并追加诊断配置文件部分。 记得使用“2015-06-15”API 版本标头。
 
     ```json
     {
@@ -75,10 +81,22 @@ Azure 现在提供对两种调试功能的支持：控制台输出和屏幕截�
         }
     ```
 
-## <a name="update-an-existing-virtual-machine"></a>更新现有虚拟机
+若要部署启用了启动诊断功能的示例虚拟机，请在此处查看我们的存储库。
 
-为了通过门户启用启动诊断功能，还可以通过门户更新现有虚拟机。 选择“启动诊断”选项，然后选择“保存”。 重启 VM，使设置生效。
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>在现有的虚拟机上启用启动诊断 
 
-![更新现有 VM](./media/boot-diagnostics/screenshot5.png)
+若要在现有的虚拟机上启用启动诊断，请执行以下步骤：
 
-<!--Update_Description: update meta properties-->
+1. 登录到 [Azure 门户](https://portal.azure.cn)，然后选择虚拟机。
+2. 在“支持 + 故障排除”中选择“启动诊断” > “设置”，将状态更改为“启用”，然后选择一个存储帐户。 
+4. 确保选中“启动诊断”选项，然后保存所做的更改。
+
+    ![更新现有 VM](./media/boot-diagnostics/enable-for-existing-vm.png)
+
+3. 重启 VM，使设置生效。
+
+## <a name="next-steps"></a>后续步骤
+
+如果在使用 VM 启动诊断时出现“未能获取日志内容”错误，请参阅 [VM 启动诊断中的“未能获取日志内容”错误](https://support.microsoft.com/help/4094480/failed-to-get-contents-of-the-log-error-in-vm-boot-diagnostics-in-azur)。
+
+<!-- Update_Description: update meta properties, add content of enable boot diagnostics -->

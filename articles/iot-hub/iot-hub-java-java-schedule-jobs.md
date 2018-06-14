@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 05/07/2018
-ms.openlocfilehash: b754e67f794004c86b353dc3f81ba31be6ee8d16
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.date: 06/11/2018
+ms.openlocfilehash: bf573f1515aa25db7b21abdc326cbf9741975359
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695074"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>计划和广播作业 (Java)
 
@@ -65,7 +66,7 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-若要以编程方式创建设备标识，请参阅[使用 Java 将设备连接到 IoT 中心](iot-hub-java-java-getstarted.md#create-a-device-identity)一文中的相应部分。 还可使用[适用于 Azure CLI 2.0 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)工具向 IoT 中心添加设备。
+还可使用[适用于 Azure CLI 2.0 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)工具向 IoT 中心添加设备。
 
 ## <a name="create-the-service-app"></a>创建服务应用
 

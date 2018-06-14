@@ -12,14 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/16/2018
-ms.date: 05/07/2018
+origin.date: 03/06/2018
+ms.date: 06/11/2018
 ms.author: v-yiso
-ms.openlocfilehash: 878f4a2bf75bfdec80ec896feaccb4e5353589fe
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: e5abcdc57b82571900ac23e604177f317fc915ea
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695122"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>计划和广播作业 (.NET/.NET)
 
@@ -298,7 +299,7 @@ ScheduleJob，该应用使用作业来调用 LockDoor 直接方法，并在多�
 [lnk-c2d-methods]: iot-hub-csharp-csharp-direct-methods.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: iot-hub-csharp-csharp-firmware-update.md
-
+[lnk-iot-edge]: ./iot-hub-linux-iot-edge-simulated-device.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://www.azure.cn/pricing/1rmb-trial
 [lnk-transient-faults]: https://docs.microsoft.com/azure/architecture/best-practices/transient-faults

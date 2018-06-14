@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 09/26/2017
-ms.date: 04/13/2018
+ms.date: 05/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 07b48ca1582c052e8baf32244d0fee5f33386e1c
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: 011a7a36167c141b9dbf2095c085748dd30a26dc
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567289"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的应用设置参考
 
@@ -134,9 +135,10 @@ Azure Functions 运行时针对除 HTTP 触发的函数以外的其他所有函�
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [了解如何更新应用设置](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[了解如何更新应用设置](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
 
-> [!div class="nextstepaction"]
-> [查看 host.json 文件中的全局设置](functions-host-json.md)
+[查看 host.json 文件中的全局设置](functions-host-json.md)
 
+[查看应用服务应用的其他应用设置](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
+
+<!-- Update_Description: wording update -->

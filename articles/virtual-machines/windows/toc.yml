@@ -287,8 +287,6 @@
           href: multiple-nics.md
         - name: 分配公用 DNS 名称
           href: portal-create-fqdn.md
-        - name: DNS 解析
-          href: ../../dns/dns-for-azure-services.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
     - name: 使用 VM 扩展
       items:
         - name: VM 扩展 - 概述
@@ -412,8 +410,6 @@
       href: 'https://www.azure.cn/develop/python/'
     - name: 计算 REST
       href: 'https://docs.microsoft.com/rest/api/compute'
-    - name: 托管磁盘 REST
-      href: 'https://docs.microsoft.com/rest/api/manageddisks'
 - name: 资源
   items:
     - name: 创作模板

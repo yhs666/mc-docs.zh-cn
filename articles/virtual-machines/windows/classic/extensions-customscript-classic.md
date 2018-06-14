@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 01/17/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 497cf2ccbf0060b675e9a7b83ba4f8bdd814e9b1
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 4210feb3be18201b2bc6b86310a510dcb5559ee0
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702823"
 ---
 # <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>使用经典部署模型完成的适用于 Windows 的自定义脚本扩展
 

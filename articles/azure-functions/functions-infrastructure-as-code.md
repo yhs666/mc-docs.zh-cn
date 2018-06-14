@@ -15,13 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 05/25/2017
-ms.date: 04/18/2018
+ms.date: 05/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9a20fdf88c3d21d086c1b8d1c3e2ca31ec66da40
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: 81af83d8d033132fa2aa56a29339a49d97e2710b
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567307"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>为 Azure Functions 中的函数应用自动执行资源部署
 
@@ -56,7 +57,9 @@ ms.lasthandoff: 04/19/2018
 }
 ```
 
-此外，在站点配置中，必须将属性 `AzureWebJobsStorage` 和 `AzureWebJobsDashboard` 指定为应用设置。 Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内部队列。 连接字符串 `AzureWebJobsDashboard` 用于向 Azure 表存储记录日志以及为门户中的“监视器”选项卡提供支持。
+此外，在站点配置中，必须将属性 `AzureWebJobsStorage` 指定为应用设置。 如果函数应用未使用 Application Insights 进行监视，还应将 `AzureWebJobsDashboard` 指定为应用设置。
+
+Azure Functions 运行时使用 `AzureWebJobsStorage` 连接字符串创建内部队列。  未启用 Application Insights 时，运行时使用 `AzureWebJobsDashboard` 连接字符串登录到 Azure 表存储并启动门户中的“监视”选项卡。
 
 这些属性在 `siteConfig` 对象中的 `appSettings` 集合中指定：
 
@@ -127,7 +130,7 @@ ms.lasthandoff: 04/19/2018
 函数应用有许多可用于部署的子资源，包括应用设置和源代码管理选项。 还可以选择删除 **sourcecontrols** 子资源，改用另一个[部署选项](functions-continuous-deployment.md)。
 
 > [!IMPORTANT]
-> 若要使用 Azure 资源管理器成功部署应用程序，了解如何在 Azure 中部署资源尤为重要。 在下面的示例中，通过使用 **siteConfig** 应用顶级配置。 请务必在顶级设置这些配置，因为这些配置会将信息传达给 Functions 运行时和部署引擎。 应用 **sourcecontrols/web** 子资源前，需要顶级信息。 虽然可以在子级别 **config/appSettings** 资源中配置这些设置，但在某些情况下，需要在应用 **config/appSettings** *之前*部署函数应用。 比如在[逻辑应用](../logic-apps/index.yml)中使用函数时，函数是另一资源的依赖项。
+> 若要使用 Azure 资源管理器成功部署应用程序，了解如何在 Azure 中部署资源尤为重要。 在下面的示例中，通过使用 **siteConfig** 应用顶级配置。 请务必在顶级设置这些配置，因为这些配置会将信息传达给 Functions 运行时和部署引擎。 应用 **sourcecontrols/web** 子资源前，需要顶级信息。 虽然可以在子级别 **config/appSettings** 资源中配置这些设置，但在某些情况下，需要在应用 **config/appSettings** *之前*部署函数应用。 
 
 ```json
 {
@@ -221,3 +224,4 @@ ms.lasthandoff: 04/19/2018
 
 [基于 Azure 应用服务计划的函数应用]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
 
+<!-- Update_Description: wording update -->

@@ -49,6 +49,8 @@
       href: tutorial-mean-stack.md
     - name: 15 - 使用 SSL 保护 Web 服务器
       href: tutorial-secure-web-server.md
+    - name: 将Packer 映像和应用部署到规模集
+      href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: 示例
   items:
     - name: Azure CLI
@@ -164,16 +166,21 @@
           href: move-vm.md
         - name: 更改 VM 大小
           href: change-vm-size.md
+        - name: 交换 OS 磁盘
+          href: os-disk-swap.md
         - name: 标记 VM
           href: tag.md
         - name: 在 VM 上运行脚本
-          href: extensions-customscript.md
+          href: run-scripts-in-vm.md
+          items:
+            - name: 自定义脚本扩展
+              href: ../extensions/custom-script-linux.md
         - name: 使用远程桌面
           href: use-remote-desktop.md
         - name: Azure VM 代理
           items:
             - name: 概述
-              href: agent-user-guide.md
+              href: ../extensions/agent-linux.md
             - name: 代理更新
               href: update-agent.md
         - name: 计划内维护
@@ -269,7 +276,7 @@
             - name: PostgreSQL
               href: postgresql-install.md
             - name: Linux 上的 MS SQL
-              href: /virtual-machines/linux/sql/provision-sql-server-linux-virtual-machine
+              href: /sql/linux/sql-server-linux-azure-virtual-machine
     - name: 管理存储
       items:
         - name: 磁盘常见问题解答
@@ -321,6 +328,8 @@
           href: multiple-nics.md
         - name: 分配公用 DNS 名称
           href: portal-create-fqdn.md
+        - name: 查找并删除未连接的 NIC
+          href: find-unattached-nics.md
         - name: DNS 解析
           href: azure-dns.md
           items:
@@ -334,6 +343,8 @@
           href: extensions-customscript.md
         - name: VMAccess 扩展
           href: using-vmaccess-extension.md
+        - name: 限制扩展安装
+          href: ../extensions/extensions-rmpolicy-howto-cli.md
     - name: 迁移 VM
       items:
         - name: 迁移 AWS 和本地 VM
@@ -373,6 +384,8 @@
           href: understand-vm-reboot.md
         - name: 启动诊断
           href: boot-diagnostics.md
+        - name: 串行控制台
+          href: serial-console.md
         - name: 对应用程序的访问
           href: troubleshoot-app-connection.md
         - name: 分配失败
@@ -393,6 +406,12 @@
               href: troubleshoot-recovery-disks.md
             - name: Azure 门户
               href: troubleshoot-recovery-disks-portal.md
+        - name: 附加的 VHD
+          items:
+            - name: 存储资源删除错误
+              href: storage-resource-deletion-errors.md
+            - name: 附加 VHD 的 VM 意外重新启动
+              href: unexpected-reboots-attached-vhds.md
 - name: 参考
   items:
     - name: Azure CLI

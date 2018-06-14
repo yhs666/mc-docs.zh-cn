@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure IoT 中心路由消息 (Node)"
-description: "如何使用路由规则和自定义终结点将消息发送到其他后端服务，从而处理 Azure IoT 中心的设备到云消息。"
+title: 使用 Azure IoT 中心路由消息 (Node)
+description: 如何使用路由规则和自定义终结点将消息发送到其他后端服务，从而处理 Azure IoT 中心的设备到云消息。
 services: iot-hub
 documentationcenter: node
-author: msebolt
+author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bd9af5f9-a740-4780-a2a6-8c0e2752cf48
 ms.service: iot-hub
 ms.devlang: node
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/17/2017
-ms.date: 03/19/2018
+ms.date: 06/11/2018
 ms.author: v-yiso
-ms.openlocfilehash: bcad2036b5fb793462d57e7b7c9312c13fea0f1c
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 82a9df55c978e18d3a3982aa80393543da60b453
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695127"
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>使用 IoT 中心路由消息 (Node)
 
@@ -232,7 +233,7 @@ ms.lasthandoff: 03/12/2018
 
 通过[如何使用 IoT 中心发送云到设备的消息][lnk-c2d] ，了解如何将消息从解决方案后端发送到设备。
 
-若要查看使用 IoT 中心完成端到端解决方案的示例，请参阅 [Azure IoT 套件][lnk-suite]。
+若要查看使用 IoT 中心完成端到端解决方案的示例，请参阅 [Azure IoT 远程监视解决方案加速器][lnk-suite]。
 
 若要了解有关使用 IoT 中心开发解决方案的详细信息，请参阅 [IoT 中心开发人员指南]。
 

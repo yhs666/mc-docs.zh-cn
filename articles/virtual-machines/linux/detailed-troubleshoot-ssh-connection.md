@@ -1,12 +1,12 @@
 ---
-title: "Azure VM 的详细 SSH 故障排除 | Azure"
-description: "对 Azure 虚拟机连接问题进行较详细 SSH 故障排除的步骤"
-keywords: "ssh 连接被拒绝,ssh 错误,azure ssh,SSH 连接失败"
+title: Azure VM 的详细 SSH 故障排除 | Azure
+description: 对 Azure 虚拟机连接问题进行较详细 SSH 故障排除的步骤
+keywords: ssh 连接被拒绝,ssh 错误,azure ssh,SSH 连接失败
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
 ms.service: virtual-machines-linux
@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/13/2017
-ms.date: 03/19/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: a890402977932bf0415e1b5e4c575f7d7baf9d69
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: f76e785e3d51bfa6dba18ab9d1c13c7c66e256d3
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702839"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>对连接到 Azure 中 Linux VM 时出现的问题进行详细的 SSH 故障排除的步骤
 有许多可能的原因会导致 SSH 客户端无法访问 VM 上的 SSH 服务。 如果已经执行了较[常规的 SSH 故障排除步骤](troubleshoot-ssh-connection.md)，则需要进一步排查连接问题。 本文指导用户完成详细的故障排除步骤，以确定 SSH 连接失败的位置以及解决方法。
@@ -40,7 +41,7 @@ ms.lasthandoff: 03/17/2018
 
 2. 选择“设置”检查终结点、IP 地址、网络安全组和其他设置。
 
-    VM 必须有为 SSH 流量定义的终结点，可以在“终结点”或“[网络安全组](../../virtual-network/virtual-networks-nsg.md)”查看 SSH 流量。 将 VM 中使用资源管理器创建的终结点存储在网络安全组中。 验证是否已对网络安全组应用这些规则，以及子网中是否引用了这些规则。
+   VM 必须有为 SSH 流量定义的终结点，可以在“终结点”或“[网络安全组](../../virtual-network/security-overview.md)”查看 SSH 流量。 将 VM 中使用资源管理器创建的终结点存储在网络安全组中。 验证是否已对网络安全组应用这些规则，以及子网中是否引用了这些规则。
 
 若要验证网络连接性，请检查配置的终结点，并了解是否可通过其他协议（如 HTTP 或其他服务）连接到 VM。
 
@@ -112,7 +113,7 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="source-4-network-security-groups"></a>来源 4：网络安全组
 通过使用网络安全组，可以对允许的入站和出站流量进行更精细的控制。 可以创建跨 Azure 虚拟网络中的子网和云服务的规则。 检查网络安全组规则，确保允许传入和传出 Internet 的 SSH 流量。
-有关详细信息，请参阅[关于网络安全组](../../virtual-network/virtual-networks-nsg.md)。
+有关详细信息，请参阅[关于网络安全组](../../virtual-network/security-overview.md)。
 
 还可使用 IP Verify 验证 NSG 配置。 有关详细信息，请参阅 [Azure network monitoring overview](/network-watcher/network-watcher-monitoring-overview)（Azure 网络监视概述）。 
 

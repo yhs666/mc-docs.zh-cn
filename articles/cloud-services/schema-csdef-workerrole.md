@@ -1,24 +1,25 @@
 ---
-title: "Azure 云服务定义WorkerRole 架构 |Microsoft Docs"
-ms.custom: 
+title: Azure 云服务定义WorkerRole 架构 |Microsoft Docs
+ms.custom: ''
 origin.date: 04/14/2015
-ms.date: 11/06/2017
+ms.date: 06/11/2018
 ms.prod: azure
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
-caps.latest.revision: "55"
+caps.latest.revision: 55
 author: thraka
 ms.author: v-yiso
 manager: timlt
-ms.openlocfilehash: 1f285057a3cbd4c9e14986a07b9f2c0b14e9ca54
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.openlocfilehash: 42389fa18250039f7f166b54198c80bb1a9c12b9
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695031"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure 云服务定义 WorkerRole 架构
 Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处理。
@@ -112,9 +113,9 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 
 [FixedPortRange](#FixedPortRange)
 
-[证书](#Certificates)
+[Certificates](#Certificates)
 
-证书[](#Certificate)
+[证书](#Certificate)
 
 [Imports](#Imports)
 
@@ -136,7 +137,7 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 
 [ServiceDefinition.csdef](#Startup)
 
-[任务](#Task)
+[Task](#Task)
 
 [Contents](#Contents)
 
@@ -147,7 +148,7 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 ##  <a name="WorkerRole"></a> WorkerRole
 `WorkerRole` 元素描述一个对普通开发非常有用并且可为 web 角色执行后台处理的角色。 一个服务可能包含零个或多个辅助角色。
 
-下表描述 `WorkerRole` 元素的属性。
+下表介绍了 `WorkerRole` 元素的属性。
 
 | 属性 | 类型 | 说明 |
 | --------- | ---- | ----------- |
@@ -161,7 +162,7 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 ##  <a name="Setting"></a> Setting
 `Setting` 元素描述用于为角色实例指定配置设置的名称和值对。
 
-下表描述 `Setting` 元素的属性。
+下表介绍了 `Setting` 元素的属性。
 
 | 属性 | 类型 | 说明 |
 | --------- | ---- | ----------- |
@@ -178,7 +179,7 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 > [!NOTE]
 >  `LocalStorage` 元素可显示为 `WorkerRole` 元素的子级，提供与早期版本的 Azure SDK 的兼容性。
 
-下表描述 `LocalStorage` 元素的属性。
+下表介绍了 `LocalStorage` 元素的属性。
 
 | 属性 | 类型 | 说明 |
 | --------- | ---- | ----------- |
@@ -194,13 +195,14 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 输入和内部终结点是单独分配的。 一个服务可共有 25 个输入、内部和实例输入终结点，这些终结点可在一个服务中允许存在的 25 个角色间分配。 例如，如果有 5 个角色，则可以向每个角色分配 5 个输入终结点，或者向一个角色分配 25 个输入终结点，或者可以向 25 个角色中的每个角色分配 1 个输入终结点。
 
 > [!NOTE]
->  部署的每个角色需要一个实例。 订阅的默认预配限制为 20 个内核，因此最多可有 20 个角色实例。 
+>  部署的每个角色需要一个实例。 订阅的默认预配限制为 20 个内核，因此最多可有 20 个角色实例。 如果应用程序需要的实例数比默认预配提供的数目更多，请参阅[计费、订阅管理和配额支持](https://www.azure.cn/support/options/)，了解有关提高配额的详细信息。
+
 ##  <a name="InputEndpoint"></a> InputEndpoint
 `InputEndpoint` 元素描述辅助角色的外部终结点。
 
 可以定义由 HTTP、HTTPS、UDP 和 TCP 终结点组成的多个终结点。 可以指定为输入终结点选择的任意端口号，但为服务中每个角色指定的端口号必须唯一。 例如，如果指定一个角色将端口 80 用于 HTTP，将端口 443 用于 HTTPS，则之后可能会指定第二个角色将端口 8080 用于 HTTP，将端口 8043 用于 HTTPS。
 
-下表描述 `InputEndpoint` 元素的属性。
+下表介绍了 `InputEndpoint` 元素的属性。
 
 | 属性 | 类型 | 说明 |
 | --------- | ---- | ----------- |
@@ -209,13 +211,13 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 |端口|int|必需。 外部终结点的端口。 可以指定所选的任意端口号，但为服务中每个角色指定的端口号必须唯一。<br /><br /> 可能的值介于 1 和 65535（包含在内）之间（Azure SDK 1.7 或更高版本）。|
 |证书|字符串|HTTPS 终结点需要。 由 `Certificate` 元素定义的证书的名称。|
 |localPort|int|可选。 指定用于终结点上内部连接的端口。 `localPort` 属性将终结点上的外部端口映射到角色上的内部端口。 这在以下情况下非常有用：角色必须与端口上的内部组件而非为外部公开的组件进行通信。<br /><br /> 如果未指定，则 `localPort` 的值与 `port` 属性相同。 将 `localPort` 的值设置为“*”会自动分配可使用运行时 API 发现的未分配端口。<br /><br /> 可能的值介于 1 和 65535（包含在内）之间（Azure SDK 1.7 或更高版本）。<br /><br /> 仅当使用 Azure SDK 1.3 或更高版本时，才提供 `localPort` 属性。|
-|ignoreRoleInstanceStatus|布尔值|可选。 当此属性的值设置为 `true` 时，会忽略服务的状态，并且负载均衡器不会删除该终结点。 此值设置为 `true` 对调试服务的繁忙实例非常有用。 默认值为 `false`。 **注意：**即使角色不处于就绪状态，终结点仍可接收流量。|
+|ignoreRoleInstanceStatus|布尔值|可选。 当此属性的值设置为 `true` 时，会忽略服务的状态，并且负载均衡器不会删除该终结点。 此值设置为 `true` 对调试服务的繁忙实例非常有用。 默认值为 `false`。 **注意：** 即使角色不处于就绪状态，终结点仍可接收流量。|
 |loadBalancerProbe|字符串|可选。 与输入终结点关联的负载均衡器探测的名称。 有关详细信息，请参阅 [LoadBalancerProbe 架构](schema-csdef-loadbalancerprobe.md)。|
 
 ##  <a name="InternalEndpoint"></a> InternalEndpoint
 `InternalEndpoint` 元素描述辅助角色的内部终结点。 只向服务中运行的其他角色实例提供内部终结点，而不向服务外部的客户端提供。 辅助角色最多具有五个 HTTP、UDP 或 TCP 内部终结点。
 
-下表描述 `InternalEndpoint` 元素的属性。
+下表介绍了 `InternalEndpoint` 元素的属性。
 
 | 属性 | 类型 | 说明 |
 | --------- | ---- | ----------- |
@@ -228,7 +230,7 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 
 仅当使用 Azure SDK 1.7 或更高版本时，才提供 `InstanceInputEndpoint` 元素。
 
-下表描述 `InstanceInputEndpoint` 元素的属性。
+下表介绍了 `InstanceInputEndpoint` 元素的属性。
 
 | 属性 | 类型 | 说明 |
 | --------- | ---- | ----------- |
@@ -246,7 +248,7 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 
 仅当使用 Azure SDK 1.3 或更高版本时，才提供 `FixedPort` 元素。
 
-下表描述 `FixedPort` 元素的属性。
+下表介绍了 `FixedPort` 元素的属性。
 
 | 属性 | 类型 | 说明 |
 | --------- | ---- | ----------- |
@@ -260,7 +262,7 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 
 仅当使用 Azure SDK 1.3 或更高版本时，才提供 `FixedPortRange` 元素。
 
-下表描述 `FixedPortRange` 元素的属性。
+下表介绍了 `FixedPortRange` 元素的属性。
 
 | 属性 | 类型 | 说明 |
 | --------- | ---- | ----------- |
@@ -273,7 +275,7 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 ##  <a name="Certificate"></a> Certificate
 `Certificate` 元素描述与辅助角色关联的证书。
 
-下表描述 `Certificate` 元素的属性。
+下表介绍了 `Certificate` 元素的属性。
 
 | 属性 | 类型 | 说明 |
 | --------- | ---- | ----------- |
@@ -292,7 +294,7 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 
 仅当使用 Azure SDK 1.3 或更高版本时，才提供 `Import` 元素。
 
-下表描述 `Import` 元素的属性。
+下表介绍了 `Import` 元素的属性。
 
 | 属性 | 类型 | 说明 |
 | --------- | ---- | ----------- |
@@ -327,7 +329,7 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 ##  <a name="RoleInstanceValue"></a> RoleInstanceValue
 `RoleInstanceValue` 元素指定要从其中检索变量值的 xPath。
 
-下表描述 `RoleInstanceValue` 元素的属性。
+下表介绍了 `RoleInstanceValue` 元素的属性。
 
 | 属性 | 类型 | 说明 |
 | --------- | ---- | ----------- |
@@ -344,7 +346,7 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 > [!NOTE]
 >  仅当使用 Azure SDK 1.5 或更高版本时，才提供 `NetFxEntryPoint` 元素。
 
-下表描述 `NetFxEntryPoint` 元素的属性。
+下表介绍了 `NetFxEntryPoint` 元素的属性。
 
 | 属性 | 类型 | 说明 |
 | --------- | ---- | ----------- |
@@ -357,7 +359,7 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 > [!NOTE]
 >  仅当使用 Azure SDK 1.5 或更高版本时，才提供 `ProgramEntryPoint` 元素。
 
-下表描述 `ProgramEntryPoint` 元素的属性。
+下表介绍了 `ProgramEntryPoint` 元素的属性。
 
 | 属性 | 类型 | 说明 |
 | --------- | ---- | ----------- |
@@ -378,7 +380,7 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 
 仅当使用 Azure SDK 1.3 或更高版本时，才提供 `Task` 元素。
 
-下表描述 `Task` 元素的属性。
+下表介绍了 `Task` 元素的属性。
 
 | 属性 | 类型 | 说明 |
 | --------- | ---- | ----------- |
@@ -396,7 +398,7 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 
 仅当使用 Azure SDK 1.5 或更高版本时，才提供 `Content` 元素。
 
-下表描述 `Content` 元素的属性。
+下表介绍了 `Content` 元素的属性。
 
 | 属性 | 类型 | 说明 |
 | --------- | ---- | ----------- |
@@ -409,11 +411,11 @@ Azure 辅助角色对普通开发非常有用，可为 web 角色执行后台处
 
 仅当使用 Azure SDK 1.5 或更高版本时，才提供 `SourceDirectory` 元素。
 
-下表描述 `SourceDirectory` 元素的属性。
+下表介绍了 `SourceDirectory` 元素的属性。
 
 | 属性 | 类型 | 说明 |
 | --------- | ---- | ----------- |
-|路径|字符串|必需。 内容将复制到 Azure 虚拟机的本地目录的相对或绝对路径。 支持扩展目录路径中的环境变量。|
+|path|字符串|必需。 内容将复制到 Azure 虚拟机的本地目录的相对或绝对路径。 支持扩展目录路径中的环境变量。|
 
 ## <a name="see-also"></a>另请参阅
 [云服务（经典）定义架构](schema-csdef-file.md)

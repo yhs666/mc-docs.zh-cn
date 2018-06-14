@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 09/29/2017
-ms.date: 04/12/2018
+ms.date: 05/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: f8f73ff8a6efc4bf87abbfd67cff927499339198
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 1ce2acd2076886fdf1711fd52381e4957aa8b00a
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567292"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>在 Durable Functions 中处理外部事件 (Azure Functions)
 
@@ -28,6 +29,8 @@ ms.lasthandoff: 04/23/2018
 ## <a name="wait-for-events"></a>等待事件
 
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) 方法允许业务流程协调程序函数以异步方式等待和侦听外部事件。 侦听业务流程协调程序函数声明了事件的“名称”和它期望收到的“数据形态”。
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -46,9 +49,26 @@ public static async Task Run(
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript（仅限 Functions v2）
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const approved = yield context.df.waitForExternalEvent("Approval");
+    if (approved) {
+        // approval granted - do the approved action
+    } else {
+        // approval denied - send a notification
+    }
+});
+```
+
 前面的示例侦听特定单个事件，并在收到该事件时执行操作。
 
 可以同时侦听多个事件，像以下示例中一样，以下示例等待三个可能的事件通知之一。
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("Select")]
@@ -75,7 +95,30 @@ public static async Task Run(
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript（仅限 Functions v2）
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const event1 = context.df.waitForExternalEvent("Event1");
+    const event2 = context.df.waitForExternalEvent("Event2");
+    const event3 = context.df.waitForExternalEvent("Event3");
+
+    const winner = yield context.df.Task.any([event1, event2, event3]);
+    if (winner === event1) {
+        // ...
+    } else if (winner === event2) {
+        // ...
+    } else if (winner === event3) {
+        // ...
+    }
+});
+```
+
 前面的示例侦听多个事件中的“任何一个”。 还可以等待“所有”事件。
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("NewBuildingPermit")]
@@ -95,10 +138,28 @@ public static async Task Run(
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript（仅限 Functions v2）
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const applicationId = context.df.getInput();
+
+    const gate1 = context.df.waitForExternalEvent("CityPlanningApproval");
+    const gate2 = context.df.waitForExternalEvent("FireDeptApproval");
+    const gate3 = context.df.waitForExternalEvent("BuildingDeptApproval");
+
+    // all three departments must grant approval before a permit can be issued
+    yield context.df.Task.all([gate1, gate2, gate3]);
+
+    yield context.df.callActivityAsync("IssueBuildingPermit", applicationId);
+});
+```
+
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) 无限期地等待一些输入。  在等待时，可以安全地卸载函数应用。 对于此业务流程实例，如果某个事件到达，则会自动唤醒并立即处理该事件。
 
-
-如果事件负载无法转换为预期类型 `T`，将会引发异常。
+在 .NET 中，如果事件负载无法转换为预期类型 `T`，将会引发异常。
 
 ## <a name="send-events"></a>发送事件
 
@@ -127,4 +188,4 @@ public static async Task Run(
 > [了解如何设置永久业务流程](durable-functions-eternal-orchestrations.md)
  
 
-
+<!-- Update_Description: wording update -->

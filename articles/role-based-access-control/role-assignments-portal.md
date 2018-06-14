@@ -6,20 +6,21 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/17/2017
-ms.date: 05/02/2018
+ms.date: 05/28/2018
 ms.author: v-junlch
 ms.reviewer: rqureshi
-ms.openlocfilehash: ddb1735b38aaf3e68622eb04fe97a498a60c33f8
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.openlocfilehash: 91c1520916d11ad7dc25aaad3ce2bd400ad92ec9
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559495"
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>使用基于角色的访问控制管理 Azure 订阅资源的访问权限
 > [!div class="op_single_selector"]
@@ -82,3 +83,4 @@ Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访�
 - 定义自己在 [Azure RBAC 中的自定义角色](custom-roles.md)
 
 
+<!-- Update_Description: update metedata properties -->

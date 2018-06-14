@@ -12,14 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/22/2018
+origin.date: 02/12/2018
 ms.author: v-yiso
-ms.date: 05/07/2018
-ms.openlocfilehash: f2263d2979439ad64813f75b66896f6577b6bf45
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.date: 06/11/2018
+ms.openlocfilehash: 807abf9bbd5fa7258a03cbd2b5b9d1d8cd6f3d55
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695062"
 ---
 # <a name="control-access-to-iot-hub"></a>控制对 IoT 中心的访问
 
@@ -367,7 +368,8 @@ SharedAccessSignature sr=myhub.azure-devices.cn%2fdevices&sig=JdyscqTpXdEJs49elI
 [用于 C# 的 Azure IoT 服务 SDK][lnk-service-sdk]（版本 1.0.8+）支持注册使用 X.509 证书进行身份验证的设备。 其他 API（例如设备的导入/导出）也支持 X.509 证书。
 
 ### <a name="c-support"></a>C\# 支持
-**RegistryManager** 类提供了用于注册设备的编程方式。 具体而言，使用 **AddDeviceAsync** 和 **UpdateDeviceAsync** 方法，用户可以在 IoT 中心标识注册表中注册和更新设备。 这两种方法均采用 **Device** 实例作为输入。 **Device** 类包括 **Authentication** 属性，允许用户指定主要和次要 X.509 证书指纹。 指纹表示 X.509 证书的 SHA-1 哈希值（使用二进制 DER 编码存储）。 用户可以选择指定主要指纹和/或次要指纹。 为了处理证书滚动更新方案，支持主要和次要指纹。
+
+**RegistryManager** 类提供了用于注册设备的编程方式。 具体而言，使用 **AddDeviceAsync** 和 **UpdateDeviceAsync** 方法，用户可以在 IoT 中心标识注册表中注册和更新设备。 这两种方法均采用 **Device** 实例作为输入。 **Device** 类包括 **Authentication** 属性，允许用户指定主要和次要 X.509 证书指纹。 指纹表示 X.509 证书的 SHA256 哈希值（使用二进制 DER 编码存储）。 用户可以选择指定主要指纹和/或次要指纹。 为了处理证书滚动更新方案，支持主要和次要指纹。
 
 下面是使用 X.509 证书指纹注册设备的示例 C\# 代码片段：
 
@@ -378,7 +380,7 @@ var device = new Device(deviceId)
   {
     X509Thumbprint = new X509Thumbprint()
     {
-      PrimaryThumbprint = "921BC9694ADEB8929D4F7FE4B9A3A6DE58B0790B"
+      PrimaryThumbprint = "B4172AB44C28F3B9E117648C6F7294978A00CDCBA34A46A1B8588B3F7D82C4F1"
     }
   }
 };
@@ -400,29 +402,29 @@ var authMethod = new DeviceAuthenticationWithX509Certificate("<device id>", x509
 var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 ```
 
-## <a name="custom-device-authentication"></a>自定义设备身份验证
+## <a name="custom-device-and-module-authentication"></a>自定义设备和模块身份验证
 
-可以使用 IoT 中心[标识注册表][lnk-identity-registry]，通过[令牌][lnk-sas-tokens]配置每个设备的安全凭据和访问控制。 如果 IoT 解决方案已经具有自定义标识注册表和/或身份验证方案，可考虑通过创建“令牌服务”，将此基础结构与 IoT 中心集成。 这样，便可以在解决方案中使用其他 IoT 功能。
+可以使用 IoT 中心[标识注册表][lnk-identity-registry]，通过[令牌][lnk-sas-tokens]配置每个设备/模块的安全凭据和访问控制。 如果 IoT 解决方案已经具有自定义标识注册表和/或身份验证方案，可考虑通过创建“令牌服务”，将此基础结构与 IoT 中心集成。 这样，便可以在解决方案中使用其他 IoT 功能。
 
-令牌服务是自定义云服务。 它使用包含 **DeviceConnect** 权限的 IoT 中心*共享访问策略* 创建*设备范围的* 令牌。 这些令牌可让设备连接到 IoT 中心。
+令牌服务是自定义云服务。 它使用包含 **DeviceConnect** 或 **ModuleConnect** 权限的 IoT 中心共享访问策略创建设备范围的或模块范围的令牌。 这些令牌可让设备和模块连接到 IoT 中心。
 
   ![令牌服务模式的步骤][img-tokenservice]
 
 下面是令牌服务模式的主要步骤：
 
-1. 为 IoT 中心创建包含 **DeviceConnect** 权限的 IoT 中心共享访问策略。 可以在 [Azure 门户][lnk-management-portal] 中或以编程方式创建此策略。 令牌服务使用此策略为它创建的令牌签名。
-2. 当设备需要访问 IoT 中心时，将向令牌服务请求已签名的令牌。 设备可使用自定义标识注册表/身份验证方案进行身份验证，确定令牌服务用于创建令牌的设备标识。
-3. 令牌服务返回令牌。 使用 `/devices/{deviceId}` 作为 `resourceURI`、使用 `deviceId` 作为所要进行身份验证的设备创建令牌。 令牌服务使用共享访问策略来构造令牌。
-4. 设备直接通过 IoT 中心使用令牌。
+1. 为 IoT 中心创建包含 **DeviceConnect** 或 **ModuleConnect** 权限的 IoT 中心共享访问策略。 可以在 [Azure 门户][lnk-management-portal] 中或以编程方式创建此策略。 令牌服务使用此策略为它创建的令牌签名。
+1. 当设备/模块需要访问 IoT 中心时，将向令牌服务请求已签名的令牌。 设备/模块可以使用自定义标识注册表/身份验证方案来进行身份验证，以确定令牌服务用来创建令牌的设备/模块标识。
+1. 令牌服务返回令牌。 创建令牌时，使用 `/devices/{deviceId}` 或 `/devices/{deviceId}/module/{moduleId}` 作为 `resourceURI`，使用 `deviceId` 作为要进行身份验证的设备，或者使用 `moduleId` 作为要进行身份验证的模块。 令牌服务使用共享访问策略来构造令牌。
+1. 设备/模块直接通过 IoT 中心使用令牌。
 
 > [!NOTE]
 > 可以使用 .NET 类 [SharedAccessSignatureBuilder][lnk-dotnet-sas] 或 Java 类 [IotHubServiceSasToken][lnk-java-sas] 在令牌服务中创建令牌。
 > 
 > 
 
-令牌服务可以根据需要设置令牌过期日期。 令牌过期时，IoT 中心将断开设备连接。 然后，设备必须向令牌服务请求新令牌。 到期时间过短会增加设备和令牌服务上的负载。
+令牌服务可以根据需要设置令牌过期日期。 令牌过期时，IoT 中心将断开设备/模块连接。 然后，设备/模块必须向令牌服务请求新令牌。 到期时间过短会增加设备/模块和令牌服务上的负载。
 
-设备要连接到中心，即使连接使用的是令牌而不是设备密钥，仍须将设备添加 IoT 中心标识注册表。 因此，可通过在[识别注册表][lnk-identity-registry]中启用或禁用设备标识，来继续使用基于设备的访问控制。 此方法可以减轻使用较长到期时间令牌的风险。
+为了让设备/模块连接到中心，仍必须将它添加到 IoT 中心标识注册表，即使设备/模块使用令牌而不是密钥来连接。 因此，可通过在[识别注册表][lnk-identity-registry]中启用或禁用设备/模块标识，来继续使用基于设备/模块的访问控制。 此方法可以减轻使用较长到期时间令牌的风险。
 
 ### <a name="comparison-with-a-custom-gateway"></a>与自定义网关的比较
 
@@ -438,7 +440,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 | --- | --- |
 | **RegistryRead** |授予对标识注册表的读取访问权限。 有关详细信息，请参阅[标识注册表][lnk-identity-registry]。 <br/>后端云服务会使用此权限。 |
 | **RegistryReadWrite** |授予对标识注册表的读取和写入访问权限。 有关详细信息，请参阅[标识注册表][lnk-identity-registry]。 <br/>后端云服务会使用此权限。 |
-| **ServiceConnect** |授予对面向云服务的通信和监视终结点的访问权限。 <br/>授予接收设备到云消息、发送云到设备消息和检索相应传送确认的权限。 <br/>授予检索文件上传的传送确认的权限。 <br/>授予访问设备孪生以更新标记和所需属性、检索报告属性和运行查询的权限。 <br/>后端云服务会使用此权限。 |
+| **ServiceConnect** |授予对面向云服务的通信和监视终结点的访问权限。 <br/>授予接收设备到云消息、发送云到设备消息和检索相应传送确认的权限。 <br/>授予检索文件上传的传送确认的权限。 <br/>授予访问孪生以更新标记和所需属性、检索报告属性和运行查询的权限。 <br/>后端云服务会使用此权限。 |
 | **DeviceConnect** |授予对面向设备的终结点的访问权限。 <br/>授予发送设备到云消息和接收云到设备消息的权限。 <br/>授予从设备执行文件上传的权限。 <br/>授予接收设备孪生所需属性通知和更新设备孪生报告属性的权限。 <br/>授予执行文件上传的权限。 <br/>此权限由设备使用。 |
 
 ## <a name="additional-reference-material"></a>其他参考资料
@@ -488,7 +490,7 @@ IoT 中心开发人员指南中的其他参考主题包括：
 [lnk-java-sas]: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.auth._iot_hub_service_sas_token
 [lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
 [lnk-protocols]: ./iot-hub-protocol-gateway.md
-[lnk-custom-auth]: ./iot-hub-devguide-security.md#custom-device-authentication
+[lnk-custom-auth]: iot-hub-devguide-security.md#custom-device-and-module-authentication
 [lnk-x509]: ./iot-hub-devguide-security.md#supported-x509-certificates
 [lnk-devguide-device-twins]: ./iot-hub-devguide-device-twins.md
 [lnk-devguide-directmethods]: ./iot-hub-devguide-direct-methods.md

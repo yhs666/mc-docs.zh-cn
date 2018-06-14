@@ -13,13 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2015
-ms.date: 05/14/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8c3aee69767ac657ca82ea12fb20ec98d8098d3f
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: cd925c733e2c0d7036f101e71476f4a7163dc072
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702724"
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>使用 Linux 诊断扩展监视 Linux VM 的性能和诊断数据
 

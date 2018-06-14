@@ -7,19 +7,20 @@ author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
 origin.date: 05/16/2017
-ms.date: 05/02/2018
+ms.date: 05/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4b27d27fea467cd15f0e4c93a113bacef73b7d77
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.openlocfilehash: a9713a7b8c8f790cbde20c2e1f57d7a55ca23aa6
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559496"
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>使用 REST API 管理基于角色的访问控制
 > [!div class="op_single_selector"]
@@ -652,3 +653,4 @@ ms.lasthandoff: 05/03/2018
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
+<!-- Update_Description: update metedata properties -->

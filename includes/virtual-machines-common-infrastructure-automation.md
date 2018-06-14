@@ -19,7 +19,8 @@
 
 了解如何：
 
-- [从 Azure Marketplace 部署 Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview)。
+- 
+  [从 Azure 市场部署 Chef Automate](https://market.azure.cn/zh-cn/marketplace/apps/chef-software.chef-automate?tab=Overview)。
 - [在 Windows 上安装 Chef 并创建 Azure VM](../articles/virtual-machines/windows/chef-automation.md)。
 
 <!--Not Available ## Puppet-->
@@ -28,7 +29,7 @@
 
 Cloud-init 还支持不同的发行版。 例如，不需使用 apt-get install 或 yum install 来安装包， 而是可定义要安装的程序包的列表。 Cloud-init 将对所选发行版自动使用本机包管理工具。
 
- 我们正在积极地与我们认可的 Linux 发行版合作伙伴合作，以便在 Azure Marketplace 中提供已启用 cloud-init 的映像。 这些映像可使 cloud-init 部署和配置无缝地应用于 VM 和虚拟机规模集。 下表概述了当前启用了 cloud-init 的映像在 Azure 平台上的可用性：
+ 我们正在积极地与我们认可的 Linux 发行版合作伙伴合作，以便在 Azure 市场中提供已启用 cloud-init 的映像。 这些映像可使 cloud-init 部署和配置无缝地应用于 VM 和虚拟机规模集。 下表概述了当前启用了 cloud-init 的映像在 Azure 平台上的可用性：
 
 | 发布者 | 产品 | SKU | 版本 | cloud-init 就绪 |
 |:--- |:--- |:--- |:--- |:--- |
@@ -99,7 +100,7 @@ Azure 自动化还提供 Desired State Configuration (DSC) 服务，用于针对
 - [使用 Team Services 创建持续集成管道](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md)。
 
 ## <a name="jenkins"></a>Jenkins
-[Jenkins](https://www.jenkins.io) 是一种持续集成服务器，用于部署和测试应用程序，以及创建进行代码交付的自动化管道。 可以通过成百上千的插件来扩展核心 Jenkins 平台，还可以通过 Webhook 集成许多其他的产品和解决方案。 可以在 Azure VM 上手动安装 Jenkins，从 Docker 容器内部运行 Jenkins，或者使用预建的 Azure Marketplace 映像。
+[Jenkins](https://www.jenkins.io) 是一种持续集成服务器，用于部署和测试应用程序，以及创建进行代码交付的自动化管道。 可以通过成百上千的插件来扩展核心 Jenkins 平台，还可以通过 Webhook 集成许多其他的产品和解决方案。 可以在 Azure VM 上手动安装 Jenkins，从 Docker 容器内部运行 Jenkins，或者使用预建的 Azure 市场映像。
 
 了解如何：
 

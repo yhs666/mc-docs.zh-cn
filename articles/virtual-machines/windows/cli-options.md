@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/14/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 75a92ca71aa1931d54a01623aef73ec1196360fe
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: cfafe04812d33781470a2d20b90ce02d45f84880
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702787"
 ---
 # <a name="using-the-azure-cli-on-windows"></a>在 Windows 上使用 Azure CLI
 

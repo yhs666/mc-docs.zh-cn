@@ -14,13 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0718fe82478c876e3ec2a71bcb3d69a803072b96
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 77429fb058111b86a04d2eafc0f66804e199c427
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702803"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>从 Azure 下载 Windows VHD
 

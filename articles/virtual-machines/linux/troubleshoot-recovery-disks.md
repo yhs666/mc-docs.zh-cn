@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/16/2017
-ms.date: 05/14/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: ef7995c8ad8bb2cc70ec93f3cae58e9f1d35220b
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 85228a5a3cda1f68e66b9f324de126e1f6b9d8a8
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702861"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>通过使用 Azure CLI 2.0 将 OS 磁盘附加到恢复 VM 来对 Linux VM 进行故障排除
 如果 Linux 虚拟机 (VM) 遇到启动或磁盘错误，则可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是 `/etc/fstab` 中存在无效条目，使 VM 无法成功启动。 本文详细介绍如何使用 Azure CLI 2.0 将虚拟硬盘连接到另一个 Linux VM，以修复任何错误，并重新创建原始 VM。 也可以使用 [Azure CLI 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
@@ -31,6 +32,8 @@ ms.lasthandoff: 05/15/2018
 3. 连接到故障排除 VM。 编辑文件或运行任何工具以修复原始虚拟硬盘上的问题。
 4. 从故障排除 VM 卸载并分离虚拟硬盘。
 5. 使用原始虚拟硬盘创建 VM。
+
+有关使用托管磁盘的 VM，请参阅[通过附加新的操作系统磁盘对托管磁盘 VM 进行故障排除](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk)。
 
 若要执行这些故障排除步骤，需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
@@ -179,6 +182,13 @@ az group deployment create --resource-group myResourceGroup --name myDeployment 
 ```azurecli
 az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM
 ```
+
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>通过附加新的操作系统磁盘对托管磁盘 VM 进行故障排除
+1. 停止受影响的托管磁盘 Windows VM。
+2. [创建托管磁盘 VM 的操作系统磁盘的托管磁盘快照](../windows/snapshot-copy-managed-disk.md)。
+3. [从快照创建托管磁盘](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)。
+4. [将托管磁盘附加为 VM 的数据磁盘](../windows/attach-disk-ps.md)。
+5. [将步骤 4 中的数据磁盘更改为操作系统磁盘](../windows/os-disk-swap.md)。
 
 ## <a name="next-steps"></a>后续步骤
 如果在连接到 VM 时遇到问题，请参阅[排查 Azure VM 的 SSH 连接问题](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 如果在访问 VM 上运行的应用时遇到问题，请参阅[排查 Linux VM 上的应用程序连接问题](../windows/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。

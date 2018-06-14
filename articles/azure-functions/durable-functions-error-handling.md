@@ -12,14 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-origin.date: 09/29/2017
-ms.date: 04/12/2018
+origin.date: 04/30/2018
+ms.date: 05/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3617ec10e38d54a99ca723d262c231cb0e2185dc
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: ae1eeded21f12c7013dcfa8fe04acd1426ac91d4
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567320"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>处理 Durable Functions 中的错误 (Azure Functions)
 
@@ -27,7 +28,7 @@ Durable Function 业务流程采用代码实现，并可使用编程语言的错
 
 ## <a name="errors-in-activity-functions"></a>活动函数中的错误
 
-活动函数中引发的任何异常都将封送回业务流程协调程序函数，并作为 `TaskFailedException` 引发。 可在业务流程协调程序函数中编写满足需要的错误处理和补偿代码。
+活动函数中引发的任何异常都将封送回业务流程协调程序函数，并作为 `FunctionFailedException` 引发。 可在业务流程协调程序函数中编写满足需要的错误处理和补偿代码。
 
 例如，考虑使用以下业务流程协调程序函数，将一个帐户中的资金转到另一帐户：
 
@@ -81,7 +82,7 @@ public static async Task Run(DurableOrchestrationContext context)
         firstRetryInterval: TimeSpan.FromSeconds(5),
         maxNumberOfAttempts: 3);
 
-    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions);
+    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
     
     // ...
 }
@@ -129,8 +130,12 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 }
 ```
 
+> [!NOTE]
+> 此机制实际上不会终止正在进行的活动函数执行。 它只是允许业务流程协调程序函数忽略结果并继续运行。 有关详细信息，请参阅[计时器](durable-functions-timers.md#usage-for-timeout)文档。
+
 ## <a name="unhandled-exceptions"></a>未经处理的异常
 
 如果业务流程协调程序函数失败，出现未经处理的异常，则会记录异常的详细信息，且实例的完成状态为 `Failed`。
 
 
+<!-- Update_Description: wording update -->

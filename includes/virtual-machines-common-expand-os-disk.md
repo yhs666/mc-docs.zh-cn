@@ -1,5 +1,5 @@
 ## <a name="overview"></a>概述
-在资源组中通过从 [Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/) 部署映像来创建新的虚拟机 (VM) 时，默认的 OS 驱动器通常为 127 GB（默认情况下，某些映像的 OS 磁盘大小更小）。 尽管可以将数据磁盘添加到 VM（数量取决于所选择的 SKU），并且我们建议将应用程序和需要大量 CPU 的工作负荷安装在这些附加的磁盘上，但客户有时候还是需要扩展 OS 驱动器以支持特定的方案，例如：
+在资源组中通过从 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/)部署映像来创建新的虚拟机 (VM) 时，默认的 OS 驱动器通常为 127 GB（默认情况下，某些映像的 OS 磁盘大小更小）。 尽管可以将数据磁盘添加到 VM（数量取决于所选择的 SKU），并且我们建议将应用程序和需要大量 CPU 的工作负荷安装在这些附加的磁盘上，但客户有时候还是需要扩展 OS 驱动器以支持特定的方案，例如：
 
 1. 支持将组件安装在 OS 驱动器上的传统应用程序。
 2. 从本地迁移具有较大 OS 驱动器的物理电脑或虚拟机。
@@ -22,7 +22,7 @@
 1. 在资源管理模式下登录用户的 Microsoft Azure 帐户，并选择用户的订阅，如下所示：
 
    ```Powershell
-   Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+   Connect-AzureRmAccount -Environment AzureChinaCloud 
    Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
    ```
 2. 设置资源组名称和 VM 名称，如下所示：
@@ -65,7 +65,7 @@
 1. 在资源管理模式下登录用户的 Microsoft Azure 帐户，并选择用户的订阅，如下所示：
 
    ```Powershell
-   Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+   Connect-AzureRmAccount -Environment AzureChinaCloud
    Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
    ```
 2. 设置资源组名称和 VM 名称，如下所示：
@@ -109,7 +109,7 @@
 非托管磁盘：
 
 ```Powershell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
@@ -122,7 +122,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 托管磁盘：
 
 ```Powershell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
@@ -159,4 +159,4 @@ $disk.DiskSizeGB = 1023
 ```
 
 如果想要了解如何将磁盘附加到 Azure Resource Manager VM，请参阅[此文](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-<!--ms.date: 03/19/2018-->
+<!--ms.date: 06/04/2018-->

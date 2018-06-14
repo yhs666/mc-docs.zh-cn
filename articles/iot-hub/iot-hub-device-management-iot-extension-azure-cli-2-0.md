@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/16/2018
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yiso
-ms.openlocfilehash: 171f80cbd50d5cdd90dd672e0a5bbaa4dca5b5cd
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 97c89613fa29463e714bc5494900dd62120f2221
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695054"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>针对 Azure IoT 中心设备管理，使用适用于 Azure CLI 2.0 的 IoT 扩展
 
@@ -96,10 +97,10 @@ az iot hub device-twin update -n <your hub name> -d <your device id> --set prope
 通过运行以下命令获取报告的设备属性：
 
 ```bash
-az iot hub device-twin update -n <your hub name> -d <your device id> --set properties.reported.interval = 3000
+az iot hub device-twin show -n <your hub name> -d <your device id>
 ```
 
-其中一个属性是 $metadata.$lastUpdated，它显示该设备上次发送或接收消息的时间。
+其中一个孪生报告属性为 $metadata.$lastUpdated，它显示设备应用上次更新其报告属性集的时间。
 
 ## <a name="device-twin-tags"></a>设备孪生标记
 

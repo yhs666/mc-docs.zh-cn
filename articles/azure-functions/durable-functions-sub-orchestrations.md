@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 09/29/2017
-ms.date: 04/13/2018
+ms.date: 05/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3c15dab74cae67a26ec4cc69d0173627dd1279ef
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: d39ecd5e2e3b8886b9fd0f3e4b65f554fc9c4591
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567286"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Durable Functions 中的子业务流程 (Azure Functions)
 
@@ -28,6 +29,9 @@ ms.lasthandoff: 04/19/2018
 一个业务流程协调程序函数可以通过调用 [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) 或 [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_) 方法调用另一个业务流程协调程序函数。 [错误处理和修正](durable-functions-error-handling.md#automatic-retry-on-failure)一文提供了有关自动重试的更多信息。
 
 从调用方的角度来看，子业务流程协调程序函数的行为与活动函数相同。 它们可以返回值，引发异常，并且父业务流程协调程序函数可以等待它们。
+
+> [!NOTE]
+> `CallSubOrchestratorAsync` 和 `CallSubOrchestratorWithRetryAsync` 方法尚不可在 JavaScript 中使用。
 
 ## <a name="example"></a>示例
 
@@ -82,3 +86,4 @@ public static async Task ProvisionNewDevices(
 > [!div class="nextstepaction"]
 > [了解什么是任务中心以及如何配置它们](durable-functions-task-hubs.md)
 
+<!-- Update_Description: wording update -->

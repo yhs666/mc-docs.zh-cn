@@ -1,11 +1,11 @@
 ---
-title: "了解 Azure IoT 中心设备到云的消息 | Azure"
-description: "开发人员指南 - 如何在 IoT 中心使用设备到云的消息传送。 包含有关发送遥测数据和非遥测数据，以及使用路由传送消息的信息。"
+title: 了解 Azure IoT 中心设备到云的消息 | Azure
+description: 开发人员指南 - 如何在 IoT 中心使用设备到云的消息传送。 包含有关发送遥测数据和非遥测数据，以及使用路由传送消息的信息。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 2945ccdd8250f1c92d4773f5dac9998e595ea504
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 06/11/2018
+ms.openlocfilehash: 616b1b611a10cb54f09642323ba8786afdbaf377
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695121"
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>将设备到云的消息发送到 IoT 中心
 

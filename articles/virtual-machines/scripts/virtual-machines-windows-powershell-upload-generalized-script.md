@@ -1,13 +1,13 @@
 ---
-title: "将通用化 VHD 上传到 Azure PowerShell 示例脚本 |Azure"
-description: "PowerShell 示例脚本，用于将通用化 VHD 上传到 Azure 并使用 Resource Manager 部署模型和托管磁盘创建新的 VM。"
+title: 将通用化 VHD 上传到 Azure PowerShell 示例脚本 |Azure
+description: PowerShell 示例脚本，用于将通用化 VHD 上传到 Azure 并使用 Resource Manager 部署模型和托管磁盘创建新的 VM。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
@@ -17,11 +17,12 @@ origin.date: 01/02/2017
 ms.date: 02/05/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6d8aef7cc84d3551f6e66f485bd104177e8c14ab
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: a810dc7466849dd55fe8eeec256a6b6731957cc7
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34568756"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>将 VHD 上传到 Azure 并创建新的 VM 的示例脚本
 
@@ -128,28 +129,30 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 此脚本使用以下命令创建部署。 表中的每一项均链接到特定于命令的文档。
 
+<!-- URL should be AzureRM.Compute or AzureRM.Network -->
 | 命令                                                                                                             | 注释                                                                                                                                                                                |
 |---------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)                           | 创建用于存储所有资源的资源组。                                                                                                                          |
 | [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermstorageaccount)                         | 创建存储帐户。                                                                                                                                                           |
 | [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.resources/add-azurermvhd)                                               | 将虚拟硬盘从本地虚拟机上传到 Azure 云存储帐户中的 blob。                                                                       |
-| [New-AzureRmImageConfig](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermimageconfig)                               | 创建一个可配置的映像对象。                                                                                                                                                 |
-| [Set-AzureRmImageOsDisk](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermimageosdisk)                               | 设置映像对象的操作系统磁盘属性。                                                                                                                        |
-| [New-AzureRmImage](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermimage)                                           | 创建新映像。                                                                                                                                                                 |
-| [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermvirtualnetworksubnetconfig) | 创建子网配置。 在虚拟网络创建过程中会使用此配置。                                                                                |
-| [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermvirtualnetwork)                         | 创建虚拟网络。                                                                                                                                                           |
-| [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpublicipaddress)                       | 创建公共 IP 地址。                                                                                                                                                         |
-| [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermnetworkinterface)                     | 创建网络接口。                                                                                                                                                         |
-| [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermnetworksecurityruleconfig)   | 创建网络安全组规则配置。 创建 NSG 时会使用此配置创建 NSG 规则。                                                       |
-| [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermnetworksecuritygroup)             | 创建网络安全组。                                                                                                                                                    |
-| [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermvirtualnetwork)                         | 获取资源组中的虚拟网络。                                                                                                                                          |
-| [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermvmconfig)                                     | 创建 VM 配置。 此配置包括 VM 名称、操作系统和管理凭据等信息。 在创建 VM 期间将使用此配置。 |
-| [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermvmsourceimage)                           | 指定虚拟机的映像。                                                                                                                                            |
-| [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermvmosdisk)                                     | 设置虚拟机的操作系统磁盘属性。                                                                                                                      |
-| [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermvmoperatingsystem)                   | 设置虚拟机的操作系统磁盘属性。                                                                                                                      |
-| [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.resources/add-azurermvmnetworkinterface)                 | 将网络接口添加到虚拟机。                                                                                                                                       |
-| [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermvm)                                                 | 创建虚拟机。                                                                                                                                                            |
+| [New-AzureRmImageConfig](https://docs.microsoft.com/powershell/module/AzureRM.Compute/new-azurermimageconfig)                               | 创建一个可配置的映像对象。                                                                                                                                                 |
+| [Set-AzureRmImageOsDisk](https://docs.microsoft.com/powershell/module/AzureRM.Compute/set-azurermimageosdisk)                               | 设置映像对象的操作系统磁盘属性。                                                                                                                        |
+| [New-AzureRmImage](https://docs.microsoft.com/powershell/module/AzureRM.Compute/new-azurermimage)                                           | 创建新映像。                                                                                                                                                                 |
+| [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/AzureRM.Network/new-azurermvirtualnetworksubnetconfig) | 创建子网配置。 在虚拟网络创建过程中会使用此配置。                                                                                |
+| [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/AzureRM.Network/new-azurermvirtualnetwork)                         | 创建虚拟网络。                                                                                                                                                           |
+| [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/AzureRM.Network/new-azurermpublicipaddress)                       | 创建公共 IP 地址。                                                                                                                                                         |
+| [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/AzureRM.Network/new-azurermnetworkinterface)                     | 创建网络接口。                                                                                                                                                         |
+| [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/AzureRM.Network/new-azurermnetworksecurityruleconfig)   | 创建网络安全组规则配置。 创建 NSG 时会使用此配置创建 NSG 规则。                                                       |
+| [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/AzureRM.Network/new-azurermnetworksecuritygroup)             | 创建网络安全组。                                                                                                                                                    |
+| [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/AzureRM.Network/get-azurermvirtualnetwork)                         | 获取资源组中的虚拟网络。                                                                                                                                          |
+| [New-AzureRmVMConfig](https://docs.microsoft.com/powershell/module/AzureRM.Compute/new-azurermvmconfig)                                     | 创建 VM 配置。 此配置包括 VM 名称、操作系统和管理凭据等信息。 在创建 VM 期间将使用此配置。 |
+| [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/AzureRM.Compute/set-azurermvmsourceimage)                           | 指定虚拟机的映像。                                                                                                                                            |
+| [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/module/AzureRM.Compute/set-azurermvmosdisk)                                     | 设置虚拟机的操作系统磁盘属性。                                                                                                                      |
+| [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/AzureRM.Compute/set-azurermvmoperatingsystem)                   | 设置虚拟机的操作系统磁盘属性。                                                                                                                      |
+| [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/AzureRM.Compute/add-azurermvmnetworkinterface)                 | 将网络接口添加到虚拟机。                                                                                                                                       |
+| [New-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/new-azurermvm)                                                 | 创建虚拟机。                                                                                                                                                            |
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | 删除资源组及其中包含的所有资源。                                                                                                                         |
+<!-- URL should be AzureRM.Compute or AzureRM.Network -->
 
 ## <a name="next-steps"></a>后续步骤
 

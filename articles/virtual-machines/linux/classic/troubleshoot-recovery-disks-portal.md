@@ -1,24 +1,25 @@
 ---
-title: "通过将 OS 磁盘附加到恢复 VM 对 Azure Linux 经典 VM 进行故障排除 | Azure"
-description: "了解如何通过将 OS 磁盘附加到恢复 VM，对 Azure Linux 经典 VM 进行故障排除"
+title: 通过将 OS 磁盘附加到恢复 VM 对 Azure Linux 经典 VM 进行故障排除 | Azure
+description: 了解如何通过将 OS 磁盘附加到恢复 VM，对 Azure Linux 经典 VM 进行故障排除
 services: virtual-machines-linux
-documentationCenter: 
+documentationCenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 11/03/2017
-ms.date: 12/18/2017
+origin.date: 05/11/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: a187dccc0c83dc23bd27b2cb4b68275b45839d6b
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 69bdea3e97264c2fd0abba9e5f661670723f4add
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702678"
 ---
 # <a name="troubleshoot-a-linux-classic-vm-by-attaching-the-os-disk-to-a-recovery-vm"></a>通过将 OS 磁盘附加到恢复 VM，对 Linux 经典 VM 进行故障排除
 
@@ -32,4 +33,4 @@ ms.lasthandoff: 12/15/2017
 
 对于访问 VM 上运行的应用程序时遇到的问题，请参阅[排查 Azure 中 Linux 虚拟机上的应用程序连接问题](../troubleshoot-app-connection.md)。
 
-<!--Update_Description: update meta properties, add classic portal migration notice.-->
+<!--Update_Description: update meta properties -->

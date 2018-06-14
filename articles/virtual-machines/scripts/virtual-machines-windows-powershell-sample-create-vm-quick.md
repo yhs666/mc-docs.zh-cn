@@ -1,27 +1,28 @@
 ---
-title: "Azure PowerShell 脚本示例 - 创建 Windows VM | Azure"
-description: "Azure PowerShell 脚本示例 - 创建 Windows VM"
+title: Azure PowerShell 脚本示例 - 创建 Windows VM | Azure
+description: Azure PowerShell 脚本示例 - 创建 Windows VM
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/12/2017
-ms.date: 02/05/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b6250f0e8c53b78a48327eb7e9e0633fffbe055c
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 535fafa712d113825a7b36ded27a94c144136266
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702769"
 ---
 # <a name="create-a-virtual-machine-with-powershell"></a>使用 PowerShell 创建虚拟机
 
@@ -82,4 +83,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure Windows VM 文档](../windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
-<!-- Update_Description: add New-AzureRmVM cmdlet content -->
+<!-- Update_Description: update meta properties -->

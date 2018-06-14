@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 09/29/2017
-ms.date: 04/12/2018
+ms.date: 05/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2bdb4027e9332fa45c36c6064e5fa153ec892c59
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: d565dc1666da17c109102316723580b72491444f
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567308"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Durable Functions 中的永久业务流程 (Azure Functions)
 
@@ -37,6 +38,9 @@ ms.lasthandoff: 04/16/2018
 
 > [!NOTE]
 > Durable Task Framework 会维护同一个实例 ID，但在内部会为由 `ContinueAsNew` 重置的业务流程协调程序函数创建一个新的“执行 ID”。 此执行 ID 通常不对外公开，但在调试业务流程执行时知道该 ID 可能比较有用。
+
+> [!NOTE]
+> `ContinueAsNew` 方法尚不可在 JavaScript 中使用。
 
 ## <a name="periodic-work-example"></a>定期工作示例
 
@@ -96,3 +100,4 @@ public static async Task Run(
 > [!div class="nextstepaction"]
 > [了解如何实现单一实例业务流程](durable-functions-singletons.md)
 
+<!-- Update_Description: wording update -->

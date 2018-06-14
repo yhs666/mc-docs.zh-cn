@@ -1,24 +1,25 @@
 ---
-title: "如何使用 PowerShell 创建 X.509 证书 | Microsoft Docs"
-description: "如何使用 PowerShell 在本地创建 X.509 证书，以及在模拟环境下在 Azure IoT 中心启用基于 X.509 的安全性。"
+title: 如何使用 PowerShell 创建 X.509 证书 | Microsoft Docs
+description: 如何使用 PowerShell 在本地创建 X.509 证书，以及在模拟环境下在 Azure IoT 中心启用基于 X.509 的安全性。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dsk-2015
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-orign.date: 12/10/2017
-ms.date: 01/15/2018
+orign.date: 05/01/2018
+ms.date: 06/11/2018
 ms.author: dkshir
-ms.openlocfilehash: 565d3a27638b25d6f0da4d958fed02a8db626c3a
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: bf20624a075b7279d1ae57de96490706c9da0289
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695125"
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>用于管理 CA 签名的 X.509 证书的 PowerShell 脚本
 
@@ -35,6 +36,7 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
 以下步骤显示如何在本地创建 X.509 根证书的示例。 
 
 1. 以管理员身份打开 PowerShell 窗口。 
+   **注意：** 必须在 PowerShell 本身（而不是 PowerShell ISE、Visual Studio Code 或包装基础 PowerShell 控制台的其他工具）中打开此窗口。  使用基于非控制台的 PowerShell 将导致下面的 `openssl` 命令挂起。
 2. 导航到工作目录。 运行以下脚本以设置全局变量。 
 
     ```PowerShell
@@ -42,8 +44,9 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
     $errorActionPreference    = "stop"
 
     # Note that these values are for test purpose only
-    $_rootCertSubject         = "CN=Azure IoT Root CA"
-    $_intermediateCertSubject = "CN=Azure IoT Intermediate {0} CA"
+    $_rootCertCommonName      = "Azure IoT Root CA"
+    $_rootCertSubject         = "CN=$_rootCertCommonName"
+    $_intermediateCertSubject = "Azure IoT Intermediate {0} CA"
     $_privateKeyPassword      = "123"
 
     $rootCACerFileName          = "./RootCA.cer"
@@ -127,10 +130,10 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
     1. 以下脚本创建 PowerShell 函数，为给定使用者名称和签名机构创建自签名证书。 
     
     ```PowerShell
-    function New-CASelfsignedCertificate([string]$subjectName, [object]$signingCert, [bool]$isASigner=$true)
+    function New-CASelfsignedCertificate([string]$commonName, [object]$signingCert, [bool]$isASigner=$true)
     {
         # Build up argument list
-        $selfSignedArgs =@{"-DnsName"=$subjectName; 
+        $selfSignedArgs =@{"-DnsName"=$commonName; 
                            "-CertStoreLocation"="cert:\LocalMachine\My";
                            "-NotAfter"=(get-date).AddDays(30); 
                           }
@@ -165,10 +168,10 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
     2. 以下 PowerShell 函数使用前面的函数以及 OpenSSL 二进制文件创建 X.509 中间证书。
      
     ```PowerShell
-    function New-CAIntermediateCert([string]$subjectName, [Microsoft.CertificateServices.Commands.Certificate]$signingCert, [string]$pemFileName)
+    function New-CAIntermediateCert([string]$commonName, [Microsoft.CertificateServices.Commands.Certificate]$signingCert, [string]$pemFileName)
     {
-        $certFileName = ($subjectName + ".cer")
-        $newCert = New-CASelfsignedCertificate $subjectName $signingCert
+        $certFileName = ($commonName + ".cer")
+        $newCert = New-CASelfsignedCertificate $commonName $signingCert
         Export-Certificate -Cert $newCert -FilePath $certFileName -Type CERT | Out-Null
         Import-Certificate -CertStoreLocation "cert:\LocalMachine\CA" -FilePath $certFileName | Out-Null
 
@@ -213,29 +216,28 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
 此脚本执行 X.509 证书的所有权证明流程。 
 
 在桌面上的 PowerShell 窗口中运行以下代码：
+   
+   ```PowerShell
+   function New-CAVerificationCert([string]$requestedSubjectName)
+   {
+       $verifyRequestedFileName = ".\verifyCert4.cer"
+       $rootCACert = Get-CACertBySubjectName $_rootCertSubject
+       Write-Host "Using Signing Cert:::" 
+       Write-Host $rootCACert
+   
+       $verifyCert = New-CASelfsignedCertificate $requestedSubjectName $rootCACert $false
 
-    ```PowerShell
-    function New-CAVerificationCert([string]$requestedSubjectName)
-    {
-        $cnRequestedSubjectName = ("CN={0}" -f $requestedSubjectName)
-        $verifyRequestedFileName = ".\verifyCert4.cer"
-        $rootCACert = Get-CACertBySubjectName $_rootCertSubject
-        Write-Host "Using Signing Cert:::" 
-        Write-Host $rootCACert
-    
-        $verifyCert = New-CASelfsignedCertificate $cnRequestedSubjectName $rootCACert $false
+       Export-Certificate -cert $verifyCert -filePath $verifyRequestedFileName -Type Cert
+       if (-not (Test-Path $verifyRequestedFileName))
+       {
+           throw ("Error: CERT file {0} doesn't exist" -f $verifyRequestedFileName)
+       }
+   
+       Write-Host ("Certificate with subject {0} has been output to {1}" -f $requestedSubjectName, (Join-Path (get-location).path $verifyRequestedFileName)) 
+   }
+   New-CAVerificationCert "<your verification code>"
+   ```
 
-        Export-Certificate -cert $verifyCert -filePath $verifyRequestedFileName -Type Cert
-        if (-not (Test-Path $verifyRequestedFileName))
-        {
-            throw ("Error: CERT file {0} doesn't exist" -f $verifyRequestedFileName)
-        }
-    
-        Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnRequestedSubjectName, (Join-Path (get-location).path $verifyRequestedFileName)) 
-    }
-    New-CAVerificationCert "<your verification code>"
-    ```
-    
 此代码将一个证书创建为你的工作目录中名为 *VerifyCert4.cer* 的文件，该证书具有给定的使用者名称且由 CA 签名。 此证书文件有助于向 IoT 中心验证你是否具有此 CA 的签名权限（即私钥）。
 
 
@@ -247,52 +249,51 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
 
 在本地计算机上的 PowerShell 窗口中，运行以下脚本创建此设备的 CA 签名的 X.509 证书：
 
-    ```PowerShell
-    function New-CADevice([string]$deviceName, [string]$signingCertSubject=$_rootCertSubject)
-    {
-        $cnNewDeviceSubjectName = ("CN={0}" -f $deviceName)
-        $newDevicePfxFileName = ("./{0}.pfx" -f $deviceName)
-        $newDevicePemAllFileName      = ("./{0}-all.pem" -f $deviceName)
-        $newDevicePemPrivateFileName  = ("./{0}-private.pem" -f $deviceName)
-        $newDevicePemPublicFileName   = ("./{0}-public.pem" -f $deviceName)
-    
-        $signingCert = Get-CACertBySubjectName $signingCertSubject ## "CN=Azure IoT CA Intermediate 1 CA"
+   ```PowerShell
+   function New-CADevice([string]$deviceName, [string]$signingCertSubject=$_rootCertSubject)
+   {
+       $newDevicePfxFileName = ("./{0}.pfx" -f $deviceName)
+       $newDevicePemAllFileName      = ("./{0}-all.pem" -f $deviceName)
+       $newDevicePemPrivateFileName  = ("./{0}-private.pem" -f $deviceName)
+       $newDevicePemPublicFileName   = ("./{0}-public.pem" -f $deviceName)
+   
+       $signingCert = Get-CACertBySubjectName $signingCertSubject ## "CN=Azure IoT CA Intermediate 1 CA"
 
-        $newDeviceCertPfx = New-CASelfSignedCertificate $cnNewDeviceSubjectName $signingCert $false
-    
-        $certSecureStringPwd = ConvertTo-SecureString -String $_privateKeyPassword -Force -AsPlainText
+       $newDeviceCertPfx = New-CASelfSignedCertificate $deviceName $signingCert $false
+   
+       $certSecureStringPwd = ConvertTo-SecureString -String $_privateKeyPassword -Force -AsPlainText
 
-        # Export the PFX of the cert we've just created.  The PFX is a format that contains both public and private keys.
-        Export-PFXCertificate -cert $newDeviceCertPfx -filePath $newDevicePfxFileName -password $certSecureStringPwd
-        if (-not (Test-Path $newDevicePfxFileName))
-        {
-            throw ("Error: CERT file {0} doesn't exist" -f $newDevicePfxFileName)
-        }
+       # Export the PFX of the cert we've just created.  The PFX is a format that contains both public and private keys.
+       Export-PFXCertificate -cert $newDeviceCertPfx -filePath $newDevicePfxFileName -password $certSecureStringPwd
+       if (-not (Test-Path $newDevicePfxFileName))
+       {
+           throw ("Error: CERT file {0} doesn't exist" -f $newDevicePfxFileName)
+       }
 
-        # Begin the massaging.  First, turn the PFX into a PEM file which contains public key, private key, and other attributes.
-        Write-Host ("When prompted for password by openssl, enter the password as {0}" -f $_privateKeyPassword)
-        openssl pkcs12 -in $newDevicePfxFileName -out $newDevicePemAllFileName -nodes
+       # Begin the massaging.  First, turn the PFX into a PEM file which contains public key, private key, and other attributes.
+       Write-Host ("When prompted for password by openssl, enter the password as {0}" -f $_privateKeyPassword)
+       openssl pkcs12 -in $newDevicePfxFileName -out $newDevicePemAllFileName -nodes
 
-        # Convert the PEM to get formats we can process
-        if ($useEcc -eq $true)
-        {
-            openssl ec -in $newDevicePemAllFileName -out $newDevicePemPrivateFileName
-        }
-        else
-        {
-            openssl rsa -in $newDevicePemAllFileName -out $newDevicePemPrivateFileName
-        }
-        openssl x509 -in $newDevicePemAllFileName -out $newDevicePemPublicFileName
+       # Convert the PEM to get formats we can process
+       if ($useEcc -eq $true)
+       {
+           openssl ec -in $newDevicePemAllFileName -out $newDevicePemPrivateFileName
+       }
+       else
+       {
+           openssl rsa -in $newDevicePemAllFileName -out $newDevicePemPrivateFileName
+       }
+       openssl x509 -in $newDevicePemAllFileName -out $newDevicePemPublicFileName
  
-        Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnNewDeviceSubjectName, (Join-Path (get-location).path $newDevicePemPublicFileName)) 
-    }
-    ```
-    
-   然后使用用于创建设备的友好名称在 PowerShell 窗口中运行 `New-CADevice "<yourTestDevice>"`。 当系统提示输入 CA 私钥的密码时，请输入“123”。 这将在工作目录中创建 <yourTestDevice>.pfx 文件。
+       Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnNewDeviceSubjectName, (Join-Path (get-location).path $newDevicePemPublicFileName)) 
+   }
+   ```
+
+然后使用用于创建设备的友好名称在 PowerShell 窗口中运行 `New-CADevice "<yourTestDevice>"`。 当系统提示输入 CA 私钥的密码时，请输入“123”。 这将在工作目录中创建 <yourTestDevice>.pfx 文件。
 
 ## <a name="clean-up-certificates"></a>清理证书
 
-在开始栏或“设置”应用中，搜索并选择“管理计算机证书”。 删除由 **Azure IoT CA TestOnly** 颁发的任何证书。 这些证书应存在于以下三个位置： 
+在开始栏或“设置”应用中，搜索并选择“管理计算机证书”。 删除 **Azure IoT CA TestOnly*** 颁发的任何证书。 这些证书应存在于以下三个位置： 
 
 * Certificates - Local Computer > Personal > Certificates
 * Certificates - Local Computer > Trusted Root Certification Authorities > Certificates

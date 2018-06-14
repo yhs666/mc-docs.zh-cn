@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure IoT 中心路由消息 (Python)"
-description: "如何使用路由规则和自定义终结点将消息发送到其他后端服务，从而处理 Azure IoT 中心的设备到云消息。"
+title: 使用 Azure IoT 中心路由消息 (Python)
+description: 如何使用路由规则和自定义终结点将消息发送到其他后端服务，从而处理 Azure IoT 中心的设备到云消息。
 services: iot-hub
 documentationcenter: python
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bd9af5f9-a740-4780-a2a6-8c0e2752cf48
 ms.service: iot-hub
 ms.devlang: python
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/22/2018
-ms.date: 03/19/2018
+ms.date: 06/11/2018
 ms.author: v-yiso
-ms.openlocfilehash: 308d9b9e22e458d15a2d4b8f4f2fcb94801f1722
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 81a670f0d4db0d8569e2556eb09e19b5e8608c10
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695077"
 ---
 # <a name="routing-messages-with-iot-hub-python"></a>使用 IoT 中心路由消息 (Python)
 
@@ -260,7 +261,7 @@ ms.lasthandoff: 03/12/2018
 
 在本教程中，介绍了如何使用 IoT 中心的消息路由功能可靠地分派设备到云的消息。
 
-若要查看使用 IoT 中心完成端到端解决方案的示例，请参阅 [Azure IoT 套件][lnk-suite]。
+若要查看使用 IoT 中心完成端到端解决方案的示例，请参阅 [Azure IoT 远程监视解决方案加速器][lnk-suite]。
 
 若要了解有关使用 IoT 中心开发解决方案的详细信息，请参阅 [IoT 中心开发人员指南]。
 

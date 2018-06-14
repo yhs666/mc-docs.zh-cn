@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 03/19/2018
-ms.date: 04/12/2018
+ms.date: 05/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3ffa3c109c1f684ea3b2ae7f2b812f1cede38d16
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 597cf58461ada1a378a675bcc1c3d0ba983da32d
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567299"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Durable Functions 中的扇出/扇入方案 - 云备份示例
 
@@ -67,7 +68,9 @@ Durable Functions 方法提供前面所述的所有优势，并且其系统开�
 }
 ```
 
-实现业务流程协调程序函数的代码如下：
+下面的代码可实现业务流程协调程序函数：
+
+### <a name="c"></a>C#
 
 ```c#
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -104,6 +107,34 @@ public static async Task<long> Run(DurableOrchestrationContext backupContext)
 }
 ```
 
+### <a name="javascript-functions-v2-only"></a>JavaScript（仅限 Functions v2）
+
+```JavaScript
+const df = require("durable-functions");
+
+module.exports = df(function*(context){
+    const rootDirectory = context.df.getInput();
+    if (!rootDirectory) {
+        throw new Error("A directory path is required as an input.");
+    }
+
+    const files = yield context.df.callActivityAsync("E2_GetFileList", rootDirectory);
+
+    // Backup Files and save Promises into array
+    const tasks = [];
+    for (const file of files) {
+        tasks.push(context.df.callActivityAsync("E2_CopyFileToBlob", file));
+    }
+
+    // wait for all the Backup Files Activities to complete, sum total bytes
+    const results = yield context.df.Task.all(tasks);
+    const totalBytes = results.reduce((prev, curr) => prev + curr, 0);
+
+    // return results;
+    return totalBytes;
+});
+```
+
 本质上，该业务流程协调程序函数执行以下操作：
 
 1. 采用 `rootDirectory` 值作为输入参数。
@@ -112,9 +143,11 @@ public static async Task<long> Run(DurableOrchestrationContext backupContext)
 4. 等待所有上传完成。
 5. 返回已上传到 Azure Blob 存储的总字节数。
 
-请注意 `await Task.WhenAll(tasks);` 行。 对 `E2_CopyFileToBlob` 函数的所有调用未进入等待状态。 这是有意而为的，目的是让这些调用同时运行。 将此任务数组传递给 `Task.WhenAll` 时，会获得所有复制操作完成之前不会完成的任务。 如果熟悉 .NET 中的任务并行库 (TPL) 的话，则对此过程也不会陌生。 差别在于，这些任务可在多个 VM 上同时运行，Durable Functions 扩展可确保端到端执行能够弹性应对进程回收。
+请注意 `await Task.WhenAll(tasks);` (C#) 和 `yield context.df.Task.all(tasks);` (JS) 所在的行。 对 `E2_CopyFileToBlob` 函数的所有调用未进入等待状态。 这是有意而为的，目的是让这些调用同时运行。 将此任务数组传递给 `Task.WhenAll` 时，会获得所有复制操作完成之前不会完成的任务。 如果熟悉 .NET 中的任务并行库 (TPL) 的话，则对此过程也不会陌生。 差别在于，这些任务可在多个 VM 上同时运行，Durable Functions 扩展可确保端到端执行能够弹性应对进程回收。
 
-完成 `Task.WhenAll` 并进入等待中状态后，我们知道所有函数调用都已完成，并已收到返回值。 每次调用 `E2_CopyFileToBlob` 都会返回已上传字节数，因此，将所有这些返回值相加就能计算出字节数总和。
+这些任务非常类似于 JavaScript promise 的概念。 但是，`Promise.all` 与 `Task.WhenAll` 有一些差异。 `Task.WhenAll` 的概念已移植到 `durable-functions` JavaScript 模块并专用于它。
+
+完成 `Task.WhenAll` 并进入等待中状态（或从 `context.df.Task.all` 输出）后，我们知道所有函数调用都已完成，并已收到返回值。 每次调用 `E2_CopyFileToBlob` 都会返回已上传字节数，因此，将所有这些返回值相加就能计算出字节数总和。
 
 ## <a name="helper-activity-functions"></a>帮助器活动函数
 
@@ -135,6 +168,8 @@ public static async Task<long> Run(DurableOrchestrationContext backupContext)
 
 下面是实现：
 
+### <a name="c"></a>C#
+
 ```c#
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
 
@@ -146,6 +181,36 @@ public static string[] Run(string rootDirectory, TraceWriter log)
     return files;
 }
 ```
+
+### <a name="javascript-functions-v2-only"></a>JavaScript（仅限 Functions v2）
+
+```JavaScript
+const readdirp = require("readdirp");
+
+module.exports = function (context, rootDirectory) {
+    context.log(`Searching for files under '${rootDirectory}'...`);
+    const allFilePaths = [];
+
+    readdirp(
+        {root: rootDirectory, entryType: 'all'},
+        function (fileInfo) {
+            if (!fileInfo.stat.isDirectory()) {
+                allFilePaths.push(fileInfo.fullPath);
+            }
+        },
+        function (err, res) {
+            if (err) {
+                throw err;
+            }
+
+            context.log(`Found ${allFilePaths.length} under ${rootDirectory}.`);
+            context.done(null, allFilePaths);
+        }
+    );
+};
+```
+
+`E2_GetFileList` 的 JavaScript 实现使用 `readdirp` 模块以递归方式读取目录结构。
 
 > [!NOTE]
 > 你可能会疑惑，为何不直接将此代码放入业务流程协调程序函数？ 可以这样做，不过，这会破坏业务流程协调程序函数的基本规则，即，它们不得执行 I/O，包括本地文件系统的访问。
@@ -165,7 +230,9 @@ public static string[] Run(string rootDirectory, TraceWriter log)
 }
 ```
 
-实现也十分直截了当。 本示例恰好使用了 Azure Functions 绑定的某些高级功能（即使用了 `Binder` 参数），但对于本演练，无需考虑这些细节。
+C# 实现也十分直截了当。 本示例恰好使用了 Azure Functions 绑定的某些高级功能（即使用了 `Binder` 参数），但对于本演练，无需考虑这些细节。
+
+### <a name="c"></a>C#
 
 ```c#
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -198,6 +265,49 @@ public static async Task<long> Run(
     
     return byteCount;
 }
+```
+
+### <a name="javascript-functions-v2-only"></a>JavaScript（仅限 Functions v2）
+
+JavaScript 实现无法访问 Azure Functions 的 `Binder` 功能，因此[用于 Node 的 Azure 存储 SDK](https://github.com/Azure/azure-storage-node) 将取而代之。 请注意，该 SDK 需要 `AZURE_STORAGE_CONNECTION_STRING` 应用设置。
+
+```JavaScript
+const fs = require("fs");
+const path = require("path");
+const storage = require("azure-storage");
+
+module.exports = function (context, filePath) {
+    const container = "backups";
+    const root = path.parse(filePath).root;
+    const blobPath = filePath
+        .substring(root.length)
+        .replace("\\", "/");
+    const outputLocation = `backups/${blobPath}`;
+    const blobService = storage.createBlobService();
+
+    blobService.createContainerIfNotExists(container, (error) => {
+        if (error) {
+            throw error;
+        }
+
+        fs.stat(filePath, function (error, stats) {
+            if (error) {
+                throw error;
+            }
+            context.log(`Copying '${filePath}' to '${outputLocation}'. Total bytes = ${stats.size}.`);
+
+            const readStream = fs.createReadStream(filePath);
+
+            blobService.createBlockBlobFromStream(container, blobPath, readStream, stats.size, function (error) {
+                if (error) {
+                    throw error;
+                }
+
+                context.done(null, stats.size);
+            });
+        });
+    });
+};
 ```
 
 实现从磁盘加载文件，并以异步方式将内容流式传输到“backups”容器中同名的 Blob。 返回值为已复制到存储的字节数，业务流程协调程序函数随后会使用此数字来计算总和。
@@ -349,5 +459,6 @@ namespace VSSample
 
 ## <a name="next-steps"></a>后续步骤
 
-此示例演示如何使用[持久计时器](durable-functions-timers.md)实现监视模式。
+此示例说明了如何实现扇出/扇入模式。 下一个示例演示如何使用[持久计时器](durable-functions-timers.md)实现监视模式。
 
+<!-- Update_Description: code update -->

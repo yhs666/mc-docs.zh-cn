@@ -16,11 +16,12 @@ ms.workload: big-compute
 origin.date: 10/14/2016
 ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 13ca1f56c7245a3d88ca389d726bac9792eaa2bd
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 0834f15fe13156cdf91204d757436e6cd7aa5226
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34568781"
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>在 Azure 中将按需“突发”节点添加到 HPC Pack 群集
 如果在 Azure 中设置了 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 群集，则可能希望有一种方法能够快速增加/减少群集容量，而无需维护一组预配置的计算节点 VM。 本文介绍了如何按需将“突发”节点（云服务中运行的辅助角色实例）作为计算资源添加到 Azure 中的头节点。 
@@ -41,7 +42,8 @@ ms.lasthandoff: 05/15/2018
   > 
   > 
 * **Azure 订阅** - 若要添加 Azure 节点，可选择部署头节点 VM 时所用的相同订阅，还可选用一个或多个不同订阅。
-* **内核配额** - 可能需要增加核心配额，尤其是在选择部署具有多核大小的多个 Azure 节点时。 若要增加配额，可免费[建立联机客户支持请求](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)。
+* **内核配额** - 可能需要增加核心配额，尤其是在选择部署具有多核大小的多个 Azure 节点时。 若要增加配额，可免费 [建立联机客户支持请求](https://www.azure.cn/support/support-ticket-form) 。
+<!-- URL Should be https://www.azure.cn/support/support-ticket-form to replace https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/ -->
 
 ## <a name="step-1-create-a-cloud-service-and-a-storage-account-for-the-azure-nodes"></a>步骤 1：为 Azure 节点创建云服务和存储帐户
 使用 Azure 门户或等效工具来配置 Azure 节点部署时所需的以下资源：

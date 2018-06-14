@@ -1,32 +1,35 @@
 ---
-title: "Azure PowerShell 脚本示例 - 从 VHD 创建快照以在短时间内创建多个相同的托管磁盘 | Azure"
-description: "Azure PowerShell 脚本示例 - 从 VHD 创建快照，在短时间内创建多个相同的托管磁盘"
+title: Azure PowerShell 脚本示例 - 从 VHD 创建快照以在短时间内创建多个相同的托管磁盘 | Azure
+description: Azure PowerShell 脚本示例 - 从 VHD 创建快照，在短时间内创建多个相同的托管磁盘
 services: virtual-machines-windows
 documentationcenter: storage
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 10/30/2017
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 371ec5045b293c92cc20f1572385cbb5b9de0d80
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 7b6590f95e810e16247d65a44b4c3ca291f4648d
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702756"
 ---
 # <a name="create-a-snapshot-from-a-vhd-to-create-multiple-identical-managed-disks-in-small-amount-of-time-with-powershell"></a>使用 PowerShell 从 VHD 创建快照，在短时间内创建多个相同的托管磁盘
 
 此脚本在相同或不同订阅的存储帐户中从 VHD 文件创建快照。 使用此脚本将专用 VHD（未通用化/未进行 sysprep）导入到某快照，然后使用该快照在短时间内创建多个相同的托管磁盘。 同时使用它将数据 VHD 导入到某快照，然后使用该快照在短时间内创建多个托管磁盘。 
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] 如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块版本 4.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块版本 4.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -72,7 +75,7 @@ New-AzureRmSnapshot -Snapshot $snapshotConfig -ResourceGroupName $resourceGroupN
 
 此脚本使用以下命令在不同订阅中从 VHD 创建托管磁盘。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzureRmDiskConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/New-AzureRmDiskConfig) | 创建用于磁盘创建的磁盘配置。 包括存储类型、位置、存储父 VHD 的存储帐户的资源 ID 以及父 VHD 的 VHD URI。 |
 | [New-AzureRmDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/New-AzureRmDisk) | 使用磁盘配置、磁盘名称和作为参数传递的资源组名称创建磁盘。 |
@@ -81,9 +84,9 @@ New-AzureRmSnapshot -Snapshot $snapshotConfig -ResourceGroupName $resourceGroupN
 
 [从快照创建托管磁盘](virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-[通过将托管磁盘附加为 OS 磁盘来创建虚拟机](./virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[通过将托管磁盘附加为 OS 磁盘创建虚拟机](./virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
-可以在 [Azure Windows VM 文档](../../virtual-machines/windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
+可以在 [Azure Windows VM 文档](../windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
 <!--Update_Description: update meta properties-->

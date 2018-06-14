@@ -3,23 +3,24 @@ title: 了解 Azure 中的资源访问权限 | Microsoft Docs
 description: 本主题介绍有关使用订阅管理员在整个 Azure 门户中控制资源访问权限的概念
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/06/2017
-ms.date: 05/02/2018
+ms.date: 05/28/2018
 ms.author: v-junlch
 ms.custom: it-pro;
-ms.openlocfilehash: 3414600cbf8f2a59f1030c1029ed93532e207e21
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.openlocfilehash: cea240d928454c911cde32da9637fb7797f5db07
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559502"
 ---
 # <a name="understanding-resource-access-in-azure"></a>了解 Azure 中的资源访问权限
 
@@ -57,3 +58,4 @@ Azure 中的访问控制首先体现在计费方面。 Azure 帐户的所有者�
 [3]: ./media/rbac-and-directory-admin-roles/IC707933.png
 [4]: ./media/rbac-and-directory-admin-roles/IC707934.png
 
+<!-- Update_Description: update metedata properties -->

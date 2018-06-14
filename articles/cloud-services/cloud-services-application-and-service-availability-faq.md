@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure 云服务的应用程序和服务可用性常见问题解答 | Azure"
-description: "本文列出 Microsoft Azure 云服务的常见应用程序和服务可用性问题。"
+title: Microsoft Azure 云服务的应用程序和服务可用性常见问题解答 | Azure
+description: 本文列出 Microsoft Azure 云服务的常见应用程序和服务可用性问题。
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
@@ -13,14 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/03/2017
+origin.date: 05/11/2018
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 2405541b752a1cf5fb79f130316b7d175090d02e
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 06/11/2018
+ms.openlocfilehash: 09a290579ec6c09eef7a5928ebcf74d50784f5d3
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695006"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的应用程序和服务可用性问题：常见问题解答 (FAQ)
 

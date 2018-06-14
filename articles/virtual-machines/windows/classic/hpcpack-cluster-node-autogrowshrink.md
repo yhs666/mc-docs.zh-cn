@@ -1,8 +1,8 @@
 ---
-title: "自动缩放 HPC Pack 群集节点 | Azure"
-description: "自动扩展和收缩 Azure 中的 HPC Pack 群集计算节点数"
+title: 自动缩放 HPC Pack 群集节点 | Azure
+description: 自动扩展和收缩 Azure 中的 HPC Pack 群集计算节点数
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 origin.date: 12/08/2016
-ms.date: 12/18/2017
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 08b3d7898410d99609c9ad5ab8c9953f8c60373f
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 698b624480fca9e00cbc08450e815ff02ce79af4
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702781"
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>在 Azure 中根据群集工作负荷自动扩展和收缩 HPC Pack 群集资源
 如果在 HPC Pack 群集中部署 Azure“突发”节点，或者在 Azure VM 中创建 HPC Pack 群集，可能需要借助某种方法根据群集上的工作负荷自动扩展或收缩群集资源（例如节点或核心）。 以这种方法缩放群集资源可以更有效地使用 Azure 资源并控制其成本。
@@ -50,13 +51,13 @@ ms.lasthandoff: 02/13/2018
     ```powershell
         cd $env:CCP_HOME\bin
 
-        Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+        Connect-AzureRmAccount -Environment AzureChinaCloud
     ```
 
     如果帐户存在于多个 Azure Active Directory 租户或 Azure 订阅中，则可以运行以下命令来选择正确的租户和订阅：
 
     ```powershell
-        Login-AzureRMAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
+        Connect-AzureRmAccount -Environment AzureChinaCloud -TenantId <TenantId> -SubscriptionId <subscriptionId>
     ```     
 
     运行以下命令来查看当前所选的租户和订阅：
@@ -185,12 +186,12 @@ Set-HpcClusterProperty -ExcludeNodeGroups <group1,group2,group3>
 * **HPC Pack 2012 R2 Update 1 或更高版本群集**：**AzureAutoGrowShrink.ps1** 脚本已安装在 %CCP_HOME%bin 文件夹中。 群集头节点既可以部署在本地，也可以部署在 Azure VM 中。 请参阅[使用 HPC Pack 设置混合群集](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)，开始使用本地头节点和 Azure“突发”节点。 请参阅 [HPC Pack IaaS 部署脚本](hpcpack-cluster-powershell-script.md)，在 Azure VM 中快速部署 HPC Pack 群集，或使用 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster/)。
 * **Azure PowerShell 1.4.0** - 该脚本当前依赖于此特定版本的 Azure PowerShell。
 * **对于具有 Azure 突发节点的群集** - 在安装了 HPC Pack 的客户端计算机上或在头节点上运行脚本。 如果在客户端计算机上运行，请确保将变量 $env:CCP_SCHEDULER 设置为指向头节点。 Azure“突发”节点必须已添加到群集，但是可以处于“未部署”状态。
-* **对于 Azure VM（Resource Manager 部署模型）中部署的群集** - 对于 Resource Manager 部署模型中部署的 Azure VM 群集，该脚本支持两种 Azure 身份验证方法：通过运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 登录到 Azure 帐户以每次运行该脚本，或者将服务主体配置为使用证书进行身份验证。 HPC Pack 提供了脚本 **ConfigARMAutoGrowShrinkCert.ps**，用于使用证书创建服务主体。 此脚本将创建 Azure Active Directory (Azure AD) 应用程序和服务主体，并将参与者角色分配给服务主体。 若要运行脚本，以管理员身份启动 Azure PowerShell 并运行以下命令：
+* **对于 Azure VM（Resource Manager 部署模型）中部署的群集** - 对于 Resource Manager 部署模型中部署的 Azure VM 群集，该脚本支持两种 Azure 身份验证方法：通过运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 登录到 Azure 帐户以每次运行该脚本，或者将服务主体配置为使用证书进行身份验证。 HPC Pack 提供了脚本 **ConfigARMAutoGrowShrinkCert.ps**，用于使用证书创建服务主体。 此脚本将创建 Azure Active Directory (Azure AD) 应用程序和服务主体，并将参与者角色分配给服务主体。 若要运行脚本，以管理员身份启动 Azure PowerShell 并运行以下命令：
 
     ```powershell
     cd $env:CCP_HOME\bin
 
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -Environment AzureChinaCloud
 
     .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName "YourHpcPackAppName" -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -PfxFile "d:\yourcertificate.pfx"
     ```
@@ -251,4 +252,4 @@ AzureAutoGrowShrink.ps1 -UseLastConfigurations [-ArgFile <String>] [-LogFilePref
 ```powershell
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
-<!-- Update_Description: add content of a cluster with a head node in Azure (Resource Manager deployment model) -->
+<!-- Update_Description: update meta properties, wording update, update link -->

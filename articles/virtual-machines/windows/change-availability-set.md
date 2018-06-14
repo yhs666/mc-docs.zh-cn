@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 09/15/2016
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: fe7b8dc320ed4e9de09b5401c6a38eb4817db64c
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 73415b5cc779617410cb9500a00bfd110583ee09
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702777"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>更改 Windows VM 的可用性集
 以下步骤说明如何使用 Azure PowerShell 来更改 VM 的可用性集。 只能在创建 VM 时将 VM 添加到可用性集。 如果要更改可用性集，必须将虚拟机删除，并重新创建虚拟机。 

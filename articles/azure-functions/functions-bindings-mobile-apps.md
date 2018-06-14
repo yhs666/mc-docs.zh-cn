@@ -14,13 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 11/21/2017
-ms.date: 04/16/2018
+ms.date: 05/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 723dc81da3739adc55d946b938efd78d74d5dee0
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: 01e11e96738e41acf63ce3b42d7caf35b88a81f1
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567343"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions 的移动应用绑定 
 
@@ -35,6 +36,8 @@ ms.lasthandoff: 04/19/2018
 [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 包中提供了移动应用绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="input"></a>输入
 
@@ -331,3 +334,4 @@ public static object Run(
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
+<!-- Update_Description: wording update -->

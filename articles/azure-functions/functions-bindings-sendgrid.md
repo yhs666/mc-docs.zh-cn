@@ -11,13 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 11/29/2017
-ms.date: 04/16/2018
+ms.date: 05/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: ec78b82bf96b98e32d53273730d3b25a5d713961
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: 3e6d957117fe9820bf45b503e5ba23a6f59e73c8
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567339"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 绑定
 
@@ -30,6 +31,8 @@ ms.lasthandoff: 04/19/2018
 [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet 包中提供了 SendGrid 绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="example"></a>示例
 
@@ -200,3 +203,4 @@ public static void Run(
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
+<!-- Update_Description: wording update -->

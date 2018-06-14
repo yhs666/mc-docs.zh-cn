@@ -5,16 +5,17 @@ services: backup
 author: markgalioto
 ms.author: v-junlch
 origin.date: 02/21/2018
-ms.date: 05/15/2018
+ms.date: 05/28/2018
 ms.topic: tutorial
 ms.service: backup
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 8a77ab3e73d36b7475660a70d7b4c0b0f3fb5356
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: bd989cf4d697b0b2562ee2eccbf43063e6820ab7
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559416"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>有关如何备份 Azure 文件的问题
 本文回答了有关如何备份 Azure 文件的常见问题。 某些答案提供内含全面信息的文章的链接。 还可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
@@ -24,7 +25,7 @@ ms.lasthandoff: 05/18/2018
 ## <a name="configuring-the-backup-job-for-azure-files"></a>为 Azure 文件配置备份作业
 
 ### <a name="why-cant-i-see-some-of-my-storage-accounts-i-want-to-protect-that-contain-valid-azure-file-shares-br"></a>为什么我看不到需要保护的部分存储帐户？这些帐户中包含的 Azure 文件共享都是有效的。 <br/>
-在预览期间，Azure 文件共享的备份并不支持所有类型的存储帐户。 请参阅[此处](troubleshoot-azure-files.md#preview-boundaries)的列表，了解一系列受支持的存储帐户。
+在预览期间，Azure 文件共享的备份并不支持所有类型的存储帐户。 请参阅[此处](troubleshoot-azure-files.md#preview-boundaries)的列表，了解一系列受支持的存储帐户。 还有一种可能是，要查找的存储帐户已受保护或已注册到另一保管库中。 从保管库中[注销](troubleshoot-azure-files.md#configuring-backup)可发现其他保管库中要保护的存储帐户。
 
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>尝试配置备份时，为什么看不到存储帐户中的部分 Azure 文件共享？ <br/>
 检查是否已在同一恢复服务保管库中对 Azure 文件共享进行保护，或者已在最近将其删除。
@@ -64,7 +65,7 @@ Azure 文件共享的备份不支持启用了虚拟网络的存储帐户。 在�
 ## <a name="manage-backup"></a>管理备份
 
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-it-br"></a>能否访问 Azure 备份生成的快照并将其装载？ <br/>
-可以访问 Azure 备份生成的所有快照，只需在门户、PowerShell 或 CLI 中查看快照即可。 若要详细了解 Azure 文件共享快照，请参阅 [Azure 文件的共享快照（预览版）概述](../storage/files/storage-snapshots-files.md)。
+可以访问 Azure 备份生成的所有快照，只需在门户、PowerShell 或 CLI 中查看快照即可。 
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups-br"></a>可以为备份配置的最长保留期是多长？ <br/>
 Azure 文件共享备份允许保留每日备份长达 120 天。
@@ -78,3 +79,4 @@ Azure 文件共享备份允许保留每日备份长达 120 天。
 -  [Azure VM 备份常见问题解答](backup-azure-vm-backup-faq.md)
 -  [Azure 备份代理常见问题解答](backup-azure-file-folder-backup-faq.md)
 
+<!-- Update_Description: wording update -->

@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/22/2017
-ms.date: 03/19/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 138ef52b6e0287e493d9e119763111ee41fd3710
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 5b8974910374acf6962694678e6bc30d868814d0
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702829"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>配置一个或多个 Always On 可用性组侦听器 - Resource Manager
 本主题说明如何：
@@ -49,10 +50,10 @@ ms.lasthandoff: 03/17/2018
 > 
 > 
 
-以下 PowerShell 脚本创建内部负载均衡器、配置负载均衡规则，并设置负载均衡器的 IP 地址。 要运行该脚本，请打开 Windows PowerShell ISE，然后将脚本粘贴到“脚本”窗格中。 使用 `Login-AzureRMAccount` 登录到 PowerShell。 如果有多个 Azure 订阅，请使用 `Select-AzureRmSubscription ` 设置订阅。 
+以下 PowerShell 脚本创建内部负载均衡器、配置负载均衡规则，并设置负载均衡器的 IP 地址。 要运行该脚本，请打开 Windows PowerShell ISE，然后将脚本粘贴到“脚本”窗格中。 使用 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 登录到 PowerShell。 如果有多个 Azure 订阅，请使用 `Select-AzureRmSubscription ` 设置订阅。 
 
 ```powershell
-# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+# Connect-AzureRmAccount -Environment AzureChinaCloud
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<Resource Group Name>" # Resource group name
@@ -99,8 +100,9 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a> 示例脚本：使用 PowerShell 将 IP 地址添加到现有负载均衡器
-若要使用多个可用性组，请向负载均衡器添加其他 IP 地址。 每个 IP 地址都需要有自身的负载均衡规则、探测端口和前端端口。
+<a name="Add-IP"></a>
+##  <a name="example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a>示例脚本：使用 PowerShell 将 IP 地址添加到现有负载均衡器
+要使用多个可用性组，请将附加的 IP 地址添加到负载均衡器。 每个 IP 地址都需要有自身的负载均衡规则、探测端口和前端端口。
 
 前端端口是应用程序用来连接到 SQL Server 实例的端口。 不同可用性组的 IP 地址可以使用相同的前端端口。
 
@@ -113,7 +115,7 @@ foreach($VMName in $VMNames)
 以下脚本将新的 IP 地址添加到现有负载均衡器。 ILB 使用侦听器端口作为负载均衡前端端口。 此端口可以是 SQL Server 正在侦听的端口。 对于 SQL Server 的默认实例，此端口为 1433。 可用性组的负载均衡规则需要浮动 IP（直接服务器返回），因此后端端口与前端端口相同。 请更新环境的变量。 
 
 ```powershell
-# Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+# Connect-AzureRmAccount -Environment AzureChinaCloud
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<ResourceGroup>"          # Resource group name

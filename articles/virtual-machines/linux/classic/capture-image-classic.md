@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2017
-ms.date: 05/14/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 03569d44f4b4600bdc672eb24672e9944d5578ff
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: c288dd4c7e5cd9e90782d354df3a0422379650c3
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702795"
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>如何捕获经典 Linux 虚拟机以用作映像
 > [!IMPORTANT]
@@ -108,11 +109,11 @@ Azure 在“映像”下存储映像 ，以及任何已上传的映像。 有关
 
 此外，也可以使用 [Azure 门户](http://portal.azure.cn)创建自定义 VM，方法是使用**映像**方法并选择所创建的映像。 有关详细信息，请参阅[如何创建自定义 VM][How to Create a Custom Virtual Machine]。
 
-**另请参阅：**[Azure Linux 代理用户指南](../agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+**另请参阅：**[Azure Linux 代理用户指南](../../extensions/agent-linux.md)
 
 [About Virtual Machine Images in Azure]:../../virtual-machines-linux-classic-about-images.md
 [How to Create a Custom Virtual Machine]:create-custom-classic.md
 [How to Attach a Data Disk to a Virtual Machine]:attach-disk-classic.md
 [How to Create a Linux Virtual Machine]:create-custom-classic.md
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, update link -->

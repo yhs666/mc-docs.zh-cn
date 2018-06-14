@@ -1,11 +1,11 @@
 ---
-title: "如何使用服务总线主题 (Ruby) | Azure"
-description: "了解如何在 Azure 中使用服务总线主题和订阅。 相关代码示例是针对 Ruby 应用程序编写的。"
+title: 如何使用服务总线主题 (Ruby) | Azure
+description: 了解如何在 Azure 中使用服务总线主题和订阅。 相关代码示例是针对 Ruby 应用程序编写的。
 services: service-bus
 documentationCenter: ruby
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3ef2295e-7c5f-4c54-a13b-a69c8045d4b6
 ms.service: service-bus
 ms.workload: na
@@ -15,11 +15,12 @@ ms.topic: article
 origin.date: 08/10/2017
 ms.author: v-yiso
 ms.date: 09/18/2017
-ms.openlocfilehash: 90dbb1198471c1e27ddd3f7e46dc61973ce80694
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.openlocfilehash: 1a14209fa0faaa246bca32c75b8a55e6970cfc0e
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695114"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>如何通过 Ruby 使用服务总线主题和订阅
  
@@ -122,7 +123,7 @@ rule = azure_service_bus_service.create_rule(rule)
 end
 ```
 
-服务总线主题在标准层中支持的最大消息大小为 256 KB。 标头最大为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小是在创建时定义的，上限为 5 GB。
+服务总线主题在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小是在创建时定义的，上限为 5 GB。
 
 ## <a name="receive-messages-from-a-subscription"></a>从订阅接收消息
 
@@ -144,7 +145,7 @@ azure_service_bus_service.delete_subscription_message(message)
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>如何处理应用程序崩溃和不可读消息
 
-Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或消息处理问题中恢复。 如果接收方应用程序因某种原因无法处理消息，则它可以对 **Azure::ServiceBusService** 对象调用 **unlock\_subscription\_message()** 方法。 这会导致服务总线解锁订阅中的消息并使其能够再次被同一个消费应用程序或其他消费应用程序接收。
+Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或消息处理问题中恢复。 如果接收方应用程序因某种原因无法处理消息，则它可以对 **Azure::ServiceBusService** 对象调用 **unlock\_subscription\_message()** 方法。 这会导致服务总线解锁订阅中的消息并使其能够重新被同一个正在使用的应用程序或其他正在使用的应用程序接收。
 
 还存在与订阅中已锁定消息关联的超时，并且如果应用程序无法在锁定超时过期之前处理消息（例如，如果应用程序崩溃），服务总线将自动解锁该消息并使它可再次被接收。
 

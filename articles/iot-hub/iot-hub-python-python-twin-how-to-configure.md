@@ -15,11 +15,12 @@ ms.workload: na
 origin.date: 01/12/2018
 ms.date: 05/07/2018
 ms.author: v-yiso
-ms.openlocfilehash: d040f0501b087da91882f0e6bcee85734508066b
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 34a3d29b04adcc2a09dc79339d0a9d732d15cecb
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695076"
 ---
 # <a name="use-desired-properties-to-configure-devices-python"></a>使用所需属性配置设备 (Python)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
@@ -160,7 +161,7 @@ ms.lasthandoff: 04/28/2018
 1. 运行设备应用：
    
     ```cmd/sh
-    node SimulateDeviceConfiguration.py
+    python SimulateDeviceConfiguration.py
     ```
    
     此时会显示消息 `Device twins updated.`。 使应用保持运行状态。

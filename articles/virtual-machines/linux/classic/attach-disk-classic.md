@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/09/2017
-ms.date: 05/14/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 48972b5945d302a481e3275ef7f68e7ffd188d9a
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 06da592baf05dd7ca8a252d9cdd0dfe36ce0db79
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702810"
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>如何将数据磁盘附加到 Linux 虚拟机
 > [!IMPORTANT] 
@@ -233,8 +234,8 @@ ms.lasthandoff: 05/15/2018
 * [在 Azure 中的 Linux VM 上配置 LVM](../configure-lvm.md)
 
 <!--Link references-->
-[Agent]:../agent-user-guide.md
+[Agent]:../../extensions/agent-linux.md
 [Logon]:../mac-create-ssh-keys.md
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, update link -->
 

@@ -6,14 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines-windows
 ms.topic: include
 origin.date: 03/11/2018
-ms.date: 05/14/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b3719e86374dd0c5f2321d999d5f7433ffd743a5
-ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
+ms.openlocfilehash: be3261af59ac2e165c1867ab005e5300f32b941e
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34723131"
 ---
 创建 Azure 虚拟机 (VM) 时，必须创建[虚拟网络](../articles/virtual-network/virtual-networks-overview.md) (VNet) 或使用现有的 VNet。 此外，还需要确定如何在 VNet 上访问 VM。 [在创建资源之前必须做好规划](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)，确保了解[网络资源的限制](../articles/azure-subscription-service-limits.md#networking-limits)。
 
@@ -96,7 +97,7 @@ ms.lasthandoff: 05/11/2018
 
 ## <a name="network-security-groups"></a>网络安全组
 
-[网络安全组 (NSG)](../articles/virtual-network/virtual-networks-nsg.md) 包含一系列访问控制列表 (ACL) 规则，这些规则可以允许或拒绝流向子网和/或 NIC 的网络流量。 NSG 可与子网或者已连接到子网的各个 NIC 相关联。 当 NSG 与某个子网相关联时，ACL 规则应用到该子网中的所有 VM。 另外，可以通过将 NSG 直接关联到 NIC，对流向单个 NIC 的流量进行限制。
+[网络安全组 (NSG)](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) 包含一系列访问控制列表 (ACL) 规则，这些规则可以允许或拒绝流向子网和/或 NIC 的网络流量。 NSG 可与子网或者已连接到子网的各个 NIC 相关联。 当 NSG 与某个子网相关联时，ACL 规则应用到该子网中的所有 VM。 另外，可以通过将 NSG 直接关联到 NIC，对流向单个 NIC 的流量进行限制。
 
 NSG 包含两种类型的规则：入站规则和出站规则。 在每组中，规则的优先级必须保持唯一。 每个规则包含以下属性：协议、源和目标端口范围、地址前缀、流量方向、优先级和访问类型。 
 
@@ -104,7 +105,7 @@ NSG 包含两种类型的规则：入站规则和出站规则。 在每组中，
 
 将 NSG 关联到 NIC 时，NSG 中的网络访问规则只会应用到该 NIC。 如果 NSG 已应用到包含多个 NIC 的 VM 中的单个 NIC，则它不会影响流向其他 NIC 的流量。 可将不同的 NSG 关联到 NIC（或 VM，具体取决于部署模型）以及 NIC 或 VM 绑定到的子网。 优先级是根据流量方向指定的。
 
-规划 VM 和 VNet 时，请务必[规划](../articles/virtual-network/virtual-networks-nsg.md#planning) NSG。
+规划 VM 和 VNet 时，请务必[规划](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) NSG。
 
 下表列出了可用于创建网络安全组的方法。
 

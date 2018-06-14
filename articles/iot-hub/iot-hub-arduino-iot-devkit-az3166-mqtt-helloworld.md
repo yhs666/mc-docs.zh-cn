@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/02/2018
-ms.date: 05/07/2018
+ms.date: 06/11/2018
 ms.author: v-yiso
-ms.openlocfilehash: a057050b087a3802a4521c883888bb73a822cd43
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 5e7e10c6d3f7a691e2361b94cceb711b647c4cc5
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695115"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>向 MQTT 服务器发送消息
 
@@ -47,20 +48,13 @@ ms.lasthandoff: 04/28/2018
 2. 启动 VS Code。
 
 3. 将 DevKit 连接到计算机。
-    VS Code 将自动检测 DevKit 并打开以下页面：
-    * DevKit 简介页面。
-    * Arduino 示例：DevKit 入门练习示例。
-
-    ![mini-solution-vscode](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/vscode-start.png)
 
 ## <a name="open-the-mqttclient-sample"></a>打开 MQTTClient 示例
 
 展开左侧的“ARDUINO 示例”部分，浏览到“MXCHIP AZ3166 的示例 > MQTT”，然后选择“MQTTClient”。 此时会打开一个新的 VS Code 窗口，其中包含一个项目文件夹。
 
-![示例文件夹](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/examples.png)
-
 > [!NOTE]
-> 如果无意中关闭了窗格，可以重新打开它。 使用 `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) 打开命令面板，键入“Arduino”，然后找到并选择“Arduino: Examples”。
+> 也可以从命令面板打开示例。 使用 `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) 打开命令面板，键入“Arduino”，然后找到并选择“Arduino: Examples”。
 
 ## <a name="build-and-upload-the-arduino-sketch-to-the-devkit"></a>生成 Arduino 草图并将其上传到 DevKit
 
@@ -101,5 +95,5 @@ ms.lasthandoff: 04/28/2018
 
 现在，你已学习了如何将 MXChip Iot DevKit 配置为 MQTT 客户端以及如何使用 MQTT 客户端库向 MQTT 代理发送消息，下面是建议的后续步骤：
 
-* [Azure IoT 套件概述](/iot-suite/)
-* [将 MXChip IoT DevKit 设备连接到 Microsoft IoT Central 应用程序](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Azure IoT 远程监视解决方案加速器概述](/iot-suite/)
+* [将 MXChip IoT DevKit 设备连接到 Azure IoT Central 应用程序](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

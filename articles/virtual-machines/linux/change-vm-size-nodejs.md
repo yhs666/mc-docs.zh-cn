@@ -1,27 +1,28 @@
 ---
-title: "如何使用 Azure CLI 1.0 调整 Linux VM 的大小 | Azure"
-description: "如何通过更改 VM 大小来增加或减少 Linux 虚拟机。"
+title: 如何使用 Azure CLI 1.0 调整 Linux VM 的大小 | Azure
+description: 如何通过更改 VM 大小来增加或减少 Linux 虚拟机。
 services: virtual-machines-linux
 documentationcenter: na
-author: mikewasson
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+author: rockboyfor
+manager: digimobile
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/16/2016
-ms.date: 04/24/2017
-ms.author: v-dazen
+ms.date: 06/04/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b9aeacc613aa377551375a4b98a55beaa2fd6c3
-ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
+ms.openlocfilehash: 6c986c3db15802cd366b0f97ea4cc8b6901e3f71
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702854"
 ---
 # <a name="resize-a-linux-vm-with-azure-cli-10"></a>使用 Azure CLI 1.0 调整 Linux VM 的大小
 
@@ -34,7 +35,7 @@ ms.lasthandoff: 06/23/2017
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
-可使用以下 CLI 版本之一完成任务：
+可以使用以下 CLI 版本之一完成任务：
 
 - [Azure CLI 1.0](#resize-a-linux-vm) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
 - [Azure CLI 2.0](change-vm-size.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
@@ -42,7 +43,7 @@ ms.lasthandoff: 06/23/2017
 ## <a name="resize-a-linux-vm"></a>调整 Linux VM 的大小
 若要调整 VM 的大小，请执行以下步骤。
 
-1. 运行以下 CLI 命令。 此命令将列出托管 VM 的硬件群集上的可用 VM 大小。
+1. 运行以下 CLI 命令。 此命令列出托管 VM 的硬件群集上的可用 VM 大小。
 
     ```azurecli
     azure vm sizes -g myResourceGroup --vm-name myVM
@@ -55,10 +56,10 @@ ms.lasthandoff: 06/23/2017
         --boot-diagnostics-storage-uri https://mystorageaccount.blob.core.chinacloudapi.cn/ 
     ```
 
-    在此过程中，VM 将重新启动。 重新启动后，现有 OS 和数据磁盘将重新映射。 临时磁盘上的所有内容将会丢失。
+    在此过程中，VM 重新启动。 重新启动后，现有 OS 和数据磁盘会重新映射。 临时磁盘上的所有内容会丢失。
 
     使用 `--enable-boot-diagnostics` 选项启用 [启动诊断][boot-diagnostics]，以记录所有与启动相关的错误。
-3. 如果未列出所需大小，请运行以下命令来解除分配 VM、调整其大小，然后将它重新启动。
+3. 如果未列出所需大小，请运行以下命令来解除分配 VM、调整其大小，并将它重新启动。
 
     ```azurecli
     azure vm deallocate -g myResourceGroup myVM
@@ -74,10 +75,12 @@ ms.lasthandoff: 06/23/2017
    > 
 
 ## <a name="next-steps"></a>后续步骤
-若要提高可伸缩性，请运行多个 VM 实例并进行横向扩展。 
+若要提高伸缩性，请运行多个 VM 实例并进行横向扩展。有关详细信息，请参阅 [自动调整虚拟机规模集中的 Linux 计算机规模][scale-set]。 
 
 <!-- links -->
 
 [azure-cli]:../../cli-install-nodejs.md
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[scale-set]: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
 [vm-sizes]:sizes.md
+<!-- Update_Description: update meta properties, update link -->

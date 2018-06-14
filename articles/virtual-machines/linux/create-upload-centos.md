@@ -13,14 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 03/12/2018
-ms.date: 04/16/2018
+origin.date: 05/04/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3ec441bf6d775fdc754b18d454844a1c383b3a74
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 621a4eb2ed8b05680c9a3a0f9b2beb2204bb0e44
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702711"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>为 Azure 准备基于 CentOS 的虚拟机
 * [为 Azure 准备 CentOS 6.x 虚拟机](#centos-6x)

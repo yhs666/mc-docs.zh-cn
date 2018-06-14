@@ -1,11 +1,11 @@
 ---
-title: "Azure 服务总线消息处理体系结构概述"
-description: "介绍 Azure 服务总线的消息处理体系结构。"
+title: Azure 服务总线消息处理体系结构概述
+description: 介绍 Azure 服务总线的消息处理体系结构。
 services: service-bus
 documentationCenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: baf94c2d-0e58-4d5d-a588-767f996ccf7f
 ms.service: service-bus
 ms.devlang: na
@@ -15,29 +15,30 @@ ms.workload: na
 origin.date: 12/21/2017
 ms.author: v-yiso
 ms.date: 02/05/2018
-ms.openlocfilehash: 595b085c684a01fcc536ad4cd06e605e525ec5d5
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: fade5790a2985c06bef5990705f7c8997970c238
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695090"
 ---
 # <a name="service-bus-architecture"></a>服务总线体系结构
 
 本文介绍 Azure 服务总线的消息处理体系结构。
 
-## <a name="service-bus-scale-units"></a>服务总线缩放单位
+## <a name="service-bus-scale-units"></a>服务总线缩放单元
 
-服务总线按 *缩放单位*进行组织。 缩放单位是部署单位，包含运行服务所需的全部组件。 每个区域部署一个或多个服务总线缩放单位。
+服务总线按*缩放单元*进行组织。 缩放单元是部署单元，包含运行服务所需的全部组件。 每个区域部署一个或多个服务总线缩放单元。
 
-一个服务总线命名空间映射到一个缩放单位。 缩放单位负责处理各种类型的服务总线实体（队列、主题、订阅）。 服务总线缩放单位由以下组件构成：
+一个服务总线命名空间映射到一个缩放单元。 缩放单元负责处理各种类型的服务总线实体（队列、主题、订阅）。 服务总线缩放单元由以下组件构成：
 
 * **一组网关节点。** 网关节点对传入请求进行身份验证。 每个网关节点都有一个公共 IP 地址。
 
 - **一组消息代理节点。** 消息代理节点处理有关消息实体的请求。
 
-- **一个网关存储。** 网关存储保存此缩放单位中定义的每个实体的数据。 网关存储在 SQL Azure 数据库顶层实施。
+- **一个网关存储。** 网关存储保存此缩放单元中定义的每个实体的数据。 网关存储在 SQL Azure 数据库顶层实施。
 
-- **多个消息存储。** 消息存储保存此缩放单位中定义的所有队列、主题和订阅的消息。 它还包含所有订阅数据。 除非启用了[分区消息实体](./service-bus-partitioning.md)，否则队列或主题将映射到一个消息存储。 订阅是存储在与其父主题相同的消息存储中。 
+- **多个消息存储。** 消息存储保存此缩放单元中定义的所有队列、主题和订阅的消息。 它还包含所有订阅数据。 除非启用了[分区消息实体](service-bus-partitioning.md)，否则队列或主题将映射到一个消息存储。 订阅是存储在与其父主题相同的消息存储中。 除了服务总线 [高级消息传送](service-bus-premium-messaging.md)外，消息存储在 [SQL 数据库](/sql-database/)实例基础上实施。
 
 ## <a name="containers"></a>容器
 为每个消息实体分配特定的容器。 容器是一种逻辑构造，它使用一个消息存储来存储此容器的所有相关数据。 为每个容器分配一个消息代理节点。 通常，容器比消息代理节点要多。 因此，每个消息代理节点将加载多个容器。 消息代理节点的容器分配经过适当的组织，可以均衡加载所有消息代理节点。 如果负载模式发生更改（例如其中一个容器变得十分繁忙），或消息代理节点暂时不可用，则会在消息代理节点之间重新分配容器。

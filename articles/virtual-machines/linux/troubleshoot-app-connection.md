@@ -14,16 +14,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 11/03/2017sss
-ms.date: 05/14/2018
+origin.date: 05/11/2018
+ms.date: 05/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9a197a3a0e10a3600f94a2de382590d8be5268d9
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: decde49516e244fda14b417dc8295d0e5495ded2
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702881"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-a-linux-virtual-machine-in-azure"></a>排查 Azure 中 Linux 虚拟机上的应用程序连接问题
 [!INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../../includes/virtual-machines-common-troubleshoot-app-connection.md)]
 
+<!--The parent file of includes file of virtual-machines-common-troubleshoot-app-connection.md-->
+<!--ms.date:06/04/2018-->
 <!--Update_Description: update meta properties -->

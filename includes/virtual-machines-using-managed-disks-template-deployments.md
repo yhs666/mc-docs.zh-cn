@@ -214,8 +214,8 @@
     * [带托管磁盘的 Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
     * [托管磁盘模板的完整列表](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * 请访问文章 [Azure 托管磁盘概述](../articles/virtual-machines/windows/managed-disks-overview.md)，详细了解托管磁盘。
-* 访问文档 [Microsoft.Compute/virtualMachines template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)（Microsoft.Compute/virtualMachines 模板参考），查看虚拟机资源的模板参考文档。
-* 访问文档 [ template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/disks)（Microsoft.Compute/disks 模板参考），查看虚拟机资源的模板参考文档。
- 
+* 访问文档 [Microsoft.Compute/virtualMachines template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)（Microsoft.Compute/virtualMachines 模板参考），查看虚拟机资源的模板参考文档。
+* 访问文档 [ template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/disks)（Microsoft.Compute/disks 模板参考），查看虚拟机资源的模板参考文档。
+* 有关如何使用 Azure VM 规模集中的托管磁盘的信息，请访问[将数据磁盘与规模集配合使用](/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md)文档。
 <!--Update_Description: wording update-->
-<!--ms.date: 01/08/2018-->
+<!--ms.date: 06/04/2018-->

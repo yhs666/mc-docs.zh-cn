@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: c83a8d15811ba7289068b97e186f1f8986feebc3
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 676b6b31036ec38f1e69c51b16a8bb023caae918
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702765"
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>使用 Azure 门户登录到 Windows 虚拟机
 在 Azure 门户中，使用“连接”按钮启动远程桌面会话，然后登录到 Windows VM。
@@ -43,20 +44,22 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 
     ![Virtual-machine-locations](./media/connect-logon/azureportaldashboard.png)
 
-3. 单击虚拟机仪表板顶部的命令栏上的“连接”。
+1. 单击虚拟机属性页上的“连接”按钮。 
+2. 在“连接到虚拟机”页上，保持选择相应的选项，单击“下载 RDP 文件”。
+2. 打开下载的 RDP 文件，然后在出现提示时单击“连接”。 
+2. 此时会出现“`.rdp` 文件来自未知发布者”的警告。 这是一般警报。 在“远程桌面”窗口中，单击“连接”继续。
 
-    ![虚拟机的连接图标](./media/connect-logon/virtualmachine_dashboard_connect.png)
+    ![有关未知发布者的警告的屏幕截图。](./media/connect-logon/rdp-warn.png)
+3. 在“Windows 安全性”窗口中，依次选择“更多选择”、“使用其他帐户”。 键入虚拟机上帐户的凭据，并单击“确定”。
 
-<!-- Don't know if this still applies
-     I think we can zap this.
-> [!TIP]
-> If the **Connect** button isn't available, see the troubleshooting tips at the end of this article.
->
->
--->
+     **本地帐户** - 通常，这是创建虚拟机时指定的本地帐户用户名和密码。 在本示例中，域是虚拟机的名称，输入格式为 *vmname*&#92;*username*。  
 
-## <a name="log-on-to-the-virtual-machine"></a>登录到虚拟机
-[!INCLUDE [virtual-machines-log-on-win-server](../../../../includes/virtual-machines-log-on-win-server.md)]
+    **已加入域的 VM** - 如果 VM 属于某个域，请以*域*&#92;*用户名*格式输入用户名。 该帐户还需要属于管理员组或已被授予 VM 的远程访问权限。
+
+    **域控制器** - 如果 VM 是域控制器，请键入该域的域管理员帐户的用户名和密码。
+4. 单击“是”验证虚拟机的 ID 并完成登录。
+
+   ![显示有关验证 VM 标识的消息的屏幕截图。](./media/connect-logon/cert-warning.png)
 
 ## <a name="next-steps"></a>后续步骤
 * 如果“连接”按钮处于非活动状态或者在使用远程桌面连接时遇到其他问题，请尝试重置配置。 在虚拟机仪表板中单击“重置远程访问”。
@@ -69,4 +72,4 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 
 如果这些提示不起作用或不是所需的内容，请参阅[对与基于 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除](../troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 此文指导完成诊断和解决常见问题。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties， wording update, update link -->

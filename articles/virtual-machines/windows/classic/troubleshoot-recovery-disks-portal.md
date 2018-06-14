@@ -11,14 +11,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 07/21/2017
-ms.date: 05/21/2018
+origin.date: 05/11/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: bab1772a259bc955a319de48dddb278e68593365
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: d2d128987dbcbbac6e0b907751392c3fa803b44c
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702809"
 ---
 # <a name="troubleshoot-a-windows-classic-vm-by-attaching-the-os-disk-to-a-recovery-vm"></a>通过将 OS 磁盘附加到恢复 VM 对 Windows 经典 VM 进行故障排除
 

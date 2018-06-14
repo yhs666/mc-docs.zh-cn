@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 05/07/2018
-ms.openlocfilehash: e5f11fafd5e16208af3320ea5b27367da0f11742
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.date: 06/11/2018
+ms.openlocfilehash: 5bc832187df5eab767718ce7f6e61741ae9cf4a0
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695035"
 ---
 # <a name="reference---iot-hub-endpoints"></a>参考 - IoT 中心终结点
 
@@ -84,7 +85,7 @@ IoT 中心仅支持将数据以 [Apache Avro](http://avro.apache.org/) 格式作
 * 批达到特定大小。
 * 或者已经过了一段时间。
 
-如果没有要写入的数据，IoT 中心将写入一个空 blob。
+如果没有要写入的数据，IoT 中心会写入到一个空 blob。
 
 IoT 中心默认为以下文件命名约定：
 

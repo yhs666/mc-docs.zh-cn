@@ -1,11 +1,11 @@
 ---
-title: "SQL Server 虚拟机的自动备份（经典） | Azure"
-description: "介绍在使用 Resource Manager 的 Azure 虚拟机中运行的 SQL Server 的自动备份功能。 "
+title: SQL Server 虚拟机的自动备份（经典） | Azure
+description: '介绍在使用 Resource Manager 的 Azure 虚拟机中运行的 SQL Server 的自动备份功能。 '
 services: virtual-machines-windows
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 3333e830-8a60-42f5-9f44-8e02e9868d7b
 ms.service: virtual-machines-sql
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/23/2018
-ms.date: 03/19/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: ce178201ee99e0f94c35302f96558809f8a6e0c6
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 6f132cca942440816f5137296b5ae44914a0c5e3
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702858"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>在 Azure 虚拟机（经典）中对 SQL Server 进行自动备份
 > [!div class="op_single_selector"]

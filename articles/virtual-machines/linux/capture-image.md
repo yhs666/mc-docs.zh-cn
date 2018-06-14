@@ -13,14 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 07/10/2017
-ms.date: 04/16/2018
+origin.date: 03/22/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: e5c1c7e8f417a17d6a6948b089c9afc43a22d889
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 19aca4d7b1320266600fa90f7e4b60deedea3735
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702689"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>如何创建虚拟机或 VHD 的映像
 
@@ -46,7 +47,7 @@ ms.lasthandoff: 04/28/2018
 有关本主题的用于测试、评估或了解 Azure 中的 VM 的简化版本，请参阅[使用 CLI 创建 Azure VM 的自定义映像](tutorial-custom-images.md)。
 
 ## <a name="step-1-deprovision-the-vm"></a>步骤 1：取消预配 VM
-使用 Azure VM 代理取消预配 VM 以删除计算机特定文件和数据。 在源 Linux VM 上，使用带 -deprovision+user 参数的 `waagent` 命令。 有关详细信息，请参阅 [Azure Linux 代理用户指南](../windows/agent-user-guide.md)。
+使用 Azure VM 代理取消预配 VM 以删除计算机特定文件和数据。 在源 Linux VM 上，使用带 -deprovision+user 参数的 `waagent` 命令。 有关详细信息，请参阅 [Azure Linux 代理用户指南](../extensions/agent-linux.md)。
 
 1. 使用 SSH 客户端连接到 Linux VM。
 2. 在 SSH 窗口中，键入以下命令：
@@ -80,7 +81,7 @@ ms.lasthandoff: 04/28/2018
       --name myVM
     ```
 
-3. 现在，使用 [az image create](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#az_image_create) 创建 VM 资源的映像。 以下示例使用名为 myVM 的 VM 资源在名为 myResourceGroup 的资源组中创建名为 myImage 的映像：
+3. 现在，使用 [az image create](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#az-image-create) 创建 VM 资源的映像。 以下示例使用名为 myVM 的 VM 资源在名为 myResourceGroup 的资源组中创建名为 myImage 的映像：
 
     ```azurecli
     az image create \
@@ -90,9 +91,10 @@ ms.lasthandoff: 04/28/2018
 
    > [!NOTE]
    > 该映像在与源 VM 相同的资源组中创建。 可以在订阅内的任何资源组中从此映像创建 VM。 从管理角度来看，你可能希望为 VM 资源和映像创建特定的资源组。
+<!-- Not Available on availability zones -->
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>步骤 3：从捕获的映像创建 VM
-使用通过 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 创建的映像来创建 VM。 以下示例从名为 myImage 的映像创建名为 myVMDeployed 的映像：
+使用通过 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建的映像来创建 VM。 以下示例从名为 myImage 的映像创建名为 myVMDeployed 的映像：
 
 ```azurecli
 az vm create \
@@ -105,7 +107,7 @@ az vm create \
 
 ### <a name="creating-the-vm-in-another-resource-group"></a>在另一个资源组中创建 VM 
 
-可在订阅内的任何资源组中根据映像创建 VM。 要在与映像不同的资源组中创建 VM，请指定映像的完整资源 ID。 使用 [az image list](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#az_image_list) 查看映像列表。 输出类似于以下示例：
+可在订阅内的任何资源组中根据映像创建 VM。 要在与映像不同的资源组中创建 VM，请指定映像的完整资源 ID。 使用 [az image list](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#az-image-list) 查看映像列表。 输出类似于以下示例：
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -113,7 +115,7 @@ az vm create \
    "name": "myImage",
 ```
 
-以下示例使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) ，通过指定映像资源 ID，在与源映像不同的资源组中创建 VM：
+以下示例使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) ，通过指定映像资源 ID，在与源映像不同的资源组中创建 VM：
 
 ```azurecli
 az vm create \
@@ -126,7 +128,7 @@ az vm create \
 
 ## <a name="step-4-verify-the-deployment"></a>步骤 4：验证部署
 
-现在将 SSH 连接到创建的虚拟机以验证部署并开始使用新的 VM。 若要通过 SSH 连接，请使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_show)查找 VM 的 IP 地址或 FQDN：
+现在将 SSH 连接到创建的虚拟机以验证部署并开始使用新的 VM。 若要通过 SSH 连接，请使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-show)查找 VM 的 IP 地址或 FQDN：
 
 ```azurecli
 az vm show \

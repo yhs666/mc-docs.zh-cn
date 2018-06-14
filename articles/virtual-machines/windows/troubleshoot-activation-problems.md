@@ -1,11 +1,11 @@
 ---
-title: "排查 Azure 中的 Windows 虚拟机激活问题 | Azure"
-description: "介绍用于修复 Azure 中的 Windows 虚拟机激活问题的疑难解答步骤"
+title: 排查 Azure 中的 Windows 虚拟机激活问题 | Azure
+description: 介绍用于修复 Azure 中的 Windows 虚拟机激活问题的疑难解答步骤
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
@@ -15,11 +15,12 @@ ms.topic: article
 origin.date: 11/03/2017
 ms.date: 03/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 225942d609c9bf05804b9a46920f822e8fcbd132
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: be055fb8306a4d920e96c408f31ec168c3462171
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702844"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>排查 Azure Windows 虚拟机激活问题
 
@@ -79,7 +80,8 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>第 2 步：验证 VM 与 Azure KMS 服务的连接
 
-1. 将 [Psping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) 工具下载并提取到未激活的 VM 中的本地文件夹。 
+1. 将 [Psping](http://technet.microsoft.com/sysinternals/jj729731.aspx) 工具下载并提取到未激活的 VM 中的本地文件夹。 
+<!-- URL is [Psping](http://technet.microsoft.com/sysinternals/jj729731.aspx)-->
 
 2. 转到“开始”，搜索 Windows PowerShell，右键单击 Windows PowerShell，再选择“以管理员身份运行”。
 
@@ -119,7 +121,7 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>我从 Azure Marketplace 创建了 Windows Server 2016。 是否需要配置用于激活 Windows Server 2016 的 KMS 密钥？ 
 
-否。 Azure Marketplace 中的映像已配置了相应的 KMS 客户端安装密钥。 
+否。 Azure 市场中的映像已配置了相应的 KMS 客户端安装密钥。 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>无论 VM 是否使用 Azure 混合使用权益 (HUB)，Windows 激活的工作方式是否都一样？ 
 

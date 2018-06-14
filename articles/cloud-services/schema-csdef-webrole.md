@@ -1,24 +1,25 @@
 ---
-title: "Azure 云服务定义WebRole 架构 | Microsoft Docs"
-ms.custom: 
+title: Azure 云服务定义WebRole 架构 | Microsoft Docs
+ms.custom: ''
 origin.date: 04/14/2015
-ms.date: 12/11/2017
+ms.date: 06/11/2018
 ms.prod: azure
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
-caps.latest.revision: "60"
+caps.latest.revision: 60
 author: thraka
 ms.author: v-yiso
 manager: timlt
-ms.openlocfilehash: ce00f218b98ad619cbd070112f2b4966756b227a
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: eb7bcbbaef151ff604230796bfb696d81b257f5b
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695038"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure 云服务定义 WebRole 架构
 Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP.NET、PHP、Windows Communication Foundation 和 FastCGI）自定义的角色。
@@ -118,7 +119,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 
 [FixedPortRange](#FixedPortRange)
 
-[证书](#Certificates)
+[Certificates](#Certificates)
 
 [证书](#Certificate)
 
@@ -150,7 +151,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 
 [ServiceDefinition.csdef](#Startup)
 
-[任务](#Task)
+[Task](#Task)
 
 [Contents](#Contents)
 
@@ -161,7 +162,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 ##  <a name="WebRole"></a> WebRole  
 `WebRole` 元素描述针对 IIS 7 和 ASP.NET 所支持的 Web 应用程序编程自定义的角色。 一个服务可以包含零个或多个 Web 角色。
 
-下表描述 `WebRole` 元素的属性。
+下表介绍了 `WebRole` 元素的属性。
 
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
@@ -175,7 +176,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 ##  <a name="Setting"></a> Setting  
 `Setting` 元素描述用于为角色实例指定配置设置的名称和值对。
 
-下表描述 `Setting` 元素的属性。
+下表介绍了 `Setting` 元素的属性。
 
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
@@ -192,7 +193,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 > [!NOTE]
 >  `LocalStorage` 元素可显示为 `WebRole` 元素的子级，提供与早期版本的 Azure SDK 的兼容性。
 
-下表描述 `LocalStorage` 元素的属性。
+下表介绍了 `LocalStorage` 元素的属性。
 
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
@@ -208,14 +209,14 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 输入和内部终结点是单独分配的。 一个服务可共有 25 个输入、内部和实例输入终结点，这些终结点可在一个服务中允许存在的 25 个角色间分配。 例如，如果有 5 个角色，则可以向每个角色分配 5 个输入终结点，或者向一个角色分配 25 个输入终结点，或者可以向 25 个角色中的每个角色分配 1 个输入终结点。
 
 > [!NOTE]
->  部署的每个角色需要一个实例。 订阅的默认预配限制为 20 个内核，因此最多可有 20 个角色实例。 
+>  部署的每个角色需要一个实例。 订阅的默认预配限制为 20 个内核，因此最多可有 20 个角色实例。 如果应用程序需要的实例数比默认预配提供的数目更多，请参阅[计费、订阅管理和配额支持](https://www.azure.cn/support/)，了解有关提高配额的详细信息。
 
 ##  <a name="InputEndpoint"></a> InputEndpoint  
 `InputEndpoint` 元素描述 Web 角色的外部终结点。
 
 可以定义由 HTTP、HTTPS、UDP 和 TCP 终结点组成的多个终结点。 可以指定为输入终结点选择的任意端口号，但为服务中每个角色指定的端口号必须唯一。 例如，如果指定 Web 角色要将端口 80 用于 HTTP，将端口 443 用于 HTTPS，则之后可以指定第二个 Web 角色将端口 8080 用于 HTTP，将端口 8043 用于 HTTPS。
 
-下表描述 `InputEndpoint` 元素的属性。
+下表介绍了 `InputEndpoint` 元素的属性。
 
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
@@ -224,13 +225,13 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 |端口|int|必需。 外部终结点的端口。 可以指定所选的任意端口号，但为服务中每个角色指定的端口号必须唯一。<br /><br /> 可能的值介于 1 和 65535（包含在内）之间（Azure SDK 1.7 或更高版本）。|  
 |证书|字符串|HTTPS 终结点需要。 由 `Certificate` 元素定义的证书的名称。|  
 |localPort|int|可选。 指定用于终结点上内部连接的端口。 `localPort` 属性将终结点上的外部端口映射到角色上的内部端口。 这在以下情况下非常有用：角色必须与端口上的内部组件而非为外部公开的组件进行通信。<br /><br /> 如果未指定，则 `localPort` 的值与 `port` 属性相同。 将 `localPort` 的值设置为“*”会自动分配可使用运行时 API 发现的未分配端口。<br /><br /> 可能的值介于 1 和 65535（包含在内）之间（Azure SDK 1.7 或更高版本）。<br /><br /> 仅当使用 Azure SDK 1.3 或更高版本时，才提供 `localPort` 属性。|  
-|ignoreRoleInstanceStatus|布尔值|可选。 当此属性的值设置为 `true` 时，会忽略服务的状态，并且负载均衡器不会删除该终结点。 此值设置为 `true` 对调试服务的繁忙实例非常有用。 默认值为 `false`。 **注意：**即使角色不处于就绪状态，终结点仍可接收流量。|  
+|ignoreRoleInstanceStatus|布尔值|可选。 当此属性的值设置为 `true` 时，会忽略服务的状态，并且负载均衡器不会删除该终结点。 此值设置为 `true` 对调试服务的繁忙实例非常有用。 默认值为 `false`。 **注意：** 即使角色不处于就绪状态，终结点仍可接收流量。|  
 |loadBalancerProbe|字符串|可选。 与输入终结点关联的负载均衡器探测的名称。 有关详细信息，请参阅 [LoadBalancerProbe 架构](schema-csdef-loadbalancerprobe.md)。|  
 
 ##  <a name="InternalEndpoint"></a> InternalEndpoint  
 `InternalEndpoint` 元素描述 Web 角色的内部终结点。 只向服务中运行的其他角色实例提供内部终结点，而不向服务外部的客户端提供。 不包含 `Sites` 元素的 Web 角色只能有一个 HTTP、UDP 或 TCP 内部终结点。
 
-下表描述 `InternalEndpoint` 元素的属性。
+下表介绍了 `InternalEndpoint` 元素的属性。
 
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
@@ -243,7 +244,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 
 仅当使用 Azure SDK 1.7 或更高版本时，才提供 `InstanceInputEndpoint` 元素。
 
-下表描述 `InstanceInputEndpoint` 元素的属性。
+下表介绍了 `InstanceInputEndpoint` 元素的属性。
   
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
@@ -261,7 +262,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 
 仅当使用 Azure SDK 1.3 或更高版本时，才提供 `FixedPort` 元素。
 
-下表描述 `FixedPort` 元素的属性。
+下表介绍了 `FixedPort` 元素的属性。
 
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
@@ -275,7 +276,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 
 仅当使用 Azure SDK 1.3 或更高版本时，才提供 `FixedPortRange` 元素。
 
-下表描述 `FixedPortRange` 元素的属性。
+下表介绍了 `FixedPortRange` 元素的属性。
 
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
@@ -288,7 +289,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 ##  <a name="Certificate"></a> Certificate  
 `Certificate` 元素描述与 Web 角色关联的证书。
 
-下表描述 `Certificate` 元素的属性。
+下表介绍了 `Certificate` 元素的属性。
 
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
@@ -307,7 +308,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 
 仅当使用 Azure SDK 1.3 或更高版本时，才提供 `Import` 元素。
 
-下表描述 `Import` 元素的属性。
+下表介绍了 `Import` 元素的属性。
 
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
@@ -342,7 +343,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 ##  <a name="RoleInstanceValue"></a> RoleInstanceValue  
 `RoleInstanceValue` 元素指定要从其中检索变量值的 xPath。
 
-下表描述 `RoleInstanceValue` 元素的属性。
+下表介绍了 `RoleInstanceValue` 元素的属性。
 
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
@@ -359,7 +360,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 > [!NOTE]
 >  仅当使用 Azure SDK 1.5 或更高版本时，才提供 `NetFxEntryPoint` 元素。
 
-下表描述 `NetFxEntryPoint` 元素的属性。
+下表介绍了 `NetFxEntryPoint` 元素的属性。
 
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
@@ -369,14 +370,14 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 ##  <a name="Sites"></a> Sites  
 `Sites` 元素描述 Web 角色中托管的网站和 Web 应用程序的集合。 此元素是 `Site` 元素的父级。 如果不指定 `Sites` 元素，则会以传统 Web 角色的形式托管 Web 角色，并且 Web 角色中只能托管一个网站。 此元素是可选的，一个角色只能有一个 sites 块。
 
-仅当使用 Azure SDK 1.3 或更高版本时，才可以使用 `Sites` 元素。
+仅当使用 Azure SDK 1.3 或更高版本时，才提供 `Sites` 元素。
 
 ##  <a name="Site"></a> Site  
 `Site` 元素指定属于 Web 角色的一部分的网站或 Web 应用程序。
 
-仅当使用 Azure SDK 1.3 或更高版本时，才可以使用 `Site` 元素。
+仅当使用 Azure SDK 1.3 或更高版本时，才提供 `Site` 元素。
 
-下表描述 `Site` 元素的属性。
+下表介绍了 `Site` 元素的属性。
 
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
@@ -388,7 +389,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 
 仅当使用 Azure SDK 1.3 或更高版本时，才可以使用 `VirtualApplication` 元素。
 
-下表描述 `VirtualApplication` 元素的属性。
+下表介绍了 `VirtualApplication` 元素的属性。
 
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
@@ -398,9 +399,9 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 ##  <a name="VirtualDirectory"></a> VirtualDirectory  
 `VirtualDirectory` 元素指定在 IIS 中指定的目录名称（也称为路径），并映射到本地或远程服务器上的物理目录。
 
-仅当使用 Azure SDK 1.3 或更高版本时，才可以使用 `VirtualDirectory` 元素。
+仅当使用 Azure SDK 1.3 或更高版本时，才提供 `VirtualDirectory` 元素。
 
-下表描述 `VirtualDirectory` 元素的属性。
+下表介绍了 `VirtualDirectory` 元素的属性。
 
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
@@ -410,7 +411,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 ##  <a name="Bindings"></a> Bindings  
 `Bindings` 元素描述网站的绑定集合。 它是 `Binding` 元素的父元素。 每个 `Site` 元素都需要此元素。 有关配置终结点的详细信息，请参阅[为角色实例启用通信](cloud-services-enable-communication-role-instances.md)。
 
-仅当使用 Azure SDK 1.3 或更高版本时，才可以使用 `Bindings` 元素。
+仅当使用 Azure SDK 1.3 或更高版本时，才提供 `Bindings` 元素。
 
 ##  <a name="Binding"></a> Binding  
 `Binding` 元素指定请求与网站或 Web 应用程序通信时所需的配置信息。
@@ -437,7 +438,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 
 仅当使用 Azure SDK 1.3 或更高版本时，才提供 `Task` 元素。
 
-下表描述 `Task` 元素的属性。
+下表介绍了 `Task` 元素的属性。
 
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
@@ -455,7 +456,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 
 仅当使用 Azure SDK 1.5 或更高版本时，才提供 `Content` 元素。
 
-下表描述 `Content` 元素的属性。
+下表介绍了 `Content` 元素的属性。
 
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
@@ -468,11 +469,11 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 
 仅当使用 Azure SDK 1.5 或更高版本时，才提供 `SourceDirectory` 元素。
 
-下表描述 `SourceDirectory` 元素的属性。
+下表介绍了 `SourceDirectory` 元素的属性。
 
 | 属性 | 类型 | 说明 |  
 | --------- | ---- | ----------- |  
-|路径|字符串|必需。 内容将复制到 Azure 虚拟机的本地目录的相对或绝对路径。 支持扩展目录路径中的环境变量。|  
+|path|字符串|必需。 内容将复制到 Azure 虚拟机的本地目录的相对或绝对路径。 支持扩展目录路径中的环境变量。|  
   
 ## <a name="see-also"></a>另请参阅
 [云服务（经典）定义架构](schema-csdef-file.md)

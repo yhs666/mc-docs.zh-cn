@@ -14,13 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/20/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: efcd48203c37a75b311bb2cfb8da321321ef97ed
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 39e56bcb956aaa54fc1d7c73428814de0d3733e7
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702807"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>有关 Windows 虚拟机的常见问题
 本文讨论了在 Azure 中使用 Resource Manager 部署模型创建的 Windows 虚拟机的一些常见问题。 有关本主题的 Linux 版本，请参阅[有关 Linux 虚拟机的常见问题](../linux/faq.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
@@ -86,27 +87,27 @@ Azure 存储帐户还可为操作系统磁盘和任何数据磁盘提供存储�
 不允许使用以下用户名：
 <table>
     <tr>
-        <td style="text-align:center">administrator </td><td style="text-align:center"> admin </td><td style="text-align:center"> user </td><td style="text-align:center"> user1</td>
+        <td style="text-align:center">1</td><td style="text-align:center">123</td><td style="text-align:center">a</td><td style="text-align:center">actuser</td>
     </tr>
     <tr>
-        <td style="text-align:center">测试 </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
-    </tr>    <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
+        <td style="text-align:center">adm</td><td style="text-align:center">admin</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
+    </tr>   <tr>
+        <td style="text-align:center">主要区域中的</td><td style="text-align:center">aspnet</td><td style="text-align:center">backup</td><td style="text-align:center">console</td>
     </tr>
     <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
+        <td style="text-align:center">david </td><td style="text-align:center">guest</td><td style="text-align:center">john</td><td style="text-align:center">owner</td>
     </tr>
     <tr>
-        <td style="text-align:center">backup </td><td style="text-align:center"> console </td><td style="text-align:center"> david </td><td style="text-align:center"> guest</td>
+        <td style="text-align:center">root</td><td style="text-align:center">server</td><td style="text-align:center">sql</td><td style="text-align:center">support</td>
     </tr>
     <tr>
-        <td style="text-align:center">john </td><td style="text-align:center"> owner </td><td style="text-align:center"> root </td><td style="text-align:center"> server</td>
+        <td style="text-align:center">support_388945a0</td><td style="text-align:center">sys</td><td style="text-align:center">test</td><td style="text-align:center">test1</td>
     </tr>
     <tr>
-        <td style="text-align:center">sql </td><td style="text-align:center"> support </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
+        <td style="text-align:center">test2</td><td style="text-align:center">test3</td><td style="text-align:center">user</td><td style="text-align:center">user1</td>
     </tr>
     <tr>
-        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
+        <td style="text-align:center">user2</td><td style="text-align:center">user3</td><td style="text-align:center">user4</td><td style="text-align:center">user5</td>
     </tr>
 </table>
 
@@ -122,18 +123,18 @@ Azure 存储帐户还可为操作系统磁盘和任何数据磁盘提供存储�
 
 <table>
     <tr>
-        <td>abc@123 </td>
-        <td>P@$$w0rd </td>
-        <td>P@ssw0rd </td>
-        <td>P@ssword123 </td>
-        <td>Pa$$word </td>
+        <td>abc@123</td>
+        <td>iloveyou!</td>
+        <td>P@$$w0rd</td>
+        <td>P@ssw0rd</td>
+        <td>P@ssword123</td>
     </tr>
     <tr>
-        <td>pass@word1 </td>
-        <td>Password! </td>
-        <td>Password1 </td>
-        <td>Password22 </td>
-        <td>iloveyou! </td>
+        <td>Pa$$word</td>
+        <td>pass@word1</td>
+        <td>Password!</td>
+        <td>Password1</td>
+        <td>Password22</td>
     </tr>
 </table>
 <!--Update_Description: wording update, wording update -->

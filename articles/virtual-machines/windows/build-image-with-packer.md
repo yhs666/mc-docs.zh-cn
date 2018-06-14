@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 03/29/2018
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 93c9ef683ba34bfa11f81d7cb7727c816c40c5a9
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: e67cd191820709c201bcd52872e0967e1ffe7794
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702790"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>如何使用 Packer 在 Azure 中创建 Windows 虚拟机映像
 Azure 中的每个虚拟机 (VM) 都是基于定义 Windows 分发和操作系统版本的映像创建的。 映像可以包括预安装的应用程序和配置。 Azure 应用商店为最常见的操作系统和应用程序环境提供了许多第一和第三方映像，也可以根据需要创建自己的自定义映像。 本文详细介绍了如何使用开源工具 [Packer](https://www.packer.io/) 在 Azure 中定义和生成自定义映像。
@@ -103,6 +104,7 @@ $sub.SubscriptionId[0]
     },
 
     "cloud_environment_name": "AzureChinaCloud",
+    <!-- "cloud_environment_name": "AzureChinaCloud" -->
     "location": "China East",
     "vm_size": "Standard_DS2_v2"
   }],
@@ -220,6 +222,8 @@ New-AzureRmVm `
     -OpenPorts 80 `
     -Image "myPackerImage"
 ```
+
+如果你希望在与 Packer 映像不同的资源组或区域中创建虚拟机，请指定映像 ID 而不是映像名称。 可以使用 [Get-AzureRmImage](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Get-AzureRmImage) 获取映像 ID。
 
 基于 Packer 映像创建 VM 需要几分钟时间。
 

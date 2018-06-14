@@ -3,7 +3,7 @@ title: Azure Functions 中的触发器和绑定
 description: 了解如何使用 Azure Functions 中的触发器和绑定将代码执行连接到联机事件和基于云的服务。
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,13 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 02/07/2018
-ms.date: 04/18/2018
+ms.date: 05/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0099f56fa33606ad8c1b825816e19393d7513cae
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: b9e1aa8329aef0f6dff262ee8d294b295131f663
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567350"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 触发器和绑定概念
 
@@ -69,7 +70,7 @@ ms.lasthandoff: 04/19/2018
     ```
     Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
     ```
-+ **Visual Studio Code**：可以在 .NET CLI 中，通过命令提示符使用 [dotnet add package](https://docs.azure.cn/zh-cn/dotnet/core/tools/dotnet-add-package) 命令来安装包，如下所示：
++ **Visual Studio Code**：可以在 .NET CLI 中，通过命令提示符使用 [dotnet add package](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-add-package) 命令来安装包，如下所示：
 
     ```
     dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
@@ -660,3 +661,4 @@ public class BlobName
 - [移动应用](functions-bindings-mobile-apps.md)
 - [外部文件](functions-bindings-external-file.md)
 
+<!-- Update_Description: update metedata properties -->

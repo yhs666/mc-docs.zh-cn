@@ -14,13 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/14/2017
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7d557ffcae7370352650d5fecbf04c1d12e87a80
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 931c7ea9d6d752709df77b534878d157d2ad943f
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702797"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>使用 C# 和 Resource Manager 模板部署 Azure 虚拟机
 本文介绍如何使用 C# 部署 Azure 资源管理器模板。 创建的模板会在包含单个子网的新虚拟网络中部署运行 Windows Server 的单个虚拟机。
@@ -33,7 +34,7 @@ ms.lasthandoff: 05/17/2018
 
 在此步骤中，请确保已安装 Visual Studio 并已创建用于部署模板的控制台应用程序。
 
-1. 如果尚未安装，请安装 [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)。 在“工作负荷”页上选择“.NET 桌面开发”，然后单击“安装”。 在摘要中，可以看到系统自动选择了“.NET Framework 4 - 4.6 开发工具”。 如果已安装 Visual Studio，则可以使用 Visual Studio 启动器添加 .NET 工作负荷。
+1. 如果尚未安装，请安装 [Visual Studio](https://docs.microsoft.com/zh-cn/visualstudio/install/install-visual-studio)。 在“工作负荷”页上选择“.NET 桌面开发”，然后单击“安装”。 在摘要中，可以看到系统自动选择了“.NET Framework 4 - 4.6 开发工具”。 如果已安装 Visual Studio，则可以使用 Visual Studio 启动器添加 .NET 工作负荷。
 2. 在 Visual Studio 中，单击“文件” > “新建” > “项目”。
 3. 在“模板” > “Visual C#”中，选择“控制台应用(.NET Framework)”，输入 *myDotnetProject* 作为项目名称，选择项目位置，然后单击“确定”。
 
@@ -328,7 +329,7 @@ azure.ResourceGroups.DeleteByName(groupName);
 2. 在按 **Enter** 开始删除资源之前，可能需要在 Azure 门户中花几分钟时间来验证资源的创建。 单击部署状态以查看有关部署的信息。
 
 ## <a name="next-steps"></a>后续步骤
-* 如果部署出现问题，后续措施是参阅[排查使用 Azure 资源管理器时的常见 Azure 部署错误](../../azure-resource-manager/resource-manager-common-deployment-errors.md)。
+* 如果部署出现问题，后续措施是参阅[排查使用 Azure 资源管理器时的常见 Azure 部署错误](../../resource-manager-common-deployment-errors.md)。
 * 若要了解如何部署虚拟机及其支持的资源，请查看[使用 C# 部署 Azure 虚拟机](csharp.md)。
 
 <!--Update_Description: wording update, update meta properties -->

@@ -27,6 +27,7 @@
 # 如何
 ## 规划和设计
 ### [基于角色的访问控制（预览）](service-bus-role-based-access-control.md)
+### [高级消息传送](service-bus-premium-messaging.md)
 ### [比较 Azure 队列和服务总线队列](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [优化性能](service-bus-performance-improvements.md)
 ### [异地灾难恢复和异地复制](service-bus-geo-dr.md)

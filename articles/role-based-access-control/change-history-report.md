@@ -1,67 +1,105 @@
 ---
-title: 访问报告 - Azure RBAC | Microsoft Docs
-description: 生成一个列出过去 90 天内使用基于角色的访问控制对 Azure 订阅的访问权限进行的所有更改的报告。
+title: 在 Azure 中查看 RBAC 更改的活动日志 | Microsoft Docs
+description: 查看过去 90 天基于角色的访问控制更改的活动日志。
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/17/2017
-ms.date: 05/02/2018
+origin.date: 04/23/2017
+ms.date: 05/28/2018
 ms.author: v-junlch
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a79ba5ea13ad97413a166067a63dbd1b7c64779
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.openlocfilehash: 7bf73d7ed378e6d7d6da1a06f772e6b4cb67b0e1
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559491"
 ---
-# <a name="create-an-access-report-for-role-based-access-control"></a>为基于角色的访问控制创建访问报告
-无论何时授予或撤销订阅中的访问权限，更改都将记录在 Azure 事件中。 可创建访问权限更改历史记录报告来查看过去 90 天的所有更改。
+# <a name="view-activity-logs-for-role-based-access-control-changes"></a>查看基于角色的访问控制更改的活动日志
 
-## <a name="create-a-report-with-azure-powershell"></a>使用 Azure PowerShell 创建报告
-若要在 PowerShell 中创建访问权限更改历史记录报告，请使用 [Get-AzureRMAuthorizationChangeLog](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermauthorizationchangelog) 命令。
+只要有人在你的订阅中对角色定义或角色分配做出了更改，这些更改都会被记录在管理类别中的 [Azure 活动日志](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)中。 可以查看活动日志，了解基于角色的访问控制 (RBAC) 在过去 90 天发生的所有更改。
 
-调用此命令时，可指定要列出的分配的属性，包括以下方面：
+## <a name="operations-that-are-logged"></a>记录的操作
 
-| 属性 | 说明 |
-| --- | --- |
-| **Action** |是授予还是撤销访问权限 |
-| **调用方** |负责访问权限更改的所有者 |
-| **PrincipalId** | 已分配了角色的用户、组或应用程序的唯一标识符 |
-| **PrincipalName** |用户、组或应用程序的名称 |
-| **PrincipalType** |分配是针对用户、组还是应用程序 |
-| **RoleDefinitionId** |已授予或已撤销角色的 GUID |
-| **RoleName** |已授予或已撤销的角色 |
-| **范围** | 分配应用到的订阅、资源组或资源的唯一标识符 | 
-| **ScopeName** |订阅、资源组或资源的名称 |
-| **ScopeType** |分配是在订阅、资源组中还是在资源范围内 |
-| **Timestamp** |访问权限更改的日期和时间 |
+下面是记录在活动日志中的 RBAC 相关操作：
 
-此示例命令列出过去 7 天内订阅中所有访问权限的更改：
+- 创建或更新自定义角色定义
+- 删除自定义角色定义
+- 创建角色分配
+- 删除角色分配
+
+## <a name="azure-portal"></a>Azure 门户
+
+最简单的入手方式就是使用 Azure 门户查看活动日志。 以下屏幕截图显示了一个活动日志的示例，且已将日志筛选为显示“管理”类别以及角色定义和角色分配操作。 它还包括一个能将日志下载为 CSV 文件的链接。
+
+![使用门户的活动日志 - 屏幕截图](./media/change-history-report/activity-log-portal.png)
+
+有关详细信息，请参阅[在活动日志中查看事件](/azure-resource-manager/resource-group-audit)。
+
+## <a name="azure-powershell"></a>Azure PowerShell
+
+若要使用 Azure PowerShell 查看活动日志，请使用 [Get-AzureRmLog](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermlog) 命令。
+
+此命令列出过去 7 天内订阅中所有角色分配的更改：
+
+```azurepowershell
+Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
+```
+
+此命令列出过去 7 天内资源组中所有角色定义的更改：
+
+```azurepowershell
+Get-AzureRmLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
+```
+
+此命令列出过去 7 天内订阅中所有角色分配和角色定义的更改，并在列表中显示结果：
+
+```azurepowershell
+Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
+```
+
+```Example
+Caller                  : alain@example.com
+EventTimestamp          : 4/20/2018 9:18:07 PM
+$_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
+Properties              :
+                          statusCode     : Created
+                          serviceRequestId: 11111111-1111-1111-1111-111111111111
+
+Caller                  : alain@example.com
+EventTimestamp          : 4/20/2018 9:18:05 PM
+$_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
+Properties              :
+                          requestbody    : {"Id":"22222222-2222-2222-2222-222222222222","Properties":{"PrincipalId":"33333333-3333-3333-3333-333333333333","RoleDefinitionId":"/subscriptions/00000000-0000-0000-0000-000000000000/providers
+                          /Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","Scope":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast"}}
 
 ```
-Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
+
+## <a name="azure-cli"></a>Azure CLI
+
+若要使用 Azure CLI 查看活动日志，请使用 [az monitor activity-log list](/cli/monitor/activity-log#az-monitor-activity-log-list) 命令。
+
+此命令列出从启动以来资源组中存在的活动日志：
+
+```azurecli
+az monitor activity-log list --resource-group pharma-sales-projectforecast --start-time 2018-04-20T00:00:00Z
 ```
 
-![PowerShell Get-AzureRMAuthorizationChangeLog - 屏幕快照](./media/change-history-report/access-change-history.png)
+此命令列出从启动以来授权资源提供程序的活动日志：
 
-## <a name="create-a-report-with-azure-cli"></a>使用 Azure CLI 创建报告
-若要在 Azure 命令行界面 (CLI) 中创建访问权限更改历史记录报告，请使用 `azure role assignment changelog list` 命令。
-
-## <a name="export-to-a-spreadsheet"></a>导出到电子表格
-要保存报告或处理数据，请将访问权限更改导出至 .csv 文件。 可在电子表格中查看该报告以进行审阅。
-
-![更改日志被视为电子表格 - 屏幕快照](./media/change-history-report/change-history-spreadsheet.png)
+```azurecli
+az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
+```
 
 ## <a name="next-steps"></a>后续步骤
-- 使用 [Azure RBAC 中的自定义角色](custom-roles.md)
-- 了解如何 [使用 powershell 管理 Azure RBAC](role-assignments-powershell.md)
-
+- [在活动日志中查看事件](/azure-resource-manager/resource-group-audit)
+- [使用 Azure 活动日志监视订阅活动](/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 

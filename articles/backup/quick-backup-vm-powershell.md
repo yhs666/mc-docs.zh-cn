@@ -1,41 +1,42 @@
 ---
-title: "Azure 快速入门 - 使用 PowerShell 备份 VM | Microsoft Docs"
-description: "了解如何使用 Azure PowerShell 备份虚拟机"
+title: Azure 快速入门 - 使用 PowerShell 备份 VM | Microsoft Docs
+description: 了解如何使用 Azure PowerShell 备份虚拟机
 services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/14/2018
-ms.date: 02/27/2018
+ms.date: 05/25/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: c43dfaa44fd200622ba83b42584b3a3d2e3af2f1
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: f447fc8b6ff43050e0d63434e6086f4e86dfbdc8
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559442"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中备份虚拟机
 Azure PowerShell 模块用于从命令行或脚本创建和管理 Azure 资源。 可以通过定期创建备份来保护数据。 Azure 备份可创建恢复点，这些恢复点可存储在异地冗余的恢复保管库中。 本文详细介绍如何使用 Azure PowerShell 模块备份虚拟机 (VM)。 也可以使用 [Azure CLI](quick-backup-vm-cli.md) 或 [Azure 门户](quick-backup-vm-portal.md)执行这些步骤。
 
 参考本快速入门可在现有的 Azure VM 上备份。 如果需要创建 VM，可以[使用 Azure PowerShell 创建 VM](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md)。
 
-本快速入门需要 Azure PowerShell 模块 4.4 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+本快速入门需要 Azure PowerShell 模块 4.4 版或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
 
 ## <a name="log-in-to-azure"></a>登录 Azure
-使用 `Login-AzureRmAccount` 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
+使用 `Connect-AzureRmAccount` 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
 
 ```powershell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
 
 首次使用 Azure 备份时，必须使用 [Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) 在订阅中注册 Azure 恢复服务提供程序。
@@ -142,4 +143,4 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 > [!div class="nextstepaction"]
 > [备份多个 Azure VM](./tutorial-backup-vm-at-scale.md)
 
-<!--Update_Description: update metedata properties -->
+<!-- Update_Description: code update -->

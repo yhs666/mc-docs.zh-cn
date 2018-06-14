@@ -13,13 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2017
-ms.date: 04/16/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5c2af18f056b246c87ad852648a7d4c409796156
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 5a363abfdc27e3fd7076ec9015e0c1eff5225992
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702719"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>安装和配置远程桌面以连接到 Azure 中的 Linux VM
 通常使用安全外壳 (SSH) 连接从命令行管理 Azure 中的 Linux 虚拟机 (VM)。 如果不熟悉 Linux，或者要快速进行故障排除，使用远程桌面可能会更方便。 本文详细介绍如何使用 Resource Manager 部署模型为 Linux VM 安装和配置桌面环境 ([xfce](https://www.xfce.org)) 和远程桌面 ([xrdp](http://www.xrdp.org))。
@@ -83,9 +84,9 @@ sudo passwd azureuser
 > 指定密码不会将 SSHD 配置更新为允许密码登录（如果当前不允许）。 从安全角度看，用户可能想要使用基于密钥的身份验证通过 SSH 隧道连接到 VM，并连接到 xrdp。 如果是这样，请跳过以下创建网络安全组规则的步骤，以允许远程桌面流量。
 
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>为远程桌面流量创建网络安全组规则
-若要允许远程桌面流量到达 Linux VM，需要创建网络安全组规则以允许端口 3389 上的 TCP 访问 VM。 有关网络安全组规则的详细信息，请参阅[什么是网络安全组？](../../virtual-network/virtual-networks-nsg.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 还可以[使用 Azure 门户创建网络安全组规则](../windows/nsg-quickstart-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+若要允许远程桌面流量到达 Linux VM，需要创建网络安全组规则以允许端口 3389 上的 TCP 访问 VM。 有关网络安全组规则的详细信息，请参阅[什么是网络安全组？](../../virtual-network/security-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 还可以[使用 Azure 门户创建网络安全组规则](../windows/nsg-quickstart-portal.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
-以下示例使用 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_open_port) 在端口 *3389* 上创建一个网络安全组规则。
+以下示例使用 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-open-port) 在端口 *3389* 上创建一个网络安全组规则。
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

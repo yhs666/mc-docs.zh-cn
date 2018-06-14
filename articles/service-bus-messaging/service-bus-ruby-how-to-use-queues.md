@@ -1,11 +1,11 @@
 ---
-title: "如何通过 Ruby 使用 Azure 服务总线队列 | Azure"
-description: "了解如何在 Azure 中使用服务总线队列。 用 Ruby 编写的代码示例。"
+title: 如何通过 Ruby 使用 Azure 服务总线队列 | Azure
+description: 了解如何在 Azure 中使用服务总线队列。 用 Ruby 编写的代码示例。
 services: service-bus
 documentationCenter: ruby
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0a11eab2-823f-4cc7-842b-fbbe0f953751
 ms.service: service-bus
 ms.workload: na
@@ -15,16 +15,17 @@ ms.topic: article
 origin.date: 08/10/2017
 ms.author: v-yiso
 ms.date: 09/18/2017
-ms.openlocfilehash: a6ee1becb37c272bf3485319e80421cec61f6c36
-ms.sourcegitcommit: 81c9ff71879a72bc6ff58017867b3eaeb1ba7323
+ms.openlocfilehash: c254f798efcde5a0917f2820ec65fa8dc66d7d07
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695117"
 ---
 # <a name="how-to-use-service-bus-queues"></a>如何使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-本指南介绍如何使用服务总线队列。 相关示例用 Ruby 编写且使用 Azure gem。 涉及的方案包括“创建队列、发送和接收消息”以及“删除队列”。 有关服务总线队列的详细信息，请参阅 [后续步骤](#next-steps) 部分。
+本指南介绍如何使用服务总线队列。 相关示例通过 Ruby 编写并使用 Azure gem。 涉及的方案包括“创建队列、发送和接收消息”以及“删除队列”。 有关服务总线队列的详细信息，请参阅 [后续步骤](#next-steps) 部分。
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -65,7 +66,7 @@ message.correlation_id = "test-correlation-id"
 azure_service_bus_service.send_queue_message("test-queue", message)
 ```
 
-服务总线队列在标准层中支持的最大消息大小为 256 KB。 标头最大为 64 KB，其中包括标准和自定义应用程序属性。 一个队列可包含的消息数不受限制，但消息的总大小受限。 此队列大小是在创建时定义的，上限为 5 GB。
+服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列中包含的消息数量不受限制，但消息的总大小受限制。 此队列大小在创建时定义，上限为 5 GB。
 
 ## <a name="how-to-receive-messages-from-a-queue"></a>如何从队列接收消息
 
@@ -89,7 +90,7 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 
 还存在与队列中已锁定消息关联的超时，并且如果应用程序无法在锁定超时到期之前处理消息（例如，如果应用程序崩溃），则服务总线将自动解锁该消息并使它可再次被接收。
 
-如果应用程序在处理消息之后，调用 `delete_queue_message()` 方法之前崩溃，则在应用程序重启时会将该消息重新传送给它。 此过程通常称作“至少处理一次”，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 这通常可通过使用消息的 `message_id` 属性实现，该属性在多次传送尝试中保持不变。
+如果应用程序在处理消息之后，但在调用 `delete_queue_message()` 方法之前崩溃，则在应用程序重启时会将该消息重新传送给它。 此过程通常称作“至少处理一次”，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 这通常可通过使用消息的 `message_id` 属性实现，该属性在多次传送尝试中保持不变。
 
 ## <a name="next-steps"></a>后续步骤
 

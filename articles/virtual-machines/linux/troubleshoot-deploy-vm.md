@@ -13,14 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/03/2017
-ms.date: 05/14/2018
+origin.date: 05/11/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: e7f8f9c74a184a32c0b5434834019b040024b299
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 2efcf4056bcd811c656957b233efb178408478fb
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702693"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Linux 虚拟机部署问题
 

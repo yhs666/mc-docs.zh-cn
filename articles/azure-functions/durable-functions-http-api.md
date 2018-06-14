@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 09/29/2017
-ms.date: 04/12/2018
+ms.date: 05/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 570e0e320b939b9685f057d1b2250e40ae569a67
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 0ff21f904e6192a87fa7042df6b9256a4e8b7640
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567298"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>Durable Functions 中的 HTTP API (Azure Functions)
 
@@ -79,13 +80,13 @@ public static async Task<HttpResponseMessage> Run(
 HTTP/1.1 202 Accepted
 Content-Length: 923
 Content-Type: application/json; charset=utf-8
-Location: https://{host}/webhookextensions/handler/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+Location: https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 
 {
     "id":"34ce9a28a6834d8492ce6a295f1a80e2",
-    "statusQueryGetUri":"https://{host}/webhookextensions/handler/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "sendEventPostUri":"https://{host}/webhookextensions/handler/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "terminatePostUri":"https://{host}/webhookextensions/handler/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
+    "statusQueryGetUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "sendEventPostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "terminatePostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
 > [!NOTE]
@@ -102,8 +103,6 @@ Location: https://{host}/webhookextensions/handler/DurableTaskExtension/instance
 
 此协议允许通过外部客户端或支持轮询 HTTP 终结点并遵循 `Location` 标头的服务协调长时间运行的进程。 基础部分已经内置于 Durable Functions HTTP API 中。
 
-> [!NOTE]
-> 默认情况下，[Azure 逻辑应用](https://azure.microsoft.com/services/logic-apps/)提供的所有基于 HTTP 的操作都支持标准异步操作模式。 使用此功能，可在逻辑应用工作流中嵌入长时间运行的持久函数。 有关异步 HTTP 模式的逻辑应用支持的更多详细信息，请参阅 [Azure 逻辑应用工作流操作和触发器文档](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns)。
 
 ## <a name="http-api-reference"></a>HTTP API 引用
 
@@ -137,7 +136,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 Functions 2.0 格式包含的所有参数均相同，但 URL 前缀略有不同：
 
 ```http
-GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
+GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### <a name="response"></a>响应
@@ -155,6 +154,7 @@ GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskH
 |-----------------|-----------|-------------|
 | runtimeStatus   | 字符串    | 实例的运行时状态。 相关的值为：正在运行、挂起、失败、已取消、已终止和已完成。 |
 | input           | JSON      | 用于初始化实例的 JSON 数据。 |
+| customStatus    | JSON      | 用于自定义业务流程状态的 JSON 数据。 如果未设置，此字段为 `null`。 |
 | output          | JSON      | 实例的 JSON 输出。 如果实例不是已完成状态，则该字段为 `null`。 |
 | createdTime     | 字符串    | 创建实例的时间。 使用 ISO 8601 扩展表示法。 |
 | lastUpdatedTime | 字符串    | 实例持续的时间。 使用 ISO 8601 扩展表示法。 |
@@ -204,6 +204,7 @@ GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskH
       }
   ],
   "input": null,
+  "customStatus": { "nextActions": ["A", "B", "C"], "foo": 2 },
   "lastUpdatedTime": "2018-02-28T05:18:54Z",
   "output": [
       "Hello Tokyo!",
@@ -231,7 +232,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
 Functions 2.0 格式包含的所有参数均相同，但 URL 前缀略有不同：
 
 ```http
-POST /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
+POST /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
 此 API 的请求参数包括前面提及的默认集及以下唯一参数：
@@ -277,7 +278,7 @@ DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?r
 Functions 2.0 格式包含的所有参数均相同，但 URL 前缀略有不同：
 
 ```http
-DELETE /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+DELETE /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 此 API 的请求参数包括前面提及的默认集及以下唯一参数。
@@ -307,3 +308,4 @@ DELETE /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52b
 > [!div class="nextstepaction"]
 > [了解如何处理错误](durable-functions-error-handling.md)
 
+<!-- Update_Description: wording update -->

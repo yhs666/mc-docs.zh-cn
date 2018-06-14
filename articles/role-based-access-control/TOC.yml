@@ -1,0 +1,33 @@
+- name: 管理访问概述
+  href: manage-access-to-azure-resources.md
+- name: Azure 中的资源访问权限
+  href: rbac-and-directory-admin-roles.md
+- name: 基于角色的访问控制 (RBAC)
+  href: overview.md
+  items:
+    - name: 管理角色分配
+      items:
+        - name: User
+          href: role-assignments-users.md
+        - name: 资源
+          href: role-assignments-portal.md
+        - name: Azure CLI
+          href: role-assignments-cli.md
+        - name: PowerShell
+          href: role-assignments-powershell.md
+        - name: REST
+          href: role-assignments-rest.md
+    - name: 了解角色定义
+      href: role-definitions.md
+    - name: 内置角色
+      href: built-in-roles.md
+    - name: 自定义角色
+      href: custom-roles.md
+    - name: 管理外部用户的角色分配
+      href: role-assignments-external-users.md
+    - name: 活动日志
+      href: change-history-report.md
+    - name: 故障排除
+      href: troubleshooting.md
+    - name: 资源提供程序操作
+      href: resource-provider-operations.md

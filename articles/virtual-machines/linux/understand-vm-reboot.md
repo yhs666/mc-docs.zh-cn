@@ -1,25 +1,26 @@
 ---
-title: "了解 Azure Linux VM 的系统重启 | Azure"
-description: "列出可能导致 Linux VM 重启的事件"
+title: 了解 Azure Linux VM 的系统重启 | Azure
+description: 列出可能导致 Linux VM 重启的事件
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 11/03/2017
-ms.date: 12/18/2017
+origin.date: 05/11/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: fe33d9f66535c80cac0b4d61909afa97e40cab48
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 245ba2391f43ea1a240041fb67dc59215c8cbdfa
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702873"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>了解 Azure VM 的系统重启
 

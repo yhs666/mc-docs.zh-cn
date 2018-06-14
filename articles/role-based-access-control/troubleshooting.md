@@ -6,21 +6,22 @@ documentationcenter: na
 author: rolyon
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2018
-ms.date: 05/02/2018
+ms.date: 05/28/2018
 ms.author: v-junlch
 ms.reviewer: rqureshi
 ms.custom: seohack1
-ms.openlocfilehash: 899f2d5288e5b363baab30cf180c99ddf49605f5
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.openlocfilehash: 7f1190e0f3001e839c6a4d021d2b83bf1fe98880
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559485"
 ---
 # <a name="troubleshooting-azure-role-based-access-control"></a>Azure 基于角色的访问控制疑难解答 
 
@@ -103,3 +104,4 @@ ms.lasthandoff: 05/03/2018
 - [创建访问权限更改历史记录报告](change-history-report.md)：记录 RBAC 中的角色分配更改。
 
 
+<!-- Update_Description: update metedata properties -->

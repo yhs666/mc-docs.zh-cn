@@ -1,11 +1,11 @@
 ---
-title: "角色的默认 TEMP 文件夹大小太小 | Azure"
-description: "云服务角色的 TEMP 文件夹的空间有限。 本文针对如何避免磁盘空间不足的问题提供了一些建议。"
+title: 角色的默认 TEMP 文件夹大小太小 | Azure
+description: 云服务角色的 TEMP 文件夹的空间有限。 本文针对如何避免磁盘空间不足的问题提供了一些建议。
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
 ms.service: cloud-services
@@ -14,13 +14,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 11/03/2017
-ms.date: 12/11/2017
+ms.date: 0611/2018
 ms.author: v-yiso
-ms.openlocfilehash: 18e44bc6cf5ae1c96fbc4babc838ad2ac6774196
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: edae7414d8a9a0be69a1dc08b4f2972e38581dcc
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34694999"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>云服务 Web 角色/辅助角色的默认 TEMP 文件夹大小太小
 
@@ -78,6 +79,6 @@ namespace WorkerRole1
 
 阅读说明 [如何增加 Azure Web 角色 ASP.NET 临时文件夹大小](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx)的博客。
 
-查看更多针对云服务的 [故障排除文章](/?tag=top-support-issue&product=cloud-services) 。
+查看更多针对云服务的 [故障排除文章](../vs-azure-tools-debugging-cloud-services-overview.md) 。
 
 若要了解如何使用 Azure PaaS 计算机诊断数据对云服务角色问题进行故障排除，请查看 [Kevin Williamson 博客系列](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)。

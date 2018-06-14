@@ -12,11 +12,12 @@ ms.topic: article
 origin.date: 02/28/2018
 ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0a92ccaec129ac9cbceb40d74692521605fb0ba3
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: ede29ca0bac98806535b6f6a5d02382400817664
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34568799"
 ---
 # <a name="troubleshoot-attached-vhds-on-azure-linux-virtual-machines"></a>Azure Linux 虚拟机上的附加 VHD 故障排除
 
@@ -54,6 +55,7 @@ Azure VM 中使用的 VHD 是在 Azure 的标准或高级存储帐户中作为�
 
 完成上述步骤后，重试删除存储帐户、容器或 blob。
 
+<a name="step-1-identify-blobs-attached-to-a-vm"></a>
 ### <a name="step-1-identify-blob-attached-to-a-vm"></a>第 1 步：发现附加到 VM 的 blob
 
 #### <a name="scenario-1-deleting-a-blob---identify-attached-vm"></a>场景 1：删除 Blob - 识别附加的 VM

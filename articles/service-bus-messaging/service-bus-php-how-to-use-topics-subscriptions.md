@@ -1,11 +1,11 @@
 ---
-title: "如何通过 PHP 使用服务总线主题 | Azure"
-description: "了解如何通过 PHP 使用 Azure 中的服务总线主题。"
+title: 如何通过 PHP 使用服务总线主题 | Azure
+description: 了解如何通过 PHP 使用 Azure 中的服务总线主题。
 services: service-bus
 documentationCenter: php
 authors: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: faaa4bbd-f6ef-42ff-aca7-fc4353976449
 ms.service: service-bus
 ms.workload: na
@@ -15,11 +15,12 @@ ms.topic: article
 origin.date: 10/06/2017
 ms.author: v-yiso
 ms.date: 11/13/2017
-ms.openlocfilehash: 8fd9db42a8df2d93beb8d8846f40ed1de4a2f077
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.openlocfilehash: ef1b8ee13e19ec8751e6a650eccb9f85e0568328
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695116"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>如何通过 PHP 使用服务总线主题和订阅
 
@@ -74,7 +75,7 @@ Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAcce
 
 其中，Endpoint 的格式通常为 `https://[yourNamespace].servicebus.chinacloudapi.cn`。
 
-若要创建任何 Azure 服务客户端，必须使用 `ServicesBuilder` 类。 可执行以下操作：
+若要创建任何 Azure 服务客户端，必须使用 `ServicesBuilder` 类。 方法：
 
 * 将连接字符串直接传递给它。
 * 使用 CloudConfigurationManager (CCM) 检查多个外部源以获取连接字符串：
@@ -228,7 +229,7 @@ catch(ServiceException $e){
 }
 ```
 
-发送到服务总线主题的消息是 [BrokeredMessage][BrokeredMessage] 类的实例。 [BrokeredMessage][BrokeredMessage] 对象包含一组标准属性和方法以及用来保存自定义应用程序特定属性的属性。 以下示例演示了如何将 5 条测试消息发送到前面创建的 `mytopic` 主题。 `setProperty` 方法用于将自定义属性 (`MessageNumber`) 添加到每条消息。 请注意，每条消息的 `MessageNumber` 属性值都会不同（可使用该值确定接收它的订阅，如[创建订阅](#create-a-subscription)部分所述）：
+发送到服务总线主题的消息是 [BrokeredMessage][BrokeredMessage] 类的实例。 [BrokeredMessage][BrokeredMessage] 对象包含一组标准属性和方法以及用来保存自定义应用程序特定属性的属性。 以下示例演示了如何将 5 条测试消息发送到前面创建的 `mytopic` 主题。 `setProperty` 方法用于将自定义属性 (`MessageNumber`) 添加到每条消息。 请注意，每条消息的 `MessageNumber` 属性值会不同（可使用该值决定哪个订阅接收它，如[创建订阅](#create-a-subscription)部分所述）：
 
 ```php
 for($i = 0; $i < 5; $i++){
@@ -244,7 +245,7 @@ for($i = 0; $i < 5; $i++){
 }
 ```
 
-服务总线主题在标准层中支持的最大消息大小为 256 KB。 标头最大为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 主题大小的上限为 5 GB。 有关配额的详细信息，请参阅[服务总线配额][Service Bus quotas]。
+服务总线主题在[标准层](service-bus-premium-messaging.md)中支持的最大消息容量为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小上限为 5 GB。 有关配额的详细信息，请参阅[服务总线配额][Service Bus quotas]。
 
 ## <a name="receive-messages-from-a-subscription"></a>从订阅接收消息
 从订阅接收消息的最佳方法是使用 `ServiceBusRestProxy->receiveSubscriptionMessage` 方法。 可通过两种模式接收消息：[ReceiveAndDelete 和 PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)。 **PeekLock** 是默认设置。
@@ -337,7 +338,7 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ```
 
 ## <a name="next-steps"></a>后续步骤
-了解服务总线队列的基础知识后，请参阅[队列、主题和订阅][Queues, topics, and subscriptions]以获取更多信息。
+现在，已了解服务总线队列的基础知识，请参阅[队列、主题和订阅][Queues, topics, and subscriptions] 以获取更多信息。
 
 [BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md

@@ -15,11 +15,12 @@ ms.topic: article
 origin.date: 10/17/2017
 ms.author: v-yiso
 ms.date: 12/11/2017
-ms.openlocfilehash: ea40052c73c10a9c31a307fdbbcf1348424ac3c9
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: c1dd03bc681624d0c3708b157ae5e06263f4cd9a
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695088"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>如何通过 Java 使用服务总线主题和订阅
 
@@ -170,7 +171,7 @@ service.sendTopicMessage("TestTopic", message);
 }
 ```
 
-服务总线主题在标准层中支持的最大消息大小为 256 KB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小是在创建时定义的，上限为 5 GB。
+服务总线主题在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小是在创建时定义的，上限为 5 GB。
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>如何从订阅接收消息
 若要从订阅接收消息，请使用 **ServiceBusContract** 对象。 收到的消息可在两种不同模式下工作：**ReceiveAndDelete** 和 **PeekLock**（默认模式）。

@@ -1,23 +1,24 @@
 ---
-title: "在 Azure 中创建 Linux SQL Server 2017 VM | Azure"
-description: "本教程介绍如何在 Azure 门户中创建 Linux SQL Server 2017 虚拟机。"
+title: 在 Azure 中创建 Linux SQL Server 2017 VM | Azure
+description: 本教程介绍如何在 Azure 门户中创建 Linux SQL Server 2017 虚拟机。
 services: virtual-machines-linux
 author: rockboyfor
 ms.author: v-yeche
 manager: digimobile
-origin.date: 10/25/2017
-ms.date: 03/19/2018
+origin.date: 05/11/2018
+ms.date: 06/04/2018
 ms.topic: hero-article
 tags: azure-service-management
 ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: b8ddbfedb871c0f1c78ec99486ce9c3252ead967
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 33fc5885e09a3e60ea63061c3ad6e096546aa869
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702886"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>在 Azure 门户中预配 Linux SQL Server 虚拟机
 
@@ -73,7 +74,7 @@ ms.lasthandoff: 03/17/2018
 
 1. 单击 **“确定”**。
 
-1. 在“大小”窗口中，选择计算机大小。 若要查看其他大小，请选择“全部查看”。 有关 VM 计算机大小的详细信息，请参阅 [Linux VM 大小](/virtual-machines/virtual-machines-linux-sizes)。
+1. 在“大小”窗口中，选择计算机大小。 有关 VM 计算机大小的详细信息，请参阅 [Linux VM 大小](/virtual-machines/virtual-machines-linux-sizes)。
 
     ![选择 VM 大小](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
@@ -82,9 +83,11 @@ ms.lasthandoff: 03/17/2018
 
 1. 单击“选择”。
 
-1. 在“设置”窗口中，可以对设置进行更改，也可以保留默认设置。
+1. 在“设置”窗口中，从“选择公共入站端口”列表中选择“SSH (22)”端口。 这是在本快速入门中连接并完成 SQL Server 配置所必需的。 如果想要远程连接到 SQL Server，还选择“MS SQL (1433)”以通过 Internet 打开端口 1433 进行连接。
 
-1. 单击 **“确定”**。
+   ![入站端口](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
+
+1. 可以对其他设置进行更改，也可以保留默认设置。 。
 
 1. 在“摘要”页中，单击“购买”以创建 VM。
 
@@ -146,10 +149,14 @@ ssh azureadmin@40.55.55.555
    echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
    source ~/.bashrc
    ```
+
 <a name="remote"></a>
 ## <a name="configure-for-remote-connections"></a>针对远程连接进行配置
 
-如果需要远程连接到 Azure VM 上的 SQL Server，必须在网络安全组上配置入站规则。 该规则允许 SQL Server 所侦听的端口（默认为 1433）上的流量。 以下步骤演示如何使用此步骤所对应的 Azure 门户。 
+如果需要远程连接到 Azure VM 上的 SQL Server，必须在网络安全组上配置入站规则。 该规则允许 SQL Server 所侦听的端口（默认为 1433）上的流量。 以下步骤演示如何使用此步骤所对应的 Azure 门户。
+
+> [!TIP]
+> 如果在预配过程中已在设置中选择了入站端口“MS SQL (1433)”，则已进行这些更改。 有关如何配置防火墙，可以转到下一部分。
 
 1. 在门户中选择“虚拟机”，然后选择 SQL Server VM。
 

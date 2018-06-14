@@ -15,14 +15,15 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 02/27/2017
-ms.date: 04/16/2018
+ms.date: 05/29/2018
 ms.author: v-junlch
 ms.custom: ''
-ms.openlocfilehash: ace4b5d12671a0539cbf05d7012ae0259c3ea8e2
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: 3875737c6034799cf79e23327e26ea52b61a1a36
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567342"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的计时器触发器 
 
@@ -35,6 +36,8 @@ ms.lasthandoff: 04/19/2018
 [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 包中提供了计时器触发器。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="example"></a>示例
 

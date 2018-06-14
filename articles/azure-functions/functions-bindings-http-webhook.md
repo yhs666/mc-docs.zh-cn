@@ -14,13 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 11/21/2017
-ms.date: 04/13/2018
+ms.date: 05/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: df7b394d5b665707e3bcedee5b5a6a1451c5050f
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: d05bc17f69bc276f10047c7ac927ee422fdd7494
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567358"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 和 webhook 绑定
 
@@ -38,11 +39,13 @@ HTTP 触发器可进行自定义以响应 [Webhook](https://en.wikipedia.org/wik
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## <a name="trigger"></a>触发器
 
 借助 HTTP 触发器，可以使用 HTTP 请求调用函数。 可以使用 HTTP 触发器生成无服务器 API 和响应 Webhook。 
 
-默认情况下，HTTP 触发器通过 HTTP 200 OK 状态代码和空白正文响应请求。 若要修改该响应，请配置 [HTTP 输出绑定](#http-output-binding)。
+默认情况下，在 Functions 1.x 中，HTTP 触发器返回“HTTP 200 正常”和空的正文；在 Functions 2.x 中返回“HTTP 204 无内容”和空的正文。 若要修改该响应，请配置 [HTTP 输出绑定](#http-output-binding)。
 
 ## <a name="trigger---example"></a>触发器 - 示例
 
@@ -55,7 +58,7 @@ HTTP 触发器可进行自定义以响应 [Webhook](https://en.wikipedia.org/wik
 
 ### <a name="trigger---c-example"></a>触发器 - C# 示例
 
-以下示例显示一个在查询字符串或 HTTP 请求正文中查找 `name` 参数的 [C# 函数](functions-dotnet-class-library.md)。
+以下示例显示一个在查询字符串或 HTTP 请求正文中查找 `name` 参数的 [C# 函数](functions-dotnet-class-library.md)。 请注意，返回值用于输出绑定，但不需要返回值属性。
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -86,15 +89,29 @@ public static async Task<HttpResponseMessage> Run(
 
 以下示例演示 *function.json* 文件中的一个触发器绑定以及使用该绑定的 [C# 脚本函数](functions-reference-csharp.md)。 该函数在查询字符串或 HTTP 请求的正文中查找 `name` 参数。
 
-下面是 *function.json* 文件中的绑定数据：
+*function.json* 文件如下所示：
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,
+    "bindings": [
+        {
+            "authLevel": "function",
+            "name": "req",
+            "type": "httpTrigger",
+            "direction": "in",
+            "methods": [
+                "get",
+                "post"
+            ]
+        },
+        {
+            "name": "$return",
+            "type": "http",
+            "direction": "out"
+        }
+    ]
+}
 ```
 
 [配置](#trigger---configuration)部分解释了这些属性。
@@ -140,22 +157,31 @@ public static string Run(CustomObject req, TraceWriter log)
 public class CustomObject {
      public String name {get; set;}
 }
-}
 ```
 
 ### <a name="trigger---f-example"></a>触发器 - F# 示例
 
 以下示例演示 *function.json* 文件中的一个触发器绑定以及使用该绑定的 [F# 函数](functions-reference-fsharp.md)。 该函数在查询字符串或 HTTP 请求的正文中查找 `name` 参数。
 
-下面是 *function.json* 文件中的绑定数据：
+*function.json* 文件如下所示：
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 [配置](#trigger---configuration)部分解释了这些属性。
@@ -203,15 +229,25 @@ let Run(req: HttpRequestMessage) =
 
 以下示例演示 *function.json* 文件中的一个触发器绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)。 该函数在查询字符串或 HTTP 请求的正文中查找 `name` 参数。
 
-下面是 *function.json* 文件中的绑定数据：
+*function.json* 文件如下所示：
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
 ```
 
 [配置](#trigger---configuration)部分解释了这些属性。
@@ -224,7 +260,7 @@ module.exports = function(context, req) {
 
     if (req.query.name || (req.body && req.body.name)) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "Hello " + (req.query.name || req.body.name)
         };
     }
@@ -263,15 +299,25 @@ public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous,
 
 以下示例演示 *function.json* 文件中的一个 Webhook 触发器绑定以及使用该绑定的 [C# 脚本函数](functions-reference-csharp.md)。 该函数记录 GitHub 问题注释。
 
-下面是 *function.json* 文件中的绑定数据：
+*function.json* 文件如下所示：
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 [配置](#trigger---configuration)部分解释了这些属性。
@@ -303,15 +349,25 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 以下示例演示 *function.json* 文件中的一个 Webhook 触发器绑定以及使用该绑定的 [F# 函数](functions-reference-fsharp.md)。 该函数记录 GitHub 问题注释。
 
-下面是 *function.json* 文件中的绑定数据：
+*function.json* 文件如下所示：
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 [配置](#trigger---configuration)部分解释了这些属性。
@@ -347,11 +403,21 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 [配置](#trigger---configuration)部分解释了这些属性。
@@ -387,14 +453,13 @@ public static HttpResponseMessage Run(
 
 下表解释了在 *function.json* 文件和 `HttpTrigger` 特性中设置的绑定配置属性。
 
-
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
 | **类型** | 不适用| 必需 - 必须设置为 `httpTrigger`。 |
 | direction | 不适用| 必需 - 必须设置为 `in`。 |
 | **name** | 不适用| 必需 - 在请求或请求正文的函数代码中使用的变量名称。 |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |确定请求中需要提供的密钥（如果有），以便调用此函数。 授权级别可以是以下值之一： <ul><li><code>anonymous</code>&mdash;无需 API 密钥。</li><li><code>function</code>&mdash;特定于函数的 API 密钥是必需的。 如果未提供任何值，该值为默认值。</li><li><code>admin</code>&mdash;主密钥是必需的。</li></ul> 有关详细信息，请参阅有关[授权密钥](#authorization-keys)的部分。 |
-| **methods** |**方法** | HTTP 方法的数组，该函数将响应此方法。 如果未指定，该函数将响应所有 HTTP 方法。 参阅[自定义 HTTP 终结点](#trigger---customize-the-http-endpoint)。 |
+| **methods** |**方法** | HTTP 方法的数组，该函数将响应此方法。 如果未指定，该函数将响应所有 HTTP 方法。 参阅[自定义 HTTP 终结点](#customize-the-http-endpoint)。 |
 | **route** | **Route** | 定义路由模板，控制函数将响应的请求 URL。 如果未提供任何值，则默认值为 `<functionname>`。 有关详细信息，请参阅[自定义 HTTP 终结点](#customize-the-http-endpoint)。 |
 | **webHookType** | **WebHookType** |将 HTTP 触发器配置为充当指定提供程序的 [webhook](https://en.wikipedia.org/wiki/Webhook) 接收器。 如果未设置此属性，请不要设置 `methods` 属性。 Webhook 类型可以是以下值之一：<ul><li><code>genericJson</code>&mdash;不包含特定提供程序逻辑的常规用途 webhook 终结点。 此设置会将请求限制为仅请求使用 HTTP POST 以及内容类型为 `application/json`。</li><li><code>github</code>&mdash;该函数响应 [GitHub Webhook](https://developer.github.com/webhooks/)。 不要对 GitHub Webhook 使用 _authLevel_ 属性。 有关详细信息，请参阅本文后面的“GitHub Webhook”部分。</li><li><code>slack</code>&mdash;该函数响应 [Slack Webhook](https://api.slack.com/outgoing-webhooks)。 不要对 Slack Webhook 使用 _authLevel_ 属性。 有关详细信息，请参阅本文后面的“Slack Webhook”部分。</li></ul>|
 
@@ -472,13 +537,13 @@ module.exports = function (context, req) {
 
     if (!id) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "All " + category + " items were requested."
         };
     }
     else {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: category + " item with id = " + id + " was requested."
         };
     }
@@ -549,36 +614,26 @@ HTTP 请求长度限制为 100MB（104,857,600 字节），并且 URL 长度限�
 
 ## <a name="output"></a>输出
 
-通过 HTTP 输出绑定响应 HTTP 请求发送者。 此绑定需要使用 HTTP 触发器，利用此绑定，可以自定义与触发器请求相关联的响应。 如果未提供 HTTP 输出绑定，HTTP 触发器将返回带空白正文的 HTTP 200 OK。 
+通过 HTTP 输出绑定响应 HTTP 请求发送者。 此绑定需要使用 HTTP 触发器，利用此绑定，可以自定义与触发器请求相关联的响应。 如果未提供 HTTP 输出绑定，在 Functions 1.x 中，HTTP 触发器返回“HTTP 200 正常”和空的正文；在 Functions 2.x 中返回“HTTP 204 无内容”和空的正文。
 
 ## <a name="output---configuration"></a>输出 - 配置
 
-对于 C# 类库，没有特定于输出的绑定配置属性。 若要发送 HTTP 响应，请让函数返回类型 `HttpResponseMessage` 或 `Task<HttpResponseMessage>`。
-
-对于其他语言，HTTP 输出绑定定义为 function.json 的 `bindings` 数组中的 JSON 对象，如以下示例中所示：
-
-```json
-{
-    "name": "res",
-    "type": "http",
-    "direction": "out"
-}
-```
-
-下表解释了在 *function.json* 文件中设置的绑定配置属性。
+下表解释了在 *function.json* 文件中设置的绑定配置属性。 在 C# 类库中，没有与这些 *function.json* 属性对应的属性。 
 
 |属性  |说明  |
 |---------|---------|
 | **类型** |必须设置为 `http`。 |
 | direction | 必须设置为 `out`。 |
-|**name** | 在响应对象的函数代码中使用的变量名。 |
+|**name** | 在响应的函数代码中使用的变量名称，或者 `$return` 以使用返回值。 |
 
 ## <a name="output---usage"></a>输出 - 用法
 
-可以使用输出参数来响应 HTTP 或 Webhook 调用方。 还可以使用语言标准响应模式。 有关示例响应，请参阅[触发器示例](#trigger---example)和 [Webhook 示例](#trigger---webhook-example)。
+若要发送 HTTP 响应，请使用语言标准响应模式。 在 C# 或 C# 脚本中，使函数返回类型为 `HttpResponseMessage` 或 `Task<HttpResponseMessage>`。 在 C# 中，不需要返回值属性。
+
+有关示例响应，请参阅[触发器示例](#trigger---example)和 [Webhook 示例](#trigger---webhook-example)。
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
+[详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
+<!-- Update_Description: wording and code update -->

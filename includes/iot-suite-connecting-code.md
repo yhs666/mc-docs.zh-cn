@@ -4,7 +4,7 @@ IoT 中心序列化程序客户端库使用模型来指定设备与 IoT 中心�
 
 <!-- TO DO This needs to be verified when we can access the UI -->
 
-1. 在 `#include` 语句之后添加以下变量声明。 将占位符值 `[Device Id]` 和 `[Device Key]` 替换为在远程监视解决方案仪表板中记下的设备值。 使用解决方案仪表板中的 IoT 中心主机名替换 `[IoTHub Name]`。 例如，如果 IoT 中心主机名是 **contoso.azure-devices.cn**，则将 [IoTHub Name] 替换为 **contoso**：
+1. 在 `#include` 语句之后添加以下变量声明。 将占位符值 `[Device Id]` 和 `[Device connection string]` 替换为针对添加到远程监视解决方案的物理设备记下的值：
 
     ```c
     static const char* deviceId = "[Device Id]";
@@ -126,7 +126,8 @@ IoT 中心序列化程序客户端库使用模型来指定设备与 IoT 中心�
       }
       ThreadAPI_Sleep(5000);
 
-      chiller->Firmware = _strdup(chiller->new_firmware_version);
+    #pragma warning(suppress : 4996)
+      chiller->Firmware = strdup(chiller->new_firmware_version);
       chiller->FirmwareUpdateStatus = "waiting";
       /* Send reported properties to IoT Hub */
       if (IoTHubDeviceTwin_SendReportedStateChiller(chiller, deviceTwinCallback, NULL) != IOTHUB_CLIENT_OK)
@@ -173,8 +174,10 @@ IoT 中心序列化程序客户端库使用模型来指定设备与 IoT 中心�
       }
       else
       {
-        chiller->new_firmware_version = _strdup(Firmware);
-        chiller->new_firmware_URI = _strdup(FirmwareUri);
+    #pragma warning(suppress : 4996)
+        chiller->new_firmware_version = strdup(Firmware);
+    #pragma warning(suppress : 4996)
+        chiller->new_firmware_URI = strdup(FirmwareUri);
         THREAD_HANDLE thread_apply;
         THREADAPI_RESULT t_result = ThreadAPI_Create(&thread_apply, do_firmware_update, chiller);
         if (t_result == THREADAPI_OK)

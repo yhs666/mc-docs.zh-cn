@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中心操作监视 | Azure"
-description: "如何使用 Azure IoT 中心操作监视功能实时监视 IoT 中心上的操作状态。"
+title: Azure IoT 中心操作监视 | Azure
+description: 如何使用 Azure IoT 中心操作监视功能实时监视 IoT 中心上的操作状态。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: nberdy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a299f3a5-b14d-4586-9c3b-44aea14ed013
 ms.service: iot-hub
 ms.devlang: na
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/10/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 3d3f4016f591f9b14eb6c3fe801978aca1917df0
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 06/11/2018
+ms.openlocfilehash: 6aaf91faa881767293a17dc12e69746adf8ceaf7
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695129"
 ---
 # <a name="iot-hub-operations-monitoring"></a>IoT 中心操作监视
 IoT 中心操作监视可让你实时监视其 IoT 中心上的操作状态。 IoT 中心可跨多个类别的操作跟踪事件。 可选择将一个或多个类别的事件发送到 IoT 中心终结点进行处理。 可以监视数据中是否有错误，或根据数据模式设置更复杂的处理行为。
@@ -299,7 +300,7 @@ class Program
 [img-endpoints]: media/iot-hub-operations-monitoring/monitoring-endpoint.png
 [img-service-key]: media/iot-hub-operations-monitoring/service-key.png
 
-[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
+[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-accelerators-with-azure-monitor-and-azure-resource-health
 [lnk-monitor]: iot-hub-monitor-resource-health.md
 [lnk-get-started]: ./iot-hub-csharp-csharp-getstarted.md
 [lnk-diagnostic-metrics]: ./iot-hub-metrics.md

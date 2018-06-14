@@ -15,16 +15,18 @@ ms.workload: iaas-sql-server
 origin.date: 02/16/2017
 ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: ded5a07dbaaa468848fda682bb914d3a96ce16ef
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 00ff1a3e5c683dba4daf445c5415dba73c019cea
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34568790"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>在 Azure 中为 Always On 可用性组配置负载均衡器
 本文说明如何在使用 Azure Resource Manager 运行的 Azure 虚拟机中为 SQL Server Always On 可用性组创建负载均衡器。 当 SQL Server 实例位于 Azure 虚拟机时，可用性组需要负载均衡器。 负载均衡器存储可用性组侦听器的 IP 地址。 如果可用性组跨多个区域，则每个区域都需要一个负载均衡器。
 
-若要完成此任务，需要在使用 Resource Manager 运行的 Azure 虚拟机上部署一个 SQL Server 可用性组。 这两个 SQL Server 虚拟机必须属于同一个可用性集。 可以使用 [Microsoft 模板](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)在 Resource Manager 中自动创建可用性组。 此模板会自动创建内部负载均衡器。 
+若要完成此任务，需要在使用 Resource Manager 运行的 Azure 虚拟机上部署一个 SQL Server 可用性组。 这两个 SQL Server 虚拟机必须属于同一个可用性集。 
+<!-- Not Available on [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)-->
 
 如果需要，可以[手动配置可用性组](virtual-machines-windows-portal-sql-availability-group-tutorial.md)。
 

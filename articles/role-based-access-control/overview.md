@@ -6,20 +6,21 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 01/02/2018
-ms.date: 05/02/2018
+ms.date: 05/28/2018
 ms.author: v-junlch
 ms.reviewer: rqureshi
-ms.openlocfilehash: e630c195e760be9ce598709320dcf1955b7df692
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.openlocfilehash: 7dfcf922d5ec6e790532a190d071666140ae0a4e
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559504"
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Azure 门户中基于角色的访问控制入门
 面向安全的公司应侧重于向员工提供他们所需的确切权限。 权限过多，可能会向攻击者公开帐户。 权限太少意味着员工无法有效地完成其工作。 Azure 基于角色的访问控制 (RBAC) 可通过为 Azure 提供精细的访问权限管理来帮助解决此问题。
@@ -71,3 +72,4 @@ Azure RBAC 仅支持 Azure 门户和 Azure Resource Manager API 中的 Azure 资
 - 请参阅 [RBAC 内置角色](built-in-roles.md)
 - 定义自己在 [Azure RBAC 中的自定义角色](custom-roles.md)
 
+<!-- Update_Description: update metedata properties -->

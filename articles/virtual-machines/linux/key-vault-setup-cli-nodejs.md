@@ -16,11 +16,12 @@ ms.topic: article
 origin.date: 02/24/2017
 ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: 86105dbd10258ca2802e7f67392cffb031211449
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.openlocfilehash: beb2d9bedbb77450d1f23341e23c8d29e66dfea0
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34568795"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager-with-the-azure-cli-10"></a>使用 Azure CLI 1.0 在 Azure Resource Manager 中为虚拟机设置密钥保管库
 在 Azure Resource Manager 堆栈中，密码/证书被建模为密钥保管库资源提供程序所提供的资源。 若要了解有关 Azure 密钥保管库的详细信息，请参阅[什么是 Azure 密钥保管库？](../../key-vault/key-vault-whatis.md) 为了让密钥保管库能与 Azure 资源管理器虚拟机搭配使用，必须将密钥保管库上的 *EnabledForDeployment* 属性设置为 true。 可以在各种客户端中执行此操作。 本文说明如何设置用于 Azure 虚拟机的密钥保管库。
@@ -31,6 +32,7 @@ ms.lasthandoff: 05/11/2018
 - [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型的 CLI（本文）
 - [Azure CLI 2.0](../windows/key-vault-setup.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
+<a name="quick-commands"></a>
 ## <a name="use-cli-10-to-set-up-key-vault"></a>使用 CLI 1.0 设置密钥保管库
 若要使用命令行接口 (CLI) 创建密钥保管库，请参阅[使用 CLI 管理密钥保管库](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault)。
 

@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 02/28/2018
-ms.date: 04/13/2018
+ms.date: 05/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 27cff45832f5cdb858ecbf5acab6be8c0bcf1fd6
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: fdea6432baff72da16ecf84455352f3fce49009c
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567293"
 ---
 # <a name="durable-functions-unit-testing"></a>Durable Functions 单元测试
 
@@ -229,7 +230,7 @@ namespace VSSample.Tests
 
 ## <a name="unit-testing-orchestrator-functions"></a>对业务流程协调程序函数进行单元测试
 
-业务流程协调程序包含的业务逻辑通常要多得多，因此，它们的单元测试更有趣。 目前只能在 C# 中实现业务流程协调程序函数。
+业务流程协调程序包含的业务逻辑通常要多得多，因此，它们的单元测试更有趣。
 
 在本部分，单元测试将验证 `E1_HelloSequence` 业务流程协调程序函数的输出：
 
@@ -401,3 +402,4 @@ namespace VSSample.Tests
 
 > [详细了解 moq](https://github.com/Moq/moq4/wiki/Quickstart)
 
+<!-- Update_Description: wording update -->

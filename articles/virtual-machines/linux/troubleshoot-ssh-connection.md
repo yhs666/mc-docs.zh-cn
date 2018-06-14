@@ -15,13 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 05/14/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: cfb7bf90225b89216fed9e6cfdd34ef3fd1ca5bb
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 9d85252cde904bb1744ced599a513f67c17fc679
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702866"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>针对通过 SSH 连接到 Azure Linux VM 时发生的失败、错误或被拒绝问题进行故障排除
 尝试连接到 Linux 虚拟机 (VM) 时，有多种原因可能会导致安全外壳 (SSH) 错误、SSH 连接失败或被拒绝。 本文将帮助用户找出原因并更正问题。 可以使用 Azure 门户、Azure CLI 或适用于 Linux 的 VM 访问扩展来排查和解决连接问题。
@@ -35,7 +36,7 @@ ms.lasthandoff: 05/15/2018
 
 1. 重置 SSH 配置。
 2. 重置用户的凭据。
-3. 确认[网络安全组](../../virtual-network/virtual-networks-nsg.md)规则是否允许 SSH 流量。
+3. 验证[网络安全组](../../virtual-network/security-overview.md)规则是否允许 SSH 流量。
    * 确保有一条网络安全组规则允许 SSH 流量（默认为 TCP 端口 22）。
    * 在不使用 Azure 负载均衡器的情况下无法使用端口重定向/映射。
 4. 查看 [VM 资源运行状况](../../service-health/resource-health-overview.md)。 
@@ -159,7 +160,7 @@ az vm extension set --resource-group philmea --vm-name Ubuntu \
 azure config mode arm
 ```
 
-如果创建并上传了自定义 Linux 磁盘映像，请确保已安装 [Azure Linux 代理](../windows/agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 2.0.5 或更高版本。 在使用库映像创建的 VM 上，系统已自动安装并配置了此访问扩展。
+如果创建并上传了自定义 Linux 磁盘映像，请确保已安装 [Azure Linux 代理](../extensions/agent-windows.md) 2.0.5 或更高版本。 在使用库映像创建的 VM 上，系统已自动安装并配置了此访问扩展。
 
 ### <a name="reset-ssh-configuration"></a>重置 SSH 配置
 SSHD 配置本身可能有误或服务遇到错误。 可以重置 SSHD 以确保 SSH 配置本身是有效的。 要执行的第一个故障排除步骤应该是重置 SSHD。
@@ -256,4 +257,4 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 * 如果在执行后续步骤之后仍然无法通过 SSH 连接到 VM，请参阅[更详细的故障排除步骤](detailed-troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，查看其他可以解决问题的步骤。
 * 有关对应用程序访问进行故障排除的详细信息，请参阅[对在 Azure 虚拟机上运行的应用程序的访问进行故障排除](../windows/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * 有关对使用经典部署模型创建的虚拟机进行故障排除的详细信息，请参阅[如何为基于 Linux 的虚拟机重置密码或 SSH](classic/reset-access-classic.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)。
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update meta properties, wording update -->

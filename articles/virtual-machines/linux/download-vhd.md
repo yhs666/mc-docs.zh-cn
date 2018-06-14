@@ -14,13 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2017
-ms.date: 04/16/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4f3b35ac75c32eef28d27c245abb5409940239d7
-ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
+ms.openlocfilehash: bef5400068fcb20246c163346e8b1793e2db2a81
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702742"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>从 Azure 下载 Linux VHD
 
@@ -38,10 +39,10 @@ Azure 中的虚拟机 (VM) 将[磁盘](../windows/managed-disks-overview.md?toc=
 
 若要使用 VHD 作为映像创建其他 VM，请完成以下步骤：
 
-1. 使用 SSH、帐户名称和 VM 的公共 IP 地址连接到它并对其取消设置。 +user 参数还会删除上次预配的用户帐户。 如果要将帐户凭据收录到 VM，请省略此 +user 参数。 以下示例删除上次预配的用户帐户：
+1. 使用 SSH、帐户名称和 VM 的公共 IP 地址连接到它并对其取消设置。 可以使用 [az network public-ip show](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-show) 查找公共 IP 地址。 +user 参数还会删除上次预配的用户帐户。 如果要将帐户凭据收录到 VM，请省略此 +user 参数。 以下示例删除上次预配的用户帐户：
 
     ```bash
-    ssh azureuser@40.118.249.235
+    ssh azureuser@<publicIpAddress>
     sudo waagent -deprovision+user -force
     exit 
     ```
@@ -92,4 +93,4 @@ Azure 中的虚拟机 (VM) 将[磁盘](../windows/managed-disks-overview.md?toc=
 
 - 了解如何[使用 Azure CLI 2.0 上传自定义磁盘并从其创建 Linux VM](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 
 - [使用 Azure CLI 管理 Azure 磁盘](tutorial-manage-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
-<!-- Update_Description: update link -->
+<!-- Update_Description: update meta properties, update link, wording update -->

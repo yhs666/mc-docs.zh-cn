@@ -15,11 +15,12 @@ ms.workload: tbd
 origin.date: 11/08/2017
 ms.author: v-yiso
 ms.date: 02/05/2018
-ms.openlocfilehash: e4bb67f53439e1f0484cbc8b7ec7f5425322de5e
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 3aea7dd870703571c01bfc504547e93f55363754
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695089"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>存储队列和服务总线队列 - 比较与对照
 本文分析 Azure 目前提供的以下两种队列类型之间的不同点和相似点：存储队列和服务总线队列。 使用该信息可以比较和对照这两种技术，并可以明智地决定哪种解决方案最符合需要。
@@ -147,7 +148,7 @@ Azure 支持两种队列机制：**存储队列**和**服务总线队列**。
 | 比较条件 | 存储队列 | 服务总线队列 |
 | --- | --- | --- |
 | 最大队列大小 |**500 TB**<br/><br/>（限制为[单个存储帐户容量](../storage/common/storage-introduction.md#queue-storage)） |**1 GB 到 80 GB**<br/><br/>（在创建队列和[启用分区](service-bus-partitioning.md)时定义 – 请参阅“其他信息”部分） |
-| 最大消息大小 |**64 KB**<br/><br/>（使用 **Base64** 编码时为 48 KB）<br/><br/>Azure 可以通过合并队列和 Blob 支持大消息 – 单个项目排队的消息最多达到 200GB。 |**256 KB** <br/><br/>（包含标题和正文，最大标题大小：64 KB）。 |
+| 最大消息大小 |**64 KB**<br/><br/>（使用 **Base64** 编码时为 48 KB）<br/><br/>Azure 可以通过合并队列和 Blob 支持大消息 – 单个项目排队的消息最多达到 200 GB。 |**256 KB** 或 **1 MB**<br/><br/>（包含标题和正文，最大标题大小：64 KB）。<br/><br/>取决于[服务层](service-bus-premium-messaging.md)。 |
 | 最大消息 TTL |**无限**（从 api-version 2017-07-27 开始） |**TimeSpan.Max** |
 | 最大队列数 |**不受限制** |**10,000**<br/><br/>（按服务命名空间） |
 | 并发客户端的最大数目 |**不受限制** |**不受限制**<br/><br/>（100 个并发连接限制仅适用于基于 TCP 协议的通信） |
@@ -156,7 +157,7 @@ Azure 支持两种队列机制：**存储队列**和**服务总线队列**。
 
 - 服务总线强制实施队列大小限制。 在创建队列时指定最大队列大小，其值可以在 1 至 80 GB 之间。 如果达到创建队列时设置的队列大小值，则将拒绝其他传入消息，并且调用代码收到一个异常。 有关服务总线中配额的详细信息，请参阅[服务总线配额](./service-bus-quotas.md)。
 
-- 可以创建 1、2、3、4 或 5 GB 大小的服务总线队列（默认值为 1 GB）。 启用分区（默认设置）时，服务总线将指定的每个 GB 创建 16 个分区。 因此，如果你创建了一个大小为 5 GB 的队列，由于每 GB 16 个分区，最大队列大小将变为 (5 * 16) = 80 GB。 可以通过在 [Azure 门户][]中查看分区队列或主题的条目，来了解该队列或主题的最大大小。
+- 在[标准层](service-bus-premium-messaging.md)中，可以创建 1、2、3、4 或 5 GB 大小的服务总线队列（默认值为 1 GB）。 在高级层中，可以创建多达 80 GB 大小的队列。 在标准层中，启用分区（这是默认值）时，服务总线将指定的每个 GB 创建 16 个分区。 因此，如果你创建了一个大小为 5 GB 的队列，由于每 GB 16 个分区，最大队列大小将变为 (5 * 16) = 80 GB。 可以通过在 [Azure 门户][Azure portal]中查看分区队列或主题的条目来了解该队列或主题的最大大小。 在高级层中，只为每个队列创建 2 个分区。
 
 - 在存储队列中，如果消息的内容不属于 XML 安全内容，则必须对其进行 **Base64** 编码。 如果使用 **Base64**编码此消息，则用户负载可高达 48 KB，而不是 64 KB。
 
@@ -164,7 +165,7 @@ Azure 支持两种队列机制：**存储队列**和**服务总线队列**。
 
 - 当客户端通过 TCP 协议与服务总线队列进行通信时，到单个服务总线队列的最大并发连接数不得超过 100。 此数值在发送方和接收方之间共享。 如果达到此配额，则拒绝后续的其他连接请求，调用代码将收到一个异常。 使用基于 REST 的 API 连接到队列的客户端不受此限制。
 
-* 如果在单个服务总线服务命名空间中需要超过 10,000 个队列，可以联系 Azure 支持团队并请求增加数目。 若要使用服务总线扩展到 10,000 个以上的队列，还可使用 [Azure 门户][Azure 门户]创建其他服务命名空间。
+* 如果在单个服务总线服务命名空间中需要超过 10,000 个队列，可以联系 Azure 支持团队并请求增加数目。 若要使用服务总线扩展到 10,000 个以上的队列，还可使用 [Azure 门户][Azure portal]创建其他命名空间。
 
 ## <a name="management-and-operations"></a>管理和操作
 本部分对存储队列和服务总线队列提供的管理功能进行了比较。
@@ -225,5 +226,5 @@ Azure 支持两种队列机制：**存储队列**和**服务总线队列**。
 - [服务总线开发人员指南](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
 - [在 Azure 中使用队列服务 ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 
-[Azure 门户]: https://portal.azure.cn
+[Azure portal]: https://portal.azure.cn
 

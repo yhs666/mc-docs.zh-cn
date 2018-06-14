@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/30/2017
 ms.author: v-yiso
-ms.date: 05/07/2018
-ms.openlocfilehash: 593e414d5e3d1c98bd18864dda5411c8ab585061
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.date: 06/11/2018
+ms.openlocfilehash: c8c3eb4b8576923d2cd7b74d0601b073ab8d19f0
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695026"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnode"></a>使用设备管理启动设备固件更新 (.NET/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
@@ -72,7 +73,6 @@ ms.lasthandoff: 04/28/2018
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
-        static JobClient jobClient;
         static string targetDevice = "{deviceIdForTargetDevice}";
         
 1. 将以下方法添加到 **Program** 类：

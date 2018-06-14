@@ -1,26 +1,27 @@
 ---
-title: "如何使用 Packer 创建 Linux Azure VM 映像 | Azure"
-description: "了解如何使用 Packer 在 Azure 中创建 Linux 虚拟机映像"
+title: 如何使用 Packer 创建 Linux Azure VM 映像 | Azure
+description: 了解如何使用 Packer 在 Azure 中创建 Linux 虚拟机映像
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 12/13/2017
-ms.date: 03/19/2018
+origin.date: 05/03/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4fc0ba20d960b719eb012b29628bf5b62d66a655
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: b598f9c9826fb8aed3e5a83653d33d8a29f2234d
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702733"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>如何使用 Packer 在 Azure 中创建 Linux 虚拟机映像
 从定义 Linux 分发版和操作系统版本的映像创建 Azure 中的每个虚拟机 (VM)。 映像可包括预安装的应用程序和配置。 Azure 应用商店为最常见的分发和应用程序环境提供了许多第一和第三方映像，或者用户可根据需求创建自己的自定义映像。 本文详细介绍如何使用开源工具 [Packer](https://www.packer.io/) 在 Azure 中定义和生成自定义映像。
@@ -28,7 +29,7 @@ ms.lasthandoff: 03/17/2018
 ## <a name="create-azure-resource-group"></a>创建 Azure 资源组
 生成过程中，Packer 将在生成源 VM 时创建临时 Azure 资源。 要捕获该源 VM 用作映像，必须定义资源组。 Packer 生成过程的输出存储在此资源组中。
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
+使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -55,7 +56,7 @@ az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, t
 }
 ```
 
-若要进行 Azure 身份验证，还需要通过 [az account show](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az_account_show) 获取 Azure 订阅 ID：
+若要进行 Azure 身份验证，还需要通过 [az account show](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-show) 获取 Azure 订阅 ID：
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -199,7 +200,7 @@ ManagedImageLocation: chinaeast
 Packer 需要几分钟时间来生成 VM、运行设置程序并清理部署。
 
 ## <a name="create-vm-from-azure-image"></a>从 Azure 映像创建 VM
-现在可以通过 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 从映像创建 VM。 指定通过 `--image` 参数创建的映像。 以下示例从 myPackerImage 创建一个名为 myVM 的 VM，并生成 SSH 密钥（如果它们尚不存在）：
+现在可以通过 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 从映像创建 VM。 指定通过 `--image` 参数创建的映像。 以下示例从 myPackerImage 创建一个名为 myVM 的 VM，并生成 SSH 密钥（如果它们尚不存在）：
 
 ```azurecli
 az vm create \
@@ -209,6 +210,8 @@ az vm create \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
+
+如果你希望在与 Packer 映像不同的资源组或区域中创建虚拟机，请指定映像 ID 而不是映像名称。 可以使用 [az image show](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#az-image-show) 获取映像 ID。
 
 创建 VM 需要几分钟时间。 创建 VM 后，请记下 Azure CLI 显示的 `publicIpAddress`。 此地址用于通过 Web 浏览器访问 NGINX 站点。
 
