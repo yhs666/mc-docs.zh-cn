@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/23/2018
-ms.date: 05/15/2018
+ms.date: 05/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5c32a8c822a18c6b9ad7daa7c9c0ba031bae2919
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 0526e8cebb87125e9cc78e4764e89e0d276f6bb1
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559413"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>在 Azure 中计划 VM 备份基础结构
 本文提供性能和资源建议，帮助规划 VM 备份基础结构。 文中还定义了备份服务的主要方面；这些方面对于决定体系结构、容量规划和计划安排至关重要。 如果已[准备好环境](backup-azure-arm-vms-prepare.md)，请首先进行此规划，然后再开始[备份 VM](backup-azure-arm-vms.md)。 如需有关 Azure 虚拟机的详细信息，请参阅[虚拟机文档](../virtual-machines/index.md)。
@@ -120,7 +121,7 @@ Azure 备份提供脚本框架。 若要确保备份 Linux VM 时的应用程序
 - 将 VM 备份安排在非高峰时间进行。 这样备份服务会使用 IOPS 将数据从客户存储帐户传输到保管库。
 - 确保策略在分布于不同存储帐户的 VM 上应用。 建议不要使用同一备份计划保护单个存储帐户中总数超过 20 个的磁盘。 如果一个存储帐户中有超过 20 个磁盘，请将这些 VM 分配到多个策略，以获取备份过程传输阶段所需的 IOPS。
 - 请勿将高级存储上运行的 VM 还原到同一存储帐户。 如果还原操作过程与备份操作一致，则会减少备份的可用 IOPS。
-- 对于高级 VM 备份，请确保托管高级磁盘的存储帐户具有至少 50% 的闲置空间可用于暂存快照，以实现成功备份。 
+- 对于 VM 备份堆栈 V1 上的高级 VM 备份，建议仅分配总存储帐户空间的 50%，以便 Azure 备份服务可以将快照复制到存储帐户，并将数据从存储帐户中的复制位置传输到保管库。
 - 请确保 Linux VM 上为备份启用的 python 是 2.7 版
 
 ## <a name="data-encryption"></a>数据加密

@@ -15,11 +15,12 @@ ms.topic: article
 origin.date: 11/29/2017
 ms.date: 04/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 43a738015f9135587ce790fb3e69810573301043
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 2fec3f766368ed9466dcd61fc92bbfb313bda159
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34568755"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>在 Linux VM 上使用 cloud-init 配置交换文件
 本文介绍如何使用 [cloud-init](https://cloudinit.readthedocs.io) 在各种 Linux 分发版中配置交换文件。 在传统上，交换文件由 Linux 代理 (WALA) 根据分发版的需要进行配置。  本文档概述在预配期间，使用 cloud-init 按需生成交换文件的过程。  有关 cloud-init 如何在 Azure 以及受支持的 Linux 发行版中本机工作的详细信息，请参阅 [cloud-init 概述](using-cloud-init.md)
@@ -93,8 +94,8 @@ Filename                Type        Size    Used    Priority
 ## <a name="next-steps"></a>后续步骤
 有关配置更改的其他 cloud-init 示例，请参阅以下文章：
 
-- [向 VM 添加其他 Linux 用户](cloudinit-add-user.md)
-- [运行包管理器以在首次启动时更新现有包](cloudinit-update-vm.md)
-- [更改 VM 本地主机名](cloudinit-update-vm-hostname.md) 
+<!-- Not Available on - [Add an additional Linux user to a VM](cloudinit-add-user.md) -->
+<!-- Not Available on - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md) -->
+<!-- Not Available on - [Change VM local hostname](cloudinit-update-vm-hostname.md) -->
 - [安装应用程序包、更新配置文件和注入密钥](tutorial-automate-vm-deployment.md)
 <!-- Update_Description: update link, wording update -->

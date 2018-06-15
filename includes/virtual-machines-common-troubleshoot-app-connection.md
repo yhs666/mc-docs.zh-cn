@@ -1,3 +1,21 @@
+---
+title: include 文件
+description: include 文件
+services: virtual-machines-windows
+author: rockboyfor
+ms.service: virtual-machines-windows
+ms.topic: include
+origin.date: 05/17/2018
+ms.date: 06/04/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: 50a8c2796378b7e35dec97bc4987f7663f2075af
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702889"
+---
 有多种原因可导致无法启用或连接到在 Azure 虚拟机 (VM) 上运行的应用程序。 原因包括应用程序未在预期端口上运行或侦听、侦听端口受到阻止，或网络规则未将流量正确传递到应用程序。 本文说明有条理地找到问题并更正问题。
 
 如果在使用 RDP 或 SSH 连接到 VM 时发生问题，请先参阅以下文章之一：
@@ -61,7 +79,8 @@
 
 在基于 Windows 和基于 Linux 的虚拟机上，使用 **netstat -a** 命令显示活动的侦听端口。 检查应用程序应侦听的预期端口的输出。 重新启动应用程序，或根据需要将其配置为使用预期的端口，并尝试在本地重新访问应用程序。
 
-## <a id="step2"></a>步骤 2：从同一虚拟网络中的另一个 VM 访问应用程序
+<a name="step2"></a>
+## <a name="step-2-access-application-from-another-vm-in-the-same-virtual-network"></a>步骤 2：从同一虚拟网络中的另一个 VM 访问应用程序
 使用 VM 的主机名或其 Azure 分配的公共、专用或提供程序 IP 地址尝试访问位于不同 VM 但相同虚拟网络中的应用程序。 对于使用经典部署模型创建的虚拟机，请不要使用云服务的公共 IP 地址。
 
 ![从不同的 VM 启动应用程序](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
@@ -81,7 +100,8 @@
 
 在基于 Windows 的虚拟机上，使用具有高级安全性的 Windows 防火墙确定防火墙规则是否排除应用程序的入站和出站流量。
 
-## <a id="step3"></a>步骤 3：从虚拟网络外部访问应用程序
+<a name="step3"></a>
+## <a name="step-3-access-application-from-outside-the-virtual-network"></a>步骤 3：从虚拟网络外部访问应用程序
 尝试通过虚拟网络之外的计算机访问应用程序，作为应用程序运行的 VM。 使用其他网络作为原始客户端计算机。
 
 ![从虚拟网络外部的计算机启动应用程序。](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
@@ -99,7 +119,7 @@
 
   * 确保 VM 的入站 NAT 规则配置允许传入流量，尤其是协议（TCP 或 UDP）及公用和专用端口号。
   * 确保网络安全组允许入站请求和出站响应流量。
-  * 有关详细信息，请参阅 [什么是网络安全组 (NSG)？](../articles/virtual-network/virtual-networks-nsg.md)
+  * 有关详细信息，请参阅[什么是网络安全组？](../articles/virtual-network/security-overview.md)
 
 如果虚拟机或终结点是负载均衡集的成员，则：
 
@@ -120,4 +140,3 @@
 [对与基于 Linux 的 Azure 虚拟机的 Secure Shell (SSH) 连接进行故障排除](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md)
 
 <!--Update_Description: wording update-->
-<!--ms.date: 01/08/2018-->

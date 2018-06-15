@@ -1,25 +1,26 @@
 ---
-title: "使用 Azure Site Recovery 将 Linux VM 迁移到 Azure 高级存储 | Azure"
-description: "使用 Site Recovery 将现有虚拟机迁移到 Azure 高级存储。 高级存储为 Azure 虚拟机上运行的 I/O 密集型工作负载提供高性能、低延迟的磁盘支持。"
+title: 使用 Azure Site Recovery 将 Linux VM 迁移到 Azure 高级存储 | Azure
+description: 使用 Site Recovery 将现有虚拟机迁移到 Azure 高级存储。 高级存储为 Azure 虚拟机上运行的 I/O 密集型工作负载提供高性能、低延迟的磁盘支持。
 services: virtual-machines-linux
 cloud: Azure
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2017
-ms.date: 03/19/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1be9bbcd6d55d5123e40caf82a5b66264d5f246f
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: d3227384333836f396cb1a8446d90d40f42b4cdf
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702741"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 迁移到高级存储
 
@@ -203,7 +204,7 @@ Site Recovery 会创建类型与支持高级存储的 VM 相同或类似的 VM �
    * 对于使用经典部署模型创建的 VM：在 Azure 门户中将 VM 添加到可用性集。 有关详细步骤，请参阅[将现有虚拟机添加到可用性集](../linux/classic/configure-availability-classic.md)。
    * 对于通过资源管理器部署模型创建的 VM：保存 VM 的配置，并在可用性集中删除再重新创建 VM。 为此，请使用 [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)（设置 Azure Resource Manager VM 可用性集）中所述的脚本。 运行此脚本之前，请检查其自身的限制并规划停机时间。
 
-2. **删除旧 VM 和磁盘**。 请确保高级磁盘与源磁盘一致，并且新 VM 执行的功能与源 VM 相同。 通过 Azure 门户删除源存储帐户中的 VM 和磁盘。 如果出现了即使删除 VM 也无法删除磁盘的问题，请参阅 [排查在删除 VHD 时遇到的错误](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md)。
+2. **删除旧 VM 和磁盘**。 请确保高级磁盘与源磁盘一致，并且新 VM 执行的功能与源 VM 相同。 通过 Azure 门户删除源存储帐户中的 VM 和磁盘。 如果出现了即使删除 VM 也无法删除磁盘的问题，请参阅[排查存储资源删除错误](storage-resource-deletion-errors.md)。
 
 3. **清理 Azure Site Recovery 基础结构**。 如果不再需要 Site Recovery，可清理其基础结构。 删除复制的项、配置服务器和恢复策略，然后删除 Azure Site Recovery 保管库。
 
@@ -240,6 +241,4 @@ Site Recovery 会创建类型与支持高级存储的 VM 相同或类似的 VM �
 [11]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-11.PNG
 [12]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-12.PNG
 [13]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-13.png
-<!-- Not Available on [14]:../site-recovery/media/site-recovery-vmware-to-azure/v2a-architecture-henry.png -->
-[15]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-14.png
-<!--Update_Description: wording update, update link -->
+<!-- Not Available on [14]:../site-recovery/media/site-recovery-vmware-to-azure/v2a-architecture-henry.png --> [15]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-14.png <!--Update_Description: wording update, update link -->>

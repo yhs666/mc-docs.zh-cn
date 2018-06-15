@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/21/2018
-ms.date: 05/16/2018
+ms.date: 05/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 788fa5aa9f4f3bfc7c9b0e9ce804d546060f3420
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 4b151bee2e75d75dd9f7cad9e2099627d24b8204
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559434"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虚拟机备份疑难解答
 可参考下表中所列的信息，排查使用 Azure 备份时遇到的错误。
@@ -31,7 +32,7 @@ ms.lasthandoff: 05/17/2018
 | VM 代理无法与 Azure 备份服务进行通信。 - 确保 VM 具有网络连接、VM 代理为最新版且正常运行。 有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=800034 |如果 VM 代理出现问题，或以某种方式阻止了对 Azure 基础结构的网络访问，则会引发此错误。 [详细了解](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup)如何调试 VM 快照问题。<br> 如果 VM 代理未导致任何问题，则重启 VM。 有时，VM 状态不正确可能会导致问题，而重启 VM 则会重置此“错误状态”。 |
 | VM 处于失败预配状态 - 请重启 VM，并确保 VM 正在运行，或处于关闭状态等待备份 | 当一个扩展失败导致 VM 状态为失败预配状态时，会发生这种情况。 转到扩展列表，查看是否有失败的扩展，将其删除并尝试重启虚拟机。 如果所有扩展的状态都为正在运行，请检查 VM 代理服务是否正在运行。 如果未运行，请重启 VM 代理服务。 | 
 | 托管磁盘的 VMSnapshot 扩展操作失败 - 请重试备份操作。 如果问题仍然存在，请按照“http://go.microsoft.com/fwlink/?LinkId=800034”处的说明进行操作。 如果仍然失败，请联系 Microsoft 支持部门 | Azure 备份服务未能触发快照时，会发生此错误。 [详细了解](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed)如何调试 VM 快照问题。 |
-| 由于存储帐户可用空间不足，无法复制虚拟机快照 - 请确保存储帐户的可用空间等效于附加到虚拟机的高级存储磁盘上存在的数据 | 对于高级 VM，我们将快照复制到存储帐户。 这是为了确保适用于快照的备份管理流量不会限制使用高级磁盘的应用程序可用的 IOPS 数。 Microsoft 建议仅分配总存储帐户空间的 50%，以便 Azure 备份服务可以将快照复制到存储帐户，并将数据从存储帐户中的复制位置传输到保管库。 | 
+| 由于存储帐户可用空间不足，无法复制虚拟机快照 - 请确保存储帐户的可用空间等效于附加到虚拟机的高级存储磁盘上存在的数据 | 对于 VM 备份堆栈 V1 上的高级 VM，我们将快照复制到存储帐户。 这是为了确保适用于快照的备份管理流量不会限制使用高级磁盘的应用程序可用的 IOPS 数。 Microsoft 建议仅分配总存储帐户空间的 50% (17.5 TB)，以便 Azure 备份服务可以将快照复制到存储帐户，并将数据从存储帐户中的复制位置传输到保管库。 | 
 | 无法执行操作，因为 VM 代理没有响应 |如果 VM 代理出现问题，或以某种方式阻止了对 Azure 基础结构的网络访问，则会引发此错误。 对于 Windows VM，请检查服务中的 VM 代理服务状态，以及代理是否显示在控制面板的程序中。 尝试从控制面板中删除程序，再重新安装代理，[如下](#vm-agent)所述。 重新安装代理后，将触发临时备份进行验证。 |
 | 恢复服务扩展操作失败。 - 确保虚拟机上有最新的虚拟机代理，并且代理服务正在运行。 请重试备份操作，如果失败，请与 Microsoft 支持部门联系。 |VM 代理过期会引发此错误。 请参阅以下“更新 VM 代理”部分，更新 VM 代理。 |
 | 虚拟机不存在。 - 请确保该虚拟机存在，或选择其他虚拟机。 |当主 VM 已删除，而备份策略仍继续查找用于执行备份的 VM 时，会发生这种情况。 若要修复此错误，请执行以下操作： <ol><li> 使用相同的名称和相同的资源组名称 [云服务名称] 重新创建虚拟机，<br>（或者）<br></li><li>停止保护虚拟机，无需删除备份数据。 [更多详细信息](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |

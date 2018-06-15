@@ -14,15 +14,16 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/20/2018
-ms.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: d56b6646c9bd87f83d22a0b85bbbcbf31f083b29
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 9d20ef34e6b84f4e4eb5640e23911ade0bd2601f
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702855"
 ---
-# <a name="frequently-asked-questions-for-sql-server-on-windows-azure-virtual-machines"></a>Windows Azure 虚拟机上的 SQL Server 常见问题
+# <a name="frequently-asked-questions-for-sql-server-running-on-windows-azure-virtual-machines"></a>Microsoft Azure 虚拟机上运行的 SQL Server 的常见问题
 
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
@@ -73,8 +74,7 @@ ms.lasthandoff: 05/17/2018
 
 1. **如何在 Azure VM 上安装 SQL Server 的许可版本？**
 
-   在中国有一种方法可用来执行此操作。 那就是将 SQL Server 安装介质复制到 Windows Server VM 上，然后在 VM 上安装 SQL Server。 出于许可原因，必须提供 [Azure 上通过软件保障实现的许可移动性](https://www.azure.cn/pricing/license-mobility/)。 有关详细信息，请参阅 [SQL Server Azure VM 定价指南](virtual-machines-windows-sql-server-pricing-guidance.md)。
-   <!-- Not Available on [BYOL images](virtual-machines-windows-sql-server-iaas-overview.md#BYOL)-->
+   可通过两种方式来执行此操作。 可以预配[支持许可证的虚拟机映像](virtual-machines-windows-sql-server-iaas-overview.md#BYOL)之一。 另一种做法是将 SQL Server 安装媒体复制到 Windows Server VM，然后在该 VM 上安装 SQL Server。 出于许可原因，必须提供 [Azure 上通过软件保障实现的许可移动性](https://www.azure.cn/pricing/license-mobility/)。 有关详细信息，请参阅 [SQL Server Azure VM 定价指南](virtual-machines-windows-sql-server-pricing-guidance.md)。
 
 1. **如果 VM 是基于一个即用即付库映像创建的，是否可以将它更改为使用我自己的 SQL Server 许可证？**
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 05/17/2018
 
    可以，但需注意以下事项。 如前面的解答中所述，依赖于 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)的功能仅对默认实例起作用。 卸载默认实例后，该扩展会继续查找默认实例并可能生成事件日志错误。 这些错误来自以下两个来源：**Microsoft SQL Server 凭据管理**和 **Microsoft SQL Server IaaS 代理**。 其中一个错误可能类似于以下内容：
 
-   建立与 SQL Server 的连接时，出现网络相关或特定于实例的错误。 找不到或无法访问服务器。
+      建立与 SQL Server 的连接时，出现网络相关或特定于实例的错误。 找不到或无法访问服务器。
 
    如果决定卸载默认实例，还要卸载 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)。
 

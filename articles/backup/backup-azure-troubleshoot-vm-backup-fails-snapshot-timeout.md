@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 01/09/2018
-ms.date: 05/15/2018
+ms.date: 05/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6c66aa5e29445e685ed5d082b1f1afa19364f994
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 8a289e6761ebd90126c793b78650b4c03101a75e
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559439"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure 备份故障排除：代理或扩展的问题
 
@@ -64,7 +65,8 @@ ms.lasthandoff: 05/17/2018
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>由于 VM 代理无响应，备份失败
 
-错误消息：“由于 VM 代理无响应，无法执行操作”
+错误消息：“无法与 VM 代理通信，因此无法获取快照状态” <br>
+错误代码：“GuestAgentSnapshotTaskStatusError”
 
 注册和计划 Azure 备份服务的 VM 后，备份会通过与 VM 备份扩展通信来获取时间点快照，从而启动作业。 以下任何条件都可能阻止快照的触发。 如果未触发快照，则备份可能失败。 请按所列顺序完成以下故障排除步骤，然后重试操作：  
 **原因 1：[代理安装在 VM 中，但无响应（针对 Windows VM）](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -73,7 +75,8 @@ ms.lasthandoff: 05/17/2018
 
 ## <a name="backup-fails-with-an-internal-error"></a>备份失败并出现内部错误
 
-错误消息：“备份失败并出现内部错误 - 请在几分钟后重试操作”
+错误消息：“备份失败并出现内部错误 - 请在几分钟后重试操作” <br>
+错误代码：“BackUpOperationFailed”/“BackUpOperationFailedV2”
 
 注册和计划 Azure 备份服务的 VM 后，备份会通过与 VM 备份扩展通信来获取时间点快照，从而启动作业。 以下任何条件都可能阻止快照的触发。 如果未触发快照，则备份可能失败。 请按所列顺序完成以下故障排除步骤，然后重试操作：  
 **原因 1：[VM 无法访问 Internet](#the-vm-has-no-internet-access)**  
@@ -191,7 +194,7 @@ VM 备份依赖于向基础存储帐户发出快照命令。 备份失败的原�
 
 #### <a name="solution"></a>解决方案
 
-若要解决此问题，请完成以下步骤删除还原点集合： <br>
+若要解决此问题，请解除资源组的锁定并完成以下步骤，以便删除还原点集合： 
  
 1. 删除 VM 所在的资源组中的锁。 
 2. 使用 Chocolatey 安装 ARMClient： <br>
@@ -206,7 +209,6 @@ VM 备份依赖于向基础存储帐户发出快照命令。 备份失败的原�
     `.\armclient.exe delete https://management.chinacloudapi.cn/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
 6. 下一次计划备份会自动创建还原点集合和新的还原点。
 
- 
-如果再次锁定资源组，则还会出现此问题。 
+完成后，可以再次将锁放回 VM 资源组。 
 
 <!-- Update_Description: wording update -->

@@ -1,6 +1,6 @@
 ---
-title: 监视和更新 Azure 中的 Linux 虚拟机 | Azure
-description: 了解如何在 Azure 中的 Linux 虚拟机上监视启动诊断和性能指标，以及管理程序包更新
+title: 教程 - 监视和更新 Azure 中的 Linux 虚拟机 | Azure
+description: 本教程介绍如何在 Linux 虚拟机上监视启动诊断和性能指标，以及管理程序包更新
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -14,16 +14,17 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/08/2017
-ms.date: 05/14/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: eb559c3ada8a0cfd339f9437ce0290cc6d3b2d95
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: ce6bf917a1a9ac557d8ef679a607ad7a88421f4d
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702721"
 ---
-# <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>如何监视和更新 Azure 中的 Linux 虚拟机
+# <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>教程：监视和更新 Azure 中的 Linux 虚拟机
 
 为确保 Azure 中的虚拟机 (VM) 正常运行，可以查看启动诊断、性能指标，并管理程序包更新。 本教程介绍如何执行下列操作：
 
@@ -31,15 +32,14 @@ ms.lasthandoff: 05/15/2018
 > * 在 VM 上启用启动诊断
 > * 查看启动诊断
 > * 在 VM 上启用诊断扩展
-> * 基于诊断指标创建警报
-<!-- Not Available on View host metrics-->
+> * 基于诊断指标创建警报 <!-- Not Available on View host metrics-->
 <!-- Not Available on View VM metrics-->
 <!-- Not Available on Manage package updates-->
 <!-- Not Available on Set up advanced monitoring-->
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-vm"></a>创建 VM
 

@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中的 Linux VM 上创建 MEAN 堆栈 | Azure
-description: 了解如何在 Azure 中的 Linux VM 上创建 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆栈。
+title: 教程 - 在 Azure 中的 Linux 虚拟机上创建 MEAN 堆栈 | Azure
+description: 本教程介绍如何在 Azure 中的 Linux VM 上创建 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆栈。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -14,18 +14,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 08/08/2017
-ms.date: 05/14/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 05c79b2cbf3eecd20a2774aafcd962f6219fa6b0
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.openlocfilehash: 37c5a1bd131de9ee77ec31e8daa4ba137a51f025
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702856"
 ---
-# <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>在 Azure 中的 Linux VM 上创建 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆栈
+# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>教程：在 Azure 中的 Linux 虚拟机上创建 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆栈
 
-本教程介绍如何在 Azure 中的 Linux VM 上实现 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆栈。 通过创建的 MEAN 堆栈，可以在数据库中添加、删除和列出书籍。 你将学习如何执行以下操作：
+本教程介绍如何在 Azure 中的 Linux 虚拟机 (VM) 上实现 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆栈。 通过创建的 MEAN 堆栈，可以在数据库中添加、删除和列出书籍。 你将学习如何执行以下操作：
 
 > [!div class="checklist"]
 > * 创建 Linux VM
@@ -37,16 +38,16 @@ ms.lasthandoff: 05/11/2018
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-a-linux-vm"></a>创建 Linux VM
 
 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组，并使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建 Linux VM。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
-以下示例使用 Azure CLI 在“chinanorth”位置创建名为 *myResourceGroupMEAN* 的资源组。 将会创建一个包含 SSH 密钥（如果默认密钥位置不存在这些密钥）的、名为 *myVM* 的 VM。 若要使用一组特定的密钥，请使用 --ssh-key-value 选项。
+以下示例使用 Azure CLI 在“chinaeast”位置创建名为 *myResourceGroupMEAN* 的资源组。 将会创建一个包含 SSH 密钥（如果默认密钥位置不存在这些密钥）的、名为 *myVM* 的 VM。 若要使用一组特定的密钥，请使用 --ssh-key-value 选项。
 
 ```azurecli
-az group create --name myResourceGroupMEAN --location chinanorth
+az group create --name myResourceGroupMEAN --location chinaeast
 az vm create \
     --resource-group myResourceGroupMEAN \
     --name myVM \
@@ -63,7 +64,7 @@ az vm open-port --port 3300 --resource-group myResourceGroupMEAN --name myVM
 {
   "fqdns": "",
   "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroupMEAN/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "chinanorth",
+  "location": "chinaeast",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",

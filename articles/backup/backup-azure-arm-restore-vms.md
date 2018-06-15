@@ -1,12 +1,12 @@
 ---
-title: "Azure 备份：使用 Azure 门户还原虚拟机 | Microsoft Docs"
-description: "使用 Azure 门户从恢复点还原 Azure 虚拟机"
+title: Azure 备份：使用 Azure 门户还原虚拟机 | Microsoft Docs
+description: 使用 Azure 门户从恢复点还原 Azure 虚拟机
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "还原备份; 如何还原; 恢复点;"
+editor: ''
+keywords: 还原备份; 如何还原; 恢复点;
 ms.assetid: 372b87c6-3544-4dc5-bbc9-c742ca502159
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/04/2017
-ms.date: 02/27/2018
+ms.date: 05/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: cf2503e030c9cf3bd45c6ad726556faca595a685
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 4186f945ff2a1eeaaa2a3edbc0456d3a8b60bca3
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559433"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>使用 Azure 门户还原虚拟机
 可以通过按定义的间隔创建数据快照来保护数据。 这些快照称为恢复点，存储在恢复服务保管库中。 当需要修复或重新生成虚拟机 (VM) 时，可以从保存的任何恢复点还原 VM。 还原恢复点时，可以：
@@ -91,12 +92,12 @@ ms.lasthandoff: 03/02/2018
 
     “还原”边栏选项卡会显示已设置还原点。
 
-9. 如果尚未执行此操作，请转到“还原”边栏选项卡。 确保[已选择还原点](#select-restore-point-for-restore)，并选择“还原配置”。 “还原配置”边栏选项卡随即打开。
+9. 如果尚未执行此操作，请转到“还原”边栏选项卡。 确保[已选择还原点](#select-a-restore-point-for-restore)，并选择“还原配置”。 “还原配置”边栏选项卡随即打开。
 
 ## <a name="choose-a-vm-restore-configuration"></a>选择 VM 还原配置
 选择还原点后，请选择 VM 还原配置。 若要配置已还原 VM，可使用 Azure 门户或 PowerShell。
 
-1. 如果尚未执行此操作，请转到“还原”边栏选项卡。 确保[已选择还原点](#select-restore-point-for-restore)，并选择“还原配置”。 “还原配置”边栏选项卡随即打开。
+1. 如果尚未执行此操作，请转到“还原”边栏选项卡。 确保[已选择还原点](#select-a-restore-point-for-restore)，并选择“还原配置”。 “还原配置”边栏选项卡随即打开。
 
     ![还原配置向导](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. 在“还原配置”边栏选项卡上，有两个选择：
@@ -116,11 +117,11 @@ ms.lasthandoff: 03/02/2018
 
     c. 资源组。 使用现有资源组，或创建一个新的资源组。 如果要还原经典 VM，请使用此字段来指定新云服务的名称。 创建新的资源组/云服务时，该名称必须全局唯一。 通常，云服务名称与面向公众的 URL 相关联：例如，[cloudservice].chinacloudapp.cn。 如果尝试使用已用的云资源组/云服务名称，Azure 会为资源组/云服务分配与 VM 相同的名称。 Azure 显示不与任何地缘组关联的资源组/云服务和 VM。 有关详细信息，请参阅[如何从地缘组迁移到区域虚拟网络](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)。
 
-    d.单击“验证存储凭据”以验证存储帐户。 虚拟网络。 创建 VM 时，选择虚拟网络。 该字段提供与订阅关联的所有虚拟网络。 VM 的资源组显示在括号中。
+    d. 虚拟网络。 创建 VM 时，选择虚拟网络。 该字段提供与订阅关联的所有虚拟网络。 VM 的资源组显示在括号中。
 
-    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 子网。 如果虚拟网络包含子网，则默认情况下选择第一个子网。 如果包含其他子网，请选择所需的子网。
+    e. 子网。 如果虚拟网络包含子网，则默认情况下选择第一个子网。 如果包含其他子网，请选择所需的子网。
 
-    f.单击“保存”以保存设置。 存储帐户。 此菜单将列出与恢复服务保管库位于相同位置的存储帐户。 不支持区域冗余的存储帐户。 如果没有与恢复服务保管库位于相同位置的存储帐户，必须创建一个存储帐户，然后再开始还原操作。 存储帐户的复制类型显示在括号中。
+    f. 存储帐户。 此菜单将列出与恢复服务保管库位于相同位置的存储帐户。 不支持区域冗余的存储帐户。 如果没有与恢复服务保管库位于相同位置的存储帐户，必须创建一个存储帐户，然后再开始还原操作。 存储帐户的复制类型显示在括号中。
 
     ![还原配置向导](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard.png)
 
@@ -212,7 +213,7 @@ ms.lasthandoff: 03/02/2018
 ## <a name="restore-domain-controller-vms"></a>还原域控制器 VM
 备份支持对域控制器 (DC) VM 进行备份的方案。 但是，在还原过程中，必须谨慎操作。 还原过程是否正确取决于域的结构。 最简单的情况是单个域中有单个 DC。 对于生产负载，更常见的情况是一个域中包含多个 DC，其中某些 DC 可能位于本地。 最终，可能拥有一个包含多个域的林。 
 
-从 Active Directory 的角度来看，Azure VM 与受支持的新式虚拟机监控程序上任何其他 VM 都类似。 本地虚拟机监控程序的主要差异是 Azure 中不提供 VM 控制台。 某些方案（如使用裸机恢复 (BMR) 类型备份进行恢复）需要控制台。 但是，通过备份保管库进行 VM 还原完全取代了 BMR。 还可使用目录服务还原模式 (DSRM)，因此所有 Active Directory 恢复方案都是可行的。 有关详细信息，请参阅[虚拟化域控制器的备份和还原注意事项](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers)和[规划 Active Directory 林恢复](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx)。
+从 Active Directory 的角度来看，Azure VM 与受支持的新式虚拟机监控程序上任何其他 VM 都类似。 本地虚拟机监控程序的主要差异是 Azure 中不提供 VM 控制台。 某些方案（如使用裸机恢复 (BMR) 类型备份进行恢复）需要控制台。 但是，通过备份保管库进行 VM 还原完全取代了 BMR。 还可使用目录服务还原模式 (DSRM)，因此所有 Active Directory 恢复方案都是可行的。 有关详细信息，请参阅[虚拟化域控制器的备份和还原注意事项](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers)和[规划 Active Directory 林恢复](https://technet.microsoft.com/library/planning-active-directory-forest-recovery(v=ws.10).aspx)。
 
 ### <a name="single-dc-in-a-single-domain"></a>单个域中有单个 DC
 可以通过 Azure 门户或 PowerShell 还原 VM（与任何其他 VM 一样）。
@@ -241,9 +242,13 @@ ms.lasthandoff: 03/02/2018
 
 2. 使用 PowerShell cmdlet 创建负载均衡器/多个 NIC/多个保留 IP 所需的 VM 配置。 使用该配置来创建采用所需配置的 VM：
 
-   a. 创建具有[多个 NIC 的 VM](/virtual-network/virtual-networks-multiple-nics/)。
+   a. 使用内部负载均衡器在云服务中创建 VM。
 
-   b. 创建具有[多个保留 IP](/virtual-network/virtual-networks-reserved-public-ip/) 的 VM。
+   b. 创建 VM 以连接到面向 Internet 的负载均衡器。
+
+   c. 创建具有[多个 NIC 的 VM](/virtual-network/virtual-networks-multiple-nics/)。
+
+   d. 创建具有[多个保留 IP](/virtual-network/virtual-networks-reserved-public-ip/) 的 VM。
 
 ## <a name="next-steps"></a>后续步骤
 既然可以还原 VM，接下来请参阅故障排除文章中有关 VM 常见错误的信息。 另请参阅有关在 VM 中管理任务的文章。
@@ -251,4 +256,4 @@ ms.lasthandoff: 03/02/2018
 - [排查错误](backup-azure-vms-troubleshoot.md#restore)
 - [管理虚拟机](backup-azure-manage-vms.md)
 
-<!--Update_Description: link update-->
+<!--Update_Description: wording update-->

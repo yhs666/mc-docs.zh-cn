@@ -3,7 +3,7 @@ title: Azure Functions 的 Azure Blob 存储绑定
 description: 了解如何在 Azure Functions 中使用 Azure Blob 存储触发器和绑定。
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,13 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 02/12/2018
-ms.date: 04/16/2018
+ms.date: 05/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 21d934fe6bc1d75fe823fce6a8cdb0a59bb73b7f
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: c276ec10f0570abd27d31eee3303c7ea044c9cf0
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567359"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 存储绑定
 
@@ -32,8 +33,6 @@ ms.lasthandoff: 04/19/2018
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-> [!NOTE]
-> blob 触发器不支持[仅限 Blob 的存储帐户](../storage/common/storage-create-storage-account.md#blob-storage-accounts)。 Blob 存储触发器需要使用常规用途存储帐户。 对于输入和输出绑定，可以使用仅限 blob 的存储帐户。
 
 ## <a name="packages"></a>包
 
@@ -41,9 +40,13 @@ ms.lasthandoff: 04/19/2018
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
 ## <a name="trigger"></a>触发器
 
-检测到新的或更新的 Blob 时，可以使用 Blob 存储触发器来启动某个函数。 Blob 内容会作为输入提供给函数。
+检测到新的或更新的 Blob 时，Blob 存储触发器会启动某个函数。 Blob 内容会作为输入提供给函数。
 
 
 ## <a name="trigger---example"></a>触发器 - 示例
@@ -236,6 +239,8 @@ module.exports = function(context) {
 - `CloudAppendBlob`<sup>1</sup>
 
 <sup>1</sup> function.json 中需有 "inout" 绑定 `direction` 或 C# 类库中需有 `FileAccess.ReadWrite`。
+
+如果在尝试绑定到某个存储 SDK 类型时出现错误消息，请确保引用[正确的存储 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
 
 由于整个 Blob 内容都会加载到内存中，因此，只有当 Blob 较小时才建议绑定到 `string`、`Byte[]` 或 POCO。 平时，最好使用 `Stream` 或 `CloudBlockBlob` 类型。 有关详细信息，请参阅本文后面的[并发和内存使用情况](#trigger---concurrency-and-memory-usage)。
 
@@ -537,6 +542,8 @@ public static void Run(
 
 <sup>1</sup> function.json 中需有 "inout" 绑定 `direction` 或 C# 类库中需有 `FileAccess.ReadWrite`。
 
+如果在尝试绑定到某个存储 SDK 类型时出现错误消息，请确保引用[正确的存储 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
+
 由于整个 Blob 内容都会加载到内存中，因此，只有当 Blob 较小时才建议绑定到 `string` 或 `Byte[]`。 平时，最好使用 `Stream` 或 `CloudBlockBlob` 类型。 有关详细信息，请参阅本文前文中的[并发和内存使用情况](#trigger---concurrency-and-memory-usage)。
 
 在 JavaScript 中，可以使用 `context.bindings.<name from function.json>` 访问 Blob 数据。
@@ -747,9 +754,11 @@ public static void Run(
 - `CloudPageBlob`<sup>2</sup>
 - `CloudAppendBlob`<sup>2</sup>
 
-<sup>1</sup> function.json 中需有 "in" 绑定 `direction` 或 C# 类库中需有 `FileAccess.Read`。
+<sup>1</sup> function.json 中需有 "in" 绑定 `direction` 或 C# 类库中需有 `FileAccess.Read`。 但是，可以使用运行时提供的容器对象来执行写入操作，例如将 Blob 上传到容器。
 
 <sup>2</sup> function.json 中需有 "inout" 绑定 `direction` 或 C# 类库中需有 `FileAccess.ReadWrite`。
+
+如果在尝试绑定到某个存储 SDK 类型时出现错误消息，请确保引用[正确的存储 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
 
 在异步函数中，请使用返回值或 `IAsyncCollector` 而非 `out` 参数。
 
@@ -774,3 +783,4 @@ public static void Run(
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
+<!-- Update_Description: wording update -->

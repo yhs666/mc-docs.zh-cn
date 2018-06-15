@@ -7,6 +7,7 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager,azure-service-management
+keywords: VM 隔离,隔离的 VM,隔离,隔离的
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -14,13 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/08/2017
-ms.date: 05/14/2018
+ms.date: 05/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: a16bb481b85e96683753a0d6486fa672f82c1bcf
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 5909f082336249cdda3a8aaf159c58bb9bb81b24
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702747"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>内存优化虚拟机大小
 
@@ -39,5 +41,5 @@ ms.lasthandoff: 05/15/2018
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
 <!--The parent file of includes file of virtual-machines-common-sizes-memory.md-->
-<!--ms.date:04/16/2019-->
+<!--ms.date:06/04/2018-->
 <!-- Update_Description: update meta properties -->

@@ -3,7 +3,7 @@ title: Azure Functions 的 Azure 队列存储绑定
 description: 了解如何在 Azure Functions 中使用 Azure 队列存储触发器和输出绑定。
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,14 +14,15 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 10/23/2017
-ms.date: 04/16/2018
+ms.date: 05/29/2018
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: a88879cf9a6d0d152e32a0fe12c3850de37d8544
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: f6a17c615a94f1ffb1ff2f109069f94b27eb7fe6
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567346"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 队列存储绑定
 
@@ -34,6 +35,10 @@ ms.lasthandoff: 04/19/2018
 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 包中提供了队列存储绑定。 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 ## <a name="trigger"></a>触发器
 
@@ -238,11 +243,13 @@ module.exports = function (context) {
 - `byte[]`
 - [CloudQueueMessage]
 
+如果在尝试绑定到 `CloudQueueMessage` 时出现错误消息，请确保引用[正确的存储 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
+
 在 JavaScript 中，可以使用 `context.bindings.<name>` 访问队列项有效负载。 如果有效负载为 JSON，则会将它反序列化为对象。
 
 ## <a name="trigger---message-metadata"></a>触发器 - 消息元数据
 
-[队列触发器提供了数个元数据属性。](functions-triggers-bindings.md#binding-expressions---trigger-metadata) 这些属性可在其他绑定中用作绑定表达式的一部分，或者用作代码中的参数。 这些值的语义与 [CloudQueueMessage](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) 相同。
+[队列触发器提供了数个元数据属性。](functions-triggers-bindings.md#binding-expressions---trigger-metadata) 这些属性可在其他绑定中用作绑定表达式的一部分，或者用作代码中的参数。 以下是 [CloudQueueMessage](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) 类的属性。
 
 |属性|类型|说明|
 |--------|----|-----------|
@@ -472,6 +479,8 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 - `byte[]`
 - [CloudQueueMessage] 
 
+如果在尝试绑定到 `CloudQueueMessage` 时出现错误消息，请确保引用[正确的存储 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
+
 在 C# 和 C# 脚本中，可使用以下类型之一编写多条队列消息： 
 
 - `ICollector<T>` 或 `IAsyncCollector<T>`
@@ -484,7 +493,7 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 
 | 绑定 |  参考 |
 |---|---|
-| 队列 | [队列错误代码](https://docs.microsoft.com/en-us/rest/api/storageservices/queue-service-error-codes) |
+| 队列 | [队列错误代码](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
 | Blob、表、队列 | [存储错误代码](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob、表、队列 |  [故障排除](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
@@ -503,3 +512,4 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 
 [CloudQueueMessage]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
 
+<!-- Update_Description: wording update -->

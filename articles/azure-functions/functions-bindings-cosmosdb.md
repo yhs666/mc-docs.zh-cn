@@ -14,17 +14,18 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 11/21/2017
-ms.date: 04/13/2018
+ms.date: 05/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5e064f9f9d0f4b5cc753ae15530858031e7d06de
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: 7b7bf25803e8492491303c5486e436628c943882
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567352"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>适用于 Azure Functions 的 Azure Cosmos DB 绑定
 
-本文介绍如何在 Azure Functions 中使用 [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) 绑定。 Azure Functions 支持 Azure Cosmos DB 的触发器、输入和输出绑定。
+本文介绍如何在 Azure Functions 中使用 Azure Cosmos DB 绑定。 Azure Functions 支持 Azure Cosmos DB 的触发器、输入和输出绑定。
 
 > [!NOTE]
 > 此绑定最初名为 DocumentDB。 在 Functions 版本 1.x 中，仅触发器已重命名为 Cosmos DB；输入绑定、输出绑定和 NuGet 包保留 DocumentDB 名称。 在 [Functions 版本 2.x](functions-versions.md) 中，绑定和包也已重命名为 Cosmos DB。 本文使用 1.x 名称。
@@ -37,9 +38,11 @@ ms.lasthandoff: 04/19/2018
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## <a name="trigger"></a>触发器
 
-Azure Cosmos DB 触发器使用 [Azure Cosmos DB 更改源](../cosmos-db/change-feed.md)来侦听跨分区的更改。 更改源发布插入和更新，不发布删除。 
+Azure Cosmos DB 触发器使用 [Azure Cosmos DB 更改源](../cosmos-db/change-feed.md)来侦听跨分区的更改。 更改源发布插入和更新，不发布删除。 每次在受监视的集合中执行插入或更新操作时都会调用此触发器。 
 
 ## <a name="trigger---example"></a>触发器 - 示例
 
@@ -171,7 +174,13 @@ JavaScript 代码如下所示：
 |**leaseCollectionName** | **LeaseCollectionName** | （可选）用于存储租用的集合的名称。 未设置时，使用值 `leases`。 |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | （可选）设置为 `true` 时，如果租用集合并不存在，将自动创建该集合。 默认值为 `false`。 |
 |**leasesCollectionThroughput**| **LeasesCollectionThroughput**| （可选）在创建租用集合时，定义要分配的请求单位的数量。 仅当 `createLeaseCollectionIfNotExists` 设置为 `true` 时，才会使用该设置。 使用门户创建绑定时，将自动设置该参数。
-| |**LeaseOptions** | 通过在 [ChangeFeedHostOptions](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.changefeedprocessor.changefeedhostoptions) 类的实例中设置属性来配置租用选项。
+|**leaseCollectionPrefix**| **LeaseCollectionPrefix**| （可选）设置后，此项向在此 Function 的“租用”集合中创建的租用添加一个前缀，实际上就是允许两个不同的 Azure Functions（使用不同的前缀）共享同一“租用”集合。
+|**feedPollDelay**| **FeedPollDelay**| （可选）设置后，此项以毫秒为单位定义在所有当前更改均耗尽后，源上新更改的分区轮询间的延迟。 默认为 5000（5 秒）。
+|**leaseAcquireInterval**| **LeaseAcquireInterval**| （可选）设置后，此项以毫秒为单位定义启动一个计算任务的时间间隔（前提是分区在已知的主机实例中均匀分布）。 默认为 13000（13 秒）。
+|**leaseExpirationInterval**| **LeaseExpirationInterval**| （可选）设置后，此项以毫秒为单位定义在表示分区的租用上进行租用的时间间隔。 如果在此时间间隔内不续订租用，则该租用会过期，分区的所有权会转移到另一个实例。 默认为 60000（60 秒）。
+|**leaseRenewInterval**| **LeaseRenewInterval**| （可选）设置后，此项以毫秒为单位定义当前由实例拥有的分区的所有租用的续订时间间隔。 默认为 17000（17 秒）。
+|**checkpointFrequency**| **CheckpointFrequency**| （可选）设置后，此项以毫秒为单位定义租用检查点的时间间隔。 默认为始终在成功地进行 Function 调用之后进行检查。
+|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| （可选）设置后，此项对每次 Function 调用收到的项目的最大数目进行自定义。
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -770,16 +779,15 @@ JavaScript 代码如下所示：
 
 | 绑定 | 参考 |
 |---|---|
-| CosmosDB | [CosmosDB 错误代码](https://docs.microsoft.com/en-us/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| CosmosDB | [CosmosDB 错误代码](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
 > [转到有关使用 Cosmos DB 触发器的快速入门](functions-create-cosmos-db-triggered-function.md)
 
-> [!div class="nextstepaction"]
-> [详细了解如何使用 Cosmos DB 执行无服务器数据库计算](../cosmos-db/serverless-computing-database.md)
 
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
+<!-- Update_Description: wording update -->

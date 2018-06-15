@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 10/10/2017
-ms.date: 05/14/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 067030f483898a744131b9c4c655367e816c5c73
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 44b074bbccba964c82060befbf4d7b79433a7970
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702739"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -300,9 +301,7 @@ subscriptionId | 虚拟机的 Azure 订阅 | 2017-08-01
 resourceGroupName | 虚拟机的[资源组](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
 placementGroupId | 虚拟机规模集的[放置组](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
 vmScaleSetName | 虚拟机规模集的 [Virtual Machine ScaleSet Name] (../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
-<!-- Not Available on Availability Zone -->
-ipv4/privateIpAddress | VM 的本地 IPv4 地址 | 2017-04-02 ipv4/publicIpAddress | VM 的本地 IPv4 地址 | 2017-04-02 subnet/address | VM 的子网地址 | 2017-04-02 subnet/prefix | 子网前缀，例如 24 | 2017-04-02 macAddress | VM MAC 地址 | 2017-04-02 scheduledevents | 请参阅[计划的事件](scheduled-events.md) | 2017-08-01
-<!--ipv6 not available on Mooncake -->
+<!-- Not Available on Availability Zone --> ipv4/privateIpAddress | VM 的本地 IPv4 地址 | 2017-04-02 ipv4/publicIpAddress | VM 的本地 IPv4 地址 | 2017-04-02 subnet/address | VM 的子网地址 | 2017-04-02 subnet/prefix | 子网前缀，例如 24 | 2017-04-02 macAddress | VM MAC 地址 | 2017-04-02 scheduledevents | 请参阅[计划的事件](scheduled-events.md) | 2017-08-01 <!--ipv6 not available on Mooncake -->
 
 ## <a name="example-scenarios-for-usage"></a>用法的示例方案  
 
@@ -325,8 +324,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>基于容错/更新域放置容器、数据分区 
 
 对于某些方案，不同数据副本的放置至关重要。 例如，对于 [HDFS 副本放置](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)或者对于通过 [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) 放置容器，可能需要知道正在运行 VM 的 `platformFaultDomain` 和 `platformUpdateDomain`。
-<!-- Not Available on  [Availability Zones](../../availability-zones/az-overview.md) -->
-可以直接通过实例元数据服务查询此数据。
+<!-- Not Available on  [Availability Zones](../../availability-zones/az-overview.md) --> 可以直接通过实例元数据服务查询此数据。
 
 **请求**
 
@@ -388,6 +386,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
+Puppet | https://github.com/keirans/azuremetadata
 
 ## <a name="faq"></a>常见问题
 1. 我收到错误 `400 Bad Request, Required metadata header not specified`。 这是什么意思呢？
@@ -412,4 +411,4 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解[计划事件](scheduled-events.md)
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

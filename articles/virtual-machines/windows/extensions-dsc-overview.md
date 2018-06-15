@@ -17,11 +17,12 @@ ms.workload: na
 origin.date: 02/02/2018
 ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 781a3c4307d64604cfa5fca114a34456a60584fa
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 3e02c791b791c368469c218ceda44344daec6d0d
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34568762"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure Desired State Configuration 扩展处理程序简介
 
@@ -29,7 +30,8 @@ ms.lasthandoff: 05/17/2018
 
 Azure VM 代理和关联的扩展是 Azure 基础结构服务的一部分。 VM 扩展是软件组件，可以扩展 VM 功能并简化各种 VM 管理操作。
 
-Azure Desired State Configuration (DSC) 扩展的主要用例是让 VM 启动到 [Azure Automation DSC 服务](../../automation/automation-dsc-overview.md)。 启动 VM 带来的[好处](https://docs.microsoft.com/powershell/dsc/metaconfig#pull-service)包括：持续管理 VM 的配置，并与其他操作工具（例如 Azure 监视）集成。
+Azure Desired State Configuration (DSC) 扩展的主要用例是让 VM 启动到 Azure 自动化 DSC 服务。 启动 VM 带来的[好处](https://docs.microsoft.com/powershell/dsc/metaconfig#pull-service)包括：持续管理 VM 的配置，并与其他操作工具（例如 Azure 监视）集成。
+<!-- Notice: URL is invalid on [Azure Automation DSC service](../../automation/automation-dsc-overview.md)-->
 
 可以独立于 Automation DSC 服务使用 DSC 扩展。 但是，这涉及到在部署期间执行单个操作。 系统不会提供持续的报告或配置管理，只能在 VM 本地执行此类操作。
 

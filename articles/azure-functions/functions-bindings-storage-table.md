@@ -14,13 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 11/08/2017
-ms.date: 04/16/2018
+ms.date: 05/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 91e3e3e95a4a209dee41d7b1a93c85cdb87ab627
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: f719b95ad146e66550fc4e6c78cdee20b4d4f2bf
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567316"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 表存储绑定
 
@@ -33,6 +34,10 @@ ms.lasthandoff: 05/22/2018
 [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 包中提供了表存储绑定。 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 ## <a name="input"></a>输入
 
@@ -380,7 +385,7 @@ module.exports = function (context, myQueueItem) {
   使用方法参数 `IQueryable<T> <paramName>` 访问表数据。 在 C# 脚本中，`paramName` 是在 *function.json* 的 `name` 属性中指定的值。 `T` 必须是实现 `ITableEntity` 或派生自 `TableEntity` 的类型。 可以使用 `IQueryable` 方法执行任何所需的筛选。 此方案中不使用 `partitionKey`、`rowKey`、`filter` 和 `take` 属性。  
 
   > [!NOTE]
-  > [Functions v2 运行时](functions-versions.md)不支持 `IQueryable`。 一种替代方法是[使用 CloudTable paramName 方法参数](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable)通过 Azure 存储 SDK 来读取表。
+  > [Functions v2 运行时](functions-versions.md)不支持 `IQueryable`。 一种替代方法是[使用 CloudTable paramName 方法参数](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable)通过 Azure 存储 SDK 来读取表。 如果在尝试绑定到 `CloudTable` 时出现错误消息，请确保引用[正确的存储 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
 
 - **在 JavaScript 中读取一行或多行**
 
@@ -637,7 +642,7 @@ public static MyPoco TableOutput(
 
   在 C# 和 C# 脚本中，可以使用方法参数 `ICollector<T> paramName` 或 `IAsyncCollector<T> paramName` 访问输出表实体。 在 C# 脚本中，`paramName` 是在 *function.json* 的 `name` 属性中指定的值。 `T` 指定要添加的实体的架构。 通常，`T` 派生自 `TableEntity` 或实现 `ITableEntity`，但不一定非要这样。 此方案不使用 *function.json* 中的分区键和行键值，也不使用 `Table` 特性构造函数。
 
-  一种替代方法是使用 `CloudTable paramName` 方法参数通过 Azure 存储 SDK 来写入表。
+  一种替代方法是使用 `CloudTable paramName` 方法参数通过 Azure 存储 SDK 来写入表。 如果在尝试绑定到 `CloudTable` 时出现错误消息，请确保引用[正确的存储 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
 
 - **在 JavaScript 中写入一行或多行**
 
@@ -656,3 +661,4 @@ public static MyPoco TableOutput(
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
+<!-- Update_Description: wording update -->

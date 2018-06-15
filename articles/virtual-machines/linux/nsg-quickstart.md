@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 12/13/2017
-ms.date: 04/16/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 16be47b16fac05ce98147438685144c3812b970e
-ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
+ms.openlocfilehash: a9eba06e4c49aaf0e45003e2e06ab7310ee95a74
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702713"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>使用 Azure CLI 打开 Linux VM 的端口和终结点
 通过在子网或 VM 网络接口上创建网络筛选器可为 Azure 中的虚拟机 (VM) 打开端口或创建终结点。 将这些筛选器（控制入站和出站流量）放在网络安全组中，并附加到将接收流量的资源。 让我们在端口 80 上使用 Web 流量的常见示例。 本文说明如何使用 Azure CLI 2.0 打开 VM 的端口。 也可以使用 [Azure CLI 1.0](nsg-quickstart-nodejs.md) 执行这些步骤。
@@ -31,7 +32,7 @@ ms.lasthandoff: 04/18/2018
 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup*、*myNetworkSecurityGroup* 和 *myVnet*。
 
 ## <a name="quickly-open-a-port-for-a-vm"></a>为 VM 快速打开一个端口
-如果需要在开发/测试方案中为 VM 快速打开一个端口，可以使用 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_open_port) 命令。 此命令创建一个网络安全组，添加一项规则，然后将其应用到 VM 或子网。 以下示例在名为 *myResourceGroup* 的资源组中打开名为 *myVM* 的 VM 上的端口 *80*。
+如果需要在开发/测试方案中为 VM 快速打开一个端口，可以使用 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-open-port) 命令。 此命令创建一个网络安全组，添加一项规则，然后将其应用到 VM 或子网。 以下示例在名为 *myResourceGroup* 的资源组中打开名为 *myVM* 的 VM 上的端口 *80*。
 
 ```azure-cli
 az vm open-port --resource-group myResourceGroup --name myVM --port 80
@@ -40,7 +41,7 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 80
 若要对规则进行更多的控制，例如定义源 IP 地址范围，请继续执行本文中的其他步骤。
 
 ## <a name="create-a-network-security-group-and-rules"></a>创建网络安全组和规则
-使用 [az network nsg create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az_network_nsg_create)创建网络安全组。 以下示例在 *chinaeast* 位置创建名为 *myNetworkSecurityGroup* 的网络安全组：
+使用 [az network nsg create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-create)创建网络安全组。 以下示例在 *chinaeast* 位置创建名为 *myNetworkSecurityGroup* 的网络安全组：
 
 ```azurecli
 az network nsg create \
@@ -49,7 +50,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-借助 [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az_network_nsg_rule_create) 添加规则以允许 HTTP 流量流向 Web 服务器（或者根据自己的情况（例如 SSH 访问或数据库连接）来调整此规则）。 以下示例创建一个名为 *myNetworkSecurityGroupRule* 的规则，以允许端口 80 上的 TCP 流量：
+借助 [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) 添加规则以允许 HTTP 流量流向 Web 服务器（或者根据自己的情况（例如 SSH 访问或数据库连接）来调整此规则）。 以下示例创建一个名为 *myNetworkSecurityGroupRule* 的规则，以允许端口 80 上的 TCP 流量：
 
 ```azurecli
 az network nsg rule create \
@@ -62,7 +63,7 @@ az network nsg rule create \
 ```
 
 ## <a name="apply-network-security-group-to-vm"></a>对 VM 应用网络安全组
-借助 [az 网络 nic 更新](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az_network_nic_update)将网络安全组与 VM 的网络接口 (NIC) 相关联。 以下示例将名为 *myNic* 的现有 NIC 与名为 *myNetworkSecurityGroup* 的网络安全组相关联：
+借助 [az 网络 nic 更新](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-update)将网络安全组与 VM 的网络接口 (NIC) 相关联。 以下示例将名为 *myNic* 的现有 NIC 与名为 *myNetworkSecurityGroup* 的网络安全组相关联：
 
 ```azurecli
 az network nic update \
@@ -71,7 +72,7 @@ az network nic update \
     --network-security-group myNetworkSecurityGroup
 ```
 
-或者，也可以借助 [az 网络 vnet 子网更新](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update)将网络安全组与虚拟网络的子网相关联，而不是只与单个 VM 上的网络接口相关联。 以下示例将 *myVnet* 虚拟网络中名为 *mySubnet* 的现有子网与名为 *myNetworkSecurityGroup* 的网络安全组相关联：
+或者，也可以借助 [az 网络 vnet 子网更新](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)将网络安全组与虚拟网络的子网相关联，而不是只与单个 VM 上的网络接口相关联。 以下示例将 *myVnet* 虚拟网络中名为 *mySubnet* 的现有子网与名为 *myNetworkSecurityGroup* 的网络安全组相关联：
 
 ```azurecli
 az network vnet subnet update \
@@ -90,6 +91,5 @@ az network vnet subnet update \
 在本示例中，创建了简单的规则来允许 HTTP 流量。 下列文章更介绍了有关创建更详细环境的信息：
 
 * [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)
-* [什么是网络安全组 (NSG)？](../../virtual-network/virtual-networks-nsg.md)
-
+* [什么是网络安全组 (NSG)？](../../virtual-network/security-overview.md)
 <!--Update_Description: update meta properties， update link -->

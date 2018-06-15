@@ -1,6 +1,6 @@
 ---
-title: "如何通过 Java 使用服务总线队列 | Azure"
-description: "了解如何在 Azure 中使用服务总线队列。 用 Java 编写的代码示例。"
+title: 如何通过 Java 使用服务总线队列 | Azure
+description: 了解如何在 Azure 中使用服务总线队列。 用 Java 编写的代码示例。
 services: service-bus
 documentationCenter: java
 author: sethmanheim
@@ -14,11 +14,12 @@ ms.topic: article
 origin.date: 08/10/2017
 ms.author: v-yiso
 ms.date: 09/18/2017
-ms.openlocfilehash: 30b5d019ed58f635c03c590161ae9e01043d7e40
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.openlocfilehash: 26485f57ce10b5b6e51c4e84bc983e90e7c68d18
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695099"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>如何通过 Java 使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -102,7 +103,7 @@ catch (ServiceException e)
 }
 ```
 
-发送到服务总线队列以及从服务总线队列接收的消息是 [BrokeredMessage][BrokeredMessage] 类的实例。 [BrokeredMessage][BrokeredMessage] 对象包含一组标准属性（如 [Label](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) 和 [TimeToLive](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)）、一个用来保存自定义应用程序特定属性的字典以及大量随机应用程序数据。 应用程序可通过将任何可序列化对象传入到 [BrokeredMessage][BrokeredMessage] 的构造函数中来设置消息的正文，然后将使用适当的序列化程序来序列化对象。 或者，可提供 **java.IO.InputStream** 对象。
+发送到服务总线队列以及从服务总线队列接收的消息是 [BrokeredMessage][BrokeredMessage] 类的实例。 [BrokeredMessage][BrokeredMessage] 对象包含一组标准属性（如 [Label](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) 和 [TimeToLive](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)）、一个用来保存自定义应用程序特定属性的字典以及大量随机应用程序数据。 应用程序可通过将任何可序列化对象传入到 [BrokeredMessage][BrokeredMessage] 的构造函数中来设置消息的正文，然后将使用适当的序列化程序来序列化对象。 或者，可以提供 **java.IO.InputStream** 对象。
 
 以下示例演示了如何将五条测试消息发送到在前面的代码片段中获取的 `TestQueue` **MessageSender**：
 
@@ -118,7 +119,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-服务总线队列在标准层中支持的最大消息大小为 256 KB。 标头最大为 64 KB，其中包括标准和自定义应用程序属性。 一个队列可包含的消息数不受限制，但消息的总大小受限。 此队列大小是在创建时定义的，上限为 5 GB。
+服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列中包含的消息数量不受限制，但消息的总大小受限制。 此队列大小是在创建时定义的，上限为 5 GB。
 
 ## <a name="receive-messages-from-a-queue"></a>从队列接收消息
 

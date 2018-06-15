@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中心术语表 | Azure"
-description: "开发人员指南 - 与 Azure IoT 中心相关的常用术语的术语表。"
+title: Azure IoT 中心术语表 | Azure
+description: 开发人员指南 - 与 Azure IoT 中心相关的常用术语的术语表。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 16ef29ea-a185-48c3-ba13-329325dc6716
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 44e32b726c195f9e67e0e3930f9903110e493f64
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 06/11/2018
+ms.openlocfilehash: 1c2f6086c306c5c21d2298ebec549718cf4d6250
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695044"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
 本文列出了一些在 IoT 中心文章中使用的常用术语。
@@ -111,6 +112,9 @@ ms.lasthandoff: 03/12/2018
 ## <a name="device-identity"></a>设备标识
 设备标识是分配给在 [标识注册表](#identity-registry)中注册的每个设备的唯一标识符。
 
+## <a name="module-identity"></a>模块标识
+模块标识是分配给设备所属的每个模块的唯一标识符。 模块标识也注册到[标识注册表](#identity-registry)中。
+
 ## <a name="device-management"></a>设备管理
 设备管理包含在 IoT 解决方案中管理设备的完整生命周期，包括规划、预配、配置、监视和停用设备。
 
@@ -126,14 +130,17 @@ ms.lasthandoff: 03/12/2018
 ## <a name="device-twin"></a>设备孪生
 [设备孪生](./iot-hub-devguide-device-twins.md)是存储设备状态信息（如元数据、配置和条件）的 JSON 文档。 [IoT 中心](#iot-hub) 为在 IoT 中心预配的每台设备保留一个设备孪生。 借助设备孪生可以在设备和解决方案后端之间同步 [设备条件](#device-condition) 和配置。 可以通过查询设备孪生来定位特定设备和查询长时间运行的操作状态。
 
-## <a name="device-twin-queries"></a>设备孪生查询
-[设备孪生查询](./iot-hub-devguide-query-language.md)使用类似于 SQL 的 IoT 中心查询语言从设备孪生中检索信息。 可以使用相同的 IoT 中心查询语言检索在 IoT 中心运行的 [作业](#job) 的信息。
+## <a name="module-twin"></a>模块孪生
+与设备孪生类似，模块孪生是存储模块状态信息（如元数据、配置和条件）的 JSON 文档。 IoT 中心为在 IoT 中心的设备标识下预配的每个模块实体保留一个模块孪生。 可以借助模块孪生在模块和解决方案后端之间同步模块条件和配置。 可以通过查询模块孪生来定位特定模块和查询长时间运行的操作状态。
+
+## <a name="twin-queries"></a>孪生查询
+[设备和模块孪生查询](iot-hub-devguide-query-language.md)使用类似于 SQL 的 IoT 中心查询语言从设备孪生或模块孪生中检索信息。 可以使用相同的 IoT 中心查询语言检索在 IoT 中心运行的 [作业](#job) 的信息。
 
 ## <a name="device-twin-rest-api"></a>设备孪生 REST API
 可以使用 [设备孪生 REST API](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) 从解决方案后端管理设备孪生。 API 可用于检索和更新[设备孪生](#device-twin)属性并调用[直接方法](#direct-method)。 通常情况下，使用 IoT 中心教程中演示的一种较高级别的 [服务 SDK](#azure-iot-service-sdks) 。
 
-## <a name="device-twin-synchronization"></a>设备孪生同步
-设备孪生同步使用设备孪生中的[所需属性](#desired-properties)配置设备并检索设备中的[报告属性](#reported-properties)，以将其存储在设备孪生中。
+## <a name="twin-synchronization"></a>孪生同步
+孪生同步使用设备孪生或模块孪生中的[所需属性](#desired-properties)配置设备或模块，并检索其中的[报告属性](#reported-properties)，以将这些属性存储在孪生中。
 
 ## <a name="direct-method"></a>直接方法
 [直接方法](./iot-hub-devguide-direct-methods.md)可让你通过在 IoT 中心上调用 API来触发在设备上执行的方法。
@@ -156,7 +163,7 @@ IoT 中心公开了多个[终结点](./iot-hub-devguide-endpoints.md)，以便�
 ## <a name="gateway"></a>网关
 网关使不能直接连接到 [IoT 中心](#iot-hub)的设备能建立连接。 另请参阅[现场网关](#field-gateway)、[云网关](#cloud-gateway)和[自定义网关](#custom-gateway)。
 
-## <a name="identity-registry"></a>标识注册表
+## <a id="identity-registry"></a> 标识注册表
 [标识注册表](./iot-hub-devguide-identity-registry.md)是 IoT 中心的内置组件，用于存储允许连接到 IoT 中心的单个设备的信息。
 
 ## <a name="interactive-message"></a>交互式消息
@@ -176,8 +183,8 @@ IoT 中心是一项完全托管的 Azure 服务，可在数百万个设备和一
 ## <a name="iot-hub-resource-provider-rest-api"></a>IoT 中心资源提供程序 REST API
 可以使用 [IoT 中心资源提供程序 REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) 管理 [Azure 订阅](#subscription)中的 IoT 中心，以便执行创建、更新和删除中心等操作。
 
-## <a name="iot-suite"></a>IoT 套件
-Azure IoT 套件将多个 Azure 服务和预配置解决方案打包在一起。 有了这些预配置解决方案，用户就可以快速启动常见 IoT 方案的端到端实现。 有关详细信息，请参阅 [什么是 Azure IoT 套件？](../iot-suite/iot-suite-overview.md)
+## <a name="iot-solution-accelerators"></a>IoT 解决方案加速器
+Azure IoT 解决方案加速器将多个 Azure 服务一起打包到解决方案中。 利用这些解决方案，能够快速开始使用常用 IoT 方案的端到端实现。 有关详细信息，请参阅 [什么是 Azure IoT 套件？](../iot-suite/iot-suite-overview.md)
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>适用于 Azure CLI 2.0 的 IoT 扩展
 [适用于 Azure CLI 2.0 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)是一个跨平台的命令行工具。 使用该工具可以管理 [标识注册表](#identity-registry)中的设备、向设备发送消息和文件和接收来自设备的消息和文件，以及监视 IoT 中心的操作。

@@ -11,15 +11,16 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-origin.date: 04/02/2018
-ms.date: 04/11/2018
+origin.date: 05/15/2018
+ms.date: 05/29/2018
 ms.author: v-junlch
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b482dc9a227514a6e30800bfabfa669fa5ac604f
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: d87c2ef7524063611d83287fba6d896bc4e673d6
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567314"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>通过 Java 和 Maven 创建你的第一个函数（预览版）
 
@@ -37,30 +38,16 @@ ms.lasthandoff: 04/16/2018
 
 -  [Java 开发人员工具包](https://www.azul.com/downloads/zulu/)，版本 8。
 -  [Apache Maven](https://maven.apache.org) 3.0 或更高版本。
--  [Azure CLI](/cli/overview?view=azure-cli-latest)
+-  [Azure CLI](/cli)
 
 > [!IMPORTANT] 
 > JAVA_HOME 环境变量必须设置为 JDK 的安装位置，以完成本快速入门。
 
 ## <a name="install-the-azure-functions-core-tools"></a>安装 Azure Functions Core Tools
 
-[Azure Functions 核心工具 2.0](https://www.npmjs.com/package/azure-functions-core-tools) 为编写、运行和调试 Azure Functions 提供了本地开发环境。 
+Azure Functions Core Tools 为通过终端或命令提示符编写、运行和调试 Azure Functions 提供了本地开发环境。 
 
-若要进行安装，请访问 Azure Functions Core Tools 项目的[安装](https://github.com/azure/azure-functions-core-tools#installing)部分，找到操作系统的具体说明。
-
-也可以在安装以下必备组件后，使用 [Node.js](https://nodejs.org/) 随附的 [npm](https://www.npmjs.com/) 手动安装此工具：
-
--  最新版本的 [.NET Core](https://www.microsoft.com/net/core)。
--  [Node.js](https://nodejs.org/download/) 8.6 或更高版本。
-
-若要继续进行基于 npm 的安装，请运行：
-
-```
-npm install -g azure-functions-core-tools@core
-```
-
-> [!NOTE]
-> 如果在安装 Azure Functions 核心工具版本 2.0 时遇到问题，请参阅[版本 2.x 运行时](/azure-functions/functions-run-local#version-2x-runtime)。
+在继续操作之前在本地计算机上安装 [Core Tools 版本 2](functions-run-local.md#v2)。
 
 ## <a name="generate-a-new-functions-project"></a>生成新的 Functions 项目
 
@@ -198,3 +185,4 @@ Hello AzureFunctions!
 - 使用 Visual Studio Code 在本地调试函数。 安装 [Java 扩展包](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)且在 Visual Studio Code 中打开 Functions 项目后，[将调试器附加](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations)到端口 5005。 然后，在编辑器中设置断点，并在本地运行函数时触发函数：![在 Visual Studio Code 中调试函数](./media/functions-create-java-maven/vscode-debug.png)
 - 使用 Visual Studio Code 远程调试函数。 查看[编写无服务器 Java 应用程序](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)文档中的说明。
 
+<!-- Update_Description: wording update -->

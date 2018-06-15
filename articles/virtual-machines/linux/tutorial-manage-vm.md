@@ -1,12 +1,12 @@
 ---
-title: 使用 Azure CLI 创建和管理 Linux VM | Azure
-description: 教程 - 使用 Azure CLI 创建和管理 Linux VM
+title: 教程 - 使用 Azure CLI 创建和管理 Linux VM | Azure
+description: 本教程介绍如何使用 Azure CLI 2.0 在 Azure 中创建和管理 Linux VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -14,16 +14,17 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/23/2018
-ms.date: 05/14/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0c970d4c6068c4d0ca4ac51efcff47ad1616ae7a
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: db6435cb42378cc7b91d76d8ef094e239e2ff8ae
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702780"
 ---
-# <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>使用 Azure CLI 创建和管理 Linux VM
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli-20"></a>教程：使用 Azure CLI 2.0 创建和管理 Linux VM
 
 Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azure 虚拟机的基本部署项目，例如选择 VM 大小、选择 VM 映像和部署 VM。 你将学习如何执行以下操作：
 
@@ -36,7 +37,7 @@ Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azu
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-resource-group"></a>创建资源组
 
@@ -54,10 +55,15 @@ az group create --name myResourceGroupVM --location chinaeast
 
 使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建虚拟机。 
 
-创建虚拟机时，可使用多个选项，例如操作系统映像、磁盘大小调整和管理凭据。 在此示例中，创建了一个名为“myVM”的运行 Ubuntu Server 的虚拟机。 
+创建虚拟机时，可使用多个选项，例如操作系统映像、磁盘大小调整和管理凭据。 下面的示例创建一个名为 *myVM*、运行 Ubuntu Server 的 VM。 将在该 VM 上创建名为 *azureuser* 的用户帐户，并生成 SSH 密钥（如果这些密钥在默认密钥位置 (*~/.ssh*) 中不存在）：
 
-```azurecli 
-az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
+```azurecli
+az vm create \
+    --resource-group myResourceGroupVM \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys
 ```
 
 创建 VM 可能需要几分钟。 创建 VM 后，Azure CLI 会输出有关 VM 的信息。 请记下 `publicIpAddress`，可以使用此地址访问虚拟机。 
@@ -80,7 +86,7 @@ az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --
 现在可以使用 SSH 从本地计算机连接到 VM。 将示例 IP 地址替换为上一步骤中记下的 `publicIpAddress`。
 
 ```bash
-ssh 52.174.34.95
+ssh azureuser@52.174.34.95
 ```
 
 登录 VM 后，可以安装和配置应用程序。 完成后，可按正常方式关闭 SSH 会话：

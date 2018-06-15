@@ -17,11 +17,12 @@ origin.date: 03/09/2017
 ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 74d0ac41b12ca0412b38f60552e5afd70327c297
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: b2baca4102b8abfb818eb06e1abe40effa358d62
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34568793"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>使用虚拟硬盘创建 VM
 
@@ -93,8 +94,9 @@ az group delete -n az-cli-vhd
 | [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az_storage_blob_upload) | 通过上传 VHD，在容器中创建一个 Blob。 |
 | [az vm list](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list) | 与 `--query` 一起使用，用于检查 VM 名称是否已使用。 | 
 | [az vm create](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az_vm_availability_set_create) | 创建虚拟机。 |
-| [az vm access set-linux-user](https://docs.azure.cn/zh-cn/cli/vm/access?view=azure-cli-latest#az_vm_access_set_linux_user) | 重置 SSH 密钥，以便当前用户能够访问 VM。 |
+| [az vm user reset-ssh](https://docs.microsoft.com/zh-cn/cli/azure/vm/user?view=azure-cli-latest#az-vm-user-reset-ssh) | 重置 SSH 密钥，以便当前用户能够访问 VM。 |
 | [az vm list-ip-addresses](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list-ip-addresses) | 获取已创建虚拟机的 IP 地址。 |
+<!-- URL is Correct on [az vm user reset-ssh](https://docs.microsoft.com/zh-cn/cli/azure/vm/user?view=azure-cli-latest#az-vm-user-reset-ssh) -->
 
 ## <a name="next-steps"></a>后续步骤
 

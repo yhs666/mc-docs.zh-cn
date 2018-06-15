@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中使用 Jenkins 创建开发管道 | Azure
-description: 了解如何在 Azure 中创建一个 Jenkins 虚拟机，用于在每次提交代码后从 GitHub 提取数据，并生成新的 Docker 容器来运行应用
+title: 教程 - 在 Azure 中使用 Jenkins 创建开发管道 | Azure
+description: 教程 - 本教程介绍如何在 Azure 中创建一个 Jenkins 虚拟机，用于在每次提交代码后从 GitHub 拉取数据，并生成新的 Docker 容器来运行应用。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -14,16 +14,17 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/27/2017
-ms.date: 05/14/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c75f7289c4ce9a6387ddbbc9ea82054030e458b7
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 4a6b82b3ceffa4dc7a08a1f745a01756396024f6
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702736"
 ---
-# <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>如何使用 Jenkins、GitHub 和 Docker 在 Azure 中的 Linux VM 上创建开发基础结构
+# <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>教程：使用 Jenkins、GitHub 和 Docker 在 Azure 中的 Linux VM 上创建开发基础结构
 若要将应用程序开发的生成和测试阶段自动化，可以使用持续集成和部署 (CI/CD) 管道。 本教程介绍如何在 Azure VM 上创建 CI/CD 管道，包括如何：
 
 > [!div class="checklist"]
@@ -36,13 +37,13 @@ ms.lasthandoff: 05/15/2018
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.22 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-jenkins-instance"></a>创建 Jenkins 实例
 在有关[如何在首次启动时自定义 Linux 虚拟机](tutorial-automate-vm-deployment.md)的上一个教程中，你已了解如何使用 cloud-init 自动执行 VM 自定义。 本教程使用 cloud-init 文件在 VM 上安装 Jenkins 和 Docker。 
 <!--Not Available /jenkins/ -->
 
-在当前 shell 中，创建名为 cloud-init.txt 的文件并粘贴下面的配置。 例如，在本地计算机中创建文件。 输入 `sensible-editor cloud-init-jenkins.txt` 以创建文件并查看可用编辑器的列表。请确保已正确复制整个 cloud-init 文件，尤其是第一行：
+在当前 shell 中，创建名为 cloud-init.txt 的文件并粘贴下面的配置。 例如，在本地计算机中创建文件。 输入 `sensible-editor cloud-init-jenkins.txt` 以创建文件并查看可用编辑器的列表。请确保已正确复制整个 cloud-init 文件，尤其是第一行：<!--Not Available on Cloud Shell -->
 
 ```yaml
 #cloud-config
@@ -59,8 +60,9 @@ write_files:
         "hosts": ["fd://","tcp://127.0.0.1:2375"]
       }
 runcmd:
-  - wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
-  - sh -c 'echo deb http://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+  - apt install default-jre -y
+  - wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+  - sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - apt-get update && apt-get install jenkins -y
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser

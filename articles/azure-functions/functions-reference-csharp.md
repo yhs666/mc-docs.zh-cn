@@ -3,7 +3,7 @@ title: Azure Functions C# 脚本开发人员参考
 description: '了解如何使用 C # 脚本开发 Azure Functions。'
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,13 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 12/12/2017
-ms.date: 04/16/2018
+ms.date: 05/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 10fc3528753bb6e69b4a9fb3d4f5f240e8323e49
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: a69c8ae28d2e8bcb0febd0e34d3fbd0d41e4d975
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34567351"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 脚本 (.csx) 开发人员参考
 
@@ -231,7 +232,7 @@ public static void Run(string myBlob, TraceWriter log)
 
 ## <a name="async"></a>异步
 
-若要使函数异步，使用 `async` 关键字并返回 `Task` 对象。
+要使函数[异步](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/)，请使用 `async` 关键字并返回 `Task` 对象。
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(
@@ -333,7 +334,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 ## <a name="referencing-custom-assemblies"></a>引用自定义程序集
 
 若要引用自定义程序集，可使用共享程序集或私有程序集：
-- 共享程序集在函数应用内的所有函数中共享。 若要引用自定义程序集，请将程序集上传到函数应用，例如函数应用根中的 `bin` 文件夹。 
+- 共享程序集在函数应用内的所有函数中共享。 若要引用自定义程序集，请将程序集上传到[函数应用根文件夹`bin` (wwwroot) 中名为 ](functions-reference.md#folder-structure) 的文件夹。 
 - 私有程序集是给定函数上下文的一部分，支持不同版本的旁加载。 私有程序集应上传到函数目录中的 `bin` 文件夹。 使用文件名（例如 `#r "MyAssembly.dll"`）引用程序集。 
 
 有关如何将文件上传到函数文件夹的信息，请参阅有关[程序包管理](#using-nuget-packages)的部分。
@@ -477,7 +478,7 @@ public static async Task Run(string input, Binder binder)
 | 绑定 | 属性 | 添加引用 |
 |------|------|------|
 | Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
-| 事件中心 | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
+| 事件中心 | `Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`, [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
 | Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
 | 通知中心 | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
 | 服务总线 | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
@@ -493,3 +494,4 @@ public static async Task Run(string input, Binder binder)
 > [!div class="nextstepaction"]
 > [详细了解有关 Azure Functions 的最佳做法](functions-best-practices.md)
 
+<!-- Update_Description: wording update -->

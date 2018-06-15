@@ -6,17 +6,17 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 03/09/2018
-ms.date: 04/16/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 8ca0cdce8c3220144dc5832c99cced1e6bfc7964
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: f4b49e93bcf75b81dc065d8c70cbb099dfdc6a8d
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34723118"
 ---
-<!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-B 系列的 VM 系列具备使 CPU 性能突增到 Intel® Broadwell E5-2673 v4 2.3 GHz 或 Intel® Haswell 2.4 GHz E5-2673 v3 处理器 vCPU 的 100% 的能力，允许用户选择可为其工作负荷提供必要的基本级别性能的 VM 大小。
+<!--PENDING FOR B-SERIES GA ANOUNCEMENT --> B 系列的 VM 系列具备使 CPU 性能突增到 Intel® Broadwell E5-2673 v4 2.3 GHz 或 Intel® Haswell 2.4 GHz E5-2673 v3 处理器 vCPU 的 100% 的能力，允许用户选择可为其工作负荷提供必要的基本级别性能的 VM 大小。
 
 对于并非持续需要 CPU 完全性能的工作负荷（如 Web 服务器、小型数据库以及开发和测试环境）而言，B 系列 VM 十分理想。 这些工作负荷通常具有可突增的性能要求。 B 系列使用户可以购买具有基准性能的 VM 大小，并且该 VM 实例在 CPU 使用率未达到其基线时会增加积分。 在虚拟机累积积分后，当应用程序需要更高的 CPU 性能时，虚拟机可以使用高达 100% vCPU 突增到基线以上。
 
@@ -54,5 +54,9 @@ B 系列有以下六种 VM 大小：
 如果我用在非高峰时间获得的 120 个积分减去在高峰时间内使用的 96 个积分，我每天将累积可用于其他突发活动的 24 个积分。
 
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>问：B 系列是否支持高级存储数据磁盘？
-**答**：B 系列大小支持高级存储数据磁盘。
+**答**：B 系列大小支持高级存储数据磁盘。   
+
+### <a name="q-why-is-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>问：重新部署或停止/启动后，剩余信用额度为什么设置为 0？
+**答**：当 VM 状态为“已重新部署”并且 VM 移到另一节点时，累积的信用额度将丢失。 如果 VM 已停止/已启动，但仍保留在同一节点，VM 将保留累积的信用额度。 只要 VM 在节点上重新启动，它就会获取初始信用额度，对于 Standard_B8ms，该信用额度为 240 分钟。
+
 <!--PENDING FOR B-SERIES GA ANOUNCEMENT -->

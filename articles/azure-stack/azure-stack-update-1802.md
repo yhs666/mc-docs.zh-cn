@@ -17,10 +17,10 @@ ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: justini
 ms.openlocfilehash: 87e16bf60f06539d6c8b30f8b7c41c292f6968ed
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 06/13/2018
 ms.locfileid: "34475064"
 ---
 # <a name="azure-stack-1802-update"></a>Azure Stack 1802 更新
@@ -112,7 +112,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 - 在管理员门户中[从下拉列表提交新的支持请求](azure-stack-manage-portals.md#quick-access-to-help-and-support)的功能不可用。 请改用以下链接：     
     - 对于 Azure Stack 集成系统，请使用 https://aka.ms/newsupportrequest。
 
-- <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
+- <!-- 2050709 --> 在管理员门户中，不能编辑 Blob 服务、表服务或队列服务的存储指标。 转到“存储”并选择 Blob、表或队列服务磁贴后，就会打开一个新的边栏选项卡，其中显示该 服务的指标图表。 如果随后从指标图表磁贴顶部选择“编辑”，则会打开“编辑图表”边栏选项卡，但其中不显示用于编辑指标的选项。
 
 - 无法在管理员门户中查看计算或存储资源。 此问题的原因是更新安装过程中出错，导致系统错误地将更新报告为成功。 如果发生此问题，请联系 Microsoft 客户支持服务部门以寻求帮助。
 
@@ -129,7 +129,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 
     可以放心地忽略此警报。 
 
-- <!-- 2253274 --> In the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and  manage this information.
+- <!-- 2253274 --> 在管理员和用户门户中，vNet 子网的“设置”边栏选项卡无法加载。 解决方法是使用 PowerShell 和 [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet 来查看和管理此信息。
 
 - 在管理员门户和用户门户中，如果选择通过旧版 API（例如 2015-06-15）创建的存储帐户的“概述”边栏选项卡，则“概述”边栏选项卡无法加载。 这包括系统存储帐户，例如修补和更新过程中使用的 **updateadminaccount**。 
 
@@ -147,7 +147,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 #### <a name="compute"></a>计算
 - 无法在门户中使用虚拟机规模集的缩放设置。 解决方法是使用 [Azure PowerShell](/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)。 由于 PowerShell 版本差异，必须使用 `-Name` 参数，而不是 `-VMScaleSetName`。
 
-- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+- <!-- 2290877  --> 不能纵向扩展使用 1802 之前的 Azure Stack 版本时创建的虚拟机规模集 (VMSS)。 这是由于将可用性集与虚拟机规模集配合使用时的支持发生了变化。 此支持是通过版本 1802 添加的。  对于在添加此支持之前创建的 VMSS，若要尝试通过添加更多的实例对其进行缩放，则操作会失败，并出现消息“预配状态为‘已失败’”。 
 
   版本 1803 中已解决此问题。 若要在版本 1802 中解决此问题，请安装 Azure Stack 修补程序 **1.0.180302.4**。 有关详细信息，请参阅 [KB 4131152：现有虚拟机规模集可能不可用]( https://support.microsoft.com/help/4131152)。 
 
@@ -167,7 +167,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 
 -  如果在 VM 部署上预配某个扩展时耗时过长，用户应让预配超时，而不应尝试通过停止该进程来解除 VM 的分配或将 VM 删除。  
 
-- <!-- 1662991 --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
+- <!-- 1662991 --> Azure Stack 不支持 Linux VM 诊断。 在部署启用 VM 诊断的 Linux VM 时，部署会失败。 如果通过诊断设置启用 Linux VM 的基本指标，部署也会失败。  
 
 
 
@@ -189,7 +189,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 
 - Azure Stack 不支持在部署某个 VM 实例后向该 VM 添加其他的网络接口。 如果该 VM 需要多个网络接口，这些接口必须在部署时定义。
 
--   <!-- 2096388 --> You cannot use the admin portal to update rules for a network security group. 
+-   <!-- 2096388 --> 不能使用管理员门户更新网络安全组的规则。 
 
     针对应用服务的解决方法：如需通过远程桌面连接到控制器实例，请使用 PowerShell 修改网络安全组中的安全规则。  以下示例说明了如何先将配置设置为 *allow*，然后再还原为 *deny*：  
     
@@ -262,7 +262,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 
 - 只有资源提供程序才能在托管 SQL 或 MySQL 的服务器上创建项目。 如果在不是由资源提供程序创建的主机服务器上创建项目，则此类项目可能导致状态不匹配。  
 
-- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
+- <!-- IS, ASDK --> 为 SQL 和 MySQL 资源提供程序创建 SKU 时，**系列**名称中不支持使用特殊字符（包括空格和句点）。
 
 > [!NOTE]  
 > 更新到 Azure Stack 1802 以后，可以继续使用以前部署的 SQL 和 MySQL 资源提供程序。  建议在新版本发布后更新 SQL 和 MySQL。 与 Azure Stack 一样，请将更新按顺序应用到 SQL 和 MySQL 资源提供程序。  例如，如果使用版本 1710，请先应用版本 1711，然后应用 1712，再应用 1802 的更新。      

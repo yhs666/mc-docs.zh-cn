@@ -1,5 +1,5 @@
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure 高级存储：高性能设计
-## <a name="overview"></a>概述
+
 本文提供了使用 Azure 高级存储构建高性能应用程序的准则。 可将本文档中提供的说明与适用于应用程序所用技术的性能最佳做法结合使用。 为了说明这些准则，我们在本文档中使用了在高级存储上运行的 SQL Server 作为示例。
 
 由于本文重点介绍针对存储层的性能方案，因此需要优化应用程序层。 例如，若要在 Azure 高级存储上托管 SharePoint 场，可使用本文中的 SQL Server 示例来优化数据库服务器。 另请优化 SharePoint 场的 Web 服务器和应用程序服务器以获取最高性能。
@@ -104,15 +104,18 @@ PerfMon 计数器适用于处理器、内存以及服务器的每个逻辑磁盘
 此部分从始至终都需要参考所创建的应用程序要求清单，以便确定需要将应用程序性能优化到何种程度。 据此，可确定此部分中需要调整的因素。 若要了解每个因素对应用程序性能的影响，可在应用程序安装以后运行基准测试工具。 请参阅本文末尾的 [基准测试](#Benchmarking) 部分，了解需要执行哪些步骤才能在 Windows 和 Linux VM 上运行常见的基准测试工具。
 
 ### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>迅速优化 IOPS、吞吐量和延迟
-下表汇总了所有性能因素以及进行 IOPS、吞吐量和延迟优化所需的步骤。 此汇总以后的部分将更深入地介绍每个因素。
+
+下表汇总了性能因素以及进行 IOPS、吞吐量和延迟优化所需的步骤。 此汇总以后的部分更深入地介绍每个因素。
+
+有关 VM 大小以及每种类型的 VM 可用的 IOPS、吞吐量和延迟的详细信息，请参阅 [Linux VM 大小](../articles/virtual-machines/linux/sizes.md) 或 [Windows VM 大小](../articles/virtual-machines/windows/sizes.md)。
 
 | &nbsp; | **IOPS** | **吞吐量** | **延迟** |
 | --- | --- | --- | --- |
 | **示例方案** |企业 OLTP 应用程序，需要很高的每秒事务数比率。 |企业数据仓库应用程序，处理大量数据。 |近实时应用程序，需要对用户请求进行即时响应，例如在线游戏。 |
 | 性能因素 | &nbsp; | &nbsp; | &nbsp; |
 | **IO 大小** |IO 大小越小，产生的 IOPS 越高。 |IO 大小越大，产生的吞吐量越大。 | &nbsp;|
-| **VM 大小** |使用所提供的 IOPS 超出应用程序要求的 VM 大小。 请参阅此处的 VM 大小及其 IOPS 限制。 |使用 VM 大小时，应确保吞吐量限制超出应用程序要求。 请参阅此处的 VM 大小及其吞吐量限制。 |使用所提供的规模限制超出应用程序要求的 VM 大小。 请参阅此处的 VM 大小及其限制。 |
-| **磁盘大小** |使用所提供的 IOPS 超出应用程序要求的磁盘大小。 请参阅此处的磁盘大小及其 IOPS 限制。 |使用磁盘大小时，应确保吞吐量限制超出应用程序要求。 请参阅此处的磁盘大小及其吞吐量限制。 |使用所提供的规模限制超出应用程序要求的磁盘大小。 请参阅此处的磁盘大小及其限制。 |
+| **VM 大小** |使用所提供的 IOPS 超出应用程序要求的 VM 大小。 |使用 VM 大小时，应确保吞吐量限制超出应用程序要求。 |使用所提供的规模限制超出应用程序要求的 VM 大小。 |
+| **磁盘大小** |使用所提供的 IOPS 超出应用程序要求的磁盘大小。 |使用磁盘大小时，应确保吞吐量限制超出应用程序要求。 |使用所提供的规模限制超出应用程序要求的磁盘大小。 |
 | **VM 和磁盘规模限制** |所选 VM 大小的 IOPS 限制应大于已连接的高级存储磁盘所要求的总 IOPS。 |所选 VM 大小的吞吐量限制应大于已连接的高级存储磁盘所要求的总吞吐量。 |所选 VM 大小的规模限制必须大于已连接高级存储磁盘的总规模限制。 |
 | **磁盘缓存** |在需要进行大量读取操作的高级存储磁盘上启用 ReadOnly 缓存，以便提高读取 IOPS。 | &nbsp; |在需要进行大量读取操作的高级存储磁盘上启用 ReadOnly 缓存，以便尽量降低读取延迟。 |
 | **磁盘条带化** |使用多个磁盘并将其条带化，获得更高的 IOPS 和吞吐量组合限制。 请注意，单个 VM 的组合限制应高于所连接的高级磁盘的组合限制。 | &nbsp; | &nbsp; |
@@ -576,3 +579,4 @@ SQL Server 用户请阅读有关 SQL Server 性能最佳实践的文章：
 * [Azure 虚拟机中 SQL Server 的性能最佳做法](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
 * [Azure 高级存储为 Azure VM 中的 SQL Server 提供最高性能](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 <!-- Update_Description: wording update, update link -->
+<!--ms.date: 06/04/2018-->

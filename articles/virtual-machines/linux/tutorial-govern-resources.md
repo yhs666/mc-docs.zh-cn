@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure CLI 控制 Azure 虚拟机 | Azure
-description: 教程 - 通过使用 Azure CLI 应用 RBAC、策略、锁和标记管理 Azure 虚拟机
+title: 教程 - 使用 Azure CLI 2.0 控制 Azure 虚拟机 | Azure
+description: 本教程介绍如何通过使用 Azure CLI 2.0 应用 RBAC、策略、锁和标记管理 Azure 虚拟机
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -10,23 +10,25 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 origin.date: 02/21/2018
-ms.date: 05/14/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 251fee455e1a5fe802cd5b99cd24a80e114c5942
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.custom: mvc
+ms.openlocfilehash: 1644ee1ce51a651620c0f2bfe2632c10efc4e379
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702731"
 ---
-# <a name="virtual-machine-governance-with-azure-cli"></a>使用 Azure CLI 控制虚拟机
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>教程：了解如何使用 Azure CLI 2.0 控制 Linux 虚拟机
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-若要在本地安装和使用 CLI，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="understand-scope"></a>了解范围
 
@@ -62,7 +64,7 @@ az group create --name myResourceGroup --location "China East"
 adgroupId=$(az ad group create --display-name VMDemoContributors --mail-nickname vmDemoGroup --query objectId --output tsv)
 ```
 
-在命令提示返回后，组需要花费一段时间来在整个 Azure Active Directory 中传播。 等待 20 或 30 秒后，使用 [az role assignment create](https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az_role_assignment_create) 命令将新的 Azure Active Directory 组分配到资源组的“虚拟机参与者”角色。  如果在它已传播之前运行以下命令，则会收到一个错误，指出**主体<guid>在目录中不存在**。 请尝试再次运行命令。
+在命令提示返回后，组需要花费一段时间来在整个 Azure Active Directory 中传播。 等待 20 或 30 秒后，使用 [az role assignment create](https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create) 命令将新的 Azure Active Directory 组分配到资源组的“虚拟机参与者”角色。  如果在它已传播之前运行以下命令，则会收到一个错误，指出**主体<guid>在目录中不存在**。 请尝试再次运行命令。
 
 ```azurecli
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
@@ -70,8 +72,69 @@ az role assignment create --assignee-object-id $adgroupId --role "Virtual Machin
 
 通常情况下，请对*网络参与者*和*存储帐户参与者*重复执行此过程，确保分配用户来管理已部署的资源。 在本文中，可以跳过这些步骤。
 
-<!-- Not Avaiable on ## Azure policies -->
-<!-- Not Avaiable on ### Apply policies -->
+## <a name="azure-policies"></a>Azure 策略
+
+[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
+
+### <a name="apply-policies"></a>应用策略
+
+订阅已经有多个策略定义。 若要查看可用的策略定义，请使用 [az policy definition list](https://docs.azure.cn/zh-cn/cli/policy/definition?view=azure-cli-latest#az-policy-definition-list) 命令：
+
+```azurecli
+az policy definition list --query "[].[displayName, policyType, name]" --output table
+```
+
+可以看到现有的策略定义。 策略类型为“内置”或“自定义”。 在这些定义中查找所述条件正是你要分配的条件的定义。 在本文中，分配的策略要符合以下条件：
+
+* 限制所有资源的位置。
+* 限制虚拟机的 SKU。
+* 审核不使用托管磁盘的虚拟机。
+
+在下面的示例中，你将基于显示名称检索三个策略定义。 并且使用 [az policy assignment create](https://docs.azure.cn/zh-cn/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) 命令将这些定义分配到资源组。 对于某些策略，你将提供参数值来指定允许的值。
+
+```azurecli
+# Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
+locationDefinition=$(az policy definition list --query "[?displayName=='Allowed locations'].name | [0]" --output tsv)
+skuDefinition=$(az policy definition list --query "[?displayName=='Allowed virtual machine SKUs'].name | [0]" --output tsv)
+auditDefinition=$(az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks'].name | [0]" --output tsv)
+
+# Assign policy for allowed locations
+az policy assignment create --name "Set permitted locations" \
+  --resource-group myResourceGroup \
+  --policy $locationDefinition \
+  --params '{ 
+      "listOfAllowedLocations": {
+        "value": [
+          "chinaeast", 
+          "chinaeast2"
+        ]
+      }
+    }'
+
+# Assign policy for allowed SKUs
+az policy assignment create --name "Set permitted VM SKUs" \
+  --resource-group myResourceGroup \
+  --policy $skuDefinition \
+  --params '{ 
+      "listOfAllowedSKUs": {
+        "value": [
+          "Standard_DS1_v2", 
+          "Standard_E2s_v2"
+        ]
+      }
+    }'
+
+# Assign policy for auditing unmanaged disks
+az policy assignment create --name "Audit unmanaged disks" \
+  --resource-group myResourceGroup \
+  --policy $auditDefinition
+```
+
+前面的示例假定你已知道了策略的参数。 如果需要查看参数，请使用：
+
+```azurecli
+az policy definition show --name $locationDefinition --query parameters
+```
 
 ## <a name="deploy-the-virtual-machine"></a>部署虚拟机
 
@@ -185,4 +248,4 @@ az group delete --name myResourceGroup
 > [!div class="nextstepaction"]
 > [监视虚拟机](tutorial-monitoring.md)
 
-<!-- Update_Description: update meta properties, update links -->
+<!-- Update_Description: update meta properties, update links, add content of azure policy -->

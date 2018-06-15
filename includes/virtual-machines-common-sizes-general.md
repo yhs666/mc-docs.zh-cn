@@ -6,25 +6,27 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 03/09/2018
-ms.date: 05/14/2017
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 0897ad7a2addafb24f057bff2028502cc407c45b
-ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
+ms.openlocfilehash: afb6c204b5b787fdce8c00ba5b6344c23c4a7b24
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34723132"
 ---
 <!-- A-series, Av2-series, D-series, Dv2-series, DS-series*, DSv2-series* -->
-<!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
-常规用途 VM 大小提供均衡的 CPU 与内存之比。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 本文介绍了此分组中各个大小的 vCPU 数、数据磁盘数、NIC 数、存储吞吐量及网络带宽的相关信息。 
+<!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) --> 常规用途 VM 大小提供均衡的 CPU 与内存之比。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 本文介绍了此分组中各个大小的 vCPU 数、数据磁盘数、NIC 数、存储吞吐量及网络带宽的相关信息。 
 
 - A 系列和 Av2 系列的 VM 可以部署在各种不同的硬件类型和处理器上。 根据硬件限制大小，为运行中的实例提供一致的处理器性能，不论硬件部署的位置。 若要判断此大小部署所在的物理硬件，请从虚拟机中查询虚拟硬件。
 
 - D 系列 VM 旨在运行需要更高计算能力和临时磁盘性能的应用程序。 D 系列 VM 为临时磁盘提供更快的处理器、更高的内存 vCPU 比和固态硬盘 (SSD)。 有关详细信息，请参阅 Azure 博客[新的 D 系列虚拟机大小](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)上的公告。
 
 <!--PENDIND ON Dv3-series, Updte carefully -->
-- Dv3 系列、Dv2 系列是原 D 系列的后续系列，其特点是 CPU 功能更强大。 Dv2 系列 CPU 比 D 系列 CPU 快大约 35%。 该系列基于最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器，通过 Intel Turbo Boost Technology 2.0 可以达到 3.1 GHz。 Dv2 系列的内存和磁盘配置与 D 系列相同。
+- Dv2 系列是原 D 系列的后续系列，其特点是 CPU 功能更强大。 Dv2 系列 CPU 比 D 系列 CPU 快大约 35%。 它基于最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) 或 E5-2673 v4 2.3 GHz (Broadwell) 处理器，通过英特尔睿频加速技术 2.0 可以达到 3.1 GHz。 Dv2 系列的内存和磁盘配置与 D 系列相同。
+
+- Dv3 系列采用的处理器与 Dv2 系列相同，但在超线程配置中，Dv3 系列针对最常规用途的工作负荷提供了更好的价值主张，并且使 Dv3 更适用于大多数其他云的常规用途 VM。  在磁盘和网络限制已基于核心进行了调整以适应超线程技术的同时，内存已扩展（从 ~3.5 GiB/vCPU 到 4 GiB/vCPU）。  Dv3 不再有 D/Dv2 系列的高内存 VM 大小，那些已成为新的 EV3 系列。
 <!--PENDIND ON Dv3-series, Updte carefully -->
 
 - 基本层大小主要用于开发工作负荷，以及其他不需要负载均衡、自动缩放或内存密集型虚拟机的应用程序。
@@ -84,8 +86,7 @@ Dv3 系列大小基于 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器或 2.
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8 / 16,000                             |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8 / 30,000                             |
 
-<sup>1</sup> Dv3 系列 VM 的 Intel® 超线程技术功能
-<!--PENDIND ON DV3-series, Updte carefully -->
+<sup>1</sup> Dv3 系列 VM 的 Intel® 超线程技术功能 <!--PENDIND ON DV3-series, Updte carefully -->
 
 ## <a name="dsv2-series"></a>DSv2 系列
 
@@ -202,5 +203,5 @@ ACU：50-100
 
 注意，经典 VM 的数据磁盘数可能会低于资源管理器 VM 的数据磁盘数。
 <!--Update_Description: wording update-->
-<!--ms.date: 05/14/2018-->
+<!--ms.date: 06/04/2018-->
 <!--PENDING TO Dv3-series, Dsv3-series, B-series -->

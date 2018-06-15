@@ -13,14 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 origin.date: 12/20/2017
-ms.date: 05/15/2018
+ms.date: 05/25/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d58a0cb97e617eca4980a6e41ee8afced7fd465
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: f6ae3686acd109267aeb4ca81d0b0b130b43a9a0
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559435"
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>使用 AzureRM.RecoveryServices.Backup cmdlet 来备份虚拟机
 
@@ -80,9 +81,9 @@ ms.lasthandoff: 05/17/2018
     Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
     Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
     ```
-3. 使用 **Login-AzureRmAccount -EnvironmentName AzureChinaCloud** 登录到 Azure 帐户。 此 cmdlet 打开一个网页，提示输入帐户凭据： 
-    - 或者，还可使用 -Credential 参数将帐户凭据作为参数包含在 Login-AzureRmAccount cmdlet 中。
-    - 如果是代表租户的 CSP 合作伙伴，则需使用 tenantID 或租户主域名将客户指定为一名租户。 例如：**Login-AzureRmAccount -EnvironmentName AzureChinaCloud -Tenant "fabrikam.com"**
+3. 使用 **Connect-AzureRmAccount -Environment AzureChinaCloud** 登录到 Azure 帐户。 此 cmdlet 打开一个网页，提示输入帐户凭据： 
+    - 也可使用 **-Credential** 参数将帐户凭据作为参数包含在 **Connect-AzureRmAccount -Environment AzureChinaCloud** cmdlet 中。
+    - 如果是代表租户的 CSP 合作伙伴，则需使用 tenantID 或租户主域名将客户指定为一名租户。 例如：**Connect-AzureRmAccount -Environment AzureChinaCloud -Tenant "fabrikam.com"**
 4. 由于一个帐户可以有多个订阅，因此请将要使用的订阅与帐户关联在一起：
 
     ```PS
@@ -592,4 +593,4 @@ PS C:\> Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 ## <a name="next-steps"></a>后续步骤
 如果你更愿意使用 PowerShell 来处理 Azure 资源，请查看 PowerShell 文章：[为 Windows Server 部署和管理备份](backup-client-automation.md)。 如果管理 DPM 备份，请参阅[为 DPM 部署和管理备份](backup-dpm-automation.md)。 这两篇文章都为 Resource Manager 部署和经典部署提供了一个版本。  
 
-<!--Update_Description: link update-->
+<!--Update_Description: code update-->

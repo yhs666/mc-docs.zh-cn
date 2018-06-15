@@ -1,11 +1,11 @@
 ---
-title: "服务总线定价和计费"
-description: "服务总线定价结构概述。"
+title: 服务总线定价和计费
+description: 服务总线定价结构概述。
 services: service-bus
 documentationCenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
 ms.service: service-bus
 ms.devlang: na
@@ -15,15 +15,16 @@ ms.workload: na
 origin.date: 12/21/2017
 ms.author: v-yiso
 ms.date: 02/05/2018
-ms.openlocfilehash: d21b1871c875b5569763e8d294103c6cb2072fcd
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: a9ee61f64dd94c9d8a1b68f1ebedc64af4ac4225
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695119"
 ---
 # <a name="service-bus-pricing-and-billing"></a>服务总线定价和计费
 
-服务总线推出基本和标准两种层级。 可以创建的每个服务总线服务命名空间选择一个服务层，此服务层选择将应用于该命名空间中创建的所有实体。
+Azure 服务总线推出标准和[高级](service-bus-premium-messaging.md)两种层级。 可以创建的每个服务总线服务命名空间选择一个服务层，此服务层选择将应用于该命名空间中创建的所有实体。
 
 >[!NOTE]
 > 有关当前服务总线定价的详细信息，请参阅 [Azure 服务总线定价页](https://www.azure.cn/pricing/details/messaging/)和[服务总线常见问题解答](./service-bus-faq.md#service-bus-pricing)。
@@ -41,7 +42,7 @@ ms.lasthandoff: 02/13/2018
 
 请注意，每个 Azure 订阅每月仅需支付一次标准层基本费用。 这意味着在创建单个标准层的服务总线命名空间后，能够在同一 Azure 订阅下根据需要创建任意数目的其他标准命名空间，而不会产生附加的基本费用。
 
-[服务总线定价](https://www.azure.cn/pricing/details/messaging/)表总结了基本和标准层之间的功能差异。
+[服务总线定价](https://www.azure.cn/pricing/details/messaging/)表总结了基本、标准和高级层之间的功能差异。
 
 ## <a name="messaging-operations"></a>消息传送操作
 
@@ -75,6 +76,9 @@ ms.lasthandoff: 02/13/2018
 >
 >
 
+### <a name="premium-tier"></a>高级层级
+
+在“高级”层级中，中转连接不计费。
 
 ## <a name="faq"></a>常见问题
 

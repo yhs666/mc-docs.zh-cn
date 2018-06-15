@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 02/15/2018
-ms.date: 03/19/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3cc500de3aab9eda549cd0cba7f12b50cdb7a10f
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 7b88fb7168701bdf29e135be16c8d7e830197b81
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702836"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>如何使用 Azure PowerShell 预配 SQL Server 虚拟机
 
@@ -32,10 +33,10 @@ ms.lasthandoff: 03/17/2018
 
 ## <a name="configure-your-subscription"></a>配置订阅
 
-1. 打开 PowerShell，然后运行 **Add-AzureRmAccount** 命令访问自己的 Azure 帐户。
+1. 打开 PowerShell，通过运行 **Connect-AzureRmAccount -Environment AzureChinaCloud ** 命令建立对 Azure 帐户的访问。
 
     ```PowerShell
-    Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -Environment AzureChinaCloud
     ```
 
 1. 此时应会出现一个用于输入凭据的登录屏幕。 使用登录 Azure 门户时所用的相同电子邮件和密码。
@@ -247,7 +248,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 ```
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>设置虚拟机的操作系统属性
-现在，可以使用 [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) cmdlet 设置虚拟机的操作系统属性：将操作系统的类型设置为 Windows，要求安装[虚拟机代理](../agent-user-guide.md)，指定该 cmdlet 允许使用前面初始化的变量自动更新和设置虚拟机名称、计算机名称和凭据。
+现在，可以使用 [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) cmdlet 设置虚拟机的操作系统属性：将操作系统的类型设置为 Windows，要求安装[虚拟机代理](../../extensions/agent-windows.md)，指定该 cmdlet 允许使用前面初始化的变量自动更新和设置虚拟机名称、计算机名称和凭据。
 
 执行以下 cmdlet，以设置虚拟机的操作系统属性。
 
@@ -328,7 +329,7 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 还可以使用 **Remove-AzureRmResourceGroup** 命令永久删除与虚拟机关联的所有资源。 请小心使用此命令，因为它也会永久删除该虚拟机。
 
 ## <a name="example-script"></a>示例脚本
-以下脚本包含本教程的完整 PowerShell 脚本。 其中假设已将 Azure 订阅设置为配合使用 **Add-AzureRmAccount -EnvironmentName AzureChinaCloud** 和 **Select-AzureRmSubscription** 命令。
+以下脚本包含本教程的完整 PowerShell 脚本。 其中假设已将 Azure 订阅设置为配合使用 **Connect-AzureRmAccount -Environment AzureChinaCloud ** 和 **Select-AzureRmSubscription** 命令。
 
 ```PowerShell
 # Variables

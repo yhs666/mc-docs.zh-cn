@@ -16,11 +16,12 @@ ms.topic: article
 origin.date: 11/03/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 76f402783653791858bb4282e465987ac6372bcf
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: ff59474fab6bf79baf77f9db49e6d51dbe3ea61e
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702816"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>通过 Visual Studio 将 ASP.NET Web 应用发布到 Azure VM
 
@@ -40,7 +41,7 @@ ms.lasthandoff: 05/17/2018
 2. 在解决方案资源管理器中右键单击该项目，并选择“发布...”。
 3. 使用页面右侧的箭头滚动浏览发布选项，直到发现“Azure 虚拟机”。  
 
-   ![发布页 - 右侧箭头]
+   ![发布页 - 右箭头]
 
 4. 选择“Azure 虚拟机”图标，然后选择“发布”。
 
@@ -119,18 +120,6 @@ ms.lasthandoff: 05/17/2018
 若要使用 Visual Studio Team Service 设置持续交付管道，请参阅[部署到 Windows 虚拟机](https://docs.microsoft.com/zh-cn/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups)。
 
 <!-- THE FOLLOWING ARCHOR IS NOT AVAILABLE -->
-[VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
-[IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png
-[VM Overview - DNS Configured]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSConfigured.png
-[发布页 - 右侧箭头]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageRightArrow.png
-[发布页 -“Azure 虚拟机”图标]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageMicrosoftAzureVirtualMachineIcon.png
-[Azure 帐户选择器]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectAccount.png
-[Azure VM 选择器]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
-[WebDeploy 登录]: ../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png
-[证书错误]: ../../../includes/media/publish-web-app-from-visual-studio/CertificateError.png
-[输出窗口]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
-[发布页 -“发布”按钮]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPagePublishButton.png
-[发布页-“设置”按钮]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png
-[发布设置 -“连接”页]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png
-[发布设置 -“设置”页]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsSettingsPage.png
-<!-- Update_Description: update meta properties, update link -->
+<!-- Not Available on [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png-->
+<!-- Not Available on [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png-->
+<!-- Not Available on [VM Overview - DNS Configured]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSConfigured.png--> [发布页 - 右箭头]：../../../includes/media/publish-web-app-from-visual-studio/PublishPageRightArrow.png [发布页 -“Azure 虚拟机”图标]：../../../includes/media/publish-web-app-from-visual-studio/PublishPageMicrosoftAzureVirtualMachineIcon.png [Azure 帐户选择器]：../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectAccount.png [Azure VM 选择器]：../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png [WebDeploy 登录]：../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png [证书错误]：../../../includes/media/publish-web-app-from-visual-studio/CertificateError.png [输出窗口]：../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png [发布页 -“发布”按钮]：../../../includes/media/publish-web-app-from-visual-studio/PublishPagePublishButton.png [发布页 -“设置”按钮]：../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png [发布设置 -“连接”页]：../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png [发布设置 -“设置”页]：../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsSettingsPage.png <!-- Update_Description: update meta properties, update link -->

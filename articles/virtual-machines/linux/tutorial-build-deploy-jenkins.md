@@ -1,33 +1,32 @@
 ---
-title: "使用 Team Services 通过 Jenkins 实现到 Azure VM 的 CI/CD | Azure"
-description: "从 Visual Studio Team Services 或 Microsoft Team Foundation Server 中的 Release Management，通过使用 Jenkins 将 Node.js 应用设置为持续集成 (CI) 和持续部署 (CD) 到 Azure VM"
+title: 教程 - 使用 Team Services 通过 Jenkins 实现到 Azure VM 的 CI/CD | Azure
+description: 本教程介绍如何从 Visual Studio Team Services 或 Microsoft Team Foundation Server 中的 Release Management，通过使用 Jenkins 将 Node.js 应用设置为持续集成 (CI) 和持续部署 (CD) 到 Azure VM
 author: rockboyfor
 manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/19/2017
-ms.date: 01/08/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e70bffd13e85a600901e8191d08034cb7b5a592f
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 93e4fefd5fab12d07d78657657d3c06c0d29114d
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702743"
 ---
-# <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>通过使用 Jenkins 和 Team Services 将应用部署到 Linux VM
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>教程：使用 Jenkins 和 Visual Studio Team Services 将应用部署到 Azure 中的 Linux 虚拟机
 
 持续集成 (CI) 和持续部署 (CD) 可形成一个管道，用于生成、发布和部署代码。 Visual Studio Team Services 提供一套完整的全功能 CI/CD 自动化工具，用于部署到 Azure。 Jenkins 是一款常用的基于服务器的第三方 CI/CD 工具，也提供 CI/CD 自动化。 你可以结合使用 Team Services 和 Jenkins 来自定义交付云应用或服务的方式。
 
-在本教程中，将使用 Jenkins 生成 Node.js Web 应用。 随后，使用 Team Services 或 Team Foundation Server 将其部署到包含 Linux 虚拟机 (VM) 的[部署组](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/)。
-
-用户能够：
+在本教程中，将使用 Jenkins 生成 Node.js Web 应用。 随后，使用 Team Services 或 Team Foundation Server 将其部署到包含 Linux 虚拟机 (VM) 的[部署组](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/)。 你将学习如何执行以下操作：
 
 > [!div class="checklist"]
 > * 获取示例应用。
@@ -42,6 +41,8 @@ ms.lasthandoff: 01/05/2018
 ## <a name="before-you-begin"></a>准备阶段
 
 * 需要具有对 Jenkins 服务器的访问权限。 如果尚未创建 Jenkins 服务器，请参阅 [Jenkins 文档](https://jenkins.io/doc/)。 
+  <!-- Not Available on [Create a Jenkins master on an Azure virtual machine](/jenkins/install-jenkins-solution-template) -->
+  <!-- Keep the office website -->
 
 * 登录到 Team Services 帐户 (https://{youraccount}.visualstudio.com)。 
   可以获取[免费 Team Services 帐户](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308)。
@@ -51,7 +52,7 @@ ms.lasthandoff: 01/05/2018
 
 *  部署目标需用到 Linux 虚拟机。  有关详细信息，请参阅[使用 Azure CLI 创建和管理 Linux VM](/virtual-machines/linux/tutorial-manage-vm)。
 
-*  为虚拟机开启入站端口 80。 有关详细信息，请参阅[使用 Azure 门户创建网络安全组](/virtual-network/virtual-networks-create-nsg-arm-portal)。
+*  为虚拟机开启入站端口 80。 有关详细信息，请参阅[使用 Azure 门户创建网络安全组](/virtual-network/virtual-networks-create-nsg-arm-pportal)。
 
 ## <a name="get-the-sample-app"></a>获取示例应用
 

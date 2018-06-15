@@ -13,18 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/20/2017
+origin.date: 05/11/2018
 ms.author: v-yiso
-ms.date: 01/15/2018
-ms.openlocfilehash: 74e87bcf3491767abcff6c10eb0647f82abafda6
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 06/11/2018
+ms.openlocfilehash: 32fa0809f58535ce8b7b85bcf8e20e7f4e9f3a4a
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34695016"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的连接和网络问题：常见问题解答 (FAQ)
 
-本文包含 [Azure 云服务](/cloud-services/)的常见连接和网络问题。 还可以参阅[云服务 VM 大小页面](./cloud-services-sizes-specs.md)，了解大小信息。
+本文包含 [Azure 云服务](/cloud-services/)的常见连接和网络问题。 有关大小信息，请参阅[云服务 VM 大小页](./cloud-services-sizes-specs.md)。
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -103,7 +104,7 @@ Azure 实施多层网络安全性来防范其平台服务遭到分布式拒绝�
 - [保留现有云服务的 IP 地址](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
 - [使用服务配置文件将保留 IP 关联到云服务](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file) 
 
-只要有多个实例用于你的角色，将 RIP 与云服务进行关联就应该不会导致任何停机时间。 另外，还可以将你的 Azure 数据中心的 IP 范围列入允许列表 可以在 [Microsoft 下载中心](https://www.microsoft.com/en-us/download/details.aspx?id=41653)找到所有 Azure IP 范围。 
+只要有多个实例用于你的角色，将 RIP 与云服务进行关联就应该不会导致任何停机时间。 另外，还可以将你的 Azure 数据中心的 IP 范围列入允许列表。 可以在 [Microsoft 下载中心](https://www.microsoft.com/en-us/download/details.aspx?id=41653)找到所有 Azure IP 范围。 
 
 此文件包含 Azure 数据中心使用的 IP 地址范围（包括计算、SQL 和存储范围）。 每周都将发布更新的文件，反映当前已部署的范围和任何即将对 IP 范围进行的更改。 数据中心至少在一周后才会使用文件中显示的新范围。 请每周下载新的 xml 文件，并在网站上执行必要的更改以正确地标识 Azure 中运行的服务。 Azure ExpressRoute 用户可能会注意到，此文件用于在每个月第一周更新 Azure 空间的 BGP 播发。 
 

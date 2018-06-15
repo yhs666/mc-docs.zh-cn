@@ -6,20 +6,21 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/13/2018
-ms.date: 05/02/2018
+origin.date: 04/17/2018
+ms.date: 05/28/2018
 ms.author: v-junlch
 ms.reviewer: rqureshi
-ms.openlocfilehash: 50df21f5e480dbc542f06ffa7fe88bc41aea5c50
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.openlocfilehash: bd8dc307a786011d2d5597c17d842de4a5233c6d
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34559500"
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>使用 Azure PowerShell 管理基于角色的访问控制
 > [!div class="op_single_selector"]
@@ -29,135 +30,359 @@ ms.lasthandoff: 05/03/2018
 
 使用基于角色的访问控制 (RBAC) 时，可以通过分配特定范围的角色，为用户、组和服务主体定义访问权限。 本文介绍如何使用 Azure PowerShell 管理访问权限。
 
-在使用 PowerShell 管理 RBAC 之前，需具备以下先决条件：
+## <a name="prerequisites"></a>先决条件
 
-- Azure PowerShell 0.8.8 版或更高版本。 若要安装最新版本并将其与 Azure 订阅相关联，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
-- Azure Resource Manager cmdlets。 在 PowerShell 中安装 [Azure Resource Manager cmdlets](https://docs.microsoft.com/powershell/azure/overview) 。
+在使用 PowerShell 管理 RBAC 之前，必须具备以下条件：
+
+- [Azure PowerShell 5.1.0 或更高版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 
 ## <a name="list-roles"></a>列出角色
-### <a name="list-all-available-roles"></a>列出所有可用的角色
-若要列出可以进行分配的 RBAC 角色，并检查其授权访问的操作，请使用 `Get-AzureRmRoleDefinition`。
 
-```powershell
+### <a name="list-all-available-roles"></a>列出所有可用的角色
+
+若要列出可以进行分配的 RBAC 角色，并检查其授权访问的操作，请使用 [Get-AzureRmRoleDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroledefinition)。
+
+```azurepowershell
 Get-AzureRmRoleDefinition | FT Name, Description
 ```
 
-![RBAC PowerShell - Get-AzureRmRoleDefinition - 屏幕截图](./media/role-assignments-powershell/1-get-azure-rm-role-definition1.png)
+```Example
+AcrImageSigner                                    acr image signer
+AcrQuarantineReader                               acr quarantine data reader
+AcrQuarantineWriter                               acr quarantine data writer
+API Management Service Contributor                Can manage service and the APIs
+API Management Service Operator Role              Can manage service but not the APIs
+API Management Service Reader Role                Read-only access to service and APIs
+Automation Job Operator                           Create and Manage Jobs using Automation Runbooks.
+Automation Operator                               Automation Operators are able to start, stop, suspend, and resume ...
+...
+```
+
+### <a name="list-a-specific-role"></a>列出特定角色
+
+若要列出特定角色，请使用 [Get-AzureRmRoleDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroledefinition)。
+
+```azurepowershell
+Get-AzureRmRoleDefinition <role name>
+```
+
+```Example
+PS C:\> Get-AzureRmRoleDefinition "Contributor"
+
+Name             : Contributor
+Id               : b24988ac-6180-42a0-ab88-20f7382dd24c
+IsCustom         : False
+Description      : Lets you manage everything except access to resources.
+Actions          : {*}
+NotActions       : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/Write,
+                   Microsoft.Authorization/elevateAccess/Action}
+AssignableScopes : {/}
+```
+
+### <a name="list-a-specific-role-in-json-format"></a>以 JSON 格式列出特定角色
+
+若要以 JSON 格式列出特定角色，请使用 [Get-AzureRmRoleDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroledefinition)。
+
+```azurepowershell
+Get-AzureRmRoleDefinition <role name> | ConvertTo-Json
+```
+
+```Example
+PS C:\> Get-AzureRmRoleDefinition "Contributor" | ConvertTo-Json
+
+{
+    "Name":  "Contributor",
+    "Id":  "b24988ac-6180-42a0-ab88-20f7382dd24c",
+    "IsCustom":  false,
+    "Description":  "Lets you manage everything except access to resources.",
+    "Actions":  [
+                    "*"
+                ],
+    "NotActions":  [
+                       "Microsoft.Authorization/*/Delete",
+                       "Microsoft.Authorization/*/Write",
+                       "Microsoft.Authorization/elevateAccess/Action"
+                   ],
+    "AssignableScopes":  [
+                             "/"
+                         ]
+}
+```
 
 ### <a name="list-actions-of-a-role"></a>列出角色的操作
-若要列出特定角色的操作，请使用 `Get-AzureRmRoleDefinition <role name>`。
 
-```powershell
-Get-AzureRmRoleDefinition Contributor | FL Actions, NotActions
+若要列出特定角色的操作，请使用 [Get-AzureRmRoleDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroledefinition)。
 
-(Get-AzureRmRoleDefinition "Virtual Machine Contributor").Actions
+```azurepowershell
+Get-AzureRmRoleDefinition <role name> | FL Actions, NotActions
 ```
 
-![RBAC PowerShell - Get-AzureRmRoleDefinition for a specific role - 屏幕截图](./media/role-assignments-powershell/1-get-azure-rm-role-definition2.png)
+```Example
+PS C:\> Get-AzureRmRoleDefinition "Contributor" | FL Actions, NotActions
+
+Actions    : {*}
+NotActions : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/Write,
+             Microsoft.Authorization/elevateAccess/Action}
+```
+
+```azurepowershell
+(Get-AzureRmRoleDefinition <role name>).Actions
+```
+
+```Example
+PS C:\> (Get-AzureRmRoleDefinition "Virtual Machine Contributor").Actions
+
+Microsoft.Authorization/*/read
+Microsoft.Compute/availabilitySets/*
+Microsoft.Compute/locations/*
+Microsoft.Compute/virtualMachines/*
+Microsoft.Compute/virtualMachineScaleSets/*
+Microsoft.DevTestLab/schedules/*
+Microsoft.Insights/alertRules/*
+Microsoft.Network/applicationGateways/backendAddressPools/join/action
+Microsoft.Network/loadBalancers/backendAddressPools/join/action
+...
+```
 
 ## <a name="see-who-has-access"></a>查看谁具有访问权限
-若要列出 RBAC 访问权限分配，请使用 `Get-AzureRmRoleAssignment`。
+
+若要列出 RBAC 访问权限分配，请使用 [Get-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroleassignment)。
 
 ### <a name="list-role-assignments-at-a-specific-scope"></a>列举特定范围内的角色分配
-可以查看指定订阅、资源组或资源的所有访问权限分配。 例如，若要查看资源组的所有活动分配，请使用 `Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>`。
 
-```powershell
-Get-AzureRmRoleAssignment -ResourceGroupName Pharma-Sales-ProjectForcast | FL DisplayName, RoleDefinitionName, Scope
+可以查看指定订阅、资源组或资源的所有角色分配。 例如，若要查看资源组的所有活动分配，请使用 [Get-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroleassignment)。
+
+```azurepowershell
+Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>
 ```
 
-![RBAC PowerShell - Get-AzureRmRoleAssignment for a resource group - 屏幕截图](./media/role-assignments-powershell/4-get-azure-rm-role-assignment1.png)
+```Example
+PS C:\> Get-AzureRmRoleAssignment -ResourceGroupName pharma-sales-projectforecast | FL DisplayName, RoleDefinitionName, Scope
+
+DisplayName        : Alain Charon
+RoleDefinitionName : Backup Operator
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
+
+DisplayName        : Isabella Simonsen
+RoleDefinitionName : BizTalk Contributor
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
+
+DisplayName        : Alain Charon
+RoleDefinitionName : Virtual Machine Contributor
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
+```
 
 ### <a name="list-roles-assigned-to-a-user"></a>列举分配到用户的角色
-若要列出分配给特定用户的所有角色以及分配给用户所属组的角色，请使用 `Get-AzureRmRoleAssignment -SignInName <User email> -ExpandPrincipalGroups`。
 
-```powershell
-Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com | FL DisplayName, RoleDefinitionName, Scope
+若要列出分配给特定用户的所有角色，请使用 [Get-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroleassignment)。
 
-Get-AzureRmRoleAssignment -SignInName sameert@aaddemo.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
+```azurepowershell
+Get-AzureRmRoleAssignment -SignInName <user email>
 ```
 
-![RBAC PowerShell - Get-AzureRmRoleAssignment for a user - 屏幕截图](./media/role-assignments-powershell/4-get-azure-rm-role-assignment2.png)
+```Example
+PS C:\> Get-AzureRmRoleAssignment -SignInName isabella@example.com | FL DisplayName, RoleDefinitionName, Scope
+
+DisplayName        : Isabella Simonsen
+RoleDefinitionName : BizTalk Contributor
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
+```
+
+若要列出分配给特定用户的所有角色和分配给该用户所属组的所有角色，请使用 [Get-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroleassignment)。
+
+```azurepowershell
+Get-AzureRmRoleAssignment -SignInName <user email> -ExpandPrincipalGroups
+```
+
+```Example
+Get-AzureRmRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
+```
 
 ### <a name="list-classic-service-administrator-and-coadmin-role-assignments"></a>列出经典服务管理员和共同管理员角色分配
-若要列出经典订阅管理员和共同管理员的访问权限分配，请使用：
 
-```powershell
+若要列出经典订阅管理员和共同管理员的访问权限分配，请使用 [Get-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroleassignment)：
+
+```azurepowershell
 Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 ```
 
 ## <a name="grant-access"></a>授予访问权限
+
 ### <a name="search-for-object-ids"></a>搜索对象 ID
+
 若要分配角色，需要标识对象（用户、组或应用程序）和范围。
 
-如果不知道订阅 ID，可以在 Azure 门户的“订阅”  边栏选项卡中查找。 若要了解如何通过查询获取订阅 ID，请参阅 MSDN 上的 [Get-AzureSubscription](https://docs.microsoft.com/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) 。
+如果不知道订阅 ID，可以在 Azure 门户的“订阅”边栏选项卡中查找，或使用 [Get-AzureRmSubscription](https://docs.microsoft.com/powershell/module/azurerm.profile/get-azurermsubscription)。
 
-若要获取 Azure AD 组的对象 ID，请使用：
+若要获取 Azure AD 组的对象 ID，请使用 [Get-AzureRmADGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadgroup)：
 
-```powershell
+```azurepowershell
 Get-AzureRmADGroup -SearchString <group name in quotes>
 ```
 
-若要获取 Azure AD 服务主体或应用程序的对象 ID，请使用：
+若要获取 Azure AD 服务主体或应用程序的对象 ID，请使用 [Get-AzureRmADServicePrincipal](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal)：
 
-```powershell
+```azurepowershell
 Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 ```
 
 ### <a name="assign-a-role-to-an-application-at-the-subscription-scope"></a>将角色分配给订阅范围内的应用程序
-若要授权访问订阅范围内的应用程序，请使用：
 
-```powershell
+若要向订阅范围内的应用程序授予访问权限，请使用 [New-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroleassignment)：
+
+```azurepowershell
 New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope <subscription id>
 ```
 
-![RBAC PowerShell - New-AzureRmRoleAssignment - 屏幕截图](./media/role-assignments-powershell/2-new-azure-rm-role-assignment2.png)
+```Example
+PS C:\> New-AzureRmRoleAssignment -ObjectId 77777777-7777-7777-7777-777777777777 -RoleDefinitionName "Reader" -Scope /subscriptions/00000000-0000-0000-0000-000000000000
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/66666666-6666-6666-6666-666666666666
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
+DisplayName        : MyApp1
+SignInName         :
+RoleDefinitionName : Reader
+RoleDefinitionId   : acdd72a7-3385-48ef-bd42-f606fba81ae7
+ObjectId           : 77777777-7777-7777-7777-777777777777
+ObjectType         : ServicePrincipal
+CanDelegate        : False
+```
 
 ### <a name="assign-a-role-to-a-user-at-the-resource-group-scope"></a>将角色分配给资源组范围内的用户
-若要授权访问资源组范围内的用户，请使用：
 
-```powershell
+若要向资源组范围内的用户授予访问权限，请使用 [New-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroleassignment)：
+
+```azurepowershell
 New-AzureRmRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
 ```
 
-![RBAC PowerShell - New-AzureRmRoleAssignment - 屏幕截图](./media/role-assignments-powershell/2-new-azure-rm-role-assignment3.png)
+```Example
+PS C:\> New-AzureRmRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales-projectforecast
+
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast/pr
+                     oviders/Microsoft.Authorization/roleAssignments/55555555-5555-5555-5555-555555555555
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
+DisplayName        : Alain Charon
+SignInName         : alain@example.com
+RoleDefinitionName : Virtual Machine Contributor
+RoleDefinitionId   : 9980e02c-c2be-4d73-94e8-173b1dc7cf3c
+ObjectId           : 44444444-4444-4444-4444-444444444444
+ObjectType         : User
+CanDelegate        : False
+```
 
 ### <a name="assign-a-role-to-a-group-at-the-resource-scope"></a>将角色分配给资源范围内的组
-若要授权访问资源范围内的组，请使用：
 
-```powershell
+若要向资源范围内的组授予访问权限，请使用 [New-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroleassignment)：
+
+```azurepowershell
 New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
 ```
 
-![RBAC PowerShell - New-AzureRmRoleAssignment - 屏幕截图](./media/role-assignments-powershell/2-new-azure-rm-role-assignment4.png)
+```Example
+PS C:\> Get-AzureRmADGroup -SearchString "Pharma"
+
+SecurityEnabled DisplayName         Id                                   Type
+--------------- -----------         --                                   ----
+           True Pharma Sales Admins aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa Group
+
+PS C:\> New-AzureRmRoleAssignment -ObjectId aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa -RoleDefinitionName "Virtual Machine Contributor" -ResourceName RobertVirtualNetwork -ResourceType Microsoft.Network/virtualNetworks -ResourceGroupName RobertVirtualNetworkResourceGroup
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyVirtualNetworkResourceGroup
+                     /providers/Microsoft.Network/virtualNetworks/RobertVirtualNetwork/providers/Microsoft.Authorizat
+                     ion/roleAssignments/bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyVirtualNetworkResourceGroup
+                     /providers/Microsoft.Network/virtualNetworks/RobertVirtualNetwork
+DisplayName        : Pharma Sales Admins
+SignInName         :
+RoleDefinitionName : Virtual Machine Contributor
+RoleDefinitionId   : 9980e02c-c2be-4d73-94e8-173b1dc7cf3c
+ObjectId           : aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+ObjectType         : Group
+CanDelegate        : False
+```
 
 ## <a name="remove-access"></a>删除访问权限
-若要删除用户、组和应用程序的访问权限，请使用：
 
-```powershell
+若要删除用户、组和应用程序的访问权限，请使用 [Remove-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermroleassignment)：
+
+```azurepowershell
 Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
 ```
 
-![RBAC PowerShell - Remove-AzureRmRoleAssignment - 屏幕截图](./media/role-assignments-powershell/3-remove-azure-rm-role-assignment.png)
-
-## <a name="create-a-custom-role"></a>创建自定义角色
-若要创建自定义角色，请使用 ```New-AzureRmRoleDefinition``` 命令。 可以通过两种方法来构造角色，即使用 PSRoleDefinitionObject 或 JSON 模板。 
-
-### <a name="get-operations-for-a-resource-provider"></a>获取资源提供程序的操作
-创建自定义角色时，请务必了解资源提供程序的所有可能操作。
-可以查看[资源提供程序操作](resource-provider-operations.md)的列表，也可以使用 ```Get-AzureRMProviderOperation``` 命令获取该信息。
-例如，如果想要查看虚拟机的所有可用操作，请使用此命令：
-
-```powershell
-Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation , Description -AutoSize
+```Example
+PS C:\> Remove-AzureRmRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales-projectforecast
 ```
 
-### <a name="create-a-role-with-psroledefinitionobject"></a>使用 PSRoleDefinitionObject 创建角色
+## <a name="list-custom-roles"></a>列出自定义角色
 
-使用 PowerShell 创建自定义角色时，可以使用某个[内置角色](built-in-roles.md)作为起点，也可以从头开始。 本部分中的第一个示例以内置角色开始，并为它自定义更多的权限。 编辑属性，添加所需的 *Actions*、*NotActions* 或 *AssignableScopes*，然后将所做的更改另存为新角色。
+若要列出可在某范围内进行分配的角色，请使用 [Get-AzureRmRoleDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroledefinition) 命令。
+
+以下示例列出了可在所选订阅中进行分配的所有角色。
+
+```azurepowershell
+Get-AzureRmRoleDefinition | FT Name, IsCustom
+```
+
+```Example
+Name                                              IsCustom
+----                                              --------
+Virtual Machine Operator                              True
+AcrImageSigner                                       False
+AcrQuarantineReader                                  False
+AcrQuarantineWriter                                  False
+API Management Service Contributor                   False
+...
+```
+
+以下示例仅列出了可在所选订阅中进行分配的自定义角色。
+
+```azurepowershell
+Get-AzureRmRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+```
+
+```Example
+Name                     IsCustom
+----                     --------
+Virtual Machine Operator     True
+```
+
+如果所选订阅不在角色的 `AssignableScopes` 中，则不会列出自定义角色。
+
+## <a name="create-a-custom-role"></a>创建自定义角色
+
+若要创建自定义角色，请使用 [New-AzureRmRoleDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroledefinition) 命令。 构造角色有两种方法：使用 `PSRoleDefinition` 对象或 JSON 模板。 
+
+### <a name="get-operations-for-a-resource-provider"></a>获取资源提供程序的操作
+
+创建自定义角色时，请务必了解资源提供程序的所有可能操作。
+可以查看[资源提供程序操作](resource-provider-operations.md)的列表，也可以使用 [Get-AzureRMProviderOperation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermprovideroperation) 命令获取该信息。
+例如，如果想要查看虚拟机的所有可用操作，请使用此命令：
+
+```azurepowershell
+Get-AzureRMProviderOperation <operation> | FT OperationName, Operation, Description -AutoSize
+```
+
+```Example
+PS C:\> Get-AzureRMProviderOperation "Microsoft.Compute/virtualMachines/*" | FT OperationName, Operation, Description -AutoSize
+
+OperationName                                  Operation                                                      Description
+-------------                                  ---------                                                      -----------
+Get Virtual Machine                            Microsoft.Compute/virtualMachines/read                         Get the propertie...
+Create or Update Virtual Machine               Microsoft.Compute/virtualMachines/write                        Creates a new vir...
+Delete Virtual Machine                         Microsoft.Compute/virtualMachines/delete                       Deletes the virtu...
+Start Virtual Machine                          Microsoft.Compute/virtualMachines/start/action                 Starts the virtua...
+...
+```
+
+### <a name="create-a-role-with-psroledefinition-object"></a>使用 PSRoleDefinition 对象创建角色
+
+使用 PowerShell 创建自定义角色时，可以使用某个[内置角色](built-in-roles.md)作为起点，也可以从头开始。 本部分中的第一个示例以内置角色开始，并为它自定义更多的权限。 编辑属性以添加所需的 `Actions`、`NotActions` 或 `AssignableScopes`，然后将这些更改保存为新角色。
 
 以下示例从[虚拟机参与者](built-in-roles.md#virtual-machine-contributor)内置角色开始，使用该角色创建名为“虚拟机操作员”的自定义角色。 该新角色授权访问 Microsoft.Compute、Microsoft.Storage 和 Microsoft.Network 资源提供程序的所有读取操作，并授权访问启动、重新启动和监视操作。 该自定义角色可以在两个订阅中使用。
 
-```powershell
+```azurepowershell
 $role = Get-AzureRmRoleDefinition "Virtual Machine Contributor"
 $role.Id = $null
 $role.Name = "Virtual Machine Operator"
@@ -173,14 +398,14 @@ $role.Actions.Add("Microsoft.Resources/subscriptions/resourceGroups/read")
 $role.Actions.Add("Microsoft.Insights/alertRules/*")
 $role.Actions.Add("Microsoft.Support/*")
 $role.AssignableScopes.Clear()
-$role.AssignableScopes.Add("/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e")
-$role.AssignableScopes.Add("/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624")
+$role.AssignableScopes.Add("/subscriptions/00000000-0000-0000-0000-000000000000")
+$role.AssignableScopes.Add("/subscriptions/11111111-1111-1111-1111-111111111111")
 New-AzureRmRoleDefinition -Role $role
 ```
 
-以下示例显示创建“虚拟机操作员”自定义角色的另一种方式。 通过创建新的 PSRoleDefinition 对象开始。 在 `perms` 变量中指定操作，然后将操作设置为 *Actions* 属性。 通过从[虚拟机参与者](built-in-roles.md#virtual-machine-contributor)内置角色读取 *NotActions* 设置 *NotActions* 属性。 由于[虚拟机参与者](built-in-roles.md#virtual-machine-contributor)没有任何 *NotActions*，因此不需要此行，但它显示了从另一个角色检索信息的方式。
+以下示例显示创建“虚拟机操作员”自定义角色的另一种方式。 通过创建新的 PSRoleDefinition 对象开始。 在 `perms` 变量中指定操作，然后将操作设置为 `Actions` 属性。 通过从 [虚拟机参与者](built-in-roles.md#virtual-machine-contributor)内置角色读取 `NotActions` 设置 `NotActions` 属性。 由于[虚拟机参与者](built-in-roles.md#virtual-machine-contributor)没有任何 `NotActions`，因此不需要此行，但它显示了从另一个角色检索信息的方式。
 
-```powershell
+```azurepowershell
 $role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
 $role.Name = 'Virtual Machine Operator 2'
 $role.Description = 'Can monitor and restart virtual machines.'
@@ -191,12 +416,13 @@ $perms += 'Microsoft.Authorization/*/read','Microsoft.Resources/subscriptions/re
 $perms += 'Microsoft.Insights/alertRules/*','Microsoft.Support/*'
 $role.Actions = $perms
 $role.NotActions = (Get-AzureRmRoleDefinition -Name 'Virtual Machine Contributor').NotActions
-$subs = '/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e','/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624'
+$subs = '/subscriptions/00000000-0000-0000-0000-000000000000','/subscriptions/11111111-1111-1111-1111-111111111111'
 $role.AssignableScopes = $subs
 New-AzureRmRoleDefinition -Role $role
 ```
 
 ### <a name="create-role-with-json-template"></a>使用 JSON 模板创建角色
+
 JSON 模板可以用作自定义角色的源定义。 以下示例创建一个可以对存储和计算资源进行读取访问以及获取支持的自定义角色，并将该角色添加到两个订阅。 创建包含以下示例的新文件 `C:\CustomRoles\customrole1.json`。 创建初始角色时，应将 ID 设置为 `null`，因为会自动生成新的 ID。 
 
 ```json
@@ -213,48 +439,87 @@ JSON 模板可以用作自定义角色的源定义。 以下示例创建一个�
   "NotActions": [
   ],
   "AssignableScopes": [
-    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+    "/subscriptions/00000000-0000-0000-0000-000000000000",
+    "/subscriptions/11111111-1111-1111-1111-111111111111"
   ]
 }
 ```
 
 要将角色添加到订阅，请运行以下 PowerShell 命令：
 
-```powershell
+```azurepowershell
 New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 ```
 
 ## <a name="modify-a-custom-role"></a>修改自定义角色
-可以使用 PSRoleDefinitionObject 或 JSON 模板修改现有的自定义角色，这与创建自定义角色类似。
 
-### <a name="modify-role-with-psroledefinitionobject"></a>使用 PSRoleDefinitionObject 修改角色
-若要修改自定义角色，首先，请使用 `Get-AzureRmRoleDefinition` 命令检索角色定义。 然后，对角色定义做出所需更改。 最后，使用 `Set-AzureRmRoleDefinition` 命令保存修改后的角色定义。
+与创建自定义角色类似，可以使用 `PSRoleDefinition` 对象或 JSON 模板修改现有自定义角色。
 
-以下示例将 `Microsoft.Insights/diagnosticSettings/*` 操作添加到*虚拟机操作员*自定义角色。
+### <a name="modify-role-with-psroledefinition-object"></a>使用 PSRoleDefinition 对象修改角色
 
-```powershell
+若要修改自定义角色，请先使用 [Get-AzureRmRoleDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroledefinition) 命令检索角色定义。 然后，对角色定义做出所需更改。 最后，使用 [Set-AzureRmRoleDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermroledefinition) 命令保存修改后的角色定义。
+
+以下示例将 `Microsoft.Insights/diagnosticSettings/*` 操作添加到“虚拟机操作员”自定义角色。
+
+```azurepowershell
 $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
 $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*")
 Set-AzureRmRoleDefinition -Role $role
 ```
 
-![RBAC PowerShell - Set-AzureRmRoleDefinition - 屏幕截图](./media/role-assignments-powershell/3-set-azurermroledefinition-1.png)
+```Example
+PS C:\> $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
+PS C:\> $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*")
+PS C:\> Set-AzureRmRoleDefinition -Role $role
 
-以下示例将 Azure 订阅添加到*虚拟机操作员*自定义角色的可分配范围。
+Name             : Virtual Machine Operator
+Id               : 88888888-8888-8888-8888-888888888888
+IsCustom         : True
+Description      : Can monitor and restart virtual machines.
+Actions          : {Microsoft.Storage/*/read, Microsoft.Network/*/read, Microsoft.Compute/*/read,
+                   Microsoft.Compute/virtualMachines/start/action...}
+NotActions       : {}
+AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
+                   /subscriptions/11111111-1111-1111-1111-111111111111}
+```
 
-```powershell
-Get-AzureRmSubscription - SubscriptionName Production3
+以下示例将 Azure 订阅添加到“虚拟机操作员”自定义角色的可分配范围。
+
+```azurepowershell
+Get-AzureRmSubscription -SubscriptionName Production3
 
 $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
-$role.AssignableScopes.Add("/subscriptions/34370e90-ac4a-4bf9-821f-85eeedead1a2")
+$role.AssignableScopes.Add("/subscriptions/22222222-2222-2222-2222-222222222222")
 Set-AzureRmRoleDefinition -Role $role
 ```
 
-![RBAC PowerShell - Set-AzureRmRoleDefinition - 屏幕截图](./media/role-assignments-powershell/3-set-azurermroledefinition-2.png)
+```Example
+PS C:\> Get-AzureRmSubscription -SubscriptionName Production3
+
+Name     : Production3
+Id       : 22222222-2222-2222-2222-222222222222
+TenantId : 99999999-9999-9999-9999-999999999999
+State    : Enabled
+
+PS C:\> $role = Get-AzureRmRoleDefinition "Virtual Machine Operator"
+PS C:\> $role.AssignableScopes.Add("/subscriptions/22222222-2222-2222-2222-222222222222")
+PS C:\> Set-AzureRmRoleDefinition -Role $role
+
+Name             : Virtual Machine Operator
+Id               : 88888888-8888-8888-8888-888888888888
+IsCustom         : True
+Description      : Can monitor and restart virtual machines.
+Actions          : {Microsoft.Storage/*/read, Microsoft.Network/*/read, Microsoft.Compute/*/read,
+                   Microsoft.Compute/virtualMachines/start/action...}
+NotActions       : {}
+AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
+                   /subscriptions/11111111-1111-1111-1111-111111111111,
+                   /subscriptions/22222222-2222-2222-2222-222222222222}
+```
 
 ### <a name="modify-role-with-json-template"></a>使用 JSON 模板修改角色
-使用以前的 JSON 模板可以轻松修改现有的自定义角色，以便添加或删除 Actions。 更新 JSON 模板，为网络添加读取操作，如以下示例所示。 模板中列出的定义不是以累积方式应用到现有定义的，这意味着角色的显示方式完全符合模板中的指定。 还需使用角色的 ID 更新“ID”字段。 如果不确定该值是什么，可以使用 `Get-AzureRmRoleDefinition` cmdlet 获取相关信息。
+
+使用以前的 JSON 模板可以轻松修改现有的自定义角色，以便添加或删除 Actions。 更新 JSON 模板，为网络添加读取操作，如以下示例所示。 模板中列出的定义不是以累积方式应用到现有定义的，这意味着角色的显示方式完全符合模板中的指定。 还需使用角色的 ID 更新“ID”字段。 如果不确定此值是什么，可以使用 [Get-AzureRmRoleDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroledefinition) cmdlet 来获取该信息。
 
 ```json
 {
@@ -271,48 +536,53 @@ Set-AzureRmRoleDefinition -Role $role
   "NotActions": [
   ],
   "AssignableScopes": [
-    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+    "/subscriptions/00000000-0000-0000-0000-000000000000",
+    "/subscriptions/11111111-1111-1111-1111-111111111111"
   ]
 }
 ```
 
 若要更新现有角色，请运行以下 PowerShell 命令：
 
-```powershell
+```azurepowershell
 Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\customrole1.json"
 ```
 
 ## <a name="delete-a-custom-role"></a>删除自定义角色
-若要删除自定义角色，请使用 `Remove-AzureRmRoleDefinition` 命令。
+
+若要删除自定义角色，请使用 [Remove-AzureRmRoleDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermroledefinition) 命令。
 
 以下示例删除了 *虚拟机操作员* 自定义角色。
 
-```powershell
+```azurepowershell
 Get-AzureRmRoleDefinition "Virtual Machine Operator"
-
 Get-AzureRmRoleDefinition "Virtual Machine Operator" | Remove-AzureRmRoleDefinition
 ```
 
-![RBAC PowerShell - Remove-AzureRmRoleDefinition - 屏幕截图](./media/role-assignments-powershell/4-remove-azurermroledefinition.png)
+```Example
+PS C:\> Get-AzureRmRoleDefinition "Virtual Machine Operator"
 
-## <a name="list-custom-roles"></a>列出自定义角色
-若要列出可在某范围内进行分配的角色，请使用 `Get-AzureRmRoleDefinition` 命令。
+Name             : Virtual Machine Operator
+Id               : 88888888-8888-8888-8888-888888888888
+IsCustom         : True
+Description      : Can monitor and restart virtual machines.
+Actions          : {Microsoft.Storage/*/read, Microsoft.Network/*/read, Microsoft.Compute/*/read,
+                   Microsoft.Compute/virtualMachines/start/action...}
+NotActions       : {}
+AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
+                   /subscriptions/11111111-1111-1111-1111-111111111111}
 
-以下示例列出了可在所选订阅中进行分配的所有角色。
+PS C:\> Get-AzureRmRoleDefinition "Virtual Machine Operator" | Remove-AzureRmRoleDefinition
 
-```powershell
-Get-AzureRmRoleDefinition | FT Name, IsCustom
+Confirm
+Are you sure you want to remove role definition with name 'Virtual Machine Operator'.
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 ```
 
-![RBAC PowerShell - Get-AzureRmRoleDefinition - 屏幕截图](./media/role-assignments-powershell/5-get-azurermroledefinition-1.png)
-
-在下面的示例中，虚拟机操作员自定义角色在 Production4 订阅中不可用，因为该订阅不在角色的 AssignableScopes 中。
-
-![RBAC PowerShell - Get-AzureRmRoleDefinition - 屏幕截图](./media/role-assignments-powershell/5-get-azurermroledefinition2.png)
-
 ## <a name="see-also"></a>另请参阅
+
 - [将 Azure PowerShell 与 Azure 资源管理器配合使用](../azure-resource-manager/powershell-azure-resource-manager.md)
-  [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
+[!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
+<!-- Update_Description: wording update -->

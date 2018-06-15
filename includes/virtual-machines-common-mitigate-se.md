@@ -5,17 +5,18 @@ services: virtual-machines
 author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 04/03/2018
-ms.date: 05/14/2018
+origin.date: 05/21/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 0bb544f114387f3bae05ad6f0a637ecc098b0c10
-ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
+ms.openlocfilehash: b2ec604e60de11194f2f6469128ae4f4b43c2a4b
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34723127"
 ---
-**上次文档更新时间**：太平洋标准时间 4 月 3 日下午 3:00。
+**上次文档更新时间**：太平洋标准时间 2018 年 5 月 21 日下午 3:00。
 
 最近发现了一种称为推理执行旁道攻击的[新型 CPU 漏洞](https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/ADV180002)，这使想要了解其详情的客户向我们提出了问题。  
 
@@ -24,6 +25,8 @@ ms.lasthandoff: 05/11/2018
 此外，Azure 正在尽可能扩大[内存保留维护](/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance)的使用范围，当主机更新或 VM 移动到已更新的主机时，会将 VM 暂停最多 30 秒。  内存保留维护进一步降低了对客户的影响，并且不需要重新启动。  对主机进行系统级更新时，Azure 将利用这些方法。
 
 > [!NOTE] 
+> 2018 年 5 月 21 日，Google Project Zero 和 Microsoft 宣布了推理执行旁道漏洞的一个新子类，也称 Speculative Store Bypass。 已经跨 Microsoft 云基础结构部署了额外的深层防御缓解措施，直接解决推理执行漏洞问题。 此处提供更多信息：https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/ADV180012 
+>
 > 2018 年 2 月 下旬，Intel Corporation 发布了关于微代码发布状态的更新版 [Microcode Revision Guidance](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf)（微代码修订指南），这不仅提升了稳定性还缓解了 [Google Project Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html) 披露的最新漏洞。 Azure 于 [2018 年 1 月 3 日](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/)实施的缓解措施不会受到 Intel 微代码更新的影响。 Microsoft 已经采取强有力的措施，保护 Azure 客户免受其他 Azure 虚拟机的影响。  
 >
 > Intel 的微代码地址变体 2 Spectre（[CVE-2017-5715](https://cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) 或分支目标注入）仅可避免在 Azure 的 VM 中运行共享的或不受信任的工作负荷所造成的攻击。 在面向 Azure 客户推出之前，我们的工程师正在测试稳定性，最大程度地降低微代码对性能的影响。  由于只有极少数客户会在 VM 上运行不受信任的工作负荷，因此发布后大多数客户都不需要启用此功能。 

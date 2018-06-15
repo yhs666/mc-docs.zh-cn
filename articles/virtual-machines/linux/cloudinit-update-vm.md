@@ -12,14 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 11/29/2017
-ms.date: 03/19/2018
+origin.date: 04/20/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0215c48d247e96a920e282e746188fe1c6219cef
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: dbe00e3982c06a68fd966371ca59b39f31abbc46
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702692"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>使用 cloud-init 在 Azure 的 Linux VM 中更新和安装包
 本文演示如何在 Azure 中使用 [cloud-init](https://cloudinit.readthedocs.io) 在预配时间更新 Linux 虚拟机 (VM) 或虚拟机规模集 (VMSS) 上的包。 Azure 配置资源后，这些 cloud-init 脚本将在第一次启动时运行。 有关 cloud-init 如何在 Azure 以及受支持的 Linux 发行版中本机工作的详细信息，请参阅 [cloud-init 概述](using-cloud-init.md)
@@ -37,13 +38,13 @@ packages:
 - httpd
 ```
 
-在部署此映像之前，需要使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
+在部署此映像之前，需要使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
 
 ```azurecli 
 az group create --name myResourceGroup --location chinaeast
 ```
 
-现在，使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 创建 VM，并通过 `--custom-data cloud_init_upgrade.txt` 指定 cloud-init 文件，如下所示：
+现在，使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM，并通过 `--custom-data cloud_init_upgrade.txt` 指定 cloud-init 文件，如下所示：
 
 ```azurecli 
 az vm create \
@@ -60,23 +61,22 @@ az vm create \
 ssh <publicIpAddress>
 ```
 
-运行包管理工具并检查更新。 以下示例在 Ubuntu VM 上使用 `apt-get`。
+运行包管理工具并检查更新。
 
 ```bash
-sudo apt-get upgrade
+sudo yum update
 ```
 
-由于 cloud-init 在启动时已检查和安装更新，因此应该没有要应用的更新，如下例输出所示：
+由于 cloud-init 在启动时已检查和安装更新，因此，应没有要应用的其他更新。  你可以通过运行 `yum history` 来查看更新过程、更改的程序包数量以及 `httpd` 的安装，并查看类似于以下内容的输出。
 
 ```bash
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-Calculating upgrade... Done
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Loaded plugins: fastestmirror, langpacks
+ID     | Command line             | Date and time    | Action(s)      | Altered
+-------------------------------------------------------------------------------
+     3 | -t -y install httpd      | 2018-04-20 22:42 | Install        |    5
+     2 | -t -y upgrade            | 2018-04-20 22:38 | I, U           |   65
+     1 |                          | 2017-12-12 20:32 | Install        |  522
 ```
-
-还可以通过运行 `yum history` 查看是否已安装 `httpd`，并查看引用 `httpd` 的输出。 
 
 ## <a name="next-steps"></a>后续步骤
 有关配置更改的其他 cloud-init 示例，请参阅以下文章：

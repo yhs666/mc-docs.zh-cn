@@ -17,11 +17,12 @@ ms.topic: article
 origin.date: 05/30/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 74e43a98bb72d7e94fd02f2ddd39dd8954051b54
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 670277be6f626925086e1146ce41ec018113702f
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34568776"
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>捕获使用经典部署模型创建的 Azure Windows 虚拟机的映像
 > [!IMPORTANT]
@@ -79,12 +80,8 @@ Azure 将映像存储在“VM 映像(经典)”下，这是查看所有 Azure �
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx
-[Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
-[Enter Sysprep.exe options]: ./media/capture-image/SysprepGeneral.png
-[The virtual machine is stopped]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
-[Capture an image of the virtual machine]: ./media/capture-image/CaptureVM.png
-[Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
-[Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
-[Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
+<!--Not Available on [Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png--> [输入 Sysprep.exe 选项]：./media/capture-image/SysprepGeneral.png <!--Not Available on [The virtual machine is stopped]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png--> [捕获虚拟机的映像]：./media/capture-image/CaptureVM.png <!--Not Available on [Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png-->
+<!--Not Available on [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png-->
+<!--Not Available on [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png-->>
 
 <!-- Update_Description: update meta properties -->

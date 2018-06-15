@@ -17,11 +17,12 @@ ms.topic: article
 origin.date: 02/21/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: 14dd166e7e12732b4c72190296a67905e9855575
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 24c7d6870bd6a512220a8ec0ca7b15b0c5b62aff
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34568766"
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>将数据磁盘附加到使用经典部署模型创建的 Windows 虚拟机
 
@@ -53,6 +54,7 @@ ms.lasthandoff: 05/15/2018
 
 按照附加[新磁盘](#option-1-attach-a-new-disk)或[现有磁盘](#option-2-attach-an-existing-disk)的说明继续操作。
 
+<a name="option-1-attach-a-new-disk"></a>
 ## <a name="option-1-attach-and-initialize-a-new-disk"></a>选项 1：附加并初始化新的磁盘
 
 1. 在“磁盘”边栏选项卡上，单击“附加新磁盘”。

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure CLI 创建自定义 VM 映像 | Azure
-description: 教程 - 使用 Azure CLI 创建自定义 VM 映像。
+title: 教程 - 使用 Azure CLI 创建自定义 VM 映像 | Azure
+description: 本教程介绍如何使用 Azure CLI 2.0 在 Azure 中创建自定义虚拟机映像
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -14,16 +14,17 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/13/2017
-ms.date: 05/14/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6359303dea9a9bc0d76cdb67fdb08dc59ac17a5d
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 672071b11f18d71d57b7c2842d8f9af2c000967b
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702776"
 ---
-# <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>使用 CLI 创建 Azure VM 的自定义映像
+# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli-20"></a>教程：使用 Azure CLI 2.0 创建 Azure VM 的自定义映像
 
 自定义映像类似于应用商店映像，不同的是自定义映像的创建者是你自己。 自定义映像可用于启动配置，例如预加载应用程序、应用程序配置和其他 OS 配置。 在本教程中，你将创建自己的 Azure 虚拟机自定义映像。 你将学习如何执行以下操作：
 
@@ -36,7 +37,7 @@ ms.lasthandoff: 05/15/2018
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -52,7 +53,7 @@ ms.lasthandoff: 05/15/2018
 
 取消预配可通过删除特定于计算机的信息来通用化 VM。 实现此通用化后，即可从单个映像部署多个 VM。 在取消预配期间，主机名将重置为“localhost.localdomain”。 还会删除 SSH 主机密钥、名称服务器配置、根密码和缓存的 DHCP 租约。
 
-若要取消预配 VM，请使用 Azure VM 代理 (waagent)。 Azure VM 代理安装在 VM 上，用于管理预配及其与 Azure 结构控制器的交互。 有关详细信息，请参阅 [Azure Linux 代理用户指南](agent-user-guide.md)。
+若要取消预配 VM，请使用 Azure VM 代理 (waagent)。 Azure VM 代理安装在 VM 上，用于管理预配及其与 Azure 结构控制器的交互。 有关详细信息，请参阅 [Azure Linux 代理用户指南](../extensions/agent-linux.md)。
 
 使用 SSH 连接到 VM 并运行命令以取消预配 VM。 使用 `+user` 参数还会删除上次预配的用户帐户以及任何关联的数据。 将示例 IP 地址替换为 VM 的公共 IP 地址。
 
@@ -74,6 +75,7 @@ exit
 ### <a name="deallocate-and-mark-the-vm-as-generalized"></a>解除分配 VM 并将其标记为通用化
 
 若要创建映像，需要解除分配 VM。 使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 解除分配 VM。 
+<!-- URL is correct on az-vm-deallocate -->
 
 ```azurecli 
 az vm deallocate --resource-group myResourceGroup --name myVM

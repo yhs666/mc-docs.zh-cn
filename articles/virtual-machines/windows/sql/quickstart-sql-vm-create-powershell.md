@@ -12,13 +12,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 02/15/2018
-ms.date: 04/16/2018
+ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 05e347a5e00dd8a05059c426454763364c6a4140
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: b136675782af4135d9bfac9011413694916b1117
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "34702818"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建 SQL Server Windows 虚拟机
 
@@ -42,10 +43,10 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="configure-powershell"></a>配置 PowerShell
 
-1. 打开 PowerShell，然后运行 **Add-AzureRmAccount** 命令访问自己的 Azure 帐户。
+1. 打开 PowerShell，通过运行 **Connect-AzureRmAccount -Environment AzureChinaCloud ** 命令建立对 Azure 帐户的访问。
 
    ```PowerShell
-   Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+   Connect-AzureRmAccount -Environment AzureChinaCloud
    ```
 
 1. 此时应会出现一个用于输入凭据的登录屏幕。 使用登录 Azure 门户时所用的相同电子邮件和密码。
