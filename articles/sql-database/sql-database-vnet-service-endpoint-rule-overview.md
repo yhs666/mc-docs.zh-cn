@@ -1,5 +1,5 @@
 ---
-title: 适用于 Azure SQL 数据库的虚拟网络服务终结点和规则 | Microsoft Docs
+title: 适用于 Azure SQL 数据库的虚拟网络服务终结点和规则 | Azure
 description: 将子网标记为虚拟网络服务终结点。 然后将终结点标记为适用于 Azure SQL 数据库 ACL 的虚拟网络规则。 然后，SQL 数据库就会接受来自子网上所有虚拟机和其他节点的通信。
 services: sql-database
 ms.service: sql-database
@@ -7,15 +7,16 @@ author: yunan2016
 manager: digimobile
 ms.custom: VNet Service endpoints
 ms.topic: article
-origin.date: 03/15/2018
-ms.date: 04/19/2018
+origin.date: 04/19/2018
+ms.date: 06/18/2018
 ms.reviewer: genemi
 ms.author: v-nany
-ms.openlocfilehash: 2a145e2ad1c7cac4e74db329b1182c1e6b332d6f
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 661570132a31ac7391a294d70a551b3ad6f723fc
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324297"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>使用适用于 Azure SQL 数据库的虚拟网络服务终结点和规则
 
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/23/2018
 
 虚拟网络：可以让虚拟网络与 Azure 订阅相关联。
 
-****子网：虚拟网络包含子网。 你所拥有的任何 Azure 虚拟机 (VM) 都会分配到子网。 一个子网可能包含多个 VM 或其他计算节点。 虚拟网络之外的计算节点不能访问虚拟网络，除非已将安全性配置为允许这样的访问。
+子网：虚拟网络包含子网。 你所拥有的任何 Azure 虚拟机 (VM) 都会分配到子网。 一个子网可能包含多个 VM 或其他计算节点。 虚拟网络之外的计算节点不能访问虚拟网络，除非已将安全性配置为允许这样的访问。
 
 虚拟网络服务终结点：[虚拟网络服务终结点][vm-virtual-network-service-endpoints-overview-649d]是一个子网，其属性值包括一个或多个正式的 Azure 服务类型名称。 本文介绍 **Microsoft.Sql** 的类型名称，即名为“SQL 数据库”的 Azure 服务。
 
@@ -130,8 +131,8 @@ RBAC 备用：
 
 - 虚拟网络规则仅适用于 Azure 资源管理器虚拟网络，不适用于[经典部署模型][arm-deployment-model-568f]网络。
 
-- 如果启用 Azure SQL 数据库的虚拟网络服务终结点，会同时启用 MySQL 和 PostGres Azure 服务的终结点。 但是，启用终结点后，尝试从终结点连接到 MySQL 或 Postgres 实例会失败。
-    - 根本原因是 MySQL 和 PostGres 目前不支持 ACLing。
+- 如果启用 Azure SQL 数据库的虚拟网络服务终结点，会同时启用 MySQL 和 PostgreSQL Azure 服务的终结点。 但是，启用终结点后，尝试从终结点连接到 MySQL 或 PostgreSQL 实例会失败。
+    - 根本原因是 MySQL 和 PostgreSQL 目前不支持 ACLing。
 
 - 在防火墙上，IP 地址范围适用于以下网络项，但虚拟网络规则并不适用：
     - [站点到站点 (S2S) 虚拟专用网络 (VPN)][vpn-gateway-indexmd-608y]
@@ -141,7 +142,7 @@ RBAC 备用：
 在使用 Azure SQL 数据库的服务终结点时，请查看以下注意事项：
 
 - **需要 Azure SQL 数据库公共 IP 的出站连接**：必须为 Azure SQL 数据库 IP 启用网络安全组 (NSG) 才能进行连接。 可以使用 Azure SQL 数据库的 NSG [服务标记](../virtual-network/security-overview.md#service-tags)执行此操作。
-- **不支持 Azure Database for PostgreSQL 和 Azure Database for MySQL**：服务终结点不支持 Azure Database for PostgreSQL 或 Azure Database for MySQL。 启用到 SQL 数据库的服务终结点将中断与这些服务的连接。 我们对此提供了相关缓解措施，请联系 *dmalik@microsoft.com*。
+- **不支持 Azure Database for PostgreSQL 和 Azure Database for MySQL**：服务终结点不支持 Azure Database for PostgreSQL 或 Azure Database for MySQL。 启用到 SQL 数据库的服务终结点将中断与这些服务的连接。 我们提供了此方面的缓解措施，请联系 *dmalik@microsoft.com* 以了解详细信息。
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -179,7 +180,7 @@ Azure 存储已实现相同的功能，允许限制到存储帐户的连接。
 如果选择将此功能与某个存储帐户配合使用，而该帐户正由 Azure SQL Server 使用，则可能会出现问题。 接下来会列出受此影响的 Azure SQLDB 功能并对其进行讨论。
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase 通常用于将数据从存储帐户加载到 Azure SQLDW 中。 如果正从存储帐户加载数据，而该帐户只允许一组 VNet-子网的访问，则会断开从 PolyBase 到该帐户的连接。 我们对此提供了相关缓解措施，请联系*dmalik@microsoft.com* 了解详细信息。
+PolyBase 通常用于将数据从存储帐户加载到 Azure SQLDW 中。 如果正从存储帐户加载数据，而该帐户只允许一组 VNet-子网的访问，则会断开从 PolyBase 到该帐户的连接。 我们提供了此方面的缓解措施，请联系 *dmalik@microsoft.com* 以了解详细信息。
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob 审核
 Blob 审核将审核日志推送到你自己的存储帐户。 如果此存储帐户使用 VENT 服务终结点功能，则会断开从 Azure SQLDB 到存储帐户的连接。
@@ -208,7 +209,7 @@ Blob 审核将审核日志推送到你自己的存储帐户。 如果此存储�
 
 #### <a name="error-40615"></a>错误 40615
 
-消息正文：无法打开登录时请求的服务器“{0}”。 不允许具有 IP 地址“{1}”的客户端访问服务器。
+消息文本：无法打开登录时请求的服务器“{0}”。 不允许 IP 地址为“{1}”的客户端访问此服务器。
 
 错误描述：客户端尝试从未经授权连接到 Azure SQL 数据库服务器的 IP 地址进行连接。 服务器防火墙没有 IP 地址规则允许客户端从给定 IP 地址与 SQL 数据库进行通信。
 
@@ -278,10 +279,10 @@ PowerShell 脚本也可创建虚拟网络规则。 重要的 cmdlet New-AzureRmS
 
 > [!NOTE]
 > 以下状态适用于这些规则：
-> - **就绪：**表示所启动的操作已成功。
-> - **失败：**表示所启动的操作已失败。
-> - **已删除：**仅适用于删除操作，表示规则已删除，不再适用。
-> - **进行中：**表示操作正在进行。 操作处于这种状态时，会应用旧规则。
+> - **就绪：** 表示所启动的操作已成功。
+> - **失败：** 表示所启动的操作已失败。
+> - **已删除：** 仅适用于删除操作，表示规则已删除，不再适用。
+> - **进行中：** 表示操作正在进行。 操作处于这种状态时，会应用旧规则。
 
 
 <a name="anchor-how-to-links-60h" />

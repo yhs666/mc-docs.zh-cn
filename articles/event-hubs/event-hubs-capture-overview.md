@@ -1,25 +1,26 @@
 ---
-title: "Azure 事件中心捕获概述 | Azure"
-description: "通过事件中心捕获来捕获遥测数据"
+title: Azure 事件中心捕获概述 | Azure
+description: 通过事件中心捕获来捕获遥测数据
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: e53cdeea-8a6a-474e-9f96-59d43c0e8562
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/19/2017
-ms.date: 02/26/2018
+origin.date: 04/30/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 251379d7c4a1c9ac66995efae344eec2e80506fb
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: ee3f80cfd3dad0a234aea60a682fb868ef94a8bf
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416839"
 ---
 # <a name="azure-event-hubs-capture"></a>Azure 事件中心捕获
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 02/23/2018
 
 事件中心是遥测数据入口的时间保留持久缓冲区，类似于分布式日志。 缩小事件中心的关键在于[分区使用者模式](event-hubs-features.md#partitions)。 每个分区是独立的数据段，并单独使用。 根据可配置的保留期，随着时间的推移此数据会过时。 因此，给定的事件中心永远不会装得“太满”。
 
-事件中心捕获可让用户指定自己的 Azure Blob 存储帐户和容器（用于存储已捕获数据）。 此帐户可以与事件中心在同一区域中，也可以在另一个区域中，从而增加了事件中心捕获功能的灵活性。
+事件中心捕获可让用户指定自己的 Azure Blob 存储帐户和容器（用于存储已捕获数据）。 此帐户可以与事件中心在同一区域中，也可以在另一个区域中，这样就增加了事件中心捕获功能的灵活性。
 <!-- Not available Azure Data Lake Store account-->
 
 已捕获数据以 [Apache Avro][Apache Avro] 格式写入；该格式是紧凑、便捷的二进制格式，并使用内联架构提供丰富的数据结构。 这种格式广泛用于 Hadoop 生态系统、流分析和 Azure 数据工厂。 在本文后面提供了有关如何使用 Avro 的详细信息。
@@ -74,13 +75,13 @@ https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/mynamespace/myev
 
 浏览 Avro 文件的简单方法是使用 Apache 中的 [Avro 工具][Avro Tools] jar。 下载此 jar 后，运行以下命令即可查看特定 Avro 文件的架构：
 
-```
+```shell
 java -jar avro-tools-1.8.2.jar getschema <name of capture file>
 ```
 
 此命令返回
 
-```
+```json
 {
 
     "type":"record",
