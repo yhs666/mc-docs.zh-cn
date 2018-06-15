@@ -9,12 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/06/2017
-ms.date: 05/07/2018
-ms.openlocfilehash: 395f204d1e914ec8dcb08e8a432a9623ca47e55a
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 06/18/2018
+ms.openlocfilehash: 9e9501712ff392cd7efaa1abb5e97602a0f95d23
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416805"
 ---
 # <a name="management-net-sdk-v1x-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK v1.x：使用用于 .NET 的 Azure 流分析 API 设置和运行分析作业
 了解如何通过 Management .NET SDK 使用用于 .NET 的流分析 API 设置和运行分析作业。 设置项目、创建输入和输出源、转换，以及开始和停止作业。 就分析作业来说，可以从 Blob 存储或事件中心流式传输数据。
@@ -45,7 +46,7 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
         # Create an Azure resource group
         New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
-* 设置要使用的输入源和输出目标。 有关进一步的说明，请参阅[添加输入](stream-analytics-add-inputs.md)以设置示例输入，参阅[添加输出](stream-analytics-add-outputs.md)以设置示例输出。
+* 设置作业要连接到的输入源和输出目标。
 
 ## <a name="set-up-a-project"></a>设置项目
 若要使用 .NET 版流分析 API 创建分析作业，请首先设置项目。
@@ -324,9 +325,6 @@ resourceGroupName 变量的值应该与你在先决条件步骤中创建或选�
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-<!-- File Not Exist on[stream.analytics.developer.guide]: stream-analytics-developer-guide.md -->
-[stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+<!-- File Not Exist on[stream.analytics.developer.guide]: stream-analytics-developer-guide.md --> [stream.analytics.scale.jobs]：stream-analytics-scale-jobs.md [stream.analytics.query.language.reference]：http://go.microsoft.com/fwlink/?LinkID=513299 [stream.analytics.rest.api.reference]：http://go.microsoft.com/fwlink/?LinkId=5173011
 
 <!-- Update_Description: wording update, update meta properties -->

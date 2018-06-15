@@ -6,20 +6,21 @@ manager: digimobile
 ms.service: analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 54c116b672e10e616df00820921fab2445108fa6
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 03cc4bf072cd4a6662facb70482ba3a4ebaff4f8
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416806"
 ---
 # <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>使用 PowerShell 创建 Azure Analysis Services 服务器
 
 本快速入门介绍如何从命令行使用 PowerShell，以便在 Azure 订阅的 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)中创建 Azure Analysis Services 服务器。
 
-本任务需要 Azure PowerShell 模块 4.0 或更高版本。 若要查找版本，请运行 ` Get-Module -ListAvailable AzureRM`。 若要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 
+本任务需要 Azure PowerShell 模块 4.0 或更高版本。 若要查找版本，请运行 ` Get-Module -ListAvailable AzureRM`。 若要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
 > [!NOTE]
 > 创建服务器可能会导致新的计费服务。 若要了解详细信息，请参阅 [Analysis Services 定价](https://www.azure.cn/pricing/details/analysis-services/)。
@@ -39,10 +40,10 @@ Import-Module AzureRM.AnalysisServices
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-使用 [Add-AzureRmAccount -EnvironmentName AzureChinaCloud](https://docs.microsoft.com/powershell/module/azurerm.profile/add-azurermaccount) 命令登录到 Azure 订阅。 按屏幕说明操作。
+使用 [Connect-AzureRmAccount -Environment AzureChinaCloud ](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) 命令登录到 Azure 订阅。 按屏幕说明操作。
 
 ```powershell
-Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
 
 ## <a name="create-a-resource-group"></a>创建资源组
@@ -70,8 +71,8 @@ Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myReso
 ```
 
 ## <a name="next-steps"></a>后续步骤
-[使用 PowerShell 管理 Azure Analysis Services](analysis-services-powershell.md)   
-[从 SSDT 部署模型](analysis-services-deploy.md)   
+[使用 PowerShell 管理 Azure Analysis Services](analysis-services-powershell.md)
+[从 SSDT 部署模型](analysis-services-deploy.md)
 [在 Azure 门户中创建模型](analysis-services-create-model-portal.md)
 
 <!--Update_Description: wording update, update link -->

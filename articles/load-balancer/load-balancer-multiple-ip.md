@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 04/30/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 30dbd087382dea45bcb5ba55e67fd8ccf7be6080
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: b1876324e2f8d4d3b33a7a2acd3987b97878f890
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416837"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>使用 Azure 门户对多个 IP 配置进行负载均衡
 
@@ -120,7 +121,7 @@ ms.lasthandoff: 04/28/2018
 
 4. 选择要将前端 IP 池添加到的负载均衡器 (**mylb**)。
 
-5. 在“设置”下，选择“前端池”。 在下一个窗格中的顶部附近，选择“添加”。
+5. 在“设置”下，选择“前端 IP 配置”。 在下一个窗格中的顶部附近，选择“添加”。
 
 6. 键入前端 IP 地址的名称（例如 **contosofe** 或 **fabrikamfe**）。
 
@@ -128,7 +129,7 @@ ms.lasthandoff: 04/28/2018
 
 8. 重复本部分中的<a href="#step3-3">步骤 3</a> 至<a href="#step3-7">步骤 7</a>，创建第二个前端 IP 地址。
 
-配置前端池后，IP 地址会显示在负载均衡器的“前端 IP 池”设置下。 
+配置前端池后，IP 地址会显示在负载均衡器的“前端 IP 配置”设置下。 
 
 ### <a name="step-4-configure-the-back-end-pool"></a>步骤 4：配置后端池
 
@@ -172,7 +173,7 @@ ms.lasthandoff: 04/28/2018
 
 针对每个网站（contoso.com 和 fabrikam.com），请配置负载均衡规则：
 
-1. <a name="step6-1"></a>在“设置”下，选择“运行状况探测”。 在下一个窗格中的顶部附近，选择“添加”。 
+1. <a name="step6-1"></a>在“设置”下，选择“负载均衡规则”。 在下一个窗格中的顶部附近，选择“添加”。 
 
 2. 对于“名称”，请键入负载均衡规则的名称（例如，为 contoso.com 键入 **HTTPc**，为 fabrikam.com 键入 **HTTPf**）。
 
@@ -190,8 +191,7 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="step-7-configure-dns-records"></a>步骤 7：配置 DNS 记录
 
-最后一个步骤是，将 DNS 资源记录配置为指向负载均衡器的相应前端 IP 地址。
-<!-- Not Available [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).-->
+最后一个步骤是，将 DNS 资源记录配置为指向负载均衡器的相应前端 IP 地址。 可以在 Azure DNS 中托管域。 有关将 Azure DNS 与负载均衡器配合使用的详细信息，请参阅[将 Azure DNS 与其他 Azure 服务配合使用](../dns/dns-for-azure-services.md)。
 
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何在 Azure 中结合使用负载均衡服务，请参阅[在 Azure 中使用负载均衡服务](../traffic-manager/traffic-manager-load-balancing-azure.md)。

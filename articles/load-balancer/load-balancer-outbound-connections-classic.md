@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/22/2018
-ms.date: 04/30/2018
+origin.date: 05/09/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: fc74a358a69728aa7dd40a569b9ae3f3d6f89a8a
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 9f4905e8bdd55bf9bc44d49d1182095a6b83afe0
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416838"
 ---
 # <a name="outbound-connections-classic"></a>出站连接（经典）
 
@@ -39,11 +40,11 @@ Azure 使用源网络地址转换 (SNAT) 来执行此功能。 当多个专用 I
 
 Azure 提供三种不同的方法来实现出站连接经典部署。  并非所有经典部署都可使用这三种方案：
 
-| 方案 | 方法 | 说明 | Web 辅助角色 | IaaS | 
-| --- | --- | --- | --- | --- |
-| [1.具有实例级公共 IP 地址的 VM](#ilpip) | SNAT，不使用端口伪装 |Azure 使用分配了公共 IP 的虚拟机。 此实例具有所有可用的临时端口。 | 否 | 是 |
-| [2. 公共负载均衡终结点](#publiclbendpoint) | 使用端口伪装 (PAT) 通过 SNAT 连接到公共终结点 |Azure 与多个专用终结点共享公共 IP 地址公共终结点。 Azure 使用公共终结点的临时端口进行 PAT。 | 是 | 是 |
-| [3.独立 VM](#defaultsnat) | 使用端口伪装 (PAT) 的 SNAT | Azure 自动指定用于 SNAT 的公共 IP 地址，与整个部署共享此公共 IP 地址，并使用公共终结点 IP 地址的临时端口进行 PAT。 此方案是前述方案的回退方案。 如果需要可见性和控制，则我们不建议采用。 | 是 | 是|
+| 方案 | 方法 | IP 协议 | 说明 | Web 辅助角色 | IaaS | 
+| --- | --- | --- | --- | --- | --- |
+| [1.具有实例级公共 IP 地址的 VM](#ilpip) | SNAT，不使用端口伪装 | TCP、UDP、ICMP、ESP | Azure 使用分配了公共 IP 的虚拟机。 此实例具有所有可用的临时端口。 | 否 | 是 |
+| [2. 公共负载均衡终结点](#publiclbendpoint) | 使用端口伪装 (PAT) 通过 SNAT 连接到公共终结点 | TCP、UDP | Azure 与多个专用终结点共享公共 IP 地址公共终结点。 Azure 使用公共终结点的临时端口进行 PAT。 | 是 | 是 |
+| [3.独立 VM](#defaultsnat) | 使用端口伪装 (PAT) 的 SNAT | TCP、UDP | Azure 自动指定用于 SNAT 的公共 IP 地址，与整个部署共享此公共 IP 地址，并使用公共终结点 IP 地址的临时端口进行 PAT。 此方案是前述方案的回退方案。 如果需要可见性和控制，则我们不建议采用。 | 是 | 是 |
 
 这是适用于 Azure 中资源管理器部署的一部分出站连接功能。  
 
@@ -116,8 +117,7 @@ SNAT 端口是根据[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的�
 使用端口伪装 SNAT ([PAT](#pat)) 时，Azure 使用某种算法根据后端池的大小来确定可用的预先分配 SNAT 端口数目。 SNAT 端口是可用于特定公共 IP 源地址的临时端口。
 
 部署实例时，Azure 根据共享给定公共 IP 地址的 VM 或 Web 辅助角色实例数目预分配 SNAT 端口。  创建出站流后，当流关闭或[空闲超时](#idletimeout)时，[PAT](#pat) 动态使用（不超过预先分配的限制）和释放这些端口。
-<!-- Notice: Should be #idletimeout -->
-下表显示了针对后端池大小层的 SNAT 端口预分配：
+<!-- Notice: Should be #idletimeout --> 下表显示了针对后端池大小层的 SNAT 端口预分配：
 
 | Instances | 每个实例的预分配 SNAT 端口数 |
 | --- | --- |
@@ -125,8 +125,6 @@ SNAT 端口是根据[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的�
 | 51-100 | 512 |
 | 101-200 | 256 |
 | 201-400 | 128 |
-| 401-800 | 64 |
-| 801-1,000 | 32 |
 
 请记住，可用的 SNAT 端口数不会直接转换为流数。 可以针对多个唯一目标重用单个 SNAT 端口。 仅当需要使流保持唯一时，才使用端口。 有关设计和缓解指导，请参阅[如何管理这项可耗尽的资源](#snatexhaust)；另请参阅介绍 [PAT](#pat) 的部分。
 

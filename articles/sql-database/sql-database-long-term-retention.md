@@ -1,5 +1,5 @@
 ---
-title: 将 Azure SQL 数据库备份存储 10 年之久 | Microsoft Docs
+title: 将 Azure SQL 数据库备份存储 10 年之久 | Azure
 description: 了解 Azure SQL 数据库如何支持将完整数据库备份存储长达 10 年。
 services: sql-database
 author: yunan2016
@@ -7,15 +7,16 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-origin.date: 04/04/2018
-ms.date: 04/19/2018
+origin.date: 05/17/2018
+ms.date: 06/18/2018
 ms.author: v-nany
 ms.reviewer: carlrab
-ms.openlocfilehash: 143c215bcf69f81e838f0b8a2e2819cd1e2bc64f
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 11a734793859a51af8849ada197d9628ada33ccd
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324251"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>将 Azure SQL 数据库备份存储 10 年之久
 
@@ -52,8 +53,13 @@ W=12 周（84 天）、M=12 个月（365 天）、Y=10 年（3650 天）、WeekO
 
 
  
-如果你打算修改以上策略并设置 W=0（无每周备份），则备份副本的节奏将更改，如上表中突出显示的日期所示。 保留这些备份所需的存储量将相应减少。 注意：LTR 副本是由 Azure 存储服务创建的，因此，复制过程对现有数据库的性能没有影响。
-若要从 LTR 存储还原数据库，可以根据时间戳选择一个特定备份。   数据库可以还原到原始数据库所在的订阅中的任何现有服务器。 
+如果你打算修改以上策略并设置 W=0（无每周备份），则备份副本的节奏将更改，如上表中突出显示的日期所示。 保留这些备份所需的存储量将相应减少。 
+
+> [!NOTE]
+1. LTR 副本是由 Azure 存储服务创建的，因此，复制过程对现有数据库的性能没有影响。
+2. 将策略应用到将来的备份。 例如 如果配置策略时指定的 WeekOfYear 在过去，则将在明年创建第一个 LTR 备份。 
+3. 若要从 LTR 存储还原数据库，可以根据时间戳选择一个特定备份。   数据库可以还原到原始数据库所在的订阅中的任何现有服务器。 
+> 
 
 ## <a name="configure-long-term-backup-retention"></a>配置长期备份保留
 
@@ -62,4 +68,3 @@ W=12 周（84 天）、M=12 个月（365 天）、Y=10 年（3650 天）、WeekO
 ## <a name="next-steps"></a>后续步骤
 
 数据库备份可保护数据免遭意外损坏或删除，因此数据库备份是任何业务连续性和灾难恢复策略不可或缺的组成部分。 若要了解其他 SQL 数据库业务连续性解决方案，请参阅[业务连续性概述](sql-database-business-continuity.md)。
-

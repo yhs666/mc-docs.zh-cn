@@ -1,5 +1,5 @@
 ---
-title: Azure 门户：创建 SQL 数据库托管实例 | Microsoft Docs
+title: Azure 门户：创建 SQL 数据库托管实例 | Azure
 description: 在 VNet 中创建 Azure SQL 数据库托管实例。
 keywords: sql 数据库教程, 创建 sql 数据库托管实例
 services: sql-database
@@ -8,15 +8,16 @@ ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-origin.date: 04/10/2018
-ms.date: 04/19/2018
+origin.date: 05/09/2018
+ms.date: 06/18/2018
 ms.author: v-nany
 manager: digimobile
-ms.openlocfilehash: c3ec2fe72b40fd80f5ac710794daf6125ff1fb61
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 614c6847cc66a8d019ba810eb61e27ca0b64288e
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324298"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>在 Azure 门户中创建 Azure SQL 数据库托管实例
 
@@ -108,7 +109,7 @@ ms.lasthandoff: 04/23/2018
    |**订阅**|你的订阅|有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。|
    |**资源组**|选择在前述过程中创建的资源组|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。|
    |**位置**|选择在前面的过程中指定的位置| 有关区域的信息，请参阅 [Azure 区域](https://azure.microsoft.com/regions/)。|
-   |**禁用 BCP 路由传播**|已禁用||
+   |**禁用 BCP 路由传播**|Enabled||
    ||||
 
    ![路由表创建窗体](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
@@ -172,7 +173,7 @@ ms.lasthandoff: 04/23/2018
    | ------ | --------------- | ----------- |
    |**托管实例名称**|任何有效的名称|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。|
    |**托管实例管理员登录名**|任何有效的用户名|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。| 
-   |**密码**|任何有效的密码|密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。|
+   |**密码**|任何有效的密码|密码必须至少 16 个字符，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。|
    |**资源组**|之前创建的资源组||
    |**位置**|以前选择的位置|有关区域的信息，请参阅 [Azure 区域](https://azure.microsoft.com/regions/)。|
    |**虚拟网络**|此前创建的虚拟网络|
@@ -308,6 +309,8 @@ ms.lasthandoff: 04/23/2018
 
 连接后，可以在“数据库”节点中查看系统和用户数据库，以及在“安全性”、“服务器对象”、“复制”、“管理”、“SQL Server 代理”和“XEvent 探查器”节点中查看各种对象。
 
+> [!NOTE]
+> 若要将现有 SQL 数据库还原到托管实例，可以使用[用于迁移的 Azure 数据库迁移服务 (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) 从数据库备份文件还原，使用 [T-SQL RESTORE 命令](sql-database-managed-instance-restore-from-backup-tutorial.md)从数据库备份文件还原，或[从 BACPAC 文件导入](sql-database-import.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -8,13 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 06/22/2017
-ms.date: 05/07/2018
-ms.openlocfilehash: 78625a88ae79d4983342d9b9e65190c2ab9f01ee
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+origin.date: 05/07/2018
+ms.date: 06/18/2018
+ms.openlocfilehash: 5ac64bdad268a8706117b5e6ddc6b7c4f53b4132
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416798"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>利用 Azure 流分析中的查询并行化
 本文说明了如何利用 Azure 流分析中的并行化。 了解如何通过配置输入分区和调整分析查询定义来缩放流分析作业。
@@ -30,21 +31,20 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="inputs"></a>输入
 所有 Azure 流分析输入都可以利用分区：
--   EventHub（需显式设置分区键）
--   IoT 中心（需显式设置分区键）
+-   EventHub（需要使用 PARTITION BY 关键字显式设置分区键）
+-   IoT 中心（需要使用 PARTITION BY 关键字显式设置分区键）
 -   Blob 存储
 
 ### <a name="outputs"></a>Outputs
 
 处理流分析时，可利用输出中的分区：
-<!--Not Available - Azure Data Lake Storage-->
 -   Azure Functions 
 -   Azure 表
--   Blob 存储
+-   Blob 存储（可显式设置分区键）
 -   CosmosDB（需显式设置分区键）
 -   EventHub（需显式设置分区键）
+-   服务总线 <!--Not Available - Azure Data Lake Storage-->
 <!--Not Available - IoT Hub  (need to set the partition key explicitly)-->
--   服务总线
 
 PowerBI、SQL 和 SQL 数据仓库的输出不支持分区。 但仍可对输入进行分区，如[本节](#multi-step-query-with-different-partition-by-values)中所述 
 
@@ -57,17 +57,19 @@ PowerBI、SQL 和 SQL 数据仓库的输出不支持分区。 但仍可对输入
 易并行作业是 Azure 流分析中最具可缩放性的方案。 它将查询的一个实例的输入的一个分区连接到输出的一个分区。 实现此并行需满足以下要求：
 
 1. 如果查询逻辑取决于同一个查询实例正在处理的相同键，则必须确保事件转到输入的同一个分区。 对于事件中心，这意味着事件数据必须具有 **PartitionKey** 值集。 或者，可以使用已分区的发件人。 对于 Blob 存储，这意味着事件将发送到相同的分区文件夹。 如果查询逻辑不需要由同一个查询实例处理相同的键，则可忽略此要求。 举例来说，简单的选择项目筛选器查询就体现了此逻辑。  
+<!--Not Available on IoT Hub-->
 
 2. 在输入端布置数据后，务必确保查询已进行分区。 这需要在所有步骤中使用 PARTITION BY。 允许采用多个步骤，但必须使用相同的键对其进行分区。 目前，必须将分区键设置为 **PartitionId** 才能实现完全并行作业。  
 
 3. 大多数输出都可以利用分区，但如果使用不支持分区的输出类型，作业将不会实现完全并行。 有关详细信息，请参阅[输出部分](#outputs)。
 
-4. 输入分区数必须等于输出分区数。 Blob 存储输出当前不支持分区。 不过没关系，因为它会继承上游查询的分区方案。 下面是允许完全并行作业的分区值示例：  
+4. 输入分区数必须等于输出分区数。 Blob 存储输出可支持分区，并继承上游查询的分区方案。 指定 Blob 存储的分区键时，数据将按每个输入分区进行分区，因此结果仍然是并行的。 下面是允许完全并行作业的分区值示例：
 
    * 8 个事件中心输入分区和 8 个事件中心输出分区
-   * 8 个事件中心输入分区和 Blob 存储输出  
-   * 8 个 Blob 存储输入分区和 Blob 存储输出  
-   * 8 个 Blob 存储输入分区和 8 个事件中心输出分区  
+   * 8 个事件中心输入分区和 Blob 存储输出
+   * 8 个事件中心输入分区和 Blob 存储输出由具有任意基数的自定义字段进行分区
+   * 8 个 Blob 存储输入分区和 Blob 存储输出
+   * 8 个 Blob 存储输入分区和 8 个事件中心输出分区
 
 以下部分介绍一些易并行的示例方案。
 

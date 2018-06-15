@@ -1,20 +1,21 @@
 ---
-title: Azure SQL 数据库托管实例 - 连接应用程序 | Microsoft Docs
+title: Azure SQL 数据库托管实例 - 连接应用程序 | Azure
 description: 本文介绍如何将应用程序连接到 Azure SQL 数据库托管实例。
 ms.service: sql-database
 author: yunan2016
 manager: digimobile
 ms.custom: managed instance
 ms.topic: article
-origin.date: 04/10/2018
-ms.date: 04/19/2018
+origin.date: 05/21/2018
+ms.date: 06/18/2018
 ms.author: v-nany
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 48163ed5b44c7e79f1577f2daf6b2e196a4f442d
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 7b64a07e5f6177be5905cb58b9d1b5984382a73f
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324230"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>将应用程序连接到 Azure SQL 数据库托管实例
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 04/23/2018
 对等互连是首选的选项，因为对等互连使用 Microsoft 主干网络，因此，从连接角度看，对等互连 VNet 中的虚拟机与同一 VNet 中虚拟机之间的延迟没有明显差别。 VNet 对等互连限制为同一区域中的网络，不过，在某些区域，可以启用跨区域对等互连，以预览该功能。  
  
 > [!IMPORTANT]
-> 跨区域创建的 VNet 对等互连与正式版中的对等互连相比，可用性和可靠性级别可能不同。 VNet 对等互连的功能可能存在约束，不一定可在所有 Azure 区域中使用。 有关此功能可用性和状态方面的最新通知，请访问  [Azure 虚拟网络](https://azure.microsoft.com/updates/?product=virtual-network)更新页。 
+> 适用于托管实例的 VNet 对等互连方案仅限同一区域中的网络，因为存在[全局虚拟网络对等互连约束](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)。 
 
 ## <a name="connect-an-on-premises-application"></a>连接本地应用程序 
 
@@ -81,4 +82,3 @@ ms.lasthandoff: 04/23/2018
 
 - 有关托管实例的信息，请参阅[什么是托管实例](sql-database-managed-instance.md)。
 - 有关演示如何新建托管实例的教程，请参阅[创建托管实例](sql-database-managed-instance-create-tutorial-portal.md)。
-

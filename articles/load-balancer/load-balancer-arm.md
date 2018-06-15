@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 04/30/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: fc2049b2f59e929c6e903ff134369eea0c055b49
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 29d53e61c54091f55a8645c6556bb005678560cf
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416840"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>将 Azure Resource Manager 支持与 Azure 负载均衡器配合使用
 
@@ -45,14 +46,14 @@ Azure Resource Manager 是 Azure 中的首选服务管理框架。 Azure 负载�
 
 [详细了解模板](../azure-resource-manager/resource-manager-template-walkthrough.md)
 
-[详细了解网络资源](../virtual-network/resource-groups-networking.md)
+<!-- Not Available on [Learn more about Network Resources](../networking/networking-overview.md)-->
 
 有关使用 Azure 负载均衡器的快速入门模板，请参阅 [GitHub 存储库](https://github.com/Azure/azure-quickstart-templates)（托管社区生成的模板集）。
 
 模板示例：
 
-* [负载均衡器中的 2 个 VM 和负载均衡规则](http://go.microsoft.com/fwlink/?LinkId=544799)
-* [VNET 中包含内部负载均衡器和负载均衡器规则的 2 个 VM](http://go.microsoft.com/fwlink/?LinkId=544800)
+* [负载均衡器中的 2 个 VM 和负载均衡规则](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules)
+* [VNET 中包含内部负载均衡器和负载均衡器规则的 2 个 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer)
 * [负载均衡器中的 2 个 VM，在 LB 上配置 NAT 规则](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-natrules)
 
 ## <a name="setting-up-azure-load-balancer-with-a-powershell-or-cli"></a>使用 PowerShell 或 CLI 设置 Azure 负载均衡器
@@ -61,7 +62,7 @@ Azure Resource Manager cmdlet、命令行工具和 REST API 入门
 
 * [Azure 网络 Cmdlet](https://msdn.microsoft.com/library/azure/mt163510.aspx) 可用于创建负载均衡器。
 * [如何使用 Azure Resource Manager 创建负载均衡器](load-balancer-get-started-ilb-arm-ps.md)
-* [将 Azure CLI 与 Azure 资源管理结合使用](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
+* [将 Azure CLI 与 Azure 资源管理配合使用](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
 <!-- URL is CORRECT on (../azure-resource-manager/xplat-cli-azure-resource-manager.md) -->
 * [Load Balancer REST APIs（负载均衡器 REST API）](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 

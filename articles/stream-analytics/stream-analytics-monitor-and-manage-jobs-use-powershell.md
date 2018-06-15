@@ -9,12 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/28/2017
-ms.date: 05/07/2018
-ms.openlocfilehash: a81d777b2f8b25799a75792c4e186fccaa61a192
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.date: 06/18/2018
+ms.openlocfilehash: 8ab625fc3cead4beb4ccc1548be1c8948356c893
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416857"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>使用 Azure PowerShell cmdlet 监视和管理流分析作业
 了解如何使用可执行基本流分析任务的 Azure PowerShell cmdlet 和 PowerShell 脚本来监视和管理流分析资源。
@@ -39,7 +40,7 @@ Azure PowerShell 0.9.8：
 Azure PowerShell 1.0：  
 
     # Log in to your Azure account
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -Environment AzureChinaCloud
 
     # Select the Azure subscription you want to use to create the resource group.
     Get-AzureRmSubscription -SubscriptionName "your sub" | Select-AzureRmSubscription
@@ -285,7 +286,6 @@ Azure PowerShell 1.0：
 
     New-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-East-CN -File "C:\Output.json" -JobName StreamingJob -Name output
 
-
 此 PowerShell 命令在 StreamingJob 作业中创建新的名为“output”的输出。 如果已定义了使用此名称的现有输出，则该 cmdlet 会询问是否替换该输出。
 
 **示例 2**
@@ -353,7 +353,6 @@ Azure PowerShell 1.0：
 
 ### <a name="remove-azurestreamanalyticsjob--remove-azurermstreamanalyticsjob"></a>Remove-AzureStreamAnalyticsJob | Remove-AzureRMStreamAnalyticsJob
 以异步方式删除 Azure 中的特定流分析作业。  
-
 如果指定了 -Force 参数，则会在不确认的情况下删除作业。
 
 **示例 1**
@@ -465,9 +464,6 @@ Azure PowerShell 1.0：
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-<!--Not Available on [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md-->
-[stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+<!--Not Available on [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md--> [stream.analytics.scale.jobs]：stream-analytics-scale-jobs.md [stream.analytics.query.language.reference]：http://go.microsoft.com/fwlink/?LinkID=513299[stream.analytics.rest.api.reference]：http://go.microsoft.com/fwlink/?LinkId=5173011
 
 <!--Update_Description: update meta properties, update link, wording update -->

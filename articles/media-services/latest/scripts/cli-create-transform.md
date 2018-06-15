@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 05/11/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: a05b61ca4ecf4e3d851c41b7033315d1c5e5c705
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 3a17ec1511e7befaf1758d723d49848a7f69e0ae
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475152"
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324303"
 ---
 # <a name="cli-example-create-a-transform"></a>CLI 示例：创建转换
 
@@ -32,6 +32,45 @@ ms.locfileid: "34475152"
 
 ## <a name="example-script"></a>示例脚本
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/media-services/create-transform/Create-Transform.sh "Create a transform")]
+```Azure CLI
+#<a name="binbash"></a>!/bin/bash
 
+# <a name="update-the-following-variables-for-your-own-settings"></a>更新自己的设置的下列变量：
+resourceGroup=amsResourceGroup amsAccountName=amsmediaaccountname
+
+# <a name="create-a-simple-transform-for-adaptive-bitrate-encoding"></a>创建适用于自适应比特率编码的简单转换
+az ams transform create \
+ --name myFirstTransform \
+ --preset-names AdaptiveStreaming \
+ --description '适用于自适应比特率编码的简单转换' \
+ -g $resourceGroup \
+ -a $amsAccountName \
+
+ # <a name="create-a-transform-for-video-analyer-preset"></a>创建适用于视频分析器预设的转换
+az ams transform create \
+ --name videoAnalyzerTransform \
+ --preset-names  VideoAnalyzer \
+ -g $resourceGroup \
+ -a $amsAccountName \
+
+ # <a name="create-a-transform-for-audio-analzyer-preset"></a>创建适用于音频分析器预设的转换
+az ams transform create \
+ --name audioAnalyzerTransform \
+ --preset-names  AudioAnalyzer \
+ -g $resourceGroup \
+ -a $amsAccountName \
+
+# <a name="create-a-transform-with-two-built-in-presets-executed-in-sequence"></a>创建两个内置预设按顺序执行的转换
+az ams transform create \
+ --name twoPresetTransform \
+ --preset-names AdaptiveStreaming VideoAnalyzer \
+ -g $resourceGroup \
+ -a $amsAccountName \
+
+# <a name="list-all-the-transforms-in-an-account"></a>列出帐户中的所有转换
+az ams transform list -a $amsAccountName -g $resourceGroup
+
+echo "按 [ENTER] 继续。"
+read continue
+```
 

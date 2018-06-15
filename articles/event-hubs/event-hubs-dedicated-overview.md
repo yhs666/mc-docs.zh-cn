@@ -1,25 +1,26 @@
 ---
-title: "Azure 专用事件中心容量概述 | Azure"
-description: "Azure 专用事件中心容量的概述。"
+title: Azure 专用事件中心容量概述 | Azure
+description: Azure 专用事件中心容量的概述。
 services: event-hubs
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/20/2017
-ms.date: 02/26/2018
+origin.date: 04/30/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6a54c68f23678472e97da84a15b1c4433cba8b17
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: cd492c3650d0c449c49492edd3f991aa9c25c47a
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416808"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>专用事件中心概述
 
@@ -67,7 +68,7 @@ ms.lasthandoff: 02/23/2018
 
 ## <a name="how-to-onboard"></a>如何加入
 
-通过添加或删除 CU，可以在一个月内随时扩展或缩小容量，满足自身需求。 专用计划独一无二，它提供了一种亲身实践的加入体验，用户可从事件中心产品团队获得适合自己的灵活部署。 若要加入到此 SKU，请[联系计费支持](https://www.azure.cn/support/support-ticket-form)或 Azure 代表。
+通过添加或删除 CU，可以在一个月内随时扩展或缩小容量，满足自身需求。 专用计划独一无二，它提供了一种亲身实践的加入体验，用户可从事件中心产品团队获得适合自己的灵活部署。 若要加入到此 SKU，请[联系计费支持部门](https://www.azure.cn/support/support-ticket-form)或 Azure 代表。
 
 ## <a name="next-steps"></a>后续步骤
 

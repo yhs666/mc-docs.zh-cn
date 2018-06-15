@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库基于 vCore 的资源限制 | Microsoft Docs
+title: Azure SQL 数据库基于 vCore 的资源限制 | Azure
 description: 本页介绍 Azure SQL 数据库的一些常见基于 vCore 的资源限制。
 services: sql-database
 author: yunan2016
@@ -7,14 +7,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-origin.date: 04/04/2018
-ms.date: 04/18/2018
+origin.date: 05/15/2018
+ms.date: 06/18/2018
 ms.author: v-nany
-ms.openlocfilehash: 219c33a092f78ad52669858020709f644c6d22de
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 952158eba82323031218e6d22e9e54f86450b597
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324227"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-preview"></a>Azure SQL 数据库基于 vCore 的新购买模型的限制（预览版）
 
@@ -75,26 +76,26 @@ ms.lasthandoff: 04/23/2018
 ## <a name="single-database-change-storage-size"></a>单一数据库：更改存储大小
 
 - 可以使用 1GB 作为增量，将存储预配到最大大小限制。 最小可配置数据存储为 5GB 
-- 可通过 [Azure 门户](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database#examples)、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](https://docs.azure.cn/cli/sql/db#az_sql_db_update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 为单一数据库增加或减少大小上限，以预配存储。
+- 可通过 [Azure 门户](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal)、[Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](https://docs.azure.cn/cli/sql/db#az_sql_db_update) 或 [REST API](/rest/api/sql/databases/update) 为单一数据库增加或减少大小上限，以预配存储。
 - SQL 数据库会自动为日志文件额外分配 30% 的存储，并为 TempDB 的每个 vCore 分配 32GB，但不会超过 384GB。 TempDB 位于所有服务层中的附加 SSD 上。
 - 单一数据库的存储价格等于数据存储与日志存储量之和乘以服务层的存储单价。 vCore 价格已包括 TempDB 费用。 有关额外存储价格的详细信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)。
 
 ## <a name="single-database-change-vcores"></a>单一数据库：更改 vCore
 
-最初选择 vCore 数量后，可以使用 [Azure 门户](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database#examples)、 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](https://docs.azure.cn/cli/sql/db#az_sql_db_update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)，根据实际体验动态扩展或缩减单一数据库。
+最初选择 vCore 数量后，可以使用 [Azure 门户](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal)、[Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples)、 [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](https://docs.azure.cn/cli/sql/db#az_sql_db_update) 或 [REST API](/rest/api/sql/databases/update)，根据实际体验动态扩展或缩减单一数据库。
 
 更改数据库的服务层和/或性能级别将在新的性能级别创建原始数据库的副本，并将连接切换到副本。 当我们切换到副本时，在此过程中不会丢失任何数据，但在短暂的瞬间，将禁用与数据库的连接，因此可能回滚某些处于进行状态的事务。 用于切换的时间长度因情况而异，但通常为 4 秒以下，并且 99% 的情况下少于 30 秒。 如果在禁用连接的那一刻有大量的事务正在进行，则用于切换的时间长度可能会更长。 
 
 整个扩展过程的持续时间同时取决于更改前后数据库的大小和服务层。 例如，一个正在更改到标准服务层、从“常规用途”服务层更改或在标准服务层内更改的 250 GB 的数据库应在六小时内完成。 如果数据库与正在“业务关键”服务层内更改性能级别的大小相同，应在三小时内完成扩展。
 
 > [!TIP]
-> 若要监视正在进行的操作，请参阅：[使用 SQL REST API 管理操作](https://docs.microsoft.com/rest/api/sql/Operations/List)、[使用 CLI 管理操作](https://docs.azure.cn/cli/sql/db/op)、[使用 T-SQL 监视操作](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)和以下两个 PowerShell 命令：[Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) 和 [Stop-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)。
+> 若要监视正在进行的操作，请参阅：[使用 SQL REST API 管理操作](/rest/api/sql/Operations/List)、[使用 CLI 管理操作](https://docs.azure.cn/cli/sql/db/op)、[使用 T-SQL 监视操作](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)和以下两个 PowerShell 命令：[Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) 和 [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)。
 
-- 如果要升级到更高的服务层或性能级别，除非显式指定了更大的大小（最大），否则，最大数据库大小不会增大。
-- 若要对数据库进行降级，数据库所用空间必须小于目标服务层和性能级别允许的最大大小。 
-- 在启用了[异地复制](sql-database-geo-replication-portal.md)的情况下升级数据库时，请先将辅助数据库升级到所需的性能层，然后再升级主数据库（为获得最佳性能的常规指南）。 在升级到另一版本时，必须首先升级辅助数据库。
-- 在启用了[异地复制](sql-database-geo-replication-portal.md)的情况下降级数据库时，请先将主数据库降级到所需的性能层，然后再降级辅助数据库（为获得最佳性能的常规指南）。 在降级到另一版本时，必须首先降级主数据库。
-- 更改完成前不会应用数据库的新属性。
+* 如果要升级到更高的服务层或性能级别，除非显式指定了更大的大小（最大），否则，最大数据库大小不会增大。
+* 若要对数据库进行降级，数据库所用空间必须小于目标服务层和性能级别允许的最大大小。 
+* 在启用了[异地复制](sql-database-geo-replication-portal.md)的情况下升级数据库时，请先将辅助数据库升级到所需的性能层，然后再升级主数据库（为获得最佳性能的常规指南）。 在升级到另一版本时，必须首先升级辅助数据库。
+* 在启用了[异地复制](sql-database-geo-replication-portal.md)的情况下降级数据库时，请先将主数据库降级到所需的性能层，然后再降级辅助数据库（为获得最佳性能的常规指南）。 在降级到另一版本时，必须首先降级主数据库。
+* 更改完成前不会应用数据库的新属性。
 
 ## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>弹性池：存储大小和性能级别
 
@@ -104,53 +105,105 @@ ms.lasthandoff: 04/23/2018
 > 弹性池中各个数据库的资源限制通常与池外部具有相同性能级别的各个数据库相同。 例如，GP_Gen4_1 数据库的最大并发工作进程数为 200 个。 因此，GP_Gen4_1 池中数据库的最大并发工作进程数也是 200 个。 请注意，GP_Gen4_1 池中的并发工作进程总数为 210 个。
 
 ### <a name="general-purpose-service-tier"></a>常规用途服务层
-|性能级别|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
-|:--- | --: |--: |--: |--: |--: |
-|硬件代次|4|4|4|4|4|
-|vCore 数|1|2|4|8|16|
-|内存 (GB)|7|14|28|56|112|
-|列存储支持|是|是|是|是|是|
-|内存中 OLTP 存储 (GB)|不适用|不适用|不适用|不适用|不适用|
-|存储类型|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|
-|最大数据大小 (GB)|512|756|1536|2048|3584|
-|最大日志大小|154|227|461|614|1075|
-|TempDB 大小 (DB)|32|64|128|256|384|
-|目标 IOPS|320|640|1280|2560|5120|
-|IO 延迟（近似）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|
-|最大并发工作线程数（请求数）|210|420|840|1680|3360|
-|最大并发登录数|210|420|840|1680|3360|
-|允许的最大会话数|3000|3000|3000|3000|3000|
-|最大池密度|100|200|500|500|500|
-|最小/最大弹性池点击停止次数|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
-|副本数|1|1|1|1|1|
-|Multi-AZ|不适用|不适用|不适用|不适用|不适用|
-|读取横向扩展|不适用|不适用|不适用|不适用|不适用|
-|随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
+
+#### <a name="generation-4-compute-platform"></a>第 4 代计算平台
+|性能级别|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |
+|硬件代次|4|4|4|4|4|4|
+|vCore 数|1|2|4|8|16|24|
+|内存 (GB)|7|14|28|56|112|168|
+|列存储支持|是|是|是|是|是|是|
+|内存中 OLTP 存储 (GB)|不适用|不适用|不适用|不适用|不适用|不适用|
+|存储类型|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|
+|最大数据大小 (GB)|512|756|1536|2048|3584|4096|
+|最大日志大小|154|227|461|614|1075|1229|
+|TempDB 大小 (DB)|32|64|128|256|384|384|
+|目标 IOPS (64 KB)|500|1000|2000|4000|7000|7000|
+|IO 延迟（近似）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|
+|最大并发工作线程数（请求数）|210|420|840|1680|3360|5040|
+|允许的最大会话数|30000|30000|30000|30000|30000|30000|
+|最大池密度|100|200|500|500|500|500|
+|最小/最大弹性池点击停止次数|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|副本数|1|1|1|1|1|1|
+|Multi-AZ|不适用|不适用|不适用|不适用|不适用|不适用|
+|读取横向扩展|不适用|不适用|不适用|不适用|不适用|不适用|
+|随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
+|||
+
+#### <a name="generation-5-compute-platform"></a>第 5 代计算平台
+|性能级别|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_48|GP_Gen5_80|
+|:--- | --: |--: |--: |--: |--: |--: |--: |--: |
+|硬件代次|5|5|5|5|5|5|5|5|
+|vCore 数|2|4|8|16|24|32|48|80|
+|内存 (GB)|11|22|44|8
+8|132|176|264|440|
+|列存储支持|是|是|是|是|是|是|是|是|
+|内存中 OLTP 存储 (GB)|不适用|不适用|不适用|不适用|不适用|不适用|不适用|不适用|
+|存储类型|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|
+|最大数据大小 (GB)|512|756|1536|2048|3072|4096|4096|4096|
+|最大日志大小|154|227|461|614|922|1229|1229|1229|
+|TempDB 大小 (DB)|64|128|256|384|384|384|384|384|
+|目标 IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
+|IO 延迟（近似）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|
+|最大并发工作线程数（请求数）|210|420|840|1680|2520|3360|5040|8400
+|允许的最大会话数|30000|30000|30000|30000|30000|30000|30000|30000|
+|最大池密度|100|200|500|500|500|500|500|500|
+|最小/最大弹性池点击停止次数|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48, 80|
+|副本数|1|1|1|1|1|1|1|1|
+|Multi-AZ|不适用|不适用|不适用|不适用|不适用|不适用|不适用|不适用|
+|读取横向扩展|不适用|不适用|不适用|不适用|不适用|不适用|不适用|不适用|
+|随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 |||
 
 ### <a name="business-critical-service-tier"></a>“业务关键”服务层
-|性能级别|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
-|:--- | --: |--: |--: |--: |--: |
-|硬件代次|4|4|4|4|4|
-|vCore 数|1|2|4|8|16|
-|内存 (GB)|7|14|28|56|112|
-|列存储支持|是|是|是|是|是|
-|内存中 OLTP 存储 (GB)|1|2|4|8|20 个|
-|存储类型|附加的 SSD|附加的 SSD|附加的 SSD|附加的 SSD|附加的 SSD|
-|最大数据大小 (GB)|1024|1024|1024|1024|1024|
-|最大日志大小|307|307|307|461|614|
-|TempDB 大小 (DB)|32|64|128|256|384|
-|目标 IOPS|320|640|1280|2560|5120|
-|IO 延迟（近似）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|
-|最大并发工作线程数（请求数）|210|420|840|1680|3360|
-|最大并发登录数|210|420|840|1680|3360|
-|允许的最大会话数|3000|3000|3000|3000|3000|
-|最大池密度|不适用|50|100|100|100|
-|最小/最大弹性池点击停止次数|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
-|Multi-AZ|是|是|是|是|是|
-|读取横向扩展|是|是|是|是|是|
-|随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
+
+#### <a name="generation-4-compute-platform"></a>第 4 代计算平台
+|性能级别|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |
+|硬件代次|4|4|4|4|4|4|
+|vCore 数|1|2|4|8|16|24|
+|内存 (GB)|7|14|28|56|112|168|
+|列存储支持|是|是|是|是|是|是|
+|内存中 OLTP 存储 (GB)|1|2|4|8|20 个|36|
+|存储类型|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|
+|最大数据大小 (GB)|1024|1024|1024|1024|1024|1024|
+|最大日志大小|307|307|307|307|307|307|
+|TempDB 大小 (DB)|32|64|128|256|384|384|
+|目标 IOPS (64 KB)|5000|10000|20000|40000|80000|120000|
+|IO 延迟（近似）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|
+|最大并发工作线程数（请求数）|210|420|840|1680|3360|5040|
+|允许的最大会话数|30000|30000|30000|30000|30000|30000|
+|最大池密度|不适用|50|100|100|100|100|
+|最小/最大弹性池点击停止次数|不适用|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|Multi-AZ|是|是|是|是|是|是|
+|读取横向扩展|是|是|是|是|是|是|
+|随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
 |||
+
+#### <a name="generation-5-compute-platform"></a>第 5 代计算平台
+|性能级别|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|:--- | --: |--: |--: |--: |--: |--: |--: |--: |
+|硬件代次|5|5|5|5|5|5|5|5|
+|vCore 数|2|4|8|16|24|32|48|80|
+|内存 (GB)|11|22|44|8
+8|132|176|264|440|
+|列存储支持|是|是|是|是|是|是|是|是|
+|内存中 OLTP 存储 (GB)|1.571|3.142|6.284|15.768|25.252|37.936|68.104|131.64|
+|存储类型|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|
+|IO 延迟（近似）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|
+|最大数据大小 (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
+|最大日志大小|307|307|307|307|614|1229|1229|1229|
+|TempDB 大小 (DB)|64|128|256|384|384|384|384|384|
+|目标 IOPS (64 KB)|5000|10000|20000|40000|60000|80000|120000|200000
+|最大并发工作线程数（请求数）|210|420|840|1680|2520|3360|5040|8400|
+|允许的最大会话数|30000|30000|30000|30000|30000|30000|30000|30000|
+|最大池密度|不适用|50|100|100|100|100|100|100|
+|最小/最大弹性池点击停止次数|不适用|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48, 80|
+|Multi-AZ|是|是|是|是|是|是|是|是|
+|读取横向扩展|是|是|是|是|是|是|是|是|
+|随附的备份存储|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|1 倍数据库大小|
+|||
+
 如果弹性池的所有 vCore 繁忙，则池中的每个数据库将接收相同数量的计算资源来处理查询。 SQL 数据库服务通过确保相等的计算时间片段，在数据库之间提供资源共享的公平性。 弹性池资源共享公平性是在将每个数据库的 vCore 最小值设为非零值时，对另外为每个数据库保证的任意资源量的补充。
 
 ### <a name="database-properties-for-pooled-databases"></a>入池数据库的数据库属性
@@ -169,12 +222,12 @@ ms.lasthandoff: 04/23/2018
 - 可将存储预配到最大大小限制。 
  - 对于标准存储，可以 10 GB 为增量增加或减少大小
  - 对于高级存储，可以 250 GB 为增量增加或减少大小
-- 可通过 [Azure 门户](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal)、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool)、[Azure CLI](https://docs.azure.cn/cli/sql/elastic-pool#az_sql_elastic_pool_update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update) 为弹性池增加或减少大小上限，以预配存储。
+- 可通过 [Azure 门户](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)、[Azure CLI](https://docs.azure.cn/cli/sql/elastic-pool#az_sql_elastic_pool_update) 或 [REST API](/rest/api/sql/elasticpools/update) 为弹性池增加或减少大小上限，以预配存储。
 - 弹性池的存储价格等于存储量乘以服务层的存储单价。 有关额外存储价格的详细信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)。
 
 ## <a name="elastic-pool-change-vcores"></a>弹性池：更改 vCore
 
-可按资源需求，通过 [Azure 门户](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal)、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool)、[Azure CLI](https://docs.azure.cn/cli/sql/elastic-pool#az_sql_elastic_pool_update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update) 提高或降低弹性池的性能级别。
+可按资源需求，通过 [Azure 门户](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)、[Azure CLI](https://docs.azure.cn/cli/sql/elastic-pool#az_sql_elastic_pool_update) 或 [REST API](/rest/api/sql/elasticpools/update) 提高或降低弹性池的性能级别。
 
 - 重新缩放池 vCore 时，将暂时停止数据库连接。 此行为与重新缩放单一数据库（而非在池中）的 DTU 时的行为相同。 有关在重新缩放操作执行期间，停止数据库连接的持续时间和影响的详细信息，请参阅[重新缩放单一数据库的 DTU](#single-database-change-storage-size)。 
 - 重新缩放池 vCore 的持续时间取决于池中所有数据库使用的总存储空间量。 一般而言，每 100 GB 重新缩放的平均延迟时间不超过 90 分钟。 例如，如果池中所有数据库使用的总空间为 200 GB，则重新缩放池的预计延迟时间将不超过 3 小时。 对标准层或基本层中的某些事例而言，重新缩放延迟时间可能不超过五分钟，不考虑所用空间量的影响。
@@ -225,4 +278,3 @@ ms.lasthandoff: 04/23/2018
 
 - 有关常见问题的解答，请参阅 [SQL 数据库常见问题解答](sql-database-faq.md)。
 - 有关常规 Azure 限制的相关信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。
-

@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 05/11/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: fb35ce97ee2abb5de1c5157f338842ea91d6d562
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 1282c62dc61a5f58fb6fd7fc1100274107c54c84
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475145"
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324275"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>CLI 示例：创建并提交作业
 
@@ -32,5 +32,31 @@ ms.locfileid: "34475145"
 
 ## <a name="example-script"></a>示例脚本
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/media-services/create-jobs/Create-Jobs.sh "Create and submit jobs")]
+```Azure CLI
+#<a name="binbash"></a>!/bin/bash
+
+# <a name="update-the-following-variables-for-your-own-settings"></a>更新自己的设置的下列变量：
+resourceGroup=amsResourceGroup amsAccountName=amsmediaaccountname outputAssetName=myOutputAsset transformName=audioAnalyzerTransform
+
+# <a name="note-first-create-the-transforms-in-the-create-transformsh-for-these-jobs-to-work"></a>注意：首先请在 Create-Transform.sh 中为这些要运行的作业创建转换！
+
+# <a name="create-a-media-services-asset-to-output-the-job-results-to"></a>创建要将作业结果输出到其中的媒体服务资产。
+az ams asset create \
+    -n $outputAssetName \
+    -a $amsAccountName \
+    -g $resourceGroup \
+
+# <a name="submit-a-job-to-a-simple-encoding-transform-using-https-url"></a>使用 HTTPS URL 将作业提交到简单编码转换
+az ams job start \
+    --name myFirstJob_007 \
+    --transform-name $transformName \
+    --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/00000000-b215-4409-80af-529c3e853622/' \
+    --files 'Ignite-short.mp4' \
+    --output-asset-names $outputAssetName \
+    -a $amsAccountName \
+    -g $resourceGroup \
+
+echo "按 [ENTER] 继续。"
+read continue
+```
 

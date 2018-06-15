@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 05/11/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 07f0390333b0b41859b3ca651e527feb20b1ad50
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: afce5e1cb2d680a79cb4c704ccfe4388f97e6738
+ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475150"
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35324252"
 ---
 # <a name="cli-example-reset-the-account-credentials"></a>CLI 示例：重置帐户凭据
 
@@ -32,6 +32,23 @@ ms.locfileid: "34475150"
 
 ## <a name="example-script"></a>示例脚本
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/media-services/reset-account-credentials/Reset-Account-Credentials.sh "Reset credentials")]
+```Azure CLI
+#<a name="binbash"></a>!/bin/bash
+
+# <a name="update-the-following-variables-for-your-own-settings"></a>更新自己的设置的下列变量：
+resourceGroup=amsResourceGroup amsAccountName=amsmediaaccountname amsSPName=build2018demo
+
+# <a name="reset-your-account-credentials-and-get-the-appconfig-settings-back"></a>重置帐户凭据和恢复 app.config 设置
+az ams account sp reset-credentials \
+  --account-name $amsAccountName \
+  --name $amsSPName \
+  --resource-group $resourceGroup \
+  --role Owner \
+  --xml \
+  --years 2 \
+
+echo "按 [ENTER] 继续。"
+read continue
+```
 
 

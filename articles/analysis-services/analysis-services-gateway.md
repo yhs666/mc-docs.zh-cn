@@ -5,15 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: analysis-services
 ms.topic: conceptual
-origin.date: 04/12/2018
-ms.date: 04/30/2018
+origin.date: 04/24/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 595b91b6c1e5f460a1236744f486c82e31333755
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: f6cb025d0f5a79461d1b5c1fb6d653a028e831f3
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416792"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>使用 Azure 本地数据网关连接到本地数据源
 本地数据网关的作用好似一架桥，提供本地数据源与云中的 Azure Analysis Services 服务器之间的安全数据传输。 除了在同一区域中使用多个 Azure Analysis Services 服务器，最新版本的网关也适用于 Azure 逻辑应用、Power BI、Power Apps 和 Microsoft Flow。 可将同一区域中的多个服务与单个网关相关联。 
@@ -84,6 +85,10 @@ ms.lasthandoff: 04/28/2018
     <value>Https</value>
 </setting>
 ```
+
+## <a name="tenant-level-administration"></a>租户级管理 
+
+目前没有单独的位置可让租户管理员管理其他用户安装和配置的所有网关。  如果你是租户管理员，建议你要求组织中的用户将你作为管理员添加到他们安装的每个网关。 这样，即可通过“网关设置”页面或通过 [PowerShell 命令](https://docs.microsoft.com/zh-cn/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters)管理组织中的所有网关。 
 
 <a name="faq"></a>
 ## <a name="frequently-asked-questions"></a>常见问题
@@ -199,4 +204,4 @@ ms.lasthandoff: 04/28/2018
 * [管理 Analysis Services](analysis-services-manage.md)
 * [从 Azure Analysis Services 获取数据](analysis-services-connect.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update links -->

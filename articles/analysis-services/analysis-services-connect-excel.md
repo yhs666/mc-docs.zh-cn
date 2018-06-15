@@ -5,19 +5,20 @@ author: rockboyfor
 manager: digimobile
 ms.service: analysis-services
 ms.topic: conceptual
-origin.date: 04/12/2018
-ms.date: 04/30/2018
+origin.date: 05/16/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 92002b103b00d06632c8867fa60eab4e44549347
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 03a4c00700eb3c5e7cf90e059822693db2a562ea
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416743"
 ---
 # <a name="connect-with-excel"></a>使用 Excel 进行连接
 
-在 Azure 中创建服务器并向其部署表格模型后，便可以连接并开始浏览数据。
+你创建服务器并向其部署表格模型后，客户端便可以连接并开始浏览数据。
 
 ## <a name="connect-in-excel"></a>在 Excel 中连接
 
@@ -27,9 +28,9 @@ ms.lasthandoff: 04/28/2018
 
 1. 在 Excel 2016 的“数据”功能区上，单击“获取外部数据” > “从其他源” > “从 Analysis Services”。
 
-2. 在“数据连接向导”的“服务器名称”中，输入服务器名称，包括协议和 URI。 然后，在“登录凭据”中，选择“使用以下用户名和密码”，并键入组织的用户名（例如 nancy@adventureworks.com）和密码。
+2. 在“数据连接向导”的“服务器名称”中，输入服务器名称，包括协议和 URI。 例如，asazure://chinaeast.asazure.chinacloudapi.cn/advworks。 然后，在“登录凭据”中，选择“使用以下用户名和密码”，并键入组织的用户名（例如 nancy@adventureworks.com）和密码。
 
-    > [!NOTE]
+    > [!IMPORTANT]
     > 如果使用 Microsoft 帐户、Live ID、Yahoo 等登录或被要求使用多重身份验证登录，请将密码字段留空。 单击“下一步”后，系统会提示输入密码。
     <!--Not Available on Gmail -->
 
