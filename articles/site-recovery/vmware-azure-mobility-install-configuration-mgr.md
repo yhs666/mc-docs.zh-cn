@@ -7,13 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 03/05/2018
-ms.date: 04/02/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 224d6ddaf437c899f7f454486d75cde697931452
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: a7d154e44eec8aaeac1357e74f80cf35bfd8df4c
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568330"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>使用 System Center Configuration Manager 自动执行移动服务安装
 
@@ -50,7 +51,7 @@ ms.lasthandoff: 03/28/2018
 4. 将“MobSvc.passphrase”文件复制到网络共享上的“MobSvcWindows”文件夹。
 5. 运行以下命令，浏览到配置服务器上的安装程序存储库：
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. 将 **Microsoft-ASR\_UA\_*version*\_Windows\_GA\_*date*\_Release.exe** 复制到网络共享上的 **MobSvcWindows** 文件夹。
 7. 复制以下代码，并将它作为“install.bat”保存到“MobSvcWindows”文件夹。
@@ -228,7 +229,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 4. 将“MobSvc.passphrase” 文件复制到网络共享上的“MobSvcLinux”文件夹。
 5. 运行以下命令，浏览到配置服务器上的安装程序存储库：
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. 将以下文件复制到网络共享上的“MobSvcLinux”文件夹：
     * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz
