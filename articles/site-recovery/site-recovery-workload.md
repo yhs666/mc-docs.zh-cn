@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 03/16/2018
-ms.date: 04/02/2018
+origin.date: 05/02/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: ec9b066fb37e9e2b6abe5c69fbf48918b17b3f27
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 4a20dfc42956f4585ad17f90c7343301d289e689
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568397"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>可以通过 Azure Site Recovery 保护哪些工作负荷？
 
@@ -148,7 +149,7 @@ Azure Site Recovery 可以将环境中的关键组件复制到冷远程站点或
 -   能够对 Web 服务器上的多个 Web 应用程序进行一键式故障转移，因此在发生灾难时不会造成混淆。
 -   能够在适用于 DR 演练的隔离环境中测试恢复计划。
 
-[详细了解](https://aka.ms/asr-iis)如何保护 IIS Web 场。
+[详细了解](/site-recovery/site-recovery-iis.md)如何保护 IIS Web 场。
 <!-- https://aka.ms/asr-iis Redirect to ../site-recovery/site-recovery-iis.md -->
 
 ## <a name="protect-citrix-xenapp-and-xendesktop"></a>保护 Citrix XenApp 和 XenDesktop
@@ -164,4 +165,4 @@ Azure Site Recovery 可以将环境中的关键组件复制到冷远程站点或
 ## <a name="next-steps"></a>后续步骤
 
 Azure VM 复制[入门](azure-to-azure-quickstart.md)。
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

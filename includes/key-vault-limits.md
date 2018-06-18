@@ -1,6 +1,6 @@
 密钥事务数（每个区域的每个保管库在 10 秒内允许的事务数上限<sup>1</sup>）：
 
-|密钥类型| CREATE 密钥| 所有其他事务|Software-key<br>CREATE 密钥|Software-key<br>所有其他事务|
+|密钥类型|HSM-Key<br>CREATE 密钥|HSM-key<br>所有其他事务|Software-key<br>CREATE 密钥|Software-key<br>所有其他事务|
 |:---|---:|---:|---:|---:|
 |RSA 2048 位|5|1000|10 个|2000|
 |RSA 3072 位|5|250|10 个|500|
@@ -20,5 +20,3 @@
 有关超出这些限制时如何处理限制的信息，请参阅 [Azure Key Vault 限制指南](../articles/key-vault/key-vault-ovw-throttling.md)。
 
 <sup>1</sup>所有事务类型存在订阅范围的限制，即每个密钥保管库限制的 5 倍。 例如，每个订阅的 HSM- 其他事务数限制为 10 秒内 5000 个事务。
-
-<!-- ms.date: 05/08/2018 -->

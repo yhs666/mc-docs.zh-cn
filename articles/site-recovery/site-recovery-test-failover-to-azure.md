@@ -7,13 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 02/08/2018
-ms.date: 04/02/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6bfe4ce3c8f7840134c3aa8ab8082c2c8c305058
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 9dd90c04f6631c154f67e702be5135151ba488d8
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568408"
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Site Recovery 中到 Azure 的测试故障转移
 
@@ -38,10 +39,10 @@ ms.lasthandoff: 03/28/2018
 
     - Site Recovery 尝试在子网中创建测试 VM，该子网的名称与 IP 地址与 VM 的“计算和网络”设置中提供的值相同。
     - 如果用于测试故障转移的 Azure 虚拟网络中没有同名的子网，则会按字母顺序在第一个子网中创建测试 VM。
-    - 如果该子网中没有相同的 IP 地址，则 VM 会接收该子网中的另一个可用 IP 地址。 [了解详细信息](#creating-a-network-for-test-failover)。
+    - 如果该子网中没有相同的 IP 地址，则 VM 会接收该子网中的另一个可用 IP 地址。 [了解详细信息](#create-a-network-for-test-failover)。
 4. 如果要故障转移到 Azure 并且启用了数据加密，请在“加密密钥”中，选择在安装提供程序期间启用加密时颁发的证书。 如果未启用加密，则可以忽略此步骤。
 5. 在“作业”选项卡上跟踪故障转移进度  。在 Azure 门户中，应当能够看到测试副本计算机。
-6. 若要通过 RDP 与 Azure VM 发起连接，需在故障转移的 VM 的网络接口上[添加公共 IP 地址](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine)。 
+6. 若要通过 RDP 与 Azure VM 发起连接，需在故障转移的 VM 的网络接口上[添加公共 IP 地址](https://blogs.technet.microsoft.com/srinathv/2018/02/07/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr/)。 
 <!-- Redirect https://aka.ms/addpublicip TO https://blogs.technet.microsoft.com/srinathv/2018/02/07/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr/ -->
 7. 如果一切符合预期，请单击“清理测试故障转移”。 这会删除在执行测试故障转移期间创建的 VM。
 8. 在“说明”中，记录并保存与测试故障转移相关联的任何观测结果。 

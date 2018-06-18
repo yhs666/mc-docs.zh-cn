@@ -12,14 +12,15 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/27/2018
-ms.date: 05/07/2018
+origin.date: 05/11/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6d672b4f711af632454a107fb4173e4699cfc088
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: d830ae603025dd0890eb71323b849573bcbefbd9
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568295"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>使用基于角色的访问控制管理 Azure Site Recovery
 

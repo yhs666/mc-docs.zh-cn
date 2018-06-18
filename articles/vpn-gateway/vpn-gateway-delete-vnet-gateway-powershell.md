@@ -14,13 +14,14 @@ ms.topic: ''
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/26/2018
-ms.date: 05/08/2018
+ms.date: 06/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9c2499ce71ba27c25fc04e0be54c4f1530333342
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 3b9275865a9454232c7b9df94609cba41077101f
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568380"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>使用 PowerShell 删除虚拟网络网关
 > [!div class="op_single_selector"]
@@ -47,7 +48,7 @@ ms.lasthandoff: 05/15/2018
 打开 PowerShell 控制台并连接到帐户。 使用以下示例帮助建立连接：
 
 ```powershell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
 
 检查该帐户的订阅。
@@ -165,7 +166,7 @@ $GW=get-azurermvirtualnetworkgateway -Name "GW1" -ResourceGroupName "RG1"
 ```powershell
 get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
-
+ 
 与虚拟网络网关建立的其他连接可能属于不同的资源组。 检查其他每个资源组中的其他连接。 在此示例中，我们检查来自 RG2 的连接。 请针对可能与虚拟网络网关建立了连接的每个资源组运行此步骤。
 
 ```powershell
@@ -179,7 +180,7 @@ get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG2" | where-obje
 ```powershell
 $ConnsL=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
-
+ 
 在此示例中，我们检查来自 RG2 的连接。 请针对可能与虚拟网络网关建立了连接的每个资源组运行此步骤。
 
 ```powershell
@@ -241,6 +242,7 @@ VNet 名称：VNet1<br>
 虚拟网络网关名称：GW1<br>
 
 以下步骤适用于 Resource Manager 部署模型。
+
 
 >[!NOTE]
 > 删除 VPN 网关时，所有连接的客户端将与 VNet 断开连接且不发出警告。

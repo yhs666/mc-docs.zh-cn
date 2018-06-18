@@ -12,14 +12,15 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-origin.date: 03/09/2018
-ms.date: 04/02/2018
+origin.date: 05/02/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 67fd9d8f1e487fa846ea1d4ecc126292f9224780
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 3aefda6785ec20e7a843b8e7508d37e58acc4640
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568354"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>将 Azure 自动化 Runbook 添加到恢复计划
 本文将介绍 Azure Site Recovery 如何与 Azure 自动化集成，以便扩展恢复计划。 恢复计划可以安排恢复受 Site Recovery 保护的 VM。 恢复计划支持复制到辅助云和复制到 Azure。 恢复计划还有助于实现恢复的**一致准确性**、**可重复性**和**自动化**。 如果从 VM 故障转移到 Azure，与 Azure 自动化集成可以扩展恢复计划。 可用于执行 Runbook，从而提供功能强大的自动化任务。
@@ -198,7 +199,7 @@ workflow AddPublicIPAndNSG {
 1. 在 PowerShell 中，登录 Azure 订阅：
 
     ```
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -Environment AzureChinaCloud
     $sub = Get-AzureRmSubscription -Name <SubscriptionName>
     $sub | Select-AzureRmSubscription
     ```
@@ -252,7 +253,7 @@ workflow AddPublicIPAndNSG {
 
 ## <a name="additional-resources"></a>其他资源
 * [Azure 自动化服务运行方式帐户](../automation/automation-create-runas-account.md)
-* [Azure 自动化概述](https://docs.azure.cn/zh-cn/automation/)
+* [Azure 自动化概述](https://docs.azure.cn/zh-cn/automation/ "Azure 自动化概述")
 * [Azure 自动化示例脚本](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure 自动化示例脚本")
 
 ## <a name="next-steps"></a>后续步骤

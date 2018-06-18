@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/29/2018
-ms.date: 05/08/2018
+origin.date: 05/11/2018
+ms.date: 06/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: c956ef9e637b1f3379a30ce4b9163e70f4bad0c1
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: a0d5c28e9b189b971ef6e600d624792edc80c3e9
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568293"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>故障排除：Azure 站点到站点 VPN 连接无法建立连接并停止工作
 
@@ -111,4 +112,4 @@ ms.lasthandoff: 05/15/2018
 -   [配置与虚拟网络的站点到站点连接](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [配置站点到站点 VPN 连接的 IPsec/IKE 策略](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

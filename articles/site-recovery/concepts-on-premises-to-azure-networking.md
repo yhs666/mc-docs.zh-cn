@@ -7,14 +7,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/24/2018
-ms.date: 05/07/2018
+origin.date: 05/11/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 11e573611cdedf6d80f7ff97d83a83ed3d0a9dd2
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: a425c04644e0e05da5313fd41c379def0a0c3289
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568367"
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>设置在故障转移到 Azure 后要连接的 IP 地址
 

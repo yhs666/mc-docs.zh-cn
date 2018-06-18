@@ -1,19 +1,20 @@
 ---
-title: "关于使用 Site Recovery 进行 Hyper-V VM（使用 VMM）复制到 Azure 的网络映射 | Azure"
-description: "介绍了如何设置网络映射，以便使用 Azure Site Recovery 复制 VMM 云中托管的 Hyper-V VM。"
+title: 关于使用 Site Recovery 进行 Hyper-V VM（使用 VMM）复制到 Azure 的网络映射 | Azure
+description: 介绍了如何设置网络映射，以便使用 Azure Site Recovery 复制 VMM 云中托管的 Hyper-V VM。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/22/2018
-ms.date: 03/05/2018
+origin.date: 05/02/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: aeba32fef390504aedea4ca71302be7457783479
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 52180991978abcd3d00c6eee14807b61561efc15
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568283"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>准备网络映射以将 Hyper-V VM 复制到 Azure
 
@@ -57,7 +58,7 @@ ms.lasthandoff: 03/02/2018
 北京 | VMM-Beijing| VMNetwork1-Beijing | 映射到 VMNetwork1-Shanghai
  |  | VMNetwork2-Beijing | 未映射
 上海 | VMM-Shanghai| VMNetwork1-Shanghai | 映射到 VMNetwork1-Beijing
- | | VMNetwork1-Shanghai | 未映射
+ | | VMNetwork2-Shanghai | 未映射
 
 在本示例中：
 
@@ -118,4 +119,4 @@ VMNetwork1-Shanghai 的网络映射已更改。 | VM-1 将连接到现已映射�
 
 - [了解](hyper-v-vmm-networking.md)在故障转移到辅助 VMM 站点后的 IP 寻址。
 - [了解](concepts-on-premises-to-azure-networking.md)在故障转移到 Azure 后的 IP 寻址。
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -6,14 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/09/2018
-ms.date: 05/07/2018
+origin.date: 05/16/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 78edd5c9e8d62c29ff3d7dcb18b96d2312f769ec
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: b5d9fe3afef9fc31fb11e63c9d80c0de10d06521
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568302"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>将 Azure 虚拟机复制到另一个 Azure 区域
 
@@ -30,6 +31,7 @@ ms.lasthandoff: 05/07/2018
 ## <a name="enable-replication"></a>启用复制
 
 启用复制。 此过程假设主要 Azure 区域是中国东部，次要区域是中国北部。
+<!--Notice: Change Source Location East Asia, China East TO South East Asia, China North-->
 
 1. 在保管库中，单击“+复制”。
 2. 指定以下字段：
@@ -46,7 +48,7 @@ ms.lasthandoff: 05/07/2018
 4. 在“设置”中，可以选择性地配置目标站点设置：
 
     - **目标位置**：要在其中复制源虚拟机数据的位置。 根据所选的计算机位置，Site Recovery 会提供合适目标区域的列表。 我们建议将目标位置与恢复服务保管库位置保持相同。
-    - **目标资源组**：所有复制虚拟机所属的资源组。 默认情况下，Azure Site Recovery 在目标位置创建一个名称带有“asr”后缀的新资源组。 如果 Azure Site recovery 创建的资源组已存在，则会重复使用。 还可以选择对其进行自定义，如以下部分中所示。
+    - **目标资源组**：所有复制虚拟机所属的资源组。 默认情况下，Azure Site Recovery 在目标位置创建一个名称带有“asr”后缀的新资源组。 如果 Azure Site recovery 创建的资源组已存在，则会重复使用。 还可以选择对其进行自定义，如以下部分中所示。 目标资源组的位置可以是除托管源虚拟机区域以外的任何 Azure 区域。
     - **目标虚拟网络**：默认情况下，Site Recovery 会在目标区域中创建一个名称带有“asr”后缀的新虚拟网络。 这会映射到源网络并会用于任何将来的保护。 [详细了解](site-recovery-network-mapping-azure-to-azure.md)网络映射。
     - **目标存储帐户（如果源 VM 不使用托管磁盘）**：默认情况下，Site Recovery 会创建模拟源 VM 存储配置的新目标存储帐户。 如果存储帐户已存在，则重复使用。
     - **托管磁盘副本（如果源 VM 使用托管磁盘）**：Site Recovery 在目标区域新建托管磁盘副本，以生成和源 VM 的托管磁盘存储类型一致（标准或高级）的镜像磁盘。
@@ -66,7 +68,7 @@ ms.lasthandoff: 05/07/2018
     - 在“可用性集”中，可将可用性集设置添加到 VM（如果它们是源区域中可用性集的一部分）。
     - 在“目标存储帐户”中，选择要使用的帐户。
 
-    ![启用复制](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
+        ![启用复制](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
 
 2. 单击“创建目标资源” > “启用复制”。
 3. 为 VM 启用复制后，可以在“复制的项”下检查 VM 的运行状况

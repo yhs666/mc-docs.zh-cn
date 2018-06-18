@@ -1,11 +1,11 @@
 ---
-title: "配置与 VPN 网关的主动-主动 S2S VPN 连接：Azure 资源管理器：PowerShell | Microsoft Docs"
-description: "本文逐步讲解如何使用 Azure 资源管理器和 PowerShell 配置包含 Azure VPN 网关的主动-主动连接。"
+title: 配置与 VPN 网关的主动-主动 S2S VPN 连接：Azure 资源管理器：PowerShell | Microsoft Docs
+description: 本文逐步讲解如何使用 Azure 资源管理器和 PowerShell 配置包含 Azure VPN 网关的主动-主动连接。
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/24/2018
-ms.date: 03/12/2018
+ms.date: 06/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7f4350da553bcda990f9f914600214b97ce48b87
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: e67b2bb346aebc7a9fd92ea1e4793877de74fa5d
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568349"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>配置与 Azure VPN 网关的主动-主动 S2S VPN 连接
 
@@ -95,7 +96,7 @@ $Connection152 = "VNet1toSite5_2"
 打开 PowerShell 控制台并连接到帐户。 使用下面的示例来帮助连接：
 
 ```powershell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
@@ -144,19 +145,18 @@ $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $R
 使用以下 cmdlet 显示针对 VPN 网关分配的两个公共 IP 地址，以及每个网关实例的对应 BGP 对等 IP 地址：
 
 ```powershell
+PS D:\> $gw1pip1.IpAddress
+40.112.190.5
 
-    PS D:\> $gw1pip1.IpAddress
-    40.112.190.5
+PS D:\> $gw1pip2.IpAddress
+138.91.156.129
 
-    PS D:\> $gw1pip2.IpAddress
-    138.91.156.129
-
-    PS D:\> $vnet1gw.BgpSettingsText
-    {
-      "Asn": 65010,
-      "BgpPeeringAddress": "10.12.255.4,10.12.255.5",
-      "PeerWeight": 0
-    }
+PS D:\> $vnet1gw.BgpSettingsText
+{
+  "Asn": 65010,
+  "BgpPeeringAddress": "10.12.255.4,10.12.255.5",
+  "PeerWeight": 0
+}
 ```
 
 网关实例的公共 IP 地址顺序与对应的 BGP 对等连接地址相同。 在本示例中，公共 IP 为 40.112.190.5 的网关 VM 使用 10.12.255.4 作为其 BGP 对等连接地址，公共 IP 为 138.91.156.129 的网关使用 10.12.255.5。 设置连接到主动-主动网关的本地 VPN 设备时需要此信息。 下图显示了网关和所有地址：
@@ -457,4 +457,4 @@ Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -DisableActiveActive
 ## <a name="next-steps"></a>后续步骤
 连接完成后，即可将虚拟机添加到虚拟网络。 请参阅 [创建虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 以获取相关步骤。
 
-<!--Update_Description: wording update --> 
+<!--Update_Description: code update --> 

@@ -5,14 +5,15 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 03/08/2018
-ms.date: 04/02/2018
+origin.date: 05/16/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: c46bc49ceaba93d41556e252fac17de225b75b99
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: d279510e5d51dd06106333dfed02a9fd72d85a9a
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568278"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>运行 Azure 灾难恢复演练
 
@@ -69,4 +70,4 @@ ms.lasthandoff: 03/28/2018
 > [!div class="nextstepaction"]
 > [为本地 VMware VM 运行故障转移和故障回复](vmware-azure-tutorial-failover-failback.md)。
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties -->

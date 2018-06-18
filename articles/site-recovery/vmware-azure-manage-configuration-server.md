@@ -6,13 +6,14 @@ author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
 origin.date: 03/05/2018
-ms.date: 04/02/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: d1df4e6db74748d93e77804ca10fe26c510485f6
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 6c524883a477866987599dc0a29576ae7101afbd
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568396"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>为 VMware VM 管理配置服务器
 
@@ -108,7 +109,7 @@ ms.lasthandoff: 03/28/2018
 1. [安装](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模块。
 2. 使用以下命令登录到 Azure 帐户：
 
-    `Login-AzureRmAccount -EnvironmentName AzureChinaCloud`
+    `Connect-AzureRmAccount -Environment AzureChinaCloud`
 3. 选择保管库订阅。
 
      `Get-AzureRmSubscription -SubscriptionName <your subscription name> | Select-AzureRmSubscription`
@@ -150,4 +151,4 @@ ms.lasthandoff: 03/28/2018
 
 查看有关设置 [VMware VM](vmware-azure-tutorial.md) 到 Azure 的灾难恢复的教程。
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update, update cmdlet -->

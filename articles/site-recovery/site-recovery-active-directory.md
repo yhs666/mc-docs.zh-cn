@@ -7,14 +7,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/05/2018
-ms.date: 04/02/2018
+origin.date: 05/11/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2816af016d0b460fcedc6ef873db107bd5b4dd00
-ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
+ms.openlocfilehash: 0da876aae5337ed3a85c92d9dfeeae35e938fa38
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568411"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>使用 Azure Site Recovery 保护 Active Directory 和 DNS
 
@@ -61,16 +62,16 @@ ms.lasthandoff: 04/18/2018
 
 <a name="protect-active-directory-with-active-directory-replication"></a>
 ### <a name="site-to-azure-protection"></a>站点到 Azure 的保护
-首先，[在 Azure 虚拟网络中创建域控制器](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)。 将服务器提升为域控制器角色时，请指定主站点中使用的同一域名。
+首先，在 Azure 虚拟网络中创建域控制器。 将服务器提升为域控制器角色时，请指定主站点中使用的同一域名。
 
-然后，[重新配置虚拟网络的 DNS 服务器](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network)，以便在 Azure 中使用 DNS 服务器。
+然后，为虚拟网络重新配置 DNS 服务器以在 Azure 中使用 DNS 服务器。
 
 ![Azure 网络](./media/site-recovery-active-directory/azure-network.png)
 
 ### <a name="azure-to-azure-protection"></a>Azure 到 Azure 保护
-首先，[在 Azure 虚拟网络中创建域控制器](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)。 将服务器提升为域控制器角色时，请指定主站点中使用的同一域名。
+首先，在 Azure 虚拟网络中创建域控制器。 将服务器提升为域控制器角色时，请指定主站点中使用的同一域名。
 
-然后，[重新配置虚拟网络的 DNS 服务器](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network)，以便在 Azure 中使用 DNS 服务器。
+然后，为虚拟网络重新配置 DNS 服务器以在 Azure 中使用 DNS 服务器。
 
 ## <a name="test-failover-considerations"></a>测试故障转移注意事项
 为避免对生产工作负荷造成影响，测试故障转移在与生产网络隔离的网络中进行。
@@ -185,7 +186,7 @@ ms.lasthandoff: 04/18/2018
 ### <a name="dns-and-domain-controller-on-different-machines"></a>不同计算机上的 DNS 和域控制器
 如果 DNS 与域控制器不在同一个虚拟机上，则必须创建一个可以进行测试故障转移的 DNS 虚拟机。 如果 DNS 与域控制器不在同一个虚拟机上，则可以跳过本节。
 
-可以使用全新的 DNS 服务器并创建所有需要的区域。 例如，如果 Active Directory 域是 contoso.com，则可以使用名称 contoso.com 创建 DNS 区域。必须在 DNS 中更新与 Active Directory 对应的条目，如下所示：
+可以使用全新的 DNS 服务器并创建所有需要的区域。 例如，如果 Active Directory 域是 contoso.com，则可以使用名称 contoso.com 创建 DNS 区域。 必须在 DNS 中更新与 Active Directory 对应的条目，如下所示：
 
 1. 确保在恢复计划中的任何其他虚拟机启动之前，以下设置已准备就绪：
    * 区域必须以林根名称命名。

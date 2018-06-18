@@ -7,13 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 02/12/2018
-ms.date: 04/02/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 996f291ea3310f3a21d36e9c821283e1e97de41e
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 9f5918c8626b5ab347f9f1d3912687dee494668a
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568386"
 ---
 # <a name="replicate-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>使用 PowerShell 将 Hyper-V VM 复制到辅助站点（资源管理器）
 
@@ -58,7 +59,9 @@ ms.lasthandoff: 03/28/2018
         $Password = "<password>"
         $SecurePassword = ConvertTo-SecureString -AsPlainText $Password -Force
         $Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
-        Login-AzureRmAccount -EnvironmentName AzureChinaCloud #-Credential $Cred
+        Connect-AzureRmAccount -Environment AzureChinaCloud #-Credential $Cred
+    <!--Notice: Update username format for Azure.cn-->
+    
 2. 使用订阅 ID 检索订阅列表。 记下要在其中创建恢复服务保管库的订阅的 ID。 
 
         Get-AzureRmSubscription
@@ -80,7 +83,7 @@ ms.lasthandoff: 03/28/2018
 1. 检索现有保管库。
 
         $vault = Get-AzureRmRecoveryServicesVault -Name #vaultname
-2. 设置保管库上下文：
+2. 设置保管库上下文。
 
         Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
 
@@ -105,7 +108,7 @@ ms.lasthandoff: 03/28/2018
             }
         }While($isNotInstalled)
 
-4. 在保管库中注册服务器：
+4. 在保管库中注册服务器。
 
         $BinPath = $env:SystemDrive+"\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin"
         pushd $BinPath
@@ -150,7 +153,7 @@ ms.lasthandoff: 03/28/2018
           $isJobLeftForProcessing = $true;
         }
 
-    在作业完成处理后，运行以下命令：
+6. 在作业完成处理后，运行以下命令：
 
         if($isJobLeftForProcessing)
         {

@@ -7,13 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 03/05/2018
-ms.date: 04/02/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6d64a703532193505518bbf18e6d4a29e732a2d5
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: b79001a6e6f41f87433844c651fd973875d4c738
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568333"
 ---
 # <a name="deploy-a-configuration-server"></a>部署配置服务器
 
@@ -47,7 +48,7 @@ Site Recovery 提供可下载的模板，以将配置服务器设置为高度可
 4. 下载配置服务器的开放虚拟化格式 (OVF) 模板。
 
   > [!TIP]
-  可以直接从 [Microsoft 下载中心](http://aka\.ms/asrconfigurationserver_bjb)下载最新版本的配置服务器模板。
+  可以直接从 [Microsoft 下载中心](https://aka.ms/asrconfigurationserver_bjb)下载最新版本的配置服务器模板。
 
 ## <a name="import-the-template-in-vmware"></a>在 VMware 中导入模板
 
@@ -99,6 +100,10 @@ Site Recovery 提供可下载的模板，以将配置服务器设置为高度可
 8. 在“配置虚拟机凭据”中，输入用于在计算机上自动安装 Azure Site Recovery 移动服务的用户名和密码（如果已启用复制）。 对于 Windows 计算机，该帐户在要复制的计算机上需有本地管理员特权。 对于 Linux，请提供根帐户的详细信息。
 9. 选择“完成配置”以完成注册。 
 10. 注册完成后，请在 Azure 门户中确认配置服务器和 VMware 服务器是否已在保管库中的“源”页上列出。 然后，选择“确定”以配置目标设置。
+
+## <a name="upgrade-the-configuration-server"></a>升级配置服务器
+
+要将配置服务器升级到最新版本，请阅读[此处](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)提供的步骤
 
 ## <a name="troubleshoot-deployment-issues"></a>排查部署问题
 

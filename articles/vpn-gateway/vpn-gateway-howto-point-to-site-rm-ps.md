@@ -1,11 +1,11 @@
 ---
-title: "使用点到站点和本机 Azure 证书身份验证将计算机连接到 Azure 虚拟网络：PowerShell | Microsoft Docs"
-description: "使用 P2S 和自签名证书或 CA 颁发的证书将 Windows 和 Mac OS X 客户端安全地连接到 Azure 虚拟网络。 本文使用 PowerShell。"
+title: 使用点到站点和本机 Azure 证书身份验证将计算机连接到 Azure 虚拟网络：PowerShell | Microsoft Docs
+description: 使用 P2S 和自签名证书或 CA 颁发的证书将 Windows 和 Mac OS X 客户端安全地连接到 Azure 虚拟网络。 本文使用 PowerShell。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3eddadf6-2e96-48c4-87c6-52a146faeec6
 ms.service: vpn-gateway
@@ -14,13 +14,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/12/2018
-ms.date: 03/12/2018
+ms.date: 06/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: 12a02089e7e3a4c85ad925a2ccde97aeae1ebb71
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: d7967099ae10e3bb03ba9092fc3161ec16908d59
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568345"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点连接：PowerShell
 
@@ -57,7 +58,7 @@ ms.lasthandoff: 03/16/2018
   - **GatewaySubnet 地址范围：192.168.200.0/24** 
 - **VPN 客户端地址池：172.16.201.0/24**<br>使用此点到站点连接连接到 VNet 的 VPN 客户端接收来自 VPN 客户端地址池的 IP 地址。
 - 
-            **订阅：**如果有多个订阅，请确保使用正确的订阅。
+            **订阅：** 如果有多个订阅，请确保使用正确的订阅。
 - **资源组：TestRG**
 - **位置：中国北部**
 - **DNS 服务器：要用于名称解析的 DNS 服务器的 IP 地址** 。 （可选）
@@ -72,7 +73,7 @@ ms.lasthandoff: 03/16/2018
 1. 使用提升的权限打开 PowerShell 控制台，并登录到 Azure 帐户。 该 cmdlet 会提示提供登录凭据。 登录后它会下载帐户设置，以便这些信息可供 Azure PowerShell 使用。
 
     ```powershell
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount  -Environment AzureChinaCloud
     ```
 2. 获取 Azure 订阅的列表。
 
@@ -419,4 +420,4 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 
 有关 P2S 故障排除信息，请参阅[故障排除：Azure 点到站点连接问题](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: code update-->

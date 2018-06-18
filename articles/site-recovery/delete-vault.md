@@ -7,14 +7,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-origin.date: 03/05/2018
-ms.date: 04/02/2018
+origin.date: 05/16/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1a4568a98f0637aedbc2d6a65db3ae77332c20e9
-ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
+ms.openlocfilehash: 714d8ae919e739c84639a985df6a231c1d84f255
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568351"
 ---
 # <a name="delete-a-site-recovery-vault"></a>删除 Site Recovery 保管库
 依赖项可能会阻止删除 Azure Site Recovery 保管库。 需要采取的措施因 Site Recovery 方案而异：VMware 到 Azure、Hyper-V（含和不含 System Center Virtual Machine Manager）到 Azure 和 Azure 备份。 若要删除用于 Azure 备份的保管库，请参阅[删除 Azure 备份保管库](../backup/backup-azure-delete-vault.md)。
@@ -64,12 +65,14 @@ ms.lasthandoff: 04/18/2018
 
 若要删除 Site Recovery 保管库（即使有受保护的项，也不例外），请运行以下命令：
 
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -Environment AzureChinaCloud
 
     Select-AzureRmSubscription -SubscriptionName "XXXXX"
 
-    $vault = Get-AzureRmSiteRecoveryVault -Name "vaultname"
+    $vault = Get-AzureRmRecoveryServicesVault -Name "vaultname"
 
-    Remove-AzureRmSiteRecoveryVault -Vault $vault
+    Remove-AzureRmRecoveryServicesVault -Vault $vault
+
+深入了解 [Get AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault?view=azurermps-6.0.0) 和 [Remove-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/remove-azurermrecoveryservicesvault?view=azurermps-6.0.0)。
 
 <!--Update_Description: wording update, update meta properties, update link -->

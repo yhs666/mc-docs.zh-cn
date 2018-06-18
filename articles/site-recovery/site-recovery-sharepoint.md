@@ -12,14 +12,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/09/2018
-ms.date: 05/07/2018
+origin.date: 05/02/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: eda81f8b931b8e4a748bc81e4d452968f6393d86
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 19d624e5abc46d9079e6f9487128f80be080e1df
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568410"
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 复制多层 SharePoint 应用程序以实现灾难恢复
 

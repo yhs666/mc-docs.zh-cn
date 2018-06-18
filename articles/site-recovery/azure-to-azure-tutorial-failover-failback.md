@@ -1,22 +1,23 @@
 ---
-title: 使用 Azure Site Recovery（预览）对复制到 Azure 次要区域的 Azure VM 进行故障转移和故障回复
+title: 使用 Azure Site Recovery 对复制到 Azure 次要区域的 Azure VM 进行故障转移和故障回复
 description: 了解如何使用 Azure Site Recovery 对复制到 Azure 次要区域的 Azure VM 进行故障转移和故障回复
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 03/08/2018
-ms.date: 04/02/2018
+origin.date: 05/15/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 8ac0136e8146ccdfa9fad559f7f153a625360f8e
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 0ee5d850b480fa6c4843c2afd4538dd44c5b3687
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568334"
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>对 Azure 区域（预览）之间的 Azure VM 进行故障转移和故障回复
+# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>在 Azure 区域之间故障转移和故障回复 Azure VM
 
 [Azure Site Recovery](site-recovery-overview.md) 服务可管理和协调本地计算机和 Azure 虚拟机 (VM) 的复制、故障转移和故障回复，进而有利于灾难恢复策略。
 
@@ -27,6 +28,8 @@ ms.lasthandoff: 03/28/2018
 > * 重新保护辅助 Azure VM，以便它复制到主要区域
 > * 故障回复辅助 VM
 > * 重新保护主 VM，以便它复制回次要区域
+
+Azure 到 Azure 复制当前处于预览状态。
 
 ## <a name="prerequisites"></a>先决条件
 

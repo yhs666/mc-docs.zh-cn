@@ -6,15 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/07/2018
-ms.date: 05/07/2018
+origin.date: 05/15/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: fcec5ba21e7d897c97b636937742e227cb652673
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 18d20a8ad8f9ee9cb103a743121e4bddff41cc4f
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568279"
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure 到 Azure 复制体系结构
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 05/07/2018
 
 **资源** | **详细信息**
 --- | ---
-目标资源组 | 故障转移后复制的 VM 所属的资源组。
+目标资源组 | 故障转移后复制的 VM 所属的资源组。 此资源组的位置可以是除托管源虚拟机区域以外的任何 Azure 区域。
 目标虚拟网络 | 故障转移后复制的 VM 所在的虚拟网络。 创建源虚拟网络与目标虚拟网络之间的网络映射，反之亦然。
 缓存存储帐户 | 在源 VM 更改复制到目标存储帐户前，系统会跟踪这些更改并将更改发送到源位置中的缓存存储帐户。 此步骤可最大限度地降低对在 VM 上运行的生产应用程序的影响。
 **目标存储帐户（如果源 VM 不使用托管磁盘）**  | 目标位置中的存储帐户，将向其中复制数据。

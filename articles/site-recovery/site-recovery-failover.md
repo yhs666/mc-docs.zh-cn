@@ -6,14 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/09/2018
-ms.date: 04/02/2018
+origin.date: 05/02/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: e3212f607c46b85083b0bdeb1e2b1f91e76bae89
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 0a5dde3f953edbef97c5c8740fd123d63bba3b97
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568366"
 ---
 # <a name="failover-in-site-recovery"></a>Site Recovery 中的故障转移
 本文介绍了如何对由 Site Recovery 保护的虚拟机和物理服务器进行故障回复。

@@ -5,15 +5,16 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: overview
-origin.date: 04/09/2018
-ms.date: 05/07/2018
+origin.date: 05/02/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 36f01763d10a67216af0fb80aeefffbfe4e687c4
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 404b4b2505703780ecebc31a65266ce479e4cc02
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568327"
 ---
 # <a name="about-site-recovery"></a>关于 Site Recovery
 

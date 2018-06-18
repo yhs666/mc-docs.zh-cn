@@ -1,17 +1,18 @@
 ---
-title: "Azure Site Recovery 中的 Hyper-V 到辅助站点复制体系结构 | Azure"
-description: "本文概述通过 Azure Site Recovery 将本地 Hyper-V VM 复制到辅助 System Center VMM 站点所用的体系结构。"
+title: Azure Site Recovery 中的 Hyper-V 到辅助站点复制体系结构 | Azure
+description: 本文概述通过 Azure Site Recovery 将本地 Hyper-V VM 复制到辅助 System Center VMM 站点所用的体系结构。
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/12/2018
-ms.date: 03/05/2018
+origin.date: 05/02/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8f89cafe6136ba4eff79894f1be2da36928f7b46
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 79253b277ef8284611add4d87338e86d85bd509b
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568382"
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>从 Hyper-V 复制到辅助站点
 
@@ -54,5 +55,4 @@ ms.lasthandoff: 03/02/2018
 ## <a name="next-steps"></a>后续步骤
 
 根据[此教程](hyper-v-vmm-disaster-recovery.md)启用 VMM 云之间的 Hyper-V 复制。
-<!-- Update_Description: new articles on hyper-v vmm to Azure architecture -->
-<!--ms.date: 03/05/2018-->
+<!-- Update_Description: update meta properties -->

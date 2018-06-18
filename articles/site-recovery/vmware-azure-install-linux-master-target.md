@@ -7,14 +7,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/05/2018
-ms.date: 04/02/2018
+origin.date: 05/08/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: d56769305c256b66c643f876941636e2c0e1446c
-ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
+ms.openlocfilehash: 4e237db36a79053c16fd12ba0d2a74cb28ef038c
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568392"
 ---
 # <a name="install-a-linux-master-target-server"></a>安装 Linux 主目标服务器
 将虚拟机故障转移到 Azure 后，可将虚拟机故障回复到本地站点。 若要故障回复，需要在本地站点中重新保护 Azure 中的虚拟机。 对于此过程，需要安装一个本地主目标服务器用于接收流量。 
@@ -26,7 +27,8 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="overview"></a>概述
 本文提供 Linux 主目标的相关安装说明。
-<!-- Not Avaiable on Post comments or questions at the end of this article -->
+
+请在本文末尾或者在 [Azure 恢复服务论坛](https://www.azure.cn/support/contact/)中发表任何评论或问题。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -232,18 +234,13 @@ Azure Site Recovery 主目标服务器需要特定版本的 Ubuntu，请确保�
 
 1. 将新的 1-TB 磁盘附加到 Linux 主目标虚拟机，并启动计算机。
 
-2. 通过 **multipath -ll** 命令了解保留磁盘的多路径 ID。
+2. 通过 multipath -ll 命令了解保留磁盘的多路径 I：multipath -ll
 
-    `multipath -ll`
+    ![多路径 ID](./media/vmware-azure-install-linux-master-target/image22.png)
 
-    ![保留磁盘的多路径 ID](./media/vmware-azure-install-linux-master-target/image22.png)
-    <!--Notice: Image Path NOT contains /media/image22.png-->
+3. 格式化驱动器，然后在新驱动器上创建文件系统：mkfs.ext4 /dev/mapper/<保留磁盘的多路径 id>。
 
-3. 格式化驱动器并在新驱动器上创建文件系统。
-
-    `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
-
-    ![在驱动器上创建文件系统](./media/vmware-azure-install-linux-master-target/image23-centos.png)
+    ![文件系统](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. 创建文件系统后，请装载保留磁盘。
 
@@ -323,9 +320,9 @@ Azure Site Recovery 主目标服务器需要特定版本的 Ubuntu，请确保�
 
     等到脚本执行完成。 如果成功注册主目标，门户中的“Site Recovery 基础结构”页上会列出该主目标。
 
-### <a name="install-vmware-tools-on-the-master-target-server"></a>在主目标服务器上安装 VMware 工具
+### <a name="install-vmware-tools--open-vm-tools-on-the-master-target-server"></a>在主目标服务器上安装 VMware 工具 / open-vm-tools
 
-需将 VMware 工具安装在主目标上，使其可发现数据存储。 若未安装这些工具，则数据存储中不会列出重新保护屏幕。 安装 VMware 工具后，需重启计算机。
+需将 VMware 工具或 open-vm-tools 安装在主目标上，使其可发现数据存储。 若未安装这些工具，则数据存储中不会列出重新保护屏幕。 安装 VMware 工具后，需重启计算机。
 
 ### <a name="upgrade-the-master-target-server"></a>升级主目标服务器
 

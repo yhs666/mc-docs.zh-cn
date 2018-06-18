@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/16/2018
-ms.date: 05/08/2018
+ms.date: 06/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: c293c5266be46ff90b212c7012a1635b6a44c001
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.openlocfilehash: e518cf001526f707d558062c20f99863adb263b5
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568282"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>关于点到站点 VPN 路由
 
@@ -60,7 +61,7 @@ Azure 当前支持两种远程访问协议：IKEv2 和 SSTP。 IKEv2 可用于�
 
 ## <a name="multipeered"></a>多个对等互连 VNet
 
-在此示例中，点到站点 VPN 网关连接适用于 VNet1。 VNet1 与 VNet2 对等互连。 VNet2 与 VNet3 对等互连。 VNet1 与 VNet4 对等互连。 VNet1 不与 VNet3 对等互连。 VNet1 已启用“允许网关传输”，VNet2 已启用“使用远程网关”。
+在此示例中，点到站点 VPN 网关连接适用于 VNet1。 VNet1 与 VNet2 对等互连。 VNet2 与 VNet3 对等互连。 VNet1 与 VNet4 对等互连。 VNet1 不与 VNet3 直接对等互连。 VNet1 已启用“允许网关传输”，VNet2 已启用“使用远程网关”。
 
 使用 Windows 的客户端可以直接访问对等互连 VNet，但如果 VNet 对等互连或网络拓扑发生任何更改，必须重新下载 VPN 客户端。 非 Windows 客户端可直接访问对等互连 VNet。 访问不可传递，且仅限直接对等互连的 VNet。
 
@@ -90,7 +91,7 @@ Azure 当前支持两种远程访问协议：IKEv2 和 SSTP。 IKEv2 可用于�
 
 ## <a name="multis2s"></a>使用 S2S VPN 连接的多个 VNet
 
-在此示例中，点到站点 VPN 网关连接适用于 VNet1。 VNet1 使用站点到站点 VPN 连接连接到 VNet2。 VNet2 使用站点到站点 VPN 连接连接到 VNet3。 VNet1 和 VNet3 之间没有对等互连或站点到站点 VPN 连接。 所有站点到站点连接均未针对路由运行 BGP。
+在此示例中，点到站点 VPN 网关连接适用于 VNet1。 VNet1 使用站点到站点 VPN 连接连接到 VNet2。 VNet2 使用站点到站点 VPN 连接连接到 VNet3。 VNet1 和 VNet3 之间没有直接的对等互连或站点到站点 VPN 连接。 所有站点到站点连接均未针对路由运行 BGP。
 
 使用 Windows 或其他受支持 OS 的客户端只能访问 VNet1。 若要访问其他 VNet，必须使用 BGP。
 
@@ -118,7 +119,7 @@ Azure 当前支持两种远程访问协议：IKEv2 和 SSTP。 IKEv2 可用于�
 
 ## <a name="multis2sbgp"></a>使用 S2S VPN 的多个 VNet (BGP)
 
-在此示例中，点到站点 VPN 网关连接适用于 VNet1。 VNet1 使用站点到站点 VPN 连接连接到 VNet2。 VNet2 使用站点到站点 VPN 连接连接到 VNet3。 VNet1 和 VNet3 之间没有对等互连或站点到站点 VPN 连接。 所有站点到站点连接均针对路由运行 BGP。
+在此示例中，点到站点 VPN 网关连接适用于 VNet1。 VNet1 使用站点到站点 VPN 连接连接到 VNet2。 VNet2 使用站点到站点 VPN 连接连接到 VNet3。 VNet1 和 VNet3 之间没有直接的对等互连或站点到站点 VPN 连接。 所有站点到站点连接均针对路由运行 BGP。
 
 使用 Windows 或其他受支持的 OS 的客户端可以访问使用站点到站点 VPN 连接连接的所有 VNet，但必须将到已连接 VNet 的路由手动添加到 Windows 客户端。
 
@@ -199,7 +200,7 @@ Windows 客户端可以访问 VNet 和其他分支机构 (Site1)，但必须将�
 
 ## <a name="multivnets2sbranch"></a>使用 S2S 和分支机构连接的多个 VNet
 
-在此示例中，点到站点 VPN 网关连接适用于 VNet1。 VNet1 使用站点到站点 VPN 连接连接到 VNet2。 VNet2 使用站点到站点 VPN 连接连接到 VNet3。 VNet1 和 VNet3 网络之间没有对等互连或站点到站点 VPN 隧道。 VNet3 使用站点到站点 VPN 连接连接到分支机构 (Site1)。 所有 VPN 连接均未运行 BGP。
+在此示例中，点到站点 VPN 网关连接适用于 VNet1。 VNet1 使用站点到站点 VPN 连接连接到 VNet2。 VNet2 使用站点到站点 VPN 连接连接到 VNet3。 VNet1 和 VNet3 网络之间没有直接的对等互连或站点到站点 VPN 隧道。 VNet3 使用站点到站点 VPN 连接连接到分支机构 (Site1)。 所有 VPN 连接均未运行 BGP。
 
 所有客户端都只能访问 VNet1。
 
@@ -229,7 +230,7 @@ Windows 客户端可以访问 VNet 和其他分支机构 (Site1)，但必须将�
 
 ## <a name="multivnets2sbranchbgp"></a>使用 S2S 和分支机构连接的多个 VNet (BGP)
 
-在此示例中，点到站点 VPN 网关连接适用于 VNet1。 VNet1 使用站点到站点 VPN 连接连接到 VNet2。 VNet2 使用站点到站点 VPN 连接连接到 VNet3。 VNet1 和 VNet3 网络之间没有对等互连或站点到站点 VPN 隧道。 VNet3 使用站点到站点 VPN 连接连接到分支机构 (Site1)。 所有 VPN 连接均未运行 BGP。 所有 VPN 连接均运行 BGP。
+在此示例中，点到站点 VPN 网关连接适用于 VNet1。 VNet1 使用站点到站点 VPN 连接连接到 VNet2。 VNet2 使用站点到站点 VPN 连接连接到 VNet3。 VNet1 和 VNet3 网络之间没有直接的对等互连或站点到站点 VPN 隧道。 VNet3 使用站点到站点 VPN 连接连接到分支机构 (Site1)。 所有 VPN 连接均未运行 BGP。 所有 VPN 连接均运行 BGP。
 
 使用 Windows 的客户端可以访问使用站点到站点 VPN 连接连接的 VNet 和站点，但必须将到 VNet2、VNet3 和 Site1 的路由手动添加到该客户端。 非 Windows 客户端可以访问使用站点到站点 VPN 连接连接的 VNet 和站点，而无需任何手动干预。 访问权限是可传递的，并且客户端可访问所有已连接 VNet 和站点（本地）中的资源。
 
@@ -261,3 +262,4 @@ Windows 客户端可以访问 VNet 和其他分支机构 (Site1)，但必须将�
 
 若要开始创建 P2S VPN，请参阅[使用 Azure 门户创建 P2S VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md)。
 
+<!-- Update_Description: wording update -->

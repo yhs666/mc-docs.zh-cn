@@ -1,26 +1,27 @@
 ---
-title: "在 VNet 之间创建连接：经典：Azure 门户 | Microsoft Docs"
-description: "使用 PowerShell 和 Azure 门户将 Azure 虚拟网络连接到一起。"
+title: 在 VNet 之间创建连接：经典：Azure 门户 | Microsoft Docs
+description: 使用 PowerShell 和 Azure 门户将 Azure 虚拟网络连接到一起。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.date: 06/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4cd18114ff770e7847ac24bed6368eceb616d6a2
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 5a384d8ed464c6243f050b98d02724c86a87068f
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568323"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>配置 VNet 到 VNet 连接（经典）
 
@@ -90,7 +91,7 @@ ms.lasthandoff: 03/16/2018
 使用门户创建经典虚拟网络时，必须通过执行以下步骤导航到“虚拟网络”页面，否则不会显示用于创建经典虚拟网络的选项：
 
 1. 单击“+”打开“新建”页面。
-2. 在“搜索 Marketplace”字段中，键入“虚拟网络”。 如果改为选择“网络”->“虚拟网络”，则不会显示用于创建经典 VNet 的选项。
+2. 在“在市场中搜索”字段中，键入“虚拟网络”。 如果改为选择“网络”->“虚拟网络”，则不会显示用于创建经典 VNet 的选项。
 3. 从返回的列表中找到“虚拟网络”，单击它打开“虚拟网络”页面。 
 4. 在“虚拟网络”页面上，选择“经典”以创建经典 VNet。 
 
@@ -224,7 +225,7 @@ Azure 使用在每个本地网络站点中指定的设置来确定如何在 VNet
 2. 使用提升的权限打开 PowerShell 控制台，并连接到帐户。 使用下面的示例来帮助连接：
 
     ```powershell
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -Environment AzureChinaCloud
     ```
 
     检查该帐户的订阅。
@@ -296,4 +297,4 @@ Azure 使用在每个本地网络站点中指定的设置来确定如何在 VNet
 ## <a name="next-steps"></a>后续步骤
 验证连接。 请参阅[验证 VPN 网关连接](vpn-gateway-verify-connection-resource-manager.md)。
 
-<!--Update_Description: wording update --> 
+<!--Update_Description: code update --> 

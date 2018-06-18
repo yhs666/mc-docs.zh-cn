@@ -1,26 +1,27 @@
 ---
-title: "验证到达 Azure 虚拟网络的 VPN 吞吐量 | Microsoft Docs"
-description: "本文旨在帮助用户验证从本地资源到达 Azure 虚拟机的网络吞吐量。"
+title: 验证到达 Azure 虚拟网络的 VPN 吞吐量 | Microsoft Docs
+description: 本文旨在帮助用户验证从本地资源到达 Azure 虚拟机的网络吞吐量。
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
-editor: 
+author: chadmath
+manager: jasmc
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/08/2017
-ms.date: 11/07/2017
+ms.date: 06/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: be4ff12e068b4c8786928c5ca4b49c5ab26550ba
-ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
+ms.openlocfilehash: 00a2df69f38cac6524a436051c4eefa3f1abdfbc
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568338"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>如何验证到达虚拟网络的 VPN 吞吐量
 
@@ -77,7 +78,7 @@ VPN 网关连接涉及以下组件：
 
 2. 在两个节点上，为端口 5001 启用防火墙例外。
 
-    **Windows：**以管理员身份运行以下命令：
+    **Windows：** 以管理员身份运行以下命令：
 
     ```CMD
     netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
@@ -89,7 +90,7 @@ VPN 网关连接涉及以下组件：
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
 
-    **Azure Linux：**Azure Linux 映像具有限制性较低的防火墙。 如果有应用程序在侦听某个端口，则流量会被允许通过。 受保护的自定义映像可能需要显式打开端口。 常见的 Linux OS 层防火墙包括 `iptables`、`ufw` 或 `firewalld`。
+    **Azure Linux：** Azure Linux 映像具有限制性较低的防火墙。 如果有应用程序在侦听某个端口，则流量会被允许通过。 受保护的自定义映像可能需要显式打开端口。 常见的 Linux OS 层防火墙包括 `iptables`、`ufw` 或 `firewalld`。
 
 3. 在服务器节点上，更改为从中提取 iperf3.exe 的目录。 然后，在服务器模式下运行 iPerf 并将其设置为侦听端口 5001，如以下命令所示：
 
@@ -122,7 +123,7 @@ VPN 网关连接涉及以下组件：
 ## <a name="address-slow-file-copy-issues"></a>解决文件复制速度缓慢问题
 在使用 Windows 资源管理器时，或者在通过 RDP 会话进行拖放时，文件的复制速度可能会很缓慢。 此问题通常是由以下的一个或两个因素造成的：
 
-- 文件复制应用程序（如 Windows 资源管理器和 RDP）在复制文件时没有使用多个线程。 为了提高性能，请通过多线程文件复制应用程序（如 [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx)）使用 16 或 32 个线程来复制文件。 若要更改 Richcopy 中的文件复制线程数目，请单击“操作” > “复制选项” > “文件复制”。<br><br>
+- 文件复制应用程序（如 Windows 资源管理器和 RDP）在复制文件时没有使用多个线程。 为了提高性能，请通过多线程文件复制应用程序（如 [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx)）使用 16 或 32 个线程来复制文件。 若要更改 Richcopy 中的文件复制线程数目，请单击“操作” > “复制选项” > “文件复制”。<br><br>
 ![文件复制速度缓慢问题](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - VM 磁盘读/写速度不够快。 有关详细信息，请参阅 [Azure 存储故障排除](../storage/common/storage-e2e-troubleshooting.md)。
 
@@ -141,4 +142,4 @@ VPN 网关连接涉及以下组件：
 - [优化 Azure 虚拟机网络吞吐量](../virtual-network/virtual-network-optimize-network-bandwidth.md)
 - [Microsoft 支持部门](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
 
-<!--Update_Description: wording update-->
+<!--Update_Description: link update-->

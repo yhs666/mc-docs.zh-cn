@@ -7,13 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 03/05/2018
-ms.date: 04/02/2018
+ms.date: 05/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7cae42046448d7f80f5b155d61dd3754ce4fda69
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 427cbbdec06db84c4507597fefdb72bad7ed1c7c
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568400"
 ---
 # <a name="install-the-mobility-service"></a>安装移动服务 
 
@@ -26,7 +27,7 @@ Azure Site Recovery 移动服务安装在要复制到 Azure 的 VMware VM 和物
 * [使用 Site Recovery 推送安装进行安装](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
 
 >[!IMPORTANT]
-> 从版本 9.7.0.0 开始，在 Windows VM 上，移动服务安装程序还会安装最新可用的 [Azure VM 代理](../virtual-machines/windows/extensions-features.md#azure-vm-agent)。 这可确保当计算机故障转移到 Azure 时，它满足使用任何 VM 扩展的代理安装先决条件。
+> 从版本 9.7.0.0 开始，在 Windows VM 上，移动服务安装程序还会安装最新可用的 [Azure VM 代理](../virtual-machines/extensions/features-windows.md#azure-vm-agent)。 这可确保当计算机故障转移到 Azure 时，它满足使用任何 VM 扩展的代理安装先决条件。
 
 ## <a name="prerequisites"></a>先决条件
 在服务器上手动安装移动服务之前，请先完成以下必要步骤：
@@ -45,8 +46,14 @@ Azure Site Recovery 移动服务安装在要复制到 Azure 的 VMware VM 和物
 | 安装程序文件模板名称| 操作系统 |
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1（64 位） </br> Windows Server 2012（64 位） </br> Windows Server 2012 R2（64 位） </br> Windows Server 2016（64 位） |
+|Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3（仅限 64 位）|
+|Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4（仅限 64 位）|
+|Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4、6.5（仅限 64 位）|
+|Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04（仅限 64 位）|
+|Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS 服务器（仅限 64 位）|
+|Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7（仅限 64 位）|
+|Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8（仅限 64 位）|
 <!-- Not Avaiable on Red Hat Enterprise Linux (RHEL) -->
-|Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3（仅限 64 位）| |Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4（仅限 64 位）| |Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5（仅限 64 位）| |Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04（仅限 64 位）| |Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server（仅限 64 位）| |Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7（仅限 64 位）| |Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8（仅限 64 位）|
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>使用 GUI 手动安装移动服务
 
@@ -116,4 +123,4 @@ Azure Site Recovery 移动服务安装在要复制到 Azure 的 VMware VM 和物
     uninstall.sh -Y
     ```
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update  -->

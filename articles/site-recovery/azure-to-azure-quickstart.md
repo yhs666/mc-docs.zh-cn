@@ -1,22 +1,23 @@
 ---
-title: 将 Azure VM 复制到另一个 Azure 区域（预览）
+title: 将 Azure VM 复制到另一个 Azure 区域
 description: 本快速入门提供将一个 Azure 区域中的 Azure VM 复制到其他区域所需的步骤。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: quickstart
-origin.date: 04/08/2018
-ms.date: 05/07/2018
+origin.date: 05/15/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 98482744e6a0bc339a26e62fe6762c829b6bdbe6
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 370b996f701017c9626ef21392ec8188f4ede461
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568335"
 ---
-# <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>将 Azure VM 复制到另一个 Azure 区域（预览）
+# <a name="replicate-an-azure-vm-to-another-azure-region"></a>将 Azure VM 复制到另一个 Azure 区域
 
 [Azure Site Recovery](site-recovery-overview.md) 服务通过在计划内和计划外中断期间使商业应用程序保持启动和运行状态，有助于实施业务连续性和灾难恢复 (BCDR) 策略。 Site Recovery 管理并安排本地计算机和 Azure 虚拟机 (VM) 的灾难恢复，包括复制、故障转移和恢复。
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 05/07/2018
 
 1. 在 Azure 门户中，单击“虚拟机”，并选择要复制的 VM。
 
-2. 在“设置”中，单击“灾难恢复(预览)”。
+2. 在“设置”中，单击“灾难恢复”。
 3. 在“配置灾难恢复” > “目标区域”中，选择要复制到的目标区域。
 4. 在本快速入门中，接受其他默认设置。
 5. 单击“启用复制”。 这将启动用于为 VM 启用复制的作业。
@@ -58,7 +59,7 @@ ms.lasthandoff: 05/07/2018
 请按如下所述停止复制：
 
 1. 选择 VM。
-2. 在“灾难恢复(预览)”中，单击“更多”。
+2. 在“灾难恢复”中，单击“更多”。
 3. 单击“禁用复制”。
 
    ![禁用复制](media/azure-to-azure-quickstart/disable2-replication.png)

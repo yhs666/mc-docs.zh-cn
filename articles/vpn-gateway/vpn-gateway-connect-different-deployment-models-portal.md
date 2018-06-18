@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/13/2018
-ms.date: 03/28/2018
+ms.date: 06/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0dc7340e4b23ebe498e5111145ee5cc34a2968b2
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 9928730711048e331739853e86a1ba8943b783eb
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568352"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>使用门户从不同的部署模型连接虚拟网络
 
@@ -98,7 +99,7 @@ SKU = VpnGw1 <br>
 
 1. 打开 [Azure 门户](https://portal.azure.cn)，然后使用 Azure 帐户登录。
 2. 单击“+ 创建资源”打开“新建”页。
-3. 在“搜索 Marketplace”字段中，键入“虚拟网络”。 如果改为选择“网络”->“虚拟网络”，则不会显示用于创建经典 VNet 的选项。
+3. 在“在市场中搜索”字段中，键入“虚拟网络”。 如果改为选择“网络”->“虚拟网络”，则不会显示用于创建经典 VNet 的选项。
 4. 从返回的列表中找到“虚拟网络”，单击它打开“虚拟网络”页面。 
 5. 在“虚拟网络”页面上，选择“经典”以创建经典 VNet。 如果此处采用默认值，最终会创建资源管理器 VNet。
 
@@ -154,7 +155,7 @@ SKU = VpnGw1 <br>
 
 ### <a name="2-create-a-gateway-subnet"></a>2.创建网关子网
 
-**示例值：**GatewaySubnet = 192.168.0.0/26
+**示例值：** GatewaySubnet = 192.168.0.0/26
 
 创建虚拟网关前，先要创建网关子网。 创建 CIDR 计数为 /28 或更大（/27、/26 等）的网关子网。 如果正在练习创建此配置，可以使用示例值。
 
@@ -178,7 +179,7 @@ SKU = VpnGw1 <br>
 
 ### <a name="createlng"></a>4.创建本地网关
 
-**示例值：**本地网络网关 = ClassicVNetLocal
+**示例值：** 本地网络网关 = ClassicVNetLocal
 
 | 虚拟网络 | 地址空间 | 区域 | 连接到本地网络站点 |网关公共 IP 地址|
 |:--- |:--- |:--- |:--- |:--- |
@@ -233,7 +234,7 @@ SKU = VpnGw1 <br>
 使用提升的权限打开 PowerShell 控制台，并登录 Azure 帐户。 登录后将下载您的帐户设置，以便 Azure PowerShell 使用这些设置。 以下 cmdlet 会提示为资源管理器部署模型提供 Azure 帐户的登录凭据：
 
 ```powershell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
 
 获取 Azure 订阅的列表。
@@ -310,4 +311,4 @@ Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
-<!--Update_Description: wording update-->
+<!--Update_Description: code update-->

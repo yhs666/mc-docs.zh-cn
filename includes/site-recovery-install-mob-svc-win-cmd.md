@@ -50,4 +50,4 @@ UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <Passphrase
 >[!TIP]
 > 代理配置日志位于 %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log。
 <!--Update_Description: wording update-->
-<!--ms.date: 03/05/2018-->
+<!--ms.date: 06/18/2018-->

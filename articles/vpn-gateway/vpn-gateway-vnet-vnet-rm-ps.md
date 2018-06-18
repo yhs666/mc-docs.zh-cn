@@ -1,11 +1,11 @@
 ---
-title: "使用 VNet 到 VNet 连接将 Azure 虚拟网络连接到另一 VNet：PowerShell | Microsoft Docs"
-description: "使用 VNet 到 VNet 连接和 PowerShell 将虚拟网络连接起来。"
+title: 使用 VNet 到 VNet 连接将 Azure 虚拟网络连接到另一 VNet：PowerShell | Microsoft Docs
+description: 使用 VNet 到 VNet 连接和 PowerShell 将虚拟网络连接起来。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
@@ -14,13 +14,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.date: 06/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: d28db70491f9e1fa3a7d71c9c6b96cb197e3b4ac
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 73ea1e63104c91008bddd8beef06fe219f44c16f
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568389"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>使用 PowerShell 配置 VNet 到 VNet VPN 网关连接
 
@@ -52,7 +53,7 @@ ms.lasthandoff: 03/16/2018
 
 ### <a name="vnet-peering"></a>VNet 对等互连
 
-可以考虑使用 VNet 对等互连来连接 VNet。 VNet 对等互连不使用 VPN 网关，并且有不同的约束。 另外，[VNet 对等互连定价](https://www.azure.cn/pricing/details/networking)的计算不同于 [VNet 到 VNet VPN 网关定价](https://www.azure.cn/pricing/details/vpn-gateway)的计算。 有关详细信息，请参阅 [VNet 对等互连](../virtual-network/virtual-network-peering-overview.md)。
+可以考虑使用 VNet 对等互连来连接 VNet。 VNet 对等互连不使用 VPN 网关，并且有不同的约束。 另外，[VNet 对等互连定价](https://www.azure.cn/pricing/details/virtual-network)的计算不同于 [VNet 到 VNet VPN 网关定价](https://www.azure.cn/pricing/details/vpn-gateway)的计算。 有关详细信息，请参阅 [VNet 对等互连](../virtual-network/virtual-network-peering-overview.md)。
 
 ## <a name="why"></a>为何创建 VNet 到 VNet 连接？
 
@@ -154,7 +155,7 @@ ms.lasthandoff: 03/16/2018
 2. 连接到帐户。 使用下面的示例来帮助连接：
 
     ```powershell
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount  -Environment AzureChinaCloud
     ```
 
     检查该帐户的订阅。
@@ -350,7 +351,7 @@ ms.lasthandoff: 03/16/2018
 2. 连接到订阅 5。 打开 PowerShell 控制台并连接到帐户。 使用下面的示例来帮助连接：
 
     ```powershell
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -Environment AzureChinaCloud
     ```
 
     检查该帐户的订阅。
@@ -486,4 +487,4 @@ ms.lasthandoff: 03/16/2018
 - 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机文档](/#pivot=services&panel=Compute)。
 - 有关 BGP 的信息，请参阅 [BGP 概述](vpn-gateway-bgp-overview.md)和[如何配置 BGP](vpn-gateway-bgp-resource-manager-ps.md)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: code update-->

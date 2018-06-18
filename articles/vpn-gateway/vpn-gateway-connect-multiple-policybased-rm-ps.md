@@ -1,26 +1,27 @@
 ---
-title: "将 Azure VPN 网关连接到多个基于策略的本地 VPN 设备: Azure 资源管理器: PowerShell | Microsoft Docs"
-description: "使用 Azure 资源管理器和 PowerShell 将基于路由的 Azure VPN 网关配置到多个基于策略的 VPN 设备。"
+title: '将 Azure VPN 网关连接到多个基于策略的本地 VPN 设备: Azure 资源管理器: PowerShell | Microsoft Docs'
+description: 使用 Azure 资源管理器和 PowerShell 将基于路由的 Azure VPN 网关配置到多个基于策略的 VPN 设备。
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.date: 06/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: 25aee0ed70e35a092e8e2e7d09cc52d78689225f
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 3036227865b94c608118554a264ce8352dfc7a10
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568296"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>使用 PowerShell 将 Azure VPN 网关连接到多个基于策略的本地 VPN 设备
 
@@ -114,7 +115,7 @@ $LNGIP6        = "131.107.72.22"
 打开 PowerShell 控制台并连接到帐户。 使用下面的示例来帮助连接：
 
 ```powershell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
@@ -217,4 +218,4 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 
 另请参阅[为 S2S VPN 或 VNet 到 VNet 连接配置 IPsec/IKE 策略](vpn-gateway-ipsecikepolicy-rm-powershell.md)，了解有关自定义 IPsec/IKE 策略的详细信息。
 
-<!--Update_Description: update metedata properties -->
+<!-- Update_Description: code update -->

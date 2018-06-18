@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 02/27/2018
-ms.date: 04/02/2018
+origin.date: 05/11/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: cb59bff5aa7464184247a86647c405b226d7d8f0
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 6075d3c70bd34210147054e6139690615f2982e6
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568379"
 ---
+<!-- Notice: Change Source Location East Azure, China East TO Sourth East Asiz, China North --> 
 # <a name="map-virtual-networks-in-different-azure-regions"></a>可在不同 Azure 区域中的虚拟网络之间建立对等互连。
 
 本文介绍如何将不同 Azure 区域中的两个 Azure 虚拟网络实例相互映射。 网络映射可确保在目标 Azure 区域中创建复制的虚拟机时，同样在映射到源虚拟机虚拟网络的虚拟网络上创建该虚拟机。  
@@ -35,12 +37,15 @@ ms.lasthandoff: 03/28/2018
 ![网络映射窗口 - 创建网络映射](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
 在以下示例中，虚拟机在“中国东部”区域中运行。 虚拟机正在复制到“中国北部”区域。
+<!-- Notice: Change China East TO China North-->
 
 若要创建从“中国东部”区域到“中国北部”区域的网络映射，请选择源网络的位置和目标网络的位置。 选择“确定”。
+<!-- Notice: Change China East TO China North-->
 
 ![添加网络映射窗口-选择源网络的源和目标位置](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
 重复前面的过程，以创建从“中国北部”区域到“中国东部”区域的网络映射。
+<!-- Notice: Change China North TO China East-->
 
 ![添加网络映射窗格 - 选择目标网络的源和目标位置](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 

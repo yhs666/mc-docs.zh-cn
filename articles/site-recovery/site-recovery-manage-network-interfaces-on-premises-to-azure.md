@@ -6,14 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/05/2018
-ms.date: 04/02/2018
+origin.date: 05/11/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: b0655a2746f62906a3f379387ead8824271cef54
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: d85acbcc2269eda40cb383cf6fc34d6f7fddc0db
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568393"
 ---
 # <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>管理用于本地到 Azure 复制的虚拟机网络接口
 
@@ -71,4 +72,4 @@ Azure 中的虚拟机 (VM) 必须附加有至少一个网络接口。 它可以�
 
 ## <a name="next-steps"></a>后续步骤
   [深入了解](../virtual-network/virtual-network-network-interface-vm.md) Azure 虚拟机的网络接口。
-<!-- Update_Description: wording update  -->
+<!-- Update_Description: update meta properties -->

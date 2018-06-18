@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/23/2018
-ms.date: 05/08/2018
+origin.date: 05/11/2018
+ms.date: 06/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: d337da91ca7d2df672005d69d494f95b2b75f94c
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: f5627e6121c08882c47c302701693667c21d14e6
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568337"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>故障排除：Azure 点到站点连接问题
 
@@ -359,4 +360,4 @@ Azure VPN 网关类型必须是 VPN，VPN 类型必须是 RouteBased。
 
 在 VPN 客户端运行的计算机中检查睡眠和休眠设置。
 
-<!--Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

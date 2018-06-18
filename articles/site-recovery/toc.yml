@@ -101,6 +101,14 @@
               href: hyper-v-vmm-secondary-support-matrix.md
             - name: Hyper-V 到辅助站点体系结构
               href: hyper-v-vmm-architecture.md
+    - name: 网络
+      items:
+        - name: 将 Azure 流量管理器与 Site Recovery 配合使用
+          href: concepts-traffic-manager-with-site-recovery.md
+        - name: 将 ExpressRoute 与 Site Recovery 配合使用
+          href: concepts-expressroute-with-site-recovery.md
+        - name: 将网络安全组与 Site Recovery 配合使用
+          href: concepts-network-security-group-with-site-recovery.md
     - name: 应用的灾难恢复
       href: site-recovery-workload.md
     - name: 关于恢复计划
@@ -109,8 +117,6 @@
       href: migrate-overview.md
     - name: 关于将基于角色的访问控制与 Site Recovery 配合使用
       href: site-recovery-role-based-linked-access-control.md
-    - name: 关于将 Azure 流量管理器与 Site Recovery 配合使用
-      href: concepts-traffic-manager-with-site-recovery.md
     - name: 常见问题
       href: site-recovery-faq.md
 - name: 操作方法指南
@@ -119,16 +125,20 @@
       items:
         - name: 网络
           items:
-            - name: 管理网络以进行 Azure VM 灾难恢复（预览版）
+            - name: 管理网络以进行 Azure VM 灾难恢复
               href: azure-to-azure-about-networking.md
             - name: 准备用于 Azure VM 灾难恢复的网络映射
               href: azure-to-azure-network-mapping.md
             - name: 设置 IP 地址以进行故障转移
               href: site-recovery-retain-ip-azure-vm-failover.md
+            - name: 将 ExpressRoute 与 Azure VM 灾难恢复配合使用
+              href: azure-vm-disaster-recovery-with-expressroute.md
         - name: 灾难恢复
           items:
             - name: 迁移到 Azure 之后的 Azure VM 灾难恢复
               href: azure-to-azure-replicate-after-migration.md
+            - name: 使用 PowerShell 进行 Azure VM 灾难恢复
+              href: azure-to-azure-powershell.md
         - name: 复制、故障转移和故障回复
           items:
             - name: 启用 Azure 到 Azure 复制
@@ -139,6 +149,8 @@
           items:
             - name: 排查 Azure 到 Azure 复制的问题
               href: azure-to-azure-troubleshoot-errors.md
+            - name: 排查 Azure Site Recovery 扩展问题
+              href: site-recovery-extension-troubleshoot.md
     - name: VMware/物理服务器到 Azure
       items:
         - name: 网络
@@ -165,8 +177,6 @@
               href: vmware-azure-set-up-process-server-scale.md
         - name: 灾难恢复
           items:
-            - name: 带有多租户支持和 CSP 的 VMware VM 灾难恢复
-              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
             - name: 使用 PowerShell 将 VMware 虚拟机复制到 Azure
               href: vmware-azure-disaster-recovery-powershell.md
             - name: 物理服务器到 Azure 的灾难恢复
@@ -187,12 +197,14 @@
               href: vmware-azure-exclude-disk.md
             - name: 启用 VMware VM 复制
               href: vmware-azure-enable-replication.md
+            - name: 使用 CSP 且适用于 VMWare VM 的多租户
+              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
         - name: 部署移动服务
           items:
+            - name: 移动服务概述
+              href: vmware-azure-install-mobility-service.md
             - name: 使用 System Center Configuration Manager 部署移动服务
               href: vmware-azure-mobility-install-configuration-mgr.md
-            - name: 使用 Azure Automation DSC 部署移动服务
-              href: vmware-azure-mobility-deploy-automation-dsc.md
         - name: 故障转移和故障回复
           items:
             - name: 运行 Azure 灾难恢复演练

@@ -1,22 +1,23 @@
 ---
-title: "使用 Azure Site Recovery 针对 Azure 次要区域的 Azure VM 运行灾难恢复演练（预览）"
-description: "了解如何使用 Azure Site Recovery 服务针对 Azure 次要区域的 Azure VM 运行灾难恢复演练。"
+title: 使用 Azure Site Recovery 运行 Azure VM 到 Azure 次要区域的灾难恢复演练
+description: 了解如何使用 Azure Site Recovery 服务针对 Azure 次要区域的 Azure VM 运行灾难恢复演练。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 02/07/2018
-ms.date: 03/05/2018
+origin.date: 05/15/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 167808c03731848eeb955856736d45ba7ad2a666
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: c5e2da32212f5a711ed337c345be551e3b85111b
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568390"
 ---
-# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>针对 Azure 次要区域的 Azure VM 运行灾难恢复演练（预览）
+# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>运行 Azure VM 到 Azure 次要区域的灾难恢复演练
 
 [Azure Site Recovery](site-recovery-overview.md) 服务通过在计划内和计划外停机期间使商业应用程序保持启动和运行可用状态，有助于实施业务连续性和灾难恢复 (BCDR) 策略。 Site Recovery 管理并安排本地计算机和 Azure 虚拟机 (VM) 的灾难恢复，包括复制、故障转移和恢复。
 
@@ -25,6 +26,8 @@ ms.lasthandoff: 03/02/2018
 > [!div class="checklist"]
 > * 检查先决条件
 > * 为单个 VM 运行测试故障转移
+
+Azure 到 Azure 复制当前处于预览状态。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -52,4 +55,4 @@ ms.lasthandoff: 03/02/2018
 > [!div class="nextstepaction"]
 > [运行生产故障转移](azure-to-azure-tutorial-failover-failback.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->
