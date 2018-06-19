@@ -9,7 +9,7 @@
 | 最大 CA 数 | 10 个 |
 
 > [!NOTE]
-> 这些限制适用于公共预览版。 服务正式发布以后，即可联系[支持部门](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)，要求增加订阅中的实例数。
+> 可联系 [Azure 支持部门](https://www.azure.cn/support/contact/)，要求增加订阅中的实例数。
 
 超过以下配额时，设备预配服务将限制请求：
 

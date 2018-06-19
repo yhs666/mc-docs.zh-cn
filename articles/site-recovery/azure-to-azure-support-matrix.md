@@ -7,14 +7,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-origin.date: 03/29/2018
-ms.date: 05/07/2018
+origin.date: 05/21/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 638eca0a4fd592f74e480014490bfa97a6746f09
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 86dcf344d2449e47bbee194a14388d6515c8d4e8
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568340"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>用于在 Azure 区域之间进行复制的支持矩阵
 
@@ -30,7 +31,7 @@ ms.lasthandoff: 05/07/2018
 --- | ---
 **Azure 门户** | 支持
 **经典管理门户** | 不支持
-**PowerShell** | 目前不支持
+**PowerShell** | [使用 PowerShell 进行 Azure 到 Azure 的复制](azure-to-azure-powershell.md)
 **REST API** | 目前不支持
 **CLI** | 目前不支持
 
@@ -72,12 +73,12 @@ ms.lasthandoff: 05/07/2018
 
 #### <a name="linux"></a>Linux
 
-<!-- Not Available - Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3 -->
+<!-- Not Available - Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4 -->
 - CentOS 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2、7.3、7.4
 - Ubuntu 14.04 LTS 服务器[（受支持的内核版本）](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Ubuntu 16.04 LTS 服务器[（受支持的内核版本）](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-- Debian 7
-- Debian 8
+- Debian 7[（受支持的内核版本）](#supported-debian-kernel-versions-for-azure-virtual-machines)
+- Debian 8[（受支持的内核版本）](#supported-debian-kernel-versions-for-azure-virtual-machines)
 <!-- Not Available - Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3)-->
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
@@ -92,21 +93,21 @@ ms.lasthandoff: 05/07/2018
 
 **版本** | **移动服务版本** | **内核版本** |
 --- | --- | --- |
-14.04 LTS | 9.11 | 3.13.0-24-generic 到 3.13.0-125-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-83-generic |
-14.04 LTS | 9.12 | 3.13.0-24-generic 到 3.13.0-132-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-96-generic |
 14.04 LTS | 9.13 | 3.13.0-24-generic 到 3.13.0-137-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-104-generic |
 14.04 LTS | 9.14 | 3.13.0-24-generic 到 3.13.0-141-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-112-generic |
-16.04 LTS | 9.11 | 4.4.0-21-generic 到 4.4.0-83-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-27-generic |
-16.04 LTS | 9.12 | 4.4.0-21-generic 到 4.4.0-96-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-35-generic |
+14.04 LTS | 9.15 | 3.13.0-24-generic 到 3.13.0-143-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-116-generic |
+14.04 LTS | 9.16 | 3.13.0-24-generic 到 3.13.0-144-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-119-generic |
 16.04 LTS | 9.13 | 4.4.0-21-generic 到 4.4.0-104-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-42-generic |
 16.04 LTS | 9.14 | 4.4.0-21-generic 到 4.4.0-112-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-42-generic、<br/>4.11.0-13-generic 到 4.11.0-14-generic、<br/>4.13.0-16-generic 到 4.13.0-32-generic、<br/>4.11.0-1009-azure 到 4.11.0-1016-azure、<br/>4.13.0-1005-azure 到 4.13.0-1009-azure |
+16.04 LTS | 9.15 | 4.4.0-21-generic 到 4.4.0-116-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-42-generic、<br/>4.11.0-13-generic 到 4.11.0-14-generic、<br/>4.13.0-16-generic 到 4.13.0-37-generic、<br/>4.11.0-1009-azure 到 4.11.0-1016-azure、<br/>4.13.0-1005-azure 到 4.13.0-1012-azure |
+16.04 LTS | 9.16 | 4.4.0-21-generic 到 4.4.0-119-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-42-generic、<br/>4.11.0-13-generic 到 4.11.0-14-generic、<br/>4.13.0-16-generic 到 4.13.0-38-generic、<br/>4.11.0-1009-azure 到 4.11.0-1016-azure、<br/>4.13.0-1005-azure 到 4.13.0-1012-azure |
 
 ### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Azure 虚拟机支持的 Debian 内核版本
 
 **版本** | **移动服务版本** | **内核版本** |
 --- | --- | --- |
-Debian 7 | 9.14 | 3.2.0-4-amd64 到 3.2.0-5-amd64、3.16.0-0.bpo.4-amd64 |
-Debian 8 | 9.14 | 3.16.0-4-amd64 到 3.16.0-5-amd64、4.9.0-0.bpo.4-amd64 到 4.9.0-0.bpo.5-amd64 |
+Debian 7 | 9.14、9.15、9.16 | 3.2.0-4-amd64 到 3.2.0-5-amd64、3.16.0-0.bpo.4-amd64 |
+Debian 8 | 9.14、9.15、9.16 | 3.16.0-4-amd64 到 3.16.0-5-amd64、4.9.0-0.bpo.4-amd64 到 4.9.0-0.bpo.5-amd64 |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>运行 Linux OS 的 Azure 虚拟机上支持的文件系统和来宾存储配置
 
@@ -154,12 +155,14 @@ Azure 库映像 - 第三方发布 | 支持 | 只要 VM 在 Site Recovery 支持�
 Azure 磁盘加密 (ADE) | 不支持 |
 热添加/移除磁盘 | 不支持 | 如果在 VM 上添加或删除数据磁盘，需要先禁用复制然后重新为 VM 启用复制。
 排除磁盘 | 不支持|   默认情况下，排除临时磁盘。
+存储空间直通  | 不支持|
+横向扩展文件服务器  | 不支持|
 LRS | 支持 |
 GRS | 支持 |
 RA-GRS | 支持 |
 ZRS | 不支持 |  
 冷存储和热存储 | 不支持 | 冷存储和热存储不支持虚拟机磁盘
-虚拟网络服务终结点（Azure 存储防火墙和虚拟网络）  | 否 | 不支持访问用于存储复制数据的缓存存储帐户上特定的 Azure 虚拟网络。
+虚拟网络的 Azure 存储防火墙  | 否 | 不支持访问用于存储复制数据的缓存存储帐户上特定的 Azure 虚拟网络。
 常规用途 V2 存储帐户（包括热存储层和冷存储层） | 否 | 与常规用途 V1 存储帐户相比，事务成本大幅增加
 
 >[!IMPORTANT]
@@ -183,10 +186,12 @@ Azure 托管 DNS | 支持 |
 未经身份验证的代理 | 支持 | 请参阅[网络指南文档。](site-recovery-azure-to-azure-networking-guidance.md)    
 经过身份验证的代理 | 不支持 | 如果 VM 正在使用经过身份验证的代理进行出站连接，则不可使用 Azure Site Recovery 进行复制。    
 本地站点到站点 VPN（使用或不使用 ExpressRoute）| 支持 | 确保将 UDR 和 NSG 配置为站点恢复流量不会路由到本地。 请参阅[网络指南文档。](site-recovery-azure-to-azure-networking-guidance.md)  
-VNET 到 VNET 连接 | 支持 | 请参阅[网络指南文档](site-recovery-azure-to-azure-networking-guidance.md)。  
+VNET 到 VNET 连接 | 支持 | 请参阅[网络指南文档。](site-recovery-azure-to-azure-networking-guidance.md)  
+虚拟网络服务终结点 | 支持 | 不支持虚拟网络的 Azure 存储防火墙。 不支持访问用于存储复制数据的缓存存储帐户上特定的 Azure 虚拟网络。
+<!-- 在加速网络上不可用 | 不支持 | 可以复制启用了加速网络的 VM，但故障转移 VM 不会启用加快网络。 而且，还会在故障回复后禁用源 VM 的加速网络。-->
 
 ## <a name="next-steps"></a>后续步骤
 - 详细了解 [Azure VM 复制网络指南](site-recovery-azure-to-azure-networking-guidance.md)
 - [复制 Azure VM](site-recovery-azure-to-azure.md)，开始对工作负荷进行保护
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

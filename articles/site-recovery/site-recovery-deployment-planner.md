@@ -12,14 +12,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 03/09/2018
-ms.date: 04/02/2018
+origin.date: 05/02/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 33deec7038d2fa2a8697c8af87f2c14069cdf8e0
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 1f5332e17cb4c51113d0ee09287a9fb007f51fb5
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568407"
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>适用于 VMware 到 Azure 部署的 Azure Site Recovery 部署规划器
 本文为适用于 VMware 到 Azure 生产部署的 Azure Site Recovery 部署规划器用户指南。
@@ -105,9 +106,9 @@ ms.lasthandoff: 03/28/2018
 该文件夹包含多个文件和子文件夹。 可执行文件是父文件夹中的 ASRDeploymentPlanner.exe。
 
     示例：将 .zip 文件复制到 E:\ 驱动器并将它解压缩。
-    E:\ASR Deployment Planner_v2.1zip
+    E:\ASR Deployment Planner_v2.2.zip
 
-    E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>更新至最新版本的部署规划器
 如果部署规划器为旧版，请执行以下操作之一：
@@ -121,9 +122,9 @@ ms.lasthandoff: 03/28/2018
  >每个新的部署规划器版本都是 .zip 文件的累积更新。 不需要将最新文件复制到旧文件夹。 可以创建和使用新文件夹。
 
 ## <a name="version-history"></a>版本历史记录
-最新的 Site Recovery 部署规划器工具版本为 2.1。
+最新的 Site Recovery 部署规划器工具版本为 2.2。
 请参阅 [Site Recovery 部署规划器版本历史记录](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx)页，了解每个更新中增加的修补程序。
 
 ## <a name="next-steps"></a>后续步骤
 [运行 Site Recovery 部署规划器](site-recovery-vmware-deployment-planner-run.md)
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

@@ -1,11 +1,11 @@
 ---
-title: "Azure 订阅限制和配额 | Microsoft Docs"
-description: "提供常见的 Azure 订阅和服务限制、配额和约束的列表。 这包括有关如何增加限制以及最大值的信息。"
-services: 
-documentationcenter: 
+title: Azure 订阅限制和配额 | Microsoft Docs
+description: 提供常见的 Azure 订阅和服务限制、配额和约束的列表。 这包括有关如何增加限制以及最大值的信息。
+services: ''
+documentationcenter: ''
 author: rothja
 manager: jeffreyg
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
@@ -13,14 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/11/2017
-ms.date: 03/16/2018
-ms.author: v-junlch
-ms.openlocfilehash: 8ecb544daf49e136172e27e913ce9e371620946b
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+origin.date: 03/29/2018
+ms.date: 06/18/2018
+ms.author: v-johch
+ms.openlocfilehash: 7fbdeee32bbf9f8bc3785cd70f33241fba186a6c
+ms.sourcegitcommit: 7d01230972e7a7c4fd1aaf22220fb04a05726135
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568625"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将进行扩展和更新，以涵盖更多平台。
@@ -28,9 +29,9 @@ ms.lasthandoff: 03/17/2018
 若要了解有关 Azure 定价的详细信息，请访问 [Azure 定价概述](https://www.azure.cn/pricing/)。 在那里可以使用[定价计算器](https://www.azure.cn/pricing/calculator/)或访问某服务（例如，[Windows VM](https://www.azure.cn/pricing/details/virtual-machines/#Windows)）的定价详细信息页估计成本。 有关帮助管理成本的提示，请参阅[通过 Azure 计费和成本管理来防止意外成本](billing/billing-getting-started.md)。
 
 > [!NOTE]
-> 如果想要提高限制或配额，使其超出**默认限制**，可以[打开免费的联机客户支持请求](azure-supportability/resource-manager-core-quotas-request.md)。 无法将限制提高到超过下表中显示的**最大限制**值。 如果没有 **最大限制** 列，则资源没有可调整的限制。
+> 如果想要提高限制或配额，使其超出**默认限制**，可以[打开免费的联机客户支持请求](azure-resource-manager/resource-manager-quota-errors.md)。 无法将限制提高到超过下表中显示的**最大限制**值。 如果没有 **最大限制** 列，则资源没有可调整的限制。
 >
-> [1 元试用订阅](https://www.azure.cn/pricing/1rmb-trial)没有资格增大限制或配额。 如果有 [1 元试用订阅](https://www.azure.cn/pricing/1rmb-trial)，可将其升级到即用即付订阅。 有关详细信息，请参阅[将 Azure 1 元试用升级到即用即付](billing/billing-upgrade-azure-subscription.md)和 [1 元试用订阅常见问题解答](https://www.azure.cn/pricing/1rmb-trial/)。
+> [1 元试用订阅](https://www.azure.cn/pricing/1rmb-trial)没有资格增大限制或配额。 如果有 [1 元试用订阅](https://www.azure.cn/pricing/1rmb-trial)，可将其升级到 PIA 订阅。 有关详细信息，请参阅[将 Azure 1 元试用升级到即用即付](billing/billing-upgrade-azure-subscription.md)和 [1 元试用订阅常见问题解答](https://www.azure.cn/pricing/1rmb-trial/)。
 >
 
 ## <a name="limits-and-the-azure-resource-manager"></a>限制和 Azure Resource Manager
@@ -39,9 +40,8 @@ ms.lasthandoff: 03/17/2018
 在下面的限制中，添加了一个新表以反映在使用 Azure Resource Manager 时限制中的任何差异。 例如，会存在一个**订阅限制**表和一个**订阅数限制 - Azure Resource Manager** 表。 如果某个限制同时适用于这两种方案，它会仅显示在第一个表中。 除非另有说明，否则限制是跨所有区域的全局限制。
 
 > [!NOTE]
-> 请务必强调 Azure 资源组中的资源配额是用户的订阅可以访问的每个区域，而不像服务管理配额那样是可以访问的每个订阅。 让我们以 vCPU 配额为例。 如果要根据对 vCPU 的支持请求增加配额，则需要决定要在哪些区域中使用多少 vCPU，然后针对所需的 Azure 资源组 vCPU 配额的数量和区域发出特定请求。 因此，如果需要在西欧使用 30 个 vCPU 以在那里运行应用程序，则应专门在西欧请求 30 个 vCPU。 但这不会增加任何其他区域的 vCPU 配额 - 仅西欧会有 30 个 vCPU 配额。
-> <!-- -->
-> 因此，可能会发现考虑决定你在任何一个区域中的工作负荷所需的 Azure 资源组配额数量，以及请求你考虑在其中进行部署的每个区域的数量很有用。 有关发现特定区域的当前配额的更多帮助，请参阅[排查部署问题](resource-manager-common-deployment-errors.md)。
+> 请务必强调 Azure 资源组中的资源配额是用户的订阅可以访问的每个区域，而不像服务管理配额那样是可以访问的每个订阅。 让我们以 vCPU 配额为例。 如果要根据对 vCPU 的支持请求增加配额，则需要决定要在哪些区域中使用多少 vCPU，然后针对所需的 Azure 资源组 vCPU 配额的数量和区域发出特定请求。 因此，如果需要在中国北部使用 20 个 vCPU 以在那里运行应用程序，则应专门在中国北部请求 20 个 vCPU。 但这不会增加任何其他区域的 vCPU 配额。
+> <!-- --> 因此，可以考虑针对任意区域中的工作负荷来确定所需的 Azure 资源组配额，然后在每个考虑在其中进行部署的区域请求相应的量。 有关发现特定区域的当前配额的更多帮助，请参阅[排查部署问题](resource-manager-common-deployment-errors.md)。
 >
 >
 
@@ -138,9 +138,6 @@ ms.lasthandoff: 03/17/2018
 
 [!INCLUDE [storage-files-scale-targets](../includes/storage-files-scale-targets.md)]
 
-#### <a name="azure-file-sync-limits"></a>Azure 文件同步限制
-[!INCLUDE [storage-sync-files-scale-targets](../includes/storage-sync-files-scale-targets.md)]
-
 #### <a name="azure-queue-storage-limits"></a>Azure 队列存储限制
 [!INCLUDE [storage-queues-scale-targets](../includes/storage-queues-scale-targets.md)]
 
@@ -151,7 +148,7 @@ ms.lasthandoff: 03/17/2018
 #### <a name="virtual-machine-disk-limits"></a>虚拟机磁盘限制
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-有关其他详细信息，请参阅[虚拟机大小](virtual-machines/linux/sizes.md)。
+有关其他详细信息，请参阅[虚拟机大小](virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 #### <a name="managed-virtual-machine-disks"></a>托管虚拟机磁盘
 
@@ -177,9 +174,6 @@ ms.lasthandoff: 03/17/2018
 ### <a name="batch-limits"></a>批处理限制
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB 限制
-Azure Cosmos DB 是全局缩放数据库，可对吞吐量和存储进行缩放，以处理应用程序的任何需求。 如果对 Azure Cosmos DB 提供的规模有任何问题，请发送电子邮件到 askcosmosdb@microsoft.com。
-
 ### <a name="media-services-limits"></a>媒体服务限制
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
@@ -204,8 +198,6 @@ Azure Cosmos DB 是全局缩放数据库，可对吞吐量和存储进行缩放�
 ### <a name="iot-hub-device-provisioning-service-limits"></a>IoT 中心设备预配服务限制
 [!INCLUDE [azure-iotdps-limits](../includes/iot-dps-limits.md)]
 
-### <a name="database-migration-service-limits"></a>数据库迁移服务限制
-[!INCLUDE [database-migration-service-limits](../includes/database-migration-service-limits.md)]
 
 ### <a name="stream-analytics-limits"></a>流分析限制
 [!INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
@@ -243,8 +235,8 @@ Azure Cosmos DB 是全局缩放数据库，可对吞吐量和存储进行缩放�
 ## <a name="see-also"></a>另请参阅
 [了解 Azure 限制和增加](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Azure 的虚拟机和云服务大小](virtual-machines/linux/sizes.md)
+[Azure 的虚拟机和云服务大小](virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [云服务的大小](cloud-services/cloud-services-sizes-specs.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: update limits and quotas -->

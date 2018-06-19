@@ -12,15 +12,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/27/2018
-ms.date: 05/07/2018
+origin.date: 05/11/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2e3fd7f8ad86ca7fd75ffe83703bf856afbcc4a2
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 9f50c89c4c148947c293aed987070c8392c67802
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867429"
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568342"
 ---
 <!-- IMPORTANT: THIS ARTICLE DESCRIBE THE CONNECTION BETWEEN Source(China East) to Target(China North)-->
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>为 Azure 虚拟机故障转移保留 IP 地址
@@ -37,10 +37,10 @@ Azure Site Recovery 支持对 Azure VM 进行灾难恢复。 在从一个 Azure 
 
 下面是故障转移之前网络体系结构的外观：
 - 应用程序 VM 托管在 Azure 中国东部，利用地址空间为 10.1.0.0/16 的 Azure 虚拟网络。 此虚拟网络名为**源 VNet**。
-- 应用程序工作负荷将拆分到以下三个子网 - 10.1.0.0/24、10.1.1.0/24 和 10.1.2.0/24，它们分别名为**子网 1**、**子网 2** 和**子网 3**。
+- 应用程序工作负荷将拆分到以下三个子网 - 10.1.1.0/24、10.1.2.0/24、10.1.3.0/24，分别名为**子网 1**、**子网 2** 和**子网 3**。
 - Azure 中国北部是目标区域，包含一个用于模拟源中地址空间和子网配置的恢复虚拟网络。 此虚拟网络名为**恢复 VNet**。
 <!-- Notice: Target is China North-->
-- 副本节点（例如 Always On、域控制器等组件所需的节点）放置在地址为 20.1.0.0/24 的子网 4 中地址空间为 20.1.0.0/16 的虚拟网络内。 此虚拟网络名为 **Azure VNet**，位于 Azure 中国北部。
+- 副本节点（如 Always On、域控制器等组件所需的节点）放置在地址为 10.2.4.0/24 的子网 4 中地址空间为 10.2.0.0/16 的虚拟网络内。 此虚拟网络名为 **Azure VNet**，位于 Azure 中国北部。
 <!-- Notice: Target is China North-->
 - **源 VNet** 和 **Azure VNet** 通过 VPN 站点到站点连接建立连接。
 - **恢复 VNet** 未与其他任何虚拟网络相连接。
@@ -67,11 +67,11 @@ Azure Site Recovery 支持对 Azure VM 进行灾难恢复。 在从一个 Azure 
 若要构建具有复原能力的单个应用程序，我们建议将应用程序托管在其自身的专用虚拟网络中，并根据需要这些虚拟网络之间建立连接。 这样，便可以实现隔离的应用程序故障转移，同时保留原始专用 IP 地址。
 
 故障转移之前的配置如下所示：
-- 应用程序 VM 托管在 Azure 中国东部，对第一个和第二个应用程序分别使用地址空间为 10.1.0.0/16 和 15.1.0.0/16 的 Azure 虚拟网络。 第一个和第二个应用程序的虚拟网络分别名为**源 VNet1** 和**源 VNet2**。
+- 应用程序 VM 托管在 Azure 中国东部，对第一个和第二个应用程序分别使用地址空间为 10.1.0.0/16 和 10.2.0.0/16 的 Azure 虚拟网络。 第一个和第二个应用程序的虚拟网络分别名为**源 VNet1** 和**源 VNet2**。
 - 每个 VNet 进一步划分为两个子网。
 - Azure 中国北部是目标区域，包含恢复虚拟网络“恢复 VNet1”和“恢复 VNet2”。
 <!-- Notice: Target is China North-->
-- 副本节点（例如 Always On、域控制器等组件所需的节点）放置在地址为 20.1.0.0/24 的**子网 4** 中地址空间为 20.1.0.0/16 的虚拟网络内。 此虚拟网络名为 Azure VNet，位于 Azure 中国北部。
+- 副本节点（如 Always On、域控制器等组件所需的节点）放置在地址为 10.3.4.0/24 的**子网 4** 中地址空间为 10.3.0.0/16 的虚拟网络内。 此虚拟网络名为 Azure VNet，位于 Azure 中国北部。
 <!-- Notice: Target is China North-->
 - **源 VNet1** 和 **Azure VNet** 通过 VPN 站点到站点连接建立连接。 同样，**源 VNet2** 和 **Azure VNet** 也通过 VPN 站点到站点连接建立连接。
 - 本示例中的**源 VNet1** 和**源 VNet2** 还通过 S2S VPN 建立连接。 由于两个 VNet 位于同一个区域，因此还使用了 VNet 对等互连，而未使用 S2S VPN。
@@ -99,7 +99,7 @@ VPN 网关利用公共 IP 地址和网关跃点建立连接。 如果不想使�
 
 下面是故障转移之前网络体系结构的外观：
 - 应用程序 VM 托管在 Azure 中国东部，利用地址空间为 10.1.0.0/16 的 Azure 虚拟网络。 此虚拟网络名为**源 VNet**。
-- 应用程序工作负荷将拆分到以下三个子网 - 10.1.0.0/24、10.1.1.0/24 和 10.1.2.0/24，它们分别名为**子网 1**、**子网 2** 和**子网 3**。
+- 应用程序工作负荷将拆分到以下三个子网 - 10.1.1.0/24、10.1.2.0/24、10.1.3.0/24，分别名为**子网 1**、**子网 2** 和**子网 3**。
 - Azure 中国北部是目标区域，包含一个用于模拟源中地址空间和子网配置的恢复虚拟网络。 此虚拟网络名为**恢复 VNet**。
 <!--Target is China North-->
 - Azure 中国东部的 VM 通过 ExpressRoute 或站点到站点 VPN 连接到本地数据中心。

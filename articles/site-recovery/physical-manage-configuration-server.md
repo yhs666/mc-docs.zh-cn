@@ -6,13 +6,14 @@ author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
 origin.date: 04/11/2018
-ms.date: 05/07/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7a3ffd8272d8474c93c9eb31a0e86a3b821c18cf
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 4ab83d5c1b2c2ed95b790d382aef18bfd137d09a
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568336"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>为物理服务器灾难恢复管理配置服务器
 
@@ -258,7 +259,7 @@ ProxyPassword="Password"
 1. [安装](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模块
 2. 使用命令登录到 Azure 帐户
 
-    `Login-AzureRmAccount -EnvironmentName AzureChinaCloud`
+    `Connect-AzureRmAccount -Environment AzureChinaCloud`
 3. 选择其下存在保管库的订阅
 
      `Get-AzureRmSubscription -SubscriptionName <your subscription name> | Select-AzureRmSubscription`

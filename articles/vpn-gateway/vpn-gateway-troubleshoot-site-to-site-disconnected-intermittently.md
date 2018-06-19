@@ -1,29 +1,30 @@
 ---
-title: "排查 Azure 站点到站点 VPN 间歇性地断开连接的问题 | Microsoft Docs"
-description: "了解如何排查站点到站点 VPN 定期连接断开的问题。"
+title: 排查 Azure 站点到站点 VPN 间歇性地断开连接的问题 | Microsoft Docs
+description: 了解如何排查站点到站点 VPN 定期连接断开的问题。
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
-editor: 
-tags: 
+author: chadmath
+manager: cshepard
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 11/03/2017
-ms.date: 12/11/2017
+origin.date: 05/11/2018
+ms.date: 06/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: 01a6f3ced68d3e7dda156b52630640f4d911490e
-ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
+ms.openlocfilehash: 06910551ba95c963a73973d7a57b8677495fa7b0
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568286"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>故障排除：Azure 站点到站点 VPN 间歇性断开连接
 
-我们可能会遇到新的或现有的 Azure 点到站点 VPN 连接不稳定或定期断开连接的问题。 本文提供故障排除步骤，帮助确定并解决问题的原因。 
+我们可能会遇到新的或现有的 Azure 站点到站点 VPN 连接不稳定或定期断开连接的问题。 本文提供故障排除步骤，帮助确定并解决问题的原因。 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -76,4 +77,4 @@ ms.lasthandoff: 12/12/2017
 - [配置站点到站点 VPN 连接的 IPsec/IKE 策略](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 
 
-<!--Update_Description: update metadata properties-->
+<!-- Update_Description: wording update -->

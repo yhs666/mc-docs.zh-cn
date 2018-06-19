@@ -7,13 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 03/06/2018
-ms.date: 04/02/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0c649e3b95dcc03e6eacd5ca1c7dc615388d69f6
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 74d9135ec6faca0cfe9311c679192ad676928c82
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568363"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>用于 Hyper-V 到 Azure 的复制的支持矩阵
 
@@ -22,9 +23,9 @@ ms.lasthandoff: 03/28/2018
 ## <a name="supported-scenarios"></a>支持的方案
 
 **方案** | **详细信息**
---- | --- 
+--- | ---
 使用 Virtual Machine Manager 的 Hyper-V | 对于托管在 System Center Virtual Machine Manager 结构中的 Hyper-V 主机，可针对在其上运行的 VM 执行到 Azure 的灾难恢复。<br/><br/> 可以在 Azure 门户中部署此方案，也可使用 PowerShell 进行部署。<br/><br/> 由 Virtual Machine Manager 托管 Hyper-V 主机时，也可以执行到辅助本地站点的灾难恢复。 若要了解有关此方案的详细信息，请阅读[此教程](tutorial-vmm-to-vmm.md)。
-不使用 Virtual Machine Manager 的 Hyper-V | 对于并非由 Virtual Machine Manager 托管的 Hyper-V 主机，可针对在其上运行的 VM 执行到 Azure 的灾难恢复。<br/><br/> 可以在 Azure 门户中部署此方案，也可使用 PowerShell 进行部署。 
+不使用 Virtual Machine Manager 的 Hyper-V | 对于并非由 Virtual Machine Manager 托管的 Hyper-V 主机，可针对在其上运行的 VM 执行到 Azure 的灾难恢复。<br/><br/> 可以在 Azure 门户中部署此方案，也可使用 PowerShell 进行部署。
 
 ## <a name="on-premises-servers"></a>本地服务器
 
@@ -35,7 +36,7 @@ Hyper-V（使用 Virtual Machine Manager 运行） | Virtual Machine Manager 201
 
 ## <a name="replicated-vms"></a>复制的 VM
 
-下表汇总了 VM 支持。 Site Recovery 支持在受支持的操作系统上运行的任何工作负荷。 
+下表汇总了 VM 支持。 Site Recovery 支持在受支持的操作系统上运行的任何工作负荷。
 
  **组件** | **详细信息**
 --- | ---
@@ -69,7 +70,8 @@ Azure 流量管理器 | 是 | 是
 保留 IP | 是 | 是
 IPv4 | 是 | 是
 保留源 IP 地址 | 是 | 是
-Azure 虚拟网络服务终结点<br/><br/> （Azure 存储防火墙和虚拟网络） | 否 | 否
+Azure 虚拟网络服务终结点<br/> （不带 Azure 存储防火墙） | 是 | 是
+<!-- 在加速网络上不可用 | 否 | 否-->
 
 ## <a name="hyper-v-host-storage"></a>Hyper-V 主机存储
 
@@ -115,7 +117,7 @@ RDM | 不可用 | 不可用
 静态加密 (SSE)| 是 | 是
 高级存储 | 是 | 是
 导入/导出服务 | 否 | 否
-Azure 虚拟网络服务终结点（Azure 存储防火墙和虚拟网络），目的是缓存用于复制数据的存储帐户 | 否 | 否
+在目标存储/缓存存储帐户（用来存储复制数据）上配置的用于虚拟网络的 Azure 存储防火墙 | 否 | 否
 
 <a name="failed-over-azure-vm-requirements"></a>
 ## <a name="azure-compute-features"></a>Azure 计算功能
@@ -144,14 +146,14 @@ FC 磁盘 | 不支持 | 如果不支持，先决条件检查会失败。
 硬盘格式 | VHD <br/><br/> VHDX | 故障转移到 Azure 时，Site Recovery 自动将 VHDX 转换为 VHD。 故障回复到本地时，虚拟机将继续使用 VHDX 格式。
 BitLocker | 不支持 | 为 VM 启用复制之前，必须先禁用 BitLocker。
 VM 名称 | 介于 1 和 63 个字符之间。 限制为字母、数字和连字符。 VM 名称必须以字母或数字开头和结尾。 | 在 Site Recovery 中更新 VM 属性中的值。
-VM 类型 | 第 1 代<br/><br/> 第 2 代 - Windows | OS 磁盘类型为“基本”的第 2 代 VM（其中包括一个或两个格式化为 VHDX 的数据卷），并且支持的磁盘空间大小小于 300 GB。<br></br>不支持 Linux 第 2 代 VM。 [了解详细信息](https://www.azure.cn/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。|
+VM 类型 | 第 1 代<br/><br/> 第 2 代 - Windows | OS 磁盘类型为“基本”的第 2 代 VM（其中包括一个或两个格式化为 VHDX 的数据卷），并且支持的磁盘空间大小小于 300 GB。<br></br>不支持 Linux 第 2 代 VM。 [了解详细信息](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。|
 
 ## <a name="recovery-services-vault-actions"></a>恢复服务保管库操作
 
 **操作** |  **使用 Virtual Machine Manager 的 Hyper-V** | **不使用 Virtual Machine Manager 的 Hyper-V**
---- | --- | --- 
-跨资源组移动保管库<br/><br/> 订阅内和跨订阅移动 | 否 | 否 
-跨资源组移动存储、网络和 Azure VM<br/><br/> 订阅内和跨订阅移动 | 否 | 否 
+--- | --- | ---
+跨资源组移动保管库<br/><br/> 订阅内和跨订阅移动 | 否 | 否
+跨资源组移动存储、网络和 Azure VM<br/><br/> 订阅内和跨订阅移动 | 否 | 否
 
 ## <a name="provider-and-agent"></a>提供程序和代理
 
@@ -159,9 +161,9 @@ VM 类型 | 第 1 代<br/><br/> 第 2 代 - Windows | OS 磁盘类型为“基�
 
 **名称** | **说明** | **详细信息**
 --- | --- | --- | --- | ---
-Azure Site Recovery 提供程序 | 协调本地服务器与 Azure 之间的通信 <br/><br/> 使用 Virtual Machine Manager 的 Hyper-V：在 Virtual Machine Manager 服务器上安装<br/><br/> 不使用 Virtual Machine Manager 的 Hyper-V：在 Hyper-V 主机上安装| 最新版本：5.1.2700.1（可从 Azure 门户获取）<br/><br/> [最新功能和修复](https://aka.ms/latest_asr_updates)
+Azure Site Recovery 提供程序 | 协调本地服务器与 Azure 之间的通信 <br/><br/> 使用 Virtual Machine Manager 的 Hyper-V：在 Virtual Machine Manager 服务器上安装<br/><br/> 不使用 Virtual Machine Manager 的 Hyper-V：在 Hyper-V 主机上安装| 最新版本：5.1.2700.1（可从 Azure 门户获取）<br/><br/> [最新功能和修复](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Azure 恢复服务代理 | 协调 Hyper-V VM 与 Azure 之间的复制<br/><br/> 在本地 Hyper-V 服务器（使用或不使用 Virtual Machine Manager）上安装 | 可从门户获取最新代理
 
 ## <a name="next-steps"></a>后续步骤
 了解如何为本地 Hyper-V VM 的灾难恢复[准备 Azure](tutorial-prepare-azure.md)。
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

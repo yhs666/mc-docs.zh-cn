@@ -14,13 +14,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/28/2018
-ms.date: 05/08/2018
+ms.date: 06/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: 39b3b95784b6bb13c0b614a1f6224e646ac062bf
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.openlocfilehash: af0c0115c52487091ffe353b256e22266ab13457
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568391"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>使用 PowerShell 创建具有站点到站点 VPN 连接的 VNet
 
@@ -51,7 +52,7 @@ ms.lasthandoff: 05/10/2018
 如果选择在本地安装和使用 PowerShell，请安装最新版本的 Azure 资源管理器 PowerShell cmdlet。 PowerShell cmdlet 经常会更新，因此，你通常需要更新 PowerShell cmdlet 才能获得最新功能。 如果未更新 PowerShell cmdlet，指定的值可能无法使用。 
 
 若要查找所使用的版本，请运行“Get-Module -ListAvailable AzureRM”。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
-如果在本地运行 PowerShell，则还需运行“Login-AzureRmAccount -EnvironmentName AzureChinaCloud”以创建与 Azure 的连接。
+如果在本地运行 PowerShell，则还需运行“Connect-AzureRmAccount -Environment AzureChinaCloud”以创建与 Azure 的连接。
 
 
 ### <a name="example"></a>示例值
@@ -265,4 +266,4 @@ VPN 连接有几种不同的验证方式。
 - 有关使用 Azure 资源管理器模板创建站点到站点 VPN 连接的信息，请参阅[创建站点到站点 VPN 连接](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/)。
 - 有关使用 Azure 资源管理器模板创建 vnet 到 vnet VPN 连接的信息，请参阅[部署 HBase 异地复制](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/)。
 
-<!--Update_Description: wording update --> 
+<!--Update_Description: code update --> 

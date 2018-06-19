@@ -1,19 +1,20 @@
 ---
-title: "使用 Azure Site Recovery 设置 VMM 云中的本地 Hyper-V VM 到 Azure 的灾难恢复 | Azure"
-description: "了解如何使用 Azure Site Recovery 服务设置 System Center VMM 云中的本地 Hyper-V VM 到 Azure 的灾难恢复。"
+title: 使用 Azure Site Recovery 设置 VMM 云中的本地 Hyper-V VM 到 Azure 的灾难恢复 | Azure
+description: 了解如何使用 Azure Site Recovery 服务设置 System Center VMM 云中的本地 Hyper-V VM 到 Azure 的灾难恢复。
 services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/14/2018
-ms.date: 03/05/2018
+origin.date: 05/02/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 04baba444e3ceb9182b73793759160c85ed82ac7
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 98d211e3720a11d2e37f4fcec94ff86f98f80673
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568325"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>设置 VMM 云中的本地 Hyper-V VM 到 Azure 的灾难恢复
 
@@ -123,4 +124,4 @@ Site Recovery 检查是否有一个或多个兼容的 Azure 存储帐户和网�
 
 ## <a name="next-steps"></a>后续步骤
 [运行灾难恢复演练](tutorial-dr-drill-azure.md)
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties  -->

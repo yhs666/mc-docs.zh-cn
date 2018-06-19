@@ -1,11 +1,11 @@
 ---
-title: "为 S2S VPN 或 VNet 到 VNet 的连接配置 IPsec/IKE 策略: Azure 资源管理器: PowerShell | Microsoft Docs"
-description: "使用 Azure 资源管理器和 PowerShell 通过 Azure VPN 网关为 S2S 或 VNet 到 VNet 的连接配置 IPsec/IKE 策略。"
+title: '为 S2S VPN 或 VNet 到 VNet 的连接配置 IPsec/IKE 策略: Azure 资源管理器: PowerShell | Microsoft Docs'
+description: 使用 Azure 资源管理器和 PowerShell 通过 Azure VPN 网关为 S2S 或 VNet 到 VNet 的连接配置 IPsec/IKE 策略。
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.date: 06/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0b091fbc2c606868720d9fda07b90410fd1e81e2
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 6803f3f8e849aa8e846609ebe709ed6881c9c0a9
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568401"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>为 S2S VPN 或 VNet 到 VNet 的连接配置 IPsec/IKE 策略
 
@@ -122,7 +123,7 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 请�
 
 ### <a name="before"></a>准备工作
 
-- 确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+- 确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用版帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 - 安装 Azure 资源管理器 PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview)。
 
 ### <a name="createvnet1"></a>步骤 1 - 创建虚拟网络、VPN 网关和本地网关
@@ -163,7 +164,7 @@ $LNGIP6        = "131.107.72.22"
 打开 PowerShell 控制台并连接到帐户。 使用下面的示例来帮助连接：
 
 ```powershell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
@@ -411,4 +412,4 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 
 连接完成后，即可将虚拟机添加到虚拟网络。 请参阅 [创建虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 以获取相关步骤。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: code update -->

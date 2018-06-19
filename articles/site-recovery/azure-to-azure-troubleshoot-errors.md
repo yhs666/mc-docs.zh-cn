@@ -1,20 +1,21 @@
 ---
-title: "Azure 到 Azure 复制问题和错误的 Azure Site Recovery 故障排除 | Azure"
-description: "排查复制 Azure 虚拟机进行灾难恢复时出现的错误和问题"
+title: Azure 到 Azure 复制问题和错误的 Azure Site Recovery 故障排除 | Azure
+description: 排查复制 Azure 虚拟机进行灾难恢复时出现的错误和问题
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2018
-ms.date: 03/05/2018
+origin.date: 05/16/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: e5a0b7f0874a5927a5bbeeea5bd174cbb4c3b0fc
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 3c6bd46622cf3dd9c347cfb78ff59542e8a9a7a5
+ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35568300"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 到 Azure VM 复制问题故障排除
 
@@ -198,6 +199,16 @@ ms.lasthandoff: 03/02/2018
 
 - 如果“预配状态”为“失败”，请联系支持人员并提供详细信息以排除故障。
 - 如果“预配状态”为“正在更新”，则无法部署另一扩展。 检查 VM 上是否有任何正在进行的操作，等待它们完成，然后重试失败的 Site Recovery“启用复制”作业。
+
+## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM+/卷影复制服务错误（错误代码 151025）
+错误代码 | 可能的原因 | **建议**
+--- | --- | ---
+151025<br></br>**消息**：Site Recovery 扩展安装失败 | - 禁用了“COM + 系统应用程序”服务。</br></br>- 禁用了“卷影复制”服务。| 将“COM + 系统应用程序”和“卷影复制”服务设置为自动或手动启动模式。
+
+### <a name="fix-the-problem"></a>解决问题
+
+可以打开“服务”控制台并确保“COM + 系统应用程序”和“卷影复制”的“启动类型”未设置为“已禁用”。
+  ![com-error](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
 ## <a name="next-steps"></a>后续步骤
 [复制 Azure 虚拟机](site-recovery-replicate-azure-to-azure.md)
