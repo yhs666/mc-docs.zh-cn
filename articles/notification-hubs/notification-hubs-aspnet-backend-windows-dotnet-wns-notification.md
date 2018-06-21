@@ -1,11 +1,11 @@
 ---
-title: "Azure 通知中心 - 使用 .NET 后端通知用户"
-description: "了解如何在 Azure 中发送安全推送通知。 代码示例是使用 .NET API 通过 C# 编写的。"
+title: Azure 通知中心 - 使用 .NET 后端通知用户
+description: 了解如何在 Azure 中发送安全推送通知。 代码示例是使用 .NET API 通过 C# 编写的。
 documentationCenter: windows
 authors: wesmc7777
 manager: erikre
 services: notification-hubs
-editor: 
+editor: ''
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
+ms.locfileid: "20453227"
 ---
 #<a name="azure-notification-hubs-notify-users-with-net-backend"></a>Azure 通知中心 - 使用 .NET 后端通知用户
 

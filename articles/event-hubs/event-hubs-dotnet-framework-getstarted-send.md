@@ -1,11 +1,11 @@
 ---
-title: "使用 .NET Framework 将事件发送到 Azure 事件中心 | Azure"
-description: "使用 .NET Framework 将事件发送到事件中心入门"
+title: 使用 .NET Framework 将事件发送到 Azure 事件中心 | Azure
+description: 使用 .NET Framework 将事件发送到事件中心入门
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
 ms.service: event-hubs
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29798015"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>使用 .NET Framework 将事件发送到 Azure 事件中心
 

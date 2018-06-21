@@ -1,11 +1,11 @@
 ---
-title: "针对 Azure web 应用的开源技术常见问题解答 | Azure"
-description: "获取有关 Azure App Service Web 应用功能中开源技术常见问题的解答。"
+title: 针对 Azure web 应用的开源技术常见问题解答 | Azure
+description: 获取有关 Azure App Service Web 应用功能中开源技术常见问题的解答。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/28/2017
+ms.locfileid: "20634179"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>针对 Azure 中 Web 应用的开源技术常见问题的解答
 

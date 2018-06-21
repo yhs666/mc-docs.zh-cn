@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 应用服务中监视应用 | Azure"
-description: "了解如何使用 Azure 门户在 Azure 应用服务中监视应用。"
+title: 在 Azure 应用服务中监视应用 | Azure
+description: 了解如何使用 Azure 门户在 Azure 应用服务中监视应用。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: btardif
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/28/2017
+ms.locfileid: "25949575"
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>如何：在 Azure 应用服务中监视 Web 应用
 [应用服务](/app-service-web/app-service-changes-existing-services)在 [Azure 门户](https://portal.azure.cn)中提供了内置监视功能。
@@ -52,7 +53,7 @@ ms.lasthandoff: 11/28/2017
 适用于托管在**基本**、**标准**和**高级**计划中的应用的唯一配额是**文件系统**。
 
 #### <a name="quota-enforcement"></a>配额强制执行
-如果应用程序的使用量超过 **CPU（短期）**、**CPU（天）**或**带宽**配额，则将终止该应用程序，直到配额重置。 在此期间，所有传入请求都将导致 **HTTP 403**。
+如果应用程序的使用量超过 **CPU（短期）**、**CPU（天）** 或**带宽**配额，则将终止该应用程序，直到配额重置。 在此期间，所有传入请求都将导致 **HTTP 403**。
 ![][http403]
 
 如果超过应用程序**内存**配额，则重启该应用程序。

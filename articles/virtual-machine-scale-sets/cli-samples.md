@@ -22,6 +22,7 @@ ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32598878"
 ---
 # <a name="azure-cli-20-samples-for-virtual-machine-scale-sets"></a>用于虚拟机规模集的 Azure CLI 2.0 示例
 

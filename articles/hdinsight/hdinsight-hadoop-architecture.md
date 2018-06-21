@@ -22,6 +22,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30073439"
 ---
 # <a name="hadoop-architecture-in-hdinsight"></a>HDInsight 中的 Hadoop 体系结构
 

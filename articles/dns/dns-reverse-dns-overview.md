@@ -1,6 +1,6 @@
 ---
-title: "Azure 中的反向 DNS 概述 | Azure"
-description: "了解反向 DNS 如何工作以及如何在 Azure 中使用"
+title: Azure 中的反向 DNS 概述 | Azure
+description: 了解反向 DNS 如何工作以及如何在 Azure 中使用
 services: dns
 documentationcenter: na
 author: yunan2016
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27956997"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>反向 DNS 和 Azure 支持概述
 

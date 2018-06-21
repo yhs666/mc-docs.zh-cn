@@ -1,11 +1,11 @@
 ---
-title: "预览 Azure 导入/导出的导出作业的驱动器使用情况 - v1 | Azure"
-description: "了解如何预览针对 Azure 导入/导出服务中的导出作业选择的 blob 列表。"
+title: 预览 Azure 导入/导出的导出作业的驱动器使用情况 - v1 | Azure
+description: 了解如何预览针对 Azure 导入/导出服务中的导出作业选择的 blob 列表。
 author: hayley244
 manager: digimobile
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7707d744-7ec7-4de8-ac9b-93a18608dc9a
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21135009"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>预览导出作业的驱动器使用情况
 在创建导出作业之前，需要选择一组要导出的 blob。 Azure 导入/导出服务允许使用一系列 Blob 路径或 Blob 前缀来表示选定的 Blob。  

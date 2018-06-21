@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 自动化管理 Azure 云服务 | Azure"
-description: "了解如何使用 Azure 自动化服务管理大规模 Azure 云服务。"
+title: 使用 Azure 自动化管理 Azure 云服务 | Azure
+description: 了解如何使用 Azure 自动化服务管理大规模 Azure 云服务。
 services: cloud-services, automation
-documentationCenter: 
+documentationCenter: ''
 authors: jodoglevy
 manager: timlt
-editor: 
+editor: ''
 ms.service: cloud-services
 ms.topic: article
 origin.date: 06/20/2016
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184622"
 ---
 #<a name="managing-azure-cloud-services-using-azure-automation"></a>使用 Azure 自动化管理 Azure 云服务
 

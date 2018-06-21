@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30222551"
 ---
 # <a name="tenant-resource-usage-api"></a>租户资源用量 API
 

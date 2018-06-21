@@ -1,12 +1,12 @@
 ---
-title: "访问 Azure 逻辑应用的本地数据源"
-description: "设置本地数据网关，以便从逻辑应用访问本地数据源"
-keywords: "访问数据, 本地, 数据传输, 加密, 数据源"
+title: 访问 Azure 逻辑应用的本地数据源
+description: 设置本地数据网关，以便从逻辑应用访问本地数据源
+keywords: 访问数据, 本地, 数据传输, 加密, 数据源
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 6cb4449d-e6b8-4c35-9862-15110ae73e6a
 ms.service: logic-apps
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870602"
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>通过本地数据网关，从逻辑应用连接到本地数据源
 

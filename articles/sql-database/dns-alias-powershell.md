@@ -17,6 +17,7 @@ ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/08/2018
+ms.locfileid: "30936292"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>用于管理 Azure SQL 数据库 DNS 别名的 PowerShell
 
@@ -37,7 +38,7 @@ ms.lasthandoff: 04/08/2018
 
 #### <a name="dns-alias-in-connection-string"></a>连接字符串中的 DNS 别名
 
-若要连接特定的 Azure SQL 数据库服务器，如 SQL Server Management Studio (SSMS) 客户端可以提供的 DNS 别名名称而不是真正的服务器名称。 在下面的示例服务器字符串中，别名 *any 的唯一别名的名称-*替换四个节点服务器字符串中的第一个圆点分隔节点：
+若要连接特定的 Azure SQL 数据库服务器，如 SQL Server Management Studio (SSMS) 客户端可以提供的 DNS 别名名称而不是真正的服务器名称。 在下面的示例服务器字符串中，别名 *any 的唯一别名的名称-* 替换四个节点服务器字符串中的第一个圆点分隔节点：
 - 服务器字符串示例：`any-unique-alias-name.database.chinacloudapi.cn`。
 
 

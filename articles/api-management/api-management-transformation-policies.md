@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33815366"
 ---
 # <a name="api-management-transformation-policies"></a>API 管理转换策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -85,9 +86,9 @@ ms.lasthandoff: 05/07/2018
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站、出站、错误时  
+-   **策略节：** 入站、出站、错误时  
   
--   **策略范围：**全局、产品、API、操作  
+-   **策略范围：** 全局、产品、API、操作  
   
 ##  <a name="ConvertXMLtoJSON"></a> 将 XML 转换为 JSON  
  `xml-to-json` 策略将请求或响应正文从 XML 转换为 JSON。 此策略可以用来根据仅用 XML 的后端 Web 服务来提升 API。  
@@ -129,9 +130,9 @@ ms.lasthandoff: 05/07/2018
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站、出站、错误时  
+-   **策略节：** 入站、出站、错误时  
   
--   **策略范围：**全局、产品、API、操作  
+-   **策略范围：** 全局、产品、API、操作  
   
 ##  <a name="Findandreplacestringinbody"></a> 在正文中查找并替换字符串  
  `find-and-replace` 策略查找请求或响应子字符串并将其替换为不同的子字符串。  
@@ -164,9 +165,9 @@ ms.lasthandoff: 05/07/2018
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站、出站、后端、错误时  
+-   **策略节：** 入站、出站、后端、错误时  
   
--   **策略范围：**全局、产品、API、操作  
+-   **策略范围：** 全局、产品、API、操作  
   
 ##  <a name="MaskURLSContent"></a> 在内容中屏蔽 URL  
  `redirect-content-urls` 策略重写（屏蔽）响应正文中的链接，使其通过网关指向等效的链接。 在出站节中用于重写响应正文链接，使之指向网关。 在入站节中使用，以便获得相反的效果。  
@@ -195,9 +196,9 @@ ms.lasthandoff: 05/07/2018
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站、出站  
+-   **策略节：** 入站、出站  
   
--   **策略范围：**全局、产品、API、操作  
+-   **策略范围：** 全局、产品、API、操作  
   
 ##  <a name="SetBackendService"></a> 设置后端服务  
  使用 `set-backend-service` 策略将传入请求重定向到一个后端，此后端不同于在 API 设置中为该操作指定的后端。 此策略将传入请求的后端服务基 URL 更改为在策略中指定的基 URL。  
@@ -271,9 +272,9 @@ ms.lasthandoff: 05/07/2018
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站、后端  
+-   **策略节：** 入站、后端  
   
--   **策略范围：**全局、产品、API、操作  
+-   **策略范围：** 全局、产品、API、操作  
   
 ##  <a name="SetBody"></a> 设置正文  
  使用 `set-body` 策略设置传入和传出请求的消息正文。 可以使用 `context.Request.Body` 属性或 `context.Response.Body` 访问消息正文，具体取决于策略是在入站节中还是在出站节中。  
@@ -441,9 +442,9 @@ OriginalUrl.
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站、出站、后端  
+-   **策略节：** 入站、出站、后端  
   
--   **策略范围：**全局、产品、API、操作  
+-   **策略范围：** 全局、产品、API、操作  
   
 ##  <a name="SetHTTPheader"></a> 设置 HTTP 标头  
  `set-header` 策略向现有的响应和/或请求标头赋值，或者添加新的响应和/或请求标头。  
@@ -498,9 +499,9 @@ OriginalUrl.
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站、出站、后端、错误时  
+-   **策略节：** 入站、出站、后端、错误时  
   
--   **策略范围：**全局、产品、API、操作  
+-   **策略范围：** 全局、产品、API、操作  
   
 ##  <a name="SetQueryStringParameter"></a> 设置查询字符串参数  
  `set-query-parameter` 策略添加、删除请求查询字符串参数或替换其值。 可用于传递后端服务所需的查询参数，这些参数是可选的或者永远不能出现在请求中。  
@@ -558,9 +559,9 @@ OriginalUrl.
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站、后端  
+-   **策略节：** 入站、后端  
   
--   **策略范围：**全局、产品、API、操作  
+-   **策略范围：** 全局、产品、API、操作  
   
 ##  <a name="RewriteURL"></a> 重写 URL  
  `rewrite-uri` 策略将请求 URL 从其公用格式转换为 Web 服务所需的格式，如以下示例所示。  
@@ -636,9 +637,9 @@ OriginalUrl.
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站  
+-   **策略节：** 入站  
   
--   **策略范围：**产品、API、操作  
+-   **策略范围：** 产品、API、操作  
   
 ##  <a name="XSLTransform"></a> 使用 XSLT 转换 XML  
  `Transform XML using an XSLT` 策略在请求或响应正文中将 XSL 转换应用到 XML。  
@@ -700,9 +701,9 @@ OriginalUrl.
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站、出站  
+-   **策略节：** 入站、出站  
   
--   **策略范围：**全局、产品、API、操作  
+-   **策略范围：** 全局、产品、API、操作  
   
 ## <a name="next-steps"></a>后续步骤
 

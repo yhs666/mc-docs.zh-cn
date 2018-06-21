@@ -1,11 +1,11 @@
 ---
-title: "自动转发 Azure 服务总线消息实体"
-description: "如何将服务总线队列或订阅链接到另一个队列或主题。"
+title: 自动转发 Azure 服务总线消息实体
+description: 如何将服务总线队列或订阅链接到另一个队列或主题。
 services: service-bus
 documentationCenter: na
 authors: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
 ms.service: service-bus
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730837"
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>使用自动转发链接服务总线实体
 

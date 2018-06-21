@@ -1,11 +1,11 @@
 ---
-title: "方案 - 使用 Azure Functions 和 Azure 服务总线触发逻辑应用"
-description: "使用 Azure Functions 和 Azure 服务总线创建触发逻辑应用的函数"
+title: 方案 - 使用 Azure Functions 和 Azure 服务总线触发逻辑应用
+description: 使用 Azure Functions 和 Azure 服务总线创建触发逻辑应用的函数
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.service: logic-apps
 ms.devlang: multiple
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870541"
 ---
 # <a name="scenario-trigger-a-logic-app-with-azure-functions-and-azure-service-bus"></a>方案：使用 Azure Functions 和 Azure 服务总线触发逻辑应用
 

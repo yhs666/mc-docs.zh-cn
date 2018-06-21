@@ -1,8 +1,8 @@
 ---
-title: "连续部署到 Azure 应用服务 | Azure"
-description: "了解如何实现连续部署到 Azure 应用服务。"
+title: 连续部署到 Azure 应用服务 | Azure
+description: 了解如何实现连续部署到 Azure 应用服务。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146536"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>连续部署到 Azure 应用服务
 

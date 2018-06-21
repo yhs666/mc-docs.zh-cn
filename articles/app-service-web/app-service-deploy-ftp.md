@@ -1,11 +1,11 @@
 ---
-title: "使用 FTP/S 将应用部署到 Azure 应用服务 | Azure"
-description: "了解如何使用 FTP 或 FTPS 将应用部署到 Azure 应用服务。"
+title: 使用 FTP/S 将应用部署到 Azure 应用服务 | Azure
+description: 了解如何使用 FTP 或 FTPS 将应用部署到 Azure 应用服务。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146521"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 将应用部署到 Azure 应用服务
 本文介绍了如何使用 FTP 或 FTPS 将 Web 应用、移动应用后端或 API 应用部署到 [Azure App Service](/app-service-web/app-service-changes-existing-services)。

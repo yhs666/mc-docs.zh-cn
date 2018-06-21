@@ -1,11 +1,11 @@
 ---
-title: "使用资源提供程序 REST API 创建 Azure IoT 中心 | Azure"
-description: "如何使用资源提供程序 REST API 创建 IoT 中心。"
+title: 使用资源提供程序 REST API 创建 Azure IoT 中心 | Azure
+description: 如何使用资源提供程序 REST API 创建 IoT 中心。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 52814ee5-bc10-4abe-9eb2-f8973096c2d8
 ms.service: iot-hub
 ms.devlang: dotnet
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26410559"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>使用资源提供程序 REST API 创建 IoT 中心 (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]

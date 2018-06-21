@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure IoT 中心的直接方法 (.NET/.NET) | Microsoft Docs"
-description: "如何使用 Azure IoT 中心直接方法。 使用适用于 .NET 的 Azure IoT 设备 SDK 实现包含直接方法的模拟设备应用，并使用适用于 .NET 的 Azure IoT 服务 SDK 实现调用直接方法的服务应用。"
+title: 使用 Azure IoT 中心的直接方法 (.NET/.NET) | Microsoft Docs
+description: 如何使用 Azure IoT 中心直接方法。 使用适用于 .NET 的 Azure IoT 设备 SDK 实现包含直接方法的模拟设备应用，并使用适用于 .NET 的 Azure IoT 服务 SDK 实现调用直接方法的服务应用。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dsk-2015
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ab035b8e-bff8-4e12-9536-f31d6b6fe425
 ms.service: iot-hub
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339074"
 ---
 # <a name="use-direct-methods-netnet"></a>使用直接方法 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]

@@ -1,6 +1,6 @@
 ---
-title: "渗透测试 | Microsoft Azure"
-description: "本文概述了渗透测试（简称 pentest）过程，以及如何对运行在 Azure 基础结构中的应用进行渗透测试。"
+title: 渗透测试 | Microsoft Azure
+description: 本文概述了渗透测试（简称 pentest）过程，以及如何对运行在 Azure 基础结构中的应用进行渗透测试。
 services: security
 documentationCenter: na
 authors: YuriDio
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20182193"
 ---
 # <a name="pen-testing"></a>渗透测试
 

@@ -1,11 +1,11 @@
 ---
-title: "导入/导出作业的诊断和错误恢复 | Azure"
-description: "了解如何为 Azure 导入/导出服务作业启用详细日志记录。"
+title: 导入/导出作业的诊断和错误恢复 | Azure
+description: 了解如何为 Azure 导入/导出服务作业启用详细日志记录。
 author: hayley244
 manager: digimobile
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 096cc795-9af6-4335-9fe8-fffa9f239a17
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21134983"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>导入/导出作业的诊断和错误恢复
 对于每个已处理的驱动器，Azure 导入/导出服务在关联的存储帐户中创建错误日志。 也可以通过在调用[放置作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate)或[更新作业属性](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_Update)操作时将 `LogLevel` 属性设置为 `Verbose` 来启用详细日志记录。

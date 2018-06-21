@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect 同步：启用 AD 回收站 | Microsoft Docs"
-description: "本主题提供有关使用 Azure AD Connect 的 AD 回收站功能的建议。"
+title: Azure AD Connect 同步：启用 AD 回收站 | Microsoft Docs
+description: 本主题提供有关使用 Azure AD Connect 的 AD 回收站功能的建议。
 services: active-directory
-keywords: "AD 回收站, 意外删除, 源定位点"
-documentationcenter: 
+keywords: AD 回收站, 意外删除, 源定位点
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: afec4207-74f7-4cdd-b13a-574af5223a90
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/11/2017
+ms.locfileid: "20822229"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Azure AD Connect 同步：启用 AD 回收站
 建议为同步到 Azure AD 的本地 Active Directory 启用 AD 回收站功能。 

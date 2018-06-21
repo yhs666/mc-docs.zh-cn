@@ -1,11 +1,11 @@
 ---
-title: "计划程序限制和默认值"
-description: "计划程序限制和默认值"
+title: 计划程序限制和默认值
+description: 计划程序限制和默认值
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20182191"
 ---
 # <a name="scheduler-limits-and-defaults"></a>计划程序限制和默认值
 ## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>计划程序配额、限制、默认值和中止值

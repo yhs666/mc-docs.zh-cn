@@ -1,8 +1,8 @@
 ---
-title: "Azure 流量管理器上的降级状态故障排除"
-description: "如何在流量管理器显示为降级状态时对流量管理器配置文件进行故障排除。"
+title: Azure 流量管理器上的降级状态故障排除
+description: 如何在流量管理器显示为降级状态时对流量管理器配置文件进行故障排除。
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
 ms.assetid: 8af0433d-e61b-4761-adcc-7bc9b8142fc6
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20464388"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Azure 流量管理器上的降级状态故障排除
 

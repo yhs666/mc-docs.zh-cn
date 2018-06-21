@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731138"
 ---
 # <a name="add-users-in-the-azure-stack-development-kit"></a>将用户添加到 Azure Stack 开发工具包中
 

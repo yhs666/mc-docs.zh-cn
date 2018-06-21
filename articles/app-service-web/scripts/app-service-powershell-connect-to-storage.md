@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 脚本示例 - 将 Web 应用连接到存储帐户 | Azure"
-description: "Azure PowerShell 脚本示例 - 将 Web 应用连接到存储帐户"
+title: Azure PowerShell 脚本示例 - 将 Web 应用连接到存储帐户 | Azure
+description: Azure PowerShell 脚本示例 - 将 Web 应用连接到存储帐户
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: e4831bdc-2068-4883-9474-0b34c2e3e255
 ms.service: app-service
@@ -22,6 +22,7 @@ ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20186846"
 ---
 # <a name="connect-a-web-app-to-a-storage-account"></a>将 Web 应用连接到存储帐户
 

@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 云服务中收集性能计数器"
-description: "了解如何使用 Azure 诊断在云服务中发现、使用和创建性能计数器。"
+title: 在 Azure 云服务中收集性能计数器
+description: 了解如何使用 Azure 诊断在云服务中发现、使用和创建性能计数器。
 services: cloud-services
 documentationcenter: .net
 author: thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870553"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>收集 Azure 云服务的性能计数器
 

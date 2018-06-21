@@ -1,8 +1,8 @@
 ---
-title: "将 HDInsight 群集升级到更新版本 - Azure | Azure"
-description: "了解如何将 HDInsight 群集升级到较新版本。"
+title: 将 HDInsight 群集升级到更新版本 - Azure | Azure
+description: 了解如何将 HDInsight 群集升级到较新版本。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bhanupr
 manager: asadk
 editor: bhanupr
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26721368"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>将 HDInsight 群集升级到更新版本
 要利用最新的 HDInsight 功能，我们建议将 HDInsight 群集升级到最新版本。 按照以下准则升级 HDInsight 群集版本。

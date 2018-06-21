@@ -1,12 +1,12 @@
 ---
-title: "缓存指南 | Azure"
-description: "有关配置缓存以提高性能和伸缩性的指南。"
-services: 
+title: 缓存指南 | Azure
+description: 有关配置缓存以提高性能和伸缩性的指南。
+services: ''
 documentationCenter: na
 authors: dragon119
 manager: masimms
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: best-practice
 ms.topic: article
 origin.date: 07/14/2016
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20185034"
 ---
 # <a name="caching-guidance"></a>缓存指南
 
@@ -657,7 +658,7 @@ await cache.KeyExpireAsync("data:key1",
 ...
 ```
 
-> *提示：*可以使用 DEL 命令手动从缓存中删除项，该命令在 StackExchange 库中作为 `IDatabase.KeyDeleteAsync` 方法提供。
+> *提示：* 可以使用 DEL 命令手动从缓存中删除项，该命令在 StackExchange 库中作为 `IDatabase.KeyDeleteAsync` 方法提供。
 > 
 > 
 

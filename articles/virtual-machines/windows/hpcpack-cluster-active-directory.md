@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure Active Directory 的 HPC Pack 群集 | Azure"
-description: "了解如何将 Azure 中的 Microsoft HPC Pack 2016 群集与 Azure Active Directory 集成"
+title: 使用 Azure Active Directory 的 HPC Pack 群集 | Azure
+description: 了解如何将 Azure 中的 Microsoft HPC Pack 2016 群集与 Azure Active Directory 集成
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 ms.assetid: 9edf9559-db02-438b-8268-a6cba7b5c8b7
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26727665"
 ---
 # <a name="manage-an-hpc-pack-cluster-in-azure-using-azure-active-directory"></a>使用 Azure Active Directory 管理 Azure 中的 HPC Pack 群集
 对于在 Azure 中部署 HPC Pack 群集的管理员，[Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) 支持与 [Azure Active Directory](../../active-directory/index.md) (Azure AD) 的集成。

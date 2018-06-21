@@ -1,11 +1,11 @@
 ---
-title: "Azure 通知中心"
-description: "了解如何使用 Azure 通知中心添加推送通知功能。"
+title: Azure 通知中心
+description: 了解如何使用 Azure 通知中心添加推送通知功能。
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 services: notification-hubs
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: fcfb0ce8-0e19-4fa8-b777-6b9f9cdda178
 ms.service: notification-hubs
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
+ms.locfileid: "20453223"
 ---
 # <a name="azure-notification-hubs"></a>Azure 通知中心
 ## <a name="overview"></a>概述

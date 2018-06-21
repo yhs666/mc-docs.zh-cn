@@ -1,6 +1,6 @@
 ---
-title: "Azure 存储安全概述 | Microsoft Azure"
-description: "Azure 存储是依赖于持续性、可用性和伸缩性来满足客户需求的现代应用程序的云存储解决方案。 本文提供可与 Azure 存储配合使用的核心 Azure 安全功能概述。"
+title: Azure 存储安全概述 | Microsoft Azure
+description: Azure 存储是依赖于持续性、可用性和伸缩性来满足客户需求的现代应用程序的云存储解决方案。 本文提供可与 Azure 存储配合使用的核心 Azure 安全功能概述。
 services: security
 documentationCenter: na
 authors: TerryLanfear
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20182219"
 ---
 # <a name="azure-storage-security-overview"></a>Azure 存储安全概述
 

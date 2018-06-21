@@ -22,6 +22,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072504"
 ---
 # <a name="get-started-with-the-bing-search-connector"></a>必应搜索连接器入门
 连接到必应搜索，搜索资讯、视频等。 通过必应搜索，可以： 

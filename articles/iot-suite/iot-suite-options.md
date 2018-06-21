@@ -1,7 +1,7 @@
 ---
-title: "Microsoft Azure IoT 选项"
-description: "选择如何使用 Azure IoT 套件、Microsoft IoT Central 或 Azure IoT 中心实现 IoT 解决方案。"
-services: 
+title: Microsoft Azure IoT 选项
+description: 选择如何使用 Azure IoT 套件、Microsoft IoT Central 或 Azure IoT 中心实现 IoT 解决方案。
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730985"
 ---
 # <a name="compare-azure-iot-options"></a>比较 Azure IoT 选项
 

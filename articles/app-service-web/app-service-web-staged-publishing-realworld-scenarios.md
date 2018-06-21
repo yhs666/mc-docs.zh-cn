@@ -1,11 +1,11 @@
 ---
-title: "对 Web 应用有效使用 DevOps 环境 | Azure"
-description: "了解如何使用部署槽来设置和管理应用程序的多个开发环境"
+title: 对 Web 应用有效使用 DevOps 环境 | Azure
+description: 了解如何使用部署槽来设置和管理应用程序的多个开发环境
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: sunbuild
 manager: yochayk
-editor: 
+editor: ''
 ms.assetid: 16a594dc-61f5-4984-b5ca-9d5abc39fb1e
 ms.service: app-service
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20463767"
 ---
 # <a name="use-devops-environments-effectively-for-your-web-apps"></a>对 Web 应用有效使用 DevOps 环境
 本文说明如何针对应用程序的多个版本处于不同环境（例如开发、过渡、质量保证 (QA) 和生产）的情况，设置和管理 Web 应用程序部署。 应用程序的每个版本均可视为满足部署过程中特定目的的开发环境。 例如，在将更改推送到生产前，开发人员可使用 QA 环境测试应用程序的质量。

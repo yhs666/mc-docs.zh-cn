@@ -1,6 +1,6 @@
 ---
-title: "什么是 Azure WebJobs SDK"
-description: "Azure WebJobs SDK 简介。 介绍 SDK，适用的典型方案以及代码示例。"
+title: 什么是 Azure WebJobs SDK
+description: Azure WebJobs SDK 简介。 介绍 SDK，适用的典型方案以及代码示例。
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
+ms.locfileid: "20453143"
 ---
 # <a name="what-is-the-azure-webjobs-sdk"></a>什么是 Azure WebJobs SDK
 

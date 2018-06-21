@@ -1,11 +1,11 @@
 ---
-title: "使用 PowerShell 部署和管理通知中心"
-description: "如何使用自动化 PowerShell 创建和管理通知中心"
+title: 使用 PowerShell 部署和管理通知中心
+description: 如何使用自动化 PowerShell 创建和管理通知中心
 services: notification-hubs
-documentationcenter: 
+documentationcenter: ''
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7c58f2c8-0399-42bc-9e1e-a7f073426451
 ms.service: notification-hubs
 ms.workload: mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: c0a9889921cd1ee52d58255a5a2db5e7930c4a4b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/23/2018
+ms.locfileid: "28001678"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>使用 PowerShell 部署和管理通知中心
 ## <a name="overview"></a>概述

@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 的 Linux 容器中创建 .NET Core Web 应用 | Microsoft Docs"
-description: "在数分钟内将你的第一个 .NET Core Hello World 应用部署到用于容器的 Web 应用。"
-keywords: "azure 应用服务, web 应用, dotnet, 核心, linux, oss"
+title: 在 Azure 的 Linux 容器中创建 .NET Core Web 应用 | Microsoft Docs
+description: 在数分钟内将你的第一个 .NET Core Hello World 应用部署到用于容器的 Web 应用。
+keywords: azure 应用服务, web 应用, dotnet, 核心, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 authors: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
 ms.service: app-service
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339067"
 ---
 # <a name="create-a-net-core-web-app-in-a-linux-container-in-azure"></a>在 Azure 的 Linux 容器中创建 .NET Core Web 应用
 

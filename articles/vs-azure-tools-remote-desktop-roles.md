@@ -1,11 +1,11 @@
 ---
-title: "对 Azure 角色使用远程桌面 | Azure"
-description: "将远程桌面与 Azure 角色一起使用"
+title: 对 Azure 角色使用远程桌面 | Azure
+description: 将远程桌面与 Azure 角色一起使用
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
 manager: douge
-editor: 
+editor: ''
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
 ms.service: multiple
 ms.devlang: multiple
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20186403"
 ---
 # <a name="using-remote-desktop-with-azure-roles"></a>将远程桌面与 Azure 角色一起使用
 使用 Azure SDK 和远程桌面服务，可以访问 Azure 托管的 Azure 角色和虚拟机。 在 Visual Studio 中，可以从 Azure 项目配置远程桌面服务。 若要启用远程桌面服务，必须创建一个包含一个或多个角色的有效的项目，然后将其发布到 Azure 中。

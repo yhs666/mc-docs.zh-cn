@@ -1,7 +1,7 @@
 ---
-title: "远程监视解决方案中的模拟设备行为"
-description: "本文介绍如何使用 JavaScript 来定义远程监视解决方案中模拟设备的行为。"
-services: 
+title: 远程监视解决方案中的模拟设备行为
+description: 本文介绍如何使用 JavaScript 来定义远程监视解决方案中模拟设备的行为。
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731224"
 ---
 # <a name="implement-the-device-model-behavior"></a>实现设备模型的行为
 

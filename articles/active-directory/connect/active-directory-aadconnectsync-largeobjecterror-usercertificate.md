@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步：处理 userCertificate 属性导致的 LargeObject 错误 | Microsoft Docs"
-description: "本主题提供针对 userCertificate 属性导致的 LargeObject 错误的补救步骤。"
+title: Azure AD Connect 同步：处理 userCertificate 属性导致的 LargeObject 错误 | Microsoft Docs
+description: 本主题提供针对 userCertificate 属性导致的 LargeObject 错误的补救步骤。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/11/2017
+ms.locfileid: "20822233"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect 同步：处理 userCertificate 属性导致的 LargeObject 错误
 

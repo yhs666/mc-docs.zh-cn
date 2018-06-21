@@ -1,12 +1,12 @@
 ---
-title: "为用于容器的 Azure Web 应用使用自定义 Docker 映像 | Microsoft Docs"
-description: "如何对用于容器的 Azure Web 应用使用自定义 Docker 映像。"
-keywords: "azure 应用服务, web 应用, linux, docker, 容器"
+title: 为用于容器的 Azure Web 应用使用自定义 Docker 映像 | Microsoft Docs
+description: 如何对用于容器的 Azure Web 应用使用自定义 Docker 映像。
+keywords: azure 应用服务, web 应用, linux, docker, 容器
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: SyntaxC4
 manager: SyntaxC4
-editor: 
+editor: ''
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.service: app-service
 ms.workload: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339087"
 ---
 # <a name="use-a-custom-docker-image-for-azure-web-app-for-containers"></a>为用于容器的 Azure Web 应用使用自定义 Docker 映像
 

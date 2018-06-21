@@ -21,6 +21,7 @@ ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30155701"
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>教程：将逻辑应用连接到 Azure IoT 套件远程监视预配置解决方案
 [Microsoft Azure IoT 套件][lnk-internetofthings]远程监视预配置解决方案以一套端到端功能集演示 IoT 解决方案，是快速入门的好工具。 本教程引导将逻辑应用连接到 Microsoft Azure IoT 套件远程监视预配置解决方案。 下述步骤演示了如何将 IoT 解决方案连接到业务流程，更进一步地利用该方案。

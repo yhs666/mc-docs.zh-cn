@@ -1,11 +1,11 @@
 ---
-title: "初步了解：使用备份保管库备份 Azure VM | Microsoft 文档"
-description: "使用经典管理门户将 Azure VM 备份到备份保管库。 本教程介绍了所有阶段，包括：创建备份保管库、注册 VM、创建备份策略，以及运行初始备份作业。"
+title: 初步了解：使用备份保管库备份 Azure VM | Microsoft 文档
+description: 使用经典管理门户将 Azure VM 备份到备份保管库。 本教程介绍了所有阶段，包括：创建备份保管库、注册 VM、创建备份策略，以及运行初始备份作业。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 722820dc-b65f-425c-a9e5-c1946e896a87
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/08/2017
+ms.locfileid: "22005238"
 ---
 # <a name="first-look-backing-up-azure-virtual-machines"></a>初步了解：备份 Azure 虚拟机
 > [!div class="op_single_selector"]

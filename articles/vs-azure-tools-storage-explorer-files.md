@@ -1,12 +1,12 @@
 ---
-title: "将存储资源管理器（预览版）与 Azure 文件存储配合使用 | Microsoft 文档"
-description: "了解如何使用存储资源管理器（预览版）来处理文件共享和文件。"
+title: 将存储资源管理器（预览版）与 Azure 文件存储配合使用 | Microsoft 文档
+description: 了解如何使用存储资源管理器（预览版）来处理文件共享和文件。
 services: storage
 documentationcenter: na
 author: cawaMS
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/15/2017
+ms.locfileid: "22094859"
 ---
 # <a name="using-storage-explorer-preview-with-azure-file-storage"></a>将存储资源管理器（预览版）与 Azure 文件存储配合使用
 

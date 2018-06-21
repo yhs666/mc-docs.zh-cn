@@ -1,12 +1,12 @@
 ---
-title: "Azure 备份服务器保护系统状态并将计算机还原成裸机 | Microsoft Docs"
-description: "使用 Azure 备份服务器备份系统状态，并提供裸机恢复 (BMR) 保护。"
+title: Azure 备份服务器保护系统状态并将计算机还原成裸机 | Microsoft Docs
+description: 使用 Azure 备份服务器备份系统状态，并提供裸机恢复 (BMR) 保护。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-keywords: 
-ms.assetid: 
+keywords: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.targetplatform: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20472614"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>使用 Azure 备份服务器备份系统状态，并将计算机还原成裸机
 

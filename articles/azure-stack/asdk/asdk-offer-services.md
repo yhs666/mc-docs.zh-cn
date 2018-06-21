@@ -22,6 +22,7 @@ ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31805398"
 ---
 # <a name="tutorial-offer-azure-stack-iaas-services"></a>教程：提供 Azure Stack IaaS 服务
 Azure Stack 云管理员可以创建产品/服务供用户（有时称为租户）订阅。 然后，用户可以通过其订阅来使用 Azure Stack 服务。

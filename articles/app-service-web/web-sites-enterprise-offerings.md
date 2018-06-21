@@ -1,11 +1,11 @@
 ---
-title: "面向企业的 Azure 应用服务 Web 应用产品"
-description: "演示如何使用 Azure 应用服务 Web 应用为你的企业创建企业网站解决方案"
+title: 面向企业的 Azure 应用服务 Web 应用产品
+description: 演示如何使用 Azure 应用服务 Web 应用为你的企业创建企业网站解决方案
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: cf9ac3b2-0493-4461-8b64-251d3a5cd5b5
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/10/2017
+ms.locfileid: "20325387"
 ---
 # <a name="azure-app-service-web-apps-offerings-for-enterprise-whitepaper"></a>适用于企业的 Azure 应用服务 Web 应用产品白皮书
 降低成本以及在快速发展的环境中更快地交付 IT 解决方案的要求为开发人员、IT 专业人员和管理人员带来了新的挑战。 用户日益期望其业务线 (LOB) Web 应用程序能够在任何设备上快速运行和响应。 同时，企业正在尝试利用由于与云和移动服务集成所带来的生产力和效率提高，这简单可到使用 Active Directory 实现的跨设备的单一登录，复杂可到使用从内部 LOB 应用程序（反过来也可以从公司 Salesforce 实施中拉取数据）中提取的数据在 Office365 中进行协作。 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)是一种用于开发、测试和运行 Web 及移动应用程序、Web API 和一般网站的企业级云服务。 它可以用于在针对缩放和可用性优化的全球数据中心网络上运行企业网站、Intranet 网站、业务应用和数字营销活动，同时还支持持续集成和现代 DevOps 实践。  

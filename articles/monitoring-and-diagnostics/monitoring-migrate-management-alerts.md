@@ -1,12 +1,12 @@
 ---
-title: "将管理事件的 Azure 警报迁移到活动日志警报"
-description: "有关管理事件的警报将于 10 月 1 日删除。 请准备通过迁移现有警报。"
+title: 将管理事件的 Azure 警报迁移到活动日志警报
+description: 有关管理事件的警报将于 10 月 1 日删除。 请准备通过迁移现有警报。
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29286094"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>将管理事件的 Azure 警报迁移到活动日志警报
 

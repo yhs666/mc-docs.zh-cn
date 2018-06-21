@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34256248"
 ---
 # <a name="windows-azure-diagnostics-extension"></a>Microsoft Azure 诊断扩展
 

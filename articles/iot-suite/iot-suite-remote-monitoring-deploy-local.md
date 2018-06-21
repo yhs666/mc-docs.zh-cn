@@ -18,6 +18,7 @@ ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30155698"
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution-locally"></a>在本地部署远程监视预配置解决方案
 

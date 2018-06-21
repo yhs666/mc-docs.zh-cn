@@ -20,6 +20,7 @@ ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30955115"
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>监视和管理适用于 Windows 计算机的 Azure 恢复服务保管库和服务器
 
@@ -300,7 +301,7 @@ Azure 备份代理提供的“限制”选项卡可让你控制在数据传输�
 - 第二个备份作业失败，因为原始备份作业正在进行中。
 
 ## <a name="troubleshooting-monitoring-issues"></a>排查监视问题
-**问题：**Azure 备份代理的作业和/或警报未在门户中出现。
+**问题：** Azure 备份代理的作业和/或警报未在门户中出现。
 
 **故障排除步骤：**```OBRecoveryServicesManagementAgent``` 进程将作业和警报数据发送到 Azure 备份服务。 此进程偶尔会被阻塞或关闭。
 

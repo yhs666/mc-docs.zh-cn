@@ -1,6 +1,6 @@
 ---
-title: "Azure Web 作业文档资源"
-description: "学习如何使用 Azure Web 作业和 Azure WebJobs SDK 时可以参考的推荐资源"
+title: Azure Web 作业文档资源
+description: 学习如何使用 Azure Web 作业和 Azure WebJobs SDK 时可以参考的推荐资源
 services: app-service
 documentationcenter: .net
 author: ggailey777
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146549"
 ---
 # <a name="azure-webjobs-documentation-resources"></a>Azure Web 作业文档资源
 ## <a name="overview"></a>概述

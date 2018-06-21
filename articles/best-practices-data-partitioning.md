@@ -1,12 +1,12 @@
 ---
-title: "数据分区指南 | Azure"
-description: "有关如何隔离分区，以便单独进行管理和访问的指导。"
-services: 
+title: 数据分区指南 | Azure
+description: 有关如何隔离分区，以便单独进行管理和访问的指导。
+services: ''
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 401559b5-f25f-4010-9811-5743fbb72aeb
 ms.service: best-practice
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/15/2017
+ms.locfileid: "22094899"
 ---
 # <a name="data-partitioning-guidance"></a>数据分区指南
 [!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]

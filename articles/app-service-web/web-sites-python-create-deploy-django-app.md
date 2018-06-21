@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 中使用 Django 创建 Web 应用"
-description: "本教程介绍如何在 Azure 应用服务 Web 应用上运行 Python Web 应用。"
+title: 在 Azure 中使用 Django 创建 Web 应用
+description: 本教程介绍如何在 Azure 应用服务 Web 应用上运行 Python Web 应用。
 services: app-service\web
 documentationcenter: python
 tags: python
 author: huguesv
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9be1a05a-9460-49ae-94fb-9798f82c11cf
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21135425"
 ---
 # <a name="creating-web-apps-with-django-in-azure"></a>在 Azure 中使用 Django 创建 Web 应用
 

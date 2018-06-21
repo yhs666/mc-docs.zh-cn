@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT 套件远程监视常见问题解答"
-description: "有关 IoT 套件远程监视预配解决方案的常见问题解答"
+title: Azure IoT 套件远程监视常见问题解答
+description: 有关 IoT 套件远程监视预配解决方案的常见问题解答
 services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
 ms.service: iot-suite
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731165"
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>有关 IoT 套件的常见问题
 

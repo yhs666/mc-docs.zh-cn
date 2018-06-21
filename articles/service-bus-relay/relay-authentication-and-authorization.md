@@ -1,12 +1,12 @@
 ---
-title: "Azure 中继身份验证和授权"
-description: "Azure 中继中的共享访问签名 (SAS) 身份验证概述"
+title: Azure 中继身份验证和授权
+description: Azure 中继中的共享访问签名 (SAS) 身份验证概述
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730772"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Azure 中继身份验证和授权
 

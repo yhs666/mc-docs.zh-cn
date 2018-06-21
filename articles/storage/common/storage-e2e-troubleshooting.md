@@ -1,6 +1,6 @@
 ---
-title: "使用诊断和消息分析器对 Azure 存储进行故障排除 | Azure"
-description: "本教程演示如何使用 Azure 存储分析、AzCopy 和 Microsoft Message Analyzer 进行端到端故障排除"
+title: 使用诊断和消息分析器对 Azure 存储进行故障排除 | Azure
+description: 本教程演示如何使用 Azure 存储分析、AzCopy 和 Microsoft Message Analyzer 进行端到端故障排除
 services: storage
 documentationcenter: dotnet
 author: Hayley244
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870787"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>使用 Azure 存储指标和日志记录、AzCopy 及 Message Analyzer 进行端到端故障排除
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -203,7 +204,7 @@ Message Analyzer 包括 Azure 存储的资产，可帮助你分析服务器、�
 2. 启动 Message Analyzer。
 3. 从“工具”菜单中选择“资产管理器”。 在“资产管理器”对话框中，选择“下载”，并筛选“Azure 存储”。 会看到 Azure 存储资产，如下图中所示。
 4. 单击“同步所有显示的项”以安装 Azure 存储资产。 可用的资产包括：
-   * **Azure 存储颜色规则：**可通过这些规则定义特殊筛选器，利用颜色、文本和字体样式突出显示跟踪中包含特定信息的消息。
+   * **Azure 存储颜色规则：** 可通过这些规则定义特殊筛选器，利用颜色、文本和字体样式突出显示跟踪中包含特定信息的消息。
    * **Azure 存储图表**：Azure 存储图表是根据服务器日志数据绘制的预定义图表。 请注意，要在此时使用 Azure 存储图表，可以只将服务器日志加载到分析网格中。
    * **Azure 存储分析程序**：Azure 存储分析程序可以分析 Azure 存储客户端、服务器和 HTTP 日志，以便在分析网格中显示它们。
    * **Azure 存储筛选器**：Azure 存储筛选器是可用于查询分析网格中的数据的预定义条件。

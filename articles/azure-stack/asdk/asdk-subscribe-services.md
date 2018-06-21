@@ -22,6 +22,7 @@ ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30155669"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>教程：创建和测试订阅
 本教程介绍如何创建包含产品/服务的订阅，然后对其进行测试。 测试时，需要以云管理员身份登录到[用户门户](https://portal.local.azurestack.external)，订阅产品/服务，然后创建虚拟机。

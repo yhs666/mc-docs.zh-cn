@@ -1,11 +1,11 @@
 ---
-title: "Azure 服务总线消息传送异常"
-description: "服务总线消息传送异常和建议的操作列表。"
+title: Azure 服务总线消息传送异常
+description: 服务总线消息传送异常和建议的操作列表。
 services: service-bus
 documentationCenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
 ms.service: service-bus
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730897"
 ---
 # <a name="service-bus-messaging-exceptions"></a>服务总线消息传送异常
 

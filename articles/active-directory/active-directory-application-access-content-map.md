@@ -1,8 +1,8 @@
 ---
-title: "管理应用程序访问和权限时出现问题"
-description: "管理应用程序访问和权限时出现问题"
+title: 管理应用程序访问和权限时出现问题
+description: 管理应用程序访问和权限时出现问题
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
 ms.service: active-directory
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/29/2017
+ms.locfileid: "27548305"
 ---
 # <a name="problems-managing-application-access-and-permissions"></a>管理应用程序访问和权限时出现问题
 

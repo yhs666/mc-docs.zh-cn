@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9b4669fe42e0dd7e3b463423ae4f58143af2b111
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30082166"
 ---
 # <a name="advisor-cost-recommendations"></a>顾问成本建议
 

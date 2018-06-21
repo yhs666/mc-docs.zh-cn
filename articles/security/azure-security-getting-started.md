@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure 安全入门 | Microsoft Azure"
-description: "本文概述了 Microsoft Azure 安全功能，以及组织在将其资产迁移到云提供商处时需要注意的一般性注意事项。"
+title: Microsoft Azure 安全入门 | Microsoft Azure
+description: 本文概述了 Microsoft Azure 安全功能，以及组织在将其资产迁移到云提供商处时需要注意的一般性注意事项。
 services: security
 documentationCenter: na
 authors: YuriDio
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20182215"
 ---
 #<a name="getting-started-with-microsoft-azure-security"></a>Microsoft Azure 安全入门
 

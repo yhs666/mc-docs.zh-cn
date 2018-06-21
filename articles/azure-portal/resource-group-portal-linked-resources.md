@@ -1,11 +1,11 @@
 ---
-title: "磁贴库中相关的资源与链接的资源"
-description: "了解 Azure 预览门户的磁贴库中显示的相关资源和链接资源。"
+title: 磁贴库中相关的资源与链接的资源
+description: 了解 Azure 预览门户的磁贴库中显示的相关资源和链接资源。
 services: azure-portal
-documentationCenter: 
+documentationCenter: ''
 authors: adamabdelhamed
 manager: wpickett
-editor: 
+editor: ''
 ms.service: azure-portal
 ms.topic: article
 origin.date: 07/16/2015
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22338736"
 ---
 # <a name="related-and-linked-resources-in-the-tile-gallery"></a>磁贴库中相关的资源与链接的资源
 

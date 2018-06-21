@@ -1,11 +1,11 @@
 ---
-title: "外围网络示例 – 构建外围网络以通过防火墙、UDR 和 NSG 保护网络 | Azure"
-description: "构建包含防火墙、用户定义的路由 (UDR) 和网络安全组 (NSG) 的外围网络"
+title: 外围网络示例 – 构建外围网络以通过防火墙、UDR 和 NSG 保护网络 | Azure
+description: 构建包含防火墙、用户定义的路由 (UDR) 和网络安全组 (NSG) 的外围网络
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: dc01ccfb-27b0-4887-8f0b-2792f770ffff
 ms.service: virtual-network
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/28/2017
+ms.locfileid: "20634577"
 ---
 # <a name="example-3---build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>示例 3 – 构建外围网络以通过防火墙、UDR 和 NSG 保护网络
 

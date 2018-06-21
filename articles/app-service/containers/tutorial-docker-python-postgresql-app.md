@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中构建 Docker Python 和 PostgreSQL Web 应用 | Microsoft Docs"
-description: "了解如何创建一个可在 Azure 中运行的 Docker Python 应用，并将其连接到 PostgreSQL 数据库。"
+title: 在 Azure 中构建 Docker Python 和 PostgreSQL Web 应用 | Microsoft Docs
+description: 了解如何创建一个可在 Azure 中运行的 Docker Python 应用，并将其连接到 PostgreSQL 数据库。
 services: app-service\web
 documentationcenter: python
 author: berndverst
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2bada123-ef18-44e5-be71-e16323b20466
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339085"
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>在 Azure 中构建 Docker Python 和 PostgreSQL Web 应用
 

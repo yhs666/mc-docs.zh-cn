@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中创建 ASP.NET Web 应用 | Azure"
-description: "了解如何通过部署默认的 ASP.NET Web 应用，在 Azure 应用服务中运行 Web 应用。"
+title: 在 Azure 中创建 ASP.NET Web 应用 | Azure
+description: 了解如何通过部署默认的 ASP.NET Web 应用，在 Azure 应用服务中运行 Web 应用。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21134781"
 ---
 # <a name="create-an-aspnet-web-app-in-azure"></a>在 Azure 中创建 ASP.NET Web 应用
 

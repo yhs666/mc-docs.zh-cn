@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 诊断中使用性能计数器 | Azure"
-description: "在 Azure 云服务或虚拟机中使用性能计数器查找瓶颈和优化性能。"
+title: 在 Azure 诊断中使用性能计数器 | Azure
+description: 在 Azure 云服务或虚拟机中使用性能计数器查找瓶颈和优化性能。
 services: cloud-services
 documentationCenter: .net
 authors: rboucher
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/01/2017
+ms.locfileid: "21944696"
 ---
 # <a name="create-and-use-performance-counters-in-an-azure-application"></a>在 Azure 应用程序中创建和使用性能计数器
 

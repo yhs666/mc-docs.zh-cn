@@ -1,13 +1,13 @@
 ---
-title: "将 Azure 模板与 Azure CLI 1.0 配合使用创建 Linux VM | Azure"
-description: "在 Azure 上使用 Azure CLI 1.0 和 Azure Resource Manager 模板创建 Linux VM。"
+title: 将 Azure 模板与 Azure CLI 1.0 配合使用创建 Linux VM | Azure
+description: 在 Azure 上使用 Azure CLI 1.0 和 Azure Resource Manager 模板创建 Linux VM。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: vlivech
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -22,6 +22,7 @@ ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20472443"
 ---
 # <a name="how-to-create-a-linux-vm-using-the-azure-cli-10-an-azure-resource-manager-template"></a>如何使用 Azure CLI 1.0 和 Azure Resource Manager 模板创建 Linux VM
 本文说明如何使用 Azure CLI 1.0 和 Azure Resource Manager 模板快速部署 Linux 虚拟机。 本文需要以下条件：

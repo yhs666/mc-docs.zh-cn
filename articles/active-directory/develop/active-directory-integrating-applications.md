@@ -21,6 +21,7 @@ ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33815386"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>将应用程序与 Azure Active Directory 集成
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -43,12 +44,12 @@ ms.lasthandoff: 05/07/2018
 
 4. 出现“创建”页后，请输入应用程序的注册信息： 
 
-    - **名称：**输入一个有意义的应用程序名称
+    - **名称：** 输入一个有意义的应用程序名称
     - **应用程序类型：** 
       - 为安装在设备本地的[客户端应用程序](active-directory-dev-glossary.md#client-application)选择“本机”。 此设置用于 OAuth 公共[本机客户端](active-directory-dev-glossary.md#native-client)。
       - 为安装在安全服务器上的[客户端应用程序](active-directory-dev-glossary.md#client-application)和[资源/API 应用程序](active-directory-dev-glossary.md#resource-server)选择“Web 应用/API”。 此设置用于 OAuth 机密性 [Web 客户端](active-directory-dev-glossary.md#web-client)和公共的[基于用户代理的客户端](active-directory-dev-glossary.md#user-agent-based-client)。 相同的应用程序还可以公开客户端和资源/API。
-    - **登录 URL：**对于“Web 应用/API”应用程序，请提供应用的基 URL。 例如，`http://localhost:31544` 可以是本地计算机上运行的 Web 应用的 URL。 用户将使用此 URL 登录到 Web 客户端应用程序。 
-    - **重定向 URI：**对于“本机”应用程序，请提供 Azure AD 返回令牌响应时所用的 URI。 输入特定于应用程序的值，例如 `http://MyFirstAADApp`
+    - **登录 URL：** 对于“Web 应用/API”应用程序，请提供应用的基 URL。 例如，`http://localhost:31544` 可以是本地计算机上运行的 Web 应用的 URL。 用户将使用此 URL 登录到 Web 客户端应用程序。 
+    - **重定向 URI：** 对于“本机”应用程序，请提供 Azure AD 返回令牌响应时所用的 URI。 输入特定于应用程序的值，例如 `http://MyFirstAADApp`
 
     ![注册新应用程序 - 创建](./media/active-directory-integrating-applications/add-app-registration-create.png)
 

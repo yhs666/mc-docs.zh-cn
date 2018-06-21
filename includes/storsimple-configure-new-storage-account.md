@@ -1,6 +1,6 @@
 ---
-title: "可选：针对服务配置新的存储帐户"
-description: "说明如何为 StorSimple 服务配置存储帐户。"
+title: 可选：针对服务配置新的存储帐户
+description: 说明如何为 StorSimple 服务配置存储帐户。
 services: storsimple
 documentationCenter: NA
 authors: SharS
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20227668"
 ---
 ### <a name="to-configure-a-new-storage-account"></a>配置新的存储帐户
 

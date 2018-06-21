@@ -1,12 +1,12 @@
 ---
-title: "包含 Azure VPN 网关的高可用性配置概述 | Azure"
-description: "本文概述使用 Azure VPN 网关的高可用性配置选项。"
+title: 包含 Azure VPN 网关的高可用性配置概述 | Azure
+description: 本文概述使用 Azure VPN 网关的高可用性配置选项。
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20186445"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>高可用性跨界连接与 VNet 到 VNet 连接
 本文概述使用 Azure VPN 网关的跨界连接和 VNet 到 VNet 连接的高可用性配置选项。

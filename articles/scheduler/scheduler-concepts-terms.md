@@ -1,11 +1,11 @@
 ---
-title: "计划程序的概念、术语和实体 | Azure"
-description: "Azure 计划程序的概念、术语和实体层次结构，包括作业和作业集合。  显示了一个计划作业的综合示例。"
+title: 计划程序的概念、术语和实体 | Azure
+description: Azure 计划程序的概念、术语和实体层次结构，包括作业和作业集合。  显示了一个计划作业的综合示例。
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20182207"
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>计划程序的概念、术语和实体层次结构
 ## <a name="scheduler-entity-hierarchy"></a>计划程序实体层次结构

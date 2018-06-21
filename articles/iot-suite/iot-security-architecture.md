@@ -1,12 +1,12 @@
 ---
-title: "IoT 安全体系结构"
-description: "IoT 安全体系结构指导原则和注意事项"
-services: 
+title: IoT 安全体系结构
+description: IoT 安全体系结构指导原则和注意事项
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 18ed3eb0-9406-44e1-8a3a-93dc6726c7ac
 ms.service: iot-suite
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730790"
 ---
 [!INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 

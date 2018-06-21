@@ -1,9 +1,9 @@
 ---
-title: "Microsoft Azure 中的指标概述 | Azure"
-description: "了解如何在 Azure 中自定义监视图表。"
+title: Microsoft Azure 中的指标概述 | Azure
+description: 了解如何在 Azure 中自定义监视图表。
 author: rboucher
 manager: carolz
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: c36031eb-4df5-4cd5-9479-311d493a40d2
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2017
 ms.author: v-yiso
-ms.date: 
+ms.date: ''
 ms.openlocfilehash: aa12c54dc126ba23f93abb18507c443661cedd64
 ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21134753"
 ---
 # <a name="overview-of-metrics-in-azure"></a>Azure 中的指标概述
 

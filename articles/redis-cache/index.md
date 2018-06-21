@@ -1,11 +1,11 @@
 ---
-title: "Azure Redis 缓存文档 - 教程和 API 参考 | Azure"
-description: "了解如何使用 Azure Redis 缓存，该缓存是一种为应用程序提供快速数据访问的安全数据缓存和消息传送中转站。 教程、API 参考和更多内容。"
+title: Azure Redis 缓存文档 - 教程和 API 参考 | Azure
+description: 了解如何使用 Azure Redis 缓存，该缓存是一种为应用程序提供快速数据访问的安全数据缓存和消息传送中转站。 教程、API 参考和更多内容。
 services: redis-cache
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: redis-cache
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20187168"
 ---
 #<a name="redis-cache-documentation"></a>Redis 缓存文档
 

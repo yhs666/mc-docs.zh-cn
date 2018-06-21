@@ -1,11 +1,11 @@
 ---
-title: "Azure 安全文档 - 教程 | Azure"
-description: "了解如何根据服务部署以及云中数据的要求，在 Azure 服务中自定义安全选项。"
+title: Azure 安全文档 - 教程 | Azure
+description: 了解如何根据服务部署以及云中数据的要求，在 Azure 服务中自定义安全选项。
 services: security
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20185514"
 ---
 # <a name="security-documentation"></a>安全文档
 

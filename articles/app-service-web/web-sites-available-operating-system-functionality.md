@@ -1,8 +1,8 @@
 ---
-title: "Azure 应用服务上的操作系统功能"
-description: "了解 Azure Web 应用上可供应用服务、移动应用后端和 API 应用使用的 OS 功能"
+title: Azure 应用服务上的操作系统功能
+description: 了解 Azure Web 应用上可供应用服务、移动应用后端和 API 应用使用的 OS 功能
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184368"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure 应用服务上的操作系统功能
 本文介绍了可供在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)上运行的所有应用使用的常见基准操作系统功能。 这些功能包括文件、网络和注册表访问以及诊断日志和事件。 

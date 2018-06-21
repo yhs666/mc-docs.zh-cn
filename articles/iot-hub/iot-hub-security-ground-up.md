@@ -1,11 +1,11 @@
 ---
-title: "从根本上保护 Azure IoT 解决方案"
-description: "如何使用 Microsoft Azure IoT 中心和套件的内置安全功能。"
+title: 从根本上保护 Azure IoT 解决方案
+description: 如何使用 Microsoft Azure IoT 中心和套件的内置安全功能。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1a30c2d5-ad82-4980-8203-5ce275184964
 ms.service: iot-hub
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870239"
 ---
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 

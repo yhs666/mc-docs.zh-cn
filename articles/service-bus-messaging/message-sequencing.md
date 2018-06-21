@@ -1,11 +1,11 @@
 ---
-title: "Azure 服务总线消息序列化和时间戳"
-description: "通过时间戳保持服务总线消息的序列和顺序"
+title: Azure 服务总线消息序列化和时间戳
+description: 通过时间戳保持服务总线消息的序列和顺序
 services: service-bus
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730981"
 ---
 # <a name="message-sequencing-and-timestamps"></a>消息序列化和时间戳
 

@@ -1,12 +1,12 @@
 ---
-title: "生成处理电子邮件和附件的工作流 - Azure 逻辑应用"
-description: "本教程介绍如何创建自动化工作流，以便使用 Azure 逻辑应用、Azure 存储和 Azure Functions 处理电子邮件和附件"
+title: 生成处理电子邮件和附件的工作流 - Azure 逻辑应用
+description: 本教程介绍如何创建自动化工作流，以便使用 Azure 逻辑应用、Azure 存储和 Azure Functions 处理电子邮件和附件
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870803"
 ---
 # <a name="process-emails-and-attachments-with-a-logic-app"></a>使用逻辑应用处理电子邮件和附件
 
@@ -72,7 +73,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
    | **复制** | 本地冗余存储 (LRS) | 此设置指定如何复制、存储、管理和同步数据。 请参阅[复制](../storage/common/storage-introduction.md#replication)。 | 
    | 需要安全传输 | 已禁用 | 此设置指定从连接进行请求所需的安全性。 请参阅[需要安全传输](../storage/common/storage-require-secure-transfer.md)。 | 
    | **订阅** | <*your-Azure-subscription-name*> | Azure 订阅的名称 | 
-   | **资源组** | LA-Tutorial-RG | 用于组织和管理相关资源的 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)的名称。 <p>**注意：**资源组存在于特定的区域。 本教程中的项目可能不在所有区域提供，请尽可能尝试使用同一区域。 | 
+   | **资源组** | LA-Tutorial-RG | 用于组织和管理相关资源的 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)的名称。 <p>**注意：** 资源组存在于特定的区域。 本教程中的项目可能不在所有区域提供，请尽可能尝试使用同一区域。 | 
    | **位置** | 美国东部 2 | 用于存储存储帐户信息的区域 | 
    | **配置虚拟网络** | 已禁用 | 对于本教程，请保留“禁用”设置。 | 
    |||| 
@@ -112,7 +113,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
 3. 检查存储帐户和容器是否正确显示在存储资源管理器中：
 
-   1. 在“资源管理器”下，****展开“(本地和附加)”****> 
+   1. 在“资源管理器”下，**** 展开“(本地和附加)”****> 
    “存储帐户”****> **attachmentstorageaccount** > 
    ****“Blob 容器”。
 
@@ -136,7 +137,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
    | **资源组** | LA-Tutorial-RG | 以前使用过的同一 Azure 资源组 | 
    | **托管计划** | 使用计划 | 此设置决定了如何分配和缩放用于运行函数应用的资源，例如计算能力。 请参阅[托管计划比较](../azure-functions/functions-scale.md)。 | 
    | **位置** | 中国东部 | 以前使用过的同一区域 | 
-   | **存储** | cleantextfunctionstorageacct | 为函数应用创建存储帐户。 只使用小写字母和数字。 <p>**注意：**此存储帐户包含函数应用，不同于以前创建的用于电子邮件附件的存储帐户。 | 
+   | **存储** | cleantextfunctionstorageacct | 为函数应用创建存储帐户。 只使用小写字母和数字。 <p>**注意：** 此存储帐户包含函数应用，不同于以前创建的用于电子邮件附件的存储帐户。 | 
    | **Application Insights** | 关闭 | 请对 [Application Insights](../application-insights/app-insights-overview.md) 启用应用程序监视，但对于本教程，请保留“禁用”设置。 | 
    |||| 
 
@@ -257,7 +258,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
       | 设置 | 值 | 说明 | 
       | ------- | ----- | ----------- | 
-      | **带有附件** | 是 | 仅获取带有附件的电子邮件。 <p>**注意：**此触发器不删除帐户中的任何电子邮件，仅检查新邮件，并且仅处理与主题筛选器匹配的电子邮件。 | 
+      | **带有附件** | 是 | 仅获取带有附件的电子邮件。 <p>**注意：** 此触发器不删除帐户中的任何电子邮件，仅检查新邮件，并且仅处理与主题筛选器匹配的电子邮件。 | 
       | **包括附件** | 是 | 获取充当工作流输入的附件，而不是仅仅检查是否有附件。 | 
       | **主题筛选器** | ```Business Analyst 2 #423501``` | 要在电子邮件主题中查找的文本 | 
       |  |  |  | 

@@ -1,11 +1,11 @@
 ---
-title: "检索 Azure 导入/导出作业的状态信息 | Azure"
-description: "了解如何获取 Azure 导入/导出服务作业的状态信息。"
+title: 检索 Azure 导入/导出作业的状态信息 | Azure
+description: 了解如何获取 Azure 导入/导出服务作业的状态信息。
 author: hayley244
 manager: digimobile
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 22d7e5f0-94da-49b4-a1ac-dd4c14a423c2
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21135012"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>检索导入/导出作业的状态信息
 可以调用 [获取作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_Get) 操作来检索有关导入和导出作业的信息。 返回的信息包括：

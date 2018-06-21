@@ -21,6 +21,7 @@ ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30941379"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点连接：Azure 门户
 
@@ -47,9 +48,9 @@ ms.lasthandoff: 04/09/2018
 - 子网名称：FrontEnd
 - 子网地址范围：192.168.1.0/24
 - 
-            **订阅：**如果有多个订阅，请确保使用正确的订阅。
+            **订阅：** 如果有多个订阅，请确保使用正确的订阅。
 - 资源组：TestRG
-- **位置：**中国北部
+- **位置：** 中国北部
 - 网关子网：192.168.200.0/24<br>
 - DNS 服务器：（可选）要用于名称解析的 DNS 服务器的 IP 地址。
 - 虚拟网关名称：VNet1GW

@@ -1,6 +1,6 @@
 ---
-title: "如何在 Azure Active Directory 中调试对应用程序进行的基于 SAML 的单一登录 | Microsoft Docs"
-description: "了解如何在 Azure Active Directory 中调试对应用程序进行基于 SAML 的单一登录 "
+title: 如何在 Azure Active Directory 中调试对应用程序进行的基于 SAML 的单一登录 | Microsoft Docs
+description: '了解如何在 Azure Active Directory 中调试对应用程序进行基于 SAML 的单一登录 '
 services: active-directory
 author: alexchen2016
 documentationcenter: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21135372"
 ---
 # <a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>如何在 Azure Active Directory 中调试对应用程序进行基于 SAML 的单一登录
 在调试基于 SAML 的应用程序集成时，使用 [Fiddler](http://www.telerik.com/fiddler) 之类的工具查看 SAML 请求、SAML 响应和颁发给应用程序的实际 SAML 令牌通常很有帮助。 通过检查 SAML 令牌，可以确保按预期传递所有所需的属性、SAML 主题中的用户名和颁发者 URI。

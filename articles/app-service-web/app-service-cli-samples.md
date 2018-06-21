@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 示例 - 应用服务 | Azure"
-description: "Azure CLI 示例 - 应用服务"
+title: Azure CLI 示例 - 应用服务 | Azure
+description: Azure CLI 示例 - 应用服务
 services: app-service
 documentationcenter: app-service
 author: syntaxc4
@@ -22,6 +22,7 @@ ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20463962"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 示例
 

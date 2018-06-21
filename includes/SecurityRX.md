@@ -79,7 +79,7 @@
 -   [标识开发人员培训工具包](http://www.microsoft.com/en-us/download/details.aspx?id=14347)
 -   [MSDN 托管的标识开发人员培训课程](http://msdn.microsoft.com/en-us/IdentityTrainingCourse)
 
-**Active Directory 联合身份验证服务 (AD FS)。**Active Directory 联合身份验证服务 (AD FS) 2.0 为采用 Windows Server® 和 Active Directory 技术的声明感知标识解决方案提供支持。 AD FS 2.0 支持 WS-Trust、WS 联合身份验证和 SAML 协议。 以下资源提供有关 AD FS 的详细信息：
+**Active Directory 联合身份验证服务 (AD FS)。** Active Directory 联合身份验证服务 (AD FS) 2.0 为采用 Windows Server® 和 Active Directory 技术的声明感知标识解决方案提供支持。 AD FS 2.0 支持 WS-Trust、WS 联合身份验证和 SAML 协议。 以下资源提供有关 AD FS 的详细信息：
 
 -   [AD FS 2.0 内容地图](http://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx)
 -   [Web SSO 设计][Web SSO Design]
@@ -97,18 +97,18 @@
 可将它用作指引来确定适合用户应用程序的标识解决方案。
 
 -   **使用联合身份验证的 ASP.NET Web 窗体应用程序。** 在此方案中，可使用 Internet 标识（例如 Live ID/Microsoft 帐户）或 Windows Server Active Directory 中托管的企业标识来控制对 ASP.NET Web 窗体应用的访问。
--   **使用联合身份验证的 WCF (SOAP) 服务。**在此方案中，可使用由 Azure AD 访问控制管理的服务标识来控制对 WCF (SOAP) 服务的访问。
+-   **使用联合身份验证的 WCF (SOAP) 服务。** 在此方案中，可使用由 Azure AD 访问控制管理的服务标识来控制对 WCF (SOAP) 服务的访问。
 -   **使用联合身份验证、Active Directory 中标识的 WCF (SOAP) 服务。** 在此方案中，可使用由企业 Windows Server Active Directory 管理的标识来控制对 WCF (SOAP) Web 服务的访问。
--   **使用联合身份验证的 WCF (REST) 服务。**在此方案中，可使用由 Azure AD 访问控制管理的服务标识来控制对 WCF (REST) 服务的访问。
+-   **使用联合身份验证的 WCF (REST) 服务。** 在此方案中，可使用由 Azure AD 访问控制管理的服务标识来控制对 WCF (REST) 服务的访问。
 -   **使用 Live ID/Microsoft 帐户、Facebook、Google、Yahoo! 和 Open ID 的 WCF (REST) 服务。** 在此方案中，可使用 Internet 标识（例如 Live ID/Microsoft 帐户）来控制对 WCF (REST) 服务的访问。
 -   **在 ASP.NET 网站和 REST WCF 服务之间使用共享 SWT 令牌。** 在此方案中使用包含前端 ASP.NET 网站和下游 REST 服务的分布式应用程序，需要通过物理层传送最终用户的上下文。
 -   **在声明感知应用程序和服务中实现基于角色的访问控制 (RBAC) 授权。** 在此方案中，需要在应用中基于角色实现授权逻辑。
 -   **在声明感知应用程序和服务中实现基于声明的授权。** 在此方案中，需要在应用中基于复杂的授权规则实现授权逻辑。
--   **Azure 存储服务身份识别和访问控制方案。**在此方案中，需要安全共享对 Azure 存储 Blob 和容器的访问权限。
--   **Azure SQL 数据库身份识别和访问控制方案。**SQL 数据库仅支持 SQL Server 身份验证。 不支持 Windows 身份验证（集成安全性）。 用户在每次连接到 SQL 数据库时都必须提供凭据（登录名和密码）。
--   **Azure 服务总线身份识别和访问控制方案。**在此方案中，需要安全访问 Azure 服务总线队列。
--   **内存中的缓存身份识别和访问控制方案。**在此方案中，需要安全访问内存中缓存所管理的数据。
--   **Azure 应用商店身份识别和访问控制方案。**在此方案中，需要安全地访问 Azure 应用商店数据集。
+-   **Azure 存储服务身份识别和访问控制方案。** 在此方案中，需要安全共享对 Azure 存储 Blob 和容器的访问权限。
+-   **Azure SQL 数据库身份识别和访问控制方案。** SQL 数据库仅支持 SQL Server 身份验证。 不支持 Windows 身份验证（集成安全性）。 用户在每次连接到 SQL 数据库时都必须提供凭据（登录名和密码）。
+-   **Azure 服务总线身份识别和访问控制方案。** 在此方案中，需要安全访问 Azure 服务总线队列。
+-   **内存中的缓存身份识别和访问控制方案。** 在此方案中，需要安全访问内存中缓存所管理的数据。
+-   **Azure 应用商店身份识别和访问控制方案。** 在此方案中，需要安全地访问 Azure 应用商店数据集。
 
 ##<a name="azure-identity-and-access-scenarios"></a>Azure 身份识别和访问控制方案
 

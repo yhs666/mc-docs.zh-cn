@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 诊断跟踪云服务应用程序中的流 | Azure"
-description: "将跟踪消息添加到 Azure 应用程序，以帮助调试、性能度量、监视和流量分析等。"
+title: 使用 Azure 诊断跟踪云服务应用程序中的流 | Azure
+description: 将跟踪消息添加到 Azure 应用程序，以帮助调试、性能度量、监视和流量分析等。
 services: cloud-services
 documentationCenter: .net
 authors: rboucher
 manager: jwhit
-editor: 
+editor: ''
 ms.service: cloud-services
 ms.topic: article
 origin.date: 02/20/2016
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184653"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>使用 Azure 诊断跟踪云服务应用程序的流
 

@@ -1,12 +1,12 @@
 ---
-title: "配置已加入域的 HDInsight 群集 - Azure"
-description: "了解如何设置和配置已加入域的 HDInsight 群集"
+title: 配置已加入域的 HDInsight 群集 - Azure
+description: 了解如何设置和配置已加入域的 HDInsight 群集
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: saurinsh
 manager: cgronlun
 editor: cgronlun
-tags: 
+tags: ''
 ms.assetid: 0cbb49cc-0de1-4a1a-b658-99897caf827c
 ms.service: hdinsight
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731168"
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>配置已加入域的 HDInsight 沙盒环境
 

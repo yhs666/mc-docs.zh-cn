@@ -21,6 +21,7 @@ ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30845232"
 ---
 # <a name="tutorial-set-up-a-jenkins-environment-with-service-fabric"></a>教程：使用 Service Fabric 设置 Jenkins 环境
 本教程是系列教程的第五部分， 介绍如何使用 Jenkins 将升级部署到应用程序。 本教程结合使用 Service Fabric Jenkins 插件和托管投票应用程序的 Github 存储库，将应用程序部署到群集。 

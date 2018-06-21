@@ -1,12 +1,12 @@
 ---
-title: "使用 Linux 上的 Azure Web 应用创建 Ruby 应用 | Microsoft 文档"
-description: "了解如何使用 Linux 上的 Web 应用创建 Ruby 应用。"
+title: 使用 Linux 上的 Azure Web 应用创建 Ruby 应用 | Microsoft 文档
+description: 了解如何使用 Linux 上的 Web 应用创建 Ruby 应用。
 keywords: azure app service, linux, oss, ruby
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: SyntaxC4
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.service: app-service
 ms.workload: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339071"
 ---
 # <a name="create-a-ruby-app-with-web-apps-on-linux"></a>使用 Linux 上的 Web 应用创建 Ruby 应用
 

@@ -21,6 +21,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072801"
 ---
 # <a name="use-the-azure-blob-storage-connector-in-a-logic-app"></a>在逻辑应用中使用 Azure Blob 存储连接器
 使用 Azure Blob 存储连接器上传、更新、获取和删除存储帐户中的 Blob，一切操作皆在逻辑应用中完成。  

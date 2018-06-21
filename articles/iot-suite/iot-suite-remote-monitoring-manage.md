@@ -1,7 +1,7 @@
 ---
-title: "远程监视解决方案中的设备管理"
-description: "本教程介绍如何管理与远程监视解决方案连接的设备。"
-services: 
+title: 远程监视解决方案中的设备管理
+description: 本教程介绍如何管理与远程监视解决方案连接的设备。
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730838"
 ---
 # <a name="manage-and-configure-your-devices"></a>管理和配置设备
 

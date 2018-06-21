@@ -1,12 +1,12 @@
 ---
-title: "在 Azure IoT 套件中创建自定义规则 | Azure"
-description: "如何在 IoT 套件预配置解决方案中创建自定义规则。"
-services: 
+title: 在 Azure IoT 套件中创建自定义规则 | Azure
+description: 如何在 IoT 套件预配置解决方案中创建自定义规则。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 562799dc-06ea-4cdd-b822-80d1f70d2f09
 ms.service: iot-suite
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22338910"
 ---
 # <a name="create-a-custom-rule-in-the-remote-monitoring-preconfigured-solution"></a>在远程监视预配置解决方案中创建自定义规则
 

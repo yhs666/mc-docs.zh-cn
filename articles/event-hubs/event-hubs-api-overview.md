@@ -1,11 +1,11 @@
 ---
-title: "Azure 事件中心 API 概述 | Azure"
-description: "可用 Azure 事件中心 API 的概述"
+title: Azure 事件中心 API 概述 | Azure
+description: 可用 Azure 事件中心 API 的概述
 services: event-hubs
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 3f221a0c-182d-4e39-9f3d-3a3c16c5c6ed
 ms.service: event-hubs
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27770611"
 ---
 # <a name="available-event-hubs-apis"></a>可用的事件中心 API
 
