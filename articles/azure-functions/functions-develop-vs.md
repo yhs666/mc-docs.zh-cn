@@ -19,6 +19,7 @@ ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31585448"
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>用于 Visual Studio 的 Azure Functions 工具  
 

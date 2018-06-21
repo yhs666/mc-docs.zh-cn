@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34256247"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步排查对象同步问题
 本文档按步骤介绍了如何使用故障排除任务来排查对象同步问题。

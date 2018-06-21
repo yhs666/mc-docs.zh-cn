@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/15/2018
+ms.locfileid: "34062115"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>处理 Linux 虚拟机的计划内维护通知
 

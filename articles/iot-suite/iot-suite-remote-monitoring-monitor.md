@@ -1,7 +1,7 @@
 ---
-title: "远程监视解决方案中的高级监视"
-description: "本教程介绍如何使用远程监视解决方案仪表板监视设备。"
-services: 
+title: 远程监视解决方案中的高级监视
+description: 本教程介绍如何使用远程监视解决方案仪表板监视设备。
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731022"
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>使用远程监视解决方案执行高级监视
 

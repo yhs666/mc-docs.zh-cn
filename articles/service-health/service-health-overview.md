@@ -20,6 +20,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31781981"
 ---
 # <a name="service-health"></a>服务运行状况
 服务运行状况提供可定制的仪表板，用于跟踪 Azure 服务在使用区域中的运行状况。 在此仪表板中，可跟踪活动事件，例如正在发生的服务问题、即将开始的计划内维护或相关运行状况咨询。 当事件转变为非活动状态时，将在运行状况历史记录中保留最多 90 天。 最后，可使用服务运行状况仪表板创建和管理服务运行状况警报，在服务问题影响到自己时提前获得通知。

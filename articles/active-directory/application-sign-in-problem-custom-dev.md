@@ -1,11 +1,11 @@
 ---
-title: "登录自定义开发的应用程序时出现的问题 | Azure"
-description: "可能导致用户无法登录到已使用 Azure AD 开发的应用程序的常见错误"
+title: 登录自定义开发的应用程序时出现的问题 | Azure
+description: 可能导致用户无法登录到已使用 Azure AD 开发的应用程序的常见错误
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27604193"
 ---
 # <a name="problems-signing-in-to-an-custom-developed-application"></a>登录自定义开发的应用程序时出现的问题
 

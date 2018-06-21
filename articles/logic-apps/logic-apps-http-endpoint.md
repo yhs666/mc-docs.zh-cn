@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31322550"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>在逻辑应用中使用 HTTP 终结点调用、触发或嵌套工作流
 

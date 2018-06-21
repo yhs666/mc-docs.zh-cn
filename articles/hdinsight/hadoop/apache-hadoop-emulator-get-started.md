@@ -1,12 +1,12 @@
 ---
-title: "了解如何使用 Hadoop 沙盒 - 模拟器 - Azure HDInsight | Azure"
-description: "若要了解如何使用 Hadoop 生态系统，可以在 Azure 虚拟机上设置 Hortonworks 提供的 Hadoop 沙盒。 "
-keywords: "hadoop emulator,hadoop 沙盒"
+title: 了解如何使用 Hadoop 沙盒 - 模拟器 - Azure HDInsight | Azure
+description: '若要了解如何使用 Hadoop 生态系统，可以在 Azure 虚拟机上设置 Hortonworks 提供的 Hadoop 沙盒。 '
+keywords: hadoop emulator,hadoop 沙盒
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
 author: nitinme
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
 ms.service: hdinsight
@@ -23,6 +23,7 @@ ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27781304"
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>开始使用 Hadoop 沙盒, 虚拟机上的模拟器
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782665"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>将数据库备份还原到 Azure SQL 数据库托管实例
 

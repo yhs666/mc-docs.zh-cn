@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序管理数据包捕获 - REST API | Azure"
-description: "此页说明如何使用 Azure REST API 管理网络观察程序的数据包捕获功能"
+title: 使用 Azure 网络观察程序管理数据包捕获 - REST API | Azure
+description: 此页说明如何使用 Azure REST API 管理网络观察程序的数据包捕获功能
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 53fe0324-835f-4005-afc8-145eeb314aeb
 ms.service: network-watcher
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285124"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>通过 Azure REST API 使用 Azure 网络观察程序管理数据包捕获
 

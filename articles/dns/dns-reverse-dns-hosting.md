@@ -1,6 +1,6 @@
 ---
-title: "在 Azure DNS 中托管反向 DNS 查找区域 | Azure"
-description: "了解如何使用 Azure DNS 托管 IP 范围的反向 DNS 查找区域"
+title: 在 Azure DNS 中托管反向 DNS 查找区域 | Azure
+description: 了解如何使用 Azure DNS 托管 IP 范围的反向 DNS 查找区域
 services: dns
 documentationcenter: na
 author: yunan2016
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870461"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>在 Azure DNS 中托管反向 DNS 查找区域
 

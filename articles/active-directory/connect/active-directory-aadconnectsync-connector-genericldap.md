@@ -1,11 +1,11 @@
 ---
-title: "泛型 LDAP 连接器 | Microsoft Docs"
-description: "本文介绍如何配置 Microsoft 的泛型 LDAP 连接器。"
+title: 泛型 LDAP 连接器 | Microsoft Docs
+description: 本文介绍如何配置 Microsoft 的泛型 LDAP 连接器。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 984beeb0-4d91-4908-ad81-c19797c4891b
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27162548"
 ---
 # <a name="generic-ldap-connector-technical-reference"></a>泛型 LDAP 连接器技术参考
 本指南介绍泛型 LDAP 连接器。 本文适用于以下产品：

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Site Recovery 复制多层 Citrix XenDesktop 和 XenApp 部署 | Azure"
-description: "本文介绍如何使用 Azure Site Recovery 保护与恢复 Citrix XenDesktop 和 XenApp 部署。"
+title: 使用 Azure Site Recovery 复制多层 Citrix XenDesktop 和 XenApp 部署 | Azure
+description: 本文介绍如何使用 Azure Site Recovery 保护与恢复 Citrix XenDesktop 和 XenApp 部署。
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731465"
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>使用 Azure Site Recovery 复制多层 Citrix XenApp 和 XenDesktop 部署
 

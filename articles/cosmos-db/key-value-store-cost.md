@@ -21,6 +21,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31781930"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store---cost-overview"></a>用作键值存储的 Azure Cosmos DB - 费用概述
 

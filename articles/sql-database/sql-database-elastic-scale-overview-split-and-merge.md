@@ -15,6 +15,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782309"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>在扩大云数据库之间移动数据
 如果是软件即服务开发人员，并且应用突然遇到巨大需求，那么需要适应该需求增长。 因此，你添加了更多数据库（分片）。 如何在不破坏数据完整性的情况下将数据重新分配到新数据库？ 使用**拆分/合并工具**将数据从受约束的数据库移到新数据库。  

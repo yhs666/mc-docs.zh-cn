@@ -19,6 +19,7 @@ ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554674"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>在 Azure 中从快照还原应用
 本文介绍如何在 [Azure 应用服务](../app-service/app-service-web-overview.md)中从快照还原应用。 可以根据应用的某个快照将应用还原到以前的状态。 不需启用快照备份，平台会自动保存所有应用的快照，用于数据恢复。

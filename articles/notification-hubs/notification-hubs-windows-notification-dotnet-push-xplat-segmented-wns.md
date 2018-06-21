@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 通知中心发送突发新闻（通用 Windows 平台）"
-description: "将 Azure 通知中心与注册中的标记配合使用，将突发新闻发送到通用 Windows 平台应用。"
+title: 使用 Azure 通知中心发送突发新闻（通用 Windows 平台）
+description: 将 Azure 通知中心与注册中的标记配合使用，将突发新闻发送到通用 Windows 平台应用。
 services: notification-hubs
 documentationcenter: windows
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 994d2eed-f62e-433c-bf65-4afebf1c0561
 ms.service: notification-hubs
 ms.workload: mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: c0a9889921cd1ee52d58255a5a2db5e7930c4a4b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/23/2018
+ms.locfileid: "28001692"
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>使用通知中心发送突发新闻
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]

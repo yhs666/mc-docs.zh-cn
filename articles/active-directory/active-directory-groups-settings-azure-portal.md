@@ -22,6 +22,7 @@ ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/19/2018
+ms.locfileid: "29993173"
 ---
 # <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>在 Azure Active Directory 中管理组的设置
 本文介绍如何在 Azure Active Directory (Azure AD) 中更改组的设置。

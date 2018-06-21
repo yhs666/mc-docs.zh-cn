@@ -22,6 +22,7 @@ ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/15/2018
+ms.locfileid: "34173308"
 ---
 # <a name="how-to-schedule-planned-maintenance-on-azure-vms"></a>如何在 Azure VM 上安排计划内的维护
 > [!IMPORTANT]

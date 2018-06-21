@@ -22,6 +22,7 @@ ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30941528"
 ---
 # <a name="overview-of-spark-structured-streaming"></a>Spark 结构化流的概述
 

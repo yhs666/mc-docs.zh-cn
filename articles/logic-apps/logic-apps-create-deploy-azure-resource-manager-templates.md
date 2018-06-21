@@ -1,11 +1,11 @@
 ---
-title: "通过 Azure 资源管理器模板创建逻辑应用"
-description: "使用 Azure 资源管理器模板创建和部署逻辑应用工作流"
+title: 通过 Azure 资源管理器模板创建逻辑应用
+description: 使用 Azure 资源管理器模板创建和部署逻辑应用工作流
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.service: logic-apps
 ms.workload: integration
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870543"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板创建和部署逻辑应用
 

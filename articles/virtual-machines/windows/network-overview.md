@@ -21,6 +21,7 @@ ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305810"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Azure 中的虚拟网络和虚拟机 
 

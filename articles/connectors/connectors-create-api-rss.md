@@ -21,6 +21,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072506"
 ---
 # <a name="get-started-with-the-rss-connector"></a>RSS 连接器入门
 RSS 是一种流行的 Web 联合格式，用于发布频繁更新的内容，如博客文章和新闻标题。  许多内容发布者提供 RSS 源，允许用户订阅它。  当 RSS 源中发布新项时，使用 RSS 连接器检索源信息并触发流。

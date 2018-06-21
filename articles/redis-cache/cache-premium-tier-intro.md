@@ -1,11 +1,11 @@
 ---
-title: "Azure Redis 缓存高级层简介 | Microsoft Docs"
-description: "了解如何为高级层 Azure Redis 缓存实例创建和管理 Redis 持久性、Redis 群集和 VNET 支持"
+title: Azure Redis 缓存高级层简介 | Microsoft Docs
+description: 了解如何为高级层 Azure Redis 缓存实例创建和管理 Redis 持久性、Redis 群集和 VNET 支持
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
 ms.workload: tbd
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730958"
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Azure Redis 缓存高级层简介
 Azure Redis 缓存是一种分布式托管缓存，可通过提供对数据的超高速访问权限来帮助你构建高度可缩放且响应灵敏的应用程序。 

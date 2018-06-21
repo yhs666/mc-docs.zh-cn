@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/15/2018
+ms.locfileid: "33937439"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>使用虚拟网关 SKU（传统 SKU）
 

@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Active Directory 中添加或删除用户 | Azure"
-description: "介绍如何在 Azure Active Directory 中添加新用户或删除现有用户"
+title: 在 Azure Active Directory 中添加或删除用户 | Azure
+description: 介绍如何在 Azure Active Directory 中添加新用户或删除现有用户
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29284994"
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>快速入门：将新用户添加到 Azure Active Directory
 本文介绍如何使用 Azure 门户或通过同步本地 Windows Server AD 用户帐户数据，在组织的 Azure Active Directory (Azure AD) 租户中删除或添加组织中的用户。 

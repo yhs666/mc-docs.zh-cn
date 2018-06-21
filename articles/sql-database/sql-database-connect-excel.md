@@ -16,6 +16,7 @@ ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/08/2018
+ms.locfileid: "30936259"
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>将 Excel 连接到 Azure SQL 数据库并创建报表
 
@@ -55,7 +56,7 @@ ms.lasthandoff: 04/08/2018
 ## <a name="import-the-data-into-excel-and-create-a-pivot-chart"></a>将数据导入 Excel 并创建数据透视图
 创建连接并创建包含数据与连接信息的文件后，便可以导入数据。
 
-1. 在“导入数据”对话框中，单击要在工作表中呈现数据的选项，并单击“确定”。 **将此数据添加到数据模型**。 也可以选择创建**新工作表**或**将此数据添加到数据模型**。 有关数据模型的详细信息，请参阅[在 Excel 中创建数据模型](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B)。 单击**“属性”**浏览在上一个步骤中创建的 odc 文件的相关信息，并选择用于刷新数据的选项。
+1. 在“导入数据”对话框中，单击要在工作表中呈现数据的选项，并单击“确定”。 **将此数据添加到数据模型**。 也可以选择创建**新工作表**或**将此数据添加到数据模型**。 有关数据模型的详细信息，请参阅[在 Excel 中创建数据模型](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B)。 单击 **“属性”** 浏览在上一个步骤中创建的 odc 文件的相关信息，并选择用于刷新数据的选项。
    
     ![选择 Excel 中数据的格式](./media/sql-database-connect-excel/import-data.png)
    

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305798"
 ---
 # <a name="enable-backup-during-azure-virtual-machine-creation"></a>在 Azure 虚拟机创建过程中启用备份 
 

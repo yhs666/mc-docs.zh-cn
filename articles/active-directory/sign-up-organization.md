@@ -1,8 +1,8 @@
 ---
-title: "以组织身份注册 Azure"
-description: "了解如何通过工作或学校帐户来利用现有的用户帐户、策略、设置或已有的本地服务器部署，以及提高组织的本地标识基础结构与 Azure AD 之间的效率。"
+title: 以组织身份注册 Azure
+description: 了解如何通过工作或学校帐户来利用现有的用户帐户、策略、设置或已有的本地服务器部署，以及提高组织的本地标识基础结构与 Azure AD 之间的效率。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 ms.assetid: 1b7f6dc2-bbdb-4aee-a615-db2f991f46ed
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 7749226fe40dd8160dbf9b4a0d0f89027d3eb659
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/21/2017
+ms.locfileid: "22134068"
 ---
 # <a name="sign-up-for-azure-as-an-organization"></a>以组织身份注册 Azure
 直到最近，只能使用 Microsoft 帐户 (Windows Live ID) 注册一个新的 Azure 订阅。 Azure 现在支持使用下列两种帐户方法之一进行注册：

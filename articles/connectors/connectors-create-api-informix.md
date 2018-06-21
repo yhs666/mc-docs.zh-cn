@@ -21,6 +21,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077696"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Informix 连接器入门
 Microsoft Informix 连接器可将逻辑应用连接到存储在 IBM Informix 数据库中的资源。 Informix 连接器包括要在 TCP/IP 网络上与远程 Informix 服务器计算机通信的 Microsoft 客户端。 这包括云数据库（如在 Azure 虚拟化中运行的 Windows IBM Informix）和使用本地数据网关的本地数据库。 请参阅 IBM Informix 平台和版本（在本主题中）的[受支持列表](connectors-create-api-informix.md#supported-informix-platforms-and-versions)。

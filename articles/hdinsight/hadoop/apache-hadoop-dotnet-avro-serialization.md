@@ -21,6 +21,7 @@ ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/22/2018
+ms.locfileid: "34450090"
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>使用 Microsoft Avro Library 序列化 Hadoop 中的数据
 

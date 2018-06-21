@@ -1,13 +1,13 @@
 ---
-title: "使用点到站点和 RADIUS 身份验证将计算机连接到虚拟网络：PowerShell | Microsoft Docs"
-description: "使用 P2S 和 RADIUS 身份验证将 Windows 和 Mac OS X 客户端安全地连接到虚拟网络。"
+title: 使用点到站点和 RADIUS 身份验证将计算机连接到虚拟网络：PowerShell | Microsoft Docs
+description: 使用 P2S 和 RADIUS 身份验证将 Windows 和 Mac OS X 客户端安全地连接到虚拟网络。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -21,6 +21,7 @@ ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29925222"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>使用 RADIUS 身份验证配置 VNet 的点到站点连接：PowerShell
 
@@ -88,7 +89,7 @@ RADIUS 服务器可以驻留在本地或 Azure VNet 中。 在身份验证期间
   - **GatewaySubnet 地址范围：192.168.200.0/24** 
 - **VPN 客户端地址池：172.16.201.0/24**<br>使用此点到站点连接连接到 VNet 的 VPN 客户端接收来自 VPN 客户端地址池的 IP 地址。
 - 
-            **订阅：**如果有多个订阅，请确保使用正确的订阅。
+            **订阅：** 如果有多个订阅，请确保使用正确的订阅。
 - **资源组：TestRG**
 - **位置：中国北部**
 - **DNS 服务器**：用于 VNet 名称解析的 DNS 服务器的 IP 地址。 （可选）

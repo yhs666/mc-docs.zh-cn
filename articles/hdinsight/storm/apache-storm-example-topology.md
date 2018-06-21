@@ -22,6 +22,7 @@ ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/22/2018
+ms.locfileid: "34450103"
 ---
 # <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Apache Storm on HDInsight 的示例 Storm 拓扑和组件
 

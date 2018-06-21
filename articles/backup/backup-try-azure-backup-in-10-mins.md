@@ -21,6 +21,7 @@ ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34259142"
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>初步了解：在 Resource Manager 部署中备份文件和文件夹
 本文介绍如何通过 Resource Manager 部署将 Windows Server（或 Windows 计算机）文件和文件夹备份到 Azure。 本教程旨在引导完成基本操作。 如果想要开始使用 Azure 备份，本文的内容非常合适。

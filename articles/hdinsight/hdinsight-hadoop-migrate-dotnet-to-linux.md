@@ -1,13 +1,13 @@
 ---
-title: "在基于 Linux 的 HDInsight 上将 .NET 与 Hadoop MapReduce 配合使用 - Azure | Azure"
-description: "了解如何在基于 Linux 的 HDInsight 上将 .NET 应用程序用于流式处理 MapReduce。"
+title: 在基于 Linux 的 HDInsight 上将 .NET 与 Hadoop MapReduce 配合使用 - Azure | Azure
+description: 了解如何在基于 Linux 的 HDInsight 上将 .NET 应用程序用于流式处理 MapReduce。
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: dotnet
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27781360"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>将基于 Windows 的 HDInsight 的 .NET 解决方案迁移到基于 Linux 的 HDInsight
 

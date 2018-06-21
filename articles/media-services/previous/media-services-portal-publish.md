@@ -20,6 +20,7 @@ ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475399"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>在 Azure 门户中发布内容
 > [!div class="op_single_selector"]

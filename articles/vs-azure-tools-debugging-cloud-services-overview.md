@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/15/2018
+ms.locfileid: "34060326"
 ---
 # <a name="learn-the-various-ways-to-debug-an-azure-cloud-service"></a>了解调试 Azure 云服务的各种方法
 本文提供了调试 Azure 云服务的各种方法的链接。 

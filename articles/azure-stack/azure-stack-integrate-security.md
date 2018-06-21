@@ -16,6 +16,7 @@ ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30222477"
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Azure Stack 数据中心集成 - 安全性
 Azure Stack 在设计和构建时已将安全性考虑进去。 Azure Stack 是锁定的系统，因此不支持安装软件安全代理。

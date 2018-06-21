@@ -1,13 +1,13 @@
 ---
-title: "Linux 部署上的 Azure Web 应用 - 自定义映像还是内置平台映像？  | Microsoft Docs"
-description: "如何在自定义 Docker 容器部署和内置应用程序框架之间做出选择"
-keywords: "azure 应用服务, web 应用, linux, oss"
+title: Linux 部署上的 Azure Web 应用 - 自定义映像还是内置平台映像？  | Microsoft Docs
+description: 如何在自定义 Docker 容器部署和内置应用程序框架之间做出选择
+keywords: azure 应用服务, web 应用, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 authors: nickwalk
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339068"
 ---
 # <a name="custom-image-or-built-in-platform-image"></a>自定义映像还是内置平台映像？
 

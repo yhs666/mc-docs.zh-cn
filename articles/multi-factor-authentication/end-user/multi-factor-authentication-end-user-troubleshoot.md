@@ -1,9 +1,9 @@
 ---
-title: "双重验证疑难解答 |Microsoft 文档"
-description: "本文档向用户提供有关如何解决 Azure Multi-Factor Authentication 问题的信息。"
+title: 双重验证疑难解答 |Microsoft 文档
+description: 本文档向用户提供有关如何解决 Azure Multi-Factor Authentication 问题的信息。
 services: multi-factor-authentication
-keywords: "多重身份验证客户端, 身份验证问题, 相关性 ID"
-documentationcenter: 
+keywords: 多重身份验证客户端, 身份验证问题, 相关性 ID
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
@@ -22,6 +22,7 @@ ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27844649"
 ---
 # <a name="get-help-with-two-step-verification"></a>获取有关双重验证的帮助
 本文解答有关双重验证的最常见问题。

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475460"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 架构
 本文介绍 [Media Encoder Standard 预设](media-services-mes-presets-overview.md)基于的 XML 架构的一些元素和类型。 本文将解释元素及其有效值。  

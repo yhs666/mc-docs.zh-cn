@@ -1,11 +1,11 @@
 ---
-title: "使用持续交付启用远程调试 | Microsoft Docs"
-description: "了解在使用持续交付部署到 Azure 时如何启用远程调试"
+title: 使用持续交付启用远程调试 | Microsoft Docs
+description: 了解在使用持续交付部署到 Azure 时如何启用远程调试
 services: cloud-services
 documentationcenter: .net
 author: mikejo
 manager: ghogen
-editor: 
+editor: ''
 ms.assetid: 7d423639-3b2f-4ca5-ac5a-9ac19a217c29
 ms.service: cloud-services
 ms.workload: infrastructure-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27604490"
 ---
 # <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>使用持续交付功能发布到 Azure 时如何启用远程调试
 

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33815084"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>安装适用于 Visual Studio 的 Azure 流分析工具
 Azure 流分析工具现在支持 Visual Studio 2017、2015 和 2013。 本文档介绍如何安装和卸载工具。

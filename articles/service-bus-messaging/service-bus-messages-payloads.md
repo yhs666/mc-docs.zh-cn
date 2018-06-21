@@ -1,11 +1,11 @@
 ---
-title: "Azure 服务总线消息、有效负载和序列化"
-description: "概述了服务总线消息有效负载"
+title: Azure 服务总线消息、有效负载和序列化
+description: 概述了服务总线消息有效负载
 services: service-bus
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730885"
 ---
 # <a name="messages-payloads-and-serialization"></a>消息、有效负载和序列化
 

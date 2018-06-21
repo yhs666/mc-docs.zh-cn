@@ -1,11 +1,11 @@
 ---
-title: "如何创建和部署云服务 | Azure"
-description: "了解如何在 Azure 中使用“快速创建”方法创建和部署云服务。"
+title: 如何创建和部署云服务 | Azure
+description: 了解如何在 Azure 中使用“快速创建”方法创建和部署云服务。
 services: cloud-services
-documentationCenter: 
+documentationCenter: ''
 authors: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0ea78ccc-5e7d-40f8-bdb6-478c0eb0e265
 ms.service: cloud-services
 ms.workload: tbd
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/01/2017
+ms.locfileid: "21944691"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>如何创建和部署云服务
 

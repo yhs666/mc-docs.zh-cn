@@ -1,8 +1,8 @@
 ---
-title: "通过使用 RBAC 共享 Azure 门户仪表板 | Microsoft 文档"
-description: "本文介绍如何通过使用基于角色的访问控制在 Azure 门户中共享仪表板。"
+title: 通过使用 RBAC 共享 Azure 门户仪表板 | Microsoft 文档
+description: 本文介绍如何通过使用基于角色的访问控制在 Azure 门户中共享仪表板。
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27604184"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>通过使用基于角色的访问控制来共享 Azure 仪表板
 配置仪表板后，可将其发布，并与组织中的其他用户共享。 通过使用 Azure [基于角色的访问控制](../active-directory/role-based-access-control-configure.md)，允许他人查看仪表板。 将一个用户或一组用户分配到某角色，该角色定义这些用户是否可以查看或修改已发布的仪表板。 

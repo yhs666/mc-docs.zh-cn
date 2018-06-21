@@ -20,6 +20,7 @@ ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937401"
 ---
 # <a name="what-is-azure-active-directory"></a>什么是 Azure Active Directory？
 Azure Active Directory (Azure AD) 是 Microsoft 推出的基于云的多租户目录，也是标识管理服务，可以将核心目录服务、应用程序访问管理和标识保护组合到单个解决方案中。 Azure AD 还提供功能丰富、基于标准的平台，该平台支持开发人员根据集中的策略和规则为应用程序提供访问控制。

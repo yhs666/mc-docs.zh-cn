@@ -23,6 +23,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30076927"
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>HDInsight 上的 Spark 简介
 

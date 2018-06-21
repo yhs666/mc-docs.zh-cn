@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/15/2018
+ms.locfileid: "34060329"
 ---
 # <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>在 Visual Studio 中调试云服务或虚拟机
 

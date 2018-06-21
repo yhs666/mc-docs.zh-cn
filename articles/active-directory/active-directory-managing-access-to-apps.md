@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure AD 管理对应用的访问 | Microsoft Docs"
-description: "介绍 Azure Active Directory 如何使组织能够指定每个用户有权访问的应用。"
+title: 使用 Azure AD 管理对应用的访问 | Microsoft Docs
+description: 介绍 Azure Active Directory 如何使组织能够指定每个用户有权访问的应用。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: femila
-editor: 
+editor: ''
 ms.assetid: b0829f18-9e57-4107-925d-5f0457d81671
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29527571"
 ---
 # <a name="managing-access-to-apps"></a>管理对应用的访问
 将应用集成到组织的标识系统之后，要不断进行访问管理、使用评估和报告仍然是一项挑战。 在许多情况下，IT 管理员或支持人员需要持续采取主动措施来管理应用访问。 有时，分配由总部或分部 IT 团队执行。 分配决策往往委派给业务决策人，IT 人员在进行分配之前需要得到其批准。  其他组织会投资来与现有自动化标识和访问管理系统集成，例如基于角色的访问控制 (RBAC) 或基于属性的访问控制 (ABAC)。 集成与规则开发往往是针对性的且费用高昂。 对任一管理方式进行监视或报告本身是一项独立、昂贵且复杂的投资。

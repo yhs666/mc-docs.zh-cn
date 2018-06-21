@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32121418"
 ---
 # <a name="monitoring-the-cluster-and-platform"></a>监视群集和平台
 

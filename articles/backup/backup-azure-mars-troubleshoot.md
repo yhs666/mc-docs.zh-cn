@@ -20,6 +20,7 @@ ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30955109"
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>排除 Azure 备份代理配置和注册问题
 ## <a name="recommended-steps"></a>建议的步骤

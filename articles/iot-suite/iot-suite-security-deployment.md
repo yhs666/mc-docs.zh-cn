@@ -1,12 +1,12 @@
 ---
-title: "保护物联网部署 | Azure"
-description: "本文详细说明如何保护 IoT 部署"
-services: 
+title: 保护物联网部署 | Azure
+description: 本文详细说明如何保护 IoT 部署
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 95c23341-16b0-4954-b3f2-d2e82ab7b367
 ms.service: iot-suite
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731222"
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 

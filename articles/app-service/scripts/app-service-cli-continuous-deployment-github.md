@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 从 GitHub 使用连续部署创建 Web 应用 | Microsoft 文档"
-description: "Azure CLI 脚本示例 - 从 GitHub 使用连续部署创建 Web 应用"
+title: Azure CLI 脚本示例 - 从 GitHub 使用连续部署创建 Web 应用 | Microsoft 文档
+description: Azure CLI 脚本示例 - 从 GitHub 使用连续部署创建 Web 应用
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
 ms.service: app-service-web
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/25/2017
+ms.locfileid: "27546598"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>从 GitHub 使用连续部署创建 Web 应用
 

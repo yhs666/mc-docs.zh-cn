@@ -1,12 +1,12 @@
 ---
-title: "设置独立的 Azure Service Fabric 群集 | Azure"
-description: "创建一个独立的开发群集，在同一计算机上运行三个节点。 完成此设置后，即可开始创建多机群集。"
+title: 设置独立的 Azure Service Fabric 群集 | Azure
+description: 创建一个独立的开发群集，在同一计算机上运行三个节点。 完成此设置后，即可开始创建多机群集。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26045028"
 ---
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>创建第一个独立的 Service Fabric 群集
 可以在任何运行 Windows Server 2012 R2 或 Windows Server 2016（不管是在本地还是在云中）的虚拟机或计算机上创建独立的 Service Fabric 群集。 本快速入门介绍如何在数分钟内创建独立的开发群集。  完成后，将有一个三节点群集运行在单台可以向其部署应用的计算机上。

@@ -1,11 +1,11 @@
 ---
-title: "服务总线死信队列 | Azure"
-description: "Azure 服务总线死信队列概述"
+title: 服务总线死信队列 | Azure
+description: Azure 服务总线死信队列概述
 services: service-bus
 documentationCenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 68b2aa38-dba7-491a-9c26-0289bc15d397
 ms.service: service-bus
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730830"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>服务总线死信队列概述
 

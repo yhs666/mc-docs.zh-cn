@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31319181"
 ---
 # <a name="branding-guidelines-for-applications"></a>适用于应用程序的品牌准则
 本文讨论在使用 Azure Active Directory (Azure AD) 开发应用程序时应使用的品牌准则。 在客户需要使用 Azure AD 中托管的工作或学校帐户或个人帐户进行注册和登录到应用程序时，这些准则将帮助指导客户进行相关操作。

@@ -20,6 +20,7 @@ ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554369"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-login"></a>将应用服务应用配置为使用 Azure Active Directory 登录
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]

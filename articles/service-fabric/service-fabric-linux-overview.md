@@ -1,11 +1,11 @@
 ---
-title: "Linux 上的 Azure Service Fabric | Azure"
-description: "Service Fabric 群集支持 Linux 和 Java，这意味着，可以在 Linux 上部署和托管以 Java 和 C# 编写的 Service Fabric 应用程序。"
+title: Linux 上的 Azure Service Fabric | Azure
+description: Service Fabric 群集支持 Linux 和 Java，这意味着，可以在 Linux 上部署和托管以 Java 和 C# 编写的 Service Fabric 应用程序。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 459afade-145d-4ee6-b72b-ddf380ccd1bf
 ms.service: service-fabric
 ms.devlang: Java
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285450"
 ---
 # <a name="service-fabric-on-linux"></a>Linux 上的 Service Fabric
 如同在 Windows 上一样，可以使用 Linux 上的 Service Fabric 预览版在 Linux 上构建、部署和管理高可用性、高度可缩放的应用程序。 Service Fabric 框架（Reliable Services 和 Reliable Actors）除了可在 C# (.NET Core) 中使用以外，也能在 Java on Linux 中使用。  还可以使用任何语言或框架来构建[来宾可执行的服务](service-fabric-deploy-existing-app.md)。 此外，预览版还支持协调 Docker 容器。 Docker 容器可以运行使用 Service Fabric 框架的来宾可执行文件或本机 Service Fabric 服务。

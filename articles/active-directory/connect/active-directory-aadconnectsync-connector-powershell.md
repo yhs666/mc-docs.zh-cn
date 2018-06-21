@@ -1,11 +1,11 @@
 ---
-title: "PowerShell 连接器 | Microsoft Docs"
-description: "本文介绍如何配置 Microsoft 的 Windows PowerShell 连接器。"
+title: PowerShell 连接器 | Microsoft Docs
+description: 本文介绍如何配置 Microsoft 的 Windows PowerShell 连接器。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27162553"
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Windows PowerShell 连接器技术参考
 本文介绍 Windows PowerShell 连接器。 本文适用于以下产品：

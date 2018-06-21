@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31319127"
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Office 365 用户连接器入门
 连接到 Office 365 用户，获取配置文件、搜索用户等。 通过 Office 365 用户，可以：

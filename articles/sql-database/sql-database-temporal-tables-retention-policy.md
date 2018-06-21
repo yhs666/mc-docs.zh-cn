@@ -15,6 +15,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782372"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>使用保留策略管理临时表中的历史数据
 与普通的表相比，临时表数据库大小的增长幅度可能更大，尤其是长时间保留历史数据时。 因此，针对历史数据创建保留策略是规划和管理每个临时表的生命周期的一个重要方面。 Azure SQL 数据库中的临时表附带了易用的保留机制，可帮助完成此任务。

@@ -1,11 +1,11 @@
 ---
-title: "Azure 上的企业级 WordPress | Azure"
-description: "了解如何在 Azure 应用服务上托管企业级 WordPress 网站"
+title: Azure 上的企业级 WordPress | Azure
+description: 了解如何在 Azure 应用服务上托管企业级 WordPress 网站
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: sunbuild
 manager: yochayk
-editor: 
+editor: ''
 ms.assetid: 22d68588-2511-4600-8527-c518fede8978
 ms.service: app-service-web
 ms.devlang: php
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146620"
 ---
 # <a name="enterprise-class-wordpress-on-azure"></a>Azure 上的企业级 WordPress
 Azure 应用服务为大规模任务关键型 [WordPress][wordpress] 站点提供了一个可缩放、安全且易用的环境。 Microsoft 自身在运营 [Office][officeblog] 和[必应][bingblog]博客等企业级站点。 本文说明如何使用 Azure 应用服务的 Web 应用功能，建立和维护一个可处理大量访客、基于云的企业级 WordPress 站点。

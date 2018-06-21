@@ -1,11 +1,11 @@
 ---
-title: "向通用 Windows 平台 (UWP) 应用添加推送通知"
-description: "了解如何使用 Azure 应用服务移动应用和 Azure 通知中心将推送通知发送到通用 Windows 平台 (UWP) 应用。"
+title: 向通用 Windows 平台 (UWP) 应用添加推送通知
+description: 了解如何使用 Azure 应用服务移动应用和 Azure 通知中心将推送通知发送到通用 Windows 平台 (UWP) 应用。
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27984797"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>向 Windows 应用添加推送通知
 

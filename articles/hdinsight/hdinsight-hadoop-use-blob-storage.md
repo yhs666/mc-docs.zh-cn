@@ -23,6 +23,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30075317"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>将 Azure 存储与 Azure HDInsight 群集配合使用
 
@@ -69,13 +70,13 @@ HDInsight 提供对在本地附加到计算节点的分布式文件系统的访�
             **连接到群集的存储帐户中的容器：** 由于在创建过程中帐户名称和密钥会与群集相关联，因此你对这些容器中的 Blob 具有完全访问权限。
 
 * 
-            **没有连接到群集的存储帐户中的公共容器或公共 Blob：**你对这些容器中的 Blob 具有只读权限。
+            **没有连接到群集的存储帐户中的公共容器或公共 Blob：** 你对这些容器中的 Blob 具有只读权限。
 
   > [!NOTE]
   > 利用公共容器，可以获得该容器中可用的所有 Blob 的列表以及容器元数据。 利用公共 Blob，仅在知道正确 URL 时才可访问 Blob。 有关详细信息，请参阅<a href="/storage/blobs/storage-manage-access-to-resources/">限制对容器和 Blob 的访问</a>。
   > 
   > 
-* **没有连接到群集的存储帐户中的私有容器：**不能访问这些容器中的 Blob，除非在提交 WebHCat 作业时定义存储帐户。 本文后面对此做了解释。
+* **没有连接到群集的存储帐户中的私有容器：** 不能访问这些容器中的 Blob，除非在提交 WebHCat 作业时定义存储帐户。 本文后面对此做了解释。
 
 创建过程中定义的存储帐户及其密钥存储在群集节点上的 %HADOOP/_HOME%/conf/core-site.xml 中。 HDInsight 的默认行为是使用 core-site.xml 文件中定义的存储帐户。 可以使用 [Ambari](./hdinsight-hadoop-manage-ambari.md) 修改此设置
 

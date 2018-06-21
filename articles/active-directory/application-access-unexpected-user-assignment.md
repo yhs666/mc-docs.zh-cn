@@ -1,11 +1,11 @@
 ---
-title: "如何将用户分配给应用程序 | Azure"
-description: "了解如何将用户分配给租户中的应用程序"
+title: 如何将用户分配给应用程序 | Azure
+description: 了解如何将用户分配给租户中的应用程序
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/29/2017
+ms.locfileid: "27548412"
 ---
 # <a name="how-to-assign-users-to-applications"></a>如何将用户分配给应用程序
 

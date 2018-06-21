@@ -1,13 +1,13 @@
 ---
-title: "Azure 备份 PowerShell 示例 | Microsoft Docs"
-description: "Azure 备份 PowerShell 示例"
+title: Azure 备份 PowerShell 示例 | Microsoft Docs
+description: Azure 备份 PowerShell 示例
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: backup
 ms.devlang: na
 ms.topic: sample
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27769143"
 ---
 # <a name="azure-backup-powershell-samples"></a>Azure 备份 PowerShell 示例
 

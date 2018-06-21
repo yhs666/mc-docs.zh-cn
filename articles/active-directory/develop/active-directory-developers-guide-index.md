@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31319172"
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Azure AD 开发人员指南中的文章
 下面是 Azure Active Directory 开发人员指南中涉及的所有主题的列表。

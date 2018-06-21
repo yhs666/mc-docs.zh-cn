@@ -21,6 +21,7 @@ ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/19/2018
+ms.locfileid: "29993231"
 ---
 # <a name="azure-ad-java-web-app-getting-started"></a>Azure AD Java Web 应用入门
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]

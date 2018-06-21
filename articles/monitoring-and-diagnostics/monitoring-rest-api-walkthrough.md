@@ -24,6 +24,7 @@ ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33815349"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure 监视 REST API 演练
 本文说明如何执行身份验证，使代码能够遵循 [Microsoft Azure Monitor REST API 参考](https://msdn.microsoft.com/library/azure/dn931943.aspx)。         

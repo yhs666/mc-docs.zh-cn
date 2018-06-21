@@ -21,6 +21,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072532"
 ---
 # <a name="get-started-with-the-ftp-connector"></a>FTP 连接器入门
 使用 FTP 连接器在 FTP 服务器上监视、管理和创建文件。 
@@ -72,7 +73,7 @@ ms.lasthandoff: 03/22/2018
 3. 输入 *FTP* 搜索与 FTP 相关的所有操作。
 4. 选择“FTP - 获取文件内容”作为要在 FTP 文件夹中找到新文件或已修改文件时采取的操作。      
    ![FTP 操作图 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
-   “获取文件内容”控件打开。 **注意：**系统会提示授权逻辑应用访问 FTP 服务器帐户（如果之前尚未这样做）。  
+   “获取文件内容”控件打开。 **注意：** 系统会提示授权逻辑应用访问 FTP 服务器帐户（如果之前尚未这样做）。  
    ![FTP 操作图 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
 5. 选择“文件”控件（**文件** * 下方的空白处）。 此处可以使用在 FTP 服务器上找到的新文件或已修改文件的任何属性。  
 6. 选择“文件内容”选项。  

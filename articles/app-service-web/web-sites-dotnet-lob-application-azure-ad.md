@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Active Directory 身份验证创建业务线 Azure 应用 | Azure"
-description: "了解如何在 Azure 应用服务中创建使用 Azure Active Directory 进行身份验证的 ASP.NET MVC 业务线应用"
+title: 使用 Azure Active Directory 身份验证创建业务线 Azure 应用 | Azure
+description: 了解如何在 Azure 应用服务中创建使用 Azure Active Directory 进行身份验证的 ASP.NET MVC 业务线应用
 services: app-service\web, active-directory
 documentationcenter: .net
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ad947bdb-4463-43ff-a5e3-91d9b2169b60
 ms.service: app-service-web
 ms.devlang: dotnet
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146591"
 ---
 # <a name="create-a-line-of-business-azure-app-with-azure-active-directory-authentication"></a>使用 Azure Active Directory 身份验证创建业务线 Azure 应用
 
@@ -71,7 +72,7 @@ ms.lasthandoff: 09/22/2017
     ![](./media/web-sites-dotnet-lob-application-azure-ad/3-add-sql-database.png)
 7. 在“配置 SQL 数据库”中，单击“新建”以创建 SQL Server 实例。
 8. 在“配置 SQL Server”中，配置 SQL Server 实例。 然后，依次单击“确定”、“确定”和“创建”以开始在 Azure 中创建应用。
-9. 在“Azure 应用服务活动”中，可以看到应用创建何时完成。 然后，单击 **立即将 &lt;*应用名称*> 发布到此 Web 应用**，然后单击“发布”。 
+9. 在“Azure 应用服务活动”中，可以看到应用创建何时完成。 然后，单击 **立即将 &lt;* 应用名称*> 发布到此 Web 应用**，然后单击“发布”。 
 
     Visual Studio 完成后，会在浏览器中打开发布应用。 
 
@@ -81,7 +82,7 @@ ms.lasthandoff: 09/22/2017
 
 ## <a name="configure-authentication-and-directory-access"></a>配置身份验证和目录访问
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 从左侧菜单中，依次单击“**应用服务** > **&lt;*应用名称*”** >“**身份验证/授权**”。
+2. 从左侧菜单中，依次单击“**应用服务** > **&lt;* 应用名称*”** >“**身份验证/授权**”。
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/5-app-service-authentication.png)
 3. 依次单击“打开” > “Azure Active Directory” > “快速” > “确定”，以打开 Azure Active Directory 身份验证。
@@ -93,7 +94,7 @@ ms.lasthandoff: 09/22/2017
 
     成功保存身份验证设置后，请尝试在浏览器中再次导航到应用。 默认设置将对整个应用实施身份验证。 如果尚未登录，将重定向到登录屏幕。 登录后，可以看到应用已受 HTTPS 的保护。 接下来，需要启用对目录数据的访问。 
 5. 导航到 [经典管理门户](https://manage.windowsazure.cn)。
-6. 从左侧菜单中，依次单击**“Active Directory”** > **“默认目录”** > **“应用程序”** > **&lt;*“应用名称”*>**。
+6. 从左侧菜单中，依次单击 **“Active Directory”** > **“默认目录”** > **“应用程序”** > **&lt;*“应用名称”*>**。
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/8-find-aad-application.png)
 
@@ -118,7 +119,7 @@ ms.lasthandoff: 09/22/2017
 12. 在页面顶部，单击“读/写”以在 Azure 资源浏览器中进行更改。
     
     ![](./media/web-sites-dotnet-lob-application-azure-ad/12-resource-manager-writable.png)
-13. 找到你的应用的身份验证设置，它位于以下位置：subscriptions > **&lt;*订阅名称*>** > **resourceGroups** > **&lt;*资源组名称*>** > **providers** > **Microsoft.Web** > **sites** > **&lt;*应用名称*>** > **config** > **authsettings**。
+13. 找到你的应用的身份验证设置，它位于以下位置：subscriptions > **&lt;* 订阅名称*>** > **resourceGroups** > **&lt;* 资源组名称*>** > **providers** > **Microsoft.Web** > **sites** > **&lt;* 应用名称*>** > **config** > **authsettings**。
 14. 单击“编辑”。
     
     ![](./media/web-sites-dotnet-lob-application-azure-ad/13-edit-authsettings.png)
@@ -132,7 +133,7 @@ ms.lasthandoff: 09/22/2017
 16. 单击顶部的“放入”即可提交更改。
     
     ![](./media/web-sites-dotnet-lob-application-azure-ad/14-edit-parameters.png)
-17. 现在，若要测试是否获得了用于访问 Azure Active Directory 图形 API 的授权令牌，请在浏览器中导航到 **https://&lt;*appname*>.chinacloudsites.cn/.auth/me**。 如果一切都配置正确，应会在 JSON 响应中看到 `access_token` 属性。
+17. 现在，若要测试是否获得了用于访问 Azure Active Directory 图形 API 的授权令牌，请在浏览器中导航到 **https://&lt;* appname*>.chinacloudsites.cn/.auth/me**。 如果一切都配置正确，应会在 JSON 响应中看到 `access_token` 属性。
 
     `~/.auth/me` URL 路径由应用服务身份验证/授权进行管理，提供与经过身份验证的会话相关的所有信息。 有关详细信息，请参阅 [Azure 应用服务中的身份验证和授权](../app-service/app-service-authentication-overview.md)。
 

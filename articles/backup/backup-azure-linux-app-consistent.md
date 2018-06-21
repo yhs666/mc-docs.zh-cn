@@ -1,11 +1,11 @@
 ---
-title: "Azure 备份：Linux VM 的应用程序一致性备份 | Microsoft Docs"
-description: "创建 Linux 虚拟机到 Azure 的应用程序一致性备份。 本文介绍如何配置脚本框架以备份 Azure 部署的 Linux VM。 本文还包括故障排除信息。"
+title: Azure 备份：Linux VM 的应用程序一致性备份 | Microsoft Docs
+description: 创建 Linux 虚拟机到 Azure 的应用程序一致性备份。 本文介绍如何配置脚本框架以备份 Azure 部署的 Linux VM。 本文还包括故障排除信息。
 services: backup
 documentationcenter: dev-center-name
 author: anuragmehrotra
 manager: shivamg
-keywords: "应用程序一致性备份; 应用程序一致性 Azure VM 备份; Linux VM 备份; Azure 备份"
+keywords: 应用程序一致性备份; 应用程序一致性 Azure VM 备份; Linux VM 备份; Azure 备份
 ms.assetid: bbb99cf2-d8c7-4b3d-8b29-eadc0fed3bef
 ms.service: backup
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285231"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM 的应用程序一致性备份
 

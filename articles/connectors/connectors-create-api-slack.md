@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31319161"
 ---
 # <a name="get-started-with-the-slack-connector"></a>Slack 连接器入门
 Slack 是一款团队通信工具，可将所有团队通信归于一处，可即时搜索，并且随时随地可用。 

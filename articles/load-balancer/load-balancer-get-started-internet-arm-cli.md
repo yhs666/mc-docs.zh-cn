@@ -21,6 +21,7 @@ ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32121283"
 ---
 # <a name="create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>使用 Azure CLI 2.0 创建公共负载均衡器以对 VM 进行负载均衡
 

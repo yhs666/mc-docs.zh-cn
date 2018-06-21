@@ -15,6 +15,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782273"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>升级应用以使用最新的弹性数据库客户端库
 可通过 Visual Studio 中的 NuGet 和 NuGetPackage 管理器界面获取[弹性数据库客户端库](sql-database-elastic-database-client-library.md)的新版本。 升级包含客户端库的 bug 修复和新功能支持。
@@ -65,7 +66,7 @@ ms.lasthandoff: 04/23/2018
 
 这些元数据升级技术可以应用多次而无危害。 例如，如果在已更新后，旧的客户端版本无意中创建了一个分片，可以对所有分片再次运行升级，以确保最新的元数据版本在整个基础结构中存在。 
 
-**注意：**到目前为止，发布的客户端库的新版本将继续使用 Azure SQL 数据库上早期版本的分片映射管理器元数据，反之亦然。   但是，为了利用最新客户端中的一些新功能，需要对元数据进行升级。   请注意，元数据升级不会影响任何用户数据或特定于应用程序的数据，只会影响分片映射管理器创建和使用的对象。  并且应用程序将继续按照前面所述的升级顺序进行操作。 
+**注意：** 到目前为止，发布的客户端库的新版本将继续使用 Azure SQL 数据库上早期版本的分片映射管理器元数据，反之亦然。   但是，为了利用最新客户端中的一些新功能，需要对元数据进行升级。   请注意，元数据升级不会影响任何用户数据或特定于应用程序的数据，只会影响分片映射管理器创建和使用的对象。  并且应用程序将继续按照前面所述的升级顺序进行操作。 
 
 ## <a name="elastic-database-client-version-history"></a>弹性数据库客户端版本历史记录
 有关版本历史记录，请转到 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)

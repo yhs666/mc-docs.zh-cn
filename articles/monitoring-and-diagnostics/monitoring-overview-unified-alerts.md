@@ -21,6 +21,7 @@ ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33815120"
 ---
 # <a name="the-new-alerts-experience-in-azure-monitor"></a>Azure Monitor 中的全新警报体验
 

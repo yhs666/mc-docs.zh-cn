@@ -1,11 +1,11 @@
 ---
-title: "Azure 服务总线队列入门 | Microsoft Docs"
-description: "编写一个 C# 控制台应用程序，以便使用服务总线消息传递队列。"
+title: Azure 服务总线队列入门 | Microsoft Docs
+description: 编写一个 C# 控制台应用程序，以便使用服务总线消息传递队列。
 services: service-bus
 documentationCenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
 ms.service: service-bus
 ms.devlang: tbd
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/29/2017
+ms.locfileid: "27548353"
 ---
 # <a name="get-started-with-service-bus-queues"></a>服务总线队列入门
 

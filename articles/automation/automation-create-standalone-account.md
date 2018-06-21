@@ -15,6 +15,7 @@ ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30260364"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>创建独立的 Azure 自动化帐户
 本文介绍如何在 Azure 门户中创建 Azure 自动化帐户。 可以使用门户自动化帐户来评估和了解自动化，而无需使用其他管理解决方案。 以后随时可以添加这些管理解决方案或者与 Log Analytics 集成，以获得高级的 Runbook 作业监视。 

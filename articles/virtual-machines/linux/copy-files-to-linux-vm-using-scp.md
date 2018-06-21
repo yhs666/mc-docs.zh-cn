@@ -1,13 +1,13 @@
 ---
-title: "使用 SCP 将文件移到 Azure Linux VM 和从 Azure Linux VM 移动文件 | Azure"
-description: "使用 SCP 和 SSH 密钥对安全地将文件移到 Azure Linux VM 和从 Azure Linux VM 移动文件。"
+title: 使用 SCP 将文件移到 Azure Linux VM 和从 Azure Linux VM 移动文件 | Azure
+description: 使用 SCP 和 SSH 密钥对安全地将文件移到 Azure Linux VM 和从 Azure Linux VM 移动文件。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: hayley244
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
@@ -21,6 +21,7 @@ ms.sourcegitcommit: da549f499f6898b74ac1aeaf95be0810cdbbb3ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/29/2017
+ms.locfileid: "21925986"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>使用 SCP 将文件移到 Linux VM 和从 Linux VM 移动文件
 

@@ -18,6 +18,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782045"
 ---
 # <a name="service-bus-messaging-documentation"></a>服务总线消息传送文档
 消息传送服务以中转或第三方通信机制的形式提供可靠的信息传递。

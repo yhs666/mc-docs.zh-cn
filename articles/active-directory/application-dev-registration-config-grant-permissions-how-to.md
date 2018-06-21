@@ -1,11 +1,11 @@
 ---
-title: "如何向自定义开发的应用程序授予权限 | Azure"
-description: "如何使用 Azure AD 门户或 URL 参数向自定义开发的应用程序授予权限"
+title: 如何向自定义开发的应用程序授予权限 | Azure
+description: 如何使用 Azure AD 门户或 URL 参数向自定义开发的应用程序授予权限
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27604220"
 ---
 # <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>如何向自定义开发的应用程序授予权限
 

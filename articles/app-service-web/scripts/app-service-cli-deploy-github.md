@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 从 GitHub 使用部署创建 Web 应用 | Azure"
-description: "Azure CLI 脚本示例 - 从 GitHub 使用部署创建 Web 应用"
+title: Azure CLI 脚本示例 - 从 GitHub 使用部署创建 Web 应用 | Azure
+description: Azure CLI 脚本示例 - 从 GitHub 使用部署创建 Web 应用
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
 ms.service: app-service-web
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146567"
 ---
 # <a name="create-a-web-app-with-deployment-from-github"></a>从 GitHub 使用部署创建 Web 应用
 

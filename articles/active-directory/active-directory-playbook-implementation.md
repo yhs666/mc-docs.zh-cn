@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory PoC 演练手册的实现 | Microsoft Docs"
-description: "浏览并快速实现标识和访问管理方案"
+title: Azure Active Directory PoC 演练手册的实现 | Microsoft Docs
+description: 浏览并快速实现标识和访问管理方案
 services: active-directory
-keywords: "azure active directory, 演练手册, 概念证明, PoC"
-documentationcenter: 
+keywords: azure active directory, 演练手册, 概念证明, PoC
+documentationcenter: ''
 author: dstefanMSFT
 manager: asuthar
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27781326"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-implementation"></a>Azure Active Directory 概念证明演练手册：实现
 

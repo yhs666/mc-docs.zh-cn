@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32121399"
 ---
 <a name="get-started"></a>
 # <a name="creating-a-public-load-balancer-in-resource-manager-by-using-powershell"></a>使用 PowerShell 在资源管理器中创建公共负载均衡器

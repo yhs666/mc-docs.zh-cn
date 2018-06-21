@@ -14,6 +14,7 @@ ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31510933"
 ---
 # <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>将 VMware VM 或物理服务器复制到辅助站点时的支持矩阵
 

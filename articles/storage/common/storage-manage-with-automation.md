@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 自动化管理 Azure 存储"
-description: "了解如何使用 Azure 自动化服务来管理大规模的 Azure 存储。"
+title: 使用 Azure 自动化管理 Azure 存储
+description: 了解如何使用 Azure 自动化服务来管理大规模的 Azure 存储。
 services: storage, automation
-documentationcenter: 
+documentationcenter: ''
 author: hayley244
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: bac41c39-1d95-46aa-a481-ec17bbb21b40
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21135045"
 ---
 # <a name="managing-azure-storage-using-azure-automation"></a>使用 Azure 自动化管理 Azure 存储
 本指南介绍 Azure 自动化服务，以及如何使用它来简化 Azure 存储 Blob、表和队列的管理。

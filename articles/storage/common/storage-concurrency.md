@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 存储中管理并发"
-description: "如何管理 Blob、队列、表和文件服务的并发"
+title: 在 Azure 存储中管理并发
+description: 如何管理 Blob、队列、表和文件服务的并发
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: jasontang501
 manager: tadb
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21135053"
 ---
 # <a name="managing-concurrency-in-azure-storage"></a>在 Azure 存储中管理并发
 ## <a name="overview"></a>概述

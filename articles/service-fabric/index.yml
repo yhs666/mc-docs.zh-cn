@@ -21,6 +21,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: zh-CN
   ms.lasthandoff: 04/18/2018
+  ms.locfileid: "31510939"
 abstract:
   description: Azure Service Fabric 是一种分布式系统平台，可借助它轻松打包、部署和管理可缩放且可靠的微服务和容器。 开发人员和管理员不仅可以避免复杂的基础结构问题，而且可以专注于实现可缩放、可靠且可管理的要求苛刻的任务关键型工作负荷。 参考我们的快速入门、教程和示例了解如何使用 Azure Service Fabric。
 sections:

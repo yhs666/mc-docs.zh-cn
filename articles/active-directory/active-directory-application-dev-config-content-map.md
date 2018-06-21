@@ -18,6 +18,7 @@ ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/19/2018
+ms.locfileid: "29993221"
 ---
 # <a name="problems-configuring-or-registering-my-application"></a>配置或注册应用程序时出现问题
 

@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731048"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 上的应用服务概述
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*

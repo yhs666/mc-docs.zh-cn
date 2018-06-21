@@ -1,9 +1,9 @@
 ---
-title: "使用用于 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight | Microsoft Docs"
-description: "了解如何安装并使用用于 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight 中的 Hadoop 群集并运行 Hive 查询。"
-keywords: "hadoop 工具,hive 查询,visual studio,visual studio hadoop"
+title: 使用用于 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight | Microsoft Docs
+description: 了解如何安装并使用用于 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight 中的 Hadoop 群集并运行 Hive 查询。
+keywords: hadoop 工具,hive 查询,visual studio,visual studio hadoop
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -23,6 +23,7 @@ ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27781366"
 ---
 # <a name="connect-to-azure-hdinsight-and-run-hive-queries-using-data-lake-tools-for-visual-studio"></a>使用用于 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight 并运行 Hive 查询
 

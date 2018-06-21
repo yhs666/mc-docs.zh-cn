@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31359571"
 ---
 # <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>循环：处理数组或重复执行操作，直到满足某个条件
 

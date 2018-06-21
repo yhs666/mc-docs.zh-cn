@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31319137"
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>OneDrive 连接器入门
 连接到 OneDrive 以管理文件（包括上传、获取、删除文件等）。 

@@ -1,13 +1,13 @@
 ---
-title: "在 Azure HDInsight 中使用 Zeppelin 运行 Hive 查询"
-description: "了解如何使用 Zeppelin 运行 Hive 查询。"
-keywords: "hdinsight,hadoop,hive,交互式查询,LLAP"
+title: 在 Azure HDInsight 中使用 Zeppelin 运行 Hive 查询
+description: 了解如何使用 Zeppelin 运行 Hive 查询。
+keywords: hdinsight,hadoop,hive,交互式查询,LLAP
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive,
 ms.workload: big-data
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29552300"
 ---
 # <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>在 Azure HDInsight 中使用 Zeppelin 运行 Hive 查询 
 

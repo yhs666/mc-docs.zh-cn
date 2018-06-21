@@ -1,11 +1,11 @@
 ---
-title: "Azure 事件中心编程指南 | Azure"
-description: "使用 Azure.NET SDK 编写 Azure 事件中心代码。"
+title: Azure 事件中心编程指南 | Azure
+description: 使用 Azure.NET SDK 编写 Azure 事件中心代码。
 services: event-hubs
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 64cbfd3d-4a0e-4455-a90a-7f3d4f080323
 ms.service: event-hubs
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285377"
 ---
 # <a name="event-hubs-programming-guide"></a>事件中心编程指南
 

@@ -21,6 +21,7 @@ ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/15/2018
+ms.locfileid: "34173355"
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>通过适用于 .NET 的 Batch 客户端库开始构建解决方案
 

@@ -21,6 +21,7 @@ ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/19/2018
+ms.locfileid: "29993324"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js Web 应用入门
 此处，我们使用 Passport 进行以下操作：

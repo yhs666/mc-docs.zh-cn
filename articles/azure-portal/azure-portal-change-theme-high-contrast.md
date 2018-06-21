@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 门户中启用高对比度 | Microsoft 文档"
-description: "了解如何启用高对比度或更改 Azure 门户主题。"
+title: 在 Azure 门户中启用高对比度 | Microsoft 文档
+description: 了解如何启用高对比度或更改 Azure 门户主题。
 services: azure-portal
-keywords: 
+keywords: ''
 author: cwatson-cat
 ms.author: cwatson
 origin.date: 08/24/2017
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339062"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>在 Azure 门户中启用高对比度或更改主题
 如果需要更高的对比度，或者想要在 Azure 门户中更改配色方案，请转到门户设置进行更改。 

@@ -1,12 +1,12 @@
 ---
 title: Azure Service Fabric CLI- sfctl is | Azure
-description: "介绍 Service Fabric CLI sfctl is 命令。"
+description: 介绍 Service Fabric CLI sfctl is 命令。
 services: service-fabric
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29797827"
 ---
 # <a name="sfctl-is"></a>sfctl is
 查询并向基础结构服务发送命令。

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475186"
 ---
 # <a name="content-protection-overview"></a>内容保护概述
  可以使用 Azure 媒体服务在媒体从计算机离开到存储、处理和传送的整个过程中确保其安全。 借助媒体服务，可以传送使用高级加密标准 (AES-128) 或主要数字版权管理 (DRM) 系统（Microsoft PlayReady 和 Apple FairPlay）中任意一个动态加密的直播内容和点播内容。 媒体服务还提供了用于向已授权客户端传送 AES 密钥和 DRM（PlayReady、Widevine 和 FairPlay）许可证的服务。 

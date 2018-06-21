@@ -1,11 +1,11 @@
 ---
-title: "修改本地网络网关 IP 地址前缀和 VPN 网关 IP 地址 | Azure| CLI | Microsoft Docs"
-description: "本文介绍了如何使用 Azure CLI 更改本地网络网关的 IP 地址前缀。"
+title: 修改本地网络网关 IP 地址前缀和 VPN 网关 IP 地址 | Azure| CLI | Microsoft Docs
+description: 本文介绍了如何使用 Azure CLI 更改本地网络网关的 IP 地址前缀。
 services: vpn-gateway
 documentationcenter: na
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 8c7db48f-d09a-44e7-836f-1fb6930389df
 ms.service: vpn-gateway
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27586314"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>使用 Azure CLI 修改本地网络网关设置
 

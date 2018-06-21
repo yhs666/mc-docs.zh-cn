@@ -1,8 +1,8 @@
 ---
-title: "使用流分析生成 IoT 解决方案 | Azure"
-description: "使用收费站方案了解流分析 IoT 解决方案的入门教程"
-keywords: "iot 解决方案, 开窗函数"
-documentationcenter: 
+title: 使用流分析生成 IoT 解决方案 | Azure
+description: 使用收费站方案了解流分析 IoT 解决方案的入门教程
+keywords: iot 解决方案, 开窗函数
+documentationcenter: ''
 services: stream-analytics
 author: rockboyfor
 manager: digimobile
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 095c229b538d9d2fc51e007abe5fde8e46296b4f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/04/2017
+ms.locfileid: "21945804"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>使用流分析生成 IoT 解决方案
 ## <a name="introduction"></a>介绍

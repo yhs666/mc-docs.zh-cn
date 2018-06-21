@@ -1,12 +1,12 @@
 ---
-title: "使用 PagerDuty 配置 Azure 服务运行状况警报"
-description: "获取有关发送到 PagerDuty 实例的服务运行状况事件的个性化通知。"
+title: 使用 PagerDuty 配置 Azure 服务运行状况警报
+description: 获取有关发送到 PagerDuty 实例的服务运行状况事件的个性化通知。
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870570"
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>使用 PagerDuty 配置服务运行状况警报
 
@@ -56,9 +57,9 @@ ms.lasthandoff: 03/12/2018
 
     a. **操作类型：***Webhook*
 
-    b. **详细信息：**前面保存的 PagerDuty **集成 URL**。
+    b. **详细信息：** 前面保存的 PagerDuty **集成 URL**。
 
-    c. **名称：**Webhook 的名称、别名或标识符。
+    c. **名称：** Webhook 的名称、别名或标识符。
 
 3. 警报创建完成后，选择“保存”。
 
@@ -73,9 +74,9 @@ ms.lasthandoff: 03/12/2018
 
     a. **操作类型：***Webhook*
 
-    b. **详细信息：**前面保存的 PagerDuty **集成 URL**。
+    b. **详细信息：** 前面保存的 PagerDuty **集成 URL**。
 
-    c. **名称：**Webhook 的名称、别名或标识符。
+    c. **名称：** Webhook 的名称、别名或标识符。
 
 5. 操作组更新完成后，选择“保存”。
 

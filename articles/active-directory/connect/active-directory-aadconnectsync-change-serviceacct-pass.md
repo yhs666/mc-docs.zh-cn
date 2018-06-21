@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect 同步：更改 Azure AD Connect 同步服务帐户 | Microsoft Docs"
-description: "本主题文档介绍加密密钥，以及如何在更改密码后将其放弃。"
+title: Azure AD Connect 同步：更改 Azure AD Connect 同步服务帐户 | Microsoft Docs
+description: 本主题文档介绍加密密钥，以及如何在更改密码后将其放弃。
 services: active-directory
-keywords: "Azure AD 同步服务帐户, 密码"
-documentationcenter: 
+keywords: Azure AD 同步服务帐户, 密码
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27162557"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>更改 Azure AD Connect 同步服务帐户密码
 如果更改了 Azure AD Connect 同步服务帐户密码，则无法正常启动同步服务，除非已弃用加密密钥并重新初始化 Azure AD Connect 同步服务帐户密码。 

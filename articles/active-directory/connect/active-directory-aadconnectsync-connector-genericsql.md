@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31319138"
 ---
 # <a name="generic-sql-connector-technical-reference"></a>泛型 SQL 连接器技术参考
 本指南介绍泛型 SQL 连接器。 本文适用于以下产品：

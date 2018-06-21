@@ -20,6 +20,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077698"
 ---
 # <a name="troubleshooting-network-performance"></a>网络性能故障排除
 ## <a name="overview"></a>概述

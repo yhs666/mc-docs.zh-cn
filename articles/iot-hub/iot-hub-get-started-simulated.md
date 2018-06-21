@@ -1,12 +1,12 @@
 ---
-title: "开始将模拟设备连接到 Azure IoT 中心 | Azure"
-description: "了解如何创建模拟 IoT 设备并将其连接到 Azure IoT 中心。 设备可以将遥测数据发送到 IoT 中心，IoT 中心可以监视和管理设备。"
+title: 开始将模拟设备连接到 Azure IoT 中心 | Azure
+description: 了解如何创建模拟 IoT 设备并将其连接到 Azure IoT 中心。 设备可以将遥测数据发送到 IoT 中心，IoT 中心可以监视和管理设备。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-keywords: "Azure IoT 中心教程"
+editor: ''
+keywords: Azure IoT 中心教程
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26410548"
 ---
 # <a name="azure-iot-hub-get-started-with-simulated-devices-tutorials"></a>Azure IoT 中心及模拟设备入门教程
 

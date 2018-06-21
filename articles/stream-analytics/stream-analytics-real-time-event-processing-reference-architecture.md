@@ -15,6 +15,7 @@ ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33814970"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-azure-stream-analytics"></a>参考体系结构：使用 Azure 流分析进行实时事件处理
 通过 Azure 流分析进行实时事件处理的参考体系结构的用途是提供一个通用的蓝图，以便通过 Azure 部署实时平台即服务 (PaaS) 流式处理解决方案。

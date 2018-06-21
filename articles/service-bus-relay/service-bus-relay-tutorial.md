@@ -1,11 +1,11 @@
 ---
-title: "Azure 服务总线 WCF 中继教程"
-description: "使用 WCF 中继构建客户端和服务应用程序。"
+title: Azure 服务总线 WCF 中继教程
+description: 使用 WCF 中继构建客户端和服务应用程序。
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
 ms.service: service-bus-relay
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285994"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure WCF 中继教程
 

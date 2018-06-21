@@ -1,11 +1,11 @@
 ---
-title: "使用 PowerShell 克隆 Web 应用"
-description: "了解如何使用 PowerShell 将 Web 应用克隆到新的 Web 应用。"
+title: 使用 PowerShell 克隆 Web 应用
+description: 了解如何使用 PowerShell 将 Web 应用克隆到新的 Web 应用。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: ahmedelnably
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146553"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>使用 PowerShell 克隆 Azure App Service 应用
 在发行的 Azure PowerShell 版本 1.1.0 中，为 New-AzureRMWebApp 添加了新选项，可让用户将现有的 Web 应用克隆到不同区域或相同区域中新建的应用。 这样，客户就可以快速轻松地跨不同区域部署许多应用。

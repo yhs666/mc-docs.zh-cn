@@ -1,13 +1,13 @@
 ---
-title: "使用 Azure CLI 1.0 在 Linux VM 上加密磁盘 | Azure"
-description: "如何使用 Azure CLI 1.0 和 Resource Manager 部署模型加密 Linux VM 中的磁盘"
+title: 使用 Azure CLI 1.0 在 Linux VM 上加密磁盘 | Azure
+description: 如何使用 Azure CLI 1.0 和 Resource Manager 部署模型加密 Linux VM 中的磁盘
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285931"
 ---
 # <a name="encrypt-disks-on-a-linux-vm-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 加密 Linux VM 中的磁盘
 为了增强虚拟机 (VM) 的安全性以及遵从法规，可以静态加密 Azure 中的虚拟磁盘。 磁盘是使用 Azure 密钥保管库中受保护的加密密钥加密的。 可以控制这些加密密钥，以及审核对它们的使用。 本文详细说明如何使用 Azure CLI 1.0 和 Resource Manager 部署模型加密 Linux VM 中的虚拟磁盘。

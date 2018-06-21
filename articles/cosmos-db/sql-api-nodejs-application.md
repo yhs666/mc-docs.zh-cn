@@ -20,6 +20,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31781986"
 ---
 <a name="_Toc395783175"></a>
 # <a name="build-a-nodejs-web-application-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 生成 Node.js Web 应用程序

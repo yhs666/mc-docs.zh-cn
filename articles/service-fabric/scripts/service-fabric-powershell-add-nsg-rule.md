@@ -1,13 +1,13 @@
 ---
-title: "Azure PowerShell 脚本示例 - 添加网络安全组规则 | Azure"
-description: "Azure PowerShell 脚本示例 - 添加网络安全组以允许特定端口上的入站流量。"
+title: Azure PowerShell 脚本示例 - 添加网络安全组规则 | Azure
+description: Azure PowerShell 脚本示例 - 添加网络安全组以允许特定端口上的入站流量。
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/29/2017
+ms.locfileid: "27548725"
 ---
 # <a name="add-an-inbound-network-security-group-rule"></a>添加入站网络安全组规则
 

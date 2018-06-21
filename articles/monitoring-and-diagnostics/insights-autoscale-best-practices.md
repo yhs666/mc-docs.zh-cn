@@ -1,9 +1,9 @@
 ---
-title: "自动缩放最佳做法"
-description: "Azure 中适用于 Web 应用、虚拟机规模集和云服务的自动缩放模式"
+title: 自动缩放最佳做法
+description: Azure 中适用于 Web 应用、虚拟机规模集和云服务的自动缩放模式
 author: anirudhcavale
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 9fa2b94b-dfa5-4106-96ff-74fd1fba4657
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285200"
 ---
 # <a name="best-practices-for-autoscale"></a>自动缩放最佳实践
 本文介绍在 Azure 中自动缩放的最佳做法。 Azure 监视器自动缩放仅适用于[虚拟机规模集](/virtual-machine-scale-sets/)、[云服务](/cloud-services/)和[应用服务 - Web 应用](/app-service/web/)。 其他 Azure 服务使用不同的缩放方法。

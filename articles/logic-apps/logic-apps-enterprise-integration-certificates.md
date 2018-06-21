@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 逻辑应用中使用证书保护 B2B 消息"
-description: "使用 Enterprise Integration Pack 添加证书来保护 B2B 消息"
+title: 在 Azure 逻辑应用中使用证书保护 B2B 消息
+description: 使用 Enterprise Integration Pack 添加证书来保护 B2B 消息
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.service: logic-apps
 ms.workload: integration
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870572"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>使用证书保护 B2B 消息
 

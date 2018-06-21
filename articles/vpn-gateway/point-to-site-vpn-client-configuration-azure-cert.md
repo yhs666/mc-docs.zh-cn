@@ -21,6 +21,7 @@ ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937500"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-point-to-site-configurations"></a>为本机 Azure 证书身份验证点到站点配置创建并安装 VPN 客户端配置文件
 

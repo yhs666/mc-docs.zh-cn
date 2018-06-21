@@ -1,11 +1,11 @@
 ---
-title: "从移动服务升级到 Azure 应用服务"
-description: "了解如何轻松将移动服务应用程序升级到应用服务移动应用"
+title: 从移动服务升级到 Azure 应用服务
+description: 了解如何轻松将移动服务应用程序升级到应用服务移动应用
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27984768"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>将现有 .NET Azure 移动服务升级到应用服务
 

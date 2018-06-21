@@ -1,11 +1,11 @@
 ---
-title: "使用 PowerShell cmdlet 创建 Azure IoT 中心 | Azure"
-description: "如何使用 PowerShell cmdlet 创建 IoT 中心。"
+title: 使用 PowerShell cmdlet 创建 Azure IoT 中心 | Azure
+description: 如何使用 PowerShell cmdlet 创建 IoT 中心。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26410536"
 ---
 # <a name="create-an-iot-hub-using-the-new-azurermiothub-cmdlet"></a>使用 New-AzureRmIotHub cmdlet 创建 IoT 中心
 

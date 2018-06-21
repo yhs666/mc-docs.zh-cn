@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30222635"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>解决无效模板错误
 

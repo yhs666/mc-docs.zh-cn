@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Active Directory 中管理组所属的组 | Azure"
-description: "在 Azure Active Directory 中，组可以包含其他组。 下面介绍如何管理这些成员身份。"
+title: 在 Azure Active Directory 中管理组所属的组 | Azure
+description: 在 Azure Active Directory 中，组可以包含其他组。 下面介绍如何管理这些成员身份。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: e785c2d0-7724-47d4-a56e-c58280c08a14
 ms.service: active-directory
 ms.workload: identity
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27162618"
 ---
 # <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>在 Azure Active Directory 租户中管理某个组属于哪些组
 在 Azure Active Directory 中，组可以包含其他组。 下面介绍如何管理这些成员身份。

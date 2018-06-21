@@ -21,6 +21,7 @@ ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34062080"
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>在流、逻辑应用、函数和 WebJobs 之间进行选择
 

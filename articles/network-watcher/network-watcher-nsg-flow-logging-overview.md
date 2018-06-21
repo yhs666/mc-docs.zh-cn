@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序针对网络安全组进行流日志记录简介 | Azure"
-description: "此页说明如何使用 Azure 网络观察程序的 NSG 流日志功能"
+title: 使用 Azure 网络观察程序针对网络安全组进行流日志记录简介 | Azure
+description: 此页说明如何使用 Azure 网络观察程序的 NSG 流日志功能
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 47d91341-16f1-45ac-85a5-e5a640f5d59e
 ms.service: network-watcher
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285093"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>针对网络安全组进行流日志记录简介
 

@@ -1,13 +1,13 @@
 ---
-title: "重置有故障的 Azure ExpressRoute 线路：PowerShell"
-description: "本文帮助你重置处于故障状态的 ExpressRoute 线路。"
+title: 重置有故障的 Azure ExpressRoute 线路：PowerShell
+description: 本文帮助你重置处于故障状态的 ExpressRoute 线路。
 documentationcenter: na
 services: expressroute
 author: anzaman
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29286067"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>重置有故障的 ExpressRoute 线路
 

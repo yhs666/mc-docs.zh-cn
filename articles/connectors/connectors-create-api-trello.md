@@ -21,6 +21,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072521"
 ---
 # <a name="get-started-with-the-trello-connector"></a>Trello 连接器入门
 利用 Trello，不管是在工作还是在家，随时都可以掌管自己的所有项目。  这是一款简单灵活而又免费的工具，可让你以可视化方式管理项目和安排任何事务。  连接到 Trello 以管理看板、列表和卡片。

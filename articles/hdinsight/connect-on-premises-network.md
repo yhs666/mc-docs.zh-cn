@@ -19,6 +19,7 @@ ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/22/2018
+ms.locfileid: "34450062"
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>将 HDInsight 连接到本地网络
 

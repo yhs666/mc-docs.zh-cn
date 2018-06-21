@@ -21,6 +21,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782205"
 ---
 # <a name="connectors-list"></a>连接器列表
 若要查找每个连接器的 Swagger 说明和连接器限制所定义的触发器和操作，请参阅[连接器详细信息](/connectors/)。

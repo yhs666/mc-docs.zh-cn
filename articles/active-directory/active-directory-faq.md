@@ -20,6 +20,7 @@ ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/19/2018
+ms.locfileid: "29993323"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
@@ -30,7 +31,7 @@ Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决�
 ## <a name="access-azure-and-azure-active-directory"></a>访问 Azure 和 Azure Active Directory
 **问：尝试在 Azure 门户中访问 Azure AD 时，为何出现“找不到订阅”错误？**
 
-**答：**若要访问 Azure 门户，每个用户都需要 Azure 订阅的权限。 上获取。 否则需要激活 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/) 或付费型订阅。
+**答：** 若要访问 Azure 门户，每个用户都需要 Azure 订阅的权限。 上获取。 否则需要激活 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/) 或付费型订阅。
 
 有关详细信息，请参阅：
 
@@ -71,18 +72,18 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 **问：如果我已被添加为协作者，该如何离开原来的租户？**
 
 
-            **答：**如果被作为协作者添加到另一组织的租户，可使用右上角的“租户切换器”在租户之间切换。  目前还无法主动离开邀请组织，Microsoft 正致力于提供该功能。  在该功能推出之前，可以请求邀请组织将你从其租户中删除。
+            **答：** 如果被作为协作者添加到另一组织的租户，可使用右上角的“租户切换器”在租户之间切换。  目前还无法主动离开邀请组织，Microsoft 正致力于提供该功能。  在该功能推出之前，可以请求邀请组织将你从其租户中删除。
 - - -
 **问：如何将我的本地目录连接到 Azure AD？**
 
-**答：**可以使用 Azure AD Connect 将本地目录连接到 Azure AD。
+**答：** 可以使用 Azure AD Connect 将本地目录连接到 Azure AD。
 
 有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](./connect/active-directory-aadconnect.md)。
 
 - - -
 **问：如何在本地目录与云应用程序之间设置 SSO？**
 
-**答：**只需在本地目录与 Azure AD 之间设置单一登录 (SSO)。 只要通过 Azure AD 访问云应用程序，该服务就会自动让用户使用其本地凭据正确进行身份验证。
+**答：** 只需在本地目录与 Azure AD 之间设置单一登录 (SSO)。 只要通过 Azure AD 访问云应用程序，该服务就会自动让用户使用其本地凭据正确进行身份验证。
 
 可以通过联合身份验证解决方案（例如 Active Directory 联合身份验证服务 (AD FS)）或通过配置密码哈希同步，轻松地从本地实现 SSO。可以使用 Azure AD Connect 配置向导轻松部署这两个选项。
 
@@ -97,7 +98,7 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 ## <a name="password-management"></a>密码管理
 **问：是否可以使用 Azure AD 密码写回但不使用密码同步？（在这种情况下，是否可以结合密码写回使用 Azure AD 自助密码重置 (SSPR)，而不将密码存储在云中？）**
 
-**答：**无需将 Active Directory 密码同步到 Azure AD 即可启用写回。 在联合环境中，Azure AD 单一登录 (SSO) 依赖本地目录对用户进行身份验证。 在这种情况下，并不需要在 Azure AD 中跟踪本地密码。
+**答：** 无需将 Active Directory 密码同步到 Azure AD 即可启用写回。 在联合环境中，Azure AD 单一登录 (SSO) 依赖本地目录对用户进行身份验证。 在这种情况下，并不需要在 Azure AD 中跟踪本地密码。
 
 - - -
 **问：需要多长时间才能将密码写回到 Active Directory 本地？**
@@ -107,7 +108,7 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 - - -
 **问：是否可以对管理员管理的密码使用密码写回？**
 
-**答：**可以。如果已启用密码写回，管理员执行的密码操作将写回到用户的本地环境。  
+**答：** 可以。如果已启用密码写回，管理员执行的密码操作将写回到用户的本地环境。  
 
 - - -
 **问：如果尝试更改 Office 365/Azure AD 密码时忘记了现有的密码，该怎么办？**
@@ -176,6 +177,6 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 - - -
 **问：是否可以通过 Azure AD 设置安全的 LDAP 连接？**
 
-**答：**不可以。 Azure AD 不支持 LDAP 协议。
+**答：** 不可以。 Azure AD 不支持 LDAP 协议。
 
 <!--Update_Description: wording update -->

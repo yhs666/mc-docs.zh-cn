@@ -21,6 +21,7 @@ ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33815487"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>将两个虚拟网络脚本示例对等互连
 

@@ -1,13 +1,13 @@
 ---
-title: "用于容器的 Azure 应用服务 Web 应用常见问题解答 | Microsoft Docs"
-description: "用于容器的 Azure 应用服务 Web 应用常见问题解答。"
-keywords: "azure 应用服务, web 应用, 常见问题, linux, oss"
+title: 用于容器的 Azure 应用服务 Web 应用常见问题解答 | Microsoft Docs
+description: 用于容器的 Azure 应用服务 Web 应用常见问题解答。
+keywords: azure 应用服务, web 应用, 常见问题, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 author: ahmedelnably
 manager: erikre
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339073"
 ---
 # <a name="azure-app-service-web-app-for-containers-faq"></a>用于容器的 Azure 应用服务 Web 应用常见问题解答
 

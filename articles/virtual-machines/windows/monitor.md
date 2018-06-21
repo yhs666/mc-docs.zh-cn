@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257266"
 ---
 # <a name="how-to-monitor-virtual-machines-in-azure"></a>如何监视 Azure 中的虚拟机
 

@@ -1,11 +1,11 @@
 ---
-title: "在用于容器的 Azure Web 应用中生成 .NET Core 和 SQL 数据库 Web 应用 | Microsoft Docs"
-description: "了解如何在用于容器的 Azure Web 应用中运行 .NET Core 应用，同时使其连接到 SQL 数据库。"
+title: 在用于容器的 Azure Web 应用中生成 .NET Core 和 SQL 数据库 Web 应用 | Microsoft Docs
+description: 了解如何在用于容器的 Azure Web 应用中运行 .NET Core 应用，同时使其连接到 SQL 数据库。
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339077"
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-web-apps-for-containers"></a>在用于容器的 Azure Web 应用中生成 .NET Core 和 SQL 数据库 Web 应用
 

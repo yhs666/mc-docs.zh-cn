@@ -21,6 +21,7 @@ ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32121425"
 ---
 # <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>快速入门：将 Java Service Fabric Reliable Services 应用程序部署到 Azure
 Azure Service Fabric 是一款分布式系统平台，可用于部署和管理微服务和容器。 

@@ -1,11 +1,11 @@
 ---
-title: "使用点到站点和证书身份验证将计算机连接到虚拟网络：Azure 经典门户 | Microsoft Docs"
-description: "使用 Azure 门户创建经典的点到站点 VPN 网关连接。"
+title: 使用点到站点和证书身份验证将计算机连接到虚拟网络：Azure 经典门户 | Microsoft Docs
+description: 使用 Azure 门户创建经典的点到站点 VPN 网关连接。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 65e14579-86cf-4d29-a6ac-547ccbd743bd
 ms.service: vpn-gateway
@@ -21,6 +21,7 @@ ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29925223"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>使用证书身份验证配置与 VNet 的点到站点连接（经典）：Azure 门户
 
@@ -64,7 +65,7 @@ ms.lasthandoff: 03/16/2018
 - **子网名称：FrontEnd**
 - **子网地址范围：192.168.1.0/24**
 - 
-            **订阅：**如果有多个订阅，请确保使用正确的订阅。
+            **订阅：** 如果有多个订阅，请确保使用正确的订阅。
 - **资源组：TestRG**
 - **位置：中国北部**
 - **连接类型：点到站点**

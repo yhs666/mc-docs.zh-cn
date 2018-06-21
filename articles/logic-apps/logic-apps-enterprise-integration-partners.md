@@ -1,11 +1,11 @@
 ---
-title: "为企业到企业 (B2B) 消息创建合作伙伴 - Azure 逻辑应用"
-description: "了解如何使用 Enterprise Integration Pack 和逻辑应用向集成帐户添加合作伙伴"
+title: 为企业到企业 (B2B) 消息创建合作伙伴 - Azure 逻辑应用
+description: 了解如何使用 Enterprise Integration Pack 和逻辑应用向集成帐户添加合作伙伴
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.service: logic-apps
 ms.workload: integration
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870536"
 ---
 # <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>在工作流中添加或更新企业到企业协议中的合作伙伴
 

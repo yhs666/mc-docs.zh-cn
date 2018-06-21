@@ -1,11 +1,11 @@
 ---
-title: "Azure 事件中心内的可用性和一致性 | Azure"
-description: "如何使用分区为 Azure 事件中心提供最大程度的可用性和一致性。"
+title: Azure 事件中心内的可用性和一致性 | Azure
+description: 如何使用分区为 Azure 事件中心提供最大程度的可用性和一致性。
 services: event-hubs
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 8f3637a1-bbd7-481e-be49-b3adf9510ba1
 ms.service: event-hubs
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27770685"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>事件中心内的可用性和一致性
 

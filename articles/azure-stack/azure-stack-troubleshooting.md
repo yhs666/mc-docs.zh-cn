@@ -21,6 +21,7 @@ ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31805341"
 ---
 # <a name="azure-stack-troubleshooting"></a>Azure Stack 故障排除
 

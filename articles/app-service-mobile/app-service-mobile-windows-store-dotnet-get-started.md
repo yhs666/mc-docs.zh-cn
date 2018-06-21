@@ -1,11 +1,11 @@
 ---
-title: "创建在移动应用中使用的通用 Windows 平台 (UWP)"
-description: "按照本教程进行操作，开始使用 C#、Visual Basic 或 JavaScript 通过 Azure 移动应用后端进行通用 Windows 平台 (UWP) 应用开发。"
+title: 创建在移动应用中使用的通用 Windows 平台 (UWP)
+description: 按照本教程进行操作，开始使用 C#、Visual Basic 或 JavaScript 通过 Azure 移动应用后端进行通用 Windows 平台 (UWP) 应用开发。
 services: app-service\mobile
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 47124296-2908-4d92-85e0-05c4aa6db916
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27984734"
 ---
 #<a name="create-a-windows-app"></a>创建 Windows 应用
 

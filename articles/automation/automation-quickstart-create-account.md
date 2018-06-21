@@ -1,6 +1,6 @@
 ---
-title: "Azure 快速入门 - 创建 Azure 自动化帐户 | Microsoft Docs"
-description: "了解如何创建 Azure 自动化帐户和运行 Runbook"
+title: Azure 快速入门 - 创建 Azure 自动化帐户 | Microsoft Docs
+description: 了解如何创建 Azure 自动化帐户和运行 Runbook
 services: automation
 author: yunan2016
 ms.author: v-nany
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730647"
 ---
 # <a name="create-an-azure-automation-account"></a>创建 Azure 自动化帐户
 

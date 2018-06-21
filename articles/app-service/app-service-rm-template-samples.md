@@ -21,6 +21,7 @@ ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30155467"
 ---
 # <a name="azure-resource-manager-templates-for-web-apps"></a>Web 应用的 Azure 资源管理器模板
 

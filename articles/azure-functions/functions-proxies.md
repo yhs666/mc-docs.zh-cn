@@ -20,6 +20,7 @@ ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31585447"
 ---
 # <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions 代理
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT 套件和 Azure Active Directory | Azure"
-description: "介绍 Azure IoT 套件如何使用 Azure Active Directory 管理权限。"
-services: 
+title: Azure IoT 套件和 Azure Active Directory | Azure
+description: 介绍 Azure IoT 套件如何使用 Azure Active Directory 管理权限。
+services: ''
 suite: iot-suite
-documentationCenter: 
+documentationCenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 246228ba-954a-4d96-b6d6-e53e4590cb4f
 ms.service: iot-suite
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/29/2017
+ms.locfileid: "27548206"
 ---
 # <a name="permissions-on-the-azureiotsuitecn-site"></a>azureiotsuite.cn 站点权限
 ## <a name="what-happens-when-you-sign-in"></a>登录时发生的情况

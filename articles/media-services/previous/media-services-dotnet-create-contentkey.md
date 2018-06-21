@@ -20,6 +20,7 @@ ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475180"
 ---
 # <a name="create-contentkeys-with-net"></a>使用 .NET 创建内容密钥
 > [!div class="op_single_selector"]

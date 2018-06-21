@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33815267"
 ---
 # <a name="connector-version-release-history"></a>连接器版本发行历史记录
 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接器会经常更新。
@@ -118,7 +119,7 @@ Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接�
 
 - 泛型 SQL：
   - **方案：重新设计实现：** "*"功能
-  - **解决方案说明：**已更改[多值引用属性处理](active-directory-aadconnectsync-connector-genericsql.md)的方法。
+  - **解决方案说明：** 已更改[多值引用属性处理](active-directory-aadconnectsync-connector-genericsql.md)的方法。
 
 
 ### <a name="fixed-issues"></a>已解决的问题：
@@ -142,8 +143,8 @@ Lotus：
 ### <a name="enhancements"></a>增强功能
 
 - 泛型 SQL：</br>
-  **方案症状：**SQL 连接器有一个众所周知的限制，即只允许引用一个对象类型，并且需要对成员进行交叉引用。 </br>
-  **解决方法说明：**如果选择了“*”选项，在执行引用的处理步骤时，对象类型的所有组合将返回给同步引擎。
+  **方案症状：** SQL 连接器有一个众所周知的限制，即只允许引用一个对象类型，并且需要对成员进行交叉引用。 </br>
+  **解决方法说明：** 如果选择了“*”选项，在执行引用的处理步骤时，对象类型的所有组合将返回给同步引擎。
 
 >[!Important]
 - 这就会创建许多的占位符

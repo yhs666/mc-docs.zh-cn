@@ -23,6 +23,7 @@ ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31585452"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中测试代码的策略
 

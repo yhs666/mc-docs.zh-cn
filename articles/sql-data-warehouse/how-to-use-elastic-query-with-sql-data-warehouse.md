@@ -15,6 +15,7 @@ ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32121770"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>使用 Azure SQL 数据库中的弹性查询访问 Azure SQL 数据仓库中的数据的最佳做法
 了解使用弹性查询从 Azure SQL 数据库访问 Azure SQL 数据仓库中的数据的最佳做法。 

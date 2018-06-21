@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 的 Linux 容器中创建 Node.js Web 应用 | Microsoft Docs"
-description: "数分钟内在 Azure 应用服务 Web 应用中部署第一个 Node.js Hello World。"
+title: 在 Azure 的 Linux 容器中创建 Node.js Web 应用 | Microsoft Docs
+description: 数分钟内在 Azure 应用服务 Web 应用中部署第一个 Node.js Hello World。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339063"
 ---
 # <a name="create-a-nodejs-web-app-in-a-linux-container-in-azure"></a>在 Azure 的 Linux 容器中创建 Node.js Web 应用
 

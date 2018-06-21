@@ -1,11 +1,11 @@
 ---
-title: "了解 Azure AD 中的 OpenID Connect 授权代码流 | Microsoft Docs"
-description: "本文介绍如何使用 Azure Active Directory 和 OpenID Connect，通过 HTTP 消息来授权访问租户中的 Web 应用程序和 Web API。"
+title: 了解 Azure AD 中的 OpenID Connect 授权代码流 | Microsoft Docs
+description: 本文介绍如何使用 Azure Active Directory 和 OpenID Connect，通过 HTTP 消息来授权访问租户中的 Web 应用程序和 Web API。
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27586324"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>使用 OpenID Connect 和 Azure Active Directory 来授权访问 Web 应用程序
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 是基于 OAuth 2.0 协议构建的简单标识层。 OAuth 2.0 定义了一些机制，用于获取和使用 **访问令牌** 来访问受保护资源，但未定义用于提供标识信息的标准方法。 OpenID Connect 实现身份验证，作为对 OAuth 2.0 授权过程的扩展。 它以 `id_token` 的形式提供有关最终用户的信息，可验证用户的身份，并提供有关用户的基本配置文件信息。

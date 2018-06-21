@@ -22,6 +22,7 @@ ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32637658"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>虚拟机规模集的 Azure PowerShell 示例
 

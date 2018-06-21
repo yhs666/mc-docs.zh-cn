@@ -1,11 +1,11 @@
 ---
-title: "Azure 服务总线基础概述 | Azure"
-description: "介绍如何使用服务总线将 Azure 应用程序连接到其他软件。"
+title: Azure 服务总线基础概述 | Azure
+description: 介绍如何使用服务总线将 Azure 应用程序连接到其他软件。
 services: service-bus
 documentationCenter: .net
 authors: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 12654cdd-82ab-4b95-b56f-08a5a8bbc6f9
 ms.service: service-bus
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730868"
 ---
 # <a name="azure-service-bus"></a>Azure 服务总线
 
@@ -80,7 +81,7 @@ ms.lasthandoff: 03/02/2018
 
 *主题* 在很多方面与队列类似。 发送方将消息提交至主题的方式与将消息提交至队列的方式相同，这些消息与使用队列的消息看起来一样。 区别是主题允许每个接收应用程序创建自己的订阅并选择性地定义筛选器。 然后，订阅者只能看到与该筛选器匹配的消息。 例如，图 3 显示的是一个发送方和一个具有三个订户的主题，每个订户都拥有自己的筛选器：
 
-* 订户 1 仅接收包含 *Seller="Ava"*属性的消息。
+* 订户 1 仅接收包含 *Seller="Ava"* 属性的消息。
 * 订户 2 接收包含属性 Seller="Ruby" 和/或包含的 Amount 属性值大于 100,000 的消息。 Ruby 可能是销售经理，因此她希望查看她自己的销售和其他人所做的所有大单销售。
 * 订户 3 将其筛选器设置为 *True*，这意味着它会接收所有消息。 例如，此应用程序可能负责维护审核跟踪，因此它需要查看所有消息。
 

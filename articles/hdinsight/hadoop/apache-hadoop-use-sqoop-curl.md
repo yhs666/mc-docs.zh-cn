@@ -1,8 +1,8 @@
 ---
-title: "在 HDInsight 中将 Hadoop Sqoop 与 Curl 配合使用"
-description: "了解如何使用 Curl 向 HDInsight 远程提交 Sqoop 作业。"
+title: 在 HDInsight 中将 Hadoop Sqoop 与 Curl 配合使用
+description: 了解如何使用 Curl 向 HDInsight 远程提交 Sqoop 作业。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29552312"
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>使用 Curl 在 HDInsight 中的 Hadoop 上运行 Sqoop 作业
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]

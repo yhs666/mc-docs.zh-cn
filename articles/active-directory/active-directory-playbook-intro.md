@@ -19,6 +19,7 @@ ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/19/2018
+ms.locfileid: "29993153"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-introduction"></a>Azure Active Directory 概念证明演练手册：简介
 

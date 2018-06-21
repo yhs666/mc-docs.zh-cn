@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 存储中设置和检索对象属性和元数据 | Azure"
-description: "在 Azure 存储中存储对象的自定义元数据，并设置和检索系统属性。"
+title: 在 Azure 存储中设置和检索对象属性和元数据 | Azure
+description: 在 Azure 存储中存储对象的自定义元数据，并设置和检索系统属性。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: forester123
 manager: digimobile
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29527557"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>设置和检索属性与元数据
 

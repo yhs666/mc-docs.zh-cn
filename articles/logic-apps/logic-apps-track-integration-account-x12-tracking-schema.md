@@ -21,6 +21,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782215"
 ---
 # <a name="start-or-enable-tracking-of-x12-messages-to-monitor-success-errors-and-message-properties"></a>启动或启用对 X12 消息的跟踪，监视成功、错误和消息属性
 可以在 Azure 集成帐户中使用这些 X12 跟踪架构来帮助监视企业到企业 (B2B) 的事务：

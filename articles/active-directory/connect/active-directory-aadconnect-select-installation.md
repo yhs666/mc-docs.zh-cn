@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33814948"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>选择用于 Azure AD Connect 的安装类型
 进行全新安装时，AD Connect 有两种安装类型：快速安装和自定义安装。 本主题有助于用户确定安装过程中使用的具体选项。

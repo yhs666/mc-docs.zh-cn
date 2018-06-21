@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29798106"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>在 Azure Stack 中使用管理员门户
 

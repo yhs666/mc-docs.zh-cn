@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 从本地 Git 存储库创建 Web 应用并部署代码 | Azure"
-description: "Azure CLI 脚本示例 - 从本地 Git 存储库创建 Web 应用并部署代码"
+title: Azure CLI 脚本示例 - 从本地 Git 存储库创建 Web 应用并部署代码 | Azure
+description: Azure CLI 脚本示例 - 从本地 Git 存储库创建 Web 应用并部署代码
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 048f98aa-f708-44cb-9b9e-953f67dc6da8
 ms.service: app-service-web
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146516"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>从本地 Git 存储库创建 Web 应用并部署代码
 

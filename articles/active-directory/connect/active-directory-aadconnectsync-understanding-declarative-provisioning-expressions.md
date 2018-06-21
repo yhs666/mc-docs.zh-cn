@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect：声明性预配表达式 | Microsoft Docs"
-description: "介绍声明性设置表达式。"
+title: Azure AD Connect：声明性预配表达式 | Microsoft Docs
+description: 介绍声明性设置表达式。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21135384"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect 同步：了解声明性设置表达式
 Azure AD Connect 同步基于 Forefront Identity Manager 2010 中最先引入的声明性设置。 使用该功能可以实现完整的标识集成业务逻辑，而无需编写已编译的代码。

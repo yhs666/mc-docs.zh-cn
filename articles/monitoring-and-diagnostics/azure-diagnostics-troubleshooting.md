@@ -1,11 +1,11 @@
 ---
-title: "Azure 诊断故障排除 | Microsoft Docs"
-description: "排查在 Azure 虚拟机、Service Fabric 或云服务中使用 Azure 诊断时遇到的问题。"
+title: Azure 诊断故障排除 | Microsoft Docs
+description: 排查在 Azure 虚拟机、Service Fabric 或云服务中使用 Azure 诊断时遇到的问题。
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 66469bce-d457-4d1e-b550-a08d2be4d28c
 ms.service: monitoring-and-diagnostics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870817"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 诊断故障排除
 本文介绍有关使用 Azure 诊断的故障排除信息。 有关 Azure 诊断的详细信息，请参阅 [Azure 诊断概述](azure-diagnostics.md)。

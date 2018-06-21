@@ -1,9 +1,9 @@
 ---
-title: "通过 Azure 门户手动或自动缩放实例计数"
-description: "了解如何在 Azure 中缩放服务。"
+title: 通过 Azure 门户手动或自动缩放实例计数
+description: 了解如何在 Azure 中缩放服务。
 author: anirudhcavale
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 2397596a-071f-4d49-8893-bec5f735bd7b
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870493"
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>手动或自动缩放实例计数
 

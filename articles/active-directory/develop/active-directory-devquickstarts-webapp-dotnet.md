@@ -21,6 +21,7 @@ ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/19/2018
+ms.locfileid: "29993281"
 ---
 # <a name="aspnet-web-app-sign-in-and-sign-out-with-azure-ad"></a>使用 Azure AD 执行 ASP.NET Web 应用登录和注销
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]

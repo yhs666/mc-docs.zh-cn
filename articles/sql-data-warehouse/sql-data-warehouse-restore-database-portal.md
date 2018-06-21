@@ -1,11 +1,11 @@
 ---
-title: "还原 Azure SQL 数据仓库（Azure 门户）| Azure"
-description: "用于还原 Azure SQL 数据仓库的 Azure 门户任务。"
+title: 还原 Azure SQL 数据仓库（Azure 门户）| Azure
+description: 用于还原 Azure SQL 数据仓库的 Azure 门户任务。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: b0aef539-7657-4b0e-9899-74098f5c21bc
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27770666"
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>还原 Azure SQL 数据仓库（门户）
 > [!div class="op_single_selector"]

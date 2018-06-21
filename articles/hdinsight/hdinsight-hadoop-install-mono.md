@@ -21,6 +21,7 @@ ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/22/2018
+ms.locfileid: "34449920"
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>在 HDInsight 上安装或更新 Mono
 

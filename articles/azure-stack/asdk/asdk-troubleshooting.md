@@ -21,6 +21,7 @@ ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31805395"
 ---
 # <a name="azure-stack-development-kit-asdk-troubleshooting"></a>Azure Stack 开发工具包 (ASDK) 故障排除
 本文档提供 ASDK 的一般故障排除信息。 如果本文未阐述你所遇到的问题，请务必查看 [Azure Stack MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)以获取更多帮助和信息。  

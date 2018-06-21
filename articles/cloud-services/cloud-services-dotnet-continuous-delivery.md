@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中使用 TFS 持续交付云服务 | Azure"
-description: "了解如何设置 Azure 云应用的持续交付。 MSBuild 命令行语句和 PowerShell 脚本的代码示例。"
+title: 在 Azure 中使用 TFS 持续交付云服务 | Azure
+description: 了解如何设置 Azure 云应用的持续交付。 MSBuild 命令行语句和 PowerShell 脚本的代码示例。
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
 manager: ghogen
-editor: 
+editor: ''
 ms.assetid: 4f3c93c6-5c82-4779-9d19-7404a01e82ca
 ms.service: cloud-services
 ms.workload: tbd
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27604578"
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>在 Azure 中持续交付云服务
 

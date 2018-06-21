@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure SDK for Java 在 Azure 应用服务中创建 Web 应用"
-description: "了解如何使用 Azure SDK for Java 以编程方式在Azure 应用服务上创建 Web 应用。"
+title: 使用 Azure SDK for Java 在 Azure 应用服务中创建 Web 应用
+description: 了解如何使用 Azure SDK for Java 以编程方式在Azure 应用服务上创建 Web 应用。
 tags: azure-classic-portal
 services: app-service\web
 documentationcenter: Java
@@ -21,6 +21,7 @@ ms.sourcegitcommit: e9f431f6ee60196bbae604e7d8152c6ef48ead1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/30/2017
+ms.locfileid: "21932639"
 ---
 # <a name="create-a-web-app-in-azure-app-service-using-the-azure-sdk-for-java"></a>使用 Azure SDK for Java 在 Azure 应用服务中创建 Web 应用
 <!-- Azure Active Directory workflow is not yet available on the Azure Portal -->
@@ -68,7 +69,7 @@ Azure SDK for Java 使用管理证书在 Azure 订阅中进行身份验证。 �
 #### <a name="create-a-certificate"></a>创建证书
 若要创建自己的自签名证书，请在操作系统上打开一个命令控制台并运行以下命令。
 
-> **注意：**运行此命令的计算机必须已安装 JDK。 此外，keytool 的路径取决于安装 JDK 的位置。 有关详细信息，请参阅 Java 联机文档中的[密钥和证书管理工具 (keytool)][Key and Certificate Management Tool (keytool)]。
+> **注意：** 运行此命令的计算机必须已安装 JDK。 此外，keytool 的路径取决于安装 JDK 的位置。 有关详细信息，请参阅 Java 联机文档中的[密钥和证书管理工具 (keytool)][Key and Certificate Management Tool (keytool)]。
 > 
 > 
 
@@ -138,7 +139,7 @@ Azure SDK for Java 使用管理证书在 Azure 订阅中进行身份验证。 �
         com.microsoft.azure  azure-management
         com.microsoft.azure  azure-management-websites
 
-   > **注意：**如果在新版本发布后更新依赖项，则需要重新添加此列表中的每个依赖项。
+   > **注意：** 如果在新版本发布后更新依赖项，则需要重新添加此列表中的每个依赖项。
    > 单击“添加”后，选择每个依赖项，则会在“依赖项”列表中显示新的版本号。
    > 
    > 
@@ -378,7 +379,7 @@ AzureWebDemo 应用程序的目的是创建应用服务 Web 应用，因此请�
 
 > **注意：** Azure Toolkit for Eclipse 支持部署到存储帐户和云服务，但当前不支持部署到 Web 应用。 可按照[在 Eclipse 中为 Azure 创建 Hello World 应用程序](/app-service-web/app-service-web-eclipse-create-hello-world-web-app)中所述，使用 Azure 部署项目部署到存储帐户和云服务，但不能部署到 Web 应用。 使用其他方法（例如 FTP 或 GitHub）将文件传输到 Web 应用。
 > 
-> **注意：**不建议通过 Windows 命令提示符（Windows 随附的命令行 FTP.EXE 实用工具）使用 FTP。 使用活动 FTP 的 FTP 客户端（如 FTP.EXE）通常无法通过防火墙工作。 活动 FTP 指定基于 LAN 的内部地址，FTP 服务器可能无法连接到该地址。
+> **注意：** 不建议通过 Windows 命令提示符（Windows 随附的命令行 FTP.EXE 实用工具）使用 FTP。 使用活动 FTP 的 FTP 客户端（如 FTP.EXE）通常无法通过防火墙工作。 活动 FTP 指定基于 LAN 的内部地址，FTP 服务器可能无法连接到该地址。
 > 
 > 
 
@@ -468,13 +469,13 @@ JSPHello.war 自身首先会显示在目录区域中：
 
     在“常规”选项卡上指定以下设置：
 
-   * **主机：**输入从仪表板复制的“FTP 主机名”。
+   * **主机：** 输入从仪表板复制的“FTP 主机名”。
    * 端口：（将其留空，因为这是被动传输，并且服务器会确定要使用的端口。）
-   * **协议：**FTP 文件传输协议
+   * **协议：** FTP 文件传输协议
    * **加密：** 使用普通 FTP
    * **登录类型：** 正常
-   * **用户：**输入从仪表板复制的部署/FTP 用户。 这是完整的 FTP 用户名，其格式为 *Web 应用名\用户名*。
-   * **密码：**输入设置部署凭据时指定的密码。
+   * **用户：** 输入从仪表板复制的部署/FTP 用户。 这是完整的 FTP 用户名，其格式为 *Web 应用名\用户名*。
+   * **密码：** 输入设置部署凭据时指定的密码。
 
      在“传输设置”选项卡上，选择“被动”。
 3. 单击“连接”。 如果成功，FileZilla 的控制台则会显示 `Status: Connected` 消息并发布 `LIST` 命令，以列出目录内容。
@@ -488,7 +489,7 @@ JSPHello.war 自身首先会显示在目录区域中：
 #### <a name="run-the-hello-world-application-on-the-web-app"></a>在 Web 应用上运行 Hello World 应用程序
 1. 上传 WAR 文件并确认 Tomcat 服务器已创建解包的 `JSPHello` 目录后，请浏览到 `http://webdemowebapp.chinacloudsites.cn/JSPHello` 以运行该应用程序。
 
-   > **注意：**如果从经典管理门户单击“浏览”，则可能获得默认网页，网页显示“已成功创建此基于 Java 的 Web 应用程序。” 可能需要刷新网页才能查看应用程序输出，而不是默认网页。
+   > **注意：** 如果从经典管理门户单击“浏览”，则可能获得默认网页，网页显示“已成功创建此基于 Java 的 Web 应用程序。” 可能需要刷新网页才能查看应用程序输出，而不是默认网页。
    > 
    > 
 2. 当应用程序运行时，应会看到具有以下输出的网页：

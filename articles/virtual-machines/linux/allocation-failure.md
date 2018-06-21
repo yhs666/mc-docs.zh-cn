@@ -21,6 +21,7 @@ ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34060224"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-linux-vms-in-azure"></a>排查在 Azure 中创建、重启 Linux VM 或调整其大小时发生的分配故障
 

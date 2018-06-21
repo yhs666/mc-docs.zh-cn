@@ -1,11 +1,11 @@
 ---
-title: "Azure 事件中心 .NET Framework API 概述 | Azure"
-description: "汇总了一些重要的事件中心 .NET Framework 客户端 API。"
+title: Azure 事件中心 .NET Framework API 概述 | Azure
+description: 汇总了一些重要的事件中心 .NET Framework 客户端 API。
 services: event-hubs
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
 ms.service: event-hubs
 ms.devlang: dotnet
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29527538"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>事件中心 .NET Framework API 概述
 本文汇总了一些重要的事件中心 .NET Framework 客户端 API。 有两个类别：管理 API 和运行时 API。 运行时 API 包括发送和接收消息所需的全部操作。 借助管理操作，可以通过创建、更新和删除实体来管理事件中心实体状态。

@@ -15,6 +15,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782465"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>将 SQL Server 数据库迁移到 Azure SQL 数据库
 

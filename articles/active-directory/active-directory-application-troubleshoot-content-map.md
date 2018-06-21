@@ -1,8 +1,8 @@
 ---
-title: "对 Azure Active Directory 应用程序管理和开发进行故障排除"
-description: "解决与 Azure Active Directory 应用程序管理和开发相关的最常见问题"
+title: 对 Azure Active Directory 应用程序管理和开发进行故障排除
+description: 解决与 Azure Active Directory 应用程序管理和开发相关的最常见问题
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
 ms.service: active-directory
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29527585"
 ---
 # <a name="troubleshoot-azure-active-directory-application-management-and-development"></a>对 Azure Active Directory 应用程序管理和开发进行故障排除
 通过阅读本文，可找到有关排除某些最常见问题的有用文档，这些问题涉及管理“企业应用程序”和使用“应用程序注册表”开发新应用程序。

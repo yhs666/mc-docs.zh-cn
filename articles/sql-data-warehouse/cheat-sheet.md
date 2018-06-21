@@ -16,6 +16,7 @@ ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32121802"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库速查表
 此速查表提供有关生成 Azure SQL 数据仓库解决方案的有用提示和最佳做法。 在开始之前，请阅读 [Azure SQL 数据仓库的工作负荷模式和对立模式](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns)中的每个详细步骤，其中解释了 SQL 数据仓库的定义。

@@ -1,11 +1,11 @@
 ---
-title: "定价和计费 - Azure 逻辑应用"
-description: "了解 Azure 逻辑应用的定价和计费原理"
+title: 定价和计费 - Azure 逻辑应用
+description: 了解 Azure 逻辑应用的定价和计费原理
 author: kevinlam1
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870571"
 ---
 # <a name="logic-apps-pricing-model"></a>逻辑应用定价模型
 

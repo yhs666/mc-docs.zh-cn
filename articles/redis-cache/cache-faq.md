@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32121788"
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis 缓存常见问题
 了解有关 Azure Redis 缓存的常见问题解答、模式和最佳实践。

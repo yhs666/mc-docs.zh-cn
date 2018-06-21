@@ -1,10 +1,10 @@
 ---
-title: "针对开发人员的 Azure Active Directory | Microsoft Docs"
-description: "本文概述了如何使用 Azure Active Directory 登录 Microsoft 工作和学校帐户。"
+title: 针对开发人员的 Azure Active Directory | Microsoft Docs
+description: 本文概述了如何使用 Azure Active Directory 登录 Microsoft 工作和学校帐户。
 services: active-directory
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27844697"
 ---
 # <a name="azure-active-directory-for-developers"></a>针对开发人员的 Azure Active Directory
 Azure Active Directory (Azure AD) 是一项云标识服务，开发人员可以使用它将任何用户安全地登录到 Microsoft 工作或学校帐户。 本文档介绍了如何使用行业标准协议（OAuth2.0 与 OpenID Connect）向应用程序添加 Azure AD 支持。

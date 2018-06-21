@@ -1,6 +1,6 @@
 ---
-title: "创建 B2B 解决方案 - Azure 逻辑应用"
-description: "使用 Enterprise Integration Pack 中的 B2B 功能在逻辑应用中接收数据"
+title: 创建 B2B 解决方案 - Azure 逻辑应用
+description: 使用 Enterprise Integration Pack 中的 B2B 功能在逻辑应用中接收数据
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870550"
 ---
 # <a name="receive-data-in-logic-apps-with-the-b2b-features-in-the-enterprise-integration-pack"></a>使用 Enterprise Integration Pack 中的 B2B 功能在逻辑应用中接收数据
 

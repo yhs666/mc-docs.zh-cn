@@ -1,8 +1,8 @@
 ---
-title: "如何将 Azure 存储用于 SQL Server 备份和还原 | Azure"
-description: "了解如何将 SQL Server 备份到 Azure 存储。 说明将 SQL 数据库备份到 Azure 存储的好处。"
+title: 如何将 Azure 存储用于 SQL Server 备份和还原 | Azure
+description: 了解如何将 SQL Server 备份到 Azure 存储。 说明将 SQL 数据库备份到 Azure 存储的好处。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 tags: azure-service-management
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29965330"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>将 Azure 存储用于 SQL Server 备份和还原
 ## <a name="overview"></a>概述

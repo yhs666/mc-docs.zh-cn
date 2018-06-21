@@ -1,11 +1,11 @@
 ---
-title: "示例 Azure 基础结构演练 | Azure"
-description: "了解用于在 Azure 中部署示例基础结构的关键设计和实施准则。"
-documentationcenter: 
+title: 示例 Azure 基础结构演练 | Azure
+description: 了解用于在 Azure 中部署示例基础结构的关键设计和实施准则。
+documentationcenter: ''
 services: virtual-machines-linux
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 281fc2c0-b533-45fa-81a3-728c0049c73d
 ms.service: virtual-machines-linux
@@ -22,6 +22,7 @@ ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27604253"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>适用于 Linux VM 的 Azure 示例基础结构演练
 
@@ -57,7 +58,7 @@ Adventure Works Cycles 想要在 Azure 中生成一个在线商店应用程序�
 
 * Adventure Works Cycles 使用 **[IT 工作负荷]-[位置]-[Azure 资源]** 作为前缀
     * 在本示例中，IT 工作负荷名为 **azos**（Azure On-line Store，Azure 在线商店），位置为 **che**（China East，中国东部）
-* 虚拟网络使用 AZOS-CHE-VN**[number]**
+* 虚拟网络使用 AZOS-CHE-VN **[number]**
 * 可用性集使用 azos-che-as-**[role]**
 * 虚拟机名称使用 azos-che-vm-**[vmname]**
 

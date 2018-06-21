@@ -20,6 +20,7 @@ ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27984739"
 ---
 #<a name="create-a-xamarinforms-app"></a>创建 Xamarin.Forms 应用
 

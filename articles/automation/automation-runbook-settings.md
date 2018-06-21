@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/15/2018
+ms.locfileid: "33937464"
 ---
 # <a name="runbook-settings"></a>Runbook 设置
 Azure 自动化中的每个 Runbook 都提供了多个设置用于帮助标识自身，以及更改它的日志记录行为。 下面会描述其中的每个设置，此后再介绍修改设置的过程。

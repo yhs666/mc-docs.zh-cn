@@ -15,6 +15,7 @@ ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32121217"
 ---
 # <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>在 SQL 数据仓库中使用用户定义架构
 有关在 Azure SQL 数据仓库中使用 T-SQL 用户定义架构开发解决方案的技巧。

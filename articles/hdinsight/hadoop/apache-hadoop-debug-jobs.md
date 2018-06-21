@@ -1,12 +1,12 @@
 ---
-title: "在 HDInsight 中调试 Hadoop：查看日志和解释错误消息"
-description: "了解在使用 PowerShell 管理 HDInsight 时可能会收到的错误消息，以及恢复正常的步骤。"
+title: 在 HDInsight 中调试 Hadoop：查看日志和解释错误消息
+description: 了解在使用 PowerShell 管理 HDInsight 时可能会收到的错误消息，以及恢复正常的步骤。
 services: hdinsight
 tags: azure-portal
 editor: cgronlun
 manager: jhubbard
 author: ashishthaps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7e6ceb0e-8be8-4911-bc80-20714030a3ad
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29552373"
 ---
 # <a name="analyze-hadoop-logs"></a>分析 Hadoop 日志
 

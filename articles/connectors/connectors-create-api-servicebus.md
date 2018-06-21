@@ -21,6 +21,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31781879"
 ---
 # <a name="send-and-receive-messages-with-the-azure-service-bus-connector"></a>使用 Azure 服务总线连接器发送和接收消息
 

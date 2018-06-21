@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 虚拟机中配置 Always On 可用性组（经典）| Azure"
-description: "创建包含 Azure 虚拟机的 Always On 可用性组。 本教程主要使用用户界面和工具而不是脚本。"
+title: 在 Azure 虚拟机中配置 Always On 可用性组（经典）| Azure
+description: 创建包含 Azure 虚拟机的 Always On 可用性组。 本教程主要使用用户界面和工具而不是脚本。
 services: virtual-machines-windows
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 8d48a3d2-79f8-4ab0-9327-2f30ee0b2ff1
 ms.service: virtual-machines-sql
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27604559"
 ---
 # <a name="configure-always-on-availability-group-in-azure-virtual-machines-classic"></a>在 Azure 虚拟机中配置 Always On 可用性组（经典）
 > [!div class="op_single_selector"]
@@ -261,7 +262,7 @@ ms.lasthandoff: 01/05/2018
    | --- | --- |
    | 开始之前 |使用默认值 |
    | 选择服务器 |在“输入服务器名称”中键入 **ContosoSQL1**，并单击“添加” |
-   | 验证警告 |选择**“否。不需要 Microsoft 对该群集的支持，因此不希望运行验证测试。**单击‘下一步’时，继续创建群集。” |
+   | 验证警告 |选择 **“否。不需要 Microsoft 对该群集的支持，因此不希望运行验证测试。** 单击‘下一步’时，继续创建群集。” |
    | 用于管理群集的访问点 |在“群集名称”中键入 **Cluster1** |
    | 确认 |除非使用的是存储空间，否则请使用默认值。 请参阅此表后面的警告。 |
 

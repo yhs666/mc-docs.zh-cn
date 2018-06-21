@@ -21,6 +21,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072514"
 ---
 # <a name="get-started-with-the-mailchimp-connector"></a>MailChimp 连接器入门
 MailChimp 是 SaaS 服务，允许企业管理和自动化电子邮件市场营销活动，包括发送市场营销电子邮件、自动化消息和有针对性的市场活动。

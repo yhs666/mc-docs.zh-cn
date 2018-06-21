@@ -16,6 +16,7 @@ ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30155659"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 数据中心集成 - DNS
 若要从 Azure Stack 外部访问 Azure Stack 终结点（`portal`、`adminportal`、`management`、`adminmanagement` 等），需将 Azure Stack DNS 服务与托管 DNS 区域（需在 Azure Stack 中使用）的 DNS 服务器集成。

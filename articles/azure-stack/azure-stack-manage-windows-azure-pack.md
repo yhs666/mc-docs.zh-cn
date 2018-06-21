@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30222938"
 ---
 # <a name="manage-azure-pack-virtual-machines-from-azure-stack"></a>从 Azure Stack 管理 Azure Pack 虚拟机
 

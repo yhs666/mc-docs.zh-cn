@@ -22,6 +22,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077684"
 ---
 # <a name="configure-spark-settings"></a>配置 Spark 设置
 

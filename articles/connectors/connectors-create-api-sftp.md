@@ -21,6 +21,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072526"
 ---
 # <a name="get-started-with-the-sftp-connector"></a>SFTP 连接器入门
 使用 SFTP 连接器访问 SFTP 帐户以发送和接收文件。 可以执行各种操作，如创建、更新、获取或删除文件。  

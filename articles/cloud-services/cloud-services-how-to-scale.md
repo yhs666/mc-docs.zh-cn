@@ -1,11 +1,11 @@
 ---
-title: "在门户中的自动缩放云服务 | Azure"
-description: "（经典）了解如何使用经典门户在 Azure 中为云服务 Web 角色或辅助角色配置自动缩放规则。"
+title: 在门户中的自动缩放云服务 | Azure
+description: （经典）了解如何使用经典门户在 Azure 中为云服务 Web 角色或辅助角色配置自动缩放规则。
 services: cloud-services
-documentationCenter: 
+documentationCenter: ''
 authors: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/01/2017
+ms.locfileid: "21944662"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-classic-portal"></a>如何在经典门户中为云服务配置自动缩放
 

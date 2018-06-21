@@ -1,11 +1,11 @@
 ---
-title: "对应用程序执行许可时发生的意外错误 | Azure"
-description: "介绍对应用程序进行许可期间可能发生的错误，以及解决这些错误的方法"
+title: 对应用程序执行许可时发生的意外错误 | Azure
+description: 介绍对应用程序进行许可期间可能发生的错误，以及解决这些错误的方法
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27781350"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>对应用程序执行许可时发生的意外错误
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 01/12/2018
 当公司管理员关闭用户对应用程序进行许可的能力，非管理员用户尝试使用的应用程序需要许可时，会发生此错误。 此错误可通过管理员代表其组织授予访问此应用程序的权限进行解决。
 
 ## <a name="intermittent-problem-error"></a>不稳定问题错误
-* **AADSTS90090：**我们似乎遇到了不稳定问题，它记录了尝试授予 &lt;clientAppDisplayName&gt; 的权限。 请稍后重试。
+* **AADSTS90090：** 我们似乎遇到了不稳定问题，它记录了尝试授予 &lt;clientAppDisplayName&gt; 的权限。 请稍后重试。
 
 此错误表明服务端已发生不稳定问题。 可通过重新尝试对应用程序进行许可来解决此问题。
 
@@ -56,7 +57,7 @@ ms.lasthandoff: 01/12/2018
 确保此资源可用，或与 &lt;tenantDisplayName&gt; 管理员联系。
 
 ## <a name="permissions-mismatch-error"></a>权限不匹配错误
-* **AADSTS65005：**应用已请求对访问 &lt;resourceAppDisplayName&gt; 资源进行许可。 由于此请求与应用注册期间预配置应用的方式不匹配，该请求失败。 与应用供应商联系。**
+* **AADSTS65005：** 应用已请求对访问 &lt;resourceAppDisplayName&gt; 资源进行许可。 由于此请求与应用注册期间预配置应用的方式不匹配，该请求失败。 与应用供应商联系。**
 
 在以下情况下会发生所有这些错误：用户尝试许可的应用程序请求对资源应用程序的访问权限，该资源应用程序在组织目录（租户）中找不到。 出现这种情况的原因可能有很多个：
 

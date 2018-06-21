@@ -16,6 +16,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31781834"
 ---
 # <a name="access-control-in-azure-cosmos-db"></a>Azure Cosmos DB 中的访问控制
 

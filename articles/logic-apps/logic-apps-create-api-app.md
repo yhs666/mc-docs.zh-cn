@@ -1,12 +1,12 @@
 ---
-title: "为 Azure 逻辑应用创建 Web API 和 REST API"
-description: "为实现系统集成，在逻辑应用工作流中创建 Web API 和 REST API 以调用 API、服务或系统"
-keywords: "Web API, REST API, 工作流, 系统集成"
+title: 为 Azure 逻辑应用创建 Web API 和 REST API
+description: 为实现系统集成，在逻辑应用工作流中创建 Web API 和 REST API 以调用 API、服务或系统
+keywords: Web API, REST API, 工作流, 系统集成
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
 ms.workload: integration
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870804"
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>创建可从逻辑应用工作流调用的自定义 API
 

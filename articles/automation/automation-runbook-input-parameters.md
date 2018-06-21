@@ -16,6 +16,7 @@ ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/15/2018
+ms.locfileid: "33937461"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 输入参数
 

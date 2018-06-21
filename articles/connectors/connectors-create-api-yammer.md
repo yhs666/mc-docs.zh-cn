@@ -20,6 +20,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072512"
 ---
 # <a name="get-started-with-the-yammer-connector"></a>Yammer 连接器入门
 连接到 Yammer 以在企业网络中访问对话。 借助 Yammer，可以：

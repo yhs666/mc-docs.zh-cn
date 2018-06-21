@@ -21,6 +21,7 @@ ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34062124"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>针对经典部署模型中的分配失败情况进行故障排除的步骤
 

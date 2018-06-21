@@ -20,6 +20,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31781903"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>为 NoSQL 数据库的文档数据建模
 尽管无架构的数据库（如 Azure Cosmos DB）能够非常容易地接受对数据模型的更改，但用户仍需花一些时间来研究数据。 

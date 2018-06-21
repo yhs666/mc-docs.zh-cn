@@ -1,12 +1,12 @@
 ---
-title: "将容器中的 .NET 应用部署到 Azure Service Fabric | Azure"
-description: "讲解如何在 Docker 容器中打包 Visual Studio 中的 .NET 应用。 这一新的“容器”应用随后会部署到 Service Fabric 群集。"
+title: 将容器中的 .NET 应用部署到 Azure Service Fabric | Azure
+description: 讲解如何在 Docker 容器中打包 Visual Studio 中的 .NET 应用。 这一新的“容器”应用随后会部署到 Service Fabric 群集。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285721"
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>将 Windows 容器中的 .NET 应用程序部署到 Azure Service Fabric
 

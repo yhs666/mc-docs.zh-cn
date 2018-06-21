@@ -18,6 +18,7 @@ ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33814914"
 ---
 #<a name="expressroute-documentation"></a>ExpressRoute 文档
 

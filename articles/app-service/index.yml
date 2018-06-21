@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Web 应用文档"
+title: Web 应用文档
 metadata:
   document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
-  title: "Azure Web 应用文档 - 教程和 API 参考"
+  title: Azure Web 应用文档 - 教程和 API 参考
   meta.description: Learn how to use App Service Web Apps to build and host websites and web applications.
   services: app-service
   author: czeumault
@@ -20,13 +20,14 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: zh-CN
   ms.lasthandoff: 01/22/2018
+  ms.locfileid: "27984732"
 abstract:
-  description: "使用 Azure Web 应用可以采用所选编程语言构建和托管 Web 应用程序，而无需管理基础结构。 它提供自动缩放和高可用性，支持 Windows 和 Linux，并允许从 GitHub、Team Services 或任何 Git 存储库进行自动部署。 使用我们的快速入门、教程和示例了解如何使用 Azure Web 应用。"
+  description: 使用 Azure Web 应用可以采用所选编程语言构建和托管 Web 应用程序，而无需管理基础结构。 它提供自动缩放和高可用性，支持 Windows 和 Linux，并允许从 GitHub、Team Services 或任何 Git 存储库进行自动部署。 使用我们的快速入门、教程和示例了解如何使用 Azure Web 应用。
 sections:
-- title: "5 分钟快速入门"
+- title: 5 分钟快速入门
   items:
   - type: paragraph
-    text: "了解如何使用 Web 应用将你的第一个应用程序部署到云："
+    text: 了解如何使用 Web 应用将你的第一个应用程序部署到云：
   - type: list
     style: icon48
     items:
@@ -54,20 +55,20 @@ sections:
         src: /app-service/media/index/logo_html5.svg
       text: HTML
       href: /app-service/app-service-web-get-started-html
-- title: "分步教程"
+- title: 分步教程
   items:
   - type: paragraph
-    text: "了解如何在 Azure 上部署、管理和监视安全的 Web 应用程序"
+    text: 了解如何在 Azure 上部署、管理和监视安全的 Web 应用程序
   - type: list
     style: ordered
     items:
-    - html: "将 <a href=\"/app-service/app-service-web-tutorial-dotnet-sqldatabase\">.NET 与 Azure SQL DB 配合使用</a>或将 <a href=\"/app-service-web/app-service-web-tutorial-nodejs-mongodb-app\">Node.js 与 MongoDB 配合使用</a>来创建应用程序"
-    - html: "<a href=\"/app-service/app-service-web-tutorial-custom-domain\">将现有自定义域映射到应用程序</a>"
-    - html: "<a href=\"/app-service/app-service-web-tutorial-custom-SSL\">将现有 SSL 证书绑定到应用程序</a>"
-- title: "示例"
+    - html: 将 <a href="/app-service/app-service-web-tutorial-dotnet-sqldatabase">.NET 与 Azure SQL DB 配合使用</a>或将 <a href="/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Node.js 与 MongoDB 配合使用</a>来创建应用程序
+    - html: <a href="/app-service/app-service-web-tutorial-custom-domain">将现有自定义域映射到应用程序</a>
+    - html: <a href="/app-service/app-service-web-tutorial-custom-SSL">将现有 SSL 证书绑定到应用程序</a>
+- title: 示例
   items:
   - type: paragraph
-    text: "查找脚本来管理常见任务。"
+    text: 查找脚本来管理常见任务。
   - type: list
     style: unordered
     className: spaced noBullet

@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 将 Web 应用连接到 Cosmos DB | Azure"
-description: "Azure CLI 脚本示例 - 将 Web 应用连接到 Cosmos DB"
+title: Azure CLI 脚本示例 - 将 Web 应用连接到 Cosmos DB | Azure
+description: Azure CLI 脚本示例 - 将 Web 应用连接到 Cosmos DB
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: bbbdbc42-efb5-4b4f-8ba6-c03c9d16a7ea
 ms.service: app-service
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146524"
 ---
 # <a name="connect-a-web-app-to-cosmos-db"></a>将 Web 应用连接到 Cosmos DB
 

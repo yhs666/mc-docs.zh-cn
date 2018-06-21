@@ -21,6 +21,7 @@ ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/15/2018
+ms.locfileid: "34173357"
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>适用于 Python 的 Batch SDK 入门
 

@@ -1,8 +1,8 @@
 ---
-title: "使用 Git 配置 API 管理服务"
-description: "了解如何使用 Git 保存和配置 API 管理服务。"
+title: 使用 Git 配置 API 管理服务
+description: 了解如何使用 Git 保存和配置 API 管理服务。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
 editor: mattfarm
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870524"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 保存和配置 API 管理服务
 

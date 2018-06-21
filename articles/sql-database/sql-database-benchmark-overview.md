@@ -15,6 +15,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782112"
 ---
 # <a name="azure-sql-database-dtu-benchmark-overview"></a>Azure SQL 数据库 DTU 基准检验概述
 ## <a name="overview"></a>概述

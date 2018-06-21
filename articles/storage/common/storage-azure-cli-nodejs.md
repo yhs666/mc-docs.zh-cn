@@ -1,6 +1,6 @@
 ---
-title: "将 Azure CLI 1.0 用于 Azure 存储 | Azure"
-description: "了解如何将 Azure 命令行界面 (Azure CLI) 1.0 用于 Azure 存储，以便创建和管理存储帐户并处理 Azure blob 和文件。 Azure CLI 是一个跨平台工具"
+title: 将 Azure CLI 1.0 用于 Azure 存储 | Azure
+description: 了解如何将 Azure 命令行界面 (Azure CLI) 1.0 用于 Azure 存储，以便创建和管理存储帐户并处理 Azure blob 和文件。 Azure CLI 是一个跨平台工具
 services: storage
 documentationcenter: na
 author: seguler
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27604596"
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>将 Azure CLI 1.0 用于 Azure 存储
 
@@ -84,7 +85,7 @@ Azure CLI 提供了一组开源且跨平台的命令，这些命令可以用于 
 5. 在本地计算机中，打开首选的文本编辑器（例如 vim）。 在文本编辑器中键入上述脚本。
 6. 现在，需要基于配置设置更新脚本变量。
 
-   * <storage_account_name>：使用脚本中给定的名称，或输入存储帐户的新名称。 **重要提示：**在 Azure 中，存储帐户的名称必须是唯一的。 它还必须为小写！
+   * <storage_account_name>：使用脚本中给定的名称，或输入存储帐户的新名称。 **重要提示：** 在 Azure 中，存储帐户的名称必须是唯一的。 它还必须为小写！
    * <storage_account_key>：存储帐户的访问密钥。
    * <container_name>：使用脚本中给定的名称，或输入容器的新名称。
    * <image_to_upload>：输入本地计算机上图片的路径，例如：“~/images/HelloWorld.png”。

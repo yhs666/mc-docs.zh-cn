@@ -1,6 +1,6 @@
 ---
-title: "使用 .NET 针对 Azure 文件进行开发 | Microsoft Docs"
-description: "了解如何开发使用 Azure 文件来存储文件数据的 .NET 应用程序和服务。"
+title: 使用 .NET 针对 Azure 文件进行开发 | Microsoft Docs
+description: 了解如何开发使用 Azure 文件来存储文件数据的 .NET 应用程序和服务。
 services: storage
 documentationcenter: .net
 author: forester123
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29527472"
 ---
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 针对 Azure 文件进行开发
 

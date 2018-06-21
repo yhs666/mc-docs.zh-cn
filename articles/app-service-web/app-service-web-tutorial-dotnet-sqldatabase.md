@@ -1,11 +1,11 @@
 ---
-title: "使用 SQL 数据库在 Azure 中生成 ASP.NET | Azure"
-description: "了解如何在 Azure 中运行 ASP.NET 应用，同时使其连接到 SQL 数据库。"
+title: 使用 SQL 数据库在 Azure 中生成 ASP.NET | Azure
+description: 了解如何在 Azure 中运行 ASP.NET 应用，同时使其连接到 SQL 数据库。
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21134825"
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>使用 SQL 数据库在 Azure 中生成 ASP.NET 应用
 

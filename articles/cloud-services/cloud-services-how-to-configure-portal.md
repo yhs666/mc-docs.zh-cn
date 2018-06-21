@@ -20,6 +20,7 @@ ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30293804"
 ---
 # <a name="how-to-configure-cloud-services"></a>如何配置云服务
 可以在 Azure 门户中配置最常使用的云服务设置。 或者，如果希望直接更新配置文件，可下载要更新的服务配置文件，并上传更新文件并通过配置更改更新云服务。 无论使用哪种方法，配置更新都会应用于所有角色实例。

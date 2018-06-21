@@ -1,15 +1,15 @@
 ---
-title: "安装本地数据网关 - Azure 逻辑应用"
-description: "访问本地数据源之前，请在本地数据源与逻辑应用之间安装用于快速数据传输和加密的本地数据网关"
-keywords: "访问数据, 本地, 数据传输, 加密, 数据源"
+title: 安装本地数据网关 - Azure 逻辑应用
+description: 访问本地数据源之前，请在本地数据源与逻辑应用之间安装用于快速数据传输和加密的本地数据网关
+keywords: 访问数据, 本地, 数据传输, 加密, 数据源
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870611"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>为 Azure 逻辑应用安装本地数据网关
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure 门户快捷键 | Microsoft Docs"
-description: "了解 Azure 门户中使用的键盘快捷方式。"
+title: Azure 门户快捷键 | Microsoft Docs
+description: 了解 Azure 门户中使用的键盘快捷方式。
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: flanakin
 manager: lwelicki
-editor: 
+editor: ''
 ms.assetid: d9f58c69-9163-458d-a339-ab0855e342c6
 ms.service: multiple
 ms.devlang: NA
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22338740"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure 门户中的键盘快捷方式
 本文介绍了 Azure 门户中使用的键盘快捷方式。 各个服务可能有其自己的键盘快捷方式。

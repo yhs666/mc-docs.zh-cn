@@ -20,6 +20,7 @@ ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554336"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric 可测试性方案：服务通信
 Azure Service Fabric 中自然显露了微服务和面向服务的体系结构风格。 在这些类型的分布式体系结构中，组件化微服务应用程序通常由需要相互通信的多个服务组成。 即使在最简单的情况下，一般至少有一个无状态 Web 服务和一个有状态数据存储服务需要进行通信。

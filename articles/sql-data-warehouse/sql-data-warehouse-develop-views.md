@@ -14,6 +14,7 @@ ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32121265"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的视图
 有关在开发解决方案时使用 Azure SQL 数据仓库中的 T-SQL 视图的技巧。 

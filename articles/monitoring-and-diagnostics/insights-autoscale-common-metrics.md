@@ -1,9 +1,9 @@
 ---
-title: "Azure Monitor 自动缩放常见指标 | Microsoft Docs"
-description: "了解自动缩放云服务、虚拟机和 Web 应用时常用的指标。"
+title: Azure Monitor 自动缩放常见指标 | Microsoft Docs
+description: 了解自动缩放云服务、虚拟机和 Web 应用时常用的指标。
 author: anirudhcavale
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 189b2a13-01c8-4aca-afd5-90711903ca59
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26045173"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure 监视器自动缩放常用指标
 利用 Azure 监视器自动缩放，可以根据遥测数据（指标）增加或减少正在运行的实例数。 本文档介绍了你可能想要使用的常用指标。 在云服务和服务器场的 Azure 门户中，可以选择要作为缩放依据的资源指标。 不过，也可以选择其他资源的任何指标来作为缩放依据。

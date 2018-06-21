@@ -21,6 +21,7 @@ ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940670"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>使用 CLI 创建基于路由的 VPN 网关
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31805421"
 ---
 # <a name="azure-stack-1712-update"></a>Azure Stack 1712 更新
 
@@ -84,13 +85,13 @@ Azure Stack 1712 更新内部版本号为 **180106.1**。 如果客户以前已�
 
 本部分描述在安装 1712 更新期间可能会遇到的已知问题。
 
-1. **症状：**Azure Stack 操作员在更新过程中可能会看到以下错误：*“角色 'VirtualMachines' 的类型 'CheckHealth' 引发了异常:\n\n-ACS01 的虚拟机运行状况检查生成了以下错误。\n从主机获取 VM 信息时出错。异常详细信息:\nGet-VM: 计算机 'Node03' 上的操作失败: WS-Management 服务无法处理请求。WMI \nservice 或 WMI 提供程序返回了未知的错误: HRESULT 0x8004106c”。*
-    1. **原因：**此问题是由某个 Windows Server 问题造成的，后续的 Windows Server 更新中会解决此问题。
-    2. **解决方法：**请联系 Microsoft 客户服务和支持 (CSS) 寻求帮助。
+1. **症状：** Azure Stack 操作员在更新过程中可能会看到以下错误：*“角色 'VirtualMachines' 的类型 'CheckHealth' 引发了异常:\n\n-ACS01 的虚拟机运行状况检查生成了以下错误。\n从主机获取 VM 信息时出错。异常详细信息:\nGet-VM: 计算机 'Node03' 上的操作失败: WS-Management 服务无法处理请求。WMI \nservice 或 WMI 提供程序返回了未知的错误: HRESULT 0x8004106c”。*
+    1. **原因：** 此问题是由某个 Windows Server 问题造成的，后续的 Windows Server 更新中会解决此问题。
+    2. **解决方法：** 请联系 Microsoft 客户服务和支持 (CSS) 寻求帮助。
 <br><br>
-2. **症状：**Azure Stack 操作员在更新过程中可能会看到以下错误：“在 Host-Node03 节点上启用种子环 VM 失败，并出现以下错误: [Host-Node03] 连接到远程服务器 Host-Node03 失败，并出现以下错误消息: WinRM 客户端收到 HTTP 服务器错误状态 (500)，但远程服务并不包含有关失败原因的其他任何信息。”
-    1. **原因：**此问题是由某个 Windows Server 问题造成的，后续的 Windows Server 更新中会解决此问题。 
-    2. **解决方法：**请联系 Microsoft 客户服务和支持 (CSS) 寻求帮助。
+2. **症状：** Azure Stack 操作员在更新过程中可能会看到以下错误：“在 Host-Node03 节点上启用种子环 VM 失败，并出现以下错误: [Host-Node03] 连接到远程服务器 Host-Node03 失败，并出现以下错误消息: WinRM 客户端收到 HTTP 服务器错误状态 (500)，但远程服务并不包含有关失败原因的其他任何信息。”
+    1. **原因：** 此问题是由某个 Windows Server 问题造成的，后续的 Windows Server 更新中会解决此问题。 
+    2. **解决方法：** 请联系 Microsoft 客户服务和支持 (CSS) 寻求帮助。
 <br><br>
 
 ### <a name="known-issues-post-installation"></a>已知问题（安装后）

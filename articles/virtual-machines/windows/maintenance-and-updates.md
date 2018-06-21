@@ -21,6 +21,7 @@ ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257055"
 ---
 # <a name="planned-maintenance-for-virtual-machines-in-azure"></a>Azure 中虚拟机的计划内维护
 

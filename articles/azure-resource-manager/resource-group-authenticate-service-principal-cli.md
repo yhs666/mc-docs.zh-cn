@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure CLI 创建 Azure 应用标识 | Azure"
-description: "介绍如何使用 Azure CLI 创建 Azure Active Directory 应用程序和服务主体，并通过基于角色的访问控制授予其对资源的访问权限。 它演示如何使用密码或证书对应用程序进行身份验证。"
+title: 使用 Azure CLI 创建 Azure 应用标识 | Azure
+description: 介绍如何使用 Azure CLI 创建 Azure Active Directory 应用程序和服务主体，并通过基于角色的访问控制授予其对资源的访问权限。 它演示如何使用密码或证书对应用程序进行身份验证。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20f589947fbfbe791debd71674f3e4649762b70d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/31/2017
+ms.locfileid: "21938703"
 ---
 # <a name="use-azure-cli-to-create-a-service-principal-to-access-resources"></a>使用 Azure CLI 创建服务主体来访问资源
 

@@ -1,11 +1,11 @@
 ---
-title: "将自定义域和 SSL 添加到 Azure Web 应用 | Azure"
-description: "了解如何通过添加公司品牌为投入生产准备 Azure Web 应用。 将自定义域名（虚域）映射到 Web 应用并使用自定义 SSL 证书保护其安全。"
+title: 将自定义域和 SSL 添加到 Azure Web 应用 | Azure
+description: 了解如何通过添加公司品牌为投入生产准备 Azure Web 应用。 将自定义域名（虚域）映射到 Web 应用并使用自定义 SSL 证书保护其安全。
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21134765"
 ---
 # <a name="add-custom-domain-and-ssl-to-an-azure-web-app"></a>将自定义域和 SSL 添加到 Azure Web 应用
 

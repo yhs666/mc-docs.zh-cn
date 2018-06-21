@@ -1,11 +1,11 @@
 ---
-title: "创建一个 Azure API 管理实例"
-description: "按照本教程中的步骤创建新的 Azure API 管理实例。"
+title: 创建一个 Azure API 管理实例
+description: 按照本教程中的步骤创建新的 Azure API 管理实例。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cflower
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: quickstart
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870310"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>创建新的 Azure API 管理服务实例
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure 快速入门 - 创建 Azure 自动化 Runbook | Microsoft Docs"
-description: "了解如何创建 Azure 自动化 Runbook"
+title: Azure 快速入门 - 创建 Azure 自动化 Runbook | Microsoft Docs
+description: 了解如何创建 Azure 自动化 Runbook
 services: automation
 author: yunan2016
 ms.author: v-nany
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8a6ea03ef52ea4a531757a3c50e9ab0a5a72c1a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/23/2018
+ms.locfileid: "28003290"
 ---
 # <a name="create-an-azure-automation-runbook"></a>创建 Azure 自动化 Runbook
 

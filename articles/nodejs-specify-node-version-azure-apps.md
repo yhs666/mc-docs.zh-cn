@@ -1,11 +1,11 @@
 ---
-title: "指定 Node.js 版本"
-description: "了解如何指定 Azure 网站和云服务使用的 Node.js 版本"
-services: 
+title: 指定 Node.js 版本
+description: 了解如何指定 Azure 网站和云服务使用的 Node.js 版本
+services: ''
 documentationcenter: nodejs
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: d0e15278-2ab4-4ec8-8256-913839c6d5ef
 ms.service: multiple
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e9f431f6ee60196bbae604e7d8152c6ef48ead1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/30/2017
+ms.locfileid: "21932621"
 ---
 # <a name="specifying-a-nodejs-version-in-an-azure-application"></a>在 Azure 应用程序中指定 Node.js 版本
 托管 Node.js 应用程序时，你可能希望确保应用程序使用特定版本的 Node.js。 有几种方法可为托管在 Azure 上的应用程序完成此操作。

@@ -1,11 +1,11 @@
 ---
-title: "将 SQL 代码迁移到 SQL 数据仓库 | Azure"
-description: "有关在开发解决方案时将 SQL 代码迁移到 Azure SQL 数据仓库的技巧。"
+title: 将 SQL 代码迁移到 SQL 数据仓库 | Azure
+description: 有关在开发解决方案时将 SQL 代码迁移到 Azure SQL 数据仓库的技巧。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 19c252a3-0e41-4eec-9d3e-09a68c7e7add
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285507"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>将 SQL 代码迁移到 SQL 数据仓库
 本文介绍了将代码从其他数据库迁移到 SQL 数据仓库时可能需要做出的代码更改。 某些 SQL 数据仓库功能设计为以分布方式运行，因此可以大幅改善性能。 但是，为了保持性能和缩放性，某些功能还无法使用。

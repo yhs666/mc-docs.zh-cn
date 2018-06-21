@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31319128"
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Azure SQL 数据库连接器入门
 使用 Azure SQL 数据库连接器，为管理表中数据的组织创建工作流。 

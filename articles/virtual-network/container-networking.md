@@ -1,15 +1,15 @@
 ---
-title: "适用于容器的 Azure 虚拟网络 | Azure"
-description: "了解适用于 Kubernetes 群集的 CNI 插件。该插件可让容器相互通信，以及与虚拟网络中的其他资源通信。"
+title: 适用于容器的 Azure 虚拟网络 | Azure
+description: 了解适用于 Kubernetes 群集的 CNI 插件。该插件可让容器相互通信，以及与虚拟网络中的其他资源通信。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/18/2017
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27958286"
 ---
 # <a name="container-networking"></a>容器网络
 

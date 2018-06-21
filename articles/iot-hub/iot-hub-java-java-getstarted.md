@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中心入门 (Java) | Azure"
-description: "了解如何通过用于 Java 的 IoT SDK 将设备到云消息发送到 Azure IoT 中心。 创建模拟的设备和服务应用，以便通过 IoT 中心注册设备、发送消息和读取消息。"
+title: Azure IoT 中心入门 (Java) | Azure
+description: 了解如何通过用于 Java 的 IoT SDK 将设备到云消息发送到 Azure IoT 中心。 创建模拟的设备和服务应用，以便通过 IoT 中心注册设备、发送消息和读取消息。
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 70dae4a8-0e98-4c53-b5a5-9d6963abb245
 ms.service: iot-hub
 ms.devlang: java
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27604409"
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-java"></a>使用 Java 将设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]

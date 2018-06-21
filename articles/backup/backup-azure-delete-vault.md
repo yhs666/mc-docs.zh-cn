@@ -1,11 +1,11 @@
 ---
 title: " 删除 Azure 中的恢复服务 | Microsoft Docs "
-description: "本文介绍了如何删除恢复服务保管库。 本文包括了尝试删除保管库但无法删除时可采用的疑难解答步骤。"
+description: 本文介绍了如何删除恢复服务保管库。 本文包括了尝试删除保管库但无法删除时可采用的疑难解答步骤。
 services: service-name
 documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 5fa08157-2612-4020-bd90-f9e3c3bc1806
 ms.service: backup
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285254"
 ---
 # <a name="delete-a-recovery-services-vault"></a>删除恢复服务保管库
 本文介绍了如何在 Azure 门户中删除恢复服务保管库。 如果你之前有备份保管库，则它们已转换为恢复服务保管库。   

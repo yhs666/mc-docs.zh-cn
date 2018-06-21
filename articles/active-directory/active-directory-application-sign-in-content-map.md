@@ -1,8 +1,8 @@
 ---
-title: "登录到应用程序时出现问题"
-description: "登录到应用程序时出现问题"
+title: 登录到应用程序时出现问题
+description: 登录到应用程序时出现问题
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
 ms.service: active-directory
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/29/2017
+ms.locfileid: "27548405"
 ---
 # <a name="problems-when-signing-in-to-applications"></a>登录到应用程序时出现问题
 

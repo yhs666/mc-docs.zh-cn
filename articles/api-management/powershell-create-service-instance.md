@@ -1,11 +1,11 @@
 ---
-title: "使用 PowerShell 创建 Azure API 管理实例"
-description: "按照本教程中的步骤创建新的 Azure API 管理实例。"
+title: 使用 PowerShell 创建 Azure API 管理实例
+description: 按照本教程中的步骤创建新的 Azure API 管理实例。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cflower
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: quickstart
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29286052"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>创建新的 Azure API 管理服务实例
 

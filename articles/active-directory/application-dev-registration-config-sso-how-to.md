@@ -1,11 +1,11 @@
 ---
-title: "如何配置新的多租户应用程序 | Microsoft Docs"
-description: "如何为通过 Azure AD 进行开发和注册的自定义应用程序配置单一登录。"
+title: 如何配置新的多租户应用程序 | Microsoft Docs
+description: 如何为通过 Azure AD 进行开发和注册的自定义应用程序配置单一登录。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27604185"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>如何配置新的多租户应用程序
 

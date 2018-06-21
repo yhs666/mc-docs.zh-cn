@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 中构建 Java 和 MySQL Web 应用"
-description: "了解如何创建一个可连接到 Azure MySQL 数据库服务的、在 Azure appservice 中运行的 Java 应用。"
+title: 在 Azure 中构建 Java 和 MySQL Web 应用
+description: 了解如何创建一个可连接到 Azure MySQL 数据库服务的、在 Azure appservice 中运行的 Java 应用。
 services: app-service\web
 documentationcenter: Java
 author: bbenz
 manager: jeffsand
 editor: jasonwhowell
-ms.assetid: 
+ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339080"
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>在 Azure 中构建 Java 和 MySQL Web 应用
 

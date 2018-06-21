@@ -1,12 +1,12 @@
 ---
-title: "Azure 服务总线基于角色的访问控制 (RBAC) 预览版"
-description: "Azure 服务总线基于角色的访问控制"
+title: Azure 服务总线基于角色的访问控制 (RBAC) 预览版
+description: Azure 服务总线基于角色的访问控制
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731164"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 基于角色的访问控制（预览版）
 

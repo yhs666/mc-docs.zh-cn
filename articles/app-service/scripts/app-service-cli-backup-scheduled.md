@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 为 Web 应用创建计划备份 | Microsoft Docs"
-description: "Azure CLI 脚本示例 - 为 Web 应用创建计划备份"
+title: Azure CLI 脚本示例 - 为 Web 应用创建计划备份 | Microsoft Docs
+description: Azure CLI 脚本示例 - 为 Web 应用创建计划备份
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/25/2017
+ms.locfileid: "27546636"
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app"></a>为 Web 应用创建计划备份
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 将自定义域映射到 Web 应用 | Azure"
-description: "Azure CLI 脚本示例 - 将自定义域映射到 Web 应用"
+title: Azure CLI 脚本示例 - 将自定义域映射到 Web 应用 | Azure
+description: Azure CLI 脚本示例 - 将自定义域映射到 Web 应用
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 5ac4a680-cc73-4578-bcd6-8668c08802c2
 ms.service: app-service-web
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146573"
 ---
 # <a name="map-a-custom-domain-to-a-web-app"></a>将自定义域映射到 Web 应用
 

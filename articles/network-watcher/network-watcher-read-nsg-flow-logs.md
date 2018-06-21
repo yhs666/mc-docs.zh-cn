@@ -1,11 +1,11 @@
 ---
-title: "读取 NSG 流日志 | Azure"
-description: "本文介绍如何分析 NSG 流日志"
+title: 读取 NSG 流日志 | Azure
+description: 本文介绍如何分析 NSG 流日志
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285285"
 ---
 # <a name="read-nsg-flow-logs"></a>读取 NSG 流日志
 

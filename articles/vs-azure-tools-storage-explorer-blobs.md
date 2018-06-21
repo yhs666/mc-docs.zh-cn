@@ -20,6 +20,7 @@ ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34060324"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>使用存储资源管理器（预览版）管理 Azure Blob 存储资源
 ## <a name="overview"></a>概述

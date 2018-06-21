@@ -21,6 +21,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077673"
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>延迟和延迟到操作入门
 通过使用延迟和“延迟到”操作，可以完成各种工作流方案。
