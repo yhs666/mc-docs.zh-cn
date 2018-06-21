@@ -1,11 +1,11 @@
 ---
-title: "关于加密要求和 Azure VPN 网关 | Azure"
-description: "本文介绍加密要求和 Azure VPN 网关"
+title: 关于加密要求和 Azure VPN 网关 | Azure
+description: 本文介绍加密要求和 Azure VPN 网关
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20464951"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>关于加密要求和 Azure VPN 网关
 

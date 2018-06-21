@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31319174"
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>在 Azure 虚拟网络中安装副本 Active Directory 域控制器
 本文介绍如何在 Azure 虚拟网络中的 Azure 虚拟机 (VM) 上为本地 Active Directory 域安装用作副本 DC 的域控制器 (DC)。 也可以[在 Azure 虚拟网络中安装 Windows Server Active Directory 林](active-directory-new-forest-virtual-machine.md)。 有关如何在 Azure 虚拟网络上安装 Active Directory 域服务 (AD DS)，请参阅[在 Azure 虚拟机上部署 Windows Server Active Directory 的指南](https://msdn.microsoft.com/library/azure/jj156090.aspx)。

@@ -1,11 +1,11 @@
 ---
-title: "在用于容器的 Azure Web 应用中生成 Node.js 和 MongoDB Web 应用 | Microsoft Docs"
-description: "了解如何使 Node.js 应用在用于容器的 Azure Web 应用中运行，并使用 MongoDB 连接字符串连接到 Cosmos DB 数据库。"
+title: 在用于容器的 Azure Web 应用中生成 Node.js 和 MongoDB Web 应用 | Microsoft Docs
+description: 了解如何使 Node.js 应用在用于容器的 Azure Web 应用中运行，并使用 MongoDB 连接字符串连接到 Cosmos DB 数据库。
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339082"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-apps-for-containers"></a>在用于容器的 Azure Web 应用中生成 Node.js 和 MongoDB Web 应用
 

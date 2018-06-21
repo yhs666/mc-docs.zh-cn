@@ -21,6 +21,7 @@ ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/22/2018
+ms.locfileid: "34450117"
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>使用 Tez UI 调试基于 Windows 的 HDInsight 上的 Tez 作业
 Tez UI 可以用来调试使用 Tez 作为执行引擎的 Hive 作业。 Tez UI 可以将作业显示为包含已连接项目的图形，深入了解每个项目并检索统计信息和日志记录信息。

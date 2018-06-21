@@ -1,8 +1,8 @@
 ---
-title: "移动订阅后更改密钥保管库租户 ID | Azure"
-description: "了解将订阅移至不同的租户后如何切换密钥保管库的租户 ID"
+title: 移动订阅后更改密钥保管库租户 ID | Azure
+description: 了解将订阅移至不同的租户后如何切换密钥保管库的租户 ID
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20185242"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>订阅移动后更改密钥保管库租户 ID
 ### <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>问：我的订阅已从租户 A 移动到租户 B。如何更改我的现有密钥保管库的租户 ID，并为租户 B 中的主体设置正确的 ACL？

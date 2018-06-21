@@ -1,11 +1,11 @@
 ---
-title: "使用 Visual Studio 对 Azure 应用服务中的 Web 应用进行故障排除"
-description: "了解如何通过内置于 Visual Studio 2013 的远程调试、 跟踪和日志记录工具排除 Azure Web 应用的故障。"
+title: 使用 Visual Studio 对 Azure 应用服务中的 Web 应用进行故障排除
+description: 了解如何通过内置于 Visual Studio 2013 的远程调试、 跟踪和日志记录工具排除 Azure Web 应用的故障。
 services: app-service
 documentationcenter: .net
 author: tdykstra
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
+ms.locfileid: "20452779"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 对 Azure 应用服务中的 Web 应用进行故障排除
 
@@ -146,7 +147,7 @@ ms.lasthandoff: 07/13/2017
 
     浏览器将自动打开运行在 Azure 中的主页。 可能需要等待大约 20 秒，以便 Azure 针对调试设置服务器。 此延迟只在首次于 Web 应用上运行调试模式时出现。 接下来的 48 小时内，再次启动调试将不会出现延迟。
 
-    **注意：**如果启动调试器时出现问题，请尝试使用“云资源管理器”而不是“服务器资源管理器”执行此操作。
+    **注意：** 如果启动调试器时出现问题，请尝试使用“云资源管理器”而不是“服务器资源管理器”执行此操作。
 10. 单击菜单中的“关于”。
 
      Visual Studio 将在断点处停止，代码在 Azure 中运行，而不是在本地计算机上。

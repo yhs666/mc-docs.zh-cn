@@ -1,11 +1,11 @@
 ---
-title: "保护 SQL 数据仓库中的数据库 | Azure"
-description: "有关在开发解决方案时保护 Azure SQL 数据仓库中的数据库的技巧。"
+title: 保护 SQL 数据仓库中的数据库 | Azure
+description: 有关在开发解决方案时保护 Azure SQL 数据仓库中的数据库的技巧。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 8fa2f5ca-4cf5-4418-99a2-4dc745799850
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29797955"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>保护 SQL 数据仓库中的数据库
 > [!div class="op_single_selector"]

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/24/2018
+ms.locfileid: "34475151"
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>如何：通过下载交付资产
 本文介绍已上传到媒体服务的媒体资产的交付选项。 可以采用众多的应用程序方案来交付媒体服务内容。 编码后，下载生成的媒体资产，或使用流式处理定位符访问这些资产。 为了提高性能和伸缩性，用户还可以使用内容分发网络 (CDN) 来传送内容。

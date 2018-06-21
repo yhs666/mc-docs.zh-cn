@@ -1,11 +1,11 @@
 ---
-title: "下载 Azure SDK for PHP"
-description: "了解如何下载和安装 Azure SDK for PHP。"
+title: 下载 Azure SDK for PHP
+description: 了解如何下载和安装 Azure SDK for PHP。
 documentationCenter: php
 services: app-service\web
 authors: allclark
 manager: douge
-editor: 
+editor: ''
 ms.service: app-service-web
 ms.topic: article
 origin.date: 06/01/2016
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20185364"
 ---
 #<a name="download-the-azure-sdk-for-php"></a>下载 Azure SDK for PHP
 

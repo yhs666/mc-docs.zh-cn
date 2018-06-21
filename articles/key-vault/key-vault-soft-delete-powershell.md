@@ -1,7 +1,7 @@
 ---
-ms.assetid: 
-title: "Azure Key Vault - 如何将软删除与 PowerShell 配合使用"
-description: "使用 PowerShell 代码段进行软删除的用例示例"
+ms.assetid: ''
+title: Azure Key Vault - 如何将软删除与 PowerShell 配合使用
+description: 使用 PowerShell 代码段进行软删除的用例示例
 services: key-vault
 author: alexchen2016
 manager: digimobile
@@ -16,6 +16,7 @@ ms.sourcegitcommit: c13aee6f5e18d15bcc29fae1eefd2b72f2558dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22335541"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>如何将 Key Vault 软删除与 PowerShell 配合使用
 

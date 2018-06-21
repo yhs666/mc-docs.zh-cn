@@ -1,11 +1,11 @@
 ---
-title: "适用于 Azure SQL 数据仓库的 PowerShell cmdlet"
-description: "了解 Azure SQL 数据仓库的最常用 PowerShell cmdlet，包括如何暂停和恢复数据库。"
+title: 适用于 Azure SQL 数据仓库的 PowerShell cmdlet
+description: 了解 Azure SQL 数据仓库的最常用 PowerShell cmdlet，包括如何暂停和恢复数据库。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 6f0d5772-f05f-4cc8-9749-4adb153dfd50
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
+ms.locfileid: "20259176"
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>适用于 SQL 数据仓库的 PowerShell cmdlet 和 REST API
 可以使用 Azure PowerShell cmdlet 或 REST API 来管理许多 SQL 数据仓库管理任务。  下面是如何使用 PowerShell 命令自动执行 SQL 数据仓库中的常见任务的一些示例。  如需一些好的 REST 示例，请参阅 [使用 REST 管理可伸缩性][Manage scalability with REST]一文。

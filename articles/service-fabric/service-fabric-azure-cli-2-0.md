@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 和 Azure CLI 2.0 入门"
-description: "了解如何在 Azure CLI 2.0 版中使用 Azure Service Fabric 命令模块。 了解如何连接到群集以及如何管理应用程序。"
+title: Azure Service Fabric 和 Azure CLI 2.0 入门
+description: 了解如何在 Azure CLI 2.0 版中使用 Azure Service Fabric 命令模块。 了解如何连接到群集以及如何管理应用程序。
 services: service-fabric
 author: rockboyfor
 manager: digimobile
@@ -8,13 +8,14 @@ ms.service: service-fabric
 ms.topic: get-started-article
 origin.date: 06/21/2017
 ms.date: 08/14/2017
-wacn.date: 
+wacn.date: ''
 ms.author: v-yeche
 ms.openlocfilehash: b49a176d1e5da95f48cb8baf48bdd5db51b47fb9
 ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/11/2017
+ms.locfileid: "20822699"
 ---
 # <a name="azure-service-fabric-and-azure-cli-20"></a>Azure Service Fabric 和 Azure CLI 2.0
 

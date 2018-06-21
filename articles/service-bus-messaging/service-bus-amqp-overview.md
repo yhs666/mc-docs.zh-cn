@@ -1,11 +1,11 @@
 ---
-title: "Azure 服务总线中 AMQP 1.0 的概述"
-description: "了解如何在 Azure 中使用高级消息队列协议 (AMQP) 1.0。"
+title: Azure 服务总线中 AMQP 1.0 的概述
+description: 了解如何在 Azure 中使用高级消息队列协议 (AMQP) 1.0。
 services: service-bus
 documentationCenter: .net
 authors: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
 ms.service: service-bus
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731200"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>服务总线的 AMQP 1.0 支持
 

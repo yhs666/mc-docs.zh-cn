@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/15/2018
+ms.locfileid: "33937494"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>通过 Visual Studio 创建和部署 Azure 资源组
 使用 Visual Studio 和 [Azure SDK](https://www.azure.cn/downloads/) 可以创建一个项目，用于将基础结构和代码部署到 Azure。 例如，可以为应用定义 Web 主机、网站和数据库，然后将该基础结构与代码一起部署。 或者，用户可以定义虚拟机、虚拟网络和存储帐户，并连同虚拟机上执行的脚本一起部署该基础结构。 **Azure 资源组**部署项目允许通过单个可重复的的操作部署全部所需的资源。 有关部署和管理资源的详细信息，请参阅 [Azure Resource Manager 概述](resource-group-overview.md)。

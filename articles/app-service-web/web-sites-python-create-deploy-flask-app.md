@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 中使用 Flask 创建 Web 应用"
-description: "本教程介绍在 Azure 上运行 Python Web 应用。"
+title: 在 Azure 中使用 Flask 创建 Web 应用
+description: 本教程介绍在 Azure 上运行 Python Web 应用。
 services: app-service\web
 documentationcenter: python
 tags: python
 author: huguesv
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b7f4ca3a-0b52-4108-90a7-f7e07ac73da0
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20463887"
 ---
 # <a name="creating-web-apps-with-flask-in-azure"></a>在 Azure 中使用 Flask 创建 Web 应用
 

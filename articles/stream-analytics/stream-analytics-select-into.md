@@ -15,6 +15,7 @@ ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33815343"
 ---
 # <a name="debug-queries-by-using-select-into-statements"></a>使用 SELECT INTO 语句调试查询
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/19/2018
+ms.locfileid: "29993283"
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>使用 Azure Active Directory 管理应用程序
 除了实际工作流或内容以外，企业对所有应用程序还有另外两个基本要求：

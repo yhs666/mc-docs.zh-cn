@@ -1,11 +1,11 @@
 ---
-title: "为 PHP 创建 Azure Web 角色和辅助角色 | Microsoft Docs"
-description: "有关如何在 Azure 云服务中创建 PHP Web 角色和辅助角色以及配置 PHP 运行时的指南。"
-services: 
+title: 为 PHP 创建 Azure Web 角色和辅助角色 | Microsoft Docs
+description: 有关如何在 Azure 云服务中创建 PHP Web 角色和辅助角色以及配置 PHP 运行时的指南。
+services: ''
 documentationcenter: php
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 9f7ccda0-bd96-4f7b-a7af-fb279a9e975b
 ms.service: cloud-services
 ms.workload: tbd
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20472241"
 ---
 # <a name="how-to-create-php-web-and-worker-roles"></a>如何创建 PHP Web 角色和辅助角色
 ## <a name="overview"></a>概述

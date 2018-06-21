@@ -1,6 +1,6 @@
 ---
-title: "获取 Windows 主机的 IQN"
-description: "说明如何获取运行 Windows Server 2012 的计算机的 iSCSI 限定名称 (IQN)。"
+title: 获取 Windows 主机的 IQN
+description: 说明如何获取运行 Windows Server 2012 的计算机的 iSCSI 限定名称 (IQN)。
 services: storsimple
 documentationCenter: NA
 authors: SharS
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20227652"
 ---
 ### <a name="to-get-the-iqn-of-a-windows-host"></a>获取 Windows 主机的 IQN
 

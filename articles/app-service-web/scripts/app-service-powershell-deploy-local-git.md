@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 脚本示例 - 从本地 Git 存储库创建 Web 应用并部署代码 | Azure"
-description: "Azure PowerShell 脚本示例 - 从本地 Git 存储库创建 Web 应用并部署代码"
+title: Azure PowerShell 脚本示例 - 从本地 Git 存储库创建 Web 应用并部署代码 | Azure
+description: Azure PowerShell 脚本示例 - 从本地 Git 存储库创建 Web 应用并部署代码
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 5a927f23-8e70-45fd-9aae-980d4e7a007d
 ms.service: app-service-web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20186873"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>从本地 Git 存储库创建 Web 应用并部署代码
 

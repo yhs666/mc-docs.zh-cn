@@ -1,11 +1,11 @@
 ---
-title: "Azure AD 和应用程序：将用户分配到应用程序 | Microsoft Docs"
-description: "如何为 Azure 应用程序实现用户分配。"
+title: Azure AD 和应用程序：将用户分配到应用程序 | Microsoft Docs
+description: 如何为 Azure 应用程序实现用户分配。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 97ce69c1-4034-4e38-bd82-8caf984f6b98
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20186745"
 ---
 # <a name="azure-ad-and-applications-assigning-users-to-an-application"></a>Azure AD 和应用程序：将用户分配到应用程序
 在将用户和组分配到应用程序之前，你必须要求用户分配。  若要了解如何要求用户分配，请参阅 [Requiring User Assignment](./active-directory-applications-guiding-developers-requiring-user-assignment.md)（要求用户分配）一文。

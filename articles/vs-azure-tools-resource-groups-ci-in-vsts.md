@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 资源组项目在 VS Team Services 中连续集成 | Azure"
-description: "介绍如何在 Visual Studio 中使用 Azure 资源组部署项目在 Visual Studio Team Services 中连续集成。"
+title: 使用 Azure 资源组项目在 VS Team Services 中连续集成 | Azure
+description: 介绍如何在 Visual Studio 中使用 Azure 资源组部署项目在 Visual Studio Team Services 中连续集成。
 services: visual-studio-online
 documentationCenter: na
 authors: mlearned
 manager: erickson-doug
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.devlang: multiple
 ms.topic: article
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
+ms.locfileid: "20453003"
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>使用 Azure 资源组部署项目在 Visual Studio Team Services 中连续集成
 

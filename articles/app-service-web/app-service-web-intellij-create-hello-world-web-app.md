@@ -1,11 +1,11 @@
 ---
-title: "在 IntelliJ 中创建基本的 Azure Web 应用 | Azure"
-description: "本教程说明如何使用 Azure Toolkit for IntelliJ 创建 Azure 的 Hello World Web 应用。"
+title: 在 IntelliJ 中创建基本的 Azure Web 应用 | Azure
+description: 本教程说明如何使用 Azure Toolkit for IntelliJ 创建 Azure 的 Hello World Web 应用。
 services: app-service\web
 documentationcenter: java
 author: selvasingh
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 75ce7b36-e3ae-491d-8305-4b42ce37db4e
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146607"
 ---
 # <a name="create-a-basic-azure-web-app-in-intellij"></a>在 IntelliJ 中创建基本的 Azure Web 应用
 

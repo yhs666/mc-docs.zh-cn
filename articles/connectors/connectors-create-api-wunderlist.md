@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31321299"
 ---
 # <a name="get-started-with-the-wunderlist-connector"></a>Wunderlist 连接器入门
 Wunderlist 是待办事项列表和任务管理器，可帮助用户完成其任务。  无论是共享购物单、处理某个项目还是计划度假，使用 Wunderlist 都可轻松捕获、共享和完成列表项。 Wunderlist 在手机、平板电脑和计算机之间即时同步，以便你从任意位置访问所有任务。

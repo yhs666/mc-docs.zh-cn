@@ -1,11 +1,11 @@
 ---
-title: "如何结合使用通知中心与 PHP"
-description: "了解如何从 PHP 后端使用 Azure 通知中心。"
+title: 如何结合使用通知中心与 PHP
+description: 了解如何从 PHP 后端使用 Azure 通知中心。
 services: notification-hubs
-documentationCenter: 
+documentationCenter: ''
 authors: wesmc7777
 manager: dwrede
-editor: 
+editor: ''
 ms.service: notification-hubs
 ms.topic: article
 origin.date: 06/07/2016
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20185519"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>如何通过 PHP 使用通知中心
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]

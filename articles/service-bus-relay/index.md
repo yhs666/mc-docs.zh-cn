@@ -18,6 +18,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782175"
 ---
 # <a name="service-bus-relay-documentation"></a>服务总线中继文档
 了解 Azure 中继服务如何在无需打开防火墙连接或者对企业网络基础结构进行全面改造的情况下，为企业网络和公有云中的本地环境与云环境之间的混合应用程序提供辅助。

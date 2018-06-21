@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 存储中存储和查看诊断数据 | Azure"
-description: "将 Azure 诊断数据传输到 Azure 存储并查看"
+title: 在 Azure 存储中存储和查看诊断数据 | Azure
+description: 将 Azure 诊断数据传输到 Azure 存储并查看
 services: cloud-services
 documentationCenter: .net
 authors: rboucher
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184658"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>在 Azure 存储中存储和查看诊断数据
 

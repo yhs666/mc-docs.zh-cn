@@ -22,6 +22,7 @@ ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/22/2018
+ms.locfileid: "34450008"
 ---
 # <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安装自定义 Hadoop 应用程序
 

@@ -22,6 +22,7 @@ ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/15/2018
+ms.locfileid: "34173334"
 ---
 # <a name="using-remote-desktop-to-connect-to-a-azure-linux-vm"></a>使用远程桌面连接到 Azure Linux VM
 > [!IMPORTANT] 

@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步：Synchronization Service Manager UI | Microsoft Docs"
-description: "了解适用于 Azure AD Connect 的 Synchronization Service Manager。"
+title: Azure AD Connect 同步：Synchronization Service Manager UI | Microsoft Docs
+description: 了解适用于 Azure AD Connect 的 Synchronization Service Manager。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 5847c33f-aaa2-48f9-abe6-78c4a87a3b7c
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/11/2017
+ms.locfileid: "20822244"
 ---
 # <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Azure AD Connect Synchronization Service Manager UI 简介
 

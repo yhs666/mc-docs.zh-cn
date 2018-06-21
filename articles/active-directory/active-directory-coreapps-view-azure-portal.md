@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/15/2018
+ms.locfileid: "33937426"
 ---
 # <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>在 Azure Active Directory 中查看可以管理的所有企业应用
 可以在 Azure Active Directory (Azure AD) 中管理企业应用程序。 可以查看你可以管理的应用、将用户或组分配到应用、维护应用的属性（例如应用程序名称/徽标），甚至包括禁用应用程序，防止用户登录。

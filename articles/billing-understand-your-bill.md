@@ -1,11 +1,11 @@
 ---
-title: "了解 Azure 帐单 | Microsoft Docs"
-description: "了解如何阅读并理解 Azure 订阅的使用情况和计费"
-services: 
-documentationcenter: 
+title: 了解 Azure 帐单 | Microsoft Docs
+description: 了解如何阅读并理解 Azure 订阅的使用情况和计费
+services: ''
+documentationcenter: ''
 author: genlin
 manager: ruchic
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
@@ -20,6 +20,7 @@ ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20188379"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>了解 Microsoft Azure 帐单
 若要了解 Azure 帐单，请查看包含费用摘要的发票和单独的每日详细使用情况文件。 本文对发票和每日使用情况文件中显示的大部分条款进行说明。 如果使用的是免费试用订阅，则可以获得每日使用情况信息，但没有发票。

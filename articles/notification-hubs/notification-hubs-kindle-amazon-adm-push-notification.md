@@ -1,11 +1,11 @@
 ---
-title: "适用于 Kindle 应用的 Azure 通知中心入门 | Azure"
-description: "在本教程中，你将了解如何使用 Azure 通知中心将推送通知发送到 Kindle 应用程序。"
+title: 适用于 Kindle 应用的 Azure 通知中心入门 | Azure
+description: 在本教程中，你将了解如何使用 Azure 通知中心将推送通知发送到 Kindle 应用程序。
 services: notification-hubs
-documentationCenter: 
+documentationCenter: ''
 authors: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.service: notification-hubs
 ms.topic: article
 origin.date: 06/29/2016
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20185479"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>通知中心入门（Kindle 应用）
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782195"
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Azure 逻辑应用的工作流定义语言架构
 

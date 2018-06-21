@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中创建第一个 Java Web 应用"
-description: "了解如何通过部署基本的 Java 应用，从而在应用服务中运行 Web 应用。"
+title: 在 Azure 中创建第一个 Java Web 应用
+description: 了解如何通过部署基本的 Java 应用，从而在应用服务中运行 Web 应用。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/28/2017
+ms.locfileid: "20634079"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>在 Azure 中创建第一个 Java Web 应用
 

@@ -1,11 +1,11 @@
 ---
-title: "通过使用 Web API 注册推送通知的当前用户 | Azure"
-description: "了解在 ASP.NET Web API 执行注册时如何在 iOS 应用程序中请求向 Azure 通知中心注册推送通知。"
+title: 通过使用 Web API 注册推送通知的当前用户 | Azure
+description: 了解在 ASP.NET Web API 执行注册时如何在 iOS 应用程序中请求向 Azure 通知中心注册推送通知。
 services: notification-hubs
 documentationCenter: ios
 authors: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.service: notification-hubs
 ms.topic: article
 origin.date: 06/29/2016
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20185506"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>通过使用 ASP.NET 注册推送通知的当前用户
 

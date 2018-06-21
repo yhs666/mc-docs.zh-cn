@@ -1,12 +1,12 @@
 ---
-title: "使用 SAS 令牌和 PowerShell 部署 Azure 模板 | Azure"
-description: "使用 Azure Resource Manager 和 Azure PowerShell 从使用 SAS 令牌保护的模板将资源部署到 Azure。"
+title: 使用 SAS 令牌和 PowerShell 部署 Azure 模板 | Azure
+description: 使用 Azure Resource Manager 和 Azure PowerShell 从使用 SAS 令牌保护的模板将资源部署到 Azure。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20188248"
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-powershell"></a>使用 SAS 令牌和 Azure PowerShell 部署专用 Resource Manager 模板
 

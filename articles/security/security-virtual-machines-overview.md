@@ -1,6 +1,6 @@
 ---
-title: "Azure 虚拟机安全概述 | Microsoft Azure"
-description: "使用 Azure 虚拟机可以灵活实现虚拟化，无需购买和维护运行虚拟机的物理硬件。  本文概述了可用于 Azure 虚拟机的核心 Azure 安全功能。"
+title: Azure 虚拟机安全概述 | Microsoft Azure
+description: 使用 Azure 虚拟机可以灵活实现虚拟化，无需购买和维护运行虚拟机的物理硬件。  本文概述了可用于 Azure 虚拟机的核心 Azure 安全功能。
 services: security
 documentationCenter: na
 authors: lingche
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20182211"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure 虚拟机安全概述
 

@@ -1,11 +1,11 @@
 ---
-title: "如何通过 WebJobs SDK 使用 Azure Blob 存储"
-description: "了解如何通过 WebJobs SDK 使用 Azure Blob 存储。 在新 Blob 出现在容器中时触发进程并处理“有害 Blob”。"
+title: 如何通过 WebJobs SDK 使用 Azure Blob 存储
+description: 了解如何通过 WebJobs SDK 使用 Azure Blob 存储。 在新 Blob 出现在容器中时触发进程并处理“有害 Blob”。
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: bf32f919-f7bc-4aaa-916e-461c02f2e26c
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184323"
 ---
 # <a name="how-to-use-azure-blob-storage-with-the-webjobs-sdk"></a>如何通过 WebJobs SDK 使用 Azure Blob 存储
 

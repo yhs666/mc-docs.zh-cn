@@ -20,6 +20,7 @@ ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554188"
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Service Fabric 模式和方案
 如果你正在考虑使用 Azure Service Fabric 构建大规模的微服务，则可以向设计和构建此平台即服务 (PaaS) 的专家咨询。 从构建合适的体系结构开始，并了解如何优化应用程序的资源。 [Service Fabric Patterns and Practices](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) （Service Fabric 模式和实践）课程回答了实际客户最常询问的有关 Service Fabric 应用场景和应用领域的问题。

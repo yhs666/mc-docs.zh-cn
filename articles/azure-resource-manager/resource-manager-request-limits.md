@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32121245"
 ---
 # <a name="throttling-resource-manager-requests"></a>限制 Resource Manager 请求数
 对于每个订阅和租户，Resource Manager 将读取请求数限制为 15,000/小时，将写入请求数限制为 1,200/小时。 这些限制适用于每个 Azure 资源管理器实例。 每个 Azure 区域中有多个实例，Azure 资源管理器将部署到所有 Azure 区域。  因此，在实践中，限制实际上比上述限制要高得多，因为用户请求通常是由多个不同的实例提供服务。

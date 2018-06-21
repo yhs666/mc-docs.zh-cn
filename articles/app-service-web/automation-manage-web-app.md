@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 自动化管理 Azure Web 应用程序 | Azure"
-description: "了解如何使用 Azure 自动化服务来管理 Azure Web 应用程序。"
+title: 使用 Azure 自动化管理 Azure Web 应用程序 | Azure
+description: 了解如何使用 Azure 自动化服务来管理 Azure Web 应用程序。
 services: app-service\web, automation
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: c960a44f-f941-401d-afba-a4bc0f0394eb
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184268"
 ---
 # <a name="managing-azure-web-app-using-azure-automation"></a>使用 Azure 自动化管理 Azure Web 应用程序
 本指南将介绍 Azure 自动化服务，以及如何使用它来简化 Azure Web 应用程序的管理。

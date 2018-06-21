@@ -1,11 +1,11 @@
 ---
-title: "通知中心本地化的突发新闻教程"
-description: "了解如何使用 Azure 通知中心发送本地化的突发新闻通知。"
+title: 通知中心本地化的突发新闻教程
+description: 了解如何使用 Azure 通知中心发送本地化的突发新闻通知。
 services: notification-hubs
 documentationCenter: windows
 authors: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.service: notification-hubs
 ms.topic: article
 origin.date: 06/29/2016
@@ -16,6 +16,7 @@ ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20188378"
 ---
 # <a name="use-notification-hubs-to-send-localized-breaking-news"></a>使用通知中心发送本地化的突发新闻
 

@@ -21,6 +21,7 @@ ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34256111"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>使用 PowerShell 将 Windows VM 从 Amazon Web Services (AWS) 移到 Azure
 

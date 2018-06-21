@@ -21,6 +21,7 @@ ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30941525"
 ---
 # <a name="install-the-azure-cli-10"></a>安装 Azure CLI 1.0
 > [!div class="op_single_selector"]

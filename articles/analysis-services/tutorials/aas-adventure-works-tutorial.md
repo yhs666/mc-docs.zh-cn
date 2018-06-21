@@ -14,6 +14,7 @@ ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32121469"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 教程
 
@@ -46,7 +47,7 @@ ms.lasthandoff: 04/28/2018
 
 -   包含**示例 AdventureWorksDW 数据库**的 [Azure SQL 数据仓库](../../sql-data-warehouse/create-data-warehouse-portal.md)，或者包含 [Adventure Works 示例数据库](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks)的 SQL Server 数据仓库。
 
-    **重要说明：**如果在本地 SQL Server 数据仓库上安装示例数据库，并且将模型部署到 Azure Analysis Services 服务器，则需要[本地数据网关](../analysis-services-gateway.md)。
+    **重要说明：** 如果在本地 SQL Server 数据仓库上安装示例数据库，并且将模型部署到 Azure Analysis Services 服务器，则需要[本地数据网关](../analysis-services-gateway.md)。
 
 -   最新版本的用于 Visual Studio 的 [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)。
 

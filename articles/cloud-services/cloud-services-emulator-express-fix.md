@@ -1,11 +1,11 @@
 ---
-title: "在 Visual Studio 中安装 Emulator Express 以调试云服务应用程序 | Microsoft Docs"
-description: "介绍如何安装 C++ Redistributable，在 Visual Studio 中启用 Emulator Express"
+title: 在 Visual Studio 中安装 Emulator Express 以调试云服务应用程序 | Microsoft Docs
+description: 介绍如何安装 C++ Redistributable，在 Visual Studio 中启用 Emulator Express
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: 22b20f7a-23f4-4f7f-b536-3bf1e01adcd1
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20181540"
 ---
 # <a name="use-emulator-express-to-debug-cloud-services-application-in-vs-2017"></a>在 VS 2017 中使用 Emulator Express 调试云服务应用程序
 本文介绍如何在 VS 2017 中使用 Emulator Express 调试云服务应用程序。

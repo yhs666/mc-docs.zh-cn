@@ -1,4 +1,4 @@
-# 入门
+# [入门]
 ## [概述](security-get-started-overview.md)
 ## [安全服务与技术](azure-security-services-technologies.md)
 ## [Azure 安全入门](azure-security-getting-started.md)

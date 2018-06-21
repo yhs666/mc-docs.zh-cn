@@ -1,11 +1,11 @@
 ---
-title: "Web 应用概述 | Azure"
-description: "了解 Azure 应用服务如何帮助用户开发和托管 Web 应用程序"
+title: Web 应用概述 | Azure
+description: 了解 Azure 应用服务如何帮助用户开发和托管 Web 应用程序
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146533"
 ---
 # <a name="web-apps-overview"></a>Web 应用概述
 *应用服务 Web 应用* 是一个完全托管的计算平台，非常适合用来托管网站和 Web 应用程序。 使用 Azure 提供的这一[平台即服务](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) 产品，可以在 Azure 维护用于运行和缩放应用的基础结构时，重点关注业务逻辑。

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33815121"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>使用流分析工具进行持续集成和开发
 本文介绍如何使用适用于 Visual Studio 的 Azure 流分析工具设置持续集成和部署过程。

@@ -1,6 +1,6 @@
 ---
-title: "教程：在 Azure 存储中使用 Azure 密钥保管库加密和解密 Blob | Azure"
-description: "如何将 Microsoft Azure 存储的客户端加密与 Azure Key Vault 配合使用，以便加密和解密 Blob。"
+title: 教程：在 Azure 存储中使用 Azure 密钥保管库加密和解密 Blob | Azure
+description: 如何将 Microsoft Azure 存储的客户端加密与 Azure Key Vault 配合使用，以便加密和解密 Blob。
 services: storage
 author: yunan2016
 manager: digimobile
@@ -14,6 +14,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870358"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-azure-storage-using-azure-key-vault"></a>教程：在 Azure 存储中使用 Azure Key Vault 加密和解密 blob
 ## <a name="introduction"></a>简介

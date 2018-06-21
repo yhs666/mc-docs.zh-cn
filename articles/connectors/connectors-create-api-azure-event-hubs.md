@@ -22,6 +22,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782240"
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>通过事件中心连接器监视、接收和发送事件
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect MV 设计器 | Microsoft Docs"
-description: "了解用于 Azure AD Connect 的 Synchronization Service Manager 中的“Metaverse 设计器”选项卡。"
+title: Azure AD Connect MV 设计器 | Microsoft Docs
+description: 了解用于 Azure AD Connect 的 Synchronization Service Manager 中的“Metaverse 设计器”选项卡。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: abaa9eb2-f105-42d1-b00a-2a63129a8ffb
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/11/2017
+ms.locfileid: "20822212"
 ---
 # <a name="sync-service-manager-metaverse-designer"></a>Sync Service Manager Metaverse 设计器
 

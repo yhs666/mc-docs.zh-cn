@@ -16,6 +16,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782405"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>使用 SQL 数据库弹性池的应用程序的灾难恢复策略
 这些年来，我们已经认识到云服务并不能做到万无一失，并且会发生灾难性事件。 SQL 数据库具备许多功能，可在发生这些事件时保证应用程序的业务连续性。 [弹性池](sql-database-elastic-pool.md)和单一数据库支持相同类型的灾难恢复功能。 本文介绍了几种针对利用这些 SQL 数据库业务连续性功能的弹性池的 DR 策略。

@@ -1,11 +1,11 @@
 ---
-title: "SQL 数据仓库（门户）中的透明数据加密 | Azure"
-description: "SQL 数据仓库中的透明数据加密 (TDE)"
+title: SQL 数据仓库（门户）中的透明数据加密 | Azure
+description: SQL 数据仓库中的透明数据加密 (TDE)
 services: sql-data-warehouse
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: fabf75d3-9bbf-4e0d-9b31-8b5a8713f08d
 ms.service: sql-data-warehouse
 ms.workload: data-management
@@ -21,6 +21,7 @@ ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20188343"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>SQL 数据仓库中的透明数据加密 (TDE) 入门
 

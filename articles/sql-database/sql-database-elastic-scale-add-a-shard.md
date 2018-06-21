@@ -15,6 +15,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782361"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>使用弹性数据库工具添加分片
 ## <a name="to-add-a-shard-for-a-new-range-or-key"></a>添加新范围或键的分片

@@ -22,6 +22,7 @@ ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31585525"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>在应用服务计划中创建 Function App
 

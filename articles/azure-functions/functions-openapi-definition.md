@@ -22,6 +22,7 @@ ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31585443"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>为函数创建 OpenAPI 定义
 通常使用 OpenAPI 定义（以前称为 [Swagger](http://swagger.io/) 文件）描述 REST API。 此定义中包含的信息涉及 API 中哪些操作可用，以及 API 的请求和响应数据应采用怎样的结构。

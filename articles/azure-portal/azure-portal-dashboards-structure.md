@@ -1,8 +1,8 @@
 ---
-title: "Azure 仪表板结构 | Microsoft Docs"
-description: "本文介绍 Azure 仪表板的 JSON 结构"
+title: Azure 仪表板结构 | Microsoft Docs
+description: 本文介绍 Azure 仪表板的 JSON 结构
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: adamab
 manager: timlt
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339076"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 仪表板结构
 本文档将使用以下仪表板作为示例，介绍 Azure 仪表板的结构：

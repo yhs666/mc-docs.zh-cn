@@ -1,11 +1,11 @@
 ---
-title: "Azure 云服务角色常见问题解答 | Azure"
-description: "有关 Azure 云服务的常见问题解答。 解答有关证书、Web 角色和辅助角色的一些常见问题。"
+title: Azure 云服务角色常见问题解答 | Azure
+description: 有关 Azure 云服务的常见问题解答。 解答有关证书、Web 角色和辅助角色的一些常见问题。
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184665"
 ---
 # <a name="cloud-services-faq"></a>云服务常见问题
 本文回答了一些关于 Microsoft Azure 云服务的常见问题。 你还可以访问 [Azure 支持 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) 了解一般的 Azure 定价和支持信息。 还可以参阅[云服务 VM 大小页面](./cloud-services-sizes-specs.md)，了解大小信息。

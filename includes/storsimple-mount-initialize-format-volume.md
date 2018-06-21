@@ -1,6 +1,6 @@
 ---
-title: "装载、初始化和格式化卷"
-description: "说明如何在 StorSimple 设备上配置卷。"
+title: 装载、初始化和格式化卷
+description: 说明如何在 StorSimple 设备上配置卷。
 services: storsimple
 documentationCenter: NA
 authors: SharS
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20227677"
 ---
 ### <a name="to-mount-initialize-and-format-a-volume"></a>装载、初始化和格式化卷
 

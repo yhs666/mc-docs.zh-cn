@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305822"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>排查 Azure 文件备份问题
 可参考下表中所列信息，排查使用 Azure 文件备份时遇到的问题和错误。

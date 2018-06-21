@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 门户克隆 Web 应用"
-description: "了解如何使用 Azure 门户将 Web 应用克隆到新的 Web 应用。"
+title: 使用 Azure 门户克隆 Web 应用
+description: 了解如何使用 Azure 门户将 Web 应用克隆到新的 Web 应用。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: ahmedelnably
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: 20b0ae4e-67e8-4bae-9d74-8a24dc445cce
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
+ms.locfileid: "20453118"
 ---
 # <a name="azure-app-service-app-cloning-using-azure-portal"></a>使用 Azure 门户克隆 Azure App Service 应用
 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中的克隆功能可以轻松将现有 Web 应用克隆到位于不同或相同区域中的新建应用。 这样，客户就可以快速轻松地跨不同区域部署许多应用。

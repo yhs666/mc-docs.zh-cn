@@ -1,11 +1,11 @@
 ---
-title: "如何使用角色中缓存 (.NET) | Microsoft Azure"
-description: "了解如何使用 Azure 角色中缓存。 示例是用 C# 代码编写的且使用了 .NET API。"
+title: 如何使用角色中缓存 (.NET) | Microsoft Azure
+description: 了解如何使用 Azure 角色中缓存。 示例是用 C# 代码编写的且使用了 .NET API。
 services: cache
 documentationCenter: .net
 authors: steved0x
 manager: dwrede
-editor: 
+editor: ''
 ms.service: cache
 ms.topic: article
 origin.date: 08/11/2015
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184670"
 ---
 # <a name="how-to-use-in-role-cache-for-azure-cache"></a>如何使用 Azure 缓存的角色中缓存
 

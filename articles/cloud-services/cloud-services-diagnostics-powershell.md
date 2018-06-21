@@ -1,11 +1,11 @@
 ---
-title: "使用 PowerShell 在 Azure 云服务中启用诊断 | Azure"
-description: "了解如何使用 PowerShell 为云服务启用诊断"
+title: 使用 PowerShell 在 Azure 云服务中启用诊断 | Azure
+description: 了解如何使用 PowerShell 为云服务启用诊断
 services: cloud-services
 documentationCenter: .net
 authors: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20181539"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 在 Azure 云服务中启用诊断
 

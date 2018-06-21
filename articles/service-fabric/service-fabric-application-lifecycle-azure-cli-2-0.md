@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure CLI 2.0 管理 Azure Service Fabric 应用程序"
-description: "了解如何使用 Azure CLI 2.0 在 Azure Service Fabric 群集中部署和删除应用程序。"
+title: 使用 Azure CLI 2.0 管理 Azure Service Fabric 应用程序
+description: 了解如何使用 Azure CLI 2.0 在 Azure Service Fabric 群集中部署和删除应用程序。
 services: service-fabric
 author: rockboyfor
 manager: digimobile
@@ -8,13 +8,14 @@ ms.service: service-fabric
 ms.topic: article
 origin.date: 06/21/2017
 ms.date: 08/14/2017
-wacn.date: 
+wacn.date: ''
 ms.author: v-yeche
 ms.openlocfilehash: 219b51c35eac4ef6d1a01f92c7a1cd72e167b284
 ms.sourcegitcommit: c36484a7fdbe4b85b58179d20d863ab16203b6db
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/11/2017
+ms.locfileid: "20822702"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-cli-20"></a>使用 Azure CLI 2.0 管理 Azure Service Fabric 应用程序
 

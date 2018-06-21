@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中心 IP 连接筛选器 | Azure"
-description: "如何使用 IP 筛选阻止特定 IP 地址到 Azure IoT 中心的连接。 可阻止来自单独 IP 地址或 IP 地址范围的连接。"
+title: Azure IoT 中心 IP 连接筛选器 | Azure
+description: 如何使用 IP 筛选阻止特定 IP 地址到 Azure IoT 中心的连接。 可阻止来自单独 IP 地址或 IP 地址范围的连接。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: BeatriceOltean
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f833eac3-5b5f-46a7-a47b-f4f6fc927f3f
 ms.service: iot-hub
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b8a5b2c3c86b06015191c712df45827ee7961a64
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/28/2017
+ms.locfileid: "20213125"
 ---
 # <a name="use-ip-filters"></a>使用 IP 筛选器
 

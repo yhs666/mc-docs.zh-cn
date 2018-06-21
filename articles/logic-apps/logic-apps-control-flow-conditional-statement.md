@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31359568"
 ---
 # <a name="conditional-statements-run-steps-based-on-a-condition-in-logic-apps"></a>条件语句：基于逻辑应用中的条件运行步骤
 

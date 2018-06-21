@@ -16,6 +16,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782434"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>跨横向扩展的云数据库进行报告（预览版）
 ![跨分片进行查询][1]

@@ -1,6 +1,6 @@
 ---
-title: "使用 PuTTY 连接到设备串行控制台"
-description: "说明如何使用 PuTTY 终端模拟软件连接到 StorSimple 设备。"
+title: 使用 PuTTY 连接到设备串行控制台
+description: 说明如何使用 PuTTY 终端模拟软件连接到 StorSimple 设备。
 services: storsimple
 documentationCenter: NA
 authors: SharS
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20227692"
 ---
 ### <a name="to-connect-through-the-serial-console"></a>通过串行控制台进行连接
 

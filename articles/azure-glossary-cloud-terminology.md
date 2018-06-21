@@ -21,6 +21,7 @@ ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/22/2018
+ms.locfileid: "34450100"
 ---
 # <a name="azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Azure 词汇表：Azure 平台上的云术语字典
 

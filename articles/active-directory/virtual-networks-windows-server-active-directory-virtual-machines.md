@@ -19,6 +19,7 @@ ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/19/2018
+ms.locfileid: "29993192"
 ---
 # <a name="windows-server-active-directory-on-azure-vms"></a>Azure VM 上的 Windows Server Active Directory
 此导航主题包含有关如何在 Azure 虚拟机 (VM) 上部署 Windows Server Active Directory 域服务 (AD DS) 或 Active Directory 联合身份验证服务 (AD FS) 的其他主题的链接。

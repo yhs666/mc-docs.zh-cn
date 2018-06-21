@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure 流量管理器控制 Azure Web 应用流量"
-description: "本文提供了有关 Azure 流量管理器的摘要信息，因为它与 Azure Web 应用相关。"
+title: 使用 Azure 流量管理器控制 Azure Web 应用流量
+description: 本文提供了有关 Azure 流量管理器的摘要信息，因为它与 Azure Web 应用相关。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -21,6 +21,7 @@ ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20186807"
 ---
 # <a name="controlling-azure-web-app-traffic-with-azure-traffic-manager"></a>使用 Azure 流量管理器控制 Azure Web 应用流量
 > [!NOTE]

@@ -1,8 +1,8 @@
 ---
-title: "将活动的自定义域迁移到 Azure 应用服务 | Azure"
-description: "了解如何在不停机的情况下，将已分配给实时站点的自定义域迁移到 Azure 应用服务中的应用。"
+title: 将活动的自定义域迁移到 Azure 应用服务 | Azure
+description: 了解如何在不停机的情况下，将已分配给实时站点的自定义域迁移到 Azure 应用服务中的应用。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -21,6 +21,7 @@ ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20186793"
 ---
 # <a name="migrate-an-active-custom-domain-to-azure-app-service"></a>将活动的自定义域迁移到 Azure 应用服务
 

@@ -1,11 +1,11 @@
 ---
-title: "管理 Azure 应用服务中的 Web 应用"
-description: "用于管理 Azure 应用服务中 Web 应用的资源链接。"
+title: 管理 Azure 应用服务中的 Web 应用
+description: 用于管理 Azure 应用服务中 Web 应用的资源链接。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: erikre
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d5e2887a-84f9-4747-a573-867635cb8b39
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20186805"
 ---
 # <a name="manage-a-web-app-in-azure-app-service"></a>管理 Azure 应用服务中的 Web 应用
 本主题包含用于管理 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)中 Web 应用的资源链接。 管理包括维持 Web 应用平稳运行的所有任务。 

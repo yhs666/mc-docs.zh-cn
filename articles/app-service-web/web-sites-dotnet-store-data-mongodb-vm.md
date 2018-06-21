@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 中创建连接到虚拟机上运行的 MongoDB 的 Web 应用"
-description: "本教程介绍如何使用 Git 将 ASP.NET 应用部署到连接至Azure 虚拟机上 MongoDB 的 Azure 应用服务。"
+title: 在 Azure 中创建连接到虚拟机上运行的 MongoDB 的 Web 应用
+description: 本教程介绍如何使用 Git 将 ASP.NET 应用部署到连接至Azure 虚拟机上 MongoDB 的 Azure 应用服务。
 tags: azure-portal
 services: app-service\web, virtual-machines
 documentationcenter: .net
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: adf7a472-ae00-45a8-aec4-06247e21318b
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
+ms.locfileid: "20452766"
 ---
 # <a name="create-a-web-app-in-azure-that-connects-to-mongodb-running-on-a-virtual-machine"></a>在 Azure 中创建连接到虚拟机上运行的 MongoDB 的 Web 应用
 

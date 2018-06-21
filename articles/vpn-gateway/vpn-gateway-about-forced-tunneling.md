@@ -1,11 +1,11 @@
 ---
-title: "为 Azure 站点到站点连接配置强制隧道：经典 | Microsoft Docs"
-description: "如何重定向或“强制”所有 Internet 绑定的流量路由回本地位置。"
+title: 为 Azure 站点到站点连接配置强制隧道：经典 | Microsoft Docs
+description: 如何重定向或“强制”所有 Internet 绑定的流量路由回本地位置。
 services: vpn-gateway
 documentationcenter: na
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 5c0177f1-540c-4474-9b80-f541fa44240b
 ms.service: vpn-gateway
@@ -21,6 +21,7 @@ ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/01/2017
+ms.locfileid: "21944695"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>使用经典部署模型配置强制隧道
 

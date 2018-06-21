@@ -15,6 +15,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782310"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>监视内存中 OLTP 存储
 使用[内存中 OLTP](sql-database-in-memory.md) 时，内存优化表中的数据和表变量将驻留在内存中 OLTP 存储内。 每个高级和业务关键服务层都有最大的内存中 OLTP 存储大小，详见文档[基于 DTU 的资源限制](sql-database-dtu-resource-limits.md)和[基于 vCore 的资源限制](sql-database-vcore-resource-limits.md)。 一旦超过此限制，可能会导致插入和更新操作失败，出现错误 41823（针对独立数据库）和错误 41840（针对弹性池）。 到时，需要删除数据以回收内存，或升级数据库的性能层。

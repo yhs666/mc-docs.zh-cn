@@ -20,6 +20,7 @@ ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/26/2018
+ms.locfileid: "34554601"
 ---
 # <a name="service-fabric-terminology-overview"></a>Service Fabric 术语概述
 Service Fabric 是分布式系统平台，可借助它轻松打包、部署和管理可缩放且可靠的微服务。 本文详细介绍 Service Fabric 所使用的术语，帮助了解文档中使用的术语。

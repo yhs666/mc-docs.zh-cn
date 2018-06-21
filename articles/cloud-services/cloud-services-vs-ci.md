@@ -1,11 +1,11 @@
 ---
-title: "使用 Visual Studio Online 持续交付云服务 | Microsoft Docs"
-description: "了解如何设置 Azure 云应用的持续交付，而无需将诊断存储密钥保存到服务配置文件"
+title: 使用 Visual Studio Online 持续交付云服务 | Microsoft Docs
+description: 了解如何设置 Azure 云应用的持续交付，而无需将诊断存储密钥保存到服务配置文件
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: 148b2959-c5db-4e4a-a7e9-fccb252e7e8a
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20181622"
 ---
 # <a name="securely-save-cloud-services-diagnostics-storage-key-and-setup-continuous-integration-and-deployment-to-azure-using-visual-studio-online"></a>使用 Visual Studio Online 安全地保存云服务诊断存储密钥及设置对 Azure 的持续集成和部署
  这是现今开放源代码项目的常见做法。 在配置文件中保存应用程序密钥不再是安全的做法，因为存在从公共源控件泄漏密钥的安全漏洞。 以纯文本格式将密钥存储在持续集成管道的文件中也不是安全的做法，因为生成服务器可能会在云环境中共享资源。 本文介绍 Visual Studio 和 Visual Studio Online 如何在开发和持续集成过程中减轻安全问题。

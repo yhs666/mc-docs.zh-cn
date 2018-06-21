@@ -15,6 +15,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782384"
 ---
 # <a name="azure-gives-gep-global-reach-and-greater-efficiency"></a>Azure 实现 GEP 全球覆盖并提高效率
 ![GEP 徽标](./media/sql-database-implementation-gep/geplogo.png)

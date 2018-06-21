@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 门户中进行导航的参考"
-description: "了解用户在管理门户和 Azure 门户之间对应用服务 Web 的不同体验"
+title: 在 Azure 门户中进行导航的参考
+description: 了解用户在管理门户和 Azure 门户之间对应用服务 Web 的不同体验
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: jaime-espinosa
 manager: erikre
 editor: jimbe
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20463857"
 ---
 # <a name="reference-for-navigating-the-azure-portal"></a>在 Azure 门户中进行导航的参考
 现在，Azure 网站称为[应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)。 我们正在更新所有文档以反映此名称更改，并为 Azure 门户提供说明。 完成该过程之前，可以使用此文档作为在 Azure 门户中使用 Web 应用的指南。

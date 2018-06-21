@@ -1,8 +1,8 @@
 ---
-title: "使用 PowerShell 将应用程序连接到虚拟网络"
-description: "有关如何使用 PowerShell 来连接和操作虚拟网络的说明"
+title: 使用 PowerShell 将应用程序连接到虚拟网络
+description: 有关如何使用 PowerShell 来连接和操作虚拟网络的说明
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: erikre
 editor: cephalin
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/28/2017
+ms.locfileid: "20634081"
 ---
 # <a name="connect-your-app-to-your-virtual-network-by-using-powershell"></a>使用 PowerShell 将应用程序连接到虚拟网络
 

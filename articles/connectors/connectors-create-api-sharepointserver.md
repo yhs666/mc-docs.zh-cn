@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31319157"
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>SharePoint 连接器入门
 SharePoint 连接器提供在 SharePoint 上处理列表的方法。

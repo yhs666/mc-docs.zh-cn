@@ -14,6 +14,7 @@ ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/15/2018
+ms.locfileid: "34173350"
 ---
 # <a name="count-tasks-by-state-to-monitor-a-jobs-progress-preview"></a>按状态对任务计数，监视作业进度（预览）
 

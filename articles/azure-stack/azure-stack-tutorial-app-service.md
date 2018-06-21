@@ -22,6 +22,7 @@ ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31805411"
 ---
 # <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>将 Web 和 API 应用提供给 Azure Stack 用户使用
 Azure Stack 云管理员可以创建产品/服务，使用户（租户）能够创建 Azure Functions、Web 和 API 应用程序。 通过向用户提供这些基于云的按需应用程序的访问权限，可以节省用户的时间和资源。 若要设置此功能，需要：

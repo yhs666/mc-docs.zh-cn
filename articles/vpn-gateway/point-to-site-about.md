@@ -1,13 +1,13 @@
 ---
-title: "关于 Azure 点到站点 VPN 连接 | Microsoft Docs"
-description: "可以借助本文了解点到站点连接，并确定要使用的 P2S VPN 网关身份验证类型。"
+title: 关于 Azure 点到站点 VPN 连接 | Microsoft Docs
+description: 可以借助本文了解点到站点连接，并确定要使用的 P2S VPN 网关身份验证类型。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -21,6 +21,7 @@ ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29925151"
 ---
 # <a name="about-point-to-site-vpn"></a>关于点到站点 VPN
 

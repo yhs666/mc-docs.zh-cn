@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 脚本示例 - 使用 Web 服务器日志监视 Web 应用 | Azure"
-description: "Azure PowerShell 脚本示例 - 使用 Web 服务器日志监视 Web 应用"
+title: Azure PowerShell 脚本示例 - 使用 Web 服务器日志监视 Web 应用 | Azure
+description: Azure PowerShell 脚本示例 - 使用 Web 服务器日志监视 Web 应用
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 5805d7cd-9e56-4eba-bd85-75b013690ff5
 ms.service: app-service
@@ -22,6 +22,7 @@ ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20186806"
 ---
 # <a name="monitor-a-web-app-with-web-server-logs"></a>使用 Web 服务器日志监视 Web 应用
 

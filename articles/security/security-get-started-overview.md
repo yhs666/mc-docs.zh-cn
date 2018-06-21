@@ -1,6 +1,6 @@
 ---
-title: "Azure 安全概述 | Microsoft Azure"
-description: "Azure.com 上的 Microsoft Azure 安全信息站点针对 Azure 安全问题提供了技术解答。"
+title: Azure 安全概述 | Microsoft Azure
+description: Azure.com 上的 Microsoft Azure 安全信息站点针对 Azure 安全问题提供了技术解答。
 services: security
 documentationCenter: na
 authors: Ling Chen
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20182204"
 ---
 # <a name="azure-security-overview"></a>Azure 安全概述
 

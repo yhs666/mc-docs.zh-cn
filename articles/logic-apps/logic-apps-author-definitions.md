@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31323045"
 ---
 # <a name="create-edit-or-customize-json-for-logic-app-definitions"></a>创建、编辑或自定义逻辑应用定义的 JSON
 

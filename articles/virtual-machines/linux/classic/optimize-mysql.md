@@ -21,6 +21,7 @@ ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/15/2018
+ms.locfileid: "34173361"
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>优化 Azure Linux VM 上的 MySQL 性能
 影响 Azure 上 MySQL 性能的因素有很多，主要体现在虚拟硬件选择和软件配置两个方面。 本文重点介绍如何通过存储、系统和数据库配置优化性能。

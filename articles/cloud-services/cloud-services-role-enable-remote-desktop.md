@@ -1,11 +1,11 @@
 ---
-title: "为 Azure 云服务启用远程桌面 | Azure"
-description: "如何配置 Azure 云服务应用程序以允许远程桌面连接"
+title: 为 Azure 云服务启用远程桌面 | Azure
+description: 如何配置 Azure 云服务应用程序以允许远程桌面连接
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d3110ee8-6526-4585-aba5-d0bc9a713e9b
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20181569"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>为 Azure 云服务中的角色设置远程桌面连接
 

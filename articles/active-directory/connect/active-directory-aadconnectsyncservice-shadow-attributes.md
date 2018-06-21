@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect 同步服务影子属性 | Microsoft Docs"
-description: "介绍影子属性在 Azure AD Connect 同步服务中的工作方式。"
+title: Azure AD Connect 同步服务影子属性 | Microsoft Docs
+description: 介绍影子属性在 Azure AD Connect 同步服务中的工作方式。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/11/2017
+ms.locfileid: "20822256"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect 同步服务影子属性
 大多数属性在 Azure AD 中的表示方式与其在本地 Active Directory 中的表示方式相同。 但是，一些属性有一些特殊的处理方式，而且 Azure AD 中的属性值可能不同于 Azure AD Connect 所同步的属性值。

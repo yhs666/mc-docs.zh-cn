@@ -20,6 +20,7 @@ ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31585502"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Azure Functions 外部文件绑定（实验性）
 本文介绍如何在 Azure Functions 中通过不同 SaaS 提供程序（例如 Dropbox）处理文件。 Azure Functions 支持外部文件的触发器、输入和输出绑定。 这些绑定会创建与 SaaS 提供程序的 API 连接，或使用 Function App 的资源组中的现有 API 连接。

@@ -1,6 +1,6 @@
 ---
-title: "在运行 Linux 的虚拟机上配置软件 RAID | Azure"
-description: "了解如何使用 mdadm 在 Azure 中的 Linux 虚拟机上配置 RAID。"
+title: 在运行 Linux 的虚拟机上配置软件 RAID | Azure
+description: 了解如何使用 mdadm 在 Azure 中的 Linux 虚拟机上配置 RAID。
 services: virtual-machines-linux
 documentationcenter: na
 author: rickstercdn
@@ -21,6 +21,7 @@ ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20187419"
 ---
 # <a name="configure-software-raid-on-linux"></a>在 Linux 上配置软件 RAID
 一种比较常见的情况是，在 Azure 中的 Linux 虚拟机上使用软件 RAID 将多个附加的数据磁盘显示为单个 RAID 设备。 通常，与仅使用单个磁盘相比，使用此方法不但可改进性能，而且还可提高吞吐量。

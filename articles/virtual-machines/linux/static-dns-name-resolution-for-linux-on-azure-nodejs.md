@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/15/2018
+ms.locfileid: "34062108"
 ---
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>在 Azure 上使用内部 DNS 进行 VM 名称解析
 

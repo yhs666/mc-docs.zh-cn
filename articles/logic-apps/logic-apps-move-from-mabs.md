@@ -20,6 +20,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782135"
 ---
 # <a name="move-from-biztalk-services-to-azure-logic-apps"></a>从 BizTalk 服务移动到 Azure 逻辑应用
 

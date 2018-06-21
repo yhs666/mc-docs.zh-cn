@@ -1,11 +1,11 @@
 ---
-title: "外围网络示例 – 构建外围网络以通过防火墙和 NSG 保护应用程序 | Azure"
-description: "使用防火墙和网络安全组 (NSG) 构建外围网络"
+title: 外围网络示例 – 构建外围网络以通过防火墙和 NSG 保护应用程序 | Azure
+description: 使用防火墙和网络安全组 (NSG) 构建外围网络
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: c78491c7-54ac-4469-851c-b35bfed0f528
 ms.service: virtual-network
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20187855"
 ---
 # <a name="example-2---build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>示例 2 – 构建外围网络以通过防火墙和 NSG 保护应用程序
 

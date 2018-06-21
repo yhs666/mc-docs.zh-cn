@@ -20,6 +20,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782073"
 ---
 # <a name="azure-status"></a>Azure 状态
 [Azure 状态](https://www.azure.cn/support/service-dashboard/)可提供 Azure 服务运行状况的全局视图。 通过 Azure 状态可获取有关服务可用性的最新信息。 所有人均可访问 Azure 状态并查看报告其服务运行状况的所有服务。 

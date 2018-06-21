@@ -1,11 +1,11 @@
 ---
-title: "多租户网站模式 | Microsoft Azure"
-description: "查找介绍如何在 Azure 中实现多租户网站的体系结构概述和设计模式。"
-services: 
+title: 多租户网站模式 | Microsoft Azure
+description: 查找介绍如何在 Azure 中实现多租户网站的体系结构概述和设计模式。
+services: ''
 documentationCenter: .net
 authors: wadepickett
 manager: wpickett
-editor: 
+editor: ''
 ms.service: active-directory
 ms.topic: article
 origin.date: 06/05/2015
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184748"
 ---
 # <a name="multitenant-applications-in-azure"></a>Azure 中的多租户应用程序
 

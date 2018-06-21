@@ -14,6 +14,7 @@ ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32121045"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services 示例
 使用以下示例资源可帮助了解 Analysis Services 并针对环境对其进行测试。

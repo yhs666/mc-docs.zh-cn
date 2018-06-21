@@ -1,12 +1,12 @@
 ---
-title: "具有 Python Tools 2.2 for Visual Studio 的 Azure 上的 Flask 和 Azure 表存储"
-description: "了解如何使用 Python Tools for Visual Studio 来创建在 Azure 表存储中存储数据的 Flask Web 应用，以及将应用部署到 Azure 应用服务 Web 应用中。"
+title: 具有 Python Tools 2.2 for Visual Studio 的 Azure 上的 Flask 和 Azure 表存储
+description: 了解如何使用 Python Tools for Visual Studio 来创建在 Azure 表存储中存储数据的 Flask Web 应用，以及将应用部署到 Azure 应用服务 Web 应用中。
 services: app-service\web
 tags: python
 documentationcenter: python
 author: huguesv
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d8e70a29-aca1-4010-95f5-cfe769e3be06
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
+ms.locfileid: "20228235"
 ---
 # <a name="flask-and-azure-table-storage-on-azure-with-python-tools-22-for-visual-studio"></a>具有 Python Tools 2.2 for Visual Studio 的 Azure 上的 Flask 和 Azure 表存储
 在本教程中，我们将使用 [Python Tools for Visual Studio] 通过一个 PTVS 样本模板创建简单的轮询 Web 应用。

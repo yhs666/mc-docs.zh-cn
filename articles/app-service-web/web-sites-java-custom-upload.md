@@ -1,11 +1,11 @@
 ---
-title: "将自定义 Java Web 应用上传到 Azure"
-description: "本教程说明如何将自定义 Java Web 应用上传到 Azure 应用服务 Web 应用。"
+title: 将自定义 Java Web 应用上传到 Azure
+description: 本教程说明如何将自定义 Java Web 应用上传到 Azure 应用服务 Web 应用。
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: eb2ccd83-e5c6-444e-a0fc-08fd5cc8326c
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184296"
 ---
 # <a name="upload-a-custom-java-web-app-to-azure"></a>将自定义 Java Web 应用上传到 Azure
 本主题介绍如何将自定义 Java Web 应用上传到 [Azure 应用服务] Web 应用。 包括适用于所有 Java 网站或 Web 应用的信息和一部分特定应用程序示例。

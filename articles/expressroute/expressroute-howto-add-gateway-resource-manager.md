@@ -1,11 +1,11 @@
 ---
-title: "将虚拟网络网关添加到 ExpressRoute 的 VNet：PowerShell：Azure "
-description: "本文介绍如何将 VNet 网关添加到为 ExpressRoute 创建的 Resource Manager VNet。"
+title: '将虚拟网络网关添加到 ExpressRoute 的 VNet：PowerShell：Azure '
+description: 本文介绍如何将 VNet 网关添加到为 ExpressRoute 创建的 Resource Manager VNet。
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 63e0bd60-abad-4963-8e27-3aa973e0d968
 ms.service: expressroute
@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/17/2017
 ms.author: v-yiso
-ms.date: 
+ms.date: ''
 ms.openlocfilehash: 2a340935a2257b7b88cd286c66a796efed2aa03b
 ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20472164"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>使用 PowerShell 配置 ExpressRoute 的虚拟网络网关
 > [!div class="op_single_selector"]

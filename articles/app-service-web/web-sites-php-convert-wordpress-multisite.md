@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 应用服务中将 WordPress 转换为 Multisite"
-description: "了解如何采用通过 Azure 中的库创建的现有 WordPress Web 应用并将其转换为 WordPress Multisite"
+title: 在 Azure 应用服务中将 WordPress 转换为 Multisite
+description: 了解如何采用通过 Azure 中的库创建的现有 WordPress Web 应用并将其转换为 WordPress Multisite
 services: app-service\web
 documentationcenter: php
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fe52dbf4-179c-42f1-adf9-d6a9af920c39
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184344"
 ---
 # <a name="convert-wordpress-to-multisite-in-azure-app-service"></a>在 Azure 应用服务中将 WordPress 转换为 Multisite
 ## <a name="overview"></a>概述

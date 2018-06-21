@@ -1,11 +1,11 @@
 ---
-title: "Azure 云中的 Batch 和 HPC 的资源 | Microsoft Docs"
-description: "列出了旨在帮助你在 Azure 中运行大规模并行批处理和高性能计算 (HPC) 工作负荷的技术资源。"
+title: Azure 云中的 Batch 和 HPC 的资源 | Microsoft Docs
+description: 列出了旨在帮助你在 Azure 中运行大规模并行批处理和高性能计算 (HPC) 工作负荷的技术资源。
 services: batch, cloud-services, virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6f8be911-c841-41ae-88d3-3bcfc029eb7f
 ms.service: multiple
 ms.devlang: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20181556"
 ---
 # <a name="big-compute-in-azure-technical-resources-for-batch-and-high-performance-computing"></a>Azure 中的大型计算：用于批处理和高性能计算的技术资源
 此为技术资源指南，旨在帮助用户在 Azure 中运行大规模并行批处理和高性能计算 (HPC) 工作负荷。 可以使用各种 Azure 服务将现有的批处理或 HPC 工作负荷扩展到 Azure 云，或者生成新的大型计算解决方案。

@@ -1,11 +1,11 @@
 ---
-title: "如何创建和部署云服务 | Azure"
-description: "了解如何使用 Azure 门户创建和部署云服务。"
+title: 如何创建和部署云服务 | Azure
+description: 了解如何使用 Azure 门户创建和部署云服务。
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 56ea2f14-34a2-4ed9-857c-82be4c9d0579
 ms.service: cloud-services
 ms.workload: tbd
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870411"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>如何创建和部署云服务
 Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和*自定义创建*。

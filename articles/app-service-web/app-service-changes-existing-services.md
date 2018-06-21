@@ -1,11 +1,11 @@
 ---
-title: "Azure App Service 及其对现有 Azure 服务的影响"
-description: "介绍了新的 Azure App Service 及其功能对 Azure 中现有服务的影响。"
+title: Azure App Service 及其对现有 Azure 服务的影响
+description: 介绍了新的 Azure App Service 及其功能对 Azure 中现有服务的影响。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: yochay
 manager: nirma
-editor: 
+editor: ''
 ms.assetid: 86c6a292-3c33-49f4-890c-89cc0321b397
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184247"
 ---
 # <a name="azure-app-service-and-existing-azure-services"></a>Azure App Service 和现有的 Azure 服务
 本文概括介绍了对现有 Azure 服务的更改，这是将多个 Azure 服务组合为 [Azure App Service](https://www.azure.cn/home/features/app-service/)（新的集成产品/服务）更改的一部分。

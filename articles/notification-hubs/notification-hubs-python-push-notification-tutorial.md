@@ -1,11 +1,11 @@
 ---
-title: "如何结合使用通知中心与 Python"
-description: "了解如何从 Python 后端使用 Azure 通知中心。"
+title: 如何结合使用通知中心与 Python
+description: 了解如何从 Python 后端使用 Azure 通知中心。
 services: notification-hubs
-documentationCenter: 
+documentationCenter: ''
 authors: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.service: notification-hubs
 ms.topic: article
 origin.date: 06/29/2016
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20185493"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>如何通过 Python 使用通知中心
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]

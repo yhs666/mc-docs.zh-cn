@@ -1,12 +1,12 @@
 ---
-title: "Azure 中使用 Bottle 的 Python Web 应用"
-description: "本教程介绍如何在 Azure 应用服务 Web 应用上运行 Python Web 应用。"
+title: Azure 中使用 Bottle 的 Python Web 应用
+description: 本教程介绍如何在 Azure 应用服务 Web 应用上运行 Python Web 应用。
 services: app-service\web
 documentationcenter: python
 tags: python
 author: huguesv
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 84f043b8-9d05-479f-a9d0-d0d9a32a0bb9
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20463924"
 ---
 # <a name="creating-web-apps-with-bottle-in-azure"></a>在 Azure 中使用 Bottle 创建 Web 应用
 

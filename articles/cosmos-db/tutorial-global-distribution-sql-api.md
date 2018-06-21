@@ -21,6 +21,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782122"
 ---
 # <a name="how-to-setup-azure-cosmos-db-multiple-region-distribution-using-the-sql-api"></a>如何使用 SQL API 设置 Azure Cosmos DB 多区域分发。
 

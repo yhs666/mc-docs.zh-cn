@@ -1,11 +1,11 @@
 ---
-title: "使用 AD FS 身份验证创建业务线 Azure 应用 | Azure"
-description: "了解如何在 Azure 应用服务中创建使用本地 STS 进行身份验证的业务线应用。 本教程将 AD FS 定位为本地 STS。"
+title: 使用 AD FS 身份验证创建业务线 Azure 应用 | Azure
+description: 了解如何在 Azure 应用服务中创建使用本地 STS 进行身份验证的业务线应用。 本教程将 AD FS 定位为本地 STS。
 services: app-service\web
 documentationcenter: .net
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0fa9f7a1-37bd-4d11-845f-aeff6fc9e4ca
 ms.service: app-service-web
 ms.devlang: dotnet
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/28/2017
+ms.locfileid: "20634282"
 ---
 # <a name="create-a-line-of-business-azure-app-with-ad-fs-authentication"></a>使用 AD FS 身份验证创建业务线 Azure 应用
 

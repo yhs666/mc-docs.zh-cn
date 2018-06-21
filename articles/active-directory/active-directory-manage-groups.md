@@ -22,6 +22,7 @@ ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/19/2018
+ms.locfileid: "29993299"
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>使用 Azure Active Directory 组管理对资源的访问权限
 Azure Active Directory (Azure AD) 是综合性的标识和访问管理解决方案，它提供一套稳健的功能来管理对本地和云应用程序及资源（包括诸如 Office 365 的 Microsoft 联机服务和众多非 Microsoft SaaS 应用程序）的安全访问。 本文提供了概述，但如果要立即开始使用 Azure AD 组，请遵循[在 Azure AD 中管理安全组](active-directory-groups-create-azure-portal.md)中的说明。 若要了解如何使用 PowerShell 来管理 Azure Active directory 中的组，则可以在[用于管理组的 Azure Active Directory cmdlet](active-directory-accessmanagement-groups-settings-v2-cmdlets.md) 中阅读更多信息。

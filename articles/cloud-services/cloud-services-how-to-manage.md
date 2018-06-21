@@ -1,11 +1,11 @@
 ---
-title: "常见的云服务管理任务（经典）| Azure"
-description: "了解如何在 Azure 经典门户中管理云服务。"
+title: 常见的云服务管理任务（经典）| Azure
+description: 了解如何在 Azure 经典门户中管理云服务。
 services: cloud-services
-documentationCenter: 
+documentationCenter: ''
 authors: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.service: cloud-services
 ms.topic: article
 origin.date: 05/18/2017
@@ -16,6 +16,7 @@ ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20472127"
 ---
 # <a name="how-to-manage-cloud-services"></a>如何管理云服务
 

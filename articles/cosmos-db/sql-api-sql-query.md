@@ -21,6 +21,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782219"
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 查询
 

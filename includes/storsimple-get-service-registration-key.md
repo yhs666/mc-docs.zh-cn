@@ -1,6 +1,6 @@
 ---
-title: "获取服务注册密钥"
-description: "说明如何获取用于注册所有 StorSimple 设备的注册密钥。"
+title: 获取服务注册密钥
+description: 说明如何获取用于注册所有 StorSimple 设备的注册密钥。
 services: storsimple
 documentationCenter: NA
 authors: SharS
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20227694"
 ---
 ### <a name="to-get-the-storsimple-service-registration-key"></a>获取 StorSimple 服务注册密钥
 

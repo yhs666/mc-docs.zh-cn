@@ -1,12 +1,12 @@
 ---
-title: "自定义连接器主题链接 - Azure 逻辑应用"
-description: "介绍如何创建、使用、共享和验证自定义连接器的主题链接"
+title: 自定义连接器主题链接 - Azure 逻辑应用
+description: 介绍如何创建、使用、共享和验证自定义连接器的主题链接
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870539"
 ---
 # <a name="custom-connectors-in-logic-apps"></a>逻辑应用中的自定义连接器
 

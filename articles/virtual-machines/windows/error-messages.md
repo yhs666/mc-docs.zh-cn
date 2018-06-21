@@ -21,6 +21,7 @@ ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257083"
 ---
 # <a name="understand-common-error-messages-when-you-manage-windows-virtual-machines-in-azure"></a>了解在 Azure 中管理 Windows 虚拟机时遇到的常见错误消息
 

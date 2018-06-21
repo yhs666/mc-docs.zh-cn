@@ -1,6 +1,6 @@
 ---
-title: "在 Visual Studio Code 中创建 ASP.NET Core Web 应用"
-description: "本教程演示了如何使用 Visual Studio Code 创建 ASP.NET Core Web 应用。"
+title: 在 Visual Studio Code 中创建 ASP.NET Core Web 应用
+description: 本教程演示了如何使用 Visual Studio Code 创建 ASP.NET Core Web 应用。
 services: app-service\web
 documentationcenter: .net
 author: erikre
@@ -20,6 +20,7 @@ ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20188264"
 ---
 # <a name="create-an-aspnet-core-web-app-in-visual-studio-code"></a>在 Visual Studio Code 中创建 ASP.NET Core Web 应用
 ## <a name="overview"></a>概述

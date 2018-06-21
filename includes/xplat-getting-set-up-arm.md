@@ -1,8 +1,8 @@
 ---
 services: virtual-machines
-title: "将 Azure CLI 与 Azure Resource Manager 配合使用"
+title: 将 Azure CLI 与 Azure Resource Manager 配合使用
 authors: squillace
-solutions: 
+solutions: ''
 manager: timlt
 editor: tysonn
 ms.service: virtual-machine
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20227815"
 ---
 ## <a name="using-azure-cli-with-azure-resource-manager-arm"></a>将 Azure CLI 与 Azure Resource Manager (ARM) 配合使用
 

@@ -1,11 +1,11 @@
 ---
-title: "错误和解决方案的逻辑应用 B2B 列表：Azure 应用服务"
-description: "错误和解决方案的逻辑应用 B2B 列表"
+title: 错误和解决方案的逻辑应用 B2B 列表：Azure 应用服务
+description: 错误和解决方案的逻辑应用 B2B 列表
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
 ms.workload: integration
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870542"
 ---
 # <a name="logic-apps-b2b-list-of-errors-and-solutions"></a>错误和解决方案的逻辑应用 B2B 列表  
 本文可帮助你解决可能会出现在逻辑应用 B2B 方案中的错误，并提供更正这些错误的适当操作。

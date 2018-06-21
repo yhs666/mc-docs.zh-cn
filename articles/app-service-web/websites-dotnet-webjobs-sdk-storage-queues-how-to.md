@@ -1,6 +1,6 @@
 ---
-title: "如何通过 WebJobs SDK 使用 Azure 队列存储"
-description: "了解如何通过 WebJobs SDK 使用 Azure 队列存储。 创建和删除队列；插入、扫视、获取和删除队列消息等。"
+title: 如何通过 WebJobs SDK 使用 Azure 队列存储
+description: 了解如何通过 WebJobs SDK 使用 Azure 队列存储。 创建和删除队列；插入、扫视、获取和删除队列消息等。
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184329"
 ---
 # <a name="how-to-use-azure-queue-storage-with-the-webjobs-sdk"></a>如何通过 WebJobs SDK 使用 Azure 队列存储
 

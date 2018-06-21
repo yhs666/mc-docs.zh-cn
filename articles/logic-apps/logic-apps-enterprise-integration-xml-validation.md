@@ -1,6 +1,6 @@
 ---
-title: "验证 XML - Azure 逻辑应用"
-description: "通过 Enterprise Integration Pack 使用 Azure 逻辑应用和 B2B 方案的架构验证 XML"
+title: 验证 XML - Azure 逻辑应用
+description: 通过 Enterprise Integration Pack 使用 Azure 逻辑应用和 B2B 方案的架构验证 XML
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870534"
 ---
 # <a name="validate-xml-for-enterprise-integration"></a>验证企业集成的 XML
 

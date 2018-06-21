@@ -1,11 +1,11 @@
 ---
-title: "连接到 Azure SQL 数据仓库 - VSTS | Azure"
-description: "使用 Visual Studio 查询 SQL 数据仓库。"
+title: 连接到 Azure SQL 数据仓库 - VSTS | Azure
+description: 使用 Visual Studio 查询 SQL 数据仓库。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: daace889-95e5-4826-b2fc-047eac9d6d95
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/05/2017
+ms.locfileid: "20259198"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>使用 Visual Studio 和 SSDT 连接到 SQL 数据仓库
 

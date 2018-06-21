@@ -1,8 +1,8 @@
 ---
 services: virtual-machines
-title: "设置 PowerShell"
+title: 设置 PowerShell
 authors: JoeDavies-MSFT
-solutions: 
+solutions: ''
 manager: timlt
 editor: tysonn
 ms.service: virtual-machines
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20227819"
 ---
 ## <a name="setting-up-powershell"></a>设置 PowerShell
 

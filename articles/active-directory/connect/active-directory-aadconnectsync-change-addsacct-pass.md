@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect 同步：更改 AD DS 帐户密码 | Microsoft Docs"
-description: "本主题文档介绍如何在更改 AD DS 帐户的密码以后更新 Azure AD Connect。"
+title: Azure AD Connect 同步：更改 AD DS 帐户密码 | Microsoft Docs
+description: 本主题文档介绍如何在更改 AD DS 帐户的密码以后更新 Azure AD Connect。
 services: active-directory
-keywords: "AD DS 帐户, Active Directory 帐户, 密码"
-documentationcenter: 
+keywords: AD DS 帐户, Active Directory 帐户, 密码
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/04/2017
+ms.locfileid: "20763968"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>更改 AD DS 帐户密码
 AD DS 帐户是指 Azure AD Connect 用来与本地 Active Directory 通信的用户帐户。 如果更改 AD DS 帐户的密码，则必须使用新密码更新 Azure AD Connect 同步服务。 否则，同步服务将再也不能正确地通过本地 Active Directory 进行同步，会遇到以下错误：

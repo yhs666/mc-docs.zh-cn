@@ -1,11 +1,11 @@
 ---
-title: "Azure Web 应用上节点应用程序的最佳做法和故障排除指南"
-description: "了解 Azure Web 应用上节点应用程序的最佳做法和故障排除步骤。"
+title: Azure Web 应用上节点应用程序的最佳做法和故障排除指南
+description: 了解 Azure Web 应用上节点应用程序的最佳做法和故障排除步骤。
 services: app-service\web
 documentationcenter: nodejs
 author: ranjithr
 manager: wadeh
-editor: 
+editor: ''
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21134810"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>Azure Web 应用上节点应用程序的最佳做法和故障排除指南
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
