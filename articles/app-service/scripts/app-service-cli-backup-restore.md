@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 从备份中还原 Web 应用 | Microsoft Docs"
-description: "Azure CLI 脚本示例 - 从备份中还原 Web 应用"
+title: Azure CLI 脚本示例 - 从备份中还原 Web 应用 | Microsoft Docs
+description: Azure CLI 脚本示例 - 从备份中还原 Web 应用
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/25/2017
+ms.locfileid: "27546623"
 ---
 # <a name="restore-a-web-app-from-a-backup"></a>从备份中还原 Web 应用
 

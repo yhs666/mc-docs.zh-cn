@@ -1,11 +1,11 @@
 ---
-title: "修复 Azure 导入/导出服务的导出作业 - v1 | Azure"
-description: "了解如何使用 Azure 导入/导出服务修复已创建和运行的导出作业。"
+title: 修复 Azure 导入/导出服务的导出作业 - v1 | Azure
+description: 了解如何使用 Azure 导入/导出服务修复已创建和运行的导出作业。
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 728e2a42-04ce-4be8-9375-e9e2bc6827a5
 ms.service: storage
 ms.workload: storage
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 
+ms.date: ''
 ms.author: v-haiqya
 ms.openlocfilehash: bbef8b0353452c814ba10dcfc918ff242b31ce27
 ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21135094"
 ---
 # <a name="repairing-an-export-job"></a>修复导出作业
 在完成导出作业后，可以在本地运行 Azure 导入/导出工具来执行以下操作：  

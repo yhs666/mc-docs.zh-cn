@@ -1,14 +1,14 @@
 ---
-title: "排查和诊断故障 - Azure 逻辑应用"
-description: "了解逻辑应用发生故障的原因"
+title: 排查和诊断故障 - Azure 逻辑应用
+description: 了解逻辑应用发生故障的原因
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870585"
 ---
 # <a name="troubleshoot-and-diagnose-logic-app-failures"></a>排查和诊断逻辑应用故障
 

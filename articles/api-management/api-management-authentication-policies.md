@@ -1,11 +1,11 @@
 ---
-title: "Azure API 管理身份验证策略"
-description: "了解可在 Azure API 管理中使用的身份验证策略。"
+title: Azure API 管理身份验证策略
+description: 了解可在 Azure API 管理中使用的身份验证策略。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
 ms.service: api-management
 ms.workload: mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285039"
 ---
 # <a name="api-management-authentication-policies"></a>API 管理身份验证策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -61,9 +62,9 @@ ms.lasthandoff: 02/13/2018
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略段：**inbound  
+-   **策略段：** inbound  
   
--   **策略范围：**API  
+-   **策略范围：** API  
   
 ##  <a name="ClientCertificate"></a> 使用客户端证书进行身份验证  
  通过 `authentication-certificate` 策略使用客户端证书向后端服务进行身份验证。 需要首先将证书[安装到 API 管理](http://go.microsoft.com/fwlink/?LinkID=511599)，并由其指纹进行标识。  
@@ -95,9 +96,9 @@ ms.lasthandoff: 02/13/2018
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略段：**inbound  
+-   **策略段：** inbound  
   
--   **策略范围：**API  
+-   **策略范围：** API  
   
 
 ## <a name="next-steps"></a>后续步骤

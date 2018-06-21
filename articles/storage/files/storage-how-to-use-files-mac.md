@@ -1,12 +1,12 @@
 ---
-title: "在 macOS 中通过 SMB 装载 Azure 文件共享 | Azure"
-description: "了解如何在 macOS 中通过 SMB 装载 Azure 文件共享。"
+title: 在 macOS 中通过 SMB 装载 Azure 文件共享 | Azure
+description: 了解如何在 macOS 中通过 SMB 装载 Azure 文件共享。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: forester123
 manager: digimobile
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/23/2017
+ms.locfileid: "23481822"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>在 macOS 中通过 SMB 装载 Azure 文件共享
 [Azure 文件](storage-files-introduction.md)是一种 Azure 服务，通过该服务可以根据行业标准在 Azure 中创建和使用网络文件共享。 Azure 文件共享可以装载在 macOS Sierra (10.12) 和 El Capitan (10.11) 中。 本文介绍如何使用两种不同的方法通过 Finder UI 和 Terminal 在 macOS 中装载 Azure 文件共享。

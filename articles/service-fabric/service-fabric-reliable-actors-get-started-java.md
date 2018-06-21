@@ -1,11 +1,11 @@
 ---
-title: "用 Java 创建第一个基于执行组件的 Azure 微服务 | Azure"
-description: "本教程向你演示使用 Service Fabric Reliable Actors 创建、调试和部署简单的基于执行组件的服务的步骤。"
+title: 用 Java 创建第一个基于执行组件的 Azure 微服务 | Azure
+description: 本教程向你演示使用 Service Fabric Reliable Actors 创建、调试和部署简单的基于执行组件的服务的步骤。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: d31dc8ab-9760-4619-a641-facb8324c759
 ms.service: service-fabric
 ms.devlang: java
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 82bb249562dea81871d7306143fee73be72273e1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/28/2017
+ms.locfileid: "22329896"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 入门
 > [!div class="op_single_selector"]

@@ -1,7 +1,7 @@
 ---
-title: "部署 Java 远程监视解决方案"
-description: "本教程演示如何使用 CLI 预配远程监视预配置解决方案。"
-services: 
+title: 部署 Java 远程监视解决方案
+description: 本教程演示如何使用 CLI 预配远程监视预配置解决方案。
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730845"
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution-using-the-cli"></a>使用 CLI 部署远程监视预配置解决方案
 

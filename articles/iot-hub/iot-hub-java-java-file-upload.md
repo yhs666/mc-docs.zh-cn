@@ -1,11 +1,11 @@
 ---
-title: "使用 Java 将文件从设备上传到 Azure IoT 中心 | Microsoft Docs"
-description: "如何使用用于 Java 的 Azure IoT 设备 SDK 从设备将文件上传到云中。 上传的文件存储在 Azure 存储 Blob 容器中。"
+title: 使用 Java 将文件从设备上传到 Azure IoT 中心 | Microsoft Docs
+description: 如何使用用于 Java 的 Azure IoT 设备 SDK 从设备将文件上传到云中。 上传的文件存储在 Azure 存储 Blob 容器中。
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
 ms.devlang: java
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24058608"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
 

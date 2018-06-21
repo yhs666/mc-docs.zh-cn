@@ -1,6 +1,6 @@
 ---
-title: "计算机视觉 API 背后的研究 | Microsoft Docs"
-description: "了解 Microsoft 认知服务中计算机视觉 API 背后屡获殊荣的研究。"
+title: 计算机视觉 API 背后的研究 | Microsoft Docs
+description: 了解 Microsoft 认知服务中计算机视觉 API 背后屡获殊荣的研究。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407573"
 ---
 ## <a name="the-research-behind-computer-vision-api"></a>计算机视觉 API 背后的研究
 

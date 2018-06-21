@@ -1,11 +1,11 @@
 ---
-title: "使用命令行工具自动执行 Azure 应用部署 | Azure"
-description: "发现如何从命令行部署 Azure 应用的信息"
+title: 使用命令行工具自动执行 Azure 应用部署 | Azure
+description: 发现如何从命令行部署 Azure 应用的信息
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8b65980c-eb75-44a2-8e0f-f9eb9e617d16
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146551"
 ---
 # <a name="automate-deployment-of-your-azure-app-with-command-line-tools"></a>使用命令行工具自动执行 Azure 应用部署
 可以使用命令行工具自动执行 Azure 应用部署。 本文列出了可用工具以及说明如何在部署工作流中使用它们的有用链接。 

@@ -1,11 +1,11 @@
 ---
-title: "Azure 网络观察程序中的“IP 流验证”简介 | Azure"
-description: "此页概述了网络观察程序“IP 流验证”功能"
+title: Azure 网络观察程序中的“IP 流验证”简介 | Azure
+description: 此页概述了网络观察程序“IP 流验证”功能
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: d352fb2d-4b4f-4ac4-9c2e-1cfccf0e7e03
 ms.service: network-watcher
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24104629"
 ---
 # <a name="introduction-to-ip-flow-verify-in-azure-network-watcher"></a>Azure 网络观察程序中的“IP 流验证”简介
 

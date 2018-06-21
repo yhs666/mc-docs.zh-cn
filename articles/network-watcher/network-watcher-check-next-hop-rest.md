@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序“下一跃点”功能查找下一跃点 - REST | Azure"
-description: "本文介绍如何使用 Azure REST API 通过“下一跃点”功能查找下一跃点类型和 ip 地址"
+title: 使用 Azure 网络观察程序“下一跃点”功能查找下一跃点 - REST | Azure
+description: 本文介绍如何使用 Azure REST API 通过“下一跃点”功能查找下一跃点类型和 ip 地址
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 2216c059-45ba-4214-8304-e56769b779a6
 ms.service: network-watcher
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/14/2017
+ms.locfileid: "24519483"
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-aure-network-watcher-using-azure-rest-api"></a>使用 Azure REST API 通过 Azure 网络观察程序中的“下一跃点”功能找到下一跃点类型
 

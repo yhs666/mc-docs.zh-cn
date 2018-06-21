@@ -1,10 +1,10 @@
 ---
-title: "Azure IoT 中心入门 (Python) | Azure"
-description: "了解如何通过用于 Python 的 IoT SDK 将设备到云消息发送到 Azure IoT 中心。 创建模拟的设备和服务应用，以便通过 IoT 中心注册设备、发送消息和读取消息。"
+title: Azure IoT 中心入门 (Python) | Azure
+description: 了解如何通过用于 Python 的 IoT SDK 将设备到云消息发送到 Azure IoT 中心。 创建模拟的设备和服务应用，以便通过 IoT 中心注册设备、发送消息和读取消息。
 services: iot-hub
 author: dsk-2015
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: python
 ms.topic: get-started-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26576274"
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>使用 Python 将模拟设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]

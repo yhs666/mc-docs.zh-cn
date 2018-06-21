@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序“下一跃点”功能查找下一跃点 - PowerShell | Azure"
-description: "本文介绍如何使用 PowerShell 通过“下一跃点”功能查找下一跃点类型和 ip 地址。"
+title: 使用 Azure 网络观察程序“下一跃点”功能查找下一跃点 - PowerShell | Azure
+description: 本文介绍如何使用 PowerShell 通过“下一跃点”功能查找下一跃点类型和 ip 地址。
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 6a656c55-17bd-40f1-905d-90659087639c
 ms.service: network-watcher
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/14/2017
+ms.locfileid: "24519482"
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-powershell"></a>使用 PowerShell 通过 Azure 网络观察程序中的“下一跃点”功能找到下一跃点类型
 

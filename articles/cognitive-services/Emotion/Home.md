@@ -1,6 +1,6 @@
 ---
-title: "情感 API 概述 | Microsoft Docs"
-description: "借助认知服务中的情感 API，使用 Microsoft 前沿的基于云的情感识别算法来生成更具个性化的应用。"
+title: 情感 API 概述 | Microsoft Docs
+description: 借助认知服务中的情感 API，使用 Microsoft 前沿的基于云的情感识别算法来生成更具个性化的应用。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407572"
 ---
 # <a name="emotion-api"></a>情感 API
 

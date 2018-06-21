@@ -1,11 +1,11 @@
 ---
-title: "Azure 服务总线消息传输、锁定和处置 | Microsoft Docs"
-description: "服务总线消息传输和处置操作概述"
+title: Azure 服务总线消息传输、锁定和处置 | Microsoft Docs
+description: 服务总线消息传输和处置操作概述
 services: service-bus
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730912"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>消息传输、锁定和处置
 

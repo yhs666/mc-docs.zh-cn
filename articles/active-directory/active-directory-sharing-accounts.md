@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure AD 共享帐户 | Microsoft Docs"
-description: "介绍组织如何使用 Azure Active Directory 来安全共享本地应用和使用者云服务的帐户。"
+title: 使用 Azure AD 共享帐户 | Microsoft Docs
+description: 介绍组织如何使用 Azure Active Directory 来安全共享本地应用和使用者云服务的帐户。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: e2d77104-d978-46a3-bfea-03ffdf3b61e6
 ms.service: active-directory
 ms.workload: identity
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25591954"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>使用 Azure AD 共享帐户
 ## <a name="overview"></a>概述

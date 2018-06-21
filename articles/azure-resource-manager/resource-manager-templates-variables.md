@@ -1,6 +1,6 @@
 ---
-title: "Azure 资源管理器模板变量 | Azure"
-description: "介绍如何使用声明性 JSON 语法在 Azure 资源管理器模板中定义变量。"
+title: Azure 资源管理器模板变量 | Azure
+description: 介绍如何使用声明性 JSON 语法在 Azure 资源管理器模板中定义变量。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27162896"
 ---
 # <a name="variables-section-of-azure-resource-manager-templates"></a>Azure 资源管理器模板的 variables 节
 在 variables 节中构造可在整个模板中使用的值。 不需要定义变量，但使用变量可以减少复杂的表达式，从而简化模板。

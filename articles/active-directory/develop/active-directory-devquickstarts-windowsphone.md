@@ -21,6 +21,7 @@ ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/08/2018
+ms.locfileid: "30936336"
 ---
 # <a name="azure-ad-windows-phone-getting-started"></a>Azure AD Windows Phone 入门
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]

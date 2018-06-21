@@ -1,8 +1,8 @@
 ---
-title: "在 HDInsight 中将 Hadoop Pig 与远程桌面配合使用 - Azure | Azure"
-description: "了解如何使用 Pig 命令从到基于 Windows 的 HDInsight Hadoop 群集的远程桌面连接运行 Pig Latin 语句。"
+title: 在 HDInsight 中将 Hadoop Pig 与远程桌面配合使用 - Azure | Azure
+description: 了解如何使用 Pig 命令从到基于 Windows 的 HDInsight Hadoop 群集的远程桌面连接运行 Pig Latin 语句。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26410386"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>从远程桌面连接运行 Pig 作业
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]

@@ -1,8 +1,8 @@
 ---
-title: "从 DataMarket 建议 API 迁移到 Azure 认知服务建议 API| Microsoft Docs"
-description: "Azure 机器学习建议 — 迁移到建议认知服务"
+title: 从 DataMarket 建议 API 迁移到 Azure 认知服务建议 API| Microsoft Docs
+description: Azure 机器学习建议 — 迁移到建议认知服务
 services: cognitive-services
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 editor: cgronlun
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407599"
 ---
 # <a name="migrate-to-azure-cognitive-services-recommendations-api-from-the-datamarket-recommendations-api"></a>从 DataMarket 建议 API 迁移到 Azure 认知服务建议 API
 本文介绍如何从 [Microsoft DataMarket 建议 API](https://datamarket.azure.com/dataset/amla/recommendations) 迁移到 [Azure 认知服务建议 API](https://www.microsoft.com/cognitive-services/en-us/recommendations-api)。

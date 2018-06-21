@@ -1,11 +1,11 @@
 ---
-title: "将 Key Vault 与 Azure 中 Windows VM 上的 SQL Server 集成（经典）| Azure"
-description: "了解如何自动配置用于 Azure 密钥保管库的 SQL Server 加密。 本主题说明了如何将 Azure 密钥保管库集成和经典部署模型中创建的 SQL Server 虚拟机结合使用。"
+title: 将 Key Vault 与 Azure 中 Windows VM 上的 SQL Server 集成（经典）| Azure
+description: 了解如何自动配置用于 Azure 密钥保管库的 SQL Server 加密。 本主题说明了如何将 Azure 密钥保管库集成和经典部署模型中创建的 SQL Server 虚拟机结合使用。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
 ms.service: virtual-machines-sql
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29965358"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>在 Azure 虚拟机（经典）上配置 SQL Server 的 Azure Key Vault 集成
 > [!div class="op_single_selector"]

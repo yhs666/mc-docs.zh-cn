@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure HDInsight 对 HBase 进行故障排除 | Microsoft Docs"
-description: "获取有关使用 HBase 和 Azure HDInsight 的常见问题的解答。"
+title: 使用 Azure HDInsight 对 HBase 进行故障排除 | Microsoft Docs
+description: 获取有关使用 HBase 和 Azure HDInsight 的常见问题的解答。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinver
 manager: ashitg
 ms.service: hdinsight
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26576308"
 ---
 # <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 HBase 进行故障排除
 

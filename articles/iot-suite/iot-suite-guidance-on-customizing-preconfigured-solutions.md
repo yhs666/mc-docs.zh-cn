@@ -1,12 +1,12 @@
 ---
-title: "自定义预配置解决方案 | Azure"
-description: "提供有关如何自定义 Azure IoT 套件预配置解决方案的指导。"
-services: 
+title: 自定义预配置解决方案 | Azure
+description: 提供有关如何自定义 Azure IoT 套件预配置解决方案的指导。
+services: ''
 suite: iot-suite
 documentationCenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4653ae53-4110-4a10-bd6c-7dc034c293a8
 ms.service: iot-suite
 ms.devlang: dotnet
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592157"
 ---
 # <a name="customize-a-preconfigured-solution"></a>自定义预配置解决方案
 Azure IoT 套件提供的预配置解决方案演示了套件中的服务如何协力提供端到端解决方案。 从这个起点开始，有多个地方可以针对特定应用场景扩展和自定义解决方案。 以下各节描述了这些常见的自定义点。

@@ -1,13 +1,13 @@
 ---
-title: "深入探讨 - 高级分析"
-description: "了解高级分析如何使用算法来处理大数据。"
+title: 深入探讨 - 高级分析
+description: 了解高级分析如何使用算法来处理大数据。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29552353"
 ---
 # <a name="deep-dive---advanced-analytics"></a>深入探讨 - 高级分析
 

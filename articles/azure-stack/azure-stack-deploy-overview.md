@@ -21,6 +21,7 @@ ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30155480"
 ---
 # <a name="quickstart-evaluate-the-azure-stack-development-kit"></a>快速入门：评估 Azure Stack 开发工具包
 [Azure Stack 开发工具包 (ASDK)](asdk/asdk-what-is.md) 是一个测试和开发环境，可以在部署后用来评估和演示 Azure Stack 功能和服务。 若要开始使用 ASDK，需先准备主机硬件，然后运行一些脚本（安装可能需要数小时）。 之后便可以登录到管理员门户和用户门户，开始使用 Azure Stack。

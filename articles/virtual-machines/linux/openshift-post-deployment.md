@@ -1,13 +1,13 @@
 ---
-title: "Azure 上的 OpenShift 部署后任务 | Azure"
-description: "部署 OpenShift 群集之后的附加任务。"
+title: Azure 上的 OpenShift 部署后任务 | Azure
+description: 部署 OpenShift 群集之后的附加任务。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592555"
 ---
 # <a name="post-deployment-tasks"></a>部署后任务
 

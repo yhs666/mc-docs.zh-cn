@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT 预配置解决方案 | Microsoft Azure"
-description: "Azure IoT 预配置解决方案及其体系结构描述，以及指向其他资源的链接。"
-services: 
+title: Azure IoT 预配置解决方案 | Microsoft Azure
+description: Azure IoT 预配置解决方案及其体系结构描述，以及指向其他资源的链接。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592572"
 ---
 # <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>Azure IoT 套件预配置解决方案是什么？
 

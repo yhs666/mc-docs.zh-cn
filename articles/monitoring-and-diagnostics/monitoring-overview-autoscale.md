@@ -1,9 +1,9 @@
 ---
-title: "Microsoft Azure 虚拟机、云服务和 Web 应用自动缩放概述 | Microsoft Docs"
-description: "Microsoft Azure 自动缩放概述。 适用于虚拟机、云服务和 Web 应用。"
+title: Microsoft Azure 虚拟机、云服务和 Web 应用自动缩放概述 | Microsoft Docs
+description: Microsoft Azure 自动缩放概述。 适用于虚拟机、云服务和 Web 应用。
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 74bf03be-e658-4239-a214-c12424b53e4c
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26045128"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure 虚拟机、云服务和 Web 应用自动缩放概述
 本文介绍了 Microsoft Azure 自动缩放是什么、其对用户的好处，以及如何开始使用它。  

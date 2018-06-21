@@ -22,6 +22,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077676"
 ---
 # <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>创建支持“恰好一次”事件处理的 Spark 流作业
 

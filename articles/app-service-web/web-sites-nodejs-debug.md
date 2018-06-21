@@ -1,12 +1,12 @@
 ---
-title: "如何在 Azure 应用服务中调试 Node.js Web 应用"
-description: "了解如何在 Azure 应用服务中调试 Node.js Web 应用。"
+title: 如何在 Azure 应用服务中调试 Node.js Web 应用
+description: 了解如何在 Azure 应用服务中调试 Node.js Web 应用。
 tags: azure-portal
 services: app-service\web
 documentationcenter: nodejs
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a48f906c-1a3e-43bc-ae84-7d2dde175b15
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21135402"
 ---
 # <a name="how-to-debug-a-nodejs-web-app-in-azure-app-service"></a>如何在 Azure 应用服务中调试 Node.js Web 应用
 Azure 提供了内置诊断来协助调试托管在 [Azure 应用服务](./app-service-changes-existing-services.md) Web 应用中的 Node.js 应用程序。 本文会介绍如何启用 stdout 和 stderr 的日志记录，如何在浏览器中显示错误信息以及下载和查看日志文件。

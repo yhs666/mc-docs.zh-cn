@@ -1,11 +1,11 @@
 ---
-title: "架构更新（2015 年 8 月 1 日预览版）- Azure 逻辑应用"
-description: "为架构版本为 2015-08-01-preview 的 Azure 逻辑应用创建 JSON 定义"
+title: 架构更新（2015 年 8 月 1 日预览版）- Azure 逻辑应用
+description: 为架构版本为 2015-08-01-preview 的 Azure 逻辑应用创建 JSON 定义
 author: stepsic-microsoft-com
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.service: logic-apps
 ms.workload: integration
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870601"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Azure 逻辑应用的架构更新 - 2015 年 8 月 1 日预览版
 

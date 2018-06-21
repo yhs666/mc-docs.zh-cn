@@ -1,16 +1,16 @@
 ---
-title: "Azure 云服务定义架构（.cscfg 文件）| Microsoft Docs"
-ms.custom: 
+title: Azure 云服务定义架构（.cscfg 文件）| Microsoft Docs
+ms.custom: ''
 origin.date: 12/07/2016
 ms.date: 11/06/2017
 ms.prod: azure
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 3ddc7fea-3339-4fc0-bdf9-853c32b25f69
-caps.latest.revision: "35"
+caps.latest.revision: 35
 author: thraka
 ms.author: v-yiso
 manager: timlt
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23635100"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Azure 云服务配置架构（.cscfg 文件）
 服务配置文件指定要为服务中每个角色部署的角色实例数、任何配置设置的值，以及与角色关联的任何证书的缩略图。 如果服务属于虚拟网络，必须在服务配置文件以及虚拟网络配置文件中提供网络的配置信息。 服务配置文件的默认扩展名为 .csdef。

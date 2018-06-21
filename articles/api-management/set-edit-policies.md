@@ -1,11 +1,11 @@
 ---
-title: "如何设置或编辑 Azure API 管理策略"
-description: "本主题介绍如何设置或编辑 Azure API 管理策略。"
+title: 如何设置或编辑 Azure API 管理策略
+description: 本主题介绍如何设置或编辑 Azure API 管理策略。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cflower
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29286071"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>如何设置或编辑 Azure API 管理策略
 

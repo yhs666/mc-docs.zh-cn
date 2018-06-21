@@ -1,6 +1,6 @@
 ---
-title: "如何通过 Xamarin 使用 Blob 存储 | Azure"
-description: "通过用于 Xamarin 的 Azure 存储客户端库，开发人员可以使用其本机用户界面创建 iOS、Android 和 Windows 应用商店应用。 本教程演示了如何通过 Xamarin 来创建使用 Azure Blob 存储的应用程序。"
+title: 如何通过 Xamarin 使用 Blob 存储 | Azure
+description: 通过用于 Xamarin 的 Azure 存储客户端库，开发人员可以使用其本机用户界面创建 iOS、Android 和 Windows 应用商店应用。 本教程演示了如何通过 Xamarin 来创建使用 Azure Blob 存储的应用程序。
 services: storage
 documentationcenter: xamarin
 author: forester123
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/23/2017
+ms.locfileid: "23481820"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>如何通过 Xamarin 使用 Blob 存储
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]

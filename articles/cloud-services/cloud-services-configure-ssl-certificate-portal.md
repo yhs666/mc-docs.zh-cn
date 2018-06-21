@@ -1,11 +1,11 @@
 ---
-title: "为云服务配置 SSL | Azure"
-description: "了解如何为 Web 角色指定 HTTPS 终结点以及如何上传 SSL 证书来保护应用程序。 这些示例使用 Azure 门户。"
+title: 为云服务配置 SSL | Azure
+description: 了解如何为 Web 角色指定 HTTPS 终结点以及如何上传 SSL 证书来保护应用程序。 这些示例使用 Azure 门户。
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 371ba204-48b6-41af-ab9f-ed1d64efe704
 ms.service: cloud-services
 ms.workload: tbd
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26044713"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>在 Azure 中为应用程序配置 SSL
 

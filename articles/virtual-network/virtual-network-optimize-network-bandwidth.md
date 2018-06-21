@@ -1,12 +1,12 @@
 ---
-title: "优化 VM 网络吞吐量 | Azure"
-description: "了解如何优化 Azure 虚拟机的网络吞吐量。"
+title: 优化 VM 网络吞吐量 | Azure
+description: 了解如何优化 Azure 虚拟机的网络吞吐量。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29871491"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>优化 Azure 虚拟机网络吞吐量
 

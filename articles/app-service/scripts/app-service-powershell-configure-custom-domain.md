@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 脚本示例 - 将自定义域分配到 Web 应用 | Azure"
-description: "Azure PowerShell 脚本示例 - 将自定义域分配到 Web 应用"
+title: Azure PowerShell 脚本示例 - 将自定义域分配到 Web 应用 | Azure
+description: Azure PowerShell 脚本示例 - 将自定义域分配到 Web 应用
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 356f5af9-f62e-411c-8b24-deba05214103
 ms.service: app-service-web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23475203"
 ---
 # <a name="assign-a-custom-domain-to-a-web-app"></a>将自定义域分配到 Web 应用
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure 单一登录 SAML 协议 | Microsoft Docs"
-description: "本文介绍 Azure Active Directory 中的单一登录 SAML 协议"
+title: Azure 单一登录 SAML 协议 | Microsoft Docs
+description: 本文介绍 Azure Active Directory 中的单一登录 SAML 协议
 services: active-directory
 documentationcenter: .net
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21134803"
 ---
 # <a name="single-sign-on-saml-protocol"></a>单一登录 SAML 协议
 本文介绍了 SAML 2.0 身份验证请求和响应，它受 Azure Active Directory (Azure AD) 支持，适用于单一登录。

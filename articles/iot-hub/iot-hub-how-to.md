@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中心操作方法 | Microsoft 文档"
-description: "作为开发人员，我应该如何使用各种 IoT 中心功能？"
+title: Azure IoT 中心操作方法 | Microsoft 文档
+description: 作为开发人员，我应该如何使用各种 IoT 中心功能？
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26410355"
 ---
 # <a name="how-to-use-azure-iot-hub"></a>如何使用 Azure IoT 中心
 

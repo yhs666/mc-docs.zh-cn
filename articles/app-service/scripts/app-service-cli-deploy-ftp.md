@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 创建 Web 应用并使用 FTP 部署文件 | Microsoft Docs"
-description: "Azure CLI 脚本示例 - 创建 Web 应用并使用 FTP 部署文件"
+title: Azure CLI 脚本示例 - 创建 Web 应用并使用 FTP 部署文件 | Microsoft Docs
+description: Azure CLI 脚本示例 - 创建 Web 应用并使用 FTP 部署文件
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/25/2017
+ms.locfileid: "27546638"
 ---
 # <a name="create-a-web-app-and-deploy-files-with-ftp"></a>创建 Web 应用并使用 FTP 部署文件
 

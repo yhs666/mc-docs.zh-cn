@@ -1,8 +1,8 @@
 ---
-title: "使用 Grafana 监视 Azure 服务和应用程序"
-description: "路由 Azure Monitor 和 Application Insights 数据，以便在 Grafana 中进行查看。"
+title: 使用 Grafana 监视 Azure 服务和应用程序
+description: 路由 Azure Monitor 和 Application Insights 数据，以便在 Grafana 中进行查看。
 services: monitoring-and-diagnostics
-keywords: 
+keywords: ''
 author: rboucher
 ms.author: v-yiso
 origin.date: 11/06/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29286102"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>在 Grafana 中监控 Azure 服务
 你现在还可以使用 [Azure Monitor 数据源插件](https://grafana.com/plugins/grafana-azure-monitor-datasource)从 [Grafana](https://grafana.com/) 监控 Azure 服务和应用程序。 此插件将收集通过 Application Insights SDK 收集的应用程序性能数据，以及 Azure Monitor 提供的基础结构数据。 随后，可以在 Grafana 仪表板上显示此数据。

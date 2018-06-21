@@ -1,6 +1,6 @@
 ---
-title: "人脸 API 服务术语表 | Microsoft Docs"
-description: "术语表解释了使用人脸 API 服务时可能会遇到的术语。"
+title: 人脸 API 服务术语表 | Microsoft Docs
+description: 术语表解释了使用人脸 API 服务时可能会遇到的术语。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407679"
 ---
 # <a name="glossary"></a>术语表
 
@@ -145,7 +146,7 @@ ms.lasthandoff: 10/13/2017
 
 识别是指识别人员组中的一个或多个人脸。 [人员组](#Person-Group)是[人员](#Person)的集合。 在请求中，人脸和人员组分别用[人脸 ID](#Face-ID) 和 [人员组 ID](#Person-Group-ID) 表示。 识别的结果为[候选人](#Candidate)，用带置信度的[人员](#Person)表示。 如果输入中有多个人脸，则会分别考虑这些人脸，每个人脸都会有自己的识别结果。
 
-**请注意：**在进行识别之前，人员组应已成功定型。 如果人员组尚未定型，或者定型[状态](#Status-Train)并未显示为“成功”（即显示为“正在运行”、“失败”或“超时”），则请求响应为 400。
+**请注意：** 在进行识别之前，人员组应已成功定型。 如果人员组尚未定型，或者定型[状态](#Status-Train)并未显示为“成功”（即显示为“正在运行”、“失败”或“超时”），则请求响应为 400。
 
 有关更多详细信息，请参阅以下指南：  
 [Face - Identify](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)（人脸 - 识别）  

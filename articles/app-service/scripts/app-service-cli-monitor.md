@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 使用 Web 服务器日志监视 Web 应用 | Azure"
-description: "Azure CLI 脚本示例 - 使用 Web 服务器日志监视 Web 应用"
+title: Azure CLI 脚本示例 - 使用 Web 服务器日志监视 Web 应用 | Azure
+description: Azure CLI 脚本示例 - 使用 Web 服务器日志监视 Web 应用
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0887656f-611c-4627-8247-b5cded7cef60
 ms.service: app-service
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/25/2017
+ms.locfileid: "27546584"
 ---
 # <a name="monitor-a-web-app-with-web-server-logs"></a>使用 Web 服务器日志监视 Web 应用
 

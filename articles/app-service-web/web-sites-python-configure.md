@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure 应用服务 Web 应用配置 Python"
-description: "本教程介绍在 Azure 应用服务 Web 应用中创作和配置符合基本 Web 服务器网关接口 (WSGI) 的 Python 应用程序的选项。"
+title: 使用 Azure 应用服务 Web 应用配置 Python
+description: 本教程介绍在 Azure 应用服务 Web 应用中创作和配置符合基本 Web 服务器网关接口 (WSGI) 的 Python 应用程序的选项。
 services: app-service
 documentationcenter: python
 tags: python
 author: huguesv
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
 ms.service: app-service
 ms.workload: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146552"
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>使用 Azure 应用服务 Web 应用配置 Python
 本教程介绍在 [Azure 应用服务 Web 应用](/app-service-web/app-service-changes-existing-services)中创作和配置符合基本 Web 服务器网关接口 (WSGI) 的 Python 应用程序的选项。

@@ -1,6 +1,6 @@
 ---
-title: "计算机视觉 API C# 教程 | Microsoft Docs"
-description: "探讨一个使用 Microsoft 认知服务中的计算机视觉 API 的基本 Windows 应用。 执行 OCR，创建缩略图，并处理图像中的视觉特征。"
+title: 计算机视觉 API C# 教程 | Microsoft Docs
+description: 探讨一个使用 Microsoft 认知服务中的计算机视觉 API 的基本 Windows 应用。 执行 OCR，创建缩略图，并处理图像中的视觉特征。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407604"
 ---
 # <a name="computer-vision-api-c35-tutorial"></a>计算机视觉 API C&#35; 教程
 

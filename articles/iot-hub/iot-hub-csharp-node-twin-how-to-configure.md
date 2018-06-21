@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure IoT 中心设备孪生属性 (.NET/Node) | Azure"
-description: "如何使用 Azure IoT 中心设备孪生配置设备。 使用适用于 Node.js 的 Azure IoT 设备 SDK 实现模拟设备应用，并使用适用于 .NET 的 Azure IoT 服务 SDK 实现可使用设备孪生更改设备配置的服务应用。"
+title: 使用 Azure IoT 中心设备孪生属性 (.NET/Node) | Azure
+description: 如何使用 Azure IoT 中心设备孪生配置设备。 使用适用于 Node.js 的 Azure IoT 设备 SDK 实现模拟设备应用，并使用适用于 .NET 的 Azure IoT 服务 SDK 实现可使用设备孪生更改设备配置的服务应用。
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3c627476-f982-43c9-bd17-e0698c5d236d
 ms.service: iot-hub
 ms.devlang: node
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24058556"
 ---
 # <a name="use-desired-properties-to-configure-devices"></a>使用所需属性配置设备
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]

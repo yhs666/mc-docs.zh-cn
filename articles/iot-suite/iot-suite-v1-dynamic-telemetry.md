@@ -1,12 +1,12 @@
 ---
-title: "使用动态遥测 | Microsoft Docs"
-description: "遵循本教程来了解如何配合使用 Azure IoT 套件动态遥测和远程监视预配置解决方案。"
-services: 
+title: 使用动态遥测 | Microsoft Docs
+description: 遵循本教程来了解如何配合使用 Azure IoT 套件动态遥测和远程监视预配置解决方案。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 562799dc-06ea-4cdd-b822-80d1f70d2f09
 ms.service: iot-suite
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592537"
 ---
 # <a name="use-dynamic-telemetry-with-the-remote-monitoring-preconfigured-solution"></a>配合使用动态遥测和远程监视预配置解决方案
 

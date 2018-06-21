@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT 中心 X.509 安全性概念 | Microsoft Docs"
-description: "概念 - 了解 X.509 证书颁发机构证书在 IoT 设备制造和身份验证中的重要性。"
+title: Azure IoT 中心 X.509 安全性概念 | Microsoft Docs
+description: 概念 - 了解 X.509 证书颁发机构证书在 IoT 设备制造和身份验证中的重要性。
 services: iot-hub
 documentationcenter: .net
 author: eustacea
 manager: arjmands
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24058627"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>概念性理解 IoT 行业中的 X.509 CA 证书
 

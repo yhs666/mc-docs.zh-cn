@@ -1,10 +1,10 @@
 ---
-title: "Azure SDK for .NET 2.8 发行说明"
-description: "Azure SDK for .NET 2.8 发行说明"
+title: Azure SDK for .NET 2.8 发行说明
+description: Azure SDK for .NET 2.8 发行说明
 services: app-service\web
 documentationcenter: .net
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: de7207ff-ba4f-4008-9141-8742fcaa3254
 ms.service: app-service
 ms.devlang: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23475124"
 ---
 # <a name="azure-sdk-for-net-28-281-and-282"></a>Azure SDK for .NET 2.8、2.8.1 和 2.8.2
 ## <a name="overview"></a>概述

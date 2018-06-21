@@ -1,11 +1,11 @@
 ---
-title: "VM 重新启动或大小调整问题 | Azure"
-description: "排查在 Azure 中重新启动现有 Windows 虚拟机或调整其大小时遇到的经典部署问题"
+title: VM 重新启动或大小调整问题 | Azure
+description: 排查在 Azure 中重新启动现有 Windows 虚拟机或调整其大小时遇到的经典部署问题
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: aa854fff-c057-4b8e-ad77-e4dbc39648cc
 ms.service: virtual-machines-windows
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26727498"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>排查在 Azure 中重新启动现有 Windows 虚拟机或调整其大小时遇到的经典部署问题
 > [!div class="op_single_selector"]

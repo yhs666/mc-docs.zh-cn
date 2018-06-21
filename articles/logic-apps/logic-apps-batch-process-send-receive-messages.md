@@ -1,13 +1,13 @@
 ---
-title: "以组或集合的形式对消息进行批处理 - Azure 逻辑应用"
-description: "在逻辑应用中发送和接收消息以进行批处理"
-keywords: "批, 批处理"
+title: 以组或集合的形式对消息进行批处理 - Azure 逻辑应用
+description: 在逻辑应用中发送和接收消息以进行批处理
+keywords: 批, 批处理
 author: jonfancey
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870596"
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>在逻辑应用中对消息进行进行发送、接收和批处理
 

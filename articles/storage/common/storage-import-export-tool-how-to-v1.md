@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 导入/导出工具 - v1 | Azure"
-description: "了解如何使用导入/导出工具为导入作业准备硬盘驱动器、修复导入作业或导出作业。"
+title: 使用 Azure 导入/导出工具 - v1 | Azure
+description: 了解如何使用导入/导出工具为导入作业准备硬盘驱动器、修复导入作业或导出作业。
 author: forester123
 manager: digimobile
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f77535bb-d577-438a-bdd3-e15a82e0c543
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/09/2017
+ms.locfileid: "22612525"
 ---
 # <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>使用 Azure 导入/导出工具（经典部署模型）
 

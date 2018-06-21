@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 中的自助服务或病毒性注册 | Microsoft Docs"
-description: "在 Azure Active Directory (Azure AD) 租户中使用自助服务注册"
+title: Azure Active Directory 中的自助服务或病毒性注册 | Microsoft Docs
+description: 在 Azure Active Directory (Azure AD) 租户中使用自助服务注册
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
 ms.devlang: na
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25560727"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>什么是 Azure Active Directory 的自助服务注册？
 此文章介绍自助服务注册及如何在 Azure Active Directory (Azure AD) 中支持自助服务注册的相关内容。 

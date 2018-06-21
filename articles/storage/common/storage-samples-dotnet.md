@@ -1,12 +1,12 @@
 ---
-title: "使用 .NET 的 Azure 存储示例 | Azure"
-description: "查看、下载和运行 Azure 存储的示例代码和应用程序。 使用 .NET 存储客户端库发现 blob、队列、表和文件的入门示例。"
+title: 使用 .NET 的 Azure 存储示例 | Azure
+description: 查看、下载和运行 Azure 存储的示例代码和应用程序。 使用 .NET 存储客户端库发现 blob、队列、表和文件的入门示例。
 services: storage
 documentationcenter: na
 author: seguler
 manager: jahogg
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21135866"
 ---
 # <a name="azure-storage-samples-using-net"></a>使用 .NET 的 Azure 存储示例
 

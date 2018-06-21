@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT Edge 概述 | Azure"
-description: "描述 Azure IoT Edge 中的关键体系结构概念，如网关、模块和中转站。"
+title: Azure IoT Edge 概述 | Azure
+description: 描述 Azure IoT Edge 中的关键体系结构概念，如网关、模块和中转站。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: Derek1101
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24058582"
 ---
 # <a name="azure-iot-edge-architectural-concepts"></a>Azure IoT Edge 体系结构概念
 

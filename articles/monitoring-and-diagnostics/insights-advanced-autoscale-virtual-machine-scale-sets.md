@@ -1,9 +1,9 @@
 ---
-title: "使用 Azure 虚拟机进行高级自动缩放"
-description: "使用包含多个规则和配置文件的 Resource Manager 与 VM 规模集，通过缩放操作发送电子邮件和调用 Webhook URL。"
+title: 使用 Azure 虚拟机进行高级自动缩放
+description: 使用包含多个规则和配置文件的 Resource Manager 与 VM 规模集，通过缩放操作发送电子邮件和调用 Webhook URL。
 author: anirudhcavale
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 7e3576e2-4a2b-4736-b5ae-98c4689cdd2b
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29286106"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>使用 VM 规模集的 Resource Manager 模板的高级自动缩放配置
 可以根据性能指标阈值，按循环计划或按特定日期扩展和缩减虚拟机规模集。 还可以为缩放操作配置电子邮件和 webhook 通知。 本文演示了在 VM 规模集上使用 Resource Manager 模板配置以上所有对象的示例。
@@ -38,7 +39,7 @@ ms.lasthandoff: 02/13/2018
 
     ![Azure 资源管理器](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
 
-    模板执行已创建了名为 **'autoscalewad'**的默认自动缩放设置。 在右侧，可以查看此自动缩放设置的完整定义。 在本例中，默认自动缩放设置附带了基于 CPU% 的扩大和缩小规则。  
+    模板执行已创建了名为 **'autoscalewad'** 的默认自动缩放设置。 在右侧，可以查看此自动缩放设置的完整定义。 在本例中，默认自动缩放设置附带了基于 CPU% 的扩大和缩小规则。  
 
 3. 现在，可根据计划或特定要求添加更多的配置文件和规则。 创建具有三个配置文件的自动缩放设置。 若要了解自动缩放中的配置文件和规则，请查看[自动缩放最佳做法](insights-autoscale-best-practices.md)。  
 

@@ -1,11 +1,11 @@
 ---
-title: "创建 Azure 事件中心 | Azure"
-description: "使用 Azure 门户创建 Azure 事件中心命名空间和事件中心"
+title: 创建 Azure 事件中心 | Azure
+description: 使用 Azure 门户创建 Azure 事件中心命名空间和事件中心
 services: event-hubs
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: ff99e327-c8db-4354-9040-9c60c51a2191
 ms.service: event-hubs
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26045034"
 ---
 # <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>使用 Azure 门户创建事件中心命名空间和事件中心
 

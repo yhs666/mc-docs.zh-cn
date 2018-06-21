@@ -1,6 +1,6 @@
 ---
-title: "使用增量快照备份和恢复非托管的 Azure Linux VM 磁盘 | Microsoft Docs"
-description: "创建自定义解决方案，以使用增量快照备份和恢复 Azure Linux 虚拟机磁盘。"
+title: 使用增量快照备份和恢复非托管的 Azure Linux VM 磁盘 | Microsoft Docs
+description: 创建自定义解决方案，以使用增量快照备份和恢复 Azure Linux 虚拟机磁盘。
 services: virtual-machines-linux
 documentationcenter: na
 author: rockboyfor
@@ -20,6 +20,7 @@ ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "23629751"
 ---
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]
 

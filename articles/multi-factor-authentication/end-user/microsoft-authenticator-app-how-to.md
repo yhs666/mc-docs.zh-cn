@@ -1,8 +1,8 @@
 ---
-title: "Microsoft Authenticator 应用手机版 | Microsoft 文档"
-description: "了解如何升级到最新版本的 Azure Authenticator。"
+title: Microsoft Authenticator 应用手机版 | Microsoft 文档
+description: 了解如何升级到最新版本的 Azure Authenticator。
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29798072"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft 验证器应用入门
 Microsoft Authenticator 应用在工作或学校帐户（例如，bsimon@contoso.com）或 Microsoft 帐户（例如，bsimon@outlook.com）中提供了附加安全级别。

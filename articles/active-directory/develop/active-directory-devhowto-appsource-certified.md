@@ -1,11 +1,11 @@
 ---
-title: "如何使 AppSource 通过 Azure Active Directory 的认证 | Microsoft Docs"
-description: "详细说明如何使应用程序 AppSource 通过 Azure Active Directory 的认证。"
+title: 如何使 AppSource 通过 Azure Active Directory 的认证 | Microsoft Docs
+description: 详细说明如何使应用程序 AppSource 通过 Azure Active Directory 的认证。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: andretms
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27769130"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>如何使 AppSource 通过 Azure Active Directory 的认证
 [Microsoft AppSource](https://appsource.microsoft.com/) 是一个可供业务用户发现、尝试和管理业务线 SaaS 应用程序（独立 SaaS 和现有 Microsoft SaaS 产品的加载项）的目的地。

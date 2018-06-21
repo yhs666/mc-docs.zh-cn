@@ -1,9 +1,9 @@
 ---
-title: "转换 Azure 资源管理器规模集模板以使用托管磁盘 | Microsoft Docs"
-description: "将规模集模板转换为托管磁盘规模集模板"
-keywords: "虚拟机规模集"
+title: 转换 Azure 资源管理器规模集模板以使用托管磁盘 | Microsoft Docs
+description: 将规模集模板转换为托管磁盘规模集模板
+keywords: 虚拟机规模集
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
 editor: tysonn
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285492"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>将规模集模板转换为托管磁盘规模集模板
 

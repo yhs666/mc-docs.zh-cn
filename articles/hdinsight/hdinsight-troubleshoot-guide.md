@@ -1,11 +1,11 @@
 ---
-title: "Azure HDInsight 故障排除指南 | Microsoft Docs"
-description: "使用 Azure HDInsight 对 Hadoop 工作负荷进行故障排除。 分步文档说明了如何使用 HDInsight 解决 Hive、Spark、YARN、HBase、HDFS 和 Storm 的常见问题。"
+title: Azure HDInsight 故障排除指南 | Microsoft Docs
+description: 使用 Azure HDInsight 对 Hadoop 工作负荷进行故障排除。 分步文档说明了如何使用 HDInsight 解决 Hive、Spark、YARN、HBase、HDFS 和 Storm 的常见问题。
 services: hdinsight
 author: arijitt
 manager: arijitt
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26721377"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>使用 Azure HDInsight 进行故障排除
 

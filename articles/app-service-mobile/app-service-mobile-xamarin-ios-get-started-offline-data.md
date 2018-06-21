@@ -1,10 +1,10 @@
 ---
-title: "为 Azure 移动应用启用脱机同步 (Xamarin iOS)"
-description: "了解如何在 Xamarin iOS 应用程序中使用应用服务移动应用缓存和同步脱机数据"
+title: 为 Azure 移动应用启用脱机同步 (Xamarin iOS)
+description: 了解如何在 Xamarin iOS 应用程序中使用应用服务移动应用缓存和同步脱机数据
 documentationcenter: xamarin
 author: conceptdev
 manager: cfowler
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 828a287c-5d58-4540-9527-1309ebb0f32b
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27984789"
 ---
 # <a name="enable-offline-sync-for-your-xamarinios-mobile-app"></a>为 Xamarin.iOS 移动应用启用脱机同步
 

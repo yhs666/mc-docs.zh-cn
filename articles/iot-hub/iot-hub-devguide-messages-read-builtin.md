@@ -1,11 +1,11 @@
 ---
-title: "了解 Azure IoT 中心内置终结点 | Azure"
-description: "开发人员指南 - 介绍如何使用与事件中心兼容的内置终结点读取设备到云的消息。"
+title: 了解 Azure IoT 中心内置终结点 | Azure
+description: 开发人员指南 - 介绍如何使用与事件中心兼容的内置终结点读取设备到云的消息。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870330"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>从内置终结点读取设备到云的消息
 

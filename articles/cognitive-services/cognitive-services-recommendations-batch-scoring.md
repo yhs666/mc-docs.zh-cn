@@ -1,8 +1,8 @@
 ---
-title: "分批获取建议：机器学习建议 API | Microsoft Docs"
-description: "Azure 机器学习建议 - 分批获取建议"
+title: 分批获取建议：机器学习建议 API | Microsoft Docs
+description: Azure 机器学习建议 - 分批获取建议
 services: cognitive-services
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 editor: cgronlun
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407607"
 ---
 # <a name="get-recommendations-in-batches"></a>批量获取建议
 > [!NOTE]

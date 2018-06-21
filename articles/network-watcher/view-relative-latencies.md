@@ -1,13 +1,13 @@
 ---
-title: "查看从特定位置到 Azure 区域的相对延迟 | Azure"
-description: "了解如何查看从 Internet 提供商的特定位置到 Azure 区域的相对延迟。"
+title: 查看从特定位置到 Azure 区域的相对延迟 | Azure
+description: 了解如何查看从 Internet 提供商的特定位置到 Azure 区域的相对延迟。
 services: network-watcher
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -16,12 +16,13 @@ ms.workload: infrastructure-services
 origin.date: 12/14/2017
 ms.date: 01/22/2018
 ms.author: v-yeche
-ms.custom: 
+ms.custom: ''
 ms.openlocfilehash: 8833f077159a90a70dab61e5e91916f97dafb689
 ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27958360"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>查看从特定位置到 Azure 区域的相对延迟
 

@@ -1,11 +1,11 @@
 ---
-title: "B2B 集成帐户的灾难恢复 - Azure 逻辑应用"
-description: "逻辑应用 B2B 灾难恢复"
+title: B2B 集成帐户的灾难恢复 - Azure 逻辑应用
+description: 逻辑应用 B2B 灾难恢复
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
 ms.workload: integration
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870797"
 ---
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>逻辑应用 B2B 跨区域灾难恢复
 

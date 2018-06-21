@@ -1,6 +1,6 @@
 ---
-title: "人脸 API 服务的 API 参考 | Microsoft Docs"
-description: "API 参考提供有关以下人员管理、人员组管理、人脸列表管理和人脸算法 API 的信息。"
+title: 人脸 API 服务的 API 参考 | Microsoft Docs
+description: API 参考提供有关以下人员管理、人员组管理、人脸列表管理和人脸算法 API 的信息。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407574"
 ---
 # <a name="api-reference"></a>API 参考
 

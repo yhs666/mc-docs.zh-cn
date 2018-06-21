@@ -1,6 +1,6 @@
 ---
-title: "SQL Server 可用性组 - Azure 虚拟机 - 概述 | Azure"
-description: "本文介绍 Azure 虚拟机上的 SQL Server 可用性组。"
+title: SQL Server 可用性组 - Azure 虚拟机 - 概述 | Azure
+description: 本文介绍 Azure 虚拟机上的 SQL Server 可用性组。
 services: virtual-machines
 documentationCenter: na
 author: rockboyfor
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29965140"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Azure 虚拟机上的 SQL Server AlwaysOn 可用性组简介 #
 

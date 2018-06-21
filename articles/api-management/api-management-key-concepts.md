@@ -1,11 +1,11 @@
 ---
-title: "Azure API 管理概述和关键概念"
-description: "了解有关 API、产品、角色、组和其他 API 管理关键概念。"
+title: Azure API 管理概述和关键概念
+description: 了解有关 API、产品、角色、组和其他 API 管理关键概念。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870456"
 ---
 # <a name="what-is-api-management"></a>什么是 API 管理？
 

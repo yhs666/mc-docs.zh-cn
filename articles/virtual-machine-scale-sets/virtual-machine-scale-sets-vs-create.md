@@ -1,11 +1,11 @@
 ---
-title: "使用 Visual Studio 部署虚拟机规模集 | Microsoft Docs"
-description: "使用 Visual Studio 和 Resource Manager 模板部署虚拟机规模集"
+title: 使用 Visual Studio 部署虚拟机规模集 | Microsoft Docs
+description: 使用 Visual Studio 和 Resource Manager 模板部署虚拟机规模集
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
 ms.service: virtual-machine-scale-sets
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285600"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>如何使用 Visual Studio 创建虚拟机规模集
 本文介绍如何使用 Visual Studio 资源组部署部署 Azure 虚拟机规模集。

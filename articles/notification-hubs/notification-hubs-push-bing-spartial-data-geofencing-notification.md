@@ -1,9 +1,9 @@
 ---
-title: "使用 Azure 通知中心和必应空间数据发送地域隔离的推送通知 | Microsoft Docs"
-description: "在本教程中，可以学习如何使用 Azure 通知中心和必应空间数据来传送基于位置的推送通知。"
+title: 使用 Azure 通知中心和必应空间数据发送地域隔离的推送通知 | Microsoft Docs
+description: 在本教程中，可以学习如何使用 Azure 通知中心和必应空间数据来传送基于位置的推送通知。
 services: notification-hubs
 documentationcenter: windows
-keywords: "推送通知,push notification"
+keywords: 推送通知,push notification
 author: alexchen2016
 manager: digimobile
 editor: dend
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25980484"
 ---
 # <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>使用 Azure 通知中心和必应空间数据发送地域隔离的推送通知
 > [!NOTE]

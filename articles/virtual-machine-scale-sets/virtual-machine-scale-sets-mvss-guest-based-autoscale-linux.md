@@ -1,11 +1,11 @@
 ---
-title: "结合 Linux 规模集模板中的来宾指标使用 Azure 自动缩放 | Microsoft Docs"
-description: "了解如何使用 Linux 虚拟机规模集模板中的来宾指标执行自动缩放"
+title: 结合 Linux 规模集模板中的来宾指标使用 Azure 自动缩放 | Microsoft Docs
+description: 了解如何使用 Linux 虚拟机规模集模板中的来宾指标执行自动缩放
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: na
 ms.service: virtual-machine-scale-sets
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285667"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>使用 Linux 规模集模板中的来宾指标执行自动缩放
 

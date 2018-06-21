@@ -1,11 +1,11 @@
 ---
-title: "Azure API 管理策略中的错误处理 | Azure"
-description: "了解在 Azure API 管理中处理请求时，如何对可能发生的错误情况做出响应。"
+title: Azure API 管理策略中的错误处理 | Azure
+description: 了解在 Azure API 管理中处理请求时，如何对可能发生的错误情况做出响应。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285333"
 ---
 # <a name="error-handling-in-api-management-policies"></a>API 管理策略中的错误处理
 Azure API 管理通过提供 `ProxyError` 对象，允许发布服务器对处理向代理发出的请求时可能发生的错误情况做出响应。 `ProxyError` 对象可通过 [context.LastError](./api-management-policy-expressions.md#ContextVariables) 属性访问，并可由 `on-error` 策略节中的策略使用。 本主题提供的参考针对 Azure API 管理中的错误处理功能。  

@@ -21,6 +21,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072513"
 ---
 # <a name="get-started-with-the-facebook-connector"></a>Facebook 连接器入门
 连接到 Facebook，发布到时间线、获取页面源等。 通过 Facebook，可以：

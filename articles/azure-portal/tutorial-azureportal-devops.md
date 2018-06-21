@@ -1,8 +1,8 @@
 ---
-title: "教程：Azure 门户中的 DevOps | Azure"
-description: "了解 Azure 门户中的各种 DevOps 工作流。"
+title: 教程：Azure 门户中的 DevOps | Azure
+description: 了解 Azure 门户中的各种 DevOps 工作流。
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
 editor: mlearned
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27604371"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>教程：Azure 门户中的 DevOps
 

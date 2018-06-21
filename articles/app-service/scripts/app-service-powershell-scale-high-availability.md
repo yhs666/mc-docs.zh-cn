@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 脚本示例 - 缩放具有高可用性体系结构的全球 Web 应用 | Azure"
-description: "Azure PowerShell 脚本示例 - 缩放具有高可用性体系结构的全球 Web 应用"
+title: Azure PowerShell 脚本示例 - 缩放具有高可用性体系结构的全球 Web 应用 | Azure
+description: Azure PowerShell 脚本示例 - 缩放具有高可用性体系结构的全球 Web 应用
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 470f0129-1efe-462c-a029-5c66e04158a8
 ms.service: app-service
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23475200"
 ---
 # <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture"></a>缩放具有高可用性体系结构的全球 Web 应用
 

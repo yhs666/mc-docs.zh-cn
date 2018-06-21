@@ -1,12 +1,12 @@
 ---
-title: "操作组中的短信通知行为"
-description: "短信格式，以及回复短信以取消订阅、重新订阅或请求帮助。"
+title: 操作组中的短信通知行为
+description: 短信格式，以及回复短信以取消订阅、重新订阅或请求帮助。
 author: dkamstra
 manager: chrad
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -20,14 +20,15 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870266"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>操作组中的短信通知行为
 ## <a name="overview"></a>概述 ##
 通过操作组可以配置操作列表。 在定义警报时将使用这些组；确保警报被触发时向特定操作组发送通知。 支持的操作之一是短信；短信通知支持双向通信。 用户可以对短信做出响应来执行以下操作：
 
-- **取消订阅警报：**用户可以为所有操作组或单个操作组取消订阅所有短信警报。
-- **重新订阅警报：**用户可以为所有操作组或单个操作组重新订阅所有短信警报。  
-- **请求帮助：**用户可以询问有关短信的详细信息。 用户会被重定向到本文。
+- **取消订阅警报：** 用户可以为所有操作组或单个操作组取消订阅所有短信警报。
+- **重新订阅警报：** 用户可以为所有操作组或单个操作组重新订阅所有短信警报。  
+- **请求帮助：** 用户可以询问有关短信的详细信息。 用户会被重定向到本文。
 
 本文介绍短信警报的行为，以及用户根据其区域设置可采取的响应操作：
 

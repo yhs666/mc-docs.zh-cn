@@ -1,8 +1,8 @@
 ---
-title: "为基于 Windows 的 Azure HDInsight 构建 Java HBase 应用程序 | Azure"
-description: "了解如何使用 Apache Maven 构建基于 Java 的 Apache HBase 应用程序，并将其部署到基于 Windows 的 Azure HDInsight 群集。"
+title: 为基于 Windows 的 Azure HDInsight 构建 Java HBase 应用程序 | Azure
+description: 了解如何使用 Apache Maven 构建基于 Java 的 Apache HBase 应用程序，并将其部署到基于 Windows 的 Azure HDInsight 群集。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26721330"
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>借助 Maven 构建可将 HBase 与基于 Windows 的 HDInsight (Hadoop) 配合使用的 Java 应用程序
 了解如何通过使用 Apache Maven 在 Java 中创建和构建 [Apache HBase](http://hbase.apache.org/) 应用程序。 然后，将该应用程序用于 Azure HDInsight (Hadoop)。

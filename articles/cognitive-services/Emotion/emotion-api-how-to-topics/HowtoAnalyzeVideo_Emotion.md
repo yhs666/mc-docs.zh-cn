@@ -1,6 +1,6 @@
 ---
-title: "使用情感 API 执行实时视频分析 | Microsoft Docs"
-description: "使用认知服务中的情感 API 针对从实时视频流中提取的帧执行接近实时的分析。"
+title: 使用情感 API 执行实时视频分析 | Microsoft Docs
+description: 使用认知服务中的情感 API 针对从实时视频流中提取的帧执行接近实时的分析。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407619"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>如何实时分析视频
 本指南将演示如何针对从实时视频流中提取的帧执行接近实时的分析。 此类系统中的基本组件包括：

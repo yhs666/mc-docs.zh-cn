@@ -1,12 +1,12 @@
 ---
-title: "使用 Intel NUC 将网关连接到 Azure IoT 套件 | Azure"
-description: "使用 Microsoft IoT 商业网关工具包和远程监视预配置解决方案。 使用 Azure IoT Edge 网关将 SensorTag 设备连接到远程监视解决方案，将遥测数据发送到云，并响应从解决方案仪表板调用的方法。"
-services: 
+title: 使用 Intel NUC 将网关连接到 Azure IoT 套件 | Azure
+description: 使用 Microsoft IoT 商业网关工具包和远程监视预配置解决方案。 使用 Azure IoT Edge 网关将 SensorTag 设备连接到远程监视解决方案，将遥测数据发送到云，并响应从解决方案仪表板调用的方法。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: c
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592115"
 ---
 # <a name="connect-your-azure-iot-edge-gateway-to-the-remote-monitoring-preconfigured-solution-and-send-telemetry-from-a-sensortag"></a>将 Azure IoT Edge 网关连接到远程监视预配置解决方案，并从 SensorTag 发送遥测数据
 

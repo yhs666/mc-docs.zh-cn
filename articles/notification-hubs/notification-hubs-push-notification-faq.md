@@ -1,12 +1,12 @@
 ---
-title: "Azure 通知中心：常见问题解答 (FAQ) | Microsoft Docs"
-description: "关于设计/实现有关通知中心的解决方案的常见问题"
+title: Azure 通知中心：常见问题解答 (FAQ) | Microsoft Docs
+description: 关于设计/实现有关通知中心的解决方案的常见问题
 services: notification-hubs
 documentationcenter: mobile
 author: alexchen2016
 manager: digimobile
-keywords: "推送通知, 推送通知, iOS 推送通知, android 推送通知, ios 推送, android 推送"
-editor: 
+keywords: 推送通知, 推送通知, iOS 推送通知, android 推送通知, ios 推送, android 推送
+editor: ''
 ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
 ms.workload: mobile
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/28/2017
+ms.locfileid: "27547630"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中心推送通知：常见问题解答
 ## <a name="general"></a>常规
@@ -35,7 +36,7 @@ Azure 通知中心有两个资源级别：中心和命名空间。 中心是单�
 
 - **免费**：此层是探索推送功能的极佳起点。 不建议对生产应用使用此层。 在每个命名空间中，每个月可以预配 500 个设备和执行 100 万次推送，但无法享受服务级别协议 (SLA) 保证。
 - **基本**：建议将此层（或标准层）用于较小型的生产应用。 在每个命名空间中，每个月可以预配 200,000 个设备和执行 1,000 万次推送（基准）。 提供配额增长选项。
-- **标准：**建议将此层用于中型、大型生产应用。 在每个命名空间中，每个月可以预配 1,000 万个设备和执行 1,000 万次推送（基准）。 提供配额增长选项，以及丰富的遥测功能。
+- **标准：** 建议将此层用于中型、大型生产应用。 在每个命名空间中，每个月可以预配 1,000 万个设备和执行 1,000 万次推送（基准）。 提供配额增长选项，以及丰富的遥测功能。
 
 标准层功能：
 - **丰富的遥测功能**：可以使用通知中心的消息遥测来跟踪所有推送请求和用于调试的平台通知系统反馈。

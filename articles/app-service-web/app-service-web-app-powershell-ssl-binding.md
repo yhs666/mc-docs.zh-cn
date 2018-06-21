@@ -1,11 +1,11 @@
 ---
-title: "使用 PowerShell 创建 SSL 证书绑定"
-description: "了解如何使用 PowerShell 将 SSL 证书绑定到 Web 应用。"
+title: 使用 PowerShell 创建 SSL 证书绑定
+description: 了解如何使用 PowerShell 将 SSL 证书绑定到 Web 应用。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: ahmedelnably
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: 8ce32508-e982-48d3-b878-0e526afda537
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146539"
 ---
 # <a name="azure-app-service-ssl-certificate-binding-using-powershell"></a>使用 PowerShell 创建 Azure App Service SSL 证书绑定
 发行的 Azure PowerShell 版本 1.1.0 中添加了新的 cmdlet，可让用户将现有的或新的 SSL 证书绑定到现有的 Web 应用。

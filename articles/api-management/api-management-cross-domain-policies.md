@@ -1,11 +1,11 @@
 ---
-title: "Azure API 管理跨域策略"
-description: "了解可在 Azure API 管理中使用的跨域策略。"
+title: Azure API 管理跨域策略
+description: 了解可在 Azure API 管理中使用的跨域策略。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
 ms.service: api-management
 ms.workload: mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285067"
 ---
 # <a name="api-management-cross-domain-policies"></a>API 管理跨域策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -63,9 +64,9 @@ ms.lasthandoff: 02/13/2018
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**入站  
+-   **策略节：** 入站  
   
--   **策略范围：**全局  
+-   **策略范围：** 全局  
   
 ##  <a name="CORS"></a> CORS  
  `cors` 策略向操作或 API 添加跨源资源共享 (CORS) 支持，以便从基于浏览器的客户端执行跨域调用。  
@@ -147,9 +148,9 @@ ms.lasthandoff: 02/13/2018
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[段](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略段：**入站  
+-   **策略段：** 入站  
   
--   **策略范围：**API、操作  
+-   **策略范围：** API、操作  
   
 ##  <a name="JSONP"></a> JSONP  
  `jsonp` 策略向操作或 API 添加填充型 JSON (JSONP) 支持，以便从基于 JavaScript 浏览器的客户端执行跨域调用。 JSONP 是 JavaScript 程序中使用的方法，用于从不同域中的服务器请求数据。 JSONP 规避了大多数 Web 浏览器强制实施的只能在同一域中访问网页的限制。  
@@ -185,9 +186,9 @@ ms.lasthandoff: 02/13/2018
 ### <a name="usage"></a>使用情况  
  此策略可在以下策略[节](./api-management-howto-policies.md#sections)和[范围](./api-management-howto-policies.md#scopes)中使用。  
   
--   **策略节：**出站  
+-   **策略节：** 出站  
   
--   **策略范围：**全局、产品、API、操作  
+-   **策略范围：** 全局、产品、API、操作  
   
 ## <a name="next-steps"></a>后续步骤
 

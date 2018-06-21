@@ -1,12 +1,12 @@
 ---
-title: "预见性维护预配置解决方案 | Azure"
-description: "介绍 Azure IoT 套件预见性维护预配置解决方案。"
-services: 
+title: 预见性维护预配置解决方案 | Azure
+description: 介绍 Azure IoT 套件预见性维护预配置解决方案。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b370b3d7-2ce5-4906-9818-3aeedd471ee3
 ms.service: iot-suite
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592173"
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>预见性维护预配置解决方案概述
 

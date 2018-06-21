@@ -1,8 +1,8 @@
 ---
-title: "快速入门指南：机器学习建议 API | Microsoft 文档"
-description: "Azure 机器学习建议 - 快速入门指南"
+title: 快速入门指南：机器学习建议 API | Microsoft 文档
+description: Azure 机器学习建议 - 快速入门指南
 services: cognitive-services
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 editor: cgronlun
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407629"
 ---
 # <a name="quick-start-guide-for-the-cognitive-services-recommendations-api"></a>认知服务建议 API 快速入门指南
 本文档介绍如何登记服务或应用程序，以使用[建议 API](http://go.microsoft.com/fwlink/?LinkId=759710)。

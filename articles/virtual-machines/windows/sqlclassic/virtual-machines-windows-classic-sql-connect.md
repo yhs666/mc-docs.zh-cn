@@ -1,6 +1,6 @@
 ---
-title: "连接到 Azure 上的 SQL Server 虚拟机（经典）| Azure"
-description: "了解如何连接到在 Azure 中虚拟机上运行的 SQL Server。 本主题使用经典部署模型。 方案根据网络配置和客户端位置的不同而异。"
+title: 连接到 Azure 上的 SQL Server 虚拟机（经典）| Azure
+description: 了解如何连接到在 Azure 中虚拟机上运行的 SQL Server。 本主题使用经典部署模型。 方案根据网络配置和客户端位置的不同而异。
 services: virtual-machines-windows
 documentationcenter: na
 author: rockboyfor
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29965208"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>连接到 Azure 上的 SQL Server 虚拟机（经典部署）
 > [!div class="op_single_selector"]

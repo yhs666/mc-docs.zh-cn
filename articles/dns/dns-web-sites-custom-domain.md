@@ -1,6 +1,6 @@
 ---
-title: "为 Web 应用创建自定义 DNS 记录 | Azure"
-description: "如何使用 Azure DNS 为 Web 应用创建自定义域 DNS 记录。"
+title: 为 Web 应用创建自定义 DNS 记录 | Azure
+description: 如何使用 Azure DNS 为 Web 应用创建自定义域 DNS 记录。
 services: dns
 documentationcenter: na
 author: yunan2016
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26722263"
 ---
 # <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>在自定义域中为 Web 应用创建 DNS 记录
 

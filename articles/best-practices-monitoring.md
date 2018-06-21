@@ -1,12 +1,12 @@
 ---
-title: "监视和诊断指南 | Azure"
-description: "有关在云中监视分布式应用程序的最佳实践。"
-services: 
+title: 监视和诊断指南 | Azure
+description: 有关在云中监视分布式应用程序的最佳实践。
+services: ''
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 2d2a8497-73d0-4a46-aac6-6d504003de2b
 ms.service: best-practice
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/15/2017
+ms.locfileid: "22094891"
 ---
 # <a name="monitoring-and-diagnostics-guidance"></a>监视和诊断指南
 [!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]

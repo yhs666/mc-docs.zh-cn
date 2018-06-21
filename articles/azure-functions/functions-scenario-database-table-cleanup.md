@@ -21,6 +21,7 @@ ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31585532"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>使用 Azure Functions 连接 Azure SQL 数据库
 本主题介绍了如何使用 Azure Functions 创建计划作业，以清理 Azure SQL 数据库中的表的行。 根据 Azure 门户中预定义的计时器触发器模板新建 C# 脚本函数。 若要支持这种情况，还必须设置数据库连接字符串，使其成为函数应用中的应用设置。 该方案使用针对数据库的大容量操作。 

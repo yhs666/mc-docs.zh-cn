@@ -1,11 +1,11 @@
 ---
-title: "Azure 服务总线消息传送示例概述"
-description: "介绍服务总线消息传送示例并提供每个示例的链接"
+title: Azure 服务总线消息传送示例概述
+description: 介绍服务总线消息传送示例并提供每个示例的链接
 services: service-bus
 documentationCenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0b420343-2d2a-4c65-98f1-ee0e39ef55c8
 ms.service: service-bus
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285202"
 ---
 # <a name="service-bus-messaging-samples"></a>服务总线消息传送示例
 

@@ -1,11 +1,11 @@
 ---
-title: "如何将应用程序添加到 Azure Active Directory。"
-description: "本文介绍如何将应用程序添加到 Azure Active Directory 的实例。"
+title: 如何将应用程序添加到 Azure Active Directory。
+description: 本文介绍如何将应用程序添加到 Azure Active Directory 的实例。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: shoatman
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27769086"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>如何以及为何将应用程序添加到 Azure AD
 在 Azure Active Directory 实例中查看应用程序列表时，最初让令人费解的事情之一是不知道应用程序来自何处，以及它们为何会出现在那里。  本文将全面概述如何在目录中表示应用程序，并提供上下文帮助你了解应用程序如何进入目录。

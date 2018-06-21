@@ -1,11 +1,11 @@
 ---
-title: "使用指标监视 Azure IoT 中心 | Azure"
-description: "如何使用 Azure IoT 中心度量值评估和监视 IoT 中心的总体运行状况。"
+title: 使用指标监视 Azure IoT 中心 | Azure
+description: 如何使用 Azure IoT 中心度量值评估和监视 IoT 中心的总体运行状况。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: nberdy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a47108fd-f994-4105-b21d-5b8f697b699c
 ms.service: iot-hub
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26576272"
 ---
 # <a name="understand-iot-hub-metrics"></a>了解 IoT 中心指标
 IoT 中心度量值提供更棒的数据，清晰显示 Azure 订阅中的 Azure IoT 资源状态。 通过 IoT 中心度量值，可评估 IoT 中心服务及其所连接的设备的总体运行状况。 面向用户的统计信息非常重要，因为它们可以帮助了解 IoT 中心的情况，并可以帮助在不联系 Azure 支持人员的情况下解决根本问题。

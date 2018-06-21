@@ -1,11 +1,11 @@
 ---
-title: "为 EDIFACT 消息解码 - Azure 逻辑应用"
-description: "使用 Enterprise Integration Pack 中的 EDIFACT 消息解码器为 Azure 逻辑应用验证 EDI 并生成确认"
+title: 为 EDIFACT 消息解码 - Azure 逻辑应用
+description: 使用 Enterprise Integration Pack 中的 EDIFACT 消息解码器为 Azure 逻辑应用验证 EDI 并生成确认
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.service: logic-apps
 ms.workload: integration
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870580"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>使用 Enterprise Integration Pack 为 Azure 逻辑应用解码 EDIFACT 消息
 

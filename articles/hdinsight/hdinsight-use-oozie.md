@@ -1,8 +1,8 @@
 ---
-title: "在 HDInsight 中使用 Hadoop Oozie | Azure"
-description: "在 HDInsight 中使用大数据服务 Hadoop Oozie。 了解如何定义 Oozie 工作流和提交 Oozie 作业。"
+title: 在 HDInsight 中使用 Hadoop Oozie | Azure
+description: 在 HDInsight 中使用大数据服务 Hadoop Oozie。 了解如何定义 Oozie 工作流和提交 Oozie 作业。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -23,6 +23,7 @@ ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26721289"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>在 HDInsight 中将 Oozie 与 Hadoop 配合使用以定义和运行工作流
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]

@@ -1,11 +1,11 @@
 ---
-title: "在 Azure API 管理中修改开发人员门户中的页面内容"
-description: "了解如何在 Azure API 管理中编辑开发人员门户上的页面内容。"
+title: 在 Azure API 管理中修改开发人员门户中的页面内容
+description: 了解如何在 Azure API 管理中编辑开发人员门户上的页面内容。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: vlvinogr
-editor: 
+editor: ''
 ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870420"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>在 Azure API 管理中修改开发人员门户上的页面内容和页面布局
 在 Azure API 管理中自定义开发人员门户有三种基本方法：

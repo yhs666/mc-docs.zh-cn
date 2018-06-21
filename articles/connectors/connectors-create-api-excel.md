@@ -21,6 +21,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072505"
 ---
 # <a name="get-started-with-the-excel-connector"></a>Excel 连接器入门
 逻辑应用中没有 Excel 连接器。 

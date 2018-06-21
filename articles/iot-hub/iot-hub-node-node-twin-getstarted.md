@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中心设备孪生入门 (Node) | Azure"
-description: "如何使用 Azure IoT 中心设备孪生添加标记，并使用 IoT 中心查询。 使用 Azure IoT SDK for Node.js 实现模拟设备应用，并实现可添加标记和运行 IoT 中心查询的服务应用。"
+title: Azure IoT 中心设备孪生入门 (Node) | Azure
+description: 如何使用 Azure IoT 中心设备孪生添加标记，并使用 IoT 中心查询。 使用 Azure IoT SDK for Node.js 实现模拟设备应用，并实现可添加标记和运行 IoT 中心查询的服务应用。
 services: iot-hub
 documentationcenter: node
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 314c88e4-cce1-441c-b75a-d2e08e39ae7d
 ms.service: iot-hub
 ms.devlang: node
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24058589"
 ---
 # <a name="get-started-with-device-twins-node"></a>设备孪生入门 (Node)
 

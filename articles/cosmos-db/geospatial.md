@@ -20,6 +20,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31781871"
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的地理空间和 GeoJSON 位置数据
 本文介绍了 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 中的地理空间功能。 在阅读本文之后，能够回答以下问题：

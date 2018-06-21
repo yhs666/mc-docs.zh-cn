@@ -1,12 +1,12 @@
 ---
-title: "Power BI 工作区集合中的新增功能"
-description: "获取有关 Power BI 工作区集合中的新增功能的最新信息"
+title: Power BI 工作区集合中的新增功能
+description: 获取有关 Power BI 工作区集合中的新增功能的最新信息
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 2794ae98-b9a7-45df-b6e1-962a395b91fa
 ms.service: power-bi-embedded
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/26/2017
+ms.locfileid: "23580308"
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>Power BI 工作区集合中的新增功能
 

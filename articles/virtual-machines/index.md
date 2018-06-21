@@ -1,11 +1,11 @@
 ---
-title: "Azure 虚拟机文档 - 教程和 API 参考 | Azure"
-description: "了解如何创建、部署和管理 Windows 或 Linux 虚拟机。 教程、API 参考和其他文档。"
+title: Azure 虚拟机文档 - 教程和 API 参考 | Azure
+description: 了解如何创建、部署和管理 Windows 或 Linux 虚拟机。 教程、API 参考和其他文档。
 services: virtual-machines
 author: rockboyfor
 manager: digimobile
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407110"
 ---
 # <a name="virtual-machines-documentation"></a>虚拟机文档
 

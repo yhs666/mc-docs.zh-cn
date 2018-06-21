@@ -1,6 +1,6 @@
 ---
-title: "人脸 API 服务常见问题解答 | Microsoft Docs"
-description: "下面是有关人脸 API 服务的最常见问题的解答。"
+title: 人脸 API 服务常见问题解答 | Microsoft Docs
+description: 下面是有关人脸 API 服务的最常见问题的解答。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407576"
 ---
 # <a name="face-api-frequently-asked-questions"></a>人脸 API 常见问题解答
 ### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-face-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>如果在本“常见问题解答”中找不到问题的答案，请尝试在 [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) 中向人脸 API 社区提问，或联系 [UserVoice 上的帮助和支持人员](https://cognitive.uservoice.com/)。

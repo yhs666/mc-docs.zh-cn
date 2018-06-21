@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序安全组视图分析网络安全性 - REST API | Azure"
-description: "本文介绍如何使用 PowerShell 通过安全组视图分析虚拟机安全性。"
+title: 使用 Azure 网络观察程序安全组视图分析网络安全性 - REST API | Azure
+description: 本文介绍如何使用 PowerShell 通过安全组视图分析虚拟机安全性。
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: a2f418fe-f5d2-43ed-8dc3-df0ed2a4d4ac
 ms.service: network-watcher
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/14/2017
+ms.locfileid: "24519534"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>使用 REST API 通过安全组视图分析虚拟机安全性
 

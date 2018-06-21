@@ -1,6 +1,6 @@
 ---
-title: "数据安全与加密最佳实践 | Microsoft Azure"
-description: "本文提供一系列有关使用内置 Azure 功能实现数据安全与加密的最佳实践。"
+title: 数据安全与加密最佳实践 | Microsoft Azure
+description: 本文提供一系列有关使用内置 Azure 功能实现数据安全与加密的最佳实践。
 services: security
 documentationCenter: na
 authors: YuriDio
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27956984"
 ---
 #<a name="azure-data-security-and-encryption-best-practices"></a>Azure 数据安全与加密最佳实践
 

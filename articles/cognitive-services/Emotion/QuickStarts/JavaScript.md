@@ -1,6 +1,6 @@
 ---
-title: "情感 API JavaScript 快速入门 | Microsoft Docs"
-description: "获取信息和代码示例，帮助自己快速开始使用认知服务中的情感 API 和 JavaScript。"
+title: 情感 API JavaScript 快速入门 | Microsoft Docs
+description: 获取信息和代码示例，帮助自己快速开始使用认知服务中的情感 API 和 JavaScript。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407570"
 ---
 # <a name="emotion-api-javascript-quick-start"></a>情感 API JavaScript 快速入门
 本文提供信息和代码示例，帮助读者快速开始使用[情感 API 识别方法](https://dev.cognitive.azure.cn/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)与 JavaScript 来识别图像中一个或多个人员表达的情感。

@@ -1,12 +1,12 @@
 ---
-title: "使用 PowerShell 管理 Azure 服务总线资源"
-description: "使用 PowerShell 模块创建和管理服务总线资源"
+title: 使用 PowerShell 管理 Azure 服务总线资源
+description: 使用 PowerShell 模块创建和管理服务总线资源
 services: service-bus
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285209"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>使用 PowerShell 管理服务总线资源
 

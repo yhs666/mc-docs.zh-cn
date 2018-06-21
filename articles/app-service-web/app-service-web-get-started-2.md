@@ -1,11 +1,11 @@
 ---
-title: "为首个 Web 应用添加功能 | Azure"
-description: "在几分钟内将一些新奇功能添加到首个 Web 应用。"
+title: 为首个 Web 应用添加功能 | Azure
+description: 在几分钟内将一些新奇功能添加到首个 Web 应用。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 542671c2-22f0-4f20-8b4b-fa477264c492
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/28/2017
+ms.locfileid: "25949522"
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>为首个 Web 应用添加功能
 在[在 5 分钟内将首个 Web 应用部署到 Azure](app-service-web-get-started-dotnet.md) 教程中，已将一个示例 Web 应用部署到 [Azure App Service](../app-service/app-service-value-prop-what-is.md)。 本文将快速地在所部署的 Web 应用中添加一些强大功能。 只需几分钟，就能够：

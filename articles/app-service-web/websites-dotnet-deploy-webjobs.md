@@ -1,8 +1,8 @@
 ---
-title: "使用 Visual Studio 部署 Web 作业"
-description: "了解如何使用 Visual Studio 将 Azure Web 作业部署到 Azure 应用服务 Web 应用。"
+title: 使用 Visual Studio 部署 Web 作业
+description: 了解如何使用 Visual Studio 将 Azure Web 作业部署到 Azure 应用服务 Web 应用。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: erikre
 editor: jimbe
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146565"
 ---
 # <a name="deploy-webjobs-using-visual-studio"></a>使用 Visual Studio 部署 Web 作业
 ## <a name="overview"></a>概述

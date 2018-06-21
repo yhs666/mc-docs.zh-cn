@@ -1,13 +1,13 @@
 ---
-title: "VPN 网关配置和连接疑难解答 | Microsoft Docs"
-description: "本文有助于将你链接到文章以对 VPN 网关配置、连接进行故障排除并验证吞吐量。"
+title: VPN 网关配置和连接疑难解答 | Microsoft Docs
+description: 本文有助于将你链接到文章以对 VPN 网关配置、连接进行故障排除并验证吞吐量。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -21,6 +21,7 @@ ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29925256"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>VPN 网关疑难解答
 

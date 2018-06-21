@@ -19,6 +19,7 @@ ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/19/2018
+ms.locfileid: "29993300"
 ---
 # <a name="gdpr-compliance-and-azure-ad-connect"></a>GDPR 符合性和 Azure AD Connect 
 

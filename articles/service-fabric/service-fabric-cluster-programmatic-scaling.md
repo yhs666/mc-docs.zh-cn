@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric 编程缩放 | Azure"
-description: "根据自定义触发器以编程方式缩减或扩展 Azure Service Fabric 群集"
+title: Azure Service Fabric 编程缩放 | Azure
+description: 根据自定义触发器以编程方式缩减或扩展 Azure Service Fabric 群集
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26045143"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>以编程方式缩放 Service Fabric 群集 
 

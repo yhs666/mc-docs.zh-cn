@@ -1,12 +1,12 @@
 ---
-title: "异常处理和错误日志记录方案 - Azure 逻辑应用"
-description: "介绍 Azure 逻辑应用的高级异常处理和错误日志记录的实际用例"
-keywords: 
+title: 异常处理和错误日志记录方案 - Azure 逻辑应用
+description: 介绍 Azure 逻辑应用的高级异常处理和错误日志记录的实际用例
+keywords: ''
 services: logic-apps
 author: hedidin
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.service: logic-apps
 ms.workload: na
@@ -22,6 +22,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870605"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>方案：逻辑应用的异常处理和错误日志记录
 

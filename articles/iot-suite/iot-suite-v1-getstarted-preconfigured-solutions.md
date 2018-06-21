@@ -1,12 +1,12 @@
 ---
-title: "预配置解决方案入门 | Microsoft Docs"
-description: "遵循本教程，了解如何部署 Azure IoT 套件预配置解决方案。"
-services: 
+title: 预配置解决方案入门 | Microsoft Docs
+description: 遵循本教程，了解如何部署 Azure IoT 套件预配置解决方案。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6ab38d1a-b564-469e-8a87-e597aa51d0f7
 ms.service: iot-suite
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592619"
 ---
 # <a name="get-started-with-the-preconfigured-solutions"></a>预配置的解决方案入门
 

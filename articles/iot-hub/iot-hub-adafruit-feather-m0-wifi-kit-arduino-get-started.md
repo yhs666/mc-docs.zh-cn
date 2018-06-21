@@ -1,12 +1,12 @@
 ---
-title: "M0 到云：将 Feather M0 WiFi 连接到 Azure IoT 中心 | Microsoft Docs"
-description: "在本教程中了解如何设置 Adafruit Feather M0 WiFi 并将其连接到 Azure IoT 中心，以便将数据发送到 Azure 云平台。"
+title: M0 到云：将 Feather M0 WiFi 连接到 Azure IoT 中心 | Microsoft Docs
+description: 在本教程中了解如何设置 Adafruit Feather M0 WiFi 并将其连接到 Azure IoT 中心，以便将数据发送到 Azure 云平台。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.assetid: 51befcdb-332b-416f-a6a1-8aabdb67f283
 ms.service: iot-hub
 ms.devlang: arduino
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24058592"
 ---
 # <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>将 Adafruit Feather M0 WiFi 连接到云中的 Azure IoT 中心
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]

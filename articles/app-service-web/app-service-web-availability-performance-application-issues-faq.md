@@ -1,11 +1,11 @@
 ---
-title: "Azure Web 应用的应用程序性能常见问题解答 | Azure"
-description: "获取有关 Azure 应用服务 Web 应用功能的可用性、性能和应用程序的常见问题解答。"
+title: Azure Web 应用的应用程序性能常见问题解答 | Azure
+description: 获取有关 Azure 应用服务 Web 应用功能的可用性、性能和应用程序的常见问题解答。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/28/2017
+ms.locfileid: "25949508"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的应用程序性能常见问题解答
 

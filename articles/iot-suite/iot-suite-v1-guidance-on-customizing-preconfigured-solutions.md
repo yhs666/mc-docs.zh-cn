@@ -1,12 +1,12 @@
 ---
-title: "自定义预配置解决方案 | Microsoft Docs"
-description: "提供有关如何自定义 Azure IoT 套件预配置解决方案的指导。"
-services: 
+title: 自定义预配置解决方案 | Microsoft Docs
+description: 提供有关如何自定义 Azure IoT 套件预配置解决方案的指导。
+services: ''
 suite: iot-suite
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4653ae53-4110-4a10-bd6c-7dc034c293a8
 ms.service: iot-suite
 ms.devlang: dotnet
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592561"
 ---
 # <a name="customize-a-preconfigured-solution"></a>自定义预配置解决方案
 

@@ -1,11 +1,11 @@
 ---
-title: "架构更新（2016 年 6 月 1 日）- Azure 逻辑应用"
-description: "为 Azure 逻辑应用创建 JSON 定义，使用的架构版本为 2016-06-01"
+title: 架构更新（2016 年 6 月 1 日）- Azure 逻辑应用
+description: 为 Azure 逻辑应用创建 JSON 定义，使用的架构版本为 2016-06-01
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.service: logic-apps
 ms.workload: integration
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870819"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Azure 逻辑应用的架构更新 - 2016 年 6 月 1 日
 

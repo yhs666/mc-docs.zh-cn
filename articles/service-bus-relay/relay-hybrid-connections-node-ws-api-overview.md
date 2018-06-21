@@ -1,11 +1,11 @@
 ---
-title: "Azure 中继节点 API 概述 | Azure"
-description: "中继节点 API 概述"
+title: Azure 中继节点 API 概述 | Azure
+description: 中继节点 API 概述
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b7d6e822-7c32-4cb5-a4b8-df7d009bdc85
 ms.service: service-bus-relay
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731331"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>中继混合连接 Node API 概述
 

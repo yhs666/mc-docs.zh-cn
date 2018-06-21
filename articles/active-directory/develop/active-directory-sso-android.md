@@ -1,11 +1,11 @@
 ---
-title: "如何使用 ADAL 在 Android 上启用跨应用 SSO | Microsoft Docs"
-description: "如何使用 ADAL SDK 的功能跨应用程序启用单一登录。 "
+title: 如何使用 ADAL 在 Android 上启用跨应用 SSO | Microsoft Docs
+description: '如何使用 ADAL SDK 的功能跨应用程序启用单一登录。 '
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: danieldobalian
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27769150"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>如何使用 ADAL 在 Android 上启用跨应用 SSO
 客户现在都希望提供单一登录 (SSO)，以便用户只需输入一次凭据，然后这些凭据就会自动在多个应用程序中生效。 要用户在一个小屏幕上输入用户名和密码，这本身就是一项很难的操作，通常还伴有其他身份验证方式 (2FA)，例如电话呼叫或短信代码。如果在使用产品时必须多次执行这些操作，用户很快就会产生不满情绪。

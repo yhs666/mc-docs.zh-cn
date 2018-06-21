@@ -21,6 +21,7 @@ ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/09/2018
+ms.locfileid: "30941412"
 ---
 # <a name="get-started-with-azure-notification-hubs-for-windows-phone-apps"></a>适用于 Windows Phone 应用的 Azure 通知中心入门
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]

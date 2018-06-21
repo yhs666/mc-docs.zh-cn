@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric XPlat CLI 入门"
-description: "Azure Service Fabric XPlat CLI 入门"
+title: Azure Service Fabric XPlat CLI 入门
+description: Azure Service Fabric XPlat CLI 入门
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: c3ec8ff3-3b78-420c-a7ea-0c5e443fb10e
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1fb5f5438975a4901c35b6b95cbb190a08570a9b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/14/2018
+ms.locfileid: "29341274"
 ---
 # <a name="using-the-xplat-cli-to-interact-with-a-service-fabric-cluster"></a>使用 XPlat CLI 与 Service Fabric 群集交互
 

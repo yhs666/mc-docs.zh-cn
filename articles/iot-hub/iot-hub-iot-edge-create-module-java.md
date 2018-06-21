@@ -1,6 +1,6 @@
 ---
-title: "使用 Java 创建 Azure IoT Edge 模块 | Microsoft Docs"
-description: "本教程演示如何使用最新的 Azure IoT Edge Maven 包编写 BLE 数据转换器模块。"
+title: 使用 Java 创建 Azure IoT Edge 模块 | Microsoft Docs
+description: 本教程演示如何使用最新的 Azure IoT Edge Maven 包编写 BLE 数据转换器模块。
 services: iot-hub
 author: junyi
 manager: timlt
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24058621"
 ---
 # <a name="create-an-azure-iot-edge-module-with-java"></a>使用 Java 创建 Azure IoT Edge 模块
 

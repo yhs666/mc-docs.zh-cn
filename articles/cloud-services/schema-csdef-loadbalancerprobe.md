@@ -1,16 +1,16 @@
 ---
-title: "Azure 云服务定义LoadBalancerProbe 架构 | Microsoft Docs"
-ms.custom: 
+title: Azure 云服务定义LoadBalancerProbe 架构 | Microsoft Docs
+ms.custom: ''
 origin.date: 04/14/2015
 ms.date: 11/06/2017
 ms.prod: azure
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
-caps.latest.revision: "14"
+caps.latest.revision: 14
 author: thraka
 ms.author: v-yiso
 manager: timlt
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23635104"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure 云服务定义 LoadBalancerProbe 架构
 负载均衡器探测是由客户定义的，用于探测 UDP 终结点和角色实例中的终结点的运行状况。 `LoadBalancerProbe` 不是一个独立的元素；它在服务定义文件中与 Web 角色或辅助角色结合。 `LoadBalancerProbe` 可由多个角色使用。

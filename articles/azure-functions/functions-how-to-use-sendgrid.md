@@ -18,6 +18,7 @@ ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31585491"
 ---
 # <a name="how-to-use-sendgrid-in-azure-functions"></a>如何在 Azure Functions 中使用 Send Grid
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure 中继异常及其解决方法"
-description: "Azure 中继异常以及解决这些异常应采取的建议操作的列表。"
+title: Azure 中继异常及其解决方法
+description: Azure 中继异常以及解决这些异常应采取的建议操作的列表。
 services: service-bus-relay
 documentationcenter: na
 author: Derek1101
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5f9dd02c-cce0-43b3-8eb8-744f0c27f38c
 ms.service: service-bus-relay
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285688"
 ---
 # <a name="azure-relay-exceptions"></a>Azure 中继异常
 

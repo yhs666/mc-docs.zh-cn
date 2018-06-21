@@ -1,6 +1,6 @@
 ---
-title: "调用计算机视觉 API | Microsoft Docs"
-description: "了解如何使用认知服务中的 REST 来调用计算机视觉 API。"
+title: 调用计算机视觉 API | Microsoft Docs
+description: 了解如何使用认知服务中的 REST 来调用计算机视觉 API。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407614"
 ---
 # <a name="how-to-call-computer-vision-api"></a>如何调用计算机视觉 API
 
@@ -37,8 +38,8 @@ ms.lasthandoff: 10/13/2017
 
 功能细分为：
 
-  - **选项一：**范围内分析 - 只分析给定的模型
-  - **选项二：**强化分析 - 通过分析，提供[“86 类”分类](../Category-Taxonomy.md)的更多详细信息。
+  - **选项一：** 范围内分析 - 只分析给定的模型
+  - **选项二：** 强化分析 - 通过分析，提供[“86 类”分类](../Category-Taxonomy.md)的更多详细信息。
   
 ### <a name="Step1">步骤 1：授权 API 调用</a> 
 每次调用计算机视觉 API 都需要提供订阅密钥。 需通过查询字符串参数传递此密钥，或者在请求标头中指定此密钥。 
@@ -46,15 +47,15 @@ ms.lasthandoff: 10/13/2017
 若要获取订阅密钥，请参阅[如何获取订阅密钥](../Vision-API-How-to-Topics/HowToSubscribe.md
 )。
 
-**1.**若要通过查询字符串传递订阅密钥，请参阅下面的计算机视觉 API 示例：
+**1.** 若要通过查询字符串传递订阅密钥，请参阅下面的计算机视觉 API 示例：
 
 ```https://api.cognitive.azure.cn/vision/v1.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>```
 
-**2.**也可以在 HTTP 请求标头中指定订阅密钥的传递方式：
+**2.** 也可以在 HTTP 请求标头中指定订阅密钥的传递方式：
 
 ```ocp-apim-subscription-key: <Your subscription key>```
 
-**3.**使用客户端库时，订阅密钥通过 VisionServiceClient 的构造函数传入：
+**3.** 使用客户端库时，订阅密钥通过 VisionServiceClient 的构造函数传入：
 
 ```var visionClient = new VisionServiceClient(“Your subscriptionKey”);```
 
@@ -63,7 +64,7 @@ ms.lasthandoff: 10/13/2017
 
 下面介绍如何获取给定图像的 "Tags" 和 "Description"：
 
-**选项一：**获取 "Tags" 的列表和一个 "Description"
+**选项一：** 获取 "Tags" 的列表和一个 "Description"
 ```
 POST https://api.cognitive.azure.cn/vision/v1.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
 ```
@@ -80,7 +81,7 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
   analysisResult = await visionClient.AnalyzeImageAsync(fs, features);
 }
 ```
-**选项二：**只获取 "Tags" 的列表，或者只获取 "Description" 的列表：
+**选项二：** 只获取 "Tags" 的列表，或者只获取 "Description" 的列表：
 
 ###### <a name="tags-only"></a>仅标记：
 ```
@@ -98,7 +99,7 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 ```
 ### <a name="here-is-how-to-get-domain-specific-analysis-in-our-case-for-celebrities"></a>下面介绍如何获取特定领域的分析（在我们的示例中为名人分析）。
 
-**选项一：**范围内分析 - 只分析给定的模型
+**选项一：** 范围内分析 - 只分析给定的模型
 ```
 POST https://api.cognitive.azure.cn/vision/v1.0/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
@@ -108,7 +109,7 @@ var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celeb
 GET https://api.cognitive.azure.cn/vision/v1.0/models 
 var models = await visionClient.ListModelsAsync();
 ```
-**选项二：**强化分析 - 通过分析，提供[“86 类”分类](../Category-Taxonomy.md)的更多详细信息。
+**选项二：** 强化分析 - 通过分析，提供[“86 类”分类](../Category-Taxonomy.md)的更多详细信息。
 
 如果应用程序用户除了获取一个或多个特定领域模型中的详细信息，还需要获取泛型图像分析信息，则可使用带模型查询参数的扩展型 v1 API。
 ```
@@ -160,7 +161,7 @@ description.captions[].confidence   | number    | 短语的置信度。
 
 ### <a name="Step4">步骤 4：检索并了解特定领域模型的 JSON 输出</a>
 
-**选项一：**范围内分析 - 只分析给定的模型
+**选项一：** 范围内分析 - 只分析给定的模型
 
 输出将会是标记数组，示例如下：
 ```
@@ -178,7 +179,7 @@ description.captions[].confidence   | number    | 短语的置信度。
   }
 ```
 
-**选项二：**强化分析 - 通过分析，提供“86 类”分类的更多详细信息。
+**选项二：** 强化分析 - 通过分析，提供“86 类”分类的更多详细信息。
 
 对于使用“选项二(强化分析)”的特定领域模型，会扩展类别返回类型。 示例如下：
 ```

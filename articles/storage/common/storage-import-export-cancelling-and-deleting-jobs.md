@@ -1,11 +1,11 @@
 ---
-title: "取消和删除 Azure 导入/导出作业 | Azure"
-description: "了解如何取消和删除 Azure 导入/导出服务的作业。"
+title: 取消和删除 Azure 导入/导出作业 | Azure
+description: 了解如何取消和删除 Azure 导入/导出服务的作业。
 author: forester123
 manager: digimobile
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: fd3d66f0-1dbb-4c75-9223-307d5abaeefc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/09/2017
+ms.locfileid: "22612509"
 ---
 # <a name="canceling-and-deleting-azure-importexport-jobs"></a>取消和删除 Azure 导入/导出作业
 

@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Azure IoT 套件概述 | Azure"
-description: "概述 Azure IoT 套件如何提供物联网预配置解决方案，以收集、分析和存储数据，提供可视化效果，以及与其他系统集成。"
-services: 
+title: Microsoft Azure IoT 套件概述 | Azure
+description: 概述 Azure IoT 套件如何提供物联网预配置解决方案，以收集、分析和存储数据，提供可视化效果，以及与其他系统集成。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
 ms.service: iot-suite
 ms.devlang: na
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22338912"
 ---
 # <a name="overview-of-azure-iot-suite"></a>Azure IoT 套件概述
 Azure 物联网 (IoT) 服务提供有各种功能。 这些企业级服务让你能够：

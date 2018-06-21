@@ -1,12 +1,12 @@
 ---
-title: "Power BI 工作区集合常见问题解答"
-description: "与 Power BI 工作区集合相关的常见问题。"
+title: Power BI 工作区集合常见问题解答
+description: 与 Power BI 工作区集合相关的常见问题。
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1475ed4f-fc84-4865-b243-e8a47d8bda59
 ms.service: power-bi-embedded
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/26/2017
+ms.locfileid: "23580310"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI 工作区集合常见问题解答
 

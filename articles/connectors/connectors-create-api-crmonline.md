@@ -21,6 +21,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30073804"
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>从逻辑应用工作流连接到 Dynamics 365
 

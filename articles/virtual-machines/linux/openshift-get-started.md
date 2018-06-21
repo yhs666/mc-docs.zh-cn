@@ -1,13 +1,13 @@
 ---
-title: "Azure 中的 OpenShift 概述 | Azure"
-description: "Azure 中的 OpenShift 概述。"
+title: Azure 中的 OpenShift 概述 | Azure
+description: Azure 中的 OpenShift 概述。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26727465"
 ---
 # <a name="openshift-in-azure"></a>Azure 中的 OpenShift
 

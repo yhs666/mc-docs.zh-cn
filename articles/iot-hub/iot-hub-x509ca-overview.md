@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT 中心 X.509 CA 安全性概述 | Microsoft Docs"
-description: "概述 - 如何使用 X.509 证书颁发机构在 IoT 中心对设备进行身份验证。"
+title: Azure IoT 中心 X.509 CA 安全性概述 | Microsoft Docs
+description: 概述 - 如何使用 X.509 证书颁发机构在 IoT 中心对设备进行身份验证。
 services: iot-hub
 documentationcenter: .net
 author: eustacea
 manager: arjmands
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24058626"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>使用 X.509 CA 证书进行设备身份验证
 

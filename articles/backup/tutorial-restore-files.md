@@ -1,13 +1,13 @@
 ---
-title: "使用 Azure 备份将文件还原到 VM | Microsoft 文档"
-description: "了解如何使用备份和恢复服务在 Azure VM 上执行文件级还原。"
+title: 使用 Azure 备份将文件还原到 VM | Microsoft 文档
+description: 了解如何使用备份和恢复服务在 Azure VM 上执行文件级还原。
 services: backup
 documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup
 ms.devlang: na
 ms.topic: tutorial
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730747"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>将文件还原到 Azure 中的虚拟机
 Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复保管库中。 从恢复点还原时，可以还原整个 VM，也可以还原单个文件。 本文将详细介绍如何还原单个文件。 本教程介绍如何执行下列操作：

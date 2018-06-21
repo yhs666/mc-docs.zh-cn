@@ -1,6 +1,6 @@
 ---
-title: "人脸 API 服务发行说明 | Microsoft Docs"
-description: "人脸 API 服务的发行说明包括各个版本的版本更改历史记录。"
+title: 人脸 API 服务发行说明 | Microsoft Docs
+description: 人脸 API 服务的发行说明包括各个版本的版本更改历史记录。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407611"
 ---
 # <a name="face-api-release-notes"></a>人脸 API 发行说明
 

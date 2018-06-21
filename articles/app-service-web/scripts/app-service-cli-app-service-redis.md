@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 将 Web 应用连接到 Redis 缓存 | Azure"
-description: "Azure CLI 脚本示例 - 将 Web 应用连接到 Redis 缓存"
+title: Azure CLI 脚本示例 - 将 Web 应用连接到 Redis 缓存 | Azure
+description: Azure CLI 脚本示例 - 将 Web 应用连接到 Redis 缓存
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
 ms.service: app-service
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146517"
 ---
 # <a name="connect-a-web-app-to-a-redis-cache"></a>将 Web 应用连接到 Redis 缓存
 

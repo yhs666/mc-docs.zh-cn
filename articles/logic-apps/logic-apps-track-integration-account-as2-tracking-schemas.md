@@ -21,6 +21,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31781970"
 ---
 # <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>启动或启用对 AS2 消息和 MDN 的跟踪，监视成功、错误和消息属性
 可以在 Azure 集成帐户中使用这些 AS2 跟踪架构来帮助监视企业到企业 (B2B) 的事务：

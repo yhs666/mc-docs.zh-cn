@@ -1,11 +1,11 @@
 ---
-title: "从 Azure 备份服务器恢复数据 | Microsoft Docs"
-description: "将所保护的数据从任意 Azure 备份服务器恢复到恢复服务保管库，前提是服务器已注册到该保管库。"
+title: 从 Azure 备份服务器恢复数据 | Microsoft Docs
+description: 将所保护的数据从任意 Azure 备份服务器恢复到恢复服务保管库，前提是服务器已注册到该保管库。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: a55f8c6b-3627-42e1-9d25-ed3e4ab17b1f
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/08/2017
+ms.locfileid: "22005309"
 ---
 # 从 Azure 备份服务器恢复数据<a name="recover-data-from-another-azure-backup-server"></a>
 可使用 Azure 备份服务器恢复已备份到恢复服务保管库的数据。 用于执行此操作的过程已集成到 Azure 备份服务器管理控制台中，且与其他 Azure 备份组件的恢复工作流类似。
@@ -88,9 +89,9 @@ ms.lasthandoff: 09/08/2017
 ## <a name="troubleshooting-error-messages"></a>错误消息疑难解答
 | 没有。 | 错误消息 | 疑难解答步骤 |
 |:---:|:--- |:--- |
-| 1. |此服务器未注册到保管库凭据所指定的保管库。 |**原因：**当所选保管库凭据文件不属于与 Azure 备份服务器（在其上进行恢复尝试）关联的恢复服务保管库时，会出现此错误。 <br> **解决方案：**从 Azure 备份服务器所注册到的恢复服务保管库中下载保管库凭据文件。 |
-| 2. |可恢复的数据不可用，或所选服务器不是 DPM 服务器。 |**原因：**没有其他 Azure 备份服务器注册到了恢复服务保管库、服务器尚未上传元数据，或者所选服务器不是 Azure 备份服务器（又称 Windows Server 或 Windows Client）。 <br> **解决方案：**如果有其他 Azure 备份服务器注册到了恢复服务保管库，请确保安装了最新 Azure 备份代理。 <br>如果有其他 Azure 备份服务器注册到了恢复服务保管库，请等到安装之后的某一天来启动恢复过程。 每夜执行的作业会将所有受保护备份的元数据上传到云。 数据可用于恢复。 |
-| 3. |没有其他 DPM 服务器注册到此保管库中。 |原因：不存在其他已注册到正在尝试从其中进行恢复的保管库的 Azure 备份服务器。<br>**解决方案：**如果有其他 Azure 备份服务器注册到了恢复服务保管库，请确保安装了最新 Azure 备份代理。<br>如果有其他 Azure 备份服务器注册到了恢复服务保管库，请等到安装之后的某一天来启动恢复过程。 每夜执行的作业会将所有受保护的备份的元数据上传到云。 数据可用于恢复。 |
+| 1. |此服务器未注册到保管库凭据所指定的保管库。 |**原因：** 当所选保管库凭据文件不属于与 Azure 备份服务器（在其上进行恢复尝试）关联的恢复服务保管库时，会出现此错误。 <br> **解决方案：** 从 Azure 备份服务器所注册到的恢复服务保管库中下载保管库凭据文件。 |
+| 2. |可恢复的数据不可用，或所选服务器不是 DPM 服务器。 |**原因：** 没有其他 Azure 备份服务器注册到了恢复服务保管库、服务器尚未上传元数据，或者所选服务器不是 Azure 备份服务器（又称 Windows Server 或 Windows Client）。 <br> **解决方案：** 如果有其他 Azure 备份服务器注册到了恢复服务保管库，请确保安装了最新 Azure 备份代理。 <br>如果有其他 Azure 备份服务器注册到了恢复服务保管库，请等到安装之后的某一天来启动恢复过程。 每夜执行的作业会将所有受保护备份的元数据上传到云。 数据可用于恢复。 |
+| 3. |没有其他 DPM 服务器注册到此保管库中。 |原因：不存在其他已注册到正在尝试从其中进行恢复的保管库的 Azure 备份服务器。<br>**解决方案：** 如果有其他 Azure 备份服务器注册到了恢复服务保管库，请确保安装了最新 Azure 备份代理。<br>如果有其他 Azure 备份服务器注册到了恢复服务保管库，请等到安装之后的某一天来启动恢复过程。 每夜执行的作业会将所有受保护的备份的元数据上传到云。 数据可用于恢复。 |
 | 4. |提供的加密密码与以下服务器的关联密码不匹配：<server name> |原因：用于对 Azure 备份服务器中正在恢复的数据进行加密的加密密码与所提供的加密密码不匹配。 代理不能对数据进行解密。 因此恢复失败。<br>解决方案：请确保提供的加密密码与要进行数据恢复的 Azure 备份服务器的相关加密密码相同。 |
 
 ## <a name="frequently-asked-questions"></a>常见问题

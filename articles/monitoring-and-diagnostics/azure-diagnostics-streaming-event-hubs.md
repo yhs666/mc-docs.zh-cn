@@ -1,11 +1,11 @@
 ---
-title: "使用事件中心流式处理热路径中的 Azure 诊断数据 | Microsoft Docs"
-description: "使用事件中心从头到尾配置 Azure 诊断，包括对常见方案的指导。"
+title: 使用事件中心流式处理热路径中的 Azure 诊断数据 | Microsoft Docs
+description: 使用事件中心从头到尾配置 Azure 诊断，包括对常见方案的指导。
 services: event-hubs
 documentationcenter: na
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: edeebaac-1c47-4b43-9687-f28e7e1e446a
 ms.service: monitoring-and-diagnostics
 ms.devlang: dotnet
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26045159"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>使用事件中心流式处理热路径中的 Azure 诊断数据
 Azure 诊断提供了灵活的方法用于收集来自云服务虚拟机 (VM) 的指标和日志，并将结果传输到 Azure 存储。 从 2016 年 3 月 (SDK 2.9) 这一时间范围开始，可以将诊断发送到自定义数据源，并使用 [Azure 事件中心](https://azure.microsoft.com/services/event-hubs/)在数秒内传输热路径数据。

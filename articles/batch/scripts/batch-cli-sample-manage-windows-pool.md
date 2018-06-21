@@ -1,12 +1,12 @@
 ---
-title: "Azure CLI 脚本示例 - Batch 中的 Windows 池 | Microsoft Docs"
-description: "Azure CLI 脚本示例 - 在 Batch 中创建和管理 Windows 池"
+title: Azure CLI 脚本示例 - Batch 中的 Windows 池 | Microsoft Docs
+description: Azure CLI 脚本示例 - 在 Batch 中创建和管理 Windows 池
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: sample
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29798100"
 ---
 # <a name="cli-example-create-and-manage-a-windows-pool-in-azure-batch"></a>CLI 示例：在 Azure Batch 中创建和管理 Windows 池
 

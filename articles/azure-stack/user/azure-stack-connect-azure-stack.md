@@ -20,6 +20,7 @@ ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29925270"
 ---
 # <a name="connect-to-azure-stack"></a>连接到 Azure Stack
 

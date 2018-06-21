@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中心设备管理入门 (.NET/Node) | Azure"
-description: "如何使用 Azure IoT 中心设备管理启动远程设备重启。 使用适用于 Node.js 的 Azure IoT 设备 SDK 实现包含直接方法的模拟设备应用，并使用适用于 .NET 的 Azure IoT 服务 SDK 实现调用直接方法的服务应用。"
+title: Azure IoT 中心设备管理入门 (.NET/Node) | Azure
+description: 如何使用 Azure IoT 中心设备管理启动远程设备重启。 使用适用于 Node.js 的 Azure IoT 设备 SDK 实现包含直接方法的模拟设备应用，并使用适用于 .NET 的 Azure IoT 服务 SDK 实现调用直接方法的服务应用。
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
 ms.service: iot-hub
 ms.devlang: multiple
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24058555"
 ---
 # <a name="get-started-with-device-management-netnode"></a>设备管理入门 (.NET/Node)
 

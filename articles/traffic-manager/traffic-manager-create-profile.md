@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 中创建流量管理器配置文件 | Azure"
-description: "本文介绍如何创建流量管理器配置文件"
+title: 在 Azure 中创建流量管理器配置文件 | Azure
+description: 本文介绍如何创建流量管理器配置文件
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23955078"
 ---
 # <a name="create-a-traffic-manager-profile"></a>创建流量管理器配置文件
 

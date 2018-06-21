@@ -1,13 +1,13 @@
 ---
-title: "Azure 应用服务本地缓存概述 | Microsoft Docs"
-description: "本文介绍如何针对 Azure 应用服务本地缓存功能执行启用、大小调整和状态查询操作。"
+title: Azure 应用服务本地缓存概述 | Microsoft Docs
+description: 本文介绍如何针对 Azure 应用服务本地缓存功能执行启用、大小调整和状态查询操作。
 services: app-service
 documentationcenter: app-service
 author: SyntaxC4
 manager: yochayk
-editor: 
+editor: ''
 tags: optional
-keywords: 
+keywords: ''
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.service: app-service
 ms.devlang: multiple
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23475135"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure 应用服务本地缓存概述
 Azure Web 应用内容存储在 Azure 存储中，作为内容共享持续提供。 此设计旨在兼容各种应用，具有以下特点：  

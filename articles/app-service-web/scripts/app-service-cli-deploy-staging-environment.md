@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 创建 Web 应用并将代码部署到过渡环境 | Azure"
-description: "Azure CLI 脚本示例 - 创建 Web 应用并将代码部署到过渡环境"
+title: Azure CLI 脚本示例 - 创建 Web 应用并将代码部署到过渡环境 | Azure
+description: Azure CLI 脚本示例 - 创建 Web 应用并将代码部署到过渡环境
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 2b995dcd-e471-4355-9fda-00babcdb156e
 ms.service: app-service-web
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146572"
 ---
 # <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>创建 Web 应用并将代码部署到过渡环境
 

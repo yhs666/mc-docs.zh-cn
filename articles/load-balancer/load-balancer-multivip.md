@@ -1,6 +1,6 @@
 ---
-title: "云服务的多个 VIP"
-description: "概述 MultiVIP，以及如何在云服务上设置多个 VIP"
+title: 云服务的多个 VIP
+description: 概述 MultiVIP，以及如何在云服务上设置多个 VIP
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870397"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>为云服务配置多个 VIP
 

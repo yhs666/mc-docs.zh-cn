@@ -1,11 +1,11 @@
 ---
-title: "如何配置新的多租户应用程序 | Microsoft Docs"
-description: "了解如何将应用程序配置为多多租户应用程序，以及多租户应用程序的工作原理"
+title: 如何配置新的多租户应用程序 | Microsoft Docs
+description: 了解如何将应用程序配置为多多租户应用程序，以及多租户应用程序的工作原理
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/29/2017
+ms.locfileid: "27548225"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>如何配置新的多租户应用程序
 

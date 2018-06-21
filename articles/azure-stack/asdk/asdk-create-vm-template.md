@@ -22,6 +22,7 @@ ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30155675"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>教程：使用社区模板创建 VM
 作为 Azure Stack 操作员或用户，你可以使用[自定义 GitHub 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)来创建 VM，不需通过 Azure Stack Marketplace 来手动进行部署。

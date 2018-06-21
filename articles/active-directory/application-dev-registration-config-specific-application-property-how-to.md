@@ -1,11 +1,11 @@
 ---
-title: "如何填写自定义开发应用程序的特定字段 | Azure"
-description: "有关使用 Azure AD 注册自定义开发的应用程序时如何填写特定字段的指南"
+title: 如何填写自定义开发应用程序的特定字段 | Azure
+description: 有关使用 Azure AD 注册自定义开发的应用程序时如何填写特定字段的指南
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/29/2017
+ms.locfileid: "27548422"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>如何填写自定义开发应用程序的特定字段
 

@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29798117"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>使用发布工具添加 Marketplace 项
 将内容添加到 [Azure Stack Marketplace](azure-stack-marketplace.md) 后，你和租户可将你的解决方案用于部署。  Marketplace 工具包基于 IaaS Azure 资源管理器模板或 VM 扩展创建 Azure Marketplace 包 (.azpkg) 文件。  还可以使用 Marketplace 工具包来发布通过工具或[手动](azure-stack-create-and-publish-marketplace-item.md)步骤创建的 .azpkg 文件。  本主题逐步讲解如何下载该工具、基于 VM 模板创建 Marketplace 项，然后将该项发布到 Azure Stack Marketplace。     

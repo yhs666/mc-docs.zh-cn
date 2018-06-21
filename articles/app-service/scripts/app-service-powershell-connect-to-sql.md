@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 脚本示例 - 将 Web 应用连接到 SQL 数据库 | Azure"
-description: "Azure PowerShell 脚本示例 - 将 Web 应用连接到 SQL 数据库"
+title: Azure PowerShell 脚本示例 - 将 Web 应用连接到 SQL 数据库 | Azure
+description: Azure PowerShell 脚本示例 - 将 Web 应用连接到 SQL 数据库
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 055440a9-fff1-49b2-b964-9c95b364e533
 ms.service: app-service
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23475202"
 ---
 # <a name="connect-a-web-app-to-a-sql-database"></a>将 Web 应用连接到 SQL 数据库
 

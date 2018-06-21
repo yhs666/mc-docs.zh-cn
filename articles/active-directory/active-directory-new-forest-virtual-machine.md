@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31319194"
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>在 Azure 虚拟网络中安装新的 Active Directory 林
 本文说明如何在 [Azure 虚拟网络](../virtual-network/virtual-networks-overview.md)上的虚拟机 (VM) 中创建新的 Windows Server Active Directory 环境。 在此情况下，Azure 虚拟网络未连接到本地网络。

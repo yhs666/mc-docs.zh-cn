@@ -14,6 +14,7 @@ ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30223412"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>准备目标（VMware 到 Azure）
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 03/28/2018
 ![准备目标](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
 
 1. 订阅：从下拉菜单中，选择要将物理服务器复制到的“订阅”。
-2. **部署模型：**选择部署模型（经典或资源管理器）
+2. **部署模型：** 选择部署模型（经典或资源管理器）
 
 根据选择的部署模型，系统会运行验证来确保目标订阅至少拥有一个兼容的存储帐户和虚拟网络，可供将物理服务器复制和故障转移到其中。
 

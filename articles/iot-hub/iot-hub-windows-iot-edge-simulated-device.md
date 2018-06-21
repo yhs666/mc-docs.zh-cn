@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure IoT Edge 模拟设备 (Windows) | Azure"
-description: "如何在 Windows 上使用 Azure IoT Edge 创建模拟设备，从而通过 Azure IoT Edge 网关将遥测数据发送到 IoT 中心。"
+title: 使用 Azure IoT Edge 模拟设备 (Windows) | Azure
+description: 如何在 Windows 上使用 Azure IoT Edge 创建模拟设备，从而通过 Azure IoT Edge 网关将遥测数据发送到 IoT 中心。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: Derek1101
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6a2aeda0-696a-4732-90e1-595d2e2fadc6
 ms.service: iot-hub
 ms.devlang: cpp
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24058560"
 ---
 # <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>使用 Azure IoT Edge，通过模拟设备发送设备到云消息 (Windows)
 

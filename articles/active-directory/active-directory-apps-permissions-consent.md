@@ -23,6 +23,7 @@ ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/19/2018
+ms.locfileid: "29993305"
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Azure Active Directory 中的应用、权限和同意
 在 Azure Active Directory 内，可以向目录添加应用程序。  可以添加的应用程序因应用程序的类型而异。  若要在门户中查看某个应用程序，请选择一个目录，并选择应用程序。

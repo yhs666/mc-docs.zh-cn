@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Site Recovery 从保护项中排除磁盘 | Azure"
-description: "介绍在从 Hyper-V 复制到 Azure 时，为何需要从复制中排除 VM 磁盘，以及如何这样做。"
+title: 使用 Azure Site Recovery 从保护项中排除磁盘 | Azure
+description: 介绍在从 Hyper-V 复制到 Azure 时，为何需要从复制中排除 VM 磁盘，以及如何这样做。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731502"
 ---
 # <a name="exclude-disks-from-replication"></a>从复制中排除磁盘
 本文介绍如何从复制中排除磁盘。 这种排除可以优化消耗的复制带宽，或者优化此类磁盘利用的目标端资源。

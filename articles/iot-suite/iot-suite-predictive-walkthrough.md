@@ -1,12 +1,12 @@
 ---
-title: "预见性维护演练 | Azure"
-description: "Azure IoT 预见性维护预配置解决方案演练。"
-services: 
+title: 预见性维护演练 | Azure
+description: Azure IoT 预见性维护预配置解决方案演练。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3c48a716-b805-4c99-8177-414cc4bec3de
 ms.service: iot-suite
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592113"
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>预见性维护预配置解决方案演练
 

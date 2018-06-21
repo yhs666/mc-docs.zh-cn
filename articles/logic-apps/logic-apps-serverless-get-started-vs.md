@@ -1,12 +1,12 @@
 ---
-title: "在 Visual Studio 中构建无服务器应用"
-description: "参考这篇有关在 Visual Studio 中创建、部署和管理应用的指南开始构建第一个无服务器应用。"
-keywords: 
+title: 在 Visual Studio 中构建无服务器应用
+description: 参考这篇有关在 Visual Studio 中创建、部署和管理应用的指南开始构建第一个无服务器应用。
+keywords: ''
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: integration
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870555"
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>使用逻辑应用和 Functions 在 Visual Studio 中构建无服务器应用
 

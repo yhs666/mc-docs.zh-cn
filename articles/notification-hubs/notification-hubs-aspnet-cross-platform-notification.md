@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 通知中心向用户发送跨平台通知 (ASP.NET)"
-description: "了解如何使用通知中心模板在单个请求中发送针对所有平台的平台未知通知。"
+title: 使用 Azure 通知中心向用户发送跨平台通知 (ASP.NET)
+description: 了解如何使用通知中心模板在单个请求中发送针对所有平台的平台未知通知。
 services: notification-hubs
-documentationcenter: 
+documentationcenter: ''
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
 ms.service: notification-hubs
 ms.workload: mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: c0a9889921cd1ee52d58255a5a2db5e7930c4a4b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/23/2018
+ms.locfileid: "28001697"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>使用通知中心向用户发送跨平台通知
 在上一教程[使用通知中心通知用户]中，我们了解了如何向注册给经过身份验证的特定用户的所有设备推送通知。 在该教程中，需要使用多个请求将通知发送到每个支持的客户端平台。 Azure 通知中心支持模板，可以通过模板指定特定设备要如何接收通知。 此方法简化了发送跨平台通知的方式。 

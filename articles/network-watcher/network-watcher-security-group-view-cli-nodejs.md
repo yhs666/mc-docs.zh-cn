@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序安全组视图分析网络安全性 - Azure CLI 1.0 | Azure"
-description: "本文将介绍如何使用 Azure CLI 1.0 通过安全组视图分析虚拟机安全性。"
+title: 使用 Azure 网络观察程序安全组视图分析网络安全性 - Azure CLI 1.0 | Azure
+description: 本文将介绍如何使用 Azure CLI 1.0 通过安全组视图分析虚拟机安全性。
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: a986ff4f-7e0c-4994-95e1-4ac824986500
 ms.service: network-watcher
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/14/2017
+ms.locfileid: "24519537"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-10"></a>使用 Azure CLI 1.0 通过安全组视图分析虚拟机安全性
 

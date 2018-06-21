@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure PowerShell 管理 Azure DNS 中的 DNS 记录 | Azure"
-description: "在 Azure DNS 上托管域时管理 Azure DNS 上的 DNS 记录集和记录。 记录集和记录上的操作的所有 PowerShell 命令。"
+title: 使用 Azure PowerShell 管理 Azure DNS 中的 DNS 记录 | Azure
+description: 在 Azure DNS 上托管域时管理 Azure DNS 上的 DNS 记录集和记录。 记录集和记录上的操作的所有 PowerShell 命令。
 services: dns
 documentationcenter: na
 author: yunan2016
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26722260"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure DNS 中的 DNS 记录和记录集
 

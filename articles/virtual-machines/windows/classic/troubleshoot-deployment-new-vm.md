@@ -1,11 +1,11 @@
 ---
-title: "排查 Windows VM 经典部署问题 | Azure"
-description: "排查在 Azure 中新建 Windows 虚拟机时遇到的经典部署问题"
+title: 排查 Windows VM 经典部署问题 | Azure
+description: 排查在 Azure 中新建 Windows 虚拟机时遇到的经典部署问题
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 9f01d237-ba39-4c32-b72d-18f5f505d43a
 ms.service: virtual-machines-windows
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26727537"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>排查在 Azure 中新建 Windows 虚拟机时遇到的经典部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-selectors-include.md)]
@@ -46,9 +47,9 @@ ms.lasthandoff: 12/15/2017
 
 **上传错误：**
 
-**N<sup>1</sup>：**如果 OS 是通用的 Windows，但是以专用设置上传的，则会发生预配超时错误，并且 VM 会卡在 OOBE 屏幕上。
+**N<sup>1</sup>：** 如果 OS 是通用的 Windows，但是以专用设置上传的，则会发生预配超时错误，并且 VM 会卡在 OOBE 屏幕上。
 
-**N<sup>2</sup>：**如果 OS 是专用的 Windows，但是以通用设置上传的，则会发生预配失败错误，并且 VM 会卡在 OOBE 屏幕上，因为新 VM 是以原始计算机名称、用户名和密码运行的。
+**N<sup>2</sup>：** 如果 OS 是专用的 Windows，但是以通用设置上传的，则会发生预配失败错误，并且 VM 会卡在 OOBE 屏幕上，因为新 VM 是以原始计算机名称、用户名和密码运行的。
 
 **解决方法：**
 
@@ -56,9 +57,9 @@ ms.lasthandoff: 12/15/2017
 
 **捕获错误：**
 
-**N<sup>3</sup>：**如果 OS 是通用的 Windows，但是以专用设置捕获的，则会发生预配超时错误，因为标记为通用的原始 VM 不可用。
+**N<sup>3</sup>：** 如果 OS 是通用的 Windows，但是以专用设置捕获的，则会发生预配超时错误，因为标记为通用的原始 VM 不可用。
 
-**N<sup>4</sup>：**如果 OS 是专用的 Windows，但是以专用设置捕获的，则会发生预配失败错误，因为新 VM 是以原始计算机名称、用户名和密码运行的。 此外，标记为专用的原始 VM 不可用。
+**N<sup>4</sup>：** 如果 OS 是专用的 Windows，但是以专用设置捕获的，则会发生预配失败错误，因为新 VM 是以原始计算机名称、用户名和密码运行的。 此外，标记为专用的原始 VM 不可用。
 
 **解决方法：**
 

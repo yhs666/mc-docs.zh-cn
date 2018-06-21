@@ -1,8 +1,8 @@
 ---
-title: "创建要在 Spark 群集上运行的 Scala 应用 - Azure HDInsight | Azure"
-description: "将 Apache Maven 作为生成系统和 IntelliJ IDEA 提供的 Scala 的现有 Maven 原型，创建用 Scala 编写的 Spark 应用程序。"
+title: 创建要在 Spark 群集上运行的 Scala 应用 - Azure HDInsight | Azure
+description: 将 Apache Maven 作为生成系统和 IntelliJ IDEA 提供的 Scala 的现有 Maven 原型，创建用 Scala 编写的 Spark 应用程序。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26721722"
 ---
 # <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>创建要在 HDInsight 上的 Apache Spark 群集中运行的 Scala Maven 应用程序
 

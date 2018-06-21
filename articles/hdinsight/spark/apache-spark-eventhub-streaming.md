@@ -1,9 +1,9 @@
 ---
-title: "在 Azure HDInsight 中将 Apache Spark 流式处理与事件中心配合使用 | Azure"
-description: "构建一个 Apache Spark 流式处理示例，用于演示如何向 Azure 事件中心发送数据流，然后使用 scala 应用程序在 HDInsight Spark 群集中接收这些事件。"
-keywords: "apache spark 流式处理,spark 流式处理,spark 示例,apache spark 流式处理示例,事件中心 azure 示例,spark 示例"
+title: 在 Azure HDInsight 中将 Apache Spark 流式处理与事件中心配合使用 | Azure
+description: 构建一个 Apache Spark 流式处理示例，用于演示如何向 Azure 事件中心发送数据流，然后使用 scala 应用程序在 HDInsight Spark 群集中接收这些事件。
+keywords: apache spark 流式处理,spark 流式处理,spark 示例,apache spark 流式处理示例,事件中心 azure 示例,spark 示例
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -23,6 +23,7 @@ ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27781364"
 ---
 # <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Apache Spark 流式处理：在 HDInsight 上使用 Spark 群集处理来自 Azure 事件中心的数据
 

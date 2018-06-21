@@ -1,11 +1,11 @@
 ---
-title: "跨界连接的规划和设计：Azure VPN 网关 | Microsoft 文档"
-description: "了解跨界、混合与 VNet 到 VNet 连接的 VPN 网关规划和设计"
+title: 跨界连接的规划和设计：Azure VPN 网关 | Microsoft 文档
+description: 了解跨界、混合与 VNet 到 VNet 连接的 VPN 网关规划和设计
 services: vpn-gateway
 documentationcenter: na
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: d5aaab83-4e74-4484-8bf0-cc465811e757
 ms.service: vpn-gateway
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/28/2017
+ms.locfileid: "25949501"
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>规划和设计 VPN 网关
 

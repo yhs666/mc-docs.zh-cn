@@ -1,6 +1,6 @@
 ---
-title: "将自定义域添加到 Azure AD |Microsoft Docs"
-description: "介绍如何在 Azure Active Directory 中添加自定义域。"
+title: 将自定义域添加到 Azure AD |Microsoft Docs
+description: 介绍如何在 Azure Active Directory 中添加自定义域。
 services: active-directory
 author: yunan2016
 manager: digimobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/29/2017
+ms.locfileid: "27548432"
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>快速入门：将自定义域名添加到 Azure Active Directory
 

@@ -1,9 +1,9 @@
 ---
-title: "为工作或学校帐户设置双重验证 | Microsoft Docs"
-description: "公司配置 Azure 多重身份验证时，会提示注册双重验证。 了解如何进行设置。 "
+title: 为工作或学校帐户设置双重验证 | Microsoft Docs
+description: '公司配置 Azure 多重身份验证时，会提示注册双重验证。 了解如何进行设置。 '
 services: multi-factor-authentication
-keywords: "如何使用 azure 目录, 云中的 active directory, active directory 教程"
-documentationcenter: 
+keywords: 如何使用 azure 目录, 云中的 active directory, active directory 教程
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29797871"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>为帐户设置双重验证
 双重验证是一种额外的安全步骤，可使帐户更难被其他人攻破，从而帮助保护帐户。 如果正在阅读本文，可能会收到来自工作或学校管理员的有关多重身份验证的电子邮件。 或者，也许会在尝试登录时收到消息，要求设置其他安全性验证。 如果是这种情况， **在完成自动注册过程之前无法登录**。

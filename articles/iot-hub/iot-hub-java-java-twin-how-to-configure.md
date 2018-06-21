@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure IoT 中心设备孪生属性 (Java) | Microsoft Docs"
-description: "如何使用 Azure IoT 中心设备孪生配置设备。 使用用于 Java 的 Azure IoT 设备 SDK 实现模拟设备应用，并使用用于 Java 的 Azure IoT 服务 SDK 实现可使用设备孪生更改设备配置的服务应用。"
+title: 使用 Azure IoT 中心设备孪生属性 (Java) | Microsoft Docs
+description: 如何使用 Azure IoT 中心设备孪生配置设备。 使用用于 Java 的 Azure IoT 设备 SDK 实现模拟设备应用，并使用用于 Java 的 Azure IoT 服务 SDK 实现可使用设备孪生更改设备配置的服务应用。
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24058629"
 ---
 # <a name="use-desired-properties-to-configure-devices"></a>使用所需属性配置设备
 

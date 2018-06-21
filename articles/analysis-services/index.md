@@ -1,11 +1,11 @@
 ---
-title: "Azure Analysis Services 文档 - 教程、API 参考 | Azure"
-description: "了解如何在云中使用 Analysis Services 设置数据建模。 文档介绍了如何使用表格数据创建企业 BI 解决方案。"
+title: Azure Analysis Services 文档 - 教程、API 参考 | Azure
+description: 了解如何在云中使用 Analysis Services 设置数据建模。 文档介绍了如何使用表格数据创建企业 BI 解决方案。
 services: analysis-services
 author: rockboyfor
 manager: digimobile
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: analysis-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29797754"
 ---
 # <a name="analysis-services-documentation"></a>Analysis Services 文档
 

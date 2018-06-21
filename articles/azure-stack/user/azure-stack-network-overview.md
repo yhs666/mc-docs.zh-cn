@@ -14,6 +14,7 @@ ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31805361"
 ---
 # <a name="introduction-to-azure-stack-networking"></a>Azure Stack 网络简介
 

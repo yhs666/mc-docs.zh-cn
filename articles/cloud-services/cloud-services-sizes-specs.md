@@ -1,11 +1,11 @@
 ---
-title: "Azure 云服务的虚拟机大小"
-description: "列出 Azure 云服务 Web 角色和辅助角色的不同虚拟机大小（及 ID）。"
+title: Azure 云服务的虚拟机大小
+description: 列出 Azure 云服务 Web 角色和辅助角色的不同虚拟机大小（及 ID）。
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
 ms.service: cloud-services
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285317"
 ---
 # <a name="sizes-for-cloud-services"></a>云服务的大小
 

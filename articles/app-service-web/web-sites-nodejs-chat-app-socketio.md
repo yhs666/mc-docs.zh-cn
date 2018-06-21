@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 应用服务中使用 Socket.IO 创建 Node.js 聊天应用程序"
-description: "此教程演示如何在托管于 Azure 上的 node.js Web 应用中使用 socket.io。"
+title: 在 Azure 应用服务中使用 Socket.IO 创建 Node.js 聊天应用程序
+description: 此教程演示如何在托管于 Azure 上的 node.js Web 应用中使用 socket.io。
 services: app-service\web
 documentationcenter: nodejs
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c4c4af36-3ecf-4619-b586-ca90d53ce35b
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/28/2017
+ms.locfileid: "25949540"
 ---
 # <a name="create-a-nodejs-chat-application-with-socketio-in-azure-app-service"></a>在 Azure 应用服务中使用 Socket.IO 创建 Node.js 聊天应用程序
 Socket.IO 使用 WebSocket 在 node.js 服务器和客户端之间提供实时通信。 还支持回退到使用低版本浏览器的其他传输（如长轮询）。 本教程演示如何以 Azure Web 应用的形式托管基于 Socket.IO 的聊天应用程序，并说明如何通过 [Azure Redis 缓存]缩放应用程序。 有关 Socket.IO 的详细信息，请参阅 <http://socket.io/>。

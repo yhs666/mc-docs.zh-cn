@@ -1,12 +1,12 @@
 ---
-title: "远程监视解决方案中的设备信息元数据 | Microsoft 文档"
-description: "介绍 Azure IoT 预配置解决方案远程监视及其体系结构。"
-services: 
+title: 远程监视解决方案中的设备信息元数据 | Microsoft 文档
+description: 介绍 Azure IoT 预配置解决方案远程监视及其体系结构。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1b334769-103b-4eb0-a293-184f3d1ba9a3
 ms.service: iot-suite
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592568"
 ---
 # <a name="device-information-metadata-in-the-remote-monitoring-preconfigured-solution"></a>远程监视预配置解决方案中的设备信息元数据
 

@@ -1,11 +1,11 @@
 ---
-title: "通用 SQL 连接器分步指南 | Microsoft Docs"
-description: "本文指导完成一个使用通用 SQL 连接器的简单 HR 系统分步示例。"
+title: 通用 SQL 连接器分步指南 | Microsoft Docs
+description: 本文指导完成一个使用通用 SQL 连接器的简单 HR 系统分步示例。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 28c1cc60-24fd-4d0d-a36d-b4aba6de86e7
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27162535"
 ---
 # <a name="generic-sql-connector-step-by-step"></a>通用 SQL 连接器分步说明
 本主题是一份循序渐进的指南。 其中将会创建一个简单的示例 HR 数据库，并使用它导入一些用户及其组成员身份。

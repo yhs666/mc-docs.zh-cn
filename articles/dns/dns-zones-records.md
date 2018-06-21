@@ -1,11 +1,11 @@
 ---
-title: "DNS 区域和记录概述 - Azure DNS | Azure"
-description: "对在 Microsoft Azure DNS 中托管 DNS 区域和记录的支持的概述。"
+title: DNS 区域和记录概述 - Azure DNS | Azure
+description: 对在 Microsoft Azure DNS 中托管 DNS 区域和记录的支持的概述。
 services: dns
 documentationcenter: na
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/29/2017
+ms.locfileid: "27548223"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 区域和记录概述
 

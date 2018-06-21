@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric 操作通道 | Azure"
-description: "完整列出了在 Azure Service Fabric 群集的操作通道中生成的日志。"
+title: Azure Service Fabric 操作通道 | Azure
+description: 完整列出了在 Azure Service Fabric 群集的操作通道中生成的日志。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26044997"
 ---
 # <a name="operational-channel"></a>操作通道 
 

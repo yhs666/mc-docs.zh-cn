@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 脚本示例 - 备份 Web 应用 | Microsoft Docs"
-description: "Azure PowerShell 脚本示例 - 备份 Web 应用"
+title: Azure PowerShell 脚本示例 - 备份 Web 应用 | Microsoft Docs
+description: Azure PowerShell 脚本示例 - 备份 Web 应用
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: fc755f82-ca3e-4532-b251-690b699324d6
 ms.service: app-service-web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/25/2017
+ms.locfileid: "27546591"
 ---
 # <a name="back-up-a-web-app"></a>备份 Web 应用
 

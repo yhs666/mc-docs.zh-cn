@@ -1,14 +1,14 @@
 ---
-title: "工具和 API 参考"
-description: "本文提供了工具和 API 参考的链接"
-metaCanonical: 
-services: 
+title: 工具和 API 参考
+description: 本文提供了工具和 API 参考的链接
+metaCanonical: ''
+services: ''
 documentationCenter: develop
 author: bbetstcw
 layout: LandingPage
-solutions: 
-manager: 
-editor: 
+solutions: ''
+manager: ''
+editor: ''
 ms.service: multiple
 ms.topic: landing-page
 ms.author: v-dazen
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "23993653"
 ---
 # <a name="tools-and-api-references"></a>工具和 API 参考
 

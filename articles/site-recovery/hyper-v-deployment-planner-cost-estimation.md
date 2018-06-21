@@ -1,6 +1,6 @@
 ---
-title: "适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器成本估算详细信息 | Azure"
-description: "本文介绍使用适用于 Hyper-V 到 Azure 方案的 Azure Site Recovery 部署规划器生成的报表的成本估算详细信息。"
+title: 适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器成本估算详细信息 | Azure
+description: 本文介绍使用适用于 Hyper-V 到 Azure 方案的 Azure Site Recovery 部署规划器生成的报表的成本估算详细信息。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731456"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery 部署规划器成本估算报表 
 

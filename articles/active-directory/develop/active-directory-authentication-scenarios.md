@@ -1,11 +1,11 @@
 ---
-title: "Azure AD 的身份验证方案 | Microsoft Docs"
-description: "Azure Active Directory (AAD) 的五个最常见身份验证方案概述"
+title: Azure AD 的身份验证方案 | Microsoft Docs
+description: Azure Active Directory (AAD) 的五个最常见身份验证方案概述
 services: active-directory
 documentationcenter: dev-center-name
 author: skwan
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27769182"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Azure AD 的身份验证方案
 Azure Active Directory (Azure AD) 通过以下方式简化了对开发人员的身份验证：将标识作为服务提供、支持行业标准协议（例如 OAuth 2.0 和 OpenID Connect），并提供用于不同平台的开源库，帮助你快速开始编码。 本文档将帮助你了解 Azure AD 支持的各种方案并演示如何入门。 具体内容划为以下几部分：

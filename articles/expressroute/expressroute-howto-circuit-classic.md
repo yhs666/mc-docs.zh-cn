@@ -1,11 +1,11 @@
 ---
-title: "修改 ExpressRoute 线路：PowerShell：Azure 经典 | Azure"
-description: "本文逐步讲解检查状态以及更新或删除并预配 ExpressRoute 经典部署模型线路的步骤。"
+title: 修改 ExpressRoute 线路：PowerShell：Azure 经典 | Azure
+description: 本文逐步讲解检查状态以及更新或删除并预配 ExpressRoute 经典部署模型线路的步骤。
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
 ms.service: expressroute
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26044658"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 修改 ExpressRoute 线路（经典）
 

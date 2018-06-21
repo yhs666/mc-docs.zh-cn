@@ -1,11 +1,11 @@
 ---
-title: "Azure DNS 故障排除指南 | Azure"
-description: "如何排查 Azure DNS 的常见问题"
+title: Azure DNS 故障排除指南 | Azure
+description: 如何排查 Azure DNS 的常见问题
 services: dns
 documentationcenter: na
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 95b01dc3-ee69-4575-a259-4227131e4f9c
 ms.service: dns
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26722243"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Azure DNS 疑难解答指南
 

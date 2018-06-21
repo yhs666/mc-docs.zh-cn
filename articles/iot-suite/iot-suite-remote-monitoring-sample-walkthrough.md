@@ -1,12 +1,12 @@
 ---
-title: "远程监视解决方案的体系结构 - Azure | Microsoft Docs"
-description: "有关远程监视预配置解决方案的体系结构的演练。"
-services: 
+title: 远程监视解决方案的体系结构 - Azure | Microsoft Docs
+description: 有关远程监视预配置解决方案的体系结构的演练。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592187"
 ---
 # <a name="remote-monitoring-preconfigured-solution-architecture"></a>远程监视预配置解决方案体系结构
 

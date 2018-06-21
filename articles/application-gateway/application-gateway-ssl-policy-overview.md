@@ -1,11 +1,11 @@
 ---
-title: "Azure 应用程序网关的 SSL 策略概述 | Microsoft Docs"
-description: "了解 Azure 应用程序网关允许用户配置 SSL 策略"
+title: Azure 应用程序网关的 SSL 策略概述 | Microsoft Docs
+description: 了解 Azure 应用程序网关允许用户配置 SSL 策略
 services: application gateway
 documentationcenter: na
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 tags: azure resource manager
 ms.service: application gateway
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/15/2017
+ms.locfileid: "22111511"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>应用程序网关 SSL 策略概述
 

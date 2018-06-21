@@ -1,11 +1,11 @@
 ---
-title: "Lotus Domino 连接器 | Microsoft Docs"
-description: "本文介绍如何配置 Microsoft 的 Lotus Domino 连接器。"
+title: Lotus Domino 连接器 | Microsoft Docs
+description: 本文介绍如何配置 Microsoft 的 Lotus Domino 连接器。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25591938"
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Lotus Domino 连接器技术参考
 本指南介绍 Lotus Domino 连接器。 本文适用于以下产品：
@@ -106,7 +107,7 @@ IBM Lotus Notes 客户端和 Domino 服务器使用 Notes 远程过程调用 (NR
 在功能页面上，请只安装所需的 Lotus Notes 功能和“客户端单一登录”。 必须要有单一登录，连接器才能登录到 Domino 服务器。  
 ![Notes2](./media/active-directory-aadconnectsync-connector-domino/notes2.png)
 
-**注意：**请启动 Lotus Notes 一次，且启动时所使用的用户必须位于与将作为连接器服务帐户的帐户同一服务器上。 此外请务必在服务器上关闭 Lotus Notes 客户端。 客户端不能在连接器尝试连接到 Domino 服务器的同时运行。
+**注意：** 请启动 Lotus Notes 一次，且启动时所使用的用户必须位于与将作为连接器服务帐户的帐户同一服务器上。 此外请务必在服务器上关闭 Lotus Notes 客户端。 客户端不能在连接器尝试连接到 Domino 服务器的同时运行。
 
 ### <a name="create-connector"></a>创建连接器
 若要创建 Lotus Domino 连接器，请在“同步服务”中选择“管理代理”和“创建”。 选择“Lotus Domino (Microsoft)”连接器。  

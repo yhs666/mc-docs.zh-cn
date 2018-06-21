@@ -1,6 +1,6 @@
 ---
-title: "B2B 企业集成 - Azure 逻辑应用"
-description: "使用 Enterprise Integration Pack 构建 B2B 工作流，并支持将企业集成方案用于逻辑应用"
+title: B2B 企业集成 - Azure 逻辑应用
+description: 使用 Enterprise Integration Pack 构建 B2B 工作流，并支持将企业集成方案用于逻辑应用
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870554"
 ---
 # <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>概述：使用 Enterprise Integration Pack 实现 B2B 方案和通信
 

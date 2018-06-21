@@ -1,8 +1,8 @@
 ---
-title: "Azure 门户概述 | Microsoft Docs"
-description: "了解如何使用 Azure 门户。"
-services: 
-documentationcenter: 
+title: Azure 门户概述 | Microsoft Docs
+description: 了解如何使用 Azure 门户。
+services: ''
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 editor: jimbe
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/28/2017
+ms.locfileid: "27547631"
 ---
 # <a name="azure-portal-overview"></a>Azure 门户概述
 Azure 门户是一个中心位置，可在其中预配和管理 Azure 资源。  本教程将帮助你熟悉此门户，并介绍如何使用以下一些关键功能：

@@ -1,11 +1,11 @@
 ---
-title: "将 Azure 中的数据还原到 Windows Server 或 Windows 计算机 | Microsoft 文档"
-description: "了解如何将 Azure 中存储的数据还原到 Windows Server 或 Windows 计算机。"
+title: 将 Azure 中的数据还原到 Windows Server 或 Windows 计算机 | Microsoft 文档
+description: 了解如何将 Azure 中存储的数据还原到 Windows Server 或 Windows 计算机。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: 
+editor: ''
 ms.assetid: 742f4b9e-c0ab-4eeb-8e22-ee29b83c22c4
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285180"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>使用 Resource Manager 部署模型将文件还原到 Windows Server 或 Windows 客户端计算机
 

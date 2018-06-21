@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Active Directory 中添加或更改用户的个人资料信息 | Microsoft Docs"
-description: "介绍如何在 Azure Active Directory 中添加用户个人资料，包括个人资料照片"
+title: 在 Azure Active Directory 中添加或更改用户的个人资料信息 | Microsoft Docs
+description: 介绍如何在 Azure Active Directory 中添加用户个人资料，包括个人资料照片
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: aa38ab92-a867-45d7-9dc1-7f1c628f7ed3
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29527641"
 ---
 # <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>在 Azure Active Directory 中添加或更改用户的个人资料信息
 本文介绍如何在 Azure Active Directory (Azure AD) 中添加用户个人资料信息（例如，个人资料图片或电话和电子邮件身份验证信息）。 

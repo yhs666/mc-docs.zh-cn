@@ -1,12 +1,12 @@
 ---
-title: "管理已加入域的 HDInsight 群集 - Azure"
-description: "了解如何管理已加入域的 HDInsight 群集"
+title: 管理已加入域的 HDInsight 群集 - Azure
+description: 了解如何管理已加入域的 HDInsight 群集
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: jhubbard
 editor: cgronlun
-tags: 
+tags: ''
 ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731167"
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>管理已加入域的 HDInsight 群集
 了解已加入域的 HDInsight 中的用户和角色，以及如何管理已加入域的 HDInsight 群集。

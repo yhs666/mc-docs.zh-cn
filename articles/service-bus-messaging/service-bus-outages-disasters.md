@@ -1,11 +1,11 @@
 ---
-title: "使 Azure 服务总线应用程序免受服务中断和灾难影响"
-description: "保护应用程序免受潜在服务总线故障影响的技术。"
+title: 使 Azure 服务总线应用程序免受服务中断和灾难影响
+description: 保护应用程序免受潜在服务总线故障影响的技术。
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730859"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>使应用程序免受服务总线中断和灾难影响的最佳实践
 任务关键型应用程序必须连续运行，即使是在计划外中断或灾难发生时。 本主题介绍可用于保护服务总线应用程序免受潜在的服务中断和灾难影响的技术。

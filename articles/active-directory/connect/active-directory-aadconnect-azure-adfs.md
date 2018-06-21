@@ -1,12 +1,12 @@
 ---
-title: "Azure 中的 Active Directory 联合身份验证服务 | Microsoft 文档"
-description: "在本文档中，可以学习如何在 Azure 中部署 AD FS 以实现高可用性。"
-keywords: "在 Azure 中部署 AD FS, 部署 Azure ADFS, Azure ADFS, Azure AD FS, 部署 ADFS, 部署 AD FS, Azure 中的 ADFS, 在 Azure 中部署 ADFS, 在 Azure 中部署 AD FS, ADFS Azure, AD FS 简介, Azure, Azure 中的 AD FS, IaaS, ADFS, 将 ADFS 移动到 Azure"
+title: Azure 中的 Active Directory 联合身份验证服务 | Microsoft 文档
+description: 在本文档中，可以学习如何在 Azure 中部署 AD FS 以实现高可用性。
+keywords: 在 Azure 中部署 AD FS, 部署 Azure ADFS, Azure ADFS, Azure AD FS, 部署 ADFS, 部署 AD FS, Azure 中的 ADFS, 在 Azure 中部署 ADFS, 在 Azure 中部署 AD FS, ADFS Azure, AD FS 简介, Azure, Azure 中的 AD FS, IaaS, ADFS, 将 ADFS 移动到 Azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
 ms.workload: identity
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27162533"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>在 Azure 中部署 Active Directory 联合身份验证服务
 AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 与 Azure AD 或 O365 联合可让用户使用本地凭据进行身份验证，并访问云中的所有资源。 这样，就务必建立高度可用的 AD FS 基础结构来确保能够访问本地和云中的资源。 在 Azure 中部署 AD FS 有助于以最少量的工作实现所需的高可用性。

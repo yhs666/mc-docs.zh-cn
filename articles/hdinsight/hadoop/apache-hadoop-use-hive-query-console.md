@@ -1,8 +1,8 @@
 ---
-title: "在 HDInsight 中的查询控制台上使用 Hadoop Hive - Azure | Azure"
-description: "了解如何在浏览器中使用基于 Web 的查询控制台在 HDInsight Hadoop 群集上运行 Hive 查询。"
+title: 在 HDInsight 中的查询控制台上使用 Hadoop Hive - Azure | Azure
+description: 了解如何在浏览器中使用基于 Web 的查询控制台在 HDInsight Hadoop 群集上运行 Hive 查询。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26410421"
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>使用查询控制台运行 Hive 查询
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]

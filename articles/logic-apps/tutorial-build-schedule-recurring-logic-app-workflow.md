@@ -1,12 +1,12 @@
 ---
-title: "生成基于计划程序的自动化工作流 - Azure 逻辑应用"
-description: "本教程介绍如何使用 Azure 逻辑应用创建基于计划程序的重复自动化工作流"
+title: 生成基于计划程序的自动化工作流 - Azure 逻辑应用
+description: 本教程介绍如何使用 Azure 逻辑应用创建基于计划程序的重复自动化工作流
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870809"
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>使用基于计划程序的逻辑应用检查流量
 

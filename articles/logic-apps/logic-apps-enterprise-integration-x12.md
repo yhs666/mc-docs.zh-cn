@@ -1,11 +1,11 @@
 ---
-title: "用于 B2B 企业集成的 X12 消息 - Azure 逻辑应用"
-description: "使用 Azure 逻辑应用交换 EDI 格式的 X12 消息以实现 B2B 企业集成"
+title: 用于 B2B 企业集成的 X12 消息 - Azure 逻辑应用
+description: 使用 Azure 逻辑应用交换 EDI 格式的 X12 消息以实现 B2B 企业集成
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.service: logic-apps
 ms.workload: integration
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870618"
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>使用逻辑应用交换 X12 消息以实现企业集成
 

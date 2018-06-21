@@ -1,8 +1,8 @@
 ---
-title: "生成类型和模型质量：建议 API | Microsoft Docs"
-description: "Azure 机器学习建议 -- 快速入门指南"
+title: 生成类型和模型质量：建议 API | Microsoft Docs
+description: Azure 机器学习建议 -- 快速入门指南
 services: cognitive-services
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 editor: cgronlun
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407641"
 ---
 # <a name="build-types-and-model-quality"></a>生成类型和模型质量
 <a name="TypeofBuilds"></a>

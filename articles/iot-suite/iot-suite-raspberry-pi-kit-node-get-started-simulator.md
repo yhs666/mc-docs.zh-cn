@@ -1,12 +1,12 @@
 ---
-title: "使用 Node.js 与模拟遥测将 Raspberry Pi 连接到 Azure IoT 套件 | Azure"
-description: "使用适用于 Raspberry Pi 3 的 Microsoft Azure IoT 初学者工具包和 Azure IoT 套件。 使用 Node.js 将 Raspberry Pi 连接到远程监视解决方案，将模拟遥测数据发送到云，并响应从解决方案仪表板调用的方法。"
-services: 
+title: 使用 Node.js 与模拟遥测将 Raspberry Pi 连接到 Azure IoT 套件 | Azure
+description: 使用适用于 Raspberry Pi 3 的 Microsoft Azure IoT 初学者工具包和 Azure IoT 套件。 使用 Node.js 将 Raspberry Pi 连接到远程监视解决方案，将模拟遥测数据发送到云，并响应从解决方案仪表板调用的方法。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: node.js
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22338879"
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-simulated-telemetry-using-nodejs"></a>使用 Node.js 将 Raspberry Pi 3 连接到远程监视解决方案，并发送模拟遥测数据
 

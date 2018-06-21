@@ -1,13 +1,13 @@
 ---
-title: "管理 HDInsight 群集的日志 - Azure HDInsight"
-description: "确定 HDInsight 活动日志文件的类型、大小和保留策略。"
+title: 管理 HDInsight 群集的日志 - Azure HDInsight
+description: 确定 HDInsight 活动日志文件的类型、大小和保留策略。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29552370"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>管理 HDInsight 群集的日志
 

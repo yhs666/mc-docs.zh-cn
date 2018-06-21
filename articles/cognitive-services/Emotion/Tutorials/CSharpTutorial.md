@@ -1,6 +1,6 @@
 ---
-title: "情感 API C# 教程 | Microsoft Docs"
-description: "探讨一个使用认知服务情感 API 来识别图像中人脸所表达的情感的基本 Windows 应用。"
+title: 情感 API C# 教程 | Microsoft Docs
+description: 探讨一个使用认知服务情感 API 来识别图像中人脸所表达的情感的基本 Windows 应用。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407610"
 ---
 # <a name="emotion-api-in-c35-tutorial"></a>C&#35; 中的情感 API 教程
 

@@ -1,11 +1,11 @@
 ---
-title: "暂存云服务部署 (Node.js) | Azure"
-description: "了解如何使用虚拟 IP (VIP) 交换将 Azure 应用程序部署到过渡环境，再将其部署到生产环境。"
+title: 暂存云服务部署 (Node.js) | Azure
+description: 了解如何使用虚拟 IP (VIP) 交换将 Azure 应用程序部署到过渡环境，再将其部署到生产环境。
 services: cloud-services
 documentationcenter: nodejs
 author: craigshoemaker
 manager: routlaw
-editor: 
+editor: ''
 ms.assetid: d65d26a6-b424-49cd-a88c-7ef46bb112a8
 ms.service: cloud-services
 ms.workload: tbd
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26044645"
 ---
 # <a name="staging-an-application-in-azure"></a>在 Azure 中暂存应用程序
 

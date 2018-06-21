@@ -1,6 +1,6 @@
 ---
-title: "人脸 API Ruby 快速入门 | Microsoft Docs"
-description: "获取信息和代码示例，帮助自己快速开始使用认知服务中的人脸 API 和 Ruby。"
+title: 人脸 API Ruby 快速入门 | Microsoft Docs
+description: 获取信息和代码示例，帮助自己快速开始使用认知服务中的人脸 API 和 Ruby。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407583"
 ---
 # <a name="face-api-ruby-quick-starts"></a>人脸 API Ruby 快速入门
 本文提供信息和代码示例来帮助读者快速开始使用人脸 API 和 Ruby 来完成以下任务： 

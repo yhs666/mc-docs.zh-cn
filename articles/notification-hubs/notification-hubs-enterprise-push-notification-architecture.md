@@ -1,11 +1,11 @@
 ---
-title: "通知中心 - 企业推送架构"
-description: "有关在企业环境中使用 Azure 通知中心的指南"
+title: 通知中心 - 企业推送架构
+description: 有关在企业环境中使用 Azure 通知中心的指南
 services: notification-hubs
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 903023e9-9347-442a-924b-663af85e05c6
 ms.service: notification-hubs
 ms.workload: mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/28/2017
+ms.locfileid: "27547600"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>企业推送架构指南
 当今企业正在逐渐趋向为其最终用户（外部）或员工（内部）创建移动应用程序。 它们已经拥有现成的后端系统，无论是大型机还是一些 LoB 应用程序都必须集成到移动应用程序体系结构中。 本指南介绍如何最好地实现此集成，并针对常见场景建议可能的解决方案。

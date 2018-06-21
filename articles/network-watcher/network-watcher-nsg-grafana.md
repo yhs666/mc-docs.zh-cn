@@ -1,13 +1,13 @@
 ---
-title: "使用网络观察程序和 Grafana 管理网络安全组流日志 | Azure"
-description: "在 Azure 中使用网络观察程序和 Grafana 管理和分析网络安全组流日志。"
+title: 使用网络观察程序和 Grafana 管理网络安全组流日志 | Azure
+description: 在 Azure 中使用网络观察程序和 Grafana 管理和分析网络安全组流日志。
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -21,6 +21,7 @@ ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/14/2017
+ms.locfileid: "24519551"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>使用网络观察程序和 Grafana 管理和分析网络安全组流日志
 

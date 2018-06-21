@@ -1,11 +1,11 @@
 ---
-title: "Azure 通知中心的已删除通知诊断"
-description: "了解如何诊断 Azure 通知中心的已删除通知的常见问题。"
+title: Azure 通知中心的已删除通知诊断
+description: 了解如何诊断 Azure 通知中心的已删除通知的常见问题。
 services: notification-hubs
 documentationcenter: Mobile
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
 ms.workload: mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730896"
 ---
 # <a name="diagnose-dropped-notifications-in-notification-hubs"></a>诊断通知中心的已删除通知
 

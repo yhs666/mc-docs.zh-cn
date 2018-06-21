@@ -1,12 +1,12 @@
 ---
-title: "开始将物理设备连接到 Azure IoT 中心 | Azure"
-description: "了解如何将物理设备和板连接到 Azure IoT 中心。 设备可以将遥测数据发送到 IoT 中心，IoT 中心可以监视和管理设备。"
+title: 开始将物理设备连接到 Azure IoT 中心 | Azure
+description: 了解如何将物理设备和板连接到 Azure IoT 中心。 设备可以将遥测数据发送到 IoT 中心，IoT 中心可以监视和管理设备。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-keywords: "Azure IoT 中心教程"
+editor: ''
+keywords: Azure IoT 中心教程
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26576134"
 ---
 # <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Azure IoT 中心及物理设备入门教程
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT Edge 入门 (Windows) | Azure"
-description: "了解如何在 Windows 计算机上构建 Azure IoT Edge 网关，以及 Azure IoT Edge 的重要概念，如模块和 JSON 配置文件。"
+title: Azure IoT Edge 入门 (Windows) | Azure
+description: 了解如何在 Windows 计算机上构建 Azure IoT Edge 网关，以及 Azure IoT Edge 的重要概念，如模块和 JSON 配置文件。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: Derek1101
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9aff3724-5e4e-40ec-b95a-d00df4f590c5
 ms.service: iot-hub
 ms.devlang: cpp
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24058586"
 ---
 # <a name="explore-azure-iot-edge-architecture-on-windows"></a>在 Windows 上浏览 Azure IoT Edge 体系结构
 

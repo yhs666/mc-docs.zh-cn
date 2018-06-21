@@ -1,6 +1,6 @@
 ---
-title: "计算机视觉 API Python 教程 | Microsoft Docs"
-description: "了解如何在 Microsoft 认知服务中通过 Jupyter Notebook 将计算机视觉 API 与 Python 配合使用。 使用流行库可视化结果。"
+title: 计算机视觉 API Python 教程 | Microsoft Docs
+description: 了解如何在 Microsoft 认知服务中通过 Jupyter Notebook 将计算机视觉 API 与 Python 配合使用。 使用流行库可视化结果。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407581"
 ---
 # <a name="computer-vision-api-python-tutorial"></a>计算机视觉 API Python 教程
 

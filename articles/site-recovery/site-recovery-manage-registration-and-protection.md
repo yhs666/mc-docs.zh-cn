@@ -14,6 +14,7 @@ ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30222935"
 ---
 # <a name="remove-servers-and-disable-protection"></a>删除服务器并禁用保护
 

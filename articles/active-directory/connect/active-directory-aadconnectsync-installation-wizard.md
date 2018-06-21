@@ -1,12 +1,12 @@
 ---
-title: "重新运行 Azure AD Connect 安装向导 | Microsoft Docs"
-description: "介绍安装向导第二次运行时的工作原理。"
-keywords: "Azure AD Connect 安装向导允许在第二次运行它时配置维护设置"
+title: 重新运行 Azure AD Connect 安装向导 | Microsoft Docs
+description: 介绍安装向导第二次运行时的工作原理。
+keywords: Azure AD Connect 安装向导允许在第二次运行它时配置维护设置
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27162418"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect 同步：第二次运行安装向导
 首次运行 Azure AD Connect 安装向导时，该向导将逐步引导配置安装。 如果再次运行安装向导，它会提供维护选项。

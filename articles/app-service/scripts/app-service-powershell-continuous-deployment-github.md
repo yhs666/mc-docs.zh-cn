@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 脚本示例 - 从 GitHub 使用连续部署创建 Web 应用 | Microsoft 文档"
-description: "Azure PowerShell 脚本示例 - 从 GitHub 使用连续部署创建 Web 应用"
+title: Azure PowerShell 脚本示例 - 从 GitHub 使用连续部署创建 Web 应用 | Microsoft 文档
+description: Azure PowerShell 脚本示例 - 从 GitHub 使用连续部署创建 Web 应用
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 42f901f8-02f7-4869-b22d-d99ef59f874c
 ms.service: app-service-web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23475209"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>从 GitHub 使用连续部署创建 Web 应用
 

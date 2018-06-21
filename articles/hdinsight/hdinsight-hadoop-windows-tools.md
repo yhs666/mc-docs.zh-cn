@@ -1,8 +1,8 @@
 ---
-title: "在 Hadoop on HDInsight 中使用 Windows 电脑 - Azure | Azure"
-description: "操作 Hadoop on HDInsight 中的 Windows 电脑。 使用 PowerShell、Visual Studio 和 Linux 工具管理与查询群集。 使用 .NET 开发大数据解决方案。"
+title: 在 Hadoop on HDInsight 中使用 Windows 电脑 - Azure | Azure
+description: 操作 Hadoop on HDInsight 中的 Windows 电脑。 使用 PowerShell、Visual Studio 和 Linux 工具管理与查询群集。 使用 .NET 开发大数据解决方案。
 services: hdinsight
-keywords: "windows 上的 hadoop,适用于 windows 的 hadoop"
+keywords: windows 上的 hadoop,适用于 windows 的 hadoop
 author: cjgronlund
 manager: jhubbard
 ms.author: v-yiso
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26721345"
 ---
 # <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>使用 Windows 电脑在 HDInsight 上的 Hadoop 生态系统中工作
 

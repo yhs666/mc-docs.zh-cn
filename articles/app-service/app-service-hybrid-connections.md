@@ -1,11 +1,11 @@
 ---
-title: "Azure 应用服务混合连接 | Microsoft Docs"
-description: "如何创建混合连接并使用它来访问不同网络中的资源"
+title: Azure 应用服务混合连接 | Microsoft Docs
+description: 如何创建混合连接并使用它来访问不同网络中的资源
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592469"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure 应用服务混合连接 #
 

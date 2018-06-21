@@ -1,11 +1,11 @@
 ---
-title: "Azure 父资源错误 | Azure"
-description: "说明如何在使用父资源时解决错误。"
+title: Azure 父资源错误 | Azure
+description: 说明如何在使用父资源时解决错误。
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23475217"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>解决父资源的错误
 

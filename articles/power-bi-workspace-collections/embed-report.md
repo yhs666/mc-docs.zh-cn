@@ -1,14 +1,14 @@
 ---
-title: "嵌入 Azure Power BI 工作区集合中的报表 | Microsoft Docs"
-description: "了解如何将 Azure Power BI 工作区集合中的报表嵌入到应用程序中。"
+title: 嵌入 Azure Power BI 工作区集合中的报表 | Microsoft Docs
+description: 了解如何将 Azure Power BI 工作区集合中的报表嵌入到应用程序中。
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/26/2017
+ms.locfileid: "23580288"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>嵌入 Power BI 工作区集合中的报表
 

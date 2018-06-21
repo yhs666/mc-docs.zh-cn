@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect：更新 Active Directory 联合身份验证服务 (AD FS) 场的 SSL 证书 | Microsoft 文档"
-description: "本文档详述了使用 Azure AD Connect 更新 AD FS 场的 SSL 证书的步骤。"
+title: Azure AD Connect：更新 Active Directory 联合身份验证服务 (AD FS) 场的 SSL 证书 | Microsoft 文档
+description: 本文档详述了使用 Azure AD Connect 更新 AD FS 场的 SSL 证书的步骤。
 services: active-directory
-keywords: "azure ad connect, adfs ssl 更新, adfs 证书更新, 更改 adfs 证书, 新建 adfs 证书, adfs 证书, 更新 adfs ssl 证书, 更新 ssl 证书 adfs, 配置 adfs ssl 证书, adfs, ssl, 证书, adfs 服务通信证书, 更新联合身份验证, 配置联合身份验证, aad connect"
+keywords: azure ad connect, adfs ssl 更新, adfs 证书更新, 更改 adfs 证书, 新建 adfs 证书, adfs 证书, 更新 adfs ssl 证书, 更新 ssl 证书 adfs, 配置 adfs ssl 证书, adfs, ssl, 证书, adfs 服务通信证书, 更新联合身份验证, 配置联合身份验证, aad connect
 authors: anandyadavmsft
 manager: digimobile
 editor: billmath
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25591959"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>更新 Active Directory 联合身份验证服务 (AD FS) 场的 SSL 证书
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure 高级存储：针对 Windows VM 的性能进行设计 | Azure"
-description: "使用 Azure 高级存储设置高性能应用程序。 高级存储为 Azure 虚拟机上运行的 I/O 密集型工作负载提供高性能、低延迟的磁盘支持。"
+title: Azure 高级存储：针对 Windows VM 的性能进行设计 | Azure
+description: 使用 Azure 高级存储设置高性能应用程序。 高级存储为 Azure 虚拟机上运行的 I/O 密集型工作负载提供高性能、低延迟的磁盘支持。
 services: virtual-machines-windows
 documentationcenter: na
 author: rockboyfor
@@ -20,5 +20,6 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592533"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]

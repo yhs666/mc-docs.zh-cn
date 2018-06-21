@@ -1,9 +1,9 @@
 ---
-title: "Azure 中的自动缩放入门 | Microsoft Docs"
-description: "了解如何在 Azure 中缩放资源。"
+title: Azure 中的自动缩放入门 | Microsoft Docs
+description: 了解如何在 Azure 中缩放资源。
 author: rajram
 manager: rboucher
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26045132"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure 中的自动缩放入门
 本文介绍如何在 Microsoft Azure 门户中为资源指定自动缩放设置。

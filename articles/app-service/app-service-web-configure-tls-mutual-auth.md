@@ -1,8 +1,8 @@
 ---
-title: "如何为 Web 应用配置 TLS 相互身份验证"
-description: "了解如何将 Web 应用配置为使用 TLS 客户端证书身份验证。"
+title: 如何为 Web 应用配置 TLS 相互身份验证
+description: 了解如何将 Web 应用配置为使用 TLS 客户端证书身份验证。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: erikre
 editor: jimbe
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23475179"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>如何为 Web 应用配置 TLS 相互身份验证
 

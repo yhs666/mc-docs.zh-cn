@@ -21,6 +21,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072631"
 ---
 # <a name="get-started-with-the-twilio-connector"></a>Twilio 连接器入门
 连接到 Twilio 以发送和接收全球短信、彩信和 IP 消息。 借助 Twilio，可以：

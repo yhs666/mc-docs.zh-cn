@@ -1,12 +1,12 @@
 ---
-title: "适用于 iOS 应用的 Azure 通知中心入门 | Microsoft Docs"
-description: "在本教程中，将了解如何使用 Azure 通知中心将推送通知发送到 iOS 应用程序。"
+title: 适用于 iOS 应用的 Azure 通知中心入门 | Microsoft Docs
+description: 在本教程中，将了解如何使用 Azure 通知中心将推送通知发送到 iOS 应用程序。
 services: notification-hubs
 documentationcenter: ios
-keywords: "推送通知, 推送通知, ios 推送通知"
+keywords: 推送通知, 推送通知, ios 推送通知
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: b7fcd916-8db8-41a6-ae88-fc02d57cb914
 ms.service: notification-hubs
 ms.workload: mobile
@@ -21,6 +21,7 @@ ms.sourcegitcommit: c0a9889921cd1ee52d58255a5a2db5e7930c4a4b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/23/2018
+ms.locfileid: "28001677"
 ---
 # <a name="get-started-with-azure-notification-hubs-for-ios-apps"></a>适用于 iOS 应用的 Azure 通知中心入门
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]

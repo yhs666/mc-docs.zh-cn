@@ -1,12 +1,12 @@
 ---
-title: "设置 Azure 导入/导出工具 | Azure"
-description: "了解如何设置 Azure 导入/导出服务的驱动器准备和修复工具。"
+title: 设置 Azure 导入/导出工具 | Azure
+description: 了解如何设置 Azure 导入/导出服务的驱动器准备和修复工具。
 author: forester123
 manager: digimobile
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/09/2017
+ms.locfileid: "22612523"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>设置 Azure 导入/导出工具
 

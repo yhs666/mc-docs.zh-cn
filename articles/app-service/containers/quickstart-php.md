@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 的 Linux 容器中创建 PHP Web 应用 | Microsoft Docs"
-description: "数分钟内在 Azure 应用服务 Web 应用中部署首个 PHP Hello World。"
+title: 在 Azure 的 Linux 容器中创建 PHP Web 应用 | Microsoft Docs
+description: 数分钟内在 Azure 应用服务 Web 应用中部署首个 PHP Hello World。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339072"
 ---
 # <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>在 Azure 的 Linux 容器中创建 PHP Web 应用
 

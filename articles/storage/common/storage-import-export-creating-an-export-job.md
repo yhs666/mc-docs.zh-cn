@@ -1,11 +1,11 @@
 ---
-title: "为 Azure 导入/导出服务创建导出作业 | Azure"
-description: "了解如何为 Azure 导入/导出服务创建导出作业。"
+title: 为 Azure 导入/导出服务创建导出作业 | Azure
+description: 了解如何为 Azure 导入/导出服务创建导出作业。
 author: hayley244
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 613d480b-a8ef-4b28-8f54-54174d59b3f4
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870467"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>为 Azure 导入/导出服务创建导出作业
 使用 REST API 为 Azure 导入/导出服务创建导出作业的过程包括以下步骤：

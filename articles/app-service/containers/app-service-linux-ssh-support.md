@@ -1,12 +1,12 @@
 ---
-title: "对用于容器的 Azure 应用服务 Web 应用的 SSH 支持 | Microsoft Docs"
-description: "了解如何将 SSH 与用于容器的 Azure Web 应用配合使用。"
-keywords: "azure 应用服务, web 应用, linux, oss"
+title: 对用于容器的 Azure 应用服务 Web 应用的 SSH 支持 | Microsoft Docs
+description: 了解如何将 SSH 与用于容器的 Azure Web 应用配合使用。
+keywords: azure 应用服务, web 应用, linux, oss
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
 ms.workload: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339064"
 ---
 # <a name="ssh-support-for-azure-web-apps-for-containers"></a>对用于容器的 Azure Web 应用的 SSH 支持
 

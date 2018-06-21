@@ -1,13 +1,13 @@
 ---
-title: "为点到站点连接生成和导出证书：Makecert：Azure | Microsoft Docs"
-description: "使用 MakeCert 创建自签名根证书、导出公钥和生成客户端证书。"
+title: 为点到站点连接生成和导出证书：Makecert：Azure | Microsoft Docs
+description: 使用 MakeCert 创建自签名根证书、导出公钥和生成客户端证书。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -21,6 +21,7 @@ ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29925179"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>使用 MakeCert 为点到站点连接生成并导出证书
 

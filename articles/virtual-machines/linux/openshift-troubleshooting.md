@@ -1,13 +1,13 @@
 ---
-title: "在 Azure 中排查 OpenShift 部署问题 | Azure"
-description: "在 Azure 中排查 OpenShift 部署问题。"
+title: 在 Azure 中排查 OpenShift 部署问题 | Azure
+description: 在 Azure 中排查 OpenShift 部署问题。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592554"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>在 Azure 中排查 OpenShift 部署问题
 

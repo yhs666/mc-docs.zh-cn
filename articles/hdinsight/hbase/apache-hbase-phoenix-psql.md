@@ -1,12 +1,12 @@
 ---
-title: "使用 psql 批量载入到 Apache Phoenix 中 - Azure HDInsight"
-description: "使用 psql 工具将数据批量载入 Phoenix 表。"
+title: 使用 psql 批量载入到 Apache Phoenix 中 - Azure HDInsight
+description: 使用 psql 工具将数据批量载入 Phoenix 表。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29552369"
 ---
 # <a name="bulk-load-data-into-phoenix-using-psql"></a>使用 psql 将数据大容量加载到 Phoenix
 

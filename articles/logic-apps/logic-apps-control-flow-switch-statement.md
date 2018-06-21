@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31359569"
 ---
 # <a name="switch-statements-run-different-steps-based-on-specific-values-in-logic-apps"></a>Switch 语句：基于逻辑应用中的特定值运行不同步骤
 

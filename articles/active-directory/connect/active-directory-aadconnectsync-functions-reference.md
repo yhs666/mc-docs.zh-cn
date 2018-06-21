@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步：函数引用 | Microsoft Docs"
-description: "在 Azure AD Connect 同步中引用声明性设置表达式。"
+title: Azure AD Connect 同步：函数引用 | Microsoft Docs
+description: 在 Azure AD Connect 同步中引用声明性设置表达式。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: andkjell
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27844716"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步：函数引用
 在 Azure AD Connect 中，函数用于在同步期间操作属性值。  

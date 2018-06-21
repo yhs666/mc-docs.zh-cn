@@ -1,12 +1,12 @@
 ---
-title: "将 Raspberry Pi 连接到 Azure IoT 套件 | Azure"
-description: "使用 Node.js 或 C 的教程，可帮助了解如何使用适用于 Raspberry Pi 3 的 Microsoft Azure IoT 初学者工具包和 IoT 套件远程监视解决方案。 可以选择模拟遥测的教程、使用实际传感器的教程，或启用远程固件更新的教程。"
-services: 
+title: 将 Raspberry Pi 连接到 Azure IoT 套件 | Azure
+description: 使用 Node.js 或 C 的教程，可帮助了解如何使用适用于 Raspberry Pi 3 的 Microsoft Azure IoT 初学者工具包和 IoT 套件远程监视解决方案。 可以选择模拟遥测的教程、使用实际传感器的教程，或启用远程固件更新的教程。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22338758"
 ---
 # <a name="connect-your-microsoft-azure-iot-raspberry-pi-3-starter-kit-to-the-remote-monitoring-solution"></a>将 Microsoft Azure IoT Raspberry Pi 3 初学者工具包连接到远程监视解决方案
 

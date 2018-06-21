@@ -18,6 +18,7 @@ ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30293834"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>使用 ServiceNow 配置服务运行状况警报
 
@@ -160,9 +161,9 @@ ms.lasthandoff: 03/30/2018
 
     a. **操作类型：***Webhook*
 
-    b. **详细信息：**前面保存的 ServiceNow **集成 URL**。
+    b. **详细信息：** 前面保存的 ServiceNow **集成 URL**。
 
-    c. **名称：**Webhook 的名称、别名或标识符。
+    c. **名称：** Webhook 的名称、别名或标识符。
 
 3. 警报创建完成后，选择“保存”。
 
@@ -177,9 +178,9 @@ ms.lasthandoff: 03/30/2018
 
     a. **操作类型：***Webhook*
 
-    b. **详细信息：**前面保存的 ServiceNow **集成 URL**。
+    b. **详细信息：** 前面保存的 ServiceNow **集成 URL**。
 
-    c. **名称：**Webhook 的名称、别名或标识符。
+    c. **名称：** Webhook 的名称、别名或标识符。
 
 5. 操作组更新完成后，选择“保存”。
 

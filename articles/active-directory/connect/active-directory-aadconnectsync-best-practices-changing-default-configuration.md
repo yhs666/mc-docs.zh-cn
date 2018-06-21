@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步：更改默认配置 | Microsoft Docs"
-description: "提供有关更改 Azure AD Connect 同步的默认配置的最佳实践。"
+title: Azure AD Connect 同步：更改默认配置 | Microsoft Docs
+description: 提供有关更改 Azure AD Connect 同步的默认配置的最佳实践。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 7638a031-1635-4942-94c3-fce8f09eed5e
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27162465"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect 同步：有关更改默认配置的最佳实践
 本主题旨在说明支持和不支持的 Azure AD Connect 同步更改。

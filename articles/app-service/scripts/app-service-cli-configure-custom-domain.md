@@ -22,6 +22,7 @@ ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30155665"
 ---
 # <a name="map-a-custom-domain-to-a-web-app"></a>将自定义域映射到 Web 应用
 

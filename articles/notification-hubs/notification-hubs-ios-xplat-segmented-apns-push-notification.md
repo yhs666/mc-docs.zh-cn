@@ -1,11 +1,11 @@
 ---
-title: "通知中心突发新闻教程 - iOS"
-description: "了解如何使用 Azure 服务总线通知中心向 iOS 设备发送突发新闻通知。"
+title: 通知中心突发新闻教程 - iOS
+description: 了解如何使用 Azure 服务总线通知中心向 iOS 设备发送突发新闻通知。
 services: notification-hubs
 documentationcenter: ios
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 6ead4169-deff-4947-858c-8c6cf03cc3b2
 ms.service: notification-hubs
 ms.workload: mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/28/2017
+ms.locfileid: "27547622"
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>使用通知中心发送突发新闻
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]

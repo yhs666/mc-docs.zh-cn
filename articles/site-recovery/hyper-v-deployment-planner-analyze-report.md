@@ -1,6 +1,6 @@
 ---
-title: "适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器 | Azure"
-description: "本文介绍如何分析适用于 Hyper-V 到 Azure 方案的 Azure Site Recovery 部署规划器的已生成报表。"
+title: 适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器 | Azure
+description: 本文介绍如何分析适用于 Hyper-V 到 Azure 方案的 Azure Site Recovery 部署规划器的已生成报表。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731506"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>分析 Azure Site Recovery 部署规划器报表
 本文介绍 Azure Site Recovery 部署规划器针对 Hyper-V 到 Azure 方案生成的 Excel 报表中包含的工作表。

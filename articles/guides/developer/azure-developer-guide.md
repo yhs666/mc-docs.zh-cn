@@ -1,12 +1,12 @@
 ---
-title: "面向 Azure 开发人员的入门指南 | Microsoft 文档"
-description: "本主题提供的基本信息适用于那些希望使用 Azure 平台进行开发的开发人员。"
-services: 
-cloud: 
-documentationcenter: 
+title: 面向 Azure 开发人员的入门指南 | Microsoft 文档
+description: 本主题提供的基本信息适用于那些希望使用 Azure 平台进行开发的开发人员。
+services: ''
+cloud: ''
+documentationcenter: ''
 author: forester123
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: na
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 69366423cfcd8f88cd9a72fcbd06b998e0a3e73a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/18/2017
+ms.locfileid: "23456144"
 ---
 # <a name="get-started-guide-for-azure-in-china-developers"></a>中国区 Azure 开发人员入门指南
 
@@ -88,7 +89,7 @@ Azure Service Fabric 是一个分布式系统平台，适用于生成、打包�
 
 Service Fabric 支持具有 Open Web Interface for .NET (OWIN) 和 ASP.NET Core 的 WebAPI。 它提供了用于在 Linux 上使用 .NET Core 和 Java 构建服务的 SDK。 若要详细了解 Service Fabric，请参阅 [Service Fabric 文档](/service-fabric/)。
 
->**何时使用：**如果要创建应用程序或重新编写现有应用程序，以使用微服务体系结构，则 Service Fabric 将是一个不错的选择。 当你需要更好地控制或直接访问底层基础结构时，也可以使用 Service Fabric。
+>**何时使用：** 如果要创建应用程序或重新编写现有应用程序，以使用微服务体系结构，则 Service Fabric 将是一个不错的选择。 当你需要更好地控制或直接访问底层基础结构时，也可以使用 Service Fabric。
 
 >开始使用：[创建第一个 Azure Service Fabric 应用程序](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md)。
 

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure DNS 管理 DNS 记录集和记录 | Azure"
-description: "Azure DNS 在托管域时具有管理 DNS 记录集和记录的功能。"
+title: 使用 Azure DNS 管理 DNS 记录集和记录 | Azure
+description: Azure DNS 在托管域时具有管理 DNS 记录集和记录的功能。
 services: dns
 documentationcenter: na
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 18ed44a1-7bfe-454f-964e-922ad978264a
 ms.service: dns
@@ -21,6 +21,7 @@ ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26722236"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>使用 Azure 门户管理 DNS 记录和记录集
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 脚本示例 - 创建 APIM 服务"
-description: "Azure PowerShell 脚本示例 - 创建 APIM 服务"
+title: Azure PowerShell 脚本示例 - 创建 APIM 服务
+description: Azure PowerShell 脚本示例 - 创建 APIM 服务
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29286063"
 ---
 # <a name="create-an-api-management-service"></a>创建 API 管理服务
 

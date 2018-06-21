@@ -1,6 +1,6 @@
 ---
-title: "人脸 API Python 教程 | Microsoft Docs"
-description: "了解如何在认知服务中使用人脸 API 和 Python SDK 检测图像中的人脸。"
+title: 人脸 API Python 教程 | Microsoft Docs
+description: 了解如何在认知服务中使用人脸 API 和 Python SDK 检测图像中的人脸。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407587"
 ---
 # <a name="getting-started-with-face-api-in-python-tutorial"></a>Python 中的人脸 API 入门教程
 

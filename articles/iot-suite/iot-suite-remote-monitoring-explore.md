@@ -1,7 +1,7 @@
 ---
-title: "远程监视解决方案入门"
-description: "本教程使用模拟方案来介绍远程监视预配置解决方案。 这些方案是首次部署远程监视预配置解决方案时创建的。"
-services: 
+title: 远程监视解决方案入门
+description: 本教程使用模拟方案来介绍远程监视预配置解决方案。 这些方案是首次部署远程监视预配置解决方案时创建的。
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730926"
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>探索远程监控预配置解决方案的功能
 

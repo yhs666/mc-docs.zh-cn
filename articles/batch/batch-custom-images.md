@@ -1,6 +1,6 @@
 ---
-title: "根据自定义映像预配 Azure Batch 池 | Microsoft Docs"
-description: "可根据自定义映像创建 Batch 池，以预配包含应用程序所需的软件和数据的计算节点。 自定义映像是配置计算节点以运行 Batch 工作负载的高效方法。"
+title: 根据自定义映像预配 Azure Batch 池 | Microsoft Docs
+description: 可根据自定义映像创建 Batch 池，以预配包含应用程序所需的软件和数据的计算节点。 自定义映像是配置计算节点以运行 Batch 工作负载的高效方法。
 services: batch
 author: alexchen2016
 manager: digimobile
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26352329"
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>使用托管的自定义映像创建虚拟机池 
 

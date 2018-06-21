@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect 中的多个域"
-description: "本文档介绍如何使用 O365 与 Azure AD 来设置和配置多个顶级域。"
+title: Azure AD Connect 中的多个域
+description: 本文档介绍如何使用 O365 与 Azure AD 来设置和配置多个顶级域。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -20,6 +20,7 @@ ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27844664"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>与 Azure AD 联合的多域支持
 以下文档提供有关与 Office 365 或 Azure AD 域联合时如何使用多个顶级域和子域的指导。

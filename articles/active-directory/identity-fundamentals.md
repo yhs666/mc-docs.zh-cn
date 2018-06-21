@@ -16,6 +16,7 @@ ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/19/2018
+ms.locfileid: "29993172"
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Azure 标识管理基础知识
 

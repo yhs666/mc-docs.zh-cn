@@ -1,11 +1,11 @@
 ---
-title: "如何在 Hudson 连续集成中使用 Azure Slave 插件 | Azure"
-description: "介绍如何在 Hudson 连续集成中使用 Azure Slave 插件。"
+title: 如何在 Hudson 连续集成中使用 Azure Slave 插件 | Azure
+description: 介绍如何在 Hudson 连续集成中使用 Azure Slave 插件。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: b2083d1c-4de8-4a19-a615-ccc9d9b6e1d9
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29286190"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>如何在 Hudson 连续集成中使用 Azure Slave 插件
 适用于 Hudson 的 Azure Slave 插件让你能够在运行分布式构建系统时，预配 Azure 上的从属节点。

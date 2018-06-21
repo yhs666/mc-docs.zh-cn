@@ -1,11 +1,11 @@
 ---
-title: "使用开源工具可视化 Azure 网络观察程序 NSG 流日志 | Azure"
-description: "本页介绍如何使用开源工具可视化 NSG 流日志。"
+title: 使用开源工具可视化 Azure 网络观察程序 NSG 流日志 | Azure
+description: 本页介绍如何使用开源工具可视化 NSG 流日志。
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
 ms.service: network-watcher
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27162800"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>使用开源工具可视化 Azure 网络观察程序 NSG 流日志
 

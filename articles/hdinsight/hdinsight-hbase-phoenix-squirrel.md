@@ -1,8 +1,8 @@
 ---
-title: "将 Apache Phoenix 和 SQuirreL 与基于 Windows 的 Azure HDInsight 配合使用 | Azure"
-description: "了解如何在 HDInsight 中使用 Apache Phoenix，以及如何在工作站上安装和配置 SQuirreL 以连接到 HDInsight 中的 HBase 群集。"
+title: 将 Apache Phoenix 和 SQuirreL 与基于 Windows 的 Azure HDInsight 配合使用 | Azure
+description: 了解如何在 HDInsight 中使用 Apache Phoenix，以及如何在工作站上安装和配置 SQuirreL 以连接到 HDInsight 中的 HBase 群集。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26721394"
 ---
 # <a name="use-apache-phoenix-and-squirrel-with-windows-based-hbase-clusters-in-hdinsight"></a>将 Apache Phoenix 和 SQuirreL 与 HDInsight 中基于 Windows 的 HBase 配合使用
 了解如何在 HDInsight 中使用 [Apache Phoenix](http://phoenix.apache.org/) ，以及如何在工作站上安装和配置 SQuirrel 以连接到 HDInsight 中的 HBase 群集。 有关 Phoenix 的详细信息，请参阅 [在 15 分钟或以下了解 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。 有关 Phoenix 语法，请参阅 [Phoenix 语法](http://phoenix.apache.org/language/index.html)。

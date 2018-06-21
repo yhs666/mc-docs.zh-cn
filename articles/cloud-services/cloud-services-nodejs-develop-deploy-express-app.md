@@ -1,11 +1,11 @@
 ---
-title: "构建 Node.js Express 应用并将其部署到 Azure 云服务"
-description: "在 Node.js 中构建 Express.js 应用程序并将其部署到 Azure 云服务"
+title: 构建 Node.js Express 应用并将其部署到 Azure 云服务
+description: 在 Node.js 中构建 Express.js 应用程序并将其部署到 Azure 云服务
 services: cloud-services
 documentationcenter: nodejs
 author: craigshoemaker
 manager: routlaw
-editor: 
+editor: ''
 ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
 ms.service: cloud-services
 ms.workload: tbd
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27604281"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>使用 Express 在 Azure 云服务中构建并部署 Node.js Web 应用程序
 

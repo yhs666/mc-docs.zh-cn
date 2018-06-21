@@ -1,12 +1,12 @@
 ---
-title: "通过 Power BI 工作区集合进行身份验证和授权 | Microsoft Docs"
-description: "通过 Power BI 工作区集合进行身份验证和授权。"
+title: 通过 Power BI 工作区集合进行身份验证和授权 | Microsoft Docs
+description: 通过 Power BI 工作区集合进行身份验证和授权。
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
 ms.service: power-bi-embedded
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/26/2017
+ms.locfileid: "23580295"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>通过 Power BI 工作区集合进行身份验证和授权
 

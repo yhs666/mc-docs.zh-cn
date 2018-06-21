@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 存储在云中上传图像数据 | Microsoft Docs"
-description: "将 Azure blob 存储与 Web 应用结合使用来存储应用数据"
+title: 使用 Azure 存储在云中上传图像数据 | Microsoft Docs
+description: 将 Azure blob 存储与 Web 应用结合使用来存储应用数据
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870822"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>使用 Azure 存储在云中上传图像数据
 

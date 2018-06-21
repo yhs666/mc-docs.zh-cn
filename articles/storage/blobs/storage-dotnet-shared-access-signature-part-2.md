@@ -1,8 +1,8 @@
 ---
-title: "创建共享访问签名 (SAS) 并将其用于 Azure Blob 存储 | Azure"
-description: "本教程演示如何创建共享访问签名并用于 Blob 存储，以及如何在客户端应用程序中使用这些签名。"
+title: 创建共享访问签名 (SAS) 并将其用于 Azure Blob 存储 | Azure
+description: 本教程演示如何创建共享访问签名并用于 Blob 存储，以及如何在客户端应用程序中使用这些签名。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: forester123
 manager: digimobile
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: fea4940a09cecbae36256410227e701e5f0aab6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/18/2017
+ms.locfileid: "23456364"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>共享访问签名，第 2 部分：创建 SAS 并将 SAS 用于 Blob 存储
 

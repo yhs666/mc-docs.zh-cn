@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中构建 PHP 和 MySQL Web 应用 | Microsoft Docs"
-description: "了解如何创建一个可在 Azure 中运行的 PHP 应用，并将其连接到 MySQL 数据库。"
+title: 在 Azure 中构建 PHP 和 MySQL Web 应用 | Microsoft Docs
+description: 了解如何创建一个可在 Azure 中运行的 PHP 应用，并将其连接到 MySQL 数据库。
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339083"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>在 Azure 中构建 PHP 和 MySQL Web 应用
 

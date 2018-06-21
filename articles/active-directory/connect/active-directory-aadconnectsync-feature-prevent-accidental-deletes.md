@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步：防止意外删除 | Microsoft Docs"
-description: "本主题说明 Azure AD Connect 中的防止意外删除功能。"
+title: Azure AD Connect 同步：防止意外删除 | Microsoft Docs
+description: 本主题说明 Azure AD Connect 中的防止意外删除功能。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27162496"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect 同步：防止意外删除
 本主题说明 Azure AD Connect 中的防止意外删除功能。

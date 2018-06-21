@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30222546"
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>查看 Azure Stack 中的公共 IP 地址使用情况
 

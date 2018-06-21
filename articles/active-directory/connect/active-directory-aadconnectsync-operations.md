@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步：操作任务和注意事项 | Microsoft Docs"
-description: "本主题介绍 Azure AD Connect 同步的操作任务，以及如何准备运行此组件。"
+title: Azure AD Connect 同步：操作任务和注意事项 | Microsoft Docs
+description: 本主题介绍 Azure AD Connect 同步的操作任务，以及如何准备运行此组件。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: AndKjell
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27844723"
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect 同步：操作任务和注意事项
 本主题旨在介绍 Azure AD Connect 同步的操作任务。

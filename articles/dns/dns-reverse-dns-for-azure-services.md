@@ -1,6 +1,6 @@
 ---
-title: "Azure 服务的反向 DNS | Azure"
-description: "了解如何为 Azure 中托管的服务配置反向 DNS 查找"
+title: Azure 服务的反向 DNS | Azure
+description: 了解如何为 Azure 中托管的服务配置反向 DNS 查找
 services: dns
 documentationcenter: na
 author: yunan2016
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/29/2017
+ms.locfileid: "27548264"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>为 Azure 中托管的服务配置反向 DNS
 

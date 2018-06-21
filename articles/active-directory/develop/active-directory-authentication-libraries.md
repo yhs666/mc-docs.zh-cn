@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory 身份验证库 | Microsoft Docs"
-description: "通过 Azure AD 身份验证库 (ADAL)，客户端应用程序开发人员能够轻松地使用户通过云或本地 Active Directory (AD) 的身份验证，并获取访问令牌，以进行安全的 API 调用。"
+title: Azure Active Directory 身份验证库 | Microsoft Docs
+description: 通过 Azure AD 身份验证库 (ADAL)，客户端应用程序开发人员能够轻松地使用户通过云或本地 Active Directory (AD) 的身份验证，并获取访问令牌，以进行安全的 API 调用。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 editor: mbaldwin
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29527599"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 身份验证库
 通过 Azure Active Directory Authentication Library (ADAL)，应用程序开发者可以让用户通过云或本地 Active Directory (AD) 的身份验证，并获取令牌来保护 API 调用。 ADAL 通过以下功能使开发者更轻松地进行身份验证：

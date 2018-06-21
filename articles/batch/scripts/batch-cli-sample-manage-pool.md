@@ -1,12 +1,12 @@
 ---
-title: "Azure CLI 脚本示例 - 管理批处理中的池 | Microsoft Docs"
-description: "Azure CLI 脚本示例 - 管理批处理中的池"
+title: Azure CLI 脚本示例 - 管理批处理中的池 | Microsoft Docs
+description: Azure CLI 脚本示例 - 管理批处理中的池
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "23993654"
 ---
 # <a name="managing-azure-batch-pools-with-azure-cli"></a>使用 Azure CLI 管理 Azure Batch 池
 

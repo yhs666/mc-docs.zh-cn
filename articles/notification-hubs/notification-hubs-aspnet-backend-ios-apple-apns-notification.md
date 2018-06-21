@@ -1,10 +1,10 @@
 ---
-title: "Azure 通知中心 - 使用 .NET 后端通知 iOS 用户"
-description: "了解如何向 Azure 中的用户发送推送通知。 使用 Objective-C 和 .NET API 为后端编写的代码示例。"
+title: Azure 通知中心 - 使用 .NET 后端通知 iOS 用户
+description: 了解如何向 Azure 中的用户发送推送通知。 使用 Objective-C 和 .NET API 为后端编写的代码示例。
 documentationCenter: ios
 authors: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 services: notification-hubs
 ms.service: notification-hubs
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 03b84cb00f3f77dd379463c5db4e85234bdce41a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22646481"
 ---
 #<a name="azure-notification-hubs-notify-users-for-ios-with-net-backend"></a>Azure 通知中心 - 使用 .NET 后端通知 iOS 用户
 

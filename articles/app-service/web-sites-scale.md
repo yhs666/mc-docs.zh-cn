@@ -1,8 +1,8 @@
 ---
-title: "增加 Azure 中的应用"
-description: "了解如何增加 Azure 应用服务中的应用以增加容量和功能。"
+title: 增加 Azure 中的应用
+description: 了解如何增加 Azure 应用服务中的应用以增加容量和功能。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730640"
 ---
 # <a name="scale-up-an-app-in-azure"></a>增加 Azure 中的应用
 本文介绍如何在 Azure 应用服务中缩放应用。 缩放的工作流有两种：向上缩放和向外缩放；本文介绍向上缩放工作流。

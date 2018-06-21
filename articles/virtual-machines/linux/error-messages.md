@@ -1,13 +1,13 @@
 ---
-title: "Azure 中的常见 Linux 虚拟机错误代码 | Azure"
-description: "了解在 Azure 中预配和管理 Linux 虚拟机时遇到的一些常见错误代码"
+title: Azure 中的常见 Linux 虚拟机错误代码 | Azure
+description: 了解在 Azure 中预配和管理 Linux 虚拟机时遇到的一些常见错误代码
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285491"
 ---
 # <a name="understand-common-error-messages-when-you-manage-linux-virtual-machines-in-azure"></a>了解在 Azure 中管理 Linux 虚拟机时遇到的常见错误消息
 

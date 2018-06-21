@@ -1,12 +1,12 @@
 ---
-title: "常见 Power BI 工作区集合方案"
-description: "常见 Power BI Embedded 方案"
+title: 常见 Power BI 工作区集合方案
+description: 常见 Power BI Embedded 方案
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 0bf9706c-11bd-432a-bab3-89c04bc4dd1f
 ms.service: power-bi-embedded
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/26/2017
+ms.locfileid: "23580286"
 ---
 # <a name="common-power-bi-workspace-collection-scenarios"></a>常见 Power BI 工作区集合方案
 

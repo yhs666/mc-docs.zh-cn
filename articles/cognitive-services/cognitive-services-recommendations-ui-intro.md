@@ -1,8 +1,8 @@
 ---
-title: "使用建议 UI 构建模型 | Microsoft Docs"
-description: "Azure 机器学习建议 - 使用建议 UI 构建模型"
+title: 使用建议 UI 构建模型 | Microsoft Docs
+description: Azure 机器学习建议 - 使用建议 UI 构建模型
 services: cognitive-services
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 editor: cgronlun
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407616"
 ---
 # <a name="building-a-model-with-the-recommendations-ui"></a>使用建议 UI 构建模型
 本文档是一份循序渐进的指南， 旨在引导完成使用[建议 UI](https://recommendations-portal.chinacloudsites.cn/) 训练模型要执行的步骤。

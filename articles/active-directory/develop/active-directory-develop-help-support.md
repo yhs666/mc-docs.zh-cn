@@ -1,11 +1,11 @@
 ---
-title: "Azure 标识开发人员的支持和帮助选项 | Microsoft Docs"
-description: "了解在创建与 Azure 标识（Azure Active Directory 和 MSA）集成的应用程序时，如何获取所遇到的开发相关问题的帮助和支持"
+title: Azure 标识开发人员的支持和帮助选项 | Microsoft Docs
+description: 了解在创建与 Azure 标识（Azure Active Directory 和 MSA）集成的应用程序时，如何获取所遇到的开发相关问题的帮助和支持
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27769155"
 ---
 # <a name="support-and-help-options-for-developers"></a>开发人员的支持和帮助选项 
 

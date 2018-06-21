@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 使用 Azure CLI 2.0 手动缩放 Web 应用 | Azure"
-description: "Azure CLI 脚本示例 - 使用 Azure CLI 2.0 手动缩放 Web 应用"
+title: Azure CLI 脚本示例 - 使用 Azure CLI 2.0 手动缩放 Web 应用 | Azure
+description: Azure CLI 脚本示例 - 使用 Azure CLI 2.0 手动缩放 Web 应用
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 251d9074-8fff-4121-ad16-9eca9556ac96
 ms.service: app-service
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/25/2017
+ms.locfileid: "27546601"
 ---
 # <a name="scale-a-web-app-manually"></a>手动缩放 Web 应用
 

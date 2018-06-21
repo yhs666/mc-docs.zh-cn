@@ -1,6 +1,6 @@
 ---
-title: "基于性能数据或计划自动缩放 Azure 资源"
-description: "使用指标数据和调度为应用服务计划创建自动缩放设置"
+title: 基于性能数据或计划自动缩放 Azure 资源
+description: 使用指标数据和调度为应用服务计划创建自动缩放设置
 author: anirudhcavale
 manager: orenr
 services: monitoring-and-diagnostics
@@ -16,6 +16,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870471"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>基于性能数据或调度为 Azure 资源创建自动缩放设置 | Microsoft 文档
 

@@ -1,12 +1,12 @@
 ---
-title: "为 Azure 导入/导出服务的导入作业准备硬盘驱动器的示例工作流 | Azure"
-description: "请参阅为 Azure 导入/导出服务中的导入作业准备驱动器的完整过程演练。"
+title: 为 Azure 导入/导出服务的导入作业准备硬盘驱动器的示例工作流 | Azure
+description: 请参阅为 Azure 导入/导出服务中的导入作业准备驱动器的完整过程演练。
 author: hayley244
 manager: digimobile
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21135130"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器的示例工作流
 
@@ -76,8 +77,8 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 
 此外，可为所有文件设置以下元数据：
 
-* **UploadMethod：**Microsoft Azure 导入/导出服务
-* **DataSetName：**SampleData
+* **UploadMethod：** Microsoft Azure 导入/导出服务
+* **DataSetName：** SampleData
 * **CreationDate：** 10/1/2013
 
 若要为导入的文件设置元数据，请创建包含以下内容的文本文件 `c:\WAImportExport\SampleMetadata.txt`：

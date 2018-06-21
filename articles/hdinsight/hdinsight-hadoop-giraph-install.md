@@ -1,8 +1,8 @@
 ---
-title: "在 HDInsight 中的 Hadoop 群集上安装和使用 Giraph - Azure | Azure"
-description: "了解如何通过 Giraph 自定义 HDInsight 群集，以及如何使用 Giraph。"
+title: 在 HDInsight 中的 Hadoop 群集上安装和使用 Giraph - Azure | Azure
+description: 了解如何通过 Giraph 自定义 HDInsight 群集，以及如何使用 Giraph。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26721325"
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>在基于 Windows 的 HDInsight 群集上安装并使用 Giraph
 

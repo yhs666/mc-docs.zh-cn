@@ -1,11 +1,11 @@
 ---
-title: "使用模板自定义 API 管理开发人员门户"
-description: "了解如何使用模板自定义 Azure API 管理开发人员门户。"
+title: 使用模板自定义 API 管理开发人员门户
+description: 了解如何使用模板自定义 Azure API 管理开发人员门户。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a195675b-f7d0-4fc9-90bf-860e6f17ccf7
 ms.service: api-management
 ms.workload: mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870394"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>如何使用模板自定义 Azure API 管理开发人员门户
 

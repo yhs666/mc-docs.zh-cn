@@ -1,11 +1,11 @@
 ---
-title: "用于 B2B 企业集成的 AS2 消息 - Azure 逻辑应用"
-description: "使用 Azure 逻辑应用交换 AS2 消息以实现 B2B 企业集成"
+title: 用于 B2B 企业集成的 AS2 消息 - Azure 逻辑应用
+description: 使用 Azure 逻辑应用交换 AS2 消息以实现 B2B 企业集成
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.service: logic-apps
 ms.workload: integration
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870604"
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>使用逻辑应用交换 AS2 消息以实现企业集成
 

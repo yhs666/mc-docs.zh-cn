@@ -1,12 +1,12 @@
 ---
-title: "使用 Liquid 转换转换 JSON 数据 - Azure 逻辑应用"
-description: "使用逻辑应用和 Liquid 模板创建高级 JSON 转换的转换或映射。"
+title: 使用 Liquid 转换转换 JSON 数据 - Azure 逻辑应用
+description: 使用逻辑应用和 Liquid 模板创建高级 JSON 转换的转换或映射。
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: divyaswarnkar
 manager: anneta
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870577"
 ---
 # <a name="perform-advanced-json-transformations-with-a-liquid-template"></a>使用 Liquid 模板执行高级 JSON 转换
 

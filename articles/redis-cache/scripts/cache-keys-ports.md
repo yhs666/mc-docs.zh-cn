@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 脚本示例 - 获取 Azure Redis 缓存的主机名、端口和密钥 | Microsoft Docs"
-description: "Azure CLI 脚本示例 - 获取 Azure Redis 缓存实例的主机名、端口和密钥"
+title: Azure CLI 脚本示例 - 获取 Azure Redis 缓存的主机名、端口和密钥 | Microsoft Docs
+description: Azure CLI 脚本示例 - 获取 Azure Redis 缓存实例的主机名、端口和密钥
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 761eb24e-2ba7-418d-8fc3-431153e69a90
 ms.service: cache-redis
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "23993650"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-redis-cache"></a>获取 Azure Redis 缓存的主机名、端口和密钥
 

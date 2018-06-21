@@ -1,6 +1,6 @@
 ---
-title: "调用视频情感 API | Microsoft Docs"
-description: "了解如何调用认知服务中的视频情感 API。"
+title: 调用视频情感 API | Microsoft Docs
+description: 了解如何调用认知服务中的视频情感 API。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407597"
 ---
 # <a name="how-to-call-emotion-api-for-video"></a>如何调用视频情感 API
 

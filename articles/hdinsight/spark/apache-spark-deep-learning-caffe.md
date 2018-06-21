@@ -1,8 +1,8 @@
 ---
-title: "使用 Caffe on Azure HDInsight Spark 进行分布式深度学习 | Azure"
-description: "使用 Caffe on Azure HDInsight Spark 进行分布式深度学习"
+title: 使用 Caffe on Azure HDInsight Spark 进行分布式深度学习 | Azure
+description: 使用 Caffe on Azure HDInsight Spark 进行分布式深度学习
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: xiaoyongzhu
 manager: asadk
 editor: cgronlun
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26721702"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>使用 Caffe on Azure HDInsight Spark 进行分布式深度学习
 

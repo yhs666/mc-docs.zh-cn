@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 身份验证协议 | Microsoft Docs"
-description: "概述 Azure Active Directory (AD) 支持的身份验证协议"
+title: Azure Active Directory 身份验证协议 | Microsoft Docs
+description: 概述 Azure Active Directory (AD) 支持的身份验证协议
 documentationcenter: dev-center-name
 author: alexchen2016
 services: active-directory
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 7a838ae2-c24c-4304-b6c0-e77fb888e6c0
 ms.service: active-directory
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23475535"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory 身份验证协议
 Azure Active Directory (Azure AD) 支持多个最广泛使用的身份验证和授权协议。 本部分中的主题介绍 Azure AD 中支持的协议及其实现。 这些主题包括支持的声明类型的回顾、联合元数据的使用简介、详细的 OAuth 2.0. 和 SAML 2.0 协议参考文档，以及故障排除部分。

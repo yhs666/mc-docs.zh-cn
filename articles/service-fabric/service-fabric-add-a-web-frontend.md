@@ -1,11 +1,11 @@
 ---
-title: "使用 ASP.NET Core 创建 Azure Service Fabric 应用的 Web 前端 | Azure"
-description: "使用 ASP.NET Core 项目和服务间通信，通过 Service Remoting 将 Service Fabric 应用程序公开到 Web。"
+title: 使用 ASP.NET Core 创建 Azure Service Fabric 应用的 Web 前端 | Azure
+description: 使用 ASP.NET Core 项目和服务间通信，通过 Service Remoting 将 Service Fabric 应用程序公开到 Web。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26045006"
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>使用 ASP.NET Core 生成应用程序的 Web 服务前端
 默认情况下，Azure Service Fabric 服务不提供用于访问 Web 的公共接口。 若要向 HTTP 客户端公开应用程序的功能，需要创建一个 Web 项目作为入口点，然后从该处与单个服务进行通信。

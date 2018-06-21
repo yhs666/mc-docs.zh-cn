@@ -1,12 +1,12 @@
 ---
-title: "用于容器的 Azure Web 应用的持续部署 | Microsoft Docs"
-description: "如何在用于容器的 Azure Web 应用中设置连续部署。"
+title: 用于容器的 Azure Web 应用的持续部署 | Microsoft Docs
+description: 如何在用于容器的 Azure Web 应用中设置连续部署。
 keywords: azure app service, linux, oss, acr
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ahmedelnably
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.service: app-service
 ms.workload: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339060"
 ---
 # <a name="continuous-deployment-with-azure-web-app-for-containers"></a>使用用于容器的 Azure Web 应用进行持续部署
 

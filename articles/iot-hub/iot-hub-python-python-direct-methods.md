@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中心直接方法 (Python)"
-description: "如何使用 Azure IoT 中心直接方法。 使用 Azure IoT SDKs for Python 实现包含直接方法的模拟设备应用和调用直接方法的服务应用。"
+title: Azure IoT 中心直接方法 (Python)
+description: 如何使用 Azure IoT 中心直接方法。 使用 Azure IoT SDKs for Python 实现包含直接方法的模拟设备应用和调用直接方法的服务应用。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: msebolt
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ea9c73ca-7778-4e38-a8f1-0bee9d142f04
 ms.service: iot-hub
 ms.devlang: python
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870559"
 ---
 # <a name="use-direct-methods-on-your-iot-device-with-python"></a>通过 Python 使用 IoT 设备上的直接方法
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]

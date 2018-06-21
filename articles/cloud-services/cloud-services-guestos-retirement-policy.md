@@ -1,11 +1,11 @@
 ---
-title: "Azure 来宾 OS 可支持性和停用策略指南 | Azure"
-description: "介绍有关 Microsoft 对云服务使用的 Azure 来宾 OS 提供的支持的信息。"
+title: Azure 来宾 OS 可支持性和停用策略指南 | Azure
+description: 介绍有关 Microsoft 对云服务使用的 Azure 来宾 OS 提供的支持的信息。
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 919dd781-4dc6-4e50-bda8-9632966c5458
 ms.service: cloud-services
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23635091"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure 来宾 OS 可支持性和停用策略
 本页面上的信息与 Azure 来宾操作系统（[来宾 OS](./cloud-services-guestos-update-matrix.md)）相关。来宾 OS 仅适用于云服务辅助角色和 Web 角色 (PaaS)。 而不适用于虚拟机 (IaaS)。 

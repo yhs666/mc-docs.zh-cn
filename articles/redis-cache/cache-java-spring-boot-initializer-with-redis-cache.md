@@ -1,13 +1,13 @@
 ---
-title: "如何配置 Spring Boot Initializer 应用，以使用 Redis 缓存"
-description: "了解如何配置使用 Spring Initializer 创建的 Spring Boot 应用程序，以使用 Azure Redis 缓存。"
+title: 如何配置 Spring Boot Initializer 应用，以使用 Redis 缓存
+description: 了解如何配置使用 Spring Initializer 创建的 Spring Boot 应用程序，以使用 Azure Redis 缓存。
 services: redis-cache
 documentationcenter: java
 author: alexchen2016
 manager: digimobile
-editor: 
-keywords: "Spring、Spring Boot Starter、Redis 缓存"
-ms.assetid: 
+editor: ''
+keywords: Spring、Spring Boot Starter、Redis 缓存
+ms.assetid: ''
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407196"
 ---
 # <a name="how-to-configure-a-spring-boot-initializer-app-to-use-redis-cache"></a>如何配置 Spring Boot Initializer 应用，以使用 Redis 缓存
 

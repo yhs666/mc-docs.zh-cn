@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步：技术概念 | Microsoft Docs"
-description: "介绍 Azure AD Connect 同步的技术概念。"
+title: Azure AD Connect 同步：技术概念 | Microsoft Docs
+description: 介绍 Azure AD Connect 同步的技术概念。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25569453"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect 同步：技术概念
 本文是[了解体系结构](active-directory-aadconnectsync-technical-concepts.md)主题的总结。

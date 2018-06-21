@@ -1,11 +1,11 @@
 ---
-title: "使用应用服务移动应用托管客户端库 (Windows | Xamarin)"
-description: "了解如何在 Windows 和 Xamarin 应用中使用 Azure 应用服务移动应用的 .NET 客户端。"
+title: 使用应用服务移动应用托管客户端库 (Windows | Xamarin)
+description: 了解如何在 Windows 和 Xamarin 应用中使用 Azure 应用服务移动应用的 .NET 客户端。
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27984769"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何使用 Azure 移动应用的托管客户端
 
@@ -545,7 +546,7 @@ PullOptions pullOptions = new PullOptions
 2. （可选）若要支持 Windows 设备，请安装以下 SQLite 运行时包之一：
 
     * **Windows 8.1 运行时：** 安装 [SQLite for Windows 8.1][3]。
-    * **Windows Phone 8.1：**安装 [SQLite for Windows Phone 8.1][4]。
+    * **Windows Phone 8.1：** 安装 [SQLite for Windows Phone 8.1][4]。
     * **通用 Windows 平台** 安装 [适用于通用 Windows 的 SQLite][5]。
 
 3. （可选）。 对于 Windows 设备，单击“引用” > “添加引用...”，展开 “Windows”文件夹 >“扩展”，然后启用相应的 SQLite for Windows SDK 和 Visual C++ 2013 Runtime for Windows SDK。

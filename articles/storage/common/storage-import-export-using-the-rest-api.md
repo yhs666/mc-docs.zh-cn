@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 导入/导出服务 REST API | Azure"
-description: "了解可在何处查找使用 Azure 导入/导出服务 REST API 的资源，包括操作说明和参考材料。"
+title: 使用 Azure 导入/导出服务 REST API | Azure
+description: 了解可在何处查找使用 Azure 导入/导出服务 REST API 的资源，包括操作说明和参考材料。
 author: yunan2016
 manager: digimobile
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 233f80e9-2e7f-48e0-9639-5c7785e7d743
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/29/2017
+ms.locfileid: "27548269"
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>使用 Azure 导入/导出服务 REST API
 

@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中创建 Python Web 应用"
-description: "数分钟内在 Azure App Service Web 应用中部署首个 Python Hello World。"
+title: 在 Azure 中创建 Python Web 应用
+description: 数分钟内在 Azure App Service Web 应用中部署首个 Python Hello World。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 928ee2e5-6143-4c0c-8546-366f5a3d80ce
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730691"
 ---
 # <a name="create-a-python-web-app-in-azure"></a>在 Azure 中创建 Python Web 应用
 

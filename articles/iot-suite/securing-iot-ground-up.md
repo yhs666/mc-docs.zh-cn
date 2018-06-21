@@ -1,12 +1,12 @@
 ---
-title: "从头开始保障物联网的安全 | Azure"
-description: "本文介绍了 Azure IoT 套件的内置安全功能"
-services: 
+title: 从头开始保障物联网的安全 | Azure
+description: 本文介绍了 Azure IoT 套件的内置安全功能
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 10252dfa-8313-4a97-9bd6-a3f1345dd3be
 ms.service: iot-suite
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730793"
 ---
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT Edge 入门 (Linux) | Microsoft Docs"
-description: "了解如何在 Linux 计算机上构建网关，以及 Azure IoT Edge 的重要概念，如模块和 JSON 配置文件。"
+title: Azure IoT Edge 入门 (Linux) | Microsoft Docs
+description: 了解如何在 Linux 计算机上构建网关，以及 Azure IoT Edge 的重要概念，如模块和 JSON 配置文件。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: Derek1101
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cf537bdd-2352-4bb1-96cd-a283fcd3d6cf
 ms.service: iot-hub
 ms.devlang: cpp
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24058551"
 ---
 # <a name="explore-azure-iot-edge-architecture-on-linux"></a>在 Linux 上浏览 Azure IoT Edge 体系结构
 

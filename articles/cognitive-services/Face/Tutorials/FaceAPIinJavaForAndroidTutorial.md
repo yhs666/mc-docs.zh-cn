@@ -1,6 +1,6 @@
 ---
-title: "Java for Android 人脸 API 教程 | Microsoft Docs"
-description: "创建一个使用认知服务人脸 API 来检测和定格图像中的人脸的简单 Android 应用。"
+title: Java for Android 人脸 API 教程 | Microsoft Docs
+description: 创建一个使用认知服务人脸 API 来检测和定格图像中的人脸的简单 Android 应用。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407612"
 ---
 # <a name="getting-started-with-face-api-in-java-for-android-tutorial"></a>Java for Android 中的人脸 API 入门教程
 

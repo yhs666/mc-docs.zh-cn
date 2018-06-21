@@ -1,14 +1,14 @@
 ---
-title: "在 Power BI 工作区集合中在报表的查看和编辑模式之间切换 | Microsoft Docs"
-description: "了解在 Power BI 工作区集合中如何在报表的查看和编辑模式之间切换。"
+title: 在 Power BI 工作区集合中在报表的查看和编辑模式之间切换 | Microsoft Docs
+description: 了解在 Power BI 工作区集合中如何在报表的查看和编辑模式之间切换。
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/26/2017
+ms.locfileid: "23580290"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>在 Power BI 工作区集合中在报表的查看和编辑模式之间切换
 

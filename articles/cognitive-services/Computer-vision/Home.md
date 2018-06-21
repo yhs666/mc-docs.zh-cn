@@ -1,6 +1,6 @@
 ---
-title: "用于 Microsoft 认知服务的计算机视觉 API | Microsoft Docs"
-description: "在 Microsoft 认知服务中使用计算机视觉 API 中的高级算法来处理图像并返回信息。"
+title: 用于 Microsoft 认知服务的计算机视觉 API | Microsoft Docs
+description: 在 Microsoft 认知服务中使用计算机视觉 API 中的高级算法来处理图像并返回信息。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407627"
 ---
 # <a name="computer-vision-api-version-10"></a>计算机视觉 API 1.0 版 
 

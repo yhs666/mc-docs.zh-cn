@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序管理网络安全组流日志 - REST API | Azure"
-description: "此页说明如何在 Azure 网络观察程序中使用 REST API 管理网络安全组流日志"
+title: 使用 Azure 网络观察程序管理网络安全组流日志 - REST API | Azure
+description: 此页说明如何在 Azure 网络观察程序中使用 REST API 管理网络安全组流日志
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 2ab25379-0fd3-4bfe-9d82-425dfc7ad6bb
 ms.service: network-watcher
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27958323"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>使用 REST API 配置网络安全组流日志
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect：排查同步过程中发生的错误 | Microsoft Docs"
-description: "介绍如何使用 Azure AD Connect 排查同步过程中遇到的错误。"
+title: Azure AD Connect：排查同步过程中发生的错误 | Microsoft Docs
+description: 介绍如何使用 Azure AD Connect 排查同步过程中遇到的错误。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 editor: curtand
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/28/2017
+ms.locfileid: "27547641"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>排查同步过程中发生的错误
 将标识数据从 Windows Server Active Directory (AD DS) 同步到 Azure Active Directory (Azure AD) 时可能会发生错误。 本文概述不同类型的同步错误、导致这些错误的某些可能情况，以及这些错误的可能解决方法。 本文介绍常见错误类型，不一定涵盖所有可能的错误。

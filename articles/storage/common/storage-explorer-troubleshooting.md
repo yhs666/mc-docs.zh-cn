@@ -1,12 +1,12 @@
 ---
-title: "Azure 存储资源管理器故障排除指南 | Azure"
-description: "Azure 两项调试功能的概述"
+title: Azure 存储资源管理器故障排除指南 | Azure
+description: Azure 两项调试功能的概述
 services: virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: forester123
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870384"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
 

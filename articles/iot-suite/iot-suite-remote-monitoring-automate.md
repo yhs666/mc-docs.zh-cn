@@ -1,7 +1,7 @@
 ---
-title: "在远程监视解决方案中检测设备问题"
-description: "本教程介绍如何使用规则和操作在远程监视解决方案中自动检测基于阈值的设备问题。"
-services: 
+title: 在远程监视解决方案中检测设备问题
+description: 本教程介绍如何使用规则和操作在远程监视解决方案中自动检测基于阈值的设备问题。
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730987"
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>使用基于阈值的规则检测问题
 

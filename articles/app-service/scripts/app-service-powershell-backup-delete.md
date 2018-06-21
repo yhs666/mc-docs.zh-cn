@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 脚本示例 - 删除 Web 应用的备份 | Microsoft Docs"
-description: "Azure PowerShell 脚本示例 - 删除 Web 应用的备份"
+title: Azure PowerShell 脚本示例 - 删除 Web 应用的备份 | Microsoft Docs
+description: Azure PowerShell 脚本示例 - 删除 Web 应用的备份
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: ebcadb49-755d-4202-a5eb-f211827a9168
 ms.service: app-service-web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592485"
 ---
 # <a name="delete-a-backup-for-a-web-app"></a>删除 Web 应用的备份
 

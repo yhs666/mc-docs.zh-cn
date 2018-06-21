@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure 网络安全概述 | Microsoft Azure"
-description: "本文旨在帮助读者了解 Microsoft Azure 在网络安全领域提供的功能。 其中提供了核心网络安全概念和要求的基本说明，以及有关 Azure 在其中每个领域提供的功能的信息。"
+title: Microsoft Azure 网络安全概述 | Microsoft Azure
+description: 本文旨在帮助读者了解 Microsoft Azure 在网络安全领域提供的功能。 其中提供了核心网络安全概念和要求的基本说明，以及有关 Azure 在其中每个领域提供的功能的信息。
 services: security
 documentationCenter: na
 authors: LingChen
@@ -18,6 +18,7 @@ ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23955132"
 ---
 # <a name="azure-network-security-overview"></a>Azure 网络安全概述
 

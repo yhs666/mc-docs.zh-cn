@@ -1,11 +1,11 @@
 ---
-title: "Azure API 管理中的策略"
-description: "了解如何在 API 管理中创建、编辑和配置策略。"
+title: Azure API 管理中的策略
+description: 了解如何在 API 管理中创建、编辑和配置策略。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285071"
 ---
 # <a name="policies-in-azure-api-management"></a>Azure API 管理中的策略
 

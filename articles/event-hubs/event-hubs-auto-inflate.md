@@ -1,12 +1,12 @@
 ---
-title: "自动增加 Azure 事件中心吞吐量单位 | Azure"
-description: "在命名空间上启用自动膨胀，自动增加吞吐量单位"
+title: 自动增加 Azure 事件中心吞吐量单位 | Azure
+description: 在命名空间上启用自动膨胀，自动增加吞吐量单位
 services: event-hubs
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29797857"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>自动增加 Azure 事件中心吞吐量单位
 

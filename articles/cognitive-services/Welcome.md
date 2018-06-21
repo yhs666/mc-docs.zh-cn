@@ -1,6 +1,6 @@
 ---
-title: "什么是 Microsoft 认知服务？ | Microsoft Docs"
-description: "Microsoft 认知服务是可与 Azure 配合使用的一组 API、SDK 和服务，可提高应用程序的智能性、吸引力和可发现性。"
+title: 什么是 Microsoft 认知服务？ | Microsoft Docs
+description: Microsoft 认知服务是可与 Azure 配合使用的一组 API、SDK 和服务，可提高应用程序的智能性、吸引力和可发现性。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407579"
 ---
 # <a name="what-is-cognitive-services"></a>什么是认知服务？
 

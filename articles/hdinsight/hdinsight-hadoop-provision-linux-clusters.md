@@ -1,9 +1,9 @@
 ---
-title: "Hadoop、Spark、Kafka、HBase 的群集设置 - Azure HDInsight"
-description: "通过浏览器、Azure CLI、Azure PowerShell、REST 或 SDK 设置适用于 HDInsight 的 Hadoop、Kafka、Spark、HBase 或 Storm 群集。"
-keywords: "hadoop 群集设置, kafka 群集设置, spark 群集设置, 什么是 hadoop 群集"
+title: Hadoop、Spark、Kafka、HBase 的群集设置 - Azure HDInsight
+description: 通过浏览器、Azure CLI、Azure PowerShell、REST 或 SDK 设置适用于 HDInsight 的 Hadoop、Kafka、Spark、HBase 或 Storm 群集。
+keywords: hadoop 群集设置, kafka 群集设置, spark 群集设置, 什么是 hadoop 群集
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -23,6 +23,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730903"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>使用 Hadoop、Spark、Kafka 等等在 HDInsight 中设置群集
 

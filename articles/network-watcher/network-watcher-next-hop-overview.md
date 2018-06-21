@@ -1,11 +1,11 @@
 ---
-title: "Azure 网络观察程序中的“下一跃点”简介 | Azure"
-description: "此页概述了网络观察程序的“下一跃点”功能"
+title: Azure 网络观察程序中的“下一跃点”简介 | Azure
+description: 此页概述了网络观察程序的“下一跃点”功能
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: febf7bca-e0b7-41d5-838f-a5a40ebc5aac
 ms.service: network-watcher
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24104638"
 ---
 # <a name="introduction-to-next-hop-in-azure-network-watcher"></a>Azure 网络观察程序中的“下一跃点”简介
 

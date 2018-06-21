@@ -22,6 +22,7 @@ ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/19/2018
+ms.locfileid: "29993202"
 ---
 # <a name="reset-your-work-or-school-password"></a>重置工作或学校密码
 

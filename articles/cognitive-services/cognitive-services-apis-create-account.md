@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 门户中创建认知服务 API 帐户 | Microsoft 文档"
-description: "如何在 Azure 门户中创建 Microsoft 认知服务 API 帐户。"
+title: 在 Azure 门户中创建认知服务 API 帐户 | Microsoft 文档
+description: 如何在 Azure 门户中创建 Microsoft 认知服务 API 帐户。
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 editor: cgronlun
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407591"
 ---
 # <a name="create-a-cognitive-services-apis-account-in-the-azure-portal"></a>在 Azure 门户中创建认知服务 API 帐户
 
@@ -35,21 +36,21 @@ ms.lasthandoff: 10/13/2017
 
 4. 在“创建”页中提供以下信息： 
 
-   - **帐户名：**帐户的名称。 我们建议使用描述性的名称，例如 *AFaceAPIAccount*。
+   - **帐户名：** 帐户的名称。 我们建议使用描述性的名称，例如 *AFaceAPIAccount*。
 
-   - **订阅：**选择一个可用的至少具有参与者权限的 Azure 订阅。
+   - **订阅：** 选择一个可用的至少具有参与者权限的 Azure 订阅。
 
-   - **API 类型：**选择想要使用的认知服务 API。 有关可用的各种认知服务 API 的详细信息，请参考[认知服务](/cognitive-services/)站点。
+   - **API 类型：** 选择想要使用的认知服务 API。 有关可用的各种认知服务 API 的详细信息，请参考[认知服务](/cognitive-services/)站点。
 
         ![选择 API 类型](./media/cognitive-services-apis-create-account/list-of-apis.png)
 
-   - **定价层：**认知服务帐户的费用取决于实际用量和所选的选项。 有关每个 API 的定价的详细信息，请参考[定价页](https://www.azure.cn/pricing/details/cognitive-services/)。
+   - **定价层：** 认知服务帐户的费用取决于实际用量和所选的选项。 有关每个 API 的定价的详细信息，请参考[定价页](https://www.azure.cn/pricing/details/cognitive-services/)。
 
-   - **资源组：**资源组是具有共同生命周期、权限和策略的资源的集合。 若要了解有关资源组的详细信息，请参阅[通过门户管理 Azure 资源](/azure-resource-manager/resource-group-portal)。
+   - **资源组：** 资源组是具有共同生命周期、权限和策略的资源的集合。 若要了解有关资源组的详细信息，请参阅[通过门户管理 Azure 资源](/azure-resource-manager/resource-group-portal)。
 
-   - **资源组位置：**仅当所选 API 是全局的（未绑定到一个位置），才需要填写此信息。 但是，如果 API 是全局的且未绑定到一个位置，则必须为资源组指定一个位置，与认知服务 API 帐户关联的元数据将驻留于此位置。 此位置对帐户的运行时可用性没有任何影响。 若要了解有关资源组的详细信息，请参阅[通过门户管理 Azure 资源](/azure-resource-manager/resource-group-portal)。
+   - **资源组位置：** 仅当所选 API 是全局的（未绑定到一个位置），才需要填写此信息。 但是，如果 API 是全局的且未绑定到一个位置，则必须为资源组指定一个位置，与认知服务 API 帐户关联的元数据将驻留于此位置。 此位置对帐户的运行时可用性没有任何影响。 若要了解有关资源组的详细信息，请参阅[通过门户管理 Azure 资源](/azure-resource-manager/resource-group-portal)。
 
-   - **明确接受联机服务条款：**若要创建帐户，订阅所有者或参与者（由 [Azure 基于角色的访问控制](/active-directory/role-based-access-control-what-is/)定义）需要明确接受[联机服务条款](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx)中适用于认知服务的条款。 
+   - **明确接受联机服务条款：** 若要创建帐户，订阅所有者或参与者（由 [Azure 基于角色的访问控制](/active-directory/role-based-access-control-what-is/)定义）需要明确接受[联机服务条款](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx)中适用于认知服务的条款。 
 
      订阅所有者可以遵循[使用 Azure 门户分配和管理资源策略](/azure-resource-manager/resource-manager-policy-portal)一文、分配“不允许的资源类型”策略定义并将 **Microsoft.CognitiveServices/accounts** 指定为目标资源类型，通过[资源策略](/azure-resource-manager/resource-manager-policy)来禁用为特定的资源组或订阅创建认知服务帐户。
 

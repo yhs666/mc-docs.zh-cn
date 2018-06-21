@@ -1,9 +1,9 @@
 ---
-title: "针对 Azure 指标警报配置 Webhook"
-description: "了解如何将 Azure 警报重新路由到其他非 Azure 系统。"
+title: 针对 Azure 指标警报配置 Webhook
+description: 了解如何将 Azure 警报重新路由到其他非 Azure 系统。
 author: johnkemnetz
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 8b3ae540-1d19-4f3d-a635-376042f8a5bb
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870360"
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>针对 Azure 度量值警报配置 webhook
 可以使用 Webhook 将 Azure 警报通知路由到其他系统，以便进行后续处理或自定义操作。 可以针对警报使用 Webhook，以将警报路由到可以发送短信的服务，以记录 Bug、通过聊天/消息服务通知团队，或进行各种其他操作。 

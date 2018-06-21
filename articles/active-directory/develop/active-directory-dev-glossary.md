@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 开发人员词汇表 | Microsoft Docs"
-description: "常用的 Azure Active Directory 开发人员概念和功能术语列表。"
+title: Azure Active Directory 开发人员词汇表 | Microsoft Docs
+description: 常用的 Azure Active Directory 开发人员概念和功能术语列表。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27769183"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 开发人员词汇表
 本文包含一些核心 Azure Active Directory (AD) 开发人员概念的定义，帮助你了解 Azure AD 的应用程序开发。

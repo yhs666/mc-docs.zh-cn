@@ -1,13 +1,13 @@
 ---
-title: "Azure 虚拟机网络吞吐量 | Azure"
-description: "了解 Azure 虚拟机网络吞吐量。"
+title: Azure 虚拟机网络吞吐量 | Azure
+description: 了解 Azure 虚拟机网络吞吐量。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 020735d0e683791859d8e90381e9f8743a1af216
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27958245"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>虚拟机网络带宽
 

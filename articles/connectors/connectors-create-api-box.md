@@ -21,6 +21,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072507"
 ---
 # <a name="get-started-with-the-box-connector"></a>Box 连接器入门
 连接到 Box，创建文件、删除文件等。 通过 Box，可以：

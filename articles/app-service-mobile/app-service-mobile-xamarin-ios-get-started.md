@@ -1,11 +1,11 @@
 ---
-title: "适用于 Xamarin iOS 应用的 Azure 应用服务移动应用入门 | Azure"
-description: "按照本教程进行操作，开始使用移动应用进行 Xamarin.iOS 开发。"
+title: 适用于 Xamarin iOS 应用的 Azure 应用服务移动应用入门 | Azure
+description: 按照本教程进行操作，开始使用移动应用进行 Xamarin.iOS 开发。
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
 ms.service: app-service-mobile
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27984715"
 ---
 #<a name="create-a-xamarinios-app"></a>创建 Xamarin iOS 应用
 

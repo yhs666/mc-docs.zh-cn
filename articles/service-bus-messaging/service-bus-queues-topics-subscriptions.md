@@ -1,11 +1,11 @@
 ---
-title: "Azure 服务总线消息传送队列、主题和订阅概述"
-description: "服务总线消息传送实体概述。"
+title: Azure 服务总线消息传送队列、主题和订阅概述
+description: 服务总线消息传送实体概述。
 services: service-bus
 documentationCenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a306ced4-74e9-47c6-990a-d9c47efa31d5
 ms.service: service-bus
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285357"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>服务总线队列、主题和订阅
 Azure 服务总线支持一组基于云的、面向消息的中间件技术，包括可靠的消息队列和持久发布/订阅消息。 这些“中转”消息传送功能可被视为分离式消息传送功能，支持使用服务总线消息传送工作负载的发布-订阅、临时分离和负载均衡方案。 分离式通信具有很多优点；例如，客户端和服务器可以根据需要进行连接并以异步方式执行其操作。

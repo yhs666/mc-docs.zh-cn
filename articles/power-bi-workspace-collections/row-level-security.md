@@ -1,12 +1,12 @@
 ---
-title: "将行级别安全性用于 Power BI 工作区集合"
-description: "有关将行级别安全性用于 Power BI 工作区集合的详细信息"
+title: 将行级别安全性用于 Power BI 工作区集合
+description: 有关将行级别安全性用于 Power BI 工作区集合的详细信息
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.service: power-bi-embedded
 ms.devlang: NA
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/26/2017
+ms.locfileid: "23580303"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>将行级别安全性用于 Power BI 工作区集合
 

@@ -1,12 +1,12 @@
 ---
-title: "使用 JavaScript API 与报表交互 | Microsoft Docs"
-description: "Power BI JavaScript API 可以轻松将 Power BI 报表嵌入到应用程序中。"
+title: 使用 JavaScript API 与报表交互 | Microsoft Docs
+description: Power BI JavaScript API 可以轻松将 Power BI 报表嵌入到应用程序中。
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
 ms.service: power-bi-embedded
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/26/2017
+ms.locfileid: "23580301"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>使用 JavaScript API 与 Power BI 报表进行交互
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure 中的 Windows HPC Pack 群集选项 | Azure"
-description: "了解在 Azure 云中使用 Microsoft HPC Pack 创建和管理 Windows 高性能计算 (HPC) 群集时可用的选项"
+title: Azure 中的 Windows HPC Pack 群集选项 | Azure
+description: 了解在 Azure 云中使用 Microsoft HPC Pack 创建和管理 Windows 高性能计算 (HPC) 群集时可用的选项
 services: virtual-machines-windows,cloud-services,batch
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management,hpc-pack
 ms.assetid: 02c5566d-2129-483c-9ecf-0d61030442d7
 ms.service: virtual-machines-windows
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26727628"
 ---
 # <a name="options-with-hpc-pack-to-create-and-manage-a-cluster-for-windows-hpc-workloads-in-azure"></a>使用 HPC Pack 为 Azure 中的 Windows HPC 工作负荷创建和管理群集的选项
 [!INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../../includes/virtual-machines-common-hpcpack-cluster-options.md)]

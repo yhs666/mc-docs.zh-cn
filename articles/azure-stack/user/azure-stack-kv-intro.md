@@ -20,6 +20,7 @@ ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29925259"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Azure Stack 中的 Key Vault 简介
 
@@ -53,19 +54,19 @@ Azure Stack 中的 Key Vault 可帮助保护云应用程序和服务使用的加
 以下方案说明 Key Vault 如何帮助满足开发人员和安全管理员的需求。
 
 ### <a name="developer-for-an-azure-stack-application"></a>Azure Stack 应用程序开发人员
-**问题：**我想要编写使用密钥进行签名和加密的 Azure Stack 应用程序。 我希望这些密钥与应用程序分开，使解决方案适用于地理分散的应用程序。
+**问题：** 我想要编写使用密钥进行签名和加密的 Azure Stack 应用程序。 我希望这些密钥与应用程序分开，使解决方案适用于地理分散的应用程序。
 
-**说明：**密钥会存储在保管库中，可按需由 URI 调用。
+**说明：** 密钥会存储在保管库中，可按需由 URI 调用。
 
 ### <a name="developer-for-software-as-a-service-saas"></a>软件即服务 (SaaS) 开发人员
-**问题：**对于客户的密钥和机密，我不想承担任何实际或潜在法律责任。 我希望客户拥有并自行管理密钥，使我能够将全部精力集中在我的专长上，也就是提供核心软件功能。
+**问题：** 对于客户的密钥和机密，我不想承担任何实际或潜在法律责任。 我希望客户拥有并自行管理密钥，使我能够将全部精力集中在我的专长上，也就是提供核心软件功能。
 
-**说明：**客户可以将他们自己的密钥导入 Azure Stack 并进行管理。 
+**说明：** 客户可以将他们自己的密钥导入 Azure Stack 并进行管理。 
 
 ### <a name="chief-security-officer-cso"></a>首席安全官 (CSO)
-**问题：**我想要确保我的组织掌控密钥生命周期，并可监视密钥使用情况。
+**问题：** 我想要确保我的组织掌控密钥生命周期，并可监视密钥使用情况。
 
-**说明：**Key Vault 的设计可确保 Microsoft 无法看到或提取你的密钥。 当应用程序必须使用客户密钥来执行加密操作时，Key Vault 会代表应用程序来使用密钥。 应用程序看不到客户的密钥。 即使我们使用多个 Azure Stack 服务和资源，你可以从 Azure Stack 中的单一位置管理密钥。 不论你在 Azure Stack 中有几个保管库、保管库支持哪些区域以及使用哪些应用程序使用这些保管库，保管库都可提供单一界面。
+**说明：** Key Vault 的设计可确保 Microsoft 无法看到或提取你的密钥。 当应用程序必须使用客户密钥来执行加密操作时，Key Vault 会代表应用程序来使用密钥。 应用程序看不到客户的密钥。 即使我们使用多个 Azure Stack 服务和资源，你可以从 Azure Stack 中的单一位置管理密钥。 不论你在 Azure Stack 中有几个保管库、保管库支持哪些区域以及使用哪些应用程序使用这些保管库，保管库都可提供单一界面。
 
 ## <a name="next-steps"></a>后续步骤
 

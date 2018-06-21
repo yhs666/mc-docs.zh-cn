@@ -1,6 +1,6 @@
 ---
-title: "如何通过 Python 使用队列存储 | Azure"
-description: "了解如何通过 Python 使用 Azure 队列服务创建和删除队列，以及插入、获取和删除消息。"
+title: 如何通过 Python 使用队列存储 | Azure
+description: 了解如何通过 Python 使用 Azure 队列服务创建和删除队列，以及插入、获取和删除消息。
 services: storage
 documentationcenter: python
 author: forester123
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/29/2017
+ms.locfileid: "27548313"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>如何通过 Python 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

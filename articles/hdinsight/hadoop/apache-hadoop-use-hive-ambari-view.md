@@ -22,6 +22,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072169"
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>将 Ambari Hive 视图与 HDInsight 中的 Hadoop 配合使用
 

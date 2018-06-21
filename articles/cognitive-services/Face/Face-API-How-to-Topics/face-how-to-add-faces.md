@@ -1,6 +1,6 @@
 ---
-title: "使用人脸 API 添加人脸 | Microsoft Docs"
-description: "使用认知服务中的人脸 API 在图像中添加人脸。"
+title: 使用人脸 API 添加人脸 | Microsoft Docs
+description: 使用认知服务中的人脸 API 在图像中添加人脸。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407582"
 ---
 # <a name="how-to-add-faces"></a>如何添加人脸
 

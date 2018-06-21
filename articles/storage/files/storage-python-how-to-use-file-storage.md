@@ -1,6 +1,6 @@
 ---
-title: "使用 Python 针对 Azure 文件进行开发 | Microsoft Docs"
-description: "了解如何开发使用 Azure 文件存储文件数据的 Python 应用程序和服务。"
+title: 使用 Python 针对 Azure 文件进行开发 | Microsoft Docs
+description: 了解如何开发使用 Azure 文件存储文件数据的 Python 应用程序和服务。
 services: storage
 documentationcenter: python
 author: forester123
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/29/2017
+ms.locfileid: "27548333"
 ---
 # <a name="develop-for-azure-files-with-python"></a>使用 Python 针对 Azure 文件进行开发
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]

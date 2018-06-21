@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT 套件和 Azure Active Directory | Microsoft Docs"
-description: "介绍 Azure IoT 套件如何使用 Azure Active Directory 管理权限。"
-services: 
+title: Azure IoT 套件和 Azure Active Directory | Microsoft Docs
+description: 介绍 Azure IoT 套件如何使用 Azure Active Directory 管理权限。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 246228ba-954a-4d96-b6d6-e53e4590cb4f
 ms.service: iot-suite
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/29/2017
+ms.locfileid: "27548235"
 ---
 # <a name="permissions-on-the-azureiotsuitecn-site"></a>azureiotsuite.cn 站点权限
 
@@ -80,8 +81,8 @@ Azure 管理员角色可控制将 Azure 订阅映射到 AD 租户的能力。
 
 预配解决方案中定义了两个明确的角色和一个隐式角色：
 
-* **管理员：**具有添加、管理、删除设备和修改设置的完全控制权限。
-* **只读：**可以查看设备、规则、操作、作业和遥测数据。
+* **管理员：** 具有添加、管理、删除设备和修改设置的完全控制权限。
+* **只读：** 可以查看设备、规则、操作、作业和遥测数据。
 
 可以在 [RolePermissions.cs][lnk-resource-cs] 源文件中找到分配给每个角色的权限。
 

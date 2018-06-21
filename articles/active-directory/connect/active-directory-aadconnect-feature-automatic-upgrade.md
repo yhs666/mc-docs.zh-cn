@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect：自动升级 | Microsoft Docs"
-description: "本主题介绍 Azure AD Connect 同步中的内置自动升级功能。"
+title: Azure AD Connect：自动升级 | Microsoft Docs
+description: 本主题介绍 Azure AD Connect 同步中的内置自动升级功能。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/28/2017
+ms.locfileid: "27547583"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect：自动升级
 此功能是随内部版本 1.1.105.0（于 2016 年 2 月发布）一起推出的。

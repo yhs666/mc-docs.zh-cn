@@ -1,8 +1,8 @@
 ---
-title: "将云文件夹中的内容同步到 Azure 应用服务"
-description: "了解如何通过内容同步，将应用从云文件夹部署到 Azure 应用服务。"
+title: 将云文件夹中的内容同步到 Azure 应用服务
+description: 了解如何通过内容同步，将应用从云文件夹部署到 Azure 应用服务。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731042"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>将云文件夹中的内容同步到 Azure 应用服务
 本教程说明如何从常用云存储服务（如 Dropbox 和 OneDrive）将内容同步到 [Azure 应用服务](http://go.microsoft.com/fwlink/?LinkId=529714)。 

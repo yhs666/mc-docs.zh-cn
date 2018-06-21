@@ -1,11 +1,11 @@
 ---
-title: "修复 Azure 导入/导出服务的导入作业 - v1 | Azure"
-description: "了解如何修复使用 Azure 导入/导出服务创建和运行的导入作业。"
+title: 修复 Azure 导入/导出服务的导入作业 - v1 | Azure
+description: 了解如何修复使用 Azure 导入/导出服务创建和运行的导入作业。
 author: forester123
 manager: digimobile
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/09/2017
+ms.locfileid: "22612558"
 ---
 # <a name="repairing-an-import-job"></a>修复导入作业
 Azure 导入/导出服务可能无法将某些文件或某个文件的部分内容复制到 Azure Blob 服务。 失败的部分原因包括：  

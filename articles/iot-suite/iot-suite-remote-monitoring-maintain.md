@@ -1,7 +1,7 @@
 ---
-title: "在远程监视解决方案中排查设备问题"
-description: "本教程介绍如何在远程监视解决方案中排查和修正设备问题。"
-services: 
+title: 在远程监视解决方案中排查设备问题
+description: 本教程介绍如何在远程监视解决方案中排查和修正设备问题。
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730863"
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>排查和修正设备问题
 

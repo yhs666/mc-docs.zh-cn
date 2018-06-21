@@ -1,13 +1,13 @@
 ---
-title: "适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备设置 | Microsoft Docs"
-description: "了解适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备设置。"
+title: 适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备设置 | Microsoft Docs
+description: 了解适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备设置。
 services: vpn-gateway
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-vpn-gateway
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
@@ -21,6 +21,7 @@ ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/12/2017
+ms.locfileid: "26652655"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备设置
 

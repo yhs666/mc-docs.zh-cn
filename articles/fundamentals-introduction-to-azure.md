@@ -1,11 +1,11 @@
 ---
-title: "Azure 简介 | Microsoft Docs"
-description: "不熟悉 Azure？ 获取有关所提供服务的基本概述，以及用法示例。"
+title: Azure 简介 | Microsoft Docs
+description: 不熟悉 Azure？ 获取有关所提供服务的基本概述，以及用法示例。
 services: " "
 documentationcenter: .net
 author: rboucher
 manager: carolz
-editor: 
+editor: ''
 ms.assetid: 6f47f711-2208-4c21-8c1d-826a54c05c29
 ms.service: multiple
 ms.workload: multiple
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7d5b681976ac2b7e7390ccd8adce2124b5a6d588
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28107016"
 ---
 # <a name="introducing-azure"></a>Azure 简介
 Azure 是 Microsoft 为公有云提供的应用程序平台。  本文的目的是提供了解 Azure 基本功能所需的基础知识，即使你对云计算一无所知也没有关系。

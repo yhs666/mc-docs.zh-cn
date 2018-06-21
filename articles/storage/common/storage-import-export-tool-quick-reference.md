@@ -1,12 +1,12 @@
 ---
-title: "Azure 导入/导出工具的导入作业命令快速参考 | Azure"
-description: "Azure 导入/导出工具的常用导入作业命令参考。"
+title: Azure 导入/导出工具的导入作业命令快速参考 | Azure
+description: Azure 导入/导出工具的常用导入作业命令参考。
 author: hayley244
 manager: digimobile
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21134981"
 ---
 # <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>导入作业的常用命令快速参考
 

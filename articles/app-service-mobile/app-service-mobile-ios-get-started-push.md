@@ -1,10 +1,10 @@
 ---
-title: "使用 Azure 移动应用将推送通知添加到 iOS 应用"
-description: "了解如何使用 Azure 移动应用将推送通知发送到 iOS 应用。"
+title: 使用 Azure 移动应用将推送通知添加到 iOS 应用
+description: 了解如何使用 Azure 移动应用将推送通知发送到 iOS 应用。
 services: app-service\mobile
 documentationcenter: ios
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: fa503833-d23e-4925-8d93-341bb3fbab7d
 ms.service: app-service-mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730676"
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>将推送通知添加到 iOS 应用
 

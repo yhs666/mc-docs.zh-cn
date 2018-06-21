@@ -1,13 +1,13 @@
 ---
-title: "Azure 服务总线诊断日志"
-description: "了解如何为 Azure 中的服务总线设置诊断日志。"
-keywords: 
+title: Azure 服务总线诊断日志
+description: 了解如何为 Azure 中的服务总线设置诊断日志。
+keywords: ''
 documentationcenter: .net
 services: service-bus
 author: banisadr
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731159"
 ---
 # <a name="service-bus-diagnostic-logs"></a>服务总线诊断日志
 

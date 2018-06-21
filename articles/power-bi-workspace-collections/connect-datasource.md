@@ -1,12 +1,12 @@
 ---
-title: "连接到 Power BI 工作区集合中的数据源 | Microsoft Docs"
-description: "了解如何连接到 Power BI 工作区集合内的数据源。"
+title: 连接到 Power BI 工作区集合中的数据源 | Microsoft Docs
+description: 了解如何连接到 Power BI 工作区集合内的数据源。
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
 ms.service: power-bi-embedded
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/26/2017
+ms.locfileid: "23580294"
 ---
 # <a name="connect-to-a-data-source"></a>连接到数据源
 

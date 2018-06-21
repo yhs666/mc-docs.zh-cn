@@ -1,11 +1,11 @@
 ---
-title: "查看 Azure 网络观察程序拓扑 - Azure CLI | Azure"
-description: "本文介绍如何使用 Azure CLI 查询网络拓扑。"
+title: 查看 Azure 网络观察程序拓扑 - Azure CLI | Azure
+description: 本文介绍如何使用 Azure CLI 查询网络拓扑。
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 5cd279d7-3ab0-4813-aaa4-6a648bf74e7b
 ms.service: network-watcher
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/14/2017
+ms.locfileid: "24519539"
 ---
 # <a name="view-network-watcher-topology-with-azure-cli"></a>使用 Azure CLI 查看网络观察程序拓扑
 

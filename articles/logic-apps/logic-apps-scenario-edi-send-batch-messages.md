@@ -1,13 +1,13 @@
 ---
-title: "以组或集合的形式对 EDI 消息进行批处理 - Azure 逻辑应用 | Microsoft Docs"
-description: "在逻辑应用中发送 EDI 消息以进行批处理"
-keywords: "batch, 批处理, 批处理编码"
+title: 以组或集合的形式对 EDI 消息进行批处理 - Azure 逻辑应用 | Microsoft Docs
+description: 在逻辑应用中发送 EDI 消息以进行批处理
+keywords: batch, 批处理, 批处理编码
 author: divswa
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870790"
 ---
 # <a name="send-x12-messages-in-batch-to-trading-partners"></a>将 X12 消息以批的形式发送到参与方
 

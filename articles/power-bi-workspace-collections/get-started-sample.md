@@ -1,12 +1,12 @@
 ---
-title: "示例入门"
-description: "本文介绍 Power BI 工作区集合入门示例。"
+title: 示例入门
+description: 本文介绍 Power BI 工作区集合入门示例。
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/26/2017
+ms.locfileid: "23580302"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI 工作区集合入门示例
 
@@ -62,7 +63,7 @@ ms.lasthandoff: 10/26/2017
 8. 复制并保存新创建的 **工作区 ID** 以便在本文后面部分使用。 创建**工作区 ID** 之后，可以在 **Azure 门户**中找到该数据。
 
     ![Azure 门户中的工作区 ID](./media/get-started-sample/workspace-id.png)
-9. 要将 PBIX 文件导入到**工作区**，请选择选项 6**。**“将 PBIX 文件导入到现有工作区”。 如果没有现有的 PBIX 文件，则可以下载 [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)（零售分析示例 PBIX）。
+9. 要将 PBIX 文件导入到**工作区**，请选择选项 6 **。**“将 PBIX 文件导入到现有工作区”。 如果没有现有的 PBIX 文件，则可以下载 [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)（零售分析示例 PBIX）。
 10. 如果出现提示，请为**数据集**输入一个易记的名称。
 
 应该会看到如下所示的响应：

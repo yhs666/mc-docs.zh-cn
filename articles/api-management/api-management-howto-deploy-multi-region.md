@@ -1,11 +1,11 @@
 ---
-title: "将 Azure API 管理服务部署到多个 Azure 区域"
-description: "了解如何将 Azure API 管理服务实例部署到多个 Azure 区域。"
+title: 将 Azure API 管理服务部署到多个 Azure 区域
+description: 了解如何将 Azure API 管理服务实例部署到多个 Azure 区域。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870238"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>如何将 Azure API 管理服务实例部署到多个 Azure 区域
 API 管理支持多区域部署，该部署可使 API 发布者在任意数量的所需 Azure 区域中分配单个 API 管理服务。 这有助于减少地理上分散的 API 使用者所感知的请求延迟，并且还改善其中一个区域处于离线状态时的服务可用性。 
@@ -26,7 +27,7 @@ API 管理支持多区域部署，该部署可使 API 发布者在任意数量�
 最初创建 API 管理服务时，它只包含一个[单位][unit]，并且驻留在单个 Azure 区域中（该区域指定为主要区域）。 可通过 Azure 门户轻松添加其他区域。 API 管理网关服务器部署到每个区域，并且调用流量将路由到最近的网关。 如果一个区域处于离线状态，则流量会自动重定向到下一个最近的网关。 
 
 > [!IMPORTANT]
-> 多区域部署仅在**[高级][Premium]**层中可用。
+> 多区域部署仅在**[高级][Premium]** 层中可用。
 > 
 > 
 

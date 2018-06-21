@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9b4669fe42e0dd7e3b463423ae4f58143af2b111
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30082170"
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure 顾问入门
 

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure CLI (az.py) 配置到 IoT 中心的文件上传 | Azure"
-description: "如何使用跨平台 Azure CLI 2.0 (az.py) 配置到 Azure IoT 中心的文件上传。"
+title: 使用 Azure CLI (az.py) 配置到 IoT 中心的文件上传 | Azure
+description: 如何使用跨平台 Azure CLI 2.0 (az.py) 配置到 Azure IoT 中心的文件上传。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26410544"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>使用 Azure CLI 配置 IoT 中心文件上传
 

@@ -1,8 +1,8 @@
 ---
-title: "使用 CLI 管理 Azure Key Vault | Microsoft Docs"
-description: "使用本教程通过 CLI 自动执行密钥保管库中的常见任务"
+title: 使用 CLI 管理 Azure Key Vault | Microsoft Docs
+description: 使用本教程通过 CLI 自动执行密钥保管库中的常见任务
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 tags: azure-resource-manager
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26044585"
 ---
 # <a name="manage-key-vault-using-cli"></a>使用 CLI 管理密钥保管库
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782009"
 ---
 # <a name="how-to-use-azure-storage-table-service-from-php"></a>如何通过 PHP 使用 Azure 存储表服务
 <!-- Not Available on  Cosmos DB Table API -->

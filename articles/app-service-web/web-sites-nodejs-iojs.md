@@ -1,11 +1,11 @@
 ---
-title: "如何将 io.js 与 Azure 应用服务 Web 应用配合使用"
-description: "了解如何将 Azure 应用服务中的 Web 应用与 io.js 配合使用。"
+title: 如何将 io.js 与 Azure 应用服务 Web 应用配合使用
+description: 了解如何将 Azure 应用服务中的 Web 应用与 io.js 配合使用。
 services: app-service\web
 documentationcenter: nodejs
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d6320725-ffcb-4ad7-ba63-fc72fa2f2808
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21134780"
 ---
 # <a name="how-to-use-iojs-with-azure-app-service-web-apps"></a>如何将 io.js 与 Azure 应用服务 Web 应用配合使用
 与 Joyent 的 Node.js 项目相比，流行的 Node 分叉 [io.js] 具有许多不同的特性，包括更加开放的监管模型、更快的发行周期，和更快地采纳新的和试验性的 JavaScript 功能。

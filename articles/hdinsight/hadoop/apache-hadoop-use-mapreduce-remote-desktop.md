@@ -1,8 +1,8 @@
 ---
-title: "将 MapReduce 和远程桌面与 HDInsight 中的 Hadoop 配合使用 - Azure | Azure"
-description: "了解如何使用远程桌面连接到 HDInsight 上的 Hadoop 并运行 MapReduce 作业。"
+title: 将 MapReduce 和远程桌面与 HDInsight 中的 Hadoop 配合使用 - Azure | Azure
+description: 了解如何使用远程桌面连接到 HDInsight 上的 Hadoop 并运行 MapReduce 作业。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26410387"
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>通过远程桌面在 HDInsight 上的 Hadoop 中使用 MapReduce
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]

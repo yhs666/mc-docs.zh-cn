@@ -1,11 +1,11 @@
 ---
-title: "在 Azure Active Directory 中向用户分配管理员角色 | Microsoft Docs"
-description: "说明如何在 Azure Active Directory 中更改用户管理信息"
+title: 在 Azure Active Directory 中向用户分配管理员角色 | Microsoft Docs
+description: 说明如何在 Azure Active Directory 中更改用户管理信息
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: yunan2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: a1ca1a53-50d8-4bf0-ae8f-73fa1253e2d9
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29527549"
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中向用户分配管理员角色
 本文介绍如何将管理角色分配给 Azure Active Directory (Azure AD) 中的用户。  默认情况下，添加的用户没有管理员权限，但你随时可以向他们分配角色。

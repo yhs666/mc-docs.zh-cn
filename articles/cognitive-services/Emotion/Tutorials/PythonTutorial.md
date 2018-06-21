@@ -1,6 +1,6 @@
 ---
-title: "情感 API Python 教程 | Microsoft Docs"
-description: "使用 Jupyter Notebook 了解如何将认知服务情感 API 与 Python 配合使用。 使用流行库可视化结果。"
+title: 情感 API Python 教程 | Microsoft Docs
+description: 使用 Jupyter Notebook 了解如何将认知服务情感 API 与 Python 配合使用。 使用流行库可视化结果。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407568"
 ---
 # <a name="emotion-api-using-python-tutorial"></a>使用 Python 的情感 API 教程
 

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 应用服务进行敏捷软件开发"
-description: "学习如何使用支持敏捷软件开发的方式，通过 Azure 应用服务创建高缩放性的复杂应用程序。"
+title: 使用 Azure 应用服务进行敏捷软件开发
+description: 学习如何使用支持敏捷软件开发的方式，通过 Azure 应用服务创建高缩放性的复杂应用程序。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c0fdb676-36a6-4738-925f-65b4835d187f
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146614"
 ---
 # <a name="agile-software-development-with-azure-app-service"></a>使用 Azure 应用服务进行敏捷软件开发
 
@@ -91,7 +92,7 @@ ms.lasthandoff: 09/22/2017
 3. 通过执行以下命令创建分叉的本地复本：
 
         git clone https://github.com/<your_fork>/ToDoApp.git 
-4. 创建本地克隆后，请导航到 *&lt;repository_root>*\ARMTemplates 并运行 deploy.ps1 脚本，如下所示：
+4. 创建本地克隆后，请导航到 *&lt;repository_root>* \ARMTemplates 并运行 deploy.ps1 脚本，如下所示：
 
         .\deploy.ps1 -RepoUrl https://github.com/<your_fork>/todoapp.git
 
@@ -111,7 +112,7 @@ ms.lasthandoff: 09/22/2017
     ![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
    
    > [!TIP]
-   > 查看 *&lt;repository_root>*\ARMTemplates\Deploy.ps1，了解其如何生成具有唯一 ID 的资源。 可以使用相同的方法来创建相同部署的复本，而不必担心资源名称冲突。
+   > 查看 *&lt;repository_root>* \ARMTemplates\Deploy.ps1，了解其如何生成具有唯一 ID 的资源。 可以使用相同的方法来创建相同部署的复本，而不必担心资源名称冲突。
    > 
    > 
 6. 返回 Git Shell 会话，运行：
@@ -119,10 +120,10 @@ ms.lasthandoff: 09/22/2017
         .\swap -Name ToDoApp<unique_string>master
 
    ![](./media/app-service-agile-software-development/production-4-swap.png)
-7. 脚本完成后，请返回浏览到前端的地址 (http://ToDoApp*&lt;unique_string>*master.chinacloudsites.cn/)，查看在生产环境中运行的应用程序。
+7. 脚本完成后，请返回浏览到前端的地址 (http://ToDoApp*&lt;unique_string>* master.chinacloudsites.cn/)，查看在生产环境中运行的应用程序。
 8. 登录到 [Azure 门户](https://portal.azure.cn/) 并查看创建的内容。
 
-   应该可以在相同的资源组中看到两个 Web 应用，其中一个的名称具有 `Api` 后缀。 查看资源组视图时，还会看到 SQL 数据库和服务器、应用服务计划以及 Web 应用的过渡槽。 浏览不同的资源，并将其与 *&lt;repository_root>*\ARMTemplates\ProdAndStage.json 进行比较，查看其在模板中的配置方式。
+   应该可以在相同的资源组中看到两个 Web 应用，其中一个的名称具有 `Api` 后缀。 查看资源组视图时，还会看到 SQL 数据库和服务器、应用服务计划以及 Web 应用的过渡槽。 浏览不同的资源，并将其与 *&lt;repository_root>* \ARMTemplates\ProdAndStage.json 进行比较，查看其在模板中的配置方式。
 
    ![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
 

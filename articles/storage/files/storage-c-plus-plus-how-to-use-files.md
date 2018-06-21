@@ -1,6 +1,6 @@
 ---
-title: "使用 C++ 针对 Azure 文件进行开发 | Microsoft Docs"
-description: "了解如何开发使用 Azure 文件来存储文件数据的 C++ 应用程序和服务。"
+title: 使用 C++ 针对 Azure 文件进行开发 | Microsoft Docs
+description: 了解如何开发使用 Azure 文件来存储文件数据的 C++ 应用程序和服务。
 services: storage
 documentationcenter: .net
 author: forester123
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/23/2017
+ms.locfileid: "23481782"
 ---
 # <a name="develop-for-azure-files-with-c"></a>使用 C++ 针对 Azure 文件进行开发
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -46,8 +47,8 @@ ms.lasthandoff: 10/23/2017
 
 若要安装用于 C++ 的 Azure 存储客户端 2.4.0，可以使用以下方法之一：
 
-* **Linux：**按照[适用于 C++ 的 Azure 存储客户端库自述文件](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)页中提供的说明操作。
-* **Windows：**在 Visual Studio 中，单击“工具”&gt;“NuGet 包管理器”&gt;“程序包管理器控制台”。 在 [NuGet 包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中，键入以下命令，并按 **ENTER**。
+* **Linux：** 按照[适用于 C++ 的 Azure 存储客户端库自述文件](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)页中提供的说明操作。
+* **Windows：** 在 Visual Studio 中，单击“工具”&gt;“NuGet 包管理器”&gt;“程序包管理器控制台”。 在 [NuGet 包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中，键入以下命令，并按 **ENTER**。
 
 ```
 Install-Package wastorage

@@ -1,11 +1,11 @@
 ---
-title: "如何与 Azure Active Directory 集成 | Microsoft Docs"
-description: "介绍与 Azure Active Directory 集成的好处与相关资源的指南。"
+title: 如何与 Azure Active Directory 集成 | Microsoft Docs
+description: 介绍与 Azure Active Directory 集成的好处与相关资源的指南。
 services: active-directory
 documentationcenter: dev-center-name
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: d13bba54-96bd-4b81-bee9-c8025ffa1648
 ms.service: active-directory
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23475543"
 ---
 # <a name="integrating-with-azure-active-directory"></a>与 Azure Active Directory 集成
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]

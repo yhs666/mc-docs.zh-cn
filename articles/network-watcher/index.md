@@ -1,11 +1,11 @@
 ---
-title: "Azure 网络观察程序文档 - 教程和 API 参考 | Azure"
-description: "了解如何使用网络观察程序在网络级别监视和诊断状态。"
+title: Azure 网络观察程序文档 - 教程和 API 参考 | Azure
+description: 了解如何使用网络观察程序在网络级别监视和诊断状态。
 services: network-watcher
 author: rockboyfor
 manager: digimobile
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: network-watcher
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24104631"
 ---
 # <a name="azure-network-watcher-documentation"></a>Azure 网络观察程序文档
 

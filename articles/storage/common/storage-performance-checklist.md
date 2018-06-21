@@ -20,6 +20,7 @@ ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/09/2017
+ms.locfileid: "22612548"
 ---
 # <a name="azure-storage-performance-and-scalability-checklist"></a>Azure 存储性能和可伸缩性清单
 ## <a name="overview"></a>概述

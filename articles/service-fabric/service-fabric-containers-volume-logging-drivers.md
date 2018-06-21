@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric Docker Compose（预览版）| Azure"
-description: "Azure Service Fabric 接受 Docker Compose 格式，因此使用 Service Fabric 可更轻松地安排现有容器。 对 Docker Compose 支持当前处于预览阶段。"
+title: Azure Service Fabric Docker Compose（预览版）| Azure
+description: Azure Service Fabric 接受 Docker Compose 格式，因此使用 Service Fabric 可更轻松地安排现有容器。 对 Docker Compose 支持当前处于预览阶段。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29798050"
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>在容器中使用 Docker 卷插件和日志记录驱动程序
 Azure Service Fabric 支持为容器服务指定 [Docker 卷插件](https://docs.docker.com/engine/extend/plugins_volume/)和 [Docker 日志记录驱动程序](https://docs.docker.com/engine/admin/logging/overview/)。 因此，可以在 [Azure 文件](https://www.azure.cn/home/features/storage/files/)中持久保存数据，即使容器已移动或已在另一台主机上重启，也是如此。

@@ -1,11 +1,11 @@
 ---
-title: "Azure 网络观察程序中的安全组视图简介 | Azure"
-description: "此页概述了网络观察程序安全视图功能"
+title: Azure 网络观察程序中的安全组视图简介 | Azure
+description: 此页概述了网络观察程序安全视图功能
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: ad27ab85-9d84-4759-b2b9-e861ef8ea8d8
 ms.service: network-watcher
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/14/2017
+ms.locfileid: "24519531"
 ---
 # <a name="introduction-to-network-security-group-view-in-azure-network-watcher"></a>Azure 网络观察程序中的网络安全组视图简介 | Microsoft 文档
 

@@ -1,11 +1,11 @@
 ---
-title: "如何为 Azure Redis 缓存配置异地复制功能 | Microsoft Docs"
-description: "了解如何跨地理区域复制 Azure Redis 缓存实例。"
+title: 如何为 Azure Redis 缓存配置异地复制功能 | Microsoft Docs
+description: 了解如何跨地理区域复制 Azure Redis 缓存实例。
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 375643dc-dbac-4bab-8004-d9ae9570440d
 ms.service: cache
 ms.workload: tbd
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730875"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>如何为 Azure Redis 缓存配置异地复制功能
 

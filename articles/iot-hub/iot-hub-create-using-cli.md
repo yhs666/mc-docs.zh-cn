@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure CLI (az.py) 创建 IoT 中心 | Azure"
-description: "如何使用跨平台的 Azure CLI 2.0 (az.py) 创建 Azure IoT 中心。"
+title: 使用 Azure CLI (az.py) 创建 IoT 中心 | Azure
+description: 如何使用跨平台的 Azure CLI 2.0 (az.py) 创建 Azure IoT 中心。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: azurecli
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24058566"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建 IoT 中心
 

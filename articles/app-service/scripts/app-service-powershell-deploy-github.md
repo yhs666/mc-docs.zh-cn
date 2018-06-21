@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 脚本示例 - 从 GitHub 创建 Web 应用并部署代码 | Azure"
-description: "Azure PowerShell 脚本示例 - 从 GitHub 创建 Web 应用并部署代码"
+title: Azure PowerShell 脚本示例 - 从 GitHub 创建 Web 应用并部署代码 | Azure
+description: Azure PowerShell 脚本示例 - 从 GitHub 创建 Web 应用并部署代码
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
 ms.service: app-service-web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23475198"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-github"></a>从 GitHub 创建 Web 应用并部署代码
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure 网络观察程序中的拓扑简介 | Azure"
-description: "此页概述了网络观察程序拓扑功能"
+title: Azure 网络观察程序中的拓扑简介 | Azure
+description: 此页概述了网络观察程序拓扑功能
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: e753a435-38e0-482b-846b-121cb547555c
 ms.service: network-watcher
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/14/2017
+ms.locfileid: "24519528"
 ---
 # <a name="introduction-to-topology-in-azure-network-watcher"></a>Azure 网络观察程序中的拓扑简介
 

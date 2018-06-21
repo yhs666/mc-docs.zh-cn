@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中心概述 | Azure"
-description: "Azure IoT 中心服务概述：什么是 IoT 中心、设备连接、物联网通信模式、网关和服务辅助通信模式"
+title: Azure IoT 中心概述 | Azure
+description: Azure IoT 中心服务概述：什么是 IoT 中心、设备连接、物联网通信模式、网关和服务辅助通信模式
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870458"
 ---
 # <a name="overview-of-the-azure-iot-hub-service"></a>Azure IoT 中心服务概述
 欢迎使用 Azure IoT 中心。 本文概述 Azure IoT 中心，并描述应该使用此服务实现物联网 (IoT) 解决方案的原因。 Azure IoT 中心是一项完全托管的服务，可在数百万个 IoT 设备和一个解决方案后端之间实现安全可靠的双向通信。 Azure IoT 中心：

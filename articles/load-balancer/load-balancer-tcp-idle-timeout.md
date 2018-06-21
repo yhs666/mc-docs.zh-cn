@@ -1,6 +1,6 @@
 ---
-title: "配置负载均衡器的 TCP 空闲超时 | Azure"
-description: "配置负载均衡器的 TCP 空闲超时"
+title: 配置负载均衡器的 TCP 空闲超时 | Azure
+description: 配置负载均衡器的 TCP 空闲超时
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24806992"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>为 Azure 负载均衡器配置 TCP 空闲超时设置
 

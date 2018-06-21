@@ -1,11 +1,11 @@
 ---
-title: "如何为高级 Azure Redis 缓存配置数据暂留"
-description: "了解如何为高级层的 Azure Redis 缓存实例配置和管理数据暂留"
+title: 如何为高级 Azure Redis 缓存配置数据暂留
+description: 了解如何为高级层的 Azure Redis 缓存实例配置和管理数据暂留
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: b01cf279-60a0-4711-8c5f-af22d9540d38
 ms.service: cache
 ms.workload: tbd
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730954"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>如何为高级 Azure Redis 缓存配置数据暂留
 Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚拟网络支持等高级层功能），使缓存大小和功能的选择更加灵活。 本文介绍如何配置高级 Azure Redis 缓存实例中的暂留。

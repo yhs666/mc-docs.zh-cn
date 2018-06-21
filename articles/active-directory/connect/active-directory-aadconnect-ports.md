@@ -1,8 +1,8 @@
 ---
-title: "混合标识所需的端口和协议 - Azure | Microsoft Docs"
-description: "此技术参考页面描述了需要为 Azure AD Connect 打开的端口"
+title: 混合标识所需的端口和协议 - Azure | Microsoft Docs
+description: 此技术参考页面描述了需要为 Azure AD Connect 打开的端口
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 editor: curtand
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/28/2017
+ms.locfileid: "27547581"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>混合标识所需的端口和协议
 以下文档是用于实现混合标识解决方案所需的端口和协议的技术参考。 使用下图并参考相应的表格。

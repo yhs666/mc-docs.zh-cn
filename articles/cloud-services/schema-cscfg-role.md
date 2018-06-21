@@ -1,16 +1,16 @@
 ---
-title: "Azure 云服务角色架构 | Microsoft Docs"
-ms.custom: 
+title: Azure 云服务角色架构 | Microsoft Docs
+ms.custom: ''
 origin.date: 12/07/2016
 ms.date: 11/06/2017
 ms.prod: azure
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
-caps.latest.revision: "12"
+caps.latest.revision: 12
 author: v-yiso
 ms.author: adegeo
 manager: timlt
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23635101"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Azure 云服务配置角色架构
 

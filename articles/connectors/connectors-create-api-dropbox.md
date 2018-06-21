@@ -21,6 +21,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072520"
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Dropbox 连接器入门
 连接到 Dropbox 管理文件。 可以在 Dropbox 中执行各种操作，例如上传、更新、获取和删除文件。

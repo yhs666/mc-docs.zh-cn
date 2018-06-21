@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure CLI 管理 Hadoop 群集 - Azure HDInsight | Microsoft Docs"
-description: "了解如何使用 Azure 命令行接口管理 Azure HDInsight 中的 Hadoop 群集。 Azure CLI 适用于 Windows、Mac 和 Linux。"
+title: 使用 Azure CLI 管理 Hadoop 群集 - Azure HDInsight | Microsoft Docs
+description: 了解如何使用 Azure 命令行接口管理 Azure HDInsight 中的 Hadoop 群集。 Azure CLI 适用于 Windows、Mac 和 Linux。
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: mumian
 tags: azure-portal
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 4f26c79f-8540-44bd-a470-84722a9e4eca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27781363"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>使用 Azure CLI 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]

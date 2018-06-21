@@ -1,6 +1,6 @@
 ---
-title: "人脸 API 服务概述 | Microsoft Docs"
-description: "术语表解释了使用人脸 API 服务时可能会遇到的术语。"
+title: 人脸 API 服务概述 | Microsoft Docs
+description: 术语表解释了使用人脸 API 服务时可能会遇到的术语。
 author: alexchen2016
 manager: digimobile
 ms.service: cognitive-services
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407606"
 ---
 # <a name="face-api"></a>人脸 API
 

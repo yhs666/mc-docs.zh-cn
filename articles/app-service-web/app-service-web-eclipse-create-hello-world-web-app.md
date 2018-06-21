@@ -1,11 +1,11 @@
 ---
-title: "使用 Eclipse 创建基本的 Azure Web 应用 | Azure"
-description: "本教程说明如何使用 Azure Toolkit for Eclipse 创建适用于 Azure 的 Hello World Web 应用。"
+title: 使用 Eclipse 创建基本的 Azure Web 应用 | Azure
+description: 本教程说明如何使用 Azure Toolkit for Eclipse 创建适用于 Azure 的 Hello World Web 应用。
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 20d41e88-9eab-462e-8ee3-89da71e7a33f
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e9f431f6ee60196bbae604e7d8152c6ef48ead1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/30/2017
+ms.locfileid: "21932636"
 ---
 # <a name="create-a-basic-azure-web-app-using-eclipse"></a>使用 Eclipse 创建基本的 Azure Web 应用
 本教程说明如何使用 [Azure Toolkit for Eclipse] 创建一个基本的 Hello World 应用程序，并将其部署到 Azure 作为 Web 应用。 为简单起见显示了一个基本 JSP 示例，但就 Azure 部署而言，相似的步骤也适用于 Java servlet。

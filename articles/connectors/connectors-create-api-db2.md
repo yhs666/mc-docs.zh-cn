@@ -21,6 +21,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077697"
 ---
 # <a name="get-started-with-the-db2-connector"></a>DB2 连接器入门
 Microsoft DB2 连接器可将逻辑应用连接到在 IBM DB2 数据库中存储的资源。 此连接器包括要在 TCP/IP 网络上与远程 DB2 服务器计算机通信的 Microsoft 客户端。 这包括云数据库（如在 Azure 虚拟化中运行的 Windows IBM Bluemix dashDB 或 IBM DB2）和使用本地数据网关的本地数据库。 请参阅 IBM DB2 平台和版本（在本主题中）的[受支持列表](connectors-create-api-db2.md#supported-db2-platforms-and-versions)。

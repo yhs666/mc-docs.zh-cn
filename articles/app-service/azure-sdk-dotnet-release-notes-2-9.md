@@ -1,10 +1,10 @@
 ---
-title: "用于 .NET 的 Azure SDK 2.9 发行说明"
-description: "用于 .NET 的 Azure SDK 2.9 发行说明"
+title: 用于 .NET 的 Azure SDK 2.9 发行说明
+description: 用于 .NET 的 Azure SDK 2.9 发行说明
 services: app-service\web
 documentationcenter: .net
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
 ms.service: app-service
 ms.devlang: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23475122"
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>用于 .NET 的 Azure SDK 2.9 发行说明
 

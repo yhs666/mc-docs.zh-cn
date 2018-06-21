@@ -1,11 +1,11 @@
 ---
 layout: LandingPage
-description: "了解如何同步目录并启用单一登录。 文档介绍了如何集成整套标识管理功能。"
-title: "Azure Active Directory 文档 - 教程和 API 参考 | Microsoft 文档"
+description: 了解如何同步目录并启用单一登录。 文档介绍了如何集成整套标识管理功能。
+title: Azure Active Directory 文档 - 教程和 API 参考 | Microsoft 文档
 services: active-directory
 author: alexchen2016
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29527492"
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 文档
 

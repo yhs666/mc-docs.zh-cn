@@ -1,11 +1,11 @@
 ---
-title: "使用移动服务时，应用服务有何作用？"
-description: "了解应用服务为现有的移动服务项目带来的优势。"
+title: 使用移动服务时，应用服务有何作用？
+description: 了解应用服务为现有的移动服务项目带来的优势。
 services: app-service\mobile
 documentationcenter: ios
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730629"
 ---
 # <a name="getting-started"> </a>使用移动服务时，应用服务有何作用？
 

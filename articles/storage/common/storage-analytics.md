@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure 存储分析收集日志和指标数据 | Azure"
-description: "使用存储分析，可以跟踪所有存储服务的度量值数据，并收集 Blob、队列和表存储的日志。"
+title: 使用 Azure 存储分析收集日志和指标数据 | Azure
+description: 使用存储分析，可以跟踪所有存储服务的度量值数据，并收集 Blob、队列和表存储的日志。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: forester123
 manager: digimobile
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/23/2017
+ms.locfileid: "23481784"
 ---
 # <a name="storage-analytics"></a>存储分析
 

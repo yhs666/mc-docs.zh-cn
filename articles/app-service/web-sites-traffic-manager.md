@@ -1,8 +1,8 @@
 ---
-title: "使用 Azure 流量管理器控制 Azure Web 应用流量"
-description: "本文提供了有关 Azure 流量管理器的摘要信息，因为它与 Azure Web 应用相关。"
+title: 使用 Azure 流量管理器控制 Azure Web 应用流量
+description: 本文提供了有关 Azure 流量管理器的摘要信息，因为它与 Azure Web 应用相关。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25591897"
 ---
 # <a name="controlling-azure-web-app-traffic-with-azure-traffic-manager"></a>使用 Azure 流量管理器控制 Azure Web 应用流量
 > [!NOTE]
@@ -34,10 +35,10 @@ ms.lasthandoff: 11/24/2017
 ## <a name="routing-methods"></a>路由方法
 Azure 流量管理器使用三种不同的路由方法。 下面的列表中说明了这些方法，因为它们与 Azure Web 应用相关。
 
-* **[优先级](#priority)：**使用主 Web 应用处理所有流量，并提供备份以防主 Web 应用或备份 Web 应用不可用。
-* **[加权](#weighted)：**将流量分配到一组 Web 应用上，不管是平均分配还是根据所定义的权重进行分配。
-* **[性能](#performance)：**如果在不同的地理位置设置了 Web 应用，请根据最低网络延迟使用“最近的”Web 应用。
-* **[地理](#geographic)：**根据用户的 DNS 查询所源自的地理位置，将用户定向到特定 Web 应用。 
+* **[优先级](#priority)：** 使用主 Web 应用处理所有流量，并提供备份以防主 Web 应用或备份 Web 应用不可用。
+* **[加权](#weighted)：** 将流量分配到一组 Web 应用上，不管是平均分配还是根据所定义的权重进行分配。
+* **[性能](#performance)：** 如果在不同的地理位置设置了 Web 应用，请根据最低网络延迟使用“最近的”Web 应用。
+* **[地理](#geographic)：** 根据用户的 DNS 查询所源自的地理位置，将用户定向到特定 Web 应用。 
 
 有关详细信息，请参阅[流量管理器路由方法](../traffic-manager/traffic-manager-routing-methods.md)。
 

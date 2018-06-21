@@ -1,8 +1,8 @@
 ---
-title: "Azure 上的 Linux VM 磁盘的标准存储 | Azure"
-description: "介绍高性价比标准存储以及非托管和托管 Linux VM 磁盘。"
+title: Azure 上的 Linux VM 磁盘的标准存储 | Azure
+description: 介绍高性价比标准存储以及非托管和托管 Linux VM 磁盘。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: tysonn
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592528"
 ---
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]
 <!--Not Available the parent file of includes file of virtual-machines-common-standard-storage.md-->

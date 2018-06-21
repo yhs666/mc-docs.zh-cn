@@ -1,11 +1,11 @@
 ---
-title: "VM 重新启动或大小调整问题 | Azure"
-description: "排查在 Azure 中重新启动或调整现有 Linux 虚拟机时遇到的经典部署问题"
+title: VM 重新启动或大小调整问题 | Azure
+description: 排查在 Azure 中重新启动或调整现有 Linux 虚拟机时遇到的经典部署问题
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 73f2672c-602e-4766-8948-2b180115d299
 ms.service: virtual-machines-linux
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26727601"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>排查在 Azure 中重新启动或调整现有 Linux 虚拟机时遇到的经典部署问题
 > [!div class="op_single_selector"]

@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序和开源工具执行网络入侵检测 | Azure"
-description: "本文介绍如何使用 Azure 网络观察程序和开源工具执行网络入侵检测"
+title: 使用 Azure 网络观察程序和开源工具执行网络入侵检测 | Azure
+description: 本文介绍如何使用 Azure 网络观察程序和开源工具执行网络入侵检测
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26727543"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>使用网络观察程序和开源工具执行网络入侵检测
 

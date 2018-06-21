@@ -1,11 +1,11 @@
 ---
-title: "如何在 Azure API 管理策略中使用属性"
-description: "了解如何在 Azure API 管理策略中使用属性。"
+title: 如何在 Azure API 管理策略中使用属性
+description: 了解如何在 Azure API 管理策略中使用属性。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6f39b00f-cf6e-4cef-9bf2-1f89202c0bc0
 ms.service: api-management
 ms.workload: mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870306"
 ---
 # <a name="how-to-use-properties-in-azure-api-management-policies"></a>如何在 Azure API 管理策略中使用属性
 API 管理策略是一项强大的系统功能，允许 Azure 门户通过配置更改 API 的行为。 策略是一组语句，在请求或响应 API 时按顺序执行。 可以使用文字文本值、策略表达式和属性构造策略语句。 

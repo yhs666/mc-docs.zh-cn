@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure 通知中心和 Node.js 发送推送通知"
-description: "了解如何使用通知中心从 Node.js 应用程序发送推送通知。"
-keywords: "推送通知,push notification,node.js 推送,ios 推送"
+title: 使用 Azure 通知中心和 Node.js 发送推送通知
+description: 了解如何使用通知中心从 Node.js 应用程序发送推送通知。
+keywords: 推送通知,push notification,node.js 推送,ios 推送
 services: notification-hubs
 documentationcenter: nodejs
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
 ms.workload: mobile
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/28/2017
+ms.locfileid: "27547607"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>使用 Azure 通知中心和 Node.js 发送推送通知
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]

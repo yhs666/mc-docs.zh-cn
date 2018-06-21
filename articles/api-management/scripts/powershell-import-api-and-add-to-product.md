@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 脚本示例 - 导入 API"
-description: "Azure PowerShell 脚本示例 - 导入 API"
+title: Azure PowerShell 脚本示例 - 导入 API
+description: Azure PowerShell 脚本示例 - 导入 API
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29286081"
 ---
 # <a name="import-an-api"></a>导入 API
 

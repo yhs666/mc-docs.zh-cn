@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29965364"
 ---
 # <a name="azure-storage-explorer-preview-release-notes"></a>Azure 存储资源管理器（预览版）发行说明
 

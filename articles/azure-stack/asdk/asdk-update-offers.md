@@ -22,6 +22,7 @@ ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30155682"
 ---
 # <a name="tutorial-update-offers-and-plans"></a>教程：更新产品/服务和计划
 作为 Azure Stack 操作员，你的责任是创建计划，提供适合用户订阅的服务和配额。 这些基本计划包含可以提供给用户的核心服务，每个产品/服务只能有一个基本计划。 如需修改产品/服务，可以通过附加计划的方式来修改计划，扩大最初通过基本计划提供的计算机、存储或网络方面的配额。 

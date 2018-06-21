@@ -1,11 +1,11 @@
 ---
-title: "将物理设备与 Azure IoT Edge 配合使用 | Azure"
-description: "如何使用 Texas Instruments SensorTag 设备通过 Raspberry Pi 3 设备上运行的 IoT Edge 网关将数据发送到 IoT 中心。 该网关使用 Azure IoT Edge 生成。"
+title: 将物理设备与 Azure IoT Edge 配合使用 | Azure
+description: 如何使用 Texas Instruments SensorTag 设备通过 Raspberry Pi 3 设备上运行的 IoT Edge 网关将数据发送到 IoT 中心。 该网关使用 Azure IoT Edge 生成。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: Derek1101
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 212dacbf-e5e9-48b2-9c8a-1c14d9e7b913
 ms.service: iot-hub
 ms.devlang: cpp
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24058623"
 ---
 # <a name="forward-device-to-cloud-messages-to-iot-hub-using-azure-iot-edge-on-a-raspberry-pi"></a>在 Raspberry Pi 上使用 Azure IoT Edge 将设备到云消息转发到 IoT 中心
 

@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 规模集模板中引用自定义映像 | Microsoft Docs"
-description: "了解如何向现有 Azure 虚拟机规模集模板添加自定义映像"
+title: 在 Azure 规模集模板中引用自定义映像 | Microsoft Docs
+description: 了解如何向现有 Azure 虚拟机规模集模板添加自定义映像
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29285463"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>向 Azure 规模集模板添加自定义映像
 

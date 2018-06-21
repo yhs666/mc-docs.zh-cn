@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 应用服务移动应用中创建 iOS 应用 | Azure"
-description: "按照本教程，开始使用 Azure 移动应用后端，以 Objective-C 或 Swift 语言开发 iOS"
+title: 在 Azure 应用服务移动应用中创建 iOS 应用 | Azure
+description: 按照本教程，开始使用 Azure 移动应用后端，以 Objective-C 或 Swift 语言开发 iOS
 services: app-service\mobile
 documentationcenter: ios
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 6461a899-9340-42dd-b118-ffc5ba00e846
 ms.service: app-service-mobile
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27984773"
 ---
 #<a name="create-an-ios-app"></a>创建 iOS 应用
 

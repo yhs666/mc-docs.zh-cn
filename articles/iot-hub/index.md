@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT 中心文档 - 教程和 API 参考 | Azure"
-description: "了解如何使用 IoT 中心连接、监视并控制数百万物联网资产。 教程、API 参考、视频和其他文档。"
+title: Azure IoT 中心文档 - 教程和 API 参考 | Azure
+description: 了解如何使用 IoT 中心连接、监视并控制数百万物联网资产。 教程、API 参考、视频和其他文档。
 services: iot-hub
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: iot-hub
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26410361"
 ---
 # <a name="iot-hub-documentation"></a>IoT 中心文档 
 

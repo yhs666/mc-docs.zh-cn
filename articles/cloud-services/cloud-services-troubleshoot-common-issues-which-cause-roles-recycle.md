@@ -1,11 +1,11 @@
 ---
-title: "云服务角色回收的常见原因 | Azure"
-description: "突然回收云服务角色可能会导致严重停机。 以下是导致角色回收的一些常见问题，解决这些问题将有助于减少停机。"
+title: 云服务角色回收的常见原因 | Azure
+description: 突然回收云服务角色可能会导致严重停机。 以下是导致角色回收的一些常见问题，解决这些问题将有助于减少停机。
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 533930d1-8035-4402-b16a-cf887b2c4f85
 ms.service: cloud-services
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26044711"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>导致角色回收的常见问题
 

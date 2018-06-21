@@ -1,9 +1,9 @@
 ---
-title: "使用 Azure 门户创建虚拟机规模集 | Microsoft Docs"
-description: "使用 Azure 门户部署规模集。"
-keywords: "虚拟机规模集"
+title: 使用 Azure 门户创建虚拟机规模集 | Microsoft Docs
+description: 使用 Azure 门户部署规模集。
+keywords: 虚拟机规模集
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 editor: tysonn
@@ -23,6 +23,7 @@ ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26352321"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-the-azure-portal"></a>如何使用 Azure 门户创建虚拟机规模集
 本教程介绍如何通过 Azure 门户在数分钟内轻松创建虚拟机规模集。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。

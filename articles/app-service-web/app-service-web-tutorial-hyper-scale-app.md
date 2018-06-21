@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中构建超大规模应用 | Azure"
-description: "了解如何在 Azure 中使用不同的 Azure 服务最大化 ASP.NET 应用的性能。"
+title: 在 Azure 中构建超大规模应用 | Azure
+description: 了解如何在 Azure 中使用不同的 Azure 服务最大化 ASP.NET 应用的性能。
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a4d49ac7-0f97-4997-84c5-cdb9c4465757
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146605"
 ---
 # <a name="build-a-hyper-scale-web-app-in-azure"></a>在 Azure 中构建超大规模 Web 应用
 

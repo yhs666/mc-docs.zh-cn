@@ -1,12 +1,12 @@
 ---
-title: "概述 - 与 Azure 逻辑应用的企业集成"
-description: "生成自动化工作流和业务流程，以便跨企业和组织集成数据、服务、应用和系统。 创建适用于数据集成、系统集成、企业应用程序集成 (EAI) 和业务流程方案的解决方案。"
-keywords: "自动化, 工作流, 企业应用程序集成, EAI, 系统集成, 数据集成, 业务流程, 集成服务, iPaaS"
+title: 概述 - 与 Azure 逻辑应用的企业集成
+description: 生成自动化工作流和业务流程，以便跨企业和组织集成数据、服务、应用和系统。 创建适用于数据集成、系统集成、企业应用程序集成 (EAI) 和业务流程方案的解决方案。
+keywords: 自动化, 工作流, 企业应用程序集成, EAI, 系统集成, 数据集成, 业务流程, 集成服务, iPaaS
 services: logic-apps
 author: ecfan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 07765c05-72a6-4169-a8ab-f6420bfbaf07
 ms.service: logic-apps
 ms.workload: na
@@ -22,6 +22,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870603"
 ---
 # <a name="what-is-azure-logic-apps"></a>什么是 Azure 逻辑应用？
 

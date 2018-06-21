@@ -1,16 +1,16 @@
 ---
-title: "Azure 云服务 NetworkConfiguration 架构 | Microsoft Docs"
-ms.custom: 
+title: Azure 云服务 NetworkConfiguration 架构 | Microsoft Docs
+ms.custom: ''
 origin.date: 12/07/2016
 ms.date: 11/06/2017
 ms.prod: azure
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: c1b94a9e-46e8-4a18-ac99-343c94b1d4bd
-caps.latest.revision: "28"
+caps.latest.revision: 28
 author: thraka
 ms.author: v-yiso
 manager: timlt
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23635105"
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Azure 云服务的配置 NetworkConfiguration 架构
 

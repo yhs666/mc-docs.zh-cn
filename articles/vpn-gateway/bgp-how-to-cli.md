@@ -1,13 +1,13 @@
 ---
-title: "在 Azure VPN 网关上配置 BGP：资源管理器 和 CLI | Microsoft 文档"
-description: "本文将介绍如何使用 Azure 资源管理器和 CLI 通过 Azure VPN 网关配置 BGP。"
+title: 在 Azure VPN 网关上配置 BGP：资源管理器 和 CLI | Microsoft 文档
+description: 本文将介绍如何使用 Azure 资源管理器和 CLI 通过 Azure VPN 网关配置 BGP。
 services: vpn-gateway
 documentationcenter: na
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f69d54334a845e6084e7cd88f07714017b5ef822
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24104554"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>如何使用 CLI 在 Azure VPN 网关上配置 BGP
 

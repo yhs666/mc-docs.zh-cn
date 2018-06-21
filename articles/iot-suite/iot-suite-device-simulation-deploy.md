@@ -17,6 +17,7 @@ ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30155688"
 ---
 # <a name="deploy-the-azure-iot-device-simulation-solution"></a>部署 Azure IoT 设备模拟解决方案
 

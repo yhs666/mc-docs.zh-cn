@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序执行数据包检查 | Azure"
-description: "本文介绍如何在 VM 中使用网络观察程序执行深度数据包检查"
+title: 使用 Azure 网络观察程序执行数据包检查 | Azure
+description: 本文介绍如何在 VM 中使用网络观察程序执行深度数据包检查
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
 ms.service: network-watcher
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24104658"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>使用 Azure 网络观察程序执行数据包检查
 

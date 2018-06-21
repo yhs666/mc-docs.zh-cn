@@ -1,13 +1,13 @@
 ---
-title: "Azure 标准与高级托管磁盘存储的相互转换 | Azure"
-description: "如何使用 Azure CLI 实现 Azure 标准与高级托管磁盘存储的相互转换。"
+title: Azure 标准与高级托管磁盘存储的相互转换 | Azure
+description: 如何使用 Azure CLI 实现 Azure 标准与高级托管磁盘存储的相互转换。
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26727435"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Azure 标准与高级托管磁盘存储的相互转换
 

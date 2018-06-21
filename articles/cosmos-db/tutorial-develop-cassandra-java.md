@@ -1,18 +1,18 @@
 ---
-title: "Azure Cosmos DB：在 Java 中使用 Cassandra API 进行开发 | Azure"
-description: "了解如何通过 Java 使用 Azure Cosmos DB 的 Cassandra API 进行开发"
+title: Azure Cosmos DB：在 Java 中使用 Cassandra API 进行开发 | Azure
+description: 了解如何通过 Java 使用 Azure Cosmos DB 的 Cassandra API 进行开发
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 6732d883-835c-481f-98e1-287893530948
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 origin.date: 11/15/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592551"
 ---
 # <a name="azure-cosmosdb-develop-with-the-cassandra-api-in-java"></a>Azure Cosmos DB：在 Java 中使用 Cassandra API 进行开发
 

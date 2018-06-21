@@ -1,11 +1,11 @@
 ---
-title: "为 Azure 导入/导出服务创建导入作业 | Azure"
-description: "了解如何为 Azure 导入/导出服务创建导入作业。"
+title: 为 Azure 导入/导出服务创建导入作业 | Azure
+description: 了解如何为 Azure 导入/导出服务创建导入作业。
 author: hayley244
 manager: syadav
 editor: syadav
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 8b886e83-6148-4149-9d0f-5d48ec822475
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870359"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>为 Azure 导入/导出服务创建导入作业
 

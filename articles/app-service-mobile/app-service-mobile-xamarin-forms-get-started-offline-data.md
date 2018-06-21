@@ -1,10 +1,10 @@
 ---
-title: "为 Azure 移动应用启用脱机同步 (Xamarin.Forms)"
-description: "了解如何在 Xamarin.Forms 应用程序中使用应用服务移动应用缓存和同步脱机数据"
+title: 为 Azure 移动应用启用脱机同步 (Xamarin.Forms)
+description: 了解如何在 Xamarin.Forms 应用程序中使用应用服务移动应用缓存和同步脱机数据
 documentationcenter: xamarin
 author: conceptdev
 manager: yochayk
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: acf0f874-3ea5-4410-bd22-b0e72140f3b5
 ms.service: app-service-mobile
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27984749"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>为 Xamarin.Forms 移动应用启用脱机同步
 

@@ -21,6 +21,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072531"
 ---
 # <a name="using-connectors-in-a-logic-app"></a>在逻辑应用中使用连接器
 连接器提供对服务、协议和平台上的事件、数据和操作的快速访问。  逻辑应用支持的连接器完整列表可[在此处找到](apis-list.md)。  连接器可在逻辑应用中用作触发器或操作，并且可能需要使用已配置的*连接*（例如：授权 Twitter 帐户代表你进行访问或发布）。

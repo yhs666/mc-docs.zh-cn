@@ -1,6 +1,6 @@
 ---
-title: "获取计算机视觉 API 的订阅密钥 | Microsoft Docs"
-description: "了解如何获取用于调用认知服务中计算机视觉 API 的订阅密钥。"
+title: 获取计算机视觉 API 的订阅密钥 | Microsoft Docs
+description: 了解如何获取用于调用认知服务中计算机视觉 API 的订阅密钥。
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407563"
 ---
 ## <a name="obtaining-subscription-keys"></a>获取订阅密钥
 

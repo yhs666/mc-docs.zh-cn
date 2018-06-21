@@ -1,12 +1,12 @@
 ---
-title: "生成处理邮件列表请求所需的审批工作流 - Azure 逻辑应用"
-description: "本教程介绍如何使用 Azure 逻辑应用来创建自动化审批工作流，以便处理邮件列表订阅"
+title: 生成处理邮件列表请求所需的审批工作流 - Azure 逻辑应用
+description: 本教程介绍如何使用 Azure 逻辑应用来创建自动化审批工作流，以便处理邮件列表订阅
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870795"
 ---
 # <a name="manage-mailing-list-requests-with-a-logic-app"></a>使用逻辑应用管理邮件列表请求
 

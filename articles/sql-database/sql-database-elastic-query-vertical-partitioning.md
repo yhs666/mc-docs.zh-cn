@@ -15,6 +15,7 @@ ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31782418"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>跨具有不同架构的云数据库进行查询（预览版）
 ![跨不同数据库中的表进行查询][1]
@@ -128,7 +129,7 @@ DATA_SOURCE 子句定义用于外部表的外部数据源（即，在垂直分�
 
     DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 
-**CREATE/DROP EXTERNAL TABLE 的权限：**外部表 DDL 需要 ALTER ANY EXTERNAL DATA SOURCE 权限，在引用基础数据源时也需要该权限。  
+**CREATE/DROP EXTERNAL TABLE 的权限：** 外部表 DDL 需要 ALTER ANY EXTERNAL DATA SOURCE 权限，在引用基础数据源时也需要该权限。  
 
 ## <a name="security-considerations"></a>安全注意事项
 有权访问外部表的用户在使用外部数据源定义中提供的凭据时自动获得对基础远程表的访问权。 应小心管理对外部表的访问权以避免通过外部数据源的凭据意外地提升权限。 可以使用常规 SQL 权限来授予或撤消对外部表的访问权，就像它是常规表一样。  

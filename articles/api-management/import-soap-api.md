@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 门户导入 SOAP API"
-description: "了解如何使用 API 管理导入 SOAP API。"
+title: 使用 Azure 门户导入 SOAP API
+description: 了解如何使用 API 管理导入 SOAP API。
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29286088"
 ---
 # <a name="import-soap-api"></a>导入 SOAP API
 

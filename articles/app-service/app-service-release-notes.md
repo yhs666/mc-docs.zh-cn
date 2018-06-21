@@ -1,11 +1,11 @@
 ---
-title: "用于 .NET 2.5.1 的 Azure SDK 发行说明"
-description: "用于 .NET 2.5.1 的 Azure SDK 发行说明"
+title: 用于 .NET 2.5.1 的 Azure SDK 发行说明
+description: 用于 .NET 2.5.1 的 Azure SDK 发行说明
 services: app-service
 documentationcenter: .net,nodejs,java
 author: Juliako
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8d3d815f-bb58-447e-8ff0-f9b9603c7b00
 ms.service: app-service
 ms.devlang: multiple
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25591898"
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>用于 .NET 2.5.1 的 Azure SDK 发行说明
 本文档包含用于 .NET 2.5.1 的 Azure SDK 版本的发行说明。 

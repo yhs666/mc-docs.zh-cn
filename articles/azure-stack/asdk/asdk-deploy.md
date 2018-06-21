@@ -22,6 +22,7 @@ ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30155672"
 ---
 # <a name="tutorial-deploy-the-asdk-using-the-installer"></a>教程：使用安装程序来部署 ASDK
 本教程介绍如何在非生产环境中部署 Azure Stack 开发工具包 (ASDK)。 

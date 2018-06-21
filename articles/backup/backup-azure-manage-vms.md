@@ -1,11 +1,11 @@
 ---
-title: "管理 Resource Manager 部署型虚拟机备份 | Microsoft Docs"
-description: "了解如何管理和监视 Resource Manager 部署型虚拟机备份"
+title: 管理 Resource Manager 部署型虚拟机备份 | Microsoft Docs
+description: 了解如何管理和监视 Resource Manager 部署型虚拟机备份
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: f3050283-d60f-472d-b464-cb844e70d67e
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27769187"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>管理 Azure 虚拟机备份
 

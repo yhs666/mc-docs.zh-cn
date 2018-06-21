@@ -1,11 +1,11 @@
 ---
-title: "验证 VPN 网关连接 | Azure"
-description: "本文介绍如何验证虚拟网络 VPN 网关连接。"
+title: 验证 VPN 网关连接 | Azure
+description: 本文介绍如何验证虚拟网络 VPN 网关连接。
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 7e3d1043-caa9-4472-96d3-832f4e2c91ee
 ms.service: vpn-gateway
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "23993641"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>验证 VPN 网关连接
 

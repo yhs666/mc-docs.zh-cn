@@ -1,6 +1,6 @@
 ---
-title: "Azure 认知服务中的人脸 API 文档 - 教程和 API 参考 | Microsoft Docs"
-description: "了解如何调用人脸 API 来创建和开发应用"
+title: Azure 认知服务中的人脸 API 文档 - 教程和 API 参考 | Microsoft Docs
+description: 了解如何调用人脸 API 来创建和开发应用
 services: cognitive-services
 author: alexchen2016
 manager: digimobile
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407585"
 ---
 <div class="content">
     <h1>人脸 API 文档</h1>

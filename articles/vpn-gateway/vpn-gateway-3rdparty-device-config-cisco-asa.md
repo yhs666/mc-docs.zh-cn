@@ -1,12 +1,12 @@
 ---
-title: "将 Cisco ASA 设备连接到 Azure VPN 网关的示例配置 | Microsoft Docs"
-description: "本文提供将 Cisco ASA 设备连接到 Azure VPN 网关的示例配置。"
+title: 将 Cisco ASA 设备连接到 Azure VPN 网关的示例配置 | Microsoft Docs
+description: 本文提供将 Cisco ASA 设备连接到 Azure VPN 网关的示例配置。
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29925191"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>示例配置：Cisco ASA 设备（IKEv2/无 BGP）
 本文提供将 Cisco 自适应安全 (ASA) 设备连接到 Azure VPN 网关的示例配置。 该示例适用于运行 IKEv2 而不使用边界网关协议 (BGP) 的 Cisco ASA 设备。 

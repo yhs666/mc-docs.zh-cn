@@ -1,11 +1,11 @@
 ---
-title: "云服务角色配置 XPath 速查表 | Azure"
-description: "可在云服务角色配置中用来将设置公开为环境变量的各种 XPath 设置。"
+title: 云服务角色配置 XPath 速查表 | Azure
+description: 可在云服务角色配置中用来将设置公开为环境变量的各种 XPath 设置。
 services: cloud-services
-documentationCenter: 
+documentationCenter: ''
 authors: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c51e4493-0643-4d05-bc44-06c76bcbf7d1
 ms.service: cloud-services
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26044718"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>使用 XPath 将角色配置设置公共为环境变量
 

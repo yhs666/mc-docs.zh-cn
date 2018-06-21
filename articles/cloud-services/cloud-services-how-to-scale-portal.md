@@ -1,11 +1,11 @@
 ---
-title: "在门户中自动缩放云服务"
-description: "了解如何使用门户在 Azure 中为云服务 Web 角色或辅助角色配置自动缩放规则。"
+title: 在门户中自动缩放云服务
+description: 了解如何使用门户在 Azure 中为云服务 Web 角色或辅助角色配置自动缩放规则。
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 701d4404-5cc0-454b-999c-feb94c1685c0
 ms.service: cloud-services
 ms.workload: tbd
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870325"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>如何在门户中为云服务配置自动缩放
 

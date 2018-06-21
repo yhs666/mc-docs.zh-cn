@@ -1,13 +1,13 @@
 ---
-title: "Azure Service Fabric CLI 脚本部署示例"
-description: "使用 Azure Service Fabric CLI 将应用程序部署到 Azure Service Fabric 群集"
+title: Azure Service Fabric CLI 脚本部署示例
+description: 使用 Azure Service Fabric CLI 将应用程序部署到 Azure Service Fabric 群集
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/29/2017
+ms.locfileid: "27548578"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>将应用程序部署到 Service Fabric 群集
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Batch CLI 示例 | Microsoft Docs"
-description: "Azure Batch CLI 示例"
+title: Azure Batch CLI 示例 | Microsoft Docs
+description: Azure Batch CLI 示例
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "23993642"
 ---
 # <a name="azure-batch-cli-samples"></a>Azure Batch CLI 示例
 

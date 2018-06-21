@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure IoT 中心的直接方法 (.NET/Node) | Azure"
-description: "如何使用 Azure IoT 中心直接方法。 使用适用于 Node.js 的 Azure IoT 设备 SDK 实现包含直接方法的模拟设备应用，并使用适用于 .NET 的 Azure IoT 服务 SDK 实现调用直接方法的服务应用。"
+title: 使用 Azure IoT 中心的直接方法 (.NET/Node) | Azure
+description: 如何使用 Azure IoT 中心直接方法。 使用适用于 Node.js 的 Azure IoT 设备 SDK 实现包含直接方法的模拟设备应用，并使用适用于 .NET 的 Azure IoT 服务 SDK 实现调用直接方法的服务应用。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: nberdy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ab035b8e-bff8-4e12-9536-f31d6b6fe425
 ms.service: iot-hub
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24058550"
 ---
 # <a name="use-direct-methods-netnode"></a>使用直接方法(.NET/Node)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]

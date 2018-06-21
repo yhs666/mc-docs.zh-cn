@@ -1,11 +1,11 @@
 ---
-title: "通过百度开始使用 Azure 通知中心 | Microsoft Docs"
-description: "在本教程中，将了解如何通过百度使用 Azure 通知中心将通知推送到 Android 设备。"
+title: 通过百度开始使用 Azure 通知中心 | Microsoft Docs
+description: 在本教程中，将了解如何通过百度使用 Azure 通知中心将通知推送到 Android 设备。
 services: notification-hubs
 documentationCenter: android
 authors: wesmc7777
 manager: dwrede
-editor: 
+editor: ''
 ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
 ms.devlang: java
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25980470"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>通过百度开始使用通知中心
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]

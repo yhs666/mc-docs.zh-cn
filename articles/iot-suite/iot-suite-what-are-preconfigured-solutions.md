@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT 套件预配置解决方案概述"
-description: "描述 Azure IoT 套件预配置解决方案和体系结构，以及指向其他资源的链接。"
-services: 
+title: Azure IoT 套件预配置解决方案概述
+description: 描述 Azure IoT 套件预配置解决方案和体系结构，以及指向其他资源的链接。
+services: ''
 suite: iot-suite
-documentationCenter: 
+documentationCenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730980"
 ---
 # <a name="what-is-azure-iot-suite"></a>Azure IoT 套件是什么？
 
@@ -125,8 +126,8 @@ Microsoft 正将预配置解决方案更新为新的基于微服务的体系结�
 
 在部署新版远程监视时，必须选择以下部署选项之一：
 
-* **基本：**降低成本版，用于演示或部署测试。 所有微服务都部署到一个 Azure 虚拟机。
-* **标准：**扩展的基础结构部署，适用于开发生产型部署。 Azure 容器服务将微服务部署到多个 Azure 虚拟机。 Kubernetes 会协调托管单个微服务的 Docker 容器。
+* **基本：** 降低成本版，用于演示或部署测试。 所有微服务都部署到一个 Azure 虚拟机。
+* **标准：** 扩展的基础结构部署，适用于开发生产型部署。 Azure 容器服务将微服务部署到多个 Azure 虚拟机。 Kubernetes 会协调托管单个微服务的 Docker 容器。
 
 ### <a name="language-choices-java-and-net"></a>语言选择：Java 和 .NET
 

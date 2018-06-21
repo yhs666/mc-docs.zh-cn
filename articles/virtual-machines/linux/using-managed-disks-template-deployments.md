@@ -1,10 +1,10 @@
 ---
-title: "在 Azure 资源管理器模板中将托管磁盘用于 Linux VM | Microsoft Docs"
-description: "详细介绍如何在 Azure 资源管理器模板中将托管磁盘用于 Linux VM"
+title: 在 Azure 资源管理器模板中将托管磁盘用于 Linux VM | Microsoft Docs
+description: 详细介绍如何在 Azure 资源管理器模板中将托管磁盘用于 Linux VM
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hayley244
-manager: 
+manager: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -18,5 +18,6 @@ ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21135055"
 ---
 [!INCLUDE [virtual-machines-using-managed-disks-template-deployments](../../../includes/virtual-machines-using-managed-disks-template-deployments.md)]

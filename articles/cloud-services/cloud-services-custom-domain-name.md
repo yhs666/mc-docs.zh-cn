@@ -1,11 +1,11 @@
 ---
-title: "在云服务中配置自定义域名 | Azure"
-description: "了解如何通过配置 DNS 设置在自定义域上公开 Azure 应用程序或数据。"
+title: 在云服务中配置自定义域名 | Azure
+description: 了解如何通过配置 DNS 设置在自定义域上公开 Azure 应用程序或数据。
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6a62c2b7-ea47-4cce-9d6a-0cca38357f42
 ms.service: cloud-services
 ms.workload: tbd
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23635082"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>为 Azure 云服务配置自定义域名
 

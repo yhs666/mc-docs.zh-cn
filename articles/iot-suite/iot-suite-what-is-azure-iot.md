@@ -1,12 +1,12 @@
 ---
-title: "面向物联网的 Azure 解决方案（IoT 套件）| Azure"
-description: "Azure 的 IoT 概述包括预配置的解决方案、一个示例解决方案体系结构以及它如何与 Azure IoT 套件关联。"
-services: 
+title: 面向物联网的 Azure 解决方案（IoT 套件）| Azure
+description: Azure 的 IoT 概述包括预配置的解决方案、一个示例解决方案体系结构以及它如何与 Azure IoT 套件关联。
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 437d2655-896f-4a9e-a4a8-b864790d3ef8
 ms.service: iot-suite
 ms.devlang: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25592197"
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 

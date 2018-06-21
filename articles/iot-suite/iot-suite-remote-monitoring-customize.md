@@ -1,7 +1,7 @@
 ---
-title: "自定义远程监视解决方案"
-description: "本文提供有关如何访问远程监视预配置解决方案的源代码的信息。"
-services: 
+title: 自定义远程监视解决方案
+description: 本文提供有关如何访问远程监视预配置解决方案的源代码的信息。
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730864"
 ---
 # <a name="customize-the-remote-monitoring-preconfigured-solution"></a>自定义远程监视预配置解决方案
 

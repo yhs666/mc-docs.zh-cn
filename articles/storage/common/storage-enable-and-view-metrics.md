@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 门户中启用存储度量值 | Azure"
-description: "如何为 Blob、队列、表和文件服务启用存储度量值"
+title: 在 Azure 门户中启用存储度量值 | Azure
+description: 如何为 Blob、队列、表和文件服务启用存储度量值
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: forester123
 manager: digimobile
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/23/2017
+ms.locfileid: "23481754"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>启用 Azure 存储指标并查看指标数据
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]

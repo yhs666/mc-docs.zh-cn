@@ -1,11 +1,11 @@
 ---
-title: "在 Linux VM 上托管 Ruby on Rails 网站 | Azure"
-description: "在 Azure 上使用 Linux 虚拟机设置和托管基于 Ruby on Rails 的网站。"
+title: 在 Linux VM 上托管 Ruby on Rails 网站 | Azure
+description: 在 Azure 上使用 Linux 虚拟机设置和托管基于 Ruby on Rails 的网站。
 services: virtual-machines-linux
 documentationcenter: ruby
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: aad32685-3550-4bff-9c73-beb8d70b3291
 ms.service: virtual-machines-linux
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29965094"
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM 上的 Ruby on Rails Web 应用程序
 本教程介绍如何在 Azure 中使用 Linux 虚拟机托管 Ruby on Rails 网站。  

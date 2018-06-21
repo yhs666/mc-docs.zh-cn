@@ -1,8 +1,8 @@
 ---
-title: "在 Azure 存储中使用共享访问签名 (SAS) | Azure"
-description: "了解使用共享访问签名 (SAS) 委派对 Azure 存储资源（包括 Blob、队列、表和文件）的访问权限。"
+title: 在 Azure 存储中使用共享访问签名 (SAS) | Azure
+description: 了解使用共享访问签名 (SAS) 委派对 Azure 存储资源（包括 Blob、队列、表和文件）的访问权限。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: forester123
 manager: digimobile
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/23/2017
+ms.locfileid: "23481772"
 ---
 # <a name="using-shared-access-signatures-sas"></a>使用共享访问签名 (SAS)
 

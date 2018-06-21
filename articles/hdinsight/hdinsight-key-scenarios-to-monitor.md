@@ -1,13 +1,13 @@
 ---
-title: "监视群集性能 - Azure HDInsight | Microsoft Docs"
-description: "如何监视 HDInsight 群集的容量和性能。"
+title: 监视群集性能 - Azure HDInsight | Microsoft Docs
+description: 如何监视 HDInsight 群集的容量和性能。
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26721724"
 ---
 # <a name="monitor-cluster-performance"></a>监视群集性能
 

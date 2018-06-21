@@ -1,11 +1,11 @@
 ---
-title: "逻辑应用 B2B edifact 解码解析 UNH2.5 - Azure 逻辑应用"
-description: "Azure 逻辑应用 B2B edifact 解码解析 UNH2.5"
+title: 逻辑应用 B2B edifact 解码解析 UNH2.5 - Azure 逻辑应用
+description: Azure 逻辑应用 B2B edifact 解码解析 UNH2.5
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
 ms.workload: integration
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870528"
 ---
 # <a name="how-to-handle-edifact-documents-having-unh25-segment"></a>如何处理具有 UNH2.5 段的 EDIFACT 文档
 EDIFACT 文档中存在 UNH2.5 时，它用于架构查找。 

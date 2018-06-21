@@ -22,6 +22,7 @@ ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30155676"
 ---
 # <a name="tutorial-add-an-azure-stack-marketplace-item-from-azure"></a>教程：从 Azure 添加 Azure Stack Marketplace 项
 

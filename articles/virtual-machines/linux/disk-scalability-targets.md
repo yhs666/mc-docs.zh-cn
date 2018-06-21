@@ -1,6 +1,6 @@
 ---
-title: "Linux 上的 VM 磁盘的可伸缩性和性能目标 - Azure | Azure"
-description: "了解附加到运行 Linux 的 VM 的虚拟机磁盘的可伸缩性和性能目标。"
+title: Linux 上的 VM 磁盘的可伸缩性和性能目标 - Azure | Azure
+description: 了解附加到运行 Linux 的 VM 的虚拟机磁盘的可伸缩性和性能目标。
 services: virtual-machines
 author: rockboyfor
 manager: digimobile
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/28/2017
+ms.locfileid: "25949557"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Linux 上的 VM 磁盘的可伸缩性和性能目标
 

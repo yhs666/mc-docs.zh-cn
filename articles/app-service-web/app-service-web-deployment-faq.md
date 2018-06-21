@@ -1,11 +1,11 @@
 ---
-title: "Azure Web 应用部署常见问题解答 | Azure"
-description: "获取 Azure 应用服务 Web 应用功能的部署相关常见问题解答。"
+title: Azure Web 应用部署常见问题解答 | Azure
+description: 获取 Azure 应用服务 Web 应用功能的部署相关常见问题解答。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/22/2017
+ms.locfileid: "22146541"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的部署常见问题解答
 

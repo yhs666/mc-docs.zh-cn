@@ -1,11 +1,11 @@
 ---
-title: "向 VNet 添加多个 VPN 网关站点到站点连接：Azure 门户：Resource Manager | Microsoft Docs"
-description: "将多站点 S2S 连接添加到包含现有连接的 VPN 网关"
+title: 向 VNet 添加多个 VPN 网关站点到站点连接：Azure 门户：Resource Manager | Microsoft Docs
+description: 将多站点 S2S 连接添加到包含现有连接的 VPN 网关
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f3e8b165-f20a-42ab-afbb-bf60974bb4b1
 ms.service: vpn-gateway
@@ -21,6 +21,7 @@ ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29925170"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>将站点到站点连接添加到包含现有 VPN 网关连接的 VNet
 
@@ -63,7 +64,7 @@ ms.lasthandoff: 03/16/2018
 5. 在“添加连接”页面上，填写以下字段：
    
    - **名称：** 想与其建立连接的站点的名称。
-   - **连接类型：**选择“站点到站点(IPsec)”。
+   - **连接类型：** 选择“站点到站点(IPsec)”。
      
      ![“添加连接”页面](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Add connection page")<br>
 

@@ -1,11 +1,11 @@
 ---
-title: "将 Azure Web 应用移动到另一个资源组 | Microsoft Docs"
-description: "介绍了可以将 Web 应用和应用服务从一个资源组迁移到另一个资源组的方案。"
+title: 将 Azure Web 应用移动到另一个资源组 | Microsoft Docs
+description: 介绍了可以将 Web 应用和应用服务从一个资源组迁移到另一个资源组的方案。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ZainRizvi
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 22f97607-072e-4d1f-a46f-8d500420c33c
 ms.service: app-service
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/24/2017
+ms.locfileid: "25591928"
 ---
 # <a name="move-an-azure-web-app-to-another-resource-group"></a>将 Azure Web 应用移动到另一个资源组
 可以将 Web 应用和/或其相关资源移动到同一订阅中的另一个资源组，或者移动到不同订阅中的资源组。 这是作为 Azure 中的标准资源管理的一部分完成的。 有关详细信息，请参阅 [Move Azure resources to new subscription or resource group](../azure-resource-manager/resource-group-move-resources.md)（将 Azure 资源移动到新的订阅或资源组）。

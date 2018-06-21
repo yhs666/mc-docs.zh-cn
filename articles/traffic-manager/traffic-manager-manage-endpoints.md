@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 流量管理器中管理终结点 | Azure"
-description: "本文介绍如何从 Azure 流量管理器中添加、删除、启用和禁用终结点。"
+title: 在 Azure 流量管理器中管理终结点 | Azure
+description: 本文介绍如何从 Azure 流量管理器中添加、删除、启用和禁用终结点。
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: ade2bbc2-35a7-43c5-8001-4698f7254526
 ms.service: traffic-manager
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27770643"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>添加、禁用、启用或删除终结点
 

@@ -1,11 +1,11 @@
 ---
-title: "为 Azure 导入/导出服务的导入作业准备硬盘驱动器的示例工作流 - v1 | Azure"
-description: "请参阅为 Azure 导入/导出服务中的导入作业准备驱动器的完整过程演练。"
+title: 为 Azure 导入/导出服务的导入作业准备硬盘驱动器的示例工作流 - v1 | Azure
+description: 请参阅为 Azure 导入/导出服务中的导入作业准备驱动器的完整过程演练。
 author: forester123
 manager: digimobile
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 6eb1b1b7-c69f-4365-b5ef-3cd5e05eb72a
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/29/2017
+ms.locfileid: "27548374"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器的示例工作流
 本主题讲解如何完成为导入作业准备驱动器的整个过程。  
@@ -73,9 +74,9 @@ ms.lasthandoff: 12/29/2017
 
 此外，可为所有文件设置以下元数据：  
 
--   **UploadMethod：**Microsoft Azure 导入/导出服务  
+-   **UploadMethod：** Microsoft Azure 导入/导出服务  
 
--   **DataSetName：**SampleData  
+-   **DataSetName：** SampleData  
 
 -   **CreationDate：** 10/1/2013  
 

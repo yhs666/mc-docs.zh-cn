@@ -1,8 +1,8 @@
 ---
-title: "创建和共享 Azure 门户仪表板 | Microsoft 文档"
-description: "本文介绍如何在 Azure 门户中创建和编辑仪表板。"
+title: 创建和共享 Azure 门户仪表板 | Microsoft 文档
+description: 本文介绍如何在 Azure 门户中创建和编辑仪表板。
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: sewatson
 manager: timlt
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27604175"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>在 Azure 门户中创建和共享仪表板
 可以创建多个仪表板，并与对 Azure 订阅有访问权限的其他用户共享。  本文介绍创建、编辑、发布和管理仪表板访问权限的基础知识。

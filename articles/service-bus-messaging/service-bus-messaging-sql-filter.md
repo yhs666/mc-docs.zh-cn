@@ -1,12 +1,12 @@
 ---
-title: "Azure 服务总线 SQLFilter 语法参考 | Azure"
-description: "有关 SqlFilter 语法的详细信息。"
+title: Azure 服务总线 SQLFilter 语法参考 | Azure
+description: 有关 SqlFilter 语法的详细信息。
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29730833"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 语法
 

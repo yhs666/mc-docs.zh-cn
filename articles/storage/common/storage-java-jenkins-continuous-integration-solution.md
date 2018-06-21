@@ -1,6 +1,6 @@
 ---
-title: "将 Azure 存储用于 Jenkins 持续集成解决方案 | Azure"
-description: "本教程演示如何使用 Azure Blob 服务作为 Jenkins 持续集成解决方案所创建生成项目的存储库。"
+title: 将 Azure 存储用于 Jenkins 持续集成解决方案 | Azure
+description: 本教程演示如何使用 Azure Blob 服务作为 Jenkins 持续集成解决方案所创建生成项目的存储库。
 services: storage
 documentationcenter: java
 author: hayley244
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/25/2017
+ms.locfileid: "21135071"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>将 Azure 存储用于 Jenkins 持续集成解决方案
 ## <a name="overview"></a>概述

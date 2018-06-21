@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure PowerShell 管理 Azure 独立云中的存储 | Microsoft Docs"
-description: "使用 Azure PowerShell 管理中国云、政府云和德国云中的存储"
+title: 使用 Azure PowerShell 管理 Azure 独立云中的存储 | Microsoft Docs
+description: 使用 Azure PowerShell 管理中国云、政府云和德国云中的存储
 services: storage
 documentationcenter: na
 author: yunan2016
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26044621"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>使用 PowerShell 管理 Azure 独立云中的存储
 

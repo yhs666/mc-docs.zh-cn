@@ -1,8 +1,8 @@
 ---
-title: "收集数据以训练模型：机器学习建议 API | Microsoft Docs"
-description: "Azure 机器学习建议 - 收集数据以训练模型"
+title: 收集数据以训练模型：机器学习建议 API | Microsoft Docs
+description: Azure 机器学习建议 - 收集数据以训练模型
 services: cognitive-services
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 editor: cgronlun
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/13/2017
+ms.locfileid: "23407617"
 ---
 # <a name="collecting-data-to-train-your-model"></a>收集数据以训练模型
 建议 API 可从过去的事务进行学习，以确定应该为特定的用户创建哪些项目。

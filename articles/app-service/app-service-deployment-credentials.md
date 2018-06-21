@@ -1,8 +1,8 @@
 ---
-title: "Azure 应用服务部署凭据 | Azure"
-description: "了解如何使用 Azure 应用服务部署凭据。"
+title: Azure 应用服务部署凭据 | Azure
+description: 了解如何使用 Azure 应用服务部署凭据。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27984737"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>为 Azure 应用服务配置部署凭据
 [Azure 应用服务](app-service-web-overview.md)支持两种类型的凭据，这些凭据适用于[本地 GIT 部署](app-service-deploy-local-git.md)和 [FTP/S 部署](app-service-deploy-ftp.md)。 这些凭据与 Azure Active Directory 凭据不同。

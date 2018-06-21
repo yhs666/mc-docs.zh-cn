@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 网络观察程序“下一跃点”功能查找下一跃点 - Azure CLI 1.0 | Azure"
-description: "本文介绍如何使用 Azure CLI 通过“下一跃点”功能查找下一跃点类型和 ip 地址。"
+title: 使用 Azure 网络观察程序“下一跃点”功能查找下一跃点 - Azure CLI 1.0 | Azure
+description: 本文介绍如何使用 Azure CLI 通过“下一跃点”功能查找下一跃点类型和 ip 地址。
 services: network-watcher
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 0700c274-3e0d-4dca-acfa-3ceac8990613
 ms.service: network-watcher
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24104633"
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-10"></a>使用 Azure CLI 1.0 通过 Azure 网络观察程序中的“下一跃点”功能找到下一跃点类型
 
