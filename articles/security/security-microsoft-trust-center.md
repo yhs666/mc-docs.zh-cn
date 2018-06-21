@@ -1,6 +1,6 @@
 ---
-title: "Microsoft 信任中心 | Microsoft Azure"
-description: "Microsoft 信任中心提供所需的信息让你确信运行服务的 Azure 平台是安全的。"
+title: Microsoft 信任中心 | Microsoft Azure
+description: Microsoft 信任中心提供所需的信息让你确信运行服务的 Azure 平台是安全的。
 services: security
 documentationCenter: na
 authors: TomShinder
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20182206"
 ---
 # <a name="trust-center"></a>信任中心
 

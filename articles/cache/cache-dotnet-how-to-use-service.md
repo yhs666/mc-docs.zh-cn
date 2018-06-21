@@ -1,11 +1,11 @@
 ---
-title: "如何使用 Azure 托管缓存服务"
-description: "了解如何使用 Azure 托管缓存服务提高 Azure 应用程序的性能"
+title: 如何使用 Azure 托管缓存服务
+description: 了解如何使用 Azure 托管缓存服务提高 Azure 应用程序的性能
 services: cache
-documentationCenter: 
+documentationCenter: ''
 authors: steved0x
 manager: dwrede
-editor: 
+editor: ''
 ms.service: cache
 ms.topic: article
 origin.date: 08/18/2015
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184650"
 ---
 # <a name="how-to-use-azure-managed-cache-service"></a>如何使用 Azure 托管缓存服务
 

@@ -1,6 +1,6 @@
 ---
-title: "创建卷"
-description: "说明如何在 StorSimple 设备上添加卷。"
+title: 创建卷
+description: 说明如何在 StorSimple 设备上添加卷。
 services: storsimple
 documentationCenter: NA
 authors: SharS
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20227702"
 ---
 ### <a name="to-create-a-volume"></a>创建卷
 

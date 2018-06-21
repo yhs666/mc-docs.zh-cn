@@ -1,11 +1,11 @@
 ---
-title: "Azure 通知中心文档 - 教程和 API 参考 | Microsoft 文档"
-description: "了解如何使用通知中心从任何后端向任何移动设备发送推送通知。 教程、API 参考和其他文档。"
+title: Azure 通知中心文档 - 教程和 API 参考 | Microsoft 文档
+description: 了解如何使用通知中心从任何后端向任何移动设备发送推送通知。 教程、API 参考和其他文档。
 services: notification-hubs
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: notification-hubs
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20182094"
 ---
 #<a name="notification-hubs-documentation"></a>通知中心文档
 

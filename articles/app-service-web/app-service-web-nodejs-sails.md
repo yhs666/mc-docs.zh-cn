@@ -1,11 +1,11 @@
 ---
-title: "将 Sails.js Web 应用部署到 Azure 应用服务 | Azure"
-description: "学习如何将 Node.js 应用部署到 Azure 应用服务。 本教程说明如何部署 Sails.js Web 应用。"
+title: 将 Sails.js Web 应用部署到 Azure 应用服务 | Azure
+description: 学习如何将 Node.js 应用部署到 Azure 应用服务。 本教程说明如何部署 Sails.js Web 应用。
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8877ddc8-1476-45ae-9e7f-3c75917b4564
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/28/2017
+ms.locfileid: "20634147"
 ---
 # <a name="deploy-a-sailsjs-web-app-to-azure-app-service"></a>将 Sails.js Web 应用部署到 Azure 应用服务
 

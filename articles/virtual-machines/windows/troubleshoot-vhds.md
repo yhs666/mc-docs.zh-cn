@@ -17,6 +17,7 @@ ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34259108"
 ---
 # <a name="troubleshoot-attached-vhds-on-azure-windows-virtual-machines"></a>Azure Windows 虚拟机上的附加 VHD 故障排除
 

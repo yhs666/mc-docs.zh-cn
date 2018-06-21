@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 应用服务中创建 .NET Web 作业 | Azure"
-description: "使用 ASP.NET MVC 和 Azure 创建多层应用。 前端在 Azure App Service 中的 Web 应用中运行，后端以 Web 作业的形式运行。 应用程序使用实体框架、SQL 数据库和 Azure 存储队列和 Blob。"
+title: 在 Azure 应用服务中创建 .NET Web 作业 | Azure
+description: 使用 ASP.NET MVC 和 Azure 创建多层应用。 前端在 Azure App Service 中的 Web 应用中运行，后端以 Web 作业的形式运行。 应用程序使用实体框架、SQL 数据库和 Azure 存储队列和 Blob。
 services: app-service
 documentationcenter: .net
 author: tdykstra
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 54fcef447f85b641d5da65dfe7016f87e29b40fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/10/2017
+ms.locfileid: "20325373"
 ---
 # <a name="create-a-net-webjob-in-azure-app-service"></a>在 Azure 应用服务中创建 .NET Web 作业
 

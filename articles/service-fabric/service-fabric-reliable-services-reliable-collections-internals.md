@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 可靠状态管理器和可靠集合内部 | Azure"
-description: "深入了解 Azure Service Fabric 中的可靠集合概念和设计。"
+title: Azure Service Fabric 可靠状态管理器和可靠集合内部 | Azure
+description: 深入了解 Azure Service Fabric 中的可靠集合概念和设计。
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20182413"
 ---
 # <a name="azure-service-fabric-reliable-state-manager-and-reliable-collection-internals"></a>Azure Service Fabric 可靠状态管理器和可靠集合内部
 本文档深入探讨可靠状态管理器和可靠集合，了解核心组件如何在后台工作。

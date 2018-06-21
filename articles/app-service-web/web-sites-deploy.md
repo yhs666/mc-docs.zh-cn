@@ -1,11 +1,11 @@
 ---
-title: "将应用部署到 Azure 应用服务 | Azure"
-description: "了解如何将你的应用部署到 Azure 应用服务。"
+title: 将应用部署到 Azure 应用服务 | Azure
+description: 了解如何将你的应用部署到 Azure 应用服务。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: f1464f71-2624-400e-86a2-e687e385804f
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/28/2017
+ms.locfileid: "20634212"
 ---
 # <a name="deploy-your-app-to-azure-app-service"></a>将应用部署到 Azure 应用服务
 本文可帮助你确定将 Web 应用、移动应用后端或 API 应用的文件部署到 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)的最佳选项，然后将你引导到相应的资源，其中包含特定于你的首选选项的操作说明。

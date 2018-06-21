@@ -1,11 +1,11 @@
 ---
-title: "了解 Azure IoT 中心文件上传 | Azure"
-description: "开发人员指南 - 使用 IoT 中心的文件上传功能，管理从设备到 Azure 存储 blob 容器的文件上传。"
+title: 了解 Azure IoT 中心文件上传 | Azure
+description: 开发人员指南 - 使用 IoT 中心的文件上传功能，管理从设备到 Azure 存储 blob 容器的文件上传。
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a0427925-3e40-4fcd-96c1-2a31d1ddc14b
 ms.service: iot-hub
 ms.devlang: multiple
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870322"
 ---
 # <a name="upload-files-with-iot-hub"></a>使用 IoT 中心上传文件
 

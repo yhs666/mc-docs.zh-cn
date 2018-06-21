@@ -1,11 +1,11 @@
 ---
-title: "Azure 通知中心富推送"
-description: "了解如何从 Azure 将富推送通知发送到 iOS 应用。 代码示例是使用 .Objective-C 和 C# 编写的。"
+title: Azure 通知中心富推送
+description: 了解如何从 Azure 将富推送通知发送到 iOS 应用。 代码示例是使用 .Objective-C 和 C# 编写的。
 documentationCenter: ios
 services: notification-hubs
 authors: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.service: notification-hubs
 ms.topic: article
 origin.date: 06/29/2016
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
+ms.locfileid: "20452888"
 ---
 #<a name="azure-notification-hubs-rich-push"></a>Azure 通知中心富推送
 

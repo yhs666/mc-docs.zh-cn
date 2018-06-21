@@ -1,11 +1,11 @@
 ---
-title: "Azure 事件中心 .NET Standard API 概述 | Azure"
-description: ".NET Standard API 概述"
+title: Azure 事件中心 .NET Standard API 概述 | Azure
+description: .NET Standard API 概述
 services: event-hubs
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: a173f8e4-556c-42b8-b856-838189f7e636
 ms.service: event-hubs
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29527533"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>事件中心 .NET Standard API 概述
 

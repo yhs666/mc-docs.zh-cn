@@ -1,7 +1,7 @@
 ---
-title: "远程监视解决方案中的设备架构"
-description: "本文介绍用于在远程监视解决方案中定义模拟设备的 JSON 架构。"
-services: 
+title: 远程监视解决方案中的设备架构
+description: 本文介绍用于在远程监视解决方案中定义模拟设备的 JSON 架构。
+services: ''
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29731166"
 ---
 # <a name="understand-the-device-model-schema"></a>了解设备模型架构
 

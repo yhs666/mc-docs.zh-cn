@@ -1,6 +1,6 @@
 ---
-title: "教程：使用多租户数据库和 Entity Framework 及行级别安全性的 Web 应用"
-description: "了解如何通过 Entity Framework 和行级安全性来开发使用多租户 SQL 数据库后端的 ASP.NET MVC 5 Web 应用。"
+title: 教程：使用多租户数据库和 Entity Framework 及行级别安全性的 Web 应用
+description: 了解如何通过 Entity Framework 和行级安全性来开发使用多租户 SQL 数据库后端的 ASP.NET MVC 5 Web 应用。
 metakeywords: azure asp.net mvc entity framework multi tenant row level security rls sql database
 services: app-service\web
 documentationcenter: .net
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20463914"
 ---
 # <a name="tutorial-web-app-with-a-multi-tenant-database-using-entity-framework-and-row-level-security"></a>教程：使用多租户数据库和 Entity Framework 及行级别安全性的 Web 应用
 

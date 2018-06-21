@@ -1,11 +1,11 @@
 ---
-title: "如何配置云服务（经典门户）| Azure"
-description: "了解如何在 Azure 中配置云服务。 了解如何更新云服务配置以及配置对角色实例的远程访问。"
+title: 如何配置云服务（经典门户）| Azure
+description: 了解如何在 Azure 中配置云服务。 了解如何更新云服务配置以及配置对角色实例的远程访问。
 services: cloud-services
-documentationCenter: 
+documentationCenter: ''
 authors: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
+ms.locfileid: "20453188"
 ---
 # <a name="how-to-configure-cloud-services"></a>如何配置云服务
 

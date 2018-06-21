@@ -21,6 +21,7 @@ ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33815067"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>用于应用程序身份验证的证书凭据
 

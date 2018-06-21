@@ -1,12 +1,12 @@
 ---
-title: "将身份验证添加到自定义 API - Azure 逻辑应用"
-description: "通过逻辑应用为对自定义 API 的调用设置身份验证"
+title: 将身份验证添加到自定义 API - Azure 逻辑应用
+description: 通过逻辑应用为对自定义 API 的调用设置身份验证
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870619"
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>通过逻辑应用保护对自定义 API 的调用
 

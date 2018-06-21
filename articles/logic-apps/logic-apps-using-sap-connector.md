@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 逻辑应用中连接到本地 SAP 系统"
-description: "通过本地数据网关从逻辑应用工作流连接到本地 SAP 系统"
+title: 在 Azure 逻辑应用中连接到本地 SAP 系统
+description: 通过本地数据网关从逻辑应用工作流连接到本地 SAP 系统
 services: logic-apps
 author: padmavc
 manager: anneta
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870548"
 ---
 # <a name="connect-to-an-on-premises-sap-system-from-logic-apps-with-the-sap-connector"></a>使用 SAP 连接器从逻辑应用连接到本地 SAP 系统 
 

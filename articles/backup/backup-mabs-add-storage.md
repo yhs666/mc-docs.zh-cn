@@ -1,12 +1,12 @@
 ---
-title: "将 Modern Backup Storage 与 Azure 备份服务器 v2 配合使用 | Microsoft Docs"
-description: "了解 Azure 备份服务器 v2 中的新功能。 本文介绍如何升级备份服务器安装。"
+title: 将 Modern Backup Storage 与 Azure 备份服务器 v2 配合使用 | Microsoft Docs
+description: 了解 Azure 备份服务器 v2 中的新功能。 本文介绍如何升级备份服务器安装。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20472610"
 ---
 # <a name="add-storage-to-azure-backup-server-v2"></a>将存储添加到 Azure 备份服务器 v2
 

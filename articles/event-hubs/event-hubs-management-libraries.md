@@ -1,12 +1,12 @@
 ---
-title: "Azure 事件中心管理库 | Azure"
-description: "通过 .NET 管理事件中心命名空间和实体"
+title: Azure 事件中心管理库 | Azure
+description: 通过 .NET 管理事件中心命名空间和实体
 services: event-hubs
 cloud: na
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-ms.assetid: 
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29527593"
 ---
 # <a name="event-hubs-management-libraries"></a>事件中心管理库
 

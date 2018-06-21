@@ -1,6 +1,6 @@
 ---
-title: "Azure 安全服务与技术 | Microsoft Azure"
-description: "本文提供了一个包含 Azure 安全服务与技术的特选列表。"
+title: Azure 安全服务与技术 | Microsoft Azure
+description: 本文提供了一个包含 Azure 安全服务与技术的特选列表。
 services: security
 documentationCenter: na
 authors: LingChen
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20182189"
 ---
 # <a name="azure-security-services-and-technologies"></a>Azure 安全服务与技术
 

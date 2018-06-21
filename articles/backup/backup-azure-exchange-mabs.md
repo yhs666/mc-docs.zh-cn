@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 备份服务器将 Exchange Server 备份到 Azure 备份 | Microsoft Docs"
-description: "了解如何使用 Azure 备份服务器将 Exchange Server 备份到 Azure 备份"
+title: 使用 Azure 备份服务器将 Exchange Server 备份到 Azure 备份 | Microsoft Docs
+description: 了解如何使用 Azure 备份服务器将 Exchange Server 备份到 Azure 备份
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: pvrk
 manager: shivamg
-editor: 
+editor: ''
 ms.assetid: e46557e8-2eaf-4ee0-99ea-00fbb8687dca
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184639"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>使用 Azure 备份服务器将 Exchange Server 备份到 Azure 备份
 本文说明如何配置 Azure 备份服务器 (MABS)，将 Microsoft Exchange Server 备份到 Azure。  
@@ -103,10 +104,10 @@ ms.lasthandoff: 06/21/2017
 在线恢复点有五种恢复类型：
 
 - **恢复到原始 Exchange Server 位置：** 数据将恢复到原始 Exchange Server。
-- **恢复到 Exchange Server 上的其他数据库：**数据将恢复到其他 Exchange Server 上的其他数据库。
-- **恢复到恢复数据库：**数据将恢复到 Exchange 恢复数据库 (RDB)。
-- **复制到网络文件夹：**数据将恢复到网络文件夹。
-- **复制到磁带：**如果 MABS 上附加并配置了磁带库或独立的磁带驱动器，则恢复点将复制到可用的磁带。
+- **恢复到 Exchange Server 上的其他数据库：** 数据将恢复到其他 Exchange Server 上的其他数据库。
+- **恢复到恢复数据库：** 数据将恢复到 Exchange 恢复数据库 (RDB)。
+- **复制到网络文件夹：** 数据将恢复到网络文件夹。
+- **复制到磁带：** 如果 MABS 上附加并配置了磁带库或独立的磁带驱动器，则恢复点将复制到可用的磁带。
 
     ![选择在线复制](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 

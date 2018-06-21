@@ -20,6 +20,7 @@ ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34062121"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>虚拟机串行控制台（预览版） 
 

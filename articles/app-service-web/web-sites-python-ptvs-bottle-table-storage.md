@@ -1,11 +1,11 @@
 ---
-title: "具有 Python Tools 2.2 for Visual Studio 的 Azure 上的 Bottle 和 Azure 表存储"
-description: "了解如何使用 Python Tools for Visual Studio 来创建 Bottle 应用程序，该应用程序在 Azure 表存储中存储数据并且可以部署到 Azure 应用服务 Web 应用。"
+title: 具有 Python Tools 2.2 for Visual Studio 的 Azure 上的 Bottle 和 Azure 表存储
+description: 了解如何使用 Python Tools for Visual Studio 来创建 Bottle 应用程序，该应用程序在 Azure 表存储中存储数据并且可以部署到 Azure 应用服务 Web 应用。
 services: app-service\web
 documentationcenter: python
 author: huguesv
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: f075124b-db79-4e51-b394-09187dd6c634
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
+ms.locfileid: "20228241"
 ---
 # <a name="bottle-and-azure-table-storage-on-azure-with-python-tools-22-for-visual-studio"></a>具有 Python Tools 2.2 for Visual Studio 的 Azure 上的 Bottle 和 Azure 表存储
 在本教程中，我们将使用 [Python Tools for Visual Studio] 通过一个 PTVS 样本模板创建简单的轮询 Web 应用。

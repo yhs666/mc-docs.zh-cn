@@ -1,6 +1,6 @@
 ---
-title: "创建手动备份"
-description: "介绍如何启动手动按需备份作业。"
+title: 创建手动备份
+description: 介绍如何启动手动按需备份作业。
 services: storsimple
 documentationCenter: NA
 authors: SharS
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20227700"
 ---
 ### <a name="to-create-a-manual-backup"></a>创建手动备份
 

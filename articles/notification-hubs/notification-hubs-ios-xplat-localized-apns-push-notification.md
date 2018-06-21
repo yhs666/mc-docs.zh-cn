@@ -1,11 +1,11 @@
 ---
-title: "通知中心本地化的突发新闻教程 - iOS"
-description: "了解如何使用 Azure 服务总线通知中心发送本地化的突发新闻通知 (iOS)。"
+title: 通知中心本地化的突发新闻教程 - iOS
+description: 了解如何使用 Azure 服务总线通知中心发送本地化的突发新闻通知 (iOS)。
 services: notification-hubs
 documentationCenter: ios
 authors: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
+ms.locfileid: "20452882"
 ---
 # <a name="use-notification-hubs-to-send-localized-breaking-news-to-ios-devices"></a>使用通知中心将本地化的突发新闻发送到 iOS 设备
 

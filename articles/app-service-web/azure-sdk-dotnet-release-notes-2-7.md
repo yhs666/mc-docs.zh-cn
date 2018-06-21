@@ -1,10 +1,10 @@
 ---
-title: "Azure SDK for .NET 2.7 和 .NET 2.7.1 发行说明"
-description: "Azure SDK for .NET 2.7 和 .NET 2.7.1 发行说明"
+title: Azure SDK for .NET 2.7 和 .NET 2.7.1 发行说明
+description: Azure SDK for .NET 2.7 和 .NET 2.7.1 发行说明
 services: app-service\web
 documentationcenter: .net
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: 877d070a-9bd5-49b3-8fac-6bb5f65c3554
 ms.service: app-service
 ms.devlang: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20463947"
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Azure SDK for .NET 2.7 和 .NET 2.7.1 发行说明
 ## <a name="overview"></a>概述

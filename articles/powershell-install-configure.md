@@ -1,10 +1,10 @@
 ---
-title: "如何安装和配置 Azure PowerShell"
-description: "了解如何安装和配置 Azure PowerShell。"
+title: 如何安装和配置 Azure PowerShell
+description: 了解如何安装和配置 Azure PowerShell。
 editor: tysonn
 manager: dongill
-documentationCenter: 
-services: 
+documentationCenter: ''
+services: ''
 authors: coreyp-at-msft
 ms.service: multiple
 ms.workload: multiple
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
+ms.locfileid: "20453243"
 ---
 # <a name="how-to-install-and-configure-azure-powershell"></a>如何安装和配置 Azure PowerShell
 

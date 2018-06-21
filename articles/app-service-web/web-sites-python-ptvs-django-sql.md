@@ -1,12 +1,12 @@
 ---
-title: "具有 Python Tools 2.2 for Visual Studio 的 Azure 上的 Django 和 SQL 数据库"
-description: "了解如何使用 Python Tools for Visual Studio 来创建在 SQL 数据库实例中存储数据的 Django Web 应用，以及将应用部署到 Azure 应用服务 Web 应用中。"
+title: 具有 Python Tools 2.2 for Visual Studio 的 Azure 上的 Django 和 SQL 数据库
+description: 了解如何使用 Python Tools for Visual Studio 来创建在 SQL 数据库实例中存储数据的 Django Web 应用，以及将应用部署到 Azure 应用服务 Web 应用中。
 services: app-service\web
 tags: python
 documentationcenter: python
 author: huguesv
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3a677e64-b5a9-4d43-b9c0-66246368b483
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
+ms.locfileid: "20228100"
 ---
 # <a name="django-and-sql-database-on-azure-with-python-tools-22-for-visual-studio"></a>具有 Python Tools 2.2 for Visual Studio 的 Azure 上的 Django 和 SQL 数据库
 

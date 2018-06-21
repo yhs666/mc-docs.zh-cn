@@ -1,6 +1,6 @@
 ---
-title: "完成最低要求的设备设置"
-description: "介绍如何完成最低要求的 StorSimple 设备配置。"
+title: 完成最低要求的设备设置
+description: 介绍如何完成最低要求的 StorSimple 设备配置。
 services: storsimple
 documentationCenter: NA
 authors: SharS
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20227706"
 ---
 ### <a name="to-complete-the-minimum-storsimple-device-setup"></a>完成最低要求的 StorSimple 设备设置
 

@@ -1,11 +1,11 @@
 ---
-title: "适用于外围网络的 Azure 示例应用程序 | Azure"
-description: "在创建外围网络后部署这一简单 Web 应用程序，以测试流量传送方案"
+title: 适用于外围网络的 Azure 示例应用程序 | Azure
+description: 在创建外围网络后部署这一简单 Web 应用程序，以测试流量传送方案
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20186391"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>适用于外围网络的示例应用程序
 

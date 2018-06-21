@@ -1,11 +1,11 @@
 ---
-title: "使用 DPM 为 SQL 工作负荷配置 Azure 备份 | Azure"
-description: "使用 Azure 备份服务备份 SQL Server 数据库简介"
+title: 使用 DPM 为 SQL 工作负荷配置 Azure 备份 | Azure
+description: 使用 Azure 备份服务备份 SQL Server 数据库简介
 services: backup
-documentationCenter: 
+documentationCenter: ''
 authors: adigan
 manager: Nkolli1
-editor: 
+editor: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184620"
 ---
 # <a name="azure-backup-for-sql-server-workloads-using-dpm"></a>使用 DPM 为 SQL 工作负荷配置 Azure 备份
 

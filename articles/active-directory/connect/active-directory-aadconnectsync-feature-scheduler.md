@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 同步：计划程序 | Microsoft Docs"
-description: "本主题介绍 Azure AD Connect 同步中的内置计划程序功能。"
+title: Azure AD Connect 同步：计划程序 | Microsoft Docs
+description: 本主题介绍 Azure AD Connect 同步中的内置计划程序功能。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/11/2017
+ms.locfileid: "20822247"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 同步：计划程序
 本主题介绍 Azure AD Connect 同步（也称为同步引擎）中的 内置计划程序。

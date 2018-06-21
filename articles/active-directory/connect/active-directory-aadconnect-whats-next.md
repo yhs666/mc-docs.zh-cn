@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect：后续步骤以及如何管理 Azure AD Connect | Microsoft Docs"
-description: "了解如何扩展 Azure AD Connect 的默认配置和操作任务。"
+title: Azure AD Connect：后续步骤以及如何管理 Azure AD Connect | Microsoft Docs
+description: 了解如何扩展 Azure AD Connect 的默认配置和操作任务。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 editor: curtand
@@ -20,6 +20,7 @@ ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/04/2017
+ms.locfileid: "20763953"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>后续步骤以及如何管理 Azure AD Connect
 使用本文中介绍的操作流程，根据组织的需要和要求自定义 Azure Active Directory (Azure AD) Connect。  

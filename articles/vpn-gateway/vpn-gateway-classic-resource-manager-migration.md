@@ -1,6 +1,6 @@
 ---
-title: "将 VPN 网关从经典部署模型迁移到 Resource Manager 部署模型 | Azure"
-description: "此页提供将 VPN 网关从经典部署模型迁移到 Resource Manager 部署模型的概述。"
+title: 将 VPN 网关从经典部署模型迁移到 Resource Manager 部署模型 | Azure
+description: 此页提供将 VPN 网关从经典部署模型迁移到 Resource Manager 部署模型的概述。
 documentationcenter: na
 services: vpn-gateway
 author: amsriva
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20186433"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>将 VPN 网关从经典部署模型迁移到 Resource Manager 部署模型
 现在可以将 VPN 网关从经典部署模型迁移到 Resource Manager 部署模型。 可以阅读有关 Azure Resource Manager [功能和优点](../azure-resource-manager/resource-group-overview.md)的更多内容。 在本文中，将详细介绍如何从经典部署模型迁移到更新的基于 Resource Manager 的部署模型。 

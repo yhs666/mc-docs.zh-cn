@@ -1,11 +1,11 @@
 ---
-title: "管理集成帐户项目元数据 - Azure 逻辑应用"
-description: "在集成帐户中为 Azure 逻辑应用添加或检索项目元数据"
+title: 管理集成帐户项目元数据 - Azure 逻辑应用
+description: 在集成帐户中为 Azure 逻辑应用添加或检索项目元数据
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
 ms.workload: integration
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870545"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>在集成帐户中为逻辑应用管理项目元数据
 

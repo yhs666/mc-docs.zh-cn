@@ -1,11 +1,11 @@
 ---
-title: "Azure 事件中心文档 - 教程、API 参考 | Azure"
-description: "了解如何使用事件中心从各种平台上的已连接 IoT 设备和应用程序每秒引入数百万事件。"
+title: Azure 事件中心文档 - 教程、API 参考 | Azure
+description: 了解如何使用事件中心从各种平台上的已连接 IoT 设备和应用程序每秒引入数百万事件。
 services: event-hubs
 author: rockboyfor
 manager: digimobile
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27770661"
 ---
 # <a name="event-hubs-documentation"></a>事件中心文档
 

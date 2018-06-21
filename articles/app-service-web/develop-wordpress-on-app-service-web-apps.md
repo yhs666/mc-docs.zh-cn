@@ -1,12 +1,12 @@
 ---
-title: "在 Azure 应用服务上开发 WordPress"
-description: "了解在 Azure 上开发和缩放 WordPress 的最佳做法。"
-keywords: "应用服务, Azure 应用服务, 缩放 wordpress, 可缩放 wordpress, wordpress"
+title: 在 Azure 应用服务上开发 WordPress
+description: 了解在 Azure 上开发和缩放 WordPress 的最佳做法。
+keywords: 应用服务, Azure 应用服务, 缩放 wordpress, 可缩放 wordpress, wordpress
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: sunbuild
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9e0a5e14-bba8-4ba4-9709-8f6a7bc17730
 ms.service: app-service
 ms.workload: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184297"
 ---
 # <a name="developing-wordpress-on-azure-app-service"></a>在 Azure 应用服务上开发 WordPress
 [!INCLUDE [app-service-blueprint-guide-for-wordpress](../../includes/app-service-blueprint-guide-for-wordpress.md)]

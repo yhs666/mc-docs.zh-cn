@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 门户的专用 VHD 中创建 Windows VM | Azure"
-description: "在 Azure 门户的 VHD 中创建新的 Windows VM。"
+title: 在 Azure 门户的专用 VHD 中创建 Windows VM | Azure
+description: 在 Azure 门户的 VHD 中创建新的 Windows VM。
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29286179"
 ---
 # <a name="create-a-vm-from-a-vhd-using-the-azure-portal"></a>使用 Azure 门户在 VHD 中创建 VM
 

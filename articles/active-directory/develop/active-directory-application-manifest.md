@@ -22,6 +22,7 @@ ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305801"
 ---
 # <a name="azure-active-directory-application-manifest"></a>Azure Active Directory 应用程序清单
 与 Azure AD 集成的应用必须向 Azure AD 租户注册。 可以在 [Azure 门户](https://portal.azure.cn)中使用应用清单（在“Azure AD”边栏选项卡下）配置此应用。

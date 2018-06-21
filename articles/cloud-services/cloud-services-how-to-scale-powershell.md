@@ -1,11 +1,11 @@
 ---
-title: "在 Windows PowerShell 中缩放 Azure 云服务 | Azure"
-description: "（经典）了解如何使用 PowerShell 在 Azure 中缩放 web 角色或辅助角色。"
+title: 在 Windows PowerShell 中缩放 Azure 云服务 | Azure
+description: （经典）了解如何使用 PowerShell 在 Azure 中缩放 web 角色或辅助角色。
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: seanmck
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ee37dd8c-6714-4c61-adb8-03d6bbf76c9a
 ms.service: cloud-services
 ms.workload: tbd
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184578"
 ---
 # <a name="how-to-scale-a-cloud-service-in-powershell"></a>如何在 PowerShell 中缩放云服务
 

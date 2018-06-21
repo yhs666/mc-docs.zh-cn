@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure 流量管理器配置加权轮循机制流量路由方法 | Azure"
-description: "本文介绍如何在流量管理器中使用轮循机制方法加载均衡流量"
+title: 使用 Azure 流量管理器配置加权轮循机制流量路由方法 | Azure
+description: 本文介绍如何在流量管理器中使用轮循机制方法加载均衡流量
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20464943"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>在流量管理器中配置加权流量路由方法
 

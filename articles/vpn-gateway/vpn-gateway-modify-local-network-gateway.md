@@ -1,11 +1,11 @@
 ---
-title: "修改本地网关 IP 地址前缀和 VPN 网关 IP 地址 | Azure| PowerShell| Azure"
-description: "本文逐步介绍了如何使用 PowerShell 更改本地网关的 IP 地址前缀"
+title: 修改本地网关 IP 地址前缀和 VPN 网关 IP 地址 | Azure| PowerShell| Azure
+description: 本文逐步介绍了如何使用 PowerShell 更改本地网关的 IP 地址前缀
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 8c7db48f-d09a-44e7-836f-1fb6930389df
 ms.service: vpn-gateway
@@ -21,6 +21,7 @@ ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/04/2017
+ms.locfileid: "20764025"
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>使用 PowerShell 修改本地网络网关设置
 

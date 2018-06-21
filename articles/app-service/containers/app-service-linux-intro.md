@@ -1,12 +1,12 @@
 ---
-title: "用于容器的 Azure Web 应用简介 | Microsoft Docs"
-description: "了解用于容器的 Azure Web 应用。"
-keywords: "azure 应用服务, linux, oss"
+title: 用于容器的 Azure Web 应用简介 | Microsoft Docs
+description: 了解用于容器的 Azure Web 应用。
+keywords: azure 应用服务, linux, oss
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
 ms.workload: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 09/29/2017
+ms.locfileid: "22339059"
 ---
 # <a name="introduction-to-azure-web-apps-for-containers"></a>用于容器的 Azure Web 应用简介
 

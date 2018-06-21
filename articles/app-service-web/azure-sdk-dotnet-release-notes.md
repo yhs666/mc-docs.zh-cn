@@ -1,10 +1,10 @@
 ---
-title: "Azure SDK for .NET 发行说明"
-description: "Azure SDK for .NET 发行说明"
+title: Azure SDK for .NET 发行说明
+description: Azure SDK for .NET 发行说明
 services: app-service/web
-documentationcenter: 
+documentationcenter: ''
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: f7724fdc-79b7-4b3c-ab31-6da4679a1264
 ms.service: app-service
 ms.devlang: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184283"
 ---
 # <a name="azure-sdk-for-net-release-notes"></a>Azure SDK for .NET 发行说明
 本主题包含 Azure SDK for .NET 发行说明的链接。 

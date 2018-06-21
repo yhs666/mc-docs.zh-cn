@@ -1,10 +1,10 @@
 ---
-title: "预配 SQL Server 虚拟机 | Azure"
-description: "使用门户在 Azure 中创建并连接到 SQL Server 虚拟机。 本教程使用 Resource Manager 模式。"
+title: 预配 SQL Server 虚拟机 | Azure
+description: 使用门户在 Azure 中创建并连接到 SQL Server 虚拟机。 本教程使用 Resource Manager 模式。
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-editor: 
+editor: ''
 manager: jhubbard
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/18/2017
+ms.locfileid: "20888139"
 ---
 # <a name="provision-a-sql-server-virtual-machine-in-the-azure-portal"></a>在 Azure 门户中预配 SQL Server 虚拟机
 > [!div class="op_single_selector"]

@@ -1,11 +1,11 @@
 ---
-title: "适用于 Azure Web 应用的基于 Azure Resource Manager 的 PowerShell 命令 | Azure"
-description: "了解如何使用基于 Azure Resource Manager 的新 PowerShell 命令来管理 Azure Web 应用。"
+title: 适用于 Azure Web 应用的基于 Azure Resource Manager 的 PowerShell 命令 | Azure
+description: 了解如何使用基于 Azure Resource Manager 的新 PowerShell 命令来管理 Azure Web 应用。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: ahmedelnably
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: 4231fbba-61e5-4f92-b958-531c066fb87f
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184271"
 ---
 # <a name="using-azure-resource-manager-based-powershell-to-manage-azure-web-apps"></a>使用基于 Azure Resource Manager 的 PowerShell 来管理 Azure Web 应用
 > [!div class="op_single_selector"]

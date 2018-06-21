@@ -1,11 +1,11 @@
 ---
-title: "将 Java 应用程序添加到 Azure 应用服务 Web 应用"
-description: "本教程介绍如何将页面或应用程序添加到已配置为使用 Java 的 Azure 应用服务 Web 应用实例。"
+title: 将 Java 应用程序添加到 Azure 应用服务 Web 应用
+description: 本教程介绍如何将页面或应用程序添加到已配置为使用 Java 的 Azure 应用服务 Web 应用实例。
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9b46528b-e2d0-4f26-b8d7-af94bd8c31ef
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
+ms.locfileid: "20453121"
 ---
 # <a name="add-a-java-application-to-azure-app-service-web-apps"></a>将 Java 应用程序添加到 Azure 应用服务 Web 应用
 按照[在 Azure 应用服务中创建 Java Web 应用](web-sites-java-get-started.md)中的说明初始化 [Azure 应用服务][Azure App Service]中的 Java Web 应用后，可通过将 WAR 放置在 **webapps** 文件夹上传应用程序。

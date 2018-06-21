@@ -1,11 +1,11 @@
 ---
-title: "部署链接到 GitHub 存储库的 Web 应用 | Azure"
-description: "使用 Azure Resource Manager 模板来部署包含 GitHub 存储库中项目的 Web 应用。"
+title: 部署链接到 GitHub 存储库的 Web 应用 | Azure
+description: 使用 Azure Resource Manager 模板来部署包含 GitHub 存储库中项目的 Web 应用。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 32739607-85fe-43c8-a4dc-1feb46d93a4d
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20463822"
 ---
 # <a name="deploy-a-web-app-linked-to-a-github-repository"></a>部署链接到 GitHub 存储库的 Web 应用
 

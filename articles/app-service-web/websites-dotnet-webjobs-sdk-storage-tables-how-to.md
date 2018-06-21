@@ -1,6 +1,6 @@
 ---
-title: "如何通过 WebJobs SDK 使用 Azure 表存储"
-description: "了解如何通过 WebJobs SDK 使用 Azure 表存储。 创建表，将实体添加到表，并读取现有表。"
+title: 如何通过 WebJobs SDK 使用 Azure 表存储
+description: 了解如何通过 WebJobs SDK 使用 Azure 表存储。 创建表，将实体添加到表，并读取现有表。
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184322"
 ---
 # <a name="how-to-use-azure-table-storage-with-the-webjobs-sdk"></a>如何通过 WebJobs SDK 使用 Azure 表存储
 

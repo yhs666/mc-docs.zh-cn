@@ -1,6 +1,6 @@
 ---
-title: "网络资源提供程序概述 | Azure"
-description: "了解 Azure Resource Manager 中的新网络资源提供程序"
+title: 网络资源提供程序概述 | Azure
+description: 了解 Azure Resource Manager 中的新网络资源提供程序
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20187719"
 ---
 # <a name="network-resource-provider"></a>网络资源提供程序
 要在当今社会获得业务成功，需要满足的一个基本需求就是，能够以灵活、弹性、安全且可重复的方式生成和管理可识别大型网络的应用程序。 使用 Azure Resource Manager 可以创建此类应用程序，作为资源组中的单个资源集合。 此类资源通过 Resource Manager 下的各种资源提供程序进行管理。

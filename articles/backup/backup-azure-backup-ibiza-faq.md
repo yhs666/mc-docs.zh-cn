@@ -1,12 +1,12 @@
 ---
-title: "恢复服务保管库常见问题 | Azure"
-description: "此版常见问题支持 Azure 备份服务公共预览版。 针对备份代理、备份和保留、恢复、安全性的常见问题以及针对 Azure 备份解决方案的其他常见问题的答案。"
+title: 恢复服务保管库常见问题 | Azure
+description: 此版常见问题支持 Azure 备份服务公共预览版。 针对备份代理、备份和保留、恢复、安全性的常见问题以及针对 Azure 备份解决方案的其他常见问题的答案。
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: jwhit
-editor: 
-keywords: "备份解决方案; 备份服务"
+editor: ''
+keywords: 备份解决方案; 备份服务
 ms.assetid: 5f55b500-1ee9-4f64-9306-02d6f7a8eded
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184621"
 ---
 # <a name="recovery-services-vault---faq"></a>恢复服务保管库 - 常见问题
 本文提供特定于恢复服务保管库的信息，并对 [Azure 备份常见问题解答](./backup-azure-backup-faq.md)进行了补充。 Azure 备份常见问题提供整套有关 Azure 备份服务的问答。  

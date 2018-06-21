@@ -1,11 +1,11 @@
 ---
-title: "使用通知中心发送突发新闻 (Windows Phone)"
-description: "通过 Azure 通知中心使用注册中的标记，将突发新闻发送到 Windows Phone 应用。"
+title: 使用通知中心发送突发新闻 (Windows Phone)
+description: 通过 Azure 通知中心使用注册中的标记，将突发新闻发送到 Windows Phone 应用。
 services: notification-hubs
 documentationCenter: windows
 authors: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.service: notification-hubs
 ms.topic: article
 origin.date: 06/29/2016
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20185521"
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>使用通知中心发送突发新闻
 

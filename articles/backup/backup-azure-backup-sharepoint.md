@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中使用 DPM/Azure 备份服务器保护 SharePoint 场 | Azure"
-description: "本文概述如何在 Azure 中使用 DPM/Azure 备份服务器保护 SharePoint 场"
+title: 在 Azure 中使用 DPM/Azure 备份服务器保护 SharePoint 场 | Azure
+description: 本文概述如何在 Azure 中使用 DPM/Azure 备份服务器保护 SharePoint 场
 services: backup
-documentationCenter: 
+documentationCenter: ''
 authors: adigan
 manager: Nkolli1
-editor: 
+editor: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184575"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>将 SharePoint 场备份到 Azure
 使用 System Center Data Protection Manager (DPM) 将 SharePoint 场备份到 Azure，其方法与备份其他数据源极为类似。 Azure 备份提供灵活的备份计划来创建每日、每周、每月或每年备份点，并提供适用于各种备份点的保留策略选项。 利用 DPM，不仅可以存储本地磁盘副本以实现快速的恢复时间目标 (RTO)，还可以将副本存储到 Azure 进行经济高效的长期保留。

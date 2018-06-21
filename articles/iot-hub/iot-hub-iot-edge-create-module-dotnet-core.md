@@ -1,10 +1,10 @@
 ---
-title: "使用 C# 创建 Azure IoT Edge 模块 | Microsoft Docs"
-description: "本教程演示如何使用最新的 Azure IoT Edge NuGet 包、Visual Studio Code 和 C# 编写 BLE 数据转换器模块。"
+title: 使用 C# 创建 Azure IoT Edge 模块 | Microsoft Docs
+description: 本教程演示如何使用最新的 Azure IoT Edge NuGet 包、Visual Studio Code 和 C# 编写 BLE 数据转换器模块。
 services: iot-hub
 author: jeffreyCline
 manager: timlt
-keywords: "azure, iot, 教程, 模块, nuget, vscode, csharp, edge"
+keywords: azure, iot, 教程, 模块, nuget, vscode, csharp, edge
 ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: article
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/28/2017
+ms.locfileid: "20634601"
 ---
 # <a name="create-an-azure-iot-edge-module-with-cx23"></a>使用 C&#x23; 创建 Azure IoT Edge 模块
 

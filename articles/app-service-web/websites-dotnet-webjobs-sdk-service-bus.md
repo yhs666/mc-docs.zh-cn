@@ -1,6 +1,6 @@
 ---
-title: "如何通过 WebJobs SDK 使用 Azure Service Bus"
-description: "了解如何通过 WebJobs SDK 使用 Azure 服务总线队列和主题。"
+title: 如何通过 WebJobs SDK 使用 Azure Service Bus
+description: 了解如何通过 WebJobs SDK 使用 Azure 服务总线队列和主题。
 services: app-service\web, service-bus
 documentationcenter: .net
 author: ggailey777
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184345"
 ---
 # <a name="how-to-use-azure-service-bus-with-the-webjobs-sdk"></a>如何通过 WebJobs SDK 使用 Azure Service Bus
 
@@ -79,7 +80,7 @@ SDK 接收 `PeekLock` 模式的消息。如果函数成功完成，则对此消�
             logger.WriteLine(message);
         }
 
-**注意：**如果你要在未使用 WebJobs SDK 的应用程序中创建队列消息，请务必将 [BrokeredMessage.ContentType](http://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx) 设置为“text/plain”。
+**注意：** 如果你要在未使用 WebJobs SDK 的应用程序中创建队列消息，请务必将 [BrokeredMessage.ContentType](http://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx) 设置为“text/plain”。
 
 ### <a name="poco-queue-message"></a>POCO 队列消息
 SDK 会自动反序列化包含 POCO[（普通旧 CLR 对象](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)）类型 JSON 的队列消息。 以下代码示例读取包含 `BlobInformation` 对象（具有 `BlobName` 属性）的队列消息：

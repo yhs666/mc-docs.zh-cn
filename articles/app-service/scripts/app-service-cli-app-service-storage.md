@@ -22,6 +22,7 @@ ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30155412"
 ---
 # <a name="connect-a-web-app-to-a-storage-account"></a>将 Web 应用连接到存储帐户
 

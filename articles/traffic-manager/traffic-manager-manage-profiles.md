@@ -1,11 +1,11 @@
 ---
-title: "管理 Azure 流量管理器配置文件 | Azure"
-description: "本文有助于你创建、禁用、启用和删除 Azure 流量管理器配置文件。"
+title: 管理 Azure 流量管理器配置文件 | Azure
+description: 本文有助于你创建、禁用、启用和删除 Azure 流量管理器配置文件。
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f06e0365-0a20-4d08-b7e1-e56025e64f66
 ms.service: traffic-manager
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20464456"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>管理 Azure 流量管理器配置文件
 

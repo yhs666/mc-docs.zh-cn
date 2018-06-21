@@ -1,8 +1,8 @@
 ---
-title: "常用 Azure CLI 2.0 命令 | Azure"
-description: "了解用于开始管理 Azure Resource Manager 模式的 VM 的一些常用 Azure CLI 2.0 命令"
+title: 常用 Azure CLI 2.0 命令 | Azure
+description: 了解用于开始管理 Azure Resource Manager 模式的 VM 的一些常用 Azure CLI 2.0 命令
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
 manager: timlt
 editor: tysonn
@@ -21,6 +21,7 @@ ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20187171"
 ---
 # <a name="common-azure-cli-20-commands-for-managing-azure-resources"></a>用于管理 Azure 资源的常用 Azure CLI 2.0 命令
 [!INCLUDE [virtual-machines-common-cli-manage](../../../includes/virtual-machines-common-cli-manage.md)]

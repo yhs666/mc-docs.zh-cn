@@ -1,11 +1,11 @@
 ---
-title: "待提交 | Azure"
-description: "待提交。"
-services: 
-documentationcenter: 
+title: 待提交 | Azure
+description: 待提交。
+services: ''
+documentationcenter: ''
 author: squillace
 manager: timlt
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 1f223bcd-265d-47f8-92d4-beca943c07c6
 ms.service: value
@@ -21,5 +21,6 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184625"
 ---
 # <a name="to-be-submitted"></a>待提交。

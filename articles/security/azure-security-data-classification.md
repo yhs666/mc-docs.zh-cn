@@ -1,6 +1,6 @@
 ---
-title: "Azure 的数据分类 | Microsoft Docs"
-description: "本文介绍数据分类基础知识并强调其价值，特别是在云计算环境下和使用 Microsoft Azure 时"
+title: Azure 的数据分类 | Microsoft Docs
+description: 本文介绍数据分类基础知识并强调其价值，特别是在云计算环境下和使用 Microsoft Azure 时
 services: security
 documentationcenter: na
 author: YuriDio
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20182224"
 ---
 # <a name="data-classification-for-azure"></a>Azure 的数据分类
 本文介绍数据分类基础知识并强调其价值，特别是在云计算环境下和使用 Microsoft Azure 时。 

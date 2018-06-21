@@ -1,11 +1,11 @@
 ---
-title: "ExpressRoute 客户路由器配置示例 | Azure"
-description: "本页提供 Cisco 和 Juniper 路由器的路由器配置示例。"
+title: ExpressRoute 客户路由器配置示例 | Azure
+description: 本页提供 Cisco 和 Juniper 路由器的路由器配置示例。
 documentationCenter: na
 services: expressroute
 authors: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 564826bc-017a-4683-a385-37c9fa814948
 ms.service: expressroute
 ms.devlang: na
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/10/2016
 ms.author: v-yiso
-ms.date: 
+ms.date: ''
 ms.openlocfilehash: cd523b42edaa46d9d05ac06d819459a82947c42d
 ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20472103"
 ---
 # <a name="router-configuration-samples-to-setup-and-manage-routing"></a>用于设置和管理路由的路由器配置示例
 

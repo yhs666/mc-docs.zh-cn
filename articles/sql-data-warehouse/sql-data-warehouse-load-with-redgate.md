@@ -1,11 +1,11 @@
 ---
-title: "使用 Redgate 将数据加载到 Azure 数据仓库 | Azure"
-description: "了解如何将 Redgate 的 Data Platform Studio 用于数据仓库方案。"
+title: 使用 Redgate 将数据加载到 Azure 数据仓库 | Azure
+description: 了解如何将 Redgate 的 Data Platform Studio 用于数据仓库方案。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 670aef98-31f7-4436-86c0-cc989a39fe7f
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/26/2017
+ms.locfileid: "20611084"
 ---
 # <a name="load-data-with-redgate-data-platform-studio"></a>使用 Redgate Data Platform Studio 加载数据
 

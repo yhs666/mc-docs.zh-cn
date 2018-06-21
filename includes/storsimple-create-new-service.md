@@ -1,6 +1,6 @@
 ---
-title: "新建 StorSimple Manager 服务"
-description: "说明如何创建 StorSimple Manager 服务的新实例。"
+title: 新建 StorSimple Manager 服务
+description: 说明如何创建 StorSimple Manager 服务的新实例。
 services: storsimple
 documentationCenter: NA
 authors: SharS
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20227688"
 ---
 ### <a name="to-create-a-new-service"></a>新建服务
 

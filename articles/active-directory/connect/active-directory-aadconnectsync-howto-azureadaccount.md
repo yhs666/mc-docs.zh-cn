@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect 同步：如何管理 Azure AD 服务帐户 | Microsoft Docs"
-description: "本主题介绍如何还原 Azure AD 服务帐户。"
+title: Azure AD Connect 同步：如何管理 Azure AD 服务帐户 | Microsoft Docs
+description: 本主题介绍如何还原 Azure AD 服务帐户。
 services: active-directory
-keywords: "AADSTS70002、AADSTS50054：如何重置 Azure AD Connect 同步连接器服务帐户的密码"
-documentationcenter: 
+keywords: AADSTS70002、AADSTS50054：如何重置 Azure AD Connect 同步连接器服务帐户的密码
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/11/2017
+ms.locfileid: "20822228"
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Azure AD Connect 同步：如何管理 Azure AD 服务帐户
 Azure AD 连接器所使用的服务帐户应该是免费服务。 但如果需要重置其凭据，则可以参阅本主题。 例如，全局管理员错误地使用 PowerShell 对服务帐户重置了密码。

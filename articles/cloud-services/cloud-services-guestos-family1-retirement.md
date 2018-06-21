@@ -1,11 +1,11 @@
 ---
-title: "来宾 OS 系列 1 停用通知 | Azure"
-description: "提供有关 Azure 来宾 OS 系列 1 何时停用以及如何判断你是否受影响的信息"
+title: 来宾 OS 系列 1 停用通知 | Azure
+description: 提供有关 Azure 来宾 OS 系列 1 何时停用以及如何判断你是否受影响的信息
 services: cloud-services
 documentationCenter: na
 authors: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 37b422e9-0713-4a81-a942-f553ef478064
 ms.service: cloud-services
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20472237"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>来宾 OS 系列 1 停用通知
 
@@ -57,7 +58,7 @@ foreach($subscription in Get-AzureSubscription) {
 
 建议将你的云服务角色迁移到支持的来宾 OS 系列之一：
 
-**来宾 OS 系列 4.x** - Windows Server 2012 R2*（建议）*
+**来宾 OS 系列 4.x** - Windows Server 2012 R2 *（建议）*
 
 1. 确保你的应用程序使用了 SDK 2.1 或更高版本以及 .NET framework 4.0、4.5 或 4.5.1。
 2. 在 ServiceConfiguration.cscfg 文件中将 osFamily 特性设置为“4”，然后重新部署云服务。

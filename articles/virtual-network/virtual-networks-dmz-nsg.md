@@ -1,12 +1,12 @@
 ---
-title: "Azure 外围网络示例 - 使用 NSG 构建简单的外围网络 | Azure"
-description: "使用网络安全组 (NSG) 构建外围网络"
+title: Azure 外围网络示例 - 使用 NSG 构建简单的外围网络 | Azure
+description: 使用网络安全组 (NSG) 构建外围网络
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 781b4b2006e5b9a51c7009642470f066e8f2ecb1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
+ms.locfileid: "20445811"
 ---
 # <a name="example-1---build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>示例 1 - 将 NSG 与 Azure Resource Manager 模板配合使用，构建简单的外围网络
 

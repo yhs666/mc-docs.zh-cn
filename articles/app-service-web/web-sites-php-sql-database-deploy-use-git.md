@@ -1,11 +1,11 @@
 ---
-title: "使用 Git 创建 PHP-SQL Web 应用并将其部署到 Azure 应用服务"
-description: "本教程演示如何创建在 Azure SQL 数据库中存储数据的 PHP Web 应用并使用 Git 部署到 Azure 应用服务。"
+title: 使用 Git 创建 PHP-SQL Web 应用并将其部署到 Azure 应用服务
+description: 本教程演示如何创建在 Azure SQL 数据库中存储数据的 PHP Web 应用并使用 Git 部署到 Azure 应用服务。
 services: app-service\web, sql-database
 documentationcenter: php
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6b090bf6-31d8-4b74-81eb-050ef95929ca
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
+ms.locfileid: "20228230"
 ---
 # <a name="create-a-php-sql-web-app-and-deploy-to-azure-app-service-using-git"></a>使用 Git 创建 PHP-SQL Web 应用并将其部署到 Azure 应用服务
 本教程演示如何在 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)中创建连接到 Azure SQL 数据库的 PHP Web 应用以及如何使用 Git 部署该应用。 本教程假定你已在计算机上安装 [PHP][install-php]、[SQL Server Express][install-SQLExpress]、[Microsoft Drivers for SQL Server for PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) 和 [Git][install-git]。 完成本指南之后，将获得一个在 Azure 中运行的 PHP-SQL Web 应用。

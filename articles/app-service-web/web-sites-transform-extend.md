@@ -1,12 +1,12 @@
 ---
-title: "Azure 应用服务 Web 应用高级配置和扩展"
-description: "使用 XML 文档转换 (XDT) 声明可以转换 Azure 应用服务 Web 应用中的 ApplicationHost.config 文件，以及添加专用扩展来启用自定义管理操作。"
+title: Azure 应用服务 Web 应用高级配置和扩展
+description: 使用 XML 文档转换 (XDT) 声明可以转换 Azure 应用服务 Web 应用中的 ApplicationHost.config 文件，以及添加专用扩展来启用自定义管理操作。
 author: cephalin
 writer: cephalin
 editor: mollybos
 manager: erikre
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b441a286-ef38-4abc-b102-cdb249baf5bc
 ms.service: app-service
 ms.workload: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/28/2017
+ms.locfileid: "20634138"
 ---
 # <a name="azure-app-service-web-app-advanced-config-and-extensions"></a>Azure 应用服务 Web 应用高级配置和扩展
 

@@ -1,11 +1,11 @@
 ---
-title: "处理云服务生命周期事件 | Azure"
-description: "了解如何在 .NET 中使用云服务角色的生命周期方法"
+title: 处理云服务生命周期事件 | Azure
+description: 了解如何在 .NET 中使用云服务角色的生命周期方法
 services: cloud-services
 documentationCenter: .net
 authors: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184688"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>在 .NET 中自定义 Web 角色或辅助角色的生命周期
 

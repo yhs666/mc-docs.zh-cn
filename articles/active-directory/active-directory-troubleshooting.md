@@ -1,11 +1,11 @@
 ---
-title: "故障排除：“Active Directory”项缺失或不可用 | Microsoft Docs"
-description: "Azure 门户中未显示 Active Directory 菜单项时怎么办。"
+title: 故障排除：“Active Directory”项缺失或不可用 | Microsoft Docs
+description: Azure 门户中未显示 Active Directory 菜单项时怎么办。
 services: active-directory
 documentationcenter: na
 author: bryanla
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 3383020d-6397-43ea-b7aa-c6a9d6a1e3df
 ms.service: active-directory
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27781373"
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>故障排除：“Active Directory”项缺失或不可用
 关于使用 Azure Active Directory 功能和服务的很多说明都以“转到 Azure 门户并单击‘Active Directory’”开头。 但是，如果未出现 Active Directory 扩展或菜单项或者它被标记为“不可用”，该怎么办？ 本主题旨在提供帮助。 其中描述了 **Active Directory** 未出现或不可用的情况，并解释了如何继续执行操作。

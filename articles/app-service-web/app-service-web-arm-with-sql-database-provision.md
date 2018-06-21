@@ -1,11 +1,11 @@
 ---
-title: "设置使用 SQL 数据库的 Web 应用"
-description: "使用 Azure Resource Manager 模板来部署包含 SQL 数据库的 Web 应用。"
+title: 设置使用 SQL 数据库的 Web 应用
+description: 使用 Azure Resource Manager 模板来部署包含 SQL 数据库的 Web 应用。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fb9648e1-9bf2-4537-bc4a-ab8d4953168c
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184259"
 ---
 # <a name="provision-a-web-app-with-a-sql-database"></a>设置使用 SQL 数据库的 Web 应用
 

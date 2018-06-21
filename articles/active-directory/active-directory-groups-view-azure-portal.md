@@ -22,6 +22,7 @@ ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/19/2018
+ms.locfileid: "29993222"
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>在 Azure Active Directory 中查看或搜索用户组
 本文介绍如何在 Azure Active Directory (Azure AD) 中查看所有组。 Azure AD 用户管理的功能之一是可以使用组来执行管理任务，如一次将许可证或权限分配给多个用户。

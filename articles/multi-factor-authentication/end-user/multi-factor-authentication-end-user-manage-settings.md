@@ -1,9 +1,9 @@
 ---
-title: "管理双重验证设置 |Microsoft 文档"
-description: "管理 Azure 多重身份验证的使用方式包括更改联系信息或配置设备。"
+title: 管理双重验证设置 |Microsoft 文档
+description: 管理 Azure 多重身份验证的使用方式包括更改联系信息或配置设备。
 services: multi-factor-authentication
-keywords: "多重身份验证客户端, 身份验证问题, 相关性 ID"
-documentationcenter: 
+keywords: 多重身份验证客户端, 身份验证问题, 相关性 ID
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 editor: yossib
@@ -22,6 +22,7 @@ ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
+ms.locfileid: "20228108"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>管理双重验证设置
 本文回答有关如何更新双重验证或多重身份验证的设置的问题。 如果在登录帐户时遇到问题，请参阅[使用双重验证时遇到问题](./multi-factor-authentication-end-user-troubleshoot.md)获取疑难解答帮助。

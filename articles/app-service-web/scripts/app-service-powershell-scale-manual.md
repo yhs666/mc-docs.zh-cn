@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 脚本示例 - 手动缩放 Web 应用 | Azure"
-description: "Azure PowerShell 脚本示例 - 手动缩放 Web 应用"
+title: Azure PowerShell 脚本示例 - 手动缩放 Web 应用 | Azure
+description: Azure PowerShell 脚本示例 - 手动缩放 Web 应用
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: syntaxc4
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: de5d4285-9c7d-4735-a695-288264047375
 ms.service: app-service
@@ -22,6 +22,7 @@ ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20186773"
 ---
 # <a name="scale-a-web-app-manually"></a>手动缩放 Web 应用
 

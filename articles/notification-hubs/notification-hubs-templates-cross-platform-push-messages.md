@@ -1,11 +1,11 @@
 ---
-title: "模板"
-description: "本主题介绍 Azure 通知中心的模板。"
+title: 模板
+description: 本主题介绍 Azure 通知中心的模板。
 services: notification-hubs
 documentationCenter: .net
 authors: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.service: notification-hubs
 ms.topic: article
 ms.date: 06/29/2016
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
+ms.locfileid: "20452879"
 ---
 # <a name="templates"></a>模板
 

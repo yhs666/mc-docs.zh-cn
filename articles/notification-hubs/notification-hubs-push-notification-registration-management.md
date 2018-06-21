@@ -1,11 +1,11 @@
 ---
-title: "注册管理"
-description: "本主题说明如何向通知中心注册设备以接收推送通知。"
+title: 注册管理
+description: 本主题说明如何向通知中心注册设备以接收推送通知。
 services: notification-hubs
 documentationCenter: .net
 authors: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.service: notification-hubs
 ms.topic: article
 origin.date: 06/29/2016
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20185571"
 ---
 # <a name="registration-management"></a>注册管理
 

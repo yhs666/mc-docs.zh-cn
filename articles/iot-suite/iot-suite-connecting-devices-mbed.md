@@ -1,12 +1,12 @@
 ---
-title: "在 mbed 上使用 C 连接设备 | Azure"
-description: "介绍如何使用在 mbed 设备上运行的以 C 编写的应用程序将设备连接到 Azure IoT 套件预配置远程监视解决方案。"
-services: 
+title: 在 mbed 上使用 C 连接设备 | Azure
+description: 介绍如何使用在 mbed 设备上运行的以 C 编写的应用程序将设备连接到 Azure IoT 套件预配置远程监视解决方案。
+services: ''
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9551075e-dcf9-488f-943e-d0eb0e6260be
 ms.service: iot-suite
 ms.devlang: na
@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/22/2017
 ms.author: v-yiso
-ms.date: 
+ms.date: ''
 ms.openlocfilehash: 3a53e710da36016887c354692bdd98c9b4001469
 ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20472435"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-mbed"></a>将设备连接到远程监视预配置解决方案 (mbed)
 

@@ -1,13 +1,13 @@
 ---
-title: "Azure PowerShell 脚本示例 - 通过将托管磁盘附加为 OS 磁盘来创建 VM | Azure"
-description: "Azure PowerShell 脚本示例 - 通过将托管磁盘附加为 OS 磁盘来创建 VM"
+title: Azure PowerShell 脚本示例 - 通过将托管磁盘附加为 OS 磁盘来创建 VM | Azure
+description: Azure PowerShell 脚本示例 - 通过将托管磁盘附加为 OS 磁盘来创建 VM
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: ramankum
 manager: kavithag
 editor: ramankum
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
@@ -22,6 +22,7 @@ ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20187316"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>通过将现有托管 OS 磁盘与 PowerShell 配合使用来创建虚拟机
 

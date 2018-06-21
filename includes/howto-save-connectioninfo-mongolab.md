@@ -17,7 +17,7 @@
 1. 单击工具栏上的“保存”。  
 ![SaveWebApp][button-website-save]
 
-**注意：**Azure 会向此变量添加 **CUSTOMCONNSTR_** 前缀，这正是上面的代码引用 **CUSTOMCONNSTR_MONGOLAB_URI** 的原因。
+**注意：** Azure 会向此变量添加 **CUSTOMCONNSTR_** 前缀，这正是上面的代码引用 **CUSTOMCONNSTR_MONGOLAB_URI** 的原因。
 
 [entry-website]: ./media/howto-save-connectioninfo-mongolab/entry-website.png
 [focus-mongolab-websitedashboard-config]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websitedashboard-config.png

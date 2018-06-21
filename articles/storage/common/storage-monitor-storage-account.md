@@ -1,8 +1,8 @@
 ---
-title: "如何监视 Azure 存储帐户 | Azure"
-description: "了解如何使用 Azure 门户在 Azure 中监视存储帐户。"
+title: 如何监视 Azure 存储帐户 | Azure
+description: 了解如何使用 Azure 门户在 Azure 中监视存储帐户。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: forester123
 manager: digimobile
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29871477"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>监视 Azure 门户中的存储帐户
 

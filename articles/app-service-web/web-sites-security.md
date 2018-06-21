@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 应用服务中保护应用安全"
-description: "了解如何在 Azure 应用服务中保护 Web 应用、移动应用后端或 API 应用。"
+title: 在 Azure 应用服务中保护应用安全
+description: 了解如何在 Azure 应用服务中保护 Web 应用、移动应用后端或 API 应用。
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 5ce560b4-42d7-4b20-935c-0445fd539e39
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20463920"
 ---
 # <a name="secure-an-app-in-azure-app-service"></a>在 Azure 应用服务中保护应用安全
 本文介绍如何在 Azure 应用服务中保护 Web 应用、移动应用后端或 API 应用。 

@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect Synchronization Service Manager 操作 | Microsoft Docs"
-description: "了解用于 Azure AD Connect 的 Synchronization Service Manager 中的“操作”选项卡。"
+title: Azure AD Connect Synchronization Service Manager 操作 | Microsoft Docs
+description: 了解用于 Azure AD Connect 的 Synchronization Service Manager 中的“操作”选项卡。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 97a26565-618f-4313-8711-5925eeb47cdc
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/11/2017
+ms.locfileid: "20822215"
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>使用 Sync Service Manager“操作”选项卡
 

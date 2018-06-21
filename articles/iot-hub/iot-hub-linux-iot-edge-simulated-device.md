@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure IoT Edge 模拟设备 (Linux) | Azure"
-description: "如何在 Linux 上使用 Azure IoT Edge 创建模拟设备，从而通过 IoT Edge 网关将遥测数据发送到 IoT 中心。"
+title: 使用 Azure IoT Edge 模拟设备 (Linux) | Azure
+description: 如何在 Linux 上使用 Azure IoT Edge 创建模拟设备，从而通过 IoT Edge 网关将遥测数据发送到 IoT 中心。
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: Derek1101
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 11e7bf28-ee3d-48d6-a386-eb506c7a31cf
 ms.service: iot-hub
 ms.devlang: cpp
@@ -20,6 +20,7 @@ ms.sourcegitcommit: cc3f528827a8acd109ba793eee023b8c6b2b75e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20188281"
 ---
 # <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-linux"></a>使用 Azure IoT Edge，通过模拟设备发送设备到云的消息 (Linux)
 

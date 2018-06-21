@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell 脚本示例 - 为 Web 应用创建计划备份 | Microsoft Docs"
-description: "Azure PowerShell 脚本示例 - 为 Web 应用创建计划备份"
+title: Azure PowerShell 脚本示例 - 为 Web 应用创建计划备份 | Microsoft Docs
+description: Azure PowerShell 脚本示例 - 为 Web 应用创建计划备份
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
 ms.service: app-service-web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 12/25/2017
+ms.locfileid: "27546586"
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app"></a>为 Web 应用创建计划备份
 

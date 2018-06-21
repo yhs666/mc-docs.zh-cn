@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 应用服务上部署 ASP.NET MVC 5 移动 Web 应用"
-description: "本教程说明如何使用 ASP.NET MVC 5 Web 应用程序中的移动功能将 Web 应用部署到 Azure 应用服务。"
+title: 在 Azure 应用服务上部署 ASP.NET MVC 5 移动 Web 应用
+description: 本教程说明如何使用 ASP.NET MVC 5 Web 应用程序中的移动功能将 Web 应用部署到 Azure 应用服务。
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184292"
 ---
 # <a name="deploy-an-aspnet-mvc-5-mobile-web-app-in-azure-app-service"></a>在 Azure 应用服务上部署 ASP.NET MVC 5 移动 Web 应用
 本教程介绍有关如何生成一个方便移动的 ASP.NET MVC 5 Web 应用并将其部署到 Azure 应用服务的基础知识。 学习本教程需要安装 [Visual Studio Express 2013 for Web][Visual Studio Express 2013] 或者 Visual Studio 专业版（如果已有）。 你可以使用 [Visual Studio 2015] ，但屏幕截图可能有所不同，并且必须使用 ASP.NET 4.x 模板。

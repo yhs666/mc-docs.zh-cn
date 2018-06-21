@@ -1,11 +1,11 @@
 ---
-title: "将解决方案迁移到 SQL 数据仓库 | Azure"
-description: "有关将解决方案转移到 Azure SQL 数据仓库平台的迁移指南。"
+title: 将解决方案迁移到 SQL 数据仓库 | Azure
+description: 有关将解决方案转移到 Azure SQL 数据仓库平台的迁移指南。
 services: sql-data-warehouse
 documentationcenter: NA
 author: rockboyfor
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 198365eb-7451-4222-b99c-d1d9ef687f1b
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 466e27590528fc0f6d3756932f3368afebb2aba0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/26/2017
+ms.locfileid: "20611047"
 ---
 # <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>将解决方案迁移到 Azure SQL 数据仓库
 请参阅“将现有数据库解决方案迁移到 Azure SQL 数据仓库所涉及的内容”。 

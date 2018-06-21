@@ -1,11 +1,11 @@
 ---
-title: "要求进行用户分配 - Azure AD | Microsoft Docs"
-description: "如何要求对 Azure 应用程序进行用户分配。"
+title: 要求进行用户分配 - Azure AD | Microsoft Docs
+description: 如何要求对 Azure 应用程序进行用户分配。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 30b78cba-1e0f-472f-8314-f2250a9b91c3
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20186726"
 ---
 # <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD 和应用程序：要求进行用户分配
 ## <a name="requiring-user-assignment"></a>要求进行用户分配

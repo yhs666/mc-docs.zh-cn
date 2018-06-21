@@ -1,6 +1,6 @@
 ---
-title: "将 Azure 应用服务中的 Azure Redis 缓存用于会话状态"
-description: "了解如何使用 Azure 缓存服务来支持 ASP.NET 会话状态缓存。"
+title: 将 Azure 应用服务中的 Azure Redis 缓存用于会话状态
+description: 了解如何使用 Azure 缓存服务来支持 ASP.NET 会话状态缓存。
 services: app-service\web
 documentationcenter: .net
 author: Rick-Anderson
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184357"
 ---
 # <a name="session-state-with-azure-redis-cache-in-azure-app-service"></a>将 Azure 应用服务中的 Azure Redis 缓存用于会话状态
 

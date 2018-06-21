@@ -1,11 +1,11 @@
 ---
-title: "Azure 计划程序中的计划和计费方式"
-description: "Azure 计划程序中的计划和计费方式"
+title: Azure 计划程序中的计划和计费方式
+description: Azure 计划程序中的计划和计费方式
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20182210"
 ---
 # <a name="plans-and-billing-in-azure-scheduler"></a>Azure 计划程序中的计划和计费方式
 ## <a name="job-collection-plans"></a>作业集合计划

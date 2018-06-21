@@ -1,12 +1,12 @@
 ---
-title: "使用 Azure CLI 1.0 扩展 Linux VM 上的 OS 磁盘 | Azure"
-description: "了解如何使用 Azure CLI 1.0 和 Resource Manager 部署模型扩展 Linux VM 上的操作系统 (OS) 虚拟磁盘"
+title: 使用 Azure CLI 1.0 扩展 Linux VM 上的 OS 磁盘 | Azure
+description: 了解如何使用 Azure CLI 1.0 和 Resource Manager 部署模型扩展 Linux VM 上的操作系统 (OS) 虚拟磁盘
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b1d2bd71aaff7020dfb3f7874799e03df3657cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/23/2017
+ms.locfileid: "20187236"
 ---
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>结合使用 Azure CLI 和 Azure CLI 1.0 扩展 Linux VM 上的 OS 磁盘
 在 Azure 的 Linux 虚拟机 (VM) 上，操作系统 (OS) 的默认虚拟硬盘大小通常为 30 GB。 可以通过[添加数据磁盘](add-disk.md)来扩充存储空间，也可扩展 OS 磁盘。 本文详述如何使用 Azure CLI 1.0 为使用非托管磁盘的 Linux VM 扩展 OS 磁盘。

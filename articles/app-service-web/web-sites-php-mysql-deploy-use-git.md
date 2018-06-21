@@ -1,11 +1,11 @@
 ---
-title: "使用 Git 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用"
-description: "本教程演示如何创建在 MySQL 中存储数据的 PHP Web 应用并使用 Git 部署到 Azure。"
+title: 使用 Git 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用
+description: 本教程演示如何创建在 MySQL 中存储数据的 PHP Web 应用并使用 Git 部署到 Azure。
 services: app-service\web
 documentationcenter: php
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 tags: mysql
 ms.assetid: 7454475f-e275-4bc7-9f09-1ef07382e5da
 ms.service: app-service-web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
+ms.locfileid: "20453129"
 ---
 # <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-git"></a>使用 Git 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用
 

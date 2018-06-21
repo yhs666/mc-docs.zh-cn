@@ -1,6 +1,6 @@
 ---
-title: "配置和注册设备"
-description: "介绍如何使用用于 StorSimple 的 Windows PowerShell 来配置和注册设备。"
+title: 配置和注册设备
+description: 介绍如何使用用于 StorSimple 的 Windows PowerShell 来配置和注册设备。
 services: storsimple
 documentationCenter: NA
 authors: SharS
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20227708"
 ---
 ### <a name="to-configure-and-register-the-device"></a>配置和注册设备
 

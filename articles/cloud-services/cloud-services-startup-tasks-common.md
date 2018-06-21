@@ -1,11 +1,11 @@
 ---
-title: "云服务的常见启动任务 | Azure"
-description: "提供了一些可能需要在云服务 Web 角色或辅助角色中执行的常见启动任务示例。"
+title: 云服务的常见启动任务 | Azure
+description: 提供了一些可能需要在云服务 Web 角色或辅助角色中执行的常见启动任务示例。
 services: cloud-services
-documentationCenter: 
+documentationCenter: ''
 authors: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20181584"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>常见的云服务启动任务
 

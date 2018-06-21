@@ -1,11 +1,11 @@
 ---
-title: "在 Visual Studio 中使用连接服务添加 Azure Active Directory | Microsoft Docs"
-description: "使用 Visual Studio 中的“添加连接服务”对话框添加 Azure Active Directory"
+title: 在 Visual Studio 中使用连接服务添加 Azure Active Directory | Microsoft Docs
+description: 使用 Visual Studio 中的“添加连接服务”对话框添加 Azure Active Directory
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
 manager: douge
-editor: 
+editor: ''
 ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
 ms.service: active-directory
 ms.devlang: multiple
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20186428"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>在 Visual Studio 中使用连接服务添加 Azure Active Directory
 ## <a name="overview"></a>概述

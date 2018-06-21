@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Synchronization Service Manager UI 中的连接器 | Microsoft 文档"
-description: "了解 Azure AD Connect 的 Synchronization Service Manager 中的“连接器”选项卡。"
+title: Azure AD Synchronization Service Manager UI 中的连接器 | Microsoft 文档
+description: 了解 Azure AD Connect 的 Synchronization Service Manager 中的“连接器”选项卡。
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
-editor: 
+editor: ''
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/11/2017
+ms.locfileid: "20822246"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>将连接器与 Azure AD Connect Sync Service Manager 配合使用
 

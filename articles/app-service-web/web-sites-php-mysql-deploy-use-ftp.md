@@ -1,11 +1,11 @@
 ---
-title: "使用 FTP 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用"
-description: "本教程演示如何创建在 MySQL 中存储数据的 PHP Web 应用并使用 FTP 部署到 Azure。"
+title: 使用 FTP 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用
+description: 本教程演示如何创建在 MySQL 中存储数据的 PHP Web 应用并使用 FTP 部署到 Azure。
 services: app-service\web
 documentationcenter: php
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6d9d1de5-5868-48fd-8bad-decb4979cd65
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b3e981fc35408835936113e2e22a0102a2028ca0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/30/2017
+ms.locfileid: "20228149"
 ---
 # <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-ftp"></a>使用 FTP 在 Azure 应用服务中创建和部署 PHP-MySQL Web 应用
 

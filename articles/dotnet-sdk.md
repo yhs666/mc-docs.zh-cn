@@ -1,11 +1,11 @@
 ---
-title: "什么是 Azure .NET SDK"
-description: "了解 Azure .NET SDK 中包含的内容。"
+title: 什么是 Azure .NET SDK
+description: 了解 Azure .NET SDK 中包含的内容。
 documentationCenter: .net
 authors: tdykstra
 manager: wpickett
 editor: mollybos
-services: 
+services: ''
 ms.service: multiple
 ms.topic: article
 origin.date: 06/30/2016
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184753"
 ---
 # <a name="what-is-the-azure-sdk-for-net"></a>什么是 Azure SDK for .NET？
 
@@ -169,7 +170,7 @@ Azure SDK for .NET 将安装以下产品：
 
 本文不会列出 Azure SDK 每个旧版本所包括的所有程序；因为在 SDK 的更高版本中有时会删除旧版本中的一些程序，所以你可以从较早的版本卸载这些程序。 例如，版本 2.5 安装有“适用于 Visual Studio 的 Azure Resource Manager 工具”，但是因为在“程序和功能”中不再将其作为单独的程序列出，所以本文也未将它列出。  本文仅列出包含在 Azure SDK for.NET 版本 2.6 中的那些程序。  
 
-> **注意：**在其他环境中可能会单独安装 SDK 的某些程序，因此，即使不需要完整的 SDK，但也可能需要这些程序。 同样地，即使在新版本的 SDK 中删除了旧版本中的某些程序，但仍然可能需要这些程序。 因此，在卸载程序时，请务必小心谨慎，以免删除了计算机上仍然需要的内容。
+> **注意：** 在其他环境中可能会单独安装 SDK 的某些程序，因此，即使不需要完整的 SDK，但也可能需要这些程序。 同样地，即使在新版本的 SDK 中删除了旧版本中的某些程序，但仍然可能需要这些程序。 因此，在卸载程序时，请务必小心谨慎，以免删除了计算机上仍然需要的内容。
 
 ##<a id="versions"></a>版本
 

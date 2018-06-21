@@ -1,11 +1,11 @@
 ---
-title: "Web 应用的在生产中测试入门"
-description: "了解 Azure 应用服务 Web 应用的在生产中测试 (TiP) 功能。"
+title: Web 应用的在生产中测试入门
+description: 了解 Azure 应用服务 Web 应用的在生产中测试 (TiP) 功能。
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4623468d-886e-4203-8012-8f86deb2790b
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184270"
 ---
 # <a name="get-started-with-test-in-production-for-web-apps"></a>Web 应用的在生产中测试入门
 在生产中测试（或使用实际客户流量实时测试 Web 应用）是应用开发人员逐渐集成到其[敏捷开发](https://en.wikipedia.org/wiki/Agile_software_development)方法的测试策略。 使用它可以在生产环境中使用实际用户流量测试应用的质量，而不是在测试环境中以综合数据进行测试。 向实际用户开放新的应用，从而了解应用在部署后可能发生的实际问题。 可以根据实际用户流量的容量、速度和变化来确认应用更新的功能、性能和价值，这些都是在测试环境中无法测得的。

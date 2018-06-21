@@ -1,11 +1,11 @@
 ---
-title: "验证 Azure 流量管理器设置 | Azure"
-description: "本文帮助验证流量管理器设置"
+title: 验证 Azure 流量管理器设置 | Azure
+description: 本文帮助验证流量管理器设置
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2180b640-596e-4fb2-be59-23a38d606d12
 ms.service: traffic-manager
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20186068"
 ---
 # <a name="verify-traffic-manager-settings"></a>验证流量管理器设置
 

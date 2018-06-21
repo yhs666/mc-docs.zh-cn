@@ -1,6 +1,6 @@
 ---
-title: "增强 Azure 中的远程管理安全性 | Microsoft Docs"
-description: "本文讨论在管理 Microsoft Azure 环境（包括云服务、虚拟机和自定义应用程序）时增强远程管理安全性的步骤。"
+title: 增强 Azure 中的远程管理安全性 | Microsoft Docs
+description: 本文讨论在管理 Microsoft Azure 环境（包括云服务、虚拟机和自定义应用程序）时增强远程管理安全性的步骤。
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/13/2017
+ms.locfileid: "20452891"
 ---
 # <a name="security-management-in-azure"></a>Azure 中的安全管理
 Azure 订阅者可从多个设备管理他们的云环境，这些设备包括管理工作站、开发人员电脑，甚至是具有特定于任务的权限的特权最终用户设备。 在某些情况下，可通过基于 Web 的控制台（例如 [Azure 门户](https://azure.microsoft.com/features/azure-portal/)）来执行管理功能。 在其他情况下，可能存在通过虚拟专用网络 (VPN)、终端服务、客户端应用程序协议或（以编程方式）通过 Azure 服务管理 API (SMAPI) 从本地系统直接连接到 Azure。 此外，客户端终结点（例如平板电脑或智能手机）可以加入域或者受到隔离且不受管理。

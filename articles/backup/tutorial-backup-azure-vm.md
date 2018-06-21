@@ -22,6 +22,7 @@ ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34256193"
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>在 Azure 中大规模备份 Azure 虚拟机
 

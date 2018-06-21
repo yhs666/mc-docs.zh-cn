@@ -1,6 +1,6 @@
 ---
-title: "执行备份"
-description: "描述如何定义 StorSimple 备份策略。"
+title: 执行备份
+description: 描述如何定义 StorSimple 备份策略。
 services: storsimple
 documentationCenter: NA
 authors: SharS
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20227638"
 ---
 ### <a name="to-take-a-backup"></a>执行备份
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/19/2018
+ms.locfileid: "29993194"
 ---
 # <a name="more-details-about-features-in-preview"></a>有关预览版功能的详细信息
 本主题介绍如何使用当前以预览版形式提供的功能。

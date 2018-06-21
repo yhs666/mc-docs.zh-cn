@@ -1,11 +1,11 @@
 ---
-title: "流式传输日志和控制台"
-description: "流式传输日志和控制台概述"
+title: 流式传输日志和控制台
+description: 流式传输日志和控制台概述
 author: btardif
 manager: erikre
-editor: 
+editor: ''
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3e50a287-781b-4c6a-8c53-eec261889d7a
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184369"
 ---
 # <a name="streaming-logs-and-the-console"></a>流式传输日志和控制台
 ## <a name="streaming-logs"></a>流式传输日志

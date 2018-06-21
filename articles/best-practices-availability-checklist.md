@@ -1,11 +1,11 @@
 ---
-title: "可用性核对清单 | Microsoft Docs"
-description: "为设计过程中的可用性考虑因素提供指导的核对清单。"
-services: 
+title: 可用性核对清单 | Microsoft Docs
+description: 为设计过程中的可用性考虑因素提供指导的核对清单。
+services: ''
 documentationcenter: na
 author: dragon119
 manager: masimms
-editor: 
+editor: ''
 ms.assetid: bc6be15e-b454-4f53-8761-71f0810ce549
 ms.service: best-practice
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20184577"
 ---
 # <a name="availability-checklist"></a>可用性核对清单
 [!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]

@@ -1,6 +1,6 @@
 ---
-ms.assetid: 
-title: "Azure Key Vault 安全体系 | Microsoft Docs"
+ms.assetid: ''
+title: Azure Key Vault 安全体系 | Microsoft Docs
 ms.service: key-vault
 author: alexchen2016
 ms.author: v-junlch
@@ -12,6 +12,7 @@ ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 08/18/2017
+ms.locfileid: "20888083"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Azure Key Vault 安全体系和地理边界
 

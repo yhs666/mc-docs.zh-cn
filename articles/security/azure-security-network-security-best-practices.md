@@ -1,6 +1,6 @@
 ---
-title: "Azure 网络安全最佳实践 | Microsoft Azure"
-description: "本文提供一系列有关使用内置 Azure 功能提高网络安全性的最佳实践。"
+title: Azure 网络安全最佳实践 | Microsoft Azure
+description: 本文提供一系列有关使用内置 Azure 功能提高网络安全性的最佳实践。
 services: security
 documentationCenter: na
 authors: TomShinder
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27957025"
 ---
 # <a name="azure-network-security-best-practices"></a>Azure 网络安全最佳实践
 

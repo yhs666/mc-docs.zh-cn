@@ -1,9 +1,9 @@
 ---
-title: "使用 MSDeploy、主机名和 SSL 证书部署 Web 应用"
-description: "使用 MSDeploy 并设置自定义主机名和 SSL 证书，在 Azure Resource Manager 模板中部署 Web 应用"
+title: 使用 MSDeploy、主机名和 SSL 证书部署 Web 应用
+description: 使用 MSDeploy 并设置自定义主机名和 SSL 证书，在 Azure Resource Manager 模板中部署 Web 应用
 services: app-service\web
 manager: erikre
-documentationcenter: 
+documentationcenter: ''
 author: jodehavi
 ms.assetid: 66366a72-cef7-4d75-8779-f4d32ed33cf7
 ms.service: app-service-web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/14/2017
+ms.locfileid: "20463780"
 ---
 # <a name="deploy-a-web-app-with-msdeploy-custom-hostname-and-ssl-certificate"></a>使用 MSDeploy、自定义主机名和 SSL 证书部署 Web 应用
 

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30223410"
 ---
 # <a name="manage-process-servers"></a>管理进程服务器
 

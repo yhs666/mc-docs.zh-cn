@@ -1,12 +1,12 @@
 ---
-title: "如何发送预定通知 | Azure"
-description: "本主题介绍如何使用 Azure 通知中心发送预定通知。"
+title: 如何发送预定通知 | Azure
+description: 本主题介绍如何使用 Azure 通知中心发送预定通知。
 services: notification-hubs
 documentationCenter: .net
-keywords: "推送通知,push notification,计划推送通知"
+keywords: 推送通知,push notification,计划推送通知
 authors: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.service: notification-hubs
 ms.topic: article
 origin.date: 06/29/2016
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20185501"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>如何：发送预定通知
 

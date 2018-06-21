@@ -21,6 +21,7 @@ ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072525"
 ---
 # <a name="get-started-with-the-sendgrid-connector"></a>SendGrid 连接器入门
 SendGrid Connection 提供程序可使你发送电子邮件和管理收件人列表。

@@ -1,8 +1,8 @@
 ---
-title: "开发应用程序时出现问题"
-description: "开发应用程序时出现问题"
+title: 开发应用程序时出现问题
+description: 开发应用程序时出现问题
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: alexchen2016
 manager: digimobile
 ms.service: active-directory
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 07/28/2017
+ms.locfileid: "20634055"
 ---
 # <a name="problems-developing-my-application"></a>开发应用程序时出现问题
 

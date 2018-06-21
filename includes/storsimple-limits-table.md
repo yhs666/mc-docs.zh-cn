@@ -1,11 +1,11 @@
 ---
-title: "StorSimple 系统限制表"
-description: "介绍 StorSimple 组件和连接的系统限制与建议大小。"
+title: StorSimple 系统限制表
+description: 介绍 StorSimple 组件和连接的系统限制与建议大小。
 services: storsimple
 documentationCenter: NA
 authors: alkohli
 manager: adinah
-editor: 
+editor: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20227707"
 ---
 | 限制标识符 | 限制 | 注释 |
 |----------------- | ------|--------- |

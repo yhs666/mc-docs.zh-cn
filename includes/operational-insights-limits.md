@@ -1,11 +1,11 @@
 ---
-title: "操作见解限制表"
-description: "描述操作见解的系统限制。"
+title: 操作见解限制表
+description: 描述操作见解的系统限制。
 services: operational-insights
 documentationCenter: NA
 authors: bandersmsft
 manager: jwhit
-editor: 
+editor: ''
 ms.service: operational-insights
 ms.devlang: NA
 ms.topic: article
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 06/21/2017
+ms.locfileid: "20227616"
 ---
 以下限制适用于操作见解订阅。
 

@@ -1,6 +1,6 @@
 ---
-title: "在 Azure DNS 中管理 DNS 区域 - Azure 门户 | Azure"
-description: "可以使用 Azure 门户管理 DNS 区域。 本文介绍如何在 Azure DNS 上更新、删除和创建 DNS 区域"
+title: 在 Azure DNS 中管理 DNS 区域 - Azure 门户 | Azure
+description: 可以使用 Azure 门户管理 DNS 区域。 本文介绍如何在 Azure DNS 上更新、删除和创建 DNS 区域
 services: dns
 documentationcenter: na
 author: yunan2016
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29870276"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>如何在 Azure 门户中管理 DNS 区域
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 03/12/2018
    |---|---|---|
    |**名称**|contoso.com|DNS 区域的名称|
    |**订阅**|[你的订阅]|选择要在其中创建 DNS 区域的订阅。|
-   |**资源组**|**新建：**contosoDNSRG|创建资源组。 资源组名称在所选订阅中必须唯一。 若要详细了解资源组，请阅读 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 概述文章。|
+   |**资源组**|**新建：** contosoDNSRG|创建资源组。 资源组名称在所选订阅中必须唯一。 若要详细了解资源组，请阅读 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 概述文章。|
    |**位置**|中国东部||
 
 > [!NOTE]
