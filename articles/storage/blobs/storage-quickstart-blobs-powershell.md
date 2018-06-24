@@ -9,18 +9,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: af04c37a3a33ab2bc688f33e72031a75c9d45198
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 1dc35d6caff0358d62a0d3b79dbfbc35c955c831
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867421"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269967"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 上传、下载和列出 Blob
 
 Azure PowerShell 模块用于从 PowerShell 命令行或脚本创建和管理 Azure 资源。 此指南详细介绍如何使用 PowerShell 在本地磁盘和 Azure Blob 存储之间传输文件。
 
-如果没有 Azure 订阅，可以在开始前创建一个 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
 本快速入门需要 Azure PowerShell 模块 3.6 版或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](/powershell/azure/install-azurerm-ps)。
 

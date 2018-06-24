@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/27/2017
-ms.date: 04/16/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 45d9f54ee7611b9ebb3d7cba86c6249c5883a8fb
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 06156ae05f3bbd79bd52270cb3c69c2cd8aa8ce4
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31324974"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315366"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>对 VM 操作系统磁盘进行故障排除
 
@@ -66,11 +66,11 @@ ssh $ip 'sudo mount -t ext4 /dev/sdc1 /mnt/remountedOsDisk'
 
 | 命令 | 注释 |
 |---|---|
-| [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_show) | 返回虚拟机列表。 在此示例中，查询选项用于返回虚拟机操作系统磁盘。 然后，将此值添加到名为“uri”的变量。 |
-| [az vm delete](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_delete) | 删除虚拟机。 |
-| [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) | 创建虚拟机。  |
-| [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az_vm_disk_attach) | 将磁盘附加到虚拟机。 |
-| [az vm list-ip-addresses](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list_ip_addresses) | 返回虚拟机的 IP 地址。 |
+| [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-show) | 返回虚拟机列表。 在此示例中，查询选项用于返回虚拟机操作系统磁盘。 然后，将此值添加到名为“uri”的变量。 |
+| [az vm delete](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-delete) | 删除虚拟机。 |
+| [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) | 创建虚拟机。  |
+| [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-attach) | 将磁盘附加到虚拟机。 |
+| [az vm list-ip-addresses](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-ip-addresses) | 返回虚拟机的 IP 地址。 |
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -78,4 +78,4 @@ ssh $ip 'sudo mount -t ext4 /dev/sdc1 /mnt/remountedOsDisk'
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, update link -->

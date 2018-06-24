@@ -1,13 +1,7 @@
 ---
-title: 创建第一个自动化工作流 - Azure 逻辑应用
-description: 本快速入门介绍如何使用 Azure 逻辑应用自动完成第一个工作流，以便执行系统集成和企业应用程序集成 (EAI) 方案，从而集成系统和云服务
-author: ecfan
-manager: anneta
-editor: ''
+title: 创建并自动执行第一个工作流 - Azure 逻辑应用 | Microsoft Docs
+description: 本快速入门介绍如何使用 Azure 逻辑应用创建第一个自动执行任务、流程和工作流的逻辑应用。 为系统和云服务创建用于系统集成和企业应用程序集成 (EAI) 解决方案的逻辑应用
 services: logic-apps
-keywords: 工作流, 云服务, 系统集成, 企业应用程序集成, EAI
-documentationcenter: ''
-ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,17 +10,17 @@ ms.topic: quickstart
 ms.custom: mvc
 origin.date: 1/12/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 9a142b6f9af0dd98d4ece9191d0f848ad608686c
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.date: 07/02/2018
+ms.openlocfilehash: 10bf2c36a10237bd63f41ff4ed69d1be94f75480
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31325490"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315618"
 ---
-# <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>快速入门：生成第一个逻辑应用工作流 - Azure 门户
+# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>快速入门：使用 Azure 逻辑应用创建第一个自动化工作流 - Azure 门户
 
-本快速入门介绍如何使用 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)创建第一个自动化工作流。 在本文中，请创建一个逻辑应用，以便定期查看网站的 RSS 源中是否有新项。 如果存在新项，逻辑应用会针对每个项发送电子邮件。 完成后，逻辑应用看起来大致与以下工作流类似：
+本快速入门介绍如何使用 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)构建第一个自动化工作流。 在本文中，请创建一个逻辑应用，以便定期查看网站的 RSS 源中是否有新项。 如果存在新项，逻辑应用会针对每个项发送电子邮件。 完成后，逻辑应用看起来大致与以下工作流类似：
 
 ![概述 - 逻辑应用示例](./media/quickstart-create-first-logic-app-workflow/overview.png)
 

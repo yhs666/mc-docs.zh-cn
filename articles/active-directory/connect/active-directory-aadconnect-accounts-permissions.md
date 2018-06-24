@@ -3,8 +3,8 @@ title: Azure AD Connect：帐户和权限 | Microsoft Docs
 description: 本主题介绍使用和创建的帐户以及所需的权限。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/03/2017
-ms.date: 3/5/2018
+origin.date: 06/06/2018
+ms.date: 06/22/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 445962333d064e264f1243ef8f98a6c009d439c9
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: 272b3146bbb89de9523c9f36fa323d2c66eff565
+ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993282"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314288"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帐户和权限
 Azure AD Connect 安装向导提供提供两种不同的路径：
@@ -60,7 +61,7 @@ Azure AD Connect 安装向导提供提供两种不同的路径：
 
 | 权限 | 用途 |
 | --- | --- |
-| <li>复制目录更改</li><li>复制所有目录更改 |密码同步 |
+| <li>复制目录更改</li><li>复制所有目录更改 |密码哈希同步 |
 | 读取/写入所有用户属性 |导入和执行 Exchange 混合部署 |
 | 读取/写入所有 iNetOrgPerson 属性 |导入和执行 Exchange 混合部署 |
 | 读取/写入所有组属性 |导入和执行 Exchange 混合部署 |
@@ -89,7 +90,7 @@ Azure AD Connect 版本 1.1.524.0 及更高版本提供了相应选项，让 Azu
 | 功能 | 权限 |
 | --- | --- |
 | msDS-ConsistencyGuid 功能 |对[设计概念 - 使用 msDS-ConsistencyGuid 作为 sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor) 中所述的 msDS-ConsistencyGuid 属性的写入权限。 | 
-| 密码同步 |<li>复制目录更改</li>  <li>复制所有目录更改 |
+| 密码哈希同步 |<li>复制目录更改</li>  <li>复制所有目录更改 |
 | Exchange 混合部署 |针对用户、组和联系人的属性的写入权限，详见[Exchange 混合写回](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback)。 |
 | Exchange 邮件公共文件夹 |对 [Exchange 邮件公共文件夹](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder)中所述的公共文件夹属性的读取权限。 | 
 
@@ -184,9 +185,9 @@ VSA 适用于同步引擎与 SQL 位于同一台服务器上的场合。 如果�
 ### Azure AD 服务帐户 <a name="azure-ad-service-account"></a>
 会在 Azure AD 中创建帐户供同步服务使用。 可以根据显示名称来识别此帐户。
 
-![AD 帐户](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
+![AD 帐户](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount2.png)
 
-使用该帐户的服务器名称可以根据用户名的第二个部分来识别。 在上图中，服务器名称为 FABRIKAMCON。 如果部署了暂存服务器，每个服务器都有自身的帐户。
+使用该帐户的服务器名称可以根据用户名的第二个部分来识别。 在上图中，服务器名称为 DC1。 如果部署了暂存服务器，每个服务器都有自身的帐户。
 
 服务帐户带有永不过期的长复杂密码。 系统为其授予了特殊角色“目录同步帐户”，该角色仅可执行目录同步任务。 此特殊内置角色不能在 Azure AD Connect 向导之外授予。 Azure 门户显示具有“用户”角色的此帐户。
 
@@ -197,4 +198,4 @@ Azure AD 将同步服务帐户数目限制为 20 个。 若要在 Azure AD 中�
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!--Update_Description: link update -->
+<!-- Update_Description: wording update -->

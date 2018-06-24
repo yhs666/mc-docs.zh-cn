@@ -12,15 +12,15 @@ ms.workload: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 11/03/2017
-ms.date: 4/10/2018
+origin.date: 06/15/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: a0a57b81560cec283d53bb98daabdd4f31341bb6
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 1b322acd0935f8c3d105aaf4a8a110690e9699a6
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30941351"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315671"
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>将 Azure VM 添加到现有可用性集的可支持性
 

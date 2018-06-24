@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 03/22/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 97e44cba953ead8b5c5e2d08e627b005b5ebefa5
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 50787963efbefc901fd940832387c71c5a046d6a
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867575"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270064"
 ---
 # <a name="use-the-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Azure 导入/导出服务将数据传输到 Azure 存储
 本文分步介绍如何使用 Azure 导入/导出服务将磁盘驱动器寄送到 Azure 数据中心，从而安全地将大量数据传输到 Azure Blob 存储和 Azure 文件。 此外，还可以使用此服务将数据从 Azure 存储传输到硬盘驱动器，然后再寄送到本地站点。 可将单个内部 SATA 磁盘驱动器中的数据导入 Azure Blob 存储或 Azure 文件。 
@@ -160,9 +160,7 @@ Azure 导入/导出服务支持将数据复制到所有公共 Azure 存储帐户
 
 支持的寄送位置：
 - 中国东部
-- 中国东部 2
 - 中国北部
-- 中国北部 2
 
 ### <a name="shipping"></a>装运
 **将驱动器寄送到数据中心：**
@@ -278,7 +276,7 @@ Azure 门户中的此映像会显示示例作业的驱动器状态：
 
 将驱动器寄送到 Azure 时，需要向快递商支付寄送费用。 当 Microsoft 将驱动器寄回给你时，寄送费用由你在创建作业时提供的快递商帐户支付。
 
-**事务费用**
+**事务成本**
 
 将数据导入 Azure 存储时，除标准存储事务成本外没有任何事务成本。 将数据从 Blob 存储导出时，需支付标准的传出费用。 有关事务费用的更多详细信息，请参阅 [数据传输定价](https://www.azure.cn/pricing/details/data-transfer/)
 

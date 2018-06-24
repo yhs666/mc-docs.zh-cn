@@ -1,8 +1,8 @@
 ---
-title: "如何在 Azure 门户中创建、管理或删除存储帐户 | Azure"
-description: "在 Azure 门户中创建新的存储帐户、管理帐户访问密钥或删除存储帐户。 了解标准和高级存储帐户。"
+title: 如何在 Azure 门户中创建、管理或删除存储帐户 | Azure
+description: 在 Azure 门户中创建新的存储帐户、管理帐户访问密钥或删除存储帐户。 了解标准和高级存储帐户。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: forester123
 manager: digimobile
 editor: tysonn
@@ -15,11 +15,12 @@ ms.topic: get-started-article
 origin.date: 1/29/2018
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 6d4057f28ba11bcf9434874e1f1b37a637b9c5ed
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 7eeda021360b925cb9262dc93713a5b31c3af123
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269960"
 ---
 # <a name="about-azure-storage-accounts"></a>关于 Azure 存储帐户
 
@@ -100,7 +101,7 @@ Azure 存储帐户提供唯一的命名空间来存储和访问 Azure 存储数�
 
 更改复制选项将更改定价。 有关更多详细信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)页。
 
-对于 Blob 存储帐户，更改访问层除了会更改定价之外，可能还会产生更改费用。 有关更多详细信息，请参阅 [Blob 存储帐户 — 定价和计费](../blobs/storage-blob-storage-tiers.md#pricing-and-billing)。
+对于 Blob 存储帐户，更改访问层除了会更改定价之外，可能还会产生更改费用。 有关更多详细信息，请参阅 [Blob 存储帐户 — 定价和计费](storage-account-options.md#pricing-and-billing)。
 
 ### <a name="manage-your-storage-access-keys"></a>管理存储访问密钥
 创建存储帐户时，Azure 会生成两个 512 位存储访问密钥，用于在用户访问该存储帐户时对其进行身份验证。 Azure 提供两个存储访问密钥，因此可在不中断存储服务的情况下重新生成用于访问该服务的密钥。

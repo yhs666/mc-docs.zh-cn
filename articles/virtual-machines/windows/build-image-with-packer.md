@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 03/29/2018
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: e67cd191820709c201bcd52872e0967e1ffe7794
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 36c2f8d53b9a5af884ee66a6c14b7c778818f264
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702790"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315391"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>如何使用 Packer 在 Azure 中创建 Windows 虚拟机映像
-Azure 中的每个虚拟机 (VM) 都是基于定义 Windows 分发和操作系统版本的映像创建的。 映像可以包括预安装的应用程序和配置。 Azure 应用商店为最常见的操作系统和应用程序环境提供了许多第一和第三方映像，也可以根据需要创建自己的自定义映像。 本文详细介绍了如何使用开源工具 [Packer](https://www.packer.io/) 在 Azure 中定义和生成自定义映像。
+Azure 中的每个虚拟机 (VM) 都是基于定义 Windows 分发和操作系统版本的映像创建的。 映像可以包括预安装的应用程序和配置。 Azure 市场为最常见的操作系统和应用程序环境提供许多第一和第三方映像，或者也可创建满足自身需求的自定义映像。 本文详细介绍了如何使用开源工具 [Packer](https://www.packer.io/) 在 Azure 中定义和生成自定义映像。
 
 ## <a name="create-azure-resource-group"></a>创建 Azure 资源组
 生成过程中，Packer 将在生成源 VM 时创建临时 Azure 资源。 要捕获该源 VM 用作映像，必须定义资源组。 Packer 生成过程的输出存储在此资源组中。
@@ -42,7 +42,7 @@ New-AzureRmResourceGroup -Name $rgName -Location $location
 使用 [New-AzureRmADServicePrincipal](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermadserviceprincipal) 创建服务主体，并为服务主体分配权限，以便使用 [New-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroleassignment) 创建和管理资源：
 
 ```powershell
-$sp = New-AzureRmADServicePrincipal -DisplayName "Azure Packer" `
+$sp = New-AzureRmADServicePrincipal -DisplayName "AzurePacker" `
     -Password (ConvertTo-SecureString "P@ssw0rd!" -AsPlainText -Force)
 Sleep 20
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
@@ -104,7 +104,6 @@ $sub.SubscriptionId[0]
     },
 
     "cloud_environment_name": "AzureChinaCloud",
-    <!-- "cloud_environment_name": "AzureChinaCloud" -->
     "location": "China East",
     "vm_size": "Standard_DS2_v2"
   }],
@@ -118,7 +117,7 @@ $sub.SubscriptionId[0]
   }]
 }
 ```
-<!-- "cloud_environment_name": "AzureChinaCloud" -->
+<!-- Parameter is correct to add "cloud_environment_name": "AzureChinaCloud" -->
 
 此模板生成 Windows Server 2016 VM 并安装 IIS，然后使用 Sysprep 来通用化该 VM。 IIS 安装展示了如何使用 PowerShell 预配程序来运行其他命令。 最终的 Packer 映像包括必需的软件安装和配置。
 
@@ -244,4 +243,4 @@ Get-AzureRmPublicIPAddress `
 在此示例中，使用 Packer 创建已安装 IIS 的 VM 映像。 可以将此 VM 映像与现有部署工作流配合使用，执行例如将应用部署到在使用 Team Services、Ansible、Chef 或 Puppet 通过映像创建的 VM 中的操作。
 
 有关适用于其他 Windows 发行版本的额外 Packer 模板示例，请参阅此 [GitHub 存储库](https://github.com/hashicorp/packer/tree/master/examples/azure)。
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

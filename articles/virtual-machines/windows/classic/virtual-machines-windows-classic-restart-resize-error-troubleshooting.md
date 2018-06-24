@@ -12,16 +12,16 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: required
-origin.date: 11/03/2017
-ms.date: 12/18/2017
+origin.date: 06/15/2018
+ms.date: 06/25/2018
 ms.devlang: na
 ms.author: v-yeche
-ms.openlocfilehash: 128df46735158c148fac5729b9fd19b6e4fa16f3
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 9d0d03eedaa3fd4e83e17738770e43a28af71196
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26727498"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315388"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>排查在 Azure 中重新启动现有 Windows 虚拟机或调整其大小时遇到的经典部署问题
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "26727498"
 > 
 > 
 
-尝试启动已停止的 Azure 虚拟机 (VM)，或调整现有 Azure VM 的大小时，经常遇到的错误是分配失败。 当群集或区域没有可用的资源或无法支持所请求的 VM 大小时，就会发生此错误。
+尝试启动已停止的 Azure 虚拟机 (VM)，或调整现有 Azure VM 的大小时，经常遇到的错误是分配失败。 当群集或区域没有可用的资源或无法支持所请求的 VM 大小时，将发生此错误。
 
 > [!IMPORTANT]
 > Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../../../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。
@@ -74,7 +74,7 @@ ms.locfileid: "26727498"
 
 * 单击“浏览全部” > “虚拟机(经典)” >  *用户的虚拟机*  > “设置” > “大小”。 有关详细步骤，请参阅[调整虚拟机的大小](https://msdn.microsoft.com/library/dn168976.aspx)。
 
-如果无法减小 VM 大小，请遵循以下步骤：
+如果无法减少 VM 大小，请遵循以下步骤：
 
 * 创建新的云服务，确保它不链接到地缘组，并且未与链接到地缘组的虚拟网络相关联。
 * 在其中创建更大的新 VM。

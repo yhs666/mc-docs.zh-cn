@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/07/2018
-ms.date: 06/04/2018
+ms.date: 07/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: ca9bc9be34d89fad680bf73f32ce709766567c32
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: c042259013896d7d13cd65bb4ea25cddf0040336
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554675"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315378"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>使用 ZIP 或 WAR 文件将应用部署到 Azure 应用服务
 
@@ -108,6 +108,8 @@ $apiUrl = "https://<app_name>.scm.chinacloudsites.cn/api/wardeploy"
 $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
 Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "multipart/form-data"
 ```
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

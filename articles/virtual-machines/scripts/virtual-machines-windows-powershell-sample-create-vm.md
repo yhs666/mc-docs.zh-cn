@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 03/02/2017
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b682ffb90585a6d0c1e944a0957fddca6d14ddb5
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: e84536ea3a47be6666950c574f73f99e291c76a7
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702772"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315516"
 ---
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>使用 PowerShell 创建完全配置的虚拟机
 

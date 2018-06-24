@@ -1,12 +1,12 @@
 ---
-title: "使用 PowerShell 对 Azure 队列存储执行操作 | Microsoft Docs"
-description: "教程 - 使用 PowerShell 对 Azure 队列存储执行操作"
+title: 使用 PowerShell 对 Azure 队列存储执行操作 | Microsoft Docs
+description: 教程 - 使用 PowerShell 对 Azure 队列存储执行操作
 services: storage
 documentationcenter: storage
 author: forester123
 manager: digimobile
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.topic: article
 origin.date: 09/14/2017
 ms.date: 10/16/2017
 ms.author: v-johch
-ms.openlocfilehash: 07bf04e74e932f9b63ff356967f47910e27dff08
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: 2ed316783bce6e49af42a88db68bef29491b4b0f
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270073"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 执行 Azure 队列存储操作
 
@@ -33,7 +34,7 @@ Azure 队列存储是一项可存储大量消息的服务，用户可以通过�
 > * 删除消息 
 > * 删除队列
 
-本教程需要 Azure PowerShell 模块 3.6 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
+本教程需要 Azure PowerShell 模块 3.6 或更高版本。 可以运行 `Get-Module -ListAvailable AzureRM` 来查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -189,8 +190,8 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 > * 删除消息 
 > * 删除队列
 
-### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell 存储 cmdlet
+### <a name="azure-powershell-storage-cmdlets"></a>Azure PowerShell 存储 cmdlet
 * [存储 PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.storage#storage)
 
-### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure 存储资源管理器
-* [Microsoft Azure 存储资源管理器](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fstorage%2fblobs%2ftoc.json)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
+### <a name="azure-storage-explorer"></a>Azure 存储资源管理器
+* [Azure 存储资源管理器](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fstorage%2fblobs%2ftoc.json)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。

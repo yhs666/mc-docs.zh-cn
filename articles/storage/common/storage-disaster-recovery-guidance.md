@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/19/2017
 ms.date: 06/11/2017
 ms.author: v-haiqya
-ms.openlocfilehash: ad802c5fdadd735f9150cf402ce13b4a57a08ba4
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 0e94bb1ca295f61efca9c89458ba61077a78085f
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867557"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269990"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>在 Azure 存储中断时该怎么办
 Microsoft 一直努力确保所提供的服务始终可用。 但有时候，各种不可控因素会导致一个或多个区域出现计划外服务中断，对我们造成影响。 为了帮助你应对这些偶发事件，我们提供了下述针对 Azure 存储服务的概述性指导。
@@ -44,10 +44,10 @@ Microsoft 一直努力确保所提供的服务始终可用。 但有时候，各
 在此情况下，不需要采取任何操作。 我们正在努力还原 Azure 服务的可用性。 可在 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)上监视服务状态。
 
 ### <a name="option-2-copy-data-from-secondary"></a>选项 2：从辅助数据库复制数据
-如果为存储帐户选择[读取访问异地冗余存储 (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)（推荐），就可以从次要区域访问数据。 可使用 [AzCopy](storage-use-azcopy.md)、[Azure PowerShell](storage-powershell-guide-full.md) 和 [Azure 数据移动库](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)之类的工具将数据从次要区域复制到不受影响区域的其他存储帐户中，然后将应用程序指向该存储帐户，确保可读取和写入。
+如果为存储帐户选择[读取访问异地冗余存储 (RA-GRS)](storage-redundancy-grs.md)（推荐），就可以从次要区域访问数据。 可使用 [AzCopy](storage-use-azcopy.md)、[Azure PowerShell](storage-powershell-guide-full.md) 和 [Azure 数据移动库](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)之类的工具将数据从次要区域复制到不受影响区域的其他存储帐户中，然后将应用程序指向该存储帐户，确保可读取和写入。
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>进行存储空间故障转移时会发生什么情况
-如果选择[异地冗余存储 (GRS)](storage-redundancy-grs.md) 或[读取访问地域冗余存储 (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)（推荐），Azure 存储会将数据持久保存在两个区域（主要区域和次要区域）中。 在这两个区域，Azure 存储始终维护你数据的多个副本。
+如果选择[异地冗余存储 (GRS)](storage-redundancy-grs.md) 或[读取访问地域冗余存储 (RA-GRS)](storage-redundancy-grs.md)（推荐），Azure 存储会将数据持久保存在两个区域（主要区域和次要区域）中。 在这两个区域，Azure 存储始终维护你数据的多个副本。
 
 当区域灾难影响主要区域时，我们会首先尝试还原该区域的服务。 在很少的情况下，我们可能无法还原主要区域，具体取决于灾难的性质及其影响。 在那种情况下，我们会进行异地故障转移。 跨区域数据复制是一个可能有延迟的异步过程，因此，可能会丢失尚未复制到次要区域的更改。 若要详细了解复制状态，可查阅[存储帐户的“上次同步时间”](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)。
 

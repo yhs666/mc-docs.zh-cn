@@ -1,5 +1,21 @@
 ---
-title: 策略模板示例 description: 适用于 Azure 策略的 JSON 示例 services: azure-policy author: WenJason manager: digimoblie ms.service: azure-policy ms.topic: sample origin 01/17/2018 ms.date: 06/04/2018 ms.author: v-nany ms.custom: mvc
+title: 策略模板示例
+description: 用于 Azure 策略的 JSON 示例
+services: azure-policy
+author: WenJason
+manager: digimoblie
+ms.service: azure-policy
+ms.topic: sample
+origin.date: 01/17/2018
+ms.date: 06/04/2018
+ms.author: v-nany
+ms.custom: mvc
+ms.openlocfilehash: 4f8a002a1b99030450ee5393d83f664eb23e6048
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270053"
 ---
 # <a name="templates-for-azure-policy"></a>Azure 策略模板
 

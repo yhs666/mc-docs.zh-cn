@@ -12,42 +12,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/06/2018
-ms.date: 06/04/2018
+origin.date: 06/05/2018
+ms.date: 07/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: c6d781a27ec6fe594f982495627154fd0fc6585c
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 1ef494c127fe577eb7e7547f54b38d31c1df15bf
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554137"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315650"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 将应用部署到 Azure 应用服务
 本文介绍了如何使用 FTP 或 FTPS 将 Web 应用、移动应用后端或 API 应用部署到 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)。
 
-应用的 FTP/S 终结点已处于活动状态。 无需配置即可启用 FTP / S 部署。 
+应用的 FTP/S 终结点已处于活动状态。 启用 FTP/S 部署不需要进行任何配置。 
 
-<a name="step1"></a>
-## <a name="step-1-set-deployment-credentials"></a>步骤 1：设置部署凭据
+## <a name="open-ftp-dashboard"></a>打开 FTP 仪表板
 
-若要访问应用的 FTP 服务器，首先需要部署凭据。 
+在 [Azure 门户](https://portal.azure.cn)中，打开应用的[资源页](../azure-resource-manager/resource-group-portal.md#manage-resources)。
 
-若要设置或重置部署凭据，请参阅 [Azure App Service 部署凭据](app-service-deployment-credentials.md)。 本教程演示如何使用用户级凭据。
+若要打开 FTP 仪表板，请单击“持续交付(预览版)” > “FTP” > “仪表板”。
 
-## <a name="step-2-get-ftp-connection-information"></a>步骤 2：获取 FTP 连接信息
+![打开 FTP 仪表板](./media/app-service-deploy-ftp/open-dashboard.png)
 
-1. 在 [Azure 门户](https://portal.azure.cn)中，打开应用的[资源页](../azure-resource-manager/resource-group-portal.md#manage-resources)。
-2. 在左侧导航中选择“概述”，并记下“FTP/部署用户”、“FTP 主机名”和“FTPS 主机名”的值。 
+## <a name="get-ftp-connection-information"></a>获取 FTP 连接信息
 
-    ![FTP 连接信息](./media/app-service-deploy-ftp/FTP-Connection-Info.PNG)
+在 FTP 仪表板中，单击“复制”以复制 FTPS 终结点和应用凭据。
 
-    > [!NOTE]
-    > Azure 门户中显示的“FTP/部署用户”值包括应用名称，用于为 FTP 服务器提供适当的上下文。
-    > 在左侧导航中选择“属性”时，可以找到相同信息。 
-    >
-    > 此外，永远不会显示部署密码。 如果忘记了部署密码，请返回到 [步骤 1](#step1) ，重置部署密码。
-    >
-    >
+![复制 FTP 信息](./media/app-service-deploy-ftp/ftp-dashboard.png)
+
+建议你使用**应用凭据**部署到应用，因为它对每个应用都是唯一的。 但是，如果单击“用户凭据”，会将可用于 FTP/S 登录的用户级凭据设置到订阅中的所有应用服务应用。
 
 ## <a name="step-3-deploy-files-to-azure"></a>步骤 3：将文件部署到 Azure
 
@@ -76,6 +70,14 @@ ms.locfileid: "34554137"
 
 ![禁用 FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 
+## <a name="automate-with-scripts"></a>使用脚本自动执行
+
+若要使用 [Azure CLI](/cli/) 进行 FTP 部署，请参阅[创建 Web 应用并使用 FTP (Azure CLI) 部署文件](./scripts/app-service-cli-deploy-ftp.md)。
+
+若要使用 [Azure PowerShell](/cli/) 进行 FTP 部署，请参阅[使用 FTP (PowerShell) 将文件上传到 Web 应用](./scripts/app-service-powershell-deploy-ftp.md)。
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
 ## <a name="troubleshoot-ftp-deployment"></a>排查 FTP 部署问题
 
 - [如何排查 FTP 部署问题？](#how-can-i-troubleshoot-ftp-deployment)
@@ -86,13 +88,12 @@ ms.locfileid: "34554137"
 
 若要排查 FTP 部署问题，第一步是厘清部署问题和运行时应用程序问题。
 
-部署问题通常会导致无文件部署到应用，或者部署到应用的文件错误。 若要解决此问题，可以调查 FTP 部署情况，或者选择备用部署路径（例如源代码管理）。
+部署问题通常会导致无文件部署到应用，或者部署到应用的文件错误。 可以通过调查 FTP 部署情况，或者选择备用部署路径（例如源代码管理）来进行故障排除。
 
-出现运行时应用程序问题时，通常部署到应用的文件集是正确的，但应用行为不正确。 若要解决此问题，可以重点查看运行时的代码行为，并调查具体的故障路径。
+出现运行时应用程序问题时，通常部署到应用的文件集是正确的，但应用行为不正确。 可以通过重点查看运行时的代码行为，并调查具体的故障路径来进行故障排除。
 
 若要确定问题是部署问题还是运行时问题，请参阅 [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues)（部署问题和运行时问题）。
 
- 
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>我无法通过 FTP 来发布代码。 如何解决此问题？
 检查是否输入了正确的主机名和[凭据](#step-1--set-deployment-credentials)。 另请检查计算机上的以下 FTP 端口是否未被防火墙阻止：
 

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 11/11/2017
 ms.author: v-yiso
 ms.date: 03/19/2018
-ms.openlocfilehash: 197b69827a139deed048d693db5e47e32ee43dbf
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 100208588359b05c37c3be07f6663757ae0ce810
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870571"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315374"
 ---
 # <a name="logic-apps-pricing-model"></a>逻辑应用定价模型
 
@@ -59,7 +59,7 @@ ms.locfileid: "29870571"
 
 ## <a name="integration-account-usage"></a>集成帐户使用情况
 
-基于消耗量的使用情况包括一个用于浏览、开发和测试逻辑应用的 [B2B/EDI](logic-apps-enterprise-integration-b2b.md) 和 [XML 处理](logic-apps-enterprise-integration-xml.md)功能，且不额外收费的[集成帐户](logic-apps-enterprise-integration-create-integration-account.md)。 可在每个区域中使用其中一个集成帐户，最多可以存储 10 个协议和 25 个映射。 可以创建并上传无限数目的合作伙伴、架构和证书。
+基于消耗量的使用情况包括一个[集成帐户](logic-apps-enterprise-integration-create-integration-account.md)，可用于免费浏览、开发和测试逻辑应用中的 [B2B/EDI](logic-apps-enterprise-integration-b2b.md) 和 [XML 处理](logic-apps-enterprise-integration-xml.md)功能。 你可以为每个区域配置一个集成帐户，并存储[特定数量的项目](../logic-apps/logic-apps-limits-and-config.md)，如 EDI 贸易合作伙伴和协议、地图、架构、程序集、证书和批处理配置。
 
 逻辑应用还以支持的逻辑应用 SLA 提供基本和标准集成帐户。 如果只想使用消息处理，或要充当与大型企业实体建立贸易合作关系的小型企业合作伙伴，可以使用基本集成帐户。 标准集成帐户支持更复杂的 B2B 关系，并增加了可以管理的实体数。 有关详细信息，请参阅 [Azure 定价](https://www.azure.cn/pricing/details/logic-apps)。
 

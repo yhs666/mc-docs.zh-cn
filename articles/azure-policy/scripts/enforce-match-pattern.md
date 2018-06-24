@@ -16,12 +16,12 @@ origin.date: 11/13/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 2f345efb19d6d3e9b851359e4674d180edb484e4
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: d61fde586491826271c58901fad48aec9f83db14
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695140"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269964"
 ---
 # <a name="enforce-match-pattern-for-naming-conventions"></a>强制实施用于命名约定的 match 模式
 
@@ -30,9 +30,34 @@ ms.locfileid: "34695140"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/TextPatterns/enforce-match-pattern/azurepolicy.json "enforce match pattern")]
-
+```json
+{
+    "properties": {
+        "displayName": "Name pattern with match condition.",
+        "description": "Enforce a naming pattern on resources with the match condition.",
+        "mode": "indexed",
+        "parameters": {
+            "namePattern": {
+                "type": "String",
+                "metadata": {
+                    "description": "Pattern to use for names. Can include ? for letters and # for numbers."
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "not": {
+                    "field": "name",
+                    "match": "[parameters('namePattern')]"
+                }
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -72,7 +97,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "en
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

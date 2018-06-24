@@ -13,15 +13,15 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 08/10/2017
-ms.date: 05/21/2018
+origin.date: 06/15/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: bbb66946a861e0025327cbcceb0a2fad83a091d6
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: e717110abc484a8fac7ce149094dc2bb44a8d6f8
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34256576"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315485"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-windows-virtual-machines-in-azure"></a>如何使用启动诊断功能来解决 Azure 中 Windows 虚拟机的问题
 

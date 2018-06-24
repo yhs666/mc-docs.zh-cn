@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/05/2016
 ms.date: 03/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: c2f97a85ee41e794f49ba797e63b740478b7b21f
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 7fbb2e95c3b93a2116632db875090fb47833e5da
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730640"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315389"
 ---
 # <a name="scale-up-an-app-in-azure"></a>增加 Azure 中的应用
 本文介绍如何在 Azure 应用服务中缩放应用。 缩放的工作流有两种：向上缩放和向外缩放；本文介绍向上缩放工作流。
@@ -30,7 +30,7 @@ ms.locfileid: "29730640"
   根据定价层，最多可以向外缩放到 20 个实例。 有关向外缩放的详细信息，请参阅[手动或自动缩放实例计数](../monitoring-and-diagnostics/insights-how-to-scale.md)。 可在该文中了解如何使用自动缩放，即根据预定义的规则和计划自动缩放实例计数。
 
 缩放设置仅需几秒即可应用，并且会影响[应用服务计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)中的所有应用。
-在此过程中，不需要更改代码或重新部署应用程序。
+缩放设置不需要更改代码或重新部署应用程序。
 
 有关各个应用服务计划的定价和功能的信息，请参阅[应用服务定价详细信息](https://www.azure.cn/pricing/details/app-service/)。  
 
@@ -47,14 +47,14 @@ ms.locfileid: "29730640"
 2. 在应用服务应用页面，单击“所有设置”，然后单击“纵向扩展”。
    
     ![导航到向上缩放 Azure 应用。][ChooseWHP]
-3. 选择层，并单击“选择”。
-
+3. 选择层，并单击“应用”。
+   
     在操作完成后，“通知”选项卡上将闪现绿色的**成功**字样。
 
 <a name="ScalingSQLServer"></a>
 
 ## <a name="scale-related-resources"></a>与缩放相关的资源
-如果应用依赖于其他服务，如 Azure SQL 数据库或 Azure 存储，则可单独对这些资源进行纵向扩展。 这些资源不受应用服务计划管理。
+如果应用依赖于其他服务，如 Azure SQL 数据库或 Azure 存储，则可单独对这些资源进行纵向扩展。 这些资源不由应用服务计划管理。
 
 1. 在“软件包”中，单击“资源组”链接。
 

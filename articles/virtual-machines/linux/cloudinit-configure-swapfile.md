@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 04/16/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2fec3f766368ed9466dcd61fc92bbfb313bda159
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: c9872f5cb5eca67112081d9eceebeb78cbb26a85
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34568755"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315519"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>在 Linux VM 上使用 cloud-init 配置交换文件
 本文介绍如何使用 [cloud-init](https://cloudinit.readthedocs.io) 在各种 Linux 分发版中配置交换文件。 在传统上，交换文件由 Linux 代理 (WALA) 根据分发版的需要进行配置。  本文档概述在预配期间，使用 cloud-init 按需生成交换文件的过程。  有关 cloud-init 如何在 Azure 以及受支持的 Linux 发行版中本机工作的详细信息，请参阅 [cloud-init 概述](using-cloud-init.md)
@@ -51,13 +51,13 @@ mounts:
   - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
-在部署此映像之前，需要使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
+在部署此映像之前，需要使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
 
 ```azurecli 
 az group create --name myResourceGroup --location chinaeast
 ```
 
-现在，使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 创建 VM，并通过 `--custom-data cloud_init_swapfile.txt` 指定 cloud-init 文件，如下所示：
+现在，使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM，并通过 `--custom-data cloud_init_swapfile.txt` 指定 cloud-init 文件，如下所示：
 
 ```azurecli 
 az vm create \
@@ -94,8 +94,8 @@ Filename                Type        Size    Used    Priority
 ## <a name="next-steps"></a>后续步骤
 有关配置更改的其他 cloud-init 示例，请参阅以下文章：
 
-<!-- Not Available on - [Add an additional Linux user to a VM](cloudinit-add-user.md) -->
-<!-- Not Available on - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md) -->
-<!-- Not Available on - [Change VM local hostname](cloudinit-update-vm-hostname.md) -->
+- [向 VM 添加其他 Linux 用户](cloudinit-add-user.md)
+- [运行包管理器以在首次启动时更新现有包](cloudinit-update-vm.md)
+- [更改 VM 本地主机名](cloudinit-update-vm-hostname.md) 
 - [安装应用程序包、更新配置文件和注入密钥](tutorial-automate-vm-deployment.md)
 <!-- Update_Description: update link, wording update -->

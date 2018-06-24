@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/17/2017
-ms.date: 03/19/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: ac22bb3104a8296dc62f0a222c2bc48ec020da06
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 74832a0e51741f729eb388c865c8cc65b19cf4a1
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29965369"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315490"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>使用 Node.js 在 Azure 中的 Linux 上运行 Cassandra 群集
 
@@ -357,7 +357,7 @@ Azure 在进行配置时需要用 PEM 或 DER 编码的 X509 公钥。 按照“
         #Tested with Azure Powershell - November 2014
         #This powershell script deployes a number of VMs from an existing image inside an Azure region
         #Import your Azure subscription into the current Powershell session before proceeding
-        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
+        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. create a list of VMs from the template
 
         #fundamental variables - change these to reflect your subscription
         $country="china"; $region="north"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
@@ -604,7 +604,7 @@ Azure 虚拟网络中的本地网络是映射到远程站点（包括私有云�
 执行一些插入操作，将这些插入内容复制到群集的 china-north 部分。
 
 ## <a name="test-cassandra-cluster-from-nodejs"></a>从 Node.js 测试 Cassandra 群集
-使用之前在“Web”层创建的某个 Linux VM，可以执行简单的 Node.js 脚本，以读取之前插入的数据
+使用以前在“Web”层创建的某个 Linux VM，可以执行一个简单的 Node.js 脚本，以便读取以前插入的数据
 
 **步骤 1：安装 Node.js 和 Cassandra 客户端**
 

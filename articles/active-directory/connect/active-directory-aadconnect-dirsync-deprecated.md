@@ -3,7 +3,7 @@ title: 从 DirSync 和 Azure AD Sync 升级 | Microsoft Docs
 description: 介绍如何从 DirSync 和 Azure AD Sync 升级到 Azure AD Connect。
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: bd68fb88-110b-4d76-978a-233e15590803
@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 01/17/2018
+ms.date: 06/22/2018
+ms.component: hybrid
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 249d2c227dffadb232f59210200e6fee1fd632a8
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: 8ad9ead4fb1f0148c6fbacb244673130ec123401
+ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993195"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314289"
 ---
 # <a name="upgrade-azure-active-directory-sync-and-azure-active-directory-sync"></a>升级 Azure Active Directory Sync
 Azure AD Connect 是连接本地目录与 Azure AD 和 Office 365 的最佳方式。 这是从 Azure Active Directory Sync (DirSync) 或 Azure AD Sync 升级到 Azure AD Connect 的最佳时机，因为这些工具现已弃用，从 2017 年 4 月 13 日起不再受支持。
@@ -64,4 +65,4 @@ DirSync/Azure AD Sync 在 2017 年 4 月 13 日可继续工作。  但是，从 
 ## <a name="additional-resources"></a>其他资源
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

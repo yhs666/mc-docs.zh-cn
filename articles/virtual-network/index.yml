@@ -15,12 +15,12 @@ metadata:
   origin.date: 03/23/2018
   ms.date: 06/11/2018
   ms.author: v-yeche
-  ms.openlocfilehash: a82eee1f50a7c8b1c96b8bedf39a0e5ac6b6a2fd
-  ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+  ms.openlocfilehash: 8e5aa73f2ada459a52661b5a61f609b63504dda1
+  ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 06/08/2018
-  ms.locfileid: "34868009"
+  ms.lasthandoff: 06/22/2018
+  ms.locfileid: "36315622"
 abstract:
   description: 了解如何使用 Azure 虚拟网络。 快速入门、教程和示例等等，显示了如何部署虚拟网络，如何控制流量筛选和路由，以及如何将虚拟网络连接到其他虚拟网络。
 sections:
@@ -54,27 +54,6 @@ sections:
     - html: <a href="/virtual-network/tutorial-create-route-table-portal">路由网络流量</a>
     - html: <a href="/virtual-network/tutorial-restrict-network-access-to-resources">限制对资源的网络访问</a>
     - html: <a href="/virtual-network/tutorial-connect-virtual-networks-portal">连接虚拟网络</a>
-- title: 免费 Pluralsight 视频培训
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: 实现 Azure 网络服务
-      href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
-    - title: 计划和设计 Azure 网络解决方案
-      href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
-    - title: 面向 AWS 管理员的 Azure 管理
-      href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
 - title: 示例
   items:
   - type: paragraph

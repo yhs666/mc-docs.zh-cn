@@ -15,12 +15,12 @@ ms.workload: infrastructure
 origin.date: 09/26/2017
 ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: ecb659c0e8f5e14a897a223f32ffcc6014df6908
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 9fbbcbe8f4e4d22ba8133c92953e0e9825d4d7ae
+ms.sourcegitcommit: c1f196ee0a345620ea22b330c13718bc00a7dc4a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867602"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36208889"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>创建并管理具有多个 NIC 的 Windows 虚拟机
 Azure 中的虚拟机 (VM) 可附有多个虚拟网络接口卡 (NIC)。 一种常见方案是为前端和后端连接使用不同子网，或为监视或备份解决方案使用一个专用网络。 本文详述了如何创建附有多个 NIC 的 VM。 还可以了解如何从现有 VM 中添加或删除 NIC。 不同的 [VM 大小](sizes.md)支持不同数目的 NIC，因此请相应地调整 VM 的大小。
@@ -31,10 +31,10 @@ Azure 中的虚拟机 (VM) 可附有多个虚拟网络接口卡 (NIC)。 一种�
 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup*、*myVnet* 和 *myVM*。
 
 ## <a name="create-a-vm-with-multiple-nics"></a>创建具有多个 NIC 的 VM
-首先创建一个资源组。 以下示例在 *EastUs* 位置创建名为 *myResourceGroup* 的资源组：
+首先创建一个资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "ChinaEast"
+New-AzureRmResourceGroup -Name "myResourceGroup" -Location "chinaeast"
 ```
 
 ### <a name="create-virtual-network-and-subnets"></a>创建虚拟网络和子网
@@ -53,7 +53,7 @@ New-AzureRmResourceGroup -Name "myResourceGroup" -Location "ChinaEast"
 
     ```powershell
     $myVnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
-        -Location "EastUs" `
+        -Location "chinaeast" `
         -Name "myVnet" `
         -AddressPrefix "192.168.0.0/16" `
         -Subnet $mySubnetFrontEnd,$mySubnetBackEnd
@@ -66,13 +66,13 @@ New-AzureRmResourceGroup -Name "myResourceGroup" -Location "ChinaEast"
 $frontEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetFrontEnd'}
 $myNic1 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic1" `
-    -Location "EastUs" `
+    -Location "chinaeast" `
     -SubnetId $frontEnd.Id
 
 $backEnd = $myVnet.Subnets|?{$_.Name -eq 'mySubnetBackEnd'}
 $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic2" `
-    -Location "EastUs" `
+    -Location "chinaeast" `
     -SubnetId $backEnd.Id
 ```
 
@@ -119,7 +119,7 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
 5. 使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建 VM：
 
     ```powershell
-    New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
+    New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "chinaeast"
     ```
 
 6. 通过完成[为多个 NIC 配置操作系统](#configure-guest-os-for-multiple-nics)中的步骤，将辅助 NIC 的路由添加到 OS。
@@ -149,7 +149,7 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
     # Create a virtual NIC
     $myNic3 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
         -Name "myNic3" `
-        -Location "EastUs" `
+        -Location "chinaeast" `
         -SubnetId $backEnd.Id
 
     # Get the ID of the new virtual NIC and add to VM

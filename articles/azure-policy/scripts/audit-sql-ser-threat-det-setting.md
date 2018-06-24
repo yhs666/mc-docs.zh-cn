@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 5e5f9591d4ac7863370ea94a776b99d3ce163d16
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 6703affabb8e2228f3769c88f29f4bcb68339989
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695170"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270037"
 ---
 # <a name="audit-server-level-threat-detection-setting"></a>审核服务器级别的威胁检测设置
 
@@ -30,9 +30,47 @@ ms.locfileid: "34695170"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/SQL/audit-sql-server-threat-detection/azurepolicy.json "Audit Server level threat detection setting")]
-
+```json
+{
+    "properties": {
+        "displayName": "Audit Server level threat detection setting",
+        "description": "Audit threat detection setting for SQL Server",
+        "parameters": {
+            "setting": {
+                "type": "String",
+                "allowedValues": [
+                    "enabled",
+                    "disabled"
+                ],
+                "metadata": {
+                    "displayName": "Threat Detection Setting"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "field": "type",
+                "equals": "Microsoft.SQL/servers"
+            },
+            "then": {
+                "effect": "auditIfNotExists",
+                "details": {
+                    "type": "Microsoft.SQL/servers/securityAlertPolicies",
+                    "name": "default",
+                    "existenceCondition": {
+                        "allOf": [
+                            {
+                                "field": "Microsoft.Sql/securityAlertPolicies.state",
+                                "equals": "[parameters('setting')]"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +100,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'audit-sql-server-threat-detection' --display-name 'Audit Server level threat detection setting' --description 'Audit threat detection setting for SQL Server' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-sql-server-threat-detection/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-sql-server-threat-detection/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "audit-sql-server-threat-detection"
@@ -72,7 +110,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "au
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

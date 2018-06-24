@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/12/2017
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4bf7cdda77c5e57b216b8d79465cd51a1c9492c8
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 2f84ca584cc9b3a0d9d94e94193bde56b2f8cff8
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702764"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315451"
 ---
 # <a name="create-an-iis-vm-with-powershell"></a>使用 PowerShell 创建 IIS VM
 
@@ -91,4 +91,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure Windows VM 文档](../windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
-<!-- Update_Description: update meta properties, update cmdlet content -->
+<!-- Update_Description: update meta properties -->

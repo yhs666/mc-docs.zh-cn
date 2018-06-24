@@ -1,3 +1,21 @@
+---
+title: include 文件
+description: include 文件
+services: virtual-machines
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 04/18/2018
+ms.date: 06/25/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: 8f9e5f8cf06e6de4129ccc25f8f63bebb2096716
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315723"
+---
 ## <a name="overview"></a>概述
 在资源组中通过从 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/)部署映像来创建新的虚拟机 (VM) 时，默认的 OS 驱动器通常为 127 GB（默认情况下，某些映像的 OS 磁盘大小更小）。 尽管可以将数据磁盘添加到 VM（数量取决于所选择的 SKU），并且我们建议将应用程序和需要大量 CPU 的工作负荷安装在这些附加的磁盘上，但客户有时候还是需要扩展 OS 驱动器以支持特定的方案，例如：
 
@@ -134,7 +152,7 @@ Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="next-steps"></a>后续步骤
+## <a name="for-resizing-data-disks"></a>调整数据磁盘的大小
 虽然在本文中，我们着重介绍扩展 VM 的非托管/托管 OS 磁盘，但开发的脚本也可用于扩展附加到 VM 的数据磁盘。 例如，若要扩展附加到 VM 的第一个数据磁盘，请将 ```StorageProfile``` 的 ```OSDisk``` 对象替换为 ```DataDisks``` 数组，并使用数字索引获取对第一个附加数据磁盘的引用，如下所示：
 
 非托管磁盘：
@@ -159,4 +177,5 @@ $disk.DiskSizeGB = 1023
 ```
 
 如果想要了解如何将磁盘附加到 Azure Resource Manager VM，请参阅[此文](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-<!--ms.date: 06/04/2018-->
+<!-- Update_Description: wording update, update link -->
+<!--ms.date: 06/24/2018-->

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 origin.date: 10/18/2016
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: b6f3878a633531086a719d6ec153f64843bd1e83
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 44325cf3bd7739ba294b0aecf850f1ff415f887f
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31321101"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315427"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>使用 Azure 资源管理器模板部署逻辑应用
 
@@ -88,6 +88,7 @@ Visual Studio 工具生成可跨任何订阅或位置使用的有效部署模板
 可以在以下类型的触发器和操作中使用逻辑应用参数：
 
 *   子工作流
+*   函数应用
 *   APIM 调用
 *   API 连接运行时 URL
 *   API 连接路径

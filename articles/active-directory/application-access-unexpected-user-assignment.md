@@ -1,10 +1,10 @@
 ---
-title: 如何将用户分配给应用程序 | Azure
+title: 如何将用户分配给应用程序 | Microsoft Docs
 description: 了解如何将用户分配给租户中的应用程序
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
+author: ajamess
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 1/1/2018
-ms.author: v-nany
-ms.openlocfilehash: b7f16e007ab3dd681c4ab2cb5d20ef137e353d2f
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.date: 06/20/2018
+ms.author: v-junlch
+ms.openlocfilehash: b24d01e95a4be57b5f1249648dfab716cb425f01
+ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
-ms.locfileid: "27548412"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314242"
 ---
 # <a name="how-to-assign-users-to-applications"></a>如何将用户分配给应用程序
 
@@ -42,3 +42,5 @@ ms.locfileid: "27548412"
 
 ## <a name="next-steps"></a>后续步骤
 [使用 Azure Active Directory 管理应用程序](active-directory-enable-sso-scenario.md)
+
+<!-- Update_Description: update metedata properties -->

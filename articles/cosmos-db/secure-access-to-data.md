@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 05/24/2017
 ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0f45a43a79f9ebd0d6c70c5db47352e04f5e9c82
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 2f951cfefeb8cf43fc27ad96b677b0e310059072
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782034"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315608"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>保护对 Azure Cosmos DB 数据的访问
 本文概述了如何保护对存储在 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 中的数据的访问。
@@ -31,8 +31,8 @@ Azure Cosmos DB 使用两种类型的密钥来验证用户身份并提供其数�
 |[主密钥](#master-keys) |用于管理资源：数据库帐户、数据库、用户和权限|
 |[资源令牌](#resource-tokens)|用于应用程序资源：集合、文档、附件、存储过程、触发器和 UDF|
 
-<a name="master-keys"></a>
-
+<a name="master-key"></a>
+<!--Notice: the Archor is master-key without s char-->
 ## <a name="master-keys"></a>主密钥 
 
 主密钥提供对数据库帐户中所有管理资源的访问权限。 主密钥：  

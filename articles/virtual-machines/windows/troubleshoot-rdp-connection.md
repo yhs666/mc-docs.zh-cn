@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/23/2018
-ms.date: 05/21/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 800af49cb6874f7e1257b56eca02d90740f0d4a9
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: c80972d4225a714a619f450d8f8775bb92f3ea01
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261378"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315455"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>排查 Azure 虚拟机的远程桌面连接问题
 与基于 Windows 的 Azure 虚拟机 (VM) 的远程桌面协议 (RDP) 连接可能会因各种原因而失败，使用户无法访问 VM。 问题可能出在 VM 上的远程桌面服务、网络连接或主计算机上的远程桌面客户端。 本文介绍解决 RDP 连接问题的一些最常见方法。 
@@ -38,10 +38,10 @@ ms.locfileid: "34261378"
 2. 检查网络安全组规则/云服务终结点。
 3. 查看 VM 控制台日志。
 4. 重置 VM 的 NIC。
-<!--Not Available 5. Check the VM Resource Health.-->
 5. 重置 VM 密码。
 6. 重新启动 VM。
 7. 重新部署 VM。
+<!--Not Available 5.Check the VM Resource Health.-->
 
 如需更详细的步骤和说明，请继续阅读余下的内容。 请确保本地网络设备（如路由器和防火墙）未阻止出站 TCP 端口 3389，如 [RDP 详细故障排除方案](detailed-troubleshoot-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中所述。
 
@@ -66,7 +66,7 @@ ms.locfileid: "34261378"
     在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。 单击“重置密码”按钮。 将“模式”设置为“仅重置配置”，然后单击“更新”按钮：
 
     ![在 Azure 门户中重置 RDP 配置](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **验证网络安全组规则**。 使用 [IP 流验证](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)来确认网络安全组中的规则是否阻止了传入或传出虚拟机的流量。 还可以查看有效的安全组规则，确保入站“允许”NSG 规则存在并已针对 RDP 端口（默认值 3389）进行优化。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow)。
+2. **验证网络安全组规则**。 使用 [IP 流验证](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)来确认网络安全组中的规则是否阻止了传入或传出虚拟机的流量。 还可以查看有效的安全组规则，确保入站“允许”NSG 规则存在并已针对 RDP 端口（默认值 3389）进行优化。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/diagnose-network-traffic-filter-problem.md)。
 
 3. **查看 VM 启动诊断**。 此故障排除步骤检查 VM 控制台日志，确定 VM 是否报告了问题。 并非所有 VM 都已启用启动诊断，因此，此故障排除步骤可能是可选的。
 
@@ -75,17 +75,17 @@ ms.locfileid: "34261378"
 4. **重置 VM 的 NIC**。 有关详细信息，请参阅[如何重置 Azure Windows VM 的 NIC](reset-network-interface.md)。
 <!-- Not Availble **Check the VM Resource Health**.  -->
 
-5. **重置用户凭据**。 不确定或者忘了凭据时，可以使用此故障排除步骤重置本地管理员帐户的密码。
+6. **重置用户凭据**。 不确定或者忘了凭据时，可以使用此故障排除步骤重置本地管理员帐户的密码。  登录到 VM 后，应重置该用户的密码。
 
     在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。 单击“重置密码”按钮。 确保“模式”已设置为“重置密码”，然后输入用户名和新密码。 Finally, click the <bpt id="p1">**</bpt>Update<ept id="p1">**</ept> button:
 
     ![在 Azure 门户中重置用户凭据](./media/troubleshoot-rdp-connection/reset-password.png)
-6. **重新启动 VM**。 此故障排除步骤可以更正 VM 本身具有的任何基础问题。
+7. **重新启动 VM**。 此故障排除步骤可以更正 VM 本身具有的任何基础问题。
 
     在 Azure 门户中选择 VM，并单击“概述”选项卡。
 
     ![在 Azure 门户中重启 VM](./media/troubleshoot-rdp-connection/restart-vm.png)
-7. **重新部署 VM**。 此故障排除步骤将 VM 重新部署到 Azure 内的另一台主机，以更正任何基础平台或网络问题。
+8. **重新部署 VM**。 此故障排除步骤将 VM 重新部署到 Azure 内的另一台主机，以更正任何基础平台或网络问题。
 
     在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。 单击“重新部署”按钮，然后单击“重新部署”：
 
@@ -93,7 +93,7 @@ ms.locfileid: "34261378"
 
     完成此操作后，会丢失临时磁盘数据，系统会更新与 VM 关联的动态 IP 地址。
 
-9. **验证路由**。 使用网络观察程序的[下一跃点](../../network-watcher/network-watcher-check-next-hop-portal.md)功能确认路由未阻止将流量路由到虚拟机或从虚拟机路由流量。 还可以查看有效路由，以了解网络接口的所有有效路由。 有关详细信息，请参阅[使用有效路由排查 VM 流量流问题](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)。
+9. **验证路由**。 使用网络观察程序的[下一跃点](../../network-watcher/network-watcher-check-next-hop-portal.md)功能确认路由未阻止将流量路由到虚拟机或从虚拟机路由流量。 还可以查看有效路由，以了解网络接口的所有有效路由。 有关详细信息，请参阅[使用有效路由排查 VM 流量流问题](../../virtual-network/diagnose-network-routing-problem.md)。
 
 10. 确保任何本地防火墙或计算机上的防火墙允许发往 Azure 的出站 TCP 3389 流量。
 
@@ -183,7 +183,7 @@ ms.locfileid: "34261378"
     Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
-6. **验证路由**。 使用网络观察程序的[下一跃点](../../network-watcher/network-watcher-check-next-hop-portal.md)功能确认路由未阻止将流量路由到虚拟机或从虚拟机路由流量。 还可以查看有效路由，以了解网络接口的所有有效路由。 有关详细信息，请参阅[使用有效路由排查 VM 流量流问题](../../virtual-network/virtual-network-routes-troubleshoot-powershell.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)。
+6. **验证路由**。 使用网络观察程序的[下一跃点](../../network-watcher/network-watcher-check-next-hop-portal.md)功能确认路由未阻止将流量路由到虚拟机或从虚拟机路由流量。 还可以查看有效路由，以了解网络接口的所有有效路由。 有关详细信息，请参阅[使用有效路由排查 VM 流量流问题](../../virtual-network/diagnose-network-routing-problem.md)。
 
 7. 确保任何本地防火墙或计算机上的防火墙允许发往 Azure 的出站 TCP 3389 流量。
 

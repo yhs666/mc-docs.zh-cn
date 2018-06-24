@@ -12,7 +12,7 @@
   expanded: true
   items:
     - name: 使用自定义脚本扩展
-      href: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
+      href: /virtual-machines/windows/tutorial-automate-vm-deployment
       maintainContext: true
 - name: 概念
   items:
@@ -30,6 +30,8 @@
           href: custom-script-linuxOstc.md
         - name: Windows
           href: custom-script-windows.md
+        - name: Azure 服务管理（经典）
+          href: custom-script-classic.md
     - name: 虚拟机访问
       href: vmaccess.md
     - name: 诊断

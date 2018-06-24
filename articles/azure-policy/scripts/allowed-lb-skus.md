@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: b9098cb46e9ad760afeeed2f7382c951d0706a82
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 5b0a30e628f491db045168820b28075dd9e37335
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695147"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270001"
 ---
 # <a name="allowed-load-balancer-skus"></a>允许的负载均衡器 SKU
 
@@ -30,9 +30,42 @@ ms.locfileid: "34695147"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/Network/load-balancer-skus/azurepolicy.json "Allowed Load Balancer SKUs")]
-
+```json
+{
+    "properties": {
+        "displayName": "Allowed Load Balancer SKUs",
+        "description": "This policy enables you to specify a set of load balancer SKUs that your organization can deploy.",
+        "parameters": {
+            "listOfAllowedSKUs": {
+                "type": "Array",
+                "metadata": {
+                    "description": "The list of SKUs that can be specified for load balancer.",
+                    "displayName": "Allowed SKUs"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Network/loadbalancers"
+                    },
+                    {
+                        "not": {
+                            "field": "Microsoft.Network/loadbalancers/sku.name",
+                            "in": "[parameters('listOfAllowedSKUs')]"
+                        }
+                    }
+                ]
+            },
+            "then": {
+                "effect": "Deny"
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +95,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'load-balancer-skus' --display-name 'Allowed Load Balancer SKUs' --description 'This policy enables you to specify a set of load balancer SKUs that your organization can deploy.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/load-balancer-skus/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/load-balancer-skus/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "load-balancer-skus"
@@ -72,7 +105,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "lo
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

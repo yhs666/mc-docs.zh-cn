@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/27/2017
-ms.date: 04/16/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f25c74985a8af9a2743485de944a664d0f9584e8
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 9979d713df1de5de72badd64fbdc229e8ffd24ca
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31323901"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315664"
 ---
 # <a name="create-a-vm-with-wordpress"></a>使用 WordPress 创建 VM
 
@@ -70,11 +70,11 @@ az group delete --name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和 NSG。 此命令还指定要使用的虚拟机映像和管理凭据。  |
-| [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_open_port) | 创建网络安全组规则，以允许入站流量。 在此示例中，为 HTTP 流量打开端口 80。 |
-| [az vm extension set](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) | 将自定义脚本扩展添加到虚拟机，此扩展将调用脚本来安装 WordPress。 |
-| [az group delete](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az_vm_extension_set) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和 NSG。 此命令还指定要使用的虚拟机映像和管理凭据。  |
+| [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-open-port) | 创建网络安全组规则，以允许入站流量。 在此示例中，为 HTTP 流量打开端口 80。 |
+| [az vm extension set](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) | 将自定义脚本扩展添加到虚拟机，此扩展将调用脚本来安装 WordPress。 |
+| [az group delete](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -82,4 +82,4 @@ az group delete --name myResourceGroup
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties, update link -->

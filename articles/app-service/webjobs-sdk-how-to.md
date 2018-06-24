@@ -1,5 +1,5 @@
 ---
-title: 如何使用 WebJobs SDK 进行事件驱动的后台处理 - Azure
+title: 如何使用 Azure WebJobs SDK
 description: 详细了解如何为 WebJobs SDK 编写代码。 创建事件驱动的后台处理作业，用于访问 Azure 服务和第三方服务中的数据。
 services: app-service\web, storage
 documentationcenter: .net
@@ -14,19 +14,19 @@ ms.topic: article
 origin.date: 04/27/2018
 ms.date: 06/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: 4f227bfa358761039f8aa0555769b54770120457
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 13f1c26aae63de63f37dd265d23617e093d23524
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554701"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315474"
 ---
-# <a name="how-to-use-the-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 WebJobs SDK 进行事件驱动的后台处理
+# <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 进行事件驱动的后台处理
 
-本文提供有关如何为 [WebJobs SDK](webjobs-sdk-get-started.md) 编写代码的指导。 除非另有说明，否则本文档适用于版本 2.x 和 3.x。 3.x 中引入的主要更改是使用 .NET Core 而不是 .NET Framework。
+本文提供有关如何为 [Azure WebJobs SDK](webjobs-sdk-get-started.md) 编写代码的指导。 除非另有说明，否则本文档适用于版本 2.x 和 3.x。 3.x 中引入的主要更改是使用 .NET Core 而不是 .NET Framework。
 
 >[!NOTE]
-> [Azure Functions](../azure-functions/functions-overview.md) 基于 WebJobs SDK，本文链接到某些主题的 Azure Functions 文档。 注意 Functions 与 WebJobs SDK 之间的以下差异：
+> [Azure Functions](../azure-functions/functions-overview.md) 是基于 WebJobs SDK 构建的，本文链接到某些主题的 Azure Functions 文档。 注意 Functions 与 WebJobs SDK 之间的以下差异：
 > * Azure Functions 版本 1.x 对应于 WebJobs SDK 版本 2.x，Azure Functions 2.x 对应于 WebJobs SDK 3.x。 源代码存储库遵循 WebJobs SDK 编号方案，许多存储库具有 v2.x 分支，其中的主分支当前包含 3.x 代码。
 > * Azure Functions C# 类库的示例代码类似于 WebJobs SDK 代码，不过，在 WebJobs SDK 项目中，无需指定 `FunctionName` 特性。
 > * 某些绑定类型（例如 HTTP、Webhook 以及基于 HTTP 的事件网格）只在 Functions 中受支持。 
@@ -324,7 +324,7 @@ public static void CreateQueueMessage(
 
 Azure Functions 文档中提供了有关每个绑定类型的参考信息。 每篇绑定参考文章中以存储队列为例介绍了以下信息：
 
-* [包](../azure-functions/functions-bindings-storage-queue.md#packages) - 要安装哪个包才能在 WebJobs SDK 项目中包含绑定支持。
+* [包](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x) - 要安装哪个包才能在 WebJobs SDK 项目中包含绑定支持。
 * [示例](../azure-functions/functions-bindings-storage-queue.md#trigger---example) - C# 类库示例适用于 WebJobs SDK；只需忽略 `FunctionName` 特性。
 * [特性](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes) - 用于绑定类型的特性。
 * [配置](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration) - 特性属性和构造函数参数的解释。

@@ -16,13 +16,13 @@ ms.topic: overview
 ms.custom: mvc
 origin.date: 01/12/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 07940bb40c2f4ef3d2ddfab34d45544b3b492024
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 07/02/2018
+ms.openlocfilehash: ba1ddc5e805c70076063fedd3fa07fe67b6e060d
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870603"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315658"
 ---
 # <a name="what-is-azure-logic-apps"></a>什么是 Azure 逻辑应用？
 
@@ -84,6 +84,7 @@ ms.locfileid: "29870603"
   * 在以下产品和服务的基础上进行生成： 
     * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server) 
     * [API 管理](../api-management/api-management-key-concepts.md) 
+    * [Azure Functions](../azure-functions/functions-overview.md) 
     * [Azure 服务总线](../service-bus-messaging/service-bus-messaging-overview.md)
   * 处理 [XML 消息](../logic-apps/logic-apps-enterprise-integration-xml.md)
   * 处理[平面文件](../logic-apps/logic-apps-enterprise-integration-flatfile.md)

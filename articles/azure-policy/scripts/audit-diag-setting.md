@@ -16,12 +16,12 @@ origin.date: 04/27/2018
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 159ae3f404edc5942135587fb18d92ce9dc614eb
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: cce1d398ff99d556000af0b4a22c644801e4dabc
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695137"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269950"
 ---
 # <a name="audit-diagnostic-setting"></a>审核诊断设置
 
@@ -30,9 +30,49 @@ ms.locfileid: "34695137"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/Monitoring/audit-diagnostic-setting/azurepolicy.json "Audit diagnostic setting")]
-
+```json
+{
+    "name": "audit-diagnostic-setting",
+    "properties": {
+        "displayName": "Audit diagnostic setting",
+        "description": "Audit diagnostic setting for selected resource types",
+        "mode": "all",
+        "parameters": {
+            "listOfResourceTypes": {
+                "type": "Array",
+                "metadata": {
+                    "displayName": "Resource Types",
+                    "strongType": "resourceTypes"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "field": "type",
+                "in": "[parameters('listOfResourceTypes')]"
+            },
+            "then": {
+                "effect": "auditIfNotExists",
+                "details": {
+                    "type": "Microsoft.Insights/diagnosticSettings",
+                    "existenceCondition": {
+                        "allOf": [
+                            {
+                                "field": "Microsoft.Insights/diagnosticSettings/logs.enabled",
+                                "equals": "true"
+                            },
+                            {
+                                "field": "Microsoft.Insights/diagnosticSettings/metrics.enabled",
+                                "equals": "true"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。 若要获取内置策略，请使用 ID `7f89b1eb-583c-429a-8828-af049802c1d9`。
 
 ## <a name="parameters"></a>parameters
@@ -69,7 +109,7 @@ Remove-AzureRmPolicyAssignment -Name "Audit diagnostics" -Scope <scope>
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy assignment create --scope <scope> --name "Audit diagnostics" --policy 7f89b1eb-583c-429a-8828-af049802c1d9 --params '{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}'
 ```
 
@@ -77,7 +117,7 @@ az policy assignment create --scope <scope> --name "Audit diagnostics" --policy 
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az policy assignment delete --name "Audit diagnostics" --resource-group myResourceGroup
 ```
 

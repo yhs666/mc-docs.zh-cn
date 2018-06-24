@@ -70,6 +70,8 @@
             - name: 约束的 vCPU
               href: constrained-vcpu.md
           href: sizes-memory.md
+        - name: 前几代
+          href: sizes-previous-gen.md
         - name: Azure 计算单元 (ACU)
           href: acu.md
         - name: 基准评分
@@ -91,8 +93,6 @@
           href: disk-scalability-targets.md
         - name: 磁盘的备份和灾难恢复
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-        - name: 对附加的 VHD 进行故障排除
-          href: troubleshoot-vhds.md
     - name: 网络
       href: network-overview.md
     - name: 基础结构自动化
@@ -166,10 +166,15 @@
           href: move-vm.md
         - name: 更改 VM 大小
           href: resize-vm.md
+        - name: 交换 OS 磁盘
+          href: os-disk-swap.md
         - name: 标记 VM
           href: tag.md
         - name: 在 VM 上运行脚本
-          href: extensions-customscript.md
+          href: run-scripts-in-vm.md
+          items:
+            - name: 自定义脚本扩展
+              href: ../extensions/custom-script-windows.md
         - name: 更改临时驱动器号
           href: change-drive-letter.md
         - name: 更改可用性集
@@ -177,7 +182,7 @@
         - name: 下载模板
           href: download-template.md
         - name: Azure VM 代理
-          href: agent-user-guide.md
+          href: ../extensions/agent-windows.md
         - name: 计划内维护
           href: maintenance-notifications.md
         - name: 缓解推理执行
@@ -288,37 +293,7 @@
         - name: 分配公用 DNS 名称
           href: portal-create-fqdn.md
     - name: 使用 VM 扩展
-      items:
-        - name: VM 扩展 - 概述
-          href: extensions-features.md
-        - name: 自定义脚本扩展
-          href: extensions-customscript.md
-        - name: PowerShell DSC 扩展
-          href: extensions-dsc-overview.md
-          items:
-            - name: PowerShell DSC 扩展凭据处理
-              href: extensions-dsc-credentials.md
-            - name: 包含模板的 DSC 和 VMSS
-              href: extensions-dsc-template.md
-        - name: Azure 日志收集器扩展
-          href: log-collector-extension.md
-        - name: Azure 诊断扩展
-          href: extensions-diagnostics.md
-          items:
-            - name: 扩展架构
-              href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
-            - name: 使用 PowerShell 进行启用
-              href: ps-extensions-diagnostics.md
-            - name: 使用模板进行启用
-              href: extensions-diagnostics-template.md
-            - name: 故障排除
-              href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
-        - name: 导出 VM 扩展
-          href: extensions-export-templates.md
-        - name: 排查扩展问题
-          href: extensions-troubleshoot.md
-        - name: 网络观察程序代理
-          href: extensions-nwa.md
+      href: ../extensions/overview.md
     - name: 迁移 VM
       items:
         - name: 迁移 AWS 和本地 VM
@@ -394,6 +369,12 @@
           href: troubleshoot-vm-by-use-nested-virtualization.md
         - name: 在脱机模式下安装 VM 代理
           href: install-vm-agent-offline.md
+        - name: 对附加的 VHD 进行故障排除
+          items:
+            - name: 存储资源删除错误
+              href: storage-resource-deletion-errors.md
+            - name: 附加 VHD 的 VM 意外重新启动
+              href: unexpected-reboots-attached-vhds.md
 - name: 参考
   items:
     - name: Azure CLI

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/02/2018
 ms.author: v-yiso
 origin.date: 03/12/2018
-ms.openlocfilehash: 1f86393418c5420fd85262ea67c7da71960dfcbe
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 9b3c968582f93797c0b01de8d49fa1af54efc295
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155448"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315367"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>有关使用 Azure 资源管理器模板部署 Web 应用的指南
 
@@ -60,19 +60,20 @@ ms.locfileid: "30155448"
 
 通常，解决方案仅包括上述某些资源和层。 对于缺少的层，请将较低的资源映射到下一个较高的层。
 
-以下示例显示了模板的一部分。 连接字符串配置值依赖于 MSDeploy 扩展。 MSDeploy 扩展依赖于 Web 应用和数据库。
+以下示例显示了模板的一部分。 连接字符串配置值依赖于 MSDeploy 扩展。 MSDeploy 扩展依赖于 Web 应用和数据库。 
 
 ```json
 {
-    "name": "[parameters('name')]",
-    "type": "Microsoft.Web/sites",
+    "name": "[parameters('appName')]",
+    "type": "Microsoft.Web/Sites",
+    ...
     "resources": [
       {
           "name": "MSDeploy",
           "type": "Extensions",
           "dependsOn": [
-            "[concat('Microsoft.Web/Sites/', parameters('name'))]",
-            "[concat('SuccessBricks.ClearDB/databases/', parameters('databaseName'))]"
+            "[concat('Microsoft.Web/Sites/', parameters('appName'))]",
+            "[concat('Microsoft.Sql/servers/', parameters('dbServerName'), '/databases/', parameters('dbName'))]",
           ],
           ...
       },
@@ -80,13 +81,15 @@ ms.locfileid: "30155448"
           "name": "connectionstrings",
           "type": "config",
           "dependsOn": [
-            "[concat('Microsoft.Web/Sites/', parameters('name'), '/Extensions/MSDeploy')]"
+            "[concat('Microsoft.Web/Sites/', parameters('appName'), '/Extensions/MSDeploy')]"
           ],
           ...
       }
     ]
 }
 ```
+
+有关使用上述代码的现成示例，请参阅[模板：构建简单的 Umbraco Web 应用](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple)。
 
 ## <a name="find-information-about-msdeploy-errors"></a>查找有关 MSDeploy 错误的信息
 

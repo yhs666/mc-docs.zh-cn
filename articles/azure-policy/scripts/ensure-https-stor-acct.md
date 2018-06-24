@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 753af0722e872c6e8682d15bcd512512936d2b14
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 1dd477eb0acf1e08cd4703886304026021e20041
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695139"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269937"
 ---
 # <a name="ensure-https-traffic-only-for-storage-account"></a>确保 https 通信流仅用于存储帐户
 
@@ -30,9 +30,35 @@ ms.locfileid: "34695139"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/Storage/https-traffic-only/azurepolicy.json "Ensure https traffic only for storage account")]
-
+```json
+{
+    "properties": {
+        "mode": "all",
+        "parameters": {},
+        "displayName": "Ensure https traffic only for storage account",
+        "description": "Ensure https traffic only for storage account",
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Storage/storageAccounts"
+                    },
+                    {
+                        "not": {
+                            "field": "Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly",
+                            "equals": "true"
+                        }
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +88,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'https-traffic-only' --display-name 'Ensure https traffic only for storage account' --description 'Ensure https traffic only for storage account' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Storage/https-traffic-only/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Storage/https-traffic-only/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "https-traffic-only"
@@ -72,7 +98,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "ht
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

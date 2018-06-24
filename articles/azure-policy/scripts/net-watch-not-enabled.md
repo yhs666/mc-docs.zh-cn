@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: e0962c74bf3fd390ed4f087ab8af3b43921ecf0e
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 076639f3792ca33118aead69c08f615e47aa0b57
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695142"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270028"
 ---
 # <a name="audit-if-network-watcher-is-not-enabled-for-region"></a>如果未对区域启用网络观察程序，则进行审核
 
@@ -30,9 +30,43 @@ ms.locfileid: "34695142"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/Network/audit-network-watcher-existence/azurepolicy.json "Audit if Network Watcher is not enabled for region")]
-
+```json
+{
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "audit-network-watcher-existence",
+    "properties": {
+        "displayName": "Audit if Network Watcher is not enabled for region",
+        "description": "This policy audits if Network Watcher is not enabled for a selected region.",
+        "parameters": {
+            "location": {
+                "type": "string",
+                "metadata": {
+                    "displayName": "Audit if Network Watcher is not enabled for region",
+                    "description": "This policy audits if Network Watcher is not enabled for a selected region.",
+                    "strongType": "location"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "field": "type",
+                "equals": "Microsoft.Network/virtualNetworks"
+            },
+            "then": {
+                "effect": "auditIfNotExists",
+                "details": {
+                    "type": "Microsoft.Network/networkWatchers",
+                    "resourceGroupName": "NetworkWatcherRG",
+                    "existenceCondition": {
+                        "field": "location",
+                        "equals": "[parameters('location')]"
+                    }
+                }
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +96,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'audit-network-watcher-existence' --display-name 'Audit if Network Watcher is not enabled for region' --description 'This policy audits if Network Watcher is not enabled for a selected region.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/audit-network-watcher-existence/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/audit-network-watcher-existence/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "audit-network-watcher-existence"
@@ -72,7 +106,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "au
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

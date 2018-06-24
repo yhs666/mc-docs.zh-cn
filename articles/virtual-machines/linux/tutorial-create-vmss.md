@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
-origin.date: 12/15/2017
-ms.date: 06/04/2018
+origin.date: 06/01/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1b36cac20d6c1daa7693b48cd64e78bd09022052
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 84b4f97ace7bf0780841c52d4699c72ee353d022
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702737"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315426"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli-20"></a>教程：使用 Azure CLI 2.0 在 Linux 上创建虚拟机规模集和部署高度可用的应用
 
@@ -50,7 +50,7 @@ ms.locfileid: "34702737"
 ## <a name="create-an-app-to-scale"></a>创建用于缩放的应用
 对于生产用途，可能需要[创建自定义 VM 映像](tutorial-custom-images.md)，其中包含已安装和配置的应用程序。 在本教程中，我们将在首次启动时自定义 VM，以便快速了解规模集的运作方式。
 
-上一篇教程已介绍[如何使用 cloud-init 在首次启动时自定义 Linux 虚拟机](tutorial-automate-vm-deployment.md)。 可使用同一个 cloud-init 配置文件安装 NGINX 并运行简单的“Hello World”Node.js 应用。 
+上一篇教程已介绍[如何使用 cloud-init 在首次启动时自定义 Linux 虚拟机](tutorial-automate-vm-deployment.md)。 可使用同一个 cloud-init 配置文件安装 NGINX 并运行简单的“Hello World”Node.js 应用。
 
 在当前 shell 中，创建名为“cloud-init.txt”的文件并粘贴下面的配置。 例如，在本地计算机中创建文件。 输入 `sensible-editor cloud-init.txt` 以创建文件并查看可用编辑器的列表。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：<!-- Not Available on the Cloud Shell-->
 
@@ -99,13 +99,13 @@ runcmd:
 ## <a name="create-a-scale-set"></a>创建规模集
 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组，然后才能创建规模集。 以下示例在“chinaeast”位置创建名为“myResourceGroupScaleSet”的资源组：
 
-```azurecli 
+```azurecli
 az group create --name myResourceGroupScaleSet --location chinaeast
 ```
 
 现在，使用 [az vmss create](https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#az-vmss-create) 创建虚拟机规模集。 以下示例创建名为“myScaleSet”的规模集，使用 cloud-int 文件自定义 VM，然后生成 SSH 密钥（如果不存在）：
 
-```azurecli 
+```azurecli
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
@@ -123,7 +123,7 @@ az vmss create \
 
 若要允许通信流到达 Web 应用，请使用 [az network lb rule create](https://docs.azure.cn/zh-cn/cli/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create) 创建一个规则。 以下示例创建名为“myLoadBalancerRuleWeb”的规则：
 
-```azurecli 
+```azurecli
 az network lb rule create \
   --resource-group myResourceGroupScaleSet \
   --name myLoadBalancerRuleWeb \
@@ -138,7 +138,7 @@ az network lb rule create \
 ## <a name="test-your-app"></a>测试应用
 若要在 Web 上查看 Node.js 应用，请使用 [az network public-ip show](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-show) 获取负载均衡器的公共 IP 地址。 以下示例获取创建为规模集一部分的“myScaleSetLBPublicIP”的 IP 地址：
 
-```azurecli 
+```azurecli
 az network public-ip show \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSetLBPublicIP \
@@ -158,7 +158,7 @@ az network public-ip show \
 ### <a name="view-vms-in-a-scale-set"></a>查看规模集中的 VM
 若要查看规模集中运行的 VM 列表，请使用 [az vmss list-instances](https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#az-vmss-list-instances)，如下所示：
 
-```azurecli 
+```azurecli
 az vmss list-instances \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
@@ -167,17 +167,17 @@ az vmss list-instances \
 
 输出类似于以下示例：
 
-```azurecli 
+```bash
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup            VmId
 ------------  --------------------  ----------  ------------  -------------------  -----------------------  ------------------------------------
            1  True                  chinaeast      myScaleSet_1  Succeeded            MYRESOURCEGROUPSCALESET  c72ddc34-6c41-4a53-b89e-dd24f27b30ab
            3  True                  chinaeast      myScaleSet_3  Succeeded            MYRESOURCEGROUPSCALESET  44266022-65c3-49c5-92dd-88ffa64f95da
 ```
 
-### <a name="increase-or-decrease-vm-instances"></a>增加或减少 VM 实例
+### <a name="manually-increase-or-decrease-vm-instances"></a>手动增加或减少 VM 实例
 若要查看规模集中当前包含的实例数，请使用 [az vmss show](https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#az-vmss-show) 并查询 “sku.capacity”：
 
-```azurecli 
+```azurecli
 az vmss show \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
@@ -187,89 +187,17 @@ az vmss show \
 
 然后，可以使用 [az vmss scale](https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#az-vmss-scale) 手动增加或减少规模集中虚拟机的数目。 以下示例将规模集中 VM 的数目设置为 *3*：
 
-```azurecli 
+```azurecli
 az vmss scale \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
     --new-capacity 3
 ```
 
-### <a name="configure-autoscale-rules"></a>配置自动缩放规则
-可以定义自动缩放规则，而不是手动缩放规模集中的实例数。 这些规则监视规模集中的实例，并根据所定义的指标和阈值做出相应响应。 如果在 5 分钟内平均 CPU 负载高于 60%，以下示例将增加一个实例。 如果在 5 分钟内平均 CPU 负载低于 30%，则将减少一个实例。 订阅 ID 用于为各种规模集组件生成资源 URI。 若要使用 [az monitor autoscale-settings create](https://docs.azure.cn/zh-cn/cli/monitor/autoscale-settings?view=azure-cli-latest#az-monitor-autoscale-settings-create) 创建这些规则，请复制并粘贴以下自动缩放命令配置文件：
-
-```azurecli 
-sub=$(az account show --query id -o tsv)
-
-az monitor autoscale-settings create \
-    --resource-group myResourceGroupScaleSet \
-    --name autoscale \
-    --parameters '{"autoscale_setting_resource_name": "autoscale",
-      "enabled": true,
-      "location": "China East",
-      "notifications": [],
-      "profiles": [
-        {
-          "name": "Auto created scale condition",
-          "capacity": {
-            "minimum": "2",
-            "maximum": "10",
-            "default": "2"
-          },
-          "rules": [
-            {
-              "metricTrigger": {
-                "metricName": "Percentage CPU",
-                "metricNamespace": "",
-                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
-                "metricResourceLocation": "chinaeast",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT5M",
-                "timeAggregation": "Average",
-                "operator": "GreaterThan",
-                "threshold": 70
-              },
-              "scaleAction": {
-                "direction": "Increase",
-                "type": "ChangeCount",
-                "value": "1",
-                "cooldown": "PT5M"
-              }
-            },
-            {
-              "metricTrigger": {
-                "metricName": "Percentage CPU",
-                "metricNamespace": "",
-                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
-                "metricResourceLocation": "chinaeast",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT5M",
-                "timeAggregation": "Average",
-                "operator": "LessThan",
-                "threshold": 30
-              },
-              "scaleAction": {
-                "direction": "Decrease",
-                "type": "ChangeCount",
-                "value": "1",
-                "cooldown": "PT5M"
-              }
-            }
-          ]
-        }
-      ],
-      "tags": {},
-      "target_resource_uri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
-    }'
-```
-
-若要重用自动缩放配置文件，可以创建一个 JSON（JavaScript 对象表示法）文件，并使用 `--parameters @autoscale.json` 参数将该文件传递给 `az monitor autoscale-settings create` 命令。 有关使用自动缩放的详细设计信息，请参阅[自动缩放最佳做法](https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling)。
-
 ### <a name="get-connection-info"></a>获取连接信息
 若要获取有关规模集中 VM 的连接信息，请使用 [az vmss list-instance-connection-info](https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#az-vmss-list-instance-connection-info)。 此命令为每个允许采用 SSH 进行连接的 VM 输出公共 IP 地址和端口：
 
-```azurecli 
+```azurecli
 az vmss list-instance-connection-info \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet
@@ -281,7 +209,7 @@ az vmss list-instance-connection-info \
 ### <a name="create-scale-set-with-data-disks"></a>创建具有数据磁盘的规模集
 若要创建规模集并附加数据磁盘，请将 `--data-disk-sizes-gb` 参数添加到 [az vmss create](https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#az-vmss-create) 命令中。 以下示例创建一个规模集，它具有附加到每个实例的 50 GB 数据磁盘：
 
-```azurecli 
+```azurecli
 az vmss create \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSetDisks \
@@ -298,7 +226,7 @@ az vmss create \
 ### <a name="add-data-disks"></a>添加数据磁盘
 若要向规模集中的实例添加数据磁盘，请使用 [az vmss disk attach](https://docs.azure.cn/zh-cn/cli/vmss/disk?view=azure-cli-latest#az-vmss-disk-attach)。 以下示例向每个实例添加一个 50 GB 的磁盘：
 
-```azurecli 
+```azurecli
 az vmss disk attach \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
@@ -309,7 +237,7 @@ az vmss disk attach \
 ### <a name="detach-data-disks"></a>分离数据磁盘
 若要删除附加到规模集中实例的数据磁盘，请使用 [az vmss disk detach](https://docs.azure.cn/zh-cn/cli/vmss/disk?view=azure-cli-latest#az-vmss-disk-detach)。 以下示例在 LUN 2 删除每个实例中的数据磁盘：
 
-```azurecli 
+```azurecli
 az vmss disk detach \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \

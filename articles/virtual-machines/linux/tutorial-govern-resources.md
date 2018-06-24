@@ -12,15 +12,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 02/21/2018
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1644ee1ce51a651620c0f2bfe2632c10efc4e379
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: a8a72db005b8b1420ca902b668669d0762f6794e
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702731"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315480"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>教程：了解如何使用 Azure CLI 2.0 控制 Linux 虚拟机
 
@@ -57,6 +57,7 @@ az group create --name myResourceGroup --location "China East"
 * [存储帐户参与者](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 通常情况下，与其向单个用户分配角色，不如为需要进行相似操作的用户[创建一个 Azure Active Directory 组](../../active-directory/active-directory-groups-create-azure-portal.md)， 然后向该组分配相应的角色。 为了简单起见，本文创建一个没有成员的 Azure Active Directory 组。 仍然可以为该组分配一个负责某个范围的角色。 
+<!-- Notice: URL is not contains fundamentals -->
 
 以下示例创建一个邮件别名为 *vmDemoGroup* 且名为 *VMDemoContributors* 的 Azure Active Directory 组。 邮件别名用作组的别名。
 
@@ -248,4 +249,4 @@ az group delete --name myResourceGroup
 > [!div class="nextstepaction"]
 > [监视虚拟机](tutorial-monitoring.md)
 
-<!-- Update_Description: update meta properties, update links, add content of azure policy -->
+<!-- Update_Description: update meta properties, update links -->

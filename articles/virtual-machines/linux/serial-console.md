@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/05/2018
-ms.date: 05/14/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8977b5b310497a993ca9d65bfd38a8f475896135
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.openlocfilehash: d8d3e76284de019f0ac1056195e9991ab5442dad
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34062121"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315656"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>虚拟机串行控制台（预览版） 
 
@@ -141,3 +141,5 @@ A. 此预览功能遵守 Azure 预览条款。 最好是通过上面所述的渠
 ## <a name="next-steps"></a>后续步骤
 * 串行控制台也适用于 [Windows](../windows/serial-console.md) VM。
 * 详细了解[启动诊断](boot-diagnostics.md)
+
+<!-- Update_Description: update meta properties -->

@@ -1,31 +1,26 @@
 ---
-title: 循环 - 处理数组或重复操作
-description: 通过“for each”循环处理数组，或者重复执行操作，直到逻辑应用中满足特定的条件
+title: 添加循环重复执行操作或处理数组 - Azure 逻辑应用 | Microsoft Docs
+description: 如何在 Azure 逻辑应用中创建重复执行工作流操作或处理数组的循环
 services: logic-apps
-keywords: for each 循环
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 03/05/2018
+author: ecfan
 ms.author: v-yiso
+manager: jeconnoc
+origin.date: 03/05/2018
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ms.date: 04/23/2018
-ms.openlocfilehash: bb917ea2b944ae23a6ddac5d3969939b26c9a681
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: b04a66b9de89a3941d9af9c2b6fa8d5f47592315
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31359571"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315554"
 ---
-# <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>循环：处理数组或重复执行操作，直到满足某个条件
+# <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>在 Azure 逻辑应用中添加循环以重复执行操作或处理数组
 
-若要在逻辑应用中循环访问数组，可以使用 [Foreach 循环](#foreach-loop)或[顺序的 Foreach 循环](#sequential-foreach-loop)。 标准 Foreach 循环中的周期并行运行，而顺序的 Foreach 循环中的周期一次运行一个。 若要了解 Foreach 循环在单个逻辑应用运行中可以处理的最大数组项数，请参阅[限制和配置](../logic-apps/logic-apps-limits-and-config.md)。 
+若要在逻辑应用中循环访问数组，可以使用 [Foreach 循环](#foreach-loop)或[顺序的 Foreach 循环](#sequential-foreach-loop)。 标准“Foreach”循环中的迭代并行运行，而顺序的“Foreach”循环中的迭代一次运行一个。 若要了解 Foreach 循环在单个逻辑应用运行中可以处理的最大数组项数，请参阅[限制和配置](../logic-apps/logic-apps-limits-and-config.md)。 
 
 > [!TIP] 
 > 如果你有接收数组的触发器并且希望针对每个数组项运行工作流，则可以使用 [**SplitOn** 触发器属性](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)“分离”该数组。 
@@ -156,9 +151,6 @@ ms.locfileid: "31359571"
 * 调用某个终结点，直至获得想要的响应。
 * 在数据库中创建一条记录，等到该记录中的特定字段得到批准，然后继续进行处理。 
 
-> [!NOTE]
-> Until 循环不能包括 Foreach 循环或其他 Until 循环。
-
 例如，在每天的上午 8:00，此逻辑应用都递增某个变量的值，直到该变量的值等于 10。 然后，该逻辑应用将发送一封电子邮件来确认当前值。 虽然此示例使用的是 Office 365 Outlook，但是也可以使用逻辑应用支持的任何电子邮件提供程序（[查看此处的连接器列表](/connectors/)）。 如果使用其他电子邮件帐户，整个步骤仍然是相同的，但 UI 可能稍有不同。 
 
 1. 创建空白逻辑应用。 在逻辑应用设计器中，搜索“定期”，然后选择以下触发器：“计划 - 定期”。 
@@ -171,7 +163,7 @@ ms.locfileid: "31359571"
 
    | 属性 | 值 |
    | -------- | ----- |
-   | **时间间隔** | 1 | 
+   | **间隔** | 1 | 
    | **频率** | 日期 |
    | **在这些小时** | 8 |
    ||| 
@@ -186,7 +178,7 @@ ms.locfileid: "31359571"
 
    | 属性 | 值 | 说明 |
    | -------- | ----- | ----------- |
-   | **名称** | 限制 | 变量的名称 | 
+   | **名称** | Limit | 变量的名称 | 
    | **类型** | Integer | 变量的数据类型 | 
    | **值** | 0 | 变量的起始值 | 
    |||| 
@@ -217,7 +209,7 @@ ms.locfileid: "31359571"
 
     | 属性 | 值 | 说明 |
     | -------- | ----- | ----------- | 
-    | **To** | *<email-address@domain>* | 收件人的电子邮件地址。 若要进行测试，请使用你自己的电子邮件地址。 | 
+    | **收件人** | *<email-address@domain>* | 收件人的电子邮件地址。 若要进行测试，请使用你自己的电子邮件地址。 | 
     | **主题** | “限制”的当前值为 **Limit** | 指定电子邮件主题。 对于本例，请确保包括 **Limit** 变量。 | 
     | **正文** | <*email-content*> | 指定你要发送的电子邮件消息内容。 对于本例，输入你喜欢的任何文本。 | 
     |||| 
@@ -234,7 +226,7 @@ Until 循环具有默认限制，用于在发生下列任一条件时停止执�
 
 | 属性 | 默认值 | 说明 | 
 | -------- | ------------- | ----------- | 
-| **计数** | 60 | 在循环退出之前运行的最大循环次数。 默认值为 60 个周期。 | 
+| **Count** | 60 | 在循环退出之前运行的最大循环次数。 默认值为 60 个周期。 | 
 | **超时** | PT1H | 在循环退出之前运行循环的最大时间量。 默认值为一小时，并且是以 ISO 8601 格式指定的。 <p>将针对每个循环周期评估超时值。 如果循环中有任何操作花费的时间多于超时限制，则当前周期不会停止，但下一周期不会启动，因为不满足限制条件。 | 
 |||| 
 

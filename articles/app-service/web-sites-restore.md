@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/06/2016
 ms.date: 04/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: d2088cce1af330c189876d5c0ae012f361822b25
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: a33718e81bfa7885d8e35ac958a926d9ed2b12aa
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781806"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315633"
 ---
 # <a name="restore-an-app-in-azure"></a>在 Azure 中还原应用
 本文演示如何在 [Azure 应用服务](../app-service/app-service-web-overview.md)中还原已事先备份的应用（请参阅[在 Azure 中备份应用](web-sites-backup.md)）。 可以根据需要将应用及其链接的数据库还原到以前的状态，或者基于原始应用的备份之一创建新的应用。 Azure 应用服务支持用于备份和还原的以下数据库：
@@ -50,7 +50,7 @@ ms.locfileid: "31781806"
    > 如果选择“覆盖”，则会清除并覆盖当前应用中所有的现有数据。 在单击“确定”之前，请确保该操作正是想要执行的操作。
    > 
    > 
-
+   
     可选择“现有应用”将应用备份还原到同一资源组中的其他应用。 使用此选项之前，应已使用应用备份中定义的镜像数据库配置在资源组中创建了其他应用。 还可以创建一个**新**应用，以便将内容还原到其中。
 
 4. 单击 **“确定”**。

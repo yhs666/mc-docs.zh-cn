@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 15e345de4d2ea58890895ab241690b5937ae0513
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 8a64c1b59e4e4b5eebffc6bc3c2464de419a4a64
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695162"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270017"
 ---
 # <a name="no-network-peering-to-er-network"></a>没有与 ER 网络的网络对等互连
 
@@ -30,9 +30,42 @@ ms.locfileid: "34695162"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/Network/no-network-peerings-to-er-network/azurepolicy.json "No network peering to ER network")]
-
+```json
+{
+    "properties": {
+        "mode": "all",
+        "parameters": {
+            "resourceGroupName": {
+                "type": "String",
+                "metadata": {
+                    "description": "Name of the resource group with ER Network",
+                    "displayName": "ER Network Resource Group Name",
+                    "strongType": "ExistingResourceGroups"
+                }
+            }
+        },
+        "displayName": "No network peering to ER network",
+        "description": "No network peering can be associated to networks in network in a resource group containing central managed network infrastructure.",
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings"
+                    },
+                    {
+                        "field": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/remoteVirtualNetwork.id",
+                        "contains": "[concat('resourceGroups/',parameters('resourceGroupName'))]"
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +95,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'no-network-peerings-to-er-network' --display-name 'No network peering to ER network' --description 'No network peering can be associated to networks in network in a resource group containing central managed network infrastructure.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/no-network-peerings-to-er-network/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/no-network-peerings-to-er-network/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "no-network-peerings-to-er-network"
@@ -72,7 +105,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "no
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

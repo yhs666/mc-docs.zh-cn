@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: a80d19489fb450d932aef5b6be124fd132e191f0
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 21c50d59483c01e656ad819241a5824397e9aa09
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695133"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269934"
 ---
 # <a name="allowed-resource-types"></a>允许的资源类型
 
@@ -30,9 +30,39 @@ ms.locfileid: "34695133"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/built-in-policy/allowed-resourcetypes/azurepolicy.json "Allowed resource types")]
-
+```json
+{
+  "properties": {
+    "displayName": "Allowed resource types",
+    "policyType": "BuiltIn",
+    "description": "This policy enables you to specify the resource types that your organization can deploy.",
+    "parameters": {
+      "listOfResourceTypesAllowed": {
+        "type": "Array",
+        "metadata": {
+          "description": "The list of resource types that can be deployed.",
+          "displayName": "Allowed resource types",
+          "strongType": "resourceTypes"
+        }
+      }
+    },
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "type",
+          "in": "[parameters('listOfResourceTypesAllowed')]"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  },
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/a08ec900-254a-4555-9bf5-e42af04b5c5c",
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "a08ec900-254a-4555-9bf5-e42af04b5c5c"
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +92,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'allowed-resourcetypes' --display-name 'Allowed resource types' --description 'This policy enables you to specify the resource types that your organization can deploy.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-resourcetypes/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-resourcetypes/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "allowed-resourcetypes"
@@ -72,7 +102,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "al
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

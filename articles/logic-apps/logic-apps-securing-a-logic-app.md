@@ -15,12 +15,12 @@ ms.workload: integration
 origin.date: 11/22/2016
 ms.author: v-yiso
 ms.date: 04/30/2018
-ms.openlocfilehash: 675d2e87f46eda76bde95dd5783af995a2eb4d4a
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 2d2136adb437801b451db2258b290348eeec6abf
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782064"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315614"
 ---
 # <a name="secure-access-to-your-logic-apps"></a>安全访问逻辑应用
 
@@ -204,7 +204,7 @@ POST
       "apiVersion": "2016-06-01",
       "properties": {
         "definition": {
-          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
           "actions": {
             "Call_External_API": {
               "type": "http",

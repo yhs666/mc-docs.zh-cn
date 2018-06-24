@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/15/2016
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: b936ac637afa5b342002863b3f7f935d7166eaa5
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 07/02/2018
+ms.openlocfilehash: d214c7586e0c6fa3a54fb3c92d0b1e6c53fd945c
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073093"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315395"
 ---
 # <a name="get-started-with-the-http-action"></a>HTTP 操作入门
 
@@ -152,7 +152,7 @@ HTTP 触发器按重复间隔对 HTTP 终结点发送调用。 任何低于 300 
 
 > [!TIP]
 > 如果要使用无法从定义检索的密码，则使用 `securestring` 参数和 `@parameters()` 
-> [ 工作流定义函数](http://aka.ms/logicappdocs)。
+> [ 工作流定义函数](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow)。
 
 例如：
 
@@ -176,7 +176,7 @@ HTTP 触发器按重复间隔对 HTTP 终结点发送调用。 任何低于 300 
 
 > [!TIP]
 > 要使用定义中会在保存逻辑应用后不可读的参数，可使用 `securestring` 参数和 `@parameters()` 
-> [工作流定义函数](http://aka.ms/logicappdocs)。
+> [工作流定义函数](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow)。
 
 例如：
 
@@ -200,7 +200,7 @@ Azure AD OAuth 身份验证需要以下身份验证对象。 * 表示它是必�
 | 机密* |secret |正在请求令牌的客户端的机密 |
 
 > [!TIP]
-> 可使用 `securestring` 参数和 `@parameters()` [工作流定义函数](http://aka.ms/logicappdocs)在定义中使用保存后不可读的参数。
+> 可使用 `securestring` 参数和 `@parameters()` [工作流定义函数](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow)在定义中使用保存后不可读的参数。
 > 
 > 
 

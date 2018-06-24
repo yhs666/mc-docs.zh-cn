@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 05/17/2018
 ms.date: 06/18/2018
 ms.author: v-johch
-ms.openlocfilehash: fa2579a88882f3899e77180003c2a9df5c8082dc
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: 60a1f4395b7eaf83ae06daa460e70f02c86bc215
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324249"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269988"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL 数据库威胁检测
 

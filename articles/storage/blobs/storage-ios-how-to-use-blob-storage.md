@@ -11,16 +11,16 @@ ms.topic: article
 origin.date: 03/21/2018
 ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: 9f417425d7fa5d30be7df4b8cd417def8cfdda4a
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 813ac8a0193fdf8adf4be62e94d61e579fd95bb0
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867460"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270056"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>如何通过 iOS 使用 Blob 存储
 
-本文演示如何使用 Microsoft Azure Blob 存储执行常见任务。 示例是用 Objective-C 编写的，并使用了 [用于 iOS 的 Azure 存储客户端库](https://github.com/Azure/azure-storage-ios)。 涉及的任务包括上传、列出、下载和删除 Blob。 有关 Blob 的详细信息，请参阅[后续步骤](#next-steps)部分。 也可下载 [示例应用](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) ，快速了解如何在 iOS 应用程序中使用 Azure 存储。
+本文演示如何使用 Azure Blob 存储执行常见任务。 示例是用 Objective-C 编写的，并使用了 [用于 iOS 的 Azure 存储客户端库](https://github.com/Azure/azure-storage-ios)。 涉及的任务包括上传、列出、下载和删除 Blob。 有关 Blob 的详细信息，请参阅[后续步骤](#next-steps)部分。 也可下载 [示例应用](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) ，快速了解如何在 iOS 应用程序中使用 Azure 存储。
 
 ## <a name="what-is-blob-storage"></a>什么是 Blob 存储？
 

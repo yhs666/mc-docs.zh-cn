@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: a7211ae6169af97071740eb796e42ef1a74f7beb
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 61bd65e3591b8badfe6f7a55d57385bf71b97f43
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34696036"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269921"
 ---
 # <a name="allow-custom-vm-image-from-a-resource-group"></a>允许使用来自资源组的自定义 VM 映像
 
@@ -30,10 +30,44 @@ ms.locfileid: "34696036"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/compute/custom-image-from-rg/azurepolicy.json "Allow custom VM image from a Resource Group")]
-
-
+```json
+{
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "custom-image-from-rg",
+    "properties": {
+        "displayName": "Allow custom VM image from a Resoruce Group",
+        "description": "This policy allows only usage of images from a resource group",
+        "parameters": {
+            "resourceGroupName":{
+                "type":"String",
+                "metadata":{
+                    "displayName": "Resource Group Name",
+                    "strongType": "ExistingResourceGroups"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Compute/virtualMachines"
+                    },
+                    {
+                        "not": {
+                            "field": "Microsoft.Compute/imageId",
+                            "contains": "[concat('resourceGroups/',parameters('resourceGroupName'))]"
+                        }
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -63,7 +97,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'custom-image-from-rg' --display-name 'Allow custom VM image from a Resource Group' --description 'This policy allows only usage of images from a resource group' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/custom-image-from-rg/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/custom-image-from-rg/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "custom-image-from-rg"
@@ -73,7 +107,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "cu
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

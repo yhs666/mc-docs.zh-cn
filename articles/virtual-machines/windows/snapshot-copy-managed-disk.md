@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 04/10/2018
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: ae385f73413e4a844c7e686e5223e79257ff3840
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 329a66455c92cae0669055d65d69f4fb164d2db8
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867624"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315520"
 ---
 # <a name="create-a-snapshot"></a>创建快照
 
@@ -42,7 +42,7 @@ ms.locfileid: "34867624"
 
 以下步骤演示如何获取要复制的 VHD 磁盘，如何创建快照配置，以及如何使用 [New-AzureRmSnapshot](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet 创建磁盘的快照。 
 
-在开始之前，请确保有最新版本的 AzureRM.Compute PowerShell 模块。 本文需要 5.7.0 版本或更高版本的 AzureRM 模块。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。
+在开始之前，请确保有最新版本的 AzureRM.Compute PowerShell 模块。 本文需要 5.7.0 版本或更高版本的 AzureRM 模块。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
 
 设置一些参数。 
 

@@ -16,12 +16,12 @@ origin.date: 04/27/2018
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 6be69843896768c8126cc0eeabf9f44db06595f5
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 0eaa17426faeebfa48d7c3b626cbce070c54980d
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695148"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269995"
 ---
 # <a name="audit-sql-database-encryption"></a>审核 SQL 数据库加密
 
@@ -91,7 +91,7 @@ Remove-AzureRmPolicyAssignment -Name "SQL TDE Audit" -Scope <scope>
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy assignment create --scope <scope> --name "SQL TDE Audit" --policy 17k78e20-9358-41c9-923c-fb736d382a12
 ```
 
@@ -99,7 +99,7 @@ az policy assignment create --scope <scope> --name "SQL TDE Audit" --policy 17k7
 
 运行以下命令删除策略分配。
 
-```azurecli-interactive
+```azurecli
 az policy assignment delete --name "SQL TDE Audit" --resource-group myResourceGroup
 ```
 

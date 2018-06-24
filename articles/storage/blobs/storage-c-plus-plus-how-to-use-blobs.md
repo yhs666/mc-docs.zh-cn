@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 03/21/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 0102aa2542480536f252e2731063946c9efc2785
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 44fcd5b72a8817b63ee3802360f4f4682f4bdd62
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867431"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269946"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>如何通过 C++ 使用 Blob 存储
 
@@ -52,7 +52,7 @@ ms.locfileid: "34867431"
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>设置 Azure 存储连接字符串
-Azure 存储客户端使用存储连接字符串来存储用于访问数据管理服务的终结点和凭据。 在客户端应用程序中运行时，必须提供以下格式的存储连接字符串，并对 AccountName 和 AccountKey 值使用 [Azure 门户](https://portal.azure.com)中列出的存储帐户的名称和存储帐户的存储访问密钥。 有关存储帐户和访问密钥的信息，请参阅[关于 Azure 存储帐户](../common/storage-create-storage-account.md?toc=%2fstorage%2fblobs%2ftoc.json)。 此示例演示如何声明一个静态字段以保存连接字符串：  
+Azure 存储客户端使用存储连接字符串来存储用于访问数据管理服务的终结点和凭据。 在客户端应用程序中运行时，必须提供以下格式的存储连接字符串，并对 AccountName 和 AccountKey 值使用 [Azure 门户](https://portal.azure.cn)中列出的存储帐户的名称和存储帐户的存储访问密钥。 有关存储帐户和访问密钥的信息，请参阅[关于 Azure 存储帐户](../common/storage-create-storage-account.md?toc=%2fstorage%2fblobs%2ftoc.json)。 此示例演示如何声明一个静态字段以保存连接字符串：  
 
 ```cpp
 // Define the connection-string with your values.

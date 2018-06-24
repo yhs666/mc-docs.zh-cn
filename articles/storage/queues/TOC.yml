@@ -129,7 +129,7 @@
     - name: PHP
       href: 'http://azure.github.io/azure-storage-php/'
     - name: Python
-      href: 'https://azure-storage.readthedocs.io/en/latest/index.html'
+      href: 'http://azure.github.io/azure-storage-python/'
     - name: C++
       href: 'http://azure.github.io/azure-storage-cpp'
     - name: iOS

@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 3c14650ad7368fea7f36f62498b0cab7dcd1feef
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: d277dbb883cb0cc209431e66772c62701f63b4c9
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695164"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270022"
 ---
 # <a name="allowed-virtual-network-gateway-skus"></a>允许的虚拟网络网关 SKU
 
@@ -30,9 +30,56 @@ ms.locfileid: "34695164"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/Network/virtual-network-gateway-skus/azurepolicy.json "Allowed Virtual Network Gateway SKUs")]
-
+```json
+{
+    "properties": {
+        "displayName": "Allowed Virtual Network Gateway SKUs",
+        "description": "This policy enables you to specify a set of virtual network gateway SKUs that your organization can deploy.",
+        "parameters": {
+            "listOfAllowedSKUs": {
+                "type": "Array",
+                "metadata": {
+                    "description": "The list of SKUs that can be specified for virtual network gateways.",
+                    "displayName": "Allowed SKUs"
+                }
+            },
+            "gatewayType": {
+                "type": "String",
+                "allowedValues": [
+                    "Vpn",
+                    "ExpressRoute"
+                ],
+                "metadata": {
+                    "displayName": "Gateway Type"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Network/virtualNetworkGateways"
+                    },
+                    {
+                        "field": "Microsoft.Network/virtualNetworkGateways/gatewayType",
+                        "equals": "[parameters('gatewayType')]"
+                    },
+                    {
+                        "not": {
+                            "field": "Microsoft.Network/virtualNetworkGateways/sku.name",
+                            "in": "[parameters('listOfAllowedSKUs')]"
+                        }
+                    }
+                ]
+            },
+            "then": {
+                "effect": "Deny"
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +109,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'virtual-network-gateway-skus' --display-name 'Allowed Virtual Network Gateway SKUs' --description 'This policy enables you to specify a set of virtual network gateway SKUs that your organization can deploy.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/virtual-network-gateway-skus/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/virtual-network-gateway-skus/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "virtual-network-gateway-skus"
@@ -72,7 +119,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "vi
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

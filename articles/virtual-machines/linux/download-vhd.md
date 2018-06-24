@@ -13,21 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 06/26/2017
-ms.date: 06/04/2018
+origin.date: 06/01/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: bef5400068fcb20246c163346e8b1793e2db2a81
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 1c55b582eaea33009ff46304ec53cc86e2109e2f
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702742"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315648"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>从 Azure 下载 Linux VHD
 
 本文介绍如何使用 Azure CLI 和 Azure 门户从 Azure 下载 [Linux 虚拟硬盘 (VHD)](about-disks-and-vhds.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 文件。 
-
-Azure 中的虚拟机 (VM) 将[磁盘](../windows/managed-disks-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)用作存储操作系统、应用程序和数据的位置。 所有 Azure VM 都至少有两个磁盘，即 Windows 操作系统磁盘和临时磁盘。 操作系统磁盘最初基于映像创建，操作系统磁盘和该映像都存储在 Azure 存储帐户中的 VHD。 虚拟机还可以有一个或多个数据磁盘，而这些磁盘也存储为 VHD。
 
 如果尚未安装 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，请安装。
 

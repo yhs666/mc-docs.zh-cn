@@ -3,8 +3,8 @@ title: Azure AD Connect：从 DirSync 升级 | Microsoft 文档
 description: 了解如何从 DirSync 升级到 Azure AD Connect。 本文介绍从 DirSync 升级到 Azure AD Connect 的步骤。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: baf52da7-76a8-44c9-8e72-33245790001c
 ms.service: active-directory
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/13/2017
-ms.date: 12/20/2017
+ms.date: 06/22/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: f53b002a964f46b2b4fb0a98ee9467c83cf459c0
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: feacc357d0d936f5d497d744d3bff32a2e03b0d6
+ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27162522"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314286"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect：从 DirSync 升级
 Azure AD Connect 是 DirSync 的后继产品。 将在本主题中了解可从 DirSync 升级的方式。 这些步骤不适用于从另一个版本的 Azure AD Connect 或从 Azure AD Sync 升级。
@@ -220,4 +221,4 @@ Azure AD Connect 现在是活动服务器，用户不得切换回去使用现有
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

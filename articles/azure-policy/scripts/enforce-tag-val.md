@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: a741a196c48d71b8447b99b94de98fc606b02f7a
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: d62144d0db54e3d77aee0a46b980993725b62780
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695163"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269954"
 ---
 # <a name="enforce-tag-and-its-value"></a>强制实施标记和值
 
@@ -30,9 +30,43 @@ ms.locfileid: "34695163"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/built-in-policy/enforce-tag-value/azurepolicy.json "Enforce tag and its value")]
-
+```json
+{
+   "properties": {
+      "displayName": "Enforce tag and its value",
+      "policyType": "BuiltIn",
+      "description": "Enforces a required tag and its value.",
+      "parameters": {
+         "tagName": {
+            "type": "String",
+            "metadata": {
+               "description": "Name of the tag, such as costCenter"
+            }
+         },
+         "tagValue": {
+            "type": "String",
+            "metadata": {
+               "description": "Value of the tag, such as headquarter"
+            }
+         }
+      },
+      "policyRule": {
+         "if": {
+            "not": {
+               "field": "[concat('tags[', parameters('tagName'), ']')]",
+               "equals": "[parameters('tagValue')]"
+            }
+         },
+         "then": {
+            "effect": "deny"
+         }
+      }
+   },
+   "id": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+   "type": "Microsoft.Authorization/policyDefinitions",
+   "name": "1e30110a-5ceb-460c-a204-c1c3969c6d62"
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +96,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'enforce-tag-value' --display-name 'Enforce tag and its value' --description 'Enforces a required tag and its value.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/enforce-tag-value/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/enforce-tag-value/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "enforce-tag-value"
@@ -72,7 +106,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "en
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

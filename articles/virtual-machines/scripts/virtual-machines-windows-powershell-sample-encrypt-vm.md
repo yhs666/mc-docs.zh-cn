@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/12/2017
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: d8a078ae978ba3cf7b568c1ad6a61968d27658d2
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: f59c9a1da7bdd9b36c946b7de9d13a9656c312ad
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702754"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315660"
 ---
 # <a name="encrypt-a-windows-virtual-machine-with-azure-powershell"></a>使用 Azure PowerShell 加密 Windows 虚拟机
 

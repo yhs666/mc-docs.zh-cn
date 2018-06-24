@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: fd16b7dffe2a1ed411a99785619798682b6c8fd1
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 7468ef9115ce483f034140290b375150c2ec4343
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695151"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270083"
 ---
 # <a name="use-approved-vnet-for-vm-network-interfaces"></a>对 VM 网络接口使用已批准的 vNet
 
@@ -30,9 +30,42 @@ ms.locfileid: "34695151"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/Network/vm-creation-in-approved-vnet/azurepolicy.json "Use approved vNet for VM network interfaces")]
-
+```json
+{
+    "properties": {
+        "displayName": "Use approved vNet for VM network interfaces",
+        "description": "This policy enforces VM network interfaces to use a specific vNet.",
+        "parameters": {
+            "vNetId": {
+                "type": "string",
+                "metadata": {
+                    "description": "Resource Id for the vNet",
+                    "displayName": "vNet Id"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Network/networkInterfaces"
+                    },
+                    {
+                        "not": {
+                            "field": "Microsoft.Network/networkInterfaces/ipconfigurations[*].subnet.id",
+                            "like": "[concat(parameters('vNetId'),'*')]"
+                        }
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +95,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'vm-creation-in-approved-vnet' --display-name 'Use approved vNet for VM network interfaces' --description 'This policy enforces VM network interfaces to use vNet.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/vm-creation-in-approved-vnet/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/vm-creation-in-approved-vnet/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "vm-creation-in-approved-vnet"
@@ -72,7 +105,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "vm
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

@@ -15,13 +15,13 @@ ms.topic: article
 ms.custom: mvc
 origin.date: 03/15/2018
 ms.author: v-yiso
-ms.date: 04/23/2018
-ms.openlocfilehash: 47e37a4cebb0152dbfdeb4179ed5fd268a66bbe5
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.date: 07/02/2018
+ms.openlocfilehash: 5c6d39b03c7e41375f7d9abe2e6cc3c9a70fc6f7
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31359574"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315465"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理逻辑应用
 
@@ -93,7 +93,7 @@ ms.locfileid: "31359574"
 
 ## <a name="download-from-azure"></a>从 Azure 下载
 
-可以从 <a href="https://portal.azure.com" target="_blank">Azure 门户</a>下载逻辑应用，并将其保存为 [Azure 资源管理器](../azure-resource-manager/resource-group-overview.md)模板。 然后，可以在本地使用 Visual Studio 编辑模板，并根据不同的部署环境自定义逻辑应用。 下载逻辑应用会在[资源管理器模板](../azure-resource-manager/resource-group-overview.md#template-deployment)中将这些逻辑应用的定义（也使用 JavaScript 对象表示法 (JSON)）*参数化*。
+可以从 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>下载逻辑应用，并将其保存为 [Azure 资源管理器](../azure-resource-manager/resource-group-overview.md)模板。 然后，可以在本地使用 Visual Studio 编辑模板，并根据不同的部署环境自定义逻辑应用。 下载逻辑应用会在[资源管理器模板](../azure-resource-manager/resource-group-overview.md#template-deployment)中将这些逻辑应用的定义（也使用 JavaScript 对象表示法 (JSON)）*参数化*。
 
 1. 在 Visual Studio 中打开 Cloud Explorer，然后找到并选择要从 Azure 下载的逻辑应用。
 

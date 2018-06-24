@@ -1,8 +1,8 @@
 ---
-title: "为 Azure 存储配置连接字符串 | Azure"
-description: "为 Azure 存储帐户配置连接字符串。 连接字符串包含在运行时从应用程序访问 Azure 存储帐户所需的身份验证信息。"
+title: 为 Azure 存储配置连接字符串 | Azure
+description: 为 Azure 存储帐户配置连接字符串。 连接字符串包含在运行时从应用程序访问 Azure 存储帐户所需的身份验证信息。
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: forester123
 manager: digimobile
 editor: tysonn
@@ -15,11 +15,12 @@ ms.topic: article
 origin.date: 04/12/2017
 ms.date: 10/16/2017
 ms.author: v-johch
-ms.openlocfilehash: c991fdbb81edd1b2fec4f54f82d455963ecbbb43
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: b52802f199606f25e830ebe51b25e2c3d7ab3cf7
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269966"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>配置 Azure 存储连接字符串
 
@@ -119,8 +120,8 @@ AccountKey=<account-key>
 > 连接字符串中的服务终结点值必须是格式正确的 URI，包括 `https://`（推荐）或 `http://`。 由于 Azure 存储尚不支持对自定义域使用 HTTPS，因此，*必须*为指向自定义域的任何终结点 URI 指定 `http://`。
 >
 
-### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>创建含终结点后缀的连接字符串
-若要针对具有不同终结点后缀的地区或实例内的存储服务创建一个连接字符串，例如针对 Azure 中国或 Azure 政府，请使用以下连接字符串格式。 指明是要通过 HTTPS（建议）还是 HTTP 连接到存储帐户，将 `myAccountName` 替换为存储帐户的名称，将 `myAccountKey` 替换为帐户访问密钥，将 `mySuffix` 替换为 URI 后缀：
+### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>创建带有终结点后缀的连接字符串
+若要为区域（例如，Azure 中国区）或实例中的存储服务创建带有不同终结点后缀的连接字符串，请使用以下连接字符串格式。 指明是要通过 HTTPS（建议）还是 HTTP 连接到存储帐户，将 `myAccountName` 替换为存储帐户的名称，将 `myAccountKey` 替换为帐户访问密钥，将 `mySuffix` 替换为 URI 后缀：
 
 ```
 DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=mySuffix;

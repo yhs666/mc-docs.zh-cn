@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 01a8a1b7df722b3e666b8a262c343f07df194748
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: a73833892fb9ccfb1b8cf9ad9f2148158132c103
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695152"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269939"
 ---
 # <a name="allowed-storage-account-skus"></a>允许的存储帐户 SKU
 
@@ -30,9 +30,47 @@ ms.locfileid: "34695152"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/built-in-policy/allowed-storageaccount-sku/azurepolicy.json "Allowed storage account SKUs")]
-
+```json
+{
+  "properties": {
+    "displayName": "Allowed storage account SKUs",
+    "policyType": "BuiltIn",
+    "description": "This policy enables you to specify a set of storage account SKUs that your organization can deploy.",
+    "parameters": {
+      "listOfAllowedSKUs": {
+        "type": "Array",
+        "metadata": {
+          "description": "The list of SKUs that can be specified for storage accounts.",
+          "displayName": "Allowed SKUs",
+          "strongType": "StorageSKUs"
+        }
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "not": {
+              "field": "Microsoft.Storage/storageAccounts/sku.name",
+              "in": "[parameters('listOfAllowedSKUs')]"
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "Deny"
+      }
+    }
+  },
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "7433c107-6db4-4ad1-b57a-a76dce0154a1"
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +100,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'allowed-storageaccount-sku' --display-name 'Allowed storage account SKUs' --description 'This policy enables you to specify a set of storage account SKUs that your organization can deploy.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-storageaccount-sku/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-storageaccount-sku/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "allowed-storageaccount-sku"
@@ -72,7 +110,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "al
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

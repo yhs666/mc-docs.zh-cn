@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b39fe1076b4b6d813c6d5a199fb0f86b3c826295
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 5737614265252827ccaf5a25a942f5143ed71f05
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702919"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315402"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>适用于 Windows 的虚拟机扩展和功能
 
@@ -417,5 +417,4 @@ Remove-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -N
 ## <a name="next-steps"></a>后续步骤
 
 有关 VM 扩展的详细信息，请参阅 [Azure 虚拟机扩展和功能概述](overview.md)。
-<!-- Update_Description: new articles on windows extension feature -->
-<!--ms.date: 06/04/2018-->
+<!-- Update_Description: update meta properties -->

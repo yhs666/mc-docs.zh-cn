@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 05/11/2018
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: e59e1a2feda3cfc9e7e71e23462faab5a5f3add9
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 836837895dca54e6a2a40548ddb53764c234f67d
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702808"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315464"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>详细故障排除步骤：针对 Azure 中到 Windows VM 的远程桌面连接问题
 本文提供详细的故障排除步骤，用于为基于 Windows 的 Azure 虚拟机诊断和修复复杂的远程桌面错误。
@@ -113,7 +113,7 @@ ms.locfileid: "34702808"
 ## <a name="source-4-network-security-groups"></a>来源 4：网络安全组
 使用网络安全组可以对允许的入站和出站流量进行更精细的控制。 可以创建跨 Azure 虚拟网络中的子网和云服务的规则。
 
-使用 [IP 流验证](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)来确认网络安全组中的规则是否阻止了传入或传出虚拟机的流量。 还可以查看有效的安全组规则，确保入站“允许”NSG 规则存在并已针对 RDP 端口（默认值 3389）进行优化。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow)。
+使用 [IP 流验证](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)来确认网络安全组中的规则是否阻止了传入或传出虚拟机的流量。 还可以查看有效的安全组规则，确保入站“允许”NSG 规则存在并已针对 RDP 端口（默认值 3389）进行优化。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/diagnose-network-traffic-filter-problem.md)。
 
 ## <a name="source-5-windows-based-azure-vm"></a>来源 5：基于 Windows 的 Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

@@ -33,14 +33,14 @@
 ### [使用 Azure PowerShell 管理 VM](manage-psh-classic.md)
 ### [关于 VM 代理和扩展](agents-and-extensions-classic.md)
 ### [管理 VM 扩展](manage-extensions-classic.md)
-### [VM 的自定义脚本扩展](extensions-customscript-classic.md)
 
 ## 管理工作负荷
 ### [高性能计算 (HPC)](../../virtual-machines-windows-hpcpack-cluster-options.md)
 #### [自动缩放资源](hpcpack-cluster-node-autogrowshrink.md)
 #### [管理计算节点](hpcpack-cluster-node-manage.md)
 #### [创建群集](hpcpack-cluster-powershell-script.md)
-#### [使用应用商店映像创建头节点](../../virtual-machines-windows-hpcpack-cluster-headnode.md)
+#### 
+  [使用市场映像创建头节点](../../virtual-machines-windows-hpcpack-cluster-headnode.md)
 #### [将作业从本地提交到 Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MySQL](mysql-2008r2.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
@@ -55,7 +55,7 @@
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest)
 ## [Java](https://docs.azure.cn/zh-cn/java/api/overview/)
-## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute)
+## [.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.compute?view=azure-dotnet)
 ## [创建 Resource Manager 模板](../../../resource-group-authoring-templates.md)
 ## [社区模板](https://github.com/Azure/azure-quickstart-templates)
 ## [计算 REST](https://msdn.microsoft.com/library/jj157206.aspx)
@@ -66,4 +66,4 @@
 ## [价格](https://www.azure.cn/pricing/details/virtual-machines/#Windows)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [区域可用性](https://www.azure.cn/support/service-dashboard/)
-<!--ms.date: 01/29/2018-->
+<!--ms.date: 06/25/2018-->

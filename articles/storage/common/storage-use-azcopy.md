@@ -15,11 +15,12 @@ ms.topic: article
 origin.date: 01/29/2018
 ms.date: 03/05/2018
 ms.author: v-nany
-ms.openlocfilehash: cdf86bd3e847d10eaf5013155746cb0ad783cec6
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 847c0163b63457a77d017cf5b87845ab0cacaa40
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270074"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>使用 Windows 上的 AzCopy 传输数据
 AzCopy 是一个命令行实用程序，专用于使用旨在实现最佳性能的简单命令将数据复制到 Microsoft Azure Blob、文件和表存储以及从这些位置复制数据。 可在文件系统和存储帐户之间或在存储帐户之间复制数据。  
@@ -494,7 +495,7 @@ AzCopy /@:"C:\responsefiles\copyoperation.txt"
 
 每个 AzCopy 参数：
 
-    /Source:http://myaccount.blob.core.windows.net/mycontainer
+    /Source:http://myaccount.blob.core.chinacloudapi.cn/mycontainer
     /Dest:C:\myfolder
     /SourceKey:<sourcekey>
     /S
@@ -661,7 +662,7 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 
 指定源资源的存储帐户密钥。
 
-**适用对象：**Blob、文件、表
+**适用对象：** Blob、文件、表
 
 ### <a name="sourcesassas-token"></a>/SourceSAS:"sas-token"
 
@@ -683,7 +684,7 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 
 指定目标 Blob 是块 Blob、页 Blob 还是追加 Blob。 仅在要上传 Blob 时，此选项才适用。 否则会发生错误。 如果目标是一个 Blob 并且未指定此选项，则默认情况下 AzCopy 会创建块 Blob。
 
-**适用对象：**Blob
+**适用对象：** Blob
 
 ### <a name="checkmd5"></a>/CheckMD5
 
@@ -765,7 +766,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 
 将下载的文件的上次修改时间设置为与源 blob 或文件的上次修改时间相同。
 
-**适用对象：**Blob、文件
+**适用对象：** Blob、文件
 
 ### <a name="xn"></a>/XN
 
@@ -801,7 +802,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 * O 表示脱机文件
 * I 表示未编制索引的文件
 
-**适用对象：**Blob、文件
+**适用对象：** Blob、文件
 
 ### <a name="xarashcnetoi"></a>/XA:[RASHCNETOI]
 
@@ -846,7 +847,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 
 指定 `source` 资源是本地开发环境中可用的一个 Blob，在存储模拟器中运行。
 
-**适用对象：**Blob、表
+**适用对象：** Blob、表
 
 ### <a name="desttypeblob--table"></a>/DestType:"Blob" | "Table"
 
@@ -868,7 +869,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 
   [bb, last-partition-key]
 
-**适用对象：**表
+**适用对象：** 表
 
 ### <a name="splitsizefile-size"></a>/SplitSize:"file-size"
 
@@ -888,7 +889,7 @@ AzCopy 使用此选项解释为在没有此选项 /L 的情况下，模拟运行
 * InsertOrMerge - 合并现有实体，或者插入新实体（如果它不存在于表中）。
 * InsertOrReplace - 替换现有实体，或者插入新实体（如果它不存在于表中）。
 
-**适用对象：**表
+**适用对象：** 表
 
 ### <a name="manifestmanifest-file"></a>/Manifest:"manifest-file"
 

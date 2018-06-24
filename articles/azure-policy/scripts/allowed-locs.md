@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 278ea80ab80b89015039e7b31ac21af067653ce3
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 156518f3504b0afdbfaf9f5901e69592828e99db
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34696029"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269944"
 ---
 # <a name="allowed-locations"></a>允许的位置
 
@@ -30,9 +30,39 @@ ms.locfileid: "34696029"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/built-in-policy/allowed-locations/azurepolicy.json "Allowed locations")]
-
+```json
+{
+  "properties": {
+    "displayName": "Allowed locations",
+    "policyType": "BuiltIn",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",
+    "parameters": {
+      "listOfAllowedLocations": {
+        "type": "Array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying resources.",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+      }
+    },
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "location",
+          "in": "[parameters('listOfAllowedLocations')]"
+        }
+      },
+      "then": {
+        "effect": "Deny"
+      }
+    }
+  },
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c"
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +92,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'allowed-locations' --display-name 'Allowed locations' --description 'This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/allowed-locations/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "allowed-locations"
@@ -72,7 +102,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "al
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

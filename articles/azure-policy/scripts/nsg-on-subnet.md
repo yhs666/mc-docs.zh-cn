@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: e62ec70eb851af8ed31432fbaab5f64c5fe6e546
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: a5811f34c431335f6a87a106122c20d9bba264e8
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695138"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269976"
 ---
 # <a name="nsg-x-on-every-subnet"></a>每个子网上的 NSG X
 
@@ -30,9 +30,63 @@ ms.locfileid: "34695138"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/Network/enforce-nsg-on-subnet/azurepolicy.json "NSG X on every subnet")]
-
+```json
+{
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "enforce-nsg-on-subnet",
+    "properties": {
+        "displayName": "NSG X on every subnet",
+        "description": "This policy enforces a specific NSG on every subnet",
+        "mode": "all",
+        "parameters": {
+            "nsgId": {
+                "type": "String",
+                "metadata": {
+                    "description": "Resource Id of the Network Security Group",
+                    "displayName": "NSG Id"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "anyOf": [
+                    {
+                        "allOf": [
+                            {
+                                "field": "type",
+                                "equals": "Microsoft.Network/virtualNetworks"
+                            },
+                            {
+                                "not": {
+                                    "field": "Microsoft.Network/virtualNetworks/subnets[*].networkSecurityGroup.id",
+                                    "equals": "[parameters('nsgId')]"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "allOf": [
+                            {
+                                "field": "type",
+                                "equals": "Microsoft.Network/virtualNetworks/subnets"
+                            },
+                            {
+                                "not": {
+                                    "field": "Microsoft.Network/virtualNetworks/subnets/networkSecurityGroup.id",
+                                    "equals": "[parameters('nsgId')]"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +116,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'enforce-nsg-on-subnet' --display-name 'NSG X on every subnet' --description 'This policy enforces a specific NSG on every subnet' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/enforce-nsg-on-subnet/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/enforce-nsg-on-subnet/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "enforce-nsg-on-subnet"
@@ -72,7 +126,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "en
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

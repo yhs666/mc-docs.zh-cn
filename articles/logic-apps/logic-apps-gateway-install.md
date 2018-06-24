@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 origin.date: 09/14/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 160bae3c29bcf30f81d88cc0704f0321937de9c1
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 07/02/2018
+ms.openlocfilehash: 721a43cb085b91f91d111c8db7f2582a376ba498
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870611"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315616"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>为 Azure 逻辑应用安装本地数据网关
 
@@ -242,6 +242,11 @@ TcpTestSucceeded       : True
 6. 结果将从数据源发回给网关，并发送到网关云服务。 网关云服务随后使用结果。
 
 <a name="faq"></a>
+
+## <a name="tenant-level-administration"></a>租户级管理 
+
+目前没有单独的位置可让租户管理员管理其他用户安装和配置的所有网关。  如果你是租户管理员，建议要求组织中的用户将你以管理员身份添加到他们安装的每个网关。 这样，即可通过“网关设置”页面或通过 [PowerShell 命令](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters)管理组织中的所有网关。 
+
 
 ## <a name="frequently-asked-questions"></a>常见问题
 

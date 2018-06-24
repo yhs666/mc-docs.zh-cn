@@ -4,8 +4,8 @@ description: 本文档介绍如何联合多个 Azure AD 与单个 AD FS。
 keywords: 联合, ADFS, AD FS, 多个租户, 单个 AD FS, 一个 ADFS, 多租户联合身份验证, 多林 adfs, aad connect, 联合身份验证, 跨租户联合身份验证
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: anandyadavmsft
+manager: mtillman
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 12/20/2017
+ms.date: 06/22/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 1586d6265dbce071ea18def9fea084e2b1f5997f
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: 2aacb2262dc9b1119ec05dddfb88b4670a56fc6a
+ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993289"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314258"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>将 Azure AD 的多个实例与 AD FS 的单个实例联合
 
@@ -38,7 +39,7 @@ ms.locfileid: "29993289"
 
 ## <a name="step-1-establish-a-two-way-trust"></a>步骤 1：建立双向信任
  
-若要让 contoso.com 中的 AD FS 能够对 fabrikam.com 中的用户进行身份验证，需在 contoso.com 和 fabrikam.com 之间建立双向信任。请按照[此文](https://technet.microsoft.com/library/cc816590.aspx)中的准则创建双向信任。
+若要让 contoso.com 中的 AD FS 能够对 fabrikam.com 中的用户进行身份验证，需在 contoso.com 和 fabrikam.com 之间建立双向信任。 请按照[此文](https://technet.microsoft.com/library/cc816590.aspx)中的准则创建双向信任。
  
 ## <a name="step-2-modify-contosocom-federation-settings"></a>步骤 2：修改 contoso.com 联合身份验证设置 
  
@@ -65,4 +66,4 @@ ms.locfileid: "29993289"
 ## <a name="next-steps"></a>后续步骤
 [将 Active Directory 与 Azure Active Directory 连接](active-directory-aadconnect.md)
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

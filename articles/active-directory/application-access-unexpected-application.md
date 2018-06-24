@@ -1,10 +1,10 @@
 ---
-title: 应用程序列表中意料之外的应用程序 | Azure
+title: 应用程序列表中意料之外的应用程序 | Microsoft Docs
 description: 如何查看租户中的全部应用程序，并了解应用程序如何显示在“企业应用程序”下的“所有应用程序”列表中
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
+author: ajamess
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 3/5/2018
-ms.author: v-nany
-ms.openlocfilehash: 624180b583da7aff0591234da22a9037b82e8e70
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.date: 06/20/2018
+ms.author: v-junlch
+ms.openlocfilehash: 4b89a984ff89625bd04566ed05069a578876773e
+ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993259"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314290"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>应用程序列表中意料之外的应用程序
 
@@ -124,3 +124,5 @@ ms.locfileid: "29993259"
 
 ## <a name="next-steps"></a>后续步骤
 [使用 Azure Active Directory 管理应用程序](active-directory-enable-sso-scenario.md)
+
+<!-- Update_Description: update metedata properties -->

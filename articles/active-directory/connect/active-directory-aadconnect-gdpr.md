@@ -1,46 +1,47 @@
 ---
-title: Azure AD Connect 和一般数据保护条例 | Microsoft Docs
+title: Azure AD Connect 和用户隐私 | Microsoft Docs
 description: 本文介绍如何保证 Azure AD Connect 符合 GDPR 的规定。
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/15/2018
-ms.date: 03/05/2018
-ms.author: v-nany
-ms.openlocfilehash: e8336dcf6b3845ebc67086a78ff3223188a4cef4
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+origin.date: 05/21/2018
+ms.date: 06/22/2018
+ms.component: hybrid
+ms.author: v-junlch
+ms.openlocfilehash: 9c1aca5c6421ca170489cd94328189210264752b
+ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993300"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314270"
 ---
-# <a name="gdpr-compliance-and-azure-ad-connect"></a>GDPR 符合性和 Azure AD Connect 
+# <a name="user-privacy-and-azure-ad-connect"></a>用户隐私和 Azure AD Connect 
 
-欧洲隐私法律——[一般数据保护条例 (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm)将于 2018 年 5 月生效。 GDPR 针对向欧盟 (EU) 居民提供产品及服务，或收集和分析欧盟居民相关信息的公司、政府机构、非营利组织和其他组织制定了新的规则。 无论你身在何处，均需遵守 GDPR。 
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
-Microsoft 产品和服务可立即用于帮助你满足 GDPR 要求。 请访问[信任中心](https://www.trustcenter.cn/)，深入了解 Microsoft 隐私策略
+>[!NOTE] 
+>本文介绍 Azure AD Connect 和用户隐私。 
 
-
-在安装 Azure AD Connect 时，可在以下两方面符合一般数据保护条例的规定：
+可通过以下两种方式提高 Azure AD Connect 安装的用户隐私：
 
 1.  根据请求提取用户的数据以及从安装项中删除该用户的数据
 2.  确保数据保留时长均不超过 48 小时。
 
 Azure AD Connect 团队建议使用第二个选项，因为它更易于实施和维护。
 
-Azure AD Connect 同步服务器会存储符合 GDPR 的以下数据：
+Azure AD Connect 同步服务器可存储以下用户隐私数据：
 1.  Azure AD Connect 数据库中的用户相关数据
 2.  Windows 事件日志文件中可能包含用户相关信息的数据
 3.  Azure AD Connect 安装日志文件中可能包含用户信息的数据
 
-为保证符合 GDPR，Azure AD Connect 客户须采用以下准则：
+删除用户数据时，Azure AD Connect 客户应遵循以下准则：
 1.  定期删除包含 Azure AD Connect 安装日志文件的文件夹中的内容——至少每 48 小时删除一次
 2.  此产品还可创建事件日志。  要深入了解事件日志，请参阅[此处的文档](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx)。
 
@@ -71,7 +72,7 @@ If ($File.ToUpper() -ne "$env:programdata\aadconnect\PERSISTEDSTATE.XML".toupper
 
 2.  在“管理工具”标题下，单击“安排任务”。
     ![Task](media\active-directory-aadconnect-gdpr\gdpr3.png)
-3.  在任务计划程序中，右键单击“任务计划库”，并单击“创建基本任务�”。
+3.  在任务计划程序中，右键单击“任务计划库”，再单击“创建基本任务...”
 4.  输入新任务的名称，然后单击“下一步”。
 5.  针对任务触发器选择“每日”，再单击“下一步”。
 6.  将重复周期设置为“两天”并单击“下一步”。
@@ -82,5 +83,6 @@ If ($File.ToUpper() -ne "$env:programdata\aadconnect\PERSISTEDSTATE.XML".toupper
 
 
 ## <a name="next-steps"></a>后续步骤
-- [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)。
+- [查看信任中心上的 Microsoft 隐私策略](https://www.microsoft.com/trustcenter)
 
+<!-- Update_Description: wording update -->

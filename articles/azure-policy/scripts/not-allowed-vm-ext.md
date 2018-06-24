@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: c5b65fde5d7e2918440f32d1c27d72151bd95939
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 1667de8a5ce189cf97d012c4d95609a2d42753de
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695144"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270000"
 ---
 # <a name="not-allowed-vm-extensions"></a>不允许的 VM 扩展
 
@@ -30,9 +30,44 @@ ms.locfileid: "34695144"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/compute/not-allowed-vmextension/azurepolicy.json "Not allowed VM Extensions")]
-
+```json
+{
+    "properties": {
+        "displayName": "Not allowed VM Extensions",
+        "description": "This policy governs which VM extensions that are explicitly denied.",
+        "parameters": {
+            "notAllowedExtensions": {
+                "type": "Array",
+                "metadata": {
+                    "description": "The list of extensions that will be denied. Example: BGInfo, CustomScriptExtension, JsonAADDomainExtension, VMAccessAgent.",
+                    "displayName": "Denied extension"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Compute/virtualMachines/extensions"
+                    },
+                    {
+                        "field": "Microsoft.Compute/virtualMachines/extensions/publisher",
+                        "equals": "Microsoft.Compute"
+                    },
+                    {
+                        "field": "Microsoft.Compute/virtualMachines/extensions/type",
+                        "in": "[parameters('notAllowedExtensions')]"
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +97,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'not-allowed-vmextension' --display-name 'Not allowed VM Extensions' --description 'This policy governs which VM extensions that are explicitly denied.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/not-allowed-vmextension/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "not-allowed-vmextension"
@@ -72,7 +107,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "no
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

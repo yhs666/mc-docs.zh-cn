@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 11/03/2017
-ms.date: 02/05/2018
+origin.date: 06/15/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cbdd35045c5243e06e34454feaa9f0142e458f0b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 9fef40457cbc6b508be763798ea81b16740bbeec
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285827"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315515"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>排查在 Azure 中新建 Windows VM 时遇到的部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]

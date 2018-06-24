@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2017
-ms.date: 02/05/2018
+origin.date: 01/09/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4678d2afecb399f4ccb52ac8a551c1a6b536a3b2
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: d9a33612fa7767d89146b5c560f2e8164280ab6e
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29286179"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315562"
 ---
 # <a name="create-a-vm-from-a-vhd-using-the-azure-portal"></a>使用 Azure 门户在 VHD 中创建 VM
 
@@ -74,5 +74,4 @@ ms.locfileid: "29286179"
 
 也可使用 PowerShell [将 VHD 上传到 Azure 并创建专用 VM](create-vm-specialized.md)。
 
-<!--Update_Description: new article on create VM with specialized disk on portal -->
-<!--ms.date: 02/05/2018-->
+<!--Update_Description: update meta properties -->

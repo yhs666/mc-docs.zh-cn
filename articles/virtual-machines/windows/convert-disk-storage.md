@@ -14,27 +14,26 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 08/07/2017
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 64e4ab25351b89302f83730030be56a162aeec4c
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 605651daf087b3fecf351a81b5dcb9d03f15a714
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867567"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315371"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Azure 标准与高级托管磁盘存储的相互转换
 
 托管磁盘提供两种存储选项：[高级](premium-storage.md)（基于 SSD）和[标准](standard-storage.md)（基于 HDD）。 它允许基于性能需求在这两个选项之间轻松切换，并保障最短停机时间。 非托管磁盘不具备此功能。 但可以轻松[转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，以便在这两个选项之间轻松切换。
 
 本文介绍了如何使用 Azure PowerShell 实现标准与高级托管磁盘的相互转换。 如需进行安装或升级，请参阅[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
-<!-- URL is correct without .md postfix on https://docs.microsoft.com/powershell/azure/install-azurerm-ps -->
 
 ## <a name="before-you-begin"></a>准备阶段
 
 * 该转换需要重启 VM，因此请在预先存在的维护时段内计划磁盘存储迁移。 
 * 如果使用的是非托管磁盘，请先[转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，以便按照本文中的说明在两个存储选项之间切换。 
-* 本文需要 Azure PowerShell 模块 6.0.0 版或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 此外，还需要运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。
+* 本文需要 Azure PowerShell 模块 6.0.0 版或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 此外，还需要运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>实现 VM 的所有标准与高级托管磁盘的相互转换
 
@@ -48,7 +47,7 @@ $rgName = 'yourResourceGroup'
 $vmName = 'yourVM'
 
 # Choose between StandardLRS and PremiumLRS based on your scenario
-$storageType = 'PremiumLRS'
+$storageType = 'Premium_LRS'
 
 # Premium capable size
 # Required only if converting storage from standard to premium
@@ -90,7 +89,7 @@ $diskName = 'yourDiskName'
 # resource group that contains the managed disk
 $rgName = 'yourResourceGroupName'
 # Choose between StandardLRS and PremiumLRS based on your scenario
-$storageType = 'PremiumLRS'
+$storageType = 'Premium_LRS'
 # Premium capable size 
 $size = 'Standard_DS2_v2'
 

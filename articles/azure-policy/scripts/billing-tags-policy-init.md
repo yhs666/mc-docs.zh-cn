@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 27c967edb74d71dd8e97bc1b7921f5d1d5b2d165
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 129dab5d53450a0992499202bcf6c2d0aab5bc21
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695166"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270006"
 ---
 # <a name="billing-tags-policy-initiative"></a>计费标记策略计划
 
@@ -30,9 +30,77 @@ ms.locfileid: "34695166"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.json "Billing Tags Policy Initiative")]
-
+```json
+{
+    "properties": {
+        "displayName": "Billing Tags Policy Initiative",
+        "description": "Specify cost Center tag and product name tag",
+        "parameters": {
+            "costCenterValue": {
+                "type": "String",
+                "metadata": {
+                    "displayName": "required value for Cost Center tag"
+                }
+            },
+            "productNameValue": {
+                "type": "String",
+                "metadata": {
+                    "displayName": "required value for product Name tag"
+                }
+            }
+        },
+        "policyDefinitions": [
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            }
+        ]
+    },
+    "id": "/subscriptions/a48a924d-6007-4c39-a3c0-5466b9012f42/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
+    "type": "Microsoft.Authorization/policySetDefinitions",
+    "name": "billingTagsPolicy"
+}
+```
 可使用 [Azure 门户](#deploy-with-the-portal)或将其与 [PowerShell](#deploy-with-powershell) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署

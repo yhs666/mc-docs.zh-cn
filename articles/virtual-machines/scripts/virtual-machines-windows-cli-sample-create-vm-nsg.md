@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/23/2017
-ms.date: 04/16/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 75842b464070259e72b42ba3dde4ae6e2444b4e6
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: d5a3939674334769817a0b68a328a41546ca860b
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31325044"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315381"
 ---
 # <a name="secure-network-traffic-between-virtual-machines"></a>保护虚拟机之间的网络流量
 
@@ -96,13 +96,13 @@ az group delete --name myResourceGroup --yes
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az_network_vnet_create) | 创建 Azure 虚拟网络和子网。 |
-| [az network vnet subnet create](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_create) | 创建子网。 |
-| [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和 NSG。 此命令还指定要使用的虚拟机映像和管理凭据。  |
-| [az network nsg rule update](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az_network_nsg_rule_update) | 更新 NSG 规则。 在本例中，将更新后端规则，仅从前端子网传递流量。 |
-| [az network nsg rule list](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az_network_nsg_rule_list) | 返回有关网络安全组规则的信息。 在此示例中，规则名称存储在变量中，以便以后在脚本中使用。 |
-| [az group delete](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az_vm_extension_set) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create) | 创建 Azure 虚拟网络和子网。 |
+| [az network vnet subnet create](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create) | 创建子网。 |
+| [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和 NSG。 此命令还指定要使用的虚拟机映像和管理凭据。  |
+| [az network nsg rule update](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-update) | 更新 NSG 规则。 在本例中，将更新后端规则，仅从前端子网传递流量。 |
+| [az network nsg rule list](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-list) | 返回有关网络安全组规则的信息。 在此示例中，规则名称存储在变量中，以便以后在脚本中使用。 |
+| [az group delete](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

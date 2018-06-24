@@ -1,31 +1,26 @@
 ---
-title: 条件语句 - 基于条件运行步骤
-description: 仅在符合条件后才运行逻辑应用中的步骤。 创建基于指定的条件运行工作流的决策树。
+title: 将条件语句添加到工作流 - Azure 逻辑应用 | Microsoft Docs
+description: 如何在 Azure 逻辑应用中创建控制工作流操作的条件
 services: logic-apps
-keywords: 条件语句, 决策树
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 03/05/2018
+author: ecfan
 ms.author: v-yiso
-ms.date: 04/23/2018
-ms.openlocfilehash: c48da90d6a7da0a2a8095c7ea8219f465e9e50af
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+manager: jeconnoc
+origin.date: 03/05/2018
+ms.topic: article
+ms.date: 07/02/2018
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: c67d7b50395767c6c1670c8054cc86bb4214cbfc
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31359568"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315399"
 ---
-# <a name="conditional-statements-run-steps-based-on-a-condition-in-logic-apps"></a>条件语句：基于逻辑应用中的条件运行步骤
+# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>在 Azure 逻辑应用中创建控制工作流操作的条件语句
 
-若要仅在传递指定的条件后才执行步骤，请使用*条件语句*。 此结构将工作流中的数据与特定值或字段进行比较。 然后，可以定义基于数据是否符合条件要运行的不同步骤。 可以将一个条件嵌套在另一个条件中。
+若要仅在通过指定条件后在逻辑应用程序中运行指定操作，请添加条件语句。 此结构将工作流中的数据与特定值或字段进行比较。 然后，可以定义基于数据是否符合条件运行的不同操作。 可以将一个条件嵌套在另一个条件中。
 
 例如，假设你有一个逻辑应用，当网站的 RSS 源中出现新项时，该应用发送的电子邮件过多。 你可以添加一个条件语句，以便仅在新项包含特定字符串时才发送电子邮件。 
 
@@ -34,7 +29,7 @@ ms.locfileid: "31359568"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.com/pricing/1rmb-trial)。
+* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 * 有关[如何创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知识
 

@@ -13,21 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 06/26/2017
-ms.date: 06/04/2018
+origin.date: 06/01/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 77429fb058111b86a04d2eafc0f66804e199c427
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: b4258e8eae2064b349f6bd65d3dd59293734f8c0
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702803"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315462"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>从 Azure 下载 Windows VHD
 
 本文介绍如何使用 Azure 门户从 Azure 下载 [Windows 虚拟硬盘 (VHD)](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 文件。 
-
-Azure 中的虚拟机 (VM) 将[磁盘](managed-disks-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)用作存储操作系统、应用程序和数据的位置。 所有 Azure VM 都至少有两个磁盘，即 Windows 操作系统磁盘和临时磁盘。 操作系统磁盘最初基于映像创建，操作系统磁盘和该映像都存储在 Azure 存储帐户中的 VHD。 虚拟机还可以有一个或多个数据磁盘，而这些磁盘也存储为 VHD。
 
 ## <a name="stop-the-vm"></a>停止 VM
 

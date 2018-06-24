@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 02/27/2017
-ms.date: 06/04/2018
+origin.date: 06/01/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 8998574e1bac9b50c6a9faaa0b22a8038c4e5ccb
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 9a51d87b63e7d3850f77357244aec93e2455452a
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702822"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315603"
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>适用于 Windows 虚拟机的 Azure CLI 示例
 
@@ -42,4 +42,4 @@ ms.locfileid: "34702822"
 | [加密 VM 和数据磁盘](./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md?toc=%2fcli%2fazure%2ftoc.json) | 创建 Azure Key Vault、加密密钥和服务主体，然后对 VM 进行加密。 |
 | | |
 <!-- Not Available on OMS -->
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: wording update, update meta properties -->

@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: f69dd51229ace494eb80ff1a6d0dbf06d023a7f8
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: fdf06472a67eca405e2d58c0732e6edd4ad9df02
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695154"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270050"
 ---
 # <a name="allowed-peering-location-for-express-route"></a>允许的 Express Route 对等位置
 
@@ -30,9 +30,43 @@ ms.locfileid: "34695154"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/Network/express-route-peeringLocation/azurepolicy.json "Allowed Peering Location for Express Route")]
-
+```json
+{
+    "properties": {
+        "displayName": "Allowed Peering Location for Express Route",
+        "description": "This policy enables you to specify a set of allowed peering location for express route",
+        "parameters": {
+            "listOfLocations": {
+                "type": "Array",
+                "metadata": {
+                    "description": "The list of peering locations that can be specified for express route.",
+                    "displayName": "Allowed Peering Locations",
+                    "strongType": "Location"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Network/expressRouteCircuits"
+                    },
+                    {
+                        "not": {
+                            "field": "Microsoft.Network/expressRouteCircuits/serviceProvider.peerLocation",
+                            "in": "[parameters('listOfLocations')]"
+                        }
+                    }
+                ]
+            },
+            "then": {
+                "effect": "Deny"
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +96,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'express-route-peeringLocation' --display-name 'Allowed Peering Location for Express Route' --description 'This policy enables you to specify a set of allowed peering location for express route' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-peeringLocation/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-peeringLocation/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "express-route-peeringLocation"
@@ -72,7 +106,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "ex
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

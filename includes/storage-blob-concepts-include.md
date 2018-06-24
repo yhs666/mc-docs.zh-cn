@@ -9,14 +9,14 @@ origin.date: 04/09/2018
 ms.date: 06/11/2018
 ms.author: v-nany
 ms.custom: include file
-ms.openlocfilehash: 039fb5fcfd9baeb4a1d39e2e5aaf752b12861f59
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 7d58ab00135422e4ff13abca0c4314bdc2b6341f
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34880610"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270084"
 ---
-Azure Blob 存储是 Microsoft 提供的适用于云的对象存储解决方案。 Blob 存储最适合存储巨量的非结构化数据，例如文本或二进制数据。
+Azure Blob 存储是 Azure 的适用于云的对象存储解决方案。 Blob 存储最适合存储巨量的非结构化数据，例如文本或二进制数据。
 
 Blob 存储最适合用于：
 
@@ -71,6 +71,6 @@ Azure 存储提供三种类型的 Blob：块 Blob、追加 Blob 和[页 Blob](..
 
 所有 Blob 都驻留在容器中。 容器类似于文件系统中的文件夹。 你可以进一步将 Blob 组织到虚拟目录中，并遍历它们，就像对待文件系统一样。 
 
-如果使用的是极大型数据集，并且因网络限制而无法通过网络向 Blob 存储上传数据或从其下载数据，则可将一组硬盘驱动器寄送给我们，以便直接通过数据中心导入或导出数据。 有关详细信息，请参阅[使用 Microsoft Azure 导入/导出服务将数据传输到 Blob 存储中](../articles/storage/common/storage-import-export-service.md)。
+如果使用的是极大型数据集，并且因网络限制而无法通过网络向 Blob 存储上传数据或从其下载数据，则可将一组硬盘驱动器寄送给我们，以便直接通过数据中心导入或导出数据。 有关详细信息，请参阅[使用 Azure 导入/导出服务将数据传输到 Blob 存储](../articles/storage/common/storage-import-export-service.md)。
   
 有关命名容器和 Blob 的详细信息，请参阅 [命名和引用容器、Blob 和元数据](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)。

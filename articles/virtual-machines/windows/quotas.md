@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 12/05/2016
-ms.date: 06/04/2018
+origin.date: 05/31/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: d1de86b109fe891396a0c79c0b0ce7db399f569c
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 076916f58ced8be15c1dfd74ac36448aba5a3ee2
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867675"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315654"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>虚拟机 vCPU 配额
 
-虚拟机和虚拟机规模集的 vCPU 配额已根据每个区域中的每个订阅划分成两层。 第一层是区域 vCPU 总数，第二层是各种 VM 大小系列核心，例如标准 D 系列 vCPU。 每当部署新 VM 时，其 vCPU 数目不得超过特定 VM 大小系列的 vCPU 配额或区域 vCPU 总数配额。 如果超过其中一项配额，则不允许部署该 VM。 此外，区域中的虚拟机总数也有一个配额。 可以在 [Azure 门户](https://portal.azure.cn)的“订阅”页的“用量 + 配额”部分中查看其中每项配额的详细信息，或者，可以使用 PowerShell 查询这些值。
+虚拟机和虚拟机规模集的 vCPU 配额已根据每个区域中的每个订阅划分成两层。 第一层是区域的 vCPU 总数，第二层是各种 VM 大小系列核心（如 D 系列 vCPU）。 每当部署新 VM 时，VM 的 vCPU 数不能超过 VM 大小系列的 vCPU 配额或区域 vCPU 配额总数。 如果超过了上述任一配额，将不允许部署 VM。 此外，区域中的虚拟机总数也有一个配额。 可以在 [Azure 门户](https://portal.azure.cn)的“订阅”页的“用量 + 配额”部分中查看其中每项配额的详细信息，或者，可以使用 PowerShell 查询这些值。
 
 ## <a name="check-usage"></a>检查使用情况
 

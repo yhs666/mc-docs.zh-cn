@@ -1,0 +1,44 @@
+---
+title: 故障排除：Azure Active Directory 活动日志中缺少数据 | Microsoft Docs
+description: 列出 Azure Active Directory 的各种可用报告
+services: active-directory
+documentationcenter: ''
+author: rolyon
+manager: mtillman
+editor: ''
+ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
+ms.service: active-directory
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.component: compliance-reports
+origin.date: 01/15/2018
+ms.date: 06/20/2018
+ms.author: v-junlch
+ms.reviewer: dhanyahk
+ms.openlocfilehash: 50848ddd1e39462f02fd77a9d933c3720310bd23
+ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314373"
+---
+# <a name="i-cant-find-some-actions-that-i-performed-in-the-azure-active-directory-activity-log"></a>在 Azure Active Directory 活动日志中找不到已执行的某些操作
+
+
+## <a name="symptoms"></a>症状
+
+我在 Azure 门户中执行了一些操作，本应在`Activity logs > Audit Logs`边栏选项卡中看到这些操作的审核日志，但却找不到。
+
+ ![报告](./media/active-directory-reporting-troubleshoot-missing-audit-data/01.png)
+ 
+
+## <a name="cause"></a>原因
+
+操作不会立即显示在“活动审核”日志中。 从执行操作开始算起，可能需要 15 分钟到 1 小时才能在门户中看到审核日志。
+
+## <a name="resolution"></a>解决方法
+
+等待 15 分钟到 1 小时，再看操作是否显示在日志中。 如果仍未看到操作，请向我们提交一个支持票证，我们会进行调查。
+

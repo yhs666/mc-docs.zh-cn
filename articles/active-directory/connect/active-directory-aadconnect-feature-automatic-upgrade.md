@@ -3,8 +3,8 @@ title: Azure AD Connect：自动升级 | Microsoft Docs
 description: 本主题介绍 Azure AD Connect 同步中的内置自动升级功能。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
@@ -13,14 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/13/2017
-ms.date: 12/25/2017
+ms.date: 06/22/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 92e0dc9e9716988976d38dffcad66f4bd3a9f629
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 6e5983e6d21f9045193a91561320b3a37bd92e82
+ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
-ms.locfileid: "27547583"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314265"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect：自动升级
 此功能是随内部版本 1.1.105.0（于 2016 年 2 月发布）一起推出的。
@@ -100,4 +101,4 @@ ms.locfileid: "27547583"
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

@@ -14,11 +14,12 @@ ms.topic: article
 origin.date: 11/02/2017
 ms.date: 3/5/2018
 ms.author: v-nany
-ms.openlocfilehash: 25413eedb90e1e032604ec26664a34a81198a3a7
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 731c28188f7522c8fe20251a2cc720b7dc04cc89
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269986"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>对 Azure 存储 使用 Azure PowerShell
 
@@ -37,7 +38,7 @@ Azure PowerShell 用于从 PowerShell 命令行或脚本创建和管理 Azure �
 
 本文提供有关存储的其他几篇 PowerShell 文章的链接，例如，如何启用和访问存储分析、如何使用数据平面 cmdlet，以及如何访问中国云、德国云和政府云等 Azure 独立云。
 
-如果没有 Azure 订阅，可以在开始前创建一个 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
 本演练需要 Azure PowerShell 模块 4.4 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 
 
@@ -176,7 +177,7 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 ```
 
 > [!IMPORTANT]
-> 在删除存储帐户时，还会删除该帐户中存储的所有资产。 如果意外删除某个帐户，请立即致电支持人员，并打开票证以还原该存储帐户。 不保证数据能得以恢复，但有时上述操作能起作用。 在支持票证得到解决之前，请不要使用相同的旧帐户名创建新的存储帐户。 
+> 在删除存储帐户时，还会删除该帐户中存储的所有资产。 如果意外删除某个帐户，请立即致电支持人员，并创建工单以还原该存储帐户。 不保证数据能得以恢复，但有时上述操作能起作用。 在支持工单得到解决之前，请不要使用相同的旧帐户名创建新的存储帐户。 
 >
 
 

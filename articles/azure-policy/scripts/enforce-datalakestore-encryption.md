@@ -16,12 +16,12 @@ origin.date: 04/27/2018
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: bc025d335c9a3c8d0581b1d58df07814ea6557e2
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: b4001974e5a4a779c1156b358eaa1510554e562b
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695213"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269962"
 ---
 # <a name="require-data-lake-store-encryption"></a>需要 Data Lake Store 加密
 
@@ -79,7 +79,7 @@ Remove-AzureRmPolicyAssignment -Name "Data Lake Store encryption" -Scope <scope>
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy assignment create --scope <scope> --name "Data Lake Store encryption" --policy a7ff3161-0087-490a-9ad9-ad6217f4f43a
 ```
 
@@ -87,7 +87,7 @@ az policy assignment create --scope <scope> --name "Data Lake Store encryption" 
 
 运行以下命令删除策略分配。
 
-```azurecli-interactive
+```azurecli
 az policy assignment delete --name "Data Lake Store encryption" --resource-group myResourceGroup
 ```
 

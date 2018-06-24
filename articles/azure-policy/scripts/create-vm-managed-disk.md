@@ -16,12 +16,12 @@ origindate: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 215d847e659f2d07b6e4757898f20f87e995da0d
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 4e55964507e353ec86c0ed9d2b129f31e07ff396
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695188"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270049"
 ---
 # <a name="audit-when-vm-does-not-use-managed-disk"></a>在 VM 未使用托管磁盘时审核
 
@@ -30,9 +30,55 @@ ms.locfileid: "34695188"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/compute/audit-non-managed-disk-vm/azurepolicy.json "Create VM using Managed Disk")]
-
+```json
+{
+  "properties": {
+    "displayName":"Create VM using Managed Disk",
+    "description":"Create VM using Managed Disk",
+    "policyRule": {
+      "if": {
+        "anyOf": [
+          {
+            "allOf": [
+              {
+                "field": "type",
+                "equals": "Microsoft.Compute/virtualMachines"
+              },
+              {
+                "field": "Microsoft.Compute/virtualMachines/osDisk.uri",
+                "exists": true
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "field": "type",
+                "equals": "Microsoft.Compute/VirtualMachineScaleSets"
+              },
+              {
+                "anyOf": [
+                  {
+                    "field": "Microsoft.Compute/VirtualMachineScaleSets/osDisk.vhdContainers",
+                    "exists": true
+                  },
+                  {
+                    "field": "Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl",
+                    "exists": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "effect": "audit"
+      }
+    }
+  }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +108,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'audit-non-managed-disk-vm' --display-name 'Create VM using Managed Disk' --description 'Create VM using Managed Disk' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/audit-non-managed-disk-vm/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/audit-non-managed-disk-vm/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "audit-non-managed-disk-vm"
@@ -72,7 +118,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "au
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

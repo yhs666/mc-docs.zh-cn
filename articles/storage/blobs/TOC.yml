@@ -70,7 +70,7 @@
               href: ../common/storage-redundancy-lrs.md?toc=%2fstorage%2fblobs%2ftoc.json
             - name: 异地冗余存储
               href: ../common/storage-redundancy-grs.md?toc=%2fstorage%2fblobs%2ftoc.json
-        - name: 热层、冷层和存档层
+        - name: 热层、冷层
           href: storage-blob-storage-tiers.md
         - name: 可伸缩性和性能目标
           href: ../common/storage-scalability-targets.md?toc=%2fstorage%2fblobs%2ftoc.json
@@ -306,7 +306,7 @@
     - name: PHP
       href: 'http://azure.github.io/azure-storage-php/'
     - name: Python
-      href: 'https://azure-storage.readthedocs.io/en/latest/index.html'
+      href: 'http://azure.github.io/azure-storage-python/'
     - name: C++
       href: 'http://azure.github.io/azure-storage-cpp'
     - name: iOS

@@ -9,14 +9,14 @@ ms.workload: storage
 ms.tgt_pltfrm: windows
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: c667af4cc920414e285fa2e1ebd4eb91780b8144
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: ee18e53e530977f06ed70d9ed8e0a292881424f2
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702774"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315561"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>关于 Azure Windows VM 的磁盘存储
 就像其他任何计算机一样，Azure 中的虚拟机将磁盘用作存储操作系统、应用程序和数据的位置。 所有 Azure 虚拟机都至少有两个磁盘，即 Windows 操作系统磁盘和临时磁盘。 操作系统磁盘基于映像创建，操作系统磁盘和该映像都存储在 Azure 存储帐户中的虚拟硬盘 (VHD) 内。 虚拟机还可以有一个或多个数据磁盘，而这些磁盘也存储为 VHD。 
@@ -33,7 +33,7 @@ ms.locfileid: "34702774"
 每个虚拟机都附加了一个操作系统磁盘。 默认情况下，它注册为 SATA 驱动器并标为 C: 盘。 此磁盘的最大容量为 2048 GB。 
 
 ### <a name="temporary-disk"></a>临时磁盘
-每个 VM 包含一个临时磁盘。 临时磁盘为应用程序和进程提供短期存储存储空间，仅用于存储页面或交换文件等数据。 在[维护事件](manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期间或[重新部署 VM](redeploy-to-new-node.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 时，临时磁盘上的数据可能会丢失。 在 VM 标准重启期间，临时驱动器上的数据应会保留。
+每个 VM 包含一个临时磁盘。 临时磁盘为应用程序和进程提供短期存储存储空间，仅用于存储页面或交换文件等数据。 在[维护事件](manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期间或[重新部署 VM](redeploy-to-new-node.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 时，临时磁盘上的数据可能会丢失。 在 VM 成功标准重启期间，临时驱动器上的数据将保留。 
 
 临时磁盘默认标记为 D: 盘，用于存储 pagefile.sys。 若要将此磁盘重新映射到其他驱动器号，请参阅[更改 Windows 临时磁盘的驱动器号](change-drive-letter.md)。 临时磁盘的大小因虚拟机的大小而异。 有关详细信息，请参阅 [Windows 虚拟机的大小](sizes.md)。
 

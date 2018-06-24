@@ -78,6 +78,8 @@
           items:
             - name: 约束的 vCPU
               href: constrained-vcpu.md
+        - name: 前几代
+          href: sizes-previous-gen.md
         - name: Azure 计算单元 (ACU)
           href: acu.md
         - name: 基准评分
@@ -101,8 +103,6 @@
           href: disk-scalability-targets.md
         - name: 磁盘的备份和灾难恢复
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-        - name: 对附加的 VHD 进行故障排除
-          href: troubleshoot-vhds.md
     - name: 网络
       href: network-overview.md
     - name: 基础结构自动化
@@ -127,6 +127,8 @@
           href: create-cli-complete.md
         - name: 使用模板
           href: create-ssh-secured-vm-from-template.md
+        - name: 使用 REST API
+          href: create-vm-rest-api.md
         - name: 复制或克隆 VM
           href: copy-vm.md
     - name: 保护 VM
@@ -191,6 +193,8 @@
           href: scheduled-events.md
         - name: 监视元数据
           href: instance-metadata-service.md
+        - name: 使用 REST 获取使用情况指标
+          href: metrics-vm-usage-rest.md
     - name: 使用映像
       items:
         - name: 查找和使用映像
@@ -336,15 +340,7 @@
             - name: 使用内部 DNS
               href: static-dns-name-resolution-for-linux-on-azure.md
     - name: 使用 VM 扩展
-      items:
-        - name: VM 扩展 - 概述
-          href: extensions-features.md
-        - name: 自定义脚本扩展
-          href: extensions-customscript.md
-        - name: VMAccess 扩展
-          href: using-vmaccess-extension.md
-        - name: 限制扩展安装
-          href: ../extensions/extensions-rmpolicy-howto-cli.md
+      href: ../extensions/overview.md
     - name: 迁移 VM
       items:
         - name: 迁移 AWS 和本地 VM

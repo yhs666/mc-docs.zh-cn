@@ -16,12 +16,12 @@ origin.date: 11/13/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 1928436b79c25b79a00b5d95c4c0ab9db8a72afe
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 0bf526fb7979ccd5db0ed3851b5cb2741312e85a
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695174"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269926"
 ---
 # <a name="enforce-like-pattern-for-naming-conventions"></a>强制实施用于命名约定的 like 模式
 
@@ -30,9 +30,34 @@ ms.locfileid: "34695174"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/TextPatterns/enforce-like-pattern/azurepolicy.json "enforce like pattern")]
-
+```json
+{
+    "properties": {
+        "displayName": "Name pattern with like condition.",
+        "description": "Enforce a naming pattern on resources with the like condition.",
+        "mode": "indexed",
+        "parameters": {
+            "namePattern": {
+                "type": "String",
+                "metadata": {
+                    "description": "Pattern to use for names. Can include wildcard (*)."
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "not": {
+                    "field": "name",
+                    "like": "[parameters('namePattern')]"
+                }
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -72,7 +97,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "en
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

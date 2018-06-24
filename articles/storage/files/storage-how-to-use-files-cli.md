@@ -14,12 +14,12 @@ ms.topic: get-started-article
 origin.date: 03/26/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 8321e5a1bfcbb76a00e59ed39826eb4684bf4f8e
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: e51aa3e6b915a5ff217aeb26e5cf6e2c193255bb
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867538"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269941"
 ---
 # <a name="manage-azure-file-shares-using-azure-cli"></a>使用 Azure CLI 管理 Azure 文件共享
 [Azure 文件](storage-files-introduction.md)是 Microsoft 推出的易于使用的云文件系统。 可以在 Windows、Linux 和 macOS 中装载 Azure 文件共享。 本文介绍通过 Azure CLI 来使用 Azure 文件共享的基本知识。 了解如何： 
@@ -32,16 +32,16 @@ ms.locfileid: "34867538"
 > * 下载文件
 > * 创建和使用共享快照
 
-如果没有 Azure 订阅，可以在开始前创建一个 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 
 
-如果决定在本地安装并使用 Azure CLI，则必须运行 Azure CLI 2.0.4 或更高版本才能执行本文中的步骤。 若要查找 Azure CLI 版本，请运行 **az --version**。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/azure/install-azure-cli)。 
+如果决定在本地安装并使用 Azure CLI，则必须运行 Azure CLI 2.0.4 或更高版本才能执行本文中的步骤。 若要查找 Azure CLI 版本，请运行 **az --version**。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
 
 默认情况下，Azure CLI 命令返回 JavaScript 对象表示法 (JSON)。 JSON 是通过 REST API 发送和接收消息的标准方式。 为了便于处理 JSON 响应，本文中的某些示例使用基于 Azure CLI 命令的 *query* 参数。 该参数使用 [JMESPath 查询语言](http://jmespath.org/)来分析 JSON。 若要详细了解如何按照 JMESPath 查询语言的规范来使用 Azure CLI 命令的结果，请参阅 [JMESPath tutorial](http://jmespath.org/tutorial.html)（JMESPath 教程）。
 
 ## <a name="create-a-resource-group"></a>创建资源组
-资源组是在其中部署和管理 Azure 资源的逻辑容器。 如果还没有 Azure 资源组，可以使用 [az group create](/cli/azure/group#create) 命令创建一个。 
+资源组是在其中部署和管理 Azure 资源的逻辑容器。 如果还没有 Azure 资源组，可以使用 [az group create](/cli/group#create) 命令创建一个。 
 
 以下示例在“中国东部”位置创建名为 *myResourceGroup* 的资源组：
 
@@ -52,7 +52,7 @@ az group create --name myResourceGroup --location chinaeast
 ## <a name="create-a-storage-account"></a>创建存储帐户
 存储帐户是一个存储共享池，在其中可以部署 Azure 文件共享或其他存储资源，例如 Blob 或队列。 一个存储帐户可以包含无数个文件共享。 一个共享可以存储无数个文件，直到达到存储帐户的容量限制为止。
 
-以下示例使用 [az storage account create](/cli/azure/storage/account#create) 命令创建名为 mystorageaccount\<随机数字\> 的存储帐户，然后将该存储帐户的名称置于 `$STORAGEACCT` 变量中。 存储帐户名称必须唯一。 使用 `$RANDOM` 将一个数字追加到存储帐户名称末尾即可使之变得唯一。 
+以下示例使用 [az storage account create](/cli/storage/account#create) 命令创建名为 mystorageaccount\<随机数字\> 的存储帐户，然后将该存储帐户的名称置于 `$STORAGEACCT` 变量中。 存储帐户名称必须唯一。 使用 `$RANDOM` 将一个数字追加到存储帐户名称末尾即可使之变得唯一。 
 
 ```azurecli 
 STORAGEACCT=$(az storage account create \
@@ -74,7 +74,7 @@ STORAGEKEY=$(az storage account keys list \
 ```
 
 ## <a name="create-an-azure-file-share"></a>创建 Azure 文件共享
-现在可以创建第一个 Azure 文件共享了。 请使用 [az storage share create](/cli/azure/storage/share#create) 命令创建文件共享。 以下示例创建名为 *myshare* 的 Azure 文件共享： 
+现在可以创建第一个 Azure 文件共享了。 请使用 [az storage share create](/cli/storage/share#create) 命令创建文件共享。 以下示例创建名为 *myshare* 的 Azure 文件共享： 
 
 ```azurecli
 az storage share create \

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 04/24/2018
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: a63d33bf73d7ff7dc66334f4ae2b043c082365fd
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 2a33f5d48fda305e917c022df0a25b4edc1bd417
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702909"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315487"
 ---
 # <a name="custom-script-extension-for-windows"></a>适用于 Windows 的自定义脚本扩展
 
@@ -240,5 +240,4 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ### <a name="support"></a>支持
 
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
-<!-- Update_Description: new articles on custom script windows -->
-<!--ms.date: 06/04/2018-->
+<!-- Update_Description: update meta properties -->

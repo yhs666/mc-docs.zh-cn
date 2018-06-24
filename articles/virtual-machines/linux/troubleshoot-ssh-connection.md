@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9d85252cde904bb1744ced599a513f67c17fc679
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 2bb1aa728bae16800d1923bd0966b8d40628fd89
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702866"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315588"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>针对通过 SSH 连接到 Azure Linux VM 时发生的失败、错误或被拒绝问题进行故障排除
 尝试连接到 Linux 虚拟机 (VM) 时，有多种原因可能会导致安全外壳 (SSH) 错误、SSH 连接失败或被拒绝。 本文将帮助用户找出原因并更正问题。 可以使用 Azure 门户、Azure CLI 或适用于 Linux 的 VM 访问扩展来排查和解决连接问题。
@@ -74,18 +74,18 @@ ms.locfileid: "34702866"
 
 ### <a name="check-security-rules"></a>检查安全规则
 
-使用 [IP 流验证](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)来确认网络安全组中的规则是否阻止了传入或传出虚拟机的流量。 还可以查看有效的安全组规则，确保入站“允许”NSG 规则存在并已针对 SSH 端口（默认值 22）进行优化。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow)。
+使用 [IP 流验证](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)来确认网络安全组中的规则是否阻止了传入或传出虚拟机的流量。 还可以查看有效的安全组规则，确保入站“允许”NSG 规则存在并已针对 SSH 端口（默认值 22）进行优化。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/diagnose-network-traffic-filter-problem.md)。
 
 ### <a name="check-routing"></a>检查路由
 
-使用网络观察程序的[下一跃点](../../network-watcher/network-watcher-check-next-hop-portal.md)功能确认路由未阻止将流量路由到虚拟机或从虚拟机路由流量。 还可以查看有效路由，以了解网络接口的所有有效路由。 有关详细信息，请参阅[使用有效路由排查 VM 流量流问题](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)。
+使用网络观察程序的[下一跃点](../../network-watcher/network-watcher-check-next-hop-portal.md)功能确认路由未阻止将流量路由到虚拟机或从虚拟机路由流量。 还可以查看有效路由，以了解网络接口的所有有效路由。 有关详细信息，请参阅[使用有效路由排查 VM 流量流问题](../../virtual-network/diagnose-network-routing-problem.md)。
 
 ## <a name="use-the-azure-cli-20"></a>使用 Azure CLI 2.0
 安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户（如果尚未这样做）。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果创建并上传了自定义 Linux 磁盘映像，请确保已安装 [Azure Linux 代理](../windows/agent-user-guide.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 2.0.5 或更高版本。 在使用库映像创建的 VM 上，系统已自动安装并配置了此访问扩展。
+如果创建并上传了自定义 Linux 磁盘映像，请确保已安装 [Azure Linux 代理](../extensions/agent-windows.md) 2.0.5 或更高版本。 在使用库映像创建的 VM 上，系统已自动安装并配置了此访问扩展。
 
 ### <a name="reset-ssh-configuration"></a>重置 SSH 配置
 最初可尝试将 SSH 配置重置为默认值，然后重新启动 VM 上的 SSH 服务器。 请注意，此操作不会更改用户帐户名、密码或 SSH 密钥。
@@ -257,4 +257,4 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 * 如果在执行后续步骤之后仍然无法通过 SSH 连接到 VM，请参阅[更详细的故障排除步骤](detailed-troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，查看其他可以解决问题的步骤。
 * 有关对应用程序访问进行故障排除的详细信息，请参阅[对在 Azure 虚拟机上运行的应用程序的访问进行故障排除](../windows/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * 有关对使用经典部署模型创建的虚拟机进行故障排除的详细信息，请参阅[如何为基于 Linux 的虚拟机重置密码或 SSH](classic/reset-access-classic.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)。
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

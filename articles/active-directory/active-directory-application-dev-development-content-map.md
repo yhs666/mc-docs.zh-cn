@@ -3,22 +3,23 @@ title: 开发应用程序时出现问题
 description: 开发应用程序时出现问题
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: ajamess
+manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 07/18/2017
+ms.date: 06/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: 88e6865ad791fe02e38c6389b085a73c0e1f81b3
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.openlocfilehash: 96b9643d1fc7bfa9a0e844c75aec1273f3c63865
+ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
-ms.locfileid: "20634055"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314263"
 ---
 # <a name="problems-developing-my-application"></a>开发应用程序时出现问题
 

@@ -16,12 +16,12 @@ origin.date: 11/13/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: ad1e095c073ea4206ec5bc57873cc9670a2f1738
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 34c14a282ba520e82bf90b50b3953fa557fa010a
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695145"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269953"
 ---
 # <a name="allow-multiple-name-patterns"></a>允许多名称模式
 
@@ -30,9 +30,36 @@ ms.locfileid: "34695145"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/TextPatterns/allow-multiple-name-patterns/azurepolicy.json "allow multiple name patterns")]
-
+```json
+{
+    "properties": {
+        "displayName": "Match multiple name patterns.",
+        "description": "Allows one of multiple naming patterns for resources.",
+        "mode": "indexed",
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "not": {
+                            "field": "name",
+                            "match": "contoso??????"
+                        }
+                    },
+                    {
+                        "not": {
+                            "field": "name",
+                            "match": "contoso-???-##"
+                        }
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -72,7 +99,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "al
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

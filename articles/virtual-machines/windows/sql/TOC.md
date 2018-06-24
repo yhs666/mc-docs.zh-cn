@@ -19,7 +19,8 @@
 #### [配置 Azure Key Vault 集成](virtual-machines-windows-ps-sql-keyvault.md)
 ## 备份和还原
 ### [备份和还原](virtual-machines-windows-sql-backup-recovery.md)
-### [自动备份](virtual-machines-windows-sql-automated-backup.md)
+### [SQL Server 2014 自动备份](virtual-machines-windows-sql-automated-backup.md)
+### [SQL Server 2016+ 自动备份](virtual-machines-windows-sql-automated-backup-v2.md)
 ### [使用 Azure 存储进行备份和还原](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # 操作指南
@@ -42,7 +43,7 @@
 
 # 参考
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-## [Azure CLI](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest)
+## [Azure CLI](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 ## [SQL Server 驱动程序](https://docs.microsoft.com/sql/connect/sql-connection-libraries)
 ## [REST](https://docs.microsoft.com/rest/api/)
@@ -54,5 +55,4 @@
 ## [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 ## [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 ## [SQL Server 工具](https://docs.microsoft.com/sql/tools/overview-sql-tools)
-## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
-<!--ms.date: 01/08/2017-->
+<!--ms.date: 06/25/2018-->

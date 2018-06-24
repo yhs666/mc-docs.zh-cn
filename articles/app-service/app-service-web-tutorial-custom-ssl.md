@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 11/30/2017
-ms.date: 06/04/2018
+ms.date: 07/02/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 775945eb0ec999c7899000953b9b961808276f78
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 75ccb436b058e59c6519ddcdbb4084d541192b04
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554255"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315567"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>教程：将现有的自定义 SSL 证书绑定到 Azure Web 应用
 
@@ -87,17 +87,17 @@ Azure Web 应用提供高度可缩放、自修补的 Web 托管服务。 本教�
 
 ![扩展菜单](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
 
-检查以确保 Web 应用不在“免费”或“共享”层中。 深蓝色的框突出显示了 Web 应用的当前层。
+检查以确保 Web 应用不在 **F1** 或 **D1** 层中。 深蓝色的框突出显示了 Web 应用的当前层。
 
 ![检查定价层](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-“免费”和“共享”层不支持自定义 SSL。 如果需要进行扩展，请遵循下一部分中的步骤。 否则，请关闭“选择定价层”页面并跳到[上传和绑定 SSL 证书](#upload)。
+**F1** 或 **D1** 层不支持自定义 SSL。 如果需要进行扩展，请遵循下一部分中的步骤。 否则，请关闭“纵向扩展”页并跳转到[上传和绑定 SSL 证书](#upload)。
 
 ### <a name="scale-up-your-app-service-plan"></a>扩展应用服务计划
 
-选择“基本”、“标准”或“高级”层。
+选择任何非免费层（**B1**、**B2**、**B3**，或“生产”类别中的任何层）。 有关其他选项，请单击“查看其他选项”。
 
-单击“选择”。
+单击“应用” 。
 
 ![选择定价层](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 

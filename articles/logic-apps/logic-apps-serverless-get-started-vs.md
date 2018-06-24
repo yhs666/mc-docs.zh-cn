@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: bbb2a7d5c5d71dc8fb1fbc4abaf1b5ce73ba7417
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 07/02/2018
+ms.openlocfilehash: f5ff18490fcff2d3f7e82da2636678b230595911
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870555"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315454"
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>使用逻辑应用和 Functions 在 Visual Studio 中构建无服务器应用
 
@@ -88,7 +88,7 @@ ms.locfileid: "29870555"
 ## <a name="next-steps"></a>后续步骤
 
 * [了解如何构建无服务器社交仪表板](logic-apps-scenario-social-serverless.md)
-* [通过 Visual Studio Cloud Explorer 管理逻辑应用](logic-apps-manage-from-vs.md)
+* [通过 Visual Studio Cloud Explorer 管理逻辑应用](manage-logic-apps-with-visual-studio.md)
 * [逻辑应用工作流定义语言](logic-apps-workflow-definition-language.md)
 
 <!-- Image references -->

@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 origin.date: 02/28/2017
-ms.date: 04/16/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0c4115da4a3a579557894b7a2bff1fb47aacea2f
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 9c5f1e392d2e9fa99cb17be549f54cbef64f4c0d
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31323794"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315383"
 ---
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 快速创建虚拟机
 
@@ -77,11 +77,11 @@ az group delete --name myResourceGroup --yes
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和网络安全组。 此命令还指定要使用的虚拟机映像和管理凭据。  |
-| [az vm open-port](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az_network_nsg_rule_create) | 创建网络安全组规则，以允许入站流量。 在此示例中，为 HTTP 流量打开端口 80。 |
-| [azure vm extension set](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az_vm_extension_set) | 将虚拟机扩展添加到 VM 并运行该扩展。 在此示例中，使用自定义脚本扩展来安装 IIS。|
-| [az group delete](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az_vm_extension_set) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和网络安全组。 此命令还指定要使用的虚拟机映像和管理凭据。  |
+| [az vm open-port](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) | 创建网络安全组规则，以允许入站流量。 在此示例中，为 HTTP 流量打开端口 80。 |
+| [azure vm extension set](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az-vm-extension-set) | 将虚拟机扩展添加到 VM 并运行该扩展。 在此示例中，使用自定义脚本扩展来安装 IIS。|
+| [az group delete](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

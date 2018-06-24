@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 637b9419a3fd21234df758c641736a15cc0c70d3
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: b41b208697ae7cca46c79753cd74c2291ffac40c
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695146"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269951"
 ---
 # <a name="enforce-tag-and-its-value-on-resource-groups"></a>在资源组强制执行标记及其值
 
@@ -30,9 +30,48 @@ ms.locfileid: "34695146"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/ResourceGroup/enforce-resourceGroup-tags/azurepolicy.json "Enforce tag and its value on resource groups")]
-
+```json
+{
+   "properties": {
+      "displayName": "Enforce tag and its value on resource groups",
+      "description": "Enforces a required tag and its value on resource groups.",
+      "mode": "all",
+      "parameters": {
+         "tagName": {
+            "type": "String",
+            "metadata": {
+               "description": "Name of the tag, such as costCenter"
+            }
+         },
+         "tagValue": {
+            "type": "String",
+            "metadata": {
+               "description": "Value of the tag, such as headquarter"
+            }
+         }
+      },
+      "policyRule": {
+         "if": {
+            "allOf": [
+               {
+                  "field": "type",
+                  "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+               },
+               {
+                  "not": {
+                     "field": "[concat('tags[',parameters('tagName'), ']')]",
+                     "equals": "[parameters('tagValue')]"
+                  }
+               }
+            ]
+         },
+         "then": {
+            "effect": "deny"
+         }
+      }
+   }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +101,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'enforce-resourceGroup-tags' --display-name 'Enforce tag and its value on resource groups' --description 'Enforces a required tag and its value on resource groups.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/ResourceGroup/enforce-resourceGroup-tags/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/ResourceGroup/enforce-resourceGroup-tags/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "enforce-resourceGroup-tags"
@@ -72,7 +111,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "en
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

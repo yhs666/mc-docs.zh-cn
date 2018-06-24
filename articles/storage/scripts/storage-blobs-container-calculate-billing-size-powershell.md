@@ -1,12 +1,12 @@
 ---
-title: "Azure PowerShell 脚本示例 - 计算要计费的 Blob 容器总大小 | Microsoft Docs"
-description: "出于计费目的计算 Azure Blob 存储中容器的总大小。"
+title: Azure PowerShell 脚本示例 - 计算要计费的 Blob 容器总大小 | Microsoft Docs
+description: 出于计费目的计算 Azure Blob 存储中容器的总大小。
 services: storage
 documentationcenter: na
 author: yunan2016
 manager: digimobile
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -16,11 +16,12 @@ ms.topic: sample
 origin.date: 11/07/2017
 ms.date: 12/04/2017
 ms.author: v-nany
-ms.openlocfilehash: 79a56a495a2f759fce753df63d446082ad4bc512
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 2f4f42d756031df25c0e03f26e7dbedd6bc322b6
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270021"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>计算要计费的 Blob 容器总大小
 
@@ -124,7 +125,7 @@ For-Each Signed Identifier[512 bytes]
 # before running this, you need to create a storage account, create a container,
 #    and upload some blobs into the container
 # note: this retrieves all of the blobs in the container in one command.
-#       connect Azure with Login-AzureRmAccount before you run the script.
+#       connect Azure with Login-AzureRmAccount -Environment AzureChinaCloud before you run the script.
 # command line usage: script.ps1 -ResourceGroup {YourResourceGroupName} -StorageAccountName {YourAccountName} -ContainerName {YourContainerName}
 #
 

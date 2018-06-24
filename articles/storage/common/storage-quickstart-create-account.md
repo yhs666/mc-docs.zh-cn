@@ -1,6 +1,6 @@
 ---
-title: "Azure 快速入门 - 创建存储帐户 | Microsoft Docs"
-description: "快速了解如何使用 Azure 门户、Azure PowerShell 或 Azure CLI 创建新的存储帐户。"
+title: Azure 快速入门 - 创建存储帐户 | Microsoft Docs
+description: 快速了解如何使用 Azure 门户、Azure PowerShell 或 Azure CLI 创建新的存储帐户。
 services: storage
 author: yunan2016
 manager: digimobile
@@ -10,11 +10,12 @@ ms.topic: quickstart
 origin.date: 01/19/2018
 ms.date: 3/5/2018
 ms.author: v-nany
-ms.openlocfilehash: 16ee71904ab3a0f989b5c6bef0b34cf3620473ac
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 70d2e545b326cd8369adc3cdb3f5d47fb7bcd6ec
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269965"
 ---
 # <a name="create-a-storage-account"></a>创建存储帐户
 
@@ -69,7 +70,7 @@ Azure Cloud Shell 是可直接在 Azure 门户中运行的免费 Bash shell。 �
 使用 `Login-AzureRmAccount` 命令登录到 Azure 订阅，然后按照屏幕上的说明进行身份验证。
 
 ```powershell
-Login-AzureRmAccount �Environment AzureChinaCloud
+Login-AzureRmAccount -Environment AzureChinaCloud
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)

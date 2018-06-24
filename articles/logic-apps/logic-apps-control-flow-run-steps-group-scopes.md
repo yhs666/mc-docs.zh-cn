@@ -1,31 +1,26 @@
 ---
-title: 基于分组的操作状态运行步骤 - Azure 逻辑应用
-description: 将操作分组到作用域中并基于组状态运行步骤
+title: 基于组状态添加运行操作的范围 - Azure 逻辑应用 | Microsoft Docs
+description: 如何基于 Azure 逻辑应用中的组操作状态创建运行工作流操作的范围
 services: logic-apps
-keywords: 分支, 并行处理
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 03/05/2018
+author: ecfan
 ms.author: v-yiso
+manager: jeconnoc
+origin.date: 03/05/2018
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ms.date: 04/23/2018
-ms.openlocfilehash: 61fa348978ebf46a38e31604f075c6ae8774395e
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 49db28fab497e524859e43b011e4f66821976bf3
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31359570"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315628"
 ---
-# <a name="scopes-run-steps-based-on-group-status-in-logic-apps"></a>作用域：基于逻辑应用中的组状态运行步骤
+# <a name="create-scopes-that-run-workflow-actions-based-on-group-status-in-azure-logic-apps"></a>基于 Azure 逻辑应用中的组状态创建运行工作流操作的范围
 
-若要仅在另一组操作成功或失败后运行步骤，请将该组放在一个“作用域”内。 如果你希望将各个操作组织为逻辑组，评估该组的状态并执行基于作用域状态的操作，则此结构非常有用。 当某个作用域中的所有操作都完成运行后，该作用域也确定了其自己的状态。 例如，当希望实现[异常和错误处理](../logic-apps/logic-apps-exception-handling.md#scopes)时可以使用作用域。 
+若要仅在另一组操作成功或失败后运行操作，请在范围内对这些操作进行分组。 如果你希望将各个操作组织为逻辑组，评估该组的状态并执行基于作用域状态的操作，则此结构非常有用。 当某个作用域中的所有操作都完成运行后，该作用域也确定了其自己的状态。 例如，当希望实现[异常和错误处理](../logic-apps/logic-apps-exception-handling.md#scopes)时可以使用作用域。 
 
 若要检查作用域的状态，可以使用与用来确定逻辑应用运行状态（例如“已成功”、“已失败”、“已取消”，等等）的条件相同的条件。 默认情况下，当作用域的所有操作都成功时，作用域的状态将被标记为“已成功”。 但是，当作用域中有任何操作失败或被取消时，作用域的状态将被标记为“已失败”。 有关作用域的限制，请参阅[限制和配置](../logic-apps/logic-apps-limits-and-config.md)。 
 
@@ -39,7 +34,7 @@ ms.locfileid: "31359570"
 
 * Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
 
-* 一个由逻辑应用支持的任何电子邮件提供程序提供的电子邮件帐户。 此示例使用的是 Outlook.com。如果使用其他提供程序，则一般流程保持不变，但出现的 UI 会有所不同。
+* 一个由逻辑应用支持的任何电子邮件提供程序提供的电子邮件帐户。 此示例使用的是 Outlook.com。 如果使用其他提供程序，则一般流程保持不变，但出现的 UI 会有所不同。
 
 * 一个必应地图密钥。 若要获取此密钥，请参阅<a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Get a Bing Maps key</a>（获取必应地图密钥）。
 

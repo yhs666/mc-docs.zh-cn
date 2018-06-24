@@ -1,12 +1,12 @@
 ---
-title: "需要在 Azure 存储中安全传输 | Microsoft Docs"
-description: "了解 Azure 存储的“需要安全传输”功能，以及如何启用它。"
+title: 需要在 Azure 存储中安全传输 | Microsoft Docs
+description: 了解 Azure 存储的“需要安全传输”功能，以及如何启用它。
 services: storage
 documentationcenter: na
 author: forester123
 manager: digimobile
 editor: fhryo-msft
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.workload: storage
 origin.date: 06/20/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 7fe04879525c2307fd68b1d13b8c043b0782690f
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: a75a884181f8d7c888fd9e23811c3b2801c778ed
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269983"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>在 Azure 存储中需要安全传输
 
@@ -67,7 +68,7 @@ ms.lasthandoff: 12/29/2017
 
 本示例需要 Azure PowerShell 模块 4.1 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
-运行 `Login-AzureRmAccount`，创建与 Azure 的连接。
+运行 `Login-AzureRmAccount -Environment AzureChinaCloud`，创建与 Azure 的连接。
 
  使用以下命令行检查该设置：
 

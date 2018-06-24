@@ -9,7 +9,7 @@
 共享密钥身份验证意味着应用程序将使用帐户名和帐户密钥访问存储服务。 为了快速说明如何使用此库，我们将在此入门指南中使用共享密钥身份验证。
 
 > [!WARNING]
->**请仅将共享密钥身份验证用于测试目的！** 为关联的存储帐户提供完全读/写访问权限的帐户名和帐户密钥将分发给下载应用的每个人。 这 **不** 是好的做法，你会面临向不受信任的客户端泄露密钥的风险。
+>**请仅将共享密钥身份验证用于测试目的！** 为关联的存储帐户提供完全读/写访问权限的帐户名和帐户密钥将分发给下载你的应用的每个人。 这 **不** 是好的做法，你会面临向不受信任的客户端泄露密钥的风险。
 
 使用共享密钥身份验证时，会创建一个[连接字符串](../articles/storage/common/storage-configure-connection-string.md)。 连接字符串由以下部分组成：  
 
@@ -20,7 +20,7 @@
 
 以下是使用共享密钥身份验证的连接字符串示例：
 
-`"DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here"`
+`"DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here;EndpointSuffix=core.chinacloudapi.cn"`
 
 ### <a name="shared-access-signatures-sas"></a>共享访问签名 (SAS)
 对于移动应用程序，针对 Azure 存储服务对客户端请求进行身份验证的建议方法是使用共享访问签名 (SAS)。 SAS 允许使用指定的权限集向客户端授予在指定的时间内对资源的访问权限。
@@ -36,6 +36,6 @@
 
 4. 下面是 SAS 连接字符串的示例，该字符串为存储帐户的 Blob 服务授予对服务、容器和对象级别的读取与写入权限。
 
-  `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
+  `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.chinacloudapi.cn"`
 
 可以看到，使用 SAS 时，不会在应用程序中公开帐户密钥。 可以查阅 [Shared Access Signature s: Understanding the SAS model](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)（共享访问签名：了解 SAS 模型）了解有关 SAS 和使用 SAS 的最佳实践的详细信息。

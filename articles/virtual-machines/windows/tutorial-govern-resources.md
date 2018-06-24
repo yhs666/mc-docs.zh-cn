@@ -11,24 +11,24 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 02/21/2018
-ms.date: 06/04/2018
+origin.date: 05/21/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 80c43d5094ae49555fa68ebeec9506cb11d39142
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 805814b5969e12622001d580a5aba02864446935
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867792"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315521"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-powershell"></a>教程：了解如何使用 Azure PowerShell 控制 Linux 虚拟机
+# <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>教程：了解如何使用 Azure PowerShell 控制 Windows 虚拟机
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 
 
-如果选择在本地安装并使用 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。 对于本地安装，还必须[下载 Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)来创建新的 Azure Active Directory 组。
+本文中的示例需要版本 6.0 或更高版本的 Azure PowerShell。 如果在本地运行 PowerShell，并且未使用 6.0 版或更高版本，请[更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 此外，还需要运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。 对于本地安装，还必须[下载 Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)来创建新的 Azure Active Directory 组。
 
 ## <a name="understand-scope"></a>了解范围
 
@@ -57,6 +57,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 * [存储帐户参与者](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 通常情况下，与其向单个用户分配角色，不如为需要进行相似操作的用户[创建一个 Azure Active Directory 组](../../active-directory/active-directory-groups-create-azure-portal.md)， 然后向该组分配相应的角色。 为了简单起见，本文创建一个没有成员的 Azure Active Directory 组。 仍然可以为该组分配一个负责某个范围的角色。 
+<!-- URL is not contains fundamentals directory-->
 
 以下示例创建一个邮件别名为 *vmDemoGroup* 且名为 *VMDemoContributors* 的 Azure Active Directory 组。 邮件别名用作组的别名。
 
@@ -198,13 +199,13 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 若要通过标记名称和值查找资源，请使用 [Find-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/find-azurermresource) 命令：
 
 ```powershell
-(Find-AzureRmResource -TagName Environment -TagValue Test).Name
+(Get-AzureRmResource -Tag @{ Environment="Test"}).Name
 ```
 
 可以将返回的值用于管理任务，例如停止带有某个标记值的所有虚拟机。
 
 ```powershell
-Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
+Get-AzureRmResource -Tag @{ Environment="Test"} | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
 ### <a name="view-costs-by-tag-values"></a>按标记值查看成本
@@ -246,4 +247,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [监视虚拟机](tutorial-monitoring.md)
-<!-- Update_Description: update meta properties, update link, add the content of Azure Policy  -->
+<!-- Update_Description: update meta properties, update link   -->

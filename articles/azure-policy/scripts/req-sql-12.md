@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 3bb32ea069d172bf22084fa44024c6b44a54aefd
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 34c7db2164d85cf9a0a1b40bbe4ff7fe61fc6ebc
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695175"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269955"
 ---
 # <a name="require-sql-server-version-120"></a>需要 SQL Server 版本 12.0
 
@@ -30,9 +30,38 @@ ms.locfileid: "34695175"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/built-in-policy/require-sqlserver-version12/azurepolicy.json "Require SQL Server version 12.0")]
-
+```json
+{
+  "properties": {
+    "displayName": "Require SQL Server version 12.0",
+    "policyType": "BuiltIn",
+    "description": "This policy ensures all SQL servers use version 12.0.",
+    "parameters": {},
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.SQL/servers"
+          },
+          {
+            "not": {
+              "field": "Microsoft.SQL/servers/version",
+              "equals": "12.0"
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "Deny"
+      }
+    }
+  },
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/464dbb85-3d5f-4a1d-bb09-95a9b5dd19cf",
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "464dbb85-3d5f-4a1d-bb09-95a9b5dd19cf"
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +91,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'require-sqlserver-version12' --display-name 'Require SQL Server version 12.0' --description 'This policy ensures all SQL servers use version 12.0.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/require-sqlserver-version12/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/built-in-policy/require-sqlserver-version12/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "require-sqlserver-version12"
@@ -72,7 +101,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "re
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

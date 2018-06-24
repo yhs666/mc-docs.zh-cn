@@ -2,7 +2,7 @@
 title: 创建、编辑或扩展逻辑应用定义的 JSON
 description: 使用 JSON 编写和自定义逻辑应用定义
 author: ecfan
-manager: SyntaxC4
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 origin.date: 01/01/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: b112bc5efb1581494799a515826dfed20b22e0ae
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: a88657b87e020ec42f118f6725f1ea229e9f4bd4
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31323045"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315397"
 ---
 # <a name="create-edit-or-customize-json-for-logic-app-definitions"></a>创建、编辑或自定义逻辑应用定义的 JSON
 
@@ -122,7 +122,7 @@ ms.locfileid: "31323045"
 
 ``` json
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "uri": {
@@ -173,7 +173,7 @@ ms.locfileid: "31323045"
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "order": {
@@ -234,7 +234,7 @@ ms.locfileid: "31323045"
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "specialCategories": {
@@ -324,7 +324,7 @@ ms.locfileid: "31323045"
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "order": {

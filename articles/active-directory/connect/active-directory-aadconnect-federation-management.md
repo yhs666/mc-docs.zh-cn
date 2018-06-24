@@ -1,11 +1,11 @@
 ---
-title: 使用 Azure AD Connect 进行 Active Directory 联合身份验证服务的管理和自定义 | Microsoft Docs
+title: Azure AD Connect - AD FS 管理和自定义 | Microsoft Docs
 description: 使用 Azure AD Connect 管理 AD FS 并使用 Azure AD Connect 和 PowerShell 自定义用户的 AD FS 登录体验。
 keywords: AD FS, ADFS, AD FS 管理, AAD Connect, Connect, 登录, AD FS 自定义, 修复信任, O365, 联合, 信赖方
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: anandyadavmsft
+manager: mtillman
 editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 12/25/2017
+ms.date: 06/22/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 286c6e087ef633e7169b4ae453c049aef9cb8a53
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.custom: seohack1
+ms.openlocfilehash: 71cd30d4f2618468b8cc2dae9f74876496ed5f1a
+ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993316"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314293"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自定义 Active Directory 联合身份验证服务
 本文介绍如何使用 Azure Active Directory (Azure AD) Connect 管理和自定义 Active Directory 联合身份验证服务 (AD FS)。 另外，还介绍了可能需要针对完整的 AD FS 场配置执行的其他常见 AD FS 任务。
@@ -274,4 +276,4 @@ AD FS 支持丰富的声明语言，让你用来创建自定义声明规则。 �
 ## <a name="next-steps"></a>后续步骤
 了解有关[用户登录选项](active-directory-aadconnect-user-signin.md)的详细信息。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

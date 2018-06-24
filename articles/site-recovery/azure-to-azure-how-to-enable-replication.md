@@ -9,18 +9,14 @@ ms.topic: article
 origin.date: 05/16/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: b5d9fe3afef9fc31fb11e63c9d80c0de10d06521
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: ece70a26dfd05c0a76ebda9862cefbfbec9d109d
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568302"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315602"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>将 Azure 虚拟机复制到另一个 Azure 区域
-
->[!NOTE]
->
-> Azure 虚拟机的 Site Recovery 复制当前处于预览阶段。
 
 本文介绍如何启用从一个 Azure 区域到另一个区域的 Azure VM 复制。
 

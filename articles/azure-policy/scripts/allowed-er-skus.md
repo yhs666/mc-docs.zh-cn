@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 1332fdfc707533a12192ae795b13f43e23adc290
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: e91f69d37ea9ec386a66b422d117ebc1c274db02
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695159"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269947"
 ---
 # <a name="allowed-express-route-skus"></a>允许的 Express Route SKU
 
@@ -30,9 +30,42 @@ ms.locfileid: "34695159"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/Network/express-route-skus/azurepolicy.json "Allowed Express Route SKUs")]
-
+```json
+{
+    "properties": {
+        "displayName": "Allowed Express Route SKUs",
+        "description": "This policy enables you to specify a set of express route SKUs that your organization can deploy.",
+        "parameters": {
+            "listOfAllowedSKUs": {
+                "type": "Array",
+                "metadata": {
+                    "description": "The list of SKUs that can be specified for express route.",
+                    "displayName": "Allowed SKUs"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Network/expressRouteCircuits"
+                    },
+                    {
+                        "not": {
+                            "field": "Microsoft.Network/expressRouteCircuits/sku.name",
+                            "in": "[parameters('listOfAllowedSKUs')]"
+                        }
+                    }
+                ]
+            },
+            "then": {
+                "effect": "Deny"
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +95,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'express-route-skus' --display-name 'Allowed Express Route SKUs' --description 'This policy enables you to specify a set of express route SKUs that your organization can deploy.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-skus/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-skus/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "express-route-skus"
@@ -72,7 +105,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "ex
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

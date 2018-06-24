@@ -241,7 +241,7 @@ Azure 高级存储目前提供了七种磁盘大小。 每种磁盘大小对 IOP
 | **磁盘类型** | **默认缓存设置** |
 | --- | --- |
 | 操作系统磁盘 |ReadWrite |
-| 数据磁盘 |无 |
+| 数据磁盘 |ReadOnly |
 
 以下是针对数据磁盘建议的磁盘缓存设置：
 
@@ -579,4 +579,4 @@ SQL Server 用户请阅读有关 SQL Server 性能最佳实践的文章：
 * [Azure 虚拟机中 SQL Server 的性能最佳做法](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
 * [Azure 高级存储为 Azure VM 中的 SQL Server 提供最高性能](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 <!-- Update_Description: wording update, update link -->
-<!--ms.date: 06/04/2018-->
+<!--ms.date: 06/25/2018-->

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 01/02/2017
-ms.date: 02/05/2018
+origin.date: 01/02/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a810dc7466849dd55fe8eeec256a6b6731957cc7
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 85ce42436c249e53cb28165f3c2502db0919085d
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34568756"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315611"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>将 VHD 上传到 Azure 并创建新的 VM 的示例脚本
 

@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 2b9544c50fbbe59cc94505a0029a575e1132be43
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 4bf7a4de1505add1a13bf902c64b32c63a0ad55e
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695132"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270048"
 ---
 # <a name="create-vm-using-managed-disk"></a>使用托管磁盘创建 VM
 
@@ -30,9 +30,55 @@ ms.locfileid: "34695132"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/compute/use-managed-disk-vm/azurepolicy.json "Create VM using Managed Disk")]
-
+```json
+{
+  "properties": {
+    "displayName":"Create VM using Managed Disk",
+    "description":"Create VM using Managed Disk",
+    "policyRule": {
+      "if": {
+        "anyOf": [
+          {
+            "allOf": [
+              {
+                "field": "type",
+                "equals": "Microsoft.Compute/virtualMachines"
+              },
+              {
+                "field": "Microsoft.Compute/virtualMachines/osDisk.uri",
+                "exists": true
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "field": "type",
+                "equals": "Microsoft.Compute/VirtualMachineScaleSets"
+              },
+              {
+                "anyOf": [
+                  {
+                    "field": "Microsoft.Compute/VirtualMachineScaleSets/osDisk.vhdContainers",
+                    "exists": true
+                  },
+                  {
+                    "field": "Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl",
+                    "exists": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +108,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'use-managed-disk-vm' --display-name 'Create VM using Managed Disk' --description 'Create VM using Managed Disk' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/use-managed-disk-vm/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/use-managed-disk-vm/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "use-managed-disk-vm"
@@ -72,7 +118,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "us
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

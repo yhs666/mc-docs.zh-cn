@@ -8,14 +8,14 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 05/09/2017
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 575857ba3de1d570a33ca4cf7f58ed02e52dc841
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 6e43e7027317520cb0cf954d8d500ec18bbfc4e6
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702921"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315657"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 诊断扩展监视指标和日志
 
@@ -84,7 +84,7 @@ sed -i "s#__DIAGNOSTIC_STORAGE_ACCOUNT__#$my_diagnostic_storage_account#g" porta
 sed -i "s#__VM_RESOURCE_ID__#$my_vm_resource_id#g" portal_public_settings.json
 
 # Build the protected settings (storage account SAS token)
-my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --account-name $my_diagnostic_storage_account --expiry 9999-12-31T23:59Z --permissions wlacu --resource-types co --services bt -o tsv)
+my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --account-name $my_diagnostic_storage_account --expiry 2037-12-31T23:59:00Z --permissions wlacu --resource-types co --services bt -o tsv)
 my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', 'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
 
 # Finallly tell Azure to install and enable the extension
@@ -709,5 +709,4 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 * 在 [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) 中为收集的指标创建指标警报。
 * 为指标创建[监控图表](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。
 * 了解如何使用指标[创建虚拟机规模集](../linux/tutorial-create-vmss.md)以控制自动缩放。
-<!-- Update_Description: new articles on diagnostics linux -->
-<!--ms.date: 06/04/2018-->
+<!-- Update_Description: update meta properties, wording update -->

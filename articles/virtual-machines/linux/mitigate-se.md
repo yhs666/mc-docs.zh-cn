@@ -13,20 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 04/03/2018
-ms.date: 05/14/2018
+origin.date: 05/21/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: f646ca4657ac2fd7e9dce5e261d76904e2bd66f8
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: de644fe69f7cb6609ced9a2bb5be62e4bf6dbff4
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34060245"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315563"
 ---
 # <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>有关在 Azure 中防御推理执行旁道漏洞的指南
 
 [!INCLUDE [virtual-machines-common-mitigate-se](../../../includes/virtual-machines-common-mitigate-se.md)]
 
-<!--The parent file of includes file of virtual-machines-common-mitigate-se.md-->
-<!--ms.date:05/14/2018-->
 <!--Update_Description: update meta properties -->

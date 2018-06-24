@@ -16,12 +16,12 @@ origin.date: 11/13/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 0782d0f5790f07cf7dc1e180cd89697dde1175a5
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 8bb3030e9755de0be2ce03e7b9ca79df1391f661
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695149"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269985"
 ---
 # <a name="audit-no-azure-active-directory-administrator"></a>无 Azure Active Directory 管理员时审核
 
@@ -30,9 +30,29 @@ SQL 服务器未分配有任何 Azure Active Directory 管理员时进行审核�
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/SQL/audit-if-no-sql-active-directory-admin/azurepolicy.json "Audit SQL DB Level Audit Setting")]
-
+```json
+{
+    "properties": {
+        "displayName": "Audit If no AAD Admin",
+        "description": "Aduit If there is no AAD Admin assigned to this server",
+        "parameters": {
+           
+        },
+        "policyRule": {
+            "if": {
+                "field": "type",
+                "equals": "Microsoft.SQL/servers"
+            },
+            "then": {
+                "effect": "auditIfNotExists",
+                "details": {
+                    "type": "Microsoft.SQL/servers/administrators"
+                }
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +82,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'audit-if-no-sql-active-directory-admin' --display-name 'Audit If no AAD Admin' --description 'Aduit If there is no AAD Admin assigned to this server' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-if-no-sql-active-directory-admin/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-if-no-sql-active-directory-admin/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "audit-if-no-sql-active-directory-admin" 
@@ -72,7 +92,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "au
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 origin.date: 04/09/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 04019d0356ce6e263b4917400f73f98e1a3d8c0d
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 073ef57358044f305390332057280f4b50920e0c
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867467"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269992"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>快速入门：使用 Java 上传、下载和列出 Blob
 
@@ -31,7 +31,7 @@ ms.locfileid: "34867467"
 
 本教程使用具有“适用于 Java 开发者的 Eclipse IDE”配置的 [Eclipse](http://www.eclipse.org/downloads/)。
 
-如果没有 Azure 订阅，可以在开始前创建一个 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 

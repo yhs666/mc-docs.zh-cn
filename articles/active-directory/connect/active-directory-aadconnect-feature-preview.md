@@ -3,8 +3,8 @@ title: Azure AD Connect：预览版功能 | Microsoft Docs
 description: 本主题详细介绍 Azure AD Connect 中以预览版形式提供的功能。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: c75cd8cf-3eff-4619-bbca-66276757cc07
 ms.service: active-directory
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 12/20/2017
+ms.date: 06/22/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: edf9773b211f719649962a4385f308dc6773300c
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: 503f293ca2815e8d95614a6951794db8333e0c88
+ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993194"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314264"
 ---
 # <a name="more-details-about-features-in-preview"></a>有关预览版功能的详细信息
 本主题介绍如何使用当前以预览版形式提供的功能。
@@ -55,3 +56,4 @@ Office 365 组在本地 AD DS 中显示为分发组。 本地 Exchange 服务器
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
+<!-- Update_Description: update metedata properties -->

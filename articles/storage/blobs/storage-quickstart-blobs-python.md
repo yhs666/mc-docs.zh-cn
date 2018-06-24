@@ -10,12 +10,12 @@ ms.topic: quickstart
 origin.date: 04/09/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 07d5972e89a2a8ccd8cfddaf975025dc33495f88
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 64118abb378a685cc959118c758b6193c223828d
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867449"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270081"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>快速入门：使用 Python 上传、下载和列出 Blob
 
@@ -27,7 +27,7 @@ ms.locfileid: "34867449"
 * [安装 Python](https://www.python.org/downloads/)
 * 下载和安装[适用于 Python 的 Azure 存储 SDK](https://github.com/Azure/azure-sdk-for-python)。 
 
-如果没有 Azure 订阅，可以在开始前创建一个 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 

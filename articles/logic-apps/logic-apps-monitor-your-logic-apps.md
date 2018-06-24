@@ -15,13 +15,13 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 origin.date: 07/21/2017
 ms.author: v-yiso
-ms.date: 04/30/2018
-ms.openlocfilehash: 45b0067c8982f62f66bfd220ebfded7cc57ddd8c
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.date: 07/02/2018
+ms.openlocfilehash: 7d786372ca84d5bdfef0b0bb7a4de63cf1f3ca12
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782099"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315467"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>针对 Azure 逻辑应用监视状态、设置诊断日志记录，并启用警报
 
@@ -111,7 +111,7 @@ ms.locfileid: "31782099"
 
 要在逻辑应用中查找和查看事件（如触发事件、运行事件和操作事件），请按照下列步骤操作。
 
-1. 在 [Azure 门户](https://portal.azure.com)中，选择“所有服务”。 搜索“log analytics”，然后选择“Log Analytics”，如下所示：
+1. 在 [Azure 门户](https://portal.azure.cn)中，选择“所有服务”。 搜索“log analytics”，然后选择“Log Analytics”，如下所示：
 
    ![选择“Log Analytics”](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 

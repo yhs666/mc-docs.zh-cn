@@ -25,8 +25,6 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.chinaclou
 }
 ```
 
-已在 Linux 容器中创建了空的 Web 应用并启用了 Git 部署。
-
 > [!NOTE]
 > Git 远程的 URL 将显示在 `deploymentLocalGitUrl` 属性中，其格式为 `https://<username>@<app_name>.scm.chinacloudsites.cn/<app_name>.git`。 保存此 URL，因为稍后需要它。
 >

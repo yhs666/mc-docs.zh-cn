@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2017
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1e0e122bcce79d8db009e66de24d35e09548c708
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: faed58d63c666b970a77684a5470b2050d7eb046
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702877"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315460"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>在 Azure 中使用 Terraform 创建完整的 Linux 虚拟机基础结构
 
@@ -40,9 +40,10 @@ provider "azurerm" {
     client_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_secret   = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     tenant_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    environment     = "china"         # environment = "china" is Correct 
+    environment     = "china"
 }
 ```
+<!--Notice: Add environment = "china"  # environment = "china" is Correct -->
 
 以下部分在 `chinaeast` 位置创建名为 `myResourceGroup` 的资源组：
 
@@ -106,7 +107,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 网络安全组控制传入和传出 VM 的网络流量。 以下部分创建名为 myNetworkSecurityGroup 的网络安全组并定义允许 TCP 端口 22 上的 SSH 流量的规则：
 
 ```tf
-resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
+resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "chinaeast"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
@@ -172,7 +173,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
     name                = "diag${random_id.randomId.hex}"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
     location            = "chinaeast"
-    account_replication_type = "LRS"    # account_replication_type = "LRS" is Correct
+    account_replication_type = "LRS"
     account_tier = "Standard"
 
     tags {
@@ -180,6 +181,8 @@ resource "azurerm_storage_account" "mystorageaccount" {
     }
 }
 ```
+<!--Notice: # account_replication_type = "LRS" is Correct-->
+
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 
@@ -249,8 +252,9 @@ provider "azurerm" {
     client_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     client_secret   = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     tenant_id       = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    environment     = "china"  # environment     = "china" is correct
+    environment     = "china"
 }
+<！-- Notice: # environment     = "china" is correct-->
 
 # Create a resource group if it doesn't exist
 resource "azurerm_resource_group" "myterraformgroup" {
@@ -358,6 +362,9 @@ resource "azurerm_storage_account" "mystorageaccount" {
         environment = "Terraform Demo"
     }
 }
+
+<!-- Notice: account_tier                = "Standard"        is Correct-->
+<!-- Notice: account_replication_type    = "LRS"             is Correct-->
 
 # Create virtual machine
 resource "azurerm_virtual_machine" "myterraformvm" {

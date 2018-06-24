@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: c80f1c06797b37781e87d3c02784ebf0aaf6a72a
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 0e47020ae01301fb696bd83d5380e534a040a8aa
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695131"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270079"
 ---
 # <a name="no-user-defined-route-table"></a>无用户定义的路由表
 
@@ -30,9 +30,53 @@ ms.locfileid: "34695131"
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/Network/no-route-table-in-ER-Network/azurepolicy.json "No User Defined Route Table")]
-
+```json
+{
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "no-route-table-in-ER-Network",
+    "properties": {
+        "mode": "all",
+        "parameters": {},
+        "displayName": "No User Defined Route Table",
+        "description": "Forbid virtual networks to use user defined route table",
+        "policyRules": {
+            "if": {
+                "anyOf": [
+                    {
+                        "allOf": [
+                            {
+                                "field": "type",
+                                "equals": "Microsoft.Network/virtualNetworks"
+                            },
+                            {
+                                "not": {
+                                    "field": "Microsoft.Network/virtualNetworks/subnets[*].routeTable.id",
+                                    "exists": false
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "allOf": [
+                            {
+                                "field": "type",
+                                "equals": "Microsoft.Network/virtualNetworks/subnets"
+                            },
+                            {
+                                "field": "Microsoft.Network/virtualNetworks/subnets/routeTable.id",
+                                "exists": true
+                            }
+                        ]
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -62,7 +106,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'no-route-table-in-ER-Network' --display-name 'No User Defined Route Table' --description 'Forbid virtual networks to use user defined route table' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/no-route-table-in-ER-Network/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/no-route-table-in-ER-Network/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "no-route-table-in-ER-Network"
@@ -72,7 +116,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "no
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

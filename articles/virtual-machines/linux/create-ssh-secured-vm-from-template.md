@@ -13,22 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 12/18/2017
-ms.date: 03/19/2018
+origin.date: 05/30/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04fdcd185394754606e126b7cc183b4defac6d8f
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 6b4c93bbe5c86e36a4f3ed29578630fc42c0074a
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29965103"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315382"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>如何使用 Azure Resource Manager 模板创建 Linux 虚拟机
 本文介绍了如何使用 Azure Resource Manager 模板和 Azure CLI 2.0 快速部署 Linux 虚拟机 (VM)。 也可以使用 [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md) 执行这些步骤。
 
 ## <a name="templates-overview"></a>模板概述
-Azure Resource Manager 模板是 JSON 文件，其中定义了 Azure 解决方案的基础结构和配置。 使用模板可以在解决方案的整个生命周期内重复部署该解决方案，确保以一致的状态部署资源。 若要详细了解模板的格式及其构造方法，请参阅[创建第一个 Azure Resource Manager 模板](../../azure-resource-manager/resource-manager-create-first-template.md)。 若要查看资源类型的 JSON 语法，请参阅[定义 Azure Resource Manager 模板中的资源](https://docs.microsoft.com/en-us/azure/templates/)。
+Azure Resource Manager 模板是 JSON 文件，其中定义了 Azure 解决方案的基础结构和配置。 使用模板可以在解决方案的整个生命周期内重复部署该解决方案，确保以一致的状态部署资源。 若要详细了解模板的格式及其构造方法，请参阅[创建第一个 Azure Resource Manager 模板](../../azure-resource-manager/resource-manager-create-first-template.md)。 若要查看资源类型的 JSON 语法，请参阅[定义 Azure Resource Manager 模板中的资源](https://docs.microsoft.com/zh-cn/azure/templates/)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 必须在创建虚拟机前创建资源组。 以下示例在 *chinaeast* 区域中创建名为 *myResourceGroupVM* 的资源组：
@@ -40,17 +40,18 @@ az group create --name myResourceGroup --location chinaeast
 ```
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
-以下示例使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az_group_deployment_create) 基于[此 Azure Resource Manager 模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json)创建 VM。 仅允许 SSH 身份验证。 出现提示时，提供自己的 SSH 公钥的值，例如 *~/.ssh/id_rsa.pub* 的内容。 如果需要创建 SSH 密钥对，请参阅[如何为 Azure 中的 Linux VM 创建和使用 SSH 密钥对](mac-create-ssh-keys.md)。
+以下示例使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create) 基于[此 Azure Resource Manager 模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json)创建 VM。 仅允许 SSH 身份验证。 出现提示时，提供自己的 SSH 公钥的值，例如 *~/.ssh/id_rsa.pub* 的内容。 如果需要创建 SSH 密钥对，请参阅[如何为 Azure 中的 Linux VM 创建和使用 SSH 密钥对](mac-create-ssh-keys.md)。
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup \
+az group deployment create \
+    --resource-group myResourceGroup \
     --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
 在前面的示例中，指定了 GitHub 中存储的一个模板。 还可以下载或创建模板并使用 `--template-file` 参数指定本地路径。
 
 ## <a name="connect-to-virtual-machine"></a>连接到虚拟机
-若要通过 SSH 连接到 VM，请使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_show) 获取公共 IP 地址：
+若要通过 SSH 连接到 VM，请使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-show) 获取公共 IP 地址：
 
 ```azurecli
 az vm show \

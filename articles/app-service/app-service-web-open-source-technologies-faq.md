@@ -14,14 +14,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2018
-ms.date: 06/04/2018
+ms.date: 07/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: 97d825b14aff07447155fce1ca14b6a9194da1df
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: bd529dd8450c329b94d09e2e84f43a034e80fe00
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554241"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315450"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>针对 Azure 中 Web 应用的开源技术常见问题的解答
 
@@ -67,16 +67,7 @@ ms.locfileid: "34554241"
 有关详细信息，请参阅[启用 WordPress 错误日志](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/)。
 
 ## <a name="how-do-i-log-python-application-errors-in-apps-that-are-hosted-in-app-service"></a>如何在应用服务中承载的应用中记录 Python 应用程序错误？
-
-捕获 Python 应用程序错误：
-
-1. 在 Azure 门户中的 Web 应用中，选择“设置”。
-2. 在“设置”选项卡上，选择“应用程序设置”。
-3. 在“应用设置”下，输入以下键/值对：
-    * 键：WSGI_LOG
-    * 值：D:\home\site\wwwroot\logs.txt（输入所选文件名）
-
-现在应可在 wwwroot 文件夹中的 logs.txt 文件中看到错误。
+[!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
 
 ## <a name="how-do-i-change-the-version-of-the-nodejs-application-that-is-hosted-in-app-service"></a>如何更改应用服务中承载的 Node.js 应用程序的版本？
 
@@ -135,7 +126,7 @@ ms.locfileid: "34554241"
 
 ## <a name="where-are-the-tomcat-log-files-located"></a>Tomcat 日志文件位于何处？
 
-对于 Azure 应用商店和自定义部署：
+对于 Azure 市场和自定义部署：
 
 * 文件夹位置：D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
 * 相关文件：
@@ -166,7 +157,7 @@ The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but
 若要解决该错误：
 
 1. 从 app/lib 文件夹中删除 sqljdbc*.jar 文件。
-2. 如果使用自定义 Tomcat 或 Azure 应用商店 Tomcat Web 服务器，请将此 .jar 文件复制到 Tomcat lib 文件夹中。
+2. 如果使用自定义 Tomcat 或 Azure 市场 Tomcat Web 服务器，请将此 .jar 文件复制到 Tomcat lib 文件夹中。
 3. 如果从 Azure 门户启用 Java（选择“Java 1.8” > “Tomcat 服务器”），请在并行于应用的文件夹中复制 sqljdbc.* jar 文件。 然后，将以下 classpath 设置添加到 web.config 文件中：
 
     ```
@@ -198,7 +189,7 @@ The process cannot access the file because it is being used by another process.
 
 ## <a name="where-do-i-find-the-log-files-for-jetty"></a>在哪里可以找到 Jetty 的日志文件？
 
-对于应用商店和自定义部署，日志文件位于 D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs 文件夹。 请注意，文件夹位置取决于所使用的 Jetty 版本。 例如，以下提供的路径用于 Jetty 9.1.2。 查找 jetty_*YYYY_MM_DD*.stderrout.log。
+对于市场和自定义部署，日志文件位于 D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs 文件夹中。 请注意，文件夹位置取决于所使用的 Jetty 版本。 例如，以下提供的路径用于 Jetty 9.1.2。 查找 jetty_*YYYY_MM_DD*.stderrout.log。
 
 对于门户应用设置部署，日志文件位于 D:\home\LogFiles。 查找 jetty_*YYYY_MM_DD*.stderrout.log
 

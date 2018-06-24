@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 origin.date: 09/14/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 75abd7b17f2727debec244868533b35ac5a1f81a
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 07/02/2018
+ms.openlocfilehash: 1c46383b6f422f8e3455423bf6dac98d64791cb9
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870602"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315483"
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>通过本地数据网关，从逻辑应用连接到本地数据源
 
@@ -75,7 +75,7 @@ ms.locfileid: "29870602"
 
 在本地计算机上安装网关以后，必须在 Azure 中以资源形式创建数据网关。 此步骤还将网关资源与 Azure 订阅相关联。
 
-1. 登录 [Azure 门户](https://portal.azure.com "Azure portal")。 请确保所使用的 Azure 工作或学校电子邮件地址是曾经用于安装网关的。
+1. 登录 [Azure 门户](https://portal.azure.cn "Azure portal")。 请确保所使用的 Azure 工作或学校电子邮件地址是曾经用于安装网关的。
 
 2. 在 Azure 主菜单上，选择“创建资源” > “企业集成” > “本地数据网关”。
 
