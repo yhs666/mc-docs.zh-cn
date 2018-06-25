@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/25/2017
 ms.date: 04/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: de66d341c03a624dc1da41083ee02207a26a2c7b
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 865eb878ca30e3296349c9b9c22321db78d64f20
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155472"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315403"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>在 Azure 应用服务中配置 Web 应用
 本主题介绍如何使用 [Azure 门户]配置 Web 应用。
@@ -68,6 +68,8 @@ ms.locfileid: "30155472"
 * 对于 .NET 应用，这些设置会在运行时注入到 .NET 配置 `AppSettings` 中，重写现有设置。 
 * PHP、Python、Java 和 Node 应用程序可以在运行时以环境变量的形式访问这些设置。 系统将为每个应用程序设置创建两个环境变量，一个变量具有由应用程序设置条目指定的名称，另一个具有 APPSETTING_ 前缀。 这两个变量都包含相同的值。
 
+应用程序设置在存储时始终进行加密（静态加密）。
+
 ### <a name="connection-strings"></a>连接字符串
 链接资源的连接字符串。 
 
@@ -81,6 +83,8 @@ ms.locfileid: "30155472"
 * 自定义：`CUSTOMCONNSTR_`
 
 例如，如果 MySql 连接字符串命名为 `connectionstring1`，则会通过环境变量 `MYSQLCONNSTR_connectionString1` 访问该字符串。
+
+连接字符串在存储时始终进行加密（静态加密）。
 
 ### <a name="default-documents"></a>默认文档
 默认文档是在网站的根 URL 下显示的网页。  使用列表中第一个匹配文件。 
@@ -151,7 +155,7 @@ Web 应用可能会使用根据 URL 路由的模块，而不是提供静态内�
 有关详细信息，请参阅 [如何监视 Web 终结点状态]。
 ## <a name="next-steps"></a>后续步骤
 * [在 Azure 应用服务中配置自定义域名]
-* [Enable HTTPS for an app in Azure Web App（为 Azure 应用服务中的应用启用 HTTPS）]
+* [为 Azure 应用服务中的应用启用 HTTPS]
 * [在 Azure 应用服务中缩放 Web 应用]
 * [Azure 应用服务中 Web 应用的监视基础知识]
 
@@ -161,7 +165,7 @@ Web 应用可能会使用根据 URL 路由的模块，而不是提供静态内�
 [Azure 门户]: https://portal.azure.cn/
 [在 Azure 应用服务中配置自定义域名]: ./app-service-web-tutorial-custom-domain.md
 [为 Azure 应用服务中的 Web 应用部署到过渡环境]: ./web-sites-staged-publishing.md。
-[Enable HTTPS for an app in Azure Web App（为 Azure 应用服务中的应用启用 HTTPS）]: ./app-service-web-tutorial-custom-ssl.md
+[为 Azure 应用服务中的应用启用 HTTPS]: ./app-service-web-tutorial-custom-ssl.md
 [如何监视 Web 终结点状态]: ./web-sites-monitor.md#webendpointstatus
 [Azure 应用服务中 Web 应用的监视基础知识]: ./web-sites-monitor.md
 [管道模式]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
