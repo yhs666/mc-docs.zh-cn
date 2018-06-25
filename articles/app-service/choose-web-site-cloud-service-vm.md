@@ -16,12 +16,12 @@ origin.date: 07/07/2016
 ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: a0aa5efff760fcffd6516c5f5f5471f87eee27cf
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: fa1ef490e722a7f805b40486815b1f3b86ab3a39
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155471"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315481"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure 应用服务、虚拟机、Service Fabric 和云服务的比较
 ## <a name="overview"></a>概述
@@ -51,7 +51,7 @@ Azure 应用服务是大多数 Web 应用的最佳选择。 部署和管理都�
 | 托管多层体系结构的 web 或 web 服务层 |X |X |X |X | |
 | 托管多层体系结构的中间层 |X |X |X |X |应用服务 Web 应用可轻松托管 REST API 中间层，而 [WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) 功能可托管后台处理作业。 可在专用网站中运行 WebJobs，实现层的独立可扩展性。 |
 | 集成的 MySQL-as-a-service 支持 |X |X | | | |
-| 支持 ASP.NET、经典 ASP、Node.js、PHP、Python |X |X |X |X |Service Fabric 支持使用 [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) 创建 Web 前端，或者也可按[来宾可执行文件](../service-fabric/service-fabric-deploy-existing-app.md)的形式部署任何类型的应用程序（Node.js、Java 等）。 |
+| 支持 ASP.NET、经典 ASP、Node.js、PHP、Python |X |X |X |X |Service Fabric 支持使用 [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) 创建 Web 前端，或者也可按[来宾可执行文件](../service-fabric/service-fabric-guest-executables-introduction.md)的形式部署任何类型的应用程序（Node.js、Java 等）。 |
 | 向外扩展到多个实例且无需重新部署 |X |X |X |X |虚拟机可以扩大到多个实例，但必须编写这些虚拟机上运行的服务，来处理向外扩展。需要配置负载均衡器，跨计算机路由请求；还需要创建地缘组，防止因维护或硬件故障导致同时重新启动所有实例。 |
 | 支持 SSL |X |X |X |X |对于应用服务 Web 应用，只有基本和标准模式支持自定义域名的 SSL。 若要了解如何结合使用 SSL 和 Web 应用，请参阅[为 Azure 网站配置 SSL 证书](app-service-web-tutorial-custom-ssl.md)。 |
 | Visual Studio 集成 |X |X |X |X | |
@@ -61,7 +61,7 @@ Azure 应用服务是大多数 Web 应用的最佳选择。 部署和管理都�
 | 支持 [Azure 流量管理器](/traffic-manager/) |X |X |X |X | |
 | 集成的端点监视 |X |X |X | | |
 | 对服务器的远程桌面访问 | |X |X |X | |
-| 安装任何自定义 MSI | |X |X |X |Service Fabric 可按[来宾可执行文件](../service-fabric/service-fabric-deploy-existing-app.md)的形式托管任何可执行文件，还可在 VM 上安装任意应用。 |
+| 安装任何自定义 MSI | |X |X |X |Service Fabric 可按[来宾可执行文件](../service-fabric/service-fabric-guest-executables-introduction.md)的形式托管任何可执行文件，还可在 VM 上安装任意应用。 |
 | 能够定义/执行启动任务 | |X |X |X | |
 | 可以侦听 ETW 事件 | |X |X |X | |
 

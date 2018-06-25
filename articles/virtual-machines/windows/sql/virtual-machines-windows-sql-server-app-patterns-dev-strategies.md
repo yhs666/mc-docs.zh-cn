@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/31/2017
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: eec282f83633e020f40ebaf01132e4adeabf0bef
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 5481698312a2839bc2b66ee22631766b62532c4f
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702845"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315560"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server 的应用程序模式和开发策略
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -172,7 +172,7 @@ ms.locfileid: "34702845"
 有关高可用性和灾难恢复技术的综合信息和教程，请参阅 [Azure 虚拟机中 SQL Server 的高可用性和灾难恢复](virtual-machines-windows-sql-high-availability-dr.md)。
 
 ## <a name="2-tier-and-3-tier-using-azure-vms-and-cloud-services"></a>使用 Azure VM 和云服务的 2 层和 3 层模式
-在此应用程序模式中，使用 [Azure 云服务](../../../cloud-services/cloud-services-choose-me.md#tellmecs)（Web 角色和辅助角色 - 平台即服务 (PaaS)）和 [Azure 虚拟机](../overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（基础结构即服务 (IaaS)），将 2 层或 3 层应用程序部署到 Azure。 将 [Azure 云服务](/cloud-services/)用于呈现层/业务层，将 [Azure 虚拟机](../overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中的 SQL Server 用于数据层，这对于在 Azure 上运行的大多数应用程序都是有利的。 原因是，在云服务上运行一个计算实例可以简化管理、部署、监控和扩展操作。
+在此应用程序模式中，使用 [Azure 云服务](../../../cloud-services/cloud-services-choose-me.md)（Web 角色和辅助角色 - 平台即服务 (PaaS)）和 [Azure 虚拟机](../overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（基础结构即服务 (IaaS)），将 2 层或 3 层应用程序部署到 Azure。 将 [Azure 云服务](/cloud-services/)用于呈现层/业务层，将 [Azure 虚拟机](../overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中的 SQL Server 用于数据层，这对于在 Azure 上运行的大多数应用程序都是有利的。 原因是，在云服务上运行一个计算实例可以简化管理、部署、监控和扩展操作。
 
 通过云服务，Azure 可维护基础结构、执行日常维护、为操作系统安装修补程序，并尝试从服务和硬件故障中恢复。 当应用程序需要向外缩放时，可以通过增加或减少应用程序使用的实例或虚拟机的数量，使用云服务项目的自动和手动向外缩放选项。 此外，可以使用本地 Visual Studio，将应用程序部署到 Azure 中的云服务项目。
 
