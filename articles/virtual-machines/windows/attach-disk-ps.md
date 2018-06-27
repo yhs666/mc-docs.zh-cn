@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 10/11/2017
 ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: ecba2a62668e053afdef138358100152766576e6
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: d92114571e92784895bba45880e7ab8dd19360de
+ms.sourcegitcommit: a85142cc230b17b45d8105a6acfd1c0ba3c8c325
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867553"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36298412"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>使用 PowerShell 将数据磁盘附加到 Windows VM
 
@@ -29,7 +29,7 @@ ms.locfileid: "34867553"
 
 在开始之前，请查看以下提示：
 * 虚拟机的大小决定了可以附加多少个磁盘。 有关详细信息，请参阅[虚拟机大小](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
-* 若要使用高级存储，需要支持高级存储的 VM 大小，如 DS 系列或 GS 系列虚拟机。 有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](premium-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+* 若要使用高级存储，需要支持高级存储的 VM 大小，如 DS 系列虚拟机。 有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](premium-storage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 <!-- Not Available on GS-series -->
 
 <!--Not Available [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]-->
@@ -58,25 +58,7 @@ $vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -Ma
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ```
 
-### <a name="using-managed-disks-in-an-availability-zone"></a>在可用性区域中使用托管磁盘
-若要在可用性区域中创建磁盘，请将 [New-AzureRmDiskConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdiskconfig) 与 `-Zone` 参数一起使用。 以下示例在区域 *1* 中创建一个磁盘。
-
-```powershell
-$rgName = 'myResourceGroup'
-$vmName = 'myVM'
-$location = 'China East 2' 
-$storageType = 'Premium_LRS'
-$dataDiskName = $vmName + '_datadisk1'
-
-$diskConfig = New-AzureRmDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128 -Zone 1
-$dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk $diskConfig -ResourceGroupName $rgName
-
-$vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName 
-$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
-
-Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
-```
-
+<!-- Not Available on ### Using managed disks in an Availability Zone-->
 ### <a name="initialize-the-disk"></a>初始化磁盘
 
 添加空磁盘后，需要对其进行初始化。 要初始化该磁盘，可以登录到一个 VM，并使用磁盘管理进行初始化。 如果在创建 VM 时在其上启用了 WinRM 和证书，则可以通过远程 PowerShell 初始化该磁盘。 还可以使用自定义脚本扩展： 

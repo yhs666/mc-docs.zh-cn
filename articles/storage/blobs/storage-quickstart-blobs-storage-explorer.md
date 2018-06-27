@@ -10,18 +10,18 @@ ms.topic: quickstart
 origin.date: 04/09/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 6cefb9c65956a2fb59c9c00efbbf548fde6d291f
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 79daa08469f04929fb198c89860ce0403513ab5e
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867506"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269998"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>快速入门：使用 Azure 存储资源管理器上传、下载和列出 Blob
 
 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)是多平台用户界面，可用于管理存储帐户的内容。 本指南详细介绍如何使用 Azure 存储资源管理器在本地磁盘与 Azure Blob 存储之间传输文件。
 
-如果没有 Azure 订阅，可以在开始前创建一个 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
 本快速入门教程要求安装 Azure 存储资源管理器。 如果需要安装，请访问 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)，以下载适用于 Windows、Macintosh 或 Linux 的版本。
 

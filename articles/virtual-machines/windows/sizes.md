@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 03/01/2018
-ms.date: 05/21/2018
+origin.date: 05/22/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 63619e76c614691b690d55815de45b28268b249e
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: c6682168dc7e26a15fae565075af19c03302b7ad
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449957"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315491"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
@@ -30,9 +30,9 @@ ms.locfileid: "34449957"
 <!--PENDING FOR Dv3, Ev3 and B-SERIES, FSV2 GA ANOUNCEMENT -->
 | 类型                     | 大小           |    说明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [常规用途](sizes-general.md)          | B、Dsv3、Dv3、DSv2、Dv2、DS、D、Av2、A0-7 | CPU 与内存之比平衡。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 |
+| [常规用途](sizes-general.md)          | B、Dsv3、Dv3、DSv2、Dv2、Av2 | CPU 与内存之比平衡。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 |
 | [计算优化](sizes-compute.md)        | Fsv2、Fs、F             | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        |
-| [内存优化](../virtual-machines-windows-sizes-memory.md)         | Esv3、Ev3、DSv2、DS、Dv2、D   | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
+| [内存优化](../virtual-machines-windows-sizes-memory.md)         | Esv3、Ev3、DSv2、Dv2  | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
 <!--PENDING FOR Dv3, Ev3 and B-SERIES, FSV2 GA ANOUNCEMENT -->
 <!-- Not Available M, Gs, G series -->
 <!-- Not Available [Storage optimized] Ls -->
@@ -50,9 +50,9 @@ ms.locfileid: "34449957"
 
 有关使用 REST API 来查询 VM 大小的信息，请参阅以下文章：
 
-- [List available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-for-resizing)（列出可用的虚拟机大小以便调整大小）
-- [List available virtual machine sizes for a subscription](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region)（列出订阅的可用虚拟机大小）
-- [List available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-availability-set)（列出可用性集中的可用虚拟机大小）
+- [List available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)（列出可用的虚拟机大小以便调整大小）
+- [List available virtual machine sizes for a subscription](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall)（列出订阅的可用虚拟机大小）
+- [List available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)（列出可用性集中的可用虚拟机大小）
 
 ## <a name="acu"></a>ACU
 
@@ -71,6 +71,5 @@ ms.locfileid: "34449957"
 <!-- Not Available on - [Storage optimized](../virtual-machines-windows-sizes-storage.md) -->
 <!-- Not Available on - [GPU optimized](sizes-gpu.md) -->
 <!-- Not Available on - [High performance compute](sizes-hpc.md)-->
-
-<!--Update_Description: update meta properties, update link, add benchmark scores -->
+- 查看[上一代](sizes-previous-gen.md)页面，了解 A Standard、Dv1（D1-4 和 D11-14 v1）<!--Update_Description: update meta properties, update link, wording update -->
 <!--PENDING FOR Dv3, Ev3 and B-SERIES GA ANOUNCEMENT -->

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 03/26/2018
 ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: c774ba14fad05e078b87cd803c11816fbc5a8262
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 12e5856c284ec17c26ce57a59a09009981ccea8a
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867524"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270051"
 ---
 # <a name="managing-azure-file-shares-with-the-azure-portal"></a>使用 Azure 门户管理 Azure 文件共享 
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows、Linux 和 macOS 中装载 Azure 文件共享。 本指南介绍通过 [Azure 门户](https://portal.azure.cn/)来使用 Azure 文件共享的基本知识。 了解如何：
@@ -33,7 +33,7 @@ ms.locfileid: "34867524"
 > * 下载文件
 > * 创建和使用共享快照
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
 [!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]

@@ -1,10 +1,28 @@
 ---
-title: 通过 Azure CLI 2.0 开始使用 Azure DNS 专用区域 | Azure description: 了解如何在 Azure DNS 中创建专用 DNS 区域和记录。 这是有关使用 Azure CLI 2.0 创建和管理第一个 DNS 专用区域和记录的分步指南。
-services: dns documentationcenter: na author: WenJason manager: digimobile editor: '' tags: azure-resource-manager
-
-ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182 ms.service: dns ms.devlang: azurecli ms.topic: get-started-article ms.tgt_pltfrm: na ms.workload: infrastructure-services orgin.date:03/15/2018 ms.date: 05/21/2018 ms.author: v-nany
+title: Azure DNS 专用区域入门（使用 Azure CLI 2.0）| Azure
+description: 了解如何在 Azure DNS 中创建专用 DNS 区域和记录。 这是有关使用 Azure CLI 2.0 创建和管理第一个 DNS 专用区域和记录的分步指南。
+services: dns
+documentationcenter: na
+author: WenJason
+manager: digimobile
+editor: ''
+tags: azure-resource-manager
+ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
+ms.service: dns
+ms.devlang: azurecli
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+orgin.date: 03/15/2018
+ms.date: 05/21/2018
+ms.author: v-nany
+ms.openlocfilehash: 9291a20b817d42b4e921af1914065ce2124653aa
+ms.sourcegitcommit: 9f78ba87a377011f078025c56032b7f898d9742c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36299270"
 ---
-
 # <a name="get-started-with-azure-dns-private-zones-using-azure-cli-20"></a>通过 Azure CLI 2.0 开始使用 Azure DNS 专用区域
 
 > [!div class="op_single_selector"]

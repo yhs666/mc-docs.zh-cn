@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 04/11/2018
 ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: 3374fc78e7b33a6ca550da19de5d0ca5e500b003
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: f2b09ea4168ef46057b73a28b3bb33e0424f1f7e
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867614"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269959"
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>在 Windows 中装载 Azure 文件共享并对其进行访问
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows 和 Windows Server 中装载 Azure 文件共享。 本文介绍了三种在 Windows 中装载 Azure 文件共享的不同方式：使用文件资源管理器 UI、通过 PowerShell，以及通过命令提示符。 
@@ -53,7 +53,7 @@ ms.locfileid: "34867614"
 
 * **确保端口 445 处于打开状态**：Azure 文件使用 SMB 协议。 SMB 通过 TCP 端口 445 通信 - 请查看防火墙是否未阻止 TCP 端口 445 与客户端计算机通信。 可以使用 Portqry 检查 TCP 端口 445 是否处于打开状态。 如果 TCP 端口 445 显示为“已筛选”，则 TCP 端口被阻止。 示例查询如下：
 
-    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.chinacloudapi.cn -p TCP -e 445`
 
     如果 TCP 端口 445 受到网络路径中的规则阻止，将显示以下输出：
 

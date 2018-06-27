@@ -4,8 +4,8 @@ description: 在本文档中，可以学习如何在 Azure 中部署 AD FS 以�
 keywords: 在 Azure 中部署 AD FS, 部署 Azure ADFS, Azure ADFS, Azure AD FS, 部署 ADFS, 部署 AD FS, Azure 中的 ADFS, 在 Azure 中部署 ADFS, 在 Azure 中部署 AD FS, ADFS Azure, AD FS 简介, Azure, Azure 中的 AD FS, IaaS, ADFS, 将 ADFS 移动到 Azure
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: anandyadavmsft
+manager: mtillman
 editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 12/19/2017
+ms.date: 06/22/2018
+ms.component: hybrid
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a071dbd318298fce8440408136c3d701237a8fb8
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 7cc4127887f3cca6bee89ca39c5c9a122cd73d8d
+ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27162533"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314282"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>在 Azure 中部署 Active Directory 联合身份验证服务
 AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 与 Azure AD 或 O365 联合可让用户使用本地凭据进行身份验证，并访问云中的所有资源。 这样，就务必建立高度可用的 AD FS 基础结构来确保能够访问本地和云中的资源。 在 Azure 中部署 AD FS 有助于以最少量的工作实现所需的高可用性。
@@ -190,7 +191,7 @@ AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 �
 在 ILB 设置面板中选择“探测”。
 
 1. 单击“添加”
-2. 提供探测详细信息 a. 名称：探测名称 b. 协议：TCP c. 端口：443 (HTTPS) d. 间隔：5（默认值）– 这是 ILB 探测后端池中的计算机的间隔 e. 不正常阈值限制：2（默认值）– 这是连续探测失败阈值，达到此阈值后，ILB 会将后端池中的计算机声明为无响应，并停止向它发送流量。
+2. 提供探测详细信息 a. 名称：探测名称 b. 协议：TCP c. 端口：443 (HTTPS) d. 间隔：5（默认值）– 这是 ILB 探测后端池中的计算机的间隔 e. **不正常阈值限制**：2（默认值）- 这是连续探测失败次数阈值，达到此阈值后，ILB 会将后端池中的计算机声明为无响应，并停止向它发送流量。
 
 ![配置 ILB 探测](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
 
@@ -212,11 +213,11 @@ AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 �
 ### <a name="7-configuring-the-web-application-proxy-server"></a>7.配置 Web 应用程序代理服务器
 **7.1.配置 Web 应用程序代理服务器以访问 AD FS 服务器**
 
-为了确保 Web 应用程序代理服务器能够访问 ILB 后面的 AD FS 服务器，请在 %systemroot%\system32\drivers\etc\hosts 中为 ILB 创建一条记录。 请注意，可分辨名称 (DN) 应是联合身份验证服务的名称，例如 fs.contoso.com。IP 条目应是 ILB 的 IP 地址条目（如示例中的 10.3.0.8）。
+为了确保 Web 应用程序代理服务器能够访问 ILB 后面的 AD FS 服务器，请在 %systemroot%\system32\drivers\etc\hosts 中为 ILB 创建一条记录。 请注意，可分辨名称 (DN) 应是联合身份验证服务的名称，例如 fs.contoso.com。 IP 条目应是 ILB 的 IP 地址条目（如示例中的 10.3.0.8）。
 
 **7.2.安装 Web 应用程序代理角色**
 
-在确保 Web 应用程序代理服务器能够访问 ILB 后面的 AD FS 服务器之后，接下来可以安装 Web 应用程序代理服务器。 不要将 Web 应用程序代理服务器加入域。 通过选择“远程访问”角色，将 Web 应用程序代理角色安装在两个 Web 应用程序代理服务器上。 服务器管理器将引导你完成 WAP 安装。
+在确保 Web 应用程序代理服务器能够访问 ILB 后面的 AD FS 服务器之后，接下来可以安装 Web 应用程序代理服务器。 不需要将 Web 应用程序代理服务器加入域。 通过选择“远程访问”角色，将 Web 应用程序代理角色安装在两个 Web 应用程序代理服务器上。 服务器管理器将引导你完成 WAP 安装。
 有关如何部署 WAP 的详细信息，请阅读 [安装和配置 Web 应用程序代理服务器](https://technet.microsoft.com/library/dn383662.aspx)。
 
 ### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.部署面向 Internet 的（公共）负载均衡器
@@ -346,7 +347,7 @@ AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 �
 - [Internet Facing Load Balancer（面向 Internet 的负载均衡器）](/load-balancer/load-balancer-get-started-internet-arm-ps)
 - [存储帐户](/storage/common/storage-introduction)
 - [Azure 虚拟网络](/virtual-network/virtual-networks-overview)
-- [AD FS and Web Application Proxy Links（AD FS 和 Web 应用程序代理链接）](http://aka.ms/ADFSLinks) 
+- [AD FS and Web Application Proxy Links（AD FS 和 Web 应用程序代理链接）](https://aka.ms/ADFSLinks) 
 
 ## <a name="next-steps"></a>后续步骤
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)

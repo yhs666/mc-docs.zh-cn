@@ -13,15 +13,15 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  origin.date: 04/26/2018
-  ms.date: 05/28/2018
+  origin.date: 06/13/2018
+  ms.date: 06/25/2018
   ms.author: v-nany
-  ms.openlocfilehash: 359fffa583cc31406cb647d551697ae7703e062f
-  ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+  ms.openlocfilehash: 059f78174d82fb1785f481eecdb3959614341220
+  ms.sourcegitcommit: 9f78ba87a377011f078025c56032b7f898d9742c
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 05/26/2018
-  ms.locfileid: "34554678"
+  ms.lasthandoff: 06/21/2018
+  ms.locfileid: "36299262"
 abstract:
   description: 了解如何使用 Azure DNS。 快速入门、教程、示例等介绍了如何设置和管理域名的 DNS 区域和记录。
 sections:
@@ -47,12 +47,13 @@ sections:
 - title: 分步教程
   items:
   - type: paragraph
-    text: 了解如何将域名委派给 Azure DNS，然后使用 Azure DNS 为 Web 应用创建自定义 DNS 记录。
+    text: 了解如何在 Azure DNS 中托管域名、如何使用 Azure DNS 为 Web 应用创建自定义 DNS 记录，以及如何创建专用 DNS 区域和记录。
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/dns/dns-delegate-domain-azure-dns">将域委托给 Azure DNS</a>
+    - html: <a href="/azure/dns/dns-delegate-domain-azure-dns">在 Azure DNS 中托管域</a>
     - html: <a href="/azure/dns/dns-web-sites-custom-domain">为 Web 应用创建自定义 DNS 记录</a>
+    - html: <a href="/azure/dns/private-dns-getstarted-powershell">创建专用 DNS 区域和记录</a>
 - title: 免费 Pluralsight 视频培训
   items:
   - type: list
