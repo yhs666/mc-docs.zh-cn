@@ -10,12 +10,12 @@ ms.topic: get-started-article
 origin.date: 05/02/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 5e6b9b28457d5e6f324053cb25dc67cb75ce9650
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: bf75d2522414a70c1f8edf48989856487f4cf8e7
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867554"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270062"
 ---
 # <a name="azure-storage-account-options"></a>Azure 存储帐户选项
 
@@ -43,7 +43,7 @@ GPv2 存储帐户在帐户级别公开“访问层”属性，可以将默认存
 > [!NOTE]
 > 更改存储层可能会产生额外费用。 有关详细信息，请参阅[定价和计费](#pricing-and-billing)部分。
 >
-> 大多数情况下，Microsoft 建议使用常规用途 v2 存储帐户而不是 Blob 存储帐户。
+> 大多数情况下，建议使用常规用途 v2 存储帐户而不是 Blob 存储帐户。
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>将存储帐户升级为 GPv2
 
@@ -221,7 +221,7 @@ Blob 存储帐户支持 GPv2 帐户所支持的所有块 Blob 功能，但其局
 有关详细信息，请参阅 [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx)（关于存储分析指标）和 [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)（存储分析指标表架构）
 
 > [!NOTE]
-> Blob 存储帐户公开表服务终结点的目的只是为了存储和访问该帐户的指标数据。 区域冗余存储 (ZRS) 帐户支持收集指标数据，而 ZRS 经典存储帐户则不支持。 有关 ZRS 的详细信息，请参阅[区域冗余存储](storage-redundancy.md#zone-redundant-storage)。 
+> Blob 存储帐户公开表服务终结点的目的只是为了存储和访问该帐户的指标数据。 
 
 若要监视 Blob 存储的存储消耗情况，需启用容量指标。
 启用此功能后，会每天为存储帐户的 Blob 服务记录容量数据，并将容量数据记录为表条目写入到同一存储帐户中的 $MetricsCapacityBlob 表。

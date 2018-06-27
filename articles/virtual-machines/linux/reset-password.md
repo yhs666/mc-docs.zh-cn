@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 11/03/2017
-ms.date: 02/05/2018
+origin.date: 06/15/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: d4915ba7c3b917c228a7db88956b924fd886c7cf
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 2a39017dd7b91e12ef6522e7adbe904830affc8e
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285608"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315495"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>如何在 Azure VM 上重置本地 Linux 密码
 
@@ -29,7 +29,7 @@ ms.locfileid: "29285608"
 
 ## <a name="symptoms"></a>症状
 
-无法登录到 VM 时会收到一条消息，指示所使用的密码不正确。 此外，无法在 Azure 门户上使用 VMAgent 重置密码。 
+无法登录到 VM 时会收到一条消息，指示所使用的密码不正确。 此外，无法在 Azure 门户上使用 VMAgent 重置密码。
 
 ## <a name="manual-password-reset-procedure"></a>手动密码重置过程
 
@@ -39,67 +39,67 @@ ms.locfileid: "29285608"
 
 3.  在临时 VM 上运行以下 SSH 命令，成为超级用户。
 
-    ~~~~
+    ```bash
     sudo su
-    ~~~~
+    ```
 
 4.  运行 fdisk -l，或查看系统日志以查找新附加的磁盘。 找到要装载的驱动器名称。 然后在临时 VM 上，查找相关的日志文件。
 
-    ~~~~
+    ```bash
     grep SCSI /var/log/kern.log (ubuntu)
     grep SCSI /var/log/messages (centos, suse, oracle)
-    ~~~~
+    ```
 
     下面是 grep 命令的示例输出：
 
-    ~~~~
+    ```bash
     kernel: [ 9707.100572] sd 3:0:0:0: [sdc] Attached SCSI disk
-    ~~~~
+    ```
 
 5.  创建名为 tempmount 的装入点。
 
-    ~~~~
+    ```bash
     mkdir /tempmount
-    ~~~~
+    ```
 
-6.  在该装入点上装载 OS 磁盘。 通常需要装载 sdc1 或 sdc2。 这将取决于断开的计算机磁盘 /etc 目录中的托管分区。
+6.  在该装入点上装载 OS 磁盘。 通常需要装载 *sdc1* 或 *sdc2*。 这将取决于断开的计算机磁盘 */etc* 目录中的托管分区。
 
-    ~~~~
+    ```bash
     mount /dev/sdc1 /tempmount
-    ~~~~
+    ```
 
-7.  请在进行任何更改之前执行备份：
+7.  在进行任何更改之前创建核心凭据文件的副本：
 
-    ~~~~
+    ```bash
     cp /etc/passwd /etc/passwd_orig    
     cp /etc/shadow /etc/shadow_orig    
     cp /tempmount/etc/passwd /etc/passwd
     cp /tempmount/etc/shadow /etc/shadow 
     cp /tempmount/etc/passwd /tempmount/etc/passwd_orig
     cp /tempmount/etc/shadow /tempmount/etc/shadow_orig
-    ~~~~
+    ```
 
 8.  重置所需的用户密码：
 
-    ~~~~
+    ```bash
     passwd <<USER>> 
-    ~~~~
+    ```
 
 9.  将已修改的文件移动到断开的计算机磁盘上的正确位置。
 
-    ~~~~
+    ```bash
     cp /etc/passwd /tempmount/etc/passwd
     cp /etc/shadow /tempmount/etc/shadow
     cp /etc/passwd_orig /etc/passwd
     cp /etc/shadow_orig /etc/shadow
-    ~~~~
+    ```
 
 10. 返回到根目录并卸载磁盘。
 
-    ~~~~
+    ```bash
     cd /
     umount /tempmount
-    ~~~~
+    ```
 
 11. 从管理门户分离磁盘。
 
@@ -111,4 +111,4 @@ ms.locfileid: "29285608"
 
 * [Azure CLI: How to delete and re-deploy a VM from VHD](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)（Azure CLI：如何从 VHD 删除和重新部署 VM）
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

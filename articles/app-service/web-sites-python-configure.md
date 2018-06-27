@@ -4,7 +4,7 @@ description: 本教程介绍在 Azure 应用服务 Web 应用中创作和配置�
 services: app-service
 documentationcenter: python
 tags: python
-author: huguesv
+author: cephalin
 manager: erikre
 editor: ''
 ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
@@ -13,14 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/26/2016
-ms.author: huvalo
-ms.openlocfilehash: 6639230732661ccc568db6251d8395581d35aea2
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+origin.date: 02/26/2016
+ms.date: 07/02/2018
+ms.author: v-yiso
+ms.openlocfilehash: 35343d209935c6b39201469c6dd8af8967ad93b8
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731040"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315479"
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>使用 Azure 应用服务 Web 应用配置 Python
 本教程介绍在 [Azure 应用服务 Web 应用](http://go.microsoft.com/fwlink/?LinkId=529714)中创作和配置符合基本 Web 服务器网关接口 (WSGI) 的 Python 应用程序的选项。
@@ -344,6 +345,9 @@ Python 3.4 的示例 `web.config` ：
 
 ## <a name="troubleshooting---virtual-environment"></a>故障排除 - 虚拟环境
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
+
+## <a name="troubleshooting---startup-errors"></a>故障排除 - 启动错误
+[!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
 
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅 [Python 开发人员中心](/develop/python/)。

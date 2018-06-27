@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 01/21/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 10b5ee59faad10ac5dad634b300211e4f0385cb1
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: c10f904f56ceaa5c422c0bfd5013cc603c57b7d3
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867521"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269952"
 ---
 # <a name="azure-storage-replication"></a>Azure 存储复制
 
@@ -28,7 +28,7 @@ ms.locfileid: "34867521"
 
 * [本地冗余存储 (LRS)](storage-redundancy-lrs.md)
 * [异地冗余存储 (GRS)](storage-redundancy-grs.md)
-* [读取访问异地冗余存储 (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
+* [读取访问异地冗余存储 (RA-GRS)](storage-redundancy-grs.md)
 
 | 方案 | LRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |
@@ -59,5 +59,5 @@ ms.locfileid: "34867521"
 - [Azure 存储可伸缩性和性能目标](storage-scalability-targets.md)
 - [使用 RA-GRS 存储设计高度可用的应用程序](../storage-designing-ha-apps-with-ragrs.md)
 - [Azure 存储冗余选项和读取访问异地冗余存储](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
-- [SOSP Paper - Azure Storage: A highly available cloud storage service with strong consistency（SOSP 论文 - Azure 存储：具有高度一致性的高可用云存储服务）](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-<!--Update_Description: main content struture update-->
+- [SOSP Paper - Azure Storage: A highly available cloud storage service with strong consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+<!--Update_Description: main content struture update-->（SOSP 论文 - Azure 存储：具有高度一致性的高可用性云存储服务）

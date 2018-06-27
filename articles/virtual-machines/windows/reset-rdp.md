@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/23/2018
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 952f5758f191181b4947214320561f936afe2d08
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 8086a4998a6cabfa5284cb5d53b783549aa85d4c
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867626"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315556"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm"></a>如何在 Windows VM 中重置远程桌面服务或其登录密码
 如果无法连接到 Windows 虚拟机 (VM)，可以重置本地管理员密码或重置远程桌面服务配置（Windows 域控制器上不支持）。 可以使用 Azure 门户或 Azure PowerShell 中的 VM 访问扩展重置密码。 登录到 VM 后，应重置该用户的密码。  
@@ -55,10 +55,10 @@ ms.locfileid: "34867626"
 从下拉菜单中选择“仅重置配置”，并单击“更新”。 尝试重新连接到 VM。
 
 ## <a name="vmaccess-extension-and-powershell"></a>VMAccess 扩展和 PowerShell
-请务必[安装和配置最新的 PowerShell 模块](https://docs.microsoft.com/powershell/azure/overview)，并使用 `Connect-AzureRmAccount -Environment AzureChinaCloud ` cmdlet 登录到 Azure 订阅。
+请务必[安装和配置最新的 PowerShell 模块](https://docs.microsoft.com/powershell/azure/overview)，并使用 `Connect-AzureRmAccount -Environment AzureChinaCloud` cmdlet 登录到 Azure 订阅。
 
 ### <a name="reset-the-local-administrator-account-password"></a>**重置本地管理员帐户密码**
-使用 [Set-AzureRmVMAccessExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet 重置管理员密码或用户名。 
+使用 [Set-AzureRmVMAccessExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet 重置管理员密码或用户名。 typeHandlerVersion 必须是 2.0 或更高版本，因为版本 1 已弃用。 
 
 ```powershell
 $SubID = "<SUBSCRIPTION ID>" 
@@ -66,7 +66,8 @@ $RgName = "<RESOURCE GROUP NAME>"
 $VmName = "<VM NAME>" 
 $Location = "<LOCATION>" 
 
-Connect-AzureRmAccount -Environment AzureChinaCloud Select-AzureRMSubscription -SubscriptionId $SubID 
+Connect-AzureRmAccount -Environment AzureChinaCloud 
+Select-AzureRMSubscription -SubscriptionId $SubID 
 Set-AzureRmVMAccessExtension -ResourceGroupName $RgName -Location $Location -VMName $VmName -Credential (get-credential) -typeHandlerVersion "2.0" -Name VMAccessAgent 
 ```
 

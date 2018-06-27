@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 03/14/2018
-ms.date: 06/04/2018
+ms.date: 07/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9e568684adc2ca55efa09b86627221f92123003c
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 2097b0e5f9d2441f782b12876cf8787e70de129b
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554393"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315566"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>在 Azure 应用服务中自定义身份验证和授权
 
@@ -91,7 +91,7 @@ ms.locfileid: "34554393"
 
     1. 单击“放置”。 
 
-配置提供程序后，可以调用 `/.auth/me` 来查看刷新令牌是否出现在令牌存储中。 
+配置提供程序以后，即可在令牌存储中[找到访问令牌的刷新令牌和过期时间](#retrieve-tokens-in-app-code)。 
 
 若要随时刷新访问令牌，只需以任何语言调用 `/.auth/refresh`。 以下代码片段从 JavaScript 客户端使用 jQuery 刷新访问令牌。
 

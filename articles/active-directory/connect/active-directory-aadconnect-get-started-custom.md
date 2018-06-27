@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 03/27/2018
-ms.date: 05/02/2018
+origin.date: 06/07/2018
+ms.date: 06/22/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: a9ba48d37d60f7ea77f1125c587a057c4447013f
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 48ab1b2d07f9d5d42780a690084053898a9e88fc
+ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815329"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314292"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect 的自定义安装
 如果希望有更多的安装选项，可以使用 Azure AD Connect“自定义设置”。 如果拥有多个林或希望配置未覆盖在快速安装中的可选功能，可以使用它。 它适用于[**快速安装**](active-directory-aadconnect-get-started-express.md)不能满足部署或拓扑的所有情况。
@@ -45,13 +46,14 @@ ms.locfileid: "33815329"
 ### <a name="user-sign-in"></a>用户登录
 在安装所需的组件后，需要选择用户单一登录方法。 下表提供了可用选项的简短说明。 有关登录方法的完整说明，请参阅[用户登录](active-directory-aadconnect-user-signin.md)。
 
-![用户登录](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
+![用户登录](./media/active-directory-aadconnect-get-started-custom/usersignin4.png)
 
 | 单一登录选项 | 说明 |
 | --- | --- |
 | 密码哈希同步 |用户能够用在其本地网络中使用的相同密码登录到 Azure 云服务，例如 Office 365。 用户密码作为密码哈希同步到 Azure AD，并在云中进行身份验证。 有关详细信息，请参阅[密码哈希同步](active-directory-aadconnectsync-implement-password-hash-synchronization.md)。 |
 |直通身份验证|用户能够用在其本地网络中使用的相同密码登录到 Azure 云服务，例如 Office 365。  用户密码会传递到本地 Active Directory 域控制器进行验证。
 | 使用 AD FS 进行联合身份验证 |用户能够用在其本地网络中使用的相同密码登录到 Azure 云服务，例如 Office 365。  用户被重定向到他们的本地 AD FS 实例以进行登录，并在本地完成身份验证。 |
+| 使用 PingFederate 进行联合身份验证|用户能够用在其本地网络中使用的相同密码登录到 Azure 云服务，例如 Office 365。  用户被重定向到他们的本地 PingFederate 实例以进行登录，并在本地完成身份验证。 |
 | 不配置 |不安装和配置用户登录功能。 如果已有第三方联合服务器或部署了另一个现有解决方案，请选择此选项。 |
 |启用单一登录|此选项可用于密码同步。 </br>请注意，此选项不适用于 AD FS 客户，因为 AD FS 已提供相同级别的单一登录。</br>
 
@@ -94,7 +96,7 @@ ms.locfileid: "33815329"
 > 启用直通身份验证时必须具有至少一个已验证的域，以便继续完成此向导。
 
 > [!WARNING]
-> 所有 Office 365 工作负荷都不允许使用替代 ID。 有关详细信息，请参阅 [配置替代登录 ID](https://technet.microsoft.com/library/dn659436.aspx)。
+> 所有 Office 365 工作负荷都不允许使用替代 ID。 有关详细信息，请参阅 [配置替代登录 ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)。
 >
 >
 
@@ -209,12 +211,11 @@ sourceAnchor 属性是一个在用户对象的生命周期内不会改变的属�
 1.  打开组策略管理工具
 2.  编辑要应用到所有用户的组策略。 例如默认的域策略。
 3.  导航到“用户配置\管理模板\Windows 组件\Internet Explorer\Internet 控制面板\安全性”页，并选择“区域分配列表的站点”，如下图所示。
-4.  启用策略，并在对话框中输入以下两项。
+4.  启用策略，并在对话框中输入以下项。
 
         Value: `https://autologon.microsoftazuread-sso.com`  
         Data: 1  
-        Value: `https://aadg.chinacloudapi.cn.nsatc.net`  
-        Data: 1
+    
 
 5.  结果如下图所示：  
 ![Intranet 区域](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
@@ -222,7 +223,7 @@ sourceAnchor 属性是一个在用户对象的生命周期内不会改变的属�
 6.  单击“确定”两次。
 
 ## <a name="configuring-federation-with-ad-fs"></a>配置与 AD FS 的联合
-只需单击几下鼠标，请能使用 Azure AD Connect 配置 AD FS。 配置之前需要做好以下准备。
+使用 Azure AD Connect 配置 AD FS 非常简单，只需单击几下鼠标即可。 配置之前需要做好以下准备。
 
 - 已启用远程管理的、用作联合服务器的 Windows Server 2012 R2 或更高版服务器
 - 已启用远程管理的、用作 Web 应用程序代理服务器的 Windows Server 2012 R2 或更高版服务器
@@ -298,6 +299,40 @@ AD FS 服务需要域服务帐户来验证用户，以及在 Active Directory �
 >
 >
 
+## <a name="configuring-federation-with-pingfederate"></a>配置使用 PingFederate 的联合身份验证
+使用 Azure AD Connect 配置 PingFederate 非常简单，只需单击几下鼠标即可。 但是，以下先决条件是必需的。
+- PingFederate 8.4 或更高版本。  有关详细信息，请参阅 [PingFederate 与 Azure Active Directory 和 Office 365 的集成](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
+- 要使用的联合身份验证服务名称（例如 sts.contoso.com）的 SSL 证书
+
+### <a name="verify-the-domain"></a>验证域
+选择使用 PingFederate 进行联合身份验证之后，会要求你要验证要进行联合身份验证的域。  从下拉框中选择域。
+
+![验证域](./media/active-directory-aadconnect-get-started-custom/ping1.png)
+
+### <a name="export-the-pingfederate-settings"></a>导出 PingFederate 设置
+
+
+必须将 PingFederate 配置为每个联合 Azure 域的联合服务器。  单击“导出设置”按钮并与 PingFederate 管理员共享此信息。  联合服务器管理员将更新配置，然后提供 PingFederate 服务器 URL 和端口号，以便 Azure AD Connect 可以验证元数据设置。  
+
+![验证域](./media/active-directory-aadconnect-get-started-custom/ping2.png)
+
+与 PingFederate 管理员联系以解决任何验证问题。  下面是与 Azure 之间没有有效的信任关系的 PingFederate 服务器的示例：
+
+![信任](./media/active-directory-aadconnect-get-started-custom/ping5.png)
+
+
+
+
+### <a name="verify-federation-connectivity"></a>验证联合身份验证连接性
+Azure AD Connect 将尝试验证从上一步中的 PingFederate 元数据检索的身份验证终结点。  Azure AD Connect 将首先尝试使用本地 DNS 服务器解析终结点。  接下来，它将尝试使用外部 DNS 提供程序解析终结点。  与 PingFederate 管理员联系以解决任何验证问题。  
+
+![验证连接性](./media/active-directory-aadconnect-get-started-custom/ping3.png)
+
+### <a name="verify-federation-login"></a>验证联合登录
+最后，可以通过登录到联合域来验证新配置的联合登录流。 如果此操作成功，则说明已成功配置了使用 PingFederate 的联合身份验证。
+
+![验证登录](./media/active-directory-aadconnect-get-started-custom/ping4.png)
+
 ## <a name="configure-and-verify-pages"></a>配置和验证页面
 在此页上进行配置。
 
@@ -305,6 +340,7 @@ AD FS 服务需要域服务帐户来验证用户，以及在 Active Directory �
 > 在继续安装之前，如果配置了联合服务器，请确保已配置[联合服务器的名称解析](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers)。
 >
 >
+
 
 ![已准备好配置](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
@@ -333,8 +369,9 @@ Intranet 连接检查
 
 ![验证](./media/active-directory-aadconnect-get-started-custom/adfs7.png)
 
-此外，请执行以下验证步骤：
+若要验证端到端身份验证是否成功，应当手动执行下列一个或多个测试：
 
+- 在同步完成后，使用 Azure AD Connect 中的”验证联合登录”附加任务来验证你选择的本地用户帐户的身份验证。
 - 在 Intranet 上，通过已加入域的计算机上的浏览器验证是否能够登录：连接到 https://login.partner.microsoftonline.cn，并使用登录帐户验证登录。 内置的 AD DS 管理员帐户未同步，因此无法用于验证。
 - 验证是否能够从 Extranet 中的设备登录。 在家庭计算机或移动设备上连接到 https://login.partner.microsoftonline.cn，并提供凭据。
 - 验证富客户端登录。 连接到 https://testconnectivity.microsoft.com，选择“Office 365”选项卡，并选择“Office 365 单一登录测试”。

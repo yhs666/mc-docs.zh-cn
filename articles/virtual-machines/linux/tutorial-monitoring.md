@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 05/08/2017
-ms.date: 06/04/2018
+origin.date: 06/06/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ce6bf917a1a9ac557d8ef679a607ad7a88421f4d
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 074a174997db021a9b9185072733ce3f5a493c76
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702721"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315376"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>教程：监视和更新 Azure 中的 Linux 虚拟机
 
@@ -35,6 +35,7 @@ ms.locfileid: "34702721"
 > * 基于诊断指标创建警报 <!-- Not Available on View host metrics-->
 <!-- Not Available on View VM metrics-->
 <!-- Not Available on Manage package updates-->
+<!-- Not Available on > * Monitor changes and inventory-->
 <!-- Not Available on Set up advanced monitoring-->
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
@@ -49,7 +50,7 @@ ms.locfileid: "34702721"
 az group create --name myResourceGroupMonitor --location chinaeast
 ```
 
-现在，请使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 以下示例创建一个名为 myVM 的 VM：
+现在，请使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 以下示例将创建名为 myVM 的 VM，并生成 SSH 密钥（如果它们尚不存在于 *~/.ssh/* 中）：
 
 ```azurecli
 az vm create \
@@ -114,17 +115,11 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
 ## <a name="install-diagnostics-extension"></a>安装诊断扩展
 
-> [!IMPORTANT]
-> 本文档介绍 Linux 诊断扩展 2.3 版（已弃用）。 2.3 版的有效支持期至 2018 年 6 月 30 日。
->
-> 可以改为启用 Linux 诊断扩展 3.0 版。 有关详细信息，请参阅[文档](./diagnostic-extension.md)。
-
 可以使用基本的主机指标，但若要查看更详细的指标和 VM 特定的指标，需在 VM 上安装 Azure 诊断扩展。 使用 Azure 诊断扩展可从 VM 检索其他监视数据和诊断数据。 可以查看这些性能指标，并根据 VM 的性能情况创建警报。 诊断扩展是通过 Azure 门户安装的，如下所述：
 
-1. 在 Azure 门户中，单击“资源组”，选择“myResourceGroup”，然后在资源列表中选择“myVM”。
-1. 单击“诊断设置”。 列表中将显示已在上一部分中启用的“启动诊断”。 单击“基本指标”对应的复选框。
-1. 在“存储帐户”部分中，浏览到在上一部分创建的 *mydiagdata[1234]* 帐户并将其选中。
-1. 单击“保存”按钮  。
+1. 在 Azure 门户中选择“资源组”，选择“myResourceGroupMonitor”，并在资源列表中选择“myVM”。
+1. 选择“诊断设置”。 在“选取存储帐户”下拉菜单中，如果尚未选择，请选择在上一部分中创建的“mydiagdata[1234]”帐户。
+1. 选择“启用来宾级监视”按钮。
 
     ![查看诊断指标](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
@@ -135,14 +130,15 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
 以下示例针对平均 CPU 使用率创建警报。
 
-1. 在 Azure 门户中，单击“资源组”，选择“myResourceGroup”，然后在资源列表中选择“myVM”。
-2. 在 VM 边栏选项卡上单击“警报规则”，然后单击警报边栏选项卡顶部的“添加指标警报”。
+1. 在 Azure 门户中选择“资源组”，选择“myResourceGroupMonitor”，并在资源列表中选择“myVM”。
+2. 选择“警报(经典)”，然后在警报窗口顶部选择“添加指标警报(经典)”。
 3. 为警报提供**名称**，例如 *myAlertRule*
 4. 若要在 CPU 百分比持续 5 分钟超过 1.0 时触发警报，请选中其他所有默认值。
 5. （可选）选中“电子邮件所有者、参与者和读者”对应的框，以便向他们发送电子邮件通知。 默认操作是在门户中显示通知。
-6. 单击“确定”按钮。
+6. 选择“确定”按钮。
 
 <!-- Not Avaialbel ## Manage package updates-->
+<!-- Not Available on ## Monitor changes and inventory-->
 <!-- Not Available ## Advanced monitoring -->
 ## <a name="next-steps"></a>后续步骤
 

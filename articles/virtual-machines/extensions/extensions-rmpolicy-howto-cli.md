@@ -14,26 +14,27 @@ ms.workload: infrastructure-services
 origin.date: 03/23/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: a5432058f705519ab7f12129f671ff54fe0379a7
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 659de96fb4aa9cf58900c6931706a8a41e8f1720
+ms.sourcegitcommit: c1f196ee0a345620ea22b330c13718bc00a7dc4a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702901"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36208892"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>使用 Azure 策略限制 Linux VM 上的扩展安装
 
 如果想要阻止在 Linux VM 上使用或安装某些扩展，可以使用 CLI 创建 Azure 策略以限制资源组中的 VM 扩展。 
 
-本教程在 Azure Cloud Shell 中使用 CLI，后者已不断更新到最新版本。 如果要在本地运行 Azure CLI，则需要安装版本 2.0.26 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
-
+本教程在本地 Shell 中使用 CLI。 如果要在本地运行 Azure CLI，则需要安装版本 2.0.26 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
+<!-- Not Available on Azure Cloud Shell -->
 ## <a name="create-a-rules-file"></a>创建规则文件
 
 若要限制可以安装哪些扩展，需要使用[规则](/azure-policy/policy-definition#policy-rule)来提供用于识别扩展的逻辑。
 
-本示例演示如何通过在 Azure Cloud Shell 中创建规则文件来拒绝安装“Microsoft.OSTCExtensions”发布的扩展，但如果在本地使用 CLI，也可以创建一个本地文件并将路径 (~/clouddrive) 替换为计算机上本地文件的路径。
+本示例演示如何通过在本地 Shell 中创建规则文件来拒绝安装“Microsoft.OSTCExtensions”发布的扩展。如果在本地使用 CLI，则可以创建一个本地文件并将路径 (~/clouddrive) 替换为计算机上本地文件的路径。
 
-在 [bash Cloud Shell](https://shell.azure.com/bash) 中，键入：
+<!-- Not Available on Azure Cloud Shell -->
+<!-- Not Available on [bash Cloud Shell](https://shell.azure.com/bash)-->
 
 ```azurecli 
 vim ~/clouddrive/azurepolicy.rules.json
@@ -71,9 +72,10 @@ vim ~/clouddrive/azurepolicy.rules.json
 
 还需要一个[参数](/azure-policy/policy-definition#parameters)文件，以创建一个用于传入要阻止的扩展列表的结构。 
 
-本示例演示如何在 Cloud Shell 中为 Linux VM 创建参数文件，但如果在本地使用 CLI，也可以创建一个本地文件并将路径 (~/clouddrive) 替换为计算机上本地文件的路径。
+本示例演示如何在本地 Shell 中为 Linux VM 创建参数文件。如果在本地使用 CLI，也可以创建一个本地文件并将路径 (~/clouddrive) 替换为计算机上本地文件的路径。
+<!-- Not Available on Azure Cloud Shell -->
+<!-- Not Available on [bash Cloud Shell](https://shell.azure.com/bash)-->
 
-在 [bash Cloud Shell](https://shell.azure.com/bash) 中，键入：
 
 ```azurecli
 vim ~/clouddrive/azurepolicy.parameters.json

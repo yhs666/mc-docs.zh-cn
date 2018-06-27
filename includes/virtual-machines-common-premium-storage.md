@@ -1,3 +1,21 @@
+---
+title: include 文件
+description: include 文件
+services: storage
+author: rockboyfor
+ms.service: storage
+ms.topic: include
+origin.date: 06/05/2018
+ms.date: 06/25/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: d347c317d2bb8e5c279178d084cd17c5e5baa1d0
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315727"
+---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM 的高性能高级存储和托管磁盘
 Azure 高级存储为运行输入/输出 (I/O) 密集型工作负荷的虚拟机 (VM) 提供高性能、低延迟的磁盘支持。 使用高级存储的 VM 磁盘在固态硬盘 (SSD) 上存储数据。 若要利用高级存储磁盘的速度和性能优势，可将现有的 VM 磁盘迁移到高级存储。
 
@@ -26,21 +44,18 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 有关将现有 VM 迁移到高级存储的信息，请参阅[将 Windows VM 从非托管磁盘转换为托管磁盘](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)或[将 Linux VM 从非托管磁盘转换为托管磁盘](../articles/virtual-machines/linux/convert-unmanaged-to-managed-disks.md)。
 
 > [!NOTE]
-> 大多数区域推出了高级存储。 有关可用区域的列表，请参阅[可用 Azure 产品（按区域）](https://www.azure.cn/support/service-dashboard/#services)中**磁盘存储**所在的行。
+> 大多数区域推出了高级存储。 有关可用区域的列表，请参阅[可用 Azure 产品(按区域)](https://www.azure.cn/support/service-dashboard/#services) 中的**磁盘存储**所在的行。
 > 
 
 ## <a name="features"></a>功能
 
 下面是高级存储的一些功能：
 
-* **高级存储磁盘**
-    <!-- Pending the Ev3, Esv3 GA Anounce -->
-    高级存储支持可附加到特定大小系列 VM 的 VM 磁盘。 高级存储支持 DS 系列、DSv2 系列、Fs 系列和 Esv3 系列 VM。 可以选择七个磁盘大小：P4 (32GB)、P6 (64GB)、P10 (128GB)、P20 (512GB)、P30 (1024GB)、P40 (2048GB)、P50 (4095GB)。 P4 和 P6 磁盘大小目前只能用于托管磁盘。 每种磁盘大小都有自身的性能规范。 根据应用程序的要求，可将一个或多个磁盘附加到 VM。 [高级存储的可伸缩性和性能目标](#scalability-and-performance-targets)中更详细介绍了规范。
-    <!-- Pending the Ev3, Esv3 GA Anounce -->
-    <!-- Not Available on GS Series LS Series-->
+* **高级存储磁盘** <!-- Pending the Ev3, Esv3 GA Anounce --> 高级存储支持可附加到特定大小系列 VM 的 VM 磁盘。 高级存储支持 DS 系列、DSv2 系列、Fs 系列和 Esv3 系列 VM。 可以选择七个磁盘大小：P4 (32GB)、P6 (64GB)、P10 (128GB)、P20 (512GB)、P30 (1024GB)、P40 (2048GB)、P50 (4095GB)。 P4 和 P6 磁盘大小目前只能用于托管磁盘。 每种磁盘大小都有自身的性能规范。 根据应用程序的要求，可将一个或多个磁盘附加到 VM。 [高级存储的可伸缩性和性能目标](#scalability-and-performance-targets)中更详细介绍了规范。
+    <!-- Pending the Ev3, Esv3 GA Anounce --> <!-- Not Available on GS Series LS Series-->
 * **高级页 Blob**
 
-    高级存储支持页 Blob。 使用页 Blob 可在高级存储中存储 VM 的持久性非托管磁盘。 与标准 Azure 存储不同，高级存储不支持块 Blob、追加 Blob、文件、表或队列。 高级页 Blob 支持从 P10 至 P50 和 P60 (8191GiB) 这六种大小。 P60 高级页 Blob 无法作为 VM 磁盘附加。 
+    高级存储支持页 Blob。 使用页 Blob 可在高级存储中存储 VM 的持久性非托管磁盘。 与标准 Azure 存储不同，高级存储不支持块 Blob、追加 Blob、文件、表或队列。 高级页 Blob 支持从 P10 至 P50 和 P60 (8191GiB) 这六种大小。 不支持将 P60 高级页 Blob 作为 VM 磁盘进行连接。 
 
     放在高级存储帐户中的任何对象都是页 Blob。 页 Blob 对应于某种受支持的预配大小。 因此，高级存储帐户不适合用于存储微型 Blob。
 
@@ -62,9 +77,8 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
 <a name="premium-storage-supported-vms"></a>
 ## <a name="supported-vms"></a>支持的 VM
-<!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-高级存储支持 B 系列、DS 系列、DSv2 系列、DSv3 系列和 Fs 系列 VM。 可将标准和高级存储磁盘用于这些 VM 类型。 不能在不兼容高级存储的 VM 系列中使用高级存储磁盘。
-<!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
+<!--PENDING FOR B SERIES , Esv3-series --> 高级存储支持 B 系列、DS 系列、DSv2 系列、DSv3 系列、Esv3 系列和 Fs 系列 VM。 可将标准和高级存储磁盘用于这些 VM 类型。 不能在不兼容高级存储的 VM 系列中使用高级存储磁盘。
+<!--PENDING FOR B SERIES , Esv3-series -->
 <!-- Not Available on GS Series LS Series M-series -->
 
 有关 Azure 中适用于 Windows 的 VM 类型和大小的信息，请参阅 [Windows VM 大小](../articles/virtual-machines/windows/sizes.md)。 有关 Azure 中适用于 Linux 的 VM 类型和大小的信息，请参阅 [Linux VM 大小](../articles/virtual-machines/linux/sizes.md)。
@@ -132,7 +146,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 如果要对非托管磁盘使用高级存储帐户并且应用程序超过了单个存储帐户的可伸缩性目标，可以考虑迁移到托管磁盘。 如果不想迁移到托管磁盘，请将应用程序构建为使用多个存储帐户。 然后，在这些存储帐户中将数据分区。 例如，如果要将 51-TB 的磁盘附加到多个 VM，请将这些磁盘分散在两个存储帐户中。 35 TB 是单个高级存储帐户的限制。 请确保单个高级存储帐户永远不会超过 35 TB 的设置磁盘。
 
 ### <a name="premium-storage-disk-limits"></a>高级存储磁盘限制
-预配高级存储磁盘时，磁盘的大小决定最大 IOPS 和吞吐量（带宽）。 Azure 提供了七种类型的高级存储磁盘：P4（仅适用于托管磁盘）、P6（仅适用于托管磁盘）、P10、P20、P30、P40 和 P50。 每种高级存储磁盘类型在 IOPS 和吞吐量方面存在具体的限制。 下表描述了磁盘类型的限制：
+预配高级存储磁盘时，磁盘的大小将确定最大 IOPS 和吞吐量（带宽）。 Azure 提供了七种类型的高级存储磁盘：P4（仅适用于托管磁盘）、P6（仅适用于托管磁盘）、P10、P20、P30、P40 和 P50。 每种高级存储磁盘类型在 IOPS 和吞吐量方面存在具体的限制。 下表描述了磁盘类型的限制：
 
 | 高级磁盘类型  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
@@ -225,7 +239,7 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
 托管磁盘的快照是托管磁盘的只读副本。 该快照存储为标准托管磁盘。 目前，托管磁盘不支持[增量快照](../articles/virtual-machines/windows/incremental-snapshots.md)。 若要了解如何创建托管磁盘的快照，请参阅[在 Windows 中使用托管快照创建存储为 Azure 托管磁盘的 VHD 的副本](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)或[在 Linux 中使用托管快照创建存储为 Azure 托管磁盘的 VHD 的副本](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)。
 
-如果将托管磁盘附加到 VM，该磁盘上将不允许某些 API 操作。 例如，磁盘附加到 VM 时，无法通过生成共享访问签名 (SAS) 来执行复制操作。 而是，请先创建磁盘快照，再对该快照执行复制操作。 或者，可以分离磁盘，然后生成 SAS 来执行复制操作。
+如果将托管磁盘附加到 VM，该磁盘上将不允许某些 API 操作。 例如，磁盘附加到 VM 时，无法通过生成共享访问签名 (SAS) 来执行复制操作。 请先创建磁盘快照，然后对该快照执行复制操作。 或者，可以分离磁盘，然后生成 SAS 来执行复制操作。
 
 ## <a name="premium-storage-for-linux-vms"></a>Linux VM 的高级存储
 可以借助以下信息在高级存储中设置 Linux VM：

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 05/10/2018
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 12dd8fdf445f4d602d5f05d4e04d6d2976f49602
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 3887960bfe10fe22792ef3d0759a93d2f783efaa
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702915"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315632"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>配合使用 VMAccess 扩展和 Azure CLI 2.0 管理管理用户、SSH，并检查或修复 Linux VM 上的磁盘
 ## <a name="overview"></a>概述
@@ -38,11 +38,11 @@ VM 访问扩展可以针对这些 Linux 分发运行：
 |---|---|
 | Ubuntu | 16.04 LTS、14.04 LTS 和 12.04 LTS |
 | Debian | Debian 7.9+、8.2+ |
-| Oracle Linux | 6.4+、7.0+ |
 | Suse | 11 和 12 |
 | OpenSuse | openSUSE Leap 42.2+ |
 | CentOS | CentOS 6.3+、7.0+ |
 | CoreOS | 494.4.0+ |
+<!-- 不可用于 | Oracle Linux | 6.4+、7.0+ |-->
 <!--不可用于 | RedHat | RHEL 6.7+、7.1+ |--->
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>使用 VMAccess 扩展的方法
@@ -257,5 +257,4 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
-<!-- Update_Description: new articles on VM access extension -->
-<!--ms.date: 06/04/2018-->
+<!-- Update_Description: wording update -->

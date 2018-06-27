@@ -1,22 +1,22 @@
 ---
-title: Azure SQL 数据仓库备份和还原 - 快照，异地冗余 | Microsoft Docs
+title: Azure SQL 数据仓库备份和还原 - 快照和异地冗余 | Azure
 description: 了解 Azure SQL 数据仓库中备份和还原的工作方式。 使用数据仓库备份可以将数据仓库还原到主要区域的某个还原点。 使用异地冗余备份可还原到不同的地理区域。
 services: sql-data-warehouse
-author: yunan2016
+author: rockboyfor
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
-origin.date: 04/11/2018
-ms.date: 04/25/2018
-ms.author: v-nany
+ms.component: manage
+origin.date: 04/17/2018
+ms.date: 06/25/2018
+ms.author: v-yeche
 ms.reviewer: igorstan
-ms.openlocfilehash: b694cd04f8501386ebef1e69412fb732c44e29c0
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: f7bfbc29b37b61ccadee2a981c0fa4e20e222627
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32122078"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315552"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的备份和还原
 了解 Azure SQL 数据仓库中备份和还原的工作方式。 使用数据仓库备份可以将数据仓库还原到主要区域的某个还原点。 使用异地冗余备份可还原到不同的地理区域。 
@@ -28,10 +28,10 @@ ms.locfileid: "32122078"
 
 本地和异地还原功能均为 SQL 数据仓库灾难恢复功能的一部分。 
 
-## <a name="local-snapshot-backups"></a>本地快照备份
-本地快照备份是该服务的内置功能。  无需启用它们。 
+## <a name="automatic-restore-points"></a>自动还原点
+本地快照是用于创建自动还原点的服务的内置功能。  无需启用此功能。 
 
-SQL 数据仓库全天对数据仓库捕获快照。 快照的可用期为七天。 SQL 数据仓库支持八小时恢复点目标 (RPO)。 可将主要区域中的数据仓库还原至过去七天内所捕获的任意快照中。
+SQL 数据仓库全天捕获数据仓库的快照，创建可以使用七天的还原点。 SQL 数据仓库支持八小时恢复点目标 (RPO)。 可以根据过去七天捕获的任意一个快照，还原主要区域中的数据仓库。
 
 若要查看上一个快照的启动时间，可对联机 SQL 数据仓库运行以下查询。 
 
@@ -41,6 +41,9 @@ from     sys.pdw_loader_backup_runs
 order by run_id desc
 ;
 ```
+
+## <a name="user-defined-restore-points"></a>用户定义的还原点
+使用此功能，可以在大型修改之前和之后手动触发快照，以便创建数据仓库的还原点。 此功能可确保在出现工作负荷中断或用户错误的情况下，还原点在逻辑上是一致的，这样可以提供额外的数据保护，缩短恢复时间。 用户定义的还原点可以使用七天，然后系统会替你将它自动删除。 在任意时刻，系统只支持 42 个用户定义的还原点，因此必须将其[删除](https://go.microsoft.com/fwlink/?linkid=875299)，然后才能创建其他还原点。 可以通过 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) 触发快照来创建用户定义的还原点。
 
 ### <a name="snapshot-retention-when-a-data-warehouse-is-paused"></a>数据仓库被暂停时的快照保留期
 暂停数据仓库时，SQL 数据仓库不会创建快照，也不会让快照过期。 暂停数据仓库时，快照年龄不变。 快照保留期取决于数据仓库处于联机状态的天数，而不是日历日期。
@@ -57,9 +60,10 @@ order by run_id desc
 > 
 
 ## <a name="geo-backups"></a>异地备份
-SQL 数据仓库对[已配对数据中心](../best-practices-availability-paired-regions.md)每天执行一次异地备份。 异地还原的 RPO 为 24 小时。 可将异地备份还原至异地配对区域中的服务器。 异地备份可确保用户能够在无法访问主要区域中的快照的情况下还原数据仓库。
+SQL 数据仓库对[已配对数据中心](../best-practices-availability-paired-regions.md)每天执行一次异地备份。 异地还原的 RPO 为 24 小时。 你可以将异地备份恢复到支持 SQL 数据仓库的任何其他地区的服务器。 异地备份可确保用户能够在无法访问主要区域中的快照的情况下还原数据仓库。
 
-默认情况下，异地备份处于启用状态。 如果数据仓库已进行弹性优化，则可按需[选择退出](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy)。 如果对计算性能层进行了优化，则无法选择退出异地备份。
+<!--Pending on Gen2--> 默认情况下，异地备份处于启用状态。 如果数据仓库为 Gen1，则可按需[选择退出](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy)。 请勿选择退出 Gen2 的异地备份，因为数据保护是内置保证。
+<!--Pending on Gen2-->
 
 ## <a name="backup-costs"></a>备份成本
 Azure 帐单上将列出 Azure 高级存储的明细项目以及异地冗余存储的明细项目。 高级存储费用是指在主要区域中存储数据（包括快照）的总费用。  异地冗余费用是指存储异地备份的费用。  
@@ -82,8 +86,7 @@ SQL 数据仓库始终将备份还原到新的数据仓库。 可以保留还原
 
 若要还原数据仓库，请参阅[使用 Azure 门户还原数据仓库](sql-data-warehouse-restore-database-portal.md)、[使用 PowerShell 还原数据仓库](sql-data-warehouse-restore-database-powershell.md) 或 [使用 T-SQL 还原数据仓库](sql-data-warehouse-restore-database-rest-api.md)。
 
-
-
+若要还原已删除或已暂停的数据仓库，则可以[创建支持票证](https://support.windowsazure.cn/support/support-azure)。 
 
 ## <a name="geo-redundant-restore"></a>异地冗余还原
 可以将数据仓库还原到支持所选性能级别的 Azure SQL 数据仓库的任何区域。 
@@ -111,3 +114,4 @@ SQL 数据仓库始终将备份还原到新的数据仓库。 可以保留还原
 ## <a name="next-steps"></a>后续步骤
 有关灾难规划的详细信息，请参阅[业务连续性概述](../sql-database/sql-database-business-continuity.md)
 
+<!-- Update_Description: update meta properties, wording update -->

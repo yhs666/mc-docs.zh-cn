@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中创建 ASP.NET Framework Web 应用 | Microsoft Docs
-description: 了解如何通过部署默认的 ASP.NET Web 应用，在 Azure 应用服务中运行 Web 应用。
+title: 在 Azure 中创建 C# ASP.NET Framework Web 应用 | Microsoft Docs
+description: 了解如何通过部署默认的 C# ASP.NET Web 应用，在 Azure 应用服务中运行 Web 应用。
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 11/30/2017
-ms.date: 04/30/2018
+origin.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yiso
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 43fcf98bcb517e1c43135ce9655bc2c81c7db80a
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 52b5ff165e2c728003a723f22a2c2c8dd27cd07a
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782241"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315506"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>在 Azure 中创建 ASP.NET Framework Web 应用
 
@@ -31,11 +31,7 @@ ms.locfileid: "31782241"
 
 完成本教程：
 
-* 使用以下工作负荷安装 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>：
-    - **ASP.NET 和 Web 开发**
-    - **Azure 开发**
-
-    ![ASP.NET 和 Web 开发以及 Azure 开发（在 Web 和云下）](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+安装带有 ASP.NET 和 Web 开发工作负荷的 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>。
 
 如果已安装 Visual Studio，请单击“工具” > **Get Tools and Features**“获取工具和功能”，以便在 Visual Studio 中添加工作负荷。
 
@@ -139,7 +135,8 @@ ms.locfileid: "31782241"
 
 若要重新部署到 Azure，请在“解决方案资源管理器”中右键单击“myFirstAzureWebApp”项目，然后选择“发布”。
 
-在发布页中选择“发布”。
+在发布页上选择“发布”。
+![Visual Studio 发布摘要页](./media/app-service-web-get-started-dotnet-framework/publish-summary-page.png)
 
 发布完成后，Visual Studio 将启动浏览器并转到 Web 应用的 URL。
 

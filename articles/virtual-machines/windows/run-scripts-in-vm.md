@@ -6,15 +6,15 @@ ms.service: automation
 author: rockboyfor
 ms.author: v-yeche
 origin.date: 05/02/2018
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.topic: article
 manager: digimobile
-ms.openlocfilehash: 475c3d2ed76378720323aeaa3df5cfecd187a86f
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 13b6f78b59e9d26c35873beaf6e90282b11c3334
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867621"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315385"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>在 Windows VM 中运行脚本
 
@@ -52,5 +52,4 @@ ms.locfileid: "34867621"
 <!-- Not Available on * [Run Command](run-command.md)-->
 <!-- Not Available on * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)-->
 * [串行控制台](serial-console.md)
-<!-- Update_Description: new articles on run scripts in vm -->
-<!--ms.date: 06/04/2018-->
+<!-- Update_Description: update meta properties -->

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 09/06/2016
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7271ba51f8fe5c8e5ccd9302e43012cba1eb9476
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 6a304fd9943b894131ebf4f2bf10037f5590a20b
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702869"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315407"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>在 Azure 上优化 Linux VM
 通过命令行或门户创建运行 Linux 虚拟机 (VM) 是一项很简单的操作。 本教程说明如何在 Azure 平台上设置 VM 以确保优化其性能。 本主题使用 Ubuntu Server VM，不过也可以[将自己的映像作为模板](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)来创建 Linux 虚拟机。  
@@ -37,7 +37,7 @@ ms.locfileid: "34702869"
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>添加磁盘以实现大小和性能目标
 根据 VM 大小，可以分别在 A 系列、D 系列计算机上额外附加最多 16 个、32 个磁盘，每个磁盘最大可为 1 TB。 可以根据空间和 IOps 要求以及自己的需要添加额外的磁盘。 标准存储的每个磁盘的性能目标为 500 IOps，高级存储的每个磁盘的性能目标最高为 5000 IOps。  有关高级存储磁盘的详细信息，请参阅[高级存储：适用于 Azure VM 的高性能存储](../windows/premium-storage.md)
-<!--Not Available on G-Series -->
+<!--Not Available 64 disks on G-Series -->
 
 对于缓存设置为“ReadOnly”或“None”的高级存储磁盘，必须在 Linux 中装入文件系统时禁用“barrier”（屏障）才能达到最高 IOps。 不需要屏障，因为写入高级存储支持的磁盘对于这些缓存设置是持久的。
 
@@ -60,7 +60,7 @@ ms.locfileid: "34702869"
 
 在 Ubuntu 云映像上，必须使用 cloud-init 配置交换分区。 有关详细信息，请参阅 [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions)。
 
-对于不带 cloud-init 支持的映像，从 Azure 应用商店部署的 VM 映像具有与 OS 集成的 VM Linux 代理。 此代理使 VM 可以与各种 Azure 服务进行交互。 假设你从 Azure 应用商店部署了标准映像，需要执行以下操作来正确配置 Linux 交换文件设置：
+对于不带 cloud-init 支持的映像，从 Azure 市场部署的 VM 映像具有与 OS 集成的 VM Linux 代理。 此代理使 VM 可以与各种 Azure 服务进行交互。 假设已从 Azure 市场部署标准映像，则需执行以下操作来正确配置 Linux 交换文件设置：
 
 找出并修改 **/etc/waagent.conf** 文件中的两个条目。 这些条目控制专用交换文件的存在状态和交换文件的大小。 要修改的参数是 `ResourceDisk.EnableSwap=N` 和 `ResourceDisk.SwapSizeMB=0` 
 
@@ -121,8 +121,8 @@ Found memtest86+ image: /memtest86+.bin
 done
 ```
 
-对于 Redhat 分发系列，只需以下命令：   
-
+对于 CentOS 发行版，只需以下命令：   
+<!-- Notice: Change RedHat to CentOS-->
 ```bash
 echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```

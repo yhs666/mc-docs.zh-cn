@@ -14,15 +14,15 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 13/22/2018
-ms.date: 05/21/2018
+origin.date: 06/11/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 85ec5f1e00ae83393790667abc1990f8fcecc886
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: c5a2355f0a4b4fe8e34bc520abc7461b0dd58813
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34256932"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315601"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虚拟机上配置 SQL Server 故障转移群集实例
 
@@ -73,12 +73,15 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 应该对以下技术有实际的了解：
 
 - [Windows 群集技术](http://technet.microsoft.com/library/hh831579.aspx)
--  [SQL Server 故障转移群集实例](http://msdn.microsoft.com/library/ms189134.aspx)
+- [SQL Server 故障转移群集实例](http://msdn.microsoft.com/library/ms189134.aspx)
 
 另外，应该对以下技术有大致的了解：
 
 - [Windows Server 2016 中使用存储空间直通的超聚合解决方案](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Azure 资源组](../../../azure-resource-manager/resource-group-portal.md)
+
+> [!IMPORTANT]
+> 目前，Azure 上的 SQL Server FCI 不支持 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)。 建议从参与 FCI 的 VM 中卸载此扩展。 此扩展支持自动备份和修补之类的功能，以及适用于 SQL 的某些门户功能。 卸载代理以后，这些功能将不适用于 SQL VM。
 
 ### <a name="what-to-have"></a>准备工作
 
@@ -105,7 +108,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 
    如果尚未为虚拟机创建资源组，请在创建 Azure 可用性集时执行该操作。 若要使用 Azure 门户创建可用性集，请执行以下步骤：
 
-   - 在 Azure 门户中，单击 **+** 打开 Azure 应用商店。 搜索“可用性集”。
+   - 在 Azure 门户中，单击 **+** 打开 Azure 市场。 搜索“可用性集”。
    - 单击“可用性集”。
    - 单击“创建”。
    - 在“创建可用性集”边栏选项卡中设置以下值： 
@@ -131,7 +134,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
       >[!IMPORTANT]
       >创建虚拟机后无法设置或更改可用性集。
 
-   从 Azure 应用商店中选择一个映像。 可以使用同时包含 Windows Server 和 SQL Server 或者只包含 Windows Server 的应用商店映像。 有关详细信息，请参阅 [Azure 虚拟机上的 SQL Server 概述](virtual-machines-windows-sql-server-iaas-overview.md)
+   从 Azure 市场中选择一个映像。 可以使用同时包含 Windows Server 和 SQL Server 或者只包含 Windows Server 的市场映像。 有关详细信息，请参阅 [Azure 虚拟机上的 SQL Server 概述](virtual-machines-windows-sql-server-iaas-overview.md)
 
    Azure 库中的正式 SQL Server 映像包含已安装的 SQL Server 实例，以及 SQL Server 安装软件和所需的密钥。
 
@@ -151,7 +154,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
    >[!IMPORTANT]
    >创建虚拟机后，请删除预装的独立 SQL Server 实例。 配置故障转移群集和 S2D 之后，使用预装的 SQL Server 媒体创建 SQL Server FCI。
 
-   或者，可以使用只包含操作系统的 Azure 应用商店映像。 选择一个 **Windows Server 2016 Datacenter** 映像，并在配置故障转移群集和 S2D 后安装 SQL Server FCI。 此映像不包含 SQL Server 安装媒体。 将安装媒体放在可以针对每个服务器运行 SQL Server 安装的位置。
+   或者，可以使用只包含操作系统的 Azure 市场映像。 选择一个 **Windows Server 2016 Datacenter** 映像，并在配置故障转移群集和 S2D 后安装 SQL Server FCI。 此映像不包含 SQL Server 安装媒体。 将安装媒体放在可以针对每个服务器运行 SQL Server 安装的位置。
 
 1. Azure 在创建虚拟机之后，使用 RDP 连接到每个虚拟机。
 
@@ -323,7 +326,7 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 
 1. 在“故障转移群集管理器”中，确保所有群集核心资源位于第一个虚拟机上。 如有必要，请将所有资源移到此虚拟机。
 
-1. 找到安装媒体。 如果虚拟机使用某个 Azure Marketplace 映像，该媒体将位于 `C:\SQLServer_<version number>_Full`。 单击“设置”。
+1. 找到安装媒体。 如果虚拟机使用某个 Azure 市场映像，该媒体将位于 `C:\SQLServer_<version number>_Full`。 单击“设置”。
 
 1. 在“SQL Server 安装中心”中单击“安装”。
 
@@ -342,7 +345,7 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 1. 单击“将节点添加到 SQL Server 故障转移群集”。 遵照向导中的说明安装 SQL Server 并将此服务器添加到 FCI。
 
    >[!NOTE]
-   >如果使用了包含 SQL Server 的 Azure 应用商店库映像，该映像已随附 SQL Server 工具。 如果未使用此映像，需单独安装 SQL Server 工具。 请参阅 [Download SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx)（下载 SQL Server Management Studio (SSMS)）。
+   >如果使用了包含 SQL Server 的 Azure 市场库映像，该映像已随附 SQL Server 工具。 如果未使用此映像，需单独安装 SQL Server 工具。 请参阅 [Download SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx)（下载 SQL Server Management Studio (SSMS)）。
 
 ## <a name="step-5-create-azure-load-balancer"></a>步骤 5：创建 Azure 负载均衡器
 
@@ -356,7 +359,7 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 
 1. 在 Azure 门户中，转到虚拟机所在的资源组。
 
-1. 单击“+ 添加”。 在应用商店中搜索“负载均衡器”。 单击“负载均衡器”。
+1. 单击“+ 添加”。 在市场中搜索“负载均衡器”。 单击“负载均衡器”。
 
 1. 单击“创建”。
 

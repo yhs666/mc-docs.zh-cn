@@ -1,8 +1,28 @@
 ---
-title: Azure 策略 json 示例 - 批准的 VM 映像 | Azure description: 此 json 示例策略要求在环境中仅部署已批准的自定义映像。
-services: azure-policy documentationcenter: author: WenJason manager: digimobile editor: ms.assetid: ms.service: azure-policy ms.devlang: ms.topic: sample ms.tgt_pltfrm: ms.workload: origin 10/30/2017 ms.date: 06/04/2018 ms.author: v-nany ms.custom: mvc
+title: Azure 策略 json 示例 - 已批准的 VM 映像 | Azure
+description: 此 json 示例策略需要在环境中仅部署已批准的自定义映像。
+services: azure-policy
+documentationcenter: ''
+author: WenJason
+manager: digimobile
+editor: ''
+ms.assetid: ''
+ms.service: azure-policy
+ms.devlang: ''
+ms.topic: sample
+ms.tgt_pltfrm: ''
+ms.workload: ''
+origin.date: 10/30/2017
+ms.date: 06/04/2018
+ms.author: v-nany
+ms.custom: mvc
+ms.openlocfilehash: 3ae9fc6dc5993e03bb6628d5cec986919744e55f
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36269945"
 ---
-
 # <a name="approved-vm-images"></a>已批准的 VM 映像
 
 此策略要求在环境中仅部署已批准的自定义映像。 指定已批准的映像 ID 的数组。
@@ -10,9 +30,44 @@ services: azure-policy documentationcenter: author: WenJason manager: digimobile
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>示例模板
-
-[!code-json[main](../../../policy-templates/samples/compute/allowed-custom-images/azurepolicy.json "Approved VM images")]
-
+```json
+{
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "allowed-custom-images", 
+    "properties": {
+        "displayName": "Approved VM images",
+        "description": "This policy governs the approved VM images",
+        "parameters": {
+            "imageIds": {
+                "type": "array",
+                "metadata": {
+                    "description": "The list of approved VM images",
+                    "displayName": "Approved VM images"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Compute/virtualMachines"
+                    },
+                    {
+                        "not": {
+                            "field": "Microsoft.Compute/imageId",
+                            "in": "[parameters('imageIds')]"
+                        }
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }   
+}
+```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
 
 ## <a name="deploy-with-the-portal"></a>使用门户进行部署
@@ -42,7 +97,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'allowed-custom-images' --display-name 'Approved VM images' --description 'This policy governs the approved VM images' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "allowed-custom-images"
@@ -52,7 +107,7 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "al
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 

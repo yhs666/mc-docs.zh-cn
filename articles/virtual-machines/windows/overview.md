@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 03f5228870f94cb5fcc33363794de0695da5d148
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 2bce65c53dcd9f98068b5442733b25dffc46a7f1
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867635"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315540"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虚拟机概述
 
@@ -79,7 +79,7 @@ Azure 根据 VM 的大小和操作系统[按小时进行收费](https://www.azur
 ### <a name="operating-system-disks-and-images"></a>操作系统磁盘和映像
 虚拟机使用[虚拟硬盘 (VHD)](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 来存储其操作系统 (OS) 和数据。 VHD 还可用于存储映像，可以选择某个映像来安装 OS。 
 
-Azure 提供许多[应用商店映像](https://market.azure.cn/zh-cn/marketplace/virtual-machines/)来配合各种版本和类型的 Windows Server 操作系统使用。 Marketplace 映像由映像发布者、产品、SKU 和版本（通常指定为最新版本）标识。 
+Azure 提供许多[市场映像](https://market.azure.cn/zh-cn/marketplace/virtual-machines/)来配合各种版本和类型的 Windows Server 操作系统使用。 市场映像由映像发布者、产品、SKU 和版本（通常指定为最新版本）标识。 仅支持 64 位操作系统。 有关受支持的来宾操作系统、角色和功能的详细信息，请参阅 [Azure 虚拟机的 Microsoft 服务器软件支持](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)。
 
 下表显示了查找映像信息的一些方法。
 
@@ -158,4 +158,4 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 * 如果打算使用 Linux VM，请查看 [Azure 和 Linux](../linux/overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 * 若要深入了解有关设置基础结构的指导，请参阅[示例 Azure 基础结构演练](infrastructure-example.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update link -->

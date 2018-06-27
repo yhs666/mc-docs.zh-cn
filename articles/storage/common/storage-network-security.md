@@ -14,12 +14,12 @@ ms.workload: storage
 origin.date: 10/25/2017
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: c91c32b804cd3198a207bde9d8affeb6c0f124d9
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 9330fc59e0d9cfc2f844d74228fdeb0c189ce458
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867527"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270055"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>配置 Azure 存储防火墙和虚拟网络
 Azure 存储提供一种分层安全模型，用于保护存储帐户，使其仅可供一组特定的许可网络访问。  配置网络规则时，只有来自许可网络的应用程序才能访问存储帐户。  从许可网络进行调用时，应用程序仍需获得正确的授权（有效的访问密钥或 SAS 令牌）才能访问存储帐户。
@@ -203,7 +203,7 @@ IP 网络规则仅适用于**公共 Internet** IP 地址。  IP 规则不允许�
 ### <a name="configuring-access-from-on-premises-networks"></a>配置从本地网络的访问
 若要使用 IP 网络规则授予本地网络访问存储帐户的权限，则必须标识网络所用的面向 Internet 的 IP 地址。  若要获得帮助，请联系网络管理员。
 
-如果网络使用 [ExpressRoute](https://docs.azure.cn/expressroute/expressroute-introduction) 连接到 Azure 网络，那么每条线路在 Microsoft Edge 均配置有两个公共 IP 地址，用于通过 [Azure 公共对等互连](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains)连接到 Azure 存储等 Microsoft 服务。  若要允许从线路访问 Azure 存储，则必须为线路的公共 IP 地址创建 IP 网络规则。  若要查找 ExpressRoute 线路的公共 IP 地址，请通过 Azure 门户[开具 ExpressRoute 支持票证](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。
+如果网络使用 [ExpressRoute](https://docs.azure.cn/expressroute/expressroute-introduction) 连接到 Azure 网络，那么每条线路在 Microsoft Edge 均配置有两个公共 IP 地址，用于通过 [Azure 公共对等互连](/expressroute/expressroute-circuit-peerings#expressroute-routing-domains)连接到 Azure 存储等 Azure 服务。  若要允许从线路访问 Azure 存储，则必须为线路的公共 IP 地址创建 IP 网络规则。  若要查找 ExpressRoute 线路的公共 IP 地址，请通过 Azure 门户[开具 ExpressRoute 支持票证](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。
 
 
 ### <a name="managing-ip-network-rules"></a>管理 IP 网络规则
@@ -280,20 +280,20 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 >
 
 ## <a name="exceptions"></a>异常
-在大多数情况下，网络规则可以实现安全的网络配置，但在某些情况下，必须允许一些例外才能启用完整功能。  可以为存储帐户针对受信任的 Microsoft 服务和存储分析数据访问配置例外。
+在大多数情况下，网络规则可以实现安全的网络配置，但在某些情况下，必须允许一些例外才能启用完整功能。  可以为存储帐户配置例外，以便使用受信任的 Azure 服务以及对存储分析数据进行访问。
 
-### <a name="trusted-microsoft-services"></a>受信任的 Microsoft 服务
-某些与存储帐户交互的 Microsoft 服务在网络上运行，但这些网络无法通过网络规则获得访问权限。 
+### <a name="trusted-azure-services"></a>受信任的 Azure 服务
+某些与存储帐户交互的 Azure 服务在网络上运行，但这些网络无法通过网络规则获得访问权限。 
 
-若要允许此类服务按预期方式工作，可以允许受信任的 Microsoft 服务集绕过网络规则。 然后，这些服务使用强身份验证访问存储帐户。
+若要允许此类服务按预期方式工作，可以允许这组受信任的 Azure 服务绕过网络规则。 然后，这些服务使用强身份验证访问存储帐户。
 
-启用“受信任的 Microsoft 服务”例外后，以下服务（在订阅中注册后）有权访问存储帐户：
+启用“受信任的 Azure 服务”例外后，以下服务（在订阅中注册后）有权访问存储帐户：
 
 |服务|资源提供程序名称|目的|
 |:------|:---------------------|:------|
-|Azure 备份|Microsoft.Backup|在 IAAS 虚拟机中备份和还原非托管磁盘。 （不是托管磁盘的必需操作）。 [了解详细信息](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)。|
-|Azure 事件中心|Microsoft.EventHub|使用事件中心捕获功能存档数据。  [了解详细信息](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)。|
-|Azure 网络|Microsoft.Networking|存储和分析网络流量日志。  [了解详细信息](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview)。|
+|Azure 备份|Microsoft.Backup|在 IAAS 虚拟机中备份和还原非托管磁盘。 （不是托管磁盘的必需操作）。 [了解详细信息](https://docs.azure.cn/backup/backup-introduction-to-azure-backup)。|
+|Azure 事件中心|Microsoft.EventHub|使用事件中心捕获功能存档数据。  [了解详细信息](/event-hubs/event-hubs-capture-overview)。|
+|Azure 网络|Microsoft.Networking|存储和分析网络流量日志。  [了解详细信息](/network-watcher/network-watcher-packet-capture-overview)。|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>存储分析数据访问

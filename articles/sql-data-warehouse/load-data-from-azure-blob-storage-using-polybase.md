@@ -1,22 +1,22 @@
 ---
-title: 教程：将纽约出租车数据加载到 Azure SQL 数据仓库 | Microsoft Docs
-description: 教程使用 Azure 门户和 SQL Server Management Studio 将纽约市出租车数据从公共 Azure Blob 加载到 Azure SQL 数据仓库。
+title: 教程：将纽约出租车数据加载到 Azure SQL 数据仓库 | Azure
+description: 教程使用 Azure 门户和 SQL Server Management Studio 将北京市出租车数据从公共 Azure Blob 加载到 Azure SQL 数据仓库。
 services: sql-data-warehouse
 author: rockboyfor
 manager: digimobile
 ms.service: sql-data-warehouse
-ms.topic: tutorial
+ms.topic: conceptual
 ms.component: implement
-origin.date: 11/17/2017
-ms.date: 03/12/2018
+origin.date: 04/17/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.reviewer: barbkess
-ms.openlocfilehash: 35f39f89e02ca28d7f239edc39e2a93b7fc27b8f
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.reviewer: igorstan
+ms.openlocfilehash: e0e9f88c45123f34997c8916d1e9f2733afefa3b
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121778"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315461"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>教程：将纽约出租车数据加载到 Azure SQL 数据仓库
 
@@ -79,14 +79,16 @@ ms.locfileid: "32121778"
 
 5. 单击“选择”。
 
-6. 单击“性能层”，指定是否针对弹性或计算，以及数据仓库单位对数据仓库进行优化。 
+<!--Pending on Gen2-->
+6. 单击“性能级别”，指定数据仓库是 Gen1 还是 Gen2，以及数据仓库单位的数量。 
 
-7. 对于本教程，选择“针对弹性进行优化”服务层。 默认情况下，滑块设置为“DW400”。  请尝试上下移动滑块，以查看其工作原理。 
+7. 针对本教程，请选择 SQL 数据仓库的“Gen1”。 滑块默认设置为“DW1000c”。  请尝试上下移动滑块，以查看其工作原理。 
+<!--Pending on Gen2-->
 
     ![配置性能](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. 单击“应用” 。
-9. 在“SQL 数据仓库”页中，为空白数据库选择“排序规则”。 对于本教程，请使用默认值。 有关排序规则的详细信息，请参阅 [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)（排序规则）
+9. 在“SQL 数据仓库”页中，为空白数据库选择“排序规则”。 对于本教程，请使用默认值。 有关排序规则的详细信息，请参阅[排序规则](https://docs.microsoft.com/sql/t-sql/statements/collations)
 <!-- URL is Correct remove .md postfix on https://docs.microsoft.com/sql/t-sql/statements/collations -->
 
 11. 完成 SQL 数据库表单后，即可单击“创建”对数据库进行预配。 预配需要数分钟。 
@@ -105,7 +107,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 > SQL 数据仓库通过端口 1433 进行通信。 如果尝试从企业网络内部进行连接，则该网络的防火墙可能不允许经端口 1433 的出站流量。 如果是这样，则无法连接到 Azure SQL 数据库服务器，除非 IT 部门打开了端口 1433。
 >
 
-1. 部署完成后，在左侧菜单中单击“SQL 数据库”，然后在“SQL 数据库”页上单击“mySampleDatabase”。 此时会打开数据库的概览页，显示完全限定的服务器名称（例如 **mynewserver-20171113.database.chinacloudapi.cn**），并且会提供进行进一步配置所需的选项。 
+1. 部署完成后，在左侧菜单中单击“SQL 数据库”，然后在“SQL 数据库”页上单击“mySampleDatabase”。 此时会打开数据库的概览页，显示完全限定的服务器名称（例如 **mynewserver-20180430.database.chinacloudapi.cn**），并且会提供进行进一步配置所需的选项。 
 
 2. 在后续的快速入门中，请复制此完全限定的服务器名称，将其用于连接到服务器及其数据库。 然后单击服务器名称，打开服务器设置。
 
@@ -135,8 +137,8 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 请在 Azure 门户中获取 SQL Server 的完全限定的服务器名称。 稍后，在连接到服务器时，将使用该完全限定的名称。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 从左侧菜单中选择“SQL 数据库”，并单击“SQL 数据库”页上的数据库。 
-3. 在数据库的“Azure 门户”页的“概要”窗格中，找到并复制“服务器名称”。 在此示例中，完全限定的名称为 mynewserver-20171113.database.chinacloudapi.cn。 
+2. 从左侧菜单中选择“SQL 数据仓库”，然后单击“SQL 数据仓库”页上的数据库。 
+3. 在数据库的“Azure 门户”页的“概要”窗格中，找到并复制“服务器名称”。 在此示例中，完全限定的名称为 mynewserver-20180430.database.chinacloudapi.cn。 
 
     ![连接信息](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -152,7 +154,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     | 设置      | 建议的值 | 说明 | 
     | ------------ | --------------- | ----------- | 
     | 服务器类型 | 数据库引擎 | 此值是必需的 |
-    | 服务器名称 | 完全限定的服务器名称 | 该名称应类似于：**mynewserver-20171113.database.chinacloudapi.cn**。 |
+    | 服务器名称 | 完全限定的服务器名称 | 该名称应类似于：**mynewserver-20180430.database.chinacloudapi.cn**。 |
     | 身份验证 | SQL Server 身份验证 | SQL 身份验证是本教程中配置的唯一身份验证类型。 |
     | 登录 | 服务器管理员帐户 | 这是在创建服务器时指定的帐户。 |
     | 密码 | 服务器管理员帐户的密码 | 这是在创建服务器时指定的密码。 |
@@ -167,7 +169,8 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 ## <a name="create-a-user-for-loading-data"></a>创建用于加载数据的用户
 
-服务器管理员帐户用于执行管理操作，不适合对用户数据运行查询。 加载数据是一种内存密集型操作。 [内存最大值](performance-tiers.md#memory-maximums)根据[性能层](performance-tiers.md)和[资源类](resource-classes-for-workload-management.md)定义。 
+<!--Pending on Gen2--> 服务器管理员帐户用于执行管理操作，不适合对用户数据运行查询。 加载数据是一种内存密集型操作。 内存最大值是根据已设置的 SQL 数据仓库的代系、[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)和[资源类](resource-classes-for-workload-management.md)定义的。 
+<!--Pending on Gen2-->
 
 最好创建专用于加载数据的登录名和用户。 然后，将加载用户添加到启用相应最大内存分配的[资源类](resource-classes-for-workload-management.md)。
 
@@ -235,7 +238,6 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     ```
 
 4. 运行以下 [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) 语句，定义 Azure Blob 的位置。 这是外部出租车数据的位置。  要运行追加到查询窗口的命令，请突出显示要运行的命令，然后单击“执行”。
-<!-- URL is correct on remove the .md postfix on (https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) -->
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -248,7 +250,6 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 <!-- Notice:  wasbs://2013@nytaxiblob.blob.core.windows.net/ is CORRECT source-->
     
 5. 运行以下 [CREATE EXTERNAL FILE FORMAT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql) T-SQL 语句，指定外部数据文件的格式设置特征和选项。 此语句指定外部数据存储为文本，且值由管道 ("|") 字符分隔。 使用 Gzip 压缩外部文件。 
-<!-- URL is Correct on remove .md postfix on (https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql) -->
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -274,7 +275,6 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     ```
 
 6.  运行以下 [CREATE SCHEMA](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql) 语句，创建外部文件格式的架构。 该架构提供组织即将创建的外部表的方法。
-<!-- URL is correct on remove .md postfix on (https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql) -->
 
     ```sql
     CREATE SCHEMA ext;
@@ -453,8 +453,11 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 本部分使用刚才定义的外部表将示例数据从 Azure 存储 Blob 加载到 SQL 数据仓库。  
 
+> [!NOTE]
+> 本教程直接将数据加载到最终表。 在生产环境中，通常使用 CREATE TABLE AS SELECT 将数据加载到临时表。 数据在临时表中时，可以执行任何必要的转换。 要将临时表中的数据追加到生产表，可以使用 INSERT...SELECT 语句。 有关详细信息，请参阅[将数据插入到生产表](guidance-for-loading-data.md#inserting-data-into-a-production-table)。
+> 
+
 下面的脚本使用 [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 语句将数据从 Azure 存储 Blob 加载到数据仓库中的新表。 CTAS 基于 select 语句的结果创建新表。 新表包含与 select 语句结果相同的列和数据类型。 当 select 语句从外部表进行选择时，SQL 数据仓库将数据导入数据仓库中的关系表。 
-<!-- URL is correct on remove the .md postfix on (https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) -->
 
 1. 运行以下脚本，将数据加载到数据仓库中的新表。
 
@@ -569,7 +572,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 SQL 数据仓库不会自动创建或自动更新统计信息。 因此，若要实现较高的查询性能，必须在首次加载后基于每个表的每个列创建统计信息。 此外，在对数据做出重大更改后，必须更新统计信息。
 
-1. 运行以下命令，创建针对可能用于联接的列的统计信息。
+运行以下命令，创建针对可能用于联接的列的统计信息。
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -593,7 +596,7 @@ SQL 数据仓库不会自动创建或自动更新统计信息。 因此，若要
 
 3. 要删除数据仓库，以便不再为计算或存储付费，请单击“删除”。
 
-4. 要删除创建的 SQL Server，请单击上图中的“mynewserver-20171113.database.chinacloudapi.cn”，然后单击“删除”。  请审慎执行此操作，因为删除服务器会删除分配给该服务器的所有数据库。
+4. 若要删除创建的 SQL Server，请单击上图中的“mynewserver-20180430.database.chinacloudapi.cn”，然后单击“删除”。  请审慎执行此操作，因为删除服务器会删除分配给该服务器的所有数据库。
 
 5. 要删除资源组，请单击“myResourceGroup”，然后单击“删除资源组”。
 

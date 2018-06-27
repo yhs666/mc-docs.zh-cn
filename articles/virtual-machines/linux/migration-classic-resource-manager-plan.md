@@ -14,20 +14,20 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 04/01/2017
-ms.date: 05/14/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5a1f8fd8eec259a2370229e6489055a40edf8d52
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 6e25afac4f203d0539cb77532f9304d7a52841a7
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34062117"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315486"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>规划将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager
 尽管 Azure Resource Manager 提供了大量令人惊叹的功能，但规划好迁移过程以确保一切顺利仍至关重要。 花时间进行规划可确保执行迁移活动时不会遇到问题。 
 
 > [!NOTE] 
-> 以下指导在很大程度上归功于 Azure 客户顾问团队，以及与客户合作迁移大型环境的云解决方案架构师。 此文档随着出现新的成功模式而持续更新，因此，请不时地回来查看，了解是否有新的推荐内容。
+> 以下指导的主要参与者为 Azure 客户顾问团队，以及与客户合作迁移大型环境的云解决方案架构师。 此文档随着出现新的成功模式而持续更新，因此，请不时地回来查看，了解是否有新的推荐内容。
 
 迁移之旅包括四个常规阶段：
 
@@ -53,7 +53,7 @@ ms.locfileid: "34062117"
 
 ### <a name="patterns-of-success"></a>成功模式
 
-成功的客户采用详尽的计划，其中会讨论、记录并控制上述问题。  确保与发起人和利益干系人就迁移计划进行广泛交流。  使用迁移选项的知识武装自身，强烈建议浏览下面的迁移文档集。
+成功迁移的客户制定了详细计划，在此期间讨论、记录并控制了上述问题。  确保与发起人和利益干系人就迁移计划进行广泛交流。  使用迁移选项的知识武装自身，强烈建议浏览下面的迁移文档集。
 
 * [平台支持的从经典部署模型到 Azure 资源管理器部署模型的 IaaS 资源迁移概述](migration-classic-resource-manager-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [有关平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移的技术深入探讨](migration-classic-resource-manager-deep-dive.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
@@ -72,7 +72,7 @@ ms.locfileid: "34062117"
 
 ## <a name="lab-test"></a>实验室测试 
 
-**复制环境并执行测试迁移**
+**复移制环境并执行测试迁**
   > [!NOTE]
   > 使用社区贡献的、Azure 支持部门尚未正式支持的工具按原样复制现有环境。 因此，它是**可选**步骤，但它是无需接触生产环境即可找到问题的最佳办法。 如果不能使用社区提供的工具，请阅读下面的验证/准备/中止试运行建议。
   >
@@ -80,7 +80,7 @@ ms.locfileid: "34062117"
   针对确切方案（计算、网络和存储）执行实验室测试是确保顺利迁移的最佳办法。 这有助于确保：
 
   - 待测试的是完全独立的实验室或现有的非生产环境。 建议使用可反复迁移和破坏性修改的完全独立的实验室。  下面列出了用于收集/水化实际订阅的元数据的脚本。
-  - 在单独的订阅中创建实验室是个好办法。 因为实验室会被反复拆毁，拥有单独、独立的订阅可降低意外删除某些实际内容的可能性。
+  - 在单独的订阅中创建实验室是个好办法。 原因是实验室将被反复拆毁，单独拥有独立订阅可降低意外删除某实际内容的可能性。
 
   可以使用 AsmMetadataParser 工具实现此操作。 [在此处了解有关该工具的详细信息](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -113,7 +113,7 @@ ms.locfileid: "34062117"
 - **Azure Resource Manager 配额** - 对于经典部署模型和 Azure Resource Manager 部署模型，Azure 区域都有单独的配额/限制。 即使在不使用新硬件的迁移方案中 *（我们正在将现有的 VM 从经典部署模型切换到 Azure 资源管理器部署模型）*，Azure 资源管理器配额仍需处于容量充足的位置，然后才能开始迁移。 下面列出了我们已知的导致问题的主要限制。  开具配额支持票证来提高限制。 
 
     > [!NOTE]
-    > 需要在与要迁移的当前环境所处的同一区域中提高这些限制。
+    > 需要在与要迁移的当前环境相同的区域中提高这些限制。
     >
 
     - 网络接口
@@ -199,7 +199,7 @@ ms.locfileid: "34062117"
 - [使用 Azure Resource Manager 模板以更轻松、更可控的方式完成部署](../../azure-resource-manager/resource-group-overview.md#template-deployment)。
 - [标记](../../azure-resource-manager/resource-group-using-tags.md)。
 - [活动控制](../../azure-resource-manager/resource-group-audit.md)
-<!-- Not Available on - [Azure Policies](../../azure-policy/azure-policy-introduction.md) -->
+- [Azure 策略](../../azure-policy/azure-policy-introduction.md)
 
 ### <a name="pitfalls-to-avoid"></a>需避免的错误
 

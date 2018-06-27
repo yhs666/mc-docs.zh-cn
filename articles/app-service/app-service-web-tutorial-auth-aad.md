@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 04/03/2018
-ms.date: 06/04/2018
+ms.date: 07/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: 51ff4026278b98ecc18d451cdabb2e432e2ce7ad
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: da4d6100b78cbeb2ef87389890b0d16c200abaa1
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554514"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315488"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>教程：在 Azure 应用服务中对用户进行端到端身份验证和授权
 
@@ -409,6 +409,10 @@ git push frontend master
 再次导航到 `http://<front_end_app_name>.chinacloudapi.cn.net`。 现在应该可以直接在 Angular.js 应用中通过后端应用创建、读取、更新和删除数据了。
 
 祝贺！ 客户端代码现在可以代表经身份验证的用户访问后端数据了。
+
+## <a name="when-access-tokens-expire"></a>当访问令牌过期时
+
+访问令牌在一段时间后会过期。 若要了解如何在不要求用户通过应用重新进行身份验证的情况下刷新访问令牌，请参阅[刷新访问令牌](app-service-authentication-how-to.md#refresh-access-tokens)。
 
 ## <a name="clean-up-resources"></a>清理资源
 

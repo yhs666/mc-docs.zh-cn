@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 中的 Linux VM 上设置 MySQL | Azure
-description: 了解如何在 Azure 中的 Linux 虚拟机（Ubuntu 或 RedHat 系列 OS）上安装 MySQL 堆栈
+description: 了解如何在 Azure 中的 Linux 虚拟机（Ubuntu 或 CentOS OS）上安装 MySQL 堆栈
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/01/2016
-ms.date: 05/14/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 19c544b0ae6d89ec56f599a63092658b0e74bcb2
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.openlocfilehash: 4f0494f5268c1c6df8c769eaf8c8d82c1bf12454
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34061971"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315518"
 ---
+<!-- Remove the Red Hat family in meta properties-->
 # <a name="how-to-install-mysql-on-azure"></a>如何在 Azure 上安装 MySQL
 本文介绍如何在运行 Linux 的 Azure 虚拟机上安装和配置 MySQL。
 
@@ -85,8 +86,7 @@ ms.locfileid: "34061971"
              #[root@mysqlnode ~]# service mysql restart
 
 ### <a name="how-to-install-mysql-on-centos"></a>如何在 CentOS 上安装 MySQL
-<!-- Not Avaiable on Red Hat OS 系列（例如 CentOS、Oracle Linux） -->
-此处会将 CentOS 与 Linux VM 一起使用。
+<!-- Not Avaiable on Red Hat OS 系列（例如 CentOS、Oracle Linux） --> 此处会将 Linux VM 与 CentOS 一起使用。
 
 * 步骤 1：添加 MySQL Yum 存储库   切换到 `root` 用户：
 
@@ -179,4 +179,4 @@ ms.locfileid: "34061971"
 
 ### <a name="next-step"></a>后续步骤
 在[此处](https://www.mysql.com/)查找更多有关 MySQL 的使用方法和信息。
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties, wording update -->

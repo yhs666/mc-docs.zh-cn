@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 06/04/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: d1920bcc013dd436a1a2c353d9bb0c8dcd24fe51
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 1f12fb5d9d0f921df0dfcacbb7fe98debf452f10
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702899"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315593"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>如何更新 VM 上的 Azure Linux 代理
 
@@ -163,9 +163,10 @@ sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 sudo systemctl restart walinuxagent.service
 ```
 
-## <a name="redhat--centos"></a>Redhat / CentOS
+## <a name="centos"></a>CentOS
+<!--Notice: Remove Red Hat-->
 
-### <a name="rhelcentos-6"></a>RHEL/CentOS 6
+### <a name="centos-6"></a>CentOS 6
 
 #### <a name="check-your-current-package-version"></a>检查当前程序包的版本
 
@@ -212,7 +213,8 @@ sudo sed -i 's/\# AutoUpdate.Enabled=y/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 sudo service waagent restart
 ```
 
-### <a name="rhelcentos-7"></a>RHEL/CentOS 7
+### <a name="centos-7"></a>CentOS 7
+<!--Notice: Remove RHEL-->
 
 #### <a name="check-your-current-package-version"></a>检查当前程序包的版本
 
@@ -351,51 +353,12 @@ sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 sudo systemctl restart waagent.service
 ```
 
-## <a name="oracle-6-and-7"></a>Oracle 6 和 7
-
-对于 Oracle Linux，请确保已启用 `Addons` 存储库。 选择以编辑文件 `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) 或 `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux)，并在此文件中 [ol6_addons] 或 [ol7_addons] 下将行 `enabled=0` 更改为 `enabled=1`。
-
-然后，若要安装最新版本的 Azure Linux 代理，请键入：
-
-```bash
-sudo yum install WALinuxAgent
-```
-
-如果找不到外接程序存储库，只需根据 Oracle Linux 版本，将这些行添加到 .repo 文件末尾处：
-
-对于 Oracle Linux 6 虚拟机：
-
-```sh
-[ol6_addons]
-name=Add-Ons for Oracle Linux $releasever ($basearch)
-baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86_64
-gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6
-gpgcheck=1
-enabled=1
-```
-
-对于 Oracle Linux 7 虚拟机：
-
-```sh
-[ol7_addons]
-name=Oracle Linux $releasever Add ons ($basearch)
-baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
-gpgcheck=1
-enabled=1
-```
-
-然后键入：
-
-```bash
-sudo yum update WALinuxAgent
-```
-
-通常只需要这样做，但如果因某种原因而需要直接从 https://github.com 安装它，请使用以下步骤。
+<!-- Not Available on ## Oracle 6 and 7 -->
 
 ## <a name="update-the-linux-agent-when-no-agent-package-exists-for-distribution"></a>分发不存在代理程序包时，请更新 Linux 代理
 
-通过在命令行上键入 `sudo yum install wget` 来安装 wget（某些发行版在默认情况下未安装它，如 Redhat、CentOS 和 Oracle Linux 6.4 和 6.5 版）。
+通过在命令行上键入 `sudo yum install wget` 来安装 wget（某些发行版，例如 CentOS，未在默认情况下安装它，）。
+<!-- Not Available on Red Hat, and Oracle -->
 
 ### <a name="1-download-the-latest-version"></a>1.下载最新版本
 在网页中打开 [GitHub 中的 Azure Linux 代理版本](https://github.com/Azure/WALinuxAgent/releases)，并找到最新的版本号。 （可以通过键入 `waagent --version` 查明当前版本。）
@@ -476,5 +439,4 @@ waagent -version
 
 有关 Azure Linux 代理的详细信息，请参阅 [Azure Linux 代理自述文件](https://github.com/Azure/WALinuxAgent)。
 
-<!-- Update_Description: new articles on update linux agent  -->
-<!--ms.date: 06/04/2018-->
+<!-- Update_Description: wording update, update link -->

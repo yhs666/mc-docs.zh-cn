@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/10/2018
-ms.date: 05/14/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: b155ebdf3f912d5587f3eee9123bcde996e053a7
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 76c659c228cb0e660db688e6d1795cfb183de35e
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34060234"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315670"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>常规用途虚拟机大小
 
@@ -32,13 +32,11 @@ ms.locfileid: "34060234"
 ## <a name="other-sizes"></a>其他大小
 - [计算优化](../windows/sizes-compute.md)
 - [内存优化](sizes-memory.md)
+- [前几代](sizes-previous-gen.md)
 <!--Not Available - [Storage optimized](sizes-storage.md)-->
 <!--Not Available - [GPU](sizes-gpu.md)-->
 <!--Not Available - [High performance compute](sizes-hpc.md)-->
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
-
-<!--The parent file of includes file of virtual-machines-common-sizes-general.md-->
-<!--ms.date:05/14/2018-->
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, update link -->

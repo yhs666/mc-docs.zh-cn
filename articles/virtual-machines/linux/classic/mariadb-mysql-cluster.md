@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 04/15/2015
 ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: f1a7fc6cf93e102735a53150c0b5f97edcb3714e
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 103be02abe0a766b6377588e72f4c7d576055720
+ms.sourcegitcommit: c1f196ee0a345620ea22b330c13718bc00a7dc4a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702838"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36208888"
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB (MySQL) 群集：Azure 教程
 > [!IMPORTANT]
@@ -39,12 +39,12 @@ ms.locfileid: "34702838"
 - 使用 Azure 负载均衡器均衡三个节点的负载。
 - 为了最大程度地减少重复工作，可创建一个包含 MariaDB + Galera 的 VM 映像，并将其用于创建其他群集 VM。
 
-![系统体系结构](./media/mariadb-mysql-cluster/Setup.png)
+    ![系统体系结构](./media/mariadb-mysql-cluster/Setup.png)
 
-> [!NOTE]
-> 本主题使用 [Azure CLI](../../../cli-install-nodejs.md) 工具，因此请务必根据说明下载这些工具并将其连接到 Azure 订阅。 如果需要有关 Azure CLI 中可用命令的参考，请参阅 [Azure CLI 命令参考](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)。 另外还需 [创建用于身份验证的 SSH 密钥] ，并记下 .pem 文件的位置。
->
->
+    > [!NOTE]
+    > 本主题使用 [Azure CLI](../../../cli-install-nodejs.md) 工具，因此请务必根据说明下载这些工具并将其连接到 Azure 订阅。 如果需要有关 Azure CLI 中可用命令的参考，请参阅 [Azure CLI 命令参考](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)。 另外还需 [创建用于身份验证的 SSH 密钥] ，并记下 .pem 文件的位置。
+    >
+    >
 
 ## <a name="create-the-template"></a>创建模板
 ### <a name="infrastructure"></a>基础结构
@@ -80,106 +80,106 @@ ms.locfileid: "34702838"
 
     a. 安装 mdadm。
 
-              yum install mdadm
+        yum install mdadm
 
     b. 创建具有 EXT4 文件系统的 RAID0/条带化配置。
 
-              mdadm --create --verbose /dev/md0 --level=stripe --raid-devices=4 /dev/sdc /dev/sdd /dev/sde /dev/sdf
-              mdadm --detail --scan >> /etc/mdadm.conf
-              mkfs -t ext4 /dev/md0
+        mdadm --create --verbose /dev/md0 --level=stripe --raid-devices=4 /dev/sdc /dev/sdd /dev/sde /dev/sdf
+        mdadm --detail --scan >> /etc/mdadm.conf
+        mkfs -t ext4 /dev/md0
     c. 创建装入点目录。
 
-              mkdir /mnt/data
+        mkdir /mnt/data
     d. 检索新创建的 RAID 设备的 UUID。
 
-              blkid | grep /dev/md0
+        blkid | grep /dev/md0
     e. 编辑 /etc/fstab。
 
-              vi /etc/fstab
+        vi /etc/fstab
     f. 添加设备，以便在重新启动时自动装载，并将 UUID 替换为前面从 **blkid** 命令获取的值。
 
-              UUID=<UUID FROM PREVIOUS>   /mnt/data ext4   defaults,noatime   1 2
+        UUID=<UUID FROM PREVIOUS>   /mnt/data ext4   defaults,noatime   1 2
     g. 装载新分区。
 
-              mount /mnt/data
+        mount /mnt/data
 
 3. 安装 MariaDB。
 
     a. 创建 MariaDB.repo 文件。
 
-                vi /etc/yum.repos.d/MariaDB.repo
+        vi /etc/yum.repos.d/MariaDB.repo
 
     b. 使用以下内容填充 repo 文件：
 
-              [mariadb]
-              name = MariaDB
-              baseurl = http://yum.mariadb.org/10.0/centos7-amd64
-              gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
-              gpgcheck=1
+        [mariadb]
+        name = MariaDB
+        baseurl = http://yum.mariadb.org/10.0/centos7-amd64
+        gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+        gpgcheck=1
     c. 为避免冲突，请删除现有后缀和 mariadb-libs。
 
-           yum remove postfix mariadb-libs-*
+        yum remove postfix mariadb-libs-*
     d. 安装包含 Galera 的 MariaDB。
 
-           yum install MariaDB-Galera-server MariaDB-client galera
+        yum install MariaDB-Galera-server MariaDB-client galera
 
 4. 将 MySQL 数据目录移动到 RAID 块设备。
 
     a. 将当前 MySQL 目录复制到其新位置，然后删除旧目录。
 
-           cp -avr /var/lib/mysql /mnt/data  
-           rm -rf /var/lib/mysql
+        cp -avr /var/lib/mysql /mnt/data  
+        rm -rf /var/lib/mysql
     b. 相应地设置新目录的权限。
 
-           chown -R mysql:mysql /mnt/data && chmod -R 755 /mnt/data/
+        chown -R mysql:mysql /mnt/data && chmod -R 755 /mnt/data/
 
     c. 创建一个符号链接，将旧目录指向 RAID 分区上的新位置。
 
-           ln -s /mnt/data/mysql /var/lib/mysql
+        ln -s /mnt/data/mysql /var/lib/mysql
 
 5. 由于 [SELinux 会干扰群集操作](http://galeracluster.com/documentation-webpages/configuration.html#selinux)，因此在当前会话中有必要将其禁用。 编辑 `/etc/selinux/config` ，禁止其随后重新启动。
 
-            setenforce 0
+        setenforce 0
 
-            then editing `/etc/selinux/config` to set `SELINUX=permissive`
+    然后编辑 `/etc/selinux/config`，设置 `SELINUX=permissive`
 6. 验证 MySQL 是否运行。
 
    a. 启动 MySQL。
 
-           service mysql start
+        service mysql start
    b. 保护 MySQL 安装、设置根密码、删除匿名用户，禁用远程根登录并删除测试数据库。
 
-           mysql_secure_installation
+        mysql_secure_installation
    c. 在数据库上创建一个用户，以便在群集操作中使用，也可以选择在应用程序中使用。
 
-           mysql -u root -p
-           GRANT ALL PRIVILEGES ON *.* TO 'cluster'@'%' IDENTIFIED BY 'p@ssw0rd' WITH GRANT OPTION; FLUSH PRIVILEGES;
-           exit
+        mysql -u root -p
+        GRANT ALL PRIVILEGES ON *.* TO 'cluster'@'%' IDENTIFIED BY 'p@ssw0rd' WITH GRANT OPTION; FLUSH PRIVILEGES;
+        exit
 
    d. 停止 MySQL。
 
-            service mysql stop
+        service mysql stop
 7. 创建配置占位符。
 
    a. 编辑 MySQL 配置，以便为群集设置创建一个占位符。 暂时不要替换 **`<Variables>`** 或取消注释。 在基于此模板创建 VM 后，才需执行此操作。
 
-            vi /etc/my.cnf.d/server.cnf
+        vi /etc/my.cnf.d/server.cnf
    b. 编辑 **[galera]** 节并将其清除。
 
    c. 编辑 **[mariadb]** 节。
 
-           wsrep_provider=/usr/lib64/galera/libgalera_smm.so
-           binlog_format=ROW
-           wsrep_sst_method=rsync
-           bind-address=0.0.0.0 # When set to 0.0.0.0, the server listens to remote connections
-           default_storage_engine=InnoDB
-           innodb_autoinc_lock_mode=2
+        wsrep_provider=/usr/lib64/galera/libgalera_smm.so
+        binlog_format=ROW
+        wsrep_sst_method=rsync
+        bind-address=0.0.0.0 # When set to 0.0.0.0, the server listens to remote connections
+        default_storage_engine=InnoDB
+        innodb_autoinc_lock_mode=2
 
-           wsrep_sst_auth=cluster:p@ssw0rd # CHANGE: Username and password you created for the SST cluster MySQL user
-           #wsrep_cluster_name='mariadbcluster' # CHANGE: Uncomment and set your desired cluster name
-           #wsrep_cluster_address="gcomm://mariadb1,mariadb2,mariadb3" # CHANGE: Uncomment and Add all your servers
-           #wsrep_node_address='<ServerIP>' # CHANGE: Uncomment and set IP address of this server
-           #wsrep_node_name='<NodeName>' # CHANGE: Uncomment and set the node name of this server
+        wsrep_sst_auth=cluster:p@ssw0rd # CHANGE: Username and password you created for the SST cluster MySQL user
+        #wsrep_cluster_name='mariadbcluster' # CHANGE: Uncomment and set your desired cluster name
+        #wsrep_cluster_address="gcomm://mariadb1,mariadb2,mariadb3" # CHANGE: Uncomment and Add all your servers
+        #wsrep_node_address='<ServerIP>' # CHANGE: Uncomment and set IP address of this server
+        #wsrep_node_name='<NodeName>' # CHANGE: Uncomment and set the node name of this server
 8. 在 CentOS 7 上使用 FirewallD 打开防火墙上的所需端口。
 
    * MySQL： `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
@@ -192,7 +192,7 @@ ms.locfileid: "34702838"
 
    a. 再次编辑 MySQL 配置文件。
 
-            vi /etc/my.cnf.d/server.cnf
+        vi /etc/my.cnf.d/server.cnf
    b. 编辑 **[mariadb]** 节，在其后追加以下内容：
 
    > [!NOTE]
@@ -200,13 +200,13 @@ ms.locfileid: "34702838"
    >
    >
 
-           innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70 percent of physical memory.
-           innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
-           max_connections = 5000 # A larger value will give the server more time to recycle idled connections
-           innodb_file_per_table = 1 # Speed up the table space transmission and optimize the debris management performance
-           innodb_log_buffer_size = 128M # The log buffer allows transactions to run without having to flush the log to disk before the transactions commit
-           innodb_flush_log_at_trx_commit = 2 # The setting of 2 enables the most data integrity and is suitable for Master in MySQL cluster
-           query_cache_size = 0
+        innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70 percent of physical memory.
+        innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
+        max_connections = 5000 # A larger value will give the server more time to recycle idled connections
+        innodb_file_per_table = 1 # Speed up the table space transmission and optimize the debris management performance
+        innodb_log_buffer_size = 128M # The log buffer allows transactions to run without having to flush the log to disk before the transactions commit
+        innodb_flush_log_at_trx_commit = 2 # The setting of 2 enables the most data integrity and is suitable for Master in MySQL cluster
+        query_cache_size = 0
 10. 停止 MySQL 并禁止 MySQL 服务在启动时运行，以免在添加节点时导致群集混乱，并取消预配计算机。
 
         service mysql stop
@@ -218,7 +218,7 @@ ms.locfileid: "34702838"
 
     b. 单击“捕获”，然后将映像名称指定为 **mariadb-galera-image**。 提供说明并选中“我已运行 waagent”。
 
-      ![捕获虚拟机](./media/mariadb-mysql-cluster/Capture2.PNG)
+    ![捕获虚拟机](./media/mariadb-mysql-cluster/Capture2.PNG)
 
 ## <a name="create-the-cluster"></a>创建群集
 使用已创建的模板创建三个 VM，并配置并启动群集。
@@ -234,10 +234,10 @@ ms.locfileid: "34702838"
  - SSH 访问权限：启用
  - 传递 SSH 证书 .pem 文件，将 /path/to/key.pem 替换为生成的 .pem SSH 密钥的存储路径。
 
-   > [!NOTE]
-   > 为清楚起见，以下命令拆开显示在多行内，但每个都应作为一整行进行输入。
-   >
-   >
+    > [!NOTE]
+    > 为清楚起见，以下命令拆开显示在多行内，但每个都应作为一整行进行输入。
+    >
+    >
         azure vm create
         --virtual-network-name mariadbvnet
         --subnet-names mariadb

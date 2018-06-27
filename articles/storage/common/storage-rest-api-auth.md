@@ -1,6 +1,6 @@
 ---
-title: "调用包括身份验证的 Azure 存储服务 REST API 操作 | Microsoft 文档"
-description: "调用包括身份验证的 Azure 存储服务 REST API 操作"
+title: 调用包括身份验证的 Azure 存储服务 REST API 操作 | Microsoft 文档
+description: 调用包括身份验证的 Azure 存储服务 REST API 操作
 services: storage
 documentationcenter: na
 author: yunan2016
@@ -14,11 +14,12 @@ ms.topic: how-to
 origin.date: 11/27/2017
 ms.date: 01/01/2018
 ms.author: v-nany
-ms.openlocfilehash: d13342555e79fe9ffe2e801b369e16de91e4ed17
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 910986b32d199b953ce014029638d77de37c706b
+ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36270072"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>使用 Azure 存储 REST API
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 02/13/2018
 * 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)：
     - Azure 开发
 
-* Azure 订阅。 如果没有 Azure 订阅，可以在开始前创建一个 [1 元帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+* Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
 * 通用存储帐户。 如果还没有存储帐户，请参阅[创建存储帐户](storage-quickstart-create-account.md)。
 
@@ -71,7 +72,7 @@ REST 是指表述性状态转移。 有关具体定义，请参阅 [Wikipedia](h
 
 请求方法：GET。 此谓词是你指定为请求对象属性的 HTTP 方法。 此谓词的其他值包括 HEAD、PUT 和 DELETE，具体将取决于正在调用的 API。
 
-**请求 URI**：https://myaccount.blob.core.chinacloudapi.cn/?comp=list  这是基于 blob 存储帐户终结点 `http://myaccount.blob.core.chinacloudapi.cn` 和资源字符串 `/?comp=list` 创建的。
+**请求 URI**：https://myaccount.blob.core.chinacloudapi.cn/?comp=list 它是从 blob 存储帐户终结点 `http://myaccount.blob.core.chinacloudapi.cn` 和资源字符串 `/?comp=list` 创建的。
 
 [URI 参数](https://docs.microsoft.com/rest/api/storageservices/fileservices/List-Containers2#uri-parameters)：调用 ListContainers 时可以使用的其他查询参数。 其中有些参数为调用超时（以秒计）和前缀，后者用于筛选。
 

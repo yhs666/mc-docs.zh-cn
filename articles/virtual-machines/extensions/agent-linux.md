@@ -17,22 +17,22 @@ origin.date: 10/17/2016
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 502d8eb8b8013eb5a2cda420f688c7ca1f53c594
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 2d86daa9723320e1ca8aa0e16e94cc5cf7f9667d
+ms.sourcegitcommit: a85142cc230b17b45d8105a6acfd1c0ba3c8c325
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702908"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36298409"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>了解和使用 Azure Linux 代理
 
 Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM 与 Azure 结构控制器之间的交互。 除了提供预配功能的 Linux 代理外，Azure 还提供对某些 Linux OS 使用 cloud-init 的选项。 Linux 代理为 Linux 和 FreeBSD IaaS 部署提供以下功能：
 
 > [!NOTE]
-> 有关详细信息，请参阅 [README](https://github.com/Azure/WALinuxAgent/blob/master/README)。
+> 有关详细信息，请参阅 [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md)。
 > 
 > 
-
+<!-- URL is correct to add .md on (https://github.com/Azure/WALinuxAgent/blob/master/README.md)-->
 * **映像设置**
 
   * 创建用户帐户
@@ -80,12 +80,11 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 
 * CoreOS
 * CentOS 6.3+
-* Red Hat Enterprise Linux 6.7+
 * Debian 7.0+
 * Ubuntu 12.04+
 * openSUSE 12.3+
-* SLES 11 SP3+
-* Oracle Linux 6.4+
+* SLES 11 SP3+ <!-- Not Available on * Red Hat Enterprise Linux 6.7+-->
+<!-- Not Available on * Oracle Linux 6.4+-->
 
 其他受支持的系统：
 

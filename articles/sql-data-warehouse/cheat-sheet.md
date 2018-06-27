@@ -2,21 +2,21 @@
 title: Azure SQL 数据仓库速查表 | Azure
 description: 查找链接和最佳做法，以便快速生成 Azure SQL 数据仓库解决方案。
 services: sql-data-warehouse
-documentationcenter: NA
 author: rockboyfor
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.component: design
-origin.date: 02/20/2018
-ms.date: 03/12/2018
+origin.date: 04/17/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4b4ea4dcf196ceefd753045c64cfec15d02b4b66
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.reviewer: igorstan
+ms.openlocfilehash: df03ba8f11a41fce2b6ee55713b385c18eee6be6
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121802"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315463"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库速查表
 此速查表提供有关生成 Azure SQL 数据仓库解决方案的有用提示和最佳做法。 在开始之前，请阅读 [Azure SQL 数据仓库的工作负荷模式和对立模式](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns)中的每个详细步骤，其中解释了 SQL 数据仓库的定义。
@@ -36,8 +36,7 @@ ms.locfileid: "32121802"
 
 ## <a name="data-migration"></a>数据迁移
 
-首先，将数据加载到 Azure Blob 存储中。 接下来，使用 PolyBase 将数据载入 SQL 数据仓库的临时表中。 使用以下配置：
-<!-- Not Available on [Azure Data Lake Store](/data-factory/connector-azure-data-lake-store) -->
+首先，将数据加载到 Azure Blob 存储中。 接下来，使用 PolyBase 将数据载入 SQL 数据仓库的临时表中。 使用以下配置：<!-- Not Available on [Azure Data Lake Store](/data-factory/connector-azure-data-lake-store) -->
 
 | 设计 | 建议 |
 |:--- |:--- |
@@ -64,7 +63,7 @@ ms.locfileid: "32121802"
 * 请勿以 varchar 格式进行分发。
 * 可以将具有常见哈希键的维度表哈希分布到具有频繁联接操作的事实数据表。
 * 使用 *[sys.dm_pdw_nodes_db_partition_stats]* 分析数据中的任何偏斜。
-* 使用 *[sys.dm_pdw_request_steps]* 分析查询背后的数据移动、监视时间广播以及随机选择操作需要。 这有助于查看分布策略。
+* 使用 *[sys.dm_pdw_request_steps]* 分析查询背后的数据移动、监视时间广播以及随机选择要执行的操作。 这有助于查看分布策略。
 
 详细了解[复制表]和[分布式表]。
 
@@ -81,7 +80,9 @@ ms.locfileid: "32121802"
 **提示：**
 * 除了聚集索引，可能还需要向经常用于筛选的列添加非聚集索引。 
 * 注意如何使用 CCI 管理表上的内存。 加载数据时，你希望用户（或查询）受益于大型资源类。 确保避免剪裁和创建许多经过压缩的小型行组。
-* 已使用 CCI 针对计算层障碍进行优化。
+<!--Pending on Gen2-->
+* 在第 2 代上，CCI 表在计算节点上本地缓存，以最大限度地提高性能。
+<!--Pending on Gen2-->
 * 对于 CCI，可能因行组压缩不当而出现性能下降的情况。 如果发生此情况，请重新生成或重新整理 CCI。 你希望每个压缩后的行组包含至少 10 万行。 理想状态为一个行组 100 万行。
 * 基于增量加载频率和大小，你想自动执行索引的重新整理或重新生成操作。 彻底清理操作始终有用。
 * 想要剪裁行组时应更具战略性。 打开的行组有多大？ 未来几天希望加载多少数据？
@@ -114,7 +115,8 @@ SQL 数据仓库使用资源组作为将内存分配给查询的一种方式。 
 
 如果发现查询所需时间过长，请确保用户未在大型资源类中运行。 大型资源类会占用许多并发槽。 它们可能导致其他查询排队等待。
 
-最后，相比弹性优化层，使用计算优化层时每个资源类获得的内存要多 2.5 倍。
+<!--Pending on Gen2--> 最后，通过使用第 2 代 SQL 数据仓库，每个资源类可比第 1 代获得多 1.5 倍的内存。
+<!--Pending on Gen2-->
 
 详细了解如何使用[资源类和并发]。
 
@@ -153,13 +155,10 @@ SQL 数据仓库的一个重要功能是可以[管理计算资源](sql-data-ware
 
 <!--MSDN references-->
 
-
 <!--Other Web references-->
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
 [数据迁移]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
-<!-- Not Available on [Azure Data Lake Store]: /data-factory/connector-azure-data-lake-store -->
-[sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
-[sys.dm_pdw_request_steps]:https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
+<!-- Not Available on [Azure Data Lake Store]: /data-factory/connector-azure-data-lake-store --> [sys.dm_pdw_nodes_db_partition_stats]：https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql [sys.dm_pdw_request_steps]：https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sqll
 
 <!-- Update_Description: update meta properties, wording update -->

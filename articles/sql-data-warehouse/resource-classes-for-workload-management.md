@@ -4,25 +4,27 @@ description: 有关使用资源类管理并发性以及计算 Azure SQL 数据�
 services: sql-data-warehouse
 author: rockboyfor
 manager: digimobile
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-origin.date: 10/23/2017
-ms.date: 12/11/2017
+origin.date: 04/26/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: ab1c9056454760fcbc4739484406fa7735757b71
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.reviewer: igorstan
+ms.openlocfilehash: fe9a4cb602e737bf12ab93ea2659e535c422eca8
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121780"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315661"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>使用 Azure SQL 数据仓库中的资源类管理工作负荷
 有关在 Azure SQL 数据仓库中使用资源类管理查询内存和并发性的指导。  
- 
+
 ## <a name="what-is-workload-management"></a>什么是工作负荷管理？
 工作负荷管理是指优化所有查询的整体性能的功能。 适当优化的工作负荷能够有效地运行查询和负载操作，而不管这些查询和操作是计算密集型还是 IO 密集型。  SQL 数据仓库为多用户环境提供工作负荷管理功能。 数据仓库不适用于多租户工作负荷。
 
-数据仓库的性能容量由[性能层](memory-and-concurrency-limits.md#performance-tiers)和[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)决定。 
+数据仓库的性能容量由[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)决定。 
 
 - 若要查看所有性能配置文件的内存和并发限制，请参阅[内存和并发限制](memory-and-concurrency-limits.md)。
 - 若要调整性能容量，可以[纵向扩展或缩减](quickstart-scale-compute-portal.md)。
@@ -31,20 +33,23 @@ ms.locfileid: "32121780"
 
 
 ## <a name="what-are-resource-classes"></a>什么是资源类？
-资源类是 Azure SQL 数据仓库中预先确定的资源限制，控制查询执行的计算资源和并发性。 资源类可以针对并发运行的查询数以及分配给每个查询的计算资源量设置限制，从而帮助管理工作负荷。 内存和并发性之间存在折衷。
+查询的性能容量由用户的资源类决定。  资源类是 Azure SQL 数据仓库中预先确定的资源限制，控制查询执行的计算资源和并发性。 资源类可以针对并发运行的查询数以及分配给每个查询的计算资源量设置限制，从而帮助管理工作负荷。 我们需要在内存和并发性之间进行权衡。
 
 - 较小的资源类可以减少每个查询的最大内存量，但同时会提高并发性。
 - 较大的资源类可以增加每个查询的最大内存量，但同时会降低并发性。 
 
-查询的性能容量由用户的资源类决定。
+有两种类型的资源类：
 
-- 若要查看资源类的资源利用率，请参阅[内存和并发性限制](memory-and-concurrency-limits.md#concurrency-maximums)。
-- 若要调整资源类，可以使用不同的用户身份运行查询，或[更改当前用户的资源类](#change-a-user-s-resource-class)成员身份。 
+- 静态资源类：非常适用于在数据集大小固定的情况下提高并发性。
+- 动态资源类：非常适用于大小和性能随着服务级别的扩展而增加和提升的数据集。   
 
 资源类使用并发性槽位来测量资源消耗。  本文稍后将介绍[并发性槽位](#concurrency-slots)。 
 
+- 若要查看资源类的资源利用率，请参阅[内存和并发性限制](memory-and-concurrency-limits.md#concurrency-maximums)。
+- 若要调整资源类，可以使用不同的用户身份运行查询，或[更改当前用户的资源类](#change-a-users-resource-class)成员身份。 
+
 ### <a name="static-resource-classes"></a>静态资源类
-不管当前性能级别是什么，静态资源类都会分配相同的内存量（以[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)表示）。 由于不管性能级别是什么，查询都会获得相同的内存分配，因此，[横向扩展数据仓库](quickstart-scale-compute-portal.md)可以在资源类中运行更多的查询。
+不管当前性能级别是什么，静态资源类都会分配相同的内存量（以[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)表示）。 由于不管性能级别是什么，查询都会获得相同的内存分配，因此，[横向扩展数据仓库](quickstart-scale-compute-portal.md)可以在资源类中运行更多的查询。  如果数据量已知且保持不变，则最理想的选择是静态资源类。
 
 静态资源类是使用以下预定义的数据库角色实现的：
 
@@ -57,10 +62,8 @@ ms.locfileid: "32121780"
 - staticrc70
 - staticrc80
 
-这些资源类最适合用于可提高资源类来获取更多计算资源的解决方案。
-
 ### <a name="dynamic-resource-classes"></a>动态资源类
-动态资源类根据当前服务级别分配可变内存量。 提升到更高的服务级别时，查询可自动获得更多的内存。 
+动态资源类根据当前服务级别分配可变内存量。 静态资源类适用于较高的并发性和静态数据量，而动态资源类更适合数据量会增长或有所变化的情况。  提升到更高的服务级别时，查询可自动获得更多的内存。  
 
 动态资源类是使用以下预定义的数据库角色实现的：
 
@@ -69,8 +72,24 @@ ms.locfileid: "32121780"
 - largerc
 - xlargerc 
 
-这些资源类最适合用于可提高计算规模来获取更多资源的解决方案。 
 
+<!--Pending on Gen2-->
+### <a name="gen2-dynamic-resource-classes-are-truly-dynamic"></a>第 2 代动态资源类真正地实现了动态
+第 1 代挖掘动态资源类的详细信息时，有些详细信息会让理解其行为变得更加复杂：
+
+- Smallrc 资源类和静态资源类相似，也是通过固定的内存模型进行操作。  Smallrc 查询的内存不会随着服务级别的提高而动态增高。
+- 服务级别更改时，可用的查询并发性可能会上下浮动。
+- 缩放服务级别不会让分配至相同资源类的内存产生对应比例的变化。
+
+只有第 2 代动态资源类真正实现了动态处理上述几点。  小型-中型-大型-超大型资源类对应的内存百分比分配的新规则为 3-10-22-70，与服务级别无关。  下表综合了内存分配百分比的详细信息以及运行的并发查询的最小数量，与服务级别无关。
+
+| 资源类 | 内存百分比 | 最小并发查询数 |
+|:--------------:|:-----------------:|:----------------------:|
+| smallrc        | 3%                | 32                     |
+| mediumrc       | 10%               | 10 个                     |
+| largerc        | 22%               | 4                      |
+| xlargerc       | 70%               | 1                      |
+<!--Pending on Gen2-->
 
 ### <a name="default-resource-class"></a>默认资源类
 默认情况下，每个用户都是动态资源类 (**smallrc**) 的成员。 
@@ -138,17 +157,18 @@ Removed as these two are not confirmed / supported under SQLDW
 
 - 使用 10 个并发槽位运行的查询可以访问的计算资源，是使用 2 个并发槽位运行的查询的 5 倍。
 - 如果每个查询需要 10 个并发槽位并且有 40 个并发槽位，则只有 4 个查询可以并发运行。
- 
+
 只有受资源控制的查询消耗并发槽位。 系统查询和一些不重要的查询不消耗任何槽位。消耗的确切并发槽位数由查询的资源类决定。
 
 ## <a name="view-the-resource-classes"></a>查看资源类
 
 资源类实现为预定义的数据库角色。 有两种类型的资源类：动态和静态。 若要查看资源类列表，请使用以下查询：
 
-    ```sql
-    SELECT name FROM sys.database_principals
-    WHERE name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
-    ```
+```sql
+SELECT name 
+FROM   sys.database_principals
+WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
+```
 
 ## <a name="change-a-users-resource-class"></a>更改用户的资源类
 
@@ -198,7 +218,7 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 ## <a name="example-code-for-finding-the-best-resource-class"></a>用于找出最佳资源类的示例代码
 
-可以使用以下存储过程，根据给定的 SLO 推算每个资源类的并发性和内存授予，以及根据给定的资源类推算对非分区 CCI 表执行内存密集型 CCI 操作时可用的尽量最佳资源类：
+<!--Pending on Gen2--> 可以使用以下存储过程（仅适用于第 1 代），根据给定的 SLO 推算每个资源类的并发性和内存授予，以及根据给定的资源类推算对非分区 CCI 表执行内存密集型 CCI 操作时可用的尽量最佳资源类：<!--Pending on Gen2-->
 
 下面是此存储过程的用途：  
 1. 用于查看每个资源类的、根据给定 SLO 推算的并发性和内存授予。 如此示例中所示，用户需要为架构和表名提供 NULL。  
@@ -229,6 +249,10 @@ EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'Table1';
 EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;  
 EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;  
 ```
+> [!NOTE]
+> 此版本的存储过程中定义的值仅适用于第 1 代。
+>
+>
 
 以下语句创建前面示例中所用的 Table1。
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
@@ -295,7 +319,7 @@ AS
   UNION ALL
     SELECT 'DW400', 16, 16, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
-     SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
+    SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
     SELECT 'DW600', 24, 24, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
@@ -307,7 +331,7 @@ AS
   UNION ALL
     SELECT 'DW2000', 32, 80, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
-   SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
+    SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
     SELECT 'DW6000', 32, 240, 1, 32, 64, 128, 1, 2, 4, 8, 16, 32, 64, 128
 )
@@ -562,4 +586,4 @@ GO
 [Managing Databases and Logins in Azure SQL Database]:../sql-database/sql-database-manage-logins.md
 
 <!--Other Web references-->
-<!-- Update_Description: new articles on resource class for workload management in SQL DW -->
+<!-- Update_Description: update link, wording update-->

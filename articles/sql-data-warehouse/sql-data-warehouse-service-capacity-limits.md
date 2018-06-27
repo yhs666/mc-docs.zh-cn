@@ -1,5 +1,5 @@
 ---
-title: 容量限制 - Azure SQL 数据仓库 | Microsoft Docs
+title: 容量限制 - Azure SQL 数据仓库 | Azure
 description: Azure SQL 数据仓库的各个组件允许的最大值。
 services: sql-data-warehouse
 author: rockboyfor
@@ -7,33 +7,37 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 04/14/2018
-ms.date: 04/25/2018
+origin.date: 04/17/2018
+ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 004ea322ffe5854d3baed549f271bf12a2ff574e
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.reviewer: igorstan
+ms.openlocfilehash: 92e3abadcd6a1ee61d9e8b83a7a11303901db237
+ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121505"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36315510"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL 数据仓库容量限制
 Azure SQL 数据仓库的各个组件允许的最大值。
 
 ## <a name="workload-management"></a>工作负荷管理
+<!--Pending on Gen2-->
 | 类别 | 说明 | 最大值 |
 |:--- |:--- |:--- |
-| [数据仓库单位 (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |单个 SQL 数据仓库的最大 DWU | 弹性优化[性能层](memory-and-concurrency-limits.md#performance-tiers)：DW6000<br></br>计算优化[性能层](memory-and-concurrency-limits.md#performance-tiers)：DW30000c |
-| [数据仓库单位 (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |每个服务器的默认 DTU |54,000<br></br>默认情况下，每个 SQL Server（例如 myserver.database.windows.net）的 DTU 配额为 54,000，最多可以允许 DW6000c。 此配额仅仅只是安全限制。   要计算 DTU 需求，请将所需的 DWU 总数乘以 7.5 或将所需的 cDWU 总数乘以 9.0。 例如：<br></br>DW6000 x 7.5 = 45,000 DTU<br></br>DW600c x 9.0 = 54,000 DTU。<br></br>可以在门户中的 SQL Server 选项中查看当前 DTU 消耗量。 已暂停和未暂停的数据库都计入 DTU 配额。 |
+| [数据仓库单位 (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |单个 SQL 数据仓库的最大 DWU | 第 1 代：DW6000<br></br>第 2 代：DW30000c |
+| [数据仓库单位 (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |每个服务器的默认 DTU |54,000<br></br>默认情况下，每个 SQL Server（例如 myserver.database.chinacloudapi.cn）的 DTU 配额为 54,000，最多可以允许 DW6000c。 此配额仅仅只是安全限制。 可以通过[创建支持票证](https://support.windowsazure.cn/support/support-azure)并选择“配额”作为请求类型来增加配额。  要计算 DTU 需求，请将所需的 DWU 总数乘以 7.5 或将所需的 cDWU 总数乘以 9.0。 例如：<br></br>DW6000 x 7.5 = 45,000 DTU<br></br>DW6000c x 9.0 = 54,000 DTU。<br></br>可以在门户中的 SQL Server 选项中查看当前 DTU 消耗量。 已暂停和未暂停的数据库都计入 DTU 配额。 |
 | 数据库连接 |并发打开的会话 |1024<br/><br/>1024 个活动会话每一个都能同时向 SQL 数据仓库数据库提交请求。 请注意，可并发执行的查询数量是有限制的。 当超出并发限制时，请求将进入内部队列等待处理。 |
 | 数据库连接 |预处理语句的最大内存 |20 MB |
 | [工作负荷管理](resource-classes-for-workload-management.md) |并发查询数上限 |32<br/><br/> 默认情况下，SQL 数据仓库可以执行最多 32 个并发查询并将剩余查询排列起来。<br/><br/>当用户被分配到较高资源类或者 SQL 数据仓库具有较低的[数据仓库单位](memory-and-concurrency-limits.md)设置时，可减少并发查询的数量。 某些查询（如 DMV 查询）始终可以运行。 |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |最大 GB |每 DW100 399 GB。 因此，在 DWU1000 的情况下，tempdb 的大小为 3.99 TB。 |
+<!--Pending on Gen2-->
 
 ## <a name="database-objects"></a>数据库对象
+<!--Pending on Gen2-->
 | 类别 | 说明 | 最大值 |
 |:--- |:--- |:--- |
-| 数据库 |最大大小 |磁盘上压缩的 240 TB<br/><br/>此空间与 tempdb 或日志空间无关，因此，此空间专用于永久表。  聚集列存储压缩率估计为 5 倍。  此压缩率允许数据库在所有表都为聚集列存储（默认表类型）的情况下增长到大约 1 PB。 |
+| 数据库 |最大大小 | 第 1 代：磁盘压缩后为 240TB。 此空间与 tempdb 或日志空间无关，因此，此空间专用于永久表。  聚集列存储压缩率估计为 5 倍。  此压缩率允许数据库在所有表都为聚集列存储（默认表类型）的情况下增长到大约 1 PB。 <br/><br/> 第 2 代：240TB 用于行存储，无限存储空间用于列存储表 |
 | 表 |最大大小 |磁盘上压缩后 60 TB |
 | 表 |每个数据库的表数 |10,000 |
 | 表 |每个表的列数 |1024 个列 |
@@ -50,6 +54,7 @@ Azure SQL 数据仓库的各个组件允许的最大值。
 | 统计信息 |每个表的列上创建的统计信息条数。 |30,000 |
 | 存储过程 |最大嵌套级数。 |8 |
 | 查看 |每个视图的列数 |1,024 |
+<!--Pending on Gen2-->
 
 ## <a name="loads"></a>加载
 | 类别 | 说明 | 最大值 |
@@ -87,3 +92,4 @@ Azure SQL 数据仓库的各个组件允许的最大值。
 
 ## <a name="next-steps"></a>后续步骤
 有关使用 SQL 数据仓库的建议，请参阅[速查表](cheat-sheet.md)。
+<!-- Update_Description: wording update, update link -->
