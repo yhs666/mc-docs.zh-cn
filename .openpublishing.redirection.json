@@ -9750,6 +9750,226 @@
        "redirect_document_id": false
     },
     {
+       "source_path": "articles/backup/backup-azure-arm-vms.md",
+       "redirect_url": "/backup/backup-azure-vms-first-look-arm",
+       "redirect_document_id": false
+    },
+    {
+       "source_path": "articles/multi-factor-authentication/multi-factor-authentication.md ",
+       "redirect_url": "/active-directory/authentication/multi-factor-authentication",
+       "redirect_document_id": false
+    },
+    {
+       "source_path": "articles/multi-factor-authentication/multi-factor-authentication-faq.md",
+       "redirect_url": "/active-directory/authentication/multi-factor-authentication-faq",
+       "redirect_document_id": false
+    },
+    {
+       "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-cloud.md",
+       "redirect_url": "/active-directory/authentication/howto-mfa-getstarted",
+       "redirect_document_id": false
+    },
+    {
+       "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
+       "redirect_url": "/active-directory/authentication/howto-mfa-userstates",
+       "redirect_document_id": false
+    },
+    {
+       "source_path": "articles/multi-factor-authentication/multi-factor-authentication-how-it-works.md",
+       "redirect_url": "/active-directory/authentication/concept-mfa-howitworks",
+       "redirect_document_id": false
+    },
+    {
+       "source_path": "articles/multi-factor-authentication/multi-factor-authentication-manage-users-and-devices.md",
+       "redirect_url": "/active-directory/authentication/howto-mfa-userdevicesettings",
+       "redirect_document_id": false
+    },
+    {
+       "source_path": "articles/multi-factor-authentication/multi-factor-authentication-versions-plans.md",
+       "redirect_url": "/active-directory/authentication/concept-mfa-licensing",
+       "redirect_document_id": false
+    },
+    {
+       "source_path": "articles/multi-factor-authentication/multi-factor-authentication-whats-next.md",
+       "redirect_url": "/active-directory/authentication/howto-mfa-mfasettings",
+       "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-resource-manager/resource-manager-subscription-examples.md",
+        "redirect_url": "https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance-examples",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/azure-resource-manager/resource-manager-subscription-governance.md",
+        "redirect_url": "https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/cosmos-db/tutorial-develop-mongodb.md",
+        "redirect_url": "/cosmos-db/create-mongodb-dotnet",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/tutorial-develop-sql-api-dotnet.md",
+        "redirect_url": "/cosmos-db/sql-api-get-started",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-portal.md",
+        "redirect_url": "/load-balancer/tutorial-load-balancer-basic-internal-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/load-balancer/load-balancer-get-started-internet-arm-cli.md",
+        "redirect_url": "/load-balancer/quickstart-create-basic-load-balancer-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/load-balancer/load-balancer-get-started-internet-arm-ps.md",
+        "redirect_url": "/load-balancer/quickstart-create-basic-load-balancer-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/load-balancer/load-balancer-get-started-internet-portal.md",
+        "redirect_url": "/load-balancer/quickstart-create-basic-load-balancer-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/site-recovery/vmware-azure-mobility-deploy-automation-dsc.md",
+        "redirect_url": "physical-manage-configuration-server#install-from-the-command-line",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-create-database-tsql.md",
+        "redirect_url": "/sql/t-sql/statements/create-database-azure-sql-data-warehouse",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-with-bcp.md",
+        "redirect_url": "/sql-data-warehouse/design-elt-data-loading",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-with-redgate.md",
+        "redirect_url": "/sql-data-warehouse/design-elt-data-loading",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/stream-analytics/stream-analytics-add-outputs.md",
+        "redirect_url": "/stream-analytics/stream-analytics-quick-create-portal#configure-output-to-the-job",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/stream-analytics/stream-analytics-comparison-storm.md",
+        "redirect_url": "/stream-analytics/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/stream-analytics/stream-analytics-create-a-job.md",
+        "redirect_url": "/stream-analytics/stream-analytics-quick-create-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/stream-analytics/stream-analytics-release-notes.md",
+        "redirect_url": "/stream-analytics/stream-analytics-quick-create-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/stream-analytics/stream-analytics-troubleshoot-visualization.md",
+        "redirect_url": "/stream-analytics/stream-analytics-job-diagram-with-metrics",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/extensions-customscript.md",
+        "redirect_url": "/virtual-machines/extensions/custom-script-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/extensions-features.md",
+        "redirect_url": "/virtual-machines/extensions/features-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/extensions-nwa.md",
+        "redirect_url": "/virtual-machines/extensions/network-watcher-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/update-agent.md",
+        "redirect_url": "/virtual-machines/extensions/update-linux-agent",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/using-vmaccess-extension.md",
+        "redirect_url": "/virtual-machines/extensions/vmaccess",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-docker-host.md",
+        "redirect_url": "https://docs.docker.com/docker-for-azure/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/extensions-customscript.md",
+        "redirect_url": "/virtual-machines/extensions/custom-script-windows",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/extensions-diagnostics-template.md",
+        "redirect_url": "/virtual-machines/extensions/diagnostics-template",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/extensions-dsc-credentials.md",
+        "redirect_url": "/virtual-machines/extensions/dsc-credentials",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/extensions-dsc-overview.md",
+        "redirect_url": "/virtual-machines/extensions/dsc-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/extensions-dsc-template.md",
+        "redirect_url": "/virtual-machines/extensions/dsc-template",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/extensions-export-templates.md",
+        "redirect_url": "/virtual-machines/extensions/export-templates",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/extensions-features.md",
+        "redirect_url": "/virtual-machines/extensions/features-windows",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/extensions-nwa.md",
+        "redirect_url": "/virtual-machines/extensions/network-watcher-windows",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/extensions-troubleshoot.md",
+        "redirect_url": "/virtual-machines/extensions/troubleshoot",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/install-symantec.md",
+        "redirect_url": "/virtual-machines/extensions/symantec",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-machines/windows/classic/install-trend.md",
+        "redirect_url": "/virtual-machines/extensions/trend",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-nsg.md",
+        "redirect_url": "/virtual-network/virtual-network-vnet-plan-design-arm",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/media-services/hybrid-design-drm-sybsystem.md",
       "redirect_url": "/media-services/previous/hybrid-design-drm-sybsystem",
       "redirect_document_id": false
@@ -10724,8 +10944,6 @@
      "redirect_url": "/azure-stack/azure-stack-powershell-install",
      "redirect_document_id": false
   }
-
-
 
   ]
 }
