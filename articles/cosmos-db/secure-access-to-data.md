@@ -4,22 +4,18 @@ description: 了解有关 Azure Cosmos DB 中的访问控制概念，包括主�
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: ''
-ms.assetid: 8641225d-e839-4ba6-a6fd-d6314ae3a51c
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/24/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2f951cfefeb8cf43fc27ad96b677b0e310059072
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: d275d29d65c3a168c97d13fd23a5dd2d10338015
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315608"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070151"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>保护对 Azure Cosmos DB 数据的访问
 本文概述了如何保护对存储在 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 中的数据的访问。
@@ -184,4 +180,4 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 * 若要详细了解 Cosmos DB 数据库安全性，请参阅 [Cosmos DB：数据库安全性](database-security.md)。
 * 若要了解如何管理主密钥和只读密钥，请参阅[如何管理 Azure Cosmos DB 帐户](manage-account.md#keys)。
 * 若要了解如何构造 Azure Cosmos DB 授权令牌，请参阅 [Azure Cosmos DB 资源的访问控制](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources)。
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties -->

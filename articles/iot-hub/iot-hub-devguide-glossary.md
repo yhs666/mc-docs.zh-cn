@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 06/11/2018
-ms.openlocfilehash: 1c2f6086c306c5c21d2298ebec549718cf4d6250
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 07/09/2018
+ms.openlocfilehash: ab1b5c6b1e7471e92ac204bfc4b2b83dfde5623d
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695044"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103406"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
 本文列出了一些在 IoT 中心文章中使用的常用术语。
@@ -28,6 +28,8 @@ ms.locfileid: "34695044"
 ## <a name="advanced-message-queueing-protocol"></a>高级消息队列协议
 [高级消息队列协议 (AMQP)](https://www.amqp.org/) 是 [IoT 中心](#iot-hub)支持的一种消息传送协议，适用于与设备通信。 有关 IoT 中心支持的消息传递协议的详细信息，请参阅[使用 IoT 中心发送和接收消息](./iot-hub-devguide-messaging.md)。
 
+## <a name="automatic-device-configuration"></a>自动设备配置
+解决方案后端可以使用[自动设备配置](iot-hub-auto-device-config.md)将所需属性分配到一组[设备孪生](#device-twin)，并使用系统指标和自定义指标来报告状态。 
 ## <a name="azure-cli"></a>Azure CLI
 [Azure CLI](../cli-install-nodejs.md) 是一个跨平台、开源、基于 shell 的命令工具，适用于在 Microsoft Azure 中创建和管理资源。 此版本的 CLI 是使用 Node.js 实现的。
 
@@ -67,6 +69,9 @@ ms.locfileid: "34695044"
 
 ## <a name="cloud-to-device"></a>云到设备
 指从 IoT 中心发送到已连接设备的消息。 这些消息通常是命令，用于指示设备采取某项操作。 有关详细信息，请参阅[使用 IoT 中心发送和接收消息](./iot-hub-devguide-messaging.md)。
+
+## <a name="configuration"></a>配置
+在使用[自动设备配置](iot-hub-auto-device-config.md)的情况下，可以通过 IoT 中心的配置为一组设备孪生定义所需的配置，并提供一组指标来报告状态和进度。
 
 ## <a name="connection-string"></a>连接字符串
 使用应用程序代码中的连接字符串来封装连接到终结点所需的信息。 连接字符串通常包含终结点的地址和安全信息，但连接字符串的格式因服务而异。 与 IoT 中心服务关联的连接字符串有两种：

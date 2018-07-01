@@ -2,25 +2,22 @@
 title: 使用 Java 创建 Azure Cosmos DB 文档数据库 | Azure
 description: 演示了一个可以用来连接到 Azure Cosmos DB SQL API 并进行查询的 Java 代码示例
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 03/26/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: da1e7faa07832ea3193ff041102098d99f31a070
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 1bc3df73c97f12b3ff90a9ba0e3cd730c7d0cf34
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781849"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070305"
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB：使用 Java 和 Azure 门户创建文档数据库
 
@@ -230,4 +227,4 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 > [!div class="nextstepaction"]
 > [将数据导入 Azure Cosmos DB](import-data.md)
 
-<!-- Update_Description: update meta properties, update link, wording update -->
+<!-- Update_Description: update meta properties -->

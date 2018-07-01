@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 05/11/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 249e858ca2569401d19e450f2015560099a98420
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: f40371195fed13de8c499d766237dadc236a7ec8
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475115"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748376"
 ---
 # <a name="cli-example-create-an-azure-media-services-account"></a>CLI 示例：创建 Azure 媒体服务帐户
 
@@ -79,7 +79,7 @@ read continue
 
 运行以下命令以删除资源组及其相关的所有资源。
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

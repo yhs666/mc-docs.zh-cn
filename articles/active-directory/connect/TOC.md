@@ -37,7 +37,7 @@
 
 
 ## 管理 Azure AD Connect Sync
-### [GDPR 符合性和 Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [用户隐私和 Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [防止意外删除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [密码哈希同步](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Azure AD 服务帐户](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -65,7 +65,8 @@
 
 
 ## 故障排除
-### [连接](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [Azure AD 与 Azure AD Connect 的连接](active-directory-aadconnect-troubleshoot-connectivity.md)
+### [SQL 连接](active-directory-aadconnect-tshoot-sql-connectivity.md)
 ### [同步期间出错](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [对象不同步](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [使用故障排除任务进行对象同步](active-directory-aadconnect-troubleshoot-objectsync.md)
@@ -74,7 +75,7 @@
 ### [如何从 LocalDB 10 GB 的限制恢复](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # 参考
-## [代码示例](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [代码示例](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [标识同步和重复属性复原](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [混合标识所需的端口和协议](active-directory-aadconnect-ports.md)
 ## [预览版功能](active-directory-aadconnect-feature-preview.md)

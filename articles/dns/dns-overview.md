@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 06/07/2018
 ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: 9bd88179e781334c7a4c5425fcda59b01a1c1784
-ms.sourcegitcommit: 9f78ba87a377011f078025c56032b7f898d9742c
+ms.openlocfilehash: 07bbd0a4d76ebb89185c9de3cffcaa303be8f42a
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36299269"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748333"
 ---
 # <a name="what-is-azure-dns"></a>什么是 Azure DNS？
 
@@ -51,7 +51,7 @@ Azure DNS 服务基于 Azure 资源管理器。 因此，可以获得资源管�
 
 Azure DNS 服务可管理 Azure 服务的 DNS 记录，还可为外部资源提供 DNS。 Azure DNS 在 Azure 门户中集成，与其他 Azure 服务使用相同的凭据、支持合同和计费。 
 
-DNS 基于 Azure 中托管的 DNS 区域数并按 DNS 查询数进行计费。 若要深入了解定价，请参阅 [Azure DNS 定价](https://azure.microsoft.cn/pricing/details/dns/)。
+DNS 基于 Azure 中托管的 DNS 区域数并按 DNS 查询数进行计费。 若要深入了解定价，请参阅 [Azure DNS 定价](https://azure.cn/pricing/details/dns/)。
 
 可以通过 Azure 门户、Azure PowerShell cmdlet 和跨平台 Azure CLI 对域和记录进行管理。 需要自动化 DNS 管理的应用程序可通过 REST API 和 SDK 与服务集成。
 

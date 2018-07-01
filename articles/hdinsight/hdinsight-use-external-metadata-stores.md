@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/16/2018
+origin.date: 05/14/2018
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: 2b54c42c061534379ffa517efd1283e9a1b27aa6
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 06/25/2018
+ms.openlocfilehash: 12e2c2363b72a52e863f5c0df3570573d66eb40a
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073227"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747383"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>使用外部元数据存储 - Azure HDInsight
 

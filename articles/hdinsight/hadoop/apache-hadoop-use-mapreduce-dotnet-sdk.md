@@ -10,19 +10,17 @@ author: mumian
 ms.assetid: c85e44b0-85fd-4185-ad1c-c34a9fe5ef44
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 02/22/2018
-ms.date: 05/21/2018
+origin.date: 05/16/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: d6db9d09ae20b98ef5e1949433b56c83f848aedd
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: d0a8e67efa9b5ced5aa99241a7ac5d034b170aa2
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449970"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747328"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK 运行 MapReduce 作业
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]

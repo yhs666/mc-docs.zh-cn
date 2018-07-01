@@ -6,22 +6,18 @@ services: cosmos-db
 author: rockboyfor
 manager: digimobile
 tags: ''
-documentationcenter: ''
-ms.assetid: 7f765c17-8549-4509-9475-46394fc3a218
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 11/15/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1f3cf3f5179a52456f6e904db8b5283ac9569b9f
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: e1429188a1393a93d220dfe11abf4c94e33f8fe0
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781930"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070163"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store---cost-overview"></a>用作键值存储的 Azure Cosmos DB - 费用概述
 

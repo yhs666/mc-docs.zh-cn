@@ -2,25 +2,22 @@
 title: Azure Cosmos DB：使用 .NET 和 MongoDB API 生成 Web 应用 | Azure
 description: 演示一个可以用来连接到 Azure Cosmos DB MongoDB API 并进行查询的 .NET 代码示例
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-origin.date: 03/19/2018
-ms.date: 06/11/2018
+origin.date: 05/22/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: d7fe6e86cfd78f8657dd016df7bdfdc31d5c95a9
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 075664aa80e712d6561dcdfc546e71a3506fb178
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867386"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070184"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB：使用 .NET 和 Azure 门户生成 MongoDB API Web 应用
 
@@ -41,6 +38,8 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 ## <a name="create-a-database-account"></a>创建数据库帐户
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
+
+本文中所述的示例与 MongoDB.Driver 版本 2.6.1 兼容。
 
 ## <a name="clone-the-sample-app"></a>克隆示例应用
 
@@ -84,10 +83,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
         MongoIdentity identity = new MongoInternalIdentity(dbName, userName);
         MongoIdentityEvidence evidence = new PasswordEvidence(password);
 
-        settings.Credentials = new List<MongoCredential>()
-        {
-            new MongoCredential("SCRAM-SHA-1", identity, evidence)
-        };
+        settings.Credential = new MongoCredential("SCRAM-SHA-1", identity, evidence);
 
         MongoClient client = new MongoClient(settings);
     ```

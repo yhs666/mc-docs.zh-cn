@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/30/2018
-ms.date: 04/23/2018
+origin.date: 06/07/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: ca5727f77f1acf43ed9ec9d640abd09445366897
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: c6c1c5c7e39dee52e6409b734e4c4b1ec4bfa78a
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805362"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027217"
 ---
 # <a name="asdk-administration-basics"></a>ASDK 管理基础知识 
 如果你不熟悉 Azure Stack 开发工具包 (ASDK) 的管理，请参考本文。 本指南概述评估环境中 Azure Stack 操作员的角色，以及如何确保测试用户快速提高工作效率。
@@ -47,10 +47,10 @@ ms.locfileid: "31805362"
 Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组织机制。 若要管理 Azure Stack 并帮助支持用户，应了解 Azure 资源管理器。 有关详细信息，请参阅 [Azure 资源管理器入门白皮书](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)。
 
 ## <a name="your-typical-responsibilities"></a>典型责任
-用户需要使用服务， 从其角度来看，你的主要角色是向他们提供这些服务。 可以使用 ASDK 来了解需要提供哪些服务，以及如何通过[创建计划、产品/服务和配额](asdk-offer-services.md)来提供这些服务。 此外，需要将项（例如虚拟机映像）添加到 Marketplace。 最简单的方法是[将 Marketplace 项从 Azure 下载到 Azure Stack](asdk-marketplace-item.md)。
+用户需要使用服务， 从其角度来看，你的主要角色是向他们提供这些服务。 可以使用 ASDK 来了解需要提供哪些服务，以及如何通过[创建计划、套餐和配额](asdk-offer-services.md)来提供这些服务。 此外，需要将项（例如虚拟机映像）添加到市场。 最简单的方法是[将市场项从 Azure 下载到 Azure Stack](asdk-marketplace-item.md)。
 
 > [!NOTE]
-> 如需测试计划、产品/服务和服务，应使用[用户门户](https://portal.local.azurestack.external)而不是[管理员门户](https://adminportal.local.azurestack.external)。
+> 如需测试计划、套餐和服务，应使用[用户门户](https://portal.local.azurestack.external)而不是[管理员门户](https://adminportal.local.azurestack.external)。
 
 除了提供服务以外，还必须执行 Azure Stack 操作员的所有常规任务，使保持 ASDK 保持正常运行。 这些任务包括：
 - 添加用于 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 部署的用户帐户。
@@ -66,7 +66,7 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 > 由于 ASDK 是一个评估环境，因此我们不会通过 Microsoft 客户支持服务 (CSS) 提供官方支持。
 
 ## <a name="next-steps"></a>后续步骤
-[部署 ASDK](asdk-deploy.md)
+[部署 ASDK](asdk-install.md)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

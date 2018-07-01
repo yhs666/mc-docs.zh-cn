@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/31/2018
-ms.date: 03/26/2018
+origin.date: 05/01/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: e5570e32d8099fb382516d485d43a1923300aca1
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: c35b20d0b57e11c9ca17280cef0097d8fc9e38e8
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450107"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747450"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>使用 MirrorMaker 通过 Kafka on HDInsight 复制 Apache Kafka 主题
 

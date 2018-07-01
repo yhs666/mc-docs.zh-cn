@@ -4,25 +4,25 @@ description: 了解如何从 Web 浏览器中使用 Hive 视图来提交 Hive �
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 1abe9104-f4b2-41b9-9161-abbc43de8294
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/13/2018
-ms.date: 03/26/2018
+origin.date: 05/16/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: f0a9b74867c97ec16eb4c98c90629a98f739b796
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 81718d2d9c40bf1cef733dcb08dae71a22e17b33
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072169"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747480"
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>将 Ambari Hive 视图与 HDInsight 中的 Hadoop 配合使用
 
@@ -187,5 +187,5 @@ create temporary function myawesomeudf as 'com.myudfs.Awesome';
 有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
 * [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
-* [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)
+* [将 MapReduce 与 Hadoop on HDInsight 配合使用](hdinsight-use-mapreduce.md)
 <!--Update_Description: wording update-->

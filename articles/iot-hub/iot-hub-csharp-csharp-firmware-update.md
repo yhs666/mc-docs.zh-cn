@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/19/2017
-ms.date: 05/07/2018
+ms.date: 07/09/2018
 ms.author: v-yiso
-ms.openlocfilehash: cb8cad93afdf5c316e29fa7aac26725fb774fb70
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 54a950c542de780186b9b011cfcb7fe284082b30
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121601"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103391"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>使用设备管理启动设备固件更新 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
@@ -347,7 +347,7 @@ ms.locfileid: "32121601"
 > [!NOTE]
 > 此方法触发以**任务**形式运行的模拟更新，然后立即响应方法调用，告知服务已启动固件更新。 更新状态和完成进度将通过设备孪生的报告属性发送到服务。 我们会在启动更新时而不是在完成更新后响应此方法调用，因为：
 > * 实际的更新过程所花费的时间很可能比方法调用超时的时间要长。
-> * 实际的更新过程很可能要求重新启动，这会重新启动此应用，使 **MetodRequest** 对象不可用。 （但是，即使在重新启动之后，也能更新报告属性。） 
+> * 实际的更新过程很可能要求重新启动，这会重新启动此应用，使 **MethodRequest** 对象不可用。 （但是，即使在重新启动之后，也能更新报告属性。） 
 
 14. 最后，将以下代码添加到 **Main** 方法，打开与 IoT 中心的连接并初始化方法侦听器：
    
@@ -405,7 +405,7 @@ ms.locfileid: "32121601"
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
 [lnk-dm-getstarted]: iot-hub-csharp-csharp-device-management-get-started.md
-[lnk-tutorial-jobs]: iot-hub-csharp-node-schedule-jobs.md
+[lnk-tutorial-jobs]: iot-hub-csharp-csharp-schedule-jobs.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

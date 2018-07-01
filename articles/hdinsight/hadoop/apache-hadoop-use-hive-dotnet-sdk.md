@@ -10,19 +10,17 @@ author: mumian
 ms.assetid: 4e291890-f8b4-426c-b5e8-d4fd512ff042
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 12/20/2017
-ms.date: 05/21/2018
+origin.date: 05/16/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: c2994d25fad921d0b400f2fbf05b79bfa6ce4f57
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: c36e8788bcc9fac7729d089b29cee53a2eae462f
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449900"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747427"
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK 运行 Hive 查询
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]

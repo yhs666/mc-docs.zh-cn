@@ -5,27 +5,25 @@ keywords: NoSQL 示例
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-editor: monicar
-documentationcenter: .net
-ms.assetid: d824d517-903e-4d82-ab0a-09fc3b984c84
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 origin.date: 02/22/2017
-ms.date: 12/25/2017
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: b82f21b215d07731af5c77b022936545f472fdd2
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 03ee691c02b10c54af404794f2cf2ceb7856a8fa
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782147"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070317"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的 .NET 示例
 > [!div class="op_single_selector"]
 > * [.NET 示例](sql-api-dotnet-samples.md)
+> * [Java 示例](sql-api-java-samples.md)
+> * [异步 Java 示例](sql-api-async-java-samples.md)
 > * [Node.js 示例](sql-api-nodejs-samples.md)
 > * [Python 示例](sql-api-python-samples.md)
 > * [Azure 代码示例库](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
@@ -41,7 +39,7 @@ ms.locfileid: "31782147"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- 可以[激活 Visual Studio 订户权益](https://www.azure.cn/support/legal/offer-rate-plans/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)：Visual Studio 订阅每月为用户提供可用于付费版 Azure 服务的信用额度。
+- 可以[激活 Visual Studio 订户权益](https://www.azure.cn/support/legal/offer-rate-plans/)：Visual Studio 订阅每月为用户提供可用于付费版 Azure 服务的信用额度。
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -111,10 +109,10 @@ IndexManagement 项目示例的 [RunIndexDemo](https://github.com/Azure/azure-do
 
 | 任务 | API 参考 |
 | --- | --- |
-| [对新集合启用地理空间索引](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L45-L63) |[IndexingPolicy](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.aspx)<br>[IndexKind.Spatial](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexkind.aspx)<br>[DataType.Point](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.datatype.aspx) |
-| [使用 GeoJSON 点插入文档](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L116-L126) |[DocumentClient.CreateDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx)<br>[DataType.Point](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.datatype.aspx) |
-| [查找指定距离内的点](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L152-L194) |[ST_DISTANCE](sql-api-sql-query.md#BuiltinFunctions)<br>[GeometryOperationExtensions.Distance](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.distance.aspx#M:Microsoft.Azure.Documents.Spatial.GeometryOperationExtensions.Distance(Microsoft.Azure.Documents.Spatial.Geometry,Microsoft.Azure.Documents.Spatial.Geometry) |
-| [查找多边形内的点](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L196-L221) |[ST_WITHIN](sql-api-sql-query.md#BuiltinFunctions)<br>[GeometryOperationExtensions.Within](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.within.aspx#M:Microsoft.Azure.Documents.Spatial.GeometryOperationExtensions.Within(Microsoft.Azure.Documents.Spatial.Geometry,Microsoft.Azure.Documents.Spatial.Geometry) 以及<br>[多边形](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.polygon.aspx) |
+| [对新集合启用地理空间索引](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L45-L63) |[IndexingPolicy](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.aspx) <br> [IndexKind.Spatial](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexkind.aspx) <br>[DataType.Point](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.datatype.aspx) |
+| [使用 GeoJSON 点插入文档](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L116-L126) |[DocumentClient.CreateDocumentAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentasync?view=azure-dotnet) </br> [DataType.Point](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.datatype.aspx) |
+| [查找指定距离内的点](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L152-L194) |[ST_DISTANCE](sql-api-sql-query.md#BuiltinFunctions) </br> [GeometryOperationExtensions.Distance](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.distance?view=azure-dotnet) |
+| [查找多边形内的点](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L196-L221) |[ST_WITHIN](sql-api-sql-query.md#BuiltinFunctions) </br> [GeometryOperationExtensions.Within](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.distance?view=azure-dotnet) 和 </br>[多边形](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.spatial.polygon?view=azure-dotnet) |
 | [对现有集合启用地理空间索引](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L312-L336) |[DocumentClient.ReplaceDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync.aspx)<br>[DocumentCollection.IndexingPolicy](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.documentcollection.indexingpolicy.aspx#P:Microsoft.Azure.Documents.DocumentCollection.IndexingPolicy) |
 | [验证点和多边形数据](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L223-L265) |[ST_ISVALID](sql-api-sql-query.md#BuiltinFunctions)<br>[ST_ISVALIDDETAILED](sql-api-sql-query.md#BuiltinFunctions)<br>[GeometryOperationExtensions.IsValid](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.isvalid.aspx)<br>[GeometryOperationExtensions.IsValidDetailed](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.isvaliddetailed.aspx) |
 
@@ -176,4 +174,4 @@ IndexManagement 项目示例的 [RunIndexDemo](https://github.com/Azure/azure-do
 | [对集合或文档设置权限](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L85) |[DocumentClient.CreatePermissionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createpermissionasync.aspx) |
 | [获取用户权限列表](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L218) |[DocumentClient.ReadUserAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readuserasync.aspx)<br>[DocumentClient.ReadPermissionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpermissionfeedasync.aspx) |
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, update link -->

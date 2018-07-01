@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/04/2018
 ms.date: 04/19/2018
 ms.author: v-nany
-ms.openlocfilehash: 440b0a397499e48be510310fc702b79a51e9bb87
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 240fad12cd83c696a1da06c51414b46e5c169eb3
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782427"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948098"
 ---
 # <a name="sql-database-faq"></a>SQL 数据库常见问题
 
@@ -25,9 +25,9 @@ SQL 数据库的最新版本为 V12。 版本 V11 已停用。
 ## <a name="what-is-the-sla-for-sql-database"></a>SQL 数据库的 SLA 是什么？
 我们保证至少在 99.99% 的时间内，不管使用哪个服务层，都能在 Azure SQL 数据库与我们的 Internet 网关之间保持连接。 有关详细信息，请参阅 [SLA](https://www.azure.cn/support/legal/sla/)。
 
-## <a name="whatis-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Azure SQL 数据库的基于 vCore 的新购买模型是什么？
+## <a name="whatis-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>Azure SQL 数据库的基于 vCore 的新购买模型（预览版）是什么？
 
-新购买模型是对现有基于 DTU 的模型的补充。 基于 vCore 的购买模型旨在让客户以灵活、可控、透明且直接的方式将本地工作负荷要求转换到云。 它还允许客户根据其工作负荷需求缩放计算和存储资源。 此外，借助[面向 SQL Server 的 Azure 混合使用权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，使用 vCore 模型的单一数据库和弹性池选项最大能够实现 30% 的节省。 请参阅[服务层](sql-database-service-tiers.md)，了解有关基于 DTU 的购买模型和基于 vCore 的购买模型的详细信息。
+新购买模型是对现有基于 DTU 的模型的补充。 基于 vCore 的购买模型旨在让客户以灵活、可控、透明且直接的方式将本地工作负载要求转换到云。 它还允许客户根据其工作负荷需求缩放计算和存储资源。 此外，借助[面向 SQL Server 的 Azure 混合使用权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，使用 vCore 模型的单一数据库和弹性池选项最大能够实现 30% 的节省。 有关详细信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)。 
 
 ## <a name="what-is-a-vcore"></a>什么是 vCore？ 
 虚拟核心表示逻辑 CPU，提供不同代的硬件供客户选择。 第 4 代逻辑 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器，第 5 代逻辑 CPU 基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器。
@@ -39,11 +39,11 @@ SQL 数据库的最新版本为 V12。 版本 V11 已停用。
 
 基于 DTU 和 vCore 的模型将继续共存。 我们应客户要求推出了基于 vCore 的模型，这些客户希望对数据库资源获得更大的透明度，并可分别缩放计算和存储资源。 使用基于 vCore 的模型，拥有活动软件保障的客户还可通过面向 SQL Server 的 Azure 混合权益节约成本。
 
-## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>如何在基于 DTU 的购买模型与基于 vCore 的购买模型之间做出选择？ 
+## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model-preview"></a>如何在基于 DTU 的购买模型与基于 vCore 的购买模型（预览版）之间做出选择？ 
 数据传输单元 (DTU) 基于 CPU、内存、读取和写入的混合衡量。 基于 DTU 的性能级别代表驱动不同级别应用程序性能的预配资源捆绑。 对于不想要考虑底层资源，而希望使用简单的预配捆绑而每月支付固定费用的客户而言，基于 DTU 的模型可能更适合满足需求。 但是，对于需要更深入了解底层资源，或对其进行独立缩放以实现最优性能的客户而言，基于 vCore 的模型是最佳选择。  此外，如果客户为 SQL Server 激活了软件保障 (SA)，可通过[面向 SQL Server 的 Azure 混合使用权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)利用现有投资并最多节省 30% 的费用。  两种购买模型的选项都能提供完全托管的服务的权益，例如自动化备份、软件更新和补丁。 
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>面向 SQL Server 的 Azure 混合权益是什么？ 
-[面向 SQL Server 的 Azure 混合使用权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)可帮助你最大限度地提高当前许可证投资的价值，并加快向云迁移的速度。 Azure 混合权益 SQL Server 是基于 Azure 的混合权益，可通过它使用具有软件保障的 SQL Server 许可证，从而支付更少的 SQL 数据库费用（“基准费率”）。 面向 SQL Server 的 Azure 混合权益可用于 SQL 数据库单一数据库和弹性池基于 vCore 的购买模型公共预览版。 即使 SKU 是活动的也可以应用此权益，但请注意，从你在 Azure 门户中进行选择时起，就会应用基准费率。 不会补发信用额度。
+[面向 SQL Server 的 Azure 混合使用权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)可帮助你最大限度地提高当前许可证投资的价值，并加快向云迁移的速度。 Azure 混合权益 SQL Server 是基于 Azure 的混合权益，可通过它使用具有软件保障的 SQL Server 许可证，从而支付更少的 SQL 数据库费用（“基准费率”）。 面向 SQL Server 的 Azure 混合权益可用于 SQL 数据库单一数据库和弹性池基于 vCore 的购买模型（预览版）的公共预览版。 即使 SKU 是活动的也可以应用此权益，但请注意，从你在 Azure 门户中进行选择时起，就会应用基准费率。 不会补发信用额度。
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>面向 SQL Server 的 Azure 混合权益是否具有双倍使用权利？
 我们为客户提供 180 天的许可证双倍使用权利，以确保无缝运行迁移。 在 180 天期限过后，SQL Server 许可证只能在云中的 SQL 数据库内使用，并且在本地和云中都没有双倍使用权利。
@@ -65,7 +65,7 @@ SQL 数据库客户将获得与面向 SQL Server 的 Azure 混合权益相关的
 |||
 
 ## <a name="is-the-vcore-based-model-available-to-sql-database-managed-instance"></a>基于 vCore 的模型是否适用于 SQL 数据库托管实例？
-[托管实例](sql-database-managed-instance.md)只能使用基于 vCore 的模型。 有关详细信息，另请参阅 [SQL 数据库定价页](https://www.azure.cn/pricing/details/sql-database/managed/)。 
+[托管实例](sql-database-managed-instance.md)只能使用基于 vCore 的模型。 有关详细信息，另请参阅 [SQL 数据库定价页](https://azure.microsoft.com/pricing/details/sql-database/managed/)。 
 
 ## <a name="does-the-cost-of-compute-and-storage-depend-on-the-service-tier-that-i-choose"></a>计算和存储成本是否取决于所选的服务层？
 计算成本反映针对应用程序预配的总计算容量。 在“业务关键”服务层中，我们会自动分配至少 3 个 Always ON 副本。 为了反映计算资源的附加分配，在“业务关键”服务层中，vCore 价格大约高出 2.7 倍。 出于相同的原因，“业务关键”层中更高的每 GB 存储价格反映了 SSD 存储的高 IO 和低延迟。 同时，备份存储成本并无不同，因为在这两种情况下，我们都使用某类标准存储。
@@ -111,39 +111,39 @@ SQL 数据库客户将获得与面向 SQL Server 的 Azure 混合权益相关的
 次数随意。 请参阅[管理弹性池](sql-database-elastic-pool.md)。
 
 ## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>更改单一数据库的服务层次或性能级别，或将数据库移入和移出弹性池需要多长时间？
-更改数据库的服务层和移入和移出池需要在平台上以后台操作的形式复制数据库。 更改服务层可能需要几分钟至几小时的时间，具体取决于数据库的大小。 这两种情况下，数据库在移动期间保持联机和可用。 有关更改单一数据库的详细信息，请参阅[更改数据库的服务层](sql-database-service-tiers.md)。 
+更改数据库的服务层和移入和移出池需要在平台上以后台操作的形式复制数据库。 更改服务层可能需要几分钟至几小时的时间，具体取决于数据库的大小。 这两种情况下，数据库在移动期间保持联机和可用。 有关更改单一数据库的详细信息，请参阅[更改数据库的服务层](sql-database-service-tiers-dtu.md)。 
 
 
 ## <a name="how-does-the-usage-of-sql-database-using-the-dtu-based-purchasing-model-show-up-on-my-bill"></a>使用基于 DTU 的购买模型的 SQL 数据库使用情况如何体现在我的帐单上？
-SQL 数据库根据[购买模型](sql-database-service-tiers.md)按可预测的小时费率计费。 实际使用量是每小时按比例计算的，因此帐单可能会显示小时的小数部分。 例如，如果某个数据库在一个月内存在了 12 小时，则帐单会显示 0.5 天的使用量。 
+SQL 数据库根据[购买模型](sql-database-service-tiers-dtu.md)按可预测的小时费率计费。 实际使用量是每小时按比例计算的，因此帐单可能会显示小时的小数部分。 例如，如果某个数据库在一个月内存在了 12 小时，则帐单会显示 0.5 天的使用量。 
 
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>如果单一数据库活动的时间少于一小时，或使用更高服务层的时间少于一小时，会如何计费？
 需要支付使用最高服务层数据库存在的时数 + 在该小时适用的性能级别，无论使用方式或数据库的活动状态是否少于一小时。 例如，如果创建了单一数据库，并在五分钟后将其删除，则将按该数据库存在一小时收费。 
 
 示例:
 
-- 如果创建了一个基本数据库并立即将其升级为标准版 S1，则第一小时按标准版 S1 费率收费。
-- 如果从晚上 10:00 开始将数据库从“基本”升级到“高级”， 并且在第二天凌晨 1:35 完成升级， 那么会从凌晨 1:00 开始按高级版费率收费。 
-- 如果在上午 11:00 将数据库从“高级”降级到“基本”级别， 并且在下午 2:15 完成降级，则会针对数据库以高级版费率收取到下午 3:00，之后以基本版费率收费。
+* 如果创建了一个基本数据库并立即将其升级为标准版 S1，则第一小时按标准版 S1 费率收费。
+* 如果从晚上 10:00 开始将数据库从“基本”升级到“高级”， 并且在第二天凌晨 1:35 完成升级， 那么会从凌晨 1:00 开始按高级版费率收费。 
+* 如果在上午 11:00 将数据库从“高级”降级到“基本”级别， 并且在下午 2:15 完成降级，则会针对数据库以高级版费率收取到下午 3:00，之后以基本版费率收费。
 
 ## <a name="how-does-elastic-pool-usage-using-the-dtu-based-purchasing-model-show-up-on-my-bill"></a>使用基于 DTU 的购买模型的弹性池使用情况如何体现在我的帐单上？
 在帐单上，弹性池费用显示为弹性 DTU (eDTU) 或 vCore 数加上存储量，并在[定价页](https://www.azure.cn/pricing/details/sql-database/)上递增显示。 弹性池没有按照数据库收取的费用。 对于池存在的每个小时，需要支付最高的 eDTU 或 vCore 费用，无论使用量是多少，也不管池处于活动状态的时间是否小于一小时。 
 
 基于 DTU 的购买模型示例：
 
-- 如果在上午 11:18 以 200 eDTU 创建标准弹性池，同时将五个数据库添加到池，则从上午 11:00 开始以 200 eDTU 收取整小时的费用。 到当天剩余的时间。
-- 在第 2 天上午 5:05，数据库 1 开始使用 50 eDTU 并稳定持有一天。 数据库 2-5 在 0 和 80 eDTU 之间波动。 在当天，添加全天使用不同 eDTU 的其他五个数据库。 第 2 天全天以 200 eDTU 计费。 
-- 在第 3 天的上午 5:00， 添加了另外 15 个数据库。 数据库使用量全天增加，到下午 8:05 确定将池的 eDTU 从 200 增加为 400。 下午 8 点以前继续按 200 eDTU 收费，当天的其余 4 小时则按 400 eDTU 计费。 
+* 如果在上午 11:18 以 200 eDTU 创建标准弹性池，同时将五个数据库添加到池，则从上午 11:00 开始以 200 eDTU 收取整小时的费用。 到当天剩余的时间。
+* 在第 2 天上午 5:05，数据库 1 开始使用 50 eDTU 并稳定持有一天。 数据库 2-5 在 0 和 80 eDTU 之间波动。 在当天，添加全天使用不同 eDTU 的其他五个数据库。 第 2 天全天以 200 eDTU 计费。 
+* 在第 3 天的上午 5:00， 添加了另外 15 个数据库。 数据库使用量全天增加，到下午 8:05 确定将池的 eDTU 从 200 增加为 400。 下午 8 点以前继续按 200 eDTU 收费，当天的其余 4 小时则按 400 eDTU 计费。 
 
 ## <a name="how-are-elastic-pool-billed-for-the-dtu-based-purchasing-model"></a>如何根据基于 DTU 的购买模型计收弹性池费用？
 弹性池按以下特征计费：
 
-- 弹性池一创建即计费，即使池中没有数据库。
-- 弹性池按小时计费。 该计量频率与单一数据库性能级别的计量频率相同。
-- 如果调整弹性池的大小，则在调整操作完成之前，不会按新的资源量计费。 这种计费所遵循的模式与更改单一数据库的性能级别所遵循的模式相同。
-- 弹性池的价格取决于池的资源。 弹性池的价格与池内弹性数据库的数目和使用率无关。
+* 弹性池一创建即计费，即使池中没有数据库。
+* 弹性池按小时计费。 该计量频率与单一数据库性能级别的计量频率相同。
+* 如果调整弹性池的大小，则在调整操作完成之前，不会按新的资源量计费。 这种计费所遵循的模式与更改单一数据库的性能级别所遵循的模式相同。
+* 弹性池的价格取决于池的资源。 弹性池的价格与池内弹性数据库的数目和使用率无关。
 
-有关详细信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)和[服务层](sql-database-service-tiers.md)。
+有关详细信息，请参阅 [SQL 数据库定价](https://azure.cn/pricing/details/sql-database/)、[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)。
 
 ## <a name="how-does-the-vcore-based-usage-show-up-in-my-bill"></a>基于 vCore 的使用情况如何体现在我的帐单上？ 
 在基于 vCore 的模型中，服务根据中 vCore 预配的计算、预配的存储（GB/月）及使用的备份存储，按可预测的小时费率计费。 如果备份存储超过数据库总大小（即，数据库大小的 100%），则会产生额外的费用。 vCore 小时数、配置的数据库存储、消耗的 IO 和备份存储清楚地在帐单中逐项列出，以方便你查看所用资源的详细信息。 包含最大数据库大小的至多 100% 的备份存储，超过后按每月使用的 GB 数计费。

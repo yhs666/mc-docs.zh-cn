@@ -6,22 +6,18 @@ services: cosmos-db
 author: rockboyfor
 manager: digimobile
 tags: azure-resource-manager
-documentationcenter: ''
-ms.assetid: c1b9ede0-ed93-411a-ac9a-62c113a8e887
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 03/30/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 08d6e8ddb36e1dd1b03853e792e0704ce78f8971
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 52edc2310b6f8fb653d7287b742199cc69fcb1c7
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867458"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070320"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB 防火墙支持
 为保护存储在 Azure Cosmos DB 数据库帐户的数据，Azure Cosmos DB 已提供对基于机密的[授权模型](https://msdn.microsoft.com/library/azure/dn783368.aspx)的支持，该模型利用强大的基于哈希的消息验证代码 (HMAC)。 现在，除了基于机密的授权模型以外，Azure Cosmos DB 还支持针对入站防火墙支持的基于 IP 的策略驱动访问控制。 此模型与传统数据库系统的防火墙规则类似，并且为 Azure Cosmos DB 数据库帐户提供了额外级别的安全性。 利用此模型，现可将 Azure Cosmos DB 数据库帐户配置为仅可从一组已批准的计算机和/或云服务进行访问。 从该组已批准的计算机和服务访问 Azure Cosmos DB 资源仍要求调用方提供有效的授权令牌。
@@ -106,4 +102,4 @@ ms.locfileid: "34867458"
 ## <a name="next-steps"></a>后续步骤
 有关网络相关性能提示的信息，请参阅[性能提示](performance-tips.md)。
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties -->

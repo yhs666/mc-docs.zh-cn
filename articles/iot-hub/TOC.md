@@ -7,6 +7,7 @@
 ## [发送遥测数据 (.NET)](quickstart-send-telemetry-dotnet.md)
 ## [发送遥测数据 (Java)](quickstart-send-telemetry-java.md)
 ## [发送遥测数据 (Python)](quickstart-send-telemetry-python.md)
+## [发送遥测数据 (iOS)](quickstart-send-telemetry-ios.md)
 ## [控制设备 (Node.js)](quickstart-control-device-node.md)
 ## [控制设备 (.NET)](quickstart-control-device-dotnet.md)
 ## [控制设备 (Java)](quickstart-control-device-java.md)
@@ -14,35 +15,24 @@
 # 教程
 
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
+## [路由消息](tutorial-routing.md)
+## [配置设备](tutorial-device-twins.md)
+## [测试设备连接性](tutorial-connectivity.md)
 ## 发送“云到设备”消息
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
 ### [Java](iot-hub-java-java-c2d.md)
 ### [Node.js](iot-hub-node-node-c2d.md)
 ### [Python](iot-hub-python-python-c2d.md)
-## 设备孪生入门
-### [Node.js 后端/Node.js 设备](iot-hub-node-node-twin-getstarted.md)
-### [.NET 后端/Node.js 设备](iot-hub-csharp-node-twin-getstarted.md)
-### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-twin-getstarted.md)
-### [Java 后端/Java 设备](iot-hub-java-java-twin-getstarted.md)
-### [Python 后端/Python 设备](iot-hub-python-twin-getstarted.md)
 ## 设备管理入门
-### [Node.js 后端/Node.js 设备](iot-hub-node-node-device-management-get-started.md)
-### [.NET 后端/Node.js 设备](iot-hub-csharp-node-device-management-get-started.md)
-### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-device-management-get-started.md)
-### [Java 后端/Java 设备](iot-hub-java-java-device-management-getstarted.md)
-### [Python 后端/Python 设备](iot-hub-python-python-device-management-get-started.md)
-## 如何使用孪生属性
-### [Node.js 后端/Node.js 设备](iot-hub-node-node-twin-how-to-configure.md)
-### [.NET 后端/Node.js 设备](iot-hub-csharp-node-twin-how-to-configure.md)
-### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-twin-how-to-configure.md)
-### [Java 后端/Java 设备](iot-hub-java-java-twin-how-to-configure.md)
-### [Python 后端/Python 设备](iot-hub-python-python-twin-how-to-configure.md)
+### [Node.js](iot-hub-node-node-device-management-get-started.md)
+### [.NET](iot-hub-csharp-csharp-device-management-get-started.md)
+### [Java](iot-hub-java-java-device-management-getstarted.md)
+### [Python](iot-hub-python-python-device-management-get-started.md)
 ## 使用设备作业更新设备固件
-### [Node 后端/Node 设备](iot-hub-node-node-firmware-update.md)
-### [.NET 后端/Node.js 设备](iot-hub-csharp-node-firmware-update.md)
-### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-firmware-update.md)
-### [Java 后端/Java 设备](iot-hub-java-java-firmware-update.md)
-### [Python 后端/Python 设备](iot-hub-python-python-firmware-update.md)
+### [Node.js](iot-hub-node-node-firmware-update.md)
+### [.NET](iot-hub-csharp-csharp-firmware-update.md)
+### [Java](iot-hub-java-java-firmware-update.md)
+### [Python](iot-hub-python-python-firmware-update.md)
 
 ### [批量管理 IoT 设备](iot-hub-bulk-identity-mgmt.md)
 
@@ -74,6 +64,7 @@
 ### [配额和限制](iot-hub-devguide-quotas-throttling.md)
 ### [定价示例](iot-hub-devguide-pricing.md)
 ### [设备和服务 SDK](iot-hub-devguide-sdks.md)
+### [为移动设备进行开发](iot-hub-how-to-develop-for-mobile-devices.md)
 ### [MQTT 支持](iot-hub-mqtt-support.md)
 ### [术语表](iot-hub-devguide-glossary.md)
 
@@ -83,7 +74,6 @@
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
-#### [iOS (Swift)](quickstart-send-telemetry-ios.md)
 ## [使用适用于 C 的 IoT 设备 SDK](iot-hub-device-sdk-c-intro.md)
 ### [使用 IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [使用序列化程序](iot-hub-device-sdk-c-serializer.md)
@@ -99,13 +89,13 @@
 #### [创建证书 - PowerShell](iot-hub-security-x509-create-certificates.md)
 
 
-## 扩展的 IoT 方案
-### [使用 iothub-explorer 管理云设备消息传送](iot-hub-explorer-cloud-device-messaging.md)
-### [将 IoT 中心消息保存到 Azure 数据存储](iot-hub-store-data-in-azure-table-storage.md)
-### [Power BI 中的数据可视化](iot-hub-live-data-visualization-in-power-bi.md)
-### [使用 Web 应用进行数据可视化](iot-hub-live-data-visualization-in-web-apps.md)
-### [使用 iothub-explorer 进行设备管理](iot-hub-device-management-iothub-explorer.md)
-### [使用适用于 Azure CLI 2.0 的 IoT 扩展进行设备管理](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
+### 扩展的 IoT 方案
+#### [使用 iothub-explorer 管理云设备消息传送](iot-hub-explorer-cloud-device-messaging.md)
+#### [将 IoT 中心消息保存到 Azure 数据存储](iot-hub-store-data-in-azure-table-storage.md)
+#### [Power BI 中的数据可视化](iot-hub-live-data-visualization-in-power-bi.md)
+#### [使用 Web 应用进行数据可视化](iot-hub-live-data-visualization-in-web-apps.md)
+#### [使用 iothub-explorer 进行设备管理](iot-hub-device-management-iothub-explorer.md)
+#### [使用适用于 Azure CLI 2.0 的 IoT 扩展进行设备管理](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 
 ### 使用 MXChip IoT DevKit
 #### [使用 Azure 认知服务转换语音邮件](iot-hub-arduino-iot-devkit-az3166-translator.md)
@@ -145,11 +135,6 @@
 ### [使用适用于 C 的 IoT 设备 SDK](iot-hub-device-sdk-c-intro.md)
 #### [使用 IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 #### [使用序列化程序](iot-hub-device-sdk-c-serializer.md)
-### 路由消息
-#### [.NET](iot-hub-csharp-csharp-process-d2c.md)
-#### [Java](iot-hub-java-java-process-d2c.md)
-#### [Node.js](iot-hub-node-node-process-d2c.md)
-#### [Python](iot-hub-python-python-process-d2c.md)
 ### 发送“云到设备”消息
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
@@ -162,56 +147,33 @@
 #### [Node.js](iot-hub-node-node-file-upload.md)
 #### [Python](iot-hub-python-python-file-upload.md)
 ### 设备孪生入门
-#### [Node.js 后端/Node.js 设备](iot-hub-node-node-twin-getstarted.md)
-#### [.NET 后端/Node.js 设备](iot-hub-csharp-node-twin-getstarted.md)
-#### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-twin-getstarted.md)
-#### [Java 后端/Java 设备](iot-hub-java-java-twin-getstarted.md)
-#### [Python 后端/Python 设备](iot-hub-python-twin-getstarted.md)
+#### [Node.js](iot-hub-node-node-twin-getstarted.md)
+#### [.NET](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java](iot-hub-java-java-twin-getstarted.md)
+#### [Python](iot-hub-python-twin-getstarted.md)
 ### 模块孪生入门
-#### [门户后端/.NET 设备](iot-hub-portal-csharp-module-twin-getstarted.md)
-#### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-module-twin-getstarted.md)
+#### [Portal](iot-hub-portal-csharp-module-twin-getstarted.md)
+#### [.NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
 ### 使用直接方法
-#### [Node.js 后端/Node.js 设备](iot-hub-node-node-direct-methods.md)
-#### [.NET 后端/Node.js 设备](iot-hub-csharp-node-direct-methods.md)
-#### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-direct-methods.md)
-#### [Java 后端/Java 设备](iot-hub-java-java-direct-methods.md)
-#### [Python 后端/Python 设备](iot-hub-python-python-direct-methods.md)
-### 设备管理入门
-#### [Node.js 后端/Node.js 设备](iot-hub-node-node-device-management-get-started.md)
-#### [.NET 后端/Node.js 设备](iot-hub-csharp-node-device-management-get-started.md)
-#### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-device-management-get-started.md)
-#### [Java 后端/Java 设备](iot-hub-java-java-device-management-getstarted.md)
-#### [Python 后端/Python 设备](iot-hub-python-python-device-management-get-started.md)
+#### [Node.js](iot-hub-node-node-direct-methods.md)
+#### [.NET](iot-hub-csharp-csharp-direct-methods.md)
+#### [Java](iot-hub-java-java-direct-methods.md)
+#### [Python](iot-hub-python-python-direct-methods.md)
 ### 如何使用孪生属性
-#### [Node.js 后端/Node.js 设备](iot-hub-node-node-twin-how-to-configure.md)
-#### [.NET 后端/Node.js 设备](iot-hub-csharp-node-twin-how-to-configure.md)
-#### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-twin-how-to-configure.md)
-#### [Java 后端/Java 设备](iot-hub-java-java-twin-how-to-configure.md)
-#### [Python 后端/Python 设备](iot-hub-python-python-twin-how-to-configure.md)
-### 使用设备孪生更新设备固件
-#### [Node 后端/Node 设备](iot-hub-node-node-firmware-update.md)
-#### [.NET 后端/Node.js 设备](iot-hub-csharp-node-firmware-update.md)
-#### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-firmware-update.md)
-#### [Java 后端/Java 设备](iot-hub-java-java-firmware-update.md)
-#### [Python 后端/Python 设备](iot-hub-python-python-firmware-update.md)
+#### [Node.js](iot-hub-node-node-twin-how-to-configure.md)
+#### [.NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
+#### [Java](iot-hub-java-java-twin-how-to-configure.md)
+#### [Python](iot-hub-python-python-twin-how-to-configure.md)
 ### 计划和广播作业
-#### [Node.js 后端/Node.js 设备](iot-hub-node-node-schedule-jobs.md)
-#### [.NET 后端/Node.js 设备](iot-hub-csharp-node-schedule-jobs.md)
-#### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-schedule-jobs.md)
-#### [Java 后端/Java 设备](iot-hub-java-java-schedule-jobs.md)
-#### [Python 后端/Python 设备](iot-hub-python-python-schedule-jobs.md)
+#### [Node.js](iot-hub-node-node-schedule-jobs.md)
+#### [.NET](iot-hub-csharp-csharp-schedule-jobs.md)
+#### [Java](iot-hub-java-java-schedule-jobs.md)
+#### [Python](iot-hub-python-python-schedule-jobs.md)
 ## 从设备上传文件
 ### [.NET](iot-hub-csharp-csharp-file-upload.md)
 ### [Java](iot-hub-java-java-file-upload.md)
 ### [Node.js](iot-hub-node-node-file-upload.md)
 ### [Python](iot-hub-python-python-file-upload.md)
-
-## 计划和广播作业
-### [Node.js 后端/Node.js 设备](iot-hub-node-node-schedule-jobs.md)
-### [.NET 后端/Node.js 设备](iot-hub-csharp-node-schedule-jobs.md)
-### [.NET 后端/.NET 设备](iot-hub-csharp-csharp-schedule-jobs.md)
-### [Java 后端/Java 设备](iot-hub-java-java-schedule-jobs.md)
-### [Python 后端/Python 设备](iot-hub-python-python-schedule-jobs.md)
 
 ## 创建 IoT 中心 
 ### [使用 Azure 门户](iot-hub-create-through-portal.md)
@@ -269,7 +231,7 @@
 ## [流分析](/stream-analytics/)
 
 # 资源
-## [Azure IoT Developer Center](https://docs.azure.cn/develop/iot/)
+## [Azure IoT 开发人员中心](https://docs.azure.cn/develop/iot/)
 ## [iothub-explorer 工具](https://github.com/Azure/iothub-explorer)
 ## [iothub-diagnostics 工具](https://github.com/Azure/iothub-diagnostics)
 ## [iothub-explorer 工具](https://github.com/Azure/iothub-explorer)

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 05/17/2018
 ms.date: 06/11/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 2951ea7507038f5d0240e5b8ce59141f85eac460
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 38be3fb874d9b18918ed9a8ce0dce614139aa8ec
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867561"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103091"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 存储模拟器进行开发和测试
 
@@ -88,14 +88,14 @@ Azure 存储模拟器提供了一个针对开发目的模拟 Azure Blob、队列
 > 可使用 [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 管理 SQL Server 实例，包括 LocalDB 安装。 在 SMSS“连接到服务器”对话框的“服务器名称:”字段中，指定 `(localdb)\MSSQLLocalDb` 以连接到 LocalDB 实例。
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>针对存储模拟器的请求进行身份验证
-安装并启动存储模拟器后，可针对此模拟器测试代码。 与云端的 Azure 存储一样，针对存储模拟器的每个请求都必须进行身份验证，除非它是匿名请求。 可以使用共享密钥身份验证或使用共享访问签名 (SAS) 针对存储模拟器的请求进行身份验证。
+安装并启动存储模拟器后，可针对此模拟器测试代码。 与云中的 Azure 存储一样，针对存储模拟器发出的每个请求都必须经过授权，除非它是匿名请求。 可以使用共享密钥身份验证或使用共享访问签名 (SAS) 针对存储模拟器的请求进行授权。
 
-### <a name="authenticate-with-shared-key-credentials"></a>使用共享密钥凭据进行身份验证
+### <a name="authorize-with-shared-key-credentials"></a>使用共享密钥凭据进行授权
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
 有关连接字符串的详细信息，请参阅[配置 Azure 存储连接字符串](../storage-configure-connection-string.md)。
 
-### <a name="authenticate-with-a-shared-access-signature"></a>使用共享访问签名进行身份验证
+### <a name="authorize-with-a-shared-access-signature"></a>使用共享访问签名进行授权
 某些 Azure 存储客户端库（诸如 Xamarin 库）仅支持使用共享访问签名 (SAS) 令牌进行身份验证。 可使用[存储资源管理器](http://storageexplorer.com/)之类的工具或其他支持共享密钥身份验证的应用程序创建 SAS 令牌。
 
 还可使用 Azure PowerShell 来生成 SAS 令牌。 以下示例会生成可完全访问 blob 容器的 SAS 令牌：

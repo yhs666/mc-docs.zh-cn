@@ -3,25 +3,22 @@ title: Azure Cosmos DB 资源模型和概念 | Azure
 description: 了解 Azure Cosmos DB 的数据库、集合、用户自定义函数 (UDF)、文档、管理资源的权限等的分层模型。
 keywords: 分层模型, cosmosdb, azure, Azure 世纪互联
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/07/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea3273dc81295762292e72e8289804b166619e9b
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 2082874badfb7976b5486c47d4f42435bc51048f
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867488"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070260"
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB 分层资源模型和核心概念
 

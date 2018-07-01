@@ -3,8 +3,8 @@ title: Azure AD Connect 同步：防止意外删除 | Microsoft Docs
 description: 本主题说明 Azure AD Connect 中的防止意外删除功能。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
@@ -13,14 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/12/2017
-ms.date: 12/20/2017
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: ee50abd842589746f70df62b4e7bf60e1772d887
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 4327586432f80565e71bce48ce01e55c949bfb71
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27162496"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947909"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect 同步：防止意外删除
 本主题说明 Azure AD Connect 中的防止意外删除功能。
@@ -71,3 +72,4 @@ ms.locfileid: "27162496"
 - [Azure AD Connect 同步：理解和自定义同步](active-directory-aadconnectsync-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
 
+<!-- Update_Description: update metedata properties -->

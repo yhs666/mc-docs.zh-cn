@@ -3,8 +3,8 @@ title: Azure AD Connect：排查连接问题 | Microsoft Docs
 description: 介绍如何使用 Azure AD Connect 排查连接问题。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 12/25/2017
+ms.date: 06/26/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 19889e4ac0e58760ce7dd3869ae53b90e739e57a
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 971e45e83fa85bb125aa69e21381d8a517ed8934
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
-ms.locfileid: "27547651"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947926"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>使用 Azure AD Connect 排查连接问题
 本文说明 Azure AD Connect 与 Azure AD 之间的连接的工作方式，以及如何排查连接问题。 这些问题很有可能出现在包含代理服务器的环境中。
@@ -77,7 +78,7 @@ Azure AD Connect 使用现代身份验证（使用 ADAL 库）来进行身份验
 如果安装向导已成功连接到 Azure AD，但无法验证密码本身，则会看到此错误：  
 ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
-- 密码是否为临时密码并且必须更改？ 它是否确实为正确的密码？ 请尝试登录到 https://login.partner.microsoftonline.cn （在除 Azure AD Connect 服务器以外的另一台计算机上），然后验证该帐户是否可用。
+- 密码是否为临时密码并且必须更改？ 它是否确实为正确的密码？ 请尝试登录到 https://login.partner.microsoftonline.cn （在 Azure AD Connect 服务器以外的另一台计算机上），并验证该帐户是否可用。
 
 ### <a name="verify-proxy-connectivity"></a>验证代理连接
 要验证 Azure AD Connect 服务器是否确实与代理和 Internet 建立了连接，可使用一些 PowerShell 来查看代理是否允许 Web 请求。 在 PowerShell 命令提示符下运行 `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`。 （从技术上讲，第一个调用是对 https://login.partner.microsoftonline.cn 发出的并且此 URI 也能正常运行，但另一个 URI 的响应速度更快。）
@@ -103,8 +104,8 @@ Azure AD Connect 向 Azure AD 发送导出请求时，在生成响应之前，Az
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Azure AD Connect 与 Azure AD 之间的通信模式
 如果已按上述步骤操作但仍无法连接，现在可以开始查看网络日志。 本部分说明正常且成功的连接模式。 此外，还会列出用户在阅读网络日志时可能会忽略的常见辅助信息。
 
-- 将调用 https://dc.services.visualstudio.com。不需要在代理中打开该 URL 即可成功安装，可以忽略这些调用。
-- 可以看到 DNS 解析列出要处于 DNS 命名空间 nsatc.net 的实际主机，以及不在 microsoftonline.com 下的其他命名空间。但是，实际服务器名称中不会有任何 Web 服务请求，因此不需要将这些 URL 添加到代理。
+- 有向 https://dc.services.visualstudio.com 发出的调用。 不需要在代理中打开该 URL 即可成功安装，可以忽略这些调用。
+- 可以看到 DNS 解析列出要处于 DNS 命名空间 nsatc.net 的实际主机，以及不在 microsoftonline.com 下的其他命名空间。 但是，实际服务器名称中不会有任何 Web 服务请求，因此不需要将这些 URL 添加到代理。
 - 终结点 adminwebservice 和 provisioningapi 是发现终结点，用于找出要使用的实际终结点。 这些终结点根据区域而有所不同。
 
 ### <a name="reference-proxy-logs"></a>引用代理日志
@@ -199,4 +200,4 @@ Azure AD Connect 向 Azure AD 发送导出请求时，在生成响应之前，Az
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

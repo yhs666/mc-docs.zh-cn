@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 04/09/2018
 ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: 6ed190d18a20e09f454593eeb9958ab8e94190c4
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 76e26e0318b26b8e984118244cf9d984370b4695
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782456"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947946"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>选择云 SQL Server 选项：Azure SQL (PaaS) 数据库或 Azure VM 上的 SQL Server (IaaS)
 Azure 有两个选项可用于在 Azure 中托管 SQL Server 工作负荷：
@@ -76,7 +76,7 @@ Azure 有两个选项可用于在 Azure 中托管 SQL Server 工作负荷：
 #### <a name="billing-and-licensing-basics"></a>计费和许可基础概念
 **SQL 数据库** 以服务形式出售给客户，不附带许可证。  [Azure VM 上的 SQL Server](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) 销售时附带按分钟付费的许可证。 客户也可以使用现有的许可证。  
 
-目前，我们在多个服务层中提供 **SQL 数据库**，并根据你选择的服务层和性能级别，以固定费率向你收取每小时费用。 此外，需要对固定的 [数据传输速率](https://www.azure.cn/pricing/details/data-transfer/)的 Internet 传出流量付费。 基本、标准和高级服务层旨在以多个性能级别提供可预测的性能，以满足应用程序的高峰要求。 可以在服务层和性能级别之间进行更改，以满足应用程序的不同吞吐量需求。 如果数据库具有高事务量且必须支持许多并发用户，我们建议使用高级服务层。 有关目前支持的服务层的最新信息，请参阅 [Azure SQL 数据库服务层](sql-database-service-tiers.md)。 还可以创建[弹性池](sql-database-elastic-pool.md)，在数据库实例之间共享性能资源。
+目前，我们在多个服务层中提供 **SQL 数据库**，并根据你选择的服务层和性能级别，以固定费率向你收取每小时费用。 此外，需要对固定的 [数据传输速率](https://azure.cn/pricing/details/data-transfers/)的 Internet 传出流量付费。 “基本”、“标准”、“高级”、“常规用途”和“任务关键”服务层旨在以多个性能级别提供可预测的性能，以满足应用程序的高峰要求。 可以在服务层和性能级别之间进行更改，以满足应用程序的不同吞吐量需求。 有关当前支持的服务层的最新信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)。 还可以创建[弹性池](sql-database-elastic-pool.md)，在数据库实例之间共享性能资源。
 
 > [!IMPORTANT]
 > 如果数据库具有高事务量且必须支持许多并发用户，我们建议使用“高级”或“任务关键”服务层。 为了尽量降低应用程序与 SQL 数据库之间的延迟，请将应用程序与数据库放置在同一区域中，然后测试性能，并根据需要提升服务层和性能级别。
@@ -117,7 +117,7 @@ Azure 有两个选项可用于在 Azure 中托管 SQL Server 工作负荷：
 ### <a name="service-level-agreement-sla"></a>服务级别协议 (SLA)
 对于许多 IT 部门而言，达到服务级别协议 (SLA) 规定的正常运行时间义务是首要任务。 本部分会说明 SLA 对每个数据库托管选项代表的含义。
 
-对于 **SQL 数据库**的“基本”、“标准”、“高级”、“常规用途”和“任务关键”服务层，Azure 提供 99.99% 的可用性 SLA。 有关最新信息，请参阅[服务级别协议](https://www.azure.cn/support/sla/sql-data/)。 有关 SQL 数据库服务层和支持的业务连续性计划的最新信息，请参阅[服务层](sql-database-service-tiers.md)。
+对于 **SQL 数据库**的“基本”、“标准”、“高级”、“常规用途”和“任务关键”服务层，Azure 提供 99.99% 的可用性 SLA。 有关最新信息，请参阅[服务级别协议](https://www.azure.cn/support/sla/sql-data/)。 有关 SQL 数据库服务层的最新信息和支持的业务连续性计划，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)。
 
 对于 Azure VM 上运行的 SQL Server，Azure 提供 99.95% 的可用性 SLA（仅涵盖虚拟机）。 此 SLA 不涵盖 VM 上运行的进程（例如 SQL Server），并且要求你在可用性集中托管至少两个 VM 实例。 有关最新信息，请参阅 [VM SLA](https://www.azure.cn/support/sla/virtual-machines/)。 为了在 VM 中实现数据库高可用性 (HA)，应在 SQL Server 中配置一个受支持的高可用性选项，例如 [AlwaysOn 可用性组](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)。 使用支持的高可用性选项不会提供更多 SLA，但使用户能够实现 >99.99% 的数据库可用性。
 

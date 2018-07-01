@@ -6,22 +6,18 @@ services: cosmos-db
 author: rockboyfor
 manager: digimobile
 editor: ''
-documentationcenter: ''
-ms.assetid: f4c96ebd-f53c-427d-a500-3f28fe7b11d0
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 08/29/2017
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 651620b95b1e898b6d55d73e59970c8924f7b949
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: e8640ca586af0d023bfce97c9f3201bf00ad8851
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867411"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070328"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 执行性能和规模测试
 
@@ -109,4 +105,4 @@ ms.locfileid: "34867411"
 * [用于提高 Azure Cosmos DB 性能的客户端配置选项](performance-tips.md)
 * [Azure Cosmos DB 中的服务器端分区](partition-data.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties -->

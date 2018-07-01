@@ -12,14 +12,14 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
 origin.date: 04/30/2018
-ms.date: 06/11/2018
+ms.date: 07/09/2018
 ms.author: v-yiso
-ms.openlocfilehash: f10f4fc0edc0ceb62b01f0903b79df67ae214c00
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 03f6e1cee0d5de4eea45f19cc1a7ab1224e1a016
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695261"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103428"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序从中心读取遥测数据 (Node.js)
 
@@ -83,7 +83,7 @@ node --version
 
 模拟设备应用程序会连接到 IoT 中心上特定于设备的终结点，并发送模拟的温度和湿度遥测数据。
 
-1. 在终端窗口中，导航到示例 Node.js 项目的根文件夹。 然后导航到 Quickstarts\simulated-device 文件夹。
+1. 在终端窗口中，导航到示例 Node.js 项目的根文件夹。 然后导航到 **iot-hub\Quickstarts\simulated-device** 文件夹。
 
 1. 在所选文本编辑器中打开 SimulatedDevice.js 文件。
 
@@ -106,7 +106,7 @@ node --version
 
 1. 在另一终端窗口中，导航到示例 Node.js 项目的根文件夹。 然后导航到 read-d2c-messages 文件夹。
 
-1. 在所选文本编辑器中打开 Quickstarts\ReadDeviceToCloudMessages.js 文件。
+1. 在所选文本编辑器中打开 **iot-hub\Quickstarts\ReadDeviceToCloudMessages.js** 文件。
 
     将 `connectionString` 变量的值替换为以前记下的服务连接字符串。 然后将更改保存到 ReadDeviceToCloudMessages.js 文件。
 

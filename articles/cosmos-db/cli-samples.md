@@ -5,22 +5,19 @@ services: cosmos-db
 author: rockboyfor
 manager: digimobile
 tags: azure-service-management
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: database
 origin.date: 11/29/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 97570958b140ad476921210837fc2e90f8824dc0
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 04af79158539844c275956c29905e157df8e6e54
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781887"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070135"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 Azure CLI 示例
 
@@ -48,4 +45,4 @@ ms.locfileid: "31781887"
 <!--NOTICE: Line 35 Globally TO Multiple data-center-->
 
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties -->

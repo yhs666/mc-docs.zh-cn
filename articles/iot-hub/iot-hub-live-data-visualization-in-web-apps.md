@@ -13,15 +13,15 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/16/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: c2cf97baebed4bbab0a100cfe3b8c9b3a9b826d5
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 07/09/2018
+ms.openlocfilehash: cd47a80d78dd870fd04740bcbc64ea82f522f552
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870315"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103394"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>使用 Azure 应用服务的 Web 应用功能可视化 Azure IoT 中心的实时传感器数据
 

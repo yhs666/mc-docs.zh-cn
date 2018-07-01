@@ -2,28 +2,28 @@
 title: 根据自定义映像预配 Azure Batch 池 | Microsoft Docs
 description: 可根据自定义映像创建 Batch 池，以预配包含应用程序所需的软件和数据的计算节点。 自定义映像是配置计算节点以运行 Batch 工作负载的高效方法。
 services: batch
-author: alexchen2016
-manager: digimobile
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
-origin.date: 10/11/2017
-ms.date: 12/04/2017
+origin.date: 04/23/2018
+ms.date: 06/28/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1d4d21a8d7a60d2357842de1029d57aeb1bddc00
-ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
+ms.openlocfilehash: 347c6ea2ecb1e0b1e2f37bc8a1d1441a51d44ccd
+ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2017
-ms.locfileid: "26352329"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103245"
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>使用托管的自定义映像创建虚拟机池 
 
-使用虚拟机配置创建 Azure Batch 池时，需指定一个虚拟机 (VM) 映像，为池中每个计算节点提供操作系统。 可以使用 Azure Marketplace 映像或自定义映像（自行创建并配置的 VM 映像）创建虚拟机池。 自定义映像必须是 Batch 帐户所在的同一个 Azure 订阅和区域中的托管映像资源。
+使用虚拟机配置创建 Azure Batch 池时，需指定一个虚拟机 (VM) 映像，为池中每个计算节点提供操作系统。 可以使用 Azure 市场映像或自定义映像（自行创建并配置的 VM 映像）创建虚拟机池。 自定义映像必须是 Batch 帐户所在的同一个 Azure 订阅和区域中的托管映像资源。
 
 ## <a name="why-use-a-custom-image"></a>为何使用自定义映像？
 提供自定义映像时，可以控制操作系统配置，以及要使用的操作系统和数据磁盘的类型。 自定义映像可以包含应用程序和引用数据，Batch 池节点预配好后即可使用这些数据。
 
-在准备池的计算节点以运行 Batch 工作负荷时，使用自定义映像可以节省时间。 虽然可以在每个计算节点（预配后）上使用 Azure Marketplace 映像和安装软件，但使用自定义映像可能更加高效。
+在准备池的计算节点以运行 Batch 工作负荷时，使用自定义映像可以节省时间。 虽然可以在每个计算节点（预配后）上使用 Azure 市场映像和安装软件，但使用自定义映像可能更加高效。
 
 使用根据方案配置的自定义映像可提供几个优点：
 
@@ -42,7 +42,7 @@ ms.locfileid: "26352329"
 
     
 ## <a name="prepare-a-custom-image"></a>准备自定义映像
-可以从 VHD、包含托管磁盘的 Azure VM 或 VM 快照准备托管映像。 
+可以从 VHD、包含托管磁盘的 Azure VM 或 VM 快照准备托管映像。 对于 Batch，建议使用托管磁盘或 VM 快照从 VM 创建托管映像。 应存在托管映像和基础资源，以便池可以纵向扩展，并且可在删除池后将其删除。 
 
 准备映像时，请记住以下要点：
 
@@ -55,7 +55,7 @@ ms.locfileid: "26352329"
 
 还可以从新的或现有的 Azure VM，或者 VM 快照准备托管映像。 
 
-- 若要创建新的 VM，可将 Azure Marketplace 映像用作托管映像的基础映像，然后对其进行自定义。 
+- 若要创建新的 VM，可将 Azure 市场映像用作托管映像的基础映像，然后对其进行自定义。 
 
 - 如果打算使用门户捕获映像，请确保使用托管磁盘创建 VM。 这是创建 VM 时的默认存储设置。
 
@@ -99,3 +99,4 @@ ms.locfileid: "26352329"
 
 - 有关 Batch 深入概述的信息，请参阅[使用 Batch 开发大规模并行计算解决方案](batch-api-basics.md)。
 
+<!-- Update_Description: wording update -->

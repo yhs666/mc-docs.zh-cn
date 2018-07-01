@@ -22,6 +22,8 @@
       href: batch-apis-tools.md
     - name: 配额和限制
       href: batch-quota-limit.md
+    - name: 支持的 VM 大小
+      href: batch-pool-vm-sizes.md
 - name: 操作指南
   items:
     - name: 管理 Batch 帐户
@@ -50,6 +52,8 @@
           href: batch-custom-images.md
         - name: 在虚拟网络中创建池
           href: batch-virtual-network.md
+        - name: 装载 Azure 文件共享
+          href: pool-file-shares.md
         - name: 使用 Linux 计算节点
           href: batch-linux-nodes.md
         - name: 使用低优先级 VM
@@ -79,10 +83,9 @@
       items:
         - name: MPI 作业
           href: batch-mpi.md
-    - name: 监视资源
+    - name: 监视 Batch 解决方案
+      href: monitoring-overview.md
       items:
-        - name: 诊断日志记录
-          href: batch-diagnostics.md
         - name: 高效列表查询
           href: batch-efficient-list-queries.md
     - name: 使用开发人员工具

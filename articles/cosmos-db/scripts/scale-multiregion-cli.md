@@ -6,7 +6,6 @@ documentationcenter: cosmosdb
 author: rockboyfor
 manager: digimobile
 tags: azure-service-management
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: azurecli
@@ -14,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/02/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5499ee7e52f032cdfbb075c6f4ec033565cdfa8b
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: af6d86190f4d6b55647869bb5e5095f5d1ea8c11
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781832"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070131"
 ---
 # <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli"></a>使用 Azure CLI 将 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级
 
@@ -85,9 +84,9 @@ az group delete --name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az cosmosdb update](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_update) | 更新 Azure Cosmos DB 帐户。 |
-| [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az cosmosdb update](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az-cosmosdb-update) | 更新 Azure Cosmos DB 帐户。 |
+| [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

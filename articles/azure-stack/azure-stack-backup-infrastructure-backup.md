@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/20/2017
-ms.date: 05/24/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: hectorl
-ms.openlocfilehash: dc15a679296306f19804aab7632b2be3d752cac7
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: e66df6dcb616b1cb3a93c0db37a60774bdee7878
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475033"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027183"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>使用基础结构备份服务对 Azure Stack 进行备份和数据恢复
 
@@ -55,7 +55,7 @@ ms.locfileid: "34475033"
 - **凭据**  
   需要域用户帐户和凭据，例如，可以使用 Azure Stack 管理员凭据。
 - **加密密钥**  
-  使用此密钥加密备份文件。 请确保将此密钥存储在安全位置。 首次设置此密钥或将来轮换密钥后，都无法从此界面查看此密钥。 有关生成预共享密钥的详细说明，请按照[使用 PowerShell 为 Azure Stack 启用备份](http://azure-stack-backup-enable-backup-powershell.md)中的脚本进行操作。
+  使用此密钥加密备份文件。 请确保将此密钥存储在安全位置。 首次设置此密钥或将来轮换密钥后，都无法从此界面查看此密钥。 有关生成预共享密钥的详细说明，请按照[使用 PowerShell 为 Azure Stack 启用备份](azure-stack-backup-enable-backup-powershell.md)中的脚本进行操作。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -64,4 +64,4 @@ ms.locfileid: "34475033"
 - 了解如何[备份 Azure Stack](azure-stack-backup-back-up-azure-stack.md )
 - 了解如何[从灾难性数据丢失中恢复](azure-stack-backup-recover-data.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

@@ -3,8 +3,8 @@ title: Azure AD Connect 同步服务影子属性 | Microsoft Docs
 description: 介绍影子属性在 Azure AD Connect 同步服务中的工作方式。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -13,20 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 06/26/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: ceaaf326071e0fc329f4e31e24d58892578aca9f
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: 109de581f47302e0d5fd31c99356e1100f98323d
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
-ms.locfileid: "20822256"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948028"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect 同步服务影子属性
 大多数属性在 Azure AD 中的表示方式与其在本地 Active Directory 中的表示方式相同。 但是，一些属性有一些特殊的处理方式，而且 Azure AD 中的属性值可能不同于 Azure AD Connect 所同步的属性值。
 
 ## <a name="introducing-shadow-attributes"></a>影子属性简介
-在 Azure AD 中，某些属性有两种表示形式。 本地值和计算所得的值都会进行存储。 这些额外的属性称为影子属性。 表示此行为的两个最常用属性是 **userPrincipalName** 和 **proxyAddress**。 当这些属性中存在代表非验证域的值时，属性值会发生更改。 但是，Connect 中的同步引擎会读取影子属性中的值，因此从该引擎的角度来看，属性是经过 Azure AD 确认的。
+在 Azure AD 中，某些属性有两种表示形式。 本地值和计算所得的值都会进行存储。 这些额外的属性称为影子属性。 表示此行为的两个最常用属性是 **userPrincipalName** 和 **proxyAddress**。 当这些属性中有表示非已验证域的值时，属性值将发生更改。 但是，Connect 中的同步引擎会读取影子属性中的值，因此从该引擎的角度来看，属性是经过 Azure AD 确认的。
 
 无法使用 Azure 门户或 PowerShell 查看影子属性。 但是，了解这些概念有助于排查某些情况下本地属性值不同于云中属性值的问题。
 
@@ -61,9 +62,9 @@ proxyAddress 也会发生这个只包括验证域的相同过程，但有一些�
 
 这个针对 proxyAddress 的逻辑称为 **ProxyCalc**。 每当出现以下情况，导致用户出现变化时，就会调用 ProxyCalc：
 
-- 已为用户分配包含 Exchange Online 的服务计划，即使用户没有获得 Exchange 的许可。 例如，需要为用户分配 Office E3 SKU，但只为其分配了 SharePoint Online。 即使邮箱仍在本地，情况也是如此。
+- 已为用户分配包含 Exchange Online 的服务计划，即使用户没有获得 Exchange 的许可。 例如，需要为用户分配 Office E3 SKU，但只为其分配了 SharePoint Online。 即使邮箱仍在本地，也是如此。
 - 属性 msExchRecipientTypeDetails 有一个值。
-- 对 proxyAddress 或 userPrincipalName 进行更改。
+- 更改 proxyAddresses 或 userPrincipalName。
 
 ProxyCalc 可能需要一些时间才能处理对用户的更改，并且不与 Azure AD Connect 导出过程同步。
 

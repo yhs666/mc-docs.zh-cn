@@ -12,16 +12,18 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
 origin.date: 04/20/2018
-ms.date: 06/11/2018
+ms.date: 07/09/2018
 ms.author: v-yiso
-ms.openlocfilehash: 626311018271bedd4757d9bb91ffc3f813cbab0a
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: fa25f7972c7c2b06a9f9adef873afdb4685e03f2
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695259"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103407"
 ---
-# <a name="send-telemetry-from-a-device-to-an-iot-hub-swift"></a>将遥测数据从设备发送到 IoT 中心 (Swift)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>快速入门：将遥测数据从设备发送到 IoT 中心 (iOS)
+
+[!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引入云中进行存储或处理。 在本文中，请将遥测数据从模拟设备应用程序发送到 IoT 中心， 然后即可从后端应用程序查看数据。 
 
@@ -43,32 +45,8 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
-第一步是使用 Azure 门户在订阅中创建 IoT 中心。 IoT 中心用于将大量遥测数据从许多设备引入到云中。 然后，该中心会允许一个或多个在云中运行的后端服务读取和处理该遥测数据。
+[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
 
-1. 登录到 [Azure 门户](http://portal.azure.cn)。
-
-1. 选择“创建资源” > “物联网” > “IoT 中心”。 
-
-   ![选择安装 IoT 中心](media/quickstart-send-telemetry-ios/selectiothub.png)
-
-1. 若要创建 IoT 中心，请使用以下表中的值：
-
-    | 设置 | 值 |
-    | ------- | ----- |
-    | Name | 中心的唯一名称 |
-    | 定价和缩放层 | F1 免费 |
-    | IoT 中心单位 | 1 |
-    | 设备到云的分区 | 2 个分区 |
-    | 订阅 | Azure 订阅。 |
-    | 资源组 | 新建。 输入资源组名称。 |
-    | 位置 | 最靠近你的位置。 |
-    | 固定到仪表板 | 是 |
-
-1. 单击“创建”。  
-
-   ![中心设置](media/quickstart-send-telemetry-ios/hubdefinition.png)
-
-1. 记下IoT 中心和资源组的名称。 本快速入门后面会用到这些值。
 
 ## <a name="register-a-device"></a>注册设备
 
@@ -169,9 +147,12 @@ iothub-explorer monitor-events myiOSdevice --login "{your hub service connection
 
 在本文中，你设置了 IoT 中心、注册了设备、将模拟遥测数据从 iOS 设备发送到了中心，并从中心读取了遥测数据。 
 
-若要继续了解如何将 iOS 设备与 IoT 中心配合使用，请参阅[通过 iOS 发送云到设备的消息 (Swift)](iot-hub-ios-swift-c2d.md)
+若要了解如何从后端应用程序控制模拟设备，请继续阅读下一快速入门教程。
+
+> [!div class="nextstepaction"]
+> [快速入门：控制连接到 IoT 中心的设备](quickstart-control-device-node.md)
 
 <!-- Links -->
-[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-process-d2c-tutorial]: tutorial-routing.md
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-connect-device]: /develop/iot/

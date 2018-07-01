@@ -3,24 +3,21 @@ title: 构建适用于 Azure Cosmos DB 的 Node.js Web 应用 | Azure
 description: 此 Node.js 教程探讨了如何使用 Azure Cosmos DB 存储和访问托管在 Azure 网站上的 Node.js Express Web 应用程序中的数据。
 keywords: 应用程序开发, 数据库教程, 了解 node.js, node.js 教程
 services: cosmos-db
-documentationcenter: nodejs
 author: rockboyfor
 manager: digimobile
-ms.assetid: 9da9e63b-e76a-434e-96dd-195ce2699ef3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: tutorial
 origin.date: 03/23/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 491c1a0b9cd1bde758a45228c977e1cab14e4d5b
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 6267786cdf6bed5454229e79f0ff411fc361622e
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781986"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070166"
 ---
 <a name="_Toc395783175"></a>
 # <a name="build-a-nodejs-web-application-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 生成 Node.js Web 应用程序
@@ -536,4 +533,4 @@ ms.locfileid: "31781986"
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
-<!-- Update_Description: update meta properties, wroding update, update cmdlet -->
+<!-- Update_Description: update meta properties, wroding update  -->

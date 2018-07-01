@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/05/2017
-ms.date: 05/28/2018
+ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: 0bed005128fbf93479647ae74e26bd9f45da42ee
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 99886cffebc23b8cd811117845a6efff9e74245f
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475216"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748423"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Azure 点播媒体编码器之间的对比
 
@@ -85,6 +85,7 @@ ms.locfileid: "34475216"
 | Apple ProRes Proxy |是 |否 |
 | Apple ProRes 4444 |是 |否 |
 | Apple ProRes 4444 XQ |是 |否 |
+| HEVC/H.265|Main Profile|Main 和 Main 10 Profile|
 
 ## <a name="input-audio-codecs"></a>输入音频编解码器
 | 输入音频编解码器 | 媒体编码器标准版 | 媒体编码器高级工作流 |

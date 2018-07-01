@@ -6,7 +6,6 @@ documentationcenter: cosmosdb
 author: rockboyfor
 manager: digimobile
 tags: azure-service-management
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: PowerShell
@@ -14,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 05/10/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8b10916a7d6b1201575b7dd8835061e0bc12276c
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 4a715c922e6e2d7fd45dd82275fe1ea1941c03bd
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781822"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070107"
 ---
 # <a name="azure-cosmos-db-create-a-firewall-using-powershell"></a>Azure Cosmos DB：使用 PowerShell 创建防火墙
 
@@ -103,4 +102,4 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties -->

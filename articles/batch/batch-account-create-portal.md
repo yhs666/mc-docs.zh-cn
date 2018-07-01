@@ -12,16 +12,16 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 11/14/2017
-ms.date: 05/15/2018
+origin.date: 05/15/2018
+ms.date: 06/28/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3395a107c37627233b29b332d6de24e23bceafb8
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 0482a1cc8ab186d4c764c6285b7ea7634fa1a483
+ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173339"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103253"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 门户创建 Batch 帐户
 
@@ -35,18 +35,17 @@ ms.locfileid: "34173339"
 
 有关批处理帐户和方案的背景，请参阅[功能概述](batch-api-basics.md)。
 
-
-
 ## <a name="create-a-batch-account"></a>创建批处理帐户
 
-> [!NOTE]
-> 创建 Batch 帐户时，通常应选择默认的“Batch 服务”模式。使用此模式时，池在 Azure 托管的订阅中以幕后方式分配。 在备用的“用户订阅”模式（对于大多数方案不再推荐使用）下，会在创建池时直接在订阅中创建 Batch VM 和其他资源。 若要在用户订阅模式下创建 Batch 帐户，还需将订阅注册到 Azure Batch 中，并将该帐户与 Azure Key Vault 相关联。
+[!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
 1. 登录到 [Azure 门户][azure_portal]。
-2. 单击“创建资源”，搜索 Marketplace 中是否有“Batch 服务”。
 
-    ![应用商店中的批处理][marketplace_portal]
-3. 选择“Batch 服务”，单击“创建”，然后输入“新建 Batch 帐户”设置。 查看以下详细信息。
+2. 单击“新建” > “计算” > “批处理服务”。
+
+    ![市场中的批处理][marketplace_portal]
+
+3. 输入“新 Batch 帐户”设置。 查看以下详细信息。
 
     ![创建批处理帐户][account_portal]
 
@@ -54,13 +53,15 @@ ms.locfileid: "34173339"
 
     b. **订阅**：要在其中创建批处理帐户的订阅。 如果只有一个订阅，则默认选择此项。
 
-    c. **池分配模式**：如果显示此设置，请接受默认值“Batch 服务”。
-
     c. **资源组**：为新批处理帐户选择现有的资源组，或选择创建一个新组。
 
     d. **位置**：要在其中创建批处理帐户的 Azure 区域。 只有订阅和资源组支持的区域显示为选项。
 
-    e. **存储帐户**（可选）：与 Batch 帐户关联的 Azure 存储帐户。 建议大多数批处理帐户采用此设置。 如需详细信息，请参阅本文后面的[关联的 Azure 存储帐户](#linked-azure-storage-account)。
+    e. **存储帐户**（可选）：与 Batch 帐户关联的 Azure 存储帐户。 建议大多数批处理帐户采用此设置。 有关 Batch 中的存储帐户选项，请参阅 [Batch 功能概述](batch-api-basics.md#azure-storage-account)。 在门户中，选择一个现有存储帐户，或者选择创建一个新帐户。
+
+      ![创建存储帐户][storage_account]
+
+    f. **池分配模式**：对于大多数情况，请接受默认值“Batch 服务”。
 
 4. 单击“创建”  以创建帐户。
 
@@ -71,34 +72,16 @@ ms.locfileid: "34173339"
 
 ![Azure 门户中的 Batch 帐户页][account_blade]
 
-- **Batch 帐户 URL**：通过 [Batch API](batch-apis-tools.md#azure-accounts-for-batch-development) 开发应用程序时，需要帐户 URL 才能访问 Batch 资源。 Batch 帐户 URL 采用以下格式：
+- **Batch 帐户名、URL 和密钥**：通过 [Batch API](batch-apis-tools.md#azure-accounts-for-batch-development) 开发应用程序时，需要帐户 URL 和密钥才能访问 Batch 资源。 （Batch 还支持 Azure Active Directory 身份验证。）
 
-    `https://<account_name>.<region>.batch.chinacloudapi.cn`
-
-![门户中的 Batch 帐户 URL][account_url]
-
-- **访问密钥**：从应用程序访问批处理帐户时，若要进行身份验证，可使用帐户访问密钥。 （Batch 还支持 Azure Active Directory 身份验证。）
-
-    若要查看或重新生成访问密钥，请选择“密钥”。
+    若要查看 Batch 帐户访问信息，请单击“密钥”。
 
     ![Azure 门户中的 Batch 帐户密钥][account_keys]
 
-[!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
+- 若要查看与 Batch 帐户关联的存储帐户的名称和密钥，请单击“存储帐户”。
 
-## <a name="linked-azure-storage-account"></a>链接的 Azure 存储帐户
+- 若要查看适用于 Batch 帐户的资源配额，请单击“配额”。 有关详细信息，请参阅 [Batch 服务配额和限制](batch-quota-limit.md)。
 
-可以将 Azure 存储帐户关联到 Batch 帐户，这适用于很多情况。 与[批处理文件约定 .NET](batch-task-output.md) 库一样，批处理的[应用程序包](batch-application-packages.md)功能使用 Azure Blob 存储。 这些可选功能可用于部署批处理任务运行的应用程序，以及保存它们生成的数据。
-
-有关 Batch 中的存储帐户选项，请参阅 [Batch 功能概述](batch-api-basics.md#azure-storage-account)。
-
-![创建存储帐户][storage_account]
-
-> [!NOTE]
-> 重新生成链接存储帐户的访问密钥时，请多加小心。 只重新生成一个存储帐户密钥，并单击“链接的存储帐户”页上的“同步密钥”。 等待五分钟，让密钥传播到池中的计算节点，并重新生成并同步其他密钥（如有必要）。 如果同时重新生成这两个密钥，计算节点会无法同步任何一个密钥，并且无法访问存储帐户。
->
->
-
-![重新生成存储帐户密钥][4]
 
 ## <a name="additional-configuration-for-user-subscription-mode"></a>用户订阅模式的其他配置
 
@@ -127,24 +110,14 @@ ms.locfileid: "34173339"
 ### <a name="create-a-key-vault"></a>创建密钥保管库
 在“用户订阅”模式下，需要的 Azure 密钥保管库与要创建的批处理帐户属于同一资源组。 请确保资源组所在的区域是[提供](https://azure.microsoft.com/regions/services/)批处理的区域，也是订阅所支持的区域。
 
-1. 在 [Azure 门户][azure_portal]中，单击“新建” > “安全性 + 标识” > “密钥保管库”。
+1. 在 [Azure 门户][azure_portal]中，单击“新建” > “安全性” > “密钥保管库”。
 
 2. 在“创建密钥保管库”页中，输入密钥保管库的名称，并在区域中创建需要用于 Batch 帐户的资源组。 让其余设置保留默认值，并单击“创建”。
 
-
-
-
-## <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
-与 Azure 订阅和其他 Azure 服务一样，Batch 帐户也适用特定[配额和限制](batch-quota-limit.md)。 Batch 帐户的当前配额显示在“配额”中。
-
-![Azure 门户中的 Batch 帐户配额][quotas]
-
-
-
-此外，其中许多配额可以通过在 Azure 门户中提交免费产品支持请求来增加。 有关请求增加配额的详细信息，请参阅 [Azure Batch 服务的配额和限制](batch-quota-limit.md) 。
+以用户订阅模式创建 Batch 帐户时，请使用密钥保管库的资源组，指定“用户订阅”作为池分配模式，然后选择密钥保管库。
 
 ## <a name="other-batch-account-management-options"></a>其他 Batch 帐户管理选项
-除了使用 Azure 门户外，还可使用以下各项创建和管理 Batch 帐户：
+除了使用 Azure 门户外，还可使用以下工具创建和管理 Batch 帐户：
 
 - [Batch PowerShell cmdlet](batch-powershell-cmdlets-get-started.md)
 - [Azure CLI](batch-cli-get-started.md)
@@ -154,20 +127,15 @@ ms.locfileid: "34173339"
 - 请参阅[批处理功能概述](batch-api-basics.md)，详细了解处理服务的概念和功能。 本文讨论主要 Batch 资源（例如池、计算节点、作业和任务），并提供适用于大规模计算工作负荷的服务功能概述。
 - 了解使用[批处理 .NET 客户端库](batch-dotnet-get-started.md)或 [Python](batch-python-tutorial.md) 开发支持批处理的应用程序的基本概念。 这些简介文章介绍了使用批处理服务在多个计算节点上执行工作负荷的可行应用程序，并说明了如何使用 Azure 存储进行工作负荷文件暂存和检索。
 
-[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
-[api_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
-
 [azure_portal]: https://portal.azure.cn
 [batch_pricing]: https://www.azure.cn/pricing/details/batch/
 
-[4]: ./media/batch-account-create-portal/batch_acct_04.png "重新生成存储帐户密钥"
-[marketplace_portal]: ./media/batch-account-create-portal/marketplace_batch.PNG
+[marketplace_portal]: ./media/batch-account-create-portal/marketplace-batch.png
 [account_blade]: ./media/batch-account-create-portal/batch_blade.png
-[account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
-[account_keys]: ./media/batch-account-create-portal/account_keys.PNG
+[account_portal]: ./media/batch-account-create-portal/batch-account-portal.png
+[account_keys]: ./media/batch-account-create-portal/batch-account-keys.png
 [account_url]: ./media/batch-account-create-portal/account_url.png
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
-[quotas]: ./media/batch-account-create-portal/quotas.png
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png
 

@@ -1,5 +1,5 @@
 ---
-title: 媒体编码器高级工作流格式和编解码器 | Microsoft Docs
+title: 媒体编码器高级工作流格式和编解码器 | Azure
 description: 本主题概述媒体编码器高级工作流格式和编解码器
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/09/2017
-ms.date: 05/28/2018
+ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: 4d0dd3f14e4925e03f7c1d0bddd4211027a666c8
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: d0c3490c9b9e6b59ecaec3c01dac6f87fdf4f017
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475396"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748371"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>媒体编码器高级工作流格式和编解码器
 
@@ -50,6 +50,7 @@ ms.locfileid: "34475396"
 * AVC 8 位/10 位，最高支持 4:2:2，包括 AVCIntra
 * Avid DNxHD（MXF 格式）
 * DVCPro/DVCProHD（MXF 格式）
+* HEVC/H.265、Main 和 Main 10 Profile
 * JPEG2000
 * Mpeg-2（最高支持 422 Profile 和 High Level；包括 XDCAM、XDCAM HD、XDCAM IMX、CableLabs® 和 D10 等变体）
 * MPEG-1

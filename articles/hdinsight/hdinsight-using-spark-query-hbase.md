@@ -9,19 +9,17 @@ editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/11/2018
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: 7c62fb983e2563fa340459cd7151be7702b8a7d9
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 06/25/2018
+ms.openlocfilehash: 872f3d5ef8af78d0cb82d19de1b63f2b46adb299
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077679"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747420"
 ---
 # <a name="use-spark-to-read-and-write-hbase-data"></a>使用 Spark 读取和写入 HBase 数据
 
@@ -133,7 +131,7 @@ ms.locfileid: "30077679"
 1. 使用 SSH 连接到 Spark 集群的头节点。
 2. 启动 spark shell，指定 Spark HBase 连接器包：
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/coroups/public/
 
 3. 保持此 Spark Shell 实例处于打开状态，并继续执行下一步操作。
 

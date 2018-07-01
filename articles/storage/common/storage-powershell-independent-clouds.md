@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 10/24/2017
 ms.date: 12/04/2017
 ms.author: v-nany
-ms.openlocfilehash: ac160b32ce048d9318033a01fc804835325ef021
-ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
+ms.openlocfilehash: ca46a24d1b2b097be95dd22d6ecb2550e79cd0f0
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26044621"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103085"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>使用 PowerShell 管理 Azure 独立云中的存储
 
@@ -37,11 +37,11 @@ ms.locfileid: "26044621"
 * 确定并使用可用的区域。
 * 使用正确的终结点后缀，它不同于 Azure 公有云。
 
-本文中的示例需要 Azure PowerShell 模块 4.4.0 或更高版本。 在 PowerShell 窗口中，运行 `Get-Module -ListAvailable AzureRM` 可查找版本。 如果未列出任何信息或需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 
+本文中的示例需要 Azure PowerShell 模块 4.4.0 或更高版本。 在 PowerShell 窗口中，运行 `Get-Module -ListAvailable AzureRM` 可查找版本。 如果未列出任何信息或需要升级，请参阅[安装 Azure PowerShell 模块](/powershell/azure/install-azurerm-ps)。 
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-运行 [Get-AzureRmEnvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/get-azurermenvironment) cmdlet 以查看可用的 Azure 环境：
+运行 [Get-AzureEnvironment](/powershell/module/azure/Get-AzureRmEnvironment) cmdlet 以查看可用的 Azure 环境：
    
 ```powershell
 Get-AzureRmEnvironment
@@ -50,11 +50,11 @@ Get-AzureRmEnvironment
 登录到有权访问所要连接的云的帐户，并设置环境。 此示例演示如何登录到使用 Azure 中国云的帐户。   
 
 ```powershell
-Login-AzureRmAccount –Environment AzureChinaCloud
+Connect-AzureRmAccount –Environment AzureChinaCloud
 ```
 
 
-此时，如果需要查看可在其中创建存储帐户或其他资源的位置列表，可以使用 [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation) 查询所选云可用的位置。
+此时，如果需要查看可在其中创建存储帐户或其他资源的位置列表，可以使用 [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) 查询所选云可用的位置。
 
 ```powershell
 Get-AzureRmLocation | select Location, DisplayName
@@ -84,7 +84,7 @@ Get-AzureRmEnvironment | select Name, StorageEndpointSuffix
 
 此命令返回以下结果。
 
-| 名称| core.usgovcloudapi.net|
+| Name| core.usgovcloudapi.net|
 |----|----|
 |AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -102,7 +102,7 @@ Get-AzureRmEnvironment -Name AzureChinaCloud
 
 |属性名称|值|
 |----|----|
-| 名称 | AzureChinaCloud |
+| Name | AzureChinaCloud |
 | EnableAdfsAuthentication | False |
 | ActiveDirectoryServiceEndpointResourceI | https://management.core.chinacloudapi.cn/ |
 | GalleryURL | https://gallery.azure.com/ |

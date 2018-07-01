@@ -6,26 +6,25 @@ services: cosmos-db
 author: rockboyfor
 manager: digimobile
 editor: monicar
-documentationcenter: nodejs
-ms.assetid: d87d97be-47a5-4928-8d46-a541fbb33213
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 origin.date: 05/23/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 60792ae44f374497a5cd73f4e54121be8880945a
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 139edfdff73e58212c10cdb7d1f679ac319d77fb
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782188"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070267"
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js 示例
 > [!div class="op_single_selector"]
 > * [.NET 示例](sql-api-dotnet-samples.md)
+> * [Java 示例](sql-api-java-samples.md)
+> * [异步 Java 示例](sql-api-async-java-samples.md)
 > * [Node.js 示例](sql-api-nodejs-samples.md)
 > * [Python 示例](sql-api-python-samples.md)
 > * [Azure 代码示例库](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
@@ -41,7 +40,7 @@ ms.locfileid: "31782188"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- 可以[激活 Visual Studio 订户权益](https://www.azure.cn/support/legal/offer-rate-plans/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)：Visual Studio 订阅每月为用户提供可用于付费版 Azure 服务的信用额度。
+- 可以[激活 Visual Studio 订户权益](https://www.azure.cn/support/legal/offer-rate-plans/)：Visual Studio 订阅每月为用户提供可用于付费版 Azure 服务的信用额度。
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 

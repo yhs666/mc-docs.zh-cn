@@ -13,14 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 03/22/2018
-ms.date: 05/03/2018
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 6476e1df98ea2231f30bf39ace634123114eb078
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: ed72746c56d892048b30ebc5509c8290223c5264
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815267"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947952"
 ---
 # <a name="connector-version-release-history"></a>连接器版本发行历史记录
 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接器会经常更新。
@@ -34,11 +35,11 @@ Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接�
 相关链接：
 
 - [下载最新连接器](http://go.microsoft.com/fwlink/?LinkId=717495)
-- [泛型 LDAP 连接器](active-directory-aadconnectsync-connector-genericldap.md)参考文档
-- [泛型 SQL 连接器](active-directory-aadconnectsync-connector-genericsql.md)参考文档
-- [Web 服务连接器](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) 参考文档
-- [PowerShell 连接器](active-directory-aadconnectsync-connector-powershell.md)参考文档
-- [Lotus Domino 连接器](active-directory-aadconnectsync-connector-domino.md)参考文档
+- [泛型 LDAP 连接器](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap)参考文档
+- [泛型 SQL 连接器](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)参考文档
+- [Web 服务连接器](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) 参考文档
+- [PowerShell 连接器](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-powershell)参考文档
+- [Lotus Domino 连接器](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-domino)参考文档
 
 
 ## <a name="118300"></a>1.1.830.0
@@ -119,7 +120,7 @@ Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的连接�
 
 - 泛型 SQL：
   - **方案：重新设计实现：** "*"功能
-  - **解决方案说明：** 已更改[多值引用属性处理](active-directory-aadconnectsync-connector-genericsql.md)的方法。
+  - **解决方案说明：** 已更改[多值引用属性处理](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)的方法。
 
 
 ### <a name="fixed-issues"></a>已解决的问题：
@@ -196,7 +197,7 @@ Lotus：
 发布时间：2016 年 3 月
 
 **新连接器**  
-[泛型 SQL 连接器](active-directory-aadconnectsync-connector-genericsql.md)的初始版本。
+[泛型 SQL 连接器](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)的初始版本。
 
 **新功能：**
 
@@ -270,4 +271,4 @@ Lotus：
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

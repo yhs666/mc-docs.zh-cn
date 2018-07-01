@@ -13,15 +13,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 origin.date: 04/06/2018
-ms.date: 05/15/2018
+ms.date: 06/28/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ae4bb75ac77a948fc51c2458f476481c38d439c
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 366284e18014a7a2e2da6f0e6ac24609f6a5a167
+ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173379"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103261"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 开发大规模并行计算解决方案
 
@@ -74,10 +74,7 @@ ms.locfileid: "34173379"
 
 可以在单个批处理帐户中运行多个批处理工作负荷，或者在相同订阅的不同 Azure 区域的批处理帐户之间分散工作负荷。
 
-> [!NOTE]
-> 创建 Batch 帐户时，通常应选择默认的“Batch 服务”模式。使用此模式时，池在 Azure 托管的订阅中以幕后方式分配。 在备用的“用户订阅”模式（对于大多数方案不再推荐使用）下，会在创建池时直接在订阅中创建 Batch VM 和其他资源。 若要在用户订阅模式下创建 Batch 帐户，还需将订阅注册到 Azure Batch 中，并将该帐户与 Azure Key Vault 相关联。
->
-
+[!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
 ## <a name="azure-storage-account"></a>Azure 存储帐户
 
@@ -87,12 +84,12 @@ Batch 支持以下 Azure 存储[帐户选项](../storage/common/storage-account-
 
 - 常规用途 v2 (GPv2) 帐户 
 - 常规用途 v1 (GPv1) 帐户
-- Blob 存储帐户
+- Blob 存储帐户（目前支持虚拟机配置中的池）
 
 创建 Batch 帐户时可以将存储帐户与 Batch 帐户关联，也可以稍后关联。 选择存储帐户时，请考虑成本和性能要求。 例如，与 GPv1 相比，GPv2 和 blob 存储帐户选项支持更大的[容量和可伸缩性限制](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)。 （请联系 Azure 支持以请求提高存储上限。）对于包含大量读取或写入存储帐户的并行任务的 Batch 解决方案，这些帐户选项可以提高其性能。
 
 ## <a name="compute-node"></a>计算节点
-计算节点是专门用于处理一部分应用程序工作负荷的 Azure 虚拟机 (VM) 或云服务 VM。 节点大小确定了 CPU 核心数目、内存容量，以及分配给节点的本地文件系统大小。 可以使用 [Azure 虚拟机 Marketplace][vm_marketplace] 提供的 Azure 云服务映像或自己准备的自定义映像创建 Windows 或 Linux 节点池。 有关这些选项的详细信息，请参阅下面的 [池](#pool) 部分。
+计算节点是专门用于处理一部分应用程序工作负荷的 Azure 虚拟机 (VM) 或云服务 VM。 节点大小确定了 CPU 核心数目、内存容量，以及分配给节点的本地文件系统大小。 可以使用 [Azure 虚拟机市场][vm_marketplace]提供的 Azure 云服务映像或自己准备的自定义映像创建 Windows 或 Linux 节点池。 有关这些选项的详细信息，请参阅下面的 [池](#pool) 部分。
 
 节点可以运行节点操作系统环境支持的任何可执行文件或脚本。 这包括适用于 Windows 的 \*.exe、\*.cmd、\*.bat 和 PowerShell 脚本，以及适用于 Linux 的二进制文件、shell 和 Python 脚本。
 
@@ -134,7 +131,7 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 
 - **虚拟机配置**，它指定池由 Azure 虚拟机组成。 可以从 Linux 或 Windows 映像创建这些 VM。 
 
-    基于虚拟机配置创建池时，不仅要指定节点大小和用于创建它们的映像源，还必须指定要安装在节点上的“虚拟机映像引用”和批处理“节点代理 SKU”。 有关指定这些池属性的详细信息，请参阅 [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md)（在 Azure Batch 池中预配 Linux 计算节点）。 可选选择性地将一个或多个空数据磁盘附加到从 Marketplace 映像创建的池 VM，也可将数据磁盘包括在用于创建 VM 的自定义映像中。
+    基于虚拟机配置创建池时，不仅要指定节点大小和用于创建它们的映像源，还必须指定要安装在节点上的“虚拟机映像引用”和批处理“节点代理 SKU”。 有关指定这些池属性的详细信息，请参阅 [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md)（在 Azure Batch 池中预配 Linux 计算节点）。 可选选择性地将一个或多个空数据磁盘附加到从市场映像创建的池 VM，也可将数据磁盘包括在用于创建 VM 的自定义映像中。
 
 - **云服务配置**，它指定池由 Azure 云服务节点组成。 云服务只提供 Windows 计算节点。
 
@@ -155,7 +152,7 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 
 #### <a name="container-support-in-virtual-machine-pools"></a>虚拟机池中的容器支持
 
-使用 Batch API 创建虚拟机配置池时，可以将池设置为在 Docker 容器中运行任务。 目前，必须使用支持 Docker 容器的映像创建池。 将 Windows Server 2016 Datacenter 与 Azure Marketplace 中的容器映像配合使用，或者提供自定义 VM 映像（其中包含 Docker Community Edition 或 Enterprise Edition 以及任何必需的驱动程序）。 池设置必须包括[容器配置](https://docs.microsoft.com/rest/api/batchservice/pool/add#definitions_containerconfiguration)，该配置在创建池时将容器映像复制到 VM。 然后，在池中运行的任务即可引用容器映像和容器运行选项。
+使用 Batch API 创建虚拟机配置池时，可以将池设置为在 Docker 容器中运行任务。 目前，必须使用支持 Docker 容器的映像创建池。 将 Windows Server 2016 Datacenter 与 Azure 市场中的容器映像配合使用，或者提供自定义 VM 映像（其中包含 Docker Community Edition 或 Enterprise Edition 以及任何必需的驱动程序）。 池设置必须包括[容器配置](https://docs.microsoft.com/rest/api/batchservice/pool/add#definitions_containerconfiguration)，该配置在创建池时将容器映像复制到 VM。 然后，在池中运行的任务即可引用容器映像和容器运行选项。
 
 ## <a name="compute-node-type-and-target-number-of-nodes"></a>计算节点类型和目标节点数
 

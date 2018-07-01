@@ -5,22 +5,18 @@ keywords: Power BI 教程, 可视化数据, Power BI 连接器
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: ''
-ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 04/19/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: e9e0981da9ceb55bac60aaaf4cb8df089f071d4e
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 0f5c2dd82b6e479f76b30fb3535c5685e6c744b8
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867446"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070347"
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB 的 Power BI 教程：使用 Power BI 连接器可视化数据
 
@@ -57,6 +53,7 @@ ms.locfileid: "34867446"
 
 ## <a name="lets-get-started"></a>让我们开始吧
 本教程假设读者是一位研究世界各地的火山的地理学家。  火山数据存储在 Azure Cosmos DB 帐户中且 JSON 文档的外观如以下示例文档所示。
+<!--Notice: around the world in correct-->
 
     {
         "Volcano Name": "Rainier",
@@ -100,7 +97,7 @@ ms.locfileid: "34867446"
     ![Azure Cosmos DB Power BI 连接器的 Power BI 教程 - 桌面连接窗口](./media/powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
 8. 如果是首次连接到此终结点，则会提示输入帐户密钥。 若使用自己的帐户，请从 Azure 门户的[“只读密钥”](manage-account.md#keys)边栏选项卡中的“主密钥”框中检索密钥。 对于演示帐户，该密钥为 `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`。 输入相应的密钥，然后单击“连接”。
 
-    我们建议在生成报表时使用只读密钥。  这会防止主密钥不必要地暴露于潜在的安全风险中。 只读密钥从 Azure 门户的[“密钥”](manage-account.md#keys)边栏选项卡中可用，或者可以使用上文提供的演示帐户信息。
+    我们建议在生成报表时使用只读密钥。  这可防止主密钥不必要地暴露于潜在的安全风险中。 只读密钥从 Azure 门户的[“密钥”](manage-account.md#keys)边栏选项卡中可用，或者可以使用上文提供的演示帐户信息。
 
     ![针对 Azure Cosmos DB Power BI 连接器的 Power BI 教程 - 帐户密钥](./media/powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
 
@@ -229,4 +226,4 @@ For a scheduled refresh, do the following.
 * 有关 Power BI 的详细信息，请参阅 [Get started with Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)（Power BI 入门）。
 * 若要了解有关 Azure Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB 文档登陆页](/cosmos-db/)。
 
-<!--Update_Description: wording update, update link-->
+<!--Update_Description: wording update, update meta properties -->

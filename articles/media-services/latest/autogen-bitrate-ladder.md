@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2018
-ms.date: 05/28/2018
+ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: 33f7c8107033c87919b98b488a02ca293238bc3d
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: cc3e2b761037b395fcdba6778e6ede12e128ed8d
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475128"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748389"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>使用自动生成的比特率阶梯进行编码
 
@@ -29,13 +29,13 @@ ms.locfileid: "34475128"
 
 ### <a name="encoding-for-streaming"></a>编码用于流式处理
 
-顾名思义，如果在创建编码转换时使用 AdaptiveStreaming 预设，将得到适用于通过流式处理协议（如 HLS、DASH、CMAF 等）传送的输出。使用此 AdaptiveStreaming 预设时，编码器可智能地确定要生成的视频层数，并确定比特率和分辨率。 输出资产包含 MP4 文件，其中无 AAC 编码的音频和 H.264 编码的视频交错。
+在“转换”中使用“AdaptiveStreaming”预设时，会获取适合通过流式处理协议（例如 HLS 和 DASH）传递的输出。 使用此预设时，此服务可智能地确定要生成的视频层数，并确定比特率和分辨率。 输出内容包含 MP4 文件，其中无 AAC 编码的音频和 H.264 编码的视频交错。
 
 若要查看有关如何使用此预设的示例，请参阅[流式传输文件](stream-files-dotnet-quickstart.md)。
 
 ## <a name="output"></a>输出
 
-此部分显示媒体服务编码器生成的输出视频层的三个示例，是使用“AdaptiveStreaming”预设进行编码得来的。 在所有情况下，输出将包含仅音频 MP4 文件，其中立体声音频以 128 kbps 进行编码。
+此部分显示媒体服务编码器生成的输出视频层的三个示例，是使用“AdaptiveStreaming”预设进行编码得来的。 在所有情况下，输出包含仅音频 MP4 文件，其中立体声音频以 128 kbps 进行编码。
 
 ### <a name="example-1"></a>示例 1
 高度为“1080”，帧速率为“29.970”的源生成 6 个视频层：
@@ -69,3 +69,7 @@ ms.locfileid: "34475128"
 |2|270|480|440|
 |3|180|320|230|
 
+## <a name="next-steps"></a>后续步骤
+
+> [!div class="nextstepaction"]
+> [流式传输文件](stream-files-dotnet-quickstart.md)

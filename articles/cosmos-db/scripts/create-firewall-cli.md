@@ -6,7 +6,6 @@ documentationcenter: cosmosdb
 author: rockboyfor
 manager: digimobile
 tags: azure-service-management
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: sammvcple
 ms.devlang: azurecli
@@ -14,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/02/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: a480a72f1c9efbebf5cd5b25bb693eace91a4b47
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 9c5a44f6680fd4d80f4ed84667f81eb9b81d6dc9
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782212"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070170"
 ---
 # <a name="azure-cosmos-db-create-a-firewall-using-the-azure-cli"></a>Azure Cosmos DB：使用 Azure CLI 创建防火墙
 
@@ -93,10 +92,10 @@ az group delete --name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) | 创建 Azure CosmosDB 帐户。 |
-| [az cosmosdb update](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_update) | 更新 Azure CosmosDB 帐户，将防火墙设置加入其中。 |
-| [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) | 创建 Azure CosmosDB 帐户。 |
+| [az cosmosdb update](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az-cosmosdb-update) | 更新 Azure CosmosDB 帐户，将防火墙设置加入其中。 |
+| [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

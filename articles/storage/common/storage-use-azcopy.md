@@ -1,5 +1,5 @@
 ---
-title: 使用 Windows 上的 AzCopy 将数据复制或移动到 Azure 存储 | Microsoft Docs
+title: 使用 Windows 上的 AzCopy 将数据复制或移动到 Azure 存储 | Azure
 description: 使用 Windows 上的 AzCopy 实用工具将数据移动或复制到 Blob、表和文件内容或从 Blob、表和文件内容移动或复制数据。 从本地文件将数据复制到 Azure 存储，或者在存储帐户中或存储帐户之间复制数据。 轻松地将数据迁移到 Azure 存储。
 services: storage
 documentationcenter: ''
@@ -12,24 +12,35 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/29/2018
-ms.date: 03/05/2018
+origin.date: 05/17/2018
+ms.date: 07/02/2018
 ms.author: v-nany
-ms.openlocfilehash: 847c0163b63457a77d017cf5b87845ab0cacaa40
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: f5f2c095f60cb3c1af044f3d404c36dc50bd586c
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36270074"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103088"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>使用 Windows 上的 AzCopy 传输数据
 AzCopy 是一个命令行实用程序，专用于使用旨在实现最佳性能的简单命令将数据复制到 Microsoft Azure Blob、文件和表存储以及从这些位置复制数据。 可在文件系统和存储帐户之间或在存储帐户之间复制数据。  
 
-有两个版本的 AzCopy 可下载。 Windows 上的 AzCopy 使用 .NET Framework 构建而成，提供 Windows 样式的命令行选项。 [Linux 上的 AzCopy](storage-use-azcopy-linux.md) 使用 .NET Core Framework 构建而成，以提供 POSIX 样式的命令行选项的 Linux 平台为目标。 本文介绍 Windows 上的 AzCopy。
+有两个版本的 AzCopy 可下载。 AzCopy on Windows 提供 Windows 样式的命令行选项。 [AzCopy on Linux](storage-use-azcopy-linux.md) 面向 Linux 平台，它提供 POSIX 样式的命令行选项。 本文介绍 Windows 上的 AzCopy。
 
 ## <a name="download-and-install-azcopy-on-windows"></a>下载并安装 AzCopy on Windows
 
-下载 [Windows 上的 AzCopy 最新版](http://aka.ms/downloadazcopy)。
+### <a name="latest-preview-version-v800"></a>最新预览版本 (v8.0.0)
+下载 [AzCopy on Windows 的最新预览版](https://aka.ms/downloadazcopypr)。 此预览版本提供了显着的性能改进，并在安装中打包了 .NET Core。
+
+#### <a name="azcopy-on-windows-80-preview-release-notes"></a>AzCopy on Windows 8.0 预览版发行说明
+- 最新版本不再支持表服务。 如果使用表导出功能，请下载稳定版本。
+- 使用 .NET Core 2.1 构建，现在所有 .NET Core 依赖项都打包在安装中。
+- 上传和下载方案都有显著的性能改进
+
+### <a name="latest-stable-version-v710"></a>最新稳定版本 (v7.1.0)
+下载 [AzCopy on Windows 的最新稳定版本](https://aka.ms/downloadazcopy)。
+
+### <a name="post-installation-step"></a>安装后步骤
 
 使用安装程序安装 Windows 上的 AzCopy 后，打开一个命令窗口，然后导航到计算机上的 AzCopy 安装目录，该位置存放着可执行的 `AzCopy.exe`。 如果需要，可以将 AzCopy 安装位置添加到系统路径。 默认情况下，AzCopy 安装到 `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` 或 `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`。
 
@@ -290,7 +301,7 @@ AzCopy /Source:https://myaccount1.blob.core.chinacloudapi.cn/myContainer/ /Dest:
 AzCopy /Source:https://myaccount.file.core.chinacloudapi.cn/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 ```
 
-如果指定的源是 Azure 文件共享，则必须指定确切的文件名（例如 `abc.txt`）以下载单个文件，或者指定选项 `/S` 以递归方式下载该共享中的所有文件。 尝试同时指定文件模式和选项 `/S` 将导致错误。
+如果指定的源是 Azure 文件共享，则必须指定确切的文件名（*例如* `abc.txt`）以下载单个文件，或者指定选项 `/S` 以递归方式下载该共享中的所有文件。 尝试同时指定文件模式和选项 `/S` 将导致错误。
 
 ### <a name="download-all-files-in-a-directory"></a>下载目录中的所有文件
 
@@ -506,6 +517,7 @@ AzCopy /@:"C:\responsefiles\copyoperation.txt"
 http://myaccount.blob.core.chinacloudapi.cn/mycontainer C:\myfolder /sourcekey: <sourcekey> /S /Y
 
 ### <a name="use-multiple-response-files-to-specify-command-line-parameters"></a>使用多个响应文件指定命令行参数
+
 假定有一个名为 `source.txt` 的响应文件，该文件指定了一个源容器：
 
 /Source:http://myaccount.blob.core.chinacloudapi.cn/mycontainer
@@ -605,6 +617,20 @@ AzCopy /Source:https://127.0.0.1:10000/myaccount/mycontainer/ /Dest:C:\myfolder 
 ```azcopy
 AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /SourceKey:key /SourceType:Table
 ```
+
+### <a name="automatically-determine-content-type-of-a-blob"></a>自动确定 Blob 的内容类型
+
+AzCopy 根据将内容类型存储到文件扩展名映射的 JSON 文件确定 blob 的内容类型。 此 JSON 文件命名为 AzCopyConfig.json，并且位于 AzCopy 目录中。 如果你的文件类型不在列表中，可以将映射追加到 JSON 文件中：
+
+```
+{
+  "MIMETypeMapping": {
+    ".myext": "text/mycustomtype",
+    .
+    .
+  }
+}
+```     
 
 ## <a name="azcopy-parameters"></a>AzCopy 参数
 
@@ -938,10 +964,6 @@ AzCopy 默认情况下使用服务器端的异步复制。 指定此选项以执
 在使用 AzCopy 复制 blob 或文件时，请记住，在复制数据时其他应用程序可能正在修改该数据。 如果可能，请确保要复制的数据在复制操作期间不会被修改。 例如，当复制与 Azure 虚拟机关联的 VHD 时，请确保当前没有其他应用程序正在向该 VHD 进行写入。 执行此操作的一个好方法是租用要复制的资源。 另外，还可以先创建 VHD 的快照，然后复制该快照。
 
 如果在复制 blob 或文件时无法阻止其他应用程序向其进行写入，请记住，在作业完成时，复制的资源可能不再与源资源完全相同。
-
-### <a name="run-one-azcopy-instance-on-one-machine"></a>在一台计算机上运行一个 AzCopy 实例。
-
-AzCopy 旨在最大程度上利用计算机资源来加快数据传输，如果需要更多的并发操作，我们建议在一台计算机上只运行一个 AzCopy 实例并指定选项 `/NC` 。 有关详细信息，请在命令行中键入 `AzCopy /?:NC` 。
 
 ### <a name="enable-fips-compliant-md5-algorithms-for-azcopy-when-you-use-fips-compliant-algorithms-for-encryption-hashing-and-signing"></a>当进行“使用适用于加密、哈希和签名的 FIPS 兼容算法”时，请启用适用于 AzCopy、与 FIPS 兼容的 MD5 算法。
 

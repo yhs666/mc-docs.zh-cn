@@ -10,19 +10,17 @@ documentationcenter: ''
 ms.assetid: 4f26c79f-8540-44bd-a470-84722a9e4eca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 12/15/2017
-ms.date: 01/15/2018
+ms.topic: conceptual
+origin.date: 05/14/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: e275d1b7b079ec67d2d3e88fa0e2dc7e3a3f4f58
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 4deef9348894af73b90e258af2160bd9f9c7231f
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27781363"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747442"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>使用 Azure CLI 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]

@@ -10,12 +10,12 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
 ms.topic: article
-ms.openlocfilehash: adf886cb334c7afca4f79a62ac34971ba4e2ddae
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: b4a3797021c031de8807cd5d393df589c428bb33
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782260"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947938"
 ---
 # <a name="copy-an-azure-sql-database"></a>复制 Azure SQL 数据库
 
@@ -43,7 +43,7 @@ ms.locfileid: "31782260"
 
 ## <a name="copy-a-database-by-using-powershell"></a>使用 PowerShell 复制数据库
 
-若要使用 PowerShell 复制数据库，请使用 [New-AzureRmSqlDatabaseCopy](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) cmdlet。 
+若要使用 PowerShell 复制数据库，请使用 [New-AzureRmSqlDatabaseCopy](/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) cmdlet。 
 
 ```PowerShell
 New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
@@ -81,6 +81,7 @@ New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database1_copy AS COPY OF server1.Database1;
 
+
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>监视复制操作的进度
 
 通过查询 sys.databases 和 sys.dm_database_copies 视图来监视复制过程。 在复制过程中，新数据库的 sys.databases 视图的 **state_desc** 列将设置为 **COPYING**。
@@ -104,5 +105,4 @@ New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
 * 有关登录名的信息，请参阅[管理登录名](sql-database-manage-logins.md)和[灾难恢复后如何管理 Azure SQL 数据库安全性](sql-database-geo-replication-security-config.md)。
 * 要导出数据库，请参阅[将数据库导出到 BACPAC](sql-database-export.md)。
-
 <!--Update_Description: update meta properties-->

@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 1ea5a0937fe66be3dd2aca50c30e19dce9df93c9
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 35b008fd4330617b07e8ef6a5bb2e87b393380c0
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782130"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748373"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 数据库审核入门
 Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储帐户中的审核日志。 审核还可：
@@ -75,8 +75,8 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 
     ![导航窗格][3]
 5. 若要打开“审核日志存储”边栏选项卡，请选择“存储详细信息”。 依次选择要用于保存日志的 Azure 存储帐户以及保持期。 将删除旧日志。 。
-   >[!TIP]
-   >若要充分利用审核报告模板，请为所有审核的数据库使用相同的存储帐户。
+    >[!TIP]
+    >若要充分利用审核报告模板，请为所有审核的数据库使用相同的存储帐户。
 
     <a id="storage-screenshot"></a> ![导航窗格][4]
 6. 若要自定义已审核的事件，可通过 PowerShell 或 REST API 执行此操作。
@@ -119,8 +119,6 @@ Blob 审核日志以 blob 文件集合的形式保存在名为 **sqldbauditlogs*
     3. 添加要合并的所有文件后，单击“确定”完成合并操作。
 
     4. 合并的文件会在 SSMS 中打开，可在其中进行查看和分析，以及将其作为 XEL 或 CSV 文件导出或导出到表中。
-
-* 使用创建的[同步应用程序](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration)。 该应用程序在 Azure 中运行，并利用 Log Analytics 公共 API 将 SQL 审核日志推送到 Log Analytics 中。 同步应用程序通过 Log Analytics 仪表板将 SQL 审核日志推送到 Log Analytics 中以供使用。
 
 * 使用 Power BI。 可在 Power BI 中查看和分析审核日志数据。 详细了解 [Power BI 及如何访问可下载的模板](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/)。
 

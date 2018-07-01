@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 05/08/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5696222bdf2147e03a499435cfb0695f5da9085c
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 5206da5e72fb4c96b30df750a11af57656433c5b
+ms.sourcegitcommit: 3130e6042909be0d97d7de5aec7ae9454cd81cfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416811"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102880"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的出站连接
 
@@ -76,8 +76,8 @@ SNAT 端口是根据[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的�
 
 如果[多个（公共）IP 地址与一个负载均衡器基本版相关联](load-balancer-multivip-overview.md)，则所有这些公共 IP 地址都是[出站流的候选项，并且会选择其中的一个](#multivipsnat)。  
 
-若要监视负载均衡器基本版的出站连接运行状况，可以使用[用于负载均衡器的 Log Analytics](load-balancer-monitor-log.md) 和用于监视 SNAT 端口耗尽消息的[警报事件日志](load-balancer-monitor-log.md#alert-event-log)。
-
+<!-- Not Available on [Log Analytics for Load Balancer](load-balancer-monitor-log.md)-->
+<!-- Not Available on [alert event logs](load-balancer-monitor-log.md#alert-event-log)-->
 <a name="defaultsnat"></a>
 <a name="multivipsnat"></a>
 ### <a name="scenario-3-standalone-vm-without-an-instance-level-public-ip-address"></a>方案 3：无实例级公共 IP 地址的独立 VM

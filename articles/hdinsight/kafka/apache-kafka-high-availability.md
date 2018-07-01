@@ -4,23 +4,23 @@ description: 了解如何确保 Azure HDInsight 上 Apache Kafka 的高可用性
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
 editor: cgronlun
+manager: jhubbard
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/30/2018
-ms.date: 04/16/2018
+origin.date: 05/01/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 909f12b8fcb37b118694706c05b1b33f6d2700cb
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 01a8d638e4848ba34622d74963ff8be9191c5ab2
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30941428"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747389"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>通过 Apache Kafka on HDInsight 实现数据的高可用性
 

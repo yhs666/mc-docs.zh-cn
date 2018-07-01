@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/09/2018
-ms.date: 05/24/2018
+origin.date: 05/23/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
-ms.openlocfilehash: 72f99533954f2fe07b4001026d1e7447e129b53e
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 7dbf7c3d16d79f0b75b096b61ce55c6b3907273d
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474933"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027071"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack 防火墙集成
 建议使用防火墙设备来帮助保护 Azure Stack。 虽然防火墙可以发挥很多作用，例如抵御分布式拒绝服务 (DDOS) 工具、执行入侵检测和内容检查，但是它们也可能会成为 Azure 存储服务（例如 blob、表和队列）的吞吐量瓶颈。
@@ -50,7 +50,7 @@ Azure 资源管理器（管理员）、管理员门户和 Key Vault（管理员�
 
 通常情况下，在部署时会为外部网络中的公共 VIP 池指定公共的可路由 IP 地址。 在边缘方案中，出于安全考虑，建议不要在任何其他网络上使用公共的可路由 IP。 与在 Azure 之类的公有云中一样，此方案使得用户能够获得完全的自控云体验。  
 
-![Azure Stack 边缘防火墙示例](./media/azure-stack-firewall/edge-firewall-scenario.png)
+![Azure Stack 边缘防火墙示例](./media/azure-stack-firewall/firewallScenarios.png)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>企业 Intranet 或外围网络防火墙方案
 在企业 Intranet 或外围部署中，Azure Stack 部署在多区域防火墙上或者部署在边缘防火墙与内部的公司网络防火墙之间。 然后，其流量将分布在安全的外围网络（或 DMZ）与不安全的区域之间，如下所述：
@@ -59,7 +59,7 @@ Azure 资源管理器（管理员）、管理员门户和 Key Vault（管理员�
 - **外围区域**。 通常在外围网络中部署面向外部或 Internet 的应用程序，例如 Web 服务器。 通常由防火墙对其进行监视，以避免诸如 DDoS 和入侵（黑客进攻）之类的攻击，同时允许来自 Internet 的指定入站流量。 只有 Azure Stack 的外部网络公共 VIP 池应当位于 DMZ 区域中。
 - **不安全区域**。 这是指外部网络，即 Internet。 建议**不要**将 Azure Stack 部署在不安全区域中。
 
-![Azure Stack 外围网络示例](.\media\azure-stack-firewall\perimeter-network-scenario.png)
+![Azure Stack 外围网络示例](./media/azure-stack-firewall/perimeter-network-scenario.png)
 
 ## <a name="learn-more"></a>了解详细信息
 详细了解 [Azure Stack 终结点使用的端口和协议](azure-stack-integrate-endpoints.md)。
@@ -68,4 +68,4 @@ Azure 资源管理器（管理员）、管理员门户和 Key Vault（管理员�
 [Azure Stack PKI 要求](azure-stack-pki-certs.md)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: image update -->

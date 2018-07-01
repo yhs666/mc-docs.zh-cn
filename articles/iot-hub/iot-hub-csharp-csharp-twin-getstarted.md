@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 05/15/2017
 ms.author: v-yiso
 ms.date: 06/11/2018
-ms.openlocfilehash: c455cfc7a46b64b07ae657523cee6a275f0b71bf
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 5fabd92a49de7b0a04967946bc181e6ebc412691
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695039"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103399"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>设备孪生入门 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -58,7 +58,7 @@ ms.locfileid: "34695039"
 1. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
    
         using Microsoft.Azure.Devices;
-1. 将以下字段添加到 **Program** 类。 将占位符值替换为在上一部分为中心创建的 IoT 中心连接字符串。
+1. 将以下字段添加到 Program 类。 将占位符值替换为在上一部分为中心创建的 IoT 中心连接字符串。
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
@@ -231,7 +231,7 @@ ms.locfileid: "34695039"
 
 [lnk-iothub-getstarted]: ./iot-hub-csharp-csharp-getstarted.md
 [lnk-methods-tutorial]: ./iot-hub-node-node-direct-methods.md
-[lnk-twin-how-to-configure]: ./iot-hub-csharp-node-twin-how-to-configure.md
+[lnk-twin-how-to-configure]: iot-hub-csharp-csharp-twin-how-to-configure.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 

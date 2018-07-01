@@ -3,7 +3,7 @@ title: Azure AD Connect 同步：操作任务和注意事项 | Microsoft Docs
 description: 本主题介绍 Azure AD Connect 同步的操作任务，以及如何准备运行此组件。
 services: active-directory
 documentationcenter: ''
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
@@ -13,14 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/13/2017
-ms.date: 01/17/2018
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 4cfc390163d0e7a87af406084b8ccbdcd0ff0d3e
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: d9a73cc6eafc10c7dbfac7a1bb11f38e43680253
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
-ms.locfileid: "27844723"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947961"
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect 同步：操作任务和注意事项
 本主题旨在介绍 Azure AD Connect 同步的操作任务。
@@ -274,4 +275,4 @@ $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeI
 - [Azure AD Connect 同步：理解和自定义同步](active-directory-aadconnectsync-whatis.md)  
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)  
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

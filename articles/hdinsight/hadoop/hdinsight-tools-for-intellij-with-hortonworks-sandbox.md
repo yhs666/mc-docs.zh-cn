@@ -12,18 +12,18 @@ ms.assetid: b587cc9b-a41a-49ac-998f-b54d6c0bdfe0
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/20/2017
-ms.date: 02/26/2018
+origin.date: 05/16/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5c7576a1e97dda70de70513d2dd7dc5a4d09a89e
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: 88c170bbc7422ea6d2bb72fefb7a1934a1db9767
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29552334"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747360"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>将用于 IntelliJ 的 HDInsight 工具与 Hortonworks 沙盒配合使用
 

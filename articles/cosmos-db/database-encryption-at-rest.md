@@ -4,22 +4,18 @@ description: 了解 Azure Cosmos DB 如何为所有数据提供默认加密。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: ''
-ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/23/2017
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4f941b4e797fe1a9d52a9e85c905ddbd33a92cb8
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 94567272c33bd8ec9c552dd7f3d8309ef4ac2f48
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867392"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070183"
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure Cosmos DB 数据库静态加密
 

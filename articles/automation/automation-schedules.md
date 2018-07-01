@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 05/08/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 5d8799d7523c4c37a8eea87528ed03ad5cf20b80
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 3aa77a14c5cdb856d61daf79e2898dcedf372963
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554273"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748437"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>在 Azure 自动化中计划 Runbook
 
@@ -60,7 +60,7 @@ ms.locfileid: "34554273"
 
 以下示例命令演示了如何使用 Azure 资源管理器 cmdlet 创建每月 15 日和 30 日运行的计划。
 
-```azurepowershell-interactive
+```azurepowershell
 $automationAccountName = "MyAutomationAccount"
 $scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
 New-AzureRMAutomationSchedule –AutomationAccountName $automationAccountName –Name `
@@ -84,7 +84,7 @@ $scheduleName -StartTime "7/01/2016 15:30:00" -MonthInterval 1 `
 可使用 [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) cmdlet 链接计划。 可以使用 Parameters 参数指定 Runbook 参数的值。 有关指定参数值的详细信息，请参阅[在 Azure 自动化中启动 Runbook](automation-starting-a-runbook.md)。
 以下示例命令演示了如何使用带参数的 Azure Resource Manager cmdlet 将计划链接到 Runbook。
 
-```azurepowershell-interactive
+```azurepowershell
 $automationAccountName = "MyAutomationAccount"
 $runbookName = "Test-Runbook"
 $scheduleName = "Sample-DailySchedule"
@@ -117,7 +117,7 @@ Register-AzureRmAutomationScheduledRunbook –AutomationAccountName $automationA
 
 以下示例命令演示了如何使用 Azure Resource Manager cmdlet 禁用 Runbook 的计划。
 
-```azurepowershell-interactive
+```azurepowershell
 $automationAccountName = "MyAutomationAccount"
 $scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
 Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `

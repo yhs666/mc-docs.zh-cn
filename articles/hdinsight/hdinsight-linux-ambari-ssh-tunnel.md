@@ -10,26 +10,26 @@ ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/07/2018
-ms.date: 05/28/2018
+origin.date: 04/30/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4afb8f76486d5a8982a5e9f832617ede649dd811
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: c03f5dde553a1b83dc978773fe74463aef3a0b20
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450093"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747396"
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>使用 SSH 隧道访问 Ambari Web UI、JobHistory、NameNode、Oozie 和其他 Web UI
 
-使用基于 Linux 的 HDInsight 群集可以通过 Internet 访问 Ambari Web UI，但无法访问 UI 的某些功能。 例如，无法访问通过 Ambari 呈现的其他服务的 Web UI。 若要获得 Ambari Web UI 的完整功能，必须与群集头建立 SSH 隧道。
+使用 HDInsight 群集可以通过 Internet 访问 Ambari Web UI，但某些功能需要 SSH 隧道。 例如，如果没有 SSh 隧道，将无法通过 Internet 访问 Oozie 服务的 Web UI。
 
 ## <a name="why-use-an-ssh-tunnel"></a>为何使用 SSH 隧道？
 
-Ambari 中的多个菜单只能通过 SSH 隧道工作。 这些菜单依赖于其他节点类型（例如辅助角色节点）上运行的网站和服务。 通常，这些网站未受保护，因此直接在 Internet 上公开并不安全。
+Ambari 中的多个菜单只能通过 SSH 隧道工作。 这些菜单依赖于其他节点类型（例如辅助角色节点）上运行的网站和服务。
 
 以下 Web UI 需要 SSH 隧道：
 
@@ -39,14 +39,14 @@ Ambari 中的多个菜单只能通过 SSH 隧道工作。 这些菜单依赖于�
 * Oozie Web UI
 * HBase Master 和日志 UI
 
-如果使用脚本操作来自定义群集，则安装的任何服务或实用工具都需要 SSH 隧道才能公开 Web UI。 例如，如果使用脚本操作安装 Hue，则必须使用 SSH 隧道来访问 Hue Web UI。
+如果通过脚本操作自定义群集，则安装的所有服务或实用工具都需要 SSH 隧道才能公开 Web 服务。 例如，如果使用脚本操作安装 Hue，则必须使用 SSH 隧道来访问 Hue Web UI。
 
 > [!IMPORTANT]
 > 如果可以通过虚拟网络直接访问 HDInsight，则不需要使用 SSH 隧道。 有关通过虚拟网络直接访问 HDInsight 的示例，请参阅[将 HDInsight 连接到本地网络](connect-on-premises-network.md)一文。
 
 ## <a name="what-is-an-ssh-tunnel"></a>什么是 SSH 隧道
 
-[安全外壳 (SSH) 隧道](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling)将已发送的流量路由到本地工作站的端口。 流量通过与 HDInsight 群集头节点建立的 SSH 连接路由。 请求将得到解析，就如同它源自头节点一样。 然后，通过与工作站建立的隧道将响应路由回去。
+[安全外壳 (SSH) 隧道](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling)将本地计算机上的端口连接到 HDInsight 上的头节点。 发送到本地端口的流量通过 SSH 连接路由到头节点。 请求将得到解析，就如同它源自头节点一样。 然后，通过与工作站建立的隧道将响应路由回去。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -55,7 +55,7 @@ Ambari 中的多个菜单只能通过 SSH 隧道工作。 这些菜单依赖于�
 * 可配置为使用 SOCKS5 代理的 Web 浏览器。
 
     > [!WARNING]
-    > 内置于 Windows 的 SOCKS 代理不支持 SOCKS5，并且不适用于本文档中的步骤。 以下浏览器依赖于 Windows 代理设置，当前不适用于此文档中的步骤：
+    > 内置于 Windows Internet 设置中的 SOCKS 代理支持不支持 SOCKS5，不适用于此文档中的步骤。 以下浏览器依赖于 Windows 代理设置，当前不适用于此文档中的步骤：
     >
     > * Microsoft Edge
     > * Microsoft Internet Explorer
@@ -64,7 +64,7 @@ Ambari 中的多个菜单只能通过 SSH 隧道工作。 这些菜单依赖于�
 
 ## <a name="usessh"></a>使用 SSH 命令创建隧道
 
-使用以下 `ssh` 命令创建 SSH 隧道。 将 **USERNAME** 替换为 HDInsight 群集的 SSH 用户，将 **CLUSTERNAME** 替换为 HDInsight 群集的名称：
+使用以下 `ssh` 命令创建 SSH 隧道。 将 **sshuser** 替换为 HDInsight 群集的 SSH 用户，并将 **clustername** 替换为 HDInsight 群集的名称：
 
 ```bash
 ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn

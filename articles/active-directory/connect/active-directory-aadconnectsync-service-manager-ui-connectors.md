@@ -3,8 +3,8 @@ title: Azure AD Synchronization Service Manager UI 中的连接器 | Microsoft �
 description: 了解 Azure AD Connect 的 Synchronization Service Manager 中的“连接器”选项卡。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
 ms.service: active-directory
@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 06/26/2018
+ms.component: hybrid
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7bd3be8b6f9f28b0649bcb75873d014497599806
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: deeb93a4bdbbba01cb8de0684053a8d8ea144cbb
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
-ms.locfileid: "20822246"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947955"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>将连接器与 Azure AD Connect Sync Service Manager 配合使用
 
@@ -97,4 +98,4 @@ ms.locfileid: "20822246"
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

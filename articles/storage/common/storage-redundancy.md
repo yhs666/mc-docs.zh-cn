@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 01/21/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: c10f904f56ceaa5c422c0bfd5013cc603c57b7d3
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 2435e8f5a7e96e65383ad907d0785ad273a00429
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36269952"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103055"
 ---
 # <a name="azure-storage-replication"></a>Azure 存储复制
 
@@ -37,7 +37,7 @@ ms.locfileid: "36269952"
 | 区域范围的服务中断 |否 |是 |是 |
 | 整个区域不可用时对数据进行读取访问（远程异地复制区域中） |否 |否 |是 |
 | 旨在给定年份为对象提供 ___ 的持续性 |至少 99.999999999%（11 个 9）|至少 99.99999999999999%（16 个 9）|至少 99.99999999999999%（16 个 9）|
-| 提供 ___ 种存储帐户类型 |GPv1，Blob |GPv1，Blob |GPv1，Blob
+| 支持的存储帐户类型 |GPv1、GPv2、Blob |GPv1、GPv2、Blob |GPv1、GPv2、Blob
 
 有关不同冗余选项的定价信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)。
 

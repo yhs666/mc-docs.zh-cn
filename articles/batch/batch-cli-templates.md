@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
 origin.date: 12/18/2017
-ms.date: 05/15/2018
+ms.date: 06/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: add5575c111e337e2f5c8d3cf6cb7ee3d40dfd6e
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 8928bba7430376469e005cc91fc311d92e223463
+ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173329"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103251"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>使用 Azure Batch CLI 模板和文件传输（预览版）
 
@@ -121,7 +121,7 @@ Azure Batch 模板在功能和语法上非常类似于 Azure 资源管理器模�
                 "imageReference": {
                     "publisher": "Canonical",
                     "offer": "UbuntuServer",
-                    "sku": "16.04.0-LTS",
+                    "sku": "16.04-LTS",
                     "version": "latest"
                 },
                 "nodeAgentSKUId": "batch.node.ubuntu 16.04"
@@ -263,7 +263,7 @@ az batch file download --file-group ffmpeg-output --local-path
 
 ## <a name="next-steps"></a>后续步骤
 
-- 请参阅批处理模板博客文章：[Running Azure Batch jobs using the Azure CLI – no code required](https://azure.microsoft.com/en-us/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/)（使用 Azure CLI 运行 Azure 批处理作业 - 无需代码）。
+- 请参阅批处理模板博客文章：[Running Azure Batch jobs using the Azure CLI – no code required](https://azure.microsoft.com/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/)（使用 Azure CLI 运行 Azure 批处理作业 - 无需代码）。
 - 有关安装和使用情况的详细文档、示例和源代码，请参阅 [Azure GitHub 存储库](https://github.com/Azure/azure-batch-cli-extensions)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

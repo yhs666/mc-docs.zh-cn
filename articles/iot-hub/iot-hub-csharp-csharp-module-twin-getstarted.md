@@ -13,17 +13,17 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/26/2018
-ms.date: 06/11/2018
+ms.date: 07/09/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 16c44f6ec7061fe45a2a36426bb3318d5e2bb167
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 6dd8804dfa486807005c7e758e47e6c4952c27c1
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695183"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103393"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-backup-and-net-device"></a>使用 .NET 备份和 .NET 设备创建 IoT 中心模块标识和模块孪生入门
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>使用 .NET 后端和 .NET 设备创建 IoT 中心模块标识和模块孪生入门
 
 > [!NOTE]
 > [模块标识和模块孪生](iot-hub-devguide-module-twins.md)类似于 Azure IoT 中心设备标识和设备孪生，但提供更精细的粒度。 Azure IoT 中心设备标识和设备孪生允许后端应用程序配置设备并提供设备条件的可见性，而模块标识和模块孪生为设备的各个组件提供这些功能。 在支持多个组件的设备上（例如基于操作系统的设备或固件设备），它允许每个部件拥有独立的配置和条件。
@@ -58,7 +58,7 @@ ms.locfileid: "34695183"
 
     ![创建 Visual Studio 项目][13]
 
-2. **安装 Azure IoT 中心 .NET 设备 SDK V1.16.0-preview-005** - 模块标识和模块孪生为公开预览版。 仅在 IoT 中心预发行设备 SDK 中提供它。 在 Visual Studio 中，打开“工具”>“NuGet 包管理器”>“管理解决方案的 NuGet 包”。 搜索 Microsoft.Azure.Devices.Client。 确保已选中“包括预发行版”复选框。 选择版本 V1.16.0-preview-005 并安装。 现在即可访问所有模块功能。 
+2. **安装最新的 Azure IoT 中心 .NET 设备 SDK** - 模块标识和模块孪生为公开预览版。 仅在 IoT 中心预发行设备 SDK 中提供它。 在 Visual Studio 中，打开“工具”>“NuGet 包管理器”>“管理解决方案的 NuGet 包”。 搜索 Microsoft.Azure.Devices.Client。 确保已选中“包括预发行版”复选框。 选择最新版本并安装。 现在可以访问所有模块功能。 
 
     ![安装 Azure IoT 中心 .NET 服务 SDK V1.16.0-preview-005][14]
 
@@ -120,7 +120,7 @@ ms.locfileid: "34695183"
             var twinTask = Client.GetTwinAsync();
             twinTask.Wait();
             var twin = twinTask.Result;
-            Console.WriteLine(JsonConvert.SerializeObject(twin));
+            Console.WriteLine(JsonConvert.SerializeObject(twin.Properties)); 
 
             Console.WriteLine("Sending app start time as reported property");
             TwinCollection reportedProperties = new TwinCollection();

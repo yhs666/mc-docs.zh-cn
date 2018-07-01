@@ -11,19 +11,17 @@ tags: azure-portal
 ms.assetid: e1d2a0b9-1659-4fab-921e-4a8990cbb30a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 02/20/2018
-ms.date: 05/21/2018
+origin.date: 05/16/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: e42a26d2e59161edc2aa3dd4ea8b5065b3f8479c
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 447eae2334121d6ca4700069be2f8d35a5b006be
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450040"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747379"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>运行 HDInsight 包含的 MapReduce 示例
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 9e21b98f31ff4941fcd6fee484f908f160a72155
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 7aa52ce06137bfbb5ed113238fb592f6a5bd693f
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695178"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748425"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>创建和管理策略以强制实施符合性
 
@@ -116,7 +116,7 @@ ms.locfileid: "34695178"
 可以通过用于策略定义的 REST API 来创建策略。 REST API 可让你创建和删除策略定义，以及获取现有定义的信息。
 若要创建策略定义，请使用以下示例：
 
-```http-interactive
+```http
 PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 ```
 
@@ -160,7 +160,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Micro
 
 要在文件中创建策略定义，请将路径传递给该文件。 对于外部文件，请使用以下示例：
 
-```azurepowershell-interactive
+```azurepowershell
 $definition = New-AzureRmPolicyDefinition `
     -Name 'denyCoolTiering' `
     -DisplayName 'Deny cool access tiering for storage' `
@@ -169,7 +169,7 @@ $definition = New-AzureRmPolicyDefinition `
 
 对于本地文件，请使用以下示例：
 
-```azurepowershell-interactive
+```azurepowershell
 $definition = New-AzureRmPolicyDefinition `
     -Name 'denyCoolTiering' `
     -Description 'Deny cool access tiering for storage' `
@@ -178,7 +178,7 @@ $definition = New-AzureRmPolicyDefinition `
 
 要使用内联规则创建策略定义，请使用以下示例：
 
-```azurepowershell-interactive
+```azurepowershell
 $definition = New-AzureRmPolicyDefinition -Name 'denyCoolTiering' -Description 'Deny cool access tiering for storage' -Policy '{
     "if": {
         "allOf": [{
@@ -206,7 +206,7 @@ $definition = New-AzureRmPolicyDefinition -Name 'denyCoolTiering' -Description '
 输出存储在 `$definition` 对象中，这会在策略分配过程中使用。
 以下示例创建包含参数的策略定义：
 
-```azurepowershell-interactive
+```azurepowershell
 $policy = '{
     "if": {
         "allOf": [{
@@ -244,7 +244,7 @@ $definition = New-AzureRmPolicyDefinition -Name 'storageLocations' -Description 
 
 若要查看订阅中的所有策略定义，请运行以下命令：
 
-```azurepowershell-interactive
+```azurepowershell
 Get-AzureRmPolicyDefinition
 ```
 
@@ -266,7 +266,7 @@ PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962
 可以将 Azure CLI 与策略定义命令结合使用来创建策略定义。
 要使用内联规则创建策略定义，请使用以下示例：
 
-```azurecli-interactive
+```azurecli
 az policy definition create --name 'denyCoolTiering' --description 'Deny cool access tiering for storage' --rules '{
     "if": {
         "allOf": [{
@@ -295,7 +295,7 @@ az policy definition create --name 'denyCoolTiering' --description 'Deny cool ac
 
 若要查看订阅中的所有策略定义，请运行以下命令：
 
-```azurecli-interactive
+```azurecli
 az policy definition list
 ```
 

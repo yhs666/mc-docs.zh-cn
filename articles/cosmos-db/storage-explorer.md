@@ -3,27 +3,23 @@ title: 在 Azure 存储资源管理器中管理 Azure Cosmos DB
 description: 了解如何在 Azure 存储资源管理器中管理 Azure Cosmos DB。
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: ''
 tags: Azure Cosmos DB
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB active
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 origin.date: 03/20/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: ec1e5f27767ebb472b67ca06585cca6cb2425afd
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 587e3bd4ff7ac871f384c38d5c0045cd94b1e108
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867482"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070254"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>在 Azure 存储资源管理器中管理 Azure Cosmos DB
 
@@ -185,7 +181,7 @@ ms.locfileid: "34867482"
 
 出现此错误有多个原因，最常见的两个原因是：
 
-+ 位于“透明代理”之后，这意味着，某人（例如 IT 部门）在拦截 HTTPS 流量，将其解密后又使用自签名证书对其加密。
++ 你位于“透明代理”之后，这意味着某人（例如 IT 部门）在拦截 HTTPS 流量，将其解密后又使用自签名证书对其加密。
 
 + 正在运行的软件（如防病毒软件）在向收到的 HTTPS 消息注入自签名 SSL 证书。
 
@@ -278,4 +274,4 @@ ms.locfileid: "34867482"
 * 观看以下视频，了解如何在 Azure 存储资源管理器中使用 Azure Cosmos DB：[在 Azure 存储资源管理器中使用 Azure Cosmos DB](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be)。
 * 在[存储资源管理器入门](/vs-azure-tools-storage-manage-with-storage-explorer)中了解有关存储资源管理器和连接更多服务的详细信息。
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

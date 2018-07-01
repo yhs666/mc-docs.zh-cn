@@ -6,22 +6,18 @@ author: rockboyfor
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
-documentationcenter: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 04/21/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: d4edda2539a05108154f9a4382977dfeefb8f1a7
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 85f2b7371ed8ff9f50eef08d9c056c7970d550b3
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781960"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070229"
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>使用 PowerShell 创建 Azure Cosmos DB 帐户
 
@@ -215,4 +211,4 @@ ms.locfileid: "31781960"
 [azure-resource-groups]: /azure-resource-manager/resource-group-overview#resource-groups
 [azure-resource-tags]: /azure-resource-manager/resource-group-using-tags
 [rp-rest-api]: https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/
-<!-- Update_Description: update meta properties, update link, wording update -->
+<!-- Update_Description: update meta properties  -->

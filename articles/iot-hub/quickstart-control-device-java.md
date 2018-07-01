@@ -12,14 +12,14 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
 origin.date: 04/30/2018
-ms.date: 06/11/2018
+ms.date: 07/09/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7d5116809d6ef001b78b146504fd55101997baaf
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 25c2899aa4115a730833dc717fb5ecc511fc00b6
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695255"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103426"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>快速入门：控制连接到 IoT 中心的设备 (Java)
 
@@ -100,7 +100,7 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 模拟设备应用程序会连接到 IoT 中心上特定于设备的终结点，发送模拟遥测数据，并侦听中心的直接方法调用。 在本快速入门中，中心的直接方法调用告知设备对其发送遥测的间隔进行更改。 执行直接方法后，模拟设备会将确认发送回中心。
 
-1. 在终端窗口中，导航到示例 Java 项目的根文件夹。 然后导航到 Quickstarts\simulated-device-2 文件夹。
+1. 在终端窗口中，导航到示例 Java 项目的根文件夹。 然后导航到 **iot-hub\Quickstarts\simulated-device-2** 文件夹。
 
 1. 在所选文本编辑器中打开 src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java 文件。
 
@@ -126,9 +126,9 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 后端应用程序会连接到 IoT 中心上的服务端终结点。 应用程序通过 IoT 中心对设备进行直接方法调用，并侦听确认。 IoT 中心后端应用程序通常在云中运行。
 
-1. 在另一个终端窗口中，导航到示例 Java 项目的根文件夹。 然后导航到 Quickstarts\back-end-application 文件夹。
+1. 在另一个终端窗口中，导航到示例 Java 项目的根文件夹。 然后导航到 **iot-hub\Quickstarts\back-end-application** 文件夹。
 
-1. 在所选文本编辑器中打开 src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java 文件。
+1. 在所选文本编辑器中打开 src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java 文件。
 
     将 `iotHubConnectionString` 变量的值替换为以前记下的服务连接字符串。 然后将更改保存到 BackEndApplication.java 文件。
 
@@ -165,4 +165,4 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 若要了解如何将设备到云的消息路由到云中的不同目标，请继续学习下一教程。
 
 > [!div class="nextstepaction"]
-> [教程：将遥测路由到不同的终结点进行处理](iot-hub-java-java-process-d2c.md)
+> [教程：将遥测路由到不同的终结点进行处理](tutorial-routing.md)

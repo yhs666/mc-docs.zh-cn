@@ -6,7 +6,6 @@ documentationcenter: cosmosdb
 author: rockboyfor
 manager: digimobile
 tags: azure-service-management
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: azurecli
@@ -14,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/06/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: c6c14ad7b123bcd0b5957aa131bb03982acbcc38
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: bf9e5c95c5adf9ed1bcfd8230f39b40056084d40
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781821"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070186"
 ---
 # <a name="azure-cosmos-db-create-an-sql-api-account-using-cli"></a>Azure Cosmos DB：使用 CLI 创建 SQL API 帐户
 
@@ -86,9 +85,9 @@ az group delete --name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) | 创建 Azure Cosmos DB 帐户。 |
-| [az group delete](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az_resource_delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) | 创建 Azure Cosmos DB 帐户。 |
+| [az group delete](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az-resource-delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -96,5 +95,5 @@ az group delete --name myResourceGroup
 
 有关其他 Azure Cosmos DB CLI 脚本示例，请参见 [Azure Cosmos DB CLI 文档](../cli-samples.md)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties， update link -->
  

@@ -1,6 +1,6 @@
 ---
-title: 适用于 Azure Stack 的 Azure Marketplace 项 | Microsoft Docs
-description: 这些 Azure Marketplace 项可以用在 Azure Stack 中。
+title: 适用于 Azure Stack 的 Azure 市场项 | Microsoft Docs
+description: 这些 Azure 市场项可以用在 Azure Stack 中。
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,28 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/14/2018
-ms.date: 05/24/2018
+origin.date: 06/18/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: 2d74192ab74cb4e6da9fb9ac478a877af263c11f
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: a63b612603a5619b3eba3c4600d51bfce505e704
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475074"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027199"
 ---
-# <a name="azure-marketplace-items-available-for-azure-stack"></a>适用于 Azure Stack 的 Azure Marketplace 项
+# <a name="azure-marketplace-items-available-for-azure-stack"></a>适用于 Azure Stack 的 Azure 市场项
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 
 ## <a name="virtual-machine-extensions"></a>虚拟机扩展
-只要有所用虚拟机 (VM) 扩展的更新，就应下载它们。 随产品一起提供的扩展不会在普通的修补和更新过程中更新，因此请经常查看更新。 其他扩展只能通过 Marketplace 管理获取。
+只要有所用虚拟机 (VM) 扩展的更新，就应下载它们。 随产品一起提供的扩展不会在普通的修补和更新过程中更新，因此请经常查看更新。 其他扩展只能通过市场管理获取。
 
 |  | 项名称 | 说明 | 发布者 | OS 类型 |
 | --- | --- | --- | --- | --- |
-|![SQL IaaS 扩展](./media/azure-stack-marketplace-azure-items/cse.png) | [ SQL IaaS 扩展 ](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>下载此扩展以部署任何“Windows 上的 SQL Server”Marketplace项 - 此扩展是必需的。</b> | Microsoft | Windows |
+|![SQL IaaS 扩展](./media/azure-stack-marketplace-azure-items/cse.png) | [ SQL IaaS 扩展 ](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| 
+  <b>下载此扩展以部署任何“Windows 上的 SQL Server”市场项 - 此扩展是必需的。</b> | Microsoft | Windows |
 |![自定义脚本扩展](./media/azure-stack-marketplace-azure-items/cse.png) | [ 自定义脚本扩展 ](/virtual-machines/windows/extensions-customscript)| <b>请下载此更新，此更新针对用于 Windows 的自定义脚本扩展的内置版本。</b> | Microsoft | Windows |
 |![PowerShell DSC 扩展](./media/azure-stack-marketplace-azure-items/dsc.png) | [ PowerShell DSC 扩展 ](/virtual-machines/windows/extensions-dsc-overview)| <b>请将此更新下载到 PowerShell DSC 扩展的内置版本。更新为支持 TLS v1.2。</b> | Microsoft | Windows |
 | ![Microsoft 反恶意软件扩展](./media/azure-stack-marketplace-azure-items/cse.png) | [ Microsoft 反恶意软件扩展 ](/security/azure-security-antimalware)| 适用于 Azure 的 Microsoft 反恶意软件是一个针对应用程序和租户环境所提供的单一代理解决方案，可在在后台运行而无需人工干预。 | Microsoft | Windows |
@@ -45,7 +46,7 @@ ms.locfileid: "34475074"
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft 虚拟机映像和解决方案模板
 
-Azure Stack 支持下述 Azure Marketplace 虚拟机和解决方案模板。 请根据说明单独下载任何依赖项。 SQL Server 和 Machine Learning Server 之类的应用程序需要适当的许可，除非已标记为“免费”或“试用”。
+Azure Stack 支持下述 Azure 市场虚拟机和解决方案模板。 请根据说明单独下载任何依赖项。 SQL Server 和 Machine Learning Server 之类的应用程序需要适当的许可，除非已标记为“免费”或“试用”。
 
 |  | 项名称 | 说明 | 发布者 |
 | --- | --- | --- | --- |

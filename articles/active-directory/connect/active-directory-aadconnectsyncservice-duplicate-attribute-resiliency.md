@@ -3,8 +3,8 @@ title: 标识同步和重复属性复原 | Microsoft Docs
 description: 介绍如何借助一种新的行为，在目录同步期间使用 Azure AD Connect 处理具有 UPN 或 ProxyAddress 冲突的对象。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
 ms.service: active-directory
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/17/2017
-ms.date: 12/25/2017
+origin.date: 01/15/2018
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: e6d586f23c436d28b1e663ed2f917d55bcfae867
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 2d7472cb4abff700ce8fba0649c16c2d2e6f9208
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
-ms.locfileid: "27547617"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948032"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>标识同步和重复属性复原
 重复属性复原是 Azure Active Directory 的一项功能，可在运行 Microsoft 的同步工具之一时消除 **UserPrincipalName** 和 **ProxyAddress** 冲突所造成的不便。
@@ -161,14 +162,14 @@ ProxyAddress 冲突的电子邮件通知示例如下所示：
    
     c. **用户 B** 的 UPN 已更改为 **User1234@contoso.partner.onmschina.cn**，**User@contoso.com** 已添加到 **DirSyncProvisioningErrors**。
    
-    d.单击“验证存储凭据”以验证存储帐户。 **用户 B** 的错误消息应指出**用户 A** 已有用作 UPN 的 **User@contoso.com**，但却显示**用户 B** 自己的 displayName。
+    d. **用户 B** 的错误消息应指出**用户 A** 已有用作 UPN 的 **User@contoso.com**，但却显示**用户 B** 自己的 displayName。
 
 **标识同步错误报告**：
 
 “关于如何解决此问题的步骤”链接不正确：  
     ![活动用户](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "活动用户")  
 
-该链接应指向 [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency)。
+它应指向 [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency)。
 
 ## <a name="see-also"></a>另请参阅
 - [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)
@@ -176,4 +177,4 @@ ProxyAddress 冲突的电子邮件通知示例如下所示：
 - [识别 Office 365 中的目录同步错误](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

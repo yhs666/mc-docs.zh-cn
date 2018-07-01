@@ -15,16 +15,16 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 05/07/2018
 ms.author: v-johch
-ms.openlocfilehash: 01bdf71b606b3837670193e7175c19f06dc89608
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 6e4c712343d3525eb26e5cf974867b04793cbb9f
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475213"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748415"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>开发使用媒体服务的 Azure Functions
 
-本文介绍如何开始创建使用媒体服务的 Azure Functions。 本文中定义的 Azure Function 可监视新 MP4 文件中名为“输入”的存储帐户容器。 将文件放入存储容器后，blob 触发器就会执行此函数。 要查看 Azure 函数，请参阅 Azure 函数部分的[概述](../azure-functions/functions-overview.md)和其他主题。
+本文介绍如何开始创建使用媒体服务的 Azure Functions。 本文中定义的 Azure Function 可监视新 MP4 文件中名为“输入”的存储帐户容器。 将文件放入存储容器后，blob 触发器就会执行此函数。 要查看 Azure 函数，请参阅 Azure 函数部分的[概述](../../azure-functions/functions-overview.md)和其他主题。
 
 如果你想要浏览并部署使用 Azure Media Services 的现有 Azure 功能，请查看[媒体服务 Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)。 此存储库包含几个示例，示例中将使用媒体服务来演示有关直接从 Blob 存储引入内容、编码以及将内容写回 Blob 存储的工作流。 此存储库还包含演示如何通过 WebHook 和 Azure 队列监视作业通知的示例。 也可根据[媒体服务 Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) 存储库中的示例进行 Functions 开发。 若要部署此函数，请按“部署到 Azure”按钮。
 
@@ -36,14 +36,14 @@ ms.locfileid: "34475213"
 ## <a name="create-a-function-app"></a>创建函数应用
 
 1. 转到 [Azure 门户](http://portal.azure.cn)，并使用 Azure 帐户登录。
-2. 根据[此文](../azure-functions/functions-create-function-app-portal.md)中所述创建 Function App。
+2. 根据[此文](../../azure-functions/functions-create-function-app-portal.md)中所述创建 Function App。
 
 >[!NOTE]
 > **ConnectionString** 环境变量中指定的存储帐户需与应用位于同一区域（请参阅下一步）。
 
 ## <a name="configure-function-app-settings"></a>配置 Function App 设置
 
-开发媒体服务函数时，可随时添加要在整个函数中使用的环境变量。 若要配置应用设置，请单击“配置应用设置”链接。 有关详细信息，请参阅[如何配置 Azure Function App 设置](../azure-functions/functions-how-to-use-azure-function-app-settings.md)。 
+开发媒体服务函数时，可随时添加要在整个函数中使用的环境变量。 若要配置应用设置，请单击“配置应用设置”链接。 有关详细信息，请参阅[如何配置 Azure Function App 设置](../../azure-functions/functions-how-to-use-azure-function-app-settings.md)。 
 
 本文中定义的函数假定应用设置中具备以下环境变量：
 
@@ -71,7 +71,7 @@ ms.locfileid: "34475213"
 
     ![文件](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
-4. 单击“创建”。 
+4. 单击**创建**。 
 
 ## <a name="files"></a>文件
 
@@ -81,7 +81,7 @@ Azure 函数与代码文件以及本部分所述的其他文件相关联。 当�
 
 ### <a name="functionjson"></a>function.json
 
-Function.json 文件定义函数绑定和其他配置设置。 运行时使用此文件确定要监视的事件，以及如何将数据传入函数执行和从函数执行返回数据。 有关详细信息，请参阅 [Azure Functions HTTP 和 webhook 绑定](../azure-functions/functions-reference.md#function-code)。
+Function.json 文件定义函数绑定和其他配置设置。 运行时使用此文件确定要监视的事件，以及如何将数据传入函数执行和从函数执行返回数据。 有关详细信息，请参阅 [Azure Functions HTTP 和 webhook 绑定](../../azure-functions/functions-reference.md#function-code)。
 
 >[!NOTE]
 >将 **disabled** 属性设置为“true”，阻止函数执行。 

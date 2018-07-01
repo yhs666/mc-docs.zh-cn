@@ -2,25 +2,21 @@
 title: 使用 Azure Cosmos DB 中的地理空间数据 | Azure
 description: 了解如何使用 Azure Cosmos DB 和 SQL API 创建、索引和查询空间对象。
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-ms.assetid: 82ce2898-a9f9-4acf-af4d-8ca4ba9c7b8f
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 origin.date: 10/20/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d60ab1c03c1ae8ac8667c3557f271fb3cfc8957b
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 6080b8d3127fcf34c4a8eb505fdfaa74f4de9971
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781871"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070337"
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的地理空间和 GeoJSON 位置数据
 本文介绍了 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 中的地理空间功能。 在阅读本文之后，能够回答以下问题：
@@ -225,7 +221,7 @@ ST_WITHIN 中的多边形参数只能包含单个环形，也就是说，多边�
 > 
 > 
 
-Azure Cosmos DB 还支持执行反向查询，即可以为 Azure Cosmos DB 中的多边形或线条编制索引，并查询包含指定点的区域。 此模式通常用于物流，例如确定卡车进入或离开指定区域的时间。 
+Azure Cosmos DB 还支持执行反向查询，即可在 Azure Cosmos DB 中索引多边形或线，并查询包含指定点的区域。 这种模式通常在物流中用于识别如卡车进入或离开指定区域的时间等情况。 
 
 **查询**
 
@@ -391,11 +387,11 @@ SQL .NET SDK 还提供存根方法 `Distance()` 和 `Within()`，供用户在 LI
 > 
 
 ## <a name="next-steps"></a>后续步骤
-学会如何开始使用 Azure Cosmos DB 中的地理空间支持之后，现在可以：
+已经学会如何开始使用 Azure Cosmos DB 中的地理空间支持，下一步现在可以：
 
 * 使用 [GitHub 上的地理空间 .NET 代码示例](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)开始编写代码
 * 在 [Azure Cosmos DB 查询板块](http://www.documentdb.com/sql/demo#geospatial)中实际操作地理空间查询
 * 详细了解 [Azure Cosmos DB 查询](sql-api-sql-query.md)
 * 详细了解 [Azure Cosmos DB 索引策略](indexing-policies.md)
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

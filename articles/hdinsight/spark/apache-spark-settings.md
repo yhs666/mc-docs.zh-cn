@@ -10,23 +10,21 @@ editor: cgronlun
 ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/26/2018
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: 2f676891fa76de2b0c647ee271ab602d4ffba453
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 06/25/2018
+ms.openlocfilehash: 531909ab76ea6dc494138a80811853f5f28906a7
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077684"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747452"
 ---
 # <a name="configure-spark-settings"></a>配置 Spark 设置
 
-HDInsight Spark 群集包含 Apache Spark 库的安装。  每个 HDInsight 群集包含其所有已安装服务（包括 Spark）的默认配置参数。  管理 HDInsight Hadoop 群集的一个重要方面是监视工作负荷（包括 Spark 作业），确保它们以可预测的方式运行。 若要最合理地运行 Spark 作业，请在确定如何优化群集的逻辑配置时考虑物理群集配置。
+HDInsight Spark 群集包含 Apache Spark 库的安装。  每个 HDInsight 群集包含其所有已安装服务（包括 Spark）的默认配置参数。  管理 HDInsight Hadoop 群集的一个重要方面是监视工作负荷（包括 Spark 作业），确保作业以可预测的方式运行。 若要最合理地运行 Spark 作业，请在确定如何优化群集的逻辑配置时考虑物理群集配置。
 
 默认的 HDInsight Apache Spark 群集包括以下节点：三个 ZooKeeper 节点、两个头节点和一个或多个工作节点：
 
@@ -36,9 +34,13 @@ HDInsight 群集中节点的 VM 数目和 VM 大小也可能影响 Spark 配置�
 
 ## <a name="spark-versions"></a>Spark 版本
 
-还应考虑群集的最佳 Spark 版本。  Spark 2.x 的运行性能比 Spark 1.x 要好得多。 Spark 2.x 包含大量的性能优化功能，例如 Tungsten、Catalyst Query Optimization，等等。  HDInsight 服务本身包含 Spark 和 HDInsight 的多个版本。  每个 Spark 版本包含一组默认群集设置。  创建新群集时，可从以下最新 Spark 版本中做出选择：
+使用适合你的群集的最佳 Spark 版本。  HDInsight 服务本身包含 Spark 和 HDInsight 的多个版本。  每个 Spark 版本包含一组默认群集设置。  
+
+创建新群集时，可从以下最新 Spark 版本中做出选择：
 
 ![Spark 版本](./media/apache-spark-settings/spark-version.png)
+
+Spark 2.x 的运行性能比 Spark 1.x 要好得多。 Spark 2.x 包含大量的性能优化功能，例如 Tungsten、Catalyst Query Optimization，等等。  
 
 > [!NOTE]
 > HDInsight 服务中的默认 Apache Spark 版本可随时更改，恕不另行通知。 如果你依赖某个版本，Microsoft 建议在使用 .NET SDK/Azure PowerShell 和 Azure CLI 创建群集时指定该特定版本。
@@ -49,7 +51,7 @@ Apache Spark 有三个系统配置位置：
 * 可以通过每个节点上的 `conf/spark-env.sh` 脚本，使用环境变量来配置每台计算机的设置，例如 IP 地址。
 * 可以通过 `log4j.properties` 配置日志记录。
 
-选择特定的 Spark 版本时，群集将包含默认的配置设置。  可以通过提供自定义的 Spark 配置文件来更改默认的 Spark 配置值。  下面显示了一个示例。
+选择特定的 Spark 版本时，群集将包含默认的配置设置。  可以通过使用自定义的 Spark 配置文件来更改默认的 Spark 配置值。  下面显示了一个示例。
 
 ```
     spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
@@ -59,7 +61,7 @@ Apache Spark 有三个系统配置位置：
     spark.sql.files.openCostInBytes 1099511627776
 ```
 
-上面所示的示例替代了五个 Spark 配置参数的多个默认值。  这些值是压缩编解码器、Hadoop mapreduce 拆分最小大小和 parquet 块大小，以及 Spar SQL 分区和打开的文件大小默认值。  之所以选择这些配置更改，是因为关联的数据和作业（在此示例中为基因组数据）具有特定的特征，使用这些自定义配置设置可以更好地完成这些作业。
+上面所示的示例替代了五个 Spark 配置参数的多个默认值。  这些值是压缩编解码器、Hadoop MapReduce 拆分最小大小和 parquet 块大小，以及 Spar SQL 分区和打开的文件大小默认值。  之所以选择这些配置更改，是因为关联的数据和作业（在此示例中为基因组数据）具有特定的特征，使用这些自定义配置设置可以更好地完成这些作业。
 
 ---
 

@@ -49,6 +49,7 @@
 ### [复制现有 Blob](media-services-copying-existing-blob.md)
 
 ## [对内容进行编码](media-services-encode-asset.md)
+### [比较编码器](media-services-compare-encoders.md)
 ### [管理编码的速度和并发度](media-services-manage-encoding-speed.md)
 ### Media Encoder Standard (MES)
 #### [Media Encoder Standard 格式和编解码器](media-services-media-encoder-standard-formats.md)
@@ -90,8 +91,14 @@
 ##### [H264 单比特率 720p](media-services-mes-preset-H264-Single-Bitrate-720p.md)
 ##### [适用于 Android 的 H264 单比特率 720p](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md)
 ##### [适用于 Android 的 H264 单比特率高品质 SD](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md)
-##### [适用于 Android 的 H264 单比特率低品质 SD](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
+##### [H264 单比特率低品质 SD (Android)](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
+### 媒体编码器高级工作流
+#### [Media Encoder Premium Workflow 格式和编解码器](media-services-premium-workflow-encoder-formats.md)
 #### 使用媒体编码器高级工作流进行编码
+##### [媒体编码器高级工作流](media-services-encode-with-premium-workflow.md)
+##### [媒体编码器高级工作流教程](media-services-media-encoder-premium-workflow-tutorials.md)
+##### [使用工作流设计器创建高级编码工作流](media-services-workflow-designer.md)
+##### [使用多个输入的高级工作流](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
 ### [创建生成 fMP4 区块的任务](media-services-generate-fmp4-chunks.md)
 ### 媒体处理器
 #### [.NET](media-services-get-media-processor.md)
@@ -109,13 +116,13 @@
 #### [Azure 门户](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [配置与云编码器一起使用的本地编码器](media-services-live-encoders-overview.md)
-#### [Elemental Live 编码器](media-services-configure-elemental-live-encoder.md)
 #### [FMLE 编码器](media-services-configure-fmle-live-encoder.md)
 #### [Haivision KB 编码器](media-services-configure-kb-live-encoder.md)
 #### [NewTek TriCaster 编码器](media-services-configure-tricaster-live-encoder.md)
 #### [Wirecast 编码器](media-services-configure-wirecast-live-encoder.md)
 ### [处理长时间运行的操作](media-services-dotnet-long-operations.md)
 ### [碎片化 MP4 实时引入规范](media-services-fmp4-live-ingest-overview.md)
+
 
 ## [保护内容](media-services-content-protection-overview.md)
 ### [存储加密](media-services-rest-storage-encryption.md)
@@ -184,6 +191,8 @@
 ### [在客户端插入广告](media-services-inserting-ads-on-client-side.md)
 ### [授权 Microsoft 平滑流式处理客户端移植工具包](media-services-sspk.md)
 
+## 集成
+### [将 Azure Functions 与媒体服务配合使用](media-services-dotnet-how-to-use-azure-functions.md)
 
 ## 监视
 ### 检查作业进度
@@ -205,7 +214,7 @@
 ## [REST](https://docs.microsoft.com/rest/api/media/mediaservice)  
 ## 规范
 ### [实时引入 - 碎片化的 MP4 实时引入规范](media-services-fmp4-live-ingest-overview.md)
-### [平滑流式处理 HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
+### [平滑流式处理 HEVC](media-services-specifications-ms-sstr-amendment-hevc.md)
 
 # 资源
 ## [发行说明](media-services-release-notes.md)

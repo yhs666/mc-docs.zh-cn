@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 03/15/2018
 ms.date: 05/14/2018
 ms.author: v-nany
-ms.openlocfilehash: 60d07c209752333fdf7bbc207710e4c732d4f6cb
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: df792ce272a9e430f2453e008e29bac5d4eb0227
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "33937435"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748370"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure 自动化中的证书资产
 
@@ -73,7 +73,7 @@ ms.locfileid: "33937435"
 
 以下示例演示了如何创建新的自动化证书并将其标记为可导出。 这会导入现有的 .pfx 文件。
 
-```powershell-interactive
+```powershell
 $certName = 'MyCertificate'
 $certPath = '.\MyCert.pfx'
 $certPwd = ConvertTo-SecureString -String 'P@$$w0rd' -AsPlainText -Force
@@ -90,7 +90,7 @@ New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -N
 
 以下示例代码演示了如何将证书添加到 Runbook 中的云服务。 在此示例中，已从加密的自动化变量检索了密码。
 
-```powershell-interactive
+```powershell
 $serviceName = 'MyCloudService'
 $cert = Get-AutomationCertificate -Name 'MyCertificate'
 $certPwd = Get-AzureRmAutomationVariable -ResourceGroupName "ResouceGroup01" `

@@ -18,22 +18,22 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
 ms.reviewer: douglasl
-ms.openlocfilehash: 8f7a28768e0a2f3f37ac38d00fb40a04bfd7583f
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 3186c185182da43fa13ff3425b004706e7ce1306
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782087"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948069"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>使用 PowerShell 在多个 SQL 数据库之间进行同步
  
-此 PowerShell 示例将数据同步（预览版）配置为在多个 Azure SQL 数据库之间进行同步。
+此 PowerShell 示例将数据同步配置为在多个 Azure SQL 数据库之间进行同步。
 
 本示例需要 Azure PowerShell 模块 4.2 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
  
-运行 `Login-AzureRmAccount`，创建与 Azure 的连接。
+运行 `Connect-AzureRmAccount -EnvironmentName AzureChinaCloud`，创建与 Azure 的连接。
 
-有关 SQL 数据同步的概述，请参阅[使用 Azure SQL 数据同步（预览版）跨多个云和本地数据库同步数据](../sql-database-sync-data.md)。
+有关 SQL 数据同步的概述，请参阅[使用 Azure SQL 数据同步跨多个云和本地数据库同步数据](../sql-database-sync-data.md)。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -98,7 +98,7 @@ $IncludedColumnsAndTables =  "[SalesLT].[Address].[AddressID]",
 $MetadataList = [System.Collections.ArrayList]::new($IncludedColumnsAndTables)
 
 
-add-azurermaccount 
+Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 select-azurermsubscription -SubscriptionId $SubscriptionId
 
 # Use this section if it is safe to show password in the script.
@@ -349,20 +349,20 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmSqlSyncAgent](https://docs.microsoft.com/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgent) |  新建同步代理 |
-| [New-AzureRmSqlSyncAgentKey](https://docs.microsoft.com/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgentKey) |  生成与同步代理关联的代理密钥 |
-| [Get-AzureRmSqlSyncAgentLinkedDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlSyncAgentLinkedDatabase) |  获取有关同步代理的所有信息 |
-| [New-AzureRmSqlSyncMember](https://docs.microsoft.com/powershell/module/azurerm.sql/New-AzureRmSqlSyncMember) |  向同步组中添加新成员 |
-| [Update-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/Update-AzureRmSqlSyncSchema) |  刷新数据库架构信息 |
-| [Get-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncschema) |  获取数据库架构信息 |
-| [Update-AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/Update-AzureRmSqlSyncGroup) |  更新同步组 |
-| [Start-AzureRmSqlSyncGroupSync](https://docs.microsoft.com/powershell/module/azurerm.sql/Start-AzureRmSqlSyncGroupSync) | 触发同步 |
-| [Get-AzureRmSqlSyncGroupLog](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlSyncGroupLog) |  查看同步日志 |
+| [New-AzureRmSqlSyncAgent](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgent) |  新建同步代理 |
+| [New-AzureRmSqlSyncAgentKey](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgentKey) |  生成与同步代理关联的代理密钥 |
+| [Get-AzureRmSqlSyncAgentLinkedDatabase](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncAgentLinkedDatabase) |  获取有关同步代理的所有信息 |
+| [New-AzureRmSqlSyncMember](/powershell/module/azurerm.sql/New-AzureRmSqlSyncMember) |  向同步组中添加新成员 |
+| [Update-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncSchema) |  刷新数据库架构信息 |
+| [Get-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchem) |  获取数据库架构信息 |
+| [Update-AzureRmSqlSyncGroup](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncGroup) |  更新同步组 |
+| [Start-AzureRmSqlSyncGroupSync](/powershell/module/azurerm.sql/Start-AzureRmSqlSyncGroupSync) | 触发同步 |
+| [Get-AzureRmSqlSyncGroupLog](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncGroupLog) |  查看同步日志 |
 |||
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
+有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
 

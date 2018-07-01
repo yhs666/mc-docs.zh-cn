@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 05/21/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 36155fe2a15f18d6ae6cec6b7903392ad20a921b
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: ee20c00d191dd143f3061adaa348c54265cb5199
+ms.sourcegitcommit: 3130e6042909be0d97d7de5aec7ae9454cd81cfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568497"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102872"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>将网络安全组与 Azure Site Recovery 配合使用
 
@@ -62,7 +62,8 @@ Azure Site Recovery 支持从本地 [Hyper-V 虚拟机](hyper-v-azure-architectu
 
 Azure Site Recovery 支持对 [Azure 虚拟机](azure-to-azure-architecture.md)进行灾难恢复。 为 Azure VM 启用复制以后，Site Recovery 可以在目标区域中创建副本虚拟网络（包括子网和网关子网），并在源与目标虚拟网络之间创建所需的映射。 还可以预先创建目标端网络和子网，并在启用复制时使用相同的网络和子网。 Site Recovery 不会在[故障转移](azure-to-azure-tutorial-failover-failback.md)之前在目标 Azure 区域创建任何 VM。
 
-对于 Azure VM 复制，请确保源 Azure 区域的 NSG 规则允许复制流量的[出站连接](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)。 也可通过此[示例 NSG 配置](azure-to-azure-about-networking.md#example-nsg-configuration)测试并验证这些必需的规则。
+对于 Azure VM 复制，请确保源 Azure 区域的 NSG 规则允许复制流量的[出站连接](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)。 也可通过此[示例 NSG 配置](azure-to-azure-about-networking.md)测试并验证这些必需的规则。
+<!-- Archor wait for PM reply on #example-nsg-configuration-->
 
 Site Recovery 不在故障转移操作过程中创建或复制 NSG。 建议在启动故障转移之前在目标 Azure 区域创建所需的 NSG。 然后即可将自动化脚本与 Site Recovery 的强大[恢复计划](site-recovery-create-recovery-plans.md)配合使用，通过关联 NSG 在故障转移期间自动进行 VM 故障转移。
 

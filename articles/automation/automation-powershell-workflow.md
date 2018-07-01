@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 05/04/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 9cd61b735cef7abd47034c5f3f5130d9f0a3f809
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: eddfa6acdcfb077d6d71e3a426eaa7cbb165137d
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554642"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748356"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>了解重要的适用于自动化 Runbook 的 Windows PowerShell 工作流概念
 
@@ -58,7 +58,7 @@ Workflow Test-Workflow
 
 例如，请注意下面的代码，用于获取所有正在运行的服务。
 
-```azurepowershell-interactive
+```azurepowershell
 Get-Service | Where-Object {$_.Status -eq "Running"}
 ```
 
@@ -75,7 +75,7 @@ Workflow Get-RunningServices
 
 工作流中的对象已反序列化。  这意味着其属性仍然可用，但其方法不再可用。  例如，请注意以下 PowerShell 代码，使用服务对象的 Stop 方法停止一项服务。
 
-```azurepowershell-interactive
+```azurepowershell
 $Service = Get-Service -Name MyService
 $Service.Stop()
 ```
@@ -174,7 +174,7 @@ Parallel
 
 例如，请注意以下将多个文件复制到网络目标的 PowerShell 命令。  这些命令依次进行，因此必须完成一个文件的复制，然后才能开始复制下一个文件。
 
-```azurepowershell-interactive
+```azurepowershell
 Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
 Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
 Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt

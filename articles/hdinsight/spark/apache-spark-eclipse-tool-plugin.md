@@ -13,16 +13,16 @@ ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 11/30/2017
-ms.date: 05/21/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: da3001cb940d42254dfb7786b4bb8587aa430e4b
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: cffc7f77f5d1fac591046ac24a74f76986683832
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450095"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747454"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用用于 Eclipse 的 Azure 工具包为 HDInsight 群集创建 Spark 应用程序
 
@@ -73,7 +73,7 @@ ms.locfileid: "34450095"
    
    ![展开群集名称可查看资源](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
-## <a name="link-a-cluster"></a>链接群集
+<h2 id="linkcluster">链接群集</h2>
 可以使用 Ambari 管理的用户名链接标准群集，还可以使用域用户名（例如：user1@contoso.com）链接安全 hadoop 群集。
 1. 从 **Azure 资源管理器**单击“链接群集”。
 
@@ -232,7 +232,15 @@ ms.locfileid: "34450095"
    ![Spark 应用程序本地运行结果](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## <a name="known-problems"></a>已知问题
-目前不支持直接查看 Spark 输出。
+链接群集时，建议提供存储的凭据。
+
+![交互式登录](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
+
+可通过两种模式提交作业。 如果提供存储凭据，则将使用批处理模式提交作业。 否则，将使用交互模式。 如果群集正忙，可能会收到以下错误。
+
+![eclipse 在群集忙时收到错误](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
+
+![eclipse 在群集忙时收到错误](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
 
 ## <a name="feedback"></a>反馈
 如果有任何反馈，或使用此工具时遇到任何问题，请向 hdivstool@microsoft.com 发送电子邮件。

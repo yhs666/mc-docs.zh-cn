@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
 origin.date: 02/27/2018
-ms.date: 05/03/2018
+ms.date: 06/26/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 495910ef185ab334b97a5f59d28474bf2435d374
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: f61363f45cb51b1cbb0831870556a82c5b8efc69
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815132"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947970"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓扑
 本文介绍了使用 Azure AD Connect 同步作为关键集成解决方案的各种本地拓扑和 Azure Active Directory (Azure AD) 拓扑。 此外，介绍支持和不支持的配置。
@@ -46,7 +47,7 @@ ms.locfileid: "33815132"
 ## <a name="single-forest-single-azure-ad-tenant"></a>单个林，单个 Azure AD 租户
 ![单个林和单个租户的拓扑](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
-最常见的拓朴是包含一个或多个域的单个本地林，以及单个 Azure AD 租户。 Azure AD 身份验证使用密码同步。 Azure AD Connect 的快速安装仅支持此拓扑。
+最常见的拓朴是包含一个或多个域的单个本地林，以及单个 Azure AD 租户。 Azure AD 身份验证使用密码哈希同步。 Azure AD Connect 的快速安装仅支持此拓扑。
 
 ### <a name="single-forest-multiple-sync-servers-to-one-azure-ad-tenant"></a>单个林，多个同步服务器连接到一个 Azure AD 租户
 ![单个林不支持的筛选拓扑](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
@@ -147,7 +148,7 @@ Azure AD Connect 同步服务器与 Azure AD 租户之间不存在一对一的�
 
 在此拓扑中，一个 Azure AD Connect 同步服务器连接到每个 Azure AD 租户。 Azure AD Connect 同步服务器必须设置筛选，让它们都有一组对象的互斥集可运行。 例如，可将每个服务器的范围设置为特定域或组织单位。
 
-DNS 域只能在单个 Azure AD 租户中注册。 本地 Active Directory 实例中的用户 UPN 也必须使用独立的命名空间。 例如，在上图中，三个独立 UPN 后缀都注册在本地 Active Directory 实例中：contoso.com、fabrikam.com 和 wingtiptoys.com。每个本地 Active Directory 域中的用户使用不同的命名空间。
+DNS 域只能在单个 Azure AD 租户中注册。 本地 Active Directory 实例中的用户 UPN 也必须使用独立的命名空间。 例如，在上图中，三个独立 UPN 后缀都注册在本地 Active Directory 实例中：contoso.com、fabrikam.com 和 wingtiptoys.com。 每个本地 Active Directory 域中的用户使用不同的命名空间。
 
 >[!NOTE]
 >全局地址列表同步 (GalSync) 未在此拓扑中自动执行，需要其他自定义 MIM 实现，以确保每个租户在 Exchange Online 和 Skype for Business Online 中具有完整的全局地址列表 (GAL)。
@@ -156,7 +157,7 @@ DNS 域只能在单个 Azure AD 租户中注册。 本地 Active Directory 实�
 
 - 只有一个 Azure AD 租户可以使用本地 Active Directory 实例启用 Exchange 混合部署。
 - Windows 10 设备只能与一个 Azure AD 租户相关联。
-- 用于密码同步和传递身份验证的单一登录 (SSO) 选项只能用于一个 Azure AD 租户。
+- 用于密码哈希同步和直通身份验证的单一登录 (SSO) 选项只能由一个 Azure AD 租户使用。
 
 对象互斥集的要求也适用于写回。 此拓扑不支持某些写回功能，因为这些功能采用单个本地配置。 这些功能包括：
 

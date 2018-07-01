@@ -3,8 +3,8 @@ title: Azure AD Connect：先决条件和硬件 | Microsoft Docs
 description: 本主题介绍 Azure AD Connect 的先决条件和硬件要求
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/09/2018
-ms.date: 04/09/2018
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 62794c3168ead61091aa71956fd11294249ae40a
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: c350213be39675784039a30991e53caa404beed0
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31319159"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947930"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的先决条件
 本主题介绍 Azure AD Connect 的先决条件和硬件要求。
@@ -123,7 +124,7 @@ Azure AD Connect 依赖于 Microsoft PowerShell 和 .NET Framework 4.5.1。 服�
 
 - Windows Server 2012R2
   - 已按默认安装 Microsoft PowerShell， 因此不需要执行任何操作。
-  - .NET Framework 4.5.1 和更高版本将通过 Windows 更新提供。 请确保已在控制面板中安装 Windows Server 的最新更新。
+  - .NET Framework 4.5.1 和更高版本通过 Windows 更新提供。 请确保已在控制面板中安装 Windows Server 的最新更新。
 - Windows Server 2008R2 和 Windows Server 2012
   - 可从 **Microsoft 下载中心**获取的 [Windows Management Framework 4.0](http://www.microsoft.com/downloads)中获得最新的 Microsoft PowerShell 版本。
   - .NET Framework 4.5.1 和更高版本可从 [Microsoft 下载中心](http://www.microsoft.com/downloads)获取。
@@ -213,4 +214,4 @@ Azure AD Connect 依赖于 Microsoft PowerShell 和 .NET Framework 4.5.1。 服�
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

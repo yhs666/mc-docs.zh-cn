@@ -4,23 +4,19 @@ description: 了解如何使用 Azure Resource Manager 模板部署 Azure Cosmos
 services: cosmos-db, app-service\web
 author: rockboyfor
 manager: digimobile
-documentationcenter: ''
-ms.assetid: 087d8786-1155-42c7-924b-0eaba5a8b3e0
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/23/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ff3f5212d5dba5988c073a5157bdb70ff7805de4
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 7f96d419f446d63a0fcef8dd8ddac4989d5e1c52
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781877"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070330"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板部署 Azure Cosmos DB 和 Azure 应用服务 Web 应用
 本教程说明如何使用 Azure Resource Manager 模板来部署和集成 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/)、[Azure 应用服务](/app-service-web/app-service-changes-existing-services)、Web 应用以及示例 Web 应用程序。
@@ -40,7 +36,7 @@ ms.locfileid: "31781877"
 > 
 > 
 
-在按照本教程中的说明操作之前，请确保已有 Azure 订阅。 Azure 是基于订阅的平台。  有关获取订阅的详细信息，请参阅[购买选项](https://www.azure.cn/pricing/overview/)、[成员优惠](https://www.azure.cn/support/legal/offer-rate-plans/)或[试用](https://www.azure.cn/pricing/1rmb-trial/)。
+在按照本教程中的说明操作之前，请确保已有 Azure 订阅。 Azure 是基于订阅的平台。  有关获取订阅的详细信息，请参阅[购买选项](https://www.azure.cn/pricing/overview/)、[会员套餐](https://www.azure.cn/support/legal/offer-rate-plans/)或[试用](https://www.azure.cn/pricing/1rmb-trial/)。
 
 <a name="CreateDB"></a>
 ## <a name="step-1-download-the-template-files"></a>步骤 1：下载模板文件

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/09/2018
 ms.author: v-yiso
-ms.date: 05/07/2018
-ms.openlocfilehash: 17ea56aa011ebd5dc505170e567ed35cbd4b614d
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.date: 07/09/2018
+ms.openlocfilehash: d0b09cf1e52940b6d0f6287a86416fc4838db738
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121073"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103423"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>对设备到云的消息使用消息路由和自定义终结点
 
@@ -77,7 +77,7 @@ IoT 中心有一个默认的[内置终结点][lnk-built-in]。 通过将订阅�
 [lnk-device-to-cloud]: ./iot-hub-devguide-messages-d2c.md
 [lnk-devguide-query-language]: ./iot-hub-devguide-query-language.md
 [lnk-devguide-endpoints]: ./iot-hub-devguide-endpoints.md
-[lnk-d2c-tutorial]: ./iot-hub-csharp-csharp-process-d2c.md
+[lnk-d2c-tutorial]: tutorial-routing.md
 [lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md

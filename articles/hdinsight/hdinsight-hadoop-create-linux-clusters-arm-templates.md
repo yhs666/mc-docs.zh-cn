@@ -11,18 +11,18 @@ ms.assetid: 00a80dea-011f-44f0-92a4-25d09db9d996
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/22/2018
-ms.date: 03/26/2018
+origin.date: 05/14/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 40b13a9253dcea91da1266e52ceb288e76090bd2
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 2650b05aa65bafb06a7ee49bf5ca12f465c04769
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073806"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747370"
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用 Resource Manager 模板在 HDInsight 中创建 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]

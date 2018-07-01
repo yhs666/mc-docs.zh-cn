@@ -13,15 +13,15 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/05/2018
-ms.date: 05/21/2018
+origin.date: 05/02/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3ae9a9519b2b69ef58e8f286910aee1234de880d
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 0e87c46ad23b696664350ecd165b283ec16ea151
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450199"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747414"
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>通过 Azure 虚拟网络连接到 Kafka on HDInsight
 

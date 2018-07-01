@@ -6,22 +6,22 @@ documentationcenter: cosmosdb
 author: rockboyfor
 manager: digimobile
 tags: azure-service-management
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 05/10/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: a1abbb2fbdb308e62c599735b61c638cadfc67d5
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 99db2cfa2f09f1177c38cab3162900add1dc2be4
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782160"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070133"
 ---
 # <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-apps-using-powershell"></a>使用 PowerShell 获取 MongoDB 应用的 Azure Cosmos DB 连接字符串
 

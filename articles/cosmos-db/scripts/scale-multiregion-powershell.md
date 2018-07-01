@@ -6,7 +6,6 @@ documentationcenter: cosmosdb
 author: rockboyfor
 manager: digimobile
 tags: azure-service-management
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: PowerShell
@@ -14,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 05/10/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: fc91bc74c8a7898e1d74cdfe9fa8044ce4ff8cf8
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 258ca20d8cab481128777c6919f7cc9b4f7b4998
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781958"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070281"
 ---
 # <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-powershell"></a>使用 PowerShell 将 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级
 
@@ -65,7 +64,21 @@ New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
                     -Name $DBName `
                     -PropertyObject $DBProperties
 
-# Modify locations/priorities
+# Update failoverpolicy to make China North as a write region
+$NewfailoverPolicies = @(@{"locationName"="chinanorth"; "failoverPriority"=1}, @{"locationName"="chinaeast"; "failoverPriority"=0} )
+
+Invoke-AzureRmResourceAction `
+    -Action failoverPriorityChange `
+    -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" `
+    -ResourceGroupName $resourceGroupName `
+    -Name $DBName `
+    -Parameters @{"failoverPolicies"=$NewfailoverPolicies}
+
+
+```
+<!-- Not Available on add new location on Jun 26 2018
+# Add a new locations with priorities
 $newLocations = @(@{"locationName"="China North"; 
                  "failoverPriority"=1},
                @{"locationName"="China East"; 
@@ -81,9 +94,7 @@ Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ResourceGroupName $resourceGroupName `
     -Name $DBName `
     -PropertyObject $UpdateDBProperties
-
-```
-
+-->
 ## <a name="clean-up-deployment"></a>清理部署
 
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。

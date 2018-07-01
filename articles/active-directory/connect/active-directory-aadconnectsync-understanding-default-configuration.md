@@ -3,8 +3,8 @@ title: Azure AD Connect 同步：了解默认配置 | Microsoft Docs
 description: 本文介绍 Azure AD Connect 同步中的默认配置。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 06/26/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: ce5832a104950bdfd6fd1f13e00d0e82658ed355
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: d6cf1373d4b455e23772d33189e5213e64c933ca
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31319168"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948042"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 同步：了解默认配置
 本文介绍现成的配置规则。 其中将说明这些规则及其对配置有何影响。 此外还会逐步介绍如何完成 Azure AD Connect 同步的默认配置。其目的是让读者了解配置模型（名为声明性设置）在实际示例中的运行情形。 本文假设已使用安装向导安装并配置了 Azure AD Connect 同步。
@@ -240,4 +241,4 @@ NULL
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
 
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update metedata properties -->

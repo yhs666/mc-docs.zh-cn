@@ -12,12 +12,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 3a6f62433c2e7e506394e0591fb9b1934f3de0a3
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: eaf03250ab8750b39a69e217f8b9ba9ed790c8e5
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782332"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947931"
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>数据库事务单位 (DTU) 和弹性数据库事务单位 (eDTU)
 本文解释数据库事务单位 (DTU) 和弹性数据库事务单位 (eDTU)，以及在达到 DTU 或 eDTU 上限时会发生什么情况。  
@@ -35,7 +35,7 @@ DTU 最适用于了解 Azure SQL 数据库在不同性能级别和服务层之�
 - 深入了解查询详情，查看其文本和资源使用历史记录。
 - 访问性能优化建议，这些建议可显示 [SQL 数据库顾问](sql-database-advisor.md)执行的操作。
 
-可以随时 [更改服务层](sql-database-service-tiers.md)，将应用程序故障时间降至最低（通常在平均 4 秒以下）。 许多业务和应用只要能够创建数据库并按需调高或调低性能即可，尤其是当使用模式相对容易预测时。 但如果有无法预测的使用模式，则管理成本和业务模式就会变得相当困难。 对于这种情况，可以使用一个具有一定数量 eDTU 的弹性池，这些 eDTU 在池中的多个数据库之间共享。
+可以随时更改 [DTU 服务层](sql-database-service-tiers-dtu.md)，将应用程序故障时间降至最低（通常在平均 4 秒以下）。 许多业务和应用只要能够创建数据库并按需调高或调低性能即可，尤其是当使用模式相对容易预测时。 但如果有无法预测的使用模式，则管理成本和业务模式就会变得相当困难。 对于这种情况，可以使用一个具有一定数量 eDTU 的弹性池，这些 eDTU 在池中的多个数据库之间共享。
 
 ![SQL 数据库简介：按层和级别统计的单一数据库 DTU](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
@@ -58,8 +58,8 @@ DTU 最适用于了解 Azure SQL 数据库在不同性能级别和服务层之�
 性能级别会校准并受到控制，在选定服务层/性能级别所允许的最大限制范围内提供所需的资源来运行数据库工作负荷。 如果工作负荷达到了 CPU/数据 IO/日志 IO 限制中的其中一个限制，会继续接收资源直到达到最大允许级别，但是，可能会发现查询延迟不断增加。 这些限制不会造成任何错误，而只会减慢工作负荷，直到严重变慢，以致于查询开始超时。如果达到了并发用户会话/请求（工作线程）的最大允许数目限制，会看到明确的错误。 有关 CPU、内存、数据 IO 和事务日志 IO 以外的资源的限制信息，请参阅 [Azure SQL 数据库资源限制]( sql-database-dtu-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached) 。
 
 ## <a name="next-steps"></a>后续步骤
-* 有关适用于单一数据库和弹性池的 DTU 和 eDTU，以及除 CPU、内存、数据 IO 和事务日志 IO 之外的其他资源限制的信息，请参阅[服务层](sql-database-service-tiers.md)。
+* 有关适用于单一数据库和弹性池的 DTU 和 eDTU，以及 CPU、内存、数据 IO 和事务日志 IO 以外的资源限制的信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)。
+* 有关基于 vCore 的资源分配和服务层的信息，请参阅[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)。 
 * 请参阅 [SQL 数据库 Query Performance Insight](sql-database-query-performance.md) 以了解 DTU 使用情况。
 * 请参阅 [SQL 数据库基准概述](sql-database-benchmark-overview.md)，了解使用 OLTP 基准工作负荷确定 DTU 混合度量值的方法。
-
 <!--Update_Description: wording update-->

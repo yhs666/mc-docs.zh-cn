@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/27/2017
-ms.date: 05/14/2018
+ms.date: 06/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: c22c9f6ea7f00ea1599d057799df75e4d66071ed
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 817aa7b155a06f339c7e078d742e3e5ad13c783c
+ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173336"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103264"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 管理解决方案进行身份验证
 
@@ -133,12 +133,12 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 若要使用 Azure AD 对 Batch 服务应用程序进行身份验证，请参阅[使用 Active Directory 对 Batch 服务解决方案进行身份验证](batch-aad-auth.md)。 
 
 
-[aad_about]: ../active-directory/active-directory-whatis.md "什么是 Azure Active Directory？"
-[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Azure AD 的身份验证方案"
-[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "将应用程序与 Azure Active Directory 集成"
+[aad_about]:../active-directory/fundamentals/active-directory-whatis.md
+[aad_adal]: ../active-directory/develop/active-directory-authentication-libraries.md
+[aad_auth_scenarios]: ../active-directory/develop/active-directory-authentication-scenarios.md
+[aad_integrate]: ../active-directory/develop/active-directory-integrating-applications.md
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [azure_portal]: http://portal.azure.cn
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

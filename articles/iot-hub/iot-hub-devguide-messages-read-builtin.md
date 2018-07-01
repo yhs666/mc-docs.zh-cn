@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 789a289da0df94ac91c2be417f725f68db863273
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 07/09/2018
+ms.openlocfilehash: 6dc4e67467ba705e3d3e5c93a3099895e08f3eb7
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870330"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103385"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>从内置终结点读取设备到云的消息
 
@@ -83,7 +83,7 @@ IoT 中心 SDK 需要 IoT 中心终结点名称，即“终结点”下所示的
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-event-hubs]: /services/event-hubs/
 [lnk-management-portal]: https://portal.azure.cn
-[lnk-d2c-tutorial]: ./iot-hub-csharp-csharp-process-d2c.md
+[lnk-d2c-tutorial]: tutorial-routing.md
 [lnk-event-hub-partitions]: ../event-hubs/event-hubs-features.md#partitions
 [lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 [lnk-eventprocessorhost]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx

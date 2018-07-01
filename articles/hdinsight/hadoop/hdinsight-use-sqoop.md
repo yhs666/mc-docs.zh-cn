@@ -10,19 +10,17 @@ author: mumian
 ms.assetid: 2fdcc6b7-6ad5-4397-a30b-e7e389b66c7a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 01/03/2018
-ms.date: 05/21/2018
+ms.topic: conceptual
+origin.date: 05/16/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: f241cb51b87468b37934d0253763d56e21b91c68
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 1eb67d652c2862e04f8c3ba384b5331b458a45b5
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450068"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747439"
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>将 Sqoop 与 HDInsight 中的 Hadoop 配合使用
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]

@@ -2,26 +2,23 @@
 title: Azure Cosmos DB：SQL API 入门（使用 .NET Core）教程 | Azure
 description: 有关使用 Azure Cosmos DB SQL API .NET Core SDK 创建联机数据库和 C# 控制台应用程序的教程。
 services: cosmos-db
-documentationcenter: .net
 author: rockboyfor
 manager: digimobile
 editor: ''
-ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 origin.date: 03/12/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: devcenter
-ms.openlocfilehash: fc214664d8a85b5191c4b02237f2780928500e66
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 55497e1e57857398dd35a6590f5d6c37db2b3e65
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782191"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070251"
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB：SQL API 和 .NET Core 入门
 > [!div class="op_single_selector"]
@@ -593,4 +590,4 @@ End of demo, press any key to exit.
 
 [create-sql-api-dotnet.md#create-account]: create-sql-api-dotnet.md#create-account
 [keys]: media/sql-api-dotnetcore-get-started/nosql-tutorial-keys.png
-<!-- Update_Description: wording update  -->
+<!-- Update_Description: update meta properties  -->

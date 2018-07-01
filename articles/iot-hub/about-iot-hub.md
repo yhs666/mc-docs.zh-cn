@@ -6,19 +6,19 @@ keywords: ''
 author: nberdy
 ms.author: v-yiso
 origin.date: 04/27/2018
-ms.date: 06/11/2018
+ms.date: 07/09/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
-ms.openlocfilehash: 37418802f7aaefd4bc1a7baa4d20854ba23cc85b
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 0045b08b6b7484c3a190ba29d8b69ddc61673ab9
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695179"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103425"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT 中心是什么？
 
@@ -55,6 +55,7 @@ IoT 中心为发送数据的设备提供保护信道。
 
 可以将 IoT 中心与其他 Azure 服务集成，生成完整的端对端解决方案。 例如，使用：
 
+* [Azure 逻辑应用](/logic-apps/)，可以自动执行业务流程。
 
 * [Azure 流分析](https://docs.microsoft.com/azure/stream-analytics/)，可从设备对数据流执行实时分析计算。
 

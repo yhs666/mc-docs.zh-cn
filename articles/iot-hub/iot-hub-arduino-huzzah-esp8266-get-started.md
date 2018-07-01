@@ -13,15 +13,15 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/15/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: 372e5b11ff6764851289e23a00f91ef5ccaec5aa
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.date: 07/09/2018
+ms.openlocfilehash: 7a467d6f9ba71b3b614dfbb92d5995d7c3cbebfd
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30293812"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103417"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>将 Adafruit Feather HUZZAH ESP8266 连接到云中的 Azure IoT 中心
 

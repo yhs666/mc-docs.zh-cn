@@ -7,14 +7,15 @@ manager: josefree
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
+origin.date: 04/09/2018
 ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: 1dc35d6caff0358d62a0d3b79dbfbc35c955c831
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: c80c9752ada26102259373a5fc2b33f18868e02c
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36269967"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103037"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 上传、下载和列出 Blob
 

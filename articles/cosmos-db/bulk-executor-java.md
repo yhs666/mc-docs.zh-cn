@@ -6,17 +6,17 @@ services: cosmos-db
 author: rockboyfor
 manager: digimobile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: java
+ms.topic: conceptual
 origin.date: 05/07/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: ed4bb7e1d1287973f96325c6efd8c13880324e97
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 1f1e358e5c0bec6ca0b118e5a2bca4ad77503b2a
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34915932"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070287"
 ---
 # <a name="use-bulkexecutor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>使用 BulkExecutor Java 库针对 Azure Cosmos DB 数据执行批量操作
 
@@ -213,5 +213,4 @@ ms.locfileid: "34915932"
 
 ## <a name="next-steps"></a>后续步骤
 * 若要了解 maven 包的详细信息以及 BulkExecutor Java 库的发行说明，请参阅 [BulkExecutor SDK 详细信息](sql-api-sdk-bulk-executor-java.md)。
-<!-- Update_Description: new articles on bulk executor with java -->
-<!--ms.date: 06/11/2018-->
+<!-- Update_Description: update meta properties -->

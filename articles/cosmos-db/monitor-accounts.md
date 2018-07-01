@@ -2,24 +2,20 @@
 title: 监视 Azure Cosmos DB 请求和存储 | Azure
 description: 了解如何监视 Azure Cosmos DB 帐户的性能指标（如请求和服务器错误）以及使用情况指标（如存储消耗）。
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-ms.assetid: 4c6a2e6f-6e78-48e3-8dc6-f4498b235a9e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 09/19/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 980f44ce7d6e92b7fdb5b1b0f409d416aa48781f
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: c107368e500f3e3d1d1bded471a9b80577898152
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781867"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070289"
 ---
 # <a name="monitor-azure-cosmos-db"></a>监视 Azure Cosmos DB
 可以在 [Azure 门户](https://portal.azure.cn/)中监视 Azure Cosmos DB 帐户。 对于每个 Azure Cosmos DB 帐户，一整套指标可用于监视吞吐量、存储、可用性、延迟和一致性。
@@ -88,4 +84,4 @@ ms.locfileid: "31781867"
 ## <a name="next-steps"></a>后续步骤
 若要深入了解 Azure Cosmos DB 容量规划，请参阅 [Azure Cosmos DB Capacity Planner 计算器](https://www.documentdb.com/capacityplanner)。
 
-<!-- Update_Description: update meta properties, add Monitor metirc content -->
+<!-- Update_Description: update meta properties  -->

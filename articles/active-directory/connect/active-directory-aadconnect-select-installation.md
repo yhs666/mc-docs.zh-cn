@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 05/02/2018
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 956cc3c6951ee42816baedaffb8cb83dc17ed36f
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 44d3fa35c0a18fdcfb8d56e91da05897649f92bc
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814948"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947900"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>选择用于 Azure AD Connect 的安装类型
 进行全新安装时，AD Connect 有两种安装类型：快速安装和自定义安装。 本主题有助于用户确定安装过程中使用的具体选项。
@@ -76,4 +77,4 @@ ms.locfileid: "33814948"
 ## <a name="next-steps"></a>后续步骤
 根据已选定使用的选项，使用左侧的目录查找包含详细步骤的文章。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

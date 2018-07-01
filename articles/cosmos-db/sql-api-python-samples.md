@@ -5,33 +5,31 @@ keywords: python 示例
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: python
-ms.assetid: 7f4f8db3-e9db-4645-92ef-7819d486a349
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: python
-ms.topic: article
+ms.topic: sample
 origin.date: 03/14/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 86f6f58c054ab7d6c9e88e662f1275e0a6785e18
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 5787ec4362b3a3856dca3182b8f1e106edc4b4bd
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781994"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070329"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 示例
 
 > [!div class="op_single_selector"]
 > * [.NET 示例](sql-api-dotnet-samples.md)
 > * [Java 示例](sql-api-java-samples.md)
+> * [异步 Java 示例](sql-api-async-java-samples.md)
 > * [Node.js 示例](sql-api-nodejs-samples.md)
 > * [Python 示例](sql-api-python-samples.md)
 > * [Azure 代码示例库](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
->
->
+> 
+> 
 
 对 Azure Cosmos DB 资源执行 CRUD 操作和其他常见操作的示例解决方案包含在 [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) GitHub 存储库中。 本文提供：
 
@@ -92,8 +90,11 @@ ms.locfileid: "31781994"
 | [使用手动（而非自动）索引](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L245-L246) |[IndexingPolicy.Automatic](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [从索引中排除指定的文档路径](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L294-L367) |[IndexingPolicy.ExcludedPaths](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [从索引中排除文档](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L204-L210) |[documents.IndexingDirective.Exclude](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.documents.html#pydocumentdb.documents.IndexingDirective) |
-<!-- URL is CORRECT on http://azure.github.io/azure-documentdb-python/api/pydocumentdb.documents.html#pydocumentdb.documents.IndexingDirective-->
-| [设置索引模式](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L533) |[documents.IndexingMode](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.documents.html#IndexingMode) | | [对字符串使用范围索引](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L440-L456) |[IndexingPolicy.IncludedPaths](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) | | [执行索引转换](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L514-L559) |[document_client.ReplaceCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#ReplaceCollection) |
+| [设置索引模式](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L533) |[documents.IndexingMode](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.documents.html#IndexingMode) |
+| [对字符串使用范围索引](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L440-L456) |[IndexingPolicy.IncludedPaths](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
+| [执行索引转换](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L514-L559) |[document_client.ReplaceCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#ReplaceCollection) |
+<!-- URL on Line 88 is CORRECT on http://azure.github.io/azure-documentdb-python/api/pydocumentdb.documents.html#pydocumentdb.documents.IndexingDirective-->
+
 
 ## <a name="query-examples"></a>查询示例
 示例项目还演示了如何执行以下查询任务：
@@ -104,4 +105,4 @@ ms.locfileid: "31781994"
 | [查询文档](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L152-L169) |[document_client.QueryDocuments](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#QueryDocuments) |
 | [对哈希索引路径强制执行范围扫描操作](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L409-L415) |[http_constants.HttpHeaders.EnableScanInQuery](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.http_constants.html#pydocumentdb.http_constants.HttpHeaders.EnableScanInQuery) |
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

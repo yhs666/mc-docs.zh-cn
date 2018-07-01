@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 05/07/2018
-ms.openlocfilehash: 044e345e6bdf99ae51c47d8671611328ddef9336
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.date: 07/09/2018
+ms.openlocfilehash: 6ed7b73e4690ea7d68fe46f254ffa740e4cf8cea
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121172"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103377"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>将 Raspberry Pi 联机模拟器连接到 Azure IoT 中心 (Node.js)
 
@@ -64,9 +64,9 @@ ms.locfileid: "32121172"
 <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">启动 Raspberry Pi 模拟器</a>
 
 Web 模拟器中有三个区域。
-* 装配区 - 默认电路是 Pi 与 BME280 传感器和 LED 连接。 在预览版中该区域是锁定的，因此当前无法执行自定义操作。
-* 编码区 - 一个联机代码编辑器，用于使用 Raspberry Pi 进行编码。 默认示例应用程序有助于从 BME280 传感器收集传感器数据，并发送到 Azure IoT 中心。 应用程序与实际 Pi 设备是完全兼容的。 
-* 集成控制台窗口 - 会显示代码的输出。 此窗口顶部有三个按钮。
+1. 装配区 - 默认电路是 Pi 与 BME280 传感器和 LED 连接。 在预览版中该区域是锁定的，因此当前无法执行自定义操作。
+2. 编码区 - 一个联机代码编辑器，用于使用 Raspberry Pi 进行编码。 默认示例应用程序有助于从 BME280 传感器收集传感器数据，并发送到 Azure IoT 中心。 应用程序与实际 Pi 设备是完全兼容的。 
+3. 集成控制台窗口 - 会显示代码的输出。 此窗口顶部有三个按钮。
    * 运行 - 在编码区中运行应用程序。
    * 重置 - 将编码区重置为默认示例应用程序。
    * 折叠/展开 - 按钮位于右侧，用于折叠/展开控制台窗口。

@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/24/2017
-ms.date: 05/14/2018
+ms.date: 06/29/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e1cca158039ec4762e196ac0e1d47865bfb0f42
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: e7369ed63586028bb2b18f504c79e9fcdab77294
+ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173374"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103250"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>通过用于 .NET 的 Batch Management 客户端库管理 Batch 帐户和配额
 
@@ -177,7 +177,7 @@ Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource
 要成功运行示例应用程序，必须首先在 Azure 门户中将其注册到 Azure AD 租户，并向 Azure Resource Manager API 授予权限。 按照[使用 Azure AD 对 Batch 管理应用程序进行验证](batch-aad-auth-management.md)中提供的步骤操作。
 
 
-[aad_about]: ../active-directory/active-directory-whatis.md
+[aad_about]:../active-directory/fundamentals/active-directory-whatis.md
 [aad_adal]:../active-directory/develop/active-directory-authentication-libraries.md
 [aad_auth_scenarios]:../active-directory/develop/active-directory-authentication-scenarios.md
 [aad_integrate]: ../active-directory/develop/active-directory-integrating-applications.md
@@ -205,4 +205,4 @@ Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

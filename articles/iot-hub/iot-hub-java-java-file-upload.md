@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/28/2017
 ms.author: dobett
-ms.date: 11/20/2017
-ms.openlocfilehash: 8cc8ccec9f40141d7559a2acab2f574b779b9a89
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.date: 07/09/2018
+ms.openlocfilehash: abefdbfc3e6b94cfb6d44cd50d8dd57039a8afe0
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24058608"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103427"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
 
@@ -31,7 +31,7 @@ ms.locfileid: "24058608"
 - 安全地为设备提供用于上传文件的 Azure Blob URI。
 - 使用 IoT 中心文件上传通知在应用后端中触发对文件的处理。
 
-[IoT 中心入门](./iot-hub-java-java-getstarted.md)和[使用 IoT 中心发送云到设备的消息](./iot-hub-java-java-c2d.md)教程介绍了 IoT 中心提供的基本的设备到云和云到设备的消息传送功能。 [处理设备到云的消息](./iot-hub-java-java-process-d2c.md)教程介绍了一种在 Azure Blob 存储中可靠存储设备到云消息的方法。 但是，在某些情况下，无法轻松地将设备发送的数据映射为 IoT 中心接受的相对较小的设备到云消息。 例如：
+[IoT 中心入门](iot-hub-java-java-getstarted.md)和[使用 IoT 中心发送云到设备的消息](iot-hub-java-java-c2d.md)教程介绍了 IoT 中心提供的基本的设备到云和云到设备的消息传送功能。 [处理设备到云的消息](tutorial-routing.md)教程介绍了一种在 Azure Blob 存储中可靠存储设备到云消息的方法。 但是，在某些情况下，无法轻松地将设备发送的数据映射为 IoT 中心接受的相对较小的设备到云消息。 例如：
 
 * 包含图像的大型文件
 * 视频
@@ -42,7 +42,7 @@ ms.locfileid: "24058608"
 
 在本教程的最后，会运行两个 Java 控制台应用：
 
-* **simulated-device**，这是 [使用 IoT 中心发送云到设备的消息] 教程中创建的应用的修改版本。 该应用使用 IoT 中心提供的 SAS URI 将文件上传到存储。
+* **simulated-device**，这是 [使用 IoT 中心发送云到设备的消息] 教程中创建的应用的修改版本。 此应用使用 IoT 中心提供的 SAS URI 将文件上传到存储。
 * **read-file-upload-notification**，它可以接收来自 IoT 中心的文件上传通知。
 
 > [!NOTE]

@@ -6,7 +6,6 @@ documentationcenter: cosmosdb
 author: rockboyfor
 manager: digimobile
 tags: azure-service-management
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: PowerShell
@@ -14,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 05/10/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: ca1273ed89cb044035f9a2ff13bdd2572c152f43
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: f5d60faa6ea2c879707c230a8887879f52958a8f
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782242"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070169"
 ---
 # <a name="azure-cosmos-db-create-a-sql-api-account-using-powershell"></a>Azure Cosmos DB：使用 PowerShell 创建 SQL API 帐户
 

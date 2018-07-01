@@ -13,21 +13,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/08/2017
-ms.date: 05/03/2018
+ms.date: 06/26/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 97a2e15560a7f01e7cb9c8992a5c35171b98a279
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 6186ced521cb895117f4793e39e0aeb1c3db9533
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814973"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948022"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect 同步：理解和自定义同步
 Azure Active Directory Connect 同步服务（Azure AD Connect 同步）是 Azure AD Connect 的一个主要组件。 它负责在本地环境与 Azure AD 之间同步标识数据的所有相关操作。 Azure AD Connect 同步是 DirSync、Azure AD Sync 和 Forefront Identity Manager 的后继版本，同时配置了 Azure Active Directory 连接器。
 
 本主题介绍了 Azure AD Connect 同步（也称为同步引擎），并列出了与其相关的所有其他主题的链接。 有关 Azure AD Connect 的链接，请参阅[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)。
 
-同步服务包括两个组件，本地“Azure AD Connect 同步”组件和 Azure AD 中称为“Azure AD Connect 同步服务”的服务端组件。 
+同步服务包括两个组件，本地“Azure AD Connect 同步”组件和 Azure AD 中称为“Azure AD Connect 同步服务”的服务端组件。
 
 ## <a name="azure-ad-connect-sync-topics"></a>Azure AD Connect 同步主题
 | 主题 | 涵盖的内容和阅读时机 |
@@ -66,4 +67,4 @@ Azure Active Directory Connect 同步服务（Azure AD Connect 同步）是 Azur
 ## <a name="additional-resources"></a>其他资源
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

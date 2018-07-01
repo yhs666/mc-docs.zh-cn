@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 04/30/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 7ab7320b1bc4ba274d43bf7271bc41d82678856a
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 8084738445019194b4489eeca9254f63d2101f44
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554664"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748380"
 ---
 # <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Azure CLI 脚本示例：创建 DNS 区域和记录
 
@@ -33,7 +33,7 @@ ms.locfileid: "34554664"
 
 ## <a name="sample-script"></a>示例脚本
 
-```azurecli-interactive
+```azurecli
 
 # Create a resource group.
 az group create \

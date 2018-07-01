@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
 ms.date: 05/07/2018
-ms.openlocfilehash: 753270216a2b505b76e365d249c4752e6c3bcdd3
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 8d8ad87841745f69f3d7ba2f67f5405b082087a4
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121769"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103429"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>将 IoT DevKit AZ3166 连接到云中的 Azure IoT 中心
 
@@ -312,3 +312,4 @@ DevKit 将重新启动并开始运行代码。
 - [将 IoT 中心消息保存到 Azure 数据存储](./iot-hub-store-data-in-azure-table-storage.md)
 - [使用 Web 应用可视化 Azure IoT 中心的实时传感器数据](./iot-hub-live-data-visualization-in-web-apps.md)
 - [使用 iothub-explorer 进行设备管理](./iot-hub-device-management-iothub-explorer.md)
+- [使用逻辑应用执行远程监视和发送通知](./iot-hub-monitoring-notifications-with-azure-logic-apps.md)

@@ -11,18 +11,18 @@ ms.assetid: 9c74e3dc-837f-4c90-bbb1-489bc7124a3d
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/22/2018
-ms.date: 03/26/2018
+origin.date: 05/14/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: ef78e2a66d92d2e8f031a350539e86ffcb54336c
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 2acf90a286785e3372c74f5cfe2247ac5282564e
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073189"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747505"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>使用 .NET SDK 在 HDInsight 中创建基于 Linux 的群集
 

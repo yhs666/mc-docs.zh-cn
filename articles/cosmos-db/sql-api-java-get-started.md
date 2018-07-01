@@ -3,24 +3,21 @@ title: NoSQL 教程：适用于 Azure Cosmos DB Java SDK 的 SQL API | Azure
 description: 一个 NoSQL 教程，介绍了如何使用适用于 Azure Cosmos DB 的 SQL API 创建联机数据库和 Java 控制台应用程序。 Azure SQL 是用于 JSON 的 NoSQL 数据库。
 keywords: nosql 教程, 联机数据库, java 控制台应用程序
 services: cosmos-db
-documentationcenter: Java
 author: rockboyfor
 manager: digimobile
-ms.assetid: 75a9efa1-7edd-4fed-9882-c0177274cbb2
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
+ms.topic: tutorial
 origin.date: 05/22/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9f6cf34239106441c2f4711a20e4b2c2b47ede74
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 49bf601e49d0b389cb0cb19959914a6fd1a41170
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782084"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070176"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 教程：构建 SQL API Java 控制台应用程序
 > [!div class="op_single_selector"]

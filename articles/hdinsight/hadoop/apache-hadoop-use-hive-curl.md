@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/26/2017
-ms.date: 05/21/2018
+origin.date: 04/23/2017
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 05cbd1e1de02eecb527df9562867ba6caa0a7544
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 66f11cf91c78bb347486773d9f4d98a1101b7545
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450025"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747354"
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>使用 REST 在 HDInsight 中通过 Hadoop 运行 Hive 查询
 

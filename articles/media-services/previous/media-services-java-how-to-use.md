@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 10/26/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: bec7670025f4b952463fdc017ad80244ac465606
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: bec12e33a1deebab31695fe5892640ef870a6329
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867393"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748353"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>用于 Azure 媒体服务的 Java 客户端 SDK 入门
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -44,7 +44,7 @@ ms.locfileid: "34867393"
     compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
 
 >[!IMPORTANT]
->自 `azure-media` 包的版本 `0.9.8` 开始，SDK 添加了对 Azure Active Directory (AAD) 身份验证的支持，删除了对 Azure 访问控制服务 (ACS) 身份验证的支持。 ACS 服务将在 2018 年 6 月 1 日弃用。 建议尽快迁移到 Azure AD 身份验证模型。 有关迁移的详细信息，请阅读[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md) 一文。
+>自 `azure-media` 包的版本 `0.9.8` 开始，SDK 添加了对 Azure Active Directory (AAD) 身份验证的支持，删除了对 Azure 访问控制服务 (ACS) 身份验证的支持。 ACS 服务将在 2018 年 6 月 22 日弃用。 建议尽快迁移到 Azure AD 身份验证模型。 有关迁移的详细信息，请阅读[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md) 一文。
 
 >[!NOTE]
 >可以在 [GitHub 存储库](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media)中找到 Azure 媒体服务的源代码。 请确保切换到 0.9 分支而非主分支。 
@@ -313,7 +313,7 @@ ms.locfileid: "34867393"
 <!--Update_Description:update two links;add one note about AMS policy limitations-->
 <!-- URLs. -->
 
-  [Azure Media Services SDK Maven Package]: https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest
+[Azure Media Services SDK Maven Package]: https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest
   [Azure Java Developer Center]: /develop/java/
-  [Azure for Java developers]: https://docs.microsoft.com/java/azure/
+[Azure for Java developers]: https://docs.microsoft.com/java/azure/
   [Media Services Client Development]: ./media-services-develop-video-players.md

@@ -3,8 +3,8 @@ title: Azure AD Connect：了解声明性预配 | Microsoft Docs
 description: 介绍 Azure AD Connect 中的声明性预配配置模型。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 06/26/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 8b72be33d86e1c145408c0124819b0d914085c43
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: 973169c4a5f7327cba72cabfc5167166e39b5fce
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
-ms.locfileid: "20822258"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948026"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 同步：了解声明性预配
 本主题介绍 Azure AD Connect 中的配置模型。 该模型称为声明性预配，让用户能够轻松地更改配置。 本主题介绍的许多内容都是高级内容，在大部分客户方案中并非必要。
@@ -41,13 +42,13 @@ ms.locfileid: "20822258"
 - [优先级](#precedence)：解决冲突的属性提供问题
 - 目标：目标对象
 
-## <a name="scope"></a>范围
+## <a name="scope"></a>作用域
 范围模块会计算对象，并确定在范围内且应纳入处理的规则。 根据对象的属性值，不同同步规则的计算结果都是在范围内。 例如，没有 Exchange 邮箱的已禁用用户拥有与具有邮箱的已启用用户不同的规则。  
-![范围](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope1.png)  
+![作用域](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope1.png)  
 
 范围可定义为组和子句。 子句位于组内。 逻辑 AND 用于组中的所有子句之间。 例如，(department =IT AND country = Denmark)。 逻辑 OR 用于组之间。
 
-![范围](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope2.png)  
+![作用域](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope2.png)  
 此图中的范围应理解为 (department = IT AND country = Denmark) OR (country=Sweden)。 如果组 1 或组 2 的计算结果为 true，则该规则在范围内。
 
 范围模块支持以下运算。
@@ -65,7 +66,7 @@ ms.locfileid: "20822258"
 | ISBITSET、ISNOTBITSET |计算是否已设置特定的位。 例如，可用于计算 userAccountControl 中的位，查看用户是处于启用状态还是禁用状态。 |
 | ISMEMBEROF、ISNOTMEMBEROF |值应该包含连接器空间中组的 DN。 如果对象是指定组的成员，则规则在范围内。 |
 
-## <a name="join"></a>联接
+## <a name="join"></a>Join
 同步管道中的联接模块负责查找源中的对象和目标中的对象之间的关系。 在入站规则中，此关系是指连接器空间中的对象找到与 metaverse 中对象的关系。  
 ![在 cs 和 mv 之间联接](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/join1.png)  
 目标在于查看 metaverse 中是否已经有应该与之关联的对象（由另一个连接器创建）。 例如，在帐户-资源林中，帐户林中的用户应与资源林中的用户联接。
@@ -119,7 +120,7 @@ ms.locfileid: "20822258"
 
 属性流还可使用 **IgnoreThisFlow**。 就表示没有要提供的内容而言，它与 NULL 类似。 差异在于它不会删除目标中已经存在的值。 就像属性流从未出现一样。
 
-下面是一个示例：
+以下是示例：
 
 在 Out to AD - User Exchange hybrid 中可找到下列流：  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
@@ -152,7 +153,7 @@ ms.locfileid: "20822258"
 
 ## <a name="next-steps"></a>后续步骤
 - 在[了解声明性预配表达式](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)中阅读有关表达式语言的详细信息。
-- 在[了解默认配置](active-directory-aadconnectsync-understanding-default-configuration.md)中了解如何现成使用声明性设置。
+- 在 [Understanding the default configuration](active-directory-aadconnectsync-understanding-default-configuration.md)（了解默认配置）中了解如何现成地使用声明式预配。
 - 在[如何更改默认配置](active-directory-aadconnectsync-change-the-configuration.md)中了解如何使用声明性预配进行实际更改。
 - 如需了解用户和联系人如何协同工作，请继续阅读[了解用户和联系人](active-directory-aadconnectsync-understanding-users-and-contacts.md)。
 
@@ -165,4 +166,4 @@ ms.locfileid: "20822258"
 
 - [Azure AD Connect 同步：函数引用](active-directory-aadconnectsync-functions-reference.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

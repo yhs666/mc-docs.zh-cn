@@ -5,31 +5,29 @@ services: cosmos-db
 author: rockboyfor
 manager: digimobile
 tags: azure-service-management
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: database
 origin.date: 10/16/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: b8f1d2ed040b7f1a5b1750365131efa1968917e8
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 7f00a412c35af7f26ca3763c5e366d70fa8f4b29
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781975"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070130"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>适用于 Azure Cosmos DB 的 Azure PowerShell 示例
 
-下表包含指向适用于 Azure Cosmos DB 的示例 Azure PowerShell 脚本的链接。 目前只能通过 PowerShell 管理 Azure Cosmos DB accountlayer；不能通过 PowerShell 管理数据库和集合等其他资源。
+下表包含指向适用于 Azure Cosmos DB 的示例 Azure PowerShell 脚本的链接。 目前只能通过 PowerShell 管理 Azure Cosmos DB 帐户；不能通过 PowerShell 管理数据库和集合等其他资源。
 
 | |  |
 |---|---|
 |创建 Azure Cosmos DB 帐户||
 |[创建 SQL API 帐户](scripts/create-database-account-powershell.md)| 创建单个要用于 SQL API 的 Azure Cosmos DB 帐户。 |
+|[创建 MongoDB API 帐户](scripts/create-mongodb-database-account-powershell.md)| 创建单个要用于 MongoDB API 的 Azure Cosmos DB 帐户。 |
 |缩放 Azure Cosmos DB||
 |[将 Azure Cosmos DB 帐户复制到多个区域中并配置故障转移优先级](scripts/scale-multiregion-powershell.md)|多数据中心将帐户数据复制到具有指定故障转移优先级的多个区域中。|
 |**保护 Azure Cosmos DB**||
@@ -43,4 +41,4 @@ ms.locfileid: "31781975"
 <!-- Notice: 全球范围 to 多个数据中心范围 [将 Azure Cosmos DB 帐户复制到多个区域中并配置故障转移优先级] -->
 
 <!--Not Available for external TOC file ?toc=%2fpowershell%2fmodule%2ftoc.json -->
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update meta properties -->

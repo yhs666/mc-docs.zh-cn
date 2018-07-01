@@ -5,22 +5,19 @@ keywords: robomongo
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: ''
-ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/23/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: e20037d1db7b9663e09940328424510f15c36dc3
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 4ff1e9f8e865748eaf0e3639d98eedf6e0e720ca
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782109"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070109"
 ---
 # <a name="use-robomongo-with-an-azure-cosmos-db-api-for-mongodb-account"></a>配合使用 Robomongo 与 Azure Cosmos DB: API for MongoDB 帐户
 若要使用 Robomongo 连接到 Azure Cosmos DB: API for MongoDB 帐户，必须：

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 962fbad82ce82ef0fbe9d23f6e58310cda359f07
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: cf86cb7396e750cd84e95611df0f77e7642f3b73
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867401"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748381"
 ---
 # <a name="media-services-development-with-net"></a>使用 .NET 进行媒体服务开发
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -133,7 +133,7 @@ ms.locfileid: "34867401"
             }
  ```
 
-##<a name="next-steps"></a>后续步骤
+## <a name="next-steps"></a>后续步骤
 
 现在[可以连接到 AMS API](media-services-use-aad-auth-to-access-ams-api.md) 并开始[开发](media-services-dotnet-get-started.md)。
 

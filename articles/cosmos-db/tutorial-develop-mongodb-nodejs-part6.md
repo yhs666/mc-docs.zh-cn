@@ -2,26 +2,23 @@
 title: 适用于 Azure 的 MongoDB、Angular 和 Node 教程 - 第 6 部分 | Azure
 description: 本教程系列的第 6 部分，介绍如何通过 Angular 和 Node 在 Azure Cosmos DB 上创建 MongoDB 应用，所使用的 API 与用于 MongoDB 的 API 完全相同
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 09/05/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6db2c915c1c04aa62773c40a7668be2dbfe4a084
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: fb61d2eb391a6c95cd321a2779ab800a339bb0c6
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782050"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070142"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>通过 Angular 和 Azure Cosmos DB 创建 MongoDB 应用 - 第 6 部分：向应用添加 Post、Put 和 Delete 函数
 

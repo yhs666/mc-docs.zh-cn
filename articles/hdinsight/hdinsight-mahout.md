@@ -14,15 +14,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/25/2018
-ms.date: 05/28/2018
+origin.date: 04/23/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3cf81b06d2ad956ba1fabba33193c1976529906f
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 1667dd8b70c4f33ececf63b791513f1c8aeeee25
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450002"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747445"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>将 Apache Mahout 与 HDInsight (PowerShell) 中的 Hadoop 配合使用生成电影推荐
 

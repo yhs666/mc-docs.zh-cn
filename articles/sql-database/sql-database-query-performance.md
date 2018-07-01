@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 95b4915d05edfd2bd3d5defc18d5819e3258e422
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 86d1e1274435245e4f7e86ab433ea0c16e6dbf43
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782409"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948106"
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL 数据库 Query Performance Insight
 管理和优化关系数据库性能是一项颇具挑战性的操作，需要投入大量的专业知识和时间。 查询性能见解通过提供以下功能使排查数据库性能问题花费的时间更少：
@@ -54,7 +54,6 @@ ms.locfileid: "31782409"
 > 
 
 ## <a name="review-top-cpu-consuming-queries"></a>查看 DTU 消耗量靠前的查询
-
 在[门户](http://portal.azure.cn)中执行以下操作：
 
 1. 浏览至 SQL 数据库并单击“**所有设置**” > “**支持 + 疑难解答**” > “**查询性能见解**”。 

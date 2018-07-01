@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 09/03/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 7f3ac82b2805131f329881088869409146af261f
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: b563e2bb9d12c912f1d04cfd04f7f44f3ee5b091
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475407"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748411"
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>利用 Azure 门户创建 Azure 媒体服务帐户
 > [!div class="op_single_selector"]
@@ -63,11 +63,11 @@ ms.locfileid: "34475407"
 
    1. 在“帐户名”中，输入新的 AMS 帐户的名称。 媒体服务帐户名称由小写字母或数字构成（不含空格），长度为 3 到 24 个字符。
    2. 在“订阅”中，在有权访问的不同 Azure 订阅中进行选择。
-   3. 在“资源组”中，选择新的或现有的资源。  资源组是共享生命周期、权限和策略的资源的集合。 在[此处](../azure-resource-manager/resource-group-overview.md#resource-groups)了解更多信息。
+   3. 在“资源组”中，选择新的或现有的资源。  资源组是共享生命周期、权限和策略的资源的集合。 在[此处](../../azure-resource-manager/resource-group-overview.md#resource-groups)了解更多信息。
    4. 在“位置”中，选择用于存储媒体服务帐户的媒体和元数据记录的地理区域。 此区域用于处理和流式传输媒体。 下拉列表中仅显示可用的媒体服务区域。 
    5. 在“存储帐户”中，选择一个存储帐户以便为媒体服务帐户中的媒体内容提供 Blob 存储。 可选择媒体服务帐户所在的地理区域内的现有存储帐户，也可创建存储帐户。 将在同一区域内创建一个新的存储帐户。 适用于存储帐户名的规则对媒体服务帐户同样适用。
-
-       单击[此处](../storage/common/storage-introduction.md)了解有关存储的详细信息。
+      
+       单击[此处](../../storage/common/storage-introduction.md)了解有关存储的详细信息。
    6. 选择“固定到仪表板”以查看帐户部署进度。
 4. 单击窗体底部的“创建”。
 

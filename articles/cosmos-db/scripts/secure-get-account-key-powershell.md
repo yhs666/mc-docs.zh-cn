@@ -6,7 +6,6 @@ documentationcenter: cosmosdb
 author: rockboyfor
 manager: digimobile
 tags: azure-service-management
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: PowerShell
@@ -14,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 05/10/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 815ec8c27371bfe30dd387b5fb4cc6a2e6a947bd
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 2de4ba89a825caadb11948f93f1c68142de3b11f
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781855"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070187"
 ---
 # <a name="get-account-keys-for-azure-cosmos-db-using-powershell"></a>使用 PowerShell 获取 Azure Cosmos DB 的帐户密钥
 

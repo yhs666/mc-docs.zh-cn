@@ -10,19 +10,17 @@ documentationcenter: ''
 ms.assetid: bfdfa754-18e5-4ef9-b0d6-2dbdcebc0283
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 12/15/2017
-ms.date: 01/15/2018
+origin.date: 05/14/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 8090dce08385f80c23b2226c5607b65f08b3588e
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: b89dde5129cd2b55803c80e48d564711919ed996
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449988"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747363"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]

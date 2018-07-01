@@ -10,18 +10,18 @@ ms.assetid: dd14aed9-ec25-4bb3-a20c-e29562735a7d
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/07/2018
-ms.date: 03/26/2018
+origin.date: 04/20/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: a093453a7aad3362380f7043d8825160fea19bfc
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 5314f69da548257aa5a3be912afa56496badb5d7
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30075482"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747398"
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>由 HDInsight 上的 Hadoop 服务使用的端口
 
@@ -59,6 +59,7 @@ HDInsight 群集中的所有节点都在 Azure 虚拟网络中，无法直接从
 | --- | --- | --- | --- | --- |
 | Stargate |443 |HTTPS |HBase |HBase REST API。 请参阅[开始使用 HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
 | Livy |443 |HTTPS |Spark |Spark REST API。 请参阅[使用 Livy 远程提交 Spark 作业](spark/apache-spark-livy-rest-interface.md) |
+| Spark Thrift 服务器 |443 |HTTPS |Spark |用来提交 Hive 查询的 Spark Thrift 服务器。 请参阅[在 HDInsight 上将 Beeline 与 Hive 配合使用](hadoop/apache-hadoop-use-hive-beeline.md) |
 | Storm |443 |HTTPS |Storm |Storm Web UI。 请参阅[在 HDInsight 上部署和管理 Storm 拓扑](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>身份验证

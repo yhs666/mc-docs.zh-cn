@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 03/19/2018
 ms.date: 04/19/2018
 ms.author: v-nany
-ms.openlocfilehash: ce4c26e811533cf5ac588f3c042a2d59f5613ced
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: d734aa3eaf1b31fbb9ff9c15e0569261e23a2793
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782670"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947974"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>开始使用 Azure SQL 数据库托管实例审核
 
@@ -110,8 +110,8 @@ ms.locfileid: "31782670"
     - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 7. 像针对 SQL Server 那样创建一个服务器审核规范或数据库审核规范：
-    - [创建服务器审核规范 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-    - [创建数据库审核规范 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+    - [创建服务器审核规范 T-SQL 指南](https://docs.microsoft.com/ sql/t-sql/statements/create-server-audit-specification-transact-sql)
+    - [创建数据库审核规范 T-SQL 指南](https://docs.microsoft.com/ sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 8. 启用在步骤 6 中创建的服务器审核：
 
@@ -168,4 +168,3 @@ Azure Blob 存储审核的主要 `CREATE AUDIT` 语法差异为：
 [6]: ./media/sql-managed-instance-auditing/6_storage_settings_menu.png
 [7]: ./media/sql-managed-instance-auditing/7_sas_configure.png
 [8]: ./media/sql-managed-instance-auditing/8_sas_copy.png
-

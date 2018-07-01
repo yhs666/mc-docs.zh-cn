@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 origin.date: 03/19/2018
-ms.date: 05/14/2018
+ms.date: 06/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: a953d05d2786847d38f8a3cbb731bf74fe6d5dbf
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: afb6e32b5ffd352739094c8e4c3bb5eaae475999
+ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173337"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103247"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>将低优先级 VM 与 Batch 配合使用
 
@@ -86,7 +86,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     targetDedicatedComputeNodes: 5,
     targetLowPriorityComputeNodes: 20,
     virtualMachineSize: "Standard_D2_v2",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4") // WS 2012 R2
+    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5") // WS 2016
 );
 ```
 
@@ -96,7 +96,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 ImageReference imageRef = new ImageReference(
     publisher: "Canonical",
     offer: "UbuntuServer",
-    sku: "16.04.0-LTS",
+    sku: "16.04-LTS",
     version: "latest");
 
 // Create the pool
@@ -185,4 +185,4 @@ VM 有时会被占用；如果发生占用情况，Batch 将执行以下操作�
 - 对于准备使用 Batch 的任何人，有必要阅读 [面向开发人员的 Batch 功能概述](batch-api-basics.md)了解基本信息。 本文中包含有关 Batch 服务资源（如池、节点、作业和任务）以及生成 Batch 应用程序时可以使用的许多 API 功能的更多详细信息。
 - 了解适用于生成批处理解决方案的[批处理 API 和工具](batch-apis-tools.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

@@ -6,7 +6,6 @@ documentationcenter: cosmosdb
 author: rockboyfor
 manager: digimobile
 tags: azure-service-management
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: PowerShell
@@ -14,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 05/10/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4d151003d525ae2c0af9a2e0bb569f58cb5ff46d
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 49526f95b0a45a313df61aaac56c6257417e2825
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781987"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070099"
 ---
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-powershell"></a>使用 PowerShell 重新生成 Azure Cosmos DB 帐户密钥
 

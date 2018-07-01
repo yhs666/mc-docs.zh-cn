@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 37fd84e2c836db573d9a0c5a98c8376522b61d3d
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 3c2e7545c6b47d9803bf86f13b69959344fc85f5
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782412"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947972"
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco 使用 Azure SQL 数据库为云中数千个租户快速预配和缩放服务
 ![Umbraco 徽标](./media/sql-database-implementation-umbraco/umbracologo.png)
@@ -115,9 +115,8 @@ Mikkel Madsen 总结，“除了将 Azure 服务总线与 Azure SQL 数据库配
 
 ## <a name="more-information"></a>详细信息
 * 若要深入了解 Azure 弹性池，请参阅[弹性池](sql-database-elastic-pool.md)。
-* 有关 Azure 服务总线的详细信息，请参阅 [Azure 服务总线](../service-bus/index.md)。
-* 若要深入了解 Web 角色和辅助角色，请参阅[辅助角色](../fundamentals-introduction-to-azure.md#compute)。    
-* 若要深入了解虚拟网络，请参阅[虚拟网络](../virtual-network/index.md)。    
+* 若要深入了解 Azure 服务总线，请参阅 [Azure 服务总线](../service-bus/index.md)。
+* 若要深入了解虚拟网络，请参阅[虚拟网络](https://docs.azure.cn/virtual-network/)。    
 * 若要深入了解备份与恢复，请参阅[业务连续性](sql-database-business-continuity.md)。    
 * 若要深入了解监视池，请参阅[监视池](sql-database-elastic-pool-manage-portal.md)。    
 * 有关 Umbraco 的详细信息，请参阅 [Umbraco](https://umbraco.com/cloud)。

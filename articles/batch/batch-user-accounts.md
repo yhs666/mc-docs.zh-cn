@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 05/22/2017
-ms.date: 05/15/2018
+ms.date: 06/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: d56c447ad9007bc262924d3c5a2ed32568ec00f4
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 17a6097c01fc46d5e7ab117a4a65205c3e4cb569
+ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173333"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103252"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>在 Batch 中的用户帐户下运行任务
 
@@ -174,8 +174,8 @@ Console.WriteLine("Creating pool [{0}]...", poolId);
 // Create a pool using the cloud service configuration.
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 3,                                                         
-    virtualMachineSize: "small",                                                
+    targetDedicatedComputeNodes: 3,
+    virtualMachineSize: "standard_d1_v2",
     cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));   
 
 // Add named user accounts.
@@ -339,4 +339,4 @@ Batch 服务版本 2017-01-01.4.0 引入了一项重大更改，已将早期版�
 
 MSDN 上的 [Azure Batch 论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch)是探讨 Batch 服务以及咨询相关问题的一个好去处。 欢迎前往浏览这些精华贴子，并发布你在构建 Batch 解决方案时遇到的问题。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: code update -->

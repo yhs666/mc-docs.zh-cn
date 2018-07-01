@@ -11,16 +11,16 @@ ms.topic: quickstart
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: 69e18e8f00621cefe0d225c607618cc21c8b8321
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: b5e1d4a35e1c357eb4a94f59a5cc6bee8c81c9dd
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782277"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948056"
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL 数据库：使用 SQL Server Management Studio 进行连接和数据查询
 
-[SQL Server Management Studio][ssms-install-latest-84g] (SSMS) 是用于管理任何 SQL 基础结构（从适用于 Microsoft Windows 的 SQL Server 到 SQL 数据库，不一而足）的集成环境。 此快速入门教程演示如何使用 SSMS 连接到 Azure SQL 数据库，并使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。 
+[SQL Server Management Studio][ssms-install-latest-84g] (SSMS) 是用于管理任何 SQL 基础结构（从适用于 Microsoft Windows 的 SQL Server 到 SQL 数据库，不一而足）的集成环境。 本快速入门演示了如何使用 SSMS 连接到 Azure SQL 数据库，并使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。 
 
 ## <a name="prerequisites"></a>先决条件
 

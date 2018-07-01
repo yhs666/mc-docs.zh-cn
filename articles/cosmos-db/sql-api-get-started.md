@@ -3,24 +3,21 @@ title: Azure Cosmos DB：SQL API 入门教程 | Azure
 description: 有关使用 SQL API 创建联机数据库和 C# 控制台应用程序的教程。
 keywords: nosql 教程, 联机数据库, c# 控制台应用程序
 services: cosmos-db
-documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 origin.date: 08/16/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: f0b5cdbae2534d626a9325d9f0ceca2d6225afbc
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 60bbe695b71e60abbdcf07803868a49576eb32fb
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782237"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070262"
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB：SQL API 入门教程
 > [!div class="op_single_selector"]

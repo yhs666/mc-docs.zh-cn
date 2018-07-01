@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: digimoblie
-ms.openlocfilehash: baf4d73b36ec295850340db4550587f4602bad5a
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 106fcbe91c40df99d11016dd6d067eb3a54c2511
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695172"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748412"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>快速入门：使用 Azure RM PowerShell 模块创建策略分配以识别不合规资源
 
@@ -31,7 +31,7 @@ AzureRM PowerShell 模块用于从命令行或脚本创建和管理 Azure 资源
 - 将 AzureRM PowerShell 模块更新到最新版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](/powershell/azure/install-azurerm-ps)。
 - 使用 Azure PowerShell 注册 Policy Insights 资源提供程序。 注册此资源提供程序可确保订阅能够使用它。 若要注册资源提供程序，必须具有为资源提供程序执行注册操作的权限。 此操作包含在“参与者”和“所有者”角色中。 运行以下命令，注册资源提供程序：
 
-  ```azurepowershell-interactive
+  ```azurepowershell
   Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
@@ -43,7 +43,7 @@ AzureRM PowerShell 模块用于从命令行或脚本创建和管理 Azure 资源
 
 运行以下命令创建新的策略分配：
 
-```azurepowershell-interactive
+```azurepowershell
 $rg = Get-AzureRmResourceGroup -Name '<resourceGroupName>'
 $definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
 New-AzureRmPolicyAssignment -Name 'Audit Virtual Machines without Managed Disks' -Scope $rg.ResourceId -PolicyDefinition $definition
@@ -61,7 +61,7 @@ New-AzureRmPolicyAssignment -Name 'Audit Virtual Machines without Managed Disks'
 
 使用以下信息来识别不符合所创建的策略分配的资源。 运行以下命令：
 
-```azurepowershell-interactive
+```azurepowershell
 $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks' }
 $policyAssignment.PolicyAssignmentId
 ```
@@ -106,7 +106,7 @@ armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/provider
 
 本教程系列中的后续指南建立在本快速入门的基础之上。 如何打算继续学习其他教程，请不要清除本快速入门中创建的资源。 如果不打算继续，可运行以下命令删除创建的分配：
 
-```azurepowershell-interactive
+```azurepowershell
 Remove-AzureRmPolicyAssignment -Name 'Audit Virtual Machines without Managed Disks Assignment' -Scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
 ```
 

@@ -9,18 +9,18 @@ editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/28/2017
-ms.date: 12/18/2017
+origin.date: 02/20/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3479d3a35e4f517bfebcd3d7d3425334e0f25c0a
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 18aa6f94255318de5043cae5c9a1800d0f5b681e
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26576129"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747426"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>在 HDInsight 上为 Apache Kafka 配置存储和可伸缩性
 
@@ -55,7 +55,7 @@ Kafka on HDInsight 在 HDInsight 群集中使用虚拟机的本地磁盘。 由�
     ],
 ```
 
-[https://hditutorialdata.blob.core.chinacloudapi.cn/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.chinacloudapi.cn/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json) 提供演示如何配置托管磁盘的完整模板。
+可以在 [https://hditutorialdata.blob.core.chinacloudapi.cn/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.chinacloudapi.cn/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json) 找到演示如何配置托管磁盘的完整模板。
 
 ## <a name="next-steps"></a>后续步骤
 

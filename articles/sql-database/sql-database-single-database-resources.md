@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/04/2018
 ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: 942f951b3d195470984910d68e8b141cc34864f7
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: aa1fda610b437abb33007d27327463d3c4da1f8a
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782420"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947969"
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>管理 Azure SQL 数据库中单一数据库的资源
 
@@ -111,6 +111,6 @@ ALTER DATABASE <myDatabaseName>
 
 ## <a name="next-steps"></a>后续步骤
 
-- 要了解关于服务层、性能级别和存储量的相关信息，请参阅[服务层](sql-database-service-tiers.md)。
+- 要了解服务层、性能级别和存储量的信息，请参阅 [[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)。
 - 有关弹性池的信息，请参阅[弹性池](sql-database-elastic-pool.md)。
 <!--Update_Description:update Global CLI 2.0 links to Mooncake CLI 2.0 links-->

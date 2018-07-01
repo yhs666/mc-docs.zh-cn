@@ -1,10 +1,10 @@
 ---
-title: Azure AD Connect：声明性预配表达式 | Microsoft Docs
-description: 介绍声明性设置表达式。
+title: Azure AD Connect：声明性预配表达式 | Microsoft 文档
+description: 说明声明性设置表达式
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 08/24/2017
+ms.date: 06/26/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 2fcc3edbb9dd0d6cc489370cc11fac7b374c28e7
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.openlocfilehash: b2aeb501cec6d633a70ef312ea90ce6cca0db02c
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21135384"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948029"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect 同步：了解声明性设置表达式
 Azure AD Connect 同步基于 Forefront Identity Manager 2010 中最先引入的声明性设置。 使用该功能可以实现完整的标识集成业务逻辑，而无需编写已编译的代码。
@@ -34,7 +35,7 @@ Azure AD Connect 同步基于 Forefront Identity Manager 2010 中最先引入的
 ## <a name="language-definitions-and-identifiers"></a>语言定义和标识符
 - 函数名称后跟加括号的参数：FunctionName(argument 1, argument N)。
 - 属性用方括号标识：[attributeName]
-- 参数采用百分比符号标识：%ParameterName%
+- 参数通过百分比符号标识：%ParameterName%
 - 字符串常量放在引号中：例如 "Contoso"（注意：必须使用直引号 ""，而不能使用弯引号“”）
 - 数字值表示不带引号，并且应为十进制。 十六进制值带有前缀 &H。 例如，98052, &HFF
 - 布尔值以常量表示： True、 False。
@@ -47,7 +48,7 @@ Azure AD Connect 同步基于 Forefront Identity Manager 2010 中最先引入的
 
 函数的完整列表可在[函数引用](active-directory-aadconnectsync-functions-reference.md)中找到。
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 通过连接器或由管理员使用 PowerShell 定义参数。 参数通常包含因系统不同而各异的值，例如用户所在域的名称。 这些参数可在属性流中使用。
 
 Active Directory 连接器为入站同步规则提供以下参数：
@@ -101,4 +102,4 @@ Active Directory 连接器为入站同步规则提供以下参数：
 - [Azure AD Connect 同步：函数引用](active-directory-aadconnectsync-functions-reference.md)
 
 
-<!--Update_Description: update metadata properties -->
+<!-- Update_Description: update metedata properties -->

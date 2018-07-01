@@ -1,6 +1,6 @@
 ---
 title: 使用 Apache Kafka 生成者和使用者 API - Azure HDInsight
-description: 了解如何将 Apache Kafka 生成者和使用者 API 与 Kafka on HDInsight 配合使用。 可以使用这些 API 开发向 Apache Kafka 中进行写入以及从中进行读取的应用程序。
+description: 了解如何将 Apache Kafka 生成者和使用者 API 与 Kafka on HDInsight 配合使用。 本教程介绍如何从 Java 应用程序中将这些 API 与 Kafka on HDInsight 配合使用。
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -9,25 +9,34 @@ editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 04/10/2018
+ms.topic: tutorial
+origin.date: 04/16/2018
 ms.author: v-yiso
-ms.date: 05/21/2018
-ms.openlocfilehash: 0d15be32f41dad5a11f2e513d176359fdf52b989
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.date: 06/25/2018
+ms.openlocfilehash: 9c662ee47de3c141c28e5b643030e9000db7a4f4
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450101"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747422"
 ---
-# <a name="apache-kafka-producer-and-consumer-apis"></a>Apache Kafka 生成者和使用者 API
+# <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>教程：使用 Apache Kafka 生成者和使用者 API
 
-了解如何创建将 Kafka 生成者和使用者 API 与 Kafka on HDInsight 配合使用的应用程序。
+了解如何将 Kafka 生成者和使用者 API 与 Kafka on HDInsight 配合使用。
 
-有关这些 API 的文档，请参阅[生成者 API](https://kafka.apache.org/documentation/#producerapi) 和[使用者 API](https://kafka.apache.org/documentation/#consumerapi)。
+Kafka 生成者 API 允许应用程序将数据流发送到 Kafka 群集。 Kafka 使用者 API 允许应用程序从群集读取数据流。
+
+本教程介绍如何执行下列操作：
+
+> [!div class="checklist"]
+> * 设置开发环境
+> * 设置部署环境
+> * 了解代码
+> * 生成并部署应用程序
+> * 在群集上运行应用程序
+
+有关这些 API 的详细信息，请参阅有关[生成者 API](https://kafka.apache.org/documentation/#producerapi) 和[使用者 API](https://kafka.apache.org/documentation/#consumerapi) 的 Apache 文档。
 
 ## <a name="set-up-your-development-environment"></a>设置开发环境
 
@@ -39,9 +48,209 @@ ms.locfileid: "34450101"
 
 * SSH 客户端和 `scp` 命令。 有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)文档。
 
+* 文本编辑器或 Java IDE。
+
+可以在开发工作站上安装 Java 和 JDK 时设置以下环境变量。 不过，应该检查它们是否存在并且包含系统的正确值。
+
+* `JAVA_HOME` - 应该指向 JDK 的安装目录。
+* `PATH` - 应该包含以下路径：
+  
+    * `JAVA_HOME`（或等效路径）。
+    * `JAVA_HOME\bin`（或等效路径）。
+    * Maven 的安装目录。
+
 ## <a name="set-up-your-deployment-environment"></a>设置部署环境
 
-此示例需要 Kafka on HDInsight 3.6。 若要了解如何创建 Kafka on HDInsight 群集，请参阅 [Kafka on HDInsight 入门](apache-kafka-get-started.md)文档。
+本教程需要 Kafka on HDInsight 3.6。 若要了解如何创建 Kafka on HDInsight 群集，请参阅 [Kafka on HDInsight 入门](apache-kafka-get-started.md)文档。
+
+## <a name="understand-the-code"></a>了解代码
+
+示例应用程序位于 `Producer-Consumer` 子目录的 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) 中。 该应用程序主要包含四个文件：
+
+* `pom.xml`：此文件定义项目依赖项、Java 版本和打包方法。
+* `Producer.java`：此文件使用生成者 API 将 100 万 (1,000,000) 个随机句子发送到 Kafka。
+* `Consumer.java`：此文件使用使用者 API 从 Kafka 读取数据并将其发出到 STDOUT。
+* `Run.java`：用于运行生成者和使用者代码的命令行接口。
+
+### <a name="pomxml"></a>Pom.xml
+
+在 `pom.xml` 文件中要了解的重要事项：
+
+* 依赖项：此项目依赖于 `kafka-clients` 包提供的 Kafka 生成者和使用者 API。 以下 XML 代码定义此依赖项：
+
+    ```xml
+    <!-- Kafka client for producer/consumer operations -->
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>kafka-clients</artifactId>
+      <version>${kafka.version}</version>
+    </dependency>
+    ```
+
+    > [!NOTE]
+    > `${kafka.version}` 条目在 `pom.xml` 的 `<properties>..</properties>` 部分进行声明，并配置为 HDInsight 群集的 Kafka 版本。
+
+* 插件：Maven 插件提供各种功能。 此项目使用了以下插件：
+
+    * `maven-compiler-plugin`：用于将项目使用的 Java 版本设置为 8。 这是 HDInsight 3.6 的 Java 版本。
+    * `maven-shade-plugin`：用于生成包含此应用程序以及任何依赖项的 uber jar。 它还用于设置应用程序的入口点，以便直接运行 Jar 文件，而无需指定主类。
+
+### <a name="producerjava"></a>Producer.java
+
+生成者与 Kafka 代理主机（辅助角色节点）进行通信，以将数据存储到 Kafka 主题中。 以下代码片段来自 `Producer.java` 文件：
+
+```java
+package com.microsoft.example;
+
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import java.util.Properties;
+import java.util.Random;
+import java.io.IOException;
+
+public class Producer
+{
+    public static void produce(String brokers) throws IOException
+    {
+
+        // Set properties used to configure the producer
+        Properties properties = new Properties();
+        // Set the brokers (bootstrap servers)
+        properties.setProperty("bootstrap.servers", brokers);
+        // Set how to serialize key/value pairs
+        properties.setProperty("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
+        properties.setProperty("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
+        KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
+
+        // So we can generate random sentences
+        Random random = new Random();
+        String[] sentences = new String[] {
+                "the cow jumped over the moon",
+                "an apple a day keeps the doctor away",
+                "four score and seven years ago",
+                "snow white and the seven dwarfs",
+                "i am at two with nature"
+        };
+
+        String progressAnimation = "|/-\\";
+        // Produce a bunch of records
+        for(int i = 0; i < 1000000; i++) {
+            // Pick a sentence at random
+            String sentence = sentences[random.nextInt(sentences.length)];
+            // Send the sentence to the test topic
+            producer.send(new ProducerRecord<String, String>("test", sentence));
+            String progressBar = "\r" + progressAnimation.charAt(i % progressAnimation.length()) + " " + i;
+            System.out.write(progressBar.getBytes());
+        }
+    }
+}
+```
+
+此代码连接到 Kafka 代理主机（辅助角色节点），然后使用生成者 API 将 1,000,000 个句子发送到 Kafka。
+
+### <a name="consumerjava"></a>Consumer.java
+
+使用者与 Kafka 代理主机（辅助角色节点）进行通信，并在循环中读取记录。 以下代码片段来自 `Consumer.java` 文件：
+
+```java
+package com.microsoft.example;
+
+import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import java.util.Properties;
+import java.util.Arrays;
+
+public class Consumer {
+    public static void consume(String brokers, String groupId) {
+        // Create a consumer
+        KafkaConsumer<String, String> consumer;
+        // Configure the consumer
+        Properties properties = new Properties();
+        // Point it to the brokers
+        properties.setProperty("bootstrap.servers", brokers);
+        // Set the consumer group (all consumers must belong to a group).
+        properties.setProperty("group.id", groupId);
+        // Set how to serialize key/value pairs
+        properties.setProperty("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
+        properties.setProperty("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
+        // When a group is first created, it has no offset stored to start reading from. This tells it to start
+        // with the earliest record in the stream.
+        properties.setProperty("auto.offset.reset","earliest");
+        consumer = new KafkaConsumer<>(properties);
+
+        // Subscribe to the 'test' topic
+        consumer.subscribe(Arrays.asList("test"));
+
+        // Loop until ctrl + c
+        int count = 0;
+        while(true) {
+            // Poll for records
+            ConsumerRecords<String, String> records = consumer.poll(200);
+            // Did we get any?
+            if (records.count() == 0) {
+                // timeout/nothing to read
+            } else {
+                // Yes, loop over records
+                for(ConsumerRecord<String, String> record: records) {
+                    // Display record and count
+                    count += 1;
+                    System.out.println( count + ": " + record.value());
+                }
+            }
+        }
+    }
+}
+```
+
+在此代码中，使用者配置为从该主题的开头读取（`auto.offset.reset` 设置为 `earliest`）。
+
+### <a name="runjava"></a>Run.java
+
+`Run.java` 文件提供了命令行接口，可运行生成者或使用者代码。 必须提供 Kafka 代理主机信息作为参数。 可以选择包括组 ID 值，该值由使用者进程使用。 如果使用相同的组 ID 创建多个使用者实例，它们将对主题的读取进行负载均衡。
+
+```java
+package com.microsoft.example;
+
+import java.io.IOException;
+import java.util.UUID;
+
+// Handle starting producer or consumer
+public class Run {
+    public static void main(String[] args) throws IOException {
+        if(args.length < 2) {
+            usage();
+        }
+
+        // Get the brokers
+        String brokers = args[1];
+        switch(args[0].toLowerCase()) {
+            case "producer":
+                Producer.produce(brokers);
+                break;
+            case "consumer":
+                // Either a groupId was passed in, or we need a random one
+                String groupId;
+                if(args.length == 3) {
+                    groupId = args[2];
+                } else {
+                    groupId = UUID.randomUUID().toString();
+                }
+                Consumer.consume(brokers, groupId);
+                break;
+            default:
+                usage();
+        }
+        System.exit(0);
+    }
+    // Display usage
+    public static void usage() {
+        System.out.println("Usage:");
+        System.out.println("kafka-example.jar <producer|consumer> brokerhosts [groupid]");
+        System.exit(1);
+    }
+}
+```
 
 ## <a name="build-and-deploy-the-example"></a>生成并部署示例
 
@@ -73,24 +282,28 @@ ms.locfileid: "34450101"
 
     将 **SSHUSER** 替换为群集的 SSH 用户，并将 **CLUSTERNAME** 替换为群集的名称。 出现提示时，输入 SSH 用户帐户的密码。 有关在 HDInsight 中使用 `scp` 的详细信息，请参阅[在 HDInsight 中使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-2. 若要创建此示例使用的 Kafka 主题，请使用以下命令：
+2. 若要创建此示例使用的 Kafka 主题，请使用以下步骤：
 
-    ```bash
-    sudo apt -y install jq
+    1. 若要将群集名称保存到一个变量中并安装 JSON 分析实用工具 (`jq`)，请使用以下命令。 出现提示时，请输入 Kafka 群集名称：
+    
+        ```bash
+        sudo apt -y install jq
+        read -p 'Enter your Kafka cluster name:' CLUSTERNAME
+        ```
+    
+    2. 若要获取 Kafka 代理主机和 Zookeeper 主机，请使用以下命令。 出现提示时，输入群集登录（管理员）帐户的密码。
+    
+        ```bash
+        export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
 
-    CLUSTERNAME='your cluster name'
+        export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+        ```
 
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    3. 若要创建 `test` 主题，请使用以下命令：
 
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
-
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
-    ```
-
-    将 __your cluster name__ 替换为你的 HDInsight 群集的名称。 出现提示时，输入 HDInsight 群集登录帐户的密码。
-
-    > [!NOTE]
-    > 如果你的群集登录名不同于默认值 `admin`，请将前面的命令中的 `admin` 值替换为你的群集登录名。
+        ```bash
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
+        ```
 
 3. 若要运行生成者并将数据写入到主题，请使用以下命令：
 
@@ -118,22 +331,16 @@ ms.locfileid: "34450101"
 java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
 ```
 
-若要在操作中了解此过程，请使用以下步骤：
+若要在操作中了解此过程，请使用以下命令：
 
-1. 重复[运行示例](#run)部分中的步骤 1 和 2 来打开一个新的 SSH 会话。
+```bash
+tmux new-session 'java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup' \; split-w
+indow -h 'java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup' \; attach
+```
 
-2. 在这两个 SSH 会话中，都输入以下命令：
+此命令使用 `tmux` 将终端拆分为两列。 每列中都会启动使用者，且具有相同的组 ID 值。 使用者完成读取后，请注意，每个使用者仅读取记录的一部分。 使用 Ctrl+C 两次以退出 `tmux`。
 
-    ```bash
-    java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
-    ```
-    
-    > [!IMPORTANT]
-    > 同时输入这两个命令，以便它们同时运行。
-
-    注意，读取的消息数与前面的部分不同，前面的部分只有一个使用者。 在此部分中，读取的消息拆分到两个实例中。
-
-同一个组中客户端的使用方式由主题的分区处理。 前面创建的 `test` 主题有 8 个分区。 如果打开 8 个 SSH 会话并在所有会话中启动使用者，则每个使用者从该主题的单个分区读取记录。
+同一个组中客户端的使用方式由主题的分区处理。 前面创建的 `test` 主题有 8 个分区。 如果启动 8 个使用者，则每个使用者都从主题的单个分区读取记录。
 
 > [!IMPORTANT]
 > 使用者组中的使用者实例数不能超过分区数。 此示例中，一个使用者组最多可包含八个使用者，因为这是本主题中的分区数。 也可拥有多个使用者组，每个组的使用者不能超过八个。
@@ -146,8 +353,3 @@ Kafka 中存储的记录将按接收顺序存储在分区中。 若要 *在分�
 
 * [在 Kafka 群集之间复制数据](apache-kafka-mirroring.md)
 * [将 Kafka 流 API 与 HDInsight 配合使用](apache-kafka-streams-api.md)
-* [将 Apache Spark 流式处理 (DStream) 与 Kafka on HDInsight 配合使用](../hdinsight-apache-spark-with-kafka.md)
-* [将 Apache Spark 结构化流式处理与 Kafka on HDInsight 配合使用](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [使用 Apache Spark 结构化流式处理将数据从 Kafka on HDInsight 移到 Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
-* [将 Apache Storm 与 Kafka on HDInsight 结合使用](../hdinsight-apache-storm-with-kafka.md)
-* [通过 Azure 虚拟网络连接到 Kafka](apache-kafka-connect-vpn-gateway.md)

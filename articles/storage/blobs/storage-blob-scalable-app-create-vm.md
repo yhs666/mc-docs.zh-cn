@@ -13,12 +13,12 @@ origin.date: 02/20/2018
 ms.date: 05/07/2018
 ms.author: v-johch
 ms.custom: mvc
-ms.openlocfilehash: 4f447a24309826e202b459beeeebb099e32dd8fc
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 96887e98ea53a10ce234d28f82a1487cfedd0c7b
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815483"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103033"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>为可缩放的应用程序创建虚拟机和存储帐户
 
@@ -33,7 +33,7 @@ ms.locfileid: "33815483"
 
 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-若要在本地安装并使用 PowerShell，本教程需要 Azure PowerShell 模块版本 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
+若要在本地安装并使用 PowerShell，本教程需要 Azure PowerShell 模块版本 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 

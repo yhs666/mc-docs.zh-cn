@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
 origin.date: 06/20/2017
-ms.date: 05/14/2018
+ms.date: 06/29/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e0e96cc74ec59c345019a11ee390edad043e2eb0
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 5097b16f9ee7beb7e6e7efdcb2c42ea5efddd00d
+ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173367"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103266"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>创建用于缩放 Batch 池中的计算节点的自动缩放公式
 
@@ -368,7 +368,7 @@ $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
                     poolId: "mypool",
-                    virtualMachineSize: "small", // single-core, 1.75 GB memory, 225 GB disk
+                    virtualMachineSize: "standard_d1_v2",
                     cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));    
 pool.AutoScaleEnabled = true;
 pool.AutoScaleFormula = "$TargetDedicatedNodes = (time().weekday == 1 ? 5:1);";
@@ -674,4 +674,4 @@ string formula = string.Format(@"
 [rest_autoscaleinterval]: https://docs.microsoft.com/rest/api/batchservice/enable-automatic-scaling-on-a-pool
 [rest_enableautoscale]: https://docs.microsoft.com/rest/api/batchservice/enable-automatic-scaling-on-a-pool
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: code update -->

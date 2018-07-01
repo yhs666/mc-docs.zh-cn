@@ -4,7 +4,7 @@ description: 了解如何使用用于 Visual Studio 的 Data Lake 工具对 Azur
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 2b3e672a-1195-4fa5-afb7-b7b73937bfbe
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/20/2018
-ms.date: 05/21/2018
+origin.date: 05/16/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: e5747ca123a253e8460bbb79690fc97ad668ae9c
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 0260ed105743cf8a8cd05049d7cccaf2732f4800
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450055"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747430"
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>使用用于 Visual Studio 的 Data Lake 工具运行 Hive 查询
 

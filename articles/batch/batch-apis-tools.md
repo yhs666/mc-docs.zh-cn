@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: get-started-article
-origin.date: 02/26/2018
-ms.date: 04/09/2018
+origin.date: 05/15/2018
+ms.date: 06/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3efb7b887a79be15794ef010540e33443b00ecad
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 81d6b03d2032edb048e79015bd783de3d8a69988
+ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31319173"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103242"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>批处理 API 和工具概述
 
@@ -28,11 +28,10 @@ ms.locfileid: "31319173"
 > 
 
 ## 用于 Batch 开发的 Azure 帐户 <a name="azure-accounts-for-batch-development"></a>
-开发 Batch 解决方案时，请在 Azure 中使用以下帐户。
+开发 Batch 解决方案时，请在 Azure 订阅中使用以下帐户：
 
-- **Azure 帐户和订阅** - 如果还没有 Azure 订阅，可注册 [Azure 帐户][free_account]。 创建帐户时，系统为用户创建默认订阅。
-- **批处理帐户** - Azure Batch 资源（包括池、计算节点、作业和任务）都与 Azure Batch 帐户关联。 当应用程序针对 Batch 服务提出请求时，会使用 Azure Batch 帐户名称、帐户的 URL 以及访问密钥或 Azure Active Directory 令牌对请求进行身份验证。 可以通过 Azure 门户或编程方式[创建 Batch 帐户](batch-account-create-portal.md)。
-- **存储帐户** - Batch 提供的内置支持允许处理 [Azure 存储][azure_storage]中的文件。 几乎每个 Batch 方案都使用 Azure Blob 存储暂存任务所运行的程序及其处理的数据，以及存储任务生成的输出数据。 若要创建存储帐户，请参阅 [关于 Azure 存储帐户](../storage/common/storage-create-storage-account.md)。
+- **Batch 帐户** - Azure Batch 资源（包括池、计算节点、作业和任务）与 Azure [Batch 帐户](batch-api-basics.md#account)相关联。 当应用程序针对 Batch 服务提出请求时，会使用 Azure Batch 帐户名称、帐户的 URL 以及访问密钥或 Azure Active Directory 令牌对请求进行身份验证。 可以通过 Azure 门户或编程方式[创建 Batch 帐户](batch-account-create-portal.md)。
+- **存储帐户** - Batch 提供的内置支持允许处理 [Azure 存储][azure_storage]中的文件。 几乎每个 Batch 方案都使用 Azure Blob 存储暂存任务所运行的程序及其处理的数据，以及存储任务生成的输出数据。 有关 Batch 中的存储帐户选项，请参阅 [Batch 功能概述](batch-api-basics.md#azure-storage-account)。
 
 ## <a name="batch-service-apis"></a>批处理服务 API
 
@@ -62,7 +61,7 @@ ms.locfileid: "31319173"
 这些命令行工具提供的功能与批处理服务和批处理管理 API 相同： 
 
 - [批处理 PowerShell cmdlet][batch_ps]：[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 模块中的 Azure Batch cmdlet 可让用户使用 PowerShell 管理批处理资源。
-- [Azure CLI 2.0](/cli/overview)：Azure 命令行界面 (Azure CLI) 是一个跨平台工具集，提供用来与许多 Azure 服务（包括 Batch 服务和 Batch 管理服务）交互的 shell 命令。 请参阅[使用 Azure CLI 管理批处理资源](batch-cli-get-started.md)，详细了解如何将 Azure CLI 与批处理配合使用。
+- [Azure CLI 2.0](/cli)：Azure 命令行界面 (Azure CLI) 是一个跨平台工具集，提供用来与许多 Azure 服务（包括 Batch 服务和 Batch 管理服务）交互的 shell 命令。 请参阅[使用 Azure CLI 管理批处理资源](batch-cli-get-started.md)，详细了解如何将 Azure CLI 与批处理配合使用。
 
 ## <a name="other-tools-for-application-development"></a>适合应用程序开发的其他工具
 
@@ -74,7 +73,7 @@ ms.locfileid: "31319173"
 
 ## <a name="additional-resources"></a>其他资源
 
-- 若要了解批处理应用程序中的日志记录事件，请参阅[记录事件以用来对批处理解决方案进行诊断评估和监视](batch-diagnostics.md)。 如需参考批处理服务引发的事件，请参阅[批处理分析](batch-analytics.md)。
+- 如需参考批处理服务引发的事件，请参阅[批处理分析](batch-analytics.md)。
 - 若要了解计算节点的环境变量，请参阅 [Azure Batch 计算节点环境变量](batch-compute-node-environment-variables.md)。
 
 ## <a name="next-steps"></a>后续步骤
@@ -89,7 +88,7 @@ ms.locfileid: "31319173"
 [api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
 [api_net]: /dotnet/api/overview/batch/
-[api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
+[api_net_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
 [api_rest_mgmt]: https://docs.microsoft.com/rest/api/batchmanagement/
 [api_net_mgmt]: /dotnet/api/overview/batch/management
 [api_net_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/

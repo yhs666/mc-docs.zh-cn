@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/17/2017
-ms.date: 08/07/2017
+ms.date: 06/25/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 4698c7a38ebc5b887e7663ee94d2446d7cb3a5ea
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 927724e5c4d1da901491fecbbf230a33d8887fae
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475437"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748361"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>通过 Azure AD 身份验证访问 Azure 媒体服务 API
-
+ 
 Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的客户端 SDK 对媒体资源执行操作。 Azure 媒体服务提供了适用于 Microsoft.NET 的媒体服务客户端 SDK。 若要有权访问媒体服务资源和媒体服务 API，必须先进行身份验证。 
 
-媒体服务支持[基于 Azure Active Directory (Azure AD) 的身份验证](../active-directory/active-directory-whatis.md)。 Azure 媒体 REST 服务要求，发出 REST API 请求的用户或应用程序必须具有**参与者**或**所有者**角色，才能访问资源。 有关详细信息，请参阅 [Azure 门户中基于角色的访问控制入门](../active-directory/role-based-access-control-what-is.md)。  
+媒体服务支持[基于 Azure Active Directory (Azure AD) 的身份验证](../../active-directory/active-directory-whatis.md)。 Azure 媒体 REST 服务要求，发出 REST API 请求的用户或应用程序必须具有**参与者**或**所有者**角色，才能访问资源。 有关详细信息，请参阅 [Azure 门户中基于角色的访问控制入门](../../role-based-access-control/overview.md)。  
 
 > [!IMPORTANT]
 > 目前，媒体服务支持 Azure 访问控制服务身份验证模型。 不过，访问控制授权将于 2018 年 6 月 1 日弃用。 建议尽快迁移到 Azure AD 身份验证模型。
@@ -41,7 +41,7 @@ Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的�
 ![“访问控制”选项卡](./media/media-services-use-aad-auth-to-access-ams-api/media-services-access-control.png)
 
 ## <a name="types-of-authentication"></a>身份验证类型 
-
+ 
 将 Azure AD 身份验证与 Azure 媒体服务结合使用时，可以选择下列两个身份验证选项：
 
 - **用户身份验证**。 验证使用应用程序与媒体服务资源进行交互的用户。 交互式应用程序应先提示用户输入用户凭据。 例如，授权用户用来监视编码作业或实时传送视频流的管理控制台应用程序。 
@@ -82,7 +82,7 @@ Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的�
     * 媒体服务（本机）应用程序客户端 ID。
     * 媒体服务（本机）应用程序重定向 URI。
     * REST 媒体服务的资源 URI。
-
+        
         该 URI 表示 REST API 终结点（例如，https://test03.restv2.chinanorth.media.chinacloudapi.cn/api/)。
 
     若要获取这些参数的值，请参阅[使用 Azure 门户访问 Azure AD 身份验证设置](media-services-portal-get-started-with-aad.md)（使用用户身份验证选项）。
@@ -93,7 +93,7 @@ Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的�
 
 若要了解如何通过 Azure AD 身份验证使用媒体服务 .NET 客户端 SDK 与 REST 请求进行通信，请参阅[通过 Azure AD 身份验证使用 .NET 访问媒体服务 API](media-services-dotnet-get-started-with-aad.md)。 
 
-如果未使用媒体服务 .NET 客户端 SDK，必须使用第 2 步所述参数，手动创建 Azure AD 访问令牌请求。 有关详细信息，请参阅[如何使用 Azure AD 身份验证库获取 Azure AD 令牌](../active-directory/develop/active-directory-authentication-libraries.md)。
+如果未使用媒体服务 .NET 客户端 SDK，必须使用第 2 步所述参数，手动创建 Azure AD 访问令牌请求。 有关详细信息，请参阅[如何使用 Azure AD 身份验证库获取 Azure AD 令牌](../../active-directory/develop/active-directory-authentication-libraries.md)。
 
 ### <a name="service-principal-authentication"></a>服务主体身份验证
 
@@ -111,12 +111,12 @@ Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的�
 - 客户端机密 
 
 在上图中，数字表示按时间顺序的请求流：
-
+    
 1. 中间层应用（Web API 或 Web 应用程序）请求获取包含以下参数的 Azure AD 访问令牌：  
 
     * Azure AD 租户终结点。
 
-         可以在 Azure 门户中检索租户信息。 将光标悬停在右上角的登录用户名之上。
+        可以在 Azure 门户中检索租户信息。 将光标悬停在右上角的登录用户名之上。
     * 媒体服务资源 URI。 
 
         对于位于同一 Azure 环境中的媒体服务帐户，此 URI 相同（例如，https://rest.media.chinacloudapi.cn)。
@@ -126,7 +126,7 @@ Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的�
         该 URI 表示 REST API 终结点（例如，https://test03.restv2.chinanorth.media.chinacloudapi.cn/api/)。
 
     * Azure AD 应用程序值：客户端 ID和客户端机密。
-
+    
     若要获取这些参数的值，请参阅[使用 Azure 门户访问 Azure AD 身份验证设置](media-services-portal-get-started-with-aad.md)（使用服务主体身份验证选项）。
 
 2. Azure AD 访问令牌发送到中间层。
@@ -135,7 +135,7 @@ Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的�
 
 若要详细了解如何通过 Azure AD 身份验证使用媒体服务 .NET 客户端 SDK 与 REST 请求进行通信，请参阅[通过 Azure AD 身份验证使用 .NET 访问 Azure 媒体服务 API](media-services-dotnet-get-started-with-aad.md)。 
 
-如果未使用媒体服务 .NET 客户端 SDK，必须使用第 1 步所述参数，手动创建 Azure AD 访问令牌请求。 有关详细信息，请参阅[如何使用 Azure AD 身份验证库获取 Azure AD 令牌](../active-directory/develop/active-directory-authentication-libraries.md)。
+如果未使用媒体服务 .NET 客户端 SDK，必须使用第 1 步所述参数，手动创建 Azure AD 访问令牌请求。 有关详细信息，请参阅[如何使用 Azure AD 身份验证库获取 Azure AD 令牌](../../active-directory/develop/active-directory-authentication-libraries.md)。
 
 ## <a name="troubleshooting"></a>故障排除
 
@@ -147,8 +147,9 @@ Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的�
 
 下面的文章概述了 Azure AD 身份验证概念： 
 
-- [Azure AD 解决的身份验证方案](../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
-- [使用 PowerShell 配置和管理基于角色的访问控制](../active-directory/role-based-access-control-manage-access-powershell.md)
+- [Azure AD 解决的身份验证方案](../../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
+- [在 Azure AD 中添加、更新或删除应用程序](../../active-directory/develop/active-directory-integrating-applications.md)
+- [使用 PowerShell 配置和管理基于角色的访问控制](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -5,22 +5,18 @@ keywords: 数据建模
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: ''
-ms.assetid: 69521eb9-590b-403c-9b36-98253a4c88b5
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/29/2016
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: a96e10f7f5ea9717a3fb90cbde1720f5f64395fb
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 12e25af00d614c13975bce92be481aba056faa9d
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781903"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070297"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>为 NoSQL 数据库的文档数据建模
 尽管无架构的数据库（如 Azure Cosmos DB）能够非常容易地接受对数据模型的更改，但用户仍需花一些时间来研究数据。 
@@ -400,4 +396,4 @@ ms.locfileid: "31781903"
 
 若要了解如何在多个分区之间对数据进行分片，请参阅[在 Azure Cosmos DB 中对数据进行分区](sql-api-partition-data.md)。
 
-<!-- Update_Description: update link -->
+<!-- Update_Description: update meta properties -->

@@ -3,7 +3,7 @@ title: Azure AD Connect 同步：函数引用 | Microsoft Docs
 description: 在 Azure AD Connect 同步中引用声明性设置表达式。
 services: active-directory
 documentationcenter: ''
-author: andkjell
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 01/17/2018
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 21f85e7c879162d9e298b002b3e6aca474035364
-ms.sourcegitcommit: c6955e12fcd53130082089cb3ebc8345d9594012
+ms.openlocfilehash: c63eeca999e071278725c4e73b7bb669e8525a61
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2018
-ms.locfileid: "27844716"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947990"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步：函数引用
 在 Azure AD Connect 中，函数用于在同步期间操作属性值。  
@@ -1110,7 +1111,7 @@ ReplaceChars 函数替换 ReplacePattern 字符串中找到的所有出现的字
 - 该函数使用每次出现的定义的源，并使用目标替换它们。
 - 源必须正好是一个 (unicode) 字符。
 - 源不能为空或长度超过一个字符（分析错误）。
-- 目标可以具有多个字符，例如 ö:oe、β:ss。
+- 目标可以有多个字符，例如 ö:oe、β:ss。
 - 目标可以为空，该值指示应删除字符。
 - 源区分大小写，并且必须是完全匹配。
 - 逗号 (,) 和冒号 (:) 是保留字符，不能使用此函数进行替换。
@@ -1338,4 +1339,4 @@ UCase 函数将字符串中的所有字符都转换为大写形式。
 - [Azure AD Connect Sync：自定义同步选项](active-directory-aadconnectsync-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: update metedata properties -->

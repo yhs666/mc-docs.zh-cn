@@ -13,15 +13,15 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 8/16/2017
+origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 11/20/2017
-ms.openlocfilehash: 2286f7b0ab051db5c9107949b53be95a6f958631
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.date: 07/09/2018
+ms.openlocfilehash: 4da6c71565a7aa5d8611a042f2716ddbc609d2c5
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24058592"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103421"
 ---
 # <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>将 Adafruit Feather M0 WiFi 连接到云中的 Azure IoT 中心
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "24058592"
 * 如何在 Feather M0 WiFi 上运行示例应用程序来收集传感器数据
 * 如何将传感器数据发送到 IoT 中心
 
-## <a name="what-you-need"></a>所需条件
+## <a name="what-you-need"></a>需要什么
 
 ![本教程所需的部件](./media/iot-hub-adafruit-feather-m0-wifi-get-started/2_parts-needed-for-the-tutorial.png)
 
@@ -191,7 +191,7 @@ ms.locfileid: "24058592"
 
 ### <a name="use-the-sample-application-if-you-dont-have-a-real-bme280-sensor"></a>如果没有真正的 BME280 传感器，请使用示例应用程序
 
-如果没有真正的 BME280 传感器，示例应用程序可以模拟温度和湿度数据。 若要设置示例应用程序以使用模拟数据，请按照以下步骤操作：
+如果没有真正的 BME280 传感器，示例应用程序可以模拟温度和湿度数据。 若要设置示例应用程序以使用模拟的数据，请执行以下步骤：
 
 1. 打开 `app` 文件夹中的 `config.h` 文件。
 1. 找到以下代码行并将值从 `false` 更改为 `true`：
@@ -222,7 +222,7 @@ ms.locfileid: "24058592"
    * 设备连接字符串
 
 > [!Note]
-> 凭据信息存储在 Feather M0 WiFi 的 EEPROM 中。 如果在 Feather M0 WiFi 开发板上单击重置按钮，示例应用程序会询问是否要擦除这些信息。 输入 `Y` 以擦除信息。 按提示再次提供这些信息。
+> 凭据信息将存储在 Feather M0 WiFi 的 EEPROM 中。 如果在 Feather M0 WiFi 开发板上单击重置按钮，示例应用程序会询问是否要擦除这些信息。 输入 `Y` 以擦除信息。 按提示再次提供这些信息。
 
 ### <a name="verify-that-the-sample-application-is-running-successfully"></a>验证示例应用程序是否成功运行
 

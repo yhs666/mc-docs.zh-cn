@@ -6,22 +6,21 @@ documentationcenter: cosmosdb
 author: rockboyfor
 manager: digimobile
 tags: azure-service-management
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
-origin.date: 06/02/2017
-ms.date: 04/23/2018
+origin.date: 05/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 085e0288766a7e11e01bf54a57b8758af33651b9
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: dc72684c3d2d706e0efd1d0003e84326f306eab5
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781984"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070195"
 ---
 # <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>使用 Azure CLI 缩放 Azure Cosmos DB 容器吞吐量
 
@@ -82,9 +81,28 @@ az cosmosdb collection update \
     --throughput $newThroughput
 
 ```
+
 <!-- location ADVISE TO chinanorth -->
 <!-- location MUST be the style of --locations chinanorth=0 chinaeast=1 -->
 <!-- OR it will popup the index out of range error-->
+
+使用上面的示例脚本可以创建和缩放固定的集合。 如果想要创建和缩放具有无限存储容量的集合，则必须： 
+
+* 创建吞吐量至少为 1000 RU/秒的集合并且 
+* 在创建集合时指定分区键。 
+
+以下命令显示创建具有无限存储容量的集合的示例：
+
+```cli
+az cosmosdb collection create \
+    --collection-name $collectionName \
+    --name $name \
+    --db-name $databaseName \
+    --resource-group $resourceGroupName \
+    --throughput 1000
+    --partition-key-path /deviceId
+
+```
 
 ## <a name="clean-up-deployment"></a>清理部署
 
@@ -100,9 +118,9 @@ az group delete --name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az cosmosdb update](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_update) | 更新 Azure Cosmos DB 帐户。 |
-| [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az cosmosdb update](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az-cosmosdb-update) | 更新 Azure Cosmos DB 帐户。 |
+| [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

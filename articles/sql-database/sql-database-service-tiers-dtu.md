@@ -6,21 +6,22 @@ author: WenJason
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-origin.date: 04/09/2018
-ms.date: 06/18/2018
+origin.date: 05/22/2018
+ms.date: 07/02/2018
 manager: digimobile
 ms.author: v-nany
-ms.openlocfilehash: c197bc0c022dbcf393fd0decc686d95cd5439038
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: f288f455a09c3503ecfe112b6461ccaeac3c1657
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324438"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947973"
 ---
 # <a name="dtu-based-purchasing-model-for-azure-sql-database"></a>Azure SQL 数据库的基于 DTU 的购买模型 
 
 
-[Azure SQL 数据库](sql-database-technical-overview.md)为计算、存储和 IO 资源提供两种购买模型：基于 DTU 的购买模型和基于 vCore 的购买模型（预览版）。 以下表格和图表对这两种购买模型做了对比。
+
+  [Azure SQL 数据库](sql-database-technical-overview.md)为计算、存储和 IO 资源提供两种购买模型：基于 DTU 的购买模型和基于 vCore 的购买模型（预览版）。 以下表格和图表对这两种购买模型做了对比。
 
 > [!IMPORTANT]
 > 若要了解基于 vCore 的购买模型（预览版），请参阅[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)
@@ -82,12 +83,8 @@ ms.locfileid: "35324438"
 ||||||
 
 > [!IMPORTANT]
-> \* 超出所包括存储量的存储大小为预览版，需额外付费。 有关详细信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)。 
+> 超出所包括存储量的存储大小为预览版，需额外付费。 有关详细信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)。 
 >
-> 
->\*\* 标准池中每个数据库的最大 DTU 数至少为 200 DTU 的为预览版。
->
-
 有关适用于弹性池的特定性能级别和存储大小选项的详细信息，请参阅 [SQL 数据库基于 DTU 的资源限制](sql-database-dtu-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)。
 
 
