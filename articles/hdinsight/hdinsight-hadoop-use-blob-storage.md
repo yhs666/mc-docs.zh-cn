@@ -15,15 +15,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 11/06/2017
-ms.date: 12/25/2017
+origin.date: 05/14/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 70cd725d36d2756ec218e52f5f6442377917501f
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: d1bb8308ec03f97471b0021d75814340b0b9ab2e
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30075317"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747437"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>将 Azure 存储与 Azure HDInsight 群集配合使用
 
@@ -73,7 +73,7 @@ HDInsight 提供对在本地附加到计算节点的分布式文件系统的访�
             **没有连接到群集的存储帐户中的公共容器或公共 Blob：** 你对这些容器中的 Blob 具有只读权限。
 
   > [!NOTE]
-  > 利用公共容器，可以获得该容器中可用的所有 Blob 的列表以及容器元数据。 利用公共 Blob，仅在知道正确 URL 时才可访问 Blob。 有关详细信息，请参阅<a href="/storage/blobs/storage-manage-access-to-resources/">限制对容器和 Blob 的访问</a>。
+  > 利用公共容器，可以获得该容器中可用的所有 Blob 的列表以及容器元数据。 利用公共 Blob，仅在知道正确 URL 时才可访问 Blob。 有关详细信息，请参阅<a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">限制对容器和 Blob 的访问</a>。
   > 
   > 
 * **没有连接到群集的存储帐户中的私有容器：** 不能访问这些容器中的 Blob，除非在提交 WebHCat 作业时定义存储帐户。 本文后面对此做了解释。
