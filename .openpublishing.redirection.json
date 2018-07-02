@@ -10943,6 +10943,26 @@
      "source_path": "articles/azure-stack/user/azure-stack-powershell-install.md",
      "redirect_url": "/azure-stack/azure-stack-powershell-install",
      "redirect_document_id": false
+  },
+  {
+     "source_path": "articles/application-gateway/application-gateway-ilb.md",
+     "redirect_url": "/application-gateway/application-gateway-ilb-arm",
+     "redirect_document_id": false
+  },
+  {
+     "source_path": "articles/application-gateway/application-gateway-web-application-firewall-cli.md",
+     "redirect_url": "/application-gateway/tutorial-restrict-web-traffic-cli",
+     "redirect_document_id": false
+  },
+  {
+     "source_path": "articles/application-gateway/application-gateway-web-application-firewall-powershell.md",
+     "redirect_url": "/application-gateway/tutorial-restrict-web-traffic-powershell",
+     "redirect_document_id": false
+  },
+  {
+     "source_path": "articles/application-gateway/create-waf-portal.md",
+     "redirect_url": "/application-gateway/application-gateway-web-application-firewall-portal",
+     "redirect_document_id": false
   }
 
   ]
