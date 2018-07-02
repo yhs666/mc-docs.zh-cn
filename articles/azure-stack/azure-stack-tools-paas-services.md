@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/10/2017
-ms.date: 03/04/2018
+origin.date: 06/15/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: ''
-ms.openlocfilehash: 580e40b0b8891dd33e8554e7cee90e6324f59b83
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: c85c8ff148d51176ee68ceabb457160f19eb4d09
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29798082"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027189"
 ---
 # <a name="paas-services-for-azure-stack"></a>Azure Stack 的 PaaS 服务
 
@@ -33,7 +33,4 @@ ms.locfileid: "29798082"
 
 [将 MySQL Server 资源提供程序添加到 Azure Stack](/azure-stack/azure-stack-mysql-resource-provider-deploy)
 
-
-
-
-
+<!-- Update_Description: update metedata properties -->

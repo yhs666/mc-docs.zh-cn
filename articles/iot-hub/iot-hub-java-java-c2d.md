@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/28/2017
-ms.date: 05/07/2018
+ms.date: 07/09/2018
 ms.author: v-yiso
-ms.openlocfilehash: 08526ac9bdcb234a869ce3d8d32f55f22b37aa83
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 5bb02c8a622b0a99b8ecb83acb6dd221a23f0c9e
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695060"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103413"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>使用 IoT 中心发送云到设备的消息 (Java)
 
@@ -51,7 +51,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 
 要完成本教程，需要以下各项：
 
-* [IoT 中心入门](./iot-hub-java-java-getstarted.md)或[处理 IoT 中心设备到云的消息](./iot-hub-java-java-process-d2c.md)教程的完整有效版。
+* [IoT 中心入门](iot-hub-java-java-getstarted.md)或[处理 IoT 中心设备到云的消息](tutorial-routing.md)教程的完整有效版。
 * 最新的 [Java SE 开发工具包 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
 + 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）

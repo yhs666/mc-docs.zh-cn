@@ -1,10 +1,10 @@
 ---
 title: Azure AD Connect 同步：计划程序 | Microsoft Docs
-description: 本主题介绍 Azure AD Connect 同步中的内置计划程序功能。
+description: 本主题介绍 Azure AD Connect 同步中的内置计划程序。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
@@ -13,14 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 050e692e39648535c717c588cea9d0bcc9b75836
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: 529d64e6370ef2fbb8b1dbc195350bcb7d0e0876
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
-ms.locfileid: "20822247"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947985"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 同步：计划程序
 本主题介绍 Azure AD Connect 同步（也称为同步引擎）中的 内置计划程序。
@@ -49,7 +50,7 @@ Azure AD Connect 同步会使用计划程序同步本地目录中发生的更改
 - **AllowedSyncCycleInterval**。 Azure AD 允许的同步周期间的最短时间间隔。 不能比这一设置更频繁地同步，但仍会支持。
 - **CurrentlyEffectiveSyncCycleInterval**。 当前生效的计划。 如果它不比 AllowedSyncInterval 更频繁，它具有与 CustomizedSyncInterval 相同的值（如果已设置）。 如果使用早于 1.1.281 的版本，且更改了 CustomizedSyncCycleInterval，该更改会在下一个同步周期后生效。 从版本 1.1.281 开始，更改会立即生效。
 - **CustomizedSyncCycleInterval**。 如果希望计划程序以默认 30 分钟以外的任何其他频率运行，则可配置此设置。 在上图中，计划程序已改设为每隔一小时运行一次。 如果此项设置为低于 AllowedSyncInterval 的值，则使用后者。
-- **NextSyncCyclePolicyType**。 Delta 或 Initial。 定义下次运行是只应处理增量更改，还是应执行完全导入和同步。 后者还会重新处理任何新的或更改的规则。
+- **NextSyncCyclePolicyType**。 Delta 或 Initial。 定义下次运行是只应处理增量更改，还是应执行完全导入和同步。后者还会重新处理任何新的或更改的规则。
 - **NextSyncCycleStartTimeInUTC**。 计划程序启动下一个同步周期的时间。
 - **PurgeRunHistoryInterval**。 操作日志应保留的时间。 可以在 Synchronization Service Manager 中查看这些日志。 默认设置是保留这些日志 7 天。
 - **SyncCycleEnabled**。 指示计划程序是否正在运行导入、同步和导出过程作为其操作的一部分。
@@ -77,10 +78,10 @@ d - 天，HH - 小时，mm - 分钟，ss - 秒
 将计划程序更改为每隔 3 小时运行一次。
 
 示例： `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
-将计划程序更改为每天运行一次。
+这些更改将计划程序更改为每天运行一次。
 
 ### <a name="disable-the-scheduler"></a>禁用计划程序  
-如果需要对配置进行更改，则要禁用计划程序。 例如，[配置筛选](active-directory-aadconnectsync-configure-filtering.md)或[更改同步规则](active-directory-aadconnectsync-change-the-configuration.md)时。
+若需要对配置进行更改，则要禁用该计划程序。 例如，[配置筛选](active-directory-aadconnectsync-configure-filtering.md)或[更改同步规则](active-directory-aadconnectsync-change-the-configuration.md)时。
 
 若要禁用计划程序，请运行 `Set-ADSyncScheduler -SyncCycleEnabled $false`。
 
@@ -175,4 +176,4 @@ Get-ADSyncConnectorRunStatus
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

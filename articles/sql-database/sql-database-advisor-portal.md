@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 06/18/2018
 ms.author: v-johch
-ms.openlocfilehash: f77b36be91f940fe8b31120e11a64b5a55603678
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: 5c697412ddc7b737435698cffa703a36ddf18f7a
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324270"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948068"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>查找并应用性能建议
 
@@ -162,6 +162,6 @@ Azure SQL 数据库提供可提高 SQL 数据库性能的建议。 通过提供 
 ## <a name="additional-resources"></a>其他资源
 * [查询存储](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [基于角色的访问控制](../active-directory/role-based-access-control-what-is.md)
+* [基于角色的访问控制](../role-based-access-control/overview.md)
 
 <!--Update_Description: wording update-->

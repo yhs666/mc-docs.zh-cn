@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 06/18/2018
 ms.author: v-johch
-ms.openlocfilehash: af1b3f44f7030f4435ce4326f69826028ad92b4c
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: abb0d4322f474711c945f03dc6498a4d9c1c0540
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324285"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948101"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>使用 SQL 数据库活动异地复制管理云应用程序的滚动升级
 > [!NOTE]
@@ -126,7 +126,6 @@ ms.locfileid: "35324285"
 此升级方法的主要 **优点** 是可以同时升级应用程序及其地理冗余副本，并且不会在升级过程中破坏业务连续性。 此方法的主要 **缺点** 是它需要每个应用程序组件的双倍冗余，因此会导致更高的费用成本。 它还涉及更复杂的工作流。 
 
 ## <a name="summary"></a>摘要
-
 本文中所述的两种升级方法具有不同的复杂性和费用成本，但它们都关注于最小化最终用户仅限于执行只读操作的时间。 该时间由升级脚本的持续时间直接定义。 该时间不依赖于数据库大小、所选的服务层、网站配置和你无法轻松控制的其他因素。 这是因为所有准备步骤都从升级步骤中分离出来，可以在不影响生产应用程序的情况下完成。 升级脚本的效率是决定升级期间的最终用户体验的关键因素。 因此改进升级的最佳做法是致力于尽可能地提高升级脚本的效率。  
 
 ## <a name="next-steps"></a>后续步骤

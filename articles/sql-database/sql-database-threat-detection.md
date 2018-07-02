@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 05/17/2018
 ms.date: 06/18/2018
 ms.author: v-johch
-ms.openlocfilehash: 60a1f4395b7eaf83ae06daa460e70f02c86bc215
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 97f44045451b68b8485e8d2d16f4ea59cc142054
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36269988"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947893"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL 数据库威胁检测
 
@@ -27,7 +27,6 @@ Azure SQL 数据库威胁检测可检测异常活动，这些活动表示异常�
 SQL 威胁检测提供新的安全层，在发生异常活动时会提供安全警报，让客户检测潜在威胁并做出响应。 出现可疑数据库活动、潜在漏洞、SQL 注入攻击和异常数据库访问和查询模式时，用户将收到警报。 SQL 威胁检测将警报与 [Azure 安全中心](https://azure.microsoft.com/services/security-center/)集成，其中包含可疑活动的详细信息以及如何调查和缓解威胁的建议操作。 不必是安全专家，也不需要管理先进的安全监视系统，就能使用 SQL 威胁检测轻松解决数据库的潜在威胁。 
 
 为了提供完整的调查体验，建议启用 [SQL 数据库审核](sql-database-auditing.md)，它会将数据库事件写入到 Azure 存储帐户中的审核日志。  
-
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>在 Azure 门户中为数据库设置威胁检测
 1. 在 [https://portal.azure.cn](https://portal.azure.cn) 中启动 Azure 门户。

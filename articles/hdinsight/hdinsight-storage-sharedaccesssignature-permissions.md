@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/25/2018
-ms.date: 05/28/2018
+origin.date: 04/23/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6d0b73aab0582b7328577a3d879186980b6c7aca
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 96423b2a950eb23bd7685e003ac7d8b581514933
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450075"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747393"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 存储共享访问签名来限制访问 HDInsight 中的数据
 

@@ -11,31 +11,34 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/19/2018
-ms.date: 05/03/2018
+origin.date: 05/15/2018
+ms.date: 06/26/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: ecd6e7fa570b5e20ab8ca4ebeae6687ca85ec13c
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: cb5494ca89fb6f1f642646a8b2f373609f14902d
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34256247"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947856"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步排查对象同步问题
-本文档按步骤介绍了如何使用故障排除任务来排查对象同步问题。
+本文按步骤介绍了如何使用故障排除任务来排查对象同步问题。 
 
 ## <a name="troubleshooting-task"></a>故障排除任务
-对于 1.1.749.0 或更高版本的 Azure Active Directory (AAD) Connect 部署，请使用向导中的故障排除任务来排查对象同步问题。 对于早期版本，请手动进行故障排除，如[此文](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)所述。
+对于 1.1.749.0 或更高版本的 Azure AD Connect 部署，请使用向导中的故障排除任务来排查对象同步问题。 对于早期版本，请手动进行故障排除，如[此文](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)所述。
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>在向导中运行故障排除任务
 若要在向导中运行故障排除任务，请执行以下步骤：
 
-1.  使用“以管理员身份运行”选项，在 Azure AD Connect 服务器上打开一个新的 Windows PowerShell 会话。
-2.  运行 `Set-ExecutionPolicy RemoteSigned` 或 `Set-ExecutionPolicy Unrestricted`。
-3.  启动 Azure AD Connect 向导。
-4.  导航到“其他任务”页面，选择“故障排除”，然后单击“下一步”。
-5.  在“故障排除”页上，单击“启动”以在 PowerShell 中启动故障排除菜单。
-6.  在主菜单中，选择“排查对象同步问题”。
+1. 使用“以管理员身份运行”选项，在 Azure AD Connect 服务器上打开一个新的 Windows PowerShell 会话。
+2. 运行 `Set-ExecutionPolicy RemoteSigned` 或 `Set-ExecutionPolicy Unrestricted`。
+3. 启动 Azure AD Connect 向导。
+4. 导航到“其他任务”页面，选择“故障排除”，然后单击“下一步”。
+5. 在“故障排除”页上，单击“启动”以在 PowerShell 中启动故障排除菜单。
+6. 在主菜单中，选择“排查对象同步问题”。
+
+    ![](./media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>排查输入参数问题
 以下输入参数是故障排除任务所需的：
@@ -46,9 +49,11 @@ ms.locfileid: "34256247"
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>了解故障排除任务的结果
 此故障排除任务执行以下检查：
 
-1.  在对象已同步到 Azure Active Directory 的情况下检测 UPN 不匹配的情况
-2.  检查对象是否已因域筛选而被筛选出来
-3.  检查对象是否已因 OU 筛选而被筛选出来
+1. 在对象已同步到 Azure Active Directory 的情况下检测 UPN 不匹配的情况
+2. 检查对象是否已因域筛选而被筛选出来
+3. 检查对象是否已因 OU 筛选而被筛选出来
+4. 检查对象同步是否由于链接的邮箱而被阻止
+5. 检查对象是否是不应该同步的动态通讯组
 
 本部分的剩余内容说明了此任务返回的具体结果。 在每个示例中，此任务都提供了分析以及解决问题所需的建议操作。
 
@@ -76,13 +81,21 @@ Azure Active Directory 不允许将 UserPrincipalName (UPN)/备用登录 ID 后�
 
 ### <a name="domain-is-configured-to-sync-but-is-missing-run-profilesrun-steps"></a>域已配置为同步，但缺少运行配置文件/运行步骤
 对象不在范围内，因为域缺少运行配置文件/运行步骤。 在下面的示例中，对象不在范围内，因为其所属的域缺少“完全导入”运行配置文件的运行步骤。
-
 ![](./media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch6.png)
 
-### <a name="object-is-filtered-due-to-ou-filtering"></a>对象已因 OU 筛选而被筛选出来
-对象因 OU 筛选配置而不在同步范围内。 在下面的示例中，对象属于 OU=NoSync,DC=bvtadwbackdc,DC=com。此 OU 不包括在同步范围内。
+## <a name="object-is-filtered-due-to-ou-filtering"></a>对象已因 OU 筛选而被筛选出来
+对象因 OU 筛选配置而不在同步范围内。 在下面的示例中，对象属于 OU=NoSync,DC=bvtadwbackdc,DC=com。  此 OU 不包括在同步范围内。</br>
 
-![](./media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+![OU](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+
+## <a name="linked-mailbox-issue"></a>链接邮箱问题
+链接邮箱假设与位于另一个受信任帐户林中的外部主帐户相关联。 如果没有此类外部主帐户，则 Azure AD Connect 不会将 Exchange 林中对应于链接邮箱的用户帐户与 Azure AD 租户同步。</br>
+![链接邮箱](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch12.png)
+
+## <a name="dynamic-distribution-group-issue"></a>动态通讯组问题
+由于本地 Active Directory 和 Azure Active Directory 之间的各种差异，Azure AD Connect 不会将动态通讯组与 Azure AD 租户同步。
+
+![动态通讯组](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch13.png)
 
 ## <a name="html-report"></a>HTML 报表
 除了分析对象，故障排除任务还会生成 HTML 报表，其中包含有关该对象的一切已知内容。 此 HTML 报表可以与支持团队共享，以便根据需要进行进一步的故障排除。

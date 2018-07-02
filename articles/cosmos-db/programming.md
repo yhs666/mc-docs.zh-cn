@@ -3,24 +3,20 @@ title: Azure Cosmos DB 的服务器端 JavaScript 编程 | Azure
 description: 了解如何使用 Azure Cosmos DB 以 JavaScript 编写存储过程、数据库触发器和用户定义的函数 (UDF) 了解数据库编程技巧以及更多内容。
 keywords: 数据库触发器, 存储过程, 数据库程序, sproc, Azure, Azure 世纪互联
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-ms.assetid: 0fba7ebd-a4fc-4253-a786-97f1354fbf17
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 03/26/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1d45ec527d00a69a8bdf80522a820ec8ac0ddb68
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: b7dec527bdcae6229fcd6966b891fe168310759e
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867489"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070266"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 服务器端编程：存储过程、数据库触发器和 UDF
 
@@ -804,4 +800,4 @@ JavaScript 存储过程和触发器经过沙盒处理，以使一个脚本的效
 * [面向服务的数据库体系结构](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [在 Microsoft SQL 服务器中托管 .NET 运行时](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties -->

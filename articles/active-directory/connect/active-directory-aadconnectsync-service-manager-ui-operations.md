@@ -1,10 +1,10 @@
 ---
 title: Azure AD Connect Synchronization Service Manager 操作 | Microsoft Docs
-description: 了解用于 Azure AD Connect 的 Synchronization Service Manager 中的“操作”选项卡。
+description: 了解 Azure AD Connect 的 Synchronization Service Manager 中的“操作”选项卡。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 97a26565-618f-4313-8711-5925eeb47cdc
 ms.service: active-directory
@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 06/26/2018
+ms.component: hybrid
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b663ca9148dfd2cc017465473d6aa5593dc891e6
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: 7d31a5f069f0b30494dca601c94757e4e8977b91
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
-ms.locfileid: "20822215"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947854"
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>使用 Sync Service Manager“操作”选项卡
 
@@ -36,7 +37,7 @@ ms.locfileid: "20822215"
 
 | 状态 | 注释 |
 | --- | --- |
-| stopped-* |运行无法完成。 例如，如果远程系统已关闭且无法访问。 |
+| stopped-\* |运行无法完成。 例如，如果远程系统已关闭且无法访问。 |
 | stopped-error-limit |有 5,000 个以上的错误。 运行因错误数量过多而自动停止。 |
 | completed-\*-errors |运行已完成，但发生应调查的错误（数量少于 5,000 个）。 |
 | completed-\*-warnings |运行已完成，但某些数据并未处于预期的状态。 如果遇到错误，则此消息通常只是一种征兆。 在解决错误之前，不应该调查警告。 |
@@ -51,4 +52,4 @@ ms.locfileid: "20822215"
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update metedata properties -->

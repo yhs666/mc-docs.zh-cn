@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: develop databases, mvc
 ms.topic: tutorial
-origin.date: 03/15/2018
-ms.date: 04/17/2018
+origin.date: 06/07/2018
+ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: 778677c28ad6fcd57f17b972e162ab74a2378fdf
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 97c6f79a66d321a2fea74e56e2b50da5be9440eb
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782264"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947915"
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>设计 Azure SQL 数据库，并使用 C# 和 ADO.NET 进行连接
 
@@ -63,5 +63,5 @@ And it starts with a ## H2.
 请转到下一教程，了解数据迁移。
 
 > [!div class="nextstepaction"]
->[将 SQL Server 数据库迁移至 Azure SQL 数据库](sql-database-migrate-your-sql-server-database.md)
+> [将 SQL Server 数据库迁移至 Azure SQL 数据库](sql-database-migrate-your-sql-server-database.md)
 

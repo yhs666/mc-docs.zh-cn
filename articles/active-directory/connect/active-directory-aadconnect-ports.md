@@ -3,8 +3,8 @@ title: 混合标识所需的端口和协议 - Azure | Microsoft Docs
 description: 此技术参考页面描述了需要为 Azure AD Connect 打开的端口
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: curtand
 ms.assetid: de97b225-ae06-4afc-b2ef-a72a3643255b
 ms.service: active-directory
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 08/23/2017
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 2c2a8d90c41b569dd3b7c261ab3bd7f38bb36fd7
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 5f292cfc1be9f451f7f913c2a6bf46c3416de289
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
-ms.locfileid: "27547581"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948085"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>混合标识所需的端口和协议
 以下文档是用于实现混合标识解决方案所需的端口和协议的技术参考。 使用下图并参考相应的表格。
@@ -93,4 +94,4 @@ ms.locfileid: "27547581"
 
 此外，Azure AD Connect 需要能够建立到 [Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/details.aspx?id=42064)的直接 IP 连接。 同样，这只是 SSO 注册过程所需的。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

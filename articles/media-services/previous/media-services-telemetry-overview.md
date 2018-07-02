@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/29/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 165a4e467861ef019af595314330c0432b3c81c4
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 435f1e3f9e2b42d04e2618ed25abf8a3ccf92ffc
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475425"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748386"
 ---
 # <a name="azure-media-services-telemetry"></a>Azure 媒体服务遥测
 
@@ -74,7 +74,7 @@ ms.locfileid: "34475425"
 属性|值|示例/说明
 ---|---|---
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>帐户 ID 包括在分区键中，可简化将多个媒体服务帐户写入同一存储帐户的工作流。
-RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>行键以距午夜的秒数开头，可允许分区内的前 n 个样式查询。 有关详细信息，请参阅[本文](../cosmos-db/table-storage-design-guide.md#log-tail-pattern)。 
+RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>行键以距午夜的秒数开头，可允许分区内的前 n 个样式查询。 有关详细信息，请参阅[本文](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern)。 
 Timestamp|日期/时间|Azure 表中的自动时间戳 2016-09-09T22:43:42.241Z
 类型|提供遥测数据的实体类型|Channel/StreamingEndpoint/Archive<br/><br/>事件类型只是一个字符串值。
 Name|遥测事件的名称|ChannelHeartbeat/StreamingEndpointRequestLog
@@ -185,6 +185,7 @@ Healthy|如果 FragmentDiscardedCount == 0 且 ArchiveAcquisitionError == False�
 - UnalignedKeyFrames == True 
 - UnalignedPresentationTime == True 
 - UnexpectedBitrate == True
+
 
 ### <a name="how-to-detect-discontinuities"></a>如何检测中断？
 

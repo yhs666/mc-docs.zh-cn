@@ -16,12 +16,12 @@ origin.date: 04/27/2018
 ms.date: 06/04/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 11d5e73a04f14ede225a61caefcf695c5a787f74
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 213114d3f7b90e5951b2fadbf7b678c1e645dfe0
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695134"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748325"
 ---
 # <a name="audit-sql-server-audit-settings"></a>审核 SQL Server 审核设置
 
@@ -91,7 +91,7 @@ Remove-AzureRmPolicyAssignment -Name "SQL Audit audit" -Scope <scope>
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli-interactive
+```azurecli
 az policy assignment create --scope <scope> --name "SQL Audit audit" --policy a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9 --params '{"setting": {"value":"enabled"}}'
 ```
 
@@ -99,7 +99,7 @@ az policy assignment create --scope <scope> --name "SQL Audit audit" --policy a6
 
 运行以下命令删除策略分配。
 
-```azurecli-interactive
+```azurecli
 az policy assignment delete --name "SQL Audit audit" --resource-group myResourceGroup
 ```
 

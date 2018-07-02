@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/05/2018
-ms.date: 06/18/2018
-ms.openlocfilehash: 355c8ee5c8341b85353c874859dbf2e5ba6b62fe
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 07/02/2018
+ms.openlocfilehash: 3ae7621083c6ac15bacbc65021ca3ae14f0daf45
+ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416843"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947662"
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>使用用于 Visual Studio 的 Azure 流分析工具
 用于 Visual Studio 的 Azure 流分析工具现已推出正式版。 这些工具为流分析用户带来了更丰富的体验，可让他们进行故障排除以及编写复杂的查询，甚至可以在本地编写查询。 还可将流分析作业导出到 Visual Studio 项目中。
@@ -32,8 +32,6 @@ ms.locfileid: "35416843"
 * 将现有作业导出到项目。
 
 >[!IMPORTANT]
->
->为新的一般数据保护条例 (GDPR)（于 2018 年 5 月 25 日生效）做准备，建议使用针对 Visual Studio 的 Azure 流分析工具的用户升级到版本 2.3.3000.5 或更高版本。 此版本包括基于最新数据保护要求所做的更改。 请注意，以前的版本不可供下载并将弃用。 
 >
 >**我需要做什么？**
 >
@@ -274,4 +272,4 @@ ms.locfileid: "35416843"
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties, update link  -->
+<!--Update_Description: update meta properties, update link, wording update -->

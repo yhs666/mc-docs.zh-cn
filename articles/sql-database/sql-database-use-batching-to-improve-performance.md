@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 95cfb35bff0333142fd7d6562c3adcf9ff88f4dc
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: f2871c2f66485b9165a67da6f169a76bb448cf09
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782457"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948072"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>如何使用批处理来改善 SQL 数据库应用程序的性能
 对 Azure SQL 数据库执行批处理操作可以大幅改善应用程序的性能和缩放性。 为了帮助你了解优点，本文的第一部分包含一些示例测试结果，用于比较对 SQL 数据库发出的顺序请求和分批请求。 本文的余下部分介绍了帮助你在 Azure 应用程序中成功使用批处理的方法、方案和注意事项。
@@ -37,7 +37,7 @@ ms.locfileid: "31782457"
 ## <a name="batching-strategies"></a>批处理策略
 ### <a name="note-about-timing-results-in-this-topic"></a>有关本主题中计时结果的注意事项
 >[!NOTE]
-> 结果并不是基准，而是用于显示**相对性能**。 计时基于至少运行 10 次测试后的平均值。 操作将插入空表。 这些测试将在 V12 以前的版本中测量，不一定对应于在使用新[服务层](./sql-database-service-tiers.md)的 V12 数据库中可能会获得的吞吐量。 批处理技术的相对优势应该类似。
+> 结果并不是基准，而是用于显示**相对性能**。 计时基于至少运行 10 次测试后的平均值。 操作将插入空表。 这些测试会在 V12 以前的版本中测量，不一定对应于在使用新 [DTU 服务层](sql-database-service-tiers-dtu.md)或 [vCore 服务层](sql-database-service-tiers-vcore.md)的 V12 数据库中可能获得的吞吐量。 批处理技术的相对优势应该类似。
 
 ### <a name="transactions"></a>事务
 通过讨论事务来开始讲述批处理似乎有点奇怪。 但是使用客户端事务具有提高性能的微妙服务器端批处理效果。 可以使用几行代码来添加事务，因此这提供了一个快速提高顺序操作的性能的方法。

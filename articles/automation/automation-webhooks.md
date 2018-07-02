@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 06/04/2018
 ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: b8c76c1e1019f6408a1d3699d1275bcef6372a21
-ms.sourcegitcommit: 9f78ba87a377011f078025c56032b7f898d9742c
+ms.openlocfilehash: 4d55f2d17cc90c82792f8fe5241a126446b0439c
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36299272"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748408"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 webhook 启动 Azure 自动化 runbook
 
@@ -177,7 +177,7 @@ else {
 
 Runbook 预期请求的正文中包含 JSON 格式的虚拟机列表。
 
-```azurepowershell-interactive
+```azurepowershell
 $uri = "<webHook Uri>"
 
 $vms  = @(

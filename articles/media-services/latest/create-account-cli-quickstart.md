@@ -11,14 +11,14 @@ ms.workload: ''
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 03/27/2018
-ms.date: 05/28/2018
+ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: e27ee1ce67809cbdea24a498e28cf987b29265e5
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: a07504c49e157d3995cfe69e490a3a3a2c9f71e3
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475124"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748405"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>快速入门：创建 Azure 媒体服务帐户
 
@@ -33,9 +33,7 @@ ms.locfileid: "34475124"
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-登录 [Azure 门户](http://portal.azure.cn)并启动 **CloudShell** 以执行 CLI 命令。
-
-
+登录到 [Azure 门户](http://portal.azure.cn)。
 
 如果选择在本地安装并使用 CLI，本主题要求使用 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可确定你拥有的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
 
@@ -43,7 +41,7 @@ ms.locfileid: "34475124"
 
 在以下命令中，为媒体服务帐户提供想要使用的 Azure 订阅 ID。 导航到[订阅](https://portal.azure.cn/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)即可查看有权访问的订阅列表。
 
-```azurecli-interactive
+```cli
 az account set --subscription <mySubscriptionId>
 ```
 
@@ -51,7 +49,7 @@ az account set --subscription <mySubscriptionId>
 
 以下命令创建你希望其中包含存储和媒体服务帐户的资源组。 将 myresourcegroup 占位符替换为希望用于资源组的名称。
 
-```azurecli-interactive
+```cli
 az group create -n <myresourcegroup> -l chinaeast
 ```
 
@@ -63,7 +61,7 @@ az group create -n <myresourcegroup> -l chinaeast
 
 以下命令创建将与媒体服务帐户（主要）相关联的存储帐户。 在以下脚本中，替换“storageaccountforams”占位符。 “account_name”的长度必须小于 24。
 
-```azurecli-interactive
+```azurecli
 az storage account create -n <storageaccountforams> -g <myresourcegroup>
 ```
 
@@ -75,7 +73,7 @@ az storage account create -n <storageaccountforams> -g <myresourcegroup>
 * myresourcegroup
 * storageaccountforams
 
-```azurecli-interactive
+```azurecli
 az ams create -n <myamsaccountname> -g <myresourcegroup> --storage-account <storageaccountforams>
 ```
 
@@ -85,7 +83,11 @@ az ams create -n <myamsaccountname> -g <myresourcegroup> --storage-account <stor
 
 在 CloudShell 中，执行以下命令：
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 
+## <a name="next-steps"></a>后续步骤
+
+> [!div class="nextstepaction"]
+> [流式传输文件](stream-files-dotnet-quickstart.md)

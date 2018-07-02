@@ -27,7 +27,7 @@ Azure CLI 需要存储帐户凭据才能执行本教程的大部分命令。 提
 
 首先，使用 [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#list) 命令显示存储帐户密钥：
 
-```
+```cli
 az storage account keys list \
     --account-name mystorageaccount \
     --resource-group myResourceGroup \

@@ -4,8 +4,8 @@ description: 本主题文档介绍如何在更改 AD DS 帐户的密码以后更
 services: active-directory
 keywords: AD DS 帐户, Active Directory 帐户, 密码
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 07/31/2017
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: e9785ed48d6ed457967ac4509ed6becdee059945
-ms.sourcegitcommit: cd0f14ddb0bf91c312d5ced9f38217cfaf0667f5
+ms.openlocfilehash: 986aea36c8dc78e20d371bad2f75633b14014f99
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2017
-ms.locfileid: "20763968"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947867"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>更改 AD DS 帐户密码
 AD DS 帐户是指 Azure AD Connect 用来与本地 Active Directory 通信的用户帐户。 如果更改 AD DS 帐户的密码，则必须使用新密码更新 Azure AD Connect 同步服务。 否则，同步服务将再也不能正确地通过本地 Active Directory 进行同步，会遇到以下错误：
@@ -58,4 +59,4 @@ AD DS 帐户是指 Azure AD Connect 用来与本地 Active Directory 通信的�
 
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update metedata properties -->

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/22/2018
-ms.date: 05/28/2018
+origin.date: 04/23/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: b2d5576bb53d97b698ff055d315748f8dbff05c0
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 63c740b1cacc3a79054f1208a340c74863bb2a4d
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450057"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747491"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>使用 Ambari REST API 管理 HDInsight 群集
 

@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 03/27/2018
-ms.date: 05/02/2018
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: bb15140b86efec228212616e14b5ce5eea65a8b6
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 34a9aef7bd211fdd4f3ca4096fca0214272f34c6
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305825"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947885"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>通过快速设置开始使用 Azure AD Connect
 采用单林拓扑并将**密码哈希同步**用于身份验证时，可以使用 Azure AD Connect [快速设置](active-directory-aadconnectsync-implement-password-hash-synchronization.md)。 **快速设置** 是默认选项，用于最常见的部署方案。 只需按几下鼠标即可将本地目录扩展到云中。
@@ -46,7 +47,6 @@ ms.locfileid: "34305825"
    - 在“已准备好配置”页上，可以取消选中“配置完成后立即开始同步过程”  复选框。 如果想要进行其他配置（例如[筛选](active-directory-aadconnectsync-configure-filtering.md)），应取消选中此复选框。 如果取消选择此选项，向导将配置同步，但会保持禁用计划程序。 在[重新运行安装向导](active-directory-aadconnectsync-installation-wizard.md)手动启用计划程序之前，计划程序不会运行。
    - 保留启用“配置完成后立即开始同步过程”复选框会立即触发将所有用户、组和联系人完全同步到 Azure AD 的过程。 
    - 如果本地 Active Directory 中有 Exchange，也可以选择启用 [**Exchange 混合部署**](https://technet.microsoft.com/library/jj200581.aspx)。 如果打算同时在云中和本地设置 Exchange 邮箱，请启用此选项。
-   
      ![已准备好配置 Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
 9. 安装完成后，单击“退出” 。
 10. 安装完成后，请注销并再次登录，即可使用同步服务管理器或同步规则编辑器。
@@ -69,4 +69,4 @@ ms.locfileid: "34305825"
 | 从 DirSync 升级 | [从 Azure AD 同步工具 (DirSync) 升级](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
 | 用于安装的帐户 | [有关 Azure AD Connect 凭据和权限的详细信息](active-directory-aadconnect-accounts-permissions.md) |
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

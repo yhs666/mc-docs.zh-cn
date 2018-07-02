@@ -9,12 +9,12 @@ ms.date: 06/04/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: digimobile
-ms.openlocfilehash: f823141ffd71fc80373271726a17b29c6506fa35
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 4a639e2708de584a2af05e64f43cb255d3fabbed
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695181"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748419"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 策略定义结构
 
@@ -261,7 +261,7 @@ Azure 策略使用的资源策略定义，可使你通过描述何时强制实�
 
 - Azure PowerShell
 
-  ```azurepowershell-interactive
+  ```azurepowershell
   # Login first with Connect-AzureRmAccount if not using Cloud Shell
 
   $azContext = Get-AzureRmContext
@@ -300,7 +300,7 @@ Azure 策略使用的资源策略定义，可使你通过描述何时强制实�
 
 - Azure CLI
 
-  ```azurecli-interactive
+  ```azurecli
   # Login first with az login if not using Cloud Shell
 
   # Get Azure Policy aliases for a specific Namespace

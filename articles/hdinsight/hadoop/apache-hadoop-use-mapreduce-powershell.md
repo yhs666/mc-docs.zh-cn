@@ -11,18 +11,18 @@ ms.assetid: 21b56d32-1785-4d44-8ae8-94467c12cfba
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/16/2018
-ms.date: 03/26/2018
+origin.date: 05/09/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7b892014893b68178c53d0f9d5efc337f5a60975
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: b74371d8dde74f7d03c56314c172b7cce196d4ed
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30075869"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747342"
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>通过 PowerShell 使用 HDInsight 上的 Hadoop 运行 MapReduce 作业
 

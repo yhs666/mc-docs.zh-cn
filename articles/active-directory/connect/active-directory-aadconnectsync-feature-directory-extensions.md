@@ -3,8 +3,8 @@ title: Azure AD Connect 同步：目录扩展 | Microsoft Docs
 description: 本主题介绍 Azure AD Connect 中的目录扩展功能。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
@@ -13,22 +13,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/12/2017
-ms.date: 12/25/2017
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 70a9bb3b9866247c95aefbb9b78ac51cfa7179c7
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: b6a85c9015efdb00dbd2413602a7e571d1c6647b
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993169"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947891"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 同步：目录扩展
 目录扩展支持使用本地 Active Directory 中自己的属性来扩展 Azure AD 中的架构。 借助此功能，可以构建 LOB 应用并让其使用可继续在本地管理的属性。 可以通过 [Azure AD Graph 目录扩展](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)或 [Microsoft Graph](https://graph.microsoft.io/) 使用这些属性。 可以分别使用 Azure AD Graph 资源管理器和 [Microsoft Graph 资源管理器](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china)查看可用属性。
 
-目前没有任何 Office 365 工作负荷使用这些属性。
+目前，没有任何 Office 365 工作负荷使用这些属性。
 
 在安装向导的自定义设置路径中配置要同步的其他属性。
+
 ![架构扩展向导](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png)  
+
 安装显示以下属性，它们是有效的候选项：
 
 - “用户”和“组”对象类型
@@ -58,4 +61,4 @@ Azure AD 中的对象最多可以有 100 个目录扩展属性。 最大长度�
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

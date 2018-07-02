@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/08/2016
 ms.date: 3/20/2018
 ms.author: v-johch
-ms.openlocfilehash: 47aa9233f1da259d2817d3780907351f40e4bff4
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: a6ec91fdeaac72f42afa2cc2c7bb60cdda1350fe
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36269993"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103036"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>如何通过 Node.js 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -67,9 +67,7 @@ var azure = require('azure-storage');
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>设置 Azure 存储连接
-Azure 模块将读取环境变量 AZURE\_STORAGE\_ACCOUNT 和 AZURE\_STORAGE\_ACCESS\_KEY，或 AZURE\_STORAGE\_CONNECTION\_STRING 以获取连接到 Azure 存储帐户所需的信息。 如果未设置这些环境变量，则必须在调用 **createQueueService** 时指定帐户信息。
-
-有关在 [Azure 门户](https://portal.azure.cn)中为 Azure 网站设置环境变量的示例，请参阅[使用 Azure 表服务的 Node.js Web 应用](../../cosmos-db/table-storage-cloud-service-nodejs.md)。
+Azure 模块将读取环境变量 AZURE\_STORAGE\_ACCOUNT 和 AZURE\_STORAGE\_ACCESS\_KEY，或 AZURE\_STORAGE\_CONNECTION\_STRING 以获取连接到 Azure 存储帐户所需的信息。 如果未设置这些环境变量，则必须在调用 **createQueueService**时指定帐户信息。
 
 ## <a name="how-to-create-a-queue"></a>如何：创建队列
 以下代码创建一个 **QueueService** 对象，可通过该对象来操作队列。

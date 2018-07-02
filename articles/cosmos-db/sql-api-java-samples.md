@@ -5,28 +5,26 @@ keywords: NoSQL 示例
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: java
-ms.assetid: d824d517-903e-4d82-ab0a-09fc3b984c84
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
+ms.topic: sample
 origin.date: 02/08/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: c2198eb13f7727b8cceec88c917b109a83a2fc7d
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 64ede28b45fd317c4933629c9a301e943292adb6
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867480"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070201"
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的 Java 示例
 
 > [!div class="op_single_selector"]
 > * [.NET 示例](sql-api-dotnet-samples.md)
 > * [Java 示例](sql-api-java-samples.md)
+> * [异步 Java 示例](sql-api-async-java-samples.md)
 > * [Node.js 示例](sql-api-nodejs-samples.md)
 > * [Python 示例](sql-api-python-samples.md)
 > * [Azure 代码示例库](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
@@ -152,7 +150,8 @@ $ cd azure-documentdb-java
 | 任务 | API 参考 |
 | --- | --- |
 | [创建单分区集合](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java#L164-L207) | [DocumentClient.createCollection](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.createcollection) |
-| [更改单分区集合的吞吐量优惠](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java#L209-L223) | [DocumentClient.replaceOffer](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.replaceoffer) |
+| 
+  [更改单分区集合的吞吐量优惠](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java#L209-L223) | [DocumentClient.replaceOffer](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.replaceoffer) |
 
 ## <a name="stored-procedure-examples"></a>存储过程示例
 [StoredProcedureSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java) 文件演示如何执行以下任务：
@@ -163,4 +162,4 @@ $ cd azure-documentdb-java
 | [运行带参数的存储过程](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java#L121-L144) | [DocumentClient.executeStoredProcedure](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.executestoredprocedure) |
 | [运行带对象参数的存储过程](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java#L147-L177) | [DocumentClient.executeStoredProcedure](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.executestoredprocedure) |
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, update link -->

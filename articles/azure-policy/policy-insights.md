@@ -9,12 +9,12 @@ ms.date: 06/04/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: digimobile
-ms.openlocfilehash: 2535b24176348d17e2f283ea48616631ed2f9e08
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 6b6ad05d7a4f382b6c984f9d42bfa9660790632a
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695171"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748413"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>以编程方式创建策略和查看符合性数据
 
@@ -28,7 +28,7 @@ ms.locfileid: "34695171"
 2. 将 AzureRM PowerShell 模块更新到最新版本。 有关最新版本的详细信息，请参阅 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)。
 3. 使用 Azure PowerShell 注册策略见解资源提供程序，以确保订阅可使用资源提供程序。 若要注册资源提供程序，必须具有为资源提供程序执行注册操作的权限。 此操作包含在“参与者”和“所有者”角色中。 运行以下命令，注册资源提供程序：
 
-  ```azurepowershell-interactive
+  ```azurepowershell
   Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
@@ -65,14 +65,14 @@ ms.locfileid: "34695171"
   有关编写策略定义的详细信息，请参阅 [Azure 策略定义结构](policy-definition.md)。
 2. 运行以下命令，使用 AuditStorageAccounts.json 文件创建策略定义。
 
-  ```azurepowershell-interactive
+  ```azurepowershell
   New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
   ```
 
   该命令创建名为 _Audit Storage Accounts Open to Public Networks_ 的策略定义。 有关可用的其他参数的详细信息，请参阅 [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition)。
 3. 创建策略定义后，可运行以下命令创建策略分配：
 
-  ```azurepowershell-interactive
+  ```azurepowershell
   $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
   $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
   New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
@@ -177,19 +177,19 @@ ms.locfileid: "34695171"
 
 2. 运行以下命令创建策略定义：
 
-  ```azurecli-interactive
+  ```azurecli
 az policy definition create --name 'audit-storage-accounts-open-to-public-networks' --display-name 'Audit Storage Accounts Open to Public Networks' --description 'This policy ensures that storage accounts with exposures to public networks are audited.' --rules '<path to json file>' --mode All
   ```
 
 3. 使用以下命令创建策略分配。 请将 &lt;&gt; 符号中的示例信息替换为自己的值。
 
-  ```azurecli-interactive
+  ```azurecli
   az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
   ```
 
 可以在 PowerShell 中使用以下命令获取策略定义 ID：
 
-```azurecli-interactive
+```azurecli
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
 ```
 
@@ -228,7 +228,7 @@ az policy definition show --name 'Audit Storage Accounts with Open Public Networ
 
 1. 运行以下命令获取策略分配 ID：
 
-  ```azurepowershell-interactive
+  ```azurepowershell
   $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks' }
   $policyAssignment.PolicyAssignmentId
   ```

@@ -14,15 +14,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2018
-ms.date: 05/28/2018
+origin.date: 05/18/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1dc4e2ccc33fb77be12b97154e17e7833be09611
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 773dc871608a7d52a5184674200f8c030769f2f7
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450125"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747466"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "34450125"
 
        ![新建 HDInsight 群集按钮](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
 
-       在“搜索 Marketplace”中输入 HDInsight ，单击 HDInsight，然后单击“创建”。
+       在“在市场中搜索”中输入 HDInsight，单击 HDInsight，然后单击“创建”。
 
    * 在左侧菜单中单击“HDInsight 群集”以列出现有群集：
 
@@ -127,7 +127,7 @@ HDInsight 使用各种 Hadoop 组件。 有关已验证和支持的组件的列�
    * **默认数据源**：默认的群集文件系统。
    * 辅助角色节点大小：辅助角色节点的所选 VM 大小。
    * 头节点大小：头节点的所选 VM 大小。
-   * 虚拟网络：群集将要部署到的虚拟网络和子网的名称（如果部署时选择）。
+   * **虚拟网络**：群集将要部署到的虚拟网络的名称（如果已在部署时选择）。
 
 ## <a name="delete-clusters"></a>删除群集
 删除群集不会删除默认存储帐户或任何链接的存储帐户。 可以使用相同的存储帐户和相同的元存储来重新创建群集。 建议在重新创建群集时使用新的默认 Blob 容器。

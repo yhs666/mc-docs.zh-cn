@@ -11,12 +11,12 @@ origin.date: 05/08/2018
 ms.date: 06/18/2018
 ms.author: v-nany
 ms.reviewer: carlrab
-ms.openlocfilehash: b65a3808f6122504ac8446a9790dd88bb17ee27c
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: c6a7db873021f49c6502464f88b36d22b6bd66bc
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324280"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948095"
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>使用 Azure 恢复服务保管库配置 Azure SQL 数据库长期备份保留和从其中进行还原
 
@@ -272,4 +272,3 @@ $restoredDb
 - 若要了解服务生成的自动备份，请参阅[自动备份](sql-database-automated-backups.md)
 - 若要了解长期备份保留，请参阅[长期备份保留](sql-database-long-term-retention.md)
 - 若要了解如何从备份中还原，请参阅[从备份中还原](sql-database-recovery-using-backups.md)
-

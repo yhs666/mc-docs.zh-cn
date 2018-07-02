@@ -12,12 +12,12 @@ ms.topic: get-started-article
 origin.date: 03/16/2018
 ms.date: 05/14/2018
 ms.author: v-nany
-ms.openlocfilehash: 6d368cf0ca15f8ab0649c8e8e066fcd2178346cf
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: dee248daae3736c5cd43f34d005ede86cf7730ab
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "33937482"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748418"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>我的第一个 PowerShell 工作流 Runbook
 
@@ -56,14 +56,14 @@ ms.locfileid: "33937482"
 
 1. Runbook 目前为空，只有必需的 *workflow* 关键字、Runbook 名称以及括住整个工作流的大括号。
 
-   ```powershell-interactive
+   ```powershell
    Workflow MyFirstRunbook-Workflow
    {
    }
    ```
 2. 在大括号之间键入 *Write-Output "Hello World"* 。
 
-   ```powershell-interactive
+   ```powershell
    Workflow MyFirstRunbook-Workflow
    {
    Write-Output "Hello World"
@@ -108,7 +108,7 @@ ms.locfileid: "33937482"
 3. 将光标放在大括号之间的空白行上。
 4. 键入或复制并粘贴以下代码，此代码会使用自动化运行方式帐户处理身份验证：
 
-   ```powershell-interactive
+   ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint -EnvironmentName "AzureChinaCloud"
@@ -121,7 +121,7 @@ ms.locfileid: "33937482"
 
 1. 在 Connect-AzureRmAccount 后面键入 Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'（提供要启动的虚拟机的名称和资源组名称）。  
 
-   ```powershell-interactive
+   ```powershell
    workflow MyFirstRunbook-Workflow
    {
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -137,7 +137,7 @@ Runbook 当前会启动你在 Runbook 中硬编码的虚拟机，但如果可以
 
 1. 将 *VMName* 和 *ResourceGroupName* 的参数添加到 Runbook，并将这些变量与 **Start-AzureRmVM** cmdlet 配合使用，如以下示例所示。
 
-   ```powershell-interactive
+   ```powershell
    workflow MyFirstRunbook-Workflow
    {
     Param(

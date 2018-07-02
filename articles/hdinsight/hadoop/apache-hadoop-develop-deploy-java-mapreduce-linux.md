@@ -12,15 +12,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: Java
 ms.topic: conceptual
-origin.date: 01/25/2018
-ms.date: 05/21/2018
+origin.date: 04/23/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4b5497a8a0ea7b034e4f0673e208a220d9dadb46
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 13b4c5cbcda4d82e3964371259fb51f8680f734f
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450104"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747344"
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>为 HDInsight 上的 Hadoop 开发 Java MapReduce 程序
 

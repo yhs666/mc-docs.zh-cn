@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/18/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: 2f485bbcd498b4ec9a7a913b7364e7ba05ad7557
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 4c48cf17d86437631c0c78c64e593ae4905ac45d
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475462"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748439"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒体服务发行说明
 这些 Azure 媒体服务发行说明汇总了与以前版本相比的变更之处和已知的问题。
@@ -49,7 +49,7 @@ ms.locfileid: "34475462"
 
 ## <a name="october-2017-release"></a>2017 年 10 月版本
 > [!IMPORTANT] 
-> 媒体服务支持 Azure 访问控制服务身份验证密钥。 2018 年 6 月 1 日起，不再可使用访问控制服务密钥通过代码向媒体服务后端进行身份验证。 必须根据[基于 Azure AD 的身份验证](media-services-use-aad-auth-to-access-ams-api.md)一文中所述，将代码更新为使用 Azure Active Directory (AAD)。 请注意 Azure 门户中有关此更改的警告。
+> 媒体服务支持 Azure 访问控制服务身份验证密钥。 2018 年 6 月 22 日起，不再可使用访问控制服务密钥通过代码向媒体服务后端进行身份验证。 必须根据[基于 Azure AD 的身份验证](media-services-use-aad-auth-to-access-ams-api.md)一文中所述，将代码更新为使用 Azure Active Directory (AAD)。 请注意 Azure 门户中有关此更改的警告。
 
 ### <a name="updates-for-october-2017"></a>2017 年 10 月更新
 #### <a name="sdks"></a>SDK
@@ -152,9 +152,9 @@ Azure 媒体编修器正式推出 - 此媒体处理器将会通过模糊化所�
     };
 
 ## <a id="jan_changes_16"></a>2016 年 1 月版本
-编码保留单位已重命名，以减少与编码器名称的混淆。
+编码预留单位已重命名，以减少与编码器名称的混淆。
 
-基本、标准和高级编码保留单位已分别重命名为 S1、S2 和 S3 保留单位。 使用基本编码保留单位的客户现可在 Azure 门户（和帐单）中看到 S1 标签。 使用标准和高级版的客户分别会看到 S2 和 S3 标签。 
+基本、标准和高级编码预留单位已分别重命名为 S1、S2 和 S3 预留单位。 使用基本编码预留单位的客户现可在 Azure 门户（和帐单）中看到 S1 标签。 使用标准和高级版的客户分别会看到 S2 和 S3 标签。 
 
 ## <a id="dec_changes_15"></a>2015 年 12 月版本
 
@@ -170,14 +170,14 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 * [适用于 PHP 的媒体服务 SDK](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) 博客。
 * 以下[代码示例](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)可帮助你快速入门：
   * **vodworkflow_aes.php**：这是一个 PHP 文件，演示如何使用 AES-128 动态加密和密钥传送服务。 它基于[使用 AES-128 动态加密和密钥传送服务](media-services-protect-with-aes128.md)中所述的 .NET 示例。
-  * **scale_encoding_units.php**：这是一个 PHP 文件，演示如何缩放编码保留单位。
+  * **scale_encoding_units.php**：这是一个 PHP 文件，演示如何缩放编码预留单位。
 
 
 ## <a id="oct_changes_15"></a>2015 年 10 月版本
-媒体服务现已在以下数据中心推出：巴西南部、印度西部、印度南部和印度中部。 现在可以使用 Azure 门户[创建媒体服务帐户](media-services-portal-create-account.md)，以及执行[媒体服务文档网页](https://azure.microsoft.com/documentation/services/media-services/)中所述的各项任务。 这些数据中心未启用实时编码。 此外，并非所有类型的编码保留单位都可用于这些数据中心。
+媒体服务现已在以下数据中心推出：巴西南部、印度西部、印度南部和印度中部。 现在可以使用 Azure 门户[创建媒体服务帐户](media-services-portal-create-account.md)，以及执行[媒体服务文档网页](https://azure.microsoft.com/documentation/services/media-services/)中所述的各项任务。 这些数据中心未启用实时编码。 此外，并非所有类型的编码预留单位都可用于这些数据中心。
 
-* 巴西南部：只可以使用标准和基本编码保留单位。
-* 印度西部、印度南部和印度中部：只可以使用基本编码保留单位
+* 巴西南部：只可以使用标准和基本编码预留单位。
+* 印度西部、印度南部和印度中部：只可以使用基本编码预留单位
 
 ## <a id="september_changes_15"></a>2015 年 9 月版本
 可以通过[媒体服务 .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/)（从版本 3.5.1 开始）或 REST API 来配置 AssetDeliveryConfiguration 以使用 Widevine。 
@@ -202,7 +202,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 ## <a id="july_changes_15"></a>2015 年 7 月版本
 * 宣布了 Media Encoder Standard 公开上市。 有关详细信息，请参阅 [此博客文章](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
   
-    Media Encoder Standard 使用[本节](http://go.microsoft.com/fwlink/?LinkId=618336)所述的预设值。 使用 4k 编码预设时，请获取高级保留单位类型。 有关详细信息，请参阅[缩放编码](media-services-scale-media-processing-overview.md)。
+    Media Encoder Standard 使用[本节](http://go.microsoft.com/fwlink/?LinkId=618336)所述的预设值。 使用 4k 编码预设时，请获取高级预留单位类型。 有关详细信息，请参阅[缩放编码](media-services-scale-media-processing-overview.md)。
 * 媒体服务和 Media Player 中采用了直播实时字幕。 有关详细信息，请参阅 [此博客文章](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)。
 
 ### <a name="media-services-net-sdk-updates"></a>媒体服务 .NET SDK 更新
@@ -274,7 +274,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 ## <a id="december_changes_14"></a>2014 年 12 月版本
 ### <a name="general-media-services-updates"></a>媒体服务一般更新
 * 向 Media Indexer 添加了一些更新和新功能。 有关详细信息，请参阅 [Azure Media Indexer 1.1.6.7 版发行说明](https://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/)。
-* 添加了新的 REST API，可用于更新编码保留单位。 有关详细信息，请参阅 [REST 中的 EncodingReservedUnitType](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)。
+* 添加了新的 REST API，可用于更新编码预留单位。 有关详细信息，请参阅 [REST 中的 EncodingReservedUnitType](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)。
 * 添加了对密钥传送服务的 CORS 支持。
 * 改进了查询授权策略选项的性能。
 * 在中国数据中心，[密钥传递 URL](https://docs.microsoft.com/rest/api/media/operations/contentkey#get_delivery_service_url) 现在是每个客户一份（同其他数据中心一样）。
@@ -284,7 +284,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 [媒体服务 .NET SDK](http://www.nuget.org/packages/windowsazure.mediaservices/) 当前版本为 3.1.0.0。 进行了以下更新：
 
 * 将 .Net SDK 依赖项升级到了 .NET 4.5 Framework。
-* 添加了新的 API，可用于更新编码保留单位。 有关详细信息，请参阅[使用 .NET 更新保留单位类型和增加编码保留单位](media-services-dotnet-encoding-units.md)。
+* 添加了新的 API，可用于更新编码预留单位。 有关详细信息，请参阅[使用 .NET 更新预留单位类型和增加编码预留单位](media-services-dotnet-encoding-units.md)。
 * 添加了对令牌身份验证的 JWT 支持。 有关详细信息，请参阅[媒体服务和动态加密中的 JWT 令牌身份验证](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)。
 * 增加了 PlayReady 许可证模板中 BeginDate 和 ExpirationDate 的相对偏移量。
 

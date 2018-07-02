@@ -9,19 +9,17 @@ editor: ''
 ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 01/25/2018
-ms.date: 03/26/2018
+ms.topic: conceptual
+origin.date: 04/30/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 364c77cce13fe2bc5b51eff8f3ad9b26320b3e8b
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 5472ed937f7b0bea983a68136638689ae8948da9
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30074493"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747483"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>构建适用于 Apache HBase 的 Java 应用程序
 
@@ -37,8 +35,6 @@ ms.locfileid: "30074493"
 
 ## <a name="requirements"></a>要求
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
-
 * [Java 平台 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 8 或更高版本。
 
     > [!NOTE]
@@ -47,9 +43,6 @@ ms.locfileid: "30074493"
 * [Maven](http://maven.apache.org/)
 
 * [装有 HBase 的基于 Linux 的 Azure HDInsight 群集](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
-
-  > [!NOTE]
-  > 本文档中的步骤已在 HDInsight 群集版本 3.4 和 3.5 中进行了测试。 示例中提供的默认值适用于 HDInsight 3.5 群集。
 
 ## <a name="create-the-project"></a>创建项目
 

@@ -1,10 +1,10 @@
 ---
 title: Azure AD Connect Sync Service Manager Metaverse 搜索 | Microsoft Docs
-description: 了解用于 Azure AD Connect 的 Synchronization Service Manager 中的“Metaverse 搜索”选项卡。
+description: 了解 Azure AD Connect 的 Synchronization Service Manager 中的“Metaverse 搜索”选项卡。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 20234dd4-3328-4817-b7ff-268f953d376d
 ms.service: active-directory
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 06/26/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 5666509da774e4ee4e1e43d5f1b72e4ecfd17d18
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: a8d6e4358f006839b1be48cfb77c6757ca6e82e0
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
-ms.locfileid: "20822235"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947896"
 ---
 # <a name="sync-service-manager-metaverse-search"></a>Sync Service Manager Metaverse 搜索
 
@@ -35,4 +36,4 @@ ms.locfileid: "20822235"
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update metedata properties -->

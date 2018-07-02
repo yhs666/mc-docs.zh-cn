@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/17/2018
-ms.date: 05/23/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: b5219701ea31b94f2d51498cf6c63fe0d05920ca
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 6ecff578f7c833aba0b806718651ba7658a4a580
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474925"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027154"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>使用模板验证工具检查 Azure Stack 的模板
 
@@ -33,8 +33,8 @@ ms.locfileid: "34474925"
 
 若要验证模板，必须先生成云功能文件，然后运行验证工具。 使用 Azure Stack 工具中的以下 PowerShell 模块：
 
-- 在 **TemplateValidator** 文件夹中：<br>         AzureRM.CloudCapabilities.psm1 会创建云功能 JSON 文件，该文件表示 Azure Stack 云中的服务和版本。
-- 在 **CloudCapabilities** 文件夹中：<br>
+- 在 **CloudCapabilities** 文件夹中：<br>         AzureRM.CloudCapabilities.psm1 会创建云功能 JSON 文件，该文件表示 Azure Stack 云中的服务和版本。
+- 在 **TemplateValidator** 文件夹中：<br>
 AzureRM.TemplateValidator.psm1 使用云功能 JSON 文件来测试要在 Azure Stack 中部署的模板。
 
 ## <a name="build-the-cloud-capabilities-file"></a>生成云功能文件
@@ -100,7 +100,7 @@ AzureRM.TemplateValidator.psm1 使用云功能 JSON 文件来测试要在 Azure 
 
 ```PowerShell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
--CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json.json `
+-CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
 -TemplatePattern MyStandardTemplateName.json`
 -IncludeComputeCapabilities`
 -Report TemplateReport.html

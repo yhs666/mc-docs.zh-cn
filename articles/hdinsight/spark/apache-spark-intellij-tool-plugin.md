@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/25/2017
-ms.date: 05/21/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2811c4be9f41f2d8896c9d9bf4075008aa02a1e8
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: e94c0902ec568f58aba141cf7034d278ca96edbf
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450064"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747458"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用用于 IntelliJ 的 Azure 工具包为 HDInsight 群集创建 Spark 应用程序
 
@@ -73,7 +73,7 @@ ms.locfileid: "34450064"
    
     ![展开的群集名称节点](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
-## <a name="link-a-cluster"></a>链接群集
+<h2 id="linkcluster">链接群集</h2>
 可以使用 Ambari 管理的用户名链接标准群集，还可以使用域用户名（例如：user1@contoso.com）链接安全 hadoop 群集。 
 1. 从 **Azure 资源管理器**单击“链接群集”。
 
@@ -277,6 +277,17 @@ ms.locfileid: "34450064"
     -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea
 
 ![将选项添加到 IntelliJ 中的“VM 选项”对话框](./media/apache-spark-intellij-tool-plugin/change-heap-size.png)
+
+## <a name="faq"></a>常见问题
+链接群集时，建议提供存储的凭据。
+
+![链接群集, 提供存储凭据](./media/apache-spark-intellij-tool-plugin/link-cluster-with-storage-credential-intellij.png)
+
+可通过两种模式提交作业。 如果提供存储凭据，则将使用批处理模式提交作业。 否则，将使用交互模式。 如果群集正忙，可能会收到以下错误。
+
+![Intellij 在群集忙时收到错误](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-upload.png)
+
+![Intellij 在群集忙时收到错误](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
 
 ## <a name="feedback-and-known-issues"></a>反馈和已知问题
 目前不支持直接查看 Spark 输出。

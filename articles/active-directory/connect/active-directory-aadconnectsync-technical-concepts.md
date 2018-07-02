@@ -3,8 +3,8 @@ title: Azure AD Connect 同步：技术概念 | Microsoft Docs
 description: 介绍 Azure AD Connect 同步的技术概念。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/17/2017
-ms.date: 11/22/2017
+origin.date: 01/15/2018
+ms.date: 06/26/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 2093c536195adc092c2e9c4fdf69271d9b0ed398
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 6736408ec4bf51e6e7c6960550a6ac262abef022
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25569453"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947906"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect 同步：技术概念
 本文是[了解体系结构](active-directory-aadconnectsync-technical-concepts.md)主题的总结。
@@ -64,7 +65,7 @@ metaverse 是相邻连接器空间中的所有已联接标识的合并视图。 
 每个已连接数据源都表示为连接器空间中对象和属性的已筛选子集。
 此特点允许同步服务在本地工作，并且当同步对象时，不需要联系远程系统，此外还将交互限制为仅导入和导出。
 
-当数据源和连接器具有提供更改列表（增量导入）的功能时，则操作效率作为仅有的更改会显著增加，因为最后一个轮询周期进行了交换。 连接器空间通过要求连接器计划导入和导出保护已连接数据源免于进行自动传播的更改。 当测试、预览或确认下一次更新时，此添加的保护可让你高枕无忧。
+当数据源和连接器具有提供更改列表（增量导入）的功能时，则操作效率作为仅有的更改会显著增加，因为最后一个轮询周期进行了交换。 连接器空间通过要求连接器计划导入和导出保护已连接数据源免于进行自动传播的更改。 当测试、预览或确认下一次更新时，此添加的保护让你高枕无忧。
 
 ## <a name="metaverse"></a>Metaverse
 metaverse 是相邻连接器空间中的所有已联接标识的合并视图。

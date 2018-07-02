@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 06/17/2017
 ms.date: 08/07/2017
 ms.author: v-haiqya
-ms.openlocfilehash: cd5ca39c62df911f1509ffb529d2dd3f124dbffe
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 374a772d1f4b16d02ce7e60b63f0c52cbda31f11
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475418"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748362"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>通过 Azure 门户开始使用 Azure AD 身份验证
 
@@ -62,7 +62,7 @@ ms.locfileid: "34475418"
 
 如果使用媒体服务 Microsoft .NET SDK 连接媒体服务 API，可以在 SDK 中获取相应值。 有关详细信息，请参阅[通过 Azure AD 身份验证使用 .NET 访问 Azure 媒体服务 API](media-services-dotnet-get-started-with-aad.md)。
 
-如果未使用媒体服务 .NET 客户端 SDK，则必须使用上述参数手动创建 Azure AD 访问令牌请求。 有关详细信息，请参阅[如何使用 Azure AD 身份验证库获取 Azure AD 令牌](../active-directory/develop/active-directory-authentication-libraries.md)。
+如果未使用媒体服务 .NET 客户端 SDK，则必须使用上述参数手动创建 Azure AD 访问令牌请求。 有关详细信息，请参阅[如何使用 Azure AD 身份验证库获取 Azure AD 令牌](../../active-directory/develop/active-directory-authentication-libraries.md)。
 
 ## <a name="service-principal-authentication"></a>服务主体身份验证
 
@@ -88,7 +88,7 @@ ms.locfileid: "34475418"
 
 如果使用媒体服务 .NET SDK 连接媒体服务 API，请参阅[通过 Azure AD 身份验证使用 .NET 访问 Azure 媒体服务 API](media-services-dotnet-get-started-with-aad.md)。
 
-如果未使用媒体服务 .NET 客户端 SDK，则必须使用上述参数手动创建 Azure AD 访问令牌请求。 有关详细信息，请参阅[如何使用 Azure AD 身份验证库获取 Azure AD 令牌](../active-directory/develop/active-directory-authentication-libraries.md)。
+如果未使用媒体服务 .NET 客户端 SDK，则必须使用上述参数手动创建 Azure AD 访问令牌请求。 有关详细信息，请参阅[如何使用 Azure AD 身份验证库获取 Azure AD 令牌](../../active-directory/develop/active-directory-authentication-libraries.md)。
 
 ### <a name="get-the-client-id-and-client-secret"></a>获取客户端 ID 和客户端机密
 

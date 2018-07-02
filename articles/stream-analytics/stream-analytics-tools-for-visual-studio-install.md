@@ -8,32 +8,32 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 09/19/2017
-ms.date: 05/07/2018
-ms.openlocfilehash: 1c22c8a5fcf0e76c42299dd7e014d0d37927d8e0
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+origin.date: 05/22/2018
+ms.date: 07/02/2018
+ms.openlocfilehash: 6b83452db64a1b1f0e6a2d59a4d9a01bf9984ab7
+ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815084"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947672"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>安装适用于 Visual Studio 的 Azure 流分析工具
-Azure 流分析工具现在支持 Visual Studio 2017、2015 和 2013。 本文档介绍如何安装和卸载工具。
+Azure 流分析工具支持 Visual Studio 2017、2015 和 2013。 本文介绍如何安装和卸载工具。
 
 有关如何使用工具的详细信息，请参阅[适用于 Visual Studio 的流分析工具](/stream-analytics/stream-analytics-tools-for-visual-studio)。
 
 ## <a name="install"></a>安装
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
 * 下载 [Visual Studio 2017（15.3 或更高版本）](https://www.visualstudio.com/)。 支持 Enterprise (Ultimate/Premium)、Professional 和 Community 版本。 不支持 Express 版本。 
-* 流分析工具是 Visual Studio 2017 中 **Azure 开发**以及**数据存储和处理**工作负载的一部分。 作为 VisualStudio 安装的一部分，启用这两个工作负载中的任何一个。
+* 流分析工具是 Visual Studio 2017 中 **Azure 开发**以及**数据存储和处理**工作负载的一部分。 在 Visual Studio 安装过程中，启用这两个工作负载中的任何一个。
 
 启用“数据存储和处理”工作负载，如下所示：
 
-![“数据存储和处理”工作负载](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-2017-install-01.png)
+![选择“数据存储和处理”工作负载](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-2017-install-01.png)
 
 启用“Azure 开发”工作负载，如下所示：
 
-![“Azure 开发”工作负载](./media/stream-analytics-tools-for-vs/stream-analytics-tools-for-vs-2017-install-02.png)
+![选择“Azure 开发”工作负载](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-2017-install-02.png)
 
 ### <a name="visual-studio-2013-2015"></a>Visual Studio 2013、2015
 * 安装 Visual Studio 2015 或 Visual Studio 2013 Update 4。 支持 Enterprise (Ultimate/Premium)、Professional 和 Community 版本。 不支持 Express 版本。 
@@ -45,7 +45,7 @@ Azure 流分析工具现在支持 Visual Studio 2017、2015 和 2013。 本文�
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
 新的版本提醒显示在 Visual Studio 通知中。 
 
-### <a name="visual-studio-2013-2015"></a>Visual Studio 2013、2015
+### <a name="visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 和 Visual Studio 2015
 已安装的适用于 Visual Studio 的流分析工具会自动检查是否有新版本。 按照弹出窗口中的说明安装最新版本。 
 
 ## <a name="uninstall"></a>卸载
@@ -53,7 +53,7 @@ Azure 流分析工具现在支持 Visual Studio 2017、2015 和 2013。 本文�
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
 双击 Visual Studio 安装程序并选择“修改”。 从“数据存储和处理”工作负载或“Azure 开发”工作负载中取消选中“Azure Data Lake 和流分析工具”复选框。
 
-### <a name="visual-studio-2013-2015"></a>Visual Studio 2013、2015
+### <a name="visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 和 Visual Studio 2015
 转到控制面板，卸载“用于 Visual Studio 的 Azure Data Lake 和流分析工具”。
 
 <!--Update_Description: update meta properties, wording update -->

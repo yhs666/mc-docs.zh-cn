@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 09/04/2017
+ms.date: 06/25/2018
 ms.author: v-haiqya
-ms.openlocfilehash: f59561fff2bb1558896d93f1b727510064ce94d5
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 0260ff8f98917d39d68118adf2338aa06d08b199
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475456"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748436"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>使用 Azure 媒体包装器完成静态打包任务
 > [!NOTE]
@@ -611,7 +611,7 @@ ms.locfileid: "34475456"
                 // Note that the configuration defined in MediaEncryptor_PlayReadyProtection.xml
                 // is using keySeedValue. It is recommended that you do this only for testing 
                 // and not in production. For more information, see 
-                // https://www.azure.cn/documentation/articles/media-services-static-packaging/.
+                // https://docs.azure.cn/media-services/previous/media-services-dynamic-packaging-overview.
                 //
                 string configPlayReady = File.ReadAllText(Path.Combine(_configurationXMLFiles,
                                             @"MediaEncryptor_PlayReadyProtection.xml"));
@@ -1370,7 +1370,7 @@ ms.locfileid: "34475456"
                 // Note that the configuration defined in MediaEncryptor_PlayReadyProtection.xml
                 // is using keySeedValue. It is recommended that you do this only for testing 
                 // and not in production. For more information, see 
-                // https://www.sazure.cn/documentation/articles/media-services-static-packaging.
+                // https://docs.azure.cn/media-services/previous/media-services-dynamic-packaging-overview.
                 //
                 string configPlayReady = File.ReadAllText(Path.Combine(_configurationXMLFiles,
                                             @"MediaEncryptor_PlayReadyProtection.xml"));

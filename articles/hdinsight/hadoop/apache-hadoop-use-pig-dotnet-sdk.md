@@ -11,18 +11,18 @@ ms.assetid: fa11d49a-328c-47e7-b16d-e7ed2a453195
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/29/2018
-ms.date: 03/26/2018
+origin.date: 05/01/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 69a98ec7c03ce8aba7bb31b8cf8daffc67336b67
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 1b43ce5492de5fae730c5b489fab342116a29e02
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073438"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747368"
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>使用 HDInsight 中的 .NET SDK for Hadoop 运行 Pig 作业
 

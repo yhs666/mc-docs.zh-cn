@@ -4,8 +4,8 @@ description: 本主题提供有关使用 Azure AD Connect 的 AD 回收站功能
 services: active-directory
 keywords: AD 回收站, 意外删除, 源定位点
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: afec4207-74f7-4cdd-b13a-574af5223a90
 ms.service: active-directory
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 19aeb9a6f1f542865124173e273e39477add29b6
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.openlocfilehash: 3cb2ce5b84aff58d92314a6208d423132547cf87
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
-ms.locfileid: "20822229"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947928"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Azure AD Connect 同步：启用 AD 回收站
 建议为同步到 Azure AD 的本地 Active Directory 启用 AD 回收站功能。 
@@ -31,7 +32,7 @@ ms.locfileid: "20822229"
 ## <a name="benefits-of-enabling-the-ad-recycle-bin"></a>启用 AD 回收站的好处
 此功能通过以下方式帮助还原 Azure AD 用户对象：
 
-- 如果你意外删除了某个本地 AD 用户对象，相应的 Azure AD 用户对象会在下一同步周期被删除。 默认情况下，Azure AD 会将删除的 Azure AD 用户对象以软删除状态保留 30 天。
+- 如果你意外删除了某个本地 AD 用户对象，相应的 Azure AD 用户对象会在下一同步周期被删除。 默认情况下，Azure AD 会以软删除状态保存已删除的 Azure AD 用户对象 30 天。
 
 - 如果已启用本地 AD 回收站功能，无需更改已删除的本地 AD 用户对象的“源定位点”值，即可将它还原。 将恢复的本地 AD 用户对象同步到 Azure AD 后，Azure AD 将还原已软删除的相应 Azure AD 用户对象。 有关“源定位点”属性的信息，请参阅 [Azure AD Connect：设计概念](/active-directory/connect/active-directory-aadconnect-design-concepts#sourceanchor)一文。
 
@@ -49,4 +50,4 @@ ms.locfileid: "20822229"
 
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

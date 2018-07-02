@@ -6,7 +6,6 @@ documentationcenter: cosmosdb
 author: rockboyfor
 manager: digimobile
 tags: azure-service-management
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: PowerShell
@@ -14,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 05/10/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5fc8661f33eddf709cb80d04840591569f29a77e
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 25893266f98f546baa7a3b9e7b7f8072f69b9213
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781913"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070351"
 ---
 # <a name="create-an-azure-cosmos-db-failover-policy-for-high-availability-using-powershell"></a>使用 PowerShell 创建 Azure Cosmos DB 故障转移策略以实现高可用性
 
@@ -67,9 +66,9 @@ New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
                     -PropertyObject $DBProperties
 
 # Reverse priorities
-$failoverPolicies = @(@{"locationName"="chinaeast"; 
+$failoverPolicies = @(@{"locationName"="chinanorth"; 
                         "failoverPriority"=1},
-                      @{"locationName"="chinanorth"; 
+                      @{"locationName"="chinaeast"; 
                         "failoverPriority"=0})
 
 # Update an existing database with the failover policies

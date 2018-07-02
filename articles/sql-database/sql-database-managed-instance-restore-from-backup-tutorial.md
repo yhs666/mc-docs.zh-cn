@@ -8,16 +8,16 @@ ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-origin.date: 04/10/2018
-ms.date: 04/19/2018
+origin.date: 06/07/2018
+ms.date: 07/02/2018
 ms.author: v-nany
 manager: digimobile
-ms.openlocfilehash: 4a7ef53122c9795b242bc4692bb90b6b46b2799e
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 8d1fea772a95034c7bbd36944e8232b6bbec77e7
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782665"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947903"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>将数据库备份还原到 Azure SQL 数据库托管实例
 
@@ -65,7 +65,7 @@ ms.locfileid: "31782665"
    |**位置**|以前选择的位置||
    |**虚拟网络**|已禁用||
 
-4. 单击“创建”。
+4. 单击**创建**。
 
    ![存储帐户详细信息](./media/sql-database-managed-instance-tutorial/storage-account-details.png)
 

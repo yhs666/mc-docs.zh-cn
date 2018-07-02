@@ -13,25 +13,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/04/2017
-ms.date: 12/18/2017
+ms.date: 07/09/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1144f5fe0f9a0326d75ae4dc4466c0cbd0a31a50
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 63c256ccf18d16aad67cbc8dcbe6e5af6b4128a6
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26576165"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103416"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>通过 .NET 使用 IoT 中心将文件从设备上传到云
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-本教程的内容基于 [Send Cloud-to-Device messages with IoT Hub](./iot-hub-csharp-csharp-c2d.md)（使用 IoT 中心发送云到设备的消息）教程中所述的代码，演示如何使用 IoT 中心的文件上传功能。 其中了说明了如何：
+本教程的内容基于[使用 IoT 中心发送云到设备的消息](./iot-hub-csharp-csharp-c2d.md)教程中所述的代码，演示如何使用 IoT 中心的文件上载功能。 其中了说明了如何：
 
 - 安全地为设备提供用于上传文件的 Azure Blob URI。
 - 使用 IoT 中心文件上传通知在应用后端中触发对文件的处理。
 
-[IoT 中心入门](./iot-hub-csharp-csharp-getstarted.md)和[使用 IoT 中心发送云到设备的消息](./iot-hub-csharp-csharp-c2d.md)教程介绍了 IoT 中心提供的基本的设备到云和云到设备的消息传送功能。 [处理设备到云的消息](./iot-hub-csharp-csharp-process-d2c.md)教程介绍了一种在 Azure Blob 存储中可靠存储设备到云消息的方法。 但是，在某些情况下，无法轻松地将设备发送的数据映射为 IoT 中心接受的相对较小的设备到云消息。 例如：
+[IoT 中心入门](iot-hub-csharp-csharp-getstarted.md)和[使用 IoT 中心发送云到设备的消息](iot-hub-csharp-csharp-c2d.md)教程介绍了 IoT 中心提供的基本的设备到云和云到设备的消息传送功能。 [处理设备到云的消息](tutorial-routing.md)教程介绍了一种在 Azure Blob 存储中可靠存储设备到云消息的方法。 但是，在某些情况下，无法轻松地将设备发送的数据映射为 IoT 中心接受的相对较小的设备到云消息。 例如：
 
 * 包含图像的大型文件
 * 视频
@@ -42,7 +42,7 @@ ms.locfileid: "26576165"
 
 在本教程结束时，会运行 2 个 .NET 控制台应用：
 
-* **SimulatedDevice**， [使用 IoT 中心发送云到设备消息](./iot-hub-csharp-csharp-c2d.md) 教程中创建的应用的修改版本。 此应用使用 IoT 中心提供的 SAS URI 将文件上传到存储。
+* **SimulatedDevice**， [使用 IoT 中心发送云到设备消息](./iot-hub-csharp-csharp-c2d.md) 教程中创建的应用的修改版本。 该应用使用 IoT 中心提供的 SAS URI 将文件上传到存储。
 * **ReadFileUploadNotification**，它可以接收来自 IoT 中心的文件上传通知。
 
 > [!NOTE]
@@ -161,7 +161,7 @@ ms.locfileid: "26576165"
 现在，已准备就绪，可以运行应用程序了。
 
 1. 在 Visual Studio 中，右键单击解决方案并选择“**设置启动项目**”。 选择“**多个启动项目**”，并针对 **ReadFileUploadNotification** 和 **SimulatedDevice** 应用选择“**启动**”操作。
-2. 按 **F5**。 这两个应用程序应该都会启动。 你会在其中一个控制台应用中看到上传已完成，同时还会看到另一个控制台应用收到的上传通知消息。 可使用 [Azure 门户]或 Visual Studio 服务器资源管理器检查 Azure 存储帐户中是否存在上传的文件。
+2. 按 **F5**。 这两个应用程序应该都会启动。 你将在其中一个控制台应用中看到上传已完成，同时还会看到另一个控制台应用收到的上传通知消息。 可使用 [Azure 门户]或 Visual Studio 服务器资源管理器检查 Azure 存储帐户中是否存在上传的文件。
 
    ![][50]
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 origin.date: 01/19/2018
 ms.date: 3/5/2018
 ms.author: v-nany
-ms.openlocfilehash: 70d2e545b326cd8369adc3cdb3f5d47fb7bcd6ec
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 208867b76292365a17c6615b5f9842749ea8b2a3
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36269965"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103096"
 ---
 # <a name="create-a-storage-account"></a>创建存储帐户
 
@@ -67,10 +67,10 @@ Azure Cloud Shell 是可直接在 Azure 门户中运行的免费 Bash shell。 �
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-使用 `Login-AzureRmAccount` 命令登录到 Azure 订阅，然后按照屏幕上的说明进行身份验证。
+使用 `Connect-AzureRmAccount` 命令登录到 Azure 订阅，然后按照屏幕上的说明进行身份验证。
 
 ```powershell
-Login-AzureRmAccount -Environment AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)

@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 05/03/2018
+ms.date: 06/26/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 358361c6ffa58365c5dfac0fcad080dbd3476245
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 3e0218877abb932695d8b7757799879bb5c2aee3
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815197"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947958"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>对未同步到 Azure AD 的对象进行故障排除
 
@@ -61,7 +62,7 @@ ms.locfileid: "33815197"
 
 首先单击错误字符串（图中的 **sync-rule-error-function-triggered**）。 随后会先看到对象概述。 若要查看实际的错误，可单击“堆栈跟踪”按钮。 此跟踪提供错误的调试级别信息。
 
-可以在**调用堆栈信息**框中单击右键，然后依次选择**全选**、**复制**。 接着可以复制堆栈，并在最喜爱的编辑器（例如记事本）中查看此错误。
+可以在“调用堆栈信息”框中单击右键，然后依次选择“全选”、“复制”。 接着可以复制堆栈，并在最喜爱的编辑器（例如记事本）中查看此错误。
 
 - 如果错误来自 **SyncRulesEngine**，则调用堆栈信息首先会列出对象上的所有属性。 向下滚动，直到看到 **InnerException =>** 标题为止。  
   ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/errorinnerexception.png)  
@@ -70,7 +71,7 @@ ms.locfileid: "33815197"
 如果错误本身未提供足够的信息，则请查看数据本身。 可以单击具有对象标识符的链接并继续对 [连接器空间导入的对象](#cs-import)进行故障排除。
 
 ## <a name="connector-space-object-properties"></a>连接器空间对象属性
-如果没有在[操作](#operations)选项卡中找到任何错误，则下一步是从 Active Directory 到 metaverse 然后到 Azure AD 查找连接器空间对象的问题。 在此路径中，应能找到问题所在。
+如果没有在[“操作”](#operations)选项卡中找到任何错误，则下一步是从 Active Directory 到 metaverse 然后到 Azure AD 查找连接器空间对象的问题。 在此路径中，应能找到问题所在。
 
 ### <a name="search-for-an-object-in-the-cs"></a>搜索 CS 中的对象
 
@@ -101,7 +102,7 @@ ms.locfileid: "33815197"
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cslineageout.png)  
 在“PasswordSync”列中，还会发现入站连接器空间可进行密码更改，因为有一个同步规则的值为 **True**。 此密码接着会通过出站规则发送到 Azure AD。
 
-从“沿袭”选项卡中，可以单击[Metaverse 对象属性”转到 Metaverse](#mv-attributes)。
+从“沿袭”选项卡中，可以单击[“Metaverse 对象属性”](#mv-attributes)转到 Metaverse。
 
 所有选项卡的底部都有两个按钮：“预览”和“日志”。
 
@@ -141,7 +142,7 @@ ms.locfileid: "33815197"
 - 其中表示了用户的每个 Active Directory 林。 此表示形式可能包括 foreignSecurityPrincipals 和 Contact 对象。
 - Azure AD 中的某个连接器。
 
-如果缺少连接到 Azure AD 的连接器，则阅读 [MV 属性](#MV-attributes)以验证有关预配到 Azure AD 的条件。
+如果缺少连接到 Azure AD 的连接器，则阅读 [MV 属性](#mv-attributes)以验证有关预配到 Azure AD 的条件。
 
 使用此选项卡也可导航到[连接器空间对象](#connector-space-object-properties)。 选择一行，然后单击“属性”。
 
@@ -150,4 +151,4 @@ ms.locfileid: "33815197"
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

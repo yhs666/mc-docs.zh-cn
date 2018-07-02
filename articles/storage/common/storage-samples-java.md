@@ -15,12 +15,12 @@ ms.workload: storage
 origin.date: 01/12/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: b6023aeed2dcd66a905e38165609a7df8cc7ad30
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: eadacd15814fbc6f353272eb7e18a2f7a4176cbb
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21135119"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103068"
 ---
 # <a name="azure-storage-samples-using-java"></a>使用 Java 的 Azure 存储示例
 
@@ -66,7 +66,7 @@ ms.locfileid: "21135119"
 </tr> 
 <tr> 
 <td>容器 ACL/元数据/属性</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Getting Started with Azure Blob Service in Java</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Java 中 Azure Blob 服务入门</a></td>
 </tr> 
 <tr> 
 <td>获取页面范围</td>
@@ -131,7 +131,7 @@ ms.locfileid: "21135119"
 </tr>
 <tr> 
 <td>共享属性/元数据/统计信息</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Getting Started with Azure File Service in Java</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Java 中 Azure 文件服务入门</a></td> 
 </tr>
 <tr> 
 <td rowspan="8"><b>队列</b></td>
@@ -177,7 +177,7 @@ ms.locfileid: "21135119"
 </tr> 
 <tr> 
 <td>插入/合并/替换实体</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">存储 Java 客户端库示例</a></td> 
+<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Storage Java Client Library Samples</a></td> 
 </tr> 
 <tr> 
 <td>查询实体</td> 
@@ -193,7 +193,7 @@ ms.locfileid: "21135119"
 </tr> 
 <tr> 
 <td>更新实体</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">存储 Java 客户端库示例</a></td> 
+<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Storage Java Client Library Samples</a></td> 
 </tr> 
 </tbody> 
 </table>
@@ -209,15 +209,14 @@ ms.locfileid: "21135119"
 
 有关 Azure 存储客户端库的安装和入门说明，请查看以下指南。
 
-* [Java 中的 Azure Blob 服务入门](../blobs/storage-java-how-to-use-blob-storage.md)
-* [Java 中的 Azure 队列服务入门](../storage-java-how-to-use-queue-storage.md)
+* [Java 中的 Azure Blob 服务入门](../blobs/storage-quickstart-blobs-java.md)
+* [Java 中的 Azure 队列服务入门](../queues/storage-java-how-to-use-queue-storage.md)
 * [Java 中的 Azure 表服务入门](../../cosmos-db/table-storage-how-to-use-java.md)
-* [Java 中的 Azure 文件服务入门](../storage-java-how-to-use-file-storage.md)
+* [Java 中的 Azure 文件服务入门](../files/storage-java-how-to-use-file-storage.md)
 
 ## <a name="next-steps"></a>后续步骤
 
 了解其他语言的示例：
 
-* .NET：[使用 .NET 的 Azure 存储示例](../storage-samples-dotnet.md)
-* 所有其他语言： [Azure 存储示例](../storage-samples.md)
-<!--Update_Description: update link-->
+* .NET：[使用 .NET 的 Azure 存储示例](storage-samples-dotnet.md)
+* 所有其他语言： [Azure 存储示例](storage-samples.md)

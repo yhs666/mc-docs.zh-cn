@@ -4,8 +4,8 @@ description: 本主题文档介绍加密密钥，以及如何在更改密码后�
 services: active-directory
 keywords: Azure AD 同步服务帐户, 密码
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 12/20/2017
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 8fcdfd1b5136ba54dd80d23563148c4a01aa6233
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: fb00017b8894e5aa4d59b9b16e0c38aa2bc34b46
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27162557"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947960"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>更改 Azure AD Connect 同步服务帐户密码
 如果更改了 Azure AD Connect 同步服务帐户密码，则无法正常启动同步服务，除非已弃用加密密钥并重新初始化 Azure AD Connect 同步服务帐户密码。 
@@ -32,7 +33,7 @@ Azure AD Connect 是同步服务的一部分，使用加密密钥来存储 AD DS
 
 如果需要更改服务帐户密码，可以使用[放弃 Azure AD Connect 同步加密密钥](#abandoning-the-azure-ad-connect-sync-encryption-key)中的过程来完成该操作。  不管出于何种原因需要放弃加密密钥，都应该可以使用这些过程。
 
-##<a name="issues-that-arise-from-changing-the-password"></a>更改密码导致的问题
+## <a name="issues-that-arise-from-changing-the-password"></a>更改密码导致的问题
 更改服务帐户密码时，需要完成两项操作。
 
 首先，需要在 Windows 服务控制管理器下更改密码。  在此问题解决之前，会一直显示以下错误：
@@ -45,7 +46,7 @@ Azure AD Connect 是同步服务的一部分，使用加密密钥来存储 AD DS
 此时会出现错误，例如：
 
 - 如果尝试在 Windows 服务控制管理器中启动同步服务，但却无法检索加密密钥，则该服务会失败，并且会出现错误“**Windows 无法在本地计算机上启动 Azure AD 同步”错误。 有关详细信息，请查看系统事件日志。 如果该服务是 非 Microsoft 服务，请联系服务供应商，并请参阅特定于服务的错误代码 **-21451857952****。”
-- 在 Windows 事件查看器中，应用程序事件日志包含**事件 ID 为 6028** 且内容为“服务器加密密钥无法访问”的错误消息。
+- 在 Windows 事件查看器中，应用程序事件日志包含事件 ID 为 6028 且内容为“服务器加密密钥无法访问”的错误消息。**
 
 若要确保不收到这些错误，请在更改密码时，按[放弃 Azure AD Connect 同步加密密钥](#abandoning-the-azure-ad-connect-sync-encryption-key)中的过程操作。
  
@@ -116,4 +117,4 @@ Azure AD Connect 是同步服务的一部分，使用加密密钥来存储 AD DS
 
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

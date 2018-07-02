@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 03/27/2018
 ms.date: 05/07/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 46109615f306869a23cc5c4e30d993f54df551f9
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: f04d3b3c176409bb389ad5e75b7fe525e2258585
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475212"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748392"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>使用 Azure AD 身份验证通过 .NET 访问 Azure 媒体服务 API
 
@@ -46,7 +46,7 @@ ms.locfileid: "34475212"
 
 例如，无需提供 Azure AD 主管机构、媒体服务资源 URI 或本机 Azure AD 应用程序详细信息。 这些是已由 Azure AD 访问令牌提供程序类配置的已知值。 
 
-如果不使用 Azure 媒体服务 .NET SDK，我们建议使用 [Azure AD 身份验证库](../active-directory/develop/active-directory-authentication-libraries.md)。 要获取用于 Azure AD 身份验证库所需的参数的值，请参阅[使用 Azure 门户访问 Azure AD 身份验证设置](media-services-portal-get-started-with-aad.md)。
+如果不使用 Azure 媒体服务 .NET SDK，我们建议使用 [Azure AD 身份验证库](../../active-directory/develop/active-directory-authentication-libraries.md)。 要获取用于 Azure AD 身份验证库所需的参数的值，请参阅[使用 Azure 门户访问 Azure AD 身份验证设置](media-services-portal-get-started-with-aad.md)。
 
 还可以选择将 **AzureAdTokenProvider** 的默认实现方式替换为自己的实现方式。
 

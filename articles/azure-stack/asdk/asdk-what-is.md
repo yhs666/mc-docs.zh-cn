@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-origin.date: 03/16/2018
-ms.date: 03/22/2018
+origin.date: 06/07/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: 04f0032d62ec6590f66c945a3e2aa00d42eb266c
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 8822efd0cca109cfde4572870ac8ad85b39cb3e2
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155684"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027073"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>什么是 Azure Stack 开发工具包？
 [Azure Stack 集成系统](../azure-stack-poc.md)的大小范围为 4 到 12 个节点，由硬件合作伙伴和 Microsoft 共同提供支持。 使用 Azure Stack 集成系统可为生产工作负荷启用新方案。 如果你是 Azure Stack 操作员，想要管理集成系统基础结构并提供服务，请参阅[操作员文档](/azure-stack)。
@@ -76,5 +76,6 @@ Azure Stack 会持续增加对其他 Azure 服务的支持。 若要了解 Azure
 
 
 ## <a name="next-steps"></a>后续步骤
-若要开始评估 Azure Stack，需先准备开发工具包主机服务器计算机，然后[安装 ASDK](asdk-deploy.md)。 之后便可以登录到管理员门户和用户门户，开始使用 Azure Stack。
+若要开始评估 Azure Stack，需先准备开发工具包主机服务器计算机，然后[安装 ASDK](asdk-install.md)。 之后便可以登录到管理员门户和用户门户，开始使用 Azure Stack。
 
+<!-- Update_Description: link update -->

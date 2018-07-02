@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: bd71454c4a3c3f3fe45a2190b3844fb0c4d5b53b
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 334729fb5f0bc3a990ffe92a0cf83aae9074a99a
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782435"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748438"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL 数据库客户端应用程序的 SQL 错误代码：数据库连接错误和其他问题
 
@@ -52,10 +52,10 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 | ---:| ---:|:--- |
 | 4060 |16 |无法打开该登录请求的数据库“%.&#x2a;ls”。 登录失败。 |
 | 40197 |17 |该服务在处理你的请求时遇到错误。 请重试。 错误代码 %d。<br/><br/>当服务由于软件或硬件升级、硬件故障或任何其他故障转移问题而关闭时，将收到此错误。 错误 40197 的消息中嵌入的错误代码 (%d) 提供有关所发生的故障或故障转移类型的其他信息。 错误 40197 的消息中嵌入的错误代码的一些示例有 40020、40143、40166 和 40540。<br/><br/>重新连接到 SQL 数据库服务器会将你自动连接到数据库的正常运行副本。 应用程序必须捕获错误 40197、记录该消息中嵌入的错误代码 (%d) 以供进行故障排除，然后尝试重新连接到 SQL 数据库，直到资源可用且再次建立连接为止。 |
-| 40501 |20 个 |服务当前正忙。 请在 10 秒钟后重试请求。 事件 ID：%ls。 代码：%d。<br/><br/>有关详细信息，请参阅：<br/>• [Azure SQL 数据库资源限制](sql-database-service-tiers.md)。 |
+| 40501 |20 个 |服务当前正忙。 请在 10 秒钟后重试请求。 事件 ID：%ls。 代码：%d。<br/><br/>有关详细信息，请参阅：<br/>• [Azure SQL 数据库资源限制](sql-database-service-tiers-dtu.md)。 |
 | 40613 |17 |数据库“%.&#x2a;ls”（在服务器“%.&#x2a;ls”上）当前不可用。 请稍后重试连接。 如果问题仍然存在，请与客户支持人员联系，并向其提供“%.&#x2a;ls”的会话跟踪 ID。 |
 | 49918 |16 |无法处理请求。 没有足够的资源来处理请求。<br/><br/>服务当前正忙。 请稍后重试请求。 |
-| 49919 |16 |无法处理创建或更新请求。 订阅“%ld”有太多创建或更新操作正在进行。<br/><br/>服务正忙于为订阅或服务器处理多个创建或更新请求。 为了优化资源，当前阻止了请求。 请查询 [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) 以了解挂起的操作。 请等到挂起的创建或更新请求完成，或删除其中一个挂起的请求，然后重试请求。 |
+| 49919 |16 |无法处理创建或更新请求。 订阅“%ld”有太多创建或更新操作正在进行。<br/><br/>服务正忙于为订阅或服务器处理多个创建或更新请求。 为了优化资源，当前阻止了请求。 请查询 [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) 以了解挂起的操作。 请等到挂起的创建或更新请求完成后，或删除其中一个挂起的请求，再重试请求。 |
 | 49920 |16 |无法处理请求。 订阅“%ld”有太多操作正在进行。<br/><br/>服务正忙于为此订阅处理多个请求。 为了优化资源，当前阻止了请求。 请查询 [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) 以了解操作状态。 请等到挂起的请求完成，或删除其中一个挂起的请求，然后重试请求。 |
 | 4221 |16 |由于等待“HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING”的时间过长，登录以读取次要副本失败。 副本不可用于登录，因为回收副本时缺少正在进行中的事务的行版本。 可以通过回滚或提交主要副本上的活动事务来解决此问题。 通过避免在主要副本上长时间写入事务，可以将此状况的发生次数降到最低。 |
 
@@ -88,11 +88,11 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 
 相关主题：
 
-* 以下位置提供了更多详细信息：[Azure SQL 数据库资源限制](sql-database-service-tiers.md)。
+* 以下位置提供了更多详细信息：[Azure SQL 数据库资源限制](sql-database-service-tiers-dtu.md)。
 
 | 错误代码 | 严重性 | 说明 |
 | ---:| ---:|:--- |
-| 10928 |20 个 |资源 ID：%d。 数据库的 %s 限制是 %d 且已达到该限制。 有关详细信息，请参阅 [sql-database-dtu-resource-limits](sql-database-dtu-resource-limits.md)。<br/><br/>资源 ID 指示已达到限制的资源。 对于工作线程，资源 ID = 1。 对于会话，资源 ID = 2。<br/><br/>有关此错误以及如何解决此错误的详细信息，请参阅：<br/>• [Azure SQL 数据库资源限制](sql-database-service-tiers.md)。 |
+| 10928 |20 个 |资源 ID：%d。 数据库的 %s 限制是 %d 且已达到该限制。 有关详细信息，请参阅 [sql-database-dtu-resource-limits](sql-database-dtu-resource-limits.md)。<br/><br/>资源 ID 指示已达到限制的资源。 对于工作线程，资源 ID = 1。 对于会话，资源 ID = 2。<br/><br/>有关此错误以及如何解决此错误的详细信息，请参阅：<br/>• [Azure SQL 数据库资源限制](sql-database-service-tiers-dtu.md)。 |
 | 10929 |20 个 |资源 ID：%d。 %s 最小保证为 %d，最大限制为 %d，数据库的当前使用率为 %d。 但是，服务器当前太忙，无法支持针对该数据库的数目大于 %d 的请求。 有关详细信息，请参阅 [sql-database-dtu-resource-limits](sql-database-dtu-resource-limits.md)。 否则，请稍后再试。<br/><br/>资源 ID 指示已达到限制的资源。 对于工作线程，资源 ID = 1。 对于会话，资源 ID = 2。<br/><br/>有关此错误以及如何解决此错误的详细信息，请参阅：<br/>• [Azure SQL 数据库资源限制](sql-database-service-tiers.md)。 |
 | 40544 |20 个 |数据库已达到大小配额。 请将数据分区或删除、删除索引或查阅文档以找到可能的解决方案。 |
 | 40549 |16 |由于有长时间运行的事务，已终止会话。 请尝试缩短事务运行时间。 |
@@ -175,11 +175,11 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 | 40607 |16 |此版本的 SQL Server 不支持 Windows 登录。 |
 | 40611 |16 |服务器上最多可以定义 128 个防火墙规则。 |
 | 40614 |16 |防火墙规则的开始 IP 地址不能超过结束 IP 地址。 |
-| 40615 |16 |无法打开该登录请求的服务器“{0}”。 不允许具有 IP 地址“{1}”的客户端访问服务器。<br /><br />要启用访问，请使用 SQL 数据库门户或在主数据库上运行 sp\_set\_firewall\_rule，以针对此 IP 地址或地址范围创建防火墙规则。 为使此更改生效，最多可能需要 5 分钟。 |
+| 40615 |16 |无法打开此登录请求的服务器“{0}”。 不允许 IP 地址为“{1}”的客户端访问此服务器。<br /><br />要启用访问，请使用 SQL 数据库门户或在主数据库上运行 sp\_set\_firewall\_rule，以针对此 IP 地址或地址范围创建防火墙规则。 为使此更改生效，最多可能需要 5 分钟。 |
 | 40617 |16 |以（规则名称）开头的防火墙规则名称过长。 最大长度为 128。 |
 | 40618 |16 |防火墙规则名称不能为空。 |
 | 40620 |16 |用户“%.&#x2a;ls”的登录失败。 密码更改失败。 此版本的 SQL Server 不支持在登录过程中更改密码。 |
-| 40627 |20 个 |正在对服务器“{0}”和数据库“{1}”进行操作。 请等待几分钟，然后重试。 |
+| 40627 |20 个 |服务器“{0}”和数据库“{1}”中的操作正在进行。 请等待几分钟，然后重试。 |
 | 40630 |16 |密码验证失败。 该密码太短，不符合策略要求。 |
 | 40631 |16 |指定的密码过长。 密码的长度不能超过 128 个字符。 |
 | 40632 |16 |密码验证失败。 该密码不够复杂，不符合策略要求。 |
@@ -206,6 +206,7 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 | 45169 |16 |SQL Azure 系统负载过小，正在设置单个订阅的并发服务器 CRUD 操作（例如创建服务器）数的上限。 在错误消息中指定的订阅已超过最大并发连接数，已拒绝请求。 请稍后重试。 |
 
 ## <a name="next-steps"></a>后续步骤
-* 阅读以了解 [Azure SQL 数据库功能](sql-database-features.md)。
-* 阅读以了解[服务层](sql-database-service-tiers.md)。
-<!--Update_Description: add error 40914-->
+* 阅读关于 [Azure SQL 数据库功能](sql-database-features.md)的信息。
+* 阅读关于[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)的信息。
+* 阅读关于[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)的信息。
+

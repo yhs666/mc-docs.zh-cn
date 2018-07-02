@@ -9,40 +9,39 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: e56a396a-1b39-43e0-b543-f2dee5b8dd3a
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,hdiseo17may2017, mvc
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/13/2017
-ms.date: 02/26/2018
+origin.date: 05/07/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 71ea1cf2e54ff685319e51bf15c4dbad00e172b6
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: bd528feee131b2a3ad37056ff7e93c54fe8fcdc2
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29552310"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747462"
 ---
-# <a name="introduction-to-azure-hdinsight-and-the-hadoop-and-spark-technology-stack"></a>Azure HDInsight 以及 Hadoop 和 Spark 技术堆栈简介
-本文介绍 Azure HDInsight。 Azure HDInsight 是适用于企业的分析服务，具有完全托管、全面且开源的特点。 可以使用 Hadoop、Spark、Hive、LLAP、Kafka、Storm、R 等开源框架。 
+# <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>什么是 Azure HDInsight 和 Hadoop 技术堆栈
+本文介绍 Azure HDInsight 上的 Apache Hadoop。 Azure HDInsight 是适用于企业的分析服务，具有完全托管、全面且开源的特点。 可以使用 Hadoop、Spark、Hive、LLAP、Kafka、Storm、R 等开源框架。 
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
-[Apache Hadoop](http://hadoop.apache.org/) 是原始的开源框架，适用于对群集上的大数据集进行分布式处理和分析。 Hadoop 技术堆栈包括相关的软件和实用程序（Apache Hive、HBase、Spark、Kafka 等）。 若要查看 HDInsight 上的可用 Hadoop 技术堆栈组件，请参阅[可以与 HDInsight 配合使用的组件和版本][component-versioning]。 若要详细了解 HDInsight 中的 Hadoop，请参阅 [Azure 上介绍了 HDInsight 功能的页面](/hdinsight/)。
+## <a name="what-is-hdinsight-and-the-hadoop-technology-stack"></a>什么是 HDInsight 和 Hadoop 技术堆栈？
 
-[Apache Spark](http://spark.apache.org) 是一种开源并行处理框架，支持使用内存中处理来提升大数据分析应用程序的性能。 若要详细了解 HDInsight 中的 Spark，请参阅 [Spark on Azure HDInsight 简介](../spark/apache-spark-overview.md)。 
+[Apache Hadoop](http://hadoop.apache.org/) 是原始的开源框架，适用于对群集上的大数据集进行分布式处理和分析。 Hadoop 技术堆栈包括相关的软件和实用程序（Apache Hive、HBase、Spark、Kafka 等）。
 
-<a href="https://ms.portal.azure.cn/#create/Microsoft.HDInsightCluster" target="_blank"><img src="./media/apache-hadoop-introduction/deploy-to-azure.png" alt="Deploy an Azure HDInsight cluster"></a>
-
-## <a name="what-is-hdinsight-and-the-hadoop-technology-stack"></a>什么是 HDInsight 和 Hadoop 技术堆栈？ 
 Azure HDInsight 是 [Hortonworks Data Platform (HDP)](https://hortonworks.com/products/data-center/hdp/) 提供的 Hadoop 组件的云发行版。 可以通过 Azure HDInsight 轻松、快速且经济有效地处理大量数据。 可以使用 Hadoop、Spark、Hive、LLAP、Kafka、Storm、R 等最常用的开源框架。 可以通过这些框架启用各种各样的方案，例如提取、转换和加载 (ETL)；数据仓库操作；机器学习；IoT。
+
+若要查看 HDInsight 上的可用 Hadoop 技术堆栈组件，请参阅[可以与 HDInsight 配合使用的组件和版本][component-versioning]。 若要详细了解 HDInsight 中的 Hadoop，请参阅 [Azure 上介绍了 HDInsight 功能的页面](/hdinsight/)。
 
 ## <a name="what-is-big-data"></a>什么是大数据？
 
 与以前相比，大数据的收集量在增加，收集速度在加快，收集格式在增多。 大数据可以是历史数据（即已存储的数据），也可以是实时数据（即从数据源流式传输的数据）。 请参阅[使用 HDInsight 的方案](#scenarios-for-using-hdinsight)，了解大数据的最常见用例。
 
-## <a name="why-should-i-use-hdinsight"></a>为何应使用 HDInsight？
+## <a name="why-should-i-use-hadoop-on-hdinsight"></a>为何应使用 HDInsight 上的 Hadoop？
 
 本部分列出了 Azure HDInsight 的功能。
 
@@ -51,6 +50,7 @@ Azure HDInsight 是 [Hortonworks Data Platform (HDP)](https://hortonworks.com/pr
 |---------|---------|
 |云原生     |     可以使用 Azure HDInsight 在 Azure 上为 [Hadoop](apache-hadoop-linux-tutorial-get-started.md)、 [Spark](../spark/apache-spark-jupyter-spark-sql.md)、 [交互式查询 (LLAP)](../interactive-query/apache-interactive-query-get-started.md)、 [Kafka](../kafka/apache-kafka-get-started.md)、 [Storm](../storm/apache-storm-tutorial-get-started-linux.md)、 [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md) 和  [R Server](../r-server/r-server-get-started.md) 创建优化群集。 HDInsight 还在所有生产工作负荷上提供端到端 SLA。  |
 |低成本且可缩放     | 可以通过 HDInsight 纵向[缩放](../hdinsight-administer-use-portal-linux.md) 工作负荷。 可以通过 [创建按需群集](../hdinsight-hadoop-create-linux-clusters-adf.md) 来降低成本，只为自己使用的东西付费。 还可以生成数据管道，使作业可操作化。 使计算和存储分离，提高性能和灵活性。 |
+|既安全又合规    | HDInsight 允许通过 [Azure 虚拟网络](../hdinsight-extend-hadoop-virtual-network.md)、[加密](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)以及与 [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md) 集成来保护企业数据资产。 HDInsight 还满足最常用的行业和政府[符合性标准](https://azure.microsoft.com/overview/trusted-cloud)。        |
 |既安全又合规    | HDInsight 允许通过 [Azure 虚拟网络](../hdinsight-extend-hadoop-virtual-network.md)、[加密](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)来保护企业数据资产。        |
 |工作效率     |  Azure HDInsight 允许将各种适用于 Hadoop 和 Spark 的高效工具与首选的开发环境配合使用。 这些开发环境包括 [Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)、[Eclipse](../spark/apache-spark-eclipse-tool-plugin.md) 和 [IntelliJ](../spark/apache-spark-intellij-tool-plugin.md)，可以提供 Scala、Python、R、Java 和 .NET 支持。 数据科学家也可以使用 [Jupyter](../spark/apache-spark-jupyter-notebook-kernels.md) 和 [Zeppelin](../spark/apache-spark-zeppelin-notebook.md) 等常用 Notebook 进行协作。    |
 |可扩展性     |  可以使用[脚本操作](../hdinsight-hadoop-customize-cluster-linux.md)通过安装的组件（Hue、Presto 等）来扩展 HDInsight 群集，具体方法是：[添加边缘节点](../hdinsight-apps-use-edge-node.md)或[集成其他大数据认证应用程序](../hdinsight-apps-install-applications.md)。 |
@@ -62,38 +62,36 @@ Azure HDInsight 适用于各种方案的大数据处理。 大数据可以是历
 
 提取、转换和加载 (ETL) 是指将非结构化或结构化数据从异类数据源中提取出来， 转换成某种结构化格式，然后加载到数据存储中这一过程。 可以将转换的数据用于数据科学或数据仓库。
 
+### <a name="data-warehousing"></a>数据仓库
+
+可以使用 HDInsight 对任何格式的结构化或非结构化数据执行 PB 规模的交互式查询。 也可以通过生成模型将其连接到 BI 工具。 有关详细信息，请[阅读此客户经历](https://customers.microsoft.com/story/milliman)。 
+
+![HDInsight 体系结构：数据仓库](./media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png "HDInsight 数据仓库体系结构")
+
 ### <a name="internet-of-things-iot"></a>物联网 (IoT)
 
 可以使用 HDInsight 处理从各种设备实时接收的流数据。 有关详细信息，请阅读 Azure 提供的[此博客文章](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/)，了解使用 Azure 托管磁盘的 Apache Kafka on HDInsight 公共预览版。
 
-![HDInsight 体系结构：物联网](./media/apache-hadoop-introduction/hdinsight-architecture-iot.png) 
+![HDInsight 体系结构：物联网](./media/apache-hadoop-introduction/hdinsight-architecture-iot.png "HDInsight IoT 体系结构") 
 
 ### <a name="data-science"></a>数据科学
 
 可以使用 HDInsight 生成从数据中提取关键见解的应用程序。 也可在此基础上使用 Azure 机器学习来预测业务的未来趋势。 有关详细信息，请[阅读此客户经历](https://customers.microsoft.com/story/pros)。
 
-![HDInsight 体系结构：数据科学](./media/apache-hadoop-introduction/hdinsight-architecture-data-science.png)
-
-### <a name="data-warehousing"></a>数据仓库
-
-可以使用 HDInsight 对任何格式的结构化或非结构化数据执行 PB 规模的交互式查询。 也可以通过生成模型将其连接到 BI 工具。 有关详细信息，请[阅读此客户经历](https://customers.microsoft.com/story/milliman)。 
-
-![HDInsight 体系结构：数据仓库](./media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png)
+![HDInsight 体系结构：数据科学](./media/apache-hadoop-introduction/hdinsight-architecture-data-science.png "HDInsight 数据科学体系结构")
 
 ### <a name="hybrid"></a>混合
 
 可以使用 HDInsight 将现有的本地大数据基础结构扩展到 Azure，充分利用云的高级分析功能。
 
-![HDInsight 体系结构：混合](./media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png)
+![HDInsight 体系结构：混合](./media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png "HDInsight 混合体系结构")
 
-## <a name="overview"></a>HDInsight 中的群集类型
-HDInsight 包括特定的群集类型和群集自定义功能，例如添加组件、实用程序和语言的功能。
-
-### <a name="spark-kafka-interactive-query-hbase-customized-and-other-cluster-types"></a>Spark、Kafka、交互式查询、HBase、自定义以及其他群集类型
-HDInsight 提供以下群集类型：
+## <a name="cluster-types-in-hdinsight"></a>HDInsight 中的群集类型
+HDInsight 包括特定的群集类型和群集自定义功能，例如添加组件、实用程序和语言的功能。 HDInsight 提供以下群集类型：
 
 * **[Apache Hadoop](https://wiki.apache.org/hadoop)**：一个框架，使用 [HDFS](#hdfs)、[YARN](#yarn) 资源管理和简单的 [MapReduce](#mapreduce) 编程模型并行处理和分析批处理数据。
-* **[Apache Spark](http://spark.apache.org/)**：一个并行处理框架，支持使用内存中处理来提升大数据分析应用程序的性能。 Spark 适用于 SQL、流数据和机器学习。 请参阅[什么是 HDInsight 中的 Apache Spark？](../spark/apache-spark-overview.md)
+
+* **[Apache Spark](http://spark.apache.org/)**：一种开源并行处理框架，支持使用内存中处理来提升大数据分析应用程序的性能。 请参阅[什么是 HDInsight 中的 Apache Spark？](../spark/apache-spark-overview.md)
 
 * **[Apache HBase](http://hbase.apache.org/)**：构建于 Hadoop 上的 NoSQL 数据库，适用于对大量非结构化和半结构化数据（可能为数十亿行乘以数百万列）进行随机访问且一致性很高。 请参阅[什么是 HBase on HDInsight？](../hbase/apache-hbase-overview.md)
 * **[Apache Storm](https://storm.incubator.apache.org/)**：分布式实时计算系统，用于快速处理大型数据流。 Storm 以 HDInsight 中的托管群集形式提供。 请参阅 [使用 Storm 和 Hadoop 分析实时传感器数据](../storm/apache-storm-sensor-data-analysis.md)。
@@ -109,28 +107,13 @@ Azure HDInsight 允许使用 Hadoop、Spark、Hive、LLAP、 Kafka、Storm 和
 ## <a name="programming-languages-in-hdinsight"></a>HDInsight 中的编程语言
 HDInsight 群集包括 Spark、HBase、Kafka、Hadoop 和其他群集，支持多种编程语言。 某些编程语言默认情况下未安装。 对于默认情况下未安装的库、模块或程序包，请[使用脚本操作来安装组件](../hdinsight-hadoop-script-actions-linux.md)。 
 
-### <a name="default-programming-language-support"></a>默认编程语言支持
-默认情况下，HDInsight 群集支持：
 
-* Java
-* Python
-
-可以使用[脚本操作](../hdinsight-hadoop-script-actions-linux.md)来安装其他语言。
-
-### <a name="java-virtual-machine-jvm-languages"></a>Java 虚拟机 (JVM) 语言
-除 Java 之外的许多语言都可以在 Java 虚拟机 (JVM) 上运行。 但是，运行这其中的部分语言时，可能必须在群集上安装其他组件。
-
-HDInsight 群集支持以下基于 JVM 的语言：
-
-* Clojure
-* Jython (Python for Java)
-* Scala
-
-### <a name="hadoop-specific-languages"></a>Hadoop 特定的语言
-HDInsight 群集支持以下特定于 Hadoop 技术堆栈的语言：
-
-* 用于 Pig 作业的 Pig Latin
-* 用于 Hive 作业的 HiveQL 和 SparkSQL
+|编程语言  |信息  |
+|---------|---------|
+|默认编程语言支持     | 默认情况下，HDInsight 群集支持：<ul><li>Java</li><li>Python</li></ul> 可以使用[脚本操作](../hdinsight-hadoop-script-actions-linux.md)来安装其他语言。       |
+|Java 虚拟机 (JVM) 语言     | 除 Java 之外的许多语言都可以在 Java 虚拟机 (JVM) 上运行。 但是，运行这其中的部分语言时，可能必须在群集上安装其他组件。 HDInsight 群集支持以下基于 JVM 的语言： <ul><li>Clojure</li><li>Jython (Python for Java)</li><li>Scala</li></ul>     |
+|Hadoop 特定的语言     | HDInsight 群集支持以下特定于 Hadoop 技术堆栈的语言： <ul><li>用于 Pig 作业的 Pig Latin</li><li>用于 Hive 作业的 HiveQL 和 SparkSQL</li></ul>        |
+ 
 
 ## <a name="business-intelligence-on-hdinsight"></a>HDInsight 上的商业智能
 大家熟悉的商业智能 (BI) 工具使用 Power Query 外接程序或 Microsoft Hive ODBC 驱动程序来检索、分析和报告与 HDInsight 集成的数据：
@@ -141,23 +124,21 @@ HDInsight 群集支持以下特定于 Hadoop 技术堆栈的语言：
 
 * [在 Azure HDInsight 中使用 Power BI 可视化交互式查询 Hive 数据](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 
-* [使用 Power Query 将 Excel 连接到 Hadoop](apache-hadoop-connect-excel-power-query.md)：了解如何使用 Microsoft Power Query for Excel，将 Excel 连接到存储 HDInsight 群集数据的 Azure 存储帐户。 需要 Windows 工作站。 
+* [使用 Power Query 将 Excel 连接到 Hadoop](apache-hadoop-connect-excel-power-query.md)（需使用 Windows） 
 
-* [使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 Hadoop](apache-hadoop-connect-excel-hive-odbc-driver.md)：了解如何使用 Microsoft Hive ODBC 驱动程序从 HDInsight 导入数据。 需要 Windows 工作站。 
+* [使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 Hadoop](apache-hadoop-connect-excel-hive-odbc-driver.md)（需使用 Windows） 
 
-* [Microsoft 云平台](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx)：了解有关 Power BI for Office 365、下载 SQL Server 试用版，以及设置 SharePoint Server 2013 和 SQL Server BI 的信息。
-* [SQL Server Analysis Services](http://msdn.microsoft.com/library/hh231701.aspx)
-* [SQL Server Reporting Services](http://msdn.microsoft.com/library/ms159106.aspx)
+* [将 SQL Server Analysis Services 与 HDInsight 结合使用](https://msdn.microsoft.com/library/dn749857.aspx)
+
+* [将 SQL Server Reporting Services 与 HDInsight 结合使用](https://msdn.microsoft.com/library/dn749856.aspx)
+
 
 ## <a name="next-steps"></a>后续步骤
 
-* [HDInsight 中的 Hadoop 入门](apache-hadoop-linux-tutorial-get-started.md)
-* [HDInsight 中的 Spark 入门](../spark/apache-spark-jupyter-spark-sql.md)
-* [Kafka on HDInsight 入门](../kafka/apache-kafka-get-started.md)
-* [Storm on HDInsight 入门](../storm/apache-storm-tutorial-get-started-linux.md)
-* [HBase on HDInsight 入门](../hbase/apache-hbase-tutorial-get-started-linux.md)
-* [HDInsight 上的交互式查询 (LLAP) 入门](../interactive-query/apache-interactive-query-get-started.md)
-* [管理 HDInsight 群集](../hdinsight-administer-use-portal-linux.md)
+本文介绍了 Azure HDInsight 及其在 Azure 上提供 Hadoop 和其他群集类型的方式。 请继续阅读下一篇文章，了解如何在 HDInsight 中创建 Apache Hadoop 群集。
+
+> [!div class="nextstepaction"]
+> [在 HDInsight 中创建 Hadoop 群集](apache-hadoop-linux-create-cluster-get-started-portal.md)
 
 
 [component-versioning]: ../hdinsight-component-versioning.md

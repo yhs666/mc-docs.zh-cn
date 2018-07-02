@@ -14,15 +14,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 01/22/2018
-ms.date: 05/28/2018
+origin.date: 04/23/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 242ea63f8caca5eea76d3c072a8892e0c59f012e
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: ee45a0d97deaf17ba70c2e962b5ac3622e971c41
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449933"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747401"
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>在 HDInsight Hadoop 群集上安装 Giraph 并使用 Giraph 处理大型图形
 
@@ -161,7 +161,7 @@ ms.locfileid: "34449933"
     hdfs dfs -text /example/output/shortestpaths/*
     ```
 
-    输出应类似于以下文本：
+    显示的输出类似于以下文本：
 
         0    1.0
         4    5.0

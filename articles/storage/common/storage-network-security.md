@@ -14,12 +14,12 @@ ms.workload: storage
 origin.date: 10/25/2017
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 9330fc59e0d9cfc2f844d74228fdeb0c189ce458
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: c7f07fbd3a4eb069b895c5c6d16d882f8c3af709
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36270055"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103076"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>配置 Azure 存储防火墙和虚拟网络
 Azure 存储提供一种分层安全模型，用于保护存储帐户，使其仅可供一组特定的许可网络访问。  配置网络规则时，只有来自许可网络的应用程序才能访问存储帐户。  从许可网络进行调用时，应用程序仍需获得正确的授权（有效的访问密钥或 SAS 令牌）才能访问存储帐户。
@@ -31,7 +31,7 @@ Azure 存储提供一种分层安全模型，用于保护存储帐户，使其�
 ## <a name="scenarios"></a>方案
 可以将存储帐户配置为默认拒绝来自所有网络的流量（包括 Internet 流量）的访问。  可以向来自特定 Azure 虚拟网络的流量授予访问权限，为应用程序构建安全的网络边界。  也可以向公共 Internet IP 地址范围授予访问权限，支持来自特定 Internet 或本地客户端的连接。
 
-对于面向 Azure 存储的所有网络协议（包括 REST 和 SMB），将强制实施网络规则。  强制实施网络规则后，如果从 Azure 门户和 AZCopy 等工具访问数据，则需要授予访问权限的显式网络规则。
+对于面向 Azure 存储的所有网络协议（包括 REST 和 SMB），将强制实施网络规则。  强制实施网络规则后，如果从 Azure 门户、存储资源管理器和 AZCopy 等工具访问数据，则需要授予访问权限的显式网络规则。
 
 网络规则可以应用于现有存储帐户，也可以在新建存储帐户的过程中应用。
 

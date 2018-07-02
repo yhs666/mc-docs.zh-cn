@@ -194,6 +194,14 @@
           href: sql-database-in-memory-oltp-monitoring.md
     - name: 向外扩展
       items:
+        - name: 概述
+          href: sql-database-elastic-scale-introduction.md
+        - name: 弹性客户端库
+          href: sql-database-elastic-database-client-library.md
+        - name: 弹性查询
+          href: sql-database-elastic-query-overview.md
+        - name: 弹性事务
+          href: sql-database-elastic-transactions-overview.md
         - name: 分片映射
           href: sql-database-elastic-scale-shard-map-management.md
         - name: 查询路由
@@ -344,6 +352,8 @@
           href: sql-database-develop-cplusplus-simple.md
         - name: Excel
           href: sql-database-connect-excel.md
+        - name: 使用 Spark 连接器
+          href: sql-database-spark-connector.md
 - name: 参考
   items:
     - name: Azure PowerShell

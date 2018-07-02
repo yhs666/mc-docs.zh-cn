@@ -1,10 +1,10 @@
 ---
-title: Azure AD Connect 同步：处理 userCertificate 属性导致的 LargeObject 错误 | Microsoft Docs
+title: Azure AD Connect - userCertificate 属性导致的 LargeObject 错误 | Microsoft Docs
 description: 本主题提供针对 userCertificate 属性导致的 LargeObject 错误的补救步骤。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
@@ -13,14 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 07/31/2017
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 3f880555005afd8418caf0d8e578d05270c29b50
-ms.sourcegitcommit: 34a2f78ab40ccc805065a33a31a7ccd2f39286c1
+ms.custom: seohack1
+ms.openlocfilehash: 767d70aef92dc61d18bcb236ec1ddcc0c663745b
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2017
-ms.locfileid: "20822233"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947954"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect 同步：处理 userCertificate 属性导致的 LargeObject 错误
 
@@ -33,14 +35,14 @@ LargeObject 错误可能由其他 AD 属性导致。 若要确认该错误是否
 若要获取租户中出现 LargeObject 错误的对象列表，请使用以下方法之一：
 
  - 每个同步周期结束时发送的有关目录同步错误的通知电子邮件包含出现 LargeObject 错误的对象列表。 
- - 如果单击最新的“导出到 Azure AD”操作，“同步服务管理器操作”选项卡将显示出现 LargeObject 错误的对象列表。[](/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations)
+ - 如果单击最新的“导出到 Azure AD”操作，[“同步服务管理器操作”](/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations)选项卡将显示出现 LargeObject 错误的对象列表。
  
 ## <a name="mitigation-options"></a>缓解选项
 在解决 LargeObject 错误之前，对同一对象所做的其他属性更改将无法导出到 Azure AD 中。 若要解决该错误，可以考虑以下选项：
 
  - 将 Azure AD Connect 升级到内部版本 1.1.524.0 或更高版本。 在 Azure AD Connect 内部版本 1.1.524.0 中，现成的同步规则已经更新：如果 userCertificate 和 userSMIMECertificate 属性的值超过 15 个，则不会导出这些属性。 有关如何升级 Azure AD Connect 的详细信息，请参阅 [Azure AD Connect：从旧版升级到最新版本](/active-directory/connect/active-directory-aadconnect-upgrade-previous-version)一文。
 
- - 在 Azure AD Connect 中实现一个**出站同步规则**，以便导出**对包含 15 个以上证书值的对象导出 null 值而不是实际值**。 如果你不需要将包含超过 15 个证书值的对象的任何证书值导出到 Azure AD，则此选项不适用。 有关如何实现此同步规则的详细信息，请参阅下一部分[实现同步规则以限制 userCertificate 属性的导出](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute)。
+ - 在 Azure AD Connect 中实现一个**出站同步规则**，以便导出**包含超过 15 个证书值的对象的 null 值而不是实际值**。 如果你不需要将包含超过 15 个证书值的对象的任何证书值导出到 Azure AD，则此选项不适用。 有关如何实现此同步规则的详细信息，请参阅下一部分[实现同步规则以限制 userCertificate 属性的导出](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute)。
 
  - 通过删除你的组织不再使用的值来减少本地 AD 对象中的证书值数（减到 15 个或更少）。 如果已过期或未使用的证书导致属性膨胀，则适合使用此方法。 可以使用[此处提供的 PowerShell 脚本](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f)来帮助查找、备份和删除本地 AD 中已过期的证书。 在删除证书之前，我们建议你与组织中的关键基础结构管理员确认。
 
@@ -68,7 +70,6 @@ LargeObject 错误可能由其他 AD 属性导致。 若要确认该错误是否
 
 ### <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>步骤 1。 禁用同步计划程序，并验证是否没有正在进行的同步操作
 确保实现新同步规则的中途不会发生同步，以免将意外的更改导出到 Azure AD。 若要禁用内置的同步计划程序，请执行以下操作：
-
 1. 在 Azure AD Connect 服务器上启动 PowerShell 会话。
 
 2. 通过运行以下 cmdlet 来禁用计划的同步：`Set-ADSyncScheduler -SyncCycleEnabled $false`
@@ -114,7 +115,7 @@ LargeObject 错误可能由其他 AD 属性导致。 若要确认该错误是否
 
     | 属性 | 值 | 详细信息 |
     | --- | --- | --- |
-    | 名称 | *提供名称* | 例如“Out to AAD - Custom override for userCertificate” |
+    | Name | *提供名称* | 例如“Out to AAD - Custom override for userCertificate” |
     | 说明 | *提供说明* | 例如“If userCertificate attribute has more than 15 values, export NULL” |
     | 连接的系统 | *选择 Azure AD 连接器* |
     | 连接的系统对象类型 | **user** | |
@@ -179,6 +180,6 @@ LargeObject 错误可能由其他 AD 属性导致。 若要确认该错误是否
 > 前面的步骤仅适用于使用内置计划程序的较新 Azure AD Connect 版本 (1.1.xxx.x)。 如果你操作的是使用 Windows 任务计划程序的较旧 Azure AD Connect 版本 (1.0.xxx.x)，或者使用你自己的自定义计划程序（不常见）来触发定期同步，则需要相应地禁用这种同步。
 
 ## <a name="next-steps"></a>后续步骤
-了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
+了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

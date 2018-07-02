@@ -8,20 +8,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 00e26aa9-82fb-4dbe-b87d-ffe8e39a5412
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/25/2017
 ms.date: 05/28/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: efd81b051c47a6102b621854ad57d1a013ca5b69
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 44dd5d72af5a20efb43fb1325754780288037baf
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450120"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747443"
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>使用 HDInsight 中的 Hive 分析航班延误数据
 
@@ -709,7 +707,7 @@ HiveQL 脚本执行以下操作：
 
     该脚本中使用的某些变量：
 
-   * **$ipAddressRestService** - 默认值为 http://bot.whatismyipaddress.com。这是用来获取外部 IP 地址的公共 IP 地址 REST 服务。 可根据需要使用其他服务。 使用此服务检索的外部 IP 地址将用于创建 Azure SQL 数据库服务器的防火墙规则，使用户能够从工作站访问数据库（通过 Windows PowerShell 脚本）。
+   * **$ipAddressRestService** - 默认值为 http://bot.whatismyipaddress.com。 这是用来获取外部 IP 地址的公共 IP 地址 REST 服务。 可根据需要使用其他服务。 使用此服务检索的外部 IP 地址将用于创建 Azure SQL 数据库服务器的防火墙规则，使用户能够从工作站访问数据库（通过 Windows PowerShell 脚本）。
    * **$fireWallRuleName** - 这是 Azure SQL 数据库服务器的防火墙规则名称。 默认名称为 <u>FlightDelay</u>。 可根据需要对其进行重命名。
    * **$sqlDatabaseMaxSizeGB** - 只有在创建新的 Azure SQL 数据库服务器时才会使用此值。 默认值为 10GB。 10GB 对于本教程来说已足够。
    * **$sqlDatabaseName** - 只有在创建新的 Azure SQL 数据库时才会使用此值。 默认值为 HDISqoop。 如果将它重命名，则必须相应地更新 Sqoop Windows PowerShell 脚本。

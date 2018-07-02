@@ -7,16 +7,16 @@ manager: femila
 ms.service: azure-stack
 ms.topic: article
 origin.date: 04/06/2018
-ms.date: 04/23/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: c24afa88e2909c480218b775effda0032fc2a061
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: 5c2a98f124547a434afc021ebfda02a75c164aa0
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805417"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027174"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 数据中心集成 - 发布终结点
 Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP 是从公共 IP 地址池分配的。 每个 VIP 受软件定义的网络层中的访问控制列表 (ACL) 保护。 还可以在物理交换机（TOR 和 BMC）之间使用 ACL 来进一步强化解决方案。 将会根据部署时的指定，针对外部 DNS 区域中的每个终结点创建一个 DNS 条目。
@@ -66,10 +66,10 @@ Azure Stack 仅支持透明代理服务器。 如果部署中的透明代理上�
 |目的|URL|协议|端口|
 |---------|---------|---------|---------|
 |标识|login.chinacloudapi.cn<br>login.partner.microsoftonline.cn<br>graph.chinacloudapi.cn<br>https://secure.aadcdn.microsoftonline-p.com|HTTP<br>HTTPS|80<br>443|
-|Marketplace 联合|https://management.chinacloudapi.cn<br>https://&#42;.blob.core.chinacloudapi.cn<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
+|市场联合|https://management.chinacloudapi.cn<br>https://&#42;.blob.core.chinacloudapi.cn<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
 |修补程序和更新|https://&#42;.azureedge.net|HTTPS|443|
 |注册|https://management.chinacloudapi.cn|HTTPS|443|
-|使用情况|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
+|使用情况|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.cn|HTTPS|443|
 |Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
 
 
@@ -78,4 +78,4 @@ Azure Stack 仅支持透明代理服务器。 如果部署中的透明代理上�
 
 [Azure Stack PKI 要求](azure-stack-pki-certs.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

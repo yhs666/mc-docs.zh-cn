@@ -9,12 +9,12 @@ ms.date: 06/04/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 12d3608f66faf5581a2e9ed61fab6e57f9439ae5
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: faefaca675b055fea88ac8ffdf8a07886a7e47ac
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695158"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748401"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>使用 Azure CLI 创建策略分配以识别 Azure 环境中的不合规资源
 
@@ -34,7 +34,7 @@ Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本指南�
 
 使用 Azure CLI 注册 Policy Insights 资源提供程序。 注册此资源提供程序可确保订阅能够使用它。 若要注册资源提供程序，必须具有为资源提供程序执行注册操作的权限。 此操作包含在“参与者”和“所有者”角色中。 运行以下命令，注册资源提供程序：
 
-```azurecli-interactive
+```azurecli
 az provider register --namespace 'Microsoft.PolicyInsights'
 ```
 
@@ -46,7 +46,7 @@ az provider register --namespace 'Microsoft.PolicyInsights'
 
 运行以下命令创建策略分配：
 
-```azurecli-interactive
+```azurecli
 az policy assignment create --name 'Audit Virtual Machines without Managed Disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
 ```
 
@@ -60,7 +60,7 @@ az policy assignment create --name 'Audit Virtual Machines without Managed Disks
 
 若要查看此新分配下不合规的资源，请运行以下命令获取策略分配 ID：
 
-```azurepowershell-interactive
+```azurepowershell
 $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks' }
 $policyAssignment.PolicyAssignmentId
 ```
@@ -105,7 +105,7 @@ armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/provider
 
 本教程系列中的其他指南建立在本快速入门的基础之上。 如何打算继续学习后续教程，请不要清除本快速入门中创建的资源。 如果不打算继续学习，请运行以下命令删除创建的分配：
 
-```azurecli-interactive
+```azurecli
 az policy assignment delete –name 'Audit Virtual Machines without Managed Disks Assignment' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
 ```
 

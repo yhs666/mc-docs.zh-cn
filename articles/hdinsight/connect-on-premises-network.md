@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/23/2018
-ms.date: 05/28/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 70e77b2dc414f761b29df699794d97aa87d2f203
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: faa2c98563d392190b3496d1b2d52d53a59034e7
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450062"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747485"
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>将 HDInsight 连接到本地网络
 
@@ -338,7 +338,7 @@ HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 �
 
 * 有关 Azure 虚拟网络的详细信息，请参阅 [Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
 
-* 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/virtual-networks-nsg.md)。
+* 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/security-overview.md)。
 
 * 有关用户定义路由的详细信息，请参阅[用户定义路由和 IP 转发](../virtual-network/virtual-networks-udr-overview.md)。
 <!--Update_Description: wording update-->

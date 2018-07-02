@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 origin.date: 03/19/2018
-ms.date: 05/28/2018
+ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: 2d28052547464e0e5422413f416fcbdab49a70b2
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 6690753e0d9ddd1c5e76dff13595dda874127199
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475135"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748422"
 ---
 # <a name="assets"></a>资产
 
@@ -35,7 +35,7 @@ ms.locfileid: "34475135"
 
 下表显示了资产的属性并提供了其定义。
 
-|名称|类型|说明|
+|Name|类型|说明|
 |---|---|---|
 |ID|字符串|资源的完全限定资源 ID。|
 |name|字符串|资源的名称。|
@@ -51,7 +51,7 @@ ms.locfileid: "34475135"
 
 有关完整定义，请参阅[资产](https://docs.microsoft.com/rest/api/media/assets)。
 
-## <a name="filtering-ordering-and-paging-support"></a>筛选、排序和分页支持
+## <a name="filtering-ordering-paging"></a>筛选、排序、分页
 
 媒体服务支持针对资产的以下 OData 查询选项： 
 
@@ -64,9 +64,9 @@ ms.locfileid: "34475135"
 
 下表展示了可以如何将这些选项应用于资产属性： 
 
-|名称|筛选器|顺序|
+|Name|筛选器|顺序|
 |---|---|---|
-|Id|支持：<br/>等于<br/>大于<br/>小于|支持：<br/>升序<br/>降序|
+|ID|支持：<br/>等于<br/>大于<br/>小于|支持：<br/>升序<br/>降序|
 |name|||
 |properties.alternateId |支持：<br/>等于||
 |properties.assetId |支持：<br/>等于||
@@ -89,7 +89,7 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 四种已启用的排序顺序每种都支持分页。 
 
-如果查询响应包含许多项（目前为超过 1000），则服务将返回“@odata.nextLink”属性以获取下一页的结果。 这可以用来逐页浏览整个结果集。 用户无法配置页面大小。 
+如果查询响应包含许多（当前超过 1000）项，该服务会返回“\@odata.nextLink”属性以获取下一页结果。 这可以用来逐页浏览整个结果集。 用户无法配置页面大小。 
 
 如果在逐页浏览集合的过程中创建或删除了资产，则更改将反映在返回的结果中（如果那些更改位于集合中尚未下载的部分中）。 
 
@@ -107,3 +107,7 @@ while (currentPage.NextPageLink != null)
 
 有关 REST 示例，请参阅[资产 - 列表](https://docs.microsoft.com/rest/api/media/assets/list)
 
+## <a name="next-steps"></a>后续步骤
+
+> [!div class="nextstepaction"]
+> [流式传输文件](stream-files-dotnet-quickstart.md)

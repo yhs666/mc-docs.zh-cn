@@ -15,12 +15,12 @@ ms.workload: storage
 origin.date: 06/20/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: a75a884181f8d7c888fd9e23811c3b2801c778ed
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 3d0d775e20e6c4cffd73941ad10ba1c265839d22
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36269983"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103081"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>在 Azure 存储中需要安全传输
 
@@ -68,7 +68,7 @@ ms.locfileid: "36269983"
 
 本示例需要 Azure PowerShell 模块 4.1 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
-运行 `Login-AzureRmAccount -Environment AzureChinaCloud`，创建与 Azure 的连接。
+运行 `Connect-AzureRmAccount -Environment AzureChinaCloud`，创建与 Azure 的连接。
 
  使用以下命令行检查该设置：
 

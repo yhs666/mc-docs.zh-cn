@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 05/08/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: adc6d689e5295a98e6b12f0b7e1088af13e9a06a
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 25e0e3766eda735497b18677a4a5787599dff0bf
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554434"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748366"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>在 Azure 自动化中执行 Runbook
 
@@ -91,18 +91,18 @@ ms.locfileid: "34554434"
 
 以下示例命令检索示例 Runbook 的最后一个作业，并显示其状态、为 Runbook 参数提供的值以及作业的输出。
 
-```azurepowershell-interactive
-$job = (Get-AzureRmAutomationJob �AutomationAccountName "MyAutomationAccount" `
-�RunbookName "Test-Runbook" -ResourceGroupName "ResourceGroup01" | sort LastModifiedDate �desc)[0]
+```azurepowershell
+$job = (Get-AzureRmAutomationJob –AutomationAccountName "MyAutomationAccount" `
+–RunbookName "Test-Runbook" -ResourceGroupName "ResourceGroup01" | sort LastModifiedDate –desc)[0]
 $job.Status
 $job.JobParameters
 Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-�AutomationAccountName "MyAutomationAcct" -Id $job.JobId �Stream Output
+–AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
 ```
 
 以下示例检索特定作业的输出并返回每个记录。 如果某个记录存在异常，则会写出该异常而不是记录的值。 这很有用，因为异常可能提供其他信息，而这些信息在正常情况下是不会在输出过程中记录的。
 
-```azurepowershell-interactive
+```azurepowershell
 $output = Get-AzureRmAutomationJobOutput -AutomationAccountName <AutomationAccountName> -Id <jobID> -ResourceGroupName <ResourceGroupName> -Stream "Any"
 foreach($item in $output)
 {
@@ -122,7 +122,7 @@ foreach($item in $output)
 
 可以从自动化帐户的活动日志中检索其他详细信息，例如启动了 Runbook 的人员或帐户。 以下 PowerShell 示例提供运行相关 Runbook 的最后一个用户：
 
-```powershell-interactive
+```powershell
 $SubID = "00000000-0000-0000-0000-000000000000"
 $rg = "ResourceGroup01"
 $AutomationAccount = "MyAutomationAccount"

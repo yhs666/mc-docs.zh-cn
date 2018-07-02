@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-origin.date: 04/23/2018
-ms.date: 06/18/2018
+origin.date: 05/22/2018
+ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: b21c540f193944946bc6bc29456736cb0c946cf7
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: 1d0eeb9cdcebc53102badf5542fb730a47d421a6
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324272"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947994"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>教程：使用 SSMS 设计第一个 Azure SQL 数据库
 
@@ -29,7 +29,7 @@ Azure SQL 数据库与 Microsoft 云 (Azure) 中的数据库即服务 (DBaaS) �
 > * 使用 BCP 大容量加载数据
 > * 使用 SSMS 查询这些数据
 
-如果没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
    >[!NOTE]
    > 就本教程来说，我们使用的是[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)，但你也可以选择[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)。 
@@ -52,7 +52,7 @@ Azure SQL 数据库与 Microsoft 云 (Azure) 中的数据库即服务 (DBaaS) �
 
 1. 在 Azure 门户的左上角单击“创建资源”。
 
-2. 在“新建”页上的“Azure 市场”部分中选择“数据库”，然后在“特别推荐”部分中单击“SQL 数据库”。
+2. 从“新建”页中选择“数据库”，然后从“新建”页的“SQL 数据库”中选择“创建”。
 
    ![创建空数据库](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -179,7 +179,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 以下关系图显示了这些表的相互关系。 其中一些表引用其他表中的列。 例如，Student 表引用 **Person** 表的 **PersonId** 列。 请研究此关系图，了解本教程中各种表的相互关系。 若要深入了解如何创建有效的数据库表，请参阅 [Create effective database tables](https://msdn.microsoft.com/library/cc505842.aspx)（创建有效的数据库表）。 有关如何选择数据类型的信息，请参阅 [Data types](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql)（数据类型）。
 
 > [!NOTE]
-> 还可以使用 [SQL Server Management Studio 中的表设计器](https://msdn.microsoft.com/library/hh272695.aspx)来创建和设计表。 
+> 还可以使用 [SQL Server Management Studio 中的表设计器](https://docs.microsoft.com/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools)来创建和设计表。 
 
 ![表关系](./media/sql-database-design-first-database/tutorial-database-tables.png)
 

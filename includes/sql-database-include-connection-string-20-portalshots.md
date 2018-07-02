@@ -1,3 +1,4 @@
+
 <!--
 includes/sql-database-include-connection-string-20-portalshots.md
 
@@ -8,7 +9,7 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 
 
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>从 Azure 门户获取连接字符串
-使用 [Azure 预览门户](https://manage.windowsazure.cn/)获取客户端程序与 Azure SQL 数据库进行交互所需的连接字符串： 
+使用 [Azure 门户](https://portal.azure.cn/)获取客户端程序与 Azure SQL 数据库进行交互所需的连接字符串。 
 
 1. 选择“所有服务” > “SQL 数据库”。
 
@@ -25,7 +26,7 @@ Latest Freshness check:  2015-09-02 , GeneMi.
     ![复制数据库的 ADO 连接字符串][20-CopyAdoConnectionString]
 7. 通过这种或那种格式，将连接字符串信息粘贴到客户端程序代码中。
 
-有关详细信息，请参阅：<br/>[连接字符串和配置文件](http://msdn.microsoft.com/zh-cn/library/ms254494.aspx)。
+有关详细信息，请参阅[连接字符串和配置文件](http://msdn.microsoft.com/library/ms254494.aspx)。
 
 <!-- Image references. -->
 

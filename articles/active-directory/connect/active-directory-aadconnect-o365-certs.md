@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/20/2017
-ms.date: 05/03/2018
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 7bad8d4924a215c9869a6c3c219b1f702dbf1290
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 06799f882e410cae3113b557585d3bc6d78deafe
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815165"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947884"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>续订 Office 365 和 Azure Active Directory 的联合身份验证证书
 ## <a name="overview"></a>概述
@@ -117,10 +118,9 @@ Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCe
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
-其中，`(your_FS_name) `将替换成组织使用的联合身份验证服务主机名，例如 fs.contoso.com。如果能够成功验证这两项设置，则无需执行任何其他操作。  
+其中，`(your_FS_name) `将替换成组织使用的联合身份验证服务主机名，例如 fs.contoso.com。  如果能够成功验证这两项设置，则无需执行任何其他操作。  
 
 示例： https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
-
 ## 手动续订令牌签名证书 <a name="manualrenew"></a>
 可以选择手动续订令牌签名证书。 例如，在以下情况下，可能更合适手动续订：
 
@@ -166,7 +166,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 > [!NOTE]
 > 如果需要支持多个顶级域（例如 contoso.com 和 fabrikam.com），则必须将 **SupportMultipleDomain** 开关用于任何 cmdlet。 有关详细信息，请参阅[支持多个顶级域](active-directory-aadconnect-multiple-domains.md)。
 >
->
+
 
 ## 使用 Azure AD Connect 修复 Azure AD 信任 <a name="connectrenew"></a>
 如果已使用 Azure AD Connect 配置了 AD FS 场和 Azure AD 信任，则可以使用 Azure AD Connect 来检测是否需要对令牌签名证书采取任何操作。 如果需要续订证书，可以使用 Azure AD Connect 来执行此操作。
@@ -182,4 +182,4 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 有关 AD FS 中令牌签名证书的详细信息，请参阅[获取和配置 AD FS 令牌签名证书和令牌解密证书](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs)
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

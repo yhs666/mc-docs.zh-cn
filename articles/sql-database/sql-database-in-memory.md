@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/04/2018
 ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: efcd61463c584fb777f8784fe707ff3bcde5bd32
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 75340e7ea26bb2770c47e541b3cca60c5e3ad2d3
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782421"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948112"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>在 SQL 数据库中使用内存中技术优化性能
 
@@ -24,7 +24,7 @@ ms.locfileid: "31782421"
 以下两个示例演示了如何借助内存中 OLTP 大幅改善性能：
 
 - 使用内存中 OLTP，[仲裁商业解决方案能够使其工作负荷增加一倍，同时节省 70% 的 DTU](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)。
-    - DTU 表示“数据库事务单位”，包括资源消耗量的测量值。
+    - DTU 表示“数据库事务单位”，包括资源消耗的测量值。
 - 以下视频使用示例工作负荷演示资源消耗方面的重大改进：[In-Memory OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB)（“Azure SQL 数据库中的内存中 OLTP”视频）。
     - 有关详细信息，请参阅博客文章：[“Azure SQL 数据库中的内存中 OLTP”博客文章](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
@@ -45,7 +45,7 @@ Azure SQL 数据库采用以下内存中技术：
 
 列存储索引和内存中 OLTP 分别在 2012 年和 2014 年加入 SQL Server 产品。 Azure SQL 数据库和 SQL Server 共享内存中技术的相同实现。 今后，这些技术的新功能将首先在 Azure SQL 数据库中发布，然后在 SQL Server 中发布。
 
-本主题全面介绍特定于 Azure SQL 数据库的内存中 OLTP 和列存储索引，并提供示例：
+本文全面介绍特定于 Azure SQL 数据库的内存中 OLTP 和列存储索引，并提供示例：
 - 介绍这些技术对存储和数据大小限制的影响。
 - 介绍如何控制使用这些技术的数据库在不同定价层之间的移动。
 - 介绍两个示例，演示如何使用 Azure SQL 数据库中的内存中 OLTP 和列存储索引。
@@ -94,7 +94,7 @@ Azure SQL 数据库采用以下内存中技术：
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>列存储索引的数据大小和存储
 
-列存储索引不需要在内存可容纳的范围内。 因此，索引大小的唯一上限是最大整体数据库大小，此大小在 [SQL 数据库服务层](sql-database-service-tiers.md)一文中有述。
+列存储索引不需要在内存可容纳的范围内。 因此，索引大小的唯一上限是最大整体数据库大小，此大小在[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)两篇文章中有述。
 
 使用聚集列存储索引时，对基础表存储使用列式压缩。 这种压缩可显著减少用户数据的存储占用，意味着数据库中可容纳更多数据。 使用[纵栏表存档压缩](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression)可进一步提高压缩率。 可实现的压缩量取决于数据的性质，但 10 倍压缩并不少见。
 

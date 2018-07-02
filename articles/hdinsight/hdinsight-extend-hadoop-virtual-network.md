@@ -4,24 +4,24 @@ description: 了解如何使用 Azure 虚拟网络将 HDInsight 连接到其他�
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/21/2018
-ms.date: 05/28/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6faf41ac0f59761924670cc31447814983ff1d1b
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 0dbe7b6b2247dc1394bf3ffdb1d27fb3f8ec454a
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450105"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747469"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 Azure HDInsight
 
@@ -97,7 +97,7 @@ ms.locfileid: "34450105"
         有关详细信息，请参阅[排查网络安全组问题](../virtual-network/virtual-network-nsg-troubleshoot-portal.md)文档。
 
         > [!IMPORTANT]
-        > 网络安全组规则按规则优先级顺序应用。 将应用与流量模式匹配的第一条规则，而不应用该流量的其他规则。 权限级别从最高到最低排列的顺序规则。 有关详细信息，请参阅[使用网络安全组筛选网络流量](../virtual-network/virtual-networks-nsg.md)文档。
+        > 网络安全组规则按规则优先级顺序应用。 将应用与流量模式匹配的第一条规则，而不应用该流量的其他规则。 权限级别从最高到最低排列的顺序规则。 有关详细信息，请参阅[使用网络安全组筛选网络流量](../virtual-network/security-overview.md)文档。
 
     * 用户定义路由
 
@@ -218,7 +218,7 @@ HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 �
 
 可以使用以下方法控制 Azure 虚拟网络中的网络流量：
 
-* 网络安全组 (NSG)：用于筛选网络的入站和出站流量。 有关详细信息，请参阅[使用网络安全组筛选网络流量](../virtual-network/virtual-networks-nsg.md)文档。
+* 网络安全组 (NSG)：用于筛选网络的入站和出站流量。 有关详细信息，请参阅[使用网络安全组筛选网络流量](../virtual-network/security-overview.md)文档。
 
     > [!WARNING]
     > HDInsight 不支持限制出站流量。
@@ -246,7 +246,7 @@ HDInsight 在多个端口上公开服务。 使用虚拟设备防火墙时，必
 
 有关网络安全组或用户定义路由的详细信息，请参阅以下文档：
 
-* [网络安全组](../virtual-network/virtual-networks-nsg.md)
+* [网络安全组](../virtual-network/security-overview.md)
 
 * [用户定义路由](../virtual-network/virtual-networks-udr-overview.md)
 
@@ -670,6 +670,6 @@ $vnet | Set-AzureRmVirtual Network
 * 要了解如何配置 HBase 异地复制，请参阅[在 Azure 虚拟网络中设置 HBase 群集复制](hbase/apache-hbase-replication.md)。
 * 有关 Azure 虚拟网络的详细信息，请参阅 [Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
 
-* 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/virtual-networks-nsg.md)。
+* 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/security-overview.md)。
 
 * 有关用户定义路由的详细信息，请参阅[用户定义路由和 IP 转发](../virtual-network/virtual-networks-udr-overview.md)。

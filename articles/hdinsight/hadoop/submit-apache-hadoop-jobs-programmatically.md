@@ -10,19 +10,17 @@ author: mumian
 ms.assetid: 50430b96-2329-4775-9713-19c5795b775f
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 12/20/2017
-ms.date: 02/26/2018
+ms.topic: conceptual
+origin.date: 05/16/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 69d1a19a6d6345b597325b4ce682e19a7f2f61c4
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: 6592ddd724976f9293ff0a342bfc3b13e8938aa2
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29552336"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747332"
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中提交 Hadoop 作业
 

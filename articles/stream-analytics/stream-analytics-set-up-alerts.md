@@ -9,15 +9,15 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 06/26/2017
-ms.date: 06/18/2018
-ms.openlocfilehash: 2ad43b575141149e20e1b450e073506820141203
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 07/02/2018
+ms.openlocfilehash: 0b16442ba6d9f862739cdcab3a3e7b79ed8763a4
+ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416911"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947670"
 ---
-# <a name="tutorial-set-up-alerts-for-azure-stream-analytics-jobs"></a>教程：为 Azure 流分析作业设置警报
+# <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>为 Azure 流分析作业设置警报
 可以设置警报，以便在指标达到指定的条件时触发警报。 例如，可为如下条件设置警报：
 
 `If there are zero input events in the last 5 minutes, send email notification to sa-admin@example.com`
@@ -53,5 +53,4 @@ ms.locfileid: "35416911"
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!-- Update_Description: new articles on stream analytics set up alert -->
-<!--ms.date: 06/18/2018-->
+<!-- Update_Description: update meta properties -->

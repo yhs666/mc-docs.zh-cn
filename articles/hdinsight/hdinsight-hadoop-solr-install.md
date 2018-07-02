@@ -17,21 +17,21 @@ origin.date: 02/05/2016
 ms.date: 12/25/2017
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7b3391e49676d4610b586f4bbb88f45b27d8138f
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 8106f8cd6f79e50d1d52e92f56751aa275bfa056
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26721358"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747380"
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>在基于 Windows 的 HDInsight 群集上安装并使用 Solr
 
 了解如何使用 Solr 通过脚本操作自定义基于 Windows 的 HDInsight 群集，以及如何使用 Solr 搜索数据。
 
 > [!IMPORTANT]
-> 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。 低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 有关在基于 Linux 的群集中使用 Solr 的信息，请参阅[在 HDinsight Hadoop 群集 (Linux) 上安装并使用 Solr](hdinsight-hadoop-solr-install-linux.md)。
+> 本文档中的步骤仅适用于基于 Windows 的 HDInsight 群集。 低于 HDInsight 3.4 的 HDInsight 版本仅在 Windows 上提供。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 有关在基于 Linux 的群集中使用 Solr 的信息，请参阅[在 HDinsight Hadoop 群集 (Linux) 上安装并使用 Solr](hdinsight-hadoop-solr-install-linux.md)。
 
-可以使用脚本操作，在 Azure HDInsight 的任何一种群集（Hadoop、Storm、HBase、Spark）上安装 Solr。 用于在 HDInsight 群集上安装 Solr 的示例脚本可通过 [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)上的只读 Azure 存储 Blob 获得。
+可以使用脚本操作，在 Azure HDInsight 的任何一种群集（Hadoop、Storm、HBase、Spark）上安装 Solr。 用于在 HDInsight 群集上安装 Solr 的示例脚本可从只读 Azure 存储 Blob ([https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)) 获得。
 
 示例脚本仅适用于 HDInsight 群集版本 3.1。 有关 HDInsight 群集版本的详细信息，请参阅 [HDInsight 群集版本](hdinsight-component-versioning.md)。
 
@@ -51,17 +51,17 @@ ms.locfileid: "26721358"
 1. 按照[在 HDInsight 中创建 Hadoop 群集](hdinsight-provision-clusters.md)中的说明，使用“自定义创建”选项开始创建群集。
 2. 在向导的“脚本操作”页上，单击“添加脚本操作”，提供有关脚本操作的详细信息，如下所示：
 
-    ![使用脚本操作自定义群集](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "使用脚本操作自定义群集")
+    ![使用脚本操作自定义群集](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "Use Script Action to customize a cluster")
 
     <table border='1'>
         <tr><th>属性</th><th>值</th></tr>
-        <tr><td>名称</td>
+        <tr><td>Name</td>
             <td>指定脚本操作的名称。 例如 Install Solr<b></b>。</td></tr>
         <tr><td>脚本 URI</td>
             <td>指定调用其对应的脚本可自定义群集的统一资源标识符 (URI)。 例如 <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
         <tr><td>节点类型</td>
             <td>指定在其上运行自定义脚本的节点。 可以选择“所有节点”、“仅限头节点”或“仅限辅助角色节点”<b></b><b></b><b></b>。
-        <tr><td>Parameters</td>
+        <tr><td>parameters</td>
             <td>根据脚本的需要，请指定参数。 用于安装 Solr 的脚本不需要任何参数，因此，可将此项保留为空。</td></tr>
     </table>
 
@@ -71,7 +71,7 @@ ms.locfileid: "26721358"
 必须从使用一些数据文件为 Solr 编制索引开始。 然后，可以使用 Solr 对索引数据运行搜索查询。 执行以下步骤，以在 HDInsight 群集中使用 Solr：
 
 1. 使用远程桌面协议 (RDP) 远程连接到安装有 Solr 的 HDInsight 群集。 在 Azure 门户中，对创建的安装有 Solr 的群集启用远程桌面，然后远程连接到该群集。 有关说明，请参阅[使用 RDP 连接到 HDInsight 群集](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)。
-2. **通过上传数据文件为 Solr 编制索引**。 在为 Solr 编制索引时，应将可能需要搜索的文档放置在其中。 若要为 Solr 编制索引，请使用 RDP 远程连接到群集，导航到桌面，打开 Hadoop 命令行，然后导航到 C:\apps\dist\solr-4.7.2\example\exampledocs。 运行以下命令：
+2. **通过上传数据文件为 Solr 编制索引**。 在为 Solr 编制索引时，你应将可能需要搜索的文档放置在其中。 若要为 Solr 编制索引，请使用 RDP 远程连接到群集，导航到桌面，打开 Hadoop 命令行，然后导航到 C:\apps\dist\solr-4.7.2\example\exampledocs。 运行以下命令：
 
         java -jar post.jar solr.xml monitor.xml
 
@@ -84,7 +84,7 @@ ms.locfileid: "26721358"
         Time spent: 0:00:01.624
 
     post.jar 实用程序通过以下两个示例文档为 Solr 编制索引：solr.xml 和 monitor.xml。 post.jar 实用工具和示例文档随 Solr 安装一起提供。
-3. **使用 Solr 仪表板在索引文档中搜索**。 在连接到 HDInsight 群集的 RDP 会话中，打开 Internet Explorer，然后启动位于 http://headnodehost:8983/solr/#/ 的 Solr 仪表板。 在左窗格的“核心选择器”下拉列表中，选择“collection1”，然后在其中单击“查询”。 作为示例，若要在 Solr 中选择并返回所有文档，请提供以下值：
+3. **使用 Solr 仪表板在索引文档中搜索**。 在连接到 HDInsight 群集的 RDP 会话中，打开 Internet Explorer，并启动位于 **http://headnodehost:8983/solr/#/** 的 Solr 仪表板。 在左窗格的“核心选择器”下拉列表中，选择“collection1”，然后在其中单击“查询”。 作为示例，若要在 Solr 中选择并返回所有文档，请提供以下值：
 
    * 在 **q** 文本框中，输入 **\*:**\*。 这会返回所有已在 Solr 中编制索引的文档。 如果要在文档中搜索特定字符串，则可以在此处输入该字符串。
    * 在 **wt** 文本框中，选择输出格式。 默认值为 **json**。 单击“执行查询” 。
@@ -144,7 +144,7 @@ ms.locfileid: "26721358"
                  }
                ]
              }
-4. **建议：将索引数据从 Solr 备份到与 HDInsight 群集关联的 Azure Blob 存储**。 作为一种很好的做法，应该将索引数据从 Solr 群集节点备份到 Azure Blob 存储上。 执行以下步骤来完成此操作：
+4. **建议：将索引数据从 Solr 备份到与 HDInsight 群集关联的 Azure Blob 存储**。 作为一种很好的做法，你应该将索引数据从 Solr 群集节点备份到 Azure Blob 存储上。 执行以下步骤来完成此操作：
 
    1. 在 RDP 会话中，打开 Internet Explorer，并指向以下 URL：
 
@@ -160,7 +160,7 @@ ms.locfileid: "26721358"
              </lst>
              <str name="status">OK</str>
            </response>
-   2. 在远程会话中，导航到 {SOLR_HOME}\{Collection}\data。 对于通过示例脚本创建的群集，该目录应该是 C:\apps\dist\solr-4.7.2\example\solr\collection1\data。 在此位置，应该会看到使用类似于 snapshot.timestamp** 的名称创建的快照文件夹。
+   2. 在远程会话中，导航到 {SOLR_HOME}\{Collection}\data。 对于通过示例脚本创建的群集，该目录应该是 C:\apps\dist\solr-4.7.2\example\solr\collection1\data。 在此位置，应该会看到使用类似于 **snapshot.* timestamp*** 的名称创建的快照文件夹。
    3. 压缩快照文件夹，并将其上传到 Azure Blob 存储。 从 Hadoop 命令行，通过使用以下命令导航到快照文件夹所在的位置：
 
              hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
@@ -179,7 +179,6 @@ ms.locfileid: "26721358"
 * [使用脚本操作自定义 HDInsight 群集][hdinsight-cluster-customize]：有关使用脚本操作自定义 HDInsight 群集的一般信息。
 * [为 HDInsight 开发脚本操作脚本](hdinsight-hadoop-script-actions.md)。
 * [在 HDInsight 群集上安装并使用 Spark][hdinsight-install-spark]：有关安装 Spark 的脚本操作示例。
-* [在 HDInsight 群集上安装 R][hdinsight-install-r]：有关安装 R 的脚本操作示例。
 * [在 HDInsight 群集上安装 Giraph](hdinsight-hadoop-giraph-install.md)：有关安装 Giraph 的脚本操作示例。
 
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs

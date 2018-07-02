@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 06/22/2017
-ms.date: 06/18/2018
-ms.openlocfilehash: 824e843943d2cbe62513a359ba7e263c03de8ecd
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 07/02/2018
+ms.openlocfilehash: f7c10d0ad2d642a1654142da153b17fb196b45dd
+ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416856"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947655"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>扩展 Azure 流分析作业以增加吞吐量
 本文介绍如何优化流分析查询，增加流分析作业的吞吐量。 可以使用以下指南来扩展作业，以便处理较高负载并充分利用更多的系统资源（如更多带宽、更多 CPU 资源、更多内存）。
@@ -27,8 +27,8 @@ ms.locfileid: "35416856"
 ## <a name="case-1---your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>案例 1 - 在各个输入分区中，查询本质上是完全可并行的
 如果在各个输入分区中，查询本质上是完全可并行的，则可以按照以下步骤操作：
 1.  通过使用 PARTITION BY 关键字来创作查询使之易并行。 请参阅[此页](stream-analytics-parallelization.md)易并行作业部分中的更多详细信息。
-2.  根据查询中使用的输出类型，某些输出可能是不可并行的，或者需要进一步配置来实现易并行。 例如，SQL 和 SQL DW 输出是不可并行的。 请始终先合并输出，然后再将其发送到输出接收器。 Blob、表、ADLS 和服务总线会自动并行化。 CosmosDB 和事件中心都需要设置 PartitionKey 配置来匹配 PARTITION BY 字段（通常是 PartitionId）。 对于事件中心，还要格外注意匹配所有输入和所有输出的分区数量，以避免分区之间的交叉。 
-<!-- Not Available on PowerBI, Azure Funtion-->
+2.  根据查询中使用的输出类型，某些输出可能是不可并行的，或者需要进一步配置来实现易并行。 例如，SQL 和 SQL DW 输出是不可并行的。 请始终先合并输出，然后再将其发送到输出接收器。 Blob、表、ADLS、服务总线和 Azure Function 会自动并行化。 CosmosDB 和事件中心都需要设置 PartitionKey 配置来匹配 PARTITION BY 字段（通常是 PartitionId）。 对于事件中心，还要格外注意匹配所有输入和所有输出的分区数量，以避免分区之间的交叉。 
+<!-- Not Available on PowerBI-->
 3.  使用 6 SU（即单个计算节点的全部容量）来运行查询，以度量最大可实现的吞吐量，如果你使用的是 GROUP BY，则度量作业能处理的组数（基数）。 达到系统资源限制的作业，一般症状将如下所示。
     - SU 利用率指标超过 80%。 该指示内存使用率较高。 [此处](stream-analytics-streaming-unit-consumption.md)描述了导致此指标增加的因素。 
     -   输出时间戳滞后于时钟时间。 根据查询逻辑，输出时间戳可能与时钟时间之间存在一个逻辑偏差。 但是，它们应该以大致相同的速度增进。 如果输出时间戳进一步滞后，则指示系统工作时间过长。 它可能是由于下游输出接收器限制，或高 CPU 利用率所致。 我们目前没有提供 CPU 利用率指标，因此很难区分两者。
@@ -77,73 +77,6 @@ ms.locfileid: "35416856"
 > [!Note] 
 > 每个作业中要放置多少租户？
 > 此查询模式通常具有大量子查询，并导致非常大且复杂的拓扑。 作业控制器可能无法处理此类大型拓扑。 根据经验，1 SU 作业应保持在 40 个租户以下，3 SU 和 6 SU 作业则为 60 个租户。 如果即将超出控制器的容量，则不会成功启动作业。
-
-## <a name="an-example-of-stream-analytics-throughput-at-scale"></a>下面举例说明了基于规模的流分析吞吐量
-为了帮助大家了解如何缩放流分析作业，我们根据 Raspberry Pi 设备中的输入进行了一项试验。 通过此试验，可以发现输入对多个流式处理单元和分区的吞吐量的影响。
-
-在此方案中，设备将传感器数据（客户端）发送到事件中心。 流分析处理数据，并将警报或统计信息作为输出发送到另一个事件中心。 
-
-客户端以 JSON 格式发送传感器数据。 数据输出也采用 JSON 格式。 数据如下所示：
-
-    {"devicetime":"2014-12-11T02:24:56.8850110Z","hmdt":42.7,"temp":72.6,"prss":98187.75,"lght":0.38,"dspl":"R-PI Olivier's Office"}
-
-以下查询用于在关灯时发送警报：
-
-    SELECT AVG(lght), "LightOff" as AlertText
-    FROM input TIMESTAMP BY devicetime 
-    PARTITION BY PartitionID
-    WHERE lght< 0.05 GROUP BY TumblingWindow(second, 1)
-
-### <a name="measure-throughput"></a>衡量吞吐量
-
-在这种情况下，吞吐量是指由流分析在固定时间内处理的输入数据量。 （测量时长为 10 分钟。）为了使输入数据达到最佳的处理吞吐量，我们对数据流输入和查询进行了分区。 还在查询中添加了 **COUNT()**，以便测量已处理的输入事件数。 为了确保作业不会单纯地等待输入事件的到来，输入事件中心的每个分区均预先加载了约 300 MB 的输入数据。
-
-下表显示结果，可以发现流式处理单元数和事件中心的相应分区数均有所增加。  
-
-<table border="1">
-<tr><th>输入分区数</th><th>输出分区数</th><th>流式处理单位数</th><th>持续的吞吐量
-</th></td>
-
-<tr><td>12</td>
-<td>12</td>
-<td>6</td>
-<td>4.06 MB/秒</td>
-</tr>
-
-<tr><td>12</td>
-<td>12</td>
-<td>12</td>
-<td>8.06 MB/秒</td>
-</tr>
-
-<tr><td>48</td>
-<td>48</td>
-<td>48</td>
-<td>38.32 MB/秒</td>
-</tr>
-
-<tr><td>192</td>
-<td>192</td>
-<td>192</td>
-<td>172.67 MB/秒</td>
-</tr>
-
-<tr><td>480</td>
-<td>480</td>
-<td>480</td>
-<td>454.27 MB/秒</td>
-</tr>
-
-<tr><td>720</td>
-<td>720</td>
-<td>720</td>
-<td>609.69 MB/秒</td>
-</tr>
-</table>
-
-另外，下图直观地显示了 SU 和吞吐量之间的关系。
-
-![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>获取帮助
 如需进一步的帮助，请尝试我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。

@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/19/2018
-ms.date: 05/03/2018
+origin.date: 06/07/2018
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 5674d0d9c522a231cb79fa8ed56cbb6fdebe0425
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: c30d030380a80805a469f7e22d222332333f5d8e
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814945"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948089"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>使用 SQL 委派的管理员权限安装 Azure AD Connect
 在最新的 Azure AD Connect 版本之前，不支持在部署需要 SQL 的配置时使用管理委派。  若要安装 Azure AD Connect，用户需具有 SQL Server 的服务器管理员 (SA) 权限。
@@ -45,12 +46,12 @@ Azure AD Connect 管理员|安装 Azure AD Connect 并在自定义安装过程�
 
 1. 让 SQL 管理员使用不区分大小写的排序规则序列 **(Latin1_General_CI_AS)** 创建 ADSync 数据库。  数据库必须命名为 **ADSync**。  安装 Azure AD Connect 时，会将恢复模型、兼容性级别和包含类型更新为正确的值。  但是，必须由 SQL 管理员来正确设置排序规则序列，否则 Azure AD Connect 会阻止该安装。  若要进行恢复，SA 必须删除并重新创建数据库。</br>
 
-    ![Collation](./media/active-directory-aadconnect-sql-delegation/sql1.png)
+    ![Collation](./media/active-directory-aadconnect-sql-delegation/sql4.png)
 2. 向 Azure AD Connect 管理员和域服务帐户授予以下权限：
     - SQL 登录名 
     - **数据库所有者 (dbo)** 权限。  </br>
-    ![权限](./media/active-directory-aadconnect-sql-delegation/sql3.png)
-
+    
+        ![权限](./media/active-directory-aadconnect-sql-delegation/sql3a.png)
 3. 向 Azure AD Connect 管理员发送一封电子邮件，指出在安装 Azure AD Connect 时应使用的 SQL Server 和实例。
 
 ## <a name="additional-information"></a>其他信息

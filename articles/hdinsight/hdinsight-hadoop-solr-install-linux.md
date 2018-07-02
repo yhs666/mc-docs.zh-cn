@@ -4,7 +4,7 @@ description: 了解如何使用脚本操作在基于 Linux 的 HDInsight Hadoop 
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: cc93ed5c-a358-456a-91a4-f179185c0e98
@@ -12,15 +12,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 02/20/2018
-ms.date: 05/28/2018
+origin.date: 05/16/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3a5a9804e66416ff2af77c39091d2c58b4558bd3
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 0a84112665279917969457202219b07bc5bb379a
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450015"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747481"
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Solr
 
@@ -82,14 +82,16 @@ ms.locfileid: "34450015"
 
 1. 使用 SSH 连接到 HDInsight 群集：
 
+    > [!NOTE]
+    > 将 `sshuser` 替换为群集的 SSH 用户。 将 `clustername` 替换为群集的名称。
     ```bash
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.cn
     ```
 
     有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
 
      > [!IMPORTANT]
-     > 本文档中的后续步骤使用 SSL 隧道连接到 Solr Web UI。 要使用这些步骤，必须建立 SSL 隧道，然后将浏览器配置为使用该隧道。
+     > 本文档中的后续步骤使用 SSH 隧道连接到 Solr Web UI。 要使用这些步骤，必须建立 SSH 隧道，并将浏览器配置为使用该隧道。
      >
      > 有关详细信息，请参阅[将 SSH 隧道与 HDInsight 配合使用](hdinsight-linux-ambari-ssh-tunnel.md)文档。
 

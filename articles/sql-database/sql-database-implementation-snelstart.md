@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: c8709ce46663b10aad0ad1e7ca0b8f2c14469312
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 0ffdad5c4116cb07901df7ba5abf6a99a07738f0
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782417"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947929"
 ---
 # <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>借助 Azure，SnelStart 以每月 1,000 个新 Azure SQL 数据库的速度快速扩展其业务服务
 ![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)
@@ -88,6 +88,5 @@ SnelStart 当前的目标是不断拓展客户群体并使他们感到满意。 
 
 ## <a name="more-information"></a>详细信息
 * 若要深入了解 Azure 弹性池，请参阅[弹性池](sql-database-elastic-pool.md)。
-* 有关 Web 角色和辅助角色的详细信息，请参阅[辅助角色](../fundamentals-introduction-to-azure.md#compute)。    
 * 有关 Azure SQL 数据仓库的详细信息，请参阅 [SQL 数据仓库](../sql-data-warehouse/index.md)
 * 有关 SnelStart 的详细信息，请参阅 [SnelStart](http://www.snelstart.nl)。
