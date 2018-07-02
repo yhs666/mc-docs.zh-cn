@@ -3,25 +3,22 @@ title: 适用于 Azure Cosmos DB 的 Python Flask Web 应用程序教程 | Azure
 description: 查看一个数据库教程，其中介绍了如何使用 Azure Cosmos DB 通过 Azure 上托管的 Python Flask Web 应用程序存储和访问数据。 查找应用程序开发解决方案。
 keywords: 应用程序开发, Python Flask, Python Web 应用程序, Python Web 开发
 services: cosmos-db
-documentationcenter: python
 author: rockboyfor
 manager: digimobile
-ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
 ms.service: cosmos-db
-ms.workload: data-management
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: python
-ms.topic: article
+ms.topic: tutorial
 origin.date: 02/23/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f6ec0ec79fcde7da4926a650631d74238136222c
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 782b3518007d9334e0b0332fc0755ca195824e3d
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782251"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070185"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>构建使用 Azure Cosmos DB 的 Python Flask Web 应用程序
 > [!div class="op_single_selector"]
@@ -405,8 +402,7 @@ def vote():
 
 10. 在“选择扩展”页上，向下滚动到最近的 Python 2.7 安装并选择 x86 或 x64 位选项，然后单击“确定”接受法律条款。  
 
-11. 使用 Kudu 控制台（可通过 `https://<your app service name>.scm.chinacloudsites.cn/DebugConsole` 访问）安装应用的 `requirements.txt` 文件中所列的包。 为此，请在 Kudu 诊断控制台中导航到 Python 文件夹 `D:\home\Python27`，并根据 [Kudu 控制台](https://docs.microsoft.com/zh-cn/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console)部分中所述运行以下命令：
-<!-- URL is correct without .md on [Kudu console](https://docs.microsoft.com/zh-cn/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console) -->
+11. 使用 Kudu 控制台（可通过 `https://<your app service name>.scm.chinacloudsites.cn/DebugConsole` 访问）安装应用的 `requirements.txt` 文件中所列的包。 为此，请在 Kudu 诊断控制台中导航到 Python 文件夹 `D:\home\Python27`，并根据 [Kudu 控制台](https://docs.microsoft.com/zh-cn/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console)部分中所述运行以下命令：<!-- URL is correct without .md on [Kudu console](https://docs.microsoft.com/zh-cn/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console) -->
 
     ```
     D:\home\Python27>python -m pip install --upgrade -r /home/site/wwwroot/requirements.txt
@@ -438,11 +434,5 @@ def vote():
 
 有关 Azure、Visual Studio 和 Python 的详细信息，请参阅 [Python 开发人员中心](/develop/python/)。 
 
-有关其他 Python Flask 教程，请参阅 [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)（Flask 大型教程，第 I 部分：Hello, World!）。 
-
-[Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[2]: https://www.python.org/downloads/windows/
-[3]: https://www.microsoft.com/download/details.aspx?id=44266
-[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Azure portal]: http://portal.azure.cn
-<!-- Update_Description: update meta properties, wording update, update cmdlet -->
+有关其他 Python Flask 教程，请参阅 [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)（Flask 大型教程，第 I 部分：Hello, World!）。
+<!-- Update_Description: update meta properties, wording update -->

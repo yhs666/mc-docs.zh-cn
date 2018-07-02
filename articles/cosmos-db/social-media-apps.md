@@ -5,22 +5,18 @@ keywords: 社交媒体应用
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: ''
-ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/29/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: f84a5229e9b9c93aaea84f87752f70ef65bf9892
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.openlocfilehash: 1c65cbdb884f50cf97a3bf35e16ebb0f6deb5408
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937512"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070221"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行社交
 生活在大规模互连的社会中，这意味着有时候你也成了社交网络中的一部分。 我们使用社交网络与朋友、同事和家人保持联系，有时还会与有共同兴趣的人分享我们的激情。
@@ -44,8 +40,7 @@ ms.locfileid: "33937512"
 当然，我们也可以使用一个功能足够强大的超大 SQL 实例来解决数以千计的查询，其中可以使用许多这些连接来为我们提供内容，但当已经有一个更简单的解决方案存在时，我们为什么还要选择这种呢？
 
 ## <a name="the-nosql-road"></a>NoSQL 加载
-本文介绍如何以经济高效的方式使用 Azure 的 NoSQL 数据库 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 对社交平台的数据进行建模。 使用 [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 方法以 JSON 格式存储数据并应用[非规范化](https://en.wikipedia.org/wiki/Denormalization)，就可以将我们以前的复杂帖子转换为单个[文档](https://en.wikipedia.org/wiki/Document-oriented_database)：
-<!-- Not Available [Gremlin Graph API](../cosmos-db/graph-introduction.md) -->
+本文介绍如何以经济高效的方式使用 Azure 的 NoSQL 数据库 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 对社交平台的数据进行建模。 使用 [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 方法以 JSON 格式存储数据并应用[非规范化](https://en.wikipedia.org/wiki/Denormalization)，就可以将我们以前的复杂帖子转换为单个[文档](https://en.wikipedia.org/wiki/Document-oriented_database)：<!-- Not Available [Gremlin Graph API](../cosmos-db/graph-introduction.md) -->
 
     {
         "id":"ew12-res2-234e-544f",
@@ -135,8 +130,7 @@ Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，�
         "totalPoints":11342
     }
 
-<!-- Not Available [Gremlin Graph API](../cosmos-db/graph-introduction.md) -->
-仍然可以使用用户统计信息文档在 UI 或快速配置文件预览中创建卡片。
+<!-- Not Available [Gremlin Graph API](../cosmos-db/graph-introduction.md) --> 仍然可以使用用户统计信息文档在 UI 或快速配置文件预览中创建卡片。
 
 ## <a name="the-ladder-pattern-and-data-duplication"></a>“阶梯”模式和数据重复
 可能已注意到，在引用帖子的 JSON 文档中，某个用户出现了多次。 而且你猜得没错，这意味着鉴于这种非规范化，表示用户的信息可能显示在多处。
@@ -154,7 +148,7 @@ Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，�
         "address":"742 Evergreen Terrace",
         "birthday":"1983-05-07",
         "email":"john@doe.com",
-        "twitterHandle":"@john",
+        "twitterHandle":"\@john",
         "username":"johndoe",
         "password":"some_encrypted_phrase",
         "totalPoints":100,
@@ -179,7 +173,7 @@ Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，�
         "surname":"Doe",
         "username":"johndoe"
         "email":"john@doe.com",
-        "twitterHandle":"@john"
+        "twitterHandle":"\@john"
     }
 
 贴子内容如下所示：
@@ -207,7 +201,7 @@ Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，�
 
 由于想要深入了解，你可能会认为自己需要更多数学科学方面的知识才能从简单数据库和文件中提取出这些模式和信息，其实不然。
 
-Azure 机器学习（Cortana Intelligence Suite 的一部分）是一项全面托管的云服务，可以在简单的拖放界面中使用算法创建工作流、为你自己在 [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) 中的算法编码，或使用部分已生成的就绪型 API（如[文本分析](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2)或[内容审查器](https://www.microsoft.com/moderator)）。
+Azure 机器学习（Cortana Intelligence Suite 的一部分）是一项全面托管的云服务，可让你在简单的拖放界面中使用算法创建工作流、为你自己在 [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) 中的算法编码，或使用部分已生成的就绪型 API（如[文本分析](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2)、[内容审查器](https://www.microsoft.com/moderator)）。
 <!-- Not Available on [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2) -->
 <!-- Not Available on [Azure Machine Learning](https://www.azure.cn/home/features/machine-learning/)-->
 <!-- URL is not Correct on  [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx) -->
@@ -216,7 +210,7 @@ Azure 机器学习（Cortana Intelligence Suite 的一部分）是一项全面�
 
 另一个可用的选项是使用 [Microsoft 认知服务](https://www.microsoft.com/cognitive-services) 分析用户内容：不仅可以更好地理解它们（通过分析使用 [文本分析 API](https://www.microsoft.com/cognitive-services/text-analytics-api)编写的内容），而且还可以检测不需要或不成熟的内容，并使用[计算机构想 API](https://www.microsoft.com/cognitive-services/computer-vision-api)解决相关问题。 认知服务包括大量不需要使用任何一种机器学习知识的现成的可用解决方案。
 
-## <a name="a-multiple-region-scale-social-experience"></a>多区域缩放社交体验
+## <a name="a-multiple-region-scalesocial-experience"></a>多区域缩放社交体验
 最后，还必须说明一个非常重要的主题：**可伸缩性**。 在设计体系结构时，因为需要处理更多的数据和/或希望拥有更大的地理覆盖范围，所以每个组件的自行可伸缩性至关重要。 幸运的是，通过使用 Cosmos DB 完成此类复杂任务是一种**统包体验**。
 <!-- Notice: 全球 to 多个区域 -->
 

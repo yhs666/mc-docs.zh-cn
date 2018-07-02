@@ -3,24 +3,20 @@ title: Azure Cosmos DB PDF 查询备忘单 | Azure
 description: 可打印的 PDF 备忘单，借助该备忘录可使用 Azure Cosmos DB SQL、MongoDB、Graph 和表 API 来查询数据
 keywords: SQL 备忘单, SQL 备忘单 PDF, SQL 查询备忘单
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-ms.assetid: fdbdbc39-5a46-4129-b4ed-b049d1c9ccab
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 03/20/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: f6f6fe7d44a3dd5647d2533c9416409582f3b18e
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: ca8b7490060bc670d1ccb0679ccbb9743ea5f7ca
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "33937481"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070132"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB 查询备忘单
 
@@ -48,6 +44,5 @@ Azure Cosmos DB 查询备忘单通过在易于打印的 PDF 参考单中显示�
 <!-- Not Avaiable on [Azure Cosmos DB Gremlin graph support](gremlin-support.md)-->
 <!-- Not Avaiable on * For Table API queries, see [Query using the Table API](tutorial-query-table.md)-->
 
-<!-- Update_Description: new articles on cosmos db query cheat sheet  -->
-<!--ms.date: 04/23/2018-->
+<!-- Update_Description: update meta properties -->
 

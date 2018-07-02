@@ -4,29 +4,24 @@ description: 了解 Azure Cosmos DB。 此多区域分布式多模型数据库�
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: ''
-ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 04/08/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 157fb9b0f2a55ee49462e50ec98b5ab0af4ba033
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 3d26e5db1c225552da64a73868b70dbf6506a563
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867362"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070189"
 ---
 <!-- Notice in meta : 全球 to 多个区域 -->
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
 
 Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库。 只需单击一个按钮，即可通过 Azure Cosmos DB 跨任意数量的 Azure 地理区域弹性且独立地缩放吞吐量和存储。 它通过综合[服务级别协议](https://www.azure.cn/support/sla/documentdb/) (SLA) 提供吞吐量、延迟、可用性和一致性保证，这是其他数据库服务无法提供的。
-
 <!-- Not Avaialble [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
 
@@ -35,8 +30,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库。 �
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
 
 ## <a name="key-capabilities"></a>关键功能
-作为一种多区域分布式多模型数据库服务，Azure Cosmos DB 可以轻松地生成可缩放且响应迅速的多区域规模应用程序：
-<!-- NOTICE: 全球分布 TO 多区域分布 -->
+作为一种多区域分布式多模型数据库服务，Azure Cosmos DB 可以轻松地生成可缩放且响应迅速的多区域规模应用程序：<!-- NOTICE: 全球分布 TO 多区域分布 -->
 
 * **统包式多区域分布**
     * [单击按钮](tutorial-global-distribution-sql-api.md)即可将[数据分配](distribute-data-globally.md)到任意数目的 [Azure 区域](https://www.azure.cn/support/service-dashboard/)。 这样就可以将数据置于用户所在的位置，确保将客户可能会遇到到的延迟降至最低。 
@@ -54,7 +48,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库。 �
         <!--Not Available * [Cassandra API](cassandra-introduction.md)-->
         <!--Not Available * [Graph (Gremlin) API](graph-introduction.md)-->
 
-* **在全球范围内按需求灵活且独立地缩放吞吐量和存储**
+* **在中国范围内按需求灵活且独立地缩放吞吐量和存储**
     * 以[秒](request-units.md)为时间粒度轻松缩放数据库吞吐量，并随时对其进行更改。 
     * [透明且自动地](partition-data.md)缩放存储大小，以满足现在和将来对大小的要求。
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
@@ -110,4 +104,3 @@ Azure Cosmos DB 提供传统关系数据库和非关系数据库的最佳功能�
 <!--Not Available on * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md) -->
 <!--Not Available on * [Get started with Azure Cosmos DB Table API](create-table-dotnet.md) -->
 <!--Update_Description: update meta properties, update link, wording update-->
-<!-- Update_Description: update meta properties, wording update -->

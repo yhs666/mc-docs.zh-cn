@@ -4,23 +4,19 @@ description: 了解 Azure Cosmos DB 中以前提供的 S1、S2 和 S3 性能级�
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: ''
-ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 11/29/2017
-ms.date: 04/23/2018
+ms.topic: conceptual
+origin.date: 06/04/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3716d04f48eaf164c618a411ff2410dbbb0345c2
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 86e66feee1eaf1fa6dbca5b50512c76b8da2c41c
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782094"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070188"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>停用 S1、S2 和 S3 性能级别
 
@@ -28,7 +24,7 @@ ms.locfileid: "31782094"
 > 本文所述的 S1、S2 和 S3 性能级别即将停用，在新的 Azure Cosmos DB 帐户中将不再提供。
 >
 
-本文概述 S1、S2 和 S3 性能级别，并介绍在 2017 年下旬如何将使用这些性能级别的集合迁移到单分区集合。 阅读本文后，可以回答以下问题：
+本文概述 S1、S2 和 S3 性能级别，并介绍如何将使用这些性能级别的集合迁移到单分区集合。 阅读本文后，可以回答以下问题：
 
 - [为何要停用 S1、S2 和 S3 性能级别？](#why-retired)
 - [单区集合和分区集合与 S1、S2、S3 性能级别有哪些区别？](#compare)
@@ -37,9 +33,8 @@ ms.locfileid: "31782094"
 <!-- Not Available - [How will my billing change after I'm migrated to single partition collections?](#billing-change)-->
 - [如果需要 10 GB 以上的存储，应该怎么做？](#more-storage-needed)
 - [在计划的迁移期限之前，是否可以在 S1、S2 和 S3 性能级别之间切换？](#change-before)
-- [如何了解集合已迁移？](#when-migrated)
 - [如何自行从 S1、S2、S3 性能级别迁移到单区集合？](#migrate-diy)
-[EA 客户会受到怎样的影响？](#ea-customer)
+- [EA 客户会受到怎样的影响？](#ea-customer)
 
 <a name="why-retired"></a>
 
@@ -66,21 +61,19 @@ S1、S2 和 S3 性能级别无法提供标准 Azure Cosmos DB 产品提供的灵
 
 ## <a name="what-do-i-need-to-do-to-ensure-uninterrupted-access-to-my-data"></a>我需要做些什么才能确保不间断地访问我的数据？
 
-不需要执行任何操作，Cosmos DB 会代你处理迁移。 如果正在使用 S1、S2 或 S3 集合，当前集合会在 2017 年下旬迁移到单分区集合。 
+如果有 S1、S2 或 S3 集合，则应[使用 .NET SDK](#migrate-diy) 以编程方式将该集合迁移到单分区集合。 
 
 <a name="collection-change"></a>
 
 ## <a name="how-will-my-collection-change-after-the-migration"></a>迁移后，集合会发生怎样的变化？
 
-如果有 S1 集合，该集合将迁移到吞吐量为 400 RU/s 的单区集合。 400 RU/s 是单区集合提供的最低吞吐量。 但是，单分区集合中 400 RU/秒吞吐量的费用大致与 S1 集合中 250 RU/秒吞吐量的费用相同 - 因此，不需要为提供的额外 150 RU/秒付费。
+如果有 S1 集合，可以将该集合迁移到吞吐量为 400 RU/秒的单分区集合。 400 RU/s 是单区集合提供的最低吞吐量。 但是，单分区集合中 400 RU/秒吞吐量的费用大致与 S1 集合中 250 RU/秒吞吐量的费用相同 - 因此，不需要为提供的额外 150 RU/秒付费。
 
-如果有 S2 集合，该集合将迁移到吞吐量为 1 K RU/s 的单区集合。 吞吐量级别没有可见变化。
+如果有 S2 集合，可以将该集合迁移到吞吐量为 1000 RU/秒的单分区集合。 吞吐量级别没有可见变化。
 
-如果有 S3 集合，该集合将迁移到吞吐量为 2.5 K RU/s 的单区集合。 吞吐量级别没有可见变化。
+如果有 S3 集合，可以将该集合迁移到吞吐量为 2500 RU/秒的单分区集合。 吞吐量级别没有可见变化。
 
-对于上面的每种情况，在迁移集合后，可自定义吞吐量级别，或根据需要增加或减少它以向用户提供低延迟的访问。 如果要在迁移集合后更改吞吐量级别，只需在 Azure 门户中打开 Cosmos DB 帐户，单击“缩放”，选择集合，并如以下屏幕截图所示调整吞吐量级别：
-
-![如何在 Azure 门户中缩放吞吐量](./media/performance-levels/portal-scale-throughput.png)
+对于上面的每种情况，在迁移集合后，便可以根据需要自定义吞吐量级别，或者将它调高和调低，以便向用户提供低延迟的访问。 
 
 <a name="billing-change"></a>
 
@@ -91,55 +84,23 @@ S1、S2 和 S3 性能级别无法提供标准 Azure Cosmos DB 产品提供的灵
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>如果需要 10 GB 以上的存储，应该怎么做？
 
-无论使用的是 S1、S2 或 S3 性能级别的集合还是单分区集合，它们的可用存储都是 10 GB。可以使用 Cosmos DB 数据迁移工具将数据迁移到存储几乎无限的分区集合。 有关分区集合优势的信息，请参阅 [Azure Cosmos DB 中的分区和缩放](sql-api-partition-data.md)。 
+无论使用的是 S1、S2 或 S3 性能级别的集合还是单分区集合，它们的可用存储都是 10 GB。可以使用 Azure Cosmos DB 数据迁移工具将数据迁移到分区集合，它们的存储空间几乎无限。 有关分区集合优势的信息，请参阅 [Azure Cosmos DB 中的分区和缩放](sql-api-partition-data.md)。 
 
 <a name="change-before"></a>
 
 ## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-the-planned-migration"></a>在计划的迁移期限之前，是否可以在 S1、S2 和 S3 性能级别之间切换？
 
-只有 S1、S2 和 S3 性能级别的现有帐户才能通过门户或编程方式更改和切换性能级别层。 如果从 S1、S3 或 S3 切换到了单区集合，则无法恢复到 S1、S2 或 S3 性能级别。
-
-<a name="when-migrated"></a>
-
-## <a name="how-will-i-know-when-my-collection-has-migrated"></a>如何了解集合已迁移？
-
-迁移会在 2017 年下旬进行。 如果有使用 S1、S2 或 S3 性能级别的集合，Cosmos DB 团队会在进行迁移前通过电子邮件与你联系。 完成迁移后，Azure 门户会显示集合使用的是标准定价。
-
-![如何确认集合已迁移到标准定价层](./media/performance-levels/portal-standard-pricing-applied.png)
+只有使用 S1、S2 和 S3 性能的现有帐户才能[使用 .NET SDK](#migrate-diy) 以编程方式切换和更改性能级别层。 如果从 S1、S3 或 S3 切换到了单区集合，则无法恢复到 S1、S2 或 S3 性能级别。
 
 <a name="migrate-diy"></a>
 
 ## <a name="how-do-i-migrate-from-the-s1-s2-s3-performance-levels-to-single-partition-collections-on-my-own"></a>如何自行从 S1、S2、S3 性能级别迁移到单区集合？
 
-可通过 Azure 门户或编程方式从 S1、S2 和 S3 性能级别迁移到单区集合。 可以在计划的迁移期限之前自行执行此操作，即可享用单分区集合提供的灵活吞吐量选项；或者，我们会在 2017 年下旬代客户迁移集合。
+可以[使用 .NET SDK](#migrate-diy) 以编程方式从 S1、S2 和 S3 性能级别迁移到单分区集合。 可以在计划的迁移期限之前自行执行此操作，即可享用单分区集合提供的灵活吞吐量选项。
 
-**使用 Azure 门户迁移到单区集合**
+### <a name="migrate-to-single-partition-collections-by-using-the-net-sdk"></a>使用 .NET SDK 迁移到单分区集合
 
-1. 在 [**Azure 门户**](https://portal.azure.cn)中单击“Azure Cosmos DB”，然后选择要修改的 Cosmos DB 帐户。 
-
-    如果跳转栏上没有“Azure Cosmos DB”，请单击 >，滚动到“数据库”，选择“Azure Cosmos DB”，并选择帐户。  
-
-2. 在资源菜单中的“容器”下单击“缩放”，从下拉列表中选择要修改的集合，然后单击“定价层”。 使用预定义吞吐量的帐户拥有定价层 S1、S2 或 S3。  在“选择定价层”页中，单击“标准”以更改为用户定义的吞吐量，并单击“选择”保存更改。
-
-    ![显示在何处更改吞吐量值的“设置”页屏幕截图](./media/performance-levels/change-performance-set-thoughput.png)
-
-3. 返回到“规模”页中，“定价层”已更改为“标准”，“吞吐量(RU/s)”框显示默认值 400。 可以在 400 和 10,000 [请求单位](request-units.md)/秒 (RU/s) 之间设置吞吐量。 页面底部的“估计的每月帐单”  自动更新以提供月成本估计值。 
-
-    >[!IMPORTANT] 
-    > 保存更改后并转移到标准定价层后，无法回滚到 S1、S2 或 S3 性能级别。
-
-4.  以保存更改。
-
-    如果确定需要更多吞吐量（大于 10,000 RU/秒）或更多存储（大于 10GB），可以创建分区集合。 若要将单分区集合迁移到分区集合，请参阅[从单分区迁移到分区集合](sql-api-partition-data.md#migrating-from-single-partition)。
-
-    > [!NOTE]
-    > 从 S1、S2 或 S3 更改为“标准”定价层最长可能需要 2 分钟时间。
-    > 
-    > 
-
-**使用 .NET SDK 迁移到单区集合**
-
-另一个更改集合的性能级别的选项便是通过 Azure Cosmos DB SDK 进行操作。 本部分只介绍了使用 [SQL .NET API](sql-api-sdk-dotnet.md) 更改集合的性能级别，但对于我们的其他 SDK，过程也是相似的。
+本部分只介绍了使用 [SQL .NET API](sql-api-sdk-dotnet.md) 更改集合的性能级别，但对于我们的其他 SDK，过程也是相似的。
 
 以下代码片段可将集合吞吐量更改为每秒 5,000 个请求单位：
 
